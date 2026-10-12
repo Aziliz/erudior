@@ -93,6 +93,14 @@ export function normalizeBank(raw: unknown): Bank {
     }
     if (Object.keys(quotas).length) exam.sectionQuotas = quotas;
   }
+  if (isObj(ex.sectionPassing)) {
+    const marks: Record<string, number> = {};
+    for (const [k, v] of Object.entries(ex.sectionPassing)) {
+      const n = Number(v);
+      if (n > 0 && n <= 100) marks[k] = n;
+    }
+    if (Object.keys(marks).length) exam.sectionPassing = marks;
+  }
 
   return {
     format: "examiner-bank",
@@ -145,5 +153,6 @@ export function emptyBank(title = "Untitled bank"): Bank {
 }
 
 export function serializeBank(bank: Bank): string {
-  return JSON.stringify({ ...bank, updated: new Date().toISOString() }, null, 2);
+  const { courseId: _courseId, ...rest } = bank;
+  return JSON.stringify({ ...rest, updated: new Date().toISOString() }, null, 2);
 }

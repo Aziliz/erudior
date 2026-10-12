@@ -155,7 +155,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                   </td>
                   <td className="r">{formatDuration(a.durationSec)}</td>
                   <td className="r">
-                    <ScorePill correct={a.correct} total={a.total} passing={a.mode === "exam" ? a.passingPercent : undefined} />
+                    <ScorePill attempt={a} />
                   </td>
                 </tr>
               ))}

@@ -1,0 +1,1369 @@
+{
+  "lessons": [
+    {
+      "id": "n4-agency-fundamentals",
+      "module": "m4-practice",
+      "title": "Agency fundamentals and listing agreements",
+      "minutes": 25,
+      "topics": [
+        "Agency"
+      ],
+      "body": "## Who's who in an agency relationship\n\n[[Agency]] is a relationship where one person (the agent) is authorized to act on behalf of another (the principal) in dealings with third parties. In real estate, the brokerage firm and its broker are usually the agent, and the seller, buyer, landlord or tenant who hires them is the principal.\n\n| Role | Who it is | What they're owed |\n|---|---|---|\n| [[Principal]] (client) | The person who hires and authorizes the agent | Full fiduciary duties |\n| [[Agent]] | The person/firm authorized to act for the principal | Compensation as agreed |\n| [[Customer]] (third party) | The person on the other side who is not represented by this agent | Honesty, fair dealing, disclosure of known material defects |\n\nThink \"client = represented; customer = served.\" A listing broker's client is the seller; the buyer who walks into the open house without representation is a customer.\n\n> **Exam tip:** Who pays the commission does NOT determine who the agent represents. A seller can pay a fee that is shared with a buyer's broker, and that buyer's broker still works for the buyer.\n\n## How agency is created\n\nAgency is a consensual relationship. It can arise four ways:\n\n- **[[Express agency]]** — created by words, oral or written. A signed listing agreement or buyer agency agreement is the normal example and the one you want.\n- **[[Implied agency]]** — created by conduct. If a broker acts like the buyer's agent (gives advice, negotiates for them) and the buyer accepts it, a court can find an agency even without a contract. This is the \"accidental agency\" problem in many states. (Colorado limits it by statute: a broker is presumed to be a transaction-broker unless a single agency relationship is established by written agreement.)\n- **[[Ratification]]** — the principal approves, after the fact, an act the agent performed without authority. Accepting the benefit of the act can be ratification.\n- **[[Agency by estoppel]]** — the principal's own words or conduct led a third party to reasonably believe someone was their agent, so the principal is barred (\"estopped\") from denying it.\n\nAgency does **not** require compensation. A broker who helps a friend for free can still owe fiduciary duties.\n\n## Scope of authority: special, general, universal\n\n| Type | Authority | Real estate example |\n|---|---|---|\n| [[Special agent]] | One specific act or transaction; usually cannot bind the principal to a contract | A listing broker marketing one house; a buyer's broker finding one home |\n| [[General agent]] | A range of acts in a particular business or area | A property manager running a building; a licensee working for an employing broker |\n| [[Universal agent]] | Broad authority to do anything the principal could legally delegate | Someone holding a general power of attorney |\n\n> **Exam tip:** A listing broker is a special agent. The listing agreement authorizes marketing and finding a buyer, not signing the sales contract for the seller.\n\n## Listing agreements\n\nA listing is an employment contract between the seller and the brokerage. Key types:\n\n| Listing | Who can sell? | When does the broker earn a fee? |\n|---|---|---|\n| [[Exclusive right to sell listing]] | Anyone, including the owner | Broker is paid no matter who finds the buyer during the term |\n| [[Exclusive agency listing]] | One broker, but owner keeps the right to sell | No fee if the owner sells it themselves with no broker involvement |\n| [[Open listing]] | Owner may list with many brokers | Only the broker who is the procuring cause is paid; owner selling pays nobody |\n| [[Net listing]] | — | Broker keeps everything above a net amount the seller wants |\n\n**Net listings** are illegal in many states and discouraged nearly everywhere because they create a conflict: the broker profits from a low net figure, and the seller may not know true market value. Colorado law doesn't expressly prohibit them, but there is no Commission-approved net listing form and the Commission has long discouraged them. Taking a secret or undisclosed commission or profit is grounds for discipline under C.R.S. 12-10-217(1)(t).\n\nOther listing terms you'll see:\n\n- **Procuring cause** — the broker whose efforts started an unbroken chain of events that resulted in the sale.\n- **Protection (carryover) clause** — the broker can still earn a fee if, within a stated period after the listing ends, the owner sells to someone the broker introduced during the term.\n- **Multiple listing service (MLS)** — a cooperative database where brokers share listings and offers of cooperation. It's not a listing type.\n\n## Buyer agency\n\nIn [[buyer agency]], the broker represents the buyer, and owes the buyer full fiduciary duties: finding suitable properties, advising on price and terms, and negotiating for the buyer's benefit. Buyer agency agreements come in the same flavors as listings (exclusive right to represent, exclusive agency, open). Since the industry practice changes of 2024, written buyer agreements that spell out the buyer broker's compensation have become standard nationally (NAR-affiliated MLS participants must have one before touring a home with a buyer).\n\n## Ending agency\n\nAgency can end by **acts of the parties** or by **operation of law**.\n\n**By the parties:**\n- Full performance (the property closes)\n- Expiration of the agreed term\n- Mutual agreement\n- Revocation by the principal or renunciation by the agent (either can usually end it, but the one who breaks the contract may owe damages)\n\n**By operation of law:**\n- Death or incapacity of either the principal or the agent\n- Destruction or condemnation of the property\n- Bankruptcy of either party (in many cases)\n- Change in law that makes the purpose illegal\n\n> **Exam tip:** Death of the seller ends a listing immediately, even if the broker has a buyer lined up. An **agency coupled with an interest** (the agent owns a stake in the property) is the exception: the principal can't revoke it, and it survives the principal's death.\n\nSome duties outlast the agency. Confidential information learned during the relationship generally stays confidential after it ends.\n\n## Powers of attorney\n\nA [[power of attorney]] is a written document in which a principal appoints an **attorney-in-fact** to act for them. The attorney-in-fact doesn't need to be a lawyer.\n\n- A **general** power of attorney gives broad authority (a universal agency).\n- A **specific/limited** power covers a defined act, such as signing closing documents for one property.\n- To convey real estate, the power of attorney usually must be recorded along with the deed.\n- A power of attorney ends at the principal's death. A **durable** power of attorney survives the principal's incapacity, but not death.\n- A real estate licensee doesn't need a power of attorney to market property; that's what the listing agreement does.\n"
+    },
+    {
+      "id": "n4-fiduciary-duties",
+      "module": "m4-practice",
+      "title": "Fiduciary duties, disclosure and representing multiple parties",
+      "minutes": 25,
+      "topics": [
+        "Agency"
+      ],
+      "body": "## The fiduciary relationship\n\nA [[fiduciary]] is someone in a position of trust who must put the client's interests ahead of their own. When a broker is a single agent for a client, the law imposes six fiduciary duties. The classic memory aid is **[[OLDCAR]]**:\n\n| Duty | What it means in practice |\n|---|---|\n| **Obedience** | Follow the client's lawful instructions. Never follow an illegal or unethical instruction (for example, \"don't show to families with children\"). |\n| **Loyalty** | Put the client first. No self-dealing, no secret profits, no advancing your own interest or another party's at the client's expense. |\n| **Disclosure** | Tell the client everything material you know: other offers, the buyer's motivation, your relationship to the other side, and facts that affect value. |\n| **Confidentiality** | Keep the client's private information private (their bottom price, why they're moving, financial situation), even after the agency ends. |\n| **Accounting** | Account for all money and property entrusted to you; don't commingle or convert client funds. |\n| **Reasonable care and diligence** | Act with the skill and competence expected of a professional; don't give advice outside your expertise (refer to attorneys, inspectors, tax advisers). |\n\n> **Exam tip:** Disclosure and confidentiality pull in opposite directions. Disclosure runs *to* the client: you tell your seller everything. Confidentiality protects the client *from* others: you don't tell the buyer your seller will take less.\n\n## Duties to customers\n\nA customer isn't owed loyalty or confidentiality, but every licensee owes every party:\n\n- Honesty and fair dealing\n- Disclosure of known [[material facts]] about the property, especially **[[latent defects]]** (hidden problems a reasonable inspection wouldn't reveal)\n- Accurate information; no [[misrepresentation]]\n- Reasonable care in what you do say\n\nA listing broker who knows the basement floods must disclose it to buyers, even though the broker works for the seller. Loyalty to the seller never covers concealing a known material defect.\n\n## Puffing versus misrepresentation\n\n**[[Puffing]]** is exaggerated opinion or sales talk that no reasonable buyer would treat as a factual promise: \"best view in the neighborhood,\" \"charming.\" It generally isn't actionable.\n\n**Misrepresentation** is a false statement (or concealment) of a material fact:\n\n- **Intentional (fraud):** the licensee knew it was false, or made it with reckless disregard, intending the buyer to rely on it.\n- **Negligent:** the licensee should have known it was false (\"the roof is two years old\" without checking).\n- **Silence/concealment** can be misrepresentation when there's a duty to disclose.\n\nIf a buyer relies on a material misrepresentation, the contract may be voidable, and the licensee can face damages and license discipline.\n\n> **Exam tip:** \"This kitchen is gorgeous\" is puffing. \"This house has never had water in the basement,\" when the broker knows otherwise, is fraud. Watch for statements of fact disguised as opinion.\n\n## Representing more than one party\n\n### Dual agency\n\n[[Dual agency]] occurs when the same brokerage (or the same licensee) represents both the buyer and the seller in one transaction. Because full loyalty to two opposing parties is impossible, where it's legal:\n\n- It requires **informed, written consent** of both parties, ideally in advance.\n- The agent can't disclose either party's confidential information (price, motivation) to the other.\n- The agent essentially becomes neutral; it limits what the agent can do for each client.\n\n**Colorado prohibits dual agency entirely** (C.R.S. 12-10-406), even with consent. **Undisclosed dual agency** is illegal everywhere. It can lead to loss of commission, rescission of the contract, and license discipline. Watch for accidental (implied) dual agency, such as a listing broker who starts advising the buyer.\n\n### Designated agency\n\nIn states that allow [[designated agency]], the employing broker designates one licensee to represent the seller and another licensee in the same firm to represent the buyer. Each designated licensee owes full duties to their own client. In some states the employing broker then becomes a dual agent; in Colorado, the relationship is only with the designated broker and doesn't extend to the employing broker or firm, so no dual agency results.\n\n### Transaction brokerage (facilitator / nonagency)\n\nMany states allow a [[transaction broker]] (also called a facilitator or nonagent), who helps one or both parties complete the deal without representing either one as an advocate. The transaction broker owes duties set by state statute (typically honesty, reasonable skill and care, accounting for funds, and disclosure of known adverse material facts) but not full loyalty or advocacy.\n\n> **Colorado works differently; see the Colorado module.** Colorado's brokerage relationships statute bans dual agency, presumes a broker is a **transaction-broker** unless single agency is created by written agreement, and requires its own disclosures. Learn the national concepts here and the Colorado rules there; the state exam tests them separately.\n\n## Conflicts of interest and self-interest\n\nA broker must disclose any personal interest in a transaction, in writing, before the client relies on it:\n\n- Buying a client's listing yourself (or for a relative, a business partner or your firm)\n- Selling your own property to a buyer client\n- Receiving a referral fee, rebate or kickback from a lender, inspector, title company or contractor you recommend (federal RESPA restricts referral fees for settlement services on federally related mortgage loans)\n- Holding a license and acting as a principal: most states require you to disclose your license status to the other party\n\nSecret profits violate the duty of loyalty. If a broker uses a \"straw buyer\" to buy the listing cheaply and resell it, the broker can lose the commission, owe the profit to the client, and lose the license.\n\n## Duties to disclose: what's material?\n\nA fact is **material** if a reasonable person would consider it important in deciding whether, or on what terms, to buy or sell. Physical defects (structural problems, leaks, environmental hazards) are almost always material. Some **stigma** facts (a death in the home, a past crime) are treated differently state to state; many states say a broker need not disclose them. Colorado has its own rule on psychologically impacted property; see the Colorado module.\n\nFair housing law also limits disclosure: volunteering or answering questions about whether a past occupant had HIV/AIDS or another disability can be treated as disability discrimination, so don't discuss it.\n"
+    },
+    {
+      "id": "n4-fair-housing",
+      "module": "m4-practice",
+      "title": "Fair housing and the ADA",
+      "minutes": 25,
+      "topics": [
+        "Fair housing and practice"
+      ],
+      "body": "## The federal fair housing laws\n\n### Civil Rights Act of 1866\n\nThe [[Civil Rights Act of 1866]] says all citizens have the same right to buy, sell, lease, hold and inherit property as white citizens. It covers **race** only (courts have read \"race\" to include ancestry and ethnic characteristics). Key features:\n\n- **No exceptions.** None of the Fair Housing Act exemptions apply to race discrimination under the 1866 Act.\n- It was revived by the Supreme Court in **Jones v. Alfred H. Mayer Co. (1968)**, which held it bars all racial discrimination in property, private or public.\n- Victims go directly to federal court.\n\n### Fair Housing Act (1968) and amendments\n\nThe [[Fair Housing Act]] is Title VIII of the Civil Rights Act of 1968. It originally protected race, color, religion and national origin. **Sex** was added in 1974. The **Fair Housing Amendments Act of 1988** added **disability** (the statute says \"handicap\") and **[[familial status]]**, and strengthened enforcement.\n\nThe seven federal [[protected classes]]:\n\n1. Race\n2. Color\n3. Religion\n4. National origin\n5. Sex\n6. Disability\n7. Familial status\n\nMemory aid: \"**C**an **R**ealtors **R**eally **N**egotiate **S**ales **F**airly **D**aily?\" (Color, Race, Religion, National origin, Sex, Familial status, Disability).\n\n**Familial status** means a household with one or more children under 18 living with a parent, legal custodian, or someone with written permission of the parent or custodian. It also covers pregnant people and anyone in the process of getting custody of a child.\n\n**Disability** covers a physical or mental impairment that substantially limits one or more major life activities, a record of such an impairment, or being regarded as having one. Current illegal drug use isn't protected; recovering addicts are.\n\n### Sexual orientation and gender identity\n\nThe Fair Housing Act's text doesn't list sexual orientation or gender identity. In 2021 HUD issued a memo directing that complaints based on sexual orientation or gender identity be handled as sex discrimination, following the Supreme Court's reasoning in *Bostock v. Clayton County* (an employment case). On September 17, 2025, HUD's Office of Fair Housing and Equal Opportunity withdrew that memo along with other fair housing guidance, so it no longer reflects HUD's enforcement position. For the national exam, know the **seven** statutory classes. Many states and cities add more protected classes by their own laws; Colorado's fair housing law expressly covers sexual orientation, gender identity and gender expression, among others (see the Colorado module).\n\n## What the Fair Housing Act prohibits\n\nBased on a protected class, you can't:\n\n- Refuse to sell, rent or negotiate, or make housing otherwise unavailable\n- Set different terms, conditions, prices or services\n- Falsely say housing isn't available for inspection, sale or rent\n- Make, print or publish discriminatory advertising or statements\n- Discriminate in lending, appraisal, or access to MLS and brokerage services\n- Threaten, coerce, intimidate or interfere with anyone exercising fair housing rights\n\n### Illegal practices the exam names\n\n| Practice | What it is |\n|---|---|\n| **[[Steering]]** | Channeling buyers or renters toward or away from neighborhoods based on a protected class. Includes \"helpful\" comments like \"you'd feel more comfortable over there.\" |\n| **[[Blockbusting]]** (panic peddling) | Inducing owners to sell by suggesting that people of a protected class are moving in and values will drop. |\n| **[[Redlining]]** | A lender refusing or limiting loans in an area because of the racial or ethnic makeup of the area, not the borrower's creditworthiness. |\n| **Discriminatory advertising** | Ads that indicate a preference or limitation (\"perfect for singles,\" \"Christian home,\" \"no kids\"). Describe the property, not the people you want. |\n\n> **Exam tip:** Discriminatory advertising is prohibited even when the owner is otherwise exempt. No exemption allows a discriminatory ad.\n\nHUD requires brokerage offices to display the **Equal Housing Opportunity** poster; failing to display it can be treated as evidence of discrimination.\n\n## Exemptions from the 1968 Act\n\n| Exemption | Conditions |\n|---|---|\n| **Single-family home by owner** | Private owner with no more than three such homes; no broker or agent used; no discriminatory advertising; if the owner wasn't the last occupant, only one such sale in 24 months |\n| **Owner-occupied 1–4 units** (\"Mrs. Murphy\") | Owner lives in one of the units; up to four families living independently |\n| **Religious organizations** | May limit non-commercial housing they own to members of their religion, unless membership is restricted by race, color or national origin |\n| **Private clubs** | May limit non-commercial lodging to members |\n| **Housing for older persons** | 62 and older (all occupants) or 55 and older (at least 80% of occupied units have one resident 55+, with published policies and age verification); exempt from **familial status** rules only |\n\n> **Exam tip:** Once a broker is involved, the single-family owner exemption is lost. And no exemption ever allows race discrimination, because of the 1866 Act.\n\n## Disability: accommodations versus modifications\n\n- A **[[reasonable accommodation]]** is a change in **rules, policies, practices or services** that lets a person with a disability use the housing equally. Examples: allowing an assistance animal in a \"no pets\" building, assigning a reserved parking space near the entrance, accepting rent by a different method. Generally the housing provider bears any cost. An assistance animal isn't treated as a pet, so pet rent and pet deposits normally don't apply.\n- A **[[reasonable modification]]** is a **physical change** to the premises: grab bars, a ramp, widened doorways. In private housing, the tenant pays for it. A landlord can require that the work be done professionally and, for interior changes where reasonable, that the unit be restored at move-out (normal wear excepted).\n- New multifamily buildings (4+ units, first occupied after March 13, 1991) must meet federal accessibility design standards.\n\n## The Americans with Disabilities Act\n\nThe [[Americans with Disabilities Act]] (1990) is a separate law. **Title III** covers **public accommodations and commercial facilities**: businesses open to the public must remove architectural barriers where readily achievable and provide reasonable access. For real estate, that means:\n\n- Brokerage offices, leasing offices and model homes open to the public\n- Commercial property (stores, offices, restaurants)\n\nThe ADA generally does **not** apply to private residential units themselves, which fall under the Fair Housing Act. An apartment complex's rental office is covered by the ADA; the apartments are covered by the FHA.\n\n## Enforcement and deadlines\n\n- **Administrative complaint with HUD:** within **one year** after the discriminatory act occurred or ended. HUD investigates and tries conciliation; it may refer the matter to a substantially equivalent state or local agency.\n- **Private lawsuit in federal or state court:** within **two years** after the act occurred or ended (time spent in a HUD administrative proceeding doesn't count against the two years).\n- **Civil Rights Act of 1866:** go straight to federal court.\n- The **U.S. Attorney General** can sue where there's a pattern or practice of discrimination.\n- Remedies include actual damages, injunctions, punitive damages in court cases, attorney fees and civil penalties.\n"
+    },
+    {
+      "id": "n4-practice-laws",
+      "module": "m4-practice",
+      "title": "Practice laws: antitrust, marketing rules, funds and supervision",
+      "minutes": 25,
+      "topics": [
+        "Fair housing and practice"
+      ],
+      "body": "## Independent contractor or employee?\n\nMost licensees work as [[independent contractors]] for their brokerage. For federal tax purposes, the IRS treats a licensed real estate agent as a **statutory nonemployee** when all three are true:\n\n1. The person is licensed\n2. Substantially all of their pay is based on sales output (commissions), not hours worked\n3. There's a **written agreement** stating they won't be treated as an employee for federal tax purposes\n\n| | Employee | Independent contractor |\n|---|---|---|\n| Taxes | Employer withholds income tax, pays share of Social Security/Medicare | Contractor pays own self-employment tax |\n| Benefits | May receive benefits | Generally no benefits |\n| Control | Employer can control how, when and where work is done | Firm controls results, not methods; can't set hours or require floor time |\n\nLicense law is separate: whether the licensee is an employee or an independent contractor, the employing broker is still responsible for supervising them.\n\n## Antitrust\n\nFederal [[antitrust]] law (the Sherman Act) bars agreements that restrain trade. Violations can bring criminal fines and prison, plus civil damages. The four the exam names:\n\n- **[[Price fixing]]** — competitors agreeing on commission rates or fees. Commissions are always negotiable between the broker and client. Even casually discussing \"what we all charge\" with a competing broker is dangerous.\n- **[[Group boycott]]** — competitors agreeing not to deal with a particular broker or business (for example, refusing to show a discount broker's listings).\n- **[[Market allocation]]** — competitors dividing up territory, customers, price ranges or property types (\"you take the west side, I'll take the east\").\n- **[[Tie-in arrangement]]** — conditioning one product or service on buying another (\"I'll sell you this lot only if you list your current house with me\").\n\n> **Exam tip:** A brokerage can set its own commission policy internally. The violation is an *agreement among competitors*. A licensee's statement like \"the standard commission is 6%\" implies a fixed rate and should be avoided.\n\n## Telemarketing and electronic marketing\n\n### Do-Not-Call rules\n\nThe national [[Do-Not-Call Registry]] (run by the FTC, with parallel FCC rules) limits cold calls for telemarketing:\n\n- Check the registry at least every **31 days** before calling.\n- Calling hours: **8 a.m. to 9 p.m.**, local time at the called person's location.\n- **Established business relationship exception:** you may call someone on the registry within **18 months** (540 days) after their last purchase or transaction with you, or within **3 months** (90 days) after their inquiry or application.\n- Keep a **company-specific do-not-call list**. If someone asks you not to call, honor it within a reasonable time (no more than 10 business days) and for **5 years**.\n- Expired listings and FSBOs are not exempt from Do-Not-Call just because the property is publicly advertised.\n\n### TCPA\n\nThe [[TCPA]] (Telephone Consumer Protection Act) restricts autodialed and prerecorded/artificial-voice calls and texts. Robocalls and automated texts to cell phones generally need the recipient's prior express consent, and marketing robocalls need prior express **written** consent. Texts count as calls under the TCPA.\n\n### CAN-SPAM\n\nThe [[CAN-SPAM Act]] governs commercial email. Requirements:\n\n- No false or misleading header information or deceptive subject lines\n- Identify the message as an ad\n- Include a valid physical postal address\n- Give a clear way to opt out, and honor opt-outs within **10 business days**\n- The opt-out mechanism must work for at least 30 days after sending\n- The brokerage remains responsible even if it hires a marketing company to send emails\n\n### Social media and internet advertising\n\nAdvertising rules apply online just as they do in print:\n\n- Ads must not be misleading, and most states require that ads identify the brokerage firm.\n- Don't advertise a property without the owner's permission (and the listing broker's, if it's another firm's listing).\n- Keep listing information current; remove sold or expired listings.\n- Fair housing applies to targeting tools. Choosing audiences by protected class (for example, excluding families or certain zip codes chosen for their demographics) can be discriminatory advertising.\n- Don't post client confidential information.\n\n## Confidentiality and data\n\nConfidential client information includes motivation, price flexibility, financial condition and personal facts. Protect it in conversation, in email, on shared drives and on social media. Wire fraud is a major risk: tell clients to verify wire instructions by phone using a known number, never by a number in an email.\n\n## Handling client funds\n\n- Earnest money and other money belonging to others goes in a [[trust account]] (escrow account) in the brokerage's name, at a recognized financial institution, labeled as a trust or escrow account.\n- **[[Commingling]]** — mixing client money with the broker's own funds — is prohibited. A small amount of broker money to cover bank fees is often allowed by state law.\n- **[[Conversion]]** — using client money for your own purposes — is theft and grounds for license revocation.\n- Deposit deadlines and recordkeeping rules are set by each state; Colorado's are in the Colorado module.\n\n## Due diligence\n\nBefore listing or advising, verify the facts: ownership and authority to sell, legal description, zoning, square footage source, HOA information, liens, and known defects. Recommend inspections and professional advice (attorneys, tax advisers, surveyors) where a question is outside your expertise. A broker who repeats a seller's statement as fact without reasonable checking can be liable for negligent misrepresentation.\n\n## Supervision: licensees, teams and assistants\n\n- The employing (managing) broker is responsible for supervising every licensee affiliated with the firm, maintaining written office policies, and reviewing transaction files.\n- **Teams** must advertise in a way that doesn't mislead the public about who the brokerage is; the team isn't the brokerage.\n- **Unlicensed assistants** may do clerical and administrative work: data entry, scheduling, preparing ads for licensee approval, ordering reports. In most states they may **not** perform licensed activity: showing property, negotiating, discussing terms, holding open houses alone, or being paid per transaction based on closings in a way that compensates licensed activity.\n- A licensee can only be paid by their own employing broker, not directly by a client or another brokerage.\n"
+    },
+    {
+      "id": "n4-property-management",
+      "module": "m4-practice",
+      "title": "Property management and landlord-tenant basics",
+      "minutes": 25,
+      "topics": [
+        "Property management"
+      ],
+      "body": "## What a property manager does\n\nA [[property manager]] is a general agent hired by an owner to run income property: leasing, collecting rent, maintaining the building and protecting the owner's investment. The manager's goals, in priority order on most exams, are:\n\n1. Produce the best net operating income for the owner\n2. Preserve and increase the property's value\n\n## The management agreement\n\nThe [[management agreement]] creates the agency. It's a written employment contract that should cover:\n\n- Names of parties and description of the property\n- Term and termination conditions\n- The manager's authority (signing leases, hiring vendors, spending limits without owner approval)\n- The manager's compensation, often a **percentage of gross rents collected**, sometimes plus leasing fees or a flat fee\n- Reporting requirements (how often and in what form)\n- Who pays which expenses, and handling of trust funds\n- Owner's goals and any rules on rent levels or tenant mix\n\n> **Exam tip:** A property manager is a **general agent** (ongoing range of tasks), unlike a listing broker, who is a special agent.\n\n## Core duties\n\n### Marketing and leasing\n\n- Advertise vacancies, show units and take applications\n- **Tenant screening:** apply the same written criteria to every applicant: income, credit, rental history, references. Consistent criteria are your best fair housing defense.\n- Negotiate and sign leases within the authority granted\n\n### Setting rent\n\nRents are set by **market analysis**: comparable units, vacancy rates, location, condition and amenities. A building with **high vacancy** relative to the market suggests rents are too high (or the property is poorly managed). A building at 100% occupancy with a waiting list suggests rents may be too low.\n\n### Budgets\n\n- An [[operating budget]] projects income and expenses for the year: rent, vacancy and collection loss, utilities, repairs, management fees, insurance and taxes.\n- A **capital budget** plans for big-ticket replacements and improvements (roof, HVAC, parking lot).\n- A **stabilized budget** averages expenses over several years to smooth out spikes.\n- Many managers keep a **reserve fund** for capital items and emergencies.\n\n### Maintenance types\n\n| Type | Purpose | Example |\n|---|---|---|\n| **[[Preventive maintenance]]** | Prevent problems; preserves value | Servicing HVAC, cleaning gutters, painting |\n| **[[Corrective maintenance]]** | Fix something broken | Repairing a leaking faucet |\n| **Routine (custodial)** | Day-to-day upkeep | Cleaning common areas, landscaping |\n| **Construction / tenant improvements** | Alter or build out space, often for a new commercial tenant | Moving walls for an office tenant |\n\n> **Exam tip:** Preventive maintenance is the one that best protects long-term value. Tenant improvements are most common in commercial leasing.\n\n### Reports\n\nManagers provide regular statements to the owner: income collected, expenses paid, vacancy, delinquencies, and a cash flow summary. Annual reports and the budget-versus-actual comparison help the owner judge performance.\n\n## Risk management\n\n[[Risk management]] uses four strategies, remembered as **ACTR**:\n\n| Strategy | Meaning | Example |\n|---|---|---|\n| **Avoid** | Remove the activity that creates the risk | Close the swimming pool |\n| **Control** | Reduce the chance or size of a loss | Better lighting, sprinklers, handrails |\n| **Transfer** | Shift the risk to someone else | Buy insurance; require tenant liability insurance |\n| **Retain** | Accept the risk yourself | Large deductible; self-insure small losses |\n\n### Insurance\n\n- **Property (fire and hazard):** covers the building and contents.\n- **Liability:** covers injuries to others on the property.\n- **Workers' compensation:** for employees of the owner or manager.\n- **Loss of rents / business interruption:** replaces income while damage is repaired.\n- **Multiperil / package policy:** combines several coverages.\n- **Coinsurance clauses:** the owner must insure to a stated percentage of value (often 80%) to collect full partial-loss claims.\n\n## Trust accounts for tenant funds\n\nRents and **[[security deposits]]** belong to the owner or tenant, not the manager. They go into a trust account, are never commingled with the manager's own money, and must be fully accounted for. State law sets rules for holding and returning deposits.\n\n## Fair housing and ADA in rentals\n\nAll federal fair housing rules apply to leasing: no steering of renters, consistent screening, no discriminatory ads, and reasonable accommodations and modifications for disability. Occupancy limits must be reasonable and applied equally; a policy that effectively excludes children can be familial status discrimination. The ADA applies to the rental office and other areas open to the public.\n\n## Landlord and tenant rights generally\n\n### The landlord's duties\n\n- **[[Quiet enjoyment]]:** the tenant has the right to possess and use the premises without interference from the landlord or anyone claiming superior title. The landlord must give reasonable notice before entering except in emergencies.\n- **[[Habitability]]:** most states impose an implied warranty that residential premises are fit to live in (safe structure, heat, water, working plumbing and electrical).\n\n### The tenant's duties\n\nPay rent on time, avoid damaging the premises, follow lease rules, and return the unit in the same condition, less normal wear and tear.\n\n### Eviction\n\n- **[[Actual eviction]]:** the landlord legally removes the tenant through a court process (often called an unlawful detainer or forcible entry and detainer action) after the tenant breaches the lease. Self-help, such as changing locks or shutting off utilities, is generally illegal.\n- **[[Constructive eviction]]:** the landlord's act or failure to act makes the premises unusable (no heat in winter, ongoing severe leak). The tenant may treat the lease as ended, but generally must **move out within a reasonable time** to claim it.\n\n> **Exam tip:** Constructive eviction requires the tenant to actually leave. A tenant who stays and stops paying rent usually can't claim constructive eviction.\n\nNotice periods, security deposit deadlines and warranty of habitability procedures vary by state. Colorado's landlord-tenant specifics are covered in the Colorado module.\n"
+    }
+  ],
+  "questions": [
+    {
+      "id": "n4-001",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A buyer contacts the listing broker after seeing a yard sign. The buyer has not signed any agreement with the broker. In relation to the listing broker, the buyer is a:",
+      "choices": [
+        "Client",
+        "Principal",
+        "Customer",
+        "Subagent"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The listing broker represents the seller (client). An unrepresented buyer dealing with that broker is a customer, owed honesty and disclosure but not loyalty."
+    },
+    {
+      "id": "n4-002",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller lists her home with a brokerage. In this relationship, the brokerage is best described as a:",
+      "choices": [
+        "Special agent",
+        "General agent",
+        "Universal agent",
+        "Attorney-in-fact"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A listing broker is authorized for one specific task (finding a buyer for one property), which makes it a special agent. A property manager would be a general agent."
+    },
+    {
+      "id": "n4-003",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "Under general (common-law) agency principles, a broker with no written agreement repeatedly gives a buyer advice on offer price and negotiates on the buyer's behalf, and the buyer accepts this help. What kind of agency could a court find?",
+      "choices": [
+        "Express agency",
+        "Implied agency",
+        "Agency coupled with an interest",
+        "Universal agency"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Agency created by the parties' conduct rather than by words is implied agency. Express agency requires an oral or written agreement. (Colorado's statute instead presumes a transaction-broker relationship unless single agency is created in writing.)"
+    },
+    {
+      "id": "n4-004",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "An owner lets a neighbor tell buyers he is the owner's agent, and the owner says nothing even though she knows buyers are relying on it. The owner may be barred from denying the agency under:",
+      "choices": [
+        "Ratification",
+        "Express agency",
+        "Agency by estoppel",
+        "Novation"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "When a principal's conduct leads third parties to reasonably believe someone is their agent, the principal is estopped from denying it. Ratification is approval after the fact of an unauthorized act."
+    },
+    {
+      "id": "n4-005",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "Without authority, a broker accepts an offer on the seller's behalf. The seller later learns of it and agrees to go forward with the sale. This creates agency by:",
+      "choices": [
+        "Estoppel",
+        "Ratification",
+        "Implied agreement",
+        "Operation of law"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Ratification is the principal's approval, after the fact, of an act the agent performed without authority."
+    },
+    {
+      "id": "n4-006",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller signs a listing. During the term, the seller finds a buyer on his own, with no help from the broker, and the broker still earns a commission. What type of listing is this?",
+      "choices": [
+        "Open listing",
+        "Exclusive agency listing",
+        "Net listing",
+        "Exclusive right to sell listing"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Under an exclusive right to sell listing, the broker is paid no matter who sells the property during the term. In an exclusive agency listing, the owner selling it alone owes no commission."
+    },
+    {
+      "id": "n4-007",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "An owner gives listings to three brokerages and reserves the right to sell the property himself without paying anyone. This is:",
+      "choices": [
+        "An open listing",
+        "An exclusive agency listing",
+        "An exclusive right to sell listing",
+        "A multiple listing"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "With an open listing, the owner may use several brokers and pays only the one who is the procuring cause. A multiple listing service is a sharing system, not a listing type."
+    },
+    {
+      "id": "n4-008",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller tells a broker, \"I need $300,000 out of this sale; you keep anything above that.\" Why do regulators discourage or ban this arrangement?",
+      "choices": [
+        "It requires the broker to act as a dual agent for both parties",
+        "It gives the broker an incentive to set a low net figure",
+        "It prevents the property from being entered in the MLS",
+        "It automatically converts into an open listing with other brokers"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A net listing rewards the broker for getting the seller to accept a low net figure, which conflicts with loyalty. It's illegal in many states; Colorado has no Commission-approved net listing form, and secret profits are grounds for discipline."
+    },
+    {
+      "id": "n4-009",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller dies three weeks into a six-month exclusive right to sell listing. What happens to the listing?",
+      "choices": [
+        "It continues until the end of the term",
+        "It transfers to the seller's heirs automatically",
+        "It terminates by operation of law",
+        "It converts to an open listing"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Death of either the principal or the agent ends an ordinary agency by operation of law. Only an agency coupled with an interest survives the principal's death."
+    },
+    {
+      "id": "n4-010",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "Which situation ends an agency relationship by operation of law rather than by act of the parties?",
+      "choices": [
+        "The listing term expires",
+        "The property closes",
+        "The seller and broker mutually agree to cancel",
+        "The listed house is destroyed by fire"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Destruction of the property, death, incapacity and bankruptcy end agency by operation of law. Expiration, performance and mutual agreement are acts of the parties."
+    },
+    {
+      "id": "n4-011",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller tells his listing broker to accept only offers from buyers of a certain religion. Under the duty of obedience, the broker should:",
+      "choices": [
+        "Follow the instruction, because the seller is the principal and controls the sale",
+        "Follow the instruction only if the seller puts it in writing and signs it",
+        "Refuse, because the duty of obedience covers only lawful instructions",
+        "Pass the instruction along to buyers' brokers so they can screen their clients"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Obedience requires following lawful instructions only. Discriminating based on religion violates fair housing law, so the broker must refuse and may need to withdraw."
+    },
+    {
+      "id": "n4-012",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A listing broker tells a buyer that the seller \"will probably take $15,000 less than asking.\" The seller never authorized this. Which fiduciary duty did the broker breach?",
+      "choices": [
+        "Accounting",
+        "Confidentiality",
+        "Reasonable care and diligence",
+        "Disclosure"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The seller's price flexibility is confidential information. Disclosure runs to the client; confidentiality protects the client's information from others."
+    },
+    {
+      "id": "n4-013",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A broker describing a listing says, \"This is the most charming bungalow in town.\" The statement is best described as:",
+      "choices": [
+        "Puffing",
+        "Negligent misrepresentation",
+        "Fraud",
+        "A latent defect disclosure"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Puffing is exaggerated opinion that a reasonable buyer wouldn't rely on as fact. A false statement of a verifiable material fact would be misrepresentation."
+    },
+    {
+      "id": "n4-014",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A listing broker knows the house's foundation has a hidden crack that the seller patched and painted over. A buyer, working without a broker, asks no questions. What must the listing broker do?",
+      "choices": [
+        "Nothing, because the buyer is only a customer",
+        "Disclose the defect only if the buyer asks",
+        "Get the seller's permission before saying anything",
+        "Disclose the known latent defect to the buyer"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Every licensee must disclose known material latent defects to all parties, whether or not they ask. Loyalty to the seller never covers concealing a known defect."
+    },
+    {
+      "id": "n4-015",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "One licensee represents both the buyer and the seller in the same transaction without telling either of them. This is:",
+      "choices": [
+        "Designated agency",
+        "Transaction brokerage",
+        "Undisclosed dual agency, which is illegal",
+        "Permitted if the commission is split equally"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Dual agency, where allowed at all, requires informed written consent from both parties; Colorado prohibits it entirely (C.R.S. 12-10-406). Undisclosed dual agency can cost the commission, void the contract and lead to license discipline."
+    },
+    {
+      "id": "n4-016",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "In a state that permits designated agency, the employing broker appoints licensee A to represent the seller and licensee B, from the same firm, to represent the buyer. Which statement is correct?",
+      "choices": [
+        "Each designated licensee owes full duties to their own client",
+        "Both licensees automatically become transaction brokers for both parties",
+        "Licensee B must share the buyer's top price with licensee A on request",
+        "The seller automatically becomes a customer rather than a client"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In designated agency, each designated licensee represents only their own client with full fiduciary duties. Confidential information isn't shared between them."
+    },
+    {
+      "id": "n4-017",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A broker wants to buy a property that her own brokerage has listed. What should she do?",
+      "choices": [
+        "Buy it through a relative so the conflict of interest isn't apparent",
+        "Disclose in writing that she is a licensee buying for herself",
+        "Nothing more, as long as she offers the full asking price",
+        "Wait until the listing expires, then buy it without disclosure"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A broker with a personal interest must disclose it in writing. Using a relative or straw buyer to hide the interest violates loyalty and can lead to discipline."
+    },
+    {
+      "id": "n4-018",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Which law prohibits all racial discrimination in property transactions and has NO exemptions?",
+      "choices": [
+        "Fair Housing Act of 1968",
+        "Fair Housing Amendments Act of 1988",
+        "Americans with Disabilities Act",
+        "Civil Rights Act of 1866"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The Civil Rights Act of 1866, upheld in Jones v. Alfred H. Mayer Co. (1968), bars race discrimination with no exceptions, so the Fair Housing Act exemptions never permit racial discrimination."
+    },
+    {
+      "id": "n4-019",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Which two protected classes were added to the federal Fair Housing Act by the 1988 amendments?",
+      "choices": [
+        "Sex and marital status",
+        "Color and national origin",
+        "Familial status and source of income",
+        "Disability and familial status"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The 1988 amendments added disability (\"handicap\" in the statute) and familial status. Sex was added in 1974; marital status and source of income are not federal protected classes under the Fair Housing Act."
+    },
+    {
+      "id": "n4-020",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A broker shows a Hispanic couple homes only in neighborhoods with large Hispanic populations, though they asked to see homes across the city. This is:",
+      "choices": [
+        "Steering",
+        "Blockbusting",
+        "Redlining",
+        "Puffing"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Steering is channeling buyers toward or away from areas based on a protected class. Blockbusting involves inducing owners to sell; redlining involves lenders."
+    },
+    {
+      "id": "n4-021",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A licensee sends flyers to owners in a neighborhood hinting that \"the area is changing\" as families of another race move in, and urging them to sell now before values drop. This is:",
+      "choices": [
+        "Steering",
+        "Redlining",
+        "Blockbusting",
+        "Market allocation"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Blockbusting (panic peddling) means inducing sales by playing on fears about protected-class members moving in."
+    },
+    {
+      "id": "n4-022",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A lender refuses to make loans in a particular neighborhood because of its racial makeup, regardless of applicants' credit. This is:",
+      "choices": [
+        "Steering",
+        "Redlining",
+        "Blockbusting",
+        "A tie-in arrangement"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Redlining is a lender's refusal or limiting of loans in an area based on its racial or ethnic composition rather than the borrower's qualifications."
+    },
+    {
+      "id": "n4-023",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "An owner of a single-family home owns two other houses and sells without a broker. Which action would cost the owner the Fair Housing Act single-family exemption?",
+      "choices": [
+        "Using an attorney to prepare the deed",
+        "Using a title company to close",
+        "Selling to a relative",
+        "Placing an ad that says \"no children\""
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The exemption is lost if the owner uses a broker or publishes a discriminatory ad. Attorneys and title companies may be used to transfer title."
+    },
+    {
+      "id": "n4-024",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A tenant who uses a wheelchair asks to install grab bars in the bathroom of a privately owned apartment. Under the Fair Housing Act, who typically pays?",
+      "choices": [
+        "The tenant, because it's a reasonable modification",
+        "The landlord, because it's a reasonable accommodation",
+        "HUD",
+        "The landlord and tenant split it equally"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A physical change to the premises is a reasonable modification, generally at the tenant's expense in private housing. A reasonable accommodation is a change in rules or policies."
+    },
+    {
+      "id": "n4-025",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A building has a \"no pets\" rule. A tenant with a disability asks to keep an assistance animal. Allowing it is an example of a:",
+      "choices": [
+        "Reasonable modification",
+        "Reasonable accommodation",
+        "Familial status exemption",
+        "Constructive eviction"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Changing a rule or policy so a person with a disability can use the housing equally is a reasonable accommodation. Modifications are physical changes."
+    },
+    {
+      "id": "n4-026",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Under the federal Fair Housing Act, how long does an aggrieved person have to file an administrative complaint with HUD?",
+      "choices": [
+        "180 days",
+        "Two years",
+        "One year",
+        "Three years"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The statute allows a HUD complaint within one year after the discriminatory act occurred or ended. The deadline for a private lawsuit is two years."
+    },
+    {
+      "id": "n4-027",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Title III of the Americans with Disabilities Act most directly applies to which of the following?",
+      "choices": [
+        "The brokerage's office that is open to the public",
+        "Each tenant's private apartment unit in a large complex",
+        "A single-family home sold by its owner without a broker",
+        "An owner-occupied duplex rented to a family"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "ADA Title III covers public accommodations and commercial facilities, such as brokerage and leasing offices. Private residential units are covered by the Fair Housing Act instead."
+    },
+    {
+      "id": "n4-028",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Two competing brokerage owners meet for lunch and agree that neither will list homes for less than a 6% commission. This is:",
+      "choices": [
+        "A group boycott",
+        "Market allocation",
+        "Price fixing",
+        "A tie-in arrangement"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "An agreement among competitors on commission rates is price fixing, a violation of antitrust law. Commissions must be negotiated individually between each firm and its client."
+    },
+    {
+      "id": "n4-029",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Several brokerages agree not to show listings of a new discount brokerage. This is an antitrust violation known as:",
+      "choices": [
+        "Price fixing",
+        "A group boycott",
+        "Market allocation",
+        "Redlining"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A group boycott is competitors agreeing to refuse to deal with a particular competitor or business."
+    },
+    {
+      "id": "n4-030",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Under federal Do-Not-Call rules, a broker who wants to cold-call numbers must check them against the national registry how often?",
+      "choices": [
+        "Only before the first call to each number",
+        "At least every 90 days",
+        "Once a year",
+        "At least every 31 days"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The Telemarketing Sales Rule's safe harbor requires using a version of the registry obtained no more than 31 days before the call."
+    },
+    {
+      "id": "n4-031",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Under the CAN-SPAM Act, a brokerage that receives an email opt-out request must honor it within:",
+      "choices": [
+        "24 hours",
+        "30 calendar days",
+        "10 business days",
+        "18 months"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "CAN-SPAM requires honoring opt-out requests within 10 business days, and the opt-out mechanism must work for at least 30 days after the email is sent."
+    },
+    {
+      "id": "n4-032",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A licensee deposits a buyer's earnest money check into her personal checking account until closing. This is:",
+      "choices": [
+        "Acceptable if the money is moved to the trust account before closing",
+        "Commingling, which is prohibited",
+        "Acceptable if the buyer agrees orally",
+        "A tie-in arrangement"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Mixing client funds with personal funds is commingling. Earnest money belongs in the brokerage's trust or escrow account under state deposit rules."
+    },
+    {
+      "id": "n4-033",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A property manager handling day-to-day operations of an apartment building for an owner is typically what kind of agent?",
+      "choices": [
+        "Special agent",
+        "Universal agent",
+        "Subagent of the tenants",
+        "General agent"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A property manager has authority over a range of ongoing tasks for the owner, making them a general agent."
+    },
+    {
+      "id": "n4-034",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "An apartment building has a 20% vacancy rate while comparable buildings nearby are at 4%. The property is in good condition. What does this most likely indicate?",
+      "choices": [
+        "Rents are too low",
+        "Rents are too high",
+        "The manager should cut the maintenance budget",
+        "The building needs a larger reserve fund"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Vacancy well above the market, with the property in good shape, usually signals rents set above market. Very low vacancy with a waiting list can signal rents that are too low."
+    },
+    {
+      "id": "n4-035",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A property manager has the HVAC systems serviced every spring and fall to reduce breakdowns. This is:",
+      "choices": [
+        "Corrective maintenance",
+        "Construction maintenance",
+        "Preventive maintenance",
+        "Deferred maintenance"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Preventive maintenance is scheduled work designed to prevent problems and preserve value. Corrective maintenance repairs something already broken."
+    },
+    {
+      "id": "n4-036",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A property manager buys liability insurance for the owner's building. Which risk management technique is this?",
+      "choices": [
+        "Transfer",
+        "Avoidance",
+        "Control",
+        "Retention"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Buying insurance shifts financial risk to the insurer, which is risk transfer. Closing a pool would be avoidance; installing lighting would be control."
+    },
+    {
+      "id": "n4-037",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A landlord ignores repeated complaints and fails to restore heat during winter. The tenant moves out. The tenant is most likely claiming:",
+      "choices": [
+        "Actual eviction",
+        "Constructive eviction",
+        "Breach of the covenant of seisin",
+        "Abandonment by the tenant"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Constructive eviction occurs when the landlord's act or failure makes the premises unusable and the tenant leaves within a reasonable time. Actual eviction is removal through legal process."
+    },
+    {
+      "id": "n4-038",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A property manager collects a $1,500 security deposit from a new tenant. Where should the money go?",
+      "choices": [
+        "The manager's general operating account",
+        "The owner's personal account, immediately",
+        "The manager's personal savings until move-out",
+        "A trust account, held under state law"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Security deposits are trust funds. They must be held in a trust account and never commingled with the manager's own money."
+    },
+    {
+      "id": "n4-039",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "Which is the primary goal of a property manager under a typical management agreement?",
+      "choices": [
+        "Keep every unit occupied, even if that means cutting rents sharply",
+        "Minimize all expenses, including routine and preventive maintenance",
+        "Best net income for the owner while preserving value",
+        "Maximize the manager's own commission on gross rents collected"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The manager's job is to produce the best net operating income while maintaining and increasing the property's value. Cutting maintenance can raise short-term income but erodes value."
+    }
+  ],
+  "cards": [
+    {
+      "id": "n4-c001",
+      "front": "Client vs. customer",
+      "back": "Client (principal) = represented, owed fiduciary duties. Customer = unrepresented third party, owed honesty and disclosure.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c002",
+      "front": "Four ways agency is created",
+      "back": "Express (words), implied (conduct), ratification (approval after the fact), estoppel (principal's conduct led others to believe it).",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c003",
+      "front": "Ratification",
+      "back": "Principal approves, after the fact, an act the agent did without authority.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c004",
+      "front": "Agency by estoppel",
+      "back": "Principal's words or conduct led a third party to reasonably believe an agency existed, so the principal can't deny it.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c005",
+      "front": "Does agency require compensation?",
+      "back": "No. A broker acting for free can still owe fiduciary duties.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c006",
+      "front": "Does who pays the commission decide who the agent represents?",
+      "back": "No. Representation comes from the agency agreement, not the source of the fee.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c007",
+      "front": "Special agent",
+      "back": "Authority for one specific act or transaction. Example: listing broker, buyer's broker.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c008",
+      "front": "General agent",
+      "back": "Authority over a range of acts in one business. Example: property manager.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c009",
+      "front": "Universal agent",
+      "back": "Broad authority to do anything the principal could delegate, e.g., under a general power of attorney.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c010",
+      "front": "Exclusive right to sell",
+      "back": "Broker paid no matter who sells during the term, even the owner.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c011",
+      "front": "Exclusive agency listing",
+      "back": "One broker; owner can sell on their own and owe no commission.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c012",
+      "front": "Open listing",
+      "back": "Several brokers; only the procuring cause is paid; owner selling alone pays nobody.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c013",
+      "front": "Net listing",
+      "back": "Broker keeps everything above the seller's net figure. Banned in many states; Colorado has no approved form, and secret profits are grounds for discipline.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c014",
+      "front": "Procuring cause",
+      "back": "The broker whose efforts started the unbroken chain of events that produced the sale.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c015",
+      "front": "Protection (carryover) clause",
+      "back": "Broker can still earn a fee if the owner sells, after the listing ends, to a buyer the broker introduced during the term.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c016",
+      "front": "Ways agency ends by operation of law",
+      "back": "Death or incapacity of either party, destruction or condemnation of property, bankruptcy, change in law.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c017",
+      "front": "Agency coupled with an interest",
+      "back": "Agent holds a stake in the property; the principal can't revoke it, and it survives the principal's death.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c018",
+      "front": "Durable power of attorney",
+      "back": "Survives the principal's incapacity but ends at death.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c019",
+      "front": "OLDCAR",
+      "back": "Obedience, Loyalty, Disclosure, Confidentiality, Accounting, Reasonable care.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c020",
+      "front": "Limit on obedience",
+      "back": "Follow only lawful instructions. Refuse illegal (e.g., discriminatory) ones.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c021",
+      "front": "Disclosure vs. confidentiality",
+      "back": "Disclosure: tell your client everything material. Confidentiality: keep the client's private info from others.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c022",
+      "front": "Duties owed to customers",
+      "back": "Honesty, fair dealing, reasonable care, disclosure of known material (latent) defects.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c023",
+      "front": "Puffing",
+      "back": "Exaggerated opinion or sales talk (\"stunning view\"). Not usually actionable.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c024",
+      "front": "Negligent misrepresentation",
+      "back": "False statement of fact the licensee should have known was false.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c025",
+      "front": "Dual agency requirement",
+      "back": "Where allowed: informed, written consent of both parties. Undisclosed dual agency is illegal everywhere. Colorado prohibits dual agency entirely.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c026",
+      "front": "Designated agency",
+      "back": "Employing broker assigns different licensees in the same firm to buyer and seller, each with full duties to their client.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c027",
+      "front": "Transaction broker / facilitator",
+      "back": "Assists one or both parties without advocacy; duties set by state statute. Colorado has its own rules (see Colorado module).",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c028",
+      "front": "Broker buying a client's listing",
+      "back": "Disclose license status and personal interest in writing first; never use a straw buyer.",
+      "topic": "Agency"
+    },
+    {
+      "id": "n4-c029",
+      "front": "Civil Rights Act of 1866",
+      "back": "Race only; NO exemptions; enforced directly in federal court. Revived by Jones v. Mayer (1968).",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c030",
+      "front": "Seven federal protected classes",
+      "back": "Race, color, religion, national origin, sex, disability, familial status.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c031",
+      "front": "When were sex, disability and familial status added?",
+      "back": "Sex: 1974. Disability and familial status: 1988 amendments.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c032",
+      "front": "Familial status",
+      "back": "Child under 18 living with parent/custodian/designee; includes pregnancy and someone gaining custody.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c033",
+      "front": "Sexual orientation / gender identity under federal FHA",
+      "back": "Not listed in the Act. HUD's 2021 memo treating them as sex discrimination was withdrawn on Sept. 17, 2025. Colorado law expressly protects them.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c034",
+      "front": "Steering",
+      "back": "Directing buyers/renters toward or away from areas based on a protected class.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c035",
+      "front": "Blockbusting",
+      "back": "Inducing owners to sell by suggesting a protected class is moving in. Also called panic peddling.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c036",
+      "front": "Redlining",
+      "back": "Lender refuses or limits loans in an area because of its racial/ethnic makeup.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c037",
+      "front": "Single-family owner exemption",
+      "back": "Owner of max 3 homes, no broker, no discriminatory ads; one non-occupant sale per 24 months.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c038",
+      "front": "\"Mrs. Murphy\" exemption",
+      "back": "Owner-occupied building with up to four units living independently.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c039",
+      "front": "55+ housing exemption",
+      "back": "At least 80% of occupied units have a resident 55+, published policies, age verification. Exempt from familial status only.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c040",
+      "front": "Reasonable accommodation vs. modification",
+      "back": "Accommodation = change in rules/policies (provider bears cost). Modification = physical change (tenant pays in private housing).",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c041",
+      "front": "HUD complaint / lawsuit deadlines",
+      "back": "HUD complaint: 1 year. Private lawsuit: 2 years.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c042",
+      "front": "ADA Title III",
+      "back": "Public accommodations and commercial facilities, e.g., brokerage and leasing offices. Not private dwelling units.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c043",
+      "front": "Four antitrust violations",
+      "back": "Price fixing, group boycotts, market allocation, tie-in arrangements.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c044",
+      "front": "IRS statutory nonemployee test",
+      "back": "Licensed; pay based on sales output; written agreement saying not an employee for tax purposes.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c045",
+      "front": "Do-Not-Call key numbers",
+      "back": "Scrub every 31 days; call 8 a.m.-9 p.m.; EBR 18 months after transaction / 3 months after inquiry; honor company DNC 5 years.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c046",
+      "front": "CAN-SPAM opt-out",
+      "back": "Honor within 10 business days; opt-out must work 30 days after sending; include physical postal address.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c047",
+      "front": "Commingling vs. conversion",
+      "back": "Commingling: mixing client and broker funds. Conversion: using client funds for yourself.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c048",
+      "front": "What unlicensed assistants may NOT do",
+      "back": "Show property, negotiate, discuss terms, host open houses alone, or be paid per closing for licensed activity.",
+      "topic": "Fair housing and practice"
+    },
+    {
+      "id": "n4-c049",
+      "front": "Property manager's primary goals",
+      "back": "Best net operating income for the owner, and preserving/increasing property value.",
+      "topic": "Property management"
+    },
+    {
+      "id": "n4-c050",
+      "front": "Typical property manager compensation",
+      "back": "Percentage of gross rents collected (sometimes plus leasing fees).",
+      "topic": "Property management"
+    },
+    {
+      "id": "n4-c051",
+      "front": "Preventive vs. corrective maintenance",
+      "back": "Preventive: prevent problems (best protects value). Corrective: fix what's broken.",
+      "topic": "Property management"
+    },
+    {
+      "id": "n4-c052",
+      "front": "Risk management: ACTR",
+      "back": "Avoid, Control, Transfer (insurance), Retain.",
+      "topic": "Property management"
+    },
+    {
+      "id": "n4-c053",
+      "front": "Actual vs. constructive eviction",
+      "back": "Actual: tenant removed by legal process. Constructive: landlord makes unit unusable and tenant moves out.",
+      "topic": "Property management"
+    },
+    {
+      "id": "n4-c054",
+      "front": "Quiet enjoyment",
+      "back": "Tenant's right to use the premises without interference by the landlord or someone with superior title.",
+      "topic": "Property management"
+    },
+    {
+      "id": "n4-c055",
+      "front": "High vacancy vs. market",
+      "back": "Usually means rents are too high (if the property is in good condition).",
+      "topic": "Property management"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Agency",
+      "definition": "A relationship in which one person (the agent) is authorized to act for another (the principal) in dealings with third parties.",
+      "aliases": []
+    },
+    {
+      "term": "Principal",
+      "definition": "The person who hires and authorizes an agent and is owed fiduciary duties; also called the client.",
+      "aliases": [
+        "Client"
+      ]
+    },
+    {
+      "term": "Agent",
+      "definition": "A person or firm authorized to act on behalf of a principal.",
+      "aliases": []
+    },
+    {
+      "term": "Customer",
+      "definition": "A party to a transaction who is not represented by the licensee; owed honesty and fair dealing but not fiduciary duties.",
+      "aliases": [
+        "Third party"
+      ]
+    },
+    {
+      "term": "Fiduciary",
+      "definition": "A person in a position of trust who must act in the best interests of the client.",
+      "aliases": [
+        "Fiduciary duties"
+      ]
+    },
+    {
+      "term": "OLDCAR",
+      "definition": "Memory aid for the six fiduciary duties: obedience, loyalty, disclosure, confidentiality, accounting, reasonable care and diligence.",
+      "aliases": []
+    },
+    {
+      "term": "Express agency",
+      "definition": "Agency created by words, oral or written, such as a signed listing agreement.",
+      "aliases": []
+    },
+    {
+      "term": "Implied agency",
+      "definition": "Agency created by the conduct of the parties rather than by an express agreement.",
+      "aliases": []
+    },
+    {
+      "term": "Ratification",
+      "definition": "A principal's approval, after the fact, of an act an agent performed without authority, creating agency for that act.",
+      "aliases": []
+    },
+    {
+      "term": "Agency by estoppel",
+      "definition": "Agency found when a principal's words or conduct led a third party to reasonably believe someone was their agent.",
+      "aliases": [
+        "Estoppel"
+      ]
+    },
+    {
+      "term": "Special agent",
+      "definition": "An agent authorized for one specific act or transaction, such as a listing broker.",
+      "aliases": [
+        "Special agency"
+      ]
+    },
+    {
+      "term": "General agent",
+      "definition": "An agent authorized to handle a range of matters in a particular business, such as a property manager.",
+      "aliases": [
+        "General agency"
+      ]
+    },
+    {
+      "term": "Universal agent",
+      "definition": "An agent with broad authority to do anything the principal could legally delegate.",
+      "aliases": [
+        "Universal agency"
+      ]
+    },
+    {
+      "term": "Exclusive right to sell listing",
+      "definition": "A listing in which the broker earns a commission no matter who sells the property during the term, including the owner.",
+      "aliases": [
+        "Exclusive right-to-sell"
+      ]
+    },
+    {
+      "term": "Exclusive agency listing",
+      "definition": "A listing with one broker in which the owner keeps the right to sell the property alone without owing a commission.",
+      "aliases": []
+    },
+    {
+      "term": "Open listing",
+      "definition": "A nonexclusive listing given to one or more brokers; only the broker who is the procuring cause earns a fee.",
+      "aliases": []
+    },
+    {
+      "term": "Net listing",
+      "definition": "A listing in which the broker keeps any amount above a net price set by the seller; illegal in many states and discouraged elsewhere, with no Colorado Commission-approved form.",
+      "aliases": []
+    },
+    {
+      "term": "Buyer agency",
+      "definition": "A relationship in which the broker represents the buyer as a client.",
+      "aliases": [
+        "Buyer agent",
+        "Buyer's agent"
+      ]
+    },
+    {
+      "term": "Power of attorney",
+      "definition": "A written document authorizing an attorney-in-fact to act for the principal; a durable power survives incapacity but not death.",
+      "aliases": [
+        "Attorney-in-fact"
+      ]
+    },
+    {
+      "term": "Material fact",
+      "definition": "A fact a reasonable person would consider important in deciding whether, or on what terms, to buy or sell.",
+      "aliases": [
+        "Material facts"
+      ]
+    },
+    {
+      "term": "Latent defect",
+      "definition": "A hidden defect that a reasonable inspection would not reveal.",
+      "aliases": [
+        "Latent defects"
+      ]
+    },
+    {
+      "term": "Puffing",
+      "definition": "Exaggerated opinion or sales talk that a reasonable person would not rely on as fact.",
+      "aliases": []
+    },
+    {
+      "term": "Misrepresentation",
+      "definition": "A false statement or concealment of a material fact, whether intentional (fraud) or negligent.",
+      "aliases": [
+        "Fraud"
+      ]
+    },
+    {
+      "term": "Dual agency",
+      "definition": "One brokerage or licensee representing both buyer and seller in the same transaction; requires informed written consent where allowed. Colorado prohibits it.",
+      "aliases": [
+        "Dual agent"
+      ]
+    },
+    {
+      "term": "Designated agency",
+      "definition": "An arrangement in which the employing broker assigns different licensees in the same firm to represent the buyer and the seller.",
+      "aliases": []
+    },
+    {
+      "term": "Transaction broker",
+      "definition": "A licensee who assists one or both parties in a transaction without acting as an advocate for either; duties are set by state law.",
+      "aliases": [
+        "Transaction brokerage",
+        "Facilitator",
+        "Nonagent"
+      ]
+    },
+    {
+      "term": "Civil Rights Act of 1866",
+      "definition": "Federal law prohibiting all racial discrimination in property transactions, with no exemptions.",
+      "aliases": []
+    },
+    {
+      "term": "Fair Housing Act",
+      "definition": "Title VIII of the Civil Rights Act of 1968, as amended, which prohibits housing discrimination based on seven protected classes.",
+      "aliases": [
+        "FHA",
+        "Title VIII"
+      ]
+    },
+    {
+      "term": "Protected class",
+      "definition": "A group protected from discrimination by law; federally: race, color, religion, national origin, sex, disability and familial status.",
+      "aliases": [
+        "Protected classes"
+      ]
+    },
+    {
+      "term": "Familial status",
+      "definition": "Having one or more children under 18 living with a parent, custodian or designee; includes pregnancy and someone securing custody.",
+      "aliases": []
+    },
+    {
+      "term": "Steering",
+      "definition": "Directing buyers or renters toward or away from areas based on a protected class.",
+      "aliases": []
+    },
+    {
+      "term": "Blockbusting",
+      "definition": "Inducing owners to sell by suggesting that members of a protected class are moving into the area.",
+      "aliases": [
+        "Panic peddling"
+      ]
+    },
+    {
+      "term": "Redlining",
+      "definition": "A lender's refusal or limiting of loans in an area because of its racial or ethnic makeup.",
+      "aliases": []
+    },
+    {
+      "term": "Reasonable accommodation",
+      "definition": "A change in rules, policies, practices or services that gives a person with a disability equal opportunity to use housing.",
+      "aliases": []
+    },
+    {
+      "term": "Reasonable modification",
+      "definition": "A physical change to the premises that a person with a disability needs; generally at the tenant's expense in private housing.",
+      "aliases": []
+    },
+    {
+      "term": "Americans with Disabilities Act",
+      "definition": "Federal disability law; Title III requires public accommodations and commercial facilities to be accessible.",
+      "aliases": [
+        "ADA"
+      ]
+    },
+    {
+      "term": "Independent contractor",
+      "definition": "A worker paid for results and not controlled as to methods; most licensees are treated as statutory nonemployees for tax purposes.",
+      "aliases": [
+        "Independent contractors"
+      ]
+    },
+    {
+      "term": "Antitrust",
+      "definition": "Federal laws, mainly the Sherman Act, that prohibit agreements restraining competition.",
+      "aliases": [
+        "Sherman Act"
+      ]
+    },
+    {
+      "term": "Price fixing",
+      "definition": "Competitors agreeing on prices or commission rates.",
+      "aliases": []
+    },
+    {
+      "term": "Group boycott",
+      "definition": "Competitors agreeing not to do business with a particular person or firm.",
+      "aliases": []
+    },
+    {
+      "term": "Market allocation",
+      "definition": "Competitors dividing markets by territory, customers or property type.",
+      "aliases": []
+    },
+    {
+      "term": "Tie-in arrangement",
+      "definition": "Conditioning the sale of one product or service on the purchase of another.",
+      "aliases": [
+        "Tying arrangement"
+      ]
+    },
+    {
+      "term": "Do-Not-Call Registry",
+      "definition": "The national list of phone numbers that telemarketers may not call without an exception; checked at least every 31 days.",
+      "aliases": [
+        "Do Not Call"
+      ]
+    },
+    {
+      "term": "TCPA",
+      "definition": "Telephone Consumer Protection Act; federal law restricting autodialed and prerecorded calls and texts.",
+      "aliases": [
+        "Telephone Consumer Protection Act"
+      ]
+    },
+    {
+      "term": "CAN-SPAM Act",
+      "definition": "Federal law governing commercial email, requiring accurate headers, a postal address and a working opt-out.",
+      "aliases": [
+        "CAN-SPAM"
+      ]
+    },
+    {
+      "term": "Trust account",
+      "definition": "A separate account held for money belonging to others, such as earnest money, rents and security deposits.",
+      "aliases": [
+        "Escrow account"
+      ]
+    },
+    {
+      "term": "Commingling",
+      "definition": "Mixing client or customer money with the broker's own funds.",
+      "aliases": []
+    },
+    {
+      "term": "Conversion",
+      "definition": "Using money belonging to others for one's own purposes.",
+      "aliases": []
+    },
+    {
+      "term": "Property manager",
+      "definition": "A licensee or firm hired as a general agent to operate income property for an owner.",
+      "aliases": []
+    },
+    {
+      "term": "Management agreement",
+      "definition": "The written contract between an owner and a property manager that creates the agency and sets duties and compensation.",
+      "aliases": []
+    },
+    {
+      "term": "Operating budget",
+      "definition": "A projection of a property's income and expenses for a year.",
+      "aliases": []
+    },
+    {
+      "term": "Preventive maintenance",
+      "definition": "Scheduled upkeep designed to prevent problems and preserve value.",
+      "aliases": []
+    },
+    {
+      "term": "Corrective maintenance",
+      "definition": "Repairs to something that has already broken.",
+      "aliases": []
+    },
+    {
+      "term": "Risk management",
+      "definition": "Managing exposure to loss by avoiding, controlling, transferring or retaining risk.",
+      "aliases": []
+    },
+    {
+      "term": "Security deposit",
+      "definition": "Money a tenant pays to secure performance of the lease, held in trust and returned subject to lawful deductions.",
+      "aliases": [
+        "Security deposits"
+      ]
+    },
+    {
+      "term": "Quiet enjoyment",
+      "definition": "A tenant's or owner's right to possess and use property without interference from the landlord or someone with superior title.",
+      "aliases": []
+    },
+    {
+      "term": "Habitability",
+      "definition": "The implied warranty in most states that residential rental premises are fit to live in.",
+      "aliases": [
+        "Warranty of habitability"
+      ]
+    },
+    {
+      "term": "Actual eviction",
+      "definition": "Removal of a tenant by the landlord through legal process.",
+      "aliases": []
+    },
+    {
+      "term": "Constructive eviction",
+      "definition": "A landlord's act or neglect that makes premises unusable, allowing the tenant to leave and end the lease.",
+      "aliases": []
+    }
+  ]
+}

@@ -3,7 +3,8 @@ import type { AppApi, View } from "../App";
 import type { Attempt, Bank } from "../lib/types";
 import { startPractice } from "../lib/session";
 import { LETTERS, formatDateTime, formatDuration, percent } from "../lib/util";
-import { TallyTable } from "../components/Bars";
+import { SectionTable, TallyTable } from "../components/Bars";
+import { attemptPassed } from "../lib/session";
 
 type Filter = "wrong" | "flagged" | "all";
 
@@ -20,7 +21,8 @@ export default function Results({
 }) {
   const pct = percent(attempt.correct, attempt.total);
   const isExam = attempt.mode === "exam";
-  const passed = attempt.passingPercent !== undefined ? pct >= attempt.passingPercent : undefined;
+  const passed = attemptPassed(attempt);
+  const marks = attempt.sectionPassing && Object.keys(attempt.sectionPassing).length ? attempt.sectionPassing : undefined;
   const wrong = attempt.answers.filter((a) => !a.correct);
   const flagged = attempt.answers.filter((a) => a.flagged);
   const [filter, setFilter] = useState<Filter>(wrong.length ? "wrong" : "all");
@@ -71,7 +73,8 @@ export default function Results({
           </h1>
           <p className="muted" style={{ marginTop: 6 }}>
             {attempt.correct} of {attempt.total} correct
-            {isExam && attempt.passingPercent !== undefined && `, ${attempt.passingPercent}% needed to pass`}.{" "}
+            {isExam && !marks && attempt.passingPercent !== undefined && `, ${attempt.passingPercent}% needed to pass`}
+            {isExam && marks && ". Each section must pass on its own"}.{" "}
             {formatDuration(attempt.durationSec)}
             {attempt.timeLimitSec ? ` of ${formatDuration(attempt.timeLimitSec)}` : ""} on{" "}
             {formatDateTime(attempt.finishedAt)}.
@@ -96,7 +99,7 @@ export default function Results({
         <div className="grid-2" style={{ marginBottom: 16 }}>
           {Object.keys(attempt.bySection).length > 0 && (
             <section className="panel">
-              <TallyTable title="Section" data={attempt.bySection} />
+              <SectionTable data={attempt.bySection} marks={marks} />
             </section>
           )}
           <section className="panel">

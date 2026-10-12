@@ -16,6 +16,7 @@ export interface Session {
   startedAt: number;
   timeLimitSec?: number;
   passingPercent?: number;
+  sectionPassing?: Record<string, number>;
 }
 
 export type PracticeFilter = "all" | "missed" | "unseen" | "weak";
@@ -79,7 +80,28 @@ export function startExam(bank: Bank, opts: ExamOptions): Session {
     startedAt: Date.now(),
     timeLimitSec: Math.round(opts.minutes * 60),
     passingPercent: bank.exam.passingPercent,
+    sectionPassing: bank.exam.sectionPassing
+      ? Object.fromEntries(
+          Object.entries(bank.exam.sectionPassing).map(([sid, pct]) => [
+            bank.sections.find((s) => s.id === sid)?.name ?? sid,
+            pct,
+          ]),
+        )
+      : undefined,
   };
+}
+
+/** Pass/fail for an exam attempt; undefined for practice. */
+export function attemptPassed(a: Attempt): boolean | undefined {
+  if (a.mode !== "exam") return undefined;
+  if (a.sectionPassing && Object.keys(a.sectionPassing).length) {
+    return Object.entries(a.sectionPassing).every(([name, pct]) => {
+      const t = a.bySection[name];
+      return !!t && (t.correct / t.total) * 100 >= pct - 1e-9;
+    });
+  }
+  if (a.passingPercent === undefined) return undefined;
+  return (a.correct / Math.max(1, a.total)) * 100 >= a.passingPercent;
 }
 
 export function practicePool(bank: Bank, progress: Progress, opts: Omit<PracticeOptions, "count">): Question[] {
@@ -169,6 +191,7 @@ export function finishSession(
     answered,
     correct,
     passingPercent: session.passingPercent,
+    sectionPassing: session.sectionPassing,
     byTopic,
     bySection,
     answers: records,

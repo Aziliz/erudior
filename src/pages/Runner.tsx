@@ -3,6 +3,7 @@ import type { AppApi } from "../App";
 import type { Bank } from "../lib/types";
 import { finishSession, isCorrect, type Session } from "../lib/session";
 import { confirmAction } from "../lib/storage";
+import { logActivity } from "../lib/planner";
 import { LETTERS, formatClock } from "../lib/util";
 
 interface Props {
@@ -53,7 +54,7 @@ export default function Runner({ api, session, bank }: Props) {
       api.go({ name: "bank", bankId: session.bankId });
       return;
     }
-    await api.setProgress(progress);
+    await api.setProgress(logActivity(progress, "questions", attempt.answered));
     api.go({ name: "results", attemptId: attempt.id, back: { name: "bank", bankId: session.bankId } });
   }, [session, answers, flags, api, bank]);
 

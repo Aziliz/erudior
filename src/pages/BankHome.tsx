@@ -53,9 +53,8 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
       `Delete "${bank.title}" and its ${total} questions? Your attempt history stays. This can't be undone.`,
     );
     if (!ok) return;
-    await store.deleteBank(bank.id);
-    await api.reloadBanks();
-    api.go({ name: "library" });
+    await api.deleteBank(bank);
+    api.go(api.bankBack(bank));
     api.toast(`Deleted "${bank.title}"`);
   }
 
@@ -69,8 +68,8 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
 
   return (
     <div className="page">
-      <button className="back" onClick={() => api.go({ name: "library" })}>
-        ← All banks
+      <button className="back" onClick={() => api.go(api.bankBack(bank))}>
+        ← {bank.courseId ? api.courses.find((c) => c.id === bank.courseId)?.title ?? "Course" : "Library"}
       </button>
       <div className="page-head">
         <div>
@@ -156,7 +155,12 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
             </label>
           </div>
           <p className="small muted" style={{ marginBottom: 16 }}>
-            Passing score {bank.exam.passingPercent}%.
+            {bank.exam.sectionPassing && bank.sections.some((s) => bank.exam.sectionPassing?.[s.id])
+              ? `Each section is scored on its own: ${bank.sections
+                  .filter((s) => bank.exam.sectionPassing?.[s.id])
+                  .map((s) => `${s.name} ${bank.exam.sectionPassing![s.id]}%`)
+                  .join(", ")}. You must pass every section.`
+              : `Passing score ${bank.exam.passingPercent}%.`}
           </p>
           <button
             className="btn primary lg"
@@ -329,11 +333,7 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                     </td>
                     <td className="r">{formatDuration(a.durationSec)}</td>
                     <td className="r">
-                      <ScorePill
-                        correct={a.correct}
-                        total={a.total}
-                        passing={a.mode === "exam" ? a.passingPercent : undefined}
-                      />
+                      <ScorePill attempt={a} />
                     </td>
                   </tr>
                 ))}

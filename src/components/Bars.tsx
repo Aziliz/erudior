@@ -1,4 +1,5 @@
-import type { Tally } from "../lib/types";
+import type { Attempt, Tally } from "../lib/types";
+import { attemptPassed } from "../lib/session";
 import { percent } from "../lib/util";
 
 export function AccuracyBar({ value }: { value: number | null }) {
@@ -49,8 +50,52 @@ export function TallyTable({ title, data }: { title: string; data: Record<string
   );
 }
 
-export function ScorePill({ correct, total, passing }: { correct: number; total: number; passing?: number }) {
-  const pct = percent(correct, total);
-  if (passing === undefined) return <span className="pill neutral">{pct}%</span>;
-  return <span className={`pill ${pct >= passing ? "pass" : "fail"}`}>{pct >= passing ? "Pass" : "Fail"}</span>;
+/** Pass/Fail pill for exams, percentage pill for practice. */
+export function ScorePill({ attempt }: { attempt: Attempt }) {
+  const passed = attemptPassed(attempt);
+  if (passed === undefined) return <span className="pill neutral">{percent(attempt.correct, attempt.total)}%</span>;
+  return <span className={`pill ${passed ? "pass" : "fail"}`}>{passed ? "Pass" : "Fail"}</span>;
+}
+
+/** Section table with each section's own pass mark, when the exam has them. */
+export function SectionTable({ data, marks }: { data: Record<string, Tally>; marks?: Record<string, number> }) {
+  const rows = Object.entries(data);
+  return (
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th className="r">Correct</th>
+          <th style={{ width: "36%" }}>Score</th>
+          {marks && <th className="r">Needed</th>}
+          {marks && <th />}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(([name, t]) => {
+          const pct = t.total ? (t.correct / t.total) * 100 : 0;
+          const need = marks?.[name];
+          return (
+            <tr key={name}>
+              <td>{name}</td>
+              <td className="r">
+                {t.correct}/{t.total}
+              </td>
+              <td>
+                <AccuracyBar value={t.total ? t.correct / t.total : null} />
+              </td>
+              {marks && <td className="r">{need !== undefined ? `${need}%` : ""}</td>}
+              {marks && (
+                <td className="r">
+                  {need !== undefined && (
+                    <span className={`pill ${pct >= need - 1e-9 ? "pass" : "fail"}`}>{pct >= need - 1e-9 ? "Pass" : "Fail"}</span>
+                  )}
+                </td>
+              )}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
 }

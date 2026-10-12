@@ -25,12 +25,23 @@ export interface ExamConfig {
   passingPercent: number;
   /** Optional fixed count per section id; the rest of questionCount is drawn from anywhere. */
   sectionQuotas?: Record<string, number>;
+  /**
+   * Optional pass mark per section id (percent). When set, an exam passes only
+   * if every listed section meets its own mark, like PSI's two-portion exams.
+   */
+  sectionPassing?: Record<string, number>;
 }
 
 export interface Bank {
   format: "examiner-bank";
   version: 1;
+  /**
+   * Standalone banks: the file id. Banks inside a course are given the
+   * runtime id `${courseId}__${localId}` so stats never collide across courses.
+   */
   id: string;
+  /** Runtime only: set when the bank lives inside a course. Never serialized. */
+  courseId?: string;
   title: string;
   description?: string;
   author?: string;
@@ -67,6 +78,8 @@ export interface Attempt {
   answered: number;
   correct: number;
   passingPercent?: number;
+  /** Per-section pass marks, keyed by section name (as in bySection). */
+  sectionPassing?: Record<string, number>;
   byTopic: Record<string, Tally>;
   bySection: Record<string, Tally>;
   answers: AnswerRecord[];
@@ -79,11 +92,141 @@ export interface QuestionStat {
   lastSeen: string;
 }
 
+// ---------------------------------------------------------------------------
+// Course pack format ("examiner-course", version 1). See docs/COURSE_FORMAT.md.
+
+export interface Module {
+  id: string;
+  title: string;
+}
+
+export interface Lesson {
+  id: string;
+  module: string;
+  title: string;
+  /** Question/card topics this lesson covers, for "practice this" links. */
+  topics?: string[];
+  minutes?: number;
+  /** Markdown. [[term]] or [[term|shown text]] links to the glossary. */
+  body: string;
+}
+
+export interface Card {
+  id: string;
+  front: string;
+  back: string;
+  topic?: string;
+}
+
+export interface Deck {
+  id: string;
+  title: string;
+  description?: string;
+  cards: Card[];
+}
+
+export interface GlossaryEntry {
+  term: string;
+  definition: string;
+  aliases?: string[];
+  topic?: string;
+}
+
+export interface RefSheet {
+  id: string;
+  title: string;
+  body: string; // Markdown
+}
+
+/** A choice can be a number, text, or a label shown in text with a number used in math. */
+export type DrillChoice = number | string | { label: string; value: number };
+
+export type DrillVar = { min: number; max: number; step?: number } | { choices: DrillChoice[] };
+
+export type NumFormat = "money" | "money0" | "percent" | "number" | "integer";
+
+export interface Drill {
+  id: string;
+  title: string;
+  topic?: string;
+  /** Random inputs. */
+  vars: Record<string, DrillVar>;
+  /** Derived values, evaluated in order. Expressions: + - * / ^ ( ) round floor ceil abs min max. */
+  calc?: Record<string, string>;
+  /** Text with {name} or {name:format} placeholders. */
+  prompt: string;
+  /** Name of the var/calc value that is the answer. */
+  answer: string;
+  format: NumFormat;
+  /** Accepted absolute difference. Defaults by format. */
+  tolerance?: number;
+  /** Worked solution, same placeholder syntax. */
+  solution: string;
+}
+
+export interface Course {
+  format: "examiner-course";
+  version: 1;
+  id: string;
+  title: string;
+  description?: string;
+  author?: string;
+  updated?: string;
+  modules: Module[];
+  lessons: Lesson[];
+  banks: Bank[];
+  decks: Deck[];
+  glossary: GlossaryEntry[];
+  references: RefSheet[];
+  drills: Drill[];
+}
+
+// ---------------------------------------------------------------------------
+
+export interface CardState {
+  /** YYYY-MM-DD the card is next due. */
+  due: string;
+  /** Interval in days. */
+  ivl: number;
+  ease: number;
+  reps: number;
+  lapses: number;
+  last: string;
+  /** YYYY-MM-DD the card was first studied (for the new-cards-per-day limit). */
+  first?: string;
+}
+
+export interface Plan {
+  examDate: string; // YYYY-MM-DD
+  daysPerWeek: number; // 1-7
+  newCardsPerDay: number;
+  createdAt: string;
+}
+
+export interface DayActivity {
+  questions: number;
+  cards: number;
+  lessons: number;
+  drills: number;
+}
+
 export interface Progress {
   version: 1;
   seeded: boolean;
+  /** Bundled courses already installed once (so deleting one doesn't bring it back). */
+  seededCourses?: string[];
   theme?: "light" | "dark" | "system";
   attempts: Attempt[];
   /** bankId -> questionId -> stats */
   stats: Record<string, Record<string, QuestionStat>>;
+  /** `${courseId}/${deckId}/${cardId}` -> spaced-repetition state */
+  cards: Record<string, CardState>;
+  /** `${courseId}/${lessonId}` -> local YYYY-MM-DD completed */
+  lessonsDone: Record<string, string>;
+  /** courseId -> plan */
+  plans: Record<string, Plan>;
+  /** YYYY-MM-DD -> counts (for streaks and today's checklist) */
+  activity: Record<string, DayActivity>;
+  /** `${courseId}/${drillId}` -> tallies */
+  drills: Record<string, { attempts: number; correct: number }>;
 }

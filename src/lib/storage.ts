@@ -3,24 +3,69 @@
 // without Tauri) it falls back to localStorage so the UI can be worked on.
 
 import { invoke, isTauri } from "@tauri-apps/api/core";
-import type { Bank, Progress } from "./types";
+import type { Bank, Course, Progress } from "./types";
 import { parseBank, serializeBank } from "./validate";
+import { normalizeCourse, serializeCourse } from "./course";
 
 export const inApp = isTauri();
 
 const LS_BANK = "examiner.bank.";
+const LS_COURSE = "examiner.course.";
 const LS_PROGRESS = "examiner.progress";
 
 export function emptyProgress(): Progress {
-  return { version: 1, seeded: false, attempts: [], stats: {} };
+  return {
+    version: 1,
+    seeded: false,
+    attempts: [],
+    stats: {},
+    cards: {},
+    lessonsDone: {},
+    plans: {},
+    activity: {},
+    drills: {},
+  };
+}
+
+async function listRaw(kind: "banks" | "courses"): Promise<string[]> {
+  if (inApp) return invoke<string[]>("list_items", { kind });
+  const prefix = kind === "banks" ? LS_BANK : LS_COURSE;
+  return Object.keys(localStorage)
+    .filter((k) => k.startsWith(prefix))
+    .map((k) => localStorage.getItem(k) ?? "");
+}
+
+export async function listCourses(): Promise<{ courses: Course[]; broken: string[] }> {
+  const courses: Course[] = [];
+  const broken: string[] = [];
+  for (const t of await listRaw("courses")) {
+    try {
+      courses.push(normalizeCourse(JSON.parse(t)));
+    } catch (e) {
+      broken.push(`Course: ${(e as Error).message}`);
+    }
+  }
+  courses.sort((a, b) => a.title.localeCompare(b.title));
+  return { courses, broken };
+}
+
+export async function saveCourse(course: Course): Promise<void> {
+  const content = serializeCourse(course);
+  if (inApp) await invoke("save_item", { kind: "courses", id: course.id, content });
+  else localStorage.setItem(LS_COURSE + course.id, content);
+}
+
+export async function deleteCourse(id: string): Promise<void> {
+  if (inApp) await invoke("delete_item", { kind: "courses", id });
+  else localStorage.removeItem(LS_COURSE + id);
+}
+
+export async function exportCourseFile(course: Course): Promise<boolean> {
+  return exportText(serializeCourse(course), `${course.id}.json`, "Examiner course");
 }
 
 export async function listBanks(): Promise<{ banks: Bank[]; broken: string[] }> {
-  const texts: string[] = inApp
-    ? await invoke<string[]>("list_banks")
-    : Object.keys(localStorage)
-        .filter((k) => k.startsWith(LS_BANK))
-        .map((k) => localStorage.getItem(k) ?? "");
+  const texts = await listRaw("banks");
   const banks: Bank[] = [];
   const broken: string[] = [];
   for (const t of texts) {
@@ -36,12 +81,12 @@ export async function listBanks(): Promise<{ banks: Bank[]; broken: string[] }> 
 
 export async function saveBank(bank: Bank): Promise<void> {
   const content = serializeBank(bank);
-  if (inApp) await invoke("save_bank", { id: bank.id, content });
+  if (inApp) await invoke("save_item", { kind: "banks", id: bank.id, content });
   else localStorage.setItem(LS_BANK + bank.id, content);
 }
 
 export async function deleteBank(id: string): Promise<void> {
-  if (inApp) await invoke("delete_bank", { id });
+  if (inApp) await invoke("delete_item", { kind: "banks", id });
   else localStorage.removeItem(LS_BANK + id);
 }
 
@@ -62,14 +107,14 @@ export async function saveProgress(p: Progress): Promise<void> {
   else localStorage.setItem(LS_PROGRESS, content);
 }
 
-/** Ask the user for a bank file. Returns its text, or null if cancelled. */
-export async function pickBankFile(): Promise<string | null> {
+/** Ask the user for a bank or course file. Returns its text, or null if cancelled. */
+export async function pickJsonFile(): Promise<string | null> {
   if (inApp) {
     const { open } = await import("@tauri-apps/plugin-dialog");
     const path = await open({
       multiple: false,
       directory: false,
-      filters: [{ name: "Examiner question bank", extensions: ["json"] }],
+      filters: [{ name: "Examiner course or question bank", extensions: ["json"] }],
     });
     if (!path || Array.isArray(path)) return null;
     return invoke<string>("read_text_file", { path });
@@ -89,14 +134,13 @@ export async function pickBankFile(): Promise<string | null> {
 
 /** Save a bank to a file the user chooses. Returns false if cancelled. */
 export async function exportBankFile(bank: Bank): Promise<boolean> {
-  const content = serializeBank(bank);
-  const name = `${bank.id}.json`;
+  return exportText(serializeBank(bank), `${bank.id}.json`, "Examiner question bank");
+}
+
+async function exportText(content: string, name: string, label: string): Promise<boolean> {
   if (inApp) {
     const { save } = await import("@tauri-apps/plugin-dialog");
-    const path = await save({
-      defaultPath: name,
-      filters: [{ name: "Examiner question bank", extensions: ["json"] }],
-    });
+    const path = await save({ defaultPath: name, filters: [{ name: label, extensions: ["json"] }] });
     if (!path) return false;
     await invoke("write_text_file", { path, content });
     return true;

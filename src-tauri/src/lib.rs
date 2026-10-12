@@ -1,4 +1,4 @@
-//! Examiner backend: stores question banks and progress as JSON files in the
+//! Examiner backend: stores courses, question banks and progress as JSON files in the
 //! per-user app data directory, and reads/writes files the user picks for
 //! import/export.
 
@@ -7,7 +7,18 @@ use std::path::PathBuf;
 use tauri::{AppHandle, Manager};
 
 const PROGRESS_FILE: &str = "progress.json";
-const BANKS_DIR: &str = "banks";
+
+/// Stored collections. Each item is one JSON file named after its id.
+fn collection_dir(app: &AppHandle, kind: &str) -> Result<PathBuf, String> {
+    let sub = match kind {
+        "banks" => "banks",
+        "courses" => "courses",
+        _ => return Err(format!("unknown collection: {kind:?}")),
+    };
+    let dir = data_dir(app)?.join(sub);
+    fs::create_dir_all(&dir).map_err(|e| format!("cannot create {}: {e}", dir.display()))?;
+    Ok(dir)
+}
 
 fn data_dir(app: &AppHandle) -> Result<PathBuf, String> {
     let dir = app
@@ -18,23 +29,17 @@ fn data_dir(app: &AppHandle) -> Result<PathBuf, String> {
     Ok(dir)
 }
 
-fn banks_dir(app: &AppHandle) -> Result<PathBuf, String> {
-    let dir = data_dir(app)?.join(BANKS_DIR);
-    fs::create_dir_all(&dir).map_err(|e| format!("cannot create {}: {e}", dir.display()))?;
-    Ok(dir)
-}
-
-/// Bank ids become file names, so restrict them to a safe character set.
-fn bank_path(app: &AppHandle, id: &str) -> Result<PathBuf, String> {
+/// Item ids become file names, so restrict them to a safe character set.
+fn item_path(app: &AppHandle, kind: &str, id: &str) -> Result<PathBuf, String> {
     let valid = !id.is_empty()
         && id.len() <= 100
         && id
             .chars()
             .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == '_');
     if !valid {
-        return Err(format!("invalid bank id: {id:?}"));
+        return Err(format!("invalid id: {id:?}"));
     }
-    Ok(banks_dir(app)?.join(format!("{id}.json")))
+    Ok(collection_dir(app, kind)?.join(format!("{id}.json")))
 }
 
 /// Write via a temp file + rename so a crash never leaves a half-written file.
@@ -44,10 +49,10 @@ fn write_atomic(path: &PathBuf, content: &str) -> Result<(), String> {
     fs::rename(&tmp, path).map_err(|e| format!("rename failed: {e}"))
 }
 
-/// Returns the raw JSON text of every stored bank; the frontend validates.
+/// Returns the raw JSON text of every stored item; the frontend validates.
 #[tauri::command]
-fn list_banks(app: AppHandle) -> Result<Vec<String>, String> {
-    let dir = banks_dir(&app)?;
+fn list_items(app: AppHandle, kind: String) -> Result<Vec<String>, String> {
+    let dir = collection_dir(&app, &kind)?;
     let mut out = Vec::new();
     let entries = fs::read_dir(&dir).map_err(|e| format!("read_dir failed: {e}"))?;
     for entry in entries.flatten() {
@@ -62,15 +67,15 @@ fn list_banks(app: AppHandle) -> Result<Vec<String>, String> {
 }
 
 #[tauri::command]
-fn save_bank(app: AppHandle, id: String, content: String) -> Result<(), String> {
+fn save_item(app: AppHandle, kind: String, id: String, content: String) -> Result<(), String> {
     serde_json::from_str::<serde_json::Value>(&content)
-        .map_err(|e| format!("bank is not valid JSON: {e}"))?;
-    write_atomic(&bank_path(&app, &id)?, &content)
+        .map_err(|e| format!("content is not valid JSON: {e}"))?;
+    write_atomic(&item_path(&app, &kind, &id)?, &content)
 }
 
 #[tauri::command]
-fn delete_bank(app: AppHandle, id: String) -> Result<(), String> {
-    let path = bank_path(&app, &id)?;
+fn delete_item(app: AppHandle, kind: String, id: String) -> Result<(), String> {
+    let path = item_path(&app, &kind, &id)?;
     if path.exists() {
         fs::remove_file(path).map_err(|e| format!("delete failed: {e}"))?;
     }
@@ -115,9 +120,9 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .invoke_handler(tauri::generate_handler![
-            list_banks,
-            save_bank,
-            delete_bank,
+            list_items,
+            save_item,
+            delete_item,
             load_progress,
             save_progress,
             read_text_file,

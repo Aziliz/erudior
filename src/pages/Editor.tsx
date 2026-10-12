@@ -57,8 +57,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
       return;
     }
     try {
-      await store.saveBank(draft);
-      await api.reloadBanks();
+      await api.saveBank(draft);
       setDirty(false);
       api.toast("Bank saved");
     } catch (e) {
@@ -471,7 +470,7 @@ function Settings({ draft, update }: { draft: Bank; update: (fn: (b: Bank) => Ba
         <h3 style={{ marginBottom: 4 }}>Sections</h3>
         <p className="small muted" style={{ marginBottom: 12 }}>
           Optional. Set a per-exam count to keep each section in its own block with a fixed number of questions, like a
-          national and a state portion. Leave the count blank to draw freely.
+          national and a state portion. Leave the count blank to draw freely. A pass mark makes each section pass or fail on its own.
         </p>
         {draft.sections.length > 0 && (
           <table className="table" style={{ marginBottom: 12 }}>
@@ -480,6 +479,7 @@ function Settings({ draft, update }: { draft: Bank; update: (fn: (b: Bank) => Ba
                 <th>Name</th>
                 <th className="r">In bank</th>
                 <th className="r">Per exam</th>
+                <th className="r">Pass %</th>
                 <th />
               </tr>
             </thead>
@@ -511,6 +511,22 @@ function Settings({ draft, update }: { draft: Bank; update: (fn: (b: Bank) => Ba
                         if (n > 0) next[s.id] = n;
                         else delete next[s.id];
                         setExam({ sectionQuotas: Object.keys(next).length ? next : undefined });
+                      }}
+                    />
+                  </td>
+                  <td className="r" style={{ width: 100 }}>
+                    <input
+                      className="input num"
+                      type="number"
+                      min={0}
+                      max={100}
+                      value={draft.exam.sectionPassing?.[s.id] ?? ""}
+                      onChange={(e) => {
+                        const n = Number(e.target.value);
+                        const next = { ...(draft.exam.sectionPassing ?? {}) };
+                        if (n > 0 && n <= 100) next[s.id] = n;
+                        else delete next[s.id];
+                        setExam({ sectionPassing: Object.keys(next).length ? next : undefined });
                       }}
                     />
                   </td>

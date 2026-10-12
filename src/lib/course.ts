@@ -1,0 +1,172 @@
+import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, Lesson, Module, RefSheet } from "./types";
+import { BankError, normalizeBank } from "./validate";
+import { slugify, uid } from "./util";
+
+const SEP = "__";
+
+export const bankKey = (courseId: string, localId: string) => `${courseId}${SEP}${localId}`;
+
+export function localBankId(bank: Bank): string {
+  return bank.courseId && bank.id.startsWith(bank.courseId + SEP) ? bank.id.slice(bank.courseId.length + SEP.length) : bank.id;
+}
+
+const isObj = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
+const str = (v: unknown) => (typeof v === "string" ? v : "");
+const arr = (v: unknown): unknown[] => (Array.isArray(v) ? v : []);
+const safeId = (v: unknown, fallback: string) => (/^[A-Za-z0-9_-]{1,100}$/.test(str(v)) ? str(v) : fallback);
+
+export function looksLikeCourse(raw: unknown): boolean {
+  return isObj(raw) && (raw.format === "examiner-course" || Array.isArray(raw.lessons) || Array.isArray(raw.decks));
+}
+
+export function normalizeCourse(raw: unknown): Course {
+  if (!isObj(raw)) throw new BankError("The course must be a JSON object.");
+  const title = str(raw.title).trim();
+  if (!title) throw new BankError('The course needs a "title".');
+  const id = safeId(raw.id, slugify(title));
+
+  const modules: Module[] = arr(raw.modules)
+    .filter(isObj)
+    .map((m, i) => ({ id: safeId(m.id, `m${i + 1}`), title: str(m.title) || `Module ${i + 1}` }));
+
+  const lessons: Lesson[] = arr(raw.lessons)
+    .filter(isObj)
+    .map((l, i) => {
+      const module = str(l.module) || modules[0]?.id || "main";
+      if (!modules.some((m) => m.id === module)) modules.push({ id: module, title: module });
+      return {
+        id: safeId(l.id, `l${i + 1}`),
+        module,
+        title: str(l.title) || `Lesson ${i + 1}`,
+        topics: arr(l.topics).map(String).filter(Boolean),
+        minutes: Number(l.minutes) > 0 ? Number(l.minutes) : undefined,
+        body: str(l.body),
+      };
+    });
+
+  const banks: Bank[] = arr(raw.banks).map((b, i) => {
+    try {
+      const nb = normalizeBank(b);
+      return { ...nb, id: bankKey(id, nb.id), courseId: id };
+    } catch (e) {
+      throw new BankError(`Question bank ${i + 1}: ${(e as Error).message}`);
+    }
+  });
+
+  const decks: Deck[] = arr(raw.decks)
+    .filter(isObj)
+    .map((d, i) => ({
+      id: safeId(d.id, `d${i + 1}`),
+      title: str(d.title) || `Deck ${i + 1}`,
+      description: str(d.description) || undefined,
+      cards: arr(d.cards)
+        .filter(isObj)
+        .map((c, j): Card => ({
+          id: safeId(c.id, `c${j + 1}`),
+          front: str(c.front),
+          back: str(c.back),
+          topic: str(c.topic) || undefined,
+        }))
+        .filter((c) => c.front && c.back),
+    }));
+
+  const glossary: GlossaryEntry[] = arr(raw.glossary)
+    .filter(isObj)
+    .map((g) => ({
+      term: str(g.term).trim(),
+      definition: str(g.definition).trim(),
+      aliases: arr(g.aliases).map(String).filter(Boolean),
+      topic: str(g.topic) || undefined,
+    }))
+    .filter((g) => g.term && g.definition)
+    .sort((a, b) => a.term.localeCompare(b.term, undefined, { sensitivity: "base" }));
+
+  const references: RefSheet[] = arr(raw.references)
+    .filter(isObj)
+    .map((r, i) => ({ id: safeId(r.id, `r${i + 1}`), title: str(r.title) || `Sheet ${i + 1}`, body: str(r.body) }));
+
+  const drills: Drill[] = arr(raw.drills)
+    .filter(isObj)
+    .map((d, i) => ({
+      id: safeId(d.id, `x${i + 1}`),
+      title: str(d.title) || `Drill ${i + 1}`,
+      topic: str(d.topic) || undefined,
+      vars: (isObj(d.vars) ? d.vars : {}) as Drill["vars"],
+      calc: (isObj(d.calc) ? d.calc : undefined) as Drill["calc"],
+      prompt: str(d.prompt),
+      answer: str(d.answer),
+      format: (["money", "money0", "percent", "number", "integer"].includes(str(d.format))
+        ? str(d.format)
+        : "number") as Drill["format"],
+      tolerance: Number.isFinite(Number(d.tolerance)) && d.tolerance !== undefined ? Number(d.tolerance) : undefined,
+      solution: str(d.solution),
+    }));
+
+  return {
+    format: "examiner-course",
+    version: 1,
+    id,
+    title,
+    description: str(raw.description).trim() || undefined,
+    author: str(raw.author).trim() || undefined,
+    updated: str(raw.updated) || undefined,
+    modules,
+    lessons,
+    banks,
+    decks,
+    glossary,
+    references,
+    drills,
+  };
+}
+
+export function serializeCourse(course: Course): string {
+  const out = {
+    ...course,
+    updated: new Date().toISOString(),
+    banks: course.banks.map((b) => {
+      const { courseId: _c, ...rest } = b;
+      return { ...rest, id: localBankId(b) };
+    }),
+  };
+  return JSON.stringify(out, null, 2);
+}
+
+export function emptyCourse(title = "Untitled course"): Course {
+  const id = `${slugify(title)}-${uid()}`;
+  return {
+    format: "examiner-course",
+    version: 1,
+    id,
+    title,
+    modules: [{ id: "m1", title: "Module 1" }],
+    lessons: [],
+    banks: [],
+    decks: [],
+    glossary: [],
+    references: [],
+    drills: [],
+  };
+}
+
+/** Replace one bank (matched by runtime id) inside its course. */
+export function withBank(course: Course, bank: Bank): Course {
+  const exists = course.banks.some((b) => b.id === bank.id);
+  return { ...course, banks: exists ? course.banks.map((b) => (b.id === bank.id ? bank : b)) : [...course.banks, bank] };
+}
+
+export function withDeck(course: Course, deck: Deck): Course {
+  const exists = course.decks.some((d) => d.id === deck.id);
+  return { ...course, decks: exists ? course.decks.map((d) => (d.id === deck.id ? deck : d)) : [...course.decks, deck] };
+}
+
+export function courseCounts(c: Course) {
+  return {
+    lessons: c.lessons.length,
+    questions: c.banks.reduce((s, b) => s + b.questions.length, 0),
+    cards: c.decks.reduce((s, d) => s + d.cards.length, 0),
+    terms: c.glossary.length,
+    drills: c.drills.length,
+    references: c.references.length,
+  };
+}

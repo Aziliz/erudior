@@ -1,12 +1,19 @@
 # Examiner
 
-A desktop multiple-choice exam simulator for Linux and Windows, built with Tauri 2, React and TypeScript.
+A desktop study app for licensing and certification exams, for Linux and Windows. Built with Tauri 2, React and TypeScript.
 
+Content is organized into **courses**. Each course is one file with its own lessons, question banks, notecards, glossary, quick-reference sheets and math drills, so different subjects never mix. See [docs/COURSE_FORMAT.md](docs/COURSE_FORMAT.md).
+
+- **Study planner**: set an exam date and get a daily checklist (lessons, card reviews, practice, drills, full exams near the end), a streak, and a readiness estimate.
+- **Lessons**: Markdown lessons grouped into modules, with glossary pop-ups, completion tracking, and "practice this topic" links.
+- **Notecards**: spaced repetition (Again/Hard/Good/Easy) plus a cram mode that doesn't affect the schedule. Decks are editable in the app.
+- **Math drills**: problem templates that generate fresh numbers every time, with worked solutions.
+- **Glossary and quick-reference sheets**: searchable terms and printable one-page summaries.
 - **Timed exam mode**: random draw from the bank (with optional fixed counts per section), countdown that auto-submits, flag-for-review, an answer-sheet navigator, and a score report by section and topic.
 - **Practice mode**: check each answer and read the explanation. Filter by topic, section, unseen, last missed, or under-70% questions.
 - **Built-in editor**: write and edit questions, sections and exam defaults. Supports multi-answer questions.
 - **Progress tracking**: session history, score trend, weakest topics, and one-click practice of missed questions.
-- **Open format**: banks are plain JSON (see [docs/BANK_FORMAT.md](docs/BANK_FORMAT.md)).
+- **Open format**: courses and banks are plain JSON (see [docs/COURSE_FORMAT.md](docs/COURSE_FORMAT.md) and [docs/BANK_FORMAT.md](docs/BANK_FORMAT.md)).
 
 Data lives in the per-user app data folder. The path is shown at the bottom of the Progress screen:
 
@@ -21,7 +28,9 @@ Data lives in the per-user app data folder. The path is shown at the bottom of t
 | `←` `→` | Previous or next question |
 | `F` | Flag for review |
 | `Enter` | Practice: check the answer, then go to the next question |
-| `Ctrl+S` | Editor: save |
+| `Space` | Notecards: flip, then rate Good |
+| `1`–`4` | Notecards: Again, Hard, Good, Easy |
+| `Ctrl+S` | Editors: save |
 
 ## Development
 

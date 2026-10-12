@@ -1,0 +1,791 @@
+[
+  {
+    "id": "x-commission",
+    "title": "Total commission",
+    "topic": "Commission",
+    "vars": {
+      "price": {
+        "min": 250000,
+        "max": 950000,
+        "step": 2500
+      },
+      "rate": {
+        "choices": [
+          2.5,
+          3,
+          4,
+          5,
+          5.5,
+          6
+        ]
+      }
+    },
+    "calc": {
+      "comm": "price * rate / 100"
+    },
+    "prompt": "A home sells for {price:money0}. The listing contract sets a total commission of {rate}% of the sale price. What is the total commission?",
+    "answer": "comm",
+    "format": "money",
+    "solution": "Commission = price × rate = {price:money0} × {rate}% = **{comm:money}**."
+  },
+  {
+    "id": "x-split",
+    "title": "Commission split to the broker",
+    "topic": "Commission",
+    "vars": {
+      "price": {
+        "min": 300000,
+        "max": 900000,
+        "step": 5000
+      },
+      "rate": {
+        "choices": [
+          5,
+          5.5,
+          6
+        ]
+      },
+      "listShare": {
+        "choices": [
+          50,
+          55,
+          60
+        ]
+      },
+      "brokerShare": {
+        "choices": [
+          60,
+          65,
+          70,
+          75,
+          80
+        ]
+      }
+    },
+    "calc": {
+      "total": "price * rate / 100",
+      "firm": "total * listShare / 100",
+      "mine": "firm * brokerShare / 100"
+    },
+    "prompt": "A home sells for {price:money0} with a {rate}% total commission. The listing firm keeps {listShare}% of the commission and pays the rest to the buyer's firm. The listing broker's agreement with her employing broker gives her {brokerShare}% of what her firm receives. How much does the listing broker earn?",
+    "answer": "mine",
+    "format": "money",
+    "solution": "1. Total commission: {price:money0} × {rate}% = {total:money}.\n2. Listing firm's share: {total:money} × {listShare}% = {firm:money}.\n3. Broker's share: {firm:money} × {brokerShare}% = **{mine:money}**."
+  },
+  {
+    "id": "x-net",
+    "title": "Seller's net proceeds",
+    "topic": "Closing math",
+    "vars": {
+      "price": {
+        "min": 300000,
+        "max": 850000,
+        "step": 5000
+      },
+      "rate": {
+        "choices": [
+          5,
+          5.5,
+          6
+        ]
+      },
+      "payoff": {
+        "min": 90000,
+        "max": 260000,
+        "step": 1000
+      },
+      "costs": {
+        "min": 2500,
+        "max": 7500,
+        "step": 250
+      }
+    },
+    "calc": {
+      "comm": "price * rate / 100",
+      "net": "price - comm - payoff - costs"
+    },
+    "prompt": "A seller accepts {price:money0}. She owes {payoff:money0} on her loan, will pay a {rate}% commission, and has {costs:money0} in other closing costs. What are her net proceeds?",
+    "answer": "net",
+    "format": "money",
+    "solution": "Commission: {price:money0} × {rate}% = {comm:money}.\nNet = {price:money0} − {comm:money} − {payoff:money0} − {costs:money0} = **{net:money}**."
+  },
+  {
+    "id": "x-price-to-net",
+    "title": "Price needed to net a target",
+    "topic": "Closing math",
+    "vars": {
+      "target": {
+        "min": 150000,
+        "max": 400000,
+        "step": 5000
+      },
+      "costs": {
+        "min": 3000,
+        "max": 9000,
+        "step": 500
+      },
+      "rate": {
+        "choices": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "calc": {
+      "sum": "target + costs",
+      "keep": "100 - rate",
+      "price": "(target + costs) / (1 - rate / 100)"
+    },
+    "prompt": "A seller wants to walk away with {target:money0} after paying {costs:money0} in closing costs and a {rate}% commission on the sale price. What's the lowest sale price that does it? Round to the nearest dollar.",
+    "answer": "price",
+    "format": "money0",
+    "solution": "The commission comes out of the sale price, so the seller keeps {keep}% of it.\nPrice = (net + costs) ÷ (1 − commission rate) = {sum:money0} ÷ {keep}% = **{price:money0}**.\n\nA common mistake is adding {rate}% to the net, which comes up short."
+  },
+  {
+    "id": "x-ltv",
+    "title": "Loan amount from LTV",
+    "topic": "Financing math",
+    "vars": {
+      "price": {
+        "min": 300000,
+        "max": 800000,
+        "step": 5000
+      },
+      "appraisalGap": {
+        "choices": [
+          0,
+          0,
+          5000,
+          10000,
+          15000
+        ]
+      },
+      "ltv": {
+        "choices": [
+          80,
+          85,
+          90,
+          95,
+          97
+        ]
+      }
+    },
+    "calc": {
+      "appraised": "price - appraisalGap",
+      "basis": "min(price, appraised)",
+      "loan": "basis * ltv / 100"
+    },
+    "prompt": "A buyer contracts to pay {price:money0}. The home appraises at {appraised:money0}. The lender will lend {ltv}% of the price or the appraised value, whichever is lower. What is the maximum loan?",
+    "answer": "loan",
+    "format": "money",
+    "solution": "Lenders use the lower of price and appraised value: {basis:money0}.\nLoan = {basis:money0} × {ltv}% = **{loan:money}**."
+  },
+  {
+    "id": "x-points",
+    "title": "Discount points",
+    "topic": "Financing math",
+    "vars": {
+      "price": {
+        "min": 250000,
+        "max": 700000,
+        "step": 5000
+      },
+      "down": {
+        "choices": [
+          5,
+          10,
+          20
+        ]
+      },
+      "points": {
+        "choices": [
+          0.5,
+          1,
+          1.5,
+          2,
+          2.5
+        ]
+      }
+    },
+    "calc": {
+      "loan": "price * (1 - down / 100)",
+      "cost": "loan * points / 100"
+    },
+    "prompt": "A buyer pays {price:money0} with {down}% down and pays {points} discount points on the loan. How much do the points cost?",
+    "answer": "cost",
+    "format": "money",
+    "solution": "Points are charged on the **loan**, not the price.\nLoan = {price:money0} × (100% − {down}%) = {loan:money}.\nPoints = {loan:money} × {points}% = **{cost:money}**."
+  },
+  {
+    "id": "x-interest",
+    "title": "First month's interest",
+    "topic": "Financing math",
+    "vars": {
+      "loan": {
+        "min": 200000,
+        "max": 650000,
+        "step": 5000
+      },
+      "rate": {
+        "choices": [
+          5.5,
+          6,
+          6.25,
+          6.5,
+          6.75,
+          7,
+          7.5
+        ]
+      }
+    },
+    "calc": {
+      "interest": "round(loan * rate / 100 / 12, 2)"
+    },
+    "prompt": "A {loan:money0} loan carries {rate}% annual interest. How much interest is due for the first month?",
+    "answer": "interest",
+    "format": "money",
+    "solution": "Annual interest = {loan:money0} × {rate}%. Divide by 12 for one month: **{interest:money}**."
+  },
+  {
+    "id": "x-principal",
+    "title": "Principal paid in the first payment",
+    "topic": "Financing math",
+    "vars": {
+      "loan": {
+        "min": 200000,
+        "max": 500000,
+        "step": 5000
+      },
+      "rate": {
+        "choices": [
+          5.5,
+          6,
+          6.5,
+          7,
+          7.5
+        ]
+      }
+    },
+    "calc": {
+      "r": "rate / 1200",
+      "pmt": "round(loan * r / (1 - (1 + r) ^ (-360)), 2)",
+      "interest": "round(loan * rate / 100 / 12, 2)",
+      "principal": "pmt - interest"
+    },
+    "prompt": "A borrower's monthly principal and interest payment on a 30-year {loan:money0} loan at {rate}% is {pmt:money}. How much of the first payment goes to principal?",
+    "answer": "principal",
+    "format": "money",
+    "solution": "First month's interest = {loan:money0} × {rate}% ÷ 12 = {interest:money}.\nPrincipal = payment − interest = {pmt:money} − {interest:money} = **{principal:money}**."
+  },
+  {
+    "id": "x-acres",
+    "title": "Square feet to acres",
+    "topic": "Area and land",
+    "vars": {
+      "w": {
+        "min": 120,
+        "max": 600,
+        "step": 10
+      },
+      "d": {
+        "min": 200,
+        "max": 900,
+        "step": 10
+      }
+    },
+    "calc": {
+      "sqft": "w * d",
+      "acres": "round(sqft / 43560, 2)"
+    },
+    "prompt": "A rectangular parcel measures {w} feet by {d} feet. How many acres is it? Round to two decimal places.",
+    "answer": "acres",
+    "format": "number",
+    "tolerance": 0.01,
+    "solution": "Area = {w} × {d} = {sqft:int} sq ft.\nAcres = {sqft:int} ÷ 43,560 = **{acres:num2}** acres."
+  },
+  {
+    "id": "x-survey",
+    "title": "Rectangular survey acreage",
+    "topic": "Area and land",
+    "vars": {
+      "a": {
+        "choices": [
+          {
+            "label": "NE ¼",
+            "value": 4
+          },
+          {
+            "label": "NW ¼",
+            "value": 4
+          },
+          {
+            "label": "SE ¼",
+            "value": 4
+          },
+          {
+            "label": "SW ¼",
+            "value": 4
+          },
+          {
+            "label": "N ½",
+            "value": 2
+          },
+          {
+            "label": "S ½",
+            "value": 2
+          },
+          {
+            "label": "E ½",
+            "value": 2
+          },
+          {
+            "label": "W ½",
+            "value": 2
+          }
+        ]
+      },
+      "b": {
+        "choices": [
+          {
+            "label": "NE ¼",
+            "value": 4
+          },
+          {
+            "label": "NW ¼",
+            "value": 4
+          },
+          {
+            "label": "SE ¼",
+            "value": 4
+          },
+          {
+            "label": "SW ¼",
+            "value": 4
+          },
+          {
+            "label": "N ½",
+            "value": 2
+          },
+          {
+            "label": "S ½",
+            "value": 2
+          }
+        ]
+      },
+      "c": {
+        "choices": [
+          {
+            "label": "NE ¼",
+            "value": 4
+          },
+          {
+            "label": "NW ¼",
+            "value": 4
+          },
+          {
+            "label": "SE ¼",
+            "value": 4
+          },
+          {
+            "label": "SW ¼",
+            "value": 4
+          }
+        ]
+      },
+      "sec": {
+        "min": 1,
+        "max": 36,
+        "step": 1
+      }
+    },
+    "calc": {
+      "da": "a",
+      "db": "b",
+      "dc": "c",
+      "acres": "640 / a / b / c"
+    },
+    "prompt": "How many acres are in the {a} of the {b} of the {c} of Section {sec}?",
+    "answer": "acres",
+    "format": "number",
+    "solution": "A section is 640 acres. Divide by each fraction's denominator: 640 ÷ {dc:int} ÷ {db:int} ÷ {da:int} = **{acres:num2} acres**.\nThe order doesn't matter for the math; only the denominators do.",
+    "tolerance": 0.01
+  },
+  {
+    "id": "x-cap",
+    "title": "Value by cap rate",
+    "topic": "Valuation math",
+    "vars": {
+      "units": {
+        "choices": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ]
+      },
+      "rent": {
+        "min": 1200,
+        "max": 2400,
+        "step": 50
+      },
+      "vac": {
+        "choices": [
+          4,
+          5,
+          6,
+          8
+        ]
+      },
+      "cap": {
+        "choices": [
+          5,
+          5.5,
+          6,
+          6.5,
+          7,
+          7.5,
+          8
+        ]
+      },
+      "opexPct": {
+        "choices": [
+          30,
+          35,
+          40,
+          45
+        ]
+      }
+    },
+    "calc": {
+      "pgi": "units * rent * 12",
+      "egi": "pgi * (1 - vac / 100)",
+      "opex": "round(egi * opexPct / 100 / 100) * 100",
+      "noi": "egi - opex",
+      "value": "noi / (cap / 100)"
+    },
+    "prompt": "A {units}-unit building rents each unit for {rent:money0} a month. Expect {vac}% vacancy and collection loss and {opex:money0} a year in operating expenses. Comparable sales indicate a {cap}% cap rate. What is the indicated value? Round to the nearest dollar.",
+    "answer": "value",
+    "format": "money0",
+    "solution": "1. Potential gross income: {units} × {rent:money0} × 12 = {pgi:money0}.\n2. Effective gross income: {pgi:money0} × (100% − {vac}%) = {egi:money0}.\n3. NOI: {egi:money0} − {opex:money0} = {noi:money0}. (Mortgage payments are not operating expenses.)\n4. Value = NOI ÷ cap rate = {noi:money0} ÷ {cap}% = **{value:money0}**."
+  },
+  {
+    "id": "x-caprate",
+    "title": "Find the cap rate",
+    "topic": "Valuation math",
+    "vars": {
+      "noi": {
+        "min": 40000,
+        "max": 250000,
+        "step": 1000
+      },
+      "price": {
+        "min": 600000,
+        "max": 3500000,
+        "step": 25000
+      }
+    },
+    "calc": {
+      "cap": "round(noi / price * 100, 2)"
+    },
+    "prompt": "An investor pays {price:money0} for a property with net operating income of {noi:money0}. What is the cap rate? Answer as a percentage rounded to two decimal places.",
+    "answer": "cap",
+    "format": "percent",
+    "solution": "Cap rate = NOI ÷ price = {noi:money0} ÷ {price:money0} = **{cap}%**."
+  },
+  {
+    "id": "x-grm",
+    "title": "Gross rent multiplier",
+    "topic": "Valuation math",
+    "vars": {
+      "rent": {
+        "min": 1500,
+        "max": 3500,
+        "step": 50
+      },
+      "grm": {
+        "choices": [
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180
+        ]
+      }
+    },
+    "calc": {
+      "value": "rent * grm"
+    },
+    "prompt": "Similar rental homes in the neighborhood sell for about {grm} times their monthly rent. What is the indicated value of a home renting for {rent:money0} a month?",
+    "answer": "value",
+    "format": "money0",
+    "solution": "Value = monthly rent × GRM = {rent:money0} × {grm} = **{value:money0}**."
+  },
+  {
+    "id": "x-mill",
+    "title": "Property tax from a mill levy",
+    "topic": "Taxes",
+    "vars": {
+      "assessed": {
+        "min": 18000,
+        "max": 55000,
+        "step": 10
+      },
+      "mills": {
+        "min": 60,
+        "max": 130,
+        "step": 0.5
+      }
+    },
+    "calc": {
+      "tax": "assessed * mills / 1000"
+    },
+    "prompt": "A home's assessed value is {assessed:money0} and the total mill levy is {mills} mills. What is the annual property tax?",
+    "answer": "tax",
+    "format": "money",
+    "solution": "One mill = $1 per $1,000 of assessed value (0.001).\nTax = {assessed:money0} × {mills} ÷ 1,000 = **{tax:money}**."
+  },
+  {
+    "id": "x-docfee",
+    "title": "Colorado documentary fee",
+    "topic": "Taxes",
+    "vars": {
+      "price": {
+        "min": 150000,
+        "max": 1200000,
+        "step": 1000
+      }
+    },
+    "calc": {
+      "units": "price / 100",
+      "fee": "units * 0.01"
+    },
+    "prompt": "What is the Colorado documentary fee on a {price:money0} sale?",
+    "answer": "fee",
+    "format": "money",
+    "solution": "The fee is one cent per $100 of consideration (C.R.S. 39-13-102).\n{price:money0} ÷ $100 = {units:int} units × $0.01 = **{fee:money}**. Shortcut: move the decimal point four places left."
+  },
+  {
+    "id": "x-taxprorate",
+    "title": "Colorado tax proration at closing",
+    "topic": "Prorations",
+    "vars": {
+      "m": {
+        "min": 2,
+        "max": 11,
+        "step": 1
+      },
+      "d": {
+        "min": 1,
+        "max": 28,
+        "step": 1
+      },
+      "tax": {
+        "min": 1800,
+        "max": 6500,
+        "step": 10
+      }
+    },
+    "calc": {
+      "doy": "floor(275 * m / 9) - 2 * floor((m + 9) / 12) + d - 30",
+      "days": "doy - 1",
+      "daily": "tax / 365",
+      "share": "round(tax * days / 365, 2)"
+    },
+    "prompt": "A Colorado sale closes on {m:month} {d} (not a leap year). Last year's taxes were {tax:money0}, and the contract prorates on that basis using a 365-day year. The buyer owns the day of closing. Colorado taxes are paid in arrears, so the seller hasn't paid any of this year's taxes. How much will the seller be debited (and the buyer credited)?",
+    "answer": "share",
+    "format": "money",
+    "tolerance": 0.02,
+    "solution": "The seller owns January 1 through the day before closing: {days} days.\nDaily tax = {tax:money0} ÷ 365 = {daily:num4}.\nSeller's share = {tax:money0} × {days} ÷ 365 = **{share:money}**, debited to the seller and credited to the buyer, who will pay the whole year's bill next year."
+  },
+  {
+    "id": "x-rentprorate",
+    "title": "Rent proration at closing",
+    "topic": "Prorations",
+    "vars": {
+      "rent": {
+        "min": 1400,
+        "max": 3200,
+        "step": 25
+      },
+      "d": {
+        "min": 2,
+        "max": 29,
+        "step": 1
+      }
+    },
+    "calc": {
+      "buyerDays": "30 - d + 1",
+      "credit": "round(rent / 30 * buyerDays, 2)"
+    },
+    "prompt": "A seller collected {rent:money0} rent for the month in which the sale of a rental home closes, on day {d}. Use a 30-day month; the buyer owns the day of closing. What credit does the buyer receive for rent?",
+    "answer": "credit",
+    "format": "money",
+    "tolerance": 0.02,
+    "solution": "The buyer owns days {d} through 30: {buyerDays} days.\nDaily rent = {rent:money0} ÷ 30.\nBuyer's credit = {rent:money0} ÷ 30 × {buyerDays} = **{credit:money}** (debit seller, credit buyer). Security deposits transfer separately, also as a debit to the seller and credit to the buyer."
+  },
+  {
+    "id": "x-withholding",
+    "title": "Colorado nonresident withholding",
+    "topic": "Taxes",
+    "vars": {
+      "price": {
+        "min": 150000,
+        "max": 900000,
+        "step": 5000
+      },
+      "netPct": {
+        "choices": [
+          1,
+          1.5,
+          3,
+          10,
+          25,
+          40
+        ]
+      }
+    },
+    "calc": {
+      "net": "round(price * netPct / 100, 0)",
+      "twoPct": "price * 0.02",
+      "withheld": "min(twoPct, net)"
+    },
+    "prompt": "A nonresident seller with no exemption sells Colorado property for {price:money0}. Net proceeds to the seller will be {net:money0}. How much must the closing company withhold for Colorado?",
+    "answer": "withheld",
+    "format": "money",
+    "solution": "Colorado withholding is the **lesser** of 2% of the sale price or the net proceeds (C.R.S. 39-22-604.5).\n2% of {price:money0} = {twoPct:money}; net = {net:money0}. The lesser is **{withheld:money}**."
+  },
+  {
+    "id": "x-profit",
+    "title": "Percent profit on a sale",
+    "topic": "Investment math",
+    "vars": {
+      "cost": {
+        "min": 180000,
+        "max": 500000,
+        "step": 5000
+      },
+      "gain": {
+        "choices": [
+          8,
+          12,
+          15,
+          20,
+          25,
+          30,
+          35
+        ]
+      }
+    },
+    "calc": {
+      "sale": "cost * (1 + gain / 100)",
+      "pct": "(sale - cost) / cost * 100"
+    },
+    "prompt": "An investor bought a property for {cost:money0} and sold it for {sale:money0}. What percent profit did she make on her purchase price?",
+    "answer": "pct",
+    "format": "percent",
+    "solution": "Profit = {sale:money0} − {cost:money0}. Divide by what she **paid**, not the sale price: ({sale:money0} − {cost:money0}) ÷ {cost:money0} = **{pct}%**."
+  },
+  {
+    "id": "x-equity",
+    "title": "Owner's equity",
+    "topic": "Investment math",
+    "vars": {
+      "value": {
+        "min": 350000,
+        "max": 900000,
+        "step": 5000
+      },
+      "first": {
+        "min": 120000,
+        "max": 300000,
+        "step": 1000
+      },
+      "heloc": {
+        "choices": [
+          0,
+          15000,
+          25000,
+          40000
+        ]
+      }
+    },
+    "calc": {
+      "equity": "value - first - heloc"
+    },
+    "prompt": "A home's market value is {value:money0}. The owner owes {first:money0} on the first mortgage and {heloc:money0} on a home equity line. What is the owner's equity?",
+    "answer": "equity",
+    "format": "money0",
+    "solution": "Equity = market value − all debts secured by the property = {value:money0} − {first:money0} − {heloc:money0} = **{equity:money0}**."
+  },
+  {
+    "id": "x-security",
+    "title": "Maximum Colorado security deposit",
+    "topic": "Property management",
+    "vars": {
+      "rent": {
+        "min": 1100,
+        "max": 3600,
+        "step": 25
+      }
+    },
+    "calc": {
+      "max": "rent * 2"
+    },
+    "prompt": "A Colorado residential lease sets rent at {rent:money0} a month. What is the largest security deposit the landlord may charge?",
+    "answer": "max",
+    "format": "money0",
+    "solution": "Colorado caps residential security deposits at two months' rent (C.R.S. 38-12-102.5): {rent:money0} × 2 = **{max:money0}**."
+  },
+  {
+    "id": "x-mgmtfee",
+    "title": "Property management fee",
+    "topic": "Property management",
+    "vars": {
+      "units": {
+        "choices": [
+          6,
+          8,
+          12,
+          16,
+          20,
+          24
+        ]
+      },
+      "rent": {
+        "min": 1100,
+        "max": 2200,
+        "step": 25
+      },
+      "occ": {
+        "choices": [
+          90,
+          92,
+          95,
+          96,
+          100
+        ]
+      },
+      "fee": {
+        "choices": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "calc": {
+      "collected": "units * rent * occ / 100",
+      "pay": "collected * fee / 100"
+    },
+    "prompt": "A property manager earns {fee}% of rents actually collected. The building has {units} units renting at {rent:money0}, and {occ}% of the rent was collected this month. What is the manager's fee for the month?",
+    "answer": "pay",
+    "format": "money",
+    "solution": "Collected = {units} × {rent:money0} × {occ}% = {collected:money}.\nFee = {collected:money} × {fee}% = **{pay:money}**."
+  }
+]
