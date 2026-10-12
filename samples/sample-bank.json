@@ -1,0 +1,124 @@
+{
+  "format": "examiner-bank",
+  "version": 1,
+  "id": "examiner-sample",
+  "title": "Sample bank",
+  "description": "A short general-knowledge bank for trying out Examiner. Delete it once you've imported your own.",
+  "author": "Examiner",
+  "sections": [
+    { "id": "science", "name": "Science" },
+    { "id": "geography", "name": "Geography" }
+  ],
+  "exam": {
+    "questionCount": 10,
+    "timeLimitMinutes": 10,
+    "passingPercent": 70,
+    "sectionQuotas": { "science": 5, "geography": 5 }
+  },
+  "questions": [
+    {
+      "id": "sci-1",
+      "section": "science",
+      "topic": "Chemistry",
+      "stem": "What is the chemical symbol for sodium?",
+      "choices": ["S", "Na", "So", "Sd"],
+      "answer": [1],
+      "explanation": "Na comes from the Latin name natrium."
+    },
+    {
+      "id": "sci-2",
+      "section": "science",
+      "topic": "Physics",
+      "stem": "Which quantity is measured in newtons?",
+      "choices": ["Energy", "Power", "Force", "Pressure"],
+      "answer": [2],
+      "explanation": "One newton is the force that accelerates 1 kg at 1 m/s². Energy is joules, power is watts, pressure is pascals."
+    },
+    {
+      "id": "sci-3",
+      "section": "science",
+      "topic": "Biology",
+      "stem": "Which organelle is the main site of ATP production in eukaryotic cells?",
+      "choices": ["Ribosome", "Golgi apparatus", "Nucleus", "Mitochondrion"],
+      "answer": [3],
+      "explanation": "Mitochondria produce most of the cell's ATP through cellular respiration."
+    },
+    {
+      "id": "sci-4",
+      "section": "science",
+      "topic": "Chemistry",
+      "stem": "Which of the following are noble gases? Select all that apply.",
+      "choices": ["Neon", "Nitrogen", "Argon", "Chlorine"],
+      "answer": [0, 2],
+      "explanation": "Neon and argon are in group 18. Nitrogen and chlorine are reactive nonmetals."
+    },
+    {
+      "id": "sci-5",
+      "section": "science",
+      "topic": "Physics",
+      "stem": "Light travels fastest through which medium?",
+      "choices": ["Water", "Glass", "Vacuum", "Air"],
+      "answer": [2],
+      "explanation": "Light reaches its maximum speed, about 299,792 km/s, in a vacuum."
+    },
+    {
+      "id": "sci-6",
+      "section": "science",
+      "topic": "Biology",
+      "stem": "How many chambers does the human heart have?",
+      "choices": ["Two", "Three", "Four", "Five"],
+      "answer": [2],
+      "explanation": "Two atria and two ventricles."
+    },
+    {
+      "id": "geo-1",
+      "section": "geography",
+      "topic": "U.S. geography",
+      "stem": "What is the capital of Colorado?",
+      "choices": ["Colorado Springs", "Boulder", "Denver", "Pueblo"],
+      "answer": [2]
+    },
+    {
+      "id": "geo-2",
+      "section": "geography",
+      "topic": "World geography",
+      "stem": "Which is the longest river in South America?",
+      "choices": ["Paraná", "Amazon", "Orinoco", "São Francisco"],
+      "answer": [1]
+    },
+    {
+      "id": "geo-3",
+      "section": "geography",
+      "topic": "U.S. geography",
+      "stem": "Which state has the most coastline?",
+      "choices": ["California", "Florida", "Alaska", "Hawaii"],
+      "answer": [2],
+      "explanation": "Alaska has more coastline than all other states combined."
+    },
+    {
+      "id": "geo-4",
+      "section": "geography",
+      "topic": "World geography",
+      "stem": "Mount Kilimanjaro is in which country?",
+      "choices": ["Kenya", "Tanzania", "Uganda", "Ethiopia"],
+      "answer": [1]
+    },
+    {
+      "id": "geo-5",
+      "section": "geography",
+      "topic": "World geography",
+      "stem": "Which of these countries border France? Select all that apply.",
+      "choices": ["Spain", "Austria", "Belgium", "Netherlands"],
+      "answer": [0, 2],
+      "explanation": "Spain and Belgium share land borders with France. Austria and the Netherlands do not."
+    },
+    {
+      "id": "geo-6",
+      "section": "geography",
+      "topic": "U.S. geography",
+      "stem": "The Continental Divide runs through which of these states?",
+      "choices": ["Kansas", "Colorado", "Nebraska", "Oklahoma"],
+      "answer": [1]
+    }
+  ]
+}
