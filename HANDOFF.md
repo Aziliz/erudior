@@ -105,7 +105,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - 154 questions per exam: 80 national and 74 state.
 - National portion: 120 minutes, 75% to pass (60 of 80).
 - State portion: 110 minutes, 71.6% to pass (53 of 74).
-- Course `revision` is 10.
+- Course `revision` is 11. Glossary: 937 entries; bolded lesson terms link to it; abbreviations come from `content/abbreviations.json`.
 
 **How it was made:**
 - Eight writer agents worked from `content/SPEC.md`, and independent fact-checkers then reviewed them using `content/REVIEW.md`.

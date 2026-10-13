@@ -8,7 +8,7 @@
       "topics": [
         "Property ownership"
       ],
-      "body": "## What \"real property\" means\n\nEverything a broker sells falls into one of two buckets: real property or personal property. The exam tests the line between them constantly, because the line decides what transfers with a deed and what has to be handled with a bill of sale.\n\n- **Land** is the earth's surface, everything below it to the center of the earth, and the airspace above it, plus things permanently attached by nature (trees, minerals in place).\n- **Real estate** is land plus everything people permanently attach to it (buildings, fences, paving).\n- **[[Real property]]** is real estate plus the legal rights that come with owning it. These rights are often described as the [[bundle of rights]]: possession, control, enjoyment, exclusion, and disposition.\n\n**[[Personal property]]** (also called *personalty* or *chattels*) is everything movable that isn't real property: furniture, cars, a refrigerator that just plugs in. Personal property transfers by a **bill of sale**, not a deed.\n\n### Rights that can be separated\n\nOwnership can be split into layers, and each layer can be sold or leased separately:\n\n| Right | Covers | Example |\n|---|---|---|\n| Surface rights | The land's surface | Selling a lot but keeping minerals |\n| Subsurface (mineral) rights | Oil, gas, minerals below | An oil company leases mineral rights |\n| Air rights | Space above the surface | Selling air rights over a rail yard for a building platform |\n\nRights and privileges that \"run with\" the land, such as an easement benefiting the lot or water rights tied to it, are called [[appurtenances]]. They transfer automatically with the property unless the deed says otherwise.\n\n### Water rights in brief\n\nMany eastern states follow **riparian** rights (owners along a river share reasonable use) and **littoral** rights (owners along a lake or ocean). Many western states, including Colorado, use **prior appropriation**: the first person to put water to beneficial use has the senior right, regardless of who owns the riverbank. Colorado water rights are covered in the state portion of this course.\n\n## Crops: emblements vs. natural growth\n\n- **Fructus naturales** (trees, perennial shrubs, grass) grow without yearly planting. They're treated as real property.\n- **Fructus industriales** are annual crops planted by human labor (wheat, corn). They're personal property, and they're called [[emblements]]. A tenant farmer who planted a crop generally has the right to come back and harvest it even if the lease ends before harvest, provided the tenant didn't cause the lease to end.\n\n## Fixtures\n\nA **[[fixture]]** is an item that was personal property but has been attached to real property in a way that makes it part of the real estate. A ceiling fan in the box is personal property; once it's wired into the ceiling, it's a fixture and transfers with the house unless the contract excludes it.\n\nCourts use a handful of tests, often remembered as **MARIA**:\n\n- **M**ethod of attachment: is it bolted, nailed, plumbed or wired in? Would removal damage the property?\n- **A**daptability: was the item customized for this property (custom-cut blinds, a built-in bookcase)?\n- **R**elationship of the parties: courts favor buyers over sellers, and tenants over landlords.\n- **I**ntention: did the person who attached it intend it to be permanent? Courts treat intention as the most important test.\n- **A**greement: a written agreement between the parties overrides the other tests.\n\n> **Heads-up on \"most important\":** Courts treat the intention of the person who attached the item as the controlling test, judged objectively from how it was attached and adapted. Some prep courses, including Van Ed's quizzes, instead key **method of attachment** as the most important test. Answer each source on its own terms; on any exam, a written agreement between the parties beats every other test.\n\n> **Exam tip:** The easiest way to prevent a fixture dispute is to address it in the purchase contract. If the seller wants to keep the dining-room chandelier, list it as excluded, or swap it out before showing the home.\n\n### Trade fixtures\n\nA **[[trade fixture]]** is equipment a tenant installs for a business: restaurant ovens, store shelving, a salon's chairs. Trade fixtures stay the tenant's personal property. The tenant must remove them by the end of the lease and repair any damage caused by removal. Trade fixtures left behind after the lease ends may become the landlord's property through **accession**.\n\n## Legal descriptions\n\nA street address isn't precise enough to convey title. A deed needs a **legal description** that identifies exactly one parcel. There are three main methods.\n\n### Metes and bounds\n\n[[Metes and bounds]] is the oldest method. \"Metes\" are distances and directions; \"bounds\" are boundaries, often marked by **monuments** (fixed objects such as iron pins, trees, or roads). The description starts at a [[point of beginning]] (POB), runs around the parcel with courses and distances (for example, \"north 45 degrees east, 200 feet\"), and must **return to the POB**. A description that doesn't close is defective.\n\nIf a monument and a measured distance conflict, monuments generally control.\n\n### Lot and block (recorded plat)\n\nWhen a developer subdivides land, a surveyor prepares a **plat map** showing each lot and block, which is recorded with the county. A deed can then describe a parcel as \"Lot 7, Block 3, Aspen Ridge Subdivision, according to the plat recorded in…\" This [[lot and block]] method (also called the *recorded plat* system) is the most common description for urban and suburban homes.\n\n### Rectangular (government) survey system\n\nThe [[rectangular survey system]], also called the Public Land Survey System, is used across most of the western and midwestern United States, including Colorado. Colorado descriptions are tied to three principal meridians: the **Sixth Principal Meridian** (most of the state), the **New Mexico Principal Meridian** (parts of southwestern and south-central Colorado), and the small **Ute Meridian** near Grand Junction. It's built on a grid:\n\n- **Principal meridians** run north–south; **base lines** run east–west.\n- **Range lines** run north–south every 6 miles; **township lines** run east–west every 6 miles.\n- The squares they form are **townships**, each 6 miles by 6 miles (36 square miles, or 23,040 acres). A block of 16 townships, 24 miles on a side, is sometimes called a **quadrangle**.\n- Each [[township]] is divided into 36 **sections**, numbered 1 through 36 in a back-and-forth (boustrophedon) pattern starting in the northeast corner: section 1 is in the northeast corner, section 6 in the northwest, section 36 in the southeast.\n- A [[section]] is 1 mile by 1 mile, which is 1 square mile, or **640 acres**.\n\nBecause the earth is curved, the grid can't be perfect. **Correction lines** (every 24 miles) and **government lots** (irregular parcels along water or grid edges) handle the leftovers.\n\n### Acreage math\n\nTo find acreage from a rectangular survey description, read the description **backward**, starting at the section, and divide 640 by each fraction's denominator.\n\nExample: *\"The NE 1/4 of the SW 1/4 of Section 12\"*\n\n- Section 12 = 640 acres\n- SW 1/4 = 640 ÷ 4 = 160 acres\n- NE 1/4 of that = 160 ÷ 4 = **40 acres**\n\nShortcut: multiply the denominators (4 × 4 = 16) and divide into 640: 640 ÷ 16 = 40.\n\nIf the description uses \"and\" (for example, \"the N 1/2 of the NW 1/4 **and** the SE 1/4\"), it describes two separate parcels. Compute each one and add them together.\n\n> **Exam tip:** \"N 1/2 of the NE 1/4 of the SE 1/4\" = 640 ÷ (2 × 4 × 4) = 640 ÷ 32 = 20 acres. The more fractions in the description, the smaller the parcel.\n\n## Land measurement facts to memorize\n\n| Unit | Equals |\n|---|---|\n| 1 [[acre]] | 43,560 square feet |\n| 1 mile | 5,280 feet |\n| 1 square mile (section) | 640 acres |\n| 1 township | 36 sections = 36 square miles |\n| 1 rod | 16.5 feet |\n| 1 square yard | 9 square feet |\n| 1 acre | 4,840 square yards |\n\nA quick conversion: a rectangular lot 330 feet by 660 feet is 217,800 sq ft ÷ 43,560 = 5 acres.\n\n### Vertical descriptions\n\nCondominium units and air rights need elevation, not just a footprint. Surveyors measure height from a **datum**, a reference point (often mean sea level or a local benchmark). A condo unit's description may refer to the recorded condominium map and declaration."
+      "body": "## What \"real property\" means\n\nEverything a broker sells falls into one of two buckets: real property or personal property. The exam tests the line between them constantly, because the line decides what transfers with a deed and what has to be handled with a bill of sale.\n\n- **[[Land]]** is the earth's surface, everything below it to the center of the earth, and the airspace above it, plus things permanently attached by nature (trees, minerals in place).\n- **[[Real estate]]** is land plus everything people permanently attach to it (buildings, fences, paving).\n- **[[Real property]]** is real estate plus the legal rights that come with owning it. These rights are often described as the [[bundle of rights]]: possession, control, enjoyment, exclusion, and disposition.\n\n**[[Personal property]]** (also called *personalty* or *chattels*) is everything movable that isn't real property: furniture, cars, a refrigerator that just plugs in. Personal property transfers by a **[[bill of sale]]**, not a deed.\n\n### Rights that can be separated\n\nOwnership can be split into layers, and each layer can be sold or leased separately:\n\n| Right | Covers | Example |\n|---|---|---|\n| Surface rights | The land's surface | Selling a lot but keeping minerals |\n| Subsurface (mineral) rights | Oil, gas, minerals below | An oil company leases mineral rights |\n| Air rights | Space above the surface | Selling air rights over a rail yard for a building platform |\n\nRights and privileges that \"run with\" the land, such as an easement benefiting the lot or water rights tied to it, are called [[appurtenances]]. They transfer automatically with the property unless the deed says otherwise.\n\n### Water rights in brief\n\nMany eastern states follow **[[Riparian rights|riparian]]** rights (owners along a river share reasonable use) and **[[Littoral rights|littoral]]** rights (owners along a lake or ocean). Many western states, including Colorado, use **[[prior appropriation]]**: the first person to put water to beneficial use has the senior right, regardless of who owns the riverbank. Colorado water rights are covered in the state portion of this course.\n\n## Crops: emblements vs. natural growth\n\n- **[[Fructus naturales]]** (trees, perennial shrubs, grass) grow without yearly planting. They're treated as real property.\n- **[[Fructus industriales]]** are annual crops planted by human labor (wheat, corn). They're personal property, and they're called [[emblements]]. A tenant farmer who planted a crop generally has the right to come back and harvest it even if the lease ends before harvest, provided the tenant didn't cause the lease to end.\n\n## Fixtures\n\nA **[[fixture]]** is an item that was personal property but has been attached to real property in a way that makes it part of the real estate. A ceiling fan in the box is personal property; once it's wired into the ceiling, it's a fixture and transfers with the house unless the contract excludes it.\n\nCourts use a handful of tests, often remembered as **MARIA**:\n\n- **M**ethod of attachment: is it bolted, nailed, plumbed or wired in? Would removal damage the property?\n- **A**daptability: was the item customized for this property (custom-cut blinds, a built-in bookcase)?\n- **R**elationship of the parties: courts favor buyers over sellers, and tenants over landlords.\n- **I**ntention: did the person who attached it intend it to be permanent? Courts treat intention as the most important test.\n- **A**greement: a written agreement between the parties overrides the other tests.\n\n> **Heads-up on \"most important\":** Courts treat the intention of the person who attached the item as the controlling test, judged objectively from how it was attached and adapted. Some prep courses, including Van Ed's quizzes, instead key **[[method of attachment]]** as the most important test. Answer each source on its own terms; on any exam, a written agreement between the parties beats every other test.\n\n> **Exam tip:** The easiest way to prevent a fixture dispute is to address it in the purchase contract. If the seller wants to keep the dining-room chandelier, list it as excluded, or swap it out before showing the home.\n\n### Trade fixtures\n\nA **[[trade fixture]]** is equipment a tenant installs for a business: restaurant ovens, store shelving, a salon's chairs. Trade fixtures stay the tenant's personal property. The tenant must remove them by the end of the lease and repair any damage caused by removal. Trade fixtures left behind after the lease ends may become the landlord's property through **[[accession]]**.\n\n## Legal descriptions\n\nA street address isn't precise enough to convey title. A deed needs a **[[legal description]]** that identifies exactly one parcel. There are three main methods.\n\n### Metes and bounds\n\n[[Metes and bounds]] is the oldest method. \"Metes\" are distances and directions; \"bounds\" are boundaries, often marked by **[[Monument|monuments]]** (fixed objects such as iron pins, trees, or roads). The description starts at a [[point of beginning]] (POB), runs around the parcel with courses and distances (for example, \"north 45 degrees east, 200 feet\"), and must **return to the [[POB]]**. A description that doesn't close is defective.\n\nIf a monument and a measured distance conflict, monuments generally control.\n\n### Lot and block (recorded plat)\n\nWhen a developer subdivides land, a surveyor prepares a **[[plat map]]** showing each lot and block, which is recorded with the county. A deed can then describe a parcel as \"Lot 7, Block 3, Aspen Ridge Subdivision, according to the plat recorded in…\" This [[lot and block]] method (also called the *recorded plat* system) is the most common description for urban and suburban homes.\n\n### Rectangular (government) survey system\n\nThe [[rectangular survey system]], also called the Public Land Survey System, is used across most of the western and midwestern United States, including Colorado. Colorado descriptions are tied to three principal meridians: the **[[Principal meridian|Sixth Principal Meridian]]** (most of the state), the **[[Principal meridian|New Mexico Principal Meridian]]** (parts of southwestern and south-central Colorado), and the small **[[Principal meridian|Ute Meridian]]** near Grand Junction. It's built on a grid:\n\n- **[[Principal meridian|Principal meridians]]** run north–south; **[[Base line|base lines]]** run east–west.\n- **[[Range line|Range lines]]** run north–south every 6 miles; **[[Township line|township lines]]** run east–west every 6 miles.\n- The squares they form are **[[Township|townships]]**, each 6 miles by 6 miles (36 square miles, or 23,040 acres). A block of 16 townships, 24 miles on a side, is sometimes called a **[[quadrangle]]**.\n- Each [[township]] is divided into 36 **[[Section|sections]]**, numbered 1 through 36 in a back-and-forth (boustrophedon) pattern starting in the northeast corner: section 1 is in the northeast corner, section 6 in the northwest, section 36 in the southeast.\n- A [[section]] is 1 mile by 1 mile, which is 1 square mile, or **640 acres**.\n\nBecause the earth is curved, the grid can't be perfect. **[[Correction line|Correction lines]]** (every 24 miles) and **[[Government lot|government lots]]** (irregular parcels along water or grid edges) handle the leftovers.\n\n### Acreage math\n\nTo find acreage from a rectangular survey description, read the description **backward**, starting at the section, and divide 640 by each fraction's denominator.\n\nExample: *\"The NE 1/4 of the SW 1/4 of Section 12\"*\n\n- Section 12 = 640 acres\n- SW 1/4 = 640 ÷ 4 = 160 acres\n- NE 1/4 of that = 160 ÷ 4 = **40 acres**\n\nShortcut: multiply the denominators (4 × 4 = 16) and divide into 640: 640 ÷ 16 = 40.\n\nIf the description uses \"and\" (for example, \"the N 1/2 of the NW 1/4 **and** the SE 1/4\"), it describes two separate parcels. Compute each one and add them together.\n\n> **Exam tip:** \"N 1/2 of the NE 1/4 of the SE 1/4\" = 640 ÷ (2 × 4 × 4) = 640 ÷ 32 = 20 acres. The more fractions in the description, the smaller the parcel.\n\n## Land measurement facts to memorize\n\n| Unit | Equals |\n|---|---|\n| 1 [[acre]] | 43,560 square feet |\n| 1 mile | 5,280 feet |\n| 1 square mile (section) | 640 acres |\n| 1 township | 36 sections = 36 square miles |\n| 1 rod | 16.5 feet |\n| 1 square yard | 9 square feet |\n| 1 acre | 4,840 square yards |\n\nA quick conversion: a rectangular lot 330 feet by 660 feet is 217,800 sq ft ÷ 43,560 = 5 acres.\n\n### Vertical descriptions\n\nCondominium units and air rights need elevation, not just a footprint. Surveyors measure height from a **[[datum]]**, a reference point (often mean sea level or a local benchmark). A condo unit's description may refer to the recorded condominium map and declaration."
     },
     {
       "id": "n1-estates-and-forms-of-ownership",
@@ -18,7 +18,7 @@
       "topics": [
         "Property ownership"
       ],
-      "body": "## Estates in land\n\nAn **estate** is the degree, quantity, and duration of an owner's interest in property. Estates fall into two families:\n\n| Freehold estates (ownership) | Leasehold estates (tenancy) |\n|---|---|\n| Duration is indefinite or measured by a life | Duration is set by a lease |\n| Owner holds title | Tenant holds possession; landlord keeps title |\n| Fee simple, life estate | Estate for years, periodic, at will, at sufferance |\n\nA [[freehold estate]] is an ownership interest; a [[leasehold estate]] is a tenant's right to possess property owned by someone else. Leaseholds are treated as personal property.\n\n### Fee simple estates\n\n- **[[Fee simple absolute]]** is the most complete ownership the law allows. It has no time limit, it can be sold or left by will, and it passes to heirs if the owner dies without a will. When people say someone \"owns\" a home, this is usually what they mean.\n- **[[Fee simple defeasible]]** is fee ownership that can end if a stated condition happens or stops happening. There are two versions:\n  - **Fee simple determinable** uses words of duration like \"so long as\" or \"while.\" If the condition is broken, title returns to the grantor **automatically**. The grantor's future interest is a **possibility of reverter**.\n  - **Fee simple subject to a condition subsequent** uses words like \"on condition that\" or \"provided that.\" If the condition is broken, the grantor must **take action** to get the property back. The grantor's future interest is a **right of reentry** (power of termination).\n\n> **Exam tip:** \"So long as\" = automatic reversion (determinable). \"On condition that\" = grantor must act (condition subsequent).\n\n### Life estates\n\nA **[[life estate]]** lasts for the life of a named person.\n\n- In a **conventional life estate**, the measuring life is the life tenant's own. \"To Ann for life.\"\n- In a **life estate pur autre vie**, the measuring life is someone else's. \"To Ann for the life of Bob.\" When Bob dies, Ann's estate ends.\n\nWhen the life estate ends, the property goes to either:\n\n- the grantor (or the grantor's heirs), which is a **reversion**, or\n- a third party named in the deed, the **remainderman**, who holds a **remainder** interest.\n\nThe life tenant may live on the property, rent it out, or sell or mortgage the life estate, but can't convey more than they own. A buyer gets only an interest that ends at the measuring death. The life tenant must not commit **waste** (damage that lowers the value for the future owner) and generally pays property taxes and routine upkeep.\n\n**Legal life estates** are created by state law rather than by a deed. Historically these included dower and curtesy (a surviving spouse's interest), and many states have abolished them. **Homestead** laws in many states protect part of the value of a family home from certain creditors.\n\n### Leasehold estates\n\n| Type | Key feature |\n|---|---|\n| Estate for years | Fixed start and end date (even if shorter than a year); ends without notice |\n| Periodic tenancy | Renews automatically each period (month-to-month); ends with proper notice |\n| Tenancy at will | No set term; either party can end it; ends on the death of either party |\n| Tenancy at sufferance | Tenant holds over without the landlord's consent after the lease ends |\n\n## Forms of ownership\n\nEstates describe *how much* is owned. Forms of ownership describe *who* holds it and how.\n\n### Ownership in severalty\n\n**[[Severalty]]** means one owner, a single person or a single legal entity such as a corporation. The name sounds like \"several,\" which is a classic trap: it means the owner's interest is *severed* from everyone else's.\n\n### Tenancy in common\n\nIn a **[[tenancy in common]]** (TIC):\n\n- Each co-owner holds an **undivided interest**: each one may use the whole property and owns no particular square foot of it.\n- The shares may be **unequal** (60/40, for example).\n- Each owner can sell, mortgage, or leave their share by will **without the others' consent**.\n- There is **no right of survivorship**. A deceased owner's share passes to their heirs or devisees.\n- Only one unity is required: **possession**.\n\nAny co-owner can ask a court for a **partition** if co-owners can't agree. The court divides the property, or orders it sold and divides the proceeds.\n\n### Joint tenancy\n\nA **[[joint tenancy]]** has one defining feature: the **[[right of survivorship]]**. When a joint tenant dies, the deceased owner's interest passes to the surviving joint tenants automatically. It doesn't go through probate, and a joint tenant can't leave the interest by will.\n\nCreating a joint tenancy traditionally requires the **four unities** (PITT):\n\n- **P**ossession: equal right to possess the whole property\n- **I**nterest: equal ownership shares\n- **T**ime: interests acquired at the same time\n- **T**itle: interests acquired by the same deed or will\n\nIf one joint tenant sells their interest, the buyer does **not** become a joint tenant. The buyer holds as a tenant in common with the remaining owners, who stay joint tenants with one another.\n\n> **Exam tip:** A, B, and C are joint tenants. C sells to D. Now A and B are joint tenants with each other, and D is a tenant in common owning 1/3. If A dies, B owns 2/3 and D owns 1/3.\n\n**Colorado note:** Under C.R.S. 38-31-101, when property is conveyed to two or more natural persons, Colorado presumes a tenancy in common unless the deed expressly declares a joint tenancy (for example, \"as joint tenants,\" \"in joint tenancy,\" or \"JTWROS\"). Only natural persons (and fiduciaries such as co-trustees) can hold as joint tenants in Colorado. Most states have a similar presumption favoring tenancy in common.\n\n### Tenancy by the entirety\n\n**[[Tenancy by the entirety]]** is a special form of co-ownership for married couples, recognized in some states. It works like joint tenancy (survivorship, the four unities plus the unity of marriage), but neither spouse can convey or encumber the property alone, and it's generally protected from creditors of only one spouse. Divorce ends it.\n\n**Colorado note:** Colorado does **not** recognize tenancy by the entirety. C.R.S. 38-31-201 says no conveyance creates one, and a deed that tries to create one creates a joint tenancy instead.\n\n### Community property\n\nIn **[[community property]]** states (a minority of states, mostly in the West and Southwest), property acquired during marriage generally belongs to both spouses equally, while property owned before marriage or received by gift or inheritance is **separate property**. Colorado is **not** a community property state. Colorado divides marital property at divorce by equitable distribution.\n\n### Comparison table\n\n| | Severalty | Tenancy in common | Joint tenancy |\n|---|---|---|---|\n| Number of owners | One | Two or more | Two or more |\n| Shares | All | Can be unequal | Equal |\n| Survivorship | n/a | No; goes to heirs | Yes; goes to survivors |\n| Can owner sell share? | Yes | Yes | Yes, but it breaks the joint tenancy for that share |\n| Unities required | n/a | Possession | Possession, interest, time, title |\n\n## Special ownership arrangements\n\n### Condominiums\n\nIn a **[[condominium]]**, each owner holds **fee simple title to an individual unit** (generally the airspace inside the walls) plus an **undivided interest, as a tenant in common, in the common elements** (hallways, roof, grounds, pool). Some areas are **limited common elements** reserved for one unit, such as an assigned parking space or a balcony. A recorded **declaration** creates the condominium, and an owners' association manages it, funded by assessments. Unpaid assessments can become a lien on the unit.\n\n### Cooperatives\n\nIn a **[[cooperative]]** (co-op), a corporation owns the building. Residents buy **shares of stock** in the corporation and receive a **proprietary lease** for their unit. Because the buyer owns stock rather than real estate, a co-op interest is usually treated as **personal property**. The co-op board often must approve buyers. If other shareholders stop paying their share of building costs, a blanket mortgage default can endanger everyone.\n\n### Timeshares\n\nA **[[timeshare]]** divides use of a property by time:\n\n- A **timeshare estate** conveys a fee interest for a recurring period (for example, week 22 every year).\n- A **timeshare use** (right-to-use) is a contractual or lease-type right to use the property for a period, without real property ownership.\n\n### Trusts\n\nIn a **[[trust]]**, a **trustor** (also called the settlor or grantor) conveys property to a **trustee**, who holds legal title and manages it for a **beneficiary**. Common types include living (inter vivos) trusts, testamentary trusts (created by a will), and land trusts (where the beneficiary often keeps control and the trust keeps the beneficiary's identity private).\n\n### Business ownership\n\n- **Corporation:** a separate legal entity that holds title in severalty. Shareholders have limited liability, but a C corporation's income is taxed at the corporate level and again as dividends (\"double taxation\").\n- **General partnership:** all partners share management and unlimited liability.\n- **Limited partnership:** at least one general partner manages and has unlimited liability; limited partners are passive investors whose liability is limited to their investment.\n- **Limited liability company (LLC):** members get limited liability with flexible, pass-through tax treatment. LLCs are popular for holding investment property.\n- **Syndicate / joint venture:** a group pooling money for one investment or project. These are arrangements, not separate legal forms, and are often organized as partnerships or LLCs.\n- **Real estate investment trust (REIT):** a company that pools investors' money to own or finance real estate and, if it meets federal tax rules, avoids corporate income tax on the income it distributes to owners. The key tests: at least **100 owners**, no more than half owned by five or fewer individuals, at least **75% of gross income** from real-estate sources such as rents and mortgage interest, and at least **90% of taxable income** paid out to owners each year. (Older textbooks say 95%; the requirement dropped to 90% in 2001.)\n\n> **Exam tip:** When a buyer gives up management control for a passive return, such as a condo unit that must go into a mandatory rental pool, the deal can be a **security**. Selling securities takes a securities license and registration, not just a real estate license."
+      "body": "## Estates in land\n\nAn **[[estate]]** is the degree, quantity, and duration of an owner's interest in property. Estates fall into two families:\n\n| Freehold estates (ownership) | Leasehold estates (tenancy) |\n|---|---|\n| Duration is indefinite or measured by a life | Duration is set by a lease |\n| Owner holds title | Tenant holds possession; landlord keeps title |\n| Fee simple, life estate | Estate for years, periodic, at will, at sufferance |\n\nA [[freehold estate]] is an ownership interest; a [[leasehold estate]] is a tenant's right to possess property owned by someone else. Leaseholds are treated as personal property.\n\n### Fee simple estates\n\n- **[[Fee simple absolute]]** is the most complete ownership the law allows. It has no time limit, it can be sold or left by will, and it passes to heirs if the owner dies without a will. When people say someone \"owns\" a home, this is usually what they mean.\n- **[[Fee simple defeasible]]** is fee ownership that can end if a stated condition happens or stops happening. There are two versions:\n  - **[[Fee simple determinable]]** uses words of duration like \"so long as\" or \"while.\" If the condition is broken, title returns to the grantor **automatically**. The grantor's future interest is a **[[possibility of reverter]]**.\n  - **[[Fee simple subject to a condition subsequent]]** uses words like \"on condition that\" or \"provided that.\" If the condition is broken, the grantor must **take action** to get the property back. The grantor's future interest is a **[[right of reentry]]** (power of termination).\n\n> **Exam tip:** \"So long as\" = automatic reversion (determinable). \"On condition that\" = grantor must act (condition subsequent).\n\n### Life estates\n\nA **[[life estate]]** lasts for the life of a named person.\n\n- In a **[[conventional life estate]]**, the measuring life is the life tenant's own. \"To Ann for life.\"\n- In a **[[life estate pur autre vie]]**, the measuring life is someone else's. \"To Ann for the life of Bob.\" When Bob dies, Ann's estate ends.\n\nWhen the life estate ends, the property goes to either:\n\n- the grantor (or the grantor's heirs), which is a **[[reversion]]**, or\n- a third party named in the deed, the **[[remainderman]]**, who holds a **[[remainder]]** interest.\n\nThe life tenant may live on the property, rent it out, or sell or mortgage the life estate, but can't convey more than they own. A buyer gets only an interest that ends at the measuring death. The life tenant must not commit **[[waste]]** (damage that lowers the value for the future owner) and generally pays property taxes and routine upkeep.\n\n**[[Legal life estate|Legal life estates]]** are created by state law rather than by a deed. Historically these included dower and curtesy (a surviving spouse's interest), and many states have abolished them. **[[Homestead]]** laws in many states protect part of the value of a family home from certain creditors.\n\n### Leasehold estates\n\n| Type | Key feature |\n|---|---|\n| Estate for years | Fixed start and end date (even if shorter than a year); ends without notice |\n| Periodic tenancy | Renews automatically each period (month-to-month); ends with proper notice |\n| Tenancy at will | No set term; either party can end it; ends on the death of either party |\n| Tenancy at sufferance | Tenant holds over without the landlord's consent after the lease ends |\n\n## Forms of ownership\n\nEstates describe *how much* is owned. Forms of ownership describe *who* holds it and how.\n\n### Ownership in severalty\n\n**[[Severalty]]** means one owner, a single person or a single legal entity such as a corporation. The name sounds like \"several,\" which is a classic trap: it means the owner's interest is *severed* from everyone else's.\n\n### Tenancy in common\n\nIn a **[[tenancy in common]]** (TIC):\n\n- Each co-owner holds an **[[undivided interest]]**: each one may use the whole property and owns no particular square foot of it.\n- The shares may be **unequal** (60/40, for example).\n- Each owner can sell, mortgage, or leave their share by will **without the others' consent**.\n- There is **no [[right of survivorship]]**. A deceased owner's share passes to their heirs or devisees.\n- Only one unity is required: **[[Four unities|possession]]**.\n\nAny co-owner can ask a court for a **[[partition]]** if co-owners can't agree. The court divides the property, or orders it sold and divides the proceeds.\n\n### Joint tenancy\n\nA **[[joint tenancy]]** has one defining feature: the **[[right of survivorship]]**. When a joint tenant dies, the deceased owner's interest passes to the surviving joint tenants automatically. It doesn't go through probate, and a joint tenant can't leave the interest by will.\n\nCreating a joint tenancy traditionally requires the **[[four unities]]** (PITT):\n\n- **P**ossession: equal right to possess the whole property\n- **I**nterest: equal ownership shares\n- **T**ime: interests acquired at the same time\n- **T**itle: interests acquired by the same deed or will\n\nIf one joint tenant sells their interest, the buyer does **not** become a joint tenant. The buyer holds as a tenant in common with the remaining owners, who stay joint tenants with one another.\n\n> **Exam tip:** A, B, and C are joint tenants. C sells to D. Now A and B are joint tenants with each other, and D is a tenant in common owning 1/3. If A dies, B owns 2/3 and D owns 1/3.\n\n**Colorado note:** Under C.R.S. 38-31-101, when property is conveyed to two or more natural persons, Colorado presumes a tenancy in common unless the deed expressly declares a joint tenancy (for example, \"as joint tenants,\" \"in joint tenancy,\" or \"JTWROS\"). Only natural persons (and fiduciaries such as co-trustees) can hold as joint tenants in Colorado. Most states have a similar presumption favoring tenancy in common.\n\n### Tenancy by the entirety\n\n**[[Tenancy by the entirety]]** is a special form of co-ownership for married couples, recognized in some states. It works like joint tenancy (survivorship, the four unities plus the unity of marriage), but neither spouse can convey or encumber the property alone, and it's generally protected from creditors of only one spouse. Divorce ends it.\n\n**Colorado note:** Colorado does **not** recognize tenancy by the entirety. C.R.S. 38-31-201 says no conveyance creates one, and a deed that tries to create one creates a joint tenancy instead.\n\n### Community property\n\nIn **[[community property]]** states (a minority of states, mostly in the West and Southwest), property acquired during marriage generally belongs to both spouses equally, while property owned before marriage or received by gift or inheritance is **[[separate property]]**. Colorado is **not** a community property state. Colorado divides marital property at divorce by equitable distribution.\n\n### Comparison table\n\n| | Severalty | Tenancy in common | Joint tenancy |\n|---|---|---|---|\n| Number of owners | One | Two or more | Two or more |\n| Shares | All | Can be unequal | Equal |\n| Survivorship | n/a | No; goes to heirs | Yes; goes to survivors |\n| Can owner sell share? | Yes | Yes | Yes, but it breaks the joint tenancy for that share |\n| Unities required | n/a | Possession | Possession, interest, time, title |\n\n## Special ownership arrangements\n\n### Condominiums\n\nIn a **[[condominium]]**, each owner holds **[[Fee simple absolute|fee simple]] title to an individual unit** (generally the airspace inside the walls) plus an **[[undivided interest]], as a [[Tenancy in common|tenant in common]], in the common elements** (hallways, roof, grounds, pool). Some areas are **[[limited common elements]]** reserved for one unit, such as an assigned parking space or a balcony. A recorded **[[declaration]]** creates the condominium, and an owners' association manages it, funded by assessments. Unpaid assessments can become a lien on the unit.\n\n### Cooperatives\n\nIn a **[[cooperative]]** (co-op), a corporation owns the building. Residents buy **shares of stock** in the corporation and receive a **[[proprietary lease]]** for their unit. Because the buyer owns stock rather than real estate, a co-op interest is usually treated as **[[personal property]]**. The co-op board often must approve buyers. If other shareholders stop paying their share of building costs, a blanket mortgage default can endanger everyone.\n\n### Timeshares\n\nA **[[timeshare]]** divides use of a property by time:\n\n- A **[[timeshare estate]]** conveys a fee interest for a recurring period (for example, week 22 every year).\n- A **[[timeshare use]]** (right-to-use) is a contractual or lease-type right to use the property for a period, without real property ownership.\n\n### Trusts\n\nIn a **[[trust]]**, a **[[trustor]]** (also called the settlor or grantor) conveys property to a **[[trustee]]**, who holds legal title and manages it for a **[[beneficiary]]**. Common types include living (inter vivos) trusts, testamentary trusts (created by a will), and land trusts (where the beneficiary often keeps control and the trust keeps the beneficiary's identity private).\n\n### Business ownership\n\n- **[[Corporation]]:** a separate legal entity that holds title in severalty. Shareholders have limited liability, but a C corporation's income is taxed at the corporate level and again as dividends (\"double taxation\").\n- **[[General partnership]]:** all partners share management and unlimited liability.\n- **[[Limited partnership]]:** at least one general partner manages and has unlimited liability; limited partners are passive investors whose liability is limited to their investment.\n- **[[Limited liability company]] ([[LLC]]):** members get limited liability with flexible, pass-through tax treatment. LLCs are popular for holding investment property.\n- **[[Syndicate]] / [[joint venture]]:** a group pooling money for one investment or project. These are arrangements, not separate legal forms, and are often organized as partnerships or LLCs.\n- **[[Real estate investment trust]] ([[REIT]]):** a company that pools investors' money to own or finance real estate and, if it meets federal tax rules, avoids corporate income tax on the income it distributes to owners. The key tests: at least **100 owners**, no more than half owned by five or fewer individuals, at least **75% of gross income** from real-estate sources such as rents and mortgage interest, and at least **90% of taxable income** paid out to owners each year. (Older textbooks say 95%; the requirement dropped to 90% in 2001.)\n\n> **Exam tip:** When a buyer gives up management control for a passive return, such as a condo unit that must go into a mandatory rental pool, the deal can be a **[[security]]**. Selling securities takes a securities license and registration, not just a real estate license."
     },
     {
       "id": "n1-encumbrances",
@@ -28,7 +28,7 @@
       "topics": [
         "Property ownership"
       ],
-      "body": "## What an encumbrance is\n\nAn **[[encumbrance]]** is any claim, right, or interest held by someone other than the owner that lowers the property's value or limits its use. Encumbrances don't necessarily stop a sale, but the buyer takes the property subject to them unless they're cleared.\n\nThere are two broad groups:\n\n- **Money claims:** liens.\n- **Physical or use limits:** easements, encroachments, deed restrictions.\n\n## Liens\n\nA **[[lien]]** is a creditor's claim against property as security for a debt. If the debt isn't paid, the creditor can force a sale of the property (foreclose) to collect.\n\n### Classifying liens\n\n| Classification | Meaning | Examples |\n|---|---|---|\n| Voluntary | Owner chooses to create it | Mortgage, deed of trust |\n| Involuntary | Created by law without the owner's consent | Tax lien, judgment lien, mechanic's lien |\n| Specific | Attaches to one particular property | Mortgage, property tax, special assessment, mechanic's lien |\n| General | Attaches to all of a debtor's property in the area | Judgment lien, federal income tax lien, estate/inheritance tax lien |\n\nA mortgage, then, is **voluntary and specific**. A judgment lien is **involuntary and general**.\n\n### Common liens\n\n- **Mortgage / deed of trust lien:** secures a loan used to buy or refinance the property.\n- **Property tax lien:** created by law for unpaid ad valorem taxes.\n- **Special assessment lien:** for public improvements that benefit specific properties.\n- **[[Mechanic's lien]]:** protects contractors, subcontractors, and suppliers who improved the property and weren't paid. In many states its priority can date back to when work began or materials were first delivered, not to when the lien was filed. That's why title insurers worry about recent construction.\n- **Judgment lien:** a court judgment against a person becomes a general lien on that person's real property in the county where it's recorded.\n- **Federal tax liens:** for unpaid federal income or estate taxes.\n\n### Lien priority\n\nThe basic rule is **first in time, first in right**: liens rank by the date and time they were recorded. The big exception is that **property tax and special assessment liens generally take priority over all other liens**, no matter when they were recorded.\n\nA lender with an earlier lien can agree to move behind a later lien by signing a **[[subordination]] agreement**. This often happens when a landowner's existing loan is subordinated to a construction loan.\n\n> **Exam tip:** A seller has a 2019 mortgage, a 2023 judgment lien, and unpaid property taxes for this year. On a foreclosure sale, the property taxes get paid first, then the mortgage, then the judgment.\n\n## Easements\n\nAn **[[easement]]** is a right to use another person's land for a specific purpose, such as a driveway, utility line, or path to a lake. An easement is a non-possessory interest in land: the holder may use the land but doesn't own it or possess it.\n\n### Easement appurtenant\n\nAn **[[easement appurtenant]]** involves two parcels:\n\n- The **dominant tenement** (dominant estate) is the parcel that *benefits* from the easement.\n- The **servient tenement** (servient estate) is the parcel that *carries the burden*, the land that is crossed.\n\nAn easement appurtenant **runs with the land**. If either parcel is sold, the easement continues: the new owner of the dominant parcel keeps the right, and the new owner of the servient parcel takes subject to it.\n\n### Easement in gross\n\nAn **[[easement in gross]]** has a servient tenement but **no dominant tenement**. It benefits a person or company rather than a neighboring parcel.\n\n- **Commercial** easements in gross (utility lines, pipelines, railroad rights-of-way) are usually transferable.\n- **Personal** easements in gross (a right for one individual to fish on a pond, for example) usually can't be sold or transferred, and they end when that person dies.\n\n### How easements are created\n\n- **Express grant or reservation:** written in a deed or separate agreement.\n- **Easement by necessity:** created by law when a parcel is sold with no access to a road (landlocked) and the parcels were once under common ownership.\n- **Easement by implication:** implied from the circumstances and prior use when land is divided.\n- **[[Prescriptive easement]]:** acquired by using someone else's land openly, continuously, and without permission for the period set by state law. It's similar to adverse possession, but it gains a *right to use*, not ownership.\n- **Condemnation:** a government or utility acquires an easement through eminent domain.\n- **Party wall:** a shared wall on a property line, with each owner holding an easement in the half owned by the other.\n\n### How easements end\n\n- **Merger:** one person comes to own both the dominant and servient parcels.\n- **Release:** the dominant owner releases it in writing (often by quitclaim deed).\n- **Abandonment:** the holder intentionally gives it up, shown by conduct, not just non-use.\n- **Purpose ends:** an easement by necessity ends when another access road is built.\n- **Non-use** of a prescriptive easement for the statutory period, in some states.\n\n## Licenses\n\nA **[[license]]** is **personal, revocable permission** to enter someone's land for a specific purpose, such as a ticket to a concert, permission to hunt, or a neighbor letting you park in a driveway. A license is **not** an interest in land, it doesn't run with the land, and it can generally be revoked at any time. It ends when either party dies or the land is sold.\n\n> **Exam tip:** Easement = interest in land, usually in writing, not easily revoked. License = personal privilege, revocable, no interest in land.\n\n## Encroachments\n\nAn **[[encroachment]]** happens when an improvement on one property extends onto a neighbor's land or into a setback or easement area. Examples include a fence 3 feet over the line, a garage built partly on the next lot, or roof eaves hanging over the boundary.\n\n- Encroachments are usually discovered by a **survey**. A standard title insurance policy generally doesn't cover them (see the transfer-of-title lesson).\n- Left alone long enough, an encroachment can lead to a claim of adverse possession or a prescriptive easement.\n- The neighbor's remedies include a lawsuit for removal (an injunction) or damages.\n\n## Adverse possession\n\n**[[Adverse possession]]** is a way to gain **title** to someone else's land by occupying it for the period set by state law. It is a form of **involuntary alienation** for the record owner.\n\nThe possession must generally be:\n\n- **O**pen and\n- **N**otorious (visible, so the true owner could discover it)\n- **C**ontinuous for the statutory period\n- **E**xclusive (not shared with the owner or the public)\n- **A**dverse, also called hostile (without the owner's permission)\n\nMany students remember these as **OCEAN** or **ONCEA**. Permission defeats a claim: a tenant or someone with a license can't adversely possess, because their use isn't hostile.\n\n**Tacking:** in many states, successive adverse possessors who are in **privity** (for example, a buyer who takes over from a seller) can add their periods together to reach the statutory time.\n\nTo get marketable record title, the adverse possessor usually files a **[[quiet title action]]**.\n\n**Colorado note:** Under C.R.S. 38-41-101, the period in Colorado is **18 years**. In fee-title cases filed on or after July 1, 2008, the claimant must prove each element by **clear and convincing evidence**. Where title would vest on or after that date, the claimant must also show that the claimant (or a predecessor) had a **reasonable, good-faith belief** that they were the actual owner. The court may also order the successful claimant to compensate the former owner. Adverse possession doesn't run against state or local government land. Statutory periods vary widely among states, so the national exam usually asks about elements rather than a specific number of years.\n\n## Deed restrictions as encumbrances\n\nPrivate restrictions recorded in a deed or a subdivision declaration are also encumbrances. They limit what an owner may build or do. These are covered with land use controls in the next lesson."
+      "body": "## What an encumbrance is\n\nAn **[[encumbrance]]** is any claim, right, or interest held by someone other than the owner that lowers the property's value or limits its use. Encumbrances don't necessarily stop a sale, but the buyer takes the property subject to them unless they're cleared.\n\nThere are two broad groups:\n\n- **Money claims:** liens.\n- **Physical or use limits:** easements, encroachments, deed restrictions.\n\n## Liens\n\nA **[[lien]]** is a creditor's claim against property as security for a debt. If the debt isn't paid, the creditor can force a sale of the property (foreclose) to collect.\n\n### Classifying liens\n\n| Classification | Meaning | Examples |\n|---|---|---|\n| Voluntary | Owner chooses to create it | Mortgage, deed of trust |\n| Involuntary | Created by law without the owner's consent | Tax lien, judgment lien, mechanic's lien |\n| Specific | Attaches to one particular property | Mortgage, property tax, special assessment, mechanic's lien |\n| General | Attaches to all of a debtor's property in the area | Judgment lien, federal income tax lien, estate/inheritance tax lien |\n\nA mortgage, then, is **voluntary and specific**. A judgment lien is **involuntary and general**.\n\n### Common liens\n\n- **[[Mortgage]] / [[deed of trust]] lien:** secures a loan used to buy or refinance the property.\n- **[[Property tax lien]]:** created by law for unpaid ad valorem taxes.\n- **[[Special assessment|Special assessment lien]]:** for public improvements that benefit specific properties.\n- **[[Mechanic's lien]]:** protects contractors, subcontractors, and suppliers who improved the property and weren't paid. In many states its priority can date back to when work began or materials were first delivered, not to when the lien was filed. That's why title insurers worry about recent construction.\n- **[[Judgment lien]]:** a court judgment against a person becomes a general lien on that person's real property in the county where it's recorded.\n- **[[Federal tax lien|Federal tax liens]]:** for unpaid federal income or estate taxes.\n\n### Lien priority\n\nThe basic rule is **[[Lien priority|first in time, first in right]]**: liens rank by the date and time they were recorded. The big exception is that **property tax and special assessment liens generally take priority over all other liens**, no matter when they were recorded.\n\nA lender with an earlier lien can agree to move behind a later lien by signing a **[[subordination]] agreement**. This often happens when a landowner's existing loan is subordinated to a construction loan.\n\n> **Exam tip:** A seller has a 2019 mortgage, a 2023 judgment lien, and unpaid property taxes for this year. On a foreclosure sale, the property taxes get paid first, then the mortgage, then the judgment.\n\n## Easements\n\nAn **[[easement]]** is a right to use another person's land for a specific purpose, such as a driveway, utility line, or path to a lake. An easement is a non-possessory interest in land: the holder may use the land but doesn't own it or possess it.\n\n### Easement appurtenant\n\nAn **[[easement appurtenant]]** involves two parcels:\n\n- The **[[dominant tenement]]** (dominant estate) is the parcel that *benefits* from the easement.\n- The **[[servient tenement]]** (servient estate) is the parcel that *carries the burden*, the land that is crossed.\n\nAn easement appurtenant **[[runs with the land]]**. If either parcel is sold, the easement continues: the new owner of the dominant parcel keeps the right, and the new owner of the servient parcel takes subject to it.\n\n### Easement in gross\n\nAn **[[easement in gross]]** has a servient tenement but **no [[dominant tenement]]**. It benefits a person or company rather than a neighboring parcel.\n\n- **Commercial** easements in gross (utility lines, pipelines, railroad rights-of-way) are usually transferable.\n- **Personal** easements in gross (a right for one individual to fish on a pond, for example) usually can't be sold or transferred, and they end when that person dies.\n\n### How easements are created\n\n- **[[Express easement|Express grant or reservation]]:** written in a deed or separate agreement.\n- **[[Easement by necessity]]:** created by law when a parcel is sold with no access to a road (landlocked) and the parcels were once under common ownership.\n- **[[Easement by implication]]:** implied from the circumstances and prior use when land is divided.\n- **[[Prescriptive easement]]:** acquired by using someone else's land openly, continuously, and without permission for the period set by state law. It's similar to adverse possession, but it gains a *right to use*, not ownership.\n- **[[Condemnation]]:** a government or utility acquires an easement through eminent domain.\n- **[[Party wall]]:** a shared wall on a property line, with each owner holding an easement in the half owned by the other.\n\n### How easements end\n\n- **[[Merger]]:** one person comes to own both the dominant and servient parcels.\n- **[[Release]]:** the dominant owner releases it in writing (often by quitclaim deed).\n- **[[Abandonment]]:** the holder intentionally gives it up, shown by conduct, not just non-use.\n- **Purpose ends:** an easement by necessity ends when another access road is built.\n- **Non-use** of a prescriptive easement for the statutory period, in some states.\n\n## Licenses\n\nA **[[license]]** is **personal, revocable permission** to enter someone's land for a specific purpose, such as a ticket to a concert, permission to hunt, or a neighbor letting you park in a driveway. A license is **not** an interest in land, it doesn't run with the land, and it can generally be revoked at any time. It ends when either party dies or the land is sold.\n\n> **Exam tip:** Easement = interest in land, usually in writing, not easily revoked. License = personal privilege, revocable, no interest in land.\n\n## Encroachments\n\nAn **[[encroachment]]** happens when an improvement on one property extends onto a neighbor's land or into a setback or easement area. Examples include a fence 3 feet over the line, a garage built partly on the next lot, or roof eaves hanging over the boundary.\n\n- Encroachments are usually discovered by a **[[survey]]**. A standard title insurance policy generally doesn't cover them (see the transfer-of-title lesson).\n- Left alone long enough, an encroachment can lead to a claim of adverse possession or a prescriptive easement.\n- The neighbor's remedies include a lawsuit for removal (an injunction) or damages.\n\n## Adverse possession\n\n**[[Adverse possession]]** is a way to gain **[[title]]** to someone else's land by occupying it for the period set by state law. It is a form of **[[involuntary alienation]]** for the record owner.\n\nThe possession must generally be:\n\n- **O**pen and\n- **N**otorious (visible, so the true owner could discover it)\n- **C**ontinuous for the statutory period\n- **E**xclusive (not shared with the owner or the public)\n- **A**dverse, also called hostile (without the owner's permission)\n\nMany students remember these as **OCEAN** or **ONCEA**. Permission defeats a claim: a tenant or someone with a license can't adversely possess, because their use isn't hostile.\n\n**[[Tacking]]:** in many states, successive adverse possessors who are in **[[privity]]** (for example, a buyer who takes over from a seller) can add their periods together to reach the statutory time.\n\nTo get marketable record title, the adverse possessor usually files a **[[quiet title action]]**.\n\n**Colorado note:** Under C.R.S. 38-41-101, the period in Colorado is **18 years**. In fee-title cases filed on or after July 1, 2008, the claimant must prove each element by **[[clear and convincing evidence]]**. Where title would vest on or after that date, the claimant must also show that the claimant (or a predecessor) had a **reasonable, good-faith belief** that they were the actual owner. The court may also order the successful claimant to compensate the former owner. Adverse possession doesn't run against state or local government land. Statutory periods vary widely among states, so the national exam usually asks about elements rather than a specific number of years.\n\n## Deed restrictions as encumbrances\n\nPrivate restrictions recorded in a deed or a subdivision declaration are also encumbrances. They limit what an owner may build or do. These are covered with land use controls in the next lesson."
     },
     {
       "id": "n1-land-use-controls",
@@ -38,7 +38,7 @@
       "topics": [
         "Land use controls"
       ],
-      "body": "## Public and private controls\n\nAn owner's rights aren't unlimited. Land use is shaped by:\n\n- **Public controls:** government powers over private property.\n- **Private controls:** restrictions created by owners and developers through deeds and recorded declarations.\n\n## The four government powers (PETE)\n\nGovernment's rights over private land are summarized as **PETE**:\n\n| Power | What it does | Compensation? |\n|---|---|---|\n| **P**olice power | Regulates use for public health, safety, morals, and welfare | No |\n| **E**minent domain | Takes private property for public use | Yes, just compensation |\n| **T**axation | Levies taxes and special assessments, enforced by liens | n/a |\n| **E**scheat | Takes property when an owner dies with no will and no heirs | No |\n\n### Police power\n\n**[[Police power]]** is the government's authority to regulate property use to protect the public. It's the source of zoning, building codes, subdivision rules, environmental regulations, and rent controls. Regulation under the police power doesn't require compensation, as long as it doesn't go so far that it effectively takes the property.\n\n### Eminent domain\n\n**[[Eminent domain]]** is the government's power to take private property for **public use** with **just compensation** (usually fair market value). **Condemnation** is the legal process used to exercise it. Governments and certain entities with delegated authority (utilities, for example) can use it to build roads, schools, pipelines, or power lines.\n\n- The owner can challenge whether the use is public or whether the payment is fair, but generally can't stop a valid taking.\n- **[[Inverse condemnation]]** is a lawsuit an *owner* brings when government action has effectively taken or damaged the property (for example, an airport's flight path) without a formal condemnation.\n- A partial taking may include **severance damages** for the drop in value of the remaining land.\n\n### Taxation\n\nLocal governments levy **ad valorem** (by value) property taxes, which become a specific lien on the property. A **[[special assessment]]** is a charge against only the properties that benefit from a specific public improvement, such as new sidewalks, sewer lines, or street paving. Special assessments are specific, involuntary liens, and like property taxes they generally have priority over other liens.\n\n### Escheat\n\n**[[Escheat]]** transfers property to the state (or county) when an owner dies **without a will and without heirs**. It also applies to some abandoned property. Escheat keeps property from becoming ownerless.\n\n## Planning and zoning\n\nCities and counties usually adopt a **comprehensive plan** (master plan) for future growth. They then carry it out through **[[zoning]]** ordinances, which divide land into districts and set the allowed uses in each. States give local governments this authority through **enabling acts**.\n\nZoning ordinances commonly regulate:\n\n- **Use:** residential, commercial, industrial, agricultural, mixed-use, planned unit development (PUD).\n- **Density:** units per acre, minimum lot size.\n- **Bulk and placement:** building height, lot coverage, **setbacks** from lot lines, floor-area ratio.\n- **Aesthetics:** historic districts, signage.\n\nRelated concepts:\n\n- **Buffer zone:** a strip (such as a park or a light-use district) separating incompatible uses, like homes and heavy industry.\n- **Cumulative zoning** allows \"higher\" uses in a \"lower\" zone (a home in a commercial zone). **Exclusive zoning** allows only the listed use.\n- **Downzoning:** rezoning to a less intense use (commercial to residential, for example).\n- **Spot zoning:** rezoning a single parcel in a way that benefits one owner and conflicts with the comprehensive plan. It is often struck down as illegal.\n- **Rezoning (amendment):** changing the zoning of an area through the legislative process.\n\n### Exceptions to zoning\n\nThese three show up on almost every exam:\n\n**[[Nonconforming use]]:** a use that was legal when it started but doesn't fit a newer zoning ordinance. It is usually allowed to continue (\"grandfathered\"). Common limits: the owner usually can't expand it, and if the structure is destroyed or the use is abandoned for a certain time, the right to continue may be lost.\n\n**[[Variance]]:** permission to depart from the *strict requirements* of the ordinance, usually physical standards such as setbacks, height, or lot coverage, because applying them would cause an **unusual hardship** tied to the property (an odd lot shape or steep slope, for example). The hardship can't be self-created, and a variance generally can't be used to bring in a use the zone doesn't allow.\n\n**[[Conditional use permit]]** (also called a *special use permit* or *special exception*): permission for a use the ordinance **lists as allowed if conditions are met**, because it serves the community. Examples include a church, school, or hospital in a residential zone. The approval comes with conditions (parking, hours, landscaping).\n\n| Tool | Why it's granted | Example |\n|---|---|---|\n| Nonconforming use | Use existed before the rule | Corner store in an area later zoned residential |\n| Variance | Hardship from strict rules | Reduced setback on an irregular lot |\n| Conditional use | Ordinance allows it with conditions | Church in a residential zone |\n\n> **Exam tip:** \"Existed first\" = nonconforming use. \"Hardship\" = variance. \"Public benefit, with conditions\" = conditional use.\n\nZoning decisions are typically made by a planning commission and a **board of adjustment** (zoning board of appeals), which hears variance requests and appeals.\n\n## Building codes\n\n**[[Building codes]]** set minimum construction standards for structure, plumbing, electrical, fire safety, and energy use. They're enforced through **building permits** and inspections. When the work passes final inspection, the building department issues a **certificate of occupancy**, which allows people to legally occupy the building. When a zoning rule and a building code (or any two rules) conflict, the **stricter** standard generally controls.\n\n## Subdivision regulations\n\nWhen a developer divides raw land into lots, local subdivision regulations control street layout and width, utilities, drainage, lot size, open space, and dedication of land for public use. The developer submits a **plat** for approval and records it, which creates the lot-and-block legal descriptions. Developers may also have to pay **impact fees** to fund the schools, parks, and roads new growth requires.\n\nAt the federal level, the **Interstate Land Sales Full Disclosure Act** requires developers who sell or lease certain unimproved lots through interstate commerce to register with the federal government and give buyers a **property report** before they sign, unless an exemption applies. The Consumer Financial Protection Bureau (CFPB) administers it. A buyer of a covered lot can generally revoke the contract until midnight of the seventh day after signing, and subdivisions of fewer than 25 lots are exempt from the act.\n\n## Environmental regulation (brief)\n\nFederal and state laws address hazards such as lead-based paint, asbestos, radon, underground storage tanks, and contaminated land. Under the federal Superfund law (CERCLA), the current owner or operator, and anyone who owned or operated the site when hazardous waste was disposed of there, can be liable for cleanup costs. Liability is strict (fault doesn't matter), joint and several, and retroactive, which is why commercial buyers order environmental site assessments. Disclosure duties are covered in other modules.\n\n## Private controls\n\n### Deed restrictions and covenants\n\nA **[[deed restriction]]** limits how a buyer may use the property. A grantor writes it into a deed, or a developer records it for a whole subdivision. Restrictions can be:\n\n- **Covenants:** promises. If one is broken, the remedy is usually a court order (an **injunction**) or damages.\n- **Conditions:** if broken, the grantor may be able to reclaim title (see fee simple defeasible). Courts dislike forfeiture, so they interpret restrictions as covenants when they can.\n\nRestrictions that discriminate based on race or other protected classes are **unenforceable** under fair housing law and court decisions, even if they're still in old recorded documents.\n\n### CC&Rs and HOAs\n\nIn most planned communities and condominiums, the developer records a declaration of **[[CC&Rs]]** (covenants, conditions, and restrictions) that binds every lot. CC&Rs typically cover architectural approval, fences, paint colors, pets, parking, rentals, and maintenance. They **run with the land** and bind later buyers who take with constructive notice from the recorded declaration.\n\nA **[[homeowners' association]]** (HOA) enforces the CC&Rs, maintains common areas, and charges **assessments** (regular dues and special assessments). Unpaid assessments can become a lien on the owner's property.\n\nA neighbor or the HOA can enforce restrictions by seeking an **injunction**. If they wait too long, the court may refuse to enforce the restriction under the doctrine of **laches** (unreasonable delay). Restrictions may also end by their own terms, by agreement of the owners, or when conditions in the neighborhood change enough that the restriction no longer makes sense.\n\n> **Exam tip:** When a private restriction and a public law both apply, the **more restrictive** one generally governs. A zoning ordinance allowing 35-foot buildings doesn't override CC&Rs limiting homes to one story.\n\nColorado has its own common-interest community statute (CCIOA) with HOA rules. Those are covered in the state portion of this course."
+      "body": "## Public and private controls\n\nAn owner's rights aren't unlimited. Land use is shaped by:\n\n- **Public controls:** government powers over private property.\n- **Private controls:** restrictions created by owners and developers through deeds and recorded declarations.\n\n## The four government powers (PETE)\n\nGovernment's rights over private land are summarized as **PETE**:\n\n| Power | What it does | Compensation? |\n|---|---|---|\n| **P**olice power | Regulates use for public health, safety, morals, and welfare | No |\n| **E**minent domain | Takes private property for public use | Yes, just compensation |\n| **T**axation | Levies taxes and special assessments, enforced by liens | n/a |\n| **E**scheat | Takes property when an owner dies with no will and no heirs | No |\n\n### Police power\n\n**[[Police power]]** is the government's authority to regulate property use to protect the public. It's the source of zoning, building codes, subdivision rules, environmental regulations, and rent controls. Regulation under the police power doesn't require compensation, as long as it doesn't go so far that it effectively takes the property.\n\n### Eminent domain\n\n**[[Eminent domain]]** is the government's power to take private property for **[[public use]]** with **[[just compensation]]** (usually fair market value). **[[Condemnation]]** is the legal process used to exercise it. Governments and certain entities with delegated authority (utilities, for example) can use it to build roads, schools, pipelines, or power lines.\n\n- The owner can challenge whether the use is public or whether the payment is fair, but generally can't stop a valid taking.\n- **[[Inverse condemnation]]** is a lawsuit an *owner* brings when government action has effectively taken or damaged the property (for example, an airport's flight path) without a formal condemnation.\n- A partial taking may include **[[severance damages]]** for the drop in value of the remaining land.\n\n### Taxation\n\nLocal governments levy **[[ad valorem]]** (by value) property taxes, which become a specific lien on the property. A **[[special assessment]]** is a charge against only the properties that benefit from a specific public improvement, such as new sidewalks, sewer lines, or street paving. Special assessments are specific, involuntary liens, and like property taxes they generally have priority over other liens.\n\n### Escheat\n\n**[[Escheat]]** transfers property to the state (or county) when an owner dies **without a will and without heirs**. It also applies to some abandoned property. Escheat keeps property from becoming ownerless.\n\n## Planning and zoning\n\nCities and counties usually adopt a **[[comprehensive plan]]** (master plan) for future growth. They then carry it out through **[[zoning]]** ordinances, which divide land into districts and set the allowed uses in each. States give local governments this authority through **[[Enabling act|enabling acts]]**.\n\nZoning ordinances commonly regulate:\n\n- **Use:** residential, commercial, industrial, agricultural, mixed-use, planned unit development (PUD).\n- **Density:** units per acre, minimum lot size.\n- **Bulk and placement:** building height, lot coverage, **[[Setback|setbacks]]** from lot lines, floor-area ratio.\n- **Aesthetics:** historic districts, signage.\n\nRelated concepts:\n\n- **[[Buffer zone]]:** a strip (such as a park or a light-use district) separating incompatible uses, like homes and heavy industry.\n- **[[Cumulative zoning]]** allows \"higher\" uses in a \"lower\" zone (a home in a commercial zone). **[[Exclusive zoning]]** allows only the listed use.\n- **[[Downzoning]]:** rezoning to a less intense use (commercial to residential, for example).\n- **[[Spot zoning]]:** rezoning a single parcel in a way that benefits one owner and conflicts with the comprehensive plan. It is often struck down as illegal.\n- **[[Rezoning]] (amendment):** changing the zoning of an area through the legislative process.\n\n### Exceptions to zoning\n\nThese three show up on almost every exam:\n\n**[[Nonconforming use]]:** a use that was legal when it started but doesn't fit a newer zoning ordinance. It is usually allowed to continue (\"grandfathered\"). Common limits: the owner usually can't expand it, and if the structure is destroyed or the use is abandoned for a certain time, the right to continue may be lost.\n\n**[[Variance]]:** permission to depart from the *strict requirements* of the ordinance, usually physical standards such as setbacks, height, or lot coverage, because applying them would cause an **unusual hardship** tied to the property (an odd lot shape or steep slope, for example). The hardship can't be self-created, and a variance generally can't be used to bring in a use the zone doesn't allow.\n\n**[[Conditional use permit]]** (also called a *special use permit* or *special exception*): permission for a use the ordinance **lists as allowed if conditions are met**, because it serves the community. Examples include a church, school, or hospital in a residential zone. The approval comes with conditions (parking, hours, landscaping).\n\n| Tool | Why it's granted | Example |\n|---|---|---|\n| Nonconforming use | Use existed before the rule | Corner store in an area later zoned residential |\n| Variance | Hardship from strict rules | Reduced setback on an irregular lot |\n| Conditional use | Ordinance allows it with conditions | Church in a residential zone |\n\n> **Exam tip:** \"Existed first\" = nonconforming use. \"Hardship\" = variance. \"Public benefit, with conditions\" = conditional use.\n\nZoning decisions are typically made by a planning commission and a **[[board of adjustment]]** (zoning board of appeals), which hears variance requests and appeals.\n\n## Building codes\n\n**[[Building codes]]** set minimum construction standards for structure, plumbing, electrical, fire safety, and energy use. They're enforced through **[[Building permit|building permits]]** and inspections. When the work passes final inspection, the building department issues a **[[certificate of occupancy]]**, which allows people to legally occupy the building. When a zoning rule and a building code (or any two rules) conflict, the **stricter** standard generally controls.\n\n## Subdivision regulations\n\nWhen a developer divides raw land into lots, local subdivision regulations control street layout and width, utilities, drainage, lot size, open space, and dedication of land for public use. The developer submits a **[[plat]]** for approval and records it, which creates the lot-and-block legal descriptions. Developers may also have to pay **[[Impact fee|impact fees]]** to fund the schools, parks, and roads new growth requires.\n\nAt the federal level, the **[[Interstate Land Sales Full Disclosure Act]]** requires developers who sell or lease certain unimproved lots through interstate commerce to register with the federal government and give buyers a **[[property report]]** before they sign, unless an exemption applies. The Consumer Financial Protection Bureau (CFPB) administers it. A buyer of a covered lot can generally revoke the contract until midnight of the seventh day after signing, and subdivisions of fewer than 25 lots are exempt from the act.\n\n## Environmental regulation (brief)\n\nFederal and state laws address hazards such as lead-based paint, asbestos, radon, underground storage tanks, and contaminated land. Under the federal Superfund law (CERCLA), the current owner or operator, and anyone who owned or operated the site when hazardous waste was disposed of there, can be liable for cleanup costs. Liability is strict (fault doesn't matter), joint and several, and retroactive, which is why commercial buyers order environmental site assessments. Disclosure duties are covered in other modules.\n\n## Private controls\n\n### Deed restrictions and covenants\n\nA **[[deed restriction]]** limits how a buyer may use the property. A grantor writes it into a deed, or a developer records it for a whole subdivision. Restrictions can be:\n\n- **[[Covenant|Covenants]]:** promises. If one is broken, the remedy is usually a court order (an **[[injunction]]**) or damages.\n- **[[Condition|Conditions]]:** if broken, the grantor may be able to reclaim title (see fee simple defeasible). Courts dislike forfeiture, so they interpret restrictions as covenants when they can.\n\nRestrictions that discriminate based on race or other protected classes are **unenforceable** under fair housing law and court decisions, even if they're still in old recorded documents.\n\n### CC&Rs and HOAs\n\nIn most planned communities and condominiums, the developer records a declaration of **[[CC&Rs]]** (covenants, conditions, and restrictions) that binds every lot. CC&Rs typically cover architectural approval, fences, paint colors, pets, parking, rentals, and maintenance. They **[[run with the land]]** and bind later buyers who take with constructive notice from the recorded declaration.\n\nA **[[homeowners' association]]** (HOA) enforces the CC&Rs, maintains common areas, and charges **[[assessments]]** (regular dues and special assessments). Unpaid assessments can become a lien on the owner's property.\n\nA neighbor or the HOA can enforce restrictions by seeking an **[[injunction]]**. If they wait too long, the court may refuse to enforce the restriction under the doctrine of **[[laches]]** (unreasonable delay). Restrictions may also end by their own terms, by agreement of the owners, or when conditions in the neighborhood change enough that the restriction no longer makes sense.\n\n> **Exam tip:** When a private restriction and a public law both apply, the **more restrictive** one generally governs. A zoning ordinance allowing 35-foot buildings doesn't override CC&Rs limiting homes to one story.\n\nColorado has its own common-interest community statute (CCIOA) with HOA rules. Those are covered in the state portion of this course."
     },
     {
       "id": "n1-transfer-of-title",
@@ -48,7 +48,7 @@
       "topics": [
         "Transfer of title"
       ],
-      "body": "## How title changes hands\n\n**Title** is ownership, and the evidence of ownership. **Alienation** is any transfer of title.\n\n| Voluntary alienation | Involuntary alienation |\n|---|---|\n| Sale or gift by **deed** | **Descent** under intestacy laws |\n| Transfer by **will** (devise) | **Escheat** to the state |\n| | **Eminent domain** |\n| | **Foreclosure** and tax sales |\n| | **Adverse possession** |\n| | Natural forces: **accretion** (land added slowly by water deposits), **erosion**, avulsion |\n\n**[[Involuntary alienation]]** is a transfer of title without the owner's consent.\n\n## Deeds\n\nA **[[deed]]** is the written document that conveys title to real property from the **[[grantor]]** (the person giving title) to the **[[grantee]]** (the person receiving it).\n\n### Requirements for a valid deed\n\n- **In writing**, as the statute of frauds requires\n- A **competent grantor** (legal age and sound mind)\n- A **grantee** who can be identified (the grantee doesn't need to be competent; a minor can receive title)\n- A recital of **consideration** (\"for ten dollars and other good and valuable consideration\"). A gift deed is valid too.\n- A **granting clause** with words of conveyance (\"grants,\" \"conveys\")\n- An adequate **legal description**\n- The **grantor's signature** (the grantee usually doesn't sign)\n- **Delivery and acceptance**: title passes when the deed is delivered to and accepted by the grantee during the grantor's lifetime\n\nSome deeds also include a **habendum clause** (\"to have and to hold\"), which defines the estate granted, and exceptions and reservations (for example, reserving mineral rights).\n\n**[[Acknowledgment]]** is a formal declaration before a notary or other authorized officer that the signature is genuine and voluntary. In most states it isn't needed for a deed to be *valid* between the parties, but it's required to **record** the deed. (Colorado's statute, C.R.S. 38-35-106, is more forgiving: a recorded instrument gives notice even if the acknowledgment is missing or defective. In practice, Colorado deeds are still notarized.)\n\n> **Exam tip:** Title passes on **delivery and acceptance**, not when the deed is signed and not when it's recorded. A deed found in a desk drawer after the grantor's death was never delivered and doesn't convey title.\n\n### Types of deeds\n\n| Deed | Warranties given | Typical use |\n|---|---|---|\n| **[[General warranty deed]]** | The most protection. Grantor warrants title against defects **at any time**, including before the grantor owned it | Standard sale where the buyer wants full protection |\n| **[[Special warranty deed]]** | Grantor warrants only against defects arising **while the grantor owned** the property | Corporate sellers, lenders selling REO property, some fiduciaries |\n| **[[Bargain and sale deed]]** | Implies the grantor holds title; gives no express warranties against encumbrances (in some states with limited covenants) | Tax sales, some foreclosures |\n| **[[Quitclaim deed]]** | **No warranties.** Conveys whatever interest the grantor has, if any | Clearing a cloud on title, releasing an interest, transfers between family members or after divorce |\n| **[[Personal representative's deed]]** | Fiduciary deed from an estate | Selling a deceased person's property through probate |\n\nThe usual covenants in a general warranty deed are:\n\n- **Seisin:** the grantor owns the property and has the right to convey it.\n- **Against encumbrances:** there are no encumbrances except those listed.\n- **Quiet enjoyment:** no one with a better title will disturb the grantee's possession.\n- **Further assurance:** the grantor will sign any papers needed to perfect the title.\n- **Warranty forever:** the grantor will defend the title against lawful claims.\n\nOther fiduciary and court deeds include the **trustee's deed** (from a trustee), **sheriff's deed** (after a court-ordered sale), and **guardian's** or **conservator's deeds**. Fiduciary deeds generally carry only limited warranties. Colorado's Commission-approved deed forms include warranty, special warranty, bargain and sale, and quitclaim deeds.\n\n> **Exam tip:** A quitclaim deed conveys the grantor's interest, if any. It does **not** promise the grantor owns anything. That's what makes it the go-to tool for removing a [[cloud on title]].\n\n## Recording and notice\n\n**[[Recording]]** means filing a deed, mortgage, lien, or other document with the county recorder (the county clerk and recorder in Colorado). Recording isn't required for a deed to be valid between grantor and grantee, but it protects the grantee against later claimants.\n\n- **[[Constructive notice]]:** what the law presumes everyone knows, because it's in the public records or could be found by inspecting the property. A buyer is charged with knowing about recorded documents and about the rights of anyone in possession.\n- **[[Actual notice]]:** what a person really knows, whether because they saw it, were told it, or read it.\n\nStates use different recording statutes to settle conflicts between two buyers of the same property:\n\n- **Race:** the first to record wins.\n- **Notice:** a later buyer without notice of the earlier deed wins.\n- **Race-notice:** a later buyer wins only if they had no notice **and** recorded first.\n\n**Colorado note:** C.R.S. 38-35-109 describes Colorado's statute as a race-notice recording statute.\n\n## Evidence of title\n\n- **[[Chain of title]]:** the sequence of recorded conveyances from the original source of title to the current owner. A missing link is a **gap** in the chain.\n- **[[Abstract of title]]:** a condensed history of all recorded documents affecting the property. It's not insurance; an attorney reads it and gives an **attorney's opinion of title**.\n- **[[Title insurance]]:** a policy that pays for covered losses from title defects. The insurer issues a **title commitment** before closing, listing requirements to be met and exceptions the policy won't cover.\n\n**[[Marketable title]]** is title free enough from reasonable doubt that a prudent buyer would accept it. It doesn't have to be perfect, but it shouldn't expose the buyer to likely lawsuits. Purchase contracts usually require the seller to deliver marketable title. A **cloud on title** (an old unreleased mortgage, a possible heir's claim) can be removed by a quitclaim deed from the claimant or by a **[[quiet title action]]**.\n\n### Owner's vs. lender's title policies\n\n| | Owner's policy | Lender's (loan) policy |\n|---|---|---|\n| Protects | The buyer/owner | The lender |\n| Amount | Usually the purchase price | Usually the loan amount; coverage drops as the loan is paid down |\n| Duration | As long as the insured or their heirs hold an interest | Until the loan is paid off |\n| Premium | One-time, paid at closing | One-time, paid at closing |\n\n### Standard vs. extended coverage\n\n- **Standard coverage** protects against defects in the public records plus certain hidden risks such as forgery, a grantor's incompetence, improper delivery, and undisclosed heirs. It usually **excludes** matters that only an inspection or survey would reveal: **rights of parties in possession**, boundary disputes and **encroachments**, **unrecorded easements**, and **unrecorded mechanic's liens**.\n- **Extended coverage** removes some or all of those standard exceptions, usually after a survey and inspection.\n\nNo policy covers defects the insured created or already knew about, or government regulations like zoning.\n\n## Closing basics\n\nAt **closing** (settlement), the buyer pays the purchase price, the seller delivers the deed, liens are paid off, the new loan is funded, and documents are recorded. Closing is commonly handled by a **settlement agent**, such as a title company, escrow agent, or attorney. A **closing statement** accounts for every debit and credit, including **prorations** of taxes, rents, and HOA dues. Colorado closing practice is covered in the state portion of this course.\n\n## Foreclosure and alternatives\n\nA **[[foreclosure]]** is the legal process a lender uses to sell a property to satisfy a defaulted loan.\n\n- **Judicial foreclosure:** the lender sues, and a court orders a sale (often conducted by a sheriff).\n- **Nonjudicial foreclosure:** a **power of sale** in the deed of trust allows a trustee to sell without a lawsuit. Colorado uses a **public trustee** system for most deed-of-trust foreclosures (details in the state module).\n- **Equity of redemption:** the borrower's right to pay off the debt and stop the foreclosure *before* the sale.\n- **Statutory redemption:** a right some states give to buy the property back *after* the sale for a set period.\n- **Deficiency judgment:** if the sale brings less than the debt, the lender may be able to get a personal judgment for the shortfall, where state law allows.\n\nAlternatives:\n\n- **[[Deed in lieu of foreclosure]]:** the borrower voluntarily deeds the property to the lender. The lender takes title subject to junior liens, so lenders often refuse it when other liens exist.\n- **[[Short sale]]:** the property sells for less than the loan balance, and the **lender agrees** to accept the net proceeds as payment. Lender approval is essential, and the lender may or may not release the borrower from the remaining balance.\n\n## Wills, probate, and intestacy\n\n- A **will** lets a person (the **testator**) direct how property passes at death. Real property left by will is a **devise**, and the recipient is a **devisee**. A **codicil** amends a will.\n- **Probate** is the court-supervised process of proving a will, paying debts, and distributing property. The court appoints a **personal representative** (also called an executor if named in the will, or an administrator if there's no will) who can sell estate property with a personal representative's deed.\n- A person who dies without a valid will dies **[[intestate]]**. State **intestate succession** (descent) statutes decide which relatives inherit. If there are no heirs, the property **escheats** to the state.\n- Property held in **joint tenancy** passes to the surviving joint tenants outside probate, and property in a trust passes under the trust terms.\n\n> **Exam tip:** \"Testate\" means with a will (property passes by devise). \"Intestate\" means without a will (property passes by descent). No will and no heirs means escheat."
+      "body": "## How title changes hands\n\n**[[Title]]** is ownership, and the evidence of ownership. **[[Alienation]]** is any transfer of title.\n\n| Voluntary alienation | Involuntary alienation |\n|---|---|\n| Sale or gift by **[[deed]]** | **[[Descent]]** under intestacy laws |\n| Transfer by **[[will]]** (devise) | **[[Escheat]]** to the state |\n| | **[[Eminent domain]]** |\n| | **[[Foreclosure]]** and tax sales |\n| | **[[Adverse possession]]** |\n| | Natural forces: **[[accretion]]** (land added slowly by water deposits), **[[erosion]]**, avulsion |\n\n**[[Involuntary alienation]]** is a transfer of title without the owner's consent.\n\n## Deeds\n\nA **[[deed]]** is the written document that conveys title to real property from the **[[grantor]]** (the person giving title) to the **[[grantee]]** (the person receiving it).\n\n### Requirements for a valid deed\n\n- **In writing**, as the statute of frauds requires\n- A **competent [[grantor]]** (legal age and sound mind)\n- A **[[grantee]]** who can be identified (the grantee doesn't need to be competent; a minor can receive title)\n- A recital of **[[consideration]]** (\"for ten dollars and other good and valuable consideration\"). A gift deed is valid too.\n- A **[[granting clause]]** with words of conveyance (\"grants,\" \"conveys\")\n- An adequate **[[legal description]]**\n- The **grantor's signature** (the grantee usually doesn't sign)\n- **[[Delivery and acceptance]]**: title passes when the deed is delivered to and accepted by the grantee during the grantor's lifetime\n\nSome deeds also include a **[[habendum clause]]** (\"to have and to hold\"), which defines the estate granted, and exceptions and reservations (for example, reserving mineral rights).\n\n**[[Acknowledgment]]** is a formal declaration before a notary or other authorized officer that the signature is genuine and voluntary. In most states it isn't needed for a deed to be *valid* between the parties, but it's required to **[[Recording|record]]** the deed. (Colorado's statute, C.R.S. 38-35-106, is more forgiving: a recorded instrument gives notice even if the acknowledgment is missing or defective. In practice, Colorado deeds are still notarized.)\n\n> **Exam tip:** Title passes on **[[delivery and acceptance]]**, not when the deed is signed and not when it's recorded. A deed found in a desk drawer after the grantor's death was never delivered and doesn't convey title.\n\n### Types of deeds\n\n| Deed | Warranties given | Typical use |\n|---|---|---|\n| **[[General warranty deed]]** | The most protection. Grantor warrants title against defects **at any time**, including before the grantor owned it | Standard sale where the buyer wants full protection |\n| **[[Special warranty deed]]** | Grantor warrants only against defects arising **while the grantor owned** the property | Corporate sellers, lenders selling REO property, some fiduciaries |\n| **[[Bargain and sale deed]]** | Implies the grantor holds title; gives no express warranties against encumbrances (in some states with limited covenants) | Tax sales, some foreclosures |\n| **[[Quitclaim deed]]** | **No warranties.** Conveys whatever interest the grantor has, if any | Clearing a cloud on title, releasing an interest, transfers between family members or after divorce |\n| **[[Personal representative's deed]]** | Fiduciary deed from an estate | Selling a deceased person's property through probate |\n\nThe usual covenants in a general warranty deed are:\n\n- **[[Seisin]]:** the grantor owns the property and has the right to convey it.\n- **[[Covenant against encumbrances|Against encumbrances]]:** there are no encumbrances except those listed.\n- **[[Quiet enjoyment]]:** no one with a better title will disturb the grantee's possession.\n- **[[Further assurance]]:** the grantor will sign any papers needed to perfect the title.\n- **[[Warranty forever]]:** the grantor will defend the title against lawful claims.\n\nOther fiduciary and court deeds include the **[[trustee's deed]]** (from a trustee), **[[sheriff's deed]]** (after a court-ordered sale), and **[[Guardian's deed|guardian's]]** or **[[Conservator's deed|conservator's deeds]]**. Fiduciary deeds generally carry only limited warranties. Colorado's Commission-approved deed forms include warranty, special warranty, bargain and sale, and quitclaim deeds.\n\n> **Exam tip:** A quitclaim deed conveys the grantor's interest, if any. It does **not** promise the grantor owns anything. That's what makes it the go-to tool for removing a [[cloud on title]].\n\n## Recording and notice\n\n**[[Recording]]** means filing a deed, mortgage, lien, or other document with the county recorder (the county clerk and recorder in Colorado). Recording isn't required for a deed to be valid between grantor and grantee, but it protects the grantee against later claimants.\n\n- **[[Constructive notice]]:** what the law presumes everyone knows, because it's in the public records or could be found by inspecting the property. A buyer is charged with knowing about recorded documents and about the rights of anyone in possession.\n- **[[Actual notice]]:** what a person really knows, whether because they saw it, were told it, or read it.\n\nStates use different recording statutes to settle conflicts between two buyers of the same property:\n\n- **[[Race statute|Race]]:** the first to record wins.\n- **[[Notice statute|Notice]]:** a later buyer without notice of the earlier deed wins.\n- **[[Race-notice]]:** a later buyer wins only if they had no notice **and** recorded first.\n\n**Colorado note:** C.R.S. 38-35-109 describes Colorado's statute as a race-notice recording statute.\n\n## Evidence of title\n\n- **[[Chain of title]]:** the sequence of recorded conveyances from the original source of title to the current owner. A missing link is a **[[Gap in title|gap]]** in the chain.\n- **[[Abstract of title]]:** a condensed history of all recorded documents affecting the property. It's not insurance; an attorney reads it and gives an **[[attorney's opinion of title]]**.\n- **[[Title insurance]]:** a policy that pays for covered losses from title defects. The insurer issues a **[[title commitment]]** before closing, listing requirements to be met and exceptions the policy won't cover.\n\n**[[Marketable title]]** is title free enough from reasonable doubt that a prudent buyer would accept it. It doesn't have to be perfect, but it shouldn't expose the buyer to likely lawsuits. Purchase contracts usually require the seller to deliver marketable title. A **[[cloud on title]]** (an old unreleased mortgage, a possible heir's claim) can be removed by a quitclaim deed from the claimant or by a **[[quiet title action]]**.\n\n### Owner's vs. lender's title policies\n\n| | Owner's policy | Lender's (loan) policy |\n|---|---|---|\n| Protects | The buyer/owner | The lender |\n| Amount | Usually the purchase price | Usually the loan amount; coverage drops as the loan is paid down |\n| Duration | As long as the insured or their heirs hold an interest | Until the loan is paid off |\n| Premium | One-time, paid at closing | One-time, paid at closing |\n\n### Standard vs. extended coverage\n\n- **[[Standard coverage]]** protects against defects in the public records plus certain hidden risks such as forgery, a grantor's incompetence, improper delivery, and undisclosed heirs. It usually **excludes** matters that only an inspection or survey would reveal: **rights of parties in possession**, boundary disputes and **[[encroachments]]**, **unrecorded easements**, and **unrecorded mechanic's liens**.\n- **[[Extended coverage]]** removes some or all of those standard exceptions, usually after a survey and inspection.\n\nNo policy covers defects the insured created or already knew about, or government regulations like zoning.\n\n## Closing basics\n\nAt **[[closing]]** (settlement), the buyer pays the purchase price, the seller delivers the deed, liens are paid off, the new loan is funded, and documents are recorded. Closing is commonly handled by a **[[Closing company|settlement agent]]**, such as a title company, escrow agent, or attorney. A **[[closing statement]]** accounts for every debit and credit, including **[[prorations]]** of taxes, rents, and HOA dues. Colorado closing practice is covered in the state portion of this course.\n\n## Foreclosure and alternatives\n\nA **[[foreclosure]]** is the legal process a lender uses to sell a property to satisfy a defaulted loan.\n\n- **[[Judicial foreclosure]]:** the lender sues, and a court orders a sale (often conducted by a sheriff).\n- **[[Nonjudicial foreclosure]]:** a **[[power of sale]]** in the deed of trust allows a trustee to sell without a lawsuit. Colorado uses a **[[public trustee]]** system for most deed-of-trust foreclosures (details in the state module).\n- **[[Equity of redemption]]:** the borrower's right to pay off the debt and stop the foreclosure *before* the sale.\n- **[[Statutory redemption]]:** a right some states give to buy the property back *after* the sale for a set period.\n- **[[Deficiency judgment]]:** if the sale brings less than the debt, the lender may be able to get a personal judgment for the shortfall, where state law allows.\n\nAlternatives:\n\n- **[[Deed in lieu of foreclosure]]:** the borrower voluntarily deeds the property to the lender. The lender takes title subject to junior liens, so lenders often refuse it when other liens exist.\n- **[[Short sale]]:** the property sells for less than the loan balance, and the **lender agrees** to accept the net proceeds as payment. Lender approval is essential, and the lender may or may not release the borrower from the remaining balance.\n\n## Wills, probate, and intestacy\n\n- A **[[will]]** lets a person (the **[[testator]]**) direct how property passes at death. Real property left by will is a **[[devise]]**, and the recipient is a **[[devisee]]**. A **[[codicil]]** amends a will.\n- **[[Probate]]** is the court-supervised process of proving a will, paying debts, and distributing property. The court appoints a **[[personal representative]]** (also called an executor if named in the will, or an administrator if there's no will) who can sell estate property with a personal representative's deed.\n- A person who dies without a valid will dies **[[intestate]]**. State **[[intestate succession]]** (descent) statutes decide which relatives inherit. If there are no heirs, the property **[[Escheat|escheats]]** to the state.\n- Property held in **[[joint tenancy]]** passes to the surviving joint tenants outside probate, and property in a trust passes under the trust terms.\n\n> **Exam tip:** \"Testate\" means with a will (property passes by devise). \"Intestate\" means without a will (property passes by descent). No will and no heirs means escheat."
     }
   ],
   "questions": [
@@ -1281,6 +1281,615 @@
         "intestate succession",
         "intestacy"
       ]
+    },
+    {
+      "term": "Land",
+      "definition": "The earth's surface, everything below it to the center of the earth, and the airspace above it, including natural things attached to it such as trees and minerals in place.",
+      "aliases": []
+    },
+    {
+      "term": "Real estate",
+      "definition": "Land plus everything people have permanently attached to it, such as buildings, fences, and paving.",
+      "aliases": []
+    },
+    {
+      "term": "Littoral rights",
+      "definition": "The rights of owners whose land borders a lake, sea, or ocean to use and enjoy the water and the shoreline.",
+      "aliases": []
+    },
+    {
+      "term": "Fructus naturales",
+      "definition": "Trees, perennial shrubs, grass, and other plants that grow without being planted each year. They're treated as part of the real property.",
+      "aliases": []
+    },
+    {
+      "term": "Method of attachment",
+      "definition": "The fixture test that asks how an item is attached to the property (bolted, nailed, plumbed, or wired in) and whether removing it would cause damage.",
+      "aliases": []
+    },
+    {
+      "term": "Accession",
+      "definition": "Acquiring title to property that is added to or left on land you own, such as trade fixtures a tenant leaves behind after the lease ends.",
+      "aliases": []
+    },
+    {
+      "term": "Legal description",
+      "definition": "A description of land precise enough to identify exactly one parcel, written using metes and bounds, lot and block, or the rectangular survey system.",
+      "aliases": []
+    },
+    {
+      "term": "Monument",
+      "definition": "A fixed natural or artificial object, such as an iron pin, tree, or road, used to mark a boundary in a metes and bounds description. When a monument and a measured distance conflict, the monument generally controls.",
+      "aliases": []
+    },
+    {
+      "term": "Plat",
+      "definition": "A map of a subdivision, prepared by a surveyor and recorded with the county, that shows each lot and block along with streets and easements.",
+      "aliases": [
+        "plat map"
+      ]
+    },
+    {
+      "term": "Principal meridian",
+      "definition": "A main north–south line in the rectangular survey system from which ranges are numbered east and west. Colorado uses the Sixth Principal Meridian, the New Mexico Principal Meridian, and the Ute Meridian.",
+      "aliases": []
+    },
+    {
+      "term": "Base line",
+      "definition": "A main east–west line in the rectangular survey system that crosses a principal meridian; township tiers are numbered north and south of it.",
+      "aliases": []
+    },
+    {
+      "term": "Range line",
+      "definition": "A north–south line in the rectangular survey system drawn every 6 miles east and west of a principal meridian. The columns between them are called ranges.",
+      "aliases": []
+    },
+    {
+      "term": "Township line",
+      "definition": "An east–west line in the rectangular survey system drawn every 6 miles north and south of a base line. The rows between them are called township tiers.",
+      "aliases": []
+    },
+    {
+      "term": "Quadrangle",
+      "definition": "In the rectangular survey system, a square about 24 miles on a side containing 16 townships, bounded by guide meridians and correction lines.",
+      "aliases": []
+    },
+    {
+      "term": "Correction line",
+      "definition": "An east–west line (standard parallel) drawn every 24 miles north and south of a base line to adjust the survey grid for the curvature of the earth.",
+      "aliases": []
+    },
+    {
+      "term": "Government lot",
+      "definition": "An irregular parcel in the rectangular survey system that can't be a full quarter-quarter section, usually because it lies along a body of water or at the edge of a township.",
+      "aliases": []
+    },
+    {
+      "term": "Datum",
+      "definition": "A reference point or surface, such as mean sea level or a local benchmark, from which surveyors measure elevations and heights.",
+      "aliases": []
+    },
+    {
+      "term": "Estate",
+      "definition": "The degree, quantity, and duration of a person's interest in real property. Estates are either freehold (ownership) or leasehold (tenancy).",
+      "aliases": []
+    },
+    {
+      "term": "Possibility of reverter",
+      "definition": "The future interest a grantor keeps in a fee simple determinable. If the stated condition is broken, title returns to the grantor automatically.",
+      "aliases": []
+    },
+    {
+      "term": "Fee simple subject to a condition subsequent",
+      "definition": "Fee ownership that the grantor can end if a stated condition is broken, using words like \"on condition that.\" The grantor must take action (right of reentry) to get the property back.",
+      "aliases": []
+    },
+    {
+      "term": "Right of reentry",
+      "definition": "The future interest a grantor keeps in a fee simple subject to a condition subsequent. If the condition is broken, the grantor must act to reclaim the property. Also called a power of termination.",
+      "aliases": []
+    },
+    {
+      "term": "Conventional life estate",
+      "definition": "A life estate created on purpose by a deed or will, usually lasting for the life tenant's own lifetime.",
+      "aliases": []
+    },
+    {
+      "term": "Life estate pur autre vie",
+      "definition": "A life estate measured by the life of someone other than the life tenant, such as \"to Ann for the life of Bob.\"",
+      "aliases": []
+    },
+    {
+      "term": "Reversion",
+      "definition": "The future interest a grantor keeps when the property returns to the grantor or the grantor's heirs after a life estate ends.",
+      "aliases": []
+    },
+    {
+      "term": "Remainderman",
+      "definition": "The third party named to receive the property when a life estate ends.",
+      "aliases": []
+    },
+    {
+      "term": "Remainder",
+      "definition": "The future interest held by a remainderman, who takes the property when a life estate ends.",
+      "aliases": []
+    },
+    {
+      "term": "Waste",
+      "definition": "Damage, neglect, or misuse of property by a life tenant or tenant that lowers its value for the future owner.",
+      "aliases": []
+    },
+    {
+      "term": "Legal life estate",
+      "definition": "A life estate created by state law rather than by a deed or will, such as historical dower and curtesy rights of a surviving spouse.",
+      "aliases": []
+    },
+    {
+      "term": "Homestead",
+      "definition": "A state-law protection that shields part of the value of a family's home from certain creditors.",
+      "aliases": []
+    },
+    {
+      "term": "Undivided interest",
+      "definition": "A co-owner's share in a whole property, with the right to use all of it, rather than ownership of any particular physical part.",
+      "aliases": []
+    },
+    {
+      "term": "Partition",
+      "definition": "A court action that divides co-owned property among the owners or, if it can't be divided fairly, orders it sold and divides the proceeds.",
+      "aliases": []
+    },
+    {
+      "term": "Four unities",
+      "definition": "The four requirements traditionally needed to create a joint tenancy: possession, interest, time, and title. Tenancy in common requires only unity of possession.",
+      "aliases": []
+    },
+    {
+      "term": "Separate property",
+      "definition": "In community property states, property a spouse owned before marriage or received by gift or inheritance, which belongs to that spouse alone.",
+      "aliases": []
+    },
+    {
+      "term": "Limited common elements",
+      "definition": "Common elements of a condominium reserved for the use of one or a few units, such as an assigned parking space or a balcony.",
+      "aliases": []
+    },
+    {
+      "term": "Proprietary lease",
+      "definition": "The lease a cooperative corporation gives a shareholder, granting the right to occupy a particular unit.",
+      "aliases": []
+    },
+    {
+      "term": "Timeshare estate",
+      "definition": "A timeshare that conveys a fee ownership interest in a property for a recurring period, such as the same week every year.",
+      "aliases": []
+    },
+    {
+      "term": "Timeshare use",
+      "definition": "A timeshare that gives a contractual or lease-type right to use a property for a period, without real property ownership.",
+      "aliases": []
+    },
+    {
+      "term": "Trustor",
+      "definition": "The person who creates a trust by conveying property to a trustee. Also called the settlor or grantor.",
+      "aliases": []
+    },
+    {
+      "term": "Trustee",
+      "definition": "The person or institution that holds legal title to property in a trust and manages it for the beneficiary.",
+      "aliases": []
+    },
+    {
+      "term": "Beneficiary",
+      "definition": "The person who receives the benefit of property held in a trust.",
+      "aliases": []
+    },
+    {
+      "term": "Corporation",
+      "definition": "A legal entity separate from its shareholders that can hold title in severalty. Shareholders have limited liability, but a C corporation's income is taxed twice.",
+      "aliases": []
+    },
+    {
+      "term": "General partnership",
+      "definition": "A business in which all partners share management and have unlimited personal liability for the partnership's debts.",
+      "aliases": []
+    },
+    {
+      "term": "Limited partnership",
+      "definition": "A partnership with at least one general partner who manages and has unlimited liability, plus limited partners who are passive investors liable only up to their investment.",
+      "aliases": []
+    },
+    {
+      "term": "Limited liability company",
+      "definition": "A business entity whose members have limited liability and flexible pass-through tax treatment. It's commonly used to hold investment property.",
+      "aliases": []
+    },
+    {
+      "term": "Syndicate",
+      "definition": "A group of investors pooling money for a real estate investment, usually organized as a partnership or LLC rather than a separate legal form.",
+      "aliases": []
+    },
+    {
+      "term": "Joint venture",
+      "definition": "Two or more parties joining together for a single project or investment. It isn't a separate legal form and is often organized as a partnership or LLC.",
+      "aliases": []
+    },
+    {
+      "term": "Real estate investment trust",
+      "definition": "A company that pools investors' money to own or finance real estate and avoids corporate income tax on income it distributes if it meets federal requirements, such as paying out at least 90% of taxable income.",
+      "aliases": []
+    },
+    {
+      "term": "Security",
+      "definition": "An investment in which the buyer expects a profit from others' management efforts, such as a condo unit that must go into a rental pool. Selling one requires a securities license and registration.",
+      "aliases": []
+    },
+    {
+      "term": "Property tax lien",
+      "definition": "A specific, involuntary lien created by law for unpaid property taxes. It generally takes priority over all other liens.",
+      "aliases": []
+    },
+    {
+      "term": "Judgment lien",
+      "definition": "A general, involuntary lien created when a court judgment against a person is recorded. It attaches to that person's real property in the county.",
+      "aliases": []
+    },
+    {
+      "term": "Lien priority",
+      "definition": "The order in which liens are paid. The basic rule is first in time, first in right by recording date, except that property tax and special assessment liens generally come first.",
+      "aliases": []
+    },
+    {
+      "term": "Runs with the land",
+      "definition": "Describes a right or restriction that stays attached to the property and binds or benefits later owners when the property is sold.",
+      "aliases": [
+        "run with the land"
+      ]
+    },
+    {
+      "term": "Express easement",
+      "definition": "An easement created on purpose in writing, either granted to someone in a deed or agreement or reserved by a seller when conveying land.",
+      "aliases": []
+    },
+    {
+      "term": "Easement by necessity",
+      "definition": "An easement created by law when a parcel is sold without access to a road and the parcels were once under common ownership. It ends when the need ends.",
+      "aliases": []
+    },
+    {
+      "term": "Easement by implication",
+      "definition": "An easement implied from the circumstances and prior use of the land when a parcel is divided.",
+      "aliases": []
+    },
+    {
+      "term": "Party wall",
+      "definition": "A wall shared by two adjoining properties along the property line, with each owner holding an easement in the other's half.",
+      "aliases": []
+    },
+    {
+      "term": "Merger",
+      "definition": "The ending of a lesser interest when it and a greater interest come under the same owner, such as an easement ending when one person owns both the dominant and servient parcels.",
+      "aliases": []
+    },
+    {
+      "term": "Release",
+      "definition": "A written document in which the holder of a right, such as an easement or lien, gives it up.",
+      "aliases": []
+    },
+    {
+      "term": "Abandonment",
+      "definition": "Giving up a right or use on purpose, shown by conduct and not just by non-use. It can end an easement or a nonconforming use.",
+      "aliases": []
+    },
+    {
+      "term": "Title",
+      "definition": "Ownership of real property, and the evidence of that ownership.",
+      "aliases": []
+    },
+    {
+      "term": "Tacking",
+      "definition": "Adding together the periods of possession of successive adverse possessors who are in privity to reach the required statutory time.",
+      "aliases": []
+    },
+    {
+      "term": "Privity",
+      "definition": "A legal relationship between parties, such as a seller and buyer, that lets one succeed to the other's rights.",
+      "aliases": []
+    },
+    {
+      "term": "Clear and convincing evidence",
+      "definition": "A higher standard of proof than \"more likely than not,\" requiring evidence that makes a claim highly probable. Colorado adverse possession claimants must meet it.",
+      "aliases": []
+    },
+    {
+      "term": "Public use",
+      "definition": "A use that benefits the public, such as a road or school. Eminent domain can be used only for a public use.",
+      "aliases": []
+    },
+    {
+      "term": "Just compensation",
+      "definition": "The payment the government must make when it takes property by eminent domain, usually the property's fair market value.",
+      "aliases": []
+    },
+    {
+      "term": "Severance damages",
+      "definition": "Compensation for the loss in value of the remaining land when only part of a property is taken by eminent domain.",
+      "aliases": []
+    },
+    {
+      "term": "Ad valorem",
+      "definition": "Latin for \"according to value.\" Ad valorem property taxes are based on a property's value.",
+      "aliases": []
+    },
+    {
+      "term": "Comprehensive plan",
+      "definition": "A local government's long-range plan for growth and land use, carried out through zoning and other regulations. Also called a master plan.",
+      "aliases": []
+    },
+    {
+      "term": "Enabling act",
+      "definition": "A state law that gives local governments the authority to enact zoning and other land use regulations.",
+      "aliases": []
+    },
+    {
+      "term": "Setback",
+      "definition": "The minimum distance a building must be from a lot line, street, or other boundary under zoning rules.",
+      "aliases": []
+    },
+    {
+      "term": "Buffer zone",
+      "definition": "A strip of land, such as a park or a light-use district, that separates incompatible uses like homes and heavy industry.",
+      "aliases": []
+    },
+    {
+      "term": "Cumulative zoning",
+      "definition": "Zoning that allows \"higher\" uses, such as homes, in a zone set aside for \"lower\" uses, such as commercial.",
+      "aliases": []
+    },
+    {
+      "term": "Exclusive zoning",
+      "definition": "Zoning that allows only the use listed for the zone.",
+      "aliases": []
+    },
+    {
+      "term": "Downzoning",
+      "definition": "Rezoning land to a less intense use, such as from commercial to residential.",
+      "aliases": []
+    },
+    {
+      "term": "Spot zoning",
+      "definition": "Rezoning a single parcel to benefit one owner in a way that conflicts with the comprehensive plan. It's often struck down as illegal.",
+      "aliases": []
+    },
+    {
+      "term": "Rezoning",
+      "definition": "Changing the zoning of an area through the legislative process. Also called a zoning amendment.",
+      "aliases": []
+    },
+    {
+      "term": "Board of adjustment",
+      "definition": "A local board, also called a zoning board of appeals, that hears variance requests and appeals of zoning decisions.",
+      "aliases": []
+    },
+    {
+      "term": "Building permit",
+      "definition": "Permission from the local building department to construct or alter a building, which lets the department enforce building codes through inspections.",
+      "aliases": []
+    },
+    {
+      "term": "Certificate of occupancy",
+      "definition": "A document the building department issues after a building passes final inspection, allowing people to legally occupy it.",
+      "aliases": []
+    },
+    {
+      "term": "Impact fee",
+      "definition": "A charge on developers to help pay for public facilities, such as schools, parks, and roads, that new development requires.",
+      "aliases": []
+    },
+    {
+      "term": "Interstate Land Sales Full Disclosure Act",
+      "definition": "A federal law requiring developers who sell or lease certain unimproved lots through interstate commerce to register and give buyers a property report. Subdivisions under 25 lots are exempt.",
+      "aliases": []
+    },
+    {
+      "term": "Property report",
+      "definition": "The disclosure document a developer must give lot buyers under the Interstate Land Sales Full Disclosure Act before they sign. Buyers can generally revoke within 7 days.",
+      "aliases": []
+    },
+    {
+      "term": "Covenant",
+      "definition": "A promise in a deed or recorded declaration about how property will or won't be used. A breach is usually remedied by an injunction or damages.",
+      "aliases": []
+    },
+    {
+      "term": "Condition",
+      "definition": "A deed restriction that, if broken, may let the grantor reclaim title. Courts prefer to treat restrictions as covenants to avoid this forfeiture.",
+      "aliases": []
+    },
+    {
+      "term": "Injunction",
+      "definition": "A court order requiring a person to do or stop doing something, such as removing an encroachment or obeying a deed restriction.",
+      "aliases": []
+    },
+    {
+      "term": "Laches",
+      "definition": "A doctrine that lets a court refuse to enforce a right when the person waited unreasonably long to assert it.",
+      "aliases": []
+    },
+    {
+      "term": "Alienation",
+      "definition": "Any transfer of title to property, whether voluntary (deed or will) or involuntary.",
+      "aliases": []
+    },
+    {
+      "term": "Descent",
+      "definition": "The passing of a deceased person's property to heirs under state law when there is no valid will.",
+      "aliases": []
+    },
+    {
+      "term": "Will",
+      "definition": "A written document directing how a person's property passes at death.",
+      "aliases": []
+    },
+    {
+      "term": "Accretion",
+      "definition": "The slow addition of land by water depositing soil along a shore or riverbank. The added land belongs to the owner of the land it attaches to.",
+      "aliases": []
+    },
+    {
+      "term": "Erosion",
+      "definition": "The gradual wearing away of land by water, wind, or other natural forces, which reduces the owner's land.",
+      "aliases": []
+    },
+    {
+      "term": "Granting clause",
+      "definition": "The part of a deed with words of conveyance, such as \"grants\" or \"conveys,\" showing the grantor's intent to transfer title.",
+      "aliases": []
+    },
+    {
+      "term": "Delivery and acceptance",
+      "definition": "The final steps that make a deed transfer title: the grantor delivers it and the grantee accepts it during the grantor's lifetime.",
+      "aliases": []
+    },
+    {
+      "term": "Habendum clause",
+      "definition": "The \"to have and to hold\" clause of a deed, which defines the estate being granted.",
+      "aliases": []
+    },
+    {
+      "term": "Seisin",
+      "definition": "The deed covenant that the grantor owns the property and has the right to convey it.",
+      "aliases": []
+    },
+    {
+      "term": "Covenant against encumbrances",
+      "definition": "The deed covenant that the property has no encumbrances except those listed in the deed.",
+      "aliases": []
+    },
+    {
+      "term": "Further assurance",
+      "definition": "The deed covenant that the grantor will sign any additional documents needed to perfect the grantee's title.",
+      "aliases": []
+    },
+    {
+      "term": "Warranty forever",
+      "definition": "The deed covenant that the grantor will defend the title against all lawful claims.",
+      "aliases": []
+    },
+    {
+      "term": "Trustee's deed",
+      "definition": "A deed from a trustee conveying property held in a trust or sold at a deed-of-trust foreclosure. It generally carries only limited warranties.",
+      "aliases": []
+    },
+    {
+      "term": "Sheriff's deed",
+      "definition": "A deed given to the buyer at a court-ordered sale, such as a judicial foreclosure. It carries no warranties.",
+      "aliases": []
+    },
+    {
+      "term": "Guardian's deed",
+      "definition": "A fiduciary deed from a court-appointed guardian conveying a ward's property, usually with limited warranties.",
+      "aliases": []
+    },
+    {
+      "term": "Conservator's deed",
+      "definition": "A fiduciary deed from a court-appointed conservator conveying a protected person's property, usually with limited warranties.",
+      "aliases": []
+    },
+    {
+      "term": "Race statute",
+      "definition": "A recording statute under which the first buyer to record wins, regardless of notice.",
+      "aliases": []
+    },
+    {
+      "term": "Notice statute",
+      "definition": "A recording statute under which a later buyer without notice of an earlier unrecorded deed wins.",
+      "aliases": []
+    },
+    {
+      "term": "Gap in title",
+      "definition": "A missing link in the chain of title, where the records don't show how title passed from one owner to the next.",
+      "aliases": []
+    },
+    {
+      "term": "Attorney's opinion of title",
+      "definition": "An attorney's written opinion, based on reviewing an abstract or the public records, about who holds title and what defects exist.",
+      "aliases": []
+    },
+    {
+      "term": "Title commitment",
+      "definition": "A title insurer's promise, issued before closing, to issue a policy once listed requirements are met, showing the exceptions the policy won't cover.",
+      "aliases": []
+    },
+    {
+      "term": "Standard coverage",
+      "definition": "Title insurance that covers defects in the public records plus certain hidden risks like forgery, but excludes matters only a survey or inspection would reveal.",
+      "aliases": []
+    },
+    {
+      "term": "Extended coverage",
+      "definition": "Title insurance that removes some or all standard exceptions, such as survey matters and parties in possession, usually after a survey and inspection.",
+      "aliases": []
+    },
+    {
+      "term": "Closing",
+      "definition": "The event at which the buyer pays, the seller delivers the deed, liens are paid off, the new loan is funded, and documents are recorded. Also called settlement.",
+      "aliases": []
+    },
+    {
+      "term": "Judicial foreclosure",
+      "definition": "Foreclosure in which the lender sues and a court orders the property sold, often by a sheriff.",
+      "aliases": []
+    },
+    {
+      "term": "Nonjudicial foreclosure",
+      "definition": "Foreclosure without a lawsuit, under a power of sale in the deed of trust. Colorado uses a public trustee for most of these.",
+      "aliases": []
+    },
+    {
+      "term": "Power of sale",
+      "definition": "A clause in a deed of trust or mortgage that allows the property to be sold without a court action if the borrower defaults.",
+      "aliases": []
+    },
+    {
+      "term": "Equity of redemption",
+      "definition": "A borrower's right to stop a foreclosure by paying off the debt before the sale.",
+      "aliases": []
+    },
+    {
+      "term": "Statutory redemption",
+      "definition": "A right some states give to buy back the property after a foreclosure sale within a set period.",
+      "aliases": []
+    },
+    {
+      "term": "Deficiency judgment",
+      "definition": "A personal judgment against a borrower for the amount still owed when a foreclosure sale brings less than the debt, where state law allows it.",
+      "aliases": []
+    },
+    {
+      "term": "Testator",
+      "definition": "A person who makes a will.",
+      "aliases": []
+    },
+    {
+      "term": "Devise",
+      "definition": "A gift of real property by will.",
+      "aliases": []
+    },
+    {
+      "term": "Devisee",
+      "definition": "The person who receives real property by will.",
+      "aliases": []
+    },
+    {
+      "term": "Codicil",
+      "definition": "A written amendment to a will.",
+      "aliases": []
+    },
+    {
+      "term": "Probate",
+      "definition": "The court-supervised process of proving a will, paying the deceased person's debts, and distributing the property.",
+      "aliases": []
     }
   ]
 }

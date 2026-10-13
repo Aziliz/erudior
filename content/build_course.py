@@ -102,6 +102,23 @@ for l in lessons:
         l["quiz"] = quiz
 assert not set(QUIZ) - {l["id"] for l in lessons}, set(QUIZ) - {l["id"] for l in lessons}
 
+# Abbreviations: each gets its own glossary entry ("CFPB" -> "Consumer Financial
+# Protection Bureau. ..."). The abbreviation is removed from other entries' aliases
+# so [[CFPB]] always opens the abbreviation entry.
+ABBR = json.loads((ROOT / "abbreviations.json").read_text()) if (ROOT / "abbreviations.json").exists() else {}
+for ab, info in ABBR.items():
+    k = ab.lower()
+    for key, g in list(glossary.items()):
+        if g.get("aliases"):
+            g["aliases"] = [x for x in g["aliases"] if x.lower() != k]
+    old = glossary.get(k, {})
+    glossary[k] = {
+        "term": ab,
+        "definition": f"{info['meaning']}. {info['description']}".strip(),
+        "aliases": sorted(set(old.get("aliases", [])) | set(info.get("aliases", []))),
+        "_state": old.get("_state", False),
+    }
+
 gl = []
 for g in glossary.values():
     g = {k: v for k, v in g.items() if k != "_state"}
@@ -109,6 +126,22 @@ for g in glossary.values():
         g.pop("aliases", None)
     gl.append(g)
 gl.sort(key=lambda g: g["term"].lower())
+# One name, one entry: drop aliases that repeat the entry's own term, another entry's
+# term, or an alias already claimed by an earlier entry.
+terms = {g["term"].lower() for g in gl}
+claimed = set()
+for g in gl:
+    keep = []
+    for x in g.get("aliases", []):
+        k = x.lower()
+        if k == g["term"].lower() or k in terms or k in claimed:
+            continue
+        claimed.add(k)
+        keep.append(x)
+    if keep:
+        g["aliases"] = keep
+    else:
+        g.pop("aliases", None)
 
 sec = collections.Counter(q["section"] for q in questions)
 assert set(sec) == {"national", "state"}, sec
@@ -133,8 +166,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 10,
-    "changelog": "Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
+    "revision": 11,
+    "changelog": "Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{
@@ -174,6 +207,13 @@ names = {g["term"].lower() for g in gl} | {a.lower() for g in gl for a in g.get(
 print(f"modules {len(modules)} lessons {len(lessons)} questions {len(questions)} {dict(sec)}")
 print(f"cards {sum(len(d['cards']) for d in decks)} in {len(decks)} decks; glossary {len(gl)}; refs {len(references)}; drills {len(drills)}")
 print("unresolved glossary links:", sorted(links - names))
+seen = {}
+for g in gl:
+    for n in [g["term"], *g.get("aliases", [])]:
+        seen.setdefault(n.lower(), []).append(g["term"])
+print("glossary name collisions:", {k: v for k, v in seen.items() if len(v) > 1})
+bold = [seg for l in lessons for seg in l["body"].split("**")[1::2]]
+print(f"bold phrases: {len(bold)}, linked to the glossary: {sum('[[' in b for b in bold)} (the rest are emphasis)")
 print("answer positions:", collections.Counter(q["answer"][0] for q in questions))
 print("lesson quizzes:", collections.Counter(len(l.get("quiz", [])) for l in lessons))
 print("size KB:", OUT.stat().st_size // 1024)

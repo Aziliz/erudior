@@ -1,0 +1,611 @@
+{
+  "ACTR": {
+    "meaning": "Avoid, Control, Transfer, Retain",
+    "description": "A memory aid for the four ways a property manager handles risk. Transfer usually means shifting the risk to an insurer; retain means accepting it, often through a deductible or reserve."
+  },
+  "ACU": {
+    "meaning": "Annual Commission Update",
+    "description": "The update course the Colorado Real Estate Commission issues every year, which every active broker must complete. Each year's version counts toward the continuing-education hours needed to renew, and a missed year can't be made up later."
+  },
+  "ADA": {
+    "meaning": "Americans with Disabilities Act",
+    "description": "A 1990 federal civil-rights law; its Title III requires public accommodations and commercial facilities to be accessible to people with disabilities. Private homes generally fall under the Fair Housing Act instead, but brokers who handle commercial property or run an office must consider the ADA."
+  },
+  "AfBA": {
+    "meaning": "Affiliated business arrangement",
+    "description": "Under RESPA, a setup in which a broker or brokerage has an ownership interest in a settlement service provider, such as a title or mortgage company, and refers clients to it. It is legal only if the relationship is disclosed in writing, the client isn't required to use that provider, and the only return is from ownership, not per-referral payments.",
+    "aliases": [
+      "ABA"
+    ]
+  },
+  "ALJ": {
+    "meaning": "Administrative law judge",
+    "description": "A judge who conducts formal hearings in contested license-denial and disciplinary cases. In Colorado the ALJ hears the case and issues an initial decision, the Real Estate Commission makes the final decision, and the Court of Appeals reviews it."
+  },
+  "APR": {
+    "meaning": "Annual percentage rate",
+    "description": "The yearly cost of a loan expressed as a percentage, including interest plus certain finance charges such as points and some fees. TILA requires it to be disclosed so borrowers can compare loans, and it is usually higher than the note's interest rate."
+  },
+  "AQB": {
+    "meaning": "Appraiser Qualifications Board",
+    "description": "The board of The Appraisal Foundation that sets minimum education, experience and exam criteria for appraiser credentials. States do the actual licensing and certifying of appraisers."
+  },
+  "ARELLO": {
+    "meaning": "Association of Real Estate License Law Officials",
+    "description": "An international association of government agencies that regulate real estate licensees. It supports regulators and promotes consistent license laws but does not license anyone itself."
+  },
+  "ARM": {
+    "meaning": "Adjustable-rate mortgage",
+    "description": "A loan whose interest rate changes periodically to the current index plus a fixed margin, limited by rate caps. Exam questions often ask you to compute the new rate as index plus margin, then apply the caps.",
+    "aliases": [
+      "ARMs"
+    ]
+  },
+  "ASB": {
+    "meaning": "Appraisal Standards Board",
+    "description": "The board of The Appraisal Foundation that writes and interprets USPAP, the standards appraisers must follow."
+  },
+  "AVM": {
+    "meaning": "Automated valuation model",
+    "description": "Software that estimates a property's value from sales and public-record data without anyone inspecting the property. Lenders use it for quick screening; it is not an appraisal.",
+    "aliases": [
+      "AVMs"
+    ]
+  },
+  "BEC": {
+    "meaning": "Business email compromise",
+    "description": "A scam in which criminals hack or impersonate a legitimate email account, often a broker's or title company's, to send fake wiring instructions. Brokers should warn clients to confirm wire instructions by phone using a known number."
+  },
+  "BPO": {
+    "meaning": "Broker price opinion",
+    "description": "A broker's estimate of a property's value, often ordered by a lender or asset manager. It is not an appraisal and can't be presented as one."
+  },
+  "C.R.S.": {
+    "meaning": "Colorado Revised Statutes",
+    "description": "The codified laws of Colorado, cited by title, article and section (for example, C.R.S. 38-35-109). The real estate license law is in Title 12, Article 10."
+  },
+  "CAM": {
+    "meaning": "Common area maintenance",
+    "description": "The costs of running and maintaining shared areas of a multi-tenant commercial property, such as parking lots and lobbies. Leases usually pass them through to tenants by their pro rata share of the space."
+  },
+  "CAN-SPAM": {
+    "meaning": "Controlling the Assault of Non-Solicited Pornography And Marketing Act",
+    "description": "The 2003 federal law governing commercial email. Marketing emails must have accurate headers and subject lines, identify themselves as ads, include a valid postal address and offer a working opt-out that is honored promptly."
+  },
+  "CBI": {
+    "meaning": "Colorado Bureau of Investigation",
+    "description": "Colorado's state investigative agency, which processes the fingerprint background checks required of broker license applicants. Fingerprints must be submitted before applying for a license."
+  },
+  "CBS": {
+    "meaning": "Comp Better, Subtract",
+    "description": "A memory aid for sales comparison adjustments: when a comparable property is better than the subject, subtract the value of the difference from the comp's price. You always adjust the comp, never the subject."
+  },
+  "CBS1": {
+    "meaning": "Contract to Buy and Sell Real Estate (Residential)",
+    "description": "The Colorado Commission-approved purchase contract for single-family homes, condos and townhomes. It is the form the exam's Colorado contract questions are built around."
+  },
+  "CBS2": {
+    "meaning": "Contract to Buy and Sell Real Estate (Income-Residential)",
+    "description": "The Colorado Commission-approved purchase contract for income-producing residential property such as rentals. It adds provisions for leases, rent rolls, tenant estoppel statements and security deposits."
+  },
+  "CBS3": {
+    "meaning": "Contract to Buy and Sell Real Estate (Commercial)",
+    "description": "The Colorado Commission-approved purchase contract for office, retail, industrial and mixed-use property. It adds commercial due-diligence items such as environmental assessments, ADA review and estoppels."
+  },
+  "CBS4": {
+    "meaning": "Contract to Buy and Sell Real Estate (Land)",
+    "description": "The Colorado Commission-approved purchase contract for vacant or rural land. It addresses items such as growing crops, water rights and mineral rights."
+  },
+  "CBSF1": {
+    "meaning": "Contract to Buy and Sell Real Estate (Residential) (Colorado Foreclosure Protection Act)",
+    "description": "The Colorado Commission-approved contract for buying an owner-occupied home in foreclosure when the buyer won't live there. It includes the terms the Colorado Foreclosure Protection Act requires to protect the homeowner from equity stripping."
+  },
+  "CC&Rs": {
+    "meaning": "Covenants, conditions and restrictions",
+    "description": "The private restrictions recorded for a subdivision, condominium or other planned community that bind every owner, covering things like architecture, fences, pets and rentals. An HOA usually enforces them, and where they are stricter than zoning, the stricter rule controls.",
+    "aliases": [
+      "CC&R"
+    ]
+  },
+  "CCIOA": {
+    "meaning": "Colorado Common Interest Ownership Act",
+    "description": "The Colorado statute (C.R.S. 38-33.3) governing common interest communities such as condos, townhomes and HOA subdivisions and their associations. It sets rules on governing documents, assessments, records and owner rights, with only some sections applying to communities created before July 1, 1992."
+  },
+  "CCR": {
+    "meaning": "Code of Colorado Regulations",
+    "description": "The official compilation of Colorado agency rules. The Real Estate Commission's rules for brokers appear at 4 CCR 725-1 and have the force of law, so violating one is grounds for discipline."
+  },
+  "CCRD": {
+    "meaning": "Colorado Civil Rights Division",
+    "description": "The Colorado agency, within the Department of Regulatory Agencies, that investigates discrimination complaints, including housing discrimination under Colorado's fair housing law. Cases may go on to the Colorado Civil Rights Commission."
+  },
+  "CD": {
+    "meaning": "Closing Disclosure",
+    "description": "The TRID form showing a borrower's final loan terms and closing costs, which the borrower must receive at least three business days before closing. Only an APR that becomes inaccurate, a change in loan product or an added prepayment penalty restarts that waiting period.",
+    "aliases": [
+      "CDs"
+    ]
+  },
+  "CE": {
+    "meaning": "Continuing education",
+    "description": "The coursework a licensed broker must complete during each license cycle to renew. In Colorado it includes the Annual Commission Update course plus Commission-approved electives."
+  },
+  "CERCLA": {
+    "meaning": "Comprehensive Environmental Response, Compensation, and Liability Act",
+    "description": "The federal Superfund law for cleaning up hazardous-waste sites. Liability is strict, joint and several, and retroactive, so current and past owners can be liable even if they didn't cause the contamination, which is why buyers order Phase I environmental assessments."
+  },
+  "CFPA": {
+    "meaning": "Colorado Foreclosure Protection Act",
+    "description": "The Colorado law (C.R.S. 6-1-1101 et seq.) protecting homeowners in foreclosure from foreclosure consultants and equity purchasers who might strip their equity. Brokers dealing with distressed sellers must know when it applies and use the matching Commission contract."
+  },
+  "CFPB": {
+    "meaning": "Consumer Financial Protection Bureau",
+    "description": "The federal agency that writes and enforces consumer-finance rules, including TILA/Regulation Z, RESPA and the TRID disclosures. It also administers the Interstate Land Sales Full Disclosure Act."
+  },
+  "CFR": {
+    "meaning": "Code of Federal Regulations",
+    "description": "The official compilation of federal agency rules, cited by title and section. For example, HUD's fair housing advertising rule appears in Title 24 of the CFR."
+  },
+  "CIA": {
+    "meaning": "Comp Inferior, Add",
+    "description": "A memory aid for sales comparison adjustments: when a comparable property is worse than the subject, add the value of the difference to the comp's price. It pairs with CBS (Comp Better, Subtract)."
+  },
+  "CIC": {
+    "meaning": "Common interest community",
+    "description": "Real estate where owning a unit or lot obligates the owner to pay for common elements or other units' expenses, such as condominiums, townhome communities and HOA subdivisions. In Colorado, CCIOA governs them."
+  },
+  "CMA": {
+    "meaning": "Comparative market analysis",
+    "description": "A broker's estimate of a property's likely selling price based on recent sales, active listings and expired listings of similar properties. It helps set a list price or an offer but is not an appraisal."
+  },
+  "CP": {
+    "meaning": "Commission Position",
+    "description": "The label for the Colorado Real Estate Commission's position statements (CP-1, CP-2 and so on) in the Colorado Real Estate Manual. They explain how the Commission views common practice issues; they guide conduct but aren't rules themselves.",
+    "aliases": [
+      "CPs"
+    ]
+  },
+  "CPA": {
+    "meaning": "Certified public accountant",
+    "description": "A state-licensed accountant. Brokers should refer clients with tax questions, such as 1031 exchanges or capital gains, to a CPA or tax attorney rather than give tax advice."
+  },
+  "CPI": {
+    "meaning": "Consumer Price Index",
+    "description": "A government measure of changes in consumer prices over time. Index leases often tie rent increases to the CPI."
+  },
+  "CREC": {
+    "meaning": "Colorado Real Estate Commission",
+    "description": "The governor-appointed board that makes rules for Colorado brokers, approves the standard forms, and decides disciplinary cases. The Division of Real Estate does its day-to-day staff work."
+  },
+  "DNC": {
+    "meaning": "Do Not Call",
+    "description": "Refers to the national Do-Not-Call Registry and to a company's own do-not-call list. Brokers who cold-call must check the registry regularly and honor anyone's request not to be called."
+  },
+  "DRE": {
+    "meaning": "Division of Real Estate",
+    "description": "The Colorado agency within the Department of Regulatory Agencies that staffs the Real Estate Commission, licenses brokers, investigates complaints, audits brokerages and enforces the license law."
+  },
+  "DUST": {
+    "meaning": "Demand, Utility, Scarcity, Transferability",
+    "description": "A memory aid for the four elements a property needs to have value. On the exam, demand means effective demand: desire backed by the ability to pay."
+  },
+  "E&O": {
+    "meaning": "Errors and omissions",
+    "description": "Professional liability insurance covering a broker's negligent mistakes. Colorado requires every active broker to carry it, and it serves in place of a recovery fund for protecting consumers."
+  },
+  "E-SIGN": {
+    "meaning": "Electronic Signatures in Global and National Commerce Act",
+    "description": "The 2000 federal law giving electronic signatures and records the same legal effect as paper ones in interstate commerce. It works alongside UETA, which states adopt."
+  },
+  "EBR": {
+    "meaning": "Established business relationship",
+    "description": "An exception to Do-Not-Call rules that lets a business call someone on the registry for a limited time after that person's last transaction with it or after their inquiry or application."
+  },
+  "ECOA": {
+    "meaning": "Equal Credit Opportunity Act",
+    "description": "The federal law, implemented by Regulation B, that bars lenders from discriminating against credit applicants based on race, color, religion, national origin, sex, marital status, age, receipt of public assistance, or good-faith exercise of consumer-credit rights."
+  },
+  "EGI": {
+    "meaning": "Effective gross income",
+    "description": "Potential gross income minus vacancy and collection losses (plus any other income). In the income approach, subtract operating expenses from EGI to get net operating income."
+  },
+  "EMD": {
+    "meaning": "Earnest money deposit",
+    "description": "A buyer's good-faith deposit under a purchase contract, held in trust for both parties until closing or termination. In Colorado it must be handled under the trust-account rules and the contract's earnest money provisions."
+  },
+  "EPA": {
+    "meaning": "Environmental Protection Agency",
+    "description": "The federal agency that enforces environmental laws such as CERCLA (Superfund) and, together with HUD, the lead-based paint disclosure rule for housing built before 1978."
+  },
+  "ERTS": {
+    "meaning": "Exclusive Right-to-Sell Listing Contract",
+    "description": "The Colorado Commission-approved listing form under which the seller owes the brokerage a commission no matter who finds the buyer during the listing period. It is the most common type of residential listing."
+  },
+  "EV": {
+    "meaning": "Electric vehicle",
+    "description": "Used in the course in the context of Colorado HOA law, which limits an association's ability to prohibit owners from installing EV charging stations."
+  },
+  "FBI": {
+    "meaning": "Federal Bureau of Investigation",
+    "description": "The federal law-enforcement agency that runs the Internet Crime Complaint Center (IC3), where victims of wire fraud should report quickly."
+  },
+  "FCC": {
+    "meaning": "Federal Communications Commission",
+    "description": "The federal agency that regulates telecommunications and enforces the TCPA's rules on autodialed and prerecorded calls and texts, alongside the FTC's Do-Not-Call rules."
+  },
+  "FDIC": {
+    "meaning": "Federal Deposit Insurance Corporation",
+    "description": "The federal agency that insures deposits in banks and savings institutions. Colorado requires brokerage trust accounts to be held in a recognized institution with federally insured deposits, such as an FDIC- or NCUA-insured one."
+  },
+  "FED": {
+    "meaning": "Forcible entry and detainer",
+    "description": "Colorado's name for the court eviction process. A landlord must go through an FED action to remove a tenant and may not use self-help such as changing the locks or cutting off utilities."
+  },
+  "FEMA": {
+    "meaning": "Federal Emergency Management Agency",
+    "description": "The federal agency that maps flood zones and runs the National Flood Insurance Program. Property in a FEMA special flood hazard area financed with a federally backed or regulated loan must carry flood insurance."
+  },
+  "FHA": {
+    "meaning": "Federal Housing Administration",
+    "description": "The agency within HUD that insures loans made by approved lenders, allowing low down payments in exchange for mortgage insurance premiums. FHA insures loans; it doesn't lend money."
+  },
+  "FHLMC": {
+    "meaning": "Federal Home Loan Mortgage Corporation",
+    "description": "Freddie Mac, a government-sponsored enterprise that buys conventional mortgages from lenders in the secondary market, giving lenders more money to lend."
+  },
+  "FIRPTA": {
+    "meaning": "Foreign Investment in Real Property Tax Act",
+    "description": "The federal law requiring a buyer to withhold a portion of the amount realized when buying U.S. real estate from a foreign seller, with some exceptions. The withholding is usually handled at closing."
+  },
+  "FIRREA": {
+    "meaning": "Financial Institutions Reform, Recovery, and Enforcement Act",
+    "description": "The 1989 law passed after the savings and loan crisis. Its Title XI created the modern system of appraiser regulation: USPAP standards, minimum qualifications and state licensing or certification of appraisers for federally related transactions."
+  },
+  "FNMA": {
+    "meaning": "Federal National Mortgage Association",
+    "description": "Fannie Mae, a government-sponsored enterprise that buys mortgages from lenders in the secondary market and packages them into securities."
+  },
+  "FSBO": {
+    "meaning": "For sale by owner",
+    "description": "A property the owner is selling without a listing broker. A FSBO isn't exempt from Do-Not-Call rules just because it's publicly advertised, and Colorado has a brokerage disclosure form for working with one.",
+    "aliases": [
+      "FSBOs"
+    ]
+  },
+  "FTC": {
+    "meaning": "Federal Trade Commission",
+    "description": "The federal consumer-protection agency that runs the national Do-Not-Call Registry and enforces CAN-SPAM and data-security rules for businesses, including brokerages."
+  },
+  "GIM": {
+    "meaning": "Gross income multiplier",
+    "description": "Sales price divided by annual gross income, used to estimate the value of larger or commercial income properties. Compare GRM, which uses monthly rent."
+  },
+  "GNMA": {
+    "meaning": "Government National Mortgage Association",
+    "description": "Ginnie Mae, a government-owned corporation within HUD that guarantees securities backed by government-insured or guaranteed loans such as FHA and VA loans. It doesn't buy loans itself."
+  },
+  "GRM": {
+    "meaning": "Gross rent multiplier",
+    "description": "Sales price divided by monthly gross rent, used to estimate the value of one- to four-unit rental homes. Compare GIM, which uses annual income."
+  },
+  "HB": {
+    "meaning": "House Bill",
+    "description": "Prefix for bills introduced in the Colorado House of Representatives; the two digits after it are the session year and the last digits are the bill number (HB24-1098 is House Bill 1098 from 2024). Colorado landlord-tenant law has changed through several recent bills, so check current law."
+  },
+  "HBP": {
+    "meaning": "Held by production",
+    "description": "Describes an oil and gas lease that continues past its primary term because the well keeps producing in paying quantities."
+  },
+  "HBU": {
+    "meaning": "Highest and best use",
+    "description": "The use that is legally permissible, physically possible, financially feasible and produces the highest value. It is a basic principle of appraisal."
+  },
+  "HECM": {
+    "meaning": "Home Equity Conversion Mortgage",
+    "description": "The FHA-insured reverse mortgage for older homeowners. The lender pays the owner, the balance grows, and the loan is repaid when the owner sells, permanently moves out or dies."
+  },
+  "HELOC": {
+    "meaning": "Home equity line of credit",
+    "description": "A revolving credit line secured by the borrower's home, usually in a junior lien position. The borrower can draw on it, repay and draw again up to the limit."
+  },
+  "HMDA": {
+    "meaning": "Home Mortgage Disclosure Act",
+    "description": "The federal law requiring many lenders to report data on mortgage applications and loans by location and borrower characteristics. The data help regulators spot redlining and other lending discrimination."
+  },
+  "HOA": {
+    "meaning": "Homeowners' association",
+    "description": "The organization of owners in a planned community or condominium that enforces the CC&Rs, maintains common areas and collects assessments. In Colorado, CCIOA governs most HOAs and limits some restrictions they can impose.",
+    "aliases": [
+      "HOAs"
+    ]
+  },
+  "HUD": {
+    "meaning": "U.S. Department of Housing and Urban Development",
+    "description": "The federal department that enforces the Fair Housing Act and oversees FHA and Ginnie Mae. Fair housing complaints can be filed with HUD."
+  },
+  "HVAC": {
+    "meaning": "Heating, ventilation and air conditioning",
+    "description": "A building's heating and cooling systems. HVAC replacement is a typical big-ticket item in a property manager's capital budget and a common inspection issue."
+  },
+  "IC3": {
+    "meaning": "Internet Crime Complaint Center",
+    "description": "The FBI's center for reporting internet crimes such as wire fraud. Victims should report immediately, because funds can sometimes be frozen if the report is fast."
+  },
+  "IDX": {
+    "meaning": "Internet Data Exchange",
+    "description": "The MLS feature that lets participating brokers show other participants' listings on their own websites, subject to MLS display rules."
+  },
+  "ILC": {
+    "meaning": "Improvement Location Certificate",
+    "description": "A Colorado surveyor's drawing showing where improvements sit relative to the property lines. It is cheaper and less precise than a full survey and can't be relied on to set boundary lines; the purchase contract states who orders and pays for an ILC or survey."
+  },
+  "IRS": {
+    "meaning": "Internal Revenue Service",
+    "description": "The federal tax agency. It matters to brokers for 1031 exchanges, FIRPTA withholding, closing-agent reporting of sales and federal tax liens."
+  },
+  "IRV": {
+    "meaning": "Income = Rate × Value",
+    "description": "A memory aid for capitalization math: net operating income equals cap rate times value. Rearranged, value = NOI ÷ cap rate and cap rate = NOI ÷ value.",
+    "aliases": [
+      "I-R-V"
+    ]
+  },
+  "JTWROS": {
+    "meaning": "Joint tenants with right of survivorship",
+    "description": "Wording that creates a joint tenancy, in which a deceased owner's interest passes automatically to the surviving joint tenants rather than through the estate."
+  },
+  "LE": {
+    "meaning": "Loan Estimate",
+    "description": "The TRID form a lender must deliver or mail within three business days after receiving a loan application, showing estimated loan terms and closing costs so borrowers can compare offers."
+  },
+  "LLC": {
+    "meaning": "Limited liability company",
+    "description": "A business entity whose members have limited personal liability and flexible, usually pass-through, tax treatment. Many Colorado brokerages are organized as LLCs, but team names may not use terms like LLC that suggest a separate entity.",
+    "aliases": [
+      "LLCs"
+    ]
+  },
+  "LLP": {
+    "meaning": "Limited liability partnership",
+    "description": "A partnership in which partners generally aren't personally liable for other partners' misconduct. Like LLC, it's a term Colorado bans from team names because it implies a separate entity."
+  },
+  "LOI": {
+    "meaning": "Letter of intent",
+    "description": "A preliminary document, common in commercial leasing and sales, that summarizes proposed key terms such as rent, term and allowances. It is usually non-binding as to the main deal."
+  },
+  "LP": {
+    "meaning": "Limited partnership",
+    "description": "A partnership with at least one general partner who manages the business and is personally liable, plus limited partners whose liability is limited to their investment. It's often used for real estate syndications."
+  },
+  "LTV": {
+    "meaning": "Loan-to-value ratio",
+    "description": "The loan amount divided by the lower of the sales price or appraised value. A higher LTV means more risk to the lender, so conventional loans above 80% LTV usually need private mortgage insurance."
+  },
+  "MARIA": {
+    "meaning": "Method of attachment, Adaptability, Relationship of the parties, Intention, Agreement",
+    "description": "A memory aid for the tests courts use to decide whether an item is a fixture that stays with the property. A written agreement between the parties overrides the other tests, and otherwise intention is treated as the most important."
+  },
+  "MEC": {
+    "meaning": "Mutual execution of contract",
+    "description": "The date both parties have signed the Colorado purchase contract. Deadlines stated as a number of days are counted from MEC."
+  },
+  "MHC1": {
+    "meaning": "Manufactured Home Contract to Buy and Sell (Lot Lease Only)",
+    "description": "The Colorado Commission-approved contract for buying a manufactured home on a leased lot, such as in a park. Title passes by certificate of title rather than a deed."
+  },
+  "MI": {
+    "meaning": "Mortgage insurance",
+    "description": "Insurance that protects the lender if the borrower defaults. Examples are private mortgage insurance on conventional loans and mortgage insurance premiums on FHA loans; VA loans have no monthly MI."
+  },
+  "MLO": {
+    "meaning": "Mortgage loan originator",
+    "description": "A separately licensed person who takes residential loan applications or negotiates residential loan terms. A Colorado broker without an MLO license shouldn't negotiate loan terms, though the law has limited exemptions such as a broker representing a seller who carries financing."
+  },
+  "MLS": {
+    "meaning": "Multiple listing service",
+    "description": "A private, cooperative database through which member brokers share listings and cooperate in finding buyers. Its rules are set by the MLS, not by state or federal law.",
+    "aliases": [
+      "MLSs"
+    ]
+  },
+  "MT": {
+    "meaning": "Mountain Time",
+    "description": "The time zone used for Colorado contract deadlines; under the Commission forms, a day ends at 11:59 p.m. MT unless an earlier time of day is set."
+  },
+  "NAR": {
+    "meaning": "National Association of REALTORS",
+    "description": "The national trade association whose members may use the REALTOR trademark and must follow its Code of Ethics. After its 2024 settlement, NAR-affiliated MLS participants must have a written buyer agreement before touring a home with a buyer."
+  },
+  "NCUA": {
+    "meaning": "National Credit Union Administration",
+    "description": "The federal agency that insures deposits in credit unions. Like FDIC insurance, NCUA insurance qualifies an institution to hold a Colorado brokerage's trust account."
+  },
+  "NED": {
+    "meaning": "Notice of election and demand",
+    "description": "The document the public trustee records to start a Colorado non-judicial foreclosure. Its recording starts the foreclosure timeline."
+  },
+  "NFIP": {
+    "meaning": "National Flood Insurance Program",
+    "description": "The federal program, run by FEMA, that provides flood insurance. Standard homeowners policies don't cover flood, so buyers in flood zones get coverage through the NFIP or private insurers."
+  },
+  "NN": {
+    "meaning": "Double net",
+    "description": "A lease in which the tenant pays rent plus property taxes and insurance (the exact split depends on the lease). It falls between a single net and a triple net lease."
+  },
+  "NNN": {
+    "meaning": "Triple net",
+    "description": "A lease in which the tenant pays rent plus property taxes, insurance and maintenance or repairs. It is common for single-tenant retail and gives the landlord the most predictable net income."
+  },
+  "NOI": {
+    "meaning": "Net operating income",
+    "description": "Effective gross income minus operating expenses. It excludes debt service and income-tax depreciation, and dividing it by a cap rate gives value in the income approach."
+  },
+  "OCEAN": {
+    "meaning": "Open, Continuous, Exclusive, Adverse, Notorious",
+    "description": "A memory aid for the elements of adverse possession; the same letters are sometimes arranged as ONCEA. The possession must be open and notorious, continuous for the statutory period, exclusive and adverse (without the owner's permission).",
+    "aliases": [
+      "ONCEA"
+    ]
+  },
+  "OEC": {
+    "meaning": "Owner's extended coverage",
+    "description": "Optional title insurance coverage that removes the standard exceptions for unrecorded matters such as parties in possession, survey issues and unrecorded mechanics' liens. The Colorado purchase contract lets the parties choose whether to buy it and who pays."
+  },
+  "OLDCAR": {
+    "meaning": "Obedience, Loyalty, Disclosure, Confidentiality, Accounting, Reasonable care",
+    "description": "A memory aid for the six fiduciary duties an agent owes a client under common-law agency. Colorado's statute spells out its own duties for single agents and transaction-brokers, so know both."
+  },
+  "P&I": {
+    "meaning": "Principal and interest",
+    "description": "The part of a mortgage payment that repays the loan balance and pays interest. Add taxes and insurance to get PITI."
+  },
+  "PETE": {
+    "meaning": "Police power, Eminent domain, Taxation, Escheat",
+    "description": "A memory aid for the four powers government holds over private property. Only eminent domain requires just compensation to the owner."
+  },
+  "PGI": {
+    "meaning": "Potential gross income",
+    "description": "The total income a property would produce if fully rented with all rent collected. Subtract vacancy and collection losses to get effective gross income."
+  },
+  "PITI": {
+    "meaning": "Principal, interest, taxes and insurance",
+    "description": "The components of a typical full monthly mortgage payment when taxes and insurance are paid through an escrow account. Lenders use PITI in qualifying ratios."
+  },
+  "PITT": {
+    "meaning": "Possession, Interest, Time, Title",
+    "description": "A memory aid for the four unities traditionally required to create a joint tenancy. A tenancy in common needs only unity of possession."
+  },
+  "PLSS": {
+    "meaning": "Public Land Survey System",
+    "description": "The rectangular (government) survey system of principal meridians, base lines, townships and sections used in most western and midwestern states, including Colorado. A township is 36 sections, and a section is one square mile (640 acres)."
+  },
+  "PMI": {
+    "meaning": "Private mortgage insurance",
+    "description": "Insurance protecting the lender on a conventional loan when the borrower's down payment is small. It is usually required above 80% loan-to-value and can be cancelled once enough equity builds."
+  },
+  "POB": {
+    "meaning": "Point of beginning",
+    "description": "The fixed starting point of a metes and bounds legal description. The description must return to the POB to close the boundary."
+  },
+  "PUD": {
+    "meaning": "Planned unit development",
+    "description": "A zoning and development type that allows flexible lot sizes and mixed uses in exchange for planned common areas, usually governed by an HOA."
+  },
+  "QI": {
+    "meaning": "Qualified intermediary",
+    "description": "An independent party who holds the sale proceeds during a 1031 exchange so the investor never controls the cash. The investor's own agent, attorney or accountant generally can't serve as QI."
+  },
+  "REAP": {
+    "meaning": "Real Estate Administrative Professional",
+    "description": "The Colorado Real Estate Commission's term for a broker's assistant. An unlicensed REAP may do clerical and administrative work but may not negotiate, advise or perform other licensed activities.",
+    "aliases": [
+      "REAPs"
+    ]
+  },
+  "REIT": {
+    "meaning": "Real estate investment trust",
+    "description": "A company that pools investors' money to own or finance income-producing real estate. If it pays out most of its taxable income as dividends, it generally avoids corporate income tax.",
+    "aliases": [
+      "REITs"
+    ]
+  },
+  "REO": {
+    "meaning": "Real estate owned",
+    "description": "Property a lender owns after it failed to sell at a foreclosure sale. Lenders selling REO often convey with a special warranty deed rather than a general warranty deed."
+  },
+  "RESPA": {
+    "meaning": "Real Estate Settlement Procedures Act",
+    "description": "The federal law covering most residential mortgage closings. It requires settlement-cost disclosures, limits escrow accounts and bans kickbacks and unearned fees for referrals of settlement services."
+  },
+  "ROFR": {
+    "meaning": "Right of first refusal",
+    "description": "The right to match a third party's offer before the owner can sell to that third party. Unlike an option, it doesn't let the holder force a sale."
+  },
+  "SB": {
+    "meaning": "Senate Bill",
+    "description": "Prefix for bills introduced in the Colorado Senate; the two digits after it are the session year and the last digits are the bill number (SB26-054 is Senate Bill 54 from 2026)."
+  },
+  "SFHA": {
+    "meaning": "Special flood hazard area",
+    "description": "Land on FEMA flood maps with a 1% annual chance of flooding (the 100-year floodplain), labeled Zones A and V. Flood insurance is required when such property is financed with a federally backed or regulated loan."
+  },
+  "SPD": {
+    "meaning": "Seller's Property Disclosure",
+    "description": "The Colorado Commission-approved form a seller completes from current actual knowledge about the property's condition. It isn't a warranty or a substitute for an inspection, and the broker shouldn't fill it out for the seller."
+  },
+  "SSN": {
+    "meaning": "Social Security number",
+    "description": "One of the six pieces of information that make up a loan application under TRID, which triggers the Loan Estimate deadline. It is also sensitive data brokers must protect."
+  },
+  "STR": {
+    "meaning": "Short-term rental",
+    "description": "A rental for a short stay, such as a vacation rental. In Colorado, deposits a broker collects from STR guests, even for the broker's own property, must go into a trust or escrow account."
+  },
+  "TB": {
+    "meaning": "Transaction-broker",
+    "description": "A broker who helps one or more parties through a transaction without being an agent or advocate for any of them. In Colorado it is the presumed relationship unless there is a written agency agreement."
+  },
+  "TCPA": {
+    "meaning": "Telephone Consumer Protection Act",
+    "description": "The federal law restricting autodialed, prerecorded and artificial-voice calls and texts. Robocalls and automated texts to cell phones generally need the recipient's prior express consent."
+  },
+  "TD-1000": {
+    "meaning": "Real Property Transfer Declaration",
+    "description": "The Colorado form filed with a deed so the county assessor learns the sale price and terms. It is confidential and isn't recorded with the deed."
+  },
+  "TI": {
+    "meaning": "Tenant improvements",
+    "description": "Changes made to leased commercial space to fit a tenant's use, such as walls, finishes and wiring. The landlord often pays part of the cost through a TI allowance."
+  },
+  "TIC": {
+    "meaning": "Tenancy in common",
+    "description": "Co-ownership with undivided interests that may be unequal, can be transferred without the other owners' consent and pass to heirs, with no right of survivorship. In Colorado, co-owners are presumed to be tenants in common unless the deed says otherwise."
+  },
+  "TILA": {
+    "meaning": "Truth in Lending Act",
+    "description": "The federal law, implemented by Regulation Z, requiring disclosure of credit costs, including the APR. It also regulates credit advertising: certain trigger terms in an ad require full disclosures."
+  },
+  "TRID": {
+    "meaning": "TILA-RESPA Integrated Disclosure",
+    "description": "The CFPB rule, branded \"Know Before You Owe,\" that combined the older federal mortgage disclosures into the Loan Estimate and the Closing Disclosure, with set delivery deadlines."
+  },
+  "UCC": {
+    "meaning": "Uniform Commercial Code",
+    "description": "A model set of state laws on commercial transactions such as sales of goods and security interests in personal property. A UCC search shows liens on personal property, such as a manufactured home or business equipment."
+  },
+  "UETA": {
+    "meaning": "Uniform Electronic Transactions Act",
+    "description": "A uniform state law, adopted by nearly every state including Colorado, that gives electronic records and signatures the same legal effect as paper ones when the parties agree to do business electronically."
+  },
+  "UFFI": {
+    "meaning": "Urea-formaldehyde foam insulation",
+    "description": "An insulation used mainly in the 1970s that can release formaldehyde gas. Known UFFI is a material fact a broker should disclose."
+  },
+  "UPL": {
+    "meaning": "Unauthorized practice of law",
+    "description": "Giving legal advice or drafting legal documents without a law license. Colorado brokers may fill in Commission-approved forms but may not draft custom legal language or advise on legal matters."
+  },
+  "USDA": {
+    "meaning": "United States Department of Agriculture",
+    "description": "The federal department whose Rural Development program guarantees and makes home loans in eligible rural areas, often with no down payment."
+  },
+  "USPAP": {
+    "meaning": "Uniform Standards of Professional Appraisal Practice",
+    "description": "The ethical and performance standards appraisers follow, written by The Appraisal Foundation's Appraisal Standards Board. Federally related transactions require appraisals that comply with USPAP."
+  },
+  "UST": {
+    "meaning": "Underground storage tank",
+    "description": "A buried tank holding fuel oil, gasoline or chemicals that can leak and contaminate soil and groundwater. A known or suspected UST is a material environmental issue for buyers and lenders.",
+    "aliases": [
+      "USTs"
+    ]
+  },
+  "VA": {
+    "meaning": "U.S. Department of Veterans Affairs",
+    "description": "The federal department that guarantees part of home loans made to eligible veterans and service members. VA loans can allow no down payment and have no monthly mortgage insurance, but usually charge a funding fee."
+  },
+  "VIN": {
+    "meaning": "Vehicle identification number",
+    "description": "An identifying number that, with the serial number, describes a manufactured home on the contract's addendum and on its certificate of title."
+  }
+}
