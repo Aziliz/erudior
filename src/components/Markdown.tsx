@@ -34,7 +34,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   const html = math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string));
   return DOMPurify.sanitize(html, {
     ADD_TAGS: ["marker", "clipPath"],
-    ADD_ATTR: ["data-term", "type", "marker-end", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
+    ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
 }
 

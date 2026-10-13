@@ -38,6 +38,8 @@ export interface EvalEnv {
 
 const CONSTS: Record<string, number> = { pi: Math.PI, e: Math.E, tau: 2 * Math.PI };
 
+import { STATS_FUNCS } from "./stats";
+
 const RAD = Math.PI / 180;
 function gcd(a: number, b: number): number {
   a = Math.abs(Math.round(a));
@@ -102,6 +104,16 @@ const FUNCS: Record<string, (...a: number[]) => number> = {
   nCr,
   nPr: (n, r) => (r < 0 || r > n ? 0 : Math.round(fact(n) / fact(n - r))),
   if: (c, a, b) => (c ? a : b),
+  sec: (x) => 1 / Math.cos(x),
+  csc: (x) => 1 / Math.sin(x),
+  cot: (x) => 1 / Math.tan(x),
+  secd: (x) => 1 / Math.cos(x * RAD),
+  cscd: (x) => 1 / Math.sin(x * RAD),
+  cotd: (x) => 1 / Math.tan(x * RAD),
+  asinh: Math.asinh,
+  acosh: Math.acosh,
+  atanh: Math.atanh,
+  ...STATS_FUNCS,
 };
 
 /** Built-ins whose first argument is a function name: deriv(f, x), integ(f, a, b), ... */
@@ -596,7 +608,7 @@ export function substitute(n: Node, scope: Record<string, number>): Node {
 const PREC: Record<string, number> = { or: 1, and: 2, "<": 4, "<=": 4, ">": 4, ">=": 4, "==": 4, "!=": 4, "+": 5, "-": 5, "*": 6, "/": 6, "^": 8 };
 const TEX_FN: Record<string, string> = {
   sin: "\\sin", cos: "\\cos", tan: "\\tan", asin: "\\arcsin", acos: "\\arccos", atan: "\\arctan",
-  sinh: "\\sinh", cosh: "\\cosh", tanh: "\\tanh", ln: "\\ln", log: "\\log", exp: "\\exp",
+  sinh: "\\sinh", cosh: "\\cosh", tanh: "\\tanh", sec: "\\sec", csc: "\\csc", cot: "\\cot", ln: "\\ln", log: "\\log", exp: "\\exp",
 };
 
 function numTex(v: number): string {

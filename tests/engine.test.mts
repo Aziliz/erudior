@@ -21,6 +21,25 @@ eq("cmp", E("3 > 2 and 1 == 1"), 1); eq("if", E("if(2 < 1, 5, 7)"), 7); eq("not"
 eq("abs bars", E("|3 - 10|"), 7);
 eq("unicode", E("2×3 − 1 ÷ 2 + √(16) + π - pi"), 9.5);
 eq("old drill", E("round(1000 * 0.005 / (1 - (1 + 0.005) ^ (-360)), 2)"), 6);
+// statistics and distributions
+eq("normcdf", E("normcdf(1.96)"), 0.9750021048517795, 1e-9);
+eq("normcdf mu sd", E("normcdf(130, 100, 15)"), 0.9772498680518208, 1e-9);
+eq("invnorm", E("invnorm(0.975)"), 1.959963984540054, 1e-9);
+eq("tcdf", E("tcdf(2.228138851986, 10)"), 0.975, 1e-9);
+eq("invt", E("invt(0.95, 5)"), 2.015048372669157, 1e-9);
+eq("chi2cdf", E("chi2cdf(3.841458820694124, 1)"), 0.95, 1e-9);
+eq("binompdf", E("binompdf(10, 0.5, 5)"), 0.24609375, 1e-9);
+eq("binomcdf", E("binomcdf(10, 0.3, 3)"), 0.6496107184, 1e-9);
+eq("poisson", E("poissonpdf(3, 2)"), 4.5 * Math.exp(-3), 1e-9);
+eq("geom", E("geompdf(0.2, 3)"), 0.128, 1e-9);
+eq("mean", E("mean(1, 2, 3, 4)"), 2.5);
+eq("median", E("median(5, 1, 3, 2)"), 2.5);
+eq("stdev", E("stdev(2, 4, 4, 4, 5, 5, 7, 9)"), Math.sqrt(32 / 7));
+eq("pstdev", E("pstdev(2, 4, 4, 4, 5, 5, 7, 9)"), 2);
+eq("quartile", E("quartile(1, 1, 2, 3, 4, 5, 6, 7, 8)"), 2.5);
+eq("sec", E("sec(pi/3)"), 2); eq("cotd", E("cotd(45)"), 1);
+eq("isprime", E("isprime(91) + isprime(97)"), 1);
+eq("name as var", E("mean * 2 + total", { mean: 3, total: 1 }), 7);
 // implicit (typed answers)
 eq("impl 2x", E("2x", { x: 3 }, undefined, { implicit: true }), 6);
 eq("impl 3(x+1)", E("3(x+1)", { x: 3 }, undefined, { implicit: true }), 12);

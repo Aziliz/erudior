@@ -60,13 +60,14 @@ const fmtTick = (v: number) => String(Number(v.toPrecision(6)));
 
 export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {}, funcs: Record<string, UserFn> = {}): string {
   const ctx: Ctx = { scope, funcs };
-  const isPlot = spec.type !== "shape";
+  const isLine = spec.type === "numberline";
+  const isPlot = spec.type !== "shape" && !isLine;
   const W = spec.width ?? 420;
 
   // Ranges: given, or (shapes) fitted around every coordinate.
   let [x0, x1] = spec.x ? [num(spec.x[0], ctx), num(spec.x[1], ctx)] : [-10, 10];
-  let [y0, y1] = spec.y ? [num(spec.y[0], ctx), num(spec.y[1], ctx)] : [-10, 10];
-  if (!isPlot && (!spec.x || !spec.y)) {
+  let [y0, y1] = spec.y && !isLine ? [num(spec.y[0], ctx), num(spec.y[1], ctx)] : isLine ? [-1, 1] : [-10, 10];
+  if (!isPlot && !isLine && (!spec.x || !spec.y)) {
     const pts: [number, number][] = [];
     const add = (p: Pt) => pts.push([num(p[0], ctx), num(p[1], ctx)]);
     spec.points?.forEach((p) => add(Array.isArray(p) ? p : p.at));
@@ -87,8 +88,8 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
   }
   if (!(x1 > x0) || !(y1 > y0)) throw new Error("Figure ranges must go from low to high");
   // Shapes keep true proportions; plots use a 4:3 frame.
-  const H = isPlot ? Math.round(W * 0.75) : Math.round(Math.min(W * 1.2, (W * (y1 - y0)) / (x1 - x0)));
-  const pad = isPlot ? 28 : 16;
+  const H = isLine ? 64 : isPlot && spec.equal ? Math.round(Math.max(W * 0.4, Math.min(W * 1.2, (W * (y1 - y0)) / (x1 - x0)))) : isPlot ? Math.round(W * 0.75) : Math.round(Math.min(W * 1.2, (W * (y1 - y0)) / (x1 - x0)));
+  const pad = isPlot || isLine ? 28 : 16;
   const sx = (x: number) => pad + ((x - x0) / (x1 - x0)) * (W - 2 * pad);
   const sy = (y: number) => H - pad - ((y - y0) / (y1 - y0)) * (H - 2 * pad);
   const P = (p: Pt) => [sx(num(p[0], ctx)), sy(num(p[1], ctx))] as const;
@@ -121,8 +122,78 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
       if (Math.abs(v) > 1e-9) out.push(`<text class="fig-tick" x="${sx(v)}" y="${sy(ax) + 13}" text-anchor="middle">${fmtTick(v)}</text>`);
     for (let v = Math.ceil(y0 / ty) * ty; v <= y1 + 1e-9; v += ty)
       if (Math.abs(v) > 1e-9) out.push(`<text class="fig-tick" x="${sx(ay) - 5}" y="${sy(v) + 4}" text-anchor="end">${fmtTick(v)}</text>`);
-    out.push(`<text class="fig-tick" x="${sx(x1) - 4}" y="${sy(ax) - 6}" text-anchor="end">x</text>`);
-    out.push(`<text class="fig-tick" x="${sx(ay) + 6}" y="${sy(y1) + 12}">y</text>`);
+    out.push(`<text class="fig-tick" x="${sx(x1) - 4}" y="${sy(ax) - 6}" text-anchor="end">${esc(spec.xLabel ?? "x")}</text>`);
+    out.push(`<text class="fig-tick" x="${sx(ay) + 6}" y="${sy(y1) + 12}">${esc(spec.yLabel ?? "y")}</text>`);
+  }
+
+  if (isLine) {
+    const tx = tickStep(x1 - x0, 10);
+    const yy = sy(0);
+    out.push(`<line class="fig-axis" x1="${sx(x0) - 10}" y1="${yy}" x2="${sx(x1) + 10}" y2="${yy}" marker-start="url(#${id}-arrow)" marker-end="url(#${id}-arrow)"/>`);
+    for (let v = Math.ceil(x0 / tx) * tx; v <= x1 + 1e-9; v += tx) {
+      out.push(`<line class="fig-axis" x1="${sx(v)}" y1="${yy - 5}" x2="${sx(v)}" y2="${yy + 5}"/>`);
+      out.push(`<text class="fig-tick" x="${sx(v)}" y="${yy + 19}" text-anchor="middle">${fmtTick(Math.abs(v) < 1e-9 ? 0 : v)}</text>`);
+    }
+  }
+
+  // Bars (histograms and bar charts).
+  spec.bars?.forEach((b, i) => {
+    const bx = num(b.x, ctx);
+    const h = num(b.height, ctx);
+    const w = b.width !== undefined ? num(b.width, ctx) : 1;
+    const [l, r] = [sx(bx - w / 2), sx(bx + w / 2)];
+    const [top, base] = [sy(Math.max(h, 0)), sy(Math.min(h, 0))];
+    out.push(`<rect${clip} class="${cls("fig-bar", b.color, b.color ? i : 0)}"${sty(b.color)} x="${l}" y="${top}" width="${Math.max(0, r - l)}" height="${Math.max(0, base - top)}"/>`);
+    if (b.label) out.push(`<text class="fig-tick" x="${(l + r) / 2}" y="${sy(Math.min(0, y0 < 0 ? 0 : y0)) + 13}" text-anchor="middle">${esc(b.label)}</text>`);
+  });
+
+  // Slope and vector fields.
+  const gridStep = (st: number | string | undefined) => (st !== undefined ? num(st, ctx) : (x1 - x0) / 20);
+  if (spec.slopeField) {
+    const node = parse(spec.slopeField.f, { implicit: true, funcNames: Object.keys(ctx.funcs), vars: [...Object.keys(ctx.scope), "x", "y"] });
+    const st = gridStep(spec.slopeField.step);
+    const len = 0.35 * Math.min(sx(x0 + st) - sx(x0), sy(y0) - sy(y0 + st));
+    for (let gx = Math.ceil(x0 / st) * st; gx <= x1 + 1e-9; gx += st)
+      for (let gy = Math.ceil(y0 / st) * st; gy <= y1 + 1e-9; gy += st) {
+        let m: number;
+        try {
+          m = evalNode(node, { scope: { ...ctx.scope, x: gx, y: gy }, funcs: ctx.funcs });
+        } catch {
+          continue;
+        }
+        if (!Number.isFinite(m)) continue;
+        // Direction in screen space (y flips).
+        let dx = sx(x0 + 1) - sx(x0);
+        let dy = -(sy(y0) - sy(y0 + m));
+        const n = Math.hypot(dx, dy) || 1;
+        [dx, dy] = [(dx / n) * len, (dy / n) * len];
+        out.push(`<line class="fig-field" x1="${sx(gx) - dx}" y1="${sy(gy) - dy}" x2="${sx(gx) + dx}" y2="${sy(gy) + dy}"/>`);
+      }
+  }
+  if (spec.vectorField) {
+    const vars = [...Object.keys(ctx.scope), "x", "y"];
+    const un = parse(spec.vectorField.u, { implicit: true, funcNames: Object.keys(ctx.funcs), vars });
+    const vn = parse(spec.vectorField.v, { implicit: true, funcNames: Object.keys(ctx.funcs), vars });
+    const st = gridStep(spec.vectorField.step);
+    const cells: [number, number, number, number][] = [];
+    let maxLen = 0;
+    for (let gx = Math.ceil(x0 / st) * st; gx <= x1 + 1e-9; gx += st)
+      for (let gy = Math.ceil(y0 / st) * st; gy <= y1 + 1e-9; gy += st) {
+        try {
+          const env = { scope: { ...ctx.scope, x: gx, y: gy }, funcs: ctx.funcs };
+          const [u, v] = [evalNode(un, env), evalNode(vn, env)];
+          if (!Number.isFinite(u) || !Number.isFinite(v)) continue;
+          cells.push([gx, gy, u, v]);
+          maxLen = Math.max(maxLen, Math.hypot(u, v));
+        } catch {
+          continue;
+        }
+      }
+    const scale = maxLen ? (0.85 * st) / maxLen : 0;
+    for (const [gx, gy, u, v] of cells) {
+      if (Math.hypot(u, v) * scale < 1e-9) continue;
+      out.push(`<line class="fig-field" x1="${sx(gx)}" y1="${sy(gy)}" x2="${sx(gx + u * scale)}" y2="${sy(gy + v * scale)}" marker-end="url(#${id}-arrow)"/>`);
+    }
   }
 
   // Shaded areas first so curves draw on top.
@@ -178,6 +249,38 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
         }
       }
     }
+  });
+
+  spec.curves?.forEach((c, i) => {
+    const vars = [...Object.keys(ctx.scope), "t"];
+    const xn = parse(c.x, { implicit: true, funcNames: Object.keys(ctx.funcs), vars });
+    const yn = parse(c.y, { implicit: true, funcNames: Object.keys(ctx.funcs), vars });
+    const [a, b] = [num(c.t[0], ctx), num(c.t[1], ctx)];
+    const n = 800;
+    let d = "";
+    let pen = false;
+    let last: [number, number] | null = null;
+    for (let k = 0; k <= n; k++) {
+      const t = a + ((b - a) * k) / n;
+      let px: number;
+      let py: number;
+      try {
+        const env = { scope: { ...ctx.scope, t }, funcs: ctx.funcs };
+        [px, py] = [evalNode(xn, env), evalNode(yn, env)];
+      } catch {
+        pen = false;
+        continue;
+      }
+      if (!Number.isFinite(px) || !Number.isFinite(py) || Math.abs(px) > 1e6 || Math.abs(py) > 1e6) {
+        pen = false;
+        continue;
+      }
+      d += `${pen ? "L" : "M"}${sx(px).toFixed(1)},${sy(py).toFixed(1)}`;
+      pen = true;
+      last = [px, py];
+    }
+    out.push(`<path${clip} class="${cls("fig-curve", c.color, i + (spec.functions?.length ?? 0))}${c.dashed ? " dashed" : ""}"${c.color ? ` style="stroke:${esc(c.color)}"` : ""} d="${d}"/>`);
+    if (c.label && last) out.push(`<text class="${cls("fig-label", c.color, i + (spec.functions?.length ?? 0))} fig-curve-label" x="${sx(last[0]) + 4}" y="${sy(last[1]) - 6}">${esc(c.label)}</text>`);
   });
 
   spec.tangents?.forEach((t, i) => {
@@ -244,7 +347,7 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
   });
 
   const svg = `<svg class="figure-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(spec.caption ?? (isPlot ? "Graph" : "Diagram"))}">${out.join("")}</svg>`;
-  return `<figure class="figure">${svg}${spec.caption ? `<figcaption>${esc(spec.caption)}</figcaption>` : ""}</figure>`;
+  return `<figure class="figure${isLine ? " numberline" : ""}">${svg}${spec.caption ? `<figcaption>${esc(spec.caption)}</figcaption>` : ""}</figure>`;
 }
 
 /** Fill {placeholders} in a figure's text fields (labels, captions) using the drill's filler. */
@@ -257,11 +360,11 @@ export function fillFigureText(spec: FigureSpec, fill: (s: string) => string): F
 /** For Markdown: render ```plot / ```figure JSON blocks as SVG, slotted back in after Markdown. */
 export function protectFigures(md: string, scope: Record<string, number> = {}): { text: string; restore: (html: string) => string } {
   const rendered: string[] = [];
-  const text = md.replace(/```(plot|figure|shape)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
+  const text = md.replace(/```(plot|figure|shape|numberline)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
     let html: string;
     try {
       const spec = JSON.parse(body) as FigureSpec;
-      if (!spec.type) spec.type = kind === "shape" ? "shape" : "plot";
+      if (!spec.type) spec.type = kind === "shape" ? "shape" : kind === "numberline" ? "numberline" : "plot";
       html = renderFigure(spec, scope);
     } catch (e) {
       html = `<p class="notice error">Figure error: ${esc((e as Error).message)}</p>`;

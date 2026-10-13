@@ -9,7 +9,7 @@ export function drillFigureHtml(inst: DrillInstance): string {
   try {
     return DOMPurify.sanitize(inst.figures.map((f) => renderFigure(f, scope, inst.funcs)).join(""), {
       ADD_TAGS: ["marker", "clipPath"],
-      ADD_ATTR: ["marker-end", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
+      ADD_ATTR: ["marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
     });
   } catch (e) {
     return `<p class="notice error">Figure error: ${String((e as Error).message).replace(/[<>&]/g, "")}</p>`;

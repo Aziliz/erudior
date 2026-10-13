@@ -247,8 +247,16 @@ export interface Drill {
 
 /** Graph or diagram spec. Numbers anywhere may be expressions using the drill's values. */
 export interface FigureSpec {
-  /** "plot" draws on coordinate axes; "shape" draws a plain diagram (geometry). */
-  type: "plot" | "shape";
+  /**
+   * "plot" draws on coordinate axes; "shape" draws a plain diagram (geometry);
+   * "numberline" draws a single horizontal number line (use y = 0 for points and segments).
+   */
+  type: "plot" | "shape" | "numberline";
+  /** Plot only: same scale on both axes (circles look round). Height follows the ranges. */
+  equal?: boolean;
+  /** Axis titles (plot only). */
+  xLabel?: string;
+  yLabel?: string;
   /** Visible range; plot defaults to [-10, 10] both ways. */
   x?: [number | string, number | string];
   y?: [number | string, number | string];
@@ -271,6 +279,14 @@ export interface FigureSpec {
   tangents?: { f: string; at: number | string; color?: string }[];
   /** Right-angle marks: the corner vertex and its two neighbors. */
   rightAngles?: [[number | string, number | string], [number | string, number | string], [number | string, number | string]][];
+  /** Parametric curves (x(t), y(t)) for t in [from, to]; also polar curves via r(t)cos t, r(t)sin t. */
+  curves?: { x: string; y: string; t: [number | string, number | string]; label?: string; color?: string; dashed?: boolean }[];
+  /** Slope field for dy/dx = f(x, y): short segments on a grid (step defaults to a 20×15 grid). */
+  slopeField?: { f: string; step?: number | string };
+  /** Vector field (u(x, y), v(x, y)): arrows on a grid, scaled to fit. */
+  vectorField?: { u: string; v: string; step?: number | string };
+  /** Bars (histograms, bar charts): each bar is centered at x with the given height. */
+  bars?: { x: number | string; height: number | string; width?: number | string; label?: string; color?: string }[];
   /** Drawing size in px (width); height follows the aspect of the ranges for shapes. Default 420. */
   width?: number;
   caption?: string;

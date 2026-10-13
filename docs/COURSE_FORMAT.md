@@ -102,7 +102,7 @@ A drill is a problem template. Each run picks random inputs, computes the answer
 - `where` (optional): conditions every problem must meet, e.g. `["b^2 - 4*a*c > 0", "root == round(root)"]`. Inputs are re-rolled (up to 500 times) until all hold, so you can ask for whole-number roots, nonzero coefficients, valid triangles and so on.
 - `funcs` (optional): functions the drill can use, e.g. `{"f(x)": "a*x^3 + b*x"}`. They can use the drill's values and each other.
 - `answer` / `format` / `tolerance`: the classic single number answer (see below for more answer types).
-- `prompt` and `solution`: Markdown with `{name}` or `{name:format}` placeholders and math (see Math notation).
+- `prompt` and `solution`: Markdown with `{name}` or `{name:format}` placeholders and math (see Math notation). Careful: any `{name}` that matches a value is filled, even inside TeX, so with a value named `g`, `\dfrac{v^2}{g}` shows 9.8 in place of g. Pick value names that don't clash with letters you write alone in TeX braces.
 
 ### Expressions
 
@@ -112,10 +112,12 @@ Operators `+ - * / ^` (`^` is right-associative; `-2^2 = -4`), parentheses, `!` 
 |---|---|
 | Rounding | `round(x, digits)`, `floor`, `ceil`, `trunc`, `abs`, `sign`, `min`, `max`, `clamp(x, lo, hi)`, `mod(a, b)` |
 | Powers and logs | `sqrt`, `cbrt`, `root(x, n)`, `exp`, `ln`, `log(x)` (base 10), `log(x, b)`, `log2`, `log10` |
-| Trig (radians) | `sin`, `cos`, `tan`, `asin`, `acos`, `atan`, `atan2(y, x)`, `sinh`, `cosh`, `tanh` |
-| Trig (degrees) | `sind`, `cosd`, `tand`, `asind`, `acosd`, `atand`, `atan2d`, plus `deg(r)` and `rad(d)` |
+| Trig (radians) | `sin`, `cos`, `tan`, `sec`, `csc`, `cot`, `asin`, `acos`, `atan`, `atan2(y, x)`, `sinh`, `cosh`, `tanh`, `asinh`, `acosh`, `atanh` |
+| Trig (degrees) | `sind`, `cosd`, `tand`, `secd`, `cscd`, `cotd`, `asind`, `acosd`, `atand`, `atan2d`, plus `deg(r)` and `rad(d)` |
 | Counting | `fact(n)`, `nCr(n, r)`, `nPr(n, r)`, `gcd`, `lcm` |
-| Other | `hypot(a, b, …)`, `if(cond, a, b)` |
+| Other | `hypot(a, b, …)`, `if(cond, a, b)`, `isprime(n)`, `gamma`, `lgamma`, `erf` |
+| Statistics of a list | `mean(…)`, `median(…)`, `variance(…)` / `stdev(…)` (sample, n − 1), `pvariance(…)` / `pstdev(…)` (population), `total(…)`, `quartile(k, …)` (k = 0–4, median-of-halves) |
+| Distributions | `normpdf(x, μ, σ)`, `normcdf(x, μ, σ)` (μ, σ default 0, 1), `invnorm(p, μ, σ)`, `tpdf(t, df)`, `tcdf(t, df)`, `invt(p, df)`, `chi2pdf`, `chi2cdf(x, df)`, `invchi2(p, df)`, `fcdf(x, d1, d2)`, `binompdf(n, p, k)`, `binomcdf(n, p, k)`, `poissonpdf(λ, k)`, `poissoncdf(λ, k)`, `geompdf(p, k)`, `geomcdf(p, k)` |
 | Calculus (on a drill function) | `deriv(f, x)` and `deriv(f, x, 2)`, `integ(f, a, b)`, `solve(f, lo, hi)` (a root between lo and hi), `limit(f, a)` (or one side: `limit(f, a, 1)` / `limit(f, a, -1)`), `extremum(f, lo, hi, 1)` (x of the max; `-1` for the min), `sum(f, from, to)`, `prod(f, from, to)` |
 
 The calculus functions are numerical (accurate to about 6 significant figures) and also accept built-ins, e.g. `integ(sin, 0, pi)`.
@@ -182,7 +184,12 @@ Drills can have a `figure` (or a list of them); lessons can include them as fenc
 }
 ```
 
-- `type`: `plot` (grid, axes and ticks) or `shape` (a plain diagram with true proportions; the view fits the shapes when `x`/`y` are left out).
+- `type`: `plot` (grid, axes and ticks), `shape` (a plain diagram with true proportions; the view fits the shapes when `x`/`y` are left out), or `numberline` (one horizontal line over the `x` range; put points and segments at y = 0, e.g. an open point and an arrow for $x > 2$). Lessons use ` ```numberline ` blocks for these.
+- `xLabel`, `yLabel`: axis titles for plots (default x and y). `equal: true` gives a plot the same scale on both axes so circles look round.
+- `curves`: parametric curves `{ "x": "3cos(t)", "y": "2sin(t)", "t": [0, "2pi"] }`; polar curves as `r(t)cos(t)`, `r(t)sin(t)`.
+- `slopeField`: `{ "f": "x - y", "step": 0.5 }` draws the slope field of dy/dx = f(x, y).
+- `vectorField`: `{ "u": "-y", "v": "x", "step": 1 }` draws arrows scaled to fit.
+- `bars`: `[{ "x": 1, "height": 4, "width": 1, "label": "A" }, …]` for histograms and bar charts.
 - `functions`: a drill function name or an expression in `x`; optional `label`, `color`, `dashed`, `from`, `to`. Curves break at asymptotes and are clipped to the view.
 - `tangents`, `shade` (between `f` and the x-axis, or `g`), `points`, `segments` (`from`, `to`, `label`, `arrow`, `dashed`), `polygons`, `circles` (`center`, `r`), `labels` (`at`, `text`), `rightAngles` (`[vertex, a, b]`), `width`, `caption`. Text fields can use `{placeholders}`.
 

@@ -75,7 +75,7 @@
     {
      "id": "mq3",
      "topic": "Calculus",
-     "stem": "$\\displaystyle\\int_0^1 2x\\,dx = $ ?",
+     "stem": "What is $\\displaystyle\\int_0^1 2x\\,dx$?",
      "choices": [
       "$0$",
       "$\\tfrac12$",

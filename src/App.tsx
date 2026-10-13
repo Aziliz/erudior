@@ -6,7 +6,6 @@ import * as store from "./lib/storage";
 import { normalizeCourse, withBank } from "./lib/course";
 import { studyDecks } from "./lib/srs";
 
-const BUNDLED_COURSE_ID = "colorado-broker";
 import Library from "./pages/Library";
 import BankHome from "./pages/BankHome";
 import Runner from "./pages/Runner";
@@ -18,6 +17,18 @@ import LessonView from "./pages/LessonView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
+import mathManifest from "../samples/math-index.json";
+
+/** Courses that ship with the app: id -> loader. Each is installed once; newer revisions are offered as updates. */
+const MATH_FILES = import.meta.glob<{ default: unknown }>("../samples/math/*.json");
+const BUNDLED: { id: string; revision: number; load: () => Promise<unknown> }[] = [
+  { id: "colorado-broker", revision: Infinity, load: () => import("../samples/colorado-broker-course.json").then((m) => m.default) },
+  ...(mathManifest as { id: string; revision: number }[]).map((m) => ({
+    id: m.id,
+    revision: m.revision,
+    load: () => MATH_FILES[`../samples/math/${m.id}.json`]().then((x) => x.default),
+  })),
+];
 import RefView from "./pages/RefView";
 import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
@@ -85,7 +96,9 @@ export default function App() {
   const toastTimer = useRef<number>(undefined);
   const mainRef = useRef<HTMLElement>(null);
   const [resumable, setResumable] = useState<Resumable | null>(null);
-  const [courseUpdate, setCourseUpdate] = useState<Course | null>(null);
+  const [courseUpdates, setCourseUpdates] = useState<Course[]>([]);
+  const courseUpdate = courseUpdates[0] ?? null;
+  const dropUpdate = () => setCourseUpdates((u) => u.slice(1));
   const [appUpdate, setAppUpdate] = useState<AvailableUpdate | null>(null);
   const [installing, setInstalling] = useState<number | null | false>(false);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -143,26 +156,28 @@ export default function App() {
         let p = await store.loadProgress();
         // Install bundled courses once each. Deleting one later doesn't bring it back.
         const seeded = p.seededCourses ?? [];
-        if (!seeded.includes(BUNDLED_COURSE_ID)) {
-          const [{ default: bundled }, { courses }] = await Promise.all([
-            import("../samples/colorado-broker-course.json"),
-            store.listCourses(),
-          ]);
-          if (!courses.some((c) => c.id === BUNDLED_COURSE_ID)) await store.saveCourse(normalizeCourse(bundled));
-          p = { ...p, seeded: true, seededCourses: [...seeded, BUNDLED_COURSE_ID] };
+        const missing = BUNDLED.filter((b) => !seeded.includes(b.id));
+        if (missing.length) {
+          const { courses } = await store.listCourses();
+          for (const b of missing) {
+            if (!courses.some((c) => c.id === b.id)) await store.saveCourse(normalizeCourse(await b.load()));
+          }
+          p = { ...p, seeded: true, seededCourses: [...seeded, ...missing.map((b) => b.id)] };
           await store.saveProgress(p);
         }
         progressRef.current = p;
         setProgressState(p);
         await reload();
-        // Offer a newer bundled course to installs that have an older revision.
-        const [{ default: bundledRaw }, { courses: installed }] = await Promise.all([
-          import("../samples/colorado-broker-course.json"),
-          store.listCourses(),
-        ]);
-        const bundled = normalizeCourse(bundledRaw);
-        const mine = installed.find((c) => c.id === bundled.id);
-        if (mine && (bundled.revision ?? 0) > (mine.revision ?? 0)) setCourseUpdate(bundled);
+        // Offer newer bundled courses to installs that have an older revision.
+        const { courses: installed } = await store.listCourses();
+        const updates: Course[] = [];
+        for (const b of BUNDLED) {
+          const mine = installed.find((c) => c.id === b.id);
+          if (!mine || b.revision <= (mine.revision ?? 0)) continue;
+          const bundled = normalizeCourse(await b.load());
+          if ((bundled.revision ?? 0) > (mine.revision ?? 0)) updates.push(bundled);
+        }
+        setCourseUpdates(updates);
         setReady(true);
         // Quietly look for a new version of the app; offline is fine.
         checkForUpdate().then(setAppUpdate, () => {});
@@ -473,14 +488,14 @@ export default function App() {
               </span>
             </div>
             <div className="row">
-              <button className="btn sm ghost" onClick={() => setCourseUpdate(null)}>
+              <button className="btn sm ghost" onClick={dropUpdate}>
                 Not now
               </button>
               <button
                 className="btn sm primary"
                 onClick={async () => {
                   await saveCourse(courseUpdate);
-                  setCourseUpdate(null);
+                  dropUpdate();
                   toast("Course updated");
                 }}
               >
