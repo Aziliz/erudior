@@ -73,8 +73,7 @@ One-time setup, in the repo's **Settings → Secrets and variables → Actions**
 
 | Secret | Value |
 |---|---|
-| `TAURI_SIGNING_PRIVATE_KEY` | The full contents of the updater private key file |
-| `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` | Leave empty (the key has no password), but create it |
+| `TAURI_SIGNING_PRIVATE_KEY` | The full contents of the updater private key file. The key has no password, so no password secret is needed. |
 
 The matching public key is already in `src-tauri/tauri.conf.json`. Keep the private key somewhere safe: if it's lost, installed copies can't verify new updates.
 

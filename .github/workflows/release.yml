@@ -8,7 +8,7 @@ name: Build installers
 #
 # Required repository secrets:
 #   TAURI_SIGNING_PRIVATE_KEY           contents of the updater private key
-#   TAURI_SIGNING_PRIVATE_KEY_PASSWORD  its password (empty if none; still create it)
+#   TAURI_SIGNING_PRIVATE_KEY_PASSWORD  only if the key has a password (this one doesn't)
 on:
   push:
     tags: ["v*"]

@@ -138,7 +138,7 @@ Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `
   - Pushing a `v*` tag creates a draft release. **The draft must be published**, because the updater only sees published releases.
 - **Secrets Jon must add to `Aziliz/examiner`:**
   - `TAURI_SIGNING_PRIVATE_KEY`: the contents of `examiner-updater-PRIVATE.key`, which was sent to Jon. No copy was kept, and the key has no password.
-  - `TAURI_SIGNING_PRIVATE_KEY_PASSWORD`: create it with an empty value.
+  - No password secret: the key has no password, and GitHub won't save an empty secret.
 - **Public key:** in `src-tauri/tauri.conf.json` under `plugins.updater.pubkey`. The update endpoint is `https://github.com/Aziliz/examiner/releases/latest/download/latest.json`.
 - **Who updates how:**
   - Windows and AppImage installs update themselves.
