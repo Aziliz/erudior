@@ -215,5 +215,5 @@ export async function confirmAction(message: string, title = "Examiner"): Promis
 }
 
 export async function dataLocation(): Promise<string> {
-  return inApp ? invoke<string>("data_location") : "browser localStorage (dev mode)";
+  return inApp ? invoke<string>("data_location") : "this browser's local storage (web version; not synced with the desktop app)";
 }
