@@ -11,6 +11,7 @@ python3 content/build_course.py
 | `parts/n1–n4.json` | National-portion lessons, questions, notecards and glossary |
 | `parts/s1–s4.json` | Colorado state-portion material |
 | `parts/g1–g5.json` | Gap-fill parts from the Van Ed outline comparison (mapped to modules in `GAPS` in `build_course.py`); `g3-drills.json` holds their drills |
+| `lesson-quizzes.json` | End-of-lesson quiz: bank question ids per lesson, each answerable from that lesson alone |
 | `refs/*.md` | Quick-reference sheets |
 | `drills.json` | Math drill templates (format in `docs/COURSE_FORMAT.md`) |
 | `research/` | Writers' fact notes with source links |

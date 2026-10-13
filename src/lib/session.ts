@@ -1,4 +1,4 @@
-import type { Attempt, Bank, Mode, Progress, Question, Tally } from "./types";
+import type { Attempt, Bank, LessonRef, Mode, Progress, Question, Tally } from "./types";
 import { sameSet, shuffle, uid } from "./util";
 
 export interface SessionItem {
@@ -26,7 +26,12 @@ export interface Session {
   timeLimitSec?: number;
   passingPercent?: number;
   sectionPassing?: Record<string, number>;
+  /** Set for an end-of-lesson quiz. */
+  lesson?: LessonRef;
 }
+
+/** Percent needed on an end-of-lesson quiz to complete the lesson. */
+export const LESSON_QUIZ_PASS = 70;
 
 export type PracticeFilter = "all" | "missed" | "unseen" | "weak" | "flagged";
 
@@ -137,6 +142,7 @@ export function startExam(bank: Bank, opts: ExamOptions): Session {
 
 /** Pass/fail for an exam attempt; undefined for practice. */
 export function attemptPassed(a: Attempt): boolean | undefined {
+  if (a.lesson && a.passingPercent !== undefined) return (a.correct / Math.max(1, a.total)) * 100 >= a.passingPercent - 1e-9;
   if (a.mode !== "exam") return undefined;
   if (a.sectionPassing && Object.keys(a.sectionPassing).length) {
     return Object.entries(a.sectionPassing).every(([name, pct]) => {
@@ -187,6 +193,34 @@ export function startPractice(bank: Bank, progress: Progress, opts: PracticeOpti
   };
 }
 
+/** The quiz questions for a lesson that still exist in the bank, in the lesson's order. */
+export function lessonQuizQuestions(bank: Bank | undefined, quiz: string[] | undefined): Question[] {
+  if (!bank || !quiz?.length) return [];
+  const byId = new Map(bank.questions.map((q) => [q.id, q]));
+  return quiz.map((id) => byId.get(id)).filter((q): q is Question => !!q);
+}
+
+/** Correct answers needed to pass a quiz of n questions. */
+export function lessonQuizNeeded(n: number): number {
+  return Math.ceil((n * LESSON_QUIZ_PASS) / 100 - 1e-9);
+}
+
+/** An end-of-lesson quiz: practice-style (answer and explanation shown), every question scored. */
+export function startLessonQuiz(bank: Bank, lesson: LessonRef, quiz: string[]): Session {
+  const items = makeItems(lessonQuizQuestions(bank, quiz), true);
+  return {
+    id: uid("s"),
+    bankId: bank.id,
+    bankTitle: bank.title,
+    mode: "practice",
+    items,
+    blocks: [{ start: 0, end: items.length }],
+    startedAt: Date.now(),
+    passingPercent: LESSON_QUIZ_PASS,
+    lesson,
+  };
+}
+
 export function isCorrect(q: Question, chosen: number[] | undefined): boolean {
   return !!chosen && chosen.length > 0 && sameSet(q.answer, chosen);
 }
@@ -211,9 +245,12 @@ export function finishSession(
   const sectionName = (sid?: string) =>
     (sid && bank?.sections.find((s) => s.id === sid)?.name) || sid || "Unsectioned";
 
-  // Practice sessions only count questions the user actually got to.
+  // Practice sessions only count questions the user actually got to. Lesson quizzes
+  // score every question, so skipping one can't help you pass.
   const items =
-    session.mode === "practice" ? session.items.filter((it) => answers[it.q.id]?.length) : session.items;
+    session.mode === "practice" && !session.lesson
+      ? session.items.filter((it) => answers[it.q.id]?.length)
+      : session.items;
 
   let correct = 0;
   let answered = 0;
@@ -241,6 +278,7 @@ export function finishSession(
     correct,
     passingPercent: session.passingPercent,
     sectionPassing: session.sectionPassing,
+    lesson: session.lesson,
     byTopic,
     bySection,
     answers: records,

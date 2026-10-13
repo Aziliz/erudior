@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { AppApi } from "../App";
+import type { AppApi, View } from "../App";
 import type { Bank, Lesson } from "../lib/types";
-import { finishSession, isCorrect, serializeRun, type RunState, type Session } from "../lib/session";
+import { attemptPassed, finishSession, isCorrect, serializeRun, type RunState, type Session } from "../lib/session";
 import { confirmAction, saveSessionState } from "../lib/storage";
-import { logActivity } from "../lib/planner";
+import { lessonKey, logActivity } from "../lib/planner";
+import { today } from "../lib/srs";
 import { LETTERS, formatClock } from "../lib/util";
 
 interface Props {
@@ -19,6 +20,10 @@ export const metaKey = (bankId: string, qid: string) => `${bankId}/${qid}`;
 export default function Runner({ api, session, bank, initial }: Props) {
   const isExam = session.mode === "exam";
   const items = session.items;
+  // Lesson quizzes return to their lesson; everything else to the bank.
+  const exitView: View = session.lesson
+    ? { name: "lesson", courseId: session.lesson.courseId, lessonId: session.lesson.lessonId }
+    : { name: "bank", bankId: session.bankId };
   const blocks = session.blocks?.length ? session.blocks : [{ start: 0, end: items.length, timeLimitSec: session.timeLimitSec }];
   const qmeta = api.progress.qmeta ?? {};
 
@@ -61,6 +66,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
 
   // Lessons covering this question's topic, for "review this" links.
   const course = bank?.courseId ? api.courses.find((c) => c.id === bank.courseId) : undefined;
+  const quizLesson = session.lesson ? course?.lessons.find((l) => l.id === session.lesson!.lessonId) : undefined;
   const relatedLessons = (topic: string): Lesson[] =>
     course ? course.lessons.filter((l) => l.topics?.includes(topic)).slice(0, 3) : [];
 
@@ -106,17 +112,25 @@ export default function Runner({ api, session, bank, initial }: Props) {
     await saveSessionState(null).catch(() => {});
     const used = totalUsed();
     const preview = finishSession(session, answers, flags, api.progress, bank, used);
-    if (preview.attempt.total === 0) {
+    if (preview.attempt.total === 0 || (session.lesson && preview.attempt.answered === 0)) {
       api.toast("Session ended. No questions were answered, so nothing was recorded.");
-      api.go({ name: "bank", bankId: session.bankId });
+      api.go(exitView);
       return;
     }
     // Apply against the latest progress so flag/note writes made during the session aren't lost.
     await api.updateProgress((p) => {
       const { attempt, progress } = finishSession(session, answers, flags, p, bank, used);
-      return logActivity(progress, "questions", attempt.answered);
+      let next = logActivity(progress, "questions", attempt.answered);
+      // Passing an end-of-lesson quiz completes the lesson.
+      if (session.lesson && attemptPassed(attempt)) {
+        const key = lessonKey(session.lesson.courseId, session.lesson.lessonId);
+        if (!next.lessonsDone[key]) {
+          next = logActivity({ ...next, lessonsDone: { ...next.lessonsDone, [key]: today() } }, "lessons");
+        }
+      }
+      return next;
     });
-    api.go({ name: "results", attemptId: preview.attempt.id, back: { name: "bank", bankId: session.bankId } });
+    api.go({ name: "results", attemptId: preview.attempt.id, back: exitView });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, answers, flags, api, bank, blockUsed, blockIdx]);
 
@@ -201,8 +215,10 @@ export default function Runner({ api, session, bank, initial }: Props) {
     const n = Object.keys(checked).length;
     if (n < items.length) {
       const ok = await confirmAction(
-        `You've checked ${n} of ${items.length} questions. End the session and see your results?`,
-        "End practice",
+        session.lesson
+          ? `You've answered ${n} of ${items.length} questions. Unanswered questions count as wrong. Finish the quiz?`
+          : `You've checked ${n} of ${items.length} questions. End the session and see your results?`,
+        session.lesson ? "Finish quiz" : "End practice",
       );
       if (!ok) return;
     }
@@ -212,7 +228,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
   function saveAndExit() {
     save();
     api.toast(isExam ? "Exam saved. Resume it from the banner when you're ready." : "Session saved.");
-    api.go({ name: "bank", bankId: session.bankId });
+    api.go(exitView);
   }
 
   // Keyboard: letters/numbers pick, arrows move, F flags, Enter checks/advances.
@@ -259,8 +275,8 @@ export default function Runner({ api, session, bank, initial }: Props) {
           <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">
             Save &amp; exit
           </button>
-          <div className="title">{session.bankTitle}</div>
-          <span className="pill neutral">{isExam ? "Exam" : "Practice"}</span>
+          <div className="title">{quizLesson ? quizLesson.title : session.bankTitle}</div>
+          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
               Part {blockIdx + 1} of {blocks.length}: {block.name}
@@ -477,7 +493,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
             </button>
           ) : (
             <button className="btn" onClick={endPractice}>
-              End session
+              {session.lesson ? "Finish quiz" : "End session"}
             </button>
           )}
           {blockFlagged > 0 && (

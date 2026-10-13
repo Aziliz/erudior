@@ -85,9 +85,16 @@ export interface Attempt {
   passingPercent?: number;
   /** Per-section pass marks, keyed by section name (as in bySection). */
   sectionPassing?: Record<string, number>;
+  /** Set when this attempt was a lesson's end-of-lesson quiz. */
+  lesson?: LessonRef;
   byTopic: Record<string, Tally>;
   bySection: Record<string, Tally>;
   answers: AnswerRecord[];
+}
+
+export interface LessonRef {
+  courseId: string;
+  lessonId: string;
 }
 
 export interface QuestionStat {
@@ -114,6 +121,11 @@ export interface Lesson {
   minutes?: number;
   /** Markdown. [[term]] or [[term|shown text]] links to the glossary. */
   body: string;
+  /**
+   * End-of-lesson quiz: ids of questions in the course's first bank. When set,
+   * passing the quiz (LESSON_QUIZ_PASS percent) is what marks the lesson complete.
+   */
+  quiz?: string[];
 }
 
 export interface Card {

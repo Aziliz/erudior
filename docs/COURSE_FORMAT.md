@@ -30,12 +30,14 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
   "title": "Brokerage relationships",
   "minutes": 20,
   "topics": ["Agency"],
+  "quiz": ["q-012", "q-047", "q-103"],
   "body": "## Heading\n\nMarkdown text. [[Transaction broker]] links to the glossary; [[term|shown text]] changes the link text."
 }
 ```
 
 - `body` is Markdown (GitHub-flavored, so tables work). Block quotes render as call-out boxes, which suit exam tips.
 - `topics` connects the lesson to question and notecard topics. The lesson page offers "practice questions on this" and "flip related notecards" for them, and the planner uses the topics of lessons you've finished to choose practice questions.
+- `quiz` (optional) lists question ids from the course's first bank, in order. The lesson ends with that quiz: answers and explanations show as you go, every question is scored, and getting 70% (rounded up) marks the lesson complete. Lessons with a quiz can't be checked off by hand. Ids that aren't in the bank are skipped.
 
 ## Question banks
 

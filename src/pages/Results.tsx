@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { AppApi, View } from "../App";
 import type { Attempt, Bank } from "../lib/types";
-import { startPractice } from "../lib/session";
+import { lessonQuizNeeded, startLessonQuiz, startPractice } from "../lib/session";
+import { orderedLessons } from "../lib/planner";
 import { LETTERS, formatDateTime, formatDuration, percent } from "../lib/util";
 import { SectionTable, TallyTable } from "../components/Bars";
 import { attemptPassed } from "../lib/session";
@@ -46,6 +47,16 @@ export default function Results({
   }));
   const missingQs = shown.filter((s) => !s.q).length;
 
+  // End-of-lesson quiz context.
+  const quizLesson = attempt.lesson && course?.lessons.find((l) => l.id === attempt.lesson!.lessonId);
+  const lessonOrder = course ? orderedLessons(course) : [];
+  const nextLesson = quizLesson ? lessonOrder[lessonOrder.findIndex((l) => l.id === quizLesson.id) + 1] : undefined;
+  const goLesson = (id: string) => course && api.go({ name: "lesson", courseId: course.id, lessonId: id });
+  function retakeQuiz() {
+    if (!bank || !course || !quizLesson?.quiz) return;
+    api.go({ name: "run", session: startLessonQuiz(bank, { courseId: course.id, lessonId: quizLesson.id }, quizLesson.quiz) });
+  }
+
   function practiceMissed() {
     if (!bank) return;
     api.go({
@@ -64,7 +75,7 @@ export default function Results({
   return (
     <div className="page">
       <button className="back" onClick={() => api.go(back)}>
-        ← {back.name === "progress" ? "Progress" : attempt.bankTitle}
+        ← {back.name === "progress" ? "Progress" : back.name === "lesson" && quizLesson ? quizLesson.title : attempt.bankTitle}
       </button>
 
       <div className="score-head">
@@ -74,7 +85,11 @@ export default function Results({
         </div>
         <div>
           <h1>
-            {isExam
+            {quizLesson
+              ? passed
+                ? "Lesson complete"
+                : "Not passed yet"
+              : isExam
               ? passed === undefined
                 ? "Exam complete"
                 : passed
@@ -84,6 +99,7 @@ export default function Results({
           </h1>
           <p className="muted" style={{ marginTop: 6 }}>
             {attempt.correct} of {attempt.total} correct
+            {quizLesson && `, ${lessonQuizNeeded(attempt.total)} needed to complete “${quizLesson.title}”`}
             {isExam && !marks && attempt.passingPercent !== undefined && `, ${attempt.passingPercent}% needed to pass`}
             {isExam && marks && ". Each section must pass on its own"}.{" "}
             {formatDuration(attempt.durationSec)}
@@ -91,6 +107,28 @@ export default function Results({
             {formatDateTime(attempt.finishedAt)}.
             {isExam && attempt.answered < attempt.total && ` ${attempt.total - attempt.answered} left blank.`}
           </p>
+          {quizLesson ? (
+            <div className="row" style={{ marginTop: 14 }}>
+              {passed ? (
+                nextLesson ? (
+                  <button className="btn primary" onClick={() => goLesson(nextLesson.id)}>
+                    Next lesson: {nextLesson.title}
+                  </button>
+                ) : (
+                  <button className="btn primary" onClick={() => course && api.go({ name: "course", courseId: course.id, tab: "lessons" })}>
+                    Back to lessons
+                  </button>
+                )
+              ) : (
+                <button className="btn primary" onClick={retakeQuiz}>
+                  Retake the quiz
+                </button>
+              )}
+              <button className="btn" onClick={() => goLesson(quizLesson.id)}>
+                {passed ? "Back to the lesson" : "Review the lesson"}
+              </button>
+            </div>
+          ) : (
           <div className="row" style={{ marginTop: 14 }}>
             {bank && wrong.length > 0 && (
               <button className="btn primary" onClick={practiceMissed}>
@@ -103,6 +141,7 @@ export default function Results({
               </button>
             )}
           </div>
+          )}
         </div>
       </div>
 

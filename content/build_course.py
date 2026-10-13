@@ -83,6 +83,18 @@ for key, base in GAPS.items():
         deck_of[target]["cards"].append(c)
     merge_glossary(part, state)
 
+# End-of-lesson quizzes: bank question ids per lesson, picked so each is answerable
+# from that lesson alone (content/lesson-quizzes.json).
+QUIZ = json.loads((ROOT / "lesson-quizzes.json").read_text())
+qids = {q["id"] for q in questions}
+for l in lessons:
+    quiz = QUIZ.get(l["id"], [])
+    missing = [i for i in quiz if i not in qids]
+    assert not missing, (l["id"], missing)
+    if quiz:
+        l["quiz"] = quiz
+assert not set(QUIZ) - {l["id"] for l in lessons}, set(QUIZ) - {l["id"] for l in lessons}
+
 gl = []
 for g in glossary.values():
     g = {k: v for k, v in g.items() if k != "_state"}
@@ -114,8 +126,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 3,
-    "changelog": "Ten new lessons and 100 new questions filling gaps against a 168-hour Colorado pre-license course: federal taxes and 1031 exchanges, construction loans and appraiser regulation, commercial and specialty leasing, MLS/IDX, e-signatures and wire fraud, the Colorado six-column closing worksheet with worked closings, other Commission-approved contracts and addenda, HOAs and CCIOA, and Commission rules, audits and complaints in practice. Three new closing-math drills.",
+    "revision": 4,
+    "changelog": "Every lesson now ends with a quiz of up to 10 questions drawn from the bank. Pass it with 70% to complete the lesson. Also fixes a wrong answer key on a seller-disclosure question, and keeps the revision 3 additions: ten new lessons and 100 new questions (federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, Commission rules, audits and complaints).",
     "modules": modules,
     "lessons": lessons,
     "banks": [{
@@ -156,4 +168,5 @@ print(f"modules {len(modules)} lessons {len(lessons)} questions {len(questions)}
 print(f"cards {sum(len(d['cards']) for d in decks)} in {len(decks)} decks; glossary {len(gl)}; refs {len(references)}; drills {len(drills)}")
 print("unresolved glossary links:", sorted(links - names))
 print("answer positions:", collections.Counter(q["answer"][0] for q in questions))
+print("lesson quizzes:", collections.Counter(len(l.get("quiz", [])) for l in lessons))
 print("size KB:", OUT.stat().st_size // 1024)

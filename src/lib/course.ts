@@ -41,6 +41,7 @@ export function normalizeCourse(raw: unknown): Course {
         topics: arr(l.topics).map(String).filter(Boolean),
         minutes: Number(l.minutes) > 0 ? Number(l.minutes) : undefined,
         body: str(l.body),
+        quiz: arr(l.quiz).length ? arr(l.quiz).map(String).filter(Boolean) : undefined,
       };
     });
 

@@ -1541,6 +1541,10 @@ button.gloss:hover {
   margin-top: 36px;
   background: var(--sheet);
 }
+.lesson-quiz {
+  margin-top: 16px;
+  background: var(--sheet);
+}
 .lesson-foot {
   display: flex;
   align-items: center;
@@ -1751,6 +1755,7 @@ button.gloss:hover {
   .back,
   .no-print,
   .lesson-foot,
+  .lesson-quiz,
   .lesson-practice {
     display: none !important;
   }
