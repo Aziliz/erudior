@@ -1,24 +1,13 @@
-import { useEffect } from "react";
 import type { AppApi } from "../App";
-import InlineQuiz from "../components/InlineQuiz";
 import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
 import { today } from "../lib/srs";
-import { lessonQuizQuestions } from "../lib/session";
+import { lessonQuizNeeded, lessonQuizQuestions, startLessonQuiz } from "../lib/session";
+import { bestQuizScore } from "../lib/quiz";
 import { mainBank } from "./CourseHome";
 
-export default function LessonView({
-  api,
-  course,
-  lesson,
-  anchor,
-}: {
-  api: AppApi;
-  course: Course;
-  lesson: Lesson;
-  anchor?: "quiz";
-}) {
+export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const key = lessonKey(course.id, lesson.id);
   const done = !!api.progress.lessonsDone[key];
   const ordered = orderedLessons(course);
@@ -39,13 +28,12 @@ export default function LessonView({
   // End-of-lesson quiz: when the lesson has one, passing it is how the lesson gets completed.
   const quizQs = lessonQuizQuestions(bank, lesson.quiz);
   const hasQuiz = !!bank && quizQs.length > 0;
-  const toQuiz = () => document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  // The app scrolls to the top on every view change; jump to the quiz after that when asked.
-  useEffect(() => {
-    if (anchor !== "quiz") return;
-    const t = window.setTimeout(() => document.getElementById("quiz")?.scrollIntoView({ block: "start" }), 60);
-    return () => window.clearTimeout(t);
-  }, [anchor]);
+  const needed = lessonQuizNeeded(quizQs.length);
+  const best = bestQuizScore(api.progress, course.id, { lessonId: lesson.id });
+  function takeQuiz() {
+    if (!bank) return;
+    api.go({ name: "run", session: startLessonQuiz(bank, { courseId: course.id, lessonId: lesson.id }, lesson.quiz ?? []) });
+  }
 
   async function toggleDone() {
     await api.updateProgress((p) => {
@@ -60,7 +48,7 @@ export default function LessonView({
   }
 
   async function completeAndNext() {
-    if (!done && hasQuiz) return toQuiz();
+    if (!done && hasQuiz) return takeQuiz();
     if (!done) await toggleDone();
     if (next) goLesson(next.id);
     else api.go({ name: "course", courseId: course.id, tab: "lessons" });
@@ -83,7 +71,22 @@ export default function LessonView({
         <Markdown source={lesson.body} glossary={course.glossary} />
       </article>
 
-      {hasQuiz && bank && <InlineQuiz key={lesson.id} api={api} course={course} lesson={lesson} bank={bank} />}
+      {hasQuiz && (
+        <section className="panel lesson-quiz">
+          <h2>End-of-lesson quiz</h2>
+          <p className="muted" style={{ marginTop: 6 }}>
+            {quizQs.length} question{quizQs.length === 1 ? "" : "s"} on this lesson. Get {needed} right to complete it; you see
+            the answer and explanation after each one.
+            {best && ` Best so far: ${best.correct} of ${best.total}.`}
+          </p>
+          <div className="row" style={{ marginTop: 10 }}>
+            <button className={done ? "btn" : "btn primary"} onClick={takeQuiz}>
+              {best ? "Retake the quiz" : "Take the quiz"}
+            </button>
+            {done && <span className="pill pass">Complete</span>}
+          </div>
+        </section>
+      )}
 
       {(topicCards > 0 || lessonDrills.length > 0 || lessonRefs.length > 0) && (
         <section className="panel lesson-practice">

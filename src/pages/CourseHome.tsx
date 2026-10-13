@@ -14,6 +14,7 @@ import {
   practicePool,
   type PracticeOptions,
   lessonQuizQuestions,
+  startLessonQuiz,
   startModuleQuiz,
 } from "../lib/session";
 import { emptyBank } from "../lib/validate";
@@ -422,8 +423,13 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                     {nq > 0 && (
                       <button
                         className={`quiz-chip ${isDone ? "passed" : ""}`}
-                        onClick={() => api.go({ name: "lesson", courseId: course.id, lessonId: l.id, anchor: "quiz" })}
-                        title="Go to this lesson's quiz"
+                        onClick={() =>
+                          api.go({
+                            name: "run",
+                            session: startLessonQuiz(bank!, { courseId: course.id, lessonId: l.id }, l.quiz ?? []),
+                          })
+                        }
+                        title="Take this lesson's quiz"
                       >
                         Quiz: {nq}
                         {best ? ` · best ${best.correct}/${best.total}` : ""}
