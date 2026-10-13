@@ -183,8 +183,16 @@ export interface Drill {
   topic?: string;
   /** Random inputs. */
   vars: Record<string, DrillVar>;
-  /** Derived values, evaluated in order. Expressions: + - * / ^ ( ) round floor ceil abs min max. */
+  /**
+   * Functions usable in calc, where and answers: { "f(x)": "a*x^2 + b*x" }. They can use
+   * the drill's values, and deriv(f, x), integ(f, a, b), solve(f, lo, hi), limit(f, a)
+   * and extremum(f, lo, hi, ±1) work on them.
+   */
+  funcs?: Record<string, string>;
+  /** Derived values, evaluated in order. See docs/COURSE_FORMAT.md for operators and functions. */
   calc?: Record<string, string>;
+  /** Conditions every problem must meet (e.g. "b^2 - 4*a*c > 0"); the inputs are re-rolled until they do. */
+  where?: string[];
   /** Text with {name} or {name:format} placeholders. */
   prompt: string;
   /** Name of the var/calc value that is the answer. */

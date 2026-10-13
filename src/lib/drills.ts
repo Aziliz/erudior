@@ -1,9 +1,11 @@
 import type { Drill, NumFormat } from "./types";
-import { evaluate } from "./expr";
+import { compileFuncs, evaluate, type UserFn } from "./expr";
 
 export interface DrillInstance {
   drill: Drill;
   values: Record<string, number | string>;
+  /** Compiled drill functions, bound to this problem's values. */
+  funcs: Record<string, UserFn>;
   prompt: string;
   solution: string;
   answer: number;
@@ -81,31 +83,63 @@ export function defaultTolerance(fmt: NumFormat): number {
   }
 }
 
+/** How many times to re-roll inputs looking for a problem that meets `where`. */
+const MAX_TRIES = 500;
+
 /** Generate one problem. Throws if the template is broken. */
 export function generate(drill: Drill): DrillInstance {
-  const values: Record<string, number | string> = {};
-  const labels: Record<string, string> = {};
-  for (const [k, v] of Object.entries(drill.vars)) {
-    const got = pick(v);
-    if (typeof got === "object") {
-      values[k] = got.value;
-      labels[k] = got.label;
-    } else values[k] = got;
+  let funcs: Record<string, UserFn>;
+  try {
+    funcs = compileFuncs(drill.funcs);
+  } catch (e) {
+    throw new Error(`${drill.title}: ${(e as Error).message}`);
   }
+  let values: Record<string, number | string> = {};
+  let labels: Record<string, string> = {};
   const numeric = () =>
     Object.fromEntries(Object.entries(values).filter(([, v]) => typeof v === "number")) as Record<string, number>;
-  for (const [k, ex] of Object.entries(drill.calc ?? {})) {
-    try {
-      values[k] = evaluate(ex, numeric());
-    } catch (e) {
-      throw new Error(`${drill.title}: ${k} = ${ex}: ${(e as Error).message}`);
+  let ok = false;
+  for (let attempt = 0; attempt < MAX_TRIES && !ok; attempt++) {
+    values = {};
+    labels = {};
+    for (const [k, v] of Object.entries(drill.vars)) {
+      const got = pick(v);
+      if (typeof got === "object") {
+        values[k] = got.value;
+        labels[k] = got.label;
+      } else values[k] = got;
     }
+    let calcFailed = false;
+    for (const [k, ex] of Object.entries(drill.calc ?? {})) {
+      try {
+        values[k] = evaluate(ex, numeric(), funcs);
+      } catch (e) {
+        // With constraints, a bad roll (say, sqrt of a negative) just means try again.
+        if (drill.where?.length) {
+          calcFailed = true;
+          break;
+        }
+        throw new Error(`${drill.title}: ${k} = ${ex}: ${(e as Error).message}`);
+      }
+    }
+    if (calcFailed) continue;
+    ok = (drill.where ?? []).every((cond) => {
+      try {
+        return evaluate(cond, numeric(), funcs) !== 0;
+      } catch (e) {
+        if (/Unknown|Expected|Unexpected|Bad/.test((e as Error).message))
+          throw new Error(`${drill.title}: where "${cond}": ${(e as Error).message}`);
+        return false;
+      }
+    });
   }
+  if (!ok) throw new Error(`${drill.title}: no inputs met the "where" conditions after ${MAX_TRIES} tries`);
   const ans = values[drill.answer];
   if (typeof ans !== "number") throw new Error(`${drill.title}: answer "${drill.answer}" is not a number`);
   return {
     drill,
     values,
+    funcs,
     prompt: fill(drill.prompt, values, labels),
     solution: fill(drill.solution, values, labels),
     answer: ans,
