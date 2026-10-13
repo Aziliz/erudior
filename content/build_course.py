@@ -133,8 +133,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 6,
-    "changelog": "Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
+    "revision": 7,
+    "changelog": "Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{
