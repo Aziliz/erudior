@@ -1,0 +1,655 @@
+{
+  "questions": [
+    {
+      "id": "f1-001",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "A tenant farmer planted corn in the spring. The landlord sold the farm and properly ended the lease in August, before harvest. The tenant did nothing to cause the lease to end. Which statement is most accurate?",
+      "choices": [
+        "The corn became the landlord's real property when planted, so it passes to the new owner and the tenant loses it",
+        "The corn is an emblement, and the tenant may generally return to harvest it",
+        "The corn passes to the new owner with the deed",
+        "The tenant must leave the corn but can sue for its value"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Annual crops planted by human labor (fructus industriales) are emblements, which are personal property. A tenant who didn't cause the lease to end generally may come back and harvest them."
+    },
+    {
+      "id": "f1-002",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "A seller wants to keep the dining-room chandelier, which is wired into the ceiling. The purchase contract lists the chandelier as excluded. Which statement is correct?",
+      "choices": [
+        "The chandelier must stay because it is wired in",
+        "The buyer's preference controls because courts favor buyers",
+        "The written agreement controls, so the seller may keep it",
+        "The chandelier stays because the seller intended it to be permanent"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Under the MARIA tests, a written agreement between the parties overrides the other tests. Without the exclusion, the wired-in chandelier would be a fixture that transfers with the house."
+    },
+    {
+      "id": "f1-003",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "Under the rectangular survey system, where is section 36 located within a township?",
+      "choices": [
+        "Northeast corner",
+        "Northwest corner",
+        "Center of the township",
+        "Southeast corner"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Sections are numbered back and forth starting with section 1 in the northeast corner. Section 6 is in the northwest corner, and section 36 ends up in the southeast corner."
+    },
+    {
+      "id": "f1-004",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "How many acres are in \"the N 1/2 of the NW 1/4 and the SE 1/4\" of a section?",
+      "choices": [
+        "240 acres",
+        "80 acres",
+        "160 acres",
+        "40 acres"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "\"And\" means two separate parcels. N 1/2 of the NW 1/4 = 640 ÷ 8 = 80 acres; the SE 1/4 = 640 ÷ 4 = 160 acres; 80 + 160 = 240 acres."
+    },
+    {
+      "id": "f1-005",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "Under the water rights system used in Colorado and many other western states, who generally holds the senior right to water from a river?",
+      "choices": [
+        "The owner whose land borders the river",
+        "The first person to put the water to beneficial use",
+        "All owners along the river, each sharing reasonable use of the water",
+        "The owner of the largest parcel along the river"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Colorado uses prior appropriation: the first to put water to beneficial use holds the senior right, regardless of who owns the riverbank. Sharing reasonable use among bordering owners describes riparian rights."
+    },
+    {
+      "id": "f1-006",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "A Colorado deed conveys a home \"to Pat Lee and Sam Ortiz\" and says nothing more about how they hold title. How do Pat and Sam own the property?",
+      "choices": [
+        "As joint tenants with right of survivorship",
+        "As tenants by the entirety",
+        "In severalty",
+        "As tenants in common"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Colorado presumes a tenancy in common when property is conveyed to two or more natural persons unless the deed expressly declares a joint tenancy. Severalty means a single owner."
+    },
+    {
+      "id": "f1-007",
+      "section": "state",
+      "topic": "Property ownership",
+      "stem": "A deed for Colorado property conveys title to a married couple \"as tenants by the entirety.\" What estate does the couple hold?",
+      "choices": [
+        "A joint tenancy",
+        "A tenancy by the entirety",
+        "A tenancy in common",
+        "Community property"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Colorado doesn't recognize tenancy by the entirety. Under C.R.S. 38-31-201, a deed that tries to create one creates a joint tenancy instead. Colorado also isn't a community property state."
+    },
+    {
+      "id": "f1-008",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "A deed conveys land to a town \"on condition that\" it be used as a park. Years later the town builds offices on the land. What happens?",
+      "choices": [
+        "Title returns to the grantor automatically through a possibility of reverter as soon as the offices are built",
+        "The grantor may take action to reclaim the property under a right of reentry",
+        "The town keeps title because the condition is unenforceable",
+        "Title passes to the state by escheat"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "\"On condition that\" creates a fee simple subject to a condition subsequent. When the condition is broken, the grantor must act to get the property back. Automatic reversion applies to a fee simple determinable (\"so long as\")."
+    },
+    {
+      "id": "f1-009",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "Ann receives a life estate \"for the life of Bob.\" Ann is still living when Bob dies. What happens to Ann's interest?",
+      "choices": [
+        "Ann now owns the property in fee simple",
+        "Ann's interest continues until her own death",
+        "Ann's estate ends",
+        "Ann's heirs receive a remainder"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "This is a life estate pur autre vie: the measuring life is Bob's, not Ann's. When Bob dies, Ann's estate ends and the property goes to the reversion or remainder holder."
+    },
+    {
+      "id": "f1-010",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "A tenant's one-year lease ended last month. The tenant is still living in the unit, and the landlord has not agreed to let the tenant stay. What type of tenancy is this?",
+      "choices": [
+        "Month-to-month periodic tenancy",
+        "Estate for years",
+        "Tenancy at will",
+        "Tenancy at sufferance"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A tenancy at sufferance exists when a tenant holds over after the lease ends without the landlord's consent. A tenancy at will requires both parties' agreement and has no set term."
+    },
+    {
+      "id": "f1-011",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "A property is sold at a foreclosure sale. It is subject to a mortgage recorded in 2018, a judgment lien recorded in 2022, and this year's unpaid property taxes. In what order are the liens paid?",
+      "choices": [
+        "Mortgage, judgment, property taxes",
+        "Property taxes, mortgage, judgment",
+        "Judgment, mortgage, property taxes",
+        "Property taxes, judgment, mortgage"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Property tax liens generally take priority over all other liens regardless of recording date. The remaining liens rank by recording date: first in time, first in right."
+    },
+    {
+      "id": "f1-012",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "An electric utility holds a recorded right to run power lines across a farm. No neighboring parcel benefits from the right. What type of interest does the utility hold?",
+      "choices": [
+        "A commercial easement in gross",
+        "An easement appurtenant benefiting the farm",
+        "A license",
+        "An encroachment"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "An easement in gross has a servient tenement but no dominant tenement; it benefits a person or company. Commercial easements in gross such as utility lines are usually transferable. A license is personal, revocable permission and isn't an interest in land."
+    },
+    {
+      "id": "f1-013",
+      "section": "national",
+      "topic": "Property ownership",
+      "stem": "Lot A has a recorded easement for a driveway across Lot B. The owner of Lot A then buys Lot B. What happens to the easement?",
+      "choices": [
+        "It continues because recorded easements can't end",
+        "It becomes a license",
+        "It ends by merger",
+        "It becomes a prescriptive easement"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "When one person comes to own both the dominant and servient parcels, the easement ends by merger, because no one needs an easement over their own land."
+    },
+    {
+      "id": "f1-014",
+      "section": "national",
+      "topic": "Land use controls",
+      "stem": "A church wants to build in a residential zone. The zoning ordinance lists churches as allowed in that zone if parking and landscaping requirements are met. What does the church need?",
+      "choices": [
+        "A variance based on hardship",
+        "A nonconforming use",
+        "Spot zoning",
+        "A conditional use permit"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A conditional use permit allows a use the ordinance lists as permitted if conditions are met, because it serves the community. A variance relieves an owner from strict physical standards because of a property-related hardship."
+    },
+    {
+      "id": "f1-015",
+      "section": "national",
+      "topic": "Land use controls",
+      "stem": "A new airport flight path runs low over a homeowner's property, sharply reducing its value. The government has not started any condemnation proceeding. What can the homeowner file?",
+      "choices": [
+        "An inverse condemnation suit",
+        "A request for a variance",
+        "A quiet title action against the airport",
+        "A petition for escheat"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Inverse condemnation is a lawsuit an owner brings when government action has effectively taken or damaged property without a formal condemnation."
+    },
+    {
+      "id": "f1-016",
+      "section": "national",
+      "topic": "Land use controls",
+      "stem": "A city council rezones a single lot in a residential neighborhood to commercial so its owner can open a store. The change benefits only that owner and conflicts with the comprehensive plan. This is",
+      "choices": [
+        "downzoning",
+        "cumulative zoning",
+        "spot zoning",
+        "a buffer zone"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Spot zoning rezones a single parcel to benefit one owner in a way that conflicts with the comprehensive plan, and it is often struck down. Downzoning is a change to a less intense use."
+    },
+    {
+      "id": "f1-017",
+      "section": "national",
+      "topic": "Transfer of title",
+      "stem": "A bank is selling a home it acquired through foreclosure. It is willing to warrant title only against defects that arose while the bank owned the property. Which deed will it most likely use?",
+      "choices": [
+        "General warranty deed",
+        "Special warranty deed",
+        "Quitclaim deed",
+        "Personal representative's deed"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A special warranty deed warrants only against defects arising during the grantor's ownership and is typical for lenders selling REO property. A general warranty deed covers defects at any time, and a quitclaim gives no warranties at all."
+    },
+    {
+      "id": "f1-018",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "In a deed of trust, what is the borrower called?",
+      "choices": [
+        "Beneficiary",
+        "Trustee",
+        "Trustor",
+        "Mortgagee"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A deed of trust has three parties: the trustor (borrower), the beneficiary (lender) and the trustee. A mortgagee is the lender under a mortgage."
+    },
+    {
+      "id": "f1-019",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A buyer takes title \"subject to\" the seller's existing loan and makes the payments. The buyer later defaults. Who is personally liable on the loan?",
+      "choices": [
+        "The seller",
+        "The buyer",
+        "Both the buyer and the seller equally",
+        "Neither, because the lender can only foreclose"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "When a buyer takes subject to a loan, the buyer is not personally liable and the seller remains liable. In an assumption, the buyer becomes personally liable and the seller stays secondarily liable unless a novation releases them."
+    },
+    {
+      "id": "f1-020",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "Which clause requires the lender to release its lien once the borrower pays the debt in full?",
+      "choices": [
+        "Acceleration clause",
+        "Release clause",
+        "Subordination clause",
+        "Defeasance clause"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The defeasance clause requires the lender to release the lien when the debt is paid. A release clause frees individual parcels from a blanket loan as they are sold."
+    },
+    {
+      "id": "f1-021",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "An applicant has gross monthly income of $6,000, a proposed PITI payment of $1,500, and other monthly debts of $600. What is the total debt (back-end) ratio?",
+      "choices": [
+        "25%",
+        "35%",
+        "10%",
+        "30%"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Total debt ratio = (housing payment + other monthly debts) ÷ gross monthly income = ($1,500 + $600) ÷ $6,000 = 35%. The housing (front-end) ratio would be $1,500 ÷ $6,000 = 25%."
+    },
+    {
+      "id": "f1-022",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "An ARM's current rate is 4.00%. At the next adjustment, the index is 3.50% and the margin is 2.25%. The periodic cap is 1%. What is the new rate?",
+      "choices": [
+        "5.75%",
+        "4.00%",
+        "6.25%",
+        "5.00%"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The fully indexed rate would be 3.50% + 2.25% = 5.75%, but the 1% periodic cap limits the increase to 4.00% + 1% = 5.00%."
+    },
+    {
+      "id": "f1-023",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A borrower's ARM has a payment cap that keeps monthly payments below the interest due. What happens to the unpaid interest?",
+      "choices": [
+        "It is forgiven by the lender",
+        "It is added to the loan balance",
+        "It is due as a lump sum at the next adjustment",
+        "It is paid by the mortgage insurer"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "This is negative amortization: unpaid interest is added to the balance, so the borrower owes more over time."
+    },
+    {
+      "id": "f1-024",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "Which loan is designed for older homeowners with substantial equity, pays money to the owner, and has a balance that grows until the owner sells, moves out permanently or dies?",
+      "choices": [
+        "Reverse mortgage",
+        "Home equity line of credit",
+        "Bridge loan",
+        "Wraparound mortgage"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In a reverse mortgage, the lender pays the owner and the balance grows; it is repaid when the borrower sells, moves out permanently or dies. A HELOC is a revolving line the borrower draws on and repays."
+    },
+    {
+      "id": "f1-025",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A conventional loan exceeds the maximum loan size that Fannie Mae and Freddie Mac will buy. What is it called?",
+      "choices": [
+        "A conforming loan",
+        "A package loan",
+        "A jumbo loan",
+        "An open-end loan"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A jumbo loan is a nonconforming loan that exceeds the conforming loan limit. Conforming loans meet Fannie Mae and Freddie Mac guidelines, including the maximum loan size."
+    },
+    {
+      "id": "f1-026",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A brokerage owns part of a title company and refers its buyers there. Under RESPA, which condition must be met?",
+      "choices": [
+        "The buyers must be required to use the affiliated title company",
+        "The brokerage must receive a fee for each referral",
+        "The buyers must get a written disclosure of the affiliated relationship",
+        "The title company must charge buyers less than competing title companies in the area"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "An affiliated business arrangement is allowed only if the consumer receives a written disclosure, isn't required to use the affiliate, and the only thing of value received is a return on ownership interest, not a per-referral fee."
+    },
+    {
+      "id": "f1-027",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "Which payment between settlement service providers is permitted under RESPA on a federally related loan?",
+      "choices": [
+        "A cooperative commission split from the listing firm to the buyer's firm",
+        "A lender's $100 gift card to a broker for each referred buyer",
+        "An inspector's payment to a broker for steering clients",
+        "A title company's payment to a broker for referrals, when the buyer pays nothing extra"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Cooperative commission splits between brokers pay for real brokerage services and are allowed. Payments for referring settlement business are prohibited kickbacks, even when the consumer pays nothing extra."
+    },
+    {
+      "id": "f1-028",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A homeowner refinances the loan on her principal residence with a different lender. Under the Truth in Lending Act, what right does she generally have?",
+      "choices": [
+        "A 30-day right to cancel any home loan",
+        "A three-business-day right of rescission",
+        "A three-business-day right of rescission that covers home-equity lines but not refinances",
+        "No right of rescission because the loan is secured by real property"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "TILA gives a three-business-day right of rescission on certain refinances and home-equity loans secured by a principal residence. It does not apply to a loan used to buy the home, so being secured by real property doesn't remove the right."
+    },
+    {
+      "id": "f1-029",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "Why is a loan's annual percentage rate (APR) usually higher than its note rate?",
+      "choices": [
+        "The APR includes property taxes and homeowners insurance",
+        "The APR is calculated on the purchase price rather than the loan amount",
+        "The APR assumes the rate will rise to its lifetime cap over the life of the loan",
+        "The APR includes certain finance charges, such as points, as well as interest"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Under TILA and Regulation Z, the APR expresses interest plus certain finance charges, such as points and some fees, as a yearly rate. That's why it is usually higher than the note rate."
+    },
+    {
+      "id": "f1-030",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A lender receives a consumer's completed loan application, including all six required items, on a Monday. Under TRID, the Loan Estimate must be delivered or mailed",
+      "choices": [
+        "no later than the third business day after the application is received",
+        "within 30 days of the application",
+        "at least three business days before the borrower signs the loan documents at closing",
+        "on the day the application is received"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The creditor must deliver or mail the Loan Estimate no later than the third business day after receiving the application. The three-days-before-consummation rule applies to receiving the Closing Disclosure."
+    },
+    {
+      "id": "f1-031",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "Two days after a borrower receives the Closing Disclosure, the loan changes from a fixed-rate loan to an adjustable-rate loan. What is required?",
+      "choices": [
+        "Only a corrected Closing Disclosure at or before closing, with no new waiting period",
+        "A new Loan Estimate, with no waiting period",
+        "A new Closing Disclosure and a new three-business-day waiting period",
+        "Nothing, if the borrower agrees verbally"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Only three changes restart the three-day clock: the APR becomes inaccurate beyond tolerance, the loan product changes, or a prepayment penalty is added. A switch from fixed to adjustable is a product change."
+    },
+    {
+      "id": "f1-032",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A lender denies a loan because the applicant's income comes from public assistance. Which law does this violate?",
+      "choices": [
+        "The Real Estate Settlement Procedures Act",
+        "The Equal Credit Opportunity Act",
+        "The Truth in Lending Act",
+        "TRID"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "ECOA bars credit discrimination based on receipt of public assistance income, as well as marital status and age, which the federal Fair Housing Act does not list."
+    },
+    {
+      "id": "f1-033",
+      "section": "national",
+      "topic": "Real estate math",
+      "stem": "A buyer purchases a home for $300,000 with a 90% loan. Buyer closing costs are $5,000, the lender charges 1 point, the buyer deposited $8,000 in earnest money, and the buyer receives a $900 tax proration credit. How much cash does the buyer need at closing?",
+      "choices": [
+        "$37,700",
+        "$29,700",
+        "$28,800",
+        "$26,100"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Loan = $270,000, so the down payment is $30,000. Add costs and the point ($2,700): $37,700. Subtract earnest money and the proration credit: $37,700 − $8,000 − $900 = $28,800."
+    },
+    {
+      "id": "f1-034",
+      "section": "national",
+      "topic": "Real estate math",
+      "stem": "A $250,000 loan at 6% interest for 30 years has a monthly principal-and-interest payment of $1,498.88. How much of the first payment goes to principal?",
+      "choices": [
+        "$248.88",
+        "$1,250.00",
+        "$1,498.88",
+        "$498.88"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "First month's interest = $250,000 × 0.06 ÷ 12 = $1,250. Principal = $1,498.88 − $1,250.00 = $248.88."
+    },
+    {
+      "id": "f1-035",
+      "section": "national",
+      "topic": "Financing",
+      "stem": "A builder has a $600,000 construction loan, and $200,000 has been disbursed in draws so far. On what amount does the builder usually pay interest?",
+      "choices": [
+        "The full $600,000 loan amount",
+        "The $400,000 not yet disbursed",
+        "Nothing until construction is complete",
+        "The $200,000 drawn so far"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "With a construction loan, the borrower usually pays interest only on the amount drawn so far, not on the full loan."
+    },
+    {
+      "id": "f1-036",
+      "section": "national",
+      "topic": "Valuation",
+      "stem": "Which body sets the minimum education, experience and exam requirements for real property appraisers?",
+      "choices": [
+        "The Appraisal Standards Board",
+        "The Appraiser Qualifications Board",
+        "ARELLO",
+        "The Colorado Real Estate Commission"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Appraiser Qualifications Board of The Appraisal Foundation sets minimum qualification criteria; states license appraisers using criteria at least that strict. The Appraisal Standards Board writes USPAP."
+    },
+    {
+      "id": "f1-037",
+      "section": "national",
+      "topic": "Valuation",
+      "stem": "Which appraiser credential level may work only under the supervision of a certified appraiser?",
+      "choices": [
+        "Trainee",
+        "Licensed residential",
+        "Certified residential",
+        "Certified general"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A trainee works only under a certified appraiser's supervision. The licensed, certified residential and certified general levels can appraise progressively more complex property on their own."
+    }
+  ],
+  "quiz": {
+    "n1-real-vs-personal-property": [
+      "f1-001",
+      "f1-002",
+      "f1-003",
+      "f1-004",
+      "f1-005"
+    ],
+    "n1-estates-and-forms-of-ownership": [
+      "f1-006",
+      "f1-007",
+      "f1-008",
+      "f1-009",
+      "f1-010"
+    ],
+    "n1-encumbrances": [
+      "f1-011",
+      "f1-012",
+      "f1-013"
+    ],
+    "n1-land-use-controls": [
+      "f1-014",
+      "f1-015",
+      "f1-016"
+    ],
+    "n1-transfer-of-title": [
+      "f1-017"
+    ],
+    "m2-financing-concepts": [
+      "f1-018",
+      "f1-019",
+      "f1-020",
+      "f1-021"
+    ],
+    "m2-loan-types": [
+      "f1-022",
+      "f1-023",
+      "f1-024",
+      "f1-025"
+    ],
+    "m2-lending-laws": [
+      "f1-026",
+      "f1-027",
+      "f1-028",
+      "f1-029",
+      "f1-030",
+      "f1-031",
+      "f1-032"
+    ],
+    "m2-real-estate-math": [
+      "f1-033",
+      "f1-034"
+    ],
+    "g1-construction-appraiser-regulation": [
+      "f1-035",
+      "f1-036",
+      "f1-037"
+    ]
+  }
+}

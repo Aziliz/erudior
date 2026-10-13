@@ -30,8 +30,11 @@ REFS = [
 # except g5, whose cards split by topic between the s1 and s2 decks.
 GAPS = {"g1": "n2", "g2": "n4", "g3": "s4", "g4": "s3", "g5": "s1"}
 GAP_DRILLS = ["g3-drills.json"]
+# Quiz-fill parts: questions written so every lesson quiz reaches 10. Shape:
+# {"questions": [...], "quiz": {lessonId: [ids]}}; quiz ids are appended to that lesson's quiz.
+FILLS = ["f1", "f2", "f3", "f4"]
 
-parts = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "parts").glob("*.json")) if p.stem in {m[2] for m in MODULES} | set(GAPS)}
+parts = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "parts").glob("*.json")) if p.stem in {m[2] for m in MODULES} | set(GAPS) | set(FILLS)}
 
 modules, lessons, questions, decks = [], [], [], []
 glossary: dict[str, dict] = {}
@@ -86,6 +89,10 @@ for key, base in GAPS.items():
 # End-of-lesson quizzes: bank question ids per lesson, picked so each is answerable
 # from that lesson alone (content/lesson-quizzes.json).
 QUIZ = json.loads((ROOT / "lesson-quizzes.json").read_text())
+for key in FILLS:
+    questions += parts[key]["questions"]
+    for lid, ids in parts[key]["quiz"].items():
+        QUIZ[lid] = QUIZ.get(lid, []) + ids
 qids = {q["id"] for q in questions}
 for l in lessons:
     quiz = QUIZ.get(l["id"], [])
@@ -126,8 +133,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 4,
-    "changelog": "Every lesson now ends with a quiz of up to 10 questions drawn from the bank. Pass it with 70% to complete the lesson. Also fixes a wrong answer key on a seller-disclosure question, and keeps the revision 3 additions: ten new lessons and 100 new questions (federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, Commission rules, audits and complaints).",
+    "revision": 5,
+    "changelog": "Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{

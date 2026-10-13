@@ -3,10 +3,10 @@
  "version": 1,
  "id": "colorado-broker",
  "title": "Colorado Real Estate Broker",
- "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 351-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
+ "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 458-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
  "author": "Examiner",
- "revision": 4,
- "changelog": "Every lesson now ends with a quiz of up to 10 questions drawn from the bank. Pass it with 70% to complete the lesson. Also fixes a wrong answer key on a seller-disclosure question, and keeps the revision 3 additions: ten new lessons and 100 new questions (federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, Commission rules, audits and complaints).",
+ "revision": 5,
+ "changelog": "Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
  "modules": [
   {
    "id": "m1-property",
@@ -56,7 +56,12 @@
     "n1-001",
     "n1-004",
     "n1-003",
-    "n1-002"
+    "n1-002",
+    "f1-001",
+    "f1-002",
+    "f1-003",
+    "f1-004",
+    "f1-005"
    ]
   },
   {
@@ -73,7 +78,12 @@
     "n1-008",
     "n1-006",
     "n1-005",
-    "n1-009"
+    "n1-009",
+    "f1-006",
+    "f1-007",
+    "f1-008",
+    "f1-009",
+    "f1-010"
    ]
   },
   {
@@ -92,7 +102,10 @@
     "n1-012",
     "n1-024",
     "n1-013",
-    "n1-027"
+    "n1-027",
+    "f1-011",
+    "f1-012",
+    "f1-013"
    ]
   },
   {
@@ -111,7 +124,10 @@
     "n1-017",
     "n1-014",
     "n1-015",
-    "n1-019"
+    "n1-019",
+    "f1-014",
+    "f1-015",
+    "f1-016"
    ]
   },
   {
@@ -132,7 +148,8 @@
     "n1-023",
     "n1-025",
     "n1-024",
-    "n1-026"
+    "n1-026",
+    "f1-017"
    ]
   },
   {
@@ -172,7 +189,11 @@
     "n2-013",
     "n2-015",
     "n2-026",
-    "n2-014"
+    "n2-014",
+    "f1-018",
+    "f1-019",
+    "f1-020",
+    "f1-021"
    ]
   },
   {
@@ -190,7 +211,11 @@
     "n2-019",
     "g1-012",
     "g1-013",
-    "n2-018"
+    "n2-018",
+    "f1-022",
+    "f1-023",
+    "f1-024",
+    "f1-025"
    ]
   },
   {
@@ -205,7 +230,14 @@
    "quiz": [
     "n2-020",
     "n2-022",
-    "n2-021"
+    "n2-021",
+    "f1-026",
+    "f1-027",
+    "f1-028",
+    "f1-029",
+    "f1-030",
+    "f1-031",
+    "f1-032"
    ]
   },
   {
@@ -225,7 +257,9 @@
     "n2-026",
     "n2-015",
     "n2-027",
-    "n2-028"
+    "n2-028",
+    "f1-033",
+    "f1-034"
    ]
   },
   {
@@ -267,7 +301,10 @@
     "g1-014",
     "g1-016",
     "g1-018",
-    "g1-017"
+    "g1-017",
+    "f1-035",
+    "f1-036",
+    "f1-037"
    ]
   },
   {
@@ -287,7 +324,9 @@
     "n3-003",
     "n3-002",
     "n3-007",
-    "n3-008"
+    "n3-008",
+    "f2-001",
+    "f2-002"
    ]
   },
   {
@@ -328,7 +367,10 @@
     "n3-024",
     "n3-023",
     "n3-022",
-    "n3-025"
+    "n3-025",
+    "f2-003",
+    "f2-004",
+    "f2-005"
    ]
   },
   {
@@ -349,7 +391,8 @@
     "n3-033",
     "n3-031",
     "n3-032",
-    "n3-034"
+    "n3-034",
+    "f2-006"
    ]
   },
   {
@@ -391,7 +434,9 @@
     "n4-014",
     "n4-013",
     "n4-015",
-    "n4-016"
+    "n4-016",
+    "f2-007",
+    "f2-008"
    ]
   },
   {
@@ -432,7 +477,10 @@
     "n4-031",
     "g2-015",
     "g2-018",
-    "n4-032"
+    "n4-032",
+    "f2-009",
+    "f2-010",
+    "f2-011"
    ]
   },
   {
@@ -451,7 +499,10 @@
     "n4-035",
     "n4-036",
     "n4-038",
-    "n4-037"
+    "n4-037",
+    "f2-012",
+    "f2-013",
+    "f2-014"
    ]
   },
   {
@@ -494,7 +545,8 @@
     "g2-017",
     "g2-018",
     "g2-020",
-    "g2-019"
+    "g2-019",
+    "f2-015"
    ]
   },
   {
@@ -532,7 +584,13 @@
     "s1-008",
     "s1-009",
     "s1-010",
-    "s1-011"
+    "s1-011",
+    "f3-001",
+    "f3-002",
+    "f3-003",
+    "f3-004",
+    "f3-005",
+    "f3-006"
    ]
   },
   {
@@ -545,7 +603,16 @@
    ],
    "body": "## License term and renewal\n\n- A new license expires at midnight on **December 31 of the year it was issued**, no matter when in the year it was issued.\n- After that, licenses run on a **three-year calendar cycle**: January 1 of year one through December 31 of year three.\n- Renewal opens before expiration; you pay the fee, certify E&O coverage, and certify continuing education.\n- Brokerage firms don't renew separately. The firm's employing (or independent) broker renews.\n\n## Continuing education\n\n| Requirement | Detail |\n|---|---|\n| Total per 3-year cycle | 24 hours |\n| [[Annual Commission Update]] | A new 4-hour course every year; active brokers must take each year's version. Three versions = 12 of the 24 hours |\n| Electives | 12 hours of Commission-approved courses |\n| Initial (partial-year) license period | No CE required before the first renewal |\n| Records | Keep proof of completion at least 4 years |\n\nA missed year's update course **cannot be made up later**. A broker who falls short must use an alternative, such as a 24-hour Broker Reactivation course, passing the state portion of the exam, or completing 72 hours of contracts/regulations and closings coursework.\n\n> **Exam tip:** \"24 hours every 3 years, 12 of them from the 4-hour Annual Commission Update, taken every year.\" That's the most tested CE fact.\n\n## Active and inactive status\n\nAn [[Inactive License]] is still a license. The broker renews it and pays fees, but can't do anything that requires a license. Inactive brokers:\n\n- Don't need E&O insurance\n- Don't need CE while inactive, but must show CE (or its alternatives) when they reactivate\n- Can still be paid by a former employing broker for commissions **earned while Active**\n\nIf a license has been inactive for more than three years, reactivation requires passing the state exam or completing 72 hours (48 hours of contracts and regulations plus 24 hours of closings).\n\nLicenses also go inactive **automatically** when:\n\n- E&O coverage lapses or the broker fails to certify coverage\n- A broker changes business address or employment without notifying the Commission\n- The employing broker's own license is suspended, revoked, or expires (the associates' licenses go inactive until they move to a new employing broker)\n\n## Reinstating an expired license\n\nIf you miss the renewal deadline, the license expires and you can't practice. Reinstatement depends on how long it's been:\n\n| Time since expiration | What you pay |\n|---|---|\n| Within 31 days | Regular renewal fee |\n| More than 31 days, up to 1 year | Renewal fee + reinstatement fee of **half** the renewal fee |\n| More than 1 year, up to 3 years | Renewal fee + reinstatement fee **equal to** the renewal fee |\n| More than 3 years | Treated as a new applicant |\n\nA reinstated license is effective only from the reinstatement date. Any brokerage done while expired is unlicensed activity.\n\n## Notifying the Commission\n\n- **Change of business address or employment:** immediate notice. Without it, the license is automatically inactivated.\n- **Leaving a firm:** both the broker and the employing broker must notify the Commission immediately, and the one giving notice must also tell the other party in person or in writing. After leaving, the broker can't do licensed work until the license is transferred to a new employing broker.\n- **Transfers:** moving to a new firm requires a transfer to the new employing broker. The former firm can still pay commissions earned while the broker worked there.\n- **Convictions and discipline:** written notice within **30 calendar days** of a conviction, guilty or no contest plea (deferred judgments count), a fair housing violation, or discipline in another jurisdiction.\n\n## Errors and omissions insurance\n\nColorado requires every **Active** broker, and every brokerage firm with more than one broker, to carry [[Errors and Omissions Insurance]] covering all acts that require a license. Exempt: inactive brokers, and attorney-licensees whose malpractice policy covers their real estate work.\n\n### Two ways to get coverage\n\n1. **The Division's group plan.** The Division contracts (through competitive bid) with an insurer to offer a group policy open to every licensee. The insurer can't cancel a licensee except for reasons like nonpayment, the license going inactive or revoked, or a denied application.\n2. **An independent policy** bought on the open market, which must meet the Commission's minimums and be certified.\n\n### Minimum terms (individual coverage)\n\n| Term | Minimum |\n|---|---|\n| Per claim | $100,000 |\n| Annual aggregate | $300,000 |\n| Defense costs | Paid in addition to limits (not eroding them) |\n| Deductible | No more than $1,000 per occurrence |\n| Lockbox coverage | At least $25,000 per occurrence |\n| [[Extended Reporting Period]] | 365 days available after coverage ends |\n\nA brokerage firm buying its own independent firm-wide policy needs at least **$1,000,000** per claim and aggregate, with a deductible no higher than $10,000.\n\n### Lapses\nIf coverage lapses, or the broker fails to certify continuing coverage, the license goes **Inactive immediately**. Doing brokerage while uninsured means acting on an inactive license.\n\n> **Exam tip:** E&O minimums are $100,000 per claim / $300,000 aggregate, deductible no more than $1,000. Inactive brokers are exempt.\n\n## Quick review\n\n- First license expires Dec 31 of the year issued; then 3-year cycles ending Dec 31.\n- 24 CE hours per cycle; the 4-hour Annual Commission Update every year.\n- Expired: within 31 days = renewal fee; to 1 year = + half; 1–3 years = + full; over 3 years = start over.\n- Immediate notice of address/employment changes; 30 days for convictions.\n- E&O required for Active brokers; $100k/$300k; lapse = immediate inactive.\n",
    "quiz": [
-    "s1-007"
+    "s1-007",
+    "f3-007",
+    "f3-008",
+    "f3-009",
+    "f3-010",
+    "f3-011",
+    "f3-012",
+    "f3-013",
+    "f3-014",
+    "f3-015"
    ]
   },
   {
@@ -565,7 +632,9 @@
     "s1-016",
     "s1-017",
     "s1-019",
-    "s1-018"
+    "s1-018",
+    "f3-016",
+    "f3-017"
    ]
   },
   {
@@ -690,7 +759,15 @@
    "body": "## Why records matter\n\nEvery brokerage activity leaves a paper (or digital) trail the Commission can inspect. Record keeping is a stated item on the state exam outline, and the rules are short enough to memorize.\n\n## Two kinds of required records\n\n### 1. Trust account records\n\nFor each [[trust account]], the [[employing broker]] keeps, at the firm's place of business:\n\n- the **[[journal]]**: a chronological list of every receipt (date, payer, which person and property it relates to, purpose, amount, running balance) and every disbursement (date, check or electronic transfer record, payee, reference to supporting documents, amount, running balance);\n- a **[[ledger]]** for each beneficiary, showing the same details, with no negative balances;\n- the **monthly [[three-way reconciliation]]** report (journal = ledger total = reconciled bank balance);\n- bank statements and a copy of each signed **deposit agreement** showing the account is a trust or escrow account;\n- written **accounting control policies** describing the firm's checks and balances over people who handle money.\n\nSupporting documents (invoices, bids, contracts) back up every disbursement in a property management account. The cash method of accounting is the default unless the firm and the owner agree otherwise in writing.\n\n### 2. Transaction files\n\nEach broker and brokerage keeps a [[transaction file]] for every transaction. The Commission publishes a **Transaction File Checklist** listing what must be in sales and property management files: contracts and listing agreements, brokerage disclosures, amendments, notices, closing statements and so on. A firm may require more. The Division recommends, but does not require, keeping related emails and texts.\n\nAfter closing, the Commission does **not** require you to keep copies of existing public records, title commitments, loan applications, lender-required disclosures, or affirmations from independent closing entities.\n\n## The four-year rule\n\nRequired records must be kept for **four years**. The license law states the four-year period, and the Commission rule sets when it starts:\n\n- from the date the transaction **closed** (was consummated), or\n- if it never closed, from the date the **listing contract expired**.\n\n> **Exam tip:** Colorado's retention period is 4 years. Watch for 3- and 5-year distractors, and remember the clock starts at closing or listing expiration, not at the date the file was opened.\n\nA broker stays responsible for keeping their transaction files even after moving to a new brokerage.\n\n## Closing responsibility and copies\n\nThe broker who has a brokerage relationship with a party is responsible for that party's closing. The party gets a complete, detailed closing statement signed by the broker, and a copy goes to the brokerage firm right after closing. The broker reviews the closing documents and attends closing or is reasonably available. A substitute broker may attend, sharing responsibility. Brokers must also give parties copies of documents they prepare at the time they prepare them, and signed copies of the listing and sale contracts.\n\n## Electronic records\n\nAny required record may be kept electronically. The conditions:\n\n- the record must remain **retrievable** and able to be **printed legibly** for the whole four years;\n- electronic or printed copies must be produced when the **Commission** or any **principal party** to the transaction asks;\n- a technical problem with the storage system is **not** an excuse. You must still produce the records.\n\nTrust-account journals, ledgers, reconciliation reports and bank statements may also be kept electronically.\n\n## Commission access, investigations and audits\n\n- The Commission may inspect required records, and trust account records are expressly subject to **Commission audit**.\n- A broker or firm notified of a complaint or of selection for an audit must respond **in writing by the Commission's deadline**. The response must address each allegation and question and include the complete transaction file and any requested records.\n- **Not responding on time is itself grounds for discipline**, even if the underlying complaint has no merit. The Commission grants reasonable requests for extensions.\n- Records reasonably needed for an investigation or audit must be kept and produced on time.\n\n## Who is responsible\n\nThe **employing broker** (or an independent broker running a one-person firm) is responsible for:\n\n- maintaining trust accounts and trust records;\n- maintaining transaction records;\n- writing the firm's office policies, including a written policy for disposing of documents that contain personal identifying information;\n- supervising associate brokers and unlicensed staff (bookkeepers, assistants) who touch files or money.\n\nThe employing broker is jointly responsible with the firm for following the trust account rules. A firm with a branch office that keeps its own trust account must keep separate records for that branch, still under the employing broker's responsibility.\n\n## Quick review\n\n| Item | Colorado rule |\n|---|---|\n| Retention period | 4 years |\n| Clock starts | Closing date, or listing expiration if no closing |\n| Format | Paper or electronic |\n| Electronic condition | Retrievable and legibly printable; produce on request |\n| Who can demand records | Commission; any principal party |\n| Reconciliation | Monthly, three-way |\n| Failure to answer Commission | Grounds for discipline on its own |",
    "quiz": [
     "s2-025",
-    "s2-024"
+    "s2-024",
+    "f3-018",
+    "f3-019",
+    "f3-020",
+    "f3-021",
+    "f3-022",
+    "f3-023",
+    "f3-024",
+    "f3-025"
    ]
   },
   {
@@ -733,7 +810,9 @@
     "s3-001",
     "s3-035",
     "g4-001",
-    "g4-011"
+    "g4-011",
+    "f4-001",
+    "f4-002"
    ]
   },
   {
@@ -754,7 +833,8 @@
     "s3-026",
     "s3-015",
     "s3-013",
-    "s3-014"
+    "s3-014",
+    "f4-003"
    ]
   },
   {
@@ -794,7 +874,11 @@
     "s3-010",
     "s3-029",
     "s3-033",
-    "s3-032"
+    "s3-032",
+    "f4-004",
+    "f4-005",
+    "f4-006",
+    "f4-007"
    ]
   },
   {
@@ -815,7 +899,8 @@
     "g4-003",
     "s3-036",
     "s3-038",
-    "s3-037"
+    "s3-037",
+    "f4-008"
    ]
   },
   {
@@ -856,7 +941,10 @@
     "g4-017",
     "g4-018",
     "s3-020",
-    "g4-020"
+    "g4-020",
+    "f4-009",
+    "f4-010",
+    "f4-011"
    ]
   },
   {
@@ -875,7 +963,10 @@
     "s4-004",
     "g3-024",
     "s4-005",
-    "s4-006"
+    "s4-006",
+    "f4-012",
+    "f4-013",
+    "f4-014"
    ]
   },
   {
@@ -913,7 +1004,13 @@
     "s4-017",
     "s4-018",
     "s4-019",
-    "s4-020"
+    "s4-020",
+    "f4-015",
+    "f4-016",
+    "f4-017",
+    "f4-018",
+    "f4-019",
+    "f4-020"
    ]
   },
   {
@@ -931,7 +1028,11 @@
     "s4-025",
     "s4-007",
     "s4-005",
-    "s4-016"
+    "s4-016",
+    "f4-021",
+    "f4-022",
+    "f4-023",
+    "f4-024"
    ]
   },
   {
@@ -947,7 +1048,13 @@
     "s4-021",
     "s4-022",
     "s4-026",
-    "s4-027"
+    "s4-027",
+    "f4-025",
+    "f4-026",
+    "f4-027",
+    "f4-028",
+    "f4-029",
+    "f4-030"
    ]
   },
   {
@@ -999,7 +1106,7 @@
   {
    "id": "exam-bank",
    "title": "Colorado broker exam bank",
-   "description": "168 national and 183 Colorado questions. Timed exams draw 80 national and 74 state questions and score each portion on its own, like PSI.",
+   "description": "219 national and 239 Colorado questions. Timed exams draw 80 national and 74 state questions and score each portion on its own, like PSI.",
    "sections": [
     {
      "id": "national",
@@ -6643,6 +6750,1718 @@
       3
      ],
      "explanation": "Colorado repealed its Real Estate Recovery Fund in 2005, so no state fund pays these judgments. The consumer must pursue the broker through civil remedies; Commission discipline doesn't compensate the consumer."
+    },
+    {
+     "id": "f1-001",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "A tenant farmer planted corn in the spring. The landlord sold the farm and properly ended the lease in August, before harvest. The tenant did nothing to cause the lease to end. Which statement is most accurate?",
+     "choices": [
+      "The corn became the landlord's real property when planted, so it passes to the new owner and the tenant loses it",
+      "The corn is an emblement, and the tenant may generally return to harvest it",
+      "The corn passes to the new owner with the deed",
+      "The tenant must leave the corn but can sue for its value"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Annual crops planted by human labor (fructus industriales) are emblements, which are personal property. A tenant who didn't cause the lease to end generally may come back and harvest them."
+    },
+    {
+     "id": "f1-002",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "A seller wants to keep the dining-room chandelier, which is wired into the ceiling. The purchase contract lists the chandelier as excluded. Which statement is correct?",
+     "choices": [
+      "The chandelier must stay because it is wired in",
+      "The buyer's preference controls because courts favor buyers",
+      "The written agreement controls, so the seller may keep it",
+      "The chandelier stays because the seller intended it to be permanent"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Under the MARIA tests, a written agreement between the parties overrides the other tests. Without the exclusion, the wired-in chandelier would be a fixture that transfers with the house."
+    },
+    {
+     "id": "f1-003",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "Under the rectangular survey system, where is section 36 located within a township?",
+     "choices": [
+      "Northeast corner",
+      "Northwest corner",
+      "Center of the township",
+      "Southeast corner"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Sections are numbered back and forth starting with section 1 in the northeast corner. Section 6 is in the northwest corner, and section 36 ends up in the southeast corner."
+    },
+    {
+     "id": "f1-004",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "How many acres are in \"the N 1/2 of the NW 1/4 and the SE 1/4\" of a section?",
+     "choices": [
+      "240 acres",
+      "80 acres",
+      "160 acres",
+      "40 acres"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "\"And\" means two separate parcels. N 1/2 of the NW 1/4 = 640 ÷ 8 = 80 acres; the SE 1/4 = 640 ÷ 4 = 160 acres; 80 + 160 = 240 acres."
+    },
+    {
+     "id": "f1-005",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "Under the water rights system used in Colorado and many other western states, who generally holds the senior right to water from a river?",
+     "choices": [
+      "The owner whose land borders the river",
+      "The first person to put the water to beneficial use",
+      "All owners along the river, each sharing reasonable use of the water",
+      "The owner of the largest parcel along the river"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Colorado uses prior appropriation: the first to put water to beneficial use holds the senior right, regardless of who owns the riverbank. Sharing reasonable use among bordering owners describes riparian rights."
+    },
+    {
+     "id": "f1-006",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "A Colorado deed conveys a home \"to Pat Lee and Sam Ortiz\" and says nothing more about how they hold title. How do Pat and Sam own the property?",
+     "choices": [
+      "As joint tenants with right of survivorship",
+      "As tenants by the entirety",
+      "In severalty",
+      "As tenants in common"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Colorado presumes a tenancy in common when property is conveyed to two or more natural persons unless the deed expressly declares a joint tenancy. Severalty means a single owner."
+    },
+    {
+     "id": "f1-007",
+     "section": "state",
+     "topic": "Property ownership",
+     "stem": "A deed for Colorado property conveys title to a married couple \"as tenants by the entirety.\" What estate does the couple hold?",
+     "choices": [
+      "A joint tenancy",
+      "A tenancy by the entirety",
+      "A tenancy in common",
+      "Community property"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Colorado doesn't recognize tenancy by the entirety. Under C.R.S. 38-31-201, a deed that tries to create one creates a joint tenancy instead. Colorado also isn't a community property state."
+    },
+    {
+     "id": "f1-008",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "A deed conveys land to a town \"on condition that\" it be used as a park. Years later the town builds offices on the land. What happens?",
+     "choices": [
+      "Title returns to the grantor automatically through a possibility of reverter as soon as the offices are built",
+      "The grantor may take action to reclaim the property under a right of reentry",
+      "The town keeps title because the condition is unenforceable",
+      "Title passes to the state by escheat"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "\"On condition that\" creates a fee simple subject to a condition subsequent. When the condition is broken, the grantor must act to get the property back. Automatic reversion applies to a fee simple determinable (\"so long as\")."
+    },
+    {
+     "id": "f1-009",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "Ann receives a life estate \"for the life of Bob.\" Ann is still living when Bob dies. What happens to Ann's interest?",
+     "choices": [
+      "Ann now owns the property in fee simple",
+      "Ann's interest continues until her own death",
+      "Ann's estate ends",
+      "Ann's heirs receive a remainder"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "This is a life estate pur autre vie: the measuring life is Bob's, not Ann's. When Bob dies, Ann's estate ends and the property goes to the reversion or remainder holder."
+    },
+    {
+     "id": "f1-010",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "A tenant's one-year lease ended last month. The tenant is still living in the unit, and the landlord has not agreed to let the tenant stay. What type of tenancy is this?",
+     "choices": [
+      "Month-to-month periodic tenancy",
+      "Estate for years",
+      "Tenancy at will",
+      "Tenancy at sufferance"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A tenancy at sufferance exists when a tenant holds over after the lease ends without the landlord's consent. A tenancy at will requires both parties' agreement and has no set term."
+    },
+    {
+     "id": "f1-011",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "A property is sold at a foreclosure sale. It is subject to a mortgage recorded in 2018, a judgment lien recorded in 2022, and this year's unpaid property taxes. In what order are the liens paid?",
+     "choices": [
+      "Mortgage, judgment, property taxes",
+      "Property taxes, mortgage, judgment",
+      "Judgment, mortgage, property taxes",
+      "Property taxes, judgment, mortgage"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Property tax liens generally take priority over all other liens regardless of recording date. The remaining liens rank by recording date: first in time, first in right."
+    },
+    {
+     "id": "f1-012",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "An electric utility holds a recorded right to run power lines across a farm. No neighboring parcel benefits from the right. What type of interest does the utility hold?",
+     "choices": [
+      "A commercial easement in gross",
+      "An easement appurtenant benefiting the farm",
+      "A license",
+      "An encroachment"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "An easement in gross has a servient tenement but no dominant tenement; it benefits a person or company. Commercial easements in gross such as utility lines are usually transferable. A license is personal, revocable permission and isn't an interest in land."
+    },
+    {
+     "id": "f1-013",
+     "section": "national",
+     "topic": "Property ownership",
+     "stem": "Lot A has a recorded easement for a driveway across Lot B. The owner of Lot A then buys Lot B. What happens to the easement?",
+     "choices": [
+      "It continues because recorded easements can't end",
+      "It becomes a license",
+      "It ends by merger",
+      "It becomes a prescriptive easement"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "When one person comes to own both the dominant and servient parcels, the easement ends by merger, because no one needs an easement over their own land."
+    },
+    {
+     "id": "f1-014",
+     "section": "national",
+     "topic": "Land use controls",
+     "stem": "A church wants to build in a residential zone. The zoning ordinance lists churches as allowed in that zone if parking and landscaping requirements are met. What does the church need?",
+     "choices": [
+      "A variance based on hardship",
+      "A nonconforming use",
+      "Spot zoning",
+      "A conditional use permit"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A conditional use permit allows a use the ordinance lists as permitted if conditions are met, because it serves the community. A variance relieves an owner from strict physical standards because of a property-related hardship."
+    },
+    {
+     "id": "f1-015",
+     "section": "national",
+     "topic": "Land use controls",
+     "stem": "A new airport flight path runs low over a homeowner's property, sharply reducing its value. The government has not started any condemnation proceeding. What can the homeowner file?",
+     "choices": [
+      "An inverse condemnation suit",
+      "A request for a variance",
+      "A quiet title action against the airport",
+      "A petition for escheat"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Inverse condemnation is a lawsuit an owner brings when government action has effectively taken or damaged property without a formal condemnation."
+    },
+    {
+     "id": "f1-016",
+     "section": "national",
+     "topic": "Land use controls",
+     "stem": "A city council rezones a single lot in a residential neighborhood to commercial so its owner can open a store. The change benefits only that owner and conflicts with the comprehensive plan. This is",
+     "choices": [
+      "downzoning",
+      "cumulative zoning",
+      "spot zoning",
+      "a buffer zone"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Spot zoning rezones a single parcel to benefit one owner in a way that conflicts with the comprehensive plan, and it is often struck down. Downzoning is a change to a less intense use."
+    },
+    {
+     "id": "f1-017",
+     "section": "national",
+     "topic": "Transfer of title",
+     "stem": "A bank is selling a home it acquired through foreclosure. It is willing to warrant title only against defects that arose while the bank owned the property. Which deed will it most likely use?",
+     "choices": [
+      "General warranty deed",
+      "Special warranty deed",
+      "Quitclaim deed",
+      "Personal representative's deed"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A special warranty deed warrants only against defects arising during the grantor's ownership and is typical for lenders selling REO property. A general warranty deed covers defects at any time, and a quitclaim gives no warranties at all."
+    },
+    {
+     "id": "f1-018",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "In a deed of trust, what is the borrower called?",
+     "choices": [
+      "Beneficiary",
+      "Trustee",
+      "Trustor",
+      "Mortgagee"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A deed of trust has three parties: the trustor (borrower), the beneficiary (lender) and the trustee. A mortgagee is the lender under a mortgage."
+    },
+    {
+     "id": "f1-019",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A buyer takes title \"subject to\" the seller's existing loan and makes the payments. The buyer later defaults. Who is personally liable on the loan?",
+     "choices": [
+      "The seller",
+      "The buyer",
+      "Both the buyer and the seller equally",
+      "Neither, because the lender can only foreclose"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "When a buyer takes subject to a loan, the buyer is not personally liable and the seller remains liable. In an assumption, the buyer becomes personally liable and the seller stays secondarily liable unless a novation releases them."
+    },
+    {
+     "id": "f1-020",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "Which clause requires the lender to release its lien once the borrower pays the debt in full?",
+     "choices": [
+      "Acceleration clause",
+      "Release clause",
+      "Subordination clause",
+      "Defeasance clause"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The defeasance clause requires the lender to release the lien when the debt is paid. A release clause frees individual parcels from a blanket loan as they are sold."
+    },
+    {
+     "id": "f1-021",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "An applicant has gross monthly income of $6,000, a proposed PITI payment of $1,500, and other monthly debts of $600. What is the total debt (back-end) ratio?",
+     "choices": [
+      "25%",
+      "35%",
+      "10%",
+      "30%"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Total debt ratio = (housing payment + other monthly debts) ÷ gross monthly income = ($1,500 + $600) ÷ $6,000 = 35%. The housing (front-end) ratio would be $1,500 ÷ $6,000 = 25%."
+    },
+    {
+     "id": "f1-022",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "An ARM's current rate is 4.00%. At the next adjustment, the index is 3.50% and the margin is 2.25%. The periodic cap is 1%. What is the new rate?",
+     "choices": [
+      "5.75%",
+      "4.00%",
+      "6.25%",
+      "5.00%"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The fully indexed rate would be 3.50% + 2.25% = 5.75%, but the 1% periodic cap limits the increase to 4.00% + 1% = 5.00%."
+    },
+    {
+     "id": "f1-023",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A borrower's ARM has a payment cap that keeps monthly payments below the interest due. What happens to the unpaid interest?",
+     "choices": [
+      "It is forgiven by the lender",
+      "It is added to the loan balance",
+      "It is due as a lump sum at the next adjustment",
+      "It is paid by the mortgage insurer"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "This is negative amortization: unpaid interest is added to the balance, so the borrower owes more over time."
+    },
+    {
+     "id": "f1-024",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "Which loan is designed for older homeowners with substantial equity, pays money to the owner, and has a balance that grows until the owner sells, moves out permanently or dies?",
+     "choices": [
+      "Reverse mortgage",
+      "Home equity line of credit",
+      "Bridge loan",
+      "Wraparound mortgage"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "In a reverse mortgage, the lender pays the owner and the balance grows; it is repaid when the borrower sells, moves out permanently or dies. A HELOC is a revolving line the borrower draws on and repays."
+    },
+    {
+     "id": "f1-025",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A conventional loan exceeds the maximum loan size that Fannie Mae and Freddie Mac will buy. What is it called?",
+     "choices": [
+      "A conforming loan",
+      "A package loan",
+      "A jumbo loan",
+      "An open-end loan"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A jumbo loan is a nonconforming loan that exceeds the conforming loan limit. Conforming loans meet Fannie Mae and Freddie Mac guidelines, including the maximum loan size."
+    },
+    {
+     "id": "f1-026",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A brokerage owns part of a title company and refers its buyers there. Under RESPA, which condition must be met?",
+     "choices": [
+      "The buyers must be required to use the affiliated title company",
+      "The brokerage must receive a fee for each referral",
+      "The buyers must get a written disclosure of the affiliated relationship",
+      "The title company must charge buyers less than competing title companies in the area"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "An affiliated business arrangement is allowed only if the consumer receives a written disclosure, isn't required to use the affiliate, and the only thing of value received is a return on ownership interest, not a per-referral fee."
+    },
+    {
+     "id": "f1-027",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "Which payment between settlement service providers is permitted under RESPA on a federally related loan?",
+     "choices": [
+      "A cooperative commission split from the listing firm to the buyer's firm",
+      "A lender's $100 gift card to a broker for each referred buyer",
+      "An inspector's payment to a broker for steering clients",
+      "A title company's payment to a broker for referrals, when the buyer pays nothing extra"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Cooperative commission splits between brokers pay for real brokerage services and are allowed. Payments for referring settlement business are prohibited kickbacks, even when the consumer pays nothing extra."
+    },
+    {
+     "id": "f1-028",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A homeowner refinances the loan on her principal residence with a different lender. Under the Truth in Lending Act, what right does she generally have?",
+     "choices": [
+      "A 30-day right to cancel any home loan",
+      "A three-business-day right of rescission",
+      "A three-business-day right of rescission that covers home-equity lines but not refinances",
+      "No right of rescission because the loan is secured by real property"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "TILA gives a three-business-day right of rescission on certain refinances and home-equity loans secured by a principal residence. It does not apply to a loan used to buy the home, so being secured by real property doesn't remove the right."
+    },
+    {
+     "id": "f1-029",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "Why is a loan's annual percentage rate (APR) usually higher than its note rate?",
+     "choices": [
+      "The APR includes property taxes and homeowners insurance",
+      "The APR is calculated on the purchase price rather than the loan amount",
+      "The APR assumes the rate will rise to its lifetime cap over the life of the loan",
+      "The APR includes certain finance charges, such as points, as well as interest"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Under TILA and Regulation Z, the APR expresses interest plus certain finance charges, such as points and some fees, as a yearly rate. That's why it is usually higher than the note rate."
+    },
+    {
+     "id": "f1-030",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A lender receives a consumer's completed loan application, including all six required items, on a Monday. Under TRID, the Loan Estimate must be delivered or mailed",
+     "choices": [
+      "no later than the third business day after the application is received",
+      "within 30 days of the application",
+      "at least three business days before the borrower signs the loan documents at closing",
+      "on the day the application is received"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The creditor must deliver or mail the Loan Estimate no later than the third business day after receiving the application. The three-days-before-consummation rule applies to receiving the Closing Disclosure."
+    },
+    {
+     "id": "f1-031",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "Two days after a borrower receives the Closing Disclosure, the loan changes from a fixed-rate loan to an adjustable-rate loan. What is required?",
+     "choices": [
+      "Only a corrected Closing Disclosure at or before closing, with no new waiting period",
+      "A new Loan Estimate, with no waiting period",
+      "A new Closing Disclosure and a new three-business-day waiting period",
+      "Nothing, if the borrower agrees verbally"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Only three changes restart the three-day clock: the APR becomes inaccurate beyond tolerance, the loan product changes, or a prepayment penalty is added. A switch from fixed to adjustable is a product change."
+    },
+    {
+     "id": "f1-032",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A lender denies a loan because the applicant's income comes from public assistance. Which law does this violate?",
+     "choices": [
+      "The Real Estate Settlement Procedures Act",
+      "The Equal Credit Opportunity Act",
+      "The Truth in Lending Act",
+      "TRID"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "ECOA bars credit discrimination based on receipt of public assistance income, as well as marital status and age, which the federal Fair Housing Act does not list."
+    },
+    {
+     "id": "f1-033",
+     "section": "national",
+     "topic": "Real estate math",
+     "stem": "A buyer purchases a home for $300,000 with a 90% loan. Buyer closing costs are $5,000, the lender charges 1 point, the buyer deposited $8,000 in earnest money, and the buyer receives a $900 tax proration credit. How much cash does the buyer need at closing?",
+     "choices": [
+      "$37,700",
+      "$29,700",
+      "$28,800",
+      "$26,100"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Loan = $270,000, so the down payment is $30,000. Add costs and the point ($2,700): $37,700. Subtract earnest money and the proration credit: $37,700 − $8,000 − $900 = $28,800."
+    },
+    {
+     "id": "f1-034",
+     "section": "national",
+     "topic": "Real estate math",
+     "stem": "A $250,000 loan at 6% interest for 30 years has a monthly principal-and-interest payment of $1,498.88. How much of the first payment goes to principal?",
+     "choices": [
+      "$248.88",
+      "$1,250.00",
+      "$1,498.88",
+      "$498.88"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "First month's interest = $250,000 × 0.06 ÷ 12 = $1,250. Principal = $1,498.88 − $1,250.00 = $248.88."
+    },
+    {
+     "id": "f1-035",
+     "section": "national",
+     "topic": "Financing",
+     "stem": "A builder has a $600,000 construction loan, and $200,000 has been disbursed in draws so far. On what amount does the builder usually pay interest?",
+     "choices": [
+      "The full $600,000 loan amount",
+      "The $400,000 not yet disbursed",
+      "Nothing until construction is complete",
+      "The $200,000 drawn so far"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "With a construction loan, the borrower usually pays interest only on the amount drawn so far, not on the full loan."
+    },
+    {
+     "id": "f1-036",
+     "section": "national",
+     "topic": "Valuation",
+     "stem": "Which body sets the minimum education, experience and exam requirements for real property appraisers?",
+     "choices": [
+      "The Appraisal Standards Board",
+      "The Appraiser Qualifications Board",
+      "ARELLO",
+      "The Colorado Real Estate Commission"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The Appraiser Qualifications Board of The Appraisal Foundation sets minimum qualification criteria; states license appraisers using criteria at least that strict. The Appraisal Standards Board writes USPAP."
+    },
+    {
+     "id": "f1-037",
+     "section": "national",
+     "topic": "Valuation",
+     "stem": "Which appraiser credential level may work only under the supervision of a certified appraiser?",
+     "choices": [
+      "Trainee",
+      "Licensed residential",
+      "Certified residential",
+      "Certified general"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A trainee works only under a certified appraiser's supervision. The licensed, certified residential and certified general levels can appraise progressively more complex property on their own."
+    },
+    {
+     "id": "f2-001",
+     "section": "national",
+     "topic": "Contracts",
+     "stem": "A buyer and a seller both believed the sale included a vacant parcel across the road. After signing, they learn the parcel was never part of the seller's property. The contract is most likely",
+     "choices": [
+      "fully enforceable, because a mistake is never a defense to a signed contract",
+      "void or voidable, because both parties were mistaken about a material fact",
+      "voidable only by the seller, because the seller owned the property being sold",
+      "unenforceable under the Statute of Frauds, because the parcel was described in writing"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A mutual mistake about a material fact can make a contract void or voidable. A unilateral mistake, or a mistake about value or the law, usually isn't a defense, but here both parties shared the mistake."
+    },
+    {
+     "id": "f2-002",
+     "section": "national",
+     "topic": "Contracts",
+     "stem": "A buyer promises to pay $400,000 and the seller promises to convey the house at closing. Classified by who is bound, this purchase contract is",
+     "choices": [
+      "unilateral, because only the buyer has to come up with money",
+      "implied, because it is created by the parties' conduct",
+      "bilateral",
+      "voidable by either party until closing"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A bilateral contract is a promise for a promise, so both parties are obligated. A unilateral contract is a promise for an act (like an option), where only one party is bound."
+    },
+    {
+     "id": "f2-003",
+     "section": "national",
+     "topic": "Contracts",
+     "stem": "A buyer discovers the seller lied about a material fact to get the buyer to sign. The buyer wants to cancel the contract and get the earnest money deposit back. Which remedy fits?",
+     "choices": [
+      "Rescission",
+      "Specific performance",
+      "Liquidated damages",
+      "Acceptance of breach"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Rescission cancels the contract and puts the parties back where they started, with deposits returned; it's the typical remedy for a contract induced by fraud or mutual mistake. Specific performance would force the sale to go through, the opposite of what the buyer wants."
+    },
+    {
+     "id": "f2-004",
+     "section": "national",
+     "topic": "Contracts",
+     "stem": "A tenant has a one-year lease with fixed start and end dates. Four months in, the owner sells the building. What happens to the lease?",
+     "choices": [
+      "It ends automatically when the deed is recorded",
+      "The new owner takes title subject to the existing lease",
+      "It converts to a tenancy at will that either party can end",
+      "It becomes a periodic tenancy that the new owner can end on notice"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A sale doesn't end an estate for years; the buyer takes the property subject to existing leases. The tenant keeps possession through the lease's end date."
+    },
+    {
+     "id": "f2-005",
+     "section": "national",
+     "topic": "Contracts",
+     "stem": "A tenant signs a lease that gives her the right, but not the obligation, to buy the home at a set price during the term. This arrangement is a",
+     "choices": [
+      "lease-purchase",
+      "graduated lease",
+      "ground lease",
+      "lease option"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A lease option is a lease plus an option to buy: the tenant may buy but isn't required to. In a lease-purchase, the tenant agrees to buy, so both sides are obligated to complete the sale."
+    },
+    {
+     "id": "f2-006",
+     "section": "national",
+     "topic": "Property disclosures",
+     "stem": "An owner buys an NFIP flood insurance policy on his own; no loan is being made, increased, extended or renewed. When does coverage generally begin?",
+     "choices": [
+      "Immediately, on the day the premium is paid",
+      "After the next FEMA flood map update",
+      "After a 30-day waiting period",
+      "Only once the home is placed in a special flood hazard area"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "NFIP policies generally have a 30-day waiting period. The exception is a policy bought in connection with making, increasing, extending or renewing a loan, which doesn't apply here. Owners outside mapped high-risk zones can still buy flood coverage."
+    },
+    {
+     "id": "f2-007",
+     "section": "national",
+     "topic": "Agency",
+     "stem": "A listing broker receives a second offer on the seller's home while the seller is reviewing the first one. Which fiduciary duty requires the broker to tell the seller about it?",
+     "choices": [
+      "Disclosure",
+      "Confidentiality",
+      "Obedience",
+      "Accounting"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The duty of disclosure requires the broker to tell the client everything material, including other offers. Confidentiality works the other way: it protects the client's private information from others."
+    },
+    {
+     "id": "f2-008",
+     "section": "national",
+     "topic": "Agency",
+     "stem": "A buyer's broker recommends a roofing contractor to repair the roof after closing. The contractor pays the broker a fee for every client referred. What is the broker's obligation?",
+     "choices": [
+      "Nothing, because the contractor is not a party to the real estate transaction",
+      "Disclose the fee in writing before the client relies on the recommendation",
+      "Mention the fee to the client verbally at any point before the closing appointment",
+      "Nothing, as long as the contractor's prices are in line with other local contractors"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A broker must disclose any personal interest, including a referral fee from a vendor they recommend, in writing before the client relies on it. A verbal mention, or a fair price, doesn't cure it; an undisclosed payment is a secret profit that violates the duty of loyalty."
+    },
+    {
+     "id": "f2-009",
+     "section": "national",
+     "topic": "Fair housing and practice",
+     "stem": "Two competing brokers agree that one will take listings only on the west side of town and the other only on the east side. This antitrust violation is",
+     "choices": [
+      "a tie-in arrangement",
+      "price fixing",
+      "a group boycott",
+      "market allocation"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Market allocation is competitors dividing up territory, customers, price ranges or property types. Price fixing concerns agreed rates, a group boycott targets a competitor, and a tie-in conditions one product on buying another."
+    },
+    {
+     "id": "f2-010",
+     "section": "national",
+     "topic": "Fair housing and practice",
+     "stem": "A licensee paid entirely by commission wants to be treated as a statutory nonemployee for federal tax purposes. Besides being licensed and paid based on sales output, what else is required?",
+     "choices": [
+      "A written agreement stating she won't be treated as an employee for federal tax purposes",
+      "At least two years of continuous affiliation with the same employing broker",
+      "An agreement that the employing broker will stop supervising her work",
+      "Proof that she pays for her own errors and omissions coverage"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The IRS treats a licensed agent as a statutory nonemployee when she is licensed, substantially all pay is based on sales output, and a written agreement says she won't be treated as an employee for federal tax purposes. License law still requires the employing broker to supervise her either way."
+    },
+    {
+     "id": "f2-011",
+     "section": "national",
+     "topic": "Fair housing and practice",
+     "stem": "In most states, which task may a broker's unlicensed assistant perform?",
+     "choices": [
+      "Hold an open house alone on a weekend",
+      "Schedule showing appointments for the broker",
+      "Discuss price and terms with a buyer who calls",
+      "Show a listing to a buyer when the broker is busy"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Unlicensed assistants may do clerical and administrative work such as scheduling, data entry and ordering reports. Showing property, negotiating, discussing terms and holding open houses alone are licensed activities."
+    },
+    {
+     "id": "f2-012",
+     "section": "national",
+     "topic": "Property management",
+     "stem": "A property manager sets aside a plan for replacing the roof and parking lot over the next several years. This is part of the",
+     "choices": [
+      "operating budget",
+      "stabilized budget",
+      "capital budget",
+      "management agreement"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A capital budget plans for big-ticket replacements and improvements such as a roof, HVAC or parking lot. An operating budget projects the year's income and ordinary expenses; a stabilized budget averages expenses over several years."
+    },
+    {
+     "id": "f2-013",
+     "section": "national",
+     "topic": "Property management",
+     "stem": "A tenant is two months behind on rent. The landlord changes the locks while the tenant is at work. This is",
+     "choices": [
+      "a lawful actual eviction, because the tenant breached the lease",
+      "generally illegal self-help; the landlord should use the court eviction process",
+      "a constructive eviction, which a landlord may use once rent is two months late",
+      "permitted if the landlord gives notice of the lock change the same day"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Actual eviction means removing the tenant through a court process after a breach. Self-help, such as changing locks or shutting off utilities, is generally illegal. Constructive eviction is a tenant's claim when the landlord makes the premises unusable, not a landlord remedy."
+    },
+    {
+     "id": "f2-014",
+     "section": "national",
+     "topic": "Property management",
+     "stem": "After several injuries, the owner of an apartment complex closes the swimming pool permanently. Which risk management strategy is this?",
+     "choices": [
+      "Transfer",
+      "Control",
+      "Retain",
+      "Avoid"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Avoiding risk means removing the activity that creates it, such as closing the pool. Control reduces the chance or size of a loss (better lighting, handrails), transfer shifts it (insurance), and retain accepts it."
+    },
+    {
+     "id": "f2-015",
+     "section": "national",
+     "topic": "Fair housing and practice",
+     "stem": "Under the Uniform Electronic Transactions Act (UETA), when does the act apply to a real estate transaction?",
+     "choices": [
+      "Only when the parties have agreed to deal electronically, which can be shown by their conduct",
+      "In every transaction, whether or not the parties want electronic records",
+      "Only when the documents are notarized by an electronic notary",
+      "Only to commercial transactions, not consumer home sales"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "UETA applies only when the parties agree to conduct the transaction electronically, and that agreement can be shown by conduct. Neither UETA nor E-SIGN forces anyone to use electronic records."
+    },
+    {
+     "id": "f3-001",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "Dana is the salaried on-site manager of an apartment building and shows vacant units and takes rental applications as part of her customary duties. She has no real estate license. Which statement is correct?",
+     "choices": [
+      "Dana needs a license because showing units and taking applications are leasing activities",
+      "Dana is exempt only if she shows fewer than ten units in a calendar year",
+      "Dana is exempt as a salaried on-site manager performing customary duties",
+      "Dana must be supervised by an employing broker but does not need her own license"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Colorado exempts a salaried on-site manager of an apartment building or condominium who is doing customary duties. There is no unit-count limit in the exemption."
+    },
+    {
+     "id": "f3-002",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A broker wants to qualify as an employing broker so she can hire other brokers. Which requirement applies?",
+     "choices": [
+      "Two years of active practice in the prior five years, an experience point requirement, and a 24-hour Brokerage Administration course",
+      "Two years of Active licensure as an associate broker, with no further coursework",
+      "One year of Active licensure and passing the state portion of the exam a second time",
+      "Five years as an independent broker and a written recommendation from her current employing broker"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "An employing broker needs two years of active practice in the prior five years, must meet an experience point requirement, and must complete a 24-hour Brokerage Administration course. Two years of Active licensure alone qualifies a broker only for independent status."
+    },
+    {
+     "id": "f3-003",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A newly approved broker applicant receives the Commission's notice but does not provide proof of E&O insurance or the name of an employing broker within 30 days. What happens?",
+     "choices": [
+      "The application is denied and the applicant must retake the exam",
+      "The license is issued Active for 90 days while coverage is obtained",
+      "The applicant must restart the 168-hour pre-licensing education",
+      "The license is issued Inactive"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "If proof of E&O coverage or an employing broker isn't provided within 30 days of the Commission's notice, the license is issued Inactive. The broker can't do licensed work until the license is Active."
+    },
+    {
+     "id": "f3-004",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "The only employing broker of a small Colorado brokerage firm suddenly leaves. What relief can the Division director provide while the firm finds a replacement?",
+     "choices": [
+      "A temporary license for up to 90 days, with one extension of up to 90 days for good cause",
+      "Permission for the senior associate broker to act as employing broker indefinitely",
+      "A one-year waiver of supervision requirements for all associates",
+      "Nothing; the firm must stop all brokerage activity until the Commission approves a successor"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The Division director can issue a temporary license for up to 90 days, with one extension of up to 90 days for good cause, while the firm finds a new employing broker."
+    },
+    {
+     "id": "f3-005",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "How many hours of approved pre-licensing education must a Colorado broker applicant complete (unless the applicant holds a college degree with a real estate major)?",
+     "choices": [
+      "48 hours",
+      "72 hours",
+      "168 hours",
+      "120 hours"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Colorado requires 168 hours: 48 hours of real estate law and practice, 48 hours of Colorado contracts and regulations, and 72 hours of trust accounts, closings, legal issues, and practical applications. 48 and 72 are only components of the total."
+    },
+    {
+     "id": "f3-006",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "Which Colorado broker must maintain a place of business in Colorado?",
+     "choices": [
+      "An associate broker who works from home for a Denver firm",
+      "An inactive broker who lives in Colorado",
+      "An independent broker who lives in Colorado",
+      "An associate broker whose employing broker has several branch offices"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Independent and employing brokers who live in Colorado must maintain a Colorado place of business. Associate brokers and inactive brokers are exempt."
+    },
+    {
+     "id": "f3-007",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A broker's first Colorado license is issued on October 15, 2026. When does it expire?",
+     "choices": [
+      "October 15, 2027",
+      "December 31, 2026",
+      "December 31, 2029",
+      "October 15, 2029"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A new license expires at midnight on December 31 of the year it was issued, regardless of the issue date. After that, licenses run on three-year calendar cycles."
+    },
+    {
+     "id": "f3-008",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "How many hours of continuing education must an active Colorado broker complete in each three-year license cycle?",
+     "choices": [
+      "12 hours, all from the Annual Commission Update",
+      "24 hours, including the 4-hour Annual Commission Update each year",
+      "36 hours, including 12 hours of contracts",
+      "24 hours of electives chosen by the broker, with no required courses"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Colorado requires 24 CE hours per three-year cycle. Twelve come from the 4-hour Annual Commission Update taken every year, and the other 12 are Commission-approved electives."
+    },
+    {
+     "id": "f3-009",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "An active broker skipped the Annual Commission Update in the first year of her cycle and wants to take two versions in year two to catch up. What is the rule?",
+     "choices": [
+      "She may take both versions in year two as long as she finishes before renewal",
+      "She may substitute 4 extra elective hours for the missed update course",
+      "She can't make up the missed course and must use an alternative such as the 24-hour Broker Reactivation course",
+      "She is excused because the update course is required only in the final year of the cycle"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A missed year's Annual Commission Update can't be made up later. A broker who falls short must use an alternative, such as a 24-hour Broker Reactivation course, passing the state exam, or completing 72 hours of contracts/regulations and closings coursework."
+    },
+    {
+     "id": "f3-010",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A broker's license expired on December 31, and he applies to reinstate it six months later. What must he pay?",
+     "choices": [
+      "Only the regular renewal fee",
+      "The renewal fee plus a reinstatement fee equal to half the renewal fee",
+      "The renewal fee plus a reinstatement fee equal to the full renewal fee",
+      "Nothing until he retakes the exam as a new applicant"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "More than 31 days but no more than one year after expiration, reinstatement costs the renewal fee plus a reinstatement fee of half the renewal fee. The full-fee reinstatement charge applies after one year, up to three years."
+    },
+    {
+     "id": "f3-011",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "Marco placed his license on inactive status after leaving his firm. Which statement about his inactive license is correct?",
+     "choices": [
+      "He must keep carrying E&O insurance while inactive",
+      "He no longer needs to renew the license or pay renewal fees",
+      "He may continue to show property as long as he does not write contracts",
+      "His former employing broker may still pay him commissions earned while he was Active"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An inactive broker can still be paid by a former employing broker for commissions earned while Active. Inactive brokers must still renew and pay fees, don't need E&O, and can't do anything that requires a license."
+    },
+    {
+     "id": "f3-012",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A broker enters a no contest plea to a criminal charge. What must the broker do?",
+     "choices": [
+      "Give the Commission written notice within 30 calendar days",
+      "Report it at the next license renewal",
+      "Notify the Commission only if the plea results in a conviction",
+      "Notify the employing broker, who reports it to the Commission annually"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A broker must give the Commission written notice within 30 calendar days of a conviction or a guilty or no contest plea; deferred judgments count too. Waiting for renewal or for a conviction is too late."
+    },
+    {
+     "id": "f3-013",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A broker is shopping for an independent E&O policy instead of the Division's group plan. Which policy meets Colorado's minimum terms for individual coverage?",
+     "choices": [
+      "$50,000 per claim, $150,000 aggregate, $500 deductible",
+      "$100,000 per claim, $300,000 aggregate, $1,000 deductible",
+      "$100,000 per claim, $300,000 aggregate, $2,500 deductible",
+      "$100,000 per claim, $200,000 aggregate, $1,000 deductible"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Individual coverage must be at least $100,000 per claim and $300,000 annual aggregate, with a deductible of no more than $1,000 per occurrence. A $2,500 deductible is too high, and a $200,000 aggregate is too low."
+    },
+    {
+     "id": "f3-014",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "An active broker forgets to pay his E&O premium and the coverage lapses. What happens to his license?",
+     "choices": [
+      "It stays Active for a 30-day grace period",
+      "It is automatically revoked",
+      "It goes Inactive immediately",
+      "It expires at the end of the current renewal cycle"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "If E&O coverage lapses, or the broker fails to certify continuing coverage, the license goes Inactive immediately. Doing brokerage while uninsured is acting on an inactive license."
+    },
+    {
+     "id": "f3-015",
+     "section": "state",
+     "topic": "Commission and licensing",
+     "stem": "A broker's license has been inactive for four years and she wants to reactivate it. Which option satisfies the education or testing requirement?",
+     "choices": [
+      "Completing only the current year's Annual Commission Update",
+      "Passing the state portion of the exam",
+      "Completing 12 hours of elective CE",
+      "Showing proof of E&O coverage alone"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "When a license has been inactive for more than three years, reactivation requires passing the state exam or completing 72 hours of coursework (48 hours of contracts and regulations plus 24 hours of closings)."
+    },
+    {
+     "id": "f3-016",
+     "section": "state",
+     "topic": "Licensee conduct",
+     "stem": "A seller asks a Colorado broker to take a net listing at $400,000, with the broker keeping anything above that. Which statement best reflects Colorado's position?",
+     "choices": [
+      "Net listings are illegal in Colorado, and the broker would lose the license for taking one",
+      "Net listings are allowed only on the Commission-approved net listing form",
+      "They aren't expressly prohibited but are discouraged, mainly because of secret-profit risk",
+      "Net listings are permitted only for commercial property"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Colorado's statute and current Commission rules don't expressly prohibit net listings, but the Commission discourages them. There is no Commission-approved net listing form, and a broker who uses one to take an undisclosed profit can be disciplined for secret compensation."
+    },
+    {
+     "id": "f3-017",
+     "section": "state",
+     "topic": "Licensee conduct",
+     "stem": "After a residential sale, a firm believes the seller still owes part of its commission. Before filing a lien or lis pendens against the property, the firm must:",
+     "choices": [
+      "Obtain a court judgment",
+      "File a complaint with the Commission so it can decide the dispute",
+      "Give the seller 10 days' written notice",
+      "Get the buyer's written consent"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "In residential deals, a firm can't file a lien or lis pendens or otherwise cloud title to collect a disputed commission without first getting a court judgment. The Commission doesn't decide money disputes; those go to court or arbitration."
+    },
+    {
+     "id": "f3-018",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "A sale closed on August 15, 2026. Under Colorado's record retention rule, until at least what date must the broker keep the transaction file?",
+     "choices": [
+      "August 15, 2029",
+      "August 15, 2030",
+      "August 15, 2031",
+      "December 31, 2029"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Required records must be kept for four years, starting from the date the transaction closed. Three- and five-year periods are common distractors."
+    },
+    {
+     "id": "f3-019",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "A firm stores all its transaction files electronically. During a Commission audit, the server crashes and the broker can't retrieve the files. Which statement is correct?",
+     "choices": [
+      "The broker is excused until the system is repaired, however long that takes",
+      "The broker may substitute a written summary of each transaction",
+      "Electronic storage is not allowed for trust account records, so the firm is already in violation",
+      "A technical problem is not an excuse; the broker must still produce the records"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Records may be kept electronically, but they must stay retrievable and legibly printable for four years, and a technical problem with the storage system is not an excuse for failing to produce them. Trust account records may also be kept electronically."
+    },
+    {
+     "id": "f3-020",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "Who can require a broker to produce electronic or printed copies of a transaction's required records?",
+     "choices": [
+      "Only the Commission",
+      "The Commission or any principal party to the transaction",
+      "Only the broker's employing broker",
+      "Any member of the public"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Electronic or printed copies must be produced when the Commission or any principal party to the transaction asks."
+    },
+    {
+     "id": "f3-021",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "A broker receives notice of a complaint that she is sure has no merit, so she ignores the Commission's response deadline. What is the likely result?",
+     "choices": [
+      "Nothing, because the complaint will be dismissed anyway",
+      "The complaint is automatically transferred to small claims court",
+      "She can face discipline for failing to respond on time, even if the complaint lacks merit",
+      "Her employing broker must answer for her, and she has no further obligation"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A broker notified of a complaint or audit must respond in writing by the Commission's deadline, addressing each allegation and including the complete transaction file. Failing to respond on time is itself grounds for discipline, even if the complaint has no merit."
+    },
+    {
+     "id": "f3-022",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "After closing, which item does the Commission NOT require a broker to keep in the transaction file?",
+     "choices": [
+      "The buyer's loan application",
+      "The signed contract to buy and sell",
+      "The brokerage disclosure",
+      "The closing statement"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "After closing, the Commission doesn't require you to keep copies of loan applications, title commitments, existing public records, lender-required disclosures, or affirmations from independent closing entities. Contracts, brokerage disclosures, and closing statements are on the Transaction File Checklist."
+    },
+    {
+     "id": "f3-023",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "Which record must a firm keep for each beneficiary of a trust account, showing receipts and disbursements with no negative balance?",
+     "choices": [
+      "The journal",
+      "The deposit agreement",
+      "The accounting control policy",
+      "The ledger"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A ledger is kept for each beneficiary, shows the same details as the journal, and may never have a negative balance. The journal is a single chronological record of all receipts and disbursements for the account."
+    },
+    {
+     "id": "f3-024",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "An associate broker moves from Firm A to Firm B. Who is responsible for keeping the transaction files from his deals at Firm A?",
+     "choices": [
+      "Only Firm A, because listings belong to the firm",
+      "Only the Commission, which takes custody of files when a broker transfers",
+      "The broker himself remains responsible for keeping those files",
+      "No one, because files may be destroyed once a broker transfers"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A broker stays responsible for keeping their transaction files even after moving to a new brokerage. Each broker and brokerage keeps a transaction file for every transaction."
+    },
+    {
+     "id": "f3-025",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "A broker exchanged dozens of emails and texts with a buyer during a transaction. Under Division guidance, which statement is correct?",
+     "choices": [
+      "They must be printed and kept for four years",
+      "Keeping them is recommended but not required",
+      "They must be deleted after closing to protect privacy",
+      "They must be sent to the Commission at closing"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The Division recommends, but does not require, keeping related emails and texts. The required file contents are listed on the Commission's Transaction File Checklist, and a firm may require more."
+    },
+    {
+     "id": "f4-001",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "During negotiation, the seller tells the listing broker to remove a printed paragraph from a Commission-approved form. How should the broker show the deletion?",
+     "choices": [
+      "Erase or white out the paragraph so the final form looks clean",
+      "Retype the form without the paragraph in the same font",
+      "Strike through the text so it can still be read",
+      "Leave the text in place and explain the change to the parties in an email"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Printed text is deleted only because of negotiation or a party's instruction, and it is struck through so it remains legible. It is never silently erased or retyped away."
+    },
+    {
+     "id": "f4-002",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "A broker inserts an attorney-drafted clause into the Additional Provisions of a contract. Under Commission rules, how long must the broker keep a copy of that clause, with the attorney's name?",
+     "choices": [
+      "4 years from its last use",
+      "1 year from closing",
+      "3 years from its first use",
+      "For as long as the broker holds a license"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Commission rules require the broker to keep an attorney-drafted clause, with the attorney's name, for 4 years from its last use and to provide it to the Commission on request."
+    },
+    {
+     "id": "f4-003",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "The buyer's lender approves the loan, but the interest rate offered is higher than the buyer is willing to accept. Under the Colorado residential contract, which deadline should the buyer use to terminate?",
+     "choices": [
+      "New Loan Availability Deadline",
+      "Appraisal Objection Deadline",
+      "New Loan Terms Deadline",
+      "New Loan Application Deadline"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Unsatisfactory loan terms such as the rate are handled by the New Loan Terms Deadline, in the buyer's sole discretion. The New Loan Availability Deadline is for an unsatisfactory underwriting result and can't be used for problems with the loan terms."
+    },
+    {
+     "id": "f4-004",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "A buyer makes an offer. The seller responds with a Counterproposal, which the buyer lets expire. The seller now wants to sign the buyer's original offer. What is the result?",
+     "choices": [
+      "The original offer revives automatically once the counterproposal expires",
+      "The seller can't accept it, because the counterproposal rejected the original offer",
+      "The seller can accept it by signing before the original Acceptance Deadline",
+      "The seller can accept it by sending an Agreement to Amend/Extend"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Under general contract law, a counteroffer rejects the original offer, so that offer is gone. The parties would need a new offer or counterproposal."
+    },
+    {
+     "id": "f4-005",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "A contract terminated when the parties failed to sign an Inspection Resolution by the Inspection Resolution Deadline. Two days later, both parties want the deal back on. Which Commission form fits?",
+     "choices": [
+      "Agreement to Amend/Extend Contract",
+      "Inspection Objection Notice",
+      "Earnest Money Release",
+      "Agreement to Revive Contract"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A terminated contract can't be amended, because nothing is left to amend. The Agreement to Revive Contract brings it back: the parties state the termination date, ratify the contract and set new deadlines."
+    },
+    {
+     "id": "f4-006",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "A seller already under contract receives a better offer and wants to accept it. How should the second contract be structured to avoid two binding contracts?",
+     "choices": [
+      "As a backup offer that depends on the first contract terminating",
+      "As a counterproposal that supersedes the first contract",
+      "As an Agreement to Amend/Extend the first contract with the new buyer's terms",
+      "As a new contract signed first, with a Notice to Terminate sent to the first buyer afterward"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A seller who accepts a second offer should make it a backup offer contingent on the first contract terminating. Otherwise the seller risks being bound to two contracts."
+    },
+    {
+     "id": "f4-007",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "A buyer's broker has submitted an offer, but the listing broker won't respond to calls or emails. What should the buyer's broker do first?",
+     "choices": [
+      "Deliver the offer directly to the seller",
+      "File a complaint with the Real Estate Commission",
+      "Contact the listing broker's employing broker",
+      "Have the buyer withdraw the offer and resubmit it later"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The buyer's broker goes to the listing broker's employing broker first. Only if that fails does the buyer's broker go to the seller directly."
+    },
+    {
+     "id": "f4-008",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "A seller signs the Exclusive Right-to-Sell Listing Contract but checks neither the seller agency box nor the transaction-brokerage box. What is the broker's relationship with the seller?",
+     "choices": [
+      "Seller's agent",
+      "Transaction-broker",
+      "Dual agent for the seller and any buyer",
+      "No brokerage relationship until a box is checked"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "If neither relationship box is checked in the listing contract, the broker is a transaction-broker."
+    },
+    {
+     "id": "f4-009",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "An HOA board wants to fine an owner for leaving trash cans out. The association has no written fine policy. Under CCIOA, what is the board's position?",
+     "choices": [
+      "It may fine the owner if the rules and regulations prohibit the conduct",
+      "It may fine the owner after a majority vote of the owners",
+      "It may fine the owner only up to six months of regular assessments",
+      "It can't fine the owner without a written policy providing notice and a hearing"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An HOA can't fine an owner without a written fine policy that gives notice and an opportunity to be heard. Associations must adopt written governance policies, including a covenant-enforcement policy."
+    },
+    {
+     "id": "f4-010",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "An owner is fully paid up on assessments but owes the HOA $3,000 in fines, late charges and interest. Can the association foreclose its CCIOA lien based on that balance?",
+     "choices": [
+      "Yes, once the balance equals six months of assessments",
+      "No, those items alone can't be the basis of a CCIOA foreclosure",
+      "Yes, if the board records a vote authorizing the foreclosure",
+      "No, because fines can't be secured by the HOA lien at all"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Fines, fees, late charges and interest can be secured by the lien, but they can't by themselves be the basis of a CCIOA foreclosure. Foreclosure requires a lien balance of at least six months of common-expense assessments plus a recorded board vote."
+    },
+    {
+     "id": "f4-011",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "In general, the Colorado Common Interest Ownership Act applies to common interest communities created:",
+     "choices": [
+      "on or after July 1, 1992",
+      "before January 1, 1970",
+      "only after its 2015 amendments",
+      "on or after January 1, 2000"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "CCIOA applies to communities created on or after July 1, 1992, with limited exceptions. Older communities are reached only by the specific sections listed in C.R.S. 38-33.3-117."
+    },
+    {
+     "id": "f4-012",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "A buyer pays all cash for a Colorado home, so there is no lender and no federal Closing Disclosure. What closing document must the broker still make sure the buyer receives?",
+     "choices": [
+      "A loan estimate prepared by the title company",
+      "An accurate closing statement signed by the broker",
+      "No closing document, because a cash sale has no federal disclosure",
+      "A Closing Disclosure prepared by the listing broker"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A cash sale has no Closing Disclosure, but every transaction, cash or financed, still needs a closing statement. The broker must see that the consumer receives an accurate, complete closing statement signed by the broker."
+    },
+    {
+     "id": "f4-013",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "What is the purpose of the Real Property Transfer Declaration (TD-1000) filed with a Colorado deed?",
+     "choices": [
+      "It calculates the documentary fee owed to the state",
+      "It notifies the county treasurer that taxes have been paid",
+      "It informs the assessor of the sale price",
+      "It gives public notice of the buyer's ownership"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The TD-1000 is filed with the deed so the assessor learns the sale price. The clerk sends it to the assessor, and it is not a public record."
+    },
+    {
+     "id": "f4-014",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "A buyer wants protection against unrecorded mechanics' liens and matters a survey would show. What should the buyer ask for under the Colorado contract?",
+     "choices": [
+      "Owner's extended coverage",
+      "A lender's title policy",
+      "A certificate of taxes due",
+      "A standard owner's policy"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Owner's extended coverage (OEC) removes the standard exceptions, such as unrecorded mechanics' liens and survey matters. The contract states whether OEC is provided and who pays the extra premium."
+    },
+    {
+     "id": "f4-015",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "Which person can manage rental property for compensation in Colorado WITHOUT a real estate broker's license?",
+     "choices": [
+      "An independent manager who leases homes for several owners for a percentage of rents",
+      "A regularly salaried on-site manager of an apartment building doing customary duties",
+      "A person who lists a neighbor's condo for rent online for a flat fee",
+      "An employee of an investor who leases the investor's scattered single-family homes for a fee"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The exception is narrow: a regularly salaried employee of the owner of an apartment building or condominium units who acts as the on-site manager, doing only customary on-site duties. Leasing for others for compensation otherwise requires a license, even as the owner's employee."
+    },
+    {
+     "id": "f4-016",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A property management firm collects a tenant's rent on Monday. Within what time must the firm deposit it into its rent trust account?",
+     "choices": [
+      "One business day",
+      "Three business days",
+      "Ten calendar days",
+      "Five business days"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Property management funds must be deposited within five business days after receipt (or after the lease is signed, if later). The three-business-day deadline applies to other trust money such as earnest money."
+    },
+    {
+     "id": "f4-017",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A landlord keeps part of a tenant's security deposit for carpet damage but never sends a written statement listing the reasons. What is the consequence under Colorado law?",
+     "choices": [
+      "The landlord forfeits the right to keep any part of the deposit",
+      "The landlord may keep the amount if the damage is documented with photos",
+      "The landlord must pay a $500 penalty but may keep the deduction",
+      "The tenant must sue within 7 days or the deduction stands"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A landlord who fails to deliver the written statement of reasons within the deadline forfeits the right to keep any part of the deposit. The 7-day figure is the notice a tenant gives before suing for willful retention, not a deadline to sue."
+    },
+    {
+     "id": "f4-018",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A tenant gives proper written notice of a condition that materially interferes with life, health or safety. Under Colorado's warranty of habitability, when must the landlord begin fixing it?",
+     "choices": [
+      "Within 96 hours",
+      "Within 24 hours",
+      "Within 10 days",
+      "Within 30 days"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "For a condition that materially interferes with life, health or safety, the landlord must respond within 24 hours and begin remedial action within 24 hours. The 96-hour window is for other conditions that make the unit uninhabitable."
+    },
+    {
+     "id": "f4-019",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A tenant is two months behind on rent. The landlord changes the locks while the tenant is at work, without a court order. What is the landlord's position under Colorado law?",
+     "choices": [
+      "The lockout is lawful because the rent is more than 30 days late",
+      "The lockout is lawful if a 10-day demand was served first",
+      "It's unlawful, and the tenant can recover damages and attorney fees",
+      "It's unlawful only if the lease bans lockouts"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Removing or locking out a tenant without court process is unlawful. The tenant can recover actual damages plus the greater of three months' rent or $5,000, and attorney fees, no matter how much rent is owed."
+    },
+    {
+     "id": "f4-020",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A covered residential tenant has lived in a Colorado apartment for two years and has followed the lease. The landlord simply prefers a new tenant and wants to decline to renew. Under Colorado's for-cause eviction law, what is the general rule?",
+     "choices": [
+      "The landlord may decline with 10 days' written notice",
+      "The landlord may decline at the end of any lease term",
+      "The landlord generally needs cause or a qualifying no-fault reason",
+      "The landlord may decline only if rent rises above market"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Colorado's 2024 for-cause law generally requires a landlord to have cause, or a qualifying no-fault reason with longer written notice, to refuse to renew a covered tenant who has lived in the unit 12 months or more. The details have since been amended, but the principle holds: simply preferring a new tenant isn't a reason."
+    },
+    {
+     "id": "f4-021",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A buyer is acquiring shares in a mutual ditch company along with a farm. How do those shares transfer?",
+     "choices": [
+      "By a recorded warranty deed, like the land",
+      "By decree of the water court",
+      "By the water right passing automatically with the land",
+      "By stock assignment and a new company certificate"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Mutual ditch company shares are personal property (stock), so they transfer by stock assignment and a new certificate from the company. Other water rights are conveyed with the same formalities as real estate, usually by recorded deed."
+    },
+    {
+     "id": "f4-022",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A buyer plans to water a large lawn and garden at a home served by a household-use-only exempt well. What should the broker tell the buyer?",
+     "choices": [
+      "The permit allows lawn and garden watering up to one acre",
+      "Use is limited to indoors in one home; no outside watering",
+      "Exempt wells have no use limits once ownership changes",
+      "The buyer may water outside if the assessor approves"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A household-use-only permit generally covers indoor use in one home with no outside watering, and a buyer must stay within the permit's limits. Up to one acre of lawn and garden goes with a domestic and livestock well, usually on 35+ acres."
+    },
+    {
+     "id": "f4-023",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A Colorado homeowner believes the county set the home's actual value too high. Where does the owner file the first protest?",
+     "choices": [
+      "With the county assessor",
+      "With the county board of equalization",
+      "With the Board of Assessment Appeals",
+      "With the county treasurer"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A value protest goes to the assessor first, then the county board of equalization, then the Board of Assessment Appeals, district court or arbitration."
+    },
+    {
+     "id": "f4-024",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A U.S. citizen who lives in Texas sells a Colorado rental house for $300,000 and signs no exemption affirmation. Which withholding applies at closing?",
+     "choices": [
+      "Both FIRPTA and Colorado withholding",
+      "FIRPTA withholding only",
+      "Colorado nonresident withholding only",
+      "Neither, because the seller is a U.S. citizen"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Colorado withholding turns on Colorado residency, and a Texas resident is a nonresident. FIRPTA turns on foreign status, so it doesn't apply to a U.S. citizen."
+    },
+    {
+     "id": "f4-025",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A renter believes a landlord discriminated against him because of his sexual orientation. Within what time may he file a charge with the Colorado Civil Rights Division?",
+     "choices": [
+      "Within 60 days",
+      "Within 180 days",
+      "Within two years",
+      "Within one year"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A charge with the CCRD may be filed within one year of the discriminatory act. Two years is the time for a private lawsuit, not the CCRD charge."
+    },
+    {
+     "id": "f4-026",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "Which landlord is exempt from Colorado's source-of-income provisions?",
+     "choices": [
+      "A landlord who owns three rental units",
+      "A landlord who checks credit only for voucher holders",
+      "A landlord whose units are all single-family homes",
+      "A landlord who owns ten rental units but self-manages"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Landlords with three or fewer rental units are exempt from the source-of-income provisions. A covered landlord may check credit only if it checks every prospective tenant, not just voucher holders."
+    },
+    {
+     "id": "f4-027",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "After a public trustee foreclosure sale of her home, the former owner asks how long she has to redeem. What is accurate under current Colorado law?",
+     "choices": [
+      "She has 75 days after the sale to redeem",
+      "She has no right to redeem after the sale",
+      "She may redeem until the confirmation deed is recorded",
+      "She has 8 business days to file a notice of intent to redeem"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The owner has no post-sale right of redemption in Colorado. Redemption belongs to junior lienors whose liens were recorded before the notice of election and demand, and they file notice within 8 business days."
+    },
+    {
+     "id": "f4-028",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "In a typical Colorado foreclosure of a home loan, who serves as trustee under the deed of trust?",
+     "choices": [
+      "A private trust company chosen by the lender",
+      "The county sheriff",
+      "The county public trustee",
+      "The lender's attorney"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "In Colorado, the trustee under a deed of trust is a government official, the county public trustee, who conducts most foreclosures as non-judicial sales. Sheriff's sales occur only in the less common court foreclosures."
+    },
+    {
+     "id": "f4-029",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A foreclosure consultant agrees to negotiate a forbearance for a homeowner. Under the Colorado Foreclosure Protection Act, when may the consultant collect a fee?",
+     "choices": [
+      "When the homeowner signs the written contract",
+      "After fully performing every promised service",
+      "After securing the fee with a lien on the home",
+      "Once the lender acknowledges receiving the request"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A foreclosure consultant may not collect any fee until every promised service has been fully performed, and may not take a lien or wage assignment to secure the fee."
+    },
+    {
+     "id": "f4-030",
+     "section": "state",
+     "topic": "Colorado special topics",
+     "stem": "A licensed broker lists for sale the home of an owner who is behind on the mortgage and facing foreclosure. Is the broker a foreclosure consultant under the CFPA?",
+     "choices": [
+      "Yes, because the owner's loan is delinquent",
+      "Yes, unless the broker charges no commission",
+      "No, as long as the broker acts within the license",
+      "No, but only if the sale is a short sale"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A licensed real estate broker acting within the license, such as by listing the home for sale, is excluded from the definition of a foreclosure consultant."
     }
    ]
   }
