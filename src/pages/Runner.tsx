@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
-import type { Bank } from "../lib/types";
-import { finishSession, isCorrect, type Session } from "../lib/session";
-import { confirmAction } from "../lib/storage";
+import type { Bank, Lesson } from "../lib/types";
+import { finishSession, isCorrect, serializeRun, type RunState, type Session } from "../lib/session";
+import { confirmAction, saveSessionState } from "../lib/storage";
 import { logActivity } from "../lib/planner";
 import { LETTERS, formatClock } from "../lib/util";
 
@@ -10,31 +10,59 @@ interface Props {
   api: AppApi;
   session: Session;
   bank: Bank | undefined;
+  /** Present when resuming a saved session. */
+  initial?: RunState;
 }
 
-export default function Runner({ api, session, bank }: Props) {
+export const metaKey = (bankId: string, qid: string) => `${bankId}/${qid}`;
+
+export default function Runner({ api, session, bank, initial }: Props) {
   const isExam = session.mode === "exam";
   const items = session.items;
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, number[]>>({});
-  const [flags, setFlags] = useState<Record<string, boolean>>({});
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const blocks = session.blocks?.length ? session.blocks : [{ start: 0, end: items.length, timeLimitSec: session.timeLimitSec }];
+  const qmeta = api.progress.qmeta ?? {};
+
+  const [index, setIndex] = useState(initial?.index ?? 0);
+  const [answers, setAnswers] = useState<Record<string, number[]>>(initial?.answers ?? {});
+  // Flags persist across sessions: start from the saved ones for these questions.
+  const [flags, setFlags] = useState<Record<string, boolean>>(
+    () =>
+      initial?.flags ??
+      Object.fromEntries(items.filter((it) => qmeta[metaKey(session.bankId, it.q.id)]?.flag).map((it) => [it.q.id, true])),
+  );
+  const [checked, setChecked] = useState<Record<string, boolean>>(initial?.checked ?? {});
+  const [blockIdx, setBlockIdx] = useState(initial?.blockIdx ?? 0);
+  const [blockUsed, setBlockUsed] = useState<number[]>(initial?.blockUsed ?? blocks.map(() => 0));
   const [now, setNow] = useState(Date.now());
+  const [noteOpen, setNoteOpen] = useState(false);
+  // The clock only runs while this screen is open; time away isn't counted.
+  const activeSince = useRef(Date.now());
   const finishing = useRef(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const block = blocks[blockIdx];
   const item = items[index];
   const q = item.q;
   const chosen = answers[q.id] ?? [];
   const multi = q.answer.length > 1;
   const isChecked = !isExam && !!checked[q.id];
   const answeredCount = items.filter((it) => (answers[it.q.id] ?? []).length > 0).length;
-  const flaggedCount = Object.values(flags).filter(Boolean).length;
+  const inBlock = (i: number) => i >= block.start && i < block.end;
+  const blockItems = items.slice(block.start, block.end);
+  const blockAnswered = blockItems.filter((it) => (answers[it.q.id] ?? []).length > 0).length;
+  const blockFlagged = blockItems.filter((it) => flags[it.q.id]).length;
+  const lastBlock = blockIdx === blocks.length - 1;
 
-  const remaining = session.timeLimitSec
-    ? session.timeLimitSec - Math.floor((now - session.startedAt) / 1000)
-    : undefined;
-  const elapsed = Math.floor((now - session.startedAt) / 1000);
+  const usedNow = Math.max(0, (now - activeSince.current) / 1000);
+  const blockElapsed = Math.floor((blockUsed[blockIdx] ?? 0) + usedNow);
+  const remaining = block.timeLimitSec !== undefined ? block.timeLimitSec - blockElapsed : undefined;
+  const totalUsed = () =>
+    Math.round(blockUsed.reduce((s, x) => s + x, 0) + Math.max(0, (Date.now() - activeSince.current) / 1000));
+
+  // Lessons covering this question's topic, for "review this" links.
+  const course = bank?.courseId ? api.courses.find((c) => c.id === bank.courseId) : undefined;
+  const relatedLessons = (topic: string): Lesson[] =>
+    course ? course.lessons.filter((l) => l.topics?.includes(topic)).slice(0, 3) : [];
 
   useEffect(() => {
     const t = window.setInterval(() => setNow(Date.now()), 500);
@@ -43,29 +71,81 @@ export default function Runner({ api, session, bank }: Props) {
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
+    setNoteOpen(!!qmeta[metaKey(session.bankId, q.id)]?.note);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
 
+  // ---- Autosave -----------------------------------------------------------
+  const snapshot = useCallback((): RunState => {
+    const used = blockUsed.slice();
+    used[blockIdx] = (used[blockIdx] ?? 0) + Math.max(0, (Date.now() - activeSince.current) / 1000);
+    return { index, answers, flags, checked, blockIdx, blockUsed: used };
+  }, [index, answers, flags, checked, blockIdx, blockUsed]);
+
+  const save = useCallback(() => {
+    if (finishing.current) return;
+    saveSessionState(serializeRun(session, snapshot())).catch(() => {});
+  }, [session, snapshot]);
+
+  // Save on every change, and every 15 seconds so the clock is kept.
+  useEffect(() => {
+    save();
+  }, [save]);
+  useEffect(() => {
+    const t = window.setInterval(save, 15000);
+    return () => window.clearInterval(t);
+  }, [save]);
+  const saveRef = useRef(save);
+  saveRef.current = save;
+  useEffect(() => () => saveRef.current(), []);
+
+  // ---- Finishing ----------------------------------------------------------
   const finish = useCallback(async () => {
     if (finishing.current) return;
     finishing.current = true;
-    const { attempt, progress } = finishSession(session, answers, flags, api.progress, bank);
-    if (attempt.total === 0) {
+    await saveSessionState(null).catch(() => {});
+    const used = totalUsed();
+    const preview = finishSession(session, answers, flags, api.progress, bank, used);
+    if (preview.attempt.total === 0) {
       api.toast("Session ended. No questions were answered, so nothing was recorded.");
       api.go({ name: "bank", bankId: session.bankId });
       return;
     }
-    await api.setProgress(logActivity(progress, "questions", attempt.answered));
-    api.go({ name: "results", attemptId: attempt.id, back: { name: "bank", bankId: session.bankId } });
-  }, [session, answers, flags, api, bank]);
+    // Apply against the latest progress so flag/note writes made during the session aren't lost.
+    await api.updateProgress((p) => {
+      const { attempt, progress } = finishSession(session, answers, flags, p, bank, used);
+      return logActivity(progress, "questions", attempt.answered);
+    });
+    api.go({ name: "results", attemptId: preview.attempt.id, back: { name: "bank", bankId: session.bankId } });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session, answers, flags, api, bank, blockUsed, blockIdx]);
 
-  // Time's up: submit automatically.
+  const nextBlock = useCallback(() => {
+    if (lastBlock) return finish();
+    setBlockUsed((u) => {
+      const next = u.slice();
+      next[blockIdx] = (next[blockIdx] ?? 0) + Math.max(0, (Date.now() - activeSince.current) / 1000);
+      return next;
+    });
+    activeSince.current = Date.now();
+    setBlockIdx(blockIdx + 1);
+    setIndex(blocks[blockIdx + 1].start);
+  }, [lastBlock, finish, blockIdx, blocks]);
+
+  // Time's up for this block: move on, or submit if it was the last one.
   useEffect(() => {
-    if (remaining !== undefined && remaining <= 0) {
-      api.toast("Time's up. Your exam was submitted.");
-      finish();
+    if (remaining !== undefined && remaining <= 0 && !finishing.current) {
+      if (lastBlock) {
+        api.toast("Time's up. Your exam was submitted.");
+        finish();
+      } else {
+        api.toast(`Time's up for ${block.name ?? "this section"}. On to ${blocks[blockIdx + 1].name ?? "the next section"}.`);
+        nextBlock();
+      }
     }
-  }, [remaining, finish, api]);
+  }, [remaining, lastBlock, finish, nextBlock, api, block, blocks, blockIdx]);
 
+  // ---- Answering ----------------------------------------------------------
   const choose = useCallback(
     (original: number) => {
       if (isChecked) return;
@@ -80,20 +160,41 @@ export default function Runner({ api, session, bank }: Props) {
     [q.id, multi, isChecked, isExam],
   );
 
-  const go = useCallback((i: number) => setIndex(Math.max(0, Math.min(items.length - 1, i))), [items.length]);
+  const go = useCallback(
+    (i: number) => setIndex(Math.max(block.start, Math.min(block.end - 1, i))),
+    [block.start, block.end],
+  );
 
   const check = useCallback(() => {
     if (!chosen.length) return;
     setChecked((c) => ({ ...c, [q.id]: true }));
   }, [chosen.length, q.id]);
 
-  async function submitExam() {
-    const unanswered = items.length - answeredCount;
+  const toggleFlag = useCallback(() => {
+    const on = !flags[q.id];
+    setFlags((f) => ({ ...f, [q.id]: on }));
+    const key = metaKey(session.bankId, q.id);
+    api.updateProgress((p) => ({ ...p, qmeta: { ...(p.qmeta ?? {}), [key]: { ...(p.qmeta?.[key] ?? {}), flag: on || undefined } } }));
+  }, [flags, q.id, session.bankId, api]);
+
+  const setNote = (text: string) => {
+    const key = metaKey(session.bankId, q.id);
+    api.updateProgress((p) => ({
+      ...p,
+      qmeta: { ...(p.qmeta ?? {}), [key]: { ...(p.qmeta?.[key] ?? {}), note: text.trim() ? text : undefined } },
+    }));
+  };
+
+  async function submitBlock() {
+    const unanswered = blockItems.length - blockAnswered;
     const parts = [];
     if (unanswered) parts.push(`${unanswered} question${unanswered === 1 ? " is" : "s are"} unanswered and will be marked wrong.`);
-    if (flaggedCount) parts.push(`${flaggedCount} question${flaggedCount === 1 ? " is" : "s are"} flagged for review.`);
-    const ok = await confirmAction([...parts, "Submit your exam now?"].join("\n\n"), "Submit exam");
-    if (ok) finish();
+    if (blockFlagged) parts.push(`${blockFlagged} question${blockFlagged === 1 ? " is" : "s are"} flagged.`);
+    const what = lastBlock
+      ? "Submit your exam now?"
+      : `Finish ${block.name ?? "this section"}? You can't come back to it after you move on.`;
+    const ok = await confirmAction([...parts, what].join("\n\n"), lastBlock ? "Submit exam" : "Finish section");
+    if (ok) nextBlock();
   }
 
   async function endPractice() {
@@ -108,12 +209,10 @@ export default function Runner({ api, session, bank }: Props) {
     finish();
   }
 
-  async function quit() {
-    const ok = await confirmAction(
-      isExam ? "Quit this exam? Your answers won't be saved or scored." : "Quit this practice session without saving it?",
-      "Quit",
-    );
-    if (ok) api.go({ name: "bank", bankId: session.bankId });
+  function saveAndExit() {
+    save();
+    api.toast(isExam ? "Exam saved. Resume it from the banner when you're ready." : "Session saved.");
+    api.go({ name: "bank", bankId: session.bankId });
   }
 
   // Keyboard: letters/numbers pick, arrows move, F flags, Enter checks/advances.
@@ -134,7 +233,7 @@ export default function Runner({ api, session, bank }: Props) {
       } else if (k === "arrowleft") {
         go(index - 1);
       } else if (k === "f") {
-        setFlags((f) => ({ ...f, [q.id]: !f[q.id] }));
+        toggleFlag();
       } else if (k === "enter" && !isExam) {
         e.preventDefault();
         if (!isChecked) check();
@@ -143,41 +242,49 @@ export default function Runner({ api, session, bank }: Props) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [item, index, items.length, choose, go, check, isChecked, isExam, q.id]);
+  }, [item, index, items.length, choose, go, check, isChecked, isExam, toggleFlag]);
 
-  const sectionName = q.section ? bank?.sections.find((s) => s.id === q.section)?.name ?? q.section : undefined;
+  const sectionName = q.section ? (bank?.sections.find((s) => s.id === q.section)?.name ?? q.section) : undefined;
   const clockClass =
     remaining === undefined ? "clock" : remaining <= 60 ? "clock crit" : remaining <= 300 ? "clock warn" : "clock";
   const correctNow = isChecked && isCorrect(q, chosen);
+  const note = qmeta[metaKey(session.bankId, q.id)]?.note ?? "";
+  const lessons = isChecked ? relatedLessons(q.topic) : [];
+  const atBlockEnd = index === block.end - 1;
 
   return (
     <div className="runner">
       <div className="runner-main">
         <div className="runner-bar">
-          <button className="btn ghost sm" onClick={quit}>
-            Quit
+          <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">
+            Save &amp; exit
           </button>
           <div className="title">{session.bankTitle}</div>
           <span className="pill neutral">{isExam ? "Exam" : "Practice"}</span>
+          {blocks.length > 1 && (
+            <span className="small muted">
+              Part {blockIdx + 1} of {blocks.length}: {block.name}
+            </span>
+          )}
           <div className="spacer" />
           <span className="small muted num">
-            {answeredCount}/{items.length} answered
+            {blocks.length > 1 ? `${blockAnswered}/${blockItems.length}` : `${answeredCount}/${items.length}`} answered
           </span>
           <span className={clockClass} aria-label={remaining !== undefined ? "Time remaining" : "Time elapsed"}>
-            {formatClock(remaining ?? elapsed)}
+            {formatClock(remaining ?? blockElapsed)}
           </span>
         </div>
         <div className="progress-line">
-          <i style={{ width: `${((index + 1) / items.length) * 100}%` }} />
+          <i style={{ width: `${((index - block.start + 1) / blockItems.length) * 100}%` }} />
         </div>
 
         <div className="q-scroll" ref={scrollRef}>
           <div className="q-wrap">
             <div className="q-meta">
               <span className="qnum">
-                Question {index + 1} of {items.length}
+                Question {index - block.start + 1} of {blockItems.length}
               </span>
-              {sectionName && <span>{sectionName}</span>}
+              {sectionName && blocks.length === 1 && <span>{sectionName}</span>}
               {!isExam && <span>{q.topic}</span>}
             </div>
             <p className="q-stem">{q.stem}</p>
@@ -232,35 +339,67 @@ export default function Runner({ api, session, bank }: Props) {
                 ) : (
                   <p className="small muted">No explanation for this question.</p>
                 )}
+                {lessons.length > 0 && (
+                  <p className="review-links small">
+                    Review:{" "}
+                    {lessons.map((l, i) => (
+                      <span key={l.id}>
+                        {i > 0 && ", "}
+                        <button
+                          className="linkish"
+                          onClick={() => {
+                            save();
+                            api.go({ name: "lesson", courseId: course!.id, lessonId: l.id });
+                          }}
+                        >
+                          {l.title}
+                        </button>
+                      </span>
+                    ))}
+                  </p>
+                )}
               </div>
+            )}
+
+            {noteOpen && (
+              <label className="field note-field">
+                <span>Your note on this question</span>
+                <textarea
+                  className="textarea"
+                  rows={3}
+                  defaultValue={note}
+                  key={q.id}
+                  placeholder="Saved with the question and shown whenever it comes up again"
+                  onBlur={(e) => setNote(e.target.value)}
+                />
+              </label>
             )}
           </div>
         </div>
 
         <div className="runner-foot">
-          <button className="btn" onClick={() => go(index - 1)} disabled={index === 0}>
+          <button className="btn" onClick={() => go(index - 1)} disabled={index === block.start}>
             Previous
           </button>
-          <button
-            className="btn flag-btn"
-            aria-pressed={!!flags[q.id]}
-            onClick={() => setFlags((f) => ({ ...f, [q.id]: !f[q.id] }))}
-          >
-            {flags[q.id] ? "Flagged" : "Flag for review"}
+          <button className="btn flag-btn" aria-pressed={!!flags[q.id]} onClick={toggleFlag}>
+            {flags[q.id] ? "Flagged" : "Flag"}
+          </button>
+          <button className="btn ghost" aria-pressed={noteOpen} onClick={() => setNoteOpen((o) => !o)}>
+            {note ? "Note ✎" : "Add note"}
           </button>
           <div className="spacer" />
-          <span className="kbd">Keys: A–{LETTERS[item.order.length - 1]} choose, ← → move, F flag{!isExam && ", Enter check"}</span>
+          <span className="kbd">A–{LETTERS[item.order.length - 1]} choose, ← → move, F flag{!isExam && ", Enter check"}</span>
           {!isExam && !isChecked ? (
             <button className="btn primary" onClick={check} disabled={!chosen.length}>
               Check answer
             </button>
-          ) : index < items.length - 1 ? (
+          ) : !atBlockEnd ? (
             <button className="btn primary" onClick={() => go(index + 1)}>
               Next
             </button>
           ) : isExam ? (
-            <button className="btn primary" onClick={submitExam}>
-              Submit exam
+            <button className="btn primary" onClick={submitBlock}>
+              {lastBlock ? "Submit exam" : "Finish section"}
             </button>
           ) : (
             <button className="btn primary" onClick={finish}>
@@ -272,7 +411,7 @@ export default function Runner({ api, session, bank }: Props) {
 
       <aside className="sheet-side" aria-label="Answer sheet">
         <div className="sheet-head">
-          <h3>Answer sheet</h3>
+          <h3>{blocks.length > 1 ? block.name : "Answer sheet"}</h3>
           <div className="legend">
             {isExam ? (
               <>
@@ -297,9 +436,21 @@ export default function Runner({ api, session, bank }: Props) {
               <i className="fl" /> Flagged
             </span>
           </div>
+          {blocks.length > 1 && (
+            <p className="small muted" style={{ marginTop: 8 }}>
+              {blocks.map((b, i) => (
+                <span key={i} className={i === blockIdx ? "" : "faint"}>
+                  {i > 0 && " → "}
+                  {b.name} {b.timeLimitSec ? `(${Math.round(b.timeLimitSec / 60)} min)` : ""}
+                  {i < blockIdx && " ✓"}
+                </span>
+              ))}
+            </p>
+          )}
         </div>
         <div className="sheet-grid">
-          {items.map((it, i) => {
+          {blockItems.map((it, k) => {
+            const i = block.start + k;
             const a = answers[it.q.id] ?? [];
             let cls = "cell";
             if (!isExam && checked[it.q.id]) cls += isCorrect(it.q, a) ? " right" : " wrong";
@@ -310,34 +461,35 @@ export default function Runner({ api, session, bank }: Props) {
               <button
                 key={it.q.id}
                 className={cls}
-                onClick={() => go(i)}
-                aria-label={`Question ${i + 1}${a.length ? ", answered" : ""}${flags[it.q.id] ? ", flagged" : ""}`}
+                onClick={() => inBlock(i) && go(i)}
+                aria-label={`Question ${k + 1}${a.length ? ", answered" : ""}${flags[it.q.id] ? ", flagged" : ""}`}
               >
                 <span className="oval" />
-                <small>{i + 1}</small>
+                <small>{k + 1}</small>
               </button>
             );
           })}
         </div>
         <div className="sheet-foot">
           {isExam ? (
-            <button className="btn primary" onClick={submitExam}>
-              Submit exam
+            <button className="btn primary" onClick={submitBlock}>
+              {lastBlock ? "Submit exam" : `Finish ${block.name ?? "section"}`}
             </button>
           ) : (
             <button className="btn" onClick={endPractice}>
               End session
             </button>
           )}
-          {flaggedCount > 0 && (
+          {blockFlagged > 0 && (
             <button
               className="btn sm ghost"
               onClick={() => {
-                const next = items.findIndex((it, i) => i > index && flags[it.q.id]);
-                go(next >= 0 ? next : items.findIndex((it) => flags[it.q.id]));
+                const rel = blockItems.findIndex((it, k) => block.start + k > index && flags[it.q.id]);
+                const k = rel >= 0 ? rel : blockItems.findIndex((it) => flags[it.q.id]);
+                go(block.start + k);
               }}
             >
-              Next flagged ({flaggedCount})
+              Next flagged ({blockFlagged})
             </button>
           )}
         </div>

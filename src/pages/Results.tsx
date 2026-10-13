@@ -28,6 +28,17 @@ export default function Results({
   const [filter, setFilter] = useState<Filter>(wrong.length ? "wrong" : "all");
 
   const qById = new Map(bank?.questions.map((q) => [q.id, q]) ?? []);
+  const course = bank?.courseId ? api.courses.find((c) => c.id === bank.courseId) : undefined;
+  const [noteFor, setNoteFor] = useState<string | null>(null);
+  const all = api.progress.qmeta ?? {};
+  const meta = Object.fromEntries(attempt.answers.map((a) => [a.qid, all[`${attempt.bankId}/${a.qid}`]]));
+  const setMeta = (qid: string, patch: { flag?: boolean; note?: string }) => {
+    const key = `${attempt.bankId}/${qid}`;
+    api.updateProgress((p) => ({ ...p, qmeta: { ...(p.qmeta ?? {}), [key]: { ...(p.qmeta?.[key] ?? {}), ...patch } } }));
+  };
+  const toggleFlag = (qid: string) => setMeta(qid, { flag: meta[qid]?.flag ? undefined : true });
+  const editNote = (qid: string) => setNoteFor(noteFor === qid ? null : qid);
+  const saveNote = (qid: string, text: string) => setMeta(qid, { note: text.trim() ? text : undefined });
   const shown = (filter === "wrong" ? wrong : filter === "flagged" ? flagged : attempt.answers).map((a) => ({
     rec: a,
     q: qById.get(a.qid),
@@ -141,6 +152,7 @@ export default function Results({
                 {rec.flagged && <span className="pill neutral">Flagged</span>}
               </div>
               <p className="q-stem">{q.stem}</p>
+              {meta[q.id]?.note && <p className="note-show">Your note: {meta[q.id]?.note}</p>}
               <ul className="review-choices">
                 {q.choices.map((c, i) => {
                   const picked = rec.chosen.includes(i);
@@ -158,6 +170,41 @@ export default function Results({
                 })}
               </ul>
               {q.explanation && <p className="review-expl">{q.explanation}</p>}
+              <div className="row review-actions">
+                <button className="btn sm ghost flag-btn" aria-pressed={!!meta[q.id]?.flag} onClick={() => toggleFlag(q.id)}>
+                  {meta[q.id]?.flag ? "Flagged" : "Flag for later"}
+                </button>
+                <button className="btn sm ghost" onClick={() => editNote(q.id)}>
+                  {meta[q.id]?.note ? "Edit note" : "Add note"}
+                </button>
+                {course &&
+                  course.lessons
+                    .filter((l) => l.topics?.includes(q.topic))
+                    .slice(0, 2)
+                    .map((l) => (
+                      <button
+                        key={l.id}
+                        className="btn sm ghost"
+                        onClick={() => api.go({ name: "lesson", courseId: course.id, lessonId: l.id })}
+                      >
+                        Review: {l.title}
+                      </button>
+                    ))}
+              </div>
+              {noteFor === q.id && (
+                <div className="field note-field">
+                  <textarea
+                    className="textarea"
+                    rows={3}
+                    autoFocus
+                    defaultValue={meta[q.id]?.note ?? ""}
+                    onBlur={(e) => {
+                      saveNote(q.id, e.target.value);
+                      setNoteFor(null);
+                    }}
+                  />
+                </div>
+              )}
             </article>
           ) : null,
         )}

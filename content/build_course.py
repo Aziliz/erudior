@@ -86,6 +86,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
+    "revision": 2,
+    "changelog": "Practice exams now run the national and state portions on separate clocks (120 and 110 minutes), like PSI.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{
@@ -103,6 +105,7 @@ course = {
             "sectionQuotas": {"national": 80, "state": 74},
             # PSI: 60 of 80 national (75%), 53 of 74 state (71.62%).
             "sectionPassing": {"national": 75, "state": 71.6},
+            "sectionTimeLimits": {"national": 120, "state": 110},
         },
         "questions": questions,
     }],

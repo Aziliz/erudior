@@ -3,7 +3,7 @@
 // to the user as estimates.
 
 import type { Course, DayActivity, Lesson, Plan, Progress } from "./types";
-import { cardKey, daysBetween, deckStatus, today } from "./srs";
+import { MISSED_DECK_ID, cardKey, daysBetween, deckStatus, studyDecks, today } from "./srs";
 
 export function emptyDay(): DayActivity {
   return { questions: 0, cards: 0, lessons: 0, drills: 0 };
@@ -77,12 +77,13 @@ export function courseNumbers(course: Course, p: Progress, now = today()): Cours
   let mature = 0;
   let total = 0;
   let due = 0;
-  for (const d of course.decks) {
+  for (const d of studyDecks(course, p)) {
     const s = deckStatus(course, d, p, now);
+    due += s.due;
+    if (d.id === MISSED_DECK_ID) continue; // the missed deck grows as you study; keep it out of "learned"
     learned += s.learned;
     mature += s.mature;
     total += s.total;
-    due += s.due;
   }
   return {
     lessonsDone,

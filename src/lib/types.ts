@@ -30,6 +30,11 @@ export interface ExamConfig {
    * if every listed section meets its own mark, like PSI's two-portion exams.
    */
   sectionPassing?: Record<string, number>;
+  /**
+   * Optional time limit per section id (minutes). With section quotas, the
+   * exam runs one section at a time, each on its own clock, like PSI.
+   */
+  sectionTimeLimits?: Record<string, number>;
 }
 
 export interface Bank {
@@ -172,6 +177,10 @@ export interface Course {
   description?: string;
   author?: string;
   updated?: string;
+  /** Integer that goes up with each published version of the course. */
+  revision?: number;
+  /** What changed in this revision (shown when offering the update). */
+  changelog?: string;
   modules: Module[];
   lessons: Lesson[];
   banks: Bank[];
@@ -229,4 +238,11 @@ export interface Progress {
   activity: Record<string, DayActivity>;
   /** `${courseId}/${drillId}` -> tallies */
   drills: Record<string, { attempts: number; correct: number }>;
+  /** `${bankId}/${questionId}` -> the user's persistent flag and note */
+  qmeta?: Record<string, QuestionMeta>;
+}
+
+export interface QuestionMeta {
+  flag?: boolean;
+  note?: string;
 }

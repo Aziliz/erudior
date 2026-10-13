@@ -5,6 +5,8 @@
  "title": "Colorado Real Estate Broker",
  "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 250-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
  "author": "Examiner",
+ "revision": 2,
+ "changelog": "Practice exams now run the national and state portions on separate clocks (120 and 110 minutes), like PSI.",
  "modules": [
   {
    "id": "m1-property",
@@ -447,6 +449,10 @@
     "sectionPassing": {
      "national": 75,
      "state": 71.6
+    },
+    "sectionTimeLimits": {
+     "national": 120,
+     "state": 110
     }
    },
    "questions": [

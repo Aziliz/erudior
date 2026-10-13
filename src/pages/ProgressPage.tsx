@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { topicStats } from "../lib/session";
 import * as store from "../lib/storage";
+import { inApp } from "../lib/storage";
+import { appVersion, checkForUpdate } from "../lib/updates";
 import { formatDateTime, formatDuration, percent } from "../lib/util";
 import { AccuracyBar, ScorePill } from "../components/Bars";
 
@@ -9,6 +11,29 @@ export default function ProgressPage({ api }: { api: AppApi }) {
   const { progress, banks } = api;
   const [bankFilter, setBankFilter] = useState<string>("");
   const [location, setLocation] = useState("");
+  const [version, setVersion] = useState("");
+  const [updateMsg, setUpdateMsg] = useState("");
+
+  useEffect(() => {
+    appVersion().then(setVersion, () => {});
+  }, []);
+
+  async function checkUpdates() {
+    setUpdateMsg("Checking…");
+    try {
+      const u = await checkForUpdate();
+      setUpdateMsg(
+        u
+          ? `Version ${u.version} is available. See the banner at the top to install it.`
+          : inApp
+            ? "You're on the latest version."
+            : "Update checks only run in the desktop app.",
+      );
+      if (u) api.notifyUpdate(u);
+    } catch {
+      setUpdateMsg("Couldn't reach the update server. Check your connection and try again.");
+    }
+  }
 
   useEffect(() => {
     store.dataLocation().then(setLocation, () => setLocation(""));
@@ -27,6 +52,36 @@ export default function ProgressPage({ api }: { api: AppApi }) {
     .filter((t) => t.attempts >= 3 && t.accuracy !== null && t.accuracy < 1)
     .sort((a, b) => (a.accuracy ?? 0) - (b.accuracy ?? 0))
     .slice(0, 8);
+
+  async function backup() {
+    try {
+      const standalone = banks.filter((b) => !b.courseId);
+      if (await store.exportBackup(api.courses, standalone, progress)) api.toast("Backup saved");
+    } catch (e) {
+      api.toast(`Backup failed: ${String(e)}`);
+    }
+  }
+
+  async function restore() {
+    try {
+      const text = await store.pickJsonFile();
+      if (text === null) return;
+      const raw = JSON.parse(text);
+      if (raw?.format !== "examiner-backup") return api.toast("That file isn't an Examiner backup.");
+      const when = raw.createdAt ? new Date(raw.createdAt).toLocaleString() : "an unknown date";
+      const ok = await store.confirmAction(
+        `Restore the backup from ${when}? This replaces all your courses, question banks and progress on this computer with what's in the backup.`,
+        "Restore backup",
+      );
+      if (!ok) return;
+      const n = await store.restoreBackup(raw, { courses: api.courses, banks: banks.filter((b) => !b.courseId) });
+      await api.reload();
+      await api.setProgress(await store.loadProgress());
+      api.toast(`Restored ${n.courses} course${n.courses === 1 ? "" : "s"} and ${n.banks} bank${n.banks === 1 ? "" : "s"}`);
+    } catch (e) {
+      api.toast(`Restore failed: ${(e as Error).message ?? String(e)}`);
+    }
+  }
 
   async function reset() {
     const scope = bankFilter ? banks.find((b) => b.id === bankFilter)?.title : "all banks";
@@ -164,8 +219,32 @@ export default function ProgressPage({ api }: { api: AppApi }) {
         )}
       </section>
 
+      <section className="panel" style={{ marginTop: 16 }}>
+        <div className="panel-head">
+          <h2>Backup</h2>
+        </div>
+        <p className="muted small" style={{ marginBottom: 12, maxWidth: "64ch" }}>
+          Save all your courses, question banks, notes, flags, card schedules and history to one file. Restore it on
+          another computer, or after reinstalling.
+        </p>
+        <div className="row">
+          <button className="btn primary" onClick={backup}>
+            Back up now
+          </button>
+          <button className="btn" onClick={restore}>
+            Restore from backup
+          </button>
+        </div>
+      </section>
+
       <div className="row" style={{ marginTop: 24, justifyContent: "space-between" }}>
-        <span className="faint small">Data is stored in {location}</span>
+        <span className="faint small">
+          Examiner {version}. Data is stored in {location}.{" "}
+          <button className="linkish" onClick={checkUpdates}>
+            Check for updates
+          </button>{" "}
+          {updateMsg}
+        </span>
         <button className="btn danger ghost sm" onClick={reset} disabled={!attempts.length && !Object.keys(progress.stats).length}>
           Erase progress{bankFilter ? " for this bank" : ""}
         </button>

@@ -129,3 +129,43 @@ export function cramQueue(course: Course, decks: Deck[], topics: string[] = []):
         items.push({ key: cardKey(course.id, deck.id, card.id), deck, card });
   return shuffle(items);
 }
+
+// ---------------------------------------------------------------------------
+// The "Missed questions" deck: built at runtime from questions you've gotten
+// wrong in this course's banks, so they come back on a spaced schedule.
+
+export const MISSED_DECK_ID = "missed";
+
+export function missedDeck(course: Course, progress: Progress): Deck | null {
+  const cards: Card[] = [];
+  for (const bank of course.banks) {
+    const stats = progress.stats[bank.id] ?? {};
+    const local = bank.id.slice(course.id.length + 2) || bank.id;
+    for (const q of bank.questions) {
+      const s = stats[q.id];
+      if (!s || s.correct >= s.seen) continue; // never missed
+      const letters = "ABCDEFGH";
+      const front = `${q.stem}\n\n${q.choices.map((c, i) => `${letters[i]}. ${c}`).join("  \n")}`;
+      const right = q.answer.map((i) => `**${letters[i]}. ${q.choices[i]}**`).join("  \n");
+      cards.push({
+        id: `${local}--${q.id}`,
+        front,
+        back: q.explanation ? `${right}\n\n${q.explanation}` : right,
+        topic: q.topic,
+      });
+    }
+  }
+  if (!cards.length) return null;
+  return {
+    id: MISSED_DECK_ID,
+    title: "Missed questions",
+    description: "Built automatically from questions you've answered wrong",
+    cards,
+  };
+}
+
+/** The course's own decks plus the automatic missed-questions deck. */
+export function studyDecks(course: Course, progress: Progress): Deck[] {
+  const m = missedDeck(course, progress);
+  return m ? [...course.decks, m] : course.decks;
+}

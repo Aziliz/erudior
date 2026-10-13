@@ -154,6 +154,58 @@ async function exportText(content: string, name: string, label: string): Promise
   return true;
 }
 
+export interface Backup {
+  format: "examiner-backup";
+  version: 1;
+  createdAt: string;
+  progress: Progress;
+  courses: unknown[];
+  banks: unknown[];
+}
+
+/** Save everything (courses, banks, progress) to one file the user picks. */
+export async function exportBackup(courses: Course[], banks: Bank[], progress: Progress): Promise<boolean> {
+  const backup: Backup = {
+    format: "examiner-backup",
+    version: 1,
+    createdAt: new Date().toISOString(),
+    progress,
+    courses: courses.map((c) => JSON.parse(serializeCourse(c))),
+    banks: banks.map((b) => JSON.parse(serializeBank(b))),
+  };
+  const day = new Date().toISOString().slice(0, 10);
+  return exportText(JSON.stringify(backup), `examiner-backup-${day}.json`, "Examiner backup");
+}
+
+/** Replace all stored data with a backup. Returns counts restored. */
+export async function restoreBackup(
+  raw: unknown,
+  current: { courses: Course[]; banks: Bank[] },
+): Promise<{ courses: number; banks: number }> {
+  const b = raw as Backup;
+  if (!b || b.format !== "examiner-backup" || !b.progress) throw new Error("This isn't an Examiner backup file.");
+  const courses = b.courses.map((c) => normalizeCourse(c));
+  const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
+  for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await deleteCourse(c.id);
+  for (const x of current.banks) if (!banks.some((y) => y.id === x.id)) await deleteBank(x.id);
+  for (const c of courses) await saveCourse(c);
+  for (const x of banks) await saveBank(x);
+  await saveProgress({ ...emptyProgress(), ...b.progress, seeded: true });
+  return { courses: courses.length, banks: banks.length };
+}
+
+/** The in-progress session (exam or practice), or null. */
+export async function loadSessionState(): Promise<string | null> {
+  if (inApp) return invoke<string | null>("load_state", { name: "session" });
+  return localStorage.getItem("examiner.session");
+}
+
+export async function saveSessionState(content: string | null): Promise<void> {
+  if (inApp) return invoke("save_state", { name: "session", content });
+  if (content === null) localStorage.removeItem("examiner.session");
+  else localStorage.setItem("examiner.session", content);
+}
+
 export async function confirmAction(message: string, title = "Examiner"): Promise<boolean> {
   if (inApp) {
     const { ask } = await import("@tauri-apps/plugin-dialog");

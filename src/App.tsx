@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Bank, Course, Progress } from "./lib/types";
-import type { Session } from "./lib/session";
+import { restoreRun, runSummary, type Resumable, type RunState, type Session } from "./lib/session";
+import { formatClock } from "./lib/util";
 import * as store from "./lib/storage";
 import { normalizeCourse, withBank } from "./lib/course";
+import { studyDecks } from "./lib/srs";
 
 const BUNDLED_COURSE_ID = "colorado-broker";
 import Library from "./pages/Library";
@@ -18,6 +20,8 @@ import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
 import RefView from "./pages/RefView";
 import CourseEditor from "./pages/CourseEditor";
+import SearchPage from "./pages/SearchPage";
+import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
 
 export type View =
@@ -25,7 +29,7 @@ export type View =
   | { name: "progress" }
   | { name: "bank"; bankId: string }
   | { name: "editor"; bankId: string; isNew?: boolean }
-  | { name: "run"; session: Session }
+  | { name: "run"; session: Session; initial?: RunState }
   | { name: "results"; attemptId: string; back: View }
   | { name: "course"; courseId: string; tab?: CourseTab }
   | { name: "courseEdit"; courseId: string; isNew?: boolean }
@@ -33,7 +37,8 @@ export type View =
   | { name: "cards"; courseId: string; deckIds: string[]; mode: "review" | "cram"; topics?: string[] }
   | { name: "deckEdit"; courseId: string; deckId: string }
   | { name: "drill"; courseId: string; drillIds: string[]; count: number }
-  | { name: "ref"; courseId: string; refId: string };
+  | { name: "ref"; courseId: string; refId: string }
+  | { name: "search"; q: string };
 
 export interface AppApi {
   banks: Bank[];
@@ -49,6 +54,8 @@ export interface AppApi {
   saveBank: (bank: Bank) => Promise<void>;
   deleteBank: (bank: Bank) => Promise<void>;
   saveCourse: (course: Course) => Promise<void>;
+  /** Show the app-update banner for an update found elsewhere (e.g. a manual check). */
+  notifyUpdate: (u: AvailableUpdate) => void;
   /** Go back from a bank: to its course if it has one, else the library. */
   bankBack: (bank: Bank) => View;
 }
@@ -77,6 +84,23 @@ export default function App() {
   const [theme, setTheme] = useState<Theme>(readTheme);
   const toastTimer = useRef<number>(undefined);
   const mainRef = useRef<HTMLElement>(null);
+  const [resumable, setResumable] = useState<Resumable | null>(null);
+  const [courseUpdate, setCourseUpdate] = useState<Course | null>(null);
+  const [appUpdate, setAppUpdate] = useState<AvailableUpdate | null>(null);
+  const [installing, setInstalling] = useState<number | null | false>(false);
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  // Ctrl/Cmd+K jumps to search.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -131,7 +155,17 @@ export default function App() {
         progressRef.current = p;
         setProgressState(p);
         await reload();
+        // Offer a newer bundled course to installs that have an older revision.
+        const [{ default: bundledRaw }, { courses: installed }] = await Promise.all([
+          import("../samples/colorado-broker-course.json"),
+          store.listCourses(),
+        ]);
+        const bundled = normalizeCourse(bundledRaw);
+        const mine = installed.find((c) => c.id === bundled.id);
+        if (mine && (bundled.revision ?? 0) > (mine.revision ?? 0)) setCourseUpdate(bundled);
         setReady(true);
+        // Quietly look for a new version of the app; offline is fine.
+        checkForUpdate().then(setAppUpdate, () => {});
       } catch (e) {
         setLoadError(String(e));
       }
@@ -139,6 +173,17 @@ export default function App() {
   }, [reload]);
 
   const allBanks = [...courses.flatMap((c) => c.banks), ...standalone];
+
+  // Look for an unfinished session whenever we're not inside one.
+  const banksKey = allBanks.map((b) => b.id + b.questions.length).join();
+  useEffect(() => {
+    if (!ready || view.name === "run") return;
+    store
+      .loadSessionState()
+      .then((text) => setResumable(text ? restoreRun(text, allBanks) : null))
+      .catch(() => setResumable(null));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, view, banksKey]);
 
   const saveCourse = useCallback(
     async (course: Course) => {
@@ -152,7 +197,26 @@ export default function App() {
     banks: allBanks,
     courses,
     progress,
-    go: setView,
+    go: (v) => {
+      // Starting a new session replaces the saved one, so ask first.
+      if (v.name === "run" && !v.initial && resumable) {
+        const s = runSummary(resumable);
+        const what = resumable.session.mode === "exam" ? "exam" : "practice session";
+        store
+          .confirmAction(
+            `You have an unfinished ${what} in ${resumable.session.bankTitle} (${s.answered} of ${s.total} answered). Starting a new one discards it. Continue?`,
+            "Start new session",
+          )
+          .then(async (ok) => {
+            if (!ok) return;
+            await store.saveSessionState(null);
+            setResumable(null);
+            setView(v);
+          });
+        return;
+      }
+      setView(v);
+    },
     toast,
     reload,
     setProgress,
@@ -177,6 +241,7 @@ export default function App() {
         await reload();
       }
     },
+    notifyUpdate: setAppUpdate,
     bankBack: (bank) =>
       bank.courseId ? { name: "course", courseId: bank.courseId, tab: "banks" } : { name: "library" },
   };
@@ -217,7 +282,15 @@ export default function App() {
       break;
     }
     case "run":
-      body = <Runner api={api} session={view.session} bank={bankFor(view.session.bankId)} />;
+      body = (
+        <Runner
+          key={view.session.id}
+          api={api}
+          session={view.session}
+          bank={bankFor(view.session.bankId)}
+          initial={view.initial}
+        />
+      );
       fullScreen = true;
       break;
     case "results": {
@@ -249,7 +322,7 @@ export default function App() {
           <CardsRunner
             api={api}
             course={c}
-            decks={c.decks.filter((d) => view.deckIds.includes(d.id))}
+            decks={studyDecks(c, progress).filter((d) => view.deckIds.includes(d.id))}
             mode={view.mode}
             topics={view.topics}
           />
@@ -278,6 +351,9 @@ export default function App() {
       fullScreen = true;
       break;
     }
+    case "search":
+      body = <SearchPage key={view.q} api={api} initial={view.q} />;
+      break;
     case "ref": {
       const c = courseFor(view.courseId);
       const r = c?.references.find((x) => x.id === view.refId);
@@ -311,6 +387,25 @@ export default function App() {
             </button>
           </nav>
           <div className="spacer" />
+          <form
+            className="top-search"
+            role="search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const q = searchRef.current?.value.trim() ?? "";
+              api.go({ name: "search", q });
+            }}
+          >
+            <input
+              ref={searchRef}
+              className="input"
+              type="search"
+              placeholder="Search (Ctrl+K)"
+              aria-label="Search everything"
+              defaultValue={view.name === "search" ? view.q : ""}
+              key={view.name === "search" ? "s" : "x"}
+            />
+          </form>
           <label className="small muted row" style={{ gap: 6 }}>
             Theme
             <select
@@ -327,6 +422,92 @@ export default function App() {
         </header>
       )}
       <main className="main" ref={mainRef}>
+        {!fullScreen && appUpdate && (
+          <div className="resume-banner update-banner" role="region" aria-label="App update">
+            <div>
+              <b>Examiner {appUpdate.version} is available</b>
+              <span className="small muted">
+                {installing !== false
+                  ? `Downloading${installing !== null ? ` (${installing}%)` : ""}… Examiner restarts when it's done.`
+                  : appUpdate.canInstall
+                    ? "Install it now; your courses and progress are kept."
+                    : "Download the new .deb or .rpm from the release page and install it over this one. Your data is kept."}
+              </span>
+            </div>
+            {installing === false && (
+              <div className="row">
+                <button className="btn sm ghost" onClick={() => setAppUpdate(null)}>
+                  Later
+                </button>
+                {appUpdate.canInstall ? (
+                  <button
+                    className="btn sm primary"
+                    onClick={async () => {
+                      setInstalling(null);
+                      try {
+                        await appUpdate.install((pct) => setInstalling(pct));
+                      } catch (e) {
+                        setInstalling(false);
+                        toast(`Update failed: ${String(e)}`);
+                      }
+                    }}
+                  >
+                    Install and restart
+                  </button>
+                ) : (
+                  <button className="btn sm primary" onClick={() => openReleasesPage().catch(() => toast("Couldn't open the browser."))}>
+                    Open download page
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+        {!fullScreen && courseUpdate && (view.name === "library" || (view.name === "course" && view.courseId === courseUpdate.id)) && (
+          <div className="resume-banner update-banner" role="region" aria-label="Course update">
+            <div>
+              <b>An updated version of “{courseUpdate.title}” is available</b>
+              <span className="small muted">
+                {courseUpdate.changelog ?? "Corrections and new material."} Your progress, notes and card schedules are kept;
+                any edits you made to this course's content are replaced.
+              </span>
+            </div>
+            <div className="row">
+              <button className="btn sm ghost" onClick={() => setCourseUpdate(null)}>
+                Not now
+              </button>
+              <button
+                className="btn sm primary"
+                onClick={async () => {
+                  await saveCourse(courseUpdate);
+                  setCourseUpdate(null);
+                  toast("Course updated");
+                }}
+              >
+                Update course
+              </button>
+            </div>
+          </div>
+        )}
+        {!fullScreen && resumable && (
+          <ResumeBanner
+            r={resumable}
+            onResume={() => api.go({ name: "run", session: resumable.session, initial: resumable.state })}
+            onDiscard={async () => {
+              const s = runSummary(resumable);
+              const what = resumable.session.mode === "exam" ? "exam" : "practice session";
+              if (
+                await store.confirmAction(
+                  `Discard your unfinished ${what} (${s.answered} of ${s.total} answered)? It won't be scored or saved.`,
+                  "Discard",
+                )
+              ) {
+                await store.saveSessionState(null);
+                setResumable(null);
+              }
+            }}
+          />
+        )}
         {body}
       </main>
       {toastMsg && (
@@ -334,6 +515,33 @@ export default function App() {
           {toastMsg}
         </div>
       )}
+    </div>
+  );
+}
+
+function ResumeBanner({ r, onResume, onDiscard }: { r: Resumable; onResume: () => void; onDiscard: () => void }) {
+  const s = runSummary(r);
+  const isExam = r.session.mode === "exam";
+  return (
+    <div className="resume-banner" role="region" aria-label="Unfinished session">
+      <div>
+        <b>
+          Unfinished {isExam ? "exam" : "practice"}: {r.session.bankTitle}
+        </b>
+        <span className="small muted">
+          {s.answered} of {s.total} answered
+          {s.blockName ? `, in ${s.blockName}` : ""}
+          {s.left !== undefined ? `, ${formatClock(Math.max(0, s.left))} left on the clock` : ""}
+        </span>
+      </div>
+      <div className="row">
+        <button className="btn sm ghost" onClick={onDiscard}>
+          Discard
+        </button>
+        <button className="btn sm primary" onClick={onResume}>
+          Resume
+        </button>
+      </div>
     </div>
   );
 }

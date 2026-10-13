@@ -19,6 +19,7 @@ const FILTERS: { id: PracticeFilter; label: string }[] = [
   { id: "unseen", label: "Not yet seen" },
   { id: "missed", label: "Last missed" },
   { id: "weak", label: "Under 70%" },
+  { id: "flagged", label: "Flagged" },
 ];
 
 export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
@@ -28,6 +29,11 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   // Exam settings start from the bank's defaults but can be changed per run.
   const [examCount, setExamCount] = useState(Math.min(bank.exam.questionCount, total));
   const [examMinutes, setExamMinutes] = useState(bank.exam.timeLimitMinutes);
+  const splitSections = bank.exam.sectionTimeLimits
+    ? bank.sections.filter((s) => bank.exam.sectionQuotas?.[s.id] && bank.exam.sectionTimeLimits?.[s.id])
+    : [];
+  const isSplit = splitSections.length > 1;
+  const [sectionMinutes, setSectionMinutes] = useState<Record<string, number>>(bank.exam.sectionTimeLimits ?? {});
   const [shuffleChoices, setShuffleChoices] = useState(true);
 
   const topics = useMemo(() => [...new Set(bank.questions.map((q) => q.topic))].sort(), [bank]);
@@ -132,17 +138,35 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
             {bank.exam.sectionQuotas && " Sections are kept in separate blocks, like the real exam."}
           </p>
           <div className="form-grid">
-            <label className="field">
-              <span>Questions</span>
-              <input
-                className="input num"
-                type="number"
-                min={1}
-                max={total}
-                value={examCount}
-                onChange={(e) => setExamCount(Math.max(1, Math.min(total, Number(e.target.value) || 1)))}
-              />
-            </label>
+            {isSplit ? (
+              splitSections.map((s) => (
+                <label key={s.id} className="field">
+                  <span>
+                    {s.name}: {bank.exam.sectionQuotas![s.id]} questions, minutes
+                  </span>
+                  <input
+                    className="input num"
+                    type="number"
+                    min={1}
+                    value={sectionMinutes[s.id] ?? ""}
+                    onChange={(e) => setSectionMinutes({ ...sectionMinutes, [s.id]: Math.max(1, Number(e.target.value) || 1) })}
+                  />
+                </label>
+              ))
+            ) : (
+              <label className="field">
+                <span>Questions</span>
+                <input
+                  className="input num"
+                  type="number"
+                  min={1}
+                  max={total}
+                  value={examCount}
+                  onChange={(e) => setExamCount(Math.max(1, Math.min(total, Number(e.target.value) || 1)))}
+                />
+              </label>
+            )}
+            {!isSplit && (
             <label className="field">
               <span>Time limit (minutes)</span>
               <input
@@ -153,7 +177,13 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                 onChange={(e) => setExamMinutes(Math.max(1, Number(e.target.value) || 1))}
               />
             </label>
+            )}
           </div>
+          {isSplit && (
+            <p className="small muted" style={{ marginBottom: 8 }}>
+              Sections run one after the other, each on its own clock. Once you finish a section you can't go back to it.
+            </p>
+          )}
           <p className="small muted" style={{ marginBottom: 16 }}>
             {bank.exam.sectionPassing && bank.sections.some((s) => bank.exam.sectionPassing?.[s.id])
               ? `Each section is scored on its own: ${bank.sections
@@ -168,7 +198,17 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
             onClick={() =>
               api.go({
                 name: "run",
-                session: startExam(bank, { count: examCount, minutes: examMinutes, shuffleChoices }),
+                session: startExam(
+                  bank,
+                  isSplit
+                    ? {
+                        count: bank.exam.questionCount,
+                        minutes: Object.values(sectionMinutes).reduce((a, b) => a + b, 0),
+                        sectionMinutes,
+                        shuffleChoices,
+                      }
+                    : { count: examCount, minutes: examMinutes, shuffleChoices },
+                ),
               })
             }
           >

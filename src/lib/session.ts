@@ -7,24 +7,35 @@ export interface SessionItem {
   order: number[];
 }
 
+/** A timed stretch of the session. Exams with split timers have one per section. */
+export interface Block {
+  name?: string;
+  start: number; // first item index
+  end: number; // one past the last item index
+  timeLimitSec?: number;
+}
+
 export interface Session {
   id: string;
   bankId: string;
   bankTitle: string;
   mode: Mode;
   items: SessionItem[];
+  blocks: Block[];
   startedAt: number;
   timeLimitSec?: number;
   passingPercent?: number;
   sectionPassing?: Record<string, number>;
 }
 
-export type PracticeFilter = "all" | "missed" | "unseen" | "weak";
+export type PracticeFilter = "all" | "missed" | "unseen" | "weak" | "flagged";
 
 export interface ExamOptions {
   count: number;
   minutes: number;
   shuffleChoices: boolean;
+  /** Section id -> minutes. When given for every quota section, each section gets its own clock. */
+  sectionMinutes?: Record<string, number>;
 }
 
 export interface PracticeOptions {
@@ -70,15 +81,48 @@ export function drawExamQuestions(bank: Bank, count: number): Question[] {
   return shuffle(picked);
 }
 
+/** One block per quota section when every drawn question belongs to a timed section. */
+function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[] {
+  const quotas = Object.keys(bank.exam.sectionQuotas ?? {});
+  const mins = opts.sectionMinutes;
+  const split =
+    mins && quotas.length > 1 && quotas.every((s) => mins[s] > 0) && items.every((it) => quotas.includes(it.q.section ?? ""));
+  if (!split) return [{ start: 0, end: items.length, timeLimitSec: Math.round(opts.minutes * 60) }];
+  const blocks: Block[] = [];
+  for (const sid of quotas) {
+    const start = items.findIndex((it) => it.q.section === sid);
+    if (start === -1) continue;
+    let end = start;
+    while (end < items.length && items[end].q.section === sid) end++;
+    blocks.push({
+      name: bank.sections.find((s) => s.id === sid)?.name ?? sid,
+      start,
+      end,
+      timeLimitSec: Math.round(mins![sid] * 60),
+    });
+  }
+  return blocks;
+}
+
+/** The bank's default exam settings, including split timers when it has them. */
+export function defaultExamOptions(bank: Bank): ExamOptions {
+  const split = bank.exam.sectionTimeLimits;
+  const minutes = split ? Object.values(split).reduce((a, b) => a + b, 0) : bank.exam.timeLimitMinutes;
+  return { count: bank.exam.questionCount, minutes, shuffleChoices: true, sectionMinutes: split };
+}
+
 export function startExam(bank: Bank, opts: ExamOptions): Session {
+  const items = makeItems(drawExamQuestions(bank, opts.count), opts.shuffleChoices);
+  const blocks = examBlocks(bank, items, opts);
   return {
     id: uid("s"),
     bankId: bank.id,
     bankTitle: bank.title,
     mode: "exam",
-    items: makeItems(drawExamQuestions(bank, opts.count), opts.shuffleChoices),
+    items,
+    blocks,
     startedAt: Date.now(),
-    timeLimitSec: Math.round(opts.minutes * 60),
+    timeLimitSec: blocks.reduce((s, b) => s + (b.timeLimitSec ?? 0), 0),
     passingPercent: bank.exam.passingPercent,
     sectionPassing: bank.exam.sectionPassing
       ? Object.fromEntries(
@@ -121,6 +165,8 @@ export function practicePool(bank: Bank, progress: Progress, opts: Omit<Practice
         return !s;
       case "weak":
         return !!s && s.correct / s.seen < 0.7;
+      case "flagged":
+        return !!progress.qmeta?.[`${bank.id}/${q.id}`]?.flag;
       default:
         return true;
     }
@@ -129,12 +175,14 @@ export function practicePool(bank: Bank, progress: Progress, opts: Omit<Practice
 
 export function startPractice(bank: Bank, progress: Progress, opts: PracticeOptions): Session {
   const pool = shuffle(practicePool(bank, progress, opts));
+  const items = makeItems(pool.slice(0, Math.max(1, opts.count)), opts.shuffleChoices);
   return {
     id: uid("s"),
     bankId: bank.id,
     bankTitle: bank.title,
     mode: "practice",
-    items: makeItems(pool.slice(0, Math.max(1, opts.count)), opts.shuffleChoices),
+    items,
+    blocks: [{ start: 0, end: items.length }],
     startedAt: Date.now(),
   };
 }
@@ -150,6 +198,7 @@ export function finishSession(
   flags: Record<string, boolean>,
   progress: Progress,
   bank: Bank | undefined,
+  usedSec?: number,
 ): { attempt: Attempt; progress: Progress } {
   const now = new Date();
   const byTopic: Record<string, Tally> = {};
@@ -185,7 +234,7 @@ export function finishSession(
     mode: session.mode,
     startedAt: new Date(session.startedAt).toISOString(),
     finishedAt: now.toISOString(),
-    durationSec: Math.round((now.getTime() - session.startedAt) / 1000),
+    durationSec: usedSec ?? Math.round((now.getTime() - session.startedAt) / 1000),
     timeLimitSec: session.timeLimitSec,
     total: items.length,
     answered,
@@ -265,4 +314,68 @@ export function bankCoverage(bank: Bank, progress: Progress) {
     }
   }
   return { seen, missed, total: bank.questions.length };
+}
+
+// ---------------------------------------------------------------------------
+// Saving and resuming an unfinished session
+
+export interface RunState {
+  index: number;
+  answers: Record<string, number[]>;
+  flags: Record<string, boolean>;
+  checked: Record<string, boolean>;
+  blockIdx: number;
+  /** Seconds used in each block so far. */
+  blockUsed: number[];
+}
+
+interface SavedSession {
+  version: 1;
+  savedAt: string;
+  session: Omit<Session, "items"> & { items: { qid: string; order: number[] }[] };
+  state: RunState;
+}
+
+export function serializeRun(session: Session, state: RunState): string {
+  const saved: SavedSession = {
+    version: 1,
+    savedAt: new Date().toISOString(),
+    session: { ...session, items: session.items.map((it) => ({ qid: it.q.id, order: it.order })) },
+    state,
+  };
+  return JSON.stringify(saved);
+}
+
+export interface Resumable {
+  session: Session;
+  state: RunState;
+  savedAt: string;
+}
+
+/** Rebuild a saved session against the current bank. Null if it can't be restored. */
+export function restoreRun(text: string, banks: Bank[]): Resumable | null {
+  try {
+    const saved = JSON.parse(text) as SavedSession;
+    if (saved.version !== 1) return null;
+    const bank = banks.find((b) => b.id === saved.session.bankId);
+    if (!bank) return null;
+    const byId = new Map(bank.questions.map((q) => [q.id, q]));
+    const items: SessionItem[] = [];
+    for (const it of saved.session.items) {
+      const q = byId.get(it.qid);
+      // Drop questions that were deleted or whose choices changed shape since saving.
+      if (!q || it.order.length !== q.choices.length) return null;
+      items.push({ q, order: it.order });
+    }
+    return { session: { ...saved.session, items }, state: saved.state, savedAt: saved.savedAt };
+  } catch {
+    return null;
+  }
+}
+
+export function runSummary(r: Resumable) {
+  const answered = r.session.items.filter((it) => (r.state.answers[it.q.id] ?? []).length).length;
+  const b = r.session.blocks[r.state.blockIdx];
+  const left = b?.timeLimitSec !== undefined ? b.timeLimitSec - (r.state.blockUsed[r.state.blockIdx] ?? 0) : undefined;
+  return { answered, total: r.session.items.length, left, blockName: b?.name };
 }

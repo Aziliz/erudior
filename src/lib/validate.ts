@@ -93,6 +93,14 @@ export function normalizeBank(raw: unknown): Bank {
     }
     if (Object.keys(quotas).length) exam.sectionQuotas = quotas;
   }
+  if (isObj(ex.sectionTimeLimits)) {
+    const t: Record<string, number> = {};
+    for (const [k, v] of Object.entries(ex.sectionTimeLimits)) {
+      const n = Number(v);
+      if (n > 0) t[k] = n;
+    }
+    if (Object.keys(t).length) exam.sectionTimeLimits = t;
+  }
   if (isObj(ex.sectionPassing)) {
     const marks: Record<string, number> = {};
     for (const [k, v] of Object.entries(ex.sectionPassing)) {

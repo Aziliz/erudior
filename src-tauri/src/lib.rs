@@ -98,6 +98,38 @@ fn save_progress(app: AppHandle, content: String) -> Result<(), String> {
     write_atomic(&data_dir(&app)?.join(PROGRESS_FILE), &content)
 }
 
+/// Small named state files next to progress.json (e.g. the in-progress exam).
+fn aux_path(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
+    match name {
+        "session" => Ok(data_dir(app)?.join("session.json")),
+        _ => Err(format!("unknown state file: {name:?}")),
+    }
+}
+
+#[tauri::command]
+fn load_state(app: AppHandle, name: String) -> Result<Option<String>, String> {
+    let path = aux_path(&app, &name)?;
+    if !path.exists() {
+        return Ok(None);
+    }
+    fs::read_to_string(path).map(Some).map_err(|e| format!("read failed: {e}"))
+}
+
+/// Saves the state file, or deletes it when `content` is None.
+#[tauri::command]
+fn save_state(app: AppHandle, name: String, content: Option<String>) -> Result<(), String> {
+    let path = aux_path(&app, &name)?;
+    match content {
+        Some(c) => write_atomic(&path, &c),
+        None => {
+            if path.exists() {
+                fs::remove_file(path).map_err(|e| format!("delete failed: {e}"))?;
+            }
+            Ok(())
+        }
+    }
+}
+
 /// Used for importing a bank from a path chosen in the native open dialog.
 #[tauri::command]
 fn read_text_file(path: String) -> Result<String, String> {
@@ -115,19 +147,43 @@ fn data_location(app: AppHandle) -> Result<String, String> {
     Ok(data_dir(&app)?.display().to_string())
 }
 
+/// How this copy was installed, so the app knows whether it can update itself.
+/// Tauri's updater can replace an AppImage or a Windows install, but not a
+/// .deb or .rpm installed through the system package manager.
+#[tauri::command]
+fn install_kind() -> &'static str {
+    if cfg!(target_os = "windows") {
+        "windows"
+    } else if cfg!(target_os = "linux") {
+        if std::env::var_os("APPIMAGE").is_some() {
+            "appimage"
+        } else {
+            "linux-package"
+        }
+    } else {
+        "other"
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_updater::Builder::new().build())
+        .plugin(tauri_plugin_process::init())
+        .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
             list_items,
             save_item,
             delete_item,
             load_progress,
             save_progress,
+            load_state,
+            save_state,
             read_text_file,
             write_text_file,
-            data_location
+            data_location,
+            install_kind
         ])
         .run(tauri::generate_context!())
         .expect("error while running Examiner");

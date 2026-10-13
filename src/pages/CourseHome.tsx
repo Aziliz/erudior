@@ -4,8 +4,15 @@ import type { Bank, Course, Plan } from "../lib/types";
 import * as store from "../lib/storage";
 import { courseCounts, bankKey } from "../lib/course";
 import { courseNumbers, lessonKey, orderedLessons, planToday, readiness, streak, type PlanTask } from "../lib/planner";
-import { addDays, daysBetween, deckStatus, today } from "../lib/srs";
-import { bankCoverage, startExam, startPractice, practicePool, type PracticeOptions } from "../lib/session";
+import { MISSED_DECK_ID, addDays, daysBetween, deckStatus, studyDecks, today } from "../lib/srs";
+import {
+  bankCoverage,
+  defaultExamOptions,
+  startExam,
+  startPractice,
+  practicePool,
+  type PracticeOptions,
+} from "../lib/session";
 import { emptyBank } from "../lib/validate";
 import { percent, uid } from "../lib/util";
 import { AccuracyBar } from "../components/Bars";
@@ -160,7 +167,7 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
         if (t.lessonIds?.[0]) api.go({ name: "lesson", courseId: course.id, lessonId: t.lessonIds[0] });
         break;
       case "cards":
-        api.go({ name: "cards", courseId: course.id, deckIds: course.decks.map((d) => d.id), mode: "review" });
+        api.go({ name: "cards", courseId: course.id, deckIds: studyDecks(course, progress).map((d) => d.id), mode: "review" });
         break;
       case "drills":
         api.go({ name: "drill", courseId: course.id, drillIds: course.drills.map((d) => d.id), count: t.count ?? 5 });
@@ -169,11 +176,7 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
         if (bank)
           api.go({
             name: "run",
-            session: startExam(bank, {
-              count: bank.exam.questionCount,
-              minutes: bank.exam.timeLimitMinutes,
-              shuffleChoices: true,
-            }),
+            session: startExam(bank, defaultExamOptions(bank)),
           });
         break;
       case "practice": {
@@ -481,7 +484,8 @@ function BanksTab({ api, course }: { api: AppApi; course: Course }) {
 function CardsTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
   const plan = progress.plans[course.id];
-  const statuses = course.decks.map((d) => ({ d, s: deckStatus(course, d, progress) }));
+  const all = studyDecks(course, progress).map((d) => d.id);
+  const statuses = studyDecks(course, progress).map((d) => ({ d, s: deckStatus(course, d, progress) }));
   const totalDue = statuses.reduce((a, x) => a + x.s.due, 0);
   const totalNew = statuses.reduce((a, x) => a + x.s.fresh, 0);
 
@@ -491,10 +495,9 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
     api.go({ name: "deckEdit", courseId: course.id, deckId: deck.id });
   }
 
-  const all = course.decks.map((d) => d.id);
   return (
     <div className="stack">
-      {course.decks.length > 0 && (
+      {statuses.length > 0 && (
         <section className="panel review-banner">
           <div>
             <h2>Spaced repetition</h2>
@@ -517,7 +520,7 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
           </div>
         </section>
       )}
-      {course.decks.length === 0 ? (
+      {statuses.length === 0 ? (
         <div className="panel empty">
           <h2>No notecard decks yet</h2>
           <p className="muted">Make a deck and add cards with a prompt on the front and the answer on the back.</p>
@@ -566,9 +569,14 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
                         >
                           Cram
                         </button>
-                        <button className="btn sm ghost" onClick={() => api.go({ name: "deckEdit", courseId: course.id, deckId: d.id })}>
-                          Edit
-                        </button>
+                        {d.id !== MISSED_DECK_ID && (
+                          <button
+                            className="btn sm ghost"
+                            onClick={() => api.go({ name: "deckEdit", courseId: course.id, deckId: d.id })}
+                          >
+                            Edit
+                          </button>
+                        )}
                       </div>
                     </td>
                   </tr>
