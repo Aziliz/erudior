@@ -1,0 +1,625 @@
+{
+  "lessons": [
+    {
+      "id": "g5-commission-rules-in-practice",
+      "module": "m5-co-license",
+      "title": "Commission rules in day-to-day practice",
+      "minutes": 22,
+      "topics": [
+        "Licensee conduct",
+        "Commission and licensing"
+      ],
+      "body": "## Why this lesson exists\n\nEarlier lessons covered the rules one at a time. This lesson puts them to work in situations you'll actually face in your first years as a broker, and shows how the Commission expects you to handle them. Keep one idea in mind throughout: **the Commission's reach follows you, not just your listings.** Colorado courts have held that brokers stay subject to the license law and Commission rules even when they act as principals or do things that don't require a license.\n\n## Position statements: guidance, not law\n\nThe Commission publishes numbered **[[Position Statement]]s** (often shortened to \"CPs\") in the Colorado Real Estate Manual. They cover topics such as broker commissions, rebates, conflicts of interest, brokers buying property, assistants, and minimum service requirements.\n\n- Position statements are **not law**. The Commission describes them as non-binding guidance and a set of best practices.\n- They explain how the Commission reads the statute and its rules, so they're a good predictor of how a complaint will be judged.\n- The binding sources are the statute (C.R.S. Title 12, Article 10) and the Commission's rules.\n\n> **Exam tip:** If a question asks whether a position statement \"has the force of law,\" the answer is no. It's guidance that interprets the law and rules.\n\n## Competency\n\nColorado requires a broker to have the experience, training, and knowledge needed for the brokerage services they provide, and to keep up with the laws that apply. [[Competency]] is judged task by task: a broker who is competent selling suburban homes may not be competent with a ranch with water rights, a manufactured home, or a property management account.\n\nA broker who lacks competency for a particular task has four acceptable paths:\n\n1. **Decline** the engagement.\n2. **Acquire** the knowledge before providing the service.\n3. **Get help** from a qualified supervising broker or from legal counsel.\n4. **Co-list** (or otherwise partner) with a broker who is qualified.\n\nWhat's not acceptable is learning on the client's dime without any of those safeguards. The employing broker must also be competent to supervise the kinds of business the firm does.\n\n## Minimum services can't be waived\n\nColorado requires every broker providing brokerage services to work either as a single agent or as a transaction-broker, each with duties set by statute. The Commission's position on [[Minimum service requirements]] is that those statutory duties **can't be waived, in writing or otherwise**. A broker can't sell an \"entry-only\" package that drops required duties. A broker can agree to do *more* than the statute requires, and those extra duties should be written into the agreement.\n\n## Fees and business models\n\nNo Colorado law sets commission rates. Compensation is negotiable between the firm and the consumer, and the Commission doesn't regulate fee amounts. Inside the firm, brokers and employing brokers also choose their own business model:\n\n| Model | How the broker's pay works |\n|---|---|\n| **[[Commission split]]** | Each commission is paid to the firm, which keeps a share and pays the broker the rest (for example, a graduated split that improves as production grows) |\n| **[[Desk fee]]** (or flat-fee / 100% model) | The broker pays the firm a fixed monthly fee or per-transaction fee and keeps most or all of each commission |\n\nEither way, the commission is paid **to the firm**, and an employed broker is paid only by their own employing broker. The model doesn't change the employing broker's duty to supervise.\n\n### Independent contractor or employee?\n\nMost Colorado brokers work as [[Independent contractor]]s for tax purposes. Federal tax law treats a broker as a non-employee (a \"[[Qualified real estate agent]]\") when all three are true:\n\n1. The broker holds a real estate license.\n2. Substantially all pay is tied to sales or other output, not hours worked.\n3. A written contract says the broker won't be treated as an employee for federal tax purposes.\n\nTax status and license law are separate questions. An independent contractor is still an associate broker under the license law, and the employing broker must still supervise them.\n\n## Teams\n\nA [[Team]] is two or more brokers **in the same firm** who work together on an ongoing basis. In practice:\n\n- The team name can't use words like \"Realty,\" \"Real Estate,\" \"Realtors,\" \"Company,\" \"Corporation,\" or entity endings like \"LLC\" or \"Inc.,\" or anything else that suggests the team is its own company.\n- Every team ad must clearly and conspicuously show the **firm's** legal or trade name.\n- The firm must give the names of team members to a consumer, the Commission, or another broker or firm who asks.\n- Brokers outside the firm can't use the team's name.\n\nIf a team member wants to buy a team listing, the Commission's guidance calls for the team to get written informed consent from both parties to act as a transaction-broker, then remove the buying broker from the listing contract and wall that broker off from the transaction (a firewall).\n\n## Acting as a principal\n\nWhen you buy, sell, or lease property for yourself, you're a **[[Principal]]**, but you're still a licensee:\n\n- Disclose **in writing** that you hold a Colorado real estate license. For a purchase or sale, the Commission expects it in the contract itself. For a rental you own and manage, the Division has said a written disclosure in the lease works, as long as it states plainly that you are both an owner of the property and a licensed Colorado real estate broker. Describing yourself only as a licensed \"landlord\" isn't enough.\n- Treat the other party as a customer, and use the Commission-approved brokerage disclosure.\n- Buying your own listing is strongly discouraged. If it happens, the Commission expects you to terminate or amend the listing so someone else represents the seller, disclose in writing that you're acting as a principal and had access to confidential information, put your license status in the contract, and give the seller a right to terminate through closing.\n- A \"guaranteed buy-out\" program requires the Commission-approved buy-out addendum where one fits, and the property stays actively marketed.\n\n## Non-brokerage services and other businesses\n\nMany brokers also run side businesses: managing their own rentals, hosting short-term rentals, building, or referring clients to movers, inspectors, or contractors. Two rules follow you there.\n\n**Disclose conflicts.** Brokers have a continuing duty to disclose any [[Conflict of Interest]] in writing. The Commission's examples include a property manager who owns or has a family tie to a vendor used on the owner's property (disclose early, ideally in the management agreement, and let the owner opt out), an [[Affiliated Business Arrangement]], owning 20% or more of an entity whose property you sell or lease, and receiving anything of value for recommending non-settlement providers such as movers or security companies.\n\n**Protect other people's money.** The duty to account for [[Money belonging to others]] applies \"whether acting as real estate brokers or otherwise.\" So security deposits on your own rentals, short-term rental guest deposits, or deposits you take as a builder must go into a [[Trust account]], never your personal or operating account. First check the firm's office policy manual: the firm may require the money to go through its own trust account. If it doesn't, you open your own separate trust or escrow account, keep a journal, do a monthly [[Two-way reconciliation]], and produce the records when the Division asks.\n\n## Signatures, copies, and electronic documents\n\n- Give parties copies of documents you prepare **at the time they're prepared**, and signed copies of listing and sale contracts.\n- Colorado's version of the Uniform Electronic Transactions Act says an [[Electronic signature]] satisfies a law requiring a signature, and an electronic record satisfies a law requiring a writing.\n- The Commission's definition of a [[Duplicate]] includes photocopies, faxes, and electronic copies that carry a digital or electronic signature. A fully e-signed PDF emailed to the parties is a proper copy.\n\n## When a brokerage relationship ends\n\nA brokerage relationship ends when the work is done, or, if not completed, at the earliest of the agreed expiration date, termination by the parties, or one year after engagement. Some duties **survive** the end:\n\n- Account for any money or property received.\n- Keep confidential information confidential, unless the party consents in writing, the law requires disclosure, or the information has become public.\n\nPractical follow-through: get any listing advertising down within 3 days of expiration, keep the transaction file for 4 years, and don't start talking to the owner of another firm's unexpired exclusive listing about switching.\n\n## Quick review\n\n- Position statements interpret the rules; they aren't law.\n- Lacking competency: decline, learn, get help, or co-list.\n- Statutory duties can't be waived; extra duties go in writing.\n- Commissions are negotiable; splits and desk fees are business choices.\n- Qualified real estate agent: licensed + paid on output + written contract.\n- Team names can't sound like a company; team ads show the firm name.\n- Principal deals: license status disclosed in writing.\n- Other people's money held outside brokerage still goes in a trust account.\n- E-signatures count; give copies when documents are prepared."
+    },
+    {
+      "id": "g5-audits-complaints-discipline",
+      "module": "m6-co-relationships",
+      "title": "Audits, complaints and discipline in practice",
+      "minutes": 20,
+      "topics": [
+        "Trust accounts and records",
+        "Commission and licensing"
+      ],
+      "body": "## The enforcement picture\n\nThe [[Division of Real Estate]] does the investigating; the [[Colorado Real Estate Commission]] decides whether a violation happened and what discipline fits. There are two common ways a licensee ends up under review: an **audit** and a **complaint**. Either one can turn into the other.\n\n## Audits\n\nThe Division audits brokerage firms to check compliance with the trust-account, record-keeping, and disclosure rules. Firms can be chosen three ways:\n\n- **Randomly**, as a routine audit.\n- **By stipulation**: a broker who settled a disciplinary case may agree to follow-up audits.\n- **From a complaint or investigation**, when an investigator wants a closer look at the books.\n\nThe Division runs different audits for firms that do property management and sales, for sales-only firms, and for brokers who hold others' money in **non-brokerage** activities such as managing their own rentals.\n\n### How it works (concept level)\n\n1. The firm gets an audit notice with a deadline and a list of records to send: a questionnaire about the past year's activity, recent closed transaction files, the latest trust account reconciliations, property management files, a trust or escrow account notice signed by the bank, and checklists about the office policy manual and management documents.\n2. The Division reviews the records and may send a correction letter asking for explanations or fixes, again with a deadline.\n3. The audit closes with no further action, or the Division reports possible violations to the Commission.\n\nA broker who doesn't produce records by the Commission's deadline (absent an extension) is subject to discipline for that failure alone, even if the books turn out to be perfect.\n\n### What auditors keep finding\n\n| Finding | What went wrong |\n|---|---|\n| No monthly [[Three-way reconciliation]] | The journal, the total of the ledgers, and the reconciled bank balance must match every month |\n| Negative ledger | One owner's or party's money was used to pay another's bills, a form of [[Conversion]] |\n| [[Commingling]] or a \"cushion\" | The broker parked firm or personal money in the trust account (beyond narrow, recorded exceptions such as covering bank charges) |\n| Mislabeled account | The account isn't titled as a trust or escrow account with its purpose |\n| Broker-owned rental deposits in a personal account | Money belonging to others outside brokerage still belongs in a trust account |\n| Missing disclosures | Brokerage disclosures not given to tenants, the brokerage duties addendum missing from management agreements, or license status and conflicts not disclosed in writing |\n\n> **Exam tip:** Commingling is mixing your money with clients' money. Conversion is using clients' money for yourself or for someone else. Both are grounds for discipline.\n\n## Complaints\n\n### Filing\n\nAnyone can file a complaint with the Division; online is preferred. Anonymous complaints are accepted, but anonymous complainants don't get updates. The Commission can also open a case on its own motion.\n\n### Jurisdiction check\n\nStaff first decide whether the Division has jurisdiction; complaints outside it are dismissed. Interpreting or enforcing a contract is a civil matter for an attorney or the courts, and the Division has no authority over HOA complaints. Commission discipline isn't a way to collect money from a broker.\n\n### Investigation\n\nIf the complaint is assigned, an investigator (a neutral fact finder) notifies the licensee, who usually gets a copy of the complaint. The licensee must respond **in writing by the deadline**, address each allegation, and include the complete transaction file. Failing to respond is a separate ground for discipline, even if the original complaint had no merit. The investigator may interview witnesses and gather records from title companies, banks, and other brokers. Complaints and investigation files are **closed to the public**.\n\nPractical advice from the Division: engage early, ask for an extension if you need one, consider hiring an attorney, and notify your E&O carrier. Delay, withholding information, or altering documents can make the discipline worse. If the complaint is against an associate broker, the Commission may also look at the employing broker's supervision.\n\n### Possible outcomes\n\n| Outcome | What it means |\n|---|---|\n| **Dismissal** | No jurisdiction, or no violation found |\n| **[[Letter of Admonition]]** | A warning for misconduct that doesn't warrant formal action, sent by certified mail. The licensee may demand formal proceedings in writing within **20 days** of receipt, which vacates the letter |\n| **[[Stipulation]]** | A negotiated settlement; it may include fines, education, follow-up audits, or practice limits |\n| **Formal discipline after a hearing** | Fine (up to $2,500 per separate offense), [[Censure]], [[Probation]], suspension, or revocation |\n\nStipulations and final agency orders are **public records**. A person whose license is revoked can't have a new application considered for one year.\n\n## Hearings\n\nIf a case doesn't settle, it's litigated. The Commission doesn't hold the trial itself: an [[Administrative Law Judge]] from the Office of Administrative Courts conducts the hearing under the state Administrative Procedure Act. The Commission then decides the case by majority vote. A licensee who disagrees can seek review in the **Colorado Court of Appeals**.\n\n## The Real Estate Recovery Fund\n\nMany states keep a [[Real Estate Recovery Fund]] that pays consumers who win judgments against licensees and can't collect. **Colorado repealed its recovery fund in 2005, and no state fund pays these claims today.** A harmed consumer pursues the broker through civil remedies. Colorado's consumer protection instead comes from requiring active brokers to carry errors and omissions insurance (covered in an earlier lesson). Discipline by the Commission doesn't itself compensate the consumer.\n\n## Three practice cases (fictional)\n\n### Case 1: The cushion\n\nA small firm's employing broker keeps $500 of firm money in the property management trust account \"so checks never bounce.\" A random audit finds it, plus four months without reconciliations. **Analysis:** Keeping a cushion is commingling; skipped reconciliations are a separate violation. A typical result would be a report to the Commission and a stipulation with a fine, trust-account education, and a follow-up audit.\n\n### Case 2: The weekend deposit\n\nA buyer hands an associate broker an [[earnest money]] check on Friday after the contract is fully signed. The broker's firm is the earnest money holder, and the broker leaves the check in her car until the following Friday. **Analysis:** Earnest money a firm holds must be deposited within 3 business days after receipt or mutual execution of the contract, whichever is later. Here that clock started Friday. Holding it a full week breaks the deposit rule, and the employing broker's supervision may be questioned too.\n\n### Case 3: The silent respondent\n\nA seller complains that his listing broker was rude and slow to return calls. The Division sends the broker notice, and she ignores it, thinking the complaint is trivial. **Analysis:** Rudeness alone may never have led to discipline, but failing to respond by the deadline is its own violation. Her best move would have been a timely written response with the transaction file.\n\n## Quick review\n\n- Division investigates; Commission decides.\n- Audits: random, stipulated, or complaint-driven; missing deadlines is a violation.\n- Top findings: no 3-way reconciliation, negative ledgers, commingling, broker-owned rental deposits outside a trust account.\n- Earnest money a firm holds: deposit within 3 business days after receipt or mutual execution, whichever is later.\n- Letter of admonition: 20 days to demand formal proceedings.\n- Hearings: ALJ hears, Commission decides, Court of Appeals reviews.\n- No recovery fund in Colorado since 2005."
+    }
+  ],
+  "questions": [
+    {
+      "id": "g5-001",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker reads a Commission position statement that recommends a particular practice. How should she understand its legal status?",
+      "choices": [
+        "It is a rule that carries the same penalties as the statute itself",
+        "It is guidance on how the Commission views the law and its rules",
+        "It is binding only on employing brokers and their firms",
+        "It binds all brokers once a court has approved its wording"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Commission describes its position statements as non-binding guidance and best practices, not law. They still matter because they show how the Commission interprets the statute and rules."
+    },
+    {
+      "id": "g5-002",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A broker who mainly sells condos is asked to list a rural property with complicated water rights. Which response meets Colorado's competency requirement?",
+      "choices": [
+        "Take the listing and learn as the transaction goes along",
+        "Take the listing only if the seller signs a waiver of competency",
+        "Co-list the property with a broker who has water-rights experience",
+        "Take the listing and rely on the seller's description of the water rights"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A broker lacking competency may decline, acquire the knowledge first, get help from a qualified supervising broker or counsel, or co-list with a qualified broker. Competency can't be waived by the client."
+    },
+    {
+      "id": "g5-003",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A firm advertises a low-fee package in which the listing broker enters the property in the MLS but will not present offers to the seller. Under the Commission's position on minimum services, this package is:",
+      "choices": [
+        "permitted if the seller agrees to it in writing",
+        "permitted for transaction-brokers but not for single agents",
+        "permitted only if the listing price is under a set limit",
+        "not permitted, because statutory duties can't be waived"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Presenting offers in a timely manner is a statutory duty of both seller's agents and transaction-brokers. The Commission's position is that these uniform duties can't be waived, in writing or otherwise; brokers may add duties in writing but can't drop required ones."
+    },
+    {
+      "id": "g5-004",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Which statement about real estate commissions in Colorado is accurate?",
+      "choices": [
+        "Commissions are negotiable and are not set by law",
+        "The Commission sets a maximum commission for residential sales",
+        "Commissions are fixed by the local MLS for its members",
+        "Commissions must be split equally between the two firms"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "No law sets commission rates; compensation is negotiable between the firm and the consumer, and the Commission doesn't regulate fee amounts."
+    },
+    {
+      "id": "g5-005",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "For federal tax purposes, which combination makes a broker a qualified real estate agent who is not treated as an employee?",
+      "choices": [
+        "A license, pay tied to output, and a written non-employee contract",
+        "A license, a set weekly schedule, and an oral agreement with the firm",
+        "Trade association membership, a desk fee, and a registered business entity",
+        "A license, an hourly wage, and a signed copy of the office policy manual"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The federal test has three parts: licensed, substantially all pay tied to sales or output rather than hours, and a written contract stating the broker won't be treated as an employee for federal tax purposes."
+    },
+    {
+      "id": "g5-006",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "Three brokers at the same firm want to advertise as a team. Which team name complies with Colorado's advertising rules?",
+      "choices": [
+        "The Summit Team",
+        "Summit Team Real Estate",
+        "The Summit Group Realty",
+        "Summit Team, LLC"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Team names can't include words like Realty, Real Estate, or entity endings like LLC that suggest a separate company. Every team ad must also show the firm's name."
+    },
+    {
+      "id": "g5-007",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A licensed broker is selling a duplex he owns personally, without listing it with any firm. What must he do?",
+      "choices": [
+        "Nothing, because brokers selling their own property are exempt from the license law",
+        "Disclose in writing, in the contract, that he holds a Colorado real estate license",
+        "Have his employing broker sign the contract as the seller's agent",
+        "Tell the buyer orally before showing that he is a licensee"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A broker acting as a principal remains subject to the Commission and must disclose license status in writing; the Commission expects it in the contract. An oral statement isn't enough."
+    },
+    {
+      "id": "g5-008",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A property manager owns part of the plumbing company she sends to the owners' rentals. What does the Commission expect?",
+      "choices": [
+        "Nothing, as long as the plumbing company charges market rates",
+        "Disclosure only if an owner later asks about vendor relationships",
+        "She must stop using the company for every property she manages",
+        "Written disclosure, ideally early, with an option to opt out"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Brokers have a continuing duty to disclose conflicts in writing. For vendor ties, the Commission recommends disclosure early, such as in the management agreement, and giving the owner an option to opt out."
+    },
+    {
+      "id": "g5-009",
+      "section": "state",
+      "topic": "Trust accounts and records",
+      "stem": "An associate broker hosts short-term rentals of her own condo and collects guest damage deposits. Her firm's policy manual does not require use of the firm's account. Where must the deposits go?",
+      "choices": [
+        "Her personal checking account, because hosting guests isn't brokerage work",
+        "A trust or escrow account she keeps, with a journal and reconciliations",
+        "The condo association's reserve account, held there on her guests' behalf",
+        "Her firm's operating account, recorded there as her own broker income"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The duty to account for money belonging to others applies whether or not the broker is acting as a broker. Without a firm requirement, she opens her own trust or escrow account, keeps a journal, and reconciles it monthly (a two-way reconciliation)."
+    },
+    {
+      "id": "g5-010",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A buyer and seller sign a contract with an e-signature platform, and the broker emails each party the completed PDF the same day. Has the broker met the duty to provide copies?",
+      "choices": [
+        "No, because only paper copies bearing ink signatures count",
+        "No, because an electronic copy must first be notarized",
+        "Yes, an e-signed electronic copy counts as a duplicate",
+        "Yes, but only if each party later signs a paper original"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Colorado's electronic transactions law gives e-signatures the same effect as ink signatures, and the Commission's definition of a duplicate includes electronic copies with electronic signatures."
+    },
+    {
+      "id": "g5-011",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A listing expired last month without a sale. Which duty does the former listing broker still owe the seller?",
+      "choices": [
+        "Keep the seller's confidential information confidential",
+        "Continue marketing the property until a new firm takes over",
+        "Present any offers received for the next six months",
+        "Pay the seller's costs of relisting with another firm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "After a brokerage relationship ends, the broker must still account for money or property and keep confidential information confidential unless the party consents in writing, the law requires disclosure, or it becomes public."
+    },
+    {
+      "id": "g5-012",
+      "section": "state",
+      "topic": "Trust accounts and records",
+      "stem": "During an audit, the Division finds that a firm keeps a few hundred dollars of its own money in its trust account as a cushion. What violation is this?",
+      "choices": [
+        "Commingling",
+        "Conversion",
+        "Diversion of earnest money",
+        "A records-retention violation"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Mixing the firm's own money with money belonging to others is commingling. The exceptions are narrow and must be recorded, such as firm money deposited to cover bank charges; a general cushion isn't one of them."
+    },
+    {
+      "id": "g5-013",
+      "section": "state",
+      "topic": "Trust accounts and records",
+      "stem": "A property management trust account shows a negative balance on one owner's ledger after the broker paid that owner's repair bill. What does this show?",
+      "choices": [
+        "The broker withdrew an earned management fee too early",
+        "The account was not labeled as a trust or escrow account",
+        "Other owners' money paid this owner's expense",
+        "The bank posted the owner's rent deposit to the wrong account"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A ledger can never go negative. A negative balance means funds belonging to other beneficiaries covered that owner's expense, which is a form of conversion."
+    },
+    {
+      "id": "g5-014",
+      "section": "state",
+      "topic": "Trust accounts and records",
+      "stem": "A firm is the earnest money holder. The buyer delivers the check on the day after the contract is mutually executed. What is the deposit deadline?",
+      "choices": [
+        "By the end of the next calendar day after receipt",
+        "Within 10 business days of mutual execution",
+        "Any time before the scheduled closing date",
+        "Within 3 business days after receipt"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Earnest money held by a firm must be deposited within 3 business days after receipt or mutual execution of the contract, whichever is later. Here receipt came later, so the clock runs from receipt."
+    },
+    {
+      "id": "g5-015",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker gets a Division notice that he must respond to a complaint by a stated deadline. He believes the complaint is baseless and ignores it. What is the result?",
+      "choices": [
+        "The complaint is dismissed automatically after the deadline",
+        "Nothing, unless the complaint is later proven",
+        "Failing to respond is itself grounds for discipline",
+        "The complainant must refile with the Commission"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A licensee must answer a complaint or audit in writing by the deadline. Failing to do so is grounds for discipline even when the original complaint has no merit."
+    },
+    {
+      "id": "g5-016",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker receives a letter of admonition by certified mail and disagrees with it. What can she do?",
+      "choices": [
+        "Appeal it directly to the Colorado Supreme Court within 60 days",
+        "Request formal proceedings in writing within 20 days",
+        "File a complaint about the investigator with the governor",
+        "Ignore it, because letters of admonition are never acted on"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A licensee may request formal proceedings in writing within 20 days after proven receipt. A timely request vacates the letter and the matter proceeds formally."
+    },
+    {
+      "id": "g5-017",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A consumer wins a fraud judgment against a Colorado broker but can't collect it. What is true about a state recovery fund?",
+      "choices": [
+        "The Real Estate Recovery Fund pays up to a set cap per transaction",
+        "The Commission pays the judgment from fines collected from licensees",
+        "The Division pays the judgment from its general operating budget",
+        "None exists; Colorado repealed its recovery fund in 2005"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Colorado repealed its Real Estate Recovery Fund in 2005, so no state fund pays these judgments. The consumer must pursue the broker through civil remedies; Commission discipline doesn't compensate the consumer."
+    }
+  ],
+  "cards": [
+    {
+      "id": "g5-c001",
+      "front": "Are Commission position statements law?",
+      "back": "No. They are non-binding guidance and best practices showing how the Commission interprets the statute and rules.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c002",
+      "front": "Four ways to handle a task you aren't competent to do",
+      "back": "Decline it, acquire the knowledge first, get help from a qualified supervising broker or counsel, or co-list with a qualified broker.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c003",
+      "front": "Can a broker waive statutory duties for a lower fee?",
+      "back": "No. The Commission's position is that uniform statutory duties can't be waived, in writing or otherwise. Extra duties may be added in writing.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c004",
+      "front": "Who sets commission rates in Colorado?",
+      "back": "No one. Compensation is negotiable between the firm and the consumer; the Commission doesn't regulate fee amounts.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c005",
+      "front": "Commission split vs desk fee",
+      "back": "Split: firm keeps a share of each commission. Desk fee: broker pays a fixed fee and keeps most or all of the commission. Both are business choices.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c006",
+      "front": "Qualified real estate agent (federal tax) – three conditions",
+      "back": "Licensed; substantially all pay based on sales or output, not hours; written contract saying not treated as an employee.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c007",
+      "front": "Does independent contractor status reduce supervision duties?",
+      "back": "No. Tax status is separate from license law; the employing broker still supervises.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c008",
+      "front": "Team definition",
+      "back": "Two or more brokers in the same firm working together on an ongoing basis.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c009",
+      "front": "Words a team name can't use",
+      "back": "Realty, Real Estate, Realtors, Company, Corporation, LLC, Inc., or anything implying a separate company.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c010",
+      "front": "What must every team ad include?",
+      "back": "The firm's legal or trade name, clearly and conspicuously.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c011",
+      "front": "Broker buying or selling for own account: key disclosure",
+      "back": "Written disclosure of license status, in the contract. For a broker-owned rental, the lease may state you are both the owner and a licensed broker.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c012",
+      "front": "Commission's view of a broker buying own listing",
+      "back": "Strongly discouraged. If done: terminate/amend listing, written principal disclosure, license in contract, seller may terminate through closing.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c013",
+      "front": "Property manager with an interest in a vendor",
+      "back": "Disclose in writing, ideally early in the management agreement, and let the owner opt out.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c014",
+      "front": "Deposits from a broker's non-brokerage activity (own rentals, STR guests)",
+      "back": "Must go in a trust or escrow account, not personal or operating funds.",
+      "topic": "Trust accounts and records"
+    },
+    {
+      "id": "g5-c015",
+      "front": "Broker's own non-brokerage trust account: reconciliation",
+      "back": "Monthly two-way reconciliation: journal balance = reconciled bank balance.",
+      "topic": "Trust accounts and records"
+    },
+    {
+      "id": "g5-c016",
+      "front": "Do electronic signatures satisfy a signature requirement?",
+      "back": "Yes. Colorado's UETA gives e-signatures and e-records the same effect as ink and paper.",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c017",
+      "front": "Duties that survive the end of a brokerage relationship",
+      "back": "Account for money/property; keep confidential information confidential (unless written consent, required by law, or public).",
+      "topic": "Licensee conduct"
+    },
+    {
+      "id": "g5-c018",
+      "front": "Three ways a firm is picked for a Division audit",
+      "back": "Random/routine, stipulated follow-up after discipline, or complaint/investigation-based.",
+      "topic": "Trust accounts and records"
+    },
+    {
+      "id": "g5-c019",
+      "front": "Commingling vs conversion",
+      "back": "Commingling: mixing broker's money with others' money. Conversion: using others' money for yourself or another beneficiary.",
+      "topic": "Trust accounts and records"
+    },
+    {
+      "id": "g5-c020",
+      "front": "Earnest money deposit deadline when the firm holds it",
+      "back": "Within 3 business days after receipt or mutual execution, whichever is later.",
+      "topic": "Trust accounts and records"
+    },
+    {
+      "id": "g5-c021",
+      "front": "Can a trust ledger go negative?",
+      "back": "Never. A negative ledger means other beneficiaries' money was used.",
+      "topic": "Trust accounts and records"
+    },
+    {
+      "id": "g5-c022",
+      "front": "Ignoring a complaint you think is meritless",
+      "back": "Failure to respond by the deadline is itself grounds for discipline.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c023",
+      "front": "Letter of admonition: licensee's option",
+      "back": "Request formal proceedings in writing within 20 days after receipt; the letter is vacated.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c024",
+      "front": "Who hears and who decides a contested disciplinary case?",
+      "back": "An ALJ conducts the hearing; the Commission decides by majority vote; review is by the Court of Appeals.",
+      "topic": "Commission and licensing"
+    },
+    {
+      "id": "g5-c025",
+      "front": "Colorado Real Estate Recovery Fund",
+      "back": "Repealed in 2005; no state fund pays judgments today. Harmed consumers pursue civil remedies against the broker.",
+      "topic": "Commission and licensing"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Position Statement",
+      "definition": "A published Colorado Real Estate Commission statement explaining how it views a practice under the law and rules. Guidance, not law.",
+      "aliases": [
+        "CP",
+        "Commission Position"
+      ]
+    },
+    {
+      "term": "Competency",
+      "definition": "Having the experience, training and knowledge needed for a particular brokerage task, and keeping up with the laws that apply to it.",
+      "aliases": []
+    },
+    {
+      "term": "Minimum service requirements",
+      "definition": "The Commission's position that every broker must perform all statutory duties of a single agent or transaction-broker; those duties can't be waived.",
+      "aliases": []
+    },
+    {
+      "term": "Commission split",
+      "definition": "A compensation model in which the firm keeps an agreed share of each commission and pays the rest to the broker.",
+      "aliases": [
+        "Split"
+      ]
+    },
+    {
+      "term": "Desk fee",
+      "definition": "A fixed fee a broker pays the firm (monthly or per transaction) in exchange for keeping most or all of each commission.",
+      "aliases": [
+        "100% commission model"
+      ]
+    },
+    {
+      "term": "Independent contractor",
+      "definition": "A worker who controls how the work is done and pays their own self-employment taxes, as opposed to an employee.",
+      "aliases": [
+        "Independent contractors"
+      ]
+    },
+    {
+      "term": "Qualified real estate agent",
+      "definition": "Federal tax category for a licensed agent paid on output under a written non-employee contract; not treated as an employee for federal employment taxes.",
+      "aliases": []
+    },
+    {
+      "term": "Team",
+      "definition": "Two or more brokers in the same firm who work together on an ongoing basis. Team names and ads are restricted.",
+      "aliases": []
+    },
+    {
+      "term": "Principal",
+      "definition": "A party to a transaction acting for themselves, such as a broker buying or selling their own property.",
+      "aliases": []
+    },
+    {
+      "term": "Conflict of Interest",
+      "definition": "A real or apparent competing personal or professional interest that could influence a broker's actions for a client. Must be disclosed in writing.",
+      "aliases": []
+    },
+    {
+      "term": "Affiliated Business Arrangement",
+      "definition": "A situation where a broker or firm refers business to a settlement service provider in which it has an ownership or financial interest; requires disclosure.",
+      "aliases": [
+        "AfBA"
+      ]
+    },
+    {
+      "term": "Money belonging to others",
+      "definition": "Funds a broker holds for someone else, such as earnest money, rents and deposits, including money from non-brokerage activities.",
+      "aliases": []
+    },
+    {
+      "term": "Trust account",
+      "definition": "A separate, properly labeled bank account used only to hold money belonging to others.",
+      "aliases": [
+        "Escrow account"
+      ]
+    },
+    {
+      "term": "Two-way reconciliation",
+      "definition": "A monthly check that the journal balance matches the reconciled bank balance; used for a broker's own non-brokerage trust account.",
+      "aliases": []
+    },
+    {
+      "term": "Three-way reconciliation",
+      "definition": "A monthly check that the journal balance, the total of all ledgers and the reconciled bank balance all match.",
+      "aliases": []
+    },
+    {
+      "term": "Electronic signature",
+      "definition": "An electronic mark or process adopted to sign a record. Under Colorado's UETA it satisfies a legal signature requirement.",
+      "aliases": [
+        "E-signature"
+      ]
+    },
+    {
+      "term": "Duplicate",
+      "definition": "A copy of a document, including a photocopy, fax or electronic copy with electronic signatures.",
+      "aliases": []
+    },
+    {
+      "term": "Division of Real Estate",
+      "definition": "The state agency that staffs the Commission, audits brokers, and investigates complaints.",
+      "aliases": [
+        "DRE",
+        "Division"
+      ]
+    },
+    {
+      "term": "Colorado Real Estate Commission",
+      "definition": "The five-member, governor-appointed body that makes broker rules and decides discipline.",
+      "aliases": [
+        "CREC",
+        "Commission"
+      ]
+    },
+    {
+      "term": "Commingling",
+      "definition": "Mixing a broker's or firm's own money with money belonging to others.",
+      "aliases": []
+    },
+    {
+      "term": "Conversion",
+      "definition": "Using money belonging to others for the broker's own purposes or for another beneficiary.",
+      "aliases": []
+    },
+    {
+      "term": "Earnest money",
+      "definition": "A buyer's good-faith deposit made with a purchase contract.",
+      "aliases": [
+        "Earnest money deposit"
+      ]
+    },
+    {
+      "term": "Letter of Admonition",
+      "definition": "A written warning from the Commission for misconduct not warranting formal action. The licensee may demand formal proceedings within 20 days.",
+      "aliases": []
+    },
+    {
+      "term": "Stipulation",
+      "definition": "A negotiated settlement of a disciplinary case between the licensee and the Commission; it becomes a public record.",
+      "aliases": [
+        "Stipulated settlement"
+      ]
+    },
+    {
+      "term": "Censure",
+      "definition": "A formal public reprimand imposed as discipline.",
+      "aliases": [
+        "Public censure"
+      ]
+    },
+    {
+      "term": "Probation",
+      "definition": "Discipline that lets a licensee keep practicing under conditions set by the Commission.",
+      "aliases": []
+    },
+    {
+      "term": "Administrative Law Judge",
+      "definition": "A judge who conducts formal disciplinary hearings under the state Administrative Procedure Act.",
+      "aliases": [
+        "ALJ"
+      ]
+    },
+    {
+      "term": "Real Estate Recovery Fund",
+      "definition": "A state fund some states keep to pay consumers who can't collect judgments against licensees. Colorado repealed its fund in 2005 and has none today.",
+      "aliases": [
+        "Recovery fund"
+      ]
+    }
+  ]
+}

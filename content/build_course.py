@@ -25,26 +25,17 @@ REFS = [
     ("property", "Ownership, estates and deeds", "07-property.md"),
 ]
 
-# Trim to exactly 250: drop one state question (s1 has 29 after review added none; s2 gained one).
-DROP = {"s1-029"}
+# Gap-fill parts (added after comparing against the Van Ed 168-hour course). Each part's
+# lessons carry their own module id; cards go to the deck of the base part named here,
+# except g5, whose cards split by topic between the s1 and s2 decks.
+GAPS = {"g1": "n2", "g2": "n4", "g3": "s4", "g4": "s3", "g5": "s1"}
+GAP_DRILLS = ["g3-drills.json"]
 
-parts = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "parts").glob("*.json"))}
+parts = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "parts").glob("*.json")) if p.stem in {m[2] for m in MODULES} | set(GAPS)}
 
 modules, lessons, questions, decks = [], [], [], []
 glossary: dict[str, dict] = {}
-for mid, mtitle, key, deck_title in MODULES:
-    part = parts[key]
-    modules.append({"id": mid, "title": mtitle})
-    for l in part["lessons"]:
-        lessons.append({**l, "module": mid})
-    questions += [q for q in part["questions"] if q["id"] not in DROP]
-    decks.append({
-        "id": f"deck-{key}",
-        "title": deck_title,
-        "description": "National portion" if key.startswith("n") else "Colorado state portion",
-        "cards": part["cards"],
-    })
-    state = key.startswith("s")
+def merge_glossary(part, state):
     for g in part["glossary"]:
         k = g["term"].strip().lower()
         if k in glossary:
@@ -59,6 +50,39 @@ for mid, mtitle, key, deck_title in MODULES:
         else:
             glossary[k] = {**g, "_state": state}
 
+deck_of = {}
+for mid, mtitle, key, deck_title in MODULES:
+    part = parts[key]
+    modules.append({"id": mid, "title": mtitle})
+    for l in part["lessons"]:
+        lessons.append({**l, "module": mid})
+    questions += part["questions"]
+    deck = {
+        "id": f"deck-{key}",
+        "title": deck_title,
+        "description": "National portion" if key.startswith("n") else "Colorado state portion",
+        "cards": list(part["cards"]),
+    }
+    decks.append(deck)
+    deck_of[key] = deck
+    merge_glossary(part, key.startswith("s"))
+
+for key, base in GAPS.items():
+    part = parts[key]
+    state = base.startswith("s")
+    module_ids = {m["id"] for m in modules}
+    for l in part["lessons"]:
+        assert l["module"] in module_ids, (key, l["id"], l["module"])
+    # Put each gap lesson right after the last existing lesson of its module.
+    for l in part["lessons"]:
+        idx = max(i for i, x in enumerate(lessons) if x["module"] == l["module"])
+        lessons.insert(idx + 1, l)
+    questions += part["questions"]
+    for c in part["cards"]:
+        target = "s2" if key == "g5" and c.get("topic") == "Trust accounts and records" else base
+        deck_of[target]["cards"].append(c)
+    merge_glossary(part, state)
+
 gl = []
 for g in glossary.values():
     g = {k: v for k, v in g.items() if k != "_state"}
@@ -67,12 +91,16 @@ for g in glossary.values():
     gl.append(g)
 gl.sort(key=lambda g: g["term"].lower())
 
-assert len(questions) == 250, len(questions)
 sec = collections.Counter(q["section"] for q in questions)
-assert sec == {"national": 130, "state": 120}, sec
+assert set(sec) == {"national", "state"}, sec
+ids = [q["id"] for q in questions] + [c["id"] for d in decks for c in d["cards"]] + [l["id"] for l in lessons]
+dupes = [i for i, n in collections.Counter(ids).items() if n > 1]
+assert not dupes, dupes
 
 references = [{"id": rid, "title": t, "body": (ROOT / "refs" / f).read_text().strip()} for rid, t, f in REFS]
 drills = json.loads((ROOT / "drills.json").read_text())
+for f in GAP_DRILLS:
+    drills += json.loads((ROOT / "parts" / f).read_text())
 
 course = {
     "format": "examiner-course",
@@ -81,19 +109,19 @@ course = {
     "title": "Colorado Real Estate Broker",
     "description": (
         "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, "
-        "a 250-question bank with timed exams scored like the real thing, notecards, math drills, a glossary "
+        f"a {len(questions)}-question bank with timed exams scored like the real thing, notecards, math drills, a glossary "
         "and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real "
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 2,
-    "changelog": "Practice exams now run the national and state portions on separate clocks (120 and 110 minutes), like PSI.",
+    "revision": 3,
+    "changelog": "Ten new lessons and 100 new questions filling gaps against a 168-hour Colorado pre-license course: federal taxes and 1031 exchanges, construction loans and appraiser regulation, commercial and specialty leasing, MLS/IDX, e-signatures and wire fraud, the Colorado six-column closing worksheet with worked closings, other Commission-approved contracts and addenda, HOAs and CCIOA, and Commission rules, audits and complaints in practice. Three new closing-math drills.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{
         "id": "exam-bank",
         "title": "Colorado broker exam bank",
-        "description": "130 national and 120 Colorado questions. Timed exams draw 80 national and 74 state questions and score each portion on its own, like PSI.",
+        "description": f"{sec['national']} national and {sec['state']} Colorado questions. Timed exams draw 80 national and 74 state questions and score each portion on its own, like PSI.",
         "sections": [
             {"id": "national", "name": "National portion"},
             {"id": "state", "name": "Colorado state portion"},

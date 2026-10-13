@@ -1,0 +1,732 @@
+{
+ "lessons": [
+  {
+   "id": "g2-commercial-specialty",
+   "module": "m4-practice",
+   "title": "Commercial leasing and specialty properties",
+   "minutes": 25,
+   "topics": [
+    "Property management"
+   ],
+   "body": "## Commercial vs. residential leasing\n\nResidential leases are heavily regulated: landlord-tenant statutes, habitability rules and fair housing law set many of the terms, and most residential tenants pay a flat monthly rent. Commercial leases are treated as deals between business parties who can negotiate almost everything. That means:\n\n- **Longer terms** (often 3, 5, 10 years or more) with renewal options\n- **Rent structures that shift expenses to the tenant** (net leases) or tie rent to the tenant's business (percentage leases)\n- **Fewer statutory protections** — the written lease controls, so the details matter\n- **Space measured and priced by the square foot**, usually quoted as an annual rate (for example, $24 per square foot per year)\n\n> **Exam tip:** If a question says \"commercial\" and asks who pays taxes, insurance and maintenance, read the lease type. Don't assume the landlord pays.\n\n## Lease types by how rent works\n\n| Lease | Tenant pays | Common use |\n|---|---|---|\n| [[Gross lease]] | A fixed rent; landlord pays taxes, insurance and maintenance out of it | Residential, small office |\n| [[Net lease]] (single net) | Rent plus property taxes | Commercial |\n| Double net (NN) | Rent plus taxes and insurance | Commercial |\n| [[Triple net lease]] (NNN) | Rent plus taxes, insurance and maintenance/repairs | Single-tenant retail, freestanding buildings |\n| [[Percentage lease]] | Base rent plus a percentage of gross sales above a breakpoint | Retail, shopping centers |\n| [[Graduated lease]] (step-up) | Rent that rises in scheduled steps | Long office leases, startups |\n| [[Index lease]] (escalation) | Rent that adjusts with an index such as the Consumer Price Index | Long-term leases |\n| [[Ground lease]] | Rent for land only; tenant builds and owns the improvements during the term | Commercial development |\n\nThe exact split in a \"single\" or \"double\" net lease varies by market and by lease, so the lease language always controls. What the exam wants you to know: the more \"nets,\" the more of the owner's expenses the tenant pays, and a triple net lease gives the landlord the most predictable income.\n\nA **ground lease** is usually very long (often 50 to 99 years) so the tenant can finance and recover the cost of the building. At the end of the term the improvements typically revert to the landowner unless the lease says otherwise.\n\n### Percentage leases and the natural breakpoint\n\nA percentage lease charges base (minimum) rent plus a percentage of the tenant's gross sales over a sales level called the [[breakpoint]]. The **natural breakpoint** is the sales level at which the percentage would equal the base rent:\n\n**Natural breakpoint = annual base rent ÷ percentage rate**\n\nExample: annual base rent is $36,000 ($3,000 a month) and the percentage is 6%.\n- Breakpoint = $36,000 ÷ 0.06 = **$600,000**\n- The store does $750,000 in sales. Overage = $750,000 − $600,000 = $150,000\n- Percentage rent = $150,000 × 6% = $9,000\n- Total annual rent = $36,000 + $9,000 = **$45,000**\n\nThe parties can also negotiate an **artificial breakpoint**, a fixed sales figure that is higher or lower than the natural one. If the question gives you a threshold (\"6% of sales over $500,000\"), use it as given.\n\n### Triple-net pass-through math\n\nIn a multi-tenant building, each tenant's share of expenses is usually its **pro rata share**: the tenant's square footage divided by the building's square footage.\n\nExample: a tenant leases 2,500 sq ft in a 20,000 sq ft building (12.5%) at $20 per sq ft per year base rent. Annual taxes are $48,000, insurance $12,000 and common area costs $40,000 (total $100,000).\n- Base rent = 2,500 × $20 = $50,000\n- Pass-through = $100,000 × 12.5% = $12,500\n- Total annual occupancy cost = **$62,500** ($5,208.33 a month)\n\n> **Exam tip:** Convert monthly to annual (or annual to monthly) before you compare numbers. Most wrong answers on lease math come from mixing the two.\n\n## CAM, tenant improvements and letters of intent\n\n- **[[Common area maintenance]] (CAM)** charges cover the upkeep of shared areas: parking lots, landscaping, lobbies, snow removal, common lighting. Tenants usually pay their pro rata share, often as estimated monthly payments reconciled once a year. Leases may cap annual CAM increases or exclude certain costs (such as major capital replacements).\n- **[[Tenant improvements]] (TI)** are changes to the space to fit a tenant's use: walls, finishes, wiring, fixtures. The landlord often offers a **TI allowance** (a dollar amount per square foot) and the tenant pays any cost above it. Who owns the improvements at the end of the lease is set by the lease; many become the landlord's property.\n- A **[[letter of intent]] (LOI)** summarizes proposed key terms (rent, term, TI allowance, options) before the full lease is drafted. It's usually written to be **non-binding** on the main deal, though specific clauses (confidentiality, exclusive negotiation period) may be made binding. Brokers should make sure the LOI says clearly which parts bind and which don't, and suggest legal review.\n\n## Broker cooperation in commercial deals\n\nCommercial transactions often involve a landlord's (listing) broker and a tenant's broker. How they split the fee is set by **[[co-brokerage]] agreements** — the listing agreement and a written agreement between the brokers — not by law or by any trade group. Commercial commissions are often calculated as a percentage of the total rent over the lease term, or as a dollar amount per square foot, and may be paid partly at signing and partly at occupancy. As with all commissions, the rate is negotiable; competing firms must never agree among themselves on rates.\n\n## Business opportunity sales\n\nA **[[business opportunity]]** sale is the sale of an operating business: its name, equipment, inventory, customer lists, leases and [[goodwill]] (the value of its reputation and customer loyalty). Key points:\n\n- The sale is mostly **personal property**, transferred by a **bill of sale**, plus an assignment of the lease or a deed if real estate is included.\n- The price is often allocated among real estate, equipment, inventory and goodwill, which affects taxes for both sides. Refer the parties to their accountant and attorney.\n- A **[[bulk sale]]** is a transfer of a major part of a business's inventory and equipment outside the ordinary course of business. Bulk sale laws were designed to protect the seller's creditors and tax authorities through advance notice. Most states have repealed the old UCC bulk sales article, but some states still require notices (for example, to the state tax department) so the buyer doesn't inherit the seller's unpaid taxes.\n- **Licensing caution:** a real estate license may or may not cover selling a business, and selling a business through a stock sale can raise securities issues. Know your state's rules and stay within your competence.\n\n## Oil and gas leases\n\nLand can be split into a **surface estate** and a **[[mineral rights]]** estate, and each can be sold separately. An owner who sold the surface but kept the minerals still owns the oil and gas below.\n\nIn an **[[oil and gas lease]]** the mineral owner is the **lessor** and the oil company is the **lessee**. The money terms:\n\n| Term | Meaning |\n|---|---|\n| [[Bonus]] | A one-time payment at signing, usually per mineral acre, kept whether or not anything is produced |\n| [[Delay rental]] | A periodic payment that keeps the lease alive during the primary term if drilling hasn't started (many modern leases are \"paid-up,\" prepaying these) |\n| [[Royalty]] | The lessor's fractional share of production (such as one-eighth or more), paid free of drilling and production costs |\n| [[Primary term]] | The initial period (often a few years) the lessee has to start drilling or production |\n| [[Held by production]] | Once production in paying quantities begins, the lease continues past the primary term as long as production continues |\n\nIf the primary term ends with no production (and no other clause, such as a shut-in royalty, keeping it alive), the lease generally expires.\n\n## Farm and ranch basics\n\nRural brokers need to look beyond the house:\n\n- **Water rights** may be separate from the land and are often worth more than it. Eastern states mostly use **[[riparian rights]]** (owners along a waterway share reasonable use); many western states, including Colorado, use **[[prior appropriation]]** (first to put water to beneficial use has the senior right). Confirm what water rights, well permits and ditch shares actually transfer.\n- **Mineral rights** may have been severed by a prior owner. A title search shows whether the seller owns them.\n- A **[[conservation easement]]** is a recorded, usually permanent restriction (often held by a land trust or government agency) that limits development such as subdivision, while the owner keeps ownership and can usually keep farming or ranching. Donating one can bring tax benefits, but it binds future owners and lowers development value.\n- **Agricultural use** often qualifies land for a lower property tax classification, with rules that vary by state. Changing the use can change the tax.\n- Check fences, access, grazing or farm leases in place, and outbuildings, and advise buyers to use specialists (water attorneys, surveyors, agronomists)."
+  },
+  {
+   "id": "g2-technology-safety",
+   "module": "m4-practice",
+   "title": "Technology, MLS/IDX, data security and safety",
+   "minutes": 22,
+   "topics": [
+    "Fair housing and practice"
+   ],
+   "body": "## The MLS: a cooperation tool, not a government agency\n\nA [[multiple listing service]] (MLS) is a private organization through which member brokers share information about their listings so other members can help find buyers. Most MLSs are owned by Realtor associations or by groups of brokers. Key points for the exam:\n\n- The MLS is **not a government body** and doesn't license anyone. Membership rules (who can join, fees, required listing input deadlines, data rules) vary from one MLS to another.\n- Putting a listing in the MLS is how a listing broker makes the listing available for cooperation. Any offer of compensation to cooperating brokers is a matter of contract between the brokers, and rules on whether and where such offers may appear have changed in recent years, so follow your MLS's current rules.\n- Using the MLS doesn't change agency. A broker who finds a buyer through the MLS doesn't automatically represent the seller.\n- MLS data belongs to a system with rules about who may see it and how it may be used. Sharing your login or scraping data can break those rules.\n\n> **Exam tip:** MLS rules can't override antitrust law. Brokers in an MLS still can't agree on commission rates or agree to shut out a competitor.\n\n## IDX: showing other brokers' listings on your website\n\n[[IDX]] (Internet Data Exchange) is the MLS feature that lets a participant display other participants' active listings on the participant's own website. Typical MLS rules, modeled on national policy, include:\n\n- **Consent.** Listing brokers are generally presumed to allow IDX display unless they opt out (for all listings or one at a time). A broker who opts out entirely usually loses the right to display others' listings.\n- **Seller choice.** A seller can direct the listing broker to keep the listing, or just the address, off the internet. The listing broker must honor that and tell the MLS.\n- **Attribution.** The listing firm must be identified in a reasonably prominent place on each listing display, and the MLS is credited as the source.\n- **No alterations.** A displaying broker can't change another broker's listing content, and fields the MLS marks confidential (such as remarks meant only for other brokers) aren't shown.\n\n## Fair housing in digital advertising\n\nThe [[Fair Housing Act]] bars any advertisement or notice that indicates a preference, limitation or discrimination based on a protected class. HUD's advertising regulation (24 CFR 100.75) adds that choosing media or locations for housing ads in a way that denies particular groups information about available housing is also discriminatory. These rules apply online just as they do in print.\n\nPractical risks:\n\n- **Ad targeting.** Social media and search ad tools let advertisers choose or exclude audiences. Excluding people by sex, family status, religion, national origin or disability, or by age or ZIP code used as a stand-in for familial status or race, can violate the Act even if no discriminatory words appear in the ad. Use broad geographic and interest settings, and use special housing ad categories where a platform offers them.\n- **Language.** Describe the property, not the people you want: \"three bedrooms near a park,\" not \"perfect for young couples\" or \"ideal for singles.\"\n- **Search filters and IDX tools.** A website shouldn't let users filter homes by the racial or religious makeup of a neighborhood, and agents shouldn't add commentary that steers (\"great schools, if you know what I mean\"). Point consumers to objective sources for school and crime data rather than giving your own opinions about neighborhoods.\n- **Photos and models.** Using only people of one race or family type across all marketing can signal a preference.\n\nHUD issued detailed guidance on digital ad platforms in April 2024, then withdrew it, along with seven other fair housing guidance documents, effective September 17, 2025 (announced in the Federal Register in April 2026). Withdrawing guidance didn't change the statute or HUD's advertising regulation, so the core rule stands: you can't use where or to whom an ad is shown to keep protected groups from learning about housing.\n\n> **Exam tip:** Intent isn't required for an advertising violation. If the ad, or the way it was targeted, signals a preference based on a protected class, it can violate the Act.\n\n## Electronic signatures: E-SIGN and UETA\n\nTwo laws make electronic contracts work:\n\n| | [[E-SIGN Act]] | [[UETA]] |\n|---|---|---|\n| What it is | Federal law (2000) | Uniform state law (1999), adopted by nearly all states, including Colorado |\n| Core rule | A signature, contract or record can't be denied legal effect just because it's electronic | Same; an electronic signature satisfies a signature requirement |\n| Agreement | No one is required to use electronic records | Applies only when the parties agree to deal electronically (agreement can be shown by conduct) |\n\n**Consumer consent under E-SIGN.** When a law requires that a consumer receive information in writing, an electronic version counts only if the consumer affirmatively consents after being told about the right to get paper copies, the right to withdraw consent, and the hardware and software needed. The consumer must consent electronically in a way that shows they can actually open the records.\n\n**Exceptions.** E-SIGN doesn't cover wills and testamentary trusts, family law matters such as divorce and adoption, court documents, and certain notices, including notices of utility shut-off and notices of default, foreclosure or eviction involving a person's primary residence. Those still need traditional delivery.\n\nElectronic records must also be capable of being kept and accurately reproduced, so keep complete copies in your transaction files.\n\n## Data security and wire fraud\n\nBrokers hold sensitive client information: Social Security numbers, bank statements, loan documents, ID copies. The FTC's guide for businesses boils data protection down to five ideas:\n\n1. **Take stock** — know what personal information you have and where it is.\n2. **Scale down** — keep only what you need.\n3. **Lock it** — protect what you keep (strong passwords, multi-factor login, encryption, locked files).\n4. **Pitch it** — dispose of what you no longer need properly (shred paper, wipe devices).\n5. **Plan ahead** — have a plan for responding to a breach.\n\n### Wire fraud\n\n[[Wire fraud]] in real estate is a form of [[business email compromise]]. Criminals break into or imitate the email of an agent, title company or lender, wait until closing, and send \"updated\" wiring instructions that route the buyer's down payment or the seller's proceeds to their own account. Once the money is gone it's very hard to recover.\n\nWhat brokers should do:\n- Warn clients early and in writing that you and the closing company will **never** change wiring instructions by email.\n- Tell clients to **verify wiring instructions by phone using a number they already know** (from the contract, a business card or an independent source), never a number in the email.\n- Don't send financial information through ordinary email; use secure portals.\n- Use multi-factor authentication on email accounts.\n\nIf a wire goes astray, act immediately: the sender should call their bank to request a recall, notify the title or closing company, and file a complaint with the FBI's Internet Crime Complaint Center (IC3). Speed matters — funds can sometimes be frozen if reported quickly.\n\n## Agent safety\n\nReal estate work means meeting strangers in empty buildings. Standard safety practices:\n\n- **Meet new prospects at the office first.** Get their full name and contact information and make a copy of their photo ID, and keep it at the office.\n- **Share your itinerary.** Tell someone where you're going, who you're meeting and when you'll be back, and set up check-in calls.\n- **Use a distress code.** Agree with your office on a code word or phrase that signals you need help.\n- **At open houses:** know at least two exits, check every room before you lock up, and don't leave valuables or prescription drugs out (ask sellers to secure them).\n- **During showings:** let the prospect walk ahead of you, and park on the street rather than in the driveway so you can't be blocked in.\n- **Trust your instincts.** If something feels wrong, leave.\n\nSafety rules must be applied consistently to everyone. Asking only certain prospects for ID, based on how they look or sound, creates a fair housing problem."
+  }
+ ],
+ "questions": [
+  {
+   "id": "g2-001",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A retail tenant pays $2,500 per month base rent plus 5% of annual gross sales above the natural breakpoint. Annual gross sales are $800,000. What is the tenant's total annual rent?",
+   "choices": [
+    "$40,000",
+    "$30,000",
+    "$70,000",
+    "$10,000"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Annual base rent is $30,000, so the natural breakpoint is $30,000 ÷ 0.05 = $600,000. Overage is $200,000 × 5% = $10,000, for total rent of $40,000. $10,000 is only the percentage rent."
+  },
+  {
+   "id": "g2-002",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A percentage lease calls for annual base rent of $48,000 and 8% of gross sales above the natural breakpoint. What is the natural breakpoint?",
+   "choices": [
+    "$384,000",
+    "$600,000",
+    "$480,000",
+    "$3,840"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "Natural breakpoint = annual base rent ÷ percentage rate = $48,000 ÷ 0.08 = $600,000. At that sales level, 8% of sales equals the base rent."
+  },
+  {
+   "id": "g2-003",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A tenant leases 3,000 sq ft in a 24,000 sq ft building on a triple net lease at $18 per sq ft per year. The building's annual taxes, insurance and maintenance total $120,000 and are shared pro rata. What is the tenant's total monthly payment?",
+   "choices": [
+    "$4,500",
+    "$1,250",
+    "$5,750",
+    "$6,000"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "Base rent is 3,000 × $18 = $54,000 a year. The tenant's share is 12.5% of $120,000 = $15,000. Total $69,000 ÷ 12 = $5,750 a month. $4,500 is base rent only."
+  },
+  {
+   "id": "g2-004",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "Under which lease does the tenant pay base rent plus the property taxes, insurance and maintenance, giving the landlord the most predictable income?",
+   "choices": [
+    "Gross lease",
+    "Graduated (step-up) lease",
+    "Percentage lease",
+    "Triple net lease"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "In a triple net (NNN) lease the tenant pays rent plus taxes, insurance and maintenance. In a gross lease the landlord pays those costs out of a fixed rent."
+  },
+  {
+   "id": "g2-005",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A developer leases vacant land for 75 years and constructs an office building on it. This arrangement is a:",
+   "choices": [
+    "Ground lease",
+    "Graduated lease",
+    "Index lease",
+    "Gross lease"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "A ground lease rents only the land, usually for a long term, and the tenant builds improvements. The long term lets the tenant finance and recover the building's cost."
+  },
+  {
+   "id": "g2-006",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A shopping center tenant pays a monthly charge for its share of parking lot repairs, landscaping and snow removal. This charge is best described as:",
+   "choices": [
+    "A tenant improvement allowance",
+    "Common area maintenance",
+    "Percentage rent",
+    "Delay rental"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "Common area maintenance (CAM) charges cover the upkeep of shared areas, usually allocated pro rata and reconciled annually."
+  },
+  {
+   "id": "g2-007",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A prospective office tenant and a landlord sign a letter of intent outlining rent, term and a tenant improvement allowance. Unless it states otherwise, the letter of intent typically:",
+   "choices": [
+    "Is a binding lease for the term and rent stated in it",
+    "Transfers possession of the space to the tenant at signing",
+    "Is a non-binding summary of the proposed terms",
+    "Must be recorded in the county records to be effective"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "An LOI usually sets out key terms for negotiating the full lease and is written to be non-binding on the deal itself, though specific clauses such as confidentiality may be binding."
+  },
+  {
+   "id": "g2-008",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "In a commercial lease transaction, the split of the commission between the landlord's broker and the tenant's broker is determined by:",
+   "choices": [
+    "State law",
+    "The local Realtor association's fee schedule",
+    "The MLS's standard commission rate",
+    "Agreement among the parties and brokers"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "Commission amounts and splits are set by agreement. No law or association sets them, and brokers agreeing on rates among themselves would be price fixing."
+  },
+  {
+   "id": "g2-009",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "A broker is selling a dry-cleaning business, including its equipment, customer list, inventory and good name. The value of the business's reputation and customer loyalty is called:",
+   "choices": [
+    "Goodwill",
+    "Inventory",
+    "Fixtures",
+    "Chattel mortgage"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Goodwill is the intangible value of a business's reputation and customer relationships. It is part of a business opportunity sale but is not real property."
+  },
+  {
+   "id": "g2-010",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "Under an oil and gas lease, a landowner receives a one-time payment when the lease is signed, regardless of whether any oil is found. This payment is the:",
+   "choices": [
+    "Royalty",
+    "Bonus",
+    "Delay rental",
+    "Shut-in payment"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "The bonus is paid at signing and kept whether or not production occurs. A royalty is a share of actual production, and a delay rental keeps the lease alive without drilling during the primary term."
+  },
+  {
+   "id": "g2-011",
+   "section": "national",
+   "topic": "Property management",
+   "stem": "An oil and gas lease has a five-year primary term. In year three a well begins producing in paying quantities and continues producing for 20 years. The lease:",
+   "choices": [
+    "Ends at the end of the five-year primary term",
+    "Converts to a periodic tenancy",
+    "Continues as long as production continues",
+    "Requires the lessee to pay delay rentals for 20 years"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "Once production in paying quantities begins, the lease is held by production and continues beyond the primary term for as long as production lasts."
+  },
+  {
+   "id": "g2-012",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "Which statement about a multiple listing service is correct?",
+   "choices": [
+    "It is a state agency that licenses brokers",
+    "Membership rules are set by federal law and are identical nationwide",
+    "Placing a listing in the MLS makes every member broker an agent of the seller",
+    "It is a private organization through which members share listing information"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "An MLS is a private cooperative arrangement among brokers, and its membership rules vary. Cooperating through the MLS does not by itself create agency with the seller."
+  },
+  {
+   "id": "g2-013",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "A broker displays other brokerages' active listings on her website through IDX. Under typical MLS IDX rules, she must:",
+   "choices": [
+    "Identify the listing brokerage on each listing display",
+    "Rewrite each listing's remarks and photos in her own words",
+    "Show the seller's name and phone number on every listing",
+    "Remove the MLS as the source to avoid confusing consumers"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "IDX rules generally require the listing firm to be identified in a reasonably prominent location and the MLS credited as the source. Displaying brokers may not alter another firm's listing content."
+  },
+  {
+   "id": "g2-014",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "A seller tells her listing broker she does not want her home shown on any websites. What should the broker do?",
+   "choices": [
+    "Refuse, because IDX display is mandatory once a listing is entered in the MLS",
+    "Honor it and have the MLS withhold the listing from internet display",
+    "Cancel the listing agreement, since internet exposure is required",
+    "Display the listing only on the broker's own website instead"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "Typical MLS rules let a seller direct the listing broker to withhold the listing, or just the address, from internet display. The broker follows the seller's instruction and the MLS's procedure."
+  },
+  {
+   "id": "g2-015",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "A property manager buys social media ads for a new apartment complex and chooses to show them only to users aged 25 to 40 with no children. This is a concern because:",
+   "choices": [
+    "Social media housing ads must be reviewed and approved by HUD before they run",
+    "Only print advertising, not online advertising, is covered by the Fair Housing Act's ad rules",
+    "Targeting that excludes families with children can violate the Fair Housing Act",
+    "Age is the only characteristic that matters in apartment advertising"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "The Fair Housing Act's advertising rules apply online, and selecting audiences so that a protected group (here, familial status) doesn't learn about housing can be discriminatory even if the ad's wording is neutral."
+  },
+  {
+   "id": "g2-016",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "Under the federal E-SIGN Act, which document still requires traditional (non-electronic) treatment?",
+   "choices": [
+    "A purchase contract signed by both parties",
+    "A listing agreement",
+    "A residential lease application",
+    "A will"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "E-SIGN excludes wills, codicils and testamentary trusts, along with family-law matters, court documents and certain notices. Ordinary real estate contracts can be signed electronically."
+  },
+  {
+   "id": "g2-017",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "Before a business may deliver legally required consumer disclosures electronically under the E-SIGN Act, the consumer must:",
+   "choices": [
+    "Affirmatively consent after being told of the right to receive paper copies",
+    "Sign a paper waiver of the right to paper copies in front of a notary",
+    "Agree in writing to pay a fee for receiving disclosures electronically",
+    "Live in a state that has not adopted the Uniform Electronic Transactions Act"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "E-SIGN requires the consumer's affirmative consent after disclosures about paper copies, withdrawing consent and system requirements, given in a way that shows the consumer can access the records."
+  },
+  {
+   "id": "g2-018",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "Two days before closing, a buyer receives an email that appears to come from the title company with new wiring instructions. The buyer's broker should advise the buyer to:",
+   "choices": [
+    "Wire the funds right away so the closing isn't delayed by the change",
+    "Call the title company at an independently obtained number to verify",
+    "Reply to the email asking the sender to confirm the new account number",
+    "Call the phone number in the email's signature block to confirm the change"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "Changed wiring instructions by email are a classic wire fraud sign. Verification should be by phone to a known, independently obtained number; contact details in the suspicious email may belong to the criminal."
+  },
+  {
+   "id": "g2-019",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "A broker's office policy for safety requires agents to meet new prospects at the office and copy their photo ID before a showing. To avoid a fair housing problem, the policy should be:",
+   "choices": [
+    "Applied only to prospects who seem suspicious",
+    "Used only for buyers from outside the area",
+    "Applied consistently to every new prospect",
+    "Waived for prospects who prefer not to show ID"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "Safety policies are fine, but applying them selectively based on how someone looks or sounds can be discriminatory. Apply the same rule to everyone."
+  },
+  {
+   "id": "g2-020",
+   "section": "national",
+   "topic": "Fair housing and practice",
+   "stem": "Which practice best protects clients' personal information held by a brokerage?",
+   "choices": [
+    "Keeping copies of every document indefinitely in case they are ever needed",
+    "Emailing bank statements to clients and lenders as regular attachments",
+    "Sharing one MLS and email login among the whole team for convenience",
+    "Keeping only needed information and securely disposing of the rest"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "The FTC's guidance for businesses stresses keeping only what you need, protecting it, and disposing of it properly. Shared logins and unencrypted email increase risk."
+  }
+ ],
+ "cards": [
+  {
+   "id": "g2-c001",
+   "front": "Gross lease vs. net lease",
+   "back": "Gross: tenant pays fixed rent; landlord pays taxes, insurance, maintenance. Net: tenant pays rent plus some or all of those expenses.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c002",
+   "front": "Triple net (NNN) lease",
+   "back": "Tenant pays base rent plus property taxes, insurance and maintenance. Landlord gets the most predictable net income.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c003",
+   "front": "Double net (NN) lease",
+   "back": "Tenant pays rent plus (typically) taxes and insurance; exact split depends on the lease language.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c004",
+   "front": "Natural breakpoint formula",
+   "back": "Annual base rent ÷ percentage rate. Percentage rent is paid only on gross sales above the breakpoint.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c005",
+   "front": "Artificial breakpoint",
+   "back": "A negotiated sales threshold for percentage rent that differs from the natural breakpoint.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c006",
+   "front": "Percentage lease: $24,000/yr base, 4% over natural breakpoint, $750,000 sales — total rent?",
+   "back": "Breakpoint $600,000; overage $150,000 × 4% = $6,000; total $30,000.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c007",
+   "front": "Pro rata share in a multi-tenant building",
+   "back": "Tenant's square footage ÷ building's square footage; used to allocate taxes, insurance and CAM.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c008",
+   "front": "Graduated (step) lease",
+   "back": "Rent increases by set amounts on a set schedule.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c009",
+   "front": "Index (escalation) lease",
+   "back": "Rent adjusts according to an outside index, such as the Consumer Price Index.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c010",
+   "front": "Ground lease",
+   "back": "Lease of land only, usually long-term (often 50–99 years); tenant builds and improvements typically revert to the landowner at the end.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c011",
+   "front": "CAM charges",
+   "back": "Common area maintenance: tenants' shares of costs for shared areas (parking, landscaping, lobbies), usually reconciled yearly.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c012",
+   "front": "Tenant improvement (TI) allowance",
+   "back": "Landlord's contribution (often $ per sq ft) toward customizing the space; tenant pays costs above it.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c013",
+   "front": "Letter of intent (LOI)",
+   "back": "Summary of proposed lease or sale terms before the full contract; usually non-binding on the main deal.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c014",
+   "front": "Who sets commission splits between cooperating commercial brokers?",
+   "back": "The brokers and parties by agreement — never law, an association or the MLS.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c015",
+   "front": "Business opportunity sale",
+   "back": "Sale of an operating business (equipment, inventory, goodwill, lease); mostly personal property, transferred by bill of sale.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c016",
+   "front": "Bulk sale",
+   "back": "Transfer of a major part of a business's inventory/equipment outside the ordinary course; some states still require notice to creditors or tax authorities.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c017",
+   "front": "Oil and gas lease: lessor vs. lessee",
+   "back": "Lessor = mineral owner granting drilling rights. Lessee = oil company receiving them.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c018",
+   "front": "Bonus vs. royalty",
+   "back": "Bonus: one-time payment at signing, kept regardless. Royalty: lessor's fractional share of actual production, free of production costs.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c019",
+   "front": "Delay rental",
+   "back": "Payment that keeps an oil and gas lease alive during the primary term when drilling hasn't begun.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c020",
+   "front": "Held by production",
+   "back": "Lease continues beyond the primary term as long as oil or gas is produced in paying quantities.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c021",
+   "front": "Conservation easement",
+   "back": "Recorded, usually permanent limit on development, held by a land trust or agency; owner keeps title and can usually keep farming.",
+   "topic": "Property management"
+  },
+  {
+   "id": "g2-c022",
+   "front": "Is the MLS a government agency?",
+   "back": "No. It's a private broker cooperation system; membership rules vary by MLS.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c023",
+   "front": "IDX",
+   "back": "Internet Data Exchange: lets MLS participants display other participants' listings on their websites, with listing-firm attribution and no alterations.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c024",
+   "front": "Can a seller keep a listing off the internet?",
+   "back": "Yes. Seller can direct the listing broker to withhold the listing (or address) from internet display under typical MLS rules.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c025",
+   "front": "Digital ad targeting and fair housing",
+   "back": "Choosing audiences or locations so a protected class doesn't see housing ads can violate the Fair Housing Act, even with neutral wording.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c026",
+   "front": "E-SIGN vs. UETA",
+   "back": "E-SIGN: federal law (2000). UETA: uniform state law (1999), applies when parties agree to deal electronically. Both give e-signatures legal effect.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c027",
+   "front": "E-SIGN exceptions to remember",
+   "back": "Wills/testamentary trusts, family law, court documents, utility shut-off notices, and default/foreclosure/eviction notices for a primary residence.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c028",
+   "front": "Wire instructions arrive or change by email — what to do?",
+   "back": "Verify by phone using an independently known number. If money was sent, call the bank for a recall at once and file with IC3.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c029",
+   "front": "FTC's five data security principles",
+   "back": "Take stock, scale down, lock it, pitch it, plan ahead.",
+   "topic": "Fair housing and practice"
+  },
+  {
+   "id": "g2-c030",
+   "front": "Basic agent safety steps",
+   "back": "Meet new prospects at the office, copy ID, share your itinerary, use a distress code word, know your exits — apply rules to everyone equally.",
+   "topic": "Fair housing and practice"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Gross lease",
+   "definition": "A lease in which the tenant pays a fixed rent and the landlord pays the property's taxes, insurance and maintenance.",
+   "aliases": []
+  },
+  {
+   "term": "Net lease",
+   "definition": "A lease where the tenant pays rent plus some or all of the property's expenses.",
+   "aliases": [
+    "Single net lease"
+   ]
+  },
+  {
+   "term": "Triple net lease",
+   "definition": "A net lease where the tenant pays rent plus property taxes, insurance and maintenance.",
+   "aliases": [
+    "NNN lease",
+    "net-net-net lease"
+   ]
+  },
+  {
+   "term": "Percentage lease",
+   "definition": "A lease with base rent plus a percentage of the tenant's gross sales above a breakpoint, common in retail.",
+   "aliases": []
+  },
+  {
+   "term": "Graduated lease",
+   "definition": "A lease whose rent increases in scheduled steps.",
+   "aliases": [
+    "Step-up lease",
+    "Step lease"
+   ]
+  },
+  {
+   "term": "Index lease",
+   "definition": "A lease whose rent adjusts with an outside index such as the Consumer Price Index.",
+   "aliases": [
+    "Escalation lease"
+   ]
+  },
+  {
+   "term": "Ground lease",
+   "definition": "A long-term lease of land only, on which the tenant usually builds.",
+   "aliases": []
+  },
+  {
+   "term": "Breakpoint",
+   "definition": "The gross sales level above which percentage rent is owed; the natural breakpoint equals annual base rent divided by the percentage rate.",
+   "aliases": [
+    "Natural breakpoint"
+   ]
+  },
+  {
+   "term": "Common area maintenance",
+   "definition": "Costs of operating and maintaining shared areas of a multi-tenant property, passed through to tenants by their pro rata shares.",
+   "aliases": [
+    "CAM"
+   ]
+  },
+  {
+   "term": "Tenant improvements",
+   "definition": "Alterations made to leased space to suit a tenant's use, often funded partly by a landlord allowance.",
+   "aliases": [
+    "TI",
+    "TI allowance"
+   ]
+  },
+  {
+   "term": "Letter of intent",
+   "definition": "A preliminary document summarizing proposed deal terms, usually non-binding on the main transaction.",
+   "aliases": [
+    "LOI"
+   ]
+  },
+  {
+   "term": "Co-brokerage",
+   "definition": "Cooperation between two brokerages on one transaction, with the commission split set by agreement.",
+   "aliases": [
+    "Co-broke"
+   ]
+  },
+  {
+   "term": "Business opportunity",
+   "definition": "The sale or lease of an operating business, including its assets, inventory and goodwill.",
+   "aliases": []
+  },
+  {
+   "term": "Goodwill",
+   "definition": "The intangible value of a business's reputation, name and customer relationships.",
+   "aliases": []
+  },
+  {
+   "term": "Bulk sale",
+   "definition": "A transfer of a major part of a business's inventory or equipment outside the ordinary course of business, which in some states triggers notice requirements.",
+   "aliases": [
+    "Bulk transfer"
+   ]
+  },
+  {
+   "term": "Mineral rights",
+   "definition": "Ownership of the minerals, oil and gas below the surface, which can be severed and owned separately from the surface.",
+   "aliases": [
+    "Mineral estate"
+   ]
+  },
+  {
+   "term": "Oil and gas lease",
+   "definition": "A lease in which a mineral owner (lessor) grants an oil company (lessee) the right to explore for and produce oil and gas in exchange for a bonus, rentals and royalties.",
+   "aliases": []
+  },
+  {
+   "term": "Bonus",
+   "definition": "In an oil and gas lease, the one-time payment made to the mineral owner when the lease is signed.",
+   "aliases": [
+    "Lease bonus"
+   ]
+  },
+  {
+   "term": "Delay rental",
+   "definition": "A payment that keeps an oil and gas lease in force during the primary term when drilling has not started.",
+   "aliases": []
+  },
+  {
+   "term": "Royalty",
+   "definition": "The mineral owner's fractional share of oil or gas production, paid free of production costs.",
+   "aliases": []
+  },
+  {
+   "term": "Primary term",
+   "definition": "The initial period of an oil and gas lease during which the lessee must begin drilling or production.",
+   "aliases": []
+  },
+  {
+   "term": "Held by production",
+   "definition": "Describes an oil and gas lease that continues past its primary term because production in paying quantities continues.",
+   "aliases": [
+    "HBP"
+   ]
+  },
+  {
+   "term": "Riparian rights",
+   "definition": "Rights of owners of land along a river or stream to make reasonable use of the water.",
+   "aliases": []
+  },
+  {
+   "term": "Prior appropriation",
+   "definition": "A water-rights doctrine, used in Colorado and many western states, under which the first to put water to beneficial use has the senior right.",
+   "aliases": []
+  },
+  {
+   "term": "Conservation easement",
+   "definition": "A recorded, usually permanent restriction on development that the owner grants to a land trust or government agency while keeping ownership.",
+   "aliases": []
+  },
+  {
+   "term": "Multiple listing service",
+   "definition": "A private organization through which member brokers share listing information to cooperate in finding buyers.",
+   "aliases": [
+    "MLS"
+   ]
+  },
+  {
+   "term": "IDX",
+   "definition": "Internet Data Exchange: the MLS feature that lets participants display other participants' listings on their websites under MLS rules.",
+   "aliases": [
+    "Internet Data Exchange"
+   ]
+  },
+  {
+   "term": "Fair Housing Act",
+   "definition": "Federal law (Title VIII of the Civil Rights Act of 1968, as amended) barring housing discrimination based on race, color, religion, sex, national origin, disability and familial status.",
+   "aliases": []
+  },
+  {
+   "term": "E-SIGN Act",
+   "definition": "Federal law (2000) giving electronic signatures and records the same legal effect as paper ones, with consumer-consent rules and listed exceptions.",
+   "aliases": [
+    "E-SIGN",
+    "Electronic Signatures in Global and National Commerce Act"
+   ]
+  },
+  {
+   "term": "UETA",
+   "definition": "The Uniform Electronic Transactions Act, a state law adopted by nearly all states that validates electronic records and signatures when the parties agree to deal electronically.",
+   "aliases": [
+    "Uniform Electronic Transactions Act"
+   ]
+  },
+  {
+   "term": "Wire fraud",
+   "definition": "In real estate, the theft of closing funds by tricking a party into wiring money to a criminal's account, usually with fake wiring instructions.",
+   "aliases": [
+    "Real estate wire fraud"
+   ]
+  },
+  {
+   "term": "Business email compromise",
+   "definition": "A scam in which criminals hack or imitate a legitimate email account to trick recipients into sending money or information.",
+   "aliases": [
+    "BEC"
+   ]
+  }
+ ]
+}

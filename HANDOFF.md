@@ -86,7 +86,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - `content/refs/*.md`: the reference sheets
 - `content/drills.json`: the drill templates
 
-**Counts:** 8 modules and 38 lessons. The bank has 250 questions: 130 national and 120 state.
+**Counts:** 8 modules and 48 lessons. The bank has 351 questions: 168 national and 183 state. 590 cards, 448 glossary terms, 25 drills.
 
 | Module | Topic |
 |---|---|
@@ -105,7 +105,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - 154 questions per exam: 80 national and 74 state.
 - National portion: 120 minutes, 75% to pass (60 of 80).
 - State portion: 110 minutes, 71.6% to pass (53 of 74).
-- Course `revision` is 2.
+- Course `revision` is 3.
 
 **How it was made:**
 - Eight writer agents worked from `content/SPEC.md`, and independent fact-checkers then reviewed them using `content/REVIEW.md`.
@@ -113,7 +113,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - Choices were rebalanced so the correct answer is rarely the longest one. Before the rebalance, the longest choice was correct about 65% of the time on the state questions.
 
 **Still open on content:**
-- **Van Ed pass not done.** See "Van Ed refinement brief" below.
+- **Van Ed pass partly done (2026-10-12).** Gap-fill at the outline level is done: Claude read the course outlines of the six Van Ed content courses (Law & Practice, Contracts & Regulations, Closings, Legal Issues, Record Keeping & Trust Accounts, Practical Applications) and added parts `g1`–`g5` (10 lessons, 100 questions, 3 drills), each written and then independently fact-checked per SPEC/REVIEW. Jon dropped the 250 cap. **Not done:** a lesson-by-lesson comparison of Van Ed's actual content for conflicts. The Van Ed free trial expires Fri Oct 16, 2026. The Orientation course needs Jon to tick the name/ID acknowledgment himself.
 - **New forms in 2027.** Commission forms revised for mandatory use on January 1, 2027 were published August 4, 2026. The contracts lesson flags them. Re-check against the new forms once they're in use.
 - **Weakly sourced facts, flagged by reviewers:**
   - Net listings: the only source is the 2007 Real Estate Manual.
@@ -150,7 +150,7 @@ This answers the questions a new chat would ask before starting the Van Ed pass.
   - the correct answer must not be the longest choice in more than about 30% of questions
   - stable ids, because progress is keyed on them
   - every `[[link]]` must resolve to a glossary term
-- **The bank stays near 250 questions** with the 130/120 split, unless Jon says otherwise. New questions can replace weaker ones, or the bank can grow with his approval.
+- **Bank size:** Jon dropped the 250 cap on 2026-10-12; the bank can grow. Timed exams still draw 80/74.
 - **Ship changes as a new course revision.** Bump `"revision"` in `content/build_course.py` and write a `changelog`, so existing installs are offered the update in-app.
 
 ## Storage (per-user app data)

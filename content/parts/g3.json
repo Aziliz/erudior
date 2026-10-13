@@ -1,0 +1,682 @@
+{
+ "lessons": [
+  {
+   "id": "g3-closing-worksheet",
+   "module": "m8-co-closing",
+   "title": "The Colorado closing worksheet",
+   "minutes": 25,
+   "topics": [
+    "Closing and settlement"
+   ],
+   "body": "## Why a worksheet?\n\nThe [[closing statement]] each party signs is the finished product. Before it exists, someone has to lay every number from the contract side by side and prove that the money adds up. That is the job of the **[[settlement worksheet]]** (also called a closing worksheet). The Division's outline for the 24-hour Closings course includes a **six-column worksheet**, and the Commission publishes a worksheet form with exactly that layout. On the state exam you'll get roughly ten closing and settlement questions, and most of them come down to two skills: putting an item in the right column, and doing the arithmetic.\n\n## The layout\n\nThe Commission's worksheet has a line for each item (price, earnest money, loans, payoffs, taxes, title, recording, documentary fee, HOA items, rents, deposits, withholding, brokerage fee and so on) and **three pairs of columns**:\n\n| Column pair | Debit means… | Credit means… |\n|---|---|---|\n| **Seller** | a charge that reduces what the seller walks away with | money in the seller's favor |\n| **Buyer** | a charge that increases what the buyer must bring | money or value in the buyer's favor |\n| **Broker** (reconciliation, or \"cash\") | money **received** into the closing | money **paid out** of the closing |\n\nThe broker pair is the reconciliation side. It tracks the actual cash: every check or wire that comes into the closing (earnest money, loan funds, the buyer's final payment) is a broker **debit**, and every check that goes out (loan payoffs, title premiums, recording, the brokerage fee, the seller's proceeds) is a broker **credit**. Some textbooks label this pair \"cash\" or \"closing entity,\" and you may see worksheet versions that add a separate lender pair to track loan funds and loan charges; the logic is the same.\n\n> **Exam tip:** In the broker (cash) column, think \"debit = in, credit = out.\" That's the reverse of how most people think about their own bank account, which is why it trips students up.\n\n## Double entries and single entries\n\nEvery line on the worksheet is one of two kinds.\n\n**[[Double entry]]** items move value **between the buyer and the seller**. One party is debited and the other credited by the same amount:\n\n| Item | Seller | Buyer |\n|---|---|---|\n| Purchase price | Credit | Debit |\n| Current-year taxes not yet paid ([[paid in arrears]]) | Debit | Credit |\n| Prepaid items the buyer takes over (HOA dues, fuel, lender escrow reserve on an assumed loan) | Credit | Debit |\n| Rent the seller collected for the buyer's days | Debit | Credit |\n| Tenant security deposits transferred | Debit | Credit |\n| Seller concession toward buyer's costs | Debit | Credit |\n| [[Assumed loan]] balance | Debit | Credit |\n| Accrued interest on an assumed loan | Debit | Credit |\n| [[Seller carry-back]] note | Debit | Credit |\n\nDouble entries have **no broker entry** of their own — no cash changes hands on that line; the parties are just settling up with each other. (The cash to pay the price arrives through other lines: earnest money, loan funds and the buyer's final payment.)\n\n**[[Single entry]]** items involve **one party and an outsider** (a lender, the county, the title company, a brokerage). They show up in one party's column plus the broker column when money is collected or paid:\n\n| Item | Party entry | Broker entry |\n|---|---|---|\n| Earnest money | Buyer credit | Debit (received) |\n| New loan from a lender | Buyer credit | Debit (received) |\n| [[Payoff]] of the seller's loan | Seller debit | Credit (paid out) |\n| Brokerage fee paid by seller | Seller debit | Credit |\n| Owner's title policy (contract default) | Seller debit | Credit |\n| Buyer's loan costs, lender's policy, recording the buyer's deed of trust | Buyer debit | Credit |\n| [[Documentary fee]] | Debit to whichever party pays it (see below) | Credit |\n\n> **Exam tip:** Earnest money is **never** a seller entry. The seller already gets full credit for the price; the deposit is simply part of how the buyer pays it.\n\n### Why the new loan and the payoff are single entries\n\nThe buyer's new loan comes from a lender, not from the seller, so it's a buyer credit only. The seller's old loan is paid to the seller's lender, so it's a seller debit only. Two different loans, two different parties — no double entry.\n\nCompare that with an **assumption** or a **carry-back**. In both, the seller accepts something other than cash for part of the price — the buyer's promise to keep paying the seller's lender, or the buyer's note payable to the seller. That reduces the cash the seller receives (seller debit) and reduces the cash the buyer must bring (buyer credit). No money moves, so there's no broker entry.\n\n## Who pays what in Colorado\n\nThe contract and closing instructions control. Absent other terms, these are the Colorado points worth knowing:\n\n- **Owner's title policy:** under the Commission's residential contract, if neither box is checked, the **seller** selects the title company and pays for the [[owner's title insurance policy]]. The buyer pays for the lender's policy as a loan cost.\n- **Documentary fee:** state law imposes the fee on the person who offers the deed for recording — one cent per $100 of consideration (a major fraction of $100 counts as $100), with nothing due at $500 or less. The Commission's contract doesn't assign it to either party, and the worksheet form only gives it a line. Practice varies, so a well-written problem tells you who pays; debit that party and credit the cash column.\n- **Property taxes:** Colorado taxes are **paid in arrears** — a year's taxes come due January 1 of the next year. At most closings the current year is unpaid, so the seller's share is a **seller debit, buyer credit**. Any unpaid *prior*-year taxes are a seller debit paid to the county treasurer (broker credit).\n- **Closing fee:** the contract has the parties choose buyer, seller, or a split.\n- **Status letter fee:** the seller pays it under the contract.\n- **Brokerage fees:** paid as the listing contract and the contract direct.\n\n## Making it balance\n\nWhen every line is entered:\n\n1. Total the **seller** debits and credits. Credits minus debits = **[[balance due to seller]]**. Enter that figure as a **seller debit** (so the seller columns balance) and a **broker credit** (the closing pays it out).\n2. Total the **buyer** debits and credits. Debits minus credits = **[[balance due from buyer]]** (cash to close). Enter it as a **buyer credit** and a **broker debit** (the closing receives it).\n3. Now each pair must balance: seller debits = seller credits, buyer debits = buyer credits, and broker receipts = broker disbursements.\n\nIf the broker column doesn't balance, something was posted to a party but not to cash (or the reverse). Common culprits: forgetting the earnest money as a receipt, or entering a payoff as a seller debit but not as a disbursement.\n\n> **Exam tip:** The broker column can't balance unless every dollar received has a matching dollar paid out. A gap equal to one line item usually means that line is missing its broker entry.\n\n## The worksheet and the Closing Disclosure\n\nOn a financed home purchase, the lender's [[Closing Disclosure]] (the federal TRID form) also shows the buyer's costs, and a seller's version shows the seller's costs. It does **not** replace the Colorado closing statement:\n\n- The Closing Disclosure covers the **loan** and is driven by federal lending rules. A cash sale has no Closing Disclosure, but still needs a Colorado closing statement.\n- Colorado license law requires the purchaser and seller to get a closing statement (C.R.S. 12-10-217), and Commission rules make the broker who works with a party responsible for seeing that the party gets an accurate, complete and detailed closing statement **signed by the broker**. Nothing in those rules lets the lender's Closing Disclosure stand in for it.\n- In practice you compare them: loan amount, lender charges, cash to close and the seller credits on the Closing Disclosure should match the closing statement. A mismatch is a red flag to resolve before closing.\n\n## Quick check\n\n- Same amount on both parties' sides → double entry, usually no cash entry.\n- One party plus an outside payee or source → single entry, with a broker entry.\n- Balance due to seller: seller debit + broker credit.\n- Balance due from buyer: buyer credit + broker debit.\n"
+  },
+  {
+   "id": "g3-worked-closings",
+   "module": "m8-co-closing",
+   "title": "Worked closings: new loan, loan assumption and seller financing",
+   "minutes": 30,
+   "topics": [
+    "Closing and settlement"
+   ],
+   "body": "## How to read these examples\n\nEach example is a full six-column [[settlement worksheet]]. Conventions, unless a problem says otherwise:\n\n- The **buyer owns the day of closing**. The Colorado contract prorates to the closing date; exam problems will tell you which party gets the closing day, so read for it.\n- Taxes are prorated on **last year's bill** and a **365-day year**; Colorado taxes are [[paid in arrears]], so the seller's share is a seller debit and buyer credit.\n- Rents, HOA dues and loan interest use a **30-day month**.\n- The broker pair is the cash column: **debit = money in, credit = money out**.\n- Figures are made up for practice. Fee amounts are round illustrations, not current Colorado prices.\n\n## Example A: Conventional sale with a new loan\n\n**Facts.** Price $450,000; closing June 15 (not a leap year). Buyer deposited $10,000 [[earnest money]] and gets a new 80% loan of $360,000. Seller's [[payoff]] is $212,400. Last year's taxes were $2,920. The seller prepaid June HOA dues of $270. Brokerage fee 5% paid by the seller; owner's title policy $1,450 (seller, contract default); closing fee $600 split; recording $80 and lender charges and prepaids $6,150 paid by the buyer; [[documentary fee]] charged to the buyer.\n\n**Calculations.**\n\n- Taxes: $2,920 ÷ 365 = $8.00 a day. Seller owns January 1–June 14 = 165 days. 165 × $8 = **$1,320** (debit seller, credit buyer).\n- HOA: $270 ÷ 30 = $9 a day. Buyer owns June 15–30 = 16 days. 16 × $9 = **$144** (credit seller, debit buyer).\n- Brokerage fee: $450,000 × 5% = **$22,500**. Documentary fee: 4,500 × $0.01 = **$45**.\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $450,000 | $450,000 |  |  |  |\n| Earnest money |  |  |  | $10,000 | $10,000 |  |\n| New first loan |  |  |  | $360,000 | $360,000 |  |\n| Payoff of seller's loan | $212,400 |  |  |  |  | $212,400 |\n| Current-year taxes (seller's 165 days) | $1,320 |  |  | $1,320 |  |  |\n| HOA dues prepaid by seller (16 days) |  | $144 | $144 |  |  |  |\n| Brokerage fee (5%) | $22,500 |  |  |  |  | $22,500 |\n| Owner's title policy | $1,450 |  |  |  |  | $1,450 |\n| Closing fee (split) | $300 |  | $300 |  |  | $600 |\n| Documentary fee |  |  | $45 |  |  | $45 |\n| Recording (deed and deed of trust) |  |  | $80 |  |  | $80 |\n| Lender's charges and prepaids |  |  | $6,150 |  |  | $6,150 |\n| **Balance due to seller** | $212,174 |  |  |  |  | $212,174 |\n| **Balance due from buyer** |  |  |  | $85,399 | $85,399 |  |\n| **Totals** | **$450,144** | **$450,144** | **$456,719** | **$456,719** | **$455,399** | **$455,399** |\n\n**Check.** Seller credits $450,144 − seller debits $237,970 = **$212,174 to the seller**. Buyer debits $456,719 − buyer credits $371,320 = **$85,399 due from the buyer**. Cash in: $10,000 + $360,000 + $85,399 = $455,399; cash out adds to the same $455,399. Every pair balances.\n\n> **Exam tip:** The loan payoff and the new loan never appear on the same party's side. The payoff is seller-only; the new loan is buyer-only.\n\n## Example B: Sale with a [[loan assumption]]\n\n**Facts.** Price $380,000; closing September 11. Buyer deposited $15,000 and assumes the seller's loan, which has a balance of $228,000 at 4.5% after the September 1 payment. Interest is **paid in arrears**: the September 1 payment covered August's interest, so September's interest will be paid by the buyer on October 1. The seller's lender escrow account holds $1,860, which transfers to the buyer. Last year's taxes $3,285. Buyer pays a $900 assumption fee; brokerage fee 5% (seller); owner's policy $1,300 (seller); closing fee $500 split; recording $40 and documentary fee charged to the buyer.\n\n**Calculations.**\n\n- Assumed loan: **$228,000** debit seller, credit buyer. No cash moves.\n- Interest: $228,000 × 4.5% ÷ 12 = $855 a month; ÷ 30 = $28.50 a day. Seller owns September 1–10 = 10 days → **$285** (debit seller, credit buyer — the buyer will pay the seller's 10 days on October 1).\n- Escrow reserve: **$1,860** credit seller, debit buyer (the seller funded it; the buyer gets the benefit).\n- Taxes: $3,285 ÷ 365 = $9 a day. Seller owns January 1–September 10 = 253 days → **$2,277** (debit seller, credit buyer).\n- Brokerage fee $19,000; documentary fee 3,800 × $0.01 = **$38**.\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $380,000 | $380,000 |  |  |  |\n| Earnest money |  |  |  | $15,000 | $15,000 |  |\n| Loan assumed by buyer | $228,000 |  |  | $228,000 |  |  |\n| Interest on assumed loan, Sept. 1-10 | $285 |  |  | $285 |  |  |\n| Lender's escrow reserve transferred |  | $1,860 | $1,860 |  |  |  |\n| Current-year taxes (seller's 253 days) | $2,277 |  |  | $2,277 |  |  |\n| Assumption fee to lender |  |  | $900 |  |  | $900 |\n| Brokerage fee (5%) | $19,000 |  |  |  |  | $19,000 |\n| Owner's title policy | $1,300 |  |  |  |  | $1,300 |\n| Closing fee (split) | $250 |  | $250 |  |  | $500 |\n| Documentary fee |  |  | $38 |  |  | $38 |\n| Recording (deed) |  |  | $40 |  |  | $40 |\n| **Balance due to seller** | $130,748 |  |  |  |  | $130,748 |\n| **Balance due from buyer** |  |  |  | $137,526 | $137,526 |  |\n| **Totals** | **$381,860** | **$381,860** | **$383,088** | **$383,088** | **$152,526** | **$152,526** |\n\n**Check.** Seller: $381,860 − $251,112 = **$130,748 to the seller**. Buyer: $383,088 − $245,562 = **$137,526 due from the buyer**. Cash in: $15,000 + $137,526 = $152,526, matching total cash out.\n\nNotice how small the cash flow is compared with the price. Because the buyer takes over the loan instead of paying it off, $228,000 of the price is settled by a double entry with no money moving.\n\n> **Exam tip:** Accrued interest on an assumed loan works like taxes in arrears: the seller used the money, the buyer will pay the bill, so **debit seller, credit buyer**.\n\n## Example C: New loan plus a [[seller carry-back]]\n\n**Facts.** A rental home sells for $520,000; closing April 20. Buyer deposited $20,000, gets a new first loan of $416,000 (80%), and the seller carries back a second-lien note of $52,000 (10%). Seller's payoff is $180,000. Last year's taxes $4,380. The seller collected April's rent of $2,400 and holds a $2,400 security deposit; the lease is assigned to the buyer. Brokerage fee 5% (seller); owner's policy $1,600 (seller); closing fee $600 split; buyer pays recording of $95, lender charges and prepaids of $7,400, and the documentary fee.\n\n**Calculations.**\n\n- Carry-back note: **$52,000** debit seller, credit buyer. The seller takes a note instead of cash.\n- Taxes: $4,380 ÷ 365 = $12 a day. Seller owns January 1–April 19 = 109 days → **$1,308** (debit seller, credit buyer).\n- Rent: $2,400 ÷ 30 = $80 a day. Buyer owns April 20–30 = 11 days → **$880** (debit seller, credit buyer).\n- Security deposit: transferred in full, **$2,400** debit seller, credit buyer — it isn't prorated.\n- Brokerage fee $26,000; documentary fee 5,200 × $0.01 = **$52** (on the full price, not the cash).\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $520,000 | $520,000 |  |  |  |\n| Earnest money |  |  |  | $20,000 | $20,000 |  |\n| New first loan (80%) |  |  |  | $416,000 | $416,000 |  |\n| Seller carry-back note (10%) | $52,000 |  |  | $52,000 |  |  |\n| Payoff of seller's loan | $180,000 |  |  |  |  | $180,000 |\n| Current-year taxes (seller's 109 days) | $1,308 |  |  | $1,308 |  |  |\n| April rent collected by seller (11 days) | $880 |  |  | $880 |  |  |\n| Tenant's security deposit | $2,400 |  |  | $2,400 |  |  |\n| Brokerage fee (5%) | $26,000 |  |  |  |  | $26,000 |\n| Owner's title policy | $1,600 |  |  |  |  | $1,600 |\n| Closing fee (split) | $300 |  | $300 |  |  | $600 |\n| Documentary fee |  |  | $52 |  |  | $52 |\n| Recording (deed and two deeds of trust) |  |  | $95 |  |  | $95 |\n| Lender's charges and prepaids |  |  | $7,400 |  |  | $7,400 |\n| **Balance due to seller** | $255,512 |  |  |  |  | $255,512 |\n| **Balance due from buyer** |  |  |  | $35,259 | $35,259 |  |\n| **Totals** | **$520,000** | **$520,000** | **$527,847** | **$527,847** | **$471,259** | **$471,259** |\n\n**Check.** Seller: $520,000 − $264,488 = **$255,512 to the seller**. Buyer: $527,847 − $492,588 = **$35,259 due from the buyer**. Cash in: $20,000 + $416,000 + $35,259 = $471,259, matching cash out.\n\nThe seller's total benefit is the $255,512 in cash **plus** a $52,000 note that pays over time. Only the cash shows up as proceeds at closing.\n\n## A five-step method for any problem\n\n1. **List every item** in the facts, including ones that are easy to overlook (earnest money, the price, and the documentary fee charged to whichever party the problem names).\n2. **Classify** each: between the parties (double entry) or with an outsider (single entry)?\n3. **Compute** prorations with the day count and closing-day rule the question gives you.\n4. **Total each party's side** and find the balance due to seller and from buyer.\n5. **Check the cash column.** Receipts must equal disbursements. If they don't, look for a line missing its broker entry.\n\n> **Exam tip:** Many exam questions only ask for one number, such as cash to close. You don't need the whole worksheet: buyer's debits minus buyer's credits gives the buyer's cash, and seller's credits minus seller's debits gives the seller's net. Just don't miss a line.\n"
+  }
+ ],
+ "questions": [
+  {
+   "id": "g3-001",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "On a six-column Colorado settlement worksheet, how is the payoff of the seller's existing mortgage entered?",
+   "choices": [
+    "Seller debit and buyer credit, no cash entry",
+    "Seller debit and broker (cash) credit",
+    "Buyer debit and seller credit",
+    "Seller credit and broker (cash) debit"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "The payoff reduces the seller's proceeds (seller debit) and is a check the closing pays out to the seller's lender (broker credit). It is not a buyer entry, because the buyer isn't taking over that loan."
+  },
+  {
+   "id": "g3-002",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A buyer is financing the purchase with a new $320,000 loan from a bank. How does the loan appear on the settlement worksheet?",
+   "choices": [
+    "Buyer credit and seller debit",
+    "Seller credit and broker (cash) debit, no buyer entry",
+    "Buyer debit and broker (cash) credit",
+    "Buyer credit and broker (cash) debit"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "Loan funds come from the lender, an outsider, so it's a single entry: a credit to the buyer and a receipt (debit) in the cash column. The seller is paid the full price, so the new loan never touches the seller's side."
+  },
+  {
+   "id": "g3-003",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A buyer assumes the seller's existing loan with a $185,000 balance. How is the assumed balance entered?",
+   "choices": [
+    "Seller debit and buyer credit only",
+    "Buyer credit and broker (cash) debit",
+    "Seller debit and broker (cash) credit",
+    "Buyer debit and seller credit"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "With an assumption no money changes hands: the seller accepts the buyer's takeover of the debt as part of the price. It's a double entry — debit seller, credit buyer — and nothing goes through the cash column."
+  },
+  {
+   "id": "g3-004",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "The seller agrees to carry back a $40,000 promissory note secured by a second deed of trust. On the worksheet this note is:",
+   "choices": [
+    "A credit to the seller and a debit to the buyer",
+    "A credit to the buyer and a cash receipt",
+    "A debit to the seller and a credit to the buyer",
+    "A debit to the seller and a cash disbursement at closing"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "The seller takes a note instead of $40,000 of cash, which reduces the seller's cash proceeds; the buyer pays $40,000 less in cash. No money moves at closing, so there's no cash-column entry."
+  },
+  {
+   "id": "g3-005",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "How is the buyer's $12,000 earnest money deposit, held by the closing company, entered on a six-column worksheet?",
+   "choices": [
+    "Buyer credit and seller debit, no cash entry",
+    "Seller credit and buyer debit",
+    "Buyer credit and broker (cash) debit",
+    "Buyer debit and broker (cash) credit"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "The deposit is money the buyer has already paid toward the price, so the buyer is credited. It's money the closing has received, so it's a cash debit (receipt). The seller is already credited with the full price, so earnest money is never a seller entry."
+  },
+  {
+   "id": "g3-006",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "Which of these items is a double entry (one party debited, the other credited)?",
+   "choices": [
+    "The seller's share of unpaid current-year taxes",
+    "The seller's brokerage fee under the listing contract",
+    "The lender's title policy the buyer pays for",
+    "The buyer's new first mortgage from a bank"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Prorated taxes move value between the parties: the seller is debited for the days the seller owned the property and the buyer is credited because the buyer will pay the whole bill. The other items involve only one party and an outsider."
+  },
+  {
+   "id": "g3-007",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "Which item normally appears on only one party's side of the worksheet?",
+   "choices": [
+    "The purchase price agreed in the contract",
+    "Tenant security deposits transferred to the buyer",
+    "Rent the seller collected for days after closing",
+    "The brokerage fee the seller pays"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "The brokerage fee is between the seller and the brokerage firm, so it's a seller debit (and a cash disbursement) only. The price, deposits and rent prorations are all double entries between buyer and seller."
+  },
+  {
+   "id": "g3-008",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A Colorado home sells for $436,700, and the parties agreed that the buyer will pay the state documentary fee. How is the fee entered on the worksheet?",
+   "choices": [
+    "$43.67 seller debit and cash credit",
+    "$43.67 buyer debit and cash credit",
+    "$436.70 buyer debit and cash credit",
+    "$43.67 buyer debit and seller credit"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "The documentary fee is one cent per $100 of consideration: $436,700 ÷ 100 = 4,367 × $0.01 = $43.67. The buyer pays it by agreement, so it's a buyer debit, and the closing pays it to the clerk and recorder, so it's a cash credit. It isn't owed to the seller, so there's no seller entry."
+  },
+  {
+   "id": "g3-009",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A Colorado contract leaves both title insurance boxes unchecked. On the worksheet, the premium for the owner's title policy is entered as:",
+   "choices": [
+    "A seller debit and a cash disbursement",
+    "A buyer debit and a cash disbursement",
+    "A seller credit and a buyer debit",
+    "Split equally between buyer and seller debits"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Under the Commission's residential contract, if neither box is checked the seller selects the title company and pays for the owner's policy. It's paid to the title company, so it's a single entry: seller debit, cash credit."
+  },
+  {
+   "id": "g3-010",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A Colorado sale closes August 20 (not a leap year). Current-year taxes are unpaid and are prorated on last year's bill of $3,650 using a 365-day year; the buyer owns the day of closing. What is the tax entry?",
+   "choices": [
+    "Credit seller $2,310; debit buyer $2,310",
+    "Debit seller $2,310; credit buyer $2,310",
+    "Debit seller $1,340; credit buyer $1,340",
+    "Debit seller $2,321.94; credit buyer $2,321.94"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "The seller owned January 1–August 19 = 231 days: $3,650 ÷ 365 × 231 = $2,310. Colorado taxes are paid in arrears, so the buyer will pay this year's whole bill next year; the seller is debited and the buyer credited. $2,321.94 comes from wrongly using a 360-day year."
+  },
+  {
+   "id": "g3-011",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A March closing in Colorado. The seller has not yet paid last year's property taxes, which are now due. How are they handled?",
+   "choices": [
+    "Prorated between buyer and seller",
+    "Buyer debit, because the buyer will own the property when they're paid",
+    "Seller debit for the full amount, paid out to the county treasurer",
+    "Seller debit and buyer credit, with no cash entry"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "Last year's taxes belong entirely to the seller, who owned the property all of that year. They're paid off at closing: a seller debit and a cash disbursement to the treasurer. Only the current year is prorated."
+  },
+  {
+   "id": "g3-012",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "Price $395,000. The buyer has deposited $10,000 earnest money and gets a new $355,500 loan. The buyer's loan costs and prepaids total $7,200, the documentary fee is charged to the buyer, the buyer reimburses the seller $120 for prepaid HOA dues, and the buyer is credited $1,460 for the seller's share of unpaid taxes. How much cash must the buyer bring to closing?",
+   "choices": [
+    "$38,319.50",
+    "$45,399.50",
+    "$28,199.50",
+    "$35,399.50"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "Buyer debits: $395,000 + $7,200 + $39.50 doc fee + $120 HOA = $402,359.50. Buyer credits: $10,000 + $355,500 + $1,460 = $366,960. Cash due = $35,399.50. Forgetting the earnest money credit gives $45,399.50."
+  },
+  {
+   "id": "g3-013",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A Colorado seller's statement shows: price $505,000; loan payoff $268,300; brokerage fee 5.5% of the price; owner's title policy $1,700; half the closing fee $325; tax proration $2,105 (current year unpaid); and a $95 credit for HOA dues the seller prepaid. What is the balance due to the seller?",
+   "choices": [
+    "$209,100",
+    "$204,700",
+    "$207,415",
+    "$204,890"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "Credits: $505,000 + $95 = $505,095. Debits: $268,300 + $27,775 + $1,700 + $325 + $2,105 = $300,205. Balance due to seller = $204,890. The unpaid-tax proration is a seller debit; treating it as a credit overstates the net by $4,210."
+  },
+  {
+   "id": "g3-014",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "After totaling the buyer's columns, the buyer's debits exceed the buyer's credits by $41,250. How is this balance entered to finish the worksheet?",
+   "choices": [
+    "Buyer debit and broker (cash) credit",
+    "Seller credit and buyer debit, no cash entry",
+    "Buyer credit and broker (cash) debit",
+    "Broker (cash) credit only"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "The balance due from the buyer is entered as a buyer credit so the buyer's columns balance, and as a cash debit because the closing receives that money from the buyer."
+  },
+  {
+   "id": "g3-015",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "The seller's credits exceed the seller's debits by $96,400. To close out the worksheet, the balance due to the seller is entered as:",
+   "choices": [
+    "Seller credit and broker (cash) debit",
+    "Seller debit and broker (cash) credit",
+    "Seller debit and buyer credit, no cash entry",
+    "Buyer debit and seller credit"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "Entering the proceeds as a seller debit brings the seller's columns into balance; the cash column shows it as a credit because the closing pays the money out to the seller."
+  },
+  {
+   "id": "g3-016",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A buyer assumes a loan with a $210,000 balance at 5.1% interest, paid in arrears. The seller made the payment due on the 1st of the closing month. Closing is on the 17th; use a 30-day month and the buyer owns the day of closing. What is the interest proration?",
+   "choices": [
+    "Debit seller $476; credit buyer $476",
+    "Credit seller $476; debit buyer $476",
+    "Debit seller $505.75; credit buyer $505.75",
+    "Debit seller $892.50; credit buyer $892.50"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Monthly interest = $210,000 × 5.1% ÷ 12 = $892.50; daily = $29.75. The seller owns days 1–16 = 16 days → $476. Interest is paid in arrears, so the buyer's next payment will cover the seller's days; debit the seller and credit the buyer."
+  },
+  {
+   "id": "g3-017",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A buyer assumes the seller's loan, and the lender's escrow account holding $1,480 for taxes and insurance transfers to the buyer. How is the reserve entered?",
+   "choices": [
+    "Debit seller $1,480; credit buyer $1,480",
+    "Credit seller $1,480; debit buyer $1,480",
+    "Credit buyer $1,480 and cash debit $1,480",
+    "Debit seller $1,480 and cash credit $1,480"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "The seller funded the escrow account and the buyer gets the benefit of it, like any prepaid item: credit the seller and debit the buyer. No cash moves at closing."
+  },
+  {
+   "id": "g3-018",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "Price $340,000. The buyer deposited $8,000 earnest money and assumes a loan balance of $196,500. Accrued interest of $420 is prorated (current interest paid in arrears), the buyer reimburses the seller's $1,150 escrow reserve, and the buyer is credited $1,900 for unpaid taxes. The buyer also pays a $750 assumption fee and $310 in other closing costs. What is the balance due from the buyer?",
+   "choices": [
+    "$135,390",
+    "$136,230",
+    "$133,090",
+    "$143,390"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Buyer debits: $340,000 + $1,150 + $750 + $310 = $342,210. Buyer credits: $8,000 + $196,500 + $420 + $1,900 = $206,820. Balance due = $135,390. The interest is a buyer credit because the buyer will pay it with the next payment."
+  },
+  {
+   "id": "g3-019",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A seller sells for $310,000 and carries back a $31,000 note. Her loan payoff is $142,000, the brokerage fee is 6% of the price, and her other closing costs and prorations total $2,280 (all debits). How much cash does she receive at closing?",
+   "choices": [
+    "$147,120",
+    "$117,980",
+    "$116,120",
+    "$134,720"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "Debits: $31,000 note + $142,000 + $18,600 fee + $2,280 = $193,880. $310,000 − $193,880 = $116,120. The note reduces cash at closing; she collects it later in payments. The fee is still based on the full price; leaving it out gives $134,720."
+  },
+  {
+   "id": "g3-020",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "Price $280,000. Buyer deposited $7,000 earnest money, gets a new first loan of $224,000, and the seller carries back a $28,000 second. The buyer's loan and closing costs are $6,400, and the buyer is credited $980 for unpaid current-year taxes. What is the buyer's cash due at closing?",
+   "choices": [
+    "$54,420",
+    "$28,380",
+    "$33,420",
+    "$26,420"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "Debits: $280,000 + $6,400 = $286,400. Credits: $7,000 + $224,000 + $28,000 + $980 = $259,980. Cash due = $26,420. Leaving out the carry-back credit gives $54,420."
+  },
+  {
+   "id": "g3-021",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A rental home closes September 22. The seller collected September rent of $1,950 and holds a $1,950 security deposit; the lease is assigned to the buyer. Using a 30-day month with the buyer owning the closing day, what are the seller's total debits for these two items?",
+   "choices": [
+    "$2,535",
+    "$3,315",
+    "$585",
+    "$1,170"
+   ],
+   "answer": [
+    0
+   ],
+   "explanation": "Buyer's days: September 22–30 = 9 days; $1,950 ÷ 30 × 9 = $585 (debit seller, credit buyer). The deposit transfers in full, not prorated: another $1,950 debit. Total = $2,535."
+  },
+  {
+   "id": "g3-022",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A worksheet's cash column shows receipts $1,800 higher than disbursements. Every party column balances. Which mistake best explains this?",
+   "choices": [
+    "The $1,800 tax proration was entered as debit seller, credit buyer",
+    "The $1,800 escrow reserve on an assumed loan was left off entirely",
+    "The buyer's $1,800 HOA reimbursement was entered as debit buyer, credit seller",
+    "The seller's $1,800 owner's title premium was given no cash entry"
+   ],
+   "answer": [
+    3
+   ],
+   "explanation": "A single-entry item paid to an outsider needs both a party debit and a cash credit. Leaving off the disbursement makes receipts exceed payouts by that amount. Double entries between the parties have no cash entry, so handling them correctly can't throw the cash column off."
+  },
+  {
+   "id": "g3-023",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "The contract requires the seller to pay $5,000 toward the buyer's closing costs. On the worksheet, the concession is:",
+   "choices": [
+    "A seller credit and a buyer debit",
+    "A seller debit and a buyer credit",
+    "A buyer credit and a cash debit",
+    "A seller debit and a cash disbursement"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "A seller concession moves value from the seller to the buyer: it reduces the seller's proceeds and reduces the cash the buyer must bring. It's a double entry with no cash line of its own."
+  },
+  {
+   "id": "g3-024",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "A Colorado buyer's lender delivers a federal Closing Disclosure. What is the listing broker's obligation regarding the seller's closing statement?",
+   "choices": [
+    "None, since on financed sales the Closing Disclosure replaces the closing statement",
+    "Only to hand the seller a copy of the buyer's Closing Disclosure for the file",
+    "To see that the seller gets an accurate closing statement signed by the broker",
+    "To sign the Closing Disclosure so that it serves as the Colorado closing statement"
+   ],
+   "answer": [
+    2
+   ],
+   "explanation": "The Closing Disclosure is a federal lending form. Commission rules separately make the broker who works with a party responsible for seeing that the party receives an accurate, complete closing statement signed by the broker, and license law requires the buyer and seller to get one; the Closing Disclosure doesn't substitute for it."
+  },
+  {
+   "id": "g3-025",
+   "section": "state",
+   "topic": "Closing and settlement",
+   "stem": "Which pair of entries is correct for a Colorado closing?",
+   "choices": [
+    "Current-year property taxes not yet billed: credit seller, debit buyer",
+    "Fuel oil the seller paid for and left in the tank: credit seller, debit buyer",
+    "Rent the seller collected for the rest of the month: credit seller, debit buyer",
+    "Accrued interest on an assumed loan: credit seller, debit buyer"
+   ],
+   "answer": [
+    1
+   ],
+   "explanation": "Items the seller prepaid and the buyer will use (like fuel left in the tank) are credited to the seller. Unpaid taxes, accrued interest and rent already collected for the buyer's days all go the other way: debit seller, credit buyer."
+  }
+ ],
+ "cards": [
+  {
+   "id": "g3-c001",
+   "front": "On a six-column settlement worksheet, what are the three column pairs?",
+   "back": "Seller debit/credit, buyer debit/credit, and broker (cash) debit/credit.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c002",
+   "front": "In the broker (cash) column, what does a debit mean? A credit?",
+   "back": "Debit = money received into the closing. Credit = money paid out.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c003",
+   "front": "What is a double entry on a closing worksheet?",
+   "back": "An item between buyer and seller: one is debited and the other credited the same amount, usually with no cash entry.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c004",
+   "front": "What is a single entry on a closing worksheet?",
+   "back": "An item between one party and an outsider (lender, county, title company, brokerage); it hits that party's column and the cash column.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c005",
+   "front": "Earnest money: worksheet entries?",
+   "back": "Buyer credit; cash debit (received). Never a seller entry.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c006",
+   "front": "Buyer's new loan: worksheet entries?",
+   "back": "Buyer credit; cash debit. The seller's side is not affected.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c007",
+   "front": "Payoff of the seller's loan: worksheet entries?",
+   "back": "Seller debit; cash credit (paid to the seller's lender).",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c008",
+   "front": "Assumed loan balance: worksheet entries?",
+   "back": "Debit seller, credit buyer. No cash moves.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c009",
+   "front": "Seller carry-back note: worksheet entries?",
+   "back": "Debit seller, credit buyer. The seller takes a note instead of cash; no cash entry.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c010",
+   "front": "Accrued interest on an assumed loan (paid in arrears)?",
+   "back": "Debit seller, credit buyer for the seller's days; the buyer's next payment covers them.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c011",
+   "front": "Lender escrow reserve that transfers with an assumed loan?",
+   "back": "Credit seller, debit buyer (the seller funded it; the buyer gets it).",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c012",
+   "front": "Unpaid current-year Colorado property taxes at closing?",
+   "back": "Seller's share: debit seller, credit buyer. Colorado taxes are paid in arrears.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c013",
+   "front": "Unpaid prior-year Colorado taxes at closing?",
+   "back": "Seller debit for the full amount, paid out to the county treasurer. Not prorated.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c014",
+   "front": "Rent the seller collected for days after closing?",
+   "back": "Debit seller, credit buyer for the buyer's days.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c015",
+   "front": "Tenant security deposits when leases are assigned?",
+   "back": "Debit seller, credit buyer for the full amount. Not prorated.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c016",
+   "front": "Seller concession toward the buyer's closing costs?",
+   "back": "Debit seller, credit buyer.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c017",
+   "front": "Who pays the owner's title policy if neither box is checked in the Colorado contract?",
+   "back": "The seller (who also selects the title company).",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c018",
+   "front": "Colorado documentary fee: rate and worksheet entry?",
+   "back": "$0.01 per $100 of consideration (none at $500 or less), on the full price. The contract doesn't assign it: debit whichever party the problem says pays, and credit cash.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c019",
+   "front": "How is the balance due to the seller entered?",
+   "back": "Seller debit (to balance the seller columns) and cash credit (paid out).",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c020",
+   "front": "How is the balance due from the buyer entered?",
+   "back": "Buyer credit (to balance the buyer columns) and cash debit (received).",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c021",
+   "front": "Quick formula: seller's cash at closing?",
+   "back": "Seller credits − seller debits.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c022",
+   "front": "Quick formula: buyer's cash to close?",
+   "back": "Buyer debits − buyer credits.",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c023",
+   "front": "Cash column won't balance but both party pairs do. Likely cause?",
+   "back": "A single-entry item is missing its cash entry (or a cash entry is missing its party entry).",
+   "topic": "Closing and settlement"
+  },
+  {
+   "id": "g3-c024",
+   "front": "Does a lender's Closing Disclosure satisfy the Colorado broker's closing statement duty?",
+   "back": "No. The broker who works with a party must still see that the party gets an accurate, complete closing statement signed by the broker.",
+   "topic": "Closing and settlement"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Settlement worksheet",
+   "definition": "A working spreadsheet used to compute closing figures, with debit and credit columns for the seller, the buyer and the broker's cash; Colorado courses teach a six-column version.",
+   "aliases": [
+    "closing worksheet",
+    "six-column worksheet",
+    "6-column worksheet"
+   ]
+  },
+  {
+   "term": "Double entry",
+   "definition": "A closing item that passes between buyer and seller, debited to one and credited to the other in the same amount.",
+   "aliases": [
+    "double entries",
+    "double-entry"
+   ]
+  },
+  {
+   "term": "Single entry",
+   "definition": "A closing item between one party and an outside payee or source, entered in that party's column and the cash column.",
+   "aliases": [
+    "single entries",
+    "single-entry"
+   ]
+  },
+  {
+   "term": "Balance due to seller",
+   "definition": "The seller's credits minus debits: the cash the seller receives at closing.",
+   "aliases": [
+    "cash to seller",
+    "seller's net"
+   ]
+  },
+  {
+   "term": "Balance due from buyer",
+   "definition": "The buyer's debits minus credits: the cash the buyer must bring to closing.",
+   "aliases": [
+    "cash to close",
+    "cash due from buyer"
+   ]
+  },
+  {
+   "term": "Loan assumption",
+   "definition": "A buyer taking over the seller's existing loan; the balance is debited to the seller and credited to the buyer.",
+   "aliases": [
+    "assumed loan",
+    "assumption"
+   ]
+  },
+  {
+   "term": "Seller carry-back",
+   "definition": "Seller financing in which the seller accepts the buyer's note for part of the price; debited to the seller and credited to the buyer.",
+   "aliases": [
+    "carry-back",
+    "seller financing",
+    "owner carry"
+   ]
+  },
+  {
+   "term": "Payoff",
+   "definition": "The amount needed to pay a loan in full at closing, including accrued interest; a seller debit when the seller's loan is retired.",
+   "aliases": [
+    "loan payoff"
+   ]
+  },
+  {
+   "term": "Earnest money",
+   "definition": "A buyer's good-faith deposit applied toward the price at closing; a buyer credit on the closing statement.",
+   "aliases": [
+    "earnest money deposit"
+   ]
+  },
+  {
+   "term": "Closing statement",
+   "definition": "An itemized accounting of each party's debits and credits at closing; Colorado requires that buyer and seller receive one, and the broker must see that it is accurate and signed by the broker.",
+   "aliases": [
+    "settlement statement"
+   ]
+  },
+  {
+   "term": "Closing Disclosure",
+   "definition": "Federal TRID form giving a borrower final loan terms and closing costs, for most consumer mortgage loans.",
+   "aliases": [
+    "CD"
+   ]
+  },
+  {
+   "term": "Documentary fee",
+   "definition": "Colorado state fee of one cent per $100 of consideration, collected by the county clerk and recorder when a deed is recorded.",
+   "aliases": [
+    "doc fee"
+   ]
+  },
+  {
+   "term": "Paid in arrears",
+   "definition": "Paid after the period it covers; Colorado property taxes are paid the year after they're levied, and mortgage interest is paid for the prior month.",
+   "aliases": [
+    "in arrears",
+    "arrears"
+   ]
+  },
+  {
+   "term": "Owner's title insurance policy",
+   "definition": "Title policy protecting the buyer's ownership; under the Colorado contract default, the seller pays for it.",
+   "aliases": [
+    "owner's policy"
+   ]
+  }
+ ]
+}
