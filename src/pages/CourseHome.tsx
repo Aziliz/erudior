@@ -3,6 +3,7 @@ import type { AppApi } from "../App";
 import type { Bank, Course, Plan } from "../lib/types";
 import * as store from "../lib/storage";
 import { courseCounts, bankKey } from "../lib/course";
+import { bestQuizScore } from "../lib/quiz";
 import { courseNumbers, lessonKey, orderedLessons, planToday, readiness, streak, type PlanTask } from "../lib/planner";
 import { MISSED_DECK_ID, addDays, daysBetween, deckStatus, studyDecks, today } from "../lib/srs";
 import {
@@ -407,8 +408,10 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
             <ol className="lesson-list">
               {ls.map((l) => {
                 const isDone = !!progress.lessonsDone[lessonKey(course.id, l.id)];
+                const nq = bank ? lessonQuizQuestions(bank, l.quiz).length : 0;
+                const best = nq ? bestQuizScore(progress, course.id, { lessonId: l.id }) : null;
                 return (
-                  <li key={l.id}>
+                  <li key={l.id} className="lesson-row">
                     <button onClick={() => api.go({ name: "lesson", courseId: course.id, lessonId: l.id })}>
                       <span className={`bubble ${isDone ? "right" : ""}`} aria-label={isDone ? "Done" : "Not done"}>
                         {isDone ? "✓" : ""}
@@ -416,6 +419,17 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                       <span className="lesson-title">{l.title}</span>
                       {l.minutes && <span className="faint small num">{l.minutes} min</span>}
                     </button>
+                    {nq > 0 && (
+                      <button
+                        className={`quiz-chip ${isDone ? "passed" : ""}`}
+                        onClick={() => api.go({ name: "lesson", courseId: course.id, lessonId: l.id, anchor: "quiz" })}
+                        title="Go to this lesson's quiz"
+                      >
+                        Quiz: {nq}
+                        {best ? ` · best ${best.correct}/${best.total}` : ""}
+                        {isDone ? " ✓" : ""}
+                      </button>
+                    )}
                   </li>
                 );
               })}
@@ -423,6 +437,7 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                 const passed = !!progress.modulesDone?.[`${course.id}/${m.id}`];
                 const unlocked = done === ls.length;
                 const n = lessonQuizQuestions(bank, m.quiz).length;
+                const best = bestQuizScore(progress, course.id, { moduleId: m.id });
                 return (
                   <li key="module-quiz" className="module-quiz">
                     <button
@@ -439,7 +454,14 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                         {passed ? "✓" : ""}
                       </span>
                       <span className="lesson-title">
-                        <b>Module quiz</b> ({n} questions{unlocked ? "" : "; unlocks when every lesson is complete"})
+                        <b>
+                          Module {mi + 1} quiz: all of {m.title}
+                        </b>{" "}
+                        <span className="muted small">
+                          ({n} questions
+                          {best ? `; best ${best.correct}/${best.total}` : ""}
+                          {unlocked ? "" : "; unlocks when every lesson above is complete"})
+                        </span>
                       </span>
                     </button>
                   </li>

@@ -1,13 +1,24 @@
+import { useEffect } from "react";
 import type { AppApi } from "../App";
+import InlineQuiz from "../components/InlineQuiz";
 import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
 import { today } from "../lib/srs";
-import { lessonQuizNeeded, lessonQuizQuestions, startLessonQuiz, startPractice } from "../lib/session";
-import { percent } from "../lib/util";
+import { lessonQuizQuestions, startPractice } from "../lib/session";
 import { mainBank } from "./CourseHome";
 
-export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
+export default function LessonView({
+  api,
+  course,
+  lesson,
+  anchor,
+}: {
+  api: AppApi;
+  course: Course;
+  lesson: Lesson;
+  anchor?: "quiz";
+}) {
   const key = lessonKey(course.id, lesson.id);
   const done = !!api.progress.lessonsDone[key];
   const ordered = orderedLessons(course);
@@ -27,18 +38,13 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   // End-of-lesson quiz: when the lesson has one, passing it is how the lesson gets completed.
   const quizQs = lessonQuizQuestions(bank, lesson.quiz);
   const hasQuiz = !!bank && quizQs.length > 0;
-  const needed = lessonQuizNeeded(quizQs.length);
-  const quizTries = api.progress.attempts.filter(
-    (a) => a.lesson?.courseId === course.id && a.lesson.lessonId === lesson.id,
-  );
-  const best = quizTries.reduce<{ correct: number; total: number } | null>(
-    (b, a) => (!b || a.correct / a.total > b.correct / b.total ? { correct: a.correct, total: a.total } : b),
-    null,
-  );
-  function takeQuiz() {
-    if (!bank) return;
-    api.go({ name: "run", session: startLessonQuiz(bank, { courseId: course.id, lessonId: lesson.id }, lesson.quiz ?? []) });
-  }
+  const toQuiz = () => document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // The app scrolls to the top on every view change; jump to the quiz after that when asked.
+  useEffect(() => {
+    if (anchor !== "quiz") return;
+    const t = window.setTimeout(() => document.getElementById("quiz")?.scrollIntoView({ block: "start" }), 60);
+    return () => window.clearTimeout(t);
+  }, [anchor]);
 
   async function toggleDone() {
     await api.updateProgress((p) => {
@@ -53,7 +59,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   }
 
   async function completeAndNext() {
-    if (!done && hasQuiz) return takeQuiz();
+    if (!done && hasQuiz) return toQuiz();
     if (!done) await toggleDone();
     if (next) goLesson(next.id);
     else api.go({ name: "course", courseId: course.id, tab: "lessons" });
@@ -75,6 +81,8 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       <article className="lesson-body">
         <Markdown source={lesson.body} glossary={course.glossary} />
       </article>
+
+      {hasQuiz && bank && <InlineQuiz key={lesson.id} api={api} course={course} lesson={lesson} bank={bank} />}
 
       {(topicQs > 0 || topicCards > 0) && (
         <section className="panel lesson-practice">
@@ -109,23 +117,6 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
                 Flip through {topicCards} related notecards
               </button>
             )}
-          </div>
-        </section>
-      )}
-
-      {hasQuiz && (
-        <section className="panel lesson-quiz">
-          <h2>End-of-lesson quiz</h2>
-          <p className="muted" style={{ marginTop: 6 }}>
-            {quizQs.length} question{quizQs.length === 1 ? "" : "s"} on this lesson. Get {needed} right to complete it; you see
-            the answer and explanation after each one.
-            {best && ` Best so far: ${best.correct} of ${best.total} (${percent(best.correct, best.total)}%).`}
-          </p>
-          <div className="row" style={{ marginTop: 10 }}>
-            <button className={done ? "btn" : "btn primary"} onClick={takeQuiz}>
-              {quizTries.length ? "Retake the quiz" : "Take the quiz"}
-            </button>
-            {done && <span className="pill pass">Complete</span>}
           </div>
         </section>
       )}

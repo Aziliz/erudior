@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { AppApi, View } from "../App";
 import type { Bank, Lesson } from "../lib/types";
-import { attemptPassed, finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
+import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
 import { confirmAction, saveSessionState } from "../lib/storage";
-import { lessonKey, logActivity } from "../lib/planner";
-import { today } from "../lib/srs";
+import { recordSession } from "../lib/quiz";
 import { LETTERS, formatClock } from "../lib/util";
 
 interface Props {
@@ -121,23 +120,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
       return;
     }
     // Apply against the latest progress so flag/note writes made during the session aren't lost.
-    await api.updateProgress((p) => {
-      const { attempt, progress } = finishSession(session, answers, flags, p, bank, used);
-      let next = logActivity(progress, "questions", attempt.answered);
-      // Passing an end-of-lesson quiz completes the lesson.
-      if (session.lesson && attemptPassed(attempt)) {
-        const key = lessonKey(session.lesson.courseId, session.lesson.lessonId);
-        if (!next.lessonsDone[key]) {
-          next = logActivity({ ...next, lessonsDone: { ...next.lessonsDone, [key]: today() } }, "lessons");
-        }
-      }
-      // Passing an end-of-module quiz completes the module.
-      if (session.module && attemptPassed(attempt)) {
-        const key = `${session.module.courseId}/${session.module.moduleId}`;
-        if (!next.modulesDone?.[key]) next = { ...next, modulesDone: { ...(next.modulesDone ?? {}), [key]: today() } };
-      }
-      return next;
-    });
+    await api.updateProgress((p) => recordSession(p, session, answers, flags, bank, used).progress);
     api.go({ name: "results", attemptId: preview.attempt.id, back: exitView });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, answers, flags, api, bank, blockUsed, blockIdx]);

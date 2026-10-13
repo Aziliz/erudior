@@ -33,7 +33,7 @@ export type View =
   | { name: "results"; attemptId: string; back: View }
   | { name: "course"; courseId: string; tab?: CourseTab }
   | { name: "courseEdit"; courseId: string; isNew?: boolean }
-  | { name: "lesson"; courseId: string; lessonId: string }
+  | { name: "lesson"; courseId: string; lessonId: string; anchor?: "quiz" }
   | { name: "cards"; courseId: string; deckIds: string[]; mode: "review" | "cram"; topics?: string[] }
   | { name: "deckEdit"; courseId: string; deckId: string }
   | { name: "drill"; courseId: string; drillIds: string[]; count: number }
@@ -312,7 +312,7 @@ export default function App() {
     case "lesson": {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
-      if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} anchor={view.anchor} />;
       break;
     }
     case "cards": {
