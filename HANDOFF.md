@@ -22,7 +22,7 @@ Jon prefers terse answers and wants clarifying questions asked rather than assum
 | `claude/colorado-broker-course.json` | The built course pack (`samples/colorado-broker-course.json` in the repo) |
 | `claude/research-notes.md` | The content writers' verified Colorado facts, with source URLs |
 
-Jon also has `examiner-src.zip`, the full repo including git history. To keep working with code, attach the zip, or clone `Aziliz/examiner` once it's pushed.
+The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, pushed 2026-10-12). To keep working with code, attach that repo to the chat. The Claude GitHub App has push access.
 
 ## Features (v0.3.0)
 
