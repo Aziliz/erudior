@@ -5,7 +5,7 @@
 | Shares | Can be unequal | Equal |
 | On death | Share passes by will or inheritance | Passes to surviving joint tenants (right of survivorship) |
 | Unities required | Possession only | Possession, interest, time, title |
-| In Colorado | **Presumed** when a deed to two or more people says nothing | Must be expressly stated (for example, "as joint tenants" or "JTWROS") |
+| In Colorado | **Presumed** when a deed to two or more natural persons says nothing | Must be expressly stated (for example, "as joint tenants" or "JTWROS"); only natural persons can be joint tenants, except co-fiduciaries such as co-trustees, who are presumed joint tenants |
 
 - Colorado doesn't recognize tenancy by the entirety. A deed that attempts one creates a joint tenancy instead.
 - Colorado isn't a community property state.

@@ -31,6 +31,6 @@
 
 | Rule | What to know |
 |---|---|
-| Do-Not-Call | Check the registry every 31 days; call only 8 a.m. to 9 p.m.; established business relationship lasts 18 months after a transaction or 3 months after an inquiry |
-| CAN-SPAM | Honor opt-outs within 10 business days; include a postal address |
-| Antitrust | Never discuss commission rates with other firms (price fixing); no group boycotts, market allocation or tie-ins |
+| Do-Not-Call | Check the registry every 31 days; call only 8 a.m. to 9 p.m. (called party's local time); established business relationship lasts 18 months after a transaction or 3 months after an inquiry; honor a person's do-not-call request within 10 business days, for 5 years |
+| CAN-SPAM | Identify the email as an ad; honor opt-outs within 10 business days (opt-out must work for 30 days after sending); include a valid physical postal address |
+| Antitrust | Never agree on (or even discuss) commission rates with competing firms (price fixing); no group boycotts, market allocation or tie-ins. Each firm sets its own rates, negotiated with each client |

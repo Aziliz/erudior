@@ -1,4 +1,4 @@
-The Colorado broker exam is given by PSI in two portions. Each is scored separately, and you must pass both. Source: PSI's Colorado candidate bulletin; check the current bulletin before you schedule.
+The Colorado broker exam is given by PSI in two portions. Each is scored separately, and you must pass both. Source: PSI's Colorado Real Estate Broker candidate information bulletin (updated 10/1/2023); check the current bulletin before you schedule.
 
 | | National portion | State portion |
 |---|---|---|
@@ -6,8 +6,8 @@ The Colorado broker exam is given by PSI in two portions. Each is scored separat
 | Time | 120 minutes | 110 minutes |
 | To pass | 60 correct (75%) | 53 correct (about 72%) |
 
-- PSI may add a handful of unscored pretest questions. You can't tell which ones they are, so answer everything.
-- You can pass the portions on different days. A passing score on a portion is good for one year, and you have one year after passing to apply for your license.
+- PSI may add 5 to 10 unscored "experimental" questions. They don't count toward your score but do use up exam time, and you can't tell which ones they are, so answer everything.
+- You can pass the portions on different days and retake only the portion you failed. A passing score on either portion is accepted for no more than one year, and you must apply for your license within one year of passing the whole exam or retake both portions.
 - No reference materials are allowed in the room, and personal calculators are on PSI's prohibited list. You get scratch paper.
 
 ## National portion: where the points are
@@ -43,4 +43,4 @@ The Colorado broker exam is given by PSI in two portions. Each is scored separat
 
 ## How this course's practice exams work
 
-Each timed practice exam draws 80 national and 74 state questions at random from the 250-question bank and scores each portion against its own pass mark, like the real thing. The timer is the combined 230 minutes.
+Each timed practice exam draws 80 national and 74 state questions at random from the question bank and scores each portion against its own pass mark, like the real thing. Each portion has its own timer: 120 minutes national, 110 minutes state.
