@@ -3,7 +3,7 @@ import type { AppApi } from "../App";
 import { topicStats } from "../lib/session";
 import * as store from "../lib/storage";
 import { inApp } from "../lib/storage";
-import { appVersion, checkForUpdate } from "../lib/updates";
+import { UPDATES_ENABLED, appVersion, checkForUpdate } from "../lib/updates";
 import { formatDateTime, formatDuration, percent } from "../lib/util";
 import { AccuracyBar, ScorePill } from "../components/Bars";
 
@@ -240,10 +240,14 @@ export default function ProgressPage({ api }: { api: AppApi }) {
       <div className="row" style={{ marginTop: 24, justifyContent: "space-between" }}>
         <span className="faint small">
           Examiner {version}. Data is stored in {location}.{" "}
-          <button className="linkish" onClick={checkUpdates}>
-            Check for updates
-          </button>{" "}
-          {updateMsg}
+          {UPDATES_ENABLED && (
+            <>
+              <button className="linkish" onClick={checkUpdates}>
+                Check for updates
+              </button>{" "}
+              {updateMsg}
+            </>
+          )}
         </span>
         <button className="btn danger ghost sm" onClick={reset} disabled={!attempts.length && !Object.keys(progress.stats).length}>
           Erase progress{bankFilter ? " for this bank" : ""}

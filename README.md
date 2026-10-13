@@ -15,7 +15,7 @@ Content is organized into **courses**. Each course is one file with its own less
 - **Flags and notes**: flags and personal notes stay with a question across sessions; practice just your flagged questions; jump from a missed question to the lesson that covers it.
 - **Search**: one box (Ctrl+K) across lessons, glossary, reference sheets, questions and notecards.
 - **Backup and restore**: one file with every course, bank, note and schedule.
-- **Updates**: the app checks GitHub releases. Windows and AppImage installs update themselves; .deb/.rpm installs get a link to the new package. Bundled courses offer their newer revisions too.
+- **Course updates**: bundled courses offer their newer revisions in the app. (App self-updates are built in but turned off while the repo is private; see `src/lib/updates.ts`.)
 - **Practice mode**: check each answer and read the explanation. Filter by topic, section, unseen, last missed, or under-70% questions.
 - **Built-in editor**: write and edit questions, sections and exam defaults. Supports multi-answer questions.
 - **Progress tracking**: session history, score trend, weakest topics, and one-click practice of missed questions.
@@ -67,23 +67,17 @@ npx tauri build --bundles nsis,msi    # Windows (run on Windows)
 
 Output is written to `src-tauri/target/release/bundle/`.
 
-**GitHub Actions** (`.github/workflows/release.yml`) builds `.deb`, `.rpm`, `.AppImage`, the NSIS `.exe` and the `.msi`, signs them, and writes the `latest.json` the in-app updater reads.
-
-One-time setup, in the repo's **Settings → Secrets and variables → Actions**:
-
-| Secret | Value |
-|---|---|
-| `TAURI_SIGNING_PRIVATE_KEY` | The full contents of the updater private key file. The key has no password, so no password secret is needed. |
-
-The matching public key is already in `src-tauri/tauri.conf.json`. Keep the private key somewhere safe: if it's lost, installed copies can't verify new updates.
+**GitHub Actions** (`.github/workflows/release.yml`) builds `.deb`, `.rpm`, `.AppImage`, the NSIS `.exe` and the `.msi`.
 
 To release:
 
 1. Bump the version (below).
 2. `git tag v0.3.0 && git push --tags`
-3. When the workflow finishes, open the draft release on GitHub and **publish** it. The updater only sees published releases.
+3. When the workflow finishes, download the installers from the draft release on GitHub (or publish it).
 
-Or run **Build installers** manually from the Actions tab to just build and download the artifacts.
+Or run **Build installers** manually from the Actions tab and download the artifacts from the run.
+
+The repo is private, so installed copies can't check its releases and in-app updates are off; install new versions by hand. To turn updates back on, publish releases to a public repo, add the updater signing key as the `TAURI_SIGNING_PRIVATE_KEY` secret, and follow the notes in `src/lib/updates.ts`.
 
 The Windows installers aren't code-signed, so SmartScreen shows a warning on first run. Choose **More info**, then **Run anyway**.
 

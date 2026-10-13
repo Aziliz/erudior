@@ -1,14 +1,12 @@
 name: Build installers
 
-# Push a tag like v0.3.0 to build a draft GitHub release with every installer
-# and the signed latest.json the in-app updater reads. Publish the draft to
-# ship it: the updater only sees published releases.
+# Push a tag like v0.3.0 to build a draft GitHub release with every installer.
+# The repo is private, so in-app updates are off; install new versions by hand.
+# (To re-enable updates: publish releases to a public repo, set
+# includeUpdaterJson: true, and turn updates back on as described in
+# src/lib/updates.ts.)
 # Run it by hand from the Actions tab to just build (installers are attached
 # to the workflow run as artifacts).
-#
-# Required repository secrets:
-#   TAURI_SIGNING_PRIVATE_KEY           contents of the updater private key
-#   TAURI_SIGNING_PRIVATE_KEY_PASSWORD  only if the key has a password (this one doesn't)
 on:
   push:
     tags: ["v*"]
@@ -56,21 +54,16 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           tagName: ${{ github.ref_name }}
           releaseName: Examiner ${{ github.ref_name }}
           releaseBody: Download the installer for your system below.
           releaseDraft: true
-          includeUpdaterJson: true
+          includeUpdaterJson: false
           args: --bundles ${{ matrix.bundles }}
 
       - name: Build (manual run)
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        env:
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         run: npx tauri build --bundles ${{ matrix.bundles }}
 
       - name: Upload installers

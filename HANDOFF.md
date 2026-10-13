@@ -57,7 +57,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Editors:** a question bank editor, a course editor (details, modules, lessons, glossary, reference sheets, drill JSON with a live sample), and a deck editor.
 - **Progress page:** history, score trend, weakest topics, backup and restore (one JSON file), and a "Check for updates" link.
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
-- **App updates:** checks for new releases, details below.
+- **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
 ## Code map
@@ -74,7 +74,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/srs.ts` | Spaced repetition scheduling, queues, `missedDeck` and `studyDecks` |
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |
-| `src/lib/updates.ts` | The updater wrapper |
+| `src/lib/updates.ts` | The updater wrapper (currently disabled by `UPDATES_ENABLED`) |
 | `src/pages/*` | Library, CourseHome (all the tabs), LessonView, Runner (exams and practice), Results, BankHome, Editor (banks), CourseEditor, DeckEditor, CardsRunner, DrillRunner, RefView, ProgressPage, SearchPage |
 | `content/` | Course sources and `build_course.py`, described in the next section |
 
@@ -113,13 +113,45 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - Choices were rebalanced so the correct answer is rarely the longest one. Before the rebalance, the longest choice was correct about 65% of the time on the state questions.
 
 **Still open on content:**
-- **Van Ed pass not done.** Jon is taking the Van Ed 168-hour pre-license course. The plan was to sign in to Van Ed in a browser and use it to steer emphasis and terminology, without copying their text. This chat couldn't open a browser because it wasn't linked to a computer. Jon shouldn't paste credentials into chat; he signs in himself in the browser.
+- **Van Ed pass not done.** See "Van Ed refinement brief" below.
 - **New forms in 2027.** Commission forms revised for mandatory use on January 1, 2027 were published August 4, 2026. The contracts lesson flags them. Re-check against the new forms once they're in use.
 - **Weakly sourced facts, flagged by reviewers:**
   - Net listings: the only source is the 2007 Real Estate Manual.
   - The 2024 for-cause eviction law (HB24-1098): details come from secondary sources.
   - The well-form timing in the contract versus the statute.
   - Who customarily pays the documentary fee: this is not asserted anywhere.
+
+## Van Ed refinement brief
+
+This answers the questions a new chat would ask before starting the Van Ed pass. Jon confirmed these on 2026-10-12.
+
+**1. What exists and where it is**
+- **The material** is the "Colorado Real Estate Broker" course pack in this repo, `Aziliz/examiner`. It's also attached to this project as `claude/colorado-broker-course.json`.
+- **Edit the sources, not the built file.** The sources are in `content/` (`content/parts/n1–n4.json` national, `content/parts/s1–s4.json` Colorado, `content/refs/*.md`, `content/drills.json`). Rebuild with `python3 content/build_course.py`.
+- **Earlier research** checked every Colorado fact against primary sources: C.R.S. Title 12 Article 10 and others, Commission rules 4 CCR 725-1, the dre.colorado.gov pages and 2026 Commission forms, and the PSI candidate bulletin.
+  - The bulletin gives the exam structure: national 80 questions / 120 min / 60 to pass; state 74 / 110 / 53 to pass. It also gives the outline weights that the 250-question split follows.
+  - Notes with URLs are in `content/research/` and `claude/research-notes.md`.
+  - Fact-check change logs are summarized under "Content pipeline" above.
+- **Van Ed itself:** Jon's course provider for the 168-hour Colorado pre-license program (vaned.com). The course needs Jon's login. He signs in himself in a browser that Claude controls: the desktop app's built-in browser or Claude in Chrome. That needs the chat linked to his computer. Never ask him to paste credentials into chat.
+
+**2. What "refine" means: both**
+- **Check:** compare existing lessons, questions, cards and glossary against the Van Ed lessons. Fix anything that conflicts, after checking which source is right against the statute, rule or current form. Adjust terminology and emphasis to match what Van Ed teaches.
+- **Fill gaps:** add new lessons, questions and cards for topics Van Ed covers that the course doesn't.
+
+**3. Scope: all modules**
+- That means all 8 modules, national (n1–n4) and Colorado (s1–s4).
+
+**4. Where it ends up and copyright**
+- **The repo is going private.** Jon chose private; until he changes it in GitHub settings it may still be public, so check before assuming.
+- **Write original material regardless.** Van Ed's lessons and quizzes are copyrighted, so use them to learn what to cover and how much weight to give it, then write original questions and explanations from the underlying concepts. Never copy or closely paraphrase their text or reuse their quiz questions.
+- **Keep the existing standards** in `content/SPEC.md` and `content/REVIEW.md`:
+  - verify Colorado facts against primary sources
+  - one best answer per question
+  - the correct answer must not be the longest choice in more than about 30% of questions
+  - stable ids, because progress is keyed on them
+  - every `[[link]]` must resolve to a glossary term
+- **The bank stays near 250 questions** with the 130/120 split, unless Jon says otherwise. New questions can replace weaker ones, or the bank can grow with his approval.
+- **Ship changes as a new course revision.** Bump `"revision"` in `content/build_course.py` and write a `changelog`, so existing installs are offered the update in-app.
 
 ## Storage (per-user app data)
 
@@ -130,21 +162,19 @@ Data lives in `~/.local/share/com.aziliz.examiner/` on Linux and `%APPDATA%\com.
 
 Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `courses`), `load_progress`, `save_progress`, `load_state`, `save_state` (`session`), `read_text_file`, `write_text_file`, `data_location`, `install_kind`.
 
-## Releases and updates
+## Releases (updates are off)
 
+- **The repo is private by Jon's choice**, to protect course content written alongside his Van Ed studies. Jon flips the visibility himself in GitHub settings, because this proxy can't change repo settings.
+- **App self-updates are therefore off.** Installed copies can't read a private repo's releases.
+  - `UPDATES_ENABLED = false` in `src/lib/updates.ts` hides the check.
+  - `bundle.createUpdaterArtifacts` is `false`, so builds don't need the signing key.
+  - CI no longer uses the signing secret, and `includeUpdaterJson` is `false`.
+  - The updater code, plugin config and public key are all still in place.
+- **Turning updates back on later:** publish releases to a public repo (e.g. `Aziliz/examiner-releases`, via tauri-action's `owner`/`repo` inputs with a token secret). Then point the endpoint there, set the two flags back to true, and add `TAURI_SIGNING_PRIVATE_KEY`. Jon has the private key file `examiner-updater-PRIVATE.key`; no other copy exists.
 - **CI:** `.github/workflows/release.yml` uses `tauri-action`.
   - On Ubuntu 22.04 it builds .deb, .rpm and AppImage; on Windows it builds the NSIS .exe and .msi.
-  - It signs the installers and writes `latest.json`.
-  - Pushing a `v*` tag creates a draft release. **The draft must be published**, because the updater only sees published releases.
-- **Secrets Jon must add to `Aziliz/examiner`:**
-  - `TAURI_SIGNING_PRIVATE_KEY`: the contents of `examiner-updater-PRIVATE.key`, which was sent to Jon. No copy was kept, and the key has no password.
-  - No password secret: the key has no password, and GitHub won't save an empty secret.
-- **Public key:** in `src-tauri/tauri.conf.json` under `plugins.updater.pubkey`. The update endpoint is `https://github.com/Aziliz/examiner/releases/latest/download/latest.json`.
-- **Who updates how:**
-  - Windows and AppImage installs update themselves.
-  - .deb/.rpm installs get a notice that opens the release page. `install_kind` tells them apart by checking the `APPIMAGE` environment variable.
-  - Tauri also produced `.sig` files for the .deb and .rpm. Its updater may support them now, but that's untested, so those installs still use the notice.
-- **v0.2 installs** have no updater; Jon installs v0.3.0 by hand once.
+  - Pushing a `v*` tag creates a draft release with the installers. Jon downloads them and installs by hand.
+- **Course updates still work.** They ship inside the app, so a newer bundled `revision` is offered in-app.
 - **Bumping the version:** change `package.json`, `src-tauri/tauri.conf.json` and `src-tauri/Cargo.toml`.
 
 ## Building
@@ -152,7 +182,7 @@ Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `
 ```bash
 npm install
 npm run tauri dev
-npx tauri build --bundles deb,rpm,appimage   # Linux; set TAURI_SIGNING_PRIVATE_KEY for updater .sig files
+npx tauri build --bundles deb,rpm,appimage   # Linux
 ```
 
 Fedora prerequisites: `webkit2gtk4.1-devel openssl-devel curl wget file libappindicator-gtk3-devel librsvg2-devel rpm-build` and the `c-development` group.
@@ -175,5 +205,4 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 - The Van Ed refinement pass.
 - A CCNA course pack. The drill engine can't do subnetting yet: it may need bitwise operators or a custom drill type.
-- Testing .deb/.rpm self-update via the updater.
 - Windows code signing to clear the SmartScreen warning.
