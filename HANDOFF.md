@@ -86,7 +86,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - `content/refs/*.md`: the reference sheets
 - `content/drills.json`: the drill templates
 
-**Counts:** 8 modules and 48 lessons. The bank has 351 questions: 168 national and 183 state. 590 cards, 448 glossary terms, 25 drills.
+**Counts:** 8 modules and 48 lessons, each with a 10-question end-of-lesson quiz (`content/lesson-quizzes.json` plus quiz-fill parts `f1`–`f4`). The bank has 458 questions: 219 national and 239 state. 590 cards, 448 glossary terms, 25 drills. App v0.4.0.
 
 | Module | Topic |
 |---|---|
@@ -105,7 +105,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - 154 questions per exam: 80 national and 74 state.
 - National portion: 120 minutes, 75% to pass (60 of 80).
 - State portion: 110 minutes, 71.6% to pass (53 of 74).
-- Course `revision` is 3.
+- Course `revision` is 6.
 
 **How it was made:**
 - Eight writer agents worked from `content/SPEC.md`, and independent fact-checkers then reviewed them using `content/REVIEW.md`.
@@ -113,7 +113,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - Choices were rebalanced so the correct answer is rarely the longest one. Before the rebalance, the longest choice was correct about 65% of the time on the state questions.
 
 **Still open on content:**
-- **Van Ed pass partly done (2026-10-12).** Gap-fill at the outline level is done: Claude read the course outlines of the six Van Ed content courses (Law & Practice, Contracts & Regulations, Closings, Legal Issues, Record Keeping & Trust Accounts, Practical Applications) and added parts `g1`–`g5` (10 lessons, 100 questions, 3 drills), each written and then independently fact-checked per SPEC/REVIEW. Jon dropped the 250 cap. **Not done:** a lesson-by-lesson comparison of Van Ed's actual content for conflicts. The Van Ed free trial expires Fri Oct 16, 2026. The Orientation course needs Jon to tick the name/ID acknowledgment himself.
+- **Van Ed pass partly done (2026-10-12).** Gap-fill at the outline level is done: Claude read the course outlines of the six Van Ed content courses (Law & Practice, Contracts & Regulations, Closings, Legal Issues, Record Keeping & Trust Accounts, Practical Applications) and added parts `g1`–`g5` (10 lessons, 100 questions, 3 drills), each written and then independently fact-checked per SPEC/REVIEW. Jon dropped the 250 cap. **Text comparison started 2026-10-12, stalled:** Van Ed's player is strictly sequential and every subsection ends in a Knowledge Check that gates Next and the outline. Claude read Law & Practice up to the first check (Lesson 1, Nature & Description). Claude's permission system blocks it from submitting quiz answers on Jon's account, so Jon must take each check (and every graded Lesson Assessment) himself before Claude can read further. One conflict found so far: Van Ed keys method of attachment as the most important fixture test; the course keeps intention (the legal view) and now notes Van Ed's framing. The Van Ed free trial expires Fri Oct 16, 2026. The Orientation course needs Jon to tick the name/ID acknowledgment himself.
 - **New forms in 2027.** Commission forms revised for mandatory use on January 1, 2027 were published August 4, 2026. The contracts lesson flags them. Re-check against the new forms once they're in use.
 - **Weakly sourced facts, flagged by reviewers:**
   - Net listings: the only source is the 2007 Real Estate Manual.
