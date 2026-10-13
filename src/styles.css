@@ -1294,6 +1294,18 @@ button.course-row:hover {
 .lesson-list li button:hover {
   background: var(--sheet);
 }
+.lesson-list li.module-quiz {
+  border-top: 1px dashed var(--rule);
+  margin-top: 4px;
+  padding-top: 4px;
+}
+.lesson-list li button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.lesson-list li button:disabled:hover {
+  background: none;
+}
 .lesson-title {
   flex: 1;
 }

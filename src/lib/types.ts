@@ -87,6 +87,8 @@ export interface Attempt {
   sectionPassing?: Record<string, number>;
   /** Set when this attempt was a lesson's end-of-lesson quiz. */
   lesson?: LessonRef;
+  /** Set when this attempt was a module's end-of-module quiz. */
+  module?: ModuleRef;
   byTopic: Record<string, Tally>;
   bySection: Record<string, Tally>;
   answers: AnswerRecord[];
@@ -95,6 +97,11 @@ export interface Attempt {
 export interface LessonRef {
   courseId: string;
   lessonId: string;
+}
+
+export interface ModuleRef {
+  courseId: string;
+  moduleId: string;
 }
 
 export interface QuestionStat {
@@ -110,6 +117,11 @@ export interface QuestionStat {
 export interface Module {
   id: string;
   title: string;
+  /**
+   * End-of-module quiz: ids of questions in the course's first bank. It unlocks once
+   * every lesson in the module is complete; passing it marks the module complete.
+   */
+  quiz?: string[];
 }
 
 export interface Lesson {
@@ -244,6 +256,8 @@ export interface Progress {
   cards: Record<string, CardState>;
   /** `${courseId}/${lessonId}` -> local YYYY-MM-DD completed */
   lessonsDone: Record<string, string>;
+  /** `${courseId}/${moduleId}` -> local YYYY-MM-DD the module quiz was passed */
+  modulesDone?: Record<string, string>;
   /** courseId -> plan */
   plans: Record<string, Plan>;
   /** YYYY-MM-DD -> counts (for streaks and today's checklist) */

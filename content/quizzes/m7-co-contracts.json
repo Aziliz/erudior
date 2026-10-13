@@ -1,0 +1,1335 @@
+{
+  "module": "m7-co-contracts",
+  "lessons": {
+    "co-forms-commission-approved": {
+      "points": [
+        {
+          "point": "Conway-Bogue (1957): brokers may fill in standard forms only in transactions they broker, with no fee beyond the commission",
+          "questions": [
+            "s3-004"
+          ]
+        },
+        {
+          "point": "C.R.S. 12-10-403(4): a Commission-approved form must be used whenever one exists and fits the transaction",
+          "questions": [
+            "s3-002"
+          ]
+        },
+        {
+          "point": "Brokers may not prepare documents for deals they aren't brokering, charge a document fee, or draft legal language",
+          "questions": [
+            "h7-001"
+          ]
+        },
+        {
+          "point": "The eight kinds of standard forms and their limits (e.g. a letter of intent must say it is nonbinding)",
+          "questions": [
+            "h7-002"
+          ]
+        },
+        {
+          "point": "Builder/bank/principal-supplied contracts: insert transaction facts only and advise the client in writing to see an attorney",
+          "questions": [
+            "h7-003"
+          ]
+        },
+        {
+          "point": "A broker who is a party must disclose licensed status in writing",
+          "questions": [
+            "s1-020"
+          ]
+        },
+        {
+          "point": "Printed text is deleted only by negotiation or instruction, struck through so it stays legible",
+          "questions": [
+            "f4-001"
+          ]
+        },
+        {
+          "point": "Other form changes: inapplicable sections keep their caption marked N/A; inserted text stands out; every change explained",
+          "questions": [
+            "h7-004"
+          ]
+        },
+        {
+          "point": "Additional Provisions record agreed facts only; legal drafting goes to an attorney",
+          "questions": [
+            "s3-003"
+          ]
+        },
+        {
+          "point": "Attorney-drafted clauses are kept, with the attorney's name, 4 years from last use",
+          "questions": [
+            "f4-002"
+          ]
+        },
+        {
+          "point": "A broker who isn't a party may not add an exculpatory clause protecting the broker",
+          "questions": [
+            "h7-005"
+          ]
+        },
+        {
+          "point": "Match the contract to the property's use (Residential, Income-Residential, Commercial, Land, CBSF1, MHC1)",
+          "questions": [
+            "s3-001"
+          ]
+        },
+        {
+          "point": "There are no Commission-approved leases or property management agreements",
+          "questions": [
+            "h7-006"
+          ]
+        },
+        {
+          "point": "Forms are revised with mandatory-use dates; using an outdated version is a violation",
+          "questions": [
+            "h7-007"
+          ]
+        }
+      ],
+      "quiz": [
+        "s3-004",
+        "s3-002",
+        "h7-001",
+        "h7-002",
+        "h7-003",
+        "s1-020",
+        "f4-001",
+        "h7-004",
+        "s3-003",
+        "f4-002",
+        "h7-005",
+        "s3-001",
+        "h7-006",
+        "h7-007"
+      ]
+    },
+    "co-cbs1-part1": {
+      "points": [
+        {
+          "point": "The property is identified by legal description; a street address alone isn't enough",
+          "questions": [
+            "h7-008"
+          ]
+        },
+        {
+          "point": "Attached items are included unless excluded; list an exclusion to keep a fixture",
+          "questions": [
+            "f1-002"
+          ]
+        },
+        {
+          "point": "Leased items and encumbered inclusions need the buyer's election to assume and lessor/lienholder approval",
+          "questions": [
+            "h7-009"
+          ]
+        },
+        {
+          "point": "Water rights have their own subsection and Water Rights Examination Deadline",
+          "questions": [
+            "h7-010"
+          ]
+        },
+        {
+          "point": "A seller concession is a credit to the buyer at closing for lender-allowed costs",
+          "questions": [
+            "h7-011"
+          ]
+        },
+        {
+          "point": "Earnest money is delivered with the contract (unless an Alternative Earnest Money Deadline) and held in trust by the Earnest Money Holder",
+          "questions": [
+            "h7-012"
+          ]
+        },
+        {
+          "point": "The party who isn't entitled must sign the Earnest Money Release within 3 days or be in default",
+          "questions": [
+            "s3-026"
+          ]
+        },
+        {
+          "point": "Counting days: exclude the first day, include the last",
+          "questions": [
+            "s3-005"
+          ]
+        },
+        {
+          "point": "A day ends 11:59 p.m. MT; weekend/holiday deadlines don't move unless 'Will' is checked",
+          "questions": [
+            "s3-006"
+          ]
+        },
+        {
+          "point": "The Time of Day Deadline applies to objection, resolution, examination and termination deadlines",
+          "questions": [
+            "s3-007"
+          ]
+        },
+        {
+          "point": "A blank, N/A or Deleted deadline means the deadline and its provision don't apply",
+          "questions": [
+            "h7-013"
+          ]
+        },
+        {
+          "point": "Time is of the essence: late notices are ineffective and the right is waived",
+          "questions": [
+            "s3-028"
+          ]
+        },
+        {
+          "point": "Acceptance requires both signatures and the offering party's receipt of notice by the Acceptance Deadline",
+          "questions": [
+            "h7-014"
+          ]
+        },
+        {
+          "point": "New Loan Terms Deadline: buyer may terminate over unsatisfactory loan terms",
+          "questions": [
+            "f4-003"
+          ]
+        },
+        {
+          "point": "New Loan Availability Deadline: underwriting problems only; no timely notice makes earnest money nonrefundable",
+          "questions": [
+            "s3-015"
+          ]
+        },
+        {
+          "point": "Seller or private financing: either party may terminate by the Seller or Private Financing Deadline",
+          "questions": [
+            "h7-015"
+          ]
+        },
+        {
+          "point": "Low or late appraisal: buyer may terminate or object by the Appraisal Objection Deadline",
+          "questions": [
+            "s3-013"
+          ]
+        },
+        {
+          "point": "An unresolved appraisal objection terminates the contract at the Appraisal Resolution Deadline unless withdrawn",
+          "questions": [
+            "h7-016"
+          ]
+        },
+        {
+          "point": "FHA and VA loans have their own appraisal language; the contract's appraisal deadlines don't apply",
+          "questions": [
+            "s3-014"
+          ]
+        }
+      ],
+      "quiz": [
+        "h7-008",
+        "f1-002",
+        "h7-009",
+        "h7-010",
+        "h7-011",
+        "h7-012",
+        "s3-026",
+        "s3-005",
+        "s3-006",
+        "s3-007",
+        "h7-013",
+        "s3-028",
+        "h7-014",
+        "f4-003",
+        "s3-015",
+        "h7-015",
+        "s3-013",
+        "h7-016",
+        "s3-014"
+      ]
+    },
+    "co-cbs1-part2": {
+      "points": [
+        {
+          "point": "No box checked: seller selects the title company and pays for the owner's policy",
+          "questions": [
+            "s3-016"
+          ]
+        },
+        {
+          "point": "Owner's Extended Coverage removes standard exceptions for unrecorded matters",
+          "questions": [
+            "f4-014"
+          ]
+        },
+        {
+          "point": "Record title: a buyer who doesn't object by the deadline accepts title as shown",
+          "questions": [
+            "s3-017"
+          ]
+        },
+        {
+          "point": "Off-record title covers unrecorded easements, boundary disputes and parties in possession",
+          "questions": [
+            "s3-018"
+          ]
+        },
+        {
+          "point": "An unresolved title objection terminates the contract at the Title Resolution Deadline unless withdrawn",
+          "questions": [
+            "s3-019"
+          ]
+        },
+        {
+          "point": "New ILC or survey: buyer may terminate or object by the New ILC or New Survey Objection Deadline",
+          "questions": [
+            "h7-017"
+          ]
+        },
+        {
+          "point": "Association documents at seller's expense; late delivery gives the buyer 10 days after receipt",
+          "questions": [
+            "g4-018"
+          ]
+        },
+        {
+          "point": "Seller requests the status letter (14+ days before closing) and pays its fee",
+          "questions": [
+            "s3-020"
+          ]
+        },
+        {
+          "point": "The Seller's Property Disclosure is completed by the seller from current actual knowledge; not a warranty",
+          "questions": [
+            "s3-021"
+          ]
+        },
+        {
+          "point": "Continuing duty to disclose new adverse facts; buyer may terminate by earlier of closing or 5 days",
+          "questions": [
+            "s3-022"
+          ]
+        },
+        {
+          "point": "Lead-based paint disclosure for dwellings built or permitted before 1978",
+          "questions": [
+            "h7-018"
+          ]
+        },
+        {
+          "point": "Methamphetamine disclosure unless remediated to state standards",
+          "questions": [
+            "h7-019"
+          ]
+        },
+        {
+          "point": "Radon advisory recommends testing; seller provides known test results",
+          "questions": [
+            "h7-020"
+          ]
+        },
+        {
+          "point": "Buyer acknowledges source-of-water and well permit information",
+          "questions": [
+            "h7-022"
+          ]
+        },
+        {
+          "point": "Carbon monoxide alarms within 15 feet of each bedroom entrance",
+          "questions": [
+            "h7-021"
+          ]
+        },
+        {
+          "point": "Inspection Termination Deadline: buyer may simply terminate if no objection was delivered",
+          "questions": [
+            "s3-012"
+          ]
+        },
+        {
+          "point": "Inspection objection unresolved by the Inspection Resolution Deadline terminates the contract unless withdrawn",
+          "questions": [
+            "s3-011"
+          ]
+        },
+        {
+          "point": "Buyer pays for inspections, repairs inspection damage and indemnifies the seller; this survives termination",
+          "questions": [
+            "h7-023"
+          ]
+        },
+        {
+          "point": "Conditional sale and due diligence documents: buyer must act by the deadline or lose the right",
+          "questions": [
+            "h7-024"
+          ]
+        },
+        {
+          "point": "Default deed is a special warranty deed",
+          "questions": [
+            "s3-030"
+          ]
+        },
+        {
+          "point": "Seller holding over after possession faces eviction, per-day amount and damages; stays use a Post-Closing Occupancy Agreement",
+          "questions": [
+            "h7-025"
+          ]
+        },
+        {
+          "point": "Casualty damage over 10% of price (or unrepaired) lets the buyer terminate",
+          "questions": [
+            "h7-026"
+          ]
+        },
+        {
+          "point": "Taxes are paid in arrears: seller credits the buyer for the seller's share at closing",
+          "questions": [
+            "s4-008"
+          ]
+        },
+        {
+          "point": "Prorations are to the Closing Date and are final unless Additional Provisions say otherwise",
+          "questions": [
+            "h7-027"
+          ]
+        },
+        {
+          "point": "Buyer default with specific performance box unchecked: earnest money as liquidated damages is the seller's only remedy",
+          "questions": [
+            "s3-023"
+          ]
+        },
+        {
+          "point": "Seller default: buyer may cancel and recover earnest money and damages, or sue for specific performance",
+          "questions": [
+            "s3-024"
+          ]
+        },
+        {
+          "point": "Mediation is required first; duty ends 30 days after the written request",
+          "questions": [
+            "s3-025"
+          ]
+        },
+        {
+          "point": "Earnest money dispute: holder may hold, interplead, or return to buyer absent a case number within 120 days",
+          "questions": [
+            "s3-027"
+          ]
+        },
+        {
+          "point": "Termination is effective on receipt; earnest money returns to the buyer unless the buyer is in default",
+          "questions": [
+            "h7-028"
+          ]
+        }
+      ],
+      "quiz": [
+        "s3-016",
+        "f4-014",
+        "s3-017",
+        "s3-018",
+        "s3-019",
+        "h7-017",
+        "g4-018",
+        "s3-020",
+        "s3-021",
+        "s3-022",
+        "h7-018",
+        "h7-019",
+        "h7-020",
+        "h7-022",
+        "h7-021",
+        "s3-012",
+        "s3-011",
+        "h7-023",
+        "h7-024",
+        "s3-030",
+        "h7-025",
+        "h7-026",
+        "s4-008",
+        "h7-027",
+        "s3-023",
+        "s3-024",
+        "s3-025",
+        "s3-027",
+        "h7-028"
+      ]
+    },
+    "co-counterproposals-amend-notices": {
+      "points": [
+        {
+          "point": "The Counterproposal lists only changes; blank or 'No Change' keeps a term, 'Deleted' removes it",
+          "questions": [
+            "h7-029"
+          ]
+        },
+        {
+          "point": "A new Counterproposal supersedes and replaces any earlier one",
+          "questions": [
+            "s3-009"
+          ]
+        },
+        {
+          "point": "Acceptance requires the offering party to receive notice by the deadline",
+          "questions": [
+            "s3-008"
+          ]
+        },
+        {
+          "point": "A counteroffer rejects the original offer, which can't be accepted later",
+          "questions": [
+            "f4-004"
+          ]
+        },
+        {
+          "point": "Changes after signing use the Agreement to Amend/Extend, signed by both parties",
+          "questions": [
+            "s3-010"
+          ]
+        },
+        {
+          "point": "A terminated contract can't be amended; use the Agreement to Revive Contract",
+          "questions": [
+            "f4-005"
+          ]
+        },
+        {
+          "point": "Extension or Termination of Contract: if Part I isn't accepted in time, Part II is the requester's notice to terminate",
+          "questions": [
+            "h7-030"
+          ]
+        },
+        {
+          "point": "Notice forms (objection notices, Inspection Resolution, Notice to Terminate, Earnest Money Release); give the lender a copy of an Inspection Resolution",
+          "questions": [
+            "h7-031"
+          ]
+        },
+        {
+          "point": "Notices are written, effective on receipt, and delivery to the party's broker counts (except after closing)",
+          "questions": [
+            "s3-029"
+          ]
+        },
+        {
+          "point": "Electronic notice and delivery are allowed; timing turns on receipt and any Time of Day Deadline",
+          "questions": [
+            "h7-032"
+          ]
+        },
+        {
+          "point": "A seller's agent presents all offers timely, even when the property is under contract",
+          "questions": [
+            "s3-033"
+          ]
+        },
+        {
+          "point": "Limits on which offers are presented must follow an explanation and be written into the listing",
+          "questions": [
+            "h7-033"
+          ]
+        },
+        {
+          "point": "If the listing broker won't respond, go to the employing broker before the seller",
+          "questions": [
+            "f4-007"
+          ]
+        },
+        {
+          "point": "No box checked = no consent to disclose that other offers exist; terms always need written consent",
+          "questions": [
+            "s3-032"
+          ]
+        },
+        {
+          "point": "Without informed consent, the seller's agent may not disclose that the seller would take less",
+          "questions": [
+            "s2-007"
+          ]
+        },
+        {
+          "point": "A second accepted offer should be a backup contingent on the first contract terminating",
+          "questions": [
+            "f4-006"
+          ]
+        },
+        {
+          "point": "Countering several buyers at once risks more than one binding contract",
+          "questions": [
+            "h7-034"
+          ]
+        }
+      ],
+      "quiz": [
+        "h7-029",
+        "s3-009",
+        "s3-008",
+        "f4-004",
+        "s3-010",
+        "f4-005",
+        "h7-030",
+        "h7-031",
+        "s3-029",
+        "h7-032",
+        "s3-033",
+        "h7-033",
+        "f4-007",
+        "s3-032",
+        "s2-007",
+        "f4-006",
+        "h7-034"
+      ]
+    },
+    "co-listing-disclosures-addenda-financing": {
+      "points": [
+        {
+          "point": "Exclusive Right-to-Sell: no relationship box checked means transaction-brokerage",
+          "questions": [
+            "f4-008"
+          ]
+        },
+        {
+          "point": "Compensation is earned if the property sells during the listing by anyone, including the seller",
+          "questions": [
+            "n4-006"
+          ]
+        },
+        {
+          "point": "Third-party compensation requires the seller's written consent",
+          "questions": [
+            "h7-035"
+          ]
+        },
+        {
+          "point": "Holdover covers Submitted Prospects named to the seller in writing during the listing",
+          "questions": [
+            "s3-031"
+          ]
+        },
+        {
+          "point": "Holdover double-commission box: if unchecked, the seller doesn't owe the first firm when a new firm earns a fee",
+          "questions": [
+            "h7-036"
+          ]
+        },
+        {
+          "point": "Exclusive Right-to-Buy: compensation negotiable; buyer owes unpaid balance only if disclosed in writing before the purchase contract",
+          "questions": [
+            "h7-037"
+          ]
+        },
+        {
+          "point": "Exclusive Right-to-Buy Megan's Law paragraph: buyer gets offender information from local law enforcement",
+          "questions": [
+            "h7-038"
+          ]
+        },
+        {
+          "point": "The Seller's Property Disclosure is completed by the seller, not the broker",
+          "questions": [
+            "s3-021"
+          ]
+        },
+        {
+          "point": "The broker separately discloses adverse material facts the broker actually knows",
+          "questions": [
+            "s2-008"
+          ]
+        },
+        {
+          "point": "Square Footage Disclosure is completed by the listing licensee and is for marketing only",
+          "questions": [
+            "s3-034"
+          ]
+        },
+        {
+          "point": "Source of Water Addendum: well permit number, provider contact, or other source",
+          "questions": [
+            "g4-014"
+          ]
+        },
+        {
+          "point": "Lead-based paint: pre-1978, EPA pamphlet, 10-day risk-assessment opportunity",
+          "questions": [
+            "n3-027"
+          ]
+        },
+        {
+          "point": "Short Sale Addendum: contract terminates without lienholder acceptance by the Short Sale Acceptance Deadline",
+          "questions": [
+            "h7-039"
+          ]
+        },
+        {
+          "point": "Short sale seller may still owe the deficiency unless released in writing; forgiven debt can be taxable",
+          "questions": [
+            "h7-040"
+          ]
+        },
+        {
+          "point": "CBSF1 is required when an owner-occupant in foreclosure sells to a non-occupant equity purchaser",
+          "questions": [
+            "s3-035"
+          ]
+        },
+        {
+          "point": "CBSF1 can't be used with an assumption, leaseback or repurchase option; an attorney prepares that contract",
+          "questions": [
+            "g4-003"
+          ]
+        },
+        {
+          "point": "Foreclosure Protection Act cancellation: earlier of midnight of the 3rd business day or noon the day before the sale",
+          "questions": [
+            "s3-036"
+          ]
+        },
+        {
+          "point": "Closing Instructions are signed by buyer, seller and closing company",
+          "questions": [
+            "s3-038"
+          ]
+        },
+        {
+          "point": "Closing company prepares standard statutory deeds; personal representative's, trustee's and nonstandard deeds come from attorneys",
+          "questions": [
+            "h7-041"
+          ]
+        },
+        {
+          "point": "Brokers may fill in Commission note and deed of trust forms in their own transactions, with no extra fee",
+          "questions": [
+            "s3-037"
+          ]
+        },
+        {
+          "point": "Deed of trust versions: Strict, Creditworthy, Assumable; the county Public Trustee is the trustee",
+          "questions": [
+            "h7-042"
+          ]
+        },
+        {
+          "point": "Brokers don't advise on or draft financing terms; consumer credit deals go to an attorney or licensed MLO",
+          "questions": [
+            "s1-012"
+          ]
+        }
+      ],
+      "quiz": [
+        "f4-008",
+        "n4-006",
+        "h7-035",
+        "s3-031",
+        "h7-036",
+        "h7-037",
+        "h7-038",
+        "s3-021",
+        "s2-008",
+        "s3-034",
+        "g4-014",
+        "n3-027",
+        "h7-039",
+        "h7-040",
+        "s3-035",
+        "g4-003",
+        "s3-036",
+        "s3-038",
+        "h7-041",
+        "s3-037",
+        "h7-042",
+        "s1-012"
+      ]
+    },
+    "g4-other-contracts-addenda": {
+      "points": [
+        {
+          "point": "Income-Residential (CBS2) for rental and investment residential property",
+          "questions": [
+            "s3-001"
+          ]
+        },
+        {
+          "point": "Commercial (CBS3) for office, retail, industrial and mixed use, with environmental and ADA due diligence",
+          "questions": [
+            "h7-043"
+          ]
+        },
+        {
+          "point": "Land (CBS4) for vacant/agricultural land; no farm and ranch contract; Residential Addendum when dwellings are present",
+          "questions": [
+            "h7-044"
+          ]
+        },
+        {
+          "point": "CBSF1 applies to owner-occupied homes in foreclosure sold to non-occupant buyers",
+          "questions": [
+            "s3-035"
+          ]
+        },
+        {
+          "point": "CBSF1 deal must be clean: no assumption, leaseback or buy-back, nothing of value before cancellation expires",
+          "questions": [
+            "g4-003"
+          ]
+        },
+        {
+          "point": "Manufactured home on a rented park space uses the Lot Lease Only contract",
+          "questions": [
+            "g4-001"
+          ]
+        },
+        {
+          "point": "Under MHC1, title passes by certificate of title and the buyer applies to the Department of Revenue",
+          "questions": [
+            "g4-002"
+          ]
+        },
+        {
+          "point": "MHC1 depends on the park owner's written approval and lease assignment or new lease",
+          "questions": [
+            "h7-045"
+          ]
+        },
+        {
+          "point": "Manufactured home sold with land uses the Land or Commercial contract plus the Manufactured Home Addendum",
+          "questions": [
+            "h7-046"
+          ]
+        },
+        {
+          "point": "No Commission lease: the firm's own attorney drafts it or the owner supplies it",
+          "questions": [
+            "g4-011"
+          ]
+        },
+        {
+          "point": "Exclusive Right-to-Lease Listing Contract is the landlord-side leasing listing",
+          "questions": [
+            "g4-010"
+          ]
+        },
+        {
+          "point": "Property management: attorney-drafted agreement plus the Brokerage Duties Addendum",
+          "questions": [
+            "g4-012"
+          ]
+        },
+        {
+          "point": "Assignment of Lease moves the landlord's lease rights and deposits to the buyer at closing",
+          "questions": [
+            "g4-013"
+          ]
+        },
+        {
+          "point": "Licensee Buy-Out Addendum is used when a licensee buys the client's property",
+          "questions": [
+            "g4-007"
+          ]
+        },
+        {
+          "point": "Buy-out seller may terminate anytime and reimburses out-of-pocket expenses up to a cap",
+          "questions": [
+            "g4-008"
+          ]
+        },
+        {
+          "point": "Guaranteed buy-out property keeps being marketed as active",
+          "questions": [
+            "h7-047"
+          ]
+        },
+        {
+          "point": "Post-Closing Occupancy Agreement is limited to 60 days",
+          "questions": [
+            "g4-005"
+          ]
+        },
+        {
+          "point": "PCOA terms: rent in advance, buyer holds deposit (max two months' rent) and returns it within 30 days",
+          "questions": [
+            "h7-048"
+          ]
+        },
+        {
+          "point": "Pre-closing occupancy has no Commission form; use an attorney",
+          "questions": [
+            "g4-006"
+          ]
+        },
+        {
+          "point": "Source of Water Addendum records well, provider or other source",
+          "questions": [
+            "g4-014"
+          ]
+        },
+        {
+          "point": "Short Sale Addenda (listing and purchase): terminate without lender acceptance by the deadline",
+          "questions": [
+            "h7-039"
+          ]
+        },
+        {
+          "point": "Exchange Addendum: cooperation at no cost or liability; exchange isn't a condition of the contract",
+          "questions": [
+            "g4-009"
+          ]
+        },
+        {
+          "point": "Non-Commission forms only when none fits; a broker-party's attorney form must say it is not Commission-approved",
+          "questions": [
+            "h7-049"
+          ]
+        },
+        {
+          "point": "Forms are revised often; confirm the current version and mandatory-use date",
+          "questions": [
+            "h7-007"
+          ]
+        }
+      ],
+      "quiz": [
+        "s3-001",
+        "h7-043",
+        "h7-044",
+        "s3-035",
+        "g4-003",
+        "g4-001",
+        "g4-002",
+        "h7-045",
+        "h7-046",
+        "g4-011",
+        "g4-010",
+        "g4-012",
+        "g4-013",
+        "g4-007",
+        "g4-008",
+        "h7-047",
+        "g4-005",
+        "h7-048",
+        "g4-006",
+        "g4-014",
+        "h7-039",
+        "g4-009",
+        "h7-049",
+        "h7-007"
+      ]
+    },
+    "g4-hoa-ccioa": {
+      "points": [
+        {
+          "point": "A common interest community obligates owners to pay for common property or other units' expenses",
+          "questions": [
+            "h7-050"
+          ]
+        },
+        {
+          "point": "CCIOA applies to communities created on or after July 1, 1992, with limited sections reaching older ones",
+          "questions": [
+            "f4-011"
+          ]
+        },
+        {
+          "point": "CCIOA protections can't be waived and limit what HOAs can prohibit",
+          "questions": [
+            "h7-051"
+          ]
+        },
+        {
+          "point": "The recorded declaration creates the community and is the top governing document",
+          "questions": [
+            "g4-015"
+          ]
+        },
+        {
+          "point": "No fines without a written fine policy giving notice and a hearing",
+          "questions": [
+            "f4-009"
+          ]
+        },
+        {
+          "point": "Regular vs. special assessments",
+          "questions": [
+            "h7-052"
+          ]
+        },
+        {
+          "point": "The HOA lien is perfected by recording the declaration and lapses without enforcement within 6 years",
+          "questions": [
+            "h7-053"
+          ]
+        },
+        {
+          "point": "Statement of unpaid assessments due within 14 calendar days; binding; failure bars the lien as of the request date",
+          "questions": [
+            "h7-054"
+          ]
+        },
+        {
+          "point": "Super-lien: up to six months of regular assessments beat a first deed of trust; taxes still come first",
+          "questions": [
+            "g4-016"
+          ]
+        },
+        {
+          "point": "Foreclosure needs a balance of at least six months' assessments and a recorded board vote; fines alone can't support it",
+          "questions": [
+            "f4-010"
+          ]
+        },
+        {
+          "point": "An unregistered association can't enforce its lien until it re-registers",
+          "questions": [
+            "g4-019"
+          ]
+        },
+        {
+          "point": "Seller must give the CIC disclosure; failure exposes the seller to actual damages and costs",
+          "questions": [
+            "g4-017"
+          ]
+        },
+        {
+          "point": "Association documents: seller provides; buyer may terminate by deadline or 10 days after late delivery",
+          "questions": [
+            "g4-018"
+          ]
+        },
+        {
+          "point": "Seller requests and pays for the status letter",
+          "questions": [
+            "s3-020"
+          ]
+        },
+        {
+          "point": "Special assessments: checkbox for those levied before closing; seller pays for improvements installed as of buyer's signing",
+          "questions": [
+            "h7-055"
+          ]
+        },
+        {
+          "point": "No state license for HOA managers since 2019; the HOA Center is not a regulator",
+          "questions": [
+            "g4-020"
+          ]
+        },
+        {
+          "point": "Brokers flag issues and calendar deadlines but don't interpret HOA documents",
+          "questions": [
+            "h7-056"
+          ]
+        }
+      ],
+      "quiz": [
+        "h7-050",
+        "f4-011",
+        "h7-051",
+        "g4-015",
+        "f4-009",
+        "h7-052",
+        "h7-053",
+        "h7-054",
+        "g4-016",
+        "f4-010",
+        "g4-019",
+        "g4-017",
+        "g4-018",
+        "s3-020",
+        "h7-055",
+        "g4-020",
+        "h7-056"
+      ]
+    }
+  },
+  "moduleQuiz": {
+    "points": [
+      {
+        "point": "Conway-Bogue limits on brokers completing forms",
+        "questions": [
+          "s1-026"
+        ]
+      },
+      {
+        "point": "Unauthorized practice of law: refer legal questions to an attorney",
+        "questions": [
+          "s1-025"
+        ]
+      },
+      {
+        "point": "Additional Provisions: facts only, no legal drafting",
+        "questions": [
+          "s3-003"
+        ]
+      },
+      {
+        "point": "Broker as principal: written license disclosure; Commission forms when selling through the firm",
+        "questions": [
+          "g5-007",
+          "h7-059"
+        ]
+      },
+      {
+        "point": "Choosing the right Commission contract by property use",
+        "questions": [
+          "h7-044",
+          "s3-035"
+        ]
+      },
+      {
+        "point": "Inclusions and fixtures stay unless excluded",
+        "questions": [
+          "n1-001"
+        ]
+      },
+      {
+        "point": "Deadline mechanics: 11:59 p.m. MT and weekend default",
+        "questions": [
+          "s3-006"
+        ]
+      },
+      {
+        "point": "Offers, counteroffers and acceptance",
+        "questions": [
+          "n3-009",
+          "s3-008"
+        ]
+      },
+      {
+        "point": "Loan termination rights (terms vs. availability)",
+        "questions": [
+          "f4-003",
+          "s3-015"
+        ]
+      },
+      {
+        "point": "Appraisal objection resolved by Amend/Extend before the deadline",
+        "questions": [
+          "h7-058"
+        ]
+      },
+      {
+        "point": "Title insurance default and extended coverage",
+        "questions": [
+          "s4-006",
+          "f4-014"
+        ]
+      },
+      {
+        "point": "Unresolved title objection terminates; revive with Agreement to Revive",
+        "questions": [
+          "h7-057"
+        ]
+      },
+      {
+        "point": "Seller's Property Disclosure: completed by seller; continuing duty",
+        "questions": [
+          "s3-021",
+          "s3-022"
+        ]
+      },
+      {
+        "point": "Inspection objection and resolution",
+        "questions": [
+          "s3-011"
+        ]
+      },
+      {
+        "point": "Default deed is special warranty",
+        "questions": [
+          "s3-030"
+        ]
+      },
+      {
+        "point": "Prorations and deposits at closing",
+        "questions": [
+          "s4-012"
+        ]
+      },
+      {
+        "point": "Buyer and seller default remedies",
+        "questions": [
+          "n3-021",
+          "n3-020"
+        ]
+      },
+      {
+        "point": "Earnest money disputes",
+        "questions": [
+          "s3-027"
+        ]
+      },
+      {
+        "point": "Amending a signed contract",
+        "questions": [
+          "n3-018"
+        ]
+      },
+      {
+        "point": "Notice delivery and timing",
+        "questions": [
+          "h7-032"
+        ]
+      },
+      {
+        "point": "Multiple offers: presenting and disclosing offers",
+        "questions": [
+          "s3-033",
+          "s3-032"
+        ]
+      },
+      {
+        "point": "Listing contract relationship default",
+        "questions": [
+          "s2-017"
+        ]
+      },
+      {
+        "point": "Holdover protects only prospects named in writing",
+        "questions": [
+          "s1-024"
+        ]
+      },
+      {
+        "point": "Lead-based paint record keeping",
+        "questions": [
+          "n3-028"
+        ]
+      },
+      {
+        "point": "Short sales",
+        "questions": [
+          "n1-026"
+        ]
+      },
+      {
+        "point": "Foreclosure Protection Act cancellation right",
+        "questions": [
+          "s4-027"
+        ]
+      },
+      {
+        "point": "Closing Instructions signers",
+        "questions": [
+          "s4-003"
+        ]
+      },
+      {
+        "point": "Seller financing forms and the Public Trustee",
+        "questions": [
+          "s3-037",
+          "f4-028"
+        ]
+      },
+      {
+        "point": "Manufactured home on a leased lot",
+        "questions": [
+          "g4-002"
+        ]
+      },
+      {
+        "point": "Leasing forms: no Commission lease",
+        "questions": [
+          "g4-011"
+        ]
+      },
+      {
+        "point": "Licensee Buy-Out Addendum",
+        "questions": [
+          "g4-008"
+        ]
+      },
+      {
+        "point": "Seller rent-back vs. buyer early occupancy",
+        "questions": [
+          "g4-004",
+          "g4-006"
+        ]
+      },
+      {
+        "point": "Exchange Addendum",
+        "questions": [
+          "g4-009"
+        ]
+      },
+      {
+        "point": "CCIOA scope",
+        "questions": [
+          "f4-011"
+        ]
+      },
+      {
+        "point": "HOA super-lien and foreclosure limits",
+        "questions": [
+          "g4-016",
+          "f4-010"
+        ]
+      },
+      {
+        "point": "Association documents timing",
+        "questions": [
+          "g4-018"
+        ]
+      },
+      {
+        "point": "CIC disclosure duty",
+        "questions": [
+          "g4-017"
+        ]
+      },
+      {
+        "point": "HOA managers and the HOA Center",
+        "questions": [
+          "g4-020"
+        ]
+      }
+    ],
+    "quiz": [
+      "s1-026",
+      "s1-025",
+      "s3-003",
+      "g5-007",
+      "h7-059",
+      "h7-044",
+      "s3-035",
+      "n1-001",
+      "s3-006",
+      "n3-009",
+      "s3-008",
+      "f4-003",
+      "s3-015",
+      "h7-058",
+      "s4-006",
+      "f4-014",
+      "h7-057",
+      "s3-021",
+      "s3-022",
+      "s3-011",
+      "s3-030",
+      "s4-012",
+      "n3-021",
+      "n3-020",
+      "s3-027",
+      "n3-018",
+      "h7-032",
+      "s3-033",
+      "s3-032",
+      "s2-017",
+      "s1-024",
+      "n3-028",
+      "n1-026",
+      "s4-027",
+      "s4-003",
+      "s3-037",
+      "f4-028",
+      "g4-002",
+      "g4-011",
+      "g4-008",
+      "g4-004",
+      "g4-006",
+      "g4-009",
+      "f4-011",
+      "g4-016",
+      "f4-010",
+      "g4-018",
+      "g4-017",
+      "g4-020"
+    ]
+  }
+}

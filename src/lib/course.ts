@@ -27,7 +27,11 @@ export function normalizeCourse(raw: unknown): Course {
 
   const modules: Module[] = arr(raw.modules)
     .filter(isObj)
-    .map((m, i) => ({ id: safeId(m.id, `m${i + 1}`), title: str(m.title) || `Module ${i + 1}` }));
+    .map((m, i) => ({
+      id: safeId(m.id, `m${i + 1}`),
+      title: str(m.title) || `Module ${i + 1}`,
+      quiz: arr(m.quiz).length ? arr(m.quiz).map(String).filter(Boolean) : undefined,
+    }));
 
   const lessons: Lesson[] = arr(raw.lessons)
     .filter(isObj)

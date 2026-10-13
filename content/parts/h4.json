@@ -1,0 +1,1028 @@
+{
+  "questions": [
+    {
+      "id": "h4-001",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller's listing firm agrees to share part of its commission with the firm working with the buyer. Whom does the buyer's broker represent?",
+      "choices": [
+        "The seller, since the seller's money pays the fee",
+        "Both parties, since the fee is shared",
+        "The buyer, the party who engaged the broker",
+        "The listing firm, since it pays the fee"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Who pays the commission doesn't decide who the broker represents. A buyer's broker paid out of a shared listing fee still works for the buyer."
+    },
+    {
+      "id": "h4-002",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A broker agrees to help a friend sell her home and says he won't charge a fee. Which statement is correct?",
+      "choices": [
+        "He can still owe the friend full fiduciary duties",
+        "An agency exists only once a fee agreement is signed",
+        "The friend is a customer rather than a client",
+        "He owes no fiduciary duties because no fee is paid"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Agency doesn't require compensation. A broker who acts for someone for free can still be their agent and owe full fiduciary duties."
+    },
+    {
+      "id": "h4-003",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A listing expired June 30 and includes a 90-day protection period. In August the owner sells, without any broker, to a buyer the listing broker showed the home to in May. The listing broker:",
+      "choices": [
+        "Earns nothing, because the listing term has ended",
+        "Earns a fee only if the buyer found it in the MLS",
+        "Becomes the seller's agent again for the August sale",
+        "May earn the fee under the protection clause"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A protection (carryover) clause lets the broker earn a fee if, within the stated period after the listing ends, the owner sells to someone the broker introduced during the term."
+    },
+    {
+      "id": "h4-004",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "Under the industry practice changes that took effect in 2024, a broker in a NAR-affiliated MLS wants to tour a home with a new buyer. What must be in place first?",
+      "choices": [
+        "Written consent from the listing seller",
+        "A written agreement with the buyer",
+        "A preapproval letter from the buyer's lender",
+        "A signed offer on at least one property"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "NAR-affiliated MLS participants working with a buyer must have a written agreement with that buyer before touring a home. The agreement spells out the buyer broker's compensation."
+    },
+    {
+      "id": "h4-005",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A listing expired and the seller relisted with another firm. A buyer asks the former listing broker why the seller is moving and how low she'll go. The former listing broker should:",
+      "choices": [
+        "Share it once the new listing has closed",
+        "Share it, because all duties ended with the listing",
+        "Keep it confidential, since that duty outlasts the agency",
+        "Share it only if the buyer signs a buyer agency agreement"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Some duties survive the end of an agency. Confidential information learned during the relationship, like motivation and price flexibility, generally stays confidential after the listing ends."
+    },
+    {
+      "id": "h4-006",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "An owner signs a durable power of attorney naming her son. She later becomes incapacitated, and then dies before her home sells. The son's authority:",
+      "choices": [
+        "Survives her incapacity but ends at her death",
+        "Survives her death so the son can finish the sale",
+        "Ends as soon as she becomes incapacitated",
+        "Continues until the home is sold and closed"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A durable power of attorney survives the principal's incapacity, which an ordinary one doesn't. No power of attorney survives the principal's death."
+    },
+    {
+      "id": "h4-007",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller living overseas signs a specific power of attorney so her cousin can sign the deed at closing. Which statement is correct?",
+      "choices": [
+        "The listing agreement already gives the broker this power",
+        "The cousin must be a licensed attorney",
+        "The cousin must also hold a real estate license",
+        "The power of attorney is usually recorded with the deed"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "To convey real estate, a power of attorney usually must be recorded along with the deed. The attorney-in-fact doesn't have to be a lawyer, and a listing agreement authorizes marketing, not signing deeds."
+    },
+    {
+      "id": "h4-008",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A buyer hands his broker an earnest money check. Months later the broker can't show where the money went. Which fiduciary duty has the broker most directly breached?",
+      "choices": [
+        "Obedience",
+        "Accounting",
+        "Disclosure",
+        "Confidentiality"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The duty of accounting requires the broker to account for all money and property entrusted to her and never commingle or convert it."
+    },
+    {
+      "id": "h4-009",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A buyer client asks her broker whether she should take title with her partner as joint tenants or as tenants in common. The broker should:",
+      "choices": [
+        "Pick whichever form keeps the purchase price lowest",
+        "Choose joint tenancy, since couples use it most often",
+        "Recommend she consult a real estate attorney",
+        "Tell her the choice doesn't matter for a home purchase"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Reasonable care and diligence includes not giving advice outside your expertise. How to hold title is a legal question, so refer the client to an attorney."
+    },
+    {
+      "id": "h4-010",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "A seller tells the listing broker the roof is two years old. Without checking any records, the broker repeats this to buyers as fact. The roof is actually 15 years old, and neither the seller nor the broker knew. The broker's statement is most likely:",
+      "choices": [
+        "Negligent misrepresentation",
+        "Fraud",
+        "Concealment",
+        "Puffing"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Passing along a false statement of fact that the licensee should have verified is negligent misrepresentation. Fraud requires knowing falsity or reckless disregard for the truth; puffing is opinion, not a factual claim."
+    },
+    {
+      "id": "h4-011",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "In states that allow transaction brokerage, a transaction broker typically:",
+      "choices": [
+        "Must be appointed by the employing broker as a dual agent for both parties",
+        "Advocates for whichever party pays the commission",
+        "Owes both parties full loyalty and confidentiality",
+        "Helps the parties close without advocating for either"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A transaction broker (facilitator) helps one or both parties complete the deal without representing either as an advocate. Duties come from state statute, such as honesty, reasonable skill and care, and accounting, but not full loyalty."
+    },
+    {
+      "id": "h4-012",
+      "section": "national",
+      "topic": "Agency",
+      "stem": "Under the general rule, a fact about a property is material when:",
+      "choices": [
+        "The seller personally considers it embarrassing or private",
+        "A reasonable buyer would consider it important",
+        "It appears in the county public records",
+        "The buyer asks about it in writing"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A fact is material if a reasonable person would consider it important in deciding whether, or on what terms, to buy or sell. Physical defects are almost always material."
+    },
+    {
+      "id": "h4-013",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A buyer asks the listing broker whether the previous occupant had AIDS. What should the broker do?",
+      "choices": [
+        "Answer truthfully, since it's a material fact",
+        "Ask the seller for permission to answer",
+        "Decline to discuss it",
+        "Disclose it only in writing"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Answering or volunteering whether a past occupant had HIV/AIDS or another disability can be treated as disability discrimination under fair housing law, so the broker shouldn't discuss it."
+    },
+    {
+      "id": "h4-014",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Which of these is a protected class listed in the text of the federal Fair Housing Act?",
+      "choices": [
+        "Religion",
+        "Source of income",
+        "Marital status",
+        "Sexual orientation"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Act lists seven classes: race, color, religion, national origin, sex, disability and familial status. Sexual orientation isn't in the federal text, though Colorado law covers it."
+    },
+    {
+      "id": "h4-015",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Which household is protected under the Fair Housing Act's familial status provisions?",
+      "choices": [
+        "A married couple with no children",
+        "A grandparent who lives alone",
+        "Two unrelated adult roommates aged 22 and 25",
+        "A pregnant woman with no other children"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Familial status covers households with a child under 18 living with a parent, custodian or designee, and it also covers pregnant people and anyone in the process of getting custody of a child."
+    },
+    {
+      "id": "h4-016",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "An apartment applicant is in a recovery program and no longer uses illegal drugs. Under the Fair Housing Act, the applicant:",
+      "choices": [
+        "Is protected only in owner-occupied buildings",
+        "Is protected, since recovering addicts are covered",
+        "Isn't protected, since any past drug use disqualifies",
+        "Is protected only if a doctor confirms it in writing"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Current illegal drug use isn't a protected disability, but people recovering from addiction are protected."
+    },
+    {
+      "id": "h4-017",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A broker tells a Muslim couple that a listed home is \"already under contract\" when it isn't, to keep them from seeing it. This violates the Fair Housing Act because it:",
+      "choices": [
+        "Is blockbusting aimed at the current owner",
+        "Breaches only the duty of obedience to the seller",
+        "Falsely represents that housing isn't available",
+        "Is a form of redlining by the listing firm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Falsely saying housing isn't available for inspection, sale or rent because of a protected class (here, religion) is a prohibited act. Redlining involves lenders; blockbusting involves inducing owners to sell."
+    },
+    {
+      "id": "h4-018",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "HUD requires brokerage offices to display the Equal Housing Opportunity poster. If a firm fails to display it, the failure:",
+      "choices": [
+        "Can be treated as evidence of discrimination",
+        "Matters only for firms that manage rentals",
+        "Ends the firm's right to list in the MLS",
+        "Is excused if the firm uses the logo in its ads"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Failing to display the Equal Housing Opportunity poster can be treated as evidence of discrimination in a fair housing complaint."
+    },
+    {
+      "id": "h4-019",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "An owner lives in one unit of a fourplex and rents the other three herself, with no broker and no discriminatory ads. Which Fair Housing Act exemption may apply?",
+      "choices": [
+        "The single-family home exemption",
+        "The housing for older persons (55 and over) exemption",
+        "The private club exemption",
+        "The owner-occupied (Mrs. Murphy) exemption"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The Mrs. Murphy exemption covers owner-occupied buildings with up to four units. It never covers discriminatory advertising or race discrimination."
+    },
+    {
+      "id": "h4-020",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A community wants to qualify as \"55 and older\" housing under the federal Fair Housing Act. Which requirement applies?",
+      "choices": [
+        "Every occupant must be at least 55",
+        "At least 80% of occupied units have a resident 55 or older",
+        "At least half of all residents must be retired from full-time work",
+        "The owner must be a religious organization"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "55-and-older housing needs at least 80% of occupied units to have one resident 55 or older, plus published policies and age verification. It's exempt from the familial status rules only."
+    },
+    {
+      "id": "h4-021",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A church owns non-commercial housing and limits it to members of its faith. Church membership is open to people of any race. This is:",
+      "choices": [
+        "Allowed only if the church uses a broker",
+        "Illegal in every case, because religion is a protected class under the Act",
+        "Permitted under the religious organization exemption",
+        "Illegal steering by the church"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Religious organizations may limit non-commercial housing they own to their members, unless membership is restricted by race, color or national origin."
+    },
+    {
+      "id": "h4-022",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Federal Fair Housing Act accessibility design requirements apply to which new construction?",
+      "choices": [
+        "Buildings of 4 or more units first occupied after March 13, 1991",
+        "Duplexes first occupied after 1988",
+        "Any home a broker lists for sale",
+        "Single-family homes built for sale"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "New multifamily buildings with 4 or more units first occupied after March 13, 1991 must meet federal accessibility design standards."
+    },
+    {
+      "id": "h4-023",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Where there is a pattern or practice of housing discrimination, who may bring a federal lawsuit?",
+      "choices": [
+        "The local MLS",
+        "Only the state real estate commission",
+        "Only the individual victims",
+        "The U.S. Attorney General"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The U.S. Attorney General can sue where there's a pattern or practice of discrimination. Individuals can also file with HUD (one year) or sue privately (two years)."
+    },
+    {
+      "id": "h4-024",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A licensee is properly documented as an independent contractor. Who pays her Social Security and Medicare taxes?",
+      "choices": [
+        "The employing broker withholds and pays them",
+        "She pays them herself as self-employment tax",
+        "The clients pay them through closing costs at settlement",
+        "No one, because commissions are exempt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "An independent contractor pays her own self-employment tax. An employer withholds and pays its share only for employees."
+    },
+    {
+      "id": "h4-025",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A developer tells a buyer, \"I'll sell you this lot only if you list your current home with my brokerage.\" This is:",
+      "choices": [
+        "Price fixing",
+        "Market allocation among competitors",
+        "A tie-in arrangement",
+        "A group boycott"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A tie-in arrangement conditions one product or service on buying another. It's one of the antitrust violations the exam names."
+    },
+    {
+      "id": "h4-026",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Which statement about commission rates is correct?",
+      "choices": [
+        "A brokerage may set its own commission policy for its listings",
+        "Brokers in the same MLS may agree on a minimum commission",
+        "Telling sellers \"the standard commission is 6%\" is good practice",
+        "State law sets the commission rate for home sales"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A firm may set its own internal commission policy. The antitrust violation is an agreement among competitors, and calling a rate \"standard\" implies a fixed rate and should be avoided."
+    },
+    {
+      "id": "h4-027",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Under federal telemarketing rules, a broker may make permitted cold calls between:",
+      "choices": [
+        "9 a.m. and 5 p.m. on weekdays only",
+        "8 a.m. and 8 p.m. in the caller's time zone",
+        "7 a.m. and 10 p.m. in the caller's own home time zone",
+        "8 a.m. and 9 p.m. at the called person's location"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Calling hours are 8 a.m. to 9 p.m., local time where the called person is."
+    },
+    {
+      "id": "h4-028",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A homeowner whose number is on the national Do-Not-Call Registry called a broker two months ago to ask about listing her home. May the broker call her?",
+      "choices": [
+        "No, registry numbers can never be called",
+        "Yes, within 3 months of an inquiry the broker may call",
+        "Yes, but only between noon and 5 p.m.",
+        "Only after she sends a signed written request to be called"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The established business relationship exception allows calls within 3 months after an inquiry or application, or within 18 months after the last purchase or transaction."
+    },
+    {
+      "id": "h4-029",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A past client asks a brokerage to stop calling her. Under the FCC's telemarketing rules, how long must the firm honor the request on its company-specific do-not-call list?",
+      "choices": [
+        "31 days",
+        "18 months",
+        "5 years",
+        "Permanently"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "FCC rules require a do-not-call request to be honored within a reasonable time (no more than 10 business days) and for 5 years from the request. The 31-day figure is how often you must re-check the national registry; 18 months is the established business relationship window after a transaction."
+    },
+    {
+      "id": "h4-030",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A broker wants to cold-call FSBO sellers whose numbers are on the national Do-Not-Call Registry, since they're publicly advertising their homes. Which statement is correct?",
+      "choices": [
+        "The registry still applies; public advertising is no exemption",
+        "The broker may call if the home is priced over $500,000",
+        "FSBO numbers are exempt because the property is publicly advertised",
+        "The broker may call each FSBO seller once per listing"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Expired listings and FSBOs aren't exempt from Do-Not-Call rules just because the property is publicly advertised."
+    },
+    {
+      "id": "h4-031",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A broker wants to send automated marketing texts to a list of cell phone numbers. Under the TCPA, she generally needs:",
+      "choices": [
+        "Approval from the MLS",
+        "Only the recipients' oral consent",
+        "No consent, since texts aren't calls",
+        "Prior express written consent"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Texts count as calls under the TCPA, and autodialed or prerecorded marketing calls and texts need the recipient's prior express written consent."
+    },
+    {
+      "id": "h4-032",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A brokerage hires a marketing company to send its listing emails. Which statement is correct under the CAN-SPAM Act?",
+      "choices": [
+        "Only the marketing company is responsible for compliance",
+        "The emails must include a valid physical postal address",
+        "Emails to past clients need no opt-out method",
+        "Subject lines may be misleading if the body is accurate"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "CAN-SPAM requires a valid physical postal address, an opt-out method and honest headers and subject lines. The brokerage stays responsible even when it hires someone else to send the emails."
+    },
+    {
+      "id": "h4-033",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A broker wants to advertise another firm's listing on her social media page to generate leads. What must she have first?",
+      "choices": [
+        "Approval from HUD",
+        "Nothing, because listings in the MLS are already public information",
+        "Permission of the owner and the listing broker",
+        "A buyer agency agreement with a buyer"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Don't advertise a property without the owner's permission, and the listing broker's if it's another firm's listing. Online ads follow the same rules as print."
+    },
+    {
+      "id": "h4-034",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A broker takes earnest money out of the trust account to pay office rent, planning to repay it next week. This is:",
+      "choices": [
+        "Conversion, grounds for license revocation",
+        "Acceptable if the amount is under $1,000",
+        "A tie-in arrangement",
+        "Commingling, which is allowed if the money is repaid promptly"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Using client money for your own purposes is conversion, which is theft and grounds for revocation. Intending to repay doesn't cure it."
+    },
+    {
+      "id": "h4-035",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A seller says his home is 2,400 square feet. The broker advertises that figure without checking; the home is actually 1,900 square feet, and a buyer relied on the ad. The broker:",
+      "choices": [
+        "Is protected because square footage is opinion",
+        "Is liable only if the buyer's lender objects",
+        "Isn't liable, because the seller supplied the number",
+        "May be liable for negligent misrepresentation"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Due diligence means verifying facts before you repeat them. Passing along a seller's statement as fact without reasonable checking can be negligent misrepresentation."
+    },
+    {
+      "id": "h4-036",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A team within a brokerage wants to advertise as \"The Summit Group.\" What must its advertising avoid?",
+      "choices": [
+        "Using any name other than the members' legal names",
+        "Misleading the public about which firm is the brokerage",
+        "Mentioning the employing brokerage at all",
+        "Listing more than one team member's contact information"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Teams may market under a team name, but the team isn't the brokerage, and its ads can't mislead the public about who the brokerage is."
+    },
+    {
+      "id": "h4-037",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A grateful seller wants to hand his broker a $1,000 bonus check directly at closing. The broker should:",
+      "choices": [
+        "Accept it, since it's a gift from the client",
+        "Accept it as long as the buyer is told",
+        "Have the payment go through her employing broker",
+        "Deposit it directly into her personal business checking account"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A licensee can be paid for real estate work only by her own employing broker, not directly by a client or another firm."
+    },
+    {
+      "id": "h4-038",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A property manager's compensation under a management agreement is most commonly based on:",
+      "choices": [
+        "A percentage of gross rents collected",
+        "A percentage of the property's market value",
+        "The owner's net profit after taxes",
+        "The number of maintenance calls handled"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Management fees are often a percentage of gross rents collected, sometimes plus leasing fees or a flat fee, as set in the management agreement."
+    },
+    {
+      "id": "h4-039",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "Which tenant screening practice is the best fair housing defense?",
+      "choices": [
+        "Accepting the first applicant who offers cash",
+        "Letting long-time tenants approve new neighbors",
+        "Meeting each applicant in person to judge whether they'll fit in",
+        "Applying the same written criteria to every applicant"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Using the same written criteria (income, credit, rental history, references) for every applicant is a property manager's best fair housing defense."
+    },
+    {
+      "id": "h4-040",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A fire makes an office building unusable for four months while it's repaired. Which coverage replaces the owner's lost rent?",
+      "choices": [
+        "Workers' compensation",
+        "Loss of rents insurance",
+        "A coinsurance clause",
+        "Commercial general liability insurance"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Loss of rents (business interruption) insurance replaces income while damage is repaired. Liability covers injuries to others; workers' compensation covers employees."
+    },
+    {
+      "id": "h4-041",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "An owner's property policy has an 80% coinsurance clause. To collect in full on a partial loss, the owner must:",
+      "choices": [
+        "File claims within 80 days of the loss",
+        "Pay 80% of every loss out of pocket",
+        "Insure for at least 80% of the property's value",
+        "Keep the building at least 80% leased and occupied at all times"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A coinsurance clause requires the owner to carry insurance equal to a stated percentage of value (often 80%) to collect fully on partial losses."
+    },
+    {
+      "id": "h4-042",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A landlord limits two-bedroom apartments to two occupants total, which in practice bars most families with children. This policy:",
+      "choices": [
+        "Can be familial status discrimination",
+        "Is required by the ADA",
+        "Is legal if posted in the leasing office",
+        "Is always legal, since landlords set occupancy limits"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Occupancy limits must be reasonable and applied equally. A policy that effectively excludes children can be familial status discrimination."
+    },
+    {
+      "id": "h4-043",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A landlord keeps entering a tenant's apartment without notice when there's no emergency. Which tenant right is the landlord violating?",
+      "choices": [
+        "Constructive eviction",
+        "Habitability",
+        "Reasonable accommodation",
+        "Quiet enjoyment"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Quiet enjoyment is the tenant's right to use the premises without interference by the landlord. The landlord must give reasonable notice before entering except in emergencies."
+    },
+    {
+      "id": "h4-044",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A residential landlord leaves the building without working plumbing for weeks. In most states, this breaches:",
+      "choices": [
+        "The management agreement",
+        "The implied warranty of habitability",
+        "The tenant's duty to return the unit in good condition",
+        "Title III of the ADA"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Most states impose an implied warranty that residential premises are fit to live in, including working plumbing, heat, water and electrical."
+    },
+    {
+      "id": "h4-045",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "At move-out, a tenant generally must return the rental unit:",
+      "choices": [
+        "In whatever condition it happens to be in on the move-out date",
+        "In brand-new condition",
+        "In the same condition, less normal wear and tear",
+        "Freshly painted at her own cost"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A tenant must return the unit in the same condition it was received, less normal wear and tear."
+    },
+    {
+      "id": "h4-046",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "Compared with residential leases, commercial leases typically:",
+      "choices": [
+        "Have fewer statutory protections, so the written terms control",
+        "Must use a state-mandated form lease",
+        "Are limited by law to one-year terms",
+        "Always require the landlord to pay all property taxes, insurance and maintenance costs"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Commercial leases are treated as deals between business parties, with fewer statutory protections, longer terms and rent often shifting expenses to the tenant. The lease language controls."
+    },
+    {
+      "id": "h4-047",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A long-term office lease says the rent adjusts each year with the Consumer Price Index. This is a(n):",
+      "choices": [
+        "Percentage lease",
+        "Ground lease",
+        "Graduated lease",
+        "Index lease"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "An index (escalation) lease ties rent changes to an index such as the CPI. A graduated lease rises in scheduled steps set in advance."
+    },
+    {
+      "id": "h4-048",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A retail lease calls for $4,000 a month base rent plus 5% of annual gross sales over $700,000. This year's sales are $900,000. What is the total annual rent?",
+      "choices": [
+        "$48,000",
+        "$58,000",
+        "$45,000",
+        "$10,000"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Use the stated breakpoint. Base rent is $4,000 × 12 = $48,000. Overage is $900,000 − $700,000 = $200,000 × 5% = $10,000. Total = $58,000."
+    },
+    {
+      "id": "h4-049",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A landlord offers a $30 per square foot tenant improvement allowance on 2,000 square feet. The tenant's build-out costs $75,000. Who pays what?",
+      "choices": [
+        "The tenant pays $45,000",
+        "The tenant pays the full $75,000",
+        "The tenant pays $15,000",
+        "The landlord pays the full $75,000"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The allowance is 2,000 × $30 = $60,000. The tenant pays the cost above the allowance: $75,000 − $60,000 = $15,000."
+    },
+    {
+      "id": "h4-050",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A broker sells a sandwich shop's equipment, inventory and goodwill. No real estate is included. The main document that transfers these assets is a:",
+      "choices": [
+        "Bill of sale",
+        "General warranty deed",
+        "Ground lease",
+        "Deed of trust"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A business opportunity sale is mostly personal property, which transfers by a bill of sale. A deed is used only if real estate is included."
+    },
+    {
+      "id": "h4-051",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A buyer purchases most of a store's inventory and equipment outside the ordinary course of business. Where bulk sale notice rules still exist, they mainly protect:",
+      "choices": [
+        "The store's customers",
+        "The landlord and the other tenants in the shopping center",
+        "The buyer's lender",
+        "The seller's creditors and tax authorities"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Bulk sale laws were designed to protect the seller's creditors and tax authorities through advance notice, so the buyer doesn't inherit unpaid obligations such as taxes."
+    },
+    {
+      "id": "h4-052",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "An owner sold the surface of her ranch but kept the mineral rights. Oil is later found beneath it. Who owns the oil?",
+      "choices": [
+        "The buyer, since surface ownership includes everything below",
+        "The original owner, who kept the mineral estate",
+        "The state, since minerals are publicly owned",
+        "The buyer and seller, split equally by law"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The surface and mineral estates can be severed and sold separately. An owner who sold the surface but kept the minerals still owns the oil and gas below."
+    },
+    {
+      "id": "h4-053",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "Under an oil and gas lease, the periodic payment that keeps the lease alive during the primary term when drilling hasn't started is the:",
+      "choices": [
+        "Bonus",
+        "Royalty",
+        "Delay rental",
+        "Shut-in royalty"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A delay rental keeps the lease in force during the primary term without drilling. The bonus is paid once at signing; a royalty is a share of actual production."
+    },
+    {
+      "id": "h4-054",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A rancher donates a conservation easement to a land trust that bars subdivision of the ranch. Which statement is correct?",
+      "choices": [
+        "The restriction usually binds future owners",
+        "The easement ends when the ranch is sold",
+        "Ranching and farming must stop permanently on the property",
+        "The rancher gives up ownership of the land"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A conservation easement is a recorded, usually permanent restriction that binds future owners. The owner keeps ownership and can usually keep farming or ranching."
+    },
+    {
+      "id": "h4-055",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A buyer plans to subdivide land that is currently classified for agricultural use for property tax purposes. What should the broker point out?",
+      "choices": [
+        "Agricultural classification stays with the land permanently",
+        "Water rights always transfer automatically with the land",
+        "Mineral rights can never be severed from farmland",
+        "Changing the use can raise property taxes"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Agricultural use often qualifies land for a lower tax classification, and changing the use can change the tax. Water and mineral rights may be separate from the land."
+    },
+    {
+      "id": "h4-056",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Several brokers in the same MLS agree to stop showing a competitor's listings, arguing that MLS rules let members set their own showing policies. This is:",
+      "choices": [
+        "Permitted, because MLS membership rules control",
+        "A group boycott, despite the MLS rules",
+        "Legal if the MLS board approves it",
+        "A fair housing violation"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "MLS rules can't override antitrust law. Competitors agreeing to refuse to deal with a particular broker is a group boycott."
+    },
+    {
+      "id": "h4-057",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A listing broker opts out of IDX display for all of her listings. Under typical MLS rules, what usually follows?",
+      "choices": [
+        "The sellers must sign a new listing agreement",
+        "Her listings are removed from the MLS entirely",
+        "She usually loses the right to display others' listings via IDX",
+        "She must pay the MLS a per-listing fee for each listing she enters"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Listing brokers are presumed to allow IDX display unless they opt out. A broker who opts out entirely usually loses the right to display other participants' listings."
+    },
+    {
+      "id": "h4-058",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Which wording is safest for a home listing ad under fair housing rules?",
+      "choices": [
+        "Three bedrooms near a park",
+        "Ideal for empty nesters",
+        "Quiet Christian neighborhood",
+        "Perfect for young couples"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Describe the property, not the people you want. Phrases about who would suit the home can signal a preference based on familial status, religion or other protected classes."
+    },
+    {
+      "id": "h4-059",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "After HUD withdrew its 2024 guidance on digital ad platforms in 2025, which statement is correct?",
+      "choices": [
+        "Brokers must now get HUD approval before running any online housing ad",
+        "Ad targeting is no longer covered by fair housing law",
+        "Only print ads remain subject to the Fair Housing Act",
+        "The statute and HUD's advertising regulation still apply"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Withdrawing guidance didn't change the Fair Housing Act or HUD's advertising regulation, which still bars choosing where or to whom ads run so as to keep protected groups from learning about housing."
+    },
+    {
+      "id": "h4-060",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "An hour after wiring her down payment, a buyer realizes the emailed instructions were fraudulent. What should she do first?",
+      "choices": [
+        "Wait until the closing appointment to let the title company check",
+        "Call her bank right away to request a recall",
+        "Send a second wire to the correct account",
+        "Email the sender asking for the money back"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Speed matters: call the bank immediately to request a recall, then notify the title company and file a complaint with the FBI's IC3. Funds can sometimes be frozen if reported quickly."
+    },
+    {
+      "id": "h4-061",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "During a showing with a new prospect, which safety practice is recommended?",
+      "choices": [
+        "Meet the prospect at the vacant property first",
+        "Park in the driveway behind the prospect's car",
+        "Let the prospect walk ahead of you through the home",
+        "Lead the prospect into every room, including the basement, first"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Let the prospect walk ahead of you, park on the street so you can't be blocked in, and meet new prospects at the office first."
+    },
+    {
+      "id": "h4-062",
+      "section": "national",
+      "topic": "Property management",
+      "stem": "A property manager collects rents and security deposits for an owner's apartment building under a management agreement. Which statement is correct?",
+      "choices": [
+        "She is a general agent and must hold deposits in a trust account",
+        "She is a universal agent with a power of attorney",
+        "She is a general agent and may hold deposits in her operating account",
+        "She is a special agent, like a listing broker"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A property manager handles an ongoing range of tasks, making her a general agent. Rents and deposits belong to others and go in a trust account, never commingled with her own funds."
+    },
+    {
+      "id": "h4-063",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "Two competing commercial brokerages agree to quote every tenant the same leasing fee of $1.50 per square foot. This is:",
+      "choices": [
+        "A legal co-brokerage agreement",
+        "Market allocation",
+        "A tie-in arrangement",
+        "Price fixing"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Competitors agreeing on fees is price fixing. Co-brokerage agreements set how cooperating brokers split a fee on a deal; they don't let competitors agree on rates."
+    },
+    {
+      "id": "h4-064",
+      "section": "national",
+      "topic": "Fair housing and practice",
+      "stem": "A landlord approves a tenant's assistance animal in a no-pets building as a disability accommodation, then wants to charge the usual $300 pet deposit. This is:",
+      "choices": [
+        "Allowed, because every animal living in a unit is treated as a pet under the lease",
+        "Generally not allowed, since an assistance animal isn't a pet",
+        "Required by HUD for all animals",
+        "Allowed if the tenant also pays for a modification"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Allowing an assistance animal is a reasonable accommodation, and an assistance animal isn't treated as a pet, so pet rent and pet deposits normally don't apply."
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "questions": [
+    {
+      "id": "h8-001",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "A Colorado sale has just closed at the title company. What should happen with the signed closing statement and other closing documents?",
+      "choices": [
+        "The title company keeps them, and the broker only needs to request copies if a dispute comes up",
+        "They go to the brokerage firm right after closing for its transaction file",
+        "The broker keeps them personally until the next Division audit",
+        "They are filed with the Real Estate Commission within 30 days"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Commission rules send closing statements and other closing documents to the brokerage firm right after closing for the transaction file, and the employing broker's supervision still applies. They aren't filed with the Commission."
+    },
+    {
+      "id": "h8-002",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "After signing, the buyer and seller want to change how the closing company disburses a credit, but the new instruction conflicts with their purchase contract. What is needed?",
+      "choices": [
+        "A new Closing Instructions form signed only by the closing company",
+        "A letter from the listing broker directing the closing company",
+        "An Agreement to Amend/Extend Contract signed by the buyer and seller",
+        "Nothing, because party instructions automatically override the contract"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "When party instructions conflict with the contract, the buyer and seller must sign an amendment (Agreement to Amend/Extend Contract). A broker can't change the parties' deal by letter."
+    },
+    {
+      "id": "h8-003",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "Under Colorado's good funds law, which payment may a closing company make before the buyer's funds are available for immediate withdrawal?",
+      "choices": [
+        "Up to $500 for incidental items such as recording fees and tax certificates",
+        "The listing brokerage's commission, if the listing contract allows it",
+        "The seller's loan payoff, to stop interest from accruing",
+        "Any disbursement at all, as long as the buyer and seller both approve it in writing beforehand"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The good funds law (C.R.S. 38-35-125) bars disbursement until funds are available for immediate withdrawal, but lets the provider advance a small amount (up to $500) for incidentals like tax certificates and recording fees. Commissions and payoffs must wait for good funds."
+    },
+    {
+      "id": "h8-004",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "Buyer A gets a deed to a Colorado home but doesn't record it. The seller then deeds the same home to Buyer B, who knows nothing about Buyer A's deed and records first. Who generally prevails?",
+      "choices": [
+        "Buyer A, because the first deed delivered always controls",
+        "Neither, until a court decides who paid more",
+        "Buyer A, as long as A recorded within one year",
+        "Buyer B, because Colorado is a race-notice state"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Under Colorado's race-notice statute (C.R.S. 38-35-109), an unrecorded deed isn't valid against a later buyer who records first without notice of it. That's why the closing company records the deed right away."
+    },
+    {
+      "id": "h8-005",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "At a Colorado closing, the title company typically gets which document from the county treasurer to confirm the taxes owed on the property?",
+      "choices": [
+        "A real property transfer declaration",
+        "A certificate of taxes due",
+        "An improvement location certificate",
+        "A status letter"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The certificate of taxes due comes from the county treasurer and shows taxes owed; the contract says who pays for it. The transfer declaration reports the price to the assessor, and a status letter comes from the owners' association."
+    },
+    {
+      "id": "h8-006",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "A Colorado home sells for $360,000. The buyer pays $72,000 down and finances the rest. What is the state documentary fee?",
+      "choices": [
+        "$7.20",
+        "$360.00",
+        "$36.00",
+        "$28.80"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The documentary fee is one cent per $100 of the full consideration, not just the down payment: $360,000 / 100 = 3,600 x $0.01 = $36.00. $7.20 wrongly uses only the $72,000 down payment."
+    },
+    {
+      "id": "h8-007",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "The buyer takes over the seller's existing loan with a $150,000 balance. How does the assumed loan appear on the closing statement?",
+      "choices": [
+        "Debit buyer, credit seller",
+        "Credit buyer only, like a new loan",
+        "Debit seller only, like a payoff",
+        "Credit buyer, debit seller"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "An assumed loan is part of how the buyer pays the price, so the buyer is credited; the seller gets less cash because the buyer is taking over the debt, so the seller is debited. A new loan is buyer-only and a payoff is seller-only."
+    },
+    {
+      "id": "h8-008",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A Colorado brokerage manages a rental, but the owner, not the firm, will hold the tenant's security deposit. What must the tenant be told?",
+      "choices": [
+        "Nothing, as long as the deposit is no more than two months' rent",
+        "In writing, who holds the deposit and how to get it back",
+        "Only orally, at move-in, that the owner has the money",
+        "That the deposit is nonrefundable because the firm doesn't hold it"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "When the owner rather than the firm will hold security deposits, the tenant must be told in writing who holds the deposit and how to get it back."
+    },
+    {
+      "id": "h8-009",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "Unless the management agreement says otherwise, when does a Colorado property management firm generally owe the owner an accounting?",
+      "choices": [
+        "Once a year, with the owner's tax documents",
+        "Only when the owner asks for one in writing",
+        "Within 30 days after each month ends",
+        "At the end of the management agreement"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Owners get regular accountings, generally within 30 days after the end of each month unless the management agreement provides otherwise."
+    },
+    {
+      "id": "h8-010",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A tenant lived in a Colorado apartment for three years. At move-out the carpet shows ordinary traffic wear, and there's a large burn hole the tenant caused. What may the landlord deduct from the deposit?",
+      "choices": [
+        "A reasonable amount for the burn hole only",
+        "The full cost of new carpet throughout the unit",
+        "Nothing, because carpet wear is always the landlord's cost",
+        "The traffic wear only, since burn damage needs a separate lawsuit"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Deductions must be for actual cause and in reasonable amounts. Damage beyond normal use, like a burn hole, can be deducted, but normal wear and tear never can."
+    },
+    {
+      "id": "h8-011",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A landlord sells a Colorado rental house with a tenant in place. What does Colorado law require regarding the tenant's security deposit?",
+      "choices": [
+        "The landlord must return it to the tenant on the closing date",
+        "The new owner must collect a new deposit from the tenant within 10 days",
+        "The deposit is forfeited to the landlord when ownership changes",
+        "Within 60 days, transfer it to the new owner and notify the tenant, or return it"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "When a rental is sold, the landlord or its agent has 60 days to either transfer the deposit to the new owner and notify the tenant, or return it to the tenant less lawful deductions. That's why the closing statement moves deposits from seller to buyer."
+    },
+    {
+      "id": "h8-012",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A tenant's guest clogs the plumbing and floods the bathroom, making it unusable. Is the landlord in breach of Colorado's warranty of habitability?",
+      "choices": [
+        "Yes, because the warranty can't be waived",
+        "No, because the condition was caused by the tenant's guest",
+        "Yes, unless the landlord starts repairs within 96 hours",
+        "No, because plumbing problems are never treated as a habitability issue under Colorado law"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Conditions caused by the tenant, household members or guests are not a breach by the landlord. The warranty is nonwaivable, but it covers conditions the landlord is responsible for."
+    },
+    {
+      "id": "h8-013",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A Colorado farm owner wants to keep the land but sell its irrigation water rights to a city. Which statement is accurate?",
+      "choices": [
+        "Water rights may be sold separately, using the same formalities as a real estate conveyance",
+        "Water rights can't be separated from the land they serve, so the city must buy the farm too",
+        "Water rights transfer only by a bill of sale, like personal property",
+        "Water rights end when the owner stops farming and can't be sold"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A Colorado water right is property in its own right and can be severed and sold separately. It is conveyed with the same formalities as real estate, usually by a recorded deed (shares in a mutual ditch company are the exception)."
+    },
+    {
+      "id": "h8-014",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "Under the Colorado residential contract, what must the buyer acknowledge receiving about the home's drinking water?",
+      "choices": [
+        "A water quality test from a certified lab",
+        "A water court decree confirming that the seller's water rights are senior to every neighbor's rights",
+        "The Seller's Property Disclosure or Source of Water Addendum stating the potable water source",
+        "A letter from the State Engineer approving the sale"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The buyer acknowledges receiving either the Seller's Property Disclosure or the Source of Water Addendum disclosing the potable water source, plus a copy of the current well permit if there's a well."
+    },
+    {
+      "id": "h8-015",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A developer wants a non-exempt well to serve a multi-home subdivision from groundwater connected to a stream. What will the well generally need?",
+      "choices": [
+        "Only a household-use-only permit from the county",
+        "An augmentation plan approved by the water court",
+        "A riparian rights certificate from the State Engineer",
+        "A change in owner name form filed within 60 days"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Pumping tributary groundwater takes water senior users are entitled to, so a non-exempt well generally needs a water-court-approved augmentation plan that replaces those depletions. The change in owner name form is for transferring an existing exempt well."
+    },
+    {
+      "id": "h8-016",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A title commitment for a Colorado ranch shows that a prior owner reserved the mineral rights. What does this mean for the buyer?",
+      "choices": [
+        "The reservation expires automatically when the ranch sells",
+        "The buyer may evict any mineral developer from the surface",
+        "The buyer owns the minerals unless the deed says otherwise",
+        "The buyer gets the surface; the mineral owner may reasonably use it to develop the minerals"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Severed minerals create a split estate: the buyer owns the surface but not the minerals, and the mineral owner generally may make reasonable use of the surface to develop them. The broker should refer the buyer to the title commitment and legal counsel."
+    },
+    {
+      "id": "h8-017",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "How often does a Colorado county assessor revalue real property?",
+      "choices": [
+        "Every odd-numbered year, based on classification and use on January 1",
+        "Every year, based on the property's classification and use as of December 31",
+        "Every four years, or sooner whenever the property is sold to a new owner",
+        "Only when the owner files a protest"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Colorado reappraises real property every odd-numbered year, based on its classification and use on January 1. Mill levies, by contrast, are set by each taxing authority every year."
+    },
+    {
+      "id": "h8-018",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A home is in a special taxing district that has issued general obligation debt. Under Colorado law, which statement is correct?",
+      "choices": [
+        "Only the listing broker must disclose the district, and an oral disclosure is enough",
+        "No disclosure is required if the district's debt is paid by developers",
+        "The contract must include a bold disclosure that owners may face higher mill levies, and the seller has the duty",
+        "The buyer must get the county assessor's approval before closing"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Every residential sales contract must contain a bold disclosure that special taxing districts may carry debt and that owners may face higher mill levies. The duty is the seller's, and a buyer who doesn't get it can sue for damages."
+    },
+    {
+      "id": "h8-019",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A seller's home is in a metropolitan district organized in 2012. Under a 2024 Colorado law, what must the seller give the buyer?",
+      "choices": [
+        "The district's official website, on or with the Seller's Property Disclosure",
+        "Copies of every district budget for the past five years",
+        "A certificate from the district stating that it has no debt",
+        "A copy of the district's service plan, recorded with the deed"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Since 2024, a seller of residential property in a metropolitan district organized on or after January 1, 2000 must give the buyer the district's official website, on the Seller's Property Disclosure or a document delivered with it."
+    },
+    {
+      "id": "h8-020",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "Each seller below lives outside Colorado and signs no exemption affirmation. Which sale requires NO Colorado nonresident withholding?",
+      "choices": [
+        "A $250,000 rental house sold by an Arizona resident",
+        "A $95,000 vacant lot sold by a Utah resident",
+        "A $180,000 lot sold by an out-of-state corporation with no Colorado place of business",
+        "A $400,000 vacation cabin sold by a Texas resident"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "No Colorado withholding is required when the sales price is $100,000 or less. The other sales exceed $100,000 and have no exemption, so the closing company withholds the lesser of 2% of the price or the net proceeds."
+    },
+    {
+      "id": "h8-021",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A landlord owns four single-family rental homes and no other rental units. An applicant for one of the homes wants to use a federal housing choice voucher. Under Colorado law, the landlord:",
+      "choices": [
+        "Must accept the voucher, because source of income is protected",
+        "May refuse only if the applicant's credit score is low",
+        "Must accept the voucher but may charge a higher deposit",
+        "Is not required to accept federal housing choice vouchers for those homes"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Colorado lets a landlord who owns five or fewer single-family rental homes, and no more than five rental units in total, decline federal housing choice vouchers for those homes (C.R.S. 24-34-502(1.7)). The general three-or-fewer-units source-of-income exemption doesn't fit here, but this separate voucher rule does."
+    },
+    {
+      "id": "h8-022",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "In a Colorado public trustee foreclosure of a non-agricultural home, when is the sale generally set?",
+      "choices": [
+        "30 days after the borrower's first missed payment, once the lender sends a demand letter",
+        "110 to 125 days after the notice of election and demand is recorded",
+        "215 to 230 days after the Rule 120 hearing",
+        "One year after the notice of election and demand is recorded"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "For non-agricultural property, C.R.S. 38-38-108 sets the sale 110 to 125 days after the notice of election and demand is recorded. The 215-to-230-day window applies to agricultural property."
+    },
+    {
+      "id": "h8-023",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "What does the highest bidder at a Colorado public trustee foreclosure sale receive at the sale?",
+      "choices": [
+        "A certificate of purchase",
+        "A public trustee's confirmation deed",
+        "A general warranty deed from the borrower",
+        "A notice of election and demand"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The highest bidder gets a certificate of purchase. After the redemption periods for junior lienors run with no redemption, the public trustee issues a confirmation deed to the certificate holder."
+    },
+    {
+      "id": "h8-024",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A Colorado homeowner who is behind on payments sells her home in a short sale to an investor who won't live there. Which approach fits Colorado practice?",
+      "choices": [
+        "Close without lender approval and let the lender sue for the shortfall",
+        "Have the broker assure the seller there will be no tax consequences",
+        "Use the standard contract with the Commission-approved Short Sale Addendum and recommend legal and tax advice",
+        "Use the Foreclosure Protection Act contract, which is required for every short sale"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A short sale needs the lender's approval to accept less than the payoff. Using the Commission's Short Sale Addendum is part of what keeps a short sale outside the CFPA's equity-purchaser rules, and because of possible tax and deficiency consequences, brokers should recommend legal and tax advice."
+    },
+    {
+      "id": "h8-025",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A Spanish-speaking homeowner in foreclosure is selling to an investor using the Commission's CFPA contract. What should the broker do about the Homeowner Warning Notice?",
+      "choices": [
+        "Translate it personally to save the seller time",
+        "Skip it, since the seller has a broker",
+        "Read it aloud in English at closing and have the seller initial each page",
+        "Make sure it is translated, without translating it personally"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "If the seller's main language isn't English, the Homeowner Warning Notice must be translated, and the broker should not translate it personally."
+    },
+    {
+      "id": "h8-026",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "A duplex closes April 20 with both leases assigned to the buyer. The seller collected April rent totaling $2,400 and holds two $1,500 security deposits. Using a 30-day month with the buyer owning the closing day, what is the correct handling of these items?",
+      "choices": [
+        "Debit seller and credit buyer $3,880; tenants are notified in writing of the transfer",
+        "Credit seller and debit buyer $3,880; tenants are notified in writing of the transfer",
+        "Debit seller and credit buyer $880; the deposits are refunded to the tenants at closing",
+        "Debit seller and credit buyer $1,980; the deposits are prorated like the rent"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Buyer's rent days are April 20-30 = 11: $2,400 / 30 x 11 = $880. Deposits transfer in full, not prorated: $3,000. Total $3,880, debit seller and credit buyer, and the tenants must be notified in writing that their deposits moved to the new owner."
+    },
+    {
+      "id": "h8-027",
+      "section": "state",
+      "topic": "Colorado special topics",
+      "stem": "A U.S. citizen who lives in Arizona sells a Colorado rental for $300,000 and signs no exemption affirmation. After the loan payoff and costs, her net proceeds are $4,500. How much must the closing company withhold for Colorado?",
+      "choices": [
+        "$6,000",
+        "$10,500",
+        "$4,500",
+        "$0, because she is a U.S. citizen"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Colorado withholds the lesser of 2% of the price ($6,000) or the seller's net proceeds ($4,500), so $4,500, not the sum of the two. U.S. citizenship matters for FIRPTA, not Colorado withholding, which turns on residency."
+    }
+  ]
+}

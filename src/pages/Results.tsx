@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { AppApi, View } from "../App";
 import type { Attempt, Bank } from "../lib/types";
-import { lessonQuizNeeded, startLessonQuiz, startPractice } from "../lib/session";
+import { lessonQuizNeeded, startLessonQuiz, startModuleQuiz, startPractice } from "../lib/session";
 import { orderedLessons } from "../lib/planner";
 import { LETTERS, formatDateTime, formatDuration, percent } from "../lib/util";
 import { SectionTable, TallyTable } from "../components/Bars";
@@ -52,9 +52,30 @@ export default function Results({
   const lessonOrder = course ? orderedLessons(course) : [];
   const nextLesson = quizLesson ? lessonOrder[lessonOrder.findIndex((l) => l.id === quizLesson.id) + 1] : undefined;
   const goLesson = (id: string) => course && api.go({ name: "lesson", courseId: course.id, lessonId: id });
+  // End-of-module quiz context.
+  const quizModule = attempt.module && course?.modules.find((m) => m.id === attempt.module!.moduleId);
+  // After a lesson quiz, the module quiz comes next when this was the module's last lesson.
+  const lessonModule = quizLesson && course?.modules.find((m) => m.id === quizLesson.module);
+  const moduleNext =
+    lessonModule?.quiz?.length &&
+    (!nextLesson || nextLesson.module !== lessonModule.id) &&
+    course!.lessons.filter((l) => l.module === lessonModule.id).every((l) => api.progress.lessonsDone[`${course!.id}/${l.id}`])
+      ? lessonModule
+      : undefined;
+  const afterModule = quizModule ? lessonOrder.find((l) => course!.modules.findIndex((m) => m.id === l.module) > course!.modules.findIndex((m) => m.id === quizModule.id)) : undefined;
+  const toLessons = () => course && api.go({ name: "course", courseId: course.id, tab: "lessons" });
   function retakeQuiz() {
-    if (!bank || !course || !quizLesson?.quiz) return;
+    if (!bank || !course) return;
+    if (quizModule?.quiz) {
+      api.go({ name: "run", session: startModuleQuiz(bank, { courseId: course.id, moduleId: quizModule.id }, quizModule.quiz) });
+      return;
+    }
+    if (!quizLesson?.quiz) return;
     api.go({ name: "run", session: startLessonQuiz(bank, { courseId: course.id, lessonId: quizLesson.id }, quizLesson.quiz) });
+  }
+  function takeModuleQuiz() {
+    if (!bank || !course || !moduleNext?.quiz) return;
+    api.go({ name: "run", session: startModuleQuiz(bank, { courseId: course.id, moduleId: moduleNext.id }, moduleNext.quiz) });
   }
 
   function practiceMissed() {
@@ -75,7 +96,7 @@ export default function Results({
   return (
     <div className="page">
       <button className="back" onClick={() => api.go(back)}>
-        ← {back.name === "progress" ? "Progress" : back.name === "lesson" && quizLesson ? quizLesson.title : attempt.bankTitle}
+        ← {back.name === "progress" ? "Progress" : back.name === "lesson" && quizLesson ? quizLesson.title : quizModule ? "Lessons" : attempt.bankTitle}
       </button>
 
       <div className="score-head">
@@ -85,9 +106,11 @@ export default function Results({
         </div>
         <div>
           <h1>
-            {quizLesson
+            {quizLesson || quizModule
               ? passed
-                ? "Lesson complete"
+                ? quizModule
+                  ? "Module complete"
+                  : "Lesson complete"
                 : "Not passed yet"
               : isExam
               ? passed === undefined
@@ -99,7 +122,8 @@ export default function Results({
           </h1>
           <p className="muted" style={{ marginTop: 6 }}>
             {attempt.correct} of {attempt.total} correct
-            {quizLesson && `, ${lessonQuizNeeded(attempt.total)} needed to complete “${quizLesson.title}”`}
+            {(quizLesson || quizModule) &&
+              `, ${lessonQuizNeeded(attempt.total)} needed to complete “${(quizLesson ?? quizModule)!.title}”`}
             {isExam && !marks && attempt.passingPercent !== undefined && `, ${attempt.passingPercent}% needed to pass`}
             {isExam && marks && ". Each section must pass on its own"}.{" "}
             {formatDuration(attempt.durationSec)}
@@ -107,10 +131,37 @@ export default function Results({
             {formatDateTime(attempt.finishedAt)}.
             {isExam && attempt.answered < attempt.total && ` ${attempt.total - attempt.answered} left blank.`}
           </p>
-          {quizLesson ? (
+          {quizModule ? (
             <div className="row" style={{ marginTop: 14 }}>
               {passed ? (
-                nextLesson ? (
+                afterModule ? (
+                  <button className="btn primary" onClick={() => goLesson(afterModule.id)}>
+                    Next lesson: {afterModule.title}
+                  </button>
+                ) : (
+                  <button className="btn primary" onClick={toLessons}>
+                    Back to lessons
+                  </button>
+                )
+              ) : (
+                <button className="btn primary" onClick={retakeQuiz}>
+                  Retake the module quiz
+                </button>
+              )}
+              {!passed && (
+                <button className="btn" onClick={toLessons}>
+                  Review the lessons
+                </button>
+              )}
+            </div>
+          ) : quizLesson ? (
+            <div className="row" style={{ marginTop: 14 }}>
+              {passed ? (
+                moduleNext ? (
+                  <button className="btn primary" onClick={takeModuleQuiz}>
+                    Module quiz: {moduleNext.title}
+                  </button>
+                ) : nextLesson ? (
                   <button className="btn primary" onClick={() => goLesson(nextLesson.id)}>
                     Next lesson: {nextLesson.title}
                   </button>

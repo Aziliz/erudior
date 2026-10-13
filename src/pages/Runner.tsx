@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { AppApi, View } from "../App";
 import type { Bank, Lesson } from "../lib/types";
-import { attemptPassed, finishSession, isCorrect, serializeRun, type RunState, type Session } from "../lib/session";
+import { attemptPassed, finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
 import { confirmAction, saveSessionState } from "../lib/storage";
 import { lessonKey, logActivity } from "../lib/planner";
 import { today } from "../lib/srs";
@@ -20,10 +20,12 @@ export const metaKey = (bankId: string, qid: string) => `${bankId}/${qid}`;
 export default function Runner({ api, session, bank, initial }: Props) {
   const isExam = session.mode === "exam";
   const items = session.items;
-  // Lesson quizzes return to their lesson; everything else to the bank.
+  // Lesson quizzes return to their lesson, module quizzes to the lesson list, everything else to the bank.
   const exitView: View = session.lesson
     ? { name: "lesson", courseId: session.lesson.courseId, lessonId: session.lesson.lessonId }
-    : { name: "bank", bankId: session.bankId };
+    : session.module
+      ? { name: "course", courseId: session.module.courseId, tab: "lessons" }
+      : { name: "bank", bankId: session.bankId };
   const blocks = session.blocks?.length ? session.blocks : [{ start: 0, end: items.length, timeLimitSec: session.timeLimitSec }];
   const qmeta = api.progress.qmeta ?? {};
 
@@ -67,6 +69,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
   // Lessons covering this question's topic, for "review this" links.
   const course = bank?.courseId ? api.courses.find((c) => c.id === bank.courseId) : undefined;
   const quizLesson = session.lesson ? course?.lessons.find((l) => l.id === session.lesson!.lessonId) : undefined;
+  const quizModule = session.module ? course?.modules.find((m) => m.id === session.module!.moduleId) : undefined;
   const relatedLessons = (topic: string): Lesson[] =>
     course ? course.lessons.filter((l) => l.topics?.includes(topic)).slice(0, 3) : [];
 
@@ -112,7 +115,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
     await saveSessionState(null).catch(() => {});
     const used = totalUsed();
     const preview = finishSession(session, answers, flags, api.progress, bank, used);
-    if (preview.attempt.total === 0 || (session.lesson && preview.attempt.answered === 0)) {
+    if (preview.attempt.total === 0 || (isQuiz(session) && preview.attempt.answered === 0)) {
       api.toast("Session ended. No questions were answered, so nothing was recorded.");
       api.go(exitView);
       return;
@@ -127,6 +130,11 @@ export default function Runner({ api, session, bank, initial }: Props) {
         if (!next.lessonsDone[key]) {
           next = logActivity({ ...next, lessonsDone: { ...next.lessonsDone, [key]: today() } }, "lessons");
         }
+      }
+      // Passing an end-of-module quiz completes the module.
+      if (session.module && attemptPassed(attempt)) {
+        const key = `${session.module.courseId}/${session.module.moduleId}`;
+        if (!next.modulesDone?.[key]) next = { ...next, modulesDone: { ...(next.modulesDone ?? {}), [key]: today() } };
       }
       return next;
     });
@@ -215,10 +223,10 @@ export default function Runner({ api, session, bank, initial }: Props) {
     const n = Object.keys(checked).length;
     if (n < items.length) {
       const ok = await confirmAction(
-        session.lesson
+        isQuiz(session)
           ? `You've answered ${n} of ${items.length} questions. Unanswered questions count as wrong. Finish the quiz?`
           : `You've checked ${n} of ${items.length} questions. End the session and see your results?`,
-        session.lesson ? "Finish quiz" : "End practice",
+        isQuiz(session) ? "Finish quiz" : "End practice",
       );
       if (!ok) return;
     }
@@ -275,8 +283,8 @@ export default function Runner({ api, session, bank, initial }: Props) {
           <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">
             Save &amp; exit
           </button>
-          <div className="title">{quizLesson ? quizLesson.title : session.bankTitle}</div>
-          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : "Practice"}</span>
+          <div className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</div>
+          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
               Part {blockIdx + 1} of {blocks.length}: {block.name}
@@ -493,7 +501,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
             </button>
           ) : (
             <button className="btn" onClick={endPractice}>
-              {session.lesson ? "Finish quiz" : "End session"}
+              {isQuiz(session) ? "Finish quiz" : "End session"}
             </button>
           )}
           {blockFlagged > 0 && (

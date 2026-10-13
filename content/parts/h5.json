@@ -1,0 +1,580 @@
+{
+  "questions": [
+    {
+      "id": "h5-001",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Which body adopts the rules Colorado brokers must follow and makes the final decision in disciplinary cases?",
+      "choices": [
+        "The Division of Real Estate's investigative staff",
+        "The Colorado Real Estate Commission",
+        "The executive director of the Department of Regulatory Agencies",
+        "The Colorado Association of REALTORS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Commission is the policy board: it adopts rules, approves forms, and decides discipline and license denials. The Division's staff investigates, audits, and enforces, but doesn't make the final call."
+    },
+    {
+      "id": "h5-002",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker's case has gone to a formal disciplinary hearing. Who conducts the hearing, and what is needed to revoke the license?",
+      "choices": [
+        "An administrative law judge hears it; revocation takes a majority vote of the Commission",
+        "The Division director hears it and may revoke the license on his own authority",
+        "A district court judge hears it and enters the revocation order directly",
+        "A panel of local brokers hears it and sends a recommended penalty to the governor"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Formal hearings are conducted by an administrative law judge under the state Administrative Procedure Act, and no license can be denied, suspended, or revoked except by a majority vote of the Commission."
+    },
+    {
+      "id": "h5-003",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "An unlicensed person keeps advertising homes and negotiating sales for fees. Besides criminal prosecution, what can the Commission do?",
+      "choices": [
+        "Issue a letter of admonition with a $2,500 fine",
+        "Nothing, because its authority covers only licensees",
+        "Ask a court for an injunction to stop the activity",
+        "Order the person's clients to rescind their contracts"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The Commission can seek a court injunction against anyone, licensed or not, who violates the license law. Unlicensed brokerage is also a class 2 misdemeanor."
+    },
+    {
+      "id": "h5-004",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "An associate broker commits a serious violation. The firm's responsible broker had no personal knowledge of it. Can the Commission act against the brokerage firm itself?",
+      "choices": [
+        "No; a firm can be disciplined only if its responsible broker knew of it",
+        "Yes; it can suspend or revoke the firm's right to operate either way",
+        "No; the Commission may discipline individuals but never firms",
+        "Yes, but only with a fine, never a suspension or revocation"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Commission can suspend or revoke a brokerage firm's right to operate whether or not the firm's responsible broker personally knew of the violation."
+    },
+    {
+      "id": "h5-005",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A consumer asks the Division for a broker's investigative file in a pending complaint and for a stipulation the broker signed in an earlier case. Which of these is a public record?",
+      "choices": [
+        "Both the investigative file and the stipulation",
+        "Only the investigative file",
+        "Neither one, because all discipline is confidential",
+        "Only the stipulation"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Complaints and investigative files are closed to the public, while stipulations (settlements) and final orders are public records."
+    },
+    {
+      "id": "h5-006",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Under Colorado law, acting as a real estate broker without a license, or while a license is suspended or revoked, is:",
+      "choices": [
+        "a civil infraction with a small fixed fine",
+        "a class 4 felony in every case",
+        "handled only by the Commission, with no criminal penalty",
+        "a class 2 misdemeanor"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Unlicensed brokerage is a class 2 misdemeanor for individuals and entities alike. The Commission can also seek an injunction."
+    },
+    {
+      "id": "h5-007",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "An associate broker misrepresents a home's condition to a buyer. When can the Commission also discipline the associate's employing broker?",
+      "choices": [
+        "Whenever any associate on the firm's license commits any kind of violation",
+        "Only if the employing broker shared in the commission on the sale",
+        "If the employing broker knew of it or was negligent in supervising",
+        "Never, because each broker answers only for their own conduct"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "An employing broker isn't automatically disciplined for an associate's violation. The Commission can act if the employing broker had actual knowledge of it or was negligent in supervising."
+    },
+    {
+      "id": "h5-008",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Lee holds a power of attorney for his elderly aunt and sells her house for her. Lee has no real estate license. When would Lee need one?",
+      "choices": [
+        "If the sale price is above a set dollar limit",
+        "If he accepts compensation for handling the sale",
+        "Always, because he is selling property he doesn't own",
+        "Never, because a power of attorney replaces a license"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "An attorney-in-fact acting under a power of attorney is exempt only when acting without compensation. Taking a fee for the sale would require a license."
+    },
+    {
+      "id": "h5-009",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker has been licensed for six months. Which task is part of the high level of supervision her employing broker must provide?",
+      "choices": [
+        "Reviewing her closing documents in advance",
+        "Co-signing each of her listings as seller's agent",
+        "Paying her errors and omissions premiums",
+        "Attending every showing she schedules"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "For brokers with less than two years of experience, the employing broker must give a high level of supervision: training on office policies, availability for consultation, help preparing contracts, monitoring transactions, reviewing closing documents in advance, and making sure an experienced broker attends or is available for closings."
+    },
+    {
+      "id": "h5-010",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Which applicant may file a Colorado broker license application now?",
+      "choices": [
+        "Age 17; finished 168 hours; passed both portions last month",
+        "Age 25; passed both portions 13 months ago; fingerprints on file",
+        "Age 30; passed both portions 8 months ago; fingerprints already sent to CBI",
+        "Age 22; passed both portions 2 months ago; will send fingerprints after applying"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "An applicant must be at least 18, file within one year of passing the exam, and submit fingerprints to the Colorado Bureau of Investigation before applying. Only the 30-year-old meets all three."
+    },
+    {
+      "id": "h5-011",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A license applicant once pleaded no contest to a misdemeanor and received a deferred judgment. What must the applicant do?",
+      "choices": [
+        "Nothing, because a deferred judgment isn't a conviction",
+        "Disclose it only if the offense involved fraud or theft",
+        "Disclose it only if the background check turns it up on its own",
+        "Disclose it, with court documents and a written explanation"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Applicants must disclose past convictions, pleas including no contest, deferred judgments, and pending charges, and provide court documents and a written explanation."
+    },
+    {
+      "id": "h5-012",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "An associate broker wants to let a friend, an unlicensed investor, do deals under the broker's license and name. Which statement is correct?",
+      "choices": [
+        "It's allowed if the broker reviews each of the friend's deals",
+        "It's allowed once the friend completes the 168 hours",
+        "It's allowed if the employing broker approves in writing",
+        "It's not allowed; a license is personal and can't be lent"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Licenses are personal. They can't be transferred, and a broker can't lend their license or name to anyone else."
+    },
+    {
+      "id": "h5-013",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "How does a Colorado brokerage firm renew its license?",
+      "choices": [
+        "Through its employing or independent broker's renewal",
+        "By filing its own separate renewal application every year",
+        "By renewing with the Secretary of State",
+        "Through each associate broker's renewal"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Brokerage firms don't renew separately; the firm's employing (or independent) broker renews."
+    },
+    {
+      "id": "h5-014",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker is first licensed in March 2026. How many continuing education hours must she complete before her first renewal?",
+      "choices": [
+        "24 hours, prorated by month",
+        "12 hours of approved electives",
+        "None",
+        "The 4-hour Annual Commission Update only"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A license issued in 2026 expires December 31, 2026, and a license that expires on December 31 of the year it was issued is exempt from CE at that first renewal (C.R.S. 12-10-213(4)). After that, brokers need 24 hours per three-year cycle."
+    },
+    {
+      "id": "h5-015",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "An employing broker's license is revoked. What happens to the licenses of the associate brokers at the firm?",
+      "choices": [
+        "They go inactive until each moves to a new employing broker",
+        "They are revoked along with the employing broker's",
+        "They stay Active until the end of the renewal cycle",
+        "They aren't affected at all, because each broker's license is personal"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "When the employing broker's license is suspended, revoked, or expires, the associates' licenses go inactive automatically until they move to a new employing broker."
+    },
+    {
+      "id": "h5-016",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Associate broker Kim leaves her firm to join another. Which statement is correct?",
+      "choices": [
+        "She may keep working her open deals and just update her record at renewal time",
+        "She can't do licensed work until her license transfers to the new firm",
+        "Only her former employing broker needs to tell the Commission",
+        "She has 30 days after leaving to notify the Commission"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Both the broker and the employing broker must notify the Commission immediately, and the broker can't do licensed work until the license is transferred to the new employing broker. The 30-day window applies to convictions, not employment changes."
+    },
+    {
+      "id": "h5-017",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Which licensee is exempt from Colorado's errors and omissions insurance requirement?",
+      "choices": [
+        "An Active broker who works only part time",
+        "An Active broker who handles only commercial deals",
+        "A broker whose license is Inactive",
+        "An Active broker in her first year of licensure"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "E&O is required for every Active broker. Inactive brokers are exempt, as are attorney-licensees whose malpractice coverage covers their real estate work."
+    },
+    {
+      "id": "h5-018",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A brokerage firm buys its own firm-wide independent E&O policy. What minimum limits apply?",
+      "choices": [
+        "$100,000 per claim and $300,000 aggregate",
+        "$500,000 per claim and $1,500,000 aggregate",
+        "$250,000 per claim and $750,000 aggregate",
+        "$1,000,000 per claim and aggregate"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A firm-wide independent policy needs at least $1,000,000 per claim and aggregate, with a deductible no higher than $10,000. The $100,000/$300,000 minimums apply to individual coverage."
+    },
+    {
+      "id": "h5-019",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "A broker's license expired four years ago. How can she hold a Colorado license again?",
+      "choices": [
+        "Pay the renewal fee plus a reinstatement fee equal to it",
+        "Pay the renewal fee plus half of it as a reinstatement fee",
+        "Apply as a new applicant",
+        "Pay only the renewal fee if her CE is current"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A license expired more than three years is treated as a new application. Reinstatement with a full reinstatement fee applies between one and three years; the half fee applies from 31 days to one year."
+    },
+    {
+      "id": "h5-020",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A firm operates under a national franchise's trademark. What must its advertising include?",
+      "choices": [
+        "The franchisor's Colorado license number",
+        "An independent-ownership statement",
+        "A Commission approval number for the ad",
+        "The name of every broker in the office"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "When a firm uses a franchise or other third party's trade name or trademark, its ads must include a statement such as \"Each office independently owned and operated.\""
+    },
+    {
+      "id": "h5-021",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A broker wants to feature a home listed by another firm on her own website. What does she need?",
+      "choices": [
+        "Nothing, as long as the home appears in the MLS",
+        "The seller's verbal okay, passed along by a buyer",
+        "Prior approval of the ad from the Commission",
+        "The listing firm's written permission, with that firm disclosed"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A broker can't advertise another firm's listing without the listing firm's written permission, and the listing firm must be disclosed in the ad."
+    },
+    {
+      "id": "h5-022",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "An employing broker delegates, in writing, supervision of the firm's assistants and bookkeeper to a supervisory broker. Who remains ultimately responsible for that supervision?",
+      "choices": [
+        "The employing broker",
+        "The supervisory broker alone",
+        "The assistants and bookkeeper themselves",
+        "No one, because unlicensed staff need no supervision"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The employing broker must supervise associates and all unlicensed staff. Duties can be delegated in writing to a supervisory broker, but the employing broker stays ultimately responsible."
+    },
+    {
+      "id": "h5-023",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "Which written document must every employing broker adopt and have each associate broker receive and sign?",
+      "choices": [
+        "A personal guaranty of the firm's debts",
+        "An office policy manual",
+        "A noncompete agreement",
+        "A Commission-approved team agreement"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Every employing broker must adopt an office policy manual that each associate receives and signs, covering matters such as how brokers are designated and how confidential information is protected."
+    },
+    {
+      "id": "h5-024",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A Colorado firm wants to pay a referral fee to a broker licensed only in Ohio who sent it a buyer. Which condition must be met?",
+      "choices": [
+        "The buyer pays the Ohio broker directly at the closing table",
+        "The Ohio broker tours Colorado homes with the buyer first",
+        "The fee goes through the firm and the Ohio broker does no brokerage here",
+        "The Ohio broker negotiates the Colorado purchase contract for the buyer"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A referral fee to a broker licensed elsewhere is allowed only if that broker actually referred the client, lives and keeps an office in the other jurisdiction, does no brokerage work in Colorado, and the payment goes through the Colorado firm."
+    },
+    {
+      "id": "h5-025",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A brokerage co-owns a title company and refers a buyer to it. When must this affiliated business arrangement first be disclosed to the buyer?",
+      "choices": [
+        "Only on the final settlement statement",
+        "Within 30 days after closing",
+        "Only if the buyer asks about it",
+        "At or before the time of the referral"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "An affiliated business arrangement must be disclosed to the consumer when or before the referral is made, in writing to all parties by contract signing, and reported to the Commission."
+    },
+    {
+      "id": "h5-026",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A broker plans to charge a buyer a separate fee for closing services, in addition to the commission. What does Colorado require?",
+      "choices": [
+        "Nothing, as long as the fee is reasonable",
+        "Advance approval of the fee by the Commission",
+        "Itemized charges and the written consent of the party charged",
+        "Payment directly to the broker outside of closing"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A broker who charges separately for closing services must itemize the charges and get the written consent of the party being charged. Charging for legal document preparation isn't allowed at all."
+    },
+    {
+      "id": "h5-027",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A broker wants to buy a home she has listed as the seller's agent. Which step does the Commission expect?",
+      "choices": [
+        "Give the seller a right to terminate through closing",
+        "Keep representing the seller as seller's agent",
+        "Skip written disclosure, because she is now acting as a principal",
+        "Get the Commission's written approval first"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Commission strongly discourages buying your own listing. If it happens, the broker should amend or terminate the listing, disclose in writing, and give the seller a right to terminate through closing."
+    },
+    {
+      "id": "h5-028",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "An associate broker moves to a new firm and wants to take her current listings with her. What is required?",
+      "choices": [
+        "Only written notice to the Commission",
+        "The seller's written consent and the old firm's assignment",
+        "Only the new employing broker's approval",
+        "Nothing, because the listings belong to her"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Listings belong to the firm, not the individual broker. Moving one requires the seller's written consent and the original firm's assignment, or a termination and a new listing."
+    },
+    {
+      "id": "h5-029",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A seller wants to sell her home through a lease-option. What does the Commission recommend?",
+      "choices": [
+        "Use the Commission-approved lease-option contract",
+        "Add the option terms to the Additional Provisions of the sale contract",
+        "Have the listing broker draft the option agreement",
+        "Involve a Colorado attorney, since there's no approved form"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "There's no Commission-approved form for lease-options, lease-purchases, or installment land contracts. The Commission strongly urges using a Colorado attorney and recommends separate legal advice for each party."
+    },
+    {
+      "id": "h5-030",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A buyer gives a promissory note as earnest money, and the note isn't paid when due. What must the broker do?",
+      "choices": [
+        "Cover the amount from the firm's trust account",
+        "Cancel the contract on the seller's behalf",
+        "Promptly notify the seller and deliver the original note",
+        "Wait until closing to tell the seller"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "When a promissory note is used as earnest money, the seller must be told its due date; if it isn't paid, the broker must promptly notify the seller and deliver the original note."
+    },
+    {
+      "id": "h5-031",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "An unlicensed, salaried on-site manager handles an apartment complex through a brokerage. Which task may the manager perform?",
+      "choices": [
+        "Quote the rents the owner has set",
+        "Negotiate a lower rent and longer term with an applicant",
+        "Earn a commission on each lease signed",
+        "Change material lease terms at a tenant's request"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Unlicensed on-site managers may fill in lease blanks, show units, quote set rents, arrange maintenance, and collect rents and deposits, but can't negotiate material lease terms. They're paid salary or non-commission income."
+    },
+    {
+      "id": "h5-032",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "Which act is a ground for discipline under Colorado's license law?",
+      "choices": [
+        "Declining a listing the broker isn't competent to handle",
+        "Acting for more than one party without everyone's knowledge",
+        "Rebating part of the commission to a client with lender approval",
+        "Recommending that a buyer have an attorney review title exceptions"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Acting for more than one party without the knowledge of all parties is a listed ground for discipline. Declining work outside your competency, disclosed rebates, and referring title questions to an attorney are what the rules expect."
+    },
+    {
+      "id": "h5-033",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "An independent broker's license is suspended. Within what time must she account for and disburse the trust money she holds?",
+      "choices": [
+        "7 days",
+        "10 days",
+        "180 days",
+        "30 days"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "An independent or employing broker whose license is suspended, revoked, expired, or inactive must account for and disburse trust money within 30 days and give the Commission a list of affected consumers within 7 days."
+    },
+    {
+      "id": "h5-034",
+      "section": "state",
+      "topic": "Commission and licensing",
+      "stem": "Under a desk-fee (100%) arrangement, how is a broker's commission handled?",
+      "choices": [
+        "Paid by the client straight to the broker, bypassing the firm entirely",
+        "Paid to the firm; the broker keeps most of it after a fixed fee",
+        "Split by a percentage that improves as production grows",
+        "Paid to the firm, which ends its duty to supervise the broker"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In a desk-fee model the broker pays the firm a fixed monthly or per-transaction fee and keeps most or all of each commission, but the commission is still paid to the firm and supervision duties don't change. A graduated percentage describes a commission split."
+    },
+    {
+      "id": "h5-035",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A member of a team wants to buy a property the team has listed. What does the Commission's guidance call for?",
+      "choices": [
+        "Commission approval before any offer is written",
+        "The buying member stays on the listing as seller's agent",
+        "Both parties' written consent to transaction-brokerage, plus a firewall around the buyer",
+        "Nothing special, because team members are all principals"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Commission Position CP-16 says the team should get written informed consent from both parties to act as a transaction-broker, remove the buying broker from the listing contract, and firewall that broker from the transaction. No Commission approval is required."
+    },
+    {
+      "id": "h5-036",
+      "section": "state",
+      "topic": "Licensee conduct",
+      "stem": "A broker owns and manages a rental house. How can she properly disclose her license status to a tenant?",
+      "choices": [
+        "Calling herself a \"licensed landlord\" in the lease",
+        "Telling the tenant orally at the showing",
+        "None is needed, since it's her own property",
+        "A written lease statement that she's an owner and a licensed broker"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A broker acting as a principal must disclose license status in writing. For a rental she owns and manages, a lease statement that plainly says she is both an owner and a licensed Colorado real estate broker works; \"licensed landlord\" isn't enough."
+    }
+  ]
+}

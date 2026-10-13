@@ -1,4 +1,4 @@
-import type { Attempt, Bank, LessonRef, Mode, Progress, Question, Tally } from "./types";
+import type { Attempt, Bank, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
 import { sameSet, shuffle, uid } from "./util";
 
 export interface SessionItem {
@@ -28,7 +28,12 @@ export interface Session {
   sectionPassing?: Record<string, number>;
   /** Set for an end-of-lesson quiz. */
   lesson?: LessonRef;
+  /** Set for an end-of-module quiz. */
+  module?: ModuleRef;
 }
+
+/** True for lesson and module quizzes: every question is scored and there's a pass mark. */
+export const isQuiz = (s: { lesson?: LessonRef; module?: ModuleRef }) => !!(s.lesson || s.module);
 
 /** Percent needed on an end-of-lesson quiz to complete the lesson. */
 export const LESSON_QUIZ_PASS = 70;
@@ -142,7 +147,7 @@ export function startExam(bank: Bank, opts: ExamOptions): Session {
 
 /** Pass/fail for an exam attempt; undefined for practice. */
 export function attemptPassed(a: Attempt): boolean | undefined {
-  if (a.lesson && a.passingPercent !== undefined) return (a.correct / Math.max(1, a.total)) * 100 >= a.passingPercent - 1e-9;
+  if (isQuiz(a) && a.passingPercent !== undefined) return (a.correct / Math.max(1, a.total)) * 100 >= a.passingPercent - 1e-9;
   if (a.mode !== "exam") return undefined;
   if (a.sectionPassing && Object.keys(a.sectionPassing).length) {
     return Object.entries(a.sectionPassing).every(([name, pct]) => {
@@ -205,8 +210,13 @@ export function lessonQuizNeeded(n: number): number {
   return Math.ceil((n * LESSON_QUIZ_PASS) / 100 - 1e-9);
 }
 
+/** An end-of-module quiz: same style as a lesson quiz, over the module's quiz list. */
+export function startModuleQuiz(bank: Bank, module: ModuleRef, quiz: string[]): Session {
+  return { ...startLessonQuiz(bank, undefined, quiz), module };
+}
+
 /** An end-of-lesson quiz: practice-style (answer and explanation shown), every question scored. */
-export function startLessonQuiz(bank: Bank, lesson: LessonRef, quiz: string[]): Session {
+export function startLessonQuiz(bank: Bank, lesson: LessonRef | undefined, quiz: string[]): Session {
   const items = makeItems(lessonQuizQuestions(bank, quiz), true);
   return {
     id: uid("s"),
@@ -248,7 +258,7 @@ export function finishSession(
   // Practice sessions only count questions the user actually got to. Lesson quizzes
   // score every question, so skipping one can't help you pass.
   const items =
-    session.mode === "practice" && !session.lesson
+    session.mode === "practice" && !isQuiz(session)
       ? session.items.filter((it) => answers[it.q.id]?.length)
       : session.items;
 
@@ -279,6 +289,7 @@ export function finishSession(
     passingPercent: session.passingPercent,
     sectionPassing: session.sectionPassing,
     lesson: session.lesson,
+    module: session.module,
     byTopic,
     bySection,
     answers: records,

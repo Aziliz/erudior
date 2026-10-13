@@ -1,0 +1,1012 @@
+{
+  "module": "m5-co-license",
+  "lessons": {
+    "co-commission-and-division": {
+      "points": [
+        {
+          "point": "Division (staff, investigations, enforcement, audits) vs. Commission (rules, forms, final decisions)",
+          "questions": [
+            "h5-001"
+          ]
+        },
+        {
+          "point": "Commission: 5 members appointed by the governor; 3 brokers (5 yrs' experience, one property management) + 2 public; 3-year terms",
+          "questions": [
+            "s1-002",
+            "s1-001"
+          ]
+        },
+        {
+          "point": "Commission rules carry the force of law; brokers must use a Commission-approved form when one exists and fits",
+          "questions": [
+            "s3-002"
+          ]
+        },
+        {
+          "point": "Must respond to a complaint or audit notice in writing on time with the full file; failure is its own ground for discipline",
+          "questions": [
+            "s1-029"
+          ]
+        },
+        {
+          "point": "Hearings conducted by an ALJ; denial, suspension or revocation only by majority vote of the Commission",
+          "questions": [
+            "h5-002"
+          ]
+        },
+        {
+          "point": "Sanctions: fine up to $2,500 per offense, censure, probation, suspension, revocation, denial",
+          "questions": [
+            "s1-003"
+          ]
+        },
+        {
+          "point": "Letter of admonition by certified mail; licensee may demand formal hearing in writing within 20 days",
+          "questions": [
+            "s1-004"
+          ]
+        },
+        {
+          "point": "After revocation, no new application considered for one year",
+          "questions": [
+            "s1-005"
+          ]
+        },
+        {
+          "point": "Commission can suspend or revoke a firm's right to operate regardless of the responsible broker's knowledge",
+          "questions": [
+            "h5-004"
+          ]
+        },
+        {
+          "point": "Commission can seek a court injunction against anyone violating the license law",
+          "questions": [
+            "h5-003"
+          ]
+        },
+        {
+          "point": "Appeals of Commission orders go to the Colorado Court of Appeals",
+          "questions": [
+            "s1-006"
+          ]
+        },
+        {
+          "point": "Complaints and investigative files confidential; stipulations and final orders public",
+          "questions": [
+            "h5-005"
+          ]
+        },
+        {
+          "point": "Unlicensed brokerage is a class 2 misdemeanor",
+          "questions": [
+            "h5-006"
+          ]
+        },
+        {
+          "point": "Recovery fund repealed in 2005; mandatory E&O instead",
+          "questions": [
+            "s1-007"
+          ]
+        },
+        {
+          "point": "Position statements are guidance, not law",
+          "questions": [
+            "g5-001"
+          ]
+        },
+        {
+          "point": "Employing broker disciplined for an associate's violation only with actual knowledge or negligent supervision",
+          "questions": [
+            "h5-007"
+          ]
+        }
+      ],
+      "quiz": [
+        "h5-001",
+        "s1-002",
+        "s1-001",
+        "s3-002",
+        "s1-029",
+        "h5-002",
+        "s1-003",
+        "s1-004",
+        "s1-005",
+        "h5-004",
+        "h5-003",
+        "s1-006",
+        "h5-005",
+        "h5-006",
+        "s1-007",
+        "g5-001",
+        "h5-007"
+      ]
+    },
+    "co-getting-licensed": {
+      "points": [
+        {
+          "point": "Brokerage acts for compensation require a license; one transaction is enough",
+          "questions": [
+            "s1-008"
+          ]
+        },
+        {
+          "point": "Exemption: attorney-in-fact only when acting without compensation",
+          "questions": [
+            "h5-008"
+          ]
+        },
+        {
+          "point": "Exemption: salaried on-site manager of an apartment or condo doing customary duties",
+          "questions": [
+            "f3-001"
+          ]
+        },
+        {
+          "point": "One broker license; independent broker needs 2 years Active",
+          "questions": [
+            "s1-009"
+          ]
+        },
+        {
+          "point": "Employing broker: 2 years active in prior 5, experience points, 24-hour Brokerage Administration course",
+          "questions": [
+            "f3-002"
+          ]
+        },
+        {
+          "point": "High level of supervision for brokers with under 2 years' experience",
+          "questions": [
+            "h5-009"
+          ]
+        },
+        {
+          "point": "168 hours of pre-licensing education (48 + 48 + 72) or a real estate degree",
+          "questions": [
+            "f3-005"
+          ]
+        },
+        {
+          "point": "Age 18+, exam score valid one year, fingerprints to CBI before applying",
+          "questions": [
+            "h5-010"
+          ]
+        },
+        {
+          "point": "Disclose convictions, no-contest pleas, deferred judgments, pending charges with documents and explanation",
+          "questions": [
+            "h5-011"
+          ]
+        },
+        {
+          "point": "No E&O proof or employing broker within 30 days of notice → license issued Inactive",
+          "questions": [
+            "f3-003"
+          ]
+        },
+        {
+          "point": "Firm needs a responsible broker; temporary license up to 90 days plus one 90-day extension if that broker leaves",
+          "questions": [
+            "f3-004"
+          ]
+        },
+        {
+          "point": "Licenses are personal: not transferable, can't be lent",
+          "questions": [
+            "h5-012"
+          ]
+        },
+        {
+          "point": "Colorado-resident independent and employing brokers must keep a Colorado place of business",
+          "questions": [
+            "f3-006"
+          ]
+        }
+      ],
+      "quiz": [
+        "s1-008",
+        "h5-008",
+        "f3-001",
+        "s1-009",
+        "f3-002",
+        "h5-009",
+        "f3-005",
+        "h5-010",
+        "h5-011",
+        "f3-003",
+        "f3-004",
+        "h5-012",
+        "f3-006"
+      ]
+    },
+    "co-keeping-your-license": {
+      "points": [
+        {
+          "point": "First license expires Dec 31 of year issued; then 3-year calendar cycles",
+          "questions": [
+            "f3-007"
+          ]
+        },
+        {
+          "point": "Firms don't renew separately; the employing/independent broker renews",
+          "questions": [
+            "h5-013"
+          ]
+        },
+        {
+          "point": "CE: 24 hours per cycle, including the 4-hour Annual Commission Update every year",
+          "questions": [
+            "f3-008"
+          ]
+        },
+        {
+          "point": "Missed Annual Commission Update can't be made up; alternatives such as the 24-hour Broker Reactivation course",
+          "questions": [
+            "f3-009"
+          ]
+        },
+        {
+          "point": "No CE required for the initial partial-year license period",
+          "questions": [
+            "h5-014"
+          ]
+        },
+        {
+          "point": "Inactive license: still renewed, no E&O, no licensed activity, may be paid for commissions earned while Active",
+          "questions": [
+            "f3-011"
+          ]
+        },
+        {
+          "point": "Inactive more than 3 years: reactivate by passing state exam or 72 hours of coursework",
+          "questions": [
+            "f3-015"
+          ]
+        },
+        {
+          "point": "Automatic inactivation, including when the employing broker's license is suspended, revoked or expires",
+          "questions": [
+            "h5-015"
+          ]
+        },
+        {
+          "point": "Reinstatement: 31 days–1 year = renewal fee + half",
+          "questions": [
+            "f3-010"
+          ]
+        },
+        {
+          "point": "Expired more than 3 years = new applicant",
+          "questions": [
+            "h5-019"
+          ]
+        },
+        {
+          "point": "Leaving or changing firms: immediate notice; no licensed work until license transfers",
+          "questions": [
+            "h5-016"
+          ]
+        },
+        {
+          "point": "Written notice within 30 calendar days of a conviction, plea or deferred judgment",
+          "questions": [
+            "f3-012"
+          ]
+        },
+        {
+          "point": "E&O required for Active brokers; inactive brokers (and covered attorney-licensees) exempt",
+          "questions": [
+            "h5-017"
+          ]
+        },
+        {
+          "point": "Coverage via Division group plan or independent policy; individual minimums $100k/$300k, deductible ≤ $1,000",
+          "questions": [
+            "f3-013"
+          ]
+        },
+        {
+          "point": "Firm-wide independent policy: $1,000,000 per claim and aggregate",
+          "questions": [
+            "h5-018"
+          ]
+        },
+        {
+          "point": "E&O lapse → license Inactive immediately",
+          "questions": [
+            "f3-014"
+          ]
+        }
+      ],
+      "quiz": [
+        "f3-007",
+        "h5-013",
+        "f3-008",
+        "f3-009",
+        "h5-014",
+        "f3-011",
+        "f3-015",
+        "h5-015",
+        "f3-010",
+        "h5-019",
+        "h5-016",
+        "f3-012",
+        "h5-017",
+        "f3-013",
+        "h5-018",
+        "f3-014"
+      ]
+    },
+    "co-advertising-supervision-compensation": {
+      "points": [
+        {
+          "point": "Every ad shows the firm name clearly and conspicuously",
+          "questions": [
+            "s1-013"
+          ]
+        },
+        {
+          "point": "One filed trade name; franchise ads need an independent-ownership statement",
+          "questions": [
+            "h5-020"
+          ]
+        },
+        {
+          "point": "Team names can't include realty, real estate, company, Inc., LLC, etc.",
+          "questions": [
+            "s1-014"
+          ]
+        },
+        {
+          "point": "Expired listings removed from online media within 3 days",
+          "questions": [
+            "s1-015"
+          ]
+        },
+        {
+          "point": "Advertising another firm's listing requires that firm's written permission and disclosure",
+          "questions": [
+            "h5-021"
+          ]
+        },
+        {
+          "point": "Employing broker supervises associates and unlicensed staff; may delegate in writing but remains responsible",
+          "questions": [
+            "h5-022"
+          ]
+        },
+        {
+          "point": "Required written policies, including an office policy manual signed by every associate",
+          "questions": [
+            "h5-023"
+          ]
+        },
+        {
+          "point": "Competency: decline, acquire knowledge, get help, or co-list",
+          "questions": [
+            "g5-002"
+          ]
+        },
+        {
+          "point": "Associates paid only by their employing broker",
+          "questions": [
+            "s1-016"
+          ]
+        },
+        {
+          "point": "No compensation to unlicensed persons",
+          "questions": [
+            "s1-017"
+          ]
+        },
+        {
+          "point": "Referral fees to out-of-state brokers: actual referral, no Colorado brokerage, paid through the Colorado firm",
+          "questions": [
+            "h5-024"
+          ]
+        },
+        {
+          "point": "RESPA: no fees or things of value for referring settlement services",
+          "questions": [
+            "s1-019"
+          ]
+        },
+        {
+          "point": "Affiliated business arrangements disclosed at or before referral",
+          "questions": [
+            "h5-025"
+          ]
+        },
+        {
+          "point": "Rebates to own client allowed: in writing, lender-approved, on the settlement statement",
+          "questions": [
+            "s1-018"
+          ]
+        },
+        {
+          "point": "Secret profits barred; separate closing-service charges itemized with written consent",
+          "questions": [
+            "h5-026"
+          ]
+        },
+        {
+          "point": "Net listings not expressly prohibited but discouraged",
+          "questions": [
+            "f3-016"
+          ]
+        },
+        {
+          "point": "No lien or lis pendens for a disputed residential commission without a court judgment",
+          "questions": [
+            "f3-017"
+          ]
+        }
+      ],
+      "quiz": [
+        "s1-013",
+        "h5-020",
+        "s1-014",
+        "s1-015",
+        "h5-021",
+        "h5-022",
+        "h5-023",
+        "g5-002",
+        "s1-016",
+        "s1-017",
+        "h5-024",
+        "s1-019",
+        "h5-025",
+        "s1-018",
+        "h5-026",
+        "f3-016",
+        "f3-017"
+      ]
+    },
+    "co-documents-practice-of-law-conduct": {
+      "points": [
+        {
+          "point": "Own-account deals: written disclosure of license status in the contract or at the same time",
+          "questions": [
+            "s1-020"
+          ]
+        },
+        {
+          "point": "Buying own listing: amend/terminate listing, disclose, seller may terminate through closing",
+          "questions": [
+            "h5-027"
+          ]
+        },
+        {
+          "point": "Continuing duty to disclose conflicts of interest in writing",
+          "questions": [
+            "s1-021"
+          ]
+        },
+        {
+          "point": "Copies of documents given at the time prepared",
+          "questions": [
+            "s1-022"
+          ]
+        },
+        {
+          "point": "Present offers to listing broker, then its employing broker, then the owner",
+          "questions": [
+            "f4-007"
+          ]
+        },
+        {
+          "point": "Keep transaction files 4 years",
+          "questions": [
+            "f3-018"
+          ]
+        },
+        {
+          "point": "Listings in writing before services, with a definite termination date",
+          "questions": [
+            "s1-023"
+          ]
+        },
+        {
+          "point": "Holdover covers only buyers named to the seller in writing during the term",
+          "questions": [
+            "s1-024"
+          ]
+        },
+        {
+          "point": "Listings belong to the firm; moving one needs seller consent and the firm's assignment",
+          "questions": [
+            "h5-028"
+          ]
+        },
+        {
+          "point": "Conway-Bogue: standard forms, own transactions, no charge beyond the commission",
+          "questions": [
+            "s1-026"
+          ]
+        },
+        {
+          "point": "No advice on title exceptions; recommend an attorney",
+          "questions": [
+            "s1-025"
+          ]
+        },
+        {
+          "point": "No drafting custom legal language (unauthorized practice of law)",
+          "questions": [
+            "s3-003"
+          ]
+        },
+        {
+          "point": "Seller financing: negotiating residential loan terms is MLO work",
+          "questions": [
+            "s1-012"
+          ]
+        },
+        {
+          "point": "Lease-options/installment contracts: no approved form; involve an attorney",
+          "questions": [
+            "h5-029"
+          ]
+        },
+        {
+          "point": "Promissory note as earnest money: tell seller due date; if unpaid, notify seller and deliver original",
+          "questions": [
+            "h5-030"
+          ]
+        },
+        {
+          "point": "Unlicensed assistants: clerical tasks yes, negotiating or advising no",
+          "questions": [
+            "s1-027"
+          ]
+        },
+        {
+          "point": "Unlicensed on-site managers: show, quote set rents, collect; no negotiating material terms",
+          "questions": [
+            "h5-031"
+          ]
+        },
+        {
+          "point": "No sign crossing on an unexpired exclusive listing",
+          "questions": [
+            "s1-028"
+          ]
+        },
+        {
+          "point": "Grounds for discipline highlights (e.g., acting for more than one party without everyone's knowledge)",
+          "questions": [
+            "h5-032"
+          ]
+        },
+        {
+          "point": "Respond to complaints and audits on time",
+          "questions": [
+            "g5-015"
+          ]
+        },
+        {
+          "point": "License suspended/inactive: stop activity; 7 days to notify; 30 days to disburse trust money",
+          "questions": [
+            "h5-033"
+          ]
+        }
+      ],
+      "quiz": [
+        "s1-020",
+        "h5-027",
+        "s1-021",
+        "s1-022",
+        "f4-007",
+        "f3-018",
+        "s1-023",
+        "s1-024",
+        "h5-028",
+        "s1-026",
+        "s1-025",
+        "s3-003",
+        "s1-012",
+        "h5-029",
+        "h5-030",
+        "s1-027",
+        "h5-031",
+        "s1-028",
+        "h5-032",
+        "g5-015",
+        "h5-033"
+      ]
+    },
+    "g5-commission-rules-in-practice": {
+      "points": [
+        {
+          "point": "Commission jurisdiction follows the broker even as principal; disclose license status in writing in the contract",
+          "questions": [
+            "g5-007"
+          ]
+        },
+        {
+          "point": "Position statements are non-binding guidance",
+          "questions": [
+            "g5-001"
+          ]
+        },
+        {
+          "point": "Competency judged task by task; decline, learn, get help, or co-list",
+          "questions": [
+            "g5-002"
+          ]
+        },
+        {
+          "point": "Statutory minimum duties can't be waived",
+          "questions": [
+            "g5-003"
+          ]
+        },
+        {
+          "point": "Commissions negotiable; not set by law",
+          "questions": [
+            "g5-004"
+          ]
+        },
+        {
+          "point": "Commission split vs. desk fee; commission always paid to the firm",
+          "questions": [
+            "h5-034"
+          ]
+        },
+        {
+          "point": "Qualified real estate agent test: licensed, paid on output, written contract",
+          "questions": [
+            "g5-005"
+          ]
+        },
+        {
+          "point": "Team names and firm name in team ads",
+          "questions": [
+            "g5-006"
+          ]
+        },
+        {
+          "point": "Team member buying a team listing: consent to transaction-brokerage, removal, firewall",
+          "questions": [
+            "h5-035"
+          ]
+        },
+        {
+          "point": "Own rental: written lease statement as owner and licensed broker",
+          "questions": [
+            "h5-036"
+          ]
+        },
+        {
+          "point": "Buying own listing: terminate/amend, disclose, seller right to terminate",
+          "questions": [
+            "h5-027"
+          ]
+        },
+        {
+          "point": "Disclose conflicts, e.g., vendor ties, early with an opt-out",
+          "questions": [
+            "g5-008"
+          ]
+        },
+        {
+          "point": "Others' money held outside brokerage still goes to a trust account",
+          "questions": [
+            "g5-009"
+          ]
+        },
+        {
+          "point": "E-signatures valid; electronic copies count as duplicates",
+          "questions": [
+            "g5-010"
+          ]
+        },
+        {
+          "point": "After a relationship ends: all account for money; single agents also keep confidences",
+          "questions": [
+            "g5-011"
+          ]
+        }
+      ],
+      "quiz": [
+        "g5-007",
+        "g5-001",
+        "g5-002",
+        "g5-003",
+        "g5-004",
+        "h5-034",
+        "g5-005",
+        "g5-006",
+        "h5-035",
+        "h5-036",
+        "h5-027",
+        "g5-008",
+        "g5-009",
+        "g5-010",
+        "g5-011"
+      ]
+    }
+  },
+  "moduleQuiz": {
+    "points": [
+      {
+        "point": "Division vs. Commission roles",
+        "questions": [
+          "h5-001"
+        ]
+      },
+      {
+        "point": "Commission composition and appointment",
+        "questions": [
+          "s1-001"
+        ]
+      },
+      {
+        "point": "Disciplinary sanctions and fines",
+        "questions": [
+          "s1-003"
+        ]
+      },
+      {
+        "point": "Letter of admonition: 20 days to request formal hearing",
+        "questions": [
+          "g5-016"
+        ]
+      },
+      {
+        "point": "Appeals to the Colorado Court of Appeals",
+        "questions": [
+          "s1-006"
+        ]
+      },
+      {
+        "point": "No recovery fund; E&O instead",
+        "questions": [
+          "g5-017"
+        ]
+      },
+      {
+        "point": "Position statements are guidance",
+        "questions": [
+          "g5-001"
+        ]
+      },
+      {
+        "point": "Employing broker liability for associates",
+        "questions": [
+          "h5-007"
+        ]
+      },
+      {
+        "point": "Who needs a license and exemptions",
+        "questions": [
+          "f4-015",
+          "s1-008"
+        ]
+      },
+      {
+        "point": "License levels and employing broker qualification",
+        "questions": [
+          "f3-002"
+        ]
+      },
+      {
+        "point": "Exam score validity and fingerprints; full eligibility",
+        "questions": [
+          "s1-010",
+          "s1-011",
+          "h5-010"
+        ]
+      },
+      {
+        "point": "Issued Inactive without E&O/employing broker in 30 days",
+        "questions": [
+          "f3-003"
+        ]
+      },
+      {
+        "point": "License term and renewal cycle",
+        "questions": [
+          "f3-007"
+        ]
+      },
+      {
+        "point": "Continuing education",
+        "questions": [
+          "f3-008",
+          "f3-009"
+        ]
+      },
+      {
+        "point": "Inactive status and reactivation",
+        "questions": [
+          "f3-015"
+        ]
+      },
+      {
+        "point": "Reinstating an expired license",
+        "questions": [
+          "f3-010"
+        ]
+      },
+      {
+        "point": "Reporting convictions within 30 days",
+        "questions": [
+          "f3-012"
+        ]
+      },
+      {
+        "point": "E&O minimums and lapse",
+        "questions": [
+          "f3-013",
+          "f3-014"
+        ]
+      },
+      {
+        "point": "Advertising: firm name and teams",
+        "questions": [
+          "s1-013",
+          "g5-006"
+        ]
+      },
+      {
+        "point": "Expired listings off the web in 3 days",
+        "questions": [
+          "s1-015"
+        ]
+      },
+      {
+        "point": "Compensation only through employing broker; none to unlicensed persons",
+        "questions": [
+          "s1-016",
+          "s1-017"
+        ]
+      },
+      {
+        "point": "RESPA kickbacks and rebates",
+        "questions": [
+          "s1-019",
+          "s1-018"
+        ]
+      },
+      {
+        "point": "Net listings",
+        "questions": [
+          "f3-016"
+        ]
+      },
+      {
+        "point": "Acting as principal: written license disclosure",
+        "questions": [
+          "g5-007"
+        ]
+      },
+      {
+        "point": "Conflicts of interest",
+        "questions": [
+          "g5-008"
+        ]
+      },
+      {
+        "point": "Copies and e-signatures",
+        "questions": [
+          "g5-010"
+        ]
+      },
+      {
+        "point": "Listings: holdover names in writing",
+        "questions": [
+          "s2-018"
+        ]
+      },
+      {
+        "point": "Practice of law limits and Conway-Bogue",
+        "questions": [
+          "s3-004",
+          "s3-003"
+        ]
+      },
+      {
+        "point": "Seller financing and MLO limits",
+        "questions": [
+          "s1-012"
+        ]
+      },
+      {
+        "point": "Unlicensed assistants",
+        "questions": [
+          "s1-027"
+        ]
+      },
+      {
+        "point": "Sign crossing",
+        "questions": [
+          "s1-028"
+        ]
+      },
+      {
+        "point": "Responding to complaints",
+        "questions": [
+          "f3-021"
+        ]
+      },
+      {
+        "point": "Grounds for discipline (integrative)",
+        "questions": [
+          "h5-032"
+        ]
+      },
+      {
+        "point": "Competency",
+        "questions": [
+          "g5-002"
+        ]
+      },
+      {
+        "point": "Minimum services can't be waived",
+        "questions": [
+          "g5-003"
+        ]
+      },
+      {
+        "point": "Surviving duties after a relationship ends",
+        "questions": [
+          "s2-015"
+        ]
+      },
+      {
+        "point": "Others' money in a trust account",
+        "questions": [
+          "g5-009"
+        ]
+      }
+    ],
+    "quiz": [
+      "h5-001",
+      "s1-001",
+      "s1-003",
+      "g5-016",
+      "s1-006",
+      "g5-017",
+      "g5-001",
+      "h5-007",
+      "f4-015",
+      "s1-008",
+      "f3-002",
+      "s1-010",
+      "s1-011",
+      "h5-010",
+      "f3-003",
+      "f3-007",
+      "f3-008",
+      "f3-009",
+      "f3-015",
+      "f3-010",
+      "f3-012",
+      "f3-013",
+      "f3-014",
+      "s1-013",
+      "g5-006",
+      "s1-015",
+      "s1-016",
+      "s1-017",
+      "s1-019",
+      "s1-018",
+      "f3-016",
+      "g5-007",
+      "g5-008",
+      "g5-010",
+      "s2-018",
+      "s3-004",
+      "s3-003",
+      "s1-012",
+      "s1-027",
+      "s1-028",
+      "f3-021",
+      "h5-032",
+      "g5-002",
+      "g5-003",
+      "s2-015",
+      "g5-009"
+    ]
+  }
+}

@@ -30,11 +30,12 @@ REFS = [
 # except g5, whose cards split by topic between the s1 and s2 decks.
 GAPS = {"g1": "n2", "g2": "n4", "g3": "s4", "g4": "s3", "g5": "s1"}
 GAP_DRILLS = ["g3-drills.json"]
-# Quiz-fill parts: questions written so every lesson quiz reaches 10. Shape:
-# {"questions": [...], "quiz": {lessonId: [ids]}}; quiz ids are appended to that lesson's quiz.
+# Extra question parts. f1-f4 were written to pad lesson quizzes (their "quiz" maps are
+# no longer used); h1-h8 were written to cover lesson points no other question covered.
 FILLS = ["f1", "f2", "f3", "f4"]
+COVER = ["h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8"]
 
-parts = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "parts").glob("*.json")) if p.stem in {m[2] for m in MODULES} | set(GAPS) | set(FILLS)}
+parts = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "parts").glob("*.json")) if p.stem in {m[2] for m in MODULES} | set(GAPS) | set(FILLS) | set(COVER)}
 
 modules, lessons, questions, decks = [], [], [], []
 glossary: dict[str, dict] = {}
@@ -86,21 +87,34 @@ for key, base in GAPS.items():
         deck_of[target]["cards"].append(c)
     merge_glossary(part, state)
 
-# End-of-lesson quizzes: bank question ids per lesson, picked so each is answerable
-# from that lesson alone (content/lesson-quizzes.json).
-QUIZ = json.loads((ROOT / "lesson-quizzes.json").read_text())
-for key in FILLS:
-    questions += parts[key]["questions"]
-    for lid, ids in parts[key]["quiz"].items():
-        QUIZ[lid] = QUIZ.get(lid, []) + ids
+for key in FILLS + COVER:
+    if key in parts:
+        questions += parts[key]["questions"]
 qids = {q["id"] for q in questions}
-for l in lessons:
-    quiz = QUIZ.get(l["id"], [])
-    missing = [i for i in quiz if i not in qids]
-    assert not missing, (l["id"], missing)
-    if quiz:
+
+# Lesson and module quizzes come from the coverage maps in content/quizzes/<module>.json:
+# each lesson's teaching points mapped to questions answerable from that lesson alone
+# (any size, just enough to cover every point), and a module quiz spanning every point.
+QUIZZES = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "quizzes").glob("*.json"))}
+lesson_ids = {l["id"] for l in lessons}
+for m in modules:
+    qz = QUIZZES.get(m["id"])
+    assert qz, f"no quiz map for {m['id']}"
+    for lid, entry in qz["lessons"].items():
+        assert lid in lesson_ids, (m["id"], lid)
+        for pt in entry["points"]:
+            assert pt["questions"], (lid, pt["point"])
+    for l in lessons:
+        if l["module"] != m["id"]:
+            continue
+        quiz = qz["lessons"][l["id"]]["quiz"]
+        missing = [i for i in quiz if i not in qids]
+        assert not missing and len(set(quiz)) == len(quiz), (l["id"], missing)
         l["quiz"] = quiz
-assert not set(QUIZ) - {l["id"] for l in lessons}, set(QUIZ) - {l["id"] for l in lessons}
+    mquiz = qz["moduleQuiz"]["quiz"]
+    missing = [i for i in mquiz if i not in qids]
+    assert not missing and len(set(mquiz)) == len(mquiz), (m["id"], missing)
+    m["quiz"] = mquiz
 
 # Abbreviations: each gets its own glossary entry ("CFPB" -> "Consumer Financial
 # Protection Bureau. ..."). The abbreviation is removed from other entries' aliases
@@ -166,8 +180,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 11,
-    "changelog": "Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
+    "revision": 12,
+    "changelog": "Lesson quizzes are now sized to cover exactly what each lesson teaches, and every module ends with a module quiz across all its topics (pass with 70% to complete the module). 351 new questions fill topics no question covered before. Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{
@@ -215,5 +229,6 @@ print("glossary name collisions:", {k: v for k, v in seen.items() if len(v) > 1}
 bold = [seg for l in lessons for seg in l["body"].split("**")[1::2]]
 print(f"bold phrases: {len(bold)}, linked to the glossary: {sum('[[' in b for b in bold)} (the rest are emphasis)")
 print("answer positions:", collections.Counter(q["answer"][0] for q in questions))
-print("lesson quizzes:", collections.Counter(len(l.get("quiz", [])) for l in lessons))
+print("lesson quiz sizes:", sorted(len(l.get("quiz", [])) for l in lessons))
+print("module quiz sizes:", {m["id"]: len(m.get("quiz", [])) for m in modules})
 print("size KB:", OUT.stat().st_size // 1024)

@@ -12,6 +12,8 @@ import {
   startPractice,
   practicePool,
   type PracticeOptions,
+  lessonQuizQuestions,
+  startModuleQuiz,
 } from "../lib/session";
 import { emptyBank } from "../lib/validate";
 import { percent, uid } from "../lib/util";
@@ -372,6 +374,7 @@ function Snapshot({
 
 function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
+  const bank = mainBank(course);
   const ordered = orderedLessons(course);
   const next = ordered.find((l) => !progress.lessonsDone[lessonKey(course.id, l.id)]);
   return (
@@ -416,6 +419,32 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                   </li>
                 );
               })}
+              {bank && m.quiz && m.quiz.length > 0 && (() => {
+                const passed = !!progress.modulesDone?.[`${course.id}/${m.id}`];
+                const unlocked = done === ls.length;
+                const n = lessonQuizQuestions(bank, m.quiz).length;
+                return (
+                  <li key="module-quiz" className="module-quiz">
+                    <button
+                      disabled={!unlocked}
+                      title={unlocked ? undefined : "Finish every lesson in this module first"}
+                      onClick={() =>
+                        api.go({
+                          name: "run",
+                          session: startModuleQuiz(bank, { courseId: course.id, moduleId: m.id }, m.quiz!),
+                        })
+                      }
+                    >
+                      <span className={`bubble ${passed ? "right" : ""}`} aria-label={passed ? "Passed" : "Not passed"}>
+                        {passed ? "✓" : ""}
+                      </span>
+                      <span className="lesson-title">
+                        <b>Module quiz</b> ({n} questions{unlocked ? "" : "; unlocks when every lesson is complete"})
+                      </span>
+                    </button>
+                  </li>
+                );
+              })()}
             </ol>
           </section>
         );
