@@ -26,12 +26,14 @@ The employing broker can designate, in writing, specific brokers to work with a 
 | Reasonable skill and care | Yes | Yes |
 | Present offers and counteroffers in a timely way | Yes | Yes |
 | Account for money and property | Yes | Yes |
-| Keep the party informed | Yes | Yes |
+| Counsel the party on material benefits and risks of the transaction | Yes | No |
+| Keep the parties fully informed about the transaction | Not a separately listed duty | Yes |
 | Disclose adverse material facts actually known | Yes | Yes |
 | Advocate for the party, promote their interests | **Yes** | No |
 | Negotiate for the best terms for one side | **Yes** | No |
 | Keep confidential a party's motivation and willingness to take less or pay more | Yes, unless the client gives informed consent | Yes, unless **all** parties give informed consent |
 | Independently inspect or verify | Not required | Not required |
+| Duties that survive after the relationship ends | Accounting for money and property, and confidentiality | Accounting for money and property only |
 
 > **Exam tip:** A seller's agent need not disclose to a buyer that the property was the site of a homicide, felony or suicide, or that an occupant had HIV/AIDS. Colorado law says these aren't material facts (C.R.S. 38-35.5-101).
 

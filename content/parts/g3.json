@@ -175,12 +175,12 @@
     "Credit seller $2,310; debit buyer $2,310",
     "Debit seller $2,310; credit buyer $2,310",
     "Debit seller $1,340; credit buyer $1,340",
-    "Debit seller $2,321.94; credit buyer $2,321.94"
+    "Debit seller $2,342.08; credit buyer $2,342.08"
    ],
    "answer": [
     1
    ],
-   "explanation": "The seller owned January 1–August 19 = 231 days: $3,650 ÷ 365 × 231 = $2,310. Colorado taxes are paid in arrears, so the buyer will pay this year's whole bill next year; the seller is debited and the buyer credited. $2,321.94 comes from wrongly using a 360-day year."
+   "explanation": "The seller owned January 1–August 19 = 231 days: $3,650 ÷ 365 × 231 = $2,310. Colorado taxes are paid in arrears, so the buyer will pay this year's whole bill next year; the seller is debited and the buyer credited. $2,342.08 comes from wrongly using a 360-day year ($3,650 ÷ 360 × 231)."
   },
   {
    "id": "g3-011",

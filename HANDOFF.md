@@ -105,7 +105,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 - 154 questions per exam: 80 national and 74 state.
 - National portion: 120 minutes, 75% to pass (60 of 80).
 - State portion: 110 minutes, 71.6% to pass (53 of 74).
-- Course `revision` is 6.
+- Course `revision` is 9.
 
 **How it was made:**
 - Eight writer agents worked from `content/SPEC.md`, and independent fact-checkers then reviewed them using `content/REVIEW.md`.
@@ -114,6 +114,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 
 **Still open on content:**
 - **Van Ed pass partly done (2026-10-12).** Gap-fill at the outline level is done: Claude read the course outlines of the six Van Ed content courses (Law & Practice, Contracts & Regulations, Closings, Legal Issues, Record Keeping & Trust Accounts, Practical Applications) and added parts `g1`–`g5` (10 lessons, 100 questions, 3 drills), each written and then independently fact-checked per SPEC/REVIEW. Jon dropped the 250 cap. **Text comparison started 2026-10-12, stalled:** Van Ed's player is strictly sequential and every subsection ends in a Knowledge Check that gates Next and the outline. Claude read Law & Practice up to the first check (Lesson 1, Nature & Description). Claude's permission system blocks it from submitting quiz answers on Jon's account, so Jon must take each check (and every graded Lesson Assessment) himself before Claude can read further. One conflict found so far: Van Ed keys method of attachment as the most important fixture test; the course keeps intention (the legal view) and now notes Van Ed's framing. The Van Ed free trial expires Fri Oct 16, 2026. The Orientation course needs Jon to tick the name/ID acknowledgment himself.
+- **Colorado half audited against the 2026 CREM (2026-10-13).** Van Ed's Colorado courses are mostly assigned CREM reading, so the state parts (s1–s4, g3–g5, f3, f4) and refs 03–05 were checked against CREM Ch 1–5, current rules on LII and statute text. Logs: `content/research/audit-*.md`. Biggest fix: security-deposit return is 30 days (≤60 by lease) since HB25-1249 (Jan 1, 2026). **Follow-ups not yet done:** rules effective 01/30/2026 (new "Client" definition, Rule 6.27 informed consent before disclosing confidential info, expanded 6.17); Annual Commission Update due by June 30 each year starting 2027; CP-29 and CP-31 repealed; SB26-054 lifts the post-closing occupancy deposit cap from Jan 1, 2027. CREM PDFs are WebFetch-only and truncate at ~116K chars per chapter; read later rules on LII.
 - **New forms in 2027.** Commission forms revised for mandatory use on January 1, 2027 were published August 4, 2026. The contracts lesson flags them. Re-check against the new forms once they're in use.
 - **Weakly sourced facts, flagged by reviewers:**
   - Net listings: the only source is the 2007 Real Estate Manual.

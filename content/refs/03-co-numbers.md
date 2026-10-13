@@ -5,7 +5,7 @@ Numbers and deadlines from Colorado statutes (C.R.S.) and Real Estate Commission
 | Item | Rule |
 |---|---|
 | Minimum age | 18 |
-| Pre-license education | 168 hours: Law and Practice 48, Contracts and Regulations 48, Trust Accounts and Record-Keeping 8, Current Legal Issues 8, Closings 24, Practical Applications 32 |
+| Pre-license education | 168 hours: Law and Practice 48, Colorado Real Estate Contracts 48, Trust Accounts and Record-Keeping 8, Current Legal Issues 8, Closings 24, Practical Applications 32 |
 | Background check | Fingerprints submitted to the CBI before applying |
 | Exam score | Good for 1 year |
 | First license expires | December 31 of the year it's issued; then 3-year calendar-year cycles |
@@ -28,7 +28,7 @@ Numbers and deadlines from Colorado statutes (C.R.S.) and Real Estate Commission
 ## The Commission
 
 - 5 members appointed by the governor: 3 brokers with at least 5 years' Colorado experience (one with substantial property management experience) and 2 members of the public; 3-year terms.
-- Fines up to $2,500 per separate offense; also censure, probation, suspension and revocation. A licensee has 20 days to reject a letter of admonition and request a formal hearing.
+- Fines up to $2,500 per separate offense; also censure, probation, suspension and revocation. A licensee who gets a letter of admonition has 20 days to request formal disciplinary proceedings, which vacates the letter.
 - After revocation, no new application is considered for 1 year.
 - Unlicensed brokerage activity is a class 2 misdemeanor.
 - Colorado's real estate recovery fund was repealed in 2005.
@@ -38,7 +38,7 @@ Numbers and deadlines from Colorado statutes (C.R.S.) and Real Estate Commission
 | Item | Rule |
 |---|---|
 | Earnest money and other funds | Deposit within 3 business days after receipt or mutual execution, whichever is later |
-| Property management funds | Deposit within 5 business days |
+| Property management funds | Deposit within 5 business days after receipt or mutual execution of the lease, whichever is later |
 | Trust account | Insured depository in Colorado, labeled "trust" or "escrow" |
 | Property management accounts | Rents and security deposits in separate accounts |
 | Records | Keep 4 years from closing, or from listing expiration if it never closed |
@@ -48,7 +48,7 @@ Numbers and deadlines from Colorado statutes (C.R.S.) and Real Estate Commission
 | Item | Rule |
 |---|---|
 | Security deposit cap | Two months' rent |
-| Deposit return | Within one month after the lease ends, or up to 60 days if the lease says so, with a written statement of deductions. Wrongful withholding can cost treble damages. |
+| Deposit return | Within 30 days after the lease ends or the tenant surrenders, whichever is later; the lease can extend this to 60 days at most (rule in effect since Jan 1, 2026). Deductions need a written itemized statement. Wrongful retention can cost treble damages. |
 | Habitability | Landlord responds within 24 hours of notice; remedial action within 24 hours for conditions that materially interfere with life, health or safety, 96 hours for other conditions |
 | Demand for rent or compliance | 10 days' written notice for most residential tenancies; 5 days under an "exempt residential agreement" (landlord owns 5 or fewer single-family rentals and the lease says so); 3 days for nonresidential or employer-provided housing |
 
