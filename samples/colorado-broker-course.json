@@ -5,8 +5,8 @@
  "title": "Colorado Real Estate Broker",
  "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 809-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
  "author": "Examiner",
- "revision": 12,
- "changelog": "Lesson quizzes are now sized to cover exactly what each lesson teaches, and every module ends with a module quiz across all its topics (pass with 70% to complete the module). 351 new questions fill topics no question covered before. Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
+ "revision": 13,
+ "changelog": "Each lesson's study box now links its notecards, related math drills and quick-reference sheets. Lesson quizzes are now sized to cover exactly what each lesson teaches, and every module ends with a module quiz across all its topics (pass with 70% to complete the module). 351 new questions fill topics no question covered before. Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
  "modules": [
   {
    "id": "m1-property",
@@ -439,6 +439,14 @@
     "f1-004",
     "n2-024",
     "h1-006"
+   ],
+   "drills": [
+    "x-acres",
+    "x-survey"
+   ],
+   "refs": [
+    "property",
+    "math"
    ]
   },
   {
@@ -474,6 +482,9 @@
     "h1-017",
     "h1-018",
     "h1-019"
+   ],
+   "refs": [
+    "property"
    ]
   },
   {
@@ -501,6 +512,9 @@
     "n1-013",
     "h1-026",
     "h1-027"
+   ],
+   "refs": [
+    "property"
    ]
   },
   {
@@ -533,6 +547,9 @@
     "h1-035",
     "n1-019",
     "h1-037"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -566,6 +583,9 @@
     "n1-026",
     "h1-049",
     "h1-050"
+   ],
+   "refs": [
+    "property"
    ]
   },
   {
@@ -598,6 +618,14 @@
     "n2-007",
     "n2-009",
     "h2-010"
+   ],
+   "drills": [
+    "x-cap",
+    "x-caprate",
+    "x-grm"
+   ],
+   "refs": [
+    "math"
    ]
   },
   {
@@ -628,6 +656,13 @@
     "h2-016",
     "f1-021",
     "h2-017"
+   ],
+   "drills": [
+    "x-ltv",
+    "x-points"
+   ],
+   "refs": [
+    "math"
    ]
   },
   {
@@ -660,6 +695,14 @@
     "h2-025",
     "h2-027",
     "n2-018"
+   ],
+   "drills": [
+    "x-ltv",
+    "x-interest",
+    "x-principal"
+   ],
+   "refs": [
+    "math"
    ]
   },
   {
@@ -688,6 +731,12 @@
     "h2-031",
     "h2-032",
     "h2-033"
+   ],
+   "drills": [
+    "x-points"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -716,6 +765,25 @@
     "h2-037",
     "h2-038",
     "n2-028"
+   ],
+   "drills": [
+    "x-commission",
+    "x-split",
+    "x-net",
+    "x-price-to-net",
+    "x-ltv",
+    "x-points",
+    "x-interest",
+    "x-principal",
+    "x-acres",
+    "x-cap",
+    "x-caprate",
+    "x-grm",
+    "x-profit",
+    "x-equity"
+   ],
+   "refs": [
+    "math"
    ]
   },
   {
@@ -747,6 +815,13 @@
     "h2-044",
     "h2-045",
     "h2-046"
+   ],
+   "drills": [
+    "x-profit",
+    "x-equity"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -884,6 +959,9 @@
     "n3-032",
     "n3-034",
     "f2-006"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -913,6 +991,13 @@
     "h4-005",
     "h4-007",
     "h4-006"
+   ],
+   "drills": [
+    "x-commission",
+    "x-split"
+   ],
+   "refs": [
+    "relationships"
    ]
   },
   {
@@ -940,6 +1025,9 @@
     "f2-008",
     "h4-012",
     "h4-013"
+   ],
+   "refs": [
+    "relationships"
    ]
   },
   {
@@ -972,6 +1060,9 @@
     "n4-027",
     "n4-026",
     "h4-023"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -1008,6 +1099,9 @@
     "h4-036",
     "h4-037",
     "f2-011"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -1037,6 +1131,9 @@
     "h4-045",
     "f2-013",
     "n4-037"
+   ],
+   "drills": [
+    "x-mgmtfee"
    ]
   },
   {
@@ -1070,6 +1167,10 @@
     "f1-005",
     "h4-054",
     "h4-055"
+   ],
+   "drills": [
+    "x-mgmtfee",
+    "x-cap"
    ]
   },
   {
@@ -1099,6 +1200,9 @@
     "h4-060",
     "h4-061",
     "g2-019"
+   ],
+   "refs": [
+    "federal"
    ]
   },
   {
@@ -1128,6 +1232,9 @@
     "s1-007",
     "g5-001",
     "h5-007"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1153,6 +1260,10 @@
     "f3-004",
     "h5-012",
     "f3-006"
+   ],
+   "refs": [
+    "co-numbers",
+    "exam"
    ]
   },
   {
@@ -1181,6 +1292,9 @@
     "f3-013",
     "h5-018",
     "f3-014"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1210,6 +1324,13 @@
     "h5-026",
     "f3-016",
     "f3-017"
+   ],
+   "drills": [
+    "x-commission",
+    "x-split"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1243,6 +1364,10 @@
     "h5-032",
     "g5-015",
     "h5-033"
+   ],
+   "refs": [
+    "forms",
+    "co-numbers"
    ]
   },
   {
@@ -1271,6 +1396,9 @@
     "g5-009",
     "g5-010",
     "g5-011"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1300,6 +1428,9 @@
     "h6-007",
     "h6-008",
     "s2-015"
+   ],
+   "refs": [
+    "relationships"
    ]
   },
   {
@@ -1331,6 +1462,9 @@
     "s2-018",
     "h6-014",
     "s1-020"
+   ],
+   "refs": [
+    "relationships"
    ]
   },
   {
@@ -1360,6 +1494,9 @@
     "s2-024",
     "g5-013",
     "h6-022"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1385,6 +1522,9 @@
     "f3-020",
     "f3-021",
     "h6-024"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1413,6 +1553,9 @@
     "h6-029",
     "s1-006",
     "g5-017"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1439,6 +1582,9 @@
     "s3-001",
     "h7-006",
     "h7-007"
+   ],
+   "refs": [
+    "forms"
    ]
   },
   {
@@ -1470,6 +1616,13 @@
     "s3-013",
     "h7-016",
     "s3-014"
+   ],
+   "drills": [
+    "x-ltv"
+   ],
+   "refs": [
+    "forms",
+    "co-numbers"
    ]
   },
   {
@@ -1511,6 +1664,10 @@
     "s3-025",
     "s3-027",
     "h7-028"
+   ],
+   "refs": [
+    "forms",
+    "co-numbers"
    ]
   },
   {
@@ -1540,6 +1697,9 @@
     "s2-007",
     "f4-006",
     "h7-034"
+   ],
+   "refs": [
+    "forms"
    ]
   },
   {
@@ -1574,6 +1734,10 @@
     "s3-037",
     "h7-042",
     "s1-012"
+   ],
+   "refs": [
+    "forms",
+    "relationships"
    ]
   },
   {
@@ -1610,6 +1774,9 @@
     "g4-009",
     "h7-049",
     "h7-007"
+   ],
+   "refs": [
+    "forms"
    ]
   },
   {
@@ -1639,6 +1806,10 @@
     "h7-055",
     "g4-020",
     "h7-056"
+   ],
+   "refs": [
+    "forms",
+    "co-numbers"
    ]
   },
   {
@@ -1666,6 +1837,13 @@
     "s4-006",
     "f4-014",
     "h8-005"
+   ],
+   "drills": [
+    "x-net",
+    "x-docfee"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1691,6 +1869,17 @@
     "s3-020",
     "h8-006",
     "g3-012"
+   ],
+   "drills": [
+    "x-taxprorate",
+    "x-rentprorate",
+    "x-docfee",
+    "x-net",
+    "x-price-to-net"
+   ],
+   "refs": [
+    "math",
+    "co-numbers"
    ]
   },
   {
@@ -1720,6 +1909,14 @@
     "f4-019",
     "f4-020",
     "g4-010"
+   ],
+   "drills": [
+    "x-security",
+    "x-mgmtfee",
+    "x-rentprorate"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1750,6 +1947,14 @@
     "s4-016",
     "h8-020",
     "f4-024"
+   ],
+   "drills": [
+    "x-mill",
+    "x-withholding",
+    "x-docfee"
+   ],
+   "refs": [
+    "co-numbers"
    ]
   },
   {
@@ -1779,6 +1984,10 @@
     "s4-027",
     "g4-003",
     "h8-025"
+   ],
+   "refs": [
+    "co-numbers",
+    "federal"
    ]
   },
   {
@@ -1807,6 +2016,15 @@
     "g3-015",
     "g3-022",
     "g3-024"
+   ],
+   "drills": [
+    "g3-x-buyer-cash-newloan",
+    "g3-x-seller-net-tax",
+    "g3-x-assume-cash",
+    "x-taxprorate"
+   ],
+   "refs": [
+    "math"
    ]
   },
   {
@@ -1828,6 +2046,17 @@
     "g3-020",
     "g3-021",
     "h8-006"
+   ],
+   "drills": [
+    "g3-x-buyer-cash-newloan",
+    "g3-x-seller-net-tax",
+    "g3-x-assume-cash",
+    "x-net",
+    "x-taxprorate",
+    "x-rentprorate"
+   ],
+   "refs": [
+    "math"
    ]
   }
  ],

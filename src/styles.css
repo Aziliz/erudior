@@ -20,6 +20,8 @@
   --bad-soft: #f8e1dc;
   --flag: #a8720f;
   --flag-soft: #f7ebcf;
+  --study: #c2570c;
+  --study-soft: #fdeedd;
   --focus: #2c5e8f;
   --shadow: 0 1px 2px rgba(28, 40, 51, 0.06), 0 4px 16px rgba(28, 40, 51, 0.05);
 
@@ -50,6 +52,8 @@
     --bad-soft: #3a1f1a;
     --flag: #e2b555;
     --flag-soft: #352b15;
+  --study: #f39c55;
+  --study-soft: #3a2415;
     --focus: #84b6e6;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
@@ -73,6 +77,8 @@
   --bad-soft: #3a1f1a;
   --flag: #e2b555;
   --flag-soft: #352b15;
+  --study: #f39c55;
+  --study-soft: #3a2415;
   --focus: #84b6e6;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   color-scheme: dark;
@@ -1601,11 +1607,15 @@ button.gloss:hover {
   margin-top: 4px;
 }
 .lesson-practice {
-  margin-top: 36px;
-  background: var(--sheet);
+  margin-top: 16px;
+  background: var(--study-soft);
+  border-color: var(--study);
+}
+.lesson-practice h2 {
+  color: var(--study);
 }
 .lesson-quiz {
-  margin-top: 16px;
+  margin-top: 36px;
   background: var(--sheet);
 }
 .lesson-foot {

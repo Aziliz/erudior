@@ -14,6 +14,7 @@ python3 content/build_course.py
 | `quizzes/<module>.json` | Coverage maps: each lesson's teaching points mapped to questions answerable from that lesson alone (the lesson quiz), plus a module quiz spanning every point |
 | `parts/h1–h8.json` | Questions written to cover lesson points no earlier question covered |
 | `abbreviations.json` | Every abbreviation: what it stands for and what it means; the build turns each into its own glossary entry |
+| `lesson-links.json` | Per lesson: the math drills and quick-reference sheets offered in its Study tools box |
 | `refs/*.md` | Quick-reference sheets |
 | `drills.json` | Math drill templates (format in `docs/COURSE_FORMAT.md`) |
 | `research/` | Writers' fact notes with source links |

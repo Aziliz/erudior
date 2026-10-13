@@ -133,6 +133,9 @@ export interface Lesson {
   minutes?: number;
   /** Markdown. [[term]] or [[term|shown text]] links to the glossary. */
   body: string;
+  /** Math drill ids and quick-reference sheet ids offered in the lesson's study box. */
+  drills?: string[];
+  refs?: string[];
   /**
    * End-of-lesson quiz: ids of questions in the course's first bank. When set,
    * passing the quiz (LESSON_QUIZ_PASS percent) is what marks the lesson complete.

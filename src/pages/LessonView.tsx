@@ -5,7 +5,7 @@ import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
 import { today } from "../lib/srs";
-import { lessonQuizQuestions, startPractice } from "../lib/session";
+import { lessonQuizQuestions } from "../lib/session";
 import { mainBank } from "./CourseHome";
 
 export default function LessonView({
@@ -30,7 +30,8 @@ export default function LessonView({
 
   const topics = lesson.topics ?? [];
   const bank = mainBank(course);
-  const topicQs = bank ? bank.questions.filter((q) => topics.includes(q.topic)).length : 0;
+  const lessonDrills = course.drills.filter((d) => lesson.drills?.includes(d.id));
+  const lessonRefs = (lesson.refs ?? []).map((id) => course.references.find((r) => r.id === id)).filter((r) => !!r);
   const topicCards = course.decks.reduce((s, d) => s + d.cards.filter((c) => c.topic && topics.includes(c.topic)).length, 0);
 
   const goLesson = (id: string) => api.go({ name: "lesson", courseId: course.id, lessonId: id });
@@ -84,29 +85,10 @@ export default function LessonView({
 
       {hasQuiz && bank && <InlineQuiz key={lesson.id} api={api} course={course} lesson={lesson} bank={bank} />}
 
-      {(topicQs > 0 || topicCards > 0) && (
+      {(topicCards > 0 || lessonDrills.length > 0 || lessonRefs.length > 0) && (
         <section className="panel lesson-practice">
-          <h2>Check yourself</h2>
+          <h2>Study tools</h2>
           <div className="row" style={{ marginTop: 10 }}>
-            {bank && topicQs > 0 && (
-              <button
-                className="btn"
-                onClick={() =>
-                  api.go({
-                    name: "run",
-                    session: startPractice(bank, api.progress, {
-                      count: Math.min(10, topicQs),
-                      topics,
-                      sections: [],
-                      filter: "all",
-                      shuffleChoices: true,
-                    }),
-                  })
-                }
-              >
-                Practice {Math.min(10, topicQs)} questions on this
-              </button>
-            )}
             {topicCards > 0 && (
               <button
                 className="btn"
@@ -117,6 +99,21 @@ export default function LessonView({
                 Flip through {topicCards} related notecards
               </button>
             )}
+            {lessonDrills.length > 0 && (
+              <button
+                className="btn"
+                onClick={() =>
+                  api.go({ name: "drill", courseId: course.id, drillIds: lessonDrills.map((d) => d.id), count: 5 })
+                }
+              >
+                Practice the math ({lessonDrills.length} drill{lessonDrills.length === 1 ? "" : "s"})
+              </button>
+            )}
+            {lessonRefs.map((r) => (
+              <button key={r.id} className="btn" onClick={() => api.go({ name: "ref", courseId: course.id, refId: r.id })}>
+                Quick reference: {r.title}
+              </button>
+            ))}
           </div>
         </section>
       )}

@@ -38,6 +38,7 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
 - `body` is Markdown (GitHub-flavored, so tables work). Block quotes render as call-out boxes, which suit exam tips.
 - `topics` connects the lesson to question and notecard topics. The lesson page offers "practice questions on this" and "flip related notecards" for them, and the planner uses the topics of lessons you've finished to choose practice questions.
 - `quiz` (optional) lists question ids from the course's first bank, in order. The lesson ends with that quiz: answers and explanations show as you go, every question is scored, and getting 70% (rounded up) marks the lesson complete. Lessons with a quiz can't be checked off by hand. Ids that aren't in the bank are skipped. There's no fixed size: include just enough questions to cover what the lesson teaches.
+- `drills` and `refs` (optional) list math drill ids and quick-reference sheet ids. The lesson's Study tools box links them, along with the notecards for the lesson's topics.
 - A **module** can also have a `quiz` (`{ "id": "m1", "title": "Foundations", "quiz": ["q-1", "q-9"] }`). It appears at the end of the module in the Lessons tab, unlocks once every lesson in the module is complete, works like a lesson quiz, and passing it at 70% marks the module complete.
 
 ## Question banks

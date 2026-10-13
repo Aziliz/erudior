@@ -95,6 +95,11 @@ qids = {q["id"] for q in questions}
 # Lesson and module quizzes come from the coverage maps in content/quizzes/<module>.json:
 # each lesson's teaching points mapped to questions answerable from that lesson alone
 # (any size, just enough to cover every point), and a module quiz spanning every point.
+# Study links per lesson (math drills and quick-reference sheets), shown in the
+# lesson's study box: content/lesson-links.json.
+LINKS = json.loads((ROOT / "lesson-links.json").read_text())
+assert set(LINKS) == {l["id"] for l in lessons}, set(LINKS) ^ {l["id"] for l in lessons}
+
 QUIZZES = {p.stem: json.loads(p.read_text()) for p in sorted((ROOT / "quizzes").glob("*.json"))}
 lesson_ids = {l["id"] for l in lessons}
 for m in modules:
@@ -163,10 +168,19 @@ ids = [q["id"] for q in questions] + [c["id"] for d in decks for c in d["cards"]
 dupes = [i for i, n in collections.Counter(ids).items() if n > 1]
 assert not dupes, dupes
 
+for l in lessons:
+    for k in ("drills", "refs"):
+        if LINKS[l["id"]].get(k):
+            l[k] = LINKS[l["id"]][k]
 references = [{"id": rid, "title": t, "body": (ROOT / "refs" / f).read_text().strip()} for rid, t, f in REFS]
 drills = json.loads((ROOT / "drills.json").read_text())
 for f in GAP_DRILLS:
     drills += json.loads((ROOT / "parts" / f).read_text())
+ref_ids = {r["id"] for r in references}
+drill_ids = {d["id"] for d in drills}
+for l in lessons:
+    assert set(l.get("drills", [])) <= drill_ids, (l["id"], set(l.get("drills", [])) - drill_ids)
+    assert set(l.get("refs", [])) <= ref_ids, (l["id"], set(l.get("refs", [])) - ref_ids)
 
 course = {
     "format": "examiner-course",
@@ -180,8 +194,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Examiner",
-    "revision": 12,
-    "changelog": "Lesson quizzes are now sized to cover exactly what each lesson teaches, and every module ends with a module quiz across all its topics (pass with 70% to complete the module). 351 new questions fill topics no question covered before. Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
+    "revision": 13,
+    "changelog": "Each lesson's study box now links its notecards, related math drills and quick-reference sheets. Lesson quizzes are now sized to cover exactly what each lesson teaches, and every module ends with a module quiz across all its topics (pass with 70% to complete the module). 351 new questions fill topics no question covered before. Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
     "modules": modules,
     "lessons": lessons,
     "banks": [{

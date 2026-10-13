@@ -46,6 +46,8 @@ export function normalizeCourse(raw: unknown): Course {
         minutes: Number(l.minutes) > 0 ? Number(l.minutes) : undefined,
         body: str(l.body),
         quiz: arr(l.quiz).length ? arr(l.quiz).map(String).filter(Boolean) : undefined,
+        drills: arr(l.drills).length ? arr(l.drills).map(String).filter(Boolean) : undefined,
+        refs: arr(l.refs).length ? arr(l.refs).map(String).filter(Boolean) : undefined,
       };
     });
 
