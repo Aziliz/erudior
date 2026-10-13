@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import DrillFigure from "../components/DrillFigure";
+import MathText from "../components/MathText";
 import type { AppApi } from "../App";
 import type { Course, Drill, GlossaryEntry, Lesson, RefSheet } from "../lib/types";
 import { confirmAction } from "../lib/storage";
@@ -528,8 +530,10 @@ function Drills({ draft, update }: EP) {
           <div className="stack">
             <p className="small muted">
               Drills are templates: <code>vars</code> are random inputs, <code>calc</code> derives values in order, and{" "}
-              <code>{"{name:format}"}</code> fills them into the prompt and solution. Formats: money, money0, percent, pct1,
-              int, num1, num2. See docs/COURSE_FORMAT.md.
+              <code>{"{name:format}"}</code> fills them into the prompt and solution. Optional: <code>funcs</code> (f(x) to use
+              with deriv/integ/solve/limit), <code>where</code> (re-roll rules), <code>answers</code> (multi-part, fraction,
+              expression, units, sig figs) and <code>figure</code> (graphs and diagrams). Write math as $…$. See
+              docs/COURSE_FORMAT.md.
             </p>
             <textarea className="textarea mono" rows={22} value={text} onChange={(e) => apply(e.target.value)} spellCheck={false} />
             {parseErr && <p className="notice error">{parseErr}</p>}
@@ -537,6 +541,10 @@ function Drills({ draft, update }: EP) {
               <div className="panel">
                 <h3 style={{ marginBottom: 8 }}>Sample</h3>
                 <Markdown source={sample.prompt} />
+                <DrillFigure inst={sample} />
+                <p className="small muted" style={{ marginTop: 8 }}>
+                  Answer: <MathText text={sample.parts.map((x) => x.display).join("; ")} />
+                </p>
                 <p className="small muted" style={{ marginTop: 8 }}>
                   Solution:
                 </p>

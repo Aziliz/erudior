@@ -1,7 +1,10 @@
 import { useMemo, useRef, useState } from "react";
+import MathText from "./MathText";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import type { GlossaryEntry } from "../lib/types";
+import { protectMath } from "../lib/math";
+import { protectFigures } from "../lib/figure";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -23,9 +26,16 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
   );
 }
 
-export function renderMarkdown(md: string): string {
-  const html = marked.parse(linkTerms(md), { async: false }) as string;
-  return DOMPurify.sanitize(html, { ADD_ATTR: ["data-term", "type"] });
+export function renderMarkdown(md: string, scope?: Record<string, number>): string {
+  // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
+  // back in after Markdown, so Markdown never mangles their contents.
+  const figs = protectFigures(md, scope);
+  const math = protectMath(figs.text);
+  const html = math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string));
+  return DOMPurify.sanitize(html, {
+    ADD_TAGS: ["marker", "clipPath"],
+    ADD_ATTR: ["data-term", "type", "marker-end", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
+  });
 }
 
 interface Pop {
@@ -39,12 +49,15 @@ export default function Markdown({
   source,
   glossary = [],
   className = "prose",
+  scope,
 }: {
   source: string;
   glossary?: GlossaryEntry[];
   className?: string;
+  /** Values for expressions inside figures (drills). */
+  scope?: Record<string, number>;
 }) {
-  const html = useMemo(() => renderMarkdown(source), [source]);
+  const html = useMemo(() => renderMarkdown(source, scope), [source, scope]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -75,7 +88,7 @@ export default function Markdown({
                 ✕
               </button>
             </div>
-            <p>{pop.entry ? pop.entry.definition : "This term isn't in the glossary yet."}</p>
+            <p>{pop.entry ? <MathText text={pop.entry.definition} /> : "This term isn't in the glossary yet."}</p>
           </div>
         </>
       )}

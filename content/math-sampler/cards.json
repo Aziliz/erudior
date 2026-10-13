@@ -1,0 +1,20 @@
+[
+ {
+  "id": "mc1",
+  "topic": "Algebra",
+  "front": "Quadratic formula",
+  "back": "$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$"
+ },
+ {
+  "id": "mc2",
+  "topic": "Calculus",
+  "front": "Power rule",
+  "back": "$\\dfrac{d}{dx}x^n = nx^{n-1}$"
+ },
+ {
+  "id": "mc3",
+  "topic": "Calculus",
+  "front": "Fundamental theorem of calculus",
+  "back": "$\\displaystyle\\int_a^b f(x)\\,dx = F(b) - F(a)$ where $F' = f$"
+ }
+]

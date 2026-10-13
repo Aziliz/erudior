@@ -1,0 +1,17 @@
+{
+ "id": "math-tools-tour",
+ "module": "m-math",
+ "title": "A tour of the math tools",
+ "minutes": 10,
+ "topics": [
+  "Algebra",
+  "Calculus",
+  "Graphing"
+ ],
+ "drills": [
+  "alg-quadratic",
+  "calc-slope",
+  "graph-vertex"
+ ],
+ "body": "## Math notation\n\nLessons, questions, notecards and drills can show math. Inline: the quadratic formula is $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. On its own line:\n\n$$\\int_a^b f(x)\\,dx = F(b) - F(a)$$\n\nPrices still read normally: a $250,000 home with $3,000 in costs.\n\n## Graphs\n\nA parabola, its tangent line at $x = 1$, and the area under it from 0 to 2:\n\n```plot\n{\"x\": [-3, 4], \"y\": [-2, 8], \"functions\": [{\"f\": \"x^2 - 2x + 2\", \"label\": \"f\"}], \"tangents\": [{\"f\": \"x^2 - 2x + 2\", \"at\": 1}], \"shade\": [{\"f\": \"x^2 - 2x + 2\", \"from\": 0, \"to\": 2}], \"points\": [{\"at\": [1, 1], \"label\": \"vertex (1, 1)\"}]}\n```\n\nTrig functions over one period:\n\n```plot\n{\"x\": [0, 6.3], \"y\": [-1.5, 1.5], \"functions\": [{\"f\": \"sin(x)\", \"label\": \"sin x\"}, {\"f\": \"cos(x)\", \"label\": \"cos x\", \"dashed\": true}]}\n```\n\n## Diagrams\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [4, 0], [4, 3]]}], \"rightAngles\": [[[4, 0], [0, 0], [4, 3]]], \"segments\": [{\"from\": [0, 0], \"to\": [4, 0], \"label\": \"4\"}, {\"from\": [4, 0], \"to\": [4, 3], \"label\": \"3\"}, {\"from\": [4, 3], \"to\": [0, 0], \"label\": \"5\"}], \"labels\": [{\"at\": [0.8, 0.25], \"text\": \"\\u03b8\"}], \"caption\": \"A 3-4-5 right triangle\"}\n```\n\n## Answering\n\nIn drills you can type math: `3/4`, `sqrt(3)/2`, `2pi`, `6.02e23`, or an expression like `3x^2 - 2` when the answer is a formula. A preview shows how it reads. Some answers take units (`25 km/h`), and fraction answers must be exact."
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MathText from "../components/MathText";
 import type { AppApi, View } from "../App";
 import type { Attempt, Bank } from "../lib/types";
 import { lessonQuizNeeded, startLessonQuiz, startModuleQuiz, startPractice } from "../lib/session";
@@ -241,7 +242,7 @@ export default function Results({
                 </span>
                 {rec.flagged && <span className="pill neutral">Flagged</span>}
               </div>
-              <p className="q-stem">{q.stem}</p>
+              <MathText as="p" className="q-stem" text={q.stem} />
               {meta[q.id]?.note && <p className="note-show">Your note: {meta[q.id]?.note}</p>}
               <ul className="review-choices">
                 {q.choices.map((c, i) => {
@@ -252,14 +253,14 @@ export default function Results({
                     <li key={i}>
                       <span className={b}>{LETTERS[i]}</span>
                       <span>
-                        {c}
+                        <MathText text={c} />
                         {picked && <span className="faint small"> (your answer)</span>}
                       </span>
                     </li>
                   );
                 })}
               </ul>
-              {q.explanation && <p className="review-expl">{q.explanation}</p>}
+              {q.explanation && <MathText as="p" className="review-expl" text={q.explanation} />}
               <div className="row review-actions">
                 <button className="btn sm ghost flag-btn" aria-pressed={!!meta[q.id]?.flag} onClick={() => toggleFlag(q.id)}>
                   {meta[q.id]?.flag ? "Flagged" : "Flag for later"}

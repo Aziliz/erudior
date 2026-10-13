@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import MathText from "../components/MathText";
 import type { AppApi } from "../App";
 import type { Bank, Course, Plan } from "../lib/types";
 import * as store from "../lib/storage";
@@ -790,7 +791,9 @@ function GlossaryTab({ course }: { course: Course }) {
                     {g.term}
                     {g.aliases && g.aliases.length > 0 && <span className="faint small"> ({g.aliases.join(", ")})</span>}
                   </dt>
-                  <dd>{g.definition}</dd>
+                  <dd>
+                    <MathText text={g.definition} />
+                  </dd>
                 </div>
               ))}
             </dl>

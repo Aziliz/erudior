@@ -1,11 +1,27 @@
-import type { Drill, NumFormat } from "./types";
+import type { Drill, FigureSpec, NumFormat } from "./types";
+import { fillFigureText } from "./figure";
 import { compileFuncs, evaluate, type UserFn } from "./expr";
+import {
+  checkPart,
+  defaultTolerance as tol0,
+  fractionTex,
+  fractionText,
+  readAnswer,
+  resolveParts,
+  sciTex,
+  sciText,
+  type PartInstance,
+} from "./answers";
 
 export interface DrillInstance {
   drill: Drill;
   values: Record<string, number | string>;
   /** Compiled drill functions, bound to this problem's values. */
   funcs: Record<string, UserFn>;
+  /** The answer boxes for this problem. */
+  parts: PartInstance[];
+  /** The drill's figures with {placeholders} in their labels filled in. */
+  figures: FigureSpec[];
   prompt: string;
   solution: string;
   answer: number;
@@ -58,8 +74,32 @@ export function formatNum(v: number | string, fmt?: string): string {
       return v.toLocaleString("en-US", { maximumFractionDigits: 4 });
     case "month":
       return MONTHS[Math.round(v) - 1] ?? String(v);
-    default:
+    case "fraction":
+    case "frac":
+      return fractionText(v);
+    case "texfrac":
+      return fractionTex(v);
+    case "sci":
+      return sciText(v);
+    case "texsci":
+      return sciTex(v);
+    case "deg":
+      return `${Number(v.toFixed(2))}°`;
+    case "coef":
+      // Coefficient in front of a variable: 1 -> "", -1 -> "-", 3 -> "3".
+      return v === 1 ? "" : v === -1 ? "-" : String(Number(v.toFixed(4)));
+    case "signed":
+      // A term after another: "+ 3" or "- 3" (the sign becomes the operator).
+      return `${v < 0 ? "-" : "+"} ${Number(Math.abs(v).toFixed(4))}`;
+    case "signedcoef":
+      return `${v < 0 ? "-" : "+"} ${Math.abs(v) === 1 ? "" : Number(Math.abs(v).toFixed(4))}`;
+    default: {
+      const sig = /^sig(\d)$/.exec(fmt ?? "");
+      if (sig) return String(Number(v.toPrecision(Number(sig[1]))));
+      const dp = /^dp(\d)$/.exec(fmt ?? "");
+      if (dp) return v.toFixed(Number(dp[1]));
       return v.toLocaleString("en-US", { maximumFractionDigits: 2 });
+    }
   }
 }
 
@@ -71,16 +111,7 @@ function fill(text: string, values: Record<string, number | string>, labels: Rec
 }
 
 export function defaultTolerance(fmt: NumFormat): number {
-  switch (fmt) {
-    case "money":
-      return 0.01;
-    case "money0":
-      return 1;
-    case "integer":
-      return 0;
-    default:
-      return 0.01;
-  }
+  return tol0(fmt);
 }
 
 /** How many times to re-roll inputs looking for a problem that meets `where`. */
@@ -134,32 +165,39 @@ export function generate(drill: Drill): DrillInstance {
     });
   }
   if (!ok) throw new Error(`${drill.title}: no inputs met the "where" conditions after ${MAX_TRIES} tries`);
-  const ans = values[drill.answer];
-  if (typeof ans !== "number") throw new Error(`${drill.title}: answer "${drill.answer}" is not a number`);
+  const parts = resolveParts(drill, values, funcs, (t) => fill(t, values, labels), formatNum);
   return {
     drill,
     values,
     funcs,
+    parts,
+    figures: (drill.figure ? (Array.isArray(drill.figure) ? drill.figure : [drill.figure]) : []).map((f) =>
+      fillFigureText(f, (t) => fill(t, values, labels)),
+    ),
     prompt: fill(drill.prompt, values, labels),
     solution: fill(drill.solution, values, labels),
-    answer: ans,
+    answer: parts[0].target ?? NaN,
   };
 }
 
-/** Parse what the user typed: allows $, commas, %, spaces. */
-export function parseAnswer(text: string): number | null {
-  const clean = text.replace(/[$,%\s]/g, "");
-  if (!clean || !/^-?\d*\.?\d+$/.test(clean)) return null;
-  return Number(clean);
+/** Parse a typed number for the first answer box: allows $, commas, %, and math like 3/4. */
+export function parseAnswer(text: string, inst?: DrillInstance): number | null {
+  try {
+    const part = inst?.parts[0] ?? ({ spec: {}, scope: {}, funcs: {}, display: "" } as PartInstance);
+    return readAnswer(part, text).value ?? null;
+  } catch {
+    return null;
+  }
 }
 
-export function checkAnswer(inst: DrillInstance, given: number): boolean {
-  const fmt = inst.drill.format;
-  const tol = inst.drill.tolerance ?? defaultTolerance(fmt);
-  let target = inst.answer;
-  if (fmt === "money") target = Math.round(target * 100) / 100;
-  if (fmt === "money0" || fmt === "integer") target = Math.round(target);
-  return Math.abs(given - target) <= tol + 1e-9;
+/** Check a typed answer against the first answer box (single-answer drills). */
+export function checkAnswer(inst: DrillInstance, given: number | string): boolean {
+  return checkPart(inst.parts[0], String(given)).ok;
+}
+
+/** Check every answer box; texts are in part order. */
+export function checkAll(inst: DrillInstance, texts: string[]) {
+  return inst.parts.map((p, i) => checkPart(p, texts[i] ?? ""));
 }
 
 /** Validate a drill by generating several samples. Returns an error message or null. */

@@ -99,13 +99,17 @@ export function normalizeCourse(raw: unknown): Course {
       title: str(d.title) || `Drill ${i + 1}`,
       topic: str(d.topic) || undefined,
       vars: (isObj(d.vars) ? d.vars : {}) as Drill["vars"],
+      funcs: (isObj(d.funcs) ? d.funcs : undefined) as Drill["funcs"],
       calc: (isObj(d.calc) ? d.calc : undefined) as Drill["calc"],
+      where: arr(d.where).length ? arr(d.where).map(String) : undefined,
       prompt: str(d.prompt),
       answer: str(d.answer),
-      format: (["money", "money0", "percent", "number", "integer"].includes(str(d.format))
+      format: (["money", "money0", "percent", "number", "integer", "fraction", "sci"].includes(str(d.format))
         ? str(d.format)
         : "number") as Drill["format"],
       tolerance: Number.isFinite(Number(d.tolerance)) && d.tolerance !== undefined ? Number(d.tolerance) : undefined,
+      answers: arr(d.answers).length ? (arr(d.answers).filter(isObj) as Drill["answers"]) : undefined,
+      figure: isObj(d.figure) || Array.isArray(d.figure) ? (d.figure as Drill["figure"]) : undefined,
       solution: str(d.solution),
     }));
 

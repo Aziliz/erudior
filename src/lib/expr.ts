@@ -559,3 +559,161 @@ export function evaluate(
   if (!Number.isFinite(v)) throw new Error(`"${src}" is not a finite number`);
   return v;
 }
+
+// ---------------------------------------------------------------------------
+// Inspection and display
+
+/** Every variable name used in an expression (constants excluded). */
+export function collectVars(n: Node, out = new Set<string>()): Set<string> {
+  if (n.k === "var" && !(n.name in CONSTS)) out.add(n.name);
+  else if (n.k === "un") collectVars(n.a, out);
+  else if (n.k === "bin") {
+    collectVars(n.a, out);
+    collectVars(n.b, out);
+  } else if (n.k === "call") {
+    // The first argument of deriv/integ/... names a function, not a variable.
+    n.args.forEach((a, i) => (HIGHER.has(n.name) && i === 0 ? null : collectVars(a, out)));
+  }
+  return out;
+}
+
+/** Replace known variables with their numbers (used to show an answer with this problem's values). */
+export function substitute(n: Node, scope: Record<string, number>): Node {
+  switch (n.k) {
+    case "var":
+      return n.name in scope ? { k: "num", v: scope[n.name] } : n;
+    case "un":
+      return { ...n, a: substitute(n.a, scope) };
+    case "bin":
+      return { ...n, a: substitute(n.a, scope), b: substitute(n.b, scope) };
+    case "call":
+      return { ...n, args: n.args.map((a, i) => (HIGHER.has(n.name) && i === 0 ? a : substitute(a, scope))) };
+    default:
+      return n;
+  }
+}
+
+const PREC: Record<string, number> = { or: 1, and: 2, "<": 4, "<=": 4, ">": 4, ">=": 4, "==": 4, "!=": 4, "+": 5, "-": 5, "*": 6, "/": 6, "^": 8 };
+const TEX_FN: Record<string, string> = {
+  sin: "\\sin", cos: "\\cos", tan: "\\tan", asin: "\\arcsin", acos: "\\arccos", atan: "\\arctan",
+  sinh: "\\sinh", cosh: "\\cosh", tanh: "\\tanh", ln: "\\ln", log: "\\log", exp: "\\exp",
+};
+
+function numTex(v: number): string {
+  if (Number.isInteger(v)) return String(v);
+  const r = Number(v.toPrecision(6));
+  if (Math.abs(r) >= 1e-4 && Math.abs(r) < 1e7) return String(r);
+  const [m, ex] = r.toExponential(4).split("e");
+  return `${Number(m)} \\times 10^{${Number(ex)}}`;
+}
+
+/** Render an expression tree as TeX for KaTeX. */
+export function toTex(n: Node, parent = 0): string {
+  const wrap = (s: string, prec: number) => (prec < parent ? `\\left(${s}\\right)` : s);
+  switch (n.k) {
+    case "num":
+      return n.v < 0 ? wrap(numTex(n.v), 5) : numTex(n.v);
+    case "var":
+      if (n.name === "pi") return "\\pi";
+      if (n.name === "tau") return "\\tau";
+      return n.name.length > 1 ? `\\mathit{${n.name}}` : n.name;
+    case "un":
+      if (n.op === "-") return wrap(`-${toTex(n.a, 7)}`, 7);
+      return wrap(`\\lnot ${toTex(n.a, 3)}`, 3);
+    case "bin": {
+      const p = PREC[n.op] ?? 5;
+      if (n.op === "/") return `\\frac{${toTex(n.a)}}{${toTex(n.b)}}`;
+      if (n.op === "^") return wrap(`{${toTex(n.a, 9)}}^{${toTex(n.b)}}`, p);
+      if (n.op === "*") {
+        const a = toTex(n.a, p);
+        const b = toTex(n.b, p + 1);
+        // 3x, 2\pi, x y read naturally; two numbers need a dot.
+        const needDot = /\d$/.test(a) && /^[\d-]/.test(b);
+        return wrap(`${a}${needDot ? " \\cdot " : " "}${b}`, p);
+      }
+      const sym: Record<string, string> = { "<=": "\\le", ">=": "\\ge", "!=": "\\ne", "==": "=", and: "\\land", or: "\\lor" };
+      const right = toTex(n.b, n.op === "-" ? p + 1 : p);
+      if (n.op === "+" && right.startsWith("-")) return wrap(`${toTex(n.a, p)} - ${right.slice(1)}`, p);
+      return wrap(`${toTex(n.a, p)} ${sym[n.op] ?? n.op} ${right}`, p);
+    }
+    case "call": {
+      const a = n.args.map((x) => toTex(x));
+      switch (n.name) {
+        case "sqrt":
+          return `\\sqrt{${a[0]}}`;
+        case "cbrt":
+          return `\\sqrt[3]{${a[0]}}`;
+        case "root":
+          return `\\sqrt[${a[1]}]{${a[0]}}`;
+        case "abs":
+          return `\\left|${a[0]}\\right|`;
+        case "fact":
+          return `${toTex(n.args[0], 10)}!`;
+        case "nCr":
+          return `\\binom{${a[0]}}{${a[1]}}`;
+        case "log":
+          return n.args.length > 1 ? `\\log_{${a[1]}}\\left(${a[0]}\\right)` : `\\log\\left(${a[0]}\\right)`;
+        case "deriv":
+          return `${toTex(n.args[0])}'\\left(${a[1]}\\right)`;
+        case "integ":
+          return `\\int_{${a[1]}}^{${a[2]}} ${toTex(n.args[0])}\\,dx`;
+      }
+      const fn = TEX_FN[n.name] ?? (n.name.length > 1 ? `\\operatorname{${n.name}}` : n.name);
+      return `${fn}\\left(${a.join(", ")}\\right)`;
+    }
+  }
+}
+
+/** Light tidy-up for display: fold number arithmetic and drop ×1, +0, ^1. */
+export function simplify(n: Node): Node {
+  if (n.k === "un") {
+    const a = simplify(n.a);
+    if (n.op === "-" && a.k === "num") return { k: "num", v: -a.v };
+    if (n.op === "-" && a.k === "un" && a.op === "-") return a.a;
+    return { ...n, a };
+  }
+  if (n.k === "call") return { ...n, args: n.args.map((x, i) => (HIGHER.has(n.name) && i === 0 ? x : simplify(x))) };
+  if (n.k !== "bin") return n;
+  const a = simplify(n.a);
+  const b = simplify(n.b);
+  const num = (x: Node, v?: number) => x.k === "num" && (v === undefined || x.v === v);
+  if (a.k === "num" && b.k === "num") {
+    const v = run({ ...n, a, b }, { scope: {} });
+    // Keep non-terminating divisions as fractions.
+    if (n.op !== "/" || Number.isInteger(v)) return { k: "num", v };
+  }
+  switch (n.op) {
+    case "*":
+      if (num(a, 0) || num(b, 0)) return { k: "num", v: 0 };
+      if (num(a, 1)) return b;
+      if (num(b, 1)) return a;
+      if (num(a, -1)) return simplify({ k: "un", op: "-", a: b });
+      // 2 * (3 * x) -> 6x
+      if (a.k === "num" && b.k === "bin" && b.op === "*" && b.a.k === "num")
+        return simplify({ k: "bin", op: "*", a: { k: "num", v: a.v * b.a.v }, b: b.b });
+      break;
+    case "+":
+      if (num(a, 0)) return b;
+      if (num(b, 0)) return a;
+      if (b.k === "num" && b.v < 0) return { k: "bin", op: "-", a, b: { k: "num", v: -b.v } };
+      break;
+    case "-":
+      if (num(b, 0)) return a;
+      if (num(a, 0)) return simplify({ k: "un", op: "-", a: b });
+      if (b.k === "num" && b.v < 0) return { k: "bin", op: "+", a, b: { k: "num", v: -b.v } };
+      break;
+    case "^":
+      if (num(b, 1)) return a;
+      if (num(b, 0)) return { k: "num", v: 1 };
+      break;
+    case "/":
+      if (num(b, 1)) return a;
+      break;
+  }
+  return { ...n, a, b };
+}
+
+/** Numerical derivative of a one-variable function at x (used for tangent lines). */
+export function derivAt(f: (x: number) => number, x: number): number {
+  return deriv(f, x, 1);
+}

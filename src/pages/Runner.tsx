@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import MathText from "../components/MathText";
 import type { AppApi, View } from "../App";
 import type { Bank, Lesson } from "../lib/types";
 import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
@@ -294,7 +295,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
               {sectionName && blocks.length === 1 && <span>{sectionName}</span>}
               {!isExam && <span>{q.topic}</span>}
             </div>
-            <p className="q-stem">{q.stem}</p>
+            <MathText as="p" className="q-stem" text={q.stem} />
             {multi && <p className="q-hint">Select {q.answer.length} answers.</p>}
 
             <div className="choices" role={multi ? "group" : "radiogroup"} aria-label="Answer choices">
@@ -325,7 +326,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
                     onClick={() => choose(orig)}
                   >
                     <span className={bubble}>{LETTERS[pos]}</span>
-                    <span>{q.choices[orig]}</span>
+                    <MathText text={q.choices[orig]} />
                   </button>
                 );
               })}
@@ -342,7 +343,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
                         .join(" and ")}.`}
                 </p>
                 {q.explanation ? (
-                  <p className="expl">{q.explanation}</p>
+                  <MathText as="p" className="expl" text={q.explanation} />
                 ) : (
                   <p className="small muted">No explanation for this question.</p>
                 )}

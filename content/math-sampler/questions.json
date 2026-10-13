@@ -1,0 +1,77 @@
+[
+ {
+  "id": "mq1",
+  "topic": "Algebra",
+  "stem": "Which values solve $x^2 - 5x + 6 = 0$?",
+  "choices": [
+   "$x = 2$ or $x = 3$",
+   "$x = -2$ or $x = -3$",
+   "$x = 1$ or $x = 6$",
+   "$x = -1$ or $x = 6$"
+  ],
+  "answer": [
+   0
+  ],
+  "explanation": "Factor: $(x - 2)(x - 3) = 0$."
+ },
+ {
+  "id": "mq2",
+  "topic": "Calculus",
+  "stem": "What is $\\dfrac{d}{dx}\\sin x$?",
+  "choices": [
+   "$-\\cos x$",
+   "$\\cos x$",
+   "$\\sin x$",
+   "$-\\sin x$"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "The derivative of $\\sin x$ is $\\cos x$."
+ },
+ {
+  "id": "mq3",
+  "topic": "Calculus",
+  "stem": "$\\displaystyle\\int_0^1 2x\\,dx = $ ?",
+  "choices": [
+   "$0$",
+   "$\\tfrac12$",
+   "$1$",
+   "$2$"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "$\\left[x^2\\right]_0^1 = 1$."
+ },
+ {
+  "id": "mq4",
+  "topic": "Graphing",
+  "stem": "The graph of $y = -2x + 3$ crosses the $y$-axis at",
+  "choices": [
+   "$(0, 3)$",
+   "$(3, 0)$",
+   "$(0, -2)$",
+   "$(1.5, 0)$"
+  ],
+  "answer": [
+   0
+  ],
+  "explanation": "Set $x = 0$: $y = 3$."
+ },
+ {
+  "id": "mq5",
+  "topic": "Algebra",
+  "stem": "Simplify $\\sqrt{50}$.",
+  "choices": [
+   "$5\\sqrt{2}$",
+   "$25\\sqrt{2}$",
+   "$2\\sqrt{5}$",
+   "$10\\sqrt{5}$"
+  ],
+  "answer": [
+   0
+  ],
+  "explanation": "$\\sqrt{50} = \\sqrt{25 \\cdot 2} = 5\\sqrt{2}$."
+ }
+]

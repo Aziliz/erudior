@@ -22,6 +22,12 @@
   --flag-soft: #f7ebcf;
   --study: #c2570c;
   --study-soft: #fdeedd;
+  --fig-0: #2c5e8f;
+  --fig-1: #c2570c;
+  --fig-2: #2f855a;
+  --fig-3: #8b3fa8;
+  --fig-4: #b7791f;
+  --fig-5: #c53030;
   --focus: #2c5e8f;
   --shadow: 0 1px 2px rgba(28, 40, 51, 0.06), 0 4px 16px rgba(28, 40, 51, 0.05);
 
@@ -54,6 +60,12 @@
     --flag-soft: #352b15;
   --study: #f39c55;
   --study-soft: #3a2415;
+  --fig-0: #84b6e6;
+  --fig-1: #f39c55;
+  --fig-2: #68d391;
+  --fig-3: #d6a2e8;
+  --fig-4: #f6c768;
+  --fig-5: #fc8181;
     --focus: #84b6e6;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
@@ -79,6 +91,12 @@
   --flag-soft: #352b15;
   --study: #f39c55;
   --study-soft: #3a2415;
+  --fig-0: #84b6e6;
+  --fig-1: #f39c55;
+  --fig-2: #68d391;
+  --fig-3: #d6a2e8;
+  --fig-4: #f6c768;
+  --fig-5: #fc8181;
   --focus: #84b6e6;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   color-scheme: dark;
@@ -1971,4 +1989,116 @@ mark {
 .update-banner {
   border-color: var(--ok);
   background: var(--ok-soft);
+}
+
+/* ---- Math and figures ---------------------------------------------------- */
+.math-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 12px 0;
+}
+.katex {
+  font-size: 1.08em;
+}
+.figure {
+  margin: 14px 0;
+  text-align: center;
+}
+.figure-svg {
+  max-width: 100%;
+  height: auto;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+}
+.figure figcaption {
+  font-size: 0.85em;
+  color: var(--pencil);
+  margin-top: 6px;
+}
+.fig-grid {
+  stroke: var(--rule);
+  stroke-width: 0.6;
+}
+.fig-axis {
+  stroke: var(--pencil);
+  stroke-width: 1.2;
+}
+.fig-tick {
+  fill: var(--pencil);
+  font: 11px var(--sans);
+}
+.fig-curve {
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+.fig-curve.dashed,
+.fig-seg.dashed {
+  stroke-dasharray: 6 4;
+}
+.fig-seg {
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+.fig-arrowhead {
+  fill: var(--ink);
+}
+.fig-poly {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+.fig-poly.filled {
+  fill-opacity: 0.18;
+}
+.fig-shade {
+  stroke: none !important;
+  fill-opacity: 0.22;
+}
+.fig-pt {
+  stroke-width: 1.5;
+}
+.fig-pt.open {
+  fill: var(--surface) !important;
+}
+.fig-label {
+  fill: var(--ink);
+  font: 13px var(--sans);
+}
+.fig-curve-label {
+  font-weight: 600;
+}
+.c0 { stroke: var(--fig-0); fill: var(--fig-0); }
+.c1 { stroke: var(--fig-1); fill: var(--fig-1); }
+.c2 { stroke: var(--fig-2); fill: var(--fig-2); }
+.c3 { stroke: var(--fig-3); fill: var(--fig-3); }
+.c4 { stroke: var(--fig-4); fill: var(--fig-4); }
+.c5 { stroke: var(--fig-5); fill: var(--fig-5); }
+.fig-curve.c0, .fig-curve.c1, .fig-curve.c2, .fig-curve.c3, .fig-curve.c4, .fig-curve.c5 { fill: none; }
+.fig-poly.c0:not(.filled), .fig-poly.c1:not(.filled), .fig-poly.c2:not(.filled), .fig-poly.c3:not(.filled), .fig-poly.c4:not(.filled), .fig-poly.c5:not(.filled) { fill: none; }
+.fig-label.c0, .fig-label.c1, .fig-label.c2, .fig-label.c3, .fig-label.c4, .fig-label.c5 { stroke: none; }
+.drill-figure {
+  margin: 4px 0 14px;
+}
+.drill-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: 0 1 auto;
+}
+.drill-answer {
+  flex-wrap: wrap;
+}
+.drill-box {
+  min-width: 200px;
+  max-width: 320px;
+  flex: 1;
+}
+.answer-preview {
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  background: var(--sheet);
+  min-height: 1.6em;
 }
