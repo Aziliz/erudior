@@ -1233,7 +1233,7 @@
      "answer": [
       0
      ],
-     "explanation": "The largest perfect square dividing 72 is 36: $\\sqrt{72} = \\sqrt{36 \\cdot 2} = 6\\sqrt2$.\n$36\\sqrt2$ forgets to take the square root of 36, and $2\\sqrt6$ swaps the outside number and the radicand."
+     "explanation": "The largest perfect square dividing 72 is 36: $\\sqrt{72} = \\sqrt{36 \\cdot 2} = 6\\sqrt2$. $36\\sqrt2$ forgets to take the square root of 36, and $2\\sqrt6$ swaps the outside number and the radicand."
     },
     {
      "id": "a1-q-2602",
@@ -1249,7 +1249,7 @@
      "answer": [
       1
      ],
-     "explanation": "50 is not a perfect square, so $\\sqrt{50} = 5\\sqrt2$ is irrational.\nThe others are rational: $\\sqrt{81} = 9$, $\\sqrt{0.49} = 0.7$ and $\\sqrt{\\tfrac{16}{25}} = \\tfrac45$."
+     "explanation": "50 is not a perfect square, so $\\sqrt{50} = 5\\sqrt2$ is irrational. The others are rational: $\\sqrt{81} = 9$, $\\sqrt{0.49} = 0.7$ and $\\sqrt{\\tfrac{16}{25}} = \\tfrac45$."
     },
     {
      "id": "a1-q-2603",
@@ -1265,7 +1265,7 @@
      "answer": [
       2
      ],
-     "explanation": "Simplify first: $\\sqrt{12} = 2\\sqrt3$ and $\\sqrt{27} = \\sqrt{9 \\cdot 3} = 3\\sqrt3$.\nThen $2\\sqrt3 + 5\\sqrt3 - 3\\sqrt3 = 4\\sqrt3$. ($10\\sqrt3$ adds the last term instead of subtracting it; $-2\\sqrt3$ uses $\\sqrt{27} = 9\\sqrt3$, forgetting to take the root of 9.)"
+     "explanation": "Simplify first: $\\sqrt{12} = 2\\sqrt3$ and $\\sqrt{27} = \\sqrt{9 \\cdot 3} = 3\\sqrt3$. Then $2\\sqrt3 + 5\\sqrt3 - 3\\sqrt3 = 4\\sqrt3$. ($10\\sqrt3$ adds the last term instead of subtracting it; $-2\\sqrt3$ uses $\\sqrt{27} = 9\\sqrt3$, forgetting to take the root of 9.)"
     },
     {
      "id": "a1-q-2604",
@@ -1281,7 +1281,7 @@
      "answer": [
       3
      ],
-     "explanation": "Multiply outside numbers and radicands: $10\\sqrt{18} = 10\\sqrt{9 \\cdot 2} = 10 \\cdot 3\\sqrt2 = 30\\sqrt2$.\n$7\\sqrt{18}$ adds the 2 and 5 instead of multiplying; $10\\sqrt9$ multiplies $6 \\cdot 3$ wrong ($6 \\cdot 3 = 18$, not 9)."
+     "explanation": "Multiply outside numbers and radicands: $10\\sqrt{18} = 10\\sqrt{9 \\cdot 2} = 10 \\cdot 3\\sqrt2 = 30\\sqrt2$. $7\\sqrt{18}$ adds the 2 and 5 instead of multiplying; $10\\sqrt9$ multiplies $6 \\cdot 3$ wrong ($6 \\cdot 3 = 18$, not 9)."
     },
     {
      "id": "a1-q-2605",
@@ -1297,7 +1297,7 @@
      "answer": [
       0
      ],
-     "explanation": "Add under the radical first: $\\sqrt{16 + 9} = \\sqrt{25} = 5$.\nThere is no rule $\\sqrt{a + b} = \\sqrt a + \\sqrt b$; the product rule splits products, not sums."
+     "explanation": "Add under the radical first: $\\sqrt{16 + 9} = \\sqrt{25} = 5$. There is no rule $\\sqrt{a + b} = \\sqrt a + \\sqrt b$; the product rule splits products, not sums."
     },
     {
      "id": "a1-q-2606",
@@ -1345,7 +1345,7 @@
      "answer": [
       3
      ],
-     "explanation": "If $q + x$ were rational with $q$ rational, then $x = (q + x) - q$ would be rational too, so rational + irrational is irrational.\nThe others fail: $\\sqrt2 \\cdot \\sqrt2 = 2$; $\\sqrt3 + (-\\sqrt3) = 0$; and $\\sqrt8$ is irrational although 8 isn't prime."
+     "explanation": "If $q + x$ were rational with $q$ rational, then $x = (q + x) - q$ would be rational too, so rational + irrational is irrational. The others fail: $\\sqrt2 \\cdot \\sqrt2 = 2$; $\\sqrt3 + (-\\sqrt3) = 0$; and $\\sqrt8$ is irrational although 8 isn't prime."
     },
     {
      "id": "a1-q-2609",
@@ -1361,7 +1361,7 @@
      "answer": [
       0
      ],
-     "explanation": "$c^2 = 4^2 + 8^2 = 16 + 64 = 80$, so $c = \\sqrt{80} = \\sqrt{16 \\cdot 5} = 4\\sqrt5 \\approx 8.94$.\n12 adds the legs; $2\\sqrt3 = \\sqrt{4 + 8}$ forgets to square them; $8\\sqrt2 = \\sqrt{8^2 + 8^2}$ uses 8 for both legs."
+     "explanation": "$c^2 = 4^2 + 8^2 = 16 + 64 = 80$, so $c = \\sqrt{80} = \\sqrt{16 \\cdot 5} = 4\\sqrt5 \\approx 8.94$. 12 adds the legs; $2\\sqrt3 = \\sqrt{4 + 8}$ forgets to square them; $8\\sqrt2 = \\sqrt{8^2 + 8^2}$ uses 8 for both legs."
     },
     {
      "id": "a1-q-2610",
@@ -1377,7 +1377,7 @@
      "answer": [
       1
      ],
-     "explanation": "Both $5\\sqrt2$ and $-5\\sqrt2$ square to 50, so $x = \\pm\\sqrt{50} = \\pm 5\\sqrt2$.\nThe symbol $\\sqrt{50}$ by itself is only the positive root; an equation $x^2 = 50$ has two solutions."
+     "explanation": "Both $5\\sqrt2$ and $-5\\sqrt2$ square to 50, so $x = \\pm\\sqrt{50} = \\pm 5\\sqrt2$. The symbol $\\sqrt{50}$ by itself is only the positive root; an equation $x^2 = 50$ has two solutions."
     },
     {
      "id": "a1-q-2611",
@@ -1393,7 +1393,7 @@
      "answer": [
       2
      ],
-     "explanation": "$30 = 2 \\cdot 3 \\cdot 5$ has no perfect-square factor besides 1.\nThe others simplify: $\\sqrt{28} = 2\\sqrt7$, $\\sqrt{45} = 3\\sqrt5$, $\\sqrt{48} = 4\\sqrt3$."
+     "explanation": "$30 = 2 \\cdot 3 \\cdot 5$ has no perfect-square factor besides 1. The others simplify: $\\sqrt{28} = 2\\sqrt7$, $\\sqrt{45} = 3\\sqrt5$, $\\sqrt{48} = 4\\sqrt3$."
     },
     {
      "id": "a1-q-2612",
@@ -1425,7 +1425,7 @@
      "answer": [
       3
      ],
-     "explanation": "A 4% growth rate means each year is multiplied by $1 + 0.04 = 1.04$.\n$0.04^t$ would shrink the town almost to nothing, and $1.4$ is 40% growth."
+     "explanation": "A 4% growth rate means each year is multiplied by $1 + 0.04 = 1.04$. $0.04^t$ would shrink the town almost to nothing, and $1.4$ is 40% growth."
     },
     {
      "id": "a1-q-2702",
@@ -1457,7 +1457,7 @@
      "answer": [
       1
      ],
-     "explanation": "$3^{-2} = \\tfrac{1}{9}$, so $f(-2) = 5 \\cdot \\tfrac19 = \\tfrac59$.\n$\\tfrac{1}{225}$ comes from computing $(5 \\cdot 3)^{-2}$, applying the exponent to the 5 as well. Negative exponents make reciprocals, not negative numbers."
+     "explanation": "$3^{-2} = \\tfrac{1}{9}$, so $f(-2) = 5 \\cdot \\tfrac19 = \\tfrac59$. $\\tfrac{1}{225}$ comes from computing $(5 \\cdot 3)^{-2}$, applying the exponent to the 5 as well. Negative exponents make reciprocals, not negative numbers."
     },
     {
      "id": "a1-q-2704",
@@ -1489,7 +1489,7 @@
      "answer": [
       3
      ],
-     "explanation": "Ratios: $\\tfrac62 = \\tfrac{18}{6} = \\tfrac{54}{18} = 3$, so $b = 3$; the value at $x = 0$ is $a = 2$. So $y = 2 \\cdot 3^x$.\n$y = 4x + 2$ matches only the first two points; $6^x$ gives 1 at $x = 0$."
+     "explanation": "Ratios: $\\tfrac62 = \\tfrac{18}{6} = \\tfrac{54}{18} = 3$, so $b = 3$; the value at $x = 0$ is $a = 2$. So $y = 2 \\cdot 3^x$. $y = 4x + 2$ matches only the first two points; $6^x$ gives 1 at $x = 0$."
     },
     {
      "id": "a1-q-2706",
@@ -1505,7 +1505,7 @@
      "answer": [
       0
      ],
-     "explanation": "$a = f(0) = 4$. Two steps multiply by $b$ twice: $4b^2 = 100$, so $b^2 = 25$ and $b = 5$.\n$4 \\cdot 25^x$ treats the two-step factor 25 as a one-step factor; $48x + 4$ is the linear function through the points."
+     "explanation": "$a = f(0) = 4$. Two steps multiply by $b$ twice: $4b^2 = 100$, so $b^2 = 25$ and $b = 5$. $4 \\cdot 25^x$ treats the two-step factor 25 as a one-step factor; $48x + 4$ is the linear function through the points."
     },
     {
      "id": "a1-q-2707",
@@ -2049,7 +2049,7 @@
      "answer": [
       2
      ],
-     "explanation": "$n = 7$, so the median is the 4th value, 12. Leave it out: lower half 3, 7, 8 gives $Q_1 = 7$; upper half 14, 15, 21 gives $Q_3 = 15$. IQR $= 15 - 7 = 8$.\n18 is the range; 7 comes from wrongly including the median in both halves ($Q_1 = 7.5$, $Q_3 = 14.5$)."
+     "explanation": "$n = 7$, so the median is the 4th value, 12. Leave it out: lower half 3, 7, 8 gives $Q_1 = 7$; upper half 14, 15, 21 gives $Q_3 = 15$. IQR $= 15 - 7 = 8$. 18 is the range; 7 comes from wrongly including the median in both halves ($Q_1 = 7.5$, $Q_3 = 14.5$)."
     },
     {
      "id": "a1-q-3004",
@@ -2113,7 +2113,7 @@
      "answer": [
       2
      ],
-     "explanation": "Mean $= 4$. Deviations $-2, 0, 0, 2$; squares $4, 0, 0, 4$, sum 8. Average: $\\tfrac84 = 2$. $\\sigma = \\sqrt2 \\approx 1.41$.\n2 is the variance (no square root); 1.63 is the sample version $\\sqrt{8/3}$."
+     "explanation": "Mean $= 4$. Deviations $-2, 0, 0, 2$; squares $4, 0, 0, 4$, sum 8. Average: $\\tfrac84 = 2$. $\\sigma = \\sqrt2 \\approx 1.41$. 2 is the variance (no square root); 1.63 is the sample version $\\sqrt{8/3}$."
     },
     {
      "id": "a1-q-3008",
@@ -2225,7 +2225,7 @@
      "answer": [
       1
      ],
-     "explanation": "\"Of teens\" restricts to the teen row, total 150: $\\tfrac{30}{150} = 20\\%$.\n12% divides by the grand total (a joint relative frequency); 42.9% divides by the winter column total."
+     "explanation": "\"Of teens\" restricts to the teen row, total 150: $\\tfrac{30}{150} = 20\\%$. 12% divides by the grand total (a joint relative frequency); 42.9% divides by the winter column total."
     },
     {
      "id": "a1-q-3102",

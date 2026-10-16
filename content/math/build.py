@@ -57,6 +57,26 @@ def listing(folder, pattern):
     return sorted(d.glob(pattern)) if d.exists() else []
 
 
+LIST_START = re.compile(r"^\s*(?:[-*•]|\d+[.)]|Step\s+\d|\(?[a-d]\)\s)")
+
+
+def unwrap(text):
+    """Join hard-wrapped lines in plain-text fields (questions render line breaks as-is).
+
+    A line break is a soft wrap when the line before it is long (>= 60 chars) and the
+    next line doesn't start a list item or step; short lines and blank lines are kept.
+    """
+    if "\n" not in text:
+        return text
+    out = []
+    for line in text.split("\n"):
+        if out and out[-1].strip() and line.strip() and len(out[-1]) >= 60 and not LIST_START.match(line):
+            out[-1] = out[-1].rstrip() + " " + line.lstrip()
+        else:
+            out.append(line)
+    return "\n".join(out)
+
+
 def build(folder: pathlib.Path):
     errors = []
     meta = load_yaml(folder / "course.yaml")
@@ -206,10 +226,10 @@ def build(folder: pathlib.Path):
             "id": q["id"],
             "section": module_of[q["lesson"]],
             "topic": q.get("topic") or lesson_by_id[q["lesson"]]["title"],
-            "stem": q["stem"],
-            "choices": [str(c) for c in q["choices"]],
+            "stem": unwrap(q["stem"]),
+            "choices": [unwrap(str(c)) for c in q["choices"]],
             "answer": q["answer"],
-            "explanation": q["explanation"],
+            "explanation": unwrap(q["explanation"]),
         }
         bank_questions.append(out)
 

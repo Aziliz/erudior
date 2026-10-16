@@ -1365,7 +1365,7 @@
      "answer": [
       0
      ],
-     "explanation": "From the right: 4 is ones, 0 tens, 1 hundreds, 2 thousands, 8 ten thousands. So the 8 is worth $8 \\times 10{,}000 = 80{,}000$.\n(8,000 comes from counting one place too few.)"
+     "explanation": "From the right: 4 is ones, 0 tens, 1 hundreds, 2 thousands, 8 ten thousands. So the 8 is worth $8 \\times 10{,}000 = 80{,}000$. (8,000 comes from counting one place too few.)"
     },
     {
      "id": "pre-q-0102",
@@ -1413,7 +1413,7 @@
      "answer": [
       3
      ],
-     "explanation": "The thousands digit is 6. The digit to its right (hundreds) is 8, which is 5 or more, so round up: 47,000.\n(46,900 is rounding to the nearest hundred; 50,000 is to the nearest ten thousand.)"
+     "explanation": "The thousands digit is 6. The digit to its right (hundreds) is 8, which is 5 or more, so round up: 47,000. (46,900 is rounding to the nearest hundred; 50,000 is to the nearest ten thousand.)"
     },
     {
      "id": "pre-q-0105",
@@ -1461,7 +1461,7 @@
      "answer": [
       2
      ],
-     "explanation": "128,045 and 127,999 agree in the hundred thousands and ten thousands places; in the thousands place 8 > 7, so $128{,}045 > 127{,}999$.\nThe others are reversed: 91,002 is larger than 90,899; 47,310 is larger than 47,301; 56,000 has more digits than 5,600."
+     "explanation": "128,045 and 127,999 agree in the hundred thousands and ten thousands places; in the thousands place 8 > 7, so $128{,}045 > 127{,}999$. The others are reversed: 91,002 is larger than 90,899; 47,310 is larger than 47,301; 56,000 has more digits than 5,600."
     },
     {
      "id": "pre-q-0108",
@@ -1605,7 +1605,7 @@
      "answer": [
       3
      ],
-     "explanation": "$306 \\times 47 = 306 \\times 40 + 306 \\times 7 = 12{,}240 + 2{,}142 = 14{,}382$.\n(3,366 comes from not shifting the tens row: $1{,}224 + 2{,}142$.)"
+     "explanation": "$306 \\times 47 = 306 \\times 40 + 306 \\times 7 = 12{,}240 + 2{,}142 = 14{,}382$. (3,366 comes from not shifting the tens row: $1{,}224 + 2{,}142$.)"
     },
     {
      "id": "pre-q-0206",
@@ -1669,7 +1669,7 @@
      "answer": [
       3
      ],
-     "explanation": "Subtract the bill, then add the deposit: $412 - 138 = 274$, and $274 + 95 = 369$. She has \\$369.\n(\\$179 subtracts the deposit too; \\$645 adds everything.)"
+     "explanation": "Subtract the bill, then add the deposit: $412 - 138 = 274$, and $274 + 95 = 369$. She has \\$369. (\\$179 subtracts the deposit too; \\$645 adds everything.)"
     },
     {
      "id": "pre-q-0210",
@@ -1701,7 +1701,7 @@
      "answer": [
       1
      ],
-     "explanation": "Total pens: $18 \\times 144 = 2{,}592$. Bags: $2{,}592 \\div 6 = 432$.\n(2,592 is the number of pens, not bags.)"
+     "explanation": "Total pens: $18 \\times 144 = 2{,}592$. Bags: $2{,}592 \\div 6 = 432$. (2,592 is the number of pens, not bags.)"
     },
     {
      "id": "pre-q-0301",
@@ -1749,7 +1749,7 @@
      "answer": [
       0
      ],
-     "explanation": "Multiplication and division share a rank, so go left to right: $48 \\div 6 = 8$, then $8 \\times 2 = 16$.\n(4 comes from multiplying first: $48 \\div 12$.)"
+     "explanation": "Multiplication and division share a rank, so go left to right: $48 \\div 6 = 8$, then $8 \\times 2 = 16$. (4 comes from multiplying first: $48 \\div 12$.)"
     },
     {
      "id": "pre-q-0304",
