@@ -16,7 +16,7 @@
   answers:
     - {name: x, kind: fraction, label: '$x =$'}
   solution: |-
-    Cross multiply: ${d}(x {m:signed}) = {b}(x {n:signed})$. Collect $x$-terms: $({d} - {b})x = {b}({n}) - {d}({m})$, so ${lhs}x = {rhs}$ and $x =$ **${x:texfrac}$**.
+    Cross multiply: ${d}(x {m:signed}) = {b}(x {n:signed})$. Collect $x$-terms: $({d} - {b})x = {b}({n}) - {d}({m})$, so ${lhs:coef}x = {rhs}$ and $x =$ **${x:texfrac}$**.
 
 - id: geo-sim-side
   title: Missing side of similar triangles
@@ -59,10 +59,10 @@
     V2: V*k^3
   prompt: 'Two similar solids have corresponding edges in the ratio ${p} : {q}$. The smaller has surface area {A} cm² and volume {V} cm³. Find the larger solid''s surface area and volume (2 decimals if needed).'
   answers:
-    - {name: A2, label: 'Surface area', relTolerance: 0.001}
-    - {name: V2, label: 'Volume', relTolerance: 0.001}
+    - {name: A2, label: 'Surface area', tolerance: 0.01}
+    - {name: V2, label: 'Volume', tolerance: 0.01}
   solution: |-
-    The scale factor is $k = \tfrac{{q}}{{p}}$. Areas scale by $k^2$ and volumes by $k^3$: surface area $= {A} \cdot \left(\tfrac{{q}}{{p}}\right)^2 \approx$ **{A2:num2}** cm², volume $= {V} \cdot \left(\tfrac{{q}}{{p}}\right)^3 \approx$ **{V2:num2}** cm³.
+    The scale factor is $k = {k:texfrac}$. Areas scale by $k^2$ and volumes by $k^3$: surface area $= {A} \cdot \left({k:texfrac}\right)^2 \approx$ **{A2}** cm², volume $= {V} \cdot \left({k:texfrac}\right)^3 \approx$ **{V2}** cm³.
 
 - id: geo-side-splitter
   title: Side Splitter Theorem
@@ -123,10 +123,10 @@
   calc:
     hm: h/10
     sm: s/10
-    H: S*hm/sm
+    ht: S*hm/sm
   prompt: 'A person {hm} m tall casts a {sm} m shadow. At the same moment a tree casts a {S} m shadow. How tall is the tree? (2 decimals)'
   answers:
-    - {name: H, label: 'Height', tolerance: 0.01, units: {m: 1}}
+    - {name: ht, label: 'Height', tolerance: 0.01, units: {m: 1}}
   figure:
     type: shape
     polygons:
@@ -134,7 +134,7 @@
     rightAngles:
       - [[0, 0], [sm, 0], [0, hm]]
   solution: |-
-    The sun's rays are parallel, so the two right triangles are similar (AA). $\dfrac{H}{{S}} = \dfrac{{hm}}{{sm}}$, so $H = {S} \cdot \dfrac{{hm}}{{sm}} \approx$ **{H:num2} m**.
+    The sun's rays are parallel, so the two right triangles are similar (AA). $\dfrac{H}{{S}} = \dfrac{{hm}}{{sm}}$, so $H = {S} \cdot \dfrac{{hm}}{{sm}} \approx$ **{ht:num2} m**.
 
 - id: geo-pyth-hyp
   title: Find the hypotenuse
@@ -350,18 +350,18 @@
     d: {min: 10, max: 200, step: 5}
     t: {min: 10, max: 70}
   calc:
-    H: d*tand(t)
+    ht: d*tand(t)
   prompt: 'From a point {d} m from the base of a building on level ground, the angle of elevation to the top is ${t}^\circ$. How tall is the building? (2 decimals)'
   answers:
-    - {name: H, label: 'Height', tolerance: 0.01, units: {m: 1}}
+    - {name: ht, label: 'Height', tolerance: 0.01, units: {m: 1}}
   figure:
     type: shape
     polygons:
-      - points: [[0, 0], [d, 0], [d, H]]
+      - points: [[0, 0], [d, 0], [d, ht]]
     rightAngles:
-      - [[d, 0], [0, 0], [d, H]]
+      - [[d, 0], [0, 0], [d, ht]]
     labels:
       - {at: ['0.25*d*cosd(t/2)', '0.25*d*sind(t/2)'], text: '{t}°'}
       - {at: ['d/2', '-0.06*d'], text: '{d} m'}
   solution: |-
-    The height is opposite the angle and the distance is adjacent: $\tan {t}^\circ = \dfrac{H}{{d}}$, so $H = {d}\tan {t}^\circ \approx$ **{H:num2} m**.
+    The height is opposite the angle and the distance is adjacent: $\tan {t}^\circ = \dfrac{H}{{d}}$, so $H = {d}\tan {t}^\circ \approx$ **{ht:num2} m**.

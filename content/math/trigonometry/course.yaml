@@ -7,6 +7,7 @@ description: >-
   of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric
   form with De Moivre's theorem.
 revision: 1
+order: 5
 modules:
   - id: trig-m1
     title: Angles and their measure

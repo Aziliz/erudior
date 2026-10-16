@@ -8,6 +8,7 @@ description: >-
   introductory differential equations, sequences and series, Taylor series, and calculus
   with parametric and polar curves.
 revision: 1
+order: 7
 modules:
   - id: calc-m1
     title: Limits and continuity

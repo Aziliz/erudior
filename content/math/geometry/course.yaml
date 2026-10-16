@@ -8,6 +8,8 @@ description: >-
   transformations; and, at the college level, axiomatic systems, the parallel
   postulate, non-Euclidean geometry and geometric probability.
 revision: 1
+released: true
+order: 4
 modules:
   - id: geo-m1
     title: Foundations of geometry

@@ -25,7 +25,7 @@ Intuition: fix a segment, and fix the angles at both ends. The two rays from the
 
 **HL Congruence Theorem.** If the hypotenuse and one leg of a right triangle are congruent to the hypotenuse and a leg of another right triangle, the triangles are congruent.
 
-This looks like SSA, which normally fails. It works here because the angle is $90^\circ$: by the Pythagorean theorem, the third sides are both $\sqrt{c^2 - a^2}$, so SSS applies. HL needs three facts in a proof: both triangles are right triangles, the hypotenuses are congruent, and one pair of legs is congruent.
+This looks like SSA, which normally fails. It works here because the angle is $90^\circ$: by the Pythagorean theorem (Module 6), the third sides are both $\sqrt{c^2 - a^2}$, so SSS applies. HL needs three facts in a proof: both triangles are right triangles, the hypotenuses are congruent, and one pair of legs is congruent.
 
 ## Summary of the tests
 

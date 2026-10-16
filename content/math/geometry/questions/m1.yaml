@@ -7,7 +7,7 @@
   choices: ['Point, line, plane', 'Point, segment, angle', 'Line, ray, plane', 'Point, line, angle']
   answer: 0
   explanation: |-
-    Point, line and plane are described by example and by postulates, not defined. Segments, rays and angles are all *defined* using them.
+    Point, line and plane are described by example and by postulates, not defined. Segments, rays and angles are all defined using them.
 - id: geo-q-0102
   lesson: geo-basics
   topic: Undefined terms
@@ -81,7 +81,7 @@
   choices: ['Exactly one', 'Infinitely many', 'None', 'Exactly three']
   answer: 1
   explanation: |-
-    The postulate guaranteeing a single plane needs *noncollinear* points. Infinitely many planes contain a given line, like pages rotating around a book's spine.
+    The postulate guaranteeing a single plane needs noncollinear points. Infinitely many planes contain a given line, like pages rotating around a book's spine.
 - id: geo-q-0111
   lesson: geo-basics
   topic: Postulates

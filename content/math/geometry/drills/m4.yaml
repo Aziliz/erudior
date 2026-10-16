@@ -8,7 +8,7 @@
     b: {min: -15, max: 30}
     c: {min: 1, max: 5}
     d: {min: -15, max: 30}
-  where: ["b != 0", "d != 0", "a*p + b >= 20", "c*p + d >= 20", "a*p + b + c*p + d <= 160", "a + c < 9", "f != 0"]
+  where: ["b != 0", "d != 0", "a*p + b >= 20", "c*p + d >= 20", "a*p + b + c*p + d <= 160", "a + c < 9", "f != 0", "b + d + f != 0"]
   calc:
     A: a*p + b
     B: c*p + d
@@ -42,7 +42,7 @@
     c: {min: 1, max: 4}
     d: {min: -10, max: 30}
     e: {min: 3, max: 9}
-  where: ["b != 0", "d != 0", "a*p + b >= 15", "c*p + d >= 15", "a*p + b + c*p + d <= 165", "e != a + c", "a*p + b + c*p + d - e*p != 0"]
+  where: ["b != 0", "d != 0", "a*p + b >= 15", "c*p + d >= 15", "a*p + b + c*p + d <= 165", "e != a + c", "e - a - c != 1", "b + d != 0", "a*p + b + c*p + d - e*p != 0"]
   calc:
     R1: a*p + b
     R2: c*p + d
@@ -81,7 +81,7 @@
     c: {min: 1, max: 8}
     p: {min: 2, max: 15}
     b: {min: -12, max: 12}
-  where: ["a > c", "b != 0", "a*p + b > 2", "a*p + b - c*p != 0"]
+  where: ["a - c >= 2", "b != 0", "a*p + b > 2", "a*p + b - c*p != 0"]
   calc:
     L: a*p + b
     d: L - c*p
@@ -103,7 +103,7 @@
     c: {min: 1, max: 6}
     b: {min: -15, max: 25}
     B: {min: 20, max: 100}
-  where: ["a > c", "b != 0", "a*p + b >= 20", "a*p + b + B <= 165", "a*p + b - c*p != 0"]
+  where: ["a - c >= 2", "b != 0", "a*p + b >= 20", "a*p + b + B <= 165", "a*p + b - c*p != 0"]
   calc:
     A: a*p + b
     d: A - c*p
@@ -145,7 +145,7 @@
     c: {min: 1, max: 7}
     p: {min: 3, max: 20}
     b: {min: -20, max: 30}
-  where: ["a > c", "b != 0", "a*p + b >= 15", "a*p + b <= 75", "a*p + b - c*p != 0"]
+  where: ["a - c >= 2", "b != 0", "a*p + b >= 15", "a*p + b <= 75", "a*p + b - c*p != 0"]
   calc:
     base: a*p + b
     d: base - c*p

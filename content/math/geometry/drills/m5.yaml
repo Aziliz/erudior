@@ -13,7 +13,6 @@
     d: L - c*p
     da: a - c
     db: d - b
-    h: sqrt(L^2 - 9)
   prompt: '$P$ lies on the perpendicular bisector of $\overline{AB}$. $PA = {a}x {b:signed}$ and $PB = {c:coef}x {d:signed}$. Find $x$ and $PA$.'
   answers:
     - {name: p, label: '$x =$'}
@@ -22,17 +21,17 @@
     type: shape
     segments:
       - {from: [-3, 0], to: [3, 0]}
-      - {from: [0, -1], to: [0, 'h + 1'], dashed: true}
-      - {from: [0, h], to: [-3, 0]}
-      - {from: [0, h], to: [3, 0]}
+      - {from: [0, -1], to: [0, 5], dashed: true}
+      - {from: [0, 4], to: [-3, 0]}
+      - {from: [0, 4], to: [3, 0]}
     rightAngles:
       - [[0, 0], [3, 0], [0, 1]]
     labels:
       - {at: [-3.4, -0.4], text: 'A'}
       - {at: [3.4, -0.4], text: 'B'}
-      - {at: [0.5, 'h + 0.4'], text: 'P'}
+      - {at: [0.5, 4.4], text: 'P'}
   solution: |-
-    Every point on the perpendicular bisector is equidistant from $A$ and $B$, so $PA = PB$: ${a}x {b:signed} = {c:coef}x {d:signed}$. Then ${da:coef}x = {db}$, $x =$ **{p}**, and $PA = {a}({p}) {b:signed} =$ **{L}**.
+    Every point on the perpendicular bisector is equidistant from $A$ and $B$, so $PA = PB$: ${a}x {b:signed} = {c:coef}x {d:signed}$. Collect terms: $({a} - {c})x = {d} - ({b})$, so $x =$ **{p}**, and $PA = {a}({p}) {b:signed} =$ **{L}**.
 
 - id: geo-circumcenter
   title: Find a circumcenter
@@ -52,6 +51,8 @@
     my: (ay + by)/2
     ms: (by - ay)/(bx - ax)
     ps: -1/ms
+    dy: q - my
+    dx: dy/ps
     R: hypot(5, 0)
   prompt: 'Find the circumcenter of the triangle with vertices $A({ax}, {ay})$, $B({bx}, {by})$ and $C({cx}, {cy})$, and the circumradius.'
   answers:
@@ -70,7 +71,7 @@
       - {at: [bx, by], label: 'B'}
       - {at: [cx, cy], label: 'C'}
   solution: |-
-    $B$ and $C$ share $x = {bx}$, so $\overline{BC}$ is vertical and its perpendicular bisector is the horizontal line through its midpoint: $y = {q}$. $\overline{AB}$ has midpoint $({mx}, {my})$ and slope ${ms:texfrac}$, so its perpendicular bisector has slope ${ps}$: $y - ({my}) = {ps}(x - ({mx}))$. Setting $y = {q}$ gives $x = {p}$. The circumcenter is **({p}, {q})**, and the radius is the distance to $A$: $\sqrt{5^2 + 0^2} =$ **5**.
+    $B$ and $C$ share $x = {bx}$, so $\overline{BC}$ is vertical and its perpendicular bisector is the horizontal line through its midpoint: $y = {q}$. $\overline{AB}$ has midpoint $({mx}, {my})$ and slope ${ms:texfrac}$, so its perpendicular bisector passes through $({mx}, {my})$ with slope ${ps}$. To reach the line $y = {q}$ it must change $y$ by ${dy}$, which takes a change in $x$ of $\dfrac{{dy}}{{ps}} = {dx}$, so $x = {mx} {dx:signed} = {p}$. The circumcenter is **({p}, {q})**, and the radius is the distance to $A$: $\sqrt{5^2 + 0^2} =$ **5**.
 
 - id: geo-incenter-dist
   title: Distance from the incenter to a vertex
@@ -181,7 +182,7 @@
       - {at: [1.4, 3.2], text: 'D'}
       - {at: [7.6, 3.2], text: 'E'}
   solution: |-
-    The third side is twice the midsegment: ${c:coef}x {d:signed} = 2({a:coef}x {b:signed}) = {a2}x {b2:signed}$. So ${lc:coef}x = {rc}$ and $x =$ **{p}**. Then $DE = {M}$ and $BC =$ **{S}**.
+    The third side is twice the midsegment: ${c:coef}x {d:signed} = 2({a:coef}x {b:signed}) = {a2}x {b2:signed}$. Collect terms: $({c} - {a2})x = {b2} - ({d})$, so $x =$ **{p}**. Then $DE = {M}$ and $BC =$ **{S}**.
 
 - id: geo-poly-interior
   title: Interior angles of a polygon
@@ -264,7 +265,7 @@
       - {at: [1.6, 4.4], text: 'D'}
       - {at: [4.5, 1.4], text: 'E'}
   solution: |-
-    The diagonals of a parallelogram bisect each other, so $AE = EC$: ${a}x {b:signed} = {c:coef}x {d:signed}$, giving ${da:coef}x = {db}$ and $x =$ **{p}**. Then $AE = {h}$, so $AC = 2 \cdot {h} =$ **{AC}**.
+    The diagonals of a parallelogram bisect each other, so $AE = EC$: ${a}x {b:signed} = {c:coef}x {d:signed}$, giving $({a} - {c})x = {d} - ({b})$ and $x =$ **{p}**. Then $AE = {h}$, so $AC = 2 \cdot {h} =$ **{AC}**.
 
 - id: geo-para-angle
   title: Parallelogram angles
@@ -274,7 +275,7 @@
     c: {min: 1, max: 6}
     p: {min: 5, max: 25}
     b: {min: -20, max: 40}
-  where: ["b != 0", "a*p + b >= 30", "a*p + b <= 150", "a*p + b != 90", "180 - a*p - b - c*p != 0"]
+  where: ["b != 0", "a*p + b >= 30", "a*p + b <= 150", "a*p + b != 90", "180 - a*p - b - c*p != 0", "(a + c)*p != 180"]
   calc:
     A: a*p + b
     B: 180 - A

@@ -133,7 +133,7 @@
   choices: ['They are congruent by SAS.', 'They are congruent by SSS.', 'They are congruent by ASA.', 'This (SSA) does not guarantee congruence.']
   answer: 3
   explanation: |-
-    SSA can fit two different triangles (the ambiguous case), so it is not a congruence test. SAS requires the *included* angle.
+    SSA can fit two different triangles (the ambiguous case), so it is not a congruence test. SAS requires the included angle.
 - id: geo-q-1106
   lesson: geo-congruent
   topic: SSS and SAS
@@ -163,18 +163,18 @@
   lesson: geo-congruent
   topic: SSS and SAS
   stem: 'Is $\triangle ABC$ with $A(0, 0)$, $B(5, 0)$, $C(0, 12)$ congruent to $\triangle PQR$ with $P(3, 1)$, $Q(3, 6)$, $R(15, 1)$?'
-  choices: ['No, the hypotenuses differ.', 'Only if the triangles face the same way.', 'No, they are only similar.', 'Yes, by SSS: both have sides 5, 12 and 13.']
+  choices: ['No, the hypotenuses differ.', 'Only if the triangles face the same way.', 'No, they are only similar.', 'Yes, by SAS: each has legs 5 and 12 with a right angle between them.']
   answer: 3
   explanation: |-
-    $AB = 5$, $AC = 12$, $BC = \sqrt{25 + 144} = 13$. $PQ = 5$, $PR = 12$, $QR = \sqrt{144 + 25} = 13$. Three pairs of equal sides: SSS. Orientation doesn't matter.
+    $\overline{AB}$ is horizontal with $AB = 5$ and $\overline{AC}$ is vertical with $AC = 12$, so $\angle A$ is a right angle between them. $\overline{PQ}$ is vertical with $PQ = 5$ and $\overline{PR}$ is horizontal with $PR = 12$, so $\angle P$ is a right angle between them. Two sides and the included angle match: SAS. Orientation doesn't matter, and both hypotenuses come out to 13 (Pythagorean theorem, Module 6).
 - id: geo-q-1110
   lesson: geo-congruent
   topic: Congruent figures
   stem: 'Which information is NOT enough to prove two triangles congruent?'
-  choices: ['Three pairs of congruent angles', 'Three pairs of congruent sides', 'Two sides and the included angle', 'Two pairs of sides with the included angles congruent']
+  choices: ['Three pairs of congruent angles', 'Three pairs of congruent sides', 'Two sides and the included angle', 'Two pairs of congruent sides and a shared third side']
   answer: 0
   explanation: |-
-    AAA only fixes the shape: a small and a large equilateral triangle have the same angles. SSS and SAS both work.
+    AAA only fixes the shape: a small and a large equilateral triangle have the same angles. Three pairs of congruent sides (a shared side counts, by the reflexive property) give SSS, and two sides with the included angle give SAS.
 - id: geo-q-1111
   lesson: geo-congruent
   topic: Congruent figures

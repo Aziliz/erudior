@@ -4,7 +4,7 @@ module: geo-m8
 title: Volume and Cavalieri's principle
 minutes: 30
 topics: [Volume, Cavalieri's principle]
-drills: [geo-vol-cone, geo-vol-sphere, geo-vol-pyramid]
+drills: [geo-vol-cyl, geo-vol-cone, geo-vol-sphere, geo-vol-pyramid]
 refs: [geo-ref-measure]
 ---
 Surface area measures the skin of a solid; **volume** measures how much space it fills, in cubic units. This lesson starts from the volume of a box, extends it to every prism and cylinder with Cavalieri's principle, and then explains the mysterious $\tfrac13$ in pyramid and cone formulas and the $\tfrac43$ for the sphere.

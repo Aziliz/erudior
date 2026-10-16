@@ -8,6 +8,7 @@ description: >-
   with vector fields, line and surface integrals, and the theorems of Green, Stokes and
   Gauss with their uses in physics.
 revision: 1
+order: 8
 modules:
   - id: mv-m1
     title: Vectors and the geometry of space

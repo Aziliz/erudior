@@ -55,7 +55,7 @@
   title: Degrees and radians
   topic: Arcs and arc length
   vars:
-    d: {choices: [15, 20, 30, 36, 40, 45, 60, 72, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330]}
+    d: {choices: [15, 20, 30, 36, 40, 45, 60, 72, 90, 120, 135, 150, 100, 210, 225, 240, 270, 300, 315, 330]}
   calc:
     r: d*pi/180
     num: d/gcd(d, 180)
@@ -64,7 +64,7 @@
   answers:
     - {name: r, label: 'Radians', tolerance: 0.0001, format: num4}
   solution: |-
-    Multiply by $\tfrac{\pi}{180}$: ${d} \cdot \dfrac{\pi}{180} = \dfrac{{num}\pi}{{den}} \approx$ **{r:num4}**.
+    Multiply by $\tfrac{\pi}{180}$: ${d} \cdot \dfrac{\pi}{180} = \dfrac{{num:coef}\pi}{{den}} \approx$ **{r:num4}**.
 
 - id: geo-chord-dist
   title: Chord, radius and distance from center
@@ -190,7 +190,7 @@
     p: {min: 5, max: 25}
     b: {min: -20, max: 30}
     Bq: {min: 50, max: 130}
-  where: ["b != 0", "a*p + b >= 40", "a*p + b <= 140", "180 - a*p - b - c*p != 0"]
+  where: ["b != 0", "a*p + b >= 40", "a*p + b <= 140", "180 - a*p - b - c*p != 0", "(a + c)*p != 180"]
   calc:
     A: a*p + b
     C: 180 - A
@@ -267,10 +267,12 @@
     hh: h^2
     kk: k^2
     nF: -F
+    nh: -h
+    nk: -k
   prompt: 'Find the center $(h, k)$ and radius $r$ of the circle $x^2 + y^2 {D:signedcoef}x {E:signedcoef}y {F:signed} = 0$.'
   answers:
     - {name: h, label: '$h =$'}
     - {name: k, label: '$k =$'}
     - {name: r, label: '$r =$'}
   solution: |-
-    Complete the square: add $\left(\tfrac{{D}}{2}\right)^2 = {hh}$ and $\left(\tfrac{{E}}{2}\right)^2 = {kk}$ to both sides of $x^2 {D:signedcoef}x + y^2 {E:signedcoef}y = {nF}$. That gives $(x - ({h}))^2 + (y - ({k}))^2 = {r2}$, so the center is **({h}, {k})** and the radius is $\sqrt{{r2}} =$ **{r}**.
+    Complete the square: add $\left(\tfrac{{D}}{2}\right)^2 = {hh}$ and $\left(\tfrac{{E}}{2}\right)^2 = {kk}$ to both sides of $x^2 {D:signedcoef}x + y^2 {E:signedcoef}y = {nF}$. That gives $(x {nh:signed})^2 + (y {nk:signed})^2 = {r2}$, so the center is **({h}, {k})** and the radius is $\sqrt{{r2}} =$ **{r}**.

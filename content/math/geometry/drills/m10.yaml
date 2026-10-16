@@ -24,7 +24,7 @@
     B: {min: 50, max: 150}
     C: {min: 50, max: 150}
     R: {min: 1, max: 20}
-  where: ["A + B + C > 185", "A + B + C < 540"]
+  where: ["A + B + C > 185", "A + B - C < 180", "A + C - B < 180", "B + C - A < 180"]
   calc:
     E: A + B + C - 180
     Er: E*pi/180
@@ -33,7 +33,7 @@
   prompt: 'A triangle on a sphere of radius {R} has angles ${A}^\circ$, ${B}^\circ$ and ${C}^\circ$. Find its spherical excess in degrees, and its area (2 decimals).'
   answers:
     - {name: E, label: 'Excess (degrees)'}
-    - {name: area, label: 'Area', relTolerance: 0.001}
+    - {name: area, label: 'Area', tolerance: 0.02}
   solution: |-
     Excess $E = {S} - 180 =$ **{E}°**, which is ${E} \cdot \tfrac{\pi}{180} \approx {Er:num4}$ radians. Area $= R^2 E \approx {R}^2 \cdot {Er:num4} \approx$ **{area:num2}**.
 
@@ -122,4 +122,4 @@
       - {f: 'x + w', from: 0, to: g}
       - {f: 'x - w', from: w, to: T}
   solution: |-
-    Plot arrival times as a point in a ${T} \times {T}$ square. They miss each other in two corner triangles with legs ${T} - {w} = {g}$, total area ${g}^2 = {g2}$. So $P = 1 - \tfrac{{g2}}{{T2}} =$ **${p:texfrac}$**.
+    Plot arrival times as a point in a ${T} \times {T}$ square. They miss each other in two corner triangles with legs ${T} - {w} = {g}$, total area ${g}^2 = {g2:dp0}$. So $P = 1 - \tfrac{{g2:dp0}}{{T2:dp0}} =$ **${p:texfrac}$**.

@@ -7,7 +7,7 @@
   choices: ['$(7, -5)$', '$(3, 2)$', '$(6, 4)$', '$(14, -10)$']
   answer: 1
   explanation: |-
-    Average the coordinates: $\left(\tfrac{-4 + 10}{2}, \tfrac{7 - 3}{2}\right) = (3, 2)$. $(7, -5)$ is half the *change*, not the midpoint.
+    Average the coordinates: $\left(\tfrac{-4 + 10}{2}, \tfrac{7 - 3}{2}\right) = (3, 2)$. $(7, -5)$ is half the change in coordinates, not the midpoint.
 - id: geo-q-3302
   lesson: geo-coord
   topic: Distance and midpoint
@@ -57,7 +57,7 @@
   choices: ['$(0, 0)$, $(a, 0)$, $(a, a)$', '$(0, 0)$, $(1, 0)$, $(0, 1)$', '$(a, b)$, $(c, d)$, $(e, f)$', '$(-a, 0)$, $(a, 0)$, $(0, b)$']
   answer: 3
   explanation: |-
-    Putting the base symmetric about the $y$-axis with the apex on it makes the legs congruent automatically and keeps the algebra simple while staying general. The first two are special triangles, and the third ignores the isosceles condition.
+    Putting the base symmetric about the $y$-axis with the apex on it makes the legs congruent automatically and keeps the algebra simple while staying general. The placements $(0, 0)$, $(a, 0)$, $(a, a)$ and $(0, 0)$, $(1, 0)$, $(0, 1)$ are special (right isosceles) triangles, and $(a, b)$, $(c, d)$, $(e, f)$ ignores the isosceles condition.
 - id: geo-q-3308
   lesson: geo-coord
   topic: Coordinate proof

@@ -95,7 +95,7 @@ $$50 \cdot \frac{9\pi}{400} + 10 \cdot \frac{40\pi}{400} + 0 = \frac{450\pi + 40
 
 Each outcome's value is weighted by its share of the area.
 
-### Example 7: a random chord problem
+### Example 7: closer to the center or the edge?
 
 A point $P$ is chosen at random inside a circle of radius 10. What is the probability that $P$ is closer to the center than to the circle?
 

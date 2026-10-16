@@ -757,6 +757,9 @@
 - term: area
   definition: 'The amount of surface a region covers, measured in square units.'
   topic: Area of polygons
+- term: Area Congruence Postulate
+  definition: 'Congruent figures have equal areas.'
+  topic: Area of polygons
 - term: Area Addition Postulate
   definition: 'The area of a region is the sum of the areas of its non-overlapping parts.'
   topic: Area of polygons
@@ -962,7 +965,7 @@
   definition: 'The five postulates of Euclid''s Elements: lines through two points, extending lines, circles, equality of right angles, and the parallel postulate.'
   topic: Euclid's postulates
 - term: non-Euclidean geometry
-  definition: 'A geometry satisfying Euclid''s other postulates but replacing the parallel postulate, such as hyperbolic or elliptic geometry.'
+  definition: 'A geometry that replaces Euclid''s parallel postulate, such as hyperbolic geometry (which keeps all the other postulates) or elliptic geometry.'
   topic: Non-Euclidean geometry
 - term: hyperbolic geometry
   definition: 'A non-Euclidean geometry in which infinitely many parallels pass through a point not on a line; triangle angle sums are less than $180^\circ$.'

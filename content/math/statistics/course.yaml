@@ -9,6 +9,7 @@ description: >-
   confidence intervals, significance tests for proportions and means, chi-square tests,
   inference for regression, one-way ANOVA and nonparametric tests.
 revision: 1
+order: 11
 modules:
   - id: stat-m1
     title: Exploring one-variable data

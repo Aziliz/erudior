@@ -124,7 +124,7 @@
   prompt: 'Find the apothem and the area of a regular {n}-gon with side {s} (2 decimals).'
   answers:
     - {name: a, label: 'Apothem', tolerance: 0.01}
-    - {name: A, label: 'Area', relTolerance: 0.001}
+    - {name: A, label: 'Area', relTolerance: 0.004}
   figure:
     type: shape
     polygons:
@@ -176,15 +176,12 @@
     kL: 2*r*h
     kB: 2*r^2
     k: kL + kB
-    V: pi*r^2*h
-    kV: r^2*h
-  prompt: 'A cylinder has radius {r} and height {h}. Find its lateral area, total surface area and volume (exact like 48pi, or 2 decimals).'
+  prompt: 'A cylinder has radius {r} and height {h}. Find its lateral area and total surface area (exact like 48pi, or 2 decimals).'
   answers:
     - {name: L, label: 'Lateral area', tolerance: 0.01}
     - {name: S, label: 'Surface area', tolerance: 0.01}
-    - {name: V, label: 'Volume', relTolerance: 0.0005}
   solution: |-
-    Lateral area $= 2\pi rh = {kL}\pi \approx$ **{L:num2}**. Adding the two bases ($2\pi r^2 = {kB}\pi$): $S = {k}\pi \approx$ **{S:num2}**. Volume $= \pi r^2 h = {kV}\pi \approx$ **{V:num2}**.
+    Lateral area $= 2\pi rh = {kL:dp0}\pi \approx$ **{L:num2}**. Adding the two bases ($2\pi r^2 = {kB:dp0}\pi$): $S = {k:dp0}\pi \approx$ **{S:num2}**.
 
 - id: geo-sa-cone
   title: Surface area of a cone
@@ -222,7 +219,7 @@
     V: pi*r^2*h/3
   prompt: 'Find the volume of a cone with radius {r} and height {h} (2 decimals).'
   answers:
-    - {name: V, label: 'Volume', relTolerance: 0.0005}
+    - {name: V, label: 'Volume', tolerance: 0.01}
   figure:
     type: shape
     polygons:
@@ -246,7 +243,7 @@
     s2: s^2
     l2: hb^2 + h^2
     hb2: hb^2
-  prompt: 'A square pyramid has base edge {s} and slant height $\ell = \sqrt{{l2}}$. Find its height and volume.'
+  prompt: 'A square pyramid has base edge {s} and slant height $\ell = \sqrt{{l2}}$. Find its height and its volume (2 decimals if needed).'
   answers:
     - {name: h, label: 'Height', tolerance: 0.01}
     - {name: V, label: 'Volume', relTolerance: 0.001}
@@ -262,9 +259,24 @@
     V: 4/3*pi*r^3
     k: 4*r^3
     S: 4*pi*r^2
-  prompt: 'A sphere has volume $\tfrac{{k}}{3}\pi$. Find its radius and its surface area (2 decimals).'
+  prompt: 'A sphere has volume $\tfrac{{k:dp0}}{3}\pi$. Find its radius and its surface area (2 decimals).'
   answers:
     - {name: r, label: 'Radius', tolerance: 0.01}
     - {name: S, label: 'Surface area', relTolerance: 0.001}
   solution: |-
-    $\tfrac43 \pi r^3 = \tfrac{{k}}{3}\pi$ gives $4r^3 = {k}$, so $r^3 = {k}/4$ and $r =$ **{r}**. Then $S = 4\pi r^2 \approx$ **{S:num2}**.
+    $\tfrac43 \pi r^3 = \tfrac{{k:dp0}}{3}\pi$ gives $4r^3 = {k:dp0}$, so $r^3 = {k:dp0}/4$ and $r =$ **{r}**. Then $S = 4\pi r^2 \approx$ **{S:num2}**.
+
+- id: geo-vol-cyl
+  title: Volume of a cylinder
+  topic: Volume
+  vars:
+    r: {min: 1, max: 15}
+    h: {min: 1, max: 25}
+  calc:
+    V: pi*r^2*h
+    kV: r^2*h
+  prompt: 'A cylinder has radius {r} and height {h}. Find its volume (exact like 48pi, or 2 decimals).'
+  answers:
+    - {name: V, label: 'Volume', tolerance: 0.01}
+  solution: |-
+    $V = Bh = \pi r^2 h = \pi({r})^2({h}) = {kV:dp0}\pi \approx$ **{V:num2}**.

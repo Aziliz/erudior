@@ -85,3 +85,147 @@ For a reviewer:
 - Lesson 37 figures (sphere triangle, Poincaré disk) are schematic.
 - Trapezoid defined as "exactly one pair of parallel sides" (stated explicitly in lesson 19).
 - Helper scripts (not part of the course) are in the shared scratchpad under geometry-agent-x7/.
+
+
+## Review (2026-10-16)
+
+Independent review in three parts: every question solved before checking its key, every lesson example and proof checked, every drill generated hundreds of times against an independent solver. All answer keys were correct. Also: geo-sa-cyl no longer asks for volume (taught in lesson 32); new drill geo-vol-cyl on lesson 32.
+
+# Geometry review A (geo-m1 to geo-m4, lessons 01-14, questions/drills m1-m4, cards.yaml)
+
+All 90 questions were solved independently before reading the keys, and every key was correct.
+I generated 400 instances of each of the 24 drills (9,600 in total) and checked each against a
+sympy solve of the prompt as shown: none was wrong. Typing the displayed answer is accepted in
+every instance. Lesson and drill figures were rendered and screenshotted.
+
+## Lessons
+- 01: The "two planes meet in a line" figure drew no line of intersection. Its dashed segment was
+  just an edge of plane Q. Redrew it with a vertical plane Q crossing P along a segment labeled ℓ,
+  and updated the caption.
+- 10: The "isosceles" example triangle (6,0),(10,0),(8,2) actually had a 90° apex, so it was also a
+  right triangle. Moved the apex to (8,3).
+- 11: Example 3 proved congruence by SSS using BC = √(4²+3²), which needs the Pythagorean theorem /
+  distance formula from Modules 6 and 9. Rewrote it to use SAS (right angles from horizontal and
+  vertical sides), with a note that SSS also works after Module 6.
+- 12: The HL justification uses the Pythagorean theorem. Added "(Module 6)" so the reference is marked.
+
+## Questions
+- 0101, 0110, 0503, 1105: removed Markdown italics (*...*) from the explanations.
+- 0509: the explanation said "The first is the definition…", which refers to a choice by its
+  position. Reworded to refer to the content.
+- 0908: the explanation named the wrong mistakes behind the distractors ("forgetting the square
+  root" gives none of them). It now says: 39 = no division; 39/17 = dividing by 5+12; 29/13 =
+  dropping the +10.
+- 1109: the answer choice and explanation relied on the hypotenuse 13 (Pythagorean theorem, which
+  comes later). Changed the choice to "Yes, by SAS: each has legs 5 and 12 with a right angle
+  between them" and rewrote the explanation.
+- 1110: two choices were the same thing (both SAS). Replaced one with "Two pairs of congruent sides
+  and a shared third side" (SSS) and updated the explanation.
+
+## Drills (ugly output only; no wrong answers)
+- "+ 0" in solutions: added where-conditions to geo-segadd and geo-angadd (b + d != 0),
+  geo-consec-int (180 - a*p - c*p != 0), geo-tri-sum (b + d + f != 0) and geo-ext-angle
+  (b + d != 0).
+- Redundant "so $x = 8$ and $x =$ **8**" when the collected coefficient was 1: required a coefficient
+  difference ≥ 2 or ≠ 1 in geo-midpoint-alg, geo-vertical-alg, geo-angbis, geo-alg-proof,
+  geo-parallel-x, geo-ext-angle, geo-cong-x, geo-cpctc and geo-isos-alg.
+
+## cards.yaml
+All 164 cards were checked and no errors were found.
+
+## Final state
+`python3 content/math/build.py geometry` and `npx tsx tests/check-course.mts
+samples/math-drafts/math-geometry.json` both pass: OK, no problems.
+Nothing unresolved, and no errors were seen in files outside this scope.
+
+# Geometry review, modules geo-m5 to geo-m7 (lessons 15–28)
+
+Method: solved all 101 questions independently before reading keys; re-derived every lesson
+example; rendered all 31 lesson figures and 2 instances of every drill figure (Playwright
+screenshots); generated 500 instances of each of the 41 drills and checked every target
+against an independent calculation parsed from the shown prompt, plus display/rounded-answer
+acceptance and exact forms (5sqrt(2), 3pi/4, 6pi).
+
+## Questions (all 101 keys correct)
+- geo-q-2307: two distractors were the same value ($5\sqrt3$ and $\sqrt{75}$). Replaced
+  $\sqrt{75}$ with $10\sqrt3$ (wrong-piece mistake) and explained it.
+- geo-q-1502, geo-q-1910: explanations used Markdown italics (`*sides*`, `*each other*`). Removed.
+- geo-q-1912: stem "bisected by the longer one, which it meets 4 units from one end" was
+  ambiguous about which diagonal the 4 units is on. Reworded: "The longer diagonal bisects the
+  shorter one, and the diagonals cross 4 units from one end of the longer diagonal."
+
+## Drills
+- geo-shadow: placeholder collision. Calc value `H` filled `\dfrac{H}{…}` in the solution
+  ("\dfrac75.2{47}"). Renamed the value to `ht`.
+- geo-elevation: same collision (`\dfrac{H}{{d}}` showed the number). Renamed to `ht`.
+- geo-scale-area: answers used relTolerance 0.001 but the shown answer is rounded to 2
+  decimals; for small values (e.g. 3.56) the 2-decimal answer was rejected. Switched to
+  tolerance 0.01. Solution showed `\tfrac{4}{1}` and "288.00"; now shows k as a reduced
+  fraction and plain numbers.
+- geo-para-angle, geo-cyclic-quad: solution could show "12x + 0 = 180". Added
+  `(a + c)*p != 180` to `where`.
+- geo-radians: solution showed "\dfrac{1\pi}{12}" and "\dfrac{1\pi}{1}". Used `{num:coef}`;
+  replaced the 180° choice (den 1) with 100°.
+- geo-proportion: "1x"/"-1x" possible; now `{lhs:coef}`.
+- geo-perp-bis-alg, geo-midsegment, geo-para-alg: solutions printed "x = 7, x = **7**"
+  when the coefficient was 1; now "Collect terms: (a - c)x = d - (b), so x = **p**".
+- geo-perp-bis-alg: figure height was sqrt(PA² - 9), so for PA up to 147 the triangle was a
+  needle ~25x taller than wide. AB isn't given, so the figure is now a fixed schematic.
+- geo-circumcenter: solution printed "y - (0) = -2(x - (-3))"; rewritten as rise/run from
+  the midpoint with signed values.
+- geo-circle-eq: "(x - (-2))^2" now "(x + 2)^2".
+
+## Lessons
+No mathematical errors found in lessons 15–28. All worked examples, proofs, and figure
+coordinates check out (circumcircle, incircle tangency point, centroid/midpoints, kite,
+rhombus right angle, 30-60-90 and 45-45-90 angle labels, geometric-mean triangle, secant
+points, chord intersection E = (-1, 4/3), circle plot). Cross-references (Lessons 13, 14,
+22, 23; Module 8) point to existing material.
+
+## Notes / unresolved (not errors)
+- Lesson 25 parts-of-a-circle figure: "radius" label sits close to the secant line;
+  lesson 26/27 point labels crowd their dots. Cosmetic only, left alone.
+- geo-elevation figure: for small angles (~10°) the angle label touches the hypotenuse. Cosmetic.
+- Nothing seen outside scope that needs fixing.
+
+Build: `python3 content/math/build.py geometry` OK; `npx tsx tests/check-course.mts
+samples/math-drafts/math-geometry.json` reports OK (zero problems).
+
+# Geometry review: modules geo-m8 to geo-m10, glossary, references
+
+All 102 questions in m8–m10 were solved independently. Numeric ones were checked in Python (qcheck.py). All 27 drills were run 1000–2000 times against independent formulas, and the displayed answer and 2-decimal answers were typed back in (drills.mts). Every lesson figure and drill figure was rendered and screenshotted (figs.mts, shot.py).
+
+## Questions
+- geo-q-3301: the explanation used Markdown italics (*change*). Now plain text.
+- geo-q-3609: the explanation used Markdown italics for the book title. Removed them, and added "lies on" to Hilbert's undefined terms. In the stem, "complete, rigorous" is now "rigorous, gap-free", because "complete" is a technical term defined in this lesson.
+- geo-q-3307 and geo-q-3606: the explanations referred to choices by position ("the first two", "the third"). They now name the choices.
+- geo-q-3803: two choices had the same value (3/4 and 9/12). Replaced 9/12 with 1/12.
+- All answer keys are correct, and each question has exactly one correct choice.
+
+## Drills
+- geo-rot-sym: the solution had `\tfrac{360^\circ}{n}`, and `{n}` was filled with the number, so it rendered as a broken fraction ("360°/1 5"). Now written as `360^\circ / n`.
+- geo-sph-excess: some generated angle sets were not valid spherical triangles (for example 150, 150, 50; each angle must satisfy A + B − C < 180). Added the three conditions to `where`, and removed the redundant sum < 540 check. The area used relTolerance 0.001, so small areas rejected the shown 2-decimal answer. It now uses tolerance 0.02, which also covers working with the solution's 4-decimal radians.
+- geo-sa-cyl (volume) and geo-vol-cone: relTolerance 0.0005 rejected the shown 2-decimal answer for small values (for example 1.05). Both now use tolerance 0.01.
+- geo-reg-poly-area: rounding the apothem to 2 decimals, as the prompt asks, and then computing the area was rejected (relTolerance 0.001). It now uses relTolerance 0.004.
+- geo-partition: the `where` filter often failed all 500 tries and threw "no inputs met". The ratio change is now generated as (m+n)·u, so it always produces a problem.
+- geo-vol-pyramid: the prompt didn't say how to give a volume that isn't a whole number. Added "(2 decimals if needed)".
+- geo-prob-meet, geo-sa-cyl, geo-vol-sphere: numbers inside TeX were shown with thousands commas ("2,025" renders as "2, 025"). These now use `:dp0`.
+
+## Lessons
+- L31: "A cone is the limit of pyramids with circular bases" was self-contradictory. Now: the limit of regular pyramids as the number of base sides grows.
+- L36: the equivalents of the parallel postulate were said to follow "given postulates 1–4". That is not true from Euclid's five postulates alone, so it now says "given the rest of Euclid's assumptions". Hilbert's axioms were called "complete", which clashed with the lesson's own definition of completeness. Now "rigorous, gap-free", and "lies on" was added to his undefined terms.
+- L37: the lesson said elliptic geometry identifies opposite points because lines don't extend forever. That reasoning was wrong: identifying them is what makes two points determine exactly one line. Rewrote the bullet and paragraph.
+- L38: Example 7 was titled "a random chord problem" but isn't one. Retitled.
+- All worked examples, proofs, historical claims and figures were checked and are correct.
+
+## Glossary and references
+- Added "Area Congruence Postulate", which is bolded in L29 but had no glossary entry.
+- "non-Euclidean geometry" said these geometries keep all of Euclid's other postulates, which is untrue of elliptic geometry. Reworded.
+- The reference sheets coord.md, measure.md and theorems.md are correct.
+
+## Notes (not changed)
+- geo-sa-cyl, which L31 links, also asks for volume, which isn't taught until L32. I kept it because cylinder volume has no other drill.
+- Small cosmetic overlaps in drill figures: the "center" label in geo-reg-poly-area, and the angle label on small angles in geo-sector-area.
+- No errors were noticed in files outside this scope.
+
+Final state: build OK, and check-course reports OK with 0 problems on 4 runs.

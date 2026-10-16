@@ -27,9 +27,9 @@ On the surface of a sphere, the "straight lines" (shortest paths) are **great ci
 
 - Any two great circles intersect (in two opposite points), so *there are no parallel lines*.
 - Lines have finite length (one great circle is $2\pi R$ around).
-- Two "points" (opposite points counted as one, in the version called elliptic geometry) determine a line.
+- Two opposite points (like the poles) lie on infinitely many great circles, so two points don't always determine a unique line.
 
-Spherical geometry breaks Euclid's second postulate as well (lines don't extend forever), which is why mathematicians usually study the related **elliptic geometry** in which opposite points are identified.
+Spherical geometry also breaks Euclid's second postulate if it is read as "lines extend forever". To restore "two points determine exactly one line", mathematicians usually study the related **elliptic geometry**, in which each pair of opposite points is identified (counted as a single point).
 
 ### Triangles on a sphere
 

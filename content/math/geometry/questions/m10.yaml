@@ -49,7 +49,7 @@
   choices: ['All right angles are congruent.', 'A circle can be drawn with any center and radius.', 'The angles of every triangle add to $180^\circ$.', 'Vertical angles are congruent.']
   answer: 2
   explanation: |-
-    The $180^\circ$ triangle sum is equivalent to the parallel postulate. The other statements hold without it (vertical angles need only linear pairs; the first two are postulates 4 and 3).
+    The $180^\circ$ triangle sum is equivalent to the parallel postulate. The other statements hold without it (vertical angles need only linear pairs; the statements about right angles and circles are postulates 4 and 3).
 - id: geo-q-3607
   lesson: geo-axiomatic
   topic: Euclid's postulates
@@ -69,11 +69,11 @@
 - id: geo-q-3609
   lesson: geo-axiomatic
   topic: Axiomatic systems
-  stem: 'Who published a complete, rigorous set of axioms for Euclidean geometry in 1899, filling the gaps in Euclid''s reasoning?'
+  stem: 'Who published a rigorous, gap-free set of axioms for Euclidean geometry in 1899, filling the gaps in Euclid''s reasoning?'
   choices: ['Gauss', 'Hilbert', 'Lobachevsky', 'Euler']
   answer: 1
   explanation: |-
-    David Hilbert's *Foundations of Geometry* (1899) used undefined terms point, line, plane, between and congruent with axioms of incidence, order, congruence, continuity and parallels.
+    David Hilbert's Foundations of Geometry (1899) used the undefined terms point, line, plane, lies on, between and congruent with axioms of incidence, order, congruence, continuity and parallels.
 - id: geo-q-3610
   lesson: geo-axiomatic
   topic: Euclid's postulates
@@ -205,7 +205,7 @@
   lesson: geo-probability
   topic: Geometric probability
   stem: 'A bus comes every 12 minutes. You arrive at a random time. What is the probability you wait more than 9 minutes?'
-  choices: ['$\tfrac34$', '$\tfrac14$', '$\tfrac{9}{12}$', '$\tfrac13$']
+  choices: ['$\tfrac34$', '$\tfrac14$', '$\tfrac{1}{12}$', '$\tfrac13$']
   answer: 1
   explanation: |-
     You wait more than 9 minutes only if you arrive in the first 3 minutes after a bus leaves: $\tfrac{3}{12} = \tfrac14$.

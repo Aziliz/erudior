@@ -15,7 +15,7 @@
   choices: ['Incenter', 'Centroid', 'Circumcenter', 'Orthocenter']
   answer: 2
   explanation: |-
-    The circumcenter lies on all three perpendicular bisectors, so it's equidistant from all three vertices. The incenter is equidistant from the *sides*.
+    The circumcenter lies on all three perpendicular bisectors, so it's equidistant from all three vertices. The incenter is equidistant from the sides.
 - id: geo-q-1503
   lesson: geo-bisectors
   topic: Points of concurrency
@@ -449,7 +449,7 @@
   choices: ['They are congruent.', 'They bisect each other.', 'They are perpendicular.', 'They are parallel.']
   answer: 2
   explanation: |-
-    Kite diagonals are perpendicular, and one bisects the other, but they generally don't bisect *each other* (that would make it a parallelogram).
+    Kite diagonals are perpendicular, and one bisects the other, but they generally don't bisect each other (that would make it a parallelogram).
 - id: geo-q-1911
   lesson: geo-special-quads
   topic: Special parallelograms
@@ -461,7 +461,7 @@
 - id: geo-q-1912
   lesson: geo-special-quads
   topic: Trapezoids and kites
-  stem: 'A kite has diagonals 12 and 20. The shorter diagonal is bisected by the longer one, which it meets 4 units from one end. Find the length of the shorter sides of the kite.'
+  stem: 'A kite has diagonals 12 and 20. The longer diagonal bisects the shorter one, and the diagonals cross 4 units from one end of the longer diagonal. Find the length of the shorter sides of the kite.'
   choices: ['$2\sqrt{13}$', '$4\sqrt{13}$', '$2\sqrt{17}$', '10']
   answer: 0
   explanation: |-

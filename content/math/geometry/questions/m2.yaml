@@ -23,7 +23,7 @@
   choices: ['It only works for numbers, not shapes.', 'It requires a counterexample.', 'A pattern that holds for many cases can still fail for a later case.', 'It uses the converse instead of the conditional.']
   answer: 2
   explanation: |-
-    Checking cases never covers *all* cases. The circle-regions pattern 1, 2, 4, 8, 16 suggests doubling, but six points give 31 regions, not 32.
+    Checking cases never covers all cases. The circle-regions pattern 1, 2, 4, 8, 16 suggests doubling, but six points give 31 regions, not 32.
 - id: geo-q-0504
   lesson: geo-conditional
   module_quiz: true
@@ -74,7 +74,7 @@
   choices: ['Two angles are supplementary if and only if their measures add to $180^\circ$.', 'An angle is acute if and only if it measures $40^\circ$.', 'Two angles are congruent if and only if they are vertical angles.', 'A figure is a square if and only if it has four sides.']
   answer: 0
   explanation: |-
-    The first is the definition of supplementary, which works in both directions. Each of the others has a false converse or conditional (an acute angle need not be $40^\circ$, congruent angles need not be vertical, a four-sided figure need not be a square).
+    The supplementary statement is the definition of supplementary angles, which works in both directions. Each of the other statements has a false converse or conditional (an acute angle need not be $40^\circ$, congruent angles need not be vertical, a four-sided figure need not be a square).
 - id: geo-q-0510
   lesson: geo-conditional
   topic: Conditional statements

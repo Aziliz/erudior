@@ -64,7 +64,7 @@ Euclid's *Elements* begins with 23 definitions, five "common notions" (general f
 {"segments": [{"from": [0, 4], "to": [10, 2.6]}, {"from": [0, -0.5], "to": [10, 0.9]}, {"from": [2, -2], "to": [2.6, 5]}], "labels": [{"at": [3.2, 3.1], "text": "a"}, {"at": [3.1, 0.4], "text": "b"}, {"at": [8, 1.75], "text": "meet this way →"}], "caption": "Postulate 5: if a + b < 180°, the two lines meet on the side of a and b."}
 ```
 
-The first four are short and obvious. The fifth is long and complicated, and it reads more like a theorem than a self-evident truth. For two thousand years, mathematicians tried to prove it from the other four. They failed, and in the process found many statements *equivalent* to it (each can be proved from the other, given postulates 1–4):
+The first four are short and obvious. The fifth is long and complicated, and it reads more like a theorem than a self-evident truth. For two thousand years, mathematicians tried to prove it from the other four. They failed, and in the process found many statements *equivalent* to it (each can be proved from the other, given the rest of Euclid's assumptions):
 
 - **Playfair's axiom**: through a point not on a line there is exactly one parallel (Lesson 8).
 - The angles of every triangle add to $180^\circ$.
@@ -76,7 +76,7 @@ Each of these depends on the parallel postulate. Our proof of the triangle angle
 
 ## Modern axiom systems
 
-Euclid's proofs had gaps: he sometimes relied on what a diagram showed, for instance that two circles in his first construction actually intersect. In 1899 David Hilbert published a complete, rigorous set of axioms for Euclidean geometry, with undefined terms point, line, plane, *between*, and *congruent*, and axioms of incidence, order, congruence, continuity and parallels. School geometry courses use a friendlier system based on the ruler and protractor postulates (Lesson 2), introduced by George Birkhoff in 1932.
+Euclid's proofs had gaps: he sometimes relied on what a diagram showed, for instance that two circles in his first construction actually intersect. In 1899 David Hilbert published a rigorous, gap-free set of axioms for Euclidean geometry, with undefined terms point, line, plane, *lies on*, *between*, and *congruent*, and axioms of incidence, order, congruence, continuity and parallels. School geometry courses use a friendlier system based on the ruler and protractor postulates (Lesson 2), introduced by George Birkhoff in 1932.
 
 ## Common mistakes
 

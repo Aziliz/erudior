@@ -73,11 +73,11 @@ The angle at $B$ is included between sides $\overline{AB}$ and $\overline{BD}$ i
 
 Points $A(0, 0)$, $B(4, 0)$, $C(0, 3)$ and $D(10, 2)$, $E(10, 6)$, $F(13, 2)$. Is $\triangle ABC \cong \triangle DEF$?
 
-**Step 1.** $AB = 4$, $AC = 3$, and $BC = \sqrt{4^2 + 3^2} = 5$ (Pythagorean theorem, Module 6, or the distance formula).
+**Step 1.** In $\triangle ABC$, $\overline{AB}$ is horizontal with $AB = 4$ and $\overline{AC}$ is vertical with $AC = 3$. Horizontal and vertical lines are perpendicular, so $\angle A$ is a right angle, and it is the angle *between* $\overline{AB}$ and $\overline{AC}$.
 
-**Step 2.** $DE = 4$ (vertical), $DF = 3$ (horizontal), $EF = \sqrt{3^2 + 4^2} = 5$.
+**Step 2.** In $\triangle DEF$, $\overline{DE}$ is vertical with $DE = 4$ and $\overline{DF}$ is horizontal with $DF = 3$, so $\angle D$ is a right angle between them.
 
-**Step 3.** The three pairs of sides match: $AB = DE$, $AC = DF$, $BC = EF$. So $\triangle ABC \cong \triangle DEF$ by SSS.
+**Step 3.** $AB = DE$, $\angle A \cong \angle D$ (all right angles are congruent) and $AC = DF$. Two sides and the included angle match, so $\triangle ABC \cong \triangle DEF$ by SAS. (Once you have the Pythagorean theorem in Module 6, you can also find $BC = EF = 5$ and use SSS.)
 
 ### Example 4: an SSS proof with a shared side
 

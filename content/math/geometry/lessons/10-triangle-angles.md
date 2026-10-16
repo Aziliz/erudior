@@ -27,7 +27,7 @@ A **triangle** $\triangle ABC$ is the figure formed by three segments joining th
 - **Equiangular triangle**: all three angles congruent.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [4, 0], [2, 3.46]]}, {"points": [[6, 0], [10, 0], [8, 2]]}, {"points": [[12, 0], [16, 0], [12, 3]]}, {"points": [[18, 0], [23, 0], [19, 1.5]]}], "rightAngles": [[[12, 0], [16, 0], [12, 3]]], "labels": [{"at": [2, -1.3], "text": "equilateral"}, {"at": [8, -1.3], "text": "isosceles"}, {"at": [14, -1.3], "text": "right"}, {"at": [20.5, -1.3], "text": "obtuse"}]}
+{"polygons": [{"points": [[0, 0], [4, 0], [2, 3.46]]}, {"points": [[6, 0], [10, 0], [8, 3]]}, {"points": [[12, 0], [16, 0], [12, 3]]}, {"points": [[18, 0], [23, 0], [19, 1.5]]}], "rightAngles": [[[12, 0], [16, 0], [12, 3]]], "labels": [{"at": [2, -1.3], "text": "equilateral"}, {"at": [8, -1.3], "text": "isosceles"}, {"at": [14, -1.3], "text": "right"}, {"at": [20.5, -1.3], "text": "obtuse"}]}
 ```
 
 A triangle can't have two right angles or two obtuse angles, as we're about to see: two such angles would already use up $180^\circ$ or more.

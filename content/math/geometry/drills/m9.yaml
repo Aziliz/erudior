@@ -60,10 +60,12 @@
     n: {min: 1, max: 4}
     x1: {min: -9, max: 9}
     y1: {min: -9, max: 9}
-    dx: {min: -16, max: 16}
-    dy: {min: -16, max: 16}
-  where: ["m != n", "mod(dx, m + n) == 0", "mod(dy, m + n) == 0", "dx != 0", "dy != 0", "abs(x1 + dx) <= 12", "abs(y1 + dy) <= 12"]
+    u: {min: -3, max: 3}
+    v: {min: -3, max: 3}
+  where: ["m != n", "u != 0", "v != 0", "abs(x1 + (m + n)*u) <= 12", "abs(y1 + (m + n)*v) <= 12"]
   calc:
+    dx: (m + n)*u
+    dy: (m + n)*v
     x2: x1 + dx
     y2: y1 + dy
     t: m + n
@@ -223,4 +225,4 @@
     - {name: n, label: 'Lines of symmetry'}
     - {name: ang, label: 'Angle', tolerance: 0.01}
   solution: |-
-    A regular $n$-gon has $n$ lines of symmetry (**{n}**) and rotational symmetry of $\tfrac{360^\circ}{n} = \tfrac{360}{{n}} \approx$ **{ang:num2}°**.
+    A regular $n$-gon has $n$ lines of symmetry (**{n}**) and rotational symmetry of $360^\circ / n = \tfrac{360}{{n}} \approx$ **{ang:num2}°**.

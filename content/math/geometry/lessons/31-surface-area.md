@@ -63,7 +63,7 @@ For a regular pyramid, each lateral face is a triangle whose height is the **sla
 
 $$L = \tfrac12 P\ell, \qquad S = \tfrac12 P\ell + B.$$
 
-A cone is the limit of pyramids with circular bases ($P \to 2\pi r$):
+A cone is the limit of regular pyramids as the number of base sides grows (the base perimeter $P \to 2\pi r$):
 
 $$L = \pi r\ell, \qquad S = \pi r\ell + \pi r^2.$$
 

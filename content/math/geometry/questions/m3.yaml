@@ -174,7 +174,7 @@
   choices: ['$\tfrac{39}{17}$', '$39$', '$\tfrac{29}{13}$', '$3$']
   answer: 3
   explanation: |-
-    $d = \dfrac{|5(1) + 12(2) + 10|}{\sqrt{25 + 144}} = \dfrac{39}{13} = 3$. Forgetting the square root (or dividing by 17 = 5 + 12) gives the wrong denominators.
+    $d = \dfrac{|5(1) + 12(2) + 10|}{\sqrt{25 + 144}} = \dfrac{39}{13} = 3$. $39$ forgets to divide, $\tfrac{39}{17}$ divides by $5 + 12$ instead of $\sqrt{5^2 + 12^2}$, and $\tfrac{29}{13}$ drops the constant $+10$.
 - id: geo-q-0909
   lesson: geo-perp-slope
   topic: Perpendicular lines

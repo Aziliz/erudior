@@ -17,6 +17,8 @@ export interface PartInstance {
   funcs: Record<string, UserFn>;
   /** The correct answer, ready to show (may contain $math$). */
   display: string;
+  /** Number kinds: the shown answer as a number (it may be rounded more than the tolerance), so typing exactly what's shown is always accepted. */
+  shownValue?: number;
 }
 
 export interface PartResult {
@@ -166,7 +168,12 @@ export function resolveParts(
           ? `$${sciTex(target, spec.sigfigs ?? 3)}$`
           : format(target, fmt);
     const display = shown + (unit ? ` ${unit}` : "");
-    return { spec, target, scope, funcs, display };
+    let shownValue: number | undefined;
+    if (!shown.includes("$")) {
+      const n = Number(shown.replace(/[$,%\s]/g, "").replace(/[^0-9.eE+-]+$/, ""));
+      if (Number.isFinite(n) && shown.trim() !== "") shownValue = n;
+    }
+    return { spec, target, scope, funcs, display, shownValue };
   });
 }
 
@@ -275,5 +282,7 @@ export function checkPart(part: PartInstance, text: string): PartResult {
     return { ok: true, shown: text.trim() };
   }
   if (kind === "fraction" && spec.lowestTerms && !read.lowest) return { ok: false, shown: text.trim() };
-  return { ok: closeEnough(read.value!, part.target!, spec), shown: text.trim() };
+  const v = read.value!;
+  const asShown = part.shownValue !== undefined && Math.abs(v - part.shownValue) <= 1e-9 * Math.max(1, Math.abs(part.shownValue));
+  return { ok: asShown || closeEnough(v, part.target!, spec), shown: text.trim() };
 }

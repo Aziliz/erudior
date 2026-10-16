@@ -330,10 +330,10 @@
   lesson: geo-special-right
   topic: Geometric mean
   stem: 'The altitude to the hypotenuse divides it into pieces 5 and 15. Find the leg adjacent to the piece of length 5.'
-  choices: ['$5\sqrt3$', '$\sqrt{75}$', '20', '10']
+  choices: ['$5\sqrt3$', '$10\sqrt3$', '20', '10']
   answer: 3
   explanation: |-
-    Leg $= \sqrt{(\text{hypotenuse})(\text{adjacent piece})} = \sqrt{20 \cdot 5} = 10$. $5\sqrt3 = \sqrt{75}$ is the altitude $\sqrt{5 \cdot 15}$.
+    Leg $= \sqrt{(\text{hypotenuse})(\text{adjacent piece})} = \sqrt{20 \cdot 5} = 10$. $5\sqrt3 = \sqrt{75}$ is the altitude $\sqrt{5 \cdot 15}$, and $10\sqrt3 = \sqrt{20 \cdot 15}$ pairs the hypotenuse with the far piece (it is the other leg).
 - id: geo-q-2308
   lesson: geo-special-right
   topic: Special right triangles

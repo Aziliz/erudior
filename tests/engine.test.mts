@@ -1,5 +1,5 @@
 import { evaluate, compileFuncs } from "../src/lib/expr.ts";
-import { generate } from "../src/lib/drills.ts";
+import { generate, checkAll } from "../src/lib/drills.ts";
 let fails = 0;
 const eq = (name: string, got: number, want: number, tol = 1e-6) => {
   const ok = Math.abs(got - want) <= tol * Math.max(1, Math.abs(want));
@@ -73,4 +73,9 @@ const quad = { id: "q", title: "Quadratic", vars: { a: { min: 1, max: 3 }, b: { 
   calc: { disc: "b^2 - 4*a*c", root: "(-b + sqrt(disc)) / (2*a)" }, where: ["disc > 0", "root == round(root)"],
   prompt: "", answer: "root", format: "number" as const, solution: "" };
 for (let i = 0; i < 200; i++) { const g = generate(quad as any); const r = g.answer as number; if (Math.round(r) !== r) { fails++; console.log("FAIL where", g.values); break; } }
+// Typing exactly the shown (rounded) answer is accepted, even with a tight tolerance.
+const third = { id: "t", title: "Third", vars: { a: { choices: [7] } }, calc: { r: "a/3" }, prompt: "", answer: "r",
+  answers: [{ name: "r", format: "num2", tolerance: 0.0001 }], solution: "" };
+{ const g = generate(third as any); const ok = checkAll(g, ["2.33"])[0].ok, bad = checkAll(g, ["2.34"])[0].ok;
+  if (!ok || bad) { fails++; console.log("FAIL shown value", g.parts[0].display, ok, bad); } }
 console.log(fails ? `${fails} FAILURES` : "all engine tests passed");

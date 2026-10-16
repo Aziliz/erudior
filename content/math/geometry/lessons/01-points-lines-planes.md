@@ -48,7 +48,7 @@ A **postulate** (also called an **axiom**) is a statement accepted as true witho
 These are the reasons a three-legged stool never wobbles (three feet ends are three noncollinear points, so they fit one plane, the floor) while a four-legged chair can (four points need not be coplanar). They are also why a crease in folded paper is straight: it is where two flat planes meet.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [8, 0], [10, 3], [2, 3]]}, {"points": [[4, -2], [8, 1.5], [8, 6], [4, 2.5]]}], "segments": [{"from": [4, -2], "to": [8, 1.5], "dashed": true}], "labels": [{"at": [1.6, 0.6], "text": "P"}, {"at": [7.2, 4.8], "text": "Q"}], "caption": "Two planes P and Q meet along a line."}
+{"polygons": [{"points": [[0, 0], [8, 0], [10, 3], [2, 3]]}, {"points": [[3, -2.5], [7, -0.5], [7, 5.5], [3, 3.5]]}], "segments": [{"from": [3, 0.5], "to": [7, 2.5]}], "labels": [{"at": [1.4, 0.6], "text": "P"}, {"at": [6.3, 4.6], "text": "Q"}, {"at": [4.6, 1.75], "text": "ℓ"}], "caption": "Two planes P and Q meet along line ℓ."}
 ```
 
 ### Example 1
