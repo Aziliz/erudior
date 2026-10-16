@@ -535,12 +535,12 @@
     }
    },
    "calc": {
-    "opp": "h * sind(t)"
+    "side": "h * sind(t)"
    },
    "prompt": "A right triangle has hypotenuse {h} and an angle of {t}°. How long is the side opposite that angle? (2 decimals)",
    "answers": [
     {
-     "name": "opp",
+     "name": "side",
      "label": "Opposite"
     }
    ],
@@ -610,7 +610,7 @@
      }
     ]
    },
-   "solution": "$\\sin {t}^\\circ = \\dfrac{\\text{opp}}{{h}}$, so opp $= {h}\\sin {t}^\\circ \\approx$ **{opp:num2}**.",
+   "solution": "$\\sin {t}^\\circ = \\dfrac{\\text{opp}}{{h}}$, so opp $= {h}\\sin {t}^\\circ \\approx$ **{side:num2}**.",
    "format": "number",
    "answer": ""
   },

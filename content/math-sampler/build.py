@@ -64,14 +64,14 @@ drill(id="geo-circle", title="Circle area", topic="Geometry",
 # --- Trigonometry ----------------------------------------------------------------
 drill(id="trig-side", title="Find a side with SOH CAH TOA", topic="Trigonometry",
       vars={"h": {"min": 5, "max": 30}, "t": {"choices": [20, 25, 30, 35, 40, 50, 55, 60]}},
-      calc={"opp": "h * sind(t)"},
+      calc={"side": "h * sind(t)"},
       prompt="A right triangle has hypotenuse {h} and an angle of {t}°. How long is the side opposite that angle? (2 decimals)",
-      answers=[{"name": "opp", "label": "Opposite"}],
+      answers=[{"name": "side", "label": "Opposite"}],
       figure={"type": "shape", "polygons": [{"points": [[0, 0], ["h*cosd(t)", 0], ["h*cosd(t)", "h*sind(t)"]]}],
               "rightAngles": [[["h*cosd(t)", 0], [0, 0], ["h*cosd(t)", "h*sind(t)"]]],
               "segments": [{"from": [0, 0], "to": ["h*cosd(t)", "h*sind(t)"], "label": "{h}"}],
               "labels": [{"at": ["0.18*h*cosd(t)", "0.07*h"], "text": "{t}°"}, {"at": ["1.06*h*cosd(t)", "0.5*h*sind(t)"], "text": "?"}]},
-      solution="$\\sin {t}^\\circ = \\dfrac{\\text{opp}}{{h}}$, so opp $= {h}\\sin {t}^\\circ \\approx$ **{opp:num2}**.")
+      solution="$\\sin {t}^\\circ = \\dfrac{\\text{opp}}{{h}}$, so opp $= {h}\\sin {t}^\\circ \\approx$ **{side:num2}**.")
 drill(id="trig-exact", title="Exact trig values", topic="Trigonometry",
       vars={"t": {"choices": [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330]}, "fn": {"choices": [{"label": "\\sin", "value": 0}, {"label": "\\cos", "value": 1}]}},
       calc={"v": "if(fn == 0, sind(t), cosd(t))"},

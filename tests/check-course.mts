@@ -86,7 +86,7 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
     // A TeX group like \frac{dz}{dt} gets filled in if a drill value is named dz.
     const names = new Set([...Object.keys(d.vars ?? {}), ...Object.keys(d.calc ?? {})]);
     for (const [what, text] of [["prompt", d.prompt], ["solution", d.solution]] as const)
-      for (const m of text.matchAll(/\\[A-Za-z]+\s*\{(\w+)\}/g))
+      for (const m of text.matchAll(/\\(?:[dt]?frac|text|textrm|mathrm|operatorname|mathbf|mathit|boldsymbol)\{(\w+)\}/g))
         if (names.has(m[1])) say(`drill ${d.id} ${what}: TeX "${m[0]}" clashes with the drill value {${m[1]}} (rename the value)`);
     for (let i = 0; i < runs; i++) {
       let g;
