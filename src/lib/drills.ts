@@ -165,7 +165,10 @@ export function generate(drill: Drill): DrillInstance {
     });
   }
   if (!ok) throw new Error(`${drill.title}: no inputs met the "where" conditions after ${MAX_TRIES} tries`);
-  const parts = resolveParts(drill, values, funcs, (t) => fill(t, values, labels), formatNum);
+  const parts = resolveParts(drill, values, funcs, (t) => fill(t, values, labels), formatNum).map((p) =>
+    // Answer-box labels can use {placeholders} too, e.g. "f({a})".
+    p.spec.label?.includes("{") ? { ...p, spec: { ...p.spec, label: fill(p.spec.label, values, labels) } } : p,
+  );
   return {
     drill,
     values,

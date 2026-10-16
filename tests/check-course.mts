@@ -97,7 +97,7 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
         checkText(`drill ${d.id} answer ${j + 1}`, p.display);
         if (p.spec.label) checkText(`drill ${d.id} label ${j + 1}`, p.spec.label);
       });
-      for (const [what, text] of [["prompt", g.prompt], ["solution", g.solution]] as const) {
+      for (const [what, text] of [["prompt", g.prompt], ["solution", g.solution], ...g.parts.map((p, j) => [`label ${j + 1}`, p.spec.label ?? ""] as const)] as const) {
         const m = /\{[A-Za-z_]\w*:\w+\}/.exec(text);
         if (m) say(`drill ${d.id}: unfilled placeholder ${m[0]} in ${what} (unknown name or format)`);
       }
