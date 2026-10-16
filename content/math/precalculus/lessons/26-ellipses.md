@@ -26,7 +26,7 @@ $$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1, \qquad \text{where } b^2 = a^2 - c^2.$$
 The co-vertices are $(0, \pm b)$. The relation $c^2 = a^2 - b^2$ has a picture: from a co-vertex, the distance to each focus is $a$ (half the string), so $b$, $c$ and $a$ form a right triangle with hypotenuse $a$.
 
 ```plot
-{"x": [-6, 6], "y": [-4.5, 4.5], "equal": true, "curves": [{"x": "5cos(t)", "y": "3sin(t)", "t": [0, "2pi"], "label": "x²/25 + y²/9 = 1"}], "points": [{"at": [-4, 0], "label": "F₁ (−4, 0)"}, {"at": [4, 0], "label": "F₂ (4, 0)"}, {"at": [5, 0], "label": "(5, 0)"}, {"at": [0, 3], "label": "(0, 3)"}], "segments": [{"from": [-4, 0], "to": [0, 3]}, {"from": [4, 0], "to": [0, 3]}], "caption": "From the co-vertex (0, 3), each focus is 5 = a units away: 3² + 4² = 5²."}
+{"x": [-6, 6], "y": [-4.5, 4.5], "equal": true, "curves": [{"x": "5cos(t)", "y": "3sin(t)", "t": [0, "2pi"]}], "points": [{"at": [-4, 0], "label": "F₁ (−4, 0)"}, {"at": [4, 0], "label": "F₂ (4, 0)"}, {"at": [5, 0]}, {"at": [0, 3], "label": "(0, 3)"}], "segments": [{"from": [-4, 0], "to": [0, 3]}, {"from": [4, 0], "to": [0, 3]}], "caption": "x²/25 + y²/9 = 1, with vertex (5, 0). From the co-vertex (0, 3), each focus is 5 = a units away: 3² + 4² = 5²."}
 ```
 
 ## Horizontal and vertical ellipses

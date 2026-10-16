@@ -119,10 +119,10 @@
   definition: '$y = f(x - h)$ moves the graph right $h$ units (left if $h < 0$).'
   topic: Transformations
 - term: horizontal compression
-  definition: '$y = f(bx)$ with $|b| > 1$ squeezes the graph toward the $y$-axis by a factor $\frac1b$.'
+  definition: '$y = f(bx)$ with $|b| > 1$ squeezes the graph toward the $y$-axis by a factor $\frac{1}{|b|}$ (and also reflects it over the $y$-axis if $b < 0$).'
   topic: Transformations
 - term: horizontal stretch
-  definition: '$y = f(bx)$ with $0 < |b| < 1$ stretches the graph away from the $y$-axis by a factor $\frac1b$.'
+  definition: '$y = f(bx)$ with $0 < |b| < 1$ stretches the graph away from the $y$-axis by a factor $\frac{1}{|b|}$ (and also reflects it over the $y$-axis if $b < 0$).'
   topic: Transformations
 - term: composition
   aliases: [composite function]
@@ -319,7 +319,7 @@
   definition: 'A function is periodic if its values repeat at regular intervals: $f(x + p) = f(x)$.'
   topic: Trig graphs
 - term: period
-  definition: 'The length of the smallest interval after which a periodic function repeats; $\frac{2\pi}{B}$ for $\sin(Bx)$.'
+  definition: 'The length of the smallest interval after which a periodic function repeats; $\frac{2\pi}{|B|}$ for $\sin(Bx)$.'
   topic: Trig graphs
 - term: sinusoid
   definition: 'A transformed sine or cosine curve, $y = A\sin(B(x - C)) + D$.'

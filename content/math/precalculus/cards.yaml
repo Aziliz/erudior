@@ -299,7 +299,7 @@
   back: 'The acute angle between the terminal side and the $x$-axis.'
   topic: 'Unit circle'
 - front: 'Sinusoid $y = A\sin(B(x - C)) + D$'
-  back: 'Amplitude $|A|$, period $\frac{2\pi}{B}$, phase shift $C$, midline $y = D$.'
+  back: 'Amplitude $|A|$, period $\frac{2\pi}{|B|}$, phase shift $C$, midline $y = D$.'
   topic: 'Trig graphs'
 - front: 'Period of $\tan x$'
   back: '$\pi$ (asymptotes at $\frac{\pi}{2} + k\pi$).'

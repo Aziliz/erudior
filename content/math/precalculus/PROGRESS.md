@@ -85,3 +85,124 @@ Notes for reviewers:
 - pc-conic-discriminant, pc-polar-conic-e and pc-limit-piecewise use a numeric "type" box (e.g. 1/2/3) to classify; a bit unusual.
 - Trig module is intentionally compact (2 lessons); the separate Trigonometry course covers it in depth.
 - Lesson 32 combines the dot product with 3D vectors and a brief cross product.
+
+
+## Review (2026-10-16)
+
+Independent review in three parts: every question solved before checking its key, every lesson example checked with sympy, every drill generated hundreds of times against an independent solver. All answer keys were correct.
+
+Open cosmetic items: pc-exact-trig shows only a decimal; pc-system3's solution is generic; pc-transform-point shows 4/1 when B = 1; a lesson 08 graph is slightly clipped.
+
+# Precalculus review: pc-m1 to pc-m3 (lessons 01-13, questions/drills m1-m3, cards.yaml)
+
+Method: I solved every question in m1-m3 myself (sympy script q.py) before comparing it with the key. I hand-checked the lesson worked examples and rendered the lesson figures (figs.mts plus Playwright). I generated 300 instances of each of the 28 drills (gen.mts) and checked each answer by re-parsing the prompt as shown and solving it in sympy (chk.py).
+
+All answer keys were correct and no question had two correct choices. No computed drill answer was wrong in 8,400 instances.
+
+## Questions: Markdown that doesn't render
+- pc-q-0101 and pc-q-1001: changed `**not**` to NOT.
+- pc-q-0208 and pc-q-0604: replaced the Markdown tables with KaTeX `array`s.
+- pc-q-0311: replaced the numbered list with "Step 1:/Step 2:/Step 3:" lines.
+- pc-q-0101, 0107, 0113, 0208 and 0506: removed `*italics*`.
+
+## Questions: explanations that named choices by position
+These now name the expression itself: pc-q-0101 ("the first set"), 0305 ("second choice"), 0312 ("last choice"), 0602, 0607, 0612, 0703, 0709, 1005 and 1112.
+- pc-q-0610: the explanation cited 49 and 19, which aren't choices. It now names the mistakes behind the real distractors 16, -2 and 42.
+
+## Lessons: references to later material
+- 01-functions: the range method cited $e^x > 0$ before exponentials are taught. Removed.
+- 07-inverses Example 2: justified the range of g with "horizontal asymptote y = 1", which comes in Module 3. It now gives an algebraic reason.
+
+All other worked examples, sign charts, holes and asymptotes, and figures checked out.
+
+## Drills: ugly output and prompt wording
+- These solutions printed `(x - (-2))` and `(x - (4))`. They now use signed negated values like `(x + 2)`: pc-domain-rational, pc-transform-point, pc-cubic-roots, pc-hole, pc-rational-intercepts, pc-quad-ineq and pc-conjugate-quadratic.
+- pc-transform-point: also changed "`+ (-3)`" to signed form and `1(x - 3)` to coef form.
+- pc-conjugate-quadratic: the prompt and solution showed "1i". They now use `{b:coef}i`.
+- pc-rational-intercepts: the y-intercept answer box is a fraction kind, but the prompt didn't say how to answer. It now says "Give the y-intercept as an exact fraction or integer".
+
+## Cards
+- Sinusoid period changed from 2π/B to 2π/|B|. Everything else in cards.yaml checked out.
+
+## Unresolved, or outside my scope
+- The lesson figure in 08 (y = ½(x+2)(x-1)²(x-3)) is clipped slightly at the bottom: its minimum is about -8.1 and the window is [-8, 8]. Cosmetic, so I left it.
+- pc-transform-point with B = 1 shows "x - 2 = (x - 2)" and "4/1". It's awkward but correct.
+
+Final state: `build.py precalculus` OK; `check-course.mts` reports OK (0 problems).
+
+# Precalculus review, modules pc-m4 to pc-m6 (lessons 14-24)
+
+Verification: I solved all 108 questions independently (Python/sympy) and found every answer key correct with exactly one correct choice. I checked every lesson worked example with sympy: compound/continuous interest, log/exp solutions, models, unit circle, identities, Gaussian elimination, matrix products, 3x3 inverse, determinants, Cramer, and all 4 partial-fraction decompositions. All were correct. I generated 300 instances of each of the 29 drills (8,700 total), parsed each prompt as shown, and solved it independently. Every target matched, and a mutation test confirmed the checker catches wrong targets. I rendered all lesson figures with renderFigure plus app CSS and took Playwright screenshots; they match the text.
+
+## Questions
+- pc-q-2003: the explanation misnamed the distractor mistakes. It now says that adding in the constant column gives 16 and that not multiplying the constant by 3 gives -4.
+- pc-q-1609: the stem used a Markdown numbered list. Rewrote it inline as "Step 1: ... Step 2: ...".
+- pc-q-1508: removed Markdown italics. pc-q-2008 and pc-q-2105: removed Markdown bold from the stems.
+- Positional references to choices ("first/second/third/last choice") replaced with the choice content in pc-q-1507, 1608, 1906, 2002, 2009, 2102, 2103, 2106, 2109, 2201, 2202, 2203, 2211 and 2412.
+- pc-q-1909: the explanation's counterexample was garbled ("sin π = 0 ≠ 2"). Rewrote it to cover each false identity.
+
+## Lessons
+- 18: "This course has a separate Trigonometry course" changed to "Examiner has a separate Trigonometry course".
+- 24: removed two references to telescoping sums in Module 9, which has none. The text now points to calculus series.
+- 14 (Example 1 figure) and 19 (Example 1 figure): removed the parent-curve labels that overlapped the transformed-curve labels. The captions already identify the dashed curve.
+
+## Drills (answers all correct; text cleanup)
+- pc-log-combine: "1\log", "(3)\log" changed to coef/signedcoef forms.
+- pc-exp-solve: "(5)^x" changed to "5^x".
+- pc-log-solve: "= 27 - (5)" replaced by the computed right side.
+- pc-same-base: "3^{1(x - 5)}" changed to use coef.
+- pc-sinusoid: "4(x - (-1))", "1(x - (2))" changed to "{B:coef}(x {mC:signed})".
+- pc-pf-linear: "= 1B", "= -1A" changed to coef.
+
+## Unresolved / notes
+- pc-exact-trig asks for an exact value, but the solution and answer display show only a 4-decimal value. The template system can't build the exact string. Grading is unaffected.
+- pc-system3: the solution text is generic (describes the method, gives the answer) rather than showing this instance's row operations.
+- No errors noticed in references/02-exp-log-trig.md or 03-matrices-series.md (not edited).
+
+Build and check-course: 0 problems.
+
+# Precalculus review, part C (pc-m7 to pc-m10, lessons 25-40, glossary, references)
+
+Method: solved all 192 questions in m7-m10 independently before comparing keys; checked every lesson's worked examples (with Python where numeric); generated 400 instances of each of the 38 drills and verified every computed answer with an independent Python calculation; rendered every lesson figure and sample drill figures with the app stylesheet and screenshotted them.
+
+## Answer keys
+- All 192 keys correct; exactly one correct choice each; distractors wrong. No key changes needed.
+
+## Questions fixed
+- pc-q-3801: the stem used a Markdown table, which questions don't render. Rewrote the values inline as plain text.
+- Explanations that pointed to choices by position (positions are shuffled). Each now names the choice instead: pc-q-2512, 2612, 2805, 2901, 3105, 3203, 3206, 3301, 3312, 3410, 3610, 3709, 3711, 3805.
+- pc-q-2805: the stem now says the segment starts at (2, -1) when t = 0 and ends at (6, 3) when t = 1. Before, the reversed parametrization was arguably also correct.
+
+## Drills fixed
+- pc-arith-sum, pc-geo-sum: the prompts showed "23 + (28) + (33)" and "3 + (1.5) + (0.75)". They now list the terms. The solutions had "(23 + (173))" and "1 - (0.5)"; these are now clean signed or fraction forms.
+- pc-geo-nth: terms and r now show as fractions instead of decimals like 1.25 and 0.5.
+- pc-ellipse-center, pc-tangent-line: "(x - (-2))" in the solutions is now "(x + 2)".
+- pc-ellipse-foci: the prompt now says to give the eccentricity as a fraction. The answer box only accepts fractions.
+- pc-param-point: the figure's x-range was [-20, 20], but the point can reach x = ±22. Widened it to [-24, 24].
+- pc-binom-coef: j now starts at 2, which removes "x^{1}" from the prompt.
+- pc-prob-select: fixed the grammar ("exactly 1 of the marbles drawn are red").
+- pc-parabola-vertex-form wasn't linked from any lesson. Added it to lesson 25's drills.
+- All other computed answers matched in 400 instances each.
+
+## Lessons
+- Worked examples, definitions, conic foci and eccentricity, polar quadrant handling and the induction proofs all checked correct.
+- Figures with overlapping or clipped labels:
+  - L25 Example 3: "vertex" and "focus" labels overlapped.
+  - L26: F2 label overlapped the vertex and curve labels.
+  - L27: (4, 0) label overlapped "focus".
+  - L28: two problems. In Example 1 the curve label overlapped "t = 2". The projectile plot had squashed y ticks and a clipped "lands" label.
+  - L29: rose, cardioid and point labels overlapped.
+  - L30: curve, focus, (2, 0) and directrix labels overlapped.
+  - L39: two labels overlapped.
+  - L40: the secant, tangent and curve labels overlapped.
+  - Fix for all of these: moved the information into captions or placed free labels.
+- L33: "(Lesson 35 proves them)" was inaccurate, because lesson 35 doesn't prove the sum of k. Reworded it.
+
+## Glossary and references
+- Glossary: the horizontal compression and stretch entries now give the factor as 1/|b| and note the reflection when b < 0. Period is now 2π/|B|.
+- Reference sheets: no errors.
+
+## Outside my scope
+- No errors seen.
+
+Build and check-course: 0 problems.

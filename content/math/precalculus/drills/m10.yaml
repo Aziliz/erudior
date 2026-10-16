@@ -155,6 +155,7 @@
     m: 2*a*x0 + b
     y0: a*x0^2 + b*x0 + c
     bb: y0 - m*x0
+    nx0: -x0
   funcs:
     f(x): a*x^2 + b*x + c
   prompt: 'Find the equation of the tangent line to $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ at $x = {x0}$. (Its slope is $f''({x0}) = \lim_{h\to0}\frac{f({x0} + h) - f({x0})}{h}$.)'
@@ -170,7 +171,7 @@
   answers:
     - {kind: expression, expression: 'm*x + bb', variables: [x], label: '$y =$', show: '$y = {m:coef}x {bb:signed}$'}
   solution: |-
-    The point is $({x0}, {y0})$. The difference quotient simplifies to $2({a})({x0}) + ({b}) + ({a})h$, so the slope is $f'({x0}) = {m}$. Then $y = {y0} + ({m})(x - ({x0}))$, i.e. **$y = {m:coef}x {bb:signed}$**.
+    The point is $({x0}, {y0})$. The difference quotient simplifies to $2({a})({x0}) + ({b}) + ({a})h$, so the slope is $f'({x0}) = {m}$. Then $y = {y0} + ({m})(x {nx0:signed})$, i.e. **$y = {m:coef}x {bb:signed}$**.
 
 - id: pc-derivative-def
   title: Derivative function from the definition

@@ -33,12 +33,13 @@
     cc: -B*H
     nx: p/B + H
     ny: A*q + K
+    nH: -H
   prompt: 'The point $({p}, {q})$ is on the graph of $y = f(x)$. Find the point it moves to on the graph of $y = {A:coef}f({B:coef}x {cc:signed}) {K:signed}$.'
   answers:
     - {name: nx, label: 'New $x$'}
     - {name: ny, label: 'New $y$'}
   solution: |-
-    Factor the inside: ${B:coef}x {cc:signed} = {B}(x - ({H}))$, so the inside needs to equal {p}: $x = \dfrac{ {p} }{ {B} } + ({H}) = {nx}$. Outside: $y = {A}({q}) + ({K}) = {ny}$. The point is **({nx}, {ny})**.
+    Factor the inside: ${B:coef}x {cc:signed} = {B:coef}(x {nH:signed})$, so the inside needs to equal {p}: $x = \dfrac{ {p} }{ {B} } {H:signed} = {nx}$. Outside: $y = {A}({q}) {K:signed} = {ny}$. The point is **({nx}, {ny})**.
 
 - id: pc-transform-write
   title: Write the equation of a transformed absolute value graph

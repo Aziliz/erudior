@@ -50,7 +50,7 @@ Describe $g(x) = 2^{x - 1} + 3$ and give its asymptote and range.
 Right 1, up 3. The asymptote moves from $y = 0$ to $y = 3$; $(0, 1)$ moves to $(1, 4)$ and $(1, 2)$ moves to $(2, 5)$. Range: $(3, \infty)$.
 
 ```plot
-{"x": [-5, 5], "y": [-1, 12], "functions": [{"f": "2^x", "dashed": true, "label": "y = 2ˣ"}, {"f": "2^(x - 1) + 3", "label": "y = 2ˣ⁻¹ + 3"}, {"f": "3", "dashed": true}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [0, 1]}], "caption": "2ˣ (dashed) shifted right 1 and up 3; the asymptote moves to y = 3."}
+{"x": [-5, 5], "y": [-1, 12], "functions": [{"f": "2^x", "dashed": true}, {"f": "2^(x - 1) + 3", "label": "y = 2ˣ⁻¹ + 3"}, {"f": "3", "dashed": true}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [0, 1]}], "caption": "2ˣ (dashed) shifted right 1 and up 3; the asymptote moves to y = 3."}
 ```
 
 ## Compound interest

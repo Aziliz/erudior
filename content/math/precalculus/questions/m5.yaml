@@ -148,7 +148,7 @@
   choices: ['$\dfrac{\sqrt6 - \sqrt2}{4}$', '$\dfrac{\sqrt6 + \sqrt2}{4}$', '$\dfrac{\sqrt2 - \sqrt3}{2}$', '$\dfrac{\sqrt3 - 1}{2}$']
   answer: 1
   explanation: |-
-    $\cos(a - b) = \cos a\cos b + \sin a\sin b$: $\frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} + \frac{\sqrt2}{2}\cdot\frac12 = \frac{\sqrt6 + \sqrt2}{4} \approx 0.9659$. The first choice is $\cos 75^\circ$ (the sign in the formula flipped). Computing $\cos 45^\circ - \cos 30^\circ$ gives the third.
+    $\cos(a - b) = \cos a\cos b + \sin a\sin b$: $\frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} + \frac{\sqrt2}{2}\cdot\frac12 = \frac{\sqrt6 + \sqrt2}{4} \approx 0.9659$. $\frac{\sqrt6 - \sqrt2}{4}$ is $\cos 75^\circ$ (the sign in the formula flipped). Computing $\cos 45^\circ - \cos 30^\circ$ gives $\frac{\sqrt2 - \sqrt3}{2}$.
 - id: pc-q-1907
   lesson: pc-trig-graphs-identities
   module_quiz: true
@@ -174,7 +174,7 @@
   choices: ['$1 + \tan^2\theta = \sec^2\theta$', '$\sin 2\theta = 2\sin\theta$', '$\sin(a + b) = \sin a + \sin b$', '$\cos(-\theta) = -\cos\theta$']
   answer: 0
   explanation: |-
-    Dividing $\sin^2\theta + \cos^2\theta = 1$ by $\cos^2\theta$ gives $\tan^2\theta + 1 = \sec^2\theta$. The others fail: e.g. at $\theta = \frac{\pi}{2}$, $\sin\pi = 0 \ne 2$; cosine is even, not odd.
+    Dividing $\sin^2\theta + \cos^2\theta = 1$ by $\cos^2\theta$ gives $\tan^2\theta + 1 = \sec^2\theta$. The others fail: at $\theta = \frac{\pi}{2}$, $\sin 2\theta = \sin\pi = 0$ but $2\sin\theta = 2$; at $a = b = \frac{\pi}{2}$, $\sin(a + b) = 0$ but $\sin a + \sin b = 2$; and cosine is even, so $\cos(-\theta) = \cos\theta$, not $-\cos\theta$.
 - id: pc-q-1910
   lesson: pc-trig-graphs-identities
   topic: Trig identities

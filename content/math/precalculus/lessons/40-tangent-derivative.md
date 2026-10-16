@@ -20,7 +20,7 @@ $$m_{\text{sec}} = \frac{f(a + h) - f(a)}{h},$$
 the difference quotient from Lesson 3. As $h \to 0$, $Q$ slides along the curve toward $P$, and the secant lines pivot toward a limiting position: the tangent line at $P$.
 
 ```plot
-{"x": [-0.5, 4.5], "y": [-2, 14], "functions": [{"f": "x^2", "label": "y = x²"}, {"f": "5x - 6", "dashed": true, "label": "secant (h = 1)"}, {"f": "4x - 4", "label": "tangent"}], "points": [{"at": [2, 4], "label": "P (2, 4)"}, {"at": [3, 9], "label": "Q"}], "caption": "As Q slides toward P, the secant slopes 5, 4.5, 4.1, … approach the tangent slope 4."}
+{"x": [-0.5, 4.5], "y": [-2, 14], "functions": [{"f": "x^2"}, {"f": "5x - 6", "dashed": true}, {"f": "4x - 4"}], "points": [{"at": [2, 4], "label": "P (2, 4)"}, {"at": [3, 9], "label": "Q"}], "caption": "y = x² with the secant through P and Q (dashed, h = 1) and the tangent at P. As Q slides toward P, the secant slopes 5, 4.5, 4.1, … approach the tangent slope 4."}
 ```
 
 ## The derivative at a point

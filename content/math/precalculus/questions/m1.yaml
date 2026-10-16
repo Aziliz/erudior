@@ -2,11 +2,11 @@
   lesson: pc-functions
   module_quiz: true
   topic: Functions and notation
-  stem: 'Which relation is **not** a function of $x$?'
+  stem: 'Which relation is NOT a function of $x$?'
   choices: ['$\{(1, 4), (2, 4), (3, 4)\}$', '$\{(0, 1), (1, 2), (2, 3)\}$', '$\{(2, 5), (3, 7), (2, -5)\}$', '$\{(-1, 1), (1, 1), (0, 0)\}$']
   answer: 2
   explanation: |-
-    The input 2 is paired with both 5 and $-5$, so one input has two outputs. Repeating an *output* (as in the first set, where every input gives 4) is allowed.
+    The input 2 is paired with both 5 and $-5$, so one input has two outputs. Repeating an output (as in $\{(1, 4), (2, 4), (3, 4)\}$, where every input gives 4) is allowed.
 - id: pc-q-0102
   lesson: pc-functions
   topic: Functions and notation
@@ -56,7 +56,7 @@
   choices: ['$[-2, \infty)$', '$(-\infty, -5]$', '$[-5, \infty)$', 'All real numbers']
   answer: 2
   explanation: |-
-    $(x + 2)^2 \ge 0$ for every $x$ and equals 0 at $x = -2$, so $f(x) \ge -5$ and $-5$ is reached. Range: $[-5, \infty)$. The value $-2$ is where the minimum *occurs*, not the minimum value.
+    $(x + 2)^2 \ge 0$ for every $x$ and equals 0 at $x = -2$, so $f(x) \ge -5$ and $-5$ is reached. Range: $[-5, \infty)$. The value $-2$ is where the minimum occurs, not the minimum value.
 - id: pc-q-0108
   lesson: pc-functions
   topic: Domain and range
@@ -105,7 +105,7 @@
   choices: ['All real numbers except $-2$', 'All real numbers except $3$', 'All real numbers except $\tfrac13$', 'All real numbers']
   answer: 1
   explanation: |-
-    Solve $y = \frac{3x-1}{x+2}$ for $x$: $yx + 2y = 3x - 1$, so $x(y - 3) = -2y - 1$ and $x = \frac{-2y-1}{y-3}$. Every $y$ works except $y = 3$. ($-2$ is excluded from the *domain*, not the range.)
+    Solve $y = \frac{3x-1}{x+2}$ for $x$: $yx + 2y = 3x - 1$, so $x(y - 3) = -2y - 1$ and $x = \frac{-2y-1}{y-3}$. Every $y$ works except $y = 3$. ($-2$ is excluded from the domain, not the range.)
 
 - id: pc-q-0201
   lesson: pc-piecewise
@@ -173,13 +173,11 @@
   stem: |-
     A function has the values below. Which inputs are zeros of $f$?
 
-    | $x$ | $-2$ | $-1$ | $0$ | $1$ | $2$ |
-    |---|---|---|---|---|---|
-    | $f(x)$ | $3$ | $0$ | $-2$ | $0$ | $5$ |
+    $\begin{array}{c|ccccc} x & -2 & -1 & 0 & 1 & 2 \\ \hline f(x) & 3 & 0 & -2 & 0 & 5 \end{array}$
   choices: ['$x = 0$ only', '$x = -1$ and $x = 1$', '$x = -2$ and $x = 0$', '$x = -2$ only']
   answer: 1
   explanation: |-
-    A zero is an input where the output is 0. $f(-1) = 0$ and $f(1) = 0$. The value $-2$ is an *output* (at $x = 0$), not a zero.
+    A zero is an input where the output is 0. $f(-1) = 0$ and $f(1) = 0$. The value $-2$ is an output (at $x = 0$), not a zero.
 - id: pc-q-0209
   lesson: pc-piecewise
   topic: Reading graphs
@@ -255,7 +253,7 @@
   choices: ['$2x + 5$', '$2xh + h^2 + 5h$', '$2x + h$', '$2x + h + 5$']
   answer: 3
   explanation: |-
-    $f(x+h) - f(x) = (x^2 + 2xh + h^2 + 5x + 5h) - (x^2 + 5x) = 2xh + h^2 + 5h$. Dividing by $h$ gives $2x + h + 5$. The second choice forgot to divide; $2x + 5$ is what you get after letting $h \to 0$ (the derivative), which is a later step.
+    $f(x+h) - f(x) = (x^2 + 2xh + h^2 + 5x + 5h) - (x^2 + 5x) = 2xh + h^2 + 5h$. Dividing by $h$ gives $2x + h + 5$. $2xh + h^2 + 5h$ forgot to divide by $h$; $2x + 5$ is what you get after letting $h \to 0$ (the derivative), which is a later step.
 - id: pc-q-0306
   lesson: pc-behavior
   topic: Average rate of change
@@ -303,9 +301,9 @@
   stem: |-
     A student simplifies the difference quotient for $f(x) = x^2$ like this. Which step is wrong?
 
-    1. $f(x+h) = x^2 + h^2$
-    2. $f(x+h) - f(x) = h^2$
-    3. $\dfrac{h^2}{h} = h$
+    Step 1: $f(x+h) = x^2 + h^2$
+    Step 2: $f(x+h) - f(x) = h^2$
+    Step 3: $\dfrac{h^2}{h} = h$
   choices: ['Step 2', 'Step 3', 'No step is wrong', 'Step 1']
   answer: 3
   explanation: |-
@@ -317,4 +315,4 @@
   choices: ['$\dfrac{1}{x(x+h)}$', '$-\dfrac{1}{x(x+h)}$', '$-\dfrac{1}{x^2}$', '$\dfrac{-h}{x(x+h)}$']
   answer: 1
   explanation: |-
-    $\frac{1}{x+h} - \frac1x = \frac{x - (x+h)}{x(x+h)} = \frac{-h}{x(x+h)}$; dividing by $h$ gives $-\frac{1}{x(x+h)}$. The last choice forgot to divide by $h$; $-\frac{1}{x^2}$ is the limit as $h \to 0$.
+    $\frac{1}{x+h} - \frac1x = \frac{x - (x+h)}{x(x+h)} = \frac{-h}{x(x+h)}$; dividing by $h$ gives $-\frac{1}{x(x+h)}$. $\frac{-h}{x(x+h)}$ forgot to divide by $h$; $-\frac{1}{x^2}$ is the limit as $h \to 0$.

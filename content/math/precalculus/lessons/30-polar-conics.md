@@ -58,7 +58,7 @@ The vertices lie on the polar axis (the trig function is cosine):
 The major axis runs from $-10$ to $2$, so $2a = 12$, $a = 6$, and the center is at $x = -4$. The focus at the pole is $c = 4$ from the center, and indeed $\frac ca = \frac46 = \frac23 = e$. ✓
 
 ```plot
-{"x": [-11, 6], "y": [-6.5, 6.5], "equal": true, "curves": [{"x": "10cos(t)/(3 + 2cos(t))", "y": "10sin(t)/(3 + 2cos(t))", "t": [0, "2pi"], "label": "r = 10/(3 + 2cos θ)"}], "segments": [{"from": [5, -6.5], "to": [5, 6.5], "dashed": true, "label": "x = 5"}], "points": [{"at": [0, 0], "label": "focus (pole)"}, {"at": [2, 0], "label": "(2, 0)"}, {"at": [-10, 0], "label": "(−10, 0)"}], "caption": "An ellipse with e = 2/3, one focus at the pole and directrix x = 5."}
+{"x": [-11, 6], "y": [-6.5, 6.5], "equal": true, "curves": [{"x": "10cos(t)/(3 + 2cos(t))", "y": "10sin(t)/(3 + 2cos(t))", "t": [0, "2pi"]}], "segments": [{"from": [5, -6.5], "to": [5, 6.5], "dashed": true}], "labels": [{"at": [3.6, 5.6], "text": "x = 5"}, {"at": [-1.8, 0.9], "text": "focus"}], "points": [{"at": [0, 0]}, {"at": [2, 0], "label": "(2, 0)"}, {"at": [-10, 0], "label": "(−10, 0)"}], "caption": "r = 10/(3 + 2 cos θ): an ellipse with e = 2/3, one focus at the pole and directrix x = 5."}
 ```
 
 ### Example 2

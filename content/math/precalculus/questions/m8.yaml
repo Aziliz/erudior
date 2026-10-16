@@ -39,7 +39,7 @@
   choices: ['$\langle 4, 4\sqrt3 \rangle$', '$\langle 8, 30 \rangle$', '$\langle 4\sqrt3, 4 \rangle$', '$\langle 4\sqrt2, 4\sqrt2 \rangle$']
   answer: 2
   explanation: |-
-    $\langle 8\cos 30^\circ, 8\sin 30^\circ \rangle = \left\langle 8 \cdot \frac{\sqrt3}{2}, 8 \cdot \frac12 \right\rangle = \langle 4\sqrt3, 4 \rangle$. Swapping sine and cosine gives the first choice (a $60^\circ$ vector).
+    $\langle 8\cos 30^\circ, 8\sin 30^\circ \rangle = \left\langle 8 \cdot \frac{\sqrt3}{2}, 8 \cdot \frac12 \right\rangle = \langle 4\sqrt3, 4 \rangle$. Swapping sine and cosine gives $\langle 4, 4\sqrt3 \rangle$ (a $60^\circ$ vector).
 - id: pc-q-3106
   lesson: pc-vectors-2d
   topic: Vectors
@@ -132,7 +132,7 @@
   choices: ['$\langle 3, 2 \rangle$', '$\langle 2, -3 \rangle$', '$\langle -4, 6 \rangle$', '$\langle 6, -4 \rangle$']
   answer: 0
   explanation: |-
-    $\langle 4, -6 \rangle \cdot \langle 3, 2 \rangle = 12 - 12 = 0$. The others give $26$, $-52$ and $48$. ($\langle 2, -3 \rangle$ and $\langle -4, 6 \rangle$ are parallel to $\langle 4, -6 \rangle$, the opposite of orthogonal.)
+    $\langle 4, -6 \rangle \cdot \langle 3, 2 \rangle = 12 - 12 = 0$. $\langle 2, -3 \rangle$ gives $26$, $\langle -4, 6 \rangle$ gives $-52$ and $\langle 6, -4 \rangle$ gives $48$. ($\langle 2, -3 \rangle$ and $\langle -4, 6 \rangle$ are parallel to $\langle 4, -6 \rangle$, the opposite of orthogonal.)
 - id: pc-q-3204
   lesson: pc-dot-product
   topic: Dot product
@@ -156,7 +156,7 @@
   choices: ['$\langle 7, 7 \rangle$', '$\left\langle \tfrac{7}{\sqrt2}, \tfrac{7}{\sqrt2} \right\rangle$', '$\left\langle \tfrac75, \tfrac75 \right\rangle$', '$\left\langle \tfrac72, \tfrac72 \right\rangle$']
   answer: 3
   explanation: |-
-    $\vec u \cdot \vec v = 7$ and $\lVert\vec v\rVert^2 = 2$, so the projection is $\frac72\langle 1, 1 \rangle$. Dividing by $\lVert\vec v\rVert$ instead of $\lVert\vec v\rVert^2$ gives the second choice.
+    $\vec u \cdot \vec v = 7$ and $\lVert\vec v\rVert^2 = 2$, so the projection is $\frac72\langle 1, 1 \rangle$. Dividing by $\lVert\vec v\rVert$ instead of $\lVert\vec v\rVert^2$ gives $\left\langle \tfrac{7}{\sqrt2}, \tfrac{7}{\sqrt2} \right\rangle$.
 - id: pc-q-3207
   lesson: pc-dot-product
   module_quiz: true

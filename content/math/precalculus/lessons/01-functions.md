@@ -85,7 +85,7 @@ The root needs $6 - 2x \ge 0$, so $-2x \ge -6$. Dividing by $-2$ flips the inequ
 The range is usually harder than the domain, because it asks which outputs are possible. Three reliable methods:
 
 1. *Read it from the graph.* Project the graph sideways onto the $y$-axis; the shadow is the range.
-2. *Use what you know about the building blocks.* A square is never negative, a square root is never negative, $|x| \ge 0$, and $e^x > 0$. Then track how the formula moves those values.
+2. *Use what you know about the building blocks.* A square is never negative, a square root is never negative, and $|x| \ge 0$. Then track how the formula moves those values.
 3. *Solve for $x$.* Set $y = f(x)$ and ask for which $y$ the equation has a solution $x$ in the domain.
 
 For $f(x) = 3 - (x - 1)^2$: since $(x - 1)^2 \ge 0$, subtracting it from 3 gives at most 3, and every value $\le 3$ is reached. Range: $(-\infty, 3]$.

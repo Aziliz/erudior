@@ -83,7 +83,7 @@
   answers:
     - {name: ans, label: 'Value', tolerance: 0.0006, format: num4}
   solution: |-
-    ${val:texfrac} = 2^{ {p} } \cdot 3^{ {q} }$, so $\log_{ {b} } {val:texfrac} = {p}\log_{ {b} }2 + ({q})\log_{ {b} }3 \approx {p}({u:num4}) + ({q})({v:num4}) =$ **{ans:num4}**.
+    ${val:texfrac} = 2^{ {p} } \cdot 3^{ {q} }$, so $\log_{ {b} } {val:texfrac} = {p:coef}\log_{ {b} }2 {q:signedcoef}\log_{ {b} }3 \approx {p}({u:num4}) + ({q})({v:num4}) =$ **{ans:num4}**.
 
 - id: pc-exp-solve
   title: Solve an exponential equation with logs
@@ -96,11 +96,11 @@
   calc:
     ratio: c/a
     x: ln(c/a)/ln(b)
-  prompt: 'Solve ${a} \cdot ({b})^x = {c}$. Round to four decimal places.'
+  prompt: 'Solve ${a} \cdot {b}^x = {c}$. Round to four decimal places.'
   answers:
     - {name: x, label: '$x =$', tolerance: 0.0001, format: num4}
   solution: |-
-    Isolate the power: $({b})^x = \dfrac{ {c} }{ {a} } \approx {ratio:num4}$. Take $\ln$: $x\ln {b} = \ln\dfrac{ {c} }{ {a} }$, so $x = \dfrac{\ln({c}/{a})}{\ln {b}} \approx$ **{x:num4}**.
+    Isolate the power: ${b}^x = \dfrac{ {c} }{ {a} } \approx {ratio:num4}$. Take $\ln$: $x\ln {b} = \ln\dfrac{ {c} }{ {a} }$, so $x = \dfrac{\ln({c}/{a})}{\ln {b}} \approx$ **{x:num4}**.
 
 - id: pc-log-solve
   title: Solve a logarithmic equation
@@ -113,12 +113,13 @@
   where: ["a != 0", "b^n <= 125"]
   calc:
     pw: b^n
+    pwa: b^n - a
     x: (b^n - a)/m
   prompt: 'Solve $\log_{ {b} }({m:coef}x {a:signed}) = {n}$. Give an exact answer (fraction if needed).'
   answers:
     - {name: x, label: '$x =$', kind: fraction, lowestTerms: true}
   solution: |-
-    Rewrite in exponential form: ${m:coef}x {a:signed} = {b}^{ {n} } = {pw}$. Then ${m:coef}x = {pw} - ({a})$, so $x =$ **${x:texfrac}$**. (The argument equals {pw} > 0, so the answer checks.)
+    Rewrite in exponential form: ${m:coef}x {a:signed} = {b}^{ {n} } = {pw}$. Move the constant to the right side: ${m:coef}x = {pwa}$, so $x =$ **${x:texfrac}$**. (The argument equals {pw} > 0, so the answer checks.)
 
 - id: pc-same-base
   title: Exponential equation with a common base
@@ -140,7 +141,7 @@
   answers:
     - {name: x, label: '$x =$', kind: fraction, lowestTerms: true}
   solution: |-
-    Write both sides as powers of {B}: ${B}^{ {e1}({a1:coef}x {c1:signed}) } = {B}^{ {e2}({a2:coef}x {c2:signed}) }$. Set the exponents equal: ${e1}({a1:coef}x {c1:signed}) = {e2}({a2:coef}x {c2:signed})$, which gives $x =$ **${x:texfrac}$**.
+    Write both sides as powers of {B}: ${B}^{ {e1:coef}({a1:coef}x {c1:signed}) } = {B}^{ {e2:coef}({a2:coef}x {c2:signed}) }$. Set the exponents equal: ${e1:coef}({a1:coef}x {c1:signed}) = {e2:coef}({a2:coef}x {c2:signed})$, which gives $x =$ **${x:texfrac}$**.
 
 - id: pc-half-life
   title: Half-life decay

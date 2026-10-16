@@ -86,7 +86,7 @@ Graph the cardioid $r = 2 + 2\cos\theta$.
 It starts 4 units to the right, shrinks to 0 at $\theta = \pi$ (the dimple at the pole), and grows back, symmetric about the polar axis.
 
 ```plot
-{"x": [-2.5, 5], "y": [-3.5, 3.5], "equal": true, "curves": [{"x": "(2 + 2cos(t))cos(t)", "y": "(2 + 2cos(t))sin(t)", "t": [0, "2pi"], "label": "r = 2 + 2cos θ"}, {"x": "3cos(2t)cos(t)", "y": "3cos(2t)sin(t)", "t": [0, "2pi"], "dashed": true, "label": "r = 3cos 2θ"}], "points": [{"at": [4, 0], "label": "(4, 0)"}], "caption": "A cardioid (solid) and a four-petal rose r = 3 cos 2θ (dashed)."}
+{"x": [-2.5, 5], "y": [-3.5, 3.5], "equal": true, "curves": [{"x": "(2 + 2cos(t))cos(t)", "y": "(2 + 2cos(t))sin(t)", "t": [0, "2pi"]}, {"x": "3cos(2t)cos(t)", "y": "3cos(2t)sin(t)", "t": [0, "2pi"], "dashed": true}], "points": [{"at": [4, 0], "label": "(4, 0)"}], "caption": "The cardioid r = 2 + 2 cos θ (solid) and the four-petal rose r = 3 cos 2θ (dashed)."}
 ```
 
 ### Example 5

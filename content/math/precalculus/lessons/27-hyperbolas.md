@@ -34,7 +34,7 @@ Analyze $\dfrac{x^2}{16} - \dfrac{y^2}{9} = 1$.
 The $x^2$ term is positive, so the hyperbola opens left and right. $a = 4$, $b = 3$, $c = \sqrt{16 + 9} = 5$. Vertices $(\pm4, 0)$, foci $(\pm5, 0)$, asymptotes $y = \pm\frac34x$.
 
 ```plot
-{"x": [-10, 10], "y": [-7.5, 7.5], "equal": true, "curves": [{"x": "4cosh(t)", "y": "3sinh(t)", "t": [-2, 2]}, {"x": "-4cosh(t)", "y": "3sinh(t)", "t": [-2, 2]}], "functions": [{"f": "0.75x", "dashed": true}, {"f": "-0.75x", "dashed": true}], "polygons": [{"points": [[-4, -3], [4, -3], [4, 3], [-4, 3]]}], "points": [{"at": [4, 0], "label": "(4, 0)"}, {"at": [-4, 0]}, {"at": [5, 0], "label": "focus"}, {"at": [-5, 0], "label": "focus"}], "caption": "x²/16 − y²/9 = 1 with its central rectangle and asymptotes y = ±¾x."}
+{"x": [-10, 10], "y": [-7.5, 7.5], "equal": true, "curves": [{"x": "4cosh(t)", "y": "3sinh(t)", "t": [-2, 2]}, {"x": "-4cosh(t)", "y": "3sinh(t)", "t": [-2, 2]}], "functions": [{"f": "0.75x", "dashed": true}, {"f": "-0.75x", "dashed": true}], "polygons": [{"points": [[-4, -3], [4, -3], [4, 3], [-4, 3]]}], "points": [{"at": [4, 0]}, {"at": [-4, 0]}, {"at": [5, 0], "label": "focus"}, {"at": [-5, 0], "label": "focus"}], "caption": "x²/16 − y²/9 = 1 with vertices (±4, 0), foci (±5, 0), its central rectangle and asymptotes y = ±¾x."}
 ```
 
 ## Standard forms with center $(h, k)$

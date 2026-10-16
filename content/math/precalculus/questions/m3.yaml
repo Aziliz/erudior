@@ -204,7 +204,7 @@
   lesson: pc-poly-zeros
   module_quiz: true
   topic: Zeros of polynomials
-  stem: 'Which number is **not** a possible rational zero of $3x^3 - 2x + 4$?'
+  stem: 'Which number is NOT a possible rational zero of $3x^3 - 2x + 4$?'
   choices: ['$\tfrac43$', '$-2$', '$\tfrac32$', '$\tfrac13$']
   answer: 2
   explanation: |-
@@ -241,7 +241,7 @@
   choices: ['$x^2 - (3 + i)x + 3i$', '$x^3 - 3x^2 - x + 3$', '$x^3 + 3x^2 + x + 3$', '$x^3 - 3x^2 + x - 3$']
   answer: 3
   explanation: |-
-    $-i$ must also be a zero. $(x - i)(x + i) = x^2 + 1$, so $f(x) = (x - 3)(x^2 + 1) = x^3 - 3x^2 + x - 3$. The first choice has non-real coefficients; $x^3 - 3x^2 - x + 3 = (x - 3)(x^2 - 1)$ has zeros $\pm1$ instead of $\pm i$.
+    $-i$ must also be a zero. $(x - i)(x + i) = x^2 + 1$, so $f(x) = (x - 3)(x^2 + 1) = x^3 - 3x^2 + x - 3$. $x^2 - (3 + i)x + 3i$ has non-real coefficients; $x^3 - 3x^2 - x + 3 = (x - 3)(x^2 - 1)$ has zeros $\pm1$ instead of $\pm i$.
 - id: pc-q-1006
   lesson: pc-poly-zeros
   topic: Zeros of polynomials
@@ -400,7 +400,7 @@
   choices: ['$\dfrac{x + 3}{x - 2}$', '$\dfrac{-x}{x + 2}$', '$\dfrac{-x + 3}{x - 2}$', '$\dfrac{2 - x}{x - 2}$']
   answer: 2
   explanation: |-
-    $\frac{-x + 3}{x - 2}$: the denominator is 0 at 2 and the numerator isn't, and the leading coefficients give $\frac{-1}{1} = -1$. The first has $y = 1$; the second has $x = -2$; the last simplifies to $-1$ with a hole at 2, not an asymptote.
+    $\frac{-x + 3}{x - 2}$: the denominator is 0 at 2 and the numerator isn't, and the leading coefficients give $\frac{-1}{1} = -1$. $\frac{x + 3}{x - 2}$ has $y = 1$; $\frac{-x}{x + 2}$ has its vertical asymptote at $x = -2$; $\frac{2 - x}{x - 2}$ simplifies to $-1$ with a hole at 2, not an asymptote.
 
 - id: pc-q-1201
   lesson: pc-rational-graphs

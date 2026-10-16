@@ -41,7 +41,7 @@ Sums can be split and scaled, because addition is associative and multiplication
 
 $$\sum (a_k + b_k) = \sum a_k + \sum b_k, \qquad \sum c\,a_k = c\sum a_k, \qquad \sum_{k=1}^{n} c = cn.$$
 
-Together with a few known sums, such as $\displaystyle\sum_{k=1}^{n} k = \frac{n(n + 1)}{2}$ and $\displaystyle\sum_{k=1}^{n} k^2 = \frac{n(n + 1)(2n + 1)}{6}$, these let you evaluate many sums without adding term by term. (Lesson 35 proves them.)
+Together with a few known sums, such as $\displaystyle\sum_{k=1}^{n} k = \frac{n(n + 1)}{2}$ and $\displaystyle\sum_{k=1}^{n} k^2 = \frac{n(n + 1)(2n + 1)}{6}$, these let you evaluate many sums without adding term by term. (Lesson 35 shows how to prove formulas like these.)
 
 ## Arithmetic sequences
 

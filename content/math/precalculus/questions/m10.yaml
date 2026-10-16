@@ -2,16 +2,11 @@
   lesson: pc-limits-intro
   module_quiz: true
   topic: Limits
-  stem: |-
-    Use the table to estimate $\lim_{x\to 2} f(x)$.
-
-    | $x$ | 1.9 | 1.99 | 1.999 | 2.001 | 2.01 | 2.1 |
-    |---|---|---|---|---|---|---|
-    | $f(x)$ | 4.71 | 4.97 | 4.997 | 5.003 | 5.03 | 5.31 |
+  stem: 'A table of values gives $f(1.9) = 4.71$, $f(1.99) = 4.97$, $f(1.999) = 4.997$, $f(2.001) = 5.003$, $f(2.01) = 5.03$ and $f(2.1) = 5.31$. Use these to estimate $\lim_{x\to 2} f(x)$.'
   choices: ['$4.997$', '$5$', '$2$', 'It does not exist']
   answer: 1
   explanation: |-
-    From both sides the values close in on 5. The limit is the value approached, not any one entry in the table, and not the input 2.
+    From both sides the values close in on 5. The limit is the value approached, not any one of the listed values, and not the input 2.
 - id: pc-q-3802
   lesson: pc-limits-intro
   topic: Limits
@@ -44,7 +39,7 @@
   choices: ['It approaches 0', 'It grows without bound on both sides, so we write $\lim = \infty$ (no finite limit)', 'It approaches $-\infty$ from the left and $\infty$ from the right', 'It approaches 1']
   answer: 1
   explanation: |-
-    $x^2$ is a tiny positive number on both sides of 0, so $\frac{1}{x^2}$ is huge and positive. "$= \infty$" describes this; the limit doesn't exist as a number. The third choice describes $\frac1x$.
+    $x^2$ is a tiny positive number on both sides of 0, so $\frac{1}{x^2}$ is huge and positive. "$= \infty$" describes this; the limit doesn't exist as a number. Approaching $-\infty$ from the left and $\infty$ from the right describes $\frac1x$.
 - id: pc-q-3806
   lesson: pc-limits-intro
   module_quiz: true

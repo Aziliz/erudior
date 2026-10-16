@@ -46,7 +46,7 @@ First factor the inside: $2x - \frac{\pi}{2} = 2\left(x - \frac{\pi}{4}\right)$.
 - maximum $1 + 3 = 4$, minimum $1 - 3 = -2$.
 
 ```plot
-{"x": [-1, 7], "y": [-3, 5], "functions": [{"f": "sin(x)", "dashed": true, "label": "y = sin x"}, {"f": "3sin(2x - pi/2) + 1", "label": "y = 3 sin(2x − π/2) + 1"}, {"f": "1", "dashed": true}], "points": [{"at": [0.7854, 1], "label": "start (π/4, 1)"}], "caption": "The parent sine (dashed) and the transformed sinusoid: amplitude 3, period π, shifted right π/4, midline y = 1."}
+{"x": [-1, 7], "y": [-3, 5], "functions": [{"f": "sin(x)", "dashed": true}, {"f": "3sin(2x - pi/2) + 1", "label": "y = 3 sin(2x − π/2) + 1"}, {"f": "1", "dashed": true}], "points": [{"at": [0.7854, 1], "label": "start (π/4, 1)"}], "caption": "The parent sine (dashed) and the transformed sinusoid: amplitude 3, period π, shifted right π/4, midline y = 1."}
 ```
 
 ### Example 2

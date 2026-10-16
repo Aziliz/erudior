@@ -97,7 +97,7 @@
   choices: ['$x^2 + y^2 - 4x = 0$', '$y^2 - 4x + 2y = 0$', '$x^2 - y^2 = 4$', '$4x^2 + y^2 = 16$']
   answer: 1
   explanation: |-
-    Only $y$ is squared (no $x^2$ term), so it is a parabola: $(y + 1)^2 = 4x + 1$. The others have both squares: a circle, a hyperbola and an ellipse.
+    Only $y$ is squared (no $x^2$ term), so it is a parabola: $(y + 1)^2 = 4x + 1$. The others have both squares: $x^2 + y^2 - 4x = 0$ is a circle, $x^2 - y^2 = 4$ a hyperbola and $4x^2 + y^2 = 16$ an ellipse.
 
 - id: pc-q-2601
   lesson: pc-ellipses
@@ -198,7 +198,7 @@
   choices: ['$\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$', '$\dfrac{y^2}{9} - \dfrac{x^2}{4} = 1$', '$x^2 + y^2 = 9$', '$\dfrac{x^2}{4} + \dfrac{y^2}{9} = 1$']
   answer: 3
   explanation: |-
-    The larger denominator (9) is under $y^2$, so the long axis is vertical. The first is horizontal, the second is a hyperbola, and the third is a circle.
+    The larger denominator (9) is under $y^2$, so the long axis is vertical. $\frac{x^2}{9} + \frac{y^2}{4} = 1$ has its long axis horizontal, $\frac{y^2}{9} - \frac{x^2}{4} = 1$ is a hyperbola, and $x^2 + y^2 = 9$ is a circle.
 
 - id: pc-q-2701
   lesson: pc-hyperbolas
@@ -338,11 +338,11 @@
   lesson: pc-parametric
   module_quiz: true
   topic: Parametric equations
-  stem: 'Which parametrizes the segment from $(2, -1)$ to $(6, 3)$ for $0 \le t \le 1$?'
+  stem: 'Which parametrizes the segment from $(2, -1)$ to $(6, 3)$, starting at $(2, -1)$ when $t = 0$ and ending at $(6, 3)$ when $t = 1$?'
   choices: ['$x = 2 + 6t$, $y = -1 + 3t$', '$x = 6 - 4t$, $y = 3 - 4t$', '$x = 2 + 4t$, $y = -1 + 4t$', '$x = 4 + 2t$, $y = 4 - t$']
   answer: 2
   explanation: |-
-    Start at $(2, -1)$ and add $t$ times the change $(4, 4)$. At $t = 1$: $(6, 3)$. ✓ The second choice traces the same segment backward (from $(6, 3)$ to $(2, -1)$).
+    Start at $(2, -1)$ and add $t$ times the change $(4, 4)$. At $t = 1$: $(6, 3)$. ✓ $x = 6 - 4t$, $y = 3 - 4t$ traces the same segment backward (from $(6, 3)$ to $(2, -1)$).
 - id: pc-q-2806
   lesson: pc-parametric
   module_quiz: true
@@ -410,7 +410,7 @@
   choices: ['$(3\sqrt3, 3)$', '$(3, 3\sqrt3)$', '$(6, 2)$', '$(3, 3)$']
   answer: 1
   explanation: |-
-    $x = 6\cos\frac{\pi}{3} = 3$ and $y = 6\sin\frac{\pi}{3} = 3\sqrt3$. Swapping sine and cosine gives the first choice.
+    $x = 6\cos\frac{\pi}{3} = 3$ and $y = 6\sin\frac{\pi}{3} = 3\sqrt3$. Swapping sine and cosine gives $(3\sqrt3, 3)$.
 - id: pc-q-2902
   lesson: pc-polar
   topic: Polar coordinates

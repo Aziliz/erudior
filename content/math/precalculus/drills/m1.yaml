@@ -44,12 +44,14 @@
   calc:
     p: -(r1 + r2)
     q: r1*r2
+    nr1: -r1
+    nr2: -r2
   prompt: 'The domain of $g(x) = \dfrac{x {c:signed}}{x^2 {p:signedcoef}x {q:signed}}$ is all real numbers except two values. Find them (smaller first).'
   answers:
     - {name: r1, label: 'Smaller excluded value'}
     - {name: r2, label: 'Larger excluded value'}
   solution: |-
-    Set the denominator to zero and factor: $x^2 {p:signedcoef}x {q:signed} = (x - ({r1}))(x - ({r2})) = 0$. The excluded values are **{r1}** and **{r2}**. (The numerator's zero does not matter for the domain.)
+    Set the denominator to zero and factor: $x^2 {p:signedcoef}x {q:signed} = (x {nr1:signed})(x {nr2:signed}) = 0$. The excluded values are **{r1}** and **{r2}**. (The numerator's zero does not matter for the domain.)
 
 - id: pc-piecewise-eval
   title: Evaluate a piecewise function

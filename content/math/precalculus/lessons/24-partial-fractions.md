@@ -9,7 +9,7 @@ refs: [pc-ref-matrices-series]
 ---
 ## Running addition backward
 
-You know how to add fractions: $\dfrac{2}{x - 2} + \dfrac{3}{x + 1} = \dfrac{5x - 4}{(x - 2)(x + 1)}$. **Partial fraction decomposition** runs this in reverse: it splits a complicated rational expression into a sum of simpler ones. In calculus this is the standard technique for integrating rational functions, and it's also used to sum certain series (Module 9) and in engineering (Laplace transforms). It belongs in this module because finding the unknown numerators is a linear system.
+You know how to add fractions: $\dfrac{2}{x - 2} + \dfrac{3}{x + 1} = \dfrac{5x - 4}{(x - 2)(x + 1)}$. **Partial fraction decomposition** runs this in reverse: it splits a complicated rational expression into a sum of simpler ones. In calculus this is the standard technique for integrating rational functions, and it's also used to sum certain series and in engineering (Laplace transforms). It belongs in this module because finding the unknown numerators is a linear system.
 
 ## When it applies
 
@@ -92,7 +92,7 @@ $$\frac{x^3 + 2x}{x^2 - 1} = x + \frac{3/2}{x - 1} + \frac{3/2}{x + 1}.$$
 
 ## A telescoping preview
 
-Partial fractions explain a neat sum: $\dfrac{1}{k(k + 1)} = \dfrac1k - \dfrac{1}{k + 1}$. Adding these for $k = 1$ to $n$, almost everything cancels: $\left(1 - \tfrac12\right) + \left(\tfrac12 - \tfrac13\right) + \dots + \left(\tfrac1n - \tfrac{1}{n+1}\right) = 1 - \dfrac{1}{n + 1}$. You'll see sums like this again in Module 9.
+Partial fractions explain a neat sum: $\dfrac{1}{k(k + 1)} = \dfrac1k - \dfrac{1}{k + 1}$. Adding these for $k = 1$ to $n$, almost everything cancels: $\left(1 - \tfrac12\right) + \left(\tfrac12 - \tfrac13\right) + \dots + \left(\tfrac1n - \tfrac{1}{n+1}\right) = 1 - \dfrac{1}{n + 1}$. Sums like this, called telescoping sums, come back when calculus studies infinite series.
 
 ## Common mistakes
 

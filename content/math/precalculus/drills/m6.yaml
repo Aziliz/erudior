@@ -264,7 +264,7 @@
     - {name: A, label: '$A =$'}
     - {name: B, label: '$B =$'}
   solution: |-
-    Clear denominators: ${m:coef}x {n:signed} = A(x {nq:signed}) + B(x {np:signed})$. At $x = {p}$: ${vp} = {dp}A$, so $A =$ **{A}**. At $x = {q}$: ${vq} = {dq}B$, so $B =$ **{B}**.
+    Clear denominators: ${m:coef}x {n:signed} = A(x {nq:signed}) + B(x {np:signed})$. At $x = {p}$: ${vp} = {dp:coef}A$, so $A =$ **{A}**. At $x = {q}$: ${vq} = {dq:coef}B$, so $B =$ **{B}**.
 
 - id: pc-pf-repeated
   title: Partial fractions with a repeated factor

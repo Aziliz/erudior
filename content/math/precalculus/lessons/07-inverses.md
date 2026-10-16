@@ -60,7 +60,7 @@ $y = \dfrac{x+1}{x-2}$. Swap: $x = \dfrac{y + 1}{y - 2}$. Clear the fraction: $x
 
 $$g^{-1}(x) = \frac{2x + 1}{x - 1}.$$
 
-The domain of $g^{-1}$ is $x \ne 1$, which matches the range of $g$ (the horizontal asymptote of $g$ is $y = 1$). The key algebra move is gathering every $y$ term on one side and factoring $y$ out.
+The domain of $g^{-1}$ is $x \ne 1$, which matches the range of $g$: $g(x) = 1$ would need $x + 1 = x - 2$, which is impossible, so $g$ never outputs 1. The key algebra move is gathering every $y$ term on one side and factoring $y$ out.
 
 ## Graphs of inverses
 

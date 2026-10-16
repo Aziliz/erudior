@@ -60,6 +60,7 @@
     amp: abs(A)
     per: 2*pi/B
     pc: -B*C
+    mC: -C
   funcs:
     y(x): A*sin(B*x + pc) + D
   prompt: 'For $y = {A:coef}\sin({B:coef}x {pc:signed}) {D:signed}$, find the amplitude, the period (exact, like pi/2, or decimal), the phase shift (positive = right) and the midline $y = D$.'
@@ -74,7 +75,7 @@
     - {name: C, label: 'Phase shift'}
     - {name: D, label: 'Midline $y =$'}
   solution: |-
-    Factor the inside: ${B:coef}x {pc:signed} = {B}(x - ({C}))$. Amplitude $|{A}| =$ **{amp}**; period $\dfrac{2\pi}{ {B} } \approx$ **{per:num4}**; phase shift **{C}**; midline $y =$ **{D}**.
+    Factor the inside: ${B:coef}x {pc:signed} = {B:coef}(x {mC:signed})$. Amplitude $|{A}| =$ **{amp}**; period $\dfrac{2\pi}{ {B} } \approx$ **{per:num4}**; phase shift **{C}**; midline $y =$ **{D}**.
 
 - id: pc-identity-value
   title: Find trig values from one value and the quadrant

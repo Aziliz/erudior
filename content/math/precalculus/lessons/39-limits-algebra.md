@@ -90,7 +90,7 @@ Find $\displaystyle\lim_{x\to\infty}\frac{3x^2 - x}{5x^2 + 4}$, $\displaystyle\l
 Other functions from this course: $\lim_{x\to\infty}e^{-x} = 0$ (exponential decay), $\lim_{x\to\infty}\ln x = \infty$ (slowly), and $\lim_{x\to\infty}\sin x$ does not exist (it oscillates forever). The logistic model $\frac{C}{1 + Ae^{-kt}} \to C$ is a limit at infinity, and so is the sum of an infinite geometric series: $S = \lim_{n\to\infty}S_n$.
 
 ```plot
-{"x": [-20, 20], "y": [-1, 2], "functions": [{"f": "(3x^2 - x)/(5x^2 + 4)", "label": "y = (3x² − x)/(5x² + 4)"}, {"f": "0.6", "dashed": true, "label": "y = 3/5"}], "caption": "The function approaches 3/5 as x → ±∞."}
+{"x": [-20, 20], "y": [-1, 2], "functions": [{"f": "(3x^2 - x)/(5x^2 + 4)", "label": "y = (3x² − x)/(5x² + 4)"}, {"f": "0.6", "dashed": true}], "caption": "The function approaches the dashed line y = 3/5 as x → ±∞."}
 ```
 
 ## Common mistakes

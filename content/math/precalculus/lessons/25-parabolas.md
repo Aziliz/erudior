@@ -4,7 +4,7 @@ module: pc-m7
 title: Parabolas
 minutes: 30
 topics: [Parabolas]
-drills: [pc-parabola-focus]
+drills: [pc-parabola-focus, pc-parabola-vertex-form]
 refs: [pc-ref-conics-polar]
 ---
 ## The conic sections
@@ -71,7 +71,7 @@ Write $y^2 + 6y - 4x + 1 = 0$ in standard form; find the vertex, focus and direc
 So $h = -2$, $k = -3$, $4p = 4$, $p = 1$: it opens right, vertex $(-2, -3)$, focus $(-1, -3)$, directrix $x = -3$.
 
 ```plot
-{"x": [-5, 6], "y": [-9, 3], "equal": true, "curves": [{"x": "t^2/4 - 2", "y": "t - 3", "t": [-6, 6], "label": "(y + 3)² = 4(x + 2)"}], "segments": [{"from": [-3, -9], "to": [-3, 3], "dashed": true}], "points": [{"at": [-2, -3], "label": "vertex"}, {"at": [-1, -3], "label": "focus"}], "caption": "A parabola opening right, with directrix x = −3."}
+{"x": [-5, 6], "y": [-9, 3], "equal": true, "curves": [{"x": "t^2/4 - 2", "y": "t - 3", "t": [-6, 6]}], "segments": [{"from": [-3, -9], "to": [-3, 3], "dashed": true}], "points": [{"at": [-2, -3]}, {"at": [-1, -3], "label": "focus"}], "caption": "(y + 3)² = 4(x + 2): a parabola opening right, with vertex (−2, −3), focus (−1, −3) and directrix x = −3."}
 ```
 
 ## The reflective property

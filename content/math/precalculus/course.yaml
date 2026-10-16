@@ -8,6 +8,7 @@ description: >-
   induction, the binomial theorem, counting and probability, and a first look at limits and
   the derivative.
 revision: 1
+released: true
 order: 6
 modules:
   - id: pc-m1

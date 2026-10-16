@@ -31,11 +31,11 @@
     a3: a1 + 2*d
     an: a1 + (n - 1)*d
     S: n*(a1 + an)/2
-  prompt: 'Find the sum of the first {n} terms of the arithmetic series ${a1} + ({a2}) + ({a3}) + \cdots$'
+  prompt: 'Find the sum of the first {n} terms of the arithmetic series whose terms begin ${a1}, {a2}, {a3}, \dots$'
   answers:
     - {name: S, label: '$S_{ {n} } =$'}
   solution: |-
-    $d = {d}$, so $a_{ {n} } = {a1} + ({n} - 1)({d}) = {an}$. Then $S_{ {n} } = \dfrac{ {n}({a1} + ({an})) }{2} =$ **{S}**.
+    $d = {d}$, so $a_{ {n} } = {a1} + ({n} - 1)({d}) = {an}$. Then $S_{ {n} } = \dfrac{ {n}({a1} {an:signed}) }{2} =$ **{S}**.
 
 - id: pc-sigma
   title: Evaluate a sum with formulas
@@ -68,11 +68,11 @@
     a3: a1*r^2
     an: a1*r^(n - 1)
     nm1: n - 1
-  prompt: 'Find the {n}th term of the geometric sequence ${a1}, {a2}, {a3}, \dots$ (exact; fractions are fine).'
+  prompt: 'Find the {n}th term of the geometric sequence ${a1}, {a2:texfrac}, {a3:texfrac}, \dots$ (exact; fractions are fine).'
   answers:
     - {name: an, label: '$a_{ {n} } =$', kind: fraction}
   solution: |-
-    $r = {r}$, so $a_{ {n} } = a_1 r^{n-1} = {a1}({r})^{ {nm1} } =$ **${an:texfrac}$**.
+    $r = {r:texfrac}$, so $a_{ {n} } = a_1 r^{n-1} = {a1}\left({r:texfrac}\right)^{ {nm1} } =$ **${an:texfrac}$**.
 
 - id: pc-geo-sum
   title: Sum of a finite geometric series
@@ -86,11 +86,11 @@
     a3: a1*r^2
     rn: r^n
     S: a1*(1 - r^n)/(1 - r)
-  prompt: 'Find the sum of the first {n} terms of the geometric series ${a1} + ({a2}) + ({a3}) + \cdots$ (exact; fractions are fine).'
+  prompt: 'Find the sum of the first {n} terms of the geometric series whose terms begin ${a1}, {a2:texfrac}, {a3:texfrac}, \dots$ (exact; fractions are fine).'
   answers:
     - {name: S, label: '$S_{ {n} } =$', kind: fraction}
   solution: |-
-    $r = {r}$: $S_{ {n} } = a_1\dfrac{1 - r^{\,n}}{1 - r} = {a1}\cdot\dfrac{1 - ({rn:texfrac})}{1 - ({r})} =$ **${S:texfrac}$**.
+    $r = {r:texfrac}$: $S_{ {n} } = a_1\dfrac{1 - r^{\,n}}{1 - r} = {a1}\cdot\dfrac{1 - \left({rn:texfrac}\right)}{1 - \left({r:texfrac}\right)} =$ **${S:texfrac}$**.
 
 - id: pc-infinite-geo
   title: Sum of an infinite geometric series
@@ -136,7 +136,7 @@
     a: {choices: [1, 2, 3, -1, -2]}
     b: {choices: [1, 2, 3, -1, -2, -3]}
     n: {min: 4, max: 8}
-    j: {min: 1, max: 7}
+    j: {min: 2, max: 7}
   where: ["j < n"]
   calc:
     k: n - j
@@ -200,7 +200,7 @@
     p: fav/tot
     kj: k - j
     N: R + B
-  prompt: 'A bag holds {R} red and {B} blue marbles. {k} marbles are drawn at random (without replacement). What is the probability that exactly {j} of the marbles drawn are red? (Exact fraction.)'
+  prompt: 'A bag holds {R} red and {B} blue marbles. {k} marbles are drawn at random (without replacement). What is the probability that exactly {j} of the {k} marbles drawn are red, and the rest blue? (Exact fraction.)'
   answers:
     - {name: p, label: 'Probability', kind: fraction, lowestTerms: true}
   solution: |-

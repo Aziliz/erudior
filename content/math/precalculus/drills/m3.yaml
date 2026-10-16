@@ -102,13 +102,16 @@
     c2: -(r1 + r2 + r3)
     c1: r1*r2 + r1*r3 + r2*r3
     c0: -r1*r2*r3
+    n1: -r1
+    n2: -r2
+    n3: -r3
   prompt: 'Find all three zeros of $x^3 {c2:signedcoef}x^2 {c1:signedcoef}x {c0:signed}$. (They are integers.) List them from smallest to largest.'
   answers:
     - {name: r1, label: 'Smallest'}
     - {name: r2, label: 'Middle'}
     - {name: r3, label: 'Largest'}
   solution: |-
-    Rational candidates are the divisors of {c0}. Testing finds a zero; dividing it out leaves a quadratic to factor. The result is $(x - ({r1}))(x - ({r2}))(x - ({r3}))$, so the zeros are **{r1}, {r2}, {r3}**.
+    Rational candidates are the divisors of {c0}. Testing finds a zero; dividing it out leaves a quadratic to factor. The result is $(x {n1:signed})(x {n2:signed})(x {n3:signed})$, so the zeros are **{r1}, {r2}, {r3}**.
 
 - id: pc-conjugate-quadratic
   title: Quadratic factor from a complex zero
@@ -119,12 +122,13 @@
   where: ["a != 0"]
   calc:
     na2: -2*a
+    na: -a
     k: a^2 + b^2
-  prompt: 'A polynomial with real coefficients has the zero ${a} + {b}i$. Find the monic quadratic factor ($x^2 + \dots$) that this zero and its conjugate produce.'
+  prompt: 'A polynomial with real coefficients has the zero ${a} + {b:coef}i$. Find the monic quadratic factor ($x^2 + \dots$) that this zero and its conjugate produce.'
   answers:
     - {kind: expression, expression: 'x^2 - 2*a*x + a^2 + b^2', variables: [x], label: 'Factor', show: '$x^2 {na2:signedcoef}x + {k}$'}
   solution: |-
-    The conjugate ${a} - {b}i$ is also a zero. $\big(x - ({a} + {b}i)\big)\big(x - ({a} - {b}i)\big) = (x - ({a}))^2 + {b}^2 =$ **$x^2 {na2:signedcoef}x + {k}$**.
+    The conjugate ${a} - {b:coef}i$ is also a zero. $\big(x - ({a} + {b:coef}i)\big)\big(x - ({a} - {b:coef}i)\big) = (x {na:signed})^2 + {b}^2 =$ **$x^2 {na2:signedcoef}x + {k}$**.
 
 - id: pc-va-ha
   title: Asymptotes of a linear-over-linear function
@@ -170,6 +174,7 @@
     d1: -(p + s)
     d0: p*s
     hy: (p - q)/(p - s)
+    np: -p
     nq: -q
     ns: -s
   prompt: 'The graph of $R(x) = \dfrac{x^2 {b1:signedcoef}x {b0:signed}}{x^2 {d1:signedcoef}x {d0:signed}}$ has a hole. Find its coordinates (exact fraction for $y$).'
@@ -177,7 +182,7 @@
     - {name: p, label: '$x =$'}
     - {name: hy, label: '$y =$', kind: fraction, lowestTerms: true}
   solution: |-
-    Factor: $\dfrac{(x - ({p}))(x {nq:signed})}{(x - ({p}))(x {ns:signed})}$. The common factor cancels, so the hole is at $x =$ **{p}**. In the simplified form, $y = \dfrac{ {p} {nq:signed} }{ {p} {ns:signed} } = {hy:texfrac}$, so the hole is **$\left({p}, {hy:texfrac}\right)$**.
+    Factor: $\dfrac{(x {np:signed})(x {nq:signed})}{(x {np:signed})(x {ns:signed})}$. The common factor cancels, so the hole is at $x =$ **{p}**. In the simplified form, $y = \dfrac{ {p} {nq:signed} }{ {p} {ns:signed} } = {hy:texfrac}$, so the hole is **$\left({p}, {hy:texfrac}\right)$**.
 
 - id: pc-slant
   title: Slant asymptote
@@ -219,13 +224,15 @@
     c: r1*r2
     yi: c/(-d)
     nd: -d
-  prompt: 'Find the $x$-intercepts and the $y$-intercept of $R(x) = \dfrac{x^2 {b:signedcoef}x {c:signed}}{x {nd:signed}}$.'
+    nr1: -r1
+    nr2: -r2
+  prompt: 'Find the $x$-intercepts and the $y$-intercept of $R(x) = \dfrac{x^2 {b:signedcoef}x {c:signed}}{x {nd:signed}}$. Give the $y$-intercept as an exact fraction or integer.'
   answers:
     - {name: r1, label: 'Smaller $x$-intercept'}
     - {name: r2, label: 'Larger $x$-intercept'}
     - {name: yi, label: '$y$-intercept', kind: fraction, lowestTerms: true}
   solution: |-
-    The numerator factors as $(x - ({r1}))(x - ({r2}))$ and neither factor cancels, so the $x$-intercepts are **{r1}** and **{r2}**. The $y$-intercept is $R(0) = \dfrac{ {c} }{ {nd} } = {yi:texfrac}$, so the $y$-intercept is **${yi:texfrac}$**.
+    The numerator factors as $(x {nr1:signed})(x {nr2:signed})$ and neither factor cancels, so the $x$-intercepts are **{r1}** and **{r2}**. The $y$-intercept is $R(0) = \dfrac{ {c} }{ {nd} } = {yi:texfrac}$, so the $y$-intercept is **${yi:texfrac}$**.
 
 - id: pc-quad-ineq
   title: Solve a quadratic inequality
@@ -238,12 +245,14 @@
   calc:
     b: -(r1 + r2)
     c: r1*r2
+    nr1: -r1
+    nr2: -r2
   prompt: 'The solution of $x^2 {b:signedcoef}x {c:signed} {rel} 0$ is an interval from $p$ to $q$. Find $p$ and $q$.'
   answers:
     - {name: r1, label: '$p =$'}
     - {name: r2, label: '$q =$'}
   solution: |-
-    Factor: $(x - ({r1}))(x - ({r2})) {rel} 0$. The parabola opens up, so it is below the axis between its zeros: $x$ from **{r1}** to **{r2}** (endpoints included only for $\le$).
+    Factor: $(x {nr1:signed})(x {nr2:signed}) {rel} 0$. The parabola opens up, so it is below the axis between its zeros: $x$ from **{r1}** to **{r2}** (endpoints included only for $\le$).
 
 - id: pc-rational-ineq
   title: Solve a rational inequality

@@ -9,7 +9,7 @@ refs: [pc-ref-exp-log]
 ---
 ## A compact review
 
-This course has a separate Trigonometry course, so this module is a focused review of the trig you need for the rest of precalculus and for calculus: radian measure, the unit circle, the graphs of sine and cosine, and a handful of identities. Polar coordinates, parametric curves and vectors later in this course all lean on it. If any of this is new, the Trigonometry course covers it in depth.
+Examiner has a separate Trigonometry course, so this module is a focused review of the trig you need for the rest of precalculus and for calculus: radian measure, the unit circle, the graphs of sine and cosine, and a handful of identities. Polar coordinates, parametric curves and vectors later in this course all lean on it. If any of this is new, the Trigonometry course covers it in depth.
 
 ## Radian measure
 
