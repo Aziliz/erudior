@@ -166,7 +166,9 @@ export function resolveParts(
         ? `$${fractionTex(target)}$`
         : fmt === "sci"
           ? `$${sciTex(target, spec.sigfigs ?? 3)}$`
-          : format(target, fmt);
+          : spec.sigfigs && !spec.format
+            ? format(target, `sig${spec.sigfigs}`)
+            : format(target, fmt);
     const display = shown + (unit ? ` ${unit}` : "");
     let shownValue: number | undefined;
     if (!shown.includes("$")) {
