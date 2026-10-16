@@ -7,7 +7,7 @@
   choices: ['$3x^2e^x$', '$x^2e^x(x + 3)$', '$3x^2e^x + e^x$', '$x^3e^x$']
   answer: 1
   explanation: |-
-    $y' = 3x^2e^x + x^3e^x = x^2e^x(3 + x)$. The first choice is $(fg)' = f'g'$ in disguise ($3x^2\cdot e^x$), the classic error.
+    $y' = 3x^2e^x + x^3e^x = x^2e^x(3 + x)$. The answer $3x^2e^x$ is $(fg)' = f'g'$ in disguise ($3x^2\cdot e^x$), the classic error.
 - id: calc-q-0902
   lesson: calc-product-quotient
   module_quiz: true
@@ -16,7 +16,7 @@
   choices: ['$\dfrac{x^2 + 2x}{(x + 1)^2}$', '$2x$', '$\dfrac{-x^2 - 2x}{(x + 1)^2}$', '$\dfrac{x^2 + 2x}{x + 1}$']
   answer: 0
   explanation: |-
-    $y' = \frac{2x(x + 1) - x^2(1)}{(x + 1)^2} = \frac{x^2 + 2x}{(x + 1)^2}$. Reversing the numerator gives the negative; forgetting to square the denominator gives the last choice.
+    $y' = \frac{2x(x + 1) - x^2(1)}{(x + 1)^2} = \frac{x^2 + 2x}{(x + 1)^2}$. Reversing the numerator gives the negative; forgetting to square the denominator leaves $(x + 1)$ instead of $(x + 1)^2$ below.
 - id: calc-q-0903
   lesson: calc-product-quotient
   topic: Product rule
@@ -107,7 +107,7 @@
   choices: ['$(\cos x)'' = \sin x$', '$(\tan x)'' = \sec x$', '$(\sec x)'' = \sec x\tan x$', '$(\cot x)'' = \csc^2 x$']
   answer: 2
   explanation: |-
-    $(\sec x)' = \sec x\tan x$. The others should be $-\sin x$, $\sec^2 x$ and $-\csc^2 x$.
+    $(\sec x)' = \sec x\tan x$. The other three are wrong: $(\cos x)' = -\sin x$, $(\tan x)' = \sec^2 x$ and $(\cot x)' = -\csc^2 x$.
 - id: calc-q-1002
   lesson: calc-trig-derivs
   topic: Trig derivatives
@@ -195,7 +195,7 @@
   choices: ['$3(4x^2 - 1)^2$', '$24x(4x^2 - 1)^2$', '$8x(4x^2 - 1)^2$', '$3(8x)^2$']
   answer: 1
   explanation: |-
-    $3(4x^2 - 1)^2\cdot8x = 24x(4x^2 - 1)^2$. The first choice forgets the inner derivative.
+    $3(4x^2 - 1)^2\cdot8x = 24x(4x^2 - 1)^2$. The answer $3(4x^2 - 1)^2$ forgets the inner derivative $8x$.
 - id: calc-q-1102
   lesson: calc-chain-rule
   module_quiz: true

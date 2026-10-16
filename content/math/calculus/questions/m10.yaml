@@ -212,7 +212,7 @@
   choices: ['$L = 2$: diverges', '$L = 1$: inconclusive', '$L = \tfrac12$: converges', '$L = 0$: converges']
   answer: 3
   explanation: |-
-    $\frac{2^{n+1}}{(n + 1)!}\cdot\frac{n!}{2^n} = \frac{2}{n + 1} \to 0 < 1$. (The sum is $e^2 - 1$.)
+    $\frac{2^{n+1}}{(n + 1)!}\cdot\frac{n!}{2^n} = \frac{2}{n + 1} \to 0 < 1$. (Starting at $n = 0$, the sum is $e^2$.)
 - id: calc-q-4003
   lesson: calc-alternating-ratio
   topic: Alternating series
@@ -392,7 +392,7 @@
   choices: ['$1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \cdots$', '$x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots$', '$1 + \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots$', '$1 - x^2 + x^4 - \cdots$']
   answer: 0
   explanation: |-
-    $\cos$ is even, with derivatives at 0 cycling $1, 0, -1, 0$. The second choice is $\sin x$; the third is $\cosh x$.
+    $\cos$ is even, with derivatives at 0 cycling $1, 0, -1, 0$. The series $x - \frac{x^3}{3!} + \cdots$ is $\sin x$, and the all-plus series $1 + \frac{x^2}{2!} + \cdots$ is $\cosh x$.
 - id: calc-q-4203
   lesson: calc-taylor
   topic: Taylor series

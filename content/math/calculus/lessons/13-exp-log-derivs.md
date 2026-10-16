@@ -102,7 +102,7 @@ $$g'(x) = \frac{1}{f'(g(x))}.$$
 At a specific point: if $f(a) = b$, then $(f^{-1})'(b) = \dfrac{1}{f'(a)}$. Geometrically, reflecting a graph across $y = x$ swaps rise and run, so slopes become reciprocals.
 
 ```plot
-{"x": [-1, 9], "y": [-1, 9], "equal": true, "functions": [{"f": "x^2/4", "from": 0, "to": 6, "label": "f"}, {"f": "2sqrt(x)", "from": 0, "label": "f⁻¹"}, {"f": "x", "dashed": true}], "tangents": [{"f": "x^2/4", "at": 2}, {"f": "2sqrt(x)", "at": 1}], "points": [{"at": [2, 1], "label": "(2, 1)"}, {"at": [1, 2], "label": "(1, 2)"}], "caption": "Slope 1 for f at (2, 1); slope 1/1 = 1 for f⁻¹ at (1, 2). Reflected points have reciprocal slopes"}
+{"x": [-1, 9], "y": [-1, 9], "equal": true, "functions": [{"f": "x^2/4", "from": 0, "to": 6, "label": "f"}, {"f": "2sqrt(x)", "from": 0, "label": "f⁻¹"}, {"f": "x", "dashed": true}], "tangents": [{"f": "x^2/4", "at": 3}, {"f": "2sqrt(x)", "at": 2.25}], "points": [{"at": [3, 2.25], "label": "(3, 2.25)"}, {"at": [2.25, 3], "label": "(2.25, 3)"}], "caption": "Slope 3/2 for f at (3, 2.25); slope 2/3 for f⁻¹ at (2.25, 3). Reflected points have reciprocal slopes"}
 ```
 
 ### Example 6

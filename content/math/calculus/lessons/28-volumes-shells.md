@@ -26,7 +26,7 @@ So its volume is about $2\pi x\,h(x)\,\Delta x$. Adding shells and taking the li
 $$V = 2\pi\int_a^b(\text{radius})(\text{height})\,dx = 2\pi\int_a^b x\,h(x)\,dx \quad(\text{about the } y\text{-axis}).$$
 
 ```plot
-{"x": [-3, 3], "y": [-0.5, 2], "functions": [{"f": "2x^2 - x^3", "from": 0, "to": 2, "label": "y = 2x² − x³"}, {"f": "2x^2 + x^3", "from": -2, "to": 0, "dashed": true}], "segments": [{"from": [1.2, 0], "to": [1.2, 1.152]}, {"from": [-1.2, 0], "to": [-1.2, 1.152], "dashed": true}, {"from": [0, 0.05], "to": [1.2, 0.05], "label": "radius x"}], "caption": "A strip at distance x from the y-axis sweeps out a shell of radius x and height h(x)"}
+{"x": [-3, 3], "y": [-0.5, 2], "functions": [{"f": "2x^2 - x^3", "from": 0, "to": 2}, {"f": "2x^2 + x^3", "from": -2, "to": 0, "dashed": true}], "segments": [{"from": [1.2, 0], "to": [1.2, 1.152]}, {"from": [-1.2, 0], "to": [-1.2, 1.152], "dashed": true}, {"from": [0, 0.05], "to": [1.2, 0.05], "label": "radius x"}], "labels": [{"at": [2.1, 1.5], "text": "y = 2x² − x³"}], "caption": "A strip at distance x from the y-axis sweeps out a shell of radius x and height h(x)"}
 ```
 
 ### Example 1

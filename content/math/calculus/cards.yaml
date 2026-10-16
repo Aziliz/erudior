@@ -31,7 +31,7 @@
 - front: $\lim_{x\to a}\dfrac{x^2 - a^2}{x - a}$
   back: $2a$ (factor and cancel).
   topic: Algebraic limits
-- front: $\lim_{x\to 0}\dfrac{\sqrt{x + c^2} - c}{x}$
+- front: $\lim_{x\to 0}\dfrac{\sqrt{x + c^2} - c}{x}$ ($c > 0$)
   back: $\dfrac{1}{2c}$ (conjugate).
   topic: Algebraic limits
 - front: $\lim_{x\to a}\dfrac{|x - a|}{x - a}$
@@ -127,8 +127,8 @@
 - front: Slope of the normal line at $x = a$
   back: $-\dfrac{1}{f'(a)}$
   topic: Tangent lines
-- front: Where $f$ is increasing, $f'$ is…
-  back: positive (graph of $f'$ above the axis).
+- front: Where $f'$ is positive, $f$ is…
+  back: increasing (graph of $f'$ above the axis).
   topic: The derivative function
 - front: Where $f$ has a horizontal tangent, $f'$ is…
   back: zero.
@@ -139,8 +139,8 @@
 - front: Does differentiable imply continuous?
   back: 'Yes. (Continuous does not imply differentiable: $|x|$ at 0.)'
   topic: Differentiability
-- front: Three ways a continuous function can fail to be differentiable
-  back: A corner/cusp, a vertical tangent, (and any discontinuity also prevents it).
+- front: Three ways a function can fail to be differentiable at a point
+  back: A corner or cusp, a vertical tangent, or a discontinuity.
   topic: Differentiability
 - front: Differentiability of a piecewise function at the seam
   back: The pieces must meet (continuity) and their slopes must match.

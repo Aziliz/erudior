@@ -14,11 +14,11 @@
     first: a*(sg*num/den)^k
     S: a*(sg*num/den)^k/(1 - sg*num/den)
     om: 1 - sg*num/den
-  prompt: 'Find $\displaystyle\sum_{n={k}}^\infty {a}\left({r:texfrac}\right)^n$ as an exact fraction.'
+  prompt: 'Find $\displaystyle\sum_{n={k}}^\infty {a:coef}\left({r:texfrac}\right)^n$ as an exact fraction.'
   answers:
     - {name: S, kind: fraction, lowestTerms: true, label: 'Sum $=$'}
   solution: |-
-    Geometric with ratio $r = {r:texfrac}$, and $|r| < 1$, so it converges. The first term is the $n = {k}$ term: ${a}\left({r:texfrac}\right)^{{k}} = {first:texfrac}$. Sum $= \dfrac{\text{first term}}{1 - r} = \dfrac{{first:texfrac}}{{om:texfrac}} =$ **{S:frac}**.
+    Geometric with ratio $r = {r:texfrac}$, and $|r| < 1$, so it converges. The first term is the $n = {k}$ term: ${a:coef}\left({r:texfrac}\right)^{{k}} = {first:texfrac}$. Sum $= \dfrac{\text{first term}}{1 - r} = \dfrac{{first:texfrac}}{{om:texfrac}} =$ **{S:frac}**.
 - id: calc-d-sequence-limit
   title: Limit of a sequence with a square root
   topic: Sequences
@@ -29,12 +29,12 @@
     p2: p^2
     L: q/(2*p)
     p2x: 2*p
-  prompt: 'Find $\displaystyle\lim_{n\to\infty}\left(\sqrt{{p2}n^2 + {q}n} - {p:coef}n\right)$ as an exact fraction.'
+  prompt: 'Find $\displaystyle\lim_{n\to\infty}\left(\sqrt{{p2:coef}n^2 + {q:coef}n} - {p:coef}n\right)$ as an exact fraction.'
   answers:
     - {name: L, kind: fraction, lowestTerms: true, label: 'Limit $=$'}
   solution: |-
     This is $\infty - \infty$. Multiply by the conjugate:
-    $$\frac{({p2}n^2 + {q}n) - {p2}n^2}{\sqrt{{p2}n^2 + {q}n} + {p:coef}n} = \frac{{q}n}{\sqrt{{p2}n^2 + {q}n} + {p:coef}n}.$$
+    $$\frac{({p2:coef}n^2 + {q:coef}n) - {p2:coef}n^2}{\sqrt{{p2:coef}n^2 + {q:coef}n} + {p:coef}n} = \frac{{q:coef}n}{\sqrt{{p2:coef}n^2 + {q:coef}n} + {p:coef}n}.$$
     Divide top and bottom by $n$: $\dfrac{{q}}{\sqrt{{p2} + {q}/n} + {p}} \to \dfrac{{q}}{{p2x}} =$ **{L:frac}**.
 - id: calc-d-pseries-bound
   title: Partial sum and remainder bound for a p-series
@@ -47,29 +47,31 @@
   calc:
     S: sum(t, 1, N)
     B: 1/((p - 1)*N^(p - 1))
-    p1: p - 1
+    den: (p - 1)*N^(p - 1)
   prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{1}{n^{p}}$, compute the partial sum $S_{{N}}$ (4 decimals) and the integral-test upper bound on the remainder $R_{{N}} = S - S_{{N}}$ (4 significant figures).'
   answers:
     - {name: S, label: '$S_{{N}} \approx$', tolerance: 0.0001, format: num4}
     - {name: B, label: '$R_{{N}} \le$', relTolerance: 0.0005, format: sig4}
   solution: |-
     Adding the first {N} terms gives $S_{{N}} \approx$ **{S:num4}**. The remainder is at most the tail integral:
-    $$R_{{N}} \le \int_{{N}}^\infty\frac{dx}{x^{p}} = \frac{1}{{p1}\cdot{N}^{{p1}}} \approx \mathbf{{B:sig4}}.$$
+    $$R_{{N}} \le \int_{{N}}^\infty\frac{dx}{x^{p}} = \frac{1}{({p} - 1)\,{N}^{{p} - 1}} = \frac{1}{{den:dp0}} \approx \mathbf{{B:sig4}}.$$
 - id: calc-d-alt-error
   title: Terms needed for an alternating series
   topic: Alternating series
   vars:
-    p: {choices: [1, 2, 3]}
+    p: {choices: [{label: 'n', value: 1}, {label: 'n^2', value: 2}, {label: 'n^3', value: 3}]}
+    pN: {choices: [{label: 'N + 1', value: 1}, {label: '(N + 1)^2', value: 2}, {label: '(N + 1)^3', value: 3}]}
     k: {choices: [2, 3, 4]}
+  where: ["pN == p"]
   calc:
     x: 10^(k/p)
     N: floor(10^(k/p) + 1e-9)
     tol: 10^(-k)
-  prompt: 'What is the smallest $N$ for which the alternating series error bound guarantees that $S_N$ approximates $\displaystyle\sum_{n=1}^\infty\frac{(-1)^{n+1}}{n^{p}}$ within $10^{-{k}}$?'
+  prompt: 'What is the smallest $N$ for which the alternating series error bound guarantees that $S_N$ approximates $\displaystyle\sum_{n=1}^\infty\frac{(-1)^{n+1}}{{p}}$ with error less than $10^{-{k}}$?'
   answers:
     - {name: N, label: '$N =$', format: integer}
   solution: |-
-    The error after $N$ terms is at most the first omitted term, $\dfrac{1}{(N + 1)^{p}}$. Need $\dfrac{1}{(N + 1)^{p}} < 10^{-{k}}$, i.e. $N + 1 > 10^{{k}/{p}} \approx {x:dp2}$. The smallest whole number is $N =$ **{N}**.
+    The error after $N$ terms is at most the first omitted term, $\dfrac{1}{{pN}}$. Need $\dfrac{1}{{pN}} < 10^{-{k}}$, i.e. $N + 1 > 10^{{k}/{p:int}} \approx {x:dp2}$. The smallest whole number is $N =$ **{N}**.
 - id: calc-d-ratio
   title: Ratio test limit
   topic: Ratio and root tests
@@ -94,22 +96,23 @@
   vars:
     c: {min: -4, max: 4}
     b: {min: 2, max: 5}
-    p: {choices: [{label: '1', value: 0}, {label: 'n', value: 1}, {label: 'n^2', value: 2}]}
-  where: ["c != 0"]
+    p: {choices: [{label: '', value: 0}, {label: 'n\,', value: 1}, {label: 'n^2\,', value: 2}]}
+    pd: {choices: [{label: '1', value: 0}, {label: 'n', value: 1}, {label: 'n^2', value: 2}]}
+  where: ["c != 0", "pd == p"]
   calc:
     R: b
     inc: p
     lo: c - b
     hi: c + b
     nc: -c
-  prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{(x {nc:signed})^n}{{b}^n\cdot {p}}$, find the radius of convergence, and how many endpoints (0, 1 or 2) belong to the interval of convergence.'
+  prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{(x {nc:signed})^n}{{p}{b}^n}$, find the radius of convergence, and how many endpoints (0, 1 or 2) belong to the interval of convergence.'
   answers:
     - {name: R, label: '$R =$'}
     - {name: inc, label: 'Endpoints included', format: integer}
   solution: |-
     Ratio test: the factor $\frac{{b}^n}{{b}^{n+1}}$ contributes $\frac{1}{{b}}$ and the polynomial factor's ratio tends to 1, so the ratio tends to $\dfrac{|x {nc:signed}|}{{b}}$. Converges when $|x {nc:signed}| < {b}$: $R =$ **{R}**, open interval $({lo}, {hi})$.
 
-    Endpoints: at $x = {hi}$ the series becomes $\sum\frac{1}{{p}}$, and at $x = {lo}$ it becomes $\sum\frac{(-1)^n}{{p}}$. If the denominator is 1, the terms don't go to 0 (both diverge). If it is $n$, the first is harmonic (diverges) and the second is alternating harmonic (converges). If it is $n^2$, both converge absolutely. Endpoints included: **{inc}**.
+    Endpoints: at $x = {hi}$ the series becomes $\sum\frac{1}{{pd}}$, and at $x = {lo}$ it becomes $\sum\frac{(-1)^n}{{pd}}$. If the denominator is 1, the terms don't go to 0 (both diverge). If it is $n$, the first is harmonic (diverges) and the second is alternating harmonic (converges). If it is $n^2$, both converge absolutely. Endpoints included: **{inc}**.
 - id: calc-d-power-series-rep
   title: Coefficient from a geometric power series
   topic: Power series

@@ -50,7 +50,7 @@ $$\cos\theta \le \frac{\sin\theta}{\theta} \le 1.$$
 As $\theta \to 0^+$, $\cos\theta \to 1$, so the squeeze theorem gives 1. The function $\frac{\sin\theta}{\theta}$ is even, so the left side matches.
 
 ```shape
-{"circles": [{"center": [0, 0], "r": 1}], "polygons": [{"points": [[0, 0], [1, 0], [0.766, 0.643]]}, {"points": [[0, 0], [1, 0], [1, 0.839]], "fill": false}], "segments": [{"from": [0.766, 0.643], "to": [0.766, 0], "dashed": true}], "labels": [{"at": [0.25, 0.08], "text": "θ"}, {"at": [1.05, 0.42], "text": "tan θ"}, {"at": [0.55, 0.3], "text": "sin θ"}], "caption": "Small triangle ≤ sector ≤ large triangle"}
+{"circles": [{"center": [0, 0], "r": 1}], "polygons": [{"points": [[0, 0], [1, 0], [0.766, 0.643]]}, {"points": [[0, 0], [1, 0], [1, 0.839]], "fill": false}], "segments": [{"from": [0.766, 0.643], "to": [0.766, 0], "dashed": true}], "labels": [{"at": [0.25, 0.08], "text": "θ"}, {"at": [1.05, 0.42], "text": "tan θ"}, {"at": [0.66, 0.3], "text": "sin θ"}], "caption": "Small triangle ≤ sector ≤ large triangle"}
 ```
 
 A companion limit follows from it:

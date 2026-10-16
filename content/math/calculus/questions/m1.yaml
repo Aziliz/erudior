@@ -424,7 +424,7 @@
   stem: 'Which three conditions together define "$f$ is continuous at $a$"?'
   choices:
     - '$f(a)$ is defined; $\lim_{x\to a}f(x)$ exists; they are equal'
-    - '$f(a)$ is defined; $f''(a)$ exists; $f(a) \ne 0$'
+    - '$f(a)$ is defined; $f(a) \ne 0$; $f$ has no vertical asymptote'
     - '$\lim_{x\to a^-}f(x)$ exists; $\lim_{x\to a^+}f(x)$ exists; $f(a) = 0$'
     - '$f$ is a polynomial; $a$ is in its domain; $f(a)$ is finite'
   answer: 0

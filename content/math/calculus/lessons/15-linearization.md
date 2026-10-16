@@ -27,7 +27,7 @@ Use $f(x) = \sqrt x$ at $a = 4$ (a perfect square near 4.1). $f(4) = 2$; $f'(x) 
 
 $$L(x) = 2 + \tfrac14(x - 4), \qquad \sqrt{4.1} \approx L(4.1) = 2 + \tfrac14(0.1) = \mathbf{2.025}.$$
 
-The true value is $2.02485\ldots$, so the estimate is off by about 0.00016.
+The true value is $2.02485\ldots$, so the estimate is off by about 0.00015.
 
 ```plot
 {"x": [0, 9], "y": [0, 4], "functions": [{"f": "sqrt(x)", "label": "y = √x"}, {"f": "2 + (x - 4)/4", "dashed": true, "label": "L(x)"}], "points": [{"at": [4, 2], "label": "(4, 2)"}], "caption": "Near x = 4 the tangent line is almost indistinguishable from √x; it lies above the curve"}
@@ -52,7 +52,7 @@ $$dy = f'(x)\,dx.$$
 $dy$ is the change along the tangent line; $\Delta y = f(x + dx) - f(x)$ is the actual change along the curve. For small $dx$, $\Delta y \approx dy$.
 
 ```plot
-{"x": [0, 3], "y": [0, 6], "functions": [{"f": "x^2/1.5", "label": "y = f(x)"}], "tangents": [{"f": "x^2/1.5", "at": 1.5}], "segments": [{"from": [1.5, 1.5], "to": [2.3, 1.5], "dashed": true, "label": "dx"}, {"from": [2.3, 1.5], "to": [2.3, 3.1], "label": "dy"}, {"from": [2.45, 1.5], "to": [2.45, 3.527], "dashed": true, "label": "Δy"}], "caption": "dy is the rise along the tangent; Δy is the rise along the curve"}
+{"x": [0, 3], "y": [0, 6], "functions": [{"f": "x^2/1.5", "label": "y = f(x)"}], "tangents": [{"f": "x^2/1.5", "at": 1.5}], "segments": [{"from": [1.5, 1.5], "to": [2.3, 1.5], "dashed": true, "label": "dx"}, {"from": [2.3, 1.5], "to": [2.3, 3.1], "label": "dy"}, {"from": [2.3, 1.5], "to": [2.45, 1.5], "dashed": true}, {"from": [2.3, 3.527], "to": [2.45, 3.527], "dashed": true}, {"from": [2.45, 1.5], "to": [2.45, 3.527], "dashed": true, "label": "Δy"}], "points": [{"at": [2.3, 3.527]}], "caption": "dy is the rise along the tangent; Δy is the rise along the curve"}
 ```
 
 ### Example 3 (propagated error)

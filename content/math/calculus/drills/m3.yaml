@@ -5,22 +5,22 @@
   vars:
     a: {min: 1, max: 6}
     b: {min: -9, max: 9}
-    c: {min: -4, max: 4}
-  where: ["b != 0", "c != 0", "abs(c) != 1"]
+    c: {min: -9, max: 9}
+  where: ["b != 0", "c != 0", "2*a + b != 0", "b + c != 0"]
   calc:
     a2: 2*a
-    ac: a*c
-    bc: b*c
-  prompt: 'Differentiate $y = ({a:coef}x^2 {b:signed})e^{{c}x}$.'
+    s1: 2*a + b
+    s0: b + c
+  prompt: 'Differentiate $y = ({a:coef}x^2 {b:signedcoef}x {c:signed})e^{x}$.'
   answers:
     - kind: expression
-      expression: '(2*a*x + c*(a*x^2 + b))*e^(c*x)'
+      expression: '(a*x^2 + (2*a + b)*x + b + c)*e^x'
       label: '$y'' =$'
-      show: '$e^{{c}x}\left({ac}x^2 + {a2}x {bc:signed}\right)$'
+      show: '$e^{x}\left({a:coef}x^2 {s1:signedcoef}x {s0:signed}\right)$'
   solution: |-
-    Product rule with $f = {a:coef}x^2 {b:signed}$ ($f' = {a2}x$) and $g = e^{{c}x}$ ($g' = {c}e^{{c}x}$ by the chain rule):
-    $$y' = {a2}x\,e^{{c}x} + ({a:coef}x^2 {b:signed})\cdot{c}e^{{c}x}.$$
-    Factor out $e^{{c}x}$: **$y' = e^{{c}x}\left({ac}x^2 + {a2}x {bc:signed}\right)$**.
+    Product rule with $f = {a:coef}x^2 {b:signedcoef}x {c:signed}$ ($f' = {a2}x {b:signed}$) and $g = e^{x}$ ($g' = e^{x}$):
+    $$y' = ({a2}x {b:signed})e^{x} + ({a:coef}x^2 {b:signedcoef}x {c:signed})e^{x}.$$
+    Factor out $e^{x}$ and combine like terms: **$y' = e^{x}\left({a:coef}x^2 {s1:signedcoef}x {s0:signed}\right)$**.
 - id: calc-d-quotient
   title: Quotient rule
   topic: Quotient rule
@@ -75,7 +75,7 @@
     m: a*cos(p) - b*sin(p)
     yp: f(p)
     nb: -b
-  prompt: 'Find the slope of $y = {a:coef}\sin x {b:signedcoef}\cos x$ at $x = {p}$. (3 decimals)'
+  prompt: 'Find the slope of $y = {a:coef}\sin x {b:signedcoef}\cos x$ at $x = {p}$, to 3 decimal places.'
   answers:
     - {name: m, label: 'Slope', tolerance: 0.001, format: dp3}
   figure:
@@ -88,7 +88,7 @@
     points:
       - {at: [p, yp]}
   solution: |-
-    $y' = {a:coef}\cos x {nb:signedcoef}\sin x$. At $x = {p}$: $y' = {a}\cos\left({p}\right) - ({b})\sin\left({p}\right) \approx$ **{m:num4}**.
+    $y' = {a:coef}\cos x {nb:signedcoef}\sin x$. At $x = {p}$: $y' = {a:coef}\cos\left({p}\right) {nb:signedcoef}\sin\left({p}\right) \approx$ **{m:dp3}**.
 - id: calc-d-chain-power
   title: Chain rule on a power
   topic: Chain rule
@@ -126,7 +126,7 @@
       label: '$y'' =$'
       show: '$({na2:coef}x {nb:signed})\sin({a:coef}x^2 {b:signedcoef}x)$'
   solution: |-
-    Outside $\cos u$ has derivative $-\sin u$; inside $u = {a:coef}x^2 {b:signedcoef}x$ has derivative ${a2}x {b:signed}$. So **$y' = -({a2}x {b:signed})\sin({a:coef}x^2 {b:signedcoef}x)$**. Keep the inside unchanged inside the sine.
+    Outside $\cos u$ has derivative $-\sin u$; inside $u = {a:coef}x^2 {b:signedcoef}x$ has derivative ${a2}x {b:signed}$. So $y' = -({a2}x {b:signed})\sin({a:coef}x^2 {b:signedcoef}x)$, which is **$y' = ({na2:coef}x {nb:signed})\sin({a:coef}x^2 {b:signedcoef}x)$**. Keep the inside unchanged inside the sine.
 - id: calc-d-implicit-slope
   title: Slope by implicit differentiation
   topic: Implicit differentiation
@@ -152,7 +152,7 @@
   topic: Inverse trig derivatives
   vars:
     a: {min: 2, max: 9}
-    n: {choices: [2, 3, 4]}
+    n: {choices: [3, 4, 5]}
   calc:
     a2: a^2
     an: a*n

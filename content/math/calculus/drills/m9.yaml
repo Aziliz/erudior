@@ -45,7 +45,7 @@
   vars:
     r1: {min: -3, max: 1}
     gap: {min: 2, max: 4}
-  where: ["r1 != 0"]
+  where: ["r1 != 0", "r1 + gap != 0"]
   calc:
     r2: r1 + gap
     nr1: -r1
@@ -73,17 +73,17 @@
   topic: Separable equations
   vars:
     k: {min: 1, max: 3}
-    n: {min: 1, max: 2}
+    n: {choices: [{label: 'x', value: 1}, {label: 'x^2', value: 2}]}
     A: {min: 1, max: 5}
     x1: {choices: [0.5, 1]}
   calc:
     n1: n + 1
     y1: A*e^(k*x1^(n + 1)/(n + 1))
-  prompt: 'Solve $\dfrac{dy}{dx} = {k:coef}x^{n}y$ with $y(0) = {A}$, then find $y({x1})$. (4 significant figures)'
+  prompt: 'Solve $\dfrac{dy}{dx} = {k:coef}{n}y$ with $y(0) = {A}$, then find $y({x1})$. (4 significant figures)'
   answers:
     - {name: y1, label: '$y({x1}) =$', relTolerance: 0.0005, format: sig4}
   solution: |-
-    Separate: $\dfrac{dy}{y} = {k:coef}x^{n}dx$. Integrate: $\ln|y| = \dfrac{{k:coef}x^{{n1}}}{{n1}} + C$, so $y = Be^{{k:coef}x^{{n1}}/{n1}}$. At $x = 0$, $y = B = {A}$. So $y = {A:coef}e^{{k:coef}x^{{n1}}/{n1}}$ and $y({x1}) \approx$ **{y1:sig4}**.
+    Separate: $\dfrac{dy}{y} = {k:coef}{n}\,dx$. Integrate: $\ln|y| = \dfrac{{k:coef}x^{{n1}}}{{n1}} + C$, so $y = Be^{{k:coef}x^{{n1}}/{n1}}$. At $x = 0$, $y = B = {A}$. So $y = {A:coef}e^{{k:coef}x^{{n1}}/{n1}}$ and $y({x1}) \approx$ **{y1:sig4}**.
 - id: calc-d-exp-growth
   title: Exponential growth from two data points
   topic: Exponential and logistic models

@@ -11,7 +11,7 @@
     k: 4*r^2
   prompt: 'Air is pumped into a spherical balloon at {dv} cm³/s. How fast is the radius increasing when the radius is {r} cm? (cm/s, 4 decimals)'
   answers:
-    - {name: rate, label: '$\dfrac{dr}{dt} =$', relTolerance: 0.001, format: num4}
+    - {name: rate, label: '$\dfrac{dr}{dt} =$', tolerance: 0.0001, format: num4}
   solution: |-
     $V = \tfrac43\pi r^3$, so $\dfrac{dV}{dt} = 4\pi r^2\dfrac{dr}{dt}$. Substitute: ${dv} = 4\pi({r})^2\dfrac{dr}{dt} = {k}\pi\,\dfrac{dr}{dt}$. So $\dfrac{dr}{dt} = \dfrac{{dv}}{{k}\pi} \approx$ **{rate:num4}** cm/s.
 - id: calc-d-rr-ladder
@@ -58,7 +58,7 @@
   answers:
     - {name: L, label: 'Estimate', tolerance: 0.0001, format: num4}
   solution: |-
-    $f({a}) = {n}$ and $f'(x) = \dfrac{1}{2\sqrt x}$, so $f'({a}) = \dfrac{1}{{n2}}$. Then $L(x) = {n} + \dfrac{1}{{n2}}(x - {a})$ and $L({xx}) = {n} + \dfrac{{d}}{{n2}} \approx$ **{L:num4}**. (Actual: {tru:num4}; $\sqrt x$ is concave down, so the estimate is a little high.)
+    $f({a}) = {n}$ and $f'(x) = \dfrac{1}{2\sqrt x}$, so $f'({a}) = \dfrac{1}{{n2}}$. Then $L(x) = {n} + \dfrac{1}{{n2}}(x - {a})$ and $L({xx}) = {n} + \dfrac{1}{{n2}}({d}) \approx$ **{L:num4}**. (Actual: {tru:num4}; $\sqrt x$ is concave down, so the estimate is a little high.)
 - id: calc-d-newton
   title: Two steps of Newton's method
   topic: Newton's method
@@ -119,8 +119,9 @@
   calc:
     p: a*b
     L: e^(a*b)
-  prompt: 'Find $\displaystyle\lim_{x\to\infty}\left(1 {a:signed}/x\right)^{{b:coef}x}$. (You may type an expression like e^3.)'
+    na: -a
+  prompt: 'Find $\displaystyle\lim_{x\to\infty}\left(1 {a:signed}/x\right)^{{b:coef}x}$. (Exact, like e^3, or to 5 significant figures.)'
   answers:
-    - {name: L, label: 'Limit $=$', relTolerance: 0.0001}
+    - {name: L, label: 'Limit $=$', relTolerance: 0.0001, format: sig5}
   solution: |-
-    This is $1^\infty$. Let $y$ be the expression; $\ln y = {b:coef}x\ln\left(1 {a:signed}/x\right) = \dfrac{{b}\ln(1 {a:signed}/x)}{1/x}$, a $0/0$ form. L'Hôpital: $\dfrac{{b}\cdot\frac{1}{1 {a:signed}/x}\cdot\left(-\frac{{a}}{x^2}\right)}{-\frac{1}{x^2}} = \dfrac{{p}}{1 {a:signed}/x} \to {p}$. So $y \to$ **$e^{{p}}$** $\approx$ {L:num4}.
+    This is $1^\infty$. Let $y$ be the expression; $\ln y = {b:coef}x\ln\left(1 {a:signed}/x\right) = \dfrac{{b:coef}\ln(1 {a:signed}/x)}{1/x}$, a $0/0$ form. L'Hôpital: $\dfrac{{b:coef}\frac{1}{1 {a:signed}/x}\cdot\left({na:coef}\frac{1}{x^2}\right)}{-\frac{1}{x^2}} = \dfrac{{p}}{1 {a:signed}/x} \to {p}$. So $y \to$ **$e^{{p}}$** $\approx$ {L:sig5}.

@@ -301,8 +301,8 @@
 - id: calc-q-1911
   lesson: calc-concavity
   topic: Curve sketching
-  stem: 'A point $(c, f(c))$ where $f''''$ changes sign but $f(c)$ is undefined is'
-  choices: ['an inflection point', 'a local extremum', 'not an inflection point, since it''s not on the graph', 'a critical point']
+  stem: 'Suppose $f''''$ changes sign at $x = c$, but $f(c)$ is undefined. Then at $x = c$ the graph has'
+  choices: ['an inflection point', 'a local extremum', 'no inflection point, since there is no point on the graph there', 'a critical point']
   answer: 2
   explanation: |-
     An inflection point must be a point on the graph. Concavity can change across a vertical asymptote (like $1/x$ at 0) without an inflection point.

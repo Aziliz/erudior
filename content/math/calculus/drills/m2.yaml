@@ -7,7 +7,7 @@
     b: {min: -9, max: 9}
     c: {min: -9, max: 9}
     p: {min: -4, max: 4}
-  where: ["a != 0", "b != 0", "c != 0", "p != 0"]
+  where: ["a != 0", "b != 0", "c != 0", "p != 0", "2*a*p + b != 0"]
   calc:
     lin: 2*a*p + b
     m: 2*a*p + b
@@ -17,7 +17,7 @@
     - {kind: expression, expression: 'lin + a*h', variables: [h], label: 'Quotient $=$', show: '${lin} {a:signedcoef}h$'}
     - {name: m, label: '$f''({p}) =$'}
   solution: |-
-    $f({p} + h) = {a}({p} + h)^2 + ({b})({p} + h) {c:signed}$ and $f({p}) = {fp}$. Expanding and subtracting, every term without $h$ cancels, leaving ${a}\left(2({p})h + h^2\right) + ({b})h$. Divide by $h$: the quotient is ${lin} {a:signed}h$. Let $h \to 0$: $f'({p}) =$ **{m}**.
+    $f({p} + h) = {a:coef}({p} + h)^2 {b:signed}({p} + h) {c:signed}$ and $f({p}) = {fp}$. Expanding and subtracting, every term without $h$ cancels, leaving ${a:coef}\left(2({p})h + h^2\right) {b:signedcoef}h$. Divide by $h$: the quotient is ${lin} {a:signedcoef}h$. Let $h \to 0$: $f'({p}) =$ **{m}**.
 - id: calc-d-tangent-line
   title: Tangent line to a cubic
   topic: Tangent lines
@@ -32,6 +32,7 @@
     yp: f(p)
     m: 3*a*p^2 + b
     k: f(p) - m*p
+    a3: 3*a
   prompt: 'Find the equation of the tangent line to $f(x) = {a:coef}x^3 {b:signedcoef}x$ at $x = {p}$. Write it as $y = mx + k$.'
   answers:
     - {kind: expression, expression: 'm*x + k', label: '$y =$', show: '${m:coef}x {k:signed}$'}
@@ -45,7 +46,7 @@
     points:
       - {at: [p, yp]}
   solution: |-
-    Point: $f({p}) = {yp}$. Slope: $f'(x) = {a}\cdot3x^2 {b:signed}$, so $f'({p}) = {m}$. Point-slope: $y - ({yp}) = {m}(x - ({p}))$, which simplifies to **$y = {m:coef}x {k:signed}$**.
+    Point: $f({p}) = {yp}$. Slope: the limit definition gives $f'(x) = {a3}x^2 {b:signed}$ (expanding $(x + h)^3$ in the difference quotient turns $x^3$ into $3x^2$; the $x$ term contributes its slope, {b}), so $f'({p}) = {m}$. The line $y = {m:coef}x + k$ passes through $({p}, {yp})$, so $k = {yp} - ({m})({p}) = {k}$. The tangent line is **$y = {m:coef}x {k:signed}$**.
 - id: calc-d-avg-vs-inst
   title: Average and instantaneous rate
   topic: Definition of the derivative
@@ -64,6 +65,7 @@
     fpp: f(p)
     avg: (f(q) - f(p))/(q - p)
     w2: 2*w
+    a2: 2*a
     inst: 2*a*(p + w)
   prompt: 'For $f(x) = {a:coef}x^2 {c:signed}$, find the average rate of change on $[{p}, {q}]$ and the instantaneous rate of change at the midpoint $x = {mid}$.'
   answers:
@@ -79,7 +81,7 @@
     tangents:
       - {f: f, at: mid}
   solution: |-
-    Average: $\dfrac{f({q}) - f({p})}{{q} - ({p})} = \dfrac{{fq} - ({fpp})}{{w2}} =$ **{avg}**. Instantaneous: $f'(x) = {a}\cdot 2x$, so $f'({mid}) =$ **{inst}**. For a quadratic these always agree: the secant over an interval is parallel to the tangent at its midpoint.
+    Average: $f({q}) = {fq}$ and $f({p}) = {fpp}$, so $\dfrac{f({q}) - f({p})}{{w2}} =$ **{avg}** (the interval has length {w2}). Instantaneous: $f'(x) = {a2}x$, so $f'({mid}) =$ **{inst}**. For a quadratic these always agree: the secant over an interval is parallel to the tangent at its midpoint.
 - id: calc-d-piecewise-diff
   title: Make a piecewise function differentiable
   topic: Differentiability
@@ -91,6 +93,7 @@
     a: 2*k*c
     b: -k*c^2
     kc2: k*c^2
+    k2: 2*k
   prompt: |-
     Find $a$ and $b$ so that
     $$f(x) = \begin{cases} {k:coef}x^2, & x \le {c}\\ ax + b, & x > {c}\end{cases}$$
@@ -99,13 +102,13 @@
     - {name: a, label: '$a =$'}
     - {name: b, label: '$b =$'}
   solution: |-
-    Slopes must match: the left piece has derivative ${k}\cdot2x$, which is ${a}$ at $x = {c}$, so $a =$ **{a}**. The pieces must also meet: ${k}({c})^2 = {kc2}$ must equal $a({c}) + b = {a}({c}) + b$, so $b =$ **{b}**.
+    Slopes must match: the left piece has derivative ${k2}x$, which is ${a}$ at $x = {c}$, so $a =$ **{a}**. The pieces must also meet: ${k}({c})^2 = {kc2}$ must equal $a({c}) + b = {a}({c}) + b$, so $b =$ **{b}**.
 - id: calc-d-power-rule
   title: Power rule with roots and reciprocals
   topic: Power rule
   vars:
     a: {min: 2, max: 9}
-    n: {min: 2, max: 6}
+    n: {min: 3, max: 6}
     b: {min: 1, max: 9}
     m: {min: 2, max: 4}
     c: {min: 2, max: 8, step: 2}

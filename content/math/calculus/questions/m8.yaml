@@ -7,7 +7,7 @@
   choices: ['$x\sin x - \cos x + C$', '$x\sin x + \cos x + C$', '$\tfrac{x^2}{2}\sin x + C$', '$-x\sin x + \cos x + C$']
   answer: 1
   explanation: |-
-    $u = x$, $dv = \cos x\,dx$: $x\sin x - \int\sin x\,dx = x\sin x + \cos x + C$. The first choice is the sign slip on $\int\sin x\,dx$.
+    $u = x$, $dv = \cos x\,dx$: $x\sin x - \int\sin x\,dx = x\sin x + \cos x + C$. Getting $-\cos x$ at the end is the sign slip on $\int\sin x\,dx = -\cos x$.
 - id: calc-q-3102
   lesson: calc-by-parts
   topic: Integration by parts
@@ -270,10 +270,10 @@
   lesson: calc-partial-fractions
   topic: Partial fractions
   stem: 'Find $\displaystyle\int\frac{2x + 3}{x^2 + 3x}\,dx$ (fastest method).'
-  choices: ['$\ln|x| + \ln|x + 3| + C$, by partial fractions only', '$\ln|x^2 + 3x| + C$, by substitution', '$2\ln|x + 3| + C$', '$\arctan(x^2 + 3x) + C$']
+  choices: ['$\ln|x| - \ln|x + 3| + C$, by partial fractions', '$\ln|x^2 + 3x| + C$, by substitution', '$2\ln|x + 3| + C$', '$\arctan(x^2 + 3x) + C$']
   answer: 1
   explanation: |-
-    The numerator is exactly the derivative of the denominator, so $u = x^2 + 3x$ gives $\ln|u|$. (Partial fractions gives the same thing, $\ln|x| + \ln|x + 3|$, more slowly.)
+    The numerator is exactly the derivative of the denominator, so $u = x^2 + 3x$ gives $\ln|u|$. (Partial fractions also works, more slowly: $\frac{2x + 3}{x(x + 3)} = \frac1x + \frac{1}{x + 3}$, so both logs have coefficient $+1$; $\ln|x| - \ln|x + 3|$ is a sign slip.)
 - id: calc-q-3310
   lesson: calc-partial-fractions
   topic: Partial fractions
@@ -333,7 +333,7 @@
   choices: ['$\int x\,e^{x^2}\,dx$', '$\int\frac{2x}{x^2 + 1}\,dx$', '$\int\sin^3x\,dx$', '$\int x\,e^{3x}\,dx$']
   answer: 3
   explanation: |-
-    A polynomial times an exponential with no matching inner derivative: parts with $u = x$. The first two are substitutions; the third uses trig identities.
+    A polynomial times an exponential with no matching inner derivative: parts with $u = x$. $\int xe^{x^2}dx$ and $\int\frac{2x}{x^2 + 1}dx$ are substitutions; $\int\sin^3x\,dx$ uses a trig identity.
 - id: calc-q-3407
   lesson: calc-numerical-integration
   topic: Integration strategy
@@ -345,7 +345,7 @@
     - 'It can be done by partial fractions'
   answer: 2
   explanation: |-
-    FTC 1 guarantees $\int_0^xe^{-t^2}dt$ is an antiderivative; it just isn't elementary. Definite integrals of it are found numerically. (Differentiating the second choice doesn't give $e^{-x^2}$.)
+    FTC 1 guarantees $\int_0^xe^{-t^2}dt$ is an antiderivative; it just isn't elementary. Definite integrals of it are found numerically. (Differentiating $-\frac{e^{-x^2}}{2x}$ doesn't give $e^{-x^2}$: the quotient rule adds an extra term.)
 - id: calc-q-3408
   lesson: calc-numerical-integration
   topic: Numerical integration
@@ -400,7 +400,7 @@
   choices: ['$\int_1^\infty\frac{dx}{\sqrt x}$', '$\int_1^\infty\frac{dx}{x}$', '$\int_0^1\frac{dx}{x^2}$', '$\int_0^1\frac{dx}{\sqrt x}$']
   answer: 3
   explanation: |-
-    On $(0, 1]$, $x^{-p}$ converges when $p < 1$; $p = \frac12$ qualifies (value 2). On $[1, \infty)$ you'd need $p > 1$, which the first two fail; $\int_0^1x^{-2}$ has $p = 2 \ge 1$.
+    On $(0, 1]$, $x^{-p}$ converges when $p < 1$; $p = \frac12$ qualifies (value 2). On $[1, \infty)$ you'd need $p > 1$, which $\frac{1}{\sqrt x}$ and $\frac1x$ fail; $\int_0^1x^{-2}$ has $p = 2 \ge 1$.
 - id: calc-q-3503
   lesson: calc-improper
   topic: Improper integrals

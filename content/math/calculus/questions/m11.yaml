@@ -7,7 +7,7 @@
   choices: ['$\tfrac{4}{11}$', '$11$', '$\tfrac{11}{4}$', '$\tfrac{12}{4}$']
   answer: 2
   explanation: |-
-    $\frac{dy}{dx} = \frac{3t^2 - 1}{2t}$; at $t = 2$: $\frac{11}{4}$. The first choice is upside down.
+    $\frac{dy}{dx} = \frac{3t^2 - 1}{2t}$; at $t = 2$: $\frac{11}{4}$. The answer $\frac{4}{11}$ is $\frac{dx}{dy}$, upside down.
 - id: calc-q-4302
   lesson: calc-parametric
   topic: Parametric equations
@@ -181,7 +181,7 @@
   choices: ['$\tfrac12\int_{-\pi/3}^{\pi/3}(2\cos\theta - 1)^2\,d\theta$', '$\tfrac12\int_{-\pi/3}^{\pi/3}(4\cos^2\theta - 1)\,d\theta$', '$\int_{-\pi/3}^{\pi/3}(4\cos^2\theta - 1)\,d\theta$', '$\tfrac12\int_{0}^{\pi}(4\cos^2\theta - 1)\,d\theta$']
   answer: 1
   explanation: |-
-    $\frac12\int(r_{\text{out}}^2 - r_{\text{in}}^2)\,d\theta$ between the intersections $\pm\frac\pi3$. Its value is $\frac\pi3 + \frac{\sqrt3}{2} \approx 1.913$. The first choice squares the difference, a washer-style mistake.
+    $\frac12\int(r_{\text{out}}^2 - r_{\text{in}}^2)\,d\theta$ between the intersections $\pm\frac\pi3$. Its value is $\frac\pi3 + \frac{\sqrt3}{2} \approx 1.913$. Writing $(2\cos\theta - 1)^2$ squares the difference instead of subtracting the squares, the same mistake as with washers.
 - id: calc-q-4411
   lesson: calc-polar
   topic: Polar coordinates

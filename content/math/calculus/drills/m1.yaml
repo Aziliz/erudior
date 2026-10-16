@@ -68,12 +68,16 @@
     s: -(a + b)
     pr: a*b
     sq: -a^2
+    na: -a
+    nb: -b
+    amb: a - b
+    a2: 2*a
     L: (a - b)/(2*a)
   prompt: 'Find $\displaystyle\lim_{x\to {a}}\frac{x^2 {s:signedcoef}x {pr:signed}}{x^2 {sq:signed}}$ as an exact fraction.'
   answers:
     - {name: L, kind: fraction, lowestTerms: true, label: 'Limit $=$'}
   solution: |-
-    Substituting gives $0/0$. Factor: the top is $(x - ({a}))(x - ({b}))$ and the bottom is $(x - ({a}))(x + ({a}))$. Cancel $x - ({a})$ to get $\dfrac{x - ({b})}{x + ({a})}$, then substitute $x = {a}$: $\dfrac{{a} - ({b})}{2({a})} =$ **{L:frac}**.
+    Substituting gives $0/0$. Factor: the top is $(x {na:signed})(x {nb:signed})$ and the bottom is $(x {na:signed})(x {a:signed})$. Cancel $x {na:signed}$ to get $\dfrac{x {nb:signed}}{x {a:signed}}$, then substitute $x = {a}$: $\dfrac{{amb}}{{a2}} =$ **{L:frac}**.
 - id: calc-d-limit-conj
   title: Limit with a conjugate
   topic: Algebraic limits
@@ -89,7 +93,7 @@
   answers:
     - {name: L, kind: fraction, lowestTerms: true, label: 'Limit $=$'}
   solution: |-
-    At $x = {c}$, $\sqrt{{c} + {k}} = {n}$, so this is $0/0$. Multiply by the conjugate $\sqrt{x + {k}} + {n}$: the top becomes $(x + {k}) - {n}^2 = x - ({c})$, which cancels, leaving $\dfrac{1}{\sqrt{x + {k}} + {n}} \to \dfrac{1}{{n} + {n}} =$ **{L:frac}**.
+    At $x = {c}$, $\sqrt{{c} + {k}} = {n}$, so this is $0/0$. Multiply by the conjugate $\sqrt{x + {k}} + {n}$: the top becomes $(x + {k}) - {n}^2 = x {nc:signed}$, which cancels, leaving $\dfrac{1}{\sqrt{x + {k}} + {n}} \to \dfrac{1}{{n} + {n}} =$ **{L:frac}**.
 - id: calc-d-limit-inf-rational
   title: Limit at infinity of a rational function
   topic: Limits at infinity
@@ -134,7 +138,7 @@
       - {from: [va, -10], to: [va, 10], dashed: true}
       - {from: [-10, ha], to: [10, ha], dashed: true}
   solution: |-
-    The denominator is zero at $x = -\tfrac{{d}}{{c}}$, and the numerator isn't zero there (no common factor since $ad - bc \ne 0$), so the vertical asymptote is $x =$ **{va:frac}**. Both top and bottom have degree 1, so as $x \to \pm\infty$ the function tends to the ratio of leading coefficients: $y =$ **{ha:frac}**.
+    The denominator ${c:coef}x {d:signed}$ is zero at $x = {va:texfrac}$, and the numerator isn't zero there (no common factor since $ad - bc \ne 0$), so the vertical asymptote is $x =$ **{va:frac}**. Both top and bottom have degree 1, so as $x \to \pm\infty$ the function tends to the ratio of leading coefficients: $y =$ **{ha:frac}**.
 - id: calc-d-limit-trig
   title: Limit using sin(x)/x
   topic: Squeeze theorem
@@ -158,16 +162,18 @@
     b: {min: -9, max: 9}
     a: {min: -5, max: 5}
     eps: {choices: [0.1, 0.05, 0.01, 0.03, 0.2]}
-  where: ["m != 0", "abs(m) != 1", "b != 0"]
+  where: ["m != 0", "abs(m) != 1", "b != 0", "a != 0", "L != 0"]
   calc:
     L: m*a + b
+    na: -a
+    nL: -L
     am: abs(m)
     delta: eps/abs(m)
-  prompt: 'For $\displaystyle\lim_{x\to {a}}({m:coef}x {b:signed}) = {L}$ and $\varepsilon = {eps}$, what is the largest $\delta$ such that $0 < |x - ({a})| < \delta$ guarantees $|f(x) - ({L})| < \varepsilon$?'
+  prompt: 'Let $f(x) = {m:coef}x {b:signed}$, so $\displaystyle\lim_{x\to {a}}f(x) = {L}$. For $\varepsilon = {eps}$, what is the largest $\delta$ such that $0 < |x {na:signed}| < \delta$ guarantees $|f(x) {nL:signed}| < \varepsilon$? Give it exactly or to 4 significant figures.'
   answers:
-    - {name: delta, label: '$\delta =$', relTolerance: 0.001}
+    - {name: delta, label: '$\delta =$', relTolerance: 0.001, format: sig4}
   solution: |-
-    $|f(x) - ({L})| = |{m}x {b:signed} - ({L})| = {am}\,|x - ({a})|$. This is less than ${eps}$ exactly when $|x - ({a})| < \dfrac{{eps}}{{am}}$, so $\delta =$ **{delta:sig4}**.
+    $|f(x) {nL:signed}| = |{m:coef}x {b:signed} {nL:signed}| = {am}\,|x {na:signed}|$. This is less than ${eps}$ exactly when $|x {na:signed}| < \dfrac{{eps}}{{am}}$, so $\delta =$ **{delta:sig4}**.
 - id: calc-d-continuity-k
   title: Make a piecewise function continuous
   topic: Continuity
@@ -181,6 +187,8 @@
     cc: c^2
     top: c^2 - p
     bot: c - q
+    np: -p
+    nq: -q
   prompt: |-
     Find $k$ so that
     $$f(x) = \begin{cases} kx {p:signed}, & x < {c}\\ x^2 {q:signedcoef}k, & x \ge {c}\end{cases}$$
@@ -188,7 +196,7 @@
   answers:
     - {name: k, kind: fraction, lowestTerms: true, label: '$k =$'}
   solution: |-
-    Both pieces are polynomials, so only $x = {c}$ matters. The left piece heads to ${c}k {p:signed}$; the right piece equals ${cc} {q:signedcoef}k$ there. Set them equal and collect the $k$ terms: $({c} - ({q}))k = {cc} - ({p})$, so $k = \dfrac{{top}}{{bot}} =$ **{k:frac}**.
+    Both pieces are polynomials, so only $x = {c}$ matters. The left piece heads to ${c}k {p:signed}$; the right piece equals ${cc} {q:signedcoef}k$ there. Set them equal, ${c}k {p:signed} = {cc} {q:signedcoef}k$, and collect the $k$ terms: ${c}k {nq:signedcoef}k = {cc} {np:signed}$, so ${bot:coef}k = {top}$ and $k =$ **{k:frac}**.
 - id: calc-d-ivt-bisect
   title: Bisection after three steps
   topic: Intermediate Value Theorem

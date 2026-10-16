@@ -13,6 +13,8 @@
     f(x): x^3 - 1.5*(2*r1 + gap)*x^2 + 3*r1*(r1 + gap)*x + d
   calc:
     r2: r1 + gap
+    nr1: -r1
+    nr2: -(r1 + gap)
     s: 2*r1 + gap
     b: -1.5*(2*r1 + gap)
     b2: -3*(2*r1 + gap)
@@ -40,7 +42,7 @@
       - {at: [r2, f2]}
       - {at: [hi, fhi]}
   solution: |-
-    $f'(x) = 3x^2 {b2:signedcoef}x {c:signed} = 3(x - ({r1}))(x - ({r2}))$, so the critical numbers are ${r1}$ and ${r2}$, both in the interval. Evaluate at critical numbers and endpoints:
+    $f'(x) = 3x^2 {b2:signedcoef}x {c:signed} = 3(x {nr1:signed})(x {nr2:signed})$, so the critical numbers are ${r1}$ and ${r2}$, both in the interval. Evaluate at critical numbers and endpoints:
 
     | $x$ | ${lo}$ | ${r1}$ | ${r2}$ | ${hi}$ |
     |---|---|---|---|---|
@@ -82,6 +84,8 @@
   where: ["r1 != 0", "r1 + gap != 0", "2*r1 + gap != 0"]
   calc:
     r2: r1 + gap
+    nr1: -r1
+    nr2: -(r1 + gap)
     b: -3*(2*r1 + gap)
     b2: -6*(2*r1 + gap)
     c: 6*r1*(r1 + gap)
@@ -90,13 +94,13 @@
     - {name: r1, label: 'Local max at $x =$'}
     - {name: r2, label: 'Local min at $x =$'}
   solution: |-
-    $f'(x) = 6x^2 {b2:signedcoef}x {c:signed} = 6(x - ({r1}))(x - ({r2}))$. Sign chart: $f' > 0$ for $x < {r1}$, $f' < 0$ between ${r1}$ and ${r2}$, $f' > 0$ for $x > {r2}$. So $f$ has a local max at $x =$ **{r1}** ($+$ to $-$) and a local min at $x =$ **{r2}** ($-$ to $+$).
+    $f'(x) = 6x^2 {b2:signedcoef}x {c:signed} = 6(x {nr1:signed})(x {nr2:signed})$. Sign chart: $f' > 0$ for $x < {r1}$, $f' < 0$ between ${r1}$ and ${r2}$, $f' > 0$ for $x > {r2}$. So $f$ has a local max at $x =$ **{r1}** ($+$ to $-$) and a local min at $x =$ **{r2}** ($-$ to $+$).
 - id: calc-d-local-max
   title: Local maximum of a power times an exponential
   topic: First derivative test
   vars:
-    n: {min: 2, max: 4}
-    k: {min: 1, max: 3}
+    n: {min: 3, max: 5}
+    k: {min: 2, max: 3}
   funcs:
     f(x): x^n*e^(-x/k)
   calc:
@@ -106,7 +110,7 @@
   prompt: 'Find the location and value of the local maximum of $f(x) = x^{n}e^{-x/{k}}$ for $x > 0$. (Value to 4 significant figures.)'
   answers:
     - {name: xm, label: '$x =$'}
-    - {name: ym, label: 'Max value', relTolerance: 0.0005, format: sig4}
+    - {name: ym, label: 'Max value', relTolerance: 0.001, format: sig4}
   figure:
     type: plot
     x: [0, 'xm*3']
@@ -195,13 +199,13 @@
     s: {min: 10, max: 60, step: 5}
   calc:
     A: 2*s^2
-    x: s
-    y: 2*s
+    px: s
+    py: 2*s
     F: 4*s
   prompt: 'A rectangular pen along a straight river must enclose {A:int} m². No fence is needed along the river. What dimensions minimize the fencing, and how much fence is used?'
   answers:
-    - {name: x, label: 'Side perpendicular to river (m)'}
-    - {name: y, label: 'Side parallel to river (m)'}
+    - {name: px, label: 'Side perpendicular to river (m)'}
+    - {name: py, label: 'Side parallel to river (m)'}
     - {name: F, label: 'Fence (m)'}
   solution: |-
-    With $x$ perpendicular and $y$ parallel: $xy = {A:dp0}$, so $y = {A:dp0}/x$, and the fence is $F(x) = 2x + \dfrac{{A:dp0}}{x}$ for $x > 0$. $F'(x) = 2 - \dfrac{{A:dp0}}{x^2} = 0$ gives $x^2 = {A:dp0}/2$, $x =$ **{x}**. $F''(x) = 2{A:dp0}/x^3 > 0$, so it's the minimum. Then $y =$ **{y}** and $F =$ **{F}** m.
+    With $x$ perpendicular and $y$ parallel: $xy = {A:dp0}$, so $y = {A:dp0}/x$, and the fence is $F(x) = 2x + \dfrac{{A:dp0}}{x}$ for $x > 0$. $F'(x) = 2 - \dfrac{{A:dp0}}{x^2} = 0$ gives $x^2 = {A:dp0}/2$, $x =$ **{px}**. $F''(x) = \dfrac{2\cdot{A:dp0}}{x^3} > 0$, so it's the minimum. Then $y =$ **{py}** and $F =$ **{F}** m.

@@ -26,7 +26,7 @@ $$A = \int_a^b\left[f(x) - g(x)\right]dx = \int_a^b(\text{top} - \text{bottom})\
 This works whether the curves are above or below the $x$-axis: the height top minus bottom is always positive.
 
 ```plot
-{"x": [-2, 3], "y": [-1, 5], "functions": [{"f": "x + 2", "label": "top: y = x + 2"}, {"f": "x^2", "label": "bottom: y = x²"}], "shade": [{"f": "x + 2", "g": "x^2", "from": -1, "to": 2}], "segments": [{"from": [0.8, 0.64], "to": [0.8, 2.8], "dashed": true}], "caption": "A typical vertical slice has height top − bottom"}
+{"x": [-2, 3], "y": [-1, 7], "functions": [{"f": "x + 2", "label": "top: y = x + 2"}, {"f": "x^2", "label": "bottom: y = x²"}], "shade": [{"f": "x + 2", "g": "x^2", "from": -1, "to": 2}], "segments": [{"from": [0.8, 0.64], "to": [0.8, 2.8], "dashed": true}], "caption": "A typical vertical slice has height top − bottom"}
 ```
 
 ### Example 1

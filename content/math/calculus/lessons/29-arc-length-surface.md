@@ -82,7 +82,7 @@ $$S = 2\pi\int_0^3 2\sqrt{x + 1}\,dx = 4\pi\left[\tfrac23(x + 1)^{3/2}\right]_0^
 
 Find the length of $y = \ln(\cos x)$ for $0 \le x \le \frac\pi4$.
 
-$y' = \dfrac{-\sin x}{\cos x} = -\tan x$, so $1 + (y')^2 = 1 + \tan^2x = \sec^2x$, and on this interval $\sqrt{\sec^2x} = \sec x$:
+$y' = \dfrac{-\sin x}{\cos x} = -\tan x$, so $1 + (y')^2 = 1 + \tan^2x = \sec^2x$, and on this interval $\sqrt{\sec^2x} = \sec x$. The integral of $\sec x$ is $\ln|\sec x + \tan x| + C$ (check it by differentiating; Lesson 32 shows where it comes from):
 $$L = \int_0^{\pi/4}\sec x\,dx = \Big[\ln|\sec x + \tan x|\Big]_0^{\pi/4} = \ln\left(\sqrt2 + 1\right) - \ln 1 \approx \mathbf{0.8814}.$$
 
 The identity $1 + \tan^2 = \sec^2$ did the same job as the perfect square in Example 2.

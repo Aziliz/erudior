@@ -13,6 +13,8 @@
     A: gap^3/6
     y1: r1^2
     y2: (r1 + gap)^2
+    nr1: -r1
+    nr2: -(r1 + gap)
   prompt: 'Find the area of the region between $y = x^2$ and $y = {m:coef}x {k:signed}$. (Exact fraction.)'
   answers:
     - {name: A, kind: fraction, lowestTerms: true, label: 'Area'}
@@ -23,8 +25,8 @@
     functions: ['x^2', 'm*x + k']
     shade: [{f: 'm*x + k', g: 'x^2', from: r1, to: r2}]
   solution: |-
-    Intersections: $x^2 = {m:coef}x {k:signed}$ gives $(x - ({r1}))(x - ({r2})) = 0$, so $x = {r1}$ and $x = {r2}$. Between them the line is on top. 
-    $$A = \int_{{r1}}^{{r2}}\left({m:coef}x {k:signed} - x^2\right)dx = \frac{({r2} - ({r1}))^3}{6} = \mathbf{{A:texfrac}}.$$
+    Intersections: $x^2 = {m:coef}x {k:signed}$ gives $(x {nr1:signed})(x {nr2:signed}) = 0$, so $x = {r1}$ and $x = {r2}$. Between them the line is on top. 
+    $$A = \int_{{r1}}^{{r2}}\left({m:coef}x {k:signed} - x^2\right)dx = \frac{{gap}^3}{6} = \mathbf{{A:texfrac}}.$$
     (For a line cutting a parabola $y = x^2$ at $x = p$ and $x = q$, the area is always $\frac{(q - p)^3}{6}$.)
 - id: calc-d-area-y
   title: Area with horizontal slices
@@ -60,7 +62,7 @@
     c: b^(2*n + 1)/(2*n + 1)
   prompt: 'The region under $y = {n}$ for $0 \le x \le {b}$ is rotated about the $x$-axis. Find the volume. (Exact, like 8pi/3, or 3 decimals.)'
   answers:
-    - {name: V, label: 'Volume', relTolerance: 0.0005, format: num4}
+    - {name: V, label: 'Volume', relTolerance: 0.001, format: num4}
   solution: |-
     Disks of radius $R = {n}$: $V = \pi\displaystyle\int_0^{{b}}\left({n}\right)^2dx = \pi\int_0^{{b}}x^{{p1}}\,dx = \pi\cdot\frac{{b}^{{p}}}{{p}} \approx$ **{V:num4}** (that is, ${c:num4}\pi$).
 - id: calc-d-washer
@@ -160,7 +162,7 @@
     b4: 4*b + 1
   prompt: 'Find the area of the surface formed by rotating $y = \sqrt x$, $0 \le x \le {b}$, about the $x$-axis. (3 decimals.)'
   answers:
-    - {name: S, label: 'Surface area', relTolerance: 0.0005}
+    - {name: S, label: 'Surface area', relTolerance: 0.0005, format: dp3}
   solution: |-
     $y' = \dfrac{1}{2\sqrt x}$, so $y\sqrt{1 + (y')^2} = \sqrt x\sqrt{1 + \dfrac{1}{4x}} = \sqrt{x + \tfrac14}$.
     $$S = 2\pi\int_0^{{b}}\sqrt{x + \tfrac14}\,dx = 2\pi\cdot\frac23\left[\left(x + \tfrac14\right)^{3/2}\right]_0^{{b}} = \frac{\pi}{6}\left({b4}^{3/2} - 1\right) \approx \mathbf{{S:dp3}}.$$

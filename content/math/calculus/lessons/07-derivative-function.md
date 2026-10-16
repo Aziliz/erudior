@@ -56,7 +56,7 @@ You can sketch $f'$ without a formula by reading slopes off the graph of $f$:
 | corner or vertical tangent | $f'$ undefined there |
 
 ```plot
-{"x": [-3, 3], "y": [-6, 8], "functions": [{"f": "x^3 - 3x", "label": "f(x) = x³ − 3x"}, {"f": "3x^2 - 3", "dashed": true, "label": "f′(x) = 3x² − 3"}], "points": [{"at": [-1, 2]}, {"at": [1, -2]}, {"at": [-1, 0]}, {"at": [1, 0]}], "caption": "f′ is zero exactly where f has horizontal tangents (x = ±1)"}
+{"x": [-3, 3], "y": [-6, 8], "functions": [{"f": "x^3 - 3x"}, {"f": "3x^2 - 3", "dashed": true}], "points": [{"at": [-1, 2]}, {"at": [1, -2]}, {"at": [-1, 0]}, {"at": [1, 0]}], "caption": "Solid: f(x) = x³ − 3x. Dashed: f′(x) = 3x² − 3, which is zero exactly where f has horizontal tangents (x = ±1)"}
 ```
 
 Notice the pattern: $f$ peaks at $x = -1$, and $f'$ crosses from positive to negative there. That observation becomes the first derivative test in Lesson 18.
@@ -98,7 +98,7 @@ differentiable at $x = 2$?
 Two conditions are needed.
 
 1. **Continuity at 2:** the pieces must meet. $2^2 = 2a + b$, so $2a + b = 4$.
-2. *Matching slopes:* the left piece has slope $2x = 4$ at $x = 2$; the right piece has slope $a$. So $a = 4$.
+2. *Matching slopes:* the left piece has slope $2x$ (the definition gives $\frac{d}{dx}x^2 = 2x$, just as in Example 1), which is $4$ at $x = 2$; the right piece has slope $a$. So $a = 4$.
 
 Then $b = 4 - 2a = -4$. With $a = 4$, $b = -4$, the line $y = 4x - 4$ is exactly the tangent to $y = x^2$ at $x = 2$, so the graph joins smoothly.
 
@@ -126,7 +126,7 @@ The closest data bracketing $t = 4$ are $t = 2$ and $t = 5$: $W'(4) \approx \dfr
 ## Key points
 
 - $f'(x) = \lim_{h\to0}\frac{f(x + h) - f(x)}{h}$ is a function: the slope of $f$ at each $x$.
-- $f$ rising ⇔ $f' > 0$; horizontal tangent ⇔ $f' = 0$.
+- $f' > 0$ means $f$ is rising, $f' < 0$ falling; horizontal tangent ⇔ $f' = 0$.
 - Not differentiable at corners, cusps, vertical tangents and discontinuities.
 - Differentiable ⇒ continuous; the converse fails.
 - For a piecewise function to be differentiable at a seam: the pieces meet, and their slopes match.

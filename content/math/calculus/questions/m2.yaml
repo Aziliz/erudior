@@ -61,7 +61,7 @@
     - 'Over the first 10 minutes the volume fell by 4 liters per minute on average'
   answer: 1
   explanation: |-
-    $V'(10)$ is the instantaneous rate of change of volume at $t = 10$, in liters per minute. Negative means draining. The last choice describes an average rate, not $V'(10)$.
+    $V'(10)$ is the instantaneous rate of change of volume at $t = 10$, in liters per minute. Negative means draining. A drop of 4 liters per minute on average over the first 10 minutes would be an average rate, not $V'(10)$.
 - id: calc-q-0607
   lesson: calc-derivative-def
   topic: Definition of the derivative
@@ -123,7 +123,7 @@
     - 'Continuity and differentiability are the same condition'
   answer: 1
   explanation: |-
-    Differentiable ⇒ continuous. The converse fails: $|x|$ is continuous at 0 but has a corner there. The third choice is the converse in disguise.
+    Differentiable ⇒ continuous. The converse fails: $|x|$ is continuous at 0 but has a corner there. "Not differentiable implies not continuous" is equivalent to that false converse.
 - id: calc-q-0702
   lesson: calc-derivative-function
   module_quiz: true
@@ -138,10 +138,10 @@
   module_quiz: true
   topic: Differentiability
   stem: 'At which kind of point is a continuous function NOT differentiable?'
-  choices: ['A peak with a horizontal tangent', 'An inflection point', 'A point where the graph crosses the $x$-axis', 'A corner']
+  choices: ['A peak with a horizontal tangent', 'A point where the graph is falling', 'A point where the graph crosses the $x$-axis', 'A corner']
   answer: 3
   explanation: |-
-    At a corner the left and right slopes differ, so the derivative doesn't exist. Smooth peaks have derivative 0; inflection points and crossings can be perfectly smooth.
+    At a corner the left and right slopes differ, so the derivative doesn't exist. Smooth peaks have derivative 0; falling stretches and $x$-axis crossings can be perfectly smooth.
 - id: calc-q-0704
   lesson: calc-derivative-function
   topic: The derivative function

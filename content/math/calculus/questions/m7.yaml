@@ -116,7 +116,7 @@
     - '$2\pi\int_0^1(x - x^2)\,dx$'
   answer: 2
   explanation: |-
-    Washers: $R = \sqrt x$ (farther), $r = x$. $\pi\int(R^2 - r^2) = \pi\int_0^1(x - x^2)\,dx = \frac{\pi}{6}$. The first choice uses $(R - r)^2$, a common error.
+    Washers: $R = \sqrt x$ (farther), $r = x$. $\pi\int(R^2 - r^2) = \pi\int_0^1(x - x^2)\,dx = \frac{\pi}{6}$. Squaring the difference, $\pi\int_0^1(\sqrt x - x)^2\,dx$, is the common $(R - r)^2$ error; $x^2 - x$ is $r^2 - R^2$, backward.
 - id: calc-q-2703
   lesson: calc-volumes-disks
   topic: Volumes by slicing
@@ -296,10 +296,10 @@
   lesson: calc-arc-length-surface
   topic: Arc length
   stem: 'Find the length of $y = \tfrac23x^{3/2}$ from $x = 0$ to $x = 8$.'
-  choices: ['$\tfrac{52}{3}$', '$18$', '$\tfrac{54}{3}$', '$\tfrac{56}{3}$']
+  choices: ['$\tfrac{52}{3}$', '$18$', '$\tfrac{26}{3}$', '$\tfrac{56}{3}$']
   answer: 0
   explanation: |-
-    $\int_0^8\sqrt{1 + x}\,dx = \frac23\left[(1 + x)^{3/2}\right]_0^8 = \frac23(27 - 1) = \frac{52}{3}$.
+    $\int_0^8\sqrt{1 + x}\,dx = \frac23\left[(1 + x)^{3/2}\right]_0^8 = \frac23(27 - 1) = \frac{52}{3}$. (Forgetting to subtract the value at $x = 0$ gives 18; dropping the 2 in $\frac23$ gives $\frac{26}{3}$.)
 - id: calc-q-2903
   lesson: calc-arc-length-surface
   topic: Arc length
@@ -320,7 +320,7 @@
     - '$2\pi\int_a^b x\,f(x)\,dx$'
   answer: 2
   explanation: |-
-    Bands of radius $f(x)$ and slant width $ds = \sqrt{1 + (f')^2}\,dx$. The first choice is a volume; the second forgets $ds$.
+    Bands of radius $f(x)$ and slant width $ds = \sqrt{1 + (f')^2}\,dx$. $\pi\int f^2\,dx$ is the disk-method volume, and $2\pi\int f\,dx$ forgets the slant factor in $ds$.
 - id: calc-q-2905
   lesson: calc-arc-length-surface
   topic: Arc length

@@ -5,23 +5,24 @@
   vars:
     a: {min: 2, max: 9}
     n: {min: 2, max: 5}
-    b: {min: -9, max: 9}
+    b: {min: -8, max: 8, step: 2}
     c: {min: 1, max: 9}
-  where: ["b != 0"]
+  where: ["b != 0", "a != n + 1"]
   calc:
     n1: n + 1
     hb: b/2
+    an: a/(n + 1)
   prompt: 'Find $\displaystyle\int\left({a}x^{n} {b:signedcoef}x + \frac{{c}}{x^2}\right)dx$. (Leave off $+C$.)'
   answers:
     - kind: expression
       expression: 'a*x^(n+1)/(n+1) + b*x^2/2 - c/x'
       plusC: true
       label: '$F(x) =$'
-      show: '$\dfrac{{a}}{{n1}}x^{{n1}} {hb:signedcoef}x^2 - \dfrac{{c}}{x}$ $+ C$'
+      show: '${an:texfrac}x^{{n1}} {hb:signedcoef}x^2 - \dfrac{{c}}{x}$ $+ C$'
   solution: |-
     Rewrite $\dfrac{{c}}{x^2} = {c:coef}x^{-2}$ and raise each exponent by one, dividing by the new exponent:
-    $${a}\cdot\frac{x^{{n1}}}{{n1}} {b:signedcoef}\cdot\frac{x^2}{2} + {c:coef}\cdot\frac{x^{-1}}{-1} + C.$$
-    So **$F(x) = \dfrac{{a}}{{n1}}x^{{n1}} {hb:signedcoef}x^2 - \dfrac{{c}}{x} + C$**.
+    $${a}\cdot\frac{x^{{n1}}}{{n1}} {b:signed}\cdot\frac{x^2}{2} + {c}\cdot\frac{x^{-1}}{-1} + C.$$
+    So **$F(x) = {an:texfrac}x^{{n1}} {hb:signedcoef}x^2 - \dfrac{{c}}{x} + C$**.
 - id: calc-d-ivp
   title: Initial value problem
   topic: Antiderivatives
@@ -36,7 +37,7 @@
     a3: 3*a
     b2: 2*b
     K: q - (a*p^3 + b*p^2 + c*p)
-    base: a*p^3 + b*p^2 + c*p
+    base: a*p^3 + b*p^2 + c*p + 0
   prompt: 'Solve the initial value problem $f''(x) = {a3}x^2 {b2:signedcoef}x {c:signed}$, $f({p}) = {q}$.'
   answers:
     - kind: expression
@@ -69,7 +70,7 @@
     h3: f(lo + (2 + w)*dx)
     h4: f(lo + (3 + w)*dx)
     ex: integ(f, lo, lo + 4*dx)
-  prompt: 'Approximate $\displaystyle\int_{{lo}}^{{hi}}\left({a:coef}x^2 + {c}\right)dx$ with a {w} Riemann sum using $n = 4$ subintervals.'
+  prompt: 'Approximate $\displaystyle\int_{{lo}}^{{hi}}\left({a:coef}x^2 + {c}\right)dx$ with a {w} Riemann sum using $n = 4$ subintervals. (Round to 4 decimals if needed.)'
   answers:
     - {name: S, label: 'Sum $=$', tolerance: 0.001, format: num4}
   figure:
@@ -101,13 +102,13 @@
     - {name: S, label: 'Sum $=$'}
   solution: |-
     Split and use $\sum_{i=1}^n i^2 = \dfrac{n(n + 1)(2n + 1)}{6}$ and $\sum_{i=1}^n 1 = n$:
-    $${a}\cdot\frac{{n}\cdot({n} + 1)(2\cdot{n} + 1)}{6} + ({b})({n}) = {a}({s2:dp0}) + ({bn}) = \mathbf{{S:dp0}}.$$
+    $${a}\cdot\frac{{n}\cdot({n} + 1)(2\cdot{n} + 1)}{6} {b:signed}\cdot{n} = {a}\cdot{s2:dp0} {bn:signed} = \mathbf{{S:dp0}}.$$
 - id: calc-d-geometric-area
   title: Definite integral by geometry
   topic: Definite integral
   vars:
     r: {min: 1, max: 6}
-    k: {min: 0, max: 5}
+    k: {min: 1, max: 5}
   calc:
     A: 2*r*k + pi*r^2/2
     rect: 2*r*k
@@ -115,9 +116,9 @@
     d: 2*r
   funcs:
     f(x): k + sqrt(r^2 - x^2)
-  prompt: 'Use geometry to evaluate $\displaystyle\int_{-{r}}^{{r}}\left({k} + \sqrt{{r2} - x^2}\right)dx$. (Exact answers like 9pi/2 + 12 are fine.)'
+  prompt: 'Use geometry to evaluate $\displaystyle\int_{-{r}}^{{r}}\left({k} + \sqrt{{r2} - x^2}\right)dx$. (Exact, like 9pi/2 + 12, or 4 decimals.)'
   answers:
-    - {name: A, label: 'Value', relTolerance: 0.0005}
+    - {name: A, label: 'Value', relTolerance: 0.0005, format: num4}
   figure:
     type: plot
     x: ['-r - 1', 'r + 1']
@@ -148,12 +149,12 @@
   answers:
     - {name: I, kind: fraction, lowestTerms: true, label: 'Value'}
   solution: |-
-    An antiderivative is $F(x) = {a3:texfrac}x^3 + \left({b2:texfrac}\right)x^2 + ({c})x$. By FTC 2, $F({q}) - F({p}) = {Fq:frac} - ({Fp:frac}) =$ **{I:frac}**.
+    An antiderivative is $F(x) = {a:coef}\dfrac{x^3}{3} {b:signedcoef}\dfrac{x^2}{2} {c:signedcoef}x$. By FTC 2, $F({q}) - F({p}) = {Fq:frac} - ({Fp:frac}) =$ **{I:frac}**.
 - id: calc-d-ftc1
   title: Derivative of an integral with a variable limit
   topic: Fundamental Theorem of Calculus
   vars:
-    n: {min: 2, max: 4}
+    n: {min: 3, max: 5}
     k: {min: 1, max: 9}
     a: {min: 0, max: 3}
   calc:
@@ -174,6 +175,7 @@
     a: {min: 2, max: 9}
     b: {min: 1, max: 9}
     n: {min: 2, max: 6}
+  where: ["a != 2*(n + 1)"]
   calc:
     n1: n + 1
     den: 2*(n + 1)
@@ -184,11 +186,11 @@
       expression: 'a*(x^2 + b)^(n+1)/(2*(n+1))'
       plusC: true
       label: '$F(x) =$'
-      show: '$\dfrac{{a}}{{den}}(x^2 + {b})^{{n1}}$ $+ C$'
+      show: '${co:texfrac}(x^2 + {b})^{{n1}}$ $+ C$'
   solution: |-
     Let $u = x^2 + {b}$, so $du = 2x\,dx$ and $x\,dx = \tfrac12du$. Then
     $$\int{a}x(x^2 + {b})^{n}dx = \frac{{a}}{2}\int u^{n}du = \frac{{a}}{2}\cdot\frac{u^{{n1}}}{{n1}} + C.$$
-    So **$F(x) = \dfrac{{a}}{{den}}(x^2 + {b})^{{n1}} + C$**.
+    So **$F(x) = {co:texfrac}(x^2 + {b})^{{n1}} + C$**.
 - id: calc-d-usub-def
   title: Substitution in a definite integral
   topic: U-substitution
@@ -200,7 +202,7 @@
     I: ln((p^2 + k)/k)
   prompt: 'Evaluate $\displaystyle\int_0^{{p}}\frac{2x}{x^2 + {k}}\,dx$. (Exact, like ln(5), or 4 decimals.)'
   answers:
-    - {name: I, label: 'Value', relTolerance: 0.0001}
+    - {name: I, label: 'Value', tolerance: 0.0001, format: num4}
   solution: |-
     Let $u = x^2 + {k}$, $du = 2x\,dx$. Change the limits: $x = 0 \Rightarrow u = {k}$; $x = {p} \Rightarrow u = {up}$.
     $$\int_{{k}}^{{up}}\frac{du}{u} = \ln {up} - \ln {k} = \ln\frac{{up}}{{k}} \approx \mathbf{{I:num4}}.$$
@@ -217,7 +219,7 @@
     c: 3*r1*(r1 + gap)
     b2: -3*(2*r1 + gap)
     aT: 6*T - 3*(2*r1 + gap)
-    vT: 3*(T - r1)*(T - r1 - gap)
+    vT: 3*(T - r1)*(T - r1 - gap) + 0
   prompt: 'A particle moves with position $s(t) = t^3 {b:signedcoef}t^2 {c:signedcoef}t$ for $t \ge 0$. At what two times does it change direction? What is its acceleration at $t = {T}$?'
   answers:
     - {name: r1, label: 'First turn $t =$'}

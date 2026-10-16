@@ -7,7 +7,7 @@
   choices: ['$x^4 - 3x^2 + 2x + C$', '$12x^2 - 6 + C$', '$x^4 - 6x^2 + 2x + C$', '$4x^4 - 3x^2 + 2x + C$']
   answer: 0
   explanation: |-
-    Power rule backward: $4\cdot\frac{x^4}{4} - 6\cdot\frac{x^2}{2} + 2x + C$. (The second choice is the derivative.)
+    Power rule backward: $4\cdot\frac{x^4}{4} - 6\cdot\frac{x^2}{2} + 2x + C$. ($12x^2 - 6$ is the derivative, not an antiderivative.)
 - id: calc-q-2102
   lesson: calc-antiderivatives
   topic: Antiderivatives
@@ -429,7 +429,7 @@
   choices: ['$\dfrac{f(b) - f(a)}{b - a}$', '$\dfrac{f(a) + f(b)}{2}$', '$\int_a^b f(x)\,dx$', '$\dfrac{1}{b - a}\int_a^b f(x)\,dx$']
   answer: 3
   explanation: |-
-    Integral divided by the length of the interval. The first choice is the average rate of change; the second is the average of the endpoint values.
+    Integral divided by the length of the interval. $\frac{f(b) - f(a)}{b - a}$ is the average rate of change, and $\frac{f(a) + f(b)}{2}$ is just the average of the two endpoint values.
 - id: calc-q-2506
   lesson: calc-motion-average
   topic: Motion along a line

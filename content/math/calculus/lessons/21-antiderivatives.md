@@ -28,7 +28,7 @@ $$\int f(x)\,dx = F(x) + C.$$
 Here $f(x)$ is the integrand, $dx$ says $x$ is the variable, and $C$ is the **constant of integration**. Geometrically, the antiderivatives of $f$ are vertical shifts of one another: they all have the same slope at each $x$.
 
 ```plot
-{"x": [-2.5, 2.5], "y": [-5, 7], "functions": [{"f": "x^3 - 2", "label": "C = −2"}, {"f": "x^3", "label": "C = 0"}, {"f": "x^3 + 2", "label": "C = 2"}, {"f": "x^3 + 4", "label": "C = 4"}], "caption": "Antiderivatives of 3x² differ by vertical shifts"}
+{"x": [-2.5, 2.5], "y": [-5, 7], "functions": [{"f": "x^3 - 2"}, {"f": "x^3"}, {"f": "x^3 + 2"}, {"f": "x^3 + 4"}], "labels": [{"at": [1.75, -2], "text": "C = −2"}, {"at": [-1.1, 1.3], "text": "C = 2"}, {"at": [-1.1, 3.3], "text": "C = 4"}, {"at": [-0.8, 0.6], "text": "C = 0"}], "caption": "Antiderivatives of 3x²: y = x³ + C for C = −2, 0, 2, 4, all vertical shifts of one curve"}
 ```
 
 ## Basic antiderivative formulas

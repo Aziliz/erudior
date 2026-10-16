@@ -81,7 +81,7 @@ Use Euler's method with step size $h = 0.5$ to approximate $y(2)$ for $\frac{dy}
 So $y(2) \approx \mathbf{7.125}$. The exact solution is $y = 2e^x - x - 1$, giving $y(2) = 2e^2 - 3 \approx 11.78$. Euler's method underestimated badly here because the solution is concave up and grows fast: each tangent-line step falls below the curve. Halving $h$ roughly halves the error (Euler's method is "first order"), so accuracy costs many steps.
 
 ```plot
-{"x": [-0.2, 2.2], "y": [0, 13], "functions": [{"f": "2e^x - x - 1", "label": "exact"}], "segments": [{"from": [0, 1], "to": [0.5, 1.5]}, {"from": [0.5, 1.5], "to": [1, 2.5]}, {"from": [1, 2.5], "to": [1.5, 4.25]}, {"from": [1.5, 4.25], "to": [2, 7.125]}], "points": [{"at": [2, 7.125], "label": "Euler ≈ 7.125"}, {"at": [2, 11.78], "label": "exact ≈ 11.78"}], "caption": "Euler steps (segments) lag behind a concave-up solution"}
+{"x": [-0.2, 2.9], "y": [0, 13], "functions": [{"f": "2e^x - x - 1", "label": "exact"}], "segments": [{"from": [0, 1], "to": [0.5, 1.5]}, {"from": [0.5, 1.5], "to": [1, 2.5]}, {"from": [1, 2.5], "to": [1.5, 4.25]}, {"from": [1.5, 4.25], "to": [2, 7.125]}], "points": [{"at": [2, 7.125], "label": "Euler ≈ 7.125"}, {"at": [2, 11.78], "label": "exact ≈ 11.78"}], "caption": "Euler steps (segments) lag behind a concave-up solution"}
 ```
 
 *Over or under?* If solution curves are concave up, Euler's method underestimates; if concave down, it overestimates. You can find concavity from the equation itself: differentiate $F(x, y)$ implicitly to get $\frac{d^2y}{dx^2}$.
