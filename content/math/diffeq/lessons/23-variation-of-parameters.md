@@ -71,7 +71,7 @@ General solution: $y = c_1\cos t + c_2\sin t + \cos t\ln(\cos t) + t\sin t$.
 
 Find a particular solution of $y'' - 2y' + y = \dfrac{e^t}{t}$, $t > 0$.
 
-- Double root 1: $y_1 = e^t$, $y_2 = te^t$, $W = e^{2t}$ (Lesson 18).
+- Double root 1: $y_1 = e^t$, $y_2 = te^t$, $W = e^{2t}$ (Lesson 19).
 - $u_1' = -\dfrac{te^t \cdot e^t/t}{e^{2t}} = -1$, so $u_1 = -t$.
 - $u_2' = \dfrac{e^t \cdot e^t/t}{e^{2t}} = \dfrac1t$, so $u_2 = \ln t$.
 - $Y = -te^t + te^t\ln t$. The $-te^t$ part is a multiple of $y_2$, so we may drop it:

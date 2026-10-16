@@ -174,6 +174,14 @@
   answer: 0
   explanation: |-
     Standard form: $p(t) = \dfrac{1}{t^2(t - 5)}$, discontinuous at $t = 0$ and $t = 5$. The piece containing $-1$ is $(-\infty, 0)$.
+- id: de-q-0210
+  lesson: de-existence
+  topic: Existence and uniqueness
+  stem: 'Two different solution curves of $y'' = f(x, y)$, where $f$ and $\partial f/\partial y$ are continuous, cannot'
+  choices: ['cross each other', 'both approach the same horizontal line', 'both have horizontal tangents at the same $x$', 'have the same shape']
+  answer: 0
+  explanation: |-
+    At a crossing point both would satisfy the same initial condition, and with $f$ and $\partial f/\partial y$ continuous the IVP has only one solution. Approaching a common line, as logistic solutions do, is allowed.
 # Lesson 8
 - id: de-q-0801
   lesson: de-linear-first
@@ -275,7 +283,7 @@
   choices: ['$(2xy + 3)\,dx + (x^2 - 4y)\,dy = 0$', '$(x + y)\,dx + (2x - y)\,dy = 0$', '$y\,dx - x\,dy = 0$', '$(x^2 + y)\,dx + x^2\,dy = 0$']
   answer: 0
   explanation: |-
-    For the first, $M_y = 2x$ and $N_x = 2x$. The others: $1$ vs $2$; $1$ vs $-1$; $1$ vs $2x$.
+    For $(2xy + 3)\,dx + (x^2 - 4y)\,dy$, $M_y = 2x$ and $N_x = 2x$. The others fail the test: $(x + y)\,dx + (2x - y)\,dy$ has $1$ vs $2$; $y\,dx - x\,dy$ has $1$ vs $-1$; $(x^2 + y)\,dx + x^2\,dy$ has $1$ vs $2x$.
 - id: de-q-0902
   lesson: de-exact
   module_quiz: true

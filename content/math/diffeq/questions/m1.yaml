@@ -166,14 +166,6 @@
   answer: 0
   explanation: |-
     Between 0 and 2 the slope $y(2 - y)$ is positive, so the curve rises, and the slopes flatten as $y$ nears 2. A solution can't cross the equilibrium $y = 2$.
-- id: de-q-0210
-  lesson: de-slope-fields
-  topic: Slope fields
-  stem: 'Two different solution curves of $y'' = f(x, y)$, where $f$ and $\partial f/\partial y$ are continuous, cannot'
-  choices: ['cross each other', 'both approach the same horizontal line', 'both have horizontal tangents at the same $x$', 'have the same shape']
-  answer: 0
-  explanation: |-
-    At a crossing point both would satisfy the same initial condition, and with $f$ and $\partial f/\partial y$ continuous the IVP has only one solution (Lesson 7 makes this precise). Approaching a common line, as logistic solutions do, is allowed.
 - id: de-q-0211
   lesson: de-slope-fields
   topic: Slope fields
@@ -187,7 +179,7 @@
   lesson: de-separable
   module_quiz: true
   topic: Separable equations
-  stem: 'Which equation is **not** separable?'
+  stem: 'Which equation is not separable?'
   choices: ['$y'' = xy$', '$y'' = x + y$', '$y'' = e^{x+y}$', '$y'' = \dfrac{x^2}{y + 1}$']
   answer: 1
   explanation: |-
@@ -278,10 +270,10 @@
   lesson: de-separable
   topic: Separable equations
   stem: 'Solve $\dfrac{dy}{dx} = \dfrac{1 + y^2}{1 + x^2}$, $y(0) = 1$.'
-  choices: ['$y = x + 1$', '$y = \tan(\arctan x) + 1$', '$y = \tan\!\left(\arctan x + \tfrac{\pi}{4}\right)$', '$y = \arctan x + 1$']
+  choices: ['$y = x + 1$', '$y = \tan(\arctan x + 1)$', '$y = \tan\!\left(\arctan x + \tfrac{\pi}{4}\right)$', '$y = \arctan x + 1$']
   answer: 2
   explanation: |-
-    $\dfrac{dy}{1 + y^2} = \dfrac{dx}{1 + x^2}$ gives $\arctan y = \arctan x + C$. At $x = 0$: $\arctan 1 = \pi/4 = C$. Then $y = \tan(\arctan x + \pi/4) = \dfrac{1 + x}{1 - x}$, which is not $x + 1$.
+    $\dfrac{dy}{1 + y^2} = \dfrac{dx}{1 + x^2}$ gives $\arctan y = \arctan x + C$. At $x = 0$: $\arctan 1 = \pi/4 = C$. Then $y = \tan(\arctan x + \pi/4) = \dfrac{1 + x}{1 - x}$, which is not $x + 1$. Using $C = 1$ (the value of $y$, not $\arctan 1$) gives $\tan(\arctan x + 1)$.
 # Lesson 4: growth
 - id: de-q-0401
   lesson: de-growth-logistic
@@ -401,7 +393,7 @@
   choices: ['3.75', '4', '4.5', '4.25']
   answer: 3
   explanation: |-
-    Step 1: slope $2 - 0 = 2$, so $y_1 = 3$ at $x = 0.5$. Step 2: slope $3 - 0.5 = 2.5$, so $y_2 = 3 + 0.5(2.5) = 4.25$. Using the slope at $x = 0$ for both steps gives 4.
+    Step 1: slope $2 - 0 = 2$, so $y_1 = 3$ at $x = 0.5$. Step 2: slope $3 - 0.5 = 2.5$, so $y_2 = 3 + 0.5(2.5) = 4.25$. Reusing the first slope 2 for both steps gives 4; forgetting to advance $x$ (slope $3 - 0 = 3$ in step 2) gives 4.5.
 - id: de-q-0503
   lesson: de-euler
   topic: Euler's method

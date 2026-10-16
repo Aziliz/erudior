@@ -45,11 +45,11 @@
   lesson: de-autonomous
   module_quiz: true
   topic: Autonomous equations
-  stem: 'For $y'' = y(4 - y)$, solutions starting between 0 and 4 have an inflection point where'
+  stem: 'For $y'' = y(4 - y)$, solutions starting between 0 and 2 have an inflection point where'
   choices: ['$y = 0$', '$y = 2$', '$y = 4$', '$t = 2$']
   answer: 1
   explanation: |-
-    $y'' = f'(y)f(y)$, and $f'(y) = 4 - 2y = 0$ at $y = 2$. The S-curve changes concavity halfway to the carrying capacity.
+    $y'' = f'(y)f(y)$, and $f'(y) = 4 - 2y = 0$ at $y = 2$. The S-curve changes concavity halfway to the carrying capacity. (A solution starting between 2 and 4 never reaches $y = 2$, so it has no inflection point.)
 - id: de-q-1407
   lesson: de-autonomous
   topic: Autonomous equations

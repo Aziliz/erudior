@@ -124,7 +124,7 @@
   choices: ['$-\tfrac12$ and $-2$', '$-1$ and $-4$', '$\tfrac12$ and $2$', '$-\tfrac52$ and $-1$']
   answer: 0
   explanation: |-
-    $2r^2 + 5r + 2 = (2r + 1)(r + 2)$. Ignoring the leading 2 leads to $-1$ and $-4$.
+    $2r^2 + 5r + 2 = (2r + 1)(r + 2)$. Factoring $r^2 + 5r + 4$ (the ac-method product $2 \cdot 2 = 4$) without dividing the roots by the leading 2 gives $-1$ and $-4$.
 - id: de-q-1905
   lesson: de-char-real
   topic: Characteristic equation

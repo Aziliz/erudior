@@ -16,7 +16,7 @@
     - {name: a3, label: '$a_3 =$', kind: fraction, lowestTerms: true}
     - {name: a4, label: '$a_4 =$', kind: fraction, lowestTerms: true}
   solution: |-
-    Substituting and shifting gives $2a_2 = 0$ and, for $n \ge 1$, $(n+2)(n+1)a_{n+2} = {k}a_{n-1}$. So $a_3 = \dfrac{{k}a_0}{6} =$ **{a3:frac}** and $a_4 = \dfrac{{k}a_1}{12} =$ **{a4:frac}**.
+    Substituting and shifting gives $2a_2 = 0$ and, for $n \ge 1$, $(n+2)(n+1)a_{n+2} = {k:coef}a_{n-1}$. So $a_3 = \dfrac{{k:coef}a_0}{6} =$ **{a3:frac}** and $a_4 = \dfrac{{k:coef}a_1}{12} =$ **{a4:frac}**.
 - id: de-series-coef
   title: Coefficients from a recurrence
   topic: Series solutions
@@ -36,7 +36,7 @@
     - {name: a3, label: '$a_3 =$', kind: fraction, lowestTerms: true}
     - {name: a4, label: '$a_4 =$', kind: fraction, lowestTerms: true}
   solution: |-
-    The coefficient of $x^n$ gives $(n+2)(n+1)a_{n+2} + ({p:coef}n + {q})a_n = 0$, so $a_{n+2} = -\dfrac{({p:coef}n + {q})a_n}{(n+2)(n+1)}$. With $a_0 = {a0}$, $a_1 = {a1}$: $a_2 = -\dfrac{{q}a_0}{2} =$ **{a2:frac}**, $a_3 = -\dfrac{({p} + {q})a_1}{6} =$ **{a3:frac}**, $a_4 = -\dfrac{(2\cdot{p} + {q})a_2}{12} =$ **{a4:frac}**.
+    The coefficient of $x^n$ gives $(n+2)(n+1)a_{n+2} + ({p:coef}n + {q})a_n = 0$, so $a_{n+2} = -\dfrac{({p:coef}n + {q})a_n}{(n+2)(n+1)}$. With $a_0 = {a0}$, $a_1 = {a1}$: $a_2 = -\dfrac{{q:coef}a_0}{2} =$ **{a2:frac}**, $a_3 = -\dfrac{({p} + {q})a_1}{6} =$ **{a3:frac}**, $a_4 = -\dfrac{(2\cdot{p} + {q})a_2}{12} =$ **{a4:frac}**.
 - id: de-fourier-coef
   title: Fourier sine coefficient of a linear function
   topic: Fourier series

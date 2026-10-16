@@ -22,8 +22,8 @@ We study autonomous systems
 
 $$x' = F(x, y), \qquad y' = G(x, y).$$
 
-An **equilibrium** (critical point) is a point where $F = 0$ and $G = 0$ simultaneously. Unlike
-linear systems, there can be several. Find them by solving the two equations together;
+An **equilibrium** (critical point) is a point where $F = 0$ and $G = 0$ simultaneously. Unlike a
+linear system with $\det A \ne 0$, there can be several isolated ones. Find them by solving the two equations together;
 factoring usually helps.
 
 ## Linearization
@@ -39,7 +39,8 @@ the **linearization**.
 **Theorem (linearization).** If the eigenvalues of $J$ are not purely imaginary and not
 zero, the nonlinear system near the equilibrium has the same type and stability as the
 linearization: saddles stay saddles, nodes stay nodes, spirals stay spirals, and sinks stay
-sinks.
+sinks. (One fine point: if $J$ has a repeated real eigenvalue, the nonlinear terms can turn the
+node into a spiral, though stability is unchanged.)
 
 The borderline cases are the exception. If $J$ has a center (purely imaginary eigenvalues),
 the nonlinear terms decide: the true picture may be a center, a slow spiral sink, or a slow

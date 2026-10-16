@@ -14,6 +14,8 @@
     c: r1*r2
     sb: s*b
     sc: s*c
+    nr1: -r1
+    nr2: -r2
   where: ['r2 <= 5', 'r1 + r2 != 0', 'r1*r2 != 0']
   prompt: 'Find the asymptotically stable and the unstable equilibrium of $\dfrac{dy}{dt} = {s:coef}y^2 {sb:signedcoef}y {sc:signed}$.'
   answers:
@@ -26,13 +28,13 @@
     xLabel: t
     slopeField: {f: 's*(y - r1)*(y - r2)', step: 0.5}
   solution: |-
-    Factor: $f(y) = {s:coef}(y - ({r1}))(y - ({r2}))$, so the equilibria are $y = {r1}$ and $y = {r2}$. The derivative $f'(y) = {s:coef}(2y - ({r1}) - ({r2}))$ is negative at the stable one: stable **{stab}**, unstable **{unst}**.
+    Factor: $f(y) = {s:coef}(y {nr1:signed})(y {nr2:signed})$, so the equilibria are $y = {r1}$ and $y = {r2}$. The derivative $f'(y) = {s:coef}(2y {b:signed})$ is negative at the stable one: stable **{stab}**, unstable **{unst}**.
 - id: de-phase-limit
   title: Long-run limit from a phase line
   topic: Autonomous equations
   vars:
     p: {min: -4, max: -1}
-    q: {min: 0, max: 2}
+    q: {min: 1, max: 2}
     r: {min: 3, max: 5}
     s: {choices: [-1, 1]}
     y0: {min: -3.5, max: 4.5, step: 0.5}
@@ -120,7 +122,7 @@
     - {name: est, label: 'Euler estimate', tolerance: 0.0005, format: num4}
     - {name: err, label: 'Error', tolerance: 0.0005, format: num4}
   solution: |-
-    Each step multiplies by $1 + kh = {g:num4}$, and there are ${n}$ steps, so $y_{n} = {g:num4}^{{n}} \approx$ **{est:num4}**. The exact value is $e^{{k}} \approx {ex:num4}$, so the error is **{err:num4}**.
+    Each step multiplies by $1 + kh = {g:num4}$, and there are ${n}$ steps, so $y_{{n}} = {g:num4}^{{n}} \approx$ **{est:num4}**. The exact value is $e^{{k}} \approx {ex:num4}$, so the error is **{err:num4}**.
 - id: de-rk4-1step
   title: One step of RK4
   topic: Numerical methods

@@ -190,7 +190,6 @@
   definition: 'A vertical line showing the equilibria of $y'' = f(y)$ with arrows up where $f > 0$ and down where $f < 0$.'
   topic: Autonomous equations
 - term: asymptotically stable
-  aliases: [stable]
   definition: 'Describes an equilibrium that nearby solutions approach as $t \to \infty$.'
   topic: Autonomous equations
 - term: sink

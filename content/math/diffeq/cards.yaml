@@ -45,7 +45,7 @@
 # Linear first order
 - {front: 'Integrating factor for $y'' + p(t)y = g(t)$', back: '$\mu = e^{\int p\,dt}$; then $(\mu y)'' = \mu g$.', topic: Linear first-order}
 - {front: 'Solution formula for $y'' + p(t)y = g(t)$', back: '$y = \dfrac{1}{\mu}\left(\displaystyle\int \mu g\,dt + C\right)$, $\mu = e^{\int p\,dt}$.', topic: Linear first-order}
-- {front: 'Solution of $y'' + ay = b$ ($a \ne 0$)', back: '$y = \dfrac ba + \left(y_0 - \dfrac ba\right)e^{-at}$', topic: Linear first-order}
+- {front: 'Solution of $y'' + ay = b$, $y(0) = y_0$ ($a \ne 0$)', back: '$y = \dfrac ba + \left(y_0 - \dfrac ba\right)e^{-at}$', topic: Linear first-order}
 - {front: 'First step before finding $\mu$', back: 'Divide by the coefficient of $y''$ to reach standard form, and read $p$ with its sign.', topic: Linear first-order}
 - {front: '$e^{k\ln t}$ simplifies to', back: '$t^k$ (for $t > 0$)', topic: Linear first-order}
 # Exact

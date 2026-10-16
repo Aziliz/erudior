@@ -3,21 +3,21 @@
   title: Wronskian of two power functions
   topic: Second-order theory
   vars:
-    m: {choices: [-2, -1, 2, 3]}
-    n: {choices: [-3, -2, 2, 3, 4]}
+    m: {choices: [-2, -1, 3]}
+    n: {choices: [-3, -2, 3, 4]}
     t0: {min: 1, max: 3}
-  where: ['m != n']
+  where: ['m != n', 'm + n - 1 != 0', 'm + n - 1 != 1']
   calc:
     W: (n - m)*t0^(m + n - 1)
     e1: m - 1
     e2: n - 1
     ex: m + n - 1
     nm: n - m
-  prompt: 'Compute the Wronskian $W(y_1, y_2) = y_1y_2'' - y_1''y_2$ of $y_1 = t^{{m}}$ and $y_2 = t^{{n}}$ at $t = {t0}$.'
+  prompt: 'Compute the Wronskian $W(y_1, y_2) = y_1y_2'' - y_1''y_2$ of $y_1 = t^{{m}}$ and $y_2 = t^{{n}}$ at $t = {t0}$. Give an exact value (a fraction if needed).'
   answers:
-    - {name: W, label: '$W({t0}) =$', relTolerance: 0.0001}
+    - {name: W, label: '$W({t0}) =$', kind: fraction}
   solution: |-
-    $y_1' = {m:coef}t^{{e1}}$ and $y_2' = {n:coef}t^{{e2}}$, so $W = t^{{m}}\cdot {n:coef}t^{{e2}} - \left({m:coef}t^{{e1}}\right)t^{{n}} = {nm:coef}\,t^{{ex}}$. At $t = {t0}$: **{W:num4}**.
+    $y_1' = {m:coef}t^{{e1}}$ and $y_2' = {n:coef}t^{{e2}}$, so $W = t^{{m}}\left({n:coef}t^{{e2}}\right) - \left({m:coef}t^{{e1}}\right)t^{{n}} = {nm:coef}t^{{ex}}$. At $t = {t0}$: **{W:frac}**.
 - id: de-ivp-combo
   title: Fit constants to initial conditions
   topic: Second-order theory
@@ -30,12 +30,14 @@
   calc:
     c2: (B - r1*A)/(r2 - r1)
     c1: A - c2
+    d21: r2 - r1
+    rhs: B - r1*A
   prompt: 'The functions $e^{{r1:coef}t}$ and $e^{{r2:coef}t}$ form a fundamental set for a second-order equation. Find $c_1$ and $c_2$ so that $y = c_1e^{{r1:coef}t} + c_2e^{{r2:coef}t}$ satisfies $y(0) = {A}$ and $y''(0) = {B}$. Exact fractions.'
   answers:
     - {name: c1, label: '$c_1 =$', kind: fraction, lowestTerms: true}
     - {name: c2, label: '$c_2 =$', kind: fraction, lowestTerms: true}
   solution: |-
-    $y(0) = c_1 + c_2 = {A}$ and $y'(0) = ({r1})c_1 + ({r2})c_2 = {B}$. Subtract ${r1}$ times the first from the second: $({r2} - ({r1}))c_2 = {B} - ({r1})({A})$, so $c_2 =$ **{c2:frac}**, and $c_1 = {A} - c_2 =$ **{c1:frac}**.
+    $y(0) = c_1 + c_2 = {A}$ and $y'(0) = {r1:coef}c_1 {r2:signedcoef}c_2 = {B}$. Subtract ${r1}$ times the first from the second: ${d21}c_2 = {B} - ({r1})({A}) = {rhs}$, so $c_2 =$ **{c2:frac}**, and $c_1 = {A} - c_2 =$ **{c1:frac}**.
 - id: de-char-distinct
   title: Solve an IVP with distinct real roots
   topic: Characteristic equation
@@ -50,11 +52,13 @@
     c: r1*r2
     y0: c1 + c2
     v0: r1*c1 + r2*c2
+    nr1: -r1
+    nr2: -r2
   prompt: 'Solve $y'''' {b:signedcoef}y'' {c:signedcoef}y = 0$ with $y(0) = {y0}$ and $y''(0) = {v0}$.'
   answers:
     - {kind: expression, expression: 'c1*exp(r1*t) + c2*exp(r2*t)', variables: [t], label: '$y =$', show: '$y = {c1:coef}e^{{r1:coef}t} {c2:signedcoef}e^{{r2:coef}t}$'}
   solution: |-
-    Characteristic equation $r^2 {b:signedcoef}r {c:signed} = (r - ({r1}))(r - ({r2})) = 0$, so $y = c_1e^{{r1:coef}t} + c_2e^{{r2:coef}t}$. The conditions give $c_1 + c_2 = {y0}$ and $({r1})c_1 + ({r2})c_2 = {v0}$, so $c_1 = {c1}$, $c_2 = {c2}$. Answer: **$y = {c1:coef}e^{{r1:coef}t} {c2:signedcoef}e^{{r2:coef}t}$**.
+    Characteristic equation $r^2 {b:signedcoef}r {c:signed} = (r {nr1:signed})(r {nr2:signed}) = 0$, so $y = c_1e^{{r1:coef}t} + c_2e^{{r2:coef}t}$. The conditions give $c_1 + c_2 = {y0}$ and ${r1:coef}c_1 {r2:signedcoef}c_2 = {v0}$, so $c_1 = {c1}$, $c_2 = {c2}$. Answer: **$y = {c1:coef}e^{{r1:coef}t} {c2:signedcoef}e^{{r2:coef}t}$**.
 - id: de-char-repeated
   title: Solve an IVP with a repeated root
   topic: Characteristic equation
@@ -67,11 +71,12 @@
     b: -2*r
     c: r^2
     v0: c2 + r*c1
-  prompt: 'Solve $y'''' {b:signedcoef}y'' {c:signedcoef}y = 0$ with $y(0) = {c1}$ and $y''(0) = {v0}$.'
+    nr: -r
+  prompt: 'Solve $y'''' {b:signedcoef}y'' {c:signedcoef}y = 0$ with $y(0) = {c1}$ and $y''(0) = {v0}$. Type products with a star, e.g. t*e^(t).'
   answers:
     - {kind: expression, expression: '(c1 + c2*t)*exp(r*t)', variables: [t], label: '$y =$', show: '$y = ({c1} {c2:signedcoef}t)e^{{r:coef}t}$'}
   solution: |-
-    $r^2 {b:signedcoef}r {c:signed} = (r - ({r}))^2$, a double root, so $y = (c_1 + c_2t)e^{{r:coef}t}$ and $y' = \big(c_2 + ({r})c_1 + ({r})c_2t\big)e^{{r:coef}t}$. Then $c_1 = {c1}$ and $c_2 + ({r})({c1}) = {v0}$ gives $c_2 = {c2}$. Answer: **$y = ({c1} {c2:signedcoef}t)e^{{r:coef}t}$**.
+    $r^2 {b:signedcoef}r {c:signed} = (r {nr:signed})^2$, a double root $r = {r}$, so $y = (c_1 + c_2t)e^{{r:coef}t}$ and $y' = \big(c_2 {r:signedcoef}c_1 {r:signedcoef}c_2t\big)e^{{r:coef}t}$. Then $c_1 = {c1}$ and $c_2 + ({r})({c1}) = {v0}$ gives $c_2 = {c2}$. Answer: **$y = ({c1} {c2:signedcoef}t)e^{{r:coef}t}$**.
 - id: de-char-roots
   title: Complex characteristic roots
   topic: Characteristic equation
@@ -115,7 +120,7 @@
     m2: {min: -3, max: 4}
     c1: {min: -3, max: 3}
     c2: {min: -3, max: 3}
-  where: ['m1 < m2', 'c1 != 0', 'c2 != 0', 'm1 + m2 != 1', 'm1*m2 != 0']
+  where: ['m1 < m2', 'c1 != 0', 'c2 != 0', 'm1 + m2 != 1', 'm1*m2 != 0', 'm1 != 1', 'm2 != 1']
   calc:
     b: 1 - m1 - m2
     c: m1*m2
@@ -125,4 +130,4 @@
   answers:
     - {kind: expression, expression: 'c1*t^m1 + c2*t^m2', variables: [t], label: '$y =$', show: '$y = {c1:coef}t^{{m1}} {c2:signedcoef}t^{{m2}}$'}
   solution: |-
-    Try $y = t^m$: the indicial equation is $m(m - 1) {b:signedcoef}m {c:signed} = 0$, with roots $m = {m1}$ and $m = {m2}$. So $y = c_1t^{{m1}} + c_2t^{{m2}}$. At $t = 1$: $c_1 + c_2 = {y0}$ and ${m1}c_1 + ({m2})c_2 = {v0}$, giving $c_1 = {c1}$, $c_2 = {c2}$. Answer: **$y = {c1:coef}t^{{m1}} {c2:signedcoef}t^{{m2}}$**.
+    Try $y = t^m$: the indicial equation is $m(m - 1) {b:signedcoef}m {c:signed} = 0$, with roots $m = {m1}$ and $m = {m2}$. So $y = c_1t^{{m1}} + c_2t^{{m2}}$. At $t = 1$: $c_1 + c_2 = {y0}$ and ${m1:coef}c_1 {m2:signedcoef}c_2 = {v0}$, giving $c_1 = {c1}$, $c_2 = {c2}$. Answer: **$y = {c1:coef}t^{{m1}} {c2:signedcoef}t^{{m2}}$**.

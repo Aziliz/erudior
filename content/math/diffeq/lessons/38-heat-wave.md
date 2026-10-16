@@ -91,7 +91,7 @@ At the center at $t = 1$: the first term is $\dfrac{200}{\pi}e^{-0.1\pi^2}\sin\d
 the $n = 3$ term is about $-\dfrac{200}{3\pi}e^{-0.9\pi^2} \approx -0.003$. So $u(0.5, 1) \approx 23.7$.
 
 ```plot
-{"x": [0, 1], "y": [0, 60], "xLabel": "x", "yLabel": "u", "functions": [{"f": "(200/pi)*(exp(-0.1*pi^2*0.05)*sin(pi*x) + exp(-0.9*pi^2*0.05)*sin(3*pi*x)/3 + exp(-2.5*pi^2*0.05)*sin(5*pi*x)/5 + exp(-4.9*pi^2*0.05)*sin(7*pi*x)/7)", "label": "t = 0.05"}, {"f": "(200/pi)*(exp(-0.1*pi^2*0.5)*sin(pi*x) + exp(-0.9*pi^2*0.5)*sin(3*pi*x)/3)", "label": "t = 0.5"}, {"f": "(200/pi)*exp(-0.1*pi^2*2)*sin(pi*x)", "label": "t = 2"}], "caption": "Temperature profiles for Example 2: the uniform 50° rod loses heat through its ends, and the profile relaxes to a fading sine hump."}
+{"x": [0, 1], "y": [0, 60], "xLabel": "x", "yLabel": "u", "functions": [{"f": "(200/pi)*(exp(-0.1*pi^2*0.05)*sin(pi*x) + exp(-0.9*pi^2*0.05)*sin(3*pi*x)/3 + exp(-2.5*pi^2*0.05)*sin(5*pi*x)/5 + exp(-4.9*pi^2*0.05)*sin(7*pi*x)/7)", "label": "t = 0.05"}, {"f": "(200/pi)*(exp(-0.1*pi^2*0.5)*sin(pi*x) + exp(-0.9*pi^2*0.5)*sin(3*pi*x)/3)", "label": "t = 0.5"}, {"f": "(200/pi)*exp(-0.1*pi^2*2)*sin(pi*x)", "label": "t = 2"}], "caption": "Temperature profiles for Example 2: the uniform 50° rod loses heat through its ends, and the profile relaxes to a fading sine hump. Top to bottom: t = 0.05, 0.5, 2."}
 ```
 
 ## The wave equation

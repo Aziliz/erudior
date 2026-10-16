@@ -111,7 +111,7 @@
   vars:
     m: {min: 2, max: 20}
     gam: {choices: [0.5, 1, 2, 3, 4]}
-    v0: {min: 0, max: 10}
+    v0: {min: 1, max: 10}
     t1: {min: 1, max: 10}
   calc:
     vT: m*9.8/gam

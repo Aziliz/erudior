@@ -99,7 +99,7 @@ $u(0) = 1$ m with $u'(0) = 0$. Classify and solve.
   compared with the undamped period $2\pi/\sqrt{10} \approx 1.99$ s.
 
 ```plot
-{"x": [0, 6], "y": [-1.2, 1.2], "xLabel": "t", "yLabel": "u", "functions": [{"f": "exp(-x)*(cos(3x) + sin(3x)/3)", "label": "underdamped"}, {"f": "(1 + sqrt(10)x)exp(-sqrt(10)x)", "label": "critical"}, {"f": "1.1455exp(-1.127x) - 0.1455exp(-8.873x)", "label": "overdamped"}], "caption": "Same mass and spring (m = 1, k = 10), released from u = 1 at rest, with γ = 2 (underdamped), γ = 2√10 ≈ 6.32 (critical), and γ = 10 (overdamped)."}
+{"x": [0, 6], "y": [-1.2, 1.2], "xLabel": "t", "yLabel": "u", "functions": [{"f": "exp(-x)*(cos(3x) + sin(3x)/3)"}, {"f": "(1 + sqrt(10)x)exp(-sqrt(10)x)"}, {"f": "1.1455exp(-1.127x) - 0.1455exp(-8.873x)"}], "labels": [{"at": [1.6, -0.45], "text": "underdamped"}, {"at": [0.55, 0.1], "text": "critical"}, {"at": [2.2, 0.45], "text": "overdamped"}], "caption": "Same mass and spring (m = 1, k = 10), released from u = 1 at rest, with γ = 2 (underdamped), γ = 2√10 ≈ 6.32 (critical), and γ = 10 (overdamped)."}
 ```
 
 ### Example 4

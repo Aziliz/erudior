@@ -22,20 +22,21 @@
   topic: Laplace transform
   vars:
     c: {min: 1, max: 5}
-    n: {min: 1, max: 3}
+    tn: {choices: [{label: 't', value: 1}, {label: 't^2', value: 2}, {label: 't^3', value: 3}]}
     a: {min: -4, max: 4}
     k: {min: 1, max: 6}
   where: ['a != 0']
   calc:
+    n: tn
     nf: fact(n)
     cn: c*fact(n)
     n1: n + 1
     na: -a
-  prompt: 'Find $\mathcal{L}\{{c:coef}t^{{n}}e^{{a:coef}t} + {k}\}$ as a function of $s$.'
+  prompt: 'Find $\mathcal{L}\{{c:coef}{tn}e^{{a:coef}t} + {k}\}$ as a function of $s$.'
   answers:
     - {kind: expression, expression: 'cn/(s - a)^(n + 1) + k/s', variables: [s], label: '$F(s) =$', show: '$\dfrac{{cn}}{(s {na:signed})^{{n1}}} + \dfrac{{k}}{s}$'}
   solution: |-
-    $\mathcal{L}\{t^{{n}}\} = \dfrac{{n}!}{s^{{n1}}} = \dfrac{{nf}}{s^{{n1}}}$; the factor $e^{{a:coef}t}$ replaces $s$ by $s {na:signed}$. With the constant: **$F(s) = \dfrac{{cn}}{(s {na:signed})^{{n1}}} + \dfrac{{k}}{s}$**.
+    $\mathcal{L}\{{tn}\} = \dfrac{{n}!}{s^{{n1}}} = \dfrac{{nf}}{s^{{n1}}}$; the factor $e^{{a:coef}t}$ replaces $s$ by $s {na:signed}$. With the constant: **$F(s) = \dfrac{{cn}}{(s {na:signed})^{{n1}}} + \dfrac{{k}}{s}$**.
 - id: de-inverse-pf
   title: Inverse transform by partial fractions
   topic: Inverse Laplace transform
@@ -50,11 +51,13 @@
     c0: -(A*q + B*p)
     sp: -(p + q)
     pq: p*q
+    np: -p
+    nq: -q
   prompt: 'Find $\mathcal{L}^{-1}\left\{\dfrac{{c1:coef}s {c0:signed}}{s^2 {sp:signedcoef}s {pq:signed}}\right\}$.'
   answers:
     - {kind: expression, expression: 'A*exp(p*t) + B*exp(q*t)', variables: [t], label: '$f(t) =$', show: '${A:coef}e^{{p:coef}t} {B:signedcoef}e^{{q:coef}t}$'}
   solution: |-
-    The denominator factors as $(s - ({p}))(s - ({q}))$. Cover-up: at $s = {p}$ the coefficient is $A = {A}$; at $s = {q}$ it is $B = {B}$. So $F = \dfrac{{A}}{s - ({p})} + \dfrac{{B}}{s - ({q})}$ and $f(t) =$ **${A:coef}e^{{p:coef}t} {B:signedcoef}e^{{q:coef}t}$**.
+    The denominator factors as $(s {np:signed})(s {nq:signed})$. Cover-up: at $s = {p}$ the coefficient is $A = {A}$; at $s = {q}$ it is $B = {B}$. So $F = \dfrac{{A}}{s {np:signed}} + \dfrac{{B}}{s {nq:signed}}$ and $f(t) =$ **${A:coef}e^{{p:coef}t} {B:signedcoef}e^{{q:coef}t}$**.
 - id: de-inverse-shift
   title: Inverse transform by completing the square
   topic: Inverse Laplace transform
@@ -68,11 +71,13 @@
     n0: -A*a + B*b
     sa: -2*a
     c: a^2 + b^2
+    na: -a
+    Bb: B*b
   prompt: 'Find $\mathcal{L}^{-1}\left\{\dfrac{{A:coef}s {n0:signed}}{s^2 {sa:signedcoef}s + {c}}\right\}$.'
   answers:
     - {kind: expression, expression: 'exp(a*t)*(A*cos(b*t) + B*sin(b*t))', variables: [t], label: '$f(t) =$', show: '$e^{{a:coef}t}\left({A:coef}\cos {b:coef}t {B:signedcoef}\sin {b:coef}t\right)$'}
   solution: |-
-    Complete the square: $s^2 {sa:signedcoef}s + {c} = (s - ({a}))^2 + {b}^2$. Write the numerator in terms of $s - ({a})$: ${A:coef}s {n0:signed} = {A:coef}(s - ({a})) + ({B})\cdot{b}$. So $F = {A:coef}\dfrac{s - ({a})}{(s - ({a}))^2 + {b}^2} + ({B})\dfrac{{b}}{(s - ({a}))^2 + {b}^2}$, and $f(t) =$ **$e^{{a:coef}t}\left({A:coef}\cos {b:coef}t {B:signedcoef}\sin {b:coef}t\right)$**.
+    Complete the square: $s^2 {sa:signedcoef}s + {c} = (s {na:signed})^2 + {b}^2$. Write the numerator in terms of $s {na:signed}$: ${A:coef}s {n0:signed} = {A:coef}(s {na:signed}) {Bb:signed}$, and ${Bb} = ({B})({b})$. So $F = {A:coef}\dfrac{s {na:signed}}{(s {na:signed})^2 + {b}^2} {B:signedcoef}\dfrac{{b}}{(s {na:signed})^2 + {b}^2}$, and $f(t) =$ **$e^{{a:coef}t}\left({A:coef}\cos {b:coef}t {B:signedcoef}\sin {b:coef}t\right)$**.
 - id: de-laplace-ivp1
   title: First-order IVP by Laplace transform
   topic: Laplace transform IVPs
@@ -80,15 +85,16 @@
     a: {min: 1, max: 5}
     m: {min: -4, max: 4}
     y0: {min: -5, max: 5}
-  where: ['m != 0', 'y0 != m']
+  where: ['m != 0', 'y0 != m', 'y0 != 0']
   calc:
     b: a*m
     C: y0 - m
+    ny0: -y0
   prompt: 'Use Laplace transforms to solve $y'' {a:signedcoef}y = {b}$, $y(0) = {y0}$.'
   answers:
     - {kind: expression, expression: 'm + C*exp(-a*t)', variables: [t], label: '$y =$', show: '${m} {C:signedcoef}e^{-{a:coef}t}$'}
   solution: |-
-    Transform: $sY - ({y0}) + {a:coef}Y = \dfrac{{b}}{s}$, so $Y = \dfrac{{y0}}{s + {a}} + \dfrac{{b}}{s(s + {a})}$. Partial fractions: $\dfrac{{b}}{s(s + {a})} = \dfrac{{m}}{s} - \dfrac{{m}}{s + {a}}$. So $Y = \dfrac{{m}}{s} + \dfrac{{C}}{s + {a}}$ and **$y = {m} {C:signedcoef}e^{-{a:coef}t}$**.
+    Transform: $sY {ny0:signed} {a:signedcoef}Y = \dfrac{{b}}{s}$, so $Y = \dfrac{{y0}}{s + {a}} + \dfrac{{b}}{s(s + {a})}$. Partial fractions: $\dfrac{{b}}{s(s + {a})} = \dfrac{{m}}{s} - \dfrac{{m}}{s + {a}}$. So $Y = \dfrac{{m}}{s} + \dfrac{{C}}{s + {a}}$ and **$y = {m} {C:signedcoef}e^{-{a:coef}t}$**.
 - id: de-laplace-Ys
   title: Transform of the solution of a second-order IVP
   topic: Laplace transform IVPs
@@ -104,7 +110,7 @@
   answers:
     - {kind: expression, expression: '(y0*s + k0)/(s^2 + b*s + c)', variables: [s], label: '$Y(s) =$', show: '$\dfrac{{y0:coef}s {k0:signed}}{s^2 {b:signedcoef}s + {c}}$'}
   solution: |-
-    $\big(s^2Y - ({y0})s - ({v0})\big) + ({b})\big(sY - ({y0})\big) + {c}Y = 0$. Collect: $(s^2 {b:signedcoef}s + {c})Y = ({y0})s + ({v0}) + ({b})({y0}) = {y0:coef}s {k0:signed}$. So **$Y(s) = \dfrac{{y0:coef}s {k0:signed}}{s^2 {b:signedcoef}s + {c}}$**.
+    $\big(s^2Y - ({y0})s - ({v0})\big) + ({b})\big(sY - ({y0})\big) {c:signedcoef}Y = 0$. Collect: $(s^2 {b:signedcoef}s + {c})Y = ({y0})s + ({v0}) + ({b})({y0}) = {y0:coef}s {k0:signed}$. So **$Y(s) = \dfrac{{y0:coef}s {k0:signed}}{s^2 {b:signedcoef}s + {c}}$**.
 - id: de-step-transform
   title: Transform of a delayed function
   topic: Step functions
@@ -144,11 +150,12 @@
   calc:
     b: -2*lam
     c: lam^2 + mu^2
+    nl: -lam
   prompt: 'Find the impulse response $h(t)$ of $y'''' {b:signedcoef}y'' + {c}y = \delta(t)$, $y(0) = y''(0) = 0$.'
   answers:
     - {kind: expression, expression: 'exp(lam*t)*sin(mu*t)/mu', variables: [t], label: '$h(t) =$', show: '$\dfrac{1}{{mu}}e^{{lam:coef}t}\sin {mu:coef}t$'}
   solution: |-
-    $(s^2 {b:signedcoef}s + {c})Y = 1$, so $H(s) = \dfrac{1}{(s - ({lam}))^2 + {mu}^2} = \dfrac{1}{{mu}}\cdot\dfrac{{mu}}{(s - ({lam}))^2 + {mu}^2}$. Inverting: **$h(t) = \dfrac{1}{{mu}}e^{{lam:coef}t}\sin {mu:coef}t$**.
+    $(s^2 {b:signedcoef}s + {c})Y = 1$, so $H(s) = \dfrac{1}{(s {nl:signed})^2 + {mu}^2} = \dfrac{1}{{mu}}\cdot\dfrac{{mu}}{(s {nl:signed})^2 + {mu}^2}$. Inverting: **$h(t) = \dfrac{1}{{mu}}e^{{lam:coef}t}\sin {mu:coef}t$**.
 - id: de-convolution
   title: Convolution of two exponentials
   topic: Impulses and convolution
@@ -158,8 +165,10 @@
   where: ['a >= b + 2', 'a != 0', 'b != 0']
   calc:
     ab: a - b
+    na: -a
+    nb: -b
   prompt: 'Compute the convolution $e^{{a:coef}t} * e^{{b:coef}t} = \displaystyle\int_0^t e^{{a:coef}(t - \tau)}e^{{b:coef}\tau}\,d\tau$.'
   answers:
     - {kind: expression, expression: '(exp(a*t) - exp(b*t))/(a - b)', variables: [t], label: '$=$', show: '$\dfrac{e^{{a:coef}t} - e^{{b:coef}t}}{{ab}}$'}
   solution: |-
-    By the convolution theorem, the transform is $\dfrac{1}{(s - ({a}))(s - ({b}))} = \dfrac{1}{{ab}}\left(\dfrac{1}{s - ({a})} - \dfrac{1}{s - ({b})}\right)$. Inverting: **$\dfrac{e^{{a:coef}t} - e^{{b:coef}t}}{{ab}}$**.
+    By the convolution theorem, the transform is $\dfrac{1}{(s {na:signed})(s {nb:signed})} = \dfrac{1}{{ab}}\left(\dfrac{1}{s {na:signed}} - \dfrac{1}{s {nb:signed}}\right)$. Inverting: **$\dfrac{e^{{a:coef}t} - e^{{b:coef}t}}{{ab}}$**.

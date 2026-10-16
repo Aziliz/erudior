@@ -9,12 +9,14 @@
   calc:
     s: -(r1 + r2)
     p: r1*r2
+    nr1: -r1
+    nr2: -r2
   prompt: 'Find both values of $k$ for which $y = e^{kt}$ solves $y'''' {s:signedcoef}y'' {p:signedcoef}y = 0$. Smaller value first.'
   answers:
     - {name: r1, label: '$k_1 =$'}
     - {name: r2, label: '$k_2 =$'}
   solution: |-
-    Substitute $y = e^{kt}$, $y' = ke^{kt}$, $y'' = k^2e^{kt}$: $(k^2 {s:signedcoef}k {p:signedcoef})e^{kt} = 0$. Since $e^{kt} \ne 0$, factor $k^2 {s:signedcoef}k {p:signed} = (k - ({r1}))(k - ({r2})) = 0$, so $k =$ **{r1}** and $k =$ **{r2}**.
+    Substitute $y = e^{kt}$, $y' = ke^{kt}$, $y'' = k^2e^{kt}$: $(k^2 {s:signedcoef}k {p:signed})e^{kt} = 0$. Since $e^{kt} \ne 0$, factor $k^2 {s:signedcoef}k {p:signed} = (k {nr1:signed})(k {nr2:signed}) = 0$, so $k =$ **{r1}** and $k =$ **{r2}**.
 - id: de-ivp-constant
   title: Solve y′ = f(t) with an initial condition
   topic: DE basics
@@ -22,14 +24,14 @@
     a: {min: -4, max: 4}
     b: {min: -5, max: 5}
     y1: {min: -10, max: 10}
-  where: ['a != 0', 'b != 0']
+  where: ['a != 0', 'b != 0', 'y1 - a - b != 0']
   calc:
     a3: 3*a
     b2: 2*b
     C: y1 - a - b
   prompt: 'Solve $\dfrac{dy}{dt} = {a3}t^2 {b2:signed}t$ with $y(1) = {y1}$. Give $y$ as a function of $t$.'
   answers:
-    - {kind: expression, expression: 'a*t^3 + b*t^2 + C', variables: [t], label: '$y =$'}
+    - {kind: expression, expression: 'a*t^3 + b*t^2 + C', variables: [t], label: '$y =$', show: '$y = {a:coef}t^3 {b:signedcoef}t^2 {C:signed}$'}
   solution: |-
     Integrate: $y = {a:coef}t^3 {b:signedcoef}t^2 + C$. At $t = 1$: ${y1} = {a} + ({b}) + C$, so $C = {C}$. Answer: $y =$ **${a:coef}t^3 {b:signedcoef}t^2 {C:signed}$**.
 - id: de-slope-eval
@@ -110,12 +112,13 @@
     ky: k*y0
     xb: 1/(k*y0)
     ym: y0/(1 + k*y0)
+    ci: -1/y0
   prompt: 'Solve $\dfrac{dy}{dx} = {k:coef}y^2$ with $y(0) = {y0}$. Give $y(-1)$ and the value of $x > 0$ where the solution blows up, both as exact fractions.'
   answers:
     - {name: ym, label: '$y(-1) =$', kind: fraction, lowestTerms: true}
     - {name: xb, label: 'Blow-up at $x =$', kind: fraction, lowestTerms: true}
   solution: |-
-    $y^{-2}dy = {k}\,dx$ gives $-\dfrac1y = {k:coef}x + C$, and $y(0) = {y0}$ gives $C = -\dfrac{1}{{y0}}$. Solving, $y = \dfrac{{y0}}{1 - {ky:coef}x}$. Then $y(-1) = \dfrac{{y0}}{1 + {ky}} =$ **{ym:frac}**, and the denominator is zero at $x = \dfrac{1}{{ky}} =$ **{xb:frac}**.
+    $y^{-2}dy = {k:coef}dx$ gives $-\dfrac1y = {k:coef}x + C$, and $y(0) = {y0}$ gives $C = {ci:texfrac}$. Solving, $y = \dfrac{{y0}}{1 - {ky:coef}x}$. Then $y(-1) = \dfrac{{y0}}{1 + {ky}} =$ **{ym:frac}**, and the denominator is zero at $x = \dfrac{1}{{ky}} =$ **{xb:frac}**.
 - id: de-exp-model
   title: Exponential growth from two data points
   topic: Exponential growth
@@ -165,7 +168,7 @@
     - {name: M, label: '$K =$'}
     - {name: R, label: 'Max rate', relTolerance: 0.001}
   solution: |-
-    Factor: ${c:sig3}P({M:sig6} - P) = {kk:coef}P\left(1 - \dfrac{P}{{M:sig6}}\right)$, so $K =$ **{M}** and $k = {kk}$. The rate is largest at $P = K/2 = {half}$: ${c:sig3}\cdot{half}\cdot{half} =$ **{R:num2}**.
+    Factor: ${c:sig3}P({M:sig6} - P) = {kk:coef}P\left(1 - \dfrac{P}{{M:sig6}}\right)$, so $K =$ **{M}** and $k = {kk}$. The rate is largest at $P = K/2 = {half:sig6}$: ${c:sig3}\cdot{half:sig6}\cdot{half:sig6} =$ **{R:num2}**.
 - id: de-euler-2step
   title: Two steps of Euler's method
   topic: Euler's method

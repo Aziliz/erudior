@@ -112,7 +112,7 @@
 - id: de-q-3703
   lesson: de-fourier
   topic: Fourier series
-  stem: 'At $x = 0$, the Fourier series of the square wave above converges to'
+  stem: 'At $x = 0$, the Fourier series of the square wave ($-1$ on $(-\pi, 0)$, $1$ on $(0, \pi)$, period $2\pi$) converges to'
   choices: ['$1$', '$-1$', 'it diverges', '$0$']
   answer: 3
   explanation: |-
@@ -273,4 +273,4 @@
   choices: ['It only gives $X \equiv 0$ under the zero boundary conditions', 'It makes $T$ grow', 'It makes the PDE nonlinear', 'It gives complex solutions']
   answer: 0
   explanation: |-
-    For $\lambda = 0$, $X = c_1 + c_2x$; for $\lambda < 0$, combinations of $e^{\pm\sqrt{-\lambda}x}$. Neither can vanish at both ends unless identically zero.
+    For $\lambda = 0$, $X = c_1 + c_2x$; for $\lambda < 0$, combinations of $e^{\pm\sqrt{-\lambda}x}$. Neither can vanish at both ends unless identically zero. (For $\lambda < 0$ the time factor would also grow, but that is not why it is rejected: there is no nonzero $X$ at all.)

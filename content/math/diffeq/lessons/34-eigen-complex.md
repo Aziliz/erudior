@@ -107,7 +107,7 @@ and $D$ alone decide the type of the origin:
 | $D = 0$ | a line of equilibria (degenerate) |
 
 ```plot
-{"x": [-5, 5], "y": [-3, 8], "xLabel": "T = tr A", "yLabel": "D = det A", "functions": [{"f": "x^2/4", "label": "T² = 4D"}], "labels": [{"at": [0, -1.5], "text": "saddles"}, {"at": [-3.4, 1], "text": "nodal sinks"}, {"at": [3.4, 1], "text": "nodal sources"}, {"at": [-1.6, 5], "text": "spiral sinks"}, {"at": [1.6, 5], "text": "spiral sources"}, {"at": [0.3, 7.3], "text": "centers (T = 0)"}], "segments": [{"from": [0, 0], "to": [0, 8], "dashed": true}], "caption": "Trace–determinant plane: the parabola T² = 4D separates nodes from spirals; the left half is stable."}
+{"x": [-5, 5], "y": [-3, 8], "xLabel": "T = tr A", "yLabel": "D = det A", "functions": [{"f": "x^2/4", "label": "T² = 4D"}], "labels": [{"at": [0, -1.5], "text": "saddles"}, {"at": [-3.4, 1], "text": "nodal sinks"}, {"at": [3.4, 1], "text": "nodal sources"}, {"at": [-1.6, 5], "text": "spiral sinks"}, {"at": [1.6, 5], "text": "spiral sources"}, {"at": [0.3, 7.3], "text": "centers (T = 0)"}], "segments": [{"from": [0, 0], "to": [0, 8], "dashed": true}], "caption": "Trace–determinant plane: the parabola T² = 4D separates nodes from spirals; the region T < 0, D > 0 (upper left) is asymptotically stable."}
 ```
 
 Asymptotic stability holds exactly when $T < 0$ and $D > 0$: both eigenvalues have negative

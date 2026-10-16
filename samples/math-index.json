@@ -38,5 +38,10 @@
   "id": "math-multivariable",
   "title": "Multivariable Calculus",
   "revision": 1
+ },
+ {
+  "id": "math-diffeq",
+  "title": "Differential Equations",
+  "revision": 1
  }
 ]

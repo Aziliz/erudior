@@ -8,6 +8,7 @@ description: >-
   circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series
   solutions, and an introduction to Fourier series and the heat and wave equations.
 revision: 1
+released: true
 order: 9
 modules:
   - id: de-m1

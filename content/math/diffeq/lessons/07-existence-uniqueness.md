@@ -72,7 +72,8 @@ $(0, 4)$?
 - $f(t, y) = \sqrt{y}$ is continuous for $y \ge 0$, and
   $\dfrac{\partial f}{\partial y} = \dfrac{1}{2\sqrt{y}}$, which is not continuous at $y = 0$.
 - At $(0, 4)$: both $f$ and $f_y$ are continuous near $y = 4$. A unique solution exists.
-- At $(0, 0)$: the uniqueness hypothesis fails, and uniqueness really does fail. Both
+- At $(0, 0)$: no rectangle around the point works ($f_y$ blows up at $y = 0$, and $f$
+  isn't even defined for $y < 0$), and uniqueness really does fail. Both
   $y = 0$ and $y = \dfrac{t^2}{4}$ (for $t \ge 0$) satisfy $y' = \sqrt{y}$ and $y(0) = 0$.
   Check the second: $y' = t/2$ and $\sqrt{t^2/4} = t/2$ for $t \ge 0$.
 

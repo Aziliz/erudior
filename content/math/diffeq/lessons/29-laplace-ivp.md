@@ -32,7 +32,7 @@ conditions entered automatically. No separate step for fitting constants.
 3. Invert (partial fractions, completing the square) to find $y(t)$.
 
 ```shape
-{"segments": [{"from": [1.6, 3], "to": [8.4, 3], "arrow": true, "label": "solve ODE (hard)"}, {"from": [1, 2.7], "to": [1, 1.3], "arrow": true, "label": "ℒ"}, {"from": [1.6, 1], "to": [8.4, 1], "arrow": true, "label": "algebra (easy)"}, {"from": [9, 1.3], "to": [9, 2.7], "arrow": true, "label": "ℒ⁻¹"}], "labels": [{"at": [1, 3], "text": "IVP in t"}, {"at": [9, 3], "text": "y(t)"}, {"at": [1, 1], "text": "equation in s"}, {"at": [9, 1], "text": "Y(s)"}], "caption": "The Laplace route: transform, solve algebraically, invert."}
+{"segments": [{"from": [2.4, 3], "to": [8.3, 3], "arrow": true, "label": "solve ODE (hard)"}, {"from": [1, 2.7], "to": [1, 1.3], "arrow": true, "label": "ℒ"}, {"from": [2.4, 1], "to": [8.3, 1], "arrow": true, "label": "algebra (easy)"}, {"from": [9, 1.3], "to": [9, 2.7], "arrow": true, "label": "ℒ⁻¹"}], "labels": [{"at": [1, 3], "text": "IVP in t"}, {"at": [9, 3], "text": "y(t)"}, {"at": [1, 1], "text": "equation in s"}, {"at": [9, 1], "text": "Y(s)"}], "caption": "The Laplace route: transform, solve algebraically, invert."}
 ```
 
 ### Example 1: first order

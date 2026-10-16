@@ -257,7 +257,7 @@
   choices: ['$\begin{bmatrix} -2 & 1 \\ 0 & -2 \end{bmatrix}$', '$\begin{bmatrix} -2 & 0 \\ 0 & -3 \end{bmatrix}$', '$\begin{bmatrix} -2 & 0 \\ 0 & -2 \end{bmatrix}$', '$\begin{bmatrix} 0 & -2 \\ 2 & 0 \end{bmatrix}$']
   answer: 2
   explanation: |-
-    Only $A = \lambda I$ has every vector as an eigenvector. The first has a repeated eigenvalue but only one eigenvector (improper node).
+    Only $A = \lambda I$ has every vector as an eigenvector. $\begin{bmatrix} -2 & 1 \\ 0 & -2 \end{bmatrix}$ has a repeated eigenvalue but only one eigenvector (improper node); the diagonal matrix with $-2$ and $-3$ is a nodal sink with just two eigenvector directions.
 - id: de-q-3410
   lesson: de-eigen-complex
   topic: Phase portraits
