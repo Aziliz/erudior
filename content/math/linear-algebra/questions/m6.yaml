@@ -142,7 +142,7 @@
   choices: ['$15$', '$5$', '$135$', '$\tfrac53$']
   answer: 0
   explanation: |-
-    Scaling one row by $k$ multiplies the determinant by $k$. (Scaling *every* row of a $3 \times 3$ matrix by 3 would multiply it by $27$.)
+    Scaling one row by $k$ multiplies the determinant by $k$. (Scaling every row of a $3 \times 3$ matrix by 3 would multiply it by $27$.)
 
 - id: la-q-2004
   lesson: la-det-props
@@ -198,7 +198,7 @@
   choices: ['$A = B = I_2$: $\det(2I_2) = 4$ but $\det I_2 + \det I_2 = 2$', '$A = B = 0$', '$A = I_2$, $B = 0$: both sides are 1', 'It''s actually always true']
   answer: 0
   explanation: |-
-    One counterexample is enough. The second and third choices are cases where the two sides happen to agree, which proves nothing.
+    One counterexample is enough. Taking $A = B = 0$, or $A = I_2$ and $B = 0$, gives cases where the two sides happen to agree, which proves nothing.
 
 - id: la-q-2010
   lesson: la-det-props

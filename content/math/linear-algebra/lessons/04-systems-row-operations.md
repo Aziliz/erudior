@@ -24,7 +24,8 @@ the whole game is to replace a system by an equivalent one that is easy to read.
 
 With three unknowns, each equation is a plane in space. Three planes can meet in a single
 point, along a common line, or not at all (for example two parallel planes, or three planes
-that meet in pairs like the sides of a tent but have no common point).
+that meet in pairs like the sides of a tent but have no common point). If all three
+equations describe the same plane, every point of that plane is a solution.
 
 ## The augmented matrix
 

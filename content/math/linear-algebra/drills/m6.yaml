@@ -25,7 +25,7 @@
   solution: |-
     Expand along row 1 with signs $+, -, +$:
     $${a11}({m11}) - ({a12})({m12}) + ({a13})({m13}) = $$
-    **{det}**. (The minors are ${a22}\cdot{a33} - ({a23})({a32}) = {m11}$, and so on.)
+    **{det}**. (The minors are $({a22})({a33}) - ({a23})({a32}) = {m11}$, and so on.)
 
 - id: la-cofactor
   title: Cofactors along a row

@@ -53,7 +53,7 @@
   lesson: la-matrix-ops
   module_quiz: true
   topic: Matrix multiplication
-  stem: 'For $n \times n$ matrices, which statement can **fail**?'
+  stem: 'For $n \times n$ matrices, which statement can fail?'
   choices: ['$A(BC) = (AB)C$', '$A(B + C) = AB + AC$', 'If $AB = AC$ then $B = C$', '$IA = A$']
   answer: 2
   explanation: |-
@@ -76,7 +76,7 @@
   choices: ['$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 3 & -2 & 1\end{bmatrix}$', '$\begin{bmatrix} 3 & 0 & 0 \\ 0 & -2 & 0 \\ 0 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 3 \\ -2 & 1\end{bmatrix}$']
   answer: 2
   explanation: |-
-    $\begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & 0 & 1\end{bmatrix}\begin{bmatrix} x \\ y \\ 1\end{bmatrix} = \begin{bmatrix} x + 3 \\ y - 2 \\ 1\end{bmatrix}$. The translation goes in the last column; the second choice is a scaling.
+    $\begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & 0 & 1\end{bmatrix}\begin{bmatrix} x \\ y \\ 1\end{bmatrix} = \begin{bmatrix} x + 3 \\ y - 2 \\ 1\end{bmatrix}$. The translation goes in the last column; the diagonal matrix with 3 and $-2$ on the diagonal is a scaling, and putting $3, -2$ in the bottom row is the transposed (wrong) layout.
 
 - id: la-q-1509
   lesson: la-matrix-ops
@@ -160,7 +160,7 @@
   choices: ['$\begin{bmatrix} 2 & 4 \\ 3 & 5\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 7\end{bmatrix}$', '$\begin{bmatrix} 2 & 4 \\ 3 & 6\end{bmatrix}$']
   answer: 3
   explanation: |-
-    $2(6) - 4(3) = 0$: the columns are multiples of each other, so there's no inverse. The first matrix has $ad - bc = 10 - 12 = -2 \ne 0$.
+    $2(6) - 4(3) = 0$: the columns are multiples of each other, so there's no inverse. By contrast $\begin{bmatrix} 2 & 4 \\ 3 & 5\end{bmatrix}$ has $ad - bc = 10 - 12 = -2 \ne 0$.
 
 - id: la-q-1606
   lesson: la-inverse
@@ -235,7 +235,7 @@
   choices: ['$\begin{bmatrix} 1 & 3 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ -3 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 3 & 1\end{bmatrix}$']
   answer: 3
   explanation: |-
-    Do the operation to $I$: row 2 of $I$ becomes $(0, 1) + 3(1, 0) = (3, 1)$. The first choice would add 3 times row 2 to row 1.
+    Do the operation to $I$: row 2 of $I$ becomes $(0, 1) + 3(1, 0) = (3, 1)$. The matrix with the 3 in the upper-right corner would add 3 times row 2 to row 1.
 
 - id: la-q-1702
   lesson: la-imt
@@ -310,7 +310,7 @@
   choices: ['The same row operation as $EA$', 'Nothing; $AE = EA$', 'It transposes $A$', 'The corresponding column operation on $A$']
   answer: 3
   explanation: |-
-    $AE$ combines the *columns* of $A$ using the columns of $E$. Use $EA$ for row operations.
+    $AE$ combines the columns of $A$ using the columns of $E$. Use $EA$ for row operations.
 
 - id: la-q-1710
   lesson: la-imt

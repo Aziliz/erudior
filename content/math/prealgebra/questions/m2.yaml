@@ -177,7 +177,7 @@
   choices: ['The sign of the first number was changed; only the 9 should change', 'Nothing; $-4$ is correct', 'The 9 should not change sign', 'Subtracting should give a positive result']
   answer: 0
   explanation: |-
-    To subtract, add the opposite of the *second* number and leave the first alone: $-5 + (-9) = -14$.
+    To subtract, add the opposite of the second number and leave the first alone: $-5 + (-9) = -14$.
 
 - id: pre-q-0709
   lesson: pre-int-addsub

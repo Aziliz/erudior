@@ -63,7 +63,7 @@ roots are numerically unstable to compute from coefficients.
 The **algebraic multiplicity** of an eigenvalue is its multiplicity as a root of the
 characteristic polynomial. For instance if the characteristic polynomial is
 $(\lambda - 2)^2(\lambda - 5)$, the eigenvalue 2 has algebraic multiplicity 2 and 5 has
-multiplicity 1. (That's the polynomial of the matrix $B$ in the last lesson.) For a
+multiplicity 1. (Up to an overall sign, that's the polynomial of the matrix $B$ in the last lesson: for a $3 \times 3$ matrix, $\det(A - \lambda I)$ has leading term $-\lambda^3$.) For a
 triangular matrix, the characteristic polynomial is $\prod(a_{ii} - \lambda)$, so repeated
 diagonal entries give repeated eigenvalues.
 

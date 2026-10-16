@@ -59,7 +59,7 @@
     - {name: sz, label: '$x_3 =$'}
   solution: |-
     Start at the bottom. Row 3: ${a33}x_3 = {c3}$, so $x_3 = {sz}$.
-    Row 2: ${a22}x_2 + ({a23})({sz}) = {c2}$, so ${a22}x_2 = {t2}$ and $x_2 = {sy}$.
+    Row 2: ${a22:coef}x_2 + ({a23})({sz}) = {c2}$, so ${a22:coef}x_2 = {t2}$ and $x_2 = {sy}$.
     Row 1: $x_1 = {c1} - ({a12})({sy}) - ({a13})({sz}) = {sx}$.
     **Answer:** $(x_1, x_2, x_3) = ({sx}, {sy}, {sz})$.
 
@@ -83,7 +83,7 @@
     - {name: m1, label: '$p =$'}
     - {name: n1, label: '$q =$'}
   solution: |-
-    Read $A$ as the augmented matrix of ${e11}x_1 + ({e12})x_2 = {a13}$, ${e21}x_1 + ({e22})x_2 = {a23}$. Reducing it to $\begin{bmatrix} 1 & 0 & p \\ 0 & 1 & q\end{bmatrix}$ is the same as solving that system, so $p = x_1$ and $q = x_2$.
+    Read $A$ as the augmented matrix of ${e11:coef}x_1 + ({e12})x_2 = {a13}$, $({e21})x_1 + ({e22})x_2 = {a23}$. Reducing it to $\begin{bmatrix} 1 & 0 & p \\ 0 & 1 & q\end{bmatrix}$ is the same as solving that system, so $p = x_1$ and $q = x_2$.
     Eliminating gives $x_1 = {m1}$, $x_2 = {n1}$. Check row 1: ${e11}({m1}) + ({e12})({n1}) = {a13}$. ✓
     **Answer:** $p = {m1}$, $q = {n1}$.
 

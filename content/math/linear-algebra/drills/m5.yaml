@@ -217,13 +217,18 @@
     a33: a13*a31 + ss + 0
     rest: -a23*a32 - a12*(a21*(a13*a31 + ss) - a23*a31) + a13*a21*a32 + 0
     hval: -(-a23*a32 - a12*(a21*(a13*a31 + ss) - a23*a31) + a13*a21*a32)/ss + 0
-  where: ["abs(hval) <= 30", "a21 != 0 or a23 != 0"]
+    mp22: -a21*a12 + 0
+    q23: a23 - a21*a13 + 0
+    q32: a32 - a31*a12 + 0
+  where: ["abs(hval) <= 30", "a12*a21*a31 != 0"]
   prompt: |-
     For what value of $h$ is $A = \begin{bmatrix} 1 & {a12} & {a13} \\ {a21} & h & {a23} \\ {a31} & {a32} & {a33}\end{bmatrix}$ not invertible?
   answers:
     - {name: hval, label: '$h =$'}
   solution: |-
-    $A$ is singular exactly when it has fewer than 3 pivots, equivalently (Module 6) when $\det A = 0$. Expanding, $\det A$ is linear in $h$: the coefficient of $h$ is $1\cdot({a33}) - ({a13})({a31}) = {ss}$ and the remaining terms add to ${rest}$. Setting ${ss}h + ({rest}) = 0$ gives $h =$ **{hval}**. For that $h$ an echelon form of $A$ has a zero row.
+    $A$ is singular exactly when it has fewer than 3 pivots. Row-reduce with $h$ kept as a letter: $R_2 \leftarrow R_2 - ({a21})R_1$ and $R_3 \leftarrow R_3 - ({a31})R_1$ clear column 1 and leave the lower-right block
+    $$\begin{bmatrix} h {mp22:signed} & {q23} \\ {q32} & {ss}\end{bmatrix}.$$
+    $A$ has 3 pivots exactly when this $2 \times 2$ block has 2 pivots, i.e. when its $ad - bc \ne 0$. Setting $({ss})(h {mp22:signed}) - ({q23})({q32}) = 0$ gives $h =$ **{hval}**. For that $h$ an echelon form of $A$ has a zero row.
 
 - id: la-lu2
   title: LU factorization of a 2×2 matrix
@@ -243,7 +248,7 @@
     - {name: ll, label: '$\ell_{21} =$'}
     - {name: u22, label: '$u_{22} =$'}
   solution: |-
-    The pivot is {p1}; to clear {a21} use $R_2 \leftarrow R_2 - \ell_{21}R_1$ with $\ell_{21} = {a21}/{p1} =$ **{ll}**. Then $u_{22} = {a22} - ({ll})({q1}) =$ **{u22}**, and $U = \begin{bmatrix} {p1} & {q1} \\ 0 & {u22}\end{bmatrix}$.
+    The pivot is {p1}; to clear {a21} use $R_2 \leftarrow R_2 - \ell_{21}R_1$ with $\ell_{21} = {a21}/({p1}) =$ **{ll}**. Then $u_{22} = {a22} - ({ll})({q1}) =$ **{u22}**, and $U = \begin{bmatrix} {p1} & {q1} \\ 0 & {u22}\end{bmatrix}$.
 
 - id: la-lu3
   title: LU factorization of a 3×3 matrix
@@ -278,7 +283,7 @@
     - {name: l32, label: '$\ell_{32} =$'}
     - {name: u33, label: '$u_{33} =$'}
   solution: |-
-    Column 1: $\ell_{21} = {a21}/{a11} = {l21}$ and $\ell_{31} = {a31}/{a11} = {l31}$. After those replacements row 2 is $[\,0 \;\; {u22} \;\; {u23}\,]$ and row 3 starts $[\,0 \;\; {a32} - ({l31})({a12}) = {r32}\,]$.
+    Column 1: $\ell_{21} = {a21}/({a11}) = {l21}$ and $\ell_{31} = {a31}/({a11}) = {l31}$. After those replacements row 2 is $[\,0 \;\; {u22} \;\; {u23}\,]$ and row 3 starts $[\,0 \;\; {a32} - ({l31})({a12}) = {r32}\,]$.
     Column 2: $\ell_{32} = {r32}/({u22}) = {l32}$. Clearing it leaves the last pivot $u_{33} = {u33}$.
     **Answer:** $\ell_{21} = {l21}$, $\ell_{31} = {l31}$, $\ell_{32} = {l32}$, $u_{33} = {u33}$, so
     $$L = \begin{bmatrix} 1 & 0 & 0 \\ {l21} & 1 & 0 \\ {l31} & {l32} & 1\end{bmatrix}, \quad U = \begin{bmatrix} {u11} & {u12} & {u13} \\ 0 & {u22} & {u23} \\ 0 & 0 & {u33}\end{bmatrix}.$$

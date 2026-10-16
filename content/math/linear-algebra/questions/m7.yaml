@@ -14,7 +14,7 @@
 - id: la-q-2202
   lesson: la-vector-spaces
   topic: Subspaces
-  stem: 'Which set is **not** a subspace of $\mathbb{R}^3$?'
+  stem: 'Which set is not a subspace of $\mathbb{R}^3$?'
   choices: ['The plane $x + y + z = 0$', 'The $z$-axis', '$\{\mathbf{0}\}$', 'The plane $x + y + z = 1$']
   answer: 3
   explanation: |-
@@ -71,11 +71,11 @@
 - id: la-q-2208
   lesson: la-vector-spaces
   topic: Vector spaces
-  stem: 'Why is the set of polynomials of degree **exactly** 2 (with the usual operations) not a vector space?'
+  stem: 'Why is the set of polynomials of degree exactly 2 (with the usual operations) not a vector space?'
   choices: ['It has no negatives', 'Multiplication by 2 can raise the degree', 'Polynomials can''t be added', 'It isn''t closed under addition: $t^2 + (-t^2 + t) = t$ has degree 1']
   answer: 3
   explanation: |-
-    The sum of two degree-2 polynomials can have lower degree, and the zero polynomial isn't in the set at all. That's why we use $\mathbb{P}_2$, degree *at most* 2.
+    The sum of two degree-2 polynomials can have lower degree, and the zero polynomial isn't in the set at all. That's why we use $\mathbb{P}_2$, degree at most 2.
 
 - id: la-q-2209
   lesson: la-vector-spaces
@@ -150,7 +150,7 @@
   choices: ['$\{(-3, 1, 0, 0),\ (2, 0, -4, 1)\}$', '$\{(3, 1, 0, 0),\ (-2, 0, 4, 1)\}$', '$\{(1, 0),\ (0, 1)\}$', '$\{(1, 3, 0, -2),\ (0, 0, 1, 4)\}$']
   answer: 0
   explanation: |-
-    $x_1 = -3x_2 + 2x_4$ and $x_3 = -4x_4$ with $x_2, x_4$ free, so $\mathbf{x} = x_2(-3, 1, 0, 0) + x_4(2, 0, -4, 1)$. The last choice lists the rows of the RREF, which span $\operatorname{Row} A$, not $\operatorname{Nul} A$.
+    $x_1 = -3x_2 + 2x_4$ and $x_3 = -4x_4$ with $x_2, x_4$ free, so $\mathbf{x} = x_2(-3, 1, 0, 0) + x_4(2, 0, -4, 1)$. The set $\{(1, 3, 0, -2), (0, 0, 1, 4)\}$ lists the rows of the RREF, which span $\operatorname{Row} A$, not $\operatorname{Nul} A$.
 
 - id: la-q-2305
   lesson: la-nul-col
@@ -159,7 +159,7 @@
   choices: ['Compute $A\mathbf{b}$ and see if it is $\mathbf{0}$', 'Check whether $A\mathbf{x} = \mathbf{b}$ is consistent', 'Check whether $\mathbf{b}$ is a row of $A$', 'Check whether $\mathbf{b}$ has as many entries as $A$ has columns']
   answer: 1
   explanation: |-
-    $\mathbf{b}$ is in $\operatorname{Col} A$ exactly when it's a combination of the columns, i.e. when $A\mathbf{x} = \mathbf{b}$ has a solution. Computing $A\mathbf{b}$ is the test for the *null* space.
+    $\mathbf{b}$ is in $\operatorname{Col} A$ exactly when it's a combination of the columns, i.e. when $A\mathbf{x} = \mathbf{b}$ has a solution. Computing $A\mathbf{b}$ is the test for the null space.
 
 - id: la-q-2306
   lesson: la-nul-col
@@ -244,7 +244,7 @@
   choices: ['The pivot columns of the RREF of $A$', 'All the columns of $A$', 'The pivot columns of $A$ itself', 'The nonzero rows of the RREF']
   answer: 2
   explanation: |-
-    Row operations preserve the dependence relations among columns, so the RREF tells you *which* columns to take; but row operations change the column space, so take those columns from $A$.
+    Row operations preserve the dependence relations among columns, so the RREF tells you which columns to take; but row operations change the column space, so take those columns from $A$.
 
 - id: la-q-2403
   lesson: la-bases
@@ -253,7 +253,7 @@
   choices: ['$\{(1, 0, 0), (0, 1, 0)\}$', '$\{(1, 2, 3), (-1, 1, 0)\}$', '$\{(1, 2, 3), (2, 4, 6)\}$', '$\{(1, 2, 0, 1), (0, 0, 1, -2)\}$']
   answer: 1
   explanation: |-
-    Pivots are in columns 1 and 3, so take columns 1 and 3 of $A$. $(1, 0, 0)$ and $(0, 1, 0)$ are pivot columns of the RREF and aren't in $\operatorname{Col} A$; the last choice is a basis for $\operatorname{Row} A$.
+    Pivots are in columns 1 and 3, so take columns 1 and 3 of $A$. $(1, 0, 0)$ and $(0, 1, 0)$ are pivot columns of the RREF and aren't in $\operatorname{Col} A$; $\{(1, 2, 0, 1), (0, 0, 1, -2)\}$ is a basis for $\operatorname{Row} A$.
 
 - id: la-q-2404
   lesson: la-bases
@@ -305,7 +305,7 @@
   lesson: la-bases
   topic: Bases
   stem: 'Which description of a basis for a subspace $H$ is correct?'
-  choices: ['Any spanning set of $H$', 'Any independent set in $H$', 'A spanning set of $H$ that is as small as possible', 'A set with more vectors than $H$ has dimensions']
+  choices: ['Any spanning set of $H$', 'Any independent set in $H$', 'A spanning set of $H$ that is as small as possible', 'Any set of vectors in $H$ that contains $\mathbf{0}$']
   answer: 2
   explanation: |-
     A basis is a minimal spanning set (and also a maximal independent set). A spanning set may have extra vectors; an independent set may not span.
@@ -318,7 +318,7 @@
   choices: ['$\{(2, -1, 1)\}$', '$\{(-2, 1, 1)\}$', '$\{(1, 0), (0, 1)\}$', '$\{(-2, 1, 0)\}$']
   answer: 1
   explanation: |-
-    $x_1 = -2x_3$, $x_2 = x_3$, $x_3$ free, so $\mathbf{x} = x_3(-2, 1, 1)$. The first choice forgets to flip signs; the last forgets the 1 in the $x_3$ slot.
+    $x_1 = -2x_3$, $x_2 = x_3$, $x_3$ free, so $\mathbf{x} = x_3(-2, 1, 1)$. $(2, -1, 1)$ forgets to flip signs; $(-2, 1, 0)$ forgets the 1 in the $x_3$ slot.
 
 - id: la-q-2411
   lesson: la-bases
@@ -426,7 +426,7 @@
 - id: la-q-2510
   lesson: la-coordinates
   topic: Coordinates
-  stem: 'For a basis $\mathcal{B}$ of an $n$-dimensional space $V$, the coordinate mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is:'
+  stem: 'For a basis $\mathcal{B}$ of $n$ vectors for a vector space $V$, the coordinate mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is:'
   choices: ['linear but not one-to-one', 'one-to-one but not onto $\mathbb{R}^n$', 'a one-to-one linear transformation from $V$ onto $\mathbb{R}^n$ (an isomorphism)', 'not linear']
   answer: 2
   explanation: |-

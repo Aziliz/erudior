@@ -24,7 +24,7 @@
     - {name: r2, label: 'entry 2'}
     - {name: r3, label: 'entry 3'}
   solution: |-
-    $T(\mathbf{u}) = {u1}\begin{bmatrix} {a11} \\ {a21} \\ {a31}\end{bmatrix} + ({u2})\begin{bmatrix} {a12} \\ {a22} \\ {a32}\end{bmatrix} =$ **$\begin{bmatrix} {r1} \\ {r2} \\ {r3}\end{bmatrix}$**, a vector in $\mathbb{R}^3$.
+    $T(\mathbf{u}) = {u1:coef}\begin{bmatrix} {a11} \\ {a21} \\ {a31}\end{bmatrix} + ({u2})\begin{bmatrix} {a12} \\ {a22} \\ {a32}\end{bmatrix} =$ **$\begin{bmatrix} {r1} \\ {r2} \\ {r3}\end{bmatrix}$**, a vector in $\mathbb{R}^3$.
 
 - id: la-T-from-basis
   title: Use linearity to evaluate T
@@ -46,7 +46,7 @@
     - {name: r1, label: 'entry 1'}
     - {name: r2, label: 'entry 2'}
   solution: |-
-    $({c1}, {c2}) = {c1}\mathbf{e}_1 + ({c2})\mathbf{e}_2$, so by linearity $T({c1}, {c2}) = {c1}\,T(\mathbf{e}_1) + ({c2})\,T(\mathbf{e}_2) =$ **$({r1}, {r2})$**.
+    $({c1}, {c2}) = {c1:coef}\mathbf{e}_1 {c2:signedcoef}\mathbf{e}_2$, so by linearity $T({c1}, {c2}) = {c1:coef}\,T(\mathbf{e}_1) {c2:signedcoef}\,T(\mathbf{e}_2) =$ **$({r1}, {r2})$**.
 
 - id: la-rotate
   title: Rotate a point

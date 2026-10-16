@@ -45,7 +45,7 @@ example, three independent vectors in $\mathbb{R}^3$ automatically span $\mathbb
 
 ## Dimensions of $\operatorname{Nul} A$ and $\operatorname{Col} A$
 
-From the bases found in the last two lessons:
+From the bases found in the bases lesson:
 
 - $\dim \operatorname{Nul} A$ = the number of free variables in $A\mathbf{x} = \mathbf{0}$ (one basis vector per free variable);
 - $\dim \operatorname{Col} A$ = the number of pivot columns of $A$;

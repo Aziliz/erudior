@@ -297,7 +297,7 @@
     cc: {min: -5, max: 5}
   where: ["bb != 0"]
   calc:
-    tr: aa + cc + 0
+    trv: aa + cc + 0
     dt: aa*cc - bb^2 + 0
     disc: (aa - cc)^2 + 4*bb^2 + 0
     lmax: (aa + cc + sqrt((aa - cc)^2 + 4*bb^2))/2 + 0
@@ -308,7 +308,7 @@
     - {name: lmax, label: 'larger', tolerance: 0.01}
     - {name: lmin, label: 'smaller', tolerance: 0.01}
   solution: |-
-    $\lambda^2 - ({tr})\lambda + ({dt}) = 0$, so $\lambda = \dfrac{{tr} \pm \sqrt{{disc}}}{2}$. The discriminant $(a - c)^2 + 4b^2 = {disc}$ is positive, as it must be for a symmetric matrix (real eigenvalues).
+    The characteristic equation is $\lambda^2 - (\operatorname{tr} A)\lambda + \det A = 0$ with $\operatorname{tr} A = {trv}$ and $\det A = {dt}$, so $\lambda = \dfrac{{trv} \pm \sqrt{{disc}}}{2}$. The discriminant $(a - c)^2 + 4b^2 = {disc}$ is positive, as it must be for a symmetric matrix (real eigenvalues).
     **Answer:** $\lambda \approx$ **{lmax:num2}** and **{lmin:num2}**.
 
 - id: la-sym-unit
@@ -338,8 +338,8 @@
   prompt: |-
     $A = \begin{bmatrix} {a11} & {a12} \\ {a12} & {a22}\end{bmatrix}$ has eigenvalues {l1} and {l2}. Find a unit eigenvector $(u_1, u_2)$ for $\lambda = {l1}$ with $u_1 > 0$ (exact like 1/sqrt(5), or 3 decimals).
   answers:
-    - {name: e1, label: '$u_1 =$', tolerance: 0.001}
-    - {name: e2, label: '$u_2 =$', tolerance: 0.001}
+    - {name: e1, label: '$u_1 =$', tolerance: 0.001, format: dp3}
+    - {name: e2, label: '$u_2 =$', tolerance: 0.001, format: dp3}
   solution: |-
     Row-reduce $A - ({l1})I$: its null space is spanned by $({pp}, {qq})$. (The other eigenvector, for {l2}, is the perpendicular direction $({qq}, -{pp})$ up to sign.) Normalize: $\|({pp}, {qq})\| = \sqrt{{d2}}$, so
     $\mathbf{u} = \dfrac{1}{\sqrt{{d2}}}({pp}, {qq}) \approx$ **({e1:dp3}, {e2:dp3})**.
@@ -354,13 +354,13 @@
     cd: {min: -7, max: 7}
     ce: {min: -7, max: 7}
     cf: {min: -7, max: 7}
-  where: ["cd != 0", "ce != 0", "cf != 0"]
+  where: ["ca != 0", "cb != 0", "cc != 0", "cd != 0", "ce != 0", "cf != 0"]
   calc:
     h12: cd/2 + 0
     h13: ce/2 + 0
     h23: cf/2 + 0
   prompt: |-
-    Find the symmetric matrix $A$ with $\mathbf{x}^TA\mathbf{x} = {ca:coef}x_1^2 {cb:signedcoef}x_2^2 {cc:signedcoef}x_3^2 {cd:signedcoef}x_1x_2 {ce:signedcoef}x_1x_3 {cf:signedcoef}x_2x_3$. Give $a_{11}$, $a_{12}$, $a_{13}$, $a_{23}$ (fractions allowed). A coefficient shown as $0x_i^2$ is just zero.
+    Find the symmetric matrix $A$ with $\mathbf{x}^TA\mathbf{x} = {ca:coef}x_1^2 {cb:signedcoef}x_2^2 {cc:signedcoef}x_3^2 {cd:signedcoef}x_1x_2 {ce:signedcoef}x_1x_3 {cf:signedcoef}x_2x_3$. Give $a_{11}$, $a_{12}$, $a_{13}$, $a_{23}$ (fractions allowed).
   answers:
     - {name: ca, label: '$a_{11} =$', kind: fraction}
     - {name: h12, label: '$a_{12} =$', kind: fraction, lowestTerms: true}
@@ -411,6 +411,7 @@
     m22: a12^2 + a22^2 + 0
     tr: a11^2 + a21^2 + a12^2 + a22^2 + 0
     dt: (a11*a22 - a12*a21)^2 + 0
+    dsc: (a11^2 + a21^2 + a12^2 + a22^2)^2 - 4*(a11*a22 - a12*a21)^2 + 0
     s1: sqrt((a11^2 + a21^2 + a12^2 + a22^2 + sqrt((a11^2 + a21^2 + a12^2 + a22^2)^2 - 4*(a11*a22 - a12*a21)^2))/2) + 0
     s2: sqrt(abs((a11^2 + a21^2 + a12^2 + a22^2 - sqrt((a11^2 + a21^2 + a12^2 + a22^2)^2 - 4*(a11*a22 - a12*a21)^2))/2)) + 0
   where: ["tr > 0"]
@@ -420,7 +421,7 @@
     - {name: s1, label: '$\sigma_1 =$', tolerance: 0.01}
     - {name: s2, label: '$\sigma_2 =$', tolerance: 0.01}
   solution: |-
-    $A^TA = \begin{bmatrix} {m11} & {m12} \\ {m12} & {m22}\end{bmatrix}$ has trace {tr} and determinant $(\det A)^2 = {dt}$. Its eigenvalues are the roots of $\lambda^2 - {tr}\lambda + {dt} = 0$, and the singular values are their square roots:
+    $A^TA = \begin{bmatrix} {m11} & {m12} \\ {m12} & {m22}\end{bmatrix}$ has trace {tr} and determinant $(\det A)^2 = {dt}$. Its eigenvalues are $\lambda = \dfrac{{tr} \pm \sqrt{{dsc}}}{2}$ (the roots of $\lambda^2 - (\operatorname{trace})\lambda + \det = 0$), and the singular values are their square roots:
     $\sigma_1 \approx$ **{s1:num2}**, $\sigma_2 \approx$ **{s2:num2}**. (Check: $\sigma_1\sigma_2 = |\det A|$.)
 
 - id: la-ata

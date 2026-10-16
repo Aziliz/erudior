@@ -12,7 +12,7 @@ title: Determinant properties
 | Expansion | along row $i$: $\sum_j a_{ij}C_{ij}$; down column $j$: $\sum_i a_{ij}C_{ij}$ |
 | Sign pattern | $\begin{bmatrix} + & - & + \\ - & + & - \\ + & - & +\end{bmatrix}$ |
 | Triangular | product of the diagonal entries |
-| Row reduction | $\det A = (-1)^r \times$ (product of pivots of an echelon form), $r$ = number of swaps |
+| Row reduction | $\det A = (-1)^r \times$ (product of pivots of an echelon form) when only replacements and swaps are used, $r$ = number of swaps |
 
 ## Row (and column) operations
 

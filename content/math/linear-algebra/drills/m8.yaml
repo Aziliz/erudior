@@ -51,7 +51,7 @@
     - {name: l1, label: 'Smaller eigenvalue'}
     - {name: l2, label: 'Larger eigenvalue'}
   solution: |-
-    $\operatorname{tr} A = {trv}$ and $\det A = {dt}$, so the characteristic equation is $\lambda^2 {ntr:signedcoef}\lambda {dt:signed} = 0$, which factors as $(\lambda - ({l1}))(\lambda - ({l2})) = 0$.
+    The characteristic equation is $\lambda^2 - (\operatorname{tr} A)\lambda + \det A = 0$ with $\operatorname{tr} A = {trv}$ and $\det A = {dt}$. Its roots are the two numbers that add to {trv} and multiply to {dt}.
     **Answer:** $\lambda = {l1}$ and $\lambda = {l2}$. (Check: they add to the trace and multiply to the determinant.)
 
 - id: la-char-poly
@@ -145,6 +145,8 @@
   where: ["l1 != l2", "pp != 0 or qq != 0"]
   calc:
     d11: pp*qq + 1 + 0
+    np: -pp + 0
+    nq: -qq + 0
     m1: l1^kp + 0
     m2: l2^kp + 0
     r11: l1^kp*(pp*qq + 1) - pp*qq*l2^kp + 0
@@ -159,7 +161,7 @@
     - {name: r21, label: 'row 2, col 1'}
     - {name: r22, label: 'row 2, col 2'}
   solution: |-
-    $A^{{kp}} = PD^{{kp}}P^{-1}$ with $D^{{kp}} = \begin{bmatrix} {m1} & 0 \\ 0 & {m2}\end{bmatrix}$ and ($\det P = 1$) $P^{-1} = \begin{bmatrix} {d11} & -({pp}) \\ -({qq}) & 1\end{bmatrix}$. Multiplying out:
+    $A^{{kp}} = PD^{{kp}}P^{-1}$ with $D^{{kp}} = \begin{bmatrix} {m1} & 0 \\ 0 & {m2}\end{bmatrix}$ and ($\det P = 1$) $P^{-1} = \begin{bmatrix} {d11} & {np} \\ {nq} & 1\end{bmatrix}$. Multiplying out:
     $$A^{{kp}} = \begin{bmatrix} {r11} & {r12} \\ {r21} & {r22}\end{bmatrix}.$$
 
 - id: la-complex-eig
@@ -174,6 +176,7 @@
     trv: a11 + a22 + 0
     dt: a11*a22 - a12*a21 + 0
     disc: (a11 + a22)^2 - 4*(a11*a22 - a12*a21) + 0
+    nd: -((a11 + a22)^2 - 4*(a11*a22 - a12*a21)) + 0
     re: (a11 + a22)/2 + 0
     im: sqrt(4*(a11*a22 - a12*a21) - (a11 + a22)^2)/2 + 0
     md: sqrt(a11*a22 - a12*a21) + 0
@@ -186,7 +189,7 @@
     - {name: md, label: '$|\lambda| =$', tolerance: 0.01}
   solution: |-
     $\operatorname{tr} A = {trv}$, $\det A = {dt}$. The discriminant $({trv})^2 - 4({dt}) = {disc}$ is negative, so
-    $\lambda = \dfrac{{trv} \pm \sqrt{{disc}}}{2}$: $a =$ **{re:num2}**, $b =$ **{im:num2}**.
+    $\lambda = \dfrac{{trv} \pm i\sqrt{{nd}}}{2}$: $a =$ **{re:num2}**, $b =$ **{im:num2}**.
     $|\lambda| = \sqrt{a^2 + b^2} = \sqrt{\det A} = \sqrt{{dt}} \approx$ **{md:num2}**.
 
 - id: la-rot-scale
@@ -216,7 +219,7 @@
       - {from: [0, 0], to: [1, 0], arrow: true, label: 'e₁'}
       - {from: [0, 0], to: [aa, bb], arrow: true, label: 'Ce₁'}
   solution: |-
-    $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ with $a = {aa}$, $b = {bb}$; its eigenvalues are ${aa} \pm {ab}i$. The scale factor is $r = \sqrt{{s2}} \approx$ **{rr:num2}**, and $\varphi$ is the angle of the point $({aa}, {bb})$, which is where $\mathbf{e}_1$ goes: $\varphi \approx$ **{ang:num1}°**.
+    $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ with $a = {aa}$, $b = {bb}$; its eigenvalues are ${aa} \pm {ab:coef}i$. The scale factor is $r = \sqrt{{s2}} \approx$ **{rr:num2}**, and $\varphi$ is the angle of the point $({aa}, {bb})$, which is where $\mathbf{e}_1$ goes: $\varphi \approx$ **{ang:num1}°**.
 
 - id: la-markov-step
   title: Two steps of a Markov chain
@@ -239,8 +242,8 @@
   prompt: |-
     A Markov chain has $P = \begin{bmatrix} {p11} & {p12} \\ {p21} & {p22}\end{bmatrix}$ and $\mathbf{x}_0 = ({xs}, {y0})$. Find $\mathbf{x}_2$ (3 decimals).
   answers:
-    - {name: x21, label: 'entry 1', tolerance: 0.001}
-    - {name: x22, label: 'entry 2', tolerance: 0.001}
+    - {name: x21, label: 'entry 1', tolerance: 0.001, format: dp3}
+    - {name: x22, label: 'entry 2', tolerance: 0.001, format: dp3}
   solution: |-
     $\mathbf{x}_1 = P\mathbf{x}_0 = ({x11:dp3}, {x12:dp3})$, then $\mathbf{x}_2 = P\mathbf{x}_1 =$ **({x21:dp3}, {x22:dp3})**. (The entries still add to 1, as they must.)
 
@@ -294,5 +297,5 @@
     - {name: xk1, label: 'entry 1', tolerance: 0.01}
     - {name: xk2, label: 'entry 2', tolerance: 0.01}
   solution: |-
-    First write $\mathbf{x}_0 = {c1}\mathbf{v}_1 + ({c2})\mathbf{v}_2$ (solve for the weights). Then
-    $\mathbf{x}_{{kk}} = {c1}({la})^{{kk}}\mathbf{v}_1 + ({c2})({lb})^{{kk}}\mathbf{v}_2 = {f1}\,\mathbf{v}_1 + ({f2})\,\mathbf{v}_2 =$ **({xk1}, {xk2})**.
+    First write $\mathbf{x}_0 = {c1:coef}\mathbf{v}_1 {c2:signedcoef}\mathbf{v}_2$ (solve for the weights). Then
+    $\mathbf{x}_{{kk}} = {c1:coef}({la})^{{kk}}\mathbf{v}_1 {c2:signedcoef}({lb})^{{kk}}\mathbf{v}_2 = {f1:coef}\,\mathbf{v}_1 {f2:signedcoef}\,\mathbf{v}_2 =$ **({xk1:num4}, {xk2:num4})**.

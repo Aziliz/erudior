@@ -59,7 +59,7 @@ converts $\mathcal{B}$-coordinates to standard ones; multiplying by its inverse 
 
 The **coordinate mapping** $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a one-to-one linear
 transformation from $V$ onto $\mathbb{R}^n$, a correspondence called an **isomorphism**. It lets
-us do computations in any $n$-dimensional space by working in $\mathbb{R}^n$.
+us do computations in any vector space with an $n$-vector basis by working in $\mathbb{R}^n$.
 
 For example, with the standard basis $\{1, t, t^2\}$ of $\mathbb{P}_2$, the polynomial
 $p(t) = 3 - 2t + 5t^2$ has coordinate vector $(3, -2, 5)$. To test whether $1 + t^2$,

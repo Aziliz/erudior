@@ -4,7 +4,7 @@ module: la-m7
 title: Bases
 minutes: 35
 topics: [Bases]
-drills: [la-nul-basis, la-rank-echelon]
+drills: [la-nul-basis, la-col-h]
 refs: [la-ref-row]
 ---
 ## The most efficient spanning set

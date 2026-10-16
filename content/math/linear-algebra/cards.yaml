@@ -58,7 +58,7 @@
 - {front: 'When does $A\mathbf{x} = \mathbf{0}$ have a nontrivial solution?', back: 'Exactly when there is at least one free variable', topic: Homogeneous systems}
 - {front: 'Structure of the solutions of $A\mathbf{x} = \mathbf{b}$', back: '$\mathbf{p} + \mathbf{v}_h$: one particular solution plus any solution of $A\mathbf{x} = \mathbf{0}$', topic: Parametric vector form}
 - {front: 'Parametric vector form recipe', back: 'RREF, solve for basic variables, write $\mathbf{x}$ as a column, split into one vector per free variable', topic: Parametric vector form}
-- {front: 'Is the solution set of $A\mathbf{x} = \mathbf{b}$ ($\mathbf{b} \ne \mathbf{0}$) a subspace?', back: 'No: it doesn''t contain $\mathbf{0}$. It is a translated span.', topic: Parametric vector form}
+- {front: 'Is the solution set of $A\mathbf{x} = \mathbf{b}$ ($\mathbf{b} \ne \mathbf{0}$) a span?', back: 'No: it doesn''t contain $\mathbf{0}$. It is a span translated by a particular solution.', topic: Parametric vector form}
 
 # Independence
 - {front: 'Columns of $A$ are linearly independent exactly when…', back: '$A\mathbf{x} = \mathbf{0}$ has only the trivial solution, i.e. a pivot in every column', topic: Linear independence}

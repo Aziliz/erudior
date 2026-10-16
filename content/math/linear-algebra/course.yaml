@@ -8,6 +8,7 @@ description: >-
   the singular value decomposition, with applications to networks, chemistry, graphics,
   Markov chains and regression.
 revision: 1
+released: true
 order: 10
 modules:
   - id: la-m1

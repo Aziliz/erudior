@@ -56,12 +56,12 @@
   lesson: la-plane-vectors
   module_quiz: true
   topic: Plane vectors
-  stem: 'Which statement holds for **all** vectors $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$?'
+  stem: 'Which statement holds for all vectors $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$?'
   choices: ['$\|\mathbf{u} + \mathbf{v}\| = \|\mathbf{u}\| + \|\mathbf{v}\|$', '$\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$', '$\|\mathbf{u} + \mathbf{v}\| \ge \|\mathbf{u}\| + \|\mathbf{v}\|$', '$\|\mathbf{u} - \mathbf{v}\| = \|\mathbf{u}\| - \|\mathbf{v}\|$']
   answer: 1
   explanation: |-
     This is the triangle inequality: one side of a triangle is never longer than the other two combined.
-    Equality holds only when the vectors point the same way, so the first choice fails in general (for example $\mathbf{u} = \mathbf{e}_1$, $\mathbf{v} = -\mathbf{e}_1$ gives $0$ versus $2$).
+    Equality holds only when the vectors point the same way, so $\|\mathbf{u} + \mathbf{v}\| = \|\mathbf{u}\| + \|\mathbf{v}\|$ fails in general (for example $\mathbf{u} = \mathbf{e}_1$, $\mathbf{v} = -\mathbf{e}_1$ gives $0$ versus $2$).
 
 - id: la-q-0107
   lesson: la-plane-vectors
@@ -312,7 +312,7 @@
   answer: 2
   explanation: |-
     $ad - bc = 6 - 4 = 2$, so $A^{-1} = \tfrac12\begin{bmatrix} 3 & -4 \\ -1 & 2\end{bmatrix} = \begin{bmatrix} 3/2 & -2 \\ -1/2 & 1\end{bmatrix}$.
-    The first choice forgets to divide by the determinant; the last takes reciprocals of the entries, which is not how inverses work.
+    $\begin{bmatrix} 3 & -4 \\ -1 & 2\end{bmatrix}$ forgets to divide by the determinant; $\begin{bmatrix} 1/2 & 1/4 \\ 1 & 1/3\end{bmatrix}$ takes reciprocals of the entries, which is not how inverses work.
 
 - id: la-q-0307
   lesson: la-matrix-arith
@@ -337,7 +337,7 @@
 - id: la-q-0309
   lesson: la-matrix-arith
   topic: Matrix arithmetic
-  stem: 'Which identity holds for **all** $2 \times 2$ matrices $A, B, C$?'
+  stem: 'Which identity holds for all $2 \times 2$ matrices $A, B, C$?'
   choices: ['$AB = BA$', '$(A + B)^2 = A^2 + 2AB + B^2$', '$A(B + C) = AB + AC$', 'If $AB = 0$, then $A = 0$ or $B = 0$']
   answer: 2
   explanation: |-

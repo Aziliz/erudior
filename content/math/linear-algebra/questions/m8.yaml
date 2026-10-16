@@ -27,7 +27,7 @@
   choices: ['A vector with a zero entry', 'A unit vector', 'The zero vector', 'A vector with eigenvalue 0']
   answer: 2
   explanation: |-
-    Eigenvectors must be nonzero by definition; otherwise every $\lambda$ would be an eigenvalue. A nonzero vector *can* have eigenvalue 0 (it lies in $\operatorname{Nul} A$).
+    Eigenvectors must be nonzero by definition; otherwise every $\lambda$ would be an eigenvalue. A nonzero vector can have eigenvalue 0 (it lies in $\operatorname{Nul} A$).
 
 - id: la-q-2704
   lesson: la-eigen
@@ -290,7 +290,7 @@
   choices: ['the number of times $\lambda$ appears on the diagonal of $A$', 'its multiplicity as a root of the characteristic polynomial', '$\dim\operatorname{Nul}(A - \lambda I)$', 'the rank of $A - \lambda I$']
   answer: 2
   explanation: |-
-    It counts independent eigenvectors for $\lambda$. It's at least 1 and at most the algebraic multiplicity (the second choice).
+    It counts independent eigenvectors for $\lambda$. It's at least 1 and at most the algebraic multiplicity (the multiplicity as a root of the characteristic polynomial).
 
 - id: la-q-2908
   lesson: la-diagonalization
@@ -347,7 +347,7 @@
   choices: ['$i$ and $-i$', '$1$ and $-1$', '$0$ only', 'It has no eigenvalues']
   answer: 0
   explanation: |-
-    $\lambda^2 + 1 = 0$ gives $\lambda = \pm i$. There are no *real* eigenvalues, because a $90^\circ$ rotation turns every vector.
+    $\lambda^2 + 1 = 0$ gives $\lambda = \pm i$. There are no real eigenvalues, because a $90^\circ$ rotation turns every vector.
 
 - id: la-q-3002
   lesson: la-complex-eig
@@ -459,7 +459,7 @@
   choices: ['$\begin{bmatrix} 0.6 & 0.4 \\ 0.6 & 0.4\end{bmatrix}$', '$\begin{bmatrix} 0.6 & 0.3 \\ 0.4 & 0.7\end{bmatrix}$', '$\begin{bmatrix} 0.6 & 0.3 \\ 0.3 & 0.6\end{bmatrix}$', '$\begin{bmatrix} 1.2 & -0.2 \\ -0.2 & 1.2\end{bmatrix}$']
   answer: 1
   explanation: |-
-    Each column must be a probability vector: nonnegative entries summing to 1. $0.6 + 0.4 = 1$ and $0.3 + 0.7 = 1$. The first has rows summing to 1 instead; the last has negative entries.
+    Each column must be a probability vector: nonnegative entries summing to 1. $0.6 + 0.4 = 1$ and $0.3 + 0.7 = 1$. The matrix with columns $(0.6, 0.6)$ and $(0.4, 0.4)$ has rows summing to 1 instead; in the one with $0.3$ off the diagonal the columns sum to $0.9$; the one with $-0.2$ entries has negative entries.
 
 - id: la-q-3102
   lesson: la-dynamics

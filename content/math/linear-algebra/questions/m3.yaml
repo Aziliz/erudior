@@ -95,7 +95,7 @@
   choices: ['$x_1\begin{bmatrix} 2 \\ 1\end{bmatrix} + x_2\begin{bmatrix} -1 \\ 3\end{bmatrix} = \begin{bmatrix} 5 \\ 1\end{bmatrix}$', '$x_1\begin{bmatrix} 2 \\ -1\end{bmatrix} + x_2\begin{bmatrix} 1 \\ 3\end{bmatrix} = \begin{bmatrix} 5 \\ 1\end{bmatrix}$', '$x_1\begin{bmatrix} 2 \\ 5\end{bmatrix} + x_2\begin{bmatrix} -1 \\ 1\end{bmatrix} = \begin{bmatrix} 1 \\ 3\end{bmatrix}$', '$\begin{bmatrix} 2 \\ -1\end{bmatrix} + \begin{bmatrix} 1 \\ 3\end{bmatrix} = \begin{bmatrix} 5 \\ 1\end{bmatrix}$']
   answer: 1
   explanation: |-
-    Each variable's coefficients, read down the equations, form its column: $x_1$ has $(2, -1)$ and $x_2$ has $(1, 3)$. The first choice uses the rows as columns.
+    Each variable's coefficients, read down the equations, form its column: $x_1$ has $(2, -1)$ and $x_2$ has $(1, 3)$. Using $(2, 1)$ and $(-1, 3)$ as the columns turns the rows into columns.
 
 - id: la-q-0811
   lesson: la-lin-comb
@@ -143,7 +143,7 @@
   choices: ['$-1\begin{bmatrix} 1 \\ 2\end{bmatrix} + 2\begin{bmatrix} 3 \\ 4\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 6 \\ 5\end{bmatrix}$', '$-1\begin{bmatrix} 1 \\ 3 \\ 5\end{bmatrix} + 2\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix}$', '$-1\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix} + 2\begin{bmatrix} 1 \\ 3 \\ 5\end{bmatrix}$']
   answer: 2
   explanation: |-
-    $A\mathbf{x}$ is the combination of the *columns* of $A$ with weights $x_1 = -1$ and $x_2 = 2$: $(-1 + 4,\ -3 + 8,\ -5 + 12) = (3, 5, 7)$.
+    $A\mathbf{x}$ is the combination of the columns of $A$ with weights $x_1 = -1$ and $x_2 = 2$: $(-1 + 4,\ -3 + 8,\ -5 + 12) = (3, 5, 7)$.
 
 - id: la-q-0904
   lesson: la-matrix-eq
@@ -267,7 +267,7 @@
   answer: 1
   explanation: |-
     $x_1 = -3x_2 + 2x_3$ with $x_2, x_3$ free, so $\mathbf{x} = (-3x_2 + 2x_3,\ x_2,\ x_3) = x_2(-3, 1, 0) + x_3(2, 0, 1)$.
-    The first choice forgets to change signs when solving for $x_1$; the last puts the 1s in the wrong slots.
+    Using $(3, 1, 0)$ and $(-2, 0, 1)$ forgets to change signs when solving for $x_1$; $(-3, 0, 1)$ and $(2, 1, 0)$ put the 1s in the wrong slots.
 
 - id: la-q-1005
   lesson: la-solution-sets
@@ -276,7 +276,7 @@
   choices: ['$\begin{bmatrix} 4 \\ -3 \\ 0\end{bmatrix} + x_3\begin{bmatrix} -2 \\ 1 \\ 1\end{bmatrix}$', '$\begin{bmatrix} 4 \\ -3 \\ 1\end{bmatrix} + x_3\begin{bmatrix} 2 \\ -1 \\ 0\end{bmatrix}$', '$\begin{bmatrix} 4 \\ -3 \\ 0\end{bmatrix} + x_3\begin{bmatrix} 2 \\ -1 \\ 1\end{bmatrix}$', '$x_3\begin{bmatrix} 2 \\ -1 \\ 1\end{bmatrix}$']
   answer: 2
   explanation: |-
-    $x_1 = 4 + 2x_3$, $x_2 = -3 - x_3$, $x_3$ free, so $\mathbf{x} = (4, -3, 0) + x_3(2, -1, 1)$. The last choice is the homogeneous solution set only.
+    $x_1 = 4 + 2x_3$, $x_2 = -3 - x_3$, $x_3$ free, so $\mathbf{x} = (4, -3, 0) + x_3(2, -1, 1)$. $x_3(2, -1, 1)$ alone is the homogeneous solution set only.
 
 - id: la-q-1006
   lesson: la-solution-sets
@@ -331,7 +331,7 @@
   choices: ['Because it has only one element', 'Because a span always contains $\mathbf{0}$, but $A\mathbf{0} = \mathbf{0} \ne \mathbf{b}$', 'Because spans are always planes', 'Because $A$ is not square']
   answer: 1
   explanation: |-
-    $\mathbf{0}$ is in every span, but $\mathbf{0}$ doesn't solve $A\mathbf{x} = \mathbf{b}$ when $\mathbf{b} \ne \mathbf{0}$. The solution set is a span *translated* by a particular solution.
+    $\mathbf{0}$ is in every span, but $\mathbf{0}$ doesn't solve $A\mathbf{x} = \mathbf{b}$ when $\mathbf{b} \ne \mathbf{0}$. The solution set is a span translated (shifted) by a particular solution.
 
 - id: la-q-1012
   lesson: la-solution-sets
@@ -454,4 +454,4 @@
   choices: ['The set is dependent: a relation only needs some weight to be nonzero', 'The student is right', 'The set is independent only if $x_3 = 0$ too', 'Nothing can be concluded']
   answer: 0
   explanation: |-
-    $2\mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$ is a nontrivial relation, so the set is dependent (here $\mathbf{v}_3 = 2\mathbf{v}_2$). Independence requires *all* weights to be zero in every solution.
+    $2\mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$ is a nontrivial relation, so the set is dependent (here $\mathbf{v}_3 = 2\mathbf{v}_2$). Independence requires all weights to be zero in every solution.

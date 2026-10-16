@@ -10,7 +10,7 @@
   answer: 1
   explanation: |-
     Each column belongs to one variable ($x_1, x_2, x_3$), so missing variables get 0 entries, and the right sides form the last column.
-    The first choice drops the zeros and mixes up columns; the third is the coefficient matrix only.
+    Dropping the zero entries leaves too few columns, so coefficients land under the wrong variables; the matrix without a bar is the coefficient matrix only.
 
 - id: la-q-0402
   lesson: la-systems
@@ -59,7 +59,7 @@
   answer: 0
   explanation: |-
     Row 3: $3x_3 = 6$, so $x_3 = 2$. Row 2: $x_2 - x_3 = 1$, so $x_2 = 3$. Row 1: $x_1 - x_2 + 2x_3 = 3$, so $x_1 = 3 + 3 - 4 = 2$.
-    $(3, 1, 2)$ just reads the right-hand column without back-substituting.
+    $(3, 1, 2)$ takes $x_1$ and $x_2$ straight from the right-hand column without back-substituting.
 
 - id: la-q-0407
   lesson: la-systems
@@ -122,12 +122,12 @@
   lesson: la-row-reduction
   module_quiz: true
   topic: Echelon forms
-  stem: 'Which matrix is in echelon form but **not** in reduced echelon form?'
+  stem: 'Which matrix is in echelon form but not in reduced echelon form?'
   choices: ['$\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 3\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 & 2 \\ 1 & 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 & 3 \\ 0 & 0 & 0 \\ 0 & 1 & 4\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 & 0 \\ 0 & 3 & 1 \\ 0 & 0 & 0\end{bmatrix}$']
   answer: 3
   explanation: |-
     Its leading entries (1 and 3) step to the right with zeros below, so it's in echelon form, but the leading 3 isn't 1 and has a nonzero entry above it.
-    The first matrix is already reduced; the second has leading entries moving left; the third has a zero row above a nonzero row.
+    $\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 3\end{bmatrix}$ is already reduced; $\begin{bmatrix} 0 & 1 & 2 \\ 1 & 0 & 3\end{bmatrix}$ has leading entries moving left; the matrix with a zero middle row has a zero row above a nonzero row.
 
 - id: la-q-0502
   lesson: la-row-reduction
@@ -137,7 +137,7 @@
   answer: 0
   explanation: |-
     Leading 1s step right and each is the only nonzero entry in its column. Non-pivot columns (like column 3) may hold any numbers.
-    The second matrix has a 2 above the leading 1 of row 2; the third has a leading 2; the fourth has a zero row on top.
+    $\begin{bmatrix} 1 & 2 & 0 \\ 0 & 1 & 3 \\ 0 & 0 & 0\end{bmatrix}$ has a 2 above the leading 1 of row 2; $\begin{bmatrix} 1 & 0 & 2 \\ 0 & 2 & 1\end{bmatrix}$ has a leading 2; $\begin{bmatrix} 0 & 0 & 0 \\ 1 & 0 & 0\end{bmatrix}$ has a zero row on top.
 
 - id: la-q-0503
   lesson: la-row-reduction
@@ -186,7 +186,7 @@
   answer: 1
   explanation: |-
     $R_1 \leftarrow \tfrac12 R_1$: $[\,1 \;\; 2 \;\; 3\,]$. $R_2 \leftarrow R_2 - R_1$: $[\,0 \;\; 1 \;\; 2\,]$. $R_1 \leftarrow R_1 - 2R_2$: $[\,1 \;\; 0 \;\; {-1}\,]$.
-    The first choice is an echelon form, not reduced; the third has a sign slip ($3 - 4 = -1$).
+    $\begin{bmatrix} 1 & 2 & 3 \\ 0 & 1 & 2\end{bmatrix}$ is an echelon form, not reduced; a $+1$ in the top-right corner is a sign slip ($3 - 4 = -1$).
 
 - id: la-q-0508
   lesson: la-row-reduction
@@ -215,7 +215,7 @@
   answer: 0
   explanation: |-
     $R_2 \leftarrow \tfrac12 R_2$ gives $[\,0 \;\; 1 \;\; 3 \;\; 2\,]$. Then $R_1 \leftarrow R_1 - 4R_2$: $-1 - 12 = -13$ and $2 - 8 = -6$.
-    The second choice subtracted $4R_2$ before scaling (and left a pivot of 2); the third added instead of subtracting.
+    The matrix ending in $-25$ and $-14$ subtracts $4R_2$ without first scaling row 2 (which doesn't even clear the 4) and leaves a pivot of 2; the one with 11 and 10 adds instead of subtracting.
 
 - id: la-q-0511
   lesson: la-row-reduction
@@ -233,7 +233,7 @@
   choices: ['$\begin{bmatrix} 1 & 3 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 3 \\ 0 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 2 & 1\end{bmatrix}$']
   answer: 1
   explanation: |-
-    $R_2 - 2R_1 = [\,0 \;\; 1\,]$, then $R_1 - 3R_2 = [\,1 \;\; 0\,]$. Both columns are pivot columns, so the RREF is the identity. The first choice is an echelon form that hasn't been fully reduced.
+    $R_2 - 2R_1 = [\,0 \;\; 1\,]$, then $R_1 - 3R_2 = [\,1 \;\; 0\,]$. Both columns are pivot columns, so the RREF is the identity. $\begin{bmatrix} 1 & 3 \\ 0 & 1\end{bmatrix}$ is an echelon form that hasn't been fully reduced.
 
 # --- Lesson 06: existence, uniqueness, general solution ---
 - id: la-q-0601
