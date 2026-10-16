@@ -23,6 +23,8 @@ import yaml
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT.parent.parent / "samples" / "math"
+# Unreleased drafts build here: outside the app bundle and not committed.
+DRAFTS = ROOT.parent.parent / "samples" / "math-drafts"
 
 ID = re.compile(r"^[A-Za-z0-9_-]{1,100}$")
 
@@ -178,6 +180,24 @@ def build(folder: pathlib.Path):
     cards = load_yaml(folder / "cards.yaml") if (folder / "cards.yaml").exists() else []
     glossary = load_yaml(folder / "glossary.yaml") if (folder / "glossary.yaml").exists() else []
 
+    # Bolded glossary terms become pop-up links: **slope** -> **[[slope]]**.
+    names = {}
+    for g in glossary or []:
+        for n in [g["term"], *(g.get("aliases") or [])]:
+            names.setdefault(str(n).strip().lower(), True)
+
+    def link_bold(md):
+        def rep(m):
+            t = m.group(1)
+            if "$" in t or "[[" in t or t.strip().lower() not in names:
+                return m.group(0)
+            return f"**[[{t}]]**"
+        parts = re.split(r"(```[\s\S]*?```)", md)
+        return "".join(p if p.startswith("```") else re.sub(r"\*\*([^*\n]+?)\*\*", rep, p) for p in parts)
+
+    for l in lessons:
+        l["body"] = link_bold(l["body"])
+
     module_of = {l["id"]: l["module"] for l in lessons}
     bank_questions = []
     for q in questions:
@@ -225,8 +245,10 @@ def build(folder: pathlib.Path):
     }
     if not course["changelog"]:
         del course["changelog"]
-    OUT.mkdir(parents=True, exist_ok=True)
-    path = OUT / f"{cid}.json"
+    dest = OUT if meta.get("released") else DRAFTS
+    dest.mkdir(parents=True, exist_ok=True)
+    path = dest / f"{cid}.json"
+    (DRAFTS if dest is OUT else OUT).joinpath(f"{cid}.json").unlink(missing_ok=True)
     path.write_text(json.dumps(course, indent=1, ensure_ascii=False), encoding="utf-8")
     return path, {"lessons": len(lessons), "questions": len(bank_questions), "drills": len(drills),
                   "cards": len(cards or []), "terms": len(glossary or []), "refs": len(refs)}
@@ -248,12 +270,23 @@ def main():
 
 
 def write_manifest():
-    """samples/math-index.json lists the bundled courses (id, title, revision) for the app."""
+    """samples/math-index.json lists the bundled courses (id, title, revision) for the app.
+
+    Only courses marked `released: true` in course.yaml ship; drafts are built but not bundled.
+    They're listed in `order` (course.yaml), then by folder name.
+    """
     items = []
-    for f in sorted(OUT.glob("*.json")):
-        c = json.loads(f.read_text(encoding="utf-8"))
-        items.append({"id": c["id"], "title": c["title"], "revision": c.get("revision", 1)})
-    (OUT.parent / "math-index.json").write_text(json.dumps(items, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    for folder in sorted(p for p in ROOT.iterdir() if (p / "course.yaml").exists()):
+        meta = load_yaml(folder / "course.yaml")
+        if not meta.get("released"):
+            continue
+        out = OUT / f"{meta['id']}.json"
+        if not out.exists():
+            continue
+        c = json.loads(out.read_text(encoding="utf-8"))
+        items.append((meta.get("order", 999), folder.name, {"id": c["id"], "title": c["title"], "revision": c.get("revision", 1)}))
+    items.sort(key=lambda t: (t[0], t[1]))
+    (OUT.parent / "math-index.json").write_text(json.dumps([t[2] for t in items], indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

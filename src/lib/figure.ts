@@ -225,16 +225,20 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const span = y1 - y0;
     let d = "";
     let prev: number | null = null;
+    let pen = false;
     for (let k = 0; k <= n; k++) {
       const x = a + ((b - a) * k) / n;
       const y = f(x);
-      // Break the line off-screen and across jumps (asymptotes).
-      if (Number.isNaN(y) || y < y0 - 2 * span || y > y1 + 2 * span || (prev !== null && Math.abs(y - prev) > span)) {
+      // Lift the pen off-screen and across jumps (asymptotes).
+      const far = Number.isNaN(y) || y < y0 - 2 * span || y > y1 + 2 * span;
+      const jump = prev !== null && !far && Math.abs(y - prev) > span;
+      if (far) {
+        pen = false;
         prev = Number.isNaN(y) ? null : y;
-        if (!Number.isNaN(y) && y >= y0 - 2 * span && y <= y1 + 2 * span) d += `M${sx(x)},${sy(y)}`;
         continue;
       }
-      d += `${prev === null ? "M" : "L"}${sx(x).toFixed(1)},${sy(y).toFixed(1)}`;
+      d += `${pen && !jump ? "L" : "M"}${sx(x).toFixed(1)},${sy(y).toFixed(1)}`;
+      pen = true;
       prev = y;
     }
     out.push(`<path${clip} class="${cls("fig-curve", def.color, i)}${def.dashed ? " dashed" : ""}"${def.color ? ` style="stroke:${esc(def.color)}"` : ""} d="${d}"/>`);

@@ -127,7 +127,7 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
           break;
         }
       }
-      const wrong = checkAll(g, g.parts.map((p) => (p.spec.kind === "expression" ? "x^7 + 13" : String((p.target ?? 0) * 1.5 + 7.77))));
+      const wrong = checkAll(g, g.parts.map((p) => (p.spec.kind === "expression" ? "x^7 + 13" : String((p.target ?? 0) + 1.37 + 0.6 * Math.abs(p.target ?? 0)))));
       if (wrong.some((r) => r.ok)) {
         say(`drill ${d.id}: wrong answer accepted`);
         break;
