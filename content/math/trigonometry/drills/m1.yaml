@@ -8,12 +8,12 @@
   calc:
     c: mod(a, 360)
     k: (c - a) / 360
-  prompt: 'Find the angle in $[0^\circ, 360^\circ)$ that is coterminal with ${a}^\circ$. Answer in degrees.'
+  prompt: 'Find the angle in $[0^\circ, 360^\circ)$ that is coterminal with ${a:dp0}^\circ$. Answer in degrees.'
   answers:
     - {name: c, label: 'Angle', units: {'°': 1, 'deg': 1, 'degrees': 1}}
   solution: |-
     Add or subtract whole turns until the angle lands in $[0^\circ, 360^\circ)$. Here that takes
-    $k = {k}$ turns: ${a}^\circ + 360^\circ({k}) =$ **{c}°**.
+    $k = {k}$ turns: ${a:dp0}^\circ + 360^\circ({k}) =$ **{c}°**.
   figure:
     type: plot
     x: [-1.5, 1.5]
@@ -50,9 +50,9 @@
   where: ["mod(60*M + S, 9) == 0", "M + S > 0"]
   calc:
     v: D + M/60 + S/3600
-    fr: v - D
-    mm: fr * 60
-    fm: mm - M
+    fr: round(v - D, 6)
+    mm: round(fr * 60, 6)
+    fm: abs(round(mm - M, 6))
   prompt: 'Write ${v:num4}^\circ$ in degrees, minutes and seconds.'
   answers:
     - {name: D, label: 'Degrees', format: integer}
@@ -92,7 +92,7 @@
   answers:
     - {name: deg, label: 'Degrees', units: {'°': 1, 'deg': 1, 'degrees': 1}}
   solution: |-
-    Multiply by $\dfrac{180^\circ}{\pi}$; the $\pi$ cancels: $\dfrac{{n} \cdot 180^\circ}{{d}} =$ **{deg}°**.
+    Multiply by $\dfrac{180^\circ}{\pi}$; the $\pi$ cancels: $\dfrac{{n} \cdot 180^\circ}{{d}} =$ **{deg:dp0}°**.
 
 - id: trig-d-arc-length
   title: Arc length from a degree angle
@@ -163,7 +163,7 @@
     v: r * w
   prompt: 'A wheel of radius {r} cm turns at {rpm} rpm. Find the linear speed of a point on its rim in cm/s (1 decimal).'
   answers:
-    - {name: v, label: '$v =$', relTolerance: 0.003, units: {'cm/s': 1}}
+    - {name: v, label: '$v =$', tolerance: 0.051, units: {'cm/s': 1}}
   solution: |-
     $\omega = {rpm} \cdot 2\pi \text{ rad/min} \div 60 \approx {w:num4}$ rad/s. Then
     $v = r\omega = {r}({w:num4}) \approx$ **{v:num1} cm/s**.
@@ -179,8 +179,8 @@
     rpm: w * 60 / (2 * pi)
   prompt: 'A wheel of radius {r} m rolls so its rim moves at {v} m/s. Find its angular speed in rad/s and in rpm (1 decimal each).'
   answers:
-    - {name: w, label: '$\omega$ (rad/s)', relTolerance: 0.003}
-    - {name: rpm, label: 'rpm', relTolerance: 0.003}
+    - {name: w, label: '$\omega$ (rad/s)', tolerance: 0.051}
+    - {name: rpm, label: 'rpm', tolerance: 0.051}
   solution: |-
     $\omega = \dfrac{\,v}{\,r} = \dfrac{{v}}{{r}} \approx$ **{w:num1} rad/s**. One revolution is
     $2\pi$ rad, so rpm $= \dfrac{60\omega}{2\pi} \approx$ **{rpm:num1}**.

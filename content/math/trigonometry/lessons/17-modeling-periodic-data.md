@@ -117,7 +117,7 @@ In reality friction makes the swings shrink over time. That is **damped harmonic
 motion**, modeled by multiplying by a decaying factor, as in $d = 4e^{-0.3t}\cos(4\pi t)$.
 
 ```plot
-{"x": [0, 4], "y": [-4.5, 4.5], "functions": [{"f": "4exp(-0.5x)cos(4pi*x)", "label": "damped"}, {"f": "4exp(-0.5x)", "dashed": true}, {"f": "-4exp(-0.5x)", "dashed": true}], "xLabel": "t", "yLabel": "d", "caption": "Damped harmonic motion: the amplitude decays inside an exponential envelope"}
+{"x": [0, 4], "y": [-4.5, 4.5], "functions": [{"f": "4exp(-0.3x)cos(4pi*x)", "label": "damped"}, {"f": "4exp(-0.3x)", "dashed": true}, {"f": "-4exp(-0.3x)", "dashed": true}], "xLabel": "t", "yLabel": "d", "caption": "d = 4e^(−0.3t) cos(4πt): the amplitude decays inside an exponential envelope (dashed)"}
 ```
 
 ## Common mistakes

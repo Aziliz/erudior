@@ -240,12 +240,14 @@
     a2: if(f == 0, mod(pi - asin(r1), 2*pi), 2*pi - acos(r1))
     b1: if(abs(r2) <= 1, if(f == 0, mod(asin(r2), 2*pi), acos(r2)), 99)
     sm: min(a1, a2, b1)
-  prompt: 'Solve $2{f}^2 x {B:signedcoef}{f}\,x {C:signed} = 0$ on $[0, 2\pi)$. How many solutions are there, and what is the smallest? (Exact answers like 7pi/6 are fine.)'
+    nr1: -r1
+    nr2: -r2
+  prompt: 'Solve $2{f}^2 x {B:signedcoef}{f}\,x {C:signed} = 0$ on $[0, 2\pi)$. How many solutions are there, and what is the smallest? (Exact answers like 7pi/6 are fine, or give 4 decimals.)'
   answers:
     - {name: cnt, label: 'Number of solutions'}
     - {name: sm, label: 'Smallest solution', tolerance: 0.001, format: num4}
   solution: |-
-    Factor as a quadratic in ${f} x$: $2({f} x - ({r1}))({f} x - ({r2})) = 0$. The factor ${f} x = {r1}$ has 2 solutions;
+    Factor as a quadratic in ${f} x$: $2({f} x {nr1:signed})({f} x {nr2:signed}) = 0$. The factor ${f} x = {r1}$ has 2 solutions;
     ${f} x = {r2}$ has {n2} (none if $|{r2}| > 1$, one if it is $\pm1$). Total **{cnt}**; the smallest is **{sm:num4}**.
 
 - id: trig-d-eq-calc
@@ -267,11 +269,13 @@
     s2: if(f == 0, mod(pi - al, 2*pi), 2*pi - al)
     lo: min(s1, s2)
     hi: max(s1, s2)
+    nm: -m
+    nr2: -r2
   prompt: 'Solve ${A}{f}^2 x {B:signedcoef}{f}\,x {C:signed} = 0$ on $[0, 2\pi)$ to 4 decimals. Smaller solution first.'
   answers:
     - {name: lo, label: 'Smaller', tolerance: 0.0002, format: num4}
     - {name: hi, label: 'Larger', tolerance: 0.0002, format: num4}
   solution: |-
-    Factor: $({A}{f} x - ({m}))({f} x - ({r2})) = 0$.
+    Factor: $({A}{f} x {nm:signed})({f} x {nr2:signed}) = 0$.
     ${f} x = {r2}$ is impossible, so ${f} x = {r1:texfrac}$. The inverse function gives ${al:num4}$; the unit circle gives
     the second angle: $x \approx$ **{lo:num4}** and **{hi:num4}**.

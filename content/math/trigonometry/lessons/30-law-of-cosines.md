@@ -49,7 +49,7 @@ $$a^2 = 8^2 + 11^2 - 2(8)(11)\cos 37^\circ \approx 185 - 140.56 = 44.44, \qquad 
 **An angle.** Now a side–angle pair ($a$, $A$) is known, so either law works. A safe choice
 is the angle opposite the *shorter* of the remaining sides, which can't be obtuse. $b = 8$ is
 shorter than $c = 11$:
-$$\sin B = \frac{8\sin 37^\circ}{6.67} \approx 0.7219, \qquad B \approx 46.24^\circ.$$
+$$\sin B = \frac{8\sin 37^\circ}{6.67} \approx 0.7222, \qquad B \approx 46.24^\circ.$$
 
 **Last angle:** $C \approx 180^\circ - 37^\circ - 46.24^\circ = 96.76^\circ$.
 

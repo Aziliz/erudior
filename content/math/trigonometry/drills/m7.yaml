@@ -11,7 +11,7 @@
     C: 180 - A - B
     b: a * sind(B) / sind(A)
     c: a * sind(C) / sind(A)
-  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $B = {B}^\circ$ and $a = {a}$. Find $C$, $b$ and $c$ (sides to 2 decimals).'
+  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $B = {B}^\circ$ and $a = {a}$. Find $C$ (in degrees), $b$ and $c$ (sides to 2 decimals).'
   answers:
     - {name: C, label: '$C$', units: {'°': 1, 'deg': 1, 'degrees': 1}}
     - {name: b, label: '$b$', tolerance: 0.01}
@@ -39,7 +39,7 @@
   calc:
     B: asind(b * sind(A) / a)
     C: 180 - A - B
-  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $a = {a}$ and $b = {b}$. Find $B$ and $C$ to 2 decimals. (Since $a > b$, there is only one triangle.)'
+  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $a = {a}$ and $b = {b}$. Find $B$ and $C$ in degrees, to 2 decimals. (Since $a > b$, there is only one triangle.)'
   answers:
     - {name: B, label: '$B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
     - {name: C, label: '$C$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
@@ -128,7 +128,7 @@
     C: acosd((a^2 + b^2 - c^2) / (2*a*b))
     A: acosd((b^2 + c^2 - a^2) / (2*b*c))
     B: 180 - A - C
-  prompt: 'A triangle has sides $a = {a}$, $b = {b}$, $c = {c}$. Find all three angles to 2 decimals.'
+  prompt: 'A triangle has sides $a = {a}$, $b = {b}$, $c = {c}$. Find all three angles in degrees, to 2 decimals.'
   answers:
     - {name: A, label: '$A$', tolerance: 0.02, units: {'°': 1, 'deg': 1, 'degrees': 1}}
     - {name: B, label: '$B$', tolerance: 0.02, units: {'°': 1, 'deg': 1, 'degrees': 1}}

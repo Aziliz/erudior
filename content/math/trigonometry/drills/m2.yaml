@@ -95,8 +95,10 @@
   vars:
     f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}, {label: '\tan', value: 2}, {label: '\csc', value: 3}, {label: '\sec', value: 4}, {label: '\cot', value: 5}]}
     t: {choices: [{label: '30^\circ', value: 30}, {label: '45^\circ', value: 45}, {label: '60^\circ', value: 60}, {label: '\tfrac{\pi}{6}', value: 30}, {label: '\tfrac{\pi}{4}', value: 45}, {label: '\tfrac{\pi}{3}', value: 60}]}
+    ex: {choices: [{label: '\tfrac12', value: 0.5}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '1', value: 1}, {label: '\tfrac{\sqrt3}{3}', value: 0.5773502691896257}, {label: '\sqrt3', value: 1.7320508075688772}, {label: '2', value: 2}, {label: '\tfrac{2\sqrt3}{3}', value: 1.1547005383792515}, {label: '\sqrt2', value: 1.4142135623730951}]}
   calc:
     v: if(f == 0, sind(t), if(f == 1, cosd(t), if(f == 2, tand(t), if(f == 3, cscd(t), if(f == 4, secd(t), cotd(t))))))
+  where: ["abs(v - ex) < 1e-9"]
   prompt: 'Give the exact value of ${f}\left({t}\right)$. Type it like sqrt(3)/2 or 2sqrt(3)/3.'
   answers:
     - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
@@ -104,7 +106,7 @@
     The angle is ${t:int}^\circ$. From the special triangles: $\sin$ of $30^\circ, 45^\circ, 60^\circ$ is
     $\tfrac12, \tfrac{\sqrt2}{2}, \tfrac{\sqrt3}{2}$; $\cos$ is the same list reversed; $\tan$ is
     $\tfrac{\sqrt3}{3}, 1, \sqrt3$; and $\csc, \sec, \cot$ are the reciprocals. So
-    ${f}\left({t}\right) \approx$ **{v:num4}**.
+    ${f}\left({t}\right) =$ **${ex}$** $\approx {v:num4}$.
 
 - id: trig-d-right-side
   title: Sides of a right triangle from an angle and a side
@@ -203,7 +205,7 @@
     d: h / tand(t)
   prompt: 'From the top of a {h} ft lighthouse, the angle of depression to a boat is ${t}^\circ$. How far is the boat from the base of the lighthouse? (1 decimal)'
   answers:
-    - {name: d, label: 'Distance', relTolerance: 0.0005, units: {'ft': 1}}
+    - {name: d, label: 'Distance', tolerance: 0.051, units: {'ft': 1}}
   solution: |-
     The angle of elevation from the boat is also ${t}^\circ$, with the height opposite it:
     $\tan {t}^\circ = \dfrac{{h}}{\,d}$, so $d = \dfrac{{h}}{\tan {t}^\circ} \approx$ **{d:num1} ft**.
@@ -248,8 +250,8 @@
     h: x * tand(a2)
   prompt: 'From a point on level ground the angle of elevation to the top of a tower is ${a1}^\circ$. After walking {w} m straight toward it, the angle is ${a2}^\circ$. How tall is the tower? (1 decimal)'
   answers:
-    - {name: h, label: 'Height', relTolerance: 0.001, units: {'m': 1}}
+    - {name: h, label: 'Height', tolerance: 0.051, units: {'m': 1}}
   solution: |-
     Let $x$ be the distance from the second point. Then $h = x\tan {a2}^\circ = (x + {w})\tan {a1}^\circ$, so
-    $x = \dfrac{{w}\tan {a1}^\circ}{\tan {a2}^\circ - \tan {a1}^\circ} \approx {x:num2}$ m and
+    $x = \dfrac{{w}\tan {a1}^\circ}{\tan {a2}^\circ - \tan {a1}^\circ} \approx {x:dp2}$ m and
     $h = x\tan {a2}^\circ \approx$ **{h:num1} m**.

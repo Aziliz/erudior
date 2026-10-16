@@ -65,7 +65,7 @@
   calc:
     c: mod(a, 360)
     ref: if(c < 90, c, if(c < 180, 180 - c, if(c < 270, c - 180, 360 - c)))
-  prompt: 'Find the reference angle of ${a}^\circ$.'
+  prompt: 'Find the reference angle of ${a:dp0}^\circ$. Answer in degrees.'
   answers:
     - {name: ref, label: 'Reference angle', units: {'°': 1, 'deg': 1, 'degrees': 1}}
   solution: |-
@@ -105,6 +105,8 @@
   vars:
     f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
     a: {choices: [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330, -30, -45, -60, -120, -135, -150, 390, 405, 420]}
+    ex: {choices: [{label: '\tfrac12', value: 0.5}, {label: '-\tfrac12', value: -0.5}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '-\tfrac{\sqrt2}{2}', value: -0.7071067811865476}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '-\tfrac{\sqrt3}{2}', value: -0.8660254037844386}]}
+  where: ["abs(v - ex) < 1e-9"]
   calc:
     c: mod(a, 360)
     ref: if(c < 90, c, if(c < 180, 180 - c, if(c < 270, c - 180, 360 - c)))
@@ -114,8 +116,7 @@
     - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
   solution: |-
     In $[0^\circ, 360^\circ)$ the angle is ${c}^\circ$, whose reference angle is ${ref}^\circ$. Take ${f}({ref}^\circ)$ from
-    the special triangles and attach the sign for ${c}^\circ$'s quadrant: ${f}({a}^\circ) \approx$ **{v:num4}**
-    (the exact value is one of $\pm\tfrac12$, $\pm\tfrac{\sqrt2}{2}$, $\pm\tfrac{\sqrt3}{2}$).
+    the special triangles and attach the sign for ${c}^\circ$'s quadrant: ${f}({a}^\circ) =$ **${ex}$** $\approx {v:num4}$.
 
 - id: trig-d-exact-radian
   title: Exact values at radian angles
@@ -124,7 +125,8 @@
     f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}, {label: '\tan', value: 2}]}
     n: {min: -11, max: 23}
     d: {choices: [3, 4, 6]}
-  where: ["gcd(abs(n), d) == 1", "f != 2 or abs(cos(n*pi/d)) > 0.1"]
+    ex: {choices: [{label: '\tfrac12', value: 0.5}, {label: '-\tfrac12', value: -0.5}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '-\tfrac{\sqrt2}{2}', value: -0.7071067811865476}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '-\tfrac{\sqrt3}{2}', value: -0.8660254037844386}, {label: '1', value: 1}, {label: '-1', value: -1}, {label: '\tfrac{\sqrt3}{3}', value: 0.5773502691896257}, {label: '-\tfrac{\sqrt3}{3}', value: -0.5773502691896257}, {label: '\sqrt3', value: 1.7320508075688772}, {label: '-\sqrt3', value: -1.7320508075688772}]}
+  where: ["gcd(abs(n), d) == 1", "f != 2 or abs(cos(n*pi/d)) > 0.1", "abs(v - ex) < 1e-9"]
   calc:
     t: n * pi / d
     v: if(f == 0, sin(t), if(f == 1, cos(t), tan(t)))
@@ -133,8 +135,8 @@
   answers:
     - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
   solution: |-
-    $\dfrac{{n:coef}\pi}{{d}}$ is ${deg}^\circ$. Find its terminal point on the unit circle (cosine is $x$,
-    sine is $y$, tangent is $y/x$): the value is about **{v:num4}**.
+    $\dfrac{{n:coef}\pi}{{d}}$ is ${deg:dp0}^\circ$. Find its terminal point on the unit circle (cosine is $x$,
+    sine is $y$, tangent is $y/x$): the value is **${ex}$** $\approx {v:num4}$.
 
 - id: trig-d-exact-tan
   title: Exact tangent, secant, cosecant, cotangent
@@ -142,6 +144,8 @@
   vars:
     f: {choices: [{label: '\tan', value: 0}, {label: '\sec', value: 1}, {label: '\csc', value: 2}, {label: '\cot', value: 3}]}
     a: {choices: [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330]}
+    ex: {choices: [{label: '1', value: 1}, {label: '-1', value: -1}, {label: '\tfrac{\sqrt3}{3}', value: 0.5773502691896257}, {label: '-\tfrac{\sqrt3}{3}', value: -0.5773502691896257}, {label: '\sqrt3', value: 1.7320508075688772}, {label: '-\sqrt3', value: -1.7320508075688772}, {label: '2', value: 2}, {label: '-2', value: -2}, {label: '\tfrac{2\sqrt3}{3}', value: 1.1547005383792515}, {label: '-\tfrac{2\sqrt3}{3}', value: -1.1547005383792515}, {label: '\sqrt2', value: 1.4142135623730951}, {label: '-\sqrt2', value: -1.4142135623730951}]}
+  where: ["abs(v - ex) < 1e-9"]
   calc:
     v: if(f == 0, tand(a), if(f == 1, secd(a), if(f == 2, cscd(a), cotd(a))))
     ref: if(a < 90, a, if(a < 180, 180 - a, if(a < 270, a - 180, 360 - a)))
@@ -150,7 +154,7 @@
     - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
   solution: |-
     Reference angle ${ref}^\circ$; use the ASTC sign for ${a}^\circ$. Remember
-    $\sec = \tfrac{1}{\cos}$, $\csc = \tfrac{1}{\sin}$, $\cot = \tfrac{1}{\tan}$. The value is about **{v:num4}**.
+    $\sec = \tfrac{1}{\cos}$, $\csc = \tfrac{1}{\sin}$, $\cot = \tfrac{1}{\tan}$. So ${f}\,{a}^\circ =$ **${ex}$** $\approx {v:num4}$.
 
 - id: trig-d-periodic
   title: Evaluate using periodicity
@@ -158,13 +162,14 @@
   vars:
     f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
     k: {min: -4, max: 5}
-    m: {choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
-  where: ["k != 0"]
+    m: {choices: [{label: '\tfrac{\pi}{6}', value: 1}, {label: '\tfrac{\pi}{3}', value: 2}, {label: '\tfrac{\pi}{2}', value: 3}, {label: '\tfrac{2\pi}{3}', value: 4}, {label: '\tfrac{5\pi}{6}', value: 5}, {label: '\pi', value: 6}, {label: '\tfrac{7\pi}{6}', value: 7}, {label: '\tfrac{4\pi}{3}', value: 8}, {label: '\tfrac{3\pi}{2}', value: 9}, {label: '\tfrac{5\pi}{3}', value: 10}, {label: '\tfrac{11\pi}{6}', value: 11}]}
+    ex: {choices: [{label: '\tfrac12', value: 0.5}, {label: '-\tfrac12', value: -0.5}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '-\tfrac{\sqrt3}{2}', value: -0.8660254037844386}, {label: '1', value: 1}, {label: '-1', value: -1}, {label: '0', value: 0}]}
+  where: ["k != 0", "abs(v - ex) < 1e-9"]
   calc:
     n: 12 * k + m
     red: m / 6
     t: n * pi / 6
-    v: if(f == 0, sin(t), cos(t))
+    v: round(if(f == 0, sin(t), cos(t)), 12) + 0
     turns: k
   prompt: 'Evaluate ${f}\left(\dfrac{{n}\pi}{6}\right)$ exactly. First give the coterminal angle in $[0, 2\pi)$, then the value.'
   answers:
@@ -172,7 +177,7 @@
     - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
   solution: |-
     $\dfrac{{n}\pi}{6} = 2\pi({turns}) + \dfrac{{m:coef}\pi}{6}$. Removing whole periods leaves
-    $\dfrac{{m:coef}\pi}{6} =$ **${red:texfrac}\pi$**, and ${f}\left(\dfrac{{m:coef}\pi}{6}\right) \approx$ **{v:num4}**.
+    $\dfrac{{m:coef}\pi}{6} =$ **${m}$**, and ${f}\left({m}\right) =$ **${ex}$** $\approx {v:num4}$.
 
 - id: trig-d-even-odd
   title: Values at −t from values at t
@@ -189,7 +194,7 @@
   answers:
     - {name: ns, label: '$\sin(-t)$', tolerance: 0.001, format: dp3}
     - {name: c, label: '$\cos(-t)$', tolerance: 0.001, format: dp3}
-    - {name: tn, label: '$\tan(-t)$', relTolerance: 0.002}
+    - {name: tn, label: '$\tan(-t)$', tolerance: 0.001, format: dp3}
   solution: |-
     Sine is odd, cosine even, tangent odd: $\sin(-t) = -\sin t =$ **{ns:dp3}**, $\cos(-t) = \cos t =$ **{c:dp3}**,
-    $\tan(-t) = -\dfrac{\sin t}{\cos t} = -\dfrac{{s:dp3}}{{c:dp3}} \approx$ **{tn:num4}**.
+    $\tan(-t) = -\dfrac{\sin t}{\cos t} = -\dfrac{{s:dp3}}{{c:dp3}} \approx$ **{tn:dp3}**.

@@ -105,7 +105,7 @@ $(-\infty, -4] \cup [2, \infty)$.
 
 The secant graph has a physical meaning: if a lighthouse beam rotates at a steady rate and
 shines on a straight wall, the distance from the lighthouse to the lit spot is proportional
-to $\sec\theta$, which grows without bound as the beam turns parallel to the wall. Reciprocal
+to $\sec\theta$, where $\theta$ is the beam's angle from the perpendicular to the wall, which grows without bound as the beam turns parallel to the wall. Reciprocal
 trig functions also appear in calculus, as derivatives ($\tfrac{d}{dx}\tan x = \sec^2 x$) and
 antiderivatives.
 

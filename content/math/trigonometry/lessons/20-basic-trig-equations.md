@@ -114,8 +114,9 @@ $\sin x = 1$ gives $x = \tfrac{\pi}{2}$. $\sin x = -\tfrac12$ gives $x = \tfrac{
 Solutions: $\tfrac{\pi}{2}, \tfrac{7\pi}{6}, \tfrac{11\pi}{6}$.
 
 Never divide both sides by a trig expression that might be zero: in $\sin x\cos x = \sin x$,
-dividing by $\sin x$ loses the solutions $x = 0, \pi$. Move everything to one side and
-factor instead: $\sin x(\cos x - 1) = 0$.
+dividing by $\sin x$ leaves $\cos x = 1$, so only $x = 0$, and the solution $x = \pi$ (where
+$\sin x = 0$) is lost. Move everything to one side and factor instead: $\sin x(\cos x - 1) = 0$,
+which gives $x = 0$ and $x = \pi$.
 
 ### Example 7: a non-special sine
 

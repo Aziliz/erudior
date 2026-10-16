@@ -212,7 +212,7 @@
   definition: 'Sine, cosine and the others viewed as functions of a real number $t$, the arc length along the unit circle.'
   topic: Unit circle
 - term: terminal point
-  definition: 'The point on the unit circle reached by traveling a distance $t$ from $(1, 0)$; its coordinates are $(\cos t, \sin t)$.'
+  definition: 'The point on the unit circle reached by traveling a distance $t$ from $(1, 0)$; its coordinates are $(\cos t, \sin t)$. For a vector, the head (ending point) of the arrow.'
   topic: Unit circle
 - term: domain
   definition: 'The set of inputs for which a function is defined.'
@@ -225,7 +225,7 @@
   definition: 'A function is periodic if $f(t + p) = f(t)$ for some $p > 0$ and all $t$ in its domain.'
   topic: Properties of trig functions
 - term: period
-  definition: 'The smallest positive $p$ with $f(t + p) = f(t)$; $2\pi$ for sine and cosine, $\pi$ for tangent. For $\sin Bx$ it is $\tfrac{2\pi}{B}$.'
+  definition: 'The smallest positive $p$ with $f(t + p) = f(t)$; $2\pi$ for sine and cosine, $\pi$ for tangent. For $\sin Bx$ it is $\tfrac{2\pi}{|B|}$.'
   topic: Properties of trig functions
 - term: even function
   aliases: [even]
@@ -239,7 +239,7 @@
   definition: 'One complete repetition of a periodic graph, spanning one period.'
   topic: Graphs of sine and cosine
 - term: key points
-  definition: 'The five points that divide one cycle of a sinusoid into quarters: zeros, maximum and minimum (or midline crossings).'
+  definition: 'The five points that divide one cycle of a sinusoid into quarters: the midline crossings, the maximum and the minimum.'
   topic: Graphs of sine and cosine
 - term: zeros
   aliases: [zero, x-intercepts]

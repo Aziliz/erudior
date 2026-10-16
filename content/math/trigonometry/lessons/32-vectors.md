@@ -50,8 +50,8 @@ point $\lVert\mathbf{v}\rVert$ units out along that ray, so by the definition of
 
 $$\mathbf{v} = \langle \lVert\mathbf{v}\rVert\cos\theta,\ \lVert\mathbf{v}\rVert\sin\theta\rangle.$$
 
-Going the other way: $\tan\theta = \tfrac{b}{a}$, but as with polar angles, the calculator's $\tan^{-1}$
-only returns angles in quadrants I and IV. Use the signs of $a$ and $b$ to place $\theta$ correctly.
+Going the other way: $\tan\theta = \tfrac{b}{a}$, but as with reference angles, the calculator's $\tan^{-1}$
+only returns angles between $-90^\circ$ and $90^\circ$ (quadrants I and IV). Use the signs of $a$ and $b$ to place $\theta$ correctly.
 
 ### Example 2
 

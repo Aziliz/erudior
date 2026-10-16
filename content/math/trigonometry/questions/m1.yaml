@@ -17,8 +17,9 @@
   choices: ['$250^\circ$', '$290^\circ$', '$70^\circ$', '$110^\circ$']
   answer: 3
   explanation: |-
-    Add one full turn: $-250^\circ + 360^\circ = 110^\circ$. ($250^\circ$ just drops the sign,
-    and $70^\circ$ is $360 - 290$, mixing up the subtraction.)
+    Add one full turn: $-250^\circ + 360^\circ = 110^\circ$. ($250^\circ$ just drops the sign;
+    $70^\circ$ and $290^\circ$ differ from $-250^\circ$ by $320^\circ$ and $540^\circ$, which are not
+    multiples of $360^\circ$.)
 - id: trig-q-0103
   lesson: trig-angles
   topic: Angles
@@ -90,12 +91,12 @@
 - id: trig-q-0110
   lesson: trig-angles
   topic: Degree measure
-  stem: 'Add $25^\circ\,48'' + 34^\circ\,27''$.'
+  stem: 'Add $25^\circ\,48'' + 34^\circ\,27''$ and write the result in standard form (minutes under 60).'
   choices: ['$59^\circ\,75''$', '$60^\circ\,75''$', '$59^\circ\,15''$', '$60^\circ\,15''$']
   answer: 3
   explanation: |-
     Degrees: $59^\circ$; minutes: $75'$. Since $60' = 1^\circ$, $75' = 1^\circ\,15'$, giving
-    $60^\circ\,15'$. $59^\circ 75'$ is correct in value but not in standard form, because
+    $60^\circ\,15'$. $59^\circ 75'$ has the right value but is not in standard form, because
     minutes must be under 60.
 - id: trig-q-0111
   lesson: trig-angles
@@ -208,9 +209,9 @@
   stem: |-
     A student converts $\tfrac{5\pi}{4}$ to degrees:
 
-    1. $\tfrac{5\pi}{4} \cdot \tfrac{\pi}{180}$
-    2. $= \tfrac{5\pi^2}{720}$
-    3. $\approx 0.0685^\circ$
+    Step 1: $\tfrac{5\pi}{4} \cdot \tfrac{\pi}{180}$
+    Step 2: $= \tfrac{5\pi^2}{720}$
+    Step 3: $\approx 0.0685^\circ$
 
     Where is the error?
   choices: ['Step 1: the conversion factor should be $\tfrac{180}{\pi}$', 'Step 2: the product should be $\tfrac{5\pi}{720}$', 'Step 3: the decimal is computed wrong', 'There is no error']

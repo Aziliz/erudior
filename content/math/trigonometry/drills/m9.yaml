@@ -53,16 +53,16 @@
     th: {min: 0, max: 330, step: 30}
     f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
   calc:
-    r: a + b * if(f == 0, cosd(th), sind(th))
+    r: round(a + b * if(f == 0, cosd(th), sind(th)), 9) + 0
     x: round(r * cosd(th), 9) + 0
     y: round(r * sind(th), 9) + 0
-  prompt: 'For $r = {a} + {b}{f}\theta$, find $r$ at $\theta = {th}^\circ$ and the rectangular coordinates of that point (2 decimals).'
+  prompt: 'For $r = {a} + {b:coef}{f}\theta$, find $r$ at $\theta = {th}^\circ$ and the rectangular coordinates of that point (2 decimals).'
   answers:
     - {name: r, label: '$r$', tolerance: 0.01}
     - {name: x, label: '$x$', tolerance: 0.01}
     - {name: y, label: '$y$', tolerance: 0.01}
   solution: |-
-    $r = {a} + {b}{f}{th}^\circ \approx$ **{r:num2}**. Then $x = r\cos\theta \approx$ **{x:num2}** and $y = r\sin\theta \approx$ **{y:num2}**
+    $r = {a} + {b:coef}{f} {th}^\circ \approx$ **{r:num2}**. Then $x = r\cos\theta \approx$ **{x:num2}** and $y = r\sin\theta \approx$ **{y:num2}**
     (if $r < 0$, the point lies in the direction opposite ${th}^\circ$).
   figure:
     type: plot
@@ -105,11 +105,11 @@
   vars:
     a: {min: -9, max: 9}
     b: {min: -9, max: 9}
-  where: ["a != 0 or b != 0"]
+  where: ["a != 0", "b != 0"]
   calc:
     r: sqrt(a^2 + b^2)
     th: mod(atan2d(b, a), 360)
-  prompt: 'Write $z = {a} {b:signed}i$ in trigonometric form $r(\cos\theta + i\sin\theta)$: find $r$ (2 decimals) and $\theta$ in $[0^\circ, 360^\circ)$ (2 decimals).'
+  prompt: 'Write $z = {a} {b:signedcoef}i$ in trigonometric form $r(\cos\theta + i\sin\theta)$: find $r$ (2 decimals) and $\theta$ in $[0^\circ, 360^\circ)$ (2 decimals).'
   answers:
     - {name: r, label: '$r$', tolerance: 0.01}
     - {name: th, label: '$\theta$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
@@ -130,7 +130,7 @@
     pa: mod(t1 + t2, 360)
     qm: r1 / r2
     qa: mod(t1 - t2, 360)
-  prompt: 'Let $z_1 = {r1}\operatorname{cis}{t1}^\circ$ and $z_2 = {r2}\operatorname{cis}{t2}^\circ$. Find the modulus and argument (in $[0^\circ, 360^\circ)$) of $z_1z_2$ and of $\dfrac{z_1}{z_2}$.'
+  prompt: 'Let $z_1 = {r1}\operatorname{cis}{t1}^\circ$ and $z_2 = {r2}\operatorname{cis}{t2}^\circ$. Find the modulus and argument (in $[0^\circ, 360^\circ)$) of $z_1z_2$ and of $\dfrac{z_1}{z_2}$, in degrees (moduli to 2 decimals).'
   answers:
     - {name: pm, label: '$\lvert z_1z_2\rvert$'}
     - {name: pa, label: 'Argument of $z_1z_2$', units: {'°': 1, 'deg': 1, 'degrees': 1}}
@@ -216,8 +216,8 @@
     - {name: a, label: '$a$', tolerance: 0.0005, format: num4}
     - {name: b, label: '$b$', tolerance: 0.0005, format: num4}
   solution: |-
-    The argument is $\dfrac{360^\circ({k})}{{n:int}} = {ang:num2}^\circ$, a unit-circle angle, so the root is
-    $\cos {ang:num2}^\circ + i\sin {ang:num2}^\circ \approx$ **{a:num4}** $+$ **{b:num4}**$\,i$.
+    The argument is $\dfrac{360^\circ({k})}{{n:int}} = {ang}^\circ$, a unit-circle angle, so the root is
+    $\cos {ang}^\circ + i\sin {ang}^\circ$: $a \approx$ **{a:num4}** and $b \approx$ **{b:num4}**.
   figure:
     type: plot
     x: [-1.5, 1.5]

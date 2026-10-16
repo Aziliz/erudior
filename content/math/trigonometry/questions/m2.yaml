@@ -100,9 +100,9 @@
   stem: |-
     Given that $\theta$ is acute and $\cos\theta = \tfrac34$, a student finds $\tan\theta$:
 
-    1. Adjacent $= 3$, hypotenuse $= 4$.
-    2. Opposite $= \sqrt{3^2 + 4^2} = 5$.
-    3. $\tan\theta = \tfrac53$.
+    Step 1: Adjacent $= 3$, hypotenuse $= 4$.
+    Step 2: Opposite $= \sqrt{3^2 + 4^2} = 5$.
+    Step 3: $\tan\theta = \tfrac53$.
 
     Where is the first error?
   choices: ['Step 1', 'Step 2', 'Step 3', 'There is no error']
@@ -294,9 +294,9 @@
   stem: |-
     A student solves for side $b$ in a right triangle with $A = 35^\circ$ and $a = 6$:
 
-    1. $\tan 35^\circ = \dfrac{6}{b}$
-    2. $b = 6\tan 35^\circ$
-    3. $b \approx 4.20$
+    Step 1: $\tan 35^\circ = \dfrac{6}{b}$
+    Step 2: $b = 6\tan 35^\circ$
+    Step 3: $b \approx 4.20$
 
     Which statement is correct?
   choices: ['The work is correct', 'Step 1 should use sine', 'Step 2 is wrong: $b = \dfrac{6}{\tan 35^\circ} \approx 8.57$', 'Step 3 is a rounding error; $b \approx 4.3$']

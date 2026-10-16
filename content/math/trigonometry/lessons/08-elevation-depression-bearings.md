@@ -4,7 +4,7 @@ module: trig-m2
 title: Elevation, depression and bearings
 minutes: 35
 topics: [Elevation and depression, Bearings]
-drills: [trig-d-elevation, trig-d-depression, trig-d-bearing]
+drills: [trig-d-elevation, trig-d-depression, trig-d-bearing, trig-d-two-observations]
 refs: [trig-ref-unit-circle]
 ---
 ## Measuring what you can't reach
@@ -27,7 +27,7 @@ Imagine looking at an object. The straight path from your eye to it is the
 Both are measured *from the horizontal*, never from the vertical.
 
 ```plot
-{"x": [-1, 11], "y": [-1, 7], "equal": true, "segments": [{"from": [0, 0], "to": [10, 0], "dashed": true}, {"from": [0, 0], "to": [10, 6]}, {"from": [10, 6], "to": [0, 6], "dashed": true}, {"from": [10, 0], "to": [10, 6]}], "labels": [{"at": [2.2, 0.55], "text": "elevation"}, {"at": [7.6, 5.5], "text": "depression"}, {"at": [5, -0.5], "text": "horizontal"}, {"at": [5, 6.4], "text": "horizontal"}], "points": [{"at": [0, 0], "label": "observer"}, {"at": [10, 6], "label": "top"}], "caption": "Horizontal lines are parallel, so the angle of elevation from below equals the angle of depression from above"}
+{"x": [-1, 11], "y": [-1, 7], "equal": true, "segments": [{"from": [0, 0], "to": [10, 0], "dashed": true}, {"from": [0, 0], "to": [10, 6]}, {"from": [10, 6], "to": [0, 6], "dashed": true}, {"from": [10, 0], "to": [10, 6]}], "labels": [{"at": [3.2, 0.9], "text": "elevation"}, {"at": [7.6, 5.5], "text": "depression"}, {"at": [5, -0.5], "text": "horizontal"}, {"at": [5, 6.4], "text": "horizontal"}], "points": [{"at": [0, 0], "label": "observer"}, {"at": [10, 6], "label": "top"}], "caption": "Horizontal lines are parallel, so the angle of elevation from below equals the angle of depression from above"}
 ```
 
 The two horizontal lines are parallel and the line of sight cuts across both, so the

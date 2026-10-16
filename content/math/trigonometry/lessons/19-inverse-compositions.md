@@ -125,9 +125,9 @@ though the input was negative.
 ## Why inverse compositions matter
 
 Compositions like $\cos(\sin^{-1}x) = \sqrt{1 - x^2}$ are used constantly in calculus, where
-substitutions such as $x = \sin\theta$ turn square roots into trig functions and back. They are also
-how a computer graphics program converts an angle it has computed with $\tan^{-1}$ into the
-sine or cosine it actually needs, without ever leaving exact arithmetic.
+substitutions such as $x = \sin\theta$ turn square roots into trig functions and back. They also let a
+program that has found an angle with $\tan^{-1}$ get that angle's sine or cosine directly from
+the original ratio, without computing the angle at all.
 
 ## Common mistakes
 

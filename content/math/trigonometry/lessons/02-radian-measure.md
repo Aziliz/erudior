@@ -116,8 +116,8 @@ $\tfrac{3\pi}{2} \approx 4.71$: since $3.14 < 4 < 4.71$, the angle lies in quadr
 
 ## A note on calculators and software
 
-Scientific calculators, spreadsheets and programming languages all assume radians unless
-told otherwise. In a spreadsheet, `SIN(30)` is the sine of 30 radians; you would write
+Spreadsheets and programming languages always work in radians, and a calculator works in
+whichever mode it is set to (many default to radians). In a spreadsheet, `SIN(30)` is the sine of 30 radians; you would write
 `SIN(RADIANS(30))` for $30^\circ$. Graphing tools label the $x$-axis in radians for the same
 reason. Getting comfortable with radians now saves a lot of confusion later, when trig
 functions are graphed and when calculus formulas such as "the derivative of $\sin x$ is

@@ -5,7 +5,7 @@
   vars:
     f: {choices: [{label: '\sin^{-1}', value: 0}, {label: '\cos^{-1}', value: 1}, {label: '\tan^{-1}', value: 2}]}
     v: {choices: [{label: '\tfrac12', value: 0.5}, {label: '-\tfrac12', value: -0.5}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '-\tfrac{\sqrt2}{2}', value: -0.7071067811865476}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '-\tfrac{\sqrt3}{2}', value: -0.8660254037844386}, {label: '1', value: 1}, {label: '-1', value: -1}, {label: '0', value: 0}, {label: '\sqrt3', value: 1.7320508075688772}, {label: '-\sqrt3', value: -1.7320508075688772}, {label: '\tfrac{\sqrt3}{3}', value: 0.5773502691896257}, {label: '-\tfrac{\sqrt3}{3}', value: -0.5773502691896257}]}
-  where: ["f == 2 or abs(v) <= 1.0000001", "f == 2 or abs(abs(v) - 0.57735) > 0.001", "f != 2 or abs(abs(v) - 0.8660254) > 0.001", "f != 2 or abs(abs(v) - 0.7071068) > 0.001"]
+  where: ["f == 2 or abs(v) <= 1.0000001", "f == 2 or abs(abs(v) - 0.57735) > 0.001", "f != 2 or abs(abs(v) - 0.8660254) > 0.001", "f != 2 or abs(abs(v) - 0.7071068) > 0.001", "f != 2 or abs(abs(v) - 0.5) > 0.001", "abs(if(f == 0, asin(v), if(f == 1, acos(clamp(v, -1, 1)), atan(v)))) > 0.001"]
   calc:
     ans: if(f == 0, asin(v), if(f == 1, acos(v), atan(v)))
     q: round(ans / pi * 12) / 12
@@ -119,7 +119,7 @@
     xs: min(u1, u2) / n
     cnt: 2 * n
     q: round(xs / pi * 144) / 144
-  prompt: 'Consider ${f}({n}x) = {c}$ on $[0, 2\pi)$. How many solutions are there, and what is the smallest one? (Exact answers like pi/12 are fine.)'
+  prompt: 'Consider ${f}({n}x) = {c}$ on $[0, 2\pi)$. How many solutions are there, and what is the smallest one? (Exact answers like pi/12 are fine, or give 4 decimals.)'
   answers:
     - {name: cnt, label: 'Number of solutions'}
     - {name: xs, label: 'Smallest solution', tolerance: 0.001, format: num4}

@@ -152,7 +152,7 @@
     f2: {min: 10, max: 100, step: 5}
     a1: {min: 0, max: 90, step: 5}
     a2: {min: 30, max: 180, step: 5}
-  where: ["a2 > a1 + 15"]
+  where: ["a2 > a1 + 15", "Rm > 2"]
   calc:
     rx: f1*cosd(a1) + f2*cosd(a2)
     ry: f1*sind(a1) + f2*sind(a2)
@@ -175,8 +175,8 @@
     w: {min: 10, max: 60, step: 5}
     wf: {choices: [{label: 'north', value: 0}, {label: 'east', value: 90}, {label: 'south', value: 180}, {label: 'west', value: 270}]}
   calc:
-    ex: s*sind(hd) - w*sind(wf)
-    nn: s*cosd(hd) - w*cosd(wf)
+    ex: round(s*sind(hd) - w*sind(wf), 9) + 0
+    nn: round(s*cosd(hd) - w*cosd(wf), 9) + 0
     gs: sqrt(ex^2 + nn^2)
     crs: mod(atan2d(ex, nn), 360)
   prompt: 'A plane flies with airspeed {s} mi/h on a heading of ${hd}^\circ$. A {w} mi/h wind blows from the {wf}. Find the ground speed and the course (as a bearing), 1 decimal.'

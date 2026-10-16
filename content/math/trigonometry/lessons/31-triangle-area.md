@@ -16,7 +16,7 @@ angles at all. Surveyors use both to compute land areas from boundary measuremen
 
 ## The SAS area formula
 
-Take side $b$ as the base. The height from $B$ to that base is $h = c\sin A$ (the same altitude
+Take side $b$ as the base. The height from $B$ to that base is $h = c\sin A$ (the same right-triangle idea
 that proved the law of sines). So
 $$\text{Area} = \tfrac12 bc\sin A = \tfrac12 ab\sin C = \tfrac12 ac\sin B.$$
 In words: **half the product of two sides times the sine of the angle between them.** If the

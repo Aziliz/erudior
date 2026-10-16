@@ -7,19 +7,21 @@
     P: {choices: [2, 4, 6, 8, 10, 12]}
     D: {min: -3, max: 4}
     k: {choices: [0, 1]}
+  where: ["D != A"]
   funcs:
     f(x): A*if(k == 0, sin(2*pi*x/P), cos(2*pi*x/P)) + D
   calc:
     top: D + A
     bot: D - A
+    rng: 2 * A
   prompt: 'The graph shows one sinusoid. Find its amplitude, its period, and the $y$-value of its midline.'
   answers:
     - {name: A, label: 'Amplitude'}
     - {name: P, label: 'Period'}
     - {name: D, label: 'Midline $y =$'}
   solution: |-
-    The highest value is {top} and the lowest is {bot}. Midline: $\dfrac{{top} + ({bot})}{2} =$ **{D}**.
-    Amplitude: $\dfrac{{top} - ({bot})}{2} =$ **{A}**. One full cycle (peak to next peak) spans **{P}** units.
+    The highest value is {top} and the lowest is {bot}. Midline: $\dfrac{{top} {bot:signed}}{2} =$ **{D}**.
+    Amplitude: $\dfrac{\text{max} - \text{min}}{2} = \dfrac{{rng}}{2} =$ **{A}**. One full cycle (peak to next peak) spans **{P}** units.
   figure:
     type: plot
     x: [0, '2*P']
@@ -35,7 +37,7 @@
     D: {min: -5, max: 5}
     x0: {min: -3, max: 3, step: 0.1}
     f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
-  where: ["A != 0"]
+  where: ["A != 0", "D != 0"]
   calc:
     u: B * x0
     y: A * if(f == 0, sin(u), cos(u)) + D
@@ -56,7 +58,7 @@
     sg: {choices: [{label: '-', value: -1}, {label: '+', value: 1}]}
     D: {min: -6, max: 6}
     f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
-  where: ["A != 0", "abs(A) != 1 or D != 0"]
+  where: ["A != 0", "D != 0"]
   calc:
     amp: abs(A)
     per: 2 * pi / B
@@ -69,8 +71,8 @@
     - {name: D, label: 'Vertical shift'}
   solution: |-
     Amplitude $= |{A}| =$ **{amp}**. Period $= \dfrac{2\pi}{{B}} \approx$ **{per:num4}**.
-    Factor out {B}: ${B}x {sg} {c} = {B}\left(x - ({ps:num4})\right)$, so the phase shift is **{ps:num4}**
-    (that is, the opposite of the constant divided by {B}). Vertical shift **{D}**.
+    A cycle starts where the inside is zero: ${B:coef}x {sg} {c} = 0$ gives $x \approx {ps:num4}$, so the phase shift
+    is **{ps:num4}** (the opposite of the constant divided by {B}). Vertical shift **{D}**.
 
 - id: trig-d-write-sinusoid
   title: Write a sinusoid from its maximum and minimum
@@ -79,22 +81,24 @@
     M: {min: 2, max: 12}
     span: {min: 2, max: 10}
     x1: {min: -3, max: 4}
-    h: {min: 1, max: 6}
+    h: {min: 2, max: 6}
   calc:
     m: M - span
     A: span / 2
     D: (M + m) / 2
     x2: x1 + h
     P: 2 * h
+    nx1: -x1
+  where: ["x1 != 0", "D != 0", "m != 0"]
   funcs:
     g(x): A*cos(pi*(x - x1)/h) + D
   prompt: 'A sinusoid has a maximum at $({x1}, {M})$ and the next minimum at $({x2}, {m})$. Write an equation for it in terms of $x$ (use pi for $\pi$, e.g. 3cos(pi/4*(x-1))+2).'
   answers:
     - {kind: expression, expression: 'A*cos(pi*(x - x1)/h) + D', variables: [x], label: '$y =$'}
   solution: |-
-    Midline $D = \dfrac{{M} + ({m})}{2} = {D}$; amplitude $\dfrac{{M} - ({m})}{2} = {A}$. Max to min is half a period,
+    Midline $D = \dfrac{{M} {m:signed}}{2} = {D}$; amplitude $\dfrac{\text{max} - \text{min}}{2} = \dfrac{{span}}{2} = {A}$. Max to min is half a period,
     so the period is ${P}$ and $B = \dfrac{2\pi}{{P}} = \dfrac{\pi}{{h}}$. Cosine starts at a maximum, so use
-    $x = {x1}$ as the shift: **$y = {A}\cos\!\left(\dfrac{\pi}{{h}}(x - ({x1}))\right) + ({D})$**. Any equivalent form is accepted.
+    $x = {x1}$ as the shift: **$y = {A:coef}\cos\!\left(\dfrac{\pi}{{h}}(x {nx1:signed})\right) {D:signed}$**. Any equivalent form is accepted.
   figure:
     type: plot
     x: ['x1 - h', 'x1 + 3*h']
@@ -112,7 +116,7 @@
     n: {min: 2, max: 6}
     C: {min: -4, max: 4}
     D: {min: -4, max: 4}
-  where: ["C != 0"]
+  where: ["C != 0", "D != 0"]
   calc:
     P: 2 * n
     xmax: C + n / 2
@@ -135,6 +139,7 @@
     A: {min: 1, max: 4}
     n: {min: 2, max: 8}
     C: {min: -5, max: 5}
+  where: ["C != 0"]
   calc:
     nC: -C
     asym: C + n / 2
@@ -144,7 +149,7 @@
     - {name: asym, label: 'Asymptote $x =$'}
   solution: |-
     Tangent's period is $\dfrac{\pi}{B} = \dfrac{\pi}{\pi/{n}} =$ **{n}**. The branch is centered at $x = {C}$, and its
-    asymptotes are where the input equals $\pm\tfrac{\pi}{2}$: $\dfrac{\pi}{{n}}(x - ({C})) = \dfrac{\pi}{2}$ gives
+    asymptotes are where the input equals $\pm\tfrac{\pi}{2}$: $\dfrac{\pi}{{n}}(x {nC:signed}) = \dfrac{\pi}{2}$ gives
     $x = {C} + \dfrac{{n}}{2} =$ **{asym}**.
 
 - id: trig-d-sec-features
@@ -155,7 +160,7 @@
     n: {min: 2, max: 8}
     D: {min: -5, max: 5}
     f: {choices: [{label: '\sec', value: 0}, {label: '\csc', value: 1}]}
-  where: ["A != 0"]
+  where: ["A != 0", "D != 0"]
   calc:
     P: 2 * n
     lo: D - abs(A)
@@ -190,7 +195,7 @@
     - {name: q, label: 'Predicted temperature', tolerance: 0.05}
   solution: |-
     $A = \dfrac{{M} - {m}}{2} =$ **{A}**, $D = \dfrac{{M} + {m}}{2} =$ **{D}**, $B = \dfrac{2\pi}{12} = \dfrac{\pi}{6}$,
-    and the max is at $C = {t1}$. Then $T({tq}) = {A}\cos\!\left(\dfrac{\pi}{6}(-2)\right) + {D} = {A}\left(\tfrac12\right) + {D} =$ **{q:num1}°F**.
+    and the max is at $C = {t1}$. Then $T({tq}) = {A}\cos\!\left(\dfrac{\pi}{6}(-2)\right) + {D} = {A}\left(\tfrac12\right) + {D} =$ **{q}°F**.
 
 - id: trig-d-shm
   title: Simple harmonic motion
@@ -205,7 +210,7 @@
     per: 2 / k
     freq: k / 2
     d: a * if(f == 0, sin(w * t0), cos(w * t0))
-  prompt: 'A spring''s displacement is $d = {a}{f}({k}\pi t)$ cm, with $t$ in seconds. Find the period (s), the frequency (Hz), and the displacement at $t = {t0}$ s (2 decimals).'
+  prompt: 'A spring''s displacement is $d = {a}{f}({k}\pi t)$ cm, with $t$ in seconds. Find the period (s) and the frequency (Hz), exact (like 2/3) or to 3 decimals, and the displacement at $t = {t0}$ s (2 decimals).'
   answers:
     - {name: per, label: 'Period', tolerance: 0.001}
     - {name: freq, label: 'Frequency', tolerance: 0.001}

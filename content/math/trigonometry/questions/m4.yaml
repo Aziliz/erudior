@@ -40,12 +40,12 @@
   lesson: trig-graph-sincos
   topic: Graphs of sine and cosine
   stem: 'How does the graph of $y = -\sin x$ compare with the graph of $y = \sin x$?'
-  choices: ['It is shifted $\pi$ units up', 'It has twice the period', 'It is reflected across the $y$-axis only, so it looks identical', 'It is reflected across the $x$-axis, so it goes down first from the origin']
+  choices: ['It is shifted $\pi$ units up', 'It has twice the period', 'It is the same graph, because sine is symmetric about the $y$-axis', 'It is reflected across the $x$-axis, so it goes down first from the origin']
   answer: 3
   explanation: |-
     Multiplying by $-1$ flips every $y$-value. Starting from $(0, 0)$, $-\sin x$ heads down to $-1$ at
-    $\tfrac{\pi}{2}$. Because sine is odd, this is also what reflecting across the $y$-axis gives, so the
-    claim that it "looks identical" is wrong: the result is not the graph of $y = \sin x$.
+    $\tfrac{\pi}{2}$. Sine is odd (symmetric about the origin), not symmetric about the $y$-axis, so
+    $-\sin x$ is a different graph from $\sin x$; it equals $\sin(-x)$, the reflection across the $y$-axis.
 - id: trig-q-1306
   lesson: trig-graph-sincos
   topic: Graphs of sine and cosine
