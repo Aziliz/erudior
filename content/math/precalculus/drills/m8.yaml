@@ -1,0 +1,138 @@
+- id: pc-vector-mag-dir
+  title: Magnitude and direction of a vector
+  topic: Vectors
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -9, max: 9}
+  where: ["a != 0", "b != 0"]
+  calc:
+    mag: sqrt(a^2 + b^2)
+    m2: a^2 + b^2
+    th: mod(atan2d(b, a), 360)
+  prompt: 'Find the magnitude and the direction angle ($0^\circ \le \theta < 360^\circ$) of $\vec v = \langle {a}, {b} \rangle$. (Magnitude exact like sqrt(13) or 2 decimals; angle to 1 decimal.)'
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    segments:
+      - {from: [0, 0], to: [a, b], arrow: true, label: 'v'}
+  answers:
+    - {name: mag, label: '$\lVert\vec v\rVert =$', tolerance: 0.01, format: num2}
+    - {name: th, label: '$\theta =$', tolerance: 0.1, format: num1, units: {'°': 1, deg: 1}}
+  solution: |-
+    $\lVert\vec v\rVert = \sqrt{ ({a})^2 + ({b})^2 } = \sqrt{ {m2} } \approx$ **{mag:num2}**. $\tan\theta = \dfrac{ {b} }{ {a} }$, and placing the angle in the quadrant of $({a}, {b})$ gives $\theta \approx$ **{th:num1}°**.
+
+- id: pc-vector-combo
+  title: Combine vectors
+  topic: Vectors
+  vars:
+    p: {choices: [2, 3, -2, 4]}
+    q: {choices: [-3, -1, 2, 3]}
+    u1: {min: -6, max: 6}
+    u2: {min: -6, max: 6}
+    v1: {min: -6, max: 6}
+    v2: {min: -6, max: 6}
+  calc:
+    w1: p*u1 + q*v1
+    w2: p*u2 + q*v2
+    mag: sqrt(w1^2 + w2^2)
+  prompt: 'Let $\vec u = \langle {u1}, {u2} \rangle$ and $\vec v = \langle {v1}, {v2} \rangle$. Find ${p}\vec u {q:signedcoef}\vec v$ in component form.'
+  answers:
+    - {name: w1, label: 'First component'}
+    - {name: w2, label: 'Second component'}
+  solution: |-
+    Component by component: ${p}({u1}) + ({q})({v1}) = {w1}$ and ${p}({u2}) + ({q})({v2}) = {w2}$. Result: **$\langle {w1}, {w2} \rangle$**.
+
+- id: pc-vector-from-angle
+  title: Components from magnitude and angle
+  topic: Vectors
+  vars:
+    m: {min: 5, max: 55, step: 5}
+    t: {min: 5, max: 355, step: 5}
+  where: ["mod(t, 90) != 0"]
+  calc:
+    vx: m*cosd(t)
+    vy: m*sind(t)
+  prompt: 'A force of {m} N acts at a direction angle of {t}°. Find its horizontal and vertical components (2 decimals).'
+  answers:
+    - {name: vx, label: 'Horizontal', tolerance: 0.01, format: num2}
+    - {name: vy, label: 'Vertical', tolerance: 0.01, format: num2}
+  solution: |-
+    $\langle {m}\cos {t}^\circ,\ {m}\sin {t}^\circ \rangle \approx$ **$\langle {vx:num2}, {vy:num2} \rangle$**. The signs show the quadrant.
+
+- id: pc-dot-angle
+  title: Angle between two vectors
+  topic: Dot product
+  vars:
+    u1: {min: -6, max: 6}
+    u2: {min: -6, max: 6}
+    v1: {min: -6, max: 6}
+    v2: {min: -6, max: 6}
+  where: ["u1^2 + u2^2 > 0", "v1^2 + v2^2 > 0", "u1*v2 - u2*v1 != 0"]
+  calc:
+    dot: u1*v1 + u2*v2
+    nu: sqrt(u1^2 + u2^2)
+    nv: sqrt(v1^2 + v2^2)
+    th: acosd(dot/(nu*nv))
+  prompt: 'Find the dot product of $\vec u = \langle {u1}, {u2} \rangle$ and $\vec v = \langle {v1}, {v2} \rangle$, and the angle between them in degrees (1 decimal).'
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    equal: true
+    segments:
+      - {from: [0, 0], to: [u1, u2], arrow: true, label: 'u'}
+      - {from: [0, 0], to: [v1, v2], arrow: true, label: 'v'}
+  answers:
+    - {name: dot, label: '$\vec u \cdot \vec v =$'}
+    - {name: th, label: 'Angle', tolerance: 0.1, format: num1, units: {'°': 1, deg: 1}}
+  solution: |-
+    $\vec u \cdot \vec v = ({u1})({v1}) + ({u2})({v2}) =$ **{dot}**. $\cos\theta = \dfrac{ {dot} }{ {nu:num4} \cdot {nv:num4} }$, so $\theta \approx$ **{th:num1}°**.
+
+- id: pc-projection
+  title: Vector projection
+  topic: Dot product
+  vars:
+    u1: {min: -6, max: 6}
+    u2: {min: -6, max: 6}
+    v1: {min: -4, max: 4}
+    v2: {min: -4, max: 4}
+  where: ["v1 != 0", "v2 != 0", "dot != 0", "u1*v2 - u2*v1 != 0"]
+  calc:
+    dot: u1*v1 + u2*v2
+    vv: v1^2 + v2^2
+    k: dot/vv
+    p1: k*v1
+    p2: k*v2
+  prompt: 'Find $\text{proj}_{\vec v}\,\vec u$ for $\vec u = \langle {u1}, {u2} \rangle$ and $\vec v = \langle {v1}, {v2} \rangle$. Exact fractions or 2 decimals.'
+  answers:
+    - {name: p1, label: 'First component', tolerance: 0.01}
+    - {name: p2, label: 'Second component', tolerance: 0.01}
+  solution: |-
+    $\vec u \cdot \vec v = {dot}$ and $\lVert\vec v\rVert^2 = {vv}$. So $\text{proj}_{\vec v}\,\vec u = {k:texfrac}\langle {v1}, {v2} \rangle =$ **$\left\langle {p1:texfrac}, {p2:texfrac} \right\rangle$**.
+
+- id: pc-3d-distance
+  title: Distance and dot product in space
+  topic: Vectors in 3D
+  vars:
+    x1: {min: -5, max: 5}
+    y1: {min: -5, max: 5}
+    z1: {min: -5, max: 5}
+    x2: {min: -5, max: 5}
+    y2: {min: -5, max: 5}
+    z2: {min: -5, max: 5}
+  where: ["x1 != x2", "y1 != y2", "z1 != z2"]
+  calc:
+    dx: x2 - x1
+    dy: y2 - y1
+    dz: z2 - z1
+    s: dx^2 + dy^2 + dz^2
+    dist: sqrt(s)
+    dot: x1*x2 + y1*y2 + z1*z2
+  prompt: 'For $P({x1}, {y1}, {z1})$ and $Q({x2}, {y2}, {z2})$, find the distance $PQ$ (exact like sqrt(41), or 2 decimals) and the dot product of the position vectors $\langle {x1}, {y1}, {z1} \rangle \cdot \langle {x2}, {y2}, {z2} \rangle$.'
+  answers:
+    - {name: dist, label: '$PQ =$', tolerance: 0.01, format: num2}
+    - {name: dot, label: 'Dot product'}
+  solution: |-
+    $PQ = \sqrt{ ({dx})^2 + ({dy})^2 + ({dz})^2 } = \sqrt{ {s} } \approx$ **{dist:num2}**. Dot product: $({x1})({x2}) + ({y1})({y2}) + ({z1})({z2}) =$ **{dot}**.

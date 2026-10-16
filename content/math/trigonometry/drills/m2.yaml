@@ -1,0 +1,255 @@
+# Module 2 drills: right-triangle trigonometry
+- id: trig-d-six-ratios
+  title: Trig ratios from two legs
+  topic: Trig ratios
+  vars:
+    t: {min: 0, max: 5}
+    sw: {choices: [0, 1]}
+    k: {min: 1, max: 3}
+  calc:
+    p: if(t == 0, 3, if(t == 1, 5, if(t == 2, 8, if(t == 3, 7, if(t == 4, 20, 9)))))
+    q: if(t == 0, 4, if(t == 1, 12, if(t == 2, 15, if(t == 3, 24, if(t == 4, 21, 40)))))
+    opp: k * if(sw == 0, p, q)
+    adj: k * if(sw == 0, q, p)
+    hyp: sqrt(opp^2 + adj^2)
+    sn: opp / hyp
+    cs: adj / hyp
+    tn: opp / adj
+  prompt: 'A right triangle has legs {opp} and {adj}. Let $\theta$ be the angle opposite the leg of length {opp}. Find $\sin\theta$, $\cos\theta$ and $\tan\theta$ as fractions in lowest terms.'
+  answers:
+    - {name: sn, label: '$\sin\theta$', kind: fraction, lowestTerms: true}
+    - {name: cs, label: '$\cos\theta$', kind: fraction, lowestTerms: true}
+    - {name: tn, label: '$\tan\theta$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Hypotenuse: $\sqrt{{opp}^2 + {adj}^2} = {hyp}$. Then
+    $\sin\theta = \dfrac{{opp}}{{hyp}} =$ **${sn:texfrac}$**, $\cos\theta = \dfrac{{adj}}{{hyp}} =$ **${cs:texfrac}$**,
+    $\tan\theta = \dfrac{{opp}}{{adj}} =$ **${tn:texfrac}$**.
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], ['adj', 0], ['adj', 'opp']]
+    rightAngles:
+      - [['adj', 0], [0, 0], ['adj', 'opp']]
+    labels:
+      - {at: ['0.2*adj', '0.06*opp'], text: 'θ'}
+    segments:
+      - {from: [0, 0], to: ['adj', 0], label: '{adj}'}
+      - {from: ['adj', 0], to: ['adj', 'opp'], label: '{opp}'}
+
+- id: trig-d-ratio-from-one
+  title: Other ratios from a given sine
+  topic: Trig ratios
+  vars:
+    p: {min: 1, max: 8}
+    q: {min: 2, max: 9}
+  where: ["p < q", "gcd(p, q) == 1", "sqrt(q^2 - p^2) != round(sqrt(q^2 - p^2))"]
+  calc:
+    m: q^2 - p^2
+    adj: sqrt(m)
+    cs: adj / q
+    tn: p / adj
+    sc: q / adj
+  prompt: '$\theta$ is acute and $\sin\theta = \dfrac{{p}}{{q}}$. Find $\cos\theta$, $\tan\theta$ and $\sec\theta$. Exact answers like sqrt(40)/7 are fine (or 4 decimals).'
+  answers:
+    - {name: cs, label: '$\cos\theta$', tolerance: 0.0005, format: num4}
+    - {name: tn, label: '$\tan\theta$', tolerance: 0.0005, format: num4}
+    - {name: sc, label: '$\sec\theta$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Use a triangle with opposite {p} and hypotenuse {q}. The adjacent side is
+    $\sqrt{{q}^2 - {p}^2} = \sqrt{{m}}$. So $\cos\theta = \dfrac{\sqrt{{m}}}{{q}} \approx$ **{cs:num4}**,
+    $\tan\theta = \dfrac{{p}}{\sqrt{{m}}} \approx$ **{tn:num4}**, and
+    $\sec\theta = \dfrac{{q}}{\sqrt{{m}}} \approx$ **{sc:num4}**.
+
+- id: trig-d-special-sides
+  title: Sides of a 30°–60°–90° triangle
+  topic: Special angles
+  vars:
+    g: {choices: [{label: 'short leg', value: 0}, {label: 'long leg', value: 1}, {label: 'hypotenuse', value: 2}]}
+    s: {min: 2, max: 16}
+  calc:
+    sh: if(g == 0, s, if(g == 1, s / sqrt(3), s / 2))
+    lg: sh * sqrt(3)
+    hy: 2 * sh
+  prompt: 'In a 30°–60°–90° triangle the {g} is {s}. Find all three sides. Exact answers like 4sqrt(3) are fine (or 2 decimals).'
+  answers:
+    - {name: sh, label: 'Short leg', tolerance: 0.01}
+    - {name: lg, label: 'Long leg', tolerance: 0.01}
+    - {name: hy, label: 'Hypotenuse', tolerance: 0.01}
+  solution: |-
+    The sides are in the ratio $1 : \sqrt3 : 2$. Find the short leg first, then multiply:
+    short leg $\approx$ **{sh:num2}**, long leg $=\sqrt3 \times$ short $\approx$ **{lg:num2}**,
+    hypotenuse $= 2 \times$ short $\approx$ **{hy:num2}**.
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], ['lg', 0], ['lg', 'sh']]
+    rightAngles:
+      - [['lg', 0], [0, 0], ['lg', 'sh']]
+    labels:
+      - {at: ['0.22*lg', '0.07*sh'], text: '30°'}
+      - {at: ['0.9*lg', '0.72*sh'], text: '60°'}
+
+- id: trig-d-exact-special
+  title: Exact values at 30°, 45°, 60°
+  topic: Special angles
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}, {label: '\tan', value: 2}, {label: '\csc', value: 3}, {label: '\sec', value: 4}, {label: '\cot', value: 5}]}
+    t: {choices: [{label: '30^\circ', value: 30}, {label: '45^\circ', value: 45}, {label: '60^\circ', value: 60}, {label: '\tfrac{\pi}{6}', value: 30}, {label: '\tfrac{\pi}{4}', value: 45}, {label: '\tfrac{\pi}{3}', value: 60}]}
+  calc:
+    v: if(f == 0, sind(t), if(f == 1, cosd(t), if(f == 2, tand(t), if(f == 3, cscd(t), if(f == 4, secd(t), cotd(t))))))
+  prompt: 'Give the exact value of ${f}\left({t}\right)$. Type it like sqrt(3)/2 or 2sqrt(3)/3.'
+  answers:
+    - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    The angle is ${t:int}^\circ$. From the special triangles: $\sin$ of $30^\circ, 45^\circ, 60^\circ$ is
+    $\tfrac12, \tfrac{\sqrt2}{2}, \tfrac{\sqrt3}{2}$; $\cos$ is the same list reversed; $\tan$ is
+    $\tfrac{\sqrt3}{3}, 1, \sqrt3$; and $\csc, \sec, \cot$ are the reciprocals. So
+    ${f}\left({t}\right) \approx$ **{v:num4}**.
+
+- id: trig-d-right-side
+  title: Sides of a right triangle from an angle and a side
+  topic: Solving right triangles
+  vars:
+    A: {min: 15, max: 75}
+    g: {choices: [{label: 'hypotenuse $c$', value: 0}, {label: 'leg $a$ (opposite $A$)', value: 1}, {label: 'leg $b$ (adjacent to $A$)', value: 2}]}
+    s: {min: 5, max: 60}
+  calc:
+    c: if(g == 0, s, if(g == 1, s / sind(A), s / cosd(A)))
+    a: c * sind(A)
+    b: c * cosd(A)
+    B: 90 - A
+  prompt: 'In right triangle $ABC$ with $C = 90^\circ$, $A = {A}^\circ$ and the {g} is {s}. Find $a$, $b$ and $c$ to 2 decimals.'
+  answers:
+    - {name: a, label: '$a$', tolerance: 0.01}
+    - {name: b, label: '$b$', tolerance: 0.01}
+    - {name: c, label: '$c$', tolerance: 0.01}
+  solution: |-
+    Use $a = c\sin A$ and $b = c\cos A$, solving for whichever side is unknown (divide when the
+    unknown is the hypotenuse). With $A = {A}^\circ$: $a \approx$ **{a:num2}**, $b \approx$ **{b:num2}**,
+    $c \approx$ **{c:num2}**. (Also $B = {B}^\circ$.)
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], ['b', 0], ['b', 'a']]
+    rightAngles:
+      - [['b', 0], [0, 0], ['b', 'a']]
+    labels:
+      - {at: ['-0.06*c', '-0.06*c'], text: 'A'}
+      - {at: ['b + 0.06*c', 'a + 0.04*c'], text: 'B'}
+      - {at: ['b + 0.06*c', '-0.06*c'], text: 'C'}
+
+- id: trig-d-right-angle
+  title: Angles from two legs
+  topic: Solving right triangles
+  vars:
+    a: {min: 2, max: 30}
+    b: {min: 2, max: 30}
+  where: ["a != b"]
+  calc:
+    A: atand(a / b)
+    B: 90 - A
+  prompt: 'A right triangle has legs $a = {a}$ and $b = {b}$. Find the acute angles $A$ (opposite $a$) and $B$, in degrees to 2 decimals.'
+  answers:
+    - {name: A, label: '$A$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: B, label: '$B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $\tan A = \dfrac{{a}}{{b}}$, so $A = \tan^{-1}\!\left(\dfrac{{a}}{{b}}\right) \approx$ **{A:num2}°**,
+    and $B = 90^\circ - A \approx$ **{B:num2}°**.
+
+- id: trig-d-solve-right
+  title: Solve a right triangle from a leg and the hypotenuse
+  topic: Solving right triangles
+  vars:
+    a: {min: 3, max: 40}
+    c: {min: 5, max: 50}
+  where: ["a < c - 1"]
+  calc:
+    b: sqrt(c^2 - a^2)
+    A: asind(a / c)
+    B: 90 - A
+  prompt: 'In right triangle $ABC$ with $C = 90^\circ$, $a = {a}$ and $c = {c}$. Find $b$ (2 decimals) and the angles $A$ and $B$ (degrees, 2 decimals).'
+  answers:
+    - {name: b, label: '$b$', tolerance: 0.01}
+    - {name: A, label: '$A$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: B, label: '$B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $b = \sqrt{c^2 - a^2} = \sqrt{{c}^2 - {a}^2} \approx$ **{b:num2}**.
+    $\sin A = \dfrac{{a}}{{c}}$, so $A \approx$ **{A:num2}°**, and $B = 90^\circ - A \approx$ **{B:num2}°**.
+
+- id: trig-d-elevation
+  title: Height from an angle of elevation
+  topic: Elevation and depression
+  vars:
+    d: {min: 15, max: 200}
+    t: {min: 10, max: 70}
+    e: {choices: [1.5, 1.6, 1.7, 1.8]}
+  calc:
+    up: d * tand(t)
+    h: up + e
+  prompt: 'Standing {d} m from the base of a building on level ground, you measure the angle of elevation to its top as ${t}^\circ$. Your eyes are {e} m above the ground. How tall is the building? (1 decimal)'
+  answers:
+    - {name: h, label: 'Height', tolerance: 0.05, units: {'m': 1}}
+  solution: |-
+    Above eye level: $\tan {t}^\circ = \dfrac{x}{{d}}$, so $x = {d}\tan {t}^\circ \approx {up:num2}$ m.
+    Add the eye height: ${up:num2} + {e} \approx$ **{h:num1} m**.
+
+- id: trig-d-depression
+  title: Distance from an angle of depression
+  topic: Elevation and depression
+  vars:
+    h: {min: 30, max: 300, step: 5}
+    t: {min: 5, max: 60}
+  calc:
+    d: h / tand(t)
+  prompt: 'From the top of a {h} ft lighthouse, the angle of depression to a boat is ${t}^\circ$. How far is the boat from the base of the lighthouse? (1 decimal)'
+  answers:
+    - {name: d, label: 'Distance', relTolerance: 0.0005, units: {'ft': 1}}
+  solution: |-
+    The angle of elevation from the boat is also ${t}^\circ$, with the height opposite it:
+    $\tan {t}^\circ = \dfrac{{h}}{\,d}$, so $d = \dfrac{{h}}{\tan {t}^\circ} \approx$ **{d:num1} ft**.
+
+- id: trig-d-bearing
+  title: North and east components of a bearing
+  topic: Bearings
+  vars:
+    dist: {min: 5, max: 120}
+    br: {min: 1, max: 359}
+  where: ["mod(br, 90) != 0", "abs(dist*cosd(br) + 15.54) > 0.1", "abs(dist*sind(br) + 15.54) > 0.1"]
+  calc:
+    north: dist * cosd(br)
+    east: dist * sind(br)
+  prompt: 'A boat travels {dist} km on a bearing of ${br}^\circ$ (clockwise from north). How far north and how far east of its start is it? Use negative numbers for south or west. (2 decimals)'
+  answers:
+    - {name: north, label: 'North', tolerance: 0.01}
+    - {name: east, label: 'East', tolerance: 0.01}
+  solution: |-
+    Bearings are measured from north, so north $= d\cos\theta = {dist}\cos {br}^\circ \approx$ **{north:num2}** km
+    and east $= d\sin\theta = {dist}\sin {br}^\circ \approx$ **{east:num2}** km.
+  figure:
+    type: plot
+    x: [-1.3, 1.3]
+    y: [-1.3, 1.3]
+    equal: true
+    segments:
+      - {from: [0, 0], to: [0, 1.2], dashed: true, label: 'N'}
+      - {from: [0, 0], to: ['sind(br)', 'cosd(br)'], arrow: true}
+    caption: Bearing {br}°
+
+- id: trig-d-two-observations
+  title: Height from two angles of elevation
+  topic: Elevation and depression
+  vars:
+    a1: {min: 15, max: 40}
+    a2: {min: 25, max: 70}
+    w: {min: 50, max: 500, step: 10}
+  where: ["a2 >= a1 + 8"]
+  calc:
+    x: w * tand(a1) / (tand(a2) - tand(a1))
+    h: x * tand(a2)
+  prompt: 'From a point on level ground the angle of elevation to the top of a tower is ${a1}^\circ$. After walking {w} m straight toward it, the angle is ${a2}^\circ$. How tall is the tower? (1 decimal)'
+  answers:
+    - {name: h, label: 'Height', relTolerance: 0.001, units: {'m': 1}}
+  solution: |-
+    Let $x$ be the distance from the second point. Then $h = x\tan {a2}^\circ = (x + {w})\tan {a1}^\circ$, so
+    $x = \dfrac{{w}\tan {a1}^\circ}{\tan {a2}^\circ - \tan {a1}^\circ} \approx {x:num2}$ m and
+    $h = x\tan {a2}^\circ \approx$ **{h:num1} m**.

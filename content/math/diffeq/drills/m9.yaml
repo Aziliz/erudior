@@ -1,0 +1,107 @@
+# Module 9 drills
+- id: de-recurrence
+  title: Coefficients of an Airy-type series
+  topic: Series solutions
+  vars:
+    k: {choices: [-3, -2, -1, 1, 2, 3]}
+    a0: {min: -3, max: 3}
+    a1: {min: -3, max: 3}
+  where: ['a0 != 0', 'a1 != 0']
+  calc:
+    nk: -k
+    a3: k*a0/6
+    a4: k*a1/12
+  prompt: 'The series solution $y = \sum a_nx^n$ of $y'''' {nk:signedcoef}xy = 0$ with $y(0) = {a0}$, $y''(0) = {a1}$ has $a_2 = 0$. Find $a_3$ and $a_4$ as exact fractions.'
+  answers:
+    - {name: a3, label: '$a_3 =$', kind: fraction, lowestTerms: true}
+    - {name: a4, label: '$a_4 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Substituting and shifting gives $2a_2 = 0$ and, for $n \ge 1$, $(n+2)(n+1)a_{n+2} = {k}a_{n-1}$. So $a_3 = \dfrac{{k}a_0}{6} =$ **{a3:frac}** and $a_4 = \dfrac{{k}a_1}{12} =$ **{a4:frac}**.
+- id: de-series-coef
+  title: Coefficients from a recurrence
+  topic: Series solutions
+  vars:
+    p: {min: 1, max: 3}
+    q: {min: 1, max: 4}
+    a0: {min: -3, max: 3}
+    a1: {min: -3, max: 3}
+  where: ['a0 != 0', 'a1 != 0']
+  calc:
+    a2: -q*a0/2
+    a3: -(p + q)*a1/6
+    a4: -(2*p + q)*a2/12
+  prompt: 'Find the coefficients $a_2$, $a_3$, $a_4$ of the series solution $y = \sum a_nx^n$ of $y'''' {p:signedcoef}xy'' {q:signedcoef}y = 0$ with $y(0) = {a0}$, $y''(0) = {a1}$. Exact fractions.'
+  answers:
+    - {name: a2, label: '$a_2 =$', kind: fraction, lowestTerms: true}
+    - {name: a3, label: '$a_3 =$', kind: fraction, lowestTerms: true}
+    - {name: a4, label: '$a_4 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    The coefficient of $x^n$ gives $(n+2)(n+1)a_{n+2} + ({p:coef}n + {q})a_n = 0$, so $a_{n+2} = -\dfrac{({p:coef}n + {q})a_n}{(n+2)(n+1)}$. With $a_0 = {a0}$, $a_1 = {a1}$: $a_2 = -\dfrac{{q}a_0}{2} =$ **{a2:frac}**, $a_3 = -\dfrac{({p} + {q})a_1}{6} =$ **{a3:frac}**, $a_4 = -\dfrac{(2\cdot{p} + {q})a_2}{12} =$ **{a4:frac}**.
+- id: de-fourier-coef
+  title: Fourier sine coefficient of a linear function
+  topic: Fourier series
+  vars:
+    c: {min: 1, max: 5}
+    LL: {choices: [1, 2, 3, 4]}
+    n: {min: 1, max: 6}
+  calc:
+    bn: 2*c*LL*(-1)^(n + 1)/(n*pi)
+  prompt: 'Find the Fourier coefficient $b_{{n}}$ of $f(x) = {c:coef}x$ on $-L < x < L$ with $L = {LL}$ (period $2L$). Give a decimal (4 places) or an exact form like 4/pi.'
+  answers:
+    - {name: bn, label: '$b_{{n}} =$', relTolerance: 0.001, format: num4}
+  solution: |-
+    $f$ is odd, so $b_n = \dfrac2L\displaystyle\int_0^L {c:coef}x\sin\frac{n\pi x}{L}\,dx = \dfrac{2\cdot{c}\cdot{LL}(-1)^{n+1}}{n\pi}$ (integrate by parts). With $n = {n}$: $b_{{n}} \approx$ **{bn:num4}**.
+- id: de-fourier-square
+  title: Fourier cosine coefficient of a parabola
+  topic: Fourier series
+  vars:
+    c: {min: 1, max: 4}
+    n: {min: 1, max: 6}
+  calc:
+    an: 4*c*(-1)^n/n^2
+    a02: c*pi^2/3
+  prompt: 'Find the constant term $\tfrac{a_0}{2}$ and the coefficient $a_{{n}}$ of the Fourier series of $f(x) = {c:coef}x^2$ on $-\pi < x < \pi$. (4 decimal places, or exact forms like pi^2/3.)'
+  answers:
+    - {name: a02, label: '$\tfrac{a_0}{2} =$', relTolerance: 0.001, format: num4}
+    - {name: an, label: '$a_{{n}} =$', relTolerance: 0.001, format: num4}
+  solution: |-
+    $f$ is even, so it has a cosine series. $\tfrac{a_0}{2}$ is the average: $\dfrac1\pi\displaystyle\int_0^\pi {c:coef}x^2\,dx = \dfrac{{c}\pi^2}{3} \approx$ **{a02:num4}**. Integrating by parts twice, $a_n = \dfrac2\pi\displaystyle\int_0^\pi {c:coef}x^2\cos nx\,dx = \dfrac{4\cdot{c}(-1)^n}{n^2}$, so $a_{{n}} =$ **{an:num4}**.
+- id: de-heat-term
+  title: Evaluate a heat-equation solution
+  topic: Heat and wave equations
+  vars:
+    al2: {choices: [0.01, 0.05, 0.1, 0.2]}
+    L: {choices: [1, 2]}
+    b1: {min: 2, max: 10}
+    m: {min: 2, max: 5}
+    bm: {min: -4, max: 4}
+    x0f: {choices: [0.25, 0.5, 0.75]}
+    t0: {choices: [0.5, 1, 2]}
+  where: ['bm != 0']
+  calc:
+    x0: x0f*L
+    k1: al2*(pi/L)^2
+    km: al2*(m*pi/L)^2
+    u: b1*exp(-k1*t0)*sin(pi*x0/L) + bm*exp(-km*t0)*sin(m*pi*x0/L)
+  prompt: 'A rod of length $L = {L}$ with $\alpha^2 = {al2}$ has ends held at 0 and initial temperature $u(x, 0) = {b1}\sin\dfrac{\pi x}{{L}} {bm:signedcoef}\sin\dfrac{{m}\pi x}{{L}}$. Find $u({x0}, {t0})$ to 4 decimal places.'
+  answers:
+    - {name: u, label: '$u({x0}, {t0}) \approx$', tolerance: 0.00006, format: num4}
+  solution: |-
+    Each mode decays at its own rate: $u = {b1}e^{-{al2}(\pi/{L})^2t}\sin\dfrac{\pi x}{{L}} {bm:signedcoef}e^{-{al2}({m}\pi/{L})^2t}\sin\dfrac{{m}\pi x}{{L}}$. The rates are ${k1:num4}$ and ${km:num4}$. At $x = {x0}$, $t = {t0}$: $u \approx$ **{u:num4}**.
+- id: de-wave-freq
+  title: Frequencies of a vibrating string
+  topic: Heat and wave equations
+  vars:
+    len: {choices: [0.5, 0.65, 1, 2]}
+    a: {min: 100, max: 600, step: 20}
+    n: {min: 1, max: 5}
+  calc:
+    f1: a/(2*len)
+    fn: n*a/(2*len)
+    T1: 2*len/a
+  prompt: 'A string of length {len} m is fixed at both ends, with wave speed $a = {a}$ m/s. Find the frequency of its fundamental mode and of mode $n = {n}$, in hertz (cycles per second). (1 decimal place)'
+  answers:
+    - {name: f1, label: 'Fundamental (Hz)', tolerance: 0.06, format: num1}
+    - {name: fn, label: 'Mode $n$ (Hz)', tolerance: 0.06, format: num1}
+  solution: |-
+    Mode $n$ oscillates as $\cos\dfrac{n\pi at}{L}$, with angular frequency $\dfrac{n\pi a}{L}$, so its frequency is $\dfrac{na}{2L}$ Hz. Fundamental: $\dfrac{{a}}{2({len})} \approx$ **{f1:num1} Hz**; mode {n}: $\dfrac{{n}\cdot{a}}{2({len})} \approx$ **{fn:num1} Hz**.

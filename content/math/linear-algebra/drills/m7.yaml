@@ -1,0 +1,208 @@
+# Module 7 drills
+
+- id: la-poly-comb
+  title: Coordinates of a polynomial in a nonstandard basis
+  topic: Coordinates
+  vars:
+    k1: {min: -3, max: 3}
+    k2: {min: -3, max: 3}
+    k3: {min: -3, max: 3}
+    c1: {min: -4, max: 4}
+    c2: {min: -4, max: 4}
+    c3: {min: -4, max: 4}
+  where: ["k1 != 0 or k2 != 0", "c1 != 0"]
+  calc:
+    a0: c1 + 0
+    a1: c1*k1 + c2 + 0
+    a2: c1*k2 + c2*k3 + c3 + 0
+  prompt: |-
+    $\mathcal{B} = \{p_1, p_2, p_3\}$ with $p_1(t) = 1 {k1:signedcoef}t {k2:signedcoef}t^2$, $p_2(t) = t {k3:signedcoef}t^2$, $p_3(t) = t^2$ is a basis of $\mathbb{P}_2$. Write $q(t) = {a0} {a1:signedcoef}t {a2:signedcoef}t^2$ as $c_1p_1 + c_2p_2 + c_3p_3$. (A coefficient shown as $+ 0t$ is just zero.)
+  answers:
+    - {name: c1, label: '$c_1 =$'}
+    - {name: c2, label: '$c_2 =$'}
+    - {name: c3, label: '$c_3 =$'}
+  solution: |-
+    Match coefficients of $1$, $t$, $t^2$:
+    constant: $c_1 = {a0}$; $t$: $({k1})c_1 + c_2 = {a1}$, so $c_2 = {c2}$; $t^2$: $({k2})c_1 + ({k3})c_2 + c_3 = {a2}$, so $c_3 = {c3}$.
+    **Answer:** $[q]_{\mathcal{B}} = ({c1}, {c2}, {c3})$.
+
+- id: la-nul-basis
+  title: Basis for a null space
+  topic: Null space
+  vars:
+    e11: {choices: [1, 2, -1]}
+    e12: {min: -2, max: 2}
+    e21: {min: -3, max: 3}
+    e22: {choices: [1, -1, 2]}
+    pp: {min: -4, max: 4}
+    qq: {min: -4, max: 4}
+    rr: {min: -4, max: 4}
+  where: ["e11*e22 - e12*e21 != 0", "rr != 0"]
+  calc:
+    a11: e11 + 0
+    a12: e11*pp + 0
+    a13: e12 + 0
+    a14: e11*qq + e12*rr + 0
+    a21: e21 + 0
+    a22: e21*pp + 0
+    a23: e22 + 0
+    a24: e21*qq + e22*rr + 0
+    np: -pp + 0
+    nq: -qq + 0
+    nr: -rr + 0
+  prompt: |-
+    $A = \begin{bmatrix} {a11} & {a12} & {a13} & {a14} \\ {a21} & {a22} & {a23} & {a24}\end{bmatrix}$. A basis for $\operatorname{Nul} A$ has the form $\{(a, 1, 0, 0),\ (b, 0, c, 1)\}$. Find $a$, $b$ and $c$.
+  answers:
+    - {name: np, label: '$a =$'}
+    - {name: nq, label: '$b =$'}
+    - {name: nr, label: '$c =$'}
+  solution: |-
+    Row-reduce: the RREF is $\begin{bmatrix} 1 & {pp} & 0 & {qq} \\ 0 & 0 & 1 & {rr}\end{bmatrix}$, so $x_2$ and $x_4$ are free with $x_1 = {np}x_2 + ({nq})x_4$ and $x_3 = {nr}x_4$:
+    $$\mathbf{x} = x_2\begin{bmatrix} {np} \\ 1 \\ 0 \\ 0\end{bmatrix} + x_4\begin{bmatrix} {nq} \\ 0 \\ {nr} \\ 1\end{bmatrix}.$$
+    **Answer:** $a = {np}$, $b = {nq}$, $c = {nr}$.
+
+- id: la-col-h
+  title: When is a vector in the column space?
+  topic: Column space
+  vars:
+    mm: {min: -3, max: 3}
+    pp: {min: -3, max: 3}
+    qq: {min: -3, max: 3}
+    ss: {min: -2, max: 2}
+    tt: {min: -2, max: 2}
+    b1: {min: -4, max: 4}
+    b2: {min: -4, max: 4}
+  where: ["qq != 0", "ss != 0 or tt != 0", "b1 != 0 or b2 != 0"]
+  calc:
+    a31: pp + 0
+    a32: qq + 0
+    a13: ss + 0
+    a23: ss*mm + tt + 0
+    a33: ss*pp + tt*qq + 0
+    x2v: b2 - mm*b1 + 0
+    hval: pp*b1 + qq*(b2 - mm*b1) + 0
+  prompt: |-
+    For what value of $h$ is $\mathbf{b} = ({b1}, {b2}, h)$ in $\operatorname{Col} A$, where $A = \begin{bmatrix} 1 & 0 & {a13} \\ {mm} & 1 & {a23} \\ {a31} & {a32} & {a33}\end{bmatrix}$?
+  answers:
+    - {name: hval, label: '$h =$'}
+  solution: |-
+    Column 3 is ${ss}$ times column 1 plus ${tt}$ times column 2, so $\operatorname{Col} A$ is spanned by columns 1 and 2. Solve $x_1(1, {mm}, {a31}) + x_2(0, 1, {a32}) = ({b1}, {b2}, h)$: $x_1 = {b1}$, $x_2 = {b2} - ({mm})({b1}) = {x2v}$, and then $h = ({a31})({b1}) + ({a32})({x2v}) =$ **{hval}**.
+
+- id: la-rank-echelon
+  title: Rank and nullity from a matrix
+  topic: Rank
+  vars:
+    a12: {min: -3, max: 3}
+    a13: {min: -3, max: 3}
+    a14: {min: -3, max: 3}
+    uu: {min: -3, max: 3}
+    vv: {min: -3, max: 3}
+    yy: {min: -3, max: 3}
+    mm: {min: -2, max: 2}
+    nn: {min: -2, max: 2}
+    ss: {choices: [0, 0, 1, 2, -1]}
+    tt: {choices: [0, 1, -1, 2]}
+    zz: {choices: [0, 0, 1, -1, 2]}
+  calc:
+    r21: mm + 0
+    r22: mm*a12 + ss + 0
+    r23: mm*a13 + ss*uu + 0
+    r24: mm*a14 + ss*vv + 0
+    r31: nn + 0
+    r32: nn*a12 + tt + 0
+    r33: nn*a13 + tt*uu + zz + 0
+    r34: nn*a14 + tt*vv + zz*yy + 0
+    rk: 1 + if(ss*zz != 0, 2, if(ss != 0 or tt != 0 or zz != 0, 1, 0)) + 0
+    nul: 3 - if(ss*zz != 0, 2, if(ss != 0 or tt != 0 or zz != 0, 1, 0)) + 0
+    nult: 2 - if(ss*zz != 0, 2, if(ss != 0 or tt != 0 or zz != 0, 1, 0)) + 0
+  prompt: |-
+    Find the rank of $A = \begin{bmatrix} 1 & {a12} & {a13} & {a14} \\ {r21} & {r22} & {r23} & {r24} \\ {r31} & {r32} & {r33} & {r34}\end{bmatrix}$, $\dim\operatorname{Nul} A$, and $\dim\operatorname{Nul} A^T$.
+  answers:
+    - {name: rk, label: '$\operatorname{rank} A =$'}
+    - {name: nul, label: '$\dim\operatorname{Nul} A =$'}
+    - {name: nult, label: '$\dim\operatorname{Nul} A^T =$'}
+  solution: |-
+    Row-reduce and count pivots: clearing column 1 with $R_2 - ({mm})R_1$ and $R_3 - ({nn})R_1$ leaves rows built from $(0, 1, {uu}, {vv})$ and $(0, 0, 1, {yy})$, and an echelon form has **{rk}** pivots, so $\operatorname{rank} A = {rk}$.
+    Rank theorem with 4 columns: $\dim\operatorname{Nul} A = 4 - {rk} =$ **{nul}**. $A^T$ is $4 \times 3$ with the same rank, so $\dim\operatorname{Nul} A^T = 3 - {rk} =$ **{nult}**.
+
+- id: la-coord
+  title: Coordinates relative to a basis of the plane
+  topic: Coordinates
+  vars:
+    pa: {min: -2, max: 2}
+    pb: {min: -2, max: 2}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+  where: ["pa != 0 or pb != 0", "c1 != 0", "c2 != 0"]
+  calc:
+    b12: pa + 0
+    b21: pb + 0
+    b22: pa*pb + 1 + 0
+    x1: c1 + c2*pb + 0
+    x2: c1*pa + c2*(pa*pb + 1) + 0
+  prompt: |-
+    $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ with $\mathbf{b}_1 = (1, {b12})$ and $\mathbf{b}_2 = ({b21}, {b22})$. Find $[\mathbf{x}]_{\mathcal{B}}$ for $\mathbf{x} = ({x1}, {x2})$.
+  answers:
+    - {name: c1, label: '$c_1 =$'}
+    - {name: c2, label: '$c_2 =$'}
+  figure:
+    type: plot
+    equal: true
+    x: ['min(0, 1, pb, x1) - 1', 'max(0, 1, pb, x1) + 1']
+    y: ['min(0, pa, b22, x2) - 1', 'max(0, pa, b22, x2) + 1']
+    segments:
+      - {from: [0, 0], to: [1, pa], arrow: true, label: 'b₁'}
+      - {from: [0, 0], to: [pb, b22], arrow: true, label: 'b₂'}
+      - {from: [0, 0], to: [x1, x2], arrow: true, label: 'x'}
+  solution: |-
+    Solve $c_1\mathbf{b}_1 + c_2\mathbf{b}_2 = \mathbf{x}$, i.e. row-reduce $\left[\begin{array}{cc|c} 1 & {b21} & {x1} \\ {b12} & {b22} & {x2}\end{array}\right]$. ($\det P_{\mathcal{B}} = 1$, so the answer is in whole numbers.)
+    $[\mathbf{x}]_{\mathcal{B}} =$ **$({c1}, {c2})$**. Check: ${c1}(1, {b12}) + ({c2})({b21}, {b22}) = ({x1}, {x2})$. ✓
+
+- id: la-change-basis
+  title: Change-of-basis matrix in the plane
+  topic: Change of basis
+  vars:
+    ca: {min: -2, max: 2}
+    cb: {min: -2, max: 2}
+    b11: {min: -3, max: 3}
+    b21: {min: -3, max: 3}
+    b12: {min: -3, max: 3}
+    b22: {min: -3, max: 3}
+  where: ["b11*b22 - b12*b21 != 0", "ca != 0 or cb != 0"]
+  calc:
+    c22: ca*cb + 1 + 0
+    p11: (ca*cb + 1)*b11 - cb*b21 + 0
+    p21: -ca*b11 + b21 + 0
+    p12: (ca*cb + 1)*b12 - cb*b22 + 0
+    p22: -ca*b12 + b22 + 0
+  prompt: |-
+    $\mathcal{B} = \{({b11}, {b21}),\ ({b12}, {b22})\}$ and $\mathcal{C} = \{(1, {ca}),\ ({cb}, {c22})\}$ are bases of $\mathbb{R}^2$. Find $P_{\mathcal{C} \leftarrow \mathcal{B}}$.
+  answers:
+    - {name: p11, label: 'row 1, col 1'}
+    - {name: p12, label: 'row 1, col 2'}
+    - {name: p21, label: 'row 2, col 1'}
+    - {name: p22, label: 'row 2, col 2'}
+  solution: |-
+    Row-reduce $[\,\mathbf{c}_1 \;\; \mathbf{c}_2 \;|\; \mathbf{b}_1 \;\; \mathbf{b}_2\,] = \left[\begin{array}{cc|cc} 1 & {cb} & {b11} & {b12} \\ {ca} & {c22} & {b21} & {b22}\end{array}\right]$ to $[\,I \;|\; P_{\mathcal{C} \leftarrow \mathcal{B}}\,]$:
+    $$P_{\mathcal{C} \leftarrow \mathcal{B}} = \begin{bmatrix} {p11} & {p12} \\ {p21} & {p22}\end{bmatrix}.$$
+    Column 1 says $\mathbf{b}_1 = ({p11})\mathbf{c}_1 + ({p21})\mathbf{c}_2$; check it in coordinates.
+
+- id: la-rank-nullity
+  title: The rank theorem
+  topic: Rank
+  vars:
+    mr: {min: 3, max: 9}
+    nc: {min: 3, max: 9}
+    rk: {min: 1, max: 9}
+  where: ["rk <= min(mr, nc)", "mr != nc"]
+  calc:
+    nul: nc - rk + 0
+    nult: mr - rk + 0
+  prompt: |-
+    $A$ is a ${mr} \times {nc}$ matrix with rank {rk}. Find $\dim\operatorname{Nul} A$, $\dim\operatorname{Row} A$ and $\dim\operatorname{Nul} A^T$.
+  answers:
+    - {name: nul, label: '$\dim\operatorname{Nul} A =$'}
+    - {name: rk, label: '$\dim\operatorname{Row} A =$'}
+    - {name: nult, label: '$\dim\operatorname{Nul} A^T =$'}
+  solution: |-
+    Rank theorem for $A$ (with {nc} columns): $\dim\operatorname{Nul} A = {nc} - {rk} =$ **{nul}**. The row space has the same dimension as the column space: **{rk}**. $A^T$ is ${nc} \times {mr}$ with rank {rk}, so $\dim\operatorname{Nul} A^T = {mr} - {rk} =$ **{nult}**.

@@ -1,0 +1,319 @@
+# Module 5: Percents
+# --- pre-pct-basics ---
+- id: pre-q-1701
+  lesson: pre-pct-basics
+  module_quiz: true
+  topic: Percent conversions
+  stem: 'Write 8% as a decimal.'
+  choices: ['0.08', '8.0', '0.8', '0.008']
+  answer: 0
+  explanation: |-
+    Divide by 100 (move the point two places left): $8\% = 0.08$. (0.8 is 80%.)
+
+- id: pre-q-1702
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Write 1.35 as a percent.'
+  choices: ['1.35%', '135%', '13.5%', '0.0135%']
+  answer: 1
+  explanation: |-
+    Multiply by 100 (point two places right): $1.35 = 135\%$. A number greater than 1 is more than 100%.
+
+- id: pre-q-1703
+  lesson: pre-pct-basics
+  module_quiz: true
+  topic: Percent conversions
+  stem: 'Write 45% as a fraction in simplest form.'
+  choices: ['$\dfrac{4}{5}$', '$\dfrac{45}{10}$', '$\dfrac{9}{20}$', '$\dfrac{9}{2}$']
+  answer: 2
+  explanation: |-
+    $45\% = \dfrac{45}{100}$; the GCF is 5, giving $\dfrac{9}{20}$.
+
+- id: pre-q-1704
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Write $\dfrac{3}{8}$ as a percent.'
+  choices: ['38%', '3.75%', '0.375%', '37.5%']
+  answer: 3
+  explanation: |-
+    $3 \div 8 = 0.375$, and $0.375 \times 100 = 37.5\%$.
+
+- id: pre-q-1705
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Write 0.4% as a decimal.'
+  choices: ['0.004', '0.04', '4', '0.4']
+  answer: 0
+  explanation: |-
+    0.4% is less than one percent. Move the point two places left: $0.4\% = 0.004$.
+
+- id: pre-q-1706
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Which is equal to $\dfrac{2}{3}$?'
+  choices: ['66%', '$66\tfrac{2}{3}\%$', '67%', '$6\tfrac{2}{3}\%$']
+  answer: 1
+  explanation: |-
+    $\tfrac23 = 0.\overline{6} = 66.\overline{6}\% = 66\tfrac23\%$. The values 66% and 67% are only approximations.
+
+- id: pre-q-1707
+  lesson: pre-pct-basics
+  module_quiz: true
+  topic: Percent conversions
+  stem: 'On a test, Ana scored 43 out of 50 and Raj scored 51 out of 60. Who scored the higher percent?'
+  choices: ['Raj, 85%', 'They tied at 86%', 'Ana, 86%', 'Raj, because 51 > 43']
+  answer: 2
+  explanation: |-
+    Ana: $\tfrac{43}{50} = \tfrac{86}{100} = 86\%$. Raj: $\tfrac{51}{60} = 0.85 = 85\%$. Ana's percent is higher even though Raj answered more questions correctly.
+
+- id: pre-q-1708
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Write 250% as a mixed number.'
+  choices: ['$2\tfrac{1}{4}$', '$25$', '$\tfrac{5}{2}\%$', '$2\tfrac{1}{2}$']
+  answer: 3
+  explanation: |-
+    $250\% = \tfrac{250}{100} = \tfrac52 = 2\tfrac12$.
+
+- id: pre-q-1709
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Write $12\tfrac{1}{2}\%$ as a fraction.'
+  choices: ['$\dfrac{1}{8}$', '$\dfrac{25}{2}$', '$\dfrac{1}{12}$', '$\dfrac{5}{4}$']
+  answer: 0
+  explanation: |-
+    $12\tfrac12\% = \dfrac{12.5}{100} = \dfrac{125}{1000} = \dfrac18$.
+
+- id: pre-q-1710
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'Which list is ordered from least to greatest?'
+  choices: ['$\tfrac{1}{4}$, 0.3, 28%', '$\tfrac14$, 28%, 0.3', '0.3, 28%, $\tfrac14$', '28%, $\tfrac14$, 0.3']
+  answer: 1
+  explanation: |-
+    As percents: $\tfrac14 = 25\%$, $28\%$, and $0.3 = 30\%$. So $\tfrac14 < 28\% < 0.3$.
+
+- id: pre-q-1711
+  lesson: pre-pct-basics
+  topic: Percent conversions
+  stem: 'A gas tank is $\dfrac{3}{5}$ full. What percent of the tank is empty?'
+  choices: ['60%', '35%', '40%', '20%']
+  answer: 2
+  explanation: |-
+    Full: $\tfrac35 = 60\%$. Empty: $100\% - 60\% = 40\%$.
+
+# --- pre-pct-solve ---
+- id: pre-q-1801
+  lesson: pre-pct-solve
+  module_quiz: true
+  topic: Percent problems
+  stem: 'What is 15% of 260?'
+  choices: ['26', '17.3', '3,900', '39']
+  answer: 3
+  explanation: |-
+    $0.15 \times 260 = 39$. (Mentally: 10% is 26, 5% is 13, total 39. 3,900 forgets to convert 15% to 0.15.)
+
+- id: pre-q-1802
+  lesson: pre-pct-solve
+  module_quiz: true
+  topic: Percent problems
+  stem: '27 is what percent of 36?'
+  choices: ['75%', '133%', '9%', '0.75%']
+  answer: 0
+  explanation: |-
+    Part ÷ whole: $27 \div 36 = 0.75 = 75\%$. (133% divides the wrong way, $36 \div 27$.)
+
+- id: pre-q-1803
+  lesson: pre-pct-solve
+  module_quiz: true
+  topic: Percent problems
+  stem: '18 is 40% of what number?'
+  choices: ['7.2', '45', '72', '25.2']
+  answer: 1
+  explanation: |-
+    $18 = 0.4B$, so $B = 18 \div 0.4 = 45$. Check: 40% of 45 is 18. (7.2 is 40% of 18, which answers a different question.)
+
+- id: pre-q-1804
+  lesson: pre-pct-solve
+  topic: Percent problems
+  stem: 'What is 125% of 48?'
+  choices: ['38.4', '6', '60', '173']
+  answer: 2
+  explanation: |-
+    $1.25 \times 48 = 60$. A percent over 100% gives more than the base.
+
+- id: pre-q-1805
+  lesson: pre-pct-solve
+  topic: Percent problems
+  stem: 'In "What percent of 80 is 12?", which number is the base?'
+  choices: ['12', 'the percent', '100', '80']
+  answer: 3
+  explanation: |-
+    The base is the whole, the number after "of": 80. The amount (part) is 12, and the answer is $12 \div 80 = 15\%$.
+
+- id: pre-q-1806
+  lesson: pre-pct-solve
+  topic: Percent problems
+  stem: 'A school has 1,450 students and 38% ride the bus. How many ride the bus?'
+  choices: ['551', '899', '3,816', '382']
+  answer: 0
+  explanation: |-
+    $0.38 \times 1{,}450 = 551$ students. (899 is the number who don't ride: 62%.)
+
+- id: pre-q-1807
+  lesson: pre-pct-solve
+  topic: Percent problems
+  stem: 'Of the 640 people at a concert, 96 bought a T-shirt. What percent bought one?'
+  choices: ['6.7%', '15%', '96%', '1.5%']
+  answer: 1
+  explanation: |-
+    $96 \div 640 = 0.15 = 15\%$.
+
+- id: pre-q-1808
+  lesson: pre-pct-solve
+  module_quiz: true
+  topic: Percent change
+  stem: 'A price rose from \$50 to \$62. What was the percent increase?'
+  choices: ['12%', '19.4%', '24%', '81%']
+  answer: 2
+  explanation: |-
+    Change ÷ original: $(62 - 50) \div 50 = 12 \div 50 = 0.24 = 24\%$. (19.4% divides by the new price, 62.)
+
+- id: pre-q-1809
+  lesson: pre-pct-solve
+  topic: Percent change
+  stem: 'Enrollment fell from 800 to 680. What was the percent decrease?'
+  choices: ['85%', '17.6%', '12%', '15%']
+  answer: 3
+  explanation: |-
+    Change: $680 - 800 = -120$. Divide by the original: $-120 \div 800 = -0.15$, a 15% decrease. (17.6% divides by 680; 85% is the new value as a percent of the old.)
+
+- id: pre-q-1810
+  lesson: pre-pct-solve
+  topic: Percent change
+  stem: 'A \$200 item is marked up 10%, and later the new price is marked down 10%. What is the final price?'
+  choices: ['\$198', '\$200', '\$202', '\$180']
+  answer: 0
+  explanation: |-
+    $200 \times 1.10 = 220$, then $220 \times 0.90 = 198$. The 10% decrease is taken from the larger price, so the changes don't cancel.
+
+- id: pre-q-1811
+  lesson: pre-pct-solve
+  topic: Percent problems
+  stem: 'A baseball player got a hit 35% of the times he batted, for a total of 49 hits. How many times did he bat?'
+  choices: ['17', '140', '84', '1,715']
+  answer: 1
+  explanation: |-
+    The hits are 35% of the at-bats: $49 = 0.35B$, so $B = 49 \div 0.35 = 140$.
+
+- id: pre-q-1812
+  lesson: pre-pct-solve
+  topic: Percent change
+  stem: 'A town of 24,000 grows by 5% per year for two years. What is its population after two years?'
+  choices: ['26,400', '25,200', '26,460', '26,000']
+  answer: 2
+  explanation: |-
+    Multiply by 1.05 twice: $24{,}000 \times 1.05 = 25{,}200$, then $25{,}200 \times 1.05 = 26{,}460$. (26,400 adds 10% of the original, ignoring growth on growth.)
+
+# --- pre-pct-apps ---
+- id: pre-q-1901
+  lesson: pre-pct-apps
+  module_quiz: true
+  topic: Percent applications
+  stem: 'A \$64 jacket is on sale for 25% off. What is the sale price?'
+  choices: ['\$16', '\$80', '\$39', '\$48']
+  answer: 3
+  explanation: |-
+    You pay 75%: $0.75 \times 64 = 48$. (\$16 is the discount itself; \$80 adds 25%.)
+
+- id: pre-q-1902
+  lesson: pre-pct-apps
+  topic: Percent applications
+  stem: 'A meal costs \$38.40 before tax. Sales tax is 8%. What is the total?'
+  choices: ['\$41.47', '\$3.07', '\$46.40', '\$41.40']
+  answer: 0
+  explanation: |-
+    Tax: $0.08 \times 38.40 = 3.072 \approx 3.07$. Total: $38.40 + 3.07 = 41.47$. (Or $1.08 \times 38.40 = 41.472$.)
+
+- id: pre-q-1903
+  lesson: pre-pct-apps
+  module_quiz: true
+  topic: Percent applications
+  stem: 'What is a 20% tip on a \$57.50 bill?'
+  choices: ['\$5.75', '\$11.50', '\$2.88', '\$69.00']
+  answer: 1
+  explanation: |-
+    10% is \$5.75, so 20% is \$11.50. (\$69.00 is the bill plus the tip.)
+
+- id: pre-q-1904
+  lesson: pre-pct-apps
+  module_quiz: true
+  topic: Simple interest
+  stem: 'Find the simple interest on \$4,000 at 5% per year for 3 years.'
+  choices: ['\$60', '\$200', '\$600', '\$4,600']
+  answer: 2
+  explanation: |-
+    $I = Prt = 4{,}000 \times 0.05 \times 3 = 600$. (\$200 is one year's interest; \$4,600 is the total amount.)
+
+- id: pre-q-1905
+  lesson: pre-pct-apps
+  topic: Simple interest
+  stem: 'How much simple interest does \$1,500 earn at 6% per year in 4 months?'
+  choices: ['\$360', '\$22.50', '\$90', '\$30']
+  answer: 3
+  explanation: |-
+    Time in years: $\tfrac{4}{12} = \tfrac13$. $I = 1{,}500 \times 0.06 \times \tfrac13 = 30$. (\$360 uses 4 years instead of 4 months.)
+
+- id: pre-q-1906
+  lesson: pre-pct-apps
+  topic: Percent applications
+  stem: 'After a 20% discount, a printer costs \$96. What was the original price?'
+  choices: ['\$120', '\$116', '\$76.80', '\$115.20']
+  answer: 0
+  explanation: |-
+    The sale price is 80% of the original: $96 = 0.8B$, so $B = 120$. (\$115.20 adds 20% of the sale price back, but the discount was 20% of the original.)
+
+- id: pre-q-1907
+  lesson: pre-pct-apps
+  topic: Percent applications
+  stem: 'A real estate agent earns 3% commission on a \$285,000 house sale. How much is the commission?'
+  choices: ['\$855', '\$8,550', '\$85,500', '\$9,500']
+  answer: 1
+  explanation: |-
+    $0.03 \times 285{,}000 = 8{,}550$ dollars.
+
+- id: pre-q-1908
+  lesson: pre-pct-apps
+  topic: Percent applications
+  stem: 'A store takes 40% off a \$150 coat, then an extra 10% off the sale price at the register. What is the final price?'
+  choices: ['\$75', '\$90', '\$81', '\$84']
+  answer: 2
+  explanation: |-
+    $150 \times 0.60 = 90$; then $90 \times 0.90 = 81$. The total discount is 46%, not 50%, so \$75 is wrong.
+
+- id: pre-q-1909
+  lesson: pre-pct-apps
+  topic: Simple interest
+  stem: 'A \$5,000 loan at simple interest costs \$1,200 in interest over 3 years. What is the annual rate?'
+  choices: ['2.4%', '24%', '4%', '8%']
+  answer: 3
+  explanation: |-
+    $1{,}200 = 5{,}000 \times r \times 3 = 15{,}000r$, so $r = 0.08 = 8\%$. (24% is the total over 3 years, not per year.)
+
+- id: pre-q-1910
+  lesson: pre-pct-apps
+  topic: Percent applications
+  stem: 'A shop buys a lamp for \$32 and marks it up 45%. What is the selling price?'
+  choices: ['\$46.40', '\$14.40', '\$77', '\$58.18']
+  answer: 0
+  explanation: |-
+    $32 \times 1.45 = 46.40$. (\$14.40 is only the markup.)
+
+- id: pre-q-1911
+  lesson: pre-pct-apps
+  topic: Percent applications
+  stem: 'Jon earns \$600 per week plus 5% commission on sales. One week he earns \$1,150 in total. What were his sales?'
+  choices: ['\$23,000', '\$11,000', '\$2,750', '\$12,000']
+  answer: 1
+  explanation: |-
+    Commission $= 1{,}150 - 600 = 550$. Then $550 = 0.05 \times S$, so $S = 11{,}000$ dollars. (\$23,000 forgets to subtract the base pay.)

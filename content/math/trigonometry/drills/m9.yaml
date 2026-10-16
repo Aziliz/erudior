@@ -1,0 +1,230 @@
+# Module 9 drills: polar coordinates and complex numbers
+- id: trig-d-polar-to-rect
+  title: Polar to rectangular
+  topic: Polar coordinates
+  vars:
+    r: {min: -8, max: 8}
+    th: {min: 0, max: 345, step: 15}
+  where: ["r != 0"]
+  calc:
+    x: round(r * cosd(th), 9) + 0
+    y: round(r * sind(th), 9) + 0
+  prompt: 'Convert the polar point $({r}, {th}^\circ)$ to rectangular coordinates (2 decimals, or exact like 2sqrt(3)).'
+  answers:
+    - {name: x, label: '$x$', tolerance: 0.01}
+    - {name: y, label: '$y$', tolerance: 0.01}
+  solution: |-
+    $x = r\cos\theta = {r}\cos {th}^\circ \approx$ **{x:num2}** and $y = r\sin\theta = {r}\sin {th}^\circ \approx$ **{y:num2}**.
+    (A negative $r$ points the opposite way from ${th}^\circ$.)
+  figure:
+    type: plot
+    x: [-9, 9]
+    y: [-9, 9]
+    equal: true
+    points:
+      - {at: ['x', 'y'], label: '({r}, {th}°)'}
+    segments:
+      - {from: [0, 0], to: ['x', 'y'], dashed: true}
+
+- id: trig-d-rect-to-polar
+  title: Rectangular to polar
+  topic: Polar coordinates
+  vars:
+    x: {min: -9, max: 9}
+    y: {min: -9, max: 9}
+  where: ["x != 0", "y != 0"]
+  calc:
+    r: sqrt(x^2 + y^2)
+    th: mod(atan2d(y, x), 360)
+  prompt: 'Convert $({x}, {y})$ to polar coordinates with $r > 0$ and $0^\circ \le \theta < 360^\circ$ (2 decimals).'
+  answers:
+    - {name: r, label: '$r$', tolerance: 0.01}
+    - {name: th, label: '$\theta$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $r = \sqrt{({x})^2 + ({y})^2} \approx$ **{r:num2}**. $\tan\theta = \dfrac{{y}}{{x}}$, and the signs of $x$ and $y$ fix the quadrant:
+    $\theta \approx$ **{th:num2}°**.
+
+- id: trig-d-polar-eval
+  title: Points on a limaçon
+  topic: Polar graphs
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: 1, max: 5}
+    th: {min: 0, max: 330, step: 30}
+    f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
+  calc:
+    r: a + b * if(f == 0, cosd(th), sind(th))
+    x: round(r * cosd(th), 9) + 0
+    y: round(r * sind(th), 9) + 0
+  prompt: 'For $r = {a} + {b}{f}\theta$, find $r$ at $\theta = {th}^\circ$ and the rectangular coordinates of that point (2 decimals).'
+  answers:
+    - {name: r, label: '$r$', tolerance: 0.01}
+    - {name: x, label: '$x$', tolerance: 0.01}
+    - {name: y, label: '$y$', tolerance: 0.01}
+  solution: |-
+    $r = {a} + {b}{f}{th}^\circ \approx$ **{r:num2}**. Then $x = r\cos\theta \approx$ **{x:num2}** and $y = r\sin\theta \approx$ **{y:num2}**
+    (if $r < 0$, the point lies in the direction opposite ${th}^\circ$).
+  figure:
+    type: plot
+    x: ['-(a + b) - 1', 'a + b + 1']
+    y: ['-(a + b) - 1', 'a + b + 1']
+    equal: true
+    curves:
+      - {x: '(a + b*if(f == 0, cos(t), sin(t)))*cos(t)', y: '(a + b*if(f == 0, cos(t), sin(t)))*sin(t)', t: [0, 6.2832]}
+
+- id: trig-d-rose
+  title: Petals of a rose curve
+  topic: Polar graphs
+  vars:
+    a: {min: -6, max: 6}
+    n: {min: 2, max: 7}
+    f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
+  where: ["a != 0"]
+  calc:
+    pet: if(mod(n, 2) == 1, n, 2*n)
+    len: abs(a)
+    m2: 2 * n
+  prompt: 'How many petals does $r = {a:coef}{f}({n}\theta)$ have, and how long is each petal?'
+  answers:
+    - {name: pet, label: 'Petals', format: integer}
+    - {name: len, label: 'Length'}
+  solution: |-
+    $n = {n}$: an odd $n$ gives $n$ petals and an even $n$ gives $2n$ petals, so **{pet}** petals. Each petal reaches
+    $|r| = |{a}| =$ **{len}**.
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    equal: true
+    curves:
+      - {x: 'a*if(f == 0, cos(n*t), sin(n*t))*cos(t)', y: 'a*if(f == 0, cos(n*t), sin(n*t))*sin(t)', t: [0, 6.2832]}
+
+- id: trig-d-complex-trig
+  title: Trigonometric form of a complex number
+  topic: Trigonometric form of complex numbers
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -9, max: 9}
+  where: ["a != 0 or b != 0"]
+  calc:
+    r: sqrt(a^2 + b^2)
+    th: mod(atan2d(b, a), 360)
+  prompt: 'Write $z = {a} {b:signed}i$ in trigonometric form $r(\cos\theta + i\sin\theta)$: find $r$ (2 decimals) and $\theta$ in $[0^\circ, 360^\circ)$ (2 decimals).'
+  answers:
+    - {name: r, label: '$r$', tolerance: 0.01}
+    - {name: th, label: '$\theta$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $r = \sqrt{({a})^2 + ({b})^2} \approx$ **{r:num2}**. The point $({a}, {b})$ fixes the quadrant of the argument:
+    $\theta \approx$ **{th:num2}°**.
+
+- id: trig-d-complex-mult
+  title: Multiply and divide in trigonometric form
+  topic: Trigonometric form of complex numbers
+  vars:
+    r1: {min: 2, max: 12}
+    r2: {min: 2, max: 6}
+    t1: {min: 10, max: 350, step: 10}
+    t2: {min: 10, max: 350, step: 10}
+  calc:
+    pm: r1 * r2
+    pa: mod(t1 + t2, 360)
+    qm: r1 / r2
+    qa: mod(t1 - t2, 360)
+  prompt: 'Let $z_1 = {r1}\operatorname{cis}{t1}^\circ$ and $z_2 = {r2}\operatorname{cis}{t2}^\circ$. Find the modulus and argument (in $[0^\circ, 360^\circ)$) of $z_1z_2$ and of $\dfrac{z_1}{z_2}$.'
+  answers:
+    - {name: pm, label: '$\lvert z_1z_2\rvert$'}
+    - {name: pa, label: 'Argument of $z_1z_2$', units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: qm, label: '$\lvert z_1/z_2\rvert$', tolerance: 0.01}
+    - {name: qa, label: 'Argument of $z_1/z_2$', units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    Product: multiply moduli, add arguments: ${r1}\cdot{r2} =$ **{pm}**, ${t1}^\circ + {t2}^\circ \to$ **{pa}°**.
+    Quotient: divide moduli, subtract arguments: $\tfrac{{r1}}{{r2}} \approx$ **{qm:num2}**, ${t1}^\circ - {t2}^\circ \to$ **{qa}°** (reduced to $[0^\circ, 360^\circ)$).
+
+- id: trig-d-complex-to-rect
+  title: Trigonometric form to a + bi
+  topic: Trigonometric form of complex numbers
+  vars:
+    r: {min: 1, max: 12}
+    th: {min: 0, max: 345, step: 15}
+  calc:
+    a: round(r * cosd(th), 9) + 0
+    b: round(r * sind(th), 9) + 0
+  prompt: 'Write $z = {r}\operatorname{cis}{th}^\circ$ in the form $a + bi$ (2 decimals, or exact).'
+  answers:
+    - {name: a, label: '$a$', tolerance: 0.01}
+    - {name: b, label: '$b$', tolerance: 0.01}
+  solution: |-
+    $a = r\cos\theta = {r}\cos {th}^\circ \approx$ **{a:num2}** and $b = r\sin\theta = {r}\sin {th}^\circ \approx$ **{b:num2}**.
+
+- id: trig-d-demoivre
+  title: Powers with De Moivre's theorem
+  topic: De Moivre's theorem
+  vars:
+    r: {choices: [1, 2, 3]}
+    th: {min: 15, max: 345, step: 15}
+    n: {min: 2, max: 6}
+  where: ["r^n <= 250", "abs(r^n*cosd(n*th) + 15.54) > 0.1", "abs(r^n*sind(n*th) + 15.54) > 0.1"]
+  calc:
+    m: r^n
+    ang: mod(n * th, 360)
+    a: round(m * cosd(n * th), 9) + 0
+    b: round(m * sind(n * th), 9) + 0
+  prompt: 'Use De Moivre''s theorem to compute $\left({r}\operatorname{cis}{th}^\circ\right)^{{n}}$ in the form $a + bi$ (2 decimals, or exact).'
+  answers:
+    - {name: a, label: '$a$', tolerance: 0.01}
+    - {name: b, label: '$b$', tolerance: 0.01}
+  solution: |-
+    $\left({r}\operatorname{cis}{th}^\circ\right)^{{n}} = {r}^{{n}}\operatorname{cis}({n}\cdot{th}^\circ) = {m}\operatorname{cis}{ang}^\circ$, so
+    $a \approx$ **{a:num2}** and $b \approx$ **{b:num2}**.
+
+- id: trig-d-nth-roots
+  title: nth roots of a complex number
+  topic: De Moivre's theorem
+  vars:
+    n: {choices: [{label: 'square', value: 2}, {label: 'cube', value: 3}, {label: 'fourth', value: 4}, {label: 'fifth', value: 5}, {label: 'sixth', value: 6}]}
+    s: {choices: [1, 2, 3]}
+    th: {min: 0, max: 330, step: 30}
+    k: {min: 1, max: 5}
+  where: ["k < n", "s^n <= 300"]
+  calc:
+    R: s^n
+    a0: th / n
+    ak: (th + 360 * k) / n
+    sp: 360 / n
+  prompt: 'Consider the {n} roots of $z = {R}\operatorname{cis}{th}^\circ$, $w_k = \sqrt[{n:int}]{{R}}\operatorname{cis}\dfrac{{th}^\circ + 360^\circ k}{{n:int}}$. Find their common modulus, the argument of $w_0$, and the argument of $w_{{k}}$ (degrees, 2 decimals).'
+  answers:
+    - {name: s, label: 'Modulus'}
+    - {name: a0, label: 'Argument of $w_0$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: ak, label: 'Argument of the other root', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    Modulus $\sqrt[{n:int}]{{R}} =$ **{s}**. $w_0$ has argument $\dfrac{{th}^\circ}{{n:int}} \approx$ **{a0:num2}°**, and the roots are spaced
+    $\dfrac{360^\circ}{{n:int}} \approx {sp:num2}^\circ$ apart, so $w_{{k}}$ has argument $\dfrac{{th}^\circ + 360^\circ({k})}{{n:int}} \approx$ **{ak:num2}°**.
+
+- id: trig-d-roots-unity
+  title: Roots of unity
+  topic: De Moivre's theorem
+  vars:
+    n: {choices: [{label: 'cube', value: 3}, {label: 'fourth', value: 4}, {label: 'sixth', value: 6}, {label: 'eighth', value: 8}, {label: 'twelfth', value: 12}]}
+    k: {min: 1, max: 11}
+  where: ["k < n"]
+  calc:
+    ang: 360 * k / n
+    a: round(cosd(ang), 12) + 0
+    b: round(sind(ang), 12) + 0
+  prompt: 'The {n} roots of unity are $\operatorname{cis}\dfrac{360^\circ k}{{n:int}}$. Write the root with $k = {k}$ in the form $a + bi$ (exact like sqrt(3)/2, or 4 decimals).'
+  answers:
+    - {name: a, label: '$a$', tolerance: 0.0005, format: num4}
+    - {name: b, label: '$b$', tolerance: 0.0005, format: num4}
+  solution: |-
+    The argument is $\dfrac{360^\circ({k})}{{n:int}} = {ang:num2}^\circ$, a unit-circle angle, so the root is
+    $\cos {ang:num2}^\circ + i\sin {ang:num2}^\circ \approx$ **{a:num4}** $+$ **{b:num4}**$\,i$.
+  figure:
+    type: plot
+    x: [-1.5, 1.5]
+    y: [-1.5, 1.5]
+    equal: true
+    circles:
+      - {center: [0, 0], r: 1}
+    points:
+      - {at: ['cosd(ang)', 'sind(ang)'], label: 'k = {k}'}
+      - [1, 0]

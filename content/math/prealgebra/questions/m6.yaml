@@ -1,0 +1,318 @@
+# Module 6: Exponents, roots and scientific notation
+# --- pre-powers-roots ---
+- id: pre-q-2001
+  lesson: pre-powers-roots
+  module_quiz: true
+  topic: Powers
+  stem: 'Evaluate $(-4)^3$.'
+  choices: ['$-12$', '64', '$-64$', '12']
+  answer: 2
+  explanation: |-
+    $(-4)(-4)(-4) = 16 \times (-4) = -64$. An odd power of a negative number is negative. ($-12$ multiplies by 3 instead of cubing.)
+
+- id: pre-q-2002
+  lesson: pre-powers-roots
+  topic: Powers
+  stem: 'Evaluate $\left(\dfrac{3}{5}\right)^2$.'
+  choices: ['$\dfrac{6}{10}$', '$\dfrac{3}{25}$', '$\dfrac{9}{5}$', '$\dfrac{9}{25}$']
+  answer: 3
+  explanation: |-
+    Square the numerator and the denominator: $\dfrac{3^2}{5^2} = \dfrac{9}{25}$.
+
+- id: pre-q-2003
+  lesson: pre-powers-roots
+  module_quiz: true
+  topic: Square roots
+  stem: 'Evaluate $\sqrt{144}$.'
+  choices: ['12', '14', '72', '$\pm 12$']
+  answer: 0
+  explanation: |-
+    $12^2 = 144$, and the radical sign means the nonnegative root, so $\sqrt{144} = 12$. (72 is half of 144.)
+
+- id: pre-q-2004
+  lesson: pre-powers-roots
+  topic: Powers
+  stem: 'Evaluate $0.2^3$.'
+  choices: ['0.6', '0.008', '0.08', '0.0008']
+  answer: 1
+  explanation: |-
+    $0.2 \times 0.2 \times 0.2 = 0.008$ ($2^3 = 8$, with $1 + 1 + 1 = 3$ decimal places).
+
+- id: pre-q-2005
+  lesson: pre-powers-roots
+  module_quiz: true
+  topic: Square roots
+  stem: 'Between which two consecutive whole numbers is $\sqrt{90}$?'
+  choices: ['8 and 9', '44 and 46', '9 and 10', '10 and 11']
+  answer: 2
+  explanation: |-
+    $9^2 = 81$ and $10^2 = 100$, and 90 is between them, so $9 < \sqrt{90} < 10$. ($\sqrt{90} \approx 9.49$.)
+
+- id: pre-q-2006
+  lesson: pre-powers-roots
+  topic: Square roots
+  stem: 'Evaluate $\sqrt{36 + 64}$.'
+  choices: ['14', '100', '50', '10']
+  answer: 3
+  explanation: |-
+    Simplify inside first: $36 + 64 = 100$, and $\sqrt{100} = 10$. (14 comes from $\sqrt{36} + \sqrt{64}$, which is not allowed.)
+
+- id: pre-q-2007
+  lesson: pre-powers-roots
+  topic: Square roots
+  stem: 'Which expression is NOT a real number?'
+  choices: ['$\sqrt{-49}$', '$-\sqrt{49}$', '$\sqrt[3]{-8}$', '$(-7)^2$']
+  answer: 0
+  explanation: |-
+    No real number squared gives $-49$, so $\sqrt{-49}$ is not real. But $-\sqrt{49} = -7$, $\sqrt[3]{-8} = -2$ and $(-7)^2 = 49$ are all real.
+
+- id: pre-q-2008
+  lesson: pre-powers-roots
+  topic: Square roots
+  stem: 'Evaluate $\sqrt{\dfrac{16}{81}}$.'
+  choices: ['$\dfrac{16}{9}$', '$\dfrac{4}{9}$', '$\dfrac{2}{3}$', '$\dfrac{4}{81}$']
+  answer: 1
+  explanation: |-
+    $\left(\tfrac49\right)^2 = \tfrac{16}{81}$, so the square root is $\tfrac49$. Take the root of the top and the bottom. ($\tfrac{16}{9}$ takes the root of the bottom only.)
+
+- id: pre-q-2009
+  lesson: pre-powers-roots
+  topic: Square roots
+  stem: 'Evaluate $2\sqrt{25} - \sqrt[3]{27} + 3^2$.'
+  choices: ['22', '10', '16', '4']
+  answer: 2
+  explanation: |-
+    $2 \times 5 = 10$, $\sqrt[3]{27} = 3$, $3^2 = 9$. So $10 - 3 + 9 = 16$.
+
+- id: pre-q-2010
+  lesson: pre-powers-roots
+  topic: Square roots
+  stem: 'A square patio has an area of 225 square feet. How long is each side?'
+  choices: ['56.25 ft', '112.5 ft', '25 ft', '15 ft']
+  answer: 3
+  explanation: |-
+    The side is $\sqrt{225} = 15$ feet, since $15^2 = 225$. (56.25 divides by 4, which finds a side from the perimeter, not from the area.)
+
+- id: pre-q-2011
+  lesson: pre-powers-roots
+  topic: Powers
+  stem: 'Which is true?'
+  choices: ['$-6^2 = -36$', '$(-6)^2 = -36$', '$-6^2 = 36$', '$(-6)^2 = -12$']
+  answer: 0
+  explanation: |-
+    In $-6^2$ the exponent applies only to 6: $-(36) = -36$. With parentheses, $(-6)^2 = 36$.
+
+- id: pre-q-2012
+  lesson: pre-powers-roots
+  topic: Square roots
+  stem: 'Which is the best estimate of $\sqrt{30}$?'
+  choices: ['15', '5.5', '6.2', '5.1']
+  answer: 1
+  explanation: |-
+    $5^2 = 25$ and $6^2 = 36$; 30 is a bit closer to 25, so the root is a little under 5.5. Check: $5.5^2 = 30.25$, very close. ($\sqrt{30} \approx 5.48$.) 5.1 is too small: $5.1^2 = 26.01$.
+
+# --- pre-exp-rules ---
+- id: pre-q-2101
+  lesson: pre-exp-rules
+  module_quiz: true
+  topic: Exponent rules
+  stem: 'Simplify $x^4 \cdot x^5$.'
+  choices: ['$x^{20}$', '$2x^9$', '$x^9$', '$x^{1}$']
+  answer: 2
+  explanation: |-
+    Same base, multiplying: add the exponents. $x^{4+5} = x^9$. ($x^{20}$ multiplies the exponents, which is the rule for a power of a power.)
+
+- id: pre-q-2102
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Simplify $\dfrac{y^{12}}{y^3}$.'
+  choices: ['$y^4$', '$y^{15}$', '$y^{36}$', '$y^9$']
+  answer: 3
+  explanation: |-
+    Same base, dividing: subtract the exponents. $y^{12-3} = y^9$. ($y^4$ divides the exponents.)
+
+- id: pre-q-2103
+  lesson: pre-exp-rules
+  module_quiz: true
+  topic: Exponent rules
+  stem: 'Evaluate $5^{-2}$.'
+  choices: ['$\dfrac{1}{25}$', '$-10$', '$-25$', '$\dfrac{1}{10}$']
+  answer: 0
+  explanation: |-
+    A negative exponent means reciprocal: $5^{-2} = \dfrac{1}{5^2} = \dfrac{1}{25}$. It is positive.
+
+- id: pre-q-2104
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Simplify $\left(a^3\right)^4$.'
+  choices: ['$a^7$', '$a^{12}$', '$a^{81}$', '$4a^3$']
+  answer: 1
+  explanation: |-
+    Power of a power: multiply the exponents, $a^{3 \cdot 4} = a^{12}$.
+
+- id: pre-q-2105
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Evaluate $-8^0$.'
+  choices: ['1', '0', '$-1$', '$-8$']
+  answer: 2
+  explanation: |-
+    The exponent applies only to the 8: $-(8^0) = -(1) = -1$. With parentheses, $(-8)^0 = 1$.
+
+- id: pre-q-2106
+  lesson: pre-exp-rules
+  module_quiz: true
+  topic: Exponent rules
+  stem: 'Simplify $(2x^2)^3$.'
+  choices: ['$2x^6$', '$6x^6$', '$8x^5$', '$8x^6$']
+  answer: 3
+  explanation: |-
+    The power applies to each factor: $2^3 \cdot (x^2)^3 = 8x^6$. ($2x^6$ forgets to cube the 2.)
+
+- id: pre-q-2107
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Simplify $2^3 \cdot 2^4$.'
+  choices: ['$2^7$', '$4^7$', '$2^{12}$', '$4^{12}$']
+  answer: 0
+  explanation: |-
+    Keep the base and add the exponents: $2^7 = 128$. The bases are not multiplied.
+
+- id: pre-q-2108
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Evaluate $\left(\dfrac{2}{5}\right)^{-2}$.'
+  choices: ['$-\dfrac{4}{25}$', '$\dfrac{25}{4}$', '$\dfrac{4}{25}$', '$-\dfrac{25}{4}$']
+  answer: 1
+  explanation: |-
+    Flip the fraction and make the exponent positive: $\left(\dfrac52\right)^2 = \dfrac{25}{4}$.
+
+- id: pre-q-2109
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Simplify $\dfrac{m^2 \cdot m^6}{m^{10}}$ and write it with a positive exponent.'
+  choices: ['$m^{2}$', '$m^{18}$', '$\dfrac{1}{m^2}$', '$\dfrac{1}{m^{18}}$']
+  answer: 2
+  explanation: |-
+    Top: $m^8$. Then $m^{8-10} = m^{-2} = \dfrac{1}{m^2}$.
+
+- id: pre-q-2110
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Which statement is false?'
+  choices: ['$(3 \cdot 4)^2 = 3^2 \cdot 4^2$', '$3^2 \cdot 3^4 = 3^6$', '$\left(\dfrac{3}{4}\right)^2 = \dfrac{3^2}{4^2}$', '$(3 + 4)^2 = 3^2 + 4^2$']
+  answer: 3
+  explanation: |-
+    Exponents distribute over multiplication and division but not addition: $(3 + 4)^2 = 49$, while $3^2 + 4^2 = 25$.
+
+- id: pre-q-2111
+  lesson: pre-exp-rules
+  topic: Exponent rules
+  stem: 'Evaluate $10^{-3}$.'
+  choices: ['0.001', '$-1{,}000$', '$-30$', '0.0001']
+  answer: 0
+  explanation: |-
+    $10^{-3} = \dfrac{1}{10^3} = \dfrac{1}{1000} = 0.001$.
+
+# --- pre-sci-notation ---
+- id: pre-q-2201
+  lesson: pre-sci-notation
+  module_quiz: true
+  topic: Scientific notation
+  stem: 'Write 52,000,000 in scientific notation.'
+  choices: ['$52 \times 10^6$', '$5.2 \times 10^7$', '$5.2 \times 10^6$', '$5.2 \times 10^{-7}$']
+  answer: 1
+  explanation: |-
+    Move the point 7 places left to get 5.2; the number is large, so the exponent is $+7$: $5.2 \times 10^7$. ($52 \times 10^6$ has the right value but the coefficient is not between 1 and 10.)
+
+- id: pre-q-2202
+  lesson: pre-sci-notation
+  module_quiz: true
+  topic: Scientific notation
+  stem: 'Write 0.00073 in scientific notation.'
+  choices: ['$7.3 \times 10^{4}$', '$73 \times 10^{-5}$', '$7.3 \times 10^{-4}$', '$7.3 \times 10^{-3}$']
+  answer: 2
+  explanation: |-
+    Move the point 4 places right to get 7.3. The number is less than 1, so the exponent is negative: $7.3 \times 10^{-4}$.
+
+- id: pre-q-2203
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'Write $3.08 \times 10^5$ in standard form.'
+  choices: ['0.0000308', '30,800', '3,080,000', '308,000']
+  answer: 3
+  explanation: |-
+    Move the point 5 places right: 3.08 → 308,000.
+
+- id: pre-q-2204
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'Write $6.5 \times 10^{-3}$ in standard form.'
+  choices: ['0.0065', '0.065', '6,500', '0.00065']
+  answer: 0
+  explanation: |-
+    Move the point 3 places left: 6.5 → 0.0065.
+
+- id: pre-q-2205
+  lesson: pre-sci-notation
+  module_quiz: true
+  topic: Scientific notation
+  stem: 'Multiply $(4 \times 10^3)(6 \times 10^5)$. Give the answer in scientific notation.'
+  choices: ['$24 \times 10^8$', '$2.4 \times 10^9$', '$2.4 \times 10^8$', '$2.4 \times 10^{15}$']
+  answer: 1
+  explanation: |-
+    $4 \times 6 = 24$ and $10^{3+5} = 10^8$, giving $24 \times 10^8$. Adjust: $24 = 2.4 \times 10^1$, so $2.4 \times 10^9$.
+
+- id: pre-q-2206
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'Divide $\dfrac{9 \times 10^{4}}{3 \times 10^{-2}}$.'
+  choices: ['$3 \times 10^{2}$', '$3 \times 10^{-2}$', '$3 \times 10^{6}$', '$6 \times 10^{6}$']
+  answer: 2
+  explanation: |-
+    $9 \div 3 = 3$ and $10^{4 - (-2)} = 10^6$. So $3 \times 10^6$. ($10^2$ comes from adding the exponents instead of subtracting.)
+
+- id: pre-q-2207
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'Which number is largest?'
+  choices: ['$9.9 \times 10^{4}$', '$5 \times 10^{-6}$', '$8.7 \times 10^{4}$', '$1.2 \times 10^{5}$']
+  answer: 3
+  explanation: |-
+    Compare exponents first: $10^5$ beats $10^4$ and $10^{-6}$, so $1.2 \times 10^5 = 120{,}000$ is largest even though its coefficient is small.
+
+- id: pre-q-2208
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'Which is written correctly in scientific notation?'
+  choices: ['$3.7 \times 10^{-2}$', '$12 \times 10^{-4}$', '$0.5 \times 10^{3}$', '$10 \times 10^{6}$']
+  answer: 0
+  explanation: |-
+    The coefficient must be at least 1 and less than 10. Only 3.7 qualifies; 0.5 is too small and 12 and 10 are too big.
+
+- id: pre-q-2209
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'A computer does $2 \times 10^9$ operations per second. How many does it do in $1.5 \times 10^3$ seconds?'
+  choices: ['$3 \times 10^{27}$', '$3 \times 10^{12}$', '$3.5 \times 10^{12}$', '$1.3 \times 10^{6}$']
+  answer: 1
+  explanation: |-
+    $(2 \times 10^9)(1.5 \times 10^3) = 3 \times 10^{12}$ operations.
+
+- id: pre-q-2210
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'Compute $(5 \times 10^{-3})(3 \times 10^{-4})$.'
+  choices: ['$1.5 \times 10^{-8}$', '$15 \times 10^{-12}$', '$1.5 \times 10^{-6}$', '$1.5 \times 10^{-7}$']
+  answer: 2
+  explanation: |-
+    $5 \times 3 = 15$ and $10^{-3 + (-4)} = 10^{-7}$: $15 \times 10^{-7} = 1.5 \times 10^{-6}$. (Making the coefficient smaller raises the exponent by 1.)
+
+- id: pre-q-2211
+  lesson: pre-sci-notation
+  topic: Scientific notation
+  stem: 'A calculator displays 4.2E-5. What number is that?'
+  choices: ['420,000', '$-4.2^5$', '0.0000042', '0.000042']
+  answer: 3
+  explanation: |-
+    E-5 means $\times 10^{-5}$: move the point 5 places left, 4.2 → 0.000042.

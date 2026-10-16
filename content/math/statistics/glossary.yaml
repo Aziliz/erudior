@@ -1,0 +1,933 @@
+# Glossary for Statistics and Probability
+# ---- Types of data
+- term: individuals
+  aliases: [individual, cases, observational units]
+  definition: 'The objects described by a data set: people, animals, things, days. Each row of a data table is one individual.'
+  topic: Types of data
+- term: variable
+  aliases: [variables]
+  definition: 'A characteristic recorded for each individual that can take different values for different individuals.'
+  topic: Types of data
+- term: categorical variable
+  aliases: [categorical variables, categorical data, qualitative variable]
+  definition: 'A variable that places each individual into a group or category, such as blood type or favorite subject.'
+  topic: Types of data
+- term: quantitative variable
+  aliases: [quantitative variables, quantitative data, numerical variable]
+  definition: 'A variable with numerical values for which arithmetic, such as averaging, makes sense.'
+  topic: Types of data
+- term: discrete variable
+  aliases: [discrete variables, discrete data]
+  definition: 'A quantitative variable with a countable set of separate values, usually counts.'
+  topic: Types of data
+- term: continuous variable
+  aliases: [continuous variables, continuous data]
+  definition: 'A quantitative variable that can take any value in an interval, such as a measured time or length.'
+  topic: Types of data
+- term: nominal
+  aliases: [nominal data, nominal scale]
+  definition: 'Level of measurement for categories with no natural order (eye color, brand).'
+  topic: Types of data
+- term: ordinal
+  aliases: [ordinal data, ordinal scale]
+  definition: 'Level of measurement for categories with a natural order but no meaningful distances (poor, fair, good).'
+  topic: Types of data
+- term: interval scale
+  aliases: [interval data]
+  definition: 'Numeric level of measurement where differences are meaningful but there is no true zero (temperature in °F).'
+  topic: Types of data
+- term: ratio scale
+  aliases: [ratio data]
+  definition: 'Numeric level of measurement with a true zero, so ratios are meaningful (weight, time, income).'
+  topic: Types of data
+- term: population
+  aliases: [populations]
+  definition: 'The entire group of individuals that a study wants information about.'
+  topic: Types of data
+- term: sample
+  aliases: [samples]
+  definition: 'The part of the population from which data are actually collected.'
+  topic: Types of data
+- term: parameter
+  aliases: [parameters]
+  definition: 'A number describing a population, such as $\mu$, $\sigma$ or $p$; usually unknown.'
+  topic: Types of data
+- term: statistic
+  aliases: [statistics]
+  definition: 'A number computed from sample data, such as $\bar{x}$, $s$ or $\hat{p}$; used to estimate a parameter.'
+  topic: Types of data
+- term: census
+  definition: 'A data collection that measures every individual in the population.'
+  topic: Types of data
+- term: descriptive statistics
+  definition: 'Methods that summarize the data in hand with graphs and numbers.'
+  topic: Types of data
+- term: inferential statistics
+  aliases: [statistical inference, inference]
+  definition: 'Methods that use sample data to draw conclusions about a population, with a statement of uncertainty.'
+  topic: Types of data
+- term: distribution
+  aliases: [distributions]
+  definition: 'What values a variable takes and how often it takes each one.'
+  topic: Types of data
+- term: frequency
+  aliases: [frequencies, count]
+  definition: 'The number of individuals in a category or interval.'
+  topic: Types of data
+- term: relative frequency
+  aliases: [relative frequencies]
+  definition: 'A count divided by the total count; relative frequencies add to 1.'
+  topic: Types of data
+# ---- Categorical displays
+- term: frequency table
+  aliases: [frequency tables]
+  definition: 'A table listing each category or interval with its count (and often its relative frequency).'
+  topic: Categorical displays
+- term: bar chart
+  aliases: [bar charts, bar graph]
+  definition: 'A graph of categorical data with one separated bar per category, whose height is the count or percent.'
+  topic: Categorical displays
+- term: Pareto chart
+  definition: 'A bar chart with categories sorted from most to least frequent.'
+  topic: Categorical displays
+- term: pie chart
+  aliases: [pie charts]
+  definition: 'A circle divided into slices whose angles are proportional to each category''s share of a whole (angle = relative frequency × 360°).'
+  topic: Categorical displays
+- term: side-by-side bar chart
+  aliases: [side-by-side bar charts]
+  definition: 'A bar chart that places each group''s bars next to each other to compare distributions across groups.'
+  topic: Categorical displays
+- term: segmented bar chart
+  aliases: [segmented bar charts, stacked bar chart]
+  definition: 'A chart with one bar per group, scaled to 100% and divided into segments for each category; shows conditional distributions.'
+  topic: Categorical displays
+- term: truncated axis
+  definition: 'A vertical axis that does not start at zero; it exaggerates differences in bar charts.'
+  topic: Categorical displays
+- term: pictogram
+  aliases: [pictograms]
+  definition: 'A graph using pictures; scaling a picture in two dimensions distorts its apparent size by the square of the factor.'
+  topic: Categorical displays
+# ---- Quantitative displays
+- term: dotplot
+  aliases: [dotplots, dot plot]
+  definition: 'A display with a dot above a number line for each value, stacking repeated values.'
+  topic: Quantitative displays
+- term: stemplot
+  aliases: [stemplots, stem-and-leaf plot]
+  definition: 'A display that splits each value into a stem (leading digits) and a leaf (final digit), listing leaves beside their stems.'
+  topic: Quantitative displays
+- term: stem
+  definition: 'In a stemplot, all but the final digit of a value.'
+  topic: Quantitative displays
+- term: leaf
+  aliases: [leaves]
+  definition: 'In a stemplot, the final digit of a value, written beside its stem.'
+  topic: Quantitative displays
+- term: split stems
+  definition: 'A stemplot in which each stem appears twice, with leaves 0–4 on the first line and 5–9 on the second.'
+  topic: Quantitative displays
+- term: back-to-back stemplot
+  definition: 'Two stemplots sharing one column of stems, with leaves for one group on each side.'
+  topic: Quantitative displays
+- term: histogram
+  aliases: [histograms]
+  definition: 'A graph of quantitative data grouped into equal-width bins, with touching bars whose heights are counts or relative frequencies.'
+  topic: Quantitative displays
+- term: symmetric
+  aliases: [symmetric distribution]
+  definition: 'A distribution whose left and right halves are approximately mirror images.'
+  topic: Quantitative displays
+- term: skewed right
+  aliases: [right-skewed, positively skewed, right skew]
+  definition: 'A distribution with a long tail toward large values; the mean is usually greater than the median.'
+  topic: Quantitative displays
+- term: skewed left
+  aliases: [left-skewed, negatively skewed, left skew]
+  definition: 'A distribution with a long tail toward small values; the mean is usually less than the median.'
+  topic: Quantitative displays
+- term: unimodal
+  definition: 'Having a single clear peak.'
+  topic: Quantitative displays
+- term: bimodal
+  definition: 'Having two clear peaks, often a sign that two groups are mixed together.'
+  topic: Quantitative displays
+- term: center
+  definition: 'A typical value of a distribution, measured by the mean or median.'
+  topic: Quantitative displays
+- term: spread
+  aliases: [variability, dispersion]
+  definition: 'How much values differ from each other or from the center; measured by range, IQR or standard deviation.'
+  topic: Quantitative displays
+- term: outlier
+  aliases: [outliers]
+  definition: 'A value that falls outside the overall pattern of a distribution; often flagged with the 1.5 × IQR rule.'
+  topic: Boxplots and outliers
+- term: cumulative frequency
+  definition: 'The number of values at or below a given point, found by adding counts bin by bin.'
+  topic: Quantitative displays
+- term: cumulative relative frequency
+  definition: 'The proportion of values at or below a given point; cumulative frequency divided by the total.'
+  topic: Quantitative displays
+- term: ogive
+  aliases: [cumulative relative frequency graph]
+  definition: 'A graph of cumulative relative frequency against upper class boundaries; used to estimate percentiles.'
+  topic: Quantitative displays
+# ---- Center and spread
+- term: mean
+  aliases: [arithmetic mean, average, sample mean]
+  definition: 'The sum of the values divided by how many there are, $\bar{x} = \sum x_i / n$; the balance point of a distribution.'
+  topic: Measures of center
+- term: median
+  definition: 'The middle value of ordered data (average of the two middle values when $n$ is even); resistant to outliers.'
+  topic: Measures of center
+- term: mode
+  definition: 'The most frequent value or category.'
+  topic: Measures of center
+- term: modal class
+  definition: 'The bin of a histogram or grouped table with the highest frequency.'
+  topic: Measures of center
+- term: resistant
+  aliases: [resistance, resistant measure]
+  definition: 'Describes a statistic that is little affected by extreme values, like the median and IQR.'
+  topic: Measures of center
+- term: trimmed mean
+  definition: 'The mean of the data after dropping a fixed percent of the largest and smallest values.'
+  topic: Measures of center
+- term: weighted mean
+  aliases: [weighted average]
+  definition: 'A mean in which each value counts according to its weight: $\sum w_i x_i / \sum w_i$.'
+  topic: Measures of center
+- term: midpoint
+  aliases: [class midpoint, midpoints]
+  definition: 'The center of a bin, used as the representative value when estimating a mean from grouped data.'
+  topic: Measures of center
+- term: range
+  definition: 'Maximum minus minimum; a simple but non-resistant measure of spread.'
+  topic: Measures of spread
+- term: quartiles
+  aliases: [quartile, first quartile, third quartile, Q1, Q3]
+  definition: 'Values splitting ordered data into quarters: $Q_1$ is the median of the lower half, $Q_3$ the median of the upper half.'
+  topic: Measures of spread
+- term: interquartile range
+  aliases: [IQR]
+  definition: 'IQR $= Q_3 - Q_1$, the spread of the middle 50% of the data; resistant.'
+  topic: Measures of spread
+- term: standard deviation
+  aliases: [SD, standard deviations, sample standard deviation]
+  definition: 'The typical distance of values from the mean: $s = \sqrt{\sum (x_i - \bar{x})^2/(n-1)}$ for a sample, $\sigma$ for a population.'
+  topic: Measures of spread
+- term: deviation
+  aliases: [deviations]
+  definition: 'The difference between a value and the mean, $x_i - \bar{x}$; deviations always sum to zero.'
+  topic: Measures of spread
+- term: variance
+  aliases: [sample variance]
+  definition: 'The average squared deviation from the mean; $s^2 = \sum (x_i - \bar{x})^2/(n-1)$ for a sample. Its square root is the standard deviation.'
+  topic: Measures of spread
+- term: unbiased estimator
+  aliases: [unbiased]
+  definition: 'A statistic whose sampling distribution is centered on the parameter it estimates.'
+  topic: Sampling distributions
+- term: degrees of freedom
+  aliases: [df]
+  definition: 'The number of independent pieces of information behind an estimate, e.g. $n - 1$ for a sample variance; also indexes t, chi-square and F distributions.'
+  topic: Measures of spread
+- term: five-number summary
+  definition: 'Minimum, $Q_1$, median, $Q_3$, maximum.'
+  topic: Boxplots and outliers
+- term: fences
+  aliases: [fence, outlier fences]
+  definition: 'Cutoffs $Q_1 - 1.5\,\text{IQR}$ and $Q_3 + 1.5\,\text{IQR}$; values beyond them are flagged as outliers.'
+  topic: Boxplots and outliers
+- term: boxplot
+  aliases: [boxplots, box plot, box-and-whisker plot]
+  definition: 'A graph of the five-number summary: a box from $Q_1$ to $Q_3$ with a line at the median and whiskers to the extremes.'
+  topic: Boxplots and outliers
+- term: modified boxplot
+  definition: 'A boxplot that plots outliers individually and runs whiskers only to the most extreme non-outliers.'
+  topic: Boxplots and outliers
+# ---- Position and normal
+- term: percentile
+  aliases: [percentiles]
+  definition: 'The percent of a distribution at or below a given value.'
+  topic: Percentiles and z-scores
+- term: z-score
+  aliases: [z-scores, standardized score, standardized value]
+  definition: 'The number of standard deviations a value is from the mean: $z = (x - \mu)/\sigma$.'
+  topic: Percentiles and z-scores
+- term: Chebyshev's inequality
+  definition: 'For any distribution, at least $1 - 1/k^2$ of the values lie within $k$ standard deviations of the mean ($k > 1$).'
+  topic: Percentiles and z-scores
+- term: linear transformation
+  aliases: [linear transformations]
+  definition: 'A change $y = a + bx$ applied to every value; centers become $a + b(\text{old})$ and spreads $|b|(\text{old})$.'
+  topic: Transforming data
+- term: density curve
+  aliases: [density curves]
+  definition: 'A curve on or above the horizontal axis with total area 1; areas under it give proportions.'
+  topic: Normal distribution
+- term: area under the curve
+  definition: 'For a density curve, the area over an interval equals the proportion (probability) of values in that interval.'
+  topic: Normal distribution
+- term: normal distribution
+  aliases: [normal distributions, normal curve, bell curve, N(μ, σ)]
+  definition: 'A symmetric, bell-shaped distribution determined by its mean $\mu$ and standard deviation $\sigma$.'
+  topic: Normal distribution
+- term: inflection points
+  aliases: [inflection point]
+  definition: 'Points where a curve changes concavity; for a normal curve they are at $\mu \pm \sigma$.'
+  topic: Normal distribution
+- term: empirical rule
+  aliases: [68–95–99.7 rule, 68-95-99.7 rule]
+  definition: 'In a normal distribution about 68%, 95% and 99.7% of values lie within 1, 2 and 3 standard deviations of the mean.'
+  topic: Normal distribution
+- term: standard normal distribution
+  aliases: [standard normal, N(0, 1)]
+  definition: 'The normal distribution with mean 0 and standard deviation 1; the distribution of z-scores of normal data.'
+  topic: Normal calculations
+- term: standard normal table
+  aliases: [z-table, z table]
+  definition: 'A table giving the area to the left of each z-value under the standard normal curve.'
+  topic: Normal calculations
+- term: inverse normal
+  aliases: [invNorm]
+  definition: 'Finding the value with a given area to its left: $x = \mu + z\sigma$ with $z = \Phi^{-1}(\text{area})$.'
+  topic: Normal calculations
+- term: normal probability plot
+  aliases: [normal quantile plot]
+  definition: 'A plot of data values against their expected z-scores; a roughly straight line suggests normal data.'
+  topic: Normal calculations
+# ---- Two-variable data
+- term: explanatory variable
+  aliases: [explanatory variables, predictor]
+  definition: 'The variable ($x$) used to explain or predict changes in another variable.'
+  topic: Scatterplots and correlation
+- term: response variable
+  aliases: [response variables, response]
+  definition: 'The outcome variable ($y$) measured in a study or predicted from an explanatory variable.'
+  topic: Scatterplots and correlation
+- term: scatterplot
+  aliases: [scatterplots, scatter plot]
+  definition: 'A graph of two quantitative variables with one point $(x, y)$ per individual.'
+  topic: Scatterplots and correlation
+- term: positive association
+  definition: 'Above-average values of one variable tend to go with above-average values of the other.'
+  topic: Scatterplots and correlation
+- term: negative association
+  definition: 'Above-average values of one variable tend to go with below-average values of the other.'
+  topic: Scatterplots and correlation
+- term: correlation
+  aliases: [correlation coefficient, r]
+  definition: 'The number $r = \frac{1}{n-1}\sum z_x z_y$, between −1 and 1, measuring the direction and strength of a linear relationship.'
+  topic: Scatterplots and correlation
+- term: lurking variable
+  aliases: [lurking variables]
+  definition: 'A variable not included in a study that affects the variables being studied and can create a misleading association.'
+  topic: Scatterplots and correlation
+- term: ecological correlation
+  definition: 'A correlation based on averages for groups; usually stronger than the correlation for individuals.'
+  topic: Scatterplots and correlation
+- term: regression line
+  aliases: [regression lines]
+  definition: 'A line $\hat{y} = a + bx$ describing how the response changes as the explanatory variable changes.'
+  topic: Least-squares regression
+- term: residual
+  aliases: [residuals]
+  definition: 'Observed minus predicted: $y - \hat{y}$.'
+  topic: Residuals and r-squared
+- term: least-squares regression line
+  aliases: [LSRL, least-squares line]
+  definition: 'The line minimizing $\sum (y - \hat{y})^2$; slope $b = r\,s_y/s_x$, intercept $a = \bar{y} - b\bar{x}$.'
+  topic: Least-squares regression
+- term: slope
+  definition: 'In $\hat{y} = a + bx$, $b$: the predicted change in $y$ for each one-unit increase in $x$.'
+  topic: Least-squares regression
+- term: intercept
+  aliases: [y-intercept]
+  definition: 'In $\hat{y} = a + bx$, $a$: the predicted $y$ when $x = 0$ (often not meaningful).'
+  topic: Least-squares regression
+- term: extrapolation
+  definition: 'Using a regression line to predict far outside the range of the observed $x$ values; unreliable.'
+  topic: Least-squares regression
+- term: regression toward the mean
+  aliases: [regression to the mean]
+  definition: 'Because $|r| < 1$, predicted values are fewer standard deviations from the mean than the $x$ values they come from.'
+  topic: Least-squares regression
+- term: residual plot
+  aliases: [residual plots]
+  definition: 'A plot of residuals against $x$ (or $\hat{y}$); random scatter means a line fits, patterns signal problems.'
+  topic: Residuals and r-squared
+- term: coefficient of determination
+  aliases: [r-squared, r²]
+  definition: '$r^2$: the fraction of the variation in $y$ explained by the linear relationship with $x$; $r^2 = 1 - \text{SSE}/\text{SST}$.'
+  topic: Residuals and r-squared
+- term: standard deviation of the residuals
+  aliases: [residual standard deviation]
+  definition: '$s = \sqrt{\text{SSE}/(n-2)}$, the typical size of a prediction error, in the units of $y$.'
+  topic: Residuals and r-squared
+- term: leverage
+  aliases: [high leverage, high-leverage point]
+  definition: 'The potential of a point to pull the regression line, high when its $x$ is far from $\bar{x}$.'
+  topic: Residuals and r-squared
+- term: influential point
+  aliases: [influential, influential points, influential observation]
+  definition: 'A point whose removal would markedly change the slope, intercept or correlation.'
+  topic: Residuals and r-squared
+- term: exponential model
+  aliases: [exponential growth model]
+  definition: 'A model $y = ab^x$; a plot of $\log y$ against $x$ is linear.'
+  topic: Nonlinear models
+- term: power model
+  definition: 'A model $y = ax^p$; a plot of $\log y$ against $\log x$ is linear with slope $p$.'
+  topic: Nonlinear models
+- term: back-transform
+  aliases: [back-transformed, back-transformation]
+  definition: 'Undoing a transformation (for example $10^{(\cdot)}$ after fitting $\log y$) to express predictions in the original units.'
+  topic: Nonlinear models
+- term: two-way table
+  aliases: [two-way tables, contingency table]
+  definition: 'A table of counts for two categorical variables, one labeling the rows and the other the columns.'
+  topic: Two-way tables
+- term: marginal distribution
+  aliases: [marginal distributions]
+  definition: 'The distribution of one variable alone, from the row or column totals of a two-way table.'
+  topic: Two-way tables
+- term: joint distribution
+  definition: 'Each cell of a two-way table divided by the grand total.'
+  topic: Two-way tables
+- term: conditional distribution
+  aliases: [conditional distributions]
+  definition: 'The distribution of one variable among individuals with a given value of the other; divide by that row or column total.'
+  topic: Two-way tables
+- term: association
+  aliases: [associated]
+  definition: 'Two variables are associated if knowing the value of one tells you something about the value of the other.'
+  topic: Two-way tables
+- term: Simpson's paradox
+  definition: 'A reversal of an association when data from several groups are combined, caused by a lurking variable.'
+  topic: Two-way tables
+# ---- Collecting data
+- term: sampling frame
+  definition: 'The list of individuals from which a sample is actually drawn.'
+  topic: Sampling and bias
+- term: bias
+  aliases: [biased]
+  definition: 'A systematic tendency of a method to over- or underestimate the truth in the same direction.'
+  topic: Sampling and bias
+- term: convenience sample
+  aliases: [convenience sampling]
+  definition: 'A sample of individuals who are easiest to reach; usually biased.'
+  topic: Sampling and bias
+- term: voluntary response sample
+  aliases: [voluntary response]
+  definition: 'A sample of people who choose themselves by responding to an open invitation; usually biased toward strong opinions.'
+  topic: Sampling and bias
+- term: random sampling
+  definition: 'Using chance to select a sample, which avoids selection bias and allows measuring sampling variability.'
+  topic: Sampling and bias
+- term: simple random sample
+  aliases: [SRS]
+  definition: 'A sample chosen so that every set of $n$ individuals has the same chance of being selected.'
+  topic: Sampling and bias
+- term: strata
+  aliases: [stratum]
+  definition: 'Groups of similar individuals used in stratified sampling.'
+  topic: Sampling and bias
+- term: stratified random sample
+  aliases: [stratified sample, stratified sampling]
+  definition: 'A sample formed by taking a separate SRS within each stratum.'
+  topic: Sampling and bias
+- term: proportional allocation
+  definition: 'In stratified sampling, making each stratum''s share of the sample equal to its share of the population.'
+  topic: Sampling and bias
+- term: clusters
+  aliases: [cluster]
+  definition: 'Groups of individuals, usually located near each other, that are sampled as whole units.'
+  topic: Sampling and bias
+- term: cluster sample
+  aliases: [cluster sampling]
+  definition: 'A sample formed by randomly choosing clusters and including every individual in them.'
+  topic: Sampling and bias
+- term: systematic random sample
+  aliases: [systematic sample, systematic sampling]
+  definition: 'A sample taking every $k$th individual from a list after a random start among the first $k$.'
+  topic: Sampling and bias
+- term: undercoverage
+  definition: 'Bias when some groups of the population are left out of the sampling frame.'
+  topic: Sampling and bias
+- term: nonresponse bias
+  aliases: [nonresponse]
+  definition: 'Bias when chosen individuals cannot be reached or refuse, and they differ from those who respond.'
+  topic: Sampling and bias
+- term: response bias
+  definition: 'Systematic inaccuracy in answers, from respondents, interviewers or question wording.'
+  topic: Sampling and bias
+- term: sampling variability
+  definition: 'The natural variation of a statistic from one random sample to another.'
+  topic: Sampling and bias
+- term: experimental units
+  aliases: [experimental unit]
+  definition: 'The objects to which treatments are assigned in an experiment.'
+  topic: Experimental design
+- term: subjects
+  definition: 'Experimental units that are people.'
+  topic: Experimental design
+- term: factor
+  aliases: [factors]
+  definition: 'An explanatory variable manipulated in an experiment.'
+  topic: Experimental design
+- term: levels
+  aliases: [level]
+  definition: 'The specific values of a factor used in an experiment.'
+  topic: Experimental design
+- term: treatment
+  aliases: [treatments]
+  definition: 'A specific condition applied to experimental units; a combination of factor levels.'
+  topic: Experimental design
+- term: control group
+  aliases: [control]
+  definition: 'A group that receives no treatment, a standard treatment, or a placebo, providing a baseline for comparison.'
+  topic: Experimental design
+- term: random assignment
+  aliases: [randomization]
+  definition: 'Using chance to assign units to treatments, which balances other variables across groups.'
+  topic: Experimental design
+- term: replication
+  definition: 'Using enough experimental units in each treatment group that chance differences average out.'
+  topic: Experimental design
+- term: placebo
+  definition: 'An inactive treatment that looks like the real one.'
+  topic: Experimental design
+- term: placebo effect
+  definition: 'Improvement caused by the expectation of treatment rather than the treatment itself.'
+  topic: Experimental design
+- term: blind
+  aliases: [blinding, single-blind]
+  definition: 'An experiment in which subjects do not know which treatment they receive.'
+  topic: Experimental design
+- term: double-blind
+  definition: 'An experiment in which neither the subjects nor those who interact with them and measure the response know the treatment assignments.'
+  topic: Experimental design
+- term: completely randomized design
+  definition: 'An experiment in which all units are assigned to treatments completely at random.'
+  topic: Experimental design
+- term: block
+  aliases: [blocks, blocking]
+  definition: 'A group of experimental units that are similar in a way expected to affect the response.'
+  topic: Experimental design
+- term: randomized block design
+  definition: 'An experiment in which units are grouped into blocks and randomly assigned to treatments separately within each block.'
+  topic: Experimental design
+- term: matched pairs design
+  aliases: [matched pairs]
+  definition: 'A block design with blocks of two: paired similar units, or each unit receiving both treatments in random order.'
+  topic: Experimental design
+- term: statistically significant
+  aliases: [statistical significance, significant]
+  definition: 'Describes an observed effect too large to be plausibly explained by chance alone; in a test, p-value ≤ α.'
+  topic: Significance tests
+- term: observational study
+  aliases: [observational studies]
+  definition: 'A study that observes and measures variables without imposing treatments.'
+  topic: Scope of inference
+- term: experiment
+  aliases: [experiments]
+  definition: 'A study that deliberately imposes treatments on individuals to observe their responses.'
+  topic: Scope of inference
+- term: retrospective
+  aliases: [retrospective study]
+  definition: 'An observational study that examines existing data from the past.'
+  topic: Scope of inference
+- term: prospective
+  aliases: [prospective study]
+  definition: 'An observational study that follows individuals forward in time.'
+  topic: Scope of inference
+- term: case-control
+  aliases: [case-control study]
+  definition: 'An observational study comparing people with an outcome (cases) to similar people without it (controls) on past exposures.'
+  topic: Scope of inference
+- term: confounding variable
+  aliases: [confounded, confounding, confounder]
+  definition: 'A variable associated with the explanatory variable that also affects the response, so their effects cannot be separated.'
+  topic: Scope of inference
+- term: scope of inference
+  definition: 'Which conclusions a study supports: random sampling allows generalizing to the population; random assignment allows cause and effect.'
+  topic: Scope of inference
+- term: informed consent
+  definition: 'Subjects are told the nature and risks of a study in advance and agree to take part.'
+  topic: Scope of inference
+- term: institutional review board
+  aliases: [IRB]
+  definition: 'An independent committee that reviews study plans in advance to protect subjects.'
+  topic: Scope of inference
+- term: confidentiality
+  definition: 'Keeping individual data private and reporting only summaries.'
+  topic: Scope of inference
+# ---- Probability
+- term: random
+  aliases: [random process, chance process]
+  definition: 'Individual outcomes are uncertain, but there is a regular distribution of outcomes over many repetitions.'
+  topic: Probability rules
+- term: probability
+  definition: 'The long-run proportion of times an outcome occurs in many repetitions; a number from 0 to 1.'
+  topic: Probability rules
+- term: law of large numbers
+  definition: 'As the number of trials grows, the observed proportion of an outcome approaches its probability.'
+  topic: Probability rules
+- term: gambler's fallacy
+  definition: 'The mistaken belief that short-run outcomes must even out, so a streak makes the opposite outcome "due."'
+  topic: Probability rules
+- term: sample space
+  definition: 'The set of all possible outcomes of a random process.'
+  topic: Probability rules
+- term: event
+  aliases: [events]
+  definition: 'A set of outcomes; a subset of the sample space.'
+  topic: Probability rules
+- term: complement
+  aliases: [complements]
+  definition: 'The event "not $A$," written $A^c$; $P(A^c) = 1 - P(A)$.'
+  topic: Probability rules
+- term: complement rule
+  definition: '$P(A^c) = 1 - P(A)$; often used as $P(\text{at least one}) = 1 - P(\text{none})$.'
+  topic: Probability rules
+- term: mutually exclusive
+  aliases: [disjoint]
+  definition: 'Events that cannot occur together: $P(A \cap B) = 0$.'
+  topic: Probability rules
+- term: general addition rule
+  aliases: [addition rule]
+  definition: '$P(A \cup B) = P(A) + P(B) - P(A \cap B)$.'
+  topic: Probability rules
+- term: union
+  definition: '$A \cup B$: the event that $A$ or $B$ (or both) occurs.'
+  topic: Probability rules
+- term: intersection
+  definition: '$A \cap B$: the event that both $A$ and $B$ occur.'
+  topic: Probability rules
+- term: Venn diagram
+  aliases: [Venn diagrams]
+  definition: 'A picture of events as overlapping regions inside a rectangle representing the sample space.'
+  topic: Probability rules
+- term: simulation
+  aliases: [simulations]
+  definition: 'Imitating a random process with random numbers many times to estimate a probability.'
+  topic: Probability rules
+- term: conditional probability
+  definition: 'The probability of $A$ given that $B$ occurred: $P(A \mid B) = P(A \cap B)/P(B)$.'
+  topic: Conditional probability
+- term: general multiplication rule
+  aliases: [multiplication rule]
+  definition: '$P(A \cap B) = P(A)\,P(B \mid A)$.'
+  topic: Conditional probability
+- term: independent
+  aliases: [independence, independent events]
+  definition: 'Events where knowing one occurs does not change the probability of the other: $P(A \mid B) = P(A)$, equivalently $P(A \cap B) = P(A)P(B)$.'
+  topic: Conditional probability
+- term: tree diagram
+  aliases: [tree diagrams]
+  definition: 'A branching diagram for multi-stage processes; multiply along branches, add across paths.'
+  topic: Bayes' theorem
+- term: law of total probability
+  definition: '$P(A) = \sum P(B_i)P(A \mid B_i)$ when the $B_i$ split the sample space.'
+  topic: Bayes' theorem
+- term: Bayes' theorem
+  aliases: [Bayes theorem, Bayes' rule]
+  definition: '$P(B_j \mid A) = P(B_j)P(A \mid B_j) / \sum_i P(B_i)P(A \mid B_i)$: one path over all paths leading to $A$.'
+  topic: Bayes' theorem
+- term: sensitivity
+  definition: 'For a test, $P(\text{positive} \mid \text{condition present})$.'
+  topic: Bayes' theorem
+- term: specificity
+  definition: 'For a test, $P(\text{negative} \mid \text{condition absent})$.'
+  topic: Bayes' theorem
+- term: base rate
+  aliases: [prevalence]
+  definition: 'The overall proportion with a condition before any test information.'
+  topic: Bayes' theorem
+- term: prior probability
+  aliases: [prior]
+  definition: 'The probability of a hypothesis before new evidence is considered.'
+  topic: Bayes' theorem
+- term: posterior probability
+  aliases: [posterior]
+  definition: 'The updated probability of a hypothesis after accounting for evidence, computed with Bayes'' theorem.'
+  topic: Bayes' theorem
+- term: multiplication principle
+  aliases: [fundamental counting principle]
+  definition: 'If a task has stages with $n_1, n_2, \ldots$ choices, the total number of ways is $n_1 \times n_2 \times \cdots$.'
+  topic: Counting
+- term: factorial
+  aliases: [n!]
+  definition: '$n! = n(n-1)\cdots 2 \cdot 1$, the number of ways to arrange $n$ distinct objects; $0! = 1$.'
+  topic: Counting
+- term: permutation
+  aliases: [permutations]
+  definition: 'An ordered arrangement; $_nP_r = n!/(n-r)!$ ways to arrange $r$ of $n$ objects.'
+  topic: Counting
+- term: combination
+  aliases: [combinations]
+  definition: 'An unordered selection; $\binom{n}{r} = n!/(r!(n-r)!)$ ways to choose $r$ of $n$ objects.'
+  topic: Counting
+- term: hypergeometric
+  aliases: [hypergeometric probability]
+  definition: 'Probability of $k$ successes when drawing $n$ without replacement from $N$ items with $K$ successes: $\binom{K}{k}\binom{N-K}{n-k}/\binom{N}{n}$.'
+  topic: Counting
+# ---- Random variables
+- term: random variable
+  aliases: [random variables]
+  definition: 'A variable whose value is a numerical outcome of a random process.'
+  topic: Discrete random variables
+- term: discrete random variable
+  aliases: [discrete random variables]
+  definition: 'A random variable with a countable set of possible values, each with a probability.'
+  topic: Discrete random variables
+- term: continuous random variable
+  aliases: [continuous random variables]
+  definition: 'A random variable taking values in an interval; probabilities are areas under a density curve.'
+  topic: Continuous random variables
+- term: probability distribution
+  aliases: [probability distributions]
+  definition: 'A list or function giving the possible values of a random variable and their probabilities.'
+  topic: Discrete random variables
+- term: expected value
+  aliases: [expectation, E(X)]
+  definition: 'The long-run average value of a random variable: $\mu_X = \sum x_i p_i$ (or $\int x f(x)\,dx$).'
+  topic: Discrete random variables
+- term: fair game
+  definition: 'A game whose expected net gain is zero.'
+  topic: Discrete random variables
+- term: binomial setting
+  definition: 'Binary outcomes, independent trials, a fixed number $n$ of trials, and the same success probability $p$ (BINS).'
+  topic: Binomial distribution
+- term: binomial random variable
+  aliases: [binomial distribution, binomial]
+  definition: 'The count of successes in a binomial setting; $P(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$, mean $np$, SD $\sqrt{np(1-p)}$.'
+  topic: Binomial distribution
+- term: BINS
+  definition: 'Memory aid for the binomial setting: Binary, Independent, Number fixed, Same probability.'
+  topic: Binomial distribution
+- term: 10% condition
+  definition: 'When sampling without replacement, keep the sample at most 10% of the population so observations are nearly independent.'
+  topic: Sampling distributions
+- term: large counts condition
+  aliases: [large counts]
+  definition: 'For normal approximations with proportions: at least 10 expected successes and 10 expected failures.'
+  topic: Sampling distributions
+- term: continuity correction
+  definition: 'Adjusting a whole-number boundary by 0.5 when approximating a discrete distribution with a normal curve.'
+  topic: Binomial distribution
+- term: geometric setting
+  definition: 'Independent binary trials with constant success probability $p$, counting trials until the first success.'
+  topic: Geometric and Poisson
+- term: geometric random variable
+  aliases: [geometric distribution]
+  definition: 'The number of trials until the first success: $P(X = k) = (1-p)^{k-1}p$, mean $1/p$.'
+  topic: Geometric and Poisson
+- term: memoryless
+  aliases: [memoryless property]
+  definition: 'Past failures (or waiting time) do not change the distribution of the remaining wait; true of geometric and exponential distributions.'
+  topic: Geometric and Poisson
+- term: Poisson random variable
+  aliases: [Poisson distribution, Poisson]
+  definition: 'A count of events in a fixed interval at constant rate $\lambda$: $P(X = k) = e^{-\lambda}\lambda^k/k!$; mean and variance $\lambda$.'
+  topic: Geometric and Poisson
+- term: Poisson approximation to the binomial
+  definition: 'For large $n$ and small $p$, $B(n, p)$ is approximately Poisson with $\lambda = np$.'
+  topic: Geometric and Poisson
+- term: probability density function
+  aliases: [pdf, density function]
+  definition: 'A function $f(x) \ge 0$ with total area 1 such that $P(a \le X \le b) = \int_a^b f(x)\,dx$.'
+  topic: Continuous random variables
+- term: cumulative distribution function
+  aliases: [cdf]
+  definition: '$F(x) = P(X \le x)$; for a continuous variable $F'' = f$.'
+  topic: Continuous random variables
+- term: uniform distribution
+  aliases: [uniform]
+  definition: 'A distribution with constant density on $[a, b]$; mean $(a+b)/2$, variance $(b-a)^2/12$.'
+  topic: Continuous random variables
+- term: exponential distribution
+  definition: 'Waiting-time distribution with density $\lambda e^{-\lambda x}$; $P(X > t) = e^{-\lambda t}$, mean $1/\lambda$.'
+  topic: Continuous random variables
+# ---- Inference
+- term: sampling distribution
+  aliases: [sampling distributions]
+  definition: 'The distribution of a statistic''s values over all possible samples of the same size from the same population.'
+  topic: Sampling distributions
+- term: estimator
+  aliases: [estimators]
+  definition: 'A statistic used to estimate a parameter.'
+  topic: Sampling distributions
+- term: central limit theorem
+  aliases: [CLT]
+  definition: 'For large $n$, the sampling distribution of $\bar{x}$ is approximately normal with mean $\mu$ and SD $\sigma/\sqrt{n}$, whatever the population''s shape.'
+  topic: Central Limit Theorem
+- term: standard error of the mean
+  aliases: [SEM]
+  definition: 'The standard deviation of $\bar{x}$, $\sigma/\sqrt{n}$, estimated by $s/\sqrt{n}$.'
+  topic: Central Limit Theorem
+- term: standard error
+  aliases: [SE, standard errors]
+  definition: 'An estimate, from the data, of the standard deviation of a statistic, e.g. $\sqrt{\hat{p}(1-\hat{p})/n}$.'
+  topic: Confidence intervals for proportions
+- term: point estimate
+  definition: 'A single value of a statistic used as the best guess for a parameter.'
+  topic: Confidence intervals for proportions
+- term: confidence interval
+  aliases: [confidence intervals, CI]
+  definition: 'A range of plausible values for a parameter: point estimate ± margin of error.'
+  topic: Confidence intervals for proportions
+- term: margin of error
+  aliases: [ME, margins of error]
+  definition: 'Critical value × standard error; how far the estimate is likely to be from the parameter due to sampling variability alone.'
+  topic: Confidence intervals for proportions
+- term: critical value
+  aliases: [critical values, z*, t*]
+  definition: 'The multiplier ($z^*$ or $t^*$) that sets the confidence level of an interval.'
+  topic: Confidence intervals for proportions
+- term: confidence level
+  definition: 'The long-run percent of intervals produced by the method that capture the true parameter.'
+  topic: Confidence intervals for proportions
+- term: t distribution
+  aliases: [t distributions, Student's t]
+  definition: 'Symmetric, bell-shaped distributions with heavier tails than normal, indexed by degrees of freedom; used when $s$ estimates $\sigma$.'
+  topic: Confidence intervals for means
+- term: robust
+  aliases: [robustness]
+  definition: 'A procedure is robust if it still works well when its conditions are moderately violated.'
+  topic: Confidence intervals for means
+- term: two-proportion z interval
+  definition: '$(\hat{p}_1 - \hat{p}_2) \pm z^*\sqrt{\hat{p}_1(1-\hat{p}_1)/n_1 + \hat{p}_2(1-\hat{p}_2)/n_2}$.'
+  topic: Two-sample intervals
+- term: two-sample t interval
+  definition: '$(\bar{x}_1 - \bar{x}_2) \pm t^*\sqrt{s_1^2/n_1 + s_2^2/n_2}$ with df from technology or $\min(n_1, n_2) - 1$.'
+  topic: Two-sample intervals
+- term: paired data
+  aliases: [pairs, paired t]
+  definition: 'Two measurements that come in natural pairs (same subject, matched subjects); analyzed through their differences.'
+  topic: Two-sample intervals
+- term: null hypothesis
+  aliases: [H0]
+  definition: 'The claim tested, usually of no effect or no difference, stating a specific parameter value.'
+  topic: Significance tests
+- term: alternative hypothesis
+  aliases: [Ha]
+  definition: 'The claim we seek evidence for; one-sided ($<$ or $>$) or two-sided ($\ne$).'
+  topic: Significance tests
+- term: one-sided
+  aliases: [one-sided test, one-tailed]
+  definition: 'An alternative hypothesis in one direction ($<$ or $>$); the p-value uses one tail.'
+  topic: Significance tests
+- term: two-sided
+  aliases: [two-sided test, two-tailed]
+  definition: 'An alternative hypothesis of "not equal"; the p-value counts both tails.'
+  topic: Significance tests
+- term: test statistic
+  aliases: [test statistics]
+  definition: '(Statistic − null value)/(standard error): how far the data are from the null hypothesis.'
+  topic: Significance tests
+- term: p-value
+  aliases: [p-values]
+  definition: 'The probability, assuming $H_0$ is true, of a result at least as extreme as the one observed.'
+  topic: Significance tests
+- term: significance level
+  aliases: [alpha, α]
+  definition: 'The threshold $\alpha$ chosen in advance; reject $H_0$ when the p-value is at most $\alpha$.'
+  topic: Significance tests
+- term: Type I error
+  definition: 'Rejecting a null hypothesis that is true; probability $\alpha$.'
+  topic: Errors and power
+- term: Type II error
+  definition: 'Failing to reject a null hypothesis that is false; probability $\beta$.'
+  topic: Errors and power
+- term: power
+  definition: 'The probability a test rejects $H_0$ when a specific alternative is true; $1 - \beta$.'
+  topic: Errors and power
+- term: pooled proportion
+  aliases: [pooled sample proportion]
+  definition: '$\hat{p}_c = (X_1 + X_2)/(n_1 + n_2)$, used in the two-proportion z test.'
+  topic: Tests for proportions
+- term: expected counts
+  aliases: [expected count]
+  definition: 'Counts predicted by the null hypothesis: $np_i$ for goodness of fit, (row total)(column total)/(grand total) for two-way tables.'
+  topic: Chi-square goodness of fit
+- term: observed counts
+  aliases: [observed count]
+  definition: 'The actual counts in the data.'
+  topic: Chi-square goodness of fit
+- term: chi-square statistic
+  aliases: [χ²]
+  definition: '$\chi^2 = \sum (O - E)^2/E$, measuring how far observed counts are from expected counts.'
+  topic: Chi-square goodness of fit
+- term: chi-square distribution
+  aliases: [chi-square distributions]
+  definition: 'Right-skewed distributions of nonnegative values, indexed by df, with mean equal to df.'
+  topic: Chi-square goodness of fit
+- term: goodness-of-fit test
+  aliases: [chi-square goodness-of-fit test, GOF]
+  definition: 'A chi-square test of whether a categorical variable follows a hypothesized distribution; df = categories − 1.'
+  topic: Chi-square goodness of fit
+- term: standardized residuals
+  aliases: [standardized residual]
+  definition: 'For chi-square tests, $(O - E)/\sqrt{E}$; identifies which cells differ most from expectation.'
+  topic: Chi-square goodness of fit
+- term: test of independence
+  aliases: [chi-square test of independence]
+  definition: 'A chi-square test using one sample and two categorical variables; $H_0$: no association.'
+  topic: Chi-square two-way tables
+- term: test of homogeneity
+  aliases: [chi-square test of homogeneity]
+  definition: 'A chi-square test comparing the distribution of one categorical variable across several populations or treatments.'
+  topic: Chi-square two-way tables
+- term: population regression line
+  definition: '$\mu_y = \beta_0 + \beta_1 x$, the mean response at each $x$ in the population.'
+  topic: Regression inference
+- term: LINER
+  definition: 'Conditions for regression inference: Linear, Independent, Normal, Equal SD, Random.'
+  topic: Regression inference
+- term: analysis of variance
+  aliases: [ANOVA, one-way ANOVA]
+  definition: 'A test of whether several population means are equal, comparing between-group to within-group variation with $F = \text{MSG}/\text{MSE}$.'
+  topic: ANOVA and nonparametric tests
+- term: between-group variation
+  aliases: [SSG]
+  definition: 'Variation of group means around the grand mean: SSG $= \sum n_i(\bar{x}_i - \bar{x})^2$.'
+  topic: ANOVA and nonparametric tests
+- term: within-group variation
+  aliases: [SSE]
+  definition: 'Variation of observations around their own group means: $\sum (n_i - 1)s_i^2$; also the residual sum of squares in regression.'
+  topic: ANOVA and nonparametric tests
+- term: mean square
+  aliases: [MSG, MSE, mean squares]
+  definition: 'A sum of squares divided by its degrees of freedom (MSG $= \text{SSG}/(k-1)$, MSE $= \text{SSE}/(N-k)$).'
+  topic: ANOVA and nonparametric tests
+- term: F distribution
+  aliases: [F distributions, F statistic]
+  definition: 'A right-skewed distribution with numerator and denominator df; used for the ANOVA statistic $F = \text{MSG}/\text{MSE}$.'
+  topic: ANOVA and nonparametric tests
+- term: SST
+  aliases: [total sum of squares]
+  definition: 'Total sum of squares, $\sum (y - \bar{y})^2$: the total variation in the response.'
+  topic: Residuals and r-squared
+- term: nonparametric tests
+  aliases: [nonparametric test, distribution-free tests]
+  definition: 'Tests based on signs or ranks that do not assume a normal population.'
+  topic: ANOVA and nonparametric tests
+- term: sign test
+  definition: 'A nonparametric test for paired data that counts positive differences and uses the binomial distribution with $p = 0.5$.'
+  topic: ANOVA and nonparametric tests
+- term: Wilcoxon signed-rank test
+  aliases: [signed-rank test]
+  definition: 'A nonparametric paired test that ranks absolute differences and sums the ranks of positive differences.'
+  topic: ANOVA and nonparametric tests
+- term: Wilcoxon rank-sum test
+  aliases: [Mann–Whitney test, Mann-Whitney test, rank-sum test]
+  definition: 'A nonparametric test comparing two independent groups by ranking all values together and summing one group''s ranks.'
+  topic: ANOVA and nonparametric tests
+- term: Kruskal–Wallis test
+  aliases: [Kruskal-Wallis test]
+  definition: 'A nonparametric alternative to one-way ANOVA based on ranks.'
+  topic: ANOVA and nonparametric tests

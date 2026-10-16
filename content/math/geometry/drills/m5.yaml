@@ -1,0 +1,360 @@
+# Module 5 drills
+- id: geo-perp-bis-alg
+  title: Perpendicular bisector algebra
+  topic: Bisectors
+  vars:
+    a: {min: 2, max: 9}
+    c: {min: 1, max: 8}
+    p: {min: 2, max: 15}
+    b: {min: -12, max: 12}
+  where: ["a > c", "b != 0", "a*p + b > 3", "a*p + b - c*p != 0"]
+  calc:
+    L: a*p + b
+    d: L - c*p
+    da: a - c
+    db: d - b
+    h: sqrt(L^2 - 9)
+  prompt: '$P$ lies on the perpendicular bisector of $\overline{AB}$. $PA = {a}x {b:signed}$ and $PB = {c:coef}x {d:signed}$. Find $x$ and $PA$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: L, label: '$PA =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: [-3, 0], to: [3, 0]}
+      - {from: [0, -1], to: [0, 'h + 1'], dashed: true}
+      - {from: [0, h], to: [-3, 0]}
+      - {from: [0, h], to: [3, 0]}
+    rightAngles:
+      - [[0, 0], [3, 0], [0, 1]]
+    labels:
+      - {at: [-3.4, -0.4], text: 'A'}
+      - {at: [3.4, -0.4], text: 'B'}
+      - {at: [0.5, 'h + 0.4'], text: 'P'}
+  solution: |-
+    Every point on the perpendicular bisector is equidistant from $A$ and $B$, so $PA = PB$: ${a}x {b:signed} = {c:coef}x {d:signed}$. Then ${da:coef}x = {db}$, $x =$ **{p}**, and $PA = {a}({p}) {b:signed} =$ **{L}**.
+
+- id: geo-circumcenter
+  title: Find a circumcenter
+  topic: Points of concurrency
+  vars:
+    p: {min: -4, max: 4}
+    q: {min: -4, max: 4}
+    s: {choices: [1, 2]}
+  calc:
+    ax: p - 5
+    ay: q
+    bx: if(s == 1, p + 3, p + 4)
+    by: if(s == 1, q + 4, q + 3)
+    cx: bx
+    cy: if(s == 1, q - 4, q - 3)
+    mx: (ax + bx)/2
+    my: (ay + by)/2
+    ms: (by - ay)/(bx - ax)
+    ps: -1/ms
+    R: hypot(5, 0)
+  prompt: 'Find the circumcenter of the triangle with vertices $A({ax}, {ay})$, $B({bx}, {by})$ and $C({cx}, {cy})$, and the circumradius.'
+  answers:
+    - {name: p, label: 'Center $x$'}
+    - {name: q, label: 'Center $y$'}
+    - {name: R, label: 'Radius'}
+  figure:
+    type: plot
+    x: [-11, 11]
+    y: [-10, 10]
+    equal: true
+    polygons:
+      - points: [[ax, ay], [bx, by], [cx, cy]]
+    points:
+      - {at: [ax, ay], label: 'A'}
+      - {at: [bx, by], label: 'B'}
+      - {at: [cx, cy], label: 'C'}
+  solution: |-
+    $B$ and $C$ share $x = {bx}$, so $\overline{BC}$ is vertical and its perpendicular bisector is the horizontal line through its midpoint: $y = {q}$. $\overline{AB}$ has midpoint $({mx}, {my})$ and slope ${ms:texfrac}$, so its perpendicular bisector has slope ${ps}$: $y - ({my}) = {ps}(x - ({mx}))$. Setting $y = {q}$ gives $x = {p}$. The circumcenter is **({p}, {q})**, and the radius is the distance to $A$: $\sqrt{5^2 + 0^2} =$ **5**.
+
+- id: geo-incenter-dist
+  title: Distance from the incenter to a vertex
+  topic: Points of concurrency
+  vars:
+    r: {min: 2, max: 9}
+    t: {min: 3, max: 15}
+  calc:
+    d: sqrt(r^2 + t^2)
+    s: r^2 + t^2
+  prompt: 'The incenter $I$ of a triangle is {r} units from each side. The foot of the perpendicular from $I$ to one side is {t} units from vertex $V$ on that side. Find $IV$ (exact or 2 decimals).'
+  answers:
+    - {name: d, label: '$IV =$', tolerance: 0.01}
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 0], to: ['t + 4', 0]}
+      - {from: [t, 0], to: [t, r], dashed: true}
+      - {from: [0, 0], to: [t, r]}
+    rightAngles:
+      - [[t, 0], [0, 0], [t, r]]
+    points:
+      - {at: [t, r], label: 'I'}
+      - {at: [0, 0], label: 'V'}
+  solution: |-
+    The perpendicular ({r}), the piece of the side ({t}) and $\overline{IV}$ form a right triangle, so $IV = \sqrt{{r}^2 + {t}^2} = \sqrt{{s}} \approx$ **{d:num2}**.
+
+- id: geo-centroid
+  title: Centroid from coordinates
+  topic: Medians and altitudes
+  vars:
+    x1: {min: -9, max: 9}
+    y1: {min: -9, max: 9}
+    x2: {min: -9, max: 9}
+    y2: {min: -9, max: 9}
+    x3: {min: -9, max: 9}
+    y3: {min: -9, max: 9}
+  where: ["mod(x1 + x2 + x3, 3) == 0", "mod(y1 + y2 + y3, 3) == 0", "abs((x2 - x1)*(y3 - y1) - (x3 - x1)*(y2 - y1)) >= 20"]
+  calc:
+    gx: (x1 + x2 + x3)/3
+    gy: (y1 + y2 + y3)/3
+    sx: x1 + x2 + x3
+    sy: y1 + y2 + y3
+  prompt: 'Find the centroid of the triangle with vertices $({x1}, {y1})$, $({x2}, {y2})$ and $({x3}, {y3})$.'
+  answers:
+    - {name: gx, label: '$x =$'}
+    - {name: gy, label: '$y =$'}
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    polygons:
+      - points: [[x1, y1], [x2, y2], [x3, y3]]
+  solution: |-
+    The centroid is the average of the vertices: $\left(\dfrac{{sx}}{3}, \dfrac{{sy}}{3}\right) =$ **({gx}, {gy})**.
+
+- id: geo-centroid-len
+  title: Centroid divides a median 2:1
+  topic: Medians and altitudes
+  vars:
+    k: {min: 2, max: 20}
+    mode: {choices: [{label: 'AD', value: 1}, {label: 'AG', value: 2}, {label: 'GD', value: 3}]}
+  calc:
+    full: 3*k
+    long: 2*k
+    short: k
+    given: if(mode == 1, full, if(mode == 2, long, short))
+  prompt: '$G$ is the centroid of $\triangle ABC$ and $\overline{AD}$ is a median. If ${mode} = {given}$, find $AD$, $AG$ and $GD$.'
+  answers:
+    - {name: full, label: '$AD =$'}
+    - {name: long, label: '$AG =$'}
+    - {name: short, label: '$GD =$'}
+  solution: |-
+    The centroid splits a median $2 : 1$ from the vertex: $AG = \tfrac23 AD$ and $GD = \tfrac13 AD$. Here $GD =$ **{short}**, $AG = 2 \cdot GD =$ **{long}** and $AD =$ **{full}**.
+
+- id: geo-midsegment
+  title: Triangle midsegment
+  topic: Midsegments
+  vars:
+    a: {min: 1, max: 6}
+    c: {min: 1, max: 9}
+    p: {min: 2, max: 12}
+    b: {min: -8, max: 12}
+  where: ["c != 2*a", "b != 0", "a*p + b > 1", "2*(a*p + b) - c*p != 0"]
+  calc:
+    M: a*p + b
+    S: 2*M
+    d: S - c*p
+    a2: 2*a
+    b2: 2*b
+    lc: c - a2
+    rc: b2 - d
+  prompt: '$\overline{DE}$ is a midsegment of $\triangle ABC$, parallel to $\overline{BC}$. $DE = {a:coef}x {b:signed}$ and $BC = {c:coef}x {d:signed}$. Find $x$ and $BC$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: S, label: '$BC =$'}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [10, 0], [4, 6]]
+    segments:
+      - {from: [2, 3], to: [7, 3]}
+    labels:
+      - {at: [4, 6.6], text: 'A'}
+      - {at: [-0.5, -0.5], text: 'B'}
+      - {at: [10.5, -0.5], text: 'C'}
+      - {at: [1.4, 3.2], text: 'D'}
+      - {at: [7.6, 3.2], text: 'E'}
+  solution: |-
+    The third side is twice the midsegment: ${c:coef}x {d:signed} = 2({a:coef}x {b:signed}) = {a2}x {b2:signed}$. So ${lc:coef}x = {rc}$ and $x =$ **{p}**. Then $DE = {M}$ and $BC =$ **{S}**.
+
+- id: geo-poly-interior
+  title: Interior angles of a polygon
+  topic: Polygon angles
+  vars:
+    n: {min: 5, max: 24}
+  calc:
+    S: (n - 2)*180
+    each: S/n
+    n2: n - 2
+  prompt: 'Find the sum of the interior angles of a convex {n}-gon, and the measure of each interior angle if it is regular (2 decimals if needed).'
+  answers:
+    - {name: S, label: 'Sum'}
+    - {name: each, label: 'Each angle', tolerance: 0.01}
+  solution: |-
+    Sum $= ({n} - 2) \cdot 180 = {n2} \cdot 180 =$ **{S}°**. A regular polygon's angles are equal, so each is $\dfrac{{S}}{{n}} \approx$ **{each:num2}°**.
+
+- id: geo-poly-sides
+  title: Sides of a regular polygon from its angle
+  topic: Polygon angles
+  vars:
+    n: {choices: [5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90]}
+  calc:
+    ext: 360/n
+    int: 180 - ext
+  prompt: 'Each interior angle of a regular polygon measures ${int}^\circ$. How many sides does it have?'
+  answers:
+    - {name: n, label: 'Sides'}
+  solution: |-
+    Each exterior angle is $180 - {int} = {ext}^\circ$, and the exterior angles add to $360^\circ$, so $n = \dfrac{360}{{ext}} =$ **{n}**.
+
+- id: geo-poly-missing
+  title: Missing angle of a pentagon
+  topic: Polygon angles
+  vars:
+    a: {min: 85, max: 150}
+    b: {min: 85, max: 150}
+    c: {min: 85, max: 150}
+    d: {min: 85, max: 150}
+  calc:
+    t: a + b + c + d
+    x: 540 - t
+  where: ["x >= 60", "x <= 175"]
+  prompt: 'Four angles of a convex pentagon measure ${a}^\circ$, ${b}^\circ$, ${c}^\circ$ and ${d}^\circ$. Find the fifth angle.'
+  answers:
+    - {name: x, label: 'Fifth angle'}
+  solution: |-
+    A pentagon's angles add to $(5 - 2) \cdot 180 = 540^\circ$. The four given angles total ${t}^\circ$, so the fifth is $540 - {t} =$ **{x}°**.
+
+- id: geo-para-alg
+  title: Parallelogram diagonals
+  topic: Parallelograms
+  vars:
+    a: {min: 2, max: 9}
+    c: {min: 1, max: 8}
+    p: {min: 2, max: 12}
+    b: {min: -10, max: 12}
+  where: ["a > c", "b != 0", "a*p + b > 2", "a*p + b - c*p != 0"]
+  calc:
+    h: a*p + b
+    d: h - c*p
+    AC: 2*h
+    da: a - c
+    db: d - b
+  prompt: 'The diagonals of $\square ABCD$ meet at $E$. $AE = {a}x {b:signed}$ and $EC = {c:coef}x {d:signed}$. Find $x$ and $AC$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: AC, label: '$AC =$'}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [7, 0], [9, 4], [2, 4]]
+    segments:
+      - {from: [0, 0], to: [9, 4], dashed: true}
+      - {from: [7, 0], to: [2, 4], dashed: true}
+    labels:
+      - {at: [-0.4, -0.4], text: 'A'}
+      - {at: [7.4, -0.4], text: 'B'}
+      - {at: [9.4, 4.4], text: 'C'}
+      - {at: [1.6, 4.4], text: 'D'}
+      - {at: [4.5, 1.4], text: 'E'}
+  solution: |-
+    The diagonals of a parallelogram bisect each other, so $AE = EC$: ${a}x {b:signed} = {c:coef}x {d:signed}$, giving ${da:coef}x = {db}$ and $x =$ **{p}**. Then $AE = {h}$, so $AC = 2 \cdot {h} =$ **{AC}**.
+
+- id: geo-para-angle
+  title: Parallelogram angles
+  topic: Parallelograms
+  vars:
+    a: {min: 1, max: 6}
+    c: {min: 1, max: 6}
+    p: {min: 5, max: 25}
+    b: {min: -20, max: 40}
+  where: ["b != 0", "a*p + b >= 30", "a*p + b <= 150", "a*p + b != 90", "180 - a*p - b - c*p != 0"]
+  calc:
+    A: a*p + b
+    B: 180 - A
+    d: B - c*p
+    s: a + c
+    k: b + d
+  prompt: 'In $\square ABCD$, $m\angle A = ({a:coef}x {b:signed})^\circ$ and $m\angle B = ({c:coef}x {d:signed})^\circ$. Find $x$, $m\angle A$ and $m\angle C$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: A, label: '$m\angle A =$'}
+    - {name: A, label: '$m\angle C =$'}
+  solution: |-
+    $\angle A$ and $\angle B$ are consecutive, so they are supplementary: ${s}x {k:signed} = 180$, giving $x =$ **{p}**. Then $m\angle A =$ **{A}°**, $m\angle B = {B}^\circ$, and $\angle C$, opposite $\angle A$, is also **{A}°**.
+
+- id: geo-trap-midseg
+  title: Trapezoid midsegment
+  topic: Trapezoids and kites
+  vars:
+    b1: {min: 4, max: 30}
+    b2: {min: 4, max: 40}
+  where: ["b1 < b2", "mod(b1 + b2, 2) == 0"]
+  calc:
+    M: (b1 + b2)/2
+    M2: 2*M
+    sh: (b2 - b1)/2
+  prompt: 'A trapezoid has midsegment {M} and one base {b1}. Find the other base.'
+  answers:
+    - {name: b2, label: 'Other base'}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [b2, 0], ['sh + b1', 'b2/2.5'], [sh, 'b2/2.5']]
+    segments:
+      - {from: ['sh/2', 'b2/5'], to: ['b2 - sh/2', 'b2/5'], dashed: true, label: '{M}'}
+    labels:
+      - {at: ['sh + b1/2', 'b2/2.5 + 0.08*b2'], text: '{b1}'}
+      - {at: ['b2/2', '-0.08*b2'], text: '?'}
+  solution: |-
+    The midsegment is the average of the bases: $\dfrac{{b1} + b}{2} = {M}$, so ${b1} + b = {M2}$ and $b =$ **{b2}**.
+
+- id: geo-rhombus-side
+  title: Rhombus side from its diagonals
+  topic: Special parallelograms
+  vars:
+    h1: {min: 2, max: 15}
+    h2: {min: 2, max: 15}
+  where: ["h1 < h2"]
+  calc:
+    d1: 2*h1
+    d2: 2*h2
+    s2: h1^2 + h2^2
+    side: sqrt(s2)
+  prompt: 'The diagonals of a rhombus are {d1} and {d2}. Find the side length (exact or 2 decimals).'
+  answers:
+    - {name: side, label: 'Side', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[-h2, 0], [0, h1], [h2, 0], [0, '-h1']]
+    segments:
+      - {from: ['-h2', 0], to: [h2, 0], dashed: true}
+      - {from: [0, '-h1'], to: [0, h1], dashed: true}
+    rightAngles:
+      - [[0, 0], [h2, 0], [0, h1]]
+  solution: |-
+    The diagonals of a rhombus are perpendicular bisectors of each other, so each side is the hypotenuse of a right triangle with legs $\tfrac{{d1}}{2} = {h1}$ and $\tfrac{{d2}}{2} = {h2}$: side $= \sqrt{{h1}^2 + {h2}^2} = \sqrt{{s2}} \approx$ **{side:num2}**.
+
+- id: geo-kite-angle
+  title: Angles of a kite
+  topic: Trapezoids and kites
+  vars:
+    A: {min: 40, max: 140}
+    B: {min: 60, max: 130}
+  calc:
+    C: 360 - A - 2*B
+    t: A + 2*B
+  where: ["C >= 30", "C <= 160", "C != A"]
+  prompt: 'In kite $ABCD$, $AB = AD$ and $CB = CD$. If $m\angle A = {A}^\circ$ and $m\angle B = {B}^\circ$, find $m\angle D$ and $m\angle C$.'
+  answers:
+    - {name: B, label: '$m\angle D =$'}
+    - {name: C, label: '$m\angle C =$'}
+  solution: |-
+    $\triangle ABC \cong \triangle ADC$ by SSS, so $\angle D \cong \angle B$: $m\angle D =$ **{B}°**. The angles add to $360^\circ$: $m\angle C = 360 - ({A} + 2 \cdot {B}) = 360 - {t} =$ **{C}°**.

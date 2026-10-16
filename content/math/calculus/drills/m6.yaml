@@ -1,0 +1,278 @@
+# Module 6 drills: integrals
+- id: calc-d-antideriv-poly
+  title: Antiderivative of powers
+  topic: Antiderivatives
+  vars:
+    a: {min: 2, max: 9}
+    n: {min: 2, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: 1, max: 9}
+  where: ["b != 0"]
+  calc:
+    n1: n + 1
+    hb: b/2
+  prompt: 'Find $\displaystyle\int\left({a}x^{n} {b:signedcoef}x + \frac{{c}}{x^2}\right)dx$. (Leave off $+C$.)'
+  answers:
+    - kind: expression
+      expression: 'a*x^(n+1)/(n+1) + b*x^2/2 - c/x'
+      plusC: true
+      label: '$F(x) =$'
+      show: '$\dfrac{{a}}{{n1}}x^{{n1}} {hb:signedcoef}x^2 - \dfrac{{c}}{x}$ $+ C$'
+  solution: |-
+    Rewrite $\dfrac{{c}}{x^2} = {c:coef}x^{-2}$ and raise each exponent by one, dividing by the new exponent:
+    $${a}\cdot\frac{x^{{n1}}}{{n1}} {b:signedcoef}\cdot\frac{x^2}{2} + {c:coef}\cdot\frac{x^{-1}}{-1} + C.$$
+    So **$F(x) = \dfrac{{a}}{{n1}}x^{{n1}} {hb:signedcoef}x^2 - \dfrac{{c}}{x} + C$**.
+- id: calc-d-ivp
+  title: Initial value problem
+  topic: Antiderivatives
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -5, max: 5}
+    c: {min: -9, max: 9}
+    p: {min: -2, max: 2}
+    q: {min: -10, max: 10}
+  where: ["a != 0", "b != 0", "c != 0", "q - (a*p^3 + b*p^2 + c*p) != 0"]
+  calc:
+    a3: 3*a
+    b2: 2*b
+    K: q - (a*p^3 + b*p^2 + c*p)
+    base: a*p^3 + b*p^2 + c*p
+  prompt: 'Solve the initial value problem $f''(x) = {a3}x^2 {b2:signedcoef}x {c:signed}$, $f({p}) = {q}$.'
+  answers:
+    - kind: expression
+      expression: 'a*x^3 + b*x^2 + c*x + K'
+      label: '$f(x) =$'
+      show: '${a:coef}x^3 {b:signedcoef}x^2 {c:signedcoef}x {K:signed}$'
+  solution: |-
+    Antidifferentiate: $f(x) = {a:coef}x^3 {b:signedcoef}x^2 {c:signedcoef}x + C$. Apply $f({p}) = {q}$: ${base} + C = {q}$, so $C = {K}$. Therefore **$f(x) = {a:coef}x^3 {b:signedcoef}x^2 {c:signedcoef}x {K:signed}$**.
+- id: calc-d-riemann
+  title: Riemann sum with four rectangles
+  topic: Riemann sums
+  vars:
+    a: {min: 1, max: 3}
+    c: {min: 1, max: 5}
+    lo: {min: 0, max: 2}
+    dx: {choices: [0.5, 1]}
+    w: {choices: [{label: left, value: 0}, {label: right, value: 1}, {label: midpoint, value: 0.5}]}
+  funcs:
+    f(x): a*x^2 + c
+    g(i): f(lo + (i - 1 + w)*dx)*dx
+  calc:
+    hi: lo + 4*dx
+    S: sum(g, 1, 4)
+    p1: lo + w*dx
+    p2: lo + (1 + w)*dx
+    p3: lo + (2 + w)*dx
+    p4: lo + (3 + w)*dx
+    h1: f(lo + w*dx)
+    h2: f(lo + (1 + w)*dx)
+    h3: f(lo + (2 + w)*dx)
+    h4: f(lo + (3 + w)*dx)
+    ex: integ(f, lo, lo + 4*dx)
+  prompt: 'Approximate $\displaystyle\int_{{lo}}^{{hi}}\left({a:coef}x^2 + {c}\right)dx$ with a {w} Riemann sum using $n = 4$ subintervals.'
+  answers:
+    - {name: S, label: 'Sum $=$', tolerance: 0.001, format: num4}
+  figure:
+    type: plot
+    x: ['lo - 0.5', 'hi + 0.5']
+    y: [-1, 'f(hi) + 2']
+    bars:
+      - {x: 'lo + 0.5*dx', height: h1, width: dx}
+      - {x: 'lo + 1.5*dx', height: h2, width: dx}
+      - {x: 'lo + 2.5*dx', height: h3, width: dx}
+      - {x: 'lo + 3.5*dx', height: h4, width: dx}
+    functions: [f]
+  solution: |-
+    $\Delta x = \dfrac{{hi} - {lo}}{4} = {dx}$. The {w} sample points are ${p1}, {p2}, {p3}, {p4}$, with heights {h1:num4}, {h2:num4}, {h3:num4}, {h4:num4}. Sum: ${dx}\times({h1:num4} + {h2:num4} + {h3:num4} + {h4:num4}) =$ **{S:num4}**. (The exact integral is {ex:num4}.)
+- id: calc-d-sigma
+  title: Evaluate a sum with sigma formulas
+  topic: Riemann sums
+  vars:
+    a: {min: 1, max: 6}
+    b: {min: -9, max: 9}
+    n: {min: 5, max: 20}
+  where: ["b != 0"]
+  calc:
+    s2: n*(n + 1)*(2*n + 1)/6
+    S: a*n*(n + 1)*(2*n + 1)/6 + b*n
+    bn: b*n
+  prompt: 'Evaluate $\displaystyle\sum_{i=1}^{{n}}\left({a:coef}i^2 {b:signed}\right)$.'
+  answers:
+    - {name: S, label: 'Sum $=$'}
+  solution: |-
+    Split and use $\sum_{i=1}^n i^2 = \dfrac{n(n + 1)(2n + 1)}{6}$ and $\sum_{i=1}^n 1 = n$:
+    $${a}\cdot\frac{{n}\cdot({n} + 1)(2\cdot{n} + 1)}{6} + ({b})({n}) = {a}({s2:dp0}) + ({bn}) = \mathbf{{S:dp0}}.$$
+- id: calc-d-geometric-area
+  title: Definite integral by geometry
+  topic: Definite integral
+  vars:
+    r: {min: 1, max: 6}
+    k: {min: 0, max: 5}
+  calc:
+    A: 2*r*k + pi*r^2/2
+    rect: 2*r*k
+    r2: r^2
+    d: 2*r
+  funcs:
+    f(x): k + sqrt(r^2 - x^2)
+  prompt: 'Use geometry to evaluate $\displaystyle\int_{-{r}}^{{r}}\left({k} + \sqrt{{r2} - x^2}\right)dx$. (Exact answers like 9pi/2 + 12 are fine.)'
+  answers:
+    - {name: A, label: 'Value', relTolerance: 0.0005}
+  figure:
+    type: plot
+    x: ['-r - 1', 'r + 1']
+    y: [-1, 'k + r + 1']
+    equal: true
+    functions: [{f: f, from: '-r', to: r}]
+    shade: [{f: f, from: '-r', to: r}]
+  solution: |-
+    Split the integral. $\int_{-{r}}^{{r}}{k}\,dx$ is a rectangle ${d} \times {k}$ with area ${rect}$. $\int_{-{r}}^{{r}}\sqrt{{r2} - x^2}\,dx$ is the area of the upper half of a circle of radius ${r}$: $\tfrac12\pi({r})^2$. Total: ${rect} + \dfrac{{r2}\pi}{2} \approx$ **{A:num4}**.
+- id: calc-d-ftc-eval
+  title: Evaluate a definite integral
+  topic: Fundamental Theorem of Calculus
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+    p: {min: -3, max: 1}
+    w: {min: 1, max: 4}
+  where: ["a != 0", "abs(a) != 3", "b != 0", "c != 0"]
+  calc:
+    q: p + w
+    I: a*(q^3 - p^3)/3 + b*(q^2 - p^2)/2 + c*(q - p)
+    Fq: a*q^3/3 + b*q^2/2 + c*q
+    a3: a/3
+    b2: b/2
+    Fp: a*p^3/3 + b*p^2/2 + c*p
+  prompt: 'Evaluate $\displaystyle\int_{{p}}^{{q}}\left({a:coef}x^2 {b:signedcoef}x {c:signed}\right)dx$ as an exact fraction.'
+  answers:
+    - {name: I, kind: fraction, lowestTerms: true, label: 'Value'}
+  solution: |-
+    An antiderivative is $F(x) = {a3:texfrac}x^3 + \left({b2:texfrac}\right)x^2 + ({c})x$. By FTC 2, $F({q}) - F({p}) = {Fq:frac} - ({Fp:frac}) =$ **{I:frac}**.
+- id: calc-d-ftc1
+  title: Derivative of an integral with a variable limit
+  topic: Fundamental Theorem of Calculus
+  vars:
+    n: {min: 2, max: 4}
+    k: {min: 1, max: 9}
+    a: {min: 0, max: 3}
+  calc:
+    n1: n - 1
+    n2: 2*n
+  prompt: 'Find $\dfrac{d}{dx}\displaystyle\int_{{a}}^{x^{n}}\sqrt{t^2 + {k}}\,dt$.'
+  answers:
+    - kind: expression
+      expression: 'n*x^(n-1)*sqrt(x^(2*n) + k)'
+      label: 'Derivative $=$'
+      show: '${n}x^{{n1}}\sqrt{x^{{n2}} + {k}}$'
+  solution: |-
+    FTC 1 with the chain rule: $\dfrac{d}{dx}\int_a^{u(x)}f(t)\,dt = f(u(x))\,u'(x)$. Here $u = x^{n}$, $u' = {n}x^{{n1}}$, and $f(u) = \sqrt{(x^{n})^2 + {k}}$. So the derivative is **${n}x^{{n1}}\sqrt{x^{{n2}} + {k}}$**.
+- id: calc-d-usub-indef
+  title: Substitution in an indefinite integral
+  topic: U-substitution
+  vars:
+    a: {min: 2, max: 9}
+    b: {min: 1, max: 9}
+    n: {min: 2, max: 6}
+  calc:
+    n1: n + 1
+    den: 2*(n + 1)
+    co: a/(2*(n + 1))
+  prompt: 'Find $\displaystyle\int {a}x\left(x^2 + {b}\right)^{n}\,dx$. (Leave off $+C$.)'
+  answers:
+    - kind: expression
+      expression: 'a*(x^2 + b)^(n+1)/(2*(n+1))'
+      plusC: true
+      label: '$F(x) =$'
+      show: '$\dfrac{{a}}{{den}}(x^2 + {b})^{{n1}}$ $+ C$'
+  solution: |-
+    Let $u = x^2 + {b}$, so $du = 2x\,dx$ and $x\,dx = \tfrac12du$. Then
+    $$\int{a}x(x^2 + {b})^{n}dx = \frac{{a}}{2}\int u^{n}du = \frac{{a}}{2}\cdot\frac{u^{{n1}}}{{n1}} + C.$$
+    So **$F(x) = \dfrac{{a}}{{den}}(x^2 + {b})^{{n1}} + C$**.
+- id: calc-d-usub-def
+  title: Substitution in a definite integral
+  topic: U-substitution
+  vars:
+    k: {min: 1, max: 9}
+    p: {min: 1, max: 5}
+  calc:
+    up: p^2 + k
+    I: ln((p^2 + k)/k)
+  prompt: 'Evaluate $\displaystyle\int_0^{{p}}\frac{2x}{x^2 + {k}}\,dx$. (Exact, like ln(5), or 4 decimals.)'
+  answers:
+    - {name: I, label: 'Value', relTolerance: 0.0001}
+  solution: |-
+    Let $u = x^2 + {k}$, $du = 2x\,dx$. Change the limits: $x = 0 \Rightarrow u = {k}$; $x = {p} \Rightarrow u = {up}$.
+    $$\int_{{k}}^{{up}}\frac{du}{u} = \ln {up} - \ln {k} = \ln\frac{{up}}{{k}} \approx \mathbf{{I:num4}}.$$
+- id: calc-d-motion-velocity
+  title: When a particle turns around
+  topic: Motion along a line
+  vars:
+    r1: {min: 1, max: 3}
+    gap: {min: 1, max: 4}
+    T: {min: 0, max: 7}
+  calc:
+    r2: r1 + gap
+    b: -3*(2*r1 + gap)/2
+    c: 3*r1*(r1 + gap)
+    b2: -3*(2*r1 + gap)
+    aT: 6*T - 3*(2*r1 + gap)
+    vT: 3*(T - r1)*(T - r1 - gap)
+  prompt: 'A particle moves with position $s(t) = t^3 {b:signedcoef}t^2 {c:signedcoef}t$ for $t \ge 0$. At what two times does it change direction? What is its acceleration at $t = {T}$?'
+  answers:
+    - {name: r1, label: 'First turn $t =$'}
+    - {name: r2, label: 'Second turn $t =$'}
+    - {name: aT, label: '$a({T}) =$'}
+  solution: |-
+    $v(t) = 3t^2 {b2:signedcoef}t {c:signed} = 3(t - {r1})(t - {r2})$, which changes sign at $t =$ **{r1}** and $t =$ **{r2}**. $a(t) = v'(t) = 6t {b2:signed}$, so $a({T}) =$ **{aT}**. (At that moment $v({T}) = {vT}$.)
+- id: calc-d-distance
+  title: Displacement and total distance
+  topic: Motion along a line
+  vars:
+    c: {min: 1, max: 5}
+    extra: {min: 1, max: 5}
+  calc:
+    b: c + extra
+    disp: b^2/2 - c*b
+    dist: c^2/2 + extra^2/2
+    back: c^2/2
+    fwd: extra^2/2
+  prompt: 'A particle has velocity $v(t) = t - {c}$ m/s. Find its displacement and the total distance it travels on $0 \le t \le {b}$.'
+  answers:
+    - {name: disp, label: 'Displacement (m)'}
+    - {name: dist, label: 'Distance (m)'}
+  figure:
+    type: plot
+    x: [-0.5, 'b + 0.5']
+    y: ['-c - 1', 'extra + 1']
+    functions: ['x - c']
+    shade: [{f: 'x - c', from: 0, to: b}]
+    xLabel: t
+    yLabel: v
+  solution: |-
+    Displacement $= \int_0^{{b}}(t - {c})\,dt = \left[\tfrac{t^2}{2} - {c}t\right]_0^{{b}} =$ **{disp}** m. For distance, split at $t = {c}$ where $v$ changes sign: the triangle below the axis has area {back} and the one above has area {fwd}, so the distance is ${back} + {fwd} =$ **{dist}** m.
+- id: calc-d-avg-value
+  title: Average value of a function
+  topic: Average value
+  vars:
+    a: {min: 1, max: 6}
+    b: {min: -5, max: 9}
+    c: {min: 1, max: 6}
+  where: ["b != 0"]
+  calc:
+    fav: a*c^2/3 + b
+    xc: c/sqrt(3)
+    I: a*c^3/3 + b*c
+  prompt: 'Find the average value of $f(x) = {a:coef}x^2 {b:signed}$ on $[0, {c}]$ (exact fraction), and the $x$ in $[0, {c}]$ where $f$ equals its average (4 decimals).'
+  answers:
+    - {name: fav, kind: fraction, lowestTerms: true, label: '$f_{\text{avg}} =$'}
+    - {name: xc, label: '$x =$', tolerance: 0.0001, format: num4}
+  figure:
+    type: plot
+    x: [-0.3, 'c + 0.3']
+    y: ['min(b, 0) - 1', 'a*c^2 + b + 1']
+    functions: ['a*x^2 + b', {f: fav, from: 0, to: c, dashed: true}]
+    points:
+      - {at: [xc, fav]}
+  solution: |-
+    $f_{\text{avg}} = \dfrac{1}{{c}}\displaystyle\int_0^{{c}}({a:coef}x^2 {b:signed})\,dx = \dfrac{1}{{c}}\left[\dfrac{{a:coef}x^3}{3} {b:signedcoef}x\right]_0^{{c}} = \dfrac{1}{{c}}\cdot{I:texfrac} =$ **{fav:frac}**. Solve ${a:coef}x^2 {b:signed} = {fav:texfrac}$: $x^2 = \dfrac{{c}^2}{3}$, so $x = \dfrac{{c}}{\sqrt3} \approx$ **{xc:num4}**.

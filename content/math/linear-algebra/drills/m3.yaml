@@ -1,0 +1,225 @@
+# Module 3 drills
+
+- id: la-lincomb
+  title: Weights of a linear combination
+  topic: Linear combinations
+  vars:
+    p1: {min: -3, max: 3}
+    p2: {min: -3, max: 3}
+    p3: {min: -3, max: 3}
+    q1: {min: -3, max: 3}
+    q2: {min: -3, max: 3}
+    q3: {min: -3, max: 3}
+    w1: {min: -4, max: 4}
+    w2: {min: -4, max: 4}
+  where: ["p1*q2 - p2*q1 != 0", "w1 != 0", "w2 != 0"]
+  calc:
+    b1: w1*p1 + w2*q1 + 0
+    b2: w1*p2 + w2*q2 + 0
+    b3: w1*p3 + w2*q3 + 0
+  prompt: |-
+    Find weights $x_1, x_2$ with
+    $$x_1\begin{bmatrix} {p1} \\ {p2} \\ {p3}\end{bmatrix} + x_2\begin{bmatrix} {q1} \\ {q2} \\ {q3}\end{bmatrix} = \begin{bmatrix} {b1} \\ {b2} \\ {b3}\end{bmatrix}.$$
+  answers:
+    - {name: w1, label: '$x_1 =$'}
+    - {name: w2, label: '$x_2 =$'}
+  solution: |-
+    Row-reduce the augmented matrix $\left[\begin{array}{cc|c} {p1} & {q1} & {b1} \\ {p2} & {q2} & {b2} \\ {p3} & {q3} & {b3}\end{array}\right]$. The first two rows already pin down $x_1$ and $x_2$ (their $2\times 2$ part has nonzero determinant), and the third row is consistent. The weights are $x_1 =$ **{w1}**, $x_2 =$ **{w2}**.
+    Check the third entry: $({w1})({p3}) + ({w2})({q3}) = {b3}$. ✓
+
+- id: la-span-h
+  title: Choose h so a vector is in a span
+  topic: Span
+  vars:
+    mm: {min: -3, max: 3}
+    pp: {min: -4, max: 4}
+    qq: {min: -4, max: 4}
+    b1: {min: -5, max: 5}
+    b2: {min: -5, max: 5}
+  where: ["qq != 0", "b1 != 0"]
+  calc:
+    x2v: b2 - mm*b1 + 0
+    hval: pp*b1 + qq*(b2 - mm*b1) + 0
+  prompt: |-
+    For what value of $h$ is $\mathbf{b} = \begin{bmatrix} {b1} \\ {b2} \\ h\end{bmatrix}$ in $\operatorname{Span}\left\{\begin{bmatrix} 1 \\ {mm} \\ {pp}\end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ {qq}\end{bmatrix}\right\}$?
+  answers:
+    - {name: hval, label: '$h =$'}
+  solution: |-
+    Solve $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$. Row 1 gives $x_1 = {b1}$. Row 2 gives $({mm})({b1}) + x_2 = {b2}$, so $x_2 = {x2v}$. Row 3 then requires $h = ({pp})({b1}) + ({qq})({x2v}) =$ **{hval}**. For any other $h$ the system has a pivot in its last column.
+
+- id: la-ax-product
+  title: Compute Ax
+  topic: Matrix equation
+  vars:
+    a11: {min: -4, max: 4}
+    a12: {min: -4, max: 4}
+    a13: {min: -4, max: 4}
+    a21: {min: -4, max: 4}
+    a22: {min: -4, max: 4}
+    a23: {min: -4, max: 4}
+    a31: {min: -4, max: 4}
+    a32: {min: -4, max: 4}
+    a33: {min: -4, max: 4}
+    x1: {min: -3, max: 3}
+    x2: {min: -3, max: 3}
+    x3: {min: -3, max: 3}
+  calc:
+    r1: a11*x1 + a12*x2 + a13*x3 + 0
+    r2: a21*x1 + a22*x2 + a23*x3 + 0
+    r3: a31*x1 + a32*x2 + a33*x3 + 0
+  prompt: |-
+    Compute $A\mathbf{x}$ for $A = \begin{bmatrix} {a11} & {a12} & {a13} \\ {a21} & {a22} & {a23} \\ {a31} & {a32} & {a33}\end{bmatrix}$ and $\mathbf{x} = \begin{bmatrix} {x1} \\ {x2} \\ {x3}\end{bmatrix}$.
+  answers:
+    - {name: r1, label: 'entry 1'}
+    - {name: r2, label: 'entry 2'}
+    - {name: r3, label: 'entry 3'}
+  solution: |-
+    Row–vector rule: entry $i$ is row $i$ of $A$ times $\mathbf{x}$.
+    $({a11})({x1}) + ({a12})({x2}) + ({a13})({x3}) = {r1}$, $({a21})({x1}) + ({a22})({x2}) + ({a23})({x3}) = {r2}$, $({a31})({x1}) + ({a32})({x2}) + ({a33})({x3}) = {r3}$.
+    (Equivalently, ${x1}$ times column 1 plus ${x2}$ times column 2 plus ${x3}$ times column 3.) **Answer:** $({r1}, {r2}, {r3})$.
+
+- id: la-ax-solve
+  title: Solve Ax = b
+  topic: Matrix equation
+  vars:
+    a12: {min: -3, max: 3}
+    a13: {min: -3, max: 3}
+    a21: {min: -3, max: 3}
+    a22: {min: -3, max: 3}
+    a23: {min: -3, max: 3}
+    a31: {min: -3, max: 3}
+    a32: {min: -3, max: 3}
+    a33: {min: -3, max: 3}
+    s1: {min: -4, max: 4}
+    s2: {min: -4, max: 4}
+    s3: {min: -4, max: 4}
+  calc:
+    det: 1*(a22*a33 - a23*a32) - a12*(a21*a33 - a23*a31) + a13*(a21*a32 - a22*a31) + 0
+    b1: s1 + a12*s2 + a13*s3 + 0
+    b2: a21*s1 + a22*s2 + a23*s3 + 0
+    b3: a31*s1 + a32*s2 + a33*s3 + 0
+  where: ["det != 0"]
+  prompt: |-
+    Solve $A\mathbf{x} = \mathbf{b}$ for $A = \begin{bmatrix} 1 & {a12} & {a13} \\ {a21} & {a22} & {a23} \\ {a31} & {a32} & {a33}\end{bmatrix}$ and $\mathbf{b} = \begin{bmatrix} {b1} \\ {b2} \\ {b3}\end{bmatrix}$.
+  answers:
+    - {name: s1, label: '$x_1 =$'}
+    - {name: s2, label: '$x_2 =$'}
+    - {name: s3, label: '$x_3 =$'}
+  solution: |-
+    Row-reduce $[\,A \;\; \mathbf{b}\,]$. Since $A$ has a pivot in every column (its determinant is ${det} \ne 0$), the RREF is $[\,I \;\; \mathbf{x}\,]$ with $\mathbf{x} =$ **$({s1}, {s2}, {s3})$**.
+    Check row 1: ${s1} + ({a12})({s2}) + ({a13})({s3}) = {b1}$. ✓
+
+- id: la-param-form
+  title: Homogeneous solution in parametric vector form
+  topic: Parametric vector form
+  vars:
+    e11: {min: -3, max: 3}
+    e12: {min: -3, max: 3}
+    e21: {min: -3, max: 3}
+    e22: {min: -3, max: 3}
+    pv: {min: -5, max: 5}
+    qv: {min: -5, max: 5}
+  where: ["e11*e22 - e12*e21 != 0", "e11 != 0", "pv != 0 or qv != 0"]
+  calc:
+    a13: -(e11*pv + e12*qv) + 0
+    a23: -(e21*pv + e22*qv) + 0
+    np: -pv + 0
+    nq: -qv + 0
+  prompt: |-
+    Write the solutions of $A\mathbf{x} = \mathbf{0}$ in parametric vector form $\mathbf{x} = x_3\mathbf{v}$, where $A = \begin{bmatrix} {e11} & {e12} & {a13} \\ {e21} & {e22} & {a23}\end{bmatrix}$. Give the entries of $\mathbf{v}$ (its third entry is 1).
+  answers:
+    - {name: pv, label: 'entry 1'}
+    - {name: qv, label: 'entry 2'}
+  solution: |-
+    Row-reduce $A$: its RREF is $\begin{bmatrix} 1 & 0 & {np} \\ 0 & 1 & {nq}\end{bmatrix}$. So $x_1 - ({pv})x_3 = 0$ and $x_2 - ({qv})x_3 = 0$, giving $x_1 = {pv}x_3$, $x_2 = {qv}x_3$, $x_3$ free:
+    $$\mathbf{x} = x_3\begin{bmatrix} {pv} \\ {qv} \\ 1\end{bmatrix}.$$
+    **Answer:** $\mathbf{v} = ({pv}, {qv}, 1)$. Check: ${e11}({pv}) + ({e12})({qv}) + ({a13})(1) = 0$. ✓
+
+- id: la-particular
+  title: Particular solution plus homogeneous solutions
+  topic: Parametric vector form
+  vars:
+    e11: {choices: [1, 2, -1]}
+    e12: {min: -3, max: 3}
+    e21: {min: -3, max: 3}
+    e22: {choices: [1, -1, 3]}
+    ra: {min: -4, max: 4}
+    rb: {min: -4, max: 4}
+    rc: {min: -6, max: 6}
+    rd: {min: -6, max: 6}
+  where: ["e11*e22 - e12*e21 != 0", "ra != 0 or rb != 0"]
+  calc:
+    a13: e11*ra + e12*rb + 0
+    a23: e21*ra + e22*rb + 0
+    c1: e11*rc + e12*rd + 0
+    c2: e21*rc + e22*rd + 0
+    v1: -ra + 0
+    v2: -rb + 0
+  prompt: |-
+    The solutions of $A\mathbf{x} = \mathbf{b}$, with augmented matrix $\left[\begin{array}{ccc|c} {e11} & {e12} & {a13} & {c1} \\ {e21} & {e22} & {a23} & {c2}\end{array}\right]$, have the form $\mathbf{x} = \mathbf{p} + x_3\mathbf{v}$, where $\mathbf{p}$ has third entry 0 and $\mathbf{v}$ has third entry 1. Find the first two entries of each.
+  answers:
+    - {name: rc, label: '$p_1 =$'}
+    - {name: rd, label: '$p_2 =$'}
+    - {name: v1, label: '$v_1 =$'}
+    - {name: v2, label: '$v_2 =$'}
+  solution: |-
+    The RREF is $\left[\begin{array}{ccc|c} 1 & 0 & {ra} & {rc} \\ 0 & 1 & {rb} & {rd}\end{array}\right]$, so $x_1 = {rc} - ({ra})x_3$ and $x_2 = {rd} - ({rb})x_3$:
+    $$\mathbf{x} = \begin{bmatrix} {rc} \\ {rd} \\ 0\end{bmatrix} + x_3\begin{bmatrix} {v1} \\ {v2} \\ 1\end{bmatrix}.$$
+    **Answer:** $\mathbf{p} = ({rc}, {rd}, 0)$, $\mathbf{v} = ({v1}, {v2}, 1)$.
+
+- id: la-indep-h
+  title: Choose h to make vectors dependent
+  topic: Linear independence
+  vars:
+    aa: {min: -3, max: 3}
+    bb: {min: -3, max: 3}
+    cc: {min: -3, max: 3}
+    ee: {min: -3, max: 3}
+    ff: {min: -3, max: 3}
+    gg: {min: -3, max: 3}
+    ss: {choices: [1, -1]}
+  calc:
+    dd: aa*cc + ss + 0
+    const: -ee*gg + cc*bb*gg + ff*(aa*ee - bb*(aa*cc + ss)) + 0
+    hval: -(-ee*gg + cc*bb*gg + ff*(aa*ee - bb*(aa*cc + ss)))/ss + 0
+  where: ["abs(hval) <= 30"]
+  prompt: |-
+    For what value of $h$ are these vectors linearly dependent?
+    $$\mathbf{v}_1 = \begin{bmatrix} 1 \\ {aa} \\ {bb}\end{bmatrix},\quad \mathbf{v}_2 = \begin{bmatrix} {cc} \\ {dd} \\ {ee}\end{bmatrix},\quad \mathbf{v}_3 = \begin{bmatrix} {ff} \\ {gg} \\ h\end{bmatrix}$$
+  answers:
+    - {name: hval, label: '$h =$'}
+  solution: |-
+    Row-reduce $[\,\mathbf{v}_1 \;\; \mathbf{v}_2 \;\; \mathbf{v}_3\,]$. Clearing column 1 leaves a pivot of ${ss}$ in position $(2, 2)$, and after clearing column 2 the $(3, 3)$ entry is a linear expression in $h$ (equivalently, the determinant is ${ss}\,h + ({const})$). The vectors are dependent exactly when that entry is 0, which happens at $h =$ **{hval}**.
+
+- id: la-dep-relation
+  title: Write one vector as a combination of two others
+  topic: Linear independence
+  vars:
+    p1: {min: -4, max: 4}
+    p2: {min: -4, max: 4}
+    q1: {min: -4, max: 4}
+    q2: {min: -4, max: 4}
+    r1: {min: -5, max: 5}
+    r2: {min: -5, max: 5}
+  where: ["p1*q2 - p2*q1 != 0", "abs(p1*q2 - p2*q1) <= 10", "r1 != 0 or r2 != 0"]
+  calc:
+    det: p1*q2 - p2*q1 + 0
+    c1: (r1*q2 - r2*q1)/(p1*q2 - p2*q1) + 0
+    c2: (p1*r2 - p2*r1)/(p1*q2 - p2*q1) + 0
+  prompt: |-
+    The vectors $\mathbf{v}_1 = \begin{bmatrix} {p1} \\ {p2}\end{bmatrix}$, $\mathbf{v}_2 = \begin{bmatrix} {q1} \\ {q2}\end{bmatrix}$, $\mathbf{v}_3 = \begin{bmatrix} {r1} \\ {r2}\end{bmatrix}$ are three vectors in $\mathbb{R}^2$, so they're dependent. Find $c_1, c_2$ with $\mathbf{v}_3 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$ (exact fractions).
+  answers:
+    - {name: c1, label: '$c_1 =$', kind: fraction, lowestTerms: true}
+    - {name: c2, label: '$c_2 =$', kind: fraction, lowestTerms: true}
+  figure:
+    type: plot
+    equal: true
+    x: ['min(0, p1, q1, r1) - 1', 'max(0, p1, q1, r1) + 1']
+    y: ['min(0, p2, q2, r2) - 1', 'max(0, p2, q2, r2) + 1']
+    segments:
+      - {from: [0, 0], to: [p1, p2], arrow: true, label: 'v₁'}
+      - {from: [0, 0], to: [q1, q2], arrow: true, label: 'v₂'}
+      - {from: [0, 0], to: [r1, r2], arrow: true, label: 'v₃'}
+  solution: |-
+    Solve $\left[\begin{array}{cc|c} {p1} & {q1} & {r1} \\ {p2} & {q2} & {r2}\end{array}\right]$. Since $\mathbf{v}_1, \mathbf{v}_2$ aren't parallel (determinant ${det}$), there's exactly one solution: $c_1 = {c1:texfrac}$, $c_2 = {c2:texfrac}$.
+    **Answer:** $\mathbf{v}_3 = {c1:texfrac}\,\mathbf{v}_1 + {c2:texfrac}\,\mathbf{v}_2$.

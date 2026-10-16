@@ -1,0 +1,273 @@
+- id: phys-q-4401
+  lesson: phys-relativity
+  module_quiz: true
+  topic: Special relativity
+  stem: 'A spaceship passes Earth at $0.80c$. A clock on board ticks 1.0 s between two events at the clock. How long between those events according to Earth observers?'
+  choices: ['0.60 s', '1.0 s', '1.25 s', '1.67 s']
+  answer: 3
+  explanation: |-
+    $\gamma = 1/\sqrt{1 - 0.64} = 1.667$. The ship's clock measures proper time, so Earth measures $\Delta t = \gamma\Delta t_0 = 1.67$ s: moving clocks run slow. 0.60 s divides instead of multiplying.
+- id: phys-q-4402
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'Which statement is one of Einstein''s postulates of special relativity?'
+  choices: ['Mass is always conserved', 'Time passes at the same rate for all observers', 'Nothing can move faster than sound', 'The speed of light in vacuum is the same in all inertial frames']
+  answer: 3
+  explanation: |-
+    The two postulates are the principle of relativity and the constancy of $c$. Absolute time is exactly what relativity abandons.
+- id: phys-q-4403
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'A rod has proper length 50 m. How long is it measured by an observer it passes at $0.60c$ (moving along its length)?'
+  choices: ['62.5 m', '50 m', '40 m', '30 m']
+  answer: 2
+  explanation: |-
+    $\gamma = 1.25$; $L = L_0/\gamma = 50/1.25 = 40$ m. Multiplying by $\gamma$ (62.5 m) gets contraction backwards.
+- id: phys-q-4404
+  lesson: phys-relativity
+  module_quiz: true
+  topic: Special relativity
+  stem: 'A ship moving at $0.50c$ fires a probe forward at $0.50c$ relative to the ship. What is the probe''s speed relative to the ground?'
+  choices: ['$1.0c$', '$0.50c$', '$0.75c$', '$0.80c$']
+  answer: 3
+  explanation: |-
+    $u = \dfrac{0.50c + 0.50c}{1 + (0.50)(0.50)} = \dfrac{1.0c}{1.25} = 0.80c$. Classical addition would give $1.0c$, which relativity forbids for a massive object.
+- id: phys-q-4405
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'How much energy is equivalent to 1.0 g of mass? ($c = 3.0\times10^8$ m/s)'
+  choices: ['$3.0\times10^5$ J', '$9.0\times10^{16}$ J', '$9.0\times10^{13}$ J', '$3.0\times10^{11}$ J']
+  answer: 2
+  explanation: |-
+    $E = mc^2 = (1.0\times10^{-3}\text{ kg})(9.0\times10^{16}) = 9.0\times10^{13}$ J. Forgetting to convert grams to kilograms gives $9.0\times10^{16}$ J.
+- id: phys-q-4406
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'An electron ($mc^2 = 0.511$ MeV) moves at $0.60c$. What is its kinetic energy?'
+  choices: ['0.128 MeV', '0.092 MeV', '0.639 MeV', '0.511 MeV']
+  answer: 0
+  explanation: |-
+    $\gamma = 1.25$; $K = (\gamma - 1)mc^2 = 0.25(0.511) = 0.128$ MeV. The classical $\tfrac12mv^2 = 0.092$ MeV underestimates it; 0.639 MeV is the total energy.
+- id: phys-q-4407
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'Why can''t a massive object be accelerated to the speed of light?'
+  choices: ['Air resistance becomes too large', 'Its momentum $\gamma mv$ and energy grow without limit as $v \to c$, requiring infinite work', 'Its mass becomes zero', 'Light would slow down to match it']
+  answer: 1
+  explanation: |-
+    $\gamma \to \infty$ as $v \to c$, so the kinetic energy $(\gamma - 1)mc^2$ needed is infinite.
+- id: phys-q-4408
+  lesson: phys-relativity
+  module_quiz: true
+  topic: Special relativity
+  stem: 'Muons from the upper atmosphere reach the ground in large numbers even though their rest-frame half-life would let them travel only a few hundred meters. In the muons'' own frame, the explanation is'
+  choices: ['their half-life is longer', 'they move faster than light', 'the atmosphere''s thickness is length-contracted', 'gravity speeds them up']
+  answer: 2
+  explanation: |-
+    From the ground, the muons' clocks run slow (time dilation). In the muons' frame their half-life is normal, but the atmosphere rushing past is contracted by $\gamma$. Both views agree on how many reach the ground.
+- id: phys-q-4409
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'For a photon, which relationship between energy and momentum holds?'
+  choices: ['$E = \tfrac12pc$', '$E = p^2/2m$', '$E = mc^2$ with its rest mass', '$E = pc$']
+  answer: 3
+  explanation: |-
+    $E^2 = (pc)^2 + (mc^2)^2$ with $m = 0$ gives $E = pc$.
+- id: phys-q-4410
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'Two lightning strikes hit the ends of a moving train simultaneously according to an observer on the platform. An observer on the train sees them'
+  choices: ['simultaneously as well', 'at different times', 'not at all', 'in reversed order only if the train moves faster than light']
+  answer: 1
+  explanation: |-
+    Simultaneity is relative: events simultaneous in one frame generally aren't in another moving relative to it. (The train observer sees the front strike first.)
+- id: phys-q-4411
+  lesson: phys-relativity
+  topic: Special relativity
+  stem: 'In the Lorentz transformation, $t'' = \gamma(t - vx/c^2)$. The term $vx/c^2$ is responsible for'
+  choices: ['length contraction', 'the relativity of simultaneity', 'mass–energy equivalence', 'the constancy of $c$']
+  answer: 1
+  explanation: |-
+    Events at the same $t$ but different $x$ get different $t'$ values because of $vx/c^2$: simultaneity depends on the frame.
+- id: phys-q-4501
+  lesson: phys-quantum
+  module_quiz: true
+  topic: Photons
+  stem: 'What is the energy of a photon of wavelength 620 nm? ($hc = 1240$ eV·nm)'
+  choices: ['0.50 eV', '620 eV', '1240 eV', '2.0 eV']
+  answer: 3
+  explanation: |-
+    $E = hc/\lambda = 1240/620 = 2.0$ eV. Dividing the other way gives 0.50 eV.
+- id: phys-q-4502
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'In the photoelectric effect, making the light brighter (same frequency, above threshold)'
+  choices: ['increases the number of ejected electrons, not their maximum energy', 'increases the maximum kinetic energy of the electrons', 'lowers the threshold frequency', 'has no effect']
+  answer: 0
+  explanation: |-
+    Brighter light means more photons, so more electrons; each electron still absorbs one photon of the same energy, so $K_{\max} = hf - \phi$ is unchanged.
+- id: phys-q-4503
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'Light of 250 nm strikes a metal with work function 4.5 eV. What is the maximum kinetic energy of the ejected electrons?'
+  choices: ['4.96 eV', '9.5 eV', '0 eV, no electrons', '0.46 eV']
+  answer: 3
+  explanation: |-
+    Photon energy: $1240/250 = 4.96$ eV. $K_{\max} = 4.96 - 4.5 = 0.46$ eV.
+- id: phys-q-4504
+  lesson: phys-quantum
+  module_quiz: true
+  topic: Atomic structure
+  stem: 'What photon energy is emitted when a hydrogen electron drops from $n = 2$ to $n = 1$?'
+  choices: ['3.4 eV', '13.6 eV', '10.2 eV', '6.8 eV']
+  answer: 2
+  explanation: |-
+    $\Delta E = 13.6(1 - \tfrac14) = 10.2$ eV, an ultraviolet photon (122 nm). 3.4 eV is $|E_2|$.
+- id: phys-q-4505
+  lesson: phys-quantum
+  topic: Atomic structure
+  stem: 'Why does each element have its own unique line spectrum?'
+  choices: ['Each element''s atoms have a unique set of energy levels, and photons carry the differences', 'Heavier elements emit brighter light', 'Each element absorbs all colors equally', 'The electrons move at different speeds']
+  answer: 0
+  explanation: |-
+    Emitted photons have energies equal to differences between allowed levels, and those levels are set by the nucleus's charge and the electron arrangement, different for each element.
+- id: phys-q-4506
+  lesson: phys-quantum
+  topic: Wave–particle duality
+  stem: 'What is the de Broglie wavelength of an electron moving at $1.0\times10^6$ m/s? ($h = 6.63\times10^{-34}$ J·s, $m_e = 9.11\times10^{-31}$ kg)'
+  choices: ['$7.3\times10^{-10}$ m', '$7.3\times10^{-4}$ m', '$1.4\times10^{9}$ m', '$6.6\times10^{-40}$ m']
+  answer: 0
+  explanation: |-
+    $\lambda = h/(mv) = 6.63\times10^{-34}/(9.11\times10^{-31}\times10^6) = 7.3\times10^{-10}$ m, comparable to atomic spacings.
+- id: phys-q-4507
+  lesson: phys-quantum
+  module_quiz: true
+  topic: Wave–particle duality
+  stem: 'Which experiment showed that electrons have wave properties?'
+  choices: ['The photoelectric effect', 'Electron diffraction from crystals (Davisson–Germer)', 'Rutherford''s gold-foil scattering', 'Millikan''s oil drop']
+  answer: 1
+  explanation: |-
+    Electrons scattered from a nickel crystal produced a diffraction pattern matching $\lambda = h/p$. The photoelectric effect showed the particle nature of light.
+- id: phys-q-4508
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'Why don''t red photons eject electrons from a metal with a work function of 2.3 eV, no matter how bright the light?'
+  choices: ['Red light is not an electromagnetic wave', 'Bright light is reflected', 'Each red photon has less energy (about 1.8 eV) than the work function', 'Red light is absorbed by air']
+  answer: 2
+  explanation: |-
+    One photon frees one electron. A 700 nm photon carries $1240/700 = 1.8$ eV, short of the 2.3 eV needed, and electrons can't pool energy from several photons in ordinary light.
+- id: phys-q-4509
+  lesson: phys-quantum
+  topic: Atomic structure
+  stem: 'How much energy is needed to ionize a hydrogen atom from its ground state?'
+  choices: ['3.4 eV', '10.2 eV', '1.51 eV', '13.6 eV']
+  answer: 3
+  explanation: |-
+    Raising the electron from $E_1 = -13.6$ eV to $E_\infty = 0$ takes 13.6 eV.
+- id: phys-q-4510
+  lesson: phys-quantum
+  topic: Wave–particle duality
+  stem: 'A particle confined to a box of width $L$ has energies $E_n = n^2h^2/(8mL^2)$. If the box is made narrower, the energy levels'
+  choices: ['move closer together and lower', 'spread farther apart and rise', 'stay the same', 'disappear']
+  answer: 1
+  explanation: |-
+    $E_n \propto 1/L^2$, so tighter confinement raises every level and widens the spacing, a consequence of shorter allowed wavelengths (and the uncertainty principle).
+- id: phys-q-4511
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'On a graph of maximum photoelectron kinetic energy versus light frequency, the slope equals'
+  choices: ['the work function', 'Planck''s constant $h$', 'the threshold frequency', 'the electron charge']
+  answer: 1
+  explanation: |-
+    $K_{\max} = hf - \phi$ is a line with slope $h$ (the same for every metal) and intercept $-\phi$.
+- id: phys-q-4601
+  lesson: phys-nuclear
+  module_quiz: true
+  topic: Radioactive decay
+  stem: 'A radioactive sample has a half-life of 3.0 hours. What fraction remains after 12 hours?'
+  choices: ['1/4', '1/12', '1/8', '1/16']
+  answer: 3
+  explanation: |-
+    12 hours is 4 half-lives: $(\tfrac12)^4 = 1/16$. Dividing 12 by 3 and calling it 1/4 confuses the number of half-lives with the fraction.
+- id: phys-q-4602
+  lesson: phys-nuclear
+  topic: Nuclear structure
+  stem: 'How many neutrons are in a nucleus of $^{235}_{92}\text{U}$?'
+  choices: ['92', '235', '143', '327']
+  answer: 2
+  explanation: |-
+    $N = A - Z = 235 - 92 = 143$.
+- id: phys-q-4603
+  lesson: phys-nuclear
+  topic: Radioactive decay
+  stem: '$^{226}_{88}\text{Ra}$ undergoes alpha decay. What is the daughter nucleus?'
+  choices: ['$^{226}_{89}\text{Ac}$', '$^{222}_{86}\text{Rn}$', '$^{224}_{86}\text{Rn}$', '$^{222}_{88}\text{Ra}$']
+  answer: 1
+  explanation: |-
+    Alpha emission removes 2 protons and 2 neutrons: $Z = 86$ (radon), $A = 222$. Both $Z$ and $A$ balance: $226 = 222 + 4$, $88 = 86 + 2$.
+- id: phys-q-4604
+  lesson: phys-nuclear
+  module_quiz: true
+  topic: Radioactive decay
+  stem: 'In beta-minus decay, what happens inside the nucleus?'
+  choices: ['A proton becomes a neutron', 'Two protons and two neutrons are emitted', 'The nucleus loses energy as a photon', 'A neutron becomes a proton, emitting an electron and an antineutrino']
+  answer: 3
+  explanation: |-
+    β⁻: $n \to p + e^- + \bar\nu$, so $Z$ rises by 1 and $A$ is unchanged (e.g. carbon-14 → nitrogen-14).
+- id: phys-q-4605
+  lesson: phys-nuclear
+  topic: Nuclear structure
+  stem: 'A nucleus has a mass defect of 0.100 u. What is its binding energy? (1 u = 931.5 MeV/$c^2$)'
+  choices: ['93.2 MeV', '0.100 MeV', '931.5 MeV', '9.32 MeV']
+  answer: 0
+  explanation: |-
+    $E_B = \Delta m\,c^2 = 0.100(931.5) = 93.2$ MeV.
+- id: phys-q-4606
+  lesson: phys-nuclear
+  topic: Nuclear structure
+  stem: 'Both fission of uranium and fusion of hydrogen release energy because'
+  choices: ['both increase the total number of nucleons', 'both move toward nuclei with higher binding energy per nucleon (near iron)', 'both create mass from energy', 'both decrease the binding energy per nucleon']
+  answer: 1
+  explanation: |-
+    Binding energy per nucleon peaks near iron-56. Splitting heavy nuclei or fusing light ones both produce more tightly bound products; the mass difference is released as energy.
+- id: phys-q-4607
+  lesson: phys-nuclear
+  topic: Radioactive decay
+  stem: 'A sample''s activity is 80 kBq. Its half-life is 5.0 days. What is the activity after 20 days?'
+  choices: ['20 kBq', '10 kBq', '5.0 kBq', '0 kBq']
+  answer: 2
+  explanation: |-
+    20 days is 4 half-lives: $80/2^4 = 5.0$ kBq. Activity decays with the same half-life as the number of nuclei.
+- id: phys-q-4608
+  lesson: phys-nuclear
+  module_quiz: true
+  topic: Radioactive decay
+  stem: 'A decay constant is $\lambda = 0.0231$ per day. What is the half-life?'
+  choices: ['43 days', '30 days', '0.016 days', '0.0231 days']
+  answer: 1
+  explanation: |-
+    $T_{1/2} = \ln 2/\lambda = 0.693/0.0231 = 30$ days. 43 days is the mean lifetime $1/\lambda$.
+- id: phys-q-4609
+  lesson: phys-nuclear
+  topic: Nuclear structure
+  stem: 'What holds protons together in a nucleus despite their electric repulsion?'
+  choices: ['Gravity', 'The magnetic force', 'The strong nuclear force, which is very strong but short-ranged', 'The weak nuclear force']
+  answer: 2
+  explanation: |-
+    The strong force attracts nucleons strongly over about $10^{-15}$ m, overcoming the Coulomb repulsion between nearby protons.
+- id: phys-q-4610
+  lesson: phys-nuclear
+  topic: Radioactive decay
+  stem: 'Which type of radiation is the most penetrating?'
+  choices: ['Alpha', 'Beta', 'They penetrate equally', 'Gamma']
+  answer: 3
+  explanation: |-
+    Gamma rays (photons) need thick lead or concrete to stop; beta particles are stopped by millimeters of aluminum; alpha particles by paper or skin.
+- id: phys-q-4611
+  lesson: phys-nuclear
+  topic: Radioactive decay
+  stem: 'A bone sample has 25% of the carbon-14 activity of living bone. With $T_{1/2} = 5730$ years, how old is it?'
+  choices: ['1430 years', '4300 years', '22 900 years', '11 460 years']
+  answer: 3
+  explanation: |-
+    25% is $(\tfrac12)^2$: two half-lives, $2(5730) = 11\,460$ years.

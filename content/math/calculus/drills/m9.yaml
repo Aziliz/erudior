@@ -1,0 +1,130 @@
+# Module 9 drills: differential equations
+- id: calc-d-euler
+  title: Euler's method, three steps
+  topic: Euler's method
+  vars:
+    a: {min: -2, max: 2}
+    y0: {min: -2, max: 3}
+    h: {choices: [0.1, 0.2, 0.5]}
+  where: ["a != 0"]
+  calc:
+    s0: 0 + a*y0
+    y1: y0 + h*(0 + a*y0)
+    x1: h
+    s1: h + a*(y0 + h*(0 + a*y0))
+    y2: y0 + h*(0 + a*y0) + h*(h + a*(y0 + h*(0 + a*y0)))
+    x2: 2*h
+    s2: 2*h + a*(y0 + h*(0 + a*y0) + h*(h + a*(y0 + h*(0 + a*y0))))
+    y3: y0 + h*(0 + a*y0) + h*(h + a*(y0 + h*(0 + a*y0))) + h*(2*h + a*(y0 + h*(0 + a*y0) + h*(h + a*(y0 + h*(0 + a*y0)))))
+    x3: 3*h
+  prompt: 'Use Euler''s method with step size $h = {h}$ to approximate $y({x3})$ for $\dfrac{dy}{dx} = x {a:signedcoef}y$, $y(0) = {y0}$. (Three steps; 4 decimals.)'
+  answers:
+    - {name: y3, label: '$y({x3}) \approx$', tolerance: 0.0001, format: num4}
+  figure:
+    type: plot
+    x: [-0.2, 'x3 + 0.3']
+    y: ['min(y0, y1, y2, y3) - 1', 'max(y0, y1, y2, y3) + 1']
+    slopeField: {f: 'x + a*y', step: 'x3/6'}
+    segments:
+      - {from: [0, y0], to: [x1, y1]}
+      - {from: [x1, y1], to: [x2, y2]}
+      - {from: [x2, y2], to: [x3, y3]}
+  solution: |-
+    $y_{n+1} = y_n + {h}\,(x_n {a:signedcoef}y_n)$.
+
+    | $n$ | $x_n$ | $y_n$ | slope | $y_{n+1}$ |
+    |---|---|---|---|---|
+    | 0 | 0 | {y0} | {s0:num4} | {y1:num4} |
+    | 1 | {x1} | {y1:num4} | {s1:num4} | {y2:num4} |
+    | 2 | {x2} | {y2:num4} | {s2:num4} | {y3:num4} |
+
+    So $y({x3}) \approx$ **{y3:num4}**.
+- id: calc-d-slope-field
+  title: Equilibria from a slope field
+  topic: Slope fields
+  vars:
+    r1: {min: -3, max: 1}
+    gap: {min: 2, max: 4}
+  where: ["r1 != 0"]
+  calc:
+    r2: r1 + gap
+    nr1: -r1
+    nr2: -r1 - gap
+    y0: r1 + 1
+  prompt: 'The slope field below is for $\dfrac{dy}{dx} = (y {nr1:signed})({r2} - y)$. Find the stable and the unstable equilibrium solutions. Where does the solution with $y(0) = {y0}$ head as $x \to \infty$?'
+  answers:
+    - {name: r2, label: 'Stable: $y =$'}
+    - {name: r1, label: 'Unstable: $y =$'}
+    - {name: r2, label: '$\lim_{x\to\infty} y =$'}
+  figure:
+    type: plot
+    x: [0, 4]
+    y: ['r1 - 2', 'r2 + 2']
+    slopeField: {f: '(y - r1)*(r2 - y)/3', step: 0.5}
+    functions:
+      - {f: r1, dashed: true}
+      - {f: r2, dashed: true}
+  solution: |-
+    Equilibria are where $\dfrac{dy}{dx} = 0$: $y = {r1}$ and $y = {r2}$. Check signs: for ${r1} < y < {r2}$ both factors are positive, so solutions rise; above ${r2}$ the slope is negative, so solutions fall. Solutions on both sides move toward $y = {r2}$ (**stable**) and away from $y = {r1}$ (**unstable**; below it the slope is negative too, so solutions drop away). The solution starting at $y = {y0}$, between the two, rises toward **{r2}**.
+
+    (The field is drawn with slopes scaled by $\tfrac13$ to keep the segments readable; their directions are what matter.)
+- id: calc-d-separable
+  title: Solve a separable equation
+  topic: Separable equations
+  vars:
+    k: {min: 1, max: 3}
+    n: {min: 1, max: 2}
+    A: {min: 1, max: 5}
+    x1: {choices: [0.5, 1]}
+  calc:
+    n1: n + 1
+    y1: A*e^(k*x1^(n + 1)/(n + 1))
+  prompt: 'Solve $\dfrac{dy}{dx} = {k:coef}x^{n}y$ with $y(0) = {A}$, then find $y({x1})$. (4 significant figures)'
+  answers:
+    - {name: y1, label: '$y({x1}) =$', relTolerance: 0.0005, format: sig4}
+  solution: |-
+    Separate: $\dfrac{dy}{y} = {k:coef}x^{n}dx$. Integrate: $\ln|y| = \dfrac{{k:coef}x^{{n1}}}{{n1}} + C$, so $y = Be^{{k:coef}x^{{n1}}/{n1}}$. At $x = 0$, $y = B = {A}$. So $y = {A:coef}e^{{k:coef}x^{{n1}}/{n1}}$ and $y({x1}) \approx$ **{y1:sig4}**.
+- id: calc-d-exp-growth
+  title: Exponential growth from two data points
+  topic: Exponential and logistic models
+  vars:
+    P0: {min: 100, max: 900, step: 50}
+    ratio: {choices: [1.5, 2, 2.5, 3]}
+    t1: {min: 2, max: 8}
+    target: {choices: [5, 10, 20]}
+  calc:
+    P1: P0*ratio
+    kr: ln(ratio)/t1
+    T: ln(target)/(ln(ratio)/t1)
+    goal: P0*target
+  prompt: 'A population grows at a rate proportional to its size. It is {P0} at $t = 0$ and {P1:int} at $t = {t1}$ (years). When will it reach {goal:int}? (2 decimals)'
+  answers:
+    - {name: T, label: '$t \approx$', tolerance: 0.01, format: num2}
+  solution: |-
+    $P = {P0}e^{kt}$. From $P({t1}) = {P1:dp0}$: $e^{{t1}k} = {ratio}$, so $k = \dfrac{\ln {ratio}}{{t1}} \approx {kr:num4}$. Solve ${P0}e^{kt} =$ {goal:int}: $e^{kt} = {target}$, $t = \dfrac{\ln {target}}{k} \approx$ **{T:num2}** years.
+- id: calc-d-logistic
+  title: Logistic model
+  topic: Exponential and logistic models
+  vars:
+    cap: {min: 200, max: 900, step: 100}
+    frac: {choices: [0.05, 0.1, 0.2, 0.25]}
+    rate: {choices: [0.2, 0.3, 0.5, 0.8]}
+    t1: {min: 2, max: 8}
+  calc:
+    P0: cap*frac
+    A: (1 - frac)/frac
+    Pt: cap/(1 + (1 - frac)/frac*e^(-rate*t1))
+    th: ln((1 - frac)/frac)/rate
+    half: cap/2
+  prompt: 'A population follows $\dfrac{dP}{dt} = {rate}P\left(1 - \dfrac{P}{{cap}}\right)$ with $P(0) = {P0:int}$. Find $P({t1})$ (nearest whole number) and the time when the population grows fastest (2 decimals).'
+  answers:
+    - {name: Pt, label: '$P({t1}) \approx$', tolerance: 1, format: integer}
+    - {name: th, label: 'Fastest at $t \approx$', tolerance: 0.01, format: num2}
+  figure:
+    type: plot
+    x: [0, '2*th + 2']
+    y: [0, 'cap*1.1']
+    functions: ['cap/(1 + A*e^(-rate*x))', {f: cap, dashed: true}]
+    points: [{at: [th, half]}]
+  solution: |-
+    $P(t) = \dfrac{M}{1 + Ae^{-kt}}$ with $M = {cap}$, $k = {rate}$, and $A = \dfrac{M - P_0}{P_0} = {A:num4}$. Then $P({t1}) = \dfrac{{cap}}{1 + {A:num4}e^{-{rate}\cdot{t1}}} \approx$ **{Pt:int}**. Growth is fastest when $P = \tfrac M2 = {half:int}$: $1 + Ae^{-kt} = 2$, so $t = \dfrac{\ln A}{{rate}} \approx$ **{th:num2}**.

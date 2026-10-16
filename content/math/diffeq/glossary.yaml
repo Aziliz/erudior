@@ -1,0 +1,607 @@
+# Glossary: every bolded key term plus standard notation and abbreviations
+- term: differential equation
+  aliases: [differential equations, DE]
+  definition: 'An equation relating an unknown function to one or more of its derivatives, such as $y'' = 3y$.'
+  topic: DE basics
+- term: solution
+  aliases: [solutions]
+  definition: 'A function that makes a differential equation true at every point of some interval when it and its derivatives are substituted.'
+  topic: DE basics
+- term: order
+  definition: 'The order of the highest derivative appearing in a differential equation. $y'''' + y = 0$ has order 2.'
+  topic: DE basics
+- term: general solution
+  aliases: [general solutions]
+  definition: 'A formula, containing arbitrary constants, that includes every solution of a differential equation (or of the homogeneous linear equation plus a particular solution).'
+  topic: DE basics
+- term: one-parameter family
+  definition: 'A collection of curves described by one arbitrary constant, such as $y = x^2 + C$; typical for the solutions of a first-order equation.'
+  topic: DE basics
+- term: initial value problem
+  aliases: [IVP, IVPs, initial value problems]
+  definition: 'A differential equation together with conditions on the solution (and its derivatives) at a single point, such as $y'' = f(t, y)$, $y(t_0) = y_0$.'
+  topic: DE basics
+- term: initial condition
+  aliases: [initial conditions]
+  definition: 'A specified value of the unknown function or one of its derivatives at the starting point, used to pick one solution from the general solution.'
+  topic: DE basics
+- term: particular solution
+  aliases: [particular solutions]
+  definition: 'One specific solution, with no arbitrary constants; for a nonhomogeneous linear equation, any single solution $Y$ of the full equation.'
+  topic: DE basics
+- term: equilibrium solution
+  aliases: [equilibrium solutions, equilibrium, equilibria, critical point, critical points]
+  definition: 'A constant solution $y = c$ (or a constant point in a system), found where the right side of $y'' = f(y)$ is zero; the system stays there forever.'
+  topic: Autonomous equations
+- term: slope field
+  aliases: [slope fields, direction field, direction fields]
+  definition: 'A picture of short segments with slope $f(x, y)$ drawn at grid points; solution curves of $y'' = f(x, y)$ run tangent to them.'
+  topic: Slope fields
+- term: isocline
+  aliases: [isoclines]
+  definition: 'A curve $f(x, y) = m$ along which every slope-field segment has the same slope $m$.'
+  topic: Slope fields
+- term: autonomous
+  aliases: [autonomous equation, autonomous equations]
+  definition: 'Describes an equation $y'' = f(y)$ (or system) whose right side does not depend explicitly on the independent variable.'
+  topic: Autonomous equations
+- term: separable
+  aliases: [separable equation, separable equations]
+  definition: 'A first-order equation that can be written $y'' = g(x)h(y)$, solved by separating variables and integrating both sides.'
+  topic: Separable equations
+- term: implicit solution
+  aliases: [implicit solutions]
+  definition: 'A solution given as an equation $F(x, y) = C$ relating $x$ and $y$ without solving for $y$.'
+  topic: Separable equations
+- term: exponential model
+  aliases: [exponential growth, exponential decay]
+  definition: 'The model $P'' = kP$, with solution $P = P_0e^{kt}$: growth for $k > 0$, decay for $k < 0$.'
+  topic: Exponential growth
+- term: relative growth rate
+  definition: 'The rate of change divided by the amount, $\tfrac{1}{P}\tfrac{dP}{dt}$; equal to the constant $k$ in exponential growth.'
+  topic: Exponential growth
+- term: doubling time
+  definition: 'The time for an exponentially growing quantity to double: $\ln 2/k$.'
+  topic: Exponential growth
+- term: half-life
+  aliases: [half-lives]
+  definition: 'The time for an exponentially decaying quantity to halve: $\ln 2/|k|$, independent of the starting amount.'
+  topic: Exponential growth
+- term: logistic model
+  aliases: [logistic equation, logistic growth]
+  definition: 'The model $P'' = kP(1 - P/K)$: nearly exponential growth for small $P$ that levels off at the carrying capacity $K$.'
+  topic: Logistic growth
+- term: carrying capacity
+  definition: 'The stable equilibrium $K$ of the logistic model, the population the environment can sustain.'
+  topic: Logistic growth
+- term: logistic curve
+  definition: 'The S-shaped graph $P = K/(1 + Ae^{-kt})$, with its inflection point at $P = K/2$.'
+  topic: Logistic growth
+- term: Euler's method
+  definition: 'The numerical method $y_{n+1} = y_n + hf(t_n, y_n)$: follow the tangent line for one step of size $h$, then repeat. First order.'
+  topic: Euler's method
+- term: step size
+  definition: 'The increment $h$ in the independent variable between successive points of a numerical method.'
+  topic: Euler's method
+- term: concave up
+  definition: 'Bending upward ($y'''' > 0$); where solutions are concave up, Euler''s method underestimates.'
+  topic: Euler's method
+- term: concave down
+  definition: 'Bending downward ($y'''' < 0$); where solutions are concave down, Euler''s method overestimates.'
+  topic: Euler's method
+- term: ordinary differential equation
+  aliases: [ODE, ODEs, ordinary differential equations]
+  definition: 'A differential equation whose unknown is a function of one variable, so only ordinary derivatives appear.'
+  topic: Classification
+- term: partial differential equation
+  aliases: [PDE, PDEs, partial differential equations]
+  definition: 'A differential equation whose unknown depends on two or more variables and that involves partial derivatives, such as $u_t = \alpha^2u_{xx}$.'
+  topic: Heat and wave equations
+- term: normal form
+  definition: 'An $n$th-order equation solved for its highest derivative: $y^{(n)} = f(t, y, \dots, y^{(n-1)})$.'
+  topic: Classification
+- term: linear
+  aliases: [linear equation, linear equations]
+  definition: 'A differential equation in which the unknown and its derivatives appear only to the first power, not multiplied together or inside other functions; coefficients may depend on $t$.'
+  topic: Classification
+- term: nonlinear
+  definition: 'Not linear: the equation contains powers, products or functions of the unknown or its derivatives, such as $y^2$, $yy''$ or $\sin y$.'
+  topic: Classification
+- term: superposition principle
+  aliases: [principle of superposition, superposition]
+  definition: 'For a linear homogeneous equation, any linear combination of solutions is again a solution.'
+  topic: Second-order theory
+- term: homogeneous
+  aliases: [homogeneous equation]
+  definition: 'For a linear equation, having zero forcing term ($g = 0$). For a first-order equation, the separate meaning $y'' = F(y/x)$.'
+  topic: Classification
+- term: nonhomogeneous
+  definition: 'A linear equation with a nonzero forcing term $g(t)$.'
+  topic: Classification
+- term: boundary value problem
+  aliases: [BVP, BVPs, boundary value problems]
+  definition: 'A differential equation with conditions given at two or more different points; it may have no solution, one, or infinitely many.'
+  topic: Classification
+- term: boundary conditions
+  aliases: [boundary condition]
+  definition: 'Conditions imposed at the ends of an interval, such as $y(0) = 0$, $y(L) = 0$ or $u(0, t) = u(L, t) = 0$.'
+  topic: Heat and wave equations
+- term: standard form
+  definition: 'A linear equation written with leading coefficient 1, such as $y'' + p(t)y = g(t)$ or $y'''' + p(t)y'' + q(t)y = g(t)$.'
+  topic: Existence and uniqueness
+- term: interval of validity
+  definition: 'The interval on which a solution of an IVP exists; for linear equations, the largest interval containing $t_0$ where the coefficients are continuous.'
+  topic: Existence and uniqueness
+- term: uniqueness
+  definition: 'The property that an IVP has only one solution; guaranteed for $y'' = f(t, y)$ when $f$ and $\partial f/\partial y$ are continuous near the initial point.'
+  topic: Existence and uniqueness
+- term: integrating factor
+  aliases: [integrating factors]
+  definition: 'A function $\mu$ that turns an equation into one that can be integrated directly; for $y'' + py = g$, $\mu = e^{\int p\,dt}$ makes the left side $(\mu y)''$.'
+  topic: Linear first-order
+- term: transient
+  aliases: [transient solution]
+  definition: 'The part of a solution that dies out as $t \to \infty$, such as $Ce^{-2t}$ or the complementary solution of a damped system.'
+  topic: Forced vibrations
+- term: steady-state solution
+  aliases: [steady state, steady-state]
+  definition: 'The part of a solution that persists as $t \to \infty$, oscillating at the forcing frequency (or approaching a constant).'
+  topic: Forced vibrations
+- term: exact equation
+  aliases: [exact equations, exact]
+  definition: 'An equation $M\,dx + N\,dy = 0$ with $M_y = N_x$; its solutions are the level curves $F(x, y) = C$ of a potential function.'
+  topic: Exact equations
+- term: potential function
+  definition: 'A function $F(x, y)$ with $F_x = M$ and $F_y = N$ for an exact equation $M\,dx + N\,dy = 0$.'
+  topic: Exact equations
+- term: substitution
+  aliases: [substitutions]
+  definition: 'Replacing the unknown by a new variable (such as $v = y^{1-n}$ or $v = y/x$) to turn an equation into a solvable type.'
+  topic: Substitutions
+- term: Bernoulli equation
+  aliases: [Bernoulli equations]
+  definition: 'An equation $y'' + p(t)y = q(t)y^n$; the substitution $v = y^{1-n}$ makes it linear.'
+  topic: Substitutions
+- term: mathematical models
+  aliases: [mathematical model, model, models]
+  definition: 'Equations that describe a real system, usually built from a rate balance: rate of change = rate in − rate out.'
+  topic: Growth and decay
+- term: Newton's law of cooling
+  definition: 'The model $T'' = -k(T - T_a)$: temperature changes at a rate proportional to its difference from the surroundings. Solution $T = T_a + (T_0 - T_a)e^{-kt}$.'
+  topic: Newton's law of cooling
+- term: mixing problem
+  aliases: [mixing problems]
+  definition: 'A model for the amount $Q$ of a substance in a well-stirred tank: $Q'' = r_{in}c_{in} - r_{out}Q/V$.'
+  topic: Mixing problems
+- term: drag coefficient
+  definition: 'The constant $\gamma$ in a linear air-resistance force $-\gamma v$ (or $k$ in quadratic drag $-kv^2$).'
+  topic: Falling objects
+- term: terminal velocity
+  definition: 'The constant speed at which drag balances gravity: $mg/\gamma$ for linear drag, $\sqrt{mg/k}$ for quadratic drag.'
+  topic: Falling objects
+- term: Kirchhoff's voltage law
+  definition: 'Around a closed circuit loop, the voltage drops ($RI$, $LI''$, $q/C$) add up to the applied voltage $E(t)$.'
+  topic: RL and RC circuits
+- term: time constant
+  definition: 'The characteristic decay time of a first-order system: $L/R$ for an RL circuit, $RC$ for an RC circuit. After one time constant about 63% of the change has occurred.'
+  topic: RL and RC circuits
+- term: phase line
+  aliases: [phase lines]
+  definition: 'A vertical line showing the equilibria of $y'' = f(y)$ with arrows up where $f > 0$ and down where $f < 0$.'
+  topic: Autonomous equations
+- term: asymptotically stable
+  aliases: [stable]
+  definition: 'Describes an equilibrium that nearby solutions approach as $t \to \infty$.'
+  topic: Autonomous equations
+- term: sink
+  aliases: [sinks]
+  definition: 'An asymptotically stable equilibrium: nearby solutions flow into it.'
+  topic: Autonomous equations
+- term: unstable
+  definition: 'Describes an equilibrium that some solutions starting arbitrarily close to it leave.'
+  topic: Autonomous equations
+- term: source
+  aliases: [sources]
+  definition: 'An unstable equilibrium from which nearby solutions flow away on all sides.'
+  topic: Autonomous equations
+- term: semistable
+  definition: 'An equilibrium of $y'' = f(y)$ that attracts solutions from one side and repels them on the other.'
+  topic: Autonomous equations
+- term: linearization
+  definition: 'Approximating a system near an equilibrium by the linear system $\mathbf{u}'' = J\mathbf{u}$, where $J$ is the Jacobian (or $f''(y^*)$ in one dimension).'
+  topic: Nonlinear systems
+- term: extinction threshold
+  definition: 'An unstable equilibrium population below which a species dies out.'
+  topic: Autonomous equations
+- term: bifurcation
+  aliases: [bifurcations]
+  definition: 'A qualitative change in the equilibria (number or stability) of a family of equations as a parameter passes a critical value.'
+  topic: Bifurcations
+- term: bifurcation value
+  definition: 'The parameter value at which a bifurcation occurs; found by solving $f = 0$ and $f_y = 0$ together.'
+  topic: Bifurcations
+- term: maximum sustainable yield
+  definition: 'The largest constant harvest rate $rK/4$ for which a logistic population still has an equilibrium.'
+  topic: Bifurcations
+- term: bifurcation diagram
+  definition: 'A plot of equilibrium values (vertical) against the parameter (horizontal), with stable branches solid and unstable ones dashed.'
+  topic: Bifurcations
+- term: saddle-node bifurcation
+  definition: 'A bifurcation in which two equilibria merge and disappear, as in $y'' = c + y^2$ at $c = 0$.'
+  topic: Bifurcations
+- term: Heun's method
+  aliases: [improved Euler method, improved Euler]
+  definition: 'The second-order method $y_{n+1} = y_n + \tfrac h2(k_1 + k_2)$ with $k_1 = f(t_n, y_n)$ and $k_2 = f(t_n + h, y_n + hk_1)$.'
+  topic: Numerical methods
+- term: local truncation error
+  definition: 'The error a numerical method makes in a single step starting from the exact solution; order $h^2$ for Euler.'
+  topic: Numerical methods
+- term: global error
+  definition: 'The total error at the end of a computation after all steps; one power of $h$ lower than the local error.'
+  topic: Numerical methods
+- term: predictor-corrector
+  definition: 'A method that first predicts the next value (for example with an Euler step) and then corrects it using slope information at the predicted point.'
+  topic: Numerical methods
+- term: second-order method
+  definition: 'A numerical method whose global error is proportional to $h^2$, such as improved Euler.'
+  topic: Numerical methods
+- term: round-off error
+  definition: 'Error from the finite number of digits a computer stores; it accumulates over very many steps.'
+  topic: Numerical methods
+- term: Runge–Kutta methods
+  aliases: [Runge-Kutta, Runge–Kutta method]
+  definition: 'Numerical methods that combine several slope evaluations per step to achieve high accuracy.'
+  topic: Numerical methods
+- term: RK4
+  definition: 'The classical fourth-order Runge–Kutta method: $y_{n+1} = y_n + \tfrac h6(k_1 + 2k_2 + 2k_3 + k_4)$; global error $\propto h^4$.'
+  topic: Numerical methods
+- term: Simpson's rule
+  definition: 'The integration rule $\int_a^b f \approx \tfrac{h}{6}\big(f(a) + 4f(m) + f(b)\big)$ over an interval of width $h$ with midpoint $m$; RK4 reduces to it when $f$ depends only on $t$.'
+  topic: Numerical methods
+- term: second-order linear equation
+  definition: 'An equation $y'''' + p(t)y'' + q(t)y = g(t)$ (or $ay'''' + by'' + cy = g$).'
+  topic: Second-order theory
+- term: linear operator
+  definition: 'A map $L$ with $L[c_1y_1 + c_2y_2] = c_1L[y_1] + c_2L[y_2]$, such as $L[y] = y'''' + py'' + qy$.'
+  topic: Second-order theory
+- term: linear combination
+  definition: 'A sum of constant multiples, $c_1y_1 + c_2y_2 + \cdots$.'
+  topic: Second-order theory
+- term: Wronskian
+  definition: 'The determinant $W(y_1, y_2) = y_1y_2'' - y_1''y_2$; two solutions form a fundamental set exactly when it is nonzero.'
+  topic: Second-order theory
+- term: fundamental set of solutions
+  aliases: [fundamental set, fundamental sets]
+  definition: 'A set of $n$ solutions of an $n$th-order linear homogeneous equation (or system) with nonzero Wronskian; every solution is a combination of them.'
+  topic: Second-order theory
+- term: linearly dependent
+  definition: 'Describes functions where one is a combination of the others; for two functions, one is a constant multiple of the other.'
+  topic: Second-order theory
+- term: linearly independent
+  definition: 'Not linearly dependent; for two solutions of a linear equation, equivalent to a nonzero Wronskian.'
+  topic: Second-order theory
+- term: complementary solution
+  definition: 'The general solution $y_c$ of the homogeneous equation associated with a nonhomogeneous linear equation.'
+  topic: Second-order theory
+- term: Abel's theorem
+  definition: 'For solutions of $y'''' + py'' + qy = 0$, $W = Ce^{-\int p\,dt}$, so the Wronskian is either never zero or always zero.'
+  topic: Second-order theory
+- term: characteristic equation
+  aliases: [characteristic polynomial, characteristic equations]
+  definition: 'The polynomial equation $ar^2 + br + c = 0$ obtained by trying $y = e^{rt}$ in $ay'''' + by'' + cy = 0$ (or $\det(A - \lambda I) = 0$ for a matrix).'
+  topic: Characteristic equation
+- term: Euler's formula
+  definition: '$e^{i\theta} = \cos\theta + i\sin\theta$; it turns complex exponential solutions into sines and cosines.'
+  topic: Characteristic equation
+- term: angular frequency
+  definition: 'The rate $\omega$ (radians per unit time) in $\cos\omega t$; the period is $2\pi/\omega$.'
+  topic: Characteristic equation
+- term: envelope
+  definition: 'The curves $\pm Re^{\lambda t}$ that bound a damped (or growing) oscillation.'
+  topic: Characteristic equation
+- term: amplitude
+  definition: 'The maximum displacement $R = \sqrt{c_1^2 + c_2^2}$ of $c_1\cos\omega t + c_2\sin\omega t = R\cos(\omega t - \delta)$.'
+  topic: Mechanical vibrations
+- term: phase angle
+  definition: 'The angle $\delta$ in $R\cos(\omega t - \delta)$, with $\cos\delta = c_1/R$ and $\sin\delta = c_2/R$.'
+  topic: Characteristic equation
+- term: reduction of order
+  definition: 'Finding a second solution $y_2 = vy_1$ from a known solution $y_1$, which reduces the equation to first order in $v''$.'
+  topic: Reduction of order
+- term: Cauchy–Euler equation
+  aliases: [Cauchy-Euler equation, Euler equation, equidimensional equation]
+  definition: 'An equation $at^2y'''' + bty'' + cy = 0$, solved by trying $y = t^m$.'
+  topic: Reduction of order
+- term: indicial equation
+  definition: 'The equation $am(m - 1) + bm + c = 0$ for the exponent $m$ in a Cauchy–Euler equation.'
+  topic: Reduction of order
+- term: method of undetermined coefficients
+  aliases: [undetermined coefficients]
+  definition: 'Finding a particular solution by guessing its form (polynomial, exponential, sine/cosine) with unknown coefficients and matching terms.'
+  topic: Undetermined coefficients
+- term: modification rule
+  definition: 'In undetermined coefficients, if the guess overlaps the complementary solution, multiply it by $t^s$, where $s$ is the multiplicity of the overlapping root.'
+  topic: Undetermined coefficients
+- term: variation of parameters
+  definition: 'Finding a particular solution $Y = u_1y_1 + u_2y_2$ with $u_1'' = -y_2g/W$ and $u_2'' = y_1g/W$; works for any continuous forcing.'
+  topic: Variation of parameters
+- term: spring force
+  definition: 'The restoring force $-ku$ exerted by a spring stretched a distance $u$ from equilibrium.'
+  topic: Mechanical vibrations
+- term: Hooke's law
+  definition: 'A spring''s restoring force is proportional to its displacement: $F = -ku$.'
+  topic: Mechanical vibrations
+- term: spring constant
+  definition: 'The stiffness $k$ in Hooke''s law; from a static stretch $L$ under weight $mg$, $k = mg/L$.'
+  topic: Mechanical vibrations
+- term: damping force
+  definition: 'A resistive force $-\gamma u''$ opposing velocity, from friction, air or a dashpot.'
+  topic: Mechanical vibrations
+- term: free vibration
+  aliases: [free vibrations]
+  definition: 'Motion of a spring–mass system with no external force: $mu'''' + \gamma u'' + ku = 0$.'
+  topic: Mechanical vibrations
+- term: natural frequency
+  definition: 'The angular frequency $\omega_0 = \sqrt{k/m}$ of undamped free vibration.'
+  topic: Mechanical vibrations
+- term: simple harmonic motion
+  definition: 'Undamped sinusoidal motion $u = R\cos(\omega_0t - \delta)$.'
+  topic: Mechanical vibrations
+- term: critical damping
+  aliases: [critically damped]
+  definition: 'Damping with $\gamma^2 = 4km$ (repeated root); the system returns to equilibrium fastest without oscillating.'
+  topic: Mechanical vibrations
+- term: underdamped
+  definition: 'Damping with $\gamma^2 < 4km$: complex roots, oscillations that decay.'
+  topic: Mechanical vibrations
+- term: overdamped
+  definition: 'Damping with $\gamma^2 > 4km$: two negative real roots, a slow return with no oscillation.'
+  topic: Mechanical vibrations
+- term: quasi-frequency
+  aliases: [quasi-period]
+  definition: 'The angular frequency $\mu = \sqrt{4km - \gamma^2}/(2m)$ of an underdamped oscillation (quasi-period $2\pi/\mu$).'
+  topic: Mechanical vibrations
+- term: forcing frequency
+  definition: 'The angular frequency $\omega$ of an external periodic force $F_0\cos\omega t$.'
+  topic: Forced vibrations
+- term: beats
+  definition: 'A fast oscillation inside a slowly varying envelope, produced when an undamped system is forced near its natural frequency.'
+  topic: Forced vibrations
+- term: resonance
+  definition: 'Unbounded growth $\propto t\sin\omega_0t$ when an undamped system is forced exactly at its natural frequency.'
+  topic: Forced vibrations
+- term: practical resonance
+  definition: 'The large peak in steady-state amplitude of a lightly damped system when forced near its natural frequency.'
+  topic: Forced vibrations
+- term: RLC circuit
+  aliases: [RLC circuits, RLC]
+  definition: 'A series circuit of a resistor, inductor and capacitor: $Lq'''' + Rq'' + q/C = E(t)$, analogous to a damped spring.'
+  topic: RLC circuits
+- term: multiplicity
+  definition: 'The number of times a root repeats in a polynomial; a root of multiplicity $k$ contributes $k$ solutions $e^{rt}, te^{rt}, \dots, t^{k-1}e^{rt}$.'
+  topic: Higher-order equations
+- term: rational root test
+  definition: 'Any rational root $p/q$ of a polynomial with integer coefficients has $p$ dividing the constant term and $q$ dividing the leading coefficient.'
+  topic: Higher-order equations
+- term: Laplace transform
+  aliases: [Laplace transforms]
+  definition: '$\mathcal{L}\{f\} = F(s) = \int_0^\infty e^{-st}f(t)\,dt$; it turns linear differential equations into algebraic equations.'
+  topic: Laplace transform
+- term: piecewise continuous
+  definition: 'Continuous except for finitely many jump discontinuities on each bounded interval.'
+  topic: Laplace transform
+- term: exponential order
+  definition: 'Describes $f$ with $|f(t)| \le Me^{ct}$ for large $t$; such functions have Laplace transforms.'
+  topic: Laplace transform
+- term: first shifting theorem
+  definition: '$\mathcal{L}\{e^{at}f(t)\} = F(s - a)$.'
+  topic: Laplace transform
+- term: inverse Laplace transform
+  definition: 'The function $f = \mathcal{L}^{-1}\{F\}$ whose transform is $F(s)$; found in practice from tables with partial fractions.'
+  topic: Inverse Laplace transform
+- term: partial fractions
+  definition: 'Writing a rational function as a sum of simpler fractions with linear or irreducible quadratic denominators.'
+  topic: Inverse Laplace transform
+- term: cover-up method
+  definition: 'A shortcut for partial fractions: the coefficient of $\tfrac{1}{s - a}$ (for a simple factor) is found by covering that factor and substituting $s = a$.'
+  topic: Inverse Laplace transform
+- term: unit step function
+  aliases: [Heaviside function, step function, step functions]
+  definition: '$u_c(t)$: 0 for $t < c$ and 1 for $t \ge c$. $\mathcal{L}\{u_c\} = e^{-cs}/s$.'
+  topic: Step functions
+- term: rectangular pulse
+  definition: 'A function equal to a constant on an interval and zero elsewhere, written with steps as $u_a(t) - u_b(t)$.'
+  topic: Step functions
+- term: second shifting theorem
+  definition: '$\mathcal{L}\{u_c(t)f(t - c)\} = e^{-cs}F(s)$, and $\mathcal{L}^{-1}\{e^{-cs}F(s)\} = u_c(t)f(t - c)$.'
+  topic: Step functions
+- term: impulse
+  definition: 'The integral of a force over time, $\int F\,dt$; it equals the change of momentum.'
+  topic: Impulses and convolution
+- term: Dirac delta
+  aliases: [delta function]
+  definition: 'The idealized unit impulse $\delta(t - c)$: zero for $t \ne c$, total area 1, $\mathcal{L}\{\delta(t - c)\} = e^{-cs}$.'
+  topic: Impulses and convolution
+- term: sifting property
+  definition: '$\int f(t)\delta(t - c)\,dt = f(c)$ for continuous $f$.'
+  topic: Impulses and convolution
+- term: transfer function
+  definition: 'The ratio $H(s) = Y(s)/G(s) = 1/(as^2 + bs + c)$ of output to input transforms for zero initial conditions.'
+  topic: Impulses and convolution
+- term: impulse response
+  definition: 'The solution $h(t) = \mathcal{L}^{-1}\{H(s)\}$ for a unit impulse input at $t = 0$ with zero initial conditions.'
+  topic: Impulses and convolution
+- term: convolution
+  definition: '$(f * g)(t) = \int_0^t f(t - \tau)g(\tau)\,d\tau$; its Laplace transform is $F(s)G(s)$.'
+  topic: Impulses and convolution
+- term: system
+  aliases: [systems]
+  definition: 'Several differential equations for several unknown functions, solved together.'
+  topic: Linear systems
+- term: eigenvalue
+  aliases: [eigenvalues]
+  definition: 'A number $\lambda$ with $A\mathbf{v} = \lambda\mathbf{v}$ for some nonzero $\mathbf{v}$; a root of $\det(A - \lambda I) = 0$. Also the special values $\lambda$ for which a boundary value problem has nonzero solutions.'
+  topic: Linear systems
+- term: eigenvector
+  aliases: [eigenvectors]
+  definition: 'A nonzero vector $\mathbf{v}$ with $A\mathbf{v} = \lambda\mathbf{v}$; it gives the straight-line solution $e^{\lambda t}\mathbf{v}$.'
+  topic: Linear systems
+- term: trace
+  definition: 'The sum of the diagonal entries of a matrix, $\operatorname{tr}A$; it equals the sum of the eigenvalues.'
+  topic: Linear systems
+- term: determinant
+  definition: 'For a $2 \times 2$ matrix, $\det A = ad - bc$; it equals the product of the eigenvalues.'
+  topic: Linear systems
+- term: phase plane
+  definition: 'The $x_1x_2$-plane in which solutions of a two-dimensional system are drawn as curves.'
+  topic: Linear systems
+- term: trajectory
+  aliases: [trajectories]
+  definition: 'The curve traced in the phase plane by a solution $(x_1(t), x_2(t))$.'
+  topic: Linear systems
+- term: phase portrait
+  aliases: [phase portraits]
+  definition: 'A picture of representative trajectories (often with the direction field) in the phase plane.'
+  topic: Phase portraits
+- term: saddle point
+  aliases: [saddle, saddles]
+  definition: 'An equilibrium with real eigenvalues of opposite sign ($\det A < 0$): trajectories approach along one direction and leave along another. Unstable.'
+  topic: Phase portraits
+- term: node
+  aliases: [nodes, nodal sink, nodal source]
+  definition: 'An equilibrium with real eigenvalues of the same sign: all trajectories approach (sink) or leave (source) without spiraling.'
+  topic: Phase portraits
+- term: slow eigenvector
+  definition: 'The eigenvector whose eigenvalue is closer to zero; trajectories enter a nodal sink tangent to it.'
+  topic: Phase portraits
+- term: spiral sink
+  definition: 'An equilibrium with complex eigenvalues $\alpha \pm i\beta$, $\alpha < 0$: trajectories spiral inward. Asymptotically stable.'
+  topic: Phase portraits
+- term: spiral source
+  definition: 'An equilibrium with complex eigenvalues $\alpha \pm i\beta$, $\alpha > 0$: trajectories spiral outward. Unstable.'
+  topic: Phase portraits
+- term: center
+  aliases: [centers]
+  definition: 'An equilibrium with purely imaginary eigenvalues: trajectories are closed orbits around it. Stable but not asymptotically stable.'
+  topic: Phase portraits
+- term: proper node
+  aliases: [star]
+  definition: 'An equilibrium of $\mathbf{x}'' = \lambda I\mathbf{x}$: every direction is an eigenvector and trajectories are rays.'
+  topic: Phase portraits
+- term: generalized eigenvector
+  definition: 'A vector $\mathbf{w}$ with $(A - \lambda I)\mathbf{w} = \mathbf{v}$, used for the second solution $e^{\lambda t}(t\mathbf{v} + \mathbf{w})$ when $\lambda$ is repeated with one eigenvector.'
+  topic: Phase portraits
+- term: improper node
+  aliases: [degenerate node]
+  definition: 'An equilibrium with a repeated eigenvalue and only one eigenvector; trajectories become tangent to that eigenvector.'
+  topic: Phase portraits
+- term: Jacobian matrix
+  aliases: [Jacobian]
+  definition: 'The matrix of partial derivatives $\begin{bmatrix} F_x & F_y \\ G_x & G_y \end{bmatrix}$ of a system $x'' = F$, $y'' = G$, used for linearization.'
+  topic: Nonlinear systems
+- term: predator–prey
+  aliases: [predator-prey]
+  definition: 'A model of two interacting species where one eats the other; see Lotka–Volterra.'
+  topic: Nonlinear systems
+- term: Lotka–Volterra
+  aliases: [Lotka-Volterra, Lotka–Volterra model]
+  definition: 'The predator–prey model $x'' = ax - \alpha xy$, $y'' = -cy + \gamma xy$, whose populations cycle around $(c/\gamma, a/\alpha)$.'
+  topic: Nonlinear systems
+- term: power series
+  definition: 'An infinite sum $\sum a_n(x - x_0)^n$; series solutions assume this form and solve for the coefficients.'
+  topic: Series solutions
+- term: ordinary point
+  aliases: [ordinary points]
+  definition: 'A point $x_0$ where the leading coefficient $P(x_0) \ne 0$; there, two independent power-series solutions exist.'
+  topic: Series solutions
+- term: singular point
+  aliases: [singular points]
+  definition: 'A point where the leading coefficient $P(x)$ of $Py'''' + Qy'' + Ry = 0$ vanishes.'
+  topic: Series solutions
+- term: regular singular point
+  definition: 'A mild singular point (like $x = 0$ in Bessel''s equation) where a Frobenius series $x^r\sum a_nx^n$ works.'
+  topic: Series solutions
+- term: recurrence relation
+  aliases: [recurrence]
+  definition: 'A formula giving each series coefficient in terms of earlier ones, such as $a_{n+2} = -a_n/((n+2)(n+1))$.'
+  topic: Series solutions
+- term: method of Frobenius
+  aliases: [Frobenius]
+  definition: 'Solving near a regular singular point with a series $x^r\sum a_nx^n$, where $r$ comes from an indicial equation.'
+  topic: Series solutions
+- term: Fourier series
+  definition: 'A representation $\tfrac{a_0}{2} + \sum\big(a_n\cos\frac{n\pi x}{L} + b_n\sin\frac{n\pi x}{L}\big)$ of a $2L$-periodic function.'
+  topic: Fourier series
+- term: periodic
+  definition: 'Having $f(x + P) = f(x)$ for all $x$; $P$ is a period.'
+  topic: Fourier series
+- term: Fourier coefficients
+  definition: '$a_n = \tfrac1L\int_{-L}^Lf\cos\frac{n\pi x}{L}\,dx$ and $b_n = \tfrac1L\int_{-L}^Lf\sin\frac{n\pi x}{L}\,dx$.'
+  topic: Fourier series
+- term: orthogonal
+  aliases: [orthogonality]
+  definition: 'Functions whose product integrates to zero over the interval; distinct sines and cosines are orthogonal over a period.'
+  topic: Fourier series
+- term: Gibbs phenomenon
+  definition: 'The roughly 9% overshoot of Fourier partial sums near a jump, which does not disappear as more terms are added.'
+  topic: Fourier series
+- term: even function
+  aliases: [even]
+  definition: 'A function with $f(-x) = f(x)$; its Fourier series has only cosine terms.'
+  topic: Fourier series
+- term: odd function
+  aliases: [odd]
+  definition: 'A function with $f(-x) = -f(x)$; its Fourier series has only sine terms.'
+  topic: Fourier series
+- term: Fourier sine series
+  aliases: [sine series]
+  definition: 'The expansion $\sum b_n\sin\frac{n\pi x}{L}$ of a function on $(0, L)$, with $b_n = \tfrac2L\int_0^Lf\sin\frac{n\pi x}{L}\,dx$.'
+  topic: Fourier series
+- term: Fourier cosine series
+  aliases: [cosine series]
+  definition: 'The expansion $\tfrac{a_0}{2} + \sum a_n\cos\frac{n\pi x}{L}$ of a function on $(0, L)$, from its even extension.'
+  topic: Fourier series
+- term: separation of variables
+  definition: 'Seeking PDE solutions of the form $u = X(x)T(t)$, which splits the PDE into ODEs linked by a separation constant.'
+  topic: Heat and wave equations
+- term: heat equation
+  definition: 'The PDE $u_t = \alpha^2u_{xx}$ for temperature in a rod.'
+  topic: Heat and wave equations
+- term: thermal diffusivity
+  definition: 'The material constant $\alpha^2$ in the heat equation; larger values mean faster smoothing.'
+  topic: Heat and wave equations
+- term: eigenfunctions
+  aliases: [eigenfunction]
+  definition: 'Nonzero solutions of a boundary value problem for its special values $\lambda$; for $X'''' + \lambda X = 0$, $X(0) = X(L) = 0$ they are $\sin\frac{n\pi x}{L}$.'
+  topic: Heat and wave equations
+- term: wave equation
+  definition: 'The PDE $u_{tt} = a^2u_{xx}$ for small vibrations of a string with wave speed $a$.'
+  topic: Heat and wave equations
+- term: normal mode
+  aliases: [normal modes, standing wave]
+  definition: 'A single-frequency solution $\cos\frac{n\pi at}{L}\sin\frac{n\pi x}{L}$ of the wave equation.'
+  topic: Heat and wave equations
+- term: fundamental
+  aliases: [fundamental frequency]
+  definition: 'The lowest-frequency normal mode ($n = 1$) of a vibrating string, frequency $a/(2L)$.'
+  topic: Heat and wave equations
+- term: harmonics
+  aliases: [harmonic]
+  definition: 'Normal modes with frequencies that are whole-number multiples of the fundamental.'
+  topic: Heat and wave equations
+- term: transcritical bifurcation
+  definition: 'A bifurcation in which two equilibria pass through each other and exchange stability, as in $y'' = cy - y^2$ at $c = 0$.'
+  topic: Bifurcations
+- term: pitchfork bifurcation
+  definition: 'A bifurcation in which one equilibrium splits into three, as in $y'' = cy - y^3$ at $c = 0$.'
+  topic: Bifurcations
+- term: stiff equation
+  aliases: [stiff equations, stiffness]
+  definition: 'An equation with a very rapidly decaying component, forcing explicit methods like Euler or RK4 to take tiny steps to stay stable.'
+  topic: Numerical methods
+- term: order of a numerical method
+  definition: 'The power $p$ in global error $\approx Ch^p$: 1 for Euler, 2 for improved Euler, 4 for RK4.'
+  topic: Numerical methods
+- term: Airy's equation
+  definition: 'The equation $y'''' - xy = 0$, whose solutions are found as power series.'
+  topic: Series solutions

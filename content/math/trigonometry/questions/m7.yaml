@@ -1,0 +1,388 @@
+# Module 7: Oblique triangles
+- id: trig-q-2801
+  lesson: trig-law-sines
+  module_quiz: true
+  topic: Law of sines
+  stem: 'In triangle $ABC$, $A = 40^\circ$, $B = 60^\circ$ and $a = 12$. Find $b$ to two decimals.'
+  choices: ['$8.91$', '$18.39$', '$10.39$', '$16.17$']
+  answer: 3
+  explanation: |-
+    $b = \tfrac{a\sin B}{\sin A} = \tfrac{12\sin 60^\circ}{\sin 40^\circ} \approx 16.17$. Inverting the ratio gives $8.91$; $18.39$ is side $c$.
+- id: trig-q-2802
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'In the same triangle ($A = 40^\circ$, $B = 60^\circ$, $a = 12$), find $c$ to two decimals.'
+  choices: ['$18.39$', '$16.17$', '$12.00$', '$7.83$']
+  answer: 0
+  explanation: |-
+    $C = 180^\circ - 40^\circ - 60^\circ = 80^\circ$, so $c = \tfrac{12\sin 80^\circ}{\sin 40^\circ} \approx 18.39$, the longest side, opposite the largest angle.
+- id: trig-q-2803
+  lesson: trig-law-sines
+  module_quiz: true
+  topic: Law of sines
+  stem: 'For which cases can the law of sines be used directly?'
+  choices: ['SAS and SSS', 'AAS, ASA and SSA', 'SSS only', 'AAA']
+  answer: 1
+  explanation: |-
+    The law of sines needs a side with its opposite angle. AAS and ASA give one after finding the third angle;
+    SSA gives one directly. SAS and SSS need the law of cosines; AAA doesn't fix the size.
+- id: trig-q-2804
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'Why can''t the law of sines start a SAS problem such as $b = 8$, $c = 11$, $A = 37^\circ$?'
+  choices: ['Because the angle is acute', 'Because no side is known together with its opposite angle', 'Because the law of sines only works for right triangles', 'Because the sides are whole numbers']
+  answer: 1
+  explanation: |-
+    The known angle $A$ is opposite the unknown side $a$, and the known sides $b$, $c$ are opposite unknown angles.
+    Every ratio in the law of sines has an unknown, so use the law of cosines first.
+- id: trig-q-2805
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'Points $A$ and $B$ are 200 m apart on a riverbank. A tree $C$ across the river makes $\angle A = 52^\circ$ and $\angle B = 71^\circ$. About how far is the tree from $A$?'
+  choices: ['About 188.0 m', 'About 177.7 m', 'About 225.5 m', 'About 238.5 m']
+  answer: 2
+  explanation: |-
+    $C = 57^\circ$, and $AC$ is opposite $B$: $AC = \tfrac{200\sin 71^\circ}{\sin 57^\circ} \approx 225.5$ m. ($177.7$ m is the river's width,
+    $AC\sin 52^\circ$.)
+- id: trig-q-2806
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'In that river problem, the tree is about 225.5 m from $A$ and $\angle A = 52^\circ$. How wide is the river (the perpendicular distance from the tree to line $AB$)?'
+  choices: ['About 138.8 m', 'About 177.7 m', 'About 286.2 m', 'About 225.5 m']
+  answer: 1
+  explanation: |-
+    The width is the altitude from $C$: $225.5\sin 52^\circ \approx 177.7$ m. ($138.8$ uses cosine, which gives the distance
+    along the bank.)
+- id: trig-q-2807
+  lesson: trig-law-sines
+  module_quiz: true
+  topic: Law of sines
+  stem: 'Station $A$ is 30 mi due west of station $B$. A fire is at N $52^\circ$ E from $A$ and N $28^\circ$ W from $B$. What are the triangle''s angles at $A$, $B$ and the fire?'
+  choices: ['$52^\circ$, $28^\circ$, $100^\circ$', '$38^\circ$, $62^\circ$, $80^\circ$', '$38^\circ$, $28^\circ$, $114^\circ$', '$52^\circ$, $62^\circ$, $66^\circ$']
+  answer: 1
+  explanation: |-
+    At $A$ the baseline points east, $90^\circ - 52^\circ = 38^\circ$ from the fire direction; at $B$ it points west,
+    $90^\circ - 28^\circ = 62^\circ$ from the fire direction. The third angle is $80^\circ$.
+- id: trig-q-2808
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'Which fact is the key step in proving the law of sines?'
+  choices: ['The altitude from $C$ equals both $b\sin A$ and $a\sin B$', 'The angles of a triangle sum to $180^\circ$', 'The Pythagorean theorem applied to the whole triangle', 'The area equals $\tfrac12 bh$']
+  answer: 0
+  explanation: |-
+    Writing the same altitude two ways gives $b\sin A = a\sin B$, i.e. $\tfrac{a}{\sin A} = \tfrac{b}{\sin B}$.
+- id: trig-q-2809
+  lesson: trig-law-sines
+  module_quiz: true
+  topic: Law of sines
+  stem: 'In triangle $ABC$, $A = 35^\circ$, $C = 82^\circ$ and $c = 20$. Find $a$ to two decimals.'
+  choices: ['$11.58$', '$34.53$', '$17.99$', '$11.47$']
+  answer: 0
+  explanation: |-
+    $a = \tfrac{c\sin A}{\sin C} = \tfrac{20\sin 35^\circ}{\sin 82^\circ} \approx 11.58$. ($17.99$ is $b$, with $B = 63^\circ$; $34.53$ inverts the ratio.)
+- id: trig-q-2810
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'Why doesn''t knowing all three angles (AAA) determine a triangle?'
+  choices: ['Because the angles might not sum to $180^\circ$', 'Because similar triangles of every size share the same angles', 'Because the law of sines requires a right angle', 'Because there are always exactly two such triangles']
+  answer: 1
+  explanation: |-
+    The angles fix the shape only. Any scaled copy has the same angles, so at least one side length is needed.
+- id: trig-q-2811
+  lesson: trig-law-sines
+  topic: Law of sines
+  stem: 'In triangle $ABC$, $A = 30^\circ$, $B = 45^\circ$ and $a = 10$. Find $b$ exactly.'
+  choices: ['$5\sqrt2$', '$10\sqrt3$', '$\tfrac{10\sqrt2}{3}$', '$10\sqrt2$']
+  answer: 3
+  explanation: |-
+    $b = \tfrac{10\sin 45^\circ}{\sin 30^\circ} = \tfrac{10(\sqrt2/2)}{1/2} = 10\sqrt2 \approx 14.14$.
+
+- id: trig-q-2901
+  lesson: trig-ambiguous
+  module_quiz: true
+  topic: Ambiguous case
+  stem: 'How many triangles have $A = 30^\circ$, $b = 10$ and $a = 4$?'
+  choices: ['None', 'One', 'Two', 'Infinitely many']
+  answer: 0
+  explanation: |-
+    $\sin B = \tfrac{10\sin 30^\circ}{4} = 1.25 > 1$. Equivalently, $a = 4$ is shorter than the height $h = 10\sin 30^\circ = 5$.
+- id: trig-q-2902
+  lesson: trig-ambiguous
+  module_quiz: true
+  topic: Ambiguous case
+  stem: 'How many triangles have $A = 30^\circ$, $b = 10$ and $a = 7$?'
+  choices: ['None', 'One', 'Two', 'Three']
+  answer: 2
+  explanation: |-
+    $h = 5 < a = 7 < b = 10$, so two. The law of sines gives $\sin B \approx 0.7143$: $B \approx 45.58^\circ$ or $134.42^\circ$, and
+    both leave room for $C$.
+- id: trig-q-2903
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'How many triangles have $A = 30^\circ$, $b = 10$ and $a = 12$?'
+  choices: ['None', 'Two', 'One', 'It cannot be determined']
+  answer: 2
+  explanation: |-
+    $a \ge b$, so one. The obtuse candidate $B = 155.38^\circ$ would make $A + B > 180^\circ$.
+- id: trig-q-2904
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'How many triangles have $A = 110^\circ$, $a = 9$ and $b = 12$?'
+  choices: ['None', 'One', 'Two', 'One, a right triangle']
+  answer: 0
+  explanation: |-
+    An obtuse angle must be the largest angle, so the side opposite it must be the longest. But $a = 9 < b = 12$.
+- id: trig-q-2905
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'Given $A$, $b$ and $a$ (SSA, with $A$ acute), what is the critical height $h$ that the side $a$ is compared with?'
+  choices: ['$h = a\sin A$', '$h = b\cos A$', '$h = b\sin A$', '$h = \tfrac{b}{\sin A}$']
+  answer: 2
+  explanation: |-
+    $h$ is the distance from $C$ to the other side of angle $A$: in the right triangle with hypotenuse $b$,
+    the side opposite $A$ is $b\sin A$.
+- id: trig-q-2906
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'For $A = 30^\circ$, $b = 10$, $a = 7$, what are the two possible values of $B$?'
+  choices: ['$45.58^\circ$ and $134.42^\circ$', '$45.58^\circ$ and $104.42^\circ$', '$44.42^\circ$ and $135.58^\circ$', '$30^\circ$ and $150^\circ$']
+  answer: 0
+  explanation: |-
+    $\sin B = \tfrac{10(0.5)}{7} \approx 0.7143$: $B_1 = \sin^{-1}(0.7143) \approx 45.58^\circ$ and $B_2 = 180^\circ - 45.58^\circ = 134.42^\circ$.
+    ($104.42^\circ$ is the matching $C$ for $B_1$.)
+- id: trig-q-2907
+  lesson: trig-ambiguous
+  module_quiz: true
+  topic: Ambiguous case
+  stem: 'For $A = 30^\circ$, $b = 10$, $a = 12$, find $c$ to two decimals.'
+  choices: ['$9.85$', '$21.18$', '$12.00$', '$19.57$']
+  answer: 3
+  explanation: |-
+    $B \approx 24.62^\circ$, so $C \approx 125.38^\circ$ and $c = \tfrac{12\sin 125.38^\circ}{\sin 30^\circ} \approx 19.57$.
+- id: trig-q-2908
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'How many triangles have $A = 30^\circ$, $b = 10$ and $a = 5$?'
+  choices: ['None', 'Two', 'One, with $B = 90^\circ$', 'One, with $B = 60^\circ$']
+  answer: 2
+  explanation: |-
+    $a = h = 10\sin 30^\circ = 5$, so the arc just touches: $\sin B = 1$ and $B = 90^\circ$. Exactly one (right) triangle.
+- id: trig-q-2909
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'In an SSA problem with $A = 30^\circ$, the law of sines gives $B_1 \approx 24.62^\circ$ and $B_2 \approx 155.38^\circ$. Why is $B_2$ rejected?'
+  choices: ['Because obtuse angles are never allowed', 'Because $30^\circ + 155.38^\circ > 180^\circ$ leaves no room for $C$', 'Because $\sin 155.38^\circ$ is negative', 'Because $B_2$ is larger than $B_1$']
+  answer: 1
+  explanation: |-
+    The angles must sum to $180^\circ$, so each candidate needs $A + B < 180^\circ$. Sine is positive in quadrant II, so
+    $\sin 155.38^\circ$ equals $\sin 24.62^\circ$.
+- id: trig-q-2910
+  lesson: trig-ambiguous
+  module_quiz: true
+  topic: Ambiguous case
+  stem: 'How many triangles have $A = 40^\circ$, $b = 12$ and $a = 10$?'
+  choices: ['Two', 'One', 'None', 'One, a right triangle']
+  answer: 0
+  explanation: |-
+    $h = 12\sin 40^\circ \approx 7.71$, and $7.71 < 10 < 12$, so two triangles.
+- id: trig-q-2911
+  lesson: trig-ambiguous
+  topic: Ambiguous case
+  stem: 'For $A = 52^\circ$, $a = 20$, $b = 15$, find $B$ to two decimals.'
+  choices: ['$36.23^\circ$', '$143.77^\circ$', '$36.23^\circ$ or $143.77^\circ$', '$91.77^\circ$']
+  answer: 0
+  explanation: |-
+    $\sin B = \tfrac{15\sin 52^\circ}{20} \approx 0.5910$, so $B \approx 36.23^\circ$. The supplement $143.77^\circ$ fails because
+    $52^\circ + 143.77^\circ > 180^\circ$ (as expected, since $a \ge b$).
+
+- id: trig-q-3001
+  lesson: trig-law-cosines
+  module_quiz: true
+  topic: Law of cosines
+  stem: 'In triangle $ABC$, $b = 8$, $c = 11$ and $A = 37^\circ$. Find $a$ to two decimals.'
+  choices: ['$18.04$', '$6.67$', '$44.44$', '$7.51$']
+  answer: 1
+  explanation: |-
+    $a^2 = 64 + 121 - 2(8)(11)\cos 37^\circ \approx 44.44$, so $a \approx 6.67$. $44.44$ is $a^2$; adding the correction term instead of subtracting gives $18.04$.
+- id: trig-q-3002
+  lesson: trig-law-cosines
+  module_quiz: true
+  topic: Law of cosines
+  stem: 'A triangle has sides 7, 9 and 12. Find its largest angle to two decimals.'
+  choices: ['$83.62^\circ$', '$48.19^\circ$', '$90.00^\circ$', '$96.38^\circ$']
+  answer: 3
+  explanation: |-
+    The largest angle is opposite 12: $\cos C = \tfrac{49 + 81 - 144}{2 \cdot 7 \cdot 9} = -\tfrac{14}{126}$, so $C \approx 96.38^\circ$.
+    The negative cosine shows it's obtuse; $83.62^\circ$ drops the sign.
+- id: trig-q-3003
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'A ship sails 40 mi on a bearing of $060^\circ$, then 25 mi on a bearing of $110^\circ$. About how far is it from port?'
+  choices: ['About 30.7 mi', 'About 65.0 mi', 'About 59.3 mi', 'About 47.2 mi']
+  answer: 2
+  explanation: |-
+    The interior angle at the turn is $180^\circ - 50^\circ = 130^\circ$, so $d^2 = 1600 + 625 - 2000\cos 130^\circ \approx 3510.6$ and $d \approx 59.25$.
+    Using $50^\circ$ as the angle gives $30.7$.
+- id: trig-q-3004
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'What does $c^2 = a^2 + b^2 - 2ab\cos C$ become when $C = 90^\circ$?'
+  choices: ['$c^2 = a^2 + b^2 - 2ab$', '$c^2 = a^2 + b^2$', '$c = a + b$', '$c^2 = a^2 - b^2$']
+  answer: 1
+  explanation: |-
+    $\cos 90^\circ = 0$, so the correction term vanishes and the law of cosines is the Pythagorean theorem.
+- id: trig-q-3005
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'In $a^2 = b^2 + c^2 - 2bc\cos A$, which angle is $A$?'
+  choices: ['Any angle of the triangle', 'The angle between sides $b$ and $c$, opposite side $a$', 'The angle opposite side $b$', 'The largest angle']
+  answer: 1
+  explanation: |-
+    The cosine is of the angle formed by the two sides on the right, which is the angle opposite the side on the left.
+- id: trig-q-3006
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'A triangle has sides 5, 6 and 7. Find its largest angle to two decimals.'
+  choices: ['$78.46^\circ$', '$101.54^\circ$', '$57.12^\circ$', '$11.54^\circ$']
+  answer: 0
+  explanation: |-
+    $\cos C = \tfrac{25 + 36 - 49}{2 \cdot 5 \cdot 6} = \tfrac{12}{60} = 0.2$, so $C = \cos^{-1}0.2 \approx 78.46^\circ$.
+- id: trig-q-3007
+  lesson: trig-law-cosines
+  module_quiz: true
+  topic: Law of cosines
+  stem: 'A student applies the law of cosines to "sides" 2, 3 and 6 and gets $\cos C \approx -1.92$. What does this mean?'
+  choices: ['$C$ is about $180^\circ$', 'The calculator is in the wrong mode', 'The lengths can''t form a triangle ($2 + 3 < 6$)', '$C$ is a reflex angle']
+  answer: 2
+  explanation: |-
+    A cosine must lie in $[-1, 1]$. Here the triangle inequality fails, so no triangle exists.
+- id: trig-q-3008
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'After finding $a \approx 6.67$ in a triangle with $b = 8$, $c = 11$, $A = 37^\circ$, a student uses the law of sines to get $C = \sin^{-1}(0.993) \approx 83.24^\circ$. What is wrong?'
+  choices: ['Nothing; $C \approx 83.24^\circ$', '$C$ is the largest angle and is actually obtuse, $\approx 96.76^\circ$; $\sin^{-1}$ only returns the acute angle', 'The law of sines can never be used after the law of cosines', '$C$ should be $37^\circ$']
+  answer: 1
+  explanation: |-
+    $\sin^{-1}$ gives the acute candidate. Since $c = 11$ is the longest side, $C$ might be obtuse. Find the smaller angle
+    $B \approx 46.24^\circ$ first, then $C = 180^\circ - 37^\circ - 46.24^\circ \approx 96.76^\circ$.
+- id: trig-q-3009
+  lesson: trig-law-cosines
+  module_quiz: true
+  topic: Law of cosines
+  stem: 'Two sides of a triangle are 10 and 14, with an angle of $120^\circ$ between them. Find the third side to two decimals.'
+  choices: ['$12.49$', '$17.20$', '$20.88$', '$24.00$']
+  answer: 2
+  explanation: |-
+    $c^2 = 100 + 196 - 2(10)(14)\cos 120^\circ = 296 + 140 = 436$, so $c \approx 20.88$. Since $\cos 120^\circ < 0$, the term is added.
+    Using $+0.5$ instead of $-0.5$ for the cosine gives $12.49$.
+- id: trig-q-3010
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'You know two sides and the included angle of a triangle (SAS). What should you find first?'
+  choices: ['The third side, with the law of cosines', 'An angle, with the law of sines', 'The area, with Heron''s formula', 'The largest angle, with the law of sines']
+  answer: 0
+  explanation: |-
+    With SAS, no side–opposite-angle pair is known yet. The law of cosines gives the third side, which creates such a pair.
+- id: trig-q-3011
+  lesson: trig-law-cosines
+  topic: Law of cosines
+  stem: 'A parallelogram has sides 6 and 10 with an angle of $60^\circ$ between them. How long is its longer diagonal?'
+  choices: ['$\sqrt{76} \approx 8.72$', '$16$', '$14$', '$\sqrt{136} \approx 11.66$']
+  answer: 2
+  explanation: |-
+    The longer diagonal is opposite the $120^\circ$ angle of the parallelogram: $d^2 = 36 + 100 - 120\cos 120^\circ = 136 + 60 = 196$,
+    so $d = 14$. ($\sqrt{76}$ is the shorter diagonal, opposite $60^\circ$.)
+
+- id: trig-q-3101
+  lesson: trig-triangle-area
+  module_quiz: true
+  topic: Triangle area
+  stem: 'Find the area of a triangle with $a = 12$, $b = 15$ and $C = 40^\circ$.'
+  choices: ['$115.70$', '$68.94$', '$57.85$', '$90.00$']
+  answer: 2
+  explanation: |-
+    $\tfrac12 ab\sin C = \tfrac12(12)(15)\sin 40^\circ \approx 57.85$. Forgetting the $\tfrac12$ gives $115.70$; using cosine gives $68.94$.
+- id: trig-q-3102
+  lesson: trig-triangle-area
+  module_quiz: true
+  topic: Triangle area
+  stem: 'Use Heron''s formula to find the area of a triangle with sides 7, 9 and 12.'
+  choices: ['$\sqrt{980} \approx 31.30$', '$\sqrt{3024} \approx 54.99$', '$28$', '$63$']
+  answer: 0
+  explanation: |-
+    $s = 14$, so the area is $\sqrt{14 \cdot 7 \cdot 5 \cdot 2} = \sqrt{980} \approx 31.30$. Using the full perimeter 28 for $s$ gives nonsense.
+- id: trig-q-3103
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'A triangular garden has sides 15 ft, 20 ft and 25 ft. What is its area?'
+  choices: ['$300$ ft²', '$187.5$ ft²', '$150$ ft²', '$375$ ft²']
+  answer: 2
+  explanation: |-
+    Heron: $s = 30$, area $= \sqrt{30 \cdot 15 \cdot 10 \cdot 5} = \sqrt{22{,}500} = 150$. It's a right triangle, and $\tfrac12(15)(20) = 150$ agrees.
+- id: trig-q-3104
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'A parallelogram has sides 120 m and 80 m with a $65^\circ$ angle between them. What is its area?'
+  choices: ['About 4350 m²', 'About 8701 m²', 'About 4057 m²', 'About 9600 m²']
+  answer: 1
+  explanation: |-
+    It's two congruent triangles, each $\tfrac12(120)(80)\sin 65^\circ$, so the area is $120 \cdot 80\sin 65^\circ \approx 8701$ m². ($4350$ is one triangle.)
+- id: trig-q-3105
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'In Heron''s formula, what is $s$?'
+  choices: ['The longest side', 'The perimeter', 'The semiperimeter, $\tfrac{a + b + c}{2}$', 'The square root of the area']
+  answer: 2
+  explanation: |-
+    $s$ is half the perimeter; the formula is $\sqrt{s(s - a)(s - b)(s - c)}$.
+- id: trig-q-3106
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'A triangle has $a = 9$, $b = 10$ and $A = 50^\circ$ (opposite $a$). Why can''t you use $\tfrac12 ab\sin A$ for its area?'
+  choices: ['Because $A$ is not the angle between sides $a$ and $b$', 'Because $50^\circ$ is not a special angle', 'Because the formula only works for right triangles', 'Because $a < b$']
+  answer: 0
+  explanation: |-
+    The angle in $\tfrac12 ab\sin(\cdot)$ must be the one formed by $a$ and $b$, which is $C$. Here you would first solve the
+    triangle (an SSA case) to find $C$.
+- id: trig-q-3107
+  lesson: trig-triangle-area
+  module_quiz: true
+  topic: Triangle area
+  stem: 'Find the area of a triangle with two sides 8 and 10 and an included angle of $150^\circ$.'
+  choices: ['$40$', '$34.64$', '$-34.64$', '$20$']
+  answer: 3
+  explanation: |-
+    $\tfrac12(8)(10)\sin 150^\circ = 40 \cdot \tfrac12 = 20$. Sine is positive for obtuse angles, so the formula works as usual.
+- id: trig-q-3108
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'Two sides of a triangle are fixed at 6 and 8. Which included angle gives the largest area?'
+  choices: ['$45^\circ$', '$90^\circ$', '$120^\circ$', '$180^\circ$']
+  answer: 1
+  explanation: |-
+    Area $= \tfrac12(6)(8)\sin C = 24\sin C$, largest when $\sin C = 1$, at $C = 90^\circ$ (area 24).
+- id: trig-q-3109
+  lesson: trig-triangle-area
+  module_quiz: true
+  topic: Triangle area
+  stem: 'Find the area of the triangle with $A = 40^\circ$, $B = 60^\circ$ and $a = 12$.'
+  choices: ['About 95.53', 'About 191.06', 'About 82.68', 'About 108.24']
+  answer: 0
+  explanation: |-
+    $C = 80^\circ$; $\tfrac{a^2\sin B\sin C}{2\sin A} = \tfrac{144\sin 60^\circ\sin 80^\circ}{2\sin 40^\circ} \approx 95.53$. (Or find $b \approx 16.17$ first, then $\tfrac12 ab\sin C$.)
+- id: trig-q-3110
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'Find the area of a triangle with sides 5, 5 and 6.'
+  choices: ['$15$', '$12$', '$16$', '$7.5$']
+  answer: 1
+  explanation: |-
+    $s = 8$; area $= \sqrt{8 \cdot 3 \cdot 3 \cdot 2} = \sqrt{144} = 12$. (The altitude to the base 6 is 4, and $\tfrac12 \cdot 6 \cdot 4 = 12$.)
+- id: trig-q-3111
+  lesson: trig-triangle-area
+  topic: Triangle area
+  stem: 'What is the area of an equilateral triangle with side 6?'
+  choices: ['$18$', '$36$', '$9\sqrt3$', '$18\sqrt3$']
+  answer: 2
+  explanation: |-
+    $\tfrac12(6)(6)\sin 60^\circ = 18 \cdot \tfrac{\sqrt3}{2} = 9\sqrt3 \approx 15.59$.

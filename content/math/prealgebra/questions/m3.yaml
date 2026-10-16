@@ -1,0 +1,413 @@
+# Module 3: Fractions
+# --- pre-frac-basics ---
+- id: pre-q-0901
+  lesson: pre-frac-basics
+  module_quiz: true
+  topic: Equivalent fractions
+  stem: 'Simplify $\dfrac{36}{48}$.'
+  choices: ['$\dfrac{3}{4}$', '$\dfrac{6}{8}$', '$\dfrac{9}{12}$', '$\dfrac{2}{3}$']
+  answer: 0
+  explanation: |-
+    The GCF of 36 and 48 is 12: $\dfrac{36 \div 12}{48 \div 12} = \dfrac34$. The fractions $\tfrac68$ and $\tfrac9{12}$ are equivalent but not in simplest form.
+
+- id: pre-q-0902
+  lesson: pre-frac-basics
+  topic: Equivalent fractions
+  stem: 'Find the missing number: $\dfrac{5}{7} = \dfrac{?}{56}$.'
+  choices: ['54', '40', '35', '8']
+  answer: 1
+  explanation: |-
+    $7 \times 8 = 56$, so multiply the numerator by 8 as well: $5 \times 8 = 40$. (54 adds 49 to the numerator, as if adding instead of multiplying.)
+
+- id: pre-q-0903
+  lesson: pre-frac-basics
+  module_quiz: true
+  topic: Fraction basics
+  stem: 'Which fraction is largest?'
+  choices: ['$\dfrac{3}{5}$', '$\dfrac{5}{9}$', '$\dfrac{2}{3}$', '$\dfrac{7}{12}$']
+  answer: 2
+  explanation: |-
+    With denominator 180: $\tfrac35 = \tfrac{108}{180}$, $\tfrac59 = \tfrac{100}{180}$, $\tfrac7{12} = \tfrac{105}{180}$, $\tfrac23 = \tfrac{120}{180}$. So $\tfrac23$ is largest.
+
+- id: pre-q-0904
+  lesson: pre-frac-basics
+  topic: Fraction basics
+  stem: 'Which is an improper fraction?'
+  choices: ['$\dfrac{8}{9}$', '$\dfrac{0}{8}$', '$\dfrac{1}{8}$', '$\dfrac{9}{8}$']
+  answer: 3
+  explanation: |-
+    An improper fraction has numerator greater than or equal to its denominator: $\tfrac98$ (it is greater than 1).
+
+- id: pre-q-0905
+  lesson: pre-frac-basics
+  topic: Equivalent fractions
+  stem: 'Which fraction is NOT equivalent to $\dfrac{2}{5}$?'
+  choices: ['$\dfrac{5}{8}$', '$\dfrac{10}{25}$', '$\dfrac{6}{15}$', '$\dfrac{4}{10}$']
+  answer: 0
+  explanation: |-
+    $\tfrac4{10}$, $\tfrac{10}{25}$ and $\tfrac6{15}$ all simplify to $\tfrac25$. But $\tfrac58$ does not: adding 3 to top and bottom does not keep a fraction equivalent.
+
+- id: pre-q-0906
+  lesson: pre-frac-basics
+  topic: Fraction basics
+  stem: 'Which is undefined?'
+  choices: ['$\dfrac{0}{6}$', '$\dfrac{6}{0}$', '$\dfrac{6}{6}$', '$\dfrac{6}{1}$']
+  answer: 1
+  explanation: |-
+    A fraction is a division, and division by zero is undefined. $\tfrac06 = 0$, $\tfrac66 = 1$ and $\tfrac61 = 6$.
+
+- id: pre-q-0907
+  lesson: pre-frac-basics
+  module_quiz: true
+  topic: Fraction basics
+  stem: 'Of the 45 employees at a shop, 18 work part-time. What fraction of the employees work full-time, in simplest form?'
+  choices: ['$\dfrac{2}{5}$', '$\dfrac{27}{45}$', '$\dfrac{3}{5}$', '$\dfrac{18}{27}$']
+  answer: 2
+  explanation: |-
+    Full-time: $45 - 18 = 27$. Fraction: $\tfrac{27}{45}$; the GCF is 9, so $\tfrac35$. ($\tfrac25$ is the part-time fraction; $\tfrac{18}{27}$ compares part-time to full-time instead of to the whole.)
+
+- id: pre-q-0908
+  lesson: pre-frac-basics
+  topic: Equivalent fractions
+  stem: 'A student simplified $\dfrac{4 + 6}{4 + 9}$ by crossing out the 4s to get $\dfrac{6}{9} = \dfrac{2}{3}$. What is the correct value?'
+  choices: ['$\dfrac{2}{3}$', '$\dfrac{1}{2}$', '$\dfrac{6}{13}$', '$\dfrac{10}{13}$']
+  answer: 3
+  explanation: |-
+    The 4s are added, not multiplied, so they can't cancel. Work the top and bottom first: $\dfrac{10}{13}$, which is already in simplest form.
+
+- id: pre-q-0909
+  lesson: pre-frac-basics
+  topic: Fraction basics
+  stem: 'Which statement is true?'
+  choices: ['$\dfrac{7}{10} > \dfrac{2}{3}$', '$\dfrac{5}{11} > \dfrac{1}{2}$', '$\dfrac{4}{9} < \dfrac{5}{12}$', '$\dfrac{3}{8} > \dfrac{3}{7}$']
+  answer: 0
+  explanation: |-
+    Cross-multiply $\tfrac{7}{10}$ vs $\tfrac23$: $7 \times 3 = 21$ and $10 \times 2 = 20$, so $\tfrac7{10} > \tfrac23$. The others are false: eighths are smaller than sevenths; $\tfrac5{11} < \tfrac5{10} = \tfrac12$; $4 \times 12 = 48 > 9 \times 5 = 45$, so $\tfrac49 > \tfrac5{12}$.
+
+- id: pre-q-0910
+  lesson: pre-frac-basics
+  topic: Equivalent fractions
+  stem: 'Simplify $\dfrac{105}{140}$.'
+  choices: ['$\dfrac{21}{28}$', '$\dfrac{3}{4}$', '$\dfrac{5}{7}$', '$\dfrac{7}{9}$']
+  answer: 1
+  explanation: |-
+    $105 = 3 \times 5 \times 7$ and $140 = 2^2 \times 5 \times 7$. The GCF is 35, and $\dfrac{105 \div 35}{140 \div 35} = \dfrac{3}{4}$. ($\tfrac{21}{28}$ divides only by 5 and still shares a 7.)
+
+- id: pre-q-0911
+  lesson: pre-frac-basics
+  topic: Fraction basics
+  stem: 'Which fraction is between $\dfrac{1}{4}$ and $\dfrac{1}{2}$?'
+  choices: ['$\dfrac{1}{5}$', '$\dfrac{5}{8}$', '$\dfrac{3}{8}$', '$\dfrac{2}{9}$']
+  answer: 2
+  explanation: |-
+    In eighths, $\tfrac14 = \tfrac28$ and $\tfrac12 = \tfrac48$, so $\tfrac38$ lies between them. $\tfrac15$ and $\tfrac29$ are less than $\tfrac14$; $\tfrac58$ is more than $\tfrac12$.
+
+# --- pre-frac-muldiv ---
+- id: pre-q-1001
+  lesson: pre-frac-muldiv
+  module_quiz: true
+  topic: Multiplying fractions
+  stem: 'Multiply $\dfrac{4}{9} \times \dfrac{3}{10}$.'
+  choices: ['$\dfrac{7}{19}$', '$\dfrac{40}{27}$', '$\dfrac{12}{19}$', '$\dfrac{2}{15}$']
+  answer: 3
+  explanation: |-
+    Cancel 3 with 9 (leaving 1 and 3) and 4 with 10 (leaving 2 and 5): $\dfrac{2}{3} \times \dfrac{1}{5} = \dfrac{2}{15}$. ($\tfrac{40}{27}$ is what you get by dividing instead.)
+
+- id: pre-q-1002
+  lesson: pre-frac-muldiv
+  module_quiz: true
+  topic: Dividing fractions
+  stem: 'Divide $\dfrac{3}{4} \div \dfrac{9}{8}$.'
+  choices: ['$\dfrac{2}{3}$', '$\dfrac{3}{2}$', '$\dfrac{27}{32}$', '$\dfrac{1}{3}$']
+  answer: 0
+  explanation: |-
+    Multiply by the reciprocal: $\dfrac34 \times \dfrac89$. Cancel 3 with 9 and 4 with 8: $\dfrac{1}{1} \times \dfrac{2}{3} = \dfrac{2}{3}$. ($\tfrac{27}{32}$ multiplies without flipping; $\tfrac32$ flips the wrong fraction.)
+
+- id: pre-q-1003
+  lesson: pre-frac-muldiv
+  topic: Dividing fractions
+  stem: 'What is the reciprocal of $-\dfrac{5}{7}$?'
+  choices: ['$\dfrac{5}{7}$', '$-\dfrac{7}{5}$', '$-\dfrac{5}{7}$', '$\dfrac{7}{5}$']
+  answer: 1
+  explanation: |-
+    The reciprocal flips the fraction and keeps the sign, so that the product is 1: $-\dfrac57 \times \left(-\dfrac75\right) = 1$.
+
+- id: pre-q-1004
+  lesson: pre-frac-muldiv
+  topic: Multiplying fractions
+  stem: 'Find $\dfrac{2}{3}$ of 27.'
+  choices: ['40', '9', '18', '$\dfrac{2}{81}$']
+  answer: 2
+  explanation: |-
+    "Of" means multiply: $\dfrac23 \times 27 = \dfrac{2 \times 27}{3} = \dfrac{54}{3} = 18$. (9 is one third.)
+
+- id: pre-q-1005
+  lesson: pre-frac-muldiv
+  topic: Dividing fractions
+  stem: 'Find $6 \div \dfrac{2}{5}$.'
+  choices: ['$\dfrac{12}{5}$', '30', '$\dfrac{1}{15}$', '15']
+  answer: 3
+  explanation: |-
+    $6 \times \dfrac52 = \dfrac{30}{2} = 15$. Dividing by a fraction less than 1 makes the result larger. ($\tfrac{12}{5}$ multiplies instead.)
+
+- id: pre-q-1006
+  lesson: pre-frac-muldiv
+  topic: Multiplying fractions
+  stem: 'Multiply $-\dfrac{8}{15} \times \dfrac{25}{12}$ and give the answer in simplest form.'
+  choices: ['$-\dfrac{10}{9}$', '$-\dfrac{9}{10}$', '$\dfrac{10}{9}$', '$-\dfrac{200}{180}$']
+  answer: 0
+  explanation: |-
+    Different signs, so negative. Cancel 8 with 12 (2 and 3) and 25 with 15 (5 and 3): $-\dfrac{2 \times 5}{3 \times 3} = -\dfrac{10}{9}$. ($-\tfrac{200}{180}$ has the same value but is not simplified.)
+
+- id: pre-q-1007
+  lesson: pre-frac-muldiv
+  module_quiz: true
+  topic: Dividing fractions
+  stem: 'A 15-pound bag of rice is divided into portions of $\dfrac{3}{4}$ pound. How many portions are there?'
+  choices: ['$11\tfrac14$', '20', '12', '45']
+  answer: 1
+  explanation: |-
+    $15 \div \dfrac34 = 15 \times \dfrac43 = \dfrac{60}{3} = 20$ portions. ($11\tfrac14$ comes from multiplying by $\tfrac34$.)
+
+- id: pre-q-1008
+  lesson: pre-frac-muldiv
+  topic: Dividing fractions
+  stem: |-
+    A student wrote: $\dfrac{2}{3} \div \dfrac{4}{7} = \dfrac{3}{2} \times \dfrac{4}{7} = \dfrac{12}{14} = \dfrac{6}{7}$. What is the error?
+  choices: ['Nothing; the answer is correct', 'The answer should not be simplified', 'The first fraction was flipped instead of the second', 'The numerators should have been divided']
+  answer: 2
+  explanation: |-
+    Only the divisor is flipped: $\dfrac23 \times \dfrac74 = \dfrac{14}{12} = \dfrac{7}{6}$.
+
+- id: pre-q-1009
+  lesson: pre-frac-muldiv
+  topic: Multiplying fractions
+  stem: 'A class has 30 students. Three fifths of them are taking a field trip, and half of those are bringing a lunch from home. How many students are bringing a lunch?'
+  choices: ['15', '18', '6', '9']
+  answer: 3
+  explanation: |-
+    Going on the trip: $\tfrac35 \times 30 = 18$. Half of those: $\tfrac12 \times 18 = 9$. (Equivalently $\tfrac12 \times \tfrac35 \times 30 = \tfrac{3}{10} \times 30 = 9$.)
+
+- id: pre-q-1010
+  lesson: pre-frac-muldiv
+  topic: Dividing fractions
+  stem: 'Evaluate $\dfrac{5}{8} \div 10$.'
+  choices: ['$\dfrac{1}{16}$', '$\dfrac{25}{4}$', '$\dfrac{50}{8}$', '$\dfrac{1}{2}$']
+  answer: 0
+  explanation: |-
+    Dividing by 10 is multiplying by $\tfrac1{10}$: $\dfrac58 \times \dfrac1{10} = \dfrac{5}{80} = \dfrac{1}{16}$.
+
+- id: pre-q-1011
+  lesson: pre-frac-muldiv
+  topic: Multiplying fractions
+  stem: 'Without calculating, which of these is less than 12?'
+  choices: ['$12 \div \dfrac{3}{4}$', '$12 \times \dfrac{7}{8}$', '$12 \div \dfrac{1}{2}$', '$12 \times \dfrac{5}{4}$']
+  answer: 1
+  explanation: |-
+    Multiplying a positive number by a fraction less than 1 makes it smaller, so $12 \times \tfrac78 < 12$ (it is $10\tfrac12$). Dividing by a fraction less than 1, or multiplying by one greater than 1, makes it larger.
+
+# --- pre-frac-addsub ---
+- id: pre-q-1101
+  lesson: pre-frac-addsub
+  module_quiz: true
+  topic: Adding and subtracting fractions
+  stem: 'Add $\dfrac{3}{4} + \dfrac{1}{6}$.'
+  choices: ['$\dfrac{4}{10}$', '$\dfrac{2}{5}$', '$\dfrac{11}{12}$', '$\dfrac{1}{8}$']
+  answer: 2
+  explanation: |-
+    LCD 12: $\dfrac{9}{12} + \dfrac{2}{12} = \dfrac{11}{12}$. ($\tfrac4{10}$ and $\tfrac25$ come from adding tops and bottoms.)
+
+- id: pre-q-1102
+  lesson: pre-frac-addsub
+  module_quiz: true
+  topic: Adding and subtracting fractions
+  stem: 'Subtract $\dfrac{5}{6} - \dfrac{4}{9}$.'
+  choices: ['$\dfrac{1}{3}$', '$\dfrac{1}{18}$', '$\dfrac{11}{18}$', '$\dfrac{7}{18}$']
+  answer: 3
+  explanation: |-
+    LCD 18: $\dfrac{15}{18} - \dfrac{8}{18} = \dfrac{7}{18}$.
+
+- id: pre-q-1103
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'What is the least common denominator of $\dfrac{7}{12}$ and $\dfrac{5}{18}$?'
+  choices: ['36', '216', '6', '72']
+  answer: 0
+  explanation: |-
+    $12 = 2^2 \times 3$ and $18 = 2 \times 3^2$; the LCM is $2^2 \times 3^2 = 36$. (216 is the product, a common denominator but not the least; 6 is the GCF.)
+
+- id: pre-q-1104
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'Compute $\dfrac{2}{5} - \dfrac{3}{4}$.'
+  choices: ['$\dfrac{7}{20}$', '$-\dfrac{7}{20}$', '$\dfrac{1}{20}$', '$-1$']
+  answer: 1
+  explanation: |-
+    LCD 20: $\dfrac{8}{20} - \dfrac{15}{20} = -\dfrac{7}{20}$. The result is negative because $\tfrac34$ is bigger than $\tfrac25$.
+
+- id: pre-q-1105
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'Compute $-\dfrac{1}{2} + \dfrac{2}{3} - \dfrac{1}{4}$.'
+  choices: ['$\dfrac{5}{12}$', '$\dfrac{1}{12}$', '$-\dfrac{1}{12}$', '$-\dfrac{5}{12}$']
+  answer: 2
+  explanation: |-
+    LCD 12: $-\dfrac{6}{12} + \dfrac{8}{12} - \dfrac{3}{12} = \dfrac{-6 + 8 - 3}{12} = -\dfrac{1}{12}$.
+
+- id: pre-q-1106
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'A student wrote $\dfrac{1}{3} + \dfrac{1}{4} = \dfrac{2}{7}$. Which quick check shows this is wrong?'
+  choices: ['$\dfrac{2}{7}$ is not in simplest form', 'The answer should be a whole number', '7 is prime', '$\dfrac{2}{7}$ is smaller than $\dfrac13$, one of the numbers being added']
+  answer: 3
+  explanation: |-
+    Adding a positive number should give something bigger than each addend, but $\tfrac27 < \tfrac13$. The correct sum is $\tfrac4{12} + \tfrac3{12} = \tfrac{7}{12}$.
+
+- id: pre-q-1107
+  lesson: pre-frac-addsub
+  module_quiz: true
+  topic: Adding and subtracting fractions
+  stem: 'Maria read $\dfrac{1}{4}$ of a book on Monday and $\dfrac{3}{8}$ of it on Tuesday. What fraction of the book does she have left?'
+  choices: ['$\dfrac{3}{8}$', '$\dfrac{1}{2}$', '$\dfrac{5}{8}$', '$\dfrac{1}{8}$']
+  answer: 0
+  explanation: |-
+    Read: $\tfrac28 + \tfrac38 = \tfrac58$. Left: $1 - \tfrac58 = \tfrac88 - \tfrac58 = \tfrac38$. ($\tfrac58$ is the amount read, not the amount left.)
+
+- id: pre-q-1108
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'Evaluate $\dfrac{1}{2} + \dfrac{1}{3} \times \dfrac{3}{5}$.'
+  choices: ['$\dfrac{1}{2}$', '$\dfrac{7}{10}$', '$\dfrac{11}{30}$', '$\dfrac{8}{15}$']
+  answer: 1
+  explanation: |-
+    Multiply first: $\tfrac13 \times \tfrac35 = \tfrac15$. Then $\tfrac12 + \tfrac15 = \tfrac5{10} + \tfrac2{10} = \tfrac7{10}$. ($\tfrac12$ comes from adding first: $\tfrac56 \times \tfrac35$.)
+
+- id: pre-q-1109
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'How much longer is a $\dfrac{7}{8}$-inch bolt than a $\dfrac{5}{16}$-inch bolt?'
+  choices: ['$\dfrac{1}{4}$ in', '$\dfrac{1}{2}$ in', '$\dfrac{9}{16}$ in', '$\dfrac{19}{16}$ in']
+  answer: 2
+  explanation: |-
+    $\tfrac78 - \tfrac5{16} = \tfrac{14}{16} - \tfrac5{16} = \tfrac9{16}$ inch.
+
+- id: pre-q-1110
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'Add $\dfrac{5}{12} + \dfrac{1}{12}$ and simplify.'
+  choices: ['$\dfrac{6}{12}$', '$\dfrac{6}{24}$', '$\dfrac{1}{4}$', '$\dfrac{1}{2}$']
+  answer: 3
+  explanation: |-
+    Like denominators: $\tfrac{5 + 1}{12} = \tfrac6{12} = \tfrac12$. Denominators are not added, so $\tfrac6{24}$ is wrong; $\tfrac6{12}$ is right but not simplified.
+
+- id: pre-q-1111
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'Three friends share a pizza. Ana eats $\dfrac{1}{3}$, Ben eats $\dfrac{1}{4}$ and Cal eats $\dfrac{1}{6}$. How much of the pizza is left?'
+  choices: ['$\dfrac{1}{4}$', '$\dfrac{1}{3}$', '$\dfrac{3}{4}$', '$\dfrac{3}{13}$']
+  answer: 0
+  explanation: |-
+    Eaten: $\tfrac4{12} + \tfrac3{12} + \tfrac2{12} = \tfrac9{12} = \tfrac34$. Left: $1 - \tfrac34 = \tfrac14$.
+
+# --- pre-mixed ---
+- id: pre-q-1201
+  lesson: pre-mixed
+  module_quiz: true
+  topic: Mixed numbers
+  stem: 'Write $4\tfrac{3}{7}$ as an improper fraction.'
+  choices: ['$\dfrac{12}{7}$', '$\dfrac{31}{7}$', '$\dfrac{19}{7}$', '$\dfrac{43}{7}$']
+  answer: 1
+  explanation: |-
+    $4 \times 7 + 3 = 31$, so $4\tfrac37 = \tfrac{31}{7}$. ($\tfrac{12}{7}$ multiplies 4 by 3; $\tfrac{19}{7}$ is $\tfrac{4 \times 4 + 3}{7}$.)
+
+- id: pre-q-1202
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'Write $\dfrac{47}{6}$ as a mixed number.'
+  choices: ['$6\tfrac{5}{6}$', '$7\tfrac{1}{6}$', '$7\tfrac{5}{6}$', '$8\tfrac{1}{6}$']
+  answer: 2
+  explanation: |-
+    $47 \div 6 = 7$ R 5, so $\tfrac{47}{6} = 7\tfrac56$. Check: $7 \times 6 + 5 = 47$.
+
+- id: pre-q-1203
+  lesson: pre-mixed
+  module_quiz: true
+  topic: Mixed numbers
+  stem: 'Multiply $1\tfrac{2}{3} \times 2\tfrac{1}{4}$.'
+  choices: ['$2\tfrac{1}{6}$', '$3\tfrac{11}{12}$', '$2\tfrac{2}{12}$', '$3\tfrac{3}{4}$']
+  answer: 3
+  explanation: |-
+    Convert: $\tfrac53 \times \tfrac94$. Cancel 3 with 9: $\tfrac{5 \times 3}{1 \times 4} = \tfrac{15}{4} = 3\tfrac34$. ($2\tfrac16$ multiplies the parts separately: $1 \times 2$ and $\tfrac23 \times \tfrac14$.)
+
+- id: pre-q-1204
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'Add $2\tfrac{3}{5} + 1\tfrac{1}{2}$.'
+  choices: ['$4\tfrac{1}{10}$', '$3\tfrac{1}{10}$', '$3\tfrac{4}{7}$', '$4\tfrac{1}{5}$']
+  answer: 0
+  explanation: |-
+    Wholes: 3. Fractions: $\tfrac{6}{10} + \tfrac{5}{10} = \tfrac{11}{10} = 1\tfrac1{10}$. Total: $4\tfrac{1}{10}$. ($3\tfrac1{10}$ forgets to carry the extra whole.)
+
+- id: pre-q-1205
+  lesson: pre-mixed
+  module_quiz: true
+  topic: Mixed numbers
+  stem: 'Subtract $5\tfrac{1}{3} - 2\tfrac{3}{4}$.'
+  choices: ['$3\tfrac{5}{12}$', '$2\tfrac{7}{12}$', '$3\tfrac{7}{12}$', '$2\tfrac{5}{12}$']
+  answer: 1
+  explanation: |-
+    LCD 12: $5\tfrac{4}{12} - 2\tfrac{9}{12}$. Borrow 1: $4\tfrac{16}{12} - 2\tfrac9{12} = 2\tfrac{7}{12}$. Check: $\tfrac{64}{12} - \tfrac{33}{12} = \tfrac{31}{12} = 2\tfrac7{12}$. ($3\tfrac5{12}$ subtracts the smaller fraction from the larger instead of borrowing.)
+
+- id: pre-q-1206
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'Divide $4\tfrac{1}{2} \div 1\tfrac{1}{8}$.'
+  choices: ['$5\tfrac{1}{16}$', '$4\tfrac{1}{16}$', '4', '$\tfrac{1}{4}$']
+  answer: 2
+  explanation: |-
+    $\tfrac92 \div \tfrac98 = \tfrac92 \times \tfrac89 = \tfrac{8}{2} = 4$. ($5\tfrac1{16}$ multiplies instead of dividing; $\tfrac14$ flips the wrong fraction.)
+
+- id: pre-q-1207
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'Which equals $-3\tfrac{1}{4}$?'
+  choices: ['$-\dfrac{11}{4}$', '$-\dfrac{3}{4}$', '$-3 + \dfrac{1}{4}$', '$-\dfrac{13}{4}$']
+  answer: 3
+  explanation: |-
+    The negative sign applies to the whole mixed number: $-(3 + \tfrac14) = -\tfrac{13}{4}$. ($-3 + \tfrac14 = -2\tfrac34 = -\tfrac{11}{4}$, a different number.)
+
+- id: pre-q-1208
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'A recipe calls for $2\tfrac{1}{4}$ cups of flour. How much flour is needed to make $1\tfrac{1}{2}$ batches?'
+  choices: ['$3\tfrac{3}{8}$ cups', '$3\tfrac{3}{4}$ cups', '$3\tfrac{1}{8}$ cups', '$2\tfrac{1}{8}$ cups']
+  answer: 0
+  explanation: |-
+    $2\tfrac14 \times 1\tfrac12 = \tfrac94 \times \tfrac32 = \tfrac{27}{8} = 3\tfrac38$ cups. ($3\tfrac34$ adds the two amounts instead of multiplying.)
+
+- id: pre-q-1209
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'A board $8\tfrac{1}{2}$ feet long has $2\tfrac{5}{6}$ feet cut off. How long is the remaining piece?'
+  choices: ['$6\tfrac{1}{3}$ ft', '$5\tfrac{2}{3}$ ft', '$5\tfrac{1}{3}$ ft', '$6\tfrac{2}{3}$ ft']
+  answer: 1
+  explanation: |-
+    $8\tfrac36 - 2\tfrac56$: borrow 1 to get $7\tfrac96 - 2\tfrac56 = 5\tfrac46 = 5\tfrac23$ feet.
+
+- id: pre-q-1210
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'A runner jogs $3\tfrac{3}{4}$ miles every day for 6 days. How far does she jog in all?'
+  choices: ['$18\tfrac{3}{4}$ mi', '$18\tfrac{3}{24}$ mi', '$22\tfrac{1}{2}$ mi', '$21\tfrac{3}{4}$ mi']
+  answer: 2
+  explanation: |-
+    $3\tfrac34 \times 6 = \tfrac{15}{4} \times 6 = \tfrac{90}{4} = 22\tfrac{2}{4} = 22\tfrac12$ miles. ($18\tfrac34$ multiplies only the whole part by 6.)
+
+- id: pre-q-1211
+  lesson: pre-mixed
+  topic: Mixed numbers
+  stem: 'Compute $1\tfrac{1}{3} - 2\tfrac{1}{2}$.'
+  choices: ['$1\tfrac{1}{6}$', '$-1\tfrac{5}{6}$', '$-1\tfrac{1}{3}$', '$-1\tfrac{1}{6}$']
+  answer: 3
+  explanation: |-
+    Improper fractions: $\tfrac43 - \tfrac52 = \tfrac86 - \tfrac{15}{6} = -\tfrac{7}{6} = -1\tfrac16$. The answer is negative because we subtract a larger number.

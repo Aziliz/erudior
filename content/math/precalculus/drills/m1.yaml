@@ -1,0 +1,153 @@
+- id: pc-eval-func
+  title: Evaluate a function
+  topic: Functions and notation
+  vars:
+    a: {min: -4, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -12, max: 12}
+    t: {min: -5, max: 5}
+  where: ["a != 0", "b != 0", "c != 0", "t != 0", "t != 1"]
+  calc:
+    sq: t^2
+    val: a*t^2 + b*t + c
+  prompt: 'Let $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$. Find $f({t})$.'
+  answers:
+    - {name: val, label: '$f({t}) =$'}
+  solution: |-
+    Replace every $x$ with $({t})$: $f({t}) = {a}({t})^2 + ({b})({t}) + ({c}) = {a}\cdot {sq} + ({b})({t}) + ({c}) =$ **{val}**.
+
+- id: pc-domain-sqrt
+  title: Domain of a square root function
+  topic: Domain and range
+  vars:
+    a: {choices: [-5, -4, -3, -2, 2, 3, 4, 5]}
+    b: {min: -15, max: 15}
+    dir: {choices: [{label: '\ge', value: 1}, {label: '\le', value: -1}]}
+  where: ["b != 0", "sign(a) == dir"]
+  calc:
+    ep: -b/a
+    nb: -b
+  prompt: 'The domain of $f(x) = \sqrt{{a:coef}x {b:signed}}$ is $x {dir} p$ for some number $p$. Find $p$ as an exact fraction or integer.'
+  answers:
+    - {name: ep, label: '$p =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    The radicand must be nonnegative: ${a:coef}x {b:signed} \ge 0$, so ${a}x \ge {nb}$. Divide by ${a}$ (dividing by a negative number flips the inequality): $x {dir} {ep:texfrac}$. So $p =$ **{ep:frac}**.
+
+- id: pc-domain-rational
+  title: Excluded values of a rational function
+  topic: Domain and range
+  vars:
+    r1: {min: -8, max: 8}
+    r2: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+  where: ["r1 < r2", "c != -r1", "c != -r2", "c != 0", "r1 + r2 != 0", "r1 != 0", "r2 != 0"]
+  calc:
+    p: -(r1 + r2)
+    q: r1*r2
+  prompt: 'The domain of $g(x) = \dfrac{x {c:signed}}{x^2 {p:signedcoef}x {q:signed}}$ is all real numbers except two values. Find them (smaller first).'
+  answers:
+    - {name: r1, label: 'Smaller excluded value'}
+    - {name: r2, label: 'Larger excluded value'}
+  solution: |-
+    Set the denominator to zero and factor: $x^2 {p:signedcoef}x {q:signed} = (x - ({r1}))(x - ({r2})) = 0$. The excluded values are **{r1}** and **{r2}**. (The numerator's zero does not matter for the domain.)
+
+- id: pc-piecewise-eval
+  title: Evaluate a piecewise function
+  topic: Piecewise functions
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+    k: {min: -3, max: 3}
+    d: {min: 0, max: 3}
+    side: {choices: [{label: 'less than the break point, so the first formula applies', value: 0}, {label: 'at or above the break point, so the second formula applies', value: 1}]}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    t: if(side == 0, k - 1 - d, k + d)
+    val: if(side == 0, a*t + b, t^2 + c)
+  prompt: |-
+    Let $f(x) = \begin{cases} {a:coef}x {b:signed} & \text{if } x < {k} \\ x^2 {c:signed} & \text{if } x \ge {k} \end{cases}$
+
+    Find $f({t})$.
+  answers:
+    - {name: val, label: '$f({t}) =$'}
+  solution: |-
+    The input {t} is {side}. Using that formula with $x = {t}$ gives $f({t}) =$ **{val}**.
+
+- id: pc-abs-solve
+  title: Solve an absolute value equation
+  topic: Piecewise functions
+  vars:
+    a: {min: 2, max: 5}
+    x1: {min: -10, max: 6}
+    x2: {min: -6, max: 10}
+  where: ["x1 < x2", "mod(a*(x1 + x2), 2) == 0", "x1 + x2 != 0"]
+  calc:
+    b: -a*(x1 + x2)/2
+    c: a*(x2 - x1)/2
+    nc: -c
+  prompt: 'Solve $|{a}x {b:signed}| = {c}$. Give both solutions, smaller first.'
+  answers:
+    - {name: x1, label: 'Smaller $x$'}
+    - {name: x2, label: 'Larger $x$'}
+  solution: |-
+    The inside equals ${c}$ or ${nc}$. From ${a}x {b:signed} = {nc}$: $x =$ **{x1}**. From ${a}x {b:signed} = {c}$: $x =$ **{x2}**.
+
+- id: pc-avg-rate
+  title: Average rate of change of a quadratic
+  topic: Average rate of change
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+    p: {min: -4, max: 3}
+    w: {min: 1, max: 4}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    q: p + w
+    fp: a*p^2 + b*p + c
+    fq: a*q^2 + b*q + c
+    rate: (fq - fp)/(q - p)
+  prompt: 'Find the average rate of change of $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ on the interval $[{p}, {q}]$.'
+  answers:
+    - {name: rate, label: 'Average rate'}
+  solution: |-
+    $f({q}) = {fq}$ and $f({p}) = {fp}$, so the rate is $\dfrac{ {fq} - ({fp}) }{ {q} - ({p}) } =$ **{rate}**.
+
+- id: pc-diff-quotient
+  title: Simplify a difference quotient
+  topic: Average rate of change
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    a2: 2*a
+  prompt: 'Simplify the difference quotient $\dfrac{f(x+h) - f(x)}{h}$ for $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$. Use $x$ and $h$.'
+  answers:
+    - {kind: expression, expression: '2*a*x + a*h + b', variables: [x, h], label: 'Quotient', show: '${a2}x {a:signedcoef}h {b:signed}$'}
+  solution: |-
+    $f(x+h) - f(x) = {a}\big[(x+h)^2 - x^2\big] + ({b})\big[(x+h) - x\big] = {a}(2xh + h^2) + ({b})h$. The constant {c} cancels. Divide by $h$: **${a2}x {a:signedcoef}h {b:signed}$**.
+
+- id: pc-quad-extremum
+  title: Maximum or minimum of a quadratic
+  topic: Function behavior
+  vars:
+    s: {choices: [{label: 'minimum', value: 1}, {label: 'maximum', value: -1}]}
+    m: {min: 1, max: 4}
+    xv: {min: -5, max: 5}
+    c: {min: -15, max: 15}
+  where: ["xv != 0", "c != 0"]
+  calc:
+    a: s*m
+    b: -2*a*xv
+    yv: a*xv^2 + b*xv + c
+    na: -b
+    a2: 2*a
+  prompt: 'Find where $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ reaches its extreme value, and what that value is.'
+  answers:
+    - {name: xv, label: '$x =$'}
+    - {name: yv, label: 'Extreme value'}
+  solution: |-
+    $x = \dfrac{-b}{2a} = \dfrac{ {na} }{ {a2} } =$ **{xv}**. Then $f({xv}) =$ **{yv}**. Since the leading coefficient is {a}, this is a {s}.

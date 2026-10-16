@@ -1,0 +1,460 @@
+# Module 6 — Similarity and right triangles
+- id: geo-q-2001
+  lesson: geo-similar
+  module_quiz: true
+  topic: Proportions
+  stem: 'Solve $\dfrac{x}{12} = \dfrac{5}{8}$.'
+  choices: ['$7.5$', '$9.6$', '$15$', '$6.4$']
+  answer: 0
+  explanation: |-
+    Cross multiply: $8x = 5 \cdot 12 = 60$, so $x = 7.5$. Check: $\tfrac{7.5}{12} = 0.625 = \tfrac58$.
+- id: geo-q-2002
+  lesson: geo-similar
+  topic: Proportions
+  stem: 'What is the geometric mean of 8 and 18?'
+  choices: ['13', '12', '144', '26']
+  answer: 1
+  explanation: |-
+    $\sqrt{8 \cdot 18} = \sqrt{144} = 12$. 13 is the arithmetic mean (average).
+- id: geo-q-2003
+  lesson: geo-similar
+  module_quiz: true
+  topic: Similar polygons
+  stem: '$\triangle ABC \sim \triangle XYZ$, $AB = 8$, $BC = 12$ and $XY = 6$. Find $YZ$.'
+  choices: ['16', '10', '9', '4']
+  answer: 2
+  explanation: |-
+    Scale factor from $ABC$ to $XYZ$: $\tfrac{6}{8} = \tfrac34$. So $YZ = \tfrac34 \cdot 12 = 9$. 16 uses the factor upside down.
+- id: geo-q-2004
+  lesson: geo-similar
+  topic: Similar polygons
+  stem: 'Two similar triangles have scale factor 3. If the smaller has area 10, what is the larger''s area?'
+  choices: ['30', '60', '270', '90']
+  answer: 3
+  explanation: |-
+    Areas scale by $k^2 = 9$: $10 \cdot 9 = 90$. 30 scales by $k$ instead of $k^2$; 270 by $k^3$.
+- id: geo-q-2005
+  lesson: geo-similar
+  topic: Similar polygons
+  stem: 'Two similar solids have surface areas 16 and 100. What is the ratio of their volumes (small to large)?'
+  choices: ['$8 : 125$', '$4 : 25$', '$16 : 100$', '$2 : 5$']
+  answer: 0
+  explanation: |-
+    Area ratio $= k^2 = \tfrac{16}{100}$, so $k = \tfrac{4}{10} = \tfrac25$. Volume ratio $= k^3 = \tfrac{8}{125}$.
+- id: geo-q-2006
+  lesson: geo-similar
+  module_quiz: true
+  topic: Similar polygons
+  stem: 'Which pair of figures must be similar?'
+  choices: ['Any two rectangles', 'Any two squares', 'Any two rhombuses', 'Any two isosceles triangles']
+  answer: 1
+  explanation: |-
+    All squares have $90^\circ$ angles and side ratios that are all equal, so they're similar. Rectangles can have different proportions, rhombuses different angles, isosceles triangles different vertex angles.
+- id: geo-q-2007
+  lesson: geo-similar
+  topic: Similar polygons
+  stem: 'Quadrilateral $ABCD \sim PQRS$ with perimeters 36 and 54. If $CD = 10$, find $RS$.'
+  choices: ['$6\tfrac23$', '22.5', '15', '28']
+  answer: 2
+  explanation: |-
+    Perimeters scale like lengths: $k = \tfrac{54}{36} = \tfrac32$, so $RS = \tfrac32 \cdot 10 = 15$.
+- id: geo-q-2008
+  lesson: geo-similar
+  topic: Proportions
+  stem: 'If $\dfrac{a}{b} = \dfrac{3}{7}$, which must also be true?'
+  choices: ['$\dfrac{a}{7} = \dfrac{b}{3}$', '$\dfrac{a + 3}{b + 7} = 1$', '$7b = 3a$', '$\dfrac{a + b}{b} = \dfrac{10}{7}$']
+  answer: 3
+  explanation: |-
+    Adding 1 to both sides: $\tfrac{a + b}{b} = \tfrac{3 + 7}{7}$. Cross products give $7a = 3b$ (not $7b = 3a$), and swapping the means gives $\tfrac{a}{3} = \tfrac{b}{7}$.
+- id: geo-q-2009
+  lesson: geo-similar
+  topic: Similar polygons
+  stem: 'A map has scale 1 : 50,000. Two points are 4.6 cm apart on the map. How far apart are they in real life?'
+  choices: ['2.3 km', '23 km', '230 m', '0.92 km']
+  answer: 0
+  explanation: |-
+    $4.6 \times 50{,}000 = 230{,}000$ cm $= 2300$ m $= 2.3$ km.
+- id: geo-q-2010
+  lesson: geo-similar
+  topic: Similar polygons
+  stem: 'Two similar cones have volumes in the ratio $27 : 64$. What is the ratio of their heights?'
+  choices: ['$9 : 16$', '$3 : 4$', '$27 : 64$', '$\sqrt{27} : 8$']
+  answer: 1
+  explanation: |-
+    Volume ratio is $k^3$, so $k = \sqrt[3]{27/64} = \tfrac34$. Heights, like all lengths, are in ratio $3 : 4$.
+- id: geo-q-2011
+  lesson: geo-similar
+  topic: Proportions
+  stem: 'Solve $\dfrac{x - 1}{4} = \dfrac{9}{x - 1}$ for $x > 1$.'
+  choices: ['$x = 6$', '$x = 37$', '$x = 7$', '$x = 10$']
+  answer: 2
+  explanation: |-
+    Cross multiply: $(x - 1)^2 = 36$, so $x - 1 = 6$ (positive) and $x = 7$. Here $x - 1$ is the geometric mean of 4 and 9.
+
+- id: geo-q-2101
+  lesson: geo-sim-thm
+  module_quiz: true
+  topic: Similarity tests
+  stem: 'Two triangles each have a $40^\circ$ angle and a $75^\circ$ angle. What can you conclude?'
+  choices: ['They are congruent by ASA.', 'Nothing, without side lengths', 'They are similar only if they are isosceles.', 'They are similar by AA.']
+  answer: 3
+  explanation: |-
+    Two pairs of congruent angles prove similarity (AA). Without a pair of congruent sides, congruence doesn't follow.
+- id: geo-q-2102
+  lesson: geo-sim-thm
+  topic: Similarity tests
+  stem: 'Which pair of triangles (side lengths given) is similar?'
+  choices: ['4, 6, 9 and 8, 12, 18', '3, 4, 5 and 4, 5, 6', '5, 7, 9 and 10, 14, 20', '2, 3, 4 and 3, 4, 5']
+  answer: 0
+  explanation: |-
+    $\tfrac84 = \tfrac{12}{6} = \tfrac{18}{9} = 2$: SSS similarity. In 5, 7, 9 vs 10, 14, 20 the last ratio is $\tfrac{20}{9} \ne 2$.
+- id: geo-q-2103
+  lesson: geo-sim-thm
+  module_quiz: true
+  topic: Proportional segments
+  stem: 'In $\triangle ABC$, $\overline{DE} \parallel \overline{BC}$ with $D$ on $\overline{AB}$ and $E$ on $\overline{AC}$. $AD = 6$, $DB = 9$, $AE = 8$. Find $EC$.'
+  choices: ['$5\tfrac13$', '12', '11', '$13\tfrac12$']
+  answer: 1
+  explanation: |-
+    Side Splitter: $\tfrac{AD}{DB} = \tfrac{AE}{EC}$, so $\tfrac69 = \tfrac{8}{EC}$ and $EC = 12$.
+- id: geo-q-2104
+  lesson: geo-sim-thm
+  topic: Proportional segments
+  stem: 'In $\triangle ABC$, $\overline{DE} \parallel \overline{BC}$, $AD = 4$, $DB = 6$, $DE = 7$. Find $BC$.'
+  choices: ['10.5', '11', '17.5', '4.2']
+  answer: 2
+  explanation: |-
+    $\triangle ADE \sim \triangle ABC$, so $\tfrac{DE}{BC} = \tfrac{AD}{AB} = \tfrac{4}{10}$. Then $BC = \tfrac{70}{4} = 17.5$. 10.5 wrongly uses $\tfrac{AD}{DB}$ (piece to piece).
+- id: geo-q-2105
+  lesson: geo-sim-thm
+  topic: Proportional segments
+  stem: 'In $\triangle PQR$, the bisector of $\angle P$ meets $\overline{QR}$ at $S$. $PQ = 12$, $PR = 18$ and $QR = 20$. Find $QS$.'
+  choices: ['12', '10', '13.3', '8']
+  answer: 3
+  explanation: |-
+    Angle Bisector Theorem: $\tfrac{QS}{SR} = \tfrac{PQ}{PR} = \tfrac{12}{18} = \tfrac23$. Split 20 in ratio $2 : 3$: $QS = \tfrac25 \cdot 20 = 8$.
+- id: geo-q-2106
+  lesson: geo-sim-thm
+  topic: Similarity tests
+  stem: 'In $\triangle ABC$ and $\triangle DEF$, $\angle B \cong \angle E$, $AB = 6$, $BC = 10$, $DE = 9$, $EF = 15$. Are they similar?'
+  choices: ['Yes, by SAS similarity', 'Yes, by AA', 'No, the ratios differ', 'Only if $AC = DF$']
+  answer: 0
+  explanation: |-
+    $\tfrac{DE}{AB} = \tfrac96 = 1.5$ and $\tfrac{EF}{BC} = \tfrac{15}{10} = 1.5$, with the included angles $\angle B \cong \angle E$: SAS similarity.
+- id: geo-q-2107
+  lesson: geo-sim-thm
+  module_quiz: true
+  topic: Similarity tests
+  stem: 'A 2 m pole casts a 3.5 m shadow. At the same time a building casts a 28 m shadow. How tall is the building?'
+  choices: ['49 m', '16 m', '14 m', '18.5 m']
+  answer: 1
+  explanation: |-
+    Similar right triangles: $\tfrac{h}{28} = \tfrac{2}{3.5}$, so $h = \tfrac{56}{3.5} = 16$ m. 49 m flips the ratio.
+- id: geo-q-2108
+  lesson: geo-sim-thm
+  topic: Proportional segments
+  stem: 'Three parallel lines cut transversal $s$ into segments 5 and 8, and transversal $t$ into segments 7.5 and $x$. Find $x$.'
+  choices: ['10.5', '4.7', '12', '11.5']
+  answer: 2
+  explanation: |-
+    Parallel lines cut transversals proportionally: $\tfrac{5}{8} = \tfrac{7.5}{x}$, so $x = \tfrac{60}{5} = 12$.
+- id: geo-q-2109
+  lesson: geo-sim-thm
+  topic: Proportional segments
+  stem: 'A line meets sides $\overline{AB}$ and $\overline{AC}$ of $\triangle ABC$ at $D$ and $E$, with $AD = 5$, $DB = 4$, $AE = 7.5$, $EC = 6$. What can you conclude?'
+  choices: ['$\overline{DE} \perp \overline{BC}$', '$D$ and $E$ are midpoints.', '$DE = \tfrac12 BC$', '$\overline{DE} \parallel \overline{BC}$']
+  answer: 3
+  explanation: |-
+    $\tfrac{AD}{DB} = \tfrac54 = 1.25$ and $\tfrac{AE}{EC} = \tfrac{7.5}{6} = 1.25$. The sides are divided proportionally, so by the converse of the Side Splitter Theorem, $\overline{DE} \parallel \overline{BC}$.
+- id: geo-q-2110
+  lesson: geo-sim-thm
+  topic: Similarity tests
+  stem: 'Why is AA enough for similarity but not for congruence?'
+  choices: ['Two angles fix the third angle and so the shape, but not the size.', 'Two angles fix the size but not the shape.', 'AA only works for right triangles.', 'AA is the same as ASA.']
+  answer: 0
+  explanation: |-
+    With two angles known, the third is determined, so all triangles with those angles have the same shape. They can be scaled to any size, so AA can't prove congruence.
+- id: geo-q-2111
+  lesson: geo-sim-thm
+  topic: Proportional segments
+  stem: 'In $\triangle ABC$, $\overline{AD}$ bisects $\angle A$, with $BD = 6$, $DC = 9$ and $AB = 10$. Find $AC$.'
+  choices: ['$6\tfrac23$', '15', '13', '5.4']
+  answer: 1
+  explanation: |-
+    $\tfrac{BD}{DC} = \tfrac{AB}{AC}$: $\tfrac69 = \tfrac{10}{AC}$, so $AC = 15$.
+
+- id: geo-q-2201
+  lesson: geo-pythag
+  module_quiz: true
+  topic: Pythagorean theorem
+  stem: 'A right triangle has legs 7 and 24. Find the hypotenuse.'
+  choices: ['31', '$\sqrt{527}$', '25', '17']
+  answer: 2
+  explanation: |-
+    $\sqrt{49 + 576} = \sqrt{625} = 25$ (a 7-24-25 triple). 31 adds the legs; $\sqrt{527}$ subtracts.
+- id: geo-q-2202
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'A right triangle has hypotenuse 17 and one leg 8. Find the other leg.'
+  choices: ['$\sqrt{353}$', '9', '25', '15']
+  answer: 3
+  explanation: |-
+    $\sqrt{17^2 - 8^2} = \sqrt{289 - 64} = \sqrt{225} = 15$. $\sqrt{353}$ adds instead of subtracting.
+- id: geo-q-2203
+  lesson: geo-pythag
+  module_quiz: true
+  topic: Pythagorean theorem
+  stem: 'A triangle has sides 9, 12 and 16. Classify it.'
+  choices: ['Obtuse', 'Right', 'Acute', 'Not a triangle']
+  answer: 0
+  explanation: |-
+    It is a triangle ($9 + 12 > 16$). Compare $16^2 = 256$ with $9^2 + 12^2 = 225$: $256 > 225$, so obtuse.
+- id: geo-q-2204
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'Which set of side lengths forms a right triangle?'
+  choices: ['6, 8, 11', '10, 24, 26', '5, 11, 13', '4, 5, 6']
+  answer: 1
+  explanation: |-
+    $10^2 + 24^2 = 100 + 576 = 676 = 26^2$ (double the 5-12-13 triple).
+- id: geo-q-2205
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'Find the distance between $(-3, 4)$ and $(5, -2)$.'
+  choices: ['14', '$\sqrt{28}$', '10', '$2\sqrt{5}$']
+  answer: 2
+  explanation: |-
+    $\sqrt{(5 - (-3))^2 + (-2 - 4)^2} = \sqrt{64 + 36} = \sqrt{100} = 10$.
+- id: geo-q-2206
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'A TV screen is 48 in wide and 27 in tall. About how long is its diagonal?'
+  choices: ['75 in', '45 in', '51 in', '55 in']
+  answer: 3
+  explanation: |-
+    $\sqrt{48^2 + 27^2} = \sqrt{2304 + 729} = \sqrt{3033} \approx 55.1$ in.
+- id: geo-q-2207
+  lesson: geo-pythag
+  module_quiz: true
+  topic: Pythagorean theorem
+  stem: 'A triangle has sides 8, 10 and 12. Classify it.'
+  choices: ['Acute', 'Right', 'Obtuse', 'Not a triangle']
+  answer: 0
+  explanation: |-
+    $12^2 = 144$ and $8^2 + 10^2 = 164$. Since $144 < 164$, the triangle is acute.
+- id: geo-q-2208
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'In the rearrangement proof, four right triangles with legs $a$, $b$ sit inside a square of side $a + b$, around a tilted square of side $c$. Which equation does the proof use?'
+  choices: ['$(a + b)^2 = c^2$', '$(a + b)^2 = 2ab + c^2$', '$a^2 + b^2 = 4ab + c^2$', '$(a + b)^2 = ab + c^2$']
+  answer: 1
+  explanation: |-
+    The big square's area equals the four triangles ($4 \cdot \tfrac12 ab = 2ab$) plus the inner square ($c^2$). Expanding $(a + b)^2$ and cancelling $2ab$ gives $a^2 + b^2 = c^2$.
+- id: geo-q-2209
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'A 13 ft ladder reaches 12 ft up a wall. How far is its foot from the wall?'
+  choices: ['1 ft', '25 ft', '5 ft', '$\sqrt{313}$ ft']
+  answer: 2
+  explanation: |-
+    $\sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} = 5$ ft.
+- id: geo-q-2210
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'A student computes $\sqrt{6^2 + 8^2} = 6 + 8 = 14$. What is the error?'
+  choices: ['Nothing; the answer is 14.', 'The legs should be subtracted.', 'The hypotenuse should be squared, giving 196.', 'A square root doesn''t split over a sum; the answer is $\sqrt{100} = 10$.']
+  answer: 3
+  explanation: |-
+    $\sqrt{a^2 + b^2} \ne a + b$. Compute first: $36 + 64 = 100$, and $\sqrt{100} = 10$.
+- id: geo-q-2211
+  lesson: geo-pythag
+  topic: Pythagorean theorem
+  stem: 'A square has diagonal 10. What is its side length?'
+  choices: ['$5\sqrt2$', '5', '$10\sqrt2$', '$\sqrt{50}/2$']
+  answer: 0
+  explanation: |-
+    $s^2 + s^2 = 100$, so $s^2 = 50$ and $s = \sqrt{50} = 5\sqrt2 \approx 7.07$.
+
+- id: geo-q-2301
+  lesson: geo-special-right
+  module_quiz: true
+  topic: Special right triangles
+  stem: 'A 45°-45°-90° triangle has legs of length 9. Find the hypotenuse.'
+  choices: ['$9\sqrt3$', '$9\sqrt2$', '18', '$\tfrac{9\sqrt2}{2}$']
+  answer: 1
+  explanation: |-
+    Hypotenuse $=$ leg $\cdot \sqrt2 = 9\sqrt2 \approx 12.73$.
+- id: geo-q-2302
+  lesson: geo-special-right
+  topic: Special right triangles
+  stem: 'A 45°-45°-90° triangle has hypotenuse 14. Find a leg.'
+  choices: ['$14\sqrt2$', '7', '$7\sqrt2$', '$7\sqrt3$']
+  answer: 2
+  explanation: |-
+    Leg $= \tfrac{14}{\sqrt2} = \tfrac{14\sqrt2}{2} = 7\sqrt2 \approx 9.90$.
+- id: geo-q-2303
+  lesson: geo-special-right
+  module_quiz: true
+  topic: Special right triangles
+  stem: 'A 30°-60°-90° triangle has hypotenuse 16. Find the leg opposite the $60^\circ$ angle.'
+  choices: ['8', '$16\sqrt3$', '$8\sqrt2$', '$8\sqrt3$']
+  answer: 3
+  explanation: |-
+    Short leg $= 16 / 2 = 8$ (opposite $30^\circ$). Long leg (opposite $60^\circ$) $= 8\sqrt3 \approx 13.86$.
+- id: geo-q-2304
+  lesson: geo-special-right
+  topic: Special right triangles
+  stem: 'In a 30°-60°-90° triangle the long leg is 9. Find the hypotenuse.'
+  choices: ['$6\sqrt3$', '18', '$3\sqrt3$', '$9\sqrt3$']
+  answer: 0
+  explanation: |-
+    Short leg $= \tfrac{9}{\sqrt3} = 3\sqrt3$; hypotenuse $= 2 \cdot 3\sqrt3 = 6\sqrt3 \approx 10.39$.
+- id: geo-q-2305
+  lesson: geo-special-right
+  topic: Special right triangles
+  stem: 'Find the area of an equilateral triangle with side 8.'
+  choices: ['32', '$16\sqrt3$', '$32\sqrt3$', '$8\sqrt3$']
+  answer: 1
+  explanation: |-
+    Height $= 4\sqrt3$ (long leg of a 30°-60°-90° with short leg 4). Area $= \tfrac12 \cdot 8 \cdot 4\sqrt3 = 16\sqrt3$, matching $\tfrac{\sqrt3}{4} \cdot 64$.
+- id: geo-q-2306
+  lesson: geo-special-right
+  module_quiz: true
+  topic: Geometric mean
+  stem: 'The altitude to the hypotenuse of a right triangle divides the hypotenuse into pieces 3 and 12. Find the altitude.'
+  choices: ['7.5', '$\sqrt{15}$', '6', '36']
+  answer: 2
+  explanation: |-
+    $h = \sqrt{3 \cdot 12} = \sqrt{36} = 6$. 7.5 is the arithmetic mean.
+- id: geo-q-2307
+  lesson: geo-special-right
+  topic: Geometric mean
+  stem: 'The altitude to the hypotenuse divides it into pieces 5 and 15. Find the leg adjacent to the piece of length 5.'
+  choices: ['$5\sqrt3$', '$\sqrt{75}$', '20', '10']
+  answer: 3
+  explanation: |-
+    Leg $= \sqrt{(\text{hypotenuse})(\text{adjacent piece})} = \sqrt{20 \cdot 5} = 10$. $5\sqrt3 = \sqrt{75}$ is the altitude $\sqrt{5 \cdot 15}$.
+- id: geo-q-2308
+  lesson: geo-special-right
+  topic: Special right triangles
+  stem: 'Where does the 30°-60°-90° triangle come from?'
+  choices: ['Half of an equilateral triangle, cut by an altitude', 'Half of a square, cut by a diagonal', 'A triangle inscribed in a semicircle', 'A third of a regular hexagon']
+  answer: 0
+  explanation: |-
+    The altitude of an equilateral triangle (side $2s$) creates two 30°-60°-90° triangles with short leg $s$, hypotenuse $2s$ and long leg $s\sqrt3$. Half a square gives 45°-45°-90°.
+- id: geo-q-2309
+  lesson: geo-special-right
+  topic: Special right triangles
+  stem: 'A square has side 6. How long is its diagonal?'
+  choices: ['12', '$6\sqrt2$', '$6\sqrt3$', '$3\sqrt2$']
+  answer: 1
+  explanation: |-
+    The diagonal is the hypotenuse of a 45°-45°-90° triangle with legs 6: $6\sqrt2 \approx 8.49$.
+- id: geo-q-2310
+  lesson: geo-special-right
+  topic: Special right triangles
+  stem: 'In a 30°-60°-90° triangle the short leg is 5. A student says the long leg is 10. What is correct?'
+  choices: ['Correct: the long leg is twice the short leg.', 'The long leg is $5\sqrt2$.', 'The long leg is $5\sqrt3$; 10 is the hypotenuse.', 'The long leg is $\tfrac{5}{\sqrt3}$.']
+  answer: 2
+  explanation: |-
+    The ratio is $1 : \sqrt3 : 2$. The hypotenuse (not the long leg) is twice the short leg.
+- id: geo-q-2311
+  lesson: geo-special-right
+  topic: Geometric mean
+  stem: 'In right $\triangle ABC$, altitude $\overline{CD}$ to hypotenuse $\overline{AB}$ has length 8 and $AD = 4$. Find $DB$.'
+  choices: ['2', '12', '32', '16']
+  answer: 3
+  explanation: |-
+    $CD^2 = AD \cdot DB$: $64 = 4 \cdot DB$, so $DB = 16$.
+
+- id: geo-q-2401
+  lesson: geo-trig
+  module_quiz: true
+  topic: Trigonometric ratios
+  stem: 'In right $\triangle ABC$ with right angle $C$, $BC = 5$, $AC = 12$, $AB = 13$. Find $\sin A$.'
+  choices: ['$\tfrac{5}{13}$', '$\tfrac{12}{13}$', '$\tfrac{5}{12}$', '$\tfrac{13}{5}$']
+  answer: 0
+  explanation: |-
+    The side opposite $\angle A$ is $BC = 5$, and the hypotenuse is 13: $\sin A = \tfrac{5}{13}$. $\tfrac{12}{13}$ is $\cos A$; $\tfrac{5}{12}$ is $\tan A$.
+- id: geo-q-2402
+  lesson: geo-trig
+  topic: Trigonometric ratios
+  stem: 'Using the same triangle ($BC = 5$, $AC = 12$, $AB = 13$, right angle $C$), find $\tan B$.'
+  choices: ['$\tfrac{5}{12}$', '$\tfrac{12}{5}$', '$\tfrac{12}{13}$', '$\tfrac{5}{13}$']
+  answer: 1
+  explanation: |-
+    For $\angle B$, the opposite side is $AC = 12$ and the adjacent side is $BC = 5$: $\tan B = \tfrac{12}{5}$. Opposite and adjacent swap when you switch angles.
+- id: geo-q-2403
+  lesson: geo-trig
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'A right triangle has hypotenuse 20 and an acute angle of $40^\circ$. Find the side opposite the $40^\circ$ angle, to two decimals.'
+  choices: ['15.32', '16.78', '12.86', '23.84']
+  answer: 2
+  explanation: |-
+    $\text{opp} = 20\sin 40^\circ \approx 20(0.6428) \approx 12.86$. 15.32 is $20\cos 40^\circ$ (the adjacent side).
+- id: geo-q-2404
+  lesson: geo-trig
+  topic: Solving right triangles
+  stem: 'A right triangle has legs 9 and 14. Find the angle opposite the leg of 9, to the nearest tenth of a degree.'
+  choices: ['$57.3^\circ$', '$40.0^\circ$', '$39.7^\circ$', '$32.7^\circ$']
+  answer: 3
+  explanation: |-
+    $\tan\theta = \tfrac{9}{14}$, so $\theta = \tan^{-1}(0.6429) \approx 32.7^\circ$. $57.3^\circ$ is the other acute angle.
+- id: geo-q-2405
+  lesson: geo-trig
+  topic: Trigonometric ratios
+  stem: 'Which value equals $\sin 25^\circ$?'
+  choices: ['$\cos 65^\circ$', '$\cos 25^\circ$', '$\sin 65^\circ$', '$\tan 65^\circ$']
+  answer: 0
+  explanation: |-
+    $\sin\theta = \cos(90^\circ - \theta)$, so $\sin 25^\circ = \cos 65^\circ$.
+- id: geo-q-2406
+  lesson: geo-trig
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'From 50 m away on level ground, the angle of elevation to the top of a tower is $35^\circ$. About how tall is the tower?'
+  choices: ['28.7 m', '35.0 m', '41.0 m', '71.4 m']
+  answer: 1
+  explanation: |-
+    $h = 50\tan 35^\circ \approx 50(0.7002) \approx 35.0$ m. 28.7 uses sine; 71.4 divides by $\tan 35^\circ$.
+- id: geo-q-2407
+  lesson: geo-trig
+  topic: Trigonometric ratios
+  stem: 'What is the exact value of $\cos 30^\circ$?'
+  choices: ['$\tfrac12$', '$\tfrac{\sqrt2}{2}$', '$\tfrac{\sqrt3}{2}$', '$\sqrt3$']
+  answer: 2
+  explanation: |-
+    In a 30°-60°-90° triangle with sides $1, \sqrt3, 2$, the side adjacent to $30^\circ$ is $\sqrt3$: $\cos 30^\circ = \tfrac{\sqrt3}{2}$.
+- id: geo-q-2408
+  lesson: geo-trig
+  topic: Solving right triangles
+  stem: 'A right triangle has an acute angle of $28^\circ$ whose adjacent leg is 15. Find the hypotenuse, to two decimals.'
+  choices: ['13.24', '7.04', '31.95', '16.99']
+  answer: 3
+  explanation: |-
+    $\cos 28^\circ = \tfrac{15}{h}$, so $h = \tfrac{15}{\cos 28^\circ} \approx \tfrac{15}{0.8829} \approx 16.99$. 13.24 multiplies instead of dividing.
+- id: geo-q-2409
+  lesson: geo-trig
+  topic: Solving right triangles
+  stem: 'A pilot 2000 m above the ground sees a landmark at an angle of depression of $15^\circ$. About how far is the landmark horizontally from the plane?'
+  choices: ['7464 m', '536 m', '1932 m', '7727 m']
+  answer: 0
+  explanation: |-
+    The angle of elevation from the landmark is also $15^\circ$: $\tan 15^\circ = \tfrac{2000}{d}$, so $d = \tfrac{2000}{\tan 15^\circ} \approx \tfrac{2000}{0.2679} \approx 7464$ m. 7727 m is the line-of-sight distance $\tfrac{2000}{\sin 15^\circ}$.
+- id: geo-q-2410
+  lesson: geo-trig
+  topic: Trigonometric ratios
+  stem: 'Why does $\sin 37^\circ$ have the same value in every right triangle with a $37^\circ$ angle?'
+  choices: ['All right triangles are congruent.', 'All right triangles with a $37^\circ$ angle are similar by AA, so their side ratios are equal.', 'Because $37^\circ$ is acute.', 'Because the hypotenuse is always 1.']
+  answer: 1
+  explanation: |-
+    Each has a $90^\circ$ and a $37^\circ$ angle, so they're similar (AA), and corresponding side ratios like opposite/hypotenuse are equal.
+- id: geo-q-2411
+  lesson: geo-trig
+  topic: Solving right triangles
+  stem: 'A 4 m ramp rises 1 m. What angle does it make with the ground, to the nearest tenth of a degree?'
+  choices: ['$75.5^\circ$', '$14.0^\circ$', '$0.25^\circ$', '$14.5^\circ$']
+  answer: 3
+  explanation: |-
+    The ramp is the hypotenuse and the rise is opposite the angle: $\theta = \sin^{-1}\left(\tfrac14\right) \approx 14.5^\circ$. $14.0^\circ$ uses tangent (treating 4 m as the horizontal run), and $75.5^\circ$ is $\cos^{-1}(0.25)$, the angle at the top.

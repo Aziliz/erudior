@@ -1,0 +1,31 @@
+id: math-precalculus
+title: Precalculus
+description: >-
+  Precalculus from the high school course through college precalculus, assuming Algebra 2:
+  functions in depth, transformations, composition and inverses, polynomial and rational
+  functions, exponential and logarithmic models, a compact trigonometry review, systems and
+  matrices, conic sections, parametric and polar equations, vectors, sequences and series,
+  induction, the binomial theorem, counting and probability, and a first look at limits and
+  the derivative.
+revision: 1
+modules:
+  - id: pc-m1
+    title: Functions in depth
+  - id: pc-m2
+    title: Parent functions, transformations and inverses
+  - id: pc-m3
+    title: Polynomial and rational functions
+  - id: pc-m4
+    title: Exponential and logarithmic functions
+  - id: pc-m5
+    title: Trigonometry review
+  - id: pc-m6
+    title: Systems and matrices
+  - id: pc-m7
+    title: Conics, parametric equations and polar coordinates
+  - id: pc-m8
+    title: Vectors
+  - id: pc-m9
+    title: Sequences, series, induction and counting
+  - id: pc-m10
+    title: Introduction to limits and the derivative

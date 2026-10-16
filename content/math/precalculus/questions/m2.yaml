@@ -1,0 +1,409 @@
+- id: pc-q-0401
+  lesson: pc-parent-functions
+  module_quiz: true
+  topic: Parent functions
+  stem: 'What is the range of the parent function $f(x) = \dfrac{1}{x^2}$?'
+  choices: ['All real numbers except 0', '$[0, \infty)$', '$(0, \infty)$', 'All real numbers']
+  answer: 2
+  explanation: |-
+    $x^2 > 0$ for every allowed $x$ (0 is excluded), so $\frac{1}{x^2}$ is always positive, and it takes every positive value. Range $(0, \infty)$. "All real numbers except 0" is the range of $\frac1x$, which can be negative.
+- id: pc-q-0402
+  lesson: pc-parent-functions
+  topic: Parent functions
+  stem: 'Which parent function has domain $[0, \infty)$ and range $[0, \infty)$?'
+  choices: ['$f(x) = \sqrt{x}$', '$f(x) = x^2$', '$f(x) = \lvert x \rvert$', '$f(x) = \sqrt[3]{x}$']
+  answer: 0
+  explanation: |-
+    $\sqrt x$ needs $x \ge 0$ and gives outputs $\ge 0$. $x^2$ and $|x|$ have range $[0, \infty)$ but accept every real input; $\sqrt[3]{x}$ has domain and range all reals.
+- id: pc-q-0403
+  lesson: pc-parent-functions
+  module_quiz: true
+  topic: Even and odd functions
+  stem: 'Is $f(x) = x^4 - 3x^2$ even, odd or neither?'
+  choices: ['Odd', 'Even', 'Neither', 'Both even and odd']
+  answer: 1
+  explanation: |-
+    $f(-x) = (-x)^4 - 3(-x)^2 = x^4 - 3x^2 = f(x)$, so $f$ is even. Only even powers appear.
+- id: pc-q-0404
+  lesson: pc-parent-functions
+  topic: Even and odd functions
+  stem: 'Is $g(x) = x^3 + 2x$ even, odd or neither?'
+  choices: ['Even', 'Neither', 'Both even and odd', 'Odd']
+  answer: 3
+  explanation: |-
+    $g(-x) = -x^3 - 2x = -(x^3 + 2x) = -g(x)$, so $g$ is odd.
+- id: pc-q-0405
+  lesson: pc-parent-functions
+  module_quiz: true
+  topic: Even and odd functions
+  stem: 'Is $h(x) = x^3 + 1$ even, odd or neither?'
+  choices: ['Even', 'Odd', 'Neither', 'Odd, because $x^3$ is odd']
+  answer: 2
+  explanation: |-
+    $h(-x) = -x^3 + 1$. That is not $h(x) = x^3 + 1$ and not $-h(x) = -x^3 - 1$. So $h$ is neither. (Also, an odd function defined at 0 must have $h(0) = 0$, but $h(0) = 1$.)
+- id: pc-q-0406
+  lesson: pc-parent-functions
+  topic: Even and odd functions
+  stem: '$f$ is an even function and $g$ is an odd function, with $f(2) = 5$ and $g(2) = -3$. Find $f(-2) + g(-2)$.'
+  choices: ['$2$', '$8$', '$-8$', '$-2$']
+  answer: 1
+  explanation: |-
+    Even: $f(-2) = f(2) = 5$. Odd: $g(-2) = -g(2) = 3$. Sum: $5 + 3 = 8$. The answer 2 forgets to change the sign of $g$.
+- id: pc-q-0407
+  lesson: pc-parent-functions
+  module_quiz: true
+  topic: Even and odd functions
+  stem: 'A graph is unchanged when rotated 180° about the origin. What kind of function does it show?'
+  choices: ['An odd function', 'An even function', 'A one-to-one function', 'A constant function']
+  answer: 0
+  explanation: |-
+    180° rotation about the origin sends $(a, b)$ to $(-a, -b)$; a graph that is unchanged satisfies $f(-a) = -f(a)$, the definition of odd. Even functions have mirror symmetry across the $y$-axis instead.
+- id: pc-q-0408
+  lesson: pc-parent-functions
+  topic: Even and odd functions
+  stem: 'Which function is even?'
+  choices: ['$f(x) = x^3$', '$f(x) = x + 1$', '$f(x) = \sqrt{x}$', '$f(x) = \lvert x \rvert + x^2$']
+  answer: 3
+  explanation: |-
+    $|-x| + (-x)^2 = |x| + x^2$, so it is even. $x^3$ is odd; $x + 1$ is neither; $\sqrt x$ is not even: its domain $[0, \infty)$ is not symmetric, so $\sqrt{-x}$ is undefined for $x > 0$.
+- id: pc-q-0409
+  lesson: pc-parent-functions
+  topic: Parent functions
+  stem: 'Which parent function passes through $(8, 2)$ and $(-8, -2)$?'
+  choices: ['$f(x) = \sqrt{x}$', '$f(x) = \sqrt[3]{x}$', '$f(x) = \log_2 x$', '$f(x) = \dfrac{1}{x}$']
+  answer: 1
+  explanation: |-
+    $\sqrt[3]{8} = 2$ and $\sqrt[3]{-8} = -2$. $\sqrt x$ and $\log_2 x$ are undefined at $-8$, and $\frac1x$ gives $\tfrac18$ at $x = 8$.
+- id: pc-q-0410
+  lesson: pc-parent-functions
+  topic: Even and odd functions
+  stem: 'An odd function $f$ is defined at $x = 0$. What must $f(0)$ be?'
+  choices: ['$1$', 'Any real number', '$0$', 'It cannot be determined']
+  answer: 2
+  explanation: |-
+    Odd means $f(-0) = -f(0)$, i.e. $f(0) = -f(0)$, so $2f(0) = 0$ and $f(0) = 0$.
+- id: pc-q-0411
+  lesson: pc-parent-functions
+  topic: Even and odd functions
+  stem: 'Is $k(x) = \dfrac{x^2}{x^4 + 1}$ even, odd or neither?'
+  choices: ['Even', 'Odd', 'Neither', 'Odd, because it is a quotient']
+  answer: 0
+  explanation: |-
+    $k(-x) = \dfrac{(-x)^2}{(-x)^4 + 1} = \dfrac{x^2}{x^4 + 1} = k(x)$. Even.
+- id: pc-q-0412
+  lesson: pc-parent-functions
+  topic: Parent functions
+  stem: 'Which parent functions have range $[0, \infty)$? Select all that apply.'
+  choices: ['$f(x) = x^2$', '$f(x) = x^3$', '$f(x) = \lvert x \rvert$', '$f(x) = \dfrac1x$']
+  answer: [0, 2]
+  explanation: |-
+    $x^2$ and $|x|$ are never negative and reach 0 at the origin. $x^3$ takes every real value; $\frac1x$ takes every value except 0.
+
+- id: pc-q-0501
+  lesson: pc-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'How is the graph of $y = (x - 4)^2 + 2$ related to $y = x^2$?'
+  choices: ['Left 4, up 2', 'Right 4, down 2', 'Right 4, up 2', 'Left 4, down 2']
+  answer: 2
+  explanation: |-
+    $x - 4$ inside means a shift right 4 (inside changes do the opposite of the sign); $+2$ outside means up 2. The vertex moves from $(0, 0)$ to $(4, 2)$.
+- id: pc-q-0502
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'The graph of $y = f(x + 3)$ is the graph of $y = f(x)$ shifted:'
+  choices: ['left 3', 'right 3', 'up 3', 'down 3']
+  answer: 0
+  explanation: |-
+    $f(x + 3) = f(x - (-3))$, so $h = -3$: a shift 3 units left. The new graph reaches $f(0)$ at $x = -3$.
+- id: pc-q-0503
+  lesson: pc-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'The point $(2, 5)$ is on the graph of $y = f(x)$. Which point must be on $y = f(x - 1) + 3$?'
+  choices: ['$(1, 8)$', '$(3, 2)$', '$(1, 2)$', '$(3, 8)$']
+  answer: 3
+  explanation: |-
+    Right 1 and up 3: $(2 + 1, 5 + 3) = (3, 8)$. Check: at $x = 3$, $f(3 - 1) + 3 = f(2) + 3 = 8$.
+- id: pc-q-0504
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'The point $(4, -2)$ is on $y = f(x)$. Which point is on $y = -2f(x)$?'
+  choices: ['$(4, 4)$', '$(-8, -2)$', '$(4, -4)$', '$(-4, -2)$']
+  answer: 0
+  explanation: |-
+    Outside changes act on $y$: $-2 \cdot (-2) = 4$, and $x$ stays 4. The point is $(4, 4)$.
+- id: pc-q-0505
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'The point $(6, 1)$ is on $y = f(x)$. Which point is on $y = f(2x)$?'
+  choices: ['$(12, 1)$', '$(3, 1)$', '$(6, 2)$', '$(6, \tfrac12)$']
+  answer: 1
+  explanation: |-
+    We need $2x = 6$, so $x = 3$: the point is $(3, 1)$. $f(2x)$ compresses horizontally by $\frac12$; doubling to $(12, 1)$ is the common backwards mistake.
+- id: pc-q-0506
+  lesson: pc-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'Which equation is $y = \sqrt{x}$ reflected across the $x$-axis and then shifted 2 units left?'
+  choices: ['$y = \sqrt{-x + 2}$', '$y = -\sqrt{x - 2}$', '$y = -\sqrt{x + 2}$', '$y = \sqrt{-(x + 2)}$']
+  answer: 2
+  explanation: |-
+    Reflect across the $x$-axis: negate the output, $-\sqrt{x}$. Shift left 2: replace $x$ with $x + 2$, giving $-\sqrt{x + 2}$. A minus sign *inside* would reflect across the $y$-axis instead.
+- id: pc-q-0507
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'Starting from $y = \sqrt{x}$, what horizontal shift produces $y = \sqrt{3x - 6}$?'
+  choices: ['Right 6', 'Right 2', 'Left 2', 'Left 6']
+  answer: 1
+  explanation: |-
+    Factor the inside: $3x - 6 = 3(x - 2)$. So $h = 2$: right 2 (after a horizontal compression by $\frac13$). Reading "6" without factoring is the classic error.
+- id: pc-q-0508
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'What is the vertex of $y = -3\lvert x + 1 \rvert - 4$?'
+  choices: ['$(1, -4)$', '$(-1, 4)$', '$(-3, -4)$', '$(-1, -4)$']
+  answer: 3
+  explanation: |-
+    $|x + 1|$ moves the vertex left 1; $-4$ moves it down 4. The $-3$ flips and stretches but doesn't move the vertex. Vertex $(-1, -4)$.
+- id: pc-q-0509
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'Which equation reflects the graph of $y = f(x)$ across the $y$-axis?'
+  choices: ['$y = -f(x)$', '$y = f(-x)$', '$y = -f(-x)$', '$y = f(x) - 1$']
+  answer: 1
+  explanation: |-
+    Replacing $x$ by $-x$ (an inside change) swaps left and right, a reflection across the $y$-axis. $-f(x)$ reflects across the $x$-axis; $-f(-x)$ does both (a 180° rotation).
+- id: pc-q-0510
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'What is the range of $y = -2\sqrt{x + 3} + 1$?'
+  choices: ['$[1, \infty)$', '$[-3, \infty)$', '$(-\infty, 1]$', '$(-\infty, -3]$']
+  answer: 2
+  explanation: |-
+    $\sqrt{x + 3} \ge 0$, so $-2\sqrt{x+3} \le 0$ and $y \le 1$, with $y = 1$ at $x = -3$. Range $(-\infty, 1]$. $[-3, \infty)$ is the domain.
+- id: pc-q-0511
+  lesson: pc-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'The point $(6, -2)$ is on $y = f(x)$. Which point is on $y = 2f(3x + 3) + 1$?'
+  choices: ['$(1, -3)$', '$(3, -3)$', '$(15, -3)$', '$(1, -5)$']
+  answer: 0
+  explanation: |-
+    Factor: $3x + 3 = 3(x + 1)$, so $b = 3$, $h = -1$. New $x$: $\frac63 - 1 = 1$. New $y$: $2(-2) + 1 = -3$. Check: at $x = 1$, $3x + 3 = 6$ and $2f(6) + 1 = -3$.
+- id: pc-q-0512
+  lesson: pc-transformations
+  topic: Transformations
+  stem: 'The graph of $y = x^2$ is stretched vertically by a factor of 3 and then shifted down 5. What is its equation?'
+  choices: ['$y = 3(x^2 - 5)$', '$y = (3x)^2 - 5$', '$y = 3(x - 5)^2$', '$y = 3x^2 - 5$']
+  answer: 3
+  explanation: |-
+    Stretch: $3x^2$. Then down 5: $3x^2 - 5$. $3(x^2 - 5) = 3x^2 - 15$ shifts first and stretches second, which moves the graph down 15; $(3x)^2$ is a horizontal compression.
+
+- id: pc-q-0601
+  lesson: pc-composition
+  module_quiz: true
+  topic: Composition
+  stem: 'Let $f(x) = x^2 + 1$ and $g(x) = 2x - 3$. Find $f(g(2))$.'
+  choices: ['$2$', '$7$', '$5$', '$10$']
+  answer: 0
+  explanation: |-
+    Inside first: $g(2) = 1$. Then $f(1) = 1 + 1 = 2$. The answer 7 is $g(f(2)) = g(5)$, the other order.
+- id: pc-q-0602
+  lesson: pc-composition
+  topic: Composition
+  stem: 'Let $f(x) = x^2 + 1$ and $g(x) = 2x - 3$. Find $(g \circ f)(x)$.'
+  choices: ['$4x^2 - 12x + 10$', '$2x^2 - 1$', '$2x^2 - 2$', '$(2x - 3)(x^2 + 1)$']
+  answer: 1
+  explanation: |-
+    $(g \circ f)(x) = g(x^2 + 1) = 2(x^2 + 1) - 3 = 2x^2 - 1$. The first choice is $f(g(x))$; the last is the product $g(x)f(x)$.
+- id: pc-q-0603
+  lesson: pc-composition
+  topic: Composition
+  stem: 'Let $f(x) = x^2 + 1$ and $g(x) = 2x - 3$. Find $(f \circ g)(x)$.'
+  choices: ['$2x^2 - 1$', '$4x^2 + 10$', '$4x^2 - 12x + 10$', '$4x^2 - 12x + 9$']
+  answer: 2
+  explanation: |-
+    $f(2x - 3) = (2x - 3)^2 + 1 = 4x^2 - 12x + 9 + 1 = 4x^2 - 12x + 10$. Forgetting the middle term gives $4x^2 + 10$; forgetting the $+1$ gives $4x^2 - 12x + 9$.
+- id: pc-q-0604
+  lesson: pc-composition
+  module_quiz: true
+  topic: Composition
+  stem: |-
+    Use the table to find $f(g(1))$.
+
+    | $x$ | 1 | 2 | 3 | 4 |
+    |---|---|---|---|---|
+    | $f(x)$ | 2 | 4 | 1 | 3 |
+    | $g(x)$ | 4 | 4 | 2 | 1 |
+  choices: ['$4$', '$2$', '$1$', '$3$']
+  answer: 3
+  explanation: |-
+    $g(1) = 4$, then $f(4) = 3$. Doing it in the other order, $g(f(1)) = g(2) = 4$, gives a different answer.
+- id: pc-q-0605
+  lesson: pc-composition
+  topic: Composition
+  stem: 'Let $f(x) = \sqrt{x}$ and $g(x) = x - 5$. What is the domain of $f \circ g$?'
+  choices: ['$[0, \infty)$', '$[5, \infty)$', '$[-5, \infty)$', 'All real numbers']
+  answer: 1
+  explanation: |-
+    $(f \circ g)(x) = \sqrt{x - 5}$, which needs $x - 5 \ge 0$, i.e. $x \ge 5$. $[0, \infty)$ is the domain of $f$ alone.
+- id: pc-q-0606
+  lesson: pc-composition
+  topic: Composition
+  stem: 'Let $f(x) = \dfrac{1}{x - 3}$ and $g(x) = \sqrt{x}$. What is the domain of $f \circ g$?'
+  choices: ['$[0, 3) \cup (3, \infty)$', '$(-\infty, 3) \cup (3, \infty)$', '$[0, 9) \cup (9, \infty)$', '$[0, \infty)$']
+  answer: 2
+  explanation: |-
+    $g$ needs $x \ge 0$. $f$ needs its input $\sqrt x \ne 3$, so $x \ne 9$. Domain $[0, 9) \cup (9, \infty)$. Excluding 3 confuses the restriction on $f$'s input with a restriction on $x$.
+- id: pc-q-0607
+  lesson: pc-composition
+  module_quiz: true
+  topic: Composition
+  stem: 'Write $H(x) = (4x - 1)^5$ as $f(g(x))$. Which choice works?'
+  choices: ['$f(x) = 4x - 1$, $g(x) = x^5$', '$f(x) = x^5$, $g(x) = 4x - 1$', '$f(x) = 4x^5$, $g(x) = x - 1$', '$f(x) = x^5 - 1$, $g(x) = 4x$']
+  answer: 1
+  explanation: |-
+    The inner step is $4x - 1$ and the outer step is the fifth power: $f(g(x)) = (4x - 1)^5$. The first choice gives $f(g(x)) = 4x^5 - 1$. The last gives $(4x)^5 - 1$.
+- id: pc-q-0608
+  lesson: pc-composition
+  module_quiz: true
+  topic: Combining functions
+  stem: 'Let $f(x) = \sqrt{x + 2}$ and $g(x) = x - 1$. What is the domain of $\dfrac{f}{g}$?'
+  choices: ['$[-2, 1) \cup (1, \infty)$', '$[-2, \infty)$', '$(-2, 1) \cup (1, \infty)$', '$(-\infty, 1) \cup (1, \infty)$']
+  answer: 0
+  explanation: |-
+    Need $x + 2 \ge 0$ (so $x \ge -2$, included) and $g(x) \ne 0$ (so $x \ne 1$). Domain $[-2, 1) \cup (1, \infty)$.
+- id: pc-q-0609
+  lesson: pc-composition
+  topic: Composition
+  stem: 'Simplify $\sqrt{x^2}$ for all real $x$.'
+  choices: ['$x$', '$\pm x$', '$x^2$', '$\lvert x \rvert$']
+  answer: 3
+  explanation: |-
+    The square root symbol means the nonnegative root. For $x = -3$, $\sqrt{9} = 3 = |-3|$, not $-3$. So $\sqrt{x^2} = |x|$.
+- id: pc-q-0610
+  lesson: pc-composition
+  topic: Combining functions
+  stem: 'Let $f(x) = x^2$ and $g(x) = 2x + 1$. Find $(f - g)(3)$.'
+  choices: ['$2$', '$16$', '$-2$', '$42$']
+  answer: 0
+  explanation: |-
+    $(f - g)(3) = f(3) - g(3) = 9 - 7 = 2$. $(f \circ g)(3) = f(7) = 49$ and $g(f(3)) = 19$ are compositions, not differences.
+- id: pc-q-0611
+  lesson: pc-composition
+  topic: Composition
+  stem: 'A circular ripple has radius $r(t) = 3t$ cm after $t$ seconds, and a circle''s area is $A(r) = \pi r^2$. Which function gives the area as a function of time?'
+  choices: ['$(A \circ r)(t) = 3\pi t^2$', '$(r \circ A)(t) = 3\pi t^2$', '$(A \circ r)(t) = 9\pi t^2$', '$(A \cdot r)(t) = 3\pi t^3$']
+  answer: 2
+  explanation: |-
+    Time goes into $r$ first, then the radius goes into $A$: $A(r(t)) = \pi(3t)^2 = 9\pi t^2$. Writing $3\pi t^2$ forgets to square the 3.
+- id: pc-q-0612
+  lesson: pc-composition
+  topic: Composition
+  stem: 'Which pair gives $f(g(x)) = \sqrt{x^2 + 1}$?'
+  choices: ['$f(x) = x^2 + 1$, $g(x) = \sqrt{x}$', '$f(x) = \sqrt{x}$, $g(x) = x^2 + 1$', '$f(x) = \sqrt{x} + 1$, $g(x) = x^2$', '$f(x) = x^2$, $g(x) = \sqrt{x + 1}$']
+  answer: 1
+  explanation: |-
+    $f(g(x)) = \sqrt{x^2 + 1}$ when $g$ builds $x^2 + 1$ and $f$ takes its square root. The first pair gives $(\sqrt x)^2 + 1 = x + 1$; the third gives $|x| + 1$; the last gives $x + 1$ for $x \ge -1$.
+
+- id: pc-q-0701
+  lesson: pc-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = 3x - 2$.'
+  choices: ['$f^{-1}(x) = \dfrac{x + 2}{3}$', '$f^{-1}(x) = \dfrac{x}{3} + 2$', '$f^{-1}(x) = \dfrac{1}{3x - 2}$', '$f^{-1}(x) = 3x + 2$']
+  answer: 0
+  explanation: |-
+    $y = 3x - 2$; swap: $x = 3y - 2$; solve: $y = \frac{x + 2}{3}$. Undo the steps in reverse order: add 2, then divide by 3. $\frac{x}{3} + 2$ undoes them in the wrong order; $\frac{1}{3x-2}$ is the reciprocal, not the inverse.
+- id: pc-q-0702
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'Which function has an inverse function (on its whole domain)?'
+  choices: ['$f(x) = x^2$', '$f(x) = \lvert x \rvert$', '$f(x) = x^4 - x$', '$f(x) = x^3$']
+  answer: 3
+  explanation: |-
+    $x^3$ is always increasing, so it is one-to-one. The others fail the horizontal line test: $x^2$ and $|x|$ give the same output at $\pm2$; $x^4 - x$ is 0 at both $x = 0$ and $x = 1$.
+- id: pc-q-0703
+  lesson: pc-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = \dfrac{x + 1}{x - 2}$.'
+  choices: ['$\dfrac{x - 2}{x + 1}$', '$\dfrac{2x + 1}{x - 1}$', '$\dfrac{x + 1}{x + 2}$', '$\dfrac{2x - 1}{x + 1}$']
+  answer: 1
+  explanation: |-
+    Swap: $x = \frac{y + 1}{y - 2}$. Then $xy - 2x = y + 1$, so $xy - y = 2x + 1$, $y(x - 1) = 2x + 1$, and $y = \frac{2x + 1}{x - 1}$. Flipping the fraction (first choice) gives the reciprocal, not the inverse.
+- id: pc-q-0704
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'Let $f(x) = \sqrt{x - 4} + 1$. What is the domain of $f^{-1}$?'
+  choices: ['$[4, \infty)$', '$[1, \infty)$', '$(-\infty, 1]$', 'All real numbers']
+  answer: 1
+  explanation: |-
+    The domain of $f^{-1}$ is the range of $f$. Since $\sqrt{x - 4} \ge 0$, $f(x) \ge 1$, and every value $\ge 1$ occurs. So the domain of $f^{-1}$ is $[1, \infty)$. $[4, \infty)$ is the domain of $f$ (and the range of $f^{-1}$).
+- id: pc-q-0705
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'If $f$ is one-to-one and $f(2) = 9$, what is $f^{-1}(9)$?'
+  choices: ['$\tfrac19$', '$\tfrac12$', '$2$', '$9$']
+  answer: 2
+  explanation: |-
+    $f^{-1}(9)$ asks which input gives output 9. Since $f(2) = 9$, it is 2. The reciprocals are distractors from reading $-1$ as an exponent.
+- id: pc-q-0706
+  lesson: pc-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'The point $(3, -1)$ is on the graph of a one-to-one function $f$. Which point is on the graph of $f^{-1}$?'
+  choices: ['$(-3, 1)$', '$(3, 1)$', '$(\tfrac13, -1)$', '$(-1, 3)$']
+  answer: 3
+  explanation: |-
+    Inverses swap coordinates (reflection across $y = x$): $(3, -1) \to (-1, 3)$.
+- id: pc-q-0707
+  lesson: pc-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = x^3 + 5$.'
+  choices: ['$\sqrt[3]{x} - 5$', '$\sqrt[3]{x - 5}$', '$\dfrac{1}{x^3 + 5}$', '$(x - 5)^3$']
+  answer: 1
+  explanation: |-
+    Swap: $x = y^3 + 5$, so $y^3 = x - 5$ and $y = \sqrt[3]{x - 5}$. Undo "add 5" first, then the cube. $\sqrt[3]{x} - 5$ undoes them in the wrong order.
+- id: pc-q-0708
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'Let $f(x) = (x - 1)^2$ with domain $x \ge 1$. Find $f^{-1}(x)$.'
+  choices: ['$1 + \sqrt{x}$', '$1 - \sqrt{x}$', '$\sqrt{x} - 1$', '$\sqrt{x + 1}$']
+  answer: 0
+  explanation: |-
+    Swap: $x = (y - 1)^2$, so $y - 1 = \pm\sqrt{x}$. The range of $f^{-1}$ must be the domain of $f$, $y \ge 1$, so take $+$: $f^{-1}(x) = 1 + \sqrt x$.
+- id: pc-q-0709
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'Which pair of functions are inverses of each other?'
+  choices: ['$f(x) = 2x + 3$, $g(x) = \dfrac{x}{2} - 3$', '$f(x) = 2x + 3$, $g(x) = \dfrac{1}{2x + 3}$', '$f(x) = \dfrac{x - 3}{2}$, $g(x) = 2x + 3$', '$f(x) = x - 3$, $g(x) = 3 - x$']
+  answer: 2
+  explanation: |-
+    $f(g(x)) = \frac{(2x + 3) - 3}{2} = x$ and $g(f(x)) = 2 \cdot \frac{x - 3}{2} + 3 = x$. In the first pair, $g(f(x)) = x + \frac32 - 3 \ne x$.
+- id: pc-q-0710
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'For $f(x) = 2x$, which is true?'
+  choices: ['$f^{-1}(x) = \dfrac{1}{2x}$', '$f^{-1}(x) = \dfrac{x}{2}$', '$f^{-1}(x) = -2x$', '$f^{-1}(x) = x - 2$']
+  answer: 1
+  explanation: |-
+    Doubling is undone by halving: $f^{-1}(x) = \frac{x}{2}$. $\frac{1}{2x}$ is $\frac{1}{f(x)}$, the reciprocal, which is a different thing.
+- id: pc-q-0711
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'A one-to-one function has $f(1) = 4$, $f(4) = 6$ and $f(6) = 0$. Find $f^{-1}(f^{-1}(6))$.'
+  choices: ['$0$', '$4$', '$6$', '$1$']
+  answer: 3
+  explanation: |-
+    $f^{-1}(6) = 4$ (since $f(4) = 6$), then $f^{-1}(4) = 1$ (since $f(1) = 4$). Applying $f$ instead of $f^{-1}$ gives $f(f(6)) = f(0)$, which isn't given.
+- id: pc-q-0712
+  lesson: pc-inverses
+  topic: Inverse functions
+  stem: 'Let $f(x) = x^2$ with domain restricted to $x \le 0$. What is $f^{-1}(x)$?'
+  choices: ['$\sqrt{x}$', '$-\sqrt{x}$', '$\sqrt{-x}$', '$-\sqrt{-x}$']
+  answer: 1
+  explanation: |-
+    The inverse must output values $\le 0$ (the domain of $f$) and accept $x \ge 0$ (the range of $f$). $-\sqrt{x}$ does both: $f(-\sqrt{x}) = x$. Check with $x = 9$: $-\sqrt9 = -3$ and $(-3)^2 = 9$.

@@ -1,0 +1,205 @@
+# Notecards
+# DE basics
+- {front: 'What is the order of a differential equation?', back: 'The order of the highest derivative in it. $y'''' + (y'')^3 = t$ is second order.', topic: DE basics}
+- {front: 'How do you check that a function solves a differential equation?', back: 'Compute the needed derivatives, substitute into the whole equation, and verify both sides agree for every $t$ in an interval.', topic: DE basics}
+- {front: 'General solution vs particular solution', back: 'General: contains arbitrary constants and covers every solution. Particular: one solution, with constants fixed (usually by initial conditions).', topic: DE basics}
+- {front: 'How many arbitrary constants does an $n$th-order equation''s general solution have?', back: 'Typically $n$, one for each order of integration.', topic: DE basics}
+- {front: 'Equilibrium (constant) solutions of $y'' = f(t, y)$', back: 'Constants $y = c$ with $f(t, c) = 0$ for all $t$; since $y'' = 0$, they satisfy the equation.', topic: DE basics}
+- {front: '"$y$ changes at a rate proportional to $y$" as an equation', back: '$\dfrac{dy}{dt} = ky$', topic: DE basics}
+- {front: 'Solve $y'' = f(t)$, $y(t_0) = y_0$', back: '$y = y_0 + \displaystyle\int_{t_0}^{t} f(s)\,ds$ (integrate, then fit $C$).', topic: DE basics}
+# Slope fields
+- {front: 'What does a slope field show?', back: 'At each point $(x, y)$, a short segment with slope $f(x, y)$; solutions of $y'' = f(x, y)$ are curves tangent to the segments.', topic: Slope fields}
+- {front: 'Slope field with identical segments in each column', back: 'The slope depends only on $x$: $y'' = f(x)$. Solutions are vertical shifts of one another.', topic: Slope fields}
+- {front: 'Slope field with identical segments in each row', back: 'The slope depends only on $y$: autonomous $y'' = g(y)$. Solutions are horizontal shifts; flat rows are equilibria.', topic: Slope fields}
+- {front: 'Isocline', back: 'A curve $f(x, y) = m$ where all segments have slope $m$. The $m = 0$ isocline holds the horizontal tangents.', topic: Slope fields}
+- {front: 'Concavity of solutions of $y'' = f(x, y)$', back: 'Differentiate: $y'''' = f_x + f_y\,f$. Positive means concave up.', topic: Slope fields}
+# Separable
+- {front: 'Separable equation and method', back: '$y'' = g(x)h(y)$. Write $\dfrac{dy}{h(y)} = g(x)\,dx$, integrate both sides, add one constant.', topic: Separable equations}
+- {front: '$\int \frac{dy}{y} = kt + C$ leads to', back: '$y = Ae^{kt}$, where $A = \pm e^C$ (and $A = 0$ recovers $y = 0$).', topic: Separable equations}
+- {front: 'What solutions can separation of variables lose?', back: 'Equilibria $y = c$ with $h(c) = 0$, removed when dividing by $h(y)$.', topic: Separable equations}
+- {front: 'Solution of $y'' = y^2$, $y(0) = y_0 > 0$', back: '$y = \dfrac{y_0}{1 - y_0t}$, which blows up at $t = 1/y_0$.', topic: Separable equations}
+# Growth
+- {front: 'Solution of $P'' = kP$', back: '$P = P_0e^{kt}$', topic: Exponential growth}
+- {front: 'Doubling time and half-life', back: 'Doubling time $\ln 2/k$; half-life $\ln 2/|k|$. Neither depends on the starting amount.', topic: Exponential growth}
+- {front: 'Logistic equation', back: '$P'' = kP\left(1 - \dfrac{P}{K}\right)$; $k$ = intrinsic growth rate, $K$ = carrying capacity.', topic: Logistic growth}
+- {front: 'Logistic solution', back: '$P = \dfrac{K}{1 + Ae^{-kt}}$ with $A = \dfrac{K - P_0}{P_0}$.', topic: Logistic growth}
+- {front: 'Where is logistic growth fastest, and how fast?', back: 'At $P = K/2$, rate $kK/4$; that''s the inflection point of the S-curve.', topic: Logistic growth}
+- {front: 'Reading $k$ and $K$ from $P'' = cP(M - P)$', back: '$K = M$ and $k = cM$ (not $c$).', topic: Logistic growth}
+# Euler
+- {front: 'Euler''s method', back: '$y_{n+1} = y_n + h\,f(t_n, y_n)$, $t_{n+1} = t_n + h$.', topic: Euler's method}
+- {front: 'When does Euler''s method underestimate?', back: 'When solutions are concave up ($y'''' > 0$): tangent lines lie below the curve. It overestimates when they are concave down.', topic: Euler's method}
+- {front: 'Euler''s method on $y'' = ky$', back: '$y_n = y_0(1 + kh)^n$, which tends to $y_0e^{kt}$ as $h \to 0$.', topic: Euler's method}
+- {front: 'Euler''s method error', back: 'Local error $\propto h^2$; global error $\propto h$ (first order). Halving $h$ roughly halves the error.', topic: Euler's method}
+# Classification
+- {front: 'Linear $n$th-order equation (general form)', back: '$a_n(t)y^{(n)} + \cdots + a_1(t)y'' + a_0(t)y = g(t)$', topic: Classification}
+- {front: 'Signs that an equation is nonlinear', back: 'Powers or products of the unknown ($y^2$, $yy''$, $(y'')^2$) or functions of it ($\sin y$, $e^y$).', topic: Classification}
+- {front: 'ODE vs PDE', back: 'ODE: unknown depends on one variable. PDE: unknown depends on several, with partial derivatives.', topic: Classification}
+- {front: 'Homogeneous linear equation', back: 'Forcing term $g(t) = 0$; combinations of solutions are solutions (superposition).', topic: Classification}
+- {front: 'IVP vs BVP', back: 'IVP: all conditions at one point (unique solution under mild hypotheses). BVP: conditions at different points (may have none or many).', topic: Classification}
+# Existence
+- {front: 'Existence–uniqueness for linear $y'' + p(t)y = g(t)$', back: 'If $p$, $g$ are continuous on an open interval $I$ containing $t_0$, a unique solution exists on all of $I$.', topic: Existence and uniqueness}
+- {front: 'Existence–uniqueness for $y'' = f(t, y)$', back: 'If $f$ and $\partial f/\partial y$ are continuous near $(t_0, y_0)$, a unique solution exists on some interval around $t_0$.', topic: Existence and uniqueness}
+- {front: 'Classic example of non-uniqueness', back: '$y'' = \sqrt{y}$, $y(0) = 0$: both $y = 0$ and $y = t^2/4$ work ($f_y$ is undefined at $y = 0$).', topic: Existence and uniqueness}
+- {front: 'Finding the interval of validity of a linear IVP', back: 'Put in standard form, list where $p$ or $g$ is discontinuous, and take the open interval between trouble points containing $t_0$.', topic: Existence and uniqueness}
+- {front: 'Why can''t solution curves cross (when uniqueness holds)?', back: 'At a crossing point, two different solutions would satisfy the same IVP.', topic: Existence and uniqueness}
+# Linear first order
+- {front: 'Integrating factor for $y'' + p(t)y = g(t)$', back: '$\mu = e^{\int p\,dt}$; then $(\mu y)'' = \mu g$.', topic: Linear first-order}
+- {front: 'Solution formula for $y'' + p(t)y = g(t)$', back: '$y = \dfrac{1}{\mu}\left(\displaystyle\int \mu g\,dt + C\right)$, $\mu = e^{\int p\,dt}$.', topic: Linear first-order}
+- {front: 'Solution of $y'' + ay = b$ ($a \ne 0$)', back: '$y = \dfrac ba + \left(y_0 - \dfrac ba\right)e^{-at}$', topic: Linear first-order}
+- {front: 'First step before finding $\mu$', back: 'Divide by the coefficient of $y''$ to reach standard form, and read $p$ with its sign.', topic: Linear first-order}
+- {front: '$e^{k\ln t}$ simplifies to', back: '$t^k$ (for $t > 0$)', topic: Linear first-order}
+# Exact
+- {front: 'Test for exactness of $M\,dx + N\,dy = 0$', back: '$\dfrac{\partial M}{\partial y} = \dfrac{\partial N}{\partial x}$', topic: Exact equations}
+- {front: 'Solving an exact equation', back: 'Find $F$ with $F_x = M$, $F_y = N$ (integrate $M$ in $x$, add $h(y)$, match $F_y = N$). Solutions: $F(x, y) = C$.', topic: Exact equations}
+- {front: 'Integrating factor $\mu(x)$ for a non-exact equation', back: 'If $\dfrac{M_y - N_x}{N}$ depends only on $x$: $\mu = e^{\int \frac{M_y - N_x}{N}dx}$.', topic: Exact equations}
+- {front: 'Integrating factor $\mu(y)$ for a non-exact equation', back: 'If $\dfrac{N_x - M_y}{M}$ depends only on $y$: $\mu = e^{\int \frac{N_x - M_y}{M}dy}$.', topic: Exact equations}
+# Substitutions
+- {front: 'Bernoulli equation and substitution', back: '$y'' + py = qy^n$; set $v = y^{1-n}$ to get the linear $v'' + (1 - n)pv = (1 - n)q$.', topic: Substitutions}
+- {front: 'Homogeneous equation $y'' = F(y/x)$', back: 'Set $y = vx$, so $y'' = v + xv''$; then $\dfrac{dv}{F(v) - v} = \dfrac{dx}{x}$ (separable).', topic: Substitutions}
+- {front: 'Substitution for $y'' = f(ax + by + c)$', back: '$u = ax + by + c$, giving $u'' = a + bf(u)$ (separable).', topic: Substitutions}
+# Modeling
+- {front: 'Newton''s law of cooling', back: '$T'' = -k(T - T_a)$, so $T = T_a + (T_0 - T_a)e^{-kt}$.', topic: Newton's law of cooling}
+- {front: 'Continuous interest with deposits', back: '$A'' = rA + d$, so $A = \left(A_0 + \dfrac dr\right)e^{rt} - \dfrac dr$.', topic: Growth and decay}
+- {front: 'Radiocarbon age from fraction $f$ remaining (half-life $T_{1/2}$)', back: '$t = T_{1/2}\dfrac{\ln(1/f)}{\ln 2}$', topic: Growth and decay}
+- {front: 'Mixing-tank equation', back: '$Q'' = r_{in}c_{in} - r_{out}\dfrac{Q}{V(t)}$, $V(t) = V_0 + (r_{in} - r_{out})t$.', topic: Mixing problems}
+- {front: 'Long-run salt in a constant-volume tank', back: '$Q_\infty = c_{in}V$: the tank ends up at the incoming concentration.', topic: Mixing problems}
+- {front: 'Falling object with linear drag (down positive)', back: '$mv'' = mg - \gamma v$; $v = v_T + (v_0 - v_T)e^{-\gamma t/m}$, $v_T = mg/\gamma$.', topic: Falling objects}
+- {front: 'Terminal velocity with quadratic drag $mv'' = mg - kv^2$', back: '$v_T = \sqrt{mg/k}$', topic: Falling objects}
+- {front: 'RL circuit with constant voltage', back: '$LI'' + RI = E$; $I = \dfrac ER(1 - e^{-Rt/L})$, time constant $L/R$.', topic: RL and RC circuits}
+- {front: 'RC circuit with constant voltage', back: '$Rq'' + q/C = E$; $q = CE(1 - e^{-t/(RC)})$, time constant $RC$.', topic: RL and RC circuits}
+- {front: 'Voltage drops across R, L, C', back: '$RI$, $L\dfrac{dI}{dt}$, $\dfrac qC$ (with $I = q'')$.', topic: RL and RC circuits}
+# Autonomous
+- {front: 'Drawing a phase line for $y'' = f(y)$', back: 'Mark zeros of $f$ (equilibria); arrow up where $f > 0$, down where $f < 0$.', topic: Autonomous equations}
+- {front: 'Derivative test for an equilibrium $y^*$ of $y'' = f(y)$', back: '$f''(y^*) < 0$: stable. $f''(y^*) > 0$: unstable. $f''(y^*) = 0$: inconclusive.', topic: Autonomous equations}
+- {front: 'Semistable equilibrium', back: 'Arrows point toward it on one side and away on the other, e.g. $y = 2$ for $y'' = (y - 2)^2$.', topic: Autonomous equations}
+- {front: 'Inflection points of solutions of $y'' = f(y)$', back: 'Where $f''(y) = 0$, since $y'''' = f''(y)f(y)$.', topic: Autonomous equations}
+- {front: 'Long-run limit of a solution starting between two equilibria', back: 'It moves monotonically to the equilibrium the arrow points toward.', topic: Autonomous equations}
+# Bifurcations
+- {front: 'Logistic harvesting', back: '$P'' = rP(1 - P/K) - h$: two equilibria if $h < rK/4$, none if $h > rK/4$.', topic: Bifurcations}
+- {front: 'Locating a bifurcation of $y'' = f(y, c)$', back: 'Solve $f = 0$ and $\partial f/\partial y = 0$ together.', topic: Bifurcations}
+- {front: 'Saddle-node bifurcation prototype', back: '$y'' = c + y^2$: two equilibria for $c < 0$, one at $c = 0$, none for $c > 0$.', topic: Bifurcations}
+- {front: 'Transcritical bifurcation prototype', back: '$y'' = cy - y^2$: equilibria $0$ and $c$ exchange stability at $c = 0$.', topic: Bifurcations}
+- {front: 'Pitchfork bifurcation prototype', back: '$y'' = cy - y^3$: for $c > 0$, $0$ becomes unstable and $\pm\sqrt c$ appear (stable).', topic: Bifurcations}
+# Numerical
+- {front: 'Improved Euler (Heun) method', back: '$k_1 = f(t_n, y_n)$, $k_2 = f(t_n + h, y_n + hk_1)$, $y_{n+1} = y_n + \tfrac h2(k_1 + k_2)$.', topic: Numerical methods}
+- {front: 'RK4 slopes', back: '$k_1 = f(t_n, y_n)$, $k_2 = f(t_n + \tfrac h2, y_n + \tfrac h2k_1)$, $k_3 = f(t_n + \tfrac h2, y_n + \tfrac h2k_2)$, $k_4 = f(t_n + h, y_n + hk_3)$', topic: Numerical methods}
+- {front: 'RK4 update', back: '$y_{n+1} = y_n + \tfrac h6(k_1 + 2k_2 + 2k_3 + k_4)$', topic: Numerical methods}
+- {front: 'Global error orders', back: 'Euler $h$; improved Euler $h^2$; RK4 $h^4$.', topic: Numerical methods}
+- {front: 'Halving $h$ divides the error of a method of order $p$ by', back: '$2^p$: 2 for Euler, 4 for improved Euler, 16 for RK4.', topic: Numerical methods}
+- {front: 'Local vs global error', back: 'Local: one step from the exact solution. Global: accumulated after $L/h$ steps, one power of $h$ lower.', topic: Numerical methods}
+- {front: 'Euler stability on $y'' = -\lambda y$', back: 'Each step multiplies by $1 - h\lambda$; the numbers blow up if $h\lambda > 2$ (stiffness).', topic: Numerical methods}
+# Second-order theory
+- {front: 'Wronskian of $y_1$, $y_2$', back: '$W = y_1y_2'' - y_1''y_2$', topic: Second-order theory}
+- {front: 'When do $y_1, y_2$ form a fundamental set?', back: 'When both solve $L[y] = 0$ and $W(y_1, y_2) \ne 0$ at some (hence every) point.', topic: Second-order theory}
+- {front: 'Abel''s theorem', back: 'For $y'''' + py'' + qy = 0$: $W = Ce^{-\int p\,dt}$, so $W$ is never zero or always zero.', topic: Second-order theory}
+- {front: 'Structure of solutions of $L[y] = g$', back: '$y = c_1y_1 + c_2y_2 + Y$: complementary solution plus one particular solution.', topic: Second-order theory}
+- {front: 'Existence–uniqueness for $y'''' + py'' + qy = g$', back: 'With $p, q, g$ continuous on $I \ni t_0$, there''s exactly one solution with given $y(t_0)$, $y''(t_0)$, valid on all of $I$.', topic: Second-order theory}
+# Characteristic equation
+- {front: 'Characteristic equation of $ay'''' + by'' + cy = 0$', back: '$ar^2 + br + c = 0$ (from trying $y = e^{rt}$).', topic: Characteristic equation}
+- {front: 'Distinct real roots $r_1, r_2$', back: '$y = c_1e^{r_1t} + c_2e^{r_2t}$', topic: Characteristic equation}
+- {front: 'Repeated root $r$', back: '$y = (c_1 + c_2t)e^{rt}$', topic: Characteristic equation}
+- {front: 'Complex roots $\lambda \pm i\mu$', back: '$y = e^{\lambda t}(c_1\cos\mu t + c_2\sin\mu t)$', topic: Characteristic equation}
+- {front: 'Euler''s formula', back: '$e^{i\theta} = \cos\theta + i\sin\theta$', topic: Characteristic equation}
+- {front: 'Amplitude–phase form', back: '$c_1\cos\omega t + c_2\sin\omega t = R\cos(\omega t - \delta)$, $R = \sqrt{c_1^2 + c_2^2}$, $\cos\delta = c_1/R$, $\sin\delta = c_2/R$.', topic: Characteristic equation}
+- {front: '$y''(0)$ for $y = e^{\lambda t}(c_1\cos\mu t + c_2\sin\mu t)$', back: '$\lambda c_1 + \mu c_2$', topic: Characteristic equation}
+- {front: 'Equation with roots $r_1, r_2$', back: '$y'''' - (r_1 + r_2)y'' + r_1r_2y = 0$', topic: Characteristic equation}
+# Reduction of order
+- {front: 'Reduction of order formula', back: '$y_2 = y_1\displaystyle\int\frac{e^{-\int p\,dt}}{y_1^2}\,dt$ (standard form $y'''' + py'' + qy = 0$).', topic: Reduction of order}
+- {front: 'Cauchy–Euler equation', back: '$at^2y'''' + bty'' + cy = 0$; try $y = t^m$.', topic: Reduction of order}
+- {front: 'Indicial equation of $at^2y'''' + bty'' + cy = 0$', back: '$am(m - 1) + bm + c = 0$', topic: Reduction of order}
+- {front: 'Cauchy–Euler: repeated root $m$', back: '$y = t^m(c_1 + c_2\ln t)$', topic: Reduction of order}
+- {front: 'Cauchy–Euler: complex roots $\alpha \pm i\beta$', back: '$y = t^\alpha\big(c_1\cos(\beta\ln t) + c_2\sin(\beta\ln t)\big)$', topic: Reduction of order}
+# Undetermined coefficients
+- {front: 'Guess for forcing $Ce^{\alpha t}$', back: '$Ae^{\alpha t}$ (times $t^s$ if $\alpha$ is a root of multiplicity $s$).', topic: Undetermined coefficients}
+- {front: 'Guess for forcing $C\cos\beta t$ or $C\sin\beta t$', back: '$A\cos\beta t + B\sin\beta t$: always both.', topic: Undetermined coefficients}
+- {front: 'Guess for a degree-$n$ polynomial forcing', back: '$A_nt^n + \cdots + A_1t + A_0$: include all lower powers.', topic: Undetermined coefficients}
+- {front: 'Guess for $P_n(t)e^{\alpha t}\cos\beta t$', back: '$e^{\alpha t}\big(Q_n(t)\cos\beta t + R_n(t)\sin\beta t\big)$ with full degree-$n$ polynomials $Q_n, R_n$.', topic: Undetermined coefficients}
+- {front: 'Modification rule', back: 'If any term of the guess solves the homogeneous equation, multiply the guess by $t$ (or $t^2$ for a double root).', topic: Undetermined coefficients}
+- {front: 'Forcing that is a sum $g_1 + g_2$', back: 'Find $Y_1$ for $g_1$ and $Y_2$ for $g_2$ separately; $Y = Y_1 + Y_2$.', topic: Undetermined coefficients}
+# Variation of parameters
+- {front: 'Variation of parameters formulas', back: '$u_1'' = -\dfrac{y_2g}{W}$, $u_2'' = \dfrac{y_1g}{W}$, $Y = u_1y_1 + u_2y_2$.', topic: Variation of parameters}
+- {front: 'What $g$ does variation of parameters use?', back: 'The right side of the standard form (coefficient of $y''''$ equal to 1).', topic: Variation of parameters}
+- {front: 'When to use variation of parameters instead of undetermined coefficients', back: 'Forcing like $\sec t$, $\tan t$, $\ln t$, $1/t$, or variable coefficients.', topic: Variation of parameters}
+- {front: 'Particular solution of $y'''' + \omega^2y = g$ with zero initial data', back: '$Y = \dfrac1\omega\displaystyle\int_0^t\sin\big(\omega(t - s)\big)g(s)\,ds$', topic: Variation of parameters}
+# Vibrations
+- {front: 'Spring–mass equation', back: '$mu'''' + \gamma u'' + ku = F(t)$', topic: Mechanical vibrations}
+- {front: 'Spring constant from a static stretch', back: '$k = mg/L$ (weight divided by stretch).', topic: Mechanical vibrations}
+- {front: 'Natural frequency and period', back: '$\omega_0 = \sqrt{k/m}$, period $2\pi/\omega_0$.', topic: Mechanical vibrations}
+- {front: 'Damping classification', back: '$\gamma^2 < 4km$ underdamped; $= 4km$ critically damped; $> 4km$ overdamped.', topic: Mechanical vibrations}
+- {front: 'Critical damping coefficient', back: '$\gamma_c = 2\sqrt{km}$', topic: Mechanical vibrations}
+- {front: 'Quasi-frequency of underdamped motion', back: '$\mu = \dfrac{\sqrt{4km - \gamma^2}}{2m}$, slightly less than $\omega_0$.', topic: Mechanical vibrations}
+- {front: 'Mass from weight in US units', back: '$m = W/32$ slugs (with $g = 32$ ft/s²).', topic: Mechanical vibrations}
+- {front: 'Resonance (undamped, $\omega = \omega_0$)', back: '$U = \dfrac{F_0}{2m\omega_0}t\sin\omega_0t$: amplitude grows linearly.', topic: Forced vibrations}
+- {front: 'Undamped forced response, $\omega \ne \omega_0$', back: '$U = \dfrac{F_0}{m(\omega_0^2 - \omega^2)}\cos\omega t$', topic: Forced vibrations}
+- {front: 'Beats', back: 'From rest, $u \propto \sin\frac{(\omega_0 - \omega)t}{2}\sin\frac{(\omega_0 + \omega)t}{2}$: fast oscillation inside a slow envelope.', topic: Forced vibrations}
+- {front: 'Damped steady-state amplitude', back: '$R = \dfrac{F_0}{\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}}$', topic: Forced vibrations}
+- {front: 'Transient vs steady state', back: 'Transient: complementary solution, decays when $\gamma > 0$. Steady state: particular solution at the forcing frequency.', topic: Forced vibrations}
+- {front: 'RLC equation', back: '$Lq'''' + Rq'' + \dfrac1Cq = E(t)$; $L \leftrightarrow m$, $R \leftrightarrow \gamma$, $1/C \leftrightarrow k$.', topic: RLC circuits}
+- {front: 'RLC natural frequency and critical resistance', back: '$\omega_0 = 1/\sqrt{LC}$; critical when $R^2 = 4L/C$.', topic: RLC circuits}
+# Higher order
+- {front: 'Root $r$ of multiplicity $k$ (higher order)', back: 'Contributes $e^{rt}, te^{rt}, \dots, t^{k-1}e^{rt}$.', topic: Higher-order equations}
+- {front: 'Repeated complex pair $\lambda \pm i\mu$ (multiplicity 2)', back: '$e^{\lambda t}\big((c_1 + c_2t)\cos\mu t + (c_3 + c_4t)\sin\mu t\big)$', topic: Higher-order equations}
+- {front: 'Solve $y^{(4)} - y = 0$', back: '$c_1e^t + c_2e^{-t} + c_3\cos t + c_4\sin t$', topic: Higher-order equations}
+- {front: 'Rational root test', back: 'Rational roots $p/q$ of an integer polynomial have $p \mid$ constant term and $q \mid$ leading coefficient.', topic: Higher-order equations}
+# Laplace
+- {front: 'Definition of the Laplace transform', back: '$\mathcal{L}\{f\} = F(s) = \displaystyle\int_0^\infty e^{-st}f(t)\,dt$', topic: Laplace transform}
+- {front: '$\mathcal{L}\{1\}$, $\mathcal{L}\{t^n\}$', back: '$\dfrac1s$, $\dfrac{n!}{s^{n+1}}$', topic: Laplace transform}
+- {front: '$\mathcal{L}\{e^{at}\}$', back: '$\dfrac{1}{s - a}$', topic: Laplace transform}
+- {front: '$\mathcal{L}\{\sin bt\}$, $\mathcal{L}\{\cos bt\}$', back: '$\dfrac{b}{s^2 + b^2}$, $\dfrac{s}{s^2 + b^2}$', topic: Laplace transform}
+- {front: 'First shifting theorem', back: '$\mathcal{L}\{e^{at}f(t)\} = F(s - a)$', topic: Laplace transform}
+- {front: '$\mathcal{L}\{e^{at}\cos bt\}$, $\mathcal{L}\{e^{at}\sin bt\}$', back: '$\dfrac{s - a}{(s - a)^2 + b^2}$, $\dfrac{b}{(s - a)^2 + b^2}$', topic: Laplace transform}
+- {front: '$\mathcal{L}\{t^ne^{at}\}$', back: '$\dfrac{n!}{(s - a)^{n+1}}$', topic: Laplace transform}
+- {front: 'Is $\mathcal{L}\{fg\} = F(s)G(s)$?', back: 'No. The product of transforms corresponds to the convolution $f * g$.', topic: Laplace transform}
+- {front: 'Inverting $\dfrac{As + B}{s^2 + 2as + c}$ (complex roots)', back: 'Complete the square to $(s + a)^2 + b^2$, write the numerator as $A(s + a) + (B - Aa)$, and use the shifted cosine and sine.', topic: Inverse Laplace transform}
+- {front: 'Cover-up method', back: 'For a simple factor $(s - a)$: cover it, set $s = a$ in the rest; the value is the coefficient of $\frac{1}{s - a}$.', topic: Inverse Laplace transform}
+- {front: 'Partial fractions for $(s - a)^k$', back: '$\dfrac{A_1}{s - a} + \dfrac{A_2}{(s - a)^2} + \cdots + \dfrac{A_k}{(s - a)^k}$', topic: Inverse Laplace transform}
+- {front: '$\mathcal{L}^{-1}\left\{\dfrac{1}{(s - a)^2}\right\}$', back: '$te^{at}$', topic: Inverse Laplace transform}
+- {front: 'Initial value theorem', back: '$f(0^+) = \displaystyle\lim_{s\to\infty} sF(s)$', topic: Inverse Laplace transform}
+- {front: '$\mathcal{L}\{y''\}$ and $\mathcal{L}\{y''''\}$', back: '$sY - y(0)$; $s^2Y - sy(0) - y''(0)$.', topic: Laplace transform IVPs}
+- {front: 'Laplace method for IVPs', back: 'Transform both sides, solve algebraically for $Y(s)$, invert. Initial conditions enter automatically.', topic: Laplace transform IVPs}
+- {front: 'What multiplies $Y(s)$ after transforming $ay'''' + by'' + cy = g$?', back: 'The characteristic polynomial $as^2 + bs + c$.', topic: Laplace transform IVPs}
+- {front: '$\mathcal{L}\{u_c(t)\}$', back: '$\dfrac{e^{-cs}}{s}$', topic: Step functions}
+- {front: 'Second shifting theorem', back: '$\mathcal{L}\{u_c(t)f(t - c)\} = e^{-cs}F(s)$; $\mathcal{L}^{-1}\{e^{-cs}H(s)\} = u_c(t)h(t - c)$.', topic: Step functions}
+- {front: '$\mathcal{L}\{u_c(t)g(t)\}$ (not yet in terms of $t - c$)', back: '$e^{-cs}\mathcal{L}\{g(t + c)\}$', topic: Step functions}
+- {front: 'Pulse on $a \le t < b$ with height $k$', back: '$k\big(u_a(t) - u_b(t)\big)$', topic: Step functions}
+- {front: 'Switch from $f_1$ to $f_2$ at $t = c$', back: '$f_1(t) + \big(f_2(t) - f_1(t)\big)u_c(t)$', topic: Step functions}
+- {front: '$\mathcal{L}\{\delta(t - c)\}$', back: '$e^{-cs}$ (and $\mathcal{L}\{\delta(t)\} = 1$).', topic: Impulses and convolution}
+- {front: 'Sifting property', back: '$\displaystyle\int f(t)\delta(t - c)\,dt = f(c)$', topic: Impulses and convolution}
+- {front: 'Convolution', back: '$(f * g)(t) = \displaystyle\int_0^t f(t - \tau)g(\tau)\,d\tau$; $\mathcal{L}\{f * g\} = F(s)G(s)$.', topic: Impulses and convolution}
+- {front: 'Transfer function and impulse response', back: '$H(s) = \dfrac{1}{as^2 + bs + c}$; $h = \mathcal{L}^{-1}\{H\}$. Zero-state response to $g$: $y = h * g$.', topic: Impulses and convolution}
+- {front: 'Effect of an impulse on a mass', back: 'Velocity (momentum) jumps instantly; position stays continuous.', topic: Impulses and convolution}
+# Systems
+- {front: 'Converting $y'''' + py'' + qy = g$ to a system', back: '$x_1 = y$, $x_2 = y''$: $x_1'' = x_2$, $x_2'' = -qx_1 - px_2 + g$.', topic: Linear systems}
+- {front: 'Characteristic equation of a $2 \times 2$ matrix', back: '$\lambda^2 - (\operatorname{tr}A)\lambda + \det A = 0$', topic: Linear systems}
+- {front: 'Eigen-solution of $\mathbf{x}'' = A\mathbf{x}$', back: '$\mathbf{x} = e^{\lambda t}\mathbf{v}$ where $A\mathbf{v} = \lambda\mathbf{v}$.', topic: Linear systems}
+- {front: 'General solution, distinct real eigenvalues', back: '$\mathbf{x} = c_1e^{\lambda_1t}\mathbf{v}^{(1)} + c_2e^{\lambda_2t}\mathbf{v}^{(2)}$', topic: Phase portraits}
+- {front: 'Saddle point', back: 'Real eigenvalues of opposite sign ($\det A < 0$). Unstable.', topic: Phase portraits}
+- {front: 'Nodal sink / nodal source', back: 'Real eigenvalues both negative (sink, stable) or both positive (source, unstable).', topic: Phase portraits}
+- {front: 'Direction trajectories enter a nodal sink', back: 'Tangent to the slow eigenvector (eigenvalue closest to 0).', topic: Phase portraits}
+- {front: 'Complex eigenvalues $\alpha \pm i\beta$, eigenvector $\mathbf{a} + i\mathbf{b}$', back: '$\mathbf{x} = c_1e^{\alpha t}(\mathbf{a}\cos\beta t - \mathbf{b}\sin\beta t) + c_2e^{\alpha t}(\mathbf{a}\sin\beta t + \mathbf{b}\cos\beta t)$', topic: Phase portraits}
+- {front: 'Spiral sink, spiral source, center', back: 'Complex eigenvalues with real part $< 0$, $> 0$, $= 0$.', topic: Phase portraits}
+- {front: 'Repeated eigenvalue, one eigenvector', back: '$\mathbf{x} = c_1e^{\lambda t}\mathbf{v} + c_2e^{\lambda t}(t\mathbf{v} + \mathbf{w})$ with $(A - \lambda I)\mathbf{w} = \mathbf{v}$.', topic: Phase portraits}
+- {front: 'Trace–determinant test for asymptotic stability', back: '$\operatorname{tr}A < 0$ and $\det A > 0$.', topic: Phase portraits}
+- {front: 'Nodes vs spirals in the trace–determinant plane', back: '$T^2 - 4D > 0$: real eigenvalues (node or saddle). $T^2 - 4D < 0$: spiral or center.', topic: Phase portraits}
+- {front: 'Rotation direction of a spiral or center', back: 'Compute $A(1, 0)$: second component positive means counterclockwise.', topic: Phase portraits}
+- {front: 'Jacobian of $x'' = F(x, y)$, $y'' = G(x, y)$', back: '$J = \begin{bmatrix} F_x & F_y \\ G_x & G_y \end{bmatrix}$ at the equilibrium.', topic: Nonlinear systems}
+- {front: 'When does linearization decide the type of a nonlinear equilibrium?', back: 'When no eigenvalue of $J$ has zero real part. Linearized centers are inconclusive.', topic: Nonlinear systems}
+- {front: 'Lotka–Volterra equilibria', back: '$(0, 0)$, a saddle, and $(c/\gamma, a/\alpha)$, a center; populations cycle.', topic: Nonlinear systems}
+- {front: 'Pendulum equilibria $x'' = y$, $y'' = -\sin x$', back: '$(0, 0)$: center (hanging down). $(\pi, 0)$: saddle (inverted, unstable).', topic: Nonlinear systems}
+# Series, Fourier, PDE
+- {front: 'Series substitution', back: '$y = \sum a_nx^n$, $y'' = \sum na_nx^{n-1}$, $y'''' = \sum n(n-1)a_nx^{n-2}$; shift indices to match powers.', topic: Series solutions}
+- {front: 'Ordinary point', back: '$P(x_0) \ne 0$ in $Py'''' + Qy'' + Ry = 0$; then two power-series solutions exist, with $a_0 = y(x_0)$, $a_1 = y''(x_0)$.', topic: Series solutions}
+- {front: 'Guaranteed radius of convergence', back: 'At least the distance from $x_0$ to the nearest singular point, complex ones included.', topic: Series solutions}
+- {front: 'Recurrence for $y'''' + y = 0$', back: '$a_{n+2} = -\dfrac{a_n}{(n+2)(n+1)}$, giving $a_0\cos x + a_1\sin x$.', topic: Series solutions}
+- {front: 'Recurrence for Airy''s equation $y'''' = xy$', back: '$a_2 = 0$, $a_{n+2} = \dfrac{a_{n-1}}{(n+2)(n+1)}$ (skips by 3).', topic: Series solutions}
+- {front: 'Fourier series (period $2L$)', back: '$\tfrac{a_0}{2} + \sum\left(a_n\cos\frac{n\pi x}{L} + b_n\sin\frac{n\pi x}{L}\right)$', topic: Fourier series}
+- {front: 'Fourier coefficient formulas', back: '$a_n = \tfrac1L\int_{-L}^Lf\cos\frac{n\pi x}{L}\,dx$, $b_n = \tfrac1L\int_{-L}^Lf\sin\frac{n\pi x}{L}\,dx$', topic: Fourier series}
+- {front: 'Even and odd functions in Fourier series', back: 'Even $f$: cosine terms only. Odd $f$: sine terms only.', topic: Fourier series}
+- {front: 'Value of a Fourier series at a jump', back: 'The average $\tfrac12\big(f(x^-) + f(x^+)\big)$.', topic: Fourier series}
+- {front: 'Square wave ($\pm1$, period $2\pi$) series', back: '$\dfrac4\pi\left(\sin x + \dfrac{\sin 3x}{3} + \dfrac{\sin 5x}{5} + \cdots\right)$', topic: Fourier series}
+- {front: 'Half-range sine coefficients on $(0, L)$', back: '$b_n = \dfrac2L\displaystyle\int_0^Lf(x)\sin\frac{n\pi x}{L}\,dx$', topic: Fourier series}
+- {front: 'Heat equation solution (zero ends)', back: '$u = \sum b_ne^{-\alpha^2(n\pi/L)^2t}\sin\frac{n\pi x}{L}$, $b_n$ = sine coefficients of $u(x, 0)$.', topic: Heat and wave equations}
+- {front: 'Wave equation solution (fixed ends)', back: '$u = \sum\left(b_n\cos\frac{n\pi at}{L} + c_n\sin\frac{n\pi at}{L}\right)\sin\frac{n\pi x}{L}$', topic: Heat and wave equations}
+- {front: 'Eigenvalues of $X'''' + \lambda X = 0$, $X(0) = X(L) = 0$', back: '$\lambda_n = (n\pi/L)^2$, $X_n = \sin\frac{n\pi x}{L}$, $n = 1, 2, \dots$', topic: Heat and wave equations}
+- {front: 'Frequencies of a vibrating string', back: '$\dfrac{na}{2L}$ Hz; fundamental $\dfrac{a}{2L}$, harmonics are whole multiples.', topic: Heat and wave equations}
+- {front: 'Separation of variables idea', back: 'Try $u = X(x)T(t)$; a function of $t$ equal to a function of $x$ must be a constant, giving two ODEs.', topic: Heat and wave equations}

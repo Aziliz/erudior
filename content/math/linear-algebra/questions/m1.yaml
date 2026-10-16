@@ -1,0 +1,376 @@
+# Module 1: bridge (vectors in the plane, elimination, matrix arithmetic)
+
+# --- Lesson 01: vectors in the plane ---
+- id: la-q-0101
+  lesson: la-plane-vectors
+  module_quiz: true
+  topic: Plane vectors
+  stem: 'Let $\mathbf{u} = \begin{bmatrix} 2 \\ -3\end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} 4 \\ 1\end{bmatrix}$. Find $2\mathbf{u} - \mathbf{v}$.'
+  choices: ['$\begin{bmatrix} 0 \\ -7\end{bmatrix}$', '$\begin{bmatrix} 8 \\ -5\end{bmatrix}$', '$\begin{bmatrix} -2 \\ -4\end{bmatrix}$', '$\begin{bmatrix} 0 \\ -5\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $2\mathbf{u} = \begin{bmatrix} 4 \\ -6\end{bmatrix}$, and subtracting $\mathbf{v}$ gives $\begin{bmatrix} 4 - 4 \\ -6 - 1\end{bmatrix} = \begin{bmatrix} 0 \\ -7\end{bmatrix}$.
+    $\begin{bmatrix} 8 \\ -5\end{bmatrix}$ is $2\mathbf{u} + \mathbf{v}$, and $\begin{bmatrix} -2 \\ -4\end{bmatrix}$ is $\mathbf{u} - \mathbf{v}$ (forgot to scale).
+
+- id: la-q-0102
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'What is the magnitude of $\mathbf{v} = \begin{bmatrix} -5 \\ 12\end{bmatrix}$?'
+  choices: ['$7$', '$17$', '$13$', '$\sqrt{119}$']
+  answer: 2
+  explanation: |-
+    $\|\mathbf{v}\| = \sqrt{(-5)^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$.
+    $\sqrt{119}$ comes from using $-25$ instead of $(-5)^2 = 25$; 17 and 7 add or subtract the components instead of using the Pythagorean theorem.
+
+- id: la-q-0103
+  lesson: la-plane-vectors
+  module_quiz: true
+  topic: Plane vectors
+  stem: 'Find the vector $\overrightarrow{PQ}$ from $P = (2, -1)$ to $Q = (-3, 4)$.'
+  choices: ['$\begin{bmatrix} 5 \\ -5\end{bmatrix}$', '$\begin{bmatrix} -5 \\ 3\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 3\end{bmatrix}$', '$\begin{bmatrix} -5 \\ 5\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    Head minus tail: $Q - P = \begin{bmatrix} -3 - 2 \\ 4 - (-1)\end{bmatrix} = \begin{bmatrix} -5 \\ 5\end{bmatrix}$.
+    $\begin{bmatrix} 5 \\ -5\end{bmatrix}$ is $P - Q$ (the opposite vector), and $\begin{bmatrix} -1 \\ 3\end{bmatrix}$ adds the points instead of subtracting.
+
+- id: la-q-0104
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'Which is the unit vector in the direction of $\begin{bmatrix} 6 \\ -8\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} 3/7 \\ -4/7\end{bmatrix}$', '$\begin{bmatrix} 0.8 \\ -0.6\end{bmatrix}$', '$\begin{bmatrix} 3 \\ -4\end{bmatrix}$', '$\begin{bmatrix} 0.6 \\ -0.8\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    The length is $\sqrt{36 + 64} = 10$, so the unit vector is $\tfrac{1}{10}\begin{bmatrix} 6 \\ -8\end{bmatrix} = \begin{bmatrix} 0.6 \\ -0.8\end{bmatrix}$.
+    Dividing by $6 + 8 = 14$ gives $\begin{bmatrix} 3/7 \\ -4/7\end{bmatrix}$, whose length isn't 1; $\begin{bmatrix} 3 \\ -4\end{bmatrix}$ has length 5.
+
+- id: la-q-0105
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'If $\|\mathbf{v}\| = 4$, what is $\|-3\mathbf{v}\|$?'
+  choices: ['$12$', '$-12$', '$4$', '$36$']
+  answer: 0
+  explanation: |-
+    $\|c\mathbf{v}\| = |c|\,\|\mathbf{v}\| = 3 \cdot 4 = 12$. A length is never negative; the minus sign only reverses the direction.
+
+- id: la-q-0106
+  lesson: la-plane-vectors
+  module_quiz: true
+  topic: Plane vectors
+  stem: 'Which statement holds for **all** vectors $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$?'
+  choices: ['$\|\mathbf{u} + \mathbf{v}\| = \|\mathbf{u}\| + \|\mathbf{v}\|$', '$\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$', '$\|\mathbf{u} + \mathbf{v}\| \ge \|\mathbf{u}\| + \|\mathbf{v}\|$', '$\|\mathbf{u} - \mathbf{v}\| = \|\mathbf{u}\| - \|\mathbf{v}\|$']
+  answer: 1
+  explanation: |-
+    This is the triangle inequality: one side of a triangle is never longer than the other two combined.
+    Equality holds only when the vectors point the same way, so the first choice fails in general (for example $\mathbf{u} = \mathbf{e}_1$, $\mathbf{v} = -\mathbf{e}_1$ gives $0$ versus $2$).
+
+- id: la-q-0107
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'Find scalars $c_1, c_2$ with $c_1\begin{bmatrix} 1 \\ 2\end{bmatrix} + c_2\begin{bmatrix} 3 \\ 0\end{bmatrix} = \begin{bmatrix} 8 \\ 4\end{bmatrix}$.'
+  choices: ['$c_1 = 4,\ c_2 = 4/3$', '$c_1 = 2,\ c_2 = 10/3$', '$c_1 = 2,\ c_2 = 2$', '$c_1 = -2,\ c_2 = 10/3$']
+  answer: 2
+  explanation: |-
+    Second components: $2c_1 + 0 = 4$, so $c_1 = 2$. First components: $c_1 + 3c_2 = 8$, so $3c_2 = 6$ and $c_2 = 2$.
+    Check: $2\begin{bmatrix} 1 \\ 2\end{bmatrix} + 2\begin{bmatrix} 3 \\ 0\end{bmatrix} = \begin{bmatrix} 8 \\ 4\end{bmatrix}$.
+
+- id: la-q-0108
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'A vector has length 10 and makes a $60^\circ$ angle with the positive $x$-axis. What are its components?'
+  choices: ['$\begin{bmatrix} 5\sqrt3 \\ 5\end{bmatrix}$', '$\begin{bmatrix} 1/2 \\ \sqrt3/2\end{bmatrix}$', '$\begin{bmatrix} 10 \\ 10\sqrt3\end{bmatrix}$', '$\begin{bmatrix} 5 \\ 5\sqrt3\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $\begin{bmatrix} r\cos\theta \\ r\sin\theta\end{bmatrix} = \begin{bmatrix} 10 \cdot \tfrac12 \\ 10 \cdot \tfrac{\sqrt3}{2}\end{bmatrix} = \begin{bmatrix} 5 \\ 5\sqrt3\end{bmatrix}$.
+    Swapping sine and cosine gives the vector at $30^\circ$; $\begin{bmatrix} 1/2 \\ \sqrt3/2\end{bmatrix}$ forgets the length 10.
+
+- id: la-q-0109
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'Which vector is parallel to $\begin{bmatrix} 2 \\ -3\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} -6 \\ 9\end{bmatrix}$', '$\begin{bmatrix} 3 \\ -2\end{bmatrix}$', '$\begin{bmatrix} -2 \\ -3\end{bmatrix}$', '$\begin{bmatrix} 4 \\ -9\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    Parallel vectors are scalar multiples of each other: $\begin{bmatrix} -6 \\ 9\end{bmatrix} = -3\begin{bmatrix} 2 \\ -3\end{bmatrix}$ (opposite direction, but parallel).
+    No single scalar turns $\begin{bmatrix} 2 \\ -3\end{bmatrix}$ into any of the others; for $\begin{bmatrix} 4 \\ -9\end{bmatrix}$ the first component needs 2 and the second needs 3.
+
+- id: la-q-0110
+  lesson: la-plane-vectors
+  module_quiz: true
+  topic: Plane vectors
+  stem: 'Two forces $\begin{bmatrix} 3 \\ 4\end{bmatrix}$ N and $\begin{bmatrix} 5 \\ -10\end{bmatrix}$ N act on an object. What is the magnitude of the resultant (total) force?'
+  choices: ['$10$ N', '$14$ N', 'about $16.2$ N', '$\sqrt{28}$ N']
+  answer: 0
+  explanation: |-
+    The resultant is the sum $\begin{bmatrix} 8 \\ -6\end{bmatrix}$, with magnitude $\sqrt{64 + 36} = 10$ N.
+    About 16.2 N is $5 + \sqrt{125}$, adding the two magnitudes, which is wrong unless the forces point the same way; 14 adds $|8| + |{-6}|$.
+
+- id: la-q-0111
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'Draw $\mathbf{u}$ and $\mathbf{v}$ from the origin. Which arrow represents $\mathbf{u} - \mathbf{v}$?'
+  choices: ['The arrow from the head of $\mathbf{u}$ to the head of $\mathbf{v}$', 'The diagonal of the parallelogram from the origin', 'The arrow from the head of $\mathbf{v}$ to the head of $\mathbf{u}$', 'The arrow from the origin to the midpoint of the heads']
+  answer: 2
+  explanation: |-
+    $\mathbf{v} + (\mathbf{u} - \mathbf{v}) = \mathbf{u}$, so $\mathbf{u} - \mathbf{v}$ is the trip that starts at the head of $\mathbf{v}$ and ends at the head of $\mathbf{u}$.
+    The arrow the other way is $\mathbf{v} - \mathbf{u}$; the diagonal from the origin is $\mathbf{u} + \mathbf{v}$.
+
+- id: la-q-0112
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'Write $\begin{bmatrix} 5 \\ -2\end{bmatrix}$ in terms of the standard basis vectors.'
+  choices: ['$5\mathbf{e}_2 - 2\mathbf{e}_1$', '$5\mathbf{e}_1 - 2\mathbf{e}_2$', '$5\mathbf{e}_1 + 2\mathbf{e}_2$', '$-2\mathbf{e}_1 + 5\mathbf{e}_2$']
+  answer: 1
+  explanation: |-
+    $5\mathbf{e}_1 - 2\mathbf{e}_2 = \begin{bmatrix} 5 \\ 0\end{bmatrix} + \begin{bmatrix} 0 \\ -2\end{bmatrix} = \begin{bmatrix} 5 \\ -2\end{bmatrix}$. The coefficient of $\mathbf{e}_1$ is the first component.
+
+# --- Lesson 02: elimination ---
+- id: la-q-0201
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'Which equation is linear in $x$ and $y$?'
+  choices: ['$xy = 4$', '$x^2 + y = 1$', '$\sqrt{x} + y = 2$', '$3x - \sqrt{2}\,y = 7$']
+  answer: 3
+  explanation: |-
+    A linear equation has each variable to the first power, multiplied only by constants. $\sqrt2$ is just a constant coefficient, so $3x - \sqrt2\,y = 7$ is linear.
+    The others contain a product of variables, a square, or a square root of a variable.
+
+- id: la-q-0202
+  lesson: la-elimination
+  module_quiz: true
+  topic: Elimination
+  stem: 'Solve $x + 3y = 5$ and $2x - y = -4$.'
+  choices: ['$(-1, 2)$', '$(1, 2)$', '$(2, -1)$', '$(-1, -2)$']
+  answer: 0
+  explanation: |-
+    Multiply the second equation by 3 and add: $x + 3y + 6x - 3y = 5 - 12$, so $7x = -7$ and $x = -1$. Then $-1 + 3y = 5$ gives $y = 2$.
+    Check: $2(-1) - 2 = -4$. ✓
+
+- id: la-q-0203
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'Solve $2x + y = 7$ and $x - y = 2$.'
+  choices: ['$(1, 5)$', '$(2, 3)$', '$(3, -1)$', '$(3, 1)$']
+  answer: 3
+  explanation: |-
+    Add the equations to eliminate $y$: $3x = 9$, so $x = 3$. Then $3 - y = 2$ gives $y = 1$. Check: $2(3) + 1 = 7$. ✓
+    $(1, 5)$ satisfies only the first equation.
+
+- id: la-q-0204
+  lesson: la-elimination
+  module_quiz: true
+  topic: Elimination
+  stem: 'How many solutions does the system $x + 2y = 3$, $3x + 6y = 9$ have?'
+  choices: ['None', 'Exactly one', 'Infinitely many', 'Exactly two']
+  answer: 2
+  explanation: |-
+    The second equation is 3 times the first. Subtracting 3 times the first leaves $0 = 0$, so the equations describe the same line and every point on it is a solution.
+    A linear system can never have exactly two solutions.
+
+- id: la-q-0205
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'What does elimination reveal about $2x - 4y = 6$ and $-x + 2y = 1$?'
+  choices: ['It has the unique solution $(3, 0)$', 'It has infinitely many solutions', 'It reduces to $0 = 0$', 'It is inconsistent: it reduces to $0 = 8$']
+  answer: 3
+  explanation: |-
+    Double the second equation, $-2x + 4y = 2$, and add it to the first: $0 = 8$. That's impossible, so there is no solution; the lines are parallel.
+    $(3, 0)$ satisfies the first equation but gives $-3 \ne 1$ in the second.
+
+- id: la-q-0206
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'Which of these moves can change the solution set of a linear system?'
+  choices: ['Swapping two equations', 'Multiplying an equation by $0$', 'Adding $5$ times one equation to another', 'Multiplying an equation by $-3$']
+  answer: 1
+  explanation: |-
+    Multiplying by 0 turns an equation into $0 = 0$ and throws away its information; it can't be undone. The other three moves are reversible, so they never change the solutions.
+
+- id: la-q-0207
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'Why can a linear system never have exactly two solutions?'
+  choices: ['Because lines can only cross at one point', 'Because the number of equations must equal the number of unknowns', 'Because elimination always produces a unique answer', 'If $\mathbf{p}$ and $\mathbf{q}$ are solutions, every point $\mathbf{p} + t(\mathbf{q} - \mathbf{p})$ on the line through them is too']
+  answer: 3
+  explanation: |-
+    Each equation $a_1x_1 + \cdots + a_nx_n = b$ holds at $\mathbf{p}$ and $\mathbf{q}$; plugging in $(1 - t)\mathbf{p} + t\mathbf{q}$ gives $(1 - t)b + tb = b$. So two solutions force infinitely many.
+
+- id: la-q-0208
+  lesson: la-elimination
+  module_quiz: true
+  topic: Elimination
+  stem: 'Solve: $\;x + y - z = 0,\;\; 2x - y + 3z = 9,\;\; x + 2y + z = 8$.'
+  choices: ['$(2, 1, 3)$', '$(1, 3, 2)$', '$(3, 2, 1)$', '$(1, 2, 3)$']
+  answer: 3
+  explanation: |-
+    Subtract 2 times equation 1 from equation 2: $-3y + 5z = 9$. Subtract equation 1 from equation 3: $y + 2z = 8$.
+    Add 3 times the second new equation to the first: $11z = 33$, so $z = 3$; then $y = 8 - 6 = 2$ and $x = z - y = 1$.
+    $(2, 1, 3)$ satisfies the first equation but gives $12 \ne 9$ in the second.
+
+- id: la-q-0209
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'Back-substitute to find $x$: $\;z = 2,\;\; y - 4z = -5,\;\; x + y + z = 6$.'
+  choices: ['$x = 1$', '$x = 3$', '$x = -7$', '$x = 7$']
+  answer: 0
+  explanation: |-
+    $y = -5 + 4(2) = 3$, then $x = 6 - 3 - 2 = 1$.
+    $x = 7$ comes from $y = 5 - 8 = -3$ (a sign slip on the $-5$).
+
+- id: la-q-0210
+  lesson: la-elimination
+  topic: Elimination
+  stem: |-
+    A student solves $x + y = 5$, $3x - 2y = 0$:
+
+    Step 1: Multiply the first equation by 2: $2x + 2y = 5$.
+    Step 2: Add to the second: $5x = 5$, so $x = 1$.
+    Step 3: Then $y = 5 - 1 = 4$.
+
+    Where is the first error?
+  choices: ['Step 2', 'Step 3', 'Step 1', 'There is no error']
+  answer: 2
+  explanation: |-
+    Multiplying an equation by 2 must double both sides: $2x + 2y = 10$. Then $5x = 10$, $x = 2$, $y = 3$. Check: $3(2) - 2(3) = 0$. ✓
+
+- id: la-q-0211
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'A theater sold 120 tickets for \$810. Adult tickets cost \$8 and child tickets \$5. How many adult tickets were sold?'
+  choices: ['50', '60', '70', '90']
+  answer: 2
+  explanation: |-
+    $a + c = 120$ and $8a + 5c = 810$. Subtract 5 times the first: $3a = 810 - 600 = 210$, so $a = 70$ (and $c = 50$).
+    Check: $8(70) + 5(50) = 560 + 250 = 810$. ✓ 50 is the number of child tickets.
+
+- id: la-q-0212
+  lesson: la-elimination
+  module_quiz: true
+  topic: Elimination
+  stem: 'Using $x - y + 2z = 1$ to eliminate $x$ from $2x + 3y - z = 5$ gives which equation?'
+  choices: ['$5y - 5z = 3$', '$y + z = 4$', '$5y + 3z = 3$', '$5y - 5z = 7$']
+  answer: 0
+  explanation: |-
+    Subtract 2 times the first: $(2x + 3y - z) - (2x - 2y + 4z) = 5 - 2$, giving $5y - 5z = 3$.
+    $5y - 5z = 7$ adds the 2 on the right side instead of subtracting it; $5y + 3z = 3$ comes from a sign slip in $-z - 4z$.
+
+# --- Lesson 03: matrix arithmetic ---
+- id: la-q-0301
+  lesson: la-matrix-arith
+  module_quiz: true
+  topic: Matrix arithmetic
+  stem: '$A$ is $3 \times 4$ and $B$ is $4 \times 2$. What is the size of $AB$?'
+  choices: ['$4 \times 4$', '$2 \times 3$', '$3 \times 2$', '$AB$ is undefined']
+  answer: 2
+  explanation: |-
+    $(3 \times \underline{4})(\underline{4} \times 2)$: the inner sizes match, and the outer ones give $3 \times 2$.
+
+- id: la-q-0302
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: '$A$ and $B$ are both $2 \times 3$, and $C$ is $3 \times 1$. Which of these is undefined?'
+  choices: ['$A + B$', '$AB$', '$3A$', '$BC$']
+  answer: 1
+  explanation: |-
+    $AB$ needs the columns of $A$ (3) to equal the rows of $B$ (2); they don't. $A + B$ is fine (same size), and $BC$ is $(2\times 3)(3 \times 1) = 2 \times 1$.
+
+- id: la-q-0303
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Compute $\begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}\begin{bmatrix} 2 \\ -1\end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} -1 \\ 0\end{bmatrix}$', '$\begin{bmatrix} 2 \\ -2\end{bmatrix}$', '$\begin{bmatrix} 0 \\ -2\end{bmatrix}$', '$\begin{bmatrix} 0 \\ 2\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    Row 1: $1(2) + 2(-1) = 0$. Row 2: $3(2) + 4(-1) = 2$.
+    $\begin{bmatrix} -1 \\ 0\end{bmatrix}$ comes from using the columns of the matrix as if they were rows.
+
+- id: la-q-0304
+  lesson: la-matrix-arith
+  module_quiz: true
+  topic: Matrix arithmetic
+  stem: 'Let $A = \begin{bmatrix} 1 & -2 \\ 3 & 0\end{bmatrix}$ and $B = \begin{bmatrix} 4 & 1 \\ 2 & 5\end{bmatrix}$. What is the $(2, 1)$ entry of $AB$?'
+  choices: ['$12$', '$-9$', '$17$', '$6$']
+  answer: 0
+  explanation: |-
+    Row 2 of $A$ times column 1 of $B$: $3(4) + 0(2) = 12$.
+    $-9$ is the $(1, 2)$ entry, 17 is the $(2, 1)$ entry of $BA$, and 6 multiplies only $a_{21}b_{21}$.
+
+- id: la-q-0305
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Find the inverse of $\begin{bmatrix} 3 & 5 \\ 1 & 2\end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 3 & -5 \\ -1 & 2\end{bmatrix}$', '$\begin{bmatrix} -2 & 5 \\ 1 & -3\end{bmatrix}$', '$\begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 5 \\ 1 & 3\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    The determinant is $3(2) - 5(1) = 1$. Swap the diagonal entries and negate the off-diagonal ones: $\begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix}$.
+    Check: $\begin{bmatrix} 3 & 5 \\ 1 & 2\end{bmatrix}\begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$.
+
+- id: la-q-0306
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Find the inverse of $\begin{bmatrix} 2 & 4 \\ 1 & 3\end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 3 & -4 \\ -1 & 2\end{bmatrix}$', '$\begin{bmatrix} 3/2 & 2 \\ 1/2 & 1\end{bmatrix}$', '$\begin{bmatrix} 3/2 & -2 \\ -1/2 & 1\end{bmatrix}$', '$\begin{bmatrix} 1/2 & 1/4 \\ 1 & 1/3\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $ad - bc = 6 - 4 = 2$, so $A^{-1} = \tfrac12\begin{bmatrix} 3 & -4 \\ -1 & 2\end{bmatrix} = \begin{bmatrix} 3/2 & -2 \\ -1/2 & 1\end{bmatrix}$.
+    The first choice forgets to divide by the determinant; the last takes reciprocals of the entries, which is not how inverses work.
+
+- id: la-q-0307
+  lesson: la-matrix-arith
+  module_quiz: true
+  topic: Matrix arithmetic
+  stem: 'Which matrix has no inverse?'
+  choices: ['$\begin{bmatrix} 2 & 6 \\ 1 & 4\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 2 & 6 \\ 1 & 3\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $2(3) - 6(1) = 0$, so the determinant is 0 and there is no inverse (the second row is half the first).
+    The others have determinants $2$, $-1$ and $-1$.
+
+- id: la-q-0308
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Let $A = \begin{bmatrix} 1 & -2 \\ 0 & 4\end{bmatrix}$ and $B = \begin{bmatrix} 3 & 1 \\ -2 & 5\end{bmatrix}$. What is the $(2, 1)$ entry of $3A - 2B$?'
+  choices: ['$-4$', '$4$', '$0$', '$2$']
+  answer: 1
+  explanation: |-
+    $3(0) - 2(-2) = 0 + 4 = 4$. Getting $-4$ means the double negative was missed.
+
+- id: la-q-0309
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Which identity holds for **all** $2 \times 2$ matrices $A, B, C$?'
+  choices: ['$AB = BA$', '$(A + B)^2 = A^2 + 2AB + B^2$', '$A(B + C) = AB + AC$', 'If $AB = 0$, then $A = 0$ or $B = 0$']
+  answer: 2
+  explanation: |-
+    Matrix multiplication distributes over addition. The others fail because $AB \ne BA$ in general: $(A + B)^2 = A^2 + AB + BA + B^2$.
+    Nonzero matrices can multiply to zero, e.g. $\begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix}^2 = 0$.
+
+- id: la-q-0310
+  lesson: la-matrix-arith
+  module_quiz: true
+  topic: Matrix arithmetic
+  stem: 'Use an inverse to solve $\begin{bmatrix} 2 & 1 \\ 5 & 3\end{bmatrix}\begin{bmatrix} x \\ y\end{bmatrix} = \begin{bmatrix} 4 \\ 11\end{bmatrix}$.'
+  choices: ['$x = 2,\ y = 1$', '$x = 23,\ y = -42$', '$x = -1,\ y = 6$', '$x = 1,\ y = 2$']
+  answer: 3
+  explanation: |-
+    The determinant is $6 - 5 = 1$, so $A^{-1} = \begin{bmatrix} 3 & -1 \\ -5 & 2\end{bmatrix}$ and $\mathbf{x} = A^{-1}\mathbf{b} = \begin{bmatrix} 12 - 11 \\ -20 + 22\end{bmatrix} = \begin{bmatrix} 1 \\ 2\end{bmatrix}$.
+    Check: $2 + 2 = 4$ and $5 + 6 = 11$. ✓
+
+- id: la-q-0311
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Compute $\begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}^2$.'
+  choices: ['$\begin{bmatrix} 1 & 4 \\ 9 & 16\end{bmatrix}$', '$\begin{bmatrix} 2 & 4 \\ 6 & 8\end{bmatrix}$', '$\begin{bmatrix} 7 & 10 \\ 15 & 20\end{bmatrix}$', '$\begin{bmatrix} 7 & 10 \\ 15 & 22\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    Multiply the matrix by itself: $(1)(1) + (2)(3) = 7$, $(1)(2) + (2)(4) = 10$, $(3)(1) + (4)(3) = 15$, $(3)(2) + (4)(4) = 22$.
+    Squaring each entry gives $\begin{bmatrix} 1 & 4 \\ 9 & 16\end{bmatrix}$, which is not the matrix product.
+
+- id: la-q-0312
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: 'Customer 1 buys 2 shirts and 3 hats; customer 2 buys 1 shirt and 4 hats. Shirts cost \$15 and hats \$10. With $Q = \begin{bmatrix} 2 & 3 \\ 1 & 4\end{bmatrix}$ and $\mathbf{p} = \begin{bmatrix} 15 \\ 10\end{bmatrix}$, what does $Q\mathbf{p}$ give?'
+  choices: ['Each customer''s bill: \$60 and \$55', 'Each item''s revenue: \$40 and \$85', 'Each customer''s bill: \$40 and \$85', 'Each item''s revenue: \$60 and \$55']
+  answer: 0
+  explanation: |-
+    Row $i$ of $Q$ lists customer $i$'s quantities, so row times prices is that customer's bill: $2(15) + 3(10) = 60$ and $1(15) + 4(10) = 55$.
+    \$40 and \$85 would come from using the columns of $Q$, which doesn't match the setup.

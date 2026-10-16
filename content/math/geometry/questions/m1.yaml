@@ -1,0 +1,368 @@
+# Module 1 — Foundations of geometry
+- id: geo-q-0101
+  lesson: geo-basics
+  module_quiz: true
+  topic: Undefined terms
+  stem: 'Which three terms are left undefined in Euclidean geometry?'
+  choices: ['Point, line, plane', 'Point, segment, angle', 'Line, ray, plane', 'Point, line, angle']
+  answer: 0
+  explanation: |-
+    Point, line and plane are described by example and by postulates, not defined. Segments, rays and angles are all *defined* using them.
+- id: geo-q-0102
+  lesson: geo-basics
+  topic: Undefined terms
+  stem: 'Which notation names a ray that starts at $P$ and passes through $Q$?'
+  choices: ['$\overline{PQ}$', '$\overrightarrow{PQ}$', '$\overrightarrow{QP}$', '$\overleftrightarrow{PQ}$']
+  answer: 1
+  explanation: |-
+    A ray is written with its endpoint first and a one-headed arrow: $\overrightarrow{PQ}$. $\overrightarrow{QP}$ starts at $Q$, $\overline{PQ}$ is a segment and $\overleftrightarrow{PQ}$ is a line.
+- id: geo-q-0103
+  lesson: geo-basics
+  topic: Postulates
+  stem: 'Which statement is a postulate rather than a theorem?'
+  choices: ['Vertical angles are congruent.', 'The angles of a triangle add to $180^\circ$.', 'Through any two points there is exactly one line.', 'The base angles of an isosceles triangle are congruent.']
+  answer: 2
+  explanation: |-
+    "Two points determine a line" is accepted without proof. The others are proved from postulates, so they are theorems.
+- id: geo-q-0104
+  lesson: geo-basics
+  module_quiz: true
+  topic: Postulates
+  stem: 'Two distinct planes intersect. What is their intersection?'
+  choices: ['A point', 'Two points', 'A plane', 'A line']
+  answer: 3
+  explanation: |-
+    By postulate, the intersection of two distinct intersecting planes is a line (think of the crease where two walls meet).
+- id: geo-q-0105
+  lesson: geo-basics
+  topic: Postulates
+  stem: 'Points $A$, $B$, $C$ and $D$ are given, and no three of them are collinear. How many different lines pass through two of the points?'
+  choices: ['6', '4', '8', '12']
+  answer: 0
+  explanation: |-
+    Each pair determines one line, and no line contains three of the points, so count pairs: $\binom{4}{2} = 6$ ($AB, AC, AD, BC, BD, CD$). 12 counts each pair twice.
+- id: geo-q-0106
+  lesson: geo-basics
+  topic: Undefined terms
+  stem: 'Why does a three-legged stool rest steadily on a flat floor while a four-legged chair can wobble?'
+  choices: ['Three points always lie on one line.', 'Three noncollinear points determine exactly one plane, but four points need not be coplanar.', 'Two lines meet in at most one point.', 'Two planes intersect in a line.']
+  answer: 1
+  explanation: |-
+    The three feet are noncollinear points, so exactly one plane (the floor) contains them. Four feet may not all lie in one plane, so one can lift off.
+- id: geo-q-0107
+  lesson: geo-basics
+  module_quiz: true
+  topic: Postulates
+  stem: '$B$ is between $A$ and $C$. $AB = 3x - 2$, $BC = x + 6$ and $AC = 28$. Find $AB$.'
+  choices: ['6', '12', '16', '22']
+  answer: 2
+  explanation: |-
+    Segment addition: $(3x - 2) + (x + 6) = 28$, so $4x + 4 = 28$ and $x = 6$. Then $AB = 3(6) - 2 = 16$ (and $BC = 12$; $16 + 12 = 28$). 6 is $x$, not $AB$.
+- id: geo-q-0108
+  lesson: geo-basics
+  topic: Undefined terms
+  stem: 'Two lines in space do not intersect and are not parallel. What are they called?'
+  choices: ['Perpendicular', 'Collinear', 'Coplanar', 'Skew']
+  answer: 3
+  explanation: |-
+    Skew lines are noncoplanar: they never meet and are not parallel. Parallel lines must be coplanar.
+- id: geo-q-0109
+  lesson: geo-basics
+  topic: Undefined terms
+  stem: 'Which statement about $\overrightarrow{AB}$ and $\overrightarrow{BA}$ is true?'
+  choices: ['They are different rays; they share the segment $\overline{AB}$.', 'They are the same ray.', 'They are opposite rays.', 'Together they form a plane.']
+  answer: 0
+  explanation: |-
+    $\overrightarrow{AB}$ starts at $A$ and $\overrightarrow{BA}$ starts at $B$; they point toward each other and overlap in $\overline{AB}$. Opposite rays share an endpoint, which these do not.
+- id: geo-q-0110
+  lesson: geo-basics
+  topic: Postulates
+  stem: 'Points $D$, $E$, $F$ lie on one line. How many planes contain all three?'
+  choices: ['Exactly one', 'Infinitely many', 'None', 'Exactly three']
+  answer: 1
+  explanation: |-
+    The postulate guaranteeing a single plane needs *noncollinear* points. Infinitely many planes contain a given line, like pages rotating around a book's spine.
+- id: geo-q-0111
+  lesson: geo-basics
+  topic: Postulates
+  stem: '$R$ is between $Q$ and $S$, $QR = 2y$, $RS = 5y - 3$ and $QS = 4y + 9$. Find $QS$.'
+  choices: ['4', '21', '25', '33']
+  answer: 2
+  explanation: |-
+    $2y + (5y - 3) = 4y + 9$ gives $3y = 12$, $y = 4$. Then $QS = 4(4) + 9 = 25$. Check: $QR = 8$, $RS = 17$, $8 + 17 = 25$.
+
+- id: geo-q-0201
+  lesson: geo-measure
+  module_quiz: true
+  topic: Segments and midpoints
+  stem: 'On a number line, $A$ is at $-6$ and $B$ is at $9$. Find $AB$ and the coordinate of the midpoint of $\overline{AB}$.'
+  choices: ['$AB = 15$, midpoint $1.5$', '$AB = 3$, midpoint $1.5$', '$AB = 15$, midpoint $7.5$', '$AB = 3$, midpoint $-1.5$']
+  answer: 0
+  explanation: |-
+    $AB = |9 - (-6)| = 15$. Midpoint $= \tfrac{-6 + 9}{2} = 1.5$. Getting 3 comes from $9 + (-6)$; 7.5 is half the length, not the midpoint.
+- id: geo-q-0202
+  lesson: geo-measure
+  topic: Segments and midpoints
+  stem: '$M$ is the midpoint of $\overline{AB}$, $AM = 5x + 2$ and $MB = 8x - 13$. Find $AB$.'
+  choices: ['27', '54', '5', '108']
+  answer: 1
+  explanation: |-
+    $5x + 2 = 8x - 13$ gives $x = 5$, so $AM = 27$ and $AB = 2(27) = 54$.
+- id: geo-q-0203
+  lesson: geo-measure
+  topic: Angle measure
+  stem: 'An angle measures $90^\circ$ exactly. Which word describes it?'
+  choices: ['Acute', 'Obtuse', 'Right', 'Straight']
+  answer: 2
+  explanation: |-
+    Exactly $90^\circ$ is a right angle. Acute is less than $90^\circ$, obtuse between $90^\circ$ and $180^\circ$, straight exactly $180^\circ$.
+- id: geo-q-0204
+  lesson: geo-measure
+  module_quiz: true
+  topic: Angle measure
+  stem: '$D$ is in the interior of $\angle ABC$, $m\angle ABD = 2x + 10$, $m\angle DBC = 4x - 8$ and $m\angle ABC = 116^\circ$. Find $m\angle DBC$.'
+  choices: ['$19^\circ$', '$48^\circ$', '$58^\circ$', '$68^\circ$']
+  answer: 3
+  explanation: |-
+    $(2x + 10) + (4x - 8) = 116$ gives $6x = 114$, $x = 19$. So $m\angle DBC = 4(19) - 8 = 68^\circ$ (and $m\angle ABD = 48^\circ$; $48 + 68 = 116$).
+- id: geo-q-0205
+  lesson: geo-measure
+  topic: Angle measure
+  stem: 'In the name $\angle XYZ$, which point is the vertex?'
+  choices: ['$Y$', '$X$', '$Z$', 'It cannot be told from the name.']
+  answer: 0
+  explanation: |-
+    The vertex is always the middle letter, so the vertex is $Y$ and the sides are $\overrightarrow{YX}$ and $\overrightarrow{YZ}$.
+- id: geo-q-0206
+  lesson: geo-measure
+  topic: Angle measure
+  stem: '$\overrightarrow{BD}$ bisects $\angle ABC$. If $m\angle ABD = 3y + 5$ and $m\angle ABC = 8y - 20$, find $m\angle ABC$.'
+  choices: ['$50^\circ$', '$100^\circ$', '$15^\circ$', '$20^\circ$']
+  answer: 1
+  explanation: |-
+    The whole is twice the half: $8y - 20 = 2(3y + 5) = 6y + 10$, so $y = 15$ and $m\angle ABC = 8(15) - 20 = 100^\circ$ (each half is $50^\circ$). $20^\circ$ comes from setting the whole equal to the half.
+- id: geo-q-0207
+  lesson: geo-measure
+  topic: Segments and midpoints
+  stem: 'How many midpoints and how many bisectors does a segment have?'
+  choices: ['One midpoint, one bisector', 'Two midpoints, infinitely many bisectors', 'One midpoint, infinitely many bisectors', 'Infinitely many of each']
+  answer: 2
+  explanation: |-
+    A segment has exactly one midpoint, but any line, ray, segment or plane through that midpoint is a bisector, so there are infinitely many bisectors.
+- id: geo-q-0208
+  lesson: geo-measure
+  module_quiz: true
+  topic: Segments and midpoints
+  stem: '$M$ at $4$ is the midpoint of $\overline{PQ}$ on a number line, and $P$ is at $-3$. Where is $Q$?'
+  choices: ['$0.5$', '$7$', '$1$', '$11$']
+  answer: 3
+  explanation: |-
+    $\tfrac{-3 + q}{2} = 4$ gives $q = 11$. Or: $P$ is 7 units left of $M$, so $Q$ is 7 units right, at 11. $0.5$ is the midpoint of $-3$ and 4.
+- id: geo-q-0209
+  lesson: geo-measure
+  topic: Angle measure
+  stem: 'Which measure is an obtuse angle?'
+  choices: ['$135^\circ$', '$45^\circ$', '$90^\circ$', '$180^\circ$']
+  answer: 0
+  explanation: |-
+    Obtuse means strictly between $90^\circ$ and $180^\circ$; only $135^\circ$ qualifies.
+- id: geo-q-0210
+  lesson: geo-measure
+  topic: Segments and midpoints
+  stem: '$\overline{AB} \cong \overline{CD}$, $AB = 4x - 1$ and $CD = 2x + 9$. Find $CD$.'
+  choices: ['5', '19', '10', '38']
+  answer: 1
+  explanation: |-
+    Congruent segments have equal lengths: $4x - 1 = 2x + 9$, so $x = 5$ and $CD = 2(5) + 9 = 19$.
+- id: geo-q-0211
+  lesson: geo-measure
+  topic: Angle measure
+  stem: 'A student says "$\overrightarrow{BD}$ is inside $\angle ABC$ and splits it into $40^\circ$ and $50^\circ$, so $\overrightarrow{BD}$ bisects the angle." What is wrong?'
+  choices: ['Nothing; any interior ray is a bisector.', 'The angle must be $180^\circ$.', 'A bisector makes two equal angles, but $40^\circ \ne 50^\circ$.', 'The parts should multiply to the whole.']
+  answer: 2
+  explanation: |-
+    Angle addition gives $m\angle ABC = 90^\circ$, but a bisector requires both parts to be equal ($45^\circ$ each). This ray is not a bisector.
+
+- id: geo-q-0301
+  lesson: geo-anglepairs
+  module_quiz: true
+  topic: Angle pairs
+  stem: 'What is the complement of a $38^\circ$ angle?'
+  choices: ['$142^\circ$', '$62^\circ$', '$38^\circ$', '$52^\circ$']
+  answer: 3
+  explanation: |-
+    Complementary angles sum to $90^\circ$: $90 - 38 = 52^\circ$. $142^\circ$ is the supplement.
+- id: geo-q-0302
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'What is the supplement of a $73^\circ$ angle?'
+  choices: ['$107^\circ$', '$17^\circ$', '$287^\circ$', '$73^\circ$']
+  answer: 0
+  explanation: |-
+    Supplementary angles sum to $180^\circ$: $180 - 73 = 107^\circ$. $17^\circ$ is the complement.
+- id: geo-q-0303
+  lesson: geo-anglepairs
+  module_quiz: true
+  topic: Angle pairs
+  stem: 'Two lines intersect. One angle is $(5x - 12)^\circ$ and its vertical angle is $(3x + 20)^\circ$. Find the measure of each angle in this vertical pair.'
+  choices: ['$16^\circ$', '$68^\circ$', '$112^\circ$', '$22^\circ$']
+  answer: 1
+  explanation: |-
+    Vertical angles are congruent: $5x - 12 = 3x + 20$, so $x = 16$ and the angle is $5(16) - 12 = 68^\circ$. $112^\circ$ is the measure of the other pair.
+- id: geo-q-0304
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'Angles 1 and 2 form a linear pair, and $m\angle 1 = 4\cdot m\angle 2$. Find $m\angle 1$.'
+  choices: ['$36^\circ$', '$72^\circ$', '$144^\circ$', '$18^\circ$']
+  answer: 2
+  explanation: |-
+    A linear pair sums to $180^\circ$: $4a + a = 180$, so $a = 36^\circ = m\angle 2$ and $m\angle 1 = 144^\circ$. $72^\circ$ uses 90 instead of 180.
+- id: geo-q-0305
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'Which statement is always true?'
+  choices: ['Supplementary angles form a linear pair.', 'Complementary angles are adjacent.', 'Vertical angles are supplementary.', 'A linear pair is supplementary.']
+  answer: 3
+  explanation: |-
+    A linear pair always sums to $180^\circ$. The converse fails: supplementary angles need not be adjacent. Vertical angles are congruent, and are supplementary only when both are right angles.
+- id: geo-q-0306
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'An angle is $30^\circ$ less than twice its supplement. Find the angle.'
+  choices: ['$110^\circ$', '$70^\circ$', '$50^\circ$', '$130^\circ$']
+  answer: 0
+  explanation: |-
+    $x = 2(180 - x) - 30 = 330 - 2x$, so $3x = 330$ and $x = 110^\circ$. Check: supplement $70^\circ$, $2(70) - 30 = 110$.
+- id: geo-q-0307
+  lesson: geo-anglepairs
+  module_quiz: true
+  topic: Angle pairs
+  stem: 'Two lines intersect and one of the four angles is $58^\circ$. What are the other three angles?'
+  choices: ['$58^\circ$, $32^\circ$, $32^\circ$', '$58^\circ$, $122^\circ$, $122^\circ$', '$122^\circ$, $122^\circ$, $122^\circ$', '$32^\circ$, $58^\circ$, $122^\circ$']
+  answer: 1
+  explanation: |-
+    The vertical angle is also $58^\circ$; the two adjacent angles form linear pairs with it, so each is $180 - 58 = 122^\circ$. The four add to $360^\circ$.
+- id: geo-q-0308
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'Which angle has no complement?'
+  choices: ['$1^\circ$', '$45^\circ$', '$95^\circ$', '$89^\circ$']
+  answer: 2
+  explanation: |-
+    A complement would have to measure $90 - 95 = -5^\circ$, which is impossible. Only acute angles have complements.
+- id: geo-q-0309
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'The supplement of an angle is three times its complement. Find the angle.'
+  choices: ['$30^\circ$', '$60^\circ$', '$22.5^\circ$', '$45^\circ$']
+  answer: 3
+  explanation: |-
+    $180 - x = 3(90 - x)$ gives $180 - x = 270 - 3x$, so $2x = 90$ and $x = 45^\circ$. Check: $135 = 3 \cdot 45$.
+- id: geo-q-0310
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'Line $\ell$ is perpendicular to line $m$. How many right angles are formed where they meet?'
+  choices: ['4', '1', '2', '0']
+  answer: 0
+  explanation: |-
+    One right angle forces its vertical angle to be $90^\circ$, and its linear-pair partners to be $180 - 90 = 90^\circ$. All four angles are right.
+- id: geo-q-0311
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'Angles $A$ and $B$ are complementary, $m\angle A = 2x + 6$ and $m\angle B = 5x$. Find $m\angle A$.'
+  choices: ['$12^\circ$', '$30^\circ$', '$60^\circ$', '$84^\circ$']
+  answer: 1
+  explanation: |-
+    $(2x + 6) + 5x = 90$, so $7x = 84$ and $x = 12$. Then $m\angle A = 2(12) + 6 = 30^\circ$ and $m\angle B = 60^\circ$.
+
+- id: geo-q-0401
+  lesson: geo-construct
+  module_quiz: true
+  topic: Constructions
+  stem: 'Which two tools are allowed in a classical construction?'
+  choices: ['Ruler and protractor', 'Protractor and compass', 'Unmarked straightedge and compass', 'Ruler and set square']
+  answer: 2
+  explanation: |-
+    Constructions use only a straightedge (no scale) and a compass. Measuring tools are not allowed, which is what makes constructions exact.
+- id: geo-q-0402
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'When constructing the perpendicular bisector of $\overline{AB}$, why must the compass be opened to more than half of $AB$?'
+  choices: ['So the line is long enough to draw', 'So the arcs pass through $A$ and $B$', 'So the result is perpendicular', 'So the arcs from $A$ and $B$ cross at two points']
+  answer: 3
+  explanation: |-
+    With less than half, the arcs never meet; with exactly half they touch only at the midpoint. Two crossing points are needed to draw the line.
+- id: geo-q-0403
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'In the angle-bisector construction, the triangles $\triangle BXZ$ and $\triangle BYZ$ are congruent. Which congruence shortcut justifies this?'
+  choices: ['SSS', 'SAS', 'ASA', 'AA']
+  answer: 0
+  explanation: |-
+    $BX = BY$ (same first arc), $XZ = YZ$ (same second opening) and $BZ$ is shared: three pairs of equal sides, so SSS. AA is a similarity test, not congruence.
+- id: geo-q-0404
+  lesson: geo-construct
+  module_quiz: true
+  topic: Constructions
+  stem: 'Point $P$ is found by drawing equal-radius arcs from $A$ and from $B$. What must be true of $P$?'
+  choices: ['$P$ is the midpoint of $\overline{AB}$.', '$PA = PB$', '$P$ lies on $\overline{AB}$.', '$\angle APB$ is a right angle.']
+  answer: 1
+  explanation: |-
+    Both distances equal the compass opening, so $PA = PB$; $P$ lies on the perpendicular bisector of $\overline{AB}$, but generally not on $\overline{AB}$ itself.
+- id: geo-q-0405
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'A $68^\circ$ angle is bisected, and then one of the resulting angles is bisected again. What is the smallest angle formed?'
+  choices: ['$34^\circ$', '$22.7^\circ$', '$17^\circ$', '$8.5^\circ$']
+  answer: 2
+  explanation: |-
+    The first bisection gives $34^\circ$ angles; bisecting one gives $17^\circ$. ($22.7^\circ$ would be a trisection, which is impossible in general.)
+- id: geo-q-0406
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'Euclid constructs an equilateral triangle on $\overline{AB}$ with two circles. Why is $AC = BC$?'
+  choices: ['Because $C$ is the midpoint', 'Because the circles are tangent', 'By the Pythagorean theorem', 'Both equal $AB$, since each is a radius of a circle whose radius is $AB$']
+  answer: 3
+  explanation: |-
+    $AC$ is a radius of the circle centered at $A$ through $B$, so $AC = AB$; $BC$ is a radius of the circle centered at $B$ through $A$, so $BC = AB$. Hence all three sides are equal.
+- id: geo-q-0407
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'Which task is impossible with compass and straightedge alone?'
+  choices: ['Trisecting an arbitrary angle', 'Bisecting an arbitrary angle', 'Constructing a regular hexagon', 'Constructing a perpendicular through a point']
+  answer: 0
+  explanation: |-
+    Angle trisection in general was proved impossible in the 1800s. The other three are standard constructions.
+- id: geo-q-0408
+  lesson: geo-construct
+  module_quiz: true
+  topic: Constructions
+  stem: 'To construct a line through $P$ parallel to line $\ell$, you draw a line through $P$ crossing $\ell$. What do you do next?'
+  choices: ['Bisect the angle formed at $\ell$', 'Copy the angle formed at $\ell$ to $P$ in the corresponding position', 'Construct the perpendicular bisector of the crossing line', 'Draw a circle centered at $P$ through the crossing point']
+  answer: 1
+  explanation: |-
+    Copying the angle at $P$ makes congruent corresponding angles, which (Module 3) forces the new line to be parallel to $\ell$.
+- id: geo-q-0409
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'Why can you mark six points around a circle by stepping the compass at the radius, and have them close up exactly?'
+  choices: ['Because $2\pi \approx 6$', 'Because the circle has six diameters', 'Because the chord equal to the radius forms an equilateral triangle with the center, and six $60^\circ$ angles make $360^\circ$', 'Because any chord divides the circle into six parts']
+  answer: 2
+  explanation: |-
+    Each step makes a triangle with two radii and a chord equal to the radius, so it is equilateral and its central angle is $60^\circ$. Six of them make exactly $360^\circ$.
+- id: geo-q-0410
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'A segment runs from $-5$ to $13$ on a number line. Its perpendicular bisector is constructed. At what coordinate does it cross the segment?'
+  choices: ['$9$', '$8$', '$18$', '$4$']
+  answer: 3
+  explanation: |-
+    The perpendicular bisector crosses at the midpoint: $\tfrac{-5 + 13}{2} = 4$. 9 is half the length, 18 the length.
+- id: geo-q-0411
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'In the copy-a-segment construction, what does the compass do?'
+  choices: ['Transfers the length $AB$ to a new location', 'Measures $AB$ in centimeters', 'Draws the line $\overleftrightarrow{AB}$', 'Finds the midpoint of $\overline{AB}$']
+  answer: 0
+  explanation: |-
+    The compass holds the distance from $A$ to $B$ and an arc from the new starting point marks a point at that same distance. It never measures in units.

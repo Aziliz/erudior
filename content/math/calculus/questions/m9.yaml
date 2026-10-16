@@ -1,0 +1,212 @@
+# Module 9: Differential equations
+- id: calc-q-3601
+  lesson: calc-slope-fields-euler
+  module_quiz: true
+  topic: Euler's method
+  stem: 'Use one step of Euler''s method with $h = 0.1$ for $\frac{dy}{dx} = 2x + y$, $y(1) = 3$. What is the estimate of $y(1.1)$?'
+  choices: ['$3.5$', '$3.2$', '$3.05$', '$5$']
+  answer: 0
+  explanation: |-
+    Slope at $(1, 3)$: $2 + 3 = 5$. $y_1 = 3 + 0.1(5) = 3.5$.
+- id: calc-q-3602
+  lesson: calc-slope-fields-euler
+  topic: Euler's method
+  stem: 'Two Euler steps with $h = 0.5$ for $\frac{dy}{dx} = y$, $y(0) = 1$. Estimate $y(1)$.'
+  choices: ['$2$', '$2.718$', '$2.25$', '$2.5$']
+  answer: 2
+  explanation: |-
+    $y_1 = 1 + 0.5(1) = 1.5$; $y_2 = 1.5 + 0.5(1.5) = 2.25$. The true value $e \approx 2.718$ is larger, because the solution is concave up.
+- id: calc-q-3603
+  lesson: calc-slope-fields-euler
+  module_quiz: true
+  topic: Slope fields
+  stem: 'In a slope field, all segments in each vertical column are parallel. Which form must the equation have?'
+  choices: ['$\frac{dy}{dx} = g(y)$', '$\frac{dy}{dx} = f(x)$', '$\frac{dy}{dx} = x + y$', '$\frac{dy}{dx} = xy$']
+  answer: 1
+  explanation: |-
+    Same slope all the way up a column means the slope doesn't depend on $y$. Solutions are then vertical shifts of one another.
+- id: calc-q-3604
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'For $\frac{dy}{dx} = y(y - 3)$, what are the equilibrium solutions?'
+  choices: ['$y = 0$ and $y = 3$', '$y = 3$ only', '$x = 0$ and $x = 3$', '$y = -3$ and $y = 0$']
+  answer: 0
+  explanation: |-
+    Equilibria are constant solutions, where $\frac{dy}{dx} = 0$ for all $x$: $y = 0$ and $y = 3$.
+- id: calc-q-3605
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'Which function is a solution of $y'' = 3y$?'
+  choices: ['$y = 3x$', '$y = e^{x/3}$', '$y = x^3$', '$y = 5e^{3x}$']
+  answer: 3
+  explanation: |-
+    $y' = 15e^{3x} = 3(5e^{3x}) = 3y$. ✓ The others fail when substituted.
+- id: calc-q-3606
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'At the point $(2, -1)$, the slope-field segment for $\frac{dy}{dx} = x^2y$ has slope'
+  choices: ['$-4$', '$4$', '$-2$', '$2$']
+  answer: 0
+  explanation: |-
+    $x^2y = 4(-1) = -4$.
+- id: calc-q-3607
+  lesson: calc-slope-fields-euler
+  module_quiz: true
+  topic: Euler's method
+  stem: 'If the solution curve of a differential equation is concave down on an interval, Euler''s method there'
+  choices: ['underestimates', 'is exact', 'overestimates', 'diverges']
+  answer: 2
+  explanation: |-
+    Each Euler step follows a tangent line, and a concave-down curve lies below its tangent lines.
+- id: calc-q-3608
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'Where are the slope-field segments horizontal for $\frac{dy}{dx} = x - 2y$?'
+  choices: ['Along $y = 2x$', 'Along $x = 0$', 'Along $y = \frac x2$', 'Along $y = 0$']
+  answer: 2
+  explanation: |-
+    Slope 0 when $x - 2y = 0$, i.e. on the line $y = \frac x2$.
+- id: calc-q-3609
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'What is the order of $y'''' + 4y'' - y = \sin x$?'
+  choices:
+    - 'Second'
+    - 'First'
+    - 'Third'
+    - 'Zero'
+  answer: 0
+  explanation: |-
+    The highest derivative is $y''$, so the equation is second order.
+- id: calc-q-3610
+  lesson: calc-slope-fields-euler
+  topic: Euler's method
+  stem: 'In an Euler step from $(x_n, y_n)$, which slope is used?'
+  choices: ['The slope at the end of the step', 'The average of the start and end slopes', 'The exact solution''s slope at $x_n + h$', 'The slope $F(x_n, y_n)$ at the start of the step']
+  answer: 3
+  explanation: |-
+    $y_{n+1} = y_n + hF(x_n, y_n)$. (Averaging start and end slopes is an improved method, not Euler's.)
+- id: calc-q-3611
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'For $\frac{dy}{dx} = y(4 - y)$, a solution starts at $y(0) = 1$. What happens as $x\to\infty$?'
+  choices: ['$y \to 4$', '$y \to 0$', '$y \to \infty$', '$y$ oscillates']
+  answer: 0
+  explanation: |-
+    Between the equilibria 0 and 4 the slope is positive, so $y$ increases and levels off at the stable equilibrium 4.
+- id: calc-q-3612
+  lesson: calc-slope-fields-euler
+  topic: Euler's method
+  stem: 'Halving the step size in Euler''s method (same interval) roughly does what to the error?'
+  choices: ['Halves it', 'Quarters it', 'Doubles it', 'Leaves it unchanged']
+  answer: 0
+  explanation: |-
+    Euler's method is first order: the error is roughly proportional to $h$.
+
+- id: calc-q-3701
+  lesson: calc-separable
+  module_quiz: true
+  topic: Separable equations
+  stem: 'Solve $\frac{dy}{dx} = \frac{x}{y}$ with $y(0) = 4$.'
+  choices: ['$y = \sqrt{x^2 + 16}$', '$y = x + 4$', '$y = \sqrt{x^2 + 4}$', '$y = 4e^{x}$']
+  answer: 0
+  explanation: |-
+    $y\,dy = x\,dx$ gives $y^2 = x^2 + C$; $C = 16$. Positive root since $y(0) > 0$.
+- id: calc-q-3702
+  lesson: calc-separable
+  topic: Separable equations
+  stem: 'Which equation is NOT separable?'
+  choices: ['$\frac{dy}{dx} = xy$', '$\frac{dy}{dx} = e^{x + y}$', '$\frac{dy}{dx} = x + y$', '$\frac{dy}{dx} = \frac{\sin x}{y^2}$']
+  answer: 2
+  explanation: |-
+    $x + y$ can't be written as $g(x)h(y)$. Note $e^{x + y} = e^xe^y$ is separable.
+- id: calc-q-3703
+  lesson: calc-separable
+  module_quiz: true
+  topic: Exponential and logistic models
+  stem: 'A substance decays according to $\frac{dy}{dt} = -0.05y$ ($t$ in years). What is its half-life?'
+  choices: ['$10$ years', '$20$ years', '$13.9$ years', '$6.9$ years']
+  answer: 2
+  explanation: |-
+    $T = \frac{\ln2}{0.05} \approx 13.86$ years.
+- id: calc-q-3704
+  lesson: calc-separable
+  topic: Exponential and logistic models
+  stem: 'A population triples in 5 years under exponential growth. What is $k$?'
+  choices: ['$\frac{\ln3}{5}$', '$\frac35$', '$5\ln3$', '$\frac{\ln5}{3}$']
+  answer: 0
+  explanation: |-
+    $e^{5k} = 3$, so $k = \frac{\ln3}{5} \approx 0.220$.
+- id: calc-q-3705
+  lesson: calc-separable
+  module_quiz: true
+  topic: Exponential and logistic models
+  stem: 'For $\frac{dP}{dt} = 0.3P\left(1 - \frac{P}{800}\right)$ with $P(0) = 50$, what is $\lim_{t\to\infty}P(t)$, and at what population is growth fastest?'
+  choices: ['$800$; $P = 800$', '$800$; $P = 400$', '$\infty$; $P = 400$', '$400$; $P = 200$']
+  answer: 1
+  explanation: |-
+    The carrying capacity is 800; growth $\frac{dP}{dt}$ is a parabola in $P$ peaking at $P = \frac{M}{2} = 400$.
+- id: calc-q-3706
+  lesson: calc-separable
+  topic: Separable equations
+  stem: 'Solve $\frac{dy}{dx} = 3x^2y$, $y(0) = 2$.'
+  choices: ['$y = 2e^{x^3}$', '$y = e^{x^3} + 1$', '$y = 2 + x^3$', '$y = 2e^{3x^2}$']
+  answer: 0
+  explanation: |-
+    $\frac{dy}{y} = 3x^2dx$, $\ln|y| = x^3 + C$, $y = Ae^{x^3}$, $A = 2$.
+- id: calc-q-3707
+  lesson: calc-separable
+  topic: Exponential and logistic models
+  stem: 'Coffee at 95°C cools in a 25°C room by Newton''s law. Which form does $T(t)$ have?'
+  choices: ['$T = 95e^{kt}$', '$T = 25 + 70e^{kt}$ with $k < 0$', '$T = 95 - 25e^{kt}$', '$T = 70e^{kt} - 25$']
+  answer: 1
+  explanation: |-
+    The difference $T - 25$ decays exponentially from $70$: $T = 25 + 70e^{kt}$, $k < 0$.
+- id: calc-q-3708
+  lesson: calc-separable
+  topic: Exponential and logistic models
+  stem: 'The logistic solution $P(t) = \dfrac{1200}{1 + 5e^{-0.4t}}$ has what initial population?'
+  choices: ['$240$', '$1200$', '$200$', '$6000$']
+  answer: 2
+  explanation: |-
+    $P(0) = \frac{1200}{1 + 5} = 200$. (Check: $A = \frac{M - P_0}{P_0} = \frac{1000}{200} = 5$.)
+- id: calc-q-3709
+  lesson: calc-separable
+  topic: Separable equations
+  stem: 'After separating $\frac{dy}{dx} = \frac{2x}{\cos y}$, which equation results?'
+  choices: ['$\sin y = x^2 + C$', '$\cos y = x^2 + C$', '$-\sin y = x^2 + C$', '$\sin y = 2x + C$']
+  answer: 0
+  explanation: |-
+    $\cos y\,dy = 2x\,dx$ integrates to $\sin y = x^2 + C$.
+- id: calc-q-3710
+  lesson: calc-separable
+  topic: Exponential and logistic models
+  stem: 'Money compounds continuously at 4% per year. How long does it take to double?'
+  choices: ['$25$ years', '$17.3$ years', '$12.5$ years', '$18$ years']
+  answer: 1
+  explanation: |-
+    $T = \frac{\ln2}{0.04} \approx 17.33$ years. (The "rule of 72" estimate, 18, is close but not exact.)
+- id: calc-q-3711
+  lesson: calc-separable
+  topic: Exponential and logistic models
+  stem: 'A logistic population starts above its carrying capacity ($P_0 > M$). Over time it'
+  choices: ['grows without bound', 'oscillates around $M$', 'decreases toward $M$', 'drops to 0']
+  answer: 2
+  explanation: |-
+    For $P > M$, $1 - \frac PM < 0$, so $\frac{dP}{dt} < 0$; the population decreases toward the stable equilibrium $M$.
+- id: calc-q-3712
+  lesson: calc-separable
+  topic: Separable equations
+  stem: 'The solution of $\frac{dy}{dx} = y^2$, $y(0) = 1$ is $y = \frac{1}{1 - x}$. On what interval is it valid?'
+  choices: ['All real $x$', '$x > 1$', '$x < 1$', '$x \ne 0$']
+  answer: 2
+  explanation: |-
+    The solution blows up at $x = 1$. It's defined on the interval containing the initial point $x = 0$: $(-\infty, 1)$.
+- id: calc-q-3713
+  lesson: calc-separable
+  topic: Exponential and logistic models
+  stem: 'For a quantity with $\frac{dy}{dt} = ky$, what does the constant $k$ represent?'
+  choices: ['The initial amount', 'The relative (per-unit) growth rate', 'The doubling time', 'The carrying capacity']
+  answer: 1
+  explanation: |-
+    $k = \frac{1}{y}\frac{dy}{dt}$: the rate of change per unit of the quantity, like an interest rate.

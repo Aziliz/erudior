@@ -1,0 +1,382 @@
+# Module 9: Polar coordinates and complex numbers
+- id: trig-q-3501
+  lesson: trig-polar
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'Convert the polar point $\left(4, \tfrac{2\pi}{3}\right)$ to rectangular coordinates.'
+  choices: ['$(2, -2\sqrt3)$', '$(-2\sqrt3, 2)$', '$(-2, 2\sqrt3)$', '$(2\sqrt3, -2)$']
+  answer: 2
+  explanation: |-
+    $x = 4\cos\tfrac{2\pi}{3} = -2$ and $y = 4\sin\tfrac{2\pi}{3} = 2\sqrt3$. Swapping sine and cosine gives $(-2\sqrt3, 2)$.
+- id: trig-q-3502
+  lesson: trig-polar
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'Convert $(-3, 3)$ to polar coordinates with $r > 0$ and $0 \le \theta < 2\pi$.'
+  choices: ['$\left(3\sqrt2, -\tfrac{\pi}{4}\right)$', '$\left(3\sqrt2, \tfrac{7\pi}{4}\right)$', '$\left(18, \tfrac{3\pi}{4}\right)$', '$\left(3\sqrt2, \tfrac{3\pi}{4}\right)$']
+  answer: 3
+  explanation: |-
+    $r = \sqrt{9 + 9} = 3\sqrt2$. The point is in quadrant II, so $\theta = \pi - \tfrac{\pi}{4} = \tfrac{3\pi}{4}$. The calculator's
+    $\tan^{-1}(-1) = -\tfrac{\pi}{4}$ points into quadrant IV. ($18$ forgets the square root.)
+- id: trig-q-3503
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'Convert the polar point $\left(-2, \tfrac{\pi}{6}\right)$ to rectangular coordinates.'
+  choices: ['$(-\sqrt3, -1)$', '$(\sqrt3, 1)$', '$(-1, -\sqrt3)$', '$(\sqrt3, -1)$']
+  answer: 0
+  explanation: |-
+    $x = -2\cos\tfrac{\pi}{6} = -\sqrt3$, $y = -2\sin\tfrac{\pi}{6} = -1$. Negative $r$ puts the point in the opposite
+    direction, quadrant III.
+- id: trig-q-3504
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'Which polar coordinates name the same point as $\left(3, \tfrac{\pi}{4}\right)$?'
+  choices: ['$\left(-3, \tfrac{\pi}{4}\right)$', '$\left(3, -\tfrac{\pi}{4}\right)$', '$\left(-3, \tfrac{5\pi}{4}\right)$', '$\left(3, \tfrac{5\pi}{4}\right)$']
+  answer: 2
+  explanation: |-
+    $(r, \theta) = (-r, \theta + \pi)$: $\left(-3, \tfrac{\pi}{4} + \pi\right)$. The others are reflections of the point.
+- id: trig-q-3505
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'Convert $(2\sqrt3, -2)$ to polar coordinates with $r > 0$ and $0 \le \theta < 2\pi$.'
+  choices: ['$\left(4, \tfrac{5\pi}{6}\right)$', '$\left(4, \tfrac{11\pi}{6}\right)$', '$\left(4, \tfrac{5\pi}{3}\right)$', '$\left(16, \tfrac{11\pi}{6}\right)$']
+  answer: 1
+  explanation: |-
+    $r = \sqrt{12 + 4} = 4$. Quadrant IV with reference angle $\tfrac{\pi}{6}$: $\theta = 2\pi - \tfrac{\pi}{6} = \tfrac{11\pi}{6}$.
+- id: trig-q-3506
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'What is the rectangular form of the polar equation $r = 5$?'
+  choices: ['$x = 5$', '$y = 5x$', '$x^2 + y^2 = 25$', '$x + y = 5$']
+  answer: 2
+  explanation: |-
+    $r^2 = x^2 + y^2$, so $r = 5$ means $x^2 + y^2 = 25$: a circle of radius 5 centered at the pole.
+- id: trig-q-3507
+  lesson: trig-polar
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'What is the rectangular form of $r = 6\cos\theta$?'
+  choices: ['$(x - 3)^2 + y^2 = 9$', '$x = 6$', '$x^2 + (y - 3)^2 = 9$', '$x^2 + y^2 = 36$']
+  answer: 0
+  explanation: |-
+    Multiply by $r$: $r^2 = 6r\cos\theta$, so $x^2 + y^2 = 6x$. Completing the square: $(x - 3)^2 + y^2 = 9$, a circle
+    through the pole centered at $(3, 0)$.
+- id: trig-q-3508
+  lesson: trig-polar
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'Convert $(-5, 2)$ to polar form with $r > 0$; give $\theta$ in radians to four decimals.'
+  choices: ['$\theta \approx -0.3805$', '$\theta \approx 2.7611$', '$\theta \approx 1.9513$', '$\theta \approx 3.5221$']
+  answer: 1
+  explanation: |-
+    The point is in quadrant II. $\tan^{-1}\!\left(-\tfrac25\right) \approx -0.3805$ is in quadrant IV, so add $\pi$: $\theta \approx 2.7611$
+    (with $r = \sqrt{29}$).
+- id: trig-q-3509
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'What is the polar form of the vertical line $x = 4$?'
+  choices: ['$r = 4$', '$\theta = 4$', '$r = 4\cos\theta$', '$r = 4\sec\theta$']
+  answer: 3
+  explanation: |-
+    $x = r\cos\theta = 4$ gives $r = \tfrac{4}{\cos\theta} = 4\sec\theta$. ($r = 4\cos\theta$ is a circle.)
+- id: trig-q-3510
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'In polar coordinates, which describes the pole?'
+  choices: ['$(0, \theta)$ for any $\theta$', 'Only $(0, 0)$', '$(1, 0)$', '$(r, 0)$ for any $r$']
+  answer: 0
+  explanation: |-
+    With $r = 0$ you don't move at all, whatever the direction, so every $(0, \theta)$ names the pole.
+- id: trig-q-3511
+  lesson: trig-polar
+  topic: Polar coordinates
+  stem: 'Convert $(-1, -\sqrt3)$ to polar coordinates with $r > 0$ and $0 \le \theta < 2\pi$.'
+  choices: ['$\left(2, \tfrac{\pi}{3}\right)$', '$\left(2, \tfrac{7\pi}{6}\right)$', '$\left(2, \tfrac{4\pi}{3}\right)$', '$\left(4, \tfrac{4\pi}{3}\right)$']
+  answer: 2
+  explanation: |-
+    $r = \sqrt{1 + 3} = 2$; quadrant III, reference angle $\tfrac{\pi}{3}$, so $\theta = \tfrac{4\pi}{3}$. ($\tfrac{\pi}{3}$ is the calculator's $\tan^{-1}\sqrt3$,
+    in the wrong quadrant.)
+
+- id: trig-q-3601
+  lesson: trig-polar-graphs
+  module_quiz: true
+  topic: Polar graphs
+  stem: 'What is the graph of $r = 2 + 2\cos\theta$?'
+  choices: ['A rose with 2 petals', 'A circle', 'A limaçon with an inner loop', 'A cardioid']
+  answer: 3
+  explanation: |-
+    $r = a + b\cos\theta$ with $a = b$ is a cardioid: it reaches $r = 4$ at $\theta = 0$ and touches the pole at $\theta = \pi$.
+- id: trig-q-3602
+  lesson: trig-polar-graphs
+  module_quiz: true
+  topic: Polar graphs
+  stem: 'How many petals does $r = 3\sin 2\theta$ have?'
+  choices: ['2', '3', '4', '6']
+  answer: 2
+  explanation: |-
+    For $r = a\sin n\theta$ with $n$ even, there are $2n$ petals: $2 \cdot 2 = 4$.
+- id: trig-q-3603
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'How many petals does $r = 4\cos 3\theta$ have?'
+  choices: ['3', '6', '4', '12']
+  answer: 0
+  explanation: |-
+    $n = 3$ is odd, so there are $n = 3$ petals (each of length 4). The curve is traced once as $\theta$ goes from 0 to $\pi$.
+- id: trig-q-3604
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'Which describes the graph of $r = 1 + 2\cos\theta$?'
+  choices: ['Cardioid', 'Limaçon with an inner loop', 'Dimpled limaçon', 'Convex limaçon']
+  answer: 1
+  explanation: |-
+    $a = 1 < b = 2$, so $r$ becomes negative for some $\theta$, which traces an inner loop.
+- id: trig-q-3605
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'For which $\theta$ in $[0, 2\pi)$ does $r = 1 + 2\cos\theta$ pass through the pole?'
+  choices: ['$\theta = \pi$ only', '$\theta = \tfrac{\pi}{3}, \tfrac{5\pi}{3}$', '$\theta = \tfrac{2\pi}{3}, \tfrac{4\pi}{3}$', '$\theta = \tfrac{\pi}{2}, \tfrac{3\pi}{2}$']
+  answer: 2
+  explanation: |-
+    $r = 0$ when $\cos\theta = -\tfrac12$: $\theta = \tfrac{2\pi}{3}$ and $\tfrac{4\pi}{3}$. Between them $r < 0$ (the inner loop).
+- id: trig-q-3606
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'What is the largest value of $r$ on $r = 2 + 2\cos\theta$, and where does it occur?'
+  choices: ['$r = 4$ at $\theta = 0$', '$r = 2$ at $\theta = \tfrac{\pi}{2}$', '$r = 4$ at $\theta = \pi$', '$r = 0$ at $\theta = \pi$']
+  answer: 0
+  explanation: |-
+    $\cos\theta$ is largest (1) at $\theta = 0$, giving $r = 4$. At $\theta = \pi$, $r = 0$ (the cusp at the pole).
+- id: trig-q-3607
+  lesson: trig-polar-graphs
+  module_quiz: true
+  topic: Polar graphs
+  stem: 'Replacing $\theta$ with $-\theta$ leaves $r = 5 - 3\cos\theta$ unchanged. What symmetry does the graph have?'
+  choices: ['About the line $\theta = \tfrac{\pi}{2}$', 'About the pole', 'About the polar axis', 'None']
+  answer: 2
+  explanation: |-
+    $\cos(-\theta) = \cos\theta$, so $(r, \theta)$ on the graph implies $(r, -\theta)$ on it: symmetry about the polar axis.
+- id: trig-q-3608
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'What is the graph of $r = 4\sin\theta$?'
+  choices: ['A circle of radius 4 centered at the pole', 'A circle of radius 2 centered at $(0, 2)$', 'A circle of radius 2 centered at $(2, 0)$', 'A rose with 4 petals']
+  answer: 1
+  explanation: |-
+    $r^2 = 4r\sin\theta$ gives $x^2 + y^2 = 4y$, i.e. $x^2 + (y - 2)^2 = 4$.
+- id: trig-q-3609
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'Which curve is $r^2 = 9\cos 2\theta$?'
+  choices: ['Cardioid', 'Rose with 4 petals', 'Lemniscate', 'Circle']
+  answer: 2
+  explanation: |-
+    Equations of the form $r^2 = a^2\cos 2\theta$ are lemniscates: a figure-eight through the pole, here reaching $r = 3$.
+- id: trig-q-3610
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'Classify $r = 3 + 2\cos\theta$.'
+  choices: ['Inner loop', 'Cardioid', 'Convex limaçon', 'Dimpled limaçon']
+  answer: 3
+  explanation: |-
+    $a = 3$, $b = 2$: $b < a < 2b$ ($2 < 3 < 4$), so it's a dimpled limaçon. It would be convex if $a \ge 4$.
+- id: trig-q-3611
+  lesson: trig-polar-graphs
+  module_quiz: true
+  topic: Polar graphs
+  stem: 'How many petals does $r = 5\cos 4\theta$ have?'
+  choices: ['4', '5', '8', '16']
+  answer: 2
+  explanation: |-
+    $n = 4$ is even, so $2n = 8$ petals, each of length 5.
+
+- id: trig-q-3701
+  lesson: trig-complex-trig
+  module_quiz: true
+  topic: Trigonometric form of complex numbers
+  stem: 'Write $-2 + 2\sqrt3\,i$ in trigonometric form.'
+  choices: ['$4\operatorname{cis}\tfrac{\pi}{3}$', '$4\operatorname{cis}\tfrac{2\pi}{3}$', '$4\operatorname{cis}\tfrac{5\pi}{3}$', '$16\operatorname{cis}\tfrac{2\pi}{3}$']
+  answer: 1
+  explanation: |-
+    $r = \sqrt{4 + 12} = 4$; the point $(-2, 2\sqrt3)$ is in quadrant II with reference angle $\tfrac{\pi}{3}$, so $\theta = \tfrac{2\pi}{3}$.
+- id: trig-q-3702
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'What is the modulus of $3 - 4i$?'
+  choices: ['$5$', '$7$', '$-1$', '$25$']
+  answer: 0
+  explanation: |-
+    $|3 - 4i| = \sqrt{9 + 16} = 5$. Moduli are never negative.
+- id: trig-q-3703
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'What is the argument of $3 - 4i$ in $[0, 2\pi)$, to four decimals?'
+  choices: ['$0.9273$', '$2.2143$', '$4.0689$', '$5.3559$']
+  answer: 3
+  explanation: |-
+    The point $(3, -4)$ is in quadrant IV: $\tan^{-1}\!\left(-\tfrac43\right) \approx -0.9273$, and adding $2\pi$ gives $5.3559$.
+- id: trig-q-3704
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'Write $6\operatorname{cis}225^\circ$ in the form $a + bi$.'
+  choices: ['$3\sqrt2 + 3\sqrt2\,i$', '$-3\sqrt2 - 3\sqrt2\,i$', '$-3 - 3\sqrt3\,i$', '$-3\sqrt2 + 3\sqrt2\,i$']
+  answer: 1
+  explanation: |-
+    $\cos 225^\circ = \sin 225^\circ = -\tfrac{\sqrt2}{2}$, so $6\operatorname{cis}225^\circ = -3\sqrt2 - 3\sqrt2\,i$.
+- id: trig-q-3705
+  lesson: trig-complex-trig
+  module_quiz: true
+  topic: Trigonometric form of complex numbers
+  stem: 'Find $z_1z_2$ for $z_1 = 2\operatorname{cis}40^\circ$ and $z_2 = 3\operatorname{cis}110^\circ$.'
+  choices: ['$5\operatorname{cis}150^\circ$', '$6\operatorname{cis}4400^\circ$', '$6\operatorname{cis}150^\circ$', '$6\operatorname{cis}70^\circ$']
+  answer: 2
+  explanation: |-
+    Multiply moduli ($2 \cdot 3 = 6$) and add arguments ($40^\circ + 110^\circ = 150^\circ$). In $a + bi$ form, $-3\sqrt3 + 3i$.
+- id: trig-q-3706
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'Find $\dfrac{z_1}{z_2}$ for $z_1 = 2\operatorname{cis}40^\circ$ and $z_2 = 3\operatorname{cis}110^\circ$.'
+  choices: ['$\tfrac23\operatorname{cis}290^\circ$', '$\tfrac32\operatorname{cis}70^\circ$', '$\tfrac23\operatorname{cis}70^\circ$', '$-1\operatorname{cis}(-70^\circ)$']
+  answer: 0
+  explanation: |-
+    Divide moduli ($\tfrac23$) and subtract arguments in order ($40^\circ - 110^\circ = -70^\circ$, coterminal with $290^\circ$).
+- id: trig-q-3707
+  lesson: trig-complex-trig
+  module_quiz: true
+  topic: Trigonometric form of complex numbers
+  stem: 'Geometrically, what does multiplying a complex number by $i$ do?'
+  choices: ['Reflects it across the real axis', 'Doubles its modulus', 'Rotates it $90^\circ$ counterclockwise about the origin', 'Rotates it $180^\circ$']
+  answer: 2
+  explanation: |-
+    $i = 1\operatorname{cis}90^\circ$: multiplying keeps the modulus (times 1) and adds $90^\circ$ to the argument.
+- id: trig-q-3708
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'Using trigonometric form, $(1 + i)(\sqrt3 + i)$ equals'
+  choices: ['$2\sqrt2\operatorname{cis}75^\circ$', '$2\sqrt2\operatorname{cis}15^\circ$', '$(2 + \sqrt2)\operatorname{cis}75^\circ$', '$\sqrt2\operatorname{cis}1350^\circ$']
+  answer: 0
+  explanation: |-
+    $1 + i = \sqrt2\operatorname{cis}45^\circ$ and $\sqrt3 + i = 2\operatorname{cis}30^\circ$; multiply moduli and add arguments: $2\sqrt2\operatorname{cis}75^\circ$,
+    which equals $(\sqrt3 - 1) + (\sqrt3 + 1)i$.
+- id: trig-q-3709
+  lesson: trig-complex-trig
+  module_quiz: true
+  topic: Trigonometric form of complex numbers
+  stem: 'Write $-5i$ in trigonometric form.'
+  choices: ['$5\operatorname{cis}90^\circ$', '$-5\operatorname{cis}0^\circ$', '$5\operatorname{cis}180^\circ$', '$5\operatorname{cis}270^\circ$']
+  answer: 3
+  explanation: |-
+    $-5i$ is the point $(0, -5)$, on the negative imaginary axis: modulus 5, argument $270^\circ$.
+- id: trig-q-3710
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'Compute $\dfrac{10\operatorname{cis}200^\circ}{4\operatorname{cis}50^\circ}$.'
+  choices: ['$2.5\operatorname{cis}250^\circ$', '$6\operatorname{cis}150^\circ$', '$2.5\operatorname{cis}150^\circ$', '$2.5\operatorname{cis}4^\circ$']
+  answer: 2
+  explanation: |-
+    $\tfrac{10}{4} = 2.5$ and $200^\circ - 50^\circ = 150^\circ$.
+- id: trig-q-3711
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'Multiplying $r_1\operatorname{cis}\theta_1$ by $r_2\operatorname{cis}\theta_2$ and simplifying uses which identities?'
+  choices: ['The Pythagorean identities', 'The sum formulas for sine and cosine', 'The half-angle formulas', 'The law of cosines']
+  answer: 1
+  explanation: |-
+    The real part is $\cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 = \cos(\theta_1 + \theta_2)$ and the imaginary part is
+    $\sin\theta_1\cos\theta_2 + \cos\theta_1\sin\theta_2 = \sin(\theta_1 + \theta_2)$.
+
+- id: trig-q-3801
+  lesson: trig-demoivre
+  module_quiz: true
+  topic: De Moivre's theorem
+  stem: 'Compute $(1 + i)^8$.'
+  choices: ['$16i$', '$8 + 8i$', '$16$', '$256$']
+  answer: 2
+  explanation: |-
+    $1 + i = \sqrt2\operatorname{cis}45^\circ$, so $(1 + i)^8 = (\sqrt2)^8\operatorname{cis}360^\circ = 16$.
+- id: trig-q-3802
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'Compute $(\sqrt3 + i)^5$.'
+  choices: ['$-16\sqrt3 + 16i$', '$16\sqrt3 + 16i$', '$-16\sqrt3 - 16i$', '$10\operatorname{cis}150^\circ$']
+  answer: 0
+  explanation: |-
+    $\sqrt3 + i = 2\operatorname{cis}30^\circ$, so the fifth power is $32\operatorname{cis}150^\circ = -16\sqrt3 + 16i$. Multiplying the modulus by 5
+    instead of raising it to the 5th power gives $10\operatorname{cis}150^\circ$.
+- id: trig-q-3803
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'Compute $(1 - i)^{10}$.'
+  choices: ['$32i$', '$-32i$', '$32$', '$-32$']
+  answer: 1
+  explanation: |-
+    $1 - i = \sqrt2\operatorname{cis}(-45^\circ)$, so $(1 - i)^{10} = 32\operatorname{cis}(-450^\circ) = 32\operatorname{cis}(-90^\circ) = -32i$.
+- id: trig-q-3804
+  lesson: trig-demoivre
+  module_quiz: true
+  topic: De Moivre's theorem
+  stem: 'Which number is NOT a cube root of $8i$?'
+  choices: ['$\sqrt3 + i$', '$-\sqrt3 + i$', '$-2i$', '$2i$']
+  answer: 3
+  explanation: |-
+    The cube roots are $2\operatorname{cis}(30^\circ + 120^\circ k)$: $\sqrt3 + i$, $-\sqrt3 + i$, $-2i$. And $(2i)^3 = 8i^3 = -8i$, not $8i$.
+- id: trig-q-3805
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'How many distinct fifth roots does a nonzero complex number have?'
+  choices: ['1', '2', '5', '10']
+  answer: 2
+  explanation: |-
+    Every nonzero complex number has exactly $n$ distinct $n$th roots, here 5, equally spaced around a circle.
+- id: trig-q-3806
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'The sixth roots of a complex number are spaced how far apart in argument?'
+  choices: ['$30^\circ$', '$60^\circ$', '$90^\circ$', '$6^\circ$']
+  answer: 1
+  explanation: |-
+    Consecutive roots differ by $\tfrac{360^\circ}{n} = \tfrac{360^\circ}{6} = 60^\circ$; they form a regular hexagon.
+- id: trig-q-3807
+  lesson: trig-demoivre
+  module_quiz: true
+  topic: De Moivre's theorem
+  stem: 'What is the modulus of each fourth root of $81\operatorname{cis}100^\circ$?'
+  choices: ['$3$', '$20.25$', '$9$', '$81$']
+  answer: 0
+  explanation: |-
+    Each root has modulus $\sqrt[4]{81} = 3$. ($20.25$ divides by 4 instead of taking the root.)
+- id: trig-q-3808
+  lesson: trig-demoivre
+  module_quiz: true
+  topic: De Moivre's theorem
+  stem: 'Solve $z^4 = -16$.'
+  choices: ['$z = \pm2$, $\pm2i$', '$z = \pm\sqrt2 \pm \sqrt2\,i$ (all four sign combinations)', '$z = -2$ only', '$z = 2\operatorname{cis}45^\circ$ only']
+  answer: 1
+  explanation: |-
+    $-16 = 16\operatorname{cis}180^\circ$, so $z = 2\operatorname{cis}(45^\circ + 90^\circ k)$: $\sqrt2 + \sqrt2 i$, $-\sqrt2 + \sqrt2 i$, $-\sqrt2 - \sqrt2 i$, $\sqrt2 - \sqrt2 i$.
+    ($\pm2$, $\pm2i$ are the fourth roots of $+16$.)
+- id: trig-q-3809
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'Compute $(2\operatorname{cis}20^\circ)^3$ in $a + bi$ form.'
+  choices: ['$6\operatorname{cis}60^\circ$', '$4\sqrt3 + 4i$', '$4 + 4\sqrt3\,i$', '$8 + 8\sqrt3\,i$']
+  answer: 2
+  explanation: |-
+    $2^3\operatorname{cis}60^\circ = 8\left(\tfrac12 + \tfrac{\sqrt3}{2}i\right) = 4 + 4\sqrt3\,i$.
+- id: trig-q-3810
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'Which number is a sixth root of unity?'
+  choices: ['$\tfrac{\sqrt3}{2} + \tfrac12 i$', '$\tfrac12 + \tfrac{\sqrt3}{2}i$', '$\tfrac{\sqrt2}{2} + \tfrac{\sqrt2}{2}i$', '$2$']
+  answer: 1
+  explanation: |-
+    The sixth roots of unity are $\operatorname{cis}(60^\circ k)$; $\operatorname{cis}60^\circ = \tfrac12 + \tfrac{\sqrt3}{2}i$. By contrast, $\tfrac{\sqrt3}{2} + \tfrac12 i$ is $\operatorname{cis}30^\circ$ (a twelfth root)
+    and $\tfrac{\sqrt2}{2} + \tfrac{\sqrt2}{2}i$ is $\operatorname{cis}45^\circ$ (an eighth root).
+- id: trig-q-3811
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'A student computes $(3\operatorname{cis}20^\circ)^4 = 12\operatorname{cis}80^\circ$. What is the correct result?'
+  choices: ['$12\operatorname{cis}80^\circ$', '$81\operatorname{cis}24^\circ$', '$81\operatorname{cis}80^\circ$', '$3\operatorname{cis}80^\circ$']
+  answer: 2
+  explanation: |-
+    De Moivre raises the modulus to the power ($3^4 = 81$) and multiplies the argument ($4 \cdot 20^\circ = 80^\circ$).

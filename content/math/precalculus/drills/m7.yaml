@@ -1,0 +1,278 @@
+- id: pc-parabola-focus
+  title: Focus and directrix of a parabola
+  topic: Parabolas
+  vars:
+    h: {min: -5, max: 5}
+    k: {min: -5, max: 5}
+    p: {choices: [-3, -2, -1, -0.5, 0.5, 1, 2, 3]}
+  where: ["h != 0", "k != 0"]
+  calc:
+    fp: 4*p
+    nh: -h
+    nk: -k
+    fy: k + p
+    dy: k - p
+  funcs:
+    f(x): (x - h)^2/(4*p) + k
+  prompt: 'Find the focus and the directrix of $(x {nh:signed})^2 = {fp}(y {nk:signed})$.'
+  figure:
+    type: plot
+    x: ['h - 8', 'h + 8']
+    y: ['k - 8', 'k + 8']
+    equal: true
+    functions: ['f']
+  answers:
+    - {name: h, label: 'Focus $x$'}
+    - {name: fy, label: 'Focus $y$'}
+    - {name: dy, label: 'Directrix $y =$'}
+  solution: |-
+    Vertex $({h}, {k})$ and $4p = {fp}$, so $p = {p}$. The focus is $p$ units from the vertex along the axis: **$({h}, {fy})$**. The directrix is $p$ units the other way: **$y = {dy}$**.
+
+- id: pc-parabola-vertex-form
+  title: Complete the square for a sideways parabola
+  topic: Parabolas
+  vars:
+    k: {min: -5, max: 5}
+    h: {min: -5, max: 5}
+    p: {choices: [-3, -2, -1, 1, 2, 3]}
+  where: ["k != 0", "h != 0", "cc != 0"]
+  calc:
+    fp: 4*p
+    bb: -2*k
+    ex: -4*p
+    cc: k^2 + 4*p*h
+    nk: -k
+    nh: -h
+    fx: h + p
+    ncc: -cc
+    ksq: k^2
+    rr: -4*p*h
+  prompt: 'Write $y^2 {bb:signedcoef}y {ex:signedcoef}x {cc:signed} = 0$ in the form $(y - k)^2 = 4p(x - h)$. Give the vertex and the focus.'
+  answers:
+    - {name: h, label: 'Vertex $x$'}
+    - {name: k, label: 'Vertex $y$'}
+    - {name: fx, label: 'Focus $x$'}
+  solution: |-
+    Move the other terms right: $y^2 {bb:signedcoef}y = {fp}x {ncc:signed}$. Add $({k})^2 = {ksq}$ to both sides to complete the square: $(y {nk:signed})^2 = {fp}x {rr:signed} = {fp}(x {nh:signed})$. Vertex **$({h}, {k})$**; $p = {p}$, so the focus is **$({fx}, {k})$**.
+
+- id: pc-ellipse-foci
+  title: Foci and eccentricity of an ellipse
+  topic: Ellipses
+  vars:
+    tr: {choices: [1, 2, 3, 4]}
+    o: {choices: [{label: 'horizontal', value: 0}, {label: 'vertical', value: 1}]}
+  calc:
+    b: if(tr == 1, 3, if(tr == 2, 5, if(tr == 3, 6, 8)))
+    c: if(tr == 1, 4, if(tr == 2, 12, if(tr == 3, 8, 15)))
+    a: if(tr == 1, 5, if(tr == 2, 13, if(tr == 3, 10, 17)))
+    a2: a^2
+    b2: b^2
+    xd: if(o == 0, a2, b2)
+    yd: if(o == 0, b2, a2)
+    e: c/a
+    xr: if(o == 0, a, b)
+    yr: if(o == 0, b, a)
+  prompt: 'For the ellipse $\dfrac{x^2}{ {xd} } + \dfrac{y^2}{ {yd} } = 1$, find the distance $c$ from the center to each focus, and the eccentricity.'
+  figure:
+    type: plot
+    x: ['-a - 1', 'a + 1']
+    y: ['-a - 1', 'a + 1']
+    equal: true
+    curves:
+      - {x: 'xr*cos(t)', y: 'yr*sin(t)', t: [0, '2pi']}
+  answers:
+    - {name: c, label: '$c =$'}
+    - {name: e, label: '$e =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    The larger denominator is $a^2 = {a2}$, so the major axis is {o}. $c^2 = a^2 - b^2 = {a2} - {b2}$, so $c =$ **{c}**, and $e = \dfrac{\,c}{\,a} = \dfrac{ {c} }{ {a} } =$ **${e:texfrac}$**.
+
+- id: pc-ellipse-center
+  title: Center of an ellipse from the general form
+  topic: Ellipses
+  vars:
+    A: {choices: [1, 4, 9]}
+    B: {choices: [1, 4, 9, 16]}
+    h: {min: -5, max: 5}
+    k: {min: -5, max: 5}
+  where: ["A != B", "h != 0", "k != 0"]
+  calc:
+    D: -2*A*h
+    E: -2*B*k
+    F: A*h^2 + B*k^2 - A*B
+    rhs: A*B
+  prompt: 'Complete the square to find the center of the ellipse ${A:coef}x^2 + {B:coef}y^2 {D:signedcoef}x {E:signedcoef}y {F:signed} = 0$.'
+  answers:
+    - {name: h, label: 'Center $x$'}
+    - {name: k, label: 'Center $y$'}
+  solution: |-
+    Group and factor: ${A:coef}(x^2 + \ldots) + {B:coef}(y^2 + \ldots)$. Completing both squares gives ${A:coef}(x - ({h}))^2 + {B:coef}(y - ({k}))^2 = {rhs}$, so the center is **$({h}, {k})$**.
+
+- id: pc-hyperbola-foci
+  title: Foci and asymptotes of a hyperbola
+  topic: Hyperbolas
+  vars:
+    a: {min: 1, max: 7}
+    b: {min: 2, max: 7}
+  where: ["a != b"]
+  calc:
+    a2: a^2
+    b2: b^2
+    c2: a^2 + b^2
+    c: sqrt(a^2 + b^2)
+    m: b/a
+  prompt: 'For the hyperbola $\dfrac{x^2}{ {a2} } - \dfrac{y^2}{ {b2} } = 1$, find $c$ (the distance from the center to a focus; exact like sqrt(13), or 3 decimals) and the positive asymptote slope (a fraction).'
+  figure:
+    type: plot
+    x: ['-c - 4', 'c + 4']
+    y: ['-c - 4', 'c + 4']
+    equal: true
+    curves:
+      - {x: 'a*cosh(t)', y: 'b*sinh(t)', t: [-3, 3]}
+      - {x: '-a*cosh(t)', y: 'b*sinh(t)', t: [-3, 3]}
+    functions:
+      - {f: 'm*x', dashed: true}
+      - {f: '-m*x', dashed: true}
+  answers:
+    - {name: c, label: '$c =$', tolerance: 0.001, format: num4}
+    - {name: m, label: 'Slope', kind: fraction, lowestTerms: true}
+  solution: |-
+    For a hyperbola $c^2 = a^2 + b^2 = {a2} + {b2} = {c2}$, so $c = \sqrt{ {c2} } \approx$ **{c:num4}**. Asymptotes $y = \pm\dfrac{\,b}{\,a}x$ with $a = {a}$ and $b = {b}$: slope **${m:texfrac}$**.
+
+- id: pc-conic-discriminant
+  title: Classify a conic with the discriminant
+  topic: Identifying conics
+  vars:
+    A: {min: -5, max: 5}
+    B: {min: -8, max: 8}
+    C: {min: -5, max: 5}
+    D: {min: -6, max: 6}
+    F: {min: -9, max: 9}
+  where: ["A != 0", "B != 0", "C != 0", "F != 0", "D != 0"]
+  calc:
+    disc: B^2 - 4*A*C
+    typ: if(disc < 0, 1, if(disc == 0, 2, 3))
+    ac4: 4*A*C
+  prompt: 'Compute $B^2 - 4AC$ for ${A:coef}x^2 {B:signedcoef}xy {C:signedcoef}y^2 {D:signedcoef}x {F:signed} = 0$, then classify it (assume it isn''t degenerate): type 1 for ellipse, 2 for parabola, 3 for hyperbola.'
+  answers:
+    - {name: disc, label: '$B^2 - 4AC =$'}
+    - {name: typ, label: 'Type (1, 2 or 3)'}
+  solution: |-
+    $B^2 - 4AC = ({B})^2 - 4({A})({C}) = {disc}$. Negative means ellipse, zero parabola, positive hyperbola, so the type is **{typ}**.
+
+- id: pc-param-point
+  title: Points on a parametric curve
+  topic: Parametric equations
+  vars:
+    a: {choices: [-2, -1, 1, 2]}
+    b: {min: -4, max: 4}
+    c: {min: -3, max: 3}
+    d: {min: -4, max: 4}
+    t0: {min: -3, max: 3}
+  where: ["c != 0", "t0 != 0", "b != 0", "d != 0"]
+  calc:
+    px: a*t0^2 + b
+    py: c*t0 + d
+  prompt: 'A curve is given by $x = {a:coef}t^2 {b:signed}$, $y = {c:coef}t {d:signed}$. Find the point where $t = {t0}$.'
+  figure:
+    type: plot
+    x: [-20, 20]
+    y: [-15, 15]
+    curves:
+      - {x: 'a*t^2 + b', y: 'c*t + d', t: [-4, 4]}
+    points:
+      - {at: [px, py], label: 't = {t0}'}
+  answers:
+    - {name: px, label: '$x =$'}
+    - {name: py, label: '$y =$'}
+  solution: |-
+    $x = {a}({t0})^2 + ({b}) = {px}$ and $y = {c}({t0}) + ({d}) = {py}$. The point is **$({px}, {py})$**.
+
+- id: pc-param-eliminate
+  title: Eliminate the parameter
+  topic: Parametric equations
+  vars:
+    a: {choices: [-3, -2, 2, 3]}
+    b: {min: -5, max: 5}
+    c: {min: -3, max: 3}
+    d: {min: -5, max: 5}
+  where: ["c != 0", "b != 0", "d != 0"]
+  calc:
+    nb: -b
+  prompt: 'Eliminate the parameter from $x = {a}t {b:signed}$, $y = {c:coef}t^2 {d:signed}$. Write $y$ in terms of $x$.'
+  answers:
+    - {kind: expression, expression: 'c*((x - b)/a)^2 + d', variables: [x], label: '$y =$', show: '$y = {c:coef}\left(\dfrac{x {nb:signed}}{ {a} }\right)^2 {d:signed}$'}
+  solution: |-
+    Solve the first equation for $t$: $t = \dfrac{x {nb:signed}}{ {a} }$. Substitute: **$y = {c:coef}\left(\dfrac{x {nb:signed}}{ {a} }\right)^2 {d:signed}$**.
+
+- id: pc-polar-to-rect
+  title: Polar to rectangular
+  topic: Polar coordinates
+  vars:
+    r: {min: 1, max: 10}
+    t: {choices: [{label: '\frac{\pi}{6}', value: 30}, {label: '\frac{\pi}{4}', value: 45}, {label: '\frac{\pi}{3}', value: 60}, {label: '\frac{2\pi}{3}', value: 120}, {label: '\frac{3\pi}{4}', value: 135}, {label: '\frac{5\pi}{6}', value: 150}, {label: '\frac{7\pi}{6}', value: 210}, {label: '\frac{5\pi}{4}', value: 225}, {label: '\frac{4\pi}{3}', value: 240}, {label: '\frac{5\pi}{3}', value: 300}, {label: '\frac{7\pi}{4}', value: 315}, {label: '\frac{11\pi}{6}', value: 330}]}
+  calc:
+    px: r*cosd(t)
+    py: r*sind(t)
+  prompt: 'Convert the polar point $\left({r}, {t}\right)$ to rectangular coordinates. Exact forms like 3sqrt(2) are fine, or 2 decimals.'
+  answers:
+    - {name: px, label: '$x =$', tolerance: 0.01}
+    - {name: py, label: '$y =$', tolerance: 0.01}
+  solution: |-
+    $x = r\cos\theta = {r}\cos {t} \approx$ **{px:num2}** and $y = r\sin\theta = {r}\sin {t} \approx$ **{py:num2}**.
+
+- id: pc-rect-to-polar
+  title: Rectangular to polar
+  topic: Polar coordinates
+  vars:
+    px: {min: -6, max: 6}
+    py: {min: -6, max: 6}
+  where: ["px != 0", "py != 0"]
+  calc:
+    r: sqrt(px^2 + py^2)
+    r2: px^2 + py^2
+    th: mod(atan2d(py, px), 360)
+  prompt: 'Convert $({px}, {py})$ to polar coordinates with $r > 0$ and $0^\circ \le \theta < 360^\circ$. (Exact $r$ like sqrt(13) or 2 decimals; $\theta$ in degrees to 1 decimal.)'
+  answers:
+    - {name: r, label: '$r =$', tolerance: 0.01, format: num2}
+    - {name: th, label: '$\theta =$', tolerance: 0.1, format: num1, units: {'°': 1, deg: 1}}
+  solution: |-
+    $r = \sqrt{ ({px})^2 + ({py})^2 } = \sqrt{ {r2} } \approx$ **{r:num2}**. $\tan\theta = \dfrac{ {py} }{ {px} }$; placing the angle in the quadrant of $({px}, {py})$ gives $\theta \approx$ **{th:num1}°**.
+
+- id: pc-polar-conic-e
+  title: Read a polar conic
+  topic: Polar conics
+  vars:
+    m: {min: 1, max: 5}
+    n: {min: 1, max: 8}
+    k: {min: 2, max: 24}
+  where: ["m != n"]
+  calc:
+    e: n/m
+    ed: k/m
+    d: k/n
+    typ: if(e < 1, 1, 3)
+  prompt: 'For $r = \dfrac{ {k} }{ {m} + {n:coef}\cos\theta}$, find the eccentricity $e$ and the distance $d$ from the pole to the directrix (exact fractions). Then type 1 if it''s an ellipse or 3 if it''s a hyperbola.'
+  answers:
+    - {name: e, label: '$e =$', kind: fraction, lowestTerms: true}
+    - {name: d, label: '$d =$', kind: fraction, lowestTerms: true}
+    - {name: typ, label: 'Type (1 or 3)'}
+  solution: |-
+    Divide top and bottom by {m}: $r = \dfrac{ {ed:texfrac} }{1 + {e:texfrac}\cos\theta}$. So $e =$ **${e:texfrac}$**, and $ed = {ed:texfrac}$ gives $d =$ **${d:texfrac}$**. Since $e$ is {e:num2}, the type is **{typ}**.
+
+- id: pc-polar-conic-vertex
+  title: Vertices of a polar ellipse
+  topic: Polar conics
+  vars:
+    m: {min: 2, max: 6}
+    n: {min: 1, max: 5}
+    k: {min: 2, max: 30}
+  where: ["n < m"]
+  calc:
+    r0: k/(m + n)
+    rp: k/(m - n)
+  prompt: 'The ellipse $r = \dfrac{ {k} }{ {m} + {n:coef}\cos\theta}$ has its vertices at $\theta = 0$ and $\theta = \pi$. Find the value of $r$ at each (exact fractions).'
+  answers:
+    - {name: r0, label: '$r(0) =$', kind: fraction, lowestTerms: true}
+    - {name: rp, label: '$r(\pi) =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $\cos 0 = 1$: $r = \dfrac{ {k} }{ {m} + {n} } =$ **${r0:texfrac}$**. $\cos\pi = -1$: $r = \dfrac{ {k} }{ {m} - {n} } =$ **${rp:texfrac}$**.

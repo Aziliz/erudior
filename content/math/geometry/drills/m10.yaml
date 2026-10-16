@@ -1,0 +1,125 @@
+# Module 10 drills
+- id: geo-finite-geom
+  title: Counting lines in a finite geometry
+  topic: Axiomatic systems
+  vars:
+    n: {choices: [7, 9, 13, 15, 19, 21, 25, 27]}
+  calc:
+    pairs: n*(n - 1)/2
+    L: n*(n - 1)/6
+    r: (n - 1)/2
+    n1: n - 1
+  prompt: 'A finite geometry has {n} points. Axioms: every pair of distinct points lies on exactly one line, and every line contains exactly 3 points. How many lines are there, and how many lines pass through each point?'
+  answers:
+    - {name: L, label: 'Lines'}
+    - {name: r, label: 'Lines per point'}
+  solution: |-
+    There are $\binom{{n}}{2} = {pairs}$ pairs of points, and each line contains exactly $\binom32 = 3$ pairs, each pair on exactly one line. So there are $\tfrac{{pairs}}{3} =$ **{L}** lines. Through a fixed point, each line covers 2 of the other {n1} points, so **{r}** lines pass through each point.
+
+- id: geo-sph-excess
+  title: Area of a spherical triangle
+  topic: Non-Euclidean geometry
+  vars:
+    A: {min: 50, max: 150}
+    B: {min: 50, max: 150}
+    C: {min: 50, max: 150}
+    R: {min: 1, max: 20}
+  where: ["A + B + C > 185", "A + B + C < 540"]
+  calc:
+    E: A + B + C - 180
+    Er: E*pi/180
+    area: R^2*Er
+    S: A + B + C
+  prompt: 'A triangle on a sphere of radius {R} has angles ${A}^\circ$, ${B}^\circ$ and ${C}^\circ$. Find its spherical excess in degrees, and its area (2 decimals).'
+  answers:
+    - {name: E, label: 'Excess (degrees)'}
+    - {name: area, label: 'Area', relTolerance: 0.001}
+  solution: |-
+    Excess $E = {S} - 180 =$ **{E}°**, which is ${E} \cdot \tfrac{\pi}{180} \approx {Er:num4}$ radians. Area $= R^2 E \approx {R}^2 \cdot {Er:num4} \approx$ **{area:num2}**.
+
+- id: geo-great-circle
+  title: Distance along a great circle
+  topic: Non-Euclidean geometry
+  vars:
+    d: {min: 5, max: 175}
+  calc:
+    s: 6371*d*pi/180
+  prompt: 'Two cities on the equator differ in longitude by ${d}^\circ$. Using Earth''s radius 6371 km, how far apart are they along the equator (a great circle)? Answer to the nearest km.'
+  answers:
+    - {name: s, label: 'Distance', tolerance: 1, units: {km: 1}}
+  solution: |-
+    The equator is a great circle, so the distance is the arc length $R\theta$ with $\theta$ in radians: $6371 \cdot {d} \cdot \tfrac{\pi}{180} \approx$ **{s:num1} km**.
+
+- id: geo-prob-length
+  title: Probability on a segment
+  topic: Geometric probability
+  vars:
+    L: {min: 10, max: 40}
+    a: {min: 1, max: 30}
+    b: {min: 2, max: 39}
+  where: ["a < b", "b < L"]
+  calc:
+    p: (b - a)/L
+    w: b - a
+  prompt: 'A point is chosen at random on a segment from 0 to {L}. What is the probability that it lies between {a} and {b}? (Exact fraction.)'
+  answers:
+    - {name: p, kind: fraction, lowestTerms: true, label: '$P =$'}
+  figure:
+    type: numberline
+    x: [0, L]
+    segments:
+      - {from: [a, 0], to: [b, 0]}
+    points:
+      - {at: [a, 0]}
+      - {at: [b, 0]}
+  solution: |-
+    Favorable length ${b} - {a} = {w}$ out of a total length {L}: $P = \tfrac{{w}}{{L}} =$ **${p:texfrac}$**.
+
+- id: geo-prob-area
+  title: Probability of hitting a circle
+  topic: Geometric probability
+  vars:
+    s: {min: 6, max: 30}
+    r: {min: 1, max: 10}
+  where: ["2*r < s"]
+  calc:
+    p: pi*r^2/s^2
+    r2: r^2
+    s2: s^2
+  prompt: 'A dart lands at a random point on a square board of side {s} containing a circle of radius {r}. What is the probability it lands inside the circle? (4 decimals)'
+  answers:
+    - {name: p, label: '$P =$', tolerance: 0.0001, format: num4}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [s, 0], [s, s], [0, s]]
+    circles:
+      - {center: ['s/2', 's/2'], r: r, fill: true}
+  solution: |-
+    $P = \dfrac{\pi r^2}{s^2} = \dfrac{{r2}\pi}{{s2}} \approx$ **{p:num4}**.
+
+- id: geo-prob-meet
+  title: The meeting problem
+  topic: Geometric probability
+  vars:
+    T: {choices: [30, 60, 90, 120]}
+    w: {min: 5, max: 40, step: 5}
+  where: ["w < T"]
+  calc:
+    g: T - w
+    p: 1 - g^2/T^2
+    g2: g^2
+    T2: T^2
+  prompt: 'Two people each arrive at a random time during the same {T}-minute window and each waits {w} minutes for the other. What is the probability they meet? (Exact fraction.)'
+  answers:
+    - {name: p, kind: fraction, lowestTerms: true, label: '$P =$'}
+  figure:
+    type: plot
+    x: [0, T]
+    y: [0, T]
+    equal: true
+    functions:
+      - {f: 'x + w', from: 0, to: g}
+      - {f: 'x - w', from: w, to: T}
+  solution: |-
+    Plot arrival times as a point in a ${T} \times {T}$ square. They miss each other in two corner triangles with legs ${T} - {w} = {g}$, total area ${g}^2 = {g2}$. So $P = 1 - \tfrac{{g2}}{{T2}} =$ **${p:texfrac}$**.

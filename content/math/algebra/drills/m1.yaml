@@ -1,0 +1,286 @@
+# Module 1 drills
+- id: alg-d-fraction-arith
+  title: Add or subtract fractions
+  topic: Real numbers
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 2, max: 9}
+    c: {min: 1, max: 9}
+    d: {min: 2, max: 9}
+    op: {choices: [{label: '+', value: 1}, {label: '-', value: -1}]}
+  calc:
+    den: lcm(b, d)
+    na: a*den/b
+    nc: c*den/d
+    num: na + op*nc
+    r: num/den
+  where: ['b != d', 'gcd(a, b) == 1', 'gcd(c, d) == 1', 'num != 0']
+  prompt: 'Compute $\dfrac{{a}}{{b}} {op} \dfrac{{c}}{{d}}$. Give an exact fraction in lowest terms.'
+  answers:
+    - {name: r, kind: fraction, lowestTerms: true, label: 'Result'}
+  solution: |-
+    Use the common denominator {den}: $\dfrac{{a}}{{b}} = \dfrac{{na}}{{den}}$ and $\dfrac{{c}}{{d}} = \dfrac{{nc}}{{den}}$.
+    Then $\dfrac{{na}}{{den}} {op} \dfrac{{nc}}{{den}} = \dfrac{{num}}{{den}}$, which reduces to **${r:texfrac}$**.
+
+- id: alg-d-abs-distance
+  title: Distance on the number line
+  topic: Real numbers
+  vars:
+    p: {min: -15, max: 15}
+    q: {min: -15, max: 15}
+  calc:
+    dist: abs(p - q)
+    lo: min(p, q) - 2
+    hi: max(p, q) + 2
+  where: ['p != q', 'p*q < 0 or abs(p - q) > 4']
+  prompt: 'How far apart are {p} and {q} on the number line?'
+  figure:
+    type: numberline
+    x: [lo, hi]
+    points:
+      - {at: [p, 0], label: '{p}'}
+      - {at: [q, 0], label: '{q}'}
+  answers:
+    - {name: dist, label: 'Distance'}
+  solution: |-
+    The distance between two numbers is the absolute value of their difference: $|{q} - ({p})| =$ **{dist}**.
+
+- id: alg-d-order-ops
+  title: Order of operations
+  topic: Expressions
+  vars:
+    a: {min: 1, max: 30}
+    b: {min: 2, max: 6}
+    c: {min: -5, max: 5}
+    d: {min: 1, max: 9}
+    dv: {choices: [2, 3, 4]}
+  calc:
+    df: c - d
+    sq: df^2
+    pr: b*sq
+    qt: pr/dv
+    r: a - qt
+  where: ['mod(pr, dv) == 0', 'df != 0']
+  prompt: 'Evaluate $\;{a} - {b}\left({c} - {d}\right)^2 \div {dv}$.'
+  answers:
+    - {name: r, label: 'Value'}
+  solution: |-
+    Parentheses: ${c} - {d} = {df}$. Exponent: $({df})^2 = {sq}$.
+    Multiply and divide from left to right: ${b} \cdot {sq} = {pr}$, then ${pr} \div {dv} = {qt}$.
+    Subtract last: ${a} - {qt} =$ **{r}**.
+
+- id: alg-d-evaluate-expr
+  title: Evaluate an expression
+  topic: Expressions
+  vars:
+    a: {min: -4, max: 5}
+    b: {min: -5, max: 5}
+    c: {min: -6, max: 6}
+    xv: {min: -5, max: 5}
+    yv: {min: -5, max: 5}
+  calc:
+    t1: a*xv^2
+    t2: b*xv*yv
+    t3: c*yv
+    val: t1 + t2 + t3
+  where: ['a != 0', 'b != 0', 'c != 0', 'xv != 0', 'yv != 0', 'xv < 0 or yv < 0']
+  prompt: 'Evaluate $\;{a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y\;$ when $x = {xv}$ and $y = {yv}$.'
+  answers:
+    - {name: val, label: 'Value'}
+  solution: |-
+    Substitute in parentheses: $({a})({xv})^2 + ({b})({xv})({yv}) + ({c})({yv})$.
+    Term by term: ${t1} + ({t2}) + ({t3}) =$ **{val}**.
+
+- id: alg-d-combine-like
+  title: Distribute and combine like terms
+  topic: Expressions
+  vars:
+    a: {min: 2, max: 6}
+    b: {min: -5, max: 7}
+    c: {min: -9, max: 9}
+    d: {min: -6, max: 8}
+    k: {min: -9, max: 9}
+  calc:
+    ab: a*b
+    ac: a*c
+    nd: -d
+    nk: -k
+    cx: a*b - d
+    cc: a*c - k
+  where: ['b != 0', 'c != 0', 'd != 0', 'k != 0', 'cx != 0', 'cc != 0']
+  prompt: 'Simplify: $\;{a}({b:coef}x {c:signed}) - ({d:coef}x {k:signed})$'
+  answers:
+    - kind: expression
+      expression: a*(b*x + c) - (d*x + k)
+      variables: [x]
+      label: 'Simplified'
+      show: '${cx:coef}x {cc:signed}$'
+  solution: |-
+    Distribute the {a}: ${ab:coef}x {ac:signed}$. Distribute the minus sign: ${nd:coef}x {nk:signed}$.
+    Combine: $({ab} {nd:signed})x + ({ac} {nk:signed}) =$ **${cx:coef}x {cc:signed}$**.
+
+- id: alg-d-two-step
+  title: Solve a two-step equation
+  topic: Linear equations
+  vars:
+    a: {min: -9, max: 9}
+    xs: {min: -12, max: 12}
+    b: {min: -20, max: 20}
+  calc:
+    c: a*xs + b
+    cb: c - b
+  where: ['a != 0', 'a != 1', 'b != 0']
+  prompt: 'Solve for $x$: $\;{a:coef}x {b:signed} = {c}$'
+  answers:
+    - {name: xs, label: '$x =$'}
+  solution: |-
+    Undo the constant first: ${a:coef}x = {c} - ({b}) = {cb}$.
+    Then divide by {a}: $x = \dfrac{{cb}}{{a}} =$ **{xs}**.
+
+- id: alg-d-both-sides
+  title: Variables on both sides
+  topic: Linear equations
+  vars:
+    a: {min: 2, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -5, max: 9}
+    d: {min: -15, max: 15}
+  calc:
+    ab: a*b
+    amc: a - c
+    rhs: d - a*b
+    xs: (d - a*b)/(a - c)
+  where: ['a != c', 'b != 0', 'c != 0', 'd != 0', 'rhs != 0']
+  prompt: 'Solve for $x$: $\;{a}(x {b:signed}) = {c:coef}x {d:signed}$. Give an exact answer (a fraction if needed).'
+  answers:
+    - {name: xs, kind: fraction, lowestTerms: true, label: '$x =$'}
+  solution: |-
+    Distribute: ${a}x {ab:signed} = {c:coef}x {d:signed}$.
+    Collect $x$ terms on the left and constants on the right: $({a} - ({c}))x = {d} - ({ab})$, so ${amc:coef}x = {rhs}$.
+    Divide: $x =$ **${xs:texfrac}$**.
+
+- id: alg-d-eq-fractions
+  title: Equations with fractions
+  topic: Linear equations
+  vars:
+    p: {min: 2, max: 6}
+    q: {min: 2, max: 6}
+    a: {min: -9, max: 9}
+    b: {min: -9, max: 9}
+  calc:
+    qa: q*a
+    pb: p*b
+    qmp: q - p
+    rhs: p*b - q*a
+    xs: (p*b - q*a)/(q - p)
+  where: ['p != q', 'a != 0', 'b != 0', 'rhs != 0']
+  prompt: 'Solve for $x$: $\;\dfrac{x {a:signed}}{{p}} = \dfrac{x {b:signed}}{{q}}$. Give an exact answer (a fraction if needed).'
+  answers:
+    - {name: xs, kind: fraction, lowestTerms: true, label: '$x =$'}
+  solution: |-
+    Multiply both sides by ${p} \cdot {q}$ to clear the fractions: ${q}(x {a:signed}) = {p}(x {b:signed})$.
+    Distribute: ${q}x {qa:signed} = {p}x {pb:signed}$.
+    Collect: ${qmp}x = {rhs}$, so $x =$ **${xs:texfrac}$**.
+
+- id: alg-d-literal-solve
+  title: Solve a linear equation for y
+  topic: Literal equations
+  vars:
+    b: {min: -6, max: 6}
+    m: {min: -5, max: 5}
+    k: {min: -8, max: 8}
+  calc:
+    a: -m*b
+    c: k*b
+  where: ['b != 0', 'b != 1', 'm != 0', 'k != 0']
+  prompt: 'Solve ${a:coef}x {b:signedcoef}y = {c}$ for $y$. Type your answer in terms of $x$.'
+  answers:
+    - kind: expression
+      expression: m*x + k
+      variables: [x]
+      label: '$y =$'
+      show: '${m:coef}x {k:signed}$'
+  solution: |-
+    Move the $x$ term: ${b:coef}y = {c} - ({a})x$.
+    Divide every term by {b}: $y = \dfrac{{c}}{{b}} - \dfrac{{a}}{{b}}x$, which is **$y = {m:coef}x {k:signed}$**.
+
+- id: alg-d-formula-eval
+  title: Rearrange the trapezoid formula
+  topic: Literal equations
+  vars:
+    ht: {min: 2, max: 12}
+    b1: {min: 2, max: 14}
+    b2: {min: 3, max: 20}
+  calc:
+    area: ht*(b1 + b2)/2
+    tw: 2*area/ht
+    xl: (b2 - b1)/2
+    xr: (b2 + b1)/2
+  where: ['area == round(area)', 'b2 > b1']
+  prompt: 'A trapezoid has area {area}, height {ht} and one base {b1}. Use $A = \tfrac12 h(b_1 + b_2)$ to find the other base $b_2$.'
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [b2, 0], [xr, ht], [xl, ht]]
+    segments:
+      - {from: [xl, ht], to: [xr, ht], label: '{b1}'}
+      - {from: [0, 0], to: [b2, 0], label: 'b₂ = ?'}
+      - {from: [xl, 0], to: [xl, ht], dashed: true, label: 'h = {ht}'}
+  answers:
+    - {name: b2, label: '$b_2 =$'}
+  solution: |-
+    Solve for $b_2$: multiply by 2, divide by $h$, subtract $b_1$, giving $b_2 = \dfrac{2A}{h} - b_1$.
+    Substitute: $\dfrac{2 \cdot {area}}{{ht}} - {b1} = {tw} - {b1} =$ **{b2}**.
+
+- id: alg-d-consecutive
+  title: Consecutive integers
+  topic: Linear applications
+  vars:
+    kind: {choices: [{label: 'consecutive integers', value: 1}, {label: 'consecutive even integers', value: 2}, {label: 'consecutive odd integers', value: 3}]}
+    cnt: {choices: [3, 4]}
+    n: {min: 1, max: 70}
+  calc:
+    step: if(kind == 1, 1, 2)
+    add: step*cnt*(cnt - 1)/2
+    S: cnt*n + add
+    rem: S - add
+  where: ['kind == 1 or (kind == 2 and mod(n, 2) == 0) or (kind == 3 and mod(n, 2) == 1)']
+  prompt: 'The sum of {cnt} {kind} is {S}. What is the smallest of them?'
+  answers:
+    - {name: n, label: 'Smallest'}
+  solution: |-
+    Call the smallest $n$. The numbers step by {step}, so their sum is ${cnt}n + {add}$.
+    Solve ${cnt}n + {add} = {S}$: ${cnt}n = {rem}$, so $n =$ **{n}**.
+
+- id: alg-d-percent-change
+  title: Percent change
+  topic: Linear applications
+  vars:
+    o: {min: 20, max: 400, step: 5}
+    pct: {min: -40, max: 60, step: 5}
+  calc:
+    nw: o*(1 + pct/100)
+    ch: nw - o
+  where: ['pct != 0']
+  prompt: 'A price changes from {o:money} to {nw:money}. What is the percent change? (Use a negative number for a decrease.)'
+  answers:
+    - {name: pct, label: 'Percent change (%)'}
+  solution: |-
+    Percent change is the change divided by the original: ({nw:money} − {o:money}) ÷ {o:money} = {ch} ÷ {o}.
+    That is **{pct}%**.
+
+- id: alg-d-distance-rate
+  title: Moving apart
+  topic: Linear applications
+  vars:
+    r1: {min: 30, max: 70}
+    r2: {min: 30, max: 70}
+    t: {choices: [1, 1.5, 2, 2.5, 3, 4]}
+  calc:
+    rs: r1 + r2
+    D: rs*t
+  prompt: 'Two cars leave the same place at the same time and drive in opposite directions, at {r1} mph and {r2} mph. After how many hours are they {D} miles apart?'
+  answers:
+    - {name: t, label: 'Hours'}
+  solution: |-
+    Their distances add up to the gap: ${r1}t + {r2}t = {D}$, so ${rs}t = {D}$ and $t =$ **{t}** hours.

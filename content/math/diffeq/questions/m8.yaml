@@ -1,0 +1,368 @@
+# Module 8: systems
+- id: de-q-3201
+  lesson: de-systems-intro
+  module_quiz: true
+  topic: Linear systems
+  stem: 'Convert $y'''' + 5y'' + 6y = 0$ to a system with $x_1 = y$, $x_2 = y''$. What is the matrix $A$?'
+  choices: ['$\begin{bmatrix} 0 & 1 \\ -5 & -6 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ -6 & -5 \end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ -6 & -5 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 6 & 5 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $x_1' = x_2$ and $x_2' = y'' = -6y - 5y' = -6x_1 - 5x_2$. The second row lists the coefficients of $x_1$ then $x_2$.
+- id: de-q-3202
+  lesson: de-systems-intro
+  module_quiz: true
+  topic: Linear systems
+  stem: 'Find the eigenvalues of $\begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$.'
+  choices: ['$2$ and $2$', '$-1$ and $-3$', '$0$ and $4$', '$1$ and $3$']
+  answer: 3
+  explanation: |-
+    Trace 4, determinant 3: $\lambda^2 - 4\lambda + 3 = (\lambda - 1)(\lambda - 3)$. The diagonal entries are eigenvalues only for triangular matrices.
+- id: de-q-3203
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'For $A = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$, an eigenvector for $\lambda = 3$ is'
+  choices: ['$\begin{bmatrix} 1 \\ 1 \end{bmatrix}$', '$\begin{bmatrix} 1 \\ -1 \end{bmatrix}$', '$\begin{bmatrix} 3 \\ 0 \end{bmatrix}$', '$\begin{bmatrix} 0 \\ 0 \end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $(A - 3I)\mathbf{v} = \begin{bmatrix} -1 & 1 \\ 1 & -1 \end{bmatrix}\mathbf{v} = \mathbf{0}$ gives $v_1 = v_2$. $(1, -1)$ goes with $\lambda = 1$; the zero vector is never an eigenvector.
+- id: de-q-3204
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'Why does $\mathbf{x} = e^{\lambda t}\mathbf{v}$ solve $\mathbf{x}'' = A\mathbf{x}$ when $A\mathbf{v} = \lambda\mathbf{v}$?'
+  choices: ['Because $\det A = 0$', 'Because $\mathbf{v}$ is a unit vector', 'Both sides equal $\lambda e^{\lambda t}\mathbf{v}$', 'Because $e^{\lambda t}$ is never zero']
+  answer: 2
+  explanation: |-
+    $\mathbf{x}' = \lambda e^{\lambda t}\mathbf{v}$ and $A\mathbf{x} = e^{\lambda t}A\mathbf{v} = e^{\lambda t}\lambda\mathbf{v}$.
+- id: de-q-3205
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'The characteristic equation of a $2 \times 2$ matrix $A$ is'
+  choices: ['$\lambda^2 + (\operatorname{tr}A)\lambda + \det A = 0$', '$\lambda^2 - (\det A)\lambda + \operatorname{tr}A = 0$', '$\lambda^2 - \det A = 0$', '$\lambda^2 - (\operatorname{tr}A)\lambda + \det A = 0$']
+  answer: 3
+  explanation: |-
+    Expanding $\det(A - \lambda I) = (a - \lambda)(d - \lambda) - bc = \lambda^2 - (a + d)\lambda + (ad - bc)$.
+- id: de-q-3206
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'Write $x_1'' = 3x_1 - x_2$, $x_2'' = x_1 + 4x_2 + e^t$ in matrix form.'
+  choices: ['$\mathbf{x}'' = \begin{bmatrix} 3 & 1 \\ -1 & 4 \end{bmatrix}\mathbf{x} + \begin{bmatrix} 0 \\ e^t \end{bmatrix}$', '$\mathbf{x}'' = \begin{bmatrix} 3 & -1 \\ 1 & 4 \end{bmatrix}\mathbf{x} + \begin{bmatrix} 0 \\ e^t \end{bmatrix}$', '$\mathbf{x}'' = \begin{bmatrix} 3 & -1 \\ 1 & 4 \end{bmatrix}\mathbf{x} + \begin{bmatrix} e^t \\ 0 \end{bmatrix}$', '$\mathbf{x}'' = \begin{bmatrix} 3 & -1 \\ 1 & 4 + e^t \end{bmatrix}\mathbf{x}$']
+  answer: 1
+  explanation: |-
+    Row $i$ of $A$ holds the coefficients in the $x_i'$ equation; the forcing $e^t$ belongs to the second equation.
+- id: de-q-3207
+  lesson: de-systems-intro
+  module_quiz: true
+  topic: Linear systems
+  stem: 'The eigenvalues of the system matrix for $y'''' + py'' + qy = 0$ (with $x_1 = y$, $x_2 = y''$) are'
+  choices: ['always $p$ and $q$', 'the roots of $r^2 - pr + q = 0$', 'the roots of $r^2 + pr + q = 0$', '$\pm\sqrt{q}$']
+  answer: 2
+  explanation: |-
+    $A = \begin{bmatrix} 0 & 1 \\ -q & -p \end{bmatrix}$ has trace $-p$ and determinant $q$, so $\lambda^2 + p\lambda + q = 0$, the characteristic equation of the ODE.
+- id: de-q-3208
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'What is a phase portrait?'
+  choices: ['A plot of several trajectories $(x_1(t), x_2(t))$ in the $x_1x_2$-plane', 'A graph of $x_1$ against $t$', 'A plot of the eigenvalues in the complex plane', 'A table of the solution values']
+  answer: 0
+  explanation: |-
+    Time becomes a parameter along each trajectory; arrows show its direction.
+- id: de-q-3209
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'Two tanks of 100 L: tank 1 drains into tank 2 at 4 L/min and receives pure water at 4 L/min; tank 2 drains out at 4 L/min. What is the system for the salt amounts?'
+  choices: ['$Q_1'' = -0.04Q_1$, $Q_2'' = 0.04Q_1 - 0.04Q_2$', '$Q_1'' = -4Q_1$, $Q_2'' = 4Q_1 - 4Q_2$', '$Q_1'' = -0.04Q_1 + 0.04Q_2$, $Q_2'' = 0.04Q_1$', '$Q_1'' = 0.04Q_1$, $Q_2'' = -0.04Q_2$']
+  answer: 0
+  explanation: |-
+    Each outflow carries concentration $Q/100$ at 4 L/min: rate $0.04Q$. Tank 1 only loses; tank 2 gains what tank 1 loses and loses its own outflow.
+- id: de-q-3210
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'If $\det A \ne 0$, what are the equilibria of $\mathbf{x}'' = A\mathbf{x}$?'
+  choices: ['Every point on an eigenvector line', 'There are none', 'Only the origin', 'Every point in the plane']
+  answer: 2
+  explanation: |-
+    Equilibria solve $A\mathbf{x} = \mathbf{0}$, which has only the trivial solution when $A$ is invertible.
+- id: de-q-3211
+  lesson: de-systems-intro
+  topic: Linear systems
+  stem: 'For $A = \begin{bmatrix} 1 & 2 \\ 3 & 0 \end{bmatrix}$, what are the eigenvalues?'
+  choices: ['$1$ and $0$', '$3$ and $-2$', '$-3$ and $2$', '$2$ and $3$']
+  answer: 1
+  explanation: |-
+    Trace 1, det $-6$: $\lambda^2 - \lambda - 6 = (\lambda - 3)(\lambda + 2)$.
+# Lesson 33
+- id: de-q-3301
+  lesson: de-eigen-real
+  module_quiz: true
+  topic: Phase portraits
+  stem: 'Classify the origin for $\mathbf{x}'' = \begin{bmatrix} 1 & 2 \\ 3 & 0 \end{bmatrix}\mathbf{x}$.'
+  choices: ['Nodal sink', 'Nodal source', 'Center', 'Saddle point (unstable)']
+  answer: 3
+  explanation: |-
+    $\det A = -6 < 0$, so the eigenvalues ($3$ and $-2$) have opposite signs: a saddle.
+- id: de-q-3302
+  lesson: de-eigen-real
+  module_quiz: true
+  topic: Phase portraits
+  stem: 'Solve $\mathbf{x}'' = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}\mathbf{x}$, $\mathbf{x}(0) = \begin{bmatrix} 3 \\ 1 \end{bmatrix}$.'
+  choices: ['$\mathbf{x} = e^{3t}\begin{bmatrix} 1 \\ 1 \end{bmatrix} + 2e^{t}\begin{bmatrix} 1 \\ -1 \end{bmatrix}$', '$\mathbf{x} = 2e^{3t}\begin{bmatrix} 1 \\ 1 \end{bmatrix} + e^{t}\begin{bmatrix} 1 \\ -1 \end{bmatrix}$', '$\mathbf{x} = 3e^{3t}\begin{bmatrix} 1 \\ 1 \end{bmatrix} + e^{t}\begin{bmatrix} 1 \\ -1 \end{bmatrix}$', '$\mathbf{x} = 2e^{t}\begin{bmatrix} 1 \\ 1 \end{bmatrix} + e^{3t}\begin{bmatrix} 1 \\ -1 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $\lambda = 3$ with $(1, 1)$, $\lambda = 1$ with $(1, -1)$. At $t = 0$: $c_1 + c_2 = 3$ and $c_1 - c_2 = 1$, so $c_1 = 2$, $c_2 = 1$. The choice with $2e^{t}$ and $e^{3t}$ pairs the eigenvalues with the wrong eigenvectors.
+- id: de-q-3303
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'A $2 \times 2$ system has eigenvalues $-1$ and $-4$. As $t \to \infty$, most trajectories approach the origin tangent to'
+  choices: ['the eigenvector for $-4$', 'the $x_1$-axis', 'no particular direction', 'the eigenvector for $-1$']
+  answer: 3
+  explanation: |-
+    The $e^{-4t}$ term dies faster, leaving the $e^{-t}$ term, so trajectories come in along the slow eigenvector.
+- id: de-q-3304
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'Classify the origin for $\mathbf{x}'' = \begin{bmatrix} 2 & 3 \\ 1 & 4 \end{bmatrix}\mathbf{x}$.'
+  choices: ['Nodal source', 'Nodal sink', 'Saddle point', 'Spiral source']
+  answer: 0
+  explanation: |-
+    $T = 6$, $D = 5$, $T^2 - 4D = 16 > 0$: real eigenvalues $1$ and $5$, both positive.
+- id: de-q-3305
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'Which statement about a saddle point is true?'
+  choices: ['All trajectories approach it', 'It is asymptotically stable', 'Only the trajectories on one eigenvector line approach it; almost all others leave', 'Trajectories circle around it']
+  answer: 2
+  explanation: |-
+    The stable direction (negative eigenvalue) is a single line; every other start has a nonzero growing component.
+- id: de-q-3306
+  lesson: de-eigen-real
+  module_quiz: true
+  topic: Phase portraits
+  stem: 'For $x_1'' = -2x_1 + x_2$, $x_2'' = x_1 - 2x_2$, what happens to all solutions?'
+  choices: ['They spiral into the origin', 'They move away from the origin', 'They circle the origin', 'They approach the origin (nodal sink)']
+  answer: 3
+  explanation: |-
+    Eigenvalues $-1$ and $-3$: both negative and real, so a nodal sink.
+- id: de-q-3307
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'If $\mathbf{x}(0) = \mathbf{v}^{(1)}$ (an eigenvector for $\lambda_1$), what is $\mathbf{x}(t)$?'
+  choices: ['A combination involving both eigenvalues', '$e^{\lambda_1t}\mathbf{v}^{(1)}$, moving along a straight line', '$\mathbf{v}^{(1)}$ for all $t$', '$e^{\lambda_2t}\mathbf{v}^{(1)}$']
+  answer: 1
+  explanation: |-
+    Then $c_1 = 1$, $c_2 = 0$: the trajectory stays on the eigenvector line, scaled by $e^{\lambda_1t}$.
+- id: de-q-3308
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'A matrix has $\operatorname{tr}A = 5$ and $\det A = -14$. Without computing eigenvalues, classify the origin.'
+  choices: ['Nodal source', 'Spiral source', 'Saddle point', 'Nodal sink']
+  answer: 2
+  explanation: |-
+    A negative determinant means the eigenvalues are real with opposite signs (their product is $\det A$).
+- id: de-q-3309
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'For $\mathbf{x}'' = \begin{bmatrix} 3 & 0 \\ 0 & -1 \end{bmatrix}\mathbf{x}$, what are the straight-line solutions?'
+  choices: ['Along the $x_1$-axis (growing) and the $x_2$-axis (decaying)', 'Along $x_2 = x_1$ and $x_2 = -x_1$', 'There are none', 'Only along the $x_1$-axis']
+  answer: 0
+  explanation: |-
+    A diagonal matrix has eigenvectors $(1, 0)$ with $\lambda = 3$ and $(0, 1)$ with $\lambda = -1$. The origin is a saddle.
+- id: de-q-3310
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'If $\det A = 0$ and the other eigenvalue is negative, the phase portrait has'
+  choices: ['a line of equilibria that trajectories approach along parallel lines', 'a single equilibrium at the origin', 'spirals', 'a saddle at the origin']
+  answer: 0
+  explanation: |-
+    The eigenvector for $\lambda = 0$ is a whole line of equilibria; the other eigen-direction carries every point toward it.
+- id: de-q-3311
+  lesson: de-eigen-real
+  topic: Phase portraits
+  stem: 'Solve $\mathbf{x}'' = \begin{bmatrix} 1 & 1 \\ 4 & 1 \end{bmatrix}\mathbf{x}$, $\mathbf{x}(0) = (2, 0)$. What is $x_2(t)$?'
+  choices: ['$2e^{3t} + 2e^{-t}$', '$e^{3t} + e^{-t}$', '$2e^{3t} - 2e^{-t}$', '$4e^{3t}$']
+  answer: 2
+  explanation: |-
+    $\mathbf{x} = e^{3t}(1, 2) + e^{-t}(1, -2)$, so $x_2 = 2e^{3t} - 2e^{-t}$ (and $x_1 = e^{3t} + e^{-t}$).
+# Lesson 34
+- id: de-q-3401
+  lesson: de-eigen-complex
+  module_quiz: true
+  topic: Phase portraits
+  stem: 'Classify the origin for $\mathbf{x}'' = \begin{bmatrix} -1 & 2 \\ -2 & -1 \end{bmatrix}\mathbf{x}$.'
+  choices: ['Spiral source', 'Spiral sink', 'Center', 'Nodal sink']
+  answer: 1
+  explanation: |-
+    $T = -2$, $D = 5$, $T^2 - 4D = -16 < 0$: complex eigenvalues $-1 \pm 2i$ with negative real part.
+- id: de-q-3402
+  lesson: de-eigen-complex
+  module_quiz: true
+  topic: Phase portraits
+  stem: 'The system for $u'''' + 9u = 0$ ($x_1 = u$, $x_2 = u''$) has an equilibrium at the origin of what type?'
+  choices: ['Spiral sink', 'Saddle', 'Nodal source', 'Center (stable, not asymptotically stable)']
+  answer: 3
+  explanation: |-
+    $A = \begin{bmatrix} 0 & 1 \\ -9 & 0 \end{bmatrix}$ has eigenvalues $\pm 3i$: closed elliptical orbits, constant energy.
+- id: de-q-3403
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'For $\mathbf{x}'' = \begin{bmatrix} -1 & -4 \\ 1 & -1 \end{bmatrix}\mathbf{x}$, which way do trajectories rotate?'
+  choices: ['Clockwise', 'Counterclockwise', 'They don''t rotate', 'It depends on the starting point']
+  answer: 1
+  explanation: |-
+    At $(1, 0)$ the velocity is $A(1, 0) = (-1, 1)$, which has a positive second component: moving up from the positive $x_1$-axis means counterclockwise.
+- id: de-q-3404
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'For eigenvalue $\alpha + i\beta$ with eigenvector $\mathbf{a} + i\mathbf{b}$, which is a real solution?'
+  choices: ['$e^{\alpha t}\mathbf{a}\cos\beta t$', '$e^{\beta t}(\mathbf{a}\cos\alpha t - \mathbf{b}\sin\alpha t)$', '$e^{\alpha t}(\mathbf{a} + \mathbf{b})\cos\beta t$', '$e^{\alpha t}(\mathbf{a}\cos\beta t - \mathbf{b}\sin\beta t)$']
+  answer: 3
+  explanation: |-
+    It's the real part of $e^{\alpha t}(\cos\beta t + i\sin\beta t)(\mathbf{a} + i\mathbf{b})$. Dropping $\mathbf{b}$ gives a function that generally is not a solution.
+- id: de-q-3405
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'Find the eigenvalue(s) of $A = \begin{bmatrix} 3 & -1 \\ 1 & 1 \end{bmatrix}$.'
+  choices: ['$2$ (repeated)', '$3$ and $1$', '$2 \pm i$', '$1$ and $4$']
+  answer: 0
+  explanation: |-
+    $T = 4$, $D = 3 + 1 = 4$, $T^2 - 4D = 0$: $(\lambda - 2)^2 = 0$. The diagonal entries are not the eigenvalues here.
+- id: de-q-3406
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'With a repeated eigenvalue $\lambda$ and only one eigenvector $\mathbf{v}$, the second solution is $e^{\lambda t}(t\mathbf{v} + \mathbf{w})$ where'
+  choices: ['$(A - \lambda I)\mathbf{w} = \mathbf{0}$', '$A\mathbf{w} = \mathbf{v}$', '$(A - \lambda I)\mathbf{w} = \mathbf{v}$', '$\mathbf{w} = t\mathbf{v}$']
+  answer: 2
+  explanation: |-
+    Substituting the trial solution gives $\lambda(t\mathbf{v} + \mathbf{w}) + \mathbf{v} = A(t\mathbf{v} + \mathbf{w})$, which reduces to $(A - \lambda I)\mathbf{w} = \mathbf{v}$.
+- id: de-q-3407
+  lesson: de-eigen-complex
+  module_quiz: true
+  topic: Phase portraits
+  stem: 'Classify: $\operatorname{tr}A = 2$, $\det A = 5$.'
+  choices: ['Nodal source', 'Spiral sink', 'Saddle', 'Spiral source']
+  answer: 3
+  explanation: |-
+    $D > 0$ and $T^2 - 4D = 4 - 20 < 0$: complex eigenvalues $1 \pm 2i$ with positive real part.
+- id: de-q-3408
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'The origin of $\mathbf{x}'' = A\mathbf{x}$ is asymptotically stable exactly when'
+  choices: ['$\det A > 0$', '$\operatorname{tr}A < 0$ and $\det A > 0$', '$\operatorname{tr}A < 0$', '$(\operatorname{tr}A)^2 < 4\det A$']
+  answer: 1
+  explanation: |-
+    Both eigenvalues have negative real part iff their sum (trace) is negative and their product (determinant) is positive.
+- id: de-q-3409
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'Which matrix gives a proper node (star), where every direction is an eigenvector?'
+  choices: ['$\begin{bmatrix} -2 & 1 \\ 0 & -2 \end{bmatrix}$', '$\begin{bmatrix} -2 & 0 \\ 0 & -3 \end{bmatrix}$', '$\begin{bmatrix} -2 & 0 \\ 0 & -2 \end{bmatrix}$', '$\begin{bmatrix} 0 & -2 \\ 2 & 0 \end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    Only $A = \lambda I$ has every vector as an eigenvector. The first has a repeated eigenvalue but only one eigenvector (improper node).
+- id: de-q-3410
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'For $\mathbf{x}'' = \begin{bmatrix} 1 & -5 \\ 1 & -3 \end{bmatrix}\mathbf{x}$, find the eigenvalues and classify.'
+  choices: ['$-1 \pm i$; spiral sink', '$1 \pm i$; spiral source', '$-1$ and $-3$; nodal sink', '$\pm i$; center']
+  answer: 0
+  explanation: |-
+    $T = -2$, $D = -3 + 5 = 2$: $\lambda^2 + 2\lambda + 2 = 0$, $\lambda = -1 \pm i$.
+- id: de-q-3411
+  lesson: de-eigen-complex
+  topic: Phase portraits
+  stem: 'Purely imaginary eigenvalues $\pm i\beta$ give closed orbits. What is their period?'
+  choices: ['$2\pi/\beta$', '$\beta$', '$2\pi\beta$', '$\pi/\beta$']
+  answer: 0
+  explanation: |-
+    Solutions involve $\cos\beta t$ and $\sin\beta t$, which repeat every $2\pi/\beta$.
+# Lesson 35
+- id: de-q-3501
+  lesson: de-nonlinear
+  module_quiz: true
+  topic: Nonlinear systems
+  stem: 'Find the equilibria of $x'' = x(3 - y)$, $y'' = y(x - 2)$.'
+  choices: ['$(3, 2)$ only', '$(0, 0)$ and $(3, 2)$', '$(0, 0)$ and $(2, 3)$', '$(0, 3)$ and $(2, 0)$']
+  answer: 2
+  explanation: |-
+    $x = 0$ or $y = 3$; $y = 0$ or $x = 2$. Consistent pairs: $(0, 0)$ and $(2, 3)$. Mixing up which equation gives which coordinate produces $(3, 2)$.
+- id: de-q-3502
+  lesson: de-nonlinear
+  module_quiz: true
+  topic: Nonlinear systems
+  stem: 'What is the Jacobian of $F = x - y$, $G = x^2 - 4$?'
+  choices: ['$\begin{bmatrix} 1 & 2x \\ -1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 1 & -1 \\ 2x & 0 \end{bmatrix}$', '$\begin{bmatrix} 1 & -1 \\ x^2 & 0 \end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ 2x & 1 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Row 1: $(F_x, F_y) = (1, -1)$. Row 2: $(G_x, G_y) = (2x, 0)$. The choice with $2x$ in the top row is the transpose.
+- id: de-q-3503
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'Linearization at an equilibrium gives eigenvalues $\pm 2i$. What can you conclude about the nonlinear system?'
+  choices: ['It is a center', 'It is a spiral sink', 'It is a saddle', 'Nothing definite: it could be a center or a slow spiral']
+  answer: 3
+  explanation: |-
+    Purely imaginary eigenvalues are the borderline case where nonlinear terms decide.
+- id: de-q-3504
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'For Lotka–Volterra $x'' = x - 0.5xy$, $y'' = -0.75y + 0.25xy$, what is the coexistence equilibrium?'
+  choices: ['$(2, 3)$', '$(3, 2)$', '$(1, 0.75)$', '$(0.5, 0.25)$']
+  answer: 1
+  explanation: |-
+    $1 - 0.5y = 0$ gives $y = 2$; $-0.75 + 0.25x = 0$ gives $x = 3$.
+- id: de-q-3505
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'In the Lotka–Volterra model, the origin (both species extinct) is'
+  choices: ['a stable node', 'a center', 'a spiral sink', 'a saddle point']
+  answer: 3
+  explanation: |-
+    $J(0, 0) = \begin{bmatrix} a & 0 \\ 0 & -c \end{bmatrix}$: eigenvalues of opposite sign. Prey alone grow, predators alone die.
+- id: de-q-3506
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'Classify the equilibrium $(2, 2)$ of $x'' = x - y$, $y'' = x^2 - 4$.'
+  choices: ['Spiral source', 'Saddle', 'Spiral sink', 'Nodal source']
+  answer: 0
+  explanation: |-
+    $J = \begin{bmatrix} 1 & -1 \\ 4 & 0 \end{bmatrix}$: $T = 1$, $D = 4$, $T^2 - 4D = -15$. Complex eigenvalues with positive real part; linearization is decisive since they're not purely imaginary.
+- id: de-q-3507
+  lesson: de-nonlinear
+  module_quiz: true
+  topic: Nonlinear systems
+  stem: 'The pendulum $x'' = y$, $y'' = -\sin x$ has what type of equilibrium at $(\pi, 0)$?'
+  choices: ['Center', 'Spiral sink', 'Saddle (inverted pendulum, unstable)', 'Nodal sink']
+  answer: 2
+  explanation: |-
+    $J = \begin{bmatrix} 0 & 1 \\ -\cos\pi & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$, $\det = -1 < 0$.
+- id: de-q-3508
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'In predator–prey cycles, the predator population peaks'
+  choices: ['at the same time as the prey', 'before the prey', 'never', 'after the prey population peaks']
+  answer: 3
+  explanation: |-
+    Predators grow while prey are plentiful, so they peak a quarter cycle later, after which prey decline.
+- id: de-q-3509
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'For competing species $x'' = x(1 - x - y)$, $y'' = y(0.75 - y - 0.5x)$, the coexistence equilibrium is'
+  choices: ['$(0.5, 0.5)$, a saddle', '$(0.5, 0.5)$, a nodal sink', '$(1, 0.75)$, a nodal sink', '$(0.25, 0.75)$, a spiral sink']
+  answer: 1
+  explanation: |-
+    $x + y = 1$ and $0.5x + y = 0.75$ give $(0.5, 0.5)$. There $T = -1$, $D = 0.125$, $T^2 - 4D = 0.5 > 0$: real negative eigenvalues.
+- id: de-q-3510
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'Near the coexistence point of Lotka–Volterra with $a = 1$, $c = 0.75$, small oscillations have period about'
+  choices: ['$2\pi \approx 6.28$', '$2\pi \cdot 0.75 \approx 4.71$', '$2\pi/\sqrt{0.75} \approx 7.26$', '$\sqrt{0.75} \approx 0.87$']
+  answer: 2
+  explanation: |-
+    The linearization has eigenvalues $\pm i\sqrt{ac} = \pm i\sqrt{0.75}$, so the period is $2\pi/\sqrt{0.75}$.
+- id: de-q-3511
+  lesson: de-nonlinear
+  topic: Nonlinear systems
+  stem: 'The linearization theorem guarantees the nonlinear type matches the linear type when'
+  choices: ['no eigenvalue of $J$ has zero real part', '$J$ is symmetric', 'the equilibrium is at the origin', '$\det J > 0$']
+  answer: 0
+  explanation: |-
+    Hyperbolic equilibria (eigenvalues off the imaginary axis) keep their type; centers and zero eigenvalues are borderline.

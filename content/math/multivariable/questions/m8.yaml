@@ -1,0 +1,527 @@
+# Module 8: Surface integrals and the big theorems
+- id: mv-q-3201
+  lesson: mv-curl-div
+  module_quiz: true
+  topic: Curl
+  stem: 'Find $\operatorname{curl}\mathbf F$ for $\mathbf F = \langle x^2y,\; yz,\; xz^2\rangle$.'
+  choices: ['$\langle -y,\, -z^2,\, -x^2\rangle$', '$\langle y,\, z^2,\, x^2\rangle$', '$\langle 2xy,\, z,\, 2xz\rangle$', '$\langle 0,\, -z^2,\, -x^2\rangle$']
+  answer: 0
+  explanation: |-
+    $\langle R_y - Q_z,\; P_z - R_x,\; Q_x - P_y\rangle = \langle 0 - y,\; 0 - z^2,\; 0 - x^2\rangle$.
+    The second choice reverses every subtraction; the third lists the terms of the divergence.
+- id: mv-q-3202
+  lesson: mv-curl-div
+  topic: Divergence
+  stem: 'Find $\operatorname{div}\mathbf F$ for $\mathbf F = \langle x^2y,\; yz,\; xz^2\rangle$.'
+  choices: ['$\langle 2xy, z, 2xz\rangle$', '$2xy + z + 2xz$', '$x^2 + y + z^2$', '$0$']
+  answer: 1
+  explanation: |-
+    $P_x + Q_y + R_z = 2xy + z + 2xz$. Divergence is a scalar, not a vector.
+- id: mv-q-3203
+  lesson: mv-curl-div
+  module_quiz: true
+  topic: Curl
+  stem: 'What is the curl of the rotation field $\mathbf F = \langle -y,\, x,\, 0\rangle$?'
+  choices: ['$\mathbf 0$', '$\langle 0, 0, 1\rangle$', '$\langle 0, 0, 2\rangle$', '$\langle 0, 0, -2\rangle$']
+  answer: 2
+  explanation: |-
+    $\mathbf k$ component: $Q_x - P_y = 1 - (-1) = 2$; the others are 0. The curl points along the rotation axis with length twice the angular speed (here 1).
+- id: mv-q-3204
+  lesson: mv-curl-div
+  topic: Divergence
+  stem: 'What is the divergence of $\mathbf F = \langle x, y, z\rangle$?'
+  choices: ['$0$', '$1$', '$x + y + z$', '$3$']
+  answer: 3
+  explanation: |-
+    $1 + 1 + 1 = 3$: the field spreads out uniformly, a source everywhere.
+- id: mv-q-3205
+  lesson: mv-curl-div
+  module_quiz: true
+  topic: Curl
+  stem: 'For any scalar function $f$ with continuous second partials, $\operatorname{curl}(\nabla f)$ is'
+  choices: ['$\mathbf 0$', '$\nabla^2 f$', '$\nabla f$', 'undefined']
+  answer: 0
+  explanation: |-
+    Each component is a difference of equal mixed partials, such as $f_{zy} - f_{yz} = 0$ (Clairaut). Gradient fields are irrotational.
+- id: mv-q-3206
+  lesson: mv-curl-div
+  topic: Divergence
+  stem: 'For a smooth vector field $\mathbf F$, $\operatorname{div}(\operatorname{curl}\mathbf F)$ equals'
+  choices: ['$\operatorname{curl}(\operatorname{div}\mathbf F)$', '$0$', '$|\mathbf F|$', '$\nabla^2\mathbf F$']
+  answer: 1
+  explanation: |-
+    Expanding, the six terms cancel in pairs by Clairaut's theorem. (The first choice is meaningless: the curl of a scalar is not defined.)
+- id: mv-q-3207
+  lesson: mv-curl-div
+  topic: Curl
+  stem: 'Find a potential for $\mathbf F = \langle yz,\; xz + 2y,\; xy\rangle$ (its curl is $\mathbf 0$).'
+  choices: ['$xyz$', '$xyz + 2y$', '$xyz + y^2$', '$x^2y^2z^2$']
+  answer: 2
+  explanation: |-
+    $f = \int yz\,dx = xyz + g(y, z)$. Matching $f_y = xz + g_y = xz + 2y$ gives $g = y^2$, and $f_z = xy$ already matches.
+- id: mv-q-3208
+  lesson: mv-curl-div
+  module_quiz: true
+  topic: Divergence
+  stem: 'A fluid velocity field with $\operatorname{div}\mathbf v = 0$ everywhere is called'
+  choices: ['irrotational', 'conservative', 'a source', 'incompressible']
+  answer: 3
+  explanation: |-
+    Zero divergence means no net outflow from any small box: the fluid neither expands nor compresses. Irrotational means zero curl.
+- id: mv-q-3209
+  lesson: mv-curl-div
+  topic: Divergence
+  stem: 'Which function is harmonic, that is, satisfies $f_{xx} + f_{yy} = 0$?'
+  choices: ['$x^2 - y^2$', '$x^2 + y^2$', '$x^3$', '$xy^2$']
+  answer: 0
+  explanation: |-
+    For $x^2 - y^2$: $2 + (-2) = 0$. For $x^2 + y^2$ the Laplacian is 4; for $x^3$ it is $6x$; for $xy^2$ it is $2x$.
+- id: mv-q-3210
+  lesson: mv-curl-div
+  topic: Divergence
+  stem: 'Can $\mathbf F = \langle x, y, z\rangle$ be the curl of some vector field $\mathbf G$?'
+  choices: ['Yes, of $\mathbf G = \langle z, x, y\rangle$', 'No, because $\operatorname{div}\mathbf F = 3 \ne 0$, while every curl has zero divergence', 'Yes, because $\operatorname{curl}\mathbf F = \mathbf 0$', 'No, because $\mathbf F$ is not continuous']
+  answer: 1
+  explanation: |-
+    If $\mathbf F = \operatorname{curl}\mathbf G$ then $\operatorname{div}\mathbf F = \operatorname{div}\operatorname{curl}\mathbf G = 0$. Here the divergence is 3. (The curl of $\langle z, x, y\rangle$ is $\langle 1,1,1\rangle$.)
+- id: mv-q-3211
+  lesson: mv-curl-div
+  topic: Divergence
+  stem: 'Find $\operatorname{div}\mathbf F$ for $\mathbf F = \langle e^x\sin y,\; e^x\cos y,\; z\rangle$.'
+  choices: ['$2e^x\sin y + 1$', '$e^x(\sin y + \cos y) + 1$', '$1$', '$0$']
+  answer: 2
+  explanation: |-
+    $\partial_x(e^x\sin y) + \partial_y(e^x\cos y) + \partial_z z = e^x\sin y - e^x\sin y + 1 = 1$.
+
+- id: mv-q-3301
+  lesson: mv-param-surfaces
+  module_quiz: true
+  topic: Parametric surfaces
+  stem: 'Which parametrizes the cylinder $x^2 + y^2 = 9$, $0 \le z \le 5$?'
+  choices: ['$\langle 9\cos\theta,\, 9\sin\theta,\, z\rangle$', '$\langle 3\cos\theta,\, 3\sin\theta,\, 5\rangle$', '$\langle 3\sin\phi\cos\theta,\, 3\sin\phi\sin\theta,\, 3\cos\phi\rangle$', '$\langle 3\cos\theta,\, 3\sin\theta,\, z\rangle$, $0 \le \theta \le 2\pi$, $0 \le z \le 5$']
+  answer: 3
+  explanation: |-
+    Radius 3 (not 9), angle all the way around, height free between 0 and 5. The second choice is just the top circle; the third is a sphere.
+- id: mv-q-3302
+  lesson: mv-param-surfaces
+  topic: Parametric surfaces
+  stem: 'For a parametric surface $\mathbf r(u, v)$, a normal vector is'
+  choices: ['$\mathbf r_u\times\mathbf r_v$', '$\mathbf r_u\cdot\mathbf r_v$', '$\mathbf r_u + \mathbf r_v$', '$\mathbf r(u, v)$']
+  answer: 0
+  explanation: |-
+    $\mathbf r_u$ and $\mathbf r_v$ are tangent to the grid curves, hence lie in the tangent plane; their cross product is perpendicular to it.
+- id: mv-q-3303
+  lesson: mv-param-surfaces
+  module_quiz: true
+  topic: Parametric surfaces
+  stem: 'Find the tangent plane to $\mathbf r(u, v) = \langle u + v,\, u^2,\, v^2\rangle$ at $u = v = 1$.'
+  choices: ['$x + 2y + 2z = 6$', '$2x - y - z = 2$', '$4x - 2y - 2z = 0$', '$2x + y + z = 6$']
+  answer: 1
+  explanation: |-
+    Point $(2, 1, 1)$; $\mathbf r_u = \langle 1, 2, 0\rangle$, $\mathbf r_v = \langle 1, 0, 2\rangle$, cross product $\langle 4, -2, -2\rangle$. Plane: $4(x - 2) - 2(y - 1) - 2(z - 1) = 0$, i.e. $2x - y - z = 2$.
+- id: mv-q-3304
+  lesson: mv-param-surfaces
+  topic: Surface area
+  stem: 'For the sphere $\mathbf r(\phi, \theta) = \langle a\sin\phi\cos\theta,\, a\sin\phi\sin\theta,\, a\cos\phi\rangle$, what is $|\mathbf r_\phi\times\mathbf r_\theta|$?'
+  choices: ['$a^2$', '$a\sin\phi$', '$a^2\sin\phi$', '$a^2\cos\phi$']
+  answer: 2
+  explanation: |-
+    The cross product is $a^2\sin\phi$ times a unit radial vector, so its length is $a^2\sin\phi$: the spherical volume factor $\rho^2\sin\phi$ with $\rho = a$.
+- id: mv-q-3305
+  lesson: mv-param-surfaces
+  module_quiz: true
+  topic: Surface area
+  stem: 'Find the lateral surface area of the cone $z = \sqrt{x^2 + y^2}$ for $0 \le z \le 3$.'
+  choices: ['$9\pi$', '$18\pi$', '$3\sqrt2\,\pi$', '$9\sqrt2\,\pi$']
+  answer: 3
+  explanation: |-
+    $|\mathbf r_r\times\mathbf r_\theta| = r\sqrt2$, so $A = \int_0^{2\pi}\int_0^3 r\sqrt2\,dr\,d\theta = \sqrt2\pi\cdot9$. $9\pi$ is the area of the base disk.
+- id: mv-q-3306
+  lesson: mv-param-surfaces
+  topic: Surface area
+  stem: 'Using the parametrization $\langle x, y, f(x, y)\rangle$, what is $\mathbf r_x\times\mathbf r_y$?'
+  choices: ['$\langle -f_x,\, -f_y,\, 1\rangle$', '$\langle f_x,\, f_y,\, 1\rangle$', '$\langle 1,\, 1,\, f_x + f_y\rangle$', '$\langle f_x,\, f_y,\, -1\rangle$ only']
+  answer: 0
+  explanation: |-
+    $\langle 1, 0, f_x\rangle\times\langle 0, 1, f_y\rangle = \langle 0\cdot f_y - f_x\cdot1,\; f_x\cdot0 - 1\cdot f_y,\; 1\rangle = \langle -f_x, -f_y, 1\rangle$, whose length is $\sqrt{1 + f_x^2 + f_y^2}$.
+- id: mv-q-3307
+  lesson: mv-param-surfaces
+  topic: Surface area
+  stem: 'Using $\langle 2\cos\theta,\, 2\sin\theta,\, z\rangle$, find the lateral area of the cylinder of radius 2 and height 5.'
+  choices: ['$10\pi$', '$20\pi$', '$40\pi$', '$4\pi$']
+  answer: 1
+  explanation: |-
+    $\mathbf r_\theta\times\mathbf r_z = \langle 2\cos\theta, 2\sin\theta, 0\rangle$ has length 2, so $A = \int_0^{2\pi}\int_0^5 2\,dz\,d\theta = 20\pi$ (circumference $4\pi$ times height 5).
+- id: mv-q-3308
+  lesson: mv-param-surfaces
+  module_quiz: true
+  topic: Parametric surfaces
+  stem: 'What surface is $\mathbf r(u, v) = \langle u\cos v,\, u\sin v,\, u^2\rangle$?'
+  choices: ['A cone', 'A cylinder', 'The paraboloid $z = x^2 + y^2$', 'A sphere']
+  answer: 2
+  explanation: |-
+    $x^2 + y^2 = u^2 = z$. (With $z = u$ instead of $u^2$ it would be a cone.)
+- id: mv-q-3309
+  lesson: mv-param-surfaces
+  topic: Parametric surfaces
+  stem: 'Which parametrizes the plane through $(1, 0, 0)$ containing the vectors $\langle 1, 1, 0\rangle$ and $\langle 0, 1, 1\rangle$?'
+  choices: ['$\langle u, u + v, v\rangle$', '$\langle 1 + u, v, u + v\rangle$', '$\langle 1, u, v\rangle$', '$\langle 1 + u,\, u + v,\, v\rangle$']
+  answer: 3
+  explanation: |-
+    $\mathbf r_0 + u\mathbf a + v\mathbf b = \langle 1,0,0\rangle + u\langle 1,1,0\rangle + v\langle 0,1,1\rangle = \langle 1 + u, u + v, v\rangle$. The first choice passes through the origin instead.
+- id: mv-q-3310
+  lesson: mv-param-surfaces
+  topic: Parametric surfaces
+  stem: 'A parametric surface is called smooth when'
+  choices: ['$\mathbf r_u\times\mathbf r_v \ne \mathbf 0$ throughout the parameter domain', '$\mathbf r_u\cdot\mathbf r_v = 0$', '$|\mathbf r_u| = |\mathbf r_v|$', 'it is the graph of a function']
+  answer: 0
+  explanation: |-
+    A nonzero normal everywhere means a genuine tangent plane at every point (no corners or cusps).
+
+- id: mv-q-3401
+  lesson: mv-surface-integrals
+  module_quiz: true
+  topic: Surface integrals
+  stem: 'Evaluate $\iint_S z\,dS$ over the upper hemisphere of radius $a$.'
+  choices: ['$2\pi a^3$', '$\pi a^3$', '$\tfrac{2\pi a^3}{3}$', '$\pi a^2$']
+  answer: 1
+  explanation: |-
+    $\int_0^{2\pi}\int_0^{\pi/2}a\cos\phi\cdot a^2\sin\phi\,d\phi\,d\theta = a^3\cdot2\pi\cdot\tfrac12 = \pi a^3$. ($\tfrac{2\pi a^3}{3}$ is the volume of the half-ball.)
+- id: mv-q-3402
+  lesson: mv-surface-integrals
+  topic: Surface integrals
+  stem: 'Evaluate $\iint_S x\,dS$, where $S$ is the part of $z = 4 - 2x - 2y$ in the first octant.'
+  choices: ['$\tfrac43$', '$12$', '$4$', '$8$']
+  answer: 2
+  explanation: |-
+    $dS = \sqrt{1 + 4 + 4}\,dA = 3\,dA$ over the triangle $x + y \le 2$. $\iint_D x\,dA = \int_0^2 x(2 - x)\,dx = \tfrac43$, times 3 gives 4. ($\tfrac43$ forgets the factor 3.)
+- id: mv-q-3403
+  lesson: mv-surface-integrals
+  module_quiz: true
+  topic: Flux
+  stem: 'Find the outward flux of $\mathbf F = \langle x, y, z\rangle$ through the sphere of radius $a$.'
+  choices: ['$\tfrac43\pi a^3$', '$4\pi a^2$', '$0$', '$4\pi a^3$']
+  answer: 3
+  explanation: |-
+    On the sphere $\mathbf F\cdot\mathbf n = \tfrac{x^2 + y^2 + z^2}{a} = a$, constant; times the area $4\pi a^2$ gives $4\pi a^3$.
+- id: mv-q-3404
+  lesson: mv-surface-integrals
+  topic: Flux
+  stem: 'Find the upward flux of $\mathbf F = \langle 0, 0, z\rangle$ through $z = 4 - x^2 - y^2$, $z \ge 0$.'
+  choices: ['$8\pi$', '$16\pi$', '$4\pi$', '$32\pi$']
+  answer: 0
+  explanation: |-
+    For a graph with upward orientation the integrand is $-Pg_x - Qg_y + R = z = 4 - r^2$. $\int_0^{2\pi}\int_0^2(4 - r^2)r\,dr\,d\theta = 8\pi$.
+- id: mv-q-3405
+  lesson: mv-surface-integrals
+  module_quiz: true
+  topic: Flux
+  stem: 'A constant field $\mathbf F = \langle 3, -1, 2\rangle$ passes through the disk $x^2 + y^2 \le 4$ in the plane $z = 0$, oriented upward. What is the flux?'
+  choices: ['$16\pi$', '$8\pi$', '$12\pi$', '$4\sqrt{14}\pi$']
+  answer: 1
+  explanation: |-
+    $\mathbf n = \mathbf k$, so $\mathbf F\cdot\mathbf n = 2$, times area $4\pi$: $8\pi$. The horizontal components do not cross the disk.
+- id: mv-q-3406
+  lesson: mv-surface-integrals
+  topic: Flux
+  stem: 'For the graph $z = g(x, y)$ oriented upward, the flux of $\mathbf F = \langle P, Q, R\rangle$ is $\iint_D(\;\cdot\;)\,dA$ with integrand'
+  choices: ['$P + Q + R$', '$Pg_x + Qg_y - R$', '$-Pg_x - Qg_y + R$', '$R\sqrt{1 + g_x^2 + g_y^2}$']
+  answer: 2
+  explanation: |-
+    $\mathbf F\cdot(\mathbf r_x\times\mathbf r_y)$ with $\mathbf r_x\times\mathbf r_y = \langle -g_x, -g_y, 1\rangle$. The second choice is the downward version.
+- id: mv-q-3407
+  lesson: mv-surface-integrals
+  topic: Flux
+  stem: 'What is the standard orientation of a closed surface such as a sphere?'
+  choices: ['Upward', 'Inward', 'Either, as long as it is consistent', 'Outward']
+  answer: 3
+  explanation: |-
+    By convention closed surfaces (boundaries of solids) are oriented with the outward normal; the Divergence theorem is stated that way.
+- id: mv-q-3408
+  lesson: mv-surface-integrals
+  module_quiz: true
+  topic: Flux
+  stem: 'Why can''t one compute flux through a Möbius strip?'
+  choices: ['It is not orientable: no continuous choice of normal exists', 'Its area is infinite', 'It has no boundary', 'It is not smooth anywhere']
+  answer: 0
+  explanation: |-
+    Following the normal once around the strip brings it back reversed, so "through" has no consistent meaning.
+- id: mv-q-3409
+  lesson: mv-surface-integrals
+  topic: Flux
+  stem: 'If the flux of $\mathbf F$ through $S$ with one orientation is $7$, what is it with the opposite orientation?'
+  choices: ['$7$', '$-7$', '$0$', '$\tfrac17$']
+  answer: 1
+  explanation: |-
+    Reversing $\mathbf n$ reverses the sign of $\mathbf F\cdot\mathbf n$ everywhere.
+- id: mv-q-3410
+  lesson: mv-surface-integrals
+  topic: Flux
+  stem: 'What is the flux of $\mathbf F = \langle 1, 0, 0\rangle$ through any part of the plane $z = 0$?'
+  choices: ['$1$', 'the area of the region', '$0$', '$-1$']
+  answer: 2
+  explanation: |-
+    The field is parallel to the plane: $\mathbf F\cdot\mathbf k = 0$. Flow along a surface does not cross it.
+- id: mv-q-3411
+  lesson: mv-surface-integrals
+  topic: Surface integrals
+  stem: 'In a scalar surface integral $\iint_S f\,dS$ over $\mathbf r(u, v)$, the area element $dS$ equals'
+  choices: ['$du\,dv$', '$(\mathbf r_u\times\mathbf r_v)\,du\,dv$', '$|\mathbf r_u| + |\mathbf r_v|$', '$|\mathbf r_u\times\mathbf r_v|\,du\,dv$']
+  answer: 3
+  explanation: |-
+    The patch is a parallelogram with sides $\mathbf r_u\,du$ and $\mathbf r_v\,dv$, whose area is the length of their cross product. The vector version $(\mathbf r_u\times\mathbf r_v)\,du\,dv = d\mathbf S$ is used for flux.
+
+- id: mv-q-3501
+  lesson: mv-stokes
+  module_quiz: true
+  topic: Stokes' theorem
+  stem: 'Stokes'' theorem states that $\oint_C\mathbf F\cdot d\mathbf r$ equals'
+  choices: ['$\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$ for any oriented surface $S$ with boundary $C$', '$\iiint_E\operatorname{div}\mathbf F\,dV$', '$\iint_S\mathbf F\cdot d\mathbf S$', '$0$ for every field']
+  answer: 0
+  explanation: |-
+    Circulation around the boundary equals the flux of the curl through the surface (with the right-hand-rule orientation). The divergence version is Gauss's theorem.
+- id: mv-q-3502
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: 'Evaluate $\oint_C\langle -y^3,\, x^3,\, z\rangle\cdot d\mathbf r$, where $C$ is the circle $x^2 + y^2 = 4$, $z = 3$, counterclockwise from above.'
+  choices: ['$12\pi$', '$24\pi$', '$48\pi$', '$8\pi$']
+  answer: 1
+  explanation: |-
+    $\operatorname{curl}\mathbf F = \langle 0, 0, 3x^2 + 3y^2\rangle$. Over the flat disk: $\int_0^{2\pi}\int_0^2 3r^2\cdot r\,dr\,d\theta = 2\pi\cdot12 = 24\pi$.
+- id: mv-q-3503
+  lesson: mv-stokes
+  module_quiz: true
+  topic: Stokes' theorem
+  stem: 'Evaluate $\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$ for $\mathbf F = \langle -y,\, x,\, e^{xyz}\rangle$ over the upper unit hemisphere, oriented upward.'
+  choices: ['$0$', '$\pi$', '$2\pi$', '$4\pi$']
+  answer: 2
+  explanation: |-
+    By Stokes it equals the circulation around the unit circle (counterclockwise): $\int_0^{2\pi}(\sin^2t + \cos^2t)\,dt = 2\pi$. The $e^{xyz}$ term never contributes, since $dz = 0$ on the circle.
+- id: mv-q-3504
+  lesson: mv-stokes
+  module_quiz: true
+  topic: Stokes' theorem
+  stem: 'Two oriented surfaces $S_1$ and $S_2$ share the same boundary curve $C$ with the same induced orientation. Then'
+  choices: ['$\iint_{S_1}\mathbf F\cdot d\mathbf S = \iint_{S_2}\mathbf F\cdot d\mathbf S$ for every $\mathbf F$', 'their areas are equal', 'both fluxes of $\operatorname{curl}\mathbf F$ are 0', '$\iint_{S_1}\operatorname{curl}\mathbf F\cdot d\mathbf S = \iint_{S_2}\operatorname{curl}\mathbf F\cdot d\mathbf S$']
+  answer: 3
+  explanation: |-
+    Both equal $\oint_C\mathbf F\cdot d\mathbf r$. This holds for fluxes of curls, not for the flux of an arbitrary field.
+- id: mv-q-3505
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: 'How is the boundary curve $C$ oriented relative to the surface normal $\mathbf n$ in Stokes'' theorem?'
+  choices: ['By the right-hand rule: thumb along $\mathbf n$, fingers along $C$', 'Always counterclockwise in the $xy$-plane', 'Opposite to the right-hand rule', 'The orientation does not matter']
+  answer: 0
+  explanation: |-
+    Walking along $C$ with your head along $\mathbf n$, the surface stays on your left. Reversing either one flips the sign of one side.
+- id: mv-q-3506
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: 'Green''s theorem is the special case of Stokes'' theorem in which'
+  choices: ['the surface is a sphere', 'the surface is a flat region in the $xy$-plane with normal $\mathbf k$', 'the field is conservative', 'the curve is a straight line']
+  answer: 1
+  explanation: |-
+    With $\mathbf n = \mathbf k$, $\operatorname{curl}\mathbf F\cdot\mathbf k = Q_x - P_y$, and Stokes becomes $\oint_C P\,dx + Q\,dy = \iint_D(Q_x - P_y)\,dA$.
+- id: mv-q-3507
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: 'For a closed surface $S$ (such as a sphere), what is $\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$?'
+  choices: ['the volume inside', '$4\pi$', '$0$', 'the surface area']
+  answer: 2
+  explanation: |-
+    A closed surface has no boundary curve, so the circulation is 0. (The Divergence theorem gives the same, since $\operatorname{div}\operatorname{curl}\mathbf F = 0$.)
+- id: mv-q-3508
+  lesson: mv-stokes
+  module_quiz: true
+  topic: Stokes' theorem
+  stem: 'If $\operatorname{curl}\mathbf F = \mathbf 0$ on all of space, what is $\oint_C\mathbf F\cdot d\mathbf r$ for any closed curve $C$?'
+  choices: ['The length of $C$', 'It depends on $C$', '$2\pi$', '$0$']
+  answer: 3
+  explanation: |-
+    Span $C$ with any surface; Stokes gives the flux of the zero vector, 0. This is why curl-free fields on $\mathbb R^3$ are conservative.
+- id: mv-q-3509
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: 'Use Stokes'' theorem to evaluate $\oint_C\langle z,\, x,\, y\rangle\cdot d\mathbf r$ around the unit circle in the $xy$-plane, counterclockwise.'
+  choices: ['$\pi$', '$2\pi$', '$0$', '$3\pi$']
+  answer: 0
+  explanation: |-
+    $\operatorname{curl}\mathbf F = \langle 1, 1, 1\rangle$; over the unit disk with $\mathbf n = \mathbf k$, the flux is $1\cdot\pi$. (Directly: $\int_0^{2\pi}\cos^2t\,dt = \pi$.)
+- id: mv-q-3510
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: 'What does $\operatorname{curl}\mathbf F(P)\cdot\mathbf n$ measure?'
+  choices: ['The flux of $\mathbf F$ through a unit area', 'The circulation of $\mathbf F$ per unit area around a tiny loop at $P$ perpendicular to $\mathbf n$', 'The divergence of $\mathbf F$ at $P$', 'The speed of the fluid at $P$']
+  answer: 1
+  explanation: |-
+    Applying Stokes to a small disk of radius $\epsilon$ and dividing by its area $\pi\epsilon^2$ gives the curl's component along $\mathbf n$ in the limit.
+
+- id: mv-q-3601
+  lesson: mv-divergence
+  module_quiz: true
+  topic: Divergence theorem
+  stem: 'The Divergence theorem states that for a closed surface $S$ bounding $E$, oriented outward, $\iint_S\mathbf F\cdot d\mathbf S$ equals'
+  choices: ['$\oint_C\mathbf F\cdot d\mathbf r$', '$\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$', '$\iiint_E\operatorname{div}\mathbf F\,dV$', '$\iiint_E|\mathbf F|\,dV$']
+  answer: 2
+  explanation: |-
+    Net outflow through the boundary equals the total divergence (source strength) inside.
+- id: mv-q-3602
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'Find the outward flux of $\mathbf F = \langle x^3, y^3, z^3\rangle$ through the unit sphere.'
+  choices: ['$4\pi$', '$\tfrac{4\pi}{5}$', '$\tfrac{4\pi}{3}$', '$\tfrac{12\pi}{5}$']
+  answer: 3
+  explanation: |-
+    $\operatorname{div}\mathbf F = 3\rho^2$. $\int_0^\pi\int_0^{2\pi}\int_0^1 3\rho^4\sin\phi\,d\rho\,d\theta\,d\phi = 3\cdot\tfrac15\cdot4\pi = \tfrac{12\pi}{5}$.
+- id: mv-q-3603
+  lesson: mv-divergence
+  module_quiz: true
+  topic: Divergence theorem
+  stem: 'Find the outward flux of $\mathbf F = \langle xy,\, yz,\, zx\rangle$ through the surface of the cube $[0, 1]^3$.'
+  choices: ['$\tfrac32$', '$3$', '$\tfrac12$', '$0$']
+  answer: 0
+  explanation: |-
+    $\operatorname{div}\mathbf F = y + z + x$, and $\iiint_{[0,1]^3}(x + y + z)\,dV = 3\cdot\tfrac12$.
+- id: mv-q-3604
+  lesson: mv-divergence
+  module_quiz: true
+  topic: Divergence theorem
+  stem: 'Find the upward flux of $\mathbf F = \langle x, y, z\rangle$ through the paraboloid $z = 4 - x^2 - y^2$, $z \ge 0$, by closing it with the disk at $z = 0$.'
+  choices: ['$8\pi$', '$24\pi$', '$32\pi$', '$16\pi$']
+  answer: 1
+  explanation: |-
+    Total outward flux $= \iiint 3\,dV = 3\cdot8\pi = 24\pi$. On the bottom disk $\mathbf F\cdot(-\mathbf k) = -z = 0$, so the paraboloid carries all $24\pi$.
+- id: mv-q-3605
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'A student applies the Divergence theorem to an open hemisphere (no bottom). What is the mistake?'
+  choices: ['The theorem needs a field with zero divergence', 'The hemisphere must be oriented inward', 'The theorem applies only to closed surfaces; add the base disk and subtract its flux', 'There is no mistake']
+  answer: 2
+  explanation: |-
+    The surface must enclose a solid. Close it with a lid, apply the theorem to the closed surface, then subtract the lid's flux.
+- id: mv-q-3606
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'Find the outward flux of $\mathbf F = \langle x, y, z\rangle$ through the surface of the cube $[0, 2]^3$.'
+  choices: ['$8$', '$12$', '$6$', '$24$']
+  answer: 3
+  explanation: |-
+    $\operatorname{div}\mathbf F = 3$ and the volume is 8, so the flux is 24.
+- id: mv-q-3607
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'Find the outward flux of $\mathbf F = \langle 2x,\, -y,\, z^2\rangle$ through the surface of the unit cube $[0, 1]^3$.'
+  choices: ['$2$', '$1$', '$3$', '$\tfrac32$']
+  answer: 0
+  explanation: |-
+    $\operatorname{div}\mathbf F = 2 - 1 + 2z = 1 + 2z$, and $\iiint(1 + 2z)\,dV = 1 + 1 = 2$.
+- id: mv-q-3608
+  lesson: mv-divergence
+  module_quiz: true
+  topic: Divergence theorem
+  stem: 'The field $\mathbf F = \mathbf x/|\mathbf x|^3$ has zero divergence away from the origin. What is its outward flux through a closed surface that encloses the origin?'
+  choices: ['$0$', '$4\pi$', '$\tfrac43\pi$', 'It depends on the surface']
+  answer: 1
+  explanation: |-
+    It equals the flux through a small sphere around the origin (the region between them has zero divergence), which is $\tfrac{1}{a^2}\cdot4\pi a^2 = 4\pi$.
+- id: mv-q-3609
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'If $\operatorname{div}\mathbf F = 0$ everywhere, what is the flux of $\mathbf F$ out of any closed surface?'
+  choices: ['Its surface area', '$4\pi$', '$0$', 'The enclosed volume']
+  answer: 2
+  explanation: |-
+    The triple integral of zero is zero: an incompressible flow has no net outflow from any closed region.
+- id: mv-q-3610
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'Find the outward flux of $\mathbf F = \langle x, y, z\rangle$ through the sphere of radius 2.'
+  choices: ['$16\pi$', '$8\pi$', '$\tfrac{32\pi}{3}$', '$32\pi$']
+  answer: 3
+  explanation: |-
+    $3\cdot\tfrac43\pi(2)^3 = 32\pi$ (also $4\pi a^3$ with $a = 2$).
+
+- id: mv-q-3701
+  lesson: mv-physics
+  module_quiz: true
+  topic: Applications to physics
+  stem: 'A point charge $q$ sits at the center of a sphere of radius $a$. What is the electric flux through the sphere?'
+  choices: ['$\dfrac{q}{\varepsilon_0}$', '$\dfrac{q}{4\pi\varepsilon_0a^2}$', '$\dfrac{qa}{\varepsilon_0}$', '$0$']
+  answer: 0
+  explanation: |-
+    $\mathbf E\cdot\mathbf n = \tfrac{q}{4\pi\varepsilon_0a^2}$ on the sphere, times area $4\pi a^2$, gives $q/\varepsilon_0$, independent of $a$. The second choice is the field strength, not the flux.
+- id: mv-q-3702
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'Gauss''s law in differential form is'
+  choices: ['$\nabla\times\mathbf E = \rho/\varepsilon_0$', '$\nabla\cdot\mathbf E = \rho/\varepsilon_0$', '$\nabla\cdot\mathbf E = 0$', '$\nabla\mathbf E = \rho$']
+  answer: 1
+  explanation: |-
+    Applying the Divergence theorem to $\iint_S\mathbf E\cdot d\mathbf S = \tfrac{1}{\varepsilon_0}\iiint_E\rho\,dV$ for every region gives $\nabla\cdot\mathbf E = \rho/\varepsilon_0$.
+- id: mv-q-3703
+  lesson: mv-physics
+  module_quiz: true
+  topic: Applications to physics
+  stem: 'By Ampère''s law, what is the magnetic field strength at distance $r$ from a long straight wire carrying current $I$?'
+  choices: ['$\dfrac{\mu_0I}{4\pi r^2}$', '$\mu_0Ir$', '$\dfrac{\mu_0I}{2\pi r}$', '$\dfrac{\mu_0I}{r^2}$']
+  answer: 2
+  explanation: |-
+    Around a circle of radius $r$: $B\cdot2\pi r = \mu_0I$, so $B = \tfrac{\mu_0I}{2\pi r}$.
+- id: mv-q-3704
+  lesson: mv-physics
+  module_quiz: true
+  topic: Applications to physics
+  stem: 'Using $\mu_0 = 4\pi\times10^{-7}\text{ T·m/A}$, find the field 0.1 m from a wire carrying 5 A.'
+  choices: ['$2\times10^{-5}$ T', '$5\times10^{-6}$ T', '$1\times10^{-4}$ T', '$1\times10^{-5}$ T']
+  answer: 3
+  explanation: |-
+    $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})(5)}{2\pi(0.1)} = \dfrac{20\pi\times10^{-7}}{0.2\pi} = 1\times10^{-5}$ T.
+- id: mv-q-3705
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'Maxwell''s equation $\nabla\cdot\mathbf B = 0$ expresses that'
+  choices: ['there are no magnetic monopoles: magnetic flux through any closed surface is zero', 'magnetic fields are conservative', 'magnetic fields do not change in time', 'currents produce no magnetic field']
+  answer: 0
+  explanation: |-
+    By the Divergence theorem, $\nabla\cdot\mathbf B = 0$ is equivalent to $\iint_S\mathbf B\cdot d\mathbf S = 0$ for every closed surface: field lines never start or end.
+- id: mv-q-3706
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'For an incompressible fluid (constant density), the continuity equation reduces to'
+  choices: ['$\nabla\times\mathbf v = \mathbf 0$', '$\nabla\cdot\mathbf v = 0$', '$\mathbf v = \mathbf 0$', '$\partial\rho/\partial t = 1$']
+  answer: 1
+  explanation: |-
+    $\partial_t\rho + \nabla\cdot(\rho\mathbf v) = 0$ with constant $\rho$ leaves $\rho\,\nabla\cdot\mathbf v = 0$.
+- id: mv-q-3707
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'The temperature in a body is $T = 100 - x^2 - y^2 - z^2$ and the conductivity is $k = 2$. Using $\mathbf q = -k\nabla T$, find the heat flux out of the unit ball.'
+  choices: ['$8\pi$', '$12\pi$', '$16\pi$', '$-16\pi$']
+  answer: 2
+  explanation: |-
+    $\mathbf q = \langle 4x, 4y, 4z\rangle$, $\nabla\cdot\mathbf q = 12$, so the flux is $12\cdot\tfrac43\pi = 16\pi$. The negative answer forgets the minus sign in Fourier's law.
+- id: mv-q-3708
+  lesson: mv-physics
+  module_quiz: true
+  topic: Applications to physics
+  stem: 'Faraday''s law $\oint_C\mathbf E\cdot d\mathbf r = -\dfrac{d}{dt}\iint_S\mathbf B\cdot d\mathbf S$ is converted to $\nabla\times\mathbf E = -\dfrac{\partial\mathbf B}{\partial t}$ using'
+  choices: ['the Divergence theorem', 'Green''s theorem in the plane', 'the fundamental theorem for line integrals', 'Stokes'' theorem']
+  answer: 3
+  explanation: |-
+    The left side is a circulation, which Stokes turns into $\iint_S(\nabla\times\mathbf E)\cdot d\mathbf S$; equal for every surface, the integrands must agree.
+- id: mv-q-3709
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'Gravity (potential $f = GMm/|\mathbf x|$) moves a mass from distance $r_1$ to $r_2$ from the center. The work done is'
+  choices: ['$GMm\left(\dfrac{1}{r_2} - \dfrac{1}{r_1}\right)$, for any path', '$GMm(r_2 - r_1)$', 'dependent on the path taken', '$0$ always']
+  answer: 0
+  explanation: |-
+    Gravity is conservative, so by the fundamental theorem the work is $f(\text{end}) - f(\text{start})$. It is positive when the mass falls inward ($r_2 < r_1$).
+- id: mv-q-3710
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'What is the electric flux through a closed surface that does not enclose any charge?'
+  choices: ['$q/\varepsilon_0$', '$0$', 'It depends on the shape of the surface', 'Infinite']
+  answer: 1
+  explanation: |-
+    $Q_{\text{enc}} = 0$, so the flux is 0: field lines entering the surface also leave it.

@@ -1,0 +1,33 @@
+id: math-calculus
+title: Calculus
+description: >-
+  Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB,
+  then BC, then college Calculus I and II: limits and continuity, the derivative and its
+  rules, related rates, optimization and curve sketching, integrals and the Fundamental
+  Theorem, applications of integration, techniques of integration, improper integrals,
+  introductory differential equations, sequences and series, Taylor series, and calculus
+  with parametric and polar curves.
+revision: 1
+modules:
+  - id: calc-m1
+    title: Limits and continuity
+  - id: calc-m2
+    title: The derivative
+  - id: calc-m3
+    title: Differentiation rules
+  - id: calc-m4
+    title: Rates and approximation
+  - id: calc-m5
+    title: Analyzing functions with derivatives
+  - id: calc-m6
+    title: Integrals and the Fundamental Theorem
+  - id: calc-m7
+    title: Applications of integration
+  - id: calc-m8
+    title: Techniques of integration
+  - id: calc-m9
+    title: Differential equations
+  - id: calc-m10
+    title: Sequences and series
+  - id: calc-m11
+    title: Parametric equations and polar coordinates

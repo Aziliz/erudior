@@ -1,0 +1,340 @@
+# Module 4: linear transformations
+
+# --- Lesson 12: linear transformations ---
+- id: la-q-1201
+  lesson: la-transformations
+  module_quiz: true
+  topic: Linear transformations
+  stem: '$A$ is a $3 \times 5$ matrix and $T(\mathbf{x}) = A\mathbf{x}$. What are the domain and codomain of $T$?'
+  choices: ['Domain $\mathbb{R}^3$, codomain $\mathbb{R}^5$', 'Domain $\mathbb{R}^5$, codomain $\mathbb{R}^3$', 'Domain and codomain both $\mathbb{R}^5$', 'Domain $\mathbb{R}^{15}$, codomain $\mathbb{R}^3$']
+  answer: 1
+  explanation: |-
+    Inputs need one entry per column (5), and outputs have one entry per row (3). So $T: \mathbb{R}^5 \to \mathbb{R}^3$.
+
+- id: la-q-1202
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'Let $A = \begin{bmatrix} 2 & 0 & -1 \\ 1 & 3 & 2\end{bmatrix}$. What is the image of $\mathbf{u} = (1, -1, 2)$ under $\mathbf{x} \mapsto A\mathbf{x}$?'
+  choices: ['$\begin{bmatrix} 4 \\ 2\end{bmatrix}$', '$\begin{bmatrix} 0 \\ -6\end{bmatrix}$', '$\begin{bmatrix} 0 \\ 2\end{bmatrix}$', '$\begin{bmatrix} 2 \\ -3 \\ 2\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    Row 1: $2 + 0 - 2 = 0$. Row 2: $1 - 3 + 4 = 2$. The image lives in $\mathbb{R}^2$.
+
+- id: la-q-1203
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'The range of the transformation $\mathbf{x} \mapsto A\mathbf{x}$ is:'
+  choices: ['the span of the rows of $A$', 'always the whole codomain', 'the set of solutions of $A\mathbf{x} = \mathbf{0}$', 'the span of the columns of $A$']
+  answer: 3
+  explanation: |-
+    Each image $A\mathbf{x} = x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n$ is a combination of the columns, and every such combination occurs. It equals the codomain only when the columns span it.
+
+- id: la-q-1204
+  lesson: la-transformations
+  module_quiz: true
+  topic: Linear transformations
+  stem: 'Which transformation $\mathbb{R}^2 \to \mathbb{R}^2$ is linear?'
+  choices: ['$T(x_1, x_2) = (3x_1 - x_2,\ x_1)$', '$T(x_1, x_2) = (x_1 + 1,\ x_2)$', '$T(x_1, x_2) = (x_1x_2,\ x_2)$', '$T(x_1, x_2) = (|x_1|,\ x_2)$']
+  answer: 0
+  explanation: |-
+    It equals $\begin{bmatrix} 3 & -1 \\ 1 & 0\end{bmatrix}\mathbf{x}$, a matrix transformation. The second sends $\mathbf{0}$ to $(1, 0)$; the third and fourth fail $T(c\mathbf{u}) = cT(\mathbf{u})$ (try $c = -1$ or $c = 2$).
+
+- id: la-q-1205
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'Why is the translation $T(\mathbf{x}) = \mathbf{x} + \mathbf{p}$, with $\mathbf{p} \ne \mathbf{0}$, not a linear transformation?'
+  choices: ['Because it changes the length of vectors', 'Because its range is not a span', 'Because it is not one-to-one', 'Because $T(\mathbf{0}) = \mathbf{p} \ne \mathbf{0}$']
+  answer: 3
+  explanation: |-
+    Every linear transformation sends $\mathbf{0}$ to $\mathbf{0}$. (Lengths aren't the issue: rotations preserve lengths and are linear, and dilations change lengths and are linear.)
+
+- id: la-q-1206
+  lesson: la-transformations
+  module_quiz: true
+  topic: Linear transformations
+  stem: '$T$ is linear with $T(\mathbf{u}) = (1, 2)$ and $T(\mathbf{v}) = (0, -3)$. Find $T(3\mathbf{u} - 2\mathbf{v})$.'
+  choices: ['$(3, 0)$', '$(3, 12)$', '$(3, 6)$', '$(-3, 12)$']
+  answer: 1
+  explanation: |-
+    $T(3\mathbf{u} - 2\mathbf{v}) = 3T(\mathbf{u}) - 2T(\mathbf{v}) = (3, 6) - (0, -6) = (3, 12)$. Subtracting $-6$ adds 6; $(3, 0)$ comes from forgetting that.
+
+- id: la-q-1207
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: '$T: \mathbb{R}^2 \to \mathbb{R}^2$ is linear with $T(\mathbf{e}_1) = (1, 4)$ and $T(\mathbf{e}_2) = (-2, 1)$. Find $T(2, 3)$.'
+  choices: ['$(-4, 11)$', '$(2, 12)$', '$(-1, 5)$', '$(8, -1)$']
+  answer: 0
+  explanation: |-
+    $(2, 3) = 2\mathbf{e}_1 + 3\mathbf{e}_2$, so $T(2, 3) = 2(1, 4) + 3(-2, 1) = (2 - 6,\ 8 + 3) = (-4, 11)$.
+
+- id: la-q-1208
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'For $A = \begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$, which vector is in the range of $\mathbf{x} \mapsto A\mathbf{x}$?'
+  choices: ['$(3, 5)$', '$(2, 1)$', '$(-2, -4)$', '$(1, 0)$']
+  answer: 2
+  explanation: |-
+    Both columns are multiples of $(1, 2)$, so the range is the line of multiples of $(1, 2)$. $(-2, -4) = -2(1, 2)$; for example $\mathbf{x} = (-2, 0)$ maps to it.
+
+- id: la-q-1209
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'Is $T: \mathbb{R} \to \mathbb{R}$, $T(x) = 3x + 2$, a linear transformation?'
+  choices: ['Yes, its graph is a straight line', 'Yes, it has a constant rate of change', 'No, because $T(0) = 2$', 'No, because it is not onto']
+  answer: 2
+  explanation: |-
+    A linear transformation must send 0 to 0. "Linear function" in algebra class (a line) is broader than "linear transformation"; only lines through the origin, $T(x) = mx$, qualify.
+
+- id: la-q-1210
+  lesson: la-transformations
+  module_quiz: true
+  topic: Linear transformations
+  stem: 'For $T(\mathbf{x}) = \begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}\mathbf{x}$, find $\mathbf{x}$ with $T(\mathbf{x}) = (4, 2)$.'
+  choices: ['$(1, 3)$', '$(6, 2)$', '$(2, 1)$', '$(3, 1)$']
+  answer: 3
+  explanation: |-
+    Solve $x_1 + x_2 = 4$, $x_1 - x_2 = 2$: adding gives $2x_1 = 6$, so $x_1 = 3$ and $x_2 = 1$. $(6, 2)$ is $T(4, 2)$, the wrong direction.
+
+- id: la-q-1211
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'Which statement about the range and codomain of $T: \mathbb{R}^n \to \mathbb{R}^m$ is correct?'
+  choices: ['They are always equal', 'The range is contained in the domain', 'The codomain is contained in the range and may be smaller', 'The range is contained in the codomain and may be smaller']
+  answer: 3
+  explanation: |-
+    The codomain $\mathbb{R}^m$ is where outputs may land; the range is the set of outputs actually produced. In Example 1 of the lesson, the range is a plane inside the codomain $\mathbb{R}^3$.
+
+- id: la-q-1212
+  lesson: la-transformations
+  topic: Linear transformations
+  stem: 'Which identity holds for every linear transformation $T$?'
+  choices: ['$T(c\mathbf{u} + d\mathbf{v}) = cT(\mathbf{u}) + dT(\mathbf{v})$', '$T(\mathbf{u}\mathbf{v}) = T(\mathbf{u})T(\mathbf{v})$', '$T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u})$', '$T(c\mathbf{u}) = T(\mathbf{u}) + c$']
+  answer: 0
+  explanation: |-
+    This is the superposition principle, which combines the two defining properties: additivity and homogeneity.
+
+# --- Lesson 13: standard matrix ---
+- id: la-q-1301
+  lesson: la-std-matrix
+  module_quiz: true
+  topic: Standard matrix
+  stem: '$T: \mathbb{R}^2 \to \mathbb{R}^3$ is linear with $T(\mathbf{e}_1) = (2, -1, 0)$ and $T(\mathbf{e}_2) = (1, 3, 4)$. What is its standard matrix?'
+  choices: ['$\begin{bmatrix} 2 & -1 & 0 \\ 1 & 3 & 4\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ -1 & 3 \\ 0 & 4\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 3 & -1 \\ 4 & 0\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ -1 & 3\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Column $j$ is $T(\mathbf{e}_j)$, and the matrix is $3 \times 2$ because $T$ goes from $\mathbb{R}^2$ to $\mathbb{R}^3$. The first choice puts the images in rows.
+
+- id: la-q-1302
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'What is the standard matrix of the counterclockwise rotation by $90^\circ$ in $\mathbb{R}^2$?'
+  choices: ['$\begin{bmatrix} 0 & 1 \\ -1 & 0\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & -1\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $\mathbf{e}_1$ goes to $(0, 1)$ and $\mathbf{e}_2$ goes to $(-1, 0)$. The first choice is the clockwise rotation; the second is a reflection.
+
+- id: la-q-1303
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'Rotate $(2, 0)$ counterclockwise by $45^\circ$. Where does it land?'
+  choices: ['$(\sqrt2, \sqrt2)$', '$(1, 1)$', '$(2, 2)$', '$(\sqrt2, -\sqrt2)$']
+  answer: 0
+  explanation: |-
+    $\begin{bmatrix} \cos45^\circ & -\sin45^\circ \\ \sin45^\circ & \cos45^\circ\end{bmatrix}\begin{bmatrix} 2 \\ 0\end{bmatrix} = \begin{bmatrix} 2\cdot\tfrac{\sqrt2}{2} \\ 2\cdot\tfrac{\sqrt2}{2}\end{bmatrix} = (\sqrt2, \sqrt2)$. Rotation keeps the length 2; $(1, 1)$ has length $\sqrt2$.
+
+- id: la-q-1304
+  lesson: la-std-matrix
+  module_quiz: true
+  topic: Geometric transformations
+  stem: 'Which matrix reflects $\mathbb{R}^2$ across the line $x_2 = x_1$?'
+  choices: ['$\begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ -1 & 0\end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    The reflection swaps coordinates: $\mathbf{e}_1 \mapsto \mathbf{e}_2$ and $\mathbf{e}_2 \mapsto \mathbf{e}_1$. The second choice reflects across $x_2 = -x_1$; the others reflect across an axis.
+
+- id: la-q-1305
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'Under the horizontal shear $\begin{bmatrix} 1 & 3 \\ 0 & 1\end{bmatrix}$, where does the corner $(1, 1)$ of the unit square go?'
+  choices: ['$(1, 4)$', '$(4, 1)$', '$(3, 1)$', '$(1, 3)$']
+  answer: 1
+  explanation: |-
+    $(1 + 3 \cdot 1,\ 1) = (4, 1)$. A horizontal shear moves points sideways by $k$ times their height.
+
+- id: la-q-1306
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'Which matrix projects $\mathbb{R}^2$ onto the $x_1$-axis?'
+  choices: ['$\begin{bmatrix} 0 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 0 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $(x_1, x_2) \mapsto (x_1, 0)$: $\mathbf{e}_1$ stays and $\mathbf{e}_2$ goes to $\mathbf{0}$. The first choice projects onto the $x_2$-axis.
+
+- id: la-q-1307
+  lesson: la-std-matrix
+  module_quiz: true
+  topic: Geometric transformations
+  stem: '$T$ first reflects across the $x_2$-axis and then doubles every vector. What is its standard matrix?'
+  choices: ['$\begin{bmatrix} -2 & 0 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & -2\end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 2\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $\mathbf{e}_1 \to (-1, 0) \to (-2, 0)$ and $\mathbf{e}_2 \to (0, 1) \to (0, 2)$.
+
+- id: la-q-1308
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'Rotation by $180^\circ$ about the origin has the same standard matrix as which transformation?'
+  choices: ['Reflection across the $x_1$-axis', 'Reflection across $x_2 = x_1$', 'Reflection through the origin, $\mathbf{x} \mapsto -\mathbf{x}$', 'The identity']
+  answer: 2
+  explanation: |-
+    With $\theta = 180^\circ$, $\cos\theta = -1$ and $\sin\theta = 0$, giving $\begin{bmatrix} -1 & 0 \\ 0 & -1\end{bmatrix}$, which sends every $\mathbf{x}$ to $-\mathbf{x}$.
+
+- id: la-q-1309
+  lesson: la-std-matrix
+  topic: Standard matrix
+  stem: 'Find the standard matrix of $T(x_1, x_2, x_3) = (x_1 - x_3,\ 2x_2)$.'
+  choices: ['$\begin{bmatrix} 1 & 0 \\ 0 & 2 \\ -1 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & -1 & 0 \\ 0 & 2 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & -1 \\ 0 & 2 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 1 \\ 0 & 2 & 0\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $T(\mathbf{e}_1) = (1, 0)$, $T(\mathbf{e}_2) = (0, 2)$, $T(\mathbf{e}_3) = (-1, 0)$; these are the columns of a $2 \times 3$ matrix. Each row also just lists the coefficients of one output formula.
+
+- id: la-q-1310
+  lesson: la-std-matrix
+  module_quiz: true
+  topic: Standard matrix
+  stem: 'A linear $T$ maps the unit square to the parallelogram with sides $T(\mathbf{e}_1) = (2, 1)$ and $T(\mathbf{e}_2) = (1, 3)$. Where does the corner $(1, 1)$ go?'
+  choices: ['$(3, 4)$', '$(2, 3)$', '$(3, 3)$', '$(1, 2)$']
+  answer: 0
+  explanation: |-
+    $T(\mathbf{e}_1 + \mathbf{e}_2) = T(\mathbf{e}_1) + T(\mathbf{e}_2) = (3, 4)$, the far corner of the parallelogram.
+
+- id: la-q-1311
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'What is the standard matrix of the **clockwise** rotation by $90^\circ$?'
+  choices: ['$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ -1 & 0\end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Clockwise $90^\circ$ is $\theta = -90^\circ$: $\cos\theta = 0$, $\sin\theta = -1$. Check: $\mathbf{e}_1 = (1, 0)$ should go to $(0, -1)$, which is the first column.
+
+- id: la-q-1312
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'Which matrix compresses $\mathbb{R}^2$ vertically by a factor of $\tfrac12$ (halving every $x_2$-coordinate) while leaving $x_1$ unchanged?'
+  choices: ['$\begin{bmatrix} \tfrac12 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} \tfrac12 & 0 \\ 0 & \tfrac12\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & \tfrac12\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $\mathbf{e}_1$ stays put and $\mathbf{e}_2 \mapsto (0, \tfrac12)$. The second choice shrinks both directions (a dilation).
+
+# --- Lesson 14: one-to-one and onto ---
+- id: la-q-1401
+  lesson: la-onto-one
+  module_quiz: true
+  topic: One-to-one and onto
+  stem: '$A$ is $3 \times 5$. What can you say about $T(\mathbf{x}) = A\mathbf{x}$?'
+  choices: ['$T$ is not one-to-one', '$T$ is not onto', '$T$ is one-to-one', '$T$ is onto']
+  answer: 0
+  explanation: |-
+    At most 3 pivots among 5 columns, so some column lacks a pivot and $T(\mathbf{x}) = \mathbf{0}$ has nontrivial solutions. Whether $T$ is onto depends on whether all 3 rows have pivots.
+
+- id: la-q-1402
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: '$A$ is $5 \times 3$. Which property can $T(\mathbf{x}) = A\mathbf{x}$ never have?'
+  choices: ['One-to-one', 'Linearity', 'Onto $\mathbb{R}^5$', 'Sending $\mathbf{0}$ to $\mathbf{0}$']
+  answer: 2
+  explanation: |-
+    Onto $\mathbb{R}^5$ would need a pivot in each of 5 rows, but 3 columns give at most 3 pivots. It can be one-to-one if all 3 columns are pivot columns.
+
+- id: la-q-1403
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: '$T(\mathbf{x}) = A\mathbf{x}$ is onto $\mathbb{R}^m$ exactly when:'
+  choices: ['$A$ has a pivot in every column', '$A$ is square', '$A\mathbf{x} = \mathbf{0}$ has only the trivial solution', '$A$ has a pivot in every row']
+  answer: 3
+  explanation: |-
+    Onto means every $\mathbf{b}$ is reached, i.e. the columns span $\mathbb{R}^m$, i.e. a pivot in every row. A pivot in every column is the one-to-one condition.
+
+- id: la-q-1404
+  lesson: la-onto-one
+  module_quiz: true
+  topic: One-to-one and onto
+  stem: 'Let $T(\mathbf{x}) = \begin{bmatrix} 1 & 3 \\ 2 & 6\end{bmatrix}\mathbf{x}$. Which describes $T$?'
+  choices: ['One-to-one and onto', 'One-to-one but not onto', 'Onto but not one-to-one', 'Neither one-to-one nor onto']
+  answer: 3
+  explanation: |-
+    $R_2 - 2R_1$ is a zero row: one pivot only. Column 2 has no pivot (not one-to-one; e.g. $(3, -1) \mapsto \mathbf{0}$) and row 2 has no pivot (not onto).
+
+- id: la-q-1405
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: 'Let $T(x_1, x_2) = (x_1 + x_2,\ x_1 - x_2,\ 2x_1)$. Which describes $T$?'
+  choices: ['One-to-one but not onto $\mathbb{R}^3$', 'Onto $\mathbb{R}^3$ but not one-to-one', 'Both', 'Neither']
+  answer: 0
+  explanation: |-
+    The standard matrix $\begin{bmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0\end{bmatrix}$ has two independent columns (pivot in each column), so $T$ is one-to-one. It is $3 \times 2$, so it can't have 3 pivots and isn't onto.
+
+- id: la-q-1406
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: '$A$ is $4 \times 4$ and its columns are linearly independent. Is $\mathbf{x} \mapsto A\mathbf{x}$ onto $\mathbb{R}^4$?'
+  choices: ['No, independence says nothing about spanning', 'Only if $A$ is symmetric', 'Yes: 4 pivots in 4 columns of a square matrix means a pivot in every row too', 'Only if $A$ has no zero entries']
+  answer: 2
+  explanation: |-
+    For a square matrix, a pivot in every column and a pivot in every row both mean 4 pivots, so one-to-one and onto go together.
+
+- id: la-q-1407
+  lesson: la-onto-one
+  module_quiz: true
+  topic: One-to-one and onto
+  stem: 'A linear transformation $T$ is one-to-one if and only if:'
+  choices: ['$T(\mathbf{x}) = \mathbf{0}$ has only the trivial solution', '$T(\mathbf{0}) = \mathbf{0}$', 'its range equals its codomain', 'its standard matrix is square']
+  answer: 0
+  explanation: |-
+    If only $\mathbf{0}$ maps to $\mathbf{0}$, then $T(\mathbf{u}) = T(\mathbf{v})$ gives $T(\mathbf{u} - \mathbf{v}) = \mathbf{0}$, so $\mathbf{u} = \mathbf{v}$. Every linear map has $T(\mathbf{0}) = \mathbf{0}$, so that alone proves nothing.
+
+- id: la-q-1408
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: 'Let $T(\mathbf{x}) = \begin{bmatrix} 1 & 2 & 0 \\ 0 & 1 & 3\end{bmatrix}\mathbf{x}$. Which describes $T$?'
+  choices: ['One-to-one but not onto', 'Onto $\mathbb{R}^2$ but not one-to-one', 'Both', 'Neither']
+  answer: 1
+  explanation: |-
+    Pivots in both rows (onto), but column 3 has no pivot, so a free variable gives nonzero vectors like $(6, -3, 1)$ that map to $\mathbf{0}$.
+
+- id: la-q-1409
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: 'Which matrix gives a transformation that is both one-to-one and onto?'
+  choices: ['$\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $R_2 - 3R_1 = [\,0 \;\; {-2}\,]$, so there are 2 pivots in a $2 \times 2$ matrix. The wide matrix isn't one-to-one, the tall one isn't onto, and the first has dependent columns.
+
+- id: la-q-1410
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: 'Is the projection of $\mathbb{R}^2$ onto the $x_1$-axis, $(x_1, x_2) \mapsto (x_1, 0)$, one-to-one? Onto $\mathbb{R}^2$?'
+  choices: ['One-to-one, not onto', 'Onto, not one-to-one', 'Neither', 'Both']
+  answer: 2
+  explanation: |-
+    $(0, 1)$ and $(0, 0)$ both map to $\mathbf{0}$, so it's not one-to-one; $(0, 1)$ is never an output, so it's not onto. Its matrix $\begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix}$ has one pivot.
+
+- id: la-q-1411
+  lesson: la-onto-one
+  topic: One-to-one and onto
+  stem: 'Is a rotation of $\mathbb{R}^2$ one-to-one? Onto?'
+  choices: ['Both', 'One-to-one only', 'Onto only', 'Neither']
+  answer: 0
+  explanation: |-
+    Rotating back by $-\theta$ undoes it, so every point is reached exactly once. Algebraically, the columns $(\cos\theta, \sin\theta)$ and $(-\sin\theta, \cos\theta)$ are perpendicular unit vectors, hence independent.
+
+- id: la-q-1412
+  lesson: la-onto-one
+  module_quiz: true
+  topic: One-to-one and onto
+  stem: '$T: \mathbb{R}^4 \to \mathbb{R}^4$ is linear, and $T(\mathbf{x}) = \mathbf{0}$ has a nontrivial solution. What follows?'
+  choices: ['$T$ is onto but not one-to-one', 'Nothing can be concluded', '$T$ is one-to-one', '$T$ is neither one-to-one nor onto']
+  answer: 3
+  explanation: |-
+    A nontrivial solution means a free variable, so fewer than 4 pivots in the $4 \times 4$ standard matrix. Then some row lacks a pivot too, so $T$ isn't onto.

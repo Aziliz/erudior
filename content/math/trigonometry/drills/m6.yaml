@@ -1,0 +1,277 @@
+# Module 6 drills: identities and equations
+- id: trig-d-pyth-find
+  title: Find the other values with a Pythagorean identity
+  topic: Fundamental identities
+  vars:
+    p: {min: 1, max: 8}
+    q: {min: 2, max: 9}
+    Q: {choices: [{label: 'I', value: 1}, {label: 'II', value: 2}, {label: 'III', value: 3}, {label: 'IV', value: 4}]}
+  where: ["p < q", "gcd(p, q) == 1"]
+  calc:
+    sg: if(Q <= 2, 1, -1)
+    cg: if(Q == 1 or Q == 4, 1, -1)
+    s: sg * p / q
+    m: q^2 - p^2
+    c: cg * sqrt(m) / q
+    tn: s / c
+    sc: 1 / c
+  prompt: '$\sin\theta = {s:texfrac}$ and $\theta$ is in quadrant {Q}. Find $\cos\theta$, $\tan\theta$ and $\sec\theta$. Exact answers like -sqrt(5)/3 are fine (or 4 decimals).'
+  answers:
+    - {name: c, label: '$\cos\theta$', tolerance: 0.0005, format: num4}
+    - {name: tn, label: '$\tan\theta$', tolerance: 0.0005, format: num4}
+    - {name: sc, label: '$\sec\theta$', tolerance: 0.0005, format: num4}
+  solution: |-
+    $\cos^2\theta = 1 - \sin^2\theta = 1 - \dfrac{{p}^2}{{q}^2} = \dfrac{{m}}{{q}^2}$, so $\cos\theta = \pm\dfrac{\sqrt{{m}}}{{q}}$, and the sign
+    for quadrant {Q} gives $\cos\theta \approx$ **{c:num4}**. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} \approx$ **{tn:num4}** and
+    $\sec\theta = \dfrac{1}{\cos\theta} \approx$ **{sc:num4}**.
+
+- id: trig-d-simplify
+  title: Simplify with the fundamental identities
+  topic: Fundamental identities
+  vars:
+    k: {choices: [{label: '\sec x - \sec x\sin^2 x', value: 0}, {label: '\dfrac{1 + \tan^2 x}{\csc^2 x}', value: 1}, {label: '\cos x\tan x', value: 2}, {label: '\csc x - \cot x\cos x', value: 3}, {label: '\sin^2 x + \cos^2 x + \tan^2 x', value: 4}, {label: '(1 - \cos^2 x)\csc x', value: 5}, {label: '\sin x\cot x', value: 6}, {label: '(\sec^2 x - 1)\cot x', value: 7}]}
+    ans: {choices: [{label: '\cos x', value: 0}, {label: '\tan^2 x', value: 1}, {label: '\sin x', value: 2}, {label: '\sin x', value: 3}, {label: '\sec^2 x', value: 4}, {label: '\sin x', value: 5}, {label: '\cos x', value: 6}, {label: '\tan x', value: 7}]}
+    how: {choices: [{label: 'Factor out $\sec x$ and use $1 - \sin^2 x = \cos^2 x$.', value: 0}, {label: 'Replace $1 + \tan^2 x$ with $\sec^2 x$, then write both in sines and cosines.', value: 1}, {label: 'Write $\tan x = \tfrac{\sin x}{\cos x}$ and cancel.', value: 2}, {label: 'Write in sines and cosines and combine: $\tfrac{1 - \cos^2 x}{\sin x}$.', value: 3}, {label: 'Replace $\sin^2 x + \cos^2 x$ with 1, then $1 + \tan^2 x = \sec^2 x$.', value: 4}, {label: 'Replace $1 - \cos^2 x$ with $\sin^2 x$ and $\csc x$ with $\tfrac{1}{\sin x}$.', value: 5}, {label: 'Write $\cot x = \tfrac{\cos x}{\sin x}$ and cancel.', value: 6}, {label: 'Replace $\sec^2 x - 1$ with $\tan^2 x$, and $\cot x$ with $\tfrac{1}{\tan x}$.', value: 7}]}
+  where: ["k == ans", "k == how"]
+  prompt: 'Simplify ${k}$ to a single trig function (or a power of one). Type functions with parentheses, e.g. sin(x)^2.'
+  answers:
+    - kind: expression
+      expression: 'if(k == 0 or k == 6, cos(x), if(k == 1, tan(x)^2, if(k == 2 or k == 3 or k == 5, sin(x), if(k == 4, sec(x)^2, tan(x)))))'
+      variables: [x]
+      show: '${ans}$'
+      label: 'Simplified'
+  solution: |-
+    {how} Result: **${ans}$**.
+
+- id: trig-d-simplify-2
+  title: Simplify expressions with fractions
+  topic: Verifying identities
+  vars:
+    k: {choices: [{label: '\dfrac{\sin x}{1 + \cos x} + \dfrac{1 + \cos x}{\sin x}', value: 0}, {label: '\dfrac{\tan^2 x}{\sec x + 1}', value: 1}, {label: '\dfrac{\cos x}{1 + \sin x} + \tan x', value: 2}, {label: '(\sec x + \tan x)(\sec x - \tan x)', value: 3}, {label: '\dfrac{\cos x}{1 - \sin x} - \tan x', value: 4}, {label: '\dfrac{\sin x}{1 - \cos x} - \cot x', value: 5}]}
+    ans: {choices: [{label: '2\csc x', value: 0}, {label: '\sec x - 1', value: 1}, {label: '\sec x', value: 2}, {label: '1', value: 3}, {label: '\sec x', value: 4}, {label: '\csc x', value: 5}]}
+    how: {choices: [{label: 'Combine over $\sin x(1 + \cos x)$; the numerator becomes $2 + 2\cos x$.', value: 0}, {label: 'Write $\tan^2 x = (\sec x - 1)(\sec x + 1)$ and cancel.', value: 1}, {label: 'Combine over $\cos x(1 + \sin x)$; the numerator becomes $1 + \sin x$.', value: 2}, {label: 'Difference of squares: $\sec^2 x - \tan^2 x = 1$.', value: 3}, {label: 'Combine over $\cos x(1 - \sin x)$; the numerator becomes $1 - \sin x$.', value: 4}, {label: 'Combine over $\sin x(1 - \cos x)$; the numerator becomes $1 - \cos x$.', value: 5}]}
+  where: ["k == ans", "k == how"]
+  prompt: 'Simplify ${k}$. Type functions with parentheses, e.g. 1/cos(x).'
+  answers:
+    - kind: expression
+      expression: 'if(k == 0, 2/sin(x), if(k == 1, 1/cos(x) - 1, if(k == 2 or k == 4, 1/cos(x), if(k == 3, 1, 1/sin(x)))))'
+      variables: [x]
+      show: '${ans}$'
+      label: 'Simplified'
+  solution: |-
+    {how} Result: **${ans}$**.
+
+- id: trig-d-sum-exact
+  title: Exact values with sum and difference formulas
+  topic: Sum and difference formulas
+  vars:
+    q: {choices: [{label: '\sin 15^\circ', value: 0.25881904510252074}, {label: '\cos 15^\circ', value: 0.9659258262890683}, {label: '\tan 15^\circ', value: 0.2679491924311227}, {label: '\sin 75^\circ', value: 0.9659258262890683}, {label: '\cos 75^\circ', value: 0.25881904510252074}, {label: '\tan 75^\circ', value: 3.732050807568877}, {label: '\sin 105^\circ', value: 0.9659258262890683}, {label: '\cos 105^\circ', value: -0.25881904510252074}, {label: '\tan 105^\circ', value: -3.732050807568877}, {label: '\sin 165^\circ', value: 0.25881904510252074}, {label: '\cos 165^\circ', value: -0.9659258262890683}, {label: '\tan 165^\circ', value: -0.2679491924311227}, {label: '\sin 195^\circ', value: -0.25881904510252074}, {label: '\cos 195^\circ', value: -0.9659258262890683}, {label: '\tan 195^\circ', value: 0.2679491924311227}, {label: '\sin 255^\circ', value: -0.9659258262890683}, {label: '\cos 255^\circ', value: -0.25881904510252074}, {label: '\tan 255^\circ', value: 3.732050807568877}, {label: '\sin 285^\circ', value: -0.9659258262890683}, {label: '\cos 285^\circ', value: 0.25881904510252074}, {label: '\tan 285^\circ', value: -3.732050807568877}]}
+    ans: {choices: [{label: '\tfrac{\sqrt6 + \sqrt2}{4}', value: 0.9659258262890683}, {label: '\tfrac{\sqrt6 - \sqrt2}{4}', value: 0.25881904510252074}, {label: '-\tfrac{\sqrt6 + \sqrt2}{4}', value: -0.9659258262890683}, {label: '-\tfrac{\sqrt6 - \sqrt2}{4}', value: -0.25881904510252074}, {label: '2 + \sqrt3', value: 3.732050807568877}, {label: '2 - \sqrt3', value: 0.2679491924311227}, {label: '-2 - \sqrt3', value: -3.732050807568877}, {label: '\sqrt3 - 2', value: -0.2679491924311227}]}
+  where: ["abs(q - ans) < 1e-9"]
+  prompt: 'Find the exact value of ${q}$. Type it like (sqrt(6)+sqrt(2))/4 or 2-sqrt(3).'
+  answers:
+    - {name: q, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    Write the angle as a sum or difference of special angles (for example $75^\circ = 45^\circ + 30^\circ$,
+    $165^\circ = 135^\circ + 30^\circ$) and apply the formula; for tangent use
+    $\dfrac{\tan\alpha \pm \tan\beta}{1 \mp \tan\alpha\tan\beta}$. ${q} =$ **${ans}$** $\approx {q:num4}$.
+
+- id: trig-d-sum-given
+  title: Sum and difference from given values
+  topic: Sum and difference formulas
+  vars:
+    t1: {min: 0, max: 3}
+    t2: {min: 0, max: 3}
+    Qa: {choices: [{label: 'I', value: 1}, {label: 'II', value: 2}]}
+    Qb: {choices: [{label: 'I', value: 1}, {label: 'IV', value: 4}]}
+  where: ["t1 != t2"]
+  calc:
+    a1: if(t1 == 0, 3, if(t1 == 1, 5, if(t1 == 2, 8, 7)))
+    b1: if(t1 == 0, 4, if(t1 == 1, 12, if(t1 == 2, 15, 24)))
+    h1: sqrt(a1^2 + b1^2)
+    a2: if(t2 == 0, 3, if(t2 == 1, 5, if(t2 == 2, 8, 7)))
+    b2: if(t2 == 0, 4, if(t2 == 1, 12, if(t2 == 2, 15, 24)))
+    h2: sqrt(a2^2 + b2^2)
+    sa: a1 / h1
+    ca: if(Qa == 1, 1, -1) * b1 / h1
+    cb: b2 / h2
+    sb: if(Qb == 1, 1, -1) * a2 / h2
+    s1: sa * cb + ca * sb
+    c2: ca * cb + sa * sb
+  prompt: '$\sin\alpha = {sa:texfrac}$ with $\alpha$ in quadrant {Qa}, and $\cos\beta = {cb:texfrac}$ with $\beta$ in quadrant {Qb}. Find $\sin(\alpha + \beta)$ and $\cos(\alpha - \beta)$ as fractions.'
+  answers:
+    - {name: s1, label: '$\sin(\alpha + \beta)$', kind: fraction, lowestTerms: true}
+    - {name: c2, label: '$\cos(\alpha - \beta)$', kind: fraction, lowestTerms: true}
+  solution: |-
+    First the missing values, with quadrant signs: $\cos\alpha = {ca:texfrac}$ and $\sin\beta = {sb:texfrac}$.
+    $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta =$ **${s1:texfrac}$**.
+    $\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta =$ **${c2:texfrac}$**.
+
+- id: trig-d-double-given
+  title: Double-angle values from a given sine
+  topic: Double-angle formulas
+  vars:
+    t: {min: 0, max: 5}
+    sw: {choices: [0, 1]}
+    Q: {choices: [{label: 'I', value: 1}, {label: 'II', value: 2}, {label: 'III', value: 3}, {label: 'IV', value: 4}]}
+  calc:
+    p0: if(t == 0, 3, if(t == 1, 5, if(t == 2, 8, if(t == 3, 7, if(t == 4, 20, 9)))))
+    q0: if(t == 0, 4, if(t == 1, 12, if(t == 2, 15, if(t == 3, 24, if(t == 4, 21, 40)))))
+    p: if(sw == 0, p0, q0)
+    q: if(sw == 0, q0, p0)
+    h: sqrt(p^2 + q^2)
+    s: if(Q <= 2, 1, -1) * p / h
+    c: if(Q == 1 or Q == 4, 1, -1) * q / h
+    s2: 2 * s * c
+    c2: c^2 - s^2
+  prompt: '$\sin\theta = {s:texfrac}$ and $\theta$ is in quadrant {Q}. Find $\sin 2\theta$ and $\cos 2\theta$ as fractions.'
+  answers:
+    - {name: s2, label: '$\sin 2\theta$', kind: fraction, lowestTerms: true}
+    - {name: c2, label: '$\cos 2\theta$', kind: fraction, lowestTerms: true}
+  solution: |-
+    In quadrant {Q}, $\cos\theta = {c:texfrac}$. Then $\sin 2\theta = 2\sin\theta\cos\theta =$ **${s2:texfrac}$** and
+    $\cos 2\theta = \cos^2\theta - \sin^2\theta =$ **${c2:texfrac}$**.
+
+- id: trig-d-power-reduce
+  title: Power reducing from cos 2θ
+  topic: Double-angle formulas
+  vars:
+    a: {min: -8, max: 8}
+    b: {choices: [3, 5, 7, 9, 11]}
+  where: ["abs(a) < b", "gcd(abs(a), b) == 1"]
+  calc:
+    c: a / b
+    s2: (1 - c) / 2
+    k2: (1 + c) / 2
+  prompt: 'If $\cos 2\theta = {c:texfrac}$, find $\sin^2\theta$ and $\cos^2\theta$ as fractions.'
+  answers:
+    - {name: s2, label: '$\sin^2\theta$', kind: fraction, lowestTerms: true}
+    - {name: k2, label: '$\cos^2\theta$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Power-reducing: $\sin^2\theta = \dfrac{1 - \cos 2\theta}{2} =$ **${s2:texfrac}$** and
+    $\cos^2\theta = \dfrac{1 + \cos 2\theta}{2} =$ **${k2:texfrac}$**. (They add to 1, as they should.)
+
+- id: trig-d-half-exact
+  title: Exact values with half-angle formulas
+  topic: Half-angle formulas
+  vars:
+    q: {choices: [{label: '\sin 22.5^\circ', value: 0.3826834323650898}, {label: '\cos 22.5^\circ', value: 0.9238795325112867}, {label: '\tan 22.5^\circ', value: 0.41421356237309503}, {label: '\sin 67.5^\circ', value: 0.9238795325112867}, {label: '\cos 67.5^\circ', value: 0.3826834323650898}, {label: '\tan 67.5^\circ', value: 2.414213562373095}, {label: '\sin 112.5^\circ', value: 0.9238795325112867}, {label: '\cos 112.5^\circ', value: -0.3826834323650898}, {label: '\tan 112.5^\circ', value: -2.414213562373095}, {label: '\sin 157.5^\circ', value: 0.3826834323650898}, {label: '\cos 157.5^\circ', value: -0.9238795325112867}, {label: '\tan 157.5^\circ', value: -0.41421356237309503}, {label: '\sin 15^\circ', value: 0.25881904510252074}, {label: '\cos 15^\circ', value: 0.9659258262890683}, {label: '\tan 15^\circ', value: 0.2679491924311227}, {label: '\sin 105^\circ', value: 0.9659258262890683}, {label: '\cos 105^\circ', value: -0.25881904510252074}, {label: '\tan 105^\circ', value: -3.732050807568877}, {label: '\sin 165^\circ', value: 0.25881904510252074}, {label: '\cos 165^\circ', value: -0.9659258262890683}, {label: '\tan 165^\circ', value: -0.2679491924311227}]}
+    ans: {choices: [{label: '\tfrac{\sqrt{2 - \sqrt2}}{2}', value: 0.3826834323650898}, {label: '-\tfrac{\sqrt{2 - \sqrt2}}{2}', value: -0.3826834323650898}, {label: '\tfrac{\sqrt{2 + \sqrt2}}{2}', value: 0.9238795325112867}, {label: '-\tfrac{\sqrt{2 + \sqrt2}}{2}', value: -0.9238795325112867}, {label: '\tfrac{\sqrt{2 - \sqrt3}}{2}', value: 0.25881904510252074}, {label: '-\tfrac{\sqrt{2 - \sqrt3}}{2}', value: -0.25881904510252074}, {label: '\tfrac{\sqrt{2 + \sqrt3}}{2}', value: 0.9659258262890683}, {label: '-\tfrac{\sqrt{2 + \sqrt3}}{2}', value: -0.9659258262890683}, {label: '\sqrt2 - 1', value: 0.41421356237309503}, {label: '1 - \sqrt2', value: -0.41421356237309503}, {label: '\sqrt2 + 1', value: 2.414213562373095}, {label: '-\sqrt2 - 1', value: -2.414213562373095}, {label: '2 - \sqrt3', value: 0.2679491924311227}, {label: '\sqrt3 - 2', value: -0.2679491924311227}, {label: '2 + \sqrt3', value: 3.732050807568877}, {label: '-2 - \sqrt3', value: -3.732050807568877}]}
+  where: ["abs(q - ans) < 1e-9"]
+  prompt: 'Find the exact value of ${q}$ using a half-angle formula. Type it like sqrt(2-sqrt(2))/2 or sqrt(2)-1.'
+  answers:
+    - {name: q, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    Write the angle as half of a special angle ($22.5^\circ = \tfrac{45^\circ}{2}$, $105^\circ = \tfrac{210^\circ}{2}$, …), use
+    $\pm\sqrt{\tfrac{1 \mp \cos\theta}{2}}$ with the sign from the half angle's quadrant (or
+    $\tan\tfrac{\theta}{2} = \tfrac{1 - \cos\theta}{\sin\theta}$). ${q} =$ **${ans}$** $\approx {q:num4}$.
+
+- id: trig-d-half-given
+  title: Half-angle values from a given cosine
+  topic: Half-angle formulas
+  vars:
+    t: {min: 0, max: 5}
+    sw: {choices: [0, 1]}
+    Q: {choices: [{label: 'I', value: 1}, {label: 'II', value: 2}, {label: 'III', value: 3}, {label: 'IV', value: 4}]}
+  calc:
+    p0: if(t == 0, 3, if(t == 1, 5, if(t == 2, 8, if(t == 3, 7, if(t == 4, 20, 9)))))
+    q0: if(t == 0, 4, if(t == 1, 12, if(t == 2, 15, if(t == 3, 24, if(t == 4, 21, 40)))))
+    p: if(sw == 0, p0, q0)
+    q: if(sw == 0, q0, p0)
+    h: sqrt(p^2 + q^2)
+    c: if(Q == 1 or Q == 4, 1, -1) * q / h
+    lo: 90 * (Q - 1)
+    hi: 90 * Q
+    hlo: lo / 2
+    hhi: hi / 2
+    sh: sqrt((1 - c) / 2)
+    ch: if(Q <= 2, 1, -1) * sqrt((1 + c) / 2)
+  prompt: '$\cos\theta = {c:texfrac}$ with ${lo}^\circ < \theta < {hi}^\circ$. Find $\sin\tfrac{\theta}{2}$ and $\cos\tfrac{\theta}{2}$. Exact answers like 3/sqrt(10) are fine (or 4 decimals).'
+  answers:
+    - {name: sh, label: '$\sin\tfrac{\theta}{2}$', tolerance: 0.0005, format: num4}
+    - {name: ch, label: '$\cos\tfrac{\theta}{2}$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Halve the inequality: ${hlo}^\circ < \tfrac{\theta}{2} < {hhi}^\circ$, which fixes the signs. Then
+    $\sin\tfrac{\theta}{2} = \pm\sqrt{\tfrac{1 - \cos\theta}{2}} \approx$ **{sh:num4}** and
+    $\cos\tfrac{\theta}{2} = \pm\sqrt{\tfrac{1 + \cos\theta}{2}} \approx$ **{ch:num4}**.
+
+- id: trig-d-prod-to-sum
+  title: Exact value of a product with product-to-sum
+  topic: Product-to-sum formulas
+  vars:
+    q: {choices: [{label: '\cos 75^\circ\cos 15^\circ', value: 0.25}, {label: '\sin 75^\circ\sin 15^\circ', value: 0.25}, {label: '\sin 75^\circ\cos 15^\circ', value: 0.9330127018922193}, {label: '\cos 75^\circ\sin 15^\circ', value: 0.06698729810778067}, {label: '\cos 105^\circ\cos 15^\circ', value: -0.25}, {label: '\sin 105^\circ\sin 15^\circ', value: 0.25}, {label: '\cos 45^\circ\cos 15^\circ', value: 0.6830127018922193}, {label: '\sin 45^\circ\sin 15^\circ', value: 0.18301270189221933}, {label: '\sin 45^\circ\cos 15^\circ', value: 0.6830127018922193}, {label: '\cos 165^\circ\cos 75^\circ', value: -0.25}, {label: '\sin 165^\circ\cos 75^\circ', value: 0.06698729810778067}]}
+    ans: {choices: [{label: '\tfrac14', value: 0.25}, {label: '-\tfrac14', value: -0.25}, {label: '\tfrac{2 + \sqrt3}{4}', value: 0.9330127018922193}, {label: '\tfrac{2 - \sqrt3}{4}', value: 0.06698729810778067}, {label: '\tfrac{\sqrt3 + 1}{4}', value: 0.6830127018922193}, {label: '\tfrac{\sqrt3 - 1}{4}', value: 0.18301270189221933}]}
+  where: ["abs(q - ans) < 1e-9"]
+  prompt: 'Use a product-to-sum formula to find the exact value of ${q}$. Type it like (2+sqrt(3))/4.'
+  answers:
+    - {name: q, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    Rewrite the product as half a sum or difference of sines or cosines of the sum and difference
+    angles; those are special angles here. ${q} =$ **${ans}$** $\approx {q:num4}$.
+
+- id: trig-d-sum-to-prod
+  title: Exact value of a sum with sum-to-product
+  topic: Product-to-sum formulas
+  vars:
+    q: {choices: [{label: '\sin 75^\circ + \sin 15^\circ', value: 1.224744871391589}, {label: '\sin 75^\circ - \sin 15^\circ', value: 0.7071067811865476}, {label: '\cos 75^\circ + \cos 15^\circ', value: 1.224744871391589}, {label: '\cos 75^\circ - \cos 15^\circ', value: -0.7071067811865476}, {label: '\cos 105^\circ + \cos 15^\circ', value: 0.7071067811865476}, {label: '\sin 105^\circ - \sin 15^\circ', value: 0.7071067811865476}, {label: '\sin 165^\circ + \sin 75^\circ', value: 1.224744871391589}, {label: '\cos 165^\circ + \cos 75^\circ', value: -0.7071067811865476}, {label: '\cos 15^\circ - \cos 105^\circ', value: 1.224744871391589}, {label: '\sin 195^\circ + \sin 105^\circ', value: 0.7071067811865476}]}
+    ans: {choices: [{label: '\tfrac{\sqrt6}{2}', value: 1.224744871391589}, {label: '-\tfrac{\sqrt6}{2}', value: -1.224744871391589}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '-\tfrac{\sqrt2}{2}', value: -0.7071067811865476}]}
+  where: ["abs(q - ans) < 1e-9"]
+  prompt: 'Use a sum-to-product formula to find the exact value of ${q}$. Type it like sqrt(6)/2.'
+  answers:
+    - {name: q, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    Half the sum and half the difference of the two angles are special angles; apply the formula (remember the
+    minus sign in $\cos u - \cos v = -2\sin\tfrac{u + v}{2}\sin\tfrac{u - v}{2}$). ${q} =$ **${ans}$** $\approx {q:num4}$.
+
+- id: trig-d-eq-quadratic
+  title: Equations quadratic in sine or cosine
+  topic: Trig equations with identities
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
+    r1: {choices: [0.5, -0.5]}
+    r2: {choices: [1, -1, 2, -2, 3]}
+  calc:
+    B: -2 * (r1 + r2)
+    C: 2 * r1 * r2
+    n1: if(abs(r1) < 1, 2, if(abs(r1) == 1, 1, 0))
+    n2: if(abs(r2) < 1, 2, if(abs(r2) == 1, 1, 0))
+    cnt: n1 + n2
+    a1: if(f == 0, mod(asin(r1), 2*pi), acos(r1))
+    a2: if(f == 0, mod(pi - asin(r1), 2*pi), 2*pi - acos(r1))
+    b1: if(abs(r2) <= 1, if(f == 0, mod(asin(r2), 2*pi), acos(r2)), 99)
+    sm: min(a1, a2, b1)
+  prompt: 'Solve $2{f}^2 x {B:signedcoef}{f}\,x {C:signed} = 0$ on $[0, 2\pi)$. How many solutions are there, and what is the smallest? (Exact answers like 7pi/6 are fine.)'
+  answers:
+    - {name: cnt, label: 'Number of solutions'}
+    - {name: sm, label: 'Smallest solution', tolerance: 0.001, format: num4}
+  solution: |-
+    Factor as a quadratic in ${f} x$: $2({f} x - ({r1}))({f} x - ({r2})) = 0$. The factor ${f} x = {r1}$ has 2 solutions;
+    ${f} x = {r2}$ has {n2} (none if $|{r2}| > 1$, one if it is $\pm1$). Total **{cnt}**; the smallest is **{sm:num4}**.
+
+- id: trig-d-eq-calc
+  title: Factored equation with a non-special value
+  topic: Trig equations with identities
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
+    m: {min: -4, max: 4}
+    qq: {choices: [3, 5, 7]}
+    r2: {choices: [2, -2, 3, -3]}
+  where: ["m != 0", "abs(m) < qq", "gcd(abs(m), qq) == 1"]
+  calc:
+    r1: m / qq
+    A: qq + 0
+    B: -(m + qq * r2)
+    C: m * r2
+    al: if(f == 0, asin(r1), acos(r1))
+    s1: if(f == 0, mod(al, 2*pi), al)
+    s2: if(f == 0, mod(pi - al, 2*pi), 2*pi - al)
+    lo: min(s1, s2)
+    hi: max(s1, s2)
+  prompt: 'Solve ${A}{f}^2 x {B:signedcoef}{f}\,x {C:signed} = 0$ on $[0, 2\pi)$ to 4 decimals. Smaller solution first.'
+  answers:
+    - {name: lo, label: 'Smaller', tolerance: 0.0002, format: num4}
+    - {name: hi, label: 'Larger', tolerance: 0.0002, format: num4}
+  solution: |-
+    Factor: $({A}{f} x - ({m}))({f} x - ({r2})) = 0$.
+    ${f} x = {r2}$ is impossible, so ${f} x = {r1:texfrac}$. The inverse function gives ${al:num4}$; the unit circle gives
+    the second angle: $x \approx$ **{lo:num4}** and **{hi:num4}**.

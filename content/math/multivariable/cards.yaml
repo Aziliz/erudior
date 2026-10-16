@@ -1,0 +1,196 @@
+# Notecards
+# Module 1: bridge and vectors
+- {front: 'Chain rule (one variable)', back: '$\dfrac{d}{dx}f(g(x)) = f''(g(x))\,g''(x)$', topic: Derivative review}
+- {front: 'Product rule', back: '$(fg)'' = f''g + fg''$', topic: Derivative review}
+- {front: 'Quotient rule', back: '$\left(\dfrac fg\right)'' = \dfrac{f''g - fg''}{g^2}$', topic: Derivative review}
+- {front: 'Derivatives of $\arctan x$ and $\arcsin x$', back: '$\dfrac{1}{1+x^2}$ and $\dfrac{1}{\sqrt{1-x^2}}$', topic: Derivative review}
+- {front: 'Fundamental Theorem of Calculus', back: 'If $F'' = f$ is continuous on $[a,b]$, then $\int_a^b f(x)\,dx = F(b) - F(a)$.', topic: Integral review}
+- {front: 'Integration by parts', back: '$\int u\,dv = uv - \int v\,du$; choose $u$ that simplifies when differentiated.', topic: Integral review}
+- {front: 'Substitution in a definite integral', back: 'With $u = g(x)$: $\int_a^b f(g(x))g''(x)\,dx = \int_{g(a)}^{g(b)}f(u)\,du$. Change the limits.', topic: Integral review}
+- {front: '$\sin^2\theta$ and $\cos^2\theta$ identities', back: '$\sin^2\theta = \tfrac12(1 - \cos2\theta)$, $\cos^2\theta = \tfrac12(1 + \cos2\theta)$', topic: Integral review}
+- {front: '$\int_0^{2\pi}\sin^2\theta\,d\theta$', back: '$\pi$ (and the same for $\cos^2\theta$)', topic: Integral review}
+- {front: 'Parametric arc length (2D)', back: '$L = \int_a^b\sqrt{x''(t)^2 + y''(t)^2}\,dt$', topic: Parametric and polar review}
+- {front: 'Slope of a parametric curve', back: '$\dfrac{dy}{dx} = \dfrac{y''(t)}{x''(t)}$', topic: Parametric and polar review}
+- {front: 'Polar conversion', back: '$x = r\cos\theta$, $y = r\sin\theta$, $r^2 = x^2 + y^2$, $\tan\theta = y/x$', topic: Parametric and polar review}
+- {front: 'Area inside a polar curve $r = f(\theta)$', back: '$A = \tfrac12\int_\alpha^\beta f(\theta)^2\,d\theta$', topic: Parametric and polar review}
+- {front: 'Distance between two points in space', back: '$\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$', topic: 3D coordinates}
+- {front: 'Equation of a sphere', back: '$(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2$, center $(h, k, l)$, radius $r$', topic: 3D coordinates}
+- {front: 'Find center and radius from an expanded sphere equation', back: 'Complete the square in $x$, $y$ and $z$; the right side becomes $r^2$.', topic: 3D coordinates}
+- {front: 'Vector from $A$ to $B$', back: '$\overrightarrow{AB} = B - A$ componentwise (end minus start).', topic: Vector algebra}
+- {front: 'Magnitude of $\langle v_1, v_2, v_3\rangle$', back: '$|\mathbf v| = \sqrt{v_1^2 + v_2^2 + v_3^2}$', topic: Vector algebra}
+- {front: 'Unit vector in the direction of $\mathbf v$', back: '$\dfrac{\mathbf v}{|\mathbf v|}$', topic: Vector algebra}
+- {front: 'When are two vectors parallel?', back: 'When one is a scalar multiple of the other (equivalently $\mathbf a\times\mathbf b = \mathbf 0$).', topic: Vector algebra}
+- {front: 'Triangle inequality', back: '$|\mathbf u + \mathbf v| \le |\mathbf u| + |\mathbf v|$, with equality only when they point the same way.', topic: Vector algebra}
+- {front: 'Dot product (algebraic)', back: '$\mathbf a\cdot\mathbf b = a_1b_1 + a_2b_2 + a_3b_3$, a scalar', topic: Dot product}
+- {front: 'Dot product (geometric)', back: '$\mathbf a\cdot\mathbf b = |\mathbf a||\mathbf b|\cos\theta$', topic: Dot product}
+- {front: 'Angle between two vectors', back: '$\cos\theta = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a||\mathbf b|}$', topic: Dot product}
+- {front: 'Test for orthogonal vectors', back: '$\mathbf a\cdot\mathbf b = 0$', topic: Dot product}
+- {front: 'Scalar projection of $\mathbf b$ onto $\mathbf a$', back: '$\operatorname{comp}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|}$', topic: Projections}
+- {front: 'Vector projection of $\mathbf b$ onto $\mathbf a$', back: '$\operatorname{proj}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|^2}\mathbf a$', topic: Projections}
+- {front: 'Work by a constant force along a straight displacement', back: '$W = \mathbf F\cdot\mathbf D = |\mathbf F||\mathbf D|\cos\theta$', topic: Dot product}
+- {front: 'Cross product formula', back: '$\mathbf a\times\mathbf b = \langle a_2b_3 - a_3b_2,\; a_3b_1 - a_1b_3,\; a_1b_2 - a_2b_1\rangle$', topic: Cross product}
+- {front: 'Length of $\mathbf a\times\mathbf b$', back: '$|\mathbf a||\mathbf b|\sin\theta$ = area of the parallelogram spanned by $\mathbf a$ and $\mathbf b$', topic: Cross product}
+- {front: 'Direction of $\mathbf a\times\mathbf b$', back: 'Perpendicular to both, by the right-hand rule (fingers from $\mathbf a$ to $\mathbf b$, thumb along the product).', topic: Cross product}
+- {front: '$\mathbf b\times\mathbf a$ in terms of $\mathbf a\times\mathbf b$', back: '$-(\mathbf a\times\mathbf b)$ (anticommutative)', topic: Cross product}
+- {front: '$\mathbf i\times\mathbf j$, $\mathbf j\times\mathbf k$, $\mathbf k\times\mathbf i$', back: '$\mathbf k$, $\mathbf i$, $\mathbf j$', topic: Cross product}
+- {front: 'Area of a triangle with vertices $P, Q, R$', back: '$\tfrac12|\overrightarrow{PQ}\times\overrightarrow{PR}|$', topic: Cross product}
+- {front: 'Volume of a parallelepiped', back: '$|\mathbf a\cdot(\mathbf b\times\mathbf c)|$, the absolute value of a $3\times3$ determinant', topic: Triple product}
+- {front: 'Test for three coplanar vectors', back: 'Scalar triple product $\mathbf a\cdot(\mathbf b\times\mathbf c) = 0$', topic: Triple product}
+- {front: 'Torque', back: '$\boldsymbol\tau = \mathbf r\times\mathbf F$, magnitude $|\mathbf r||\mathbf F|\sin\theta$', topic: Cross product}
+- {front: 'Vector equation of a line', back: '$\mathbf r(t) = \mathbf r_0 + t\mathbf v$ (point plus multiple of direction)', topic: Lines in space}
+- {front: 'Symmetric equations of a line', back: '$\dfrac{x - x_0}{a} = \dfrac{y - y_0}{b} = \dfrac{z - z_0}{c}$', topic: Lines in space}
+- {front: 'How to classify two lines in space', back: 'Parallel directions: parallel. Otherwise solve with separate parameters $t$, $s$: a consistent solution means they intersect, none means skew.', topic: Lines in space}
+- {front: 'Equation of a plane', back: '$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$, normal $\langle a, b, c\rangle$', topic: Planes}
+- {front: 'Plane through three points', back: 'Normal $= \overrightarrow{PQ}\times\overrightarrow{PR}$, then use any of the points.', topic: Planes}
+- {front: 'Direction of the line where two planes meet', back: '$\mathbf n_1\times\mathbf n_2$', topic: Planes}
+- {front: 'Distance from $(x_1, y_1, z_1)$ to $ax + by + cz = d$', back: '$D = \dfrac{|ax_1 + by_1 + cz_1 - d|}{\sqrt{a^2 + b^2 + c^2}}$', topic: Planes}
+- {front: 'Equation missing a variable (e.g. $x^2 + y^2 = 4$ in space)', back: 'A cylinder parallel to the missing variable''s axis', topic: Cylinders}
+- {front: 'Ellipsoid', back: '$\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1$', topic: Quadric surfaces}
+- {front: 'Elliptic paraboloid', back: '$\dfrac zc = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$ (bowl)', topic: Quadric surfaces}
+- {front: 'Hyperbolic paraboloid', back: '$\dfrac zc = \dfrac{x^2}{a^2} - \dfrac{y^2}{b^2}$ (saddle)', topic: Quadric surfaces}
+- {front: 'Cone (quadric)', back: '$\dfrac{z^2}{c^2} = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$', topic: Quadric surfaces}
+- {front: 'Hyperboloid of one sheet vs two sheets', back: 'Three squares $= 1$: one minus sign gives one sheet, two minus signs give two sheets.', topic: Quadric surfaces}
+# Module 2: vector functions
+- {front: 'Derivative of $\mathbf r(t) = \langle f, g, h\rangle$', back: '$\mathbf r''(t) = \langle f''(t), g''(t), h''(t)\rangle$ (componentwise)', topic: Derivatives of vector functions}
+- {front: 'Unit tangent vector', back: '$\mathbf T(t) = \dfrac{\mathbf r''(t)}{|\mathbf r''(t)|}$', topic: Derivatives of vector functions}
+- {front: 'Tangent line to $\mathbf r(t)$ at $t_0$', back: '$\mathbf r(t_0) + s\,\mathbf r''(t_0)$', topic: Derivatives of vector functions}
+- {front: 'Product rule for cross products', back: '$(\mathbf u\times\mathbf v)'' = \mathbf u''\times\mathbf v + \mathbf u\times\mathbf v''$ (keep the order)', topic: Derivatives of vector functions}
+- {front: 'If $|\mathbf r(t)|$ is constant, then...', back: '$\mathbf r(t)\cdot\mathbf r''(t) = 0$: the derivative is perpendicular to the position.', topic: Derivatives of vector functions}
+- {front: 'Integral of a vector function', back: 'Integrate each component; an indefinite integral gets a constant vector $\mathbf C$.', topic: Vector functions}
+- {front: 'Arc length of a space curve', back: '$L = \int_a^b|\mathbf r''(t)|\,dt = \int_a^b\sqrt{f''^2 + g''^2 + h''^2}\,dt$', topic: Arc length}
+- {front: 'Arc length function', back: '$s(t) = \int_a^t|\mathbf r''(u)|\,du$, so $ds/dt = |\mathbf r''(t)|$', topic: Arc length}
+- {front: 'Length of one turn of $\langle\cos t, \sin t, t\rangle$', back: '$2\pi\sqrt2$', topic: Arc length}
+- {front: 'Definition of curvature', back: '$\kappa = \left|\dfrac{d\mathbf T}{ds}\right| = \dfrac{|\mathbf T''(t)|}{|\mathbf r''(t)|}$', topic: Curvature}
+- {front: 'Curvature from $\mathbf r''$ and $\mathbf r''''$', back: '$\kappa = \dfrac{|\mathbf r''\times\mathbf r''''|}{|\mathbf r''|^3}$', topic: Curvature}
+- {front: 'Curvature of $y = f(x)$', back: '$\kappa = \dfrac{|f''''(x)|}{(1 + f''(x)^2)^{3/2}}$', topic: Curvature}
+- {front: 'Curvature of a circle of radius $a$; of a line', back: '$1/a$; $0$', topic: Curvature}
+- {front: 'Radius of curvature', back: '$\rho = 1/\kappa$, the radius of the osculating circle', topic: Curvature}
+- {front: 'Principal unit normal', back: '$\mathbf N = \dfrac{\mathbf T''(t)}{|\mathbf T''(t)|}$, pointing the way the curve turns', topic: TNB frame}
+- {front: 'Binormal', back: '$\mathbf B = \mathbf T\times\mathbf N$', topic: TNB frame}
+- {front: 'Osculating plane', back: 'The plane spanned by $\mathbf T$ and $\mathbf N$; its normal is $\mathbf B$.', topic: TNB frame}
+- {front: 'Acceleration in the TNB frame', back: '$\mathbf a = v''\,\mathbf T + \kappa v^2\,\mathbf N$ (no $\mathbf B$ component)', topic: Tangential and normal acceleration}
+- {front: 'Tangential component of acceleration', back: '$a_T = \dfrac{\mathbf r''\cdot\mathbf r''''}{|\mathbf r''|} = \dfrac{d}{dt}(\text{speed})$', topic: Tangential and normal acceleration}
+- {front: 'Normal component of acceleration', back: '$a_N = \dfrac{|\mathbf r''\times\mathbf r''''|}{|\mathbf r''|} = \kappa v^2$', topic: Tangential and normal acceleration}
+- {front: 'Check for $a_T$ and $a_N$', back: '$a_T^2 + a_N^2 = |\mathbf a|^2$', topic: Tangential and normal acceleration}
+- {front: 'Velocity, speed, acceleration', back: '$\mathbf v = \mathbf r''$, speed $= |\mathbf v|$, $\mathbf a = \mathbf r''''$', topic: Velocity and acceleration}
+- {front: 'Projectile position (launched from origin)', back: '$\mathbf r(t) = \langle v_0t\cos\alpha,\; v_0t\sin\alpha - \tfrac12gt^2\rangle$', topic: Projectile motion}
+- {front: 'Projectile range on level ground', back: '$R = \dfrac{v_0^2\sin2\alpha}{g}$, largest at $\alpha = 45^\circ$', topic: Projectile motion}
+- {front: 'Projectile time of flight and maximum height', back: '$t = \dfrac{2v_0\sin\alpha}{g}$; $H = \dfrac{(v_0\sin\alpha)^2}{2g}$', topic: Projectile motion}
+- {front: 'Uniform circular motion: acceleration', back: 'Magnitude $R\omega^2 = v^2/R$, directed toward the center', topic: Velocity and acceleration}
+# Module 3: partial derivatives
+- {front: 'Domain of $f(x, y)$ given by a formula', back: 'All points where it is defined: no division by 0, no even roots of negatives, logs only of positives.', topic: Domain and range}
+- {front: 'Level curve of $f(x, y)$', back: 'The curve $f(x, y) = c$ in the $xy$-plane.', topic: Level curves}
+- {front: 'Reading contour spacing', back: 'Close contours (equal value steps): steep. Far apart: nearly flat.', topic: Level curves}
+- {front: 'Two-path test for limits', back: 'If $f$ approaches different values along two paths to $(a, b)$, the limit does not exist.', topic: Limits of several variables}
+- {front: 'Are straight-line paths enough to prove a limit exists?', back: 'No. A curved path (e.g. $x = y^2$) can still disagree.', topic: Limits of several variables}
+- {front: 'Proving a limit at the origin is 0', back: 'Squeeze: bound $|f|$ by something that tends to 0, often via polar coordinates with a bound independent of $\theta$.', topic: Limits of several variables}
+- {front: 'Continuity of $f$ at $(a, b)$', back: '$\lim_{(x,y)\to(a,b)}f(x, y) = f(a, b)$', topic: Continuity}
+- {front: 'How to compute $f_x$', back: 'Differentiate in $x$ treating $y$ (and other variables) as constants.', topic: Partial derivatives}
+- {front: 'Geometric meaning of $f_x(a, b)$', back: 'The slope of the surface $z = f(x,y)$ in the $x$-direction at $(a, b)$.', topic: Partial derivatives}
+- {front: 'Clairaut''s theorem', back: '$f_{xy} = f_{yx}$ when both are continuous.', topic: Higher-order partials}
+- {front: 'Order in $f_{xy}$', back: 'First $x$, then $y$: $f_{xy} = (f_x)_y = \dfrac{\partial^2f}{\partial y\,\partial x}$.', topic: Higher-order partials}
+- {front: 'Tangent plane to $z = f(x, y)$ at $(a, b)$', back: '$z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)$', topic: Tangent planes}
+- {front: 'Normal vector to the graph $z = f(x, y)$', back: '$\langle f_x, f_y, -1\rangle$ (or its negative)', topic: Tangent planes}
+- {front: 'Linearization', back: '$L(x, y) = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)$', topic: Linear approximation and differentials}
+- {front: 'Total differential', back: '$dz = f_x\,dx + f_y\,dy$', topic: Linear approximation and differentials}
+- {front: 'Sufficient condition for differentiability', back: '$f_x$ and $f_y$ exist near the point and are continuous at it.', topic: Tangent planes}
+- {front: 'Chain rule: $z = f(x, y)$, $x(t)$, $y(t)$', back: '$\dfrac{dz}{dt} = f_x\dfrac{dx}{dt} + f_y\dfrac{dy}{dt}$', topic: Multivariable chain rule}
+- {front: 'Chain rule: $z = f(x, y)$, $x(s,t)$, $y(s,t)$', back: '$\dfrac{\partial z}{\partial s} = f_x\dfrac{\partial x}{\partial s} + f_y\dfrac{\partial y}{\partial s}$ (one term per path)', topic: Multivariable chain rule}
+- {front: 'Implicit derivative from $F(x, y) = 0$', back: '$\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}$', topic: Implicit differentiation}
+- {front: 'Implicit partials from $F(x, y, z) = 0$', back: '$\dfrac{\partial z}{\partial x} = -\dfrac{F_x}{F_z}$, $\dfrac{\partial z}{\partial y} = -\dfrac{F_y}{F_z}$', topic: Implicit differentiation}
+- {front: 'Gradient', back: '$\nabla f = \langle f_x, f_y, f_z\rangle$', topic: The gradient}
+- {front: 'Directional derivative', back: '$D_{\mathbf u}f = \nabla f\cdot\mathbf u$ with $\mathbf u$ a unit vector', topic: Directional derivatives}
+- {front: 'Direction and rate of steepest ascent', back: 'Direction $\nabla f$; rate $|\nabla f|$', topic: The gradient}
+- {front: 'Gradient and level sets', back: '$\nabla f$ is perpendicular to level curves (and level surfaces).', topic: The gradient}
+- {front: 'Tangent plane to $F(x,y,z) = k$ at $P$', back: '$F_x(P)(x - x_0) + F_y(P)(y - y_0) + F_z(P)(z - z_0) = 0$', topic: The gradient}
+- {front: 'Range of directional derivatives at a point', back: 'From $-|\nabla f|$ to $|\nabla f|$; zero along the level curve.', topic: Directional derivatives}
+# Module 4: optimization
+- {front: 'Necessary condition for a local extremum', back: '$\nabla f = \mathbf 0$ (if the partials exist): a critical point.', topic: Critical points}
+- {front: 'Second-derivative test discriminant', back: '$D = f_{xx}f_{yy} - (f_{xy})^2$', topic: Second-derivative test}
+- {front: 'Second-derivative test outcomes', back: '$D > 0$, $f_{xx} > 0$: min. $D > 0$, $f_{xx} < 0$: max. $D < 0$: saddle. $D = 0$: inconclusive.', topic: Second-derivative test}
+- {front: 'Saddle point', back: 'A critical point that is neither a max nor a min (e.g. origin of $y^2 - x^2$).', topic: Second-derivative test}
+- {front: 'Extreme Value Theorem (two variables)', back: 'Continuous $f$ on a closed, bounded set attains an absolute max and min.', topic: Absolute extrema}
+- {front: 'Closed-region method', back: 'Evaluate $f$ at interior critical points and at the extremes on each boundary piece (including corners); compare.', topic: Absolute extrema}
+- {front: 'Lagrange condition', back: '$\nabla f = \lambda\nabla g$ together with $g = k$', topic: Lagrange multipliers}
+- {front: 'Why Lagrange works', back: 'At a constrained extremum, the level curve of $f$ is tangent to the constraint, so the gradients are parallel.', topic: Lagrange multipliers}
+- {front: 'Meaning of $\lambda$', back: 'The rate of change of the optimal value with respect to the constraint level $k$.', topic: Lagrange multipliers}
+- {front: 'Lagrange with two constraints', back: '$\nabla f = \lambda\nabla g + \mu\nabla h$, $g = k$, $h = c$', topic: Lagrange multipliers}
+# Module 5: double integrals
+- {front: 'Fubini''s theorem (rectangle)', back: '$\iint_R f\,dA = \int_a^b\int_c^d f\,dy\,dx = \int_c^d\int_a^b f\,dx\,dy$', topic: Iterated integrals}
+- {front: 'Product integrand over a rectangle', back: '$\iint_R g(x)h(y)\,dA = \int_a^b g\,dx\cdot\int_c^d h\,dy$', topic: Double integrals}
+- {front: 'Average value over a region', back: '$f_{\text{avg}} = \dfrac{1}{A(R)}\iint_R f\,dA$', topic: Double integrals}
+- {front: 'Type I region integral', back: '$\int_a^b\int_{g_1(x)}^{g_2(x)}f\,dy\,dx$ (vertical slices)', topic: General regions}
+- {front: 'Type II region integral', back: '$\int_c^d\int_{h_1(y)}^{h_2(y)}f\,dx\,dy$ (horizontal slices)', topic: General regions}
+- {front: 'Rule for limits of iterated integrals', back: 'Outer limits are constants; inner limits may depend only on the outer variable.', topic: General regions}
+- {front: 'How to reverse the order of integration', back: 'Sketch the region from the limits, then describe it with slices in the other direction.', topic: Reversing the order}
+- {front: 'Area of a region $D$', back: '$A(D) = \iint_D 1\,dA$', topic: General regions}
+- {front: 'Polar area element', back: '$dA = r\,dr\,d\theta$', topic: Polar double integrals}
+- {front: 'Double integral in polar coordinates', back: '$\iint_D f\,dA = \int_\alpha^\beta\int_{h_1(\theta)}^{h_2(\theta)}f(r\cos\theta, r\sin\theta)\,r\,dr\,d\theta$', topic: Polar double integrals}
+- {front: 'Gaussian integral', back: '$\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt\pi$', topic: Polar double integrals}
+- {front: 'Mass of a lamina', back: '$m = \iint_D\rho(x, y)\,dA$', topic: Mass and center of mass}
+- {front: 'Moments of a lamina', back: '$M_y = \iint_D x\rho\,dA$, $M_x = \iint_D y\rho\,dA$', topic: Mass and center of mass}
+- {front: 'Center of mass of a lamina', back: '$\bar x = M_y/m$, $\bar y = M_x/m$', topic: Mass and center of mass}
+- {front: 'Centroid of a half-disk of radius $a$', back: '$\left(0, \dfrac{4a}{3\pi}\right)$', topic: Mass and center of mass}
+- {front: 'Moment of inertia about the origin', back: '$I_0 = \iint_D(x^2 + y^2)\rho\,dA$; uniform disk: $\tfrac12ma^2$', topic: Mass and center of mass}
+- {front: 'Surface area of $z = f(x, y)$', back: '$A = \iint_D\sqrt{1 + f_x^2 + f_y^2}\,dA$', topic: Surface area}
+# Module 6: triple integrals
+- {front: 'Type 1 solid triple integral', back: '$\iiint_E f\,dV = \iint_D\int_{u_1(x,y)}^{u_2(x,y)}f\,dz\,dA$', topic: Triple integrals}
+- {front: 'Volume of a solid $E$', back: '$V = \iiint_E 1\,dV$', topic: Triple integrals}
+- {front: 'Volume of the tetrahedron $x/a + y/b + z/c \le 1$ in the first octant', back: '$\dfrac{abc}{6}$', topic: Triple integrals}
+- {front: 'Center of mass of a solid', back: '$\bar x = \dfrac{\iiint x\rho\,dV}{m}$, similarly $\bar y$, $\bar z$', topic: Triple integrals}
+- {front: 'Cylindrical coordinates', back: '$x = r\cos\theta$, $y = r\sin\theta$, $z = z$', topic: Cylindrical coordinates}
+- {front: 'Cylindrical volume element', back: '$dV = r\,dz\,dr\,d\theta$', topic: Cylindrical coordinates}
+- {front: 'The cone $z = \sqrt{x^2 + y^2}$ in cylindrical and spherical form', back: '$z = r$; $\phi = \tfrac\pi4$', topic: Cylindrical coordinates}
+- {front: 'Spherical coordinates', back: '$x = \rho\sin\phi\cos\theta$, $y = \rho\sin\phi\sin\theta$, $z = \rho\cos\phi$', topic: Spherical coordinates}
+- {front: 'Spherical volume element', back: '$dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$', topic: Spherical coordinates}
+- {front: 'Range of $\phi$ in spherical coordinates', back: '$0 \le \phi \le \pi$, measured from the positive $z$-axis', topic: Spherical coordinates}
+- {front: 'Volume of a ball by spherical coordinates', back: '$\int_0^\pi\int_0^{2\pi}\int_0^a\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \tfrac43\pi a^3$', topic: Spherical coordinates}
+- {front: 'When to use cylindrical vs spherical', back: 'Cylindrical: symmetry about an axis, $x^2 + y^2$. Spherical: symmetry about a point, $x^2 + y^2 + z^2$, cones from the origin.', topic: Spherical coordinates}
+- {front: 'Jacobian of $x(u,v)$, $y(u,v)$', back: '$\dfrac{\partial(x,y)}{\partial(u,v)} = x_uy_v - x_vy_u$', topic: Jacobians}
+- {front: 'Change of variables formula (2D)', back: '$\iint_R f\,dA = \iint_S f(x(u,v), y(u,v))\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right|du\,dv$', topic: Change of variables}
+- {front: 'Jacobian of an inverse transformation', back: '$\dfrac{\partial(x,y)}{\partial(u,v)} = 1\Big/\dfrac{\partial(u,v)}{\partial(x,y)}$', topic: Jacobians}
+- {front: 'Area of an ellipse with semi-axes $a$, $b$', back: '$\pi ab$ (Jacobian $ab$ times the unit disk''s $\pi$)', topic: Change of variables}
+# Module 7: vector fields and line integrals
+- {front: 'Vector field in the plane', back: '$\mathbf F(x, y) = \langle P(x,y), Q(x,y)\rangle$, an arrow at every point', topic: Vector fields}
+- {front: 'Conservative field', back: '$\mathbf F = \nabla f$ for some potential function $f$', topic: Conservative fields and potentials}
+- {front: 'Flow line', back: 'A curve with $\mathbf r''(t) = \mathbf F(\mathbf r(t))$', topic: Vector fields}
+- {front: 'Scalar line integral', back: '$\int_C f\,ds = \int_a^b f(\mathbf r(t))\,|\mathbf r''(t)|\,dt$', topic: Scalar line integrals}
+- {front: 'Vector line integral (work)', back: '$\int_C\mathbf F\cdot d\mathbf r = \int_a^b\mathbf F(\mathbf r(t))\cdot\mathbf r''(t)\,dt$', topic: Work and vector line integrals}
+- {front: 'Effect of reversing a curve''s direction', back: 'Vector line integrals change sign; scalar line integrals do not.', topic: Work and vector line integrals}
+- {front: 'Segment from $\mathbf r_0$ to $\mathbf r_1$', back: '$\mathbf r(t) = (1 - t)\mathbf r_0 + t\mathbf r_1$, $0 \le t \le 1$', topic: Work and vector line integrals}
+- {front: 'Fundamental Theorem for Line Integrals', back: '$\int_C\nabla f\cdot d\mathbf r = f(\mathbf r(b)) - f(\mathbf r(a))$', topic: Fundamental theorem for line integrals}
+- {front: 'Equivalent conditions for a conservative field (open connected region)', back: '$\mathbf F = \nabla f$ ⇔ path independence ⇔ $\oint_C\mathbf F\cdot d\mathbf r = 0$ for every closed $C$', topic: Conservative fields and potentials}
+- {front: 'Test for a conservative field in the plane', back: '$P_y = Q_x$ on a simply connected region', topic: Conservative fields and potentials}
+- {front: 'How to find a potential', back: 'Integrate $P$ in $x$ (adding $g(y)$), differentiate in $y$, match $Q$ to find $g$.', topic: Conservative fields and potentials}
+- {front: 'Field with $P_y = Q_x$ that is not conservative', back: '$\left\langle\frac{-y}{x^2+y^2}, \frac{x}{x^2+y^2}\right\rangle$ on the punctured plane; circulation $2\pi$ around the origin.', topic: Conservative fields and potentials}
+- {front: 'Green''s theorem', back: '$\oint_C P\,dx + Q\,dy = \iint_D(Q_x - P_y)\,dA$ (counterclockwise $C$)', topic: Green's theorem}
+- {front: 'Area by Green''s theorem', back: '$A = \oint_C x\,dy = -\oint_C y\,dx = \tfrac12\oint_C x\,dy - y\,dx$', topic: Green's theorem}
+- {front: 'Green''s theorem, flux form', back: '$\oint_C\mathbf F\cdot\mathbf n\,ds = \iint_D(P_x + Q_y)\,dA$', topic: Green's theorem}
+- {front: 'Green''s theorem for a region with holes', back: 'Outer boundary counterclockwise, inner boundaries clockwise (region always on the left).', topic: Green's theorem}
+# Module 8: surfaces and the big theorems
+- {front: 'Curl', back: '$\nabla\times\mathbf F = \langle R_y - Q_z,\; P_z - R_x,\; Q_x - P_y\rangle$', topic: Curl}
+- {front: 'Divergence', back: '$\nabla\cdot\mathbf F = P_x + Q_y + R_z$', topic: Divergence}
+- {front: 'Curl of a gradient; divergence of a curl', back: 'Both zero: $\nabla\times\nabla f = \mathbf 0$, $\nabla\cdot(\nabla\times\mathbf F) = 0$.', topic: Curl}
+- {front: 'Test for a conservative field in space', back: '$\operatorname{curl}\mathbf F = \mathbf 0$ on a simply connected region (e.g. all of $\mathbb R^3$)', topic: Curl}
+- {front: 'Physical meaning of curl', back: 'Local rotation: a paddle wheel spins fastest about the curl''s direction; $|\operatorname{curl}\mathbf F|$ is twice the angular speed.', topic: Curl}
+- {front: 'Physical meaning of divergence', back: 'Net outflow per unit volume: positive is a source, negative a sink, zero is incompressible.', topic: Divergence}
+- {front: 'Laplacian', back: '$\nabla^2f = f_{xx} + f_{yy} + f_{zz} = \nabla\cdot\nabla f$', topic: Divergence}
+- {front: 'Normal to a parametric surface', back: '$\mathbf r_u\times\mathbf r_v$', topic: Parametric surfaces}
+- {front: 'Surface area of a parametric surface', back: '$A = \iint_D|\mathbf r_u\times\mathbf r_v|\,dA$', topic: Surface area}
+- {front: 'Sphere parametrization and area factor', back: '$\langle a\sin\phi\cos\theta, a\sin\phi\sin\theta, a\cos\phi\rangle$; $|\mathbf r_\phi\times\mathbf r_\theta| = a^2\sin\phi$', topic: Parametric surfaces}
+- {front: 'Scalar surface integral', back: '$\iint_S f\,dS = \iint_D f(\mathbf r(u,v))\,|\mathbf r_u\times\mathbf r_v|\,dA$', topic: Surface integrals}
+- {front: 'Flux through a parametric surface', back: '$\iint_S\mathbf F\cdot d\mathbf S = \iint_D\mathbf F(\mathbf r(u,v))\cdot(\mathbf r_u\times\mathbf r_v)\,dA$', topic: Flux}
+- {front: 'Upward flux through $z = g(x, y)$', back: '$\iint_D(-Pg_x - Qg_y + R)\,dA$', topic: Flux}
+- {front: 'Standard orientation of a closed surface', back: 'Outward normal', topic: Flux}
+- {front: 'Stokes'' theorem', back: '$\oint_C\mathbf F\cdot d\mathbf r = \iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$ (boundary by the right-hand rule)', topic: Stokes' theorem}
+- {front: 'Surface independence (Stokes)', back: 'Surfaces with the same boundary curve carry the same flux of $\operatorname{curl}\mathbf F$; use the easiest (often a flat disk).', topic: Stokes' theorem}
+- {front: 'Divergence theorem', back: '$\iint_S\mathbf F\cdot d\mathbf S = \iiint_E\operatorname{div}\mathbf F\,dV$ (closed $S$, outward)', topic: Divergence theorem}
+- {front: 'Flux through an open surface with the Divergence theorem', back: 'Close it with a lid, compute $\iiint\operatorname{div}\mathbf F\,dV$, subtract the lid''s flux.', topic: Divergence theorem}
+- {front: 'Flux of $\langle x, y, z\rangle$ out of a sphere of radius $a$', back: '$4\pi a^3$ ($\operatorname{div} = 3$ times volume)', topic: Divergence theorem}
+- {front: 'Pattern behind all the big theorems', back: 'Integral of a derivative over a region = values of the function on the boundary (FTC, FTLI, Green, Stokes, Gauss).', topic: Divergence theorem}
+- {front: 'Gauss''s law', back: '$\iint_S\mathbf E\cdot d\mathbf S = Q_{\text{enc}}/\varepsilon_0$; $\nabla\cdot\mathbf E = \rho/\varepsilon_0$', topic: Applications to physics}
+- {front: 'Ampère''s law and the field of a wire', back: '$\oint\mathbf B\cdot d\mathbf r = \mu_0I$; $B = \dfrac{\mu_0I}{2\pi r}$', topic: Applications to physics}
+- {front: 'Continuity equation', back: '$\partial_t\rho + \nabla\cdot(\rho\mathbf v) = 0$; incompressible: $\nabla\cdot\mathbf v = 0$', topic: Applications to physics}
+- {front: 'Fourier''s law and the heat equation', back: '$\mathbf q = -k\nabla T$; $T_t = \alpha\nabla^2T$', topic: Applications to physics}
+- {front: 'Which theorem converts which Maxwell law?', back: 'Divergence laws (Gauss for $\mathbf E$, $\mathbf B$): Divergence theorem. Circulation laws (Faraday, Ampère): Stokes'' theorem.', topic: Applications to physics}
+- {front: 'Conservation of energy for a conservative force', back: 'Kinetic plus potential energy, $\tfrac12m|\mathbf v|^2 + U$, is constant.', topic: Fundamental theorem for line integrals}

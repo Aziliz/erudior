@@ -1,0 +1,276 @@
+# Module 9 — Coordinate geometry and transformations
+- id: geo-q-3301
+  lesson: geo-coord
+  module_quiz: true
+  topic: Distance and midpoint
+  stem: 'Find the midpoint of the segment from $(-4, 7)$ to $(10, -3)$.'
+  choices: ['$(7, -5)$', '$(3, 2)$', '$(6, 4)$', '$(14, -10)$']
+  answer: 1
+  explanation: |-
+    Average the coordinates: $\left(\tfrac{-4 + 10}{2}, \tfrac{7 - 3}{2}\right) = (3, 2)$. $(7, -5)$ is half the *change*, not the midpoint.
+- id: geo-q-3302
+  lesson: geo-coord
+  topic: Distance and midpoint
+  stem: 'Find the distance between $(2, -3)$ and $(-4, 5)$.'
+  choices: ['14', '$2\sqrt{7}$', '10', '$\sqrt{20}$']
+  answer: 2
+  explanation: |-
+    $\sqrt{(-6)^2 + 8^2} = \sqrt{36 + 64} = 10$.
+- id: geo-q-3303
+  lesson: geo-coord
+  topic: Distance and midpoint
+  stem: '$M(1, 4)$ is the midpoint of $\overline{AB}$ with $A(-3, 9)$. Find $B$.'
+  choices: ['$(-1, 6.5)$', '$(-7, 14)$', '$(4, -5)$', '$(5, -1)$']
+  answer: 3
+  explanation: |-
+    From $A$ to $M$ is $+4$ in $x$ and $-5$ in $y$. Repeat from $M$: $B = (5, -1)$. $(-1, 6.5)$ is the midpoint of $A$ and $M$.
+- id: geo-q-3304
+  lesson: geo-coord
+  module_quiz: true
+  topic: Distance and midpoint
+  stem: 'Point $P$ divides $\overline{AB}$ from $A(0, 0)$ to $B(12, 8)$ in the ratio $3 : 1$. Find $P$.'
+  choices: ['$(9, 6)$', '$(4, \tfrac83)$', '$(3, 2)$', '$(36, 24)$']
+  answer: 0
+  explanation: |-
+    $k = \tfrac{3}{3 + 1} = \tfrac34$, so $P = \left(\tfrac34 \cdot 12, \tfrac34 \cdot 8\right) = (9, 6)$. $(3, 2)$ uses $k = \tfrac14$ (the ratio $1 : 3$).
+- id: geo-q-3305
+  lesson: geo-coord
+  topic: Distance and midpoint
+  stem: 'Find the point one-third of the way from $A(-6, 1)$ to $B(3, 10)$.'
+  choices: ['$(0, 7)$', '$(-3, 4)$', '$(-1.5, 5.5)$', '$(-2, \tfrac{11}{3})$']
+  answer: 1
+  explanation: |-
+    $A + \tfrac13(B - A) = (-6 + \tfrac13 \cdot 9,\; 1 + \tfrac13 \cdot 9) = (-3, 4)$. $(0, 7)$ is two-thirds of the way.
+- id: geo-q-3306
+  lesson: geo-coord
+  module_quiz: true
+  topic: Coordinate proof
+  stem: 'Quadrilateral $ABCD$ has $A(0, 0)$, $B(4, 0)$, $C(5, 3)$, $D(1, 3)$. What is it?'
+  choices: ['A rectangle', 'A rhombus', 'A parallelogram that is not a rectangle or rhombus', 'A trapezoid that is not a parallelogram']
+  answer: 2
+  explanation: |-
+    $\overline{AB}$ and $\overline{DC}$ are horizontal (parallel) with length 4; $\overline{AD}$ and $\overline{BC}$ both have slope 3 and length $\sqrt{10}$. Opposite sides are parallel, but adjacent sides differ (4 vs $\sqrt{10}$) and slopes 0 and 3 aren't perpendicular.
+- id: geo-q-3307
+  lesson: geo-coord
+  topic: Coordinate proof
+  stem: 'To prove something about a general isosceles triangle with coordinates, which placement is most convenient?'
+  choices: ['$(0, 0)$, $(a, 0)$, $(a, a)$', '$(0, 0)$, $(1, 0)$, $(0, 1)$', '$(a, b)$, $(c, d)$, $(e, f)$', '$(-a, 0)$, $(a, 0)$, $(0, b)$']
+  answer: 3
+  explanation: |-
+    Putting the base symmetric about the $y$-axis with the apex on it makes the legs congruent automatically and keeps the algebra simple while staying general. The first two are special triangles, and the third ignores the isosceles condition.
+- id: geo-q-3308
+  lesson: geo-coord
+  topic: Coordinate proof
+  stem: 'Why use $A(2a, 0)$ and $B(0, 2b)$ rather than $A(a, 0)$ and $B(0, b)$ in a proof about midpoints?'
+  choices: ['So the midpoint $(a, b)$ has no fractions', 'Because the triangle must be twice as large', 'So the slopes are integers', 'It is required for the distance formula.']
+  answer: 0
+  explanation: |-
+    Doubling the coordinates makes midpoints come out as $(a, b)$ instead of $(\tfrac{a}{2}, \tfrac{b}{2})$. It loses no generality because $a$ and $b$ can be any numbers.
+- id: geo-q-3309
+  lesson: geo-coord
+  topic: Coordinate proof
+  stem: 'A student shows that $ABCD$ has four equal sides and concludes it is a square. What is missing?'
+  choices: ['Nothing', 'A right angle (or equal diagonals)', 'Parallel sides', 'The midpoints of the sides']
+  answer: 1
+  explanation: |-
+    Four equal sides only make a rhombus. A rhombus with one right angle (or congruent diagonals) is a square.
+- id: geo-q-3310
+  lesson: geo-coord
+  topic: Distance and midpoint
+  stem: 'Is the triangle with vertices $(0, 0)$, $(6, 0)$ and $(3, 5)$ equilateral, isosceles or scalene?'
+  choices: ['Equilateral', 'Scalene', 'Isosceles', 'Right isosceles']
+  answer: 2
+  explanation: |-
+    The base is 6, and both other sides are $\sqrt{9 + 25} = \sqrt{34} \approx 5.83$. Two equal sides, so isosceles (not equilateral, since $\sqrt{34} \ne 6$).
+- id: geo-q-3311
+  lesson: geo-coord
+  topic: Coordinate proof
+  stem: 'In the coordinate proof that a rectangle''s diagonals are congruent, the rectangle is placed at $(0, 0)$, $(a, 0)$, $(a, b)$, $(0, b)$. What are both diagonal lengths?'
+  choices: ['$a + b$', '$\sqrt{a + b}$', '$a^2 + b^2$', '$\sqrt{a^2 + b^2}$']
+  answer: 3
+  explanation: |-
+    Each diagonal spans $a$ horizontally and $b$ vertically: $\sqrt{a^2 + b^2}$. They're equal, proving the theorem for every rectangle.
+
+- id: geo-q-3401
+  lesson: geo-rigid
+  module_quiz: true
+  topic: Rigid motions
+  stem: 'Translate $(4, -2)$ by $\langle -6, 5 \rangle$.'
+  choices: ['$(-2, 3)$', '$(10, -7)$', '$(-24, -10)$', '$(2, 3)$']
+  answer: 0
+  explanation: |-
+    $(4 - 6, -2 + 5) = (-2, 3)$.
+- id: geo-q-3402
+  lesson: geo-rigid
+  module_quiz: true
+  topic: Rigid motions
+  stem: 'Reflect $(3, -7)$ in the line $y = x$.'
+  choices: ['$(-3, 7)$', '$(-7, 3)$', '$(7, -3)$', '$(3, 7)$']
+  answer: 1
+  explanation: |-
+    Reflection in $y = x$ swaps the coordinates: $(-7, 3)$.
+- id: geo-q-3403
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Rotate $(5, 2)$ by $90^\circ$ counterclockwise about the origin.'
+  choices: ['$(2, -5)$', '$(-5, -2)$', '$(-2, 5)$', '$(2, 5)$']
+  answer: 2
+  explanation: |-
+    $(x, y) \to (-y, x)$: $(-2, 5)$. $(2, -5)$ is a $90^\circ$ clockwise rotation.
+- id: geo-q-3404
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Reflect $(6, 1)$ in the vertical line $x = 2$.'
+  choices: ['$(-6, 1)$', '$(4, 1)$', '$(8, 1)$', '$(-2, 1)$']
+  answer: 3
+  explanation: |-
+    $(2h - x, y) = (4 - 6, 1) = (-2, 1)$. The point is 4 right of the line, so its image is 4 left of it.
+- id: geo-q-3405
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Which property is NOT preserved by every rigid motion?'
+  choices: ['Orientation (clockwise order of vertices)', 'Distance', 'Angle measure', 'Parallelism']
+  answer: 0
+  explanation: |-
+    Reflections reverse orientation. All rigid motions preserve distance, angle measure and parallelism.
+- id: geo-q-3406
+  lesson: geo-rigid
+  module_quiz: true
+  topic: Rigid motions
+  stem: 'Rotate $(-3, 4)$ by $180^\circ$ about the origin.'
+  choices: ['$(4, -3)$', '$(3, -4)$', '$(-4, -3)$', '$(3, 4)$']
+  answer: 1
+  explanation: |-
+    $(x, y) \to (-x, -y)$: $(3, -4)$.
+- id: geo-q-3407
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Rotate $P(5, 1)$ by $90^\circ$ counterclockwise about $C(2, 3)$.'
+  choices: ['$(-1, 5)$', '$(1, 5)$', '$(4, 6)$', '$(0, 0)$']
+  answer: 2
+  explanation: |-
+    Relative to $C$: $(3, -2)$. Rotate: $(2, 3)$. Add $C$ back: $(4, 6)$. $(-1, 5)$ rotates about the origin instead.
+- id: geo-q-3408
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'In a reflection in line $\ell$, how is $\ell$ related to the segment joining a point and its image?'
+  choices: ['$\ell$ is parallel to it.', '$\ell$ contains it.', '$\ell$ makes a $45^\circ$ angle with it.', '$\ell$ is its perpendicular bisector.']
+  answer: 3
+  explanation: |-
+    That is the definition of a reflection: the mirror line is the perpendicular bisector of $\overline{PP'}$.
+- id: geo-q-3409
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Which rule describes a reflection in the $x$-axis?'
+  choices: ['$(x, y) \to (x, -y)$', '$(x, y) \to (-x, y)$', '$(x, y) \to (y, x)$', '$(x, y) \to (-x, -y)$']
+  answer: 0
+  explanation: |-
+    The $x$-coordinate stays and the $y$-coordinate changes sign. $(-x, y)$ reflects in the $y$-axis; $(-x, -y)$ is a $180^\circ$ rotation.
+- id: geo-q-3410
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Under the modern definition, two figures are congruent when:'
+  choices: ['they have the same area', 'some sequence of rigid motions maps one onto the other', 'some dilation maps one onto the other', 'they have the same perimeter']
+  answer: 1
+  explanation: |-
+    Congruence means one can be carried exactly onto the other by translations, reflections and rotations. Equal area or perimeter isn't enough, and dilations change size.
+- id: geo-q-3411
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Triangle $ABC$ has $A(1, 2)$. After a $270^\circ$ counterclockwise rotation about the origin, where is $A''$?'
+  choices: ['$(-2, 1)$', '$(-1, -2)$', '$(2, -1)$', '$(2, 1)$']
+  answer: 2
+  explanation: |-
+    $270^\circ$ counterclockwise is $90^\circ$ clockwise: $(x, y) \to (y, -x)$, giving $(2, -1)$.
+
+- id: geo-q-3501
+  lesson: geo-dilation
+  module_quiz: true
+  topic: Dilations
+  stem: 'Dilate $(6, -4)$ by scale factor $\tfrac12$ centered at the origin.'
+  choices: ['$(12, -8)$', '$(6.5, -3.5)$', '$(-3, 2)$', '$(3, -2)$']
+  answer: 3
+  explanation: |-
+    Multiply both coordinates by $\tfrac12$: $(3, -2)$.
+- id: geo-q-3502
+  lesson: geo-dilation
+  topic: Dilations
+  stem: 'A figure with area 20 is dilated by scale factor 3. What is the image''s area?'
+  choices: ['180', '60', '540', '23']
+  answer: 0
+  explanation: |-
+    Area scales by $k^2 = 9$: $20 \cdot 9 = 180$.
+- id: geo-q-3503
+  lesson: geo-dilation
+  module_quiz: true
+  topic: Dilations
+  stem: 'Dilate $P(9, 4)$ with center $C(3, 1)$ and scale factor 2.'
+  choices: ['$(18, 8)$', '$(15, 7)$', '$(12, 5)$', '$(6, 3)$']
+  answer: 1
+  explanation: |-
+    $C + 2(P - C) = (3 + 2 \cdot 6, 1 + 2 \cdot 3) = (15, 7)$. $(18, 8)$ dilates about the origin instead.
+- id: geo-q-3504
+  lesson: geo-dilation
+  topic: Dilations
+  stem: 'Under a dilation, a line that does not pass through the center maps to:'
+  choices: ['a perpendicular line', 'the same line', 'a parallel line', 'a circle']
+  answer: 2
+  explanation: |-
+    Dilations map lines to parallel lines (lines through the center map to themselves).
+- id: geo-q-3505
+  lesson: geo-dilation
+  topic: Compositions and symmetry
+  stem: 'A point is reflected in $x = 2$ and then in $x = 7$. What single transformation does this equal?'
+  choices: ['A rotation of $180^\circ$', 'A reflection in $x = 4.5$', 'A translation 5 units right', 'A translation 10 units right']
+  answer: 3
+  explanation: |-
+    Reflections in two parallel lines make a translation by twice the distance between them, from the first line toward the second: $2 \cdot 5 = 10$ units right.
+- id: geo-q-3506
+  lesson: geo-dilation
+  module_quiz: true
+  topic: Compositions and symmetry
+  stem: 'How many lines of symmetry does a regular octagon have, and what is its angle of rotational symmetry?'
+  choices: ['8 lines; $45^\circ$', '4 lines; $90^\circ$', '8 lines; $135^\circ$', '16 lines; $22.5^\circ$']
+  answer: 0
+  explanation: |-
+    A regular $n$-gon has $n$ lines of symmetry and rotational symmetry of $\tfrac{360^\circ}{n}$: 8 lines and $45^\circ$. $135^\circ$ is the interior angle.
+- id: geo-q-3507
+  lesson: geo-dilation
+  topic: Compositions and symmetry
+  stem: 'Which figure has rotational symmetry but no line symmetry?'
+  choices: ['A square', 'A parallelogram that is not a rhombus or rectangle', 'An isosceles trapezoid', 'An isosceles triangle']
+  answer: 1
+  explanation: |-
+    A general parallelogram maps onto itself under a $180^\circ$ rotation about its center but has no mirror line. An isosceles trapezoid and isosceles triangle have a line of symmetry but no rotational symmetry.
+- id: geo-q-3508
+  lesson: geo-dilation
+  topic: Compositions and symmetry
+  stem: 'Reflect $(2, 5)$ in the $y$-axis, then translate by $\langle 3, -1 \rangle$. Where does it land?'
+  choices: ['$(5, 4)$', '$(-5, 4)$', '$(1, 4)$', '$(-1, 6)$']
+  answer: 2
+  explanation: |-
+    Reflect: $(-2, 5)$. Translate: $(-2 + 3, 5 - 1) = (1, 4)$. $(-5, 4)$ translates first and then reflects; order matters.
+- id: geo-q-3509
+  lesson: geo-dilation
+  topic: Compositions and symmetry
+  stem: 'Reflections in two lines that intersect at a $40^\circ$ angle combine to give:'
+  choices: ['a translation', 'a reflection', 'a rotation by $40^\circ$', 'a rotation by $80^\circ$']
+  answer: 3
+  explanation: |-
+    Two reflections in intersecting lines make a rotation about the intersection point by twice the angle between the lines: $80^\circ$.
+- id: geo-q-3510
+  lesson: geo-dilation
+  topic: Dilations
+  stem: 'Under the modern definition, two figures are similar when:'
+  choices: ['a sequence of rigid motions and dilations maps one onto the other', 'they have the same area', 'they have equal perimeters', 'a single reflection maps one onto the other']
+  answer: 0
+  explanation: |-
+    Similarity allows a change of size (a dilation) as well as rigid motions.
+- id: geo-q-3511
+  lesson: geo-dilation
+  topic: Dilations
+  stem: 'A segment of length 12 is dilated to length 4. What is the scale factor, and is it an enlargement or a reduction?'
+  choices: ['3; enlargement', '$\tfrac13$; reduction', '$\tfrac13$; enlargement', '$-3$; reduction']
+  answer: 1
+  explanation: |-
+    $k = \tfrac{4}{12} = \tfrac13$, which is less than 1, so it's a reduction.

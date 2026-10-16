@@ -1,0 +1,468 @@
+# Module 5 — Special segments, polygons and quadrilaterals
+- id: geo-q-1501
+  lesson: geo-bisectors
+  module_quiz: true
+  topic: Bisectors
+  stem: 'Point $P$ is on the perpendicular bisector of $\overline{AB}$, $PA = 5x - 6$ and $PB = 3x + 10$. Find $PB$.'
+  choices: ['8', '34', '17', '68']
+  answer: 1
+  explanation: |-
+    Points on a perpendicular bisector are equidistant from the endpoints: $5x - 6 = 3x + 10$, so $x = 8$ and $PB = 34$.
+- id: geo-q-1502
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'Which point of concurrency is equidistant from the three vertices of a triangle?'
+  choices: ['Incenter', 'Centroid', 'Circumcenter', 'Orthocenter']
+  answer: 2
+  explanation: |-
+    The circumcenter lies on all three perpendicular bisectors, so it's equidistant from all three vertices. The incenter is equidistant from the *sides*.
+- id: geo-q-1503
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'Where is the circumcenter of a right triangle?'
+  choices: ['At the right-angle vertex', 'Outside the triangle', 'At the centroid', 'At the midpoint of the hypotenuse']
+  answer: 3
+  explanation: |-
+    For a right triangle the circumcenter is the midpoint of the hypotenuse (the hypotenuse is a diameter of the circumcircle).
+- id: geo-q-1504
+  lesson: geo-bisectors
+  module_quiz: true
+  topic: Points of concurrency
+  stem: 'The angle bisectors of $\triangle ABC$ meet at $I$, which is 5 units from $\overline{AB}$. How far is $I$ from $\overline{BC}$?'
+  choices: ['5', '10', '2.5', 'It cannot be determined.']
+  answer: 0
+  explanation: |-
+    The incenter is equidistant from all three sides, so it is also 5 units from $\overline{BC}$.
+- id: geo-q-1505
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'Find the circumcenter of the triangle with vertices $(0, 0)$, $(10, 0)$ and $(0, 24)$.'
+  choices: ['$(5, 0)$', '$(5, 12)$', '$(10, 24)$', '$(\tfrac{10}{3}, 8)$']
+  answer: 1
+  explanation: |-
+    It's a right triangle (legs on the axes), so the circumcenter is the midpoint of the hypotenuse from $(10, 0)$ to $(0, 24)$: $(5, 12)$. $(\tfrac{10}{3}, 8)$ is the centroid.
+- id: geo-q-1506
+  lesson: geo-bisectors
+  topic: Bisectors
+  stem: 'A town wants a fire station equally far from three villages that aren''t in a line. Where should it go?'
+  choices: ['At the incenter of the triangle of villages', 'At the centroid', 'At the circumcenter', 'At the midpoint of the longest side']
+  answer: 2
+  explanation: |-
+    Equal distance to three points means the circumcenter (intersection of perpendicular bisectors).
+- id: geo-q-1507
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'Which center is always inside the triangle?'
+  choices: ['Circumcenter', 'Orthocenter', 'Both circumcenter and orthocenter', 'Incenter']
+  answer: 3
+  explanation: |-
+    The incenter is the center of a circle inside the triangle, so it's always inside. The circumcenter and orthocenter fall outside obtuse triangles.
+- id: geo-q-1508
+  lesson: geo-bisectors
+  module_quiz: true
+  topic: Points of concurrency
+  stem: 'A right triangle has legs 9 and 12 and hypotenuse 15. Find its inradius, using $r = K / s$.'
+  choices: ['3', '6', '4.5', '7.5']
+  answer: 0
+  explanation: |-
+    Area $K = \tfrac12 \cdot 9 \cdot 12 = 54$. Semiperimeter $s = \tfrac{9 + 12 + 15}{2} = 18$. So $r = 54 / 18 = 3$. 7.5 is the circumradius (half the hypotenuse).
+- id: geo-q-1509
+  lesson: geo-bisectors
+  topic: Bisectors
+  stem: 'Point $P$ is inside $\angle ABC$, 7 cm from $\overrightarrow{BA}$ and 7 cm from $\overrightarrow{BC}$. What can you conclude?'
+  choices: ['$P$ is the midpoint of $\overline{AC}$.', '$P$ lies on the bisector of $\angle ABC$.', '$\angle ABC$ is a right angle.', '$PB = 7$']
+  answer: 1
+  explanation: |-
+    By the converse of the Angle Bisector Theorem, a point in the interior equidistant from the sides lies on the bisector.
+- id: geo-q-1510
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'The incenter $I$ of a triangle is 4 units from each side. The foot of the perpendicular from $I$ to one side is 3 units from a vertex $V$ on that side. Find $IV$.'
+  choices: ['7', '$\sqrt{7}$', '5', '12']
+  answer: 2
+  explanation: |-
+    The perpendicular, the 3-unit piece and $\overline{IV}$ form a right triangle with legs 4 and 3, so $IV = \sqrt{16 + 9} = 5$.
+- id: geo-q-1511
+  lesson: geo-bisectors
+  topic: Bisectors
+  stem: 'Which set of points is the perpendicular bisector of $\overline{AB}$?'
+  choices: ['All points on $\overline{AB}$', 'All points closer to $A$ than to $B$', 'All points at distance $AB$ from $A$', 'All points equidistant from $A$ and $B$']
+  answer: 3
+  explanation: |-
+    The Perpendicular Bisector Theorem and its converse together say the perpendicular bisector is exactly the locus of points equidistant from $A$ and $B$.
+
+- id: geo-q-1601
+  lesson: geo-medians
+  module_quiz: true
+  topic: Medians and altitudes
+  stem: '$G$ is the centroid of $\triangle ABC$ and median $\overline{AD}$ has length 27. Find $AG$.'
+  choices: ['18', '9', '13.5', '54']
+  answer: 0
+  explanation: |-
+    The centroid is $\tfrac23$ of the way from the vertex: $AG = \tfrac23 \cdot 27 = 18$ (and $GD = 9$).
+- id: geo-q-1602
+  lesson: geo-medians
+  topic: Medians and altitudes
+  stem: 'The centroid $G$ splits median $\overline{CM}$ so that $GM = 6$. Find $CM$.'
+  choices: ['12', '18', '9', '24']
+  answer: 1
+  explanation: |-
+    $GM$ is the short third of the median, so $CM = 3 \cdot 6 = 18$ (with $CG = 12$). 12 is $CG$, not the whole median.
+- id: geo-q-1603
+  lesson: geo-medians
+  module_quiz: true
+  topic: Medians and altitudes
+  stem: 'Find the centroid of the triangle with vertices $(1, 2)$, $(7, -4)$ and $(-2, 8)$.'
+  choices: ['$(3, 3)$', '$(6, 6)$', '$(2, 2)$', '$(\tfrac{8}{3}, 2)$']
+  answer: 2
+  explanation: |-
+    Average the coordinates: $\left(\tfrac{1 + 7 - 2}{3}, \tfrac{2 - 4 + 8}{3}\right) = (2, 2)$. $(6, 6)$ forgets to divide by 3.
+- id: geo-q-1604
+  lesson: geo-medians
+  topic: Medians and altitudes
+  stem: 'Which segment goes from a vertex perpendicular to the line containing the opposite side?'
+  choices: ['Median', 'Midsegment', 'Angle bisector', 'Altitude']
+  answer: 3
+  explanation: |-
+    That's an altitude. A median goes to the midpoint of the opposite side; a midsegment joins two midpoints.
+- id: geo-q-1605
+  lesson: geo-medians
+  topic: Medians and altitudes
+  stem: 'Where is the orthocenter of a right triangle?'
+  choices: ['At the vertex of the right angle', 'At the midpoint of the hypotenuse', 'Outside the triangle', 'At the centroid']
+  answer: 0
+  explanation: |-
+    The two legs are altitudes, and they meet at the right-angle vertex, so that's the orthocenter.
+- id: geo-q-1606
+  lesson: geo-medians
+  module_quiz: true
+  topic: Midsegments
+  stem: '$\overline{MN}$ is a midsegment of $\triangle ABC$ parallel to $\overline{AB}$. If $AB = 4x + 2$ and $MN = x + 7$, find $AB$.'
+  choices: ['6', '26', '13', '52']
+  answer: 1
+  explanation: |-
+    The side is twice the midsegment: $4x + 2 = 2(x + 7)$, so $2x = 12$, $x = 6$ and $AB = 26$ ($MN = 13$).
+- id: geo-q-1607
+  lesson: geo-medians
+  topic: Midsegments
+  stem: 'A triangle has sides 10, 14 and 18. What is the perimeter of the triangle formed by its three midsegments?'
+  choices: ['42', '84', '21', '14']
+  answer: 2
+  explanation: |-
+    Each midsegment is half a side, so the midsegment triangle has sides 5, 7 and 9: perimeter 21, half of 42.
+- id: geo-q-1608
+  lesson: geo-medians
+  topic: Medians and altitudes
+  stem: 'Why does each median split a triangle into two regions of equal area?'
+  choices: ['The median is perpendicular to the side.', 'The median bisects the vertex angle.', 'The two triangles are congruent.', 'The two triangles have equal bases and the same height.']
+  answer: 3
+  explanation: |-
+    The median cuts the opposite side into equal bases, and both pieces share the altitude from that vertex. Area $= \tfrac12 bh$ is the same. The two triangles are generally not congruent.
+- id: geo-q-1609
+  lesson: geo-medians
+  topic: Medians and altitudes
+  stem: 'Which three centers always lie on one line (the Euler line)?'
+  choices: ['Circumcenter, centroid, orthocenter', 'Incenter, centroid, circumcenter', 'Incenter, orthocenter, circumcenter', 'All four centers']
+  answer: 0
+  explanation: |-
+    Euler showed the circumcenter, centroid and orthocenter are collinear, with the centroid one-third of the way from the circumcenter to the orthocenter. The incenter is generally not on that line.
+- id: geo-q-1610
+  lesson: geo-medians
+  topic: Medians and altitudes
+  stem: 'In $\triangle ABC$ with $A(0, 0)$, $B(8, 0)$, $C(2, 6)$, the altitude from $C$ is the line $x = 2$. The altitude from $A$ is perpendicular to $\overline{BC}$. Find the orthocenter.'
+  choices: ['$(2, 6)$', '$(2, 2)$', '$(\tfrac{10}{3}, 2)$', '$(2, 4)$']
+  answer: 1
+  explanation: |-
+    Slope of $\overline{BC}$: $\tfrac{6 - 0}{2 - 8} = -1$, so the altitude from $A$ has slope 1: $y = x$. With $x = 2$, $y = 2$. The orthocenter is $(2, 2)$; $(\tfrac{10}{3}, 2)$ is the centroid.
+- id: geo-q-1611
+  lesson: geo-medians
+  topic: Midsegments
+  stem: 'Which statement about a midsegment of a triangle is true?'
+  choices: ['It is perpendicular to the third side.', 'It passes through the centroid.', 'It is parallel to the third side and half as long.', 'It bisects a vertex angle.']
+  answer: 2
+  explanation: |-
+    That's the Triangle Midsegment Theorem. A midsegment does not pass through the centroid (the centroid is $\tfrac23$ down each median, but a midsegment crosses the median at its halfway point).
+
+- id: geo-q-1701
+  lesson: geo-polygons
+  module_quiz: true
+  topic: Polygon angles
+  stem: 'What is the sum of the interior angles of an octagon?'
+  choices: ['$1440^\circ$', '$720^\circ$', '$1260^\circ$', '$1080^\circ$']
+  answer: 3
+  explanation: |-
+    $(8 - 2) \cdot 180 = 1080^\circ$. $1440^\circ$ comes from $8 \cdot 180$.
+- id: geo-q-1702
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'Each interior angle of a regular decagon measures:'
+  choices: ['$144^\circ$', '$36^\circ$', '$150^\circ$', '$140^\circ$']
+  answer: 0
+  explanation: |-
+    Each exterior angle is $360 / 10 = 36^\circ$, so each interior angle is $180 - 36 = 144^\circ$.
+- id: geo-q-1703
+  lesson: geo-polygons
+  module_quiz: true
+  topic: Polygon angles
+  stem: 'Each exterior angle of a regular polygon is $24^\circ$. How many sides does it have?'
+  choices: ['12', '15', '24', '18']
+  answer: 1
+  explanation: |-
+    The exterior angles add to $360^\circ$: $n = 360 / 24 = 15$.
+- id: geo-q-1704
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'What is the sum of the exterior angles (one at each vertex) of a convex 25-gon?'
+  choices: ['$4140^\circ$', '$4500^\circ$', '$360^\circ$', '$180^\circ$']
+  answer: 2
+  explanation: |-
+    The exterior angle sum of any convex polygon is $360^\circ$, no matter how many sides. $4140^\circ$ is the interior sum.
+- id: geo-q-1705
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'The interior angles of a convex polygon add to $2520^\circ$. How many sides does it have?'
+  choices: ['14', '15', '13', '16']
+  answer: 3
+  explanation: |-
+    $(n - 2) \cdot 180 = 2520$ gives $n - 2 = 14$, so $n = 16$. 14 is $n - 2$.
+- id: geo-q-1706
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'Can a regular polygon have interior angles of $145^\circ$?'
+  choices: ['No: the exterior angle $35^\circ$ doesn''t divide $360^\circ$ evenly.', 'Yes, it has 10 sides.', 'Yes, it has 12 sides.', 'No: interior angles must be less than $140^\circ$.']
+  answer: 0
+  explanation: |-
+    The exterior angle would be $35^\circ$, and $360 / 35 \approx 10.3$ isn't a whole number. (A decagon has $144^\circ$; a dodecagon $150^\circ$.)
+- id: geo-q-1707
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'A pentagon has angles $100^\circ$, $110^\circ$, $95^\circ$, $120^\circ$ and $x^\circ$. Find $x$.'
+  choices: ['$35^\circ$', '$115^\circ$', '$75^\circ$', '$125^\circ$']
+  answer: 1
+  explanation: |-
+    A pentagon's angles sum to $540^\circ$: $x = 540 - (100 + 110 + 95 + 120) = 540 - 425 = 115^\circ$.
+- id: geo-q-1708
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'How many diagonals does a convex nonagon (9 sides) have?'
+  choices: ['36', '54', '27', '18']
+  answer: 2
+  explanation: |-
+    $\tfrac{n(n - 3)}{2} = \tfrac{9 \cdot 6}{2} = 27$. 36 counts all segments between vertices, including the 9 sides.
+- id: geo-q-1709
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'Why does a convex $n$-gon''s interior angle sum equal $(n - 2) \cdot 180^\circ$?'
+  choices: ['Each vertex contributes $180^\circ$ minus two right angles.', 'The exterior angles add to $360^\circ$ and there are $n - 2$ of them.', 'It can be split into $n$ triangles meeting at the center.', 'Diagonals from one vertex cut it into $n - 2$ triangles whose angles make up the polygon''s angles.']
+  answer: 3
+  explanation: |-
+    From one vertex, $n - 3$ diagonals create $n - 2$ triangles, each contributing $180^\circ$. (The center method gives $n \cdot 180 - 360$, the same thing, but the reason stated in that choice is incomplete.)
+- id: geo-q-1710
+  lesson: geo-polygons
+  module_quiz: true
+  topic: Polygon angles
+  stem: 'Each interior angle of a regular polygon is $156^\circ$. How many sides does it have?'
+  choices: ['15', '13', '24', '12']
+  answer: 0
+  explanation: |-
+    Exterior angle $= 180 - 156 = 24^\circ$; $n = 360 / 24 = 15$.
+- id: geo-q-1711
+  lesson: geo-polygons
+  topic: Polygon angles
+  stem: 'A quadrilateral has angles $2x^\circ$, $3x^\circ$, $4x^\circ$ and $3x^\circ$. Find the largest angle.'
+  choices: ['$30^\circ$', '$120^\circ$', '$90^\circ$', '$160^\circ$']
+  answer: 1
+  explanation: |-
+    A quadrilateral's angles sum to $360^\circ$: $12x = 360$, so $x = 30$ and the largest is $4x = 120^\circ$.
+
+- id: geo-q-1801
+  lesson: geo-parallelograms
+  module_quiz: true
+  topic: Parallelograms
+  stem: 'In $\square ABCD$, $m\angle A = 68^\circ$. Find $m\angle B$ and $m\angle C$.'
+  choices: ['$68^\circ$ and $112^\circ$', '$22^\circ$ and $68^\circ$', '$112^\circ$ and $68^\circ$', '$112^\circ$ and $112^\circ$']
+  answer: 2
+  explanation: |-
+    Consecutive angles are supplementary, so $m\angle B = 112^\circ$; opposite angles are congruent, so $m\angle C = 68^\circ$.
+- id: geo-q-1802
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'Which property is NOT true of every parallelogram?'
+  choices: ['Opposite sides are congruent.', 'Diagonals bisect each other.', 'Consecutive angles are supplementary.', 'Diagonals are congruent.']
+  answer: 3
+  explanation: |-
+    Congruent diagonals happen only in rectangles. The other three hold in every parallelogram.
+- id: geo-q-1803
+  lesson: geo-parallelograms
+  module_quiz: true
+  topic: Parallelograms
+  stem: 'The diagonals of $\square PQRS$ meet at $T$. $PT = 3x + 4$ and $TR = 5x - 8$. Find $PR$.'
+  choices: ['44', '22', '6', '11']
+  answer: 0
+  explanation: |-
+    Diagonals bisect each other: $3x + 4 = 5x - 8$, so $x = 6$ and $PT = 22$. Then $PR = 2 \cdot 22 = 44$.
+- id: geo-q-1804
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'In $\square ABCD$, $m\angle A = (4x - 10)^\circ$ and $m\angle C = (2x + 30)^\circ$. Find $m\angle B$.'
+  choices: ['$70^\circ$', '$110^\circ$', '$20^\circ$', '$90^\circ$']
+  answer: 1
+  explanation: |-
+    Opposite angles are congruent: $4x - 10 = 2x + 30$, so $x = 20$ and $m\angle A = 70^\circ$. $\angle B$ is consecutive to $\angle A$: $180 - 70 = 110^\circ$.
+- id: geo-q-1805
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'Which condition is NOT enough to prove a quadrilateral is a parallelogram?'
+  choices: ['Both pairs of opposite sides congruent', 'Diagonals bisect each other', 'One pair of opposite sides parallel and the other pair congruent', 'One pair of opposite sides both parallel and congruent']
+  answer: 2
+  explanation: |-
+    An isosceles trapezoid has one pair of parallel sides and the other pair congruent, but it's not a parallelogram. The other three are valid tests.
+- id: geo-q-1806
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'Is $A(1, 1)$, $B(6, 2)$, $C(8, 6)$, $D(3, 5)$ a parallelogram?'
+  choices: ['No, because $AB \ne BC$', 'No, because the diagonals have different lengths', 'Only if it is a rectangle', 'Yes, because the diagonals share the midpoint $(4.5, 3.5)$']
+  answer: 3
+  explanation: |-
+    Midpoint of $\overline{AC}$: $(4.5, 3.5)$; midpoint of $\overline{BD}$: $(4.5, 3.5)$. The diagonals bisect each other, so it's a parallelogram. Adjacent sides needn't be equal.
+- id: geo-q-1807
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'A parallelogram has one side 9 cm and perimeter 46 cm. What are the other side lengths?'
+  choices: ['9, 14, 14', '9, 9, 28', '9, 18.5, 18.5', '23, 23, 9']
+  answer: 0
+  explanation: |-
+    Opposite sides are equal: $2(9) + 2b = 46$ gives $b = 14$. The remaining three sides are 9, 14 and 14.
+- id: geo-q-1808
+  lesson: geo-parallelograms
+  module_quiz: true
+  topic: Parallelograms
+  stem: 'In the proof that opposite sides of a parallelogram are congruent, diagonal $\overline{AC}$ splits $\square ABCD$ into two triangles. Which test proves them congruent?'
+  choices: ['SSS', 'ASA', 'HL', 'SSA']
+  answer: 1
+  explanation: |-
+    Two pairs of alternate interior angles (from the two pairs of parallel sides) and the shared side $\overline{AC}$ between them give ASA.
+- id: geo-q-1809
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'Consecutive sides of a quadrilateral are $2x + 3$, $y - 1$, $3x - 5$ and $2y - 9$. For what $x$ and $y$ is it a parallelogram?'
+  choices: ['$x = 2$, $y = 10$', '$x = 8$, $y = 4$', '$x = 8$, $y = 8$', '$x = -2$, $y = 8$']
+  answer: 2
+  explanation: |-
+    Opposite sides are the 1st and 3rd and the 2nd and 4th: $2x + 3 = 3x - 5$ gives $x = 8$; $y - 1 = 2y - 9$ gives $y = 8$. Sides: $19, 7, 19, 7$.
+- id: geo-q-1810
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'In $\square ABCD$, diagonals meet at $E$, $AC = 30$ and $BD = 18$. Which is true?'
+  choices: ['$AE = 9$', '$AE = BE = 12$', '$AC = BD$', '$AE = 15$ and $BE = 9$']
+  answer: 3
+  explanation: |-
+    Each diagonal is bisected: $AE = 15$, $BE = 9$. The diagonals themselves need not be equal.
+- id: geo-q-1811
+  lesson: geo-parallelograms
+  topic: Parallelograms
+  stem: 'Consecutive angles of a parallelogram measure $(6x + 6)^\circ$ and $(4x + 4)^\circ$. Find the larger angle.'
+  choices: ['$108^\circ$', '$72^\circ$', '$17^\circ$', '$96^\circ$']
+  answer: 0
+  explanation: |-
+    Consecutive angles are supplementary: $10x + 10 = 180$, $x = 17$. The angles are $108^\circ$ and $72^\circ$.
+
+- id: geo-q-1901
+  lesson: geo-special-quads
+  module_quiz: true
+  topic: Special parallelograms
+  stem: 'The diagonals of a rhombus are 10 and 24. Find the side length.'
+  choices: ['17', '13', '26', '$\sqrt{119}$']
+  answer: 1
+  explanation: |-
+    The diagonals bisect each other at right angles, giving right triangles with legs 5 and 12: side $= \sqrt{25 + 144} = 13$. 26 forgets to halve the diagonals.
+- id: geo-q-1902
+  lesson: geo-special-quads
+  topic: Special parallelograms
+  stem: 'A parallelogram has congruent diagonals. What must it be?'
+  choices: ['A rhombus', 'A kite', 'A rectangle', 'A trapezoid']
+  answer: 2
+  explanation: |-
+    A parallelogram is a rectangle if and only if its diagonals are congruent.
+- id: geo-q-1903
+  lesson: geo-special-quads
+  topic: Special parallelograms
+  stem: 'Which statement is always true?'
+  choices: ['Every rectangle is a square.', 'Every rhombus is a rectangle.', 'Every parallelogram is a rhombus.', 'Every square is a rhombus.']
+  answer: 3
+  explanation: |-
+    A square has four congruent sides, so it's a rhombus (and also a rectangle). The other statements fail for non-square rectangles, non-square rhombuses, and general parallelograms.
+- id: geo-q-1904
+  lesson: geo-special-quads
+  module_quiz: true
+  topic: Trapezoids and kites
+  stem: 'A trapezoid has bases 14 and 26. How long is its midsegment?'
+  choices: ['20', '40', '12', '6']
+  answer: 0
+  explanation: |-
+    The midsegment is the average of the bases: $\tfrac{14 + 26}{2} = 20$.
+- id: geo-q-1905
+  lesson: geo-special-quads
+  topic: Trapezoids and kites
+  stem: 'In isosceles trapezoid $ABCD$ with bases $\overline{AB}$ and $\overline{DC}$, $m\angle D = 108^\circ$. Find $m\angle A$.'
+  choices: ['$108^\circ$', '$72^\circ$', '$54^\circ$', '$36^\circ$']
+  answer: 1
+  explanation: |-
+    $\angle A$ and $\angle D$ lie along the same leg between the parallel bases, so they're supplementary: $180 - 108 = 72^\circ$.
+- id: geo-q-1906
+  lesson: geo-special-quads
+  topic: Trapezoids and kites
+  stem: 'In kite $ABCD$, $AB = AD$ and $CB = CD$. Which angles are congruent?'
+  choices: ['$\angle A$ and $\angle C$', 'All four', '$\angle B$ and $\angle D$', '$\angle A$ and $\angle B$']
+  answer: 2
+  explanation: |-
+    $\triangle ABC \cong \triangle ADC$ by SSS, so $\angle B \cong \angle D$: the angles between the non-congruent sides.
+- id: geo-q-1907
+  lesson: geo-special-quads
+  module_quiz: true
+  topic: Special parallelograms
+  stem: 'In rectangle $ABCD$, diagonals meet at $E$. $AE = 2x + 5$ and $BD = 6x - 10$. Find $BD$.'
+  choices: ['7.5', '25', '15', '50']
+  answer: 3
+  explanation: |-
+    Rectangle diagonals are congruent and bisect each other, so $BD = 2 \cdot AE$: $6x - 10 = 4x + 10$, $x = 10$, $AE = 25$ and $BD = 50$.
+- id: geo-q-1908
+  lesson: geo-special-quads
+  topic: Special parallelograms
+  stem: 'In rhombus $ABCD$, $m\angle ABC = 124^\circ$. Find $m\angle ABD$, where $\overline{BD}$ is a diagonal.'
+  choices: ['$62^\circ$', '$56^\circ$', '$28^\circ$', '$124^\circ$']
+  answer: 0
+  explanation: |-
+    The diagonals of a rhombus bisect its angles, so $m\angle ABD = 124 / 2 = 62^\circ$.
+- id: geo-q-1909
+  lesson: geo-special-quads
+  topic: Trapezoids and kites
+  stem: 'A trapezoid''s midsegment is 17 and its longer base is 25. Find the shorter base.'
+  choices: ['8', '9', '21', '4']
+  answer: 1
+  explanation: |-
+    $\tfrac{25 + b}{2} = 17$ gives $25 + b = 34$, so $b = 9$.
+- id: geo-q-1910
+  lesson: geo-special-quads
+  topic: Trapezoids and kites
+  stem: 'Which property do the diagonals of every kite have?'
+  choices: ['They are congruent.', 'They bisect each other.', 'They are perpendicular.', 'They are parallel.']
+  answer: 2
+  explanation: |-
+    Kite diagonals are perpendicular, and one bisects the other, but they generally don't bisect *each other* (that would make it a parallelogram).
+- id: geo-q-1911
+  lesson: geo-special-quads
+  topic: Special parallelograms
+  stem: 'A quadrilateral''s diagonals are perpendicular, congruent, and bisect each other. What is the most specific name for it?'
+  choices: ['Rectangle', 'Rhombus', 'Kite', 'Square']
+  answer: 3
+  explanation: |-
+    Bisecting diagonals make a parallelogram; congruent makes it a rectangle; perpendicular makes it a rhombus. Both together: a square.
+- id: geo-q-1912
+  lesson: geo-special-quads
+  topic: Trapezoids and kites
+  stem: 'A kite has diagonals 12 and 20. The shorter diagonal is bisected by the longer one, which it meets 4 units from one end. Find the length of the shorter sides of the kite.'
+  choices: ['$2\sqrt{13}$', '$4\sqrt{13}$', '$2\sqrt{17}$', '10']
+  answer: 0
+  explanation: |-
+    The shorter diagonal (12) is bisected into halves of 6, and the longer diagonal is split into 4 and 16. The shorter sides are $\sqrt{6^2 + 4^2} = \sqrt{52} = 2\sqrt{13}$ (the longer sides are $\sqrt{36 + 256} = 2\sqrt{73}$).

@@ -1,0 +1,561 @@
+# Module 6 — Random variables
+# ---- Lesson 23: discrete random variables
+- id: stat-q-2301
+  lesson: stat-discrete-rv
+  module_quiz: true
+  topic: Discrete random variables
+  stem: '$X$ takes values 1, 2, 3, 4 with probabilities 0.1, 0.3, 0.4, 0.2. Find $E(X)$.'
+  choices: ['2.5', '2.7', '2.4', '3.0']
+  answer: 1
+  explanation: |-
+    $E(X) = 1(0.1) + 2(0.3) + 3(0.4) + 4(0.2) = 0.1 + 0.6 + 1.2 + 0.8 = 2.7$. The unweighted
+    average of the values, 2.5, ignores the probabilities.
+
+- id: stat-q-2302
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'For the same distribution (values 1–4 with probabilities 0.1, 0.3, 0.4, 0.2; mean 2.7), find the standard deviation.'
+  choices: ['0.81', '0.95', '1.12', '0.90']
+  answer: 3
+  explanation: |-
+    $\sigma^2 = (1-2.7)^2(0.1) + (2-2.7)^2(0.3) + (3-2.7)^2(0.4) + (4-2.7)^2(0.2) = 0.289 + 0.147 + 0.036 + 0.338 = 0.81$,
+    so $\sigma = 0.9$. 0.81 is the variance.
+
+- id: stat-q-2303
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'Which table is a valid probability distribution?'
+  choices: ['$P(0) = 0.4,\ P(1) = 0.4,\ P(2) = 0.3$', '$P(0) = 0.5,\ P(1) = -0.1,\ P(2) = 0.6$', '$P(0) = 0.25,\ P(1) = 0.35,\ P(2) = 0.40$', '$P(0) = 0.2,\ P(1) = 0.2,\ P(2) = 0.2$']
+  answer: 2
+  explanation: |-
+    Probabilities must each be between 0 and 1 and add to 1. Only $0.25 + 0.35 + 0.40 = 1$
+    works; the others sum to 1.1 or 0.6, or include a negative value.
+
+- id: stat-q-2304
+  lesson: stat-discrete-rv
+  module_quiz: true
+  topic: Discrete random variables
+  stem: 'A roulette bet costs \$1. With probability $\tfrac{1}{38}$ you win \$35 net; otherwise you lose your \$1. What is the expected net gain per bet?'
+  choices: ['About −\$0.053', '\$0', 'About \$0.92', 'About −\$1.00']
+  answer: 0
+  explanation: |-
+    $E = 35 \cdot \tfrac{1}{38} + (-1) \cdot \tfrac{37}{38} = \tfrac{35 - 37}{38} = -\tfrac{2}{38} \approx -0.053$.
+    Players lose about 5.3 cents per dollar bet in the long run.
+
+- id: stat-q-2305
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'The expected number of defects per weld is 0.75. Which interpretation is correct?'
+  choices: ['Every weld has 0.75 defects', 'Over many welds, the average number of defects per weld is about 0.75', '75% of welds have a defect', 'The most likely number of defects is 0.75']
+  answer: 1
+  explanation: |-
+    The expected value is a long-run average. No single weld has 0.75 defects, and it is
+    neither a percentage of welds nor the most likely value.
+
+- id: stat-q-2306
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'Using $X$: 0, 1, 2, 3 defects with probabilities 0.50, 0.30, 0.15, 0.05, find $P(X \ge 1)$.'
+  choices: ['0.30', '0.20', '0.50', '0.95']
+  answer: 2
+  explanation: |-
+    $P(X \ge 1) = 1 - P(X = 0) = 1 - 0.50 = 0.50$. 0.30 is only $P(X = 1)$; 0.20 is $P(X \ge 2)$.
+
+- id: stat-q-2307
+  lesson: stat-discrete-rv
+  module_quiz: true
+  topic: Discrete random variables
+  stem: 'A variable has $E(X) = 4$ and $E(X^2) = 20$. What is $\sigma_X$?'
+  choices: ['4', '16', '$\sqrt{20}$', '2']
+  answer: 3
+  explanation: |-
+    $\sigma^2 = E(X^2) - \mu^2 = 20 - 16 = 4$, so $\sigma = 2$. 4 is the variance.
+
+- id: stat-q-2308
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'An insurer''s expected profit on a policy is \$50 but its standard deviation is \$2,100. What explains the insurer''s confidence in making money?'
+  choices: ['Each policy almost certainly earns exactly \$50', 'A large standard deviation guarantees profit', 'Over thousands of independent policies, the average profit per policy will be close to \$50 (law of large numbers)', 'Claims never happen']
+  answer: 2
+  explanation: |-
+    Any single policy is risky, but the average over many independent policies settles near
+    the expected value. That is the business model of insurance.
+
+- id: stat-q-2309
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'Which variable is continuous rather than discrete?'
+  choices: ['Number of passengers on a bus', 'Number of heads in 10 tosses', 'Time until the next train arrives', 'Number of defects in a weld']
+  answer: 2
+  explanation: |-
+    Time can take any value in an interval, so it is continuous. Counts are discrete.
+
+- id: stat-q-2310
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'A game costs \$3. You roll a die: a 6 pays \$12, a 5 pays \$6, anything else pays nothing. Is the game fair?'
+  choices: ['Yes: the expected net gain is \$0', 'No: the expected net gain is \$1', 'No: the expected net gain is −\$1', 'Yes: you can win more than you pay']
+  answer: 0
+  explanation: |-
+    Expected payout $= 12 \cdot \tfrac16 + 6 \cdot \tfrac16 = 2 + 1 = 3$, which equals the \$3
+    cost, so the expected net gain is 0 — a fair game.
+
+- id: stat-q-2311
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'Why is there no "$n - 1$" in the variance of a probability distribution?'
+  choices: ['Because the variance is always 1', 'Because a probability distribution describes the whole population (long run), not a sample', 'Because the values are discrete', 'Because the mean is zero']
+  answer: 1
+  explanation: |-
+    The $n - 1$ corrects for estimating the mean from a sample. A probability distribution
+    gives the true long-run mean, so the variance uses the probabilities directly.
+
+# ---- Lesson 24: combining random variables
+- id: stat-q-2401
+  lesson: stat-combining-rv
+  module_quiz: true
+  topic: Combining random variables
+  stem: 'Independent $X$ and $Y$ have $\sigma_X = 5$ and $\sigma_Y = 12$. What is $\sigma_{X+Y}$?'
+  choices: ['17', '13', '7', '169']
+  answer: 1
+  explanation: |-
+    Variances add: $25 + 144 = 169$, so $\sigma_{X+Y} = 13$. Adding SDs (17) is the classic
+    error; 169 is the variance.
+
+- id: stat-q-2402
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'With the same independent $X$ and $Y$ ($\sigma_X = 5$, $\sigma_Y = 12$), what is $\sigma_{X-Y}$?'
+  choices: ['7', '−7', '13', '$\sqrt{119}$']
+  answer: 2
+  explanation: |-
+    For independent variables, variances add for differences too: $\sigma_{X-Y} = \sqrt{25 + 144} = 13$.
+    Subtracting a random quantity adds uncertainty.
+
+- id: stat-q-2403
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: '$X$ has mean 20 and SD 4. Find the mean and SD of $Y = 3X - 10$.'
+  choices: ['Mean 50, SD 12', 'Mean 60, SD 12', 'Mean 50, SD 2', 'Mean 50, SD 36']
+  answer: 0
+  explanation: |-
+    $\mu_Y = 3(20) - 10 = 50$; $\sigma_Y = 3(4) = 12$. The $-10$ shifts but doesn't affect
+    spread; 36 is $3^2 \times 4$, mixing variance and SD rules.
+
+- id: stat-q-2404
+  lesson: stat-combining-rv
+  module_quiz: true
+  topic: Combining random variables
+  stem: 'Four independent packages each weigh on average 2 kg with SD 0.3 kg. What is the SD of their total weight?'
+  choices: ['1.2 kg', '0.3 kg', '0.36 kg', '0.6 kg']
+  answer: 3
+  explanation: |-
+    $\sigma_{\text{total}} = \sqrt{4 \times 0.3^2} = \sqrt{0.36} = 0.6$ kg ($= \sqrt{4}\times 0.3$).
+    1.2 kg would be the SD of $4X$ — one package's weight multiplied by 4.
+
+- id: stat-q-2405
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'Ann''s commute is $N(25, 4)$ and Bob''s is $N(22, 3)$, independent. What is the distribution of $A - B$?'
+  choices: ['$N(3, 1)$', '$N(3, 7)$', '$N(3, 5)$', '$N(47, 5)$']
+  answer: 2
+  explanation: |-
+    Mean $25 - 22 = 3$; SD $\sqrt{16 + 9} = 5$; a difference of independent normals is
+    normal. So $N(3, 5)$.
+
+- id: stat-q-2406
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'Using $A - B \sim N(3, 5)$, find the probability that Bob''s commute is longer than Ann''s.'
+  choices: ['0.2743', '0.7257', '0.5000', '0.2266']
+  answer: 0
+  explanation: |-
+    Bob longer means $A - B < 0$: $z = (0 - 3)/5 = -0.6$, $\Phi(-0.6) \approx 0.2743$. 0.7257 is
+    the chance Ann's is longer.
+
+- id: stat-q-2407
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'Why can''t you add the variances of a person''s height in inches ($X$) and the same person''s height in centimeters ($Y$) to get $\text{Var}(X + Y)$?'
+  choices: ['Because heights are not normal', 'Because $X$ and $Y$ are not independent — they are perfectly correlated', 'Because the units differ', 'Because variances never add']
+  answer: 1
+  explanation: |-
+    The addition rule for variances needs independence. $X$ and $Y$ move together exactly,
+    so the sum varies more than the formula would say.
+
+- id: stat-q-2408
+  lesson: stat-combining-rv
+  module_quiz: true
+  topic: Combining random variables
+  stem: 'For any random variables $X$ and $Y$ (independent or not), which statement is always true?'
+  choices: ['$\sigma_{X+Y} = \sigma_X + \sigma_Y$', '$\sigma_{X+Y}^2 = \sigma_X^2 + \sigma_Y^2$', '$\mu_{X-Y} = \mu_X + \mu_Y$', '$\mu_{X+Y} = \mu_X + \mu_Y$']
+  answer: 3
+  explanation: |-
+    Means always add (and subtract). The variance rule requires independence; SDs never
+    simply add (unless perfectly correlated).
+
+- id: stat-q-2409
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'Loading time is $N(12, 3)$ and travel time is $N(30, 4)$, independent. What is $P(\text{total} > 50)$?'
+  choices: ['0.0548', '0.1151', '0.9452', '0.0228']
+  answer: 0
+  explanation: |-
+    Total is $N(42, 5)$. $z = (50 - 42)/5 = 1.6$; $P(Z > 1.6) \approx 0.0548$. Using SD 7 (added
+    SDs) would give $z \approx 1.14$ and a wrong answer.
+
+- id: stat-q-2410
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'A repair bill is $C = 50 + 80H$, where hours $H$ has variance 2.25. What is the variance of $C$?'
+  choices: ['180', '230', '14,400', '120']
+  answer: 2
+  explanation: |-
+    $\text{Var}(C) = 80^2 \times 2.25 = 6400 \times 2.25 = 14{,}400$ (so $\sigma_C = 120$). Variance
+    scales by $b^2$, and the 50 has no effect.
+
+- id: stat-q-2411
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: 'Why does the SD of the sum of $n$ independent copies grow like $\sqrt{n}$ rather than $n$?'
+  choices: ['Because variances (not SDs) add, giving $n\sigma^2$, whose square root is $\sqrt{n}\,\sigma$', 'Because the mean grows like $\sqrt{n}$', 'Because independent errors always cancel exactly', 'Because the sum is normal']
+  answer: 0
+  explanation: |-
+    Adding $n$ equal variances gives $n\sigma^2$; the SD is $\sqrt{n}\,\sigma$. Errors partly offset
+    on average, though they don't cancel exactly.
+
+# ---- Lesson 25: binomial
+- id: stat-q-2501
+  lesson: stat-binomial
+  module_quiz: true
+  topic: Binomial distribution
+  stem: 'Which situation is a binomial setting?'
+  choices: ['Rolling a die until a 6 appears', 'Drawing 5 cards from a 10-card deck without replacement and counting aces', 'Measuring the weights of 20 apples', 'Counting heads in 20 tosses of a fair coin']
+  answer: 3
+  explanation: |-
+    Coin tosses are binary, independent, fixed in number (20) and have constant $p = 0.5$.
+    "Until a 6" has no fixed $n$ (geometric); weights aren't binary; drawing half of a small
+    deck without replacement breaks independence.
+
+- id: stat-q-2502
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: '$X \sim B(8, 0.25)$. Find $P(X = 2)$.'
+  choices: ['0.3115', '0.0625', '0.2500', '0.6785']
+  answer: 0
+  explanation: |-
+    $\binom{8}{2}(0.25)^2(0.75)^6 = 28 \times 0.0625 \times 0.17798 \approx 0.3115$. Leaving out
+    $\binom{8}{2}$ gives the probability of one specific sequence only.
+
+- id: stat-q-2503
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'For $X \sim B(8, 0.25)$, which expression gives $P(X \ge 3)$?'
+  choices: ['binomcdf(8, 0.25, 3)', '1 − binomcdf(8, 0.25, 3)', 'binompdf(8, 0.25, 3)', '1 − binomcdf(8, 0.25, 2)']
+  answer: 3
+  explanation: |-
+    $P(X \ge 3) = 1 - P(X \le 2)$. Subtracting $P(X \le 3)$ would give $P(X \ge 4)$.
+
+- id: stat-q-2504
+  lesson: stat-binomial
+  module_quiz: true
+  topic: Binomial distribution
+  stem: '3% of rail clips are defective. In a random sample of 100, what are the mean and SD of the number defective?'
+  choices: ['Mean 3, SD 1.71', 'Mean 3, SD 2.91', 'Mean 0.03, SD 0.17', 'Mean 3, SD 1.73']
+  answer: 0
+  explanation: |-
+    $\mu = np = 3$; $\sigma = \sqrt{np(1-p)} = \sqrt{100(0.03)(0.97)} = \sqrt{2.91} \approx 1.71$.
+    2.91 is the variance; $\sqrt{3} \approx 1.73$ forgets the $(1-p)$ factor.
+
+- id: stat-q-2505
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'A component works with probability 0.9; five are tested independently. What is the probability all five work?'
+  choices: ['0.90', '0.5905', '0.4095', '4.5']
+  answer: 1
+  explanation: |-
+    $P(X = 5) = \binom55(0.9)^5 = 0.9^5 \approx 0.5905$. 0.4095 is the chance at least one fails;
+    4.5 is the expected number working.
+
+- id: stat-q-2506
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'Why does the binomial formula include the factor $\binom{n}{k}$?'
+  choices: ['It counts the number of different orders in which $k$ successes can occur among $n$ trials', 'It converts probabilities to percentages', 'It corrects for sampling without replacement', 'It is the mean of the distribution']
+  answer: 0
+  explanation: |-
+    Each particular arrangement of $k$ successes has probability $p^k(1-p)^{n-k}$, and there are
+    $\binom{n}{k}$ such arrangements, all equally likely.
+
+- id: stat-q-2507
+  lesson: stat-binomial
+  module_quiz: true
+  topic: Binomial distribution
+  stem: 'For which binomial distribution is a normal approximation appropriate by the large-counts rule ($np \ge 10$ and $n(1-p) \ge 10$)?'
+  choices: ['$n = 20$, $p = 0.1$', '$n = 50$, $p = 0.05$', '$n = 100$, $p = 0.3$', '$n = 15$, $p = 0.5$']
+  answer: 2
+  explanation: |-
+    Need $np \ge 10$ and $n(1-p) \ge 10$. $100(0.3) = 30$ and $100(0.7) = 70$ both qualify. The
+    others give $np = 2$, $2.5$ and $7.5$.
+
+- id: stat-q-2508
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'A survey samples 500 people from a town of 2,000 without replacement. Why is a binomial model questionable?'
+  choices: ['500 is too small', 'The sample is 25% of the population, so draws are noticeably dependent (the 10% condition fails)', 'The responses are not binary', 'The binomial requires $p = 0.5$']
+  answer: 1
+  explanation: |-
+    Without replacement, each draw changes the remaining population. That's negligible when
+    the sample is under 10% of the population, but 25% is too large.
+
+- id: stat-q-2509
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: '$X \sim B(12, 0.5)$. What is $P(X \le 3)$?'
+  choices: ['0.0537', '0.1938', '0.0730', '0.25']
+  answer: 2
+  explanation: |-
+    $P(X \le 3) = \dfrac{\binom{12}{0} + \binom{12}{1} + \binom{12}{2} + \binom{12}{3}}{2^{12}} = \dfrac{1 + 12 + 66 + 220}{4096} = \dfrac{299}{4096} \approx 0.0730$.
+    0.0537 is $P(X = 3)$ alone.
+
+- id: stat-q-2510
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'The shape of $B(30, 0.9)$ is'
+  choices: ['skewed right', 'symmetric', 'uniform', 'skewed left']
+  answer: 3
+  explanation: |-
+    With $p$ close to 1, most of the probability is near $n = 30$ and the tail stretches toward
+    smaller values — left-skewed.
+
+- id: stat-q-2511
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'The variance of a binomial count is $np(1-p)$. For fixed $n$, which $p$ makes the variance largest?'
+  choices: ['$p = 0.1$', '$p = 0.5$', '$p = 0.9$', '$p = 1$']
+  answer: 1
+  explanation: |-
+    $p(1-p)$ is a downward parabola with its maximum at $p = 0.5$ (value 0.25). Outcomes are
+    most uncertain when success and failure are equally likely; at $p = 1$ the variance is 0.
+
+# ---- Lesson 26: geometric and Poisson
+- id: stat-q-2601
+  lesson: stat-geom-poisson
+  module_quiz: true
+  topic: Geometric and Poisson
+  stem: 'Each free throw goes in with probability 0.7, independently. What is the probability the first miss occurs on the 3rd attempt?'
+  choices: ['0.063', '0.300', '0.343', '0.147']
+  answer: 3
+  explanation: |-
+    "Success" here is a miss, $p = 0.3$: $P(X = 3) = (0.7)^2(0.3) = 0.147$. Using $(0.3)^2(0.7)$
+    swaps the roles and gives 0.063.
+
+- id: stat-q-2602
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'With miss probability $p = 0.3$ per attempt, what is the expected number of attempts until the first miss?'
+  choices: ['0.3', '3', '3.33', '7']
+  answer: 2
+  explanation: |-
+    For a geometric variable, $\mu = 1/p = 1/0.3 \approx 3.33$ attempts.
+
+- id: stat-q-2603
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'With miss probability 0.3 per attempt, what is the probability of at least one miss within the first 3 attempts?'
+  choices: ['0.657', '0.343', '0.9', '0.147']
+  answer: 0
+  explanation: |-
+    $P(X \le 3) = 1 - (0.7)^3 = 1 - 0.343 = 0.657$. 0.343 is the chance of three straight
+    makes.
+
+- id: stat-q-2604
+  lesson: stat-geom-poisson
+  module_quiz: true
+  topic: Geometric and Poisson
+  stem: 'Emails arrive at an average of 3 per hour (Poisson). What is the probability of exactly 2 emails in an hour?'
+  choices: ['0.1494', '0.0498', '0.2240', '0.4232']
+  answer: 2
+  explanation: |-
+    $P(X = 2) = \dfrac{e^{-3}3^2}{2!} = \dfrac{0.0498 \times 9}{2} \approx 0.2240$. 0.0498 is
+    $P(X = 0)$.
+
+- id: stat-q-2605
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'Emails arrive at 3 per hour (Poisson). What is the probability of no emails in a 30-minute period?'
+  choices: ['0.0498', '0.2231', '0.5000', '0.7769']
+  answer: 1
+  explanation: |-
+    Rescale: $\lambda = 1.5$ for half an hour, so $P(0) = e^{-1.5} \approx 0.2231$. Using $\lambda = 3$
+    (0.0498) ignores the shorter interval.
+
+- id: stat-q-2606
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'A Poisson random variable has mean 4. What is its standard deviation?'
+  choices: ['4', '16', '1', '2']
+  answer: 3
+  explanation: |-
+    For a Poisson distribution the variance equals the mean: $\sigma^2 = 4$, so $\sigma = 2$.
+
+- id: stat-q-2607
+  lesson: stat-geom-poisson
+  module_quiz: true
+  topic: Geometric and Poisson
+  stem: 'Which situation is best modeled by a Poisson distribution?'
+  choices: ['The number of potholes per kilometer of highway', 'The number of correct answers on a 20-question test', 'The number of attempts until a password is guessed', 'The height of a randomly chosen adult']
+  answer: 0
+  explanation: |-
+    Potholes are events in a fixed length of road at some average rate — the Poisson setting.
+    A 20-question test is binomial; attempts until success are geometric; height is
+    continuous.
+
+- id: stat-q-2608
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'A batch has 200 items, each independently defective with probability 0.01. Using a Poisson approximation, what is $P(\text{no defectives})$?'
+  choices: ['0.0100', '0.1340', '0.8187', '0.1353']
+  answer: 3
+  explanation: |-
+    $\lambda = np = 2$, so $P(0) \approx e^{-2} \approx 0.1353$. (The exact binomial value is
+    $0.99^{200} \approx 0.1340$ — very close.)
+
+- id: stat-q-2609
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'Daily counts of breakdowns have mean 2.1 but variance 9.5. What does this suggest?'
+  choices: ['The data fit a Poisson model well', 'Breakdowns tend to cluster (not independent), so a Poisson model fits poorly', 'The data are binomial', 'The mean was miscalculated']
+  answer: 1
+  explanation: |-
+    A Poisson variable has variance equal to its mean. Variance far above the mean
+    (overdispersion) signals clustering or a changing rate.
+
+- id: stat-q-2610
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'A geometric variable with $p = 0.2$ has already had 5 failures. What is the probability that at least 3 more trials are needed (i.e. the next 2 trials also fail)?'
+  choices: ['0.64', '0.33', '0.21', '0.80']
+  answer: 0
+  explanation: |-
+    The geometric distribution is memoryless: past failures don't matter. Two more failures
+    have probability $0.8^2 = 0.64$.
+
+- id: stat-q-2611
+  lesson: stat-geom-poisson
+  topic: Geometric and Poisson
+  stem: 'Which value is impossible for a geometric random variable (counting trials to the first success)?'
+  choices: ['1', '7', '0', '100']
+  answer: 2
+  explanation: |-
+    At least one trial is needed to get a success, so the values are $1, 2, 3, \ldots$ Zero is
+    impossible (under the trials-counting definition).
+
+# ---- Lesson 27: continuous random variables
+- id: stat-q-2701
+  lesson: stat-continuous-rv
+  module_quiz: true
+  topic: Continuous random variables
+  stem: 'The pdf of $X$ is $f(x) = kx$ for $0 \le x \le 2$. What is $k$?'
+  choices: ['2', '1', '0.25', '0.5']
+  answer: 3
+  explanation: |-
+    $\int_0^2 kx\,dx = k \cdot \dfrac{4}{2} = 2k = 1$, so $k = 0.5$.
+
+- id: stat-q-2702
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'With $f(x) = 0.5x$ on $[0, 2]$, find $P(X < 1)$.'
+  choices: ['0.5', '0.25', '0.75', '0.125']
+  answer: 1
+  explanation: |-
+    $\int_0^1 0.5x\,dx = 0.25x^2\big|_0^1 = 0.25$. The density increases with $x$, so less than
+    half the area lies below the midpoint.
+
+- id: stat-q-2703
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'With $f(x) = 0.5x$ on $[0, 2]$, find $E(X)$.'
+  choices: ['1', '0.67', '1.5', '1.33']
+  answer: 3
+  explanation: |-
+    $E(X) = \int_0^2 x(0.5x)\,dx = 0.5 \cdot \dfrac{8}{3} = \dfrac{4}{3} \approx 1.33$.
+
+- id: stat-q-2704
+  lesson: stat-continuous-rv
+  module_quiz: true
+  topic: Continuous random variables
+  stem: '$X$ is uniform on $[0, 10]$. Find $P(2 < X < 7)$ and $\sigma_X$.'
+  choices: ['0.5 and 8.33', '0.7 and 2.89', '0.5 and 5', '0.5 and 2.89']
+  answer: 3
+  explanation: |-
+    $P = (7 - 2)/10 = 0.5$. $\sigma = 10/\sqrt{12} \approx 2.89$; 8.33 is the variance
+    $100/12$.
+
+- id: stat-q-2705
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'Times between arrivals are exponential with mean 2 minutes. What is $P(\text{wait} > 3)$?'
+  choices: ['$e^{-6}$', '$e^{-1.5}$', '$1 - e^{-1.5}$', '$e^{-2/3}$']
+  answer: 1
+  explanation: |-
+    $\lambda = 1/2$, so $P(X > 3) = e^{-3/2} \approx 0.223$. Using the mean as the rate gives $e^{-6}$.
+
+- id: stat-q-2706
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'For a continuous random variable, which statement is true?'
+  choices: ['$P(X = a) = f(a)$', '$f(x)$ can never exceed 1', '$P(X = a) = 0$ for every $a$', 'The cdf can decrease']
+  answer: 2
+  explanation: |-
+    A single point has zero width, so zero probability. $f(a)$ is a density and can exceed 1
+    (e.g. uniform on $[0, 0.5]$ has height 2). A cdf never decreases.
+
+- id: stat-q-2707
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'A cdf is $F(x) = 1 - e^{-x/4}$ for $x \ge 0$. What is the median?'
+  choices: ['4', '$4\ln 2 \approx 2.77$', '2', '$\ln 4$']
+  answer: 1
+  explanation: |-
+    Solve $1 - e^{-m/4} = 0.5$: $e^{-m/4} = 0.5$, $m = 4\ln 2 \approx 2.77$. The mean is 4; the
+    median is smaller because the distribution is right-skewed.
+
+- id: stat-q-2708
+  lesson: stat-continuous-rv
+  module_quiz: true
+  topic: Continuous random variables
+  stem: 'How is the pdf obtained from the cdf?'
+  choices: ['$f(x) = F''(x)$', '$f(x) = \int F(x)\,dx$', '$f(x) = 1 - F(x)$', '$f(x) = F(x)/x$']
+  answer: 0
+  explanation: |-
+    $F(x) = \int_{-\infty}^x f(t)\,dt$, so by the Fundamental Theorem of Calculus $F'(x) = f(x)$.
+
+- id: stat-q-2709
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'A bus has waited 10 minutes with no arrival; arrivals follow an exponential distribution with mean 8 minutes. What is the probability of waiting more than 5 additional minutes?'
+  choices: ['$e^{-15/8}$', '$e^{-5/8}$', '$1 - e^{-5/8}$', '$e^{-10/8}$']
+  answer: 1
+  explanation: |-
+    The exponential is memoryless: $P(X > 15 \mid X > 10) = P(X > 5) = e^{-5/8} \approx 0.535$.
+
+- id: stat-q-2710
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'Which formula gives the variance of a continuous random variable with pdf $f$ and mean $\mu$?'
+  choices: ['$\int x f(x)\,dx$', '$\int x^2 f(x)\,dx$', '$\int x^2 f(x)\,dx - \mu^2$', '$\left(\int x f(x)\,dx\right)^2$']
+  answer: 2
+  explanation: |-
+    $\sigma^2 = E(X^2) - \mu^2 = \int x^2 f(x)\,dx - \mu^2$. Forgetting to subtract $\mu^2$ gives
+    $E(X^2)$, not the variance.
+
+- id: stat-q-2711
+  lesson: stat-continuous-rv
+  topic: Continuous random variables
+  stem: 'Breakdowns follow a Poisson process with rate 0.5 per day. What is the probability the time until the next breakdown exceeds 2 days?'
+  choices: ['$e^{-1}$', '$e^{-4}$', '$1 - e^{-1}$', '$0.5^2$']
+  answer: 0
+  explanation: |-
+    The waiting time is exponential with $\lambda = 0.5$: $P(T > 2) = e^{-0.5 \cdot 2} = e^{-1} \approx 0.368$.
+    Equivalently, a Poisson count with mean 1 in 2 days equals 0 with probability $e^{-1}$.

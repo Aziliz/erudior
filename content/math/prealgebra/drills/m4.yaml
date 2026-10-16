@@ -1,0 +1,176 @@
+- id: pre-dec-round
+  title: Round a decimal
+  topic: Decimal place value
+  vars:
+    m: {min: 10001, max: 999999}
+    p:
+      choices:
+        - {label: tenth, value: 1}
+        - {label: hundredth, value: 2}
+        - {label: thousandth, value: 3}
+  calc:
+    x: m / 10000
+    r: round(m / 10^(4 - p)) / 10^p
+    nxt: mod(floor(m / 10^(3 - p)), 10)
+  where: ["mod(m, 10) != 0"]
+  prompt: 'Round {x:dp4} to the nearest {p}.'
+  answers:
+    - {name: r, label: Rounded, format: num4, tolerance: 0.000001}
+  solution: |-
+    The digit just after the {p}s place is {nxt}. If it is 5 or more, round up; otherwise leave the {p}s digit alone. Drop the digits after it: **{r:num4}**.
+
+- id: pre-frac-to-dec
+  title: Fraction to decimal
+  topic: Fractions and decimals
+  vars:
+    n: {min: 1, max: 39}
+    d: {choices: [4, 5, 8, 16, 20, 25, 40]}
+  calc:
+    v: n / d
+  where: ["n < d", "gcd(n, d) == 1"]
+  prompt: 'Write $\dfrac{{n}}{{d}}$ as a decimal (it terminates).'
+  answers:
+    - {name: v, label: Decimal, format: num4, tolerance: 0.000001}
+  solution: |-
+    A fraction means division: ${n} \div {d}$. Write {n} as {n}.0000 and divide: **{v:num4}**.
+    (It terminates because {d} has no prime factors other than 2 and 5.)
+
+- id: pre-dec-mul
+  title: Multiply decimals
+  topic: Decimal operations
+  vars:
+    i: {min: 11, max: 99}
+    j: {min: 11, max: 99}
+  calc:
+    a: i / 10
+    b: j / 100
+    ij: i * j
+    v: i * j / 1000
+  where: ["mod(i, 10) != 0", "mod(j, 10) != 0"]
+  prompt: 'Find $\;{a:num1} \times {b:num2}$.'
+  answers:
+    - {name: v, label: Product, format: num4, tolerance: 0.000001}
+  solution: |-
+    Ignore the decimal points: {i} × {j} = {ij:int}. The factors have $1 + 2 = 3$ decimal places, so the product has 3: **{v:num4}**.
+
+- id: pre-dec-div
+  title: Divide decimals
+  topic: Decimal operations
+  vars:
+    k: {min: 11, max: 199}
+    j: {min: 2, max: 99}
+    sh: {choices: [1, 2]}
+  calc:
+    q: k / 10
+    dv: j / 10^sh
+    a: q * dv
+    a10: a * 10^sh
+  where: ["mod(k, 10) != 0", "mod(j, 10) != 0"]
+  prompt: 'Find $\;{a:num4} \div {dv:num2}$.'
+  answers:
+    - {name: q, label: Quotient, format: num4, tolerance: 0.000001}
+  solution: |-
+    Move both decimal points {sh} place(s) to the right so the divisor is a whole number: {a10:num4} ÷ {j}. Divide: **{q:num4}**.
+    Check: ${q:num4} \times {dv:num2} = {a:num4}$.
+
+- id: pre-dec-money
+  title: Cost at a unit price
+  topic: Decimal operations
+  vars:
+    p: {min: 1.09, max: 9.99, step: 0.01}
+    w: {min: 0.5, max: 15, step: 0.1}
+  calc:
+    exact: p * w
+    cost: round(p * w, 2)
+  where: ["mod(round(p * w * 1000), 10) != 5"]
+  prompt: 'Cheese costs {p:money} per pound. How much do {w:num1} pounds cost, to the nearest cent?'
+  answer: cost
+  format: money
+  solution: |-
+    Multiply: {p:money} × {w:num1} = {exact:num4}. Round to the nearest cent (hundredth): **{cost:money}**.
+
+- id: pre-ratio-simplify
+  title: Simplify a ratio
+  topic: Ratios
+  vars:
+    p: {min: 1, max: 12}
+    q: {min: 1, max: 12}
+    g: {min: 2, max: 12}
+  calc:
+    a: p * g
+    b: q * g
+  where: ["p != q", "gcd(p, q) == 1"]
+  prompt: 'A club has {a} adults and {b} children. Write the ratio of adults to children in simplest form, $a : b$.'
+  answers:
+    - {name: p, label: Adults part}
+    - {name: q, label: Children part}
+  solution: |-
+    The ratio is ${a} : {b}$. Divide both parts by their GCF, {g}: **{p} : {q}**.
+
+- id: pre-unit-rate
+  title: Average speed
+  topic: Rates
+  vars:
+    s: {min: 20, max: 75}
+    t: {min: 1.5, max: 8, step: 0.5}
+  calc:
+    d: s * t
+  prompt: 'A car travels {d:num1} miles in {t:num1} hours. What is its average speed in miles per hour?'
+  answers:
+    - {name: s, label: Speed, units: {mph: 1, mi/h: 1}}
+  solution: |-
+    Miles per hour means miles ÷ hours: ${d:num1} \div {t:num1} =$ **{s} mph**.
+
+- id: pre-unit-price
+  title: Better buy by unit price
+  topic: Rates
+  vars:
+    q1: {choices: [8, 10, 12, 16, 18, 20]}
+    q2: {choices: [24, 28, 32, 36, 40, 48]}
+    u1: {min: 9, max: 40}
+    u2: {min: 9, max: 40}
+  calc:
+    c1: q1 * u1 / 100
+    c2: q2 * u2 / 100
+    best: min(u1, u2)
+  where: ["u1 != u2"]
+  prompt: 'A small jar holds {q1} ounces and costs {c1:money}; a large jar holds {q2} ounces and costs {c2:money}. What is the lower unit price, in cents per ounce?'
+  answers:
+    - {name: best, label: 'Cents per ounce'}
+  solution: |-
+    Unit price = cost ÷ ounces. Small jar: {c1:money} ÷ {q1} = {u1}¢ per ounce. Large jar: {c2:money} ÷ {q2} = {u2}¢ per ounce. The better buy costs **{best}¢** per ounce.
+
+- id: pre-proportion-solve
+  title: Solve a proportion
+  topic: Proportions
+  vars:
+    a: {min: 2, max: 15}
+    b: {min: 2, max: 15}
+    c: {min: 2, max: 40}
+  calc:
+    ac: a * c
+    xv: a * c / b
+  where: ["a != b", "c != b", "mod(a * c * 10, b) == 0"]
+  prompt: 'Solve for $x$: $\;\dfrac{x}{{c}} = \dfrac{{a}}{{b}}$.'
+  answers:
+    - {name: xv, label: '$x =$', tolerance: 0.001}
+  solution: |-
+    Cross products are equal: ${b}x = {a} \times {c} = {ac}$. Divide by {b}: $x =$ **{xv:num4}**.
+
+- id: pre-proportion-word
+  title: Proportion word problem
+  topic: Proportions
+  vars:
+    n: {min: 2, max: 9}
+    u: {min: 0.25, max: 6, step: 0.05}
+    m: {min: 3, max: 25}
+  calc:
+    C: n * u
+    v: m * u
+    mc: m * C
+  where: ["m != n"]
+  prompt: 'If {n} bottles of juice cost {C:money}, how much do {m} bottles cost at the same rate?'
+  answer: v
+  format: money
+  solution: |-
+    Set up $\dfrac{{n} \text{ bottles}}{{C:dp2} \text{ dollars}} = \dfrac{{m} \text{ bottles}}{x \text{ dollars}}$. Cross products: ${n}x = {m} \times {C:dp2} = {mc:dp2}$, so $x =$ **{v:money}**.

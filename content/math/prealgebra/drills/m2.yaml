@@ -1,0 +1,130 @@
+- id: pre-abs-value
+  title: Absolute value expressions
+  topic: Absolute value
+  vars:
+    a: {min: -20, max: 20}
+    b: {min: -20, max: 20}
+    c: {min: -12, max: 12}
+  calc:
+    aa: abs(a)
+    ab: abs(b)
+    ac: abs(c)
+    v: abs(a) - abs(b) + abs(c)
+  where: ["a < 0", "b != 0", "c != 0"]
+  prompt: 'Evaluate $\;|{a}| - |{b}| + |{c}|$.'
+  answer: v
+  format: integer
+  solution: |-
+    Absolute value is distance from 0, so $|{a}| = {aa}$, $|{b}| = {ab}$ and $|{c}| = {ac}$.
+    Then ${aa} - {ab} + {ac} =$ **{v}**.
+
+- id: pre-int-distance
+  title: Distance on the number line
+  topic: Absolute value
+  vars:
+    a: {min: -15, max: 5}
+    b: {min: -5, max: 15}
+  calc:
+    d: b - a
+    lo: a - 2
+    hi: b + 2
+  where: ["a < b", "a < 0", "b != 0", "d >= 3"]
+  prompt: 'How far apart are {a} and {b} on the number line?'
+  answer: d
+  format: integer
+  figure:
+    type: numberline
+    x: [lo, hi]
+    points:
+      - {at: [a, 0], label: '{a}'}
+      - {at: [b, 0], label: '{b}'}
+  solution: |-
+    The distance is the absolute value of the difference: $|{b} - ({a})| =$ **{d}**.
+    (Across zero, add the absolute values; on the same side, subtract them.)
+
+- id: pre-int-add
+  title: Add integers
+  topic: Adding integers
+  vars:
+    a: {min: -30, max: 30}
+    b: {min: -30, max: 30}
+  calc:
+    s: a + b
+  where: ["a != 0", "b < 0"]
+  prompt: 'Find $\;{a} + ({b})$.'
+  answer: s
+  format: integer
+  solution: |-
+    If the signs are the same, add the absolute values and keep the sign. If they differ, subtract the smaller absolute value from the larger and take the sign of the number with the larger absolute value.
+    ${a} + ({b}) =$ **{s}**.
+
+- id: pre-int-sub
+  title: Subtract integers
+  topic: Subtracting integers
+  vars:
+    a: {min: -25, max: 25}
+    b: {min: -25, max: 25}
+  calc:
+    nb: -b
+    s: a - b
+  where: ["a != 0", "b != 0"]
+  prompt: 'Find $\;{a} - ({b})$.'
+  answer: s
+  format: integer
+  solution: |-
+    To subtract, add the opposite: ${a} - ({b}) = {a} + ({nb}) =$ **{s}**.
+
+- id: pre-temp-change
+  title: Temperature change
+  topic: Subtracting integers
+  vars:
+    t1: {min: -25, max: 30}
+    t2: {min: -25, max: 30}
+  calc:
+    ch: t2 - t1
+    nt1: -t1
+  where: ["t1 != t2", "t1 < 0 or t2 < 0", "abs(ch) >= 4"]
+  prompt: 'At 6 a.m. the temperature was {t1}°F. At 3 p.m. it was {t2}°F. What was the change in temperature (positive for a rise, negative for a drop)?'
+  answer: ch
+  format: integer
+  solution: |-
+    Change = final − initial $= {t2} - ({t1}) = {t2} + ({nt1}) =$ **{ch}** degrees.
+
+- id: pre-int-mul-div
+  title: Multiply and divide integers
+  topic: Multiplying and dividing integers
+  vars:
+    a: {min: -12, max: 12}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+  calc:
+    p: a * b
+    v: a * b / c
+  where: ["a != 0", "abs(b) > 1", "abs(c) > 1", "mod(p, c) == 0", "a < 0 or b < 0 or c < 0"]
+  prompt: 'Find $\;({a})({b}) \div ({c})$.'
+  answer: v
+  format: integer
+  solution: |-
+    Left to right: $({a})({b}) = {p}$, then ${p} \div ({c}) =$ **{v}**.
+    Signs: same signs give a positive result, different signs a negative one.
+
+- id: pre-int-order
+  title: Order of operations with integers
+  topic: Order of operations
+  vars:
+    a: {min: -15, max: 15}
+    b: {min: -5, max: 5}
+    c: {min: -6, max: 6}
+    d: {min: -6, max: 6}
+  calc:
+    cd: c - d
+    sq: cd^2
+    bsq: b * sq
+    v: a - b * (c - d)^2
+  where: ["b != 0", "b != 1", "cd != 0", "abs(cd) <= 6", "d != 0"]
+  prompt: 'Evaluate $\;{a} - ({b})({c} - ({d}))^2$.'
+  answer: v
+  format: integer
+  solution: |-
+    Parentheses: ${c} - ({d}) = {cd}$. Exponent: $({cd})^2 = {sq}$. Multiply: $({b})({sq}) = {bsq}$.
+    Subtract: ${a} - ({bsq}) =$ **{v}**.

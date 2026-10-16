@@ -1,0 +1,108 @@
+- id: pre-power-eval
+  title: Evaluate a power
+  topic: Powers
+  vars:
+    b: {min: -9, max: 9}
+    n: {min: 2, max: 5}
+  calc:
+    v: b^n
+  where: ["abs(b) > 1", "abs(v) <= 1500"]
+  prompt: 'Evaluate $\;({b})^{{n}}$.'
+  answer: v
+  format: integer
+  solution: |-
+    Write {n} factors of {b} and multiply. (With a negative base, an even number of factors gives a positive result and an odd number gives a negative one.)
+    $({b})^{{n}} =$ **{v:int}**.
+
+- id: pre-sqrt-estimate
+  title: Estimate a square root
+  topic: Square roots
+  vars:
+    n: {min: 3, max: 400}
+  calc:
+    lo: floor(sqrt(n))
+    hi: lo + 1
+    lo2: lo^2
+    hi2: hi^2
+  where: ["lo^2 != n"]
+  prompt: '$\sqrt{{n}}$ lies between which two consecutive whole numbers?'
+  answers:
+    - {name: lo, label: Smaller}
+    - {name: hi, label: Larger}
+  solution: |-
+    The perfect squares on either side of {n} are ${lo}^2 = {lo2}$ and ${hi}^2 = {hi2}$. So **{lo}** $< \sqrt{{n}} <$ **{hi}**.
+
+- id: pre-exp-rules
+  title: Simplify with exponent rules
+  topic: Exponent rules
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 1, max: 9}
+    c: {min: 1, max: 15}
+  calc:
+    s: a + b
+    e: a + b - c
+  where: ["e != 0", "e != 1"]
+  prompt: 'Simplify $\;\dfrac{x^{{a}} \cdot x^{{b}}}{x^{{c}}}$. (Type a negative exponent like x^-2.)'
+  answers:
+    - {kind: expression, expression: 'x^(a + b - c)', variables: [x], label: 'Simplified'}
+  solution: |-
+    Product rule on top: $x^{{a} + {b}} = x^{{s}}$. Quotient rule: $x^{{s} - {c}} =$ **$x^{{e}}$**.
+
+- id: pre-neg-exponent
+  title: Negative exponents
+  topic: Exponent rules
+  vars:
+    b: {min: 2, max: 10}
+    n: {min: 1, max: 4}
+  calc:
+    bn: b^n
+    v: 1 / b^n
+  where: ["bn <= 1000"]
+  prompt: 'Evaluate $\;{b}^{-{n}}$ as an exact fraction.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Value}
+  solution: |-
+    A negative exponent means reciprocal: ${b}^{-{n}} = \dfrac{1}{{b}^{{n}}} =$ **$\dfrac{1}{{bn}}$**.
+
+- id: pre-sci-to-standard
+  title: Write in scientific notation
+  topic: Scientific notation
+  vars:
+    c: {min: 101, max: 999}
+    k: {min: -6, max: 9}
+  calc:
+    a: c / 100
+    N: a * 10^k
+    ak: abs(k)
+  where: ["mod(c, 10) != 0", "k != 0", "k != 1"]
+  prompt: 'Write {N:sig3} in scientific notation, $a \times 10^n$ with $1 \le a < 10$.'
+  answers:
+    - {name: a, label: '$a =$', tolerance: 0.0001}
+    - {name: k, label: '$n =$'}
+  solution: |-
+    Move the decimal point so one nonzero digit is to its left: {a:num2}. The point moved {ak} places, so the exponent is {k} (positive for a number 10 or more, negative for a number less than 1), and the answer is **${a:num2} \times 10^{{k}}$**.
+
+- id: pre-sci-multiply
+  title: Multiply in scientific notation
+  topic: Scientific notation
+  vars:
+    p: {min: 2, max: 9}
+    i: {min: 11, max: 99}
+    m: {min: -8, max: 9}
+    n: {min: -8, max: 9}
+  calc:
+    q: i / 10
+    raw: p * q
+    big: if(raw >= 10, 1, 0)
+    coef: if(raw >= 10, raw / 10, raw)
+    ex: m + n + big
+    mn: m + n
+  where: ["mod(i, 10) != 0", "m != 0", "n != 0"]
+  prompt: 'Multiply and write in scientific notation: $\;({p} \times 10^{{m}})({q:num1} \times 10^{{n}})$.'
+  answers:
+    - {name: coef, label: 'Coefficient', tolerance: 0.0001}
+    - {name: ex, label: 'Exponent of 10'}
+  solution: |-
+    Coefficients: ${p} \times {q:num1} = {raw:num4}$. Powers: $10^{{m} + ({n})} = 10^{{mn}}$.
+    If the coefficient is 10 or more, move its point one place left and add 1 to the exponent. Answer: **${coef:num4} \times 10^{{ex}}$**.

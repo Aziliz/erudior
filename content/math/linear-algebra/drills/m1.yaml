@@ -1,0 +1,225 @@
+# Module 1 drills
+
+- id: la-vec-comb
+  title: Combine two plane vectors
+  topic: Plane vectors
+  vars:
+    u1: {min: -5, max: 5}
+    u2: {min: -5, max: 5}
+    v1: {min: -5, max: 5}
+    v2: {min: -5, max: 5}
+    ca: {choices: [-3, -2, 2, 3]}
+    cb: {choices: [-3, -2, -1, 2, 3]}
+  where: ["u1*v2 - u2*v1 != 0"]
+  calc:
+    au1: ca*u1 + 0
+    au2: ca*u2 + 0
+    bv1: cb*v1 + 0
+    bv2: cb*v2 + 0
+    r1: ca*u1 + cb*v1 + 0
+    r2: ca*u2 + cb*v2 + 0
+  prompt: |-
+    The figure shows $\mathbf{u} = \begin{bmatrix} {u1} \\ {u2}\end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} {v1} \\ {v2}\end{bmatrix}$. Find the components of ${ca:coef}\mathbf{u} {cb:signedcoef}\mathbf{v}$.
+  answers:
+    - {name: r1, label: 'First component'}
+    - {name: r2, label: 'Second component'}
+  figure:
+    type: plot
+    equal: true
+    x: ['min(0, u1, v1) - 1', 'max(0, u1, v1) + 1']
+    y: ['min(0, u2, v2) - 1', 'max(0, u2, v2) + 1']
+    segments:
+      - {from: [0, 0], to: [u1, u2], arrow: true, label: u}
+      - {from: [0, 0], to: [v1, v2], arrow: true, label: v}
+  solution: |-
+    Scale first: ${ca}\mathbf{u} = \begin{bmatrix} {au1} \\ {au2}\end{bmatrix}$ and ${cb}\mathbf{v} = \begin{bmatrix} {bv1} \\ {bv2}\end{bmatrix}$. Then add components: $\begin{bmatrix} {au1} + ({bv1}) \\ {au2} + ({bv2})\end{bmatrix} =$ **({r1}, {r2})**.
+
+- id: la-vec-mag
+  title: Displacement vector and its length
+  topic: Plane vectors
+  vars:
+    p1: {min: -6, max: 6}
+    p2: {min: -6, max: 6}
+    q1: {min: -6, max: 6}
+    q2: {min: -6, max: 6}
+  where: ["p1 != q1", "p2 != q2"]
+  calc:
+    d1: q1 - p1 + 0
+    d2: q2 - p2 + 0
+    sq: (q1 - p1)^2 + (q2 - p2)^2 + 0
+    len: sqrt((q1 - p1)^2 + (q2 - p2)^2) + 0
+  prompt: |-
+    Find the vector $\overrightarrow{PQ}$ from $P = ({p1}, {p2})$ to $Q = ({q1}, {q2})$ and its length. Give the length exactly (like sqrt(41)) or to 2 decimals.
+  answers:
+    - {name: d1, label: 'First component'}
+    - {name: d2, label: 'Second component'}
+    - {name: len, label: 'Length', tolerance: 0.01}
+  figure:
+    type: plot
+    equal: true
+    x: [-7, 7]
+    y: [-7, 7]
+    points:
+      - {at: [p1, p2], label: P}
+      - {at: [q1, q2], label: Q}
+    segments:
+      - {from: [p1, p2], to: [q1, q2], arrow: true}
+  solution: |-
+    Head minus tail: $\begin{bmatrix} {q1} - ({p1}) \\ {q2} - ({p2})\end{bmatrix} = \begin{bmatrix} {d1} \\ {d2}\end{bmatrix}$. Length: $\sqrt{({d1})^2 + ({d2})^2} = \sqrt{{sq}} \approx$ **{len:num2}**.
+
+- id: la-sys2
+  title: Solve a 2×2 system by elimination
+  topic: Elimination
+  vars:
+    sx: {min: -6, max: 6}
+    sy: {min: -6, max: 6}
+    a11: {min: 1, max: 6}
+    a12: {min: -6, max: 6}
+    a21: {min: -6, max: 6}
+    a22: {min: -6, max: 6}
+  where: ["a11*a22 - a12*a21 != 0", "a12 != 0", "a21 != 0", "a22 != 0"]
+  calc:
+    c1: a11*sx + a12*sy + 0
+    c2: a21*sx + a22*sy + 0
+    det: a11*a22 - a12*a21 + 0
+    m2: a11*c2 - a21*c1 + 0
+  prompt: |-
+    Solve the system:
+
+    $$\begin{aligned} {a11:coef}x {a12:signedcoef}y &= {c1} \\ {a21:coef}x {a22:signedcoef}y &= {c2} \end{aligned}$$
+  answers:
+    - {name: sx, label: '$x =$'}
+    - {name: sy, label: '$y =$'}
+  solution: |-
+    Eliminate $x$: take ${a11}\times$(equation 2) $- ({a21})\times$(equation 1). The $x$ terms cancel and leave $({det})y = {m2}$, so $y =$ **{sy}**. Substitute into the first equation: ${a11}x + ({a12})({sy}) = {c1}$, so $x =$ **{sx}**.
+
+- id: la-sys3
+  title: Solve a 3×3 system
+  topic: Elimination
+  vars:
+    sx: {min: -5, max: 5}
+    sy: {min: -5, max: 5}
+    sz: {min: -5, max: 5}
+    a12: {choices: [-3, -2, -1, 1, 2, 3]}
+    a13: {choices: [-3, -2, -1, 1, 2, 3]}
+    a21: {choices: [-3, -2, -1, 1, 2, 3]}
+    a22: {choices: [-3, -2, -1, 1, 2, 3]}
+    a23: {choices: [-3, -2, -1, 1, 2, 3]}
+    a31: {choices: [-3, -2, -1, 1, 2, 3]}
+    a32: {choices: [-3, -2, -1, 1, 2, 3]}
+    a33: {choices: [-3, -2, -1, 1, 2, 3]}
+  calc:
+    c1: sx + a12*sy + a13*sz + 0
+    c2: a21*sx + a22*sy + a23*sz + 0
+    c3: a31*sx + a32*sy + a33*sz + 0
+    b22: a22 - a21*a12 + 0
+    b23: a23 - a21*a13 + 0
+    d2: c2 - a21*c1 + 0
+    b32: a32 - a31*a12 + 0
+    b33: a33 - a31*a13 + 0
+    d3: c3 - a31*c1 + 0
+    det: b22*b33 - b23*b32 + 0
+  where: ["det != 0", "b22 != 0"]
+  prompt: |-
+    Solve the system:
+
+    $$\begin{aligned} x {a12:signedcoef}y {a13:signedcoef}z &= {c1} \\ {a21:coef}x {a22:signedcoef}y {a23:signedcoef}z &= {c2} \\ {a31:coef}x {a32:signedcoef}y {a33:signedcoef}z &= {c3} \end{aligned}$$
+  answers:
+    - {name: sx, label: '$x =$'}
+    - {name: sy, label: '$y =$'}
+    - {name: sz, label: '$z =$'}
+  solution: |-
+    Remove $x$: replace equation 2 by (equation 2) $- ({a21})\times$(equation 1), and equation 3 by (equation 3) $- ({a31})\times$(equation 1):
+
+    $$\begin{aligned} {b22:coef}y {b23:signedcoef}z &= {d2} \\ {b32:coef}y {b33:signedcoef}z &= {d3} \end{aligned}$$
+
+    Solve this $2 \times 2$ system the same way: $y =$ **{sy}**, $z =$ **{sz}**. Back-substitute into equation 1: $x = {c1} - ({a12})({sy}) - ({a13})({sz}) =$ **{sx}**.
+
+- id: la-mat-lin
+  title: Add and scale matrices
+  topic: Matrix arithmetic
+  vars:
+    a11: {min: -6, max: 6}
+    a12: {min: -6, max: 6}
+    a21: {min: -6, max: 6}
+    a22: {min: -6, max: 6}
+    b11: {min: -6, max: 6}
+    b12: {min: -6, max: 6}
+    b21: {min: -6, max: 6}
+    b22: {min: -6, max: 6}
+    sp: {choices: [-3, -2, 2, 3, 4]}
+    sq: {choices: [-3, -2, -1, 2, 3]}
+  calc:
+    r11: sp*a11 + sq*b11 + 0
+    r12: sp*a12 + sq*b12 + 0
+    r21: sp*a21 + sq*b21 + 0
+    r22: sp*a22 + sq*b22 + 0
+  prompt: |-
+    Let $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$ and $B = \begin{bmatrix} {b11} & {b12} \\ {b21} & {b22}\end{bmatrix}$. Find ${sp:coef}A {sq:signedcoef}B$.
+  answers:
+    - {name: r11, label: 'row 1, col 1'}
+    - {name: r12, label: 'row 1, col 2'}
+    - {name: r21, label: 'row 2, col 1'}
+    - {name: r22, label: 'row 2, col 2'}
+  solution: |-
+    Work entry by entry: each entry is ${sp}a_{ij} + ({sq})b_{ij}$. For example the top left is ${sp}({a11}) + ({sq})({b11}) = {r11}$. The result is **$\begin{bmatrix} {r11} & {r12} \\ {r21} & {r22}\end{bmatrix}$**.
+
+- id: la-mat-mult2
+  title: Multiply 2×2 matrices
+  topic: Matrix arithmetic
+  vars:
+    a11: {min: -5, max: 5}
+    a12: {min: -5, max: 5}
+    a21: {min: -5, max: 5}
+    a22: {min: -5, max: 5}
+    b11: {min: -5, max: 5}
+    b12: {min: -5, max: 5}
+    b21: {min: -5, max: 5}
+    b22: {min: -5, max: 5}
+  calc:
+    r11: a11*b11 + a12*b21 + 0
+    r12: a11*b12 + a12*b22 + 0
+    r21: a21*b11 + a22*b21 + 0
+    r22: a21*b12 + a22*b22 + 0
+  prompt: |-
+    Compute $AB$ for $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$ and $B = \begin{bmatrix} {b11} & {b12} \\ {b21} & {b22}\end{bmatrix}$.
+  answers:
+    - {name: r11, label: 'row 1, col 1'}
+    - {name: r12, label: 'row 1, col 2'}
+    - {name: r21, label: 'row 2, col 1'}
+    - {name: r22, label: 'row 2, col 2'}
+  solution: |-
+    Entry $(i, j)$ is row $i$ of $A$ times column $j$ of $B$:
+
+    $$\begin{aligned} (1,1)&: ({a11})({b11}) + ({a12})({b21}) = {r11} \\ (1,2)&: ({a11})({b12}) + ({a12})({b22}) = {r12} \\ (2,1)&: ({a21})({b11}) + ({a22})({b21}) = {r21} \\ (2,2)&: ({a21})({b12}) + ({a22})({b22}) = {r22} \end{aligned}$$
+
+    So $AB =$ **$\begin{bmatrix} {r11} & {r12} \\ {r21} & {r22}\end{bmatrix}$**.
+
+- id: la-inv2
+  title: Inverse of a 2×2 matrix
+  topic: Matrix arithmetic
+  vars:
+    a11: {min: -6, max: 6}
+    a12: {min: -6, max: 6}
+    a21: {min: -6, max: 6}
+    a22: {min: -6, max: 6}
+  calc:
+    det: a11*a22 - a12*a21 + 0
+    i11: a22/(a11*a22 - a12*a21) + 0
+    i12: -a12/(a11*a22 - a12*a21) + 0
+    i21: -a21/(a11*a22 - a12*a21) + 0
+    i22: a11/(a11*a22 - a12*a21) + 0
+    n12: -a12 + 0
+    n21: -a21 + 0
+  where: ["det != 0", "abs(det) <= 12", "a12 != 0", "a21 != 0"]
+  prompt: |-
+    Find $A^{-1}$ for $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$. Give each entry as an exact fraction in lowest terms.
+  answers:
+    - {name: i11, label: 'row 1, col 1', kind: fraction, lowestTerms: true}
+    - {name: i12, label: 'row 1, col 2', kind: fraction, lowestTerms: true}
+    - {name: i21, label: 'row 2, col 1', kind: fraction, lowestTerms: true}
+    - {name: i22, label: 'row 2, col 2', kind: fraction, lowestTerms: true}
+  solution: |-
+    The determinant is $({a11})({a22}) - ({a12})({a21}) = {det}$. Swap the diagonal, negate the off-diagonal, and divide by {det}:
+    $$A^{-1} = \frac{1}{{det}}\begin{bmatrix} {a22} & {n12} \\ {n21} & {a11}\end{bmatrix} = \begin{bmatrix} {i11:texfrac} & {i12:texfrac} \\ {i21:texfrac} & {i22:texfrac}\end{bmatrix}.$$
+    **Answer:** the entries above.

@@ -1,0 +1,132 @@
+# Module 4 drills
+- id: mv-d-crit-pt
+  title: Critical point of a quadratic
+  topic: Critical points
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    p: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+  where: ["a != 0", "c != 0", "b != 0", "4*a*c - b^2 != 0", "d != 0", "e != 0"]
+  calc:
+    d: -(2*a*p + b*q)
+    e: -(b*p + 2*c*q)
+    a2: 2*a
+    c2: 2*c
+  prompt: 'Find the critical point of $f(x, y) = {a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2 {d:signedcoef}x {e:signedcoef}y$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: q, label: '$y =$'}
+  solution: |-
+    Set both partials to zero:
+    $f_x = {a2}x {b:signedcoef}y {d:signed} = 0$ and $f_y = {b:coef}x {c2:signedcoef}y {e:signed} = 0$.
+    Solving this linear system (for example by elimination) gives **$x = {p}$, $y = {q}$**. Check: ${a2}({p}) + ({b})({q}) + ({d}) = 0$. ✓
+- id: mv-d-second-test
+  title: Classify a critical point
+  topic: Second-derivative test
+  vars:
+    m: {min: 1, max: 3}
+    sg: {choices: [-1, 1]}
+    c: {min: -3, max: 3}
+    y0: {min: -3, max: 3}
+  where: ["c != 0", "dd != 0"]
+  calc:
+    k3: 3*m^2
+    dd: -2*c*y0
+    x0: sg*m
+    fxx: 6*x0
+    fyy: 2*c
+    D: fxx*fyy
+    cls: if(D < 0, 3, if(fxx > 0, 1, 2))
+  prompt: 'The point $({x0}, {y0})$ is a critical point of $f(x, y) = x^3 - {k3}x {c:signedcoef}y^2 {dd:signedcoef}y$. Find the discriminant $D$ there, and classify the point: type **1** for a local minimum, **2** for a local maximum, **3** for a saddle point.'
+  answers:
+    - {name: D, label: '$D =$'}
+    - {name: cls, label: 'Type (1, 2 or 3)'}
+  solution: |-
+    $f_{xx} = 6x = {fxx}$, $f_{yy} = {fyy}$, $f_{xy} = 0$ at $({x0}, {y0})$.
+    $D = f_{xx}f_{yy} - f_{xy}^2 = ({fxx})({fyy}) - 0 =$ **{D}**.
+    If $D < 0$ the point is a saddle; if $D > 0$, the sign of $f_{xx}$ decides (positive: minimum, negative: maximum). Answer: **type {cls}**.
+- id: mv-d-abs-rect
+  title: Absolute extrema on a rectangle
+  topic: Absolute extrema
+  vars:
+    A: {min: 2, max: 5}
+    B: {min: 2, max: 5}
+    p: {min: -2, max: 6}
+    q: {min: -2, max: 6}
+  where: ["p != 0", "q != 0"]
+  calc:
+    np: -p
+    nq: -q
+    dx: max(0, -p, p - A)
+    dy: max(0, -q, q - B)
+    fmin: dx^2 + dy^2
+    fx1: max(p^2, (A - p)^2)
+    fy1: max(q^2, (B - q)^2)
+    fmax: fx1 + fy1
+  prompt: 'Find the absolute maximum and minimum of $f(x, y) = (x {np:signed})^2 + (y {nq:signed})^2$ on the rectangle $0 \le x \le {A}$, $0 \le y \le {B}$.'
+  figure:
+    type: plot
+    x: [-3, 7]
+    y: [-3, 7]
+    equal: true
+    polygons:
+      - {points: [[0, 0], [A, 0], [A, B], [0, B]], fill: true}
+    points:
+      - {at: [p, q], label: '({p}, {q})'}
+    caption: 'f is the squared distance from ({p}, {q})'
+  answers:
+    - {name: fmax, label: 'Absolute max'}
+    - {name: fmin, label: 'Absolute min'}
+  solution: |-
+    $f$ is the squared distance from $({p}, {q})$. The only critical point is $({p}, {q})$ itself ($\nabla f = \mathbf 0$ there); it counts only if it lies in the rectangle.
+    Minimum: the closest point of the rectangle is $({p}, {q})$ if it is inside, otherwise the nearest boundary point; this gives **{fmin}**.
+    Maximum: on each edge $f$ is a parabola in one variable, so the largest value occurs at a corner. The farthest corner gives **{fmax}**.
+- id: mv-d-lagrange-line
+  title: Closest point on a line (Lagrange)
+  topic: Lagrange multipliers
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -4, max: 4}
+    k: {min: 1, max: 12}
+  where: ["a != 0", "b != 0"]
+  calc:
+    ss: a^2 + b^2
+    lam: 2*k/ss
+    X: k*a/ss
+    Y: k*b/ss
+    fmin: k^2/ss
+  prompt: 'Use Lagrange multipliers to minimize $f(x, y) = x^2 + y^2$ subject to ${a:coef}x {b:signedcoef}y = {k}$. Give the point and the minimum value. (Exact fractions.)'
+  answers:
+    - {name: X, kind: fraction, label: '$x =$'}
+    - {name: Y, kind: fraction, label: '$y =$'}
+    - {name: fmin, kind: fraction, label: 'min $f =$'}
+  solution: |-
+    $\nabla f = \lambda\nabla g$: $2x = {a}\lambda$ and $2y = {b}\lambda$, so $x = \tfrac{{a}}{2}\lambda$, $y = \tfrac{{b}}{2}\lambda$.
+    Substitute into the constraint: $\tfrac{\lambda}{2}\left({a}^2 + {b}^2\right) = {k}$, so $\lambda = \dfrac{2\cdot{k}}{{ss}}$.
+    Then $x =$ **${X:texfrac}$**, $y =$ **${Y:texfrac}$**, and $f = x^2 + y^2 =$ **${fmin:texfrac}$**.
+- id: mv-d-lagrange-box
+  title: Maximize a product (Lagrange)
+  topic: Lagrange multipliers
+  vars:
+    a: {min: 1, max: 3}
+    b: {min: 1, max: 3}
+    c: {min: 1, max: 3}
+    m: {min: 1, max: 2}
+  calc:
+    k: 3*a*b*c*m
+    X: b*c*m
+    Y: a*c*m
+    Z: a*b*m
+    V: X*Y*Z
+  prompt: 'Use Lagrange multipliers to maximize $V = xyz$ for $x, y, z > 0$ subject to ${a:coef}x + {b:coef}y + {c:coef}z = {k}$.'
+  answers:
+    - {name: X, label: '$x =$'}
+    - {name: Y, label: '$y =$'}
+    - {name: Z, label: '$z =$'}
+    - {name: V, label: 'max $V =$'}
+  solution: |-
+    $\nabla V = \lambda\nabla g$: $yz = {a:coef}\lambda$, $xz = {b:coef}\lambda$, $xy = {c:coef}\lambda$.
+    Multiply by $x$, $y$, $z$ respectively: $xyz = {a:coef}\lambda x = {b:coef}\lambda y = {c:coef}\lambda z$, so ${a:coef}x = {b:coef}y = {c:coef}z$. Each term is one third of {k}.
+    So ${a:coef}x = {b:coef}y = {c:coef}z = \tfrac{{k}}{3}$: **$x = {X}$, $y = {Y}$, $z = {Z}$**, and $V =$ **{V}**.

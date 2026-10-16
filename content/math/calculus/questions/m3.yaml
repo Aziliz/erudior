@@ -1,0 +1,484 @@
+# Module 3: Differentiation rules
+- id: calc-q-0901
+  lesson: calc-product-quotient
+  module_quiz: true
+  topic: Product rule
+  stem: 'Differentiate $y = x^3e^x$.'
+  choices: ['$3x^2e^x$', '$x^2e^x(x + 3)$', '$3x^2e^x + e^x$', '$x^3e^x$']
+  answer: 1
+  explanation: |-
+    $y' = 3x^2e^x + x^3e^x = x^2e^x(3 + x)$. The first choice is $(fg)' = f'g'$ in disguise ($3x^2\cdot e^x$), the classic error.
+- id: calc-q-0902
+  lesson: calc-product-quotient
+  module_quiz: true
+  topic: Quotient rule
+  stem: 'Differentiate $y = \dfrac{x^2}{x + 1}$.'
+  choices: ['$\dfrac{x^2 + 2x}{(x + 1)^2}$', '$2x$', '$\dfrac{-x^2 - 2x}{(x + 1)^2}$', '$\dfrac{x^2 + 2x}{x + 1}$']
+  answer: 0
+  explanation: |-
+    $y' = \frac{2x(x + 1) - x^2(1)}{(x + 1)^2} = \frac{x^2 + 2x}{(x + 1)^2}$. Reversing the numerator gives the negative; forgetting to square the denominator gives the last choice.
+- id: calc-q-0903
+  lesson: calc-product-quotient
+  topic: Product rule
+  stem: 'If $f(1) = 2$, $f''(1) = 3$, $g(1) = -1$, $g''(1) = 4$, find $(fg)''(1)$.'
+  choices: ['$12$', '$-3$', '$5$', '$11$']
+  answer: 2
+  explanation: |-
+    $(fg)'(1) = f'(1)g(1) + f(1)g'(1) = 3(-1) + 2(4) = 5$. (12 is $f'(1)g'(1)$.)
+- id: calc-q-0904
+  lesson: calc-product-quotient
+  topic: Quotient rule
+  stem: 'Same values: $f(1) = 2$, $f''(1) = 3$, $g(1) = -1$, $g''(1) = 4$. Find $\left(\dfrac fg\right)''(1)$.'
+  choices: ['$5$', '$-11$', '$11$', '$-5$']
+  answer: 1
+  explanation: |-
+    $\frac{f'g - fg'}{g^2} = \frac{3(-1) - 2(4)}{(-1)^2} = \frac{-11}{1} = -11$.
+- id: calc-q-0905
+  lesson: calc-product-quotient
+  topic: Quotient rule
+  stem: 'Find the slope of $y = \dfrac{x}{x - 2}$ at $x = 4$.'
+  choices: ['$-\tfrac12$', '$\tfrac12$', '$-2$', '$2$']
+  answer: 0
+  explanation: |-
+    $y' = \frac{(x - 2) - x}{(x - 2)^2} = \frac{-2}{(x - 2)^2}$, so $y'(4) = -\frac{2}{4} = -\frac12$.
+- id: calc-q-0906
+  lesson: calc-product-quotient
+  topic: Product rule
+  stem: 'Differentiate $y = (2x + 1)(x^2 - 3)$.'
+  choices: ['$4x$', '$6x^2 + 2x - 6$', '$6x^2 + 2x$', '$2x^2 + 2x - 6$']
+  answer: 1
+  explanation: |-
+    $y' = 2(x^2 - 3) + (2x + 1)(2x) = 2x^2 - 6 + 4x^2 + 2x = 6x^2 + 2x - 6$. Check by expanding first: $y = 2x^3 + x^2 - 6x - 3$.
+- id: calc-q-0907
+  lesson: calc-product-quotient
+  module_quiz: true
+  topic: Quotient rule
+  stem: 'Which is the fastest correct way to differentiate $y = \dfrac{x^4 - 3x}{x}$?'
+  choices:
+    - 'Quotient rule, then simplify'
+    - 'Differentiate numerator and denominator separately'
+    - 'Simplify to $x^3 - 3$, then use the power rule'
+    - 'Product rule with $x^4 - 3x$ and $x$'
+  answer: 2
+  explanation: |-
+    Dividing by the monomial first gives $x^3 - 3$, so $y' = 3x^2$ (for $x \ne 0$). The quotient rule also works but takes longer; differentiating top and bottom separately is never valid.
+- id: calc-q-0908
+  lesson: calc-product-quotient
+  topic: Product rule
+  stem: 'Differentiate $y = x\,e^x\sqrt{x}$ by first writing it as a product of two factors.'
+  choices: ['$e^x\left(\tfrac32x^{1/2} + x^{3/2}\right)$', '$\tfrac32x^{1/2}e^x$', '$x^{3/2}e^x$', '$e^x\left(x^{1/2} + x^{3/2}\right)$']
+  answer: 0
+  explanation: |-
+    $y = x^{3/2}e^x$, so $y' = \frac32x^{1/2}e^x + x^{3/2}e^x$.
+- id: calc-q-0909
+  lesson: calc-product-quotient
+  topic: Quotient rule
+  stem: 'A student differentiates $\dfrac{f}{g}$ as $\dfrac{fg'' - f''g}{g^2}$. How does the result compare with the correct derivative?'
+  choices: ['It is the same', 'It is the reciprocal', 'It is off by a factor of $g$', 'It is the negative']
+  answer: 3
+  explanation: |-
+    The correct numerator is $f'g - fg'$; swapping the terms flips the sign.
+- id: calc-q-0910
+  lesson: calc-product-quotient
+  topic: Product rule
+  stem: 'Find the derivative of $f(x)g(x)h(x)$.'
+  choices: ['$f''g''h''$', '$f''gh + fg''h + fgh''$', '$f''gh + fg''h''$', '$(f''g + fg'')h''$']
+  answer: 1
+  explanation: |-
+    Apply the product rule twice: each term differentiates exactly one factor.
+- id: calc-q-0911
+  lesson: calc-product-quotient
+  topic: Quotient rule
+  stem: 'Where does $y = \dfrac{x}{x^2 + 1}$ have horizontal tangent lines?'
+  choices:
+    - '$x = 0$'
+    - '$x = 1$ only'
+    - 'nowhere'
+    - '$x = \pm1$'
+  answer: 3
+  explanation: |-
+    $y' = \frac{(x^2 + 1) - x(2x)}{(x^2 + 1)^2} = \frac{1 - x^2}{(x^2 + 1)^2}$, which is 0 at $x = \pm1$.
+
+- id: calc-q-1001
+  lesson: calc-trig-derivs
+  module_quiz: true
+  topic: Trig derivatives
+  stem: 'Which derivative is correct?'
+  choices: ['$(\cos x)'' = \sin x$', '$(\tan x)'' = \sec x$', '$(\sec x)'' = \sec x\tan x$', '$(\cot x)'' = \csc^2 x$']
+  answer: 2
+  explanation: |-
+    $(\sec x)' = \sec x\tan x$. The others should be $-\sin x$, $\sec^2 x$ and $-\csc^2 x$.
+- id: calc-q-1002
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'Differentiate $y = x\cos x$.'
+  choices: ['$-\sin x$', '$\cos x + x\sin x$', '$-x\sin x$', '$\cos x - x\sin x$']
+  answer: 3
+  explanation: |-
+    Product rule: $1\cdot\cos x + x(-\sin x)$.
+- id: calc-q-1003
+  lesson: calc-trig-derivs
+  module_quiz: true
+  topic: Trig derivatives
+  stem: 'Find the slope of $y = \sin x + \cos x$ at $x = \pi$.'
+  choices: ['$-1$', '$1$', '$0$', '$-2$']
+  answer: 0
+  explanation: |-
+    $y' = \cos x - \sin x$; at $\pi$: $-1 - 0 = -1$.
+- id: calc-q-1004
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'What is $\dfrac{d^{42}}{dx^{42}}\cos x$?'
+  choices: ['$\cos x$', '$\sin x$', '$-\cos x$', '$-\sin x$']
+  answer: 2
+  explanation: |-
+    The cycle is $\cos \to -\sin \to -\cos \to \sin \to \cos$, period 4. $42 = 4\cdot10 + 2$, so it's the second derivative, $-\cos x$.
+- id: calc-q-1005
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'The tangent line to $y = \tan x$ at $x = \pi/4$ is'
+  choices: ['$y = x + 1 - \tfrac\pi4$', '$y = 2x + 1 - \tfrac\pi2$', '$y = 2x$', '$y = \sqrt2 x + 1$']
+  answer: 1
+  explanation: |-
+    $\tan(\pi/4) = 1$ and $\sec^2(\pi/4) = 2$, so $y - 1 = 2(x - \pi/4)$.
+- id: calc-q-1006
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'Differentiate $y = \dfrac{\sin x}{x}$.'
+  choices: ['$\dfrac{\cos x}{1}$', '$\dfrac{\sin x - x\cos x}{x^2}$', '$\dfrac{x\cos x - \sin x}{x^2}$', '$\dfrac{x\cos x + \sin x}{x^2}$']
+  answer: 2
+  explanation: |-
+    Quotient rule: $\frac{\cos x\cdot x - \sin x\cdot 1}{x^2}$.
+- id: calc-q-1007
+  lesson: calc-trig-derivs
+  module_quiz: true
+  topic: Trig derivatives
+  stem: 'A spring''s position is $s(t) = 3\sin t$ cm. What is the acceleration at $t = \pi/2$?'
+  choices: ['$0$ cm/s²', '$3$ cm/s²', '$-3$ cm/s²', '$3\pi/2$ cm/s²']
+  answer: 2
+  explanation: |-
+    $v = 3\cos t$, $a = -3\sin t$, so $a(\pi/2) = -3$. At the top of its swing the acceleration points back down.
+- id: calc-q-1008
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'Why does $\dfrac{d}{dx}\sin x = \cos x$ require radians?'
+  choices:
+    - 'Its derivation uses $\lim_{h\to0}\frac{\sin h}{h} = 1$, which holds only in radians'
+    - 'Because $\cos x$ is negative in degrees'
+    - 'Because degrees are only defined from 0 to 360'
+    - 'It doesn''t; it holds in any unit'
+  answer: 0
+  explanation: |-
+    The difference quotient reduces to the limits $\frac{\sin h}{h}$ and $\frac{\cos h - 1}{h}$, which are 1 and 0 in radians. In degrees an extra factor $\pi/180$ appears.
+- id: calc-q-1009
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'Differentiate $y = \sec x\tan x$.'
+  choices: ['$\sec^3 x\tan x$', '$\sec x\tan^2 x + \sec^3 x$', '$\sec^2 x\tan x$', '$\sec x + \sec^2 x$']
+  answer: 1
+  explanation: |-
+    Product rule: $(\sec x\tan x)\tan x + \sec x(\sec^2 x) = \sec x\tan^2 x + \sec^3 x$.
+- id: calc-q-1010
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'On $0 < x < 2\pi$, where does $y = x + 2\cos x$ have horizontal tangents?'
+  choices: ['$x = \pi/3$ and $2\pi/3$', '$x = \pi/2$ and $3\pi/2$', '$x = \pi/6$ and $11\pi/6$', '$x = \pi/6$ and $5\pi/6$']
+  answer: 3
+  explanation: |-
+    $y' = 1 - 2\sin x = 0$ gives $\sin x = \frac12$: $x = \pi/6$ and $5\pi/6$.
+
+- id: calc-q-1101
+  lesson: calc-chain-rule
+  module_quiz: true
+  topic: Chain rule
+  stem: 'Differentiate $y = (4x^2 - 1)^3$.'
+  choices: ['$3(4x^2 - 1)^2$', '$24x(4x^2 - 1)^2$', '$8x(4x^2 - 1)^2$', '$3(8x)^2$']
+  answer: 1
+  explanation: |-
+    $3(4x^2 - 1)^2\cdot8x = 24x(4x^2 - 1)^2$. The first choice forgets the inner derivative.
+- id: calc-q-1102
+  lesson: calc-chain-rule
+  module_quiz: true
+  topic: Chain rule
+  stem: 'Differentiate $y = \cos(x^3)$.'
+  choices: ['$-\sin(3x^2)$', '$-3x^2\sin(x^3)$', '$3x^2\sin(x^3)$', '$-\sin(x^3)$']
+  answer: 1
+  explanation: |-
+    Outside derivative at the inside, times inside derivative: $-\sin(x^3)\cdot3x^2$.
+- id: calc-q-1103
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Differentiate $y = e^{5x}$.'
+  choices: ['$e^{5x}$', '$5xe^{5x - 1}$', '$5e^{5x}$', '$e^5$']
+  answer: 2
+  explanation: |-
+    A linear inside multiplies by its slope: $5e^{5x}$.
+- id: calc-q-1104
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Differentiate $y = \sqrt{x^2 + 9}$.'
+  choices: ['$\dfrac{1}{2\sqrt{x^2 + 9}}$', '$\dfrac{x}{\sqrt{x^2 + 9}}$', '$\dfrac{2x}{\sqrt{x^2 + 9}}$', '$x\sqrt{x^2 + 9}$']
+  answer: 1
+  explanation: |-
+    $\frac{1}{2\sqrt{x^2 + 9}}\cdot2x = \frac{x}{\sqrt{x^2 + 9}}$.
+- id: calc-q-1105
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Let $h(x) = f(g(x))$ with $g(2) = 5$, $g''(2) = 3$, $f''(2) = -1$, $f''(5) = 4$. Find $h''(2)$.'
+  choices: ['$-3$', '$20$', '$12$', '$15$']
+  answer: 2
+  explanation: |-
+    $h'(2) = f'(g(2))\,g'(2) = f'(5)\cdot3 = 12$. Using $f'(2)$ gives $-3$.
+- id: calc-q-1106
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Differentiate $y = \sin^3 x$.'
+  choices: ['$3\sin^2 x\cos x$', '$\cos^3 x$', '$3\cos^2 x$', '$3\sin^2 x$']
+  answer: 0
+  explanation: |-
+    $y = (\sin x)^3$, so $y' = 3(\sin x)^2\cdot\cos x$.
+- id: calc-q-1107
+  lesson: calc-chain-rule
+  module_quiz: true
+  topic: Chain rule
+  stem: 'Differentiate $y = e^{\sin(2x)}$.'
+  choices: ['$e^{\sin(2x)}\cos(2x)$', '$e^{\cos(2x)}\cdot2$', '$2\cos(2x)e^{\sin(2x)}$', '$\sin(2x)e^{\sin(2x) - 1}$']
+  answer: 2
+  explanation: |-
+    Three layers: $e^{\sin(2x)}\cdot\cos(2x)\cdot2$.
+- id: calc-q-1108
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Differentiate $y = \dfrac{1}{(3x + 2)^2}$.'
+  choices: ['$-\dfrac{6}{(3x + 2)^3}$', '$-\dfrac{2}{(3x + 2)^3}$', '$\dfrac{-2}{3(3x + 2)^3}$', '$-\dfrac{6}{(3x + 2)^2}$']
+  answer: 0
+  explanation: |-
+    $y = (3x + 2)^{-2}$, so $y' = -2(3x + 2)^{-3}\cdot3 = -\frac{6}{(3x + 2)^3}$.
+- id: calc-q-1109
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Differentiate $y = x^2(x - 1)^3$ and factor.'
+  choices:
+    - '$6x(x - 1)^2$'
+    - '$x^2(x - 1)^2(5x - 2)$'
+    - '$x(x - 1)^2(3x - 2)$'
+    - '$x(x - 1)^2(5x - 2)$'
+  answer: 3
+  explanation: |-
+    $2x(x - 1)^3 + x^2\cdot3(x - 1)^2 = x(x - 1)^2\left[2(x - 1) + 3x\right] = x(x - 1)^2(5x - 2)$.
+- id: calc-q-1110
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'If $y = u^4$ and $u = 2x + 3$, find $\dfrac{dy}{dx}$ when $x = -1$.'
+  choices: ['$4$', '$16$', '$2$', '$8$']
+  answer: 3
+  explanation: |-
+    $\frac{dy}{dx} = 4u^3\cdot2$. At $x = -1$, $u = 1$, so $\frac{dy}{dx} = 4\cdot1\cdot2 = 8$.
+- id: calc-q-1111
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Differentiate $y = \tan(\sqrt x)$.'
+  choices: ['$\sec^2(\sqrt x)$', '$\dfrac{\sec^2 x}{2\sqrt x}$', '$\dfrac{\sec^2(\sqrt x)}{2\sqrt x}$', '$\dfrac{\tan(\sqrt x)}{2\sqrt x}$']
+  answer: 2
+  explanation: |-
+    $\sec^2(\sqrt x)\cdot\frac{1}{2\sqrt x}$; the inside $\sqrt x$ stays inside the $\sec^2$.
+
+- id: calc-q-1201
+  lesson: calc-implicit
+  module_quiz: true
+  topic: Implicit differentiation
+  stem: 'Find $\dfrac{dy}{dx}$ for $x^2 + y^2 = 16$.'
+  choices: ['$-\dfrac yx$', '$\dfrac xy$', '$-\dfrac xy$', '$-2x$']
+  answer: 2
+  explanation: |-
+    $2x + 2yy' = 0$, so $y' = -\frac xy$.
+- id: calc-q-1202
+  lesson: calc-implicit
+  topic: Implicit differentiation
+  stem: 'Find $\dfrac{dy}{dx}$ for $xy + y^2 = 7$.'
+  choices: ['$\dfrac{-y}{x + 2y}$', '$\dfrac{y}{x + 2y}$', '$\dfrac{-y}{2y}$', '$\dfrac{-1}{2y}$']
+  answer: 0
+  explanation: |-
+    $y + xy' + 2yy' = 0$, so $y'(x + 2y) = -y$ and $y' = \frac{-y}{x + 2y}$. Forgetting the product rule on $xy$ loses the $y$.
+- id: calc-q-1203
+  lesson: calc-implicit
+  module_quiz: true
+  topic: Implicit differentiation
+  stem: 'Find the slope of $x^3 + y^3 = 9$ at $(1, 2)$.'
+  choices: ['$-4$', '$-\tfrac12$', '$-\tfrac14$', '$4$']
+  answer: 2
+  explanation: |-
+    $3x^2 + 3y^2y' = 0$ gives $y' = -\frac{x^2}{y^2} = -\frac14$.
+- id: calc-q-1204
+  lesson: calc-implicit
+  topic: Implicit differentiation
+  stem: 'For $x^2 + y^2 = 25$, where are the vertical tangent lines?'
+  choices: ['$(0, \pm5)$', '$(\pm5, 0)$', '$(3, \pm4)$', 'There are none']
+  answer: 1
+  explanation: |-
+    $y' = -\frac xy$ has a zero denominator (and nonzero numerator) when $y = 0$: the points $(\pm5, 0)$.
+- id: calc-q-1205
+  lesson: calc-implicit
+  topic: Implicit differentiation
+  stem: 'A student differentiates $y^3 = x$ and writes $3y^2 = 1$. What is the error?'
+  choices:
+    - 'The derivative of $x$ should be 0'
+    - 'The left side should be $y^2$'
+    - 'There is no error'
+    - 'The left side is missing the factor $\frac{dy}{dx}$'
+  answer: 3
+  explanation: |-
+    $y$ is a function of $x$, so $\frac{d}{dx}y^3 = 3y^2\frac{dy}{dx}$. Then $\frac{dy}{dx} = \frac{1}{3y^2}$.
+- id: calc-q-1206
+  lesson: calc-implicit
+  module_quiz: true
+  topic: Inverse trig derivatives
+  stem: 'Differentiate $y = \arctan(2x)$.'
+  choices: ['$\dfrac{1}{1 + 4x^2}$', '$\dfrac{2}{1 + 4x^2}$', '$\dfrac{2}{1 + 2x^2}$', '$2\sec^2(2x)$']
+  answer: 1
+  explanation: |-
+    $\frac{1}{1 + (2x)^2}\cdot2$.
+- id: calc-q-1207
+  lesson: calc-implicit
+  topic: Inverse trig derivatives
+  stem: 'What is $\dfrac{d}{dx}\arcsin x$?'
+  choices: ['$\dfrac{1}{\sqrt{1 - x^2}}$', '$\dfrac{1}{\cos x}$', '$-\dfrac{1}{\sqrt{1 - x^2}}$', '$\dfrac{1}{1 + x^2}$']
+  answer: 0
+  explanation: |-
+    From $\sin y = x$: $\cos y\,y' = 1$ and $\cos y = \sqrt{1 - x^2}$. ($\frac{1}{\cos x}$ confuses the inverse with the reciprocal.)
+- id: calc-q-1208
+  lesson: calc-implicit
+  topic: Inverse trig derivatives
+  stem: 'Differentiate $y = \arcsin(x^2)$.'
+  choices: ['$\dfrac{1}{\sqrt{1 - x^4}}$', '$\dfrac{2x}{\sqrt{1 - x^2}}$', '$\dfrac{2x}{1 + x^4}$', '$\dfrac{2x}{\sqrt{1 - x^4}}$']
+  answer: 3
+  explanation: |-
+    $\frac{1}{\sqrt{1 - (x^2)^2}}\cdot2x = \frac{2x}{\sqrt{1 - x^4}}$.
+- id: calc-q-1209
+  lesson: calc-implicit
+  topic: Implicit differentiation
+  stem: 'For $x^2 + y^2 = 25$, which is $\dfrac{d^2y}{dx^2}$?'
+  choices: ['$-\dfrac{25}{y^3}$', '$-\dfrac{1}{y}$', '$\dfrac{x}{y^2}$', '$-\dfrac{25}{y^2}$']
+  answer: 0
+  explanation: |-
+    $y'' = -\frac{y - xy'}{y^2}$ with $y' = -\frac xy$ gives $-\frac{y^2 + x^2}{y^3} = -\frac{25}{y^3}$.
+- id: calc-q-1210
+  lesson: calc-implicit
+  topic: Implicit differentiation
+  stem: 'Find $\dfrac{dy}{dx}$ for $\sin y = x^2$.'
+  choices: ['$2x\cos y$', '$\dfrac{2x}{\cos y}$', '$\dfrac{\cos y}{2x}$', '$2x\sec^2 y$']
+  answer: 1
+  explanation: |-
+    $\cos y\,y' = 2x$, so $y' = \frac{2x}{\cos y}$.
+- id: calc-q-1211
+  lesson: calc-implicit
+  topic: Inverse trig derivatives
+  stem: 'Differentiate $y = \arccos x$.'
+  choices: ['$\dfrac{1}{\sqrt{1 - x^2}}$', '$-\sin x$', '$-\dfrac{1}{1 + x^2}$', '$-\dfrac{1}{\sqrt{1 - x^2}}$']
+  answer: 3
+  explanation: |-
+    $\arccos x = \frac\pi2 - \arcsin x$, so its derivative is the negative of $\arcsin$'s.
+
+- id: calc-q-1301
+  lesson: calc-exp-log-derivs
+  module_quiz: true
+  topic: Exponential and log derivatives
+  stem: 'Differentiate $y = \ln(x^2 + 5)$.'
+  choices:
+    - '$\dfrac{1}{x^2 + 5}$'
+    - '$2x\ln(x^2 + 5)$'
+    - '$\dfrac{2}{x}$'
+    - '$\dfrac{2x}{x^2 + 5}$'
+  answer: 3
+  explanation: |-
+    $(\ln u)' = \frac{u'}{u}$ with $u = x^2 + 5$.
+- id: calc-q-1302
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'Differentiate $y = 3^x$.'
+  choices: ['$x\cdot3^{x-1}$', '$3^x$', '$3^x\ln 3$', '$\dfrac{3^x}{\ln 3}$']
+  answer: 2
+  explanation: |-
+    $3^x = e^{x\ln3}$, so the derivative is $3^x\ln 3$.
+- id: calc-q-1303
+  lesson: calc-exp-log-derivs
+  module_quiz: true
+  topic: Logarithmic differentiation
+  stem: 'Differentiate $y = x^x$ ($x > 0$).'
+  choices: ['$x\cdot x^{x-1}$', '$x^x\ln x$', '$x^x(1 + \ln x)$', '$x^{x}(x + \ln x)$']
+  answer: 2
+  explanation: |-
+    $\ln y = x\ln x$, so $\frac{y'}{y} = \ln x + 1$ and $y' = x^x(\ln x + 1)$.
+- id: calc-q-1304
+  lesson: calc-exp-log-derivs
+  module_quiz: true
+  topic: Exponential and log derivatives
+  stem: 'Let $f(x) = x^3 + x + 2$, so $f(1) = 4$. Find $(f^{-1})''(4)$.'
+  choices: ['$\tfrac14$', '$\tfrac1{49}$', '$4$', '$49$']
+  answer: 0
+  explanation: |-
+    $f'(x) = 3x^2 + 1$, so $f'(1) = 4$ and $(f^{-1})'(4) = \frac{1}{f'(1)} = \frac14$. Using $f'(4) = 49$ is the classic mistake.
+- id: calc-q-1305
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'Differentiate $y = \ln\left(\dfrac{x^4}{x + 1}\right)$.'
+  choices: ['$\dfrac{x + 1}{x^4}$', '$\dfrac4x - \dfrac{1}{x + 1}$', '$\dfrac{4}{x} + \dfrac{1}{x+1}$', '$\dfrac{4x^3}{x + 1}$']
+  answer: 1
+  explanation: |-
+    Expand first: $y = 4\ln x - \ln(x + 1)$, so $y' = \frac4x - \frac{1}{x + 1}$.
+- id: calc-q-1306
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'Differentiate $y = \log_2 x$.'
+  choices: ['$\dfrac{1}{x}$', '$\dfrac{\ln 2}{x}$', '$\dfrac{1}{2x}$', '$\dfrac{1}{x\ln 2}$']
+  answer: 3
+  explanation: |-
+    $\log_2 x = \frac{\ln x}{\ln 2}$, so the derivative is $\frac{1}{x\ln2}$.
+- id: calc-q-1307
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'Differentiate $y = x^2e^{-x}$.'
+  choices: ['$-2xe^{-x}$', '$xe^{-x}(2 - x)$', '$xe^{-x}(2 + x)$', '$2xe^{-x}$']
+  answer: 1
+  explanation: |-
+    $2xe^{-x} + x^2(-e^{-x}) = xe^{-x}(2 - x)$.
+- id: calc-q-1308
+  lesson: calc-exp-log-derivs
+  topic: Logarithmic differentiation
+  stem: 'In logarithmic differentiation of $y = (x + 1)^3(x - 2)^5$, after differentiating $\ln y$ you get $\dfrac{y''}{y} = \dfrac{3}{x + 1} + \dfrac{5}{x - 2}$. What is the last step?'
+  choices:
+    - 'Exponentiate both sides'
+    - 'Multiply both sides by $y = (x + 1)^3(x - 2)^5$'
+    - 'Integrate both sides'
+    - 'Set the right side equal to 0'
+  answer: 1
+  explanation: |-
+    Solve for $y'$ by multiplying by $y$, then substitute the original expression for $y$.
+- id: calc-q-1309
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'Differentiate $y = \ln|\cos x|$.'
+  choices:
+    - '$\tan x$'
+    - '$-\cot x$'
+    - '$\dfrac{1}{\cos x}$'
+    - '$-\tan x$'
+  answer: 3
+  explanation: |-
+    $\frac{u'}{u} = \frac{-\sin x}{\cos x} = -\tan x$.
+- id: calc-q-1310
+  lesson: calc-exp-log-derivs
+  topic: Logarithmic differentiation
+  stem: 'Which function requires logarithmic differentiation (no single basic rule applies)?'
+  choices: ['$x^{10}$', '$10^x$', '$x^{\sin x}$', '$e^{\sin x}$']
+  answer: 2
+  explanation: |-
+    $x^{\sin x}$ has a variable base and a variable exponent. The others use the power, exponential, or chain rule directly.
+- id: calc-q-1311
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'What is $\dfrac{d}{dx}\ln 7$?'
+  choices: ['$0$', '$\tfrac17$', '$\ln 7$', '$7$']
+  answer: 0
+  explanation: |-
+    $\ln 7$ is a constant, so its derivative is 0.

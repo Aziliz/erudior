@@ -1,0 +1,387 @@
+- id: stat-relfreq
+  title: Relative frequency of a category
+  topic: Categorical displays
+  vars:
+    ca: {min: 10, max: 60}
+    cb: {min: 10, max: 60}
+    cc: {min: 10, max: 60}
+    cd: {min: 5, max: 40}
+    pick: {choices: [{label: 'bus', value: 2}, {label: 'train', value: 3}, {label: 'bike', value: 4}]}
+  calc:
+    tot: ca + cb + cc + cd
+    cnt: if(pick == 2, cb, if(pick == 3, cc, cd))
+    rf: cnt / tot
+    pct: 100 * rf
+  prompt: |-
+    A survey asked commuters their main way to work: car {ca}, bus {cb}, train {cc},
+    bike {cd}. What percent of commuters chose **{pick}**? Give the percent to 1 decimal place.
+  answers:
+    - {name: pct, label: 'Percent', tolerance: 0.06, format: num1}
+  solution: |-
+    Total $= {ca} + {cb} + {cc} + {cd} = {tot}$. Relative frequency
+    $= \dfrac{{cnt}}{{tot}} = {rf:num4}$, so the percent is **{pct:num1}%**.
+
+- id: stat-pie-angle
+  title: Pie chart angle
+  topic: Categorical displays
+  vars:
+    tot: {choices: [120, 150, 200, 240, 250, 300, 360, 400, 450, 500, 600, 720]}
+    cnt: {min: 10, max: 300}
+  where: ['cnt < 0.6*tot', 'cnt > 0.05*tot']
+  calc:
+    share: cnt / tot
+    ang: share * 360
+  prompt: |-
+    In a survey of {tot} people, {cnt} chose "streaming" as their main news source. How many
+    degrees should the "streaming" slice of a pie chart have? Give 1 decimal place.
+  answers:
+    - {name: ang, label: 'Angle (degrees)', tolerance: 0.06, format: num1}
+  solution: |-
+    The share is $\dfrac{{cnt}}{{tot}} = {share:num4}$, so the angle is ${share:num4} \times 360^\circ =$ **{ang:num1}°**.
+
+- id: stat-hist-read
+  title: Read a histogram
+  topic: Quantitative displays
+  vars:
+    h1: {min: 1, max: 8}
+    h2: {min: 4, max: 14}
+    h3: {min: 6, max: 16}
+    h4: {min: 3, max: 12}
+    h5: {min: 1, max: 7}
+    cut: {choices: [20, 30, 40]}
+  calc:
+    tot: h1 + h2 + h3 + h4 + h5
+    above: if(cut == 20, h3 + h4 + h5, if(cut == 30, h4 + h5, h5))
+    pct: 100 * above / tot
+  prompt: |-
+    The histogram shows the waiting times (minutes) of a group of patients, in bins of
+    width 10 starting at 0 (a value on a boundary belongs to the bin on its right). What
+    percent of the patients waited **at least {cut} minutes**? Give 1 decimal place.
+  figure:
+    type: plot
+    x: [0, 50]
+    y: [0, 17]
+    xLabel: minutes
+    yLabel: count
+    bars:
+      - {x: 5, height: h1, width: 10}
+      - {x: 15, height: h2, width: 10}
+      - {x: 25, height: h3, width: 10}
+      - {x: 35, height: h4, width: 10}
+      - {x: 45, height: h5, width: 10}
+  answers:
+    - {name: pct, label: 'Percent', tolerance: 0.06, format: num1}
+  solution: |-
+    Bar heights: {h1}, {h2}, {h3}, {h4}, {h5}, for a total of {tot} patients. The bins at or
+    above {cut} minutes hold {above} patients, so the percent is
+    $\dfrac{{above}}{{tot}} \times 100 =$ **{pct:num1}%**.
+
+- id: stat-cumfreq
+  title: Cumulative relative frequency
+  topic: Quantitative displays
+  vars:
+    f1: {min: 2, max: 10}
+    f2: {min: 5, max: 15}
+    f3: {min: 8, max: 20}
+    f4: {min: 4, max: 14}
+    f5: {min: 1, max: 8}
+    upto: {choices: [{label: '20', value: 2}, {label: '30', value: 3}, {label: '40', value: 4}]}
+  calc:
+    tot: f1 + f2 + f3 + f4 + f5
+    cum: if(upto == 2, f1 + f2, if(upto == 3, f1 + f2 + f3, f1 + f2 + f3 + f4))
+    crf: cum / tot
+  prompt: |-
+    Battery life (hours) of {tot} phones:
+
+    | Hours | 0–<10 | 10–<20 | 20–<30 | 30–<40 | 40–<50 |
+    |---|---|---|---|---|---|
+    | Count | {f1} | {f2} | {f3} | {f4} | {f5} |
+
+    What is the cumulative relative frequency at **{upto} hours** (the proportion of phones
+    lasting less than {upto} hours)? Give 4 decimal places.
+  answers:
+    - {name: crf, label: 'Cumulative rel. freq.', tolerance: 0.0006, format: num4}
+  solution: |-
+    Add the counts of the bins below {upto} hours: cumulative count $= {cum}$. Divide by the
+    total {tot}: $\dfrac{{cum}}{{tot}} =$ **{crf:num4}**.
+
+- id: stat-mean-data
+  title: Mean of a data set
+  topic: Measures of center
+  vars:
+    d1: {min: 5, max: 60}
+    d2: {min: 5, max: 60}
+    d3: {min: 5, max: 60}
+    d4: {min: 5, max: 60}
+    d5: {min: 5, max: 60}
+    d6: {min: 5, max: 60}
+    d7: {min: 5, max: 60}
+  calc:
+    sm: d1 + d2 + d3 + d4 + d5 + d6 + d7
+    mn: mean(d1, d2, d3, d4, d5, d6, d7)
+  prompt: |-
+    Find the mean of these 7 values (2 decimal places):
+
+    {d1}, {d2}, {d3}, {d4}, {d5}, {d6}, {d7}
+  answers:
+    - {name: mn, label: '$\bar{x} =$', tolerance: 0.006}
+  solution: |-
+    Sum $= {sm}$. Divide by $n = 7$: $\bar{x} = {sm}/7 =$ **{mn:num2}**.
+
+- id: stat-median-data
+  title: Median of an even-sized data set
+  topic: Measures of center
+  vars:
+    d1: {min: 1, max: 99}
+    d2: {min: 1, max: 99}
+    d3: {min: 1, max: 99}
+    d4: {min: 1, max: 99}
+    d5: {min: 1, max: 99}
+    d6: {min: 1, max: 99}
+    d7: {min: 1, max: 99}
+    d8: {min: 1, max: 99}
+  calc:
+    md: median(d1, d2, d3, d4, d5, d6, d7, d8)
+  prompt: |-
+    Find the median of these 8 values:
+
+    {d1}, {d2}, {d3}, {d4}, {d5}, {d6}, {d7}, {d8}
+  answers:
+    - {name: md, label: 'Median', tolerance: 0.001}
+  solution: |-
+    Sort the values first. With $n = 8$ (even), the median is the average of the 4th and 5th
+    sorted values, which gives **{md}**.
+
+- id: stat-weighted-mean
+  title: Weighted mean (GPA)
+  topic: Measures of center
+  vars:
+    c1: {min: 1, max: 5}
+    c2: {min: 1, max: 5}
+    c3: {min: 1, max: 5}
+    g1: {choices: [4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0]}
+    g2: {choices: [4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0]}
+    g3: {choices: [4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0]}
+  where: ['c1 != c3']
+  calc:
+    num: c1*g1 + c2*g2 + c3*g3
+    den: c1 + c2 + c3
+    gpa: num / den
+  prompt: |-
+    A student earns grade points {g1} in a {c1}-credit course, {g2} in a {c2}-credit
+    course and {g3} in a {c3}-credit course. Find the GPA (credit-weighted mean) to
+    3 decimal places.
+  answers:
+    - {name: gpa, label: 'GPA', tolerance: 0.0006, format: dp3}
+  solution: |-
+    $\bar{x}_w = \dfrac{\sum w_i x_i}{\sum w_i} = \dfrac{{c1}({g1}) + {c2}({g2}) + {c3}({g3})}{{c1} + {c2} + {c3}} = \dfrac{{num:num2}}{{den}} =$ **{gpa:dp3}**.
+
+- id: stat-mean-missing
+  title: Find a missing value from the mean
+  topic: Measures of center
+  vars:
+    d1: {min: 60, max: 100}
+    d2: {min: 60, max: 100}
+    d3: {min: 60, max: 100}
+    d4: {min: 60, max: 100}
+    target: {min: 70, max: 92}
+  calc:
+    need: 5*target - (d1 + d2 + d3 + d4)
+    known: d1 + d2 + d3 + d4
+    tt: 5*target
+  where: ['need >= 40', 'need <= 100']
+  prompt: |-
+    A student's first four test scores are {d1}, {d2}, {d3} and {d4}. What score on the
+    fifth test makes the mean of all five exactly {target}?
+  answers:
+    - {name: need, label: 'Fifth score', tolerance: 0.001}
+  solution: |-
+    The five scores must total $5 \times {target} = {tt}$. The first four total {known}, so the
+    fifth must be ${tt} - {known} =$ **{need}**.
+
+- id: stat-sd-data
+  title: Sample standard deviation
+  topic: Measures of spread
+  vars:
+    d1: {min: 1, max: 20}
+    d2: {min: 1, max: 20}
+    d3: {min: 1, max: 20}
+    d4: {min: 1, max: 20}
+    d5: {min: 1, max: 20}
+    d6: {min: 1, max: 20}
+  calc:
+    mn: mean(d1, d2, d3, d4, d5, d6)
+    ss: (d1-mn)^2 + (d2-mn)^2 + (d3-mn)^2 + (d4-mn)^2 + (d5-mn)^2 + (d6-mn)^2
+    var: variance(d1, d2, d3, d4, d5, d6)
+    sd: stdev(d1, d2, d3, d4, d5, d6)
+  where: ['sd > 0']
+  prompt: |-
+    For the sample {d1}, {d2}, {d3}, {d4}, {d5}, {d6}, find the sample variance $s^2$ and the
+    sample standard deviation $s$ (3 decimal places).
+  answers:
+    - {name: var, label: '$s^2 =$', tolerance: 0.002, format: dp3}
+    - {name: sd, label: '$s =$', tolerance: 0.002, format: dp3}
+  solution: |-
+    Mean $\bar{x} = {mn:num4}$. Sum of squared deviations
+    $\sum (x_i - \bar{x})^2 = {ss:num4}$. Divide by $n - 1 = 5$: $s^2 =$ **{var:dp3}**.
+    Square root: $s =$ **{sd:dp3}**.
+
+- id: stat-range-iqr
+  title: Range and IQR
+  topic: Measures of spread
+  vars:
+    d1: {min: 10, max: 90}
+    d2: {min: 10, max: 90}
+    d3: {min: 10, max: 90}
+    d4: {min: 10, max: 90}
+    d5: {min: 10, max: 90}
+    d6: {min: 10, max: 90}
+    d7: {min: 10, max: 90}
+    d8: {min: 10, max: 90}
+    d9: {min: 10, max: 90}
+    d10: {min: 10, max: 90}
+  calc:
+    rng: max(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10) - min(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10)
+    qa: quartile(1, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10)
+    qc: quartile(3, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10)
+    iqr: qc - qa
+  prompt: |-
+    Find the range and the interquartile range of these 10 values (use the
+    median-of-halves method for quartiles):
+
+    {d1}, {d2}, {d3}, {d4}, {d5}, {d6}, {d7}, {d8}, {d9}, {d10}
+  answers:
+    - {name: rng, label: 'Range', tolerance: 0.001}
+    - {name: iqr, label: 'IQR', tolerance: 0.001}
+  solution: |-
+    Sort the values. Range = max − min = **{rng}**. With $n = 10$, the lower half is the
+    first 5 sorted values, so $Q_1$ is the 3rd sorted value: $Q_1 = {qa}$; the upper half is
+    the last 5, so $Q_3$ is the 8th: $Q_3 = {qc}$. IQR $= {qc} - {qa} =$ **{iqr}**.
+
+- id: stat-five-number
+  title: Five-number summary (odd n)
+  topic: Boxplots and outliers
+  vars:
+    a1: {min: 20, max: 40}
+    g1: {min: 0, max: 6}
+    g2: {min: 0, max: 6}
+    g3: {min: 0, max: 6}
+    g4: {min: 0, max: 6}
+    g5: {min: 0, max: 6}
+    g6: {min: 0, max: 6}
+    g7: {min: 0, max: 6}
+    g8: {min: 0, max: 6}
+    g9: {min: 0, max: 6}
+    g10: {min: 0, max: 6}
+  calc:
+    a2: a1 + g1
+    a3: a2 + g2
+    a4: a3 + g3
+    a5: a4 + g4
+    a6: a5 + g5
+    a7: a6 + g6
+    a8: a7 + g7
+    a9: a8 + g8
+    a10: a9 + g9
+    a11: a10 + g10
+    qa: quartile(1, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11)
+    md: quartile(2, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11)
+    qc: quartile(3, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11)
+  prompt: |-
+    Here are 11 sorted values:
+
+    {a1}, {a2}, {a3}, {a4}, {a5}, {a6}, {a7}, {a8}, {a9}, {a10}, {a11}
+
+    Find $Q_1$, the median and $Q_3$.
+  answers:
+    - {name: qa, label: '$Q_1 =$', tolerance: 0.001}
+    - {name: md, label: 'Median', tolerance: 0.001}
+    - {name: qc, label: '$Q_3 =$', tolerance: 0.001}
+  solution: |-
+    With $n = 11$ the median is the 6th value: **{md}**. Leave it out; the lower half is the
+    first 5 values, whose middle (3rd) value is $Q_1 =$ **{qa}**; the upper half is values
+    7–11, whose middle (9th overall) is $Q_3 =$ **{qc}**. Five-number summary:
+    {a1}, {qa}, {md}, {qc}, {a11}.
+
+- id: stat-fences
+  title: Outlier fences (1.5 × IQR rule)
+  topic: Boxplots and outliers
+  vars:
+    qa: {min: 20, max: 60}
+    wid: {min: 4, max: 30}
+  calc:
+    qc: qa + wid
+    hw: 1.5*wid
+    lof: qa - 1.5*wid
+    hif: qc + 1.5*wid
+  prompt: |-
+    A data set has $Q_1 = {qa}$ and $Q_3 = {qc}$. Find the lower and upper fences for
+    outliers using the $1.5 \times \text{IQR}$ rule.
+  answers:
+    - {name: lof, label: 'Lower fence', tolerance: 0.001}
+    - {name: hif, label: 'Upper fence', tolerance: 0.001}
+  solution: |-
+    IQR $= {qc} - {qa} = {wid}$, and $1.5 \times {wid} = {hw}$. Lower fence
+    $= {qa} - 1.5({wid}) =$ **{lof}**; upper fence $= {qc} + 1.5({wid}) =$ **{hif}**.
+    Values outside these are outliers.
+
+- id: stat-boxplot-read
+  title: Read a boxplot
+  topic: Boxplots and outliers
+  vars:
+    mn: {min: 0, max: 4}
+    g1: {min: 2, max: 8}
+    g2: {min: 2, max: 6}
+    g3: {min: 2, max: 6}
+    g4: {min: 2, max: 10}
+  calc:
+    qa: mn + g1
+    md: qa + g2
+    qc: md + g3
+    mx: qc + g4
+    iqr: qc - qa
+    rng: mx - mn
+  where: ['mx <= 30']
+  prompt: |-
+    The boxplot shows the number of emails a group of employees received in one hour (all
+    values are whole numbers; whiskers run to the min and max). Find the IQR and the range.
+  figure:
+    type: plot
+    x: [-1, 31]
+    y: [-0.8, 2.1]
+    grid: false
+    polygons:
+      - points: [[qa, 0.5], [qc, 0.5], [qc, 1.5], [qa, 1.5]]
+    segments:
+      - {from: [md, 0.5], to: [md, 1.5]}
+      - {from: [mn, 1], to: [qa, 1]}
+      - {from: [qc, 1], to: [mx, 1]}
+      - {from: [mn, 0.75], to: [mn, 1.25]}
+      - {from: [mx, 0.75], to: [mx, 1.25]}
+      - {from: [0, 0], to: [30, 0]}
+      - {from: [0, 0], to: [0, -0.1]}
+      - {from: [5, 0], to: [5, -0.1]}
+      - {from: [10, 0], to: [10, -0.1]}
+      - {from: [15, 0], to: [15, -0.1]}
+      - {from: [20, 0], to: [20, -0.1]}
+      - {from: [25, 0], to: [25, -0.1]}
+      - {from: [30, 0], to: [30, -0.1]}
+    labels:
+      - {at: [0, -0.45], text: '0'}
+      - {at: [5, -0.45], text: '5'}
+      - {at: [10, -0.45], text: '10'}
+      - {at: [15, -0.45], text: '15'}
+      - {at: [20, -0.45], text: '20'}
+      - {at: [25, -0.45], text: '25'}
+      - {at: [30, -0.45], text: '30'}
+      - {at: [qa, 1.8], text: '{qa}'}
+      - {at: [md, 1.8], text: '{md}'}
+      - {at: [qc, 1.8], text: '{qc}'}
+      - {at: [mn, 1.5], text: '{mn}'}
+      - {at: [mx, 1.5], text: '{mx}'}
+  answers:
+    - {name: iqr, label: 'IQR', tolerance: 0.001}
+    - {name: rng, label: 'Range', tolerance: 0.001}
+  solution: |-
+    Read the five-number summary: min {mn}, $Q_1 = {qa}$, median {md}, $Q_3 = {qc}$,
+    max {mx}. IQR $= {qc} - {qa} =$ **{iqr}**; range $= {mx} - {mn} =$ **{rng}**.

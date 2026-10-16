@@ -1,0 +1,128 @@
+# Module 5 drills
+- id: de-wronskian
+  title: Wronskian of two power functions
+  topic: Second-order theory
+  vars:
+    m: {choices: [-2, -1, 2, 3]}
+    n: {choices: [-3, -2, 2, 3, 4]}
+    t0: {min: 1, max: 3}
+  where: ['m != n']
+  calc:
+    W: (n - m)*t0^(m + n - 1)
+    e1: m - 1
+    e2: n - 1
+    ex: m + n - 1
+    nm: n - m
+  prompt: 'Compute the Wronskian $W(y_1, y_2) = y_1y_2'' - y_1''y_2$ of $y_1 = t^{{m}}$ and $y_2 = t^{{n}}$ at $t = {t0}$.'
+  answers:
+    - {name: W, label: '$W({t0}) =$', relTolerance: 0.0001}
+  solution: |-
+    $y_1' = {m:coef}t^{{e1}}$ and $y_2' = {n:coef}t^{{e2}}$, so $W = t^{{m}}\cdot {n:coef}t^{{e2}} - \left({m:coef}t^{{e1}}\right)t^{{n}} = {nm:coef}\,t^{{ex}}$. At $t = {t0}$: **{W:num4}**.
+- id: de-ivp-combo
+  title: Fit constants to initial conditions
+  topic: Second-order theory
+  vars:
+    r1: {min: -4, max: 4}
+    r2: {min: -4, max: 4}
+    A: {min: -5, max: 5}
+    B: {min: -8, max: 8}
+  where: ['r1 < r2', 'r1*r2 != 0']
+  calc:
+    c2: (B - r1*A)/(r2 - r1)
+    c1: A - c2
+  prompt: 'The functions $e^{{r1:coef}t}$ and $e^{{r2:coef}t}$ form a fundamental set for a second-order equation. Find $c_1$ and $c_2$ so that $y = c_1e^{{r1:coef}t} + c_2e^{{r2:coef}t}$ satisfies $y(0) = {A}$ and $y''(0) = {B}$. Exact fractions.'
+  answers:
+    - {name: c1, label: '$c_1 =$', kind: fraction, lowestTerms: true}
+    - {name: c2, label: '$c_2 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $y(0) = c_1 + c_2 = {A}$ and $y'(0) = ({r1})c_1 + ({r2})c_2 = {B}$. Subtract ${r1}$ times the first from the second: $({r2} - ({r1}))c_2 = {B} - ({r1})({A})$, so $c_2 =$ **{c2:frac}**, and $c_1 = {A} - c_2 =$ **{c1:frac}**.
+- id: de-char-distinct
+  title: Solve an IVP with distinct real roots
+  topic: Characteristic equation
+  vars:
+    r1: {min: -4, max: 3}
+    r2: {min: -4, max: 4}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+  where: ['r1 < r2', 'c1 != 0', 'c2 != 0', 'r1 + r2 != 0', 'r1*r2 != 0']
+  calc:
+    b: -(r1 + r2)
+    c: r1*r2
+    y0: c1 + c2
+    v0: r1*c1 + r2*c2
+  prompt: 'Solve $y'''' {b:signedcoef}y'' {c:signedcoef}y = 0$ with $y(0) = {y0}$ and $y''(0) = {v0}$.'
+  answers:
+    - {kind: expression, expression: 'c1*exp(r1*t) + c2*exp(r2*t)', variables: [t], label: '$y =$', show: '$y = {c1:coef}e^{{r1:coef}t} {c2:signedcoef}e^{{r2:coef}t}$'}
+  solution: |-
+    Characteristic equation $r^2 {b:signedcoef}r {c:signed} = (r - ({r1}))(r - ({r2})) = 0$, so $y = c_1e^{{r1:coef}t} + c_2e^{{r2:coef}t}$. The conditions give $c_1 + c_2 = {y0}$ and $({r1})c_1 + ({r2})c_2 = {v0}$, so $c_1 = {c1}$, $c_2 = {c2}$. Answer: **$y = {c1:coef}e^{{r1:coef}t} {c2:signedcoef}e^{{r2:coef}t}$**.
+- id: de-char-repeated
+  title: Solve an IVP with a repeated root
+  topic: Characteristic equation
+  vars:
+    r: {min: -4, max: 3}
+    c1: {min: -4, max: 4}
+    c2: {min: -5, max: 5}
+  where: ['r != 0', 'c1 != 0', 'c2 != 0']
+  calc:
+    b: -2*r
+    c: r^2
+    v0: c2 + r*c1
+  prompt: 'Solve $y'''' {b:signedcoef}y'' {c:signedcoef}y = 0$ with $y(0) = {c1}$ and $y''(0) = {v0}$.'
+  answers:
+    - {kind: expression, expression: '(c1 + c2*t)*exp(r*t)', variables: [t], label: '$y =$', show: '$y = ({c1} {c2:signedcoef}t)e^{{r:coef}t}$'}
+  solution: |-
+    $r^2 {b:signedcoef}r {c:signed} = (r - ({r}))^2$, a double root, so $y = (c_1 + c_2t)e^{{r:coef}t}$ and $y' = \big(c_2 + ({r})c_1 + ({r})c_2t\big)e^{{r:coef}t}$. Then $c_1 = {c1}$ and $c_2 + ({r})({c1}) = {v0}$ gives $c_2 = {c2}$. Answer: **$y = ({c1} {c2:signedcoef}t)e^{{r:coef}t}$**.
+- id: de-char-roots
+  title: Complex characteristic roots
+  topic: Characteristic equation
+  vars:
+    lam: {min: -4, max: 3}
+    mu: {min: 1, max: 5}
+  where: ['lam != 0']
+  calc:
+    b: -2*lam
+    c: lam^2 + mu^2
+    disc: b^2 - 4*c
+  prompt: 'The characteristic equation of $y'''' {b:signedcoef}y'' + {c}y = 0$ has roots $\lambda \pm i\mu$ with $\mu > 0$. Find $\lambda$ and $\mu$.'
+  answers:
+    - {name: lam, label: '$\lambda =$'}
+    - {name: mu, label: '$\mu =$'}
+  solution: |-
+    $r = \dfrac{-({b}) \pm \sqrt{{disc}}}{2}$. The real part is $\lambda = -\dfrac{{b}}{2} =$ **{lam}**, and $\mu = \dfrac{\sqrt{-({disc})}}{2} =$ **{mu}**. The solutions are $e^{{lam:coef}t}(c_1\cos {mu:coef}t + c_2\sin {mu:coef}t)$.
+- id: de-char-complex-ivp
+  title: Solve an IVP with complex roots
+  topic: Characteristic equation
+  vars:
+    lam: {min: -3, max: 2}
+    mu: {min: 1, max: 4}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+  where: ['c1 != 0', 'c2 != 0', 'lam != 0']
+  calc:
+    b: -2*lam
+    c: lam^2 + mu^2
+    v0: lam*c1 + mu*c2
+  prompt: 'Solve $y'''' {b:signedcoef}y'' + {c}y = 0$ with $y(0) = {c1}$ and $y''(0) = {v0}$.'
+  answers:
+    - {kind: expression, expression: 'exp(lam*t)*(c1*cos(mu*t) + c2*sin(mu*t))', variables: [t], label: '$y =$', show: '$y = e^{{lam:coef}t}\left({c1:coef}\cos {mu:coef}t {c2:signedcoef}\sin {mu:coef}t\right)$'}
+  solution: |-
+    Roots $r = {lam} \pm {mu:coef}i$, so $y = e^{{lam:coef}t}(c_1\cos {mu:coef}t + c_2\sin {mu:coef}t)$. Then $c_1 = y(0) = {c1}$ and $y'(0) = \lambda c_1 + \mu c_2 = ({lam})({c1}) + {mu:coef}c_2 = {v0}$, so $c_2 = {c2}$. Answer: **$y = e^{{lam:coef}t}\left({c1:coef}\cos {mu:coef}t {c2:signedcoef}\sin {mu:coef}t\right)$**.
+- id: de-euler-eq
+  title: Solve a Cauchy–Euler IVP
+  topic: Reduction of order
+  vars:
+    m1: {min: -3, max: 3}
+    m2: {min: -3, max: 4}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+  where: ['m1 < m2', 'c1 != 0', 'c2 != 0', 'm1 + m2 != 1', 'm1*m2 != 0']
+  calc:
+    b: 1 - m1 - m2
+    c: m1*m2
+    y0: c1 + c2
+    v0: m1*c1 + m2*c2
+  prompt: 'Solve the Cauchy–Euler equation $t^2y'''' {b:signedcoef}ty'' {c:signedcoef}y = 0$ for $t > 0$, with $y(1) = {y0}$ and $y''(1) = {v0}$.'
+  answers:
+    - {kind: expression, expression: 'c1*t^m1 + c2*t^m2', variables: [t], label: '$y =$', show: '$y = {c1:coef}t^{{m1}} {c2:signedcoef}t^{{m2}}$'}
+  solution: |-
+    Try $y = t^m$: the indicial equation is $m(m - 1) {b:signedcoef}m {c:signed} = 0$, with roots $m = {m1}$ and $m = {m2}$. So $y = c_1t^{{m1}} + c_2t^{{m2}}$. At $t = 1$: $c_1 + c_2 = {y0}$ and ${m1}c_1 + ({m2})c_2 = {v0}$, giving $c_1 = {c1}$, $c_2 = {c2}$. Answer: **$y = {c1:coef}t^{{m1}} {c2:signedcoef}t^{{m2}}$**.

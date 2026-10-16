@@ -1,0 +1,263 @@
+- id: pc-poly-leading
+  title: Leading coefficient from zeros and a point
+  topic: Polynomial graphs
+  vars:
+    r1: {min: -4, max: -1}
+    r2: {min: 1, max: 2}
+    r3: {min: 3, max: 5}
+    a: {choices: [-3, -2, -1, 1, 2, 3]}
+  calc:
+    prod: (0 - r1)*(0 - r2)*(0 - r3)
+    yk: a*prod
+    nr1: -r1
+    nr2: -r2
+    nr3: -r3
+  funcs:
+    f(x): a*(x - r1)*(x - r2)*(x - r3)
+  prompt: 'A cubic polynomial has zeros ${r1}$, ${r2}$ and ${r3}$, and its graph passes through $(0, {yk})$. Find its leading coefficient $a$.'
+  figure:
+    type: plot
+    x: [-5, 6]
+    y: ['-abs(yk)*1.6 - 5', 'abs(yk)*1.6 + 5']
+    functions: ['f']
+    points:
+      - {at: [r1, 0]}
+      - {at: [r2, 0]}
+      - {at: [r3, 0]}
+      - {at: [0, yk], label: '(0, {yk})'}
+  answers:
+    - {name: a, label: '$a =$'}
+  solution: |-
+    Write $f(x) = a(x {nr1:signed})(x {nr2:signed})(x {nr3:signed})$. At $x = 0$ the product of the factors is $({nr1})({nr2})({nr3}) = {prod}$, so ${prod}\,a = {yk}$ and $a =$ **{a}**.
+
+- id: pc-poly-yint
+  title: y-intercept of a factored polynomial
+  topic: Polynomial graphs
+  vars:
+    a: {choices: [-3, -2, -1, 2, 3]}
+    p: {min: -5, max: 5}
+    q: {min: -5, max: 5}
+    m: {min: 2, max: 3}
+  where: ["p != 0", "q != 0", "p != q"]
+  calc:
+    np: -p
+    nq: -q
+    yi: a*(-p)^m*(-q)
+  prompt: 'Find the $y$-intercept of $f(x) = {a:coef}(x {np:signed})^{m}(x {nq:signed})$.'
+  answers:
+    - {name: yi, label: '$f(0) =$'}
+  solution: |-
+    Set $x = 0$: $f(0) = {a}({np})^{m}({nq}) =$ **{yi}**.
+
+- id: pc-remainder
+  title: Remainder theorem
+  topic: Polynomial division
+  vars:
+    p2: {min: -6, max: 6}
+    p1: {min: -9, max: 9}
+    p0: {min: -12, max: 12}
+    cc: {min: -4, max: 4}
+  where: ["p2 != 0", "p1 != 0", "p0 != 0", "cc != 0"]
+  calc:
+    rem: cc^3 + p2*cc^2 + p1*cc + p0
+    ncc: -cc
+  prompt: 'Find the remainder when $f(x) = x^3 {p2:signedcoef}x^2 {p1:signedcoef}x {p0:signed}$ is divided by $x {ncc:signed}$.'
+  answers:
+    - {name: rem, label: 'Remainder'}
+  solution: |-
+    By the remainder theorem the remainder is $f({cc}) = ({cc})^3 + ({p2})({cc})^2 + ({p1})({cc}) + ({p0}) =$ **{rem}**.
+
+- id: pc-synthetic-quotient
+  title: Synthetic division
+  topic: Polynomial division
+  vars:
+    a3: {min: 1, max: 4}
+    a2: {min: -8, max: 8}
+    a1: {min: -9, max: 9}
+    a0: {min: -9, max: 9}
+    cc: {min: -3, max: 3}
+  where: ["cc != 0", "a2 != 0", "a1 != 0", "a0 != 0", "q1 != 0", "q0 != 0"]
+  calc:
+    q2: a3
+    q1: a2 + cc*q2
+    q0: a1 + cc*q1
+    rem: a0 + cc*q0
+    ncc: -cc
+  prompt: 'Use synthetic division to divide ${a3:coef}x^3 {a2:signedcoef}x^2 {a1:signedcoef}x {a0:signed}$ by $x {ncc:signed}$. Give the quotient and the remainder.'
+  answers:
+    - {kind: expression, expression: 'q2*x^2 + q1*x + q0', variables: [x], label: 'Quotient', show: '${q2:coef}x^2 {q1:signedcoef}x {q0:signed}$'}
+    - {name: rem, label: 'Remainder'}
+  solution: |-
+    Use $c = {cc}$ and the row ${a3}, {a2}, {a1}, {a0}$. Bring down {q2}. Then ${a2} + ({cc})({q2}) = {q1}$, ${a1} + ({cc})({q1}) = {q0}$, ${a0} + ({cc})({q0}) = {rem}$. Quotient **${q2:coef}x^2 {q1:signedcoef}x {q0:signed}$**, remainder **{rem}**.
+
+- id: pc-cubic-roots
+  title: Find the zeros of a cubic
+  topic: Zeros of polynomials
+  vars:
+    r1: {min: -6, max: 6}
+    r2: {min: -6, max: 6}
+    r3: {min: -6, max: 6}
+  where: ["r1 < r2", "r2 < r3", "c2 != 0", "c1 != 0", "c0 != 0"]
+  calc:
+    c2: -(r1 + r2 + r3)
+    c1: r1*r2 + r1*r3 + r2*r3
+    c0: -r1*r2*r3
+  prompt: 'Find all three zeros of $x^3 {c2:signedcoef}x^2 {c1:signedcoef}x {c0:signed}$. (They are integers.) List them from smallest to largest.'
+  answers:
+    - {name: r1, label: 'Smallest'}
+    - {name: r2, label: 'Middle'}
+    - {name: r3, label: 'Largest'}
+  solution: |-
+    Rational candidates are the divisors of {c0}. Testing finds a zero; dividing it out leaves a quadratic to factor. The result is $(x - ({r1}))(x - ({r2}))(x - ({r3}))$, so the zeros are **{r1}, {r2}, {r3}**.
+
+- id: pc-conjugate-quadratic
+  title: Quadratic factor from a complex zero
+  topic: Zeros of polynomials
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: 1, max: 6}
+  where: ["a != 0"]
+  calc:
+    na2: -2*a
+    k: a^2 + b^2
+  prompt: 'A polynomial with real coefficients has the zero ${a} + {b}i$. Find the monic quadratic factor ($x^2 + \dots$) that this zero and its conjugate produce.'
+  answers:
+    - {kind: expression, expression: 'x^2 - 2*a*x + a^2 + b^2', variables: [x], label: 'Factor', show: '$x^2 {na2:signedcoef}x + {k}$'}
+  solution: |-
+    The conjugate ${a} - {b}i$ is also a zero. $\big(x - ({a} + {b}i)\big)\big(x - ({a} - {b}i)\big) = (x - ({a}))^2 + {b}^2 =$ **$x^2 {na2:signedcoef}x + {k}$**.
+
+- id: pc-va-ha
+  title: Asymptotes of a linear-over-linear function
+  topic: Rational functions
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -9, max: 9}
+    c: {min: 1, max: 4}
+    d: {min: -9, max: 9}
+  where: ["a != 0", "b != 0", "d != 0", "a*d - b*c != 0"]
+  calc:
+    va: -d/c
+    ha: a/c
+  funcs:
+    R(x): (a*x + b)/(c*x + d)
+  prompt: 'Find the vertical and horizontal asymptotes of $R(x) = \dfrac{ {a:coef}x {b:signed} }{ {c:coef}x {d:signed} }$. Give exact fractions.'
+  figure:
+    type: plot
+    x: ['va - 10', 'va + 10']
+    y: ['ha - 10', 'ha + 10']
+    functions:
+      - R
+      - {f: ha, dashed: true}
+    segments:
+      - {from: [va, 'ha - 10'], to: [va, 'ha + 10'], dashed: true}
+  answers:
+    - {name: va, label: 'Vertical: $x =$', kind: fraction, lowestTerms: true}
+    - {name: ha, label: 'Horizontal: $y =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    The denominator is zero at $x = {va:texfrac}$ (and the numerator isn't), so **$x = {va:texfrac}$**. The degrees are equal, so the horizontal asymptote is the ratio of leading coefficients: **$y = {ha:texfrac}$**.
+
+- id: pc-hole
+  title: Locate a hole
+  topic: Rational functions
+  vars:
+    p: {min: -5, max: 5}
+    q: {min: -6, max: 6}
+    s: {min: -6, max: 6}
+  where: ["p != q", "p != s", "q != s", "b1 != 0", "b0 != 0", "d1 != 0", "d0 != 0"]
+  calc:
+    b1: -(p + q)
+    b0: p*q
+    d1: -(p + s)
+    d0: p*s
+    hy: (p - q)/(p - s)
+    nq: -q
+    ns: -s
+  prompt: 'The graph of $R(x) = \dfrac{x^2 {b1:signedcoef}x {b0:signed}}{x^2 {d1:signedcoef}x {d0:signed}}$ has a hole. Find its coordinates (exact fraction for $y$).'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: hy, label: '$y =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Factor: $\dfrac{(x - ({p}))(x {nq:signed})}{(x - ({p}))(x {ns:signed})}$. The common factor cancels, so the hole is at $x =$ **{p}**. In the simplified form, $y = \dfrac{ {p} {nq:signed} }{ {p} {ns:signed} } = {hy:texfrac}$, so the hole is **$\left({p}, {hy:texfrac}\right)$**.
+
+- id: pc-slant
+  title: Slant asymptote
+  topic: Rational functions
+  vars:
+    b: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+    d: {min: -5, max: 5}
+  where: ["d != 0", "b != 0", "c != 0", "b + d != 0", "rem != 0"]
+  calc:
+    k: b + d
+    rem: c + d*k
+    nd: -d
+  funcs:
+    R(x): (x^2 + b*x + c)/(x - d)
+  prompt: 'Find the slant asymptote of $R(x) = \dfrac{x^2 {b:signedcoef}x {c:signed}}{x {nd:signed}}$.'
+  figure:
+    type: plot
+    x: ['d - 12', 'd + 12']
+    y: ['d + k - 16', 'd + k + 16']
+    functions:
+      - R
+      - {f: 'x + k', dashed: true}
+  answers:
+    - {kind: expression, expression: 'x + k', variables: [x], label: '$y =$', show: '$y = x {k:signed}$'}
+  solution: |-
+    Synthetic division by $c = {d}$ on $1, {b}, {c}$: bring down 1; ${b} + ({d}) = {k}$; ${c} + ({d})({k}) = {rem}$. So $R(x) = x {k:signed} + \dfrac{ {rem} }{x {nd:signed}}$ and the slant asymptote is **$y = x {k:signed}$**.
+
+- id: pc-rational-intercepts
+  title: Intercepts of a rational function
+  topic: Rational functions
+  vars:
+    r1: {min: -7, max: 7}
+    r2: {min: -7, max: 7}
+    d: {min: -6, max: 6}
+  where: ["r1 < r2", "d != 0", "d != r1", "d != r2", "b != 0", "c != 0"]
+  calc:
+    b: -(r1 + r2)
+    c: r1*r2
+    yi: c/(-d)
+    nd: -d
+  prompt: 'Find the $x$-intercepts and the $y$-intercept of $R(x) = \dfrac{x^2 {b:signedcoef}x {c:signed}}{x {nd:signed}}$.'
+  answers:
+    - {name: r1, label: 'Smaller $x$-intercept'}
+    - {name: r2, label: 'Larger $x$-intercept'}
+    - {name: yi, label: '$y$-intercept', kind: fraction, lowestTerms: true}
+  solution: |-
+    The numerator factors as $(x - ({r1}))(x - ({r2}))$ and neither factor cancels, so the $x$-intercepts are **{r1}** and **{r2}**. The $y$-intercept is $R(0) = \dfrac{ {c} }{ {nd} } = {yi:texfrac}$, so the $y$-intercept is **${yi:texfrac}$**.
+
+- id: pc-quad-ineq
+  title: Solve a quadratic inequality
+  topic: Polynomial and rational inequalities
+  vars:
+    r1: {min: -9, max: 8}
+    r2: {min: -8, max: 9}
+    rel: {choices: [{label: '<', value: 0}, {label: '\le', value: 1}]}
+  where: ["r1 < r2", "b != 0", "c != 0"]
+  calc:
+    b: -(r1 + r2)
+    c: r1*r2
+  prompt: 'The solution of $x^2 {b:signedcoef}x {c:signed} {rel} 0$ is an interval from $p$ to $q$. Find $p$ and $q$.'
+  answers:
+    - {name: r1, label: '$p =$'}
+    - {name: r2, label: '$q =$'}
+  solution: |-
+    Factor: $(x - ({r1}))(x - ({r2})) {rel} 0$. The parabola opens up, so it is below the axis between its zeros: $x$ from **{r1}** to **{r2}** (endpoints included only for $\le$).
+
+- id: pc-rational-ineq
+  title: Solve a rational inequality
+  topic: Polynomial and rational inequalities
+  vars:
+    m: {min: -6, max: 9}
+    n: {min: -6, max: 6}
+  where: ["m + n > 0", "m != 0", "n != 0", "top != 0"]
+  calc:
+    top: m + 2*n
+    nn: -n
+  prompt: 'The solution of $\dfrac{x {m:signed}}{x {nn:signed}} \ge 2$ has the form $p < x \le q$. Find $p$ and $q$.'
+  answers:
+    - {name: n, label: '$p =$'}
+    - {name: top, label: '$q =$'}
+  solution: |-
+    Subtract 2 and combine: $\dfrac{x {m:signed} - 2(x {nn:signed})}{x {nn:signed}} = \dfrac{-x {top:signed}}{x {nn:signed}} \ge 0$. Critical values: {n} (denominator, excluded) and {top} (numerator, included). Testing shows the fraction is nonnegative only between them, so **{n}** $< x \le$ **{top}**.

@@ -1,0 +1,276 @@
+# Module 9: series, Fourier, PDEs
+- id: de-q-3601
+  lesson: de-series
+  module_quiz: true
+  topic: Series solutions
+  stem: 'Substituting $y = \sum a_nx^n$ into $y'''' + y = 0$ gives which recurrence?'
+  choices: ['$a_{n+2} = \dfrac{a_n}{(n+2)(n+1)}$', '$a_{n+2} = -\dfrac{a_n}{(n+2)(n+1)}$', '$a_{n+1} = -\dfrac{a_n}{n+1}$', '$a_{n+2} = -\dfrac{a_n}{n+2}$']
+  answer: 1
+  explanation: |-
+    After shifting, the $x^n$ coefficient is $(n+2)(n+1)a_{n+2} + a_n = 0$.
+- id: de-q-3602
+  lesson: de-series
+  topic: Series solutions
+  stem: 'Rewrite $\sum_{n=2}^\infty n(n-1)a_nx^{n-2}$ so that it shows $x^n$.'
+  choices: ['$\sum_{n=2}^\infty (n+2)(n+1)a_{n+2}x^n$', '$\sum_{n=0}^\infty n(n-1)a_nx^n$', '$\sum_{n=0}^\infty (n-2)(n-3)a_{n-2}x^n$', '$\sum_{n=0}^\infty (n+2)(n+1)a_{n+2}x^n$']
+  answer: 3
+  explanation: |-
+    Replace $n$ by $n + 2$ everywhere, including the starting index: $n = 2$ becomes $n = 0$.
+- id: de-q-3603
+  lesson: de-series
+  module_quiz: true
+  topic: Series solutions
+  stem: 'For Airy''s equation $y'''' - xy = 0$, what is $a_2$?'
+  choices: ['$0$', '$a_0/2$', '$a_0/6$', '$-a_0/2$']
+  answer: 0
+  explanation: |-
+    The $x^0$ term appears only in $y''$ (since $xy$ starts at $x^1$): $2a_2 = 0$.
+- id: de-q-3604
+  lesson: de-series
+  topic: Series solutions
+  stem: 'For $y'''' - xy = 0$ the recurrence is $a_{n+2} = \dfrac{a_{n-1}}{(n+2)(n+1)}$. With $a_0 = 1$, what is $a_3$?'
+  choices: ['$\tfrac12$', '$\tfrac13$', '$\tfrac16$', '$0$']
+  answer: 2
+  explanation: |-
+    $n = 1$: $a_3 = \dfrac{a_0}{3 \cdot 2} = \dfrac16$.
+- id: de-q-3605
+  lesson: de-series
+  topic: Series solutions
+  stem: 'Which point is a singular point of $(x^2 - 4)y'''' + xy'' + y = 0$?'
+  choices: ['$x = 0$', '$x = 4$', '$x = 1$', '$x = 2$']
+  answer: 3
+  explanation: |-
+    Singular points are where $P(x) = x^2 - 4 = 0$: $x = \pm 2$.
+- id: de-q-3606
+  lesson: de-series
+  topic: Series solutions
+  stem: 'Series solutions of $(1 + x^2)y'''' + y = 0$ about $x = 0$ are guaranteed to converge for'
+  choices: ['all $x$', '$|x| < 1$', '$|x| < 2$', 'only $x = 0$']
+  answer: 1
+  explanation: |-
+    $1 + x^2 = 0$ at $x = \pm i$, distance 1 from the origin in the complex plane, so the guaranteed radius is 1.
+- id: de-q-3607
+  lesson: de-series
+  module_quiz: true
+  topic: Series solutions
+  stem: 'For $y'''' + xy'' + y = 0$, $y(0) = 1$, $y''(0) = 0$, the recurrence is $a_{n+2} = -\dfrac{a_n}{n+2}$. What is $a_4$?'
+  choices: ['$-\tfrac18$', '$\tfrac14$', '$\tfrac18$', '$-\tfrac12$']
+  answer: 2
+  explanation: |-
+    $a_2 = -\tfrac12$, then $a_4 = -\dfrac{a_2}{4} = \tfrac18$.
+- id: de-q-3608
+  lesson: de-series
+  topic: Series solutions
+  stem: 'In a series solution about $x = 0$, what are $a_0$ and $a_1$?'
+  choices: ['$y(0)$ and $y''(0)$', '$y(0)$ and $y''''(0)$', 'always 1 and 0', 'determined by the recurrence']
+  answer: 0
+  explanation: |-
+    $y(0) = a_0$ and $y'(0) = a_1$ from differentiating the series term by term. They're the two free constants.
+- id: de-q-3609
+  lesson: de-series
+  topic: Series solutions
+  stem: 'The series $1 - \dfrac{x^2}{2} + \dfrac{x^4}{8} - \dfrac{x^6}{48} + \cdots$ is the Taylor series of which function?'
+  choices: ['$e^{-x^2/2}$', '$\cos x$', '$e^{-x}$', '$\dfrac{1}{1 + x^2}$']
+  answer: 0
+  explanation: |-
+    $e^{u} = \sum u^k/k!$ with $u = -x^2/2$ gives $1 - \tfrac{x^2}{2} + \tfrac{x^4}{8} - \tfrac{x^6}{48}$. The cosine series has $x^4/24$.
+- id: de-q-3610
+  lesson: de-series
+  topic: Series solutions
+  stem: 'Bessel''s equation $x^2y'''' + xy'' + (x^2 - \nu^2)y = 0$ at $x = 0$ needs the method of Frobenius because'
+  choices: ['the equation is nonlinear', '$x = 0$ is an ordinary point', '$x = 0$ is a (regular) singular point', 'the coefficients are not polynomials']
+  answer: 2
+  explanation: |-
+    $P(x) = x^2$ vanishes at 0, so an ordinary power series may fail; Frobenius tries $x^r\sum a_nx^n$.
+- id: de-q-3611
+  lesson: de-series
+  topic: Series solutions
+  stem: 'For Airy''s equation, which coefficients are zero?'
+  choices: ['$a_1, a_3, a_5, \dots$', '$a_2, a_5, a_8, \dots$', '$a_2, a_4, a_6, \dots$', 'none']
+  answer: 1
+  explanation: |-
+    The recurrence links indices 3 apart and $a_2 = 0$, so the whole chain $a_2, a_5, a_8, \dots$ vanishes.
+# Lesson 37
+- id: de-q-3701
+  lesson: de-fourier
+  module_quiz: true
+  topic: Fourier series
+  stem: 'For an odd function on $(-L, L)$, which Fourier coefficients vanish?'
+  choices: ['all $b_n$', 'only $a_0$', 'none', 'all $a_n$ (including $a_0$)']
+  answer: 3
+  explanation: |-
+    $f\cos$ is odd, so its integral over $(-L, L)$ is 0. An odd function has a pure sine series.
+- id: de-q-3702
+  lesson: de-fourier
+  module_quiz: true
+  topic: Fourier series
+  stem: 'The square wave ($-1$ on $(-\pi, 0)$, $1$ on $(0, \pi)$) has $b_n =$'
+  choices: ['$\dfrac{2}{n\pi}$ for all $n$', '$\dfrac{4}{n\pi}$ for odd $n$, $0$ for even $n$', '$\dfrac{4}{n^2\pi}$ for odd $n$', '$\dfrac{(-1)^n}{n}$']
+  answer: 1
+  explanation: |-
+    $b_n = \dfrac{2}{n\pi}(1 - \cos n\pi) = \dfrac{2}{n\pi}(1 - (-1)^n)$.
+- id: de-q-3703
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'At $x = 0$, the Fourier series of the square wave above converges to'
+  choices: ['$1$', '$-1$', 'it diverges', '$0$']
+  answer: 3
+  explanation: |-
+    At a jump, the series converges to the average of the left and right limits: $(-1 + 1)/2 = 0$. Every $\sin 0 = 0$ confirms it.
+- id: de-q-3704
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'For period $2L$, the formula for $a_n$ is'
+  choices: ['$\dfrac1L\displaystyle\int_{-L}^Lf(x)\cos\frac{n\pi x}{L}\,dx$', '$\dfrac{1}{2L}\displaystyle\int_{-L}^Lf(x)\cos\frac{n\pi x}{L}\,dx$', '$\dfrac2L\displaystyle\int_{-L}^Lf(x)\cos\frac{n\pi x}{L}\,dx$', '$\displaystyle\int_{-L}^Lf(x)\cos n x\,dx$']
+  answer: 0
+  explanation: |-
+    Orthogonality gives $\int_{-L}^L\cos^2\frac{n\pi x}{L}\,dx = L$, so dividing by $L$ isolates $a_n$.
+- id: de-q-3705
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'What is $\displaystyle\int_{-\pi}^{\pi}\sin 3x\sin 5x\,dx$?'
+  choices: ['$\pi$', '$2\pi$', '$0$', '$\tfrac{\pi}{2}$']
+  answer: 2
+  explanation: |-
+    Different sines are orthogonal over a full period. (With equal frequencies, $\int\sin^2 3x\,dx = \pi$.)
+- id: de-q-3706
+  lesson: de-fourier
+  module_quiz: true
+  topic: Fourier series
+  stem: 'For $f(x) = |x|$ on $(-\pi, \pi)$, what is the constant term $\tfrac{a_0}{2}$?'
+  choices: ['$\pi$', '$0$', '$\dfrac{\pi^2}{2}$', '$\dfrac\pi2$']
+  answer: 3
+  explanation: |-
+    $\tfrac{a_0}{2}$ is the average value: $\dfrac{1}{2\pi}\int_{-\pi}^{\pi}|x|\,dx = \dfrac{\pi^2}{2\pi} = \dfrac\pi2$. ($a_0$ itself is $\pi$.)
+- id: de-q-3707
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'Which function has a Fourier cosine series (all $b_n = 0$) on $(-\pi, \pi)$?'
+  choices: ['$x^3$', '$x^2$', '$\sin x$', '$x$']
+  answer: 1
+  explanation: |-
+    $x^2$ is even. The others are odd and have sine series.
+- id: de-q-3708
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'Why do the coefficients of $|x|$ decay like $1/n^2$ while the square wave''s decay like $1/n$?'
+  choices: ['$|x|$ is even', 'The square wave has a larger period', '$|x|$ is continuous (only corners), while the square wave has jumps', '$|x|$ has no constant term']
+  answer: 2
+  explanation: |-
+    Smoother functions have faster-decaying Fourier coefficients. Jumps force slow $1/n$ decay.
+- id: de-q-3709
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'Near a jump, partial sums of a Fourier series'
+  choices: ['overshoot by about 9% of the jump, however many terms are used', 'converge uniformly', 'undershoot by 50%', 'oscillate with growing amplitude']
+  answer: 0
+  explanation: |-
+    That's the Gibbs phenomenon: the overshoot narrows but does not shrink in height.
+- id: de-q-3710
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'The Fourier sine series of $f$ on $0 < x < L$ uses $b_n =$'
+  choices: ['$\dfrac2L\displaystyle\int_0^Lf(x)\sin\frac{n\pi x}{L}\,dx$', '$\dfrac1L\displaystyle\int_0^Lf(x)\sin\frac{n\pi x}{L}\,dx$', '$\dfrac2L\displaystyle\int_0^Lf(x)\cos\frac{n\pi x}{L}\,dx$', '$\displaystyle\int_0^Lf(x)\sin n x\,dx$']
+  answer: 0
+  explanation: |-
+    It's the full-range formula for the odd extension, which doubles the half-interval integral.
+- id: de-q-3711
+  lesson: de-fourier
+  topic: Fourier series
+  stem: 'What is $\cos n\pi$ for integer $n$?'
+  choices: ['$1$', '$0$', '$(-1)^n$', '$(-1)^{n+1}$']
+  answer: 2
+  explanation: |-
+    $\cos 0 = 1$, $\cos\pi = -1$, $\cos 2\pi = 1$, … alternating. Treating it as 1 is a common slip.
+# Lesson 38
+- id: de-q-3801
+  lesson: de-heat-wave
+  module_quiz: true
+  topic: Heat and wave equations
+  stem: 'Separating $u = X(x)T(t)$ in $u_t = \alpha^2u_{xx}$ with $u(0, t) = u(L, t) = 0$ gives eigenfunctions'
+  choices: ['$X_n = \cos\dfrac{n\pi x}{L}$', '$X_n = \sin\dfrac{n\pi x}{L}$', '$X_n = e^{-n\pi x/L}$', '$X_n = x^n$']
+  answer: 1
+  explanation: |-
+    $X'' + \lambda X = 0$ with $X(0) = X(L) = 0$ forces $X = \sin\sqrt\lambda x$ with $\sqrt\lambda L = n\pi$. Cosines don't vanish at 0.
+- id: de-q-3802
+  lesson: de-heat-wave
+  module_quiz: true
+  topic: Heat and wave equations
+  stem: 'For $u_t = 0.1u_{xx}$ on $0 < x < 1$ with zero ends and $u(x, 0) = 3\sin\pi x - \sin 4\pi x$, find $u(x, t)$.'
+  choices: ['$3e^{-0.1t}\sin\pi x - e^{-0.4t}\sin 4\pi x$', '$3e^{-0.1\pi^2t}\sin\pi x - e^{-0.4\pi^2t}\sin 4\pi x$', '$(3\sin\pi x - \sin 4\pi x)e^{-0.1t}$', '$3e^{-0.1\pi^2t}\sin\pi x - e^{-1.6\pi^2t}\sin 4\pi x$']
+  answer: 3
+  explanation: |-
+    Mode $n$ decays like $e^{-\alpha^2(n\pi/L)^2t}$: for $n = 4$ that's $e^{-0.1 \cdot 16\pi^2t}$. Forgetting to square $n$ gives the $e^{-0.4\pi^2t}$ choice.
+- id: de-q-3803
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'In the heat equation solution, which mode decays fastest?'
+  choices: ['The fundamental $n = 1$', 'The highest-frequency modes (large $n$)', 'All decay at the same rate', 'None decay']
+  answer: 1
+  explanation: |-
+    The decay rate $\alpha^2(n\pi/L)^2$ grows like $n^2$, so sharp features smooth out first.
+- id: de-q-3804
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'How many initial conditions does the wave equation $u_{tt} = a^2u_{xx}$ need?'
+  choices: ['One: $u(x, 0)$', 'Two: $u(0, t)$ and $u(L, t)$', 'Four', 'Two: $u(x, 0)$ and $u_t(x, 0)$']
+  answer: 3
+  explanation: |-
+    It's second order in time, so it needs initial position and velocity. $u(0, t)$ and $u(L, t)$ are boundary conditions.
+- id: de-q-3805
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'A string of length $L$ with wave speed $a$ has fundamental frequency (in cycles per unit time)'
+  choices: ['$\dfrac{a}{2L}$', '$\dfrac{\pi a}{L}$', '$\dfrac{2L}{a}$', '$\dfrac{a}{L}$']
+  answer: 0
+  explanation: |-
+    The first mode oscillates as $\cos\frac{\pi at}{L}$, angular frequency $\pi a/L$, so $\frac{\pi a/L}{2\pi} = \frac{a}{2L}$ cycles per unit time. $\pi a/L$ is the angular frequency.
+- id: de-q-3806
+  lesson: de-heat-wave
+  module_quiz: true
+  topic: Heat and wave equations
+  stem: 'Why must both sides of $\dfrac{T''}{\alpha^2T} = \dfrac{X''''}{X}$ equal a constant?'
+  choices: ['Because the equation is linear', 'Because the boundary conditions are zero', 'The left depends only on $t$ and the right only on $x$, yet they are equal for all $x$ and $t$', 'Because $T$ is exponential']
+  answer: 2
+  explanation: |-
+    Fix $x$ and vary $t$: the right side doesn't change, so the left can't either. That shared value is the separation constant.
+- id: de-q-3807
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'For the heat problem with initial temperature $f(x)$, the coefficients $b_n$ are'
+  choices: ['the Fourier cosine coefficients of $f$', 'all equal to $f(0)$', 'the Taylor coefficients of $f$', 'the Fourier sine coefficients of $f$ on $(0, L)$']
+  answer: 3
+  explanation: |-
+    At $t = 0$ the solution is $\sum b_n\sin\frac{n\pi x}{L} = f(x)$, a sine series.
+- id: de-q-3808
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'With both ends held at 0, what is $\lim_{t\to\infty} u(x, t)$ for the heat equation?'
+  choices: ['the average of $f$', '$0$ everywhere', '$f(x)$', 'it oscillates']
+  answer: 1
+  explanation: |-
+    Every mode decays exponentially, so the rod cools to the boundary temperature.
+- id: de-q-3809
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'A string ($L = 2$, $a = 3$) starts at rest with $u(x, 0) = 0.1\sin\dfrac{\pi x}{2}$. Find $u(x, t)$.'
+  choices: ['$0.1\sin\dfrac{3\pi t}{2}\sin\dfrac{\pi x}{2}$', '$0.1e^{-9\pi^2t/4}\sin\dfrac{\pi x}{2}$', '$0.1\cos\dfrac{3\pi t}{2}\sin\dfrac{\pi x}{2}$', '$0.1\cos 3t\sin\dfrac{\pi x}{2}$']
+  answer: 2
+  explanation: |-
+    Starting from rest means only cosine time factors. The frequency is $\frac{n\pi a}{L} = \frac{3\pi}{2}$ for $n = 1$. The exponential is the heat-equation answer.
+- id: de-q-3810
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'Tightening a guitar string increases its tension and so its wave speed $a$. What happens to the pitch?'
+  choices: ['It rises', 'It falls', 'It stays the same', 'Only the harmonics change']
+  answer: 0
+  explanation: |-
+    Frequencies $\frac{na}{2L}$ are proportional to $a$, so all of them rise together.
+- id: de-q-3811
+  lesson: de-heat-wave
+  topic: Heat and wave equations
+  stem: 'In separation of variables for the heat equation, why is $\lambda \le 0$ rejected?'
+  choices: ['It only gives $X \equiv 0$ under the zero boundary conditions', 'It makes $T$ grow', 'It makes the PDE nonlinear', 'It gives complex solutions']
+  answer: 0
+  explanation: |-
+    For $\lambda = 0$, $X = c_1 + c_2x$; for $\lambda < 0$, combinations of $e^{\pm\sqrt{-\lambda}x}$. Neither can vanish at both ends unless identically zero.

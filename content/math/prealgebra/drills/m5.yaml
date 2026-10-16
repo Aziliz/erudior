@@ -1,0 +1,154 @@
+- id: pre-pct-convert
+  title: Fraction to percent
+  topic: Percent conversions
+  vars:
+    n: {min: 1, max: 49}
+    d: {choices: [2, 4, 5, 8, 10, 20, 25, 40, 50]}
+  calc:
+    dec: n / d
+    pc: 100 * n / d
+  where: ["n < d", "gcd(n, d) == 1"]
+  prompt: 'Write $\dfrac{{n}}{{d}}$ as a percent.'
+  answers:
+    - {name: pc, label: Percent, format: percent, tolerance: 0.001}
+  solution: |-
+    Divide: ${n} \div {d} = {dec:num4}$. Multiply by 100 (move the point two places right): **{pc:percent}**.
+
+- id: pre-pct-to-frac
+  title: Percent to fraction
+  topic: Percent conversions
+  vars:
+    p: {min: 2, max: 98}
+  calc:
+    v: p / 100
+    g: gcd(p, 100)
+  where: ["g > 1"]
+  prompt: 'Write {p}% as a fraction in simplest form.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Fraction}
+  solution: |-
+    ${p}\% = \dfrac{{p}}{100}$. The GCF of {p} and 100 is {g}, so it simplifies to **${v:texfrac}$**.
+
+- id: pre-pct-of
+  title: Percent of a number
+  topic: Percent problems
+  vars:
+    p: {choices: [5, 8, 12, 15, 20, 25, 30, 35, 40, 45, 60, 75, 120, 150]}
+    B: {min: 20, max: 900, step: 4}
+  calc:
+    dp: p / 100
+    A: p * B / 100
+  prompt: 'What is {p}% of {B}?'
+  answers:
+    - {name: A, label: Amount}
+  solution: |-
+    Write the percent as a decimal and multiply: ${dp} \times {B} =$ **{A}**.
+
+- id: pre-pct-what
+  title: What percent?
+  topic: Percent problems
+  vars:
+    p: {min: 2, max: 98}
+    B: {min: 10, max: 500}
+  calc:
+    A: p * B / 100
+    dec: p / 100
+  where: ["A == round(A)"]
+  prompt: '{A} is what percent of {B}?'
+  answers:
+    - {name: p, label: Percent}
+  solution: |-
+    Percent = part ÷ whole: ${A} \div {B} = {dec}$, which is **{p}%**.
+
+- id: pre-pct-base
+  title: Find the whole
+  topic: Percent problems
+  vars:
+    p: {choices: [4, 5, 8, 10, 12, 15, 20, 25, 30, 40, 45, 60, 75, 80]}
+    B: {min: 20, max: 600, step: 5}
+  calc:
+    A: p * B / 100
+    dp: p / 100
+  where: ["A == round(A)"]
+  prompt: '{A} is {p}% of what number?'
+  answers:
+    - {name: B, label: Number}
+  solution: |-
+    ${A} = {dp} \times B$, so $B = {A} \div {dp} =$ **{B}**. Check: {p}% of {B} is {A}.
+
+- id: pre-pct-change
+  title: Percent change
+  topic: Percent change
+  vars:
+    old: {min: 20, max: 400, step: 5}
+    nw: {min: 20, max: 400, step: 5}
+  calc:
+    ch: nw - old
+    pc: (nw - old) / old * 100
+  where: ["nw != old", "abs(pc) <= 90", "abs(pc + 15.54) > 0.3"]
+  prompt: 'A price changes from \${old} to \${nw}. Find the percent change to 1 decimal place (negative for a decrease).'
+  answers:
+    - {name: pc, label: Percent change, tolerance: 0.051}
+  solution: |-
+    Percent change = (new − original) ÷ original × 100%:
+    $\dfrac{{nw} - {old}}{{old}} \times 100\% = \dfrac{{ch}}{{old}} \times 100\% \approx$ **{pc:pct1}**.
+
+- id: pre-discount
+  title: Sale price with tax
+  topic: Percent applications
+  vars:
+    P: {min: 20, max: 300}
+    d: {choices: [10, 15, 20, 25, 30, 35, 40, 50]}
+    tx: {choices: [5, 6, 7, 8]}
+  calc:
+    keep: 100 - d
+    sale: P * (100 - d) / 100
+    total: round(sale * (100 + tx) / 100, 2)
+    texact: sale * (100 + tx) / 100
+  where: ["mod(round(texact * 1000), 10) != 5"]
+  prompt: 'A \${P} item is {d}% off, and sales tax of {tx}% is charged on the sale price. Find the sale price and the total cost.'
+  answers:
+    - {name: sale, label: Sale price, format: money}
+    - {name: total, label: Total with tax, format: money}
+  solution: |-
+    After {d}% off you pay {keep}%: {keep}% × \${P} = **{sale:money}**.
+    Add {tx}% tax: {sale:money} × 1.0{tx} = {texact:num4} ≈ **{total:money}**.
+
+- id: pre-tax-tip
+  title: Tip and total
+  topic: Percent applications
+  vars:
+    bill: {min: 12, max: 150, step: 0.05}
+    t: {choices: [15, 18, 20, 22, 25]}
+  calc:
+    texact: bill * t / 100
+    tip: round(bill * t / 100, 2)
+    total: bill + tip
+  where: ["mod(round(texact * 1000), 10) != 5"]
+  prompt: 'A restaurant bill is {bill:money}. Find a {t}% tip (to the nearest cent) and the total.'
+  answers:
+    - {name: tip, label: Tip, format: money}
+    - {name: total, label: Total, format: money}
+  solution: |-
+    Tip: {t}% of {bill:money} = {texact:num4} ≈ **{tip:money}**. Total: {bill:money} + {tip:money} = **{total:money}**.
+
+- id: pre-simple-interest
+  title: Simple interest
+  topic: Simple interest
+  vars:
+    P: {min: 500, max: 20000, step: 100}
+    r: {choices: [2, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7, 8]}
+    m: {choices: [6, 9, 12, 18, 24, 30, 36, 48, 60]}
+  calc:
+    t: m / 12
+    I: P * r / 100 * m / 12
+    A: P + I
+    rd: r / 100
+  where: ["I == round(I, 2)"]
+  prompt: 'Find the simple interest on \${P} at {r}% per year for {m} months, and the total amount at the end.'
+  answers:
+    - {name: I, label: Interest, format: money}
+    - {name: A, label: Total amount, format: money}
+  solution: |-
+    Time in years: $t = \tfrac{{m}}{12} = {t:num4}$. $I = Prt$, so $I$ = {P:money0} × {rd:num4} × {t:num4} = **{I:money}**.
+    Total: $A = P + I =$ **{A:money}**.

@@ -1,0 +1,189 @@
+- id: pc-limit-piecewise
+  title: One-sided limits of a piecewise function
+  topic: Limits
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -6, max: 6}
+    c: {min: -3, max: 3}
+    p: {choices: [-2, -1, 1, 2]}
+    q: {min: -6, max: 6}
+  where: ["a != 0", "b != 0", "q != 0"]
+  calc:
+    L: a*c + b
+    R: p*c^2 + q
+    same: if(L == R, 1, 0)
+  prompt: |-
+    Let $f(x) = \begin{cases} {a:coef}x {b:signed} & x < {c} \\ {p:coef}x^2 {q:signed} & x \ge {c} \end{cases}$
+
+    Find $\lim_{x\to {c}^-} f(x)$ and $\lim_{x\to {c}^+} f(x)$. Then type 1 if the two-sided limit exists, 0 if not.
+  figure:
+    type: plot
+    x: ['c - 5', 'c + 5']
+    y: ['min(L, R) - 10', 'max(L, R) + 10']
+    functions:
+      - {f: 'a*x + b', to: c}
+      - {f: 'p*x^2 + q', from: c}
+    points:
+      - {at: [c, L], open: true}
+      - {at: [c, R]}
+  answers:
+    - {name: L, label: 'Left-hand limit'}
+    - {name: R, label: 'Right-hand limit'}
+    - {name: same, label: 'Exists? (1 or 0)'}
+  solution: |-
+    From the left use ${a:coef}x {b:signed}$: $({a})({c}) + ({b}) =$ **{L}**. From the right use ${p:coef}x^2 {q:signed}$: $({p})({c})^2 + ({q}) =$ **{R}**. The limit exists only if these agree, so the answer is **{same}**.
+
+- id: pc-limit-table
+  title: Estimate a limit numerically
+  topic: Limits
+  vars:
+    k: {choices: [2, 3, 4, 5, 0.5, -2, -3]}
+  funcs:
+    f(x): sin(k*x)/x
+  calc:
+    v1: f(0.1)
+    v2: f(0.01)
+    v3: f(0.001)
+  prompt: 'Evaluate $\dfrac{\sin({k}x)}{x}$ at $x = 0.1, 0.01, 0.001$ (radians) and use the trend to find $\displaystyle\lim_{x\to 0}\frac{\sin({k}x)}{x}$.'
+  figure:
+    type: plot
+    x: [-3, 3]
+    y: ['-abs(k) - 1', 'abs(k) + 1']
+    functions: ['f']
+  answers:
+    - {name: k, label: 'Limit', tolerance: 0.001}
+  solution: |-
+    The values are about {v1:num4}, {v2:num4}, {v3:num4} (and the same from the left, since the function is even), approaching **{k}**. Near 0, $\sin({k}x) \approx {k}x$, so the quotient is close to {k}.
+
+- id: pc-limit-factor
+  title: Limit by factoring
+  topic: Limits
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+  where: ["a != 0", "b != -a", "s != 0", "pr != 0"]
+  calc:
+    s: b - a
+    pr: -a*b
+    L: a + b
+    na: -a
+  prompt: 'Evaluate $\displaystyle\lim_{x\to {a}}\frac{x^2 {s:signedcoef}x {pr:signed}}{x {na:signed}}$.'
+  answers:
+    - {name: L, label: 'Limit'}
+  solution: |-
+    Substitution gives $\frac00$. Factor the numerator: $(x {na:signed})(x {b:signed})$. Cancel $(x {na:signed})$ and substitute: ${a} + ({b}) =$ **{L}**.
+
+- id: pc-limit-rationalize
+  title: Limit by rationalizing
+  topic: Limits
+  vars:
+    c: {min: 1, max: 9}
+  calc:
+    c2: c^2
+    L: 1/(2*c)
+    c2x: 2*c
+  prompt: 'Evaluate $\displaystyle\lim_{x\to 0}\frac{\sqrt{x + {c2}} - {c}}{x}$ as an exact fraction.'
+  answers:
+    - {name: L, label: 'Limit', kind: fraction, lowestTerms: true}
+  solution: |-
+    Multiply by the conjugate: $\dfrac{(x + {c2}) - {c2}}{x\left(\sqrt{x + {c2}} + {c}\right)} = \dfrac{1}{\sqrt{x + {c2}} + {c}}$. At $x = 0$: $\dfrac{1}{ {c} + {c} } = \dfrac{1}{ {c2x} } =$ **${L:texfrac}$**.
+
+- id: pc-limit-infinity
+  title: Limit at infinity of a rational function
+  topic: Limits at infinity
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -9, max: 9}
+    d: {min: 1, max: 9}
+    e: {min: -9, max: 9}
+  where: ["a != 0", "b != 0", "e != 0"]
+  calc:
+    L: a/d
+  funcs:
+    R(x): (a*x^2 + b*x)/(d*x^2 + e)
+  prompt: 'Evaluate $\displaystyle\lim_{x\to\infty}\frac{ {a:coef}x^2 {b:signedcoef}x }{ {d:coef}x^2 {e:signed} }$ as an exact fraction.'
+  figure:
+    type: plot
+    x: [-30, 30]
+    y: ['L - 4', 'L + 4']
+    functions: ['R', {f: 'L', dashed: true}]
+  answers:
+    - {name: L, label: 'Limit', kind: fraction, lowestTerms: true}
+  solution: |-
+    Divide the numerator and denominator by $x^2$: $\dfrac{ {a} {b:signed}/x }{ {d} {e:signed}/x^2 }$. As $x \to \infty$ the terms with $x$ in the denominator go to 0, leaving $\dfrac{ {a} }{ {d} } =$ **${L:texfrac}$** (the ratio of leading coefficients, since the degrees are equal).
+
+- id: pc-tangent-slope
+  title: Slope of a tangent from the definition
+  topic: The derivative
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+    x0: {min: -4, max: 4}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    m: 2*a*x0 + b
+    y0: a*x0^2 + b*x0 + c
+    ah: 2*a*x0 + b
+  funcs:
+    f(x): a*x^2 + b*x + c
+  prompt: 'Use $\displaystyle\lim_{h\to0}\frac{f({x0} + h) - f({x0})}{h}$ to find the slope of the tangent to $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ at $x = {x0}$.'
+  figure:
+    type: plot
+    x: ['x0 - 5', 'x0 + 5']
+    y: ['y0 - 15', 'y0 + 15']
+    functions: ['f']
+    tangents:
+      - {f: 'f', at: 'x0'}
+    points:
+      - {at: [x0, y0]}
+  answers:
+    - {name: m, label: 'Slope'}
+  solution: |-
+    $f({x0} + h) - f({x0}) = ({a})\big[({x0} + h)^2 - ({x0})^2\big] + ({b})h = ({ah})h {a:signedcoef}h^2$. Divide by $h$: ${ah} {a:signedcoef}h$. As $h \to 0$ the slope is **{m}**.
+
+- id: pc-tangent-line
+  title: Equation of a tangent line
+  topic: The derivative
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+    x0: {min: -3, max: 3}
+  where: ["a != 0", "b != 0", "c != 0", "x0 != 0", "bb != 0", "m != 0"]
+  calc:
+    m: 2*a*x0 + b
+    y0: a*x0^2 + b*x0 + c
+    bb: y0 - m*x0
+  funcs:
+    f(x): a*x^2 + b*x + c
+  prompt: 'Find the equation of the tangent line to $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ at $x = {x0}$. (Its slope is $f''({x0}) = \lim_{h\to0}\frac{f({x0} + h) - f({x0})}{h}$.)'
+  figure:
+    type: plot
+    x: ['x0 - 5', 'x0 + 5']
+    y: ['y0 - 15', 'y0 + 15']
+    functions: ['f']
+    tangents:
+      - {f: 'f', at: 'x0'}
+    points:
+      - {at: [x0, y0], label: '({x0}, {y0})'}
+  answers:
+    - {kind: expression, expression: 'm*x + bb', variables: [x], label: '$y =$', show: '$y = {m:coef}x {bb:signed}$'}
+  solution: |-
+    The point is $({x0}, {y0})$. The difference quotient simplifies to $2({a})({x0}) + ({b}) + ({a})h$, so the slope is $f'({x0}) = {m}$. Then $y = {y0} + ({m})(x - ({x0}))$, i.e. **$y = {m:coef}x {bb:signed}$**.
+
+- id: pc-derivative-def
+  title: Derivative function from the definition
+  topic: The derivative
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    a3: 3*a
+  prompt: 'Use the limit definition to find $f''(x)$ for $f(x) = {a:coef}x^3 {b:signedcoef}x {c:signed}$.'
+  answers:
+    - {kind: expression, expression: '3*a*x^2 + b', variables: [x], label: '$f''(x) =$', show: '${a3}x^2 {b:signed}$'}
+  solution: |-
+    $f(x + h) - f(x) = ({a})\big[3x^2h + 3xh^2 + h^3\big] + ({b})h$ (the constant cancels). Divide by $h$: ${a3}x^2 + ({a3})xh + ({a})h^2 + ({b})$. Let $h \to 0$: **$f'(x) = {a3}x^2 {b:signed}$**.

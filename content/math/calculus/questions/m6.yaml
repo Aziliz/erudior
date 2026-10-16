@@ -1,0 +1,488 @@
+# Module 6: Integrals and the Fundamental Theorem
+- id: calc-q-2101
+  lesson: calc-antiderivatives
+  module_quiz: true
+  topic: Antiderivatives
+  stem: 'Find $\displaystyle\int(4x^3 - 6x + 2)\,dx$.'
+  choices: ['$x^4 - 3x^2 + 2x + C$', '$12x^2 - 6 + C$', '$x^4 - 6x^2 + 2x + C$', '$4x^4 - 3x^2 + 2x + C$']
+  answer: 0
+  explanation: |-
+    Power rule backward: $4\cdot\frac{x^4}{4} - 6\cdot\frac{x^2}{2} + 2x + C$. (The second choice is the derivative.)
+- id: calc-q-2102
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'Find $\displaystyle\int\frac{3}{x^4}\,dx$.'
+  choices: ['$-\dfrac{1}{x^3} + C$', '$\dfrac{3}{5x^5} + C$', '$-\dfrac{12}{x^5} + C$', '$\dfrac{1}{x^3} + C$']
+  answer: 0
+  explanation: |-
+    $3\int x^{-4}dx = 3\cdot\frac{x^{-3}}{-3} + C = -x^{-3} + C$.
+- id: calc-q-2103
+  lesson: calc-antiderivatives
+  module_quiz: true
+  topic: Antiderivatives
+  stem: 'Solve $f''(x) = 6x^2 + 1$, $f(1) = 5$.'
+  choices: ['$f(x) = 2x^3 + x$', '$f(x) = 2x^3 + x + 2$', '$f(x) = 12x + 5$', '$f(x) = 2x^3 + x + 5$']
+  answer: 1
+  explanation: |-
+    $f = 2x^3 + x + C$; $f(1) = 3 + C = 5$, so $C = 2$.
+- id: calc-q-2104
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'Find $\displaystyle\int(\sin x + \sec^2 x)\,dx$.'
+  choices: ['$\cos x + \tan x + C$', '$-\cos x + \sec x\tan x + C$', '$-\cos x + \tan x + C$', '$\cos x + 2\sec x + C$']
+  answer: 2
+  explanation: |-
+    $\int\sin x\,dx = -\cos x$ and $\int\sec^2 x\,dx = \tan x$.
+- id: calc-q-2105
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'Find $\displaystyle\int\frac{x^2 + 1}{x}\,dx$.'
+  choices:
+    - '$\dfrac{x^3/3 + x}{x^2/2} + C$'
+    - '$x^2 + \ln|x| + C$'
+    - '$\dfrac{x^2}{2} - \dfrac{1}{x^2} + C$'
+    - '$\dfrac{x^2}{2} + \ln|x| + C$'
+  answer: 3
+  explanation: |-
+    Divide first: $x + \frac1x$. Integrate: $\frac{x^2}{2} + \ln|x| + C$. There's no quotient rule for integrals.
+- id: calc-q-2106
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'A stone is dropped from a 144-ft cliff ($a = -32$ ft/s², $v(0) = 0$). When does it hit the ground?'
+  choices: ['$9$ s', '$4.5$ s', '$3$ s', '$2$ s']
+  answer: 2
+  explanation: |-
+    $s(t) = -16t^2 + 144 = 0$ gives $t^2 = 9$, $t = 3$ s.
+- id: calc-q-2107
+  lesson: calc-antiderivatives
+  module_quiz: true
+  topic: Antiderivatives
+  stem: '$f''''(x) = 6x$, $f''(0) = 2$, $f(0) = 1$. Find $f(1)$.'
+  choices: ['$4$', '$3$', '$6$', '$5$']
+  answer: 0
+  explanation: |-
+    $f' = 3x^2 + 2$, $f = x^3 + 2x + 1$, so $f(1) = 4$.
+- id: calc-q-2108
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'Which is $\displaystyle\int\frac{1}{1 + x^2}\,dx$?'
+  choices: ['$\ln(1 + x^2) + C$', '$\arcsin x + C$', '$\dfrac{-2x}{(1 + x^2)^2} + C$', '$\arctan x + C$']
+  answer: 3
+  explanation: |-
+    $\frac{d}{dx}\arctan x = \frac{1}{1 + x^2}$. ($\ln(1 + x^2)$ would need $2x$ on top.)
+- id: calc-q-2109
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'Why does every antiderivative of $f$ on an interval have the form $F(x) + C$?'
+  choices:
+    - 'Because integrals always include a $+C$ by convention'
+    - 'Because two functions with the same derivative on an interval differ by a constant (from the MVT)'
+    - 'Because $C$ is the value of $f$ at 0'
+    - 'Because derivatives of constants are 1'
+  answer: 1
+  explanation: |-
+    If $G' = F' = f$, then $(G - F)' = 0$, and the MVT forces $G - F$ to be constant.
+- id: calc-q-2110
+  lesson: calc-antiderivatives
+  topic: Antiderivatives
+  stem: 'Find $\displaystyle\int(2e^x - 3\sqrt x)\,dx$.'
+  choices: ['$2e^x - \dfrac{9}{2}x^{3/2} + C$', '$2e^x - 2x^{3/2} + C$', '$2xe^{x-1} - 2x^{3/2} + C$', '$2e^x - \dfrac{3}{2\sqrt x} + C$']
+  answer: 1
+  explanation: |-
+    $3\int x^{1/2}dx = 3\cdot\frac{x^{3/2}}{3/2} = 2x^{3/2}$.
+
+- id: calc-q-2201
+  lesson: calc-riemann-sums
+  module_quiz: true
+  topic: Riemann sums
+  stem: 'Compute the right Riemann sum for $f(x) = x^2$ on $[0, 3]$ with $n = 3$.'
+  choices: ['$5$', '$9$', '$14$', '$27$']
+  answer: 2
+  explanation: |-
+    $\Delta x = 1$; right endpoints 1, 2, 3: $1 + 4 + 9 = 14$. (Left gives $0 + 1 + 4 = 5$; the exact integral is 9.)
+- id: calc-q-2202
+  lesson: calc-riemann-sums
+  topic: Riemann sums
+  stem: 'For a function that is decreasing on $[a, b]$, the left Riemann sum'
+  choices: ['underestimates the integral', 'overestimates the integral', 'is exact', 'could be either']
+  answer: 1
+  explanation: |-
+    A decreasing function is highest at each subinterval's left end, so left rectangles stick out above the curve.
+- id: calc-q-2203
+  lesson: calc-riemann-sums
+  module_quiz: true
+  topic: Definite integral
+  stem: 'Use geometry to evaluate $\displaystyle\int_{-2}^{2}\sqrt{4 - x^2}\,dx$.'
+  choices: ['$4\pi$', '$\pi$', '$8$', '$2\pi$']
+  answer: 3
+  explanation: |-
+    The graph is the upper half of the circle $x^2 + y^2 = 4$. Half the area of a radius-2 circle: $\frac12\pi(4) = 2\pi$.
+- id: calc-q-2204
+  lesson: calc-riemann-sums
+  topic: Definite integral
+  stem: 'Given $\int_1^6 f = 10$ and $\int_1^4 f = 7$, find $\displaystyle\int_6^4 f(x)\,dx$.'
+  choices:
+    - '$3$'
+    - '$-17$'
+    - '$17$'
+    - '$-3$'
+  answer: 3
+  explanation: |-
+    $\int_4^6 f = 10 - 7 = 3$, so reversing the limits gives $-3$.
+- id: calc-q-2205
+  lesson: calc-riemann-sums
+  topic: Riemann sums
+  stem: 'Evaluate $\displaystyle\sum_{i=1}^{10}(2i + 1)$.'
+  choices: ['$120$', '$110$', '$21$', '$130$']
+  answer: 0
+  explanation: |-
+    $2\sum i + \sum 1 = 2\cdot\frac{10\cdot11}{2} + 10 = 110 + 10 = 120$.
+- id: calc-q-2206
+  lesson: calc-riemann-sums
+  topic: Definite integral
+  stem: 'Evaluate $\displaystyle\int_0^4(x - 2)\,dx$ using geometry.'
+  choices: ['$4$', '$2$', '$-4$', '$0$']
+  answer: 3
+  explanation: |-
+    A triangle of area 2 below the axis on $[0, 2]$ and one of area 2 above on $[2, 4]$ cancel.
+- id: calc-q-2207
+  lesson: calc-riemann-sums
+  topic: Riemann sums
+  stem: 'Which definite integral equals $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\left(1 + \frac{2i}{n}\right)^3\frac{2}{n}$?'
+  choices: ['$\int_0^2 x^3\,dx$', '$\int_1^3 x^3\,dx$', '$\int_1^2 x^3\,dx$', '$\int_0^1 (1 + 2x)^3\,dx$']
+  answer: 1
+  explanation: |-
+    $\Delta x = \frac2n$ and $x_i = 1 + \frac{2i}{n}$ run from $a = 1$ across an interval of length 2, so $b = 3$, with $f(x) = x^3$.
+- id: calc-q-2208
+  lesson: calc-riemann-sums
+  module_quiz: true
+  topic: Riemann sums
+  stem: 'Midpoint sum for $f(x) = x^2$ on $[0, 4]$ with $n = 2$:'
+  choices: ['$20$', '$16$', '$21.33$', '$40$']
+  answer: 0
+  explanation: |-
+    $\Delta x = 2$; midpoints 1 and 3: $2(1 + 9) = 20$. (Exact: $\frac{64}{3} \approx 21.33$.)
+- id: calc-q-2209
+  lesson: calc-riemann-sums
+  topic: Definite integral
+  stem: 'If $2 \le f(x) \le 5$ on $[1, 4]$, what bounds hold for $\int_1^4 f(x)\,dx$?'
+  choices: ['$2 \le \int \le 5$', '$8 \le \int \le 20$', '$6 \le \int \le 15$', '$3 \le \int \le 12$']
+  answer: 2
+  explanation: |-
+    $m(b - a) \le \int_a^b f \le M(b - a)$ with $b - a = 3$: between 6 and 15.
+- id: calc-q-2210
+  lesson: calc-riemann-sums
+  topic: Definite integral
+  stem: 'What does $\int_a^b f(x)\,dx$ represent when $f$ takes both signs?'
+  choices: ['Total area between the graph and the axis', 'Area above the axis minus area below the axis', 'The average height of $f$', 'The largest value of $f$ times $b - a$']
+  answer: 1
+  explanation: |-
+    It's net signed area. Total area would need $\int_a^b|f(x)|\,dx$.
+- id: calc-q-2211
+  lesson: calc-riemann-sums
+  topic: Riemann sums
+  stem: 'A table gives $v(0) = 0$, $v(2) = 10$, $v(4) = 16$, $v(6) = 18$ (ft/s). Using a left Riemann sum with these subintervals, estimate the distance traveled from $t = 0$ to $t = 6$.'
+  choices: ['$88$ ft', '$52$ ft', '$44$ ft', '$26$ ft']
+  answer: 1
+  explanation: |-
+    Left endpoints 0, 2, 4 with width 2: $2(0 + 10 + 16) = 52$ ft. (A right sum gives $2(10 + 16 + 18) = 88$.)
+
+- id: calc-q-2301
+  lesson: calc-ftc
+  module_quiz: true
+  topic: Fundamental Theorem of Calculus
+  stem: 'Evaluate $\displaystyle\int_1^3(2x + 1)\,dx$.'
+  choices: ['$10$', '$8$', '$12$', '$7$']
+  answer: 0
+  explanation: |-
+    $\left[x^2 + x\right]_1^3 = 12 - 2 = 10$.
+- id: calc-q-2302
+  lesson: calc-ftc
+  module_quiz: true
+  topic: Fundamental Theorem of Calculus
+  stem: 'Find $\dfrac{d}{dx}\displaystyle\int_2^x\frac{\sin t}{t}\,dt$.'
+  choices: ['$\dfrac{\cos x}{x}$', '$\dfrac{\sin x}{x} - \dfrac{\sin 2}{2}$', '$\dfrac{\sin x}{x}$', '$\dfrac{\sin t}{t}$']
+  answer: 2
+  explanation: |-
+    FTC 1: the derivative of the accumulation function is the integrand evaluated at $x$. The constant lower limit contributes nothing.
+- id: calc-q-2303
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'Find $\dfrac{d}{dx}\displaystyle\int_0^{x^3}e^{t^2}\,dt$.'
+  choices:
+    - '$e^{x^6}$'
+    - '$e^{x^3}$'
+    - '$3x^2e^{x^2}$'
+    - '$3x^2e^{x^6}$'
+  answer: 3
+  explanation: |-
+    Chain rule: $f(u)u'$ with $u = x^3$: $e^{(x^3)^2}\cdot3x^2$.
+- id: calc-q-2304
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'Evaluate $\displaystyle\int_0^{\pi/2}\cos x\,dx$.'
+  choices: ['$0$', '$-1$', '$\pi/2$', '$1$']
+  answer: 3
+  explanation: |-
+    $\left[\sin x\right]_0^{\pi/2} = 1 - 0 = 1$.
+- id: calc-q-2305
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'Evaluate $\displaystyle\int_1^e\frac{3}{x}\,dx$.'
+  choices: ['$3$', '$3e$', '$3(e - 1)$', '$1$']
+  answer: 0
+  explanation: |-
+    $\left[3\ln x\right]_1^e = 3(1) - 0 = 3$.
+- id: calc-q-2306
+  lesson: calc-ftc
+  module_quiz: true
+  topic: Fundamental Theorem of Calculus
+  stem: '$g(x) = \int_0^x f(t)\,dt$, where $f(t) = 3 - t$. At what $x$ does $g$ have a local maximum?'
+  choices: ['$x = 0$', '$x = 6$', '$x = 3$', '$x = 4.5$']
+  answer: 2
+  explanation: |-
+    $g' = f$ changes from positive to negative at $t = 3$, so $g$ has a local max at $x = 3$ (where $g(3) = 4.5$).
+- id: calc-q-2307
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'A student computes $\int_{-1}^{1}\frac{1}{x^2}\,dx = \left[-\frac1x\right]_{-1}^{1} = -2$. What is wrong?'
+  choices:
+    - 'The antiderivative should be $\ln x^2$'
+    - 'The limits should be reversed'
+    - 'FTC 2 needs $f$ continuous on $[-1, 1]$, but $1/x^2$ blows up at 0'
+    - 'Nothing'
+  answer: 2
+  explanation: |-
+    The integrand is positive, so a negative answer is impossible. The integral is improper and in fact diverges (Lesson 35).
+- id: calc-q-2308
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'Find $\dfrac{d}{dx}\displaystyle\int_x^4\sqrt{1 + t^3}\,dt$.'
+  choices: ['$\sqrt{1 + x^3}$', '$-\sqrt{1 + x^3}$', '$\sqrt{65} - \sqrt{1 + x^3}$', '$-3x^2\sqrt{1 + x^3}$']
+  answer: 1
+  explanation: |-
+    Flip the limits: $-\int_4^x\sqrt{1 + t^3}\,dt$, whose derivative is $-\sqrt{1 + x^3}$.
+- id: calc-q-2309
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'Evaluate $\displaystyle\int_0^1(e^x + x)\,dx$.'
+  choices: ['$e$', '$e + \tfrac12$', '$e - 1$', '$e - \tfrac12$']
+  answer: 3
+  explanation: |-
+    $\left[e^x + \frac{x^2}{2}\right]_0^1 = (e + \frac12) - 1 = e - \frac12$.
+- id: calc-q-2310
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'If $F''(x) = f(x)$ and $F(2) = 7$, $\int_2^5 f(x)\,dx = 4$, find $F(5)$.'
+  choices: ['$11$', '$3$', '$4$', '$28$']
+  answer: 0
+  explanation: |-
+    Net change: $F(5) = F(2) + \int_2^5 F'(x)\,dx = 7 + 4 = 11$.
+- id: calc-q-2311
+  lesson: calc-ftc
+  topic: Fundamental Theorem of Calculus
+  stem: 'For $g(x) = \int_0^x f(t)\,dt$, where is $g$ concave up?'
+  choices: ['Where $f > 0$', 'Where $f$ is increasing', 'Where $f$ is concave up', 'Where $g > 0$']
+  answer: 1
+  explanation: |-
+    $g'' = f'$, so $g$ is concave up where $f' > 0$, that is, where $f$ is increasing.
+
+- id: calc-q-2401
+  lesson: calc-u-sub
+  module_quiz: true
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int 2x(x^2 + 1)^4\,dx$.'
+  choices: ['$\dfrac{(x^2 + 1)^5}{5} + C$', '$\dfrac{2(x^2 + 1)^5}{5} + C$', '$x^2\dfrac{(x^2 + 1)^5}{5} + C$', '$4(x^2 + 1)^3 + C$']
+  answer: 0
+  explanation: |-
+    $u = x^2 + 1$, $du = 2x\,dx$: $\int u^4\,du = \frac{u^5}{5} + C$.
+- id: calc-q-2402
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int\cos(5x)\,dx$.'
+  choices: ['$\sin(5x) + C$', '$5\sin(5x) + C$', '$-\tfrac15\sin(5x) + C$', '$\tfrac15\sin(5x) + C$']
+  answer: 3
+  explanation: |-
+    $u = 5x$, $dx = \frac15du$: $\frac15\sin u + C$.
+- id: calc-q-2403
+  lesson: calc-u-sub
+  module_quiz: true
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int\frac{x}{x^2 + 4}\,dx$.'
+  choices: ['$\ln(x^2 + 4) + C$', '$\tfrac12\arctan\frac x2 + C$', '$\tfrac12\ln(x^2 + 4) + C$', '$\dfrac{1}{2(x^2 + 4)} + C$']
+  answer: 2
+  explanation: |-
+    $u = x^2 + 4$, $du = 2x\,dx$: $\frac12\int\frac{du}{u} = \frac12\ln(x^2 + 4) + C$ (no absolute value needed since $x^2 + 4 > 0$). The arctan form is for $\int\frac{dx}{x^2 + 4}$, without the $x$ on top.
+- id: calc-q-2404
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'Evaluate $\displaystyle\int_0^1 xe^{x^2}\,dx$.'
+  choices: ['$e - 1$', '$\tfrac12(e - 1)$', '$\tfrac e2$', '$2(e - 1)$']
+  answer: 1
+  explanation: |-
+    $u = x^2$, $du = 2x\,dx$; limits 0 to 1: $\frac12\int_0^1e^u\,du = \frac12(e - 1)$.
+- id: calc-q-2405
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'With $u = 2x + 1$, the integral $\int_0^4\sqrt{2x + 1}\,dx$ becomes'
+  choices:
+    - '$\int_0^4\sqrt u\,du$'
+    - '$\tfrac12\int_0^4\sqrt u\,du$'
+    - '$2\int_1^9\sqrt u\,du$'
+    - '$\tfrac12\int_1^9\sqrt u\,du$'
+  answer: 3
+  explanation: |-
+    $du = 2\,dx$ so $dx = \frac12du$; $x = 0 \to u = 1$, $x = 4 \to u = 9$. (Its value is $\frac{26}{3}$.)
+- id: calc-q-2406
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int\tan x\,dx$.'
+  choices: ['$\sec^2 x + C$', '$\ln|\cos x| + C$', '$-\ln|\cos x| + C$', '$\ln|\sin x| + C$']
+  answer: 2
+  explanation: |-
+    $\frac{\sin x}{\cos x}$ with $u = \cos x$, $du = -\sin x\,dx$: $-\ln|\cos x| + C$ (equivalently $\ln|\sec x| + C$).
+- id: calc-q-2407
+  lesson: calc-u-sub
+  module_quiz: true
+  topic: U-substitution
+  stem: 'Evaluate $\displaystyle\int_{-3}^{3}x^5\cos x\,dx$.'
+  choices: ['$0$', '$2\int_0^3 x^5\cos x\,dx$', '$729$', 'It cannot be found without integration by parts']
+  answer: 0
+  explanation: |-
+    $x^5\cos x$ is odd ($(-x)^5\cos(-x) = -x^5\cos x$), so its integral over a symmetric interval is 0.
+- id: calc-q-2408
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int\frac{dx}{\sqrt{25 - x^2}}$.'
+  choices: ['$\arcsin\dfrac x5 + C$', '$\tfrac15\arcsin\dfrac x5 + C$', '$\arcsin(5x) + C$', '$\tfrac15\arctan\dfrac x5 + C$']
+  answer: 0
+  explanation: |-
+    $\int\frac{dx}{\sqrt{a^2 - x^2}} = \arcsin\frac xa + C$. (Unlike the arctan formula, there's no $\frac1a$ in front.)
+- id: calc-q-2409
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int\frac{(\ln x)^3}{x}\,dx$.'
+  choices: ['$\dfrac{(\ln x)^4}{4x} + C$', '$\dfrac{(\ln x)^4}{4} + C$', '$3(\ln x)^2 + C$', '$\dfrac{(\ln x)^4}{4} \ln x + C$']
+  answer: 1
+  explanation: |-
+    $u = \ln x$, $du = \frac{dx}{x}$: $\int u^3\,du = \frac{u^4}{4} + C$.
+- id: calc-q-2410
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'A student substitutes $u = x^2 + 1$ in $\int_0^2 x(x^2 + 1)^3\,dx$, gets $\frac12\int u^3\,du = \frac{u^4}{8}$, and then evaluates $\left[\frac{u^4}{8}\right]_0^2$. What is wrong?'
+  choices:
+    - 'The antiderivative is wrong'
+    - 'The factor $\frac12$ should be 2'
+    - 'Nothing'
+    - 'The $x$-limits 0 and 2 were used with $u$; they should be $u = 1$ to $u = 5$'
+  answer: 3
+  explanation: |-
+    Either change the limits to $u$-values ($\left[\frac{u^4}{8}\right]_1^5 = \frac{624}{8} = 78$) or substitute back to $x$. Mixing gives the wrong value 2.
+- id: calc-q-2411
+  lesson: calc-u-sub
+  topic: U-substitution
+  stem: 'Find $\displaystyle\int\frac{dx}{4 + x^2}$.'
+  choices: ['$\arctan\dfrac x2 + C$', '$\tfrac14\arctan\dfrac x2 + C$', '$\tfrac12\ln(4 + x^2) + C$', '$\tfrac12\arctan\dfrac x2 + C$']
+  answer: 3
+  explanation: |-
+    $\int\frac{dx}{a^2 + x^2} = \frac1a\arctan\frac xa + C$ with $a = 2$.
+
+- id: calc-q-2501
+  lesson: calc-motion-average
+  module_quiz: true
+  topic: Motion along a line
+  stem: '$v(t) = t^2 - 4t + 3$ on $[0, 4]$. What is the total distance traveled?'
+  choices: ['$\tfrac43$', '$4$', '$\tfrac83$', '$0$']
+  answer: 1
+  explanation: |-
+    $v$ changes sign at 1 and 3. The three pieces of $\int v$ are $\frac43$, $-\frac43$, $\frac43$, so distance $= 4$ while displacement $= \frac43$.
+- id: calc-q-2502
+  lesson: calc-motion-average
+  topic: Motion along a line
+  stem: 'A particle has $v(3) = -4$ and $a(3) = 2$. At $t = 3$ the particle is'
+  choices: ['moving right and speeding up', 'moving left and speeding up', 'moving left and slowing down', 'moving right and slowing down']
+  answer: 2
+  explanation: |-
+    $v < 0$: moving left. $v$ and $a$ have opposite signs: slowing down (the speed $|v|$ is decreasing).
+- id: calc-q-2503
+  lesson: calc-motion-average
+  module_quiz: true
+  topic: Motion along a line
+  stem: '$v(t) = 4 - 2t$ m/s and $s(0) = 3$ m. What is $s(5)$?'
+  choices: ['$-5$ m', '$-2$ m', '$8$ m', '$-6$ m']
+  answer: 1
+  explanation: |-
+    $s(5) = 3 + \int_0^5(4 - 2t)\,dt = 3 + [4t - t^2]_0^5 = 3 + (20 - 25) = -2$ m.
+- id: calc-q-2504
+  lesson: calc-motion-average
+  module_quiz: true
+  topic: Average value
+  stem: 'Find the average value of $f(x) = 3x^2$ on $[0, 2]$.'
+  choices: ['$8$', '$6$', '$4$', '$12$']
+  answer: 2
+  explanation: |-
+    $\frac12\int_0^2 3x^2\,dx = \frac12\cdot8 = 4$. (8 forgets to divide by $b - a$; 6 is the average rate of change.)
+- id: calc-q-2505
+  lesson: calc-motion-average
+  topic: Average value
+  stem: 'The average value of $f$ on $[a, b]$ is'
+  choices: ['$\dfrac{f(b) - f(a)}{b - a}$', '$\dfrac{f(a) + f(b)}{2}$', '$\int_a^b f(x)\,dx$', '$\dfrac{1}{b - a}\int_a^b f(x)\,dx$']
+  answer: 3
+  explanation: |-
+    Integral divided by the length of the interval. The first choice is the average rate of change; the second is the average of the endpoint values.
+- id: calc-q-2506
+  lesson: calc-motion-average
+  topic: Motion along a line
+  stem: 'Water flows in at $r(t) = 50 + 6t$ L/min for $0 \le t \le 10$. The tank starts with 100 L. How much is in it at $t = 10$?'
+  choices: ['$900$ L', '$800$ L', '$600$ L', '$160$ L']
+  answer: 0
+  explanation: |-
+    $100 + \int_0^{10}(50 + 6t)\,dt = 100 + [50t + 3t^2]_0^{10} = 100 + 800 = 900$ L.
+- id: calc-q-2507
+  lesson: calc-motion-average
+  topic: Motion along a line
+  stem: '$s(t) = t^3 - 9t^2 + 24t$. On which interval is the particle moving left?'
+  choices: ['$(0, 2)$', '$(2, 4)$', '$(4, \infty)$', '$(3, \infty)$']
+  answer: 1
+  explanation: |-
+    $v = 3t^2 - 18t + 24 = 3(t - 2)(t - 4)$, negative between 2 and 4.
+- id: calc-q-2508
+  lesson: calc-motion-average
+  topic: Average value
+  stem: 'Find the average value of $\sin x$ on $[0, \pi]$.'
+  choices:
+    - '$0$'
+    - '$\dfrac{\pi}{2}$'
+    - '$\dfrac{1}{2}$'
+    - '$\dfrac{2}{\pi}$'
+  answer: 3
+  explanation: |-
+    $\frac1\pi\int_0^\pi\sin x\,dx = \frac{2}{\pi} \approx 0.637$.
+- id: calc-q-2509
+  lesson: calc-motion-average
+  topic: Motion along a line
+  stem: 'What does $\int_0^{8}|v(t)|\,dt$ represent?'
+  choices: ['The displacement from $t = 0$ to $t = 8$', 'The total distance traveled from $t = 0$ to $t = 8$', 'The position at $t = 8$', 'The average speed']
+  answer: 1
+  explanation: |-
+    Integrating speed $|v|$ counts all motion as positive: total distance. $\int v$ (no absolute value) is displacement.
+- id: calc-q-2510
+  lesson: calc-motion-average
+  topic: Average value
+  stem: 'The average value of $f(x) = x^2$ on $[0, 3]$ is 3. At which $c$ in $[0, 3]$ does $f(c) = 3$?'
+  choices: ['$c = 1.5$', '$c = 3$', '$c = \sqrt3$', '$c = 1$']
+  answer: 2
+  explanation: |-
+    $c^2 = 3$, so $c = \sqrt3 \approx 1.73$, as the MVT for integrals guarantees.
+- id: calc-q-2511
+  lesson: calc-motion-average
+  topic: Motion along a line
+  stem: 'If $v(t) > 0$ on $[a, b]$, which is true?'
+  choices:
+    - 'Displacement and distance are equal on $[a, b]$'
+    - 'The particle is speeding up'
+    - 'The acceleration is positive'
+    - 'Displacement is larger than distance'
+  answer: 0
+  explanation: |-
+    With no sign change, $|v| = v$, so $\int|v| = \int v$. Positive velocity says nothing about acceleration.

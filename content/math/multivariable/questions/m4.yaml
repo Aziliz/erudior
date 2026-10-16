@@ -1,0 +1,325 @@
+# Module 4: Optimization
+- id: mv-q-1701
+  lesson: mv-extrema
+  module_quiz: true
+  topic: Critical points
+  stem: 'Find the critical point of $f(x, y) = x^2 + y^2 - 2x - 6y + 14$.'
+  choices: ['$(1, 3)$', '$(-1, -3)$', '$(2, 6)$', '$(0, 0)$']
+  answer: 0
+  explanation: |-
+    $f_x = 2x - 2 = 0$ and $f_y = 2y - 6 = 0$ give $(1, 3)$. (Completing squares: $f = (x-1)^2 + (y-3)^2 + 4$, a minimum of 4 there.)
+- id: mv-q-1702
+  lesson: mv-extrema
+  topic: Second-derivative test
+  stem: 'In the second-derivative test, the discriminant is'
+  choices: ['$D = f_{xx}f_{yy} + (f_{xy})^2$', '$D = f_{xx}f_{yy} - (f_{xy})^2$', '$D = f_{xx} + f_{yy}$', '$D = (f_x)^2 + (f_y)^2$']
+  answer: 1
+  explanation: |-
+    $D = f_{xx}f_{yy} - f_{xy}^2$, the determinant of the Hessian matrix $\begin{bmatrix} f_{xx} & f_{xy}\\ f_{xy} & f_{yy}\end{bmatrix}$.
+- id: mv-q-1703
+  lesson: mv-extrema
+  module_quiz: true
+  topic: Second-derivative test
+  stem: 'At a critical point, $D > 0$ and $f_{xx} < 0$. The point is'
+  choices: ['a local minimum', 'a saddle point', 'a local maximum', 'impossible to classify']
+  answer: 2
+  explanation: |-
+    $D > 0$ means the surface bends the same way in all directions; $f_{xx} < 0$ means downward, so it is a dome: a local maximum.
+- id: mv-q-1704
+  lesson: mv-extrema
+  module_quiz: true
+  topic: Second-derivative test
+  stem: 'At a critical point, $D < 0$ and $f_{xx} > 0$. The point is'
+  choices: ['a local minimum', 'a local maximum', 'inconclusive', 'a saddle point']
+  answer: 3
+  explanation: |-
+    $D < 0$ always means a saddle, whatever the sign of $f_{xx}$. The surface curves up in some directions and down in others.
+- id: mv-q-1705
+  lesson: mv-extrema
+  topic: Second-derivative test
+  stem: 'If $D = 0$ at a critical point, then'
+  choices: ['the test gives no information', 'the point is a saddle', 'the point is not an extremum', 'the point is a local minimum']
+  answer: 0
+  explanation: |-
+    $D = 0$ is inconclusive. For example $x^4 + y^4$ (a minimum) and $x^4 - y^4$ (a saddle) both have $D = 0$ at the origin.
+- id: mv-q-1706
+  lesson: mv-extrema
+  topic: Second-derivative test
+  stem: 'Classify the critical point $(0, 0)$ of $f(x, y) = x^4 + y^4 - 4xy + 1$.'
+  choices: ['Local minimum', 'Saddle point', 'Local maximum', 'Not a critical point']
+  answer: 1
+  explanation: |-
+    $f_{xx} = 12x^2 = 0$, $f_{yy} = 12y^2 = 0$, $f_{xy} = -4$ at the origin, so $D = 0 - 16 < 0$: a saddle. (The minima are at $(1,1)$ and $(-1,-1)$.)
+- id: mv-q-1707
+  lesson: mv-extrema
+  module_quiz: true
+  topic: Second-derivative test
+  stem: 'For $f(x, y) = x^3 - 3x + y^2 - 4y$, which describes the critical point $(1, 2)$?'
+  choices: ['Saddle point, $f = -6$', 'Local maximum, $f = -6$', 'Local minimum, $f = -6$', 'Local minimum, $f = -2$']
+  answer: 2
+  explanation: |-
+    $f_{xx} = 6x = 6$, $f_{yy} = 2$, $f_{xy} = 0$: $D = 12 > 0$ with $f_{xx} > 0$, a local minimum. $f(1, 2) = 1 - 3 + 4 - 8 = -6$.
+    The other critical point $(-1, 2)$ has $D = -12$ and is a saddle.
+- id: mv-q-1708
+  lesson: mv-extrema
+  topic: Critical points
+  stem: 'What kind of critical point does $f(x, y) = xy$ have at the origin?'
+  choices: ['Local maximum', 'Local minimum', 'The test is inconclusive', 'Saddle point']
+  answer: 3
+  explanation: |-
+    $f_{xx} = f_{yy} = 0$ and $f_{xy} = 1$, so $D = -1 < 0$: a saddle. Indeed $f > 0$ in quadrants I and III and $f < 0$ in II and IV.
+- id: mv-q-1709
+  lesson: mv-extrema
+  topic: Critical points
+  stem: 'Find the minimum value of $f(x, y) = 2x^2 + 3y^2 - 4x + 12y$.'
+  choices: ['$-14$', '$-2$', '$-12$', '$0$']
+  answer: 0
+  explanation: |-
+    $f_x = 4x - 4 = 0$ gives $x = 1$; $f_y = 6y + 12 = 0$ gives $y = -2$. $D = 4\cdot6 > 0$, $f_{xx} > 0$: minimum.
+    $f(1, -2) = 2 + 12 - 4 - 24 = -14$.
+- id: mv-q-1710
+  lesson: mv-extrema
+  topic: Critical points
+  stem: 'Find the local maximum value of $f(x, y) = -x^2 - y^2 + 4x$.'
+  choices: ['$2$', '$4$', '$0$', '$8$']
+  answer: 1
+  explanation: |-
+    $f_x = -2x + 4 = 0$, $f_y = -2y = 0$: the point $(2, 0)$. $D = 4 > 0$, $f_{xx} = -2 < 0$: a max, with $f(2,0) = -4 + 8 = 4$.
+- id: mv-q-1711
+  lesson: mv-extrema
+  module_quiz: true
+  topic: Critical points
+  stem: 'An open-top box must hold $32\text{ m}^3$. Which dimensions (length × width × height) minimize the material used?'
+  choices: ['$2 \times 2 \times 8$', '$\sqrt[3]{32}$ on every side', '$4 \times 4 \times 2$', '$4 \times 2 \times 4$']
+  answer: 2
+  explanation: |-
+    Minimize $S = xy + \tfrac{64}{x} + \tfrac{64}{y}$ (after using $z = 32/(xy)$). $S_x = 0$, $S_y = 0$ give $x = y = 4$, then $z = 2$, with $S = 48\text{ m}^2$.
+    A cube is optimal only for a closed box; without a lid the box is twice as wide as it is tall.
+- id: mv-q-1712
+  lesson: mv-extrema
+  topic: Critical points
+  stem: 'On a contour map, near a point $P$ the level curves look like two families of hyperbolas facing each other, with higher values to the north and south and lower values to the east and west. $P$ is most likely'
+  choices: ['a local maximum', 'a local minimum', 'a point where $\nabla f$ is large', 'a saddle point']
+  answer: 3
+  explanation: |-
+    Rising in one direction and falling in the perpendicular one is the signature of a saddle, like $y^2 - x^2$ at the origin.
+- id: mv-q-1713
+  lesson: mv-extrema
+  topic: Second-derivative test
+  stem: 'For $f(x, y) = x^4 + y^4$, the second-derivative test at the origin gives $D = 0$. What is the origin actually?'
+  choices: ['An absolute minimum', 'A saddle point', 'A local maximum', 'Not a critical point']
+  answer: 0
+  explanation: |-
+    $f \ge 0$ everywhere and $f(0,0) = 0$, so the origin is a minimum, even though the test was inconclusive. Inspect $f$ directly when $D = 0$.
+
+- id: mv-q-1801
+  lesson: mv-absolute-extrema
+  module_quiz: true
+  topic: Absolute extrema
+  stem: 'The Extreme Value Theorem guarantees absolute extrema of $f$ on $D$ when'
+  choices: ['$f$ is differentiable and $D$ is open', '$f$ is continuous and $D$ is closed and bounded', '$D$ is bounded, for any $f$', '$f$ has a critical point in $D$']
+  answer: 1
+  explanation: |-
+    Continuity of $f$ and a closed, bounded domain are the hypotheses. Drop either and extrema may fail to exist.
+- id: mv-q-1802
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'Why does $f(x, y) = x$ have no absolute maximum on the open disk $x^2 + y^2 < 1$?'
+  choices: ['$f$ is not continuous', 'The disk is unbounded', 'The disk does not contain its boundary, so values approach 1 but never reach it', '$f$ has no critical points']
+  answer: 2
+  explanation: |-
+    The supremum would be at $(1, 0)$, which is on the boundary circle and not in the open disk. The set is bounded but not closed.
+- id: mv-q-1803
+  lesson: mv-absolute-extrema
+  module_quiz: true
+  topic: Absolute extrema
+  stem: 'Find the absolute maximum of $f(x, y) = x^2 - xy + y^2 - 3x$ on $0 \le x \le 3$, $0 \le y \le 2$.'
+  choices: ['$-3$', '$0$', '$9$', '$4$']
+  answer: 3
+  explanation: |-
+    Candidates: interior critical point $(2,1)$ with $f = -3$; edges give $-2.25$, $0$, $-2$ and the corner $(0, 2)$ with $f = 0 - 0 + 4 - 0 = 4$. The largest is 4.
+- id: mv-q-1804
+  lesson: mv-absolute-extrema
+  module_quiz: true
+  topic: Absolute extrema
+  stem: 'Find the absolute minimum of $f(x, y) = x^2 - xy + y^2 - 3x$ on $0 \le x \le 3$, $0 \le y \le 2$.'
+  choices: ['$-3$', '$-2.25$', '$-2$', '$0$']
+  answer: 0
+  explanation: |-
+    The interior critical point $(2, 1)$ gives $f = 4 - 2 + 1 - 6 = -3$, lower than every boundary candidate (the edges bottom out at $-2.25$).
+- id: mv-q-1805
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'Find the absolute maximum of $f(x, y) = x^2 + 2y^2 - x$ on the disk $x^2 + y^2 \le 1$.'
+  choices: ['$2$', '$\tfrac94$', '$3$', '$-\tfrac14$']
+  answer: 1
+  explanation: |-
+    On the circle $f = 2 - x - x^2$ for $-1 \le x \le 1$, maximized at $x = -\tfrac12$: $f = \tfrac94$. The interior critical point gives $-\tfrac14$ (the minimum), and the ends give $0$ and $2$.
+- id: mv-q-1806
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'Find the absolute maximum of $f(x, y) = 4xy$ on the triangle with vertices $(0,0)$, $(2,0)$, $(0,2)$.'
+  choices: ['$16$', '$8$', '$4$', '$0$']
+  answer: 2
+  explanation: |-
+    On the legs $f = 0$. On the hypotenuse $y = 2 - x$: $4x(2 - x)$, largest at $x = 1$, value 4. No interior critical points (only the corner $(0,0)$).
+- id: mv-q-1807
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'When finding absolute extrema on a rectangle, which candidates are most often forgotten?'
+  choices: ['Interior critical points', 'Points where $f = 0$', 'Points where $D < 0$', 'The four corners']
+  answer: 3
+  explanation: |-
+    The corners are endpoints of the edge pieces, and each edge's one-variable problem must include its endpoints.
+- id: mv-q-1808
+  lesson: mv-absolute-extrema
+  module_quiz: true
+  topic: Absolute extrema
+  stem: 'Find the absolute maximum and minimum of $f(x, y) = x^2 + y^2$ on the square $-1 \le x \le 2$, $-1 \le y \le 2$.'
+  choices: ['Max $8$ at $(2, 2)$, min $0$ at $(0, 0)$', 'Max $8$ at $(2, 2)$, min $2$ at $(-1, -1)$', 'Max $5$ at $(2, -1)$, min $0$ at $(0, 0)$', 'Max $4$ at $(2, 0)$, min $1$ at $(1, 0)$']
+  answer: 0
+  explanation: |-
+    $f$ is the squared distance from the origin. The origin is inside the square (critical point, $f = 0$); the farthest point is the corner $(2, 2)$ with $f = 8$.
+- id: mv-q-1809
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'Find the absolute maximum of $f(x, y) = x + y$ on the disk $x^2 + y^2 \le 2$.'
+  choices: ['$\sqrt2$', '$2$', '$4$', '$2\sqrt2$']
+  answer: 1
+  explanation: |-
+    No interior critical points ($\nabla f = \langle 1,1\rangle \ne \mathbf 0$). On the circle $x = \sqrt2\cos t$, $y = \sqrt2\sin t$: $f = \sqrt2(\cos t + \sin t) = 2\sin(t + \tfrac{\pi}{4})$, with max $2$ at $(1, 1)$.
+- id: mv-q-1810
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'Find the absolute minimum of $f(x, y) = 3 - x - y$ on the triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$.'
+  choices: ['$3$', '$1$', '$2$', '$0$']
+  answer: 2
+  explanation: |-
+    $f$ is linear, so its extremes are on the boundary. On the hypotenuse $x + y = 1$, $f = 2$; at the origin $f = 3$. Minimum 2 (along the whole hypotenuse), maximum 3.
+- id: mv-q-1811
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'While finding absolute extrema on the rectangle $0 \le x \le 3$, $0 \le y \le 2$, you find a critical point at $(5, 1)$. What should you do with it?'
+  choices: ['Include it as a candidate', 'Use the second-derivative test on it', 'Replace it with the nearest corner', 'Discard it, since it is outside the region']
+  answer: 3
+  explanation: |-
+    Only critical points inside the region are candidates. Values outside the region are irrelevant to the extrema on the region.
+- id: mv-q-1812
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'On the edge $y = 2$, the function $f(x, y) = x^2 - xy + y^2 - 3x$ restricts to which function of $x$?'
+  choices: ['$x^2 - 5x + 4$', '$x^2 - 3x + 4$', '$x^2 - 2x + 4$', '$x^2 - 5x$']
+  answer: 0
+  explanation: |-
+    Substitute $y = 2$: $x^2 - 2x + 4 - 3x = x^2 - 5x + 4$.
+
+- id: mv-q-1901
+  lesson: mv-lagrange
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'To optimize $f$ subject to $g = k$ with Lagrange multipliers, you solve'
+  choices: ['$\nabla f = \mathbf 0$ and $g = k$', '$\nabla f = \lambda\nabla g$ and $g = k$', '$\nabla f\cdot\nabla g = 0$', '$f = \lambda g$']
+  answer: 1
+  explanation: |-
+    At a constrained extremum the gradients are parallel, $\nabla f = \lambda\nabla g$, and the point must satisfy the constraint. $\nabla f = \mathbf 0$ is the unconstrained condition.
+- id: mv-q-1902
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'Why must $\nabla f$ be parallel to $\nabla g$ at a constrained extremum?'
+  choices: ['Because $f$ and $g$ are equal there', 'Because $\nabla f = \mathbf 0$ there', 'Because the constraint curve is tangent to a level curve of $f$ there, so their normals are parallel', 'Because $\lambda$ must be positive']
+  answer: 2
+  explanation: |-
+    If the constraint crossed a level curve of $f$, moving along it would raise or lower $f$. At an extremum it only touches the level curve, and touching curves share normals.
+- id: mv-q-1903
+  lesson: mv-lagrange
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'Find the maximum of $f(x, y) = x + 2y$ on the circle $x^2 + y^2 = 5$.'
+  choices: ['$\sqrt5$', '$3$', '$10$', '$5$']
+  answer: 3
+  explanation: |-
+    $1 = 2\lambda x$, $2 = 2\lambda y$ give $y = 2x$; then $5x^2 = 5$, $x = \pm1$. $f(1,2) = 5$ is the max and $f(-1,-2) = -5$ the min.
+- id: mv-q-1904
+  lesson: mv-lagrange
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'Which point of the plane $x + 2y + 2z = 9$ is closest to the origin?'
+  choices: ['$(1, 2, 2)$', '$(9, 0, 0)$', '$(3, 3, 0)$', '$(2, 2, 1)$']
+  answer: 0
+  explanation: |-
+    $\nabla(x^2+y^2+z^2) = \lambda\langle 1,2,2\rangle$ gives $(x,y,z) = \tfrac{\lambda}{2}\langle 1,2,2\rangle$; the constraint gives $\lambda = 2$, so $(1, 2, 2)$, at distance 3.
+    $(2,2,1)$ is not even on the plane ($2 + 4 + 2 = 8$).
+- id: mv-q-1905
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'A closed box has surface area $24\text{ m}^2$. What is its largest possible volume?'
+  choices: ['$6\text{ m}^3$', '$8\text{ m}^3$', '$12\text{ m}^3$', '$4\text{ m}^3$']
+  answer: 1
+  explanation: |-
+    The Lagrange equations force $x = y = z$; then $6x^2 = 24$, $x = 2$, and $V = 8\text{ m}^3$.
+- id: mv-q-1906
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'Maximize $f(x, y) = xy$ subject to $x + y = 10$.'
+  choices: ['$20$', '$50$', '$25$', '$100$']
+  answer: 2
+  explanation: |-
+    $\langle y, x\rangle = \lambda\langle 1, 1\rangle$ gives $x = y$; then $x = y = 5$ and $f = 25$.
+- id: mv-q-1907
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'Minimize $f(x, y) = x^2 + y^2$ subject to $x + y = 4$.'
+  choices: ['$16$', '$4$', '$2\sqrt2$', '$8$']
+  answer: 3
+  explanation: |-
+    $\langle 2x, 2y\rangle = \lambda\langle 1, 1\rangle$ gives $x = y = 2$, so $f = 8$. (The distance from the origin to the line is $\sqrt8$.)
+- id: mv-q-1908
+  lesson: mv-lagrange
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'For $f(x, y, z)$ with one constraint $g(x, y, z) = k$, how many equations and unknowns does the Lagrange system have?'
+  choices: ['4 equations in $x, y, z, \lambda$', '3 equations in $x, y, z$', '3 equations in $x, y, \lambda$', '6 equations in $x, y, z, \lambda, \mu, \nu$']
+  answer: 0
+  explanation: |-
+    Three component equations of $\nabla f = \lambda\nabla g$, plus the constraint: four equations in four unknowns.
+- id: mv-q-1909
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'What does the multiplier $\lambda$ measure at the optimum?'
+  choices: ['The optimal value of $f$', 'How fast the optimal value of $f$ changes as the constraint level $k$ changes', 'The distance from the origin to the optimum', 'The angle between $\nabla f$ and $\nabla g$']
+  answer: 1
+  explanation: |-
+    $\lambda = \dfrac{d f_{\text{opt}}}{dk}$: the "shadow price" of the constraint. For $x + 2y$ on $x^2 + y^2 = k$, the max is $\sqrt{5k}$, whose derivative at $k = 5$ is $\tfrac12 = \lambda$.
+- id: mv-q-1910
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'With two constraints $g = k$ and $h = c$, the Lagrange condition is'
+  choices: ['$\nabla f = \lambda\nabla g$ and $\nabla f = \mu\nabla h$', '$\nabla f = \lambda\nabla g\times\nabla h$', '$\nabla f = \lambda\nabla g + \mu\nabla h$', '$\nabla f = \lambda(\nabla g + \nabla h)$']
+  answer: 2
+  explanation: |-
+    $\nabla f$ must lie in the plane spanned by the two constraint normals: $\nabla f = \lambda\nabla g + \mu\nabla h$, with two separate multipliers.
+- id: mv-q-1911
+  lesson: mv-lagrange
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'Find the minimum of $f(x, y) = xy$ on the circle $x^2 + y^2 = 2$.'
+  choices: ['$0$', '$-2$', '$1$', '$-1$']
+  answer: 3
+  explanation: |-
+    $\langle y, x\rangle = \lambda\langle 2x, 2y\rangle$ gives $y^2 = x^2$, so $y = \pm x$ and $x^2 = 1$. Values: $f = 1$ at $(1,1), (-1,-1)$ and $f = -1$ at $(1,-1), (-1,1)$. Minimum $-1$.
+- id: mv-q-1912
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'Solving $y = 2\lambda x$, $x = 2\lambda y$, a student divides the equations to get $\tfrac{y}{x} = \tfrac{x}{y}$. What risk does this step carry?'
+  choices: ['It can lose solutions where $x = 0$ or $y = 0$', 'It always gives the wrong answer', 'It introduces complex solutions', 'It changes the value of $\lambda$']
+  answer: 0
+  explanation: |-
+    Dividing assumes the denominators are nonzero. Check separately whether $x = 0$ or $y = 0$ (with the constraint) gives solutions before dividing.
+- id: mv-q-1913
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'Find the maximum of $f = x + y + z$ on the sphere $x^2 + y^2 + z^2 = 3$.'
+  choices: ['$\sqrt3$', '$3$', '$9$', '$1$']
+  answer: 1
+  explanation: |-
+    $\langle 1,1,1\rangle = \lambda\langle 2x,2y,2z\rangle$ forces $x = y = z$; then $3x^2 = 3$, so $x = \pm1$. The max is $f(1,1,1) = 3$.

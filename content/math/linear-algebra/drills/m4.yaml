@@ -1,0 +1,161 @@
+# Module 4 drills
+
+- id: la-T-image
+  title: Image under a matrix transformation
+  topic: Linear transformations
+  vars:
+    a11: {min: -4, max: 4}
+    a12: {min: -4, max: 4}
+    a21: {min: -4, max: 4}
+    a22: {min: -4, max: 4}
+    a31: {min: -4, max: 4}
+    a32: {min: -4, max: 4}
+    u1: {min: -5, max: 5}
+    u2: {min: -5, max: 5}
+  where: ["u1 != 0", "u2 != 0"]
+  calc:
+    r1: a11*u1 + a12*u2 + 0
+    r2: a21*u1 + a22*u2 + 0
+    r3: a31*u1 + a32*u2 + 0
+  prompt: |-
+    $T: \mathbb{R}^2 \to \mathbb{R}^3$ is defined by $T(\mathbf{x}) = A\mathbf{x}$ with $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22} \\ {a31} & {a32}\end{bmatrix}$. Find the image of $\mathbf{u} = ({u1}, {u2})$.
+  answers:
+    - {name: r1, label: 'entry 1'}
+    - {name: r2, label: 'entry 2'}
+    - {name: r3, label: 'entry 3'}
+  solution: |-
+    $T(\mathbf{u}) = {u1}\begin{bmatrix} {a11} \\ {a21} \\ {a31}\end{bmatrix} + ({u2})\begin{bmatrix} {a12} \\ {a22} \\ {a32}\end{bmatrix} =$ **$\begin{bmatrix} {r1} \\ {r2} \\ {r3}\end{bmatrix}$**, a vector in $\mathbb{R}^3$.
+
+- id: la-T-from-basis
+  title: Use linearity to evaluate T
+  topic: Linear transformations
+  vars:
+    t11: {min: -5, max: 5}
+    t21: {min: -5, max: 5}
+    t12: {min: -5, max: 5}
+    t22: {min: -5, max: 5}
+    c1: {min: -4, max: 4}
+    c2: {min: -4, max: 4}
+  where: ["c1 != 0", "c2 != 0", "t11 != 0 or t21 != 0", "t12 != 0 or t22 != 0"]
+  calc:
+    r1: c1*t11 + c2*t12 + 0
+    r2: c1*t21 + c2*t22 + 0
+  prompt: |-
+    $T: \mathbb{R}^2 \to \mathbb{R}^2$ is linear, with $T(\mathbf{e}_1) = \begin{bmatrix} {t11} \\ {t21}\end{bmatrix}$ and $T(\mathbf{e}_2) = \begin{bmatrix} {t12} \\ {t22}\end{bmatrix}$. Find $T\left(\begin{bmatrix} {c1} \\ {c2}\end{bmatrix}\right)$.
+  answers:
+    - {name: r1, label: 'entry 1'}
+    - {name: r2, label: 'entry 2'}
+  solution: |-
+    $({c1}, {c2}) = {c1}\mathbf{e}_1 + ({c2})\mathbf{e}_2$, so by linearity $T({c1}, {c2}) = {c1}\,T(\mathbf{e}_1) + ({c2})\,T(\mathbf{e}_2) =$ **$({r1}, {r2})$**.
+
+- id: la-rotate
+  title: Rotate a point
+  topic: Geometric transformations
+  vars:
+    px: {min: -5, max: 5}
+    py: {min: -5, max: 5}
+    th: {choices: [30, 45, 60, 90, 120, 135, 150, 210, 240, 270, 300, 315]}
+  where: ["px != 0 or py != 0"]
+  calc:
+    cs: round(cosd(th), 6) + 0
+    sn: round(sind(th), 6) + 0
+    qx: round(px*cosd(th) - py*sind(th), 6) + 0
+    qy: round(px*sind(th) + py*cosd(th), 6) + 0
+  prompt: |-
+    Rotate the point $({px}, {py})$ counterclockwise by ${th}^\circ$ about the origin. Give the coordinates to 2 decimal places.
+  answers:
+    - {name: qx, label: '$x$', tolerance: 0.01}
+    - {name: qy, label: '$y$', tolerance: 0.01}
+  figure:
+    type: plot
+    equal: true
+    x: [-8, 8]
+    y: [-8, 8]
+    segments:
+      - {from: [0, 0], to: [px, py], arrow: true, label: '({px}, {py})'}
+  solution: |-
+    Multiply by the rotation matrix:
+    $$\begin{bmatrix} \cos{th}^\circ & -\sin{th}^\circ \\ \sin{th}^\circ & \cos{th}^\circ\end{bmatrix}\begin{bmatrix} {px} \\ {py}\end{bmatrix} = \begin{bmatrix} {px}({cs:num4}) - ({py})({sn:num4}) \\ {px}({sn:num4}) + ({py})({cs:num4})\end{bmatrix} \approx$$
+    **({qx:num2}, {qy:num2})**.
+
+- id: la-square-image
+  title: Read a standard matrix from the image of the unit square
+  topic: Standard matrix
+  vars:
+    a11: {min: -3, max: 3}
+    a21: {min: -3, max: 3}
+    a12: {min: -3, max: 3}
+    a22: {min: -3, max: 3}
+  where: ["a11*a22 - a12*a21 != 0"]
+  calc:
+    s1: a11 + a12 + 0
+    s2: a21 + a22 + 0
+  prompt: |-
+    A linear transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ maps the unit square to the shaded parallelogram shown, with $T(\mathbf{e}_1)$ and $T(\mathbf{e}_2)$ marked. Find the standard matrix of $T$.
+  answers:
+    - {name: a11, label: 'row 1, col 1'}
+    - {name: a12, label: 'row 1, col 2'}
+    - {name: a21, label: 'row 2, col 1'}
+    - {name: a22, label: 'row 2, col 2'}
+  figure:
+    type: plot
+    equal: true
+    x: [-6, 6]
+    y: [-6, 6]
+    polygons:
+      - {points: [[0, 0], [a11, a21], [s1, s2], [a12, a22]]}
+    segments:
+      - {from: [0, 0], to: [a11, a21], arrow: true, label: 'T(e₁)'}
+      - {from: [0, 0], to: [a12, a22], arrow: true, label: 'T(e₂)'}
+  solution: |-
+    Column $j$ of the standard matrix is $T(\mathbf{e}_j)$. From the picture, $T(\mathbf{e}_1) = ({a11}, {a21})$ and $T(\mathbf{e}_2) = ({a12}, {a22})$ (the far corner is their sum, $({s1}, {s2})$). So
+    **$A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$**.
+
+- id: la-std-compose
+  title: Standard matrix of a composition
+  topic: Geometric transformations
+  vars:
+    tf:
+      choices:
+        - {label: 'reflects across the $x_1$-axis', value: 0}
+        - {label: 'reflects across the $x_2$-axis', value: 1}
+        - {label: 'reflects across the line $x_2 = x_1$', value: 2}
+        - {label: 'rotates $90^\circ$ counterclockwise', value: 3}
+        - {label: 'rotates $90^\circ$ clockwise', value: 4}
+        - {label: 'applies the horizontal shear $(x_1, x_2) \mapsto (x_1 + 2x_2, x_2)$', value: 5}
+        - {label: 'applies the vertical shear $(x_1, x_2) \mapsto (x_1, 2x_1 + x_2)$', value: 6}
+        - {label: 'multiplies every vector by 3', value: 7}
+    ts:
+      choices:
+        - {label: 'reflects across the $x_1$-axis', value: 0}
+        - {label: 'reflects across the $x_2$-axis', value: 1}
+        - {label: 'reflects across the line $x_2 = x_1$', value: 2}
+        - {label: 'rotates $90^\circ$ counterclockwise', value: 3}
+        - {label: 'rotates $90^\circ$ clockwise', value: 4}
+        - {label: 'applies the horizontal shear $(x_1, x_2) \mapsto (x_1 + 2x_2, x_2)$', value: 5}
+        - {label: 'applies the vertical shear $(x_1, x_2) \mapsto (x_1, 2x_1 + x_2)$', value: 6}
+        - {label: 'multiplies every vector by 3', value: 7}
+  where: ["tf != ts"]
+  calc:
+    fa: if(tf == 0, 1, if(tf == 1, -1, if(tf == 2, 0, if(tf == 3, 0, if(tf == 4, 0, if(tf == 5, 1, if(tf == 6, 1, 3))))))) + 0
+    fb: if(tf == 0, 0, if(tf == 1, 0, if(tf == 2, 1, if(tf == 3, -1, if(tf == 4, 1, if(tf == 5, 2, if(tf == 6, 0, 0))))))) + 0
+    fc: if(tf == 0, 0, if(tf == 1, 0, if(tf == 2, 1, if(tf == 3, 1, if(tf == 4, -1, if(tf == 5, 0, if(tf == 6, 2, 0))))))) + 0
+    fd: if(tf == 0, -1, if(tf == 1, 1, if(tf == 2, 0, if(tf == 3, 0, if(tf == 4, 0, if(tf == 5, 1, if(tf == 6, 1, 3))))))) + 0
+    sa: if(ts == 0, 1, if(ts == 1, -1, if(ts == 2, 0, if(ts == 3, 0, if(ts == 4, 0, if(ts == 5, 1, if(ts == 6, 1, 3))))))) + 0
+    sb: if(ts == 0, 0, if(ts == 1, 0, if(ts == 2, 1, if(ts == 3, -1, if(ts == 4, 1, if(ts == 5, 2, if(ts == 6, 0, 0))))))) + 0
+    sc: if(ts == 0, 0, if(ts == 1, 0, if(ts == 2, 1, if(ts == 3, 1, if(ts == 4, -1, if(ts == 5, 0, if(ts == 6, 2, 0))))))) + 0
+    sd: if(ts == 0, -1, if(ts == 1, 1, if(ts == 2, 0, if(ts == 3, 0, if(ts == 4, 0, if(ts == 5, 1, if(ts == 6, 1, 3))))))) + 0
+    m11: sa*fa + sb*fc + 0
+    m12: sa*fb + sb*fd + 0
+    m21: sc*fa + sd*fc + 0
+    m22: sc*fb + sd*fd + 0
+  prompt: |-
+    $T: \mathbb{R}^2 \to \mathbb{R}^2$ first {tf}, and then {ts}. Find the standard matrix of $T$.
+  answers:
+    - {name: m11, label: 'row 1, col 1'}
+    - {name: m12, label: 'row 1, col 2'}
+    - {name: m21, label: 'row 2, col 1'}
+    - {name: m22, label: 'row 2, col 2'}
+  solution: |-
+    Follow $\mathbf{e}_1$ and $\mathbf{e}_2$ through both steps. The first map sends $\mathbf{e}_1 \mapsto ({fa}, {fc})$ and $\mathbf{e}_2 \mapsto ({fb}, {fd})$; the second map (matrix $\begin{bmatrix} {sa} & {sb} \\ {sc} & {sd}\end{bmatrix}$) then sends these to $({m11}, {m21})$ and $({m12}, {m22})$. Those images are the columns:
+    **$\begin{bmatrix} {m11} & {m12} \\ {m21} & {m22}\end{bmatrix}$**.

@@ -1,0 +1,321 @@
+# Module 2: Integers
+# --- pre-integers ---
+- id: pre-q-0601
+  lesson: pre-integers
+  module_quiz: true
+  topic: Integers
+  stem: 'Which list is ordered from least to greatest?'
+  choices: ['$-1, -4, 0, 3$', '$0, -1, -4, 3$', '$-4, -1, 0, 3$', '$3, 0, -1, -4$']
+  answer: 2
+  explanation: |-
+    Least means farthest left on the number line. $-4$ is left of $-1$, which is left of 0, which is left of 3: $-4, -1, 0, 3$.
+
+- id: pre-q-0602
+  lesson: pre-integers
+  topic: Integers
+  stem: 'Which statement is true?'
+  choices: ['$-8 > -3$', '$-5 > 0$', '$-6 > 1$', '$-2 > -9$']
+  answer: 3
+  explanation: |-
+    $-2$ is to the right of $-9$ on the number line, so $-2 > -9$. For negative numbers, the one with the smaller absolute value is greater.
+
+- id: pre-q-0603
+  lesson: pre-integers
+  module_quiz: true
+  topic: Absolute value
+  stem: 'Evaluate $|{-9}| + |4|$.'
+  choices: ['13', '$-5$', '5', '$-13$']
+  answer: 0
+  explanation: |-
+    Absolute value is distance from 0: $|{-9}| = 9$ and $|4| = 4$. So $9 + 4 = 13$. (5 comes from treating $|{-9}|$ as $-9$.)
+
+- id: pre-q-0604
+  lesson: pre-integers
+  topic: Absolute value
+  stem: 'Evaluate $-|{-7}|$.'
+  choices: ['7', '$-7$', '0', '$\pm 7$']
+  answer: 1
+  explanation: |-
+    First the bars: $|{-7}| = 7$. Then the minus sign outside takes the opposite: $-7$.
+
+- id: pre-q-0605
+  lesson: pre-integers
+  topic: Integers
+  stem: 'What is the opposite of $-12$?'
+  choices: ['$\tfrac{1}{12}$', '$-12$', '12', '0']
+  answer: 2
+  explanation: |-
+    The opposite is the same distance from 0 on the other side: $-(-12) = 12$.
+
+- id: pre-q-0606
+  lesson: pre-integers
+  module_quiz: true
+  topic: Absolute value
+  stem: 'What is the distance between $-6$ and 9 on the number line?'
+  choices: ['3', '$-15$', '54', '15']
+  answer: 3
+  explanation: |-
+    The numbers are on opposite sides of zero, so add their absolute values: $6 + 9 = 15$. Equivalently $|9 - (-6)| = 15$. (3 comes from subtracting $9 - 6$.)
+
+- id: pre-q-0607
+  lesson: pre-integers
+  topic: Absolute value
+  stem: 'Which numbers have an absolute value of 5?'
+  choices: ['5 and $-5$', '$-5$ only', '5 only', '0 and 5']
+  answer: 0
+  explanation: |-
+    Both 5 and $-5$ are 5 units from 0, so both have absolute value 5.
+
+- id: pre-q-0608
+  lesson: pre-integers
+  topic: Integers
+  stem: 'A diver is 35 feet below the surface. Which integer represents her position, taking the surface as 0?'
+  choices: ['35', '$-35$', '0', '$|35|$']
+  answer: 1
+  explanation: |-
+    "Below" is the negative direction, so 35 feet below the surface is $-35$.
+
+- id: pre-q-0609
+  lesson: pre-integers
+  topic: Absolute value
+  stem: 'At dawn it was $-14$°F and by afternoon it was $-3$°F. How many degrees did the temperature rise?'
+  choices: ['17', '$-11$', '11', '$-17$']
+  answer: 2
+  explanation: |-
+    Both temperatures are below zero (same side), so subtract the absolute values: $14 - 3 = 11$ degrees. Check: from $-14$, moving 11 to the right lands on $-3$.
+
+- id: pre-q-0610
+  lesson: pre-integers
+  topic: Integers
+  stem: 'Which integer is 7 units to the left of 2 on the number line?'
+  choices: ['$-9$', '9', '5', '$-5$']
+  answer: 3
+  explanation: |-
+    Moving left decreases the number. From 2, two steps left reaches 0, and five more reach $-5$. (9 moves right instead; $-9$ starts from $-2$.)
+
+- id: pre-q-0611
+  lesson: pre-integers
+  topic: Absolute value
+  stem: 'Which is greatest?'
+  choices: ['$|{-6}|$', '$|{-2}|$', '$-|{-10}|$', '$-10$']
+  answer: 0
+  explanation: |-
+    The values are $-10$, 2, $-10$ and 6. The greatest is $|{-6}| = 6$.
+
+# --- pre-int-addsub ---
+- id: pre-q-0701
+  lesson: pre-int-addsub
+  module_quiz: true
+  topic: Adding integers
+  stem: 'Find $-9 + 4$.'
+  choices: ['5', '$-5$', '$-13$', '13']
+  answer: 1
+  explanation: |-
+    Different signs: subtract absolute values, $9 - 4 = 5$, and take the sign of the larger absolute value (9, negative). So $-5$.
+
+- id: pre-q-0702
+  lesson: pre-int-addsub
+  topic: Adding integers
+  stem: 'Find $-7 + (-8)$.'
+  choices: ['1', '$-1$', '$-15$', '15']
+  answer: 2
+  explanation: |-
+    Same signs: add the absolute values and keep the sign. $7 + 8 = 15$, so $-15$. (15 confuses this with the multiplication rule.)
+
+- id: pre-q-0703
+  lesson: pre-int-addsub
+  module_quiz: true
+  topic: Subtracting integers
+  stem: 'Find $6 - (-11)$.'
+  choices: ['$-5$', '$-17$', '5', '17']
+  answer: 3
+  explanation: |-
+    Add the opposite: $6 - (-11) = 6 + 11 = 17$. Subtracting a negative is adding a positive.
+
+- id: pre-q-0704
+  lesson: pre-int-addsub
+  module_quiz: true
+  topic: Subtracting integers
+  stem: 'Find $-4 - 10$.'
+  choices: ['$-14$', '$-6$', '6', '14']
+  answer: 0
+  explanation: |-
+    Add the opposite of 10: $-4 + (-10) = -14$. Only the second number changes sign. ($-6$ comes from $-4 + 10$.)
+
+- id: pre-q-0705
+  lesson: pre-int-addsub
+  topic: Subtracting integers
+  stem: 'Find $-15 - (-8)$.'
+  choices: ['$-23$', '$-7$', '7', '23']
+  answer: 1
+  explanation: |-
+    Add the opposite: $-15 + 8$. Different signs: $15 - 8 = 7$, sign of the larger (negative): $-7$.
+
+- id: pre-q-0706
+  lesson: pre-int-addsub
+  topic: Adding integers
+  stem: 'Simplify $3 + (-12) + 8 + (-5)$.'
+  choices: ['$-28$', '6', '$-6$', '$-4$']
+  answer: 2
+  explanation: |-
+    Positives: $3 + 8 = 11$. Negatives: $-12 + (-5) = -17$. Combine: $11 + (-17) = -6$.
+
+- id: pre-q-0707
+  lesson: pre-int-addsub
+  topic: Subtracting integers
+  stem: 'Simplify $-2 - 7 - (-9) + 1$.'
+  choices: ['$-17$', '$-1$', '19', '1']
+  answer: 3
+  explanation: |-
+    Rewrite: $-2 + (-7) + 9 + 1$. Positives: 10. Negatives: $-9$. Total: $10 + (-9) = 1$.
+
+- id: pre-q-0708
+  lesson: pre-int-addsub
+  topic: Subtracting integers
+  stem: |-
+    A student simplified $-5 - 9$ like this: "$-5 - 9 = 5 + (-9) = -4$." What went wrong?
+  choices: ['The sign of the first number was changed; only the 9 should change', 'Nothing; $-4$ is correct', 'The 9 should not change sign', 'Subtracting should give a positive result']
+  answer: 0
+  explanation: |-
+    To subtract, add the opposite of the *second* number and leave the first alone: $-5 + (-9) = -14$.
+
+- id: pre-q-0709
+  lesson: pre-int-addsub
+  module_quiz: true
+  topic: Subtracting integers
+  stem: 'The temperature in Fairbanks was 12°F at noon and $-19$°F at midnight. How much did it drop?'
+  choices: ['7 degrees', '31 degrees', '19 degrees', '$-7$ degrees']
+  answer: 1
+  explanation: |-
+    The difference is $12 - (-19) = 12 + 19 = 31$ degrees. (7 comes from computing $19 - 12$, ignoring that the temperatures are on opposite sides of zero.)
+
+- id: pre-q-0710
+  lesson: pre-int-addsub
+  topic: Adding integers
+  stem: 'A checking account has \$85. The owner writes checks for \$60 and \$47, then deposits \$30. What is the balance?'
+  choices: ['$-\$22$', '\$22', '\$8', '$-\$8$']
+  answer: 2
+  explanation: |-
+    $85 + (-60) + (-47) + 30$. Positives: 115. Negatives: $-107$. Total: $115 - 107 = 8$, so \$8.
+
+- id: pre-q-0711
+  lesson: pre-int-addsub
+  topic: Adding integers
+  stem: 'What number must be added to $-13$ to get 0?'
+  choices: ['$-13$', '0', '$\tfrac{1}{13}$', '13']
+  answer: 3
+  explanation: |-
+    A number plus its opposite (additive inverse) is 0: $-13 + 13 = 0$.
+
+- id: pre-q-0712
+  lesson: pre-int-addsub
+  topic: Subtracting integers
+  stem: 'A hiker starts at 150 feet below sea level and ends at 420 feet above sea level. What is the change in elevation?'
+  choices: ['570 ft', '$-570$ ft', '270 ft', '$-270$ ft']
+  answer: 0
+  explanation: |-
+    Change = final − initial $= 420 - (-150) = 570$ feet (an increase).
+
+# --- pre-int-muldiv ---
+- id: pre-q-0801
+  lesson: pre-int-muldiv
+  module_quiz: true
+  topic: Multiplying and dividing integers
+  stem: 'Find $(-6)(-7)$.'
+  choices: ['$-42$', '42', '$-13$', '13']
+  answer: 1
+  explanation: |-
+    Same signs give a positive product: $6 \times 7 = 42$.
+
+- id: pre-q-0802
+  lesson: pre-int-muldiv
+  topic: Multiplying and dividing integers
+  stem: 'Find $-56 \div 8$.'
+  choices: ['7', '$-48$', '$-7$', '$-64$']
+  answer: 2
+  explanation: |-
+    Different signs give a negative quotient: $56 \div 8 = 7$, so $-7$. Check: $-7 \times 8 = -56$.
+
+- id: pre-q-0803
+  lesson: pre-int-muldiv
+  module_quiz: true
+  topic: Multiplying and dividing integers
+  stem: 'Evaluate $-4^2$.'
+  choices: ['16', '8', '$-8$', '$-16$']
+  answer: 3
+  explanation: |-
+    The exponent applies only to the 4: $-4^2 = -(4 \times 4) = -16$. Compare $(-4)^2 = 16$.
+
+- id: pre-q-0804
+  lesson: pre-int-muldiv
+  topic: Multiplying and dividing integers
+  stem: 'Evaluate $(-1)^{7}$.'
+  choices: ['$-1$', '1', '$-7$', '7']
+  answer: 0
+  explanation: |-
+    Seven factors of $-1$: an odd number of negatives gives a negative result. $(-1)^7 = -1$.
+
+- id: pre-q-0805
+  lesson: pre-int-muldiv
+  topic: Multiplying and dividing integers
+  stem: 'What is the sign of $(-3)(4)(-2)(-5)(-1)$?'
+  choices: ['Negative, because there are four negative factors', 'Positive, because there are four negative factors', 'Negative, because there is one positive factor', 'Positive, because 120 is positive']
+  answer: 1
+  explanation: |-
+    There are four negative factors, an even number, so the product is positive: it equals 120.
+
+- id: pre-q-0806
+  lesson: pre-int-muldiv
+  module_quiz: true
+  topic: Order of operations
+  stem: 'Evaluate $7 - 3(-4)$.'
+  choices: ['$-16$', '$-5$', '19', '$-28$']
+  answer: 2
+  explanation: |-
+    Multiply first: $3(-4) = -12$. Then $7 - (-12) = 7 + 12 = 19$. ($-16$ comes from subtracting first: $4 \times (-4)$.)
+
+- id: pre-q-0807
+  lesson: pre-int-muldiv
+  topic: Order of operations
+  stem: 'Evaluate $\dfrac{-18 + 6}{-2 - 4}$.'
+  choices: ['$-4$', '$-2$', '4', '2']
+  answer: 3
+  explanation: |-
+    Top: $-18 + 6 = -12$. Bottom: $-2 - 4 = -6$. Quotient: $-12 \div (-6) = 2$ (same signs, positive).
+
+- id: pre-q-0808
+  lesson: pre-int-muldiv
+  topic: Order of operations
+  stem: 'Evaluate $(-2)^3 + 4^2 \div (-8)$.'
+  choices: ['$-10$', '$-6$', '6', '$-1$']
+  answer: 0
+  explanation: |-
+    Exponents: $(-2)^3 = -8$ and $4^2 = 16$. Division: $16 \div (-8) = -2$. Add: $-8 + (-2) = -10$.
+
+- id: pre-q-0809
+  lesson: pre-int-muldiv
+  topic: Order of operations
+  stem: 'Evaluate $-2(3 - 7)^2$.'
+  choices: ['64', '$-32$', '32', '$-64$']
+  answer: 1
+  explanation: |-
+    Parentheses: $3 - 7 = -4$. Exponent: $(-4)^2 = 16$. Multiply: $-2 \times 16 = -32$. (64 comes from squaring $-2(-4) = 8$ first.)
+
+- id: pre-q-0810
+  lesson: pre-int-muldiv
+  topic: Multiplying and dividing integers
+  stem: 'A diver descends at a steady 4 feet per second. Taking the surface as 0 and positions below it as negative, what is the change in her position after 9 seconds?'
+  choices: ['$-13$ ft', '36 ft', '$-36$ ft', '$-5$ ft']
+  answer: 2
+  explanation: |-
+    Descending is negative: $9 \times (-4) = -36$ feet.
+
+- id: pre-q-0811
+  lesson: pre-int-muldiv
+  module_quiz: true
+  topic: Multiplying and dividing integers
+  stem: 'Over 6 weeks a person''s weight changed by $-18$ pounds in total, the same each week. What was the weekly change?'
+  choices: ['$-108$ lb', '$-12$ lb', '3 lb', '$-3$ lb']
+  answer: 3
+  explanation: |-
+    Divide the total change by the number of weeks: $-18 \div 6 = -3$ pounds per week (different signs, negative). ($-108$ multiplies instead of dividing; 3 drops the sign.)

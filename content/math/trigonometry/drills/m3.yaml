@@ -1,0 +1,195 @@
+# Module 3 drills: trig functions of any angle
+- id: trig-d-point-ratios
+  title: Trig values from a point on the terminal side
+  topic: Trig functions of any angle
+  vars:
+    x: {min: -9, max: 9}
+    y: {min: -9, max: 9}
+  where: ["x != 0", "y != 0"]
+  calc:
+    rr: x^2 + y^2
+    r: sqrt(rr)
+    sn: y / r
+    cs: x / r
+    tn: y / x
+  prompt: 'The point $({x}, {y})$ is on the terminal side of $\theta$. Find $\sin\theta$, $\cos\theta$ and $\tan\theta$. Exact answers like -3/sqrt(13) are fine (or 4 decimals).'
+  answers:
+    - {name: sn, label: '$\sin\theta$', tolerance: 0.0005, format: num4}
+    - {name: cs, label: '$\cos\theta$', tolerance: 0.0005, format: num4}
+    - {name: tn, label: '$\tan\theta$', tolerance: 0.0005, format: num4}
+  solution: |-
+    $r = \sqrt{({x})^2 + ({y})^2} = \sqrt{{rr}}$. Then $\sin\theta = \dfrac{{y}}{\sqrt{{rr}}} \approx$ **{sn:num4}**,
+    $\cos\theta = \dfrac{{x}}{\sqrt{{rr}}} \approx$ **{cs:num4}**, and $\tan\theta = \dfrac{{y}}{{x}} \approx$ **{tn:num4}**.
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    segments:
+      - {from: [0, 0], to: ['x', 'y']}
+    points:
+      - {at: ['x', 'y'], label: '({x}, {y})'}
+
+- id: trig-d-quadrant-given
+  title: Trig values from one value and the quadrant
+  topic: Trig functions of any angle
+  vars:
+    t: {min: 0, max: 5}
+    sw: {choices: [0, 1]}
+    Q: {choices: [{label: 'I', value: 1}, {label: 'II', value: 2}, {label: 'III', value: 3}, {label: 'IV', value: 4}]}
+  calc:
+    p: if(t == 0, 3, if(t == 1, 5, if(t == 2, 8, if(t == 3, 7, if(t == 4, 20, 9)))))
+    q: if(t == 0, 4, if(t == 1, 12, if(t == 2, 15, if(t == 3, 24, if(t == 4, 21, 40)))))
+    hyp: sqrt(p^2 + q^2)
+    xs: if(Q == 1 or Q == 4, 1, -1)
+    ys: if(Q <= 2, 1, -1)
+    x: xs * if(sw == 0, p, q)
+    y: ys * if(sw == 0, q, p)
+    cs: x / hyp
+    sn: y / hyp
+    tn: y / x
+  prompt: '$\cos\theta = {cs:texfrac}$ and $\theta$ is in quadrant {Q}. Find $\sin\theta$ and $\tan\theta$ as fractions.'
+  answers:
+    - {name: sn, label: '$\sin\theta$', kind: fraction, lowestTerms: true}
+    - {name: tn, label: '$\tan\theta$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Use $x = {x}$, $r = {hyp}$. Then $y = \pm\sqrt{{hyp}^2 - ({x})^2}$, and in quadrant {Q} the sign gives
+    $y = {y}$. So $\sin\theta = \dfrac{\,y}{\,r} =$ **${sn:texfrac}$** and $\tan\theta = \dfrac{\,y}{\,x} =$ **${tn:texfrac}$**.
+
+- id: trig-d-reference-angle
+  title: Reference angle (degrees)
+  topic: Reference angles
+  vars:
+    a: {min: -720, max: 1080, step: 5}
+  where: ["mod(a, 90) != 0"]
+  calc:
+    c: mod(a, 360)
+    ref: if(c < 90, c, if(c < 180, 180 - c, if(c < 270, c - 180, 360 - c)))
+  prompt: 'Find the reference angle of ${a}^\circ$.'
+  answers:
+    - {name: ref, label: 'Reference angle', units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    The coterminal angle in $[0^\circ, 360^\circ)$ is ${c}^\circ$. Measure the acute angle back to the
+    $x$-axis: the reference angle is **{ref}°**.
+  figure:
+    type: plot
+    x: [-1.4, 1.4]
+    y: [-1.4, 1.4]
+    equal: true
+    segments:
+      - {from: [0, 0], to: [1.2, 0]}
+      - {from: [0, 0], to: ['cosd(c)', 'sind(c)'], arrow: true}
+
+- id: trig-d-reference-rad
+  title: Reference angle (radians)
+  topic: Reference angles
+  vars:
+    n: {min: -23, max: 23}
+    d: {choices: [3, 4, 6]}
+  where: ["gcd(abs(n), d) == 1"]
+  calc:
+    u: mod(n / d, 2)
+    refq: if(u < 0.5, u, if(u < 1, 1 - u, if(u < 1.5, u - 1, 2 - u)))
+    ref: refq * pi
+    cq: u
+  prompt: 'Find the reference angle of $\dfrac{{n:coef}\pi}{{d}}$. Give it exactly, like pi/6.'
+  answers:
+    - {name: ref, label: 'Reference angle', tolerance: 0.001}
+  solution: |-
+    The coterminal angle in $[0, 2\pi)$ is ${cq:texfrac}\pi$. The acute angle back to the $x$-axis is
+    **${refq:texfrac}\pi$**.
+
+- id: trig-d-exact-sin-cos
+  title: Exact sine and cosine (degrees)
+  topic: Unit circle
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
+    a: {choices: [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330, -30, -45, -60, -120, -135, -150, 390, 405, 420]}
+  calc:
+    c: mod(a, 360)
+    ref: if(c < 90, c, if(c < 180, 180 - c, if(c < 270, c - 180, 360 - c)))
+    v: if(f == 0, sind(a), cosd(a))
+  prompt: 'Give the exact value of ${f}({a}^\circ)$. Type it like -sqrt(3)/2.'
+  answers:
+    - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    In $[0^\circ, 360^\circ)$ the angle is ${c}^\circ$, whose reference angle is ${ref}^\circ$. Take ${f}({ref}^\circ)$ from
+    the special triangles and attach the sign for ${c}^\circ$'s quadrant: ${f}({a}^\circ) \approx$ **{v:num4}**
+    (the exact value is one of $\pm\tfrac12$, $\pm\tfrac{\sqrt2}{2}$, $\pm\tfrac{\sqrt3}{2}$).
+
+- id: trig-d-exact-radian
+  title: Exact values at radian angles
+  topic: Unit circle
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}, {label: '\tan', value: 2}]}
+    n: {min: -11, max: 23}
+    d: {choices: [3, 4, 6]}
+  where: ["gcd(abs(n), d) == 1", "f != 2 or abs(cos(n*pi/d)) > 0.1"]
+  calc:
+    t: n * pi / d
+    v: if(f == 0, sin(t), if(f == 1, cos(t), tan(t)))
+    deg: 180 * n / d
+  prompt: 'Give the exact value of ${f}\left(\dfrac{{n:coef}\pi}{{d}}\right)$. Type it like sqrt(2)/2 or -sqrt(3).'
+  answers:
+    - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    $\dfrac{{n:coef}\pi}{{d}}$ is ${deg}^\circ$. Find its terminal point on the unit circle (cosine is $x$,
+    sine is $y$, tangent is $y/x$): the value is about **{v:num4}**.
+
+- id: trig-d-exact-tan
+  title: Exact tangent, secant, cosecant, cotangent
+  topic: Unit circle
+  vars:
+    f: {choices: [{label: '\tan', value: 0}, {label: '\sec', value: 1}, {label: '\csc', value: 2}, {label: '\cot', value: 3}]}
+    a: {choices: [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330]}
+  calc:
+    v: if(f == 0, tand(a), if(f == 1, secd(a), if(f == 2, cscd(a), cotd(a))))
+    ref: if(a < 90, a, if(a < 180, 180 - a, if(a < 270, a - 180, 360 - a)))
+  prompt: 'Give the exact value of ${f}\,{a}^\circ$. Type it like -2sqrt(3)/3.'
+  answers:
+    - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    Reference angle ${ref}^\circ$; use the ASTC sign for ${a}^\circ$. Remember
+    $\sec = \tfrac{1}{\cos}$, $\csc = \tfrac{1}{\sin}$, $\cot = \tfrac{1}{\tan}$. The value is about **{v:num4}**.
+
+- id: trig-d-periodic
+  title: Evaluate using periodicity
+  topic: Properties of trig functions
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
+    k: {min: -4, max: 5}
+    m: {choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
+  where: ["k != 0"]
+  calc:
+    n: 12 * k + m
+    red: m / 6
+    t: n * pi / 6
+    v: if(f == 0, sin(t), cos(t))
+    turns: k
+  prompt: 'Evaluate ${f}\left(\dfrac{{n}\pi}{6}\right)$ exactly. First give the coterminal angle in $[0, 2\pi)$, then the value.'
+  answers:
+    - {name: red, label: 'Angle in $[0, 2\pi)$ as a multiple of $\pi$ (e.g. 5/6 for 5π/6)', tolerance: 0.001}
+    - {name: v, label: 'Value', tolerance: 0.0005, format: num4}
+  solution: |-
+    $\dfrac{{n}\pi}{6} = 2\pi({turns}) + \dfrac{{m:coef}\pi}{6}$. Removing whole periods leaves
+    $\dfrac{{m:coef}\pi}{6} =$ **${red:texfrac}\pi$**, and ${f}\left(\dfrac{{m:coef}\pi}{6}\right) \approx$ **{v:num4}**.
+
+- id: trig-d-even-odd
+  title: Values at −t from values at t
+  topic: Properties of trig functions
+  vars:
+    t0: {min: 0.2, max: 6, step: 0.01}
+  where: ["abs(cos(t0)) > 0.15", "abs(sin(t0)) > 0.05"]
+  calc:
+    s: round(sin(t0), 3)
+    c: round(cos(t0), 3)
+    ns: -s
+    tn: -s / c
+  prompt: 'For a number $t$, $\sin t = {s:dp3}$ and $\cos t = {c:dp3}$. Find $\sin(-t)$, $\cos(-t)$ and $\tan(-t)$ (3 decimals).'
+  answers:
+    - {name: ns, label: '$\sin(-t)$', tolerance: 0.001, format: dp3}
+    - {name: c, label: '$\cos(-t)$', tolerance: 0.001, format: dp3}
+    - {name: tn, label: '$\tan(-t)$', relTolerance: 0.002}
+  solution: |-
+    Sine is odd, cosine even, tangent odd: $\sin(-t) = -\sin t =$ **{ns:dp3}**, $\cos(-t) = \cos t =$ **{c:dp3}**,
+    $\tan(-t) = -\dfrac{\sin t}{\cos t} = -\dfrac{{s:dp3}}{{c:dp3}} \approx$ **{tn:num4}**.

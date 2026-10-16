@@ -1,0 +1,159 @@
+# Module 6 drills
+- id: mv-d-triple-box
+  title: Triple integral over a box
+  topic: Triple integrals
+  vars:
+    p: {min: 1, max: 5}
+    q: {min: -3, max: 4}
+    a: {min: 1, max: 3}
+    b: {min: 1, max: 3}
+    c: {min: 1, max: 3}
+  where: ["q != 0"]
+  calc:
+    t1: p*a^2/2*b*c
+    t2: q*a*b^2/2*c^2/2
+    ans: t1 + t2
+  prompt: 'Evaluate $\displaystyle\iiint_B({p}x {q:signedcoef}yz)\,dV$ over the box $B = [0, {a}]\times[0, {b}]\times[0, {c}]$. (Exact or 2 decimals.)'
+  answers:
+    - {name: ans, label: 'Value'}
+  solution: |-
+    Split and factor each term over the box:
+    $\displaystyle\iiint {p}x\,dV = {p}\cdot\frac{{a}^2}{2}\cdot{b}\cdot{c} = {t1}$ and $\displaystyle\iiint ({q})yz\,dV = ({q})\cdot{a}\cdot\frac{{b}^2}{2}\cdot\frac{{c}^2}{2} = {t2}$.
+    Total: **{ans}**.
+- id: mv-d-tetra-vol
+  title: Volume and centroid height of a tetrahedron
+  topic: Triple integrals
+  vars:
+    a: {min: 1, max: 6}
+    b: {min: 1, max: 6}
+    c: {min: 1, max: 6}
+  calc:
+    V: a*b*c/6
+    zb: c/4
+  prompt: 'The tetrahedron $E$ is bounded by the coordinate planes and the plane $\dfrac{x}{{a}} + \dfrac{y}{{b}} + \dfrac{z}{{c}} = 1$. Find its volume and the $z$-coordinate of its centroid. (Exact or 2 decimals.)'
+  figure:
+    type: plot
+    x: [-0.5, 6.5]
+    y: [-0.5, 6.5]
+    equal: true
+    polygons:
+      - {points: [[0, 0], [a, 0], [0, b]], fill: true}
+    caption: 'Shadow on the xy-plane: 0 ≤ x ≤ {a}, 0 ≤ y ≤ {b}(1 − x/{a})'
+  answers:
+    - {name: V, label: '$V =$'}
+    - {name: zb, label: '$\bar z =$'}
+  solution: |-
+    Top surface $z = {c}\left(1 - \frac{x}{{a}} - \frac{y}{{b}}\right)$ over the triangle with legs {a} and {b}.
+    $V = \displaystyle\iint_D {c}\left(1 - \frac{x}{{a}} - \frac{y}{{b}}\right)dA = \frac{{a}\cdot{b}\cdot{c}}{6} =$ **{V:num2}**.
+    Likewise $\iiint_E z\,dV = \dfrac{{a}\cdot{b}\cdot{c}^2}{24}$, so $\bar z = \dfrac{{c}}{4} =$ **{zb:num2}** (the average of the vertices' heights).
+- id: mv-d-cyl-convert
+  title: Rectangular to cylindrical
+  topic: Cylindrical coordinates
+  vars:
+    x: {min: -5, max: 5}
+    y: {min: -5, max: 5}
+    z: {min: -5, max: 5}
+  where: ["x != 0", "y != 0"]
+  calc:
+    r: sqrt(x^2 + y^2)
+    at: atan2(y, x)
+    th: if(at < 0, at + 2*pi, at)
+    thd: th*180/pi
+  prompt: 'Convert $({x}, {y}, {z})$ to cylindrical coordinates $(r, \theta, z)$ with $0 \le \theta < 2\pi$ ($\theta$ in radians, 2 decimals).'
+  answers:
+    - {name: r, label: '$r =$'}
+    - {name: th, label: '$\theta =$'}
+    - {name: z, label: '$z =$'}
+  solution: |-
+    $r = \sqrt{({x})^2 + ({y})^2} \approx {r:num2}$.
+    $\tan\theta = \dfrac{{y}}{{x}}$; checking the quadrant of $({x}, {y})$ gives $\theta \approx {th:num2}$ rad (about {thd:num1}°).
+    $z$ is unchanged. So **$(r, \theta, z) \approx ({r:num2},\ {th:num2},\ {z})$**.
+- id: mv-d-cyl-integral
+  title: Integral over a cylinder
+  topic: Cylindrical coordinates
+  vars:
+    a: {min: 1, max: 3}
+    h: {min: 1, max: 4}
+    c: {min: 1, max: 3}
+  calc:
+    t1: pi*h*a^4/2
+    t2: c*pi*a^2*h^2/2
+    ans: t1 + t2
+  prompt: 'Evaluate $\displaystyle\iiint_E(x^2 + y^2 {c:signedcoef}z)\,dV$, where $E$ is the solid cylinder $x^2 + y^2 \le {a}^2$, $0 \le z \le {h}$. (2 decimals.)'
+  answers:
+    - {name: ans, label: 'Value', relTolerance: 0.001}
+  solution: |-
+    In cylindrical coordinates the integrand is $r^2 {c:signedcoef}z$ and $dV = r\,dz\,dr\,d\theta$:
+    $\displaystyle\int_0^{2\pi}\int_0^{{a}}\int_0^{{h}}(r^2 {c:signedcoef}z)\,r\,dz\,dr\,d\theta = 2\pi\left[{h}\cdot\frac{{a}^4}{4} + {c}\cdot\frac{{h}^2}{2}\cdot\frac{{a}^2}{2}\right] \approx$ **{ans:num2}**.
+- id: mv-d-sph-convert
+  title: Spherical to rectangular
+  topic: Spherical coordinates
+  vars:
+    rho: {min: 1, max: 6}
+    thd: {choices: [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330]}
+    phd: {choices: [30, 45, 60, 90, 120, 135, 150]}
+  calc:
+    X: rho*sind(phd)*cosd(thd)
+    Y: rho*sind(phd)*sind(thd)
+    Z: rho*cosd(phd)
+  prompt: 'Convert the spherical point $\rho = {rho}$, $\theta = {thd}^\circ$, $\phi = {phd}^\circ$ to rectangular coordinates. (2 decimals.)'
+  answers:
+    - {name: X, label: '$x =$'}
+    - {name: Y, label: '$y =$'}
+    - {name: Z, label: '$z =$'}
+  solution: |-
+    $x = \rho\sin\phi\cos\theta = {rho}\sin{phd}^\circ\cos{thd}^\circ \approx {X:num2}$,
+    $y = \rho\sin\phi\sin\theta = {rho}\sin{phd}^\circ\sin{thd}^\circ \approx {Y:num2}$,
+    $z = \rho\cos\phi = {rho}\cos{phd}^\circ \approx {Z:num2}$.
+    **$(x, y, z) \approx ({X:num2}, {Y:num2}, {Z:num2})$**.
+- id: mv-d-sph-ball
+  title: Radial integral over a ball
+  topic: Spherical coordinates
+  vars:
+    a: {min: 1, max: 3}
+    n: {min: 0, max: 3}
+  calc:
+    n3: n + 3
+    ans: 4*pi*a^(n+3)/(n+3)
+  prompt: 'Evaluate $\displaystyle\iiint_B\left(\sqrt{x^2 + y^2 + z^2}\right)^{n}\,dV$ over the ball $x^2 + y^2 + z^2 \le {a}^2$. (2 decimals.)'
+  answers:
+    - {name: ans, label: 'Value', relTolerance: 0.001}
+  solution: |-
+    In spherical coordinates the integrand is $\rho^{n}$ and $dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$:
+    $\displaystyle\int_0^\pi\sin\phi\,d\phi\int_0^{2\pi}d\theta\int_0^{{a}}\rho^{n}\rho^2\,d\rho = 2\cdot2\pi\cdot\frac{{a}^{{n3}}}{{n3}} \approx$ **{ans:num2}**.
+- id: mv-d-jacobian
+  title: Compute a Jacobian
+  topic: Jacobians
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -3, max: 3}
+    c: {min: 1, max: 4}
+  where: ["b != 0"]
+  calc:
+    k1: 2*a*c
+    k2: -b*c
+    a2: 2*a
+  prompt: 'Find the Jacobian $\dfrac{\partial(x, y)}{\partial(u, v)}$ for $x = {a:coef}u^2 {b:signedcoef}v$, $y = {c:coef}uv$.'
+  answers:
+    - {kind: expression, expression: 'k1*u^2 + k2*v', variables: [u, v], label: '$\dfrac{\partial(x,y)}{\partial(u,v)} =$', show: '${k1}u^2 {k2:signedcoef}v$'}
+  solution: |-
+    $x_u = {a2}u$, $x_v = {b}$, $y_u = {c}v$, $y_v = {c}u$.
+    $\dfrac{\partial(x,y)}{\partial(u,v)} = x_uy_v - x_vy_u = ({a2}u)({c}u) - ({b})({c}v) =$ **${k1}u^2 {k2:signedcoef}v$**.
+- id: mv-d-cov-linear
+  title: Area of a parallelogram by change of variables
+  topic: Change of variables
+  vars:
+    p: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+    A: {min: 1, max: 6}
+    B: {min: 1, max: 6}
+  where: ["p != 0", "q != 0", "1 - p*q != 0"]
+  calc:
+    Ju: 1 - p*q
+    area: A*B/abs(Ju)
+  prompt: 'Let $R$ be the parallelogram bounded by $x {p:signedcoef}y = 0$, $x {p:signedcoef}y = {A}$, ${q:coef}x + y = 0$ and ${q:coef}x + y = {B}$. Using $u = x {p:signedcoef}y$ and $v = {q:coef}x + y$, find the area of $R$. (Exact fraction.)'
+  answers:
+    - {name: area, kind: fraction, label: 'Area'}
+  solution: |-
+    $\dfrac{\partial(u, v)}{\partial(x, y)} = \begin{vmatrix} 1 & {p}\\ {q} & 1\end{vmatrix} = 1 - ({p})({q}) = {Ju}$, so $\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right| = \dfrac{1}{|{Ju}|}$.
+    The new region is the rectangle $0 \le u \le {A}$, $0 \le v \le {B}$, so the area is $\dfrac{{A}\cdot{B}}{|{Ju}|} =$ **${area:texfrac}$**.

@@ -1,0 +1,228 @@
+- id: pre-evaluate
+  title: Evaluate an expression
+  topic: Expressions
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -12, max: 12}
+    t: {min: -5, max: 5}
+  calc:
+    t2: t^2
+    p1: a * t^2
+    p2: b * t
+    v: a * t^2 + b * t + c
+  where: ["a != 0", "b != 0", "c != 0", "t != 0", "t != 1"]
+  prompt: 'Evaluate $\;{a:coef}x^2 {b:signedcoef}x {c:signed}\;$ when $x = {t}$.'
+  answer: v
+  format: integer
+  solution: |-
+    Substitute $({t})$ for $x$: ${a}({t})^2 + ({b})({t}) + ({c})$.
+    Exponent first: $({t})^2 = {t2}$, so the terms are ${p1}$, ${p2}$ and ${c}$. Add: **{v}**.
+
+- id: pre-translate
+  title: Translate words into an expression
+  topic: Translating words
+  vars:
+    a: {min: 2, max: 20}
+    b: {min: 2, max: 9}
+  where: ["a != b"]
+  prompt: 'Write an expression for "{a} less than {b} times a number $x$".'
+  answers:
+    - {kind: expression, expression: 'b*x - a', variables: [x], label: Expression}
+  solution: |-
+    "{b} times a number" is ${b}x$. "{a} less than" that takes {a} away from it: **${b}x - {a}$**. (Not ${a} - {b}x$: "less than" reverses the order of the words.)
+
+- id: pre-combine-like
+  title: Combine like terms
+  topic: Simplifying expressions
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -15, max: 15}
+    c: {min: -9, max: 9}
+    d: {min: -15, max: 15}
+  calc:
+    ac: a + c
+    bd: b + d
+  where: ["a != 0", "c != 0", "b != 0", "d != 0", "ac != 0", "bd != 0"]
+  prompt: 'Simplify: $\;{a:coef}x {b:signed} {c:signedcoef}x {d:signed}$'
+  answers:
+    - {kind: expression, expression: '(a + c)*x + (b + d)', variables: [x], label: Simplified, show: '${ac:coef}x {bd:signed}$'}
+  solution: |-
+    Group like terms: $({a} + ({c}))x + ({b} + ({d}))$. Combine coefficients: **${ac:coef}x {bd:signed}$**.
+
+- id: pre-distribute
+  title: Distribute and combine
+  topic: Distributive property
+  vars:
+    k: {min: -6, max: 6}
+    a: {min: 1, max: 6}
+    b: {min: -9, max: 9}
+    c: {min: -8, max: 8}
+  calc:
+    ka: k * a
+    kb: k * b
+    s: k * a + c
+  where: ["abs(k) > 1", "b != 0", "c != 0", "s != 0"]
+  prompt: 'Simplify: $\;{k}({a:coef}x {b:signed}) {c:signedcoef}x$'
+  answers:
+    - {kind: expression, expression: 'k*(a*x + b) + c*x', variables: [x], label: Simplified, show: '${s:coef}x {kb:signed}$'}
+  solution: |-
+    Distribute {k} to both terms: ${ka}x + ({kb})$. Then combine the $x$ terms: ${ka}x + ({c})x = {s}x$. Result: **${s:coef}x {kb:signed}$**.
+
+- id: pre-one-step
+  title: One-step equation
+  topic: Solving equations
+  vars:
+    a: {min: -12, max: 12}
+    x0: {min: -15, max: 15}
+  calc:
+    c: a * x0
+  where: ["abs(a) > 1", "x0 != 0"]
+  prompt: 'Solve for $x$: $\;{a}x = {c}$'
+  answers:
+    - {name: x0, label: '$x =$'}
+  solution: |-
+    $x$ is multiplied by {a}, so divide both sides by {a} (sign included): $x = {c} \div ({a}) =$ **{x0}**.
+
+- id: pre-two-step
+  title: Two-step equation
+  topic: Solving equations
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -20, max: 20}
+    x0: {min: -12, max: 12}
+  calc:
+    c: a * x0 + b
+    cb: c - b
+  where: ["abs(a) > 1", "b != 0"]
+  prompt: 'Solve for $x$: $\;{a}x {b:signed} = {c}$'
+  answers:
+    - {name: x0, label: '$x =$'}
+  solution: |-
+    Undo the {b} first: ${a}x = {c} - ({b}) = {cb}$. Then divide by {a}: $x =$ **{x0}**.
+
+- id: pre-multi-step
+  title: Variables on both sides
+  topic: Multi-step equations
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -20, max: 20}
+    c: {min: -9, max: 9}
+    x0: {min: -10, max: 10}
+  calc:
+    d: a * x0 + b - c * x0
+    ac: a - c
+    db: d - b
+  where: ["a != 0", "c > 1", "a != c", "abs(a - c) > 1", "b != 0", "d != 0", "a != 1"]
+  prompt: 'Solve for $x$: $\;{a}x {b:signed} = {c}x {d:signed}$'
+  answers:
+    - {name: x0, label: '$x =$'}
+  solution: |-
+    Subtract ${c}x$ from both sides: ${ac}x {b:signed} = {d}$. Subtract $({b})$ from both sides: ${ac}x = {db}$. Divide by {ac}: $x =$ **{x0}**.
+
+- id: pre-distribute-solve
+  title: Equation with parentheses
+  topic: Multi-step equations
+  vars:
+    k: {min: -6, max: 6}
+    b: {min: -9, max: 9}
+    c: {min: -6, max: 6}
+    x0: {min: -10, max: 10}
+  calc:
+    d: k * (x0 + b) + c * x0
+    kb: k * b
+    s: k + c
+    dk: d - k * b
+  where: ["abs(k) > 1", "b != 0", "c != 0", "k + c != 0", "abs(k + c) != 1"]
+  prompt: 'Solve for $x$: $\;{k}(x {b:signed}) {c:signedcoef}x = {d}$'
+  answers:
+    - {name: x0, label: '$x =$'}
+  solution: |-
+    Distribute: ${k}x {kb:signed} {c:signedcoef}x = {d}$. Combine: ${s}x {kb:signed} = {d}$. Subtract {kb}: ${s}x = {dk}$. Divide by {s}: $x =$ **{x0}**.
+
+- id: pre-eq-word
+  title: Consecutive integers
+  topic: Equation word problems
+  vars:
+    k: {choices: [3, 4, 5]}
+    n0: {min: -20, max: 60}
+  calc:
+    extra: k * (k - 1) / 2
+    S: k * n0 + extra
+    kn: S - extra
+  prompt: 'The sum of {k} consecutive integers is {S}. What is the smallest of them?'
+  answers:
+    - {name: n0, label: Smallest}
+  solution: |-
+    Let the smallest be $n$; the others are $n + 1, n + 2, \ldots$. Their sum is ${k}n + {extra} = {S}$.
+    So ${k}n = {kn}$ and $n =$ **{n0}**.
+
+- id: pre-ineq-solve
+  title: Solve a linear inequality
+  topic: Inequalities
+  vars:
+    a: {min: 2, max: 9}
+    b: {min: -15, max: 15}
+    x0: {min: -10, max: 10}
+    sym:
+      choices:
+        - {label: '<', value: -1}
+        - {label: '>', value: 1}
+        - {label: '\le', value: -2}
+        - {label: '\ge', value: 2}
+  calc:
+    c: a * x0 + b
+    cb: c - b
+    dir: sign(sym)
+  where: ["b != 0"]
+  prompt: 'Solve $\;{a}x {b:signed} {sym} {c}$. Give the boundary value, and type 1 if the solution is $x >$ or $x \ge$ the boundary, or $-1$ if it is $x <$ or $x \le$ the boundary.'
+  answers:
+    - {name: x0, label: Boundary}
+    - {name: dir, label: 'Direction (1 or -1)'}
+  solution: |-
+    Subtract $({b})$ from both sides: ${a}x {sym} {cb}$. Divide by {a}; it is positive, so the symbol stays: $x {sym} {x0}$.
+    Boundary **{x0}**, direction **{dir}** (1 means greater, $-1$ means less).
+
+- id: pre-ineq-flip
+  title: Inequality with a negative coefficient
+  topic: Inequalities
+  vars:
+    a: {min: -9, max: -2}
+    b: {min: -15, max: 15}
+    x0: {min: -10, max: 10}
+    sym:
+      choices:
+        - {label: '<', value: -1}
+        - {label: '>', value: 1}
+        - {label: '\le', value: -2}
+        - {label: '\ge', value: 2}
+  calc:
+    c: a * x0 + b
+    cb: c - b
+    dir: -sign(sym)
+  where: ["b != 0"]
+  prompt: 'Solve $\;{a}x {b:signed} {sym} {c}$. Give the boundary value, and type 1 if the solution is $x >$ or $x \ge$ the boundary, or $-1$ if it is $x <$ or $x \le$ the boundary.'
+  answers:
+    - {name: x0, label: Boundary}
+    - {name: dir, label: 'Direction (1 or -1)'}
+  solution: |-
+    Subtract $({b})$ from both sides: ${a}x {sym} {cb}$. Divide by {a}. Because {a} is negative, the symbol reverses ($<$ and $>$ swap, $\le$ and $\ge$ swap).
+    Boundary **{x0}**, direction **{dir}** (1 means greater, $-1$ means less).
+
+- id: pre-ineq-word
+  title: Budget inequality
+  topic: Inequalities
+  vars:
+    F: {min: 5, max: 60}
+    r: {min: 3, max: 25}
+    B: {min: 60, max: 400}
+  calc:
+    BF: B - F
+    q: (B - F) / r
+    n: floor((B - F) / r)
+  where: ["B - F > 3 * r", "q != round(q)"]
+  prompt: 'A craft class charges a \${F} supply fee plus \${r} per session. Ben can spend at most \${B}. What is the greatest whole number of sessions he can take?'
+  answers:
+    - {name: n, label: Sessions}
+  solution: |-
+    Let $s$ be the sessions: ${F} + {r}s \le {B}$. Subtract {F}: ${r}s \le {BF}$. Divide: $s \le {q:num2}$. The greatest whole number is **{n}**.

@@ -1,0 +1,30 @@
+id: math-prealgebra
+title: Pre-algebra and Arithmetic
+description: >-
+  Arithmetic and pre-algebra from place value up through the level of a college
+  developmental math course: whole numbers, integers, fractions, decimals, ratios and
+  proportions, percents, exponents and scientific notation, expressions and equations,
+  measurement and basic geometry, and basic data and probability, with word problems
+  throughout.
+revision: 1
+released: true
+order: 1
+modules:
+  - id: pre-m1
+    title: Whole numbers
+  - id: pre-m2
+    title: Integers
+  - id: pre-m3
+    title: Fractions
+  - id: pre-m4
+    title: Decimals, ratios and proportions
+  - id: pre-m5
+    title: Percents
+  - id: pre-m6
+    title: Exponents, roots and scientific notation
+  - id: pre-m7
+    title: Variables, expressions and equations
+  - id: pre-m8
+    title: Measurement and geometry
+  - id: pre-m9
+    title: Data and probability

@@ -1,0 +1,151 @@
+# Module 3 drills
+- id: geo-parallel-angles
+  title: Angles formed by parallel lines
+  topic: Parallel lines
+  vars:
+    t: {min: 35, max: 145}
+    k: {choices: [2, 3, 4, 5, 6, 7, 8]}
+  where: ["t != 90"]
+  calc:
+    th: 180 - t
+    ct: cosd(th)/sind(th)
+    same: k == 4 or k == 5 or k == 8
+    ans: if(same, t, 180 - t)
+  prompt: 'Lines $\ell \parallel m$ are cut by transversal $t$. If $m\angle 1 = {t}^\circ$, find $m\angle {k}$ in degrees.'
+  answers:
+    - {name: ans, label: 'Angle'}
+  figure:
+    type: shape
+    segments:
+      - {from: [-7, 2], to: [7, 2]}
+      - {from: [-7, -2], to: [7, -2]}
+      - {from: ['-3.6*ct', -3.6], to: ['3.6*ct', 3.6]}
+    labels:
+      - {at: [7.5, 2], text: 'ℓ'}
+      - {at: [7.5, -2], text: 'm'}
+      - {at: ['2*ct + 0.9*cosd((th + 180)/2)', '2 + 0.9*sind((th + 180)/2)'], text: '1'}
+      - {at: ['2*ct + 0.9*cosd(th/2)', '2 + 0.9*sind(th/2)'], text: '2'}
+      - {at: ['2*ct + 0.9*cosd(180 + th/2)', '2 + 0.9*sind(180 + th/2)'], text: '3'}
+      - {at: ['2*ct + 0.9*cosd(270 + th/2)', '2 + 0.9*sind(270 + th/2)'], text: '4'}
+      - {at: ['-2*ct + 0.9*cosd((th + 180)/2)', '-2 + 0.9*sind((th + 180)/2)'], text: '5'}
+      - {at: ['-2*ct + 0.9*cosd(th/2)', '-2 + 0.9*sind(th/2)'], text: '6'}
+      - {at: ['-2*ct + 0.9*cosd(180 + th/2)', '-2 + 0.9*sind(180 + th/2)'], text: '7'}
+      - {at: ['-2*ct + 0.9*cosd(270 + th/2)', '-2 + 0.9*sind(270 + th/2)'], text: '8'}
+  solution: |-
+    With parallel lines, each of the eight angles either equals $\angle 1$ or is its supplement. $\angle 1$, $\angle 4$ (vertical), $\angle 5$ (corresponding) and $\angle 8$ all measure ${t}^\circ$; $\angle 2$, $\angle 3$, $\angle 6$ and $\angle 7$ measure $180 - {t}$. So $m\angle {k} =$ **{ans}°**.
+
+- id: geo-parallel-x
+  title: Find x so the lines are parallel
+  topic: Proving lines parallel
+  vars:
+    kind: {choices: [corresponding, alternate interior, alternate exterior]}
+    a: {min: 2, max: 9}
+    c: {min: 1, max: 8}
+    p: {min: 4, max: 20}
+    b: {min: -30, max: 30}
+  where: ["a > c", "b != 0", "a*p + b >= 25", "a*p + b <= 155", "a*p + b - c*p != 0"]
+  calc:
+    ang: a*p + b
+    d: ang - c*p
+    da: a - c
+    db: d - b
+  prompt: 'Two lines are cut by a transversal. A pair of {kind} angles measure $({a}x {b:signed})^\circ$ and $({c:coef}x {d:signed})^\circ$. For what value of $x$ are the lines parallel, and what is each angle then?'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: ang, label: 'Angle'}
+  solution: |-
+    The lines are parallel exactly when {kind} angles are congruent (the converse theorem). Set ${a}x {b:signed} = {c:coef}x {d:signed}$: ${da:coef}x = {db}$, so $x =$ **{p}**, and each angle is ${a}({p}) {b:signed} =$ **{ang}°**.
+
+- id: geo-consec-int
+  title: Consecutive interior angles
+  topic: Parallel lines
+  vars:
+    a: {min: 1, max: 6}
+    c: {min: 1, max: 6}
+    p: {min: 5, max: 25}
+    b: {min: -20, max: 40}
+  where: ["b != 0", "a*p + b >= 20", "a*p + b <= 160", "180 - a*p - b - c*p != 0"]
+  calc:
+    A1: a*p + b
+    A2: 180 - A1
+    d: A2 - c*p
+    s: a + c
+    k: b + d
+  prompt: '$\ell \parallel m$. Consecutive interior angles measure $({a:coef}x {b:signed})^\circ$ and $({c:coef}x {d:signed})^\circ$. Find $x$ and both angles.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: A1, label: 'First angle'}
+    - {name: A2, label: 'Second angle'}
+  solution: |-
+    Consecutive interior angles are supplementary: $({a:coef}x {b:signed}) + ({c:coef}x {d:signed}) = 180$, so ${s}x {k:signed} = 180$ and $x =$ **{p}**. The angles are **{A1}°** and **{A2}°**, which add to $180^\circ$.
+
+- id: geo-perp-slope
+  title: Slope of a perpendicular line
+  topic: Slope
+  vars:
+    x1: {min: -8, max: 8}
+    y1: {min: -8, max: 8}
+    x2: {min: -8, max: 8}
+    y2: {min: -8, max: 8}
+  where: ["x1 != x2", "y1 != y2"]
+  calc:
+    dy: y2 - y1
+    dx: x2 - x1
+    m: dy/dx
+    perp: -dx/dy
+  prompt: 'Line $\ell$ passes through $({x1}, {y1})$ and $({x2}, {y2})$. Find the slope of $\ell$ and the slope of a line perpendicular to $\ell$, as fractions in lowest terms.'
+  answers:
+    - {name: m, kind: fraction, lowestTerms: true, label: 'Slope of $\ell$'}
+    - {name: perp, kind: fraction, lowestTerms: true, label: 'Perpendicular slope'}
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    points:
+      - {at: [x1, y1], label: '({x1}, {y1})'}
+      - {at: [x2, y2], label: '({x2}, {y2})'}
+    segments:
+      - {from: [x1, y1], to: [x2, y2]}
+  solution: |-
+    $m = \dfrac{{y2} - ({y1})}{{x2} - ({x1})} = \dfrac{{dy}}{{dx}} =$ **${m:texfrac}$**. A perpendicular slope is the negative reciprocal: **${perp:texfrac}$** (their product is $-1$).
+
+- id: geo-perp-line
+  title: Equation of a perpendicular line
+  topic: Slope
+  vars:
+    k: {choices: [-4, -3, -2, 2, 3, 4]}
+    b: {min: -6, max: 6}
+    p: {min: -5, max: 5}
+    q: {min: -6, max: 6}
+  where: ["b != 0", "q - k*p != 0"]
+  calc:
+    m: -1/k
+    c: q - k*p
+  prompt: 'Write the equation of the line through $({p}, {q})$ perpendicular to $y = {m:texfrac}x {b:signed}$, in the form $y = \ldots$'
+  answers:
+    - {kind: expression, expression: 'k*x + c', variables: [x], label: '$y =$', show: '$y = {k:coef}x {c:signed}$'}
+  solution: |-
+    The given slope is ${m:texfrac}$, so the perpendicular slope is its negative reciprocal, ${k}$. Point-slope form: $y - ({q}) = {k}(x - ({p}))$. Simplify: $y =$ **${k:coef}x {c:signed}$**.
+
+- id: geo-point-line-dist
+  title: Distance from a point to a line
+  topic: Perpendicular lines
+  vars:
+    pair: {choices: [1, 2, 3, 4]}
+    sA: {choices: [1, -1]}
+    x0: {min: -6, max: 6}
+    y0: {min: -6, max: 6}
+    C: {min: -20, max: 20}
+  calc:
+    A: sA*if(pair == 1, 3, if(pair == 2, 5, if(pair == 3, 8, 7)))
+    B: if(pair == 1, 4, if(pair == 2, 12, if(pair == 3, 15, 24)))
+    N: sqrt(A^2 + B^2)
+    v: A*x0 + B*y0 + C
+    d: abs(v)/N
+  where: ["C != 0", "A*x0 + B*y0 + C != 0"]
+  prompt: 'Find the distance from $({x0}, {y0})$ to the line ${A:coef}x {B:signed}y {C:signed} = 0$. (Exact, or 2 decimals.)'
+  answers:
+    - {name: d, label: 'Distance', tolerance: 0.01}
+  solution: |-
+    $d = \dfrac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} = \dfrac{|{A}({x0}) + {B}({y0}) {C:signed}|}{\sqrt{({A})^2 + {B}^2}} = \dfrac{|{v}|}{{N}} \approx$ **{d:num2}**.

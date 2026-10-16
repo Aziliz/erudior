@@ -1,0 +1,228 @@
+- id: pc-arith-nth
+  title: nth term of an arithmetic sequence
+  topic: Arithmetic sequences
+  vars:
+    a1: {min: -20, max: 30}
+    d: {min: -9, max: 9}
+    n: {min: 8, max: 60}
+  where: ["d != 0"]
+  calc:
+    a2: a1 + d
+    a3: a1 + 2*d
+    a4: a1 + 3*d
+    nm1: n - 1
+    an: a1 + (n - 1)*d
+  prompt: 'Find term number {n}, $a_{ {n} }$, of the arithmetic sequence ${a1}, {a2}, {a3}, {a4}, \dots$'
+  answers:
+    - {name: an, label: '$a_{ {n} } =$'}
+  solution: |-
+    $a_1 = {a1}$ and $d = {d}$. $a_{ {n} } = a_1 + ({n} - 1)d = {a1} + {nm1}({d}) =$ **{an}**.
+
+- id: pc-arith-sum
+  title: Sum of an arithmetic series
+  topic: Arithmetic sequences
+  vars:
+    a1: {min: -15, max: 25}
+    d: {min: -6, max: 8}
+    n: {min: 10, max: 50}
+  where: ["d != 0"]
+  calc:
+    a2: a1 + d
+    a3: a1 + 2*d
+    an: a1 + (n - 1)*d
+    S: n*(a1 + an)/2
+  prompt: 'Find the sum of the first {n} terms of the arithmetic series ${a1} + ({a2}) + ({a3}) + \cdots$'
+  answers:
+    - {name: S, label: '$S_{ {n} } =$'}
+  solution: |-
+    $d = {d}$, so $a_{ {n} } = {a1} + ({n} - 1)({d}) = {an}$. Then $S_{ {n} } = \dfrac{ {n}({a1} + ({an})) }{2} =$ **{S}**.
+
+- id: pc-sigma
+  title: Evaluate a sum with formulas
+  topic: Sequences and series
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -6, max: 6}
+    c: {min: -9, max: 9}
+    n: {min: 5, max: 30}
+  where: ["b != 0", "c != 0"]
+  calc:
+    s1: n*(n + 1)/2
+    s2: n*(n + 1)*(2*n + 1)/6
+    S: a*s2 + b*s1 + c*n
+  prompt: 'Evaluate $\displaystyle\sum_{k=1}^{ {n} } \left({a:coef}k^2 {b:signedcoef}k {c:signed}\right)$ using the sum formulas.'
+  answers:
+    - {name: S, label: 'Sum'}
+  solution: |-
+    Split the sum: ${a}\sum k^2 + ({b})\sum k + ({c})\cdot {n}$. With $\sum_{k=1}^{ {n} } k^2 = {s2:dp0}$ and $\sum_{k=1}^{ {n} } k = {s1:dp0}$: ${a}({s2:dp0}) + ({b})({s1:dp0}) + ({c})({n}) =$ **{S}**.
+
+- id: pc-geo-nth
+  title: nth term of a geometric sequence
+  topic: Geometric sequences
+  vars:
+    a1: {choices: [-5, -3, -2, 1, 2, 3, 4, 5, 6, 10]}
+    r: {choices: [-3, -2, 2, 3, 0.5, -0.5]}
+    n: {min: 5, max: 10}
+  calc:
+    a2: a1*r
+    a3: a1*r^2
+    an: a1*r^(n - 1)
+    nm1: n - 1
+  prompt: 'Find the {n}th term of the geometric sequence ${a1}, {a2}, {a3}, \dots$ (exact; fractions are fine).'
+  answers:
+    - {name: an, label: '$a_{ {n} } =$', kind: fraction}
+  solution: |-
+    $r = {r}$, so $a_{ {n} } = a_1 r^{n-1} = {a1}({r})^{ {nm1} } =$ **${an:texfrac}$**.
+
+- id: pc-geo-sum
+  title: Sum of a finite geometric series
+  topic: Geometric sequences
+  vars:
+    a1: {choices: [1, 2, 3, 4, 5, -2, -3]}
+    r: {choices: [2, 3, -2, -3, 0.5]}
+    n: {min: 4, max: 9}
+  calc:
+    a2: a1*r
+    a3: a1*r^2
+    rn: r^n
+    S: a1*(1 - r^n)/(1 - r)
+  prompt: 'Find the sum of the first {n} terms of the geometric series ${a1} + ({a2}) + ({a3}) + \cdots$ (exact; fractions are fine).'
+  answers:
+    - {name: S, label: '$S_{ {n} } =$', kind: fraction}
+  solution: |-
+    $r = {r}$: $S_{ {n} } = a_1\dfrac{1 - r^{\,n}}{1 - r} = {a1}\cdot\dfrac{1 - ({rn:texfrac})}{1 - ({r})} =$ **${S:texfrac}$**.
+
+- id: pc-infinite-geo
+  title: Sum of an infinite geometric series
+  topic: Geometric sequences
+  vars:
+    a1: {min: 1, max: 30}
+    num: {min: 1, max: 4}
+    den: {min: 2, max: 6}
+    sg: {choices: [1, -1]}
+  where: ["num < den", "gcd(num, den) == 1"]
+  calc:
+    r: sg*num/den
+    a2: a1*r
+    a3: a1*r^2
+    S: a1/(1 - r)
+  prompt: 'Find the sum of the infinite geometric series ${a1} + \left({a2:texfrac}\right) + \left({a3:texfrac}\right) + \cdots$ as an exact fraction.'
+  answers:
+    - {name: S, label: 'Sum', kind: fraction, lowestTerms: true}
+  solution: |-
+    $r = {r:texfrac}$, and $|r| < 1$, so the series converges to $\dfrac{a_1}{1 - r} = \dfrac{ {a1} }{1 - \left({r:texfrac}\right)} =$ **${S:texfrac}$**.
+
+- id: pc-closed-sum
+  title: Use a proven sum formula
+  topic: Mathematical induction
+  vars:
+    n: {min: 5, max: 40}
+    c: {min: -5, max: 5}
+  where: ["c != 0"]
+  calc:
+    s2: n*(n + 1)*(2*n + 1)/6
+    s1: n*(n + 1)/2
+    S: s2 + c*s1
+  prompt: 'Using $\sum_{k=1}^{\,n} k^2 = \dfrac{n(n+1)(2n+1)}{6}$ and $\sum_{k=1}^{\,n} k = \dfrac{n(n+1)}{2}$ (both provable by induction), evaluate $\displaystyle\sum_{k=1}^{ {n} } k(k {c:signed})$.'
+  answers:
+    - {name: S, label: 'Sum'}
+  solution: |-
+    $k(k {c:signed}) = k^2 {c:signedcoef}k$, so the sum is ${s2:dp0} + ({c})({s1:dp0}) =$ **{S}**.
+
+- id: pc-binom-coef
+  title: Coefficient in a binomial expansion
+  topic: Binomial theorem
+  vars:
+    a: {choices: [1, 2, 3, -1, -2]}
+    b: {choices: [1, 2, 3, -1, -2, -3]}
+    n: {min: 4, max: 8}
+    j: {min: 1, max: 7}
+  where: ["j < n"]
+  calc:
+    k: n - j
+    C: nCr(n, k)
+    coef: C*a^j*b^k
+  prompt: 'Find the coefficient of $x^{ {j} }$ in the expansion of $({a:coef}x {b:signed})^{ {n} }$.'
+  answers:
+    - {name: coef, label: 'Coefficient'}
+  solution: |-
+    The term with $x^{ {j} }$ uses $b$ to the power ${n} - {j} = {k}$: $\dbinom{ {n} }{ {k} }({a:coef}x)^{ {j} }({b})^{ {k} } = {C}\cdot({a})^{ {j} }({b})^{ {k} }\,x^{ {j} }$. Coefficient **{coef}**.
+
+- id: pc-binom-term
+  title: A specific term of a binomial expansion
+  topic: Binomial theorem
+  vars:
+    b: {choices: [2, 3, -2, -3]}
+    n: {min: 5, max: 9}
+    t: {choices: [{label: '2nd', value: 2}, {label: '3rd', value: 3}, {label: '4th', value: 4}, {label: '5th', value: 5}]}
+  calc:
+    k: t - 1
+    pw: n - k
+    coef: nCr(n, k)*b^k
+    C: nCr(n, k)
+  prompt: 'The {t} term of $(x {b:signed})^{ {n} }$ has the form $cx^p$. Find $c$ and $p$.'
+  answers:
+    - {name: coef, label: '$c =$'}
+    - {name: pw, label: '$p =$'}
+  solution: |-
+    The {t} term has $k = {k}$: $\dbinom{ {n} }{ {k} }x^{ {pw} }({b})^{ {k} } = {C:dp0}\cdot({b})^{ {k} }x^{ {pw} }$. So $c =$ **{coef}** and $p =$ **{pw}**.
+
+- id: pc-perm-comb
+  title: Permutation or combination?
+  topic: Counting
+  vars:
+    n: {min: 6, max: 15}
+    r: {min: 2, max: 5}
+    o: {choices: [{label: 'ordered (a ranking: 1st, 2nd, and so on)', value: 1}, {label: 'unordered (a committee with no roles)', value: 0}]}
+  calc:
+    P: nPr(n, r)
+    C: nCr(n, r)
+    ans: if(o == 1, P, C)
+    rf: fact(r)
+  prompt: 'From {n} people, {r} are selected. How many different selections are possible if the selection is {o}?'
+  answers:
+    - {name: ans, label: 'Count'}
+  solution: |-
+    Ordered selections: $_{ {n} }P_{ {r} } = \dfrac{ {n}! }{({n} - {r})!} = {P:dp0}$. Unordered groups divide out the ${r}! = {rf}$ orders: $\binom{ {n} }{ {r} } = {C:dp0}$. Here the selection is {o}, so the answer is **{ans}**.
+
+- id: pc-prob-select
+  title: Probability of a selection
+  topic: Probability
+  vars:
+    R: {min: 3, max: 8}
+    B: {min: 3, max: 8}
+    k: {min: 2, max: 4}
+    j: {min: 1, max: 3}
+  where: ["j <= k", "j <= R", "k - j <= B", "j < k"]
+  calc:
+    tot: nCr(R + B, k)
+    fav: nCr(R, j)*nCr(B, k - j)
+    p: fav/tot
+    kj: k - j
+    N: R + B
+  prompt: 'A bag holds {R} red and {B} blue marbles. {k} marbles are drawn at random (without replacement). What is the probability that exactly {j} of the marbles drawn are red? (Exact fraction.)'
+  answers:
+    - {name: p, label: 'Probability', kind: fraction, lowestTerms: true}
+  solution: |-
+    Favorable: $\binom{ {R} }{ {j} }\binom{ {B} }{ {kj} } = {fav:dp0}$. Total: $\binom{ {N} }{ {k} } = {tot:dp0}$. Probability $= \dfrac{ {fav:dp0} }{ {tot:dp0} } =$ **${p:texfrac}$**.
+
+- id: pc-prob-union
+  title: Addition rule and complement
+  topic: Probability
+  vars:
+    pa: {min: 20, max: 60, step: 5}
+    pb: {min: 15, max: 50, step: 5}
+    pab: {min: 5, max: 15, step: 5}
+  where: ["pa + pb - pab <= 95", "pab < pa", "pab < pb"]
+  calc:
+    a: pa/100
+    b: pb/100
+    ab: pab/100
+    u: a + b - ab
+    nei: 1 - u
+  prompt: 'In a survey, {pa}% of people own a cat, {pb}% own a dog, and {pab}% own both. What is the probability that a randomly chosen person owns a cat or a dog? What is the probability they own neither? (Decimals.)'
+  answers:
+    - {name: u, label: 'Cat or dog', tolerance: 0.001}
+    - {name: nei, label: 'Neither', tolerance: 0.001}
+  solution: |-
+    $P(C \text{ or } D) = {a} + {b} - {ab} =$ **{u}**; those who own both were counted twice. Neither is the complement: $1 - {u} =$ **{nei}**.

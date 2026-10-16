@@ -1,0 +1,540 @@
+# Module 1: Limits and continuity
+- id: calc-q-0101
+  lesson: calc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: 'What does $\lim_{x\to a} f(x) = L$ say?'
+  choices:
+    - '$f(x)$ can be made as close to $L$ as we like by taking $x$ close enough to $a$, with $x \ne a$'
+    - '$f(a) = L$'
+    - '$f(x) = L$ for every $x$ near $a$'
+    - '$f(x)$ is always less than $L$ when $x$ is close to $a$'
+  answer: 0
+  explanation: |-
+    A limit describes where the outputs head as the inputs close in on $a$; the value at $a$ itself is ignored. $f(a) = L$ is continuity, a separate (stronger) condition.
+- id: calc-q-0102
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'Let $f(x) = \dfrac{x^2 - 1}{x - 1}$. Which statement is true?'
+  choices:
+    - '$f(1)$ is undefined but $\lim_{x\to1}f(x) = 2$'
+    - '$f(1)$ is undefined and $\lim_{x\to1}f(x)$ does not exist'
+    - '$f(1) = 2$ and $\lim_{x\to1}f(x) = 2$'
+    - '$f(1) = 0$ and $\lim_{x\to1}f(x) = 0$'
+  answer: 0
+  explanation: |-
+    At $x = 1$ the denominator is 0, so $f(1)$ is undefined. For $x \ne 1$, $f(x) = x + 1$, which heads to 2. A missing value doesn't stop the limit from existing.
+- id: calc-q-0103
+  lesson: calc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: 'Values of $g$ near $x = 3$: $g(2.9) = 4.81$, $g(2.99) = 4.98$, $g(2.999) = 4.998$, $g(3.001) = 5.002$, $g(3.01) = 5.02$, $g(3.1) = 5.21$. The best estimate of $\lim_{x\to3} g(x)$ is'
+  choices:
+    - '$4.998$'
+    - '$4.9$'
+    - '$5.002$'
+    - '$5$'
+  answer: 3
+  explanation: |-
+    From both sides the outputs close in on 5 (4.998 from below, 5.002 from above). The table's entries are approximations; the limit is the number they approach.
+- id: calc-q-0104
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'For a function $h$, $\lim_{x\to 4^-} h(x) = 7$ and $\lim_{x\to 4^+} h(x) = 7$, and $h(4) = 2$. What is $\lim_{x\to4} h(x)$?'
+  choices: ['$2$', '$7$', 'It does not exist', '$4.5$']
+  answer: 1
+  explanation: |-
+    Both one-sided limits equal 7, so the two-sided limit is 7. The value $h(4) = 2$ doesn't affect the limit (it just means $h$ isn't continuous at 4).
+- id: calc-q-0105
+  lesson: calc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: |-
+    For
+    $$g(x) = \begin{cases} 2x + 1, & x < 1\\ x^2 + 4, & x \ge 1\end{cases}$$
+    what are $\lim_{x\to1^-}g(x)$ and $\lim_{x\to1^+}g(x)$?
+  choices: ['$3$ and $5$', '$5$ and $5$', '$3$ and $3$', '$5$ and $3$']
+  answer: 0
+  explanation: |-
+    Left of 1 use $2x + 1 \to 3$. Right of 1 use $x^2 + 4 \to 5$. Since $3 \ne 5$, the two-sided limit doesn't exist.
+- id: calc-q-0106
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'A student plugs $x = 2$ into $\dfrac{x^2 - 4}{x - 2}$, gets $\dfrac00$, and writes "the limit is undefined." What is wrong?'
+  choices:
+    - 'Nothing; $0/0$ means the limit is undefined'
+    - '$0/0$ equals 1, so the limit is 1'
+    - '$0/0$ equals 0, so the limit is 0'
+    - '$0/0$ is indeterminate: the limit may still exist and needs more work (here it is 4)'
+  answer: 3
+  explanation: |-
+    $0/0$ is an indeterminate form. Factoring gives $\frac{(x-2)(x+2)}{x-2} = x + 2 \to 4$.
+- id: calc-q-0107
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'Using a calculator set to degrees, a student tabulates $\dfrac{\sin x}{x}$ for $x$ near 0. What value will the table approach?'
+  choices: ['$1$', '$0$', '$\pi/180 \approx 0.01745$', '$180/\pi \approx 57.3$']
+  answer: 2
+  explanation: |-
+    $\sin(x^\circ) = \sin(\pi x/180)$, so $\dfrac{\sin(x^\circ)}{x} = \dfrac{\pi}{180}\cdot\dfrac{\sin(\pi x/180)}{\pi x/180} \to \dfrac{\pi}{180}$. The limit 1 holds only in radians.
+- id: calc-q-0108
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'Why does $\lim_{x\to0}\sin(\pi/x)$ not exist, even though $\sin(\pi/x) = 0$ at $x = 0.1, 0.01, 0.001, \dots$?'
+  choices:
+    - 'Because $\sin(\pi/x)$ is undefined at $x = 0$'
+    - 'Because the outputs keep oscillating between $-1$ and $1$ as $x \to 0$'
+    - 'Because the outputs grow without bound near 0'
+    - 'Because the left- and right-hand limits are 1 and $-1$'
+  answer: 1
+  explanation: |-
+    Near 0, $\pi/x$ runs through infinitely many multiples of $\pi/2$, so the sine hits $1$ and $-1$ infinitely often. The outputs never settle. Being undefined at 0 alone wouldn't prevent a limit.
+- id: calc-q-0109
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'The graph of $f$ is the line $y = x + 1$ with an open circle at $(2, 3)$ and a solid dot at $(2, 5)$. What is $\lim_{x\to 2} f(x)$?'
+  choices: ['$5$', '$3$', 'It does not exist', '$2$']
+  answer: 1
+  explanation: |-
+    The line approaches height 3 from both sides; the hole is at $(2, 3)$. The solid dot at $(2, 5)$ is $f(2)$, which doesn't affect the limit.
+- id: calc-q-0110
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'Which of these is NOT one of the standard ways a limit can fail to exist?'
+  choices:
+    - 'The one-sided limits are different'
+    - 'The outputs grow without bound'
+    - 'The outputs oscillate without settling'
+    - 'The function is undefined at the point'
+  answer: 3
+  explanation: |-
+    A function undefined at $a$ can still have a limit there (a hole). The three failure modes are jumps, unbounded growth and oscillation.
+
+- id: calc-q-0201
+  lesson: calc-limit-laws
+  module_quiz: true
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to 3}\frac{x^2 - x - 6}{x - 3}$.'
+  choices: ['$5$', '$0$', '$1$', 'It does not exist']
+  answer: 0
+  explanation: |-
+    Factor: $x^2 - x - 6 = (x - 3)(x + 2)$. Cancel $(x - 3)$ and substitute: $3 + 2 = 5$.
+- id: calc-q-0202
+  lesson: calc-limit-laws
+  topic: Limit laws
+  stem: 'If $\lim_{x\to2} f(x) = 4$ and $\lim_{x\to2} g(x) = -3$, find $\displaystyle\lim_{x\to2}\left[2f(x) - g(x)^2\right]$.'
+  choices:
+    - '$17$'
+    - '$2$'
+    - '$14$'
+    - '$-1$'
+  answer: 3
+  explanation: |-
+    Constant multiple, power and difference laws: $2(4) - (-3)^2 = 8 - 9 = -1$. (17 comes from $+9$: forgetting that the square is subtracted.)
+- id: calc-q-0203
+  lesson: calc-limit-laws
+  module_quiz: true
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to 0}\frac{\sqrt{x + 4} - 2}{x}$.'
+  choices: ['$\tfrac12$', '$0$', '$\tfrac14$', '$4$']
+  answer: 2
+  explanation: |-
+    Multiply by the conjugate: $\dfrac{(x + 4) - 4}{x(\sqrt{x+4} + 2)} = \dfrac{1}{\sqrt{x + 4} + 2} \to \dfrac{1}{4}$.
+- id: calc-q-0204
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{h\to 0}\frac{(3 + h)^2 - 9}{h}$.'
+  choices: ['$9$', '$3$', '$0$', '$6$']
+  answer: 3
+  explanation: |-
+    $(3 + h)^2 - 9 = 6h + h^2 = h(6 + h)$. Cancel $h$: $6 + h \to 6$.
+- id: calc-q-0205
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to 4}\frac{\frac1x - \frac14}{x - 4}$.'
+  choices: ['$-\tfrac1{16}$', '$\tfrac1{16}$', '$-\tfrac14$', '$0$']
+  answer: 0
+  explanation: |-
+    $\frac1x - \frac14 = \frac{4 - x}{4x} = \frac{-(x - 4)}{4x}$. Dividing by $x - 4$ leaves $\frac{-1}{4x} \to -\frac{1}{16}$.
+- id: calc-q-0206
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to -2}\frac{|x + 2|}{x + 2}$.'
+  choices: ['$1$', '$-1$', '$0$', 'It does not exist']
+  answer: 3
+  explanation: |-
+    For $x > -2$ the quotient is $1$; for $x < -2$ it is $-1$. The one-sided limits differ, so the limit does not exist.
+- id: calc-q-0207
+  lesson: calc-limit-laws
+  module_quiz: true
+  topic: Limit laws
+  stem: 'Which limit can be found by direct substitution alone?'
+  choices:
+    - '$\displaystyle\lim_{x\to 1}\frac{x^2 - 1}{x - 1}$'
+    - '$\displaystyle\lim_{x\to 2}\frac{x^2 + 1}{x + 3}$'
+    - '$\displaystyle\lim_{x\to 0}\frac{\sin x}{x}$'
+    - '$\displaystyle\lim_{x\to 9}\frac{\sqrt x - 3}{x - 9}$'
+  answer: 1
+  explanation: |-
+    $\frac{x^2+1}{x+3}$ is a rational function with $x = 2$ in its domain, so the limit is $\frac{5}{5} = 1$. The others give $0/0$ on substitution.
+- id: calc-q-0208
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: |-
+    A student works $\displaystyle\lim_{x\to 5}\frac{x^2 - 25}{x - 5}$:
+
+    Step 1: $\dfrac{x^2 - 25}{x - 5} = \dfrac{(x-5)(x+5)}{x-5}$
+    Step 2: $= x + 5$ for $x \ne 5$
+    Step 3: so the limit is $5 + 5 = 10$, but since the original is undefined at 5, the limit does not exist.
+
+    Which step is wrong?
+  choices: ['Step 1', 'Step 2', 'Step 3', 'None; the work is correct']
+  answer: 2
+  explanation: |-
+    The limit is 10. Being undefined at $x = 5$ doesn't matter, because limits never use the value at the point itself. Steps 1 and 2 are correct.
+- id: calc-q-0209
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to 2}\frac{x^3 - 8}{x - 2}$.'
+  choices: ['$4$', '$8$', '$12$', '$0$']
+  answer: 2
+  explanation: |-
+    Difference of cubes: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$. Cancel and substitute: $4 + 4 + 4 = 12$.
+- id: calc-q-0210
+  lesson: calc-limit-laws
+  topic: Limit laws
+  stem: 'If $\lim_{x\to a}f(x) = 6$ and $\lim_{x\to a}g(x) = 0$, what can you conclude about $\displaystyle\lim_{x\to a}\frac{f(x)}{g(x)}$?'
+  choices:
+    - 'It equals 0'
+    - 'It equals 6'
+    - 'It is indeterminate and could be any number'
+    - 'It does not exist as a finite number (the quotient is unbounded near $a$)'
+  answer: 3
+  explanation: |-
+    A numerator near 6 over a denominator near 0 makes the quotient's size blow up, so there's no finite limit. It may be $\infty$, $-\infty$, or neither (if the signs differ on the two sides). Only $0/0$ is indeterminate.
+- id: calc-q-0211
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to 1}\frac{\sqrt{x} - 1}{x - 1}$.'
+  choices: ['$\tfrac12$', '$1$', '$2$', '$0$']
+  answer: 0
+  explanation: |-
+    $x - 1 = (\sqrt x - 1)(\sqrt x + 1)$, so the quotient is $\dfrac{1}{\sqrt x + 1} \to \dfrac12$.
+
+- id: calc-q-0301
+  lesson: calc-limits-infinity
+  module_quiz: true
+  topic: Limits at infinity
+  stem: 'Find $\displaystyle\lim_{x\to\infty}\frac{4x^3 - x + 2}{2x^3 + 7x^2}$.'
+  choices: ['$0$', '$\infty$', '$2$', '$\tfrac47$']
+  answer: 2
+  explanation: |-
+    Equal degrees, so the limit is the ratio of leading coefficients: $4/2 = 2$.
+- id: calc-q-0302
+  lesson: calc-limits-infinity
+  topic: Limits at infinity
+  stem: 'Find $\displaystyle\lim_{x\to-\infty}\frac{5x + 1}{x^2 - 3}$.'
+  choices: ['$0$', '$5$', '$-\infty$', '$-5$']
+  answer: 0
+  explanation: |-
+    The denominator has the higher degree, so the quotient tends to 0. (Divide by $x^2$: $\frac{5/x + 1/x^2}{1 - 3/x^2} \to 0$.)
+- id: calc-q-0303
+  lesson: calc-limits-infinity
+  module_quiz: true
+  topic: Infinite limits
+  stem: 'Find $\displaystyle\lim_{x\to 2^-}\frac{x + 3}{x - 2}$.'
+  choices: ['$\infty$', '$-\infty$', '$0$', '$5$']
+  answer: 1
+  explanation: |-
+    Substitution gives $5/0$. For $x$ slightly less than 2, $x - 2$ is a small negative number and $x + 3 \approx 5 > 0$, so the quotient is a large negative number: $-\infty$.
+- id: calc-q-0304
+  lesson: calc-limits-infinity
+  topic: Infinite limits
+  stem: 'Which are the vertical asymptotes of $f(x) = \dfrac{x^2 - x - 2}{x^2 - 4}$?'
+  choices: ['$x = 2$ and $x = -2$', '$x = 2$ only', '$x = -2$ only', 'none']
+  answer: 2
+  explanation: |-
+    $f(x) = \frac{(x - 2)(x + 1)}{(x - 2)(x + 2)}$. The factor $x - 2$ cancels, so $x = 2$ is a hole. The remaining zero of the denominator, $x = -2$, is a vertical asymptote.
+- id: calc-q-0305
+  lesson: calc-limits-infinity
+  topic: Limits at infinity
+  stem: 'Find $\displaystyle\lim_{x\to-\infty}\frac{\sqrt{9x^2 + 2}}{x + 1}$.'
+  choices: ['$3$', '$9$', '$-9$', '$-3$']
+  answer: 3
+  explanation: |-
+    For $x < 0$, $\sqrt{x^2} = -x$, so dividing top and bottom by $x$ gives $\dfrac{-\sqrt{9 + 2/x^2}}{1 + 1/x} \to -3$. Getting $+3$ comes from treating $\sqrt{x^2}$ as $x$.
+- id: calc-q-0306
+  lesson: calc-limits-infinity
+  module_quiz: true
+  topic: Limits at infinity
+  stem: 'Find $\displaystyle\lim_{x\to\infty}\left(\sqrt{x^2 + 4x} - x\right)$.'
+  choices: ['$0$', '$2$', '$4$', '$\infty$']
+  answer: 1
+  explanation: |-
+    Multiply by the conjugate: $\dfrac{4x}{\sqrt{x^2 + 4x} + x}$. Dividing by $x$: $\dfrac{4}{\sqrt{1 + 4/x} + 1} \to \dfrac42 = 2$. Treating $\infty - \infty$ as 0 is the trap.
+- id: calc-q-0307
+  lesson: calc-limits-infinity
+  topic: Limits at infinity
+  stem: 'What are the horizontal asymptotes of $y = \arctan x$?'
+  choices: ['$y = \pm\dfrac{\pi}{2}$', '$y = 0$', '$y = \pm\pi$', 'none']
+  answer: 0
+  explanation: |-
+    $\arctan x \to \pi/2$ as $x \to \infty$ and $\to -\pi/2$ as $x \to -\infty$.
+- id: calc-q-0308
+  lesson: calc-limits-infinity
+  topic: Limits at infinity
+  stem: 'Find $\displaystyle\lim_{x\to\infty}\frac{2e^x + 5}{3e^x - x}$.'
+  choices: ['$\tfrac23$', '$0$', '$\infty$', '$-5$']
+  answer: 0
+  explanation: |-
+    Divide by $e^x$: $\dfrac{2 + 5e^{-x}}{3 - x e^{-x}}$. Both $5e^{-x}$ and $xe^{-x}$ tend to 0 (exponentials beat powers), leaving $\frac23$.
+- id: calc-q-0309
+  lesson: calc-limits-infinity
+  topic: Infinite limits
+  stem: 'Find $\displaystyle\lim_{x\to 0^+}\ln x$.'
+  choices: ['$0$', '$1$', '$\infty$', '$-\infty$']
+  answer: 3
+  explanation: |-
+    $\ln x$ is negative for $0 < x < 1$ and decreases without bound as $x \to 0^+$ (e.g. $\ln(10^{-6}) \approx -13.8$). The $y$-axis is a vertical asymptote.
+- id: calc-q-0310
+  lesson: calc-limits-infinity
+  topic: Limits at infinity
+  stem: 'The function $f(x) = \dfrac{x^2 + 3x}{x - 1}$ has which kind of asymptote as $x\to\infty$?'
+  choices: ['Horizontal $y = 1$', 'Horizontal $y = 0$', 'Slant $y = x + 4$', 'Slant $y = x + 3$']
+  answer: 2
+  explanation: |-
+    Numerator degree is one more than denominator degree. Long division: $\dfrac{x^2 + 3x}{x - 1} = x + 4 + \dfrac{4}{x - 1}$, so the graph approaches $y = x + 4$.
+- id: calc-q-0311
+  lesson: calc-limits-infinity
+  topic: Infinite limits
+  stem: 'Find $\displaystyle\lim_{x\to 5}\frac{-2}{(x - 5)^2}$.'
+  choices:
+    - '$\infty$'
+    - 'It does not exist and is neither $\infty$ nor $-\infty$'
+    - '$0$'
+    - '$-\infty$'
+  answer: 3
+  explanation: |-
+    $(x - 5)^2$ is a tiny positive number on both sides, so $-2$ divided by it is hugely negative on both sides: $-\infty$.
+
+- id: calc-q-0401
+  lesson: calc-squeeze-epsilon
+  module_quiz: true
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to 0}\frac{\sin 7x}{2x}$.'
+  choices: ['$1$', '$\tfrac27$', '$7$', '$\tfrac72$']
+  answer: 3
+  explanation: |-
+    $\dfrac{\sin 7x}{2x} = \dfrac72\cdot\dfrac{\sin 7x}{7x} \to \dfrac72\cdot1$.
+- id: calc-q-0402
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Suppose $3 - x^2 \le f(x) \le 3 + x^2$ for all $x$ near 0. What is $\lim_{x\to0}f(x)$?'
+  choices: ['$3$', '$0$', 'It cannot be determined', '$6$']
+  answer: 0
+  explanation: |-
+    Both bounds tend to 3 as $x \to 0$, so by the squeeze theorem $f(x) \to 3$.
+- id: calc-q-0403
+  lesson: calc-squeeze-epsilon
+  module_quiz: true
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to0} x^2\cos\!\left(\frac{3}{x}\right)$.'
+  choices: ['$1$', '$0$', '$3$', 'It does not exist']
+  answer: 1
+  explanation: |-
+    $-x^2 \le x^2\cos(3/x) \le x^2$, and both bounds go to 0, so the limit is 0 by the squeeze theorem. The oscillating cosine is tamed by the $x^2$ factor.
+- id: calc-q-0404
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to0}\frac{1 - \cos x}{x}$.'
+  choices: ['$1$', '$\tfrac12$', '$0$', 'It does not exist']
+  answer: 2
+  explanation: |-
+    Multiply by $\frac{1 + \cos x}{1 + \cos x}$: $\dfrac{\sin^2 x}{x(1 + \cos x)} = \dfrac{\sin x}{x}\cdot\dfrac{\sin x}{1 + \cos x} \to 1\cdot\dfrac{0}{2} = 0$.
+- id: calc-q-0405
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to0}\frac{\tan 3x}{x}$.'
+  choices: ['$3$', '$1$', '$\tfrac13$', '$0$']
+  answer: 0
+  explanation: |-
+    $\dfrac{\tan 3x}{x} = 3\cdot\dfrac{\sin 3x}{3x}\cdot\dfrac{1}{\cos 3x} \to 3\cdot1\cdot1 = 3$.
+- id: calc-q-0406
+  lesson: calc-squeeze-epsilon
+  module_quiz: true
+  topic: Formal limit definition
+  stem: 'In the ε-δ proof that $\lim_{x\to1}(4x + 3) = 7$, which choice of $\delta$ works for every $\varepsilon > 0$?'
+  choices: ['$\delta = 4\varepsilon$', '$\delta = \varepsilon$', '$\delta = \varepsilon/4$', '$\delta = \varepsilon/7$']
+  answer: 2
+  explanation: |-
+    $|(4x + 3) - 7| = 4|x - 1|$, which is less than $\varepsilon$ when $|x - 1| < \varepsilon/4$. Larger choices like $\varepsilon$ or $4\varepsilon$ let the output stray too far.
+- id: calc-q-0407
+  lesson: calc-squeeze-epsilon
+  topic: Formal limit definition
+  stem: 'In the ε-δ definition of $\lim_{x\to a}f(x) = L$, what does the condition $0 < |x - a|$ do?'
+  choices:
+    - 'It requires $x > a$'
+    - 'It excludes $x = a$, so the value $f(a)$ plays no role'
+    - 'It makes $\delta$ positive'
+    - 'It requires $f(x) \ne L$'
+  answer: 1
+  explanation: |-
+    $0 < |x - a|$ just means $x \ne a$. That matches the informal idea that the limit ignores the value at the point.
+- id: calc-q-0408
+  lesson: calc-squeeze-epsilon
+  topic: Formal limit definition
+  stem: 'For $f(x) = 5x - 2$ near $a = 3$ (limit $L = 13$) and tolerance $\varepsilon = 0.1$, what is the largest $\delta$ that works?'
+  choices: ['$0.5$', '$0.1$', '$0.002$', '$0.02$']
+  answer: 3
+  explanation: |-
+    $|f(x) - 13| = 5|x - 3| < 0.1$ exactly when $|x - 3| < 0.02$.
+- id: calc-q-0409
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Why does $\lim_{\theta\to0}\dfrac{\sin\theta}{\theta} = 1$ require $\theta$ in radians?'
+  choices:
+    - 'The proof compares areas using the sector formula $\tfrac12 r^2\theta$, which holds only for radian measure'
+    - 'Because $\sin\theta$ is undefined in degrees'
+    - 'Because degrees are not real numbers'
+    - 'It doesn''t; the limit is 1 in any unit'
+  answer: 0
+  explanation: |-
+    The squeeze $\frac12\sin\theta \le \frac12\theta \le \frac12\tan\theta$ uses the sector area $\frac12\theta$ on the unit circle, valid only in radians. In degrees the limit is $\pi/180$.
+- id: calc-q-0410
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to0}\frac{\sin^2 x}{x}$.'
+  choices: ['$1$', '$2$', '$0$', 'It does not exist']
+  answer: 2
+  explanation: |-
+    $\dfrac{\sin^2 x}{x} = \dfrac{\sin x}{x}\cdot\sin x \to 1\cdot0 = 0$.
+- id: calc-q-0411
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to\infty}\frac{\cos x}{x}$.'
+  choices: ['$1$', 'It does not exist, since $\cos x$ oscillates', '$-1$', '$0$']
+  answer: 3
+  explanation: |-
+    For $x > 0$, $-\frac1x \le \frac{\cos x}{x} \le \frac1x$, and both bounds tend to 0. The squeeze theorem gives 0, even though $\cos x$ itself has no limit.
+
+- id: calc-q-0501
+  lesson: calc-continuity
+  module_quiz: true
+  topic: Continuity
+  stem: 'Which three conditions together define "$f$ is continuous at $a$"?'
+  choices:
+    - '$f(a)$ is defined; $\lim_{x\to a}f(x)$ exists; they are equal'
+    - '$f(a)$ is defined; $f''(a)$ exists; $f(a) \ne 0$'
+    - '$\lim_{x\to a^-}f(x)$ exists; $\lim_{x\to a^+}f(x)$ exists; $f(a) = 0$'
+    - '$f$ is a polynomial; $a$ is in its domain; $f(a)$ is finite'
+  answer: 0
+  explanation: |-
+    Continuity at $a$ means $\lim_{x\to a}f(x) = f(a)$: the value exists, the limit exists, and they match.
+- id: calc-q-0502
+  lesson: calc-continuity
+  module_quiz: true
+  topic: Continuity
+  stem: |-
+    Find $k$ so that
+    $$f(x) = \begin{cases} kx + 1, & x < 3\\ x^2 - k, & x \ge 3\end{cases}$$
+    is continuous at $x = 3$.
+  choices: ['$k = 2$', '$k = \tfrac83$', '$k = 4$', '$k = \tfrac52$']
+  answer: 0
+  explanation: |-
+    Match the pieces at 3: $3k + 1 = 9 - k$, so $4k = 8$ and $k = 2$.
+- id: calc-q-0503
+  lesson: calc-continuity
+  topic: Continuity
+  stem: 'What kind of discontinuity does $f(x) = \dfrac{x^2 - 9}{x + 3}$ have at $x = -3$?'
+  choices: ['Jump', 'Infinite', 'Removable', 'None; it is continuous there']
+  answer: 2
+  explanation: |-
+    $f(x) = x - 3$ for $x \ne -3$, so the limit at $-3$ is $-6$ but $f(-3)$ is undefined: a hole, i.e. a removable discontinuity.
+- id: calc-q-0504
+  lesson: calc-continuity
+  topic: Continuity
+  stem: 'What kind of discontinuity does $g(x) = \dfrac{x}{x - 4}$ have at $x = 4$?'
+  choices: ['Removable', 'Jump', 'Infinite', 'Oscillating']
+  answer: 2
+  explanation: |-
+    Substitution gives $4/0$ and no factor cancels, so $g \to \pm\infty$ near 4: an infinite discontinuity (vertical asymptote).
+- id: calc-q-0505
+  lesson: calc-continuity
+  module_quiz: true
+  topic: Intermediate Value Theorem
+  stem: '$f$ is continuous on $[0, 4]$ with $f(0) = 5$ and $f(4) = -2$. Which statement must be true?'
+  choices:
+    - '$f(2) = 1.5$'
+    - '$f(c) = 0$ for some $c$ in $(0, 4)$'
+    - '$f$ has exactly one zero in $(0, 4)$'
+    - '$f(c) = 6$ for some $c$ in $(0, 4)$'
+  answer: 1
+  explanation: |-
+    0 lies between 5 and $-2$, so the IVT guarantees at least one $c$ with $f(c) = 0$. It says nothing about exactly one, about $f(2)$, or about values outside $[-2, 5]$.
+- id: calc-q-0506
+  lesson: calc-continuity
+  topic: Intermediate Value Theorem
+  stem: 'On which interval does the IVT guarantee a root of $f(x) = x^3 - 4x + 1$?'
+  choices: ['$[-1, 0]$', '$[1, 1.5]$', '$[0, 1]$', '$[2, 3]$']
+  answer: 2
+  explanation: |-
+    $f(0) = 1 > 0$ and $f(1) = 1 - 4 + 1 = -2 < 0$: sign change, and $f$ is a continuous polynomial. Check the others: $f(-1) = 4$, $f(0) = 1$ (same sign); $f(1) = -2$, $f(1.5) = -1.625$ (same sign); $f(2) = 1$, $f(3) = 16$ (same sign).
+- id: calc-q-0507
+  lesson: calc-continuity
+  topic: Intermediate Value Theorem
+  stem: '$f(x) = \dfrac1x$ has $f(-1) = -1$ and $f(1) = 1$, yet $f(x) = 0$ has no solution. Why doesn''t this contradict the IVT?'
+  choices:
+    - 'The IVT only applies to polynomials'
+    - '0 is not between $-1$ and $1$'
+    - 'The IVT only guarantees solutions at the endpoints'
+    - '$f$ is not continuous on $[-1, 1]$; it is undefined at $x = 0$'
+  answer: 3
+  explanation: |-
+    The IVT's hypothesis is continuity on the whole closed interval. $1/x$ has an infinite discontinuity at 0, so the theorem doesn't apply.
+- id: calc-q-0508
+  lesson: calc-continuity
+  topic: Continuity
+  stem: 'Where is $h(x) = \dfrac{\ln x}{x - 2}$ continuous?'
+  choices:
+    - 'All real $x$'
+    - '$x > 0$'
+    - '$x > 0$ except $x = 2$'
+    - '$x \ne 2$'
+  answer: 2
+  explanation: |-
+    $\ln x$ needs $x > 0$, and the denominator rules out $x = 2$. A quotient of continuous functions is continuous wherever it's defined.
+- id: calc-q-0509
+  lesson: calc-continuity
+  topic: Intermediate Value Theorem
+  stem: 'Bisection on $f(x) = x^2 - 3$ starts with $[1, 2]$. After testing $x = 1.5$ and then the next midpoint, which interval contains $\sqrt3$?'
+  choices: ['$[1.5, 1.75]$', '$[1.75, 2]$', '$[1, 1.25]$', '$[1.25, 1.5]$']
+  answer: 0
+  explanation: |-
+    $f(1.5) = -0.75 < 0$ and $f(2) = 1 > 0$, so keep $[1.5, 2]$. Midpoint 1.75: $f(1.75) = 0.0625 > 0$, so keep $[1.5, 1.75]$. Indeed $\sqrt3 \approx 1.732$.
+- id: calc-q-0510
+  lesson: calc-continuity
+  topic: Continuity
+  stem: |-
+    For
+    $$f(x) = \begin{cases} x^2, & x < 1\\ 3, & x = 1\\ 2 - x, & x > 1\end{cases}$$
+    which condition for continuity at $x = 1$ fails?
+  choices:
+    - '$f(1)$ is not defined'
+    - '$\lim_{x\to1}f(x)$ does not exist'
+    - 'The limit exists but is not equal to $f(1)$'
+    - 'None; $f$ is continuous at 1'
+  answer: 2
+  explanation: |-
+    Left limit $1^2 = 1$, right limit $2 - 1 = 1$, so the limit is 1. But $f(1) = 3 \ne 1$: a removable discontinuity.
+- id: calc-q-0511
+  lesson: calc-continuity
+  topic: Continuity
+  stem: 'Which function is continuous at $x = 0$?'
+  choices:
+    - '$f(x) = \dfrac{\sin x}{x}$'
+    - '$f(x) = \dfrac{1}{x^2}$'
+    - '$f(x) = \dfrac{|x|}{x}$'
+    - '$f(x) = \begin{cases} \dfrac{\sin x}{x}, & x \ne 0\\ 1, & x = 0\end{cases}$'
+  answer: 3
+  explanation: |-
+    $\frac{\sin x}{x} \to 1$, and the piecewise function defines $f(0) = 1$, filling the hole. Plain $\frac{\sin x}{x}$ is undefined at 0; $\frac{|x|}{x}$ jumps; $\frac{1}{x^2}$ blows up.

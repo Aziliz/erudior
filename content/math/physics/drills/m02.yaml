@@ -1,0 +1,225 @@
+- id: phys-avg-velocity
+  title: Average velocity and average speed
+  topic: Velocity and acceleration
+  vars:
+    d1: {min: 200, max: 900, step: 10}
+    t1: {min: 20, max: 90, step: 5}
+    d2: {min: 50, max: 600, step: 10}
+    t2: {min: 10, max: 60, step: 5}
+  where: ['d2 < d1']
+  calc:
+    dx: d1 - d2
+    tt: t1 + t2
+    vavg: (d1 - d2) / (t1 + t2)
+    savg: (d1 + d2) / (t1 + t2)
+  prompt: 'A jogger runs {d1} m east in {t1} s, then turns and runs {d2} m west in {t2} s. Find her average velocity (east positive) and her average speed for the whole run.'
+  answers:
+    - {format: sig4, name: vavg, label: 'Average velocity', relTolerance: 0.01, units: {'m/s': 1}}
+    - {format: sig4, name: savg, label: 'Average speed', relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    Displacement: $\Delta x = {d1} - {d2} = {dx}$ m; total time $\Delta t = {t1} + {t2} = {tt}$ s.
+
+    Average velocity $= \dfrac{\Delta x}{\Delta t} =$ **{vavg:num2} m/s** (east).
+
+    Distance $= {d1} + {d2}$ m, so average speed $=$ **{savg:num2} m/s**.
+- id: phys-calc-velocity
+  title: Velocity and acceleration from x(t)
+  topic: Velocity and acceleration
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -9, max: 9}
+    c: {min: -12, max: 12}
+    t: {min: 1, max: 5}
+  where: ['b != 0', 'c != 0', '3*a*t^2 + 2*b*t + c != 0', '6*a*t + 2*b != 0']
+  calc:
+    a3: 3*a
+    b2: 2*b
+    a6: 6*a
+    v: 3*a*t^2 + 2*b*t + c
+    acc: 6*a*t + 2*b
+  prompt: 'A particle moves along $x$ with $x(t) = {a:coef}t^3 {b:signedcoef}t^2 {c:signedcoef}t$ (meters, seconds). Find its velocity and acceleration at $t = {t}$ s.'
+  answers:
+    - {format: sig4, name: v, label: '$v =$', tolerance: 0.01, units: {'m/s': 1}}
+    - {format: sig4, name: acc, label: '$a =$', tolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+  solution: |-
+    $v(t) = \dfrac{dx}{dt} = {a3}t^2 {b2:signed}t {c:signed}$, so $v({t}) =$ **{v} m/s**.
+
+    $a(t) = \dfrac{dv}{dt} = {a6}t {b2:signed}$, so $a({t}) =$ **{acc} m/s²**.
+- id: phys-stopping
+  title: Braking distance and time
+  topic: Constant acceleration
+  vars:
+    v0: {min: 10, max: 35}
+    dec: {min: 3, max: 9, step: 0.5}
+  calc:
+    d: v0^2 / (2*dec)
+    t: v0 / dec
+  prompt: 'A car moving at {v0} m/s brakes with a constant acceleration of magnitude {dec} m/s². How far does it travel while stopping, and how long does it take?'
+  answers:
+    - {format: sig4, name: d, label: 'Distance', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: t, label: 'Time', relTolerance: 0.01, units: {s: 1}}
+  solution: |-
+    With $v = 0$ and $a = -{dec}$ m/s²: $0 = v_0^2 - 2({dec})\Delta x$, so $\Delta x = \dfrac{{v0}^2}{2({dec})} =$ **{d:num1} m**.
+
+    $0 = {v0} - {dec}\,t$, so $t =$ **{t:num2} s**.
+- id: phys-free-fall
+  title: Time and speed of a dropped object
+  topic: Free fall
+  vars:
+    h: {min: 5, max: 120}
+  calc:
+    t: sqrt(2*h/9.8)
+    v: 9.8*t
+  prompt: 'A wrench is dropped from rest from a height of {h} m. Ignoring air resistance and using $g = 9.8$ m/s², how long does it fall, and how fast is it moving at the ground?'
+  answers:
+    - {format: sig4, name: t, label: 'Time', relTolerance: 0.01, units: {s: 1}}
+    - {format: sig4, name: v, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    $h = \tfrac12 g t^2 \Rightarrow t = \sqrt{2({h})/9.8} =$ **{t:num2} s**.
+
+    $v = gt = 9.8({t:num2}) =$ **{v:num1} m/s** (also $v = \sqrt{2gh}$).
+- id: phys-thrown-up
+  title: Ball thrown straight up
+  topic: Free fall
+  vars:
+    v0: {min: 5, max: 30}
+  calc:
+    H: v0^2 / (2*9.8)
+    T: 2*v0 / 9.8
+  prompt: 'A ball is thrown straight up at {v0} m/s. Using $g = 9.8$ m/s², find its maximum height above the launch point and its total time in the air (until it returns to the launch height).'
+  answers:
+    - {format: sig4, name: H, label: 'Max height', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: T, label: 'Time in air', relTolerance: 0.01, units: {s: 1}}
+  figure:
+    type: plot
+    x: [0, 'T*1.05']
+    y: [0, 'H*1.2']
+    xLabel: 't (s)'
+    yLabel: 'y (m)'
+    functions:
+      - {f: 'v0*x - 4.9*x^2', from: 0, to: 'T', label: 'y(t)'}
+  solution: |-
+    At the top $v_y = 0$: $0 = {v0}^2 - 2(9.8)H$, so $H =$ **{H:num2} m**.
+
+    Time up $= {v0}/9.8$ s; time down is the same, so $T = 2({v0})/9.8 =$ **{T:num2} s**.
+- id: phys-proj-horizontal
+  title: Horizontal launch from a height
+  topic: Projectile motion
+  vars:
+    h: {min: 1.0, max: 60, step: 0.5}
+    v: {min: 2, max: 25}
+  calc:
+    t: sqrt(2*h/9.8)
+    x: v*t
+    vy: 9.8*t
+    s: hypot(v, vy)
+  prompt: 'A ball leaves the edge of a {h} m high ledge moving horizontally at {v} m/s. Using $g = 9.8$ m/s², how far from the base of the ledge does it land, and what is its speed just before landing?'
+  answers:
+    - {format: sig4, name: x, label: 'Distance', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: s, label: 'Impact speed', relTolerance: 0.01, units: {'m/s': 1}}
+  figure:
+    type: plot
+    x: [0, 'x*1.15']
+    y: [0, 'h*1.15']
+    xLabel: 'x (m)'
+    yLabel: 'y (m)'
+    functions:
+      - {f: 'h - 4.9*(x/v)^2', from: 0, to: 'x', label: 'path'}
+    points:
+      - {at: [0, 'h'], label: 'launch'}
+  solution: |-
+    Fall time from the vertical motion: $t = \sqrt{2h/g} = \sqrt{2({h})/9.8} = {t:num2}$ s.
+
+    Horizontal distance: $x = v t = {v}({t:num2}) =$ **{x:num2} m**.
+
+    At impact $v_y = gt = {vy:num2}$ m/s, so speed $= \sqrt{{v}^2 + {vy:num2}^2} =$ **{s:num2} m/s**.
+- id: phys-proj-angle
+  title: Range, height and flight time on level ground
+  topic: Projectile motion
+  vars:
+    v0: {min: 10, max: 40}
+    th: {min: 15, max: 75, step: 5}
+  calc:
+    vx: v0*cosd(th)
+    vy: v0*sind(th)
+    T: 2*vy/9.8
+    H: vy^2/(2*9.8)
+    R: vx*T
+  prompt: 'A ball is launched from level ground at {v0} m/s, {th}° above horizontal. Using $g = 9.8$ m/s², find the time of flight, the maximum height and the range.'
+  answers:
+    - {format: sig4, name: T, label: 'Time of flight', relTolerance: 0.01, units: {s: 1}}
+    - {format: sig4, name: H, label: 'Max height', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: R, label: 'Range', relTolerance: 0.01, units: {m: 1}}
+  figure:
+    type: plot
+    x: [0, 'R*1.1']
+    y: [0, 'max(H*1.3, R*0.2)']
+    xLabel: 'x (m)'
+    yLabel: 'y (m)'
+    functions:
+      - {f: 'x*tand(th) - 9.8*x^2/(2*vx^2)', from: 0, to: 'R'}
+  solution: |-
+    $v_{0x} = {v0}\cos {th}^\circ = {vx:num2}$ m/s, $v_{0y} = {v0}\sin {th}^\circ = {vy:num2}$ m/s.
+
+    $T = 2v_{0y}/g =$ **{T:num2} s**; $H = v_{0y}^2/(2g) =$ **{H:num2} m**; $R = v_{0x}T = \dfrac{v_0^2\sin 2\theta}{g} =$ **{R:num1} m**.
+- id: phys-river-crossing
+  title: Crossing a river
+  topic: Relative motion
+  vars:
+    w: {min: 40, max: 200, step: 10}
+    vs: {min: 1.5, max: 4.0, step: 0.1}
+    vc: {min: 0.5, max: 3.0, step: 0.1}
+  where: ['vc < vs - 0.3']
+  calc:
+    t: w / vs
+    drift: vc * t
+    ang: asind(vc / vs)
+  prompt: 'A river {w} m wide flows at {vc} m/s. A boat moves at {vs} m/s relative to the water. (a) Heading straight across, how far downstream does it land? (b) To land directly opposite, how many degrees upstream from straight across must it head?'
+  answers:
+    - {format: sig4, name: drift, label: '(a) Drift', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: ang, label: '(b) Angle', tolerance: 0.3, units: {'°': 1, deg: 1}}
+  solution: |-
+    (a) Crossing time uses only the across component: $t = {w}/{vs} = {t:num2}$ s. Drift $= {vc} \times {t:num2} =$ **{drift:num1} m**.
+
+    (b) The upstream component must cancel the current: ${vs}\sin\alpha = {vc}$, so $\alpha = \sin^{-1}({vc}/{vs}) =$ **{ang:num1}°**.
+- id: phys-plane-wind
+  title: Airplane in a crosswind
+  topic: Relative motion
+  vars:
+    va: {min: 150, max: 500, step: 10}
+    vw: {min: 20, max: 90, step: 5}
+  calc:
+    head: asind(vw / va)
+    vg: sqrt(va^2 - vw^2)
+  prompt: 'A plane with airspeed {va} km/h must fly due north while a wind blows toward the east at {vw} km/h. How many degrees west of north must it head, and what is its ground speed?'
+  answers:
+    - {format: sig4, name: head, label: 'Heading', tolerance: 0.2, units: {'°': 1, deg: 1}}
+    - {format: sig4, name: vg, label: 'Ground speed', relTolerance: 0.005, units: {'km/h': 1}}
+  solution: |-
+    $\vec v_{PG} = \vec v_{PA} + \vec v_{AG}$. The plane's eastward airspeed component must be $-{vw}$ km/h: ${va}\sin\alpha = {vw}$, so $\alpha =$ **{head:num1}°** west of north.
+
+    Ground speed $= {va}\cos\alpha = \sqrt{{va}^2 - {vw}^2} =$ **{vg:num1} km/h**.
+- id: phys-vector-kinematics
+  title: Velocity and speed from a position vector
+  topic: Two-dimensional motion
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: 2, max: 9}
+    c: {min: 1, max: 3}
+    t: {min: 1, max: 4}
+  calc:
+    a2: 2*a
+    c3: 3*c
+    vx: 2*a*t
+    vy: b - 3*c*t^2
+    sp: hypot(vx, vy)
+  where: ['vy != 0']
+  prompt: 'A particle''s position is $\vec r(t) = ({a:coef}t^2)\,\hat\imath + ({b}t - {c:coef}t^3)\,\hat\jmath$ in meters. Find $v_x$, $v_y$ and the speed at $t = {t}$ s.'
+  answers:
+    - {format: sig4, name: vx, label: '$v_x =$', tolerance: 0.01, units: {'m/s': 1}}
+    - {format: sig4, name: vy, label: '$v_y =$', tolerance: 0.01, units: {'m/s': 1}}
+    - {format: sig4, name: sp, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    $\vec v = \dfrac{d\vec r}{dt} = ({a2}t)\,\hat\imath + ({b} - {c3}t^2)\,\hat\jmath$.
+
+    At $t = {t}$: $v_x =$ **{vx} m/s**, $v_y =$ **{vy} m/s**, speed $= \sqrt{v_x^2 + v_y^2} =$ **{sp:num2} m/s**.

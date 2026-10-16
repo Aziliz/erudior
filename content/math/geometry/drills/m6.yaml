@@ -1,0 +1,367 @@
+# Module 6 drills
+- id: geo-proportion
+  title: Solve a proportion
+  topic: Proportions
+  vars:
+    b: {min: 2, max: 12}
+    d: {min: 2, max: 12}
+    m: {min: -5, max: 5}
+    n: {min: -5, max: 5}
+  where: ["d != b", "m != 0", "n != 0", "m != n"]
+  calc:
+    x: (b*n - d*m)/(d - b)
+    lhs: d - b
+    rhs: b*n - d*m
+  prompt: 'Solve $\dfrac{x {m:signed}}{{b}} = \dfrac{x {n:signed}}{{d}}$. Give an exact answer (a fraction is fine).'
+  answers:
+    - {name: x, kind: fraction, label: '$x =$'}
+  solution: |-
+    Cross multiply: ${d}(x {m:signed}) = {b}(x {n:signed})$. Collect $x$-terms: $({d} - {b})x = {b}({n}) - {d}({m})$, so ${lhs}x = {rhs}$ and $x =$ **${x:texfrac}$**.
+
+- id: geo-sim-side
+  title: Missing side of similar triangles
+  topic: Similar polygons
+  vars:
+    ab: {min: 3, max: 15}
+    bc: {min: 3, max: 15}
+    num: {min: 2, max: 7}
+    den: {min: 2, max: 5}
+  where: ["num != den", "gcd(num, den) == 1", "mod(ab*num, den) == 0", "mod(bc*num, den) == 0"]
+  calc:
+    de: ab*num/den
+    ef: bc*num/den
+  prompt: '$\triangle ABC \sim \triangle DEF$ with $AB = {ab}$, $BC = {bc}$ and $DE = {de}$. Find $EF$.'
+  answers:
+    - {name: ef, label: '$EF =$'}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [ab, 0], ['0.3*ab', '0.6*bc']]
+      - points: [['1.3*ab + 2', 0], ['1.3*ab + 2 + de', 0], ['1.3*ab + 2 + 0.3*de', '0.6*ef']]
+    labels:
+      - {at: ['ab/2', '-0.07*(ab + de)'], text: '{ab}'}
+      - {at: ['1.3*ab + 2 + de/2', '-0.07*(ab + de)'], text: '{de}'}
+  solution: |-
+    Corresponding sides are proportional. The scale factor from $\triangle ABC$ to $\triangle DEF$ is $\dfrac{DE}{AB} = \dfrac{{de}}{{ab}}$, so $EF = {bc} \cdot \dfrac{{de}}{{ab}} =$ **{ef}**.
+
+- id: geo-scale-area
+  title: Areas and volumes of similar figures
+  topic: Similar polygons
+  vars:
+    p: {min: 1, max: 6}
+    q: {min: 2, max: 7}
+    A: {min: 2, max: 40}
+    V: {min: 2, max: 40}
+  where: ["p < q", "gcd(p, q) == 1", "A != V"]
+  calc:
+    k: q/p
+    A2: A*k^2
+    V2: V*k^3
+  prompt: 'Two similar solids have corresponding edges in the ratio ${p} : {q}$. The smaller has surface area {A} cm² and volume {V} cm³. Find the larger solid''s surface area and volume (2 decimals if needed).'
+  answers:
+    - {name: A2, label: 'Surface area', relTolerance: 0.001}
+    - {name: V2, label: 'Volume', relTolerance: 0.001}
+  solution: |-
+    The scale factor is $k = \tfrac{{q}}{{p}}$. Areas scale by $k^2$ and volumes by $k^3$: surface area $= {A} \cdot \left(\tfrac{{q}}{{p}}\right)^2 \approx$ **{A2:num2}** cm², volume $= {V} \cdot \left(\tfrac{{q}}{{p}}\right)^3 \approx$ **{V2:num2}** cm³.
+
+- id: geo-side-splitter
+  title: Side Splitter Theorem
+  topic: Proportional segments
+  vars:
+    ad: {min: 2, max: 15}
+    db: {min: 2, max: 15}
+    ae: {min: 2, max: 15}
+  where: ["mod(db*ae, ad) == 0", "ad != db"]
+  calc:
+    ec: db*ae/ad
+    t: ad + db
+    s: ae + ec
+  prompt: 'In $\triangle ABC$, $\overline{DE} \parallel \overline{BC}$ with $D$ on $\overline{AB}$ and $E$ on $\overline{AC}$. $AD = {ad}$, $DB = {db}$ and $AE = {ae}$. Find $EC$.'
+  answers:
+    - {name: ec, label: '$EC =$'}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [12, 0], [4, 8]]
+    segments:
+      - {from: ['4 - 4*ad/t', '8 - 8*ad/t'], to: ['4 + 8*ad/t', '8 - 8*ad/t']}
+    labels:
+      - {at: [4, 8.6], text: 'A'}
+      - {at: [-0.5, -0.5], text: 'B'}
+      - {at: [12.5, -0.5], text: 'C'}
+      - {at: ['3.4 - 4*ad/t', '8 - 8*ad/t'], text: 'D'}
+      - {at: ['4.6 + 8*ad/t', '8 - 8*ad/t'], text: 'E'}
+  solution: |-
+    A line parallel to one side divides the other two proportionally: $\dfrac{AD}{DB} = \dfrac{AE}{EC}$, so $\dfrac{{ad}}{{db}} = \dfrac{{ae}}{EC}$ and $EC = \dfrac{{db} \cdot {ae}}{{ad}} =$ **{ec}**.
+
+- id: geo-angbis-thm
+  title: Triangle Angle Bisector Theorem
+  topic: Proportional segments
+  vars:
+    ab: {min: 4, max: 20}
+    ac: {min: 4, max: 20}
+    bc: {min: 5, max: 30}
+  where: ["ab != ac", "ab + ac > bc", "ab + bc > ac", "ac + bc > ab"]
+  calc:
+    bd: bc*ab/(ab + ac)
+    dc: bc - bd
+    s: ab + ac
+  prompt: 'In $\triangle ABC$, $AB = {ab}$, $AC = {ac}$ and $BC = {bc}$. The bisector of $\angle A$ meets $\overline{BC}$ at $D$. Find $BD$ and $DC$ (2 decimals if needed).'
+  answers:
+    - {name: bd, label: '$BD =$', tolerance: 0.01}
+    - {name: dc, label: '$DC =$', tolerance: 0.01}
+  solution: |-
+    The bisector divides $\overline{BC}$ in the ratio of the adjacent sides: $\dfrac{BD}{DC} = \dfrac{AB}{AC} = \dfrac{{ab}}{{ac}}$. So $BD = \dfrac{{ab}}{{s}} \cdot {bc} \approx$ **{bd:num2}** and $DC = {bc} - BD \approx$ **{dc:num2}**.
+
+- id: geo-shadow
+  title: Heights from shadows
+  topic: Similarity tests
+  vars:
+    h: {min: 15, max: 20, step: 1}
+    s: {min: 10, max: 40, step: 1}
+    S: {min: 8, max: 60}
+  calc:
+    hm: h/10
+    sm: s/10
+    H: S*hm/sm
+  prompt: 'A person {hm} m tall casts a {sm} m shadow. At the same moment a tree casts a {S} m shadow. How tall is the tree? (2 decimals)'
+  answers:
+    - {name: H, label: 'Height', tolerance: 0.01, units: {m: 1}}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [sm, 0], [0, hm]]
+    rightAngles:
+      - [[0, 0], [sm, 0], [0, hm]]
+  solution: |-
+    The sun's rays are parallel, so the two right triangles are similar (AA). $\dfrac{H}{{S}} = \dfrac{{hm}}{{sm}}$, so $H = {S} \cdot \dfrac{{hm}}{{sm}} \approx$ **{H:num2} m**.
+
+- id: geo-pyth-hyp
+  title: Find the hypotenuse
+  topic: Pythagorean theorem
+  vars:
+    a: {min: 2, max: 20}
+    b: {min: 2, max: 20}
+  calc:
+    s: a^2 + b^2
+    c: sqrt(s)
+  prompt: 'A right triangle has legs {a} and {b}. Find the hypotenuse (exact or 2 decimals).'
+  answers:
+    - {name: c, label: '$c =$', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [a, 0], [0, b]]
+    rightAngles:
+      - [[0, 0], [a, 0], [0, b]]
+    segments:
+      - {from: [0, 0], to: [a, 0], label: '{a}'}
+      - {from: [0, b], to: [0, 0], label: '{b}'}
+      - {from: [a, 0], to: [0, b], label: 'c'}
+  solution: |-
+    $c = \sqrt{{a}^2 + {b}^2} = \sqrt{{s}} \approx$ **{c:num2}**.
+
+- id: geo-pyth-leg
+  title: Find a leg
+  topic: Pythagorean theorem
+  vars:
+    a: {min: 2, max: 20}
+    c: {min: 5, max: 30}
+  where: ["c > a + 1"]
+  calc:
+    s: c^2 - a^2
+    b: sqrt(s)
+  prompt: 'A right triangle has hypotenuse {c} and one leg {a}. Find the other leg (exact or 2 decimals).'
+  answers:
+    - {name: b, label: '$b =$', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [a, 0], [0, b]]
+    rightAngles:
+      - [[0, 0], [a, 0], [0, b]]
+    segments:
+      - {from: [0, 0], to: [a, 0], label: '{a}'}
+      - {from: [0, b], to: [0, 0], label: 'b'}
+      - {from: [a, 0], to: [0, b], label: '{c}'}
+  solution: |-
+    $b = \sqrt{{c}^2 - {a}^2} = \sqrt{{s}} \approx$ **{b:num2}**. (Subtract to find a leg.)
+
+- id: geo-pyth-classify
+  title: Classify a triangle by its sides
+  topic: Pythagorean theorem
+  vars:
+    a: {min: 3, max: 15}
+    b: {min: 3, max: 15}
+    c: {min: 4, max: 20}
+    kind: {choices: [{label: 'acute', value: -1}, {label: 'obtuse', value: 1}]}
+  where: ["a <= b", "b < c", "a + b > c", "sign(c^2 - a^2 - b^2) == kind"]
+  calc:
+    c2: c^2
+    s: a^2 + b^2
+  prompt: 'A triangle has sides {a}, {b} and {c}. Compute $c^2$ for the longest side and $a^2 + b^2$ for the other two, then decide whether the triangle is acute, right or obtuse.'
+  answers:
+    - {name: c2, label: '$c^2 =$'}
+    - {name: s, label: '$a^2 + b^2 =$'}
+  solution: |-
+    $c^2 = {c}^2 =$ **{c2}** and $a^2 + b^2 = {a}^2 + {b}^2 =$ **{s}**. If $c^2 < a^2 + b^2$ the triangle is acute, if equal it is right, and if greater it is obtuse. Comparing {c2} with {s}, this triangle is **{kind}**.
+
+- id: geo-454590
+  title: 45-45-90 triangle
+  topic: Special right triangles
+  vars:
+    n: {min: 2, max: 20}
+    mode: {choices: [{label: 'each leg', value: 1}, {label: 'the hypotenuse', value: 2}]}
+  calc:
+    leg: if(mode == 1, n, n/sqrt(2))
+    hyp: if(mode == 1, n*sqrt(2), n)
+  prompt: 'In a 45°-45°-90° triangle, {mode} has length {n}. Find a leg and the hypotenuse (exact like 5sqrt(2), or 2 decimals).'
+  answers:
+    - {name: leg, label: 'Leg', tolerance: 0.01}
+    - {name: hyp, label: 'Hypotenuse', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [5, 0], [0, 5]]
+    rightAngles:
+      - [[0, 0], [5, 0], [0, 5]]
+    labels:
+      - {at: [3.9, 0.4], text: '45°'}
+      - {at: [0.5, 3.8], text: '45°'}
+  solution: |-
+    The sides are in the ratio $1 : 1 : \sqrt2$. Hypotenuse $=$ leg $\cdot \sqrt2$ and leg $=$ hypotenuse $\div \sqrt2$. Here the leg is **{leg:num2}** and the hypotenuse is **{hyp:num2}**.
+
+- id: geo-306090
+  title: 30-60-90 triangle
+  topic: Special right triangles
+  vars:
+    n: {min: 2, max: 20}
+    mode: {choices: [{label: 'short leg', value: 1}, {label: 'long leg', value: 2}, {label: 'hypotenuse', value: 3}]}
+  calc:
+    sl: if(mode == 1, n, if(mode == 2, n/sqrt(3), n/2))
+    ll: sl*sqrt(3)
+    hy: 2*sl
+  prompt: 'In a 30°-60°-90° triangle, the {mode} is {n}. Find the short leg, the long leg and the hypotenuse (exact like 4sqrt(3), or 2 decimals).'
+  answers:
+    - {name: sl, label: 'Short leg', tolerance: 0.01}
+    - {name: ll, label: 'Long leg', tolerance: 0.01}
+    - {name: hy, label: 'Hypotenuse', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [5.196, 0], [0, 3]]
+    rightAngles:
+      - [[0, 0], [5.196, 0], [0, 3]]
+    labels:
+      - {at: [3.9, 0.35], text: '30°'}
+      - {at: [0.5, 2.2], text: '60°'}
+  solution: |-
+    The sides are short : long : hypotenuse $= 1 : \sqrt3 : 2$. Find the short leg first: **{sl:num2}**. Then long leg $=$ short $\cdot \sqrt3 \approx$ **{ll:num2}** and hypotenuse $= 2 \cdot$ short $=$ **{hy:num2}**.
+
+- id: geo-geomean
+  title: Altitude to the hypotenuse
+  topic: Geometric mean
+  vars:
+    x: {min: 1, max: 16}
+    y: {min: 2, max: 25}
+  where: ["x < y"]
+  calc:
+    h: sqrt(x*y)
+    c: x + y
+    b: sqrt(c*x)
+    xy: x*y
+    cx: c*x
+  prompt: 'The altitude to the hypotenuse of a right triangle divides the hypotenuse into pieces {x} and {y}. Find the altitude and the leg adjacent to the piece of length {x} (exact or 2 decimals).'
+  answers:
+    - {name: h, label: 'Altitude', tolerance: 0.01}
+    - {name: b, label: 'Leg', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [c, 0], [x, h]]
+    segments:
+      - {from: [x, h], to: [x, 0], dashed: true}
+    rightAngles:
+      - [[x, 0], [c, 0], [x, h]]
+    labels:
+      - {at: ['x/2', '-0.06*c'], text: '{x}'}
+      - {at: ['x + y/2', '-0.06*c'], text: '{y}'}
+  solution: |-
+    The altitude is the geometric mean of the pieces: $h = \sqrt{{x} \cdot {y}} = \sqrt{{xy}} \approx$ **{h:num2}**. The leg next to the {x}-piece is the geometric mean of the whole hypotenuse ({c}) and that piece: $\sqrt{{c} \cdot {x}} = \sqrt{{cx}} \approx$ **{b:num2}**.
+
+- id: geo-trig-side
+  title: Find a side with trigonometry
+  topic: Solving right triangles
+  vars:
+    t: {min: 15, max: 75}
+    h: {min: 5, max: 40}
+    mode: {choices: [{label: 'opposite', value: 1}, {label: 'adjacent to', value: 2}]}
+  calc:
+    opp: h*sind(t)
+    adj: h*cosd(t)
+    ans: if(mode == 1, opp, adj)
+  prompt: 'A right triangle has hypotenuse {h} and an acute angle of ${t}^\circ$. Find the leg {mode} that angle (2 decimals).'
+  answers:
+    - {name: ans, label: 'Leg', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], ['h*cosd(t)', 0], ['h*cosd(t)', 'h*sind(t)']]
+    rightAngles:
+      - [['h*cosd(t)', 0], [0, 0], ['h*cosd(t)', 'h*sind(t)']]
+    segments:
+      - {from: ['h*cosd(t)', 'h*sind(t)'], to: [0, 0], label: '{h}'}
+    labels:
+      - {at: ['0.2*h*cosd(t/2)', '0.2*h*sind(t/2)'], text: '{t}°'}
+  solution: |-
+    SOH-CAH-TOA: the opposite leg is $\text{hyp} \cdot \sin\theta = {h}\sin {t}^\circ \approx {opp:num2}$, and the adjacent leg is $\text{hyp} \cdot \cos\theta = {h}\cos {t}^\circ \approx {adj:num2}$. The leg {mode} the angle is **{ans:num2}**.
+
+- id: geo-trig-angle
+  title: Find an angle with inverse trig
+  topic: Solving right triangles
+  vars:
+    a: {min: 2, max: 25}
+    b: {min: 2, max: 25}
+  where: ["a != b"]
+  calc:
+    t: atand(a/b)
+    u: 90 - t
+  prompt: 'A right triangle has legs {a} and {b}. Find the angle opposite the leg of length {a}, in degrees (2 decimals).'
+  answers:
+    - {name: t, label: 'Angle', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [b, 0], [b, a]]
+    rightAngles:
+      - [[b, 0], [0, 0], [b, a]]
+    segments:
+      - {from: [0, 0], to: [b, 0], label: '{b}'}
+      - {from: [b, 0], to: [b, a], label: '{a}'}
+    labels:
+      - {at: ['0.15*b', '0.05*a'], text: 'θ'}
+  solution: |-
+    The leg of {a} is opposite $\theta$ and the leg of {b} is adjacent, so $\tan\theta = \tfrac{{a}}{{b}}$ and $\theta = \tan^{-1}\left(\tfrac{{a}}{{b}}\right) \approx$ **{t:num2}°**. (The other acute angle is about ${u:num2}^\circ$.)
+
+- id: geo-elevation
+  title: Angle of elevation
+  topic: Solving right triangles
+  vars:
+    d: {min: 10, max: 200, step: 5}
+    t: {min: 10, max: 70}
+  calc:
+    H: d*tand(t)
+  prompt: 'From a point {d} m from the base of a building on level ground, the angle of elevation to the top is ${t}^\circ$. How tall is the building? (2 decimals)'
+  answers:
+    - {name: H, label: 'Height', tolerance: 0.01, units: {m: 1}}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [d, 0], [d, H]]
+    rightAngles:
+      - [[d, 0], [0, 0], [d, H]]
+    labels:
+      - {at: ['0.25*d*cosd(t/2)', '0.25*d*sind(t/2)'], text: '{t}°'}
+      - {at: ['d/2', '-0.06*d'], text: '{d} m'}
+  solution: |-
+    The height is opposite the angle and the distance is adjacent: $\tan {t}^\circ = \dfrac{H}{{d}}$, so $H = {d}\tan {t}^\circ \approx$ **{H:num2} m**.

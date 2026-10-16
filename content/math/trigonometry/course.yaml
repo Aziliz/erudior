@@ -1,0 +1,28 @@
+id: math-trigonometry
+title: Trigonometry
+description: >-
+  Trigonometry from the first angle through a full college course: degrees and radians,
+  arc length and angular speed, right-triangle trig, the unit circle, graphs of all six
+  functions and sinusoidal models, inverse functions, identities and equations, the laws
+  of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric
+  form with De Moivre's theorem.
+revision: 1
+modules:
+  - id: trig-m1
+    title: Angles and their measure
+  - id: trig-m2
+    title: Right-triangle trigonometry
+  - id: trig-m3
+    title: Trig functions of any angle
+  - id: trig-m4
+    title: Graphs of trig functions
+  - id: trig-m5
+    title: Inverse functions and basic equations
+  - id: trig-m6
+    title: Identities and equations
+  - id: trig-m7
+    title: Oblique triangles
+  - id: trig-m8
+    title: Vectors in the plane
+  - id: trig-m9
+    title: Polar coordinates and complex numbers

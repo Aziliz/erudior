@@ -1,0 +1,631 @@
+# Module 1: Vectors and the geometry of space
+- id: mv-q-0101
+  lesson: mv-bridge
+  module_quiz: true
+  topic: Derivative review
+  stem: 'Find $\dfrac{d}{dx}\sin(x^2)$.'
+  choices: ['$2x\cos(x^2)$', '$\cos(x^2)$', '$\cos(2x)$', '$-2x\cos(x^2)$']
+  answer: 0
+  explanation: |-
+    Chain rule: outer derivative $\cos(x^2)$ times inner derivative $2x$, giving $2x\cos(x^2)$.
+    $\cos(x^2)$ forgets the inner derivative; the minus sign belongs to the derivative of cosine, not sine.
+- id: mv-q-0102
+  lesson: mv-bridge
+  topic: Derivative review
+  stem: 'Differentiate $f(x) = x^2e^{3x}$.'
+  choices: ['$6xe^{3x}$', '$e^{3x}(2x + 3x^2)$', '$e^{3x}(2x + x^2)$', '$2xe^{3x}$']
+  answer: 1
+  explanation: |-
+    Product rule: $(x^2)'e^{3x} + x^2(e^{3x})' = 2xe^{3x} + 3x^2e^{3x}$.
+    $e^{3x}(2x+x^2)$ forgets the chain-rule factor 3; $6xe^{3x}$ multiplies the two derivatives, which is not the product rule.
+- id: mv-q-0103
+  lesson: mv-bridge
+  topic: Integral review
+  stem: 'Evaluate $\displaystyle\int_0^1 xe^x\,dx$.'
+  choices: ['$e$', '$e - 1$', '$1$', '$\tfrac{e}{2}$']
+  answer: 2
+  explanation: |-
+    By parts with $u = x$, $dv = e^x\,dx$: $\left[xe^x\right]_0^1 - \int_0^1 e^x\,dx = e - (e-1) = 1$.
+- id: mv-q-0104
+  lesson: mv-bridge
+  module_quiz: true
+  topic: Integral review
+  stem: 'Evaluate $\displaystyle\int_0^{\pi/2}\sin x\cos x\,dx$.'
+  choices: ['$0$', '$1$', '$\tfrac{\pi}{4}$', '$\tfrac12$']
+  answer: 3
+  explanation: |-
+    Let $u = \sin x$, $du = \cos x\,dx$; the limits become $0$ and $1$. Then $\int_0^1 u\,du = \tfrac12$.
+- id: mv-q-0105
+  lesson: mv-bridge
+  topic: Integral review
+  stem: 'The Fundamental Theorem of Calculus says that if $F'' = f$ is continuous on $[a, b]$, then $\int_a^b f(x)\,dx$ equals'
+  choices: ['$F(b) - F(a)$', '$f(b) - f(a)$', '$F(a) - F(b)$', '$F''(b) - F''(a)$']
+  answer: 0
+  explanation: |-
+    The integral of a rate of change is the total change of the antiderivative: $F(b) - F(a)$.
+    This "total change equals the sum of small changes" idea is the template for every big theorem in the course.
+- id: mv-q-0106
+  lesson: mv-bridge
+  topic: Integral review
+  stem: 'Which setup is best for $\int x\ln x\,dx$?'
+  choices: ['Substitution $u = x^2$', 'Parts with $u = \ln x$, $dv = x\,dx$', 'Parts with $u = x$, $dv = \ln x\,dx$', 'Substitution $u = \ln x$ alone']
+  answer: 1
+  explanation: |-
+    Differentiating $\ln x$ simplifies it to $\tfrac1x$, and $x\,dx$ integrates easily to $\tfrac{x^2}{2}$.
+    Then $\int x\ln x\,dx = \tfrac{x^2}{2}\ln x - \int \tfrac{x}{2}\,dx = \tfrac{x^2}{2}\ln x - \tfrac{x^2}{4} + C$.
+    Choosing $dv = \ln x\,dx$ would require integrating $\ln x$ first, which is harder.
+- id: mv-q-0107
+  lesson: mv-bridge
+  module_quiz: true
+  topic: Parametric and polar review
+  stem: 'Find the length of the path $x = 3t$, $y = 4t$ for $0 \le t \le 2$.'
+  choices: ['$7$', '$14$', '$10$', '$5$']
+  answer: 2
+  explanation: |-
+    Speed $\sqrt{x'^2 + y'^2} = \sqrt{9 + 16} = 5$, constant, so $L = \int_0^2 5\,dt = 10$.
+    $5$ is the speed, not the length; $14$ adds $3+4$ instead of using Pythagoras.
+- id: mv-q-0108
+  lesson: mv-bridge
+  topic: Parametric and polar review
+  stem: 'For $x = t^2$, $y = t^3$, find $\dfrac{dy}{dx}$ at $t = 2$.'
+  choices: ['$\tfrac{4}{12}$', '$12$', '$\tfrac{8}{4}$', '$3$']
+  answer: 3
+  explanation: |-
+    $\dfrac{dy}{dx} = \dfrac{y'(t)}{x'(t)} = \dfrac{3t^2}{2t} = \dfrac{3t}{2}$, which is $3$ at $t = 2$.
+    $\tfrac{4}{12}$ divides the wrong way; $\tfrac84$ divides $y$ by $x$ instead of their derivatives.
+- id: mv-q-0109
+  lesson: mv-bridge
+  topic: Parametric and polar review
+  stem: 'Convert the polar point $r = 2$, $\theta = \tfrac{\pi}{3}$ to rectangular coordinates.'
+  choices: ['$(1, \sqrt3)$', '$(\sqrt3, 1)$', '$(2, \tfrac{\pi}{3})$', '$(1, 2)$']
+  answer: 0
+  explanation: |-
+    $x = r\cos\theta = 2\cdot\tfrac12 = 1$ and $y = r\sin\theta = 2\cdot\tfrac{\sqrt3}{2} = \sqrt3$.
+    $(\sqrt3, 1)$ swaps sine and cosine.
+- id: mv-q-0110
+  lesson: mv-bridge
+  topic: Parametric and polar review
+  stem: 'Find the area enclosed by the cardioid $r = 1 + \cos\theta$.'
+  choices: ['$2\pi$', '$\tfrac{3\pi}{2}$', '$\pi$', '$3\pi$']
+  answer: 1
+  explanation: |-
+    $A = \tfrac12\int_0^{2\pi}(1+\cos\theta)^2\,d\theta = \tfrac12\int_0^{2\pi}(1 + 2\cos\theta + \cos^2\theta)\,d\theta = \tfrac12(2\pi + 0 + \pi) = \tfrac{3\pi}{2}$.
+    $3\pi$ forgets the $\tfrac12$ in the polar area formula.
+- id: mv-q-0111
+  lesson: mv-bridge
+  module_quiz: true
+  topic: Integral review
+  stem: 'Evaluate $\displaystyle\int_0^{2\pi}\sin^2\theta\,d\theta$.'
+  choices: ['$0$', '$2\pi$', '$\pi$', '$\tfrac{\pi}{2}$']
+  answer: 2
+  explanation: |-
+    Use $\sin^2\theta = \tfrac12(1 - \cos2\theta)$: $\int_0^{2\pi}\tfrac12\,d\theta - \tfrac12\int_0^{2\pi}\cos2\theta\,d\theta = \pi - 0 = \pi$.
+    The answer is not $0$: $\sin^2\theta \ge 0$, so its integral is positive.
+- id: mv-q-0112
+  lesson: mv-bridge
+  topic: Derivative review
+  stem: 'Find $\dfrac{d}{dx}\arctan(2x)$.'
+  choices: ['$\dfrac{1}{1+4x^2}$', '$\dfrac{2}{1+2x^2}$', '$\dfrac{1}{1+2x^2}$', '$\dfrac{2}{1+4x^2}$']
+  answer: 3
+  explanation: |-
+    $(\arctan u)' = \dfrac{u'}{1+u^2}$ with $u = 2x$: $\dfrac{2}{1 + (2x)^2} = \dfrac{2}{1+4x^2}$.
+    The other choices forget the chain-rule factor 2 or fail to square $2x$.
+
+- id: mv-q-0201
+  lesson: mv-vectors
+  module_quiz: true
+  topic: 3D coordinates
+  stem: 'Find the distance between $(1, 2, 3)$ and $(4, 6, 15)$.'
+  choices: ['$13$', '$19$', '$\sqrt{25}$', '$\sqrt{153}$']
+  answer: 0
+  explanation: |-
+    $\sqrt{3^2 + 4^2 + 12^2} = \sqrt{9 + 16 + 144} = \sqrt{169} = 13$.
+    $19$ adds the differences instead of using the distance formula; $5$ leaves out the $z$ difference.
+- id: mv-q-0202
+  lesson: mv-vectors
+  topic: 3D coordinates
+  stem: 'Find the center and radius of the sphere $x^2 + y^2 + z^2 + 2x - 4y - 8z + 5 = 0$.'
+  choices: ['Center $(1, -2, -4)$, radius $4$', 'Center $(-1, 2, 4)$, radius $4$', 'Center $(-1, 2, 4)$, radius $16$', 'Center $(-2, 4, 8)$, radius $\sqrt5$']
+  answer: 1
+  explanation: |-
+    Complete squares: $(x+1)^2 + (y-2)^2 + (z-4)^2 = -5 + 1 + 4 + 16 = 16$.
+    Center $(-1, 2, 4)$, radius $\sqrt{16} = 4$. Center $(1, -2, -4)$ flips the signs; 16 is $r^2$, not $r$.
+- id: mv-q-0203
+  lesson: mv-vectors
+  module_quiz: true
+  topic: 3D coordinates
+  stem: 'In three-dimensional space, what does the equation $z = 3$ describe?'
+  choices: ['The point $(0, 0, 3)$', 'A line parallel to the $z$-axis', 'A horizontal plane 3 units above the $xy$-plane', 'A sphere of radius 3']
+  answer: 2
+  explanation: |-
+    Every point $(x, y, 3)$ satisfies the equation, with $x$ and $y$ free, so it is a whole plane parallel to the $xy$-plane at height 3.
+- id: mv-q-0204
+  lesson: mv-vectors
+  module_quiz: true
+  topic: Vector algebra
+  stem: 'For $A(2, 5, -1)$ and $B(0, 1, 3)$, find $\overrightarrow{AB}$ and its length.'
+  choices: ['$\langle 2, 4, -4\rangle$, length $6$', '$\langle -2, -4, 4\rangle$, length $36$', '$\langle 2, 6, 2\rangle$, length $\sqrt{44}$', '$\langle -2, -4, 4\rangle$, length $6$']
+  answer: 3
+  explanation: |-
+    End minus start: $\langle 0-2, 1-5, 3-(-1)\rangle = \langle -2, -4, 4\rangle$, with length $\sqrt{4 + 16 + 16} = 6$.
+    $\langle 2, 4, -4\rangle$ is $\overrightarrow{BA}$; 36 is the squared length.
+- id: mv-q-0205
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'Find the unit vector in the direction of $\langle 3, 0, -4\rangle$.'
+  choices: ['$\left\langle \tfrac35, 0, -\tfrac45\right\rangle$', '$\left\langle \tfrac37, 0, -\tfrac47\right\rangle$', '$\langle 1, 0, -1\rangle$', '$\left\langle \tfrac{3}{25}, 0, -\tfrac{4}{25}\right\rangle$']
+  answer: 0
+  explanation: |-
+    The length is $\sqrt{9 + 0 + 16} = 5$; divide each component by 5.
+    Dividing by $25$ uses the squared length; dividing by $7$ adds the absolute values.
+- id: mv-q-0206
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'For $\mathbf u = \langle 1, -2, 3\rangle$ and $\mathbf v = \langle 2, 0, -1\rangle$, find $2\mathbf u - 3\mathbf v$.'
+  choices: ['$\langle -4, -4, 3\rangle$', '$\langle -4, -4, 9\rangle$', '$\langle 8, -4, 3\rangle$', '$\langle -1, -2, 4\rangle$']
+  answer: 1
+  explanation: |-
+    $2\mathbf u = \langle 2, -4, 6\rangle$ and $3\mathbf v = \langle 6, 0, -3\rangle$. Subtract: $\langle -4, -4, 9\rangle$.
+    $\langle -4,-4,3\rangle$ subtracts $3$ instead of $-3$ in the last slot.
+- id: mv-q-0207
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'Which vector is parallel to $\langle 2, -1, 3\rangle$?'
+  choices: ['$\langle 4, 1, 6\rangle$', '$\langle 1, -2, 3\rangle$', '$\langle -4, 2, -6\rangle$', '$\langle 2, 1, -3\rangle$']
+  answer: 2
+  explanation: |-
+    $\langle -4, 2, -6\rangle = -2\langle 2, -1, 3\rangle$, a scalar multiple (pointing the opposite way, which still counts as parallel).
+    The others cannot be written as one constant times the given vector.
+- id: mv-q-0208
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'When is $|\mathbf u + \mathbf v| = |\mathbf u| + |\mathbf v|$ for nonzero vectors?'
+  choices: ['Always', 'When $\mathbf u$ and $\mathbf v$ are perpendicular', 'When $\mathbf u = -\mathbf v$', 'Only when $\mathbf u$ and $\mathbf v$ point in the same direction']
+  answer: 3
+  explanation: |-
+    In general the triangle inequality gives $|\mathbf u+\mathbf v| \le |\mathbf u| + |\mathbf v|$, with equality only when the arrows line up in the same direction.
+    Perpendicular vectors give $|\mathbf u+\mathbf v| = \sqrt{|\mathbf u|^2 + |\mathbf v|^2}$; opposite equal vectors give $0$.
+- id: mv-q-0209
+  lesson: mv-vectors
+  module_quiz: true
+  topic: 3D coordinates
+  stem: 'Find an equation of the sphere with center $(1, 0, -2)$ that passes through the origin.'
+  choices: ['$(x-1)^2 + y^2 + (z+2)^2 = 5$', '$(x-1)^2 + y^2 + (z+2)^2 = \sqrt5$', '$(x+1)^2 + y^2 + (z-2)^2 = 5$', '$(x-1)^2 + y^2 + (z-2)^2 = 5$']
+  answer: 0
+  explanation: |-
+    The radius is the distance to the origin: $r^2 = 1 + 0 + 4 = 5$. Center $(1, 0, -2)$ gives $(x-1)^2 + y^2 + (z+2)^2 = 5$.
+    The right side is $r^2$, not $r$.
+- id: mv-q-0210
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'Forces $\langle 3, 4, 0\rangle$ N and $\langle 0, 0, 12\rangle$ N act on an object. What is the magnitude of the resultant?'
+  choices: ['$19$ N', '$13$ N', '$17$ N', '$\sqrt{19}$ N']
+  answer: 1
+  explanation: |-
+    The resultant is the sum $\langle 3, 4, 12\rangle$, with magnitude $\sqrt{9 + 16 + 144} = 13$ N.
+    $17 = 5 + 12$ adds the magnitudes, which only works for forces in the same direction.
+- id: mv-q-0211
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'Find the vector of length 10 in the direction of $\langle 1, 2, 2\rangle$.'
+  choices: ['$\langle 10, 20, 20\rangle$', '$\langle 2, 4, 4\rangle$', '$\left\langle \tfrac{10}{3}, \tfrac{20}{3}, \tfrac{20}{3}\right\rangle$', '$\left\langle \tfrac{10}{9}, \tfrac{20}{9}, \tfrac{20}{9}\right\rangle$']
+  answer: 2
+  explanation: |-
+    $|\langle 1,2,2\rangle| = 3$, so the unit vector is $\tfrac13\langle 1,2,2\rangle$; multiply by 10.
+    $\langle 10,20,20\rangle$ has length 30, not 10.
+- id: mv-q-0212
+  lesson: mv-vectors
+  topic: 3D coordinates
+  stem: 'In space, the equation $y = x$ describes'
+  choices: ['a line through the origin in the $xy$-plane', 'a single point', 'a cone', 'a vertical plane containing the $z$-axis']
+  answer: 3
+  explanation: |-
+    $z$ does not appear, so it is free: the line $y = x$ in the $xy$-plane is swept up and down, forming a vertical plane that contains the $z$-axis.
+
+- id: mv-q-0301
+  lesson: mv-dot
+  module_quiz: true
+  topic: Dot product
+  stem: 'Compute $\langle 1, -2, 3\rangle \cdot \langle 4, 0, -1\rangle$.'
+  choices: ['$1$', '$\langle 4, 0, -3\rangle$', '$7$', '$-1$']
+  answer: 0
+  explanation: |-
+    $1\cdot4 + (-2)\cdot0 + 3\cdot(-1) = 4 + 0 - 3 = 1$. The dot product is a number, not a vector.
+- id: mv-q-0302
+  lesson: mv-dot
+  topic: Dot product
+  stem: 'Find the angle between $\langle 1, 0, 1\rangle$ and $\langle 0, 1, 1\rangle$.'
+  choices: ['$30^\circ$', '$60^\circ$', '$45^\circ$', '$90^\circ$']
+  answer: 1
+  explanation: |-
+    Dot product $= 1$; both lengths are $\sqrt2$. $\cos\theta = \tfrac{1}{2}$, so $\theta = 60^\circ$.
+- id: mv-q-0303
+  lesson: mv-dot
+  module_quiz: true
+  topic: Dot product
+  stem: 'For what $k$ are $\langle 2, k, 1\rangle$ and $\langle 3, -1, 4\rangle$ orthogonal?'
+  choices: ['$k = -10$', '$k = 2$', '$k = 10$', '$k = 0$']
+  answer: 2
+  explanation: |-
+    Orthogonal means dot product zero: $6 - k + 4 = 0$, so $k = 10$.
+- id: mv-q-0304
+  lesson: mv-dot
+  module_quiz: true
+  topic: Dot product
+  stem: 'If $\mathbf a \cdot \mathbf b < 0$ for nonzero vectors, the angle between them is'
+  choices: ['zero', 'acute', 'a right angle', 'obtuse']
+  answer: 3
+  explanation: |-
+    $\mathbf a\cdot\mathbf b = |\mathbf a||\mathbf b|\cos\theta$ and the lengths are positive, so the sign is the sign of $\cos\theta$. Negative cosine means $90^\circ < \theta \le 180^\circ$.
+- id: mv-q-0305
+  lesson: mv-dot
+  topic: Projections
+  stem: 'Find the scalar projection of $\mathbf b = \langle 2, 3, 6\rangle$ onto $\mathbf a = \langle 1, 2, 2\rangle$.'
+  choices: ['$\tfrac{20}{3}$', '$\tfrac{20}{7}$', '$\tfrac{20}{9}$', '$20$']
+  answer: 0
+  explanation: |-
+    $\operatorname{comp}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|} = \dfrac{2 + 6 + 12}{3} = \dfrac{20}{3}$.
+    $\tfrac{20}{7}$ divides by $|\mathbf b|$, which gives the projection of $\mathbf a$ onto $\mathbf b$ instead.
+- id: mv-q-0306
+  lesson: mv-dot
+  module_quiz: true
+  topic: Projections
+  stem: 'Find $\operatorname{proj}_{\mathbf a}\mathbf b$ for $\mathbf a = \langle 1, 1, 0\rangle$, $\mathbf b = \langle 4, 1, 0\rangle$.'
+  choices: ['$\left\langle \tfrac{5}{\sqrt2}, \tfrac{5}{\sqrt2}, 0\right\rangle$', '$\left\langle \tfrac52, \tfrac52, 0\right\rangle$', '$\left\langle \tfrac{20}{17}, \tfrac{5}{17}, 0\right\rangle$', '$\langle 5, 5, 0\rangle$']
+  answer: 1
+  explanation: |-
+    $\mathbf a\cdot\mathbf b = 5$ and $|\mathbf a|^2 = 2$, so $\operatorname{proj}_{\mathbf a}\mathbf b = \tfrac52\langle 1,1,0\rangle$.
+    Dividing by $|\mathbf a|$ instead of $|\mathbf a|^2$ gives the first choice; the third projects $\mathbf a$ onto $\mathbf b$.
+- id: mv-q-0307
+  lesson: mv-dot
+  topic: Dot product
+  stem: 'A force $\mathbf F = \langle 3, -1, 2\rangle$ N moves an object in a straight line from $(0, 0, 0)$ to $(4, 2, 1)$, in meters. How much work is done?'
+  choices: ['$16$ J', '$8$ J', '$12$ J', '$\sqrt{14}\cdot\sqrt{21}$ J']
+  answer: 2
+  explanation: |-
+    $W = \mathbf F\cdot\mathbf D = 3\cdot4 + (-1)\cdot2 + 2\cdot1 = 12 - 2 + 2 = 12$ J.
+    $\sqrt{14}\sqrt{21}$ multiplies the magnitudes, ignoring the angle.
+- id: mv-q-0308
+  lesson: mv-dot
+  topic: Dot product
+  stem: 'For $\mathbf v = \langle 2, 3, 6\rangle$, what is the cosine of the angle $\mathbf v$ makes with the positive $z$-axis?'
+  choices: ['$\tfrac{6}{11}$', '$6$', '$\tfrac{6}{49}$', '$\tfrac67$']
+  answer: 3
+  explanation: |-
+    $|\mathbf v| = \sqrt{4 + 9 + 36} = 7$, and the direction cosine is $\cos\gamma = v_3/|\mathbf v| = \tfrac67$.
+- id: mv-q-0309
+  lesson: mv-dot
+  topic: Dot product
+  stem: 'If $|\mathbf a| = 4$, what is $\mathbf a\cdot\mathbf a$?'
+  choices: ['$16$', '$4$', '$8$', '$2$']
+  answer: 0
+  explanation: |-
+    $\mathbf a\cdot\mathbf a = |\mathbf a|^2\cos0 = |\mathbf a|^2 = 16$.
+- id: mv-q-0310
+  lesson: mv-dot
+  topic: Projections
+  stem: 'A student writes $\operatorname{proj}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|}\,\mathbf a$. What is wrong?'
+  choices: ['Nothing; this is correct', 'The result has the right direction but the wrong length unless $|\mathbf a| = 1$', 'It should be $\mathbf b$ at the end, not $\mathbf a$', 'The dot product should be a cross product']
+  answer: 1
+  explanation: |-
+    The correct formula is $\dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|^2}\mathbf a$: the scalar projection $\tfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|}$ times the *unit* vector $\tfrac{\mathbf a}{|\mathbf a|}$.
+    The student's version is off by a factor of $|\mathbf a|$ but still points along $\mathbf a$.
+- id: mv-q-0311
+  lesson: mv-dot
+  topic: Dot product
+  stem: 'A box is dragged 20 m across a floor by a rope at $60^\circ$ above horizontal with tension 100 N. How much work does the rope do?'
+  choices: ['$2000$ J', '$1732$ J', '$1000$ J', '$500$ J']
+  answer: 2
+  explanation: |-
+    $W = |\mathbf F||\mathbf D|\cos\theta = 100\cdot20\cdot\cos60^\circ = 2000\cdot\tfrac12 = 1000$ J.
+    $1732$ J uses $\sin60^\circ$, which is the vertical part of the pull and does no work.
+- id: mv-q-0312
+  lesson: mv-dot
+  topic: Dot product
+  stem: 'What angle does $\mathbf i + \mathbf j + \mathbf k$ make with the $z$-axis?'
+  choices: ['$45^\circ$', '$30^\circ$', '$60^\circ$', 'about $54.7^\circ$']
+  answer: 3
+  explanation: |-
+    $\cos\gamma = \dfrac{1}{\sqrt3}$, so $\gamma = \arccos(0.5774) \approx 54.7^\circ$.
+
+- id: mv-q-0401
+  lesson: mv-cross
+  module_quiz: true
+  topic: Cross product
+  stem: 'What is $\mathbf j \times \mathbf i$?'
+  choices: ['$-\mathbf k$', '$\mathbf k$', '$\mathbf 0$', '$1$']
+  answer: 0
+  explanation: |-
+    $\mathbf i\times\mathbf j = \mathbf k$, and the cross product is anticommutative, so $\mathbf j\times\mathbf i = -\mathbf k$.
+- id: mv-q-0402
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'Compute $\langle 1, 2, 0\rangle \times \langle 0, 1, 3\rangle$.'
+  choices: ['$\langle 6, 3, 1\rangle$', '$\langle 6, -3, 1\rangle$', '$\langle -6, 3, -1\rangle$', '$\langle 0, 2, 0\rangle$']
+  answer: 1
+  explanation: |-
+    $\mathbf i(2\cdot3 - 0\cdot1) - \mathbf j(1\cdot3 - 0\cdot0) + \mathbf k(1\cdot1 - 2\cdot0) = \langle 6, -3, 1\rangle$.
+    $\langle 6,3,1\rangle$ forgets the minus sign on the $\mathbf j$ term; $\langle -6,3,-1\rangle$ is the product in the other order.
+- id: mv-q-0403
+  lesson: mv-cross
+  module_quiz: true
+  topic: Cross product
+  stem: 'Find the area of the parallelogram spanned by $\langle 1, 1, 0\rangle$ and $\langle 0, 1, 1\rangle$.'
+  choices: ['$1$', '$\tfrac{\sqrt3}{2}$', '$\sqrt3$', '$3$']
+  answer: 2
+  explanation: |-
+    The cross product is $\langle 1, -1, 1\rangle$, of length $\sqrt3$. That is the parallelogram's area; $\tfrac{\sqrt3}{2}$ would be the triangle.
+- id: mv-q-0404
+  lesson: mv-cross
+  module_quiz: true
+  topic: Cross product
+  stem: 'Find the area of the triangle with vertices $(0,0,0)$, $(2,0,0)$ and $(0,3,0)$.'
+  choices: ['$6$', '$5$', '$\sqrt{13}$', '$3$']
+  answer: 3
+  explanation: |-
+    $\langle 2,0,0\rangle\times\langle 0,3,0\rangle = \langle 0,0,6\rangle$, so the parallelogram has area 6 and the triangle half of that, 3.
+- id: mv-q-0405
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'If $|\mathbf a| = 3$, $|\mathbf b| = 4$ and the angle between them is $30^\circ$, find $|\mathbf a\times\mathbf b|$.'
+  choices: ['$6$', '$6\sqrt3$', '$12$', '$3$']
+  answer: 0
+  explanation: |-
+    $|\mathbf a\times\mathbf b| = |\mathbf a||\mathbf b|\sin\theta = 12\cdot\tfrac12 = 6$.
+    $6\sqrt3$ uses cosine, which belongs to the dot product.
+- id: mv-q-0406
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'For nonzero vectors, $\mathbf a\times\mathbf b = \mathbf 0$ exactly when'
+  choices: ['$\mathbf a$ and $\mathbf b$ are orthogonal', '$\mathbf a$ and $\mathbf b$ are parallel', '$\mathbf a\cdot\mathbf b = 0$', '$|\mathbf a| = |\mathbf b|$']
+  answer: 1
+  explanation: |-
+    $|\mathbf a\times\mathbf b| = |\mathbf a||\mathbf b|\sin\theta$ is zero only when $\sin\theta = 0$, that is $\theta = 0$ or $\pi$: parallel vectors.
+- id: mv-q-0407
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'If $\mathbf a\times\mathbf b = \langle 1, -2, 5\rangle$, what is $\mathbf b\times\mathbf a$?'
+  choices: ['$\langle 1, -2, 5\rangle$', '$\langle 5, -2, 1\rangle$', '$\langle -1, 2, -5\rangle$', '$\mathbf 0$']
+  answer: 2
+  explanation: |-
+    Reversing the order negates the cross product: $\mathbf b\times\mathbf a = -(\mathbf a\times\mathbf b)$.
+- id: mv-q-0408
+  lesson: mv-cross
+  module_quiz: true
+  topic: Triple product
+  stem: 'Find the volume of the parallelepiped with edges $\langle 1,0,0\rangle$, $\langle 0,2,0\rangle$ and $\langle 1,1,3\rangle$.'
+  choices: ['$3$', '$2$', '$9$', '$6$']
+  answer: 3
+  explanation: |-
+    The triple product is $\begin{vmatrix}1&0&0\\0&2&0\\1&1&3\end{vmatrix} = 1(2\cdot3 - 0\cdot1) = 6$, so the volume is $|6| = 6$.
+- id: mv-q-0409
+  lesson: mv-cross
+  topic: Triple product
+  stem: 'Three vectors $\mathbf a$, $\mathbf b$, $\mathbf c$ are coplanar exactly when'
+  choices: ['$\mathbf a\cdot(\mathbf b\times\mathbf c) = 0$', '$\mathbf a\times\mathbf b = \mathbf c$', '$\mathbf a\cdot\mathbf b = \mathbf b\cdot\mathbf c$', '$|\mathbf a| + |\mathbf b| = |\mathbf c|$']
+  answer: 0
+  explanation: |-
+    The triple product is the signed volume of the box they span. The box is flat (zero volume) exactly when the three vectors lie in a common plane.
+- id: mv-q-0410
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'A 0.25 m wrench is pushed with 80 N at right angles to the handle. What is the magnitude of the torque?'
+  choices: ['$320$ N·m', '$20$ N·m', '$0$ N·m', '$80.25$ N·m']
+  answer: 1
+  explanation: |-
+    $|\boldsymbol\tau| = |\mathbf r||\mathbf F|\sin90^\circ = 0.25\cdot80 = 20$ N·m.
+- id: mv-q-0411
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'Which statement shows the cross product is not associative?'
+  choices: ['$\mathbf i\times\mathbf j = -\mathbf j\times\mathbf i$', '$\mathbf i\times\mathbf i = \mathbf 0$', '$(\mathbf i\times\mathbf i)\times\mathbf j = \mathbf 0$ but $\mathbf i\times(\mathbf i\times\mathbf j) = -\mathbf j$', '$\mathbf i\times(\mathbf j+\mathbf k) = \mathbf i\times\mathbf j + \mathbf i\times\mathbf k$']
+  answer: 2
+  explanation: |-
+    Associativity would require $(\mathbf a\times\mathbf b)\times\mathbf c = \mathbf a\times(\mathbf b\times\mathbf c)$. With $\mathbf a = \mathbf b = \mathbf i$, $\mathbf c = \mathbf j$, the left is $\mathbf 0\times\mathbf j = \mathbf 0$ and the right is $\mathbf i\times\mathbf k = -\mathbf j$.
+    The other choices are true but show anticommutativity or distributivity.
+- id: mv-q-0412
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'Which vector is perpendicular to both $\langle 1, 0, 1\rangle$ and $\langle 0, 1, 1\rangle$?'
+  choices: ['$\langle 1, 1, 1\rangle$', '$\langle 1, 1, 0\rangle$', '$\langle 1, -1, 0\rangle$', '$\langle -1, -1, 1\rangle$']
+  answer: 3
+  explanation: |-
+    $\langle 1,0,1\rangle\times\langle 0,1,1\rangle = \langle 0 - 1, 0 - 1, 1 - 0\rangle = \langle -1, -1, 1\rangle$.
+    Check: dot products with both are $-1 + 0 + 1 = 0$ and $0 - 1 + 1 = 0$.
+
+- id: mv-q-0501
+  lesson: mv-lines-planes
+  module_quiz: true
+  topic: Lines in space
+  stem: 'Which gives the line through $(1, 2, 3)$ parallel to $\langle 4, -1, 2\rangle$?'
+  choices: ['$x = 1 + 4t,\ y = 2 - t,\ z = 3 + 2t$', '$x = 4 + t,\ y = -1 + 2t,\ z = 2 + 3t$', '$4x - y + 2z = 8$', '$x = 4t,\ y = -t,\ z = 2t$']
+  answer: 0
+  explanation: |-
+    $\mathbf r = \mathbf r_0 + t\mathbf v$: start at the point, move in the direction. The second choice swaps the roles of point and direction; the plane equation describes a plane, not a line.
+- id: mv-q-0502
+  lesson: mv-lines-planes
+  topic: Planes
+  stem: 'Which is a normal vector to the plane $3x - 2y + z = 7$?'
+  choices: ['$\langle 3, 2, 1\rangle$', '$\langle 3, -2, 1\rangle$', '$\langle 3, -2, 7\rangle$', '$\langle 0, 0, 7\rangle$']
+  answer: 1
+  explanation: |-
+    The coefficients of $x$, $y$, $z$ form a normal vector: $\langle 3, -2, 1\rangle$. The constant 7 only shifts the plane.
+- id: mv-q-0503
+  lesson: mv-lines-planes
+  module_quiz: true
+  topic: Planes
+  stem: 'Find the plane through $(1, -1, 2)$ with normal $\langle 2, 3, -1\rangle$.'
+  choices: ['$2x + 3y - z = 3$', '$x - y + 2z = -3$', '$2x + 3y - z = -3$', '$2x + 3y - z = 1$']
+  answer: 2
+  explanation: |-
+    $2(x - 1) + 3(y + 1) - (z - 2) = 0$ expands to $2x + 3y - z - 2 + 3 + 2 = 0$, i.e. $2x + 3y - z = -3$.
+    Check the point: $2 - 3 - 2 = -3$. ✓
+- id: mv-q-0504
+  lesson: mv-lines-planes
+  module_quiz: true
+  topic: Lines in space
+  stem: 'Where does the line $x = 1 + 2t$, $y = 3 - t$, $z = 2t$ meet the plane $x + y + z = 10$?'
+  choices: ['$(3, 2, 2)$', '$(7, 0, 6)$', '$(1, 3, 0)$', '$(5, 1, 4)$']
+  answer: 3
+  explanation: |-
+    Substitute: $(1 + 2t) + (3 - t) + 2t = 4 + 3t = 10$, so $t = 2$. The point is $(5, 1, 4)$; check $5 + 1 + 4 = 10$. ✓
+- id: mv-q-0505
+  lesson: mv-lines-planes
+  module_quiz: true
+  topic: Planes
+  stem: 'Find the distance from $(1, 2, 3)$ to the plane $2x - y + 2z = 1$.'
+  choices: ['$\tfrac53$', '$5$', '$\tfrac{5}{9}$', '$\tfrac73$']
+  answer: 0
+  explanation: |-
+    $D = \dfrac{|2(1) - 2 + 2(3) - 1|}{\sqrt{4 + 1 + 4}} = \dfrac{5}{3}$.
+    $\tfrac73$ forgets to subtract $d = 1$; $\tfrac59$ divides by $|\mathbf n|^2$.
+- id: mv-q-0506
+  lesson: mv-lines-planes
+  topic: Lines in space
+  stem: 'Two lines in space are called skew when they'
+  choices: ['meet at a right angle', 'are not parallel and do not intersect', 'are parallel but distinct', 'lie in the same plane']
+  answer: 1
+  explanation: |-
+    Skew lines are neither parallel nor intersecting, which is only possible in three or more dimensions. Skew lines never lie in a common plane.
+- id: mv-q-0507
+  lesson: mv-lines-planes
+  topic: Planes
+  stem: 'Find the angle between the planes $x + y = 1$ and $y + z = 1$.'
+  choices: ['$30^\circ$', '$45^\circ$', '$60^\circ$', '$90^\circ$']
+  answer: 2
+  explanation: |-
+    Normals $\langle 1,1,0\rangle$ and $\langle 0,1,1\rangle$: $\cos\theta = \dfrac{1}{\sqrt2\sqrt2} = \tfrac12$, so $\theta = 60^\circ$.
+- id: mv-q-0508
+  lesson: mv-lines-planes
+  topic: Planes
+  stem: 'Which plane is parallel to $2x - 4y + 6z = 5$?'
+  choices: ['$2x + 4y + 6z = 5$', '$4x - 2y + 6z = 0$', '$x + 2y + 3z = 1$', '$x - 2y + 3z = 0$']
+  answer: 3
+  explanation: |-
+    Parallel planes have parallel normals. $\langle 1,-2,3\rangle = \tfrac12\langle 2,-4,6\rangle$, so $x - 2y + 3z = 0$ is parallel. None of the others has a normal that is a multiple of $\langle 2,-4,6\rangle$.
+- id: mv-q-0509
+  lesson: mv-lines-planes
+  topic: Planes
+  stem: 'Which vector is a direction of the line of intersection of $x + 2y - z = 1$ and $2x + y + z = 3$?'
+  choices: ['$\langle 1, -1, -1\rangle$', '$\langle 1, 2, -1\rangle$', '$\langle 3, 3, 0\rangle$', '$\langle 1, 1, 1\rangle$']
+  answer: 0
+  explanation: |-
+    The direction is $\mathbf n_1\times\mathbf n_2 = \langle 1,2,-1\rangle\times\langle 2,1,1\rangle = \langle 2\cdot1 - (-1)\cdot1,\ (-1)\cdot2 - 1\cdot1,\ 1\cdot1 - 2\cdot2\rangle = \langle 3, -3, -3\rangle$, a multiple of $\langle 1,-1,-1\rangle$.
+- id: mv-q-0510
+  lesson: mv-lines-planes
+  topic: Planes
+  stem: 'Find the distance between the parallel planes $x + 2y + 2z = 3$ and $x + 2y + 2z = 12$.'
+  choices: ['$9$', '$3$', '$1$', '$\tfrac{9}{\sqrt5}$']
+  answer: 1
+  explanation: |-
+    Take $(3, 0, 0)$ on the first plane. Its distance to the second is $\dfrac{|3 - 12|}{\sqrt{1+4+4}} = \dfrac93 = 3$.
+- id: mv-q-0511
+  lesson: mv-lines-planes
+  topic: Lines in space
+  stem: 'Which are symmetric equations of the line through $(2, 0, -1)$ with direction $\langle 3, -2, 5\rangle$?'
+  choices: ['$\dfrac{x-3}{2} = \dfrac{y+2}{0} = \dfrac{z-5}{-1}$', '$3(x-2) - 2y + 5(z+1) = 0$', '$\dfrac{x-2}{3} = \dfrac{y}{-2} = \dfrac{z+1}{5}$', '$\dfrac{x+2}{3} = \dfrac{y}{-2} = \dfrac{z-1}{5}$']
+  answer: 2
+  explanation: |-
+    Solve each parametric equation $x = 2 + 3t$, $y = -2t$, $z = -1 + 5t$ for $t$ and set them equal.
+    The second choice is a plane with that normal; the last flips the point's signs.
+- id: mv-q-0512
+  lesson: mv-lines-planes
+  topic: Lines in space
+  stem: 'Classify the lines $\mathbf r_1 = \langle 1,0,0\rangle + t\langle 1,1,1\rangle$ and $\mathbf r_2 = \langle 0,1,2\rangle + s\langle 1,-1,0\rangle$.'
+  choices: ['Parallel', 'Intersecting at $(3, 2, 2)$', 'Identical', 'Skew']
+  answer: 3
+  explanation: |-
+    The directions are not multiples, so not parallel. Setting components equal: $1 + t = s$, $t = 1 - s$, $t = 2$. From the third, $t = 2$; then the first gives $s = 3$, and the second requires $2 = 1 - 3 = -2$, false. No intersection, so the lines are skew.
+
+- id: mv-q-0601
+  lesson: mv-surfaces
+  module_quiz: true
+  topic: Cylinders
+  stem: 'In space, $x^2 + z^2 = 9$ is'
+  choices: ['a circular cylinder with axis the $y$-axis', 'a circle in the $xz$-plane', 'a sphere of radius 3', 'a cone with axis the $y$-axis']
+  answer: 0
+  explanation: |-
+    $y$ is missing, so every plane $y = k$ cuts the same circle $x^2 + z^2 = 9$: a cylinder parallel to the $y$-axis.
+- id: mv-q-0602
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'The surface $z = x^2 + y^2$ is a(n)'
+  choices: ['cone', 'elliptic (circular) paraboloid', 'hyperbolic paraboloid', 'hyperboloid of one sheet']
+  answer: 1
+  explanation: |-
+    Two squared terms and a linear $z$: a paraboloid. Horizontal traces are circles $x^2 + y^2 = k$ and vertical traces are upward parabolas, so it is a bowl opening up along the $z$-axis.
+- id: mv-q-0603
+  lesson: mv-surfaces
+  module_quiz: true
+  topic: Quadric surfaces
+  stem: 'Identify $\dfrac{x^2}{4} + \dfrac{y^2}{9} + z^2 = 1$.'
+  choices: ['Hyperboloid of one sheet', 'Elliptic paraboloid', 'Ellipsoid', 'Cone']
+  answer: 2
+  explanation: |-
+    Three squares, all positive, equal to 1: an ellipsoid with semi-axes 2, 3 and 1.
+- id: mv-q-0604
+  lesson: mv-surfaces
+  module_quiz: true
+  topic: Quadric surfaces
+  stem: 'Identify $x^2 + y^2 - z^2 = 1$.'
+  choices: ['Cone', 'Hyperboloid of two sheets', 'Ellipsoid', 'Hyperboloid of one sheet']
+  answer: 3
+  explanation: |-
+    Three squares, one minus sign, constant 1: a hyperboloid of one sheet. Its horizontal traces $x^2 + y^2 = 1 + k^2$ are circles for every $k$, so the surface is connected.
+- id: mv-q-0605
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'Identify $-x^2 - y^2 + z^2 = 1$.'
+  choices: ['Hyperboloid of two sheets', 'Hyperboloid of one sheet', 'Cone', 'Hyperbolic paraboloid']
+  answer: 0
+  explanation: |-
+    Two minus signs: two sheets. Horizontal traces $x^2 + y^2 = k^2 - 1$ are empty when $|k| < 1$, which leaves a gap between the two pieces.
+- id: mv-q-0606
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'Identify $z^2 = x^2 + y^2$.'
+  choices: ['Hyperboloid of one sheet', 'Cone', 'Paraboloid', 'Cylinder']
+  answer: 1
+  explanation: |-
+    Three squares with constant 0: a double cone with axis the $z$-axis. The trace in $y = 0$ is the pair of lines $z = \pm x$.
+- id: mv-q-0607
+  lesson: mv-surfaces
+  module_quiz: true
+  topic: Quadric surfaces
+  stem: 'The horizontal traces $z = k$ of $z = x^2 - y^2$ (for $k \ne 0$) are'
+  choices: ['circles', 'ellipses', 'hyperbolas', 'parabolas']
+  answer: 2
+  explanation: |-
+    Setting $z = k$ gives $x^2 - y^2 = k$, a hyperbola. The vertical traces are parabolas, which is what makes this saddle a hyperbolic paraboloid.
+- id: mv-q-0608
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'What is the axis of the cone $y^2 = x^2 + z^2$?'
+  choices: ['The $x$-axis', 'The $z$-axis', 'The line $x = z$', 'The $y$-axis']
+  answer: 3
+  explanation: |-
+    The odd-one-out variable is $y$; traces $y = k$ are circles $x^2 + z^2 = k^2$ centered on the $y$-axis.
+- id: mv-q-0609
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'What is the trace of the ellipsoid $x^2 + \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1$ in the plane $z = 0$?'
+  choices: ['The ellipse $x^2 + \dfrac{y^2}{4} = 1$', 'The circle $x^2 + y^2 = 1$', 'The ellipse $x^2 + \dfrac{z^2}{9} = 1$', 'The point $(0, 0, 0)$']
+  answer: 0
+  explanation: |-
+    Set $z = 0$: $x^2 + \tfrac{y^2}{4} = 1$, an ellipse with semi-axes 1 and 2 in the $xy$-plane.
+- id: mv-q-0610
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'Classify $x^2 + y^2 - 4x + z = 0$.'
+  choices: ['An upward paraboloid with vertex $(2, 0, 0)$', 'A downward paraboloid with vertex $(2, 0, 4)$', 'A circular cylinder', 'A cone with vertex $(2, 0, 4)$']
+  answer: 1
+  explanation: |-
+    Complete the square: $(x-2)^2 - 4 + y^2 + z = 0$, so $z = 4 - (x-2)^2 - y^2$. Two squares and a linear $z$ with negative squares: a paraboloid opening downward with top at $(2, 0, 4)$.
+- id: mv-q-0611
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'Which equation is a hyperboloid of two sheets?'
+  choices: ['$x^2 + y^2 - z^2 = 1$', '$x^2 - y^2 - z = 0$', '$x^2 - y^2 - z^2 = 1$', '$x^2 - y^2 - z^2 = 0$']
+  answer: 2
+  explanation: |-
+    Constant on the right positive and two minus signs: two sheets (axis the $x$-axis). The first is one sheet, the second a hyperbolic paraboloid, the last a cone.

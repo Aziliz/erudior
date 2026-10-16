@@ -1,0 +1,1267 @@
+# ---- m1 Measurement and vectors
+- term: SI units
+  aliases: [SI, SI unit, International System of Units]
+  definition: 'The International System of Units, built on seven base units including the meter (m), kilogram (kg), second (s), ampere (A), kelvin (K) and mole (mol).'
+  topic: Units and conversions
+- term: derived unit
+  aliases: [derived units]
+  definition: 'A unit built from base units by multiplying and dividing, such as the newton ($\text{kg·m/s}^2$) or joule ($\text{kg·m}^2/\text{s}^2$).'
+  topic: Units and conversions
+- term: scientific notation
+  definition: 'Writing a number as $a \times 10^n$ with $1 \le |a| < 10$; every digit of $a$ is significant.'
+  topic: Units and conversions
+- term: conversion factor
+  aliases: [conversion factors]
+  definition: 'A ratio equal to 1, such as $\tfrac{1000\text{ m}}{1\text{ km}}$, used to change units without changing the quantity.'
+  topic: Units and conversions
+- term: significant figures
+  aliases: [sig figs, significant figure]
+  definition: 'The digits of a measured value that carry real information: all nonzero digits, zeros between them, and trailing zeros after a decimal point.'
+  topic: Significant figures
+- term: accuracy
+  definition: 'How close a measurement is to the true value.'
+  topic: Significant figures
+- term: precision
+  definition: 'How closely repeated measurements agree with each other, and how finely a value is stated.'
+  topic: Significant figures
+- term: dimension
+  aliases: [dimensions]
+  definition: 'The kind of physical quantity something is, written in brackets: length [L], mass [M], time [T]. Speed has dimension [L]/[T].'
+  topic: Dimensional analysis
+- term: dimensional analysis
+  definition: 'Checking or deriving relationships by requiring every term of an equation to have the same dimensions.'
+  topic: Dimensional analysis
+- term: order of magnitude
+  aliases: [orders of magnitude]
+  definition: 'The power of ten closest to a value; used for quick estimates.'
+  topic: Dimensional analysis
+- term: scalar
+  aliases: [scalars]
+  definition: 'A quantity fully described by a number and a unit, with no direction (mass, time, energy, temperature).'
+  topic: Vectors
+- term: vector
+  aliases: [vectors]
+  definition: 'A quantity with both magnitude and direction, such as displacement, velocity, force or momentum.'
+  topic: Vectors
+- term: resultant
+  definition: 'The vector sum of two or more vectors.'
+  topic: Vectors
+- term: components
+  aliases: [component]
+  definition: 'The projections of a vector onto the coordinate axes: $A_x = A\cos\theta$, $A_y = A\sin\theta$ for an angle measured from $+x$.'
+  topic: Vectors
+- term: unit vectors
+  aliases: [unit vector]
+  definition: 'Vectors of length 1 that mark directions; $\hat\imath$, $\hat\jmath$, $\hat k$ point along $+x$, $+y$, $+z$.'
+  topic: Vectors
+- term: dot product
+  aliases: [scalar product]
+  definition: '$\vec A\cdot\vec B = AB\cos\phi = A_xB_x + A_yB_y + A_zB_z$, a scalar measuring how much two vectors point the same way.'
+  topic: Vector products
+- term: cross product
+  aliases: [vector product]
+  definition: '$\vec A\times\vec B$, a vector of magnitude $AB\sin\phi$ perpendicular to both, with direction given by the right-hand rule.'
+  topic: Vector products
+- term: right-hand rule
+  definition: 'Point the fingers of your right hand along the first vector, curl them toward the second; the thumb gives the direction of the cross product.'
+  topic: Vector products
+# ---- m2 Kinematics
+- term: kinematics
+  definition: 'The description of motion (position, velocity, acceleration) without regard to its causes.'
+  topic: Velocity and acceleration
+- term: position
+  definition: 'An object''s coordinate relative to a chosen origin and positive direction.'
+  topic: Velocity and acceleration
+- term: displacement
+  definition: 'Change in position, $\Delta x = x_f - x_i$ (a vector; can be negative or zero).'
+  topic: Velocity and acceleration
+- term: distance
+  definition: 'Total length of path traveled; always positive.'
+  topic: Velocity and acceleration
+- term: average velocity
+  definition: 'Displacement divided by elapsed time, $v_{\text{avg}} = \Delta x/\Delta t$.'
+  topic: Velocity and acceleration
+- term: average speed
+  definition: 'Total distance divided by elapsed time.'
+  topic: Velocity and acceleration
+- term: instantaneous velocity
+  aliases: [velocity]
+  definition: 'The velocity at one instant, $v = dx/dt$: the slope of the position–time graph.'
+  topic: Velocity and acceleration
+- term: acceleration
+  definition: 'Rate of change of velocity, $a = dv/dt$, in m/s². It is a vector; its sign shows the direction of the change in velocity.'
+  topic: Velocity and acceleration
+- term: acceleration due to gravity
+
+  definition: 'The free-fall acceleration near Earth''s surface, $g \approx 9.8\text{ m/s}^2$ directed downward.'
+  topic: Free fall
+- term: free fall
+  definition: 'Motion under the influence of gravity alone, with acceleration $g$ downward regardless of mass.'
+  topic: Free fall
+- term: terminal velocity
+  definition: 'The constant speed a falling object reaches when air drag balances its weight.'
+  topic: Free fall
+- term: projectile motion
+  aliases: [projectile, projectiles]
+  definition: 'Two-dimensional motion under gravity alone: constant horizontal velocity plus free fall vertically, giving a parabolic path.'
+  topic: Projectile motion
+- term: range
+  definition: 'Horizontal distance a projectile travels; on level ground $R = v_0^2\sin 2\theta/g$.'
+  topic: Projectile motion
+- term: tangential acceleration
+  aliases: [tangential]
+  definition: 'The component of acceleration along the velocity; it changes the speed.'
+  topic: Two-dimensional motion
+- term: radial acceleration
+  aliases: [radial]
+  definition: 'The component of acceleration perpendicular to the velocity, toward the center of curvature; it changes the direction of motion.'
+  topic: Two-dimensional motion
+- term: reference frame
+  aliases: [frame of reference]
+  definition: 'A set of coordinate axes attached to some object, from which positions and velocities are measured.'
+  topic: Relative motion
+- term: relative velocity
+  definition: 'Velocity measured in a particular frame; $\vec v_{AC} = \vec v_{AB} + \vec v_{BC}$.'
+  topic: Relative motion
+- term: inertial frame
+  aliases: [inertial frames, inertial reference frame]
+  definition: 'A reference frame that is not accelerating; Newton''s laws hold in it.'
+  topic: Relative motion
+# ---- m3 Forces
+- term: force
+  aliases: [forces]
+  definition: 'A push or pull by one object on another; a vector measured in newtons (N).'
+  topic: Newton's laws
+- term: newton
+  aliases: [N, newtons]
+  definition: 'SI unit of force: $1\text{ N} = 1\text{ kg·m/s}^2$.'
+  topic: Newton's laws
+- term: Newton's first law
+  aliases: [law of inertia, first law of motion]
+  definition: 'An object keeps a constant velocity (including rest) unless a net force acts on it.'
+  topic: Newton's laws
+- term: inertia
+  definition: 'The tendency of an object to keep its velocity; measured by its mass.'
+  topic: Newton's laws
+- term: net force
+  definition: 'The vector sum of all forces acting on an object, $\sum\vec F$.'
+  topic: Newton's laws
+- term: Newton's second law
+  aliases: [second law of motion]
+  definition: '$\sum\vec F = m\vec a$, or generally $\vec F_{\text{net}} = d\vec p/dt$.'
+  topic: Newton's laws
+- term: mass
+  definition: 'The measure of an object''s inertia (resistance to acceleration), in kilograms; the same everywhere.'
+  topic: Newton's laws
+- term: equilibrium
+  aliases: [translational equilibrium]
+  definition: 'The state of zero net force (and, for extended objects, zero net torque): at rest or moving at constant velocity.'
+  topic: Newton's laws
+- term: weight
+  definition: 'The gravitational force on an object, $W = mg$, directed downward.'
+  topic: Newton's laws
+- term: normal force
+  definition: 'The contact force a surface exerts perpendicular to itself; found from Newton''s second law, not assumed equal to $mg$.'
+  topic: Free-body diagrams
+- term: Newton's third law
+  aliases: [third law of motion, action-reaction]
+  definition: 'If A exerts a force on B, B exerts an equal and opposite force on A. The pair acts on different objects.'
+  topic: Newton's laws
+- term: free-body diagram
+  aliases: [FBD, free-body diagrams]
+  definition: 'A sketch of one object showing every force acting on it as an arrow; the starting point of a dynamics problem.'
+  topic: Free-body diagrams
+- term: apparent weight
+  definition: 'The normal force (scale reading) supporting an object; differs from $mg$ when the object accelerates vertically.'
+  topic: Free-body diagrams
+- term: friction
+  definition: 'A contact force parallel to surfaces that opposes sliding or the tendency to slide.'
+  topic: Friction
+- term: kinetic friction
+  definition: 'Friction between sliding surfaces, $f_k = \mu_k n$, opposite to the sliding velocity.'
+  topic: Friction
+- term: coefficient of kinetic friction
+  aliases: [μk]
+  definition: 'The dimensionless ratio $\mu_k = f_k/n$ for a pair of sliding surfaces.'
+  topic: Friction
+- term: static friction
+  definition: 'Friction between surfaces not sliding; adjusts to prevent motion up to $f_s = \mu_s n$.'
+  topic: Friction
+- term: coefficient of static friction
+  aliases: [μs]
+  definition: 'The ratio $\mu_s = f_{s,\max}/n$; equals $\tan\theta$ at the angle where an object just starts to slide down an incline.'
+  topic: Friction
+- term: tension
+  definition: 'The pulling force a taut rope, string or cable exerts along its length.'
+  topic: Tension and pulleys
+- term: massless rope
+  aliases: [ideal rope]
+  definition: 'An idealized rope with no mass, which therefore has the same tension throughout.'
+  topic: Tension and pulleys
+- term: ideal pulley
+  definition: 'A massless, frictionless pulley that changes a rope''s direction without changing its tension.'
+  topic: Tension and pulleys
+- term: Atwood machine
+  definition: 'Two masses hung over a pulley; $a = \dfrac{m_1 - m_2}{m_1 + m_2}g$.'
+  topic: Tension and pulleys
+- term: uniform circular motion
+  definition: 'Motion in a circle at constant speed; the acceleration $v^2/r$ points to the center.'
+  topic: Circular motion
+- term: period
+  definition: 'The time for one complete cycle (revolution or oscillation), $T = 1/f$.'
+  topic: Circular motion
+- term: frequency
+  definition: 'Number of cycles per second, $f = 1/T$, in hertz (Hz).'
+  topic: Circular motion
+- term: centripetal acceleration
+  aliases: [centripetal]
+  definition: 'The center-directed acceleration of circular motion, $a_c = v^2/r = \omega^2 r$.'
+  topic: Circular motion
+- term: centripetal force
+  definition: 'The net inward force required for circular motion, $mv^2/r$, supplied by real forces such as tension, friction, gravity or the normal force.'
+  topic: Circular motion
+# ---- m4 Energy and momentum
+- term: work
+  definition: 'Energy transferred by a force acting through a displacement: $W = Fd\cos\theta$, or $\int\vec F\cdot d\vec\ell$. A scalar, in joules.'
+  topic: Work and kinetic energy
+- term: joule
+  aliases: [joules, J]
+  definition: 'SI unit of work and energy: $1\text{ J} = 1\text{ N·m} = 1\text{ kg·m}^2/\text{s}^2$.'
+  topic: Work and kinetic energy
+- term: net work
+  definition: 'The total work done by all forces on an object; equals its change in kinetic energy.'
+  topic: Work and kinetic energy
+- term: kinetic energy
+  aliases: [KE]
+  definition: 'Energy of motion, $K = \tfrac12mv^2 = p^2/(2m)$.'
+  topic: Work and kinetic energy
+- term: work–energy theorem
+  aliases: [work-energy theorem]
+  definition: 'The net work done on an object equals its change in kinetic energy: $W_{\text{net}} = \Delta K$.'
+  topic: Work and kinetic energy
+- term: Hooke's law
+  definition: 'An ideal spring exerts $F = -kx$, proportional to its stretch or compression and directed back toward equilibrium.'
+  topic: Work and kinetic energy
+- term: spring constant
+  aliases: [force constant]
+  definition: 'The stiffness $k$ of a spring in N/m: the force per unit stretch.'
+  topic: Work and kinetic energy
+- term: potential energy
+  aliases: [PE]
+  definition: 'Stored energy of position or configuration associated with a conservative force; $W_{\text{cons}} = -\Delta U$.'
+  topic: Conservation of energy
+- term: conservative force
+  aliases: [conservative forces]
+  definition: 'A force whose work between two points is independent of the path (gravity, springs, electrostatic force).'
+  topic: Conservation of energy
+- term: gravitational potential energy
+  definition: 'Near Earth''s surface, $U_g = mgy$ relative to a chosen zero level; in general $U = -GMm/r$.'
+  topic: Conservation of energy
+- term: elastic potential energy
+  definition: 'Energy stored in a stretched or compressed spring, $U_s = \tfrac12kx^2$.'
+  topic: Conservation of energy
+- term: mechanical energy
+  definition: 'The sum of kinetic and potential energy, $E = K + U$.'
+  topic: Conservation of energy
+- term: conservation of mechanical energy
+  definition: 'If only conservative forces do work, $K_i + U_i = K_f + U_f$.'
+  topic: Conservation of energy
+- term: nonconservative force
+  aliases: [nonconservative forces]
+  definition: 'A force such as friction or drag whose work depends on the path; its work $W_{\text{nc}}$ changes the mechanical energy.'
+  topic: Conservation of energy
+- term: power
+  definition: 'Rate of doing work or transferring energy: $P = W/\Delta t = \vec F\cdot\vec v$, in watts.'
+  topic: Power
+- term: watt
+  aliases: [W, watts]
+  definition: 'SI unit of power: $1\text{ W} = 1\text{ J/s}$. One horsepower is 746 W.'
+  topic: Power
+- term: efficiency
+  definition: 'Ratio of useful output energy (or power) to input, $\eta = P_{\text{out}}/P_{\text{in}}$.'
+  topic: Power
+- term: turning point
+  aliases: [turning points]
+  definition: 'A position where $U(x) = E$, so the kinetic energy is zero and the particle reverses direction.'
+  topic: Conservation of energy
+- term: momentum
+  aliases: [linear momentum]
+  definition: 'The product of mass and velocity, $\vec p = m\vec v$ (kg·m/s), a vector.'
+  topic: Momentum and impulse
+- term: impulse
+  definition: 'Force times the time it acts, $\vec J = \vec F_{\text{avg}}\Delta t = \int\vec F\,dt$, in N·s.'
+  topic: Momentum and impulse
+- term: impulse–momentum theorem
+  aliases: [impulse-momentum theorem]
+  definition: 'The impulse on an object equals its change in momentum: $\vec J = \Delta\vec p$.'
+  topic: Momentum and impulse
+- term: conservation of momentum
+  definition: 'With zero net external force, a system''s total momentum stays constant.'
+  topic: Momentum and impulse
+- term: center of mass
+  aliases: [CM, COM]
+  definition: 'The mass-weighted average position, $x_{\text{cm}} = \sum m_ix_i/M$; it moves as if all external forces acted on the total mass there.'
+  topic: Center of mass
+- term: elastic collision
+  aliases: [elastic]
+  definition: 'A collision in which both momentum and kinetic energy are conserved.'
+  topic: Collisions
+- term: inelastic collision
+  definition: 'A collision in which momentum is conserved but kinetic energy is not.'
+  topic: Collisions
+- term: perfectly inelastic collision
+  definition: 'A collision in which the objects stick together; it loses the most kinetic energy allowed by momentum conservation.'
+  topic: Collisions
+- term: coefficient of restitution
+  definition: 'Ratio of separation speed to approach speed in a collision: 1 for elastic, 0 for perfectly inelastic.'
+  topic: Collisions
+# ---- m5 Rotation and gravitation
+- term: radian
+  aliases: [radians, rad]
+  definition: 'The angle subtending an arc equal to the radius: $\theta = s/r$. A full turn is $2\pi$ rad.'
+  topic: Rotational kinematics
+- term: angular displacement
+  definition: 'The change in angular position, $\Delta\theta$, in radians.'
+  topic: Rotational kinematics
+- term: angular velocity
+  aliases: [angular speed, ω]
+  definition: 'Rate of change of angle, $\omega = d\theta/dt$, in rad/s; $\omega = 2\pi f$.'
+  topic: Rotational kinematics
+- term: angular acceleration
+  aliases: [α]
+  definition: 'Rate of change of angular velocity, $\alpha = d\omega/dt$, in rad/s².'
+  topic: Rotational kinematics
+- term: rpm
+  definition: 'Revolutions per minute; $1\text{ rpm} = 2\pi/60 \approx 0.1047$ rad/s.'
+  topic: Rotational kinematics
+- term: moment of inertia
+  aliases: [rotational inertia]
+  definition: 'Resistance to angular acceleration about an axis: $I = \sum m_ir_i^2 = \int r^2\,dm$ (kg·m²).'
+  topic: Moment of inertia
+- term: parallel-axis theorem
+  definition: '$I = I_{\text{cm}} + Md^2$ for an axis parallel to one through the center of mass, a distance $d$ away.'
+  topic: Moment of inertia
+- term: rotational kinetic energy
+  definition: 'Kinetic energy of rotation, $K = \tfrac12I\omega^2$.'
+  topic: Moment of inertia
+- term: torque
+  aliases: [τ, moment]
+  definition: 'The turning effect of a force about an axis: $\tau = rF\sin\theta$, or $\vec\tau = \vec r\times\vec F$ (N·m).'
+  topic: Torque
+- term: lever arm
+  aliases: [moment arm]
+  definition: 'The perpendicular distance from the axis to a force''s line of action; $\tau = (\text{lever arm})\times F$.'
+  topic: Torque
+- term: rolling without slipping
+  definition: 'Rolling in which the contact point is momentarily at rest, so $v_{\text{cm}} = R\omega$.'
+  topic: Rolling motion
+- term: angular momentum
+  definition: '$L = I\omega$ for a rigid body about a fixed axis; in general $\vec L = \vec r\times\vec p$. Changed only by torque: $\vec\tau = d\vec L/dt$.'
+  topic: Angular momentum
+- term: conservation of angular momentum
+  definition: 'With zero net external torque, $L$ is constant: $I_i\omega_i = I_f\omega_f$.'
+  topic: Angular momentum
+- term: gyroscope
+  definition: 'A rapidly spinning wheel whose large angular momentum resists changes in direction; a torque makes it precess.'
+  topic: Angular momentum
+- term: precession
+  definition: 'The slow rotation of a spinning object''s axis caused by a torque perpendicular to its angular momentum; rate $\Omega = \tau/L$.'
+  topic: Angular momentum
+- term: static equilibrium
+  definition: 'The state of a rigid body at rest with $\sum\vec F = 0$ and $\sum\tau = 0$.'
+  topic: Static equilibrium
+- term: center of gravity
+  aliases: [CG]
+  definition: 'The point where an object''s total weight effectively acts; equals the center of mass in uniform gravity.'
+  topic: Static equilibrium
+- term: Newton's law of gravitation
+  aliases: [universal gravitation, law of universal gravitation]
+  definition: 'Any two masses attract with $F = Gm_1m_2/r^2$ along the line joining them.'
+  topic: Gravitation
+- term: gravitational constant
+  aliases: [G]
+  definition: '$G = 6.67\times10^{-11}$ N·m²/kg², the constant in Newton''s law of gravitation.'
+  topic: Gravitation
+- term: inverse-square law
+  definition: 'A dependence of the form $1/r^2$, as in gravity, Coulomb''s law and the intensity of a point source.'
+  topic: Gravitation
+- term: geostationary
+  aliases: [geostationary orbit, geosynchronous]
+  definition: 'An equatorial orbit with a 24-hour period (radius about $4.22\times10^7$ m), so the satellite stays above one point.'
+  topic: Orbits
+- term: Kepler's laws
+  definition: '(1) Orbits are ellipses with the Sun at a focus; (2) equal areas in equal times; (3) $T^2 \propto a^3$.'
+  topic: Orbits
+- term: escape speed
+  aliases: [escape velocity]
+  definition: 'Minimum launch speed to coast to infinity: $v_{\text{esc}} = \sqrt{2GM/R}$ (11.2 km/s for Earth).'
+  topic: Orbits
+# ---- m6 Oscillations, waves, sound
+- term: simple harmonic motion
+  aliases: [SHM]
+  definition: 'Oscillation driven by a restoring force proportional to displacement, $F = -kx$; $x = A\cos(\omega t + \phi)$.'
+  topic: Simple harmonic motion
+- term: amplitude
+  definition: 'The maximum displacement from equilibrium in an oscillation or wave.'
+  topic: Simple harmonic motion
+- term: angular frequency
+  definition: '$\omega = 2\pi f = 2\pi/T$ (rad/s); for a spring, $\omega = \sqrt{k/m}$.'
+  topic: Simple harmonic motion
+- term: phase constant
+  aliases: [phase]
+  definition: 'The angle $\phi$ in $x = A\cos(\omega t + \phi)$ that sets where the motion starts in its cycle.'
+  topic: Simple harmonic motion
+- term: simple pendulum
+  definition: 'A point mass on a light string; for small swings $T = 2\pi\sqrt{L/g}$, independent of mass and amplitude.'
+  topic: Pendulums
+- term: physical pendulum
+  definition: 'A rigid body swinging about a pivot a distance $d$ from its center of mass; $T = 2\pi\sqrt{I/(mgd)}$.'
+  topic: Pendulums
+- term: damping
+  aliases: [damped]
+  definition: 'Loss of an oscillator''s energy to friction or drag, making its amplitude decay.'
+  topic: Simple harmonic motion
+- term: resonance
+  definition: 'Large-amplitude response when a system is driven at its natural frequency.'
+  topic: Simple harmonic motion
+- term: wave
+  aliases: [waves]
+  definition: 'A traveling disturbance that carries energy through a medium (or through space) without carrying matter along.'
+  topic: Wave properties
+- term: mechanical wave
+  aliases: [mechanical waves]
+  definition: 'A wave that needs a material medium, such as sound or waves on a string.'
+  topic: Wave properties
+- term: transverse wave
+  aliases: [transverse]
+  definition: 'A wave in which the medium moves perpendicular to the direction of travel.'
+  topic: Wave properties
+- term: longitudinal wave
+  aliases: [longitudinal]
+  definition: 'A wave in which the medium moves parallel to the direction of travel, in compressions and rarefactions (e.g. sound).'
+  topic: Wave properties
+- term: wavelength
+  aliases: [λ]
+  definition: 'The distance over which a wave repeats, crest to crest; $v = f\lambda$.'
+  topic: Wave properties
+- term: linear mass density
+  aliases: [μ]
+  definition: 'Mass per unit length of a string, $\mu = m/L$ (kg/m).'
+  topic: Wave properties
+- term: principle of superposition
+  aliases: [superposition]
+  definition: 'Where waves overlap, the net displacement is the sum of the individual displacements.'
+  topic: Wave properties
+- term: constructive interference
+  definition: 'Overlap of waves in step, so their displacements add (path difference $m\lambda$).'
+  topic: Wave properties
+- term: destructive interference
+  definition: 'Overlap of waves out of step, so their displacements cancel (path difference $(m + \tfrac12)\lambda$).'
+  topic: Wave properties
+- term: path difference
+  definition: 'The difference in distance traveled by two waves to a point; it determines whether they interfere constructively or destructively.'
+  topic: Wave properties
+- term: standing wave
+  aliases: [standing waves]
+  definition: 'A stationary oscillation pattern formed by two identical waves traveling in opposite directions.'
+  topic: Standing waves
+- term: node
+  aliases: [nodes]
+  definition: 'A point in a standing wave that does not move; adjacent nodes are $\lambda/2$ apart.'
+  topic: Standing waves
+- term: antinode
+  aliases: [antinodes]
+  definition: 'A point of maximum oscillation in a standing wave, midway between nodes.'
+  topic: Standing waves
+- term: harmonics
+  aliases: [harmonic]
+  definition: 'The allowed standing-wave frequencies of a system; for a string fixed at both ends, $f_n = nv/(2L)$.'
+  topic: Standing waves
+- term: fundamental frequency
+  aliases: [fundamental, first harmonic]
+  definition: 'The lowest standing-wave frequency of a system, $f_1$.'
+  topic: Standing waves
+- term: intensity
+  definition: 'Power per unit area carried by a wave (W/m²); from a point source $I = P/(4\pi r^2)$.'
+  topic: Sound
+- term: wave number
+  definition: '$k = 2\pi/\lambda$ (rad/m), the spatial analog of angular frequency.'
+  topic: Wave properties
+- term: wave equation
+  definition: '$\partial^2y/\partial x^2 = (1/v^2)\,\partial^2y/\partial t^2$, satisfied by any wave traveling at speed $v$.'
+  topic: Wave properties
+- term: pitch
+  definition: 'The perceived highness or lowness of a sound, determined by its frequency.'
+  topic: Sound
+- term: infrasound
+  definition: 'Sound below about 20 Hz, too low for humans to hear.'
+  topic: Sound
+- term: ultrasound
+  definition: 'Sound above about 20 kHz, too high for humans to hear; used in medical imaging and sonar.'
+  topic: Sound
+- term: sound intensity level
+  aliases: [intensity level]
+  definition: '$\beta = 10\log_{10}(I/I_0)$ in decibels, with $I_0 = 10^{-12}$ W/m².'
+  topic: Sound
+- term: decibel
+  aliases: [decibels, dB]
+  definition: 'Unit of sound intensity level; +10 dB is ten times the intensity, +3 dB about twice.'
+  topic: Sound
+- term: beat frequency
+  aliases: [beats]
+  definition: 'The rate at which loudness throbs when two close frequencies combine: $f_{\text{beat}} = |f_1 - f_2|$.'
+  topic: Sound
+- term: Doppler effect
+  definition: 'The change in observed frequency due to relative motion of source and observer: $f'' = f\dfrac{v \pm v_o}{v \mp v_s}$.'
+  topic: Doppler effect
+- term: shock wave
+  aliases: [sonic boom]
+  definition: 'A cone of piled-up wavefronts from a source moving faster than the wave speed; half-angle $\sin\theta = v/v_s$.'
+  topic: Doppler effect
+# ---- m7 Fluids and thermodynamics
+- term: density
+  aliases: [ρ]
+  definition: 'Mass per unit volume, $\rho = m/V$ (kg/m³); water is 1000 kg/m³.'
+  topic: Pressure
+- term: pressure
+  definition: 'Perpendicular force per unit area, $P = F/A$, in pascals.'
+  topic: Pressure
+- term: pascal
+  aliases: [Pa]
+  definition: 'SI unit of pressure, $1\text{ Pa} = 1\text{ N/m}^2$; 1 atm $= 1.013\times10^5$ Pa.'
+  topic: Pressure
+- term: gauge pressure
+  definition: 'Pressure above atmospheric, $P - P_{\text{atm}}$; what tire gauges read.'
+  topic: Pressure
+- term: absolute pressure
+  definition: 'Total pressure including the atmosphere''s contribution.'
+  topic: Pressure
+- term: barometer
+  definition: 'An instrument measuring atmospheric pressure, classically a mercury column ($P_{\text{atm}} = \rho gh$, 760 mm at sea level).'
+  topic: Pressure
+- term: Pascal's principle
+  definition: 'A pressure change applied to an enclosed fluid is transmitted undiminished throughout it; basis of hydraulics, $F_1/A_1 = F_2/A_2$.'
+  topic: Pressure
+- term: buoyant force
+  aliases: [buoyancy]
+  definition: 'The net upward force a fluid exerts on an immersed object, equal to the weight of fluid displaced.'
+  topic: Buoyancy
+- term: Archimedes' principle
+  definition: '$F_B = \rho_{\text{fluid}}V_{\text{displaced}}\,g$.'
+  topic: Buoyancy
+- term: ideal fluid
+  definition: 'A model fluid that is incompressible, nonviscous, and flows steadily without rotation.'
+  topic: Fluid dynamics
+- term: streamline
+  aliases: [streamlines]
+  definition: 'The path followed by fluid elements in steady flow; streamlines never cross.'
+  topic: Fluid dynamics
+- term: volume flow rate
+  aliases: [flow rate]
+  definition: 'Volume passing a point per second, $Q = Av$ (m³/s).'
+  topic: Fluid dynamics
+- term: continuity equation
+  definition: '$A_1v_1 = A_2v_2$ for an incompressible fluid: narrower sections flow faster.'
+  topic: Fluid dynamics
+- term: Bernoulli's equation
+  aliases: [Bernoulli's principle]
+  definition: 'Along a streamline of an ideal fluid, $P + \tfrac12\rho v^2 + \rho gy$ is constant.'
+  topic: Fluid dynamics
+- term: Bernoulli effect
+  definition: 'At equal heights, faster-moving fluid has lower pressure.'
+  topic: Fluid dynamics
+- term: Torricelli's theorem
+  definition: 'Fluid leaves a hole a depth $h$ below the open surface at $v = \sqrt{2gh}$.'
+  topic: Fluid dynamics
+- term: viscosity
+  definition: 'Internal friction in a fluid that resists flow between layers.'
+  topic: Fluid dynamics
+- term: temperature
+  definition: 'A measure of hotness tied to the average kinetic energy of particles; equal temperatures mean thermal equilibrium.'
+  topic: Temperature and expansion
+- term: thermal equilibrium
+  definition: 'The state in which objects in contact no longer exchange net heat because they share the same temperature.'
+  topic: Temperature and expansion
+- term: zeroth law of thermodynamics
+  definition: 'If A and B are each in thermal equilibrium with C, they are in thermal equilibrium with each other.'
+  topic: Temperature and expansion
+- term: Celsius
+  aliases: [°C]
+  definition: 'Temperature scale with water freezing at 0°C and boiling at 100°C (1 atm).'
+  topic: Temperature and expansion
+- term: Fahrenheit
+  aliases: [°F]
+  definition: 'Temperature scale with $T_F = \tfrac95T_C + 32$.'
+  topic: Temperature and expansion
+- term: Kelvin
+  aliases: [kelvin, K, kelvins]
+  definition: 'The SI absolute temperature scale, $T = T_C + 273.15$; 0 K is absolute zero.'
+  topic: Temperature and expansion
+- term: absolute zero
+  definition: '0 K ($-273.15$°C), the lowest possible temperature.'
+  topic: Temperature and expansion
+- term: coefficient of linear expansion
+  aliases: [α (expansion)]
+  definition: 'The fractional change in length per kelvin: $\Delta L = \alpha L\Delta T$.'
+  topic: Temperature and expansion
+- term: heat
+  definition: 'Energy transferred because of a temperature difference (symbol $Q$, in joules).'
+  topic: Heat and calorimetry
+- term: specific heat
+  aliases: [specific heat capacity]
+  definition: 'Heat needed per kilogram per kelvin, $c$ in $Q = mc\Delta T$; 4186 J/(kg·K) for water.'
+  topic: Heat and calorimetry
+- term: latent heat
+  definition: 'Heat per kilogram absorbed or released during a phase change at constant temperature, $Q = mL$.'
+  topic: Heat and calorimetry
+- term: latent heat of fusion
+  definition: 'Latent heat for melting or freezing; $3.34\times10^5$ J/kg for water.'
+  topic: Heat and calorimetry
+- term: latent heat of vaporization
+  definition: 'Latent heat for boiling or condensing; $2.26\times10^6$ J/kg for water.'
+  topic: Heat and calorimetry
+- term: conduction
+  definition: 'Heat transfer through a material by molecular collisions; rate $kA\Delta T/L$.'
+  topic: Heat and calorimetry
+- term: thermal conductivity
+  definition: 'Material property $k$ (W/(m·K)) setting how readily heat conducts through it.'
+  topic: Heat and calorimetry
+- term: convection
+  definition: 'Heat transfer by bulk motion of a fluid.'
+  topic: Heat and calorimetry
+- term: radiation (thermal)
+  aliases: [radiation]
+  definition: 'Heat transfer by electromagnetic waves; power $P = e\sigma AT^4$ (Stefan–Boltzmann law).'
+  topic: Heat and calorimetry
+- term: Newton's law of cooling
+  definition: '$dT/dt = -\kappa(T - T_s)$: an object approaches the surrounding temperature exponentially.'
+  topic: Heat and calorimetry
+- term: mole
+  aliases: [mol, moles]
+  definition: 'Amount of substance containing $N_A = 6.022\times10^{23}$ particles.'
+  topic: Ideal gas law
+- term: Avogadro's number
+  aliases: [NA]
+  definition: '$N_A = 6.022\times10^{23}$ particles per mole.'
+  topic: Ideal gas law
+- term: ideal gas law
+  definition: '$PV = nRT = Nk_BT$, with absolute pressure and temperature.'
+  topic: Ideal gas law
+- term: Boltzmann's constant
+  aliases: [kB, Boltzmann constant]
+  definition: '$k_B = R/N_A = 1.38\times10^{-23}$ J/K.'
+  topic: Ideal gas law
+- term: ideal gas
+  definition: 'A gas of point particles that interact only through brief elastic collisions; real gases approach it at low pressure and high temperature.'
+  topic: Ideal gas law
+- term: STP
+  aliases: [standard temperature and pressure]
+  definition: 'Standard temperature and pressure: 0°C (273.15 K) and 1 atm; one mole of ideal gas occupies 22.4 L.'
+  topic: Ideal gas law
+- term: root-mean-square speed
+  aliases: [rms speed, vrms]
+  definition: '$v_{\text{rms}} = \sqrt{\overline{v^2}} = \sqrt{3k_BT/m} = \sqrt{3RT/M}$.'
+  topic: Kinetic theory
+- term: monatomic
+  definition: 'Made of single atoms (He, Ne, Ar); an ideal monatomic gas has $E_{\text{int}} = \tfrac32nRT$.'
+  topic: Kinetic theory
+- term: equipartition theorem
+  definition: 'Each quadratic degree of freedom of a molecule holds on average $\tfrac12k_BT$ of energy.'
+  topic: Kinetic theory
+- term: Maxwell–Boltzmann distribution
+  aliases: [Maxwell-Boltzmann distribution]
+  definition: 'The distribution of molecular speeds in a gas at temperature $T$, peaked at $\sqrt{2k_BT/m}$ with a high-speed tail.'
+  topic: Kinetic theory
+- term: internal energy
+  aliases: [Eint]
+  definition: 'The total microscopic energy of a system''s particles; for an ideal gas it depends only on $T$.'
+  topic: First law of thermodynamics
+- term: PV diagram
+  definition: 'A graph of pressure versus volume; the area under a process curve is the work done by the gas.'
+  topic: First law of thermodynamics
+- term: first law of thermodynamics
+  definition: '$\Delta E_{\text{int}} = Q - W$, with $Q$ heat into the system and $W$ work done by it.'
+  topic: First law of thermodynamics
+- term: state variable
+  aliases: [state function]
+  definition: 'A property that depends only on the current state, not the path (internal energy, entropy, $P$, $V$, $T$).'
+  topic: First law of thermodynamics
+- term: isobaric
+  definition: 'At constant pressure; $W = P\Delta V$.'
+  topic: First law of thermodynamics
+- term: isochoric
+  aliases: [isovolumetric]
+  definition: 'At constant volume; $W = 0$ and $Q = \Delta E_{\text{int}}$.'
+  topic: First law of thermodynamics
+- term: isothermal
+  definition: 'At constant temperature; for an ideal gas $\Delta E_{\text{int}} = 0$ and $Q = W = nRT\ln(V_f/V_i)$.'
+  topic: First law of thermodynamics
+- term: adiabatic
+  definition: 'With no heat exchange ($Q = 0$); for an ideal gas $PV^\gamma$ is constant.'
+  topic: First law of thermodynamics
+- term: molar specific heat
+  aliases: [molar specific heats, CV, CP]
+  definition: 'Heat per mole per kelvin; for a monatomic ideal gas $C_V = \tfrac32R$ and $C_P = \tfrac52R$.'
+  topic: First law of thermodynamics
+- term: cyclic process
+  aliases: [cycle]
+  definition: 'A process that returns a system to its initial state, so $\Delta E_{\text{int}} = 0$ and net heat equals net work.'
+  topic: First law of thermodynamics
+- term: heat engine
+  definition: 'A cyclic device that absorbs heat $Q_H$, does work $W$, and rejects heat $Q_C$ to a colder reservoir.'
+  topic: Heat engines
+- term: thermal efficiency
+  definition: '$e = W/Q_H = 1 - Q_C/Q_H$ for a heat engine.'
+  topic: Heat engines
+- term: second law of thermodynamics
+  definition: 'No cyclic engine converts heat entirely to work; heat does not flow spontaneously from cold to hot; total entropy of an isolated system never decreases.'
+  topic: Heat engines
+- term: reversible
+  aliases: [reversible process]
+  definition: 'An idealized process with no friction and only infinitesimal temperature differences, which can be run backward exactly.'
+  topic: Heat engines
+- term: Carnot cycle
+  aliases: [Carnot engine, Carnot efficiency]
+  definition: 'The reversible cycle of two isotherms and two adiabats; its efficiency $1 - T_C/T_H$ is the maximum possible.'
+  topic: Heat engines
+- term: refrigerator
+  definition: 'A device that uses work to move heat from a cold region to a warmer one.'
+  topic: Heat engines
+- term: coefficient of performance
+  aliases: [COP]
+  definition: 'For a refrigerator $K = Q_C/W$; for a heat pump $Q_H/W$. It can exceed 1.'
+  topic: Heat engines
+- term: heat pump
+  definition: 'A refrigerator used to deliver heat $Q_H$ to a warm space.'
+  topic: Heat engines
+- term: entropy
+  definition: 'A state variable measuring disorder; $\Delta S = \int dQ_{\text{rev}}/T$, and $S = k_B\ln\Omega$.'
+  topic: Entropy
+# ---- m8 Electrostatics
+- term: electric charge
+  aliases: [charge]
+  definition: 'The property that makes matter exert electric forces; it comes in positive and negative kinds, is quantized in units of $e$, and is conserved.'
+  topic: Electric charge
+- term: elementary charge
+  aliases: [e]
+  definition: '$e = 1.602\times10^{-19}$ C, the magnitude of the charge on a proton or electron.'
+  topic: Electric charge
+- term: coulomb
+  aliases: [C (charge), coulombs]
+  definition: 'SI unit of charge; one coulomb is about $6.24\times10^{18}$ elementary charges.'
+  topic: Electric charge
+- term: conductor
+  aliases: [conductors]
+  definition: 'A material in which some charges (usually electrons) move freely.'
+  topic: Electric charge
+- term: insulator
+  aliases: [insulators]
+  definition: 'A material in which charges cannot move freely.'
+  topic: Electric charge
+- term: polarization
+  definition: 'Separation of charge within a neutral object due to a nearby charge, which lets charged objects attract neutral ones.'
+  topic: Electric charge
+- term: grounding
+  aliases: [ground, grounded]
+  definition: 'Connecting a conductor to Earth, which can supply or absorb any amount of charge.'
+  topic: Electric charge
+- term: charging by induction
+  aliases: [induction (charging)]
+  definition: 'Charging a conductor without contact by polarizing it near a charged object and grounding it.'
+  topic: Electric charge
+- term: Coulomb's law
+  definition: '$F = k|q_1q_2|/r^2$ with $k = 8.99\times10^9$ N·m²/C², along the line joining two point charges.'
+  topic: Coulomb's law
+- term: permittivity of free space
+  aliases: [ε0, epsilon naught]
+  definition: '$\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²), with $k = 1/(4\pi\varepsilon_0)$.'
+  topic: Coulomb's law
+- term: superposition principle
+  definition: 'The net force or field from several charges is the vector sum of the individual contributions.'
+  topic: Coulomb's law
+- term: test charge
+  definition: 'A small positive charge used to probe an electric field without disturbing it.'
+  topic: Electric field
+- term: electric field
+  aliases: [E field]
+  definition: 'Force per unit charge, $\vec E = \vec F/q_0$ (N/C = V/m); a point charge makes $E = k|q|/r^2$.'
+  topic: Electric field
+- term: electric dipole
+  aliases: [dipole]
+  definition: 'Two equal and opposite charges separated by a small distance.'
+  topic: Electric field
+- term: electric field lines
+  aliases: [field lines]
+  definition: 'Curves tangent to $\vec E$, starting on positive and ending on negative charges, denser where the field is stronger; they never cross.'
+  topic: Electric field
+- term: uniform field
+  definition: 'A field with the same magnitude and direction everywhere, as between large parallel plates.'
+  topic: Electric field
+- term: electrostatic equilibrium
+  definition: 'The state of a conductor with no moving charges: $E = 0$ inside, excess charge on the surface, field perpendicular to the surface.'
+  topic: Electric field
+- term: Faraday cage
+  definition: 'A conducting enclosure that shields its interior from external electric fields.'
+  topic: Electric field
+- term: electric flux
+  aliases: [flux]
+  definition: 'The amount of field passing through a surface, $\Phi_E = \int\vec E\cdot d\vec A$; $EA\cos\theta$ for a flat area in a uniform field.'
+  topic: Gauss's law
+- term: area vector
+  definition: 'A vector perpendicular to a surface with magnitude equal to its area; outward for closed surfaces.'
+  topic: Gauss's law
+- term: Gauss's law
+  definition: '$\oint\vec E\cdot d\vec A = Q_{\text{enc}}/\varepsilon_0$: total flux out of a closed surface is proportional to the charge inside.'
+  topic: Gauss's law
+- term: Gaussian surface
+  definition: 'An imaginary closed surface chosen to apply Gauss''s law, ideally matching the symmetry of the charge.'
+  topic: Gauss's law
+- term: electric potential energy
+  definition: 'Energy of a configuration of charges; for two point charges $U = kq_1q_2/r$ (zero at infinity).'
+  topic: Electric potential
+- term: electric potential
+  aliases: [potential]
+  definition: 'Potential energy per unit charge, $V = U/q$, in volts; a point charge gives $V = kq/r$.'
+  topic: Electric potential
+- term: volt
+  aliases: [V (volt), volts]
+  definition: 'SI unit of potential: $1\text{ V} = 1\text{ J/C}$.'
+  topic: Electric potential
+- term: potential difference
+  aliases: [voltage]
+  definition: 'The change in potential between two points, $\Delta V$; a charge crossing it gains or loses energy $q\Delta V$.'
+  topic: Electric potential
+- term: electron volt
+  aliases: [eV]
+  definition: 'Energy gained by charge $e$ through 1 V: $1\text{ eV} = 1.602\times10^{-19}$ J.'
+  topic: Electric potential
+- term: equipotential surface
+  aliases: [equipotential, equipotentials]
+  definition: 'A surface of constant potential; perpendicular to field lines, and no work is done moving along it.'
+  topic: Electric potential
+- term: capacitor
+  definition: 'Two conductors separated by an insulator, storing equal and opposite charges and electric energy.'
+  topic: Capacitance
+- term: capacitance
+  definition: '$C = Q/V$, the charge stored per volt; set by geometry and dielectric.'
+  topic: Capacitance
+- term: farad
+  aliases: [F (farad), μF, pF]
+  definition: 'SI unit of capacitance, $1\text{ F} = 1\text{ C/V}$.'
+  topic: Capacitance
+- term: dielectric
+  definition: 'An insulating material placed between capacitor plates; it polarizes, reducing the field and raising the capacitance.'
+  topic: Capacitance
+- term: dielectric constant
+  aliases: [κ]
+  definition: 'The factor $\kappa$ by which a dielectric multiplies capacitance.'
+  topic: Capacitance
+- term: energy density
+  definition: 'Energy per unit volume stored in a field; for an electric field $u = \tfrac12\varepsilon_0E^2$.'
+  topic: Capacitance
+# ---- m9 Circuits
+- term: electric current
+  aliases: [current]
+  definition: 'Rate of charge flow, $I = dQ/dt$, in amperes; conventional current is the direction positive charge would move.'
+  topic: Current and resistance
+- term: ampere
+  aliases: [amperes, A, amp]
+  definition: 'SI unit of current: $1\text{ A} = 1\text{ C/s}$.'
+  topic: Current and resistance
+- term: electromotive force
+  aliases: [emf]
+  definition: 'The work per unit charge a source (battery, generator) does moving charge through it, $\mathcal{E}$, in volts.'
+  topic: Current and resistance
+- term: drift velocity
+  definition: 'The slow average velocity of charge carriers along a conductor, $v_d = I/(nqA)$.'
+  topic: Current and resistance
+- term: resistance
+  definition: '$R = V/I$, in ohms: how strongly a component opposes current.'
+  topic: Current and resistance
+- term: ohm
+  aliases: [ohms, Ω]
+  definition: 'SI unit of resistance: $1\ \Omega = 1$ V/A.'
+  topic: Current and resistance
+- term: Ohm's law
+  definition: '$V = IR$ with constant $R$; obeyed by ohmic materials such as metals at fixed temperature.'
+  topic: Current and resistance
+- term: resistivity
+  definition: 'Material property $\rho$ (Ω·m) with $R = \rho L/A$.'
+  topic: Current and resistance
+- term: superconductor
+  aliases: [superconductors, superconductivity]
+  definition: 'A material whose resistance drops to exactly zero below a critical temperature.'
+  topic: Current and resistance
+- term: Joule heating
+  definition: 'Conversion of electrical energy to heat in a resistance, at rate $I^2R$.'
+  topic: Electric power
+- term: current density
+  definition: 'Current per unit cross-sectional area, $\vec J = nq\vec v_d = \vec E/\rho$.'
+  topic: Current and resistance
+- term: internal resistance
+  definition: 'Resistance $r$ inside a real source, which lowers its terminal voltage when current flows.'
+  topic: Series and parallel circuits
+- term: terminal voltage
+  definition: 'Voltage across a source''s terminals, $V = \mathcal{E} - Ir$.'
+  topic: Series and parallel circuits
+- term: Kirchhoff's rules
+  definition: 'Junction rule (currents in = currents out) and loop rule (sum of potential changes around a loop = 0).'
+  topic: Kirchhoff's rules
+- term: junction rule
+  definition: 'The total current into a junction equals the total current out (charge conservation).'
+  topic: Kirchhoff's rules
+- term: loop rule
+  definition: 'The sum of potential changes around any closed loop is zero (energy conservation).'
+  topic: Kirchhoff's rules
+- term: ammeter
+  definition: 'A low-resistance meter connected in series to measure current.'
+  topic: Series and parallel circuits
+- term: voltmeter
+  definition: 'A high-resistance meter connected in parallel to measure potential difference.'
+  topic: Series and parallel circuits
+- term: impedance matching
+  definition: 'Choosing a load resistance equal to the source''s internal resistance to transfer maximum power.'
+  topic: Series and parallel circuits
+- term: time constant
+  aliases: [τ, RC time constant]
+  definition: 'The characteristic time of exponential change; $\tau = RC$ for an RC circuit, $L/R$ for an RL circuit.'
+  topic: RC circuits
+- term: low-pass filter
+  definition: 'A circuit that passes slow signal changes and blocks rapid ones; an RC filter has crossover near $1/(2\pi RC)$.'
+  topic: RC circuits
+# ---- m10 Magnetism and induction
+- term: magnetic field
+  aliases: [B field]
+  definition: 'The field $\vec B$ that exerts forces on moving charges and currents; its field lines form closed loops from north to south poles.'
+  topic: Magnetic force
+- term: tesla
+  aliases: [T]
+  definition: 'SI unit of magnetic field: $1\text{ T} = 1$ N/(A·m). Earth''s field is about $5\times10^{-5}$ T.'
+  topic: Magnetic force
+- term: magnetic force
+  aliases: [Lorentz force]
+  definition: '$\vec F = q\vec v\times\vec B$ on a moving charge (magnitude $|q|vB\sin\theta$); $\vec F = I\vec L\times\vec B$ on a wire.'
+  topic: Magnetic force
+- term: cyclotron frequency
+  definition: 'The frequency $f = |q|B/(2\pi m)$ of a charge circling in a uniform magnetic field, independent of its speed.'
+  topic: Magnetic force
+- term: mass spectrometer
+  definition: 'A device that separates ions by mass using the radius $r = mv/(qB)$ of their paths in a magnetic field.'
+  topic: Magnetic force
+- term: magnetic dipole moment
+  aliases: [magnetic moment]
+  definition: '$\mu = NIA$ for a current loop; the torque in a field is $\tau = \mu B\sin\phi$.'
+  topic: Magnetic force
+- term: motor
+  aliases: [electric motor]
+  definition: 'A device in which magnetic torque on current loops produces rotation; a commutator keeps the torque in one direction.'
+  topic: Magnetic force
+- term: permeability of free space
+  aliases: [μ0, mu naught]
+  definition: '$\mu_0 = 4\pi\times10^{-7}$ T·m/A, the constant in magnetic field formulas.'
+  topic: Sources of magnetic field
+- term: solenoid
+  definition: 'A long coil of wire; inside, $B = \mu_0nI$, nearly uniform and along the axis.'
+  topic: Sources of magnetic field
+- term: electromagnet
+  definition: 'A solenoid with an iron core, giving a strong magnetic field that can be switched on and off.'
+  topic: Sources of magnetic field
+- term: ferromagnetic
+  aliases: [ferromagnetism]
+  definition: 'Describes materials (iron, nickel, cobalt) whose atomic magnetic moments align in domains, producing strong magnetization.'
+  topic: Sources of magnetic field
+- term: Biot–Savart law
+  aliases: [Biot-Savart law]
+  definition: '$d\vec B = \dfrac{\mu_0}{4\pi}\dfrac{I\,d\vec\ell\times\hat r}{r^2}$: the field contribution of a current element.'
+  topic: Sources of magnetic field
+- term: Ampère's law
+  definition: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$; used with symmetry to find magnetic fields.'
+  topic: Sources of magnetic field
+- term: magnetic flux
+  definition: '$\Phi_B = \int\vec B\cdot d\vec A$; $BA\cos\theta$ for a flat loop in a uniform field, in webers.'
+  topic: Electromagnetic induction
+- term: weber
+  aliases: [Wb]
+  definition: 'SI unit of magnetic flux, $1\text{ Wb} = 1\text{ T·m}^2$.'
+  topic: Electromagnetic induction
+- term: Faraday's law
+  definition: 'A changing magnetic flux induces an emf: $\mathcal{E} = -N\,d\Phi_B/dt$.'
+  topic: Electromagnetic induction
+- term: Lenz's law
+  definition: 'An induced current flows in the direction that opposes the change in flux that produced it.'
+  topic: Electromagnetic induction
+- term: motional emf
+  definition: 'The emf $BLv$ across a conductor of length $L$ moving at speed $v$ perpendicular to a field $B$.'
+  topic: Electromagnetic induction
+- term: generator
+  definition: 'A device that rotates coils in a magnetic field to produce an emf $NBA\omega\sin\omega t$.'
+  topic: Electromagnetic induction
+- term: eddy currents
+  aliases: [eddy current]
+  definition: 'Swirling induced currents in bulk metal exposed to changing flux; they heat the metal and oppose motion.'
+  topic: Electromagnetic induction
+- term: transformer
+  definition: 'Two coils on a common core that change AC voltage in the ratio of turns: $V_s/V_p = N_s/N_p$.'
+  topic: Electromagnetic induction
+- term: inductance
+  aliases: [self-inductance]
+  definition: '$L$ in $\mathcal{E} = -L\,dI/dt$, in henries; for a solenoid $L = \mu_0N^2A/\ell$.'
+  topic: Inductance
+- term: henry
+  aliases: [henries, H]
+  definition: 'SI unit of inductance: $1\text{ H} = 1$ V·s/A.'
+  topic: Inductance
+- term: inductor
+  definition: 'A coil used for its inductance; it opposes changes in current and stores energy $\tfrac12LI^2$.'
+  topic: Inductance
+- term: alternating current
+  aliases: [AC]
+  definition: 'Current (and voltage) that varies sinusoidally, $V = V_0\sin\omega t$; 60 Hz in North America.'
+  topic: AC circuits
+- term: rms
+  aliases: [root mean square]
+  definition: 'Root-mean-square value; for a sinusoid $V_{\text{rms}} = V_0/\sqrt2$, the steady value with the same average power.'
+  topic: AC circuits
+- term: reactance
+  definition: 'Opposition of a capacitor ($X_C = 1/\omega C$) or inductor ($X_L = \omega L$) to AC, in ohms.'
+  topic: AC circuits
+- term: impedance
+  definition: 'Total opposition to AC in a circuit; series RLC: $Z = \sqrt{R^2 + (X_L - X_C)^2}$.'
+  topic: AC circuits
+# ---- m11 Light and optics
+- term: electromagnetic wave
+  aliases: [EM wave, electromagnetic waves, light wave]
+  definition: 'A self-sustaining wave of perpendicular oscillating electric and magnetic fields, traveling at $c = 1/\sqrt{\mu_0\varepsilon_0}$ in vacuum.'
+  topic: Electromagnetic waves
+- term: electromagnetic spectrum
+  definition: 'The range of EM waves by wavelength: radio, microwave, infrared, visible (400–700 nm), ultraviolet, X-ray, gamma.'
+  topic: Electromagnetic waves
+- term: speed of light
+  aliases: [c]
+  definition: '$c = 3.00\times10^8$ m/s in vacuum, the same for all EM waves and all inertial observers.'
+  topic: Electromagnetic waves
+- term: polarizer
+  definition: 'A filter that transmits only the component of the electric field along its axis.'
+  topic: Electromagnetic waves
+- term: polarized
+  aliases: [polarization (light)]
+  definition: 'Describes light whose electric field oscillates in a single direction.'
+  topic: Electromagnetic waves
+- term: Malus's law
+  definition: 'Polarized light through a polarizer at angle $\theta$ has $I = I_0\cos^2\theta$.'
+  topic: Electromagnetic waves
+- term: ray
+  aliases: [rays]
+  definition: 'A line showing the direction light energy travels; the basis of geometric optics.'
+  topic: Reflection and refraction
+- term: law of reflection
+  definition: 'The angle of reflection equals the angle of incidence, both measured from the normal.'
+  topic: Reflection and refraction
+- term: index of refraction
+  aliases: [refractive index, n]
+  definition: '$n = c/v$, the factor by which light slows in a material.'
+  topic: Reflection and refraction
+- term: refraction
+  definition: 'The bending of light as it crosses a boundary between materials with different speeds of light.'
+  topic: Reflection and refraction
+- term: Snell's law
+  definition: '$n_1\sin\theta_1 = n_2\sin\theta_2$, with angles from the normal.'
+  topic: Reflection and refraction
+- term: dispersion
+  definition: 'Dependence of the index of refraction on wavelength, which spreads white light into colors.'
+  topic: Reflection and refraction
+- term: total internal reflection
+  aliases: [TIR]
+  definition: 'Complete reflection of light trying to pass into a lower-index medium at more than the critical angle.'
+  topic: Reflection and refraction
+- term: critical angle
+  definition: 'The incidence angle with $\sin\theta_c = n_2/n_1$ ($n_1 > n_2$) above which total internal reflection occurs.'
+  topic: Reflection and refraction
+- term: Fermat's principle
+  definition: 'Light travels between two points along the path of least time; it implies the laws of reflection and refraction.'
+  topic: Reflection and refraction
+- term: virtual image
+  aliases: [virtual]
+  definition: 'An image from which light only appears to come; it cannot be projected on a screen ($d_i < 0$).'
+  topic: Mirrors
+- term: real image
+  definition: 'An image where light rays actually converge, which can be projected on a screen ($d_i > 0$).'
+  topic: Mirrors
+- term: concave mirror
+  definition: 'A mirror curved inward that converges parallel rays to a focal point; $f = R/2 > 0$.'
+  topic: Mirrors
+- term: focal point
+  aliases: [focus]
+  definition: 'The point where rays parallel to the axis converge (or appear to diverge from) after a lens or mirror.'
+  topic: Mirrors
+- term: focal length
+  aliases: [f]
+  definition: 'Distance from a lens or mirror to its focal point; positive for converging, negative for diverging optics.'
+  topic: Thin lenses
+- term: convex mirror
+  definition: 'A mirror curved outward; it diverges light, has $f < 0$, and forms virtual, upright, reduced images.'
+  topic: Mirrors
+- term: converging lens
+  aliases: [convex lens]
+  definition: 'A lens thicker in the middle that brings parallel rays to a focus; $f > 0$.'
+  topic: Thin lenses
+- term: diverging lens
+  aliases: [concave lens]
+  definition: 'A lens thinner in the middle that spreads parallel rays; $f < 0$.'
+  topic: Thin lenses
+- term: thin-lens equation
+  aliases: [lens equation, mirror equation]
+  definition: '$\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$, for thin lenses and spherical mirrors.'
+  topic: Thin lenses
+- term: magnification
+  definition: '$m = h_i/h_o = -d_i/d_o$; negative means inverted.'
+  topic: Thin lenses
+- term: lens power
+  aliases: [diopter, diopters]
+  definition: '$P = 1/f$ in diopters (m⁻¹).'
+  topic: Thin lenses
+- term: lensmaker's equation
+  definition: '$\dfrac1f = (n - 1)\left(\dfrac1{R_1} - \dfrac1{R_2}\right)$ for a thin lens.'
+  topic: Thin lenses
+- term: coherent
+  aliases: [coherence]
+  definition: 'Describes sources with a constant phase relationship, needed for a stable interference pattern.'
+  topic: Interference
+- term: diffraction
+  definition: 'The spreading of waves through openings or around obstacles comparable in size to the wavelength.'
+  topic: Diffraction
+- term: diffraction grating
+  aliases: [grating]
+  definition: 'Many equally spaced slits producing sharp maxima at $d\sin\theta = m\lambda$.'
+  topic: Diffraction
+- term: Rayleigh criterion
+  definition: 'Two point sources are just resolved at angular separation $\theta = 1.22\lambda/D$.'
+  topic: Diffraction
+# ---- m12 Modern physics
+- term: principle of relativity
+  definition: 'The laws of physics are the same in every inertial reference frame.'
+  topic: Special relativity
+- term: Lorentz factor
+  aliases: [γ, gamma factor]
+  definition: '$\gamma = 1/\sqrt{1 - v^2/c^2} \ge 1$.'
+  topic: Special relativity
+- term: proper time
+  definition: 'Time between two events measured by a clock present at both (at rest relative to them); the shortest measured interval.'
+  topic: Special relativity
+- term: time dilation
+  definition: 'Moving clocks run slow: $\Delta t = \gamma\Delta t_0$.'
+  topic: Special relativity
+- term: proper length
+  definition: 'The length of an object measured in its own rest frame; the longest measured length.'
+  topic: Special relativity
+- term: length contraction
+  definition: 'Objects are shorter along their direction of motion: $L = L_0/\gamma$.'
+  topic: Special relativity
+- term: rest energy
+  definition: 'The energy $E_0 = mc^2$ a particle has by virtue of its mass.'
+  topic: Special relativity
+- term: mass–energy equivalence
+  aliases: [mass-energy equivalence, E = mc²]
+  definition: 'Mass is a form of energy, $E_0 = mc^2$; nuclear reactions convert small mass changes into large energies.'
+  topic: Special relativity
+- term: Lorentz transformation
+  definition: '$x'' = \gamma(x - vt)$, $t'' = \gamma(t - vx/c^2)$: how coordinates change between inertial frames.'
+  topic: Special relativity
+- term: photon
+  aliases: [photons]
+  definition: 'A quantum of electromagnetic energy, $E = hf = hc/\lambda$, with momentum $h/\lambda$.'
+  topic: Photons
+- term: Planck's constant
+  aliases: [h]
+  definition: '$h = 6.63\times10^{-34}$ J·s; $hc = 1240$ eV·nm.'
+  topic: Photons
+- term: photoelectric effect
+  definition: 'Emission of electrons from a metal by light; explained by photons, with $K_{\max} = hf - \phi$.'
+  topic: Photons
+- term: work function
+  aliases: [φ]
+  definition: 'The minimum energy $\phi$ needed to free an electron from a metal''s surface.'
+  topic: Photons
+- term: threshold frequency
+  definition: 'The lowest light frequency, $f_0 = \phi/h$, that can eject photoelectrons.'
+  topic: Photons
+- term: emission spectrum
+  aliases: [line spectrum, spectral lines]
+  definition: 'The set of discrete wavelengths emitted by an element''s atoms, unique to that element.'
+  topic: Atomic structure
+- term: energy levels
+  aliases: [energy level]
+  definition: 'The allowed energies of a bound system; for hydrogen $E_n = -13.6\text{ eV}/n^2$.'
+  topic: Atomic structure
+- term: ground state
+  definition: 'The lowest energy level of an atom or system ($n = 1$ in hydrogen).'
+  topic: Atomic structure
+- term: de Broglie wavelength
+  definition: 'The wavelength of a particle, $\lambda = h/p$.'
+  topic: Wave–particle duality
+- term: wave–particle duality
+  aliases: [wave-particle duality]
+  definition: 'Light and matter both show wave behavior (interference) and particle behavior (discrete quanta), depending on the experiment.'
+  topic: Wave–particle duality
+- term: uncertainty principle
+  aliases: [Heisenberg uncertainty principle]
+  definition: 'Position and momentum cannot both be sharply defined: $\Delta x\,\Delta p \ge h/(4\pi)$.'
+  topic: Wave–particle duality
+- term: nucleon
+  aliases: [nucleons]
+  definition: 'A proton or neutron.'
+  topic: Nuclear structure
+- term: atomic number
+  aliases: [Z]
+  definition: 'The number of protons $Z$ in a nucleus, which identifies the element.'
+  topic: Nuclear structure
+- term: mass number
+  aliases: [A (mass number)]
+  definition: 'The total number of nucleons $A = Z + N$.'
+  topic: Nuclear structure
+- term: isotope
+  aliases: [isotopes]
+  definition: 'Nuclei with the same number of protons but different numbers of neutrons.'
+  topic: Nuclear structure
+- term: strong nuclear force
+  aliases: [strong force]
+  definition: 'The very strong, short-range (~$10^{-15}$ m) attraction between nucleons that holds nuclei together.'
+  topic: Nuclear structure
+- term: atomic mass unit
+  aliases: [atomic mass units, u, amu]
+  definition: '$1\text{ u} = 1.6605\times10^{-27}$ kg, equivalent to 931.5 MeV.'
+  topic: Nuclear structure
+- term: mass defect
+  definition: 'The amount by which a nucleus''s mass is less than the total mass of its separate nucleons.'
+  topic: Nuclear structure
+- term: binding energy
+  definition: 'Energy needed to separate a nucleus into its nucleons, $E_B = \Delta m\,c^2$.'
+  topic: Nuclear structure
+- term: fission
+  definition: 'Splitting of a heavy nucleus into lighter ones, releasing energy (about 200 MeV for uranium-235).'
+  topic: Nuclear structure
+- term: fusion
+  definition: 'Joining of light nuclei into a heavier one, releasing energy; powers the Sun.'
+  topic: Nuclear structure
+- term: alpha decay
+  aliases: [alpha particle, α]
+  definition: 'Emission of a helium-4 nucleus; $Z$ drops by 2 and $A$ by 4.'
+  topic: Radioactive decay
+- term: beta decay
+  aliases: [beta particle, β]
+  definition: 'Emission of an electron (β⁻, $Z + 1$) or positron (β⁺, $Z - 1$) as a neutron and proton interconvert.'
+  topic: Radioactive decay
+- term: gamma decay
+  aliases: [gamma ray, gamma rays, γ ray]
+  definition: 'Emission of a high-energy photon as a nucleus drops to a lower energy state; $Z$ and $A$ unchanged.'
+  topic: Radioactive decay
+- term: activity
+  aliases: [becquerel, Bq]
+  definition: 'Decays per second, $R = \lambda N$, in becquerels.'
+  topic: Radioactive decay
+- term: half-life
+  definition: 'Time for half of a radioactive sample to decay, $T_{1/2} = \ln 2/\lambda$.'
+  topic: Radioactive decay
+- term: mean lifetime
+  definition: 'The average lifetime of an unstable nucleus, $\tau = 1/\lambda = T_{1/2}/\ln 2$.'
+  topic: Radioactive decay

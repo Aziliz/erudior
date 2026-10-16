@@ -1,0 +1,529 @@
+# Module 1: Whole numbers
+# --- pre-place-value ---
+- id: pre-q-0101
+  lesson: pre-place-value
+  module_quiz: true
+  topic: Place value
+  stem: 'What is the value of the digit 8 in 5,382,104?'
+  choices: ['80,000', '8,000', '800', '800,000']
+  answer: 0
+  explanation: |-
+    From the right: 4 is ones, 0 tens, 1 hundreds, 2 thousands, 8 ten thousands. So the 8 is worth $8 \times 10{,}000 = 80{,}000$.
+    (8,000 comes from counting one place too few.)
+
+- id: pre-q-0102
+  lesson: pre-place-value
+  topic: Place value
+  stem: 'Which number is "six million, forty thousand, nine" in standard form?'
+  choices: ['6,400,009', '6,040,009', '6,004,009', '6,040,900']
+  answer: 1
+  explanation: |-
+    Six million is 6,000,000; forty thousand is 40,000; nine is 9. Adding gives 6,040,009. Zeros hold the hundred-thousands, thousands, hundreds and tens places.
+
+- id: pre-q-0103
+  lesson: pre-place-value
+  topic: Place value
+  stem: 'Which is the expanded form of 70,306?'
+  choices: ['$7{,}000 + 300 + 6$', '$70{,}000 + 3{,}000 + 6$', '$70{,}000 + 300 + 6$', '$70{,}000 + 30 + 6$']
+  answer: 2
+  explanation: |-
+    The 7 is in the ten thousands place (70,000), the 3 is in the hundreds place (300), and the 6 is in the ones place. The zeros contribute nothing: $70{,}000 + 300 + 6$.
+
+- id: pre-q-0104
+  lesson: pre-place-value
+  module_quiz: true
+  topic: Rounding
+  stem: 'Round 46,851 to the nearest thousand.'
+  choices: ['46,000', '46,900', '50,000', '47,000']
+  answer: 3
+  explanation: |-
+    The thousands digit is 6. The digit to its right (hundreds) is 8, which is 5 or more, so round up: 47,000.
+    (46,900 is rounding to the nearest hundred; 50,000 is to the nearest ten thousand.)
+
+- id: pre-q-0105
+  lesson: pre-place-value
+  topic: Rounding
+  stem: 'Round 6,499 to the nearest thousand.'
+  choices: ['6,000', '7,000', '6,500', '6,400']
+  answer: 0
+  explanation: |-
+    Only the hundreds digit decides, and it is 4, so the thousands digit stays: 6,000. The 9s further right don't matter; 6,499 is below the halfway point 6,500.
+
+- id: pre-q-0106
+  lesson: pre-place-value
+  topic: Rounding
+  stem: 'Round 299,960 to the nearest hundred.'
+  choices: ['299,900', '300,000', '299,000', '300,960']
+  answer: 1
+  explanation: |-
+    The hundreds digit is 9 and the digit to its right is 6, so round up. 9 + 1 = 10 carries into the thousands, which carries again: 299,960 becomes 300,000.
+
+- id: pre-q-0107
+  lesson: pre-place-value
+  module_quiz: true
+  topic: Place value
+  stem: 'Which statement is true?'
+  choices: ['$90{,}899 > 91{,}002$', '$47{,}310 < 47{,}301$', '$128{,}045 > 127{,}999$', '$5{,}600 > 56{,}000$']
+  answer: 2
+  explanation: |-
+    128,045 and 127,999 agree in the hundred thousands and ten thousands places; in the thousands place 8 > 7, so $128{,}045 > 127{,}999$.
+    The others are reversed: 91,002 is larger than 90,899; 47,310 is larger than 47,301; 56,000 has more digits than 5,600.
+
+- id: pre-q-0108
+  lesson: pre-place-value
+  topic: Rounding
+  stem: 'A number rounded to the nearest ten is 350. Which could be the number?'
+  choices: ['344', '356', '355', '346']
+  answer: 3
+  explanation: |-
+    Numbers from 345 up to 354 round to 350. Only 346 is in that range. 344 rounds to 340, and 355 and 356 round to 360.
+
+- id: pre-q-0109
+  lesson: pre-place-value
+  module_quiz: true
+  topic: Rounding
+  stem: 'Estimate $612 \times 48$ by rounding each number to its largest place.'
+  choices: ['30,000', '24,000', '3,000', '28,000']
+  answer: 0
+  explanation: |-
+    612 rounds to 600 and 48 rounds to 50, so the estimate is $600 \times 50 = 30{,}000$. (The exact product is 29,376.)
+
+- id: pre-q-0110
+  lesson: pre-place-value
+  topic: Rounding
+  stem: 'A student computes $3{,}912 + 4{,}087$ and gets 87,999. What is the front-end estimate of the sum (each number rounded to its largest place), which shows the answer is wrong?'
+  choices: ['$3{,}000 + 4{,}000 = 7{,}000$', '$4{,}000 + 4{,}000 = 8{,}000$', '$4{,}000 + 5{,}000 = 9{,}000$', '$40{,}000 + 40{,}000 = 80{,}000$']
+  answer: 1
+  explanation: |-
+    3,912 rounds to 4,000 and 4,087 rounds to 4,000, so the sum is about 8,000, nowhere near 87,999. (The exact sum is 7,999; the student likely misaligned a digit.) The estimate $3{,}000 + 4{,}000$ truncates instead of rounding.
+
+- id: pre-q-0111
+  lesson: pre-place-value
+  topic: Place value
+  stem: 'How many times greater is the value of the first 4 than the second 4 in 44,000?'
+  choices: ['4 times', '100 times', '10 times', '1,000 times']
+  answer: 2
+  explanation: |-
+    The first 4 is worth 40,000 and the second 4,000. Each place is worth ten times the place to its right, so the first is 10 times the second.
+
+# --- pre-whole-ops ---
+- id: pre-q-0201
+  lesson: pre-whole-ops
+  module_quiz: true
+  topic: Whole number operations
+  stem: 'In $56 \div 8 = 7$, which number is the divisor?'
+  choices: ['56', '7', '$56 \div 8$', '8']
+  answer: 3
+  explanation: |-
+    In dividend ÷ divisor = quotient, the divisor is the number you divide by: 8. 56 is the dividend and 7 is the quotient.
+
+- id: pre-q-0202
+  lesson: pre-whole-ops
+  topic: Whole number operations
+  stem: 'Which equation shows the associative property of multiplication?'
+  choices: ['$(2 \times 5) \times 7 = 2 \times (5 \times 7)$', '$4 \times 9 = 9 \times 4$', '$6 \times 1 = 6$', '$3 \times (4 + 5) = 3 \times 4 + 3 \times 5$']
+  answer: 0
+  explanation: |-
+    Associative means the grouping changes but the order doesn't: $(2 \times 5) \times 7 = 2 \times (5 \times 7)$. $4 \times 9 = 9 \times 4$ is the commutative property (order changes), $6 \times 1 = 6$ is the identity property, and $3(4 + 5) = 3 \times 4 + 3 \times 5$ is the distributive property.
+
+- id: pre-q-0203
+  lesson: pre-whole-ops
+  module_quiz: true
+  topic: Whole number operations
+  stem: 'Which expression is undefined?'
+  choices: ['$0 \div 9$', '$9 \div 0$', '$9 - 9$', '$9 \times 0$']
+  answer: 1
+  explanation: |-
+    Division by zero is undefined: no number times 0 gives 9. But $0 \div 9 = 0$, $9 \times 0 = 0$ and $9 - 9 = 0$ are all fine.
+
+- id: pre-q-0204
+  lesson: pre-whole-ops
+  topic: Whole number operations
+  stem: 'Find $5{,}207 \div 9$.'
+  choices: ['57 R 74', '578 R 3', '578 R 5', '579 R 4']
+  answer: 2
+  explanation: |-
+    $9 \times 578 = 5{,}202$ and $5{,}207 - 5{,}202 = 5$, so the answer is 578 R 5. Check: $578 \times 9 + 5 = 5{,}207$. ✓
+
+- id: pre-q-0205
+  lesson: pre-whole-ops
+  topic: Whole number operations
+  stem: 'Find $306 \times 47$.'
+  choices: ['3,366', '13,382', '14,282', '14,382']
+  answer: 3
+  explanation: |-
+    $306 \times 47 = 306 \times 40 + 306 \times 7 = 12{,}240 + 2{,}142 = 14{,}382$.
+    (3,366 comes from not shifting the tens row: $1{,}224 + 2{,}142$.)
+
+- id: pre-q-0206
+  lesson: pre-whole-ops
+  topic: Word problems
+  stem: 'A division problem has divisor 7, quotient 45 and remainder 3. What is the dividend?'
+  choices: ['318', '315', '322', '308']
+  answer: 0
+  explanation: |-
+    dividend = quotient × divisor + remainder $= 45 \times 7 + 3 = 315 + 3 = 318$.
+
+- id: pre-q-0207
+  lesson: pre-whole-ops
+  module_quiz: true
+  topic: Word problems
+  stem: 'Cartons hold 24 eggs. A farm collects 1,000 eggs. How many cartons can be completely filled?'
+  choices: ['42', '41', '40', '24']
+  answer: 1
+  explanation: |-
+    $1{,}000 \div 24 = 41$ R 16. Forty-one cartons are full and 16 eggs are left over, so 41 cartons can be completely filled. (42 would be the number of cartons needed to hold every egg.)
+
+- id: pre-q-0208
+  lesson: pre-whole-ops
+  topic: Word problems
+  stem: 'A class of 29 students goes on a trip. Each car can take 4 students. How many cars are needed?'
+  choices: ['7', '7 R 1', '8', '6']
+  answer: 2
+  explanation: |-
+    $29 \div 4 = 7$ R 1. Seven cars take 28 students, and the last student still needs a car, so 8 cars are needed. The remainder means rounding up here.
+
+- id: pre-q-0209
+  lesson: pre-whole-ops
+  topic: Word problems
+  stem: 'Jo had \$412 in her account. She paid a bill of \$138, then deposited \$95. How much is in the account now?'
+  choices: ['\$179', '\$645', '\$355', '\$369']
+  answer: 3
+  explanation: |-
+    Subtract the bill, then add the deposit: $412 - 138 = 274$, and $274 + 95 = 369$. She has \$369.
+    (\$179 subtracts the deposit too; \$645 adds everything.)
+
+- id: pre-q-0210
+  lesson: pre-whole-ops
+  topic: Whole number operations
+  stem: 'Which phrase matches $20 - 7$?'
+  choices: ['7 less than 20', '20 less than 7', '7 decreased by 20', 'the difference of 7 and 20']
+  answer: 0
+  explanation: |-
+    "7 less than 20" means start at 20 and take away 7: $20 - 7$. "20 less than 7" and "7 decreased by 20" both mean $7 - 20$, and "the difference of 7 and 20" is $7 - 20$ as well.
+
+- id: pre-q-0211
+  lesson: pre-whole-ops
+  topic: Word problems
+  stem: 'A store orders 18 boxes of pens with 144 pens per box. The pens are packed into bags of 6 to sell. How many bags are there?'
+  choices: ['2,592', '432', '26', '486']
+  answer: 1
+  explanation: |-
+    Total pens: $18 \times 144 = 2{,}592$. Bags: $2{,}592 \div 6 = 432$.
+    (2,592 is the number of pens, not bags.)
+
+# --- pre-order-ops ---
+- id: pre-q-0301
+  lesson: pre-order-ops
+  module_quiz: true
+  topic: Order of operations
+  stem: 'Evaluate $7 + 3 \times 5$.'
+  choices: ['50', '15', '22', '105']
+  answer: 2
+  explanation: |-
+    Multiply before adding: $3 \times 5 = 15$, then $7 + 15 = 22$. (50 comes from adding first.)
+
+- id: pre-q-0302
+  lesson: pre-order-ops
+  module_quiz: true
+  topic: Exponents
+  stem: 'Evaluate $2^5$.'
+  choices: ['10', '25', '7', '32']
+  answer: 3
+  explanation: |-
+    $2^5 = 2 \times 2 \times 2 \times 2 \times 2 = 32$. (10 is $2 \times 5$, a common confusion.)
+
+- id: pre-q-0303
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Evaluate $48 \div 6 \times 2$.'
+  choices: ['16', '24', '8', '4']
+  answer: 0
+  explanation: |-
+    Multiplication and division share a rank, so go left to right: $48 \div 6 = 8$, then $8 \times 2 = 16$.
+    (4 comes from multiplying first: $48 \div 12$.)
+
+- id: pre-q-0304
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Evaluate $20 - 8 + 2$.'
+  choices: ['10', '14', '30', '26']
+  answer: 1
+  explanation: |-
+    Addition and subtraction go left to right: $20 - 8 = 12$, then $12 + 2 = 14$. (10 comes from adding $8 + 2$ first.)
+
+- id: pre-q-0305
+  lesson: pre-order-ops
+  module_quiz: true
+  topic: Order of operations
+  stem: 'Evaluate $3 \times 4^2$.'
+  choices: ['144', '24', '48', '96']
+  answer: 2
+  explanation: |-
+    The exponent applies only to the 4: $4^2 = 16$, then $3 \times 16 = 48$. (144 is $(3 \times 4)^2$; 24 is $3 \times 4 \times 2$.)
+
+- id: pre-q-0306
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Evaluate $(9 - 3)^2 \div 4 + 1$.'
+  choices: ['37', '9', '7', '10']
+  answer: 3
+  explanation: |-
+    Parentheses: $9 - 3 = 6$. Exponent: $6^2 = 36$. Divide: $36 \div 4 = 9$. Add: $9 + 1 = 10$.
+
+- id: pre-q-0307
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Evaluate $\dfrac{5 + 3 \times 5}{2^2 + 1}$.'
+  choices: ['4', '5', '8', '10']
+  answer: 0
+  explanation: |-
+    Top: $5 + 15 = 20$. Bottom: $4 + 1 = 5$. Then $20 \div 5 = 4$. (8 comes from adding before multiplying on top: $40 \div 5$.)
+
+- id: pre-q-0308
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Evaluate $2[10 - (1 + 2)^2] + 6$.'
+  choices: ['20', '8', '14', '16']
+  answer: 1
+  explanation: |-
+    Innermost: $1 + 2 = 3$, and $3^2 = 9$. Brackets: $10 - 9 = 1$. Then $2 \times 1 + 6 = 8$.
+
+- id: pre-q-0309
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: |-
+    A student evaluated $12 - 2 \times 3 + 4$ like this:
+
+    Step 1: $12 - 6 + 4$. Step 2: $12 - 10$. Step 3: $2$.
+
+    Where is the first error?
+  choices: ['Step 1', 'Step 2', 'Step 3', 'There is no error']
+  answer: 1
+  explanation: |-
+    Step 1 is correct (multiply first). In step 2 the student added $6 + 4$ before subtracting, but addition and subtraction go left to right: $12 - 6 = 6$, then $6 + 4 = 10$.
+
+- id: pre-q-0310
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Tickets cost \$9 for adults and \$5 for children. A family of 2 adults and 3 children pays with a \$50 bill. Which expression gives their change?'
+  choices: ['$50 - 2 \times 9 + 3 \times 5$', '$(50 - 2) \times 9 + 3 \times 5$', '$50 - (2 \times 9 + 3 \times 5)$', '$50 - 2 \times 9 - 3$']
+  answer: 2
+  explanation: |-
+    The total cost $2 \times 9 + 3 \times 5 = 33$ must be subtracted as a whole, so it needs parentheses: $50 - (2 \times 9 + 3 \times 5) = 17$. Without parentheses, $50 - 2 \times 9 + 3 \times 5$ would add the children's tickets instead of subtracting them.
+
+- id: pre-q-0311
+  lesson: pre-order-ops
+  topic: Exponents
+  stem: 'Which equals $10^4$?'
+  choices: ['40', '100,000', '1,000', '10,000']
+  answer: 3
+  explanation: |-
+    $10^4 = 10 \times 10 \times 10 \times 10 = 10{,}000$. For powers of 10, the exponent counts the zeros.
+
+# --- pre-factors ---
+- id: pre-q-0401
+  lesson: pre-factors
+  module_quiz: true
+  topic: Factors and multiples
+  stem: 'How many factors does 36 have?'
+  choices: ['9', '6', '8', '7']
+  answer: 0
+  explanation: |-
+    Factor pairs: $1 \times 36$, $2 \times 18$, $3 \times 12$, $4 \times 9$, $6 \times 6$. The factors are 1, 2, 3, 4, 6, 9, 12, 18, 36: nine of them (6 is counted once).
+
+- id: pre-q-0402
+  lesson: pre-factors
+  module_quiz: true
+  topic: Primes
+  stem: 'Which number is prime?'
+  choices: ['51', '53', '87', '57']
+  answer: 1
+  explanation: |-
+    $51 = 3 \times 17$, $57 = 3 \times 19$ and $87 = 3 \times 29$ (each has a digit sum divisible by 3). 53 is not divisible by 2, 3, 5 or 7, the primes up to $\sqrt{53} \approx 7.3$, so it is prime.
+
+- id: pre-q-0403
+  lesson: pre-factors
+  topic: Primes
+  stem: 'Which statement about the number 1 is true?'
+  choices: ['It is composite', 'It is the smallest prime', 'It is neither prime nor composite', 'It is prime because it is odd']
+  answer: 2
+  explanation: |-
+    A prime has exactly two factors and a composite has more than two. The number 1 has only one factor, itself, so it is neither. The smallest prime is 2.
+
+- id: pre-q-0404
+  lesson: pre-factors
+  topic: Factors and multiples
+  stem: 'Which number is divisible by 3 but not by 9?'
+  choices: ['729', '4,518', '1,233', '2,451']
+  answer: 3
+  explanation: |-
+    Digit sums: 729 → 18, 4,518 → 18, 2,451 → 12, 1,233 → 9. Only 12 is divisible by 3 but not by 9, so 2,451 is the answer.
+
+- id: pre-q-0405
+  lesson: pre-factors
+  topic: Factors and multiples
+  stem: 'Which of these is a multiple of 8?'
+  choices: ['96', '68', '100', '4']
+  answer: 0
+  explanation: |-
+    $96 = 8 \times 12$. 4 is a factor of 8, not a multiple; $68 = 8 \times 8 + 4$ and $100 = 8 \times 12 + 4$ leave remainders.
+
+- id: pre-q-0406
+  lesson: pre-factors
+  module_quiz: true
+  topic: Factors and multiples
+  stem: 'Which number is divisible by 6?'
+  choices: ['1,234', '2,346', '3,345', '4,444']
+  answer: 1
+  explanation: |-
+    Divisible by 6 means divisible by both 2 and 3. 2,346 is even and its digit sum is 15, a multiple of 3. 1,234 and 4,444 are even but have digit sums 10 and 16; 3,345 is odd.
+
+- id: pre-q-0407
+  lesson: pre-factors
+  topic: Primes
+  stem: 'To test whether 143 is prime, which primes must you try dividing by?'
+  choices: ['Every prime up to 71', '2, 3, 5, 7, 11, 13', '2, 3, 5, 7, 11', 'Only 2 and 3']
+  answer: 2
+  explanation: |-
+    You only need primes up to $\sqrt{143} \approx 11.96$: 2, 3, 5, 7 and 11. In fact $143 = 11 \times 13$, so it is composite, and 11 finds it.
+
+- id: pre-q-0408
+  lesson: pre-factors
+  topic: Factors and multiples
+  stem: 'Which list shows all the factors of 28?'
+  choices: ['1, 2, 4, 7, 28', '1, 2, 3, 4, 7, 14, 28', '2, 4, 7, 14', '1, 2, 4, 7, 14, 28']
+  answer: 3
+  explanation: |-
+    Factor pairs of 28: $1 \times 28$, $2 \times 14$, $4 \times 7$. So the factors are 1, 2, 4, 7, 14, 28. 3 does not divide 28.
+
+- id: pre-q-0409
+  lesson: pre-factors
+  topic: Primes
+  stem: 'How many prime numbers are there between 20 and 40?'
+  choices: ['4', '5', '3', '6']
+  answer: 0
+  explanation: |-
+    The primes between 20 and 40 are 23, 29, 31 and 37: four of them. (21, 27, 33 and 39 are multiples of 3; 25 and 35 are multiples of 5.)
+
+- id: pre-q-0410
+  lesson: pre-factors
+  topic: Factors and multiples
+  stem: '48 chairs are to be arranged in equal rows with at least 2 rows and at least 2 chairs per row. How many arrangements are possible?'
+  choices: ['10', '8', '9', '5']
+  answer: 1
+  explanation: |-
+    The factors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. Leaving out 1 and 48, there are 8 possible numbers of rows (2, 3, 4, 6, 8, 12, 16, 24), so 8 arrangements.
+
+- id: pre-q-0411
+  lesson: pre-factors
+  topic: Factors and multiples
+  stem: 'The sum of two odd numbers is always…'
+  choices: ['prime', 'odd', 'even', 'a multiple of 4']
+  answer: 2
+  explanation: |-
+    Each odd number is one more than an even number, so two odds add to an even number plus 2, which is even. Example: $3 + 5 = 8$. It need not be a multiple of 4: $3 + 3 = 6$.
+
+# --- pre-gcf-lcm ---
+- id: pre-q-0501
+  lesson: pre-gcf-lcm
+  module_quiz: true
+  topic: Prime factorization
+  stem: 'What is the prime factorization of 120?'
+  choices: ['$2^2 \times 3^2 \times 5$', '$2^2 \times 3 \times 10$', '$2^3 \times 15$', '$2^3 \times 3 \times 5$']
+  answer: 3
+  explanation: |-
+    $120 = 2 \times 60 = 2 \times 2 \times 30 = 2 \times 2 \times 2 \times 15 = 2^3 \times 3 \times 5$. $2^2 \times 3 \times 10$ and $2^3 \times 15$ contain composite factors (10, 15), and $2^2 \times 3^2 \times 5$ equals 180.
+
+- id: pre-q-0502
+  lesson: pre-gcf-lcm
+  module_quiz: true
+  topic: GCF and LCM
+  stem: 'Find the GCF of 54 and 72.'
+  choices: ['18', '9', '6', '216']
+  answer: 0
+  explanation: |-
+    $54 = 2 \times 3^3$ and $72 = 2^3 \times 3^2$. Shared primes with smaller powers: $2^1 \times 3^2 = 18$. (216 is the LCM.)
+
+- id: pre-q-0503
+  lesson: pre-gcf-lcm
+  module_quiz: true
+  topic: GCF and LCM
+  stem: 'Find the LCM of 10 and 15.'
+  choices: ['150', '30', '60', '5']
+  answer: 1
+  explanation: |-
+    $10 = 2 \times 5$ and $15 = 3 \times 5$. All primes, larger powers: $2 \times 3 \times 5 = 30$. (150 is the product, a common multiple but not the least; 5 is the GCF.)
+
+- id: pre-q-0504
+  lesson: pre-gcf-lcm
+  topic: GCF and LCM
+  stem: 'Which pair of numbers is relatively prime?'
+  choices: ['14 and 21', '12 and 18', '9 and 16', '15 and 25']
+  answer: 2
+  explanation: |-
+    $9 = 3^2$ and $16 = 2^4$ share no prime, so their GCF is 1. The other pairs have common factors: 14 and 21 share 7, 12 and 18 share 6, and 15 and 25 share 5.
+
+- id: pre-q-0505
+  lesson: pre-gcf-lcm
+  topic: GCF and LCM
+  stem: 'Find the LCM of 4, 6 and 9.'
+  choices: ['216', '18', '72', '36']
+  answer: 3
+  explanation: |-
+    $4 = 2^2$, $6 = 2 \times 3$, $9 = 3^2$. Largest powers: $2^2 \times 3^2 = 36$. (216 is the product $4 \times 6 \times 9$; 18 is not a multiple of 4.)
+
+- id: pre-q-0506
+  lesson: pre-gcf-lcm
+  topic: Prime factorization
+  stem: 'Which is the prime factorization of 252?'
+  choices: ['$2^2 \times 3^2 \times 7$', '$2 \times 3^2 \times 14$', '$2^2 \times 3 \times 21$', '$2^3 \times 3^2 \times 7$']
+  answer: 0
+  explanation: |-
+    $252 \div 2 = 126$, $126 \div 2 = 63$, $63 \div 3 = 21$, $21 \div 3 = 7$. So $252 = 2^2 \times 3^2 \times 7$. $2^3 \times 3^2 \times 7$ equals 504; the other choices contain composite factors (14, 21).
+
+- id: pre-q-0507
+  lesson: pre-gcf-lcm
+  topic: GCF and LCM
+  stem: 'The GCF of two numbers is 4 and their product is 480. What is their LCM?'
+  choices: ['1,920', '120', '60', '476']
+  answer: 1
+  explanation: |-
+    For two numbers, GCF × LCM = product. So LCM $= 480 \div 4 = 120$. (For example, 12 and 40 have GCF 4 and LCM 120.)
+
+- id: pre-q-0508
+  lesson: pre-gcf-lcm
+  module_quiz: true
+  topic: GCF and LCM
+  stem: 'Hot dogs come in packs of 10 and buns in packs of 8. What is the fewest hot dogs you can buy to have exactly as many buns as hot dogs?'
+  choices: ['80', '18', '40', '2']
+  answer: 2
+  explanation: |-
+    The number must be a multiple of both 10 and 8, and as small as possible: LCM(10, 8). $10 = 2 \times 5$, $8 = 2^3$, so LCM $= 2^3 \times 5 = 40$ (4 packs of hot dogs, 5 packs of buns). 2 is the GCF; 80 is the product.
+
+- id: pre-q-0509
+  lesson: pre-gcf-lcm
+  topic: GCF and LCM
+  stem: 'A teacher has 42 pencils and 56 erasers to share into identical kits with nothing left over. What is the greatest number of kits?'
+  choices: ['7', '2', '168', '14']
+  answer: 3
+  explanation: |-
+    The number of kits must divide both 42 and 56, as large as possible: GCF. $42 = 2 \times 3 \times 7$ and $56 = 2^3 \times 7$, so GCF $= 2 \times 7 = 14$. Each kit gets 3 pencils and 4 erasers.
+
+- id: pre-q-0510
+  lesson: pre-gcf-lcm
+  topic: Prime factorization
+  stem: 'A number has prime factorization $2^2 \times 5 \times 11$. What is the number?'
+  choices: ['220', '110', '440', '40']
+  answer: 0
+  explanation: |-
+    $2^2 \times 5 \times 11 = 4 \times 55 = 220$. (110 forgets the square on the 2.)
+
+- id: pre-q-0511
+  lesson: pre-gcf-lcm
+  topic: GCF and LCM
+  stem: 'Two lighthouses flash every 15 seconds and every 20 seconds. They flash together now. In how many seconds will they next flash together?'
+  choices: ['35', '60', '300', '5']
+  answer: 1
+  explanation: |-
+    We need the least common multiple: $15 = 3 \times 5$ and $20 = 2^2 \times 5$, so LCM $= 2^2 \times 3 \times 5 = 60$ seconds. (300 is the product; 5 is the GCF.)

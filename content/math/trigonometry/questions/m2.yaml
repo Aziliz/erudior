@@ -1,0 +1,443 @@
+# Module 2: Right-triangle trigonometry
+- id: trig-q-0501
+  lesson: trig-ratios
+  module_quiz: true
+  topic: Trig ratios
+  stem: 'A right triangle has legs 8 and 15 and hypotenuse 17. Let $\theta$ be the angle opposite the side of length 8. What is $\sin\theta$?'
+  choices: ['$\dfrac{8}{17}$', '$\dfrac{8}{15}$', '$\dfrac{15}{17}$', '$\dfrac{17}{8}$']
+  answer: 0
+  explanation: |-
+    Sine is opposite over hypotenuse: $\tfrac{8}{17}$. ($\tfrac{15}{17}$ is $\cos\theta$,
+    $\tfrac{8}{15}$ is $\tan\theta$, and $\tfrac{17}{8}$ is $\csc\theta$.)
+- id: trig-q-0502
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: 'Which function is the reciprocal of cosine?'
+  choices: ['Secant', 'Cosecant', 'Cotangent', 'Inverse cosine, $\cos^{-1}$']
+  answer: 0
+  explanation: |-
+    $\sec\theta = \tfrac{1}{\cos\theta}$. Cosecant is the reciprocal of sine. $\cos^{-1}$ is the
+    inverse function, which returns an angle, not a reciprocal.
+- id: trig-q-0503
+  lesson: trig-ratios
+  module_quiz: true
+  topic: Trig ratios
+  stem: '$\theta$ is acute and $\sin\theta = \dfrac{5}{13}$. Find $\tan\theta$.'
+  choices: ['$\dfrac{12}{13}$', '$\dfrac{13}{12}$', '$\dfrac{12}{5}$', '$\dfrac{5}{12}$']
+  answer: 3
+  explanation: |-
+    Opposite 5, hypotenuse 13, so adjacent $= \sqrt{169 - 25} = 12$. Then
+    $\tan\theta = \tfrac{5}{12}$. ($\tfrac{12}{5}$ is the cotangent.)
+- id: trig-q-0504
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: '$\theta$ is acute and $\cos\theta = \dfrac25$. Find $\csc\theta$.'
+  choices: ['$\dfrac52$', '$\dfrac{\sqrt{21}}{5}$', '$\dfrac{2\sqrt{21}}{21}$', '$\dfrac{5\sqrt{21}}{21}$']
+  answer: 3
+  explanation: |-
+    Adjacent 2, hypotenuse 5, so opposite $= \sqrt{25 - 4} = \sqrt{21}$.
+    $\csc\theta = \tfrac{\text{hyp}}{\text{opp}} = \tfrac{5}{\sqrt{21}} = \tfrac{5\sqrt{21}}{21}$.
+    ($\tfrac52$ is $\sec\theta$; $\tfrac{\sqrt{21}}{5}$ is $\sin\theta$.)
+- id: trig-q-0505
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: '$\theta$ is acute and $\tan\theta = \dfrac43$. Find $\sin\theta$.'
+  choices: ['$\dfrac45$', '$\dfrac35$', '$\dfrac43$', '$\dfrac54$']
+  answer: 0
+  explanation: |-
+    Opposite 4, adjacent 3, hypotenuse $\sqrt{16 + 9} = 5$, so $\sin\theta = \tfrac45$.
+- id: trig-q-0506
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: 'Why does $\sin 40^\circ$ have the same value in every right triangle with a $40^\circ$ angle?'
+  choices: ['Because all right triangles are congruent', 'Because such triangles are similar, so their corresponding side ratios are equal', 'Because the hypotenuse is always 1', 'Because $40^\circ$ is a special angle']
+  answer: 1
+  explanation: |-
+    Two right triangles that share an acute angle have all three angles equal, so they are
+    similar (AA). Similar triangles have proportional sides, so each ratio depends only on
+    the angle.
+- id: trig-q-0507
+  lesson: trig-ratios
+  module_quiz: true
+  topic: Trig ratios
+  stem: 'Which value is impossible for an acute angle $\theta$?'
+  choices: ['$\tan\theta = 5$', '$\cos\theta = 0.3$', '$\csc\theta = 1.5$', '$\sin\theta = 1.2$']
+  answer: 3
+  explanation: |-
+    $\sin\theta = \tfrac{\text{opp}}{\text{hyp}}$, and the hypotenuse is the longest side, so
+    $\sin\theta < 1$. Tangent can be any positive number, and $\csc\theta > 1$ is required.
+- id: trig-q-0508
+  lesson: trig-ratios
+  module_quiz: true
+  topic: Trig ratios
+  stem: 'To four decimal places, what is $\sec 25^\circ$?'
+  choices: ['$0.9063$', '$1.1547$', '$2.3662$', '$1.1034$']
+  answer: 3
+  explanation: |-
+    $\sec 25^\circ = \tfrac{1}{\cos 25^\circ} \approx \tfrac{1}{0.90631} \approx 1.1034$.
+    $0.9063$ is $\cos 25^\circ$ itself, $2.3662$ is $\csc 25^\circ$, and $1.1547$ is $\sec 30^\circ$.
+- id: trig-q-0509
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: 'A right triangle has legs 9 and 40 and hypotenuse 41. Angle $B$ is opposite the leg of length 40. What is $\cos B$?'
+  choices: ['$\dfrac{40}{41}$', '$\dfrac{9}{40}$', '$\dfrac{9}{41}$', '$\dfrac{41}{9}$']
+  answer: 2
+  explanation: |-
+    From $B$, the adjacent leg is the one that is not opposite it: 9. So
+    $\cos B = \tfrac{9}{41}$. $\tfrac{40}{41}$ is $\sin B$.
+- id: trig-q-0510
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: 'For an acute angle, $\sin\theta = 0.6$ and $\cos\theta = 0.8$. What is $\cot\theta$?'
+  choices: ['$\dfrac43$', '$\dfrac34$', '$\dfrac53$', '$0.48$']
+  answer: 0
+  explanation: |-
+    $\cot\theta = \tfrac{\cos\theta}{\sin\theta} = \tfrac{0.8}{0.6} = \tfrac43$.
+    $\tfrac34$ is $\tan\theta$; $0.48$ multiplies instead of dividing.
+- id: trig-q-0511
+  lesson: trig-ratios
+  topic: Trig ratios
+  stem: |-
+    Given that $\theta$ is acute and $\cos\theta = \tfrac34$, a student finds $\tan\theta$:
+
+    1. Adjacent $= 3$, hypotenuse $= 4$.
+    2. Opposite $= \sqrt{3^2 + 4^2} = 5$.
+    3. $\tan\theta = \tfrac53$.
+
+    Where is the first error?
+  choices: ['Step 1', 'Step 2', 'Step 3', 'There is no error']
+  answer: 1
+  explanation: |-
+    The hypotenuse is the longest side, so the missing leg is
+    $\sqrt{4^2 - 3^2} = \sqrt7$, not $\sqrt{3^2+4^2}$. Then $\tan\theta = \tfrac{\sqrt7}{3}$.
+
+- id: trig-q-0601
+  lesson: trig-special
+  module_quiz: true
+  topic: Special angles
+  stem: 'A 30°–60°–90° triangle has hypotenuse 14. How long is the longer leg?'
+  choices: ['$7$', '$14\sqrt3$', '$7\sqrt2$', '$7\sqrt3$']
+  answer: 3
+  explanation: |-
+    The short leg is half the hypotenuse, $7$, and the long leg is $\sqrt3$ times the short leg:
+    $7\sqrt3 \approx 12.12$.
+- id: trig-q-0602
+  lesson: trig-special
+  topic: Special angles
+  stem: 'A 45°–45°–90° triangle has legs of length 6. How long is the hypotenuse?'
+  choices: ['$6\sqrt2$', '$3\sqrt2$', '$12$', '$6\sqrt3$']
+  answer: 0
+  explanation: |-
+    The sides are in ratio $1 : 1 : \sqrt2$, so the hypotenuse is $6\sqrt2 \approx 8.49$.
+    $3\sqrt2$ is what you'd get by dividing instead of multiplying.
+- id: trig-q-0603
+  lesson: trig-special
+  module_quiz: true
+  topic: Special angles
+  stem: 'What is the exact value of $\tan 30^\circ$?'
+  choices: ['$\sqrt3$', '$\dfrac12$', '$\dfrac{\sqrt3}{2}$', '$\dfrac{\sqrt3}{3}$']
+  answer: 3
+  explanation: |-
+    From $30^\circ$: opposite 1, adjacent $\sqrt3$, so $\tan 30^\circ = \tfrac{1}{\sqrt3} = \tfrac{\sqrt3}{3}$.
+    $\sqrt3$ is $\tan 60^\circ$.
+- id: trig-q-0604
+  lesson: trig-special
+  topic: Special angles
+  stem: 'What is the exact value of $\cos 60^\circ$?'
+  choices: ['$\dfrac{\sqrt3}{2}$', '$\dfrac{\sqrt2}{2}$', '$\dfrac12$', '$2$']
+  answer: 2
+  explanation: |-
+    From $60^\circ$ the adjacent side is the short leg 1, and the hypotenuse is 2:
+    $\cos 60^\circ = \tfrac12$. $\tfrac{\sqrt3}{2}$ is $\sin 60^\circ$ (or $\cos 30^\circ$).
+- id: trig-q-0605
+  lesson: trig-special
+  topic: Special angles
+  stem: 'Find the exact value of $4\cos^2 30^\circ - \tan^2 60^\circ$.'
+  choices: ['$3$', '$1$', '$2\sqrt3 - \sqrt3$', '$0$']
+  answer: 3
+  explanation: |-
+    $\cos^2 30^\circ = \left(\tfrac{\sqrt3}{2}\right)^2 = \tfrac34$ and $\tan^2 60^\circ = (\sqrt3)^2 = 3$.
+    So $4 \cdot \tfrac34 - 3 = 0$.
+- id: trig-q-0606
+  lesson: trig-special
+  module_quiz: true
+  topic: Cofunctions
+  stem: 'If $\sin 25^\circ = \cos\theta$ and $\theta$ is acute, what is $\theta$?'
+  choices: ['$65^\circ$', '$25^\circ$', '$155^\circ$', '$115^\circ$']
+  answer: 0
+  explanation: |-
+    Cofunction identity: $\sin\theta = \cos(90^\circ - \theta)$, so $\sin 25^\circ = \cos 65^\circ$.
+    ($155^\circ$ is the supplement of $25^\circ$, not the complement.)
+- id: trig-q-0607
+  lesson: trig-special
+  topic: Special angles
+  stem: 'What is the exact value of $\sec 45^\circ$?'
+  choices: ['$\dfrac{\sqrt2}{2}$', '$\sqrt2$', '$2$', '$1$']
+  answer: 1
+  explanation: |-
+    $\sec 45^\circ = \tfrac{1}{\cos 45^\circ} = \tfrac{1}{\sqrt2/2} = \tfrac{2}{\sqrt2} = \sqrt2$.
+- id: trig-q-0608
+  lesson: trig-special
+  module_quiz: true
+  topic: Special angles
+  stem: 'The longer leg of a 30°–60°–90° triangle is 9. How long is the hypotenuse?'
+  choices: ['$18$', '$9\sqrt3$', '$6\sqrt3$', '$3\sqrt3$']
+  answer: 2
+  explanation: |-
+    Long leg $= \sqrt3 \times$ short leg, so the short leg is $\tfrac{9}{\sqrt3} = 3\sqrt3$.
+    The hypotenuse is twice that: $6\sqrt3 \approx 10.39$. ($3\sqrt3$ is the short leg; $18$
+    doubles the long leg.)
+- id: trig-q-0609
+  lesson: trig-special
+  topic: Cofunctions
+  stem: 'Which expression equals $\cot 20^\circ$?'
+  choices: ['$\tan 20^\circ$', '$\cot 70^\circ$', '$\tan 160^\circ$', '$\tan 70^\circ$']
+  answer: 3
+  explanation: |-
+    Cotangent and tangent are cofunctions: $\cot\theta = \tan(90^\circ - \theta)$, so
+    $\cot 20^\circ = \tan 70^\circ$.
+- id: trig-q-0610
+  lesson: trig-special
+  topic: Special angles
+  stem: 'A square has a diagonal of length 10. How long is each side?'
+  choices: ['$5$', '$5\sqrt3$', '$10\sqrt2$', '$5\sqrt2$']
+  answer: 3
+  explanation: |-
+    The diagonal splits the square into two 45°–45°–90° triangles with hypotenuse 10. Each
+    leg is $\tfrac{10}{\sqrt2} = 5\sqrt2 \approx 7.07$.
+- id: trig-q-0611
+  lesson: trig-special
+  topic: Special angles
+  stem: 'Find the exact value of $\sin\dfrac{\pi}{4}\cos\dfrac{\pi}{4}$.'
+  choices: ['$\dfrac12$', '$1$', '$\dfrac{\sqrt2}{2}$', '$\dfrac14$']
+  answer: 0
+  explanation: |-
+    $\tfrac{\pi}{4} = 45^\circ$ and both values are $\tfrac{\sqrt2}{2}$:
+    $\tfrac{\sqrt2}{2}\cdot\tfrac{\sqrt2}{2} = \tfrac{2}{4} = \tfrac12$.
+- id: trig-q-0612
+  lesson: trig-special
+  topic: Special angles
+  stem: 'Where do the side ratios $1 : \sqrt3 : 2$ of a 30°–60°–90° triangle come from?'
+  choices: ['From a square cut along its diagonal', 'From the 3-4-5 Pythagorean triple', 'From an equilateral triangle of side 2 cut in half by an altitude', 'From the unit circle with radius 2']
+  answer: 2
+  explanation: |-
+    The altitude of an equilateral triangle of side 2 splits the base into halves of length 1
+    and has length $\sqrt{4 - 1} = \sqrt3$. A square's diagonal gives the 45°–45°–90° triangle.
+
+- id: trig-q-0701
+  lesson: trig-solve-right
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ with $C = 90^\circ$, $A = 28^\circ$ and $c = 15$. Find $a$ to two decimals.'
+  choices: ['$13.24$', '$7.98$', '$31.95$', '$7.04$']
+  answer: 3
+  explanation: |-
+    $a$ is opposite $A$ and $c$ is the hypotenuse, so $a = c\sin A = 15\sin 28^\circ \approx 7.04$.
+    $13.24$ uses cosine (that's $b$); $7.98$ uses tangent.
+- id: trig-q-0702
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ with $C = 90^\circ$, $A = 40^\circ$ and $a = 9$. Find $b$ to two decimals.'
+  choices: ['$7.55$', '$10.73$', '$14.00$', '$6.89$']
+  answer: 1
+  explanation: |-
+    $\tan 40^\circ = \tfrac{a}{b} = \tfrac{9}{b}$, so $b = \tfrac{9}{\tan 40^\circ} \approx 10.73$.
+    $7.55 = 9\tan 40^\circ$ multiplies instead of dividing; $14.00$ is the hypotenuse.
+- id: trig-q-0703
+  lesson: trig-solve-right
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'A right triangle has legs $a = 5$ and $b = 9$. Find angle $A$ (opposite $a$) to the nearest hundredth of a degree.'
+  choices: ['$29.05^\circ$', '$60.95^\circ$', '$33.75^\circ$', '$56.25^\circ$']
+  answer: 0
+  explanation: |-
+    $\tan A = \tfrac{5}{9}$, so $A = \tan^{-1}(5/9) \approx 29.05^\circ$. $60.95^\circ$ is angle $B$.
+- id: trig-q-0704
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ ($C = 90^\circ$), $c = 20$ and $a = 13$. Find angle $B$ to the nearest hundredth of a degree.'
+  choices: ['$40.54^\circ$', '$33.02^\circ$', '$49.46^\circ$', '$56.98^\circ$']
+  answer: 2
+  explanation: |-
+    Side $a$ is adjacent to $B$, so $\cos B = \tfrac{13}{20}$ and $B = \cos^{-1}(0.65) \approx 49.46^\circ$.
+    $40.54^\circ$ is angle $A$ (from $\sin A = 13/20$).
+- id: trig-q-0705
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ ($C = 90^\circ$), $A = 62^\circ$ and $b = 12$. Find the hypotenuse $c$ to two decimals.'
+  choices: ['$5.63$', '$13.59$', '$22.57$', '$25.56$']
+  answer: 3
+  explanation: |-
+    $b$ is adjacent to $A$: $\cos 62^\circ = \tfrac{12}{c}$, so $c = \tfrac{12}{\cos 62^\circ} \approx 25.56$.
+    $5.63 = 12\cos 62^\circ$ multiplies; $13.59$ uses sine.
+- id: trig-q-0706
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: 'Besides the right angle, which information is enough to solve a right triangle completely?'
+  choices: ['The two acute angles', 'One acute angle and nothing else', 'Two sides, or one side and one acute angle', 'One side only']
+  answer: 2
+  explanation: |-
+    You need two more parts, at least one of them a side. Angles alone fix the shape but not
+    the size, since similar triangles share all their angles.
+- id: trig-q-0707
+  lesson: trig-solve-right
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'In a right triangle, one acute angle is $52.3^\circ$. What is the other acute angle?'
+  choices: ['$37.7^\circ$', '$127.7^\circ$', '$47.7^\circ$', '$38.3^\circ$']
+  answer: 0
+  explanation: |-
+    The acute angles of a right triangle are complementary: $90^\circ - 52.3^\circ = 37.7^\circ$.
+- id: trig-q-0708
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: |-
+    A student solves for side $b$ in a right triangle with $A = 35^\circ$ and $a = 6$:
+
+    1. $\tan 35^\circ = \dfrac{6}{b}$
+    2. $b = 6\tan 35^\circ$
+    3. $b \approx 4.20$
+
+    Which statement is correct?
+  choices: ['The work is correct', 'Step 1 should use sine', 'Step 2 is wrong: $b = \dfrac{6}{\tan 35^\circ} \approx 8.57$', 'Step 3 is a rounding error; $b \approx 4.3$']
+  answer: 2
+  explanation: |-
+    Multiply both sides of step 1 by $b$ and divide by $\tan 35^\circ$:
+    $b = \tfrac{6}{\tan 35^\circ} \approx 8.57$. A quick check: $35^\circ < 45^\circ$, so the
+    opposite side should be shorter than the adjacent side, which means $b > 6$.
+- id: trig-q-0709
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: 'A wheelchair ramp rises 2.5 ft over a horizontal run of 30 ft. What angle does it make with the ground?'
+  choices: ['About $4.76^\circ$', 'About $4.78^\circ$', 'About $85.24^\circ$', 'About $0.08^\circ$']
+  answer: 0
+  explanation: |-
+    Rise is opposite, run is adjacent: $\tan\theta = \tfrac{2.5}{30}$, so
+    $\theta = \tan^{-1}(0.0833) \approx 4.76^\circ$. ($4.78^\circ$ treats 30 ft as the ramp length
+    and uses $\sin^{-1}$; $0.08$ is the ratio, not the angle.)
+- id: trig-q-0710
+  lesson: trig-solve-right
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'A kite string 120 m long makes a $55^\circ$ angle with the level ground. Ignoring sag, how high is the kite?'
+  choices: ['About 68.8 m', 'About 146.5 m', 'About 171.4 m', 'About 98.3 m']
+  answer: 3
+  explanation: |-
+    The string is the hypotenuse and the height is opposite $55^\circ$:
+    $h = 120\sin 55^\circ \approx 98.3$ m. Cosine gives the horizontal distance, 68.8 m.
+- id: trig-q-0711
+  lesson: trig-solve-right
+  topic: Solving right triangles
+  stem: 'A right triangle has sides 7, 24 and 25. What is its smallest angle, to the nearest hundredth of a degree?'
+  choices: ['$73.74^\circ$', '$16.26^\circ$', '$15.64^\circ$', '$17.65^\circ$']
+  answer: 1
+  explanation: |-
+    The smallest angle is opposite the shortest side: $\sin\theta = \tfrac{7}{25}$, so
+    $\theta = \sin^{-1}(0.28) \approx 16.26^\circ$. (Check: $\tan^{-1}(7/24)$ gives the same angle.)
+
+- id: trig-q-0801
+  lesson: trig-applications
+  module_quiz: true
+  topic: Elevation and depression
+  stem: 'A 12 m pole casts a 9 m shadow on level ground. What is the angle of elevation of the sun?'
+  choices: ['About $36.87^\circ$', 'About $41.41^\circ$', 'About $48.59^\circ$', 'About $53.13^\circ$']
+  answer: 3
+  explanation: |-
+    The pole is opposite the sun's angle and the shadow is adjacent:
+    $\tan\theta = \tfrac{12}{9}$, so $\theta \approx 53.13^\circ$. $36.87^\circ$ flips the ratio.
+- id: trig-q-0802
+  lesson: trig-applications
+  module_quiz: true
+  topic: Elevation and depression
+  stem: 'From the top of an 80 m cliff, the angle of depression to a boat is $25^\circ$. How far is the boat from the base of the cliff?'
+  choices: ['About 37.3 m', 'About 88.3 m', 'About 189.3 m', 'About 171.6 m']
+  answer: 3
+  explanation: |-
+    At the boat, the angle of elevation is also $25^\circ$, with 80 m opposite and the distance $d$
+    adjacent: $d = \tfrac{80}{\tan 25^\circ} \approx 171.6$ m. $37.3 = 80\tan 25^\circ$ puts the angle
+    at the wrong vertex; $189.3$ m is the line-of-sight distance.
+- id: trig-q-0803
+  lesson: trig-applications
+  topic: Elevation and depression
+  stem: 'From 30 m away on level ground, the angle of elevation to the top of a building is $60^\circ$. How tall is the building (ignore eye height)?'
+  choices: ['$10\sqrt3 \approx 17.3$ m', '$15$ m', '$30\sqrt3 \approx 52.0$ m', '$60$ m']
+  answer: 2
+  explanation: |-
+    $h = 30\tan 60^\circ = 30\sqrt3 \approx 52.0$ m. $10\sqrt3$ uses $\tan 30^\circ$.
+- id: trig-q-0804
+  lesson: trig-applications
+  topic: Elevation and depression
+  stem: 'An angle of depression is measured between which two lines?'
+  choices: ['The vertical and the line of sight', 'The horizontal and the line of sight, looking down', 'The horizontal and the ground', 'The line of sight and the object''s vertical side']
+  answer: 1
+  explanation: |-
+    Both elevation and depression are measured from the horizontal: up for elevation, down for
+    depression.
+- id: trig-q-0805
+  lesson: trig-applications
+  topic: Bearings
+  stem: 'Write the compass bearing S $20^\circ$ W as a three-digit bearing.'
+  choices: ['$200^\circ$', '$160^\circ$', '$250^\circ$', '$020^\circ$']
+  answer: 0
+  explanation: |-
+    South is $180^\circ$; turning $20^\circ$ further clockwise toward west gives $200^\circ$.
+    $160^\circ$ is S $20^\circ$ E.
+- id: trig-q-0806
+  lesson: trig-applications
+  topic: Bearings
+  stem: 'Write the compass bearing N $70^\circ$ W as a three-digit bearing.'
+  choices: ['$070^\circ$', '$110^\circ$', '$250^\circ$', '$290^\circ$']
+  answer: 3
+  explanation: |-
+    Facing north ($360^\circ$) and turning $70^\circ$ toward west (counterclockwise) gives
+    $360^\circ - 70^\circ = 290^\circ$.
+- id: trig-q-0807
+  lesson: trig-applications
+  module_quiz: true
+  topic: Bearings
+  stem: 'A ship sails 40 mi on a bearing of $120^\circ$. How far south of its starting point is it?'
+  choices: ['About 34.6 mi', '40 mi', 'About 23.1 mi', '20 mi']
+  answer: 3
+  explanation: |-
+    The bearing is $60^\circ$ past east toward south, i.e. S $60^\circ$ E. The south
+    component is $40\cos 60^\circ = 20$ mi and the east component is $40\sin 60^\circ \approx 34.6$ mi.
+- id: trig-q-0808
+  lesson: trig-applications
+  module_quiz: true
+  topic: Elevation and depression
+  stem: 'From a point on level ground the angle of elevation to a tower''s top is $30^\circ$. Walking 100 m toward the tower, it becomes $45^\circ$. How tall is the tower?'
+  choices: ['$50\sqrt3$ m', '$100$ m', '$50(\sqrt3 - 1)$ m', '$50(\sqrt3 + 1) \approx 136.6$ m']
+  answer: 3
+  explanation: |-
+    Let $x$ be the distance from the second point. Then $h = x\tan 45^\circ = x$ and
+    $h = (x + 100)\tan 30^\circ = \tfrac{x + 100}{\sqrt3}$. So $\sqrt3 x = x + 100$,
+    $x = \tfrac{100}{\sqrt3 - 1} = 50(\sqrt3 + 1) \approx 136.6$ m, and $h = x$.
+- id: trig-q-0809
+  lesson: trig-applications
+  topic: Elevation and depression
+  stem: 'A pilot flying at an altitude of 5000 ft sees the airport at an angle of depression of $12^\circ$. What is the horizontal distance to the airport?'
+  choices: ['About 1063 ft', 'About 24,049 ft', 'About 23,523 ft', 'About 4891 ft']
+  answer: 2
+  explanation: |-
+    The altitude is opposite the $12^\circ$ angle (moved to the airport): horizontal distance
+    $= \tfrac{5000}{\tan 12^\circ} \approx 23{,}523$ ft. $24{,}049$ ft is the line-of-sight distance
+    $\tfrac{5000}{\sin 12^\circ}$.
+- id: trig-q-0810
+  lesson: trig-applications
+  topic: Bearings
+  stem: 'A plane flies 120 mi on a bearing of $060^\circ$, then 90 mi on a bearing of $150^\circ$. What is its bearing from the starting point?'
+  choices: ['About $096.9^\circ$', 'About $113.1^\circ$', 'About $036.9^\circ$', 'About $105.0^\circ$']
+  answer: 0
+  explanation: |-
+    The headings differ by $90^\circ$, so the legs 120 and 90 form a right angle (distance 150 mi).
+    The turn away from the first heading is $\tan^{-1}(90/120) \approx 36.87^\circ$ clockwise, giving
+    $60^\circ + 36.87^\circ \approx 096.9^\circ$.
+- id: trig-q-0811
+  lesson: trig-applications
+  topic: Bearings
+  stem: 'A hiker walks 5 km on a course of N $35^\circ$ E. How far north of the start is she?'
+  choices: ['About 2.87 km', 'About 4.10 km', 'About 3.50 km', 'About 6.10 km']
+  answer: 1
+  explanation: |-
+    The $35^\circ$ is measured from north, so north is adjacent: $5\cos 35^\circ \approx 4.10$ km.
+    $2.87 = 5\sin 35^\circ$ is the distance east.

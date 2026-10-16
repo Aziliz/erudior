@@ -1,0 +1,1002 @@
+# Module 1
+- term: undefined terms
+  aliases: [undefined term]
+  definition: 'Point, line and plane: the basic words geometry describes by example and by postulates instead of defining.'
+  topic: Undefined terms
+- term: point
+  aliases: [points]
+  definition: 'An exact location with no size, named with a capital letter.'
+  topic: Undefined terms
+- term: line
+  aliases: [lines]
+  definition: 'A straight path of points with no thickness that extends forever in both directions; named $\overleftrightarrow{AB}$ or with a lowercase letter.'
+  topic: Undefined terms
+- term: plane
+  aliases: [planes]
+  definition: 'A flat surface with no thickness that extends forever in every direction.'
+  topic: Undefined terms
+- term: collinear
+  definition: 'Lying on one line.'
+  topic: Undefined terms
+- term: coplanar
+  definition: 'Lying in one plane.'
+  topic: Undefined terms
+- term: segment
+  aliases: [segments, line segment]
+  definition: 'The part of a line consisting of two endpoints and every point between them, written $\overline{AB}$; its length is $AB$.'
+  topic: Undefined terms
+- term: endpoints
+  aliases: [endpoint]
+  definition: 'The points at the ends of a segment, or the starting point of a ray.'
+  topic: Undefined terms
+- term: ray
+  aliases: [rays]
+  definition: 'Part of a line that starts at an endpoint and goes forever in one direction; $\overrightarrow{AB}$ starts at $A$ and passes through $B$.'
+  topic: Undefined terms
+- term: opposite rays
+  definition: 'Two rays with a common endpoint that point in opposite directions along one line.'
+  topic: Undefined terms
+- term: intersection
+  definition: 'The set of points that two or more figures have in common.'
+  topic: Undefined terms
+- term: postulate
+  aliases: [postulates]
+  definition: 'A statement accepted as true without proof; also called an axiom.'
+  topic: Postulates
+- term: axiom
+  aliases: [axioms]
+  definition: 'A statement accepted without proof as a starting point of reasoning; the same as a postulate.'
+  topic: Postulates
+- term: theorem
+  aliases: [theorems]
+  definition: 'A statement proved from definitions, postulates and previously proved theorems.'
+  topic: Postulates
+- term: Segment Addition Postulate
+  definition: 'If $B$ is between $A$ and $C$, then $AB + BC = AC$.'
+  topic: Postulates
+- term: space
+  definition: 'The set of all points; three-dimensional.'
+  topic: Undefined terms
+- term: skew lines
+  aliases: [skew]
+  definition: 'Lines that are not coplanar: they never meet and are not parallel.'
+  topic: Undefined terms
+- term: parallel
+  aliases: [parallel lines]
+  definition: 'Coplanar lines that never intersect, written $\ell \parallel m$.'
+  topic: Parallel lines
+- term: coordinate
+  aliases: [coordinates]
+  definition: 'The number paired with a point on a number line (or the ordered pair for a point in the plane).'
+  topic: Segments and midpoints
+- term: Ruler Postulate
+  definition: 'Points on a line can be paired with real numbers so that the distance between two points is the absolute value of the difference of their coordinates.'
+  topic: Segments and midpoints
+- term: congruent segments
+  definition: 'Segments with equal lengths, written $\overline{AB} \cong \overline{CD}$.'
+  topic: Segments and midpoints
+- term: midpoint
+  aliases: [midpoints]
+  definition: 'The point that divides a segment into two congruent segments; on a number line its coordinate is $\tfrac{a+b}{2}$.'
+  topic: Segments and midpoints
+- term: segment bisector
+  aliases: [bisector, bisects]
+  definition: 'A point, ray, line, segment or plane that passes through the midpoint of a segment.'
+  topic: Segments and midpoints
+- term: angle
+  aliases: [angles]
+  definition: 'Two rays with a common endpoint (the vertex); measured in degrees.'
+  topic: Angle measure
+- term: sides
+  aliases: [side]
+  definition: 'The rays that form an angle, or the segments that form a polygon.'
+  topic: Angle measure
+- term: vertex
+  aliases: [vertices]
+  definition: 'The common endpoint of an angle''s rays, or a corner of a polygon or solid.'
+  topic: Angle measure
+- term: Protractor Postulate
+  definition: 'Rays from a point on one side of a line can be paired with numbers from 0 to 180, and an angle''s measure is the difference of its rays'' numbers.'
+  topic: Angle measure
+- term: acute angle
+  aliases: [acute]
+  definition: 'An angle measuring more than $0^\circ$ and less than $90^\circ$.'
+  topic: Angle measure
+- term: right angle
+  aliases: [right angles]
+  definition: 'An angle measuring exactly $90^\circ$, marked with a small square.'
+  topic: Angle measure
+- term: obtuse angle
+  aliases: [obtuse]
+  definition: 'An angle measuring more than $90^\circ$ and less than $180^\circ$.'
+  topic: Angle measure
+- term: straight angle
+  definition: 'An angle measuring exactly $180^\circ$; its sides are opposite rays.'
+  topic: Angle measure
+- term: congruent angles
+  definition: 'Angles with equal measures, written $\angle A \cong \angle B$.'
+  topic: Angle measure
+- term: Angle Addition Postulate
+  definition: 'If $D$ is in the interior of $\angle ABC$, then $m\angle ABD + m\angle DBC = m\angle ABC$.'
+  topic: Angle measure
+- term: angle bisector
+  aliases: [angle bisectors]
+  definition: 'A ray that divides an angle into two congruent angles.'
+  topic: Angle measure
+- term: adjacent angles
+  definition: 'Two coplanar angles with a common vertex and side and no common interior points.'
+  topic: Angle pairs
+- term: linear pair
+  aliases: [linear pairs]
+  definition: 'Adjacent angles whose non-common sides are opposite rays; they are supplementary.'
+  topic: Angle pairs
+- term: Linear Pair Postulate
+  definition: 'If two angles form a linear pair, their measures add to $180^\circ$.'
+  topic: Angle pairs
+- term: complementary angles
+  aliases: [complementary]
+  definition: 'Two angles whose measures add to $90^\circ$.'
+  topic: Angle pairs
+- term: complement
+  definition: 'The complement of an $x^\circ$ angle measures $(90 - x)^\circ$.'
+  topic: Angle pairs
+- term: supplementary angles
+  aliases: [supplementary]
+  definition: 'Two angles whose measures add to $180^\circ$.'
+  topic: Angle pairs
+- term: supplement
+  definition: 'The supplement of an $x^\circ$ angle measures $(180 - x)^\circ$.'
+  topic: Angle pairs
+- term: vertical angles
+  definition: 'The non-adjacent angles formed by two intersecting lines; they are congruent.'
+  topic: Angle pairs
+- term: perpendicular
+  aliases: [perpendicular lines]
+  definition: 'Meeting at a right angle, written $\ell \perp m$.'
+  topic: Angle pairs
+- term: straightedge
+  definition: 'An unmarked ruler used only to draw lines through two points.'
+  topic: Constructions
+- term: compass
+  definition: 'A tool for drawing circles and arcs and for copying distances.'
+  topic: Constructions
+- term: constructions
+  aliases: [construction]
+  definition: 'Exact drawings made with only a compass and straightedge.'
+  topic: Constructions
+- term: arc
+  aliases: [arcs]
+  definition: 'A connected piece of a circle.'
+  topic: Circles
+# Module 2
+- term: inductive reasoning
+  definition: 'Reasoning from specific examples or patterns to a general conjecture.'
+  topic: Inductive reasoning
+- term: conjecture
+  aliases: [conjectures]
+  definition: 'An unproven general statement based on observed cases.'
+  topic: Inductive reasoning
+- term: counterexample
+  aliases: [counterexamples]
+  definition: 'A single case where the hypothesis of a statement is true but the conclusion is false; it shows the statement is false.'
+  topic: Inductive reasoning
+- term: conditional statement
+  aliases: [conditional, conditionals]
+  definition: 'A statement of the form "if $p$, then $q$", written $p \to q$.'
+  topic: Conditional statements
+- term: hypothesis
+  definition: 'The "if" part $p$ of a conditional $p \to q$.'
+  topic: Conditional statements
+- term: conclusion
+  definition: 'The "then" part $q$ of a conditional $p \to q$.'
+  topic: Conditional statements
+- term: negation
+  definition: 'The opposite of a statement, written $\sim p$ ("not $p$").'
+  topic: Conditional statements
+- term: converse
+  definition: 'The statement $q \to p$ formed by swapping the hypothesis and conclusion of $p \to q$.'
+  topic: Conditional statements
+- term: inverse
+  definition: 'The statement $\sim p \to \sim q$ formed by negating both parts of $p \to q$.'
+  topic: Conditional statements
+- term: contrapositive
+  definition: 'The statement $\sim q \to \sim p$; it is logically equivalent to $p \to q$.'
+  topic: Conditional statements
+- term: logically equivalent
+  definition: 'Having the same truth value in every case, like a conditional and its contrapositive.'
+  topic: Conditional statements
+- term: biconditional
+  aliases: [if and only if, iff]
+  definition: 'A statement "$p$ if and only if $q$" ($p \leftrightarrow q$), true when $p \to q$ and $q \to p$ are both true.'
+  topic: Conditional statements
+- term: deductive reasoning
+  definition: 'Reasoning from accepted facts by logical rules to conclusions that must be true.'
+  topic: Deductive reasoning
+- term: Law of Detachment
+  definition: 'If $p \to q$ is true and $p$ is true, then $q$ is true.'
+  topic: Deductive reasoning
+- term: Law of Syllogism
+  definition: 'If $p \to q$ and $q \to r$ are true, then $p \to r$ is true.'
+  topic: Deductive reasoning
+- term: reflexive property
+  definition: '$a = a$; also, any figure is congruent to itself.'
+  topic: Algebraic proof
+- term: symmetric property
+  definition: 'If $a = b$, then $b = a$ (and likewise for congruence).'
+  topic: Algebraic proof
+- term: transitive property
+  definition: 'If $a = b$ and $b = c$, then $a = c$ (and likewise for congruence).'
+  topic: Algebraic proof
+- term: substitution property
+  aliases: [substitution]
+  definition: 'If $a = b$, then $a$ may replace $b$ in any expression or equation.'
+  topic: Algebraic proof
+- term: distributive property
+  definition: '$a(b + c) = ab + ac$.'
+  topic: Algebraic proof
+- term: congruence
+  aliases: [congruent]
+  definition: 'Same size and shape; for segments, equal length; for angles, equal measure. Written $\cong$.'
+  topic: Algebraic proof
+- term: algebraic proof
+  definition: 'A proof that solves an equation step by step, giving a property of equality as the reason for each step.'
+  topic: Algebraic proof
+- term: proof
+  aliases: [proofs]
+  definition: 'A logical argument in which each statement is justified by a given fact, definition, postulate, property or proved theorem.'
+  topic: Geometric proof
+- term: two-column proof
+  definition: 'A proof written as numbered statements in one column with their reasons in another.'
+  topic: Geometric proof
+- term: paragraph proof
+  definition: 'A proof written in sentences, with the reason for each step stated in the text.'
+  topic: Geometric proof
+- term: Congruent Supplements Theorem
+  definition: 'Angles supplementary to the same angle (or to congruent angles) are congruent.'
+  topic: Geometric proof
+- term: Congruent Complements Theorem
+  definition: 'Angles complementary to the same angle (or to congruent angles) are congruent.'
+  topic: Geometric proof
+- term: Vertical Angles Theorem
+  definition: 'Vertical angles are congruent.'
+  topic: Angle pairs
+- term: overlapping segments
+  definition: 'The idea that adding a shared piece to equal segments (or angles) gives equal wholes: if $AB = CD$ with $A, B, C, D$ in order, then $AC = BD$.'
+  topic: Geometric proof
+# Module 3
+- term: transversal
+  aliases: [transversals]
+  definition: 'A line that intersects two or more coplanar lines at different points.'
+  topic: Parallel lines
+- term: corresponding angles
+  definition: 'Angles in the same relative position at the two intersections of a transversal; congruent when the lines are parallel.'
+  topic: Parallel lines
+- term: alternate interior angles
+  definition: 'Angles between the two lines on opposite sides of a transversal; congruent when the lines are parallel.'
+  topic: Parallel lines
+- term: alternate exterior angles
+  definition: 'Angles outside the two lines on opposite sides of a transversal; congruent when the lines are parallel.'
+  topic: Parallel lines
+- term: consecutive interior angles
+  aliases: [same-side interior angles]
+  definition: 'Angles between the two lines on the same side of a transversal; supplementary when the lines are parallel.'
+  topic: Parallel lines
+- term: Corresponding Angles Postulate
+  definition: 'If two parallel lines are cut by a transversal, corresponding angles are congruent.'
+  topic: Parallel lines
+- term: Playfair's axiom
+  definition: 'Through a point not on a line there is exactly one line parallel to the given line; equivalent to Euclid''s parallel postulate.'
+  topic: Parallel lines
+- term: parallel postulate
+  aliases: [Euclid's fifth postulate, fifth postulate]
+  definition: 'Euclid''s fifth postulate: if a line crossing two lines makes interior angles on one side summing to less than $180^\circ$, the two lines meet on that side. Equivalent to Playfair''s axiom.'
+  topic: Axiomatic systems
+- term: distance from a point to a line
+  definition: 'The length of the perpendicular segment from the point to the line; for $Ax + By + C = 0$ it is $\tfrac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}$.'
+  topic: Perpendicular lines
+- term: distance between two parallel lines
+  definition: 'The length of any segment perpendicular to both lines; it is the same everywhere.'
+  topic: Perpendicular lines
+- term: Perpendicular Transversal Theorem
+  definition: 'In a plane, a line perpendicular to one of two parallel lines is perpendicular to the other.'
+  topic: Perpendicular lines
+- term: slope
+  definition: 'The steepness of a line, $m = \tfrac{y_2 - y_1}{x_2 - x_1}$ (rise over run); undefined for vertical lines.'
+  topic: Slope
+- term: negative reciprocals
+  aliases: [negative reciprocal]
+  definition: 'Two numbers whose product is $-1$, such as $\tfrac23$ and $-\tfrac32$; the slopes of perpendicular lines.'
+  topic: Slope
+- term: point-slope form
+  definition: 'The equation $y - y_1 = m(x - x_1)$ of the line with slope $m$ through $(x_1, y_1)$.'
+  topic: Slope
+- term: slope-intercept form
+  definition: 'The equation $y = mx + b$ of a line with slope $m$ and $y$-intercept $b$.'
+  topic: Slope
+# Module 4
+- term: triangle
+  aliases: [triangles]
+  definition: 'The figure formed by three segments joining three noncollinear points.'
+  topic: Triangle classification
+- term: equilateral triangle
+  aliases: [equilateral]
+  definition: 'A triangle with all three sides congruent; its angles are all $60^\circ$.'
+  topic: Triangle classification
+- term: isosceles triangle
+  aliases: [isosceles]
+  definition: 'A triangle with at least two congruent sides.'
+  topic: Triangle classification
+- term: scalene triangle
+  aliases: [scalene]
+  definition: 'A triangle with no congruent sides.'
+  topic: Triangle classification
+- term: acute triangle
+  definition: 'A triangle with three acute angles.'
+  topic: Triangle classification
+- term: right triangle
+  aliases: [right triangles]
+  definition: 'A triangle with one right angle.'
+  topic: Triangle classification
+- term: obtuse triangle
+  definition: 'A triangle with one obtuse angle.'
+  topic: Triangle classification
+- term: equiangular triangle
+  aliases: [equiangular]
+  definition: 'A triangle with three congruent angles (each $60^\circ$); the same as an equilateral triangle.'
+  topic: Triangle classification
+- term: legs
+  aliases: [leg]
+  definition: 'In a right triangle, the two sides forming the right angle; in an isosceles triangle, the two congruent sides.'
+  topic: Triangle classification
+- term: hypotenuse
+  definition: 'The side opposite the right angle in a right triangle; always the longest side.'
+  topic: Triangle classification
+- term: Triangle Angle Sum Theorem
+  definition: 'The interior angles of a triangle add to $180^\circ$.'
+  topic: Triangle angle sum
+- term: corollaries
+  aliases: [corollary]
+  definition: 'Results that follow directly from a theorem with little extra proof.'
+  topic: Triangle angle sum
+- term: exterior angle
+  aliases: [exterior angles]
+  definition: 'The angle between one side of a polygon and the extension of an adjacent side.'
+  topic: Triangle angle sum
+- term: remote interior angles
+  definition: 'The two interior angles of a triangle not adjacent to a given exterior angle.'
+  topic: Triangle angle sum
+- term: Exterior Angle Theorem
+  definition: 'An exterior angle of a triangle equals the sum of its two remote interior angles.'
+  topic: Triangle angle sum
+- term: Exterior Angle Inequality
+  definition: 'An exterior angle of a triangle is greater than either remote interior angle.'
+  topic: Triangle angle sum
+- term: congruent polygons
+  definition: 'Polygons whose vertices can be matched so that all corresponding sides and angles are congruent.'
+  topic: Congruent figures
+- term: corresponding parts
+  definition: 'Sides or angles that are matched by a correspondence between two figures.'
+  topic: Congruent figures
+- term: congruence statement
+  definition: 'A statement like $\triangle ABC \cong \triangle DEF$ whose letter order shows which vertices correspond.'
+  topic: Congruent figures
+- term: Third Angles Theorem
+  definition: 'If two angles of one triangle are congruent to two angles of another, the third angles are congruent.'
+  topic: Congruent figures
+- term: SSS
+  aliases: [Side-Side-Side]
+  definition: 'Side-Side-Side: three pairs of congruent sides prove two triangles congruent.'
+  topic: SSS and SAS
+- term: SAS
+  aliases: [Side-Angle-Side]
+  definition: 'Side-Angle-Side: two pairs of congruent sides and the congruent included angles prove two triangles congruent.'
+  topic: SSS and SAS
+- term: included angle
+  definition: 'The angle formed by two given sides of a triangle (at their common vertex).'
+  topic: SSS and SAS
+- term: SSA
+  definition: 'Side-Side-Angle (angle not included); not a valid congruence test because two different triangles can fit.'
+  topic: SSS and SAS
+- term: ASA
+  aliases: [Angle-Side-Angle]
+  definition: 'Angle-Side-Angle: two pairs of congruent angles and the congruent included sides prove two triangles congruent.'
+  topic: ASA AAS and HL
+- term: AAS
+  aliases: [Angle-Angle-Side]
+  definition: 'Angle-Angle-Side: two pairs of congruent angles and a pair of congruent non-included sides prove two triangles congruent.'
+  topic: ASA AAS and HL
+- term: HL
+  aliases: [Hypotenuse-Leg]
+  definition: 'Hypotenuse-Leg: right triangles with congruent hypotenuses and one pair of congruent legs are congruent.'
+  topic: ASA AAS and HL
+- term: included side
+  definition: 'The side of a triangle between two given angles (joining their vertices).'
+  topic: ASA AAS and HL
+- term: CPCTC
+  aliases: [Corresponding Parts of Congruent Triangles are Congruent]
+  definition: 'Corresponding Parts of Congruent Triangles are Congruent: once triangles are proved congruent, every pair of matching parts is congruent.'
+  topic: CPCTC
+- term: base
+  definition: 'In an isosceles triangle, the side that is not a leg; in general, a side (or face) chosen for measuring height.'
+  topic: Isosceles triangles
+- term: vertex angle
+  definition: 'In an isosceles triangle, the angle between the two legs.'
+  topic: Isosceles triangles
+- term: base angles
+  definition: 'In an isosceles triangle, the two angles touching the base; they are congruent.'
+  topic: Isosceles triangles
+- term: Base Angles Theorem
+  aliases: [Isosceles Triangle Theorem]
+  definition: 'If two sides of a triangle are congruent, the angles opposite them are congruent (and conversely).'
+  topic: Isosceles triangles
+- term: Triangle Inequality Theorem
+  aliases: [Triangle Inequality]
+  definition: 'The sum of any two side lengths of a triangle is greater than the third side length.'
+  topic: Triangle inequalities
+- term: Hinge Theorem
+  aliases: [SAS Inequality]
+  definition: 'If two sides of one triangle match two sides of another and the included angle is larger, then the third side is longer (and conversely).'
+  topic: Triangle inequalities
+- term: indirect proof
+  aliases: [proof by contradiction]
+  definition: 'A proof that assumes the conclusion is false and reasons to a contradiction.'
+  topic: Triangle inequalities
+# Module 5
+- term: perpendicular bisector
+  aliases: [perpendicular bisectors]
+  definition: 'The line perpendicular to a segment at its midpoint; it is the set of points equidistant from the endpoints.'
+  topic: Bisectors
+- term: equidistant
+  definition: 'Equally distant from two or more points or lines.'
+  topic: Bisectors
+- term: locus
+  definition: 'The set of all points satisfying a given condition.'
+  topic: Bisectors
+- term: concurrent
+  definition: 'Three or more lines that meet at a single point.'
+  topic: Points of concurrency
+- term: point of concurrency
+  definition: 'The point where concurrent lines meet.'
+  topic: Points of concurrency
+- term: circumcenter
+  definition: 'The point where the perpendicular bisectors of a triangle''s sides meet; equidistant from the vertices.'
+  topic: Points of concurrency
+- term: circumscribed circle
+  aliases: [circumcircle]
+  definition: 'The circle through all the vertices of a polygon; for a triangle, centered at the circumcenter.'
+  topic: Points of concurrency
+- term: incenter
+  definition: 'The point where the angle bisectors of a triangle meet; equidistant from the sides.'
+  topic: Points of concurrency
+- term: inscribed circle
+  aliases: [incircle]
+  definition: 'The circle inside a polygon tangent to every side; for a triangle, centered at the incenter with radius $r = K/s$.'
+  topic: Points of concurrency
+- term: semiperimeter
+  definition: 'Half the perimeter of a polygon, usually written $s$.'
+  topic: Points of concurrency
+- term: median
+  aliases: [medians]
+  definition: 'A segment from a vertex of a triangle to the midpoint of the opposite side.'
+  topic: Medians and altitudes
+- term: centroid
+  definition: 'The point where a triangle''s medians meet, $\tfrac23$ of the way from each vertex; the average of the vertices'' coordinates.'
+  topic: Medians and altitudes
+- term: center of gravity
+  definition: 'The balance point of an object; for a flat triangle, its centroid.'
+  topic: Medians and altitudes
+- term: altitude
+  aliases: [altitudes]
+  definition: 'A perpendicular segment from a vertex to the line containing the opposite side (or base); its length is the height.'
+  topic: Medians and altitudes
+- term: height
+  definition: 'The length of an altitude: the perpendicular distance from a base to the opposite vertex, side or face.'
+  topic: Medians and altitudes
+- term: orthocenter
+  definition: 'The point where the lines containing a triangle''s altitudes meet.'
+  topic: Medians and altitudes
+- term: Euler line
+  definition: 'The line through a triangle''s circumcenter, centroid and orthocenter.'
+  topic: Medians and altitudes
+- term: midsegment
+  aliases: [midsegments]
+  definition: 'A segment joining the midpoints of two sides of a triangle (parallel to the third side and half as long), or of the legs of a trapezoid (length $\tfrac{b_1 + b_2}{2}$).'
+  topic: Midsegments
+- term: polygon
+  aliases: [polygons, n-gon]
+  definition: 'A closed plane figure made of segments meeting only at their endpoints, each endpoint shared by exactly two sides.'
+  topic: Polygon angles
+- term: convex
+  definition: 'Describes a polygon with no line through a side passing into its interior (no dents).'
+  topic: Polygon angles
+- term: concave
+  definition: 'Describes a polygon that is not convex: some line through a side passes through its interior.'
+  topic: Polygon angles
+- term: diagonal
+  aliases: [diagonals]
+  definition: 'A segment joining two non-adjacent vertices of a polygon; an $n$-gon has $\tfrac{n(n-3)}{2}$ of them.'
+  topic: Polygon angles
+- term: regular polygon
+  aliases: [regular polygons]
+  definition: 'A polygon that is both equilateral and equiangular.'
+  topic: Polygon angles
+- term: quadrilateral
+  aliases: [quadrilaterals]
+  definition: 'A polygon with four sides; its angles add to $360^\circ$.'
+  topic: Polygon angles
+- term: parallelogram
+  aliases: [parallelograms]
+  definition: 'A quadrilateral with both pairs of opposite sides parallel.'
+  topic: Parallelograms
+- term: rectangle
+  aliases: [rectangles]
+  definition: 'A parallelogram with four right angles; its diagonals are congruent.'
+  topic: Special parallelograms
+- term: rhombus
+  aliases: [rhombi, rhombuses]
+  definition: 'A parallelogram with four congruent sides; its diagonals are perpendicular and bisect its angles.'
+  topic: Special parallelograms
+- term: square
+  definition: 'A parallelogram with four right angles and four congruent sides; both a rectangle and a rhombus.'
+  topic: Special parallelograms
+- term: trapezoid
+  aliases: [trapezoids]
+  definition: 'A quadrilateral with exactly one pair of parallel sides (the bases).'
+  topic: Trapezoids and kites
+- term: bases
+  definition: 'The parallel sides of a trapezoid; more generally, the sides or faces from which height is measured.'
+  topic: Trapezoids and kites
+- term: isosceles trapezoid
+  definition: 'A trapezoid with congruent legs; its base angles and its diagonals are congruent.'
+  topic: Trapezoids and kites
+- term: kite
+  aliases: [kites]
+  definition: 'A quadrilateral with two pairs of congruent consecutive sides and no congruent opposite sides; its diagonals are perpendicular.'
+  topic: Trapezoids and kites
+# Module 6
+- term: ratio
+  aliases: [ratios]
+  definition: 'A comparison of two quantities by division, written $a : b$ or $\tfrac{a}{b}$.'
+  topic: Proportions
+- term: proportion
+  aliases: [proportions, proportional]
+  definition: 'An equation stating that two ratios are equal, $\tfrac{a}{b} = \tfrac{c}{d}$; its cross products are equal ($ad = bc$).'
+  topic: Proportions
+- term: geometric mean
+  definition: 'The positive number $x$ with $\tfrac{a}{x} = \tfrac{x}{b}$, so $x = \sqrt{ab}$.'
+  topic: Proportions
+- term: similar polygons
+  aliases: [similar, similarity]
+  definition: 'Polygons whose corresponding angles are congruent and corresponding sides are proportional; written $\sim$.'
+  topic: Similar polygons
+- term: scale factor
+  definition: 'The ratio of corresponding lengths in similar figures (or in a dilation).'
+  topic: Similar polygons
+- term: similarity statement
+  definition: 'A statement like $\triangle ABC \sim \triangle DEF$ whose letter order shows the correspondence.'
+  topic: Similar polygons
+- term: AA Similarity
+  aliases: [AA]
+  definition: 'If two angles of one triangle are congruent to two angles of another, the triangles are similar.'
+  topic: Similarity tests
+- term: SSS Similarity
+  definition: 'If the three sides of one triangle are proportional to the three sides of another, the triangles are similar.'
+  topic: Similarity tests
+- term: SAS Similarity
+  definition: 'If two sides of one triangle are proportional to two sides of another and the included angles are congruent, the triangles are similar.'
+  topic: Similarity tests
+- term: Side Splitter Theorem
+  aliases: [Triangle Proportionality Theorem]
+  definition: 'A line parallel to one side of a triangle divides the other two sides proportionally (and conversely).'
+  topic: Proportional segments
+- term: Triangle Angle Bisector Theorem
+  definition: 'An angle bisector of a triangle divides the opposite side into pieces proportional to the adjacent sides: $\tfrac{BD}{DC} = \tfrac{AB}{AC}$.'
+  topic: Proportional segments
+- term: Pythagorean Theorem
+  definition: 'In a right triangle with legs $a$, $b$ and hypotenuse $c$, $a^2 + b^2 = c^2$.'
+  topic: Pythagorean theorem
+- term: Pythagorean triple
+  aliases: [Pythagorean triples]
+  definition: 'Three positive integers with $a^2 + b^2 = c^2$, such as 3-4-5, 5-12-13, 8-15-17, 7-24-25.'
+  topic: Pythagorean theorem
+- term: distance formula
+  definition: '$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$, the Pythagorean theorem on the coordinate plane.'
+  topic: Coordinate geometry
+- term: 45-45-90 triangle
+  aliases: [45°-45°-90° triangle, isosceles right triangle]
+  definition: 'A right isosceles triangle with sides in the ratio $1 : 1 : \sqrt2$.'
+  topic: Special right triangles
+- term: 30-60-90 triangle
+  aliases: [30°-60°-90° triangle]
+  definition: 'A right triangle with angles $30^\circ, 60^\circ, 90^\circ$ and sides in the ratio $1 : \sqrt3 : 2$ (short leg, long leg, hypotenuse).'
+  topic: Special right triangles
+- term: rationalizing the denominator
+  definition: 'Rewriting a fraction so no radical is in the denominator, e.g. $\tfrac{10}{\sqrt2} = 5\sqrt2$.'
+  topic: Special right triangles
+- term: opposite
+  aliases: [opposite leg]
+  definition: 'In a right triangle, the leg across from a given acute angle.'
+  topic: Trigonometric ratios
+- term: adjacent
+  aliases: [adjacent leg]
+  definition: 'In a right triangle, the leg that forms a given acute angle together with the hypotenuse.'
+  topic: Trigonometric ratios
+- term: trigonometric ratios
+  aliases: [trig ratios]
+  definition: 'The ratios sine, cosine and tangent of side lengths in a right triangle, which depend only on the angle.'
+  topic: Trigonometric ratios
+- term: sine
+  aliases: [sin]
+  definition: '$\sin\theta = \tfrac{\text{opposite}}{\text{hypotenuse}}$.'
+  topic: Trigonometric ratios
+- term: cosine
+  aliases: [cos]
+  definition: '$\cos\theta = \tfrac{\text{adjacent}}{\text{hypotenuse}}$; it equals the sine of the complementary angle.'
+  topic: Trigonometric ratios
+- term: tangent ratio
+  aliases: [tan]
+  definition: '$\tan\theta = \tfrac{\text{opposite}}{\text{adjacent}}$.'
+  topic: Trigonometric ratios
+- term: SOH-CAH-TOA
+  definition: 'Memory aid: Sine = Opposite/Hypotenuse, Cosine = Adjacent/Hypotenuse, Tangent = Opposite/Adjacent.'
+  topic: Trigonometric ratios
+- term: inverse trigonometric ratios
+  aliases: [arcsin, arccos, arctan]
+  definition: '$\sin^{-1}$, $\cos^{-1}$, $\tan^{-1}$: they take a ratio and return the acute angle that has it.'
+  topic: Solving right triangles
+- term: angle of elevation
+  definition: 'The angle from the horizontal up to a line of sight.'
+  topic: Solving right triangles
+- term: angle of depression
+  definition: 'The angle from the horizontal down to a line of sight; equal to the matching angle of elevation.'
+  topic: Solving right triangles
+- term: tessellation
+  aliases: [tiling]
+  definition: 'A covering of the plane by shapes with no gaps or overlaps; the only regular polygons that tessellate alone are triangles, squares and hexagons.'
+  topic: Polygon angles
+# Module 7
+- term: circle
+  aliases: [circles]
+  definition: 'The set of all points in a plane at a fixed distance (the radius) from a fixed point (the center).'
+  topic: Circle vocabulary
+- term: center
+  definition: 'The point equidistant from every point of a circle or sphere.'
+  topic: Circle vocabulary
+- term: radius
+  aliases: [radii]
+  definition: 'A segment from the center of a circle to a point on it, or its length $r$.'
+  topic: Circle vocabulary
+- term: chord
+  aliases: [chords]
+  definition: 'A segment whose endpoints both lie on a circle.'
+  topic: Circle vocabulary
+- term: diameter
+  definition: 'A chord through the center of a circle, or its length $d = 2r$.'
+  topic: Circle vocabulary
+- term: secant
+  aliases: [secants]
+  definition: 'A line that intersects a circle at two points.'
+  topic: Circle vocabulary
+- term: tangent
+  aliases: [tangents, tangent line]
+  definition: 'A line in the plane of a circle that touches it at exactly one point; it is perpendicular to the radius there.'
+  topic: Circle vocabulary
+- term: point of tangency
+  definition: 'The single point where a tangent touches a circle.'
+  topic: Circle vocabulary
+- term: congruent circles
+  definition: 'Circles with equal radii.'
+  topic: Circle vocabulary
+- term: concentric circles
+  aliases: [concentric]
+  definition: 'Circles in the same plane with the same center.'
+  topic: Circle vocabulary
+- term: central angle
+  aliases: [central angles]
+  definition: 'An angle whose vertex is the center of a circle; it equals the measure of its arc.'
+  topic: Arcs and arc length
+- term: minor arc
+  definition: 'An arc smaller than a semicircle, named with two letters; its measure equals its central angle.'
+  topic: Arcs and arc length
+- term: major arc
+  definition: 'An arc larger than a semicircle, named with three letters; its measure is $360^\circ$ minus the minor arc.'
+  topic: Arcs and arc length
+- term: semicircles
+  aliases: [semicircle]
+  definition: 'Arcs whose endpoints are ends of a diameter; each measures $180^\circ$.'
+  topic: Arcs and arc length
+- term: arc measure
+  definition: 'The size of an arc in degrees, equal to its central angle.'
+  topic: Arcs and arc length
+- term: congruent arcs
+  definition: 'Arcs with equal measures in the same circle or in congruent circles.'
+  topic: Arcs and arc length
+- term: arc length
+  definition: 'The distance along an arc: $\tfrac{\theta}{360} \cdot 2\pi r$, or $r\theta$ with $\theta$ in radians.'
+  topic: Arcs and arc length
+- term: circumference
+  definition: 'The distance around a circle, $C = 2\pi r = \pi d$.'
+  topic: Arcs and arc length
+- term: radian
+  aliases: [radians]
+  definition: 'The angle whose arc length equals the radius; $\pi$ radians $= 180^\circ$.'
+  topic: Arcs and arc length
+- term: inscribed angle
+  aliases: [inscribed angles]
+  definition: 'An angle whose vertex is on a circle and whose sides are chords; it measures half its intercepted arc.'
+  topic: Inscribed angles
+- term: intercepted arc
+  definition: 'The arc that lies in the interior of an angle, with endpoints on its sides.'
+  topic: Inscribed angles
+- term: Thales' theorem
+  definition: 'An angle inscribed in a semicircle is a right angle.'
+  topic: Inscribed angles
+- term: cyclic quadrilateral
+  aliases: [inscribed quadrilateral]
+  definition: 'A quadrilateral whose vertices all lie on one circle; its opposite angles are supplementary.'
+  topic: Inscribed angles
+- term: external segment
+  definition: 'The part of a secant segment outside the circle, from the exterior point to the near intersection.'
+  topic: Segment lengths in circles
+- term: secant segment
+  definition: 'A segment from an exterior point to the far intersection of a secant with the circle.'
+  topic: Segment lengths in circles
+- term: power of a point
+  definition: 'For a point $P$ and a circle, the constant product of the two distances from $P$ to the circle along any line through $P$ (outside · whole, or tangent²).'
+  topic: Segment lengths in circles
+- term: standard form
+  definition: 'For a circle, $(x - h)^2 + (y - k)^2 = r^2$, showing the center $(h, k)$ and radius $r$.'
+  topic: Equation of a circle
+- term: completing the square
+  definition: 'Adding $(b/2)^2$ to $x^2 + bx$ to make the perfect square $(x + b/2)^2$; used to find a circle''s center and radius.'
+  topic: Equation of a circle
+# Module 8
+- term: perimeter
+  definition: 'The distance around a figure: the sum of a polygon''s side lengths.'
+  topic: Area of polygons
+- term: area
+  definition: 'The amount of surface a region covers, measured in square units.'
+  topic: Area of polygons
+- term: Area Addition Postulate
+  definition: 'The area of a region is the sum of the areas of its non-overlapping parts.'
+  topic: Area of polygons
+- term: Heron's formula
+  definition: 'The area of a triangle with sides $a, b, c$ and semiperimeter $s$ is $\sqrt{s(s-a)(s-b)(s-c)}$.'
+  topic: Area of polygons
+- term: composite figure
+  definition: 'A figure made of simpler shapes; its area is found by adding pieces or subtracting holes.'
+  topic: Area of polygons
+- term: sector
+  aliases: [sectors]
+  definition: 'The region between two radii and their arc; its area is $\tfrac{\theta}{360}\pi r^2$.'
+  topic: Area of circles and sectors
+- term: segment of a circle
+  definition: 'The region between a chord and its arc; its area is the sector minus the triangle.'
+  topic: Area of circles and sectors
+- term: apothem
+  definition: 'The perpendicular distance from the center of a regular polygon to a side; area $= \tfrac12 aP$.'
+  topic: Regular polygons
+- term: pi
+  aliases: [π]
+  definition: 'The ratio of any circle''s circumference to its diameter, about 3.14159.'
+  topic: Area of circles and sectors
+- term: surface area
+  definition: 'The total area of all the outside surfaces of a solid.'
+  topic: Surface area
+- term: polyhedron
+  aliases: [polyhedra]
+  definition: 'A solid bounded by polygons (its faces).'
+  topic: Solids
+- term: faces
+  aliases: [face]
+  definition: 'The flat polygon surfaces of a polyhedron.'
+  topic: Solids
+- term: edges
+  aliases: [edge]
+  definition: 'Segments where two faces of a polyhedron meet.'
+  topic: Solids
+- term: prism
+  aliases: [prisms]
+  definition: 'A polyhedron with two congruent parallel bases joined by parallelogram (usually rectangular) lateral faces.'
+  topic: Solids
+- term: lateral faces
+  definition: 'The faces of a prism or pyramid that are not bases.'
+  topic: Solids
+- term: pyramid
+  aliases: [pyramids]
+  definition: 'A polyhedron with one polygon base and triangular lateral faces meeting at an apex.'
+  topic: Solids
+- term: cylinder
+  aliases: [cylinders]
+  definition: 'A solid with two congruent parallel circular bases joined by a curved surface.'
+  topic: Solids
+- term: cone
+  aliases: [cones]
+  definition: 'A solid with one circular base and a curved surface rising to an apex.'
+  topic: Solids
+- term: sphere
+  aliases: [spheres]
+  definition: 'The set of points in space at a fixed distance $r$ from a center; $S = 4\pi r^2$, $V = \tfrac43\pi r^3$.'
+  topic: Solids
+- term: hemisphere
+  definition: 'Half of a sphere, cut by a plane through the center.'
+  topic: Solids
+- term: great circle
+  definition: 'The intersection of a sphere with a plane through its center; the largest circle on the sphere.'
+  topic: Solids
+- term: Euler's formula
+  definition: 'For a convex polyhedron, vertices minus edges plus faces equals 2: $V - E + F = 2$.'
+  topic: Solids
+- term: net
+  aliases: [nets]
+  definition: 'A flat pattern that folds into a solid.'
+  topic: Surface area
+- term: lateral area
+  definition: 'The area of a solid''s sides, not including its bases.'
+  topic: Surface area
+- term: slant height
+  definition: 'The height of a lateral face of a regular pyramid, or the distance from a cone''s apex to the edge of its base; $\ell = \sqrt{r^2 + h^2}$ for a cone.'
+  topic: Surface area
+- term: volume
+  definition: 'The amount of space a solid occupies, in cubic units.'
+  topic: Volume
+- term: Cavalieri's Principle
+  definition: 'Solids with the same height whose cross sections at every level have equal areas have equal volumes.'
+  topic: Cavalieri's principle
+- term: density
+  definition: 'Mass per unit volume; mass $=$ density × volume.'
+  topic: Volume
+- term: annulus
+  definition: 'The ring-shaped region between two concentric circles; area $\pi R^2 - \pi r^2$.'
+  topic: Area of circles and sectors
+# Module 9
+- term: coordinate proof
+  definition: 'A proof that places a figure on the coordinate plane with variable coordinates and uses algebra (distance, midpoint, slope).'
+  topic: Coordinate proof
+- term: midpoint formula
+  definition: 'The midpoint of $(x_1, y_1)$ and $(x_2, y_2)$ is $\left(\tfrac{x_1 + x_2}{2}, \tfrac{y_1 + y_2}{2}\right)$.'
+  topic: Distance and midpoint
+- term: partition
+  aliases: [partitioning a segment]
+  definition: 'To divide a segment in a given ratio; the point $\tfrac{m}{m+n}$ of the way from $A$ to $B$ splits it as $m : n$.'
+  topic: Distance and midpoint
+- term: transformation
+  aliases: [transformations]
+  definition: 'A rule that maps each point of the plane to an image point.'
+  topic: Rigid motions
+- term: preimage
+  definition: 'The original figure or point before a transformation.'
+  topic: Rigid motions
+- term: image
+  definition: 'The result of applying a transformation to a point or figure, labeled with a prime ($P''$).'
+  topic: Rigid motions
+- term: isometry
+  aliases: [isometries]
+  definition: 'A transformation that preserves distance; a rigid motion.'
+  topic: Rigid motions
+- term: rigid motion
+  aliases: [rigid motions]
+  definition: 'A transformation preserving distances and angles: a translation, reflection, rotation or glide reflection.'
+  topic: Rigid motions
+- term: translation
+  aliases: [translations]
+  definition: 'A slide of every point by the same vector: $(x, y) \to (x + a, y + b)$.'
+  topic: Rigid motions
+- term: reflection
+  aliases: [reflections]
+  definition: 'A flip across a line, which is the perpendicular bisector of each segment from a point to its image.'
+  topic: Rigid motions
+- term: line of reflection
+  definition: 'The mirror line of a reflection.'
+  topic: Rigid motions
+- term: rotation
+  aliases: [rotations]
+  definition: 'A turn of every point about a center by a given angle (counterclockwise if positive).'
+  topic: Rigid motions
+- term: center of rotation
+  definition: 'The fixed point about which a rotation turns the plane.'
+  topic: Rigid motions
+- term: vector
+  definition: 'A quantity with direction and length, written $\langle a, b \rangle$; it describes a translation.'
+  topic: Rigid motions
+- term: dilation
+  aliases: [dilations]
+  definition: 'A transformation that scales distances from a center by a factor $k$: $(x, y) \to (kx, ky)$ when centered at the origin.'
+  topic: Dilations
+- term: enlargement
+  definition: 'A dilation with scale factor greater than 1.'
+  topic: Dilations
+- term: reduction
+  definition: 'A dilation with scale factor between 0 and 1.'
+  topic: Dilations
+- term: composition
+  aliases: [compositions]
+  definition: 'Applying one transformation and then another to the image.'
+  topic: Compositions and symmetry
+- term: glide reflection
+  definition: 'A translation followed by a reflection in a line parallel to the translation.'
+  topic: Compositions and symmetry
+- term: symmetry
+  definition: 'A rigid motion (other than the identity) that maps a figure onto itself.'
+  topic: Compositions and symmetry
+- term: line symmetry
+  aliases: [reflectional symmetry]
+  definition: 'Symmetry under a reflection; the figure matches itself across a line of symmetry.'
+  topic: Compositions and symmetry
+- term: line of symmetry
+  aliases: [lines of symmetry]
+  definition: 'A line across which a figure reflects onto itself.'
+  topic: Compositions and symmetry
+- term: rotational symmetry
+  definition: 'Symmetry under a rotation of less than $360^\circ$ about the figure''s center.'
+  topic: Compositions and symmetry
+- term: angle of rotational symmetry
+  definition: 'The smallest positive rotation that maps a figure onto itself; $\tfrac{360^\circ}{n}$ for a regular $n$-gon.'
+  topic: Compositions and symmetry
+- term: order
+  aliases: [order of rotational symmetry]
+  definition: 'The number of positions in one full turn in which a figure looks the same.'
+  topic: Compositions and symmetry
+# Module 10
+- term: axiomatic system
+  aliases: [axiomatic systems, axiom system]
+  definition: 'A logical structure made of undefined terms, axioms, definitions and theorems proved from them.'
+  topic: Axiomatic systems
+- term: model
+  aliases: [models]
+  definition: 'An interpretation of an axiomatic system''s undefined terms in which every axiom is true.'
+  topic: Axiomatic systems
+- term: consistent
+  aliases: [consistency]
+  definition: 'Describes an axiom system that never leads to a contradiction; shown by exhibiting a model.'
+  topic: Axiomatic systems
+- term: independent
+  aliases: [independence]
+  definition: 'Describes an axiom that cannot be proved from the others; shown by a model where the others hold and it fails.'
+  topic: Axiomatic systems
+- term: complete
+  aliases: [completeness]
+  definition: 'Describes an axiom system in which every statement in its language can be proved or disproved.'
+  topic: Axiomatic systems
+- term: Euclid's postulates
+  definition: 'The five postulates of Euclid''s Elements: lines through two points, extending lines, circles, equality of right angles, and the parallel postulate.'
+  topic: Euclid's postulates
+- term: non-Euclidean geometry
+  definition: 'A geometry satisfying Euclid''s other postulates but replacing the parallel postulate, such as hyperbolic or elliptic geometry.'
+  topic: Non-Euclidean geometry
+- term: hyperbolic geometry
+  definition: 'A non-Euclidean geometry in which infinitely many parallels pass through a point not on a line; triangle angle sums are less than $180^\circ$.'
+  topic: Non-Euclidean geometry
+- term: elliptic geometry
+  aliases: [spherical geometry]
+  definition: 'A non-Euclidean geometry with no parallel lines, modeled on a sphere; triangle angle sums exceed $180^\circ$.'
+  topic: Non-Euclidean geometry
+- term: great circles
+  definition: 'Circles on a sphere whose center is the sphere''s center; the shortest paths ("lines") of spherical geometry.'
+  topic: Non-Euclidean geometry
+- term: spherical triangle
+  definition: 'A triangle on a sphere whose sides are arcs of great circles.'
+  topic: Non-Euclidean geometry
+- term: spherical excess
+  aliases: [excess]
+  definition: 'The amount $E = A + B + C - 180^\circ$ by which a spherical triangle''s angles exceed $180^\circ$; area $= R^2E$ ($E$ in radians).'
+  topic: Non-Euclidean geometry
+- term: Poincaré disk model
+  definition: 'A model of hyperbolic geometry inside a circle, whose lines are diameters and arcs meeting the boundary at right angles.'
+  topic: Non-Euclidean geometry
+- term: defect
+  definition: 'In hyperbolic geometry, $180^\circ$ minus a triangle''s angle sum; proportional to the triangle''s area.'
+  topic: Non-Euclidean geometry
+- term: geometric probability
+  definition: 'Probability found as a ratio of lengths, areas or volumes: favorable measure ÷ total measure.'
+  topic: Geometric probability
+- term: uniformly at random
+  aliases: [uniform]
+  definition: 'Chosen so that regions of equal size are equally likely to contain the point.'
+  topic: Geometric probability
+- term: expected value
+  definition: 'The probability-weighted average of the values of the possible outcomes.'
+  topic: Geometric probability
+- term: Buffon's needle
+  definition: 'The problem of a needle of length $\ell$ dropped on lines $d$ apart; it crosses a line with probability $\tfrac{2\ell}{\pi d}$ (for $\ell \le d$).'
+  topic: Geometric probability

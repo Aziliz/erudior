@@ -1,0 +1,260 @@
+- id: phys-coulomb-force
+  title: Coulomb force between two charges
+  topic: Coulomb's law
+  vars:
+    q1: {min: 1, max: 9}
+    q2: {min: 1, max: 9}
+    s1: {choices: [1, -1]}
+    s2: {choices: [1, -1]}
+    rcm: {min: 2, max: 80}
+  calc:
+    r: rcm/100
+    F: 8.99e9*q1*q2*1e-12/r^2
+    Q1: s1*q1
+    Q2: s2*q2
+  prompt: 'Charges of {Q1} μC and {Q2} μC are {rcm} cm apart. Find the magnitude of the electric force between them ($k = 8.99\times10^9$ N·m²/C²). Is it attractive or repulsive?'
+  answers:
+    - {format: sig4, name: F, label: 'Force', relTolerance: 0.01, units: {N: 1, mN: 0.001}}
+  solution: |-
+    $F = k\dfrac{|q_1q_2|}{r^2} = (8.99\times10^9)\dfrac{({q1}\times10^{-6})({q2}\times10^{-6})}{({r})^2} =$ **{F:sig3} N**.
+
+    It is repulsive if the signs match and attractive if they differ.
+- id: phys-coulomb-net
+  title: Net force from two charges on a line
+  topic: Coulomb's law
+  vars:
+    qa: {min: 1, max: 9}
+    qb: {min: -9, max: 9}
+    d: {min: 10, max: 60, step: 5}
+    f: {min: 0.2, max: 0.8, step: 0.1}
+  where: ['qb != 0', 'abs(Fnet) > 0.05', 'abs(Fnet + 15.54) > 0.5']
+  calc:
+    x: f*d
+    FA: 8.99e9*qa*1e-12/(x/100)^2
+    FB: -8.99e9*qb*1e-12/((d - x)/100)^2
+    Fnet: FA + FB
+  prompt: 'A charge of $+{qa}$ μC is at $x = 0$ and a charge of ${qb}$ μC is at $x = {d}$ cm. Find the net force on a $+1.0$ μC charge at $x = {x}$ cm, as a signed $x$ component ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: Fnet, label: '$F_x =$', relTolerance: 0.01, units: {N: 1}}
+  solution: |-
+    From the charge at 0 (it repels the test charge toward $+x$): $F_{1x} = +k\dfrac{({qa}\times10^{-6})(1.0\times10^{-6})}{({x}/100)^2} = {FA:num2}$ N.
+
+    From the charge at {d} cm: $F_{2x} = -k\dfrac{({qb}\times10^{-6})(1.0\times10^{-6})}{(({d} - {x})/100)^2} = {FB:num2}$ N (a positive charge there pushes toward $-x$; a negative one pulls toward $+x$).
+
+    Net: $F_x = F_{1x} + F_{2x} =$ **{Fnet:num2} N**.
+- id: phys-efield-point
+  title: Field and force from a point charge
+  topic: Electric field
+  vars:
+    q: {min: 1, max: 50}
+    rcm: {min: 5, max: 100, step: 5}
+    qt: {min: 1, max: 9}
+  calc:
+    r: rcm/100
+    E: 8.99e9*q*1e-9/r^2
+    F: E*qt*1e-6
+  prompt: 'Find the electric field {rcm} cm from a $+{q}$ nC point charge, and the force on a $-{qt}$ μC charge placed there ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: E, label: 'Field', relTolerance: 0.01, units: {'N/C': 1, 'V/m': 1}}
+    - {format: sig4, name: F, label: 'Force (magnitude)', relTolerance: 0.01, units: {N: 1, mN: 0.001}}
+  solution: |-
+    $E = k\dfrac{\,q}{r^2} = (8.99\times10^9)\dfrac{{q}\times10^{-9}}{({r})^2} =$ **{E:num1} N/C**, pointing away from the positive charge.
+
+    $F = |q_t|E = ({qt}\times10^{-6})({E:dp1}) =$ **{F:sig3} N**, toward the source charge (a negative charge is pushed against $\vec E$).
+- id: phys-efield-accel
+  title: Charged particle in a uniform field
+  topic: Electric field
+  vars:
+    part: {choices: [{label: 'an electron', value: 9.11e-31}, {label: 'a proton', value: 1.673e-27}]}
+    E: {min: 100, max: 50000, step: 100}
+    dcm: {min: 0.5, max: 10, step: 0.5}
+  calc:
+    a: 1.602e-19*E/part
+    v: sqrt(2*a*dcm/100)
+  where: ['v < 3e7']
+  prompt: 'Starting from rest, {part} is in a uniform electric field of {E:dp0} N/C. Find its acceleration and its speed after it travels {dcm} cm. ($e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg, $m_p = 1.673\times10^{-27}$ kg)'
+  answers:
+    - {name: a, label: 'Acceleration', format: sci, relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {name: v, label: 'Speed', format: sci, relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    $a = \dfrac{eE}{m} = \dfrac{(1.602\times10^{-19})({E:dp0})}{{part:texsci}} = \mathbf{{a:texsci}}$ m/s².
+
+    $v = \sqrt{2ad} = \mathbf{{v:texsci}}$ m/s.
+- id: phys-efield-two
+  title: Field between two charges
+  topic: Electric field
+  vars:
+    q1: {min: 1, max: 9}
+    q2: {min: -9, max: 9}
+    d: {min: 10, max: 50, step: 5}
+  where: ['q2 != 0', 'q2 != q1', 'abs(E + 15.54) > 0.5']
+  calc:
+    E1: 8.99e9*q1*1e-9/(d/200)^2
+    E2: 8.99e9*q2*1e-9/(d/200)^2
+    E: (E1 - E2)/1000
+  prompt: 'A $+{q1}$ nC charge is at $x = 0$ and a ${q2}$ nC charge is at $x = {d}$ cm. Find the $x$ component of the electric field at the midpoint, in kN/C (positive = toward the second charge).'
+  answers:
+    - {format: sig4, name: E, label: '$E_x =$', relTolerance: 0.01, units: {'kN/C': 1, 'N/C': 0.001}}
+  solution: |-
+    Each charge is ${d}/2$ cm from the midpoint. The first charge's field there points away from it, in $+x$: $E_{1x} = k({q1}\times10^{-9})/r^2 = {E1:dp1}$ N/C.
+
+    A positive second charge makes a field pointing away from it ($-x$); a negative one, toward it ($+x$). So $E_{2x} = -k({q2}\times10^{-9})/r^2 = -({E2:dp1})$ N/C.
+
+    $E_x = E_{1x} + E_{2x} =$ **{E:num2} kN/C**.
+- id: phys-gauss-sphere
+  title: Field inside and outside a charged sphere
+  topic: Gauss's law
+  vars:
+    Q: {min: 1, max: 50}
+    Rcm: {min: 5, max: 30}
+    fin: {min: 0.2, max: 0.9, step: 0.1}
+    fout: {min: 1.5, max: 4, step: 0.5}
+  calc:
+    R: Rcm/100
+    rin: fin*R
+    rout: fout*R
+    Ein: 8.99e9*Q*1e-9*rin/R^3
+    Eout: 8.99e9*Q*1e-9/rout^2
+  prompt: 'A solid insulating sphere of radius {Rcm} cm carries $+{Q}$ nC spread uniformly through its volume. Find the field at {rin:num2} m and at {rout:num2} m from its center ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: Ein, label: 'Inside', relTolerance: 0.01, units: {'N/C': 1, 'kN/C': 1000}}
+    - {format: sig4, name: Eout, label: 'Outside', relTolerance: 0.01, units: {'N/C': 1, 'kN/C': 1000}}
+  solution: |-
+    Inside, a Gaussian sphere of radius $r$ encloses $Q(r/R)^3$, so $E = \dfrac{kQr}{R^3} = \dfrac{(8.99\times10^9)({Q}\times10^{-9})({rin:num2})}{({R})^3} =$ **{Ein:num1} N/C**.
+
+    Outside it acts like a point charge: $E = \dfrac{kQ}{r^2} =$ **{Eout:num1} N/C**.
+- id: phys-gauss-line
+  title: Field of a long line charge
+  topic: Gauss's law
+  vars:
+    lam: {min: 1, max: 100}
+    rcm: {min: 1, max: 50}
+  calc:
+    E: 2*8.99e9*lam*1e-9/(rcm/100)
+  prompt: 'A long straight wire carries a uniform charge of {lam} nC per meter. Using Gauss''s law, find the electric field {rcm} cm from the wire ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: E, label: 'Field', relTolerance: 0.01, units: {'N/C': 1, 'kN/C': 1000}}
+  solution: |-
+    A coaxial Gaussian cylinder gives $E(2\pi rL) = \lambda L/\varepsilon_0$, so $E = \dfrac{\lambda}{2\pi\varepsilon_0r} = \dfrac{2k\lambda}{r}$.
+
+    $E = \dfrac{2(8.99\times10^9)({lam}\times10^{-9})}{{rcm}/100} =$ **{E:int} N/C**.
+- id: phys-potential-point
+  title: Potential from two charges and work to bring in a third
+  topic: Electric potential
+  vars:
+    q1: {min: -9, max: 9}
+    q2: {min: -9, max: 9}
+    a: {min: 10, max: 50, step: 5}
+    b: {min: 10, max: 50, step: 5}
+    q3: {min: 1, max: 5}
+  where: ['q1 != 0', 'q2 != 0', 'abs(V) > 1', 'abs(V + 15.54) > 0.5', 'abs(Wu + 15.54) > 0.5']
+  calc:
+    V: 8.99e9*(q1*1e-9/(a/100) + q2*1e-9/(b/100))
+    W: q3*1e-9*V
+    Wu: W*1e6
+  prompt: 'Point P is {a} cm from a {q1} nC charge and {b} cm from a {q2} nC charge. Find the potential at P (zero at infinity) and the work needed to bring a $+{q3}$ nC charge from infinity to P, in μJ ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: V, label: '$V_P =$', relTolerance: 0.01, units: {V: 1}}
+    - {format: sig4, name: Wu, label: 'Work', relTolerance: 0.01, units: {'μJ': 1, uJ: 1, J: 1000000}}
+  solution: |-
+    Potentials add as signed scalars: $V = k\left(\dfrac{q_1}{r_1} + \dfrac{q_2}{r_2}\right) = (8.99\times10^9)\left(\dfrac{{q1}\times10^{-9}}{{a}/100} + \dfrac{{q2}\times10^{-9}}{{b}/100}\right) =$ **{V:num1} V**.
+
+    Work $= q\Delta V = ({q3}\times10^{-9})({V:dp1}) = {W:texsci}$ J $=$ **{Wu:sig3} μJ**.
+- id: phys-accel-voltage
+  title: Speed after acceleration through a potential difference
+  topic: Electric potential
+  vars:
+    part: {choices: [{label: 'an electron', value: 9.11e-31}, {label: 'a proton', value: 1.673e-27}]}
+    dV: {min: 10, max: 5000, step: 10}
+  calc:
+    K: 1.602e-19*dV
+    v: sqrt(2*K/part)
+  where: ['v < 3e7']
+  prompt: 'Starting from rest, {part} is accelerated through a potential difference of {dV:dp0} V. Find its kinetic energy in joules and its final speed. ($e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg, $m_p = 1.673\times10^{-27}$ kg)'
+  answers:
+    - {name: K, label: 'Kinetic energy', format: sci, relTolerance: 0.01, units: {J: 1}}
+    - {name: v, label: 'Speed', format: sci, relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    $K = e\Delta V = {dV:dp0}$ eV $= (1.602\times10^{-19})({dV:dp0}) = \mathbf{{K:texsci}}$ J.
+
+    $v = \sqrt{2K/m} = \mathbf{{v:texsci}}$ m/s.
+- id: phys-uniform-field-v
+  title: Uniform field between plates
+  topic: Electric potential
+  vars:
+    V: {min: 1.5, max: 500, step: 0.5}
+    dmm: {min: 0.5, max: 20, step: 0.5}
+    qn: {min: 1, max: 9}
+  calc:
+    E: V/(dmm/1000)
+    F: qn*1e-9*E
+  prompt: 'Two parallel plates {dmm} mm apart are held at a potential difference of {V} V. Find the field between them and the force on a {qn} nC charge there.'
+  answers:
+    - {format: sig4, name: E, label: 'Field', relTolerance: 0.01, units: {'V/m': 1, 'N/C': 1, 'kV/m': 1000}}
+    - {name: F, label: 'Force', format: sci, relTolerance: 0.01, units: {N: 1}}
+  solution: |-
+    $E = \dfrac{\Delta V}{d} = \dfrac{{V}}{{dmm}\times10^{-3}} =$ **{E:int} V/m**.
+
+    $F = qE = ({qn}\times10^{-9})({E:dp0}) = \mathbf{{F:texsci}}$ N.
+- id: phys-parallel-plate
+  title: Parallel-plate capacitor
+  topic: Capacitance
+  vars:
+    side: {min: 2, max: 30}
+    dmm: {min: 0.1, max: 5, step: 0.1}
+    kap: {choices: [{label: air, value: 1}, {label: 'paper (κ = 3.7)', value: 3.7}, {label: 'glass (κ = 5.6)', value: 5.6}]}
+    V: {min: 3, max: 200}
+  calc:
+    A: (side/100)^2
+    C: kap*8.85e-12*A/(dmm/1000)*1e12
+    Q: C*V*1e-12*1e9
+  prompt: 'A parallel-plate capacitor has square plates {side} cm on a side, {dmm} mm apart, filled with {kap}. Find its capacitance in pF and the charge in nC when it is connected to {V} V. ($\varepsilon_0 = 8.85\times10^{-12}$ F/m)'
+  answers:
+    - {format: sig4, name: C, label: 'Capacitance', relTolerance: 0.01, units: {pF: 1, nF: 1000}}
+    - {format: sig4, name: Q, label: 'Charge', relTolerance: 0.01, units: {nC: 1, 'μC': 1000, uC: 1000}}
+  solution: |-
+    $A = ({side}/100)^2 = {A}$ m². $C = \kappa\dfrac{\varepsilon_0A}{d} = {kap:num2}\cdot\dfrac{(8.85\times10^{-12})({A})}{{dmm}\times10^{-3}} =$ **{C:num1} pF**.
+
+    $Q = CV =$ **{Q:num2} nC**.
+- id: phys-cap-combo
+  title: Capacitors in series and parallel
+  topic: Capacitance
+  vars:
+    C1: {min: 1, max: 20}
+    C2: {min: 1, max: 20}
+    C3: {min: 1, max: 20}
+    V: {min: 3, max: 50}
+  calc:
+    Cp: C2 + C3
+    Ceq: C1*Cp/(C1 + Cp)
+    Q: Ceq*V
+    V1: Q/C1
+  prompt: 'Capacitors $C_2 = {C2}$ μF and $C_3 = {C3}$ μF are in parallel, and that pair is in series with $C_1 = {C1}$ μF. The combination is connected to {V} V. Find the equivalent capacitance, the charge on $C_1$, and the voltage across $C_1$.'
+  answers:
+    - {format: sig4, name: Ceq, label: '$C_{\text{eq}}$', relTolerance: 0.01, units: {'μF': 1, uF: 1}}
+    - {format: sig4, name: Q, label: 'Charge on $C_1$', relTolerance: 0.01, units: {'μC': 1, uC: 1}}
+    - {format: sig4, name: V1, label: 'Voltage on $C_1$', relTolerance: 0.01, units: {V: 1}}
+  solution: |-
+    Parallel pair: ${C2} + {C3} = {Cp}$ μF. In series with $C_1$: $C_{\text{eq}} = \dfrac{({C1})({Cp})}{{C1} + {Cp}} =$ **{Ceq:num2} μF**.
+
+    Series parts share the same charge: $Q = C_{\text{eq}}V =$ **{Q:num1} μC**.
+
+    $V_1 = Q/C_1 =$ **{V1:num2} V** (the remaining {V} − {V1:num2} V is across the parallel pair).
+- id: phys-cap-energy
+  title: Energy stored in a capacitor
+  topic: Capacitance
+  vars:
+    C: {min: 1, max: 500}
+    V: {min: 5, max: 3000, step: 5}
+    tms: {min: 1, max: 20}
+  calc:
+    U: 0.5*C*1e-6*V^2
+    P: U/(tms/1000)
+  prompt: 'A {C} μF capacitor is charged to {V:dp0} V and then discharged in {tms} ms. Find the stored energy and the average power during discharge.'
+  answers:
+    - {format: sig4, name: U, label: 'Energy', relTolerance: 0.01, units: {J: 1, mJ: 0.001, kJ: 1000}}
+    - {format: sig4, name: P, label: 'Average power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
+  solution: |-
+    $U = \tfrac12CV^2 = \tfrac12({C}\times10^{-6})({V:dp0})^2 =$ **{U:sig3} J**.
+
+    $\bar P = U/t =$ **{P:sig3} W**.

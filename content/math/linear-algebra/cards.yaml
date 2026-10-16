@@ -1,0 +1,219 @@
+# Notecards: formulas, definitions, theorems, and "when to use which".
+
+# Plane vectors
+- {front: 'Vector from $P$ to $Q$', back: '$\overrightarrow{PQ} = Q - P$ (head minus tail)', topic: Plane vectors}
+- {front: 'Length of $\mathbf{v} = (v_1, v_2)$', back: '$\|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2}$', topic: Plane vectors}
+- {front: 'Length of $c\mathbf{v}$', back: '$\|c\mathbf{v}\| = |c|\,\|\mathbf{v}\|$', topic: Plane vectors}
+- {front: 'Unit vector in the direction of $\mathbf{v} \ne \mathbf{0}$', back: '$\dfrac{\mathbf{v}}{\|\mathbf{v}\|}$', topic: Plane vectors}
+- {front: 'Geometric meaning of $\mathbf{u} + \mathbf{v}$', back: 'Tip-to-tail, or the diagonal of the parallelogram spanned by $\mathbf{u}$ and $\mathbf{v}$', topic: Plane vectors}
+- {front: 'Vector with length $r$ at angle $\theta$', back: '$(r\cos\theta,\ r\sin\theta)$', topic: Plane vectors}
+- {front: 'Triangle inequality', back: '$\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$', topic: Plane vectors}
+
+# Elimination and systems
+- {front: 'The three equation moves that never change the solutions', back: 'Scale an equation by a nonzero number, add a multiple of one equation to another, swap two equations', topic: Elimination}
+- {front: 'How many solutions can a linear system have?', back: 'None, exactly one, or infinitely many (never exactly two)', topic: Elimination}
+- {front: 'Elimination produces $0 = 0$', back: 'A redundant equation (not a contradiction)', topic: Elimination}
+- {front: 'Elimination produces $0 = 5$', back: 'The system is inconsistent: no solution', topic: Elimination}
+- {front: 'Augmented matrix of a system', back: '$[\,A \;\; \mathbf{b}\,]$: coefficients, then the right-hand sides as the last column', topic: Linear systems}
+- {front: 'Elementary row operations', back: 'Replacement $R_i \leftarrow R_i + cR_j$, interchange $R_i \leftrightarrow R_j$, scaling $R_i \leftarrow cR_i$ ($c \neq 0$)', topic: Row operations}
+- {front: 'Why row operations don''t change the solution set', back: 'Each is reversible by an operation of the same type', topic: Row operations}
+
+# Matrix arithmetic
+- {front: 'When is $AB$ defined, and what size is it?', back: '$(m \times n)(n \times p) = m \times p$: columns of $A$ must equal rows of $B$', topic: Matrix arithmetic}
+- {front: '$(AB)_{ij}$', back: 'Row $i$ of $A$ times column $j$ of $B$: $\sum_k a_{ik}b_{kj}$', topic: Matrix arithmetic}
+- {front: 'Inverse of $\begin{bmatrix} a & b \\ c & d\end{bmatrix}$', back: '$\dfrac{1}{ad - bc}\begin{bmatrix} d & -b \\ -c & a\end{bmatrix}$, if $ad - bc \neq 0$', topic: Matrix arithmetic}
+- {front: 'Determinant of $\begin{bmatrix} a & b \\ c & d\end{bmatrix}$', back: '$ad - bc$', topic: Matrix arithmetic}
+- {front: 'Solve $A\mathbf{x} = \mathbf{b}$ with an inverse', back: '$\mathbf{x} = A^{-1}\mathbf{b}$ (multiply on the left)', topic: Matrix arithmetic}
+- {front: 'Is $AB = BA$ in general?', back: 'No. Matrix multiplication is not commutative.', topic: Matrix arithmetic}
+
+# Echelon forms
+- {front: 'Echelon form', back: 'Zero rows at the bottom; each leading entry to the right of the one above; zeros below leading entries', topic: Echelon forms}
+- {front: 'Reduced echelon form (RREF)', back: 'Echelon form plus: leading entries are 1 and are the only nonzero entries in their columns', topic: Echelon forms}
+- {front: 'Which form is unique: echelon or reduced echelon?', back: 'Only the reduced echelon form', topic: Echelon forms}
+- {front: 'Pivot position', back: 'Location of a leading 1 in the RREF of $A$', topic: Echelon forms}
+- {front: 'Maximum number of pivots of an $m \times n$ matrix', back: '$\min(m, n)$', topic: Echelon forms}
+- {front: 'Forward vs backward phase of row reduction', back: 'Forward: clear below pivots (echelon form). Backward: clear above pivots from the right, scale to 1 (RREF).', topic: Row reduction}
+
+# Existence and uniqueness
+- {front: 'When is a linear system consistent?', back: 'When the last column of the augmented matrix is not a pivot column', topic: Existence and uniqueness}
+- {front: 'Consistent system: when is the solution unique?', back: 'When there are no free variables', topic: Existence and uniqueness}
+- {front: 'More unknowns than equations', back: 'A free variable is forced: no solution or infinitely many', topic: Existence and uniqueness}
+- {front: 'Basic vs free variables', back: 'Basic: pivot columns. Free: non-pivot columns of the coefficient matrix.', topic: General solution}
+
+# Applications
+- {front: 'Network flow rule', back: 'At each node, flow in = flow out', topic: Applications of linear systems}
+- {front: 'Balancing a chemical equation', back: 'One homogeneous equation per element; pick the free variable to make all coefficients the smallest whole numbers', topic: Applications of linear systems}
+- {front: 'Points needed to determine a polynomial of degree $\le n$', back: '$n + 1$ points with distinct $x$-values', topic: Applications of linear systems}
+
+# Linear combinations, span, Ax = b
+- {front: 'Is $\mathbf{b}$ a linear combination of $\mathbf{a}_1, \dots, \mathbf{a}_n$?', back: 'Yes exactly when $[\,\mathbf{a}_1 \cdots \mathbf{a}_n \;\; \mathbf{b}\,]$ is consistent', topic: Linear combinations}
+- {front: '$\operatorname{Span}\{\mathbf{v}\}$ for $\mathbf{v} \ne \mathbf{0}$ in $\mathbb{R}^3$', back: 'A line through the origin', topic: Span}
+- {front: '$\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$, not parallel, in $\mathbb{R}^3$', back: 'A plane through the origin', topic: Span}
+- {front: '$A\mathbf{x}$ in terms of columns', back: '$x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \cdots + x_n\mathbf{a}_n$', topic: Matrix equation}
+- {front: 'Three equivalent views of a system', back: '$A\mathbf{x} = \mathbf{b}$; $x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n = \mathbf{b}$; augmented matrix $[\,A \;\; \mathbf{b}\,]$', topic: Matrix equation}
+- {front: 'Columns of $A$ ($m \times n$) span $\mathbb{R}^m$ exactly when…', back: '$A$ has a pivot in every row (so $A\mathbf{x} = \mathbf{b}$ is solvable for every $\mathbf{b}$)', topic: Matrix equation}
+- {front: 'Linearity of $\mathbf{x} \mapsto A\mathbf{x}$', back: '$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v}$ and $A(c\mathbf{u}) = cA\mathbf{u}$', topic: Matrix equation}
+
+# Solution sets
+- {front: 'When does $A\mathbf{x} = \mathbf{0}$ have a nontrivial solution?', back: 'Exactly when there is at least one free variable', topic: Homogeneous systems}
+- {front: 'Structure of the solutions of $A\mathbf{x} = \mathbf{b}$', back: '$\mathbf{p} + \mathbf{v}_h$: one particular solution plus any solution of $A\mathbf{x} = \mathbf{0}$', topic: Parametric vector form}
+- {front: 'Parametric vector form recipe', back: 'RREF, solve for basic variables, write $\mathbf{x}$ as a column, split into one vector per free variable', topic: Parametric vector form}
+- {front: 'Is the solution set of $A\mathbf{x} = \mathbf{b}$ ($\mathbf{b} \ne \mathbf{0}$) a subspace?', back: 'No: it doesn''t contain $\mathbf{0}$. It is a translated span.', topic: Parametric vector form}
+
+# Independence
+- {front: 'Columns of $A$ are linearly independent exactly when…', back: '$A\mathbf{x} = \mathbf{0}$ has only the trivial solution, i.e. a pivot in every column', topic: Linear independence}
+- {front: 'Two vectors are dependent exactly when…', back: 'One is a multiple of the other', topic: Linear independence}
+- {front: '$p$ vectors in $\mathbb{R}^n$ with $p > n$', back: 'Always linearly dependent', topic: Linear independence}
+- {front: 'A set containing $\mathbf{0}$', back: 'Always linearly dependent', topic: Linear independence}
+- {front: 'Characterization of dependent sets', back: 'At least one vector is a linear combination of the others', topic: Linear independence}
+
+# Transformations
+- {front: 'Definition of a linear transformation', back: '$T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ and $T(c\mathbf{u}) = cT(\mathbf{u})$', topic: Linear transformations}
+- {front: 'Quick test that rules out linearity', back: '$T(\mathbf{0}) \neq \mathbf{0}$', topic: Linear transformations}
+- {front: 'Domain and codomain of $\mathbf{x} \mapsto A\mathbf{x}$ for $A$ $m \times n$', back: '$\mathbb{R}^n \to \mathbb{R}^m$ (inputs match columns, outputs match rows)', topic: Linear transformations}
+- {front: 'Standard matrix of linear $T$', back: '$A = [\,T(\mathbf{e}_1) \;\cdots\; T(\mathbf{e}_n)\,]$', topic: Standard matrix}
+- {front: 'Rotation by $\theta$ counterclockwise', back: '$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$', topic: Geometric transformations}
+- {front: 'Reflection across the line $x_2 = x_1$', back: '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', topic: Geometric transformations}
+- {front: 'Reflection across the $x_1$-axis', back: '$\begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$', topic: Geometric transformations}
+- {front: 'Horizontal shear by $k$', back: '$\begin{bmatrix} 1 & k \\ 0 & 1\end{bmatrix}$: $(x_1, x_2) \mapsto (x_1 + kx_2, x_2)$', topic: Geometric transformations}
+- {front: 'Projection onto the $x_1$-axis', back: '$\begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix}$', topic: Geometric transformations}
+- {front: 'Image of the unit square under $A$', back: 'The parallelogram spanned by the columns of $A$', topic: Geometric transformations}
+- {front: '$T(\mathbf{x}) = A\mathbf{x}$ is onto ⟺', back: 'A pivot in every row (columns span $\mathbb{R}^m$)', topic: One-to-one and onto}
+- {front: '$T(\mathbf{x}) = A\mathbf{x}$ is one-to-one ⟺', back: 'A pivot in every column (columns independent; $T(\mathbf{x}) = \mathbf{0}$ only for $\mathbf{x} = \mathbf{0}$)', topic: One-to-one and onto}
+- {front: 'Wide matrix ($n > m$): one-to-one possible?', back: 'Never one-to-one', topic: One-to-one and onto}
+- {front: 'Tall matrix ($n < m$): onto possible?', back: 'Never onto', topic: One-to-one and onto}
+
+# Matrix algebra
+- {front: 'Matrix of "apply $B$, then $A$"', back: '$AB$ (the first map is on the right)', topic: Matrix multiplication}
+- {front: 'Columns of $AB$', back: '$AB = [\,A\mathbf{b}_1 \;\cdots\; A\mathbf{b}_p\,]$', topic: Matrix multiplication}
+- {front: 'Rules that fail for matrices', back: '$AB = BA$; cancellation ($AB = AC \Rightarrow B = C$); $AB = 0 \Rightarrow A = 0$ or $B = 0$', topic: Matrix multiplication}
+- {front: '$(AB)^T$', back: '$B^TA^T$', topic: Transpose}
+- {front: '$(A^T)_{ij}$', back: '$a_{ji}$', topic: Transpose}
+- {front: 'Translation by $(h, k)$ in homogeneous coordinates', back: '$\begin{bmatrix} 1 & 0 & h \\ 0 & 1 & k \\ 0 & 0 & 1\end{bmatrix}$', topic: Computer graphics}
+- {front: '$(AB)^{-1}$', back: '$B^{-1}A^{-1}$', topic: Matrix inverse}
+- {front: '$(A^T)^{-1}$', back: '$(A^{-1})^T$', topic: Matrix inverse}
+- {front: 'Algorithm for $A^{-1}$', back: 'Row-reduce $[\,A \;\; I\,]$ to $[\,I \;\; A^{-1}\,]$; a zero row on the left means $A$ is singular', topic: Matrix inverse}
+- {front: 'Inverse of a diagonal matrix', back: 'Reciprocals of the diagonal entries (all must be nonzero)', topic: Matrix inverse}
+- {front: 'What does $EA$ do, for an elementary matrix $E$?', back: 'Performs $E$''s row operation on $A$', topic: Elementary matrices}
+- {front: 'Inverse of an elementary matrix', back: 'The elementary matrix of the reverse operation', topic: Elementary matrices}
+- {front: 'When is $A$ invertible (row reduction)?', back: 'Exactly when $A$ is row equivalent to $I_n$', topic: Invertible matrix theorem}
+- {front: 'IMT: name six equivalent conditions for square $A$', back: 'Invertible; $n$ pivots; $A\mathbf{x} = \mathbf{0}$ only trivial; columns independent; columns span $\mathbb{R}^n$; $\mathbf{x} \mapsto A\mathbf{x}$ one-to-one and onto', topic: Invertible matrix theorem}
+- {front: 'Square $A$ with $CA = I$', back: 'Then $A$ is invertible and $C = A^{-1}$ (one-sided suffices for square matrices)', topic: Invertible matrix theorem}
+- {front: 'LU factorization', back: '$A = LU$: $L$ unit lower triangular (multipliers), $U$ an echelon form', topic: LU factorization}
+- {front: 'Solving with $A = LU$', back: 'Forward-substitute $L\mathbf{y} = \mathbf{b}$, then back-substitute $U\mathbf{x} = \mathbf{y}$', topic: LU factorization}
+- {front: 'Entry $\ell_{ij}$ of $L$', back: 'The multiplier in $R_i \leftarrow R_i - \ell_{ij}R_j$ (entry cleared ÷ pivot)', topic: LU factorization}
+- {front: 'When is LU worth it?', back: 'Many right-hand sides with the same $A$: elimination once ($\sim\tfrac23n^3$), then two $\sim n^2$ substitutions each', topic: LU factorization}
+
+# Determinants
+- {front: 'Cofactor $C_{ij}$', back: '$(-1)^{i+j}\det A_{ij}$ (delete row $i$, column $j$)', topic: Cofactor expansion}
+- {front: 'Cofactor expansion along row $i$', back: '$\det A = a_{i1}C_{i1} + \cdots + a_{in}C_{in}$', topic: Cofactor expansion}
+- {front: 'Sign pattern for cofactors', back: 'Checkerboard starting with $+$ at $(1, 1)$', topic: Cofactor expansion}
+- {front: 'Determinant of a triangular matrix', back: 'Product of the diagonal entries', topic: Cofactor expansion}
+- {front: 'Which row or column to expand along?', back: 'The one with the most zeros', topic: Cofactor expansion}
+- {front: 'Effect of a row replacement on $\det$', back: 'None', topic: Determinant properties}
+- {front: 'Effect of a row interchange on $\det$', back: 'Multiplies it by $-1$', topic: Determinant properties}
+- {front: 'Effect of scaling one row by $k$ on $\det$', back: 'Multiplies it by $k$', topic: Determinant properties}
+- {front: '$\det(cA)$ for $n \times n$ $A$', back: '$c^n\det A$', topic: Determinant properties}
+- {front: '$\det(AB)$, $\det A^T$, $\det A^{-1}$', back: '$\det A\det B$; $\det A$; $1/\det A$', topic: Determinant properties}
+- {front: 'Determinant test for invertibility', back: '$A$ is invertible ⟺ $\det A \ne 0$', topic: Determinant properties}
+- {front: '$\det$ by row reduction', back: '$(-1)^{\text{\#swaps}} \times$ product of the pivots of an echelon form (no scaling)', topic: Determinant properties}
+- {front: 'Cramer''s rule', back: '$x_i = \dfrac{\det A_i(\mathbf{b})}{\det A}$, $A_i(\mathbf{b})$ = $A$ with column $i$ replaced by $\mathbf{b}$', topic: Cramer's rule}
+- {front: 'Inverse via the adjugate', back: '$A^{-1} = \dfrac{1}{\det A}\operatorname{adj} A$, with $(\operatorname{adj} A)_{ij} = C_{ji}$', topic: Cramer's rule}
+- {front: 'Area of the parallelogram spanned by $\mathbf{u}, \mathbf{v}$ in $\mathbb{R}^2$', back: '$|\det[\,\mathbf{u} \;\; \mathbf{v}\,]|$', topic: Area and volume}
+- {front: 'Area of image of region $S$ under $\mathbf{x} \mapsto A\mathbf{x}$', back: '$|\det A| \cdot \text{area}(S)$', topic: Area and volume}
+- {front: 'Area of the triangle with edge vectors $\mathbf{u}, \mathbf{v}$', back: '$\tfrac12|\det[\,\mathbf{u} \;\; \mathbf{v}\,]|$', topic: Area and volume}
+
+# Vector spaces
+- {front: 'Three conditions for a subspace $H$', back: '$\mathbf{0} \in H$; closed under addition; closed under scalar multiplication', topic: Subspaces}
+- {front: 'Fastest way to show a set is a subspace', back: 'Write it as a span', topic: Subspaces}
+- {front: 'Subspaces of $\mathbb{R}^3$', back: '$\{\mathbf{0}\}$, lines through $\mathbf{0}$, planes through $\mathbf{0}$, and $\mathbb{R}^3$', topic: Subspaces}
+- {front: 'Examples of vector spaces besides $\mathbb{R}^n$', back: '$\mathbb{P}_n$ (polynomials of degree $\le n$), $M_{m\times n}$ (matrices), functions on an interval', topic: Vector spaces}
+- {front: '$\operatorname{Nul} A$ vs $\operatorname{Col} A$: where do they live?', back: '$\operatorname{Nul} A \subseteq \mathbb{R}^n$ (inputs); $\operatorname{Col} A \subseteq \mathbb{R}^m$ (outputs)', topic: Null space}
+- {front: 'Test whether $\mathbf{v}$ is in $\operatorname{Nul} A$', back: 'Compute $A\mathbf{v}$ and check for $\mathbf{0}$', topic: Null space}
+- {front: 'Test whether $\mathbf{b}$ is in $\operatorname{Col} A$', back: 'Check whether $A\mathbf{x} = \mathbf{b}$ is consistent', topic: Column space}
+- {front: 'Which subspaces do row operations preserve?', back: '$\operatorname{Nul} A$ and $\operatorname{Row} A$, not $\operatorname{Col} A$', topic: Column space}
+- {front: 'Basis for $\operatorname{Col} A$', back: 'The pivot columns of $A$ itself', topic: Bases}
+- {front: 'Basis for $\operatorname{Nul} A$', back: 'The vectors in the parametric vector form of $A\mathbf{x} = \mathbf{0}$', topic: Bases}
+- {front: 'Basis for $\operatorname{Row} A$', back: 'The nonzero rows of an echelon form of $A$', topic: Bases}
+- {front: 'Basis', back: 'A linearly independent spanning set', topic: Bases}
+- {front: 'Coordinates in $\mathbb{R}^n$', back: '$\mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$ with $P_{\mathcal{B}} = [\,\mathbf{b}_1 \cdots \mathbf{b}_n\,]$', topic: Coordinates}
+- {front: 'Change-of-basis matrix $P_{\mathcal{C} \leftarrow \mathcal{B}}$', back: 'Columns $[\mathbf{b}_j]_{\mathcal{C}}$; row-reduce $[\,\mathcal{C} \;|\; \mathcal{B}\,]$ to $[\,I \;|\; P_{\mathcal{C} \leftarrow \mathcal{B}}\,]$', topic: Change of basis}
+- {front: '$(P_{\mathcal{C} \leftarrow \mathcal{B}})^{-1}$', back: '$P_{\mathcal{B} \leftarrow \mathcal{C}}$', topic: Change of basis}
+- {front: '$\dim \mathbb{P}_n$', back: '$n + 1$', topic: Dimension}
+- {front: '$\dim M_{m \times n}$', back: '$mn$', topic: Dimension}
+- {front: 'Basis theorem', back: 'In a $p$-dimensional space, $p$ independent vectors (or $p$ spanning vectors) automatically form a basis', topic: Dimension}
+- {front: 'Rank theorem', back: '$\operatorname{rank} A + \dim\operatorname{Nul} A = n$ (number of columns)', topic: Rank}
+- {front: '$\operatorname{rank} A$ vs $\operatorname{rank} A^T$', back: 'Equal: $\dim\operatorname{Col} A = \dim\operatorname{Row} A$', topic: Rank}
+- {front: '$\dim\operatorname{Nul} A$ and $\dim\operatorname{Col} A$ from pivots', back: 'Nullity = number of free variables; rank = number of pivot columns', topic: Rank}
+
+# Eigenvalues
+- {front: 'Eigenvector', back: 'Nonzero $\mathbf{x}$ with $A\mathbf{x} = \lambda\mathbf{x}$', topic: Eigenvalues and eigenvectors}
+- {front: 'Test whether $\lambda$ is an eigenvalue', back: 'Is $A - \lambda I$ singular? (does $(A - \lambda I)\mathbf{x} = \mathbf{0}$ have a nontrivial solution)', topic: Eigenvalues and eigenvectors}
+- {front: 'Eigenspace for $\lambda$', back: '$\operatorname{Nul}(A - \lambda I)$', topic: Eigenvalues and eigenvectors}
+- {front: 'Eigenvalues of a triangular matrix', back: 'Its diagonal entries', topic: Eigenvalues and eigenvectors}
+- {front: '0 is an eigenvalue of $A$ ⟺', back: '$A$ is not invertible', topic: Eigenvalues and eigenvectors}
+- {front: 'Eigenvectors for distinct eigenvalues are…', back: 'Linearly independent', topic: Eigenvalues and eigenvectors}
+- {front: 'If $A\mathbf{x} = \lambda\mathbf{x}$, then $A^k\mathbf{x} =$', back: '$\lambda^k\mathbf{x}$', topic: Eigenvalues and eigenvectors}
+- {front: 'Characteristic equation', back: '$\det(A - \lambda I) = 0$', topic: Characteristic equation}
+- {front: 'Characteristic polynomial of a $2 \times 2$ matrix', back: '$\lambda^2 - (\operatorname{tr} A)\lambda + \det A$', topic: Characteristic equation}
+- {front: 'Sum and product of the eigenvalues', back: 'Sum = trace; product = determinant (with multiplicity)', topic: Characteristic equation}
+- {front: 'Similar matrices share…', back: 'The characteristic polynomial, eigenvalues and multiplicities (not necessarily eigenvectors)', topic: Characteristic equation}
+- {front: 'Diagonalization theorem', back: '$A = PDP^{-1}$ ⟺ $A$ has $n$ independent eigenvectors (columns of $P$), eigenvalues on $D$', topic: Diagonalization}
+- {front: '$A^k$ for diagonalizable $A$', back: '$PD^kP^{-1}$', topic: Diagonalization}
+- {front: 'Sufficient condition for diagonalizable', back: '$n$ distinct eigenvalues', topic: Diagonalization}
+- {front: 'Diagonalizable with repeated eigenvalues ⟺', back: 'Each eigenspace dimension (geometric multiplicity) equals the algebraic multiplicity', topic: Diagonalization}
+- {front: 'Classic non-diagonalizable matrix', back: '$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$: eigenvalue 2 twice, only a 1-dimensional eigenspace', topic: Diagonalization}
+- {front: 'Eigenvalues of $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$', back: '$a \pm bi$; it rotates by the angle of $(a, b)$ and scales by $\sqrt{a^2 + b^2}$', topic: Complex eigenvalues}
+- {front: 'Complex eigenvalues of a real matrix', back: 'Come in conjugate pairs, with conjugate eigenvectors', topic: Complex eigenvalues}
+- {front: 'Real $2 \times 2$ $A$ with eigenvalue $a - bi$, eigenvector $\mathbf{v}$', back: '$A = PCP^{-1}$, $P = [\,\operatorname{Re}\mathbf{v} \;\; \operatorname{Im}\mathbf{v}\,]$, $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$', topic: Complex eigenvalues}
+- {front: 'Iterates of a matrix with complex eigenvalues, $|\lambda| < 1$', back: 'Spiral inward to $\mathbf{0}$ (outward if $|\lambda| > 1$)', topic: Complex eigenvalues}
+- {front: 'Solution of $\mathbf{x}_{k+1} = A\mathbf{x}_k$ with eigenvector basis', back: '$\mathbf{x}_k = c_1\lambda_1^k\mathbf{v}_1 + \cdots + c_n\lambda_n^k\mathbf{v}_n$', topic: Dynamical systems}
+- {front: 'Attractor / repeller / saddle (2×2)', back: 'Both $|\lambda| < 1$ / both $|\lambda| > 1$ / one of each', topic: Dynamical systems}
+- {front: 'Stochastic matrix', back: 'Square, nonnegative, every column sums to 1', topic: Markov chains}
+- {front: 'Finding the steady state of $P$', back: 'Solve $(P - I)\mathbf{x} = \mathbf{0}$, then divide by the sum of the entries', topic: Markov chains}
+- {front: 'Regular stochastic matrix guarantees…', back: 'A unique steady state, and every chain converges to it', topic: Markov chains}
+
+# Orthogonality
+- {front: 'Inner (dot) product', back: '$\mathbf{u}\cdot\mathbf{v} = \mathbf{u}^T\mathbf{v} = \sum u_iv_i$', topic: Inner product}
+- {front: 'Angle between $\mathbf{u}$ and $\mathbf{v}$', back: '$\cos\theta = \dfrac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|}$', topic: Inner product}
+- {front: 'Pythagorean theorem for vectors', back: '$\|\mathbf{u} + \mathbf{v}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2$ ⟺ $\mathbf{u}\cdot\mathbf{v} = 0$', topic: Orthogonality}
+- {front: '$(\operatorname{Row} A)^\perp$ and $(\operatorname{Col} A)^\perp$', back: '$\operatorname{Nul} A$ and $\operatorname{Nul} A^T$', topic: Orthogonality}
+- {front: '$\dim W + \dim W^\perp$ in $\mathbb{R}^n$', back: '$n$', topic: Orthogonality}
+- {front: 'Coordinates in an orthogonal basis', back: '$c_j = \dfrac{\mathbf{y}\cdot\mathbf{u}_j}{\mathbf{u}_j\cdot\mathbf{u}_j}$', topic: Orthogonal bases}
+- {front: 'Projection of $\mathbf{y}$ onto the line through $\mathbf{u}$', back: '$\dfrac{\mathbf{y}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\mathbf{u}$', topic: Orthogonal projections}
+- {front: 'Projection onto $W$ with orthogonal basis $\mathbf{u}_1, \dots, \mathbf{u}_p$', back: '$\sum_j \dfrac{\mathbf{y}\cdot\mathbf{u}_j}{\mathbf{u}_j\cdot\mathbf{u}_j}\mathbf{u}_j$', topic: Orthogonal projections}
+- {front: 'Best approximation theorem', back: '$\operatorname{proj}_W\mathbf{y}$ is the point of $W$ closest to $\mathbf{y}$', topic: Orthogonal projections}
+- {front: 'Matrix with orthonormal columns', back: '$U^TU = I$; preserves lengths and dot products', topic: Orthogonal bases}
+- {front: 'Inverse of an orthogonal matrix', back: '$U^{-1} = U^T$', topic: Orthogonal bases}
+- {front: 'Gram–Schmidt step', back: '$\mathbf{v}_k = \mathbf{x}_k - \sum_{i<k}\dfrac{\mathbf{x}_k\cdot\mathbf{v}_i}{\mathbf{v}_i\cdot\mathbf{v}_i}\mathbf{v}_i$', topic: Gram–Schmidt}
+- {front: 'QR factorization', back: '$A = QR$: $Q$ orthonormal columns (basis for $\operatorname{Col} A$), $R = Q^TA$ upper triangular, positive diagonal', topic: QR factorization}
+- {front: 'Normal equations', back: '$A^TA\mathbf{x} = A^T\mathbf{b}$', topic: Least squares}
+- {front: 'Unique least-squares solution', back: 'When $A$ has independent columns: $\hat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}$', topic: Least squares}
+- {front: 'Least squares with $A = QR$', back: 'Solve $R\hat{\mathbf{x}} = Q^T\mathbf{b}$', topic: Least squares}
+- {front: 'Least-squares line: design matrix and normal equations', back: 'Rows $(1, x_i)$; $\begin{bmatrix} n & \sum x \\ \sum x & \sum x^2\end{bmatrix}\boldsymbol\beta = \begin{bmatrix} \sum y \\ \sum xy\end{bmatrix}$', topic: Linear regression}
+- {front: 'What does least squares minimize in regression?', back: 'The sum of squared vertical residuals $y_i - \hat y_i$', topic: Linear regression}
+
+# Symmetric, quadratic forms, SVD
+- {front: 'Spectral theorem', back: '$A$ symmetric ⟺ $A = PDP^T$ with $P$ orthogonal; real eigenvalues, orthogonal eigenspaces', topic: Symmetric matrices}
+- {front: 'Eigenvectors of a symmetric matrix for different eigenvalues', back: 'Orthogonal', topic: Symmetric matrices}
+- {front: 'Spectral decomposition', back: '$A = \sum \lambda_j\mathbf{u}_j\mathbf{u}_j^T$', topic: Symmetric matrices}
+- {front: 'Matrix of $ax_1^2 + bx_1x_2 + cx_2^2$', back: '$\begin{bmatrix} a & b/2 \\ b/2 & c\end{bmatrix}$', topic: Quadratic forms}
+- {front: 'Principal axes theorem', back: '$\mathbf{x} = P\mathbf{y}$ (orthonormal eigenvectors) gives $\mathbf{x}^TA\mathbf{x} = \sum\lambda_iy_i^2$', topic: Quadratic forms}
+- {front: 'Classify a quadratic form by eigenvalues', back: 'All $> 0$: positive definite; all $< 0$: negative definite; mixed signs: indefinite; all $\ge 0$: positive semidefinite', topic: Quadratic forms}
+- {front: 'Max and min of $\mathbf{x}^TA\mathbf{x}$ on $\|\mathbf{x}\| = 1$', back: 'Largest and smallest eigenvalues of $A$ (at unit eigenvectors)', topic: Quadratic forms}
+- {front: '$2 \times 2$ determinant test for quadratic forms', back: '$\det < 0$: indefinite; $\det > 0$ and $a > 0$: positive definite; $\det > 0$ and $a < 0$: negative definite', topic: Quadratic forms}
+- {front: 'Singular values of $A$', back: '$\sigma_i = \sqrt{\lambda_i(A^TA)}$, decreasing; $\sigma_i = \|A\mathbf{v}_i\|$', topic: Singular value decomposition}
+- {front: 'SVD', back: '$A = U\Sigma V^T$: $V$ eigenvectors of $A^TA$, $\mathbf{u}_i = A\mathbf{v}_i/\sigma_i$, $\Sigma$ same shape as $A$', topic: Singular value decomposition}
+- {front: 'Rank from the SVD', back: 'Number of nonzero singular values', topic: Singular value decomposition}
+- {front: 'Condition number', back: '$\sigma_1/\sigma_n$ (invertible $A$); large means sensitive to errors', topic: Singular value decomposition}
+- {front: 'Best rank-$k$ approximation', back: '$\sigma_1\mathbf{u}_1\mathbf{v}_1^T + \cdots + \sigma_k\mathbf{u}_k\mathbf{v}_k^T$', topic: Singular value decomposition}
+
+# When to use which
+- {front: 'Solve one square system by hand', back: 'Row reduction (Cramer''s rule or $A^{-1}$ only for small $2 \times 2$ cases)', topic: Row reduction}
+- {front: 'Same $A$, many right-hand sides', back: 'LU factorization once, then substitutions', topic: LU factorization}
+- {front: 'Inconsistent (overdetermined) system: best approximate solution', back: 'Least squares via the normal equations or QR', topic: Least squares}
+- {front: 'Compute $A^{100}$', back: 'Diagonalize: $A^{100} = PD^{100}P^{-1}$', topic: Diagonalization}
+- {front: 'Long-run behavior of a Markov chain', back: 'Find the steady-state vector (eigenvector for eigenvalue 1)', topic: Markov chains}
+- {front: 'Is a big determinant zero?', back: 'Row-reduce to triangular form; don''t expand by cofactors', topic: Determinant properties}
+- {front: 'Orthonormal basis from any basis', back: 'Gram–Schmidt, then normalize', topic: Gram–Schmidt}
+- {front: 'Remove cross terms from a quadratic form', back: 'Orthogonally diagonalize its symmetric matrix', topic: Quadratic forms}

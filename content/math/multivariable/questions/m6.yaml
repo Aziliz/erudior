@@ -1,0 +1,376 @@
+# Module 6: Triple integrals and change of variables
+- id: mv-q-2401
+  lesson: mv-triple
+  module_quiz: true
+  topic: Triple integrals
+  stem: 'Evaluate $\iiint_B xyz^2\,dV$ over $B = [0, 1]\times[-1, 2]\times[0, 3]$.'
+  choices: ['$\tfrac{27}{4}$', '$\tfrac{27}{2}$', '$9$', '$\tfrac{9}{4}$']
+  answer: 0
+  explanation: |-
+    The integral factors: $\left(\int_0^1x\,dx\right)\left(\int_{-1}^2y\,dy\right)\left(\int_0^3z^2\,dz\right) = \tfrac12\cdot\tfrac32\cdot9 = \tfrac{27}{4}$.
+- id: mv-q-2402
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'Find the volume of the tetrahedron bounded by the coordinate planes and $x + y + z = 1$.'
+  choices: ['$\tfrac12$', '$\tfrac16$', '$\tfrac13$', '$\tfrac{1}{24}$']
+  answer: 1
+  explanation: |-
+    $\int_0^1\int_0^{1-x}\int_0^{1-x-y}dz\,dy\,dx = \int_0^1\tfrac{(1-x)^2}{2}\,dx = \tfrac16$. ($\tfrac12$ is the area of its base triangle.)
+- id: mv-q-2403
+  lesson: mv-triple
+  module_quiz: true
+  topic: Triple integrals
+  stem: 'For the tetrahedron bounded by the coordinate planes and $x + y + z = 1$, evaluate $\iiint_E z\,dV$.'
+  choices: ['$\tfrac16$', '$\tfrac{1}{12}$', '$\tfrac{1}{24}$', '$\tfrac14$']
+  answer: 2
+  explanation: |-
+    $\int_0^1\int_0^{1-x}\tfrac{(1-x-y)^2}{2}\,dy\,dx = \int_0^1\tfrac{(1-x)^3}{6}\,dx = \tfrac{1}{24}$.
+- id: mv-q-2404
+  lesson: mv-triple
+  module_quiz: true
+  topic: Triple integrals
+  stem: 'For the solid between the paraboloid $z = x^2 + y^2$ and the plane $z = 4$, what are the $z$-limits of the inner integral?'
+  choices: ['$0 \le z \le 4$', '$0 \le z \le x^2 + y^2$', '$-2 \le z \le 2$', '$x^2 + y^2 \le z \le 4$']
+  answer: 3
+  explanation: |-
+    A vertical line through the solid enters at the bottom surface (the paraboloid) and leaves at the top (the plane). The shadow is then the disk $x^2 + y^2 \le 4$.
+- id: mv-q-2405
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'What is the projection (shadow) of the tetrahedron $x, y, z \ge 0$, $x + y + z \le 1$ on the $xy$-plane?'
+  choices: ['The triangle $x, y \ge 0$, $x + y \le 1$', 'The unit square', 'The quarter disk $x^2 + y^2 \le 1$', 'The segment from $(1,0)$ to $(0,1)$']
+  answer: 0
+  explanation: |-
+    Setting $z = 0$ in the slanted face gives the line $x + y = 1$, which together with the axes bounds the triangle.
+- id: mv-q-2406
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'Find the volume of the solid bounded by $y = x^2$, $z = 0$ and $y + z = 1$.'
+  choices: ['$\tfrac43$', '$\tfrac{8}{15}$', '$\tfrac{4}{15}$', '$\tfrac23$']
+  answer: 1
+  explanation: |-
+    $V = \int_{-1}^1\int_{x^2}^1(1 - y)\,dy\,dx = \int_{-1}^1\left(\tfrac12 - x^2 + \tfrac{x^4}{2}\right)dx = 1 - \tfrac23 + \tfrac15 = \tfrac{8}{15}$.
+    $\tfrac43$ is the area of the shadow, not the volume.
+- id: mv-q-2407
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'Where is the center of mass of the uniform tetrahedron with vertices $(0,0,0)$, $(1,0,0)$, $(0,1,0)$, $(0,0,1)$?'
+  choices: ['$\left(\tfrac13, \tfrac13, \tfrac13\right)$', '$\left(\tfrac12, \tfrac12, \tfrac12\right)$', '$\left(\tfrac14, \tfrac14, \tfrac14\right)$', '$\left(\tfrac16, \tfrac16, \tfrac16\right)$']
+  answer: 2
+  explanation: |-
+    $\bar z = \dfrac{\iiint z\,dV}{V} = \dfrac{1/24}{1/6} = \tfrac14$, and by symmetry $\bar x = \bar y = \tfrac14$: the average of the four vertices.
+- id: mv-q-2408
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'The moment $M_{xy}$ of a solid (about the $xy$-plane) is'
+  choices: ['$\iiint_E x\rho\,dV$', '$\iiint_E y\rho\,dV$', '$\iiint_E xy\rho\,dV$', '$\iiint_E z\rho\,dV$']
+  answer: 3
+  explanation: |-
+    Distance from the $xy$-plane is $z$, so $M_{xy} = \iiint z\rho\,dV$, and $\bar z = M_{xy}/m$.
+- id: mv-q-2409
+  lesson: mv-triple
+  module_quiz: true
+  topic: Triple integrals
+  stem: 'Evaluate $\iiint_C (x + y + z)\,dV$ over the unit cube $C = [0, 1]^3$.'
+  choices: ['$\tfrac32$', '$\tfrac12$', '$3$', '$1$']
+  answer: 0
+  explanation: |-
+    $\iiint x\,dV = \tfrac12$ (the other two integrals contribute 1 each), and likewise for $y$ and $z$. Total $\tfrac32$.
+- id: mv-q-2410
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'How many different orders of integration are possible for a triple integral, and when are they all valid without changing limits?'
+  choices: ['Three; always', 'Six; when the region is a box with constant limits (and $f$ is continuous)', 'Six; only when $f$ is constant', 'Two; when the region is a ball']
+  answer: 1
+  explanation: |-
+    There are $3! = 6$ orders. On a box, Fubini allows any of them with the same constant limits; for general regions each order needs its own limits.
+- id: mv-q-2411
+  lesson: mv-triple
+  topic: Triple integrals
+  stem: 'Find the average value of $f(x, y, z) = z$ over the cube $[0, 1]^3$.'
+  choices: ['$1$', '$\tfrac13$', '$\tfrac12$', '$\tfrac14$']
+  answer: 2
+  explanation: |-
+    $\iiint z\,dV = \tfrac12$ and the volume is 1, so the average is $\tfrac12$.
+
+- id: mv-q-2501
+  lesson: mv-cylindrical
+  module_quiz: true
+  topic: Cylindrical coordinates
+  stem: 'Convert the cylindrical point $\left(2, \tfrac{2\pi}{3}, 1\right)$ to rectangular coordinates.'
+  choices: ['$(1, -\sqrt3, 1)$', '$(\sqrt3, -1, 1)$', '$(-\sqrt3, 1, 1)$', '$(-1, \sqrt3, 1)$']
+  answer: 3
+  explanation: |-
+    $x = 2\cos\tfrac{2\pi}{3} = -1$, $y = 2\sin\tfrac{2\pi}{3} = \sqrt3$, and $z = 1$ is unchanged.
+- id: mv-q-2502
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'Convert $(3, -3, -7)$ to cylindrical coordinates (with $0 \le \theta < 2\pi$).'
+  choices: ['$\left(3\sqrt2, \tfrac{7\pi}{4}, -7\right)$', '$\left(3\sqrt2, \tfrac{3\pi}{4}, -7\right)$', '$\left(18, \tfrac{7\pi}{4}, -7\right)$', '$\left(3\sqrt2, \tfrac{\pi}{4}, 7\right)$']
+  answer: 0
+  explanation: |-
+    $r = \sqrt{9 + 9} = 3\sqrt2$. $\tan\theta = -1$ and the point $(3, -3)$ is in quadrant IV, so $\theta = \tfrac{7\pi}{4}$ (not $\tfrac{3\pi}{4}$, which is quadrant II). $z = -7$.
+- id: mv-q-2503
+  lesson: mv-cylindrical
+  module_quiz: true
+  topic: Cylindrical coordinates
+  stem: 'In cylindrical coordinates, the volume element $dV$ equals'
+  choices: ['$dz\,dr\,d\theta$', '$r\,dz\,dr\,d\theta$', '$r^2\,dz\,dr\,d\theta$', '$r\sin\theta\,dz\,dr\,d\theta$']
+  answer: 1
+  explanation: |-
+    The base is a polar patch of area $r\,dr\,d\theta$, and the height is $dz$.
+- id: mv-q-2504
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'What is the cone $z = \sqrt{x^2 + y^2}$ in cylindrical coordinates?'
+  choices: ['$z = r^2$', '$r = 1$', '$z = r$', '$z = \theta$']
+  answer: 2
+  explanation: |-
+    $\sqrt{x^2 + y^2} = r$ (with $r \ge 0$), so the cone is $z = r$. $z = r^2$ is the paraboloid $z = x^2 + y^2$.
+- id: mv-q-2505
+  lesson: mv-cylindrical
+  module_quiz: true
+  topic: Cylindrical coordinates
+  stem: 'Find the volume inside $x^2 + y^2 = 1$, above $z = 0$ and below $z = 4 - x^2 - y^2$.'
+  choices: ['$4\pi$', '$\tfrac{15\pi}{4}$', '$8\pi$', '$\tfrac{7\pi}{2}$']
+  answer: 3
+  explanation: |-
+    $\int_0^{2\pi}\int_0^1\int_0^{4 - r^2}r\,dz\,dr\,d\theta = 2\pi\int_0^1(4r - r^3)\,dr = 2\pi\left(2 - \tfrac14\right) = \tfrac{7\pi}{2}$.
+- id: mv-q-2506
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'Evaluate $\iiint_E (x^2 + y^2)\,dV$, where $E$ lies between the cone $z = \sqrt{x^2 + y^2}$ and the plane $z = 2$.'
+  choices: ['$\tfrac{16\pi}{5}$', '$\tfrac{8\pi}{3}$', '$\tfrac{32\pi}{5}$', '$\tfrac{64\pi}{15}$']
+  answer: 0
+  explanation: |-
+    $\int_0^{2\pi}\int_0^2\int_r^2 r^2\cdot r\,dz\,dr\,d\theta = 2\pi\int_0^2(2r^3 - r^4)\,dr = 2\pi\left(8 - \tfrac{32}{5}\right) = \tfrac{16\pi}{5}$.
+    $\tfrac{8\pi}{3}$ comes from dropping the factor $r$ from $dV$; $\tfrac{64\pi}{15}$ uses $r^2$ in place of $r$.
+- id: mv-q-2507
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'A solid cylinder of radius $a$ and height $h$ has density $\rho = kr$ ($r$ = distance from the axis). Its mass is'
+  choices: ['$\pi kha^2$', '$\tfrac{2\pi kha^3}{3}$', '$\tfrac{\pi kha^3}{3}$', '$2\pi kha^2$']
+  answer: 1
+  explanation: |-
+    $\int_0^{2\pi}\int_0^a\int_0^h kr\cdot r\,dz\,dr\,d\theta = 2\pi\cdot kh\cdot\tfrac{a^3}{3}$.
+- id: mv-q-2508
+  lesson: mv-cylindrical
+  module_quiz: true
+  topic: Cylindrical coordinates
+  stem: 'In space, the cylindrical equation $r = 3$ describes'
+  choices: ['a sphere of radius 3', 'a circle of radius 3', 'a circular cylinder of radius 3 around the $z$-axis', 'a cone']
+  answer: 2
+  explanation: |-
+    All points at distance 3 from the $z$-axis, at every height and angle: a cylinder.
+- id: mv-q-2509
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'Evaluate $\iiint_E z\,dV$ for the cylinder $E$: $0 \le r \le 1$, $0 \le z \le 2$.'
+  choices: ['$\pi$', '$4\pi$', '$\tfrac{\pi}{2}$', '$2\pi$']
+  answer: 3
+  explanation: |-
+    $\int_0^{2\pi}\int_0^1\int_0^2 z\,r\,dz\,dr\,d\theta = 2\pi\cdot\tfrac12\cdot2 = 2\pi$.
+- id: mv-q-2510
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'For the solid $x^2 + z^2 \le 4$, $0 \le y \le 3$, which coordinates are most convenient?'
+  choices: ['Polar coordinates in the $xz$-plane, with $y$ as the height', 'Spherical coordinates', 'Standard cylindrical coordinates about the $z$-axis', 'Rectangular coordinates only']
+  answer: 0
+  explanation: |-
+    The solid is a cylinder around the $y$-axis. Use $x = r\cos\theta$, $z = r\sin\theta$ and keep $y$; the volume element is still $r\,dy\,dr\,d\theta$.
+- id: mv-q-2511
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'What is the sphere $x^2 + y^2 + z^2 = 4$ in cylindrical coordinates?'
+  choices: ['$r = 2$', '$r^2 + z^2 = 4$', '$z = 2 - r$', '$r^2 = 4 + z^2$']
+  answer: 1
+  explanation: |-
+    Replace $x^2 + y^2$ by $r^2$: $r^2 + z^2 = 4$.
+
+- id: mv-q-2601
+  lesson: mv-spherical
+  module_quiz: true
+  topic: Spherical coordinates
+  stem: 'In spherical coordinates, the volume element $dV$ equals'
+  choices: ['$\rho\,d\rho\,d\theta\,d\phi$', '$\rho^2\sin\theta\,d\rho\,d\theta\,d\phi$', '$\rho^2\sin\phi\,d\rho\,d\theta\,d\phi$', '$\rho^2\cos\phi\,d\rho\,d\theta\,d\phi$']
+  answer: 2
+  explanation: |-
+    The small box has edges $d\rho$, $\rho\,d\phi$ and $\rho\sin\phi\,d\theta$. The sine is of $\phi$, the angle from the $z$-axis.
+- id: mv-q-2602
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'Convert $\rho = 2$, $\theta = \tfrac\pi4$, $\phi = \tfrac\pi3$ to rectangular coordinates.'
+  choices: ['$\left(1, 1, \sqrt3\right)$', '$\left(\tfrac{\sqrt2}{2}, \tfrac{\sqrt2}{2}, \sqrt3\right)$', '$\left(\sqrt2, \sqrt2, 0\right)$', '$\left(\tfrac{\sqrt6}{2}, \tfrac{\sqrt6}{2}, 1\right)$']
+  answer: 3
+  explanation: |-
+    $x = 2\sin\tfrac\pi3\cos\tfrac\pi4 = 2\cdot\tfrac{\sqrt3}{2}\cdot\tfrac{\sqrt2}{2} = \tfrac{\sqrt6}{2}$, $y$ the same, $z = 2\cos\tfrac\pi3 = 1$.
+- id: mv-q-2603
+  lesson: mv-spherical
+  module_quiz: true
+  topic: Spherical coordinates
+  stem: 'Convert $(0, 2\sqrt3, -2)$ to spherical coordinates $(\rho, \theta, \phi)$.'
+  choices: ['$\left(4, \tfrac\pi2, \tfrac{2\pi}{3}\right)$', '$\left(4, \tfrac\pi2, \tfrac\pi3\right)$', '$\left(16, \tfrac\pi2, \tfrac{2\pi}{3}\right)$', '$\left(4, 0, \tfrac{2\pi}{3}\right)$']
+  answer: 0
+  explanation: |-
+    $\rho = \sqrt{12 + 4} = 4$; $\cos\phi = z/\rho = -\tfrac12$, so $\phi = \tfrac{2\pi}{3}$ (below the $xy$-plane); the shadow lies on the positive $y$-axis, so $\theta = \tfrac\pi2$.
+- id: mv-q-2604
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'The surface $\phi = \tfrac\pi4$ is'
+  choices: ['the plane $z = x$', 'the cone $z = \sqrt{x^2 + y^2}$', 'a sphere of radius $\tfrac\pi4$', 'the half-plane $y = x$']
+  answer: 1
+  explanation: |-
+    Points making a $45^\circ$ angle with the positive $z$-axis satisfy $z = \rho\cos\tfrac\pi4 = \rho\sin\tfrac\pi4 = r$, i.e. $z = \sqrt{x^2 + y^2}$.
+- id: mv-q-2605
+  lesson: mv-spherical
+  module_quiz: true
+  topic: Spherical coordinates
+  stem: 'Find the volume above the cone $z = \sqrt{x^2 + y^2}$ and inside the sphere $x^2 + y^2 + z^2 = 4$.'
+  choices: ['$\tfrac{16\pi}{3}$', '$\tfrac{8\pi\sqrt2}{3}$', '$\tfrac{8\pi}{3}\left(2 - \sqrt2\right)$', '$\tfrac{4\pi}{3}\left(2 - \sqrt2\right)$']
+  answer: 2
+  explanation: |-
+    $\int_0^{\pi/4}\int_0^{2\pi}\int_0^2\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \tfrac83\cdot2\pi\cdot\left(1 - \tfrac{\sqrt2}{2}\right) = \tfrac{8\pi}{3}(2 - \sqrt2) \approx 4.91$.
+- id: mv-q-2606
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'Evaluate $\iiint_B e^{(x^2+y^2+z^2)^{3/2}}\,dV$ over the unit ball.'
+  choices: ['$\tfrac{4\pi e}{3}$', '$4\pi(e - 1)$', '$\tfrac{2\pi}{3}(e - 1)$', '$\tfrac{4\pi}{3}(e - 1)$']
+  answer: 3
+  explanation: |-
+    $\int_0^\pi\int_0^{2\pi}\int_0^1 e^{\rho^3}\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = 2\cdot2\pi\cdot\tfrac{e - 1}{3}$.
+- id: mv-q-2607
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'What is the range of the angle $\phi$ in spherical coordinates?'
+  choices: ['$0 \le \phi \le \pi$', '$0 \le \phi \le 2\pi$', '$0 \le \phi \le \tfrac\pi2$', '$-\tfrac\pi2 \le \phi \le \tfrac\pi2$']
+  answer: 0
+  explanation: |-
+    $\phi$ runs from the north pole ($\phi = 0$) to the south pole ($\phi = \pi$). Going around is the job of $\theta$.
+- id: mv-q-2608
+  lesson: mv-spherical
+  module_quiz: true
+  topic: Spherical coordinates
+  stem: 'Evaluate $\iiint_B(x^2 + y^2 + z^2)\,dV$ over the unit ball.'
+  choices: ['$\tfrac{4\pi}{3}$', '$\tfrac{4\pi}{5}$', '$\tfrac{2\pi}{5}$', '$4\pi$']
+  answer: 1
+  explanation: |-
+    $\int_0^\pi\int_0^{2\pi}\int_0^1\rho^2\cdot\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \tfrac15\cdot2\pi\cdot2 = \tfrac{4\pi}{5}$.
+- id: mv-q-2609
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'What surface is $\rho = 2\cos\phi$?'
+  choices: ['A cone', 'A sphere of radius 2 centered at the origin', 'A sphere of radius 1 centered at $(0, 0, 1)$', 'A paraboloid']
+  answer: 2
+  explanation: |-
+    Multiply by $\rho$: $\rho^2 = 2\rho\cos\phi$, i.e. $x^2 + y^2 + z^2 = 2z$, or $x^2 + y^2 + (z - 1)^2 = 1$.
+- id: mv-q-2610
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'Find the volume of the spherical shell $1 \le \rho \le 2$.'
+  choices: ['$\tfrac{4\pi}{3}$', '$4\pi$', '$\tfrac{32\pi}{3}$', '$\tfrac{28\pi}{3}$']
+  answer: 3
+  explanation: |-
+    $\int_0^\pi\int_0^{2\pi}\int_1^2\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \tfrac{8 - 1}{3}\cdot4\pi = \tfrac{28\pi}{3}$.
+- id: mv-q-2611
+  lesson: mv-spherical
+  topic: Spherical coordinates
+  stem: 'Which coordinate system is best for $\iiint_E\sqrt{x^2 + y^2 + z^2}\,dV$ where $E$ is a ball centered at the origin?'
+  choices: ['Spherical', 'Cylindrical', 'Rectangular', 'Polar in the $xz$-plane']
+  answer: 0
+  explanation: |-
+    Both the region ($\rho \le a$) and the integrand ($\rho$) are simplest in spherical coordinates.
+
+- id: mv-q-2701
+  lesson: mv-jacobian
+  module_quiz: true
+  topic: Jacobians
+  stem: 'What is the Jacobian $\dfrac{\partial(x, y)}{\partial(r, \theta)}$ of the polar transformation?'
+  choices: ['$1$', '$r$', '$r^2$', '$\cos\theta$']
+  answer: 1
+  explanation: |-
+    $\begin{vmatrix}\cos\theta & -r\sin\theta\\ \sin\theta & r\cos\theta\end{vmatrix} = r\cos^2\theta + r\sin^2\theta = r$, the factor in $dA = r\,dr\,d\theta$.
+- id: mv-q-2702
+  lesson: mv-jacobian
+  topic: Jacobians
+  stem: 'Find $\dfrac{\partial(x, y)}{\partial(u, v)}$ for $x = \tfrac{u + v}{2}$, $y = \tfrac{u - v}{2}$.'
+  choices: ['$\tfrac12$', '$-2$', '$-\tfrac12$', '$0$']
+  answer: 2
+  explanation: |-
+    $\begin{vmatrix}\tfrac12 & \tfrac12\\ \tfrac12 & -\tfrac12\end{vmatrix} = -\tfrac14 - \tfrac14 = -\tfrac12$. Its absolute value $\tfrac12$ is the area factor.
+- id: mv-q-2703
+  lesson: mv-jacobian
+  module_quiz: true
+  topic: Change of variables
+  stem: 'Using $u = x + y$, $v = x - y$, evaluate $\iint_R(x + y)(x - y)\,dA$ over the square bounded by $x + y = 0$, $x + y = 2$, $x - y = 0$, $x - y = 4$.'
+  choices: ['$16$', '$4$', '$32$', '$8$']
+  answer: 3
+  explanation: |-
+    $S$: $0 \le u \le 2$, $0 \le v \le 4$, and $|J| = \tfrac12$. $\int_0^2\int_0^4uv\cdot\tfrac12\,dv\,du = \tfrac12\cdot2\cdot8 = 8$. Forgetting $|J|$ gives 16.
+- id: mv-q-2704
+  lesson: mv-jacobian
+  module_quiz: true
+  topic: Change of variables
+  stem: 'Use $x = 3u$, $y = 2v$ to find the area of the ellipse $\dfrac{x^2}{9} + \dfrac{y^2}{4} \le 1$.'
+  choices: ['$6\pi$', '$\pi$', '$5\pi$', '$36\pi$']
+  answer: 0
+  explanation: |-
+    The Jacobian is $3\cdot2 = 6$, and the unit disk has area $\pi$, so the ellipse has area $6\pi$ (in general $\pi ab$).
+- id: mv-q-2705
+  lesson: mv-jacobian
+  topic: Change of variables
+  stem: 'Find the area of the first-quadrant region bounded by $xy = 1$, $xy = 4$, $y = x$ and $y = 3x$.'
+  choices: ['$3\ln3$', '$\tfrac{3\ln3}{2}$', '$\tfrac{3}{2}$', '$6\ln 3$']
+  answer: 1
+  explanation: |-
+    With $u = xy$, $v = y/x$: $\tfrac{\partial(u,v)}{\partial(x,y)} = 2v$, so $|J| = \tfrac{1}{2v}$. Area $= \int_1^4\int_1^3\tfrac{1}{2v}\,dv\,du = 3\cdot\tfrac{\ln3}{2}$.
+    $3\ln3$ uses $\tfrac1v$, forgetting the 2.
+- id: mv-q-2706
+  lesson: mv-jacobian
+  topic: Change of variables
+  stem: 'Why does the change of variables formula use the absolute value of the Jacobian?'
+  choices: ['Because Jacobians are always negative', 'To make the integral easier', 'Because area is positive, while the determinant is negative when the map reverses orientation', 'Because $du\,dv$ can be negative']
+  answer: 2
+  explanation: |-
+    The determinant gives a signed area; a negative sign only says the map flips orientation (like a reflection). The area scaling factor is its absolute value.
+- id: mv-q-2707
+  lesson: mv-jacobian
+  topic: Jacobians
+  stem: 'If $\dfrac{\partial(u, v)}{\partial(x, y)} = 4$ everywhere, what is $\dfrac{\partial(x, y)}{\partial(u, v)}$?'
+  choices: ['$4$', '$-4$', '$16$', '$\tfrac14$']
+  answer: 3
+  explanation: |-
+    The Jacobians of inverse transformations are reciprocals: $\tfrac{\partial(x,y)}{\partial(u,v)} = 1\big/\tfrac{\partial(u,v)}{\partial(x,y)} = \tfrac14$.
+- id: mv-q-2708
+  lesson: mv-jacobian
+  module_quiz: true
+  topic: Jacobians
+  stem: 'For $x = 2u + v$, $y = u - 3v$, what is the area scaling factor $\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right|$?'
+  choices: ['$7$', '$5$', '$-7$', '$6$']
+  answer: 0
+  explanation: |-
+    $\begin{vmatrix} 2 & 1\\ 1 & -3\end{vmatrix} = -6 - 1 = -7$, so the factor is $7$. (A Jacobian can be $-7$; the area factor cannot.)
+- id: mv-q-2709
+  lesson: mv-jacobian
+  topic: Jacobians
+  stem: 'The absolute value of the Jacobian of spherical coordinates is'
+  choices: ['$\rho\sin\phi$', '$\rho^2\sin\phi$', '$\rho^2\cos\phi$', '$\rho^2$']
+  answer: 1
+  explanation: |-
+    The $3\times3$ determinant of the partials of $(x, y, z)$ with respect to $(\rho, \theta, \phi)$ equals $-\rho^2\sin\phi$, so the volume factor is $\rho^2\sin\phi$.
+- id: mv-q-2710
+  lesson: mv-jacobian
+  topic: Change of variables
+  stem: 'The region $R$ is bounded by $x - 2y = 0$, $x - 2y = 4$, $3x + y = 1$ and $3x + y = 8$. Using $u = x - 2y$, $v = 3x + y$, find the area of $R$.'
+  choices: ['$28$', '$7$', '$4$', '$\tfrac{4}{7}$']
+  answer: 2
+  explanation: |-
+    $\tfrac{\partial(u,v)}{\partial(x,y)} = \begin{vmatrix} 1 & -2\\ 3 & 1\end{vmatrix} = 7$, so $|J| = \tfrac17$. The $uv$-rectangle is $4\times7$, so the area is $28\cdot\tfrac17 = 4$.
+    $28$ forgets the Jacobian; using 7 instead of $\tfrac17$ would give 196.
+- id: mv-q-2711
+  lesson: mv-jacobian
+  topic: Change of variables
+  stem: 'When choosing new variables $u$ and $v$ for a region, a good strategy is to'
+  choices: ['always use polar coordinates', 'pick $u$ and $v$ so that the integrand becomes 1', 'make the Jacobian equal to zero', 'take $u$ and $v$ from the families of boundary curves, so the new region is a rectangle']
+  answer: 3
+  explanation: |-
+    If the boundary consists of curves $u = \text{const}$ and $v = \text{const}$, the new region has constant limits. A zero Jacobian would make the transformation useless (not one-to-one).

@@ -1,0 +1,457 @@
+# Module 3: vector equations and linear independence
+
+# --- Lesson 08: linear combinations and span ---
+- id: la-q-0801
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Vectors in Rn
+  stem: 'Let $\mathbf{u} = \begin{bmatrix} 1 \\ 0 \\ -2\end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} 2 \\ -1 \\ 1\end{bmatrix}$. Find $3\mathbf{u} - 2\mathbf{v}$.'
+  choices: ['$\begin{bmatrix} 7 \\ -2 \\ -4\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 2 \\ -4\end{bmatrix}$', '$\begin{bmatrix} -1 \\ -2 \\ -8\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 2 \\ -8\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $3\mathbf{u} = (3, 0, -6)$ and $2\mathbf{v} = (4, -2, 2)$, so $3\mathbf{u} - 2\mathbf{v} = (3 - 4,\ 0 + 2,\ -6 - 2) = (-1, 2, -8)$.
+    $(7, -2, -4)$ is $3\mathbf{u} + 2\mathbf{v}$; $(-1, -2, -8)$ misses that subtracting $-2$ adds 2.
+
+- id: la-q-0802
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Linear combinations
+  stem: 'To decide whether $\mathbf{b}$ is a linear combination of $\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3$, which matrix do you row-reduce?'
+  choices: ['The matrix with rows $\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3, \mathbf{b}$', '$[\,\mathbf{b} \;\; \mathbf{a}_1 \;\; \mathbf{a}_2\,]$', '$[\,\mathbf{a}_1 \;\; \mathbf{a}_2 \;\; \mathbf{a}_3 \;\; \mathbf{b}\,]$ with the vectors as columns', '$[\,\mathbf{a}_1 \;\; \mathbf{a}_2 \;\; \mathbf{a}_3\,]$ only']
+  answer: 2
+  explanation: |-
+    The vector equation $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + x_3\mathbf{a}_3 = \mathbf{b}$ has the augmented matrix $[\,\mathbf{a}_1 \;\; \mathbf{a}_2 \;\; \mathbf{a}_3 \;\; \mathbf{b}\,]$; $\mathbf{b}$ is a combination exactly when it is consistent.
+
+- id: la-q-0803
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Linear combinations
+  stem: 'Find weights with $x_1\begin{bmatrix} 1 \\ 1 \\ 2\end{bmatrix} + x_2\begin{bmatrix} 2 \\ -1 \\ 1\end{bmatrix} = \begin{bmatrix} 5 \\ 2 \\ 7\end{bmatrix}$.'
+  choices: ['$x_1 = 3,\ x_2 = 1$', '$x_1 = 1,\ x_2 = 3$', '$x_1 = 3,\ x_2 = -1$', 'No weights exist']
+  answer: 0
+  explanation: |-
+    First two entries: $x_1 + 2x_2 = 5$ and $x_1 - x_2 = 2$. Subtracting, $3x_2 = 3$, so $x_2 = 1$ and $x_1 = 3$. The third entry checks: $2(3) + 1 = 7$. ✓
+
+- id: la-q-0804
+  lesson: la-lin-comb
+  topic: Span
+  stem: 'Which vector is in $\operatorname{Span}\left\{\begin{bmatrix} 1 \\ 2\end{bmatrix}\right\}$?'
+  choices: ['$\begin{bmatrix} 2 \\ 1\end{bmatrix}$', '$\begin{bmatrix} 0 \\ 1\end{bmatrix}$', '$\begin{bmatrix} 3 \\ 5\end{bmatrix}$', '$\begin{bmatrix} -3 \\ -6\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    The span of one vector is the set of its multiples, and $(-3, -6) = -3(1, 2)$. The other vectors are not multiples of $(1, 2)$.
+
+- id: la-q-0805
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Span
+  stem: '$\mathbf{u}$ and $\mathbf{v}$ are nonzero vectors in $\mathbb{R}^3$, and neither is a multiple of the other. What is $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$?'
+  choices: ['A line through the origin', 'A plane through the origin', 'All of $\mathbb{R}^3$', 'The two points $\mathbf{u}$ and $\mathbf{v}$']
+  answer: 1
+  explanation: |-
+    All combinations $s\mathbf{u} + t\mathbf{v}$ fill the plane through $\mathbf{0}$ containing both arrows. Two vectors can't span all of $\mathbb{R}^3$ (a $3 \times 2$ matrix has at most 2 pivots).
+
+- id: la-q-0806
+  lesson: la-lin-comb
+  topic: Span
+  stem: 'If $\mathbf{u} \ne \mathbf{0}$ in $\mathbb{R}^3$, what is $\operatorname{Span}\{\mathbf{u}, 2\mathbf{u}\}$?'
+  choices: ['A line through the origin', 'A plane through the origin', 'All of $\mathbb{R}^3$', 'Just $\{\mathbf{0}\}$']
+  answer: 0
+  explanation: |-
+    $s\mathbf{u} + t(2\mathbf{u}) = (s + 2t)\mathbf{u}$ is always a multiple of $\mathbf{u}$, so the second vector adds nothing: the span is the line through $\mathbf{0}$ in the direction of $\mathbf{u}$.
+
+- id: la-q-0807
+  lesson: la-lin-comb
+  topic: Span
+  stem: 'Which vector lies in $\operatorname{Span}\{\mathbf{e}_1, \mathbf{e}_2\}$ in $\mathbb{R}^3$, where $\mathbf{e}_1 = (1, 0, 0)$ and $\mathbf{e}_2 = (0, 1, 0)$?'
+  choices: ['$(0, 0, 1)$', '$(1, 1, 1)$', '$(2, -3, 0)$', '$(2, -3, 1)$']
+  answer: 2
+  explanation: |-
+    Combinations $c_1\mathbf{e}_1 + c_2\mathbf{e}_2 = (c_1, c_2, 0)$ are exactly the vectors with third entry 0 (the $xy$-plane). $(2, -3, 0) = 2\mathbf{e}_1 - 3\mathbf{e}_2$.
+
+- id: la-q-0808
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Span
+  stem: 'For what value of $h$ is $\begin{bmatrix} h \\ 1 \\ 4\end{bmatrix}$ in $\operatorname{Span}\left\{\begin{bmatrix} 1 \\ 0 \\ 1\end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 2\end{bmatrix}\right\}$?'
+  choices: ['$h = 4$', '$h = 3$', '$h = 2$', 'Every $h$']
+  answer: 2
+  explanation: |-
+    $x_1(1, 0, 1) + x_2(0, 1, 2) = (x_1, x_2, x_1 + 2x_2)$. Matching the first two entries forces $x_1 = h$ and $x_2 = 1$; then the third entry is $h + 2$, which must equal 4. So $h = 2$.
+
+- id: la-q-0809
+  lesson: la-lin-comb
+  topic: Span
+  stem: 'Why can two vectors never span all of $\mathbb{R}^3$?'
+  choices: ['Because two vectors are always parallel', 'Because $\mathbb{R}^3$ has infinitely many vectors', 'Because the span of two vectors never contains $\mathbf{0}$', 'Because $[\,\mathbf{a}_1 \;\; \mathbf{a}_2\,]$ is $3 \times 2$, so it has at most 2 pivots and some row of its echelon form is zero']
+  answer: 3
+  explanation: |-
+    With a zero row in the echelon form of the coefficient matrix, you can choose $\mathbf{b}$ so that $[\,\mathbf{a}_1 \;\; \mathbf{a}_2 \;\; \mathbf{b}\,]$ gets a pivot in its last column; that $\mathbf{b}$ isn't in the span.
+
+- id: la-q-0810
+  lesson: la-lin-comb
+  topic: Linear combinations
+  stem: 'Which vector equation is equivalent to the system $2x_1 + x_2 = 5$, $-x_1 + 3x_2 = 1$?'
+  choices: ['$x_1\begin{bmatrix} 2 \\ 1\end{bmatrix} + x_2\begin{bmatrix} -1 \\ 3\end{bmatrix} = \begin{bmatrix} 5 \\ 1\end{bmatrix}$', '$x_1\begin{bmatrix} 2 \\ -1\end{bmatrix} + x_2\begin{bmatrix} 1 \\ 3\end{bmatrix} = \begin{bmatrix} 5 \\ 1\end{bmatrix}$', '$x_1\begin{bmatrix} 2 \\ 5\end{bmatrix} + x_2\begin{bmatrix} -1 \\ 1\end{bmatrix} = \begin{bmatrix} 1 \\ 3\end{bmatrix}$', '$\begin{bmatrix} 2 \\ -1\end{bmatrix} + \begin{bmatrix} 1 \\ 3\end{bmatrix} = \begin{bmatrix} 5 \\ 1\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Each variable's coefficients, read down the equations, form its column: $x_1$ has $(2, -1)$ and $x_2$ has $(1, 3)$. The first choice uses the rows as columns.
+
+- id: la-q-0811
+  lesson: la-lin-comb
+  topic: Span
+  stem: 'Which statement about $\operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ is always true?'
+  choices: ['It contains only $\mathbf{v}_1$ and $\mathbf{v}_2$', 'It is a plane', 'It contains $\mathbf{0}$, $\mathbf{v}_1 + \mathbf{v}_2$ and $5\mathbf{v}_1$', 'It contains every vector of the same length as $\mathbf{v}_1$']
+  answer: 2
+  explanation: |-
+    The span is every combination $c_1\mathbf{v}_1 + c_2\mathbf{v}_2$: weights $(0, 0)$, $(1, 1)$ and $(5, 0)$ give the three listed vectors. It's a plane only if the vectors aren't parallel.
+
+- id: la-q-0812
+  lesson: la-lin-comb
+  topic: Vectors in Rn
+  stem: 'How many entries does a vector in $\mathbb{R}^5$ have?'
+  choices: ['5', '2', '25', 'It depends on the vector']
+  answer: 0
+  explanation: |-
+    $\mathbb{R}^n$ is the set of all column vectors with $n$ real entries, so vectors in $\mathbb{R}^5$ have 5 entries.
+
+# --- Lesson 09: the matrix equation Ax = b ---
+- id: la-q-0901
+  lesson: la-matrix-eq
+  module_quiz: true
+  topic: Matrix equation
+  stem: 'Compute $\begin{bmatrix} 1 & -2 & 0 \\ 3 & 1 & 4\end{bmatrix}\begin{bmatrix} 2 \\ 1 \\ -1\end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 0 \\ 3\end{bmatrix}$', '$\begin{bmatrix} 0 \\ 11\end{bmatrix}$', '$\begin{bmatrix} 4 \\ 3\end{bmatrix}$', '$\begin{bmatrix} 2 \\ -2 \\ 0\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    Row 1: $2 - 2 + 0 = 0$. Row 2: $6 + 1 - 4 = 3$. The result has 2 entries because $A$ has 2 rows.
+    11 comes from $+4$ instead of $4(-1) = -4$.
+
+- id: la-q-0902
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: '$A$ is a $4 \times 3$ matrix. For $A\mathbf{x}$ to be defined, $\mathbf{x}$ must be in ___, and $A\mathbf{x}$ is in ___.'
+  choices: ['$\mathbb{R}^4$; $\mathbb{R}^3$', '$\mathbb{R}^3$; $\mathbb{R}^4$', '$\mathbb{R}^3$; $\mathbb{R}^3$', '$\mathbb{R}^{12}$; $\mathbb{R}^4$']
+  answer: 1
+  explanation: |-
+    $\mathbf{x}$ supplies one weight per column (3 columns), and the combination of columns lives where the columns live, $\mathbb{R}^4$.
+
+- id: la-q-0903
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'Which expression equals $\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6\end{bmatrix}\begin{bmatrix} -1 \\ 2\end{bmatrix}$?'
+  choices: ['$-1\begin{bmatrix} 1 \\ 2\end{bmatrix} + 2\begin{bmatrix} 3 \\ 4\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 6 \\ 5\end{bmatrix}$', '$-1\begin{bmatrix} 1 \\ 3 \\ 5\end{bmatrix} + 2\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix}$', '$-1\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix} + 2\begin{bmatrix} 1 \\ 3 \\ 5\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $A\mathbf{x}$ is the combination of the *columns* of $A$ with weights $x_1 = -1$ and $x_2 = 2$: $(-1 + 4,\ -3 + 8,\ -5 + 12) = (3, 5, 7)$.
+
+- id: la-q-0904
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'Write $3x_1 - x_2 = 4$, $x_1 + 5x_3 = 2$ as $A\mathbf{x} = \mathbf{b}$. What is $A$?'
+  choices: ['$\begin{bmatrix} 3 & -1 \\ 1 & 5\end{bmatrix}$', '$\begin{bmatrix} 3 & -1 & 4 \\ 1 & 5 & 2\end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ -1 & 0 \\ 0 & 5\end{bmatrix}$', '$\begin{bmatrix} 3 & -1 & 0 \\ 1 & 0 & 5\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    One row per equation and one column per variable $x_1, x_2, x_3$; a missing variable gets a 0. The right sides form $\mathbf{b} = (4, 2)$, not part of $A$.
+
+- id: la-q-0905
+  lesson: la-matrix-eq
+  module_quiz: true
+  topic: Matrix equation
+  stem: 'A $3 \times 4$ matrix $A$ has a pivot position in every row. What follows?'
+  choices: ['$A\mathbf{x} = \mathbf{b}$ has a solution for every $\mathbf{b}$ in $\mathbb{R}^3$', '$A\mathbf{x} = \mathbf{b}$ has a unique solution for every $\mathbf{b}$', 'The columns of $A$ span $\mathbb{R}^4$', '$A\mathbf{x} = \mathbf{0}$ has only the trivial solution']
+  answer: 0
+  explanation: |-
+    A pivot in every row means the columns span $\mathbb{R}^3$, so every $\mathbf{b}$ is reachable. With 4 columns and only 3 pivots there is a free variable, so solutions are not unique.
+
+- id: la-q-0906
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'Can the columns of a $4 \times 3$ matrix span $\mathbb{R}^4$?'
+  choices: ['Yes, if the columns are all nonzero', 'Yes, if the matrix has a pivot in every column', 'No, because it has at most 3 pivots and so can''t have a pivot in each of its 4 rows', 'Only if the matrix is in reduced echelon form']
+  answer: 2
+  explanation: |-
+    Spanning $\mathbb{R}^4$ requires a pivot in every one of the 4 rows, but there are only 3 columns, so at most 3 pivots.
+
+- id: la-q-0907
+  lesson: la-matrix-eq
+  module_quiz: true
+  topic: Matrix equation
+  stem: 'For $A = \begin{bmatrix} 1 & 2 & -1 \\ 2 & 5 & 1 \\ 3 & 7 & 0\end{bmatrix}$, $A\mathbf{x} = \mathbf{b}$ is consistent exactly when $b_3 = b_1 + b_2$. Which $\mathbf{b}$ gives a consistent system?'
+  choices: ['$(1, 1, 1)$', '$(2, -1, 3)$', '$(0, 1, -1)$', '$(2, -1, 1)$']
+  answer: 3
+  explanation: |-
+    $2 + (-1) = 1$, which matches $b_3 = 1$. For the others, $b_1 + b_2$ is $2$, $1$ and $1$, which don't match the third entries.
+
+- id: la-q-0908
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'Suppose $A\mathbf{u} = \begin{bmatrix} 1 \\ 2\end{bmatrix}$ and $A\mathbf{v} = \begin{bmatrix} 3 \\ -1\end{bmatrix}$. What is $A(2\mathbf{u} - \mathbf{v})$?'
+  choices: ['$\begin{bmatrix} 5 \\ 3\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 5\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 3\end{bmatrix}$', 'It can''t be found without $A$']
+  answer: 1
+  explanation: |-
+    By linearity, $A(2\mathbf{u} - \mathbf{v}) = 2A\mathbf{u} - A\mathbf{v} = (2 - 3,\ 4 + 1) = (-1, 5)$.
+
+- id: la-q-0909
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'A student says: "The augmented matrix $[\,A \;\; \mathbf{b}\,]$ has a pivot in every row, so $A\mathbf{x} = \mathbf{b}$ is consistent." Why is this reasoning flawed?'
+  choices: ['Pivots only matter in the reduced echelon form', 'The reasoning is correct', 'A pivot in every row means there are no solutions', 'One of those pivots might be in the last column, which means the system is inconsistent']
+  answer: 3
+  explanation: |-
+    The spanning theorem is about the coefficient matrix $A$. A pivot in the last column of $[\,A \;\; \mathbf{b}\,]$ is the contradiction $0 = d$; for example $\left[\begin{array}{c|c} 0 & 1\end{array}\right]$ has a pivot in its only row and is inconsistent.
+
+- id: la-q-0910
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'Which matrix has columns that span $\mathbb{R}^2$?'
+  choices: ['$\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6\end{bmatrix}$', '$\begin{bmatrix} 1 & 3 \\ 2 & 5\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 2 \\ 0 & 0 & 0\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $R_2 - 2R_1$ gives $[\,0 \;\; {-1}\,]$, so there's a pivot in both rows. In the others every column is a multiple of one vector (or the second row is zero), leaving a row without a pivot.
+
+- id: la-q-0911
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: 'Which $\mathbf{x}$ solves $\begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}\mathbf{x} = \begin{bmatrix} 5 \\ 11\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} 2 \\ 1\end{bmatrix}$', '$\begin{bmatrix} 5 \\ 0\end{bmatrix}$', '$\begin{bmatrix} -1 \\ 3\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 2\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $1\begin{bmatrix} 1 \\ 3\end{bmatrix} + 2\begin{bmatrix} 2 \\ 4\end{bmatrix} = \begin{bmatrix} 5 \\ 11\end{bmatrix}$. ✓ $(2, 1)$ gives $(4, 10)$.
+
+- id: la-q-0912
+  lesson: la-matrix-eq
+  module_quiz: true
+  topic: Matrix equation
+  stem: 'Which statement is equivalent to "$A\mathbf{x} = \mathbf{b}$ has a solution"?'
+  choices: ['$\mathbf{b}$ is a linear combination of the columns of $A$', '$\mathbf{b}$ is a linear combination of the rows of $A$', '$A$ is square', '$A$ has a pivot in every column']
+  answer: 0
+  explanation: |-
+    $A\mathbf{x} = x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n$, so a solution is exactly a set of weights that builds $\mathbf{b}$ from the columns.
+
+# --- Lesson 10: solution sets ---
+- id: la-q-1001
+  lesson: la-solution-sets
+  topic: Homogeneous systems
+  stem: 'Which statement about a homogeneous system $A\mathbf{x} = \mathbf{0}$ is always true?'
+  choices: ['It has infinitely many solutions', 'It has only the trivial solution', 'It is consistent', 'It has a free variable']
+  answer: 2
+  explanation: |-
+    $\mathbf{x} = \mathbf{0}$ is always a solution, so the system is always consistent. Whether there are more solutions depends on free variables.
+
+- id: la-q-1002
+  lesson: la-solution-sets
+  module_quiz: true
+  topic: Homogeneous systems
+  stem: '$A$ is a $3 \times 5$ matrix. What can you say about $A\mathbf{x} = \mathbf{0}$?'
+  choices: ['It has only the trivial solution', 'It always has a nontrivial solution', 'It may be inconsistent', 'It has exactly two free variables']
+  answer: 1
+  explanation: |-
+    At most 3 pivots among 5 columns leaves at least 2 free variables, and a consistent system with free variables has nonzero solutions. It could have more than 2 free variables if $A$ has fewer than 3 pivots.
+
+- id: la-q-1003
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  stem: 'The solutions of $A\mathbf{x} = \mathbf{0}$ satisfy $x_1 = 3x_3$, $x_2 = -x_3$, $x_3$ free. What is the parametric vector form?'
+  choices: ['$\mathbf{x} = x_3\begin{bmatrix} 3 \\ -1 \\ 1\end{bmatrix}$', '$\mathbf{x} = x_3\begin{bmatrix} 3 \\ -1 \\ 0\end{bmatrix}$', '$\mathbf{x} = \begin{bmatrix} 3 \\ -1 \\ 1\end{bmatrix}$', '$\mathbf{x} = x_3\begin{bmatrix} -3 \\ 1 \\ 1\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $\mathbf{x} = (3x_3, -x_3, x_3) = x_3(3, -1, 1)$. The free variable's own entry is $x_3 = 1 \cdot x_3$, so the vector ends in 1, not 0.
+
+- id: la-q-1004
+  lesson: la-solution-sets
+  module_quiz: true
+  topic: Parametric vector form
+  stem: 'Describe all solutions of $x_1 + 3x_2 - 2x_3 = 0$ in parametric vector form.'
+  choices: ['$x_2\begin{bmatrix} 3 \\ 1 \\ 0\end{bmatrix} + x_3\begin{bmatrix} -2 \\ 0 \\ 1\end{bmatrix}$', '$x_2\begin{bmatrix} -3 \\ 1 \\ 0\end{bmatrix} + x_3\begin{bmatrix} 2 \\ 0 \\ 1\end{bmatrix}$', '$x_1\begin{bmatrix} 1 \\ 3 \\ -2\end{bmatrix}$', '$x_2\begin{bmatrix} -3 \\ 0 \\ 1\end{bmatrix} + x_3\begin{bmatrix} 2 \\ 1 \\ 0\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $x_1 = -3x_2 + 2x_3$ with $x_2, x_3$ free, so $\mathbf{x} = (-3x_2 + 2x_3,\ x_2,\ x_3) = x_2(-3, 1, 0) + x_3(2, 0, 1)$.
+    The first choice forgets to change signs when solving for $x_1$; the last puts the 1s in the wrong slots.
+
+- id: la-q-1005
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  stem: 'The augmented matrix of $A\mathbf{x} = \mathbf{b}$ reduces to $\left[\begin{array}{ccc|c} 1 & 0 & -2 & 4 \\ 0 & 1 & 1 & -3\end{array}\right]$. Which is the solution set in parametric vector form?'
+  choices: ['$\begin{bmatrix} 4 \\ -3 \\ 0\end{bmatrix} + x_3\begin{bmatrix} -2 \\ 1 \\ 1\end{bmatrix}$', '$\begin{bmatrix} 4 \\ -3 \\ 1\end{bmatrix} + x_3\begin{bmatrix} 2 \\ -1 \\ 0\end{bmatrix}$', '$\begin{bmatrix} 4 \\ -3 \\ 0\end{bmatrix} + x_3\begin{bmatrix} 2 \\ -1 \\ 1\end{bmatrix}$', '$x_3\begin{bmatrix} 2 \\ -1 \\ 1\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $x_1 = 4 + 2x_3$, $x_2 = -3 - x_3$, $x_3$ free, so $\mathbf{x} = (4, -3, 0) + x_3(2, -1, 1)$. The last choice is the homogeneous solution set only.
+
+- id: la-q-1006
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  stem: '$\mathbf{p}$ solves $A\mathbf{x} = \mathbf{b}$ and $\mathbf{v}$ solves $A\mathbf{x} = \mathbf{0}$. Which vector must also solve $A\mathbf{x} = \mathbf{b}$?'
+  choices: ['$2\mathbf{p}$', '$\mathbf{p} + \mathbf{b}$', '$\mathbf{v}$', '$\mathbf{p} + 3\mathbf{v}$']
+  answer: 3
+  explanation: |-
+    $A(\mathbf{p} + 3\mathbf{v}) = A\mathbf{p} + 3A\mathbf{v} = \mathbf{b} + \mathbf{0} = \mathbf{b}$. But $A(2\mathbf{p}) = 2\mathbf{b} \ne \mathbf{b}$ unless $\mathbf{b} = \mathbf{0}$.
+
+- id: la-q-1007
+  lesson: la-solution-sets
+  module_quiz: true
+  topic: Homogeneous systems
+  stem: '$A\mathbf{x} = \mathbf{0}$ has exactly one free variable, and $A\mathbf{x} = \mathbf{b}$ is consistent. What does the solution set of $A\mathbf{x} = \mathbf{b}$ look like?'
+  choices: ['A line through the origin', 'A single point', 'A line parallel to the solution line of $A\mathbf{x} = \mathbf{0}$, passing through a particular solution', 'A plane through the origin']
+  answer: 2
+  explanation: |-
+    The solutions are $\mathbf{p} + t\mathbf{v}$: the homogeneous line $t\mathbf{v}$ shifted by a particular solution $\mathbf{p}$. It passes through the origin only if $\mathbf{b} = \mathbf{0}$.
+
+- id: la-q-1008
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  stem: 'The solutions of $A\mathbf{x} = \mathbf{b}$ are $\mathbf{p} + t\mathbf{v}$ for all $t$. Which of these is also a solution?'
+  choices: ['$\mathbf{p} - 2\mathbf{v}$', '$2\mathbf{p}$', '$\mathbf{v}$', '$\mathbf{0}$']
+  answer: 0
+  explanation: |-
+    $t = -2$ gives $\mathbf{p} - 2\mathbf{v}$. The others aren't of the form $\mathbf{p} + t\mathbf{v}$ in general.
+
+- id: la-q-1009
+  lesson: la-solution-sets
+  topic: Homogeneous systems
+  stem: 'A $3 \times 3$ matrix $A$ has 3 pivot positions. How many solutions does $A\mathbf{x} = \mathbf{0}$ have?'
+  choices: ['None', 'Infinitely many', 'Three', 'Only the trivial solution']
+  answer: 3
+  explanation: |-
+    Three pivots in three columns means no free variables, so the only solution of the (always consistent) homogeneous system is $\mathbf{x} = \mathbf{0}$.
+
+- id: la-q-1010
+  lesson: la-solution-sets
+  topic: Homogeneous systems
+  stem: 'Which is a nontrivial solution of $\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}\mathbf{x} = \mathbf{0}$?'
+  choices: ['$\begin{bmatrix} 2 \\ -1\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 2\end{bmatrix}$', '$\begin{bmatrix} 0 \\ 0\end{bmatrix}$', '$\begin{bmatrix} 2 \\ 1\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $1(2) + 2(-1) = 0$ and $2(2) + 4(-1) = 0$. ✓ The zero vector is a solution but trivial; $(1, 2)$ gives $(5, 10)$.
+
+- id: la-q-1011
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  stem: 'If $\mathbf{b} \ne \mathbf{0}$ and $A\mathbf{x} = \mathbf{b}$ is consistent, why is its solution set never a span?'
+  choices: ['Because it has only one element', 'Because a span always contains $\mathbf{0}$, but $A\mathbf{0} = \mathbf{0} \ne \mathbf{b}$', 'Because spans are always planes', 'Because $A$ is not square']
+  answer: 1
+  explanation: |-
+    $\mathbf{0}$ is in every span, but $\mathbf{0}$ doesn't solve $A\mathbf{x} = \mathbf{b}$ when $\mathbf{b} \ne \mathbf{0}$. The solution set is a span *translated* by a particular solution.
+
+- id: la-q-1012
+  lesson: la-solution-sets
+  topic: Homogeneous systems
+  stem: 'The solution set of $A\mathbf{x} = \mathbf{0}$ for a matrix with 4 columns has two free variables. Geometrically, what is it?'
+  choices: ['A line through the origin in $\mathbb{R}^4$', 'All of $\mathbb{R}^4$', 'A plane in $\mathbb{R}^2$', 'A plane through the origin in $\mathbb{R}^4$']
+  answer: 3
+  explanation: |-
+    It's $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ for two vectors in $\mathbb{R}^4$ (one per free variable), and these are never multiples of each other, so the set is a plane through the origin inside $\mathbb{R}^4$.
+
+# --- Lesson 11: linear independence ---
+- id: la-q-1101
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'Are $\begin{bmatrix} 1 \\ 2\end{bmatrix}$ and $\begin{bmatrix} 3 \\ 6\end{bmatrix}$ linearly independent?'
+  choices: ['Yes, because they are different vectors', 'Yes, because neither is zero', 'No, because the second is 3 times the first', 'No, because they are in $\mathbb{R}^2$']
+  answer: 2
+  explanation: |-
+    $3\mathbf{v}_1 - \mathbf{v}_2 = \mathbf{0}$ is a nontrivial dependence relation. Two vectors are dependent exactly when one is a multiple of the other.
+
+- id: la-q-1102
+  lesson: la-independence
+  module_quiz: true
+  topic: Linear independence
+  stem: 'Which set is linearly independent?'
+  choices: ['$\{(1, 2, 3),\ (0, 0, 0)\}$', '$\{(1, 2),\ (2, 1),\ (1, 1)\}$', '$\{(2, 4, 6),\ (1, 2, 3)\}$', '$\{(1, 0, 1),\ (0, 1, 1)\}$']
+  answer: 3
+  explanation: |-
+    Neither of $(1, 0, 1)$ and $(0, 1, 1)$ is a multiple of the other, so the pair is independent.
+    A set with $\mathbf{0}$ is dependent; three vectors in $\mathbb{R}^2$ are dependent; $(2, 4, 6) = 2(1, 2, 3)$.
+
+- id: la-q-1103
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'Four vectors in $\mathbb{R}^3$ are:'
+  choices: ['always linearly independent', 'always linearly dependent', 'independent if none of them is zero', 'independent if no two are parallel']
+  answer: 1
+  explanation: |-
+    The $3 \times 4$ matrix with these columns has at most 3 pivots, so some column has no pivot and $A\mathbf{x} = \mathbf{0}$ has a nontrivial solution.
+
+- id: la-q-1104
+  lesson: la-independence
+  module_quiz: true
+  topic: Linear independence
+  stem: 'The columns of a matrix $A$ are linearly independent exactly when:'
+  choices: ['$A$ has a pivot in every row', '$A$ has no zero entries', '$A\mathbf{x} = \mathbf{b}$ is consistent for every $\mathbf{b}$', '$A$ has a pivot in every column']
+  answer: 3
+  explanation: |-
+    Independent columns means $A\mathbf{x} = \mathbf{0}$ has only the trivial solution, i.e. no free variables, i.e. every column is a pivot column. A pivot in every row is the spanning condition.
+
+- id: la-q-1105
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'For which $h$ are $\begin{bmatrix} 1 \\ h\end{bmatrix}$ and $\begin{bmatrix} 3 \\ 6\end{bmatrix}$ linearly dependent?'
+  choices: ['$h = 2$', '$h = 3$', '$h = 6$', '$h = 18$']
+  answer: 0
+  explanation: |-
+    They're dependent when $(3, 6)$ is a multiple of $(1, h)$: the multiple must be 3, so $3h = 6$ and $h = 2$.
+
+- id: la-q-1106
+  lesson: la-independence
+  module_quiz: true
+  topic: Linear independence
+  stem: '$A = [\,\mathbf{v}_1 \;\; \mathbf{v}_2 \;\; \mathbf{v}_3\,]$ has reduced echelon form $\begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & 0 & 0\end{bmatrix}$. Which is a linear dependence relation?'
+  choices: ['$3\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}$', '$\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}$', '$-3\mathbf{v}_1 + 2\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}$', '$3\mathbf{v}_1 + 2\mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$']
+  answer: 2
+  explanation: |-
+    From the RREF, $x_1 = -3x_3$ and $x_2 = 2x_3$. With $x_3 = 1$: $-3\mathbf{v}_1 + 2\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}$, i.e. $\mathbf{v}_3 = 3\mathbf{v}_1 - 2\mathbf{v}_2$ (row reduction preserves relations among columns).
+
+- id: la-q-1107
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'If $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is linearly dependent, which must be true?'
+  choices: ['Every vector is a linear combination of the other two', 'At least one of the vectors is a linear combination of the others', 'One of the vectors is $\mathbf{0}$', 'Two of the vectors are equal']
+  answer: 1
+  explanation: |-
+    A dependence relation with some $c_j \ne 0$ can be solved for $\mathbf{v}_j$. It need not work for every vector: in $\{(1, 0), (2, 0), (0, 1)\}$, $(0, 1)$ is not a combination of the others.
+
+- id: la-q-1108
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'Why is any set containing the zero vector linearly dependent?'
+  choices: ['Because $\mathbf{0}$ has no direction', 'Because the matrix would have a zero row', 'Because the span would be empty', 'Because $1 \cdot \mathbf{0} + 0\mathbf{v}_2 + \cdots + 0\mathbf{v}_p = \mathbf{0}$ is a relation with a nonzero weight']
+  answer: 3
+  explanation: |-
+    Putting weight 1 on $\mathbf{0}$ and 0 on everything else gives a dependence relation whose weights are not all zero.
+
+- id: la-q-1109
+  lesson: la-independence
+  module_quiz: true
+  topic: Linear independence
+  stem: 'A $5 \times 3$ matrix $A$ has 3 pivot positions. Which is true?'
+  choices: ['The columns of $A$ span $\mathbb{R}^5$', '$A\mathbf{x} = \mathbf{0}$ has a free variable', 'The columns of $A$ are linearly independent', '$A\mathbf{x} = \mathbf{b}$ is consistent for every $\mathbf{b}$']
+  answer: 2
+  explanation: |-
+    Three pivots in three columns: every column is a pivot column, so the columns are independent. With only 3 pivots among 5 rows, they can't span $\mathbb{R}^5$.
+
+- id: la-q-1110
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'For which $h$ are $(1, -1, 2)$, $(2, 1, 0)$ and $(0, 3, h)$ linearly dependent?'
+  choices: ['$h = 4$', '$h = -4$', '$h = 0$', '$h = 3$']
+  answer: 1
+  explanation: |-
+    Row-reduce $\begin{bmatrix} 1 & 2 & 0 \\ -1 & 1 & 3 \\ 2 & 0 & h\end{bmatrix}$: $R_2 + R_1 = [\,0 \;\; 3 \;\; 3\,]$, $R_3 - 2R_1 = [\,0 \;\; {-4} \;\; h\,]$, then $R_3 + \tfrac43R_2 = [\,0 \;\; 0 \;\; h + 4\,]$. Column 3 lacks a pivot exactly when $h = -4$.
+
+- id: la-q-1111
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'In $\mathbb{R}^3$, $\mathbf{v}_3 = \mathbf{v}_1 + \mathbf{v}_2$. What can you conclude about $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$?'
+  choices: ['It is linearly dependent', 'It is linearly independent', 'It spans $\mathbb{R}^3$', 'Nothing without the entries']
+  answer: 0
+  explanation: |-
+    $\mathbf{v}_1 + \mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$ is a nontrivial relation. The three vectors lie in one plane (or line), so they can't span $\mathbb{R}^3$ either.
+
+- id: la-q-1112
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'A student finds that $x_1\mathbf{v}_1 + x_2\mathbf{v}_2 + x_3\mathbf{v}_3 = \mathbf{0}$ has the solution $x_1 = 0$, $x_2 = 2$, $x_3 = -1$, and concludes the set is independent "because one weight is zero". What''s right?'
+  choices: ['The set is dependent: a relation only needs some weight to be nonzero', 'The student is right', 'The set is independent only if $x_3 = 0$ too', 'Nothing can be concluded']
+  answer: 0
+  explanation: |-
+    $2\mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$ is a nontrivial relation, so the set is dependent (here $\mathbf{v}_3 = 2\mathbf{v}_2$). Independence requires *all* weights to be zero in every solution.

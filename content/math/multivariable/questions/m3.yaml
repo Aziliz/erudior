@@ -1,0 +1,588 @@
+# Module 3: Partial derivatives
+- id: mv-q-1101
+  lesson: mv-several-vars
+  module_quiz: true
+  topic: Domain and range
+  stem: 'What is the domain of $f(x, y) = \sqrt{9 - x^2 - y^2}$?'
+  choices: ['The closed disk $x^2 + y^2 \le 9$', 'The open disk $x^2 + y^2 < 9$', 'The circle $x^2 + y^2 = 9$', 'All $(x, y)$ with $|x| \le 3$']
+  answer: 0
+  explanation: |-
+    The square root needs $9 - x^2 - y^2 \ge 0$, i.e. $x^2 + y^2 \le 9$. The boundary is included because $\sqrt0 = 0$ is defined.
+- id: mv-q-1102
+  lesson: mv-several-vars
+  topic: Domain and range
+  stem: 'What is the domain of $f(x, y) = \ln(y - x)$?'
+  choices: ['The points on or above the line $y = x$', 'The points strictly above the line $y = x$', 'The points strictly below the line $y = x$', 'All points except the line $y = x$']
+  answer: 1
+  explanation: |-
+    The logarithm needs a positive argument: $y - x > 0$, so $y > x$. The line itself is excluded because $\ln0$ is undefined.
+- id: mv-q-1103
+  lesson: mv-several-vars
+  module_quiz: true
+  topic: Domain and range
+  stem: 'What is the range of $f(x, y) = \sqrt{9 - x^2 - y^2}$?'
+  choices: ['$[0, 9]$', '$(-\infty, 3]$', '$[0, 3]$', '$[-3, 3]$']
+  answer: 2
+  explanation: |-
+    Inside the root, $9 - x^2 - y^2$ takes every value from 0 (on the circle) to 9 (at the origin). Its square root runs from 0 to 3.
+- id: mv-q-1104
+  lesson: mv-several-vars
+  topic: Domain and range
+  stem: 'Evaluate $f(x, y) = x^2y - 3y$ at $(2, -1)$.'
+  choices: ['$7$', '$1$', '$-7$', '$-1$']
+  answer: 3
+  explanation: |-
+    $f(2, -1) = (4)(-1) - 3(-1) = -4 + 3 = -1$.
+- id: mv-q-1105
+  lesson: mv-several-vars
+  module_quiz: true
+  topic: Level curves
+  stem: 'The level curves of $f(x, y) = 2x + 3y$ are'
+  choices: ['parallel lines', 'concentric circles', 'parabolas', 'hyperbolas']
+  answer: 0
+  explanation: |-
+    $2x + 3y = c$ is a line of slope $-\tfrac23$ for every $c$; different $c$ give parallel lines. (The graph is a plane.)
+- id: mv-q-1106
+  lesson: mv-several-vars
+  topic: Level curves
+  stem: 'For $f(x, y) = x^2 + y^2$, the level curve $f = 9$ is'
+  choices: ['a circle of radius 9', 'a circle of radius 3', 'a point', 'a sphere of radius 3']
+  answer: 1
+  explanation: |-
+    $x^2 + y^2 = 9$ is a circle of radius $\sqrt9 = 3$ in the $xy$-plane. Level curves of two-variable functions are curves, not surfaces.
+- id: mv-q-1107
+  lesson: mv-several-vars
+  module_quiz: true
+  topic: Level curves
+  stem: 'On a contour map with equally spaced values, the level curves are packed closely together in one region. What does that tell you?'
+  choices: ['The function is constant there', 'The function has a maximum there', 'The function changes rapidly there (the graph is steep)', 'The function is undefined there']
+  answer: 2
+  explanation: |-
+    Closely spaced contours mean a small horizontal move changes the value by a full contour interval: a steep surface. Widely spaced contours mean gentle slopes.
+- id: mv-q-1108
+  lesson: mv-several-vars
+  topic: Level curves
+  stem: 'What is the level curve $f = 0$ of $f(x, y) = xy$?'
+  choices: ['The line $y = x$', 'A hyperbola in quadrants I and III', 'The origin only', 'The two coordinate axes']
+  answer: 3
+  explanation: |-
+    $xy = 0$ when $x = 0$ or $y = 0$: the union of both axes. Nonzero $c$ give hyperbolas.
+- id: mv-q-1109
+  lesson: mv-several-vars
+  topic: Level curves
+  stem: 'The level surfaces of $f(x, y, z) = x^2 + y^2 + z^2$ are'
+  choices: ['spheres centered at the origin', 'circles centered at the origin', 'paraboloids', 'planes through the origin']
+  answer: 0
+  explanation: |-
+    $x^2 + y^2 + z^2 = c$ is a sphere of radius $\sqrt c$ for $c > 0$ (the origin for $c = 0$).
+- id: mv-q-1110
+  lesson: mv-several-vars
+  topic: Level curves
+  stem: 'Which level curve of $f(x, y) = y - x^2$ passes through $(1, 3)$?'
+  choices: ['$y = x^2 + 3$', '$y = x^2 + 2$', '$y = x^2 - 2$', '$y = 3x^2$']
+  answer: 1
+  explanation: |-
+    $f(1, 3) = 3 - 1 = 2$, so the level curve is $y - x^2 = 2$, i.e. $y = x^2 + 2$.
+- id: mv-q-1111
+  lesson: mv-several-vars
+  topic: Level curves
+  stem: 'Can two different level curves of the same function cross?'
+  choices: ['Yes, at saddle points', 'Yes, whenever the function is not continuous', 'No, because a point has only one function value', 'Only for functions of three variables']
+  answer: 2
+  explanation: |-
+    A crossing point would lie on $f = c_1$ and $f = c_2$ with $c_1 \ne c_2$, but $f$ has a single value at each point. (One level curve can cross itself, as at a saddle, but two different levels cannot meet.)
+
+- id: mv-q-1201
+  lesson: mv-limits
+  topic: Limits of several variables
+  stem: 'Evaluate $\displaystyle\lim_{(x,y)\to(1,2)}(x^2y + 3)$.'
+  choices: ['$3$', '$7$', '$4$', '$5$']
+  answer: 3
+  explanation: |-
+    A polynomial is continuous, so substitute: $1\cdot2 + 3 = 5$.
+- id: mv-q-1202
+  lesson: mv-limits
+  module_quiz: true
+  topic: Limits of several variables
+  stem: 'What is $\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^2 - y^2}{x^2 + y^2}$?'
+  choices: ['It does not exist', '$0$', '$1$', '$-1$']
+  answer: 0
+  explanation: |-
+    Along the $x$-axis the function is $1$; along the $y$-axis it is $-1$. Two paths, two values: no limit.
+- id: mv-q-1203
+  lesson: mv-limits
+  module_quiz: true
+  topic: Limits of several variables
+  stem: 'Evaluate $\displaystyle\lim_{(x,y)\to(0,0)}\frac{3x^2y}{x^2 + y^2}$.'
+  choices: ['It does not exist', '$0$', '$3$', '$\tfrac32$']
+  answer: 1
+  explanation: |-
+    Since $\tfrac{x^2}{x^2+y^2} \le 1$, $\left|\tfrac{3x^2y}{x^2+y^2}\right| \le 3|y| \to 0$. By the squeeze theorem the limit is 0.
+- id: mv-q-1204
+  lesson: mv-limits
+  topic: Limits of several variables
+  stem: 'For $f(x, y) = \dfrac{xy}{x^2 + y^2}$, what is the limit as $(x, y)\to(0,0)$ along the line $y = x$, and what does it show?'
+  choices: ['$0$; the limit is 0', '$1$; the limit is 1', '$\tfrac12$; since the axes give 0, the limit does not exist', '$\tfrac12$; the limit is $\tfrac12$']
+  answer: 2
+  explanation: |-
+    Along $y = x$: $\tfrac{x^2}{2x^2} = \tfrac12$. Along either axis $f = 0$. Different path limits mean the two-variable limit does not exist.
+- id: mv-q-1205
+  lesson: mv-limits
+  module_quiz: true
+  topic: Limits of several variables
+  stem: '$f(x, y) = \dfrac{xy^2}{x^2 + y^4}$ tends to 0 along every straight line through the origin, but to $\tfrac12$ along $x = y^2$. What can you conclude?'
+  choices: ['The limit is 0, since lines are enough', 'The limit is $\tfrac12$', 'The limit is the average, $\tfrac14$', 'The limit does not exist']
+  answer: 3
+  explanation: |-
+    Any two paths with different limits prove the limit does not exist. Checking only straight lines can miss curved paths like $x = y^2$.
+- id: mv-q-1206
+  lesson: mv-limits
+  topic: Limits of several variables
+  stem: 'Evaluate $\displaystyle\lim_{(x,y)\to(1,1)}\frac{x^2 - y^2}{x - y}$.'
+  choices: ['$2$', '$0$', '$1$', 'It does not exist']
+  answer: 0
+  explanation: |-
+    Factor: $\tfrac{(x - y)(x + y)}{x - y} = x + y$ wherever $x \ne y$. The limit of $x + y$ at $(1, 1)$ is 2.
+- id: mv-q-1207
+  lesson: mv-limits
+  topic: Limits of several variables
+  stem: 'Using polar coordinates, find $\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^3 + y^3}{x^2 + y^2}$.'
+  choices: ['$1$', '$0$', 'It does not exist', '$\infty$']
+  answer: 1
+  explanation: |-
+    $\dfrac{r^3(\cos^3\theta + \sin^3\theta)}{r^2} = r(\cos^3\theta + \sin^3\theta)$, and $|\cos^3\theta + \sin^3\theta| \le 2$, so the expression is at most $2r \to 0$ regardless of $\theta$.
+- id: mv-q-1208
+  lesson: mv-limits
+  module_quiz: true
+  topic: Continuity
+  stem: 'Where is $f(x, y) = \dfrac{1}{x^2 + y^2 - 1}$ continuous?'
+  choices: ['Everywhere', 'Only inside the unit circle', 'Everywhere except on the unit circle $x^2 + y^2 = 1$', 'Everywhere except the origin']
+  answer: 2
+  explanation: |-
+    A rational function is continuous wherever its denominator is nonzero. The denominator vanishes exactly on $x^2 + y^2 = 1$.
+- id: mv-q-1209
+  lesson: mv-limits
+  topic: Limits of several variables
+  stem: 'Which statement is true?'
+  choices: ['If $f$ has the same limit along every line through $(a,b)$, the limit exists', 'If $f$ is defined at $(a,b)$, it is continuous there', 'A limit can exist even if $f$ is undefined at the point', 'Polynomials can fail to be continuous at isolated points']
+  answer: 2
+  explanation: |-
+    Limits ignore the value at the point itself; for example $\tfrac{3x^2y}{x^2+y^2} \to 0$ though undefined at the origin. Lines are not enough (see $\tfrac{xy^2}{x^2+y^4}$), defined does not imply continuous, and polynomials are continuous everywhere.
+- id: mv-q-1210
+  lesson: mv-limits
+  topic: Limits of several variables
+  stem: 'Evaluate $\displaystyle\lim_{(x,y)\to(0,0)}\frac{\sin(x^2 + y^2)}{x^2 + y^2}$.'
+  choices: ['$0$', 'It does not exist', '$\infty$', '$1$']
+  answer: 3
+  explanation: |-
+    Let $u = x^2 + y^2$. As $(x, y)\to(0,0)$, $u \to 0^+$ from every direction, and $\tfrac{\sin u}{u}\to1$.
+- id: mv-q-1211
+  lesson: mv-limits
+  topic: Continuity
+  stem: 'Evaluate $\displaystyle\lim_{(x,y)\to(0,\pi)}e^{xy}\cos(x + y)$.'
+  choices: ['$-1$', '$1$', '$e^{\pi}$', '$0$']
+  answer: 0
+  explanation: |-
+    The function is a product of continuous functions, so substitute: $e^0\cos\pi = 1\cdot(-1) = -1$.
+
+- id: mv-q-1301
+  lesson: mv-partials
+  module_quiz: true
+  topic: Partial derivatives
+  stem: 'For $f(x, y) = x^3y^2 + 4xy$, find $f_x$.'
+  choices: ['$3x^2y^2 + 4x$', '$3x^2y^2 + 4y$', '$3x^2 \cdot 2y + 4$', '$2x^3y + 4x$']
+  answer: 1
+  explanation: |-
+    Hold $y$ constant: $\partial_x(x^3y^2) = 3x^2y^2$ and $\partial_x(4xy) = 4y$. The last choice is $f_y$.
+- id: mv-q-1302
+  lesson: mv-partials
+  topic: Partial derivatives
+  stem: 'For $f(x, y) = x^3y^2 + 4xy$, find $f_y$.'
+  choices: ['$3x^2y^2 + 4y$', '$2x^3 + 4$', '$2x^3y + 4x$', '$x^3y^2 + 4x$']
+  answer: 2
+  explanation: |-
+    Hold $x$ constant: $\partial_y(x^3y^2) = 2x^3y$ and $\partial_y(4xy) = 4x$.
+- id: mv-q-1303
+  lesson: mv-partials
+  module_quiz: true
+  topic: Partial derivatives
+  stem: 'For $g(x, y) = e^{x^2y}$, find $g_x$.'
+  choices: ['$e^{x^2y}$', '$x^2e^{x^2y}$', '$2xe^{x^2y}$', '$2xy\,e^{x^2y}$']
+  answer: 3
+  explanation: |-
+    Chain rule: the exponent's $x$-partial is $2xy$, so $g_x = 2xy\,e^{x^2y}$. $x^2e^{x^2y}$ is $g_y$.
+- id: mv-q-1304
+  lesson: mv-partials
+  topic: Partial derivatives
+  stem: 'For $f(x, y) = x^2y^3$, find $f_x(1, 2)$.'
+  choices: ['$16$', '$12$', '$8$', '$4$']
+  answer: 0
+  explanation: |-
+    $f_x = 2xy^3$, so $f_x(1, 2) = 2\cdot1\cdot8 = 16$. ($12$ is $f_y(1, 2) = 3x^2y^2$.)
+- id: mv-q-1305
+  lesson: mv-partials
+  topic: Partial derivatives
+  stem: 'For $f(x, y) = x\sin(xy)$, find $f_y$.'
+  choices: ['$x\cos(xy)$', '$x^2\cos(xy)$', '$\sin(xy) + xy\cos(xy)$', '$\cos(xy)$']
+  answer: 1
+  explanation: |-
+    $x$ is a constant factor; the chain rule gives $\partial_y\sin(xy) = x\cos(xy)$. So $f_y = x\cdot x\cos(xy) = x^2\cos(xy)$. The third choice is $f_x$.
+- id: mv-q-1306
+  lesson: mv-partials
+  module_quiz: true
+  topic: Higher-order partials
+  stem: 'For $f(x, y) = x^3y^2 + 4xy$, find $f_{xy}$.'
+  choices: ['$6xy^2$', '$2x^3$', '$6x^2y + 4$', '$6x^2y$']
+  answer: 2
+  explanation: |-
+    $f_x = 3x^2y^2 + 4y$; differentiate in $y$: $f_{xy} = 6x^2y + 4$. Computing $f_{yx}$ from $f_y = 2x^3y + 4x$ gives the same, as Clairaut's theorem predicts.
+- id: mv-q-1307
+  lesson: mv-partials
+  topic: Higher-order partials
+  stem: 'Clairaut''s theorem says that'
+  choices: ['$f_{xx} = f_{yy}$ for all smooth $f$', '$f_x = f_y$ at critical points', 'mixed partials exist for every function', '$f_{xy} = f_{yx}$ when both are continuous']
+  answer: 3
+  explanation: |-
+    If $f_{xy}$ and $f_{yx}$ are continuous near a point, they are equal there. It says nothing about $f_{xx}$ versus $f_{yy}$.
+- id: mv-q-1308
+  lesson: mv-partials
+  module_quiz: true
+  topic: Higher-order partials
+  stem: 'For $f(x, y) = x^4y + y^3$, find $f_{xx}$.'
+  choices: ['$12x^2y$', '$4x^3y$', '$12x^2y + 6y$', '$4x^3$']
+  answer: 0
+  explanation: |-
+    $f_x = 4x^3y$ (the $y^3$ term is constant in $x$), and $f_{xx} = 12x^2y$.
+- id: mv-q-1309
+  lesson: mv-partials
+  topic: Partial derivatives
+  stem: 'Temperature on a plate is $T(x, y)$ in °C, with $x, y$ in meters. What does $T_x(3, 4) = -0.5$ mean?'
+  choices: ['The temperature at $(3, 4)$ is $-0.5$ °C', 'Moving in the positive $x$-direction from $(3, 4)$, temperature falls about 0.5 °C per meter', 'Moving in any direction, temperature falls 0.5 °C per meter', 'The temperature falls 0.5 °C per second']
+  answer: 1
+  explanation: |-
+    A partial derivative is a rate in one coordinate direction, with units output per input: °C per meter in the $x$-direction. Other directions can have different rates.
+- id: mv-q-1310
+  lesson: mv-partials
+  module_quiz: true
+  topic: Partial derivatives
+  stem: 'On a contour map, moving from point $P$ in the positive $x$-direction crosses level curves labeled 3, 4, 5 in quick succession, while moving in the positive $y$-direction stays on the curve labeled 3. What are the signs of $f_x(P)$ and $f_y(P)$?'
+  choices: ['$f_x < 0$, $f_y = 0$', '$f_x > 0$, $f_y > 0$', '$f_x > 0$, $f_y \approx 0$', '$f_x = 0$, $f_y > 0$']
+  answer: 2
+  explanation: |-
+    Values increase in the $+x$ direction, so $f_x > 0$. Moving in $+y$ follows the level curve, so $f$ barely changes: $f_y \approx 0$.
+- id: mv-q-1311
+  lesson: mv-partials
+  topic: Partial derivatives
+  stem: 'For $f(x, y, z) = xe^{yz}$, find $f_z$.'
+  choices: ['$e^{yz}$', '$xze^{yz}$', '$xe^{yz}$', '$xye^{yz}$']
+  answer: 3
+  explanation: |-
+    Hold $x$ and $y$ constant: $\partial_z e^{yz} = ye^{yz}$, times the constant $x$.
+- id: mv-q-1312
+  lesson: mv-partials
+  topic: Higher-order partials
+  stem: 'Which function satisfies the heat equation $u_t = u_{xx}$?'
+  choices: ['$u = e^{-t}\sin x$', '$u = e^{t}\sin x$', '$u = e^{-t}x^2$', '$u = t\sin x$']
+  answer: 0
+  explanation: |-
+    For $u = e^{-t}\sin x$: $u_t = -e^{-t}\sin x$ and $u_{xx} = -e^{-t}\sin x$. Equal. For $e^t\sin x$ the signs differ; for $e^{-t}x^2$, $u_{xx} = 2e^{-t} \ne u_t$.
+- id: mv-q-1313
+  lesson: mv-partials
+  topic: Partial derivatives
+  stem: 'For $f(x, y) = \ln(x^2 + y^2)$, find $f_x$.'
+  choices: ['$\dfrac{1}{x^2 + y^2}$', '$\dfrac{2x}{x^2 + y^2}$', '$\dfrac{2x + 2y}{x^2 + y^2}$', '$\dfrac{2x}{x^2}$']
+  answer: 1
+  explanation: |-
+    Chain rule: $\dfrac{1}{x^2 + y^2}\cdot\partial_x(x^2 + y^2) = \dfrac{2x}{x^2 + y^2}$.
+
+- id: mv-q-1401
+  lesson: mv-tangent-planes
+  module_quiz: true
+  topic: Tangent planes
+  stem: 'Find the tangent plane to $z = x^2 + 3y^2$ at $(1, 1, 4)$.'
+  choices: ['$z = 2x + 6y$', '$z = 2x + 6y + 4$', '$z = x + 3y$', '$z = 2x + 6y - 4$']
+  answer: 3
+  explanation: |-
+    $f_x(1,1) = 2$, $f_y(1,1) = 6$: $z = 4 + 2(x-1) + 6(y-1) = 2x + 6y - 4$. Check: at $(1,1)$ it gives 4. ✓
+- id: mv-q-1402
+  lesson: mv-tangent-planes
+  topic: Tangent planes
+  stem: 'Which vector is normal to the tangent plane of $z = f(x, y)$ at $(a, b, f(a,b))$?'
+  choices: ['$\langle f_x(a,b),\, f_y(a,b),\, -1\rangle$', '$\langle f_x(a,b),\, f_y(a,b),\, 0\rangle$', '$\langle a, b, f(a,b)\rangle$', '$\langle 1, 1, f(a,b)\rangle$']
+  answer: 0
+  explanation: |-
+    Write the plane as $f_x(x - a) + f_y(y - b) - (z - c) = 0$; its coefficients form the normal $\langle f_x, f_y, -1\rangle$.
+- id: mv-q-1403
+  lesson: mv-tangent-planes
+  module_quiz: true
+  topic: Linear approximation and differentials
+  stem: 'Find the linearization of $f(x, y) = \sqrt{x^2 + y^2}$ at $(3, 4)$.'
+  choices: ['$L = 5 + 3(x - 3) + 4(y - 4)$', '$L = 5 + 0.6(x - 3) + 0.8(y - 4)$', '$L = 0.6x + 0.8y + 5$', '$L = 5 + 0.8(x - 3) + 0.6(y - 4)$']
+  answer: 1
+  explanation: |-
+    $f(3,4) = 5$, $f_x = x/\sqrt{x^2+y^2} = 0.6$, $f_y = y/\sqrt{x^2+y^2} = 0.8$. The last choice swaps them.
+- id: mv-q-1404
+  lesson: mv-tangent-planes
+  module_quiz: true
+  topic: Linear approximation and differentials
+  stem: 'Use the linearization of $\sqrt{x^2 + y^2}$ at $(3, 4)$ to estimate $\sqrt{3.02^2 + 3.97^2}$.'
+  choices: ['$5.036$', '$5.000$', '$4.988$', '$4.964$']
+  answer: 2
+  explanation: |-
+    $L = 5 + 0.6(0.02) + 0.8(-0.03) = 5 + 0.012 - 0.024 = 4.988$. The true value is about 4.98812.
+- id: mv-q-1405
+  lesson: mv-tangent-planes
+  topic: Linear approximation and differentials
+  stem: 'Find the differential of $z = x^2y$.'
+  choices: ['$dz = 2x\,dx$', '$dz = 2xy\,dx\,dy$', '$dz = 2x\,dx + dy$', '$dz = 2xy\,dx + x^2\,dy$']
+  answer: 3
+  explanation: |-
+    $dz = z_x\,dx + z_y\,dy = 2xy\,dx + x^2\,dy$.
+- id: mv-q-1406
+  lesson: mv-tangent-planes
+  topic: Linear approximation and differentials
+  stem: 'A cylinder has measured radius 5 cm and height 12 cm, each with error up to $\pm0.1$ cm. Estimate the maximum error in $V = \pi r^2h$.'
+  choices: ['about $45.6\text{ cm}^3$', 'about $37.7\text{ cm}^3$', 'about $7.9\text{ cm}^3$', 'about $14.5\text{ cm}^3$']
+  answer: 0
+  explanation: |-
+    $dV = 2\pi rh\,dr + \pi r^2\,dh = 12\pi + 2.5\pi = 14.5\pi \approx 45.6\text{ cm}^3$.
+    $37.7 \approx 12\pi$ counts only the radius error; $14.5$ forgets the factor $\pi$.
+- id: mv-q-1407
+  lesson: mv-tangent-planes
+  topic: Tangent planes
+  stem: 'Which condition guarantees that $f(x, y)$ is differentiable at $(a, b)$?'
+  choices: ['$f$ is defined at $(a, b)$', '$f_x$ and $f_y$ exist near $(a, b)$ and are continuous at $(a, b)$', '$f_x(a, b)$ and $f_y(a, b)$ exist', '$f(a, b) = 0$']
+  answer: 1
+  explanation: |-
+    Continuous partial derivatives imply differentiability. Mere existence of $f_x$ and $f_y$ at the point is not enough: $\tfrac{xy}{x^2+y^2}$ has both partials at the origin but is not even continuous there.
+- id: mv-q-1408
+  lesson: mv-tangent-planes
+  module_quiz: true
+  topic: Tangent planes
+  stem: 'Let $f(x,y) = \dfrac{xy}{x^2 + y^2}$ with $f(0,0) = 0$. Which is true at the origin?'
+  choices: ['$f$ is differentiable', '$f$ is continuous but not differentiable', '$f_x$ and $f_y$ exist, yet $f$ is not continuous', '$f_x$ does not exist']
+  answer: 2
+  explanation: |-
+    On both axes $f = 0$, so $f_x(0,0) = f_y(0,0) = 0$. But along $y = x$, $f = \tfrac12$, so $f$ is not continuous at the origin, and therefore not differentiable.
+- id: mv-q-1409
+  lesson: mv-tangent-planes
+  topic: Tangent planes
+  stem: 'Find the tangent plane to $z = e^x\cos y$ at $(0, 0, 1)$.'
+  choices: ['$z = 1 + y$', '$z = x + y$', '$z = 1 - x$', '$z = 1 + x$']
+  answer: 3
+  explanation: |-
+    $f_x = e^x\cos y = 1$ and $f_y = -e^x\sin y = 0$ at the origin. So $z = 1 + 1(x - 0) + 0(y - 0) = 1 + x$.
+- id: mv-q-1410
+  lesson: mv-tangent-planes
+  topic: Linear approximation and differentials
+  stem: 'Use the linearization of $f(x, y) = x^2y$ at $(1, 1)$ to estimate $f(1.1, 0.9)$.'
+  choices: ['$1.1$', '$1.089$', '$1.3$', '$0.9$']
+  answer: 0
+  explanation: |-
+    $L = 1 + 2(x - 1) + 1(y - 1)$, so $L(1.1, 0.9) = 1 + 0.2 - 0.1 = 1.1$. The exact value is $1.21\cdot0.9 = 1.089$, so the estimate is close but not exact.
+- id: mv-q-1411
+  lesson: mv-tangent-planes
+  topic: Linear approximation and differentials
+  stem: 'A rectangle has sides $x = 10$ and $y = 6$. If $x$ grows by 0.1 and $y$ shrinks by 0.2, use differentials to estimate the change in area $A = xy$.'
+  choices: ['$+1.4$', '$-1.4$', '$-0.1$', '$+2.6$']
+  answer: 1
+  explanation: |-
+    $dA = y\,dx + x\,dy = 6(0.1) + 10(-0.2) = 0.6 - 2 = -1.4$. (Exact change: $10.1\cdot5.8 - 60 = -1.42$.)
+
+- id: mv-q-1501
+  lesson: mv-chain-rule
+  topic: Multivariable chain rule
+  stem: 'Let $z = x^2 + y^2$ with $x = \cos t$, $y = \sin t$. Find $dz/dt$.'
+  choices: ['$2\cos t - 2\sin t$', '$-4\sin t\cos t$', '$0$', '$2$']
+  answer: 2
+  explanation: |-
+    $\dfrac{dz}{dt} = 2x(-\sin t) + 2y(\cos t) = -2\cos t\sin t + 2\sin t\cos t = 0$. Makes sense: the path is the unit circle, a level curve of $z$.
+- id: mv-q-1502
+  lesson: mv-chain-rule
+  module_quiz: true
+  topic: Multivariable chain rule
+  stem: 'Let $z = x^2y + 3xy^4$ with $x = \sin2t$, $y = \cos t$. Find $dz/dt$ at $t = 0$.'
+  choices: ['$3$', '$0$', '$12$', '$6$']
+  answer: 3
+  explanation: |-
+    At $t = 0$: $x = 0$, $y = 1$. $z_x = 2xy + 3y^4 = 3$, $z_y = x^2 + 12xy^3 = 0$, $dx/dt = 2\cos2t = 2$, $dy/dt = -\sin t = 0$.
+    $dz/dt = 3\cdot2 + 0 = 6$. ($3$ forgets the factor $dx/dt = 2$.)
+- id: mv-q-1503
+  lesson: mv-chain-rule
+  module_quiz: true
+  topic: Multivariable chain rule
+  stem: 'If $z = f(x, y, w)$ where $x$, $y$, $w$ are each functions of $s$ and $t$, how many terms does $\partial z/\partial s$ have?'
+  choices: ['3', '2', '6', '1']
+  answer: 0
+  explanation: |-
+    One term per path from $z$ down to $s$ in the tree: through $x$, through $y$, and through $w$.
+- id: mv-q-1504
+  lesson: mv-chain-rule
+  topic: Multivariable chain rule
+  stem: 'Let $z = e^x\sin y$ with $x = st^2$, $y = s^2t$. Which is $\partial z/\partial s$?'
+  choices: ['$e^x\sin y\cdot 2st + e^x\cos y\cdot s^2$', '$e^x\sin y\cdot t^2 + e^x\cos y\cdot 2st$', '$e^x\cos y\cdot t^2 + e^x\sin y\cdot 2st$', '$e^x\sin y\cdot t^2$']
+  answer: 1
+  explanation: |-
+    $z_x\,x_s + z_y\,y_s$ with $z_x = e^x\sin y$, $x_s = t^2$, $z_y = e^x\cos y$, $y_s = 2st$. The first choice is $\partial z/\partial t$; the last keeps only one path.
+- id: mv-q-1505
+  lesson: mv-chain-rule
+  module_quiz: true
+  topic: Implicit differentiation
+  stem: 'For $x^2 + y^2 = 25$, use $\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}$ to find the slope at $(3, 4)$.'
+  choices: ['$\tfrac34$', '$-\tfrac43$', '$-\tfrac34$', '$\tfrac43$']
+  answer: 2
+  explanation: |-
+    $F = x^2 + y^2 - 25$: $F_x = 2x = 6$, $F_y = 2y = 8$. $\dfrac{dy}{dx} = -\dfrac68 = -\dfrac34$. Dropping the minus sign gives $\tfrac34$.
+- id: mv-q-1506
+  lesson: mv-chain-rule
+  topic: Implicit differentiation
+  stem: 'Find $dy/dx$ for $x^3 + y^3 = 6xy$ at $(3, 3)$.'
+  choices: ['$1$', '$0$', '$\tfrac12$', '$-1$']
+  answer: 3
+  explanation: |-
+    $F_x = 3x^2 - 6y = 9$ and $F_y = 3y^2 - 6x = 9$ at $(3,3)$, so $dy/dx = -9/9 = -1$.
+- id: mv-q-1507
+  lesson: mv-chain-rule
+  topic: Implicit differentiation
+  stem: 'If $x^2 + y^2 + z^2 = 1$ defines $z$ as a function of $x$ and $y$ (with $z \ne 0$), find $\partial z/\partial x$.'
+  choices: ['$-\dfrac{x}{z}$', '$\dfrac{x}{z}$', '$-\dfrac{z}{x}$', '$-2x$']
+  answer: 0
+  explanation: |-
+    $F = x^2 + y^2 + z^2 - 1$: $\dfrac{\partial z}{\partial x} = -\dfrac{F_x}{F_z} = -\dfrac{2x}{2z} = -\dfrac{x}{z}$.
+- id: mv-q-1508
+  lesson: mv-chain-rule
+  topic: Multivariable chain rule
+  stem: 'An ant walks on a plate. At one instant $T_x = 2$, $T_y = -1$ (°C/cm), and the ant''s velocity is $dx/dt = 3$, $dy/dt = 4$ (cm/s). How fast is the temperature it feels changing?'
+  choices: ['$10$ °C/s', '$2$ °C/s', '$-2$ °C/s', '$6$ °C/s']
+  answer: 1
+  explanation: |-
+    $\dfrac{dT}{dt} = T_x\dfrac{dx}{dt} + T_y\dfrac{dy}{dt} = 2\cdot3 + (-1)\cdot4 = 2$ °C/s.
+- id: mv-q-1509
+  lesson: mv-chain-rule
+  topic: Implicit differentiation
+  stem: 'A student writes $\dfrac{dy}{dx} = \dfrac{F_x}{F_y}$ for the curve $F(x, y) = 0$. What is wrong?'
+  choices: ['Nothing', 'It should be $F_y/F_x$', 'The formula needs a minus sign: $-F_x/F_y$', 'It only works for polynomials']
+  answer: 2
+  explanation: |-
+    From $F_x + F_y\,\dfrac{dy}{dx} = 0$ we get $\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}$. Test on the line $x + y = 0$: the slope is $-1$, and only the version with the minus sign gives it.
+- id: mv-q-1510
+  lesson: mv-chain-rule
+  topic: Multivariable chain rule
+  stem: 'Let $z = xy$ with $x = s + t$ and $y = s - t$. Find $\partial z/\partial t$.'
+  choices: ['$2s$', '$s^2 - t^2$', '$0$', '$-2t$']
+  answer: 3
+  explanation: |-
+    $z_x x_t + z_y y_t = y(1) + x(-1) = (s - t) - (s + t) = -2t$. Check directly: $z = s^2 - t^2$, so $z_t = -2t$.
+- id: mv-q-1511
+  lesson: mv-chain-rule
+  module_quiz: true
+  topic: Multivariable chain rule
+  stem: 'A cylinder''s radius grows at 0.1 cm/s while its height shrinks at 0.2 cm/s. How fast is its volume changing when $r = 5$ and $h = 12$?'
+  choices: ['about $22.0\text{ cm}^3/\text{s}$', 'about $37.7\text{ cm}^3/\text{s}$', 'about $-15.7\text{ cm}^3/\text{s}$', 'about $53.4\text{ cm}^3/\text{s}$']
+  answer: 0
+  explanation: |-
+    $\dfrac{dV}{dt} = 2\pi rh\dfrac{dr}{dt} + \pi r^2\dfrac{dh}{dt} = 2\pi(60)(0.1) + 25\pi(-0.2) = 12\pi - 5\pi = 7\pi \approx 22.0$.
+    $37.7 \approx 12\pi$ ignores the shrinking height; $53.4 \approx 17\pi$ adds the terms with the wrong sign.
+
+- id: mv-q-1601
+  lesson: mv-gradient
+  module_quiz: true
+  topic: The gradient
+  stem: 'Find $\nabla f$ for $f(x, y) = x^2y + y^3$.'
+  choices: ['$\langle 2xy,\, x^2 + 3y^2\rangle$', '$2xy + x^2 + 3y^2$', '$\langle 2x,\, 3y^2\rangle$', '$\langle x^2 + 3y^2,\, 2xy\rangle$']
+  answer: 0
+  explanation: |-
+    $\nabla f = \langle f_x, f_y\rangle = \langle 2xy,\, x^2 + 3y^2\rangle$. The gradient is a vector, and its first component is the $x$-partial.
+- id: mv-q-1602
+  lesson: mv-gradient
+  topic: Directional derivatives
+  stem: 'Find the directional derivative of $f = x^2y^3 - 4y$ at $(2, -1)$ in the direction of $\langle 2, 5\rangle$.'
+  choices: ['$32$', '$\tfrac{32}{\sqrt{29}} \approx 5.94$', '$\tfrac{32}{29}$', '$\sqrt{80}$']
+  answer: 1
+  explanation: |-
+    $\nabla f(2, -1) = \langle 2xy^3, 3x^2y^2 - 4\rangle = \langle -4, 8\rangle$. Unit direction $\tfrac{1}{\sqrt{29}}\langle 2, 5\rangle$.
+    $D_{\mathbf u}f = \tfrac{-8 + 40}{\sqrt{29}} = \tfrac{32}{\sqrt{29}}$. $32$ forgets to normalize; $\sqrt{80} = |\nabla f|$ is the maximum rate.
+- id: mv-q-1603
+  lesson: mv-gradient
+  module_quiz: true
+  topic: The gradient
+  stem: 'What is the maximum rate of change of $f(x, y) = xe^y$ at $(2, 0)$?'
+  choices: ['$3$', '$2$', '$\sqrt5$', '$5$']
+  answer: 2
+  explanation: |-
+    $\nabla f = \langle e^y, xe^y\rangle = \langle 1, 2\rangle$ at $(2, 0)$. The maximum rate is $|\nabla f| = \sqrt5$, in the direction of $\langle 1, 2\rangle$.
+- id: mv-q-1604
+  lesson: mv-gradient
+  topic: The gradient
+  stem: 'In which direction does $f$ decrease most rapidly at a point?'
+  choices: ['Along a level curve', 'In the direction of $\nabla f$', 'Perpendicular to $\nabla f$', 'In the direction of $-\nabla f$']
+  answer: 3
+  explanation: |-
+    $D_{\mathbf u}f = |\nabla f|\cos\theta$ is most negative when $\theta = \pi$, i.e. $\mathbf u$ opposite to $\nabla f$.
+- id: mv-q-1605
+  lesson: mv-gradient
+  topic: The gradient
+  stem: 'How is $\nabla f(x_0, y_0)$ related to the level curve of $f$ through $(x_0, y_0)$?'
+  choices: ['It is perpendicular to the level curve', 'It is tangent to the level curve', 'It points to the center of curvature of the level curve', 'There is no general relation']
+  answer: 0
+  explanation: |-
+    Along the level curve $f(\mathbf r(t)) = c$; differentiating gives $\nabla f\cdot\mathbf r' = 0$, so the gradient is orthogonal to the curve's tangent.
+- id: mv-q-1606
+  lesson: mv-gradient
+  topic: Directional derivatives
+  stem: 'At a point, $\nabla f = \langle 2, -1\rangle$. Find $D_{\mathbf u}f$ for $\mathbf u = \left\langle \tfrac35, \tfrac45\right\rangle$.'
+  choices: ['$2$', '$\tfrac25$', '$1$', '$-\tfrac25$']
+  answer: 1
+  explanation: |-
+    $\nabla f\cdot\mathbf u = 2\cdot\tfrac35 + (-1)\cdot\tfrac45 = \tfrac65 - \tfrac45 = \tfrac25$.
+    $2$ drops the minus sign; $1$ pairs the components the wrong way round.
+- id: mv-q-1607
+  lesson: mv-gradient
+  module_quiz: true
+  topic: Directional derivatives
+  stem: 'If $\nabla f(P) = \langle 3, 4\rangle$, in which direction is the directional derivative at $P$ zero?'
+  choices: ['$\left\langle \tfrac35, \tfrac45\right\rangle$', '$\left\langle -\tfrac35, -\tfrac45\right\rangle$', '$\left\langle \tfrac45, -\tfrac35\right\rangle$', '$\langle 0, 1\rangle$']
+  answer: 2
+  explanation: |-
+    $D_{\mathbf u}f = 0$ when $\mathbf u \perp \nabla f$: $\langle 3,4\rangle\cdot\langle 4,-3\rangle = 0$. This is the direction along the level curve.
+- id: mv-q-1608
+  lesson: mv-gradient
+  module_quiz: true
+  topic: The gradient
+  stem: 'Find the tangent plane to the sphere $x^2 + y^2 + z^2 = 14$ at $(1, 2, 3)$.'
+  choices: ['$2x + 4y + 6z = 14$', '$x + 2y + 3z = 0$', '$z = 3$', '$x + 2y + 3z = 14$']
+  answer: 3
+  explanation: |-
+    $\nabla F = \langle 2x, 2y, 2z\rangle = \langle 2, 4, 6\rangle$. Plane: $2(x-1) + 4(y-2) + 6(z-3) = 0$, i.e. $x + 2y + 3z = 14$. The point satisfies it: $1 + 4 + 9 = 14$. ✓
+- id: mv-q-1609
+  lesson: mv-gradient
+  topic: The gradient
+  stem: 'Find $\nabla f(1, 2, 3)$ for $f(x, y, z) = xyz$.'
+  choices: ['$\langle 6, 3, 2\rangle$', '$\langle 1, 2, 3\rangle$', '$\langle 2, 3, 6\rangle$', '$6$']
+  answer: 0
+  explanation: |-
+    $\nabla f = \langle yz, xz, xy\rangle = \langle 6, 3, 2\rangle$ at $(1, 2, 3)$.
+- id: mv-q-1610
+  lesson: mv-gradient
+  topic: Directional derivatives
+  stem: 'A student computes the rate of change of $f$ toward $\langle 1, 1\rangle$ as $\nabla f\cdot\langle 1, 1\rangle$. What is wrong?'
+  choices: ['Nothing is wrong', 'The direction must be a unit vector; the answer is too large by a factor $\sqrt2$', 'The gradient should be crossed with the direction', 'The gradient must be normalized instead']
+  answer: 1
+  explanation: |-
+    $D_{\mathbf u}f = \nabla f\cdot\mathbf u$ requires $|\mathbf u| = 1$. Use $\tfrac{1}{\sqrt2}\langle 1, 1\rangle$.
+- id: mv-q-1611
+  lesson: mv-gradient
+  topic: The gradient
+  stem: 'Find the normal line to $z = x^2 + y^2$ at $(1, 1, 2)$.'
+  choices: ['$\langle 1 + 2t,\, 1 + 2t,\, 2 + t\rangle$', '$\langle 2 + t,\, 2 + t,\, -1 + 2t\rangle$', '$\langle 1 + 2t,\, 1 + 2t,\, 2 - t\rangle$', '$\langle 1 + t,\, 1 + t,\, 2 + 2t\rangle$']
+  answer: 2
+  explanation: |-
+    Let $F = x^2 + y^2 - z$. $\nabla F(1,1,2) = \langle 2, 2, -1\rangle$, so the normal line is $\langle 1,1,2\rangle + t\langle 2,2,-1\rangle$.
+- id: mv-q-1612
+  lesson: mv-gradient
+  topic: Directional derivatives
+  stem: 'At a point $|\nabla f| = 6$. Could some directional derivative there equal 10?'
+  choices: ['Yes, in the direction of $\nabla f$', 'Yes, if the direction vector is long enough', 'Only if $f$ is not differentiable', 'No; every directional derivative lies between $-6$ and $6$']
+  answer: 3
+  explanation: |-
+    $D_{\mathbf u}f = |\nabla f|\cos\theta$ with a unit $\mathbf u$, so it ranges over $[-6, 6]$.

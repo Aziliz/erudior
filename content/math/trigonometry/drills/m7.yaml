@@ -1,0 +1,190 @@
+# Module 7 drills: oblique triangles
+- id: trig-d-los-side
+  title: Law of sines (AAS)
+  topic: Law of sines
+  vars:
+    A: {min: 20, max: 100}
+    B: {min: 20, max: 100}
+    a: {min: 5, max: 40}
+  where: ["A + B < 165"]
+  calc:
+    C: 180 - A - B
+    b: a * sind(B) / sind(A)
+    c: a * sind(C) / sind(A)
+  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $B = {B}^\circ$ and $a = {a}$. Find $C$, $b$ and $c$ (sides to 2 decimals).'
+  answers:
+    - {name: C, label: '$C$', units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: b, label: '$b$', tolerance: 0.01}
+    - {name: c, label: '$c$', tolerance: 0.01}
+  solution: |-
+    $C = 180^\circ - {A}^\circ - {B}^\circ =$ **{C}°**. Law of sines:
+    $b = \dfrac{{a}\sin {B}^\circ}{\sin {A}^\circ} \approx$ **{b:num2}**, $c = \dfrac{{a}\sin {C}^\circ}{\sin {A}^\circ} \approx$ **{c:num2}**.
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], ['c', 0], ['b*cosd(A)', 'b*sind(A)']]
+    labels:
+      - {at: ['-0.06*c', '-0.06*c'], text: 'A'}
+      - {at: ['1.06*c', '-0.06*c'], text: 'B'}
+      - {at: ['b*cosd(A)', 'b*sind(A) + 0.07*c'], text: 'C'}
+
+- id: trig-d-los-angle
+  title: Law of sines for an angle
+  topic: Law of sines
+  vars:
+    A: {min: 25, max: 120}
+    a: {min: 10, max: 40}
+    b: {min: 4, max: 30}
+  where: ["b < a"]
+  calc:
+    B: asind(b * sind(A) / a)
+    C: 180 - A - B
+  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $a = {a}$ and $b = {b}$. Find $B$ and $C$ to 2 decimals. (Since $a > b$, there is only one triangle.)'
+  answers:
+    - {name: B, label: '$B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: C, label: '$C$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $\sin B = \dfrac{b\sin A}{\,a} = \dfrac{{b}\sin {A}^\circ}{{a}}$, so $B \approx$ **{B:num2}°** (the obtuse supplement is impossible
+    because $b < a$ means $B < A$). Then $C = 180^\circ - A - B \approx$ **{C:num2}°**.
+
+- id: trig-d-ssa-count
+  title: How many triangles? (SSA)
+  topic: Ambiguous case
+  vars:
+    A: {min: 20, max: 140, step: 5}
+    b: {min: 6, max: 20}
+    a: {min: 2, max: 25}
+  where: ["A != 90", "abs(a - b * sind(A)) > 0.05"]
+  calc:
+    h: b * sind(A)
+    n: if(A > 90, if(a > b, 1, 0), if(a < h, 0, if(a < b, 2, 1)))
+  prompt: 'How many triangles have $A = {A}^\circ$, $b = {b}$ and $a = {a}$? (Enter 0, 1 or 2.)'
+  answers:
+    - {name: n, label: 'Number of triangles', format: integer}
+  solution: |-
+    The height is $h = b\sin A = {b}\sin {A}^\circ \approx {h:num2}$. For acute $A$: none if $a < h$, two if $h < a < b$,
+    one if $a \ge b$. For obtuse $A$: one if $a > b$, otherwise none. Here: **{n}**.
+
+- id: trig-d-ssa-solve
+  title: Solve both triangles in the ambiguous case
+  topic: Ambiguous case
+  vars:
+    A: {min: 20, max: 60}
+    b: {min: 8, max: 25}
+    a: {min: 3, max: 24}
+  where: ["a > b * sind(A) + 0.5", "a < b - 0.5"]
+  calc:
+    B1: asind(b * sind(A) / a)
+    B2: 180 - B1
+    C1: 180 - A - B1
+    C2: 180 - A - B2
+    c1: a * sind(C1) / sind(A)
+    c2: a * sind(C2) / sind(A)
+  prompt: '$A = {A}^\circ$, $b = {b}$ and $a = {a}$ give two triangles. Find the acute and obtuse values of $B$, and the side $c$ in each triangle (2 decimals).'
+  answers:
+    - {name: B1, label: 'Acute $B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: c1, label: '$c$ (acute $B$)', tolerance: 0.01}
+    - {name: B2, label: 'Obtuse $B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: c2, label: '$c$ (obtuse $B$)', tolerance: 0.01}
+  solution: |-
+    $\sin B = \dfrac{{b}\sin {A}^\circ}{{a}}$, so $B_1 \approx$ **{B1:num2}°** and $B_2 = 180^\circ - B_1 \approx$ **{B2:num2}°**.
+    Then $C_1 \approx {C1:num2}^\circ$ and $C_2 \approx {C2:num2}^\circ$, and $c = \dfrac{{a}\sin C}{\sin {A}^\circ}$ gives
+    $c_1 \approx$ **{c1:num2}** and $c_2 \approx$ **{c2:num2}**.
+
+- id: trig-d-loc-side
+  title: Law of cosines (SAS)
+  topic: Law of cosines
+  vars:
+    b: {min: 4, max: 30}
+    c: {min: 4, max: 30}
+    A: {min: 15, max: 150}
+  calc:
+    a2: b^2 + c^2 - 2*b*c*cosd(A)
+    a: sqrt(a2)
+  prompt: 'In triangle $ABC$, $b = {b}$, $c = {c}$ and $A = {A}^\circ$. Find $a$ to 2 decimals.'
+  answers:
+    - {name: a, label: '$a$', tolerance: 0.01}
+  solution: |-
+    $a^2 = b^2 + c^2 - 2bc\cos A = {b}^2 + {c}^2 - 2({b})({c})\cos {A}^\circ \approx {a2:dp2}$, so $a \approx$ **{a:num2}**.
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], ['c', 0], ['b*cosd(A)', 'b*sind(A)']]
+    labels:
+      - {at: ['-0.05*(b+c)', '-0.04*(b+c)'], text: 'A = {A}°'}
+    segments:
+      - {from: [0, 0], to: ['c', 0], label: 'c = {c}'}
+      - {from: ['b*cosd(A)', 'b*sind(A)'], to: [0, 0], label: 'b = {b}'}
+
+- id: trig-d-loc-angle
+  title: Law of cosines (SSS)
+  topic: Law of cosines
+  vars:
+    a: {min: 3, max: 25}
+    b: {min: 3, max: 25}
+    c: {min: 3, max: 25}
+  where: ["c > a", "c > b", "a + b > c + 1"]
+  calc:
+    C: acosd((a^2 + b^2 - c^2) / (2*a*b))
+    A: acosd((b^2 + c^2 - a^2) / (2*b*c))
+    B: 180 - A - C
+  prompt: 'A triangle has sides $a = {a}$, $b = {b}$, $c = {c}$. Find all three angles to 2 decimals.'
+  answers:
+    - {name: A, label: '$A$', tolerance: 0.02, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: B, label: '$B$', tolerance: 0.02, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: C, label: '$C$', tolerance: 0.02, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    Largest angle first (opposite $c$): $\cos C = \dfrac{{a}^2 + {b}^2 - {c}^2}{2({a})({b})}$, so $C \approx$ **{C:num2}°**.
+    $\cos A = \dfrac{{b}^2 + {c}^2 - {a}^2}{2({b})({c})}$, so $A \approx$ **{A:num2}°**, and $B = 180^\circ - A - C \approx$ **{B:num2}°**.
+
+- id: trig-d-loc-nav
+  title: Distance after two legs
+  topic: Law of cosines
+  vars:
+    d1: {min: 10, max: 80}
+    d2: {min: 10, max: 80}
+    b1: {min: 10, max: 170, step: 5}
+    turn: {min: 20, max: 150, step: 5}
+  calc:
+    b2: b1 + turn
+    ang: 180 - turn
+    dist: sqrt(d1^2 + d2^2 - 2*d1*d2*cosd(ang))
+  prompt: 'A ship sails {d1} mi on a bearing of ${b1}^\circ$, then {d2} mi on a bearing of ${b2}^\circ$. How far is it from its start? (2 decimals)'
+  answers:
+    - {name: dist, label: 'Distance', tolerance: 0.01, units: {'mi': 1}}
+  solution: |-
+    The heading changes by ${turn}^\circ$, so the interior angle at the turn is $180^\circ - {turn}^\circ = {ang}^\circ$. Law of cosines:
+    $d^2 = {d1}^2 + {d2}^2 - 2({d1})({d2})\cos {ang}^\circ$, so $d \approx$ **{dist:num2} mi**.
+
+- id: trig-d-area-sas
+  title: Area from two sides and the included angle
+  topic: Triangle area
+  vars:
+    a: {min: 3, max: 30}
+    b: {min: 3, max: 30}
+    C: {min: 10, max: 170}
+  calc:
+    K: 0.5 * a * b * sind(C)
+  prompt: 'Find the area of a triangle with $a = {a}$, $b = {b}$ and included angle $C = {C}^\circ$. (2 decimals)'
+  answers:
+    - {name: K, label: 'Area', tolerance: 0.01}
+  solution: |-
+    $\text{Area} = \tfrac12 ab\sin C = \tfrac12({a})({b})\sin {C}^\circ \approx$ **{K:num2}**.
+
+- id: trig-d-heron
+  title: Heron's formula
+  topic: Triangle area
+  vars:
+    a: {min: 3, max: 30}
+    b: {min: 3, max: 30}
+    c: {min: 3, max: 30}
+  where: ["a + b > c + 0.5", "a + c > b + 0.5", "b + c > a + 0.5"]
+  calc:
+    s: (a + b + c) / 2
+    pr: s * (s - a) * (s - b) * (s - c)
+    K: sqrt(pr)
+  prompt: 'Use Heron''s formula to find the area of a triangle with sides {a}, {b} and {c}. (2 decimals)'
+  answers:
+    - {name: K, label: 'Area', tolerance: 0.01}
+  solution: |-
+    $s = \dfrac{{a} + {b} + {c}}{2} = {s}$. Then $\text{Area} = \sqrt{s(s - a)(s - b)(s - c)} = \sqrt{{pr:dp2}} \approx$ **{K:num2}**.

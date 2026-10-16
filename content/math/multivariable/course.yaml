@@ -1,0 +1,27 @@
+id: math-multivariable
+title: Multivariable Calculus
+description: >-
+  A complete college Calculus III course. It opens with a bridge from single-variable
+  calculus, then builds vectors and the geometry of space, vector functions and motion,
+  partial derivatives and the gradient, optimization with Lagrange multipliers, double
+  and triple integrals in every coordinate system, change of variables, and finishes
+  with vector fields, line and surface integrals, and the theorems of Green, Stokes and
+  Gauss with their uses in physics.
+revision: 1
+modules:
+  - id: mv-m1
+    title: Vectors and the geometry of space
+  - id: mv-m2
+    title: Vector functions and motion
+  - id: mv-m3
+    title: Partial derivatives
+  - id: mv-m4
+    title: Optimization
+  - id: mv-m5
+    title: Double integrals
+  - id: mv-m6
+    title: Triple integrals and change of variables
+  - id: mv-m7
+    title: Vector fields and line integrals
+  - id: mv-m8
+    title: Surface integrals and the big theorems

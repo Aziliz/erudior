@@ -1,0 +1,162 @@
+- id: pre-mean
+  title: Find the mean
+  topic: Measures of center
+  vars:
+    a: {min: 40, max: 100}
+    b: {min: 40, max: 100}
+    c: {min: 40, max: 100}
+    d: {min: 40, max: 100}
+    e: {min: 40, max: 100}
+  calc:
+    s: a + b + c + d + e
+    m: mean(a, b, c, d, e)
+  prompt: 'Find the mean of these test scores: {a}, {b}, {c}, {d}, {e}.'
+  answers:
+    - {name: m, label: Mean, tolerance: 0.001}
+  solution: |-
+    Add the scores: {a} + {b} + {c} + {d} + {e} = {s}. Divide by the count, 5: {s} ÷ 5 = **{m}**.
+
+- id: pre-median
+  title: Find the median
+  topic: Measures of center
+  vars:
+    a: {min: 1, max: 60}
+    b: {min: 1, max: 60}
+    c: {min: 1, max: 60}
+    d: {min: 1, max: 60}
+    e: {min: 1, max: 60}
+    f: {min: 1, max: 60}
+  calc:
+    m: median(a, b, c, d, e, f)
+  prompt: 'Find the median of {a}, {b}, {c}, {d}, {e}, {f}.'
+  answers:
+    - {name: m, label: Median, tolerance: 0.001}
+  solution: |-
+    First put the six values in order. With an even count there are two middle values (the 3rd and 4th); the median is their mean: **{m}**.
+
+- id: pre-missing-score
+  title: Score needed for a target mean
+  topic: Measures of center
+  vars:
+    a: {min: 60, max: 98}
+    b: {min: 60, max: 98}
+    c: {min: 60, max: 98}
+    d: {min: 60, max: 98}
+    t: {min: 70, max: 92}
+  calc:
+    need: 5 * t - (a + b + c + d)
+    tot: 5 * t
+    have: a + b + c + d
+  where: ["need >= 50", "need <= 100"]
+  prompt: 'Your first four test scores are {a}, {b}, {c} and {d}. What score do you need on the fifth test for a mean of {t}?'
+  answers:
+    - {name: need, label: Score needed}
+  solution: |-
+    For a mean of {t} over 5 tests, the total must be {t} × 5 = {tot}. You have {a} + {b} + {c} + {d} = {have}. You need {tot} − {have} = **{need}**.
+
+- id: pre-bar-graph
+  title: Read a bar graph
+  topic: Tables and graphs
+  vars:
+    h1: {min: 2, max: 18}
+    h2: {min: 2, max: 18}
+    h3: {min: 2, max: 18}
+    h4: {min: 2, max: 18}
+  calc:
+    a1: 5 * h1
+    a2: 5 * h2
+    a3: 5 * h3
+    a4: 5 * h4
+    tot: a1 + a2 + a3 + a4
+    df: a3 - a1
+  where: ["h3 != h1"]
+  prompt: 'The bar graph shows cars washed at a car wash each week. Find the total for all four weeks, and how many more (negative for fewer) were washed in week 3 than in week 1.'
+  answers:
+    - {name: tot, label: Total}
+    - {name: df, label: 'Week 3 minus week 1'}
+  figure:
+    type: plot
+    x: [0, 5]
+    y: [0, 100]
+    xLabel: Week
+    yLabel: Cars washed
+    bars:
+      - {x: 1, height: a1, width: 0.6, label: 'Wk 1'}
+      - {x: 2, height: a2, width: 0.6, label: 'Wk 2'}
+      - {x: 3, height: a3, width: 0.6, label: 'Wk 3'}
+      - {x: 4, height: a4, width: 0.6, label: 'Wk 4'}
+    labels:
+      - {at: [1, 'a1 + 4'], text: '{a1}'}
+      - {at: [2, 'a2 + 4'], text: '{a2}'}
+      - {at: [3, 'a3 + 4'], text: '{a3}'}
+      - {at: [4, 'a4 + 4'], text: '{a4}'}
+  solution: |-
+    Total: {a1} + {a2} + {a3} + {a4} = **{tot}**. Week 3 minus week 1: {a3} − {a1} = **{df}**.
+
+- id: pre-circle-graph
+  title: Read a circle graph
+  topic: Tables and graphs
+  vars:
+    T: {min: 1000, max: 8000, step: 100}
+    p: {choices: [5, 10, 12, 15, 20, 25, 30, 35, 40, 45]}
+  calc:
+    amt: T * p / 100
+    ang: 360 * p / 100
+    dp: p / 100
+  prompt: 'A circle graph shows a company budget of {T:money0}. The marketing sector is {p}% of the budget. How many dollars go to marketing, and what is the angle of that sector?'
+  answers:
+    - {name: amt, label: Dollars, format: money}
+    - {name: ang, label: Angle, units: {'°': 1, deg: 1}}
+  solution: |-
+    Amount: {p}% of {T:money0} = {dp} × {T:int} = **{amt:money}**. Angle: {p}% of 360° = {dp} × 360° = **{ang}°**.
+
+- id: pre-prob-simple
+  title: Probability of drawing a color
+  topic: Probability
+  vars:
+    r: {min: 1, max: 12}
+    b: {min: 1, max: 12}
+    g: {min: 1, max: 12}
+  calc:
+    n: r + b + g
+    P: b / (r + b + g)
+  prompt: 'A bag holds {r} red, {b} blue and {g} green marbles. One is drawn at random. What is the probability it is blue? Give a fraction in lowest terms.'
+  answers:
+    - {name: P, kind: fraction, lowestTerms: true, label: 'P(blue)'}
+  solution: |-
+    There are ${r} + {b} + {g} = {n}$ marbles, {b} of them blue. $P(\text{blue}) = \dfrac{{b}}{{n}} =$ **${P:texfrac}$**.
+
+- id: pre-prob-complement
+  title: Probability of a complement
+  topic: Probability
+  vars:
+    r: {min: 1, max: 12}
+    b: {min: 1, max: 12}
+    g: {min: 1, max: 12}
+  calc:
+    n: r + b + g
+    pr: r / (r + b + g)
+    P: 1 - r / (r + b + g)
+  prompt: 'A bag holds {r} red, {b} blue and {g} green marbles. One is drawn at random. What is the probability it is NOT red? Give a fraction in lowest terms.'
+  answers:
+    - {name: P, kind: fraction, lowestTerms: true, label: 'P(not red)'}
+  solution: |-
+    $P(\text{red}) = \dfrac{{r}}{{n}}$, so $P(\text{not red}) = 1 - \dfrac{{r}}{{n}} =$ **${P:texfrac}$**. (Or count directly: {b} + {g} non-red marbles out of {n}.)
+
+- id: pre-prob-independent
+  title: Two independent draws
+  topic: Probability
+  vars:
+    r: {min: 1, max: 9}
+    b: {min: 1, max: 9}
+  calc:
+    n: r + b
+    P: (r / (r + b)) * (b / (r + b))
+    nn: n^2
+    rb: r * b
+  where: ["r + b >= 5"]
+  prompt: 'A jar holds {r} red and {b} blue chips. A chip is drawn, put back, and a second chip is drawn. What is the probability the first is red and the second is blue? Give a fraction in lowest terms.'
+  answers:
+    - {name: P, kind: fraction, lowestTerms: true, label: 'P(red, then blue)'}
+  solution: |-
+    The chip is replaced, so the draws are independent: $\dfrac{{r}}{{n}} \times \dfrac{{b}}{{n}} = \dfrac{{rb}}{{nn}} =$ **${P:texfrac}$**.

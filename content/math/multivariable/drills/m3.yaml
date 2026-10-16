@@ -1,0 +1,276 @@
+# Module 3 drills
+- id: mv-d-domain-eval
+  title: Evaluate a function of two variables
+  topic: Domain and range
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -3, max: 3}
+    c: {min: 1, max: 6}
+    x0: {min: -3, max: 3}
+    y0: {min: -3, max: 3}
+  where: ["a != 0", "b != 0"]
+  calc:
+    val: a*x0^2*y0 + b*y0^2 - c*x0
+  prompt: 'Evaluate $f(x, y) = {a:coef}x^2y {b:signedcoef}y^2 - {c}x$ at $({x0}, {y0})$.'
+  answers:
+    - {name: val, label: '$f({x0}, {y0}) =$'}
+  solution: |-
+    Substitute $x = {x0}$, $y = {y0}$: $({a})({x0})^2({y0}) + ({b})({y0})^2 - {c}({x0}) =$ **{val}**.
+- id: mv-d-level
+  title: Read a level curve
+  topic: Level curves
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: 1, max: 4}
+    x0: {min: -2, max: 2}
+    y0: {min: -2, max: 2}
+  where: ["a != b", "x0^2 + y0^2 > 0"]
+  calc:
+    c: a*x0^2 + b*y0^2
+    sx: sqrt(c/a)
+    sy: sqrt(c/b)
+  prompt: 'For $f(x, y) = {a:coef}x^2 + {b:coef}y^2$, find the value $c$ of the level curve through $({x0}, {y0})$, and where that level curve crosses the positive $x$-axis (2 decimals).'
+  figure:
+    type: plot
+    x: [-6, 6]
+    y: [-6, 6]
+    equal: true
+    curves:
+      - {x: 'sx*cos(t)', y: 'sy*sin(t)', t: [0, '2pi']}
+    points:
+      - {at: [x0, y0], label: '({x0}, {y0})'}
+    caption: 'The level curve through ({x0}, {y0})'
+  answers:
+    - {name: c, label: '$c =$'}
+    - {name: sx, label: '$x$-intercept'}
+  solution: |-
+    $c = f({x0}, {y0}) = {a}({x0})^2 + {b}({y0})^2 =$ **{c}**. The level curve ${a:coef}x^2 + {b:coef}y^2 = {c}$ is an ellipse.
+    On the $x$-axis $y = 0$, so $x^2 = {c}/{a}$ and $x = \sqrt{{c}/{a}} \approx$ **{sx:num2}**.
+- id: mv-d-limit-path
+  title: Limit along a line
+  topic: Limits of several variables
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -4, max: 4}
+    m: {min: -3, max: 3}
+  where: ["a != b"]
+  calc:
+    m2: m^2
+    num: a + b*m^2
+    den: 1 + m^2
+    L: num/den
+  prompt: 'Find the limit of $f(x, y) = \dfrac{{a:coef}x^2 {b:signedcoef}y^2}{x^2 + y^2}$ as $(x, y)\to(0, 0)$ along the line $y = {m}x$. (Exact fraction.)'
+  answers:
+    - {name: L, kind: fraction, label: 'Limit along the line'}
+  solution: |-
+    Substitute $y = {m}x$: $\dfrac{{a}x^2 + ({b})({m2})x^2}{x^2 + {m2}x^2} = \dfrac{{num}}{{den}}$ for $x \ne 0$, so the limit along this line is **${L:texfrac}$**.
+    Because the answer depends on the slope (it is ${a}$ along the $x$-axis and ${b}$ along the $y$-axis), the two-variable limit does not exist.
+- id: mv-d-partials
+  title: First partial derivatives
+  topic: Partial derivatives
+  vars:
+    a: {min: 2, max: 6}
+    m: {min: 3, max: 5}
+    n: {min: 3, max: 4}
+    b: {min: -5, max: 5}
+  where: ["b != 0"]
+  calc:
+    am: a*m
+    an: a*n
+    m1: m - 1
+    n1: n - 1
+  prompt: 'Find $f_x$ and $f_y$ for $f(x, y) = {a}x^{m}y^{n} {b:signedcoef}xy$.'
+  answers:
+    - {kind: expression, expression: 'am*x^m1*y^n + b*y', variables: [x, y], label: '$f_x =$', show: '${am}x^{{m1}}y^{{n}} {b:signedcoef}y$'}
+    - {kind: expression, expression: 'an*x^m*y^n1 + b*x', variables: [x, y], label: '$f_y =$', show: '${an}x^{{m}}y^{{n1}} {b:signedcoef}x$'}
+  solution: |-
+    For $f_x$, treat $y$ as a constant: $\partial_x\left({a}x^{m}y^{n}\right) = {am}x^{{m1}}y^{n}$ and $\partial_x({b:coef}xy) = {b:coef}y$.
+    For $f_y$, treat $x$ as a constant: $\partial_y\left({a}x^{m}y^{n}\right) = {an}x^{m}y^{{n1}}$ and $\partial_y({b:coef}xy) = {b:coef}x$.
+    **$f_x = {am}x^{{m1}}y^{n} {b:signedcoef}y$, $f_y = {an}x^{m}y^{{n1}} {b:signedcoef}x$.**
+- id: mv-d-second-partials
+  title: Second partial derivatives
+  topic: Higher-order partials
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: -4, max: 4}
+  where: ["b != 0"]
+  calc:
+    a2: 2*a
+    a3: 3*a
+    a6: 6*a
+    b3: 3*b
+    b6: 6*b
+  prompt: 'For $f(x, y) = {a:coef}x^3y^2 {b:signedcoef}xy^3$, find $f_{xx}$, $f_{xy}$ and $f_{yy}$.'
+  answers:
+    - {kind: expression, expression: 'a6*x*y^2', variables: [x, y], label: '$f_{xx} =$', show: '${a6}xy^2$'}
+    - {kind: expression, expression: 'a6*x^2*y + b3*y^2', variables: [x, y], label: '$f_{xy} =$', show: '${a6}x^2y {b3:signedcoef}y^2$'}
+    - {kind: expression, expression: '2*a*x^3 + b6*x*y', variables: [x, y], label: '$f_{yy} =$', show: '${a2}x^3 {b6:signedcoef}xy$'}
+  solution: |-
+    First partials: $f_x = {a3}x^2y^2 {b:signedcoef}y^3$ and $f_y = {a2}x^3y {b3:signedcoef}xy^2$.
+    Then $f_{xx} = {a6}xy^2$, $f_{xy} = \partial_y f_x = {a6}x^2y {b3:signedcoef}y^2$ (and $f_{yx} = \partial_x f_y$ gives the same, by Clairaut), and $f_{yy} = {a2}x^3 {b6:signedcoef}xy$.
+    **$f_{xx} = {a6}xy^2$, $f_{xy} = {a6}x^2y {b3:signedcoef}y^2$, $f_{yy} = {a2}x^3 {b6:signedcoef}xy$.**
+- id: mv-d-tangent-plane
+  title: Tangent plane to a graph
+  topic: Tangent planes
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    c: {min: -2, max: 2}
+    x0: {min: -2, max: 2}
+    y0: {min: -2, max: 2}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    z0: a*x0^2 + b*y0^2 + c*x0*y0
+    fx: 2*a*x0 + c*y0
+    fy: 2*b*y0 + c*x0
+    C: z0 - fx*x0 - fy*y0
+  prompt: 'Find the tangent plane to $z = {a:coef}x^2 {b:signedcoef}y^2 {c:signedcoef}xy$ at the point where $x = {x0}$, $y = {y0}$. Write it as $z = Ax + By + C$.'
+  answers:
+    - {name: fx, label: '$A =$'}
+    - {name: fy, label: '$B =$'}
+    - {name: C, label: '$C =$'}
+  solution: |-
+    $z_0 = f({x0}, {y0}) = {z0}$. Partials: $f_x = 2({a})x + ({c})y = {fx}$ and $f_y = 2({b})y + ({c})x = {fy}$ at the point.
+    $z = {z0} + ({fx})(x - ({x0})) + ({fy})(y - ({y0}))$, which simplifies to **$z = {fx}x {fy:signed}y {C:signed}$**.
+- id: mv-d-linearize
+  title: Estimate with a linearization
+  topic: Linear approximation and differentials
+  vars:
+    a: {min: 1, max: 4}
+    x0: {min: 1, max: 4}
+    y0: {min: 1, max: 4}
+    dx: {min: -0.2, max: 0.2, step: 0.1}
+    dy: {min: -0.2, max: 0.2, step: 0.1}
+  where: ["dx != 0", "dy != 0"]
+  calc:
+    f0: a*x0^2*y0
+    fx: 2*a*x0*y0
+    fy: a*x0^2
+    x1: x0 + dx
+    y1: y0 + dy
+    Lv: f0 + fx*dx + fy*dy
+    actual: a*x1^2*y1
+  prompt: 'Use the linearization of $f(x, y) = {a:coef}x^2y$ at $({x0}, {y0})$ to estimate $f({x1}, {y1})$.'
+  answers:
+    - {name: Lv, label: '$L({x1}, {y1}) =$'}
+  solution: |-
+    $f({x0}, {y0}) = {f0}$, $f_x = 2({a})xy = {fx}$, $f_y = {a}x^2 = {fy}$ at the base point.
+    $L = {f0} + {fx}({dx}) + {fy}({dy}) =$ **{Lv:num2}**. (The exact value is about {actual:num4}.)
+- id: mv-d-chain
+  title: Chain rule along a path
+  topic: Multivariable chain rule
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    t0: {min: -2, max: 2}
+  where: ["a != 0", "c != 0"]
+  calc:
+    X: t0^2 + b
+    Y: c*t0
+    zx: 2*X + a*Y
+    zy: a*X
+    xt: 2*t0
+    yt: c
+    dz: zx*xt + zy*yt
+  prompt: 'Let $z = x^2 {a:signedcoef}xy$ with $x = t^2 {b:signed}$ and $y = {c:coef}t$. Use the chain rule to find $\dfrac{dz}{dt}$ at $t = {t0}$.'
+  answers:
+    - {name: dz, label: '$\dfrac{dz}{dt} =$'}
+  solution: |-
+    At $t = {t0}$: $x = {X}$, $y = {Y}$.
+    $z_x = 2x + ({a})y = {zx}$, $z_y = ({a})x = {zy}$, $\dfrac{dx}{dt} = 2t = {xt}$, $\dfrac{dy}{dt} = {yt}$.
+    $\dfrac{dz}{dt} = z_x\dfrac{dx}{dt} + z_y\dfrac{dy}{dt} = ({zx})({xt}) + ({zy})({yt}) =$ **{dz}**.
+- id: mv-d-implicit
+  title: Implicit differentiation
+  topic: Implicit differentiation
+  vars:
+    a: {min: -3, max: 3}
+    x0: {min: -2, max: 2}
+    y0: {min: -2, max: 2}
+  where: ["a != 0", "Fy != 0", "Fx != 0"]
+  calc:
+    k: x0^2 + a*x0*y0 + y0^3
+    Fx: 2*x0 + a*y0
+    Fy: a*x0 + 3*y0^2
+    slope: -Fx/Fy
+  prompt: 'The curve $x^2 {a:signedcoef}xy + y^3 = {k}$ passes through $({x0}, {y0})$. Find $\dfrac{dy}{dx}$ there. (Exact fraction.)'
+  answers:
+    - {name: slope, kind: fraction, label: '$\dfrac{dy}{dx} =$'}
+  solution: |-
+    With $F = x^2 + ({a})xy + y^3 - ({k})$: $F_x = 2x + ({a})y = {Fx}$ and $F_y = ({a})x + 3y^2 = {Fy}$ at the point.
+    $\dfrac{dy}{dx} = -\dfrac{F_x}{F_y} = -\dfrac{{Fx}}{{Fy}} =$ **${slope:texfrac}$**.
+- id: mv-d-gradient
+  title: Gradient of a function of three variables
+  topic: The gradient
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: -4, max: 4}
+    c: {min: -4, max: 4}
+  where: ["b != 0", "c != 0"]
+  calc:
+    a2: 2*a
+    b2: 2*b
+  prompt: 'Find $\nabla f$ for $f(x, y, z) = {a:coef}x^2y {b:signedcoef}yz^2 {c:signedcoef}xz$.'
+  answers:
+    - {kind: expression, expression: 'a2*x*y + c*z', variables: [x, y, z], label: '$f_x =$', show: '${a2}xy {c:signedcoef}z$'}
+    - {kind: expression, expression: 'a*x^2 + b*z^2', variables: [x, y, z], label: '$f_y =$', show: '${a:coef}x^2 {b:signedcoef}z^2$'}
+    - {kind: expression, expression: 'b2*y*z + c*x', variables: [x, y, z], label: '$f_z =$', show: '${b2}yz {c:signedcoef}x$'}
+  solution: |-
+    Take each partial derivative, holding the other two variables constant:
+    $f_x = {a2}xy {c:signedcoef}z$, $f_y = {a:coef}x^2 {b:signedcoef}z^2$, $f_z = {b2}yz {c:signedcoef}x$.
+    **$\nabla f = \langle {a2}xy {c:signedcoef}z,\; {a:coef}x^2 {b:signedcoef}z^2,\; {b2}yz {c:signedcoef}x\rangle$**.
+- id: mv-d-dir-deriv
+  title: Directional derivative
+  topic: Directional derivatives
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    x0: {min: -2, max: 2}
+    y0: {min: -2, max: 2}
+    v1: {min: -4, max: 4}
+    v2: {min: -4, max: 4}
+  where: ["a != 0", "b != 0", "v1 != 0", "v2 != 0", "abs(D) > 0.05"]
+  calc:
+    gx: 2*a*x0 + b*y0
+    gy: b*x0 + 2*c*y0
+    nv: sqrt(v1^2 + v2^2)
+    D: (gx*v1 + gy*v2)/nv
+  prompt: 'Find the directional derivative of $f(x, y) = {a:coef}x^2 {b:signedcoef}xy {c:signed}y^2$ at $({x0}, {y0})$ in the direction of $\mathbf v = \langle {v1}, {v2}\rangle$. (2 decimals.)'
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    equal: true
+    points:
+      - {at: [x0, y0], label: '({x0}, {y0})'}
+    segments:
+      - {from: [x0, y0], to: ['x0 + v1', 'y0 + v2'], arrow: true, label: 'v'}
+    caption: 'The direction of v from the point'
+  answers:
+    - {name: D, label: '$D_{\mathbf u}f =$'}
+  solution: |-
+    $\nabla f = \langle 2({a})x + ({b})y,\; ({b})x + 2({c})y\rangle = \langle {gx}, {gy}\rangle$ at $({x0}, {y0})$.
+    Normalize: $|\mathbf v| = \sqrt{({v1})^2 + ({v2})^2} \approx {nv:num4}$.
+    $D_{\mathbf u}f = \dfrac{\nabla f\cdot\mathbf v}{|\mathbf v|} = \dfrac{({gx})({v1}) + ({gy})({v2})}{{nv:num4}} \approx$ **{D:num2}**.
+- id: mv-d-max-rate
+  title: Steepest ascent
+  topic: The gradient
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -3, max: 3}
+    x0: {min: -2, max: 2}
+    y0: {min: -2, max: 2}
+  where: ["b != 0", "rate > 0"]
+  calc:
+    gx: a*y0^2 + 2*b*x0
+    gy: 2*a*x0*y0
+    rate: sqrt(gx^2 + gy^2)
+  prompt: 'For $f(x, y) = {a:coef}xy^2 {b:signedcoef}x^2$ at $({x0}, {y0})$, find the gradient and the maximum rate of increase. (Rate to 2 decimals.)'
+  answers:
+    - {name: gx, label: '$f_x =$'}
+    - {name: gy, label: '$f_y =$'}
+    - {name: rate, label: 'max rate'}
+  solution: |-
+    $f_x = {a}y^2 + 2({b})x = {gx}$ and $f_y = 2({a})xy = {gy}$ at the point, so $\nabla f = \langle {gx}, {gy}\rangle$.
+    The maximum rate of increase is $|\nabla f| = \sqrt{({gx})^2 + ({gy})^2} \approx$ **{rate:num2}**, in the direction of $\nabla f$.

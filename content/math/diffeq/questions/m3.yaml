@@ -1,0 +1,317 @@
+# Module 3: modeling
+- id: de-q-1101
+  lesson: de-model-growth
+  module_quiz: true
+  topic: Newton's law of cooling
+  stem: 'A pie at 80 °C cools in a 20 °C kitchen according to $T'' = -0.1(T - 20)$, $t$ in minutes. What is its temperature after 10 minutes?'
+  choices: ['about 29.4 °C', 'about 42.1 °C', 'about 49.4 °C', 'about 22.1 °C']
+  answer: 1
+  explanation: |-
+    $T = 20 + 60e^{-0.1t}$, so $T(10) = 20 + 60e^{-1} \approx 42.07$. Applying the exponential to $T$ itself ($80e^{-1} \approx 29.4$) ignores the room temperature.
+- id: de-q-1102
+  lesson: de-model-growth
+  topic: Newton's law of cooling
+  stem: 'Tea cools from 100 °C to 60 °C in 5 minutes in a 20 °C room. What is $k$ in $T'' = -k(T - 20)$?'
+  choices: ['$\dfrac{\ln(5/3)}{5} \approx 0.102$ per minute', '$\dfrac{40}{5} = 8$ per minute', '$\dfrac{\ln 2}{20} \approx 0.035$ per minute', '$\dfrac{\ln 2}{5} \approx 0.139$ per minute']
+  answer: 3
+  explanation: |-
+    The difference from the room went from 80 to 40, so $e^{-5k} = \tfrac12$ and $k = \ln 2/5$. Using the temperatures 100 and 60 directly gives $\ln(5/3)/5$, which forgets to subtract the 20.
+- id: de-q-1103
+  lesson: de-model-growth
+  module_quiz: true
+  topic: Newton's law of cooling
+  stem: 'In Newton''s law of cooling, what happens to $T(t)$ as $t \to \infty$?'
+  choices: ['It approaches the ambient temperature', 'It approaches 0', 'It approaches $T_0/2$', 'It oscillates around the ambient temperature']
+  answer: 0
+  explanation: |-
+    $T = T_a + (T_0 - T_a)e^{-kt}$ and the exponential term decays, leaving $T_a$. It approaches monotonically, without oscillating.
+- id: de-q-1104
+  lesson: de-model-growth
+  topic: Newton's law of cooling
+  stem: 'A cold drink at 4 °C sits in a 25 °C room. Which equation models it (with $k > 0$)?'
+  choices: ['$T'' = k(T - 25)$', '$T'' = -k(T - 4)$', '$T'' = -k(T - 25)$', '$T'' = -kT$']
+  answer: 2
+  explanation: |-
+    The same form works for warming: when $T < 25$, $-k(T - 25) > 0$ and the drink warms. The ambient temperature, not the starting temperature, goes in the parentheses.
+- id: de-q-1105
+  lesson: de-model-growth
+  module_quiz: true
+  topic: Growth and decay
+  stem: 'An account with no deposits earns 4% interest compounded continuously. Starting from \$1,000, what is the balance after 10 years?'
+  choices: ['about \$1,400.00', 'about \$1,480.24', 'about \$1,040.81', 'about \$1,491.82']
+  answer: 3
+  explanation: |-
+    $A = 1000e^{0.04 \cdot 10} = 1000e^{0.4} \approx 1491.82$. \$1,400 is simple interest; \$1,480.24 is annual compounding, $1000(1.04)^{10}$.
+- id: de-q-1106
+  lesson: de-model-growth
+  topic: Growth and decay
+  stem: 'A savings plan has $A'' = 0.06A + 2000$ ($t$ in years) with $A(0) = 0$. What is $A(20)$?'
+  choices: ['about \$40,000', 'about \$77,337', 'about \$110,671', 'about \$66,402']
+  answer: 1
+  explanation: |-
+    $A = \dfrac{2000}{0.06}(e^{0.06t} - 1)$, so $A(20) = 33333.33(e^{1.2} - 1) \approx 77337$. \$40,000 is just the deposits.
+- id: de-q-1107
+  lesson: de-model-growth
+  topic: Growth and decay
+  stem: 'A \$100,000 loan accrues 5% interest compounded continuously and is repaid at \$8,000 per year continuously. When is it paid off?'
+  choices: ['about 12.5 years', 'about 20.0 years', 'about 19.6 years', 'never']
+  answer: 2
+  explanation: |-
+    $B' = 0.05B - 8000$ gives $B = 160000 - 60000e^{0.05t}$. $B = 0$ when $e^{0.05t} = 8/3$, so $t = 20\ln(8/3) \approx 19.6$. It is paid off because the payment exceeds the initial interest of \$5,000 per year.
+- id: de-q-1108
+  lesson: de-model-growth
+  topic: Growth and decay
+  stem: 'An isotope has a half-life of 8 days. About what fraction remains after 30 days?'
+  choices: ['0.074', '0.27', '0.125', '0.034']
+  answer: 0
+  explanation: |-
+    $(1/2)^{30/8} = (1/2)^{3.75} \approx 0.0743$.
+- id: de-q-1109
+  lesson: de-model-growth
+  topic: Growth and decay
+  stem: 'A loan of $P$ dollars at continuous rate $r$ is repaid at a constant rate $d$ per year. For which $d$ is it never paid off?'
+  choices: ['$d \le rP$', '$d \ge rP$', '$d < P$', '$d > P/r$']
+  answer: 0
+  explanation: |-
+    $B' = rB - d$. At the start $B' = rP - d$; if $d \le rP$ the balance never decreases (with $d = rP$ it stays constant), so it never reaches 0.
+- id: de-q-1110
+  lesson: de-model-growth
+  topic: Newton's law of cooling
+  stem: 'A body is 30 °C when found, 28 °C an hour later, in a 20 °C room. Normal body temperature is 37 °C. About how long before discovery did death occur?'
+  choices: ['about 3.5 hours', 'about 1.2 hours', 'about 2.4 hours', 'about 8.5 hours']
+  answer: 2
+  explanation: |-
+    $T = 20 + 10e^{-kt}$ with $e^{-k} = 0.8$. Solve $20 + 10e^{-kt} = 37$: $e^{-kt} = 1.7$, $t = -\ln 1.7/\ln 1.25 \approx -2.38$ hours. Assuming linear cooling at 2 °C per hour would give 3.5 hours.
+- id: de-q-1111
+  lesson: de-model-growth
+  topic: Growth and decay
+  stem: 'How long does money take to double at 5% compounded continuously?'
+  choices: ['20 years', 'about 13.9 years', 'about 14.2 years', '10 years']
+  answer: 1
+  explanation: |-
+    $e^{0.05t} = 2$ gives $t = \ln 2/0.05 \approx 13.86$. 14.2 is the annual-compounding doubling time, and 20 is $1/0.05$.
+- id: de-q-1112
+  lesson: de-model-growth
+  topic: Newton's law of cooling
+  stem: 'Two identical cups of coffee, one at 90 °C and one at 70 °C, cool in the same 20 °C room. Which statement is true?'
+  choices: ['They cool at the same rate in °C per minute', 'The hotter one reaches 20 °C first', 'The hotter one''s temperature difference has a shorter half-life', 'Each one''s difference from 20 °C halves in the same amount of time']
+  answer: 3
+  explanation: |-
+    $T - T_a$ decays like $e^{-kt}$ with the same $k$ for both, so the "half-life" of the difference is the same. The hotter cup loses more degrees per minute at first, since the rate is proportional to the difference.
+# Lesson 12
+- id: de-q-1201
+  lesson: de-mixing
+  module_quiz: true
+  topic: Mixing problems
+  stem: 'A 500 L tank holds brine. Water containing 0.2 kg/L of salt flows in at 10 L/min and mixed solution leaves at 10 L/min. Which equation gives the salt $Q$ (kg)?'
+  choices: ['$Q'' = 2 - \dfrac{Q}{500}$', '$Q'' = 2 - \dfrac{Q}{50}$', '$Q'' = 0.2 - \dfrac{Q}{50}$', '$Q'' = 2 - 10Q$']
+  answer: 1
+  explanation: |-
+    Rate in $= 10 \times 0.2 = 2$ kg/min. Rate out $= 10 \cdot \dfrac{Q}{500} = \dfrac{Q}{50}$ kg/min. Using $Q$ instead of $Q/V$ for the outflow concentration gives $10Q$.
+- id: de-q-1202
+  lesson: de-mixing
+  module_quiz: true
+  topic: Mixing problems
+  stem: 'For the tank $Q'' = 2 - \dfrac{Q}{50}$, what is the long-run amount of salt?'
+  choices: ['50 kg', '2 kg', '25 kg', '100 kg']
+  answer: 3
+  explanation: |-
+    Set $Q' = 0$: $Q = 100$. It also equals incoming concentration × volume, $0.2 \times 500$.
+- id: de-q-1203
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'A 100 L tank starts with pure water. Brine at 0.3 kg/L enters at 5 L/min and mixed solution leaves at 5 L/min. How much salt is there after 20 minutes?'
+  choices: ['about 19.0 kg', 'about 30.0 kg', 'about 11.0 kg', 'about 25.9 kg']
+  answer: 0
+  explanation: |-
+    $Q' = 1.5 - 0.05Q$, $Q(0) = 0$, so $Q = 30(1 - e^{-0.05t})$ and $Q(20) = 30(1 - e^{-1}) \approx 18.96$ kg.
+- id: de-q-1204
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'Why does a mixing model write the outflow rate as $r_{\text{out}}\,Q/V$?'
+  choices: ['Because the outflow matches the inflow concentration', 'Because $Q/V$ is constant', 'Because the tank is well-stirred, so outflow has the tank''s current concentration', 'Because the amount leaving equals the amount entering']
+  answer: 2
+  explanation: |-
+    The well-stirred assumption makes the concentration uniform, so whatever leaves carries concentration $Q/V$.
+- id: de-q-1205
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'A 200 L tank holds 40 kg of dissolved salt. Pure water flows in at 4 L/min and the mixture drains at 4 L/min. When will 10 kg remain?'
+  choices: ['$50\ln 2 \approx 34.7$ min', '$200\ln 4 \approx 277$ min', '$\dfrac{30}{4} = 7.5$ min', '$50\ln 4 \approx 69.3$ min']
+  answer: 3
+  explanation: |-
+    $Q' = -\dfrac{4}{200}Q = -\dfrac{Q}{50}$, so $Q = 40e^{-t/50}$. $Q = 10$ when $e^{-t/50} = \tfrac14$, $t = 50\ln 4$.
+- id: de-q-1206
+  lesson: de-mixing
+  module_quiz: true
+  topic: Mixing problems
+  stem: 'A tank starts with 100 L. Inflow is 3 L/min and outflow is 2 L/min. What is the volume at time $t$, and the outflow term in the salt equation?'
+  choices: ['$V = 100$; outflow $\dfrac{2Q}{100}$', '$V = 100 + t$; outflow $\dfrac{2Q}{100 + t}$', '$V = 100 + 5t$; outflow $\dfrac{2Q}{100 + 5t}$', '$V = 100 + t$; outflow $\dfrac{3Q}{100 + t}$']
+  answer: 1
+  explanation: |-
+    Net inflow is $3 - 2 = 1$ L/min, so $V = 100 + t$. The outflow rate (2 L/min) multiplies the concentration $Q/V$.
+- id: de-q-1207
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'For $Q'' + \dfrac{2}{100 + t}Q = 0.6$, what is the integrating factor?'
+  choices: ['$e^{2t}$', '$2\ln(100 + t)$', '$(100 + t)^2$', '$(100 + t)^{-2}$']
+  answer: 2
+  explanation: |-
+    $\mu = e^{\int \frac{2}{100 + t}dt} = e^{2\ln(100 + t)} = (100 + t)^2$.
+- id: de-q-1208
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'Units check: in $Q'' = r_{\text{in}}c_{\text{in}} - r_{\text{out}}Q/V$ with flows in L/min and $Q$ in grams, what are the units of each term?'
+  choices: ['grams per minute', 'grams per liter', 'liters per minute', 'grams']
+  answer: 0
+  explanation: |-
+    (L/min)(g/L) = g/min, and (L/min)(g)/(L) = g/min, matching $dQ/dt$.
+- id: de-q-1209
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'Tank A (100 L, 20 kg salt) drains at 5 L/min into tank B (100 L, pure water), which drains at 5 L/min; pure water enters A at 5 L/min. When does B hold the most salt?'
+  choices: ['$t = 20$ min', '$t = 0$', '$t = 10$ min', '$t = 100$ min']
+  answer: 0
+  explanation: |-
+    $Q_A = 20e^{-t/20}$ and solving B's equation gives $Q_B = te^{-t/20}$. Its derivative $e^{-t/20}(1 - t/20)$ is zero at $t = 20$.
+- id: de-q-1210
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'A 1000 L tank contains 50 kg of salt. Brine at 0.1 kg/L flows in at 20 L/min and the mixture leaves at 20 L/min. Which describes $Q(t)$?'
+  choices: ['It falls from 50 toward 0 kg', 'It rises from 50 toward 2 kg per min indefinitely', 'It rises from 50 toward 100 kg', 'It stays at 50 kg']
+  answer: 2
+  explanation: |-
+    $Q_\infty = c_{\text{in}}V = 0.1 \times 1000 = 100$ kg, above the starting 50 kg, so $Q = 100 - 50e^{-t/50}$ rises toward 100.
+- id: de-q-1211
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'Find the error: "A 50 L tank of pure water receives brine at 2 kg/L and 3 L/min, draining at 3 L/min, so $Q'' = 6 - 3Q$."'
+  choices: ['The inflow should be $\dfrac{6}{50}$', 'The outflow should be $\dfrac{3Q}{50}$, not $3Q$', 'The inflow should be 2', 'There is no error']
+  answer: 1
+  explanation: |-
+    Outflow = (3 L/min)(concentration $Q/50$ kg/L). The inflow $3 \times 2 = 6$ kg/min is right.
+- id: de-q-1212
+  lesson: de-mixing
+  topic: Mixing problems
+  stem: 'A room of 300 m³ has 0.9 kg of smoke. Clean air enters at 30 m³/min and mixed air leaves at the same rate. How long until the smoke is halved?'
+  choices: ['$30\ln 2 \approx 20.8$ min', '5 min', '$\ln 2/10 \approx 0.07$ min', '$10\ln 2 \approx 6.9$ min']
+  answer: 3
+  explanation: |-
+    $Q' = -\dfrac{30}{300}Q = -0.1Q$, so the halving time is $\ln 2/0.1 \approx 6.93$ min.
+# Lesson 13
+- id: de-q-1301
+  lesson: de-falling-circuits
+  module_quiz: true
+  topic: Falling objects
+  stem: 'A 10 kg object falls with drag force $4v$ (N). What is its terminal velocity? (Use $g = 9.8$ m/s².)'
+  choices: ['2.5 m/s', '24.5 m/s', '39.2 m/s', '0.41 m/s']
+  answer: 1
+  explanation: |-
+    Terminal velocity balances gravity and drag: $mg = 4v_T$, so $v_T = 98/4 = 24.5$ m/s. 2.5 forgets $g$.
+- id: de-q-1302
+  lesson: de-falling-circuits
+  topic: Falling objects
+  stem: 'With down positive, which equation models a falling mass with linear drag?'
+  choices: ['$mv'' = -mg - \gamma v$', '$mv'' = mg + \gamma v$', '$v'' = mg - \gamma v$', '$mv'' = mg - \gamma v$']
+  answer: 3
+  explanation: |-
+    Gravity pushes down (positive); drag opposes the downward velocity (negative). The choice $v' = mg - \gamma v$ forgets to divide $mg$ by $m$ (or multiply $v'$ by $m$).
+- id: de-q-1303
+  lesson: de-falling-circuits
+  module_quiz: true
+  topic: Falling objects
+  stem: 'A 5 kg package dropped from rest has $v'' = 9.8 - 0.4v$. What is $v(5)$?'
+  choices: ['about 21.2 m/s', 'about 24.5 m/s', 'about 49 m/s', 'about 3.3 m/s']
+  answer: 0
+  explanation: |-
+    $v = 24.5(1 - e^{-0.4t})$, so $v(5) = 24.5(1 - e^{-2}) \approx 21.18$ m/s. 49 m/s is free fall without drag.
+- id: de-q-1304
+  lesson: de-falling-circuits
+  topic: Falling objects
+  stem: 'With quadratic drag $mv'' = mg - kv^2$, the terminal velocity is'
+  choices: ['$mg/k$', '$\sqrt{k/(mg)}$', '$\sqrt{mg/k}$', '$(mg/k)^2$']
+  answer: 2
+  explanation: |-
+    Set $v' = 0$: $kv^2 = mg$, so $v_T = \sqrt{mg/k}$.
+- id: de-q-1305
+  lesson: de-falling-circuits
+  topic: Falling objects
+  stem: 'A ball thrown upward with linear drag reaches its peak'
+  choices: ['later than it would without drag', 'at the same time as without drag', 'never, if the drag coefficient is large', 'sooner than it would without drag']
+  answer: 3
+  explanation: |-
+    On the way up, drag and gravity both point down, so the ball decelerates faster than $g$ and stops sooner. In the lesson's example: 1.71 s vs 2.04 s.
+- id: de-q-1306
+  lesson: de-falling-circuits
+  topic: Falling objects
+  stem: 'An object weighing 98 N falls with drag $5v$. What is $\gamma/m$ in $v'' + \tfrac{\gamma}{m}v = g$?'
+  choices: ['0.05 per second', '0.5 per second', '19.6 per second', '5 per second']
+  answer: 1
+  explanation: |-
+    Mass $= 98/9.8 = 10$ kg, so $\gamma/m = 5/10 = 0.5$. Using the weight 98 as the mass gives about 0.05.
+- id: de-q-1307
+  lesson: de-falling-circuits
+  module_quiz: true
+  topic: RL and RC circuits
+  stem: 'An RL circuit has $L = 2$ H, $R = 10$ Ω and a 12 V battery switched on at $t = 0$. What current does it approach?'
+  choices: ['6 A', '0.2 A', '1.2 A', '24 A']
+  answer: 2
+  explanation: |-
+    At steady state $I' = 0$, so $RI = E$ and $I = 12/10 = 1.2$ A. The inductor only delays the approach; the time constant is $L/R = 0.2$ s.
+- id: de-q-1308
+  lesson: de-falling-circuits
+  topic: RL and RC circuits
+  stem: 'What is the time constant of an RC circuit with $R = 100$ Ω and $C = 0.01$ F?'
+  choices: ['1 s', '10,000 s', '0.0001 s', '100 s']
+  answer: 0
+  explanation: |-
+    The time constant is $RC = 100 \times 0.01 = 1$ s.
+- id: de-q-1309
+  lesson: de-falling-circuits
+  topic: RL and RC circuits
+  stem: 'Which equation governs the charge $q$ in a series RC circuit with source $E(t)$?'
+  choices: ['$Rq'' + \dfrac{q}{C} = E(t)$', '$Cq'' + Rq = E(t)$', '$Rq'' + Cq = E(t)$', '$q'' + RCq = E(t)$']
+  answer: 0
+  explanation: |-
+    Kirchhoff: $RI + q/C = E$ with $I = q'$. The capacitor's drop is $q/C$, not $Cq$.
+- id: de-q-1310
+  lesson: de-falling-circuits
+  topic: RL and RC circuits
+  stem: 'A capacitor charged to $q_0$ discharges through a resistor ($E = 0$). Which is $q(t)$?'
+  choices: ['$q_0e^{-RCt}$', '$q_0(1 - e^{-t/(RC)})$', '$q_0e^{-t/(RC)}$', '$q_0e^{-Rt/C}$']
+  answer: 2
+  explanation: |-
+    $Rq' + q/C = 0$ gives $q' = -\dfrac{q}{RC}$, so $q = q_0e^{-t/(RC)}$.
+- id: de-q-1311
+  lesson: de-falling-circuits
+  topic: RL and RC circuits
+  stem: 'In an RL circuit with constant voltage, what fraction of the final current is reached after one time constant $L/R$?'
+  choices: ['about 37%', 'about 63%', '50%', 'about 86%']
+  answer: 1
+  explanation: |-
+    $I = \dfrac{E}{R}(1 - e^{-Rt/L})$; at $t = L/R$ that's $1 - e^{-1} \approx 0.632$. 37% is $e^{-1}$, what remains to go; 86% is after two time constants.
+- id: de-q-1312
+  lesson: de-falling-circuits
+  topic: RL and RC circuits
+  stem: 'A 4 Ω resistor and 0.05 F capacitor are connected to a 10 V battery, $q(0) = 0$. What is the current at $t = 0$?'
+  choices: ['0 A', '0.5 A', '10 A', '2.5 A']
+  answer: 3
+  explanation: |-
+    $q = 0.5(1 - e^{-5t})$, so $I = q' = 2.5e^{-5t}$ and $I(0) = 2.5 = E/R$. At first the empty capacitor offers no opposing voltage.
+- id: de-q-1313
+  lesson: de-falling-circuits
+  module_quiz: true
+  topic: RL and RC circuits
+  stem: 'For $I'' + 5I = 6\sin t$, what happens to the term $Ce^{-5t}$ in the solution?'
+  choices: ['It grows and dominates', 'It is a transient that dies out, leaving a steady-state oscillation', 'It oscillates with the source', 'It equals the steady-state current']
+  answer: 1
+  explanation: |-
+    $e^{-5t} \to 0$, so the long-run current is the steady-state part $\dfrac{15\sin t - 3\cos t}{13}$, which oscillates at the source frequency.
+- id: de-q-1314
+  lesson: de-falling-circuits
+  topic: Falling objects
+  stem: 'A skydiver''s velocity is $v = v_T\tanh(gt/v_T)$ under quadratic drag. What is the acceleration at $t = 0$?'
+  choices: ['$0$', '$v_T$', '$g/v_T$', '$g$']
+  answer: 3
+  explanation: |-
+    $v' = g\,\mathrm{sech}^2(gt/v_T)$, which equals $g$ at $t = 0$: at the start there is no drag yet. It also follows from $mv' = mg - kv^2$ with $v = 0$.

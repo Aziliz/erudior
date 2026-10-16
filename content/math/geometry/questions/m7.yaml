@@ -1,0 +1,376 @@
+# Module 7 — Circles
+- id: geo-q-2501
+  lesson: geo-circle-basics
+  module_quiz: true
+  topic: Circle vocabulary
+  stem: 'Which segment has both endpoints on a circle but need not pass through the center?'
+  choices: ['Radius', 'Tangent', 'Chord', 'Secant']
+  answer: 2
+  explanation: |-
+    A chord joins two points of the circle. A diameter is the special chord through the center; a radius has one endpoint at the center; tangents and secants are lines.
+- id: geo-q-2502
+  lesson: geo-circle-basics
+  topic: Arcs and arc length
+  stem: 'A central angle measures $72^\circ$. What is the measure of its major arc?'
+  choices: ['$72^\circ$', '$108^\circ$', '$144^\circ$', '$288^\circ$']
+  answer: 3
+  explanation: |-
+    The minor arc is $72^\circ$; the major arc is the rest of the circle: $360 - 72 = 288^\circ$.
+- id: geo-q-2503
+  lesson: geo-circle-basics
+  module_quiz: true
+  topic: Arcs and arc length
+  stem: 'Find the length of a $60^\circ$ arc in a circle of radius 9.'
+  choices: ['$3\pi$', '$6\pi$', '$9\pi$', '$\tfrac{3\pi}{2}$']
+  answer: 0
+  explanation: |-
+    $\tfrac{60}{360} \cdot 2\pi(9) = \tfrac16 \cdot 18\pi = 3\pi \approx 9.42$.
+- id: geo-q-2504
+  lesson: geo-circle-basics
+  topic: Arcs and arc length
+  stem: 'Convert $150^\circ$ to radians.'
+  choices: ['$\tfrac{3\pi}{4}$', '$\tfrac{5\pi}{6}$', '$\tfrac{2\pi}{3}$', '$\tfrac{5\pi}{3}$']
+  answer: 1
+  explanation: |-
+    Multiply by $\tfrac{\pi}{180}$: $150 \cdot \tfrac{\pi}{180} = \tfrac{5\pi}{6}$.
+- id: geo-q-2505
+  lesson: geo-circle-basics
+  topic: Arcs and arc length
+  stem: 'Two arcs each measure $90^\circ$, one on a circle of radius 2 and one on a circle of radius 10. Which statement is true?'
+  choices: ['The arcs are congruent.', 'The arcs have equal lengths.', 'The arcs have the same measure but different lengths.', 'The larger arc measures $450^\circ$.']
+  answer: 2
+  explanation: |-
+    Arc measure depends only on the central angle, but arc length also depends on the radius: $\pi$ versus $5\pi$. Congruent arcs must be in the same or congruent circles.
+- id: geo-q-2506
+  lesson: geo-circle-basics
+  topic: Arcs and arc length
+  stem: 'An arc of length $4\pi$ has measure $80^\circ$. Find the radius.'
+  choices: ['4.5', '18', '8', '9']
+  answer: 3
+  explanation: |-
+    $\tfrac{80}{360} \cdot 2\pi r = 4\pi$, so $\tfrac{4}{9} r = 4$ and $r = 9$.
+- id: geo-q-2507
+  lesson: geo-circle-basics
+  topic: Arcs and arc length
+  stem: 'Points $A$, $B$, $C$ lie on a circle with $m\overset{\frown}{AB} = 85^\circ$ and $m\overset{\frown}{BC} = 47^\circ$ (adjacent, not overlapping). Find $m\overset{\frown}{ABC}$.'
+  choices: ['$132^\circ$', '$38^\circ$', '$228^\circ$', '$66^\circ$']
+  answer: 0
+  explanation: |-
+    Arc Addition: $85 + 47 = 132^\circ$.
+- id: geo-q-2508
+  lesson: geo-circle-basics
+  module_quiz: true
+  topic: Arcs and arc length
+  stem: 'A wheel of radius 0.4 m turns through 5 radians. How far does a point on the rim travel?'
+  choices: ['12.5 m', '2 m', '0.08 m', '$2\pi$ m']
+  answer: 1
+  explanation: |-
+    With radians, $s = r\theta = 0.4 \cdot 5 = 2$ m.
+- id: geo-q-2509
+  lesson: geo-circle-basics
+  topic: Circle vocabulary
+  stem: 'A line touches a circle at exactly one point. What is it called?'
+  choices: ['Secant', 'Chord', 'Tangent', 'Diameter']
+  answer: 2
+  explanation: |-
+    A tangent meets the circle at exactly one point; a secant meets it at two.
+- id: geo-q-2510
+  lesson: geo-circle-basics
+  topic: Arcs and arc length
+  stem: 'About how many degrees is one radian?'
+  choices: ['$1^\circ$', '$3.14^\circ$', '$90^\circ$', '$57.3^\circ$']
+  answer: 3
+  explanation: |-
+    $1 \text{ rad} = \tfrac{180^\circ}{\pi} \approx 57.3^\circ$: the angle whose arc is one radius long.
+- id: geo-q-2511
+  lesson: geo-circle-basics
+  topic: Circle vocabulary
+  stem: 'Circles that share the same center but have different radii are called:'
+  choices: ['Concentric', 'Congruent', 'Tangent', 'Inscribed']
+  answer: 0
+  explanation: |-
+    Concentric circles share a center. Congruent circles share a radius.
+
+- id: geo-q-2601
+  lesson: geo-chords-tangents
+  module_quiz: true
+  topic: Chords
+  stem: 'A chord of length 16 is 6 units from the center of a circle. Find the radius.'
+  choices: ['$\sqrt{292}$', '10', '$2\sqrt7$', '22']
+  answer: 1
+  explanation: |-
+    The perpendicular from the center bisects the chord: half-chord 8. Then $r = \sqrt{8^2 + 6^2} = 10$. $\sqrt{292}$ uses the whole chord.
+- id: geo-q-2602
+  lesson: geo-chords-tangents
+  topic: Chords
+  stem: 'In a circle of radius 13, how far from the center is a chord of length 10?'
+  choices: ['3', '$\sqrt{69}$', '12', '8']
+  answer: 2
+  explanation: |-
+    Half-chord 5: distance $= \sqrt{13^2 - 5^2} = \sqrt{144} = 12$.
+- id: geo-q-2603
+  lesson: geo-chords-tangents
+  module_quiz: true
+  topic: Tangents
+  stem: '$\overline{PT}$ is tangent to $\odot O$ at $T$, $OT = 8$ and $PT = 15$. Find $PO$.'
+  choices: ['23', '$\sqrt{161}$', '7', '17']
+  answer: 3
+  explanation: |-
+    The tangent is perpendicular to the radius at $T$, so $PO$ is the hypotenuse: $\sqrt{8^2 + 15^2} = 17$.
+- id: geo-q-2604
+  lesson: geo-chords-tangents
+  topic: Tangents
+  stem: 'Two segments from point $P$ are tangent to a circle at $A$ and $B$. $PA = 3x + 5$ and $PB = 7x - 11$. Find $PA$.'
+  choices: ['17', '4', '34', '8']
+  answer: 0
+  explanation: |-
+    Tangent segments from one point are congruent: $3x + 5 = 7x - 11$, so $x = 4$ and $PA = 17$.
+- id: geo-q-2605
+  lesson: geo-chords-tangents
+  topic: Chords
+  stem: 'In $\odot O$, chords $\overline{AB}$ and $\overline{CD}$ are each 7 units from $O$. Which is true?'
+  choices: ['$\overline{AB} \parallel \overline{CD}$', '$\overline{AB} \cong \overline{CD}$', '$\overline{AB} \perp \overline{CD}$', 'Both are diameters.']
+  answer: 1
+  explanation: |-
+    In the same circle, chords equidistant from the center are congruent. They need not be parallel.
+- id: geo-q-2606
+  lesson: geo-chords-tangents
+  topic: Tangents
+  stem: 'In $\odot O$ with radius 5, segment $\overline{AB}$ touches the circle at $A$, with $AB = 11$ and $OB = 12$. Is $\overline{AB}$ tangent to the circle?'
+  choices: ['Yes, since $5 + 11 > 12$', 'Yes, since $5^2 + 11^2 = 12^2$', 'No, since $5^2 + 11^2 = 146 \ne 144$, so $\angle OAB$ is not a right angle', 'No, since $OB$ is not a radius']
+  answer: 2
+  explanation: |-
+    A line is tangent exactly when it is perpendicular to the radius at the point of contact. $25 + 121 = 146 \ne 144$, so $\angle OAB$ isn't $90^\circ$ (it's slightly acute) and $\overline{AB}$ is not tangent.
+- id: geo-q-2607
+  lesson: geo-chords-tangents
+  topic: Chords
+  stem: 'How can you find the center of a circle drawn on paper?'
+  choices: ['Draw any two radii and find where they cross.', 'Draw one chord and find its midpoint.', 'Draw two tangents and find where they cross.', 'Draw two chords and find where their perpendicular bisectors cross.']
+  answer: 3
+  explanation: |-
+    The perpendicular bisector of any chord passes through the center, so two of them meet exactly at the center. (Two tangents meet outside the circle.)
+- id: geo-q-2608
+  lesson: geo-chords-tangents
+  module_quiz: true
+  topic: Tangents
+  stem: 'A triangle is circumscribed about a circle. The tangent segments from the vertices are 3, 5 and 8. Find the triangle''s perimeter.'
+  choices: ['32', '16', '24', '48']
+  answer: 0
+  explanation: |-
+    Each side is the sum of two tangent segments: $3 + 5$, $5 + 8$, $8 + 3$, i.e. 8, 13, 11. Perimeter $= 32 = 2(3 + 5 + 8)$.
+- id: geo-q-2609
+  lesson: geo-chords-tangents
+  topic: Chords
+  stem: 'In $\odot O$, chord $\overline{AB}$ has minor arc $95^\circ$, and chord $\overline{CD}$ is congruent to $\overline{AB}$. Find $m\overset{\frown}{CD}$ (minor arc).'
+  choices: ['$47.5^\circ$', '$95^\circ$', '$190^\circ$', '$265^\circ$']
+  answer: 1
+  explanation: |-
+    In the same circle, congruent chords have congruent minor arcs: $95^\circ$.
+- id: geo-q-2610
+  lesson: geo-chords-tangents
+  topic: Tangents
+  stem: 'Why is a tangent perpendicular to the radius at the point of tangency?'
+  choices: ['Because all radii are congruent', 'By the Inscribed Angle Theorem', 'If not, the perpendicular from the center would reach the line inside the circle, so the line would cross the circle twice.', 'Because tangent lines are always horizontal']
+  answer: 2
+  explanation: |-
+    This is the indirect proof: a non-perpendicular line has a closer point to the center than the point of contact, which lies inside the circle, forcing a second intersection.
+- id: geo-q-2611
+  lesson: geo-chords-tangents
+  topic: Chords
+  stem: 'A diameter is perpendicular to a chord of length 30. What does it do to the chord?'
+  choices: ['Nothing in particular', 'Divides it in the ratio 1 : 2', 'Makes it a diameter', 'Bisects it into two segments of 15']
+  answer: 3
+  explanation: |-
+    A diameter perpendicular to a chord bisects the chord (and its arc), by HL on the two right triangles.
+
+- id: geo-q-2701
+  lesson: geo-inscribed
+  module_quiz: true
+  topic: Inscribed angles
+  stem: 'An inscribed angle intercepts an arc of $124^\circ$. Find the angle.'
+  choices: ['$62^\circ$', '$124^\circ$', '$248^\circ$', '$56^\circ$']
+  answer: 0
+  explanation: |-
+    An inscribed angle is half its intercepted arc: $62^\circ$. Only a central angle equals its arc.
+- id: geo-q-2702
+  lesson: geo-inscribed
+  topic: Inscribed angles
+  stem: 'Triangle $ABC$ is inscribed in a circle and $\overline{AC}$ is a diameter. Find $m\angle B$.'
+  choices: ['$180^\circ$', '$90^\circ$', '$60^\circ$', 'It depends on where $B$ is.']
+  answer: 1
+  explanation: |-
+    $\angle B$ is inscribed in a semicircle (it intercepts a $180^\circ$ arc), so it is $90^\circ$ wherever $B$ is (Thales).
+- id: geo-q-2703
+  lesson: geo-inscribed
+  module_quiz: true
+  topic: Inscribed angles
+  stem: 'Quadrilateral $PQRS$ is inscribed in a circle with $m\angle P = 84^\circ$ and $m\angle Q = 71^\circ$. Find $m\angle R$.'
+  choices: ['$84^\circ$', '$109^\circ$', '$96^\circ$', '$71^\circ$']
+  answer: 2
+  explanation: |-
+    Opposite angles of a cyclic quadrilateral are supplementary. $\angle R$ is opposite $\angle P$: $180 - 84 = 96^\circ$. ($\angle S = 109^\circ$.)
+- id: geo-q-2704
+  lesson: geo-inscribed
+  topic: Angles from secants and tangents
+  stem: 'Two chords intersect inside a circle. The angle and its vertical angle intercept arcs of $40^\circ$ and $100^\circ$. Find the angle.'
+  choices: ['$30^\circ$', '$140^\circ$', '$60^\circ$', '$70^\circ$']
+  answer: 3
+  explanation: |-
+    Vertex inside: half the sum of the arcs, $\tfrac12(40 + 100) = 70^\circ$. $30^\circ$ uses the difference (that rule is for outside vertices).
+- id: geo-q-2705
+  lesson: geo-inscribed
+  module_quiz: true
+  topic: Angles from secants and tangents
+  stem: 'Two secants meet outside a circle, intercepting arcs of $150^\circ$ and $50^\circ$. Find the angle between them.'
+  choices: ['$50^\circ$', '$100^\circ$', '$25^\circ$', '$75^\circ$']
+  answer: 0
+  explanation: |-
+    Vertex outside: half the difference, $\tfrac12(150 - 50) = 50^\circ$. $100^\circ$ is half the sum.
+- id: geo-q-2706
+  lesson: geo-inscribed
+  topic: Angles from secants and tangents
+  stem: 'A tangent and a chord meet at the point of tangency and intercept an arc of $136^\circ$. Find the angle between them.'
+  choices: ['$136^\circ$', '$68^\circ$', '$44^\circ$', '$112^\circ$']
+  answer: 1
+  explanation: |-
+    The tangent–chord angle is half the intercepted arc: $68^\circ$.
+- id: geo-q-2707
+  lesson: geo-inscribed
+  topic: Angles from secants and tangents
+  stem: 'Two tangents from point $P$ touch a circle, and the minor arc between the points of tangency is $100^\circ$. Find $m\angle P$.'
+  choices: ['$50^\circ$', '$130^\circ$', '$80^\circ$', '$100^\circ$']
+  answer: 2
+  explanation: |-
+    The major arc is $260^\circ$, so $m\angle P = \tfrac12(260 - 100) = 80^\circ$. Shortcut: $180 - 100 = 80^\circ$.
+- id: geo-q-2708
+  lesson: geo-inscribed
+  topic: Inscribed angles
+  stem: 'Inscribed angles $\angle ADB$ and $\angle ACB$ both intercept $\overset{\frown}{AB}$. If $m\angle ADB = 38^\circ$, find $m\angle ACB$.'
+  choices: ['$76^\circ$', '$19^\circ$', '$142^\circ$', '$38^\circ$']
+  answer: 3
+  explanation: |-
+    Inscribed angles that intercept the same arc are congruent: $38^\circ$.
+- id: geo-q-2709
+  lesson: geo-inscribed
+  topic: Inscribed angles
+  stem: 'In the proof of the Inscribed Angle Theorem (one side a diameter), why is the central angle twice the inscribed angle?'
+  choices: ['The central angle is an exterior angle of an isosceles triangle with two equal base angles.', 'All angles in a circle are equal.', 'The triangle is equilateral.', 'Vertical angles are congruent.']
+  answer: 0
+  explanation: |-
+    Two radii make an isosceles triangle, whose base angles equal the inscribed angle $x$. The central angle is an exterior angle, equal to $x + x = 2x$.
+- id: geo-q-2710
+  lesson: geo-inscribed
+  topic: Inscribed angles
+  stem: 'An inscribed angle measures $(4x + 6)^\circ$ and intercepts an arc of $(10x - 8)^\circ$. Find the arc.'
+  choices: ['$10^\circ$', '$92^\circ$', '$46^\circ$', '$184^\circ$']
+  answer: 1
+  explanation: |-
+    The arc is twice the angle: $10x - 8 = 2(4x + 6) = 8x + 12$, so $x = 10$ and the arc is $92^\circ$ (angle $46^\circ$).
+- id: geo-q-2711
+  lesson: geo-inscribed
+  topic: Angles from secants and tangents
+  stem: 'A secant and a tangent meet outside a circle at $40^\circ$. The near arc is $70^\circ$. Find the far arc.'
+  choices: ['$110^\circ$', '$90^\circ$', '$150^\circ$', '$140^\circ$']
+  answer: 2
+  explanation: |-
+    $40 = \tfrac12(\text{far} - 70)$, so far $- 70 = 80$ and far $= 150^\circ$.
+- id: geo-q-2712
+  lesson: geo-inscribed
+  topic: Inscribed angles
+  stem: 'Which quadrilateral can always be inscribed in a circle?'
+  choices: ['Any parallelogram', 'Any rhombus', 'Any kite', 'Any rectangle']
+  answer: 3
+  explanation: |-
+    A quadrilateral can be inscribed exactly when its opposite angles are supplementary. A rectangle's angles are all $90^\circ$, so it qualifies; a general parallelogram, rhombus or kite does not.
+
+- id: geo-q-2801
+  lesson: geo-circle-seg
+  module_quiz: true
+  topic: Segment lengths in circles
+  stem: 'Two chords intersect inside a circle. One is divided into pieces 8 and 3; the other into pieces 6 and $x$. Find $x$.'
+  choices: ['4', '5', '2.25', '1']
+  answer: 0
+  explanation: |-
+    Intersecting chords: $8 \cdot 3 = 6x$, so $x = 4$. 5 comes from adding instead ($8 + 3 = 6 + x$).
+- id: geo-q-2802
+  lesson: geo-circle-seg
+  topic: Segment lengths in circles
+  stem: 'From $P$, a secant has external segment 4 and whole length 15. Another secant from $P$ has external segment 5. Find its whole length.'
+  choices: ['14', '12', '16', '11']
+  answer: 1
+  explanation: |-
+    Outside · whole: $4 \cdot 15 = 60 = 5 \cdot w$, so $w = 12$.
+- id: geo-q-2803
+  lesson: geo-circle-seg
+  module_quiz: true
+  topic: Segment lengths in circles
+  stem: 'A tangent from $P$ has length 6. A secant from $P$ has external segment 4. Find the length of the chord inside the circle.'
+  choices: ['9', '2', '5', '1.5']
+  answer: 2
+  explanation: |-
+    Tangent² = outside · whole: $36 = 4w$, so $w = 9$. The chord inside is $9 - 4 = 5$.
+- id: geo-q-2804
+  lesson: geo-circle-seg
+  module_quiz: true
+  topic: Equation of a circle
+  stem: 'What are the center and radius of $(x + 2)^2 + (y - 5)^2 = 36$?'
+  choices: ['Center $(2, -5)$, radius 6', 'Center $(-2, 5)$, radius 36', 'Center $(2, -5)$, radius 36', 'Center $(-2, 5)$, radius 6']
+  answer: 3
+  explanation: |-
+    $(x - h)^2 + (y - k)^2 = r^2$ with $h = -2$, $k = 5$, $r = \sqrt{36} = 6$.
+- id: geo-q-2805
+  lesson: geo-circle-seg
+  topic: Equation of a circle
+  stem: 'Write the equation of the circle with center $(3, -4)$ and radius 7.'
+  choices: ['$(x - 3)^2 + (y + 4)^2 = 49$', '$(x + 3)^2 + (y - 4)^2 = 49$', '$(x - 3)^2 + (y + 4)^2 = 7$', '$(x - 3)^2 - (y + 4)^2 = 49$']
+  answer: 0
+  explanation: |-
+    Substitute $h = 3$, $k = -4$, $r^2 = 49$: $(x - 3)^2 + (y + 4)^2 = 49$.
+- id: geo-q-2806
+  lesson: geo-circle-seg
+  topic: Equation of a circle
+  stem: 'Find the center and radius of $x^2 + y^2 + 8x - 2y - 8 = 0$.'
+  choices: ['Center $(4, -1)$, radius 5', 'Center $(-4, 1)$, radius 5', 'Center $(-4, 1)$, radius $\sqrt8$', 'Center $(4, -1)$, radius 25']
+  answer: 1
+  explanation: |-
+    $(x^2 + 8x + 16) + (y^2 - 2y + 1) = 8 + 16 + 1 = 25$, so $(x + 4)^2 + (y - 1)^2 = 25$: center $(-4, 1)$, radius 5.
+- id: geo-q-2807
+  lesson: geo-circle-seg
+  topic: Equation of a circle
+  stem: 'A circle has center $(1, 2)$ and passes through $(7, 10)$. What is its equation?'
+  choices: ['$(x - 1)^2 + (y - 2)^2 = 10$', '$(x - 7)^2 + (y - 10)^2 = 100$', '$(x - 1)^2 + (y - 2)^2 = 100$', '$(x + 1)^2 + (y + 2)^2 = 100$']
+  answer: 2
+  explanation: |-
+    $r = \sqrt{6^2 + 8^2} = 10$, so $r^2 = 100$ and the center gives $(x - 1)^2 + (y - 2)^2 = 100$.
+- id: geo-q-2808
+  lesson: geo-circle-seg
+  topic: Equation of a circle
+  stem: 'Is the point $(4, 1)$ inside, on or outside the circle $x^2 + y^2 = 16$?'
+  choices: ['On the circle', 'Inside the circle', 'It cannot be determined.', 'Outside the circle']
+  answer: 3
+  explanation: |-
+    $4^2 + 1^2 = 17 > 16$, so the point is farther than 4 from the center: outside.
+- id: geo-q-2809
+  lesson: geo-circle-seg
+  topic: Segment lengths in circles
+  stem: 'Which similarity justifies the Intersecting Chords Theorem?'
+  choices: ['AA, using inscribed angles on the same arc and vertical angles', 'SSS, using radii', 'SAS, using the chords', 'HL, using the diameter']
+  answer: 0
+  explanation: |-
+    The two triangles formed have a pair of vertical angles and a pair of inscribed angles intercepting the same arc, so they're similar by AA, and the proportion cross-multiplies to $AE \cdot EB = CE \cdot ED$.
+- id: geo-q-2810
+  lesson: geo-circle-seg
+  topic: Segment lengths in circles
+  stem: 'A student uses $PA \cdot AB = PC \cdot CD$ for two secants from $P$ (with $A$, $C$ the near points). What is wrong?'
+  choices: ['Nothing; that is the theorem.', 'The theorem multiplies the external segment by the whole secant: $PA \cdot PB = PC \cdot PD$.', 'The segments should be added.', 'The theorem only applies to tangents.']
+  answer: 1
+  explanation: |-
+    For secants from an exterior point, use outside × whole. Multiplying outside × inside is the most common error.
+- id: geo-q-2811
+  lesson: geo-circle-seg
+  topic: Segment lengths in circles
+  stem: 'From $P$, a tangent touches a circle at $T$. A secant from $P$ has external segment 5 and internal chord 15. Find $PT$.'
+  choices: ['75', '20', '10', '$5\sqrt3$']
+  answer: 2
+  explanation: |-
+    The whole secant is $5 + 15 = 20$. $PT^2 = 5 \cdot 20 = 100$, so $PT = 10$. $5\sqrt3 = \sqrt{75}$ uses outside × inside.

@@ -1,0 +1,268 @@
+- id: stat-corr-calc
+  title: Correlation from five points
+  topic: Scatterplots and correlation
+  vars:
+    x1: {min: 1, max: 3}
+    x2: {min: 3, max: 5}
+    x3: {min: 5, max: 7}
+    x4: {min: 7, max: 9}
+    x5: {min: 9, max: 12}
+    y1: {min: 1, max: 15}
+    y2: {min: 1, max: 15}
+    y3: {min: 1, max: 15}
+    y4: {min: 1, max: 15}
+    y5: {min: 1, max: 15}
+  calc:
+    mx: (x1 + x2 + x3 + x4 + x5) / 5
+    my: (y1 + y2 + y3 + y4 + y5) / 5
+    sxy: (x1-mx)*(y1-my) + (x2-mx)*(y2-my) + (x3-mx)*(y3-my) + (x4-mx)*(y4-my) + (x5-mx)*(y5-my)
+    sxx: (x1-mx)^2 + (x2-mx)^2 + (x3-mx)^2 + (x4-mx)^2 + (x5-mx)^2
+    syy: (y1-my)^2 + (y2-my)^2 + (y3-my)^2 + (y4-my)^2 + (y5-my)^2
+    rr: sxy / sqrt(sxx*syy)
+  where: ['syy > 0', 'abs(rr) >= 0.3', 'abs(rr) <= 0.98', 'x1 < x2', 'x2 < x3', 'x3 < x4', 'x4 < x5']
+  prompt: |-
+    Find the correlation $r$ for these five points (3 decimal places):
+
+    $({x1}, {y1}),\ ({x2}, {y2}),\ ({x3}, {y3}),\ ({x4}, {y4}),\ ({x5}, {y5})$
+  figure:
+    type: plot
+    x: [0, 13]
+    y: [0, 16]
+    points:
+      - {at: [x1, y1], color: '#2c5e8f'}
+      - {at: [x2, y2], color: '#2c5e8f'}
+      - {at: [x3, y3], color: '#2c5e8f'}
+      - {at: [x4, y4], color: '#2c5e8f'}
+      - {at: [x5, y5], color: '#2c5e8f'}
+  answers:
+    - {name: rr, label: '$r =$', tolerance: 0.002, format: dp3}
+  solution: |-
+    $\bar{x} = {mx:num4}$, $\bar{y} = {my:num4}$. Then
+    $S_{xy} = \sum (x - \bar{x})(y - \bar{y}) = {sxy:num4}$,
+    $S_{xx} = {sxx:num4}$, $S_{yy} = {syy:num4}$, and
+    $r = \dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} =$ **{rr:dp3}**.
+
+- id: stat-lsrl-summary
+  title: Regression line from summary statistics
+  topic: Least-squares regression
+  vars:
+    mx: {min: 10, max: 60}
+    sx: {min: 2, max: 12}
+    my: {min: 50, max: 300}
+    sy: {min: 5, max: 60}
+    rr: {min: -0.95, max: 0.95, step: 0.05}
+  where: ['abs(rr) >= 0.3']
+  calc:
+    bb: rr*sy/sx
+    aa: my - bb*mx
+  prompt: |-
+    For a set of data, $\bar{x} = {mx}$, $s_x = {sx}$, $\bar{y} = {my}$, $s_y = {sy}$ and
+    $r = {rr}$. Find the slope $b$ and intercept $a$ of the least-squares line
+    $\hat{y} = a + bx$ (3 decimal places).
+  answers:
+    - {name: bb, label: '$b =$', tolerance: 0.002, format: dp3}
+    - {name: aa, label: '$a =$', tolerance: 0.05, format: dp3}
+  solution: |-
+    $b = r\dfrac{s_y}{s_x} = {rr} \times \dfrac{{sy}}{{sx}} =$ **{bb:dp3}**.
+    $a = \bar{y} - b\bar{x} = {my} - ({bb:num4})({mx}) =$ **{aa:dp3}**.
+
+- id: stat-lsrl-data
+  title: Regression line from data
+  topic: Least-squares regression
+  vars:
+    x1: {min: 0, max: 2}
+    x2: {min: 3, max: 4}
+    x3: {min: 5, max: 6}
+    x4: {min: 7, max: 8}
+    x5: {min: 9, max: 10}
+    y1: {min: 2, max: 20}
+    y2: {min: 2, max: 20}
+    y3: {min: 2, max: 20}
+    y4: {min: 2, max: 20}
+    y5: {min: 2, max: 20}
+  calc:
+    mx: (x1 + x2 + x3 + x4 + x5) / 5
+    my: (y1 + y2 + y3 + y4 + y5) / 5
+    sxy: (x1-mx)*(y1-my) + (x2-mx)*(y2-my) + (x3-mx)*(y3-my) + (x4-mx)*(y4-my) + (x5-mx)*(y5-my)
+    sxx: (x1-mx)^2 + (x2-mx)^2 + (x3-mx)^2 + (x4-mx)^2 + (x5-mx)^2
+    bb: sxy / sxx
+    aa: my - bb*mx
+  where: ['abs(bb) >= 0.2']
+  prompt: |-
+    Find the least-squares regression line $\hat{y} = a + bx$ for the points
+    $({x1}, {y1}),\ ({x2}, {y2}),\ ({x3}, {y3}),\ ({x4}, {y4}),\ ({x5}, {y5})$.
+    Give $b$ and $a$ to 3 decimal places.
+  answers:
+    - {name: bb, label: '$b =$', tolerance: 0.002, format: dp3}
+    - {name: aa, label: '$a =$', tolerance: 0.005, format: dp3}
+  solution: |-
+    $\bar{x} = {mx:num4}$, $\bar{y} = {my:num4}$, $S_{xy} = {sxy:num4}$, $S_{xx} = {sxx:num4}$.
+    Slope $b = S_{xy}/S_{xx} =$ **{bb:dp3}**; intercept
+    $a = \bar{y} - b\bar{x} =$ **{aa:dp3}**.
+  figure:
+    type: plot
+    x: [-1, 11]
+    y: [0, 22]
+    points:
+      - {at: [x1, y1], color: '#2c5e8f'}
+      - {at: [x2, y2], color: '#2c5e8f'}
+      - {at: [x3, y3], color: '#2c5e8f'}
+      - {at: [x4, y4], color: '#2c5e8f'}
+      - {at: [x5, y5], color: '#2c5e8f'}
+
+- id: stat-residual
+  title: Predicted value and residual
+  topic: Residuals and r-squared
+  vars:
+    aa: {min: 2, max: 40, step: 0.5}
+    bb: {min: 0.5, max: 6, step: 0.1}
+    xv: {min: 5, max: 30}
+    ee: {min: -12, max: 12, step: 0.5}
+  where: ['ee != 0']
+  calc:
+    yh: aa + bb*xv
+    yv: yh + ee
+  prompt: |-
+    A regression of weekly sales $y$ (units) on advertising spending $x$ (hundreds of
+    dollars) gives $\hat{y} = {aa} + {bb}x$. One week had $x = {xv}$ and sold {yv:num2} units.
+    Find the predicted value and the residual.
+  answers:
+    - {name: yh, label: '$\hat{y} =$', tolerance: 0.01, format: num2}
+    - {name: ee, label: 'Residual', tolerance: 0.01, format: num2}
+  solution: |-
+    $\hat{y} = {aa} + {bb}({xv}) =$ **{yh:num2}**. Residual $= y - \hat{y} = {yv:num2} - {yh:num2} =$
+    **{ee:num2}** (positive: above the line; negative: below).
+
+- id: stat-r-squared
+  title: r² and residual standard deviation
+  topic: Residuals and r-squared
+  vars:
+    sst: {min: 200, max: 900, step: 10}
+    frac: {min: 0.1, max: 0.85, step: 0.01}
+    nn: {min: 8, max: 30}
+  calc:
+    sse: round(sst*frac, 1)
+    r2: 1 - sse/sst
+    sres: sqrt(sse/(nn - 2))
+    dfr: nn - 2
+  prompt: |-
+    A least-squares regression on $n = {nn}$ points has total sum of squares
+    $\text{SST} = \sum (y - \bar{y})^2 = {sst}$ and residual sum of squares
+    $\text{SSE} = \sum (y - \hat{y})^2 = {sse}$. Find $r^2$ (4 decimals) and the standard deviation
+    of the residuals $s$ (3 decimals).
+  answers:
+    - {name: r2, label: '$r^2 =$', tolerance: 0.0006, format: num4}
+    - {name: sres, label: '$s =$', tolerance: 0.002, format: dp3}
+  solution: |-
+    $r^2 = 1 - \dfrac{\text{SSE}}{\text{SST}} = 1 - \dfrac{{sse}}{{sst}} =$ **{r2:num4}**.
+    $s = \sqrt{\dfrac{\text{SSE}}{n - 2}} = \sqrt{\dfrac{{sse}}{{dfr}}} =$ **{sres:dp3}**.
+
+- id: stat-exp-model
+  title: Predict with an exponential model
+  topic: Nonlinear models
+  vars:
+    cc: {min: 0.8, max: 2.5, step: 0.05}
+    dd: {min: 0.03, max: 0.25, step: 0.01}
+    xv: {min: 2, max: 12}
+  calc:
+    lg: cc + dd*xv
+    yh: 10^lg
+    fac: 10^dd
+  where: ['yh < 100000']
+  prompt: |-
+    A model fitted to transformed data is $\widehat{\log_{10} y} = {cc} + {dd}x$. Predict $y$
+    when $x = {xv}$ (give the predicted $y$, not $\log y$; 3 significant figures).
+  answers:
+    - {name: yh, label: '$\hat{y} =$', relTolerance: 0.006, format: number}
+  solution: |-
+    $\widehat{\log_{10} y} = {cc} + {dd}({xv}) = {lg:num4}$. Undo the log:
+    $\hat{y} = 10^{{lg:num4}} \approx$ **{yh:sig3}**. (Each unit of $x$ multiplies $\hat{y}$ by
+    $10^{{dd}} \approx {fac:num4}$.)
+
+- id: stat-power-model
+  title: Predict with a power model
+  topic: Nonlinear models
+  vars:
+    cc: {min: -1, max: 2, step: 0.1}
+    dd: {min: 0.4, max: 3, step: 0.1}
+    xv: {min: 2, max: 15}
+  calc:
+    lx: ln(xv)
+    lg: cc + dd*lx
+    yh: exp(lg)
+  where: ['yh < 100000']
+  prompt: |-
+    A power model was fitted using natural logs: $\widehat{\ln y} = {cc} + {dd}\ln x$.
+    Predict $y$ when $x = {xv}$ (3 significant figures).
+  answers:
+    - {name: yh, label: '$\hat{y} =$', relTolerance: 0.006}
+  solution: |-
+    $\ln {xv} \approx {lx:num4}$, so $\widehat{\ln y} = {cc} + {dd}({lx:num4}) = {lg:num4}$.
+    Undo the natural log: $\hat{y} = e^{{lg:num4}} \approx$ **{yh:sig3}**.
+
+- id: stat-two-way-cond
+  title: Conditional percent from a two-way table
+  topic: Two-way tables
+  vars:
+    aa: {min: 10, max: 60}
+    ab: {min: 10, max: 60}
+    ac: {min: 10, max: 60}
+    ba: {min: 10, max: 60}
+    bb: {min: 10, max: 60}
+    bc: {min: 10, max: 60}
+    q: {choices: [{label: 'What percent of **juniors** prefer online classes?', value: 1}, {label: 'What percent of students who prefer **online** classes are juniors?', value: 2}, {label: 'What percent of **seniors** prefer hybrid classes?', value: 3}, {label: 'What percent of students who prefer **in-person** classes are seniors?', value: 4}]}
+  calc:
+    ra: aa + ab + ac
+    rb: ba + bb + bc
+    ka: aa + ba
+    kb: ab + bb
+    kc: ac + bc
+    cell: if(q == 1, ab, if(q == 2, ab, if(q == 3, bc, ba)))
+    den: if(q == 1, ra, if(q == 2, kb, if(q == 3, rb, ka)))
+    pct: 100*cell/den
+  prompt: |-
+    Students were asked which class format they prefer.
+
+    | | In-person | Online | Hybrid | Total |
+    |---|---|---|---|---|
+    | Juniors | {aa} | {ab} | {ac} | {ra} |
+    | Seniors | {ba} | {bb} | {bc} | {rb} |
+    | Total | {ka} | {kb} | {kc} | |
+
+    {q} Give 1 decimal place.
+  answers:
+    - {name: pct, label: 'Percent', tolerance: 0.06, format: num1}
+  solution: |-
+    Condition on the "given" group: its total is the denominator. The cell count is {cell} and
+    the group total is {den}, so the percent is $\dfrac{{cell}}{{den}} \times 100 =$ **{pct:num1}%**.
+
+- id: stat-two-way-joint
+  title: Marginal and joint percents
+  topic: Two-way tables
+  vars:
+    aa: {min: 5, max: 80}
+    ab: {min: 5, max: 80}
+    ba: {min: 5, max: 80}
+    bb: {min: 5, max: 80}
+  calc:
+    tot: aa + ab + ba + bb
+    marg: 100*(aa + ba)/tot
+    joint: 100*bb/tot
+    ca: aa + ba
+  prompt: |-
+    A clinic records whether patients got a flu shot and whether they caught the flu.
+
+    | | Flu shot | No shot |
+    |---|---|---|
+    | No flu | {aa} | {ab} |
+    | Flu | {ba} | {bb} |
+
+    Find (a) the percent of all patients who got the shot (marginal) and (b) the percent
+    of all patients who had no shot **and** caught the flu (joint). 1 decimal place each.
+  answers:
+    - {name: marg, label: '(a) %', tolerance: 0.06, format: num1}
+    - {name: joint, label: '(b) %', tolerance: 0.06, format: num1}
+  solution: |-
+    Grand total $= {tot}$. (a) Shot column total $= {aa} + {ba} = {ca}$, so
+    $\dfrac{{ca}}{{tot}} =$ **{marg:num1}%**. (b) The single cell "no shot, flu" is {bb}:
+    $\dfrac{{bb}}{{tot}} =$ **{joint:num1}%**.

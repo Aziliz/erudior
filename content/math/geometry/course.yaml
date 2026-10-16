@@ -1,0 +1,31 @@
+id: math-geometry
+title: Geometry
+description: >-
+  Euclidean geometry from the first definitions through a college introduction:
+  points, lines and angles; logic and proof; parallel lines; triangle congruence
+  and similarity; special segments and quadrilaterals; right triangles and
+  trigonometry; circles; area, surface area and volume; coordinates and
+  transformations; and, at the college level, axiomatic systems, the parallel
+  postulate, non-Euclidean geometry and geometric probability.
+revision: 1
+modules:
+  - id: geo-m1
+    title: Foundations of geometry
+  - id: geo-m2
+    title: Reasoning and proof
+  - id: geo-m3
+    title: Parallel and perpendicular lines
+  - id: geo-m4
+    title: Triangles and congruence
+  - id: geo-m5
+    title: Special segments, polygons and quadrilaterals
+  - id: geo-m6
+    title: Similarity and right triangles
+  - id: geo-m7
+    title: Circles
+  - id: geo-m8
+    title: Area, surface area and volume
+  - id: geo-m9
+    title: Coordinate geometry and transformations
+  - id: geo-m10
+    title: Axioms, other geometries and probability

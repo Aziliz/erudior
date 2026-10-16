@@ -1,0 +1,469 @@
+# Module 1: Bridge (AP level)
+- id: de-q-0101
+  lesson: de-intro
+  module_quiz: true
+  topic: DE basics
+  stem: 'Which function is a solution of $y'' = 4y$?'
+  choices: ['$y = 4e^{x}$', '$y = 7e^{4x}$', '$y = e^{x/4}$', '$y = 4x^2$']
+  answer: 1
+  explanation: |-
+    For $y = 7e^{4x}$, $y' = 28e^{4x} = 4(7e^{4x}) = 4y$. For $y = 4e^x$, $y' = 4e^x = y$, not $4y$; the 4 out front is just a constant multiple and doesn't change the growth rate.
+- id: de-q-0102
+  lesson: de-intro
+  topic: DE basics
+  stem: 'What is the order of $y'''''' + 3(y'')^4 - y = \sin t$?'
+  choices: ['4', '1', '5', '3']
+  answer: 3
+  explanation: |-
+    Order is the highest derivative that appears, $y'''$, so the order is 3. The exponent 4 on $y'$ is a power, not a derivative order.
+- id: de-q-0103
+  lesson: de-intro
+  module_quiz: true
+  topic: DE basics
+  stem: 'Solve the initial value problem $\dfrac{dy}{dx} = 3x^2 + 2$, $y(1) = 5$.'
+  choices: ['$y = x^3 + 2x + 2$', '$y = x^3 + 2x + 5$', '$y = x^3 + 2x$', '$y = 6x + 2$']
+  answer: 0
+  explanation: |-
+    Integrate: $y = x^3 + 2x + C$. Then $5 = 1 + 2 + C$, so $C = 2$. Writing $+5$ uses the initial value as $C$ without substituting $x = 1$; $6x$ differentiates instead of integrating.
+- id: de-q-0104
+  lesson: de-intro
+  topic: DE basics
+  stem: 'Solve $\dfrac{dy}{dt} = \cos t$, $y(0) = 3$.'
+  choices: ['$y = \sin t + 2$', '$y = -\sin t + 3$', '$y = \sin t + 3$', '$y = \cos t + 2$']
+  answer: 2
+  explanation: |-
+    $y = \sin t + C$ and $\sin 0 = 0$, so $C = 3$. The answer $\cos t + 2$ uses the wrong antiderivative (that would solve $y' = -\sin t$).
+- id: de-q-0105
+  lesson: de-intro
+  module_quiz: true
+  topic: DE basics
+  stem: 'For which values of $r$ is $y = e^{rt}$ a solution of $y'''' - 5y'' + 6y = 0$?'
+  choices: ['$r = -2$ and $r = -3$', '$r = 1$ and $r = 6$', '$r = -1$ and $r = 6$', '$r = 2$ and $r = 3$']
+  answer: 3
+  explanation: |-
+    Substituting gives $(r^2 - 5r + 6)e^{rt} = 0$. Since $e^{rt} \ne 0$, we need $r^2 - 5r + 6 = (r - 2)(r - 3) = 0$, so $r = 2$ or $3$. The negatives come from a sign slip in factoring.
+- id: de-q-0106
+  lesson: de-intro
+  topic: DE basics
+  stem: 'Which constant functions are equilibrium solutions of $\dfrac{dy}{dt} = y^2 - 9$?'
+  choices: ['$y = 9$ only', '$y = 3$ and $y = -3$', '$y = 0$ only', '$y = 3$ only']
+  answer: 1
+  explanation: |-
+    A constant $y = c$ has $y' = 0$, so we need $c^2 - 9 = 0$, giving $c = \pm 3$. Don't drop the negative root.
+- id: de-q-0107
+  lesson: de-intro
+  topic: DE basics
+  stem: 'A quantity $Q$ decreases at a rate proportional to the square root of $Q$. Which equation models this (with $k > 0$)?'
+  choices: ['$\dfrac{dQ}{dt} = k\sqrt{Q}$', '$Q = -k\sqrt{t}$', '$\dfrac{dQ}{dt} = -k\sqrt{Q}$', '$\dfrac{dQ}{dt} = -kQ^2$']
+  answer: 2
+  explanation: |-
+    "Rate proportional to $\sqrt{Q}$" means $Q' = (\text{constant})\sqrt{Q}$; "decreases" makes the constant negative, so $-k\sqrt{Q}$ with $k > 0$.
+- id: de-q-0108
+  lesson: de-intro
+  topic: DE basics
+  stem: 'Is $y = \sin 3t$ a solution of $y'''' + 9y = 0$? Is $y = \sin t$?'
+  choices: ['$\sin 3t$ is; $\sin t$ is not', 'Both are', '$\sin t$ is; $\sin 3t$ is not', 'Neither is']
+  answer: 0
+  explanation: |-
+    For $\sin 3t$: $y'' = -9\sin 3t$, so $y'' + 9y = 0$. For $\sin t$: $y'' = -\sin t$, so $y'' + 9y = 8\sin t \ne 0$.
+- id: de-q-0109
+  lesson: de-intro
+  topic: DE basics
+  stem: 'How many arbitrary constants does the general solution of a third-order differential equation typically contain?'
+  choices: ['3', '1', '2', 'It depends on the initial condition']
+  answer: 0
+  explanation: |-
+    Each order of differentiation undone brings one constant, so a third-order equation's general solution has three. Initial conditions then fix those constants; they don't change how many there are.
+- id: de-q-0110
+  lesson: de-intro
+  topic: DE basics
+  stem: 'A student claims $y = x^2$ solves $y'' = 2y/x$ because at $x = 1$ both sides equal 2. Which statement is correct?'
+  choices: ['It is not a solution, because checking one point is never enough', '$y = x^2$ fails at $x = 2$', '$y = x^2$ is a solution for $x \ne 0$, since $2x = 2x^2/x$ for every such $x$', 'It is a solution only at $x = 1$']
+  answer: 2
+  explanation: |-
+    Checking one point is not a proof, but here the identity holds everywhere it's defined: $y' = 2x$ and $2y/x = 2x^2/x = 2x$ for all $x \ne 0$. So it is a solution on $(0, \infty)$ and on $(-\infty, 0)$.
+- id: de-q-0111
+  lesson: de-intro
+  topic: DE basics
+  stem: 'Solve $y'''' = 6t$ with $y(0) = 1$ and $y''(0) = 2$.'
+  choices: ['$y = 3t^2 + 2t + 1$', '$y = t^3 + 2t + 1$', '$y = t^3 + t + 2$', '$y = t^3 + 1$']
+  answer: 1
+  explanation: |-
+    Integrate twice: $y' = 3t^2 + C_1$ and $y'(0) = 2$ gives $C_1 = 2$. Then $y = t^3 + 2t + C_2$, and $y(0) = 1$ gives $C_2 = 1$. A second-order equation needs both conditions.
+# Lesson 2: slope fields
+- id: de-q-0201
+  lesson: de-slope-fields
+  module_quiz: true
+  topic: Slope fields
+  stem: 'In the slope field of $\dfrac{dy}{dx} = x - 2y$, what is the slope of the segment at the point $(3, 1)$?'
+  choices: ['$-5$', '$5$', '$-1$', '$1$']
+  answer: 3
+  explanation: |-
+    Substitute $x = 3$, $y = 1$: $3 - 2(1) = 1$. Swapping the coordinates gives $1 - 6 = -5$.
+- id: de-q-0202
+  lesson: de-slope-fields
+  module_quiz: true
+  topic: Slope fields
+  stem: 'A slope field has segments that are identical along every horizontal line, with horizontal segments along $y = -1$ and $y = 3$. Which equation could it belong to?'
+  choices: ['$y'' = (x + 1)(x - 3)$', '$y'' = (y + 1)(y - 3)$', '$y'' = (y - 1)(y + 3)$', '$y'' = x(y + 1)$']
+  answer: 1
+  explanation: |-
+    Rows alike means the slope depends only on $y$ (autonomous). Flat rows at $y = -1$ and $y = 3$ mean the right side vanishes there: $(y + 1)(y - 3)$. The $x$-only version would give flat columns instead.
+- id: de-q-0203
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'For $y'' = x^2 + y^2 - 4$, the isocline of slope 0 is'
+  choices: ['the line $y = x$', 'the circle $x^2 + y^2 = 16$', 'the two lines $y = \pm 2$', 'the circle $x^2 + y^2 = 4$']
+  answer: 3
+  explanation: |-
+    The slope-0 isocline is where $x^2 + y^2 - 4 = 0$, a circle of radius 2. Radius 4 would come from forgetting to take the square root.
+- id: de-q-0204
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'Which statement about the slope field of $\dfrac{dy}{dx} = \sin x$ is true?'
+  choices: ['Segments are the same along each vertical line, so solutions are vertical shifts of one another', 'Segments are the same along each horizontal line', 'There are equilibrium solutions at $y = k\pi$', 'All segments have positive slope']
+  answer: 0
+  explanation: |-
+    The slope depends only on $x$, so every point in a column has the same slope, and the solutions $y = -\cos x + C$ are vertical shifts. The flat segments are along the vertical lines $x = k\pi$, not horizontal lines, so they are not equilibrium solutions.
+- id: de-q-0205
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'For $y'' = x - y$, which line is itself a solution curve?'
+  choices: ['$y = x$', '$y = x + 1$', '$y = x - 1$', '$y = -x$']
+  answer: 2
+  explanation: |-
+    Try $y = x + b$: then $y' = 1$ and $x - y = -b$, so $b = -1$. The line $y = x$ is only the isocline of slope 0; segments along it are horizontal, not slope 1.
+- id: de-q-0206
+  lesson: de-slope-fields
+  module_quiz: true
+  topic: Slope fields
+  stem: 'Solutions of $y'' = y - x$ are concave up exactly where'
+  choices: ['$y > x$', '$y < x + 1$', '$y > x - 1$', '$y > x + 1$']
+  answer: 3
+  explanation: |-
+    $y'' = y' - 1 = (y - x) - 1$, which is positive when $y > x + 1$. Using $y' > 0$ instead of $y'' > 0$ gives $y > x$.
+- id: de-q-0207
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'In the slope field of $\dfrac{dy}{dx} = \dfrac{y}{x}$, where are the segments undefined?'
+  choices: ['On the $x$-axis ($y = 0$)', 'On the $y$-axis ($x = 0$)', 'Along $y = x$', 'Nowhere']
+  answer: 1
+  explanation: |-
+    Division by $x$ fails when $x = 0$. On the $x$-axis the slope is $0/x = 0$, which is fine.
+- id: de-q-0208
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'In a slope field, the segments along the line $y = -x$ are horizontal and the segment at $(1, 1)$ has slope 2. Which equation fits?'
+  choices: ['$y'' = x - y$', '$y'' = xy$', '$y'' = x + y$', '$y'' = -x - y$']
+  answer: 2
+  explanation: |-
+    $x + y$ is zero exactly on $y = -x$ and equals 2 at $(1, 1)$. For $x - y$ the flat line would be $y = x$ (and the slope at $(1, 1)$ would be 0); for $xy$ both axes would be flat; for $-x - y$ the slope at $(1, 1)$ would be $-2$.
+- id: de-q-0209
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'A solution of $y'' = y(2 - y)$ starts at $y(0) = 0.5$. According to the slope field, what happens as $x$ increases?'
+  choices: ['It rises and levels off toward $y = 2$', 'It falls toward $y = 0$', 'It rises without bound', 'It oscillates between 0 and 2']
+  answer: 0
+  explanation: |-
+    Between 0 and 2 the slope $y(2 - y)$ is positive, so the curve rises, and the slopes flatten as $y$ nears 2. A solution can't cross the equilibrium $y = 2$.
+- id: de-q-0210
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'Two different solution curves of $y'' = f(x, y)$, where $f$ and $\partial f/\partial y$ are continuous, cannot'
+  choices: ['cross each other', 'both approach the same horizontal line', 'both have horizontal tangents at the same $x$', 'have the same shape']
+  answer: 0
+  explanation: |-
+    At a crossing point both would satisfy the same initial condition, and with $f$ and $\partial f/\partial y$ continuous the IVP has only one solution (Lesson 7 makes this precise). Approaching a common line, as logistic solutions do, is allowed.
+- id: de-q-0211
+  lesson: de-slope-fields
+  topic: Slope fields
+  stem: 'A slope field has identical segments in each column, horizontal segments along the $y$-axis, negative slopes for $x < 0$, and positive slopes that grow steeper as $x$ increases. Which equation fits?'
+  choices: ['$y'' = 2y$', '$y'' = x + y$', '$y'' = 2x$', '$y'' = y^2$']
+  answer: 2
+  explanation: |-
+    Columns alike means the slope depends only on $x$. Slopes are 0 on the $y$-axis, negative on the left, positive and growing on the right: $2x$. The other choices depend on $y$, so their rows, not columns, would vary.
+# Lesson 3: separable
+- id: de-q-0301
+  lesson: de-separable
+  module_quiz: true
+  topic: Separable equations
+  stem: 'Which equation is **not** separable?'
+  choices: ['$y'' = xy$', '$y'' = x + y$', '$y'' = e^{x+y}$', '$y'' = \dfrac{x^2}{y + 1}$']
+  answer: 1
+  explanation: |-
+    $e^{x+y} = e^x e^y$ and $xy$ factor into an $x$-part times a $y$-part. A sum $x + y$ can't be written as $g(x)h(y)$.
+- id: de-q-0302
+  lesson: de-separable
+  module_quiz: true
+  topic: Separable equations
+  stem: 'Solve $\dfrac{dy}{dx} = 2xy$, $y(0) = 5$.'
+  choices: ['$y = e^{x^2} + 4$', '$y = 5e^{2x}$', '$y = 5e^{x^2/2}$', '$y = 5e^{x^2}$']
+  answer: 3
+  explanation: |-
+    $\dfrac{dy}{y} = 2x\,dx$, so $\ln|y| = x^2 + C$ and $y = Ae^{x^2}$. $y(0) = 5$ gives $A = 5$. Adding the constant after exponentiating gives the $+4$ answer, which doesn't satisfy the equation.
+- id: de-q-0303
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Solve $\dfrac{dy}{dx} = \dfrac{x}{y}$, $y(0) = -3$.'
+  choices: ['$y = \sqrt{x^2 + 9}$', '$y = -\sqrt{x^2 + 9}$', '$y = -\sqrt{x^2 - 9}$', '$y = x - 3$']
+  answer: 1
+  explanation: |-
+    $y\,dy = x\,dx$ gives $y^2 = x^2 + C$; at $x = 0$, $9 = C$. Since $y(0) = -3 < 0$, take the negative root.
+- id: de-q-0304
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Solving $y'' = y^2$ with $y(0) = 2$ gives $y = \dfrac{2}{1 - 2x}$. On what interval does the solution of the IVP exist?'
+  choices: ['$x > \tfrac12$', 'all real $x$', '$x < 2$', '$x < \tfrac12$']
+  answer: 3
+  explanation: |-
+    The formula blows up at $x = \tfrac12$. The IVP's solution lives on the interval containing $x_0 = 0$ where the formula is defined: $(-\infty, \tfrac12)$.
+- id: de-q-0305
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'When separating $\dfrac{dy}{dx} = (y - 4)\cos x$, which solution can be lost by dividing by $y - 4$?'
+  choices: ['$y = 4$', '$y = 0$', '$y = \cos x$', '$y = 4 + \sin x$']
+  answer: 0
+  explanation: |-
+    Dividing by $y - 4$ assumes $y \ne 4$. But $y = 4$ makes both sides zero, so it is an equilibrium solution. (In the form $y = 4 + Ae^{\sin x}$ it reappears with $A = 0$.)
+- id: de-q-0306
+  lesson: de-separable
+  module_quiz: true
+  topic: Separable equations
+  stem: 'Solve $\dfrac{dy}{dt} = e^{t - y}$, $y(0) = \ln 2$.'
+  choices: ['$y = t + \ln 2$', '$y = \ln(e^t) + 2$', '$y = \ln(e^t + 1)$', '$y = \ln(e^t - 1)$']
+  answer: 2
+  explanation: |-
+    $e^y\,dy = e^t\,dt$, so $e^y = e^t + C$. At $t = 0$: $2 = 1 + C$, $C = 1$. Then $y = \ln(e^t + 1)$. The answer $t + \ln 2$ would mean $e^y = 2e^t$, which fails the equation.
+- id: de-q-0307
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Find the step where this work goes wrong. Solve $y'' = 3y$: (1) $\dfrac{dy}{y} = 3\,dt$; (2) $\ln|y| = 3t + C$; (3) $y = e^{3t} + e^C$; (4) $y = e^{3t} + A$.'
+  choices: ['Step 1', 'Step 2', 'Step 4 only', 'Step 3']
+  answer: 3
+  explanation: |-
+    $e^{3t + C} = e^C e^{3t}$, a product, not a sum. The correct general solution is $y = Ae^{3t}$. Step 4 just carries the earlier error forward.
+- id: de-q-0308
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Solve $\dfrac{dy}{dx} = \dfrac{3x^2}{2y}$, $y(1) = 2$.'
+  choices: ['$y = \sqrt{x^3 + 4}$', '$y = \sqrt{x^3 + 3}$', '$y = \sqrt{x^3} + 1$', '$y = \sqrt{3x^3 + 1}$']
+  answer: 1
+  explanation: |-
+    $2y\,dy = 3x^2\,dx$ gives $y^2 = x^3 + C$. At $(1, 2)$: $4 = 1 + C$, so $C = 3$. The $+4$ version uses $y_0^2$ as $C$ without subtracting $x_0^3$.
+- id: de-q-0309
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Separating $\dfrac{dy}{dx} = \dfrac{2x}{3y^2 + \cos y}$ gives the implicit general solution'
+  choices: ['$y^3 - \sin y = x^2 + C$', '$3y^2 + \cos y = x^2 + C$', '$y^3 + \sin y = x^2 + C$', '$y^3 + \sin y = 2x + C$']
+  answer: 2
+  explanation: |-
+    $(3y^2 + \cos y)\,dy = 2x\,dx$. Antiderivatives: $y^3 + \sin y$ on the left (since $\int \cos y\,dy = \sin y$) and $x^2$ on the right.
+- id: de-q-0310
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Solve $\dfrac{dy}{dx} = -\dfrac{y}{x}$ for $x > 0$, with $y(2) = 3$.'
+  choices: ['$y = \dfrac{6}{x}$', '$y = \dfrac{3}{x}$', '$y = \dfrac{3x}{2}$', '$y = 5 - x$']
+  answer: 0
+  explanation: |-
+    $\dfrac{dy}{y} = -\dfrac{dx}{x}$, so $\ln|y| = -\ln x + C$ and $y = A/x$. $y(2) = 3$ gives $A = 6$.
+- id: de-q-0311
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'For $\dfrac{dy}{dx} = y\cos x$ with $y(0) = 2$, what is $y(\pi/2)$?'
+  choices: ['$2e$', '$2$', '$e^2$', '$2e^{\pi/2}$']
+  answer: 0
+  explanation: |-
+    $\ln|y| = \sin x + C$, so $y = 2e^{\sin x}$. At $\pi/2$, $\sin(\pi/2) = 1$, giving $2e$.
+- id: de-q-0312
+  lesson: de-separable
+  topic: Separable equations
+  stem: 'Solve $\dfrac{dy}{dx} = \dfrac{1 + y^2}{1 + x^2}$, $y(0) = 1$.'
+  choices: ['$y = x + 1$', '$y = \tan(\arctan x) + 1$', '$y = \tan\!\left(\arctan x + \tfrac{\pi}{4}\right)$', '$y = \arctan x + 1$']
+  answer: 2
+  explanation: |-
+    $\dfrac{dy}{1 + y^2} = \dfrac{dx}{1 + x^2}$ gives $\arctan y = \arctan x + C$. At $x = 0$: $\arctan 1 = \pi/4 = C$. Then $y = \tan(\arctan x + \pi/4) = \dfrac{1 + x}{1 - x}$, which is not $x + 1$.
+# Lesson 4: growth
+- id: de-q-0401
+  lesson: de-growth-logistic
+  module_quiz: true
+  topic: Exponential growth
+  stem: 'A sample decays according to $\dfrac{dQ}{dt} = -0.05Q$ ($t$ in years). What is its half-life?'
+  choices: ['about 10 years', 'about 13.9 years', 'about 20 years', 'about 34.7 years']
+  answer: 1
+  explanation: |-
+    $T_{1/2} = \dfrac{\ln 2}{0.05} \approx 13.86$ years. Twenty years would come from $1/0.05$, forgetting the $\ln 2$.
+- id: de-q-0402
+  lesson: de-growth-logistic
+  topic: Exponential growth
+  stem: 'A population doubles every 6 hours. What is its relative growth rate $k$ (per hour)?'
+  choices: ['$\dfrac{2}{6} \approx 0.333$', '$6\ln 2 \approx 4.16$', '$\dfrac{1}{6} \approx 0.1667$', '$\dfrac{\ln 2}{6} \approx 0.1155$']
+  answer: 3
+  explanation: |-
+    $e^{6k} = 2$ gives $k = \ln 2/6$.
+- id: de-q-0403
+  lesson: de-growth-logistic
+  module_quiz: true
+  topic: Exponential growth
+  stem: 'A culture grows exponentially from 200 to 800 cells in 4 hours. How many cells after 6 hours?'
+  choices: ['1200', '1600', '1000', '3200']
+  answer: 1
+  explanation: |-
+    It quadrupled in 4 hours, so it doubles every 2 hours. In 6 hours it doubles 3 times: $200 \cdot 2^3 = 1600$. Linear thinking gives 1200 ("150 per hour").
+- id: de-q-0404
+  lesson: de-growth-logistic
+  topic: Exponential growth
+  stem: 'Radioactive substance A has twice the half-life of substance B. Starting with equal amounts, after one half-life of A how much of B remains, as a fraction of its start?'
+  choices: ['$\tfrac12$', '$\tfrac18$', '$\tfrac13$', '$\tfrac14$']
+  answer: 3
+  explanation: |-
+    One half-life of A is two half-lives of B, so B is halved twice: $\tfrac12 \cdot \tfrac12 = \tfrac14$.
+- id: de-q-0405
+  lesson: de-growth-logistic
+  module_quiz: true
+  topic: Logistic growth
+  stem: 'For $\dfrac{dP}{dt} = 0.4P\left(1 - \dfrac{P}{600}\right)$, at what population is $P$ growing fastest?'
+  choices: ['$P = 300$', '$P = 600$', '$P = 0$', '$P = 240$']
+  answer: 0
+  explanation: |-
+    The growth rate is a downward parabola in $P$ with roots 0 and $K = 600$, so it peaks at $K/2 = 300$.
+- id: de-q-0406
+  lesson: de-growth-logistic
+  topic: Logistic growth
+  stem: 'Write $\dfrac{dP}{dt} = 0.002P(800 - P)$ in the form $kP(1 - P/K)$. What are $k$ and $K$?'
+  choices: ['$k = 0.002$, $K = 800$', '$k = 1.6$, $K = 400$', '$k = 1.6$, $K = 800$', '$k = 0.002$, $K = 1.6$']
+  answer: 2
+  explanation: |-
+    $0.002P(800 - P) = 0.002 \cdot 800\,P(1 - P/800) = 1.6P(1 - P/800)$. Reading $k$ as 0.002 is the classic slip.
+- id: de-q-0407
+  lesson: de-growth-logistic
+  topic: Logistic growth
+  stem: 'A logistic population with $K = 5000$ starts at $P_0 = 7000$. What happens over time?'
+  choices: ['It increases without bound', 'It decreases to 0', 'It drops below 5000 and then rises back', 'It decreases toward 5000']
+  answer: 3
+  explanation: |-
+    Above $K$, the factor $1 - P/K$ is negative, so $P$ falls, and it approaches $K$ from above without crossing the equilibrium.
+- id: de-q-0408
+  lesson: de-growth-logistic
+  module_quiz: true
+  topic: Logistic growth
+  stem: 'For $\dfrac{dP}{dt} = 0.5P\left(1 - \dfrac{P}{200}\right)$ with $P(0) = 40$, find $P(t)$.'
+  choices: ['$\dfrac{200}{1 + 5e^{-0.5t}}$', '$\dfrac{200}{1 + 4e^{-0.5t}}$', '$\dfrac{200}{1 + 4e^{0.5t}}$', '$\dfrac{40}{1 + 4e^{-0.5t}}$']
+  answer: 1
+  explanation: |-
+    $A = \dfrac{K - P_0}{P_0} = \dfrac{160}{40} = 4$, so $P = \dfrac{200}{1 + 4e^{-0.5t}}$. Check: $P(0) = 200/5 = 40$. Using $K/P_0 = 5$ gives $P(0) = 200/6$, wrong.
+- id: de-q-0409
+  lesson: de-growth-logistic
+  topic: Logistic growth
+  stem: 'What is the maximum growth rate of a logistic population with $k = 0.3$ per year and $K = 2000$?'
+  choices: ['300 per year', '600 per year', '150 per year', '75 per year']
+  answer: 2
+  explanation: |-
+    At $P = K/2 = 1000$: $0.3 \cdot 1000 \cdot (1 - 0.5) = 150$. In general the maximum is $kK/4$.
+- id: de-q-0410
+  lesson: de-growth-logistic
+  topic: Exponential growth
+  stem: 'About what fraction of carbon-14 (half-life 5,730 years) remains after 10,000 years?'
+  choices: ['about 0.30', 'about 0.57', 'about 0.13', 'about 0.70']
+  answer: 0
+  explanation: |-
+    $(1/2)^{10000/5730} = (1/2)^{1.745} \approx 0.298$.
+- id: de-q-0411
+  lesson: de-growth-logistic
+  topic: Logistic growth
+  stem: 'Which statement about logistic growth with $0 < P_0 < K/2$ is false?'
+  choices: ['The population is growing fastest at $t = 0$', 'The graph has an inflection point where $P = K/2$', '$P(t) \to K$ as $t \to \infty$', 'Early growth is nearly exponential']
+  answer: 0
+  explanation: |-
+    Growth is fastest when $P = K/2$, which happens later because $P_0 < K/2$; at $t = 0$ the growth rate is smaller. The other three statements are true.
+- id: de-q-0412
+  lesson: de-growth-logistic
+  topic: Logistic growth
+  stem: 'Using $P(t) = \dfrac{1000}{1 + 9e^{-0.6t}}$, when does the population reach 500?'
+  choices: ['$t = \dfrac{9}{0.6} = 15$', '$t = \dfrac{\ln 2}{0.6} \approx 1.16$', '$t = \dfrac{\ln 9}{0.6} \approx 3.66$', '$t = 0.6\ln 9 \approx 1.32$']
+  answer: 2
+  explanation: |-
+    $1 + 9e^{-0.6t} = 2$ gives $e^{-0.6t} = 1/9$, so $0.6t = \ln 9$.
+# Lesson 5: Euler
+- id: de-q-0501
+  lesson: de-euler
+  module_quiz: true
+  topic: Euler's method
+  stem: 'Use one Euler step with $h = 0.2$ for $y'' = x + 2y$, $y(1) = 3$. What is the estimate of $y(1.2)$?'
+  choices: ['3.4', '4.4', '10', '4.48']
+  answer: 1
+  explanation: |-
+    Slope at $(1, 3)$: $1 + 6 = 7$. Then $y_1 = 3 + 0.2(7) = 4.4$. Forgetting to multiply by $h$ gives 10.
+- id: de-q-0502
+  lesson: de-euler
+  module_quiz: true
+  topic: Euler's method
+  stem: 'Use two Euler steps with $h = 0.5$ for $y'' = y - x$, $y(0) = 2$, to estimate $y(1)$.'
+  choices: ['3.75', '4', '4.5', '4.25']
+  answer: 3
+  explanation: |-
+    Step 1: slope $2 - 0 = 2$, so $y_1 = 3$ at $x = 0.5$. Step 2: slope $3 - 0.5 = 2.5$, so $y_2 = 3 + 0.5(2.5) = 4.25$. Using the slope at $x = 0$ for both steps gives 4.
+- id: de-q-0503
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'Solutions of $y'' = f(x, y)$ are concave down on $[0, 1]$. An Euler estimate of $y(1)$ will be'
+  choices: ['too small', 'too large', 'exact', 'too large or too small depending on $h$']
+  answer: 1
+  explanation: |-
+    On a concave-down curve, tangent lines lie above the curve, so following them overestimates.
+- id: de-q-0504
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'For $y'' = ky$, Euler''s method with step $h$ gives which formula for $y_n$?'
+  choices: ['$y_0e^{knh}$', '$y_0(1 + k)^{nh}$', '$y_0 + nkh$', '$y_0(1 + kh)^n$']
+  answer: 3
+  explanation: |-
+    Each step is $y_{n+1} = y_n + hky_n = (1 + kh)y_n$, so $n$ steps multiply by $(1 + kh)^n$. $y_0e^{knh}$ is the exact solution, which Euler only approaches as $h \to 0$.
+- id: de-q-0505
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'With Euler''s method, halving the step size typically does what to the error at a fixed point?'
+  choices: ['Roughly halves it', 'Roughly quarters it', 'Leaves it unchanged', 'Doubles it']
+  answer: 0
+  explanation: |-
+    Euler's method is first order: the global error is roughly proportional to $h$. Quartering would be a second-order method such as improved Euler (Module 4).
+- id: de-q-0506
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'How many Euler steps of size $h = 0.05$ does it take to go from $t = 1$ to $t = 2$?'
+  choices: ['5', '10', '20', '40']
+  answer: 2
+  explanation: |-
+    $(2 - 1)/0.05 = 20$.
+- id: de-q-0507
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'Find the error in this Euler step for $y'' = xy$, $y(1) = 2$, $h = 0.1$: "slope $= 1.1 \times 2 = 2.2$, so $y(1.1) \approx 2 + 0.1(2.2) = 2.22$."'
+  choices: ['The slope should be multiplied by $x$ again', 'The step should add $2.2$, not $0.22$', 'There is no error', 'The slope should use $x = 1$, giving $y(1.1) \approx 2.2$']
+  answer: 3
+  explanation: |-
+    Each Euler step uses the slope at the start of the step, $(1, 2)$: slope $= 2$, so $y_1 = 2 + 0.2 = 2.2$.
+- id: de-q-0508
+  lesson: de-euler
+  module_quiz: true
+  topic: Euler's method
+  stem: 'Two Euler steps of $h = 0.1$ for $\dfrac{dy}{dt} = -2y$, $y(0) = 3$ give $y(0.2) \approx 1.92$. The exact value is $3e^{-0.4} \approx 2.01$. Why is the estimate low?'
+  choices: ['Solutions are concave down, so tangent lines lie below them', 'Solutions are concave up ($y'''' = 4y > 0$), so tangent lines lie below them', 'The step size is negative', 'Euler''s method always underestimates']
+  answer: 1
+  explanation: |-
+    $y'' = -2y' = 4y > 0$, so the solution is concave up and each tangent line undershoots. Euler's method overestimates on concave-down solutions, so "always underestimates" is false.
+- id: de-q-0509
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'For which equation is Euler''s method exact for every step size (with $y(0) = 1$)?'
+  choices: ['$y'' = 3y$', '$y'' = 3x$', '$y'' = 3$', '$y'' = y^2$']
+  answer: 2
+  explanation: |-
+    $y' = 3$ has the line $y = 3x + 1$ as solution, and a line is its own tangent line, so Euler follows it exactly. The others have curved solutions.
+- id: de-q-0510
+  lesson: de-euler
+  topic: Euler's method
+  stem: 'One Euler step of size $h = 0.5$ for $y'' = x^2 - y$, $y(2) = 1$ estimates $y(2.5)$ as'
+  choices: ['2.5', '4', '1.5', '3.25']
+  answer: 0
+  explanation: |-
+    Slope at $(2, 1)$: $4 - 1 = 3$. $y_1 = 1 + 0.5(3) = 2.5$. Forgetting $h$ gives 4.

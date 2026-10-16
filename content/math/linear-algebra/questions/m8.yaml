@@ -1,0 +1,565 @@
+# Module 8: eigenvalues and eigenvectors
+
+# --- Lesson 27: eigenvalues and eigenvectors ---
+- id: la-q-2701
+  lesson: la-eigen
+  module_quiz: true
+  topic: Eigenvalues and eigenvectors
+  stem: 'Let $A = \begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$. $\mathbf{v} = (1, 1)$ is an eigenvector. What is its eigenvalue?'
+  choices: ['$1$', '$2$', '$3$', '$4$']
+  answer: 2
+  explanation: |-
+    $A\mathbf{v} = (2 + 1, 1 + 2) = (3, 3) = 3\mathbf{v}$.
+
+- id: la-q-2702
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Is $(1, -1)$ an eigenvector of $\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$?'
+  choices: ['Yes, with eigenvalue $1$', 'No, because it has a negative entry', 'Yes, with eigenvalue $-1$', 'No, because $A(1, -1)$ is not a multiple of $(1, -1)$']
+  answer: 0
+  explanation: |-
+    $A(1, -1) = (2 - 1, 1 - 2) = (1, -1) = 1\cdot(1, -1)$. Signs of entries don't matter.
+
+- id: la-q-2703
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Which of these can never be an eigenvector?'
+  choices: ['A vector with a zero entry', 'A unit vector', 'The zero vector', 'A vector with eigenvalue 0']
+  answer: 2
+  explanation: |-
+    Eigenvectors must be nonzero by definition; otherwise every $\lambda$ would be an eigenvalue. A nonzero vector *can* have eigenvalue 0 (it lies in $\operatorname{Nul} A$).
+
+- id: la-q-2704
+  lesson: la-eigen
+  module_quiz: true
+  topic: Eigenvalues and eigenvectors
+  stem: '$\lambda$ is an eigenvalue of $A$ exactly when:'
+  choices: ['$A - \lambda I$ is invertible', '$A - \lambda I$ is not invertible', '$\lambda$ is a diagonal entry of $A$', '$A\lambda = \mathbf{0}$']
+  answer: 1
+  explanation: |-
+    $(A - \lambda I)\mathbf{x} = \mathbf{0}$ needs a nontrivial solution, which by the IMT means $A - \lambda I$ is singular. Diagonal entries are eigenvalues only for triangular matrices.
+
+- id: la-q-2705
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'What are the eigenvalues of $\begin{bmatrix} 3 & 5 & 1 \\ 0 & -2 & 4 \\ 0 & 0 & 7\end{bmatrix}$?'
+  choices: ['$3, -2, 7$', '$3, 5, 1$', '$8$ only', '$3, 4, 7$']
+  answer: 0
+  explanation: |-
+    For a triangular matrix, $A - \lambda I$ is triangular and is singular exactly when $\lambda$ equals a diagonal entry.
+
+- id: la-q-2706
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: '0 is an eigenvalue of a square matrix $A$. What follows?'
+  choices: ['$A$ is the zero matrix', '$A$ has no eigenvectors', '$A$ is diagonalizable', '$A$ is not invertible']
+  answer: 3
+  explanation: |-
+    $A\mathbf{x} = 0\mathbf{x} = \mathbf{0}$ has a nontrivial solution, so $\operatorname{Nul} A \ne \{\mathbf{0}\}$ and $A$ is singular. "0 is not an eigenvalue" is an IMT statement.
+
+- id: la-q-2707
+  lesson: la-eigen
+  module_quiz: true
+  topic: Eigenvalues and eigenvectors
+  stem: 'The eigenspace of $A$ for the eigenvalue $\lambda$ is:'
+  choices: ['$\operatorname{Col}(A - \lambda I)$', '$\operatorname{Nul}(A - \lambda I)$', '$\operatorname{Nul} A$', 'the set of all eigenvectors of $A$']
+  answer: 1
+  explanation: |-
+    It's the set of solutions of $(A - \lambda I)\mathbf{x} = \mathbf{0}$: all eigenvectors for $\lambda$ together with $\mathbf{0}$. It's a subspace, so find a basis by row-reducing $A - \lambda I$.
+
+- id: la-q-2708
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'If $A\mathbf{x} = 4\mathbf{x}$, what is $A^3\mathbf{x}$?'
+  choices: ['$12\mathbf{x}$', '$4^3A\mathbf{x}$', '$4\mathbf{x}$', '$64\mathbf{x}$']
+  answer: 3
+  explanation: |-
+    Each multiplication by $A$ multiplies by 4: $A^3\mathbf{x} = 4^3\mathbf{x} = 64\mathbf{x}$.
+
+- id: la-q-2709
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Is 3 an eigenvalue of $\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$? If so, give an eigenvector.'
+  choices: ['No', 'Yes, $(1, -1)$', 'Yes, $(1, 1)$', 'Yes, $(2, 1)$']
+  answer: 2
+  explanation: |-
+    $A - 3I = \begin{bmatrix} -2 & 2 \\ 2 & -2\end{bmatrix}$ is singular, with null space spanned by $(1, 1)$. Check: $A(1, 1) = (3, 3)$. ✓ $(1, -1)$ is an eigenvector for $-1$.
+
+- id: la-q-2710
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'What is the dimension of the eigenspace of $\begin{bmatrix} 5 & 0 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 2\end{bmatrix}$ for $\lambda = 5$?'
+  choices: ['1', '2', '3', '5']
+  answer: 1
+  explanation: |-
+    $A - 5I = \operatorname{diag}(0, 0, -3)$ has one pivot and two free variables, so the eigenspace (the $x_1x_2$-plane) is 2-dimensional.
+
+- id: la-q-2711
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'A student row-reduces $A$ to an upper triangular echelon form $U$ and reads the eigenvalues of $A$ off the diagonal of $U$. What''s wrong?'
+  choices: ['Nothing; row operations preserve eigenvalues', 'The eigenvalues are the pivots squared', 'Row operations change eigenvalues, so $U$''s diagonal generally isn''t the eigenvalues of $A$', 'You must use the RREF instead']
+  answer: 2
+  explanation: |-
+    Row operations preserve solution sets, not the way $A$ acts on vectors. For example $\begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}$ reduces to $\begin{bmatrix} 1 & 2 \\ 0 & -2\end{bmatrix}$, but 1 and $-2$ aren't its eigenvalues.
+
+- id: la-q-2712
+  lesson: la-eigen
+  module_quiz: true
+  topic: Eigenvalues and eigenvectors
+  stem: '$\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ are eigenvectors of $A$ for the eigenvalues $1, 4, -2$. What can you conclude?'
+  choices: ['$\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is linearly independent', 'The vectors are orthogonal', '$\mathbf{v}_3 = \mathbf{v}_1 + \mathbf{v}_2$', 'Nothing']
+  answer: 0
+  explanation: |-
+    Eigenvectors corresponding to distinct eigenvalues are always linearly independent. (Orthogonality needs more, e.g. a symmetric matrix.)
+
+# --- Lesson 28: characteristic equation ---
+- id: la-q-2801
+  lesson: la-char-eq
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Find the eigenvalues of $\begin{bmatrix} 3 & 1 \\ 2 & 4\end{bmatrix}$.'
+  choices: ['$3$ and $4$', '$2$ and $5$', '$-2$ and $-5$', '$1$ and $6$']
+  answer: 1
+  explanation: |-
+    $\lambda^2 - 7\lambda + (12 - 2) = \lambda^2 - 7\lambda + 10 = (\lambda - 2)(\lambda - 5)$. The diagonal entries 3 and 4 aren't eigenvalues because the matrix isn't triangular.
+
+- id: la-q-2802
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'Find the eigenvalues of $\begin{bmatrix} 2 & 3 \\ 3 & -6\end{bmatrix}$.'
+  choices: ['$3$ and $-7$', '$-3$ and $7$', '$2$ and $-6$', '$3$ and $7$']
+  answer: 0
+  explanation: |-
+    Trace $-4$, determinant $-21$: $\lambda^2 + 4\lambda - 21 = (\lambda + 7)(\lambda - 3)$. Check: $3 + (-7) = -4$ and $3(-7) = -21$.
+
+- id: la-q-2803
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'For a $2 \times 2$ matrix $A$, the characteristic polynomial is:'
+  choices: ['$\lambda^2 + (\operatorname{tr} A)\lambda + \det A$', '$\lambda^2 - (\det A)\lambda + \operatorname{tr} A$', '$\lambda^2 - (\operatorname{tr} A)\lambda + \det A$', '$\det A - \lambda$']
+  answer: 2
+  explanation: |-
+    $(a - \lambda)(d - \lambda) - bc = \lambda^2 - (a + d)\lambda + (ad - bc)$.
+
+- id: la-q-2804
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'A $3 \times 3$ matrix has trace 6, and two of its eigenvalues are 1 and 2. What is the third?'
+  choices: ['$3$', '$4$', '$6$', '$2$']
+  answer: 0
+  explanation: |-
+    The eigenvalues (with multiplicity) add up to the trace: $1 + 2 + \lambda_3 = 6$, so $\lambda_3 = 3$.
+
+- id: la-q-2805
+  lesson: la-char-eq
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'A $3 \times 3$ matrix has eigenvalues $2, -1, 5$. What is $\det A$?'
+  choices: ['$6$', '$-6$', '$10$', '$-10$']
+  answer: 3
+  explanation: |-
+    The determinant is the product of the eigenvalues: $2(-1)(5) = -10$. (Their sum, 6, is the trace.)
+
+- id: la-q-2806
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'A matrix has characteristic polynomial $(\lambda - 2)^3(\lambda + 1)$. What is the algebraic multiplicity of the eigenvalue 2?'
+  choices: ['1', '2', '3', '4']
+  answer: 2
+  explanation: |-
+    The factor $(\lambda - 2)$ appears 3 times. The matrix is $4 \times 4$ (degree 4 polynomial).
+
+- id: la-q-2807
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'If $B = P^{-1}AP$ for an invertible $P$, which must $A$ and $B$ share?'
+  choices: ['All their entries', 'Their eigenvectors', 'Their characteristic polynomial and eigenvalues', 'Their reduced echelon forms only']
+  answer: 2
+  explanation: |-
+    $\det(B - \lambda I) = \det(P^{-1}(A - \lambda I)P) = \det(A - \lambda I)$. Eigenvectors generally differ: if $A\mathbf{x} = \lambda\mathbf{x}$ then $B(P^{-1}\mathbf{x}) = \lambda P^{-1}\mathbf{x}$.
+
+- id: la-q-2808
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'What is the characteristic polynomial of $\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$?'
+  choices: ['$\lambda^2 - 1$', '$\lambda^2 + 1$', '$\lambda^2$', '$\lambda^2 - \lambda + 1$']
+  answer: 1
+  explanation: |-
+    Trace 0, determinant $0 - (-1) = 1$: $\lambda^2 + 1$. It has no real roots; the eigenvalues are $\pm i$ (a $90^\circ$ rotation turns every vector).
+
+- id: la-q-2809
+  lesson: la-char-eq
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Find the eigenvalues of $\begin{bmatrix} 1 & 2 & 0 \\ 2 & 1 & 0 \\ 0 & 0 & 4\end{bmatrix}$.'
+  choices: ['$1, 1, 4$', '$-3, 1, 4$', '$3, 1, 4$', '$3, -1, 4$']
+  answer: 3
+  explanation: |-
+    Expand down column 3: $(4 - \lambda)[(1 - \lambda)^2 - 4] = 0$. Then $1 - \lambda = \pm 2$ gives $\lambda = -1, 3$, plus $\lambda = 4$. The sum $6$ matches the trace.
+
+- id: la-q-2810
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: |-
+    A student finds eigenvalues of $A = \begin{bmatrix} 4 & 1 \\ 2 & 3\end{bmatrix}$ by solving $\det A - \lambda = 0$, getting $\lambda = 10$. What went wrong?
+  choices: ['They should solve $\det(A - \lambda I) = 0$, which gives $\lambda^2 - 7\lambda + 10 = 0$ and $\lambda = 2, 5$', 'Nothing; 10 is the only eigenvalue', 'They should solve $\det A + \lambda = 0$', 'They should use the trace instead: $\lambda = 7$']
+  answer: 0
+  explanation: |-
+    $\lambda$ must be subtracted from each diagonal entry before taking the determinant. Check: $2 + 5 = 7 = \operatorname{tr} A$ and $2 \cdot 5 = 10 = \det A$.
+
+- id: la-q-2811
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: '$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$ and $\begin{bmatrix} 2 & 0 \\ 0 & 2\end{bmatrix}$ have the same characteristic polynomial. Are they similar?'
+  choices: ['Yes, matrices with the same characteristic polynomial are always similar', 'No: $P^{-1}(2I)P = 2I$ for every $P$, so $2I$ is similar only to itself', 'Yes, they are both triangular', 'Only if $P$ is diagonal']
+  answer: 1
+  explanation: |-
+    Similarity implies the same characteristic polynomial, but not conversely. $(\lambda - 2)^2$ is shared, yet no change of basis turns the shear into $2I$.
+
+- id: la-q-2812
+  lesson: la-char-eq
+  topic: Characteristic equation
+  stem: 'What is the degree of the characteristic polynomial of a $5 \times 5$ matrix?'
+  choices: ['2', '4', '5', '25']
+  answer: 2
+  explanation: |-
+    Expanding $\det(A - \lambda I)$ gives a polynomial of degree $n$, here 5. So there are at most 5 eigenvalues (exactly 5 counted with multiplicity, allowing complex ones).
+
+# --- Lesson 29: diagonalization ---
+- id: la-q-2901
+  lesson: la-diagonalization
+  module_quiz: true
+  topic: Diagonalization
+  stem: 'In a diagonalization $A = PDP^{-1}$, what are the columns of $P$?'
+  choices: ['The eigenvalues of $A$', 'The pivot columns of $A$', 'The columns of $A$', 'Linearly independent eigenvectors of $A$']
+  answer: 3
+  explanation: |-
+    $AP = PD$ says $A\mathbf{p}_j = d_{jj}\mathbf{p}_j$: each column of $P$ is an eigenvector, and the eigenvalues sit on the diagonal of $D$ in the same order.
+
+- id: la-q-2902
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'If $A = PDP^{-1}$, what is $A^k$?'
+  choices: ['$P^kD^kP^{-k}$', '$PD^kP^{-1}$', '$D^k$', '$P^{-1}D^kP$']
+  answer: 1
+  explanation: |-
+    In $(PDP^{-1})(PDP^{-1})\cdots$ every inner $P^{-1}P$ cancels, leaving $PD^kP^{-1}$.
+
+- id: la-q-2903
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'A $3 \times 3$ matrix has eigenvalues $1$, $2$ and $3$. Is it diagonalizable?'
+  choices: ['Yes, because it has 3 distinct eigenvalues', 'Only if it is symmetric', 'Only if it is invertible', 'It can''t be determined']
+  answer: 0
+  explanation: |-
+    Eigenvectors for distinct eigenvalues are independent, so there are 3 independent eigenvectors in $\mathbb{R}^3$.
+
+- id: la-q-2904
+  lesson: la-diagonalization
+  module_quiz: true
+  topic: Diagonalization
+  stem: 'Is $\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$ diagonalizable?'
+  choices: ['Yes, it is already triangular', 'Yes, because it is invertible', 'No: its only eigenvalue 2 has a 1-dimensional eigenspace', 'No, because it has a repeated eigenvalue']
+  answer: 2
+  explanation: |-
+    $A - 2I = \begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix}$ has nullity 1, so there's only one independent eigenvector. Repeated eigenvalues alone don't prevent diagonalization ($2I$ is diagonal); the eigenspace dimension is what matters.
+
+- id: la-q-2905
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'Let $P = \begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$ and $D = \begin{bmatrix} 2 & 0 \\ 0 & 3\end{bmatrix}$. What is $A = PDP^{-1}$?'
+  choices: ['$\begin{bmatrix} 2 & 0 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 2 & 3 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 3\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $PD = \begin{bmatrix} 2 & 3 \\ 0 & 3\end{bmatrix}$ and $P^{-1} = \begin{bmatrix} 1 & -1 \\ 0 & 1\end{bmatrix}$, so $A = \begin{bmatrix} 2 & -2 + 3 \\ 0 & 3\end{bmatrix} = \begin{bmatrix} 2 & 1 \\ 0 & 3\end{bmatrix}$. Check: $A(1, 1) = (3, 3)$, so column 2 of $P$ is an eigenvector for 3. ✓
+
+- id: la-q-2906
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: '$A = PDP^{-1}$ with $D = \begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$. What is $A^{10}$?'
+  choices: ['$A$', '$-I$', '$I$', '$10A$']
+  answer: 2
+  explanation: |-
+    $D^{10} = \operatorname{diag}(1^{10}, (-1)^{10}) = I$, so $A^{10} = PIP^{-1} = I$. (Such an $A$ is a reflection-like map: doing it twice returns every vector.)
+
+- id: la-q-2907
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'The geometric multiplicity of an eigenvalue $\lambda$ is:'
+  choices: ['the number of times $\lambda$ appears on the diagonal of $A$', 'its multiplicity as a root of the characteristic polynomial', '$\dim\operatorname{Nul}(A - \lambda I)$', 'the rank of $A - \lambda I$']
+  answer: 2
+  explanation: |-
+    It counts independent eigenvectors for $\lambda$. It's at least 1 and at most the algebraic multiplicity (the second choice).
+
+- id: la-q-2908
+  lesson: la-diagonalization
+  module_quiz: true
+  topic: Diagonalization
+  stem: 'A $4 \times 4$ matrix has eigenvalues $2, 2, 5, 7$, and the eigenspace for 2 is one-dimensional. Is it diagonalizable?'
+  choices: ['Yes, it has 3 distinct eigenvalues', 'No: the eigenspace dimensions add to $1 + 1 + 1 = 3 < 4$', 'Yes, because 2 is repeated', 'Only if it is invertible']
+  answer: 1
+  explanation: |-
+    Diagonalization needs 4 independent eigenvectors. For the repeated eigenvalue 2, the geometric multiplicity (1) is less than the algebraic multiplicity (2).
+
+- id: la-q-2909
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'Which statement is true?'
+  choices: ['Every invertible matrix is diagonalizable', 'Every diagonalizable matrix is invertible', 'A matrix can be diagonalizable without being invertible', 'A matrix with a 0 eigenvalue can''t be diagonalizable']
+  answer: 2
+  explanation: |-
+    $\begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix}$ is diagonal (so diagonalizable) but singular. And $\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$ is invertible but not diagonalizable. The two properties are independent.
+
+- id: la-q-2910
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'For $A = \begin{bmatrix} 4 & -2 \\ 1 & 1\end{bmatrix}$, $A^k = \begin{bmatrix} 2\cdot3^k - 2^k & 2^{k+1} - 2\cdot3^k \\ 3^k - 2^k & 2^{k+1} - 3^k\end{bmatrix}$. What is the $(1, 1)$ entry of $A^3$?'
+  choices: ['$46$', '$19$', '$-38$', '$64$']
+  answer: 0
+  explanation: |-
+    $2 \cdot 27 - 8 = 46$. (The full matrix is $\begin{bmatrix} 46 & -38 \\ 19 & -11\end{bmatrix}$, which you can confirm by multiplying $A$ three times.)
+
+- id: la-q-2911
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'A $3 \times 3$ matrix has eigenvalues $2, 2, 5$, and the eigenspace for 2 is two-dimensional. Is it diagonalizable?'
+  choices: ['No, because 2 is repeated', 'It can''t be determined', 'Only if it is symmetric', 'Yes: the eigenspaces have dimensions $2 + 1 = 3$']
+  answer: 3
+  explanation: |-
+    Two independent eigenvectors for 2 plus one for 5 give three independent eigenvectors. The matrix $B$ in the lesson is an example.
+
+- id: la-q-2912
+  lesson: la-diagonalization
+  module_quiz: true
+  topic: Diagonalization
+  stem: '$A = PDP^{-1}$ with $D = \operatorname{diag}(2, 3)$. If you swap the two columns of $P$, what must you do to keep a valid diagonalization?'
+  choices: ['Nothing', 'Swap the diagonal entries of $D$ to get $\operatorname{diag}(3, 2)$', 'Replace $D$ by $D^{-1}$', 'Transpose $P$']
+  answer: 1
+  explanation: |-
+    Column $j$ of $P$ must be an eigenvector for the $j$th diagonal entry of $D$, so reorder both together.
+
+# --- Lesson 30: complex eigenvalues ---
+- id: la-q-3001
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'What are the eigenvalues of $\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$?'
+  choices: ['$i$ and $-i$', '$1$ and $-1$', '$0$ only', 'It has no eigenvalues']
+  answer: 0
+  explanation: |-
+    $\lambda^2 + 1 = 0$ gives $\lambda = \pm i$. There are no *real* eigenvalues, because a $90^\circ$ rotation turns every vector.
+
+- id: la-q-3002
+  lesson: la-complex-eig
+  module_quiz: true
+  topic: Complex eigenvalues
+  stem: 'For $C = \begin{bmatrix} 3 & -4 \\ 4 & 3\end{bmatrix}$, what are the eigenvalues and the scale factor $r$?'
+  choices: ['$3 \pm 4i$, $r = 5$', '$3 \pm 4i$, $r = 7$', '$\pm 5$, $r = 5$', '$4 \pm 3i$, $r = 25$']
+  answer: 0
+  explanation: |-
+    $C$ has the form $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ with $a = 3$, $b = 4$, so $\lambda = 3 \pm 4i$ and $r = |\lambda| = \sqrt{9 + 16} = 5$.
+
+- id: la-q-3003
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'Describe the transformation $\mathbf{x} \mapsto \begin{bmatrix} 1 & -1 \\ 1 & 1\end{bmatrix}\mathbf{x}$.'
+  choices: ['Rotation by $45^\circ$ and scaling by $\sqrt2$', 'Rotation by $90^\circ$ and scaling by 2', 'Rotation by $45^\circ$ only', 'A shear']
+  answer: 0
+  explanation: |-
+    With $a = b = 1$: $r = \sqrt2$, and $(1, 1)$ is at $45^\circ$. So $C = \sqrt2\begin{bmatrix} \cos45^\circ & -\sin45^\circ \\ \sin45^\circ & \cos45^\circ\end{bmatrix}$; its eigenvalues are $1 \pm i$.
+
+- id: la-q-3004
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'A real $3 \times 3$ matrix has eigenvalue $2 + 3i$. Which must also be an eigenvalue?'
+  choices: ['$-2 - 3i$', '$2 - 3i$', '$3 + 2i$', '$-2 + 3i$']
+  answer: 1
+  explanation: |-
+    For real matrices, complex eigenvalues come in conjugate pairs: if $A\mathbf{x} = \lambda\mathbf{x}$ then $A\bar{\mathbf{x}} = \bar\lambda\bar{\mathbf{x}}$. (So the third eigenvalue must be real.)
+
+- id: la-q-3005
+  lesson: la-complex-eig
+  module_quiz: true
+  topic: Complex eigenvalues
+  stem: 'Find the eigenvalues of $\begin{bmatrix} 1 & -2 \\ 1 & 3\end{bmatrix}$.'
+  choices: ['$1$ and $3$', '$-2 \pm i$', '$2 \pm 2i$', '$2 \pm i$']
+  answer: 3
+  explanation: |-
+    Trace 4, determinant $3 + 2 = 5$: $\lambda^2 - 4\lambda + 5 = 0$, so $\lambda = \dfrac{4 \pm \sqrt{-4}}{2} = 2 \pm i$.
+
+- id: la-q-3006
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'A real $2 \times 2$ matrix has eigenvalues $0.6 \pm 0.6i$. What happens to $A^k\mathbf{x}_0$ as $k$ grows (for $\mathbf{x}_0 \ne \mathbf{0}$)?'
+  choices: ['It spirals inward toward $\mathbf{0}$', 'It spirals outward', 'It moves around a closed loop', 'It approaches an eigenvector direction']
+  answer: 0
+  explanation: |-
+    $|\lambda| = \sqrt{0.36 + 0.36} = \sqrt{0.72} \approx 0.85 < 1$, so each step rotates and shrinks by about 15%.
+
+- id: la-q-3007
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: '$A$ is real $2 \times 2$ with eigenvalue $\lambda = a - bi$ and eigenvector $\mathbf{v}$. In $A = PCP^{-1}$ with $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$, what is $P$?'
+  choices: ['$[\,\mathbf{v} \;\; \bar{\mathbf{v}}\,]$', '$[\,\operatorname{Re}\mathbf{v} \;\; \operatorname{Im}\mathbf{v}\,]$', '$[\,\operatorname{Im}\mathbf{v} \;\; \operatorname{Re}\mathbf{v}\,]$', 'The identity']
+  answer: 1
+  explanation: |-
+    The real and imaginary parts of $\mathbf{v}$ are real vectors, and in that basis $A$ acts as the rotation–scaling $C$.
+
+- id: la-q-3008
+  lesson: la-complex-eig
+  module_quiz: true
+  topic: Complex eigenvalues
+  stem: 'For $A = \begin{bmatrix} 2 & -5 \\ 1 & -2\end{bmatrix}$, what are the eigenvalues, and what do the iterates $A^k\mathbf{x}_0$ do?'
+  choices: ['$\pm 1$; they flip back and forth', '$0$; they collapse to $\mathbf{0}$', '$2 \pm i$; they spiral outward', '$\pm i$; they cycle around a closed ellipse']
+  answer: 3
+  explanation: |-
+    Trace 0, determinant $-4 + 5 = 1$: $\lambda^2 + 1 = 0$, $\lambda = \pm i$, $|\lambda| = 1$. Neither growth nor decay, so points circulate on an ellipse (in fact $A^4 = I$).
+
+- id: la-q-3009
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'What is $|\lambda|$ for $\lambda = 1 + \sqrt3\,i$?'
+  choices: ['$1 + \sqrt3$', '$2$', '$4$', '$\sqrt2$']
+  answer: 1
+  explanation: |-
+    $|\lambda| = \sqrt{1^2 + (\sqrt3)^2} = \sqrt4 = 2$.
+
+- id: la-q-3010
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'A real $4 \times 4$ matrix has eigenvalues $1$, $2$ and $3 + i$. What is the fourth eigenvalue?'
+  choices: ['$3$', '$-3 - i$', '$3 - i$', '$i$']
+  answer: 2
+  explanation: |-
+    Non-real eigenvalues of a real matrix pair up with their conjugates, and there are exactly 4 eigenvalues counted with multiplicity.
+
+- id: la-q-3011
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: '$C = \begin{bmatrix} 0.6 & -0.8 \\ 0.8 & 0.6\end{bmatrix}$. What kind of map is $\mathbf{x} \mapsto C\mathbf{x}$?'
+  choices: ['A pure rotation (no scaling)', 'A rotation with scaling by 1.4', 'A reflection', 'A shear']
+  answer: 0
+  explanation: |-
+    $r = \sqrt{0.36 + 0.64} = 1$, so lengths are preserved; the angle is $\tan^{-1}(0.8/0.6) \approx 53.1^\circ$.
+
+- id: la-q-3012
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'A student says a real $2 \times 2$ matrix with negative discriminant $(\operatorname{tr} A)^2 - 4\det A < 0$ "has no eigenvalues". What is more accurate?'
+  choices: ['It has one repeated real eigenvalue', 'It must be the zero matrix', 'It has two complex conjugate eigenvalues and no real eigenvectors', 'It has infinitely many eigenvalues']
+  answer: 2
+  explanation: |-
+    The characteristic polynomial always has 2 roots over the complex numbers; a negative discriminant makes them a non-real conjugate pair, so no real direction is preserved.
+
+# --- Lesson 31: dynamical systems and Markov chains ---
+- id: la-q-3101
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'Which matrix is stochastic (in the column convention)?'
+  choices: ['$\begin{bmatrix} 0.6 & 0.4 \\ 0.6 & 0.4\end{bmatrix}$', '$\begin{bmatrix} 0.6 & 0.3 \\ 0.4 & 0.7\end{bmatrix}$', '$\begin{bmatrix} 0.6 & 0.3 \\ 0.3 & 0.6\end{bmatrix}$', '$\begin{bmatrix} 1.2 & -0.2 \\ -0.2 & 1.2\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Each column must be a probability vector: nonnegative entries summing to 1. $0.6 + 0.4 = 1$ and $0.3 + 0.7 = 1$. The first has rows summing to 1 instead; the last has negative entries.
+
+- id: la-q-3102
+  lesson: la-dynamics
+  module_quiz: true
+  topic: Markov chains
+  stem: 'For $P = \begin{bmatrix} 0.9 & 0.2 \\ 0.1 & 0.8\end{bmatrix}$ and $\mathbf{x}_0 = (1, 0)$, what is $\mathbf{x}_1$?'
+  choices: ['$(0.9, 0.2)$', '$(0.9, 0.1)$', '$(0.2, 0.8)$', '$(1, 0)$']
+  answer: 1
+  explanation: |-
+    $P\mathbf{x}_0$ is the first column of $P$: $(0.9, 0.1)$. Starting entirely in state 1, after one step 90% remain and 10% move to state 2.
+
+- id: la-q-3103
+  lesson: la-dynamics
+  module_quiz: true
+  topic: Markov chains
+  stem: 'Find the steady-state vector of $P = \begin{bmatrix} 0.9 & 0.2 \\ 0.1 & 0.8\end{bmatrix}$.'
+  choices: ['$(1/2, 1/2)$', '$(0.9, 0.1)$', '$(1/3, 2/3)$', '$(2/3, 1/3)$']
+  answer: 3
+  explanation: |-
+    $(P - I)\mathbf{x} = \mathbf{0}$: $-0.1x_1 + 0.2x_2 = 0$, so $x_1 = 2x_2$. Normalize $(2, 1)$ by its sum 3: $(2/3, 1/3)$. Check the first entry of $P\mathbf{q}$: $0.9 \cdot \tfrac23 + 0.2 \cdot \tfrac13 = \tfrac{1.8 + 0.2}{3} = \tfrac23$. ✓
+
+- id: la-q-3104
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'Why does every stochastic matrix have 1 as an eigenvalue?'
+  choices: ['Because its diagonal entries are 1', 'Because the rows of $P - I$ add up to the zero row, so $P - I$ is singular', 'Because its determinant is 1', 'Because it is symmetric']
+  answer: 1
+  explanation: |-
+    Each column of $P$ sums to 1, so each column of $P - I$ sums to 0: adding all rows of $P - I$ gives zero, a dependence among the rows. Hence $\det(P - I) = 0$.
+
+- id: la-q-3105
+  lesson: la-dynamics
+  topic: Dynamical systems
+  stem: 'A $2 \times 2$ system $\mathbf{x}_{k+1} = A\mathbf{x}_k$ has eigenvalues $0.5$ and $0.8$. The origin is:'
+  choices: ['an attractor', 'a repeller', 'a saddle point', 'a steady state with value 1']
+  answer: 0
+  explanation: |-
+    Both $|\lambda| < 1$, so every component decays and all trajectories approach $\mathbf{0}$.
+
+- id: la-q-3106
+  lesson: la-dynamics
+  module_quiz: true
+  topic: Dynamical systems
+  stem: 'A $2 \times 2$ system has eigenvalues $1.2$ and $0.5$. The origin is:'
+  choices: ['an attractor', 'a repeller', 'a saddle point', 'stable']
+  answer: 2
+  explanation: |-
+    One direction grows (1.2) and the other decays (0.5), so trajectories are pulled in along one eigenvector and pushed out along the other.
+
+- id: la-q-3107
+  lesson: la-dynamics
+  topic: Dynamical systems
+  stem: '$\mathbf{x}_0 = 2\mathbf{v}_1 + \mathbf{v}_2$, where $A\mathbf{v}_1 = 1.1\mathbf{v}_1$ and $A\mathbf{v}_2 = 0.6\mathbf{v}_2$. For large $k$, $\mathbf{x}_k$ is approximately:'
+  choices: ['$\mathbf{v}_2$', '$\mathbf{0}$', '$(0.6)^k\mathbf{v}_2$', '$2(1.1)^k\mathbf{v}_1$']
+  answer: 3
+  explanation: |-
+    $\mathbf{x}_k = 2(1.1)^k\mathbf{v}_1 + (0.6)^k\mathbf{v}_2$, and the second term tends to $\mathbf{0}$.
+
+- id: la-q-3108
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'If $P$ is a regular stochastic matrix, which is true?'
+  choices: ['Every Markov chain with this $P$ converges to the same steady-state vector', 'The chain never settles down', 'There are infinitely many steady-state vectors', 'The steady state depends on $\mathbf{x}_0$']
+  answer: 0
+  explanation: |-
+    Regular (some power has all positive entries) guarantees a unique steady state $\mathbf{q}$ and convergence $\mathbf{x}_k \to \mathbf{q}$ from any starting probability vector.
+
+- id: la-q-3109
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'Which vector is a probability vector?'
+  choices: ['$(0.5, 0.6)$', '$(1.2, -0.2)$', '$(0.3, 0.7)$', '$(3, 7)$']
+  answer: 2
+  explanation: |-
+    A probability vector has nonnegative entries summing to 1. $(3, 7)$ would need to be divided by 10.
+
+- id: la-q-3110
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'In a stochastic matrix $P$ (columns sum to 1), what does the entry $p_{ij}$ represent?'
+  choices: ['The probability of moving from state $i$ to state $j$', 'The probability of moving from state $j$ to state $i$', 'The number of objects in state $i$', 'The steady-state proportion of state $j$']
+  answer: 1
+  explanation: |-
+    Column $j$ lists where things in state $j$ go, so $p_{ij}$ is the probability of going from $j$ to $i$.
+
+- id: la-q-3111
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'In the rental example, $P = \begin{bmatrix} 0.8 & 0.3 \\ 0.2 & 0.7\end{bmatrix}$ and $\mathbf{x}_1 = (0.55, 0.45)$. What is $\mathbf{x}_2$?'
+  choices: ['$(0.575, 0.425)$', '$(0.6, 0.4)$', '$(0.55, 0.45)$', '$(0.5, 0.5)$']
+  answer: 0
+  explanation: |-
+    $0.8(0.55) + 0.3(0.45) = 0.44 + 0.135 = 0.575$ and $0.2(0.55) + 0.7(0.45) = 0.11 + 0.315 = 0.425$. It's approaching the steady state $(0.6, 0.4)$.
+
+- id: la-q-3112
+  lesson: la-dynamics
+  module_quiz: true
+  topic: Dynamical systems
+  stem: 'A population model $\mathbf{x}_{k+1} = A\mathbf{x}_k$ has dominant eigenvalue $1.05$ (all others smaller in absolute value), and $\mathbf{x}_0$ has a nonzero component along its eigenvector. What happens in the long run?'
+  choices: ['The population dies out', 'The population grows by about 5% per step, with proportions given by the dominant eigenvector', 'The population stays constant', 'The population oscillates']
+  answer: 1
+  explanation: |-
+    The dominant term $c_1(1.05)^k\mathbf{v}_1$ outgrows the others, so $\mathbf{x}_k$ lines up with $\mathbf{v}_1$ and grows by a factor of about 1.05 each step.

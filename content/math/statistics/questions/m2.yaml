@@ -1,0 +1,461 @@
+# Module 2 — Position and the normal model
+# ---- Lesson 7: percentiles and z-scores
+- id: stat-q-0701
+  lesson: stat-percentiles-z
+  module_quiz: true
+  topic: Percentiles and z-scores
+  stem: 'Test scores have mean 70 and standard deviation 8. What is the z-score of a score of 84?'
+  choices: ['14', '1.75', '-1.75', '0.57']
+  answer: 1
+  explanation: |-
+    $z = (84 - 70)/8 = 14/8 = 1.75$: the score is 1.75 SDs above the mean. 14 is the raw
+    difference; $-1.75$ subtracts in the wrong order; 0.57 divides the SD by the difference.
+
+- id: stat-q-0702
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'A student scores at the 85th percentile on a standardized test. This means'
+  choices: ['the student answered 85% of the questions correctly', 'the student scored 85 points', 'about 85% of test takers scored at or below this student', 'only 85 students took the test']
+  answer: 2
+  explanation: |-
+    A percentile describes position relative to other scores: 85% of the distribution is
+    at or below this score. It says nothing about the percent of questions answered
+    correctly.
+
+- id: stat-q-0703
+  lesson: stat-percentiles-z
+  module_quiz: true
+  topic: Percentiles and z-scores
+  stem: 'Ana scored 84 on a chemistry exam (mean 76, SD 4). Ben scored 90 on a history exam (mean 80, SD 8). Relative to their classes, who did better?'
+  choices: ['Ana, with $z = 2.0$ versus Ben''s $z = 1.25$', 'Ben, because 90 > 84', 'Ben, with $z = 1.25$ versus Ana''s $z = 0.5$', 'They did equally well']
+  answer: 0
+  explanation: |-
+    Ana: $z = (84 - 76)/4 = 2.0$. Ben: $z = (90 - 80)/8 = 1.25$. Ana is farther above her
+    class mean in standard-deviation units, so she did relatively better even with a lower
+    raw score.
+
+- id: stat-q-0704
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'Heights of a group have mean 165 cm and SD 9 cm. What height has a z-score of $-1.2$?'
+  choices: ['175.8 cm', '163.8 cm', '153.2 cm', '154.2 cm']
+  answer: 3
+  explanation: |-
+    $x = \mu + z\sigma = 165 + (-1.2)(9) = 165 - 10.8 = 154.2$ cm. (175.8 adds instead of
+    subtracting; 163.8 subtracts only 1.2.)
+
+- id: stat-q-0705
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'A value of 61 has a z-score of 2.2 in a distribution with mean 50. What is the standard deviation?'
+  choices: ['5', '11', '24.2', '4.4']
+  answer: 0
+  explanation: |-
+    From $z = (x - \mu)/\sigma$: $2.2 = 11/\sigma$, so $\sigma = 11/2.2 = 5$.
+
+- id: stat-q-0706
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'Every value in a right-skewed data set is converted to a z-score. The resulting distribution'
+  choices: ['is normal with mean 0 and SD 1', 'has mean 0 and SD 1 and is still right-skewed', 'is symmetric with mean 0', 'has mean 1 and SD 0']
+  answer: 1
+  explanation: |-
+    Standardizing is a linear transformation: it shifts the center to 0 and rescales the
+    spread to 1 but never changes shape. Skewed data stay skewed.
+
+- id: stat-q-0707
+  lesson: stat-percentiles-z
+  module_quiz: true
+  topic: Percentiles and z-scores
+  stem: 'By Chebyshev''s inequality, at least what fraction of **any** distribution lies within 3 standard deviations of the mean?'
+  choices: ['99.7%', '75%', 'About 88.9%', '66.7%']
+  answer: 2
+  explanation: |-
+    Chebyshev: at least $1 - 1/k^2$. With $k = 3$: $1 - 1/9 = 8/9 \approx 88.9\%$. The 99.7%
+    figure holds only for normal distributions; 75% is the bound for $k = 2$.
+
+- id: stat-q-0708
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'In a class of 40, Jordan''s score is higher than those of 30 classmates and lower than those of 9. Using "percent at or below," what is Jordan''s percentile?'
+  choices: ['75th', '30th', '97.5th', '77.5th']
+  answer: 3
+  explanation: |-
+    At or below Jordan: the 30 lower scores plus Jordan's own = 31 of 40, and
+    $31/40 = 77.5\%$. (Counting only the 30 below gives 75%.)
+
+- id: stat-q-0709
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'Which statement about z-scores is true?'
+  choices: ['A negative z-score means the value is below the mean', 'A z-score is measured in the same units as the data', 'A z-score of 2 is always at the 97.7th percentile', 'z-scores can only be computed for normal distributions']
+  answer: 0
+  explanation: |-
+    $z < 0$ exactly when $x$ is less than the mean. z-scores are unitless, can be computed
+    for any distribution, and correspond to fixed percentiles only for normal
+    distributions.
+
+- id: stat-q-0710
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'The third quartile of a distribution is approximately which percentile?'
+  choices: ['25th', '75th', '50th', '3rd']
+  answer: 1
+  explanation: |-
+    The quartiles split the data into quarters: $Q_1$ ≈ 25th percentile, median = 50th,
+    $Q_3$ ≈ 75th.
+
+- id: stat-q-0711
+  lesson: stat-percentiles-z
+  topic: Percentiles and z-scores
+  stem: 'A track athlete''s 400 m time has $z = -1.8$ among her competitors (lower times are faster). What does this tell you?'
+  choices: ['She was 1.8 seconds slower than average', 'She was in the bottom 1.8%', 'She was 1.8 standard deviations faster than the mean time', 'Her time was below average, so she performed poorly']
+  answer: 2
+  explanation: |-
+    $z = -1.8$ means her time is 1.8 SDs below the mean time. For running times, lower is
+    better, so she was well faster than average. A z-score is in SDs, not seconds or
+    percent.
+
+# ---- Lesson 8: linear transformations
+- id: stat-q-0801
+  lesson: stat-transformations
+  module_quiz: true
+  topic: Transforming data
+  stem: 'A teacher adds 6 points to every exam score. The original mean was 68 and the SD was 10. What are the new mean and SD?'
+  choices: ['Mean 74, SD 16', 'Mean 68, SD 10', 'Mean 74, SD 10', 'Mean 74, SD 60']
+  answer: 2
+  explanation: |-
+    Adding a constant shifts the center by 6 (to 74) but doesn't change distances between
+    scores, so the SD stays 10.
+
+- id: stat-q-0802
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'Lengths in inches have mean 20 and SD 3. They are converted to centimeters ($1 \text{ in} = 2.54 \text{ cm}$). What is the new variance?'
+  choices: ['$58.06 \text{ cm}^2$', '$22.86 \text{ cm}^2$', '$7.62 \text{ cm}^2$', '$9 \text{ cm}^2$']
+  answer: 0
+  explanation: |-
+    The SD becomes $2.54 \times 3 = 7.62$ cm, so the variance is $7.62^2 \approx 58.06$ cm².
+    Equivalently, variance scales by $b^2$: $2.54^2 \times 9 = 58.06$. Multiplying the
+    variance by 2.54 alone gives 22.86.
+
+- id: stat-q-0803
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'For $y = 10 - 2x$, where $x$ has mean 7 and SD 3, find the mean and SD of $y$.'
+  choices: ['Mean −4, SD −6', 'Mean 24, SD 6', 'Mean −4, SD 4', 'Mean −4, SD 6']
+  answer: 3
+  explanation: |-
+    Mean: $10 - 2(7) = -4$. SD: multiply by $|b| = 2$: $2 \times 3 = 6$ (a standard deviation
+    can't be negative, and the 10 doesn't affect spread).
+
+- id: stat-q-0804
+  lesson: stat-transformations
+  module_quiz: true
+  topic: Transforming data
+  stem: 'Temperatures have median 20 °C and IQR 6 °C. Using $F = 32 + 1.8C$, what are the median and IQR in °F?'
+  choices: ['Median 68 °F, IQR 42.8 °F', 'Median 68 °F, IQR 6 °F', 'Median 36 °F, IQR 10.8 °F', 'Median 68 °F, IQR 10.8 °F']
+  answer: 3
+  explanation: |-
+    Median: $32 + 1.8(20) = 68$ °F. IQR is a spread, so only the multiplier applies:
+    $1.8 \times 6 = 10.8$ °F. Adding 32 to the IQR gives the incorrect 42.8.
+
+- id: stat-q-0805
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'Which summary is unchanged when a constant is added to every value?'
+  choices: ['Median', 'Mean', 'Standard deviation', 'Third quartile']
+  answer: 2
+  explanation: |-
+    Adding a constant moves every value (and every measure of position) by the same
+    amount, but the distances between values — and therefore the SD, IQR and range — stay
+    the same.
+
+- id: stat-q-0806
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'Before a curve, scores had mean 60 and SD 12. After the linear curve $y = a + bx$, the mean is 75 and SD 9. What is $b$?'
+  choices: ['1.25', '0.75', '1.33', '15']
+  answer: 1
+  explanation: |-
+    Spreads multiply by $|b|$: $9 = b \times 12$, so $b = 0.75$. (Then $75 = a + 0.75(60)$ gives
+    $a = 30$.) 1.25 is the ratio of the means.
+
+- id: stat-q-0807
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'A delivery company charges $5 plus $0.40 per pound. Package weights have mean 12 lb and SD 5 lb. What is the SD of the charges?'
+  choices: ['$2.00', '$7.00', '$5.40', '$0.40']
+  answer: 0
+  explanation: |-
+    Charge $= 5 + 0.40w$. The $5 fixed fee adds to every charge and doesn't affect spread,
+    so SD $= 0.40 \times 5 = \$2.00$.
+
+- id: stat-q-0808
+  lesson: stat-transformations
+  module_quiz: true
+  topic: Transforming data
+  stem: 'A right-skewed distribution of times $x$ is transformed by $y = 100 - 4x$. What is the shape of $y$?'
+  choices: ['Right-skewed', 'Symmetric', 'Normal', 'Left-skewed']
+  answer: 3
+  explanation: |-
+    A negative multiplier reverses the order of the values, mirroring the distribution:
+    the long right tail becomes a long left tail.
+
+- id: stat-q-0809
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'Data $x$ have mean 4. Can you conclude that the mean of $x^2$ is 16?'
+  choices: ['Yes, because transformations apply to the mean', 'No: squaring is not linear, so the mean of $x^2$ is not the square of the mean', 'Yes, but only if the data are symmetric', 'No, the mean of $x^2$ is always 8']
+  answer: 1
+  explanation: |-
+    The shortcut rules hold only for $y = a + bx$. For example, data 2 and 6 have mean 4 but
+    $x^2$ values 4 and 36 have mean 20. In fact the mean of $x^2$ always exceeds $\bar{x}^2$
+    unless all values are equal.
+
+- id: stat-q-0810
+  lesson: stat-transformations
+  topic: Transforming data
+  stem: 'Why does standardizing produce data with standard deviation exactly 1?'
+  choices: ['Because subtracting the mean removes all spread', 'Because the data become normal', 'Because $z = (x - \bar{x})/s$ multiplies each deviation by $1/s$, so the SD becomes $s \cdot (1/s) = 1$', 'Because z-scores lie between −1 and 1']
+  answer: 2
+  explanation: |-
+    Subtracting $\bar{x}$ doesn't change the spread; dividing by $s$ scales the SD by $1/s$.
+    The result is $s/s = 1$. z-scores are not confined to $[-1, 1]$.
+
+# ---- Lesson 9: normal distributions and the empirical rule
+- id: stat-q-0901
+  lesson: stat-normal
+  module_quiz: true
+  topic: Normal distribution
+  stem: 'Battery lifetimes are approximately $N(500, 40)$ hours. About what percent last between 420 and 580 hours?'
+  choices: ['68%', '95%', '99.7%', '47.5%']
+  answer: 1
+  explanation: |-
+    420 and 580 are $500 \pm 80 = \mu \pm 2\sigma$, so about 95% lie between them.
+
+- id: stat-q-0902
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'For the same $N(500, 40)$ lifetimes, about what percent last longer than 540 hours?'
+  choices: ['34%', '32%', '2.5%', '16%']
+  answer: 3
+  explanation: |-
+    540 is $\mu + \sigma$. 68% lie within $\pm 1\sigma$, leaving 32% outside, split equally:
+    16% above 540. 34% is the area between 500 and 540.
+
+- id: stat-q-0903
+  lesson: stat-normal
+  module_quiz: true
+  topic: Normal distribution
+  stem: 'IQ scores are approximately $N(100, 15)$. What percent of people have IQ between 85 and 130?'
+  choices: ['81.5%', '95%', '83.85%', '68%']
+  answer: 0
+  explanation: |-
+    85 is $-1\sigma$ and 130 is $+2\sigma$. From $\mu - \sigma$ to $\mu$: 34%; from $\mu$ to
+    $\mu + 2\sigma$: 47.5%. Total 81.5%.
+
+- id: stat-q-0904
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'Which property is true of **every** density curve?'
+  choices: ['It is symmetric', 'Its height at any point is a probability', 'Its mean equals its median', 'Its total area is 1']
+  answer: 3
+  explanation: |-
+    A density curve lies on or above the axis and encloses total area 1. It need not be
+    symmetric, so mean and median can differ; and areas, not heights, are proportions.
+
+- id: stat-q-0905
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'A normal curve has inflection points at 42 and 58. What are $\mu$ and $\sigma$?'
+  choices: ['$\mu = 50$, $\sigma = 16$', '$\mu = 50$, $\sigma = 4$', '$\mu = 50$, $\sigma = 8$', '$\mu = 42$, $\sigma = 8$']
+  answer: 2
+  explanation: |-
+    The inflection points are at $\mu \pm \sigma$. Their midpoint is $\mu = 50$, and each is
+    $\sigma = 8$ from it. 16 is the distance between them ($2\sigma$).
+
+- id: stat-q-0906
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'Scores are normal with mean 72, and about 95% of scores fall between 60 and 84. What is the standard deviation?'
+  choices: ['12', '24', '3', '6']
+  answer: 3
+  explanation: |-
+    The middle 95% is $\mu \pm 2\sigma$, so $2\sigma = 84 - 72 = 12$ and $\sigma = 6$.
+
+- id: stat-q-0907
+  lesson: stat-normal
+  module_quiz: true
+  topic: Normal distribution
+  stem: 'Weights are $N(70, 5)$ kg. Using the empirical rule, what weight is at about the 2.5th percentile?'
+  choices: ['60 kg', '65 kg', '55 kg', '67.5 kg']
+  answer: 0
+  explanation: |-
+    95% lies within $\pm 2\sigma$, leaving 2.5% below $\mu - 2\sigma = 70 - 10 = 60$ kg.
+
+- id: stat-q-0908
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'A uniform density curve is flat on the interval from 0 to 5. What is its height, and what proportion of values lies between 1 and 2.5?'
+  choices: ['Height 0.2; proportion 0.3', 'Height 5; proportion 1.5', 'Height 0.2; proportion 0.5', 'Height 1; proportion 1.5']
+  answer: 0
+  explanation: |-
+    Total area must be 1: width 5 × height $h$ = 1 gives $h = 0.2$. The area from 1 to 2.5 is
+    $1.5 \times 0.2 = 0.3$.
+
+- id: stat-q-0909
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'Waiting times have mean 4 minutes and SD 3.5 minutes and cannot be negative. Why is the empirical rule inappropriate here?'
+  choices: ['The SD is too small', 'The rule only works for whole numbers', 'A normal model would put about 13% of times below 0, so the distribution must be right-skewed', 'The mean is less than 5']
+  answer: 2
+  explanation: |-
+    0 is only $4/3.5 \approx 1.14$ SDs below the mean; a normal model would put roughly 13% of
+    values below 0, which is impossible. The data must be skewed right, so normal-based
+    percentages don't apply.
+
+- id: stat-q-0910
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'For a continuous normal variable, what is $P(X = \mu)$ exactly?'
+  choices: ['0.5', 'The height of the curve at $\mu$', '0.34', '0']
+  answer: 3
+  explanation: |-
+    Probabilities are areas; the area above a single point has zero width, so it is 0. The
+    curve's height at $\mu$ is a density, not a probability.
+
+- id: stat-q-0911
+  lesson: stat-normal
+  topic: Normal distribution
+  stem: 'Between $\mu + \sigma$ and $\mu + 2\sigma$, a normal distribution has about what percent of its values?'
+  choices: ['13.5%', '34%', '27%', '2.35%']
+  answer: 0
+  explanation: |-
+    From $\mu$ to $\mu + 2\sigma$ is 47.5% and from $\mu$ to $\mu + \sigma$ is 34%, so the
+    region between is $47.5 - 34 = 13.5\%$.
+
+# ---- Lesson 10: normal calculations
+- id: stat-q-1001
+  lesson: stat-normal-calc
+  module_quiz: true
+  topic: Normal calculations
+  stem: 'For a standard normal variable $Z$, find $P(Z > -0.5)$.'
+  choices: ['0.3085', '0.6915', '0.5000', '0.1915']
+  answer: 1
+  explanation: |-
+    $P(Z > -0.5) = 1 - \Phi(-0.5) = 1 - 0.3085 = 0.6915$. By symmetry this equals
+    $\Phi(0.5)$. 0.3085 is the left tail, not the right.
+
+- id: stat-q-1002
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'Find $P(-0.4 < Z < 1.2)$ for a standard normal $Z$.'
+  choices: ['0.5404', '0.8849', '0.3446', '0.2295']
+  answer: 0
+  explanation: |-
+    $\Phi(1.2) - \Phi(-0.4) = 0.8849 - 0.3446 = 0.5403$ (0.5404 with full precision). Each of the
+    other choices is just one of the pieces or a mismatched subtraction.
+
+- id: stat-q-1003
+  lesson: stat-normal-calc
+  module_quiz: true
+  topic: Normal calculations
+  stem: 'Rail temperatures at noon are $N(36, 5)$ °C. What proportion exceed 43 °C?'
+  choices: ['0.9192', '0.0808', '0.1400', '0.0400']
+  answer: 1
+  explanation: |-
+    $z = (43 - 36)/5 = 1.4$, $\Phi(1.4) = 0.9192$, so the right tail is $1 - 0.9192 = 0.0808$.
+    Forgetting to subtract from 1 gives 0.9192.
+
+- id: stat-q-1004
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'IQ scores are $N(100, 15)$. What score is at the 80th percentile?'
+  choices: ['112.6', '87.4', '115.0', '120.0']
+  answer: 0
+  explanation: |-
+    $z = \Phi^{-1}(0.80) \approx 0.8416$, so $x = 100 + 0.8416(15) \approx 112.6$. 87.4 uses
+    the 20th percentile ($z = -0.84$).
+
+- id: stat-q-1005
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'Which z-value cuts off the top 2.5% of the standard normal distribution?'
+  choices: ['1.645', '2.576', '1.96', '2.5']
+  answer: 2
+  explanation: |-
+    The top 2.5% leaves 0.975 to the left, and $\Phi^{-1}(0.975) \approx 1.96$. 1.645 cuts off
+    the top 5%; 2.576 cuts off the top 0.5%.
+
+- id: stat-q-1006
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'Coffee cup fills are $N(\mu, 0.4)$ ounces. The machine must overflow (exceed 8 oz) only 1% of the time. Approximately what mean should it be set to?'
+  choices: ['8.93 oz', '8.00 oz', '7.60 oz', '7.07 oz']
+  answer: 3
+  explanation: |-
+    1% above 8 means 99% below, so $z = \Phi^{-1}(0.99) \approx 2.326$. Solve
+    $2.326 = (8 - \mu)/0.4$: $\mu = 8 - 0.93 = 7.07$ oz. (8.93 adds instead of subtracting.)
+
+- id: stat-q-1007
+  lesson: stat-normal-calc
+  module_quiz: true
+  topic: Normal calculations
+  stem: 'A normal distribution has mean 100, and its 90th percentile is 110. What is its standard deviation?'
+  choices: ['10.0', '12.8', '7.8', '1.28']
+  answer: 2
+  explanation: |-
+    $z = \Phi^{-1}(0.90) \approx 1.2816$ and $1.2816 = (110 - 100)/\sigma$, so
+    $\sigma = 10/1.2816 \approx 7.8$. 12.8 multiplies instead of dividing.
+
+- id: stat-q-1008
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'In a normal probability plot, the points follow a straight line except that the largest few values curve sharply upward, far above the line. This suggests'
+  choices: ['the data are approximately normal', 'the data are skewed left', 'the data are uniform', 'the data are skewed right (or have high outliers)']
+  answer: 3
+  explanation: |-
+    Points above the line at the high end mean the largest values are farther out than a
+    normal distribution would put them — a long right tail or high outliers.
+
+- id: stat-q-1009
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'For any normal distribution, the IQR is about how many standard deviations?'
+  choices: ['1.35', '0.67', '2', '1']
+  answer: 0
+  explanation: |-
+    $Q_1$ and $Q_3$ are at $z = \Phi^{-1}(0.25) \approx -0.674$ and $\Phi^{-1}(0.75) \approx 0.674$,
+    so IQR $\approx 1.349\sigma$. 0.67 is just the distance from the mean to one quartile.
+
+- id: stat-q-1010
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'Package weights are $N(266, 16)$ g. What proportion weigh less than 250 g?'
+  choices: ['0.8413', '0.3413', '0.1587', '0.0228']
+  answer: 2
+  explanation: |-
+    $z = (250 - 266)/16 = -1$; $\Phi(-1) \approx 0.1587$. (0.8413 is the area to the right;
+    0.0228 corresponds to $z = -2$.)
+
+- id: stat-q-1011
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'A scholarship goes to students scoring in the top 5% on a test that is $N(1050, 200)$. What is the minimum qualifying score, approximately?'
+  choices: ['721', '1379', '1442', '1250']
+  answer: 1
+  explanation: |-
+    Top 5% leaves 0.95 to the left: $z \approx 1.645$. $x = 1050 + 1.645(200) \approx 1379$.
+    721 is the bottom 5% cutoff; 1442 uses $z = 1.96$.
+
+- id: stat-q-1012
+  lesson: stat-normal-calc
+  topic: Normal calculations
+  stem: 'Heights are $N(64.5, 2.5)$ inches. Find the proportion between 62 and 69.5 inches.'
+  choices: ['0.8186', '0.6826', '0.9545', '0.7745']
+  answer: 0
+  explanation: |-
+    $z_1 = (62 - 64.5)/2.5 = -1$ and $z_2 = (69.5 - 64.5)/2.5 = 2$.
+    $\Phi(2) - \Phi(-1) = 0.9772 - 0.1587 = 0.8185$ (0.8186 with full precision) — matching the
+    empirical-rule value 81.5%.

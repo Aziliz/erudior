@@ -1,0 +1,716 @@
+# Glossary: every bolded lesson term, plus notation and abbreviations.
+# --- Whole numbers ---
+- term: digit
+  aliases: [digits]
+  definition: 'One of the ten symbols 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 used to write numbers.'
+  topic: Place value
+- term: place value
+  definition: 'The value a digit has because of its position in a number; each place is worth ten times the place to its right.'
+  topic: Place value
+- term: value
+  definition: 'What a digit is worth in a number: the digit times its place. In 4,072, the 7 has value 70.'
+  topic: Place value
+- term: whole numbers
+  aliases: [whole number]
+  definition: 'The numbers 0, 1, 2, 3, … with no end.'
+  topic: Place value
+- term: placeholder
+  definition: 'A zero that holds a place in a number so the other digits keep their place values, as in 4,072.'
+  topic: Place value
+- term: standard form
+  definition: 'A number written with digits in the usual way, such as 4,072,315.'
+  topic: Place value
+- term: expanded form
+  definition: 'A number written as the sum of the values of its digits: $372 = 300 + 70 + 2$.'
+  topic: Place value
+- term: number line
+  definition: 'A line with numbers marked at equal spacing; numbers increase to the right.'
+  topic: Integers
+- term: round
+  aliases: [rounding, rounded]
+  definition: 'To replace a number with a nearby simpler number at a chosen place; look one digit to the right and round up on 5 or more.'
+  topic: Rounding
+- term: estimate
+  aliases: [estimation]
+  definition: 'An approximate answer, usually found by rounding first; used to check exact answers.'
+  topic: Rounding
+- term: sum
+  definition: 'The result of addition.'
+  topic: Whole number operations
+- term: difference
+  definition: 'The result of subtraction.'
+  topic: Whole number operations
+- term: product
+  definition: 'The result of multiplication.'
+  topic: Whole number operations
+- term: factor
+  aliases: [factors]
+  definition: 'A number multiplied by another to form a product. If $a \times b = n$, then $a$ and $b$ are factors of $n$.'
+  topic: Factors and multiples
+- term: quotient
+  definition: 'The result of division.'
+  topic: Whole number operations
+- term: dividend
+  definition: 'The number being divided. In $24 \div 4 = 6$, the dividend is 24.'
+  topic: Whole number operations
+- term: divisor
+  aliases: [divisors]
+  definition: 'The number you divide by (in $24 \div 4$, the divisor is 4); also another word for a factor.'
+  topic: Whole number operations
+- term: addition
+  definition: 'The operation that combines amounts; its result is a sum.'
+  topic: Whole number operations
+- term: subtraction
+  definition: 'The operation that takes one amount away from another or finds how far apart they are; its result is a difference.'
+  topic: Whole number operations
+- term: multiplication
+  definition: 'Repeated addition of equal groups; its result is a product.'
+  topic: Whole number operations
+- term: division
+  definition: 'Splitting an amount into equal groups; the inverse of multiplication. Its result is a quotient.'
+  topic: Whole number operations
+- term: commutative property
+  definition: 'Order does not matter for addition or multiplication: $a + b = b + a$ and $ab = ba$.'
+  topic: Whole number operations
+- term: associative property
+  definition: 'Grouping does not matter for addition or multiplication: $(a + b) + c = a + (b + c)$ and $(ab)c = a(bc)$.'
+  topic: Whole number operations
+- term: identity properties
+  aliases: [identity property]
+  definition: 'Adding 0 or multiplying by 1 leaves a number unchanged: $a + 0 = a$, $a \cdot 1 = a$.'
+  topic: Whole number operations
+- term: zero property of multiplication
+  definition: 'Any number times 0 is 0.'
+  topic: Whole number operations
+- term: undefined
+  definition: 'Having no value. Division by zero is undefined.'
+  topic: Whole number operations
+- term: remainder
+  definition: 'The amount left over when one whole number does not divide another evenly; it is always less than the divisor.'
+  topic: Whole number operations
+- term: order of operations
+  definition: 'The agreed order for evaluating: grouping symbols, exponents, multiplication and division (left to right), addition and subtraction (left to right).'
+  topic: Order of operations
+- term: exponent
+  aliases: [exponents]
+  definition: 'A small raised number telling how many times the base is used as a factor: $5^3 = 5 \cdot 5 \cdot 5$.'
+  topic: Exponents
+- term: base
+  definition: 'In a power $b^n$, the number $b$ being multiplied. In a percent problem, the whole amount that a percent is taken of.'
+  topic: Exponents
+- term: power
+  definition: 'An expression with a base and an exponent, such as $5^3$; also its value.'
+  topic: Exponents
+- term: PEMDAS
+  definition: 'Memory aid for the order of operations: Parentheses, Exponents, Multiplication/Division, Addition/Subtraction. M and D share a rank, as do A and S.'
+  topic: Order of operations
+- term: grouping symbols
+  definition: 'Parentheses, brackets, braces, fraction bars, absolute value bars and radical signs; they are evaluated first.'
+  topic: Order of operations
+- term: multiple
+  aliases: [multiples]
+  definition: 'The product of a number and a whole number. Multiples of 6 are 6, 12, 18, …'
+  topic: Factors and multiples
+- term: divisible
+  definition: '$n$ is divisible by $a$ if $n \div a$ leaves remainder 0.'
+  topic: Factors and multiples
+- term: factor pairs
+  aliases: [factor pair]
+  definition: 'Two numbers whose product is a given number, such as 4 and 15 for 60.'
+  topic: Factors and multiples
+- term: prime number
+  aliases: [prime, primes, prime numbers]
+  definition: 'A whole number greater than 1 whose only factors are 1 and itself, such as 2, 3, 5, 7, 11.'
+  topic: Primes
+- term: composite number
+  aliases: [composite]
+  definition: 'A whole number greater than 1 with at least one factor other than 1 and itself.'
+  topic: Primes
+- term: even
+  definition: 'A whole number divisible by 2.'
+  topic: Factors and multiples
+- term: odd
+  definition: 'A whole number not divisible by 2.'
+  topic: Factors and multiples
+- term: Fundamental Theorem of Arithmetic
+  definition: 'Every whole number greater than 1 is a product of primes in exactly one way, apart from order.'
+  topic: Prime factorization
+- term: prime factorization
+  definition: 'A number written as a product of primes, such as $360 = 2^3 \times 3^2 \times 5$.'
+  topic: Prime factorization
+- term: greatest common factor
+  aliases: [greatest common divisor, GCD]
+  definition: 'The largest number that is a factor of all the given numbers.'
+  topic: GCF and LCM
+- term: GCF
+  definition: 'Greatest common factor: the largest number dividing all the given numbers. Use shared primes with the smaller powers.'
+  topic: GCF and LCM
+- term: relatively prime
+  definition: 'Having a GCF of 1, like 8 and 15.'
+  topic: GCF and LCM
+- term: least common multiple
+  definition: 'The smallest positive number that is a multiple of all the given numbers.'
+  topic: GCF and LCM
+- term: LCM
+  definition: 'Least common multiple: the smallest positive common multiple. Use all primes with the larger powers.'
+  topic: GCF and LCM
+# --- Integers ---
+- term: negative number
+  aliases: [negative numbers, negative]
+  definition: 'A number less than zero, written with a minus sign, such as $-5$.'
+  topic: Integers
+- term: positive number
+  aliases: [positive numbers, positive]
+  definition: 'A number greater than zero.'
+  topic: Integers
+- term: integers
+  aliases: [integer]
+  definition: 'The whole numbers and their opposites: $\ldots, -2, -1, 0, 1, 2, \ldots$'
+  topic: Integers
+- term: opposites
+  aliases: [opposite]
+  definition: 'Two numbers the same distance from 0 on opposite sides, like 4 and $-4$.'
+  topic: Integers
+- term: absolute value
+  definition: 'The distance of a number from 0, written $|a|$; never negative. $|{-6}| = 6$.'
+  topic: Absolute value
+- term: additive inverses
+  aliases: [additive inverse]
+  definition: 'Two numbers whose sum is 0; another name for opposites.'
+  topic: Adding integers
+# --- Fractions ---
+- term: fraction
+  aliases: [fractions]
+  definition: 'A number $\tfrac{a}{b}$ meaning $a$ parts of a whole cut into $b$ equal parts, or $a \div b$.'
+  topic: Fraction basics
+- term: numerator
+  definition: 'The top number of a fraction: how many parts are taken.'
+  topic: Fraction basics
+- term: denominator
+  definition: 'The bottom number of a fraction: how many equal parts make the whole. It cannot be 0.'
+  topic: Fraction basics
+- term: proper fraction
+  definition: 'A fraction whose numerator is less than its denominator; its value is less than 1.'
+  topic: Fraction basics
+- term: improper fraction
+  definition: 'A fraction whose numerator is greater than or equal to its denominator, like $\tfrac74$.'
+  topic: Fraction basics
+- term: equivalent fractions
+  definition: 'Fractions that name the same number, like $\tfrac35$ and $\tfrac{6}{10}$.'
+  topic: Equivalent fractions
+- term: simplest form
+  definition: 'A fraction whose numerator and denominator have no common factor except 1.'
+  topic: Equivalent fractions
+- term: lowest terms
+  definition: 'Another name for simplest form.'
+  topic: Equivalent fractions
+- term: simplify
+  aliases: [simplifying, simplified]
+  definition: 'To rewrite in a simpler equivalent form: reduce a fraction, or distribute and combine like terms in an expression.'
+  topic: Equivalent fractions
+- term: cross-multiplication
+  aliases: [cross-multiply, cross-multiplying]
+  definition: 'Comparing or solving $\tfrac ab$ and $\tfrac cd$ by working with the products $ad$ and $bc$.'
+  topic: Fraction basics
+- term: reciprocals
+  aliases: [reciprocal, multiplicative inverse]
+  definition: 'Two numbers whose product is 1. The reciprocal of $\tfrac ab$ is $\tfrac ba$; 0 has none.'
+  topic: Dividing fractions
+- term: like fractions
+  definition: 'Fractions with the same denominator.'
+  topic: Adding and subtracting fractions
+- term: common denominator
+  definition: 'A denominator shared by two or more fractions; any common multiple of the denominators.'
+  topic: Adding and subtracting fractions
+- term: least common denominator
+  definition: 'The smallest common denominator: the LCM of the denominators.'
+  topic: Adding and subtracting fractions
+- term: LCD
+  definition: 'Least common denominator: the LCM of the denominators.'
+  topic: Adding and subtracting fractions
+- term: mixed numbers
+  aliases: [mixed number]
+  definition: 'A whole number with a proper fraction, like $2\tfrac34$, meaning $2 + \tfrac34$.'
+  topic: Mixed numbers
+# --- Decimals, ratios ---
+- term: decimal point
+  definition: 'The dot separating the whole-number part of a decimal from the part less than 1.'
+  topic: Decimal place value
+- term: decimal
+  aliases: [decimals]
+  definition: 'A number written with a decimal point using place values of tenths, hundredths, and so on.'
+  topic: Decimal place value
+- term: terminating decimal
+  definition: 'A decimal that ends, like 0.375.'
+  topic: Fractions and decimals
+- term: repeating decimal
+  definition: 'A decimal in which a block of digits repeats forever, written with a bar: $0.\overline{45}$.'
+  topic: Fractions and decimals
+- term: ratio
+  aliases: [ratios]
+  definition: 'A comparison of two quantities by division, written $a : b$, $a$ to $b$, or $\tfrac ab$.'
+  topic: Ratios
+- term: rate
+  aliases: [rates]
+  definition: 'A ratio of two quantities with different units, like miles per hour.'
+  topic: Rates
+- term: unit rate
+  definition: 'A rate per one unit, like 60 miles per 1 hour.'
+  topic: Rates
+- term: unit price
+  definition: 'The cost of one unit: total price ÷ number of units.'
+  topic: Rates
+- term: proportion
+  aliases: [proportions, proportional]
+  definition: 'An equation saying two ratios are equal: $\tfrac ab = \tfrac cd$.'
+  topic: Proportions
+- term: cross products
+  definition: 'In $\tfrac ab = \tfrac cd$, the products $ad$ and $bc$; they are equal in a true proportion.'
+  topic: Proportions
+- term: similar
+  definition: 'Figures with the same shape but possibly different sizes; corresponding sides are proportional.'
+  topic: Proportions
+# --- Percents ---
+- term: percent
+  aliases: [percents]
+  definition: 'Per hundred: $p\% = \tfrac{p}{100}$.'
+  topic: Percent conversions
+- term: amount
+  definition: 'In a percent problem, the part: amount = percent × base.'
+  topic: Percent problems
+- term: percent change
+  definition: '$\dfrac{\text{new} - \text{original}}{\text{original}} \times 100\%$.'
+  topic: Percent change
+- term: percent increase
+  definition: 'A positive percent change: the increase divided by the original value.'
+  topic: Percent change
+- term: percent decrease
+  definition: 'A negative percent change, stated as a positive percent: the decrease divided by the original value.'
+  topic: Percent change
+- term: sales tax
+  definition: 'A percent of a purchase price added at the register.'
+  topic: Percent applications
+- term: tax rate
+  definition: 'The percent used to compute a tax.'
+  topic: Percent applications
+- term: tip
+  aliases: [gratuity]
+  definition: 'An optional amount added to a bill, usually a percent of it.'
+  topic: Percent applications
+- term: discount
+  definition: 'An amount taken off a price, usually a percent of the original price.'
+  topic: Percent applications
+- term: sale price
+  definition: 'The price after a discount: original − discount.'
+  topic: Percent applications
+- term: markup
+  definition: 'The amount a seller adds to the cost of an item, often a percent of the cost.'
+  topic: Percent applications
+- term: commission
+  definition: 'Pay figured as a percent of sales.'
+  topic: Percent applications
+- term: interest
+  definition: 'Money paid for the use of money: by a borrower to a lender, or by a bank to a saver.'
+  topic: Simple interest
+- term: principal
+  definition: 'The amount of money borrowed or deposited.'
+  topic: Simple interest
+- term: simple interest
+  definition: 'Interest paid only on the principal: $I = Prt$, with $t$ in years.'
+  topic: Simple interest
+- term: compound interest
+  definition: 'Interest earned on both the principal and previously earned interest.'
+  topic: Simple interest
+# --- Exponents and roots ---
+- term: perfect square
+  aliases: [perfect squares]
+  definition: 'The square of a whole number: 0, 1, 4, 9, 16, 25, …'
+  topic: Square roots
+- term: square root
+  aliases: [square roots]
+  definition: 'A number whose square is a given number. Both 6 and $-6$ are square roots of 36.'
+  topic: Square roots
+- term: radical sign
+  definition: 'The symbol $\sqrt{\phantom{x}}$, meaning the principal (nonnegative) square root.'
+  topic: Square roots
+- term: principal square root
+  definition: 'The nonnegative square root, written $\sqrt{n}$: $\sqrt{36} = 6$.'
+  topic: Square roots
+- term: radicand
+  definition: 'The number under a radical sign.'
+  topic: Square roots
+- term: irrational numbers
+  aliases: [irrational number, irrational]
+  definition: 'Numbers whose decimals never end or repeat, such as $\sqrt2$ and $\pi$; they cannot be written as fractions of integers.'
+  topic: Square roots
+- term: cube root
+  definition: 'The number whose cube is a given number: $\sqrt[3]{64} = 4$.'
+  topic: Square roots
+- term: exponent rules
+  definition: 'Rules for powers of the same base: add exponents to multiply, subtract to divide, multiply for a power of a power.'
+  topic: Exponent rules
+- term: scientific notation
+  definition: 'A number written as $a \times 10^n$ with $1 \le a < 10$ and $n$ an integer.'
+  topic: Scientific notation
+- term: coefficient
+  aliases: [coefficients]
+  definition: 'The number multiplying a variable part ($-5$ in $-5x$), or the number in front of the power of 10 in scientific notation.'
+  topic: Expressions
+# --- Algebra ---
+- term: variable
+  aliases: [variables]
+  definition: 'A letter or symbol that stands for a number.'
+  topic: Expressions
+- term: constant
+  definition: 'A quantity whose value does not change, like 7.'
+  topic: Expressions
+- term: algebraic expression
+  aliases: [expression, expressions]
+  definition: 'A combination of numbers, variables and operations with no equals sign, like $3x^2 - 5x + 8$.'
+  topic: Expressions
+- term: terms
+  aliases: [term]
+  definition: 'Parts of an expression separated by addition or subtraction; each term includes its sign.'
+  topic: Expressions
+- term: evaluate
+  definition: 'To find the value of an expression by substituting numbers for the variables and simplifying.'
+  topic: Expressions
+- term: substitute
+  aliases: [substitution]
+  definition: 'To replace a variable with a given value, preferably in parentheses.'
+  topic: Expressions
+- term: distributive property
+  definition: '$a(b + c) = ab + ac$: multiplying a sum multiplies each term.'
+  topic: Distributive property
+- term: like terms
+  definition: 'Terms with exactly the same variable part, such as $4x$ and $-9x$.'
+  topic: Simplifying expressions
+- term: combine like terms
+  aliases: [combining like terms]
+  definition: 'Add the coefficients of like terms and keep the variable part: $4x + 9x = 13x$.'
+  topic: Simplifying expressions
+- term: factoring
+  definition: 'Rewriting an expression as a product, such as $6x + 15 = 3(2x + 5)$.'
+  topic: Distributive property
+- term: equation
+  aliases: [equations]
+  definition: 'A statement that two expressions are equal, like $3x + 5 = 20$.'
+  topic: Solving equations
+- term: solution
+  definition: 'A value of the variable that makes an equation or inequality true.'
+  topic: Solving equations
+- term: solve
+  definition: 'To find all solutions of an equation or inequality.'
+  topic: Solving equations
+- term: properties of equality
+  definition: 'Adding, subtracting, multiplying or dividing both sides of an equation by the same number (not dividing by 0) keeps it balanced.'
+  topic: Solving equations
+- term: addition property of equality
+  definition: 'If $a = b$, then $a + c = b + c$.'
+  topic: Solving equations
+- term: subtraction property of equality
+  definition: 'If $a = b$, then $a - c = b - c$.'
+  topic: Solving equations
+- term: multiplication property of equality
+  definition: 'If $a = b$, then $ac = bc$.'
+  topic: Solving equations
+- term: division property of equality
+  definition: 'If $a = b$ and $c \ne 0$, then $\tfrac ac = \tfrac bc$.'
+  topic: Solving equations
+- term: equivalent equations
+  definition: 'Equations that have exactly the same solutions.'
+  topic: Solving equations
+- term: isolate
+  definition: 'To get the variable alone on one side of an equation.'
+  topic: Solving equations
+- term: inverse operations
+  definition: 'Operations that undo each other: addition and subtraction, multiplication and division.'
+  topic: Solving equations
+- term: identity
+  definition: 'An equation true for every value of the variable, like $2(x + 3) = 2x + 6$.'
+  topic: Multi-step equations
+- term: no solution
+  definition: 'Describes an equation that is never true, like $2x + 6 = 2x + 5$.'
+  topic: Multi-step equations
+- term: inequality
+  aliases: [inequalities]
+  definition: 'A statement using $<$, $>$, $\le$, $\ge$ or $\ne$ to compare two expressions.'
+  topic: Inequalities
+- term: solution of an inequality
+  definition: 'Any value that makes an inequality true; there are usually infinitely many.'
+  topic: Inequalities
+- term: open circle
+  definition: 'On a number line graph, a circle showing the boundary is not included ($<$ or $>$).'
+  topic: Inequalities
+- term: closed circle
+  definition: 'On a number line graph, a filled circle showing the boundary is included ($\le$ or $\ge$).'
+  topic: Inequalities
+# --- Measurement and geometry ---
+- term: metric system
+  definition: 'The measuring system built on powers of 10 with base units meter, gram and liter.'
+  topic: Unit conversion
+- term: meter
+  aliases: [meters]
+  definition: 'The metric base unit of length, about 3.28 feet.'
+  topic: Unit conversion
+- term: gram
+  aliases: [grams]
+  definition: 'The metric base unit of mass; 1,000 grams is a kilogram, about 2.2 pounds.'
+  topic: Unit conversion
+- term: liter
+  aliases: [liters]
+  definition: 'The metric base unit of capacity, a little more than a quart; 1 L = 1,000 mL.'
+  topic: Unit conversion
+- term: conversion factor
+  aliases: [conversion factors]
+  definition: 'A fraction equal to 1 relating two units, like $\dfrac{12 \text{ in}}{1 \text{ ft}}$.'
+  topic: Dimensional analysis
+- term: dimensional analysis
+  definition: 'Converting units by multiplying by conversion factors arranged so unwanted units cancel.'
+  topic: Dimensional analysis
+- term: line
+  definition: 'A straight path extending forever in both directions.'
+  topic: Angles
+- term: line segment
+  aliases: [segment]
+  definition: 'The part of a line between two endpoints.'
+  topic: Angles
+- term: ray
+  definition: 'Part of a line that starts at an endpoint and goes forever in one direction.'
+  topic: Angles
+- term: angle
+  aliases: [angles]
+  definition: 'Two rays with a common endpoint, measured in degrees.'
+  topic: Angles
+- term: vertex
+  definition: 'The common endpoint of an angle''s rays, or a corner of a polygon.'
+  topic: Angles
+- term: degrees
+  aliases: [degree]
+  definition: 'Units of angle measure; a full turn is 360°.'
+  topic: Angles
+- term: acute angle
+  definition: 'An angle between 0° and 90°.'
+  topic: Angles
+- term: right angle
+  definition: 'An angle of exactly 90°, marked with a small square.'
+  topic: Angles
+- term: obtuse angle
+  definition: 'An angle between 90° and 180°.'
+  topic: Angles
+- term: straight angle
+  definition: 'An angle of exactly 180°, forming a straight line.'
+  topic: Angles
+- term: perpendicular
+  definition: 'Meeting at a right angle, written $\perp$.'
+  topic: Angles
+- term: parallel
+  definition: 'Lines in the same plane that never meet, written $\parallel$.'
+  topic: Angles
+- term: complementary
+  aliases: [complementary angles]
+  definition: 'Two angles whose measures add to 90°.'
+  topic: Angles
+- term: supplementary
+  aliases: [supplementary angles]
+  definition: 'Two angles whose measures add to 180°.'
+  topic: Angles
+- term: vertical angles
+  definition: 'The opposite angles formed by two crossing lines; they are equal.'
+  topic: Angles
+- term: triangle
+  aliases: [triangles]
+  definition: 'A polygon with three sides; its angles add to 180°.'
+  topic: Angles
+- term: equilateral
+  definition: 'Having all sides equal; an equilateral triangle has three 60° angles.'
+  topic: Angles
+- term: isosceles
+  definition: 'A triangle with at least two equal sides; the angles opposite them are equal.'
+  topic: Angles
+- term: scalene
+  definition: 'A triangle with no equal sides.'
+  topic: Angles
+- term: polygon
+  aliases: [polygons]
+  definition: 'A closed figure made of straight sides.'
+  topic: Perimeter
+- term: regular
+  definition: 'A polygon with all sides equal and all angles equal.'
+  topic: Perimeter
+- term: perimeter
+  definition: 'The distance around a figure: the sum of its side lengths.'
+  topic: Perimeter
+- term: area
+  definition: 'The amount of surface inside a figure, measured in square units.'
+  topic: Area
+- term: square units
+  definition: 'Units of area such as cm², ft² or m².'
+  topic: Area
+- term: parallelogram
+  definition: 'A quadrilateral with both pairs of opposite sides parallel; $A = bh$.'
+  topic: Area
+- term: height
+  definition: 'The perpendicular distance from a base to the opposite side or vertex.'
+  topic: Area
+- term: trapezoid
+  definition: 'A quadrilateral with exactly one pair of parallel sides; $A = \tfrac12(b_1 + b_2)h$.'
+  topic: Area
+- term: circle
+  definition: 'All points in a plane at the same distance (the radius) from a center.'
+  topic: Circles
+- term: center
+  definition: 'The fixed point that every point of a circle is the same distance from.'
+  topic: Circles
+- term: radius
+  aliases: [radii]
+  definition: 'The distance from a circle''s center to the circle; $r = \tfrac d2$.'
+  topic: Circles
+- term: diameter
+  definition: 'The distance across a circle through its center; $d = 2r$.'
+  topic: Circles
+- term: circumference
+  definition: 'The distance around a circle: $C = \pi d = 2\pi r$.'
+  topic: Circles
+- term: pi
+  aliases: [π]
+  definition: 'The ratio of any circle''s circumference to its diameter, $\pi \approx 3.14159$; it is irrational.'
+  topic: Circles
+- term: semicircle
+  definition: 'Half a circle: area $\tfrac12 \pi r^2$, curved length $\pi r$.'
+  topic: Circles
+- term: volume
+  definition: 'The amount of space inside a solid, measured in cubic units.'
+  topic: Volume
+- term: surface area
+  definition: 'The total area of all the outside faces of a solid, in square units.'
+  topic: Surface area
+- term: cubic units
+  definition: 'Units of volume such as cm³, ft³ or m³.'
+  topic: Volume
+- term: rectangular prism
+  definition: 'A box-shaped solid with six rectangular faces; $V = lwh$.'
+  topic: Volume
+- term: cube
+  definition: 'A rectangular prism with all edges equal: $V = s^3$, $SA = 6s^2$. Also, to raise a number to the third power.'
+  topic: Volume
+- term: prism
+  definition: 'A solid with two identical parallel bases joined by flat sides; $V = Bh$.'
+  topic: Volume
+- term: cylinder
+  definition: 'A solid with two parallel circular bases; $V = \pi r^2 h$.'
+  topic: Volume
+- term: net
+  definition: 'A flat pattern that folds up into a solid; used to find surface area.'
+  topic: Surface area
+- term: legs
+  aliases: [leg]
+  definition: 'The two sides of a right triangle that form the right angle.'
+  topic: Pythagorean theorem
+- term: hypotenuse
+  definition: 'The side of a right triangle opposite the right angle; always the longest side.'
+  topic: Pythagorean theorem
+- term: Pythagorean theorem
+  definition: 'In a right triangle, $a^2 + b^2 = c^2$, where $c$ is the hypotenuse.'
+  topic: Pythagorean theorem
+- term: Pythagorean triples
+  aliases: [Pythagorean triple]
+  definition: 'Whole numbers $a, b, c$ with $a^2 + b^2 = c^2$, such as 3, 4, 5 and 5, 12, 13.'
+  topic: Pythagorean theorem
+# --- Data and probability ---
+- term: data set
+  aliases: [data]
+  definition: 'A collection of numbers or observations.'
+  topic: Measures of center
+- term: mean
+  aliases: [average]
+  definition: 'Sum of the values divided by the number of values.'
+  topic: Measures of center
+- term: outlier
+  aliases: [outliers]
+  definition: 'A value much larger or smaller than the rest of the data.'
+  topic: Measures of center
+- term: median
+  definition: 'The middle value of ordered data; with an even count, the mean of the two middle values.'
+  topic: Measures of center
+- term: mode
+  definition: 'The value that occurs most often; a data set can have none or several.'
+  topic: Measures of center
+- term: range
+  definition: 'Maximum minus minimum: a simple measure of spread.'
+  topic: Range
+- term: bar graph
+  definition: 'A graph comparing amounts across categories with bars of proportional length.'
+  topic: Tables and graphs
+- term: line graph
+  definition: 'A graph of points joined by segments, showing change over time.'
+  topic: Tables and graphs
+- term: circle graph
+  aliases: [pie chart]
+  definition: 'A circle divided into sectors showing parts of a whole; a sector''s angle is its percent of 360°.'
+  topic: Tables and graphs
+- term: probability
+  definition: 'A number from 0 to 1 measuring how likely an event is.'
+  topic: Probability
+- term: experiment
+  definition: 'A process with an uncertain result, like rolling a die.'
+  topic: Probability
+- term: outcome
+  aliases: [outcomes]
+  definition: 'One possible result of an experiment.'
+  topic: Probability
+- term: sample space
+  definition: 'The set of all possible outcomes of an experiment.'
+  topic: Probability
+- term: event
+  aliases: [events]
+  definition: 'A set of outcomes of an experiment.'
+  topic: Probability
+- term: impossible
+  definition: 'An event with probability 0.'
+  topic: Probability
+- term: certain
+  definition: 'An event with probability 1.'
+  topic: Probability
+- term: complement
+  definition: 'All outcomes not in an event: $P(\text{not } E) = 1 - P(E)$.'
+  topic: Probability
+- term: experimental probability
+  definition: 'The number of times an event happened divided by the number of trials.'
+  topic: Probability
+- term: counting principle
+  definition: 'If one choice can be made in $m$ ways and a second in $n$ ways, together they can be made in $mn$ ways.'
+  topic: Probability
+- term: independent
+  aliases: [independent events]
+  definition: 'Events where one happening does not change the probability of the other; then $P(A \text{ and } B) = P(A)P(B)$.'
+  topic: Probability
+# --- Notation and abbreviations ---
+- term: mph
+  definition: 'Miles per hour.'
+  topic: Rates
+- term: '%'
+  definition: 'The percent sign, meaning "out of 100".'
+  topic: Percent conversions
+- term: '≈'
+  definition: 'Is approximately equal to.'
+  topic: Rounding
+- term: '≤ and ≥'
+  definition: 'Is less than or equal to; is greater than or equal to.'
+  topic: Inequalities
+- term: SA
+  definition: 'Surface area.'
+  topic: Surface area
+- term: E notation
+  definition: 'Calculator form of scientific notation: 4.2E-5 means $4.2 \times 10^{-5}$.'
+  topic: Scientific notation
+- term: benchmark fractions
+  aliases: [benchmark fraction, benchmarks]
+  definition: 'Easy reference values such as 0, $\tfrac12$ and 1, used to estimate sums and compare fractions.'
+  topic: Adding and subtracting fractions
+- term: scale factor
+  definition: 'The number you multiply every length by to go from one proportional figure to the other; greater than 1 enlarges, between 0 and 1 shrinks.'
+  topic: Proportions
+- term: frequency table
+  definition: 'A table listing each value and how many times it occurs.'
+  topic: Tables and graphs

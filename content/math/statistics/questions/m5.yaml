@@ -1,0 +1,457 @@
+# Module 5 — Probability
+# ---- Lesson 19: probability rules
+- id: stat-q-1901
+  lesson: stat-prob-basics
+  module_quiz: true
+  topic: Probability rules
+  stem: '$P(A) = 0.6$, $P(B) = 0.5$ and $P(A \cap B) = 0.3$. Find $P(A \cup B)$.'
+  choices: ['1.1', '0.8', '0.3', '0.9']
+  answer: 1
+  explanation: |-
+    $P(A \cup B) = 0.6 + 0.5 - 0.3 = 0.8$. Adding without subtracting the overlap gives 1.1 —
+    impossible for a probability.
+
+- id: stat-q-1902
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'A fair coin lands heads 6 times in a row. What is the probability the next toss is heads?'
+  choices: ['Less than 0.5, because tails is due', 'More than 0.5, because heads is on a streak', '0.5', '$(0.5)^7$']
+  answer: 2
+  explanation: |-
+    Tosses are independent; the coin has no memory, so $P(\text{heads}) = 0.5$. Expecting tails
+    to be "due" is the gambler's fallacy. $(0.5)^7$ is the chance of the whole 7-toss
+    sequence, decided before any tosses.
+
+- id: stat-q-1903
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'Two fair dice are rolled. What is the probability the sum is 8?'
+  choices: ['$\tfrac{5}{36}$', '$\tfrac{1}{6}$', '$\tfrac{1}{11}$', '$\tfrac{4}{36}$']
+  answer: 0
+  explanation: |-
+    Outcomes with sum 8: (2,6), (3,5), (4,4), (5,3), (6,2) — 5 of 36 equally likely outcomes.
+    $\tfrac{1}{11}$ wrongly treats the 11 possible sums as equally likely.
+
+- id: stat-q-1904
+  lesson: stat-prob-basics
+  module_quiz: true
+  topic: Probability rules
+  stem: 'Events $A$ and $B$ are mutually exclusive with $P(A) = 0.25$ and $P(B) = 0.4$. What is $P(A \cap B)$?'
+  choices: ['0.1', '0.65', '0.15', '0']
+  answer: 3
+  explanation: |-
+    Mutually exclusive events can't occur together, so $P(A \cap B) = 0$. (0.1 would be the
+    answer if they were independent; 0.65 is $P(A \cup B)$.)
+
+- id: stat-q-1905
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'A probability model for the number of cars in a household assigns 0 cars: 0.08, 1 car: 0.36, 2 cars: 0.38, 3 or more: ?. What must the missing probability be?'
+  choices: ['0.18', '0.28', '0.82', '0.38']
+  answer: 0
+  explanation: |-
+    The probabilities must add to 1: $1 - (0.08 + 0.36 + 0.38) = 1 - 0.82 = 0.18$.
+
+- id: stat-q-1906
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'Roll a fair die 4 times. What is the probability of at least one 6?'
+  choices: ['$\tfrac{4}{6}$', 'about 0.518', 'about 0.482', '$\left(\tfrac{1}{6}\right)^4$']
+  answer: 1
+  explanation: |-
+    $P(\text{no 6 in 4 rolls}) = (5/6)^4 \approx 0.482$, so $P(\text{at least one}) = 1 - 0.482 = 0.518$.
+    $4/6$ adds probabilities of overlapping events; $(1/6)^4$ is the chance of four 6s.
+
+- id: stat-q-1907
+  lesson: stat-prob-basics
+  module_quiz: true
+  topic: Probability rules
+  stem: 'In a group, 40% play an instrument, 25% play a sport, and 50% do neither. What percent do both?'
+  choices: ['10%', '15%', '65%', '5%']
+  answer: 1
+  explanation: |-
+    $P(\text{at least one}) = 1 - 0.50 = 0.50$. Then $0.50 = 0.40 + 0.25 - P(\text{both})$, so
+    $P(\text{both}) = 0.15$.
+
+- id: stat-q-1908
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'Which statement best expresses the law of large numbers?'
+  choices: ['In a short series, outcomes balance out exactly', 'After a long streak, the opposite outcome becomes more likely', 'Large samples are never biased', 'As the number of trials increases, the observed proportion of an outcome approaches its true probability']
+  answer: 3
+  explanation: |-
+    The law describes long-run behavior: the relative frequency settles toward the
+    probability. It says nothing about short runs or streaks, and it doesn't fix biased
+    sampling.
+
+- id: stat-q-1909
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'In a Venn diagram, $P(A) = 0.5$, $P(B) = 0.3$, $P(A \cap B) = 0.1$. What is $P(B \text{ only})$, i.e. $B$ but not $A$?'
+  choices: ['0.2', '0.3', '0.4', '0.7']
+  answer: 0
+  explanation: |-
+    $B$ only $= P(B) - P(A \cap B) = 0.3 - 0.1 = 0.2$. (0.4 is $A$ only.)
+
+- id: stat-q-1910
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'To estimate by simulation the chance that a 5-question true/false quiz answered by guessing gets 4 or more right, which method is valid?'
+  choices: ['Use one random digit and see whether it is 4 or more', 'Use random digits 1–5 to choose how many are correct', 'Use random digits 0–9; let 0–4 mean correct and 5–9 incorrect; read 5 digits per trial; repeat many trials and record the proportion with 4 or more correct', 'Repeat one trial of 5 digits once']
+  answer: 2
+  explanation: |-
+    Each question has probability 0.5, modeled by digits 0–4 vs 5–9; 5 digits make one
+    quiz; many repetitions estimate the probability. Choosing the number correct uniformly
+    from 1–5 doesn't model the process.
+
+- id: stat-q-1911
+  lesson: stat-prob-basics
+  topic: Probability rules
+  stem: 'A card is drawn from a standard 52-card deck. What is $P(\text{heart or face card})$? (There are 13 hearts, 12 face cards, and 3 face cards are hearts.)'
+  choices: ['$\tfrac{25}{52}$', '$\tfrac{22}{52}$', '$\tfrac{3}{52}$', '$\tfrac{13}{52}$']
+  answer: 1
+  explanation: |-
+    $P = \tfrac{13}{52} + \tfrac{12}{52} - \tfrac{3}{52} = \tfrac{22}{52}$. Forgetting to subtract
+    the 3 heart face cards counts them twice ($\tfrac{25}{52}$).
+
+# ---- Lesson 20: conditional probability and independence
+- id: stat-q-2001
+  lesson: stat-conditional
+  module_quiz: true
+  topic: Conditional probability
+  stem: '$P(A \cap B) = 0.35$ and $P(B) = 0.7$. Find $P(A \mid B)$.'
+  choices: ['0.245', '0.5', '0.35', '2']
+  answer: 1
+  explanation: |-
+    $P(A \mid B) = P(A \cap B)/P(B) = 0.35/0.7 = 0.5$. Multiplying instead of dividing gives
+    0.245.
+
+- id: stat-q-2002
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: '$P(A) = 0.3$, $P(B) = 0.6$ and $P(A \cap B) = 0.18$. Are $A$ and $B$ independent?'
+  choices: ['Yes, because $P(A)P(B) = 0.18 = P(A \cap B)$', 'No, because $P(A) \ne P(B)$', 'No, because $P(A \cap B) \ne 0$', 'Cannot be determined']
+  answer: 0
+  explanation: |-
+    Independence means $P(A \cap B) = P(A)P(B)$. Here $0.3 \times 0.6 = 0.18$, so they are
+    independent. Unequal probabilities or a nonzero overlap say nothing about independence.
+
+- id: stat-q-2003
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'Of 200 employees, 80 work remotely. Of the remote workers, 60 report high satisfaction; of the 120 office workers, 54 do. Find $P(\text{high satisfaction} \mid \text{remote})$.'
+  choices: ['0.30', '0.53', '0.40', '0.75']
+  answer: 3
+  explanation: |-
+    Restrict to remote workers: $60/80 = 0.75$. 0.30 divides by all 200 employees (a joint
+    probability); 0.53 is $P(\text{remote} \mid \text{high satisfaction}) = 60/114$.
+
+- id: stat-q-2004
+  lesson: stat-conditional
+  module_quiz: true
+  topic: Conditional probability
+  stem: 'Using the same employees (remote: 60 of 80 satisfied; office: 54 of 120 satisfied), are work location and satisfaction independent?'
+  choices: ['Yes, because the counts 60 and 54 are close', 'No, because $P(\text{satisfied} \mid \text{remote}) = 0.75$ but $P(\text{satisfied}) = 0.57$', 'Yes, because satisfaction is categorical', 'No, because fewer people work remotely']
+  answer: 1
+  explanation: |-
+    $P(\text{satisfied}) = 114/200 = 0.57$, but among remote workers it is 0.75. Knowing the
+    location changes the probability, so the events are dependent.
+
+- id: stat-q-2005
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'Two cards are drawn without replacement from a standard deck. What is $P(\text{both hearts})$?'
+  choices: ['$\tfrac{13}{52} \cdot \tfrac{13}{52}$', '$\tfrac{13}{52} + \tfrac{12}{51}$', '$\tfrac{13}{52} \cdot \tfrac{12}{51}$', '$\tfrac{26}{52}$']
+  answer: 2
+  explanation: |-
+    General multiplication rule: $P(\text{first heart}) \times P(\text{second heart} \mid \text{first heart}) = \tfrac{13}{52} \cdot \tfrac{12}{51} \approx 0.0588$.
+    $\tfrac{13}{52} \cdot \tfrac{13}{52}$ would be correct only with replacement.
+
+- id: stat-q-2006
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'Five independent components each work with probability 0.9. What is the probability that at least one fails?'
+  choices: ['0.5', '0.10', '0.59', '0.41']
+  answer: 3
+  explanation: |-
+    $P(\text{all work}) = 0.9^5 \approx 0.590$, so $P(\text{at least one fails}) = 1 - 0.590 = 0.410$.
+    Adding $5 \times 0.1 = 0.5$ overcounts overlapping failures.
+
+- id: stat-q-2007
+  lesson: stat-conditional
+  module_quiz: true
+  topic: Conditional probability
+  stem: 'Events $A$ and $B$ are mutually exclusive, each with positive probability. Which is true?'
+  choices: ['They must be independent', '$P(A \cap B) = P(A)P(B)$', '$P(A \mid B) = P(A)$', 'They cannot be independent']
+  answer: 3
+  explanation: |-
+    If $B$ occurs, $A$ cannot, so $P(A \mid B) = 0 \ne P(A)$. Mutually exclusive events with
+    positive probabilities are always dependent.
+
+- id: stat-q-2008
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'Which statement correctly distinguishes $P(A \mid B)$ from $P(B \mid A)$?'
+  choices: ['They are always equal', '$P(A \mid B)$ restricts to outcomes where $B$ occurred; $P(B \mid A)$ restricts to outcomes where $A$ occurred, so they generally differ', 'They differ only if $A$ and $B$ are independent', '$P(A \mid B)$ is always larger']
+  answer: 1
+  explanation: |-
+    The "given" event defines the reduced sample space. $P(A \mid B) = P(A \cap B)/P(B)$ and
+    $P(B \mid A) = P(A \cap B)/P(A)$ have different denominators and are equal only when
+    $P(A) = P(B)$ (or $P(A \cap B) = 0$).
+
+- id: stat-q-2009
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'A student says, "The probability that a randomly chosen sprinter is fast is high, so the probability that a fast person is a sprinter must also be high." What error is this?'
+  choices: ['Confusing $P(\text{fast} \mid \text{sprinter})$ with $P(\text{sprinter} \mid \text{fast})$', 'The gambler''s fallacy', 'Using the complement rule', 'Assuming mutually exclusive events']
+  answer: 0
+  explanation: |-
+    Most sprinters are fast, but most fast people aren't sprinters (few people are
+    sprinters at all). Reversing the condition is a classic error.
+
+- id: stat-q-2010
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'A bag has 12 red and 8 blue tokens. Two are drawn without replacement. What is $P(\text{both red})$?'
+  choices: ['0.36', '0.60', '0.347', '0.30']
+  answer: 2
+  explanation: |-
+    $\tfrac{12}{20} \cdot \tfrac{11}{19} = \tfrac{132}{380} \approx 0.347$. With replacement it
+    would be $0.6^2 = 0.36$.
+
+- id: stat-q-2011
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'A main generator and an independent backup each work with probability 0.92. Power is available if at least one works. What is the probability of power?'
+  choices: ['0.8464', '0.9936', '0.92', '1.84']
+  answer: 1
+  explanation: |-
+    Both fail with probability $0.08^2 = 0.0064$, so power is available with probability
+    $1 - 0.0064 = 0.9936$. $0.92^2 = 0.8464$ is the chance both work.
+
+# ---- Lesson 21: trees and Bayes
+- id: stat-q-2101
+  lesson: stat-trees-bayes
+  module_quiz: true
+  topic: Bayes' theorem
+  stem: 'A disease affects 1% of people. A test is positive for 90% of people with the disease and for 5% of people without it. What is $P(\text{positive})$?'
+  choices: ['0.0585', '0.0950', '0.0090', '0.9500']
+  answer: 0
+  explanation: |-
+    Law of total probability: $0.01(0.90) + 0.99(0.05) = 0.009 + 0.0495 = 0.0585$.
+
+- id: stat-q-2102
+  lesson: stat-trees-bayes
+  module_quiz: true
+  topic: Bayes' theorem
+  stem: 'For the same test (prevalence 1%, sensitivity 90%, false-positive rate 5%), what is $P(\text{disease} \mid \text{positive})$?'
+  choices: ['0.90', '0.95', '0.009', '0.154']
+  answer: 3
+  explanation: |-
+    $P(D \mid +) = \dfrac{0.009}{0.0585} \approx 0.154$. Most positives are false positives because
+    the disease is rare. 0.90 is $P(+ \mid D)$, the reversed conditional.
+
+- id: stat-q-2103
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'In a tree diagram, the probabilities on second-stage branches are'
+  choices: ['the unconditional probabilities of the second-stage outcomes', 'conditional probabilities given the first-stage branch they grow from', 'always equal to the first-stage probabilities', 'added to get path probabilities']
+  answer: 1
+  explanation: |-
+    Each second-stage branch carries $P(\text{outcome} \mid \text{first-stage outcome})$. Path
+    probabilities come from multiplying along the branches.
+
+- id: stat-q-2104
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: '30% of a company''s orders are rush orders. 80% of rush orders ship on time, compared with 40% of regular orders. What fraction of all orders ship on time?'
+  choices: ['0.60', '0.40', '0.24', '0.52']
+  answer: 3
+  explanation: |-
+    $0.3(0.8) + 0.7(0.4) = 0.24 + 0.28 = 0.52$. Averaging 80% and 40% (0.60) ignores that rush
+    orders are only 30% of orders.
+
+- id: stat-q-2105
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'Using the same orders (30% rush, 80% of rush on time, 40% of regular on time), given that an order shipped on time, what is the probability it was a rush order?'
+  choices: ['0.30', '0.80', '0.46', '0.24']
+  answer: 2
+  explanation: |-
+    $P(\text{rush} \mid \text{on time}) = 0.24/0.52 \approx 0.46$. 0.24 is the joint probability
+    $P(\text{rush} \cap \text{on time})$, not the conditional.
+
+- id: stat-q-2106
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'Why does a highly accurate test for a very rare condition still produce mostly false positives?'
+  choices: ['Because the test''s sensitivity is low', 'Because the large healthy group times even a small false-positive rate outnumbers the small sick group times the sensitivity', 'Because the events are mutually exclusive', 'Because Bayes'' theorem only applies to common conditions']
+  answer: 1
+  explanation: |-
+    False positives come from the large base of people without the condition. When the
+    base rate is tiny, those false positives dominate the positive results.
+
+- id: stat-q-2107
+  lesson: stat-trees-bayes
+  module_quiz: true
+  topic: Bayes' theorem
+  stem: 'Machine A makes 25% of a plant''s parts with 6% defective; machine B makes 75% with 2% defective. A part is defective. What is the probability it came from A?'
+  choices: ['0.25', '0.06', '0.75', '0.50']
+  answer: 3
+  explanation: |-
+    Paths: A and defective $= 0.25(0.06) = 0.015$; B and defective $= 0.75(0.02) = 0.015$.
+    $P(A \mid \text{def}) = 0.015/0.030 = 0.50$.
+
+- id: stat-q-2108
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'In a screening test, sensitivity means'
+  choices: ['$P(\text{positive} \mid \text{condition present})$', '$P(\text{condition present} \mid \text{positive})$', '$P(\text{negative} \mid \text{condition absent})$', 'the prevalence of the condition']
+  answer: 0
+  explanation: |-
+    Sensitivity is the probability the test detects the condition when it is present.
+    $P(\text{negative} \mid \text{absent})$ is specificity; $P(\text{present} \mid \text{positive})$
+    is what Bayes' theorem computes.
+
+- id: stat-q-2109
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'A tree has first-stage probabilities 0.4 and 0.6. From the 0.4 branch, outcome $X$ has probability 0.5; from the 0.6 branch, $X$ has probability 0.25. Find $P(X)$.'
+  choices: ['0.75', '0.375', '0.35', '0.20']
+  answer: 2
+  explanation: |-
+    $P(X) = 0.4(0.5) + 0.6(0.25) = 0.20 + 0.15 = 0.35$. 0.375 averages 0.5 and 0.25 without
+    weights.
+
+- id: stat-q-2110
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'Imagine 10,000 people, 2% with a condition. The test has 95% sensitivity and 90% specificity. How many people test positive?'
+  choices: ['190', '980', '1,170', '200']
+  answer: 2
+  explanation: |-
+    200 have the condition: $0.95 \times 200 = 190$ true positives. 9,800 don't: $0.10 \times 9800 = 980$
+    false positives. Total positives $= 1170$.
+
+- id: stat-q-2111
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'In Bayesian language, the probability of a hypothesis **before** seeing the evidence is called the'
+  choices: ['prior probability', 'posterior probability', 'likelihood', 'specificity']
+  answer: 0
+  explanation: |-
+    The prior (e.g. prevalence) is updated by the evidence (a test result) to give the
+    posterior, such as $P(D \mid +)$.
+
+# ---- Lesson 22: counting
+- id: stat-q-2201
+  lesson: stat-counting
+  module_quiz: true
+  topic: Counting
+  stem: 'How many ways can a president, vice president and treasurer be chosen from 10 club members?'
+  choices: ['120', '30', '1,000', '720']
+  answer: 3
+  explanation: |-
+    Distinct roles means order matters: $_{10}P_3 = 10 \times 9 \times 8 = 720$. 120 is
+    $\binom{10}{3}$, which ignores roles.
+
+- id: stat-q-2202
+  lesson: stat-counting
+  topic: Counting
+  stem: 'How many different 3-person teams can be chosen from 10 people?'
+  choices: ['120', '720', '30', '1,000']
+  answer: 0
+  explanation: |-
+    Order doesn't matter: $\binom{10}{3} = \dfrac{720}{3!} = 120$.
+
+- id: stat-q-2203
+  lesson: stat-counting
+  topic: Counting
+  stem: 'A password is 4 characters, each a digit 0–9 or one of 26 lowercase letters, with repeats allowed. How many passwords are possible?'
+  choices: ['$36 \times 4$', '$36^4$', '$_{36}P_4$', '$\binom{36}{4}$']
+  answer: 1
+  explanation: |-
+    Each of 4 positions has 36 choices (repeats allowed): $36^4 = 1{,}679{,}616$. $_{36}P_4$ would
+    forbid repeats; $\binom{36}{4}$ ignores order.
+
+- id: stat-q-2204
+  lesson: stat-counting
+  module_quiz: true
+  topic: Counting
+  stem: 'A crate has 10 bolts, 4 of them faulty. Three bolts are picked at random. What is the probability exactly one is faulty?'
+  choices: ['0.4', '0.5', '0.3', '0.432']
+  answer: 1
+  explanation: |-
+    Favorable: $\binom{4}{1}\binom{6}{2} = 4 \times 15 = 60$. Total: $\binom{10}{3} = 120$.
+    $P = 60/120 = 0.5$. 0.432 is the binomial answer, which wrongly assumes replacement.
+
+- id: stat-q-2205
+  lesson: stat-counting
+  topic: Counting
+  stem: 'What is $\binom{n}{n-2}$ equal to?'
+  choices: ['$\binom{n}{2}$', '$n - 2$', '$\dfrac{n!}{2}$', '$n(n-2)$']
+  answer: 0
+  explanation: |-
+    Choosing $n - 2$ objects to include is the same as choosing 2 to leave out:
+    $\binom{n}{n-2} = \binom{n}{2} = \dfrac{n(n-1)}{2}$.
+
+- id: stat-q-2206
+  lesson: stat-counting
+  topic: Counting
+  stem: 'In how many ways can 5 different books be arranged on a shelf?'
+  choices: ['25', '5', '120', '3,125']
+  answer: 2
+  explanation: |-
+    $5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$. $5^5 = 3125$ would allow the same book in
+    several places.
+
+- id: stat-q-2207
+  lesson: stat-counting
+  topic: Counting
+  stem: 'How many distinct arrangements are there of the letters in TOOT?'
+  choices: ['24', '12', '4', '6']
+  answer: 3
+  explanation: |-
+    4 letters with T twice and O twice: $\dfrac{4!}{2!\,2!} = \dfrac{24}{4} = 6$ (TOOT, TOTO,
+    TTOO, OTTO, OTOT, OOTT).
+
+- id: stat-q-2208
+  lesson: stat-counting
+  module_quiz: true
+  topic: Counting
+  stem: 'Which situation calls for combinations rather than permutations?'
+  choices: ['Assigning first, second and third place', 'Seating 4 people in 4 numbered seats', 'Creating a PIN code', 'Choosing 6 lottery numbers']
+  answer: 3
+  explanation: |-
+    A lottery ticket wins on the set of numbers regardless of order, so it's a
+    combination. The others produce different outcomes when rearranged.
+
+- id: stat-q-2209
+  lesson: stat-counting
+  topic: Counting
+  stem: 'Ten items include 2 defective. Three are chosen at random. What is the probability that at least one is defective?'
+  choices: ['0.533', '0.467', '0.6', '0.2']
+  answer: 0
+  explanation: |-
+    $P(\text{none defective}) = \binom{8}{3}/\binom{10}{3} = 56/120 \approx 0.467$, so
+    $P(\text{at least one}) = 1 - 0.467 = 0.533$.
+
+- id: stat-q-2210
+  lesson: stat-counting
+  topic: Counting
+  stem: 'A restaurant offers 4 appetizers, 6 entrées and 3 desserts. How many three-course meals (one of each) are possible?'
+  choices: ['13', '72', '24', '120']
+  answer: 1
+  explanation: |-
+    Multiplication principle: $4 \times 6 \times 3 = 72$. Adding (13) counts single items, not
+    meals.
+
+- id: stat-q-2211
+  lesson: stat-counting
+  topic: Counting
+  stem: 'Why is $_nP_r$ larger than $\binom{n}{r}$ by a factor of $r!$?'
+  choices: ['Because each combination of $r$ objects can be ordered in $r!$ ways', 'Because permutations allow repeats', 'Because $0! = 1$', 'Because combinations include the empty set']
+  answer: 0
+  explanation: |-
+    Every unordered group of $r$ objects appears $r!$ times among the ordered arrangements, so
+    $\binom{n}{r} = {}_nP_r / r!$.

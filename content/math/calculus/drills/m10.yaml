@@ -1,0 +1,166 @@
+# Module 10 drills: sequences and series
+- id: calc-d-geometric-series
+  title: Sum of a geometric series
+  topic: Series basics
+  vars:
+    a: {min: 1, max: 9}
+    num: {min: 1, max: 4}
+    den: {min: 2, max: 7}
+    sg: {choices: [1, -1]}
+    k: {choices: [0, 1, 2]}
+  where: ["num < den", "gcd(num, den) == 1"]
+  calc:
+    r: sg*num/den
+    first: a*(sg*num/den)^k
+    S: a*(sg*num/den)^k/(1 - sg*num/den)
+    om: 1 - sg*num/den
+  prompt: 'Find $\displaystyle\sum_{n={k}}^\infty {a}\left({r:texfrac}\right)^n$ as an exact fraction.'
+  answers:
+    - {name: S, kind: fraction, lowestTerms: true, label: 'Sum $=$'}
+  solution: |-
+    Geometric with ratio $r = {r:texfrac}$, and $|r| < 1$, so it converges. The first term is the $n = {k}$ term: ${a}\left({r:texfrac}\right)^{{k}} = {first:texfrac}$. Sum $= \dfrac{\text{first term}}{1 - r} = \dfrac{{first:texfrac}}{{om:texfrac}} =$ **{S:frac}**.
+- id: calc-d-sequence-limit
+  title: Limit of a sequence with a square root
+  topic: Sequences
+  vars:
+    p: {min: 1, max: 6}
+    q: {min: 1, max: 9}
+  calc:
+    p2: p^2
+    L: q/(2*p)
+    p2x: 2*p
+  prompt: 'Find $\displaystyle\lim_{n\to\infty}\left(\sqrt{{p2}n^2 + {q}n} - {p:coef}n\right)$ as an exact fraction.'
+  answers:
+    - {name: L, kind: fraction, lowestTerms: true, label: 'Limit $=$'}
+  solution: |-
+    This is $\infty - \infty$. Multiply by the conjugate:
+    $$\frac{({p2}n^2 + {q}n) - {p2}n^2}{\sqrt{{p2}n^2 + {q}n} + {p:coef}n} = \frac{{q}n}{\sqrt{{p2}n^2 + {q}n} + {p:coef}n}.$$
+    Divide top and bottom by $n$: $\dfrac{{q}}{\sqrt{{p2} + {q}/n} + {p}} \to \dfrac{{q}}{{p2x}} =$ **{L:frac}**.
+- id: calc-d-pseries-bound
+  title: Partial sum and remainder bound for a p-series
+  topic: Integral test
+  vars:
+    p: {choices: [2, 3, 4]}
+    N: {min: 5, max: 12}
+  funcs:
+    t(n): 1/n^p
+  calc:
+    S: sum(t, 1, N)
+    B: 1/((p - 1)*N^(p - 1))
+    p1: p - 1
+  prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{1}{n^{p}}$, compute the partial sum $S_{{N}}$ (4 decimals) and the integral-test upper bound on the remainder $R_{{N}} = S - S_{{N}}$ (4 significant figures).'
+  answers:
+    - {name: S, label: '$S_{{N}} \approx$', tolerance: 0.0001, format: num4}
+    - {name: B, label: '$R_{{N}} \le$', relTolerance: 0.0005, format: sig4}
+  solution: |-
+    Adding the first {N} terms gives $S_{{N}} \approx$ **{S:num4}**. The remainder is at most the tail integral:
+    $$R_{{N}} \le \int_{{N}}^\infty\frac{dx}{x^{p}} = \frac{1}{{p1}\cdot{N}^{{p1}}} \approx \mathbf{{B:sig4}}.$$
+- id: calc-d-alt-error
+  title: Terms needed for an alternating series
+  topic: Alternating series
+  vars:
+    p: {choices: [1, 2, 3]}
+    k: {choices: [2, 3, 4]}
+  calc:
+    x: 10^(k/p)
+    N: floor(10^(k/p) + 1e-9)
+    tol: 10^(-k)
+  prompt: 'What is the smallest $N$ for which the alternating series error bound guarantees that $S_N$ approximates $\displaystyle\sum_{n=1}^\infty\frac{(-1)^{n+1}}{n^{p}}$ within $10^{-{k}}$?'
+  answers:
+    - {name: N, label: '$N =$', format: integer}
+  solution: |-
+    The error after $N$ terms is at most the first omitted term, $\dfrac{1}{(N + 1)^{p}}$. Need $\dfrac{1}{(N + 1)^{p}} < 10^{-{k}}$, i.e. $N + 1 > 10^{{k}/{p}} \approx {x:dp2}$. The smallest whole number is $N =$ **{N}**.
+- id: calc-d-ratio
+  title: Ratio test limit
+  topic: Ratio and root tests
+  vars:
+    b: {min: 1, max: 9}
+    d: {min: 2, max: 9}
+    k: {min: 2, max: 4}
+  where: ["b != d", "gcd(b, d) == 1", "b != 1"]
+  calc:
+    L: b/d
+    conv: if(b < d, 1, 0)
+  prompt: 'Apply the ratio test to $\displaystyle\sum_{n=1}^\infty\frac{n^{k}\cdot{b}^n}{{d}^n}$. Give $L = \lim\left|\frac{a_{n+1}}{a_n}\right|$ as an exact fraction, and enter 1 if the series converges or 0 if it diverges.'
+  answers:
+    - {name: L, kind: fraction, lowestTerms: true, label: '$L =$'}
+    - {name: conv, label: 'Converges? (1/0)', format: integer}
+  solution: |-
+    $$\left|\frac{a_{n+1}}{a_n}\right| = \frac{(n + 1)^{k}\cdot{b}^{n+1}}{{d}^{n+1}}\cdot\frac{{d}^n}{n^{k}\cdot{b}^n} = \left(\frac{n + 1}{n}\right)^{k}\cdot\frac{{b}}{{d}} \to {L:texfrac}.$$
+    $L =$ **{L:frac}**. The series converges if $L < 1$ (enter 1) and diverges if $L > 1$ (enter 0); here the entry is **{conv}**.
+- id: calc-d-radius
+  title: Radius and interval of convergence
+  topic: Power series
+  vars:
+    c: {min: -4, max: 4}
+    b: {min: 2, max: 5}
+    p: {choices: [{label: '1', value: 0}, {label: 'n', value: 1}, {label: 'n^2', value: 2}]}
+  where: ["c != 0"]
+  calc:
+    R: b
+    inc: p
+    lo: c - b
+    hi: c + b
+    nc: -c
+  prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{(x {nc:signed})^n}{{b}^n\cdot {p}}$, find the radius of convergence, and how many endpoints (0, 1 or 2) belong to the interval of convergence.'
+  answers:
+    - {name: R, label: '$R =$'}
+    - {name: inc, label: 'Endpoints included', format: integer}
+  solution: |-
+    Ratio test: the factor $\frac{{b}^n}{{b}^{n+1}}$ contributes $\frac{1}{{b}}$ and the polynomial factor's ratio tends to 1, so the ratio tends to $\dfrac{|x {nc:signed}|}{{b}}$. Converges when $|x {nc:signed}| < {b}$: $R =$ **{R}**, open interval $({lo}, {hi})$.
+
+    Endpoints: at $x = {hi}$ the series becomes $\sum\frac{1}{{p}}$, and at $x = {lo}$ it becomes $\sum\frac{(-1)^n}{{p}}$. If the denominator is 1, the terms don't go to 0 (both diverge). If it is $n$, the first is harmonic (diverges) and the second is alternating harmonic (converges). If it is $n^2$, both converge absolutely. Endpoints included: **{inc}**.
+- id: calc-d-power-series-rep
+  title: Coefficient from a geometric power series
+  topic: Power series
+  vars:
+    cc: {min: 1, max: 9}
+    d: {min: 2, max: 5}
+    k: {min: 2, max: 4}
+  calc:
+    coef: cc/d^(k + 1)
+    k1: k + 1
+  prompt: 'Write $\dfrac{{cc}}{{d} - x}$ as a power series centered at 0. What is the coefficient of $x^{k}$ (exact fraction), and what is the radius of convergence?'
+  answers:
+    - {name: coef, kind: fraction, lowestTerms: true, label: 'Coefficient'}
+    - {name: d, label: '$R =$'}
+  solution: |-
+    Factor to get a 1: $\dfrac{{cc}}{{d} - x} = \dfrac{{cc}}{{d}}\cdot\dfrac{1}{1 - x/{d}} = \dfrac{{cc}}{{d}}\sum_{n=0}^\infty\left(\dfrac{x}{{d}}\right)^n = \sum_{n=0}^\infty\dfrac{{cc}}{{d}^{n+1}}x^n$, valid for $|x| < {d}$. The coefficient of $x^{k}$ is $\dfrac{{cc}}{{d}^{{k1}}} =$ **{coef:frac}**; $R =$ **{d}**.
+- id: calc-d-taylor-coeff
+  title: A Maclaurin coefficient
+  topic: Taylor series
+  vars:
+    a: {choices: [-3, -2, 2, 3, 4]}
+    k: {min: 2, max: 5}
+  calc:
+    coef: a^k/fact(k)
+    ak: a^k
+    kf: fact(k)
+  prompt: 'Find the coefficient of $x^{k}$ in the Maclaurin series of $f(x) = e^{{a}x}$, and the value of $f^{({k})}(0)$.'
+  answers:
+    - {name: coef, kind: fraction, lowestTerms: true, label: 'Coefficient'}
+    - {name: ak, label: '$f^{({k})}(0) =$'}
+  solution: |-
+    Substitute $u = {a}x$ into $e^u = \sum\frac{u^n}{n!}$: the $x^{k}$ term is $\dfrac{({a}x)^{k}}{{k}!} = \dfrac{{ak:dp0}}{{kf:dp0}}x^{k}$. Coefficient: **{coef:frac}**. Since $c_{k} = \dfrac{f^{({k})}(0)}{{k}!}$, $f^{({k})}(0) = {kf}\cdot c_{k} =$ **{ak}** (directly: each derivative brings down a factor ${a}$).
+- id: calc-d-taylor-approx
+  title: Taylor approximation with an error bound
+  topic: Taylor's remainder
+  vars:
+    x0: {choices: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8]}
+    n: {min: 2, max: 4}
+  funcs:
+    t(k): x0^k/fact(k)
+  calc:
+    P: sum(t, 0, n)
+    n1: n + 1
+    B: 3*x0^(n + 1)/fact(n + 1)
+    tru: e^x0
+    err: abs(e^x0 - sum(t, 0, n))
+  prompt: 'Use the degree-{n} Maclaurin polynomial of $e^x$ to approximate $e^{{x0}}$ (5 decimals). Then give the Lagrange error bound using $M = 3$ (4 significant figures).'
+  answers:
+    - {name: P, label: '$P_{n}({x0}) \approx$', tolerance: 0.00001, format: dp5}
+    - {name: B, label: 'Error $\le$', relTolerance: 0.0005, format: sig4}
+  solution: |-
+    $P_{n}(x) = \sum_{k=0}^{{n}}\dfrac{x^k}{k!}$, so $P_{n}({x0}) \approx$ **{P:dp5}**. The derivative of order {n1} is $e^t \le e^{1} < 3$ on $[0, {x0}]$, so
+    $$|R_{n}| \le \frac{3}{{n1}!}({x0})^{{n1}} \approx \mathbf{{B:sig4}}.$$
+    (Actual error: {err:sig3}; $e^{{x0}} \approx {tru:dp5}$.)

@@ -1,0 +1,367 @@
+# Module 5: second-order linear homogeneous
+- id: de-q-1801
+  lesson: de-second-order
+  module_quiz: true
+  topic: Second-order theory
+  stem: 'Compute the Wronskian $W(e^{t}, te^{t})$.'
+  choices: ['$te^{2t}$', '$e^{2t}$', '$0$', '$(1 + 2t)e^{2t}$']
+  answer: 1
+  explanation: |-
+    $W = e^t(1 + t)e^t - e^t \cdot te^t = e^{2t}(1 + t - t) = e^{2t}$, never zero.
+- id: de-q-1802
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'Compute $W(\cos 2t, \sin 2t)$.'
+  choices: ['$1$', '$\cos 4t$', '$-2$', '$2$']
+  answer: 3
+  explanation: |-
+    $W = \cos 2t(2\cos 2t) - (-2\sin 2t)\sin 2t = 2(\cos^2 2t + \sin^2 2t) = 2$.
+- id: de-q-1803
+  lesson: de-second-order
+  module_quiz: true
+  topic: Second-order theory
+  stem: 'If $y_1$ and $y_2$ solve $y'''' + p(t)y'' + q(t)y = 0$, which is also guaranteed to be a solution?'
+  choices: ['$3y_1 - 5y_2$', '$y_1y_2$', '$y_1^2$', '$y_1 + 1$']
+  answer: 0
+  explanation: |-
+    Superposition: any linear combination of solutions of a linear homogeneous equation is a solution. Products, squares and added constants are not.
+- id: de-q-1804
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'Two solutions of $y'''' + p(t)y'' + q(t)y = 0$ ($p, q$ continuous on $I$) have Wronskian $W(t_0) = 0$ at one point $t_0$ in $I$. What can you conclude?'
+  choices: ['They form a fundamental set anyway', '$W$ is nonzero elsewhere', '$W = 0$ throughout $I$, so they do not form a fundamental set', 'Nothing; you must check other points']
+  answer: 2
+  explanation: |-
+    Abel's theorem: $W = Ce^{-\int p\,dt}$, which is identically zero if it vanishes anywhere (then $C = 0$).
+- id: de-q-1805
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'By Abel''s theorem, solutions of $y'''' + 4y'' + 7y = 0$ have Wronskian of the form'
+  choices: ['$Ce^{4t}$', '$Ce^{-7t}$', '$C$', '$Ce^{-4t}$']
+  answer: 3
+  explanation: |-
+    $W = Ce^{-\int p\,dt}$ with $p = 4$: $Ce^{-4t}$.
+- id: de-q-1806
+  lesson: de-second-order
+  module_quiz: true
+  topic: Second-order theory
+  stem: 'Given that $e^{2t}$ and $e^{-3t}$ solve $y'''' + y'' - 6y = 0$, solve with $y(0) = 1$, $y''(0) = 7$.'
+  choices: ['$e^{2t} + 0e^{-3t}$', '$2e^{2t} - e^{-3t}$', '$-e^{2t} + 2e^{-3t}$', '$\tfrac{7}{2}e^{2t} - \tfrac52e^{-3t}$']
+  answer: 1
+  explanation: |-
+    $c_1 + c_2 = 1$ and $2c_1 - 3c_2 = 7$ give $c_1 = 2$, $c_2 = -1$. Check: $y'(0) = 4 + 3 = 7$.
+- id: de-q-1807
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'If $Y_1$ and $Y_2$ both solve $L[y] = g(t)$ with $g \ne 0$, then $Y_1 - Y_2$ solves'
+  choices: ['$L[y] = g$', '$L[y] = 2g$', '$L[y] = 0$', '$L[y] = -g$']
+  answer: 2
+  explanation: |-
+    $L[Y_1 - Y_2] = g - g = 0$. That's why every solution of $L[y] = g$ is $y_c + Y$.
+- id: de-q-1808
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'On what interval is the IVP $(t - 2)y'''' + \dfrac{y''}{t + 1} + y = 0$, $y(0) = 1$, $y''(0) = 0$ guaranteed a unique solution?'
+  choices: ['$-1 < t < 2$', '$0 < t < 2$', '$t > -1$', '$t < 2$']
+  answer: 0
+  explanation: |-
+    Dividing by $t - 2$ gives $p = \dfrac{1}{(t+1)(t-2)}$ and $q = \dfrac{1}{t - 2}$, discontinuous at $-1$ and $2$. The interval containing 0 is $(-1, 2)$.
+- id: de-q-1809
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'The general solution of $y'''' + 4y = 8$ is $y = c_1\cos 2t + c_2\sin 2t + 2$. Which part is the complementary solution?'
+  choices: ['$c_1\cos 2t + c_2\sin 2t$', '$2$', '$c_1\cos 2t$', 'the whole expression']
+  answer: 0
+  explanation: |-
+    The complementary solution $y_c$ is the general solution of the homogeneous equation $y'' + 4y = 0$; the constant 2 is a particular solution.
+- id: de-q-1810
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'Which pair is linearly dependent?'
+  choices: ['$e^t$ and $e^{-t}$', '$\cos t$ and $\sin t$', '$e^{t + 2}$ and $e^{t}$', '$t$ and $t^2$']
+  answer: 2
+  explanation: |-
+    $e^{t + 2} = e^2 \cdot e^t$, a constant multiple of $e^t$, so their Wronskian is 0.
+- id: de-q-1811
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: 'How many initial conditions are needed for a unique solution of a second-order linear IVP?'
+  choices: ['One: $y(t_0)$', 'Two: $y(t_0)$ and $y''(t_0)$', 'Two: $y(t_0)$ and $y(t_1)$ at different points', 'Three']
+  answer: 1
+  explanation: |-
+    Value and slope at the same point. Conditions at two different points form a boundary value problem, which may not have a unique solution.
+# Lesson 19
+- id: de-q-1901
+  lesson: de-char-real
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Find the general solution of $y'''' - 3y'' - 4y = 0$.'
+  choices: ['$c_1e^{-4t} + c_2e^{t}$', '$c_1e^{4t} + c_2te^{4t}$', '$c_1e^{3t} + c_2e^{-4t}$', '$c_1e^{4t} + c_2e^{-t}$']
+  answer: 3
+  explanation: |-
+    $r^2 - 3r - 4 = (r - 4)(r + 1)$, roots $4$ and $-1$. Reversed signs are the classic factoring slip.
+- id: de-q-1902
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'Solve $y'''' - 3y'' - 4y = 0$, $y(0) = 5$, $y''(0) = 0$.'
+  choices: ['$4e^{4t} + e^{-t}$', '$e^{4t} + 4e^{-t}$', '$5e^{4t}$', '$e^{4t} - 4e^{-t}$']
+  answer: 1
+  explanation: |-
+    $c_1 + c_2 = 5$, $4c_1 - c_2 = 0$, so $c_1 = 1$, $c_2 = 4$.
+- id: de-q-1903
+  lesson: de-char-real
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Solve $y'''' + 4y'' + 4y = 0$, $y(0) = 1$, $y''(0) = 1$.'
+  choices: ['$(1 + t)e^{-2t}$', '$e^{-2t} + 3e^{2t}$', '$(1 - t)e^{-2t}$', '$(1 + 3t)e^{-2t}$']
+  answer: 3
+  explanation: |-
+    Double root $r = -2$: $y = (c_1 + c_2t)e^{-2t}$. $c_1 = 1$ and $y'(0) = c_2 - 2c_1 = 1$ gives $c_2 = 3$. Forgetting the $-2c_1$ gives $c_2 = 1$.
+- id: de-q-1904
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'What are the roots of the characteristic equation of $2y'''' + 5y'' + 2y = 0$?'
+  choices: ['$-\tfrac12$ and $-2$', '$-1$ and $-4$', '$\tfrac12$ and $2$', '$-\tfrac52$ and $-1$']
+  answer: 0
+  explanation: |-
+    $2r^2 + 5r + 2 = (2r + 1)(r + 2)$. Ignoring the leading 2 leads to $-1$ and $-4$.
+- id: de-q-1905
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'Which equation has general solution $c_1e^{2t} + c_2e^{-5t}$?'
+  choices: ['$y'''' - 3y'' - 10y = 0$', '$y'''' - 7y'' + 10y = 0$', '$y'''' + 3y'' - 10y = 0$', '$y'''' + 3y'' + 10y = 0$']
+  answer: 2
+  explanation: |-
+    $(r - 2)(r + 5) = r^2 + 3r - 10$.
+- id: de-q-1906
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'Why is $te^{rt}$ needed when $r$ is a repeated root?'
+  choices: ['Because $e^{rt}$ is not a solution', 'Because the roots are complex', 'To match a nonzero forcing term', 'Because $e^{rt}$ gives only one independent solution and a second-order equation needs two']
+  answer: 3
+  explanation: |-
+    With one root, $c_1e^{rt} + c_2e^{rt} = (c_1 + c_2)e^{rt}$ is still a one-parameter family. $te^{rt}$ supplies a second, independent solution.
+- id: de-q-1907
+  lesson: de-char-real
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Solve $y'''' - 4y = 0$, $y(0) = 0$, $y''(0) = 4$.'
+  choices: ['$2e^{2t} - 2e^{-2t}$', '$e^{2t} - e^{-2t}$', '$\sin 2t$', '$2\sin 2t$']
+  answer: 1
+  explanation: |-
+    Roots $\pm 2$. $c_1 + c_2 = 0$ and $2c_1 - 2c_2 = 4$ give $c_1 = 1$, $c_2 = -1$. (Equivalently $2\sinh 2t$.) Sine answers come from $y'' + 4y = 0$.
+- id: de-q-1908
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'Solve $y'''' - 2y'' + y = 0$, $y(0) = 3$, $y''(0) = 1$.'
+  choices: ['$(3 + t)e^{t}$', '$(3 - 2t)e^{-t}$', '$(3 - 2t)e^{t}$', '$3e^t - 2e^{-t}$']
+  answer: 2
+  explanation: |-
+    $(r - 1)^2 = 0$, so $y = (c_1 + c_2t)e^t$. $c_1 = 3$; $y'(0) = c_2 + c_1 = 1$ gives $c_2 = -2$.
+- id: de-q-1909
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'All solutions of $y'''' + 5y'' + 6y = 0$ satisfy which as $t \to \infty$?'
+  choices: ['$y \to 0$', '$y \to \infty$', '$y$ oscillates', '$y \to 5$']
+  answer: 0
+  explanation: |-
+    Roots $-2$ and $-3$ are both negative, so both exponentials decay.
+- id: de-q-1910
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'Find the general solution of $y'''' + 5y'' = 0$.'
+  choices: ['$c_1 + c_2e^{-5t}$', '$c_1e^{5t} + c_2$', '$(c_1 + c_2t)e^{-5t}$', '$c_1\cos 5t + c_2\sin 5t$']
+  answer: 0
+  explanation: |-
+    $r^2 + 5r = r(r + 5)$: roots $0$ and $-5$. The root 0 gives the constant solution $e^{0t} = 1$.
+- id: de-q-1911
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: 'For which value of $k$ does $y'''' + ky'' + 16y = 0$ have a repeated characteristic root with $r < 0$?'
+  choices: ['$k = -8$', '$k = 4$', '$k = 8$', '$k = 16$']
+  answer: 2
+  explanation: |-
+    Repeated root when $k^2 = 64$, so $k = \pm 8$; the root is $-k/2$, negative when $k = 8$ (root $-4$).
+# Lesson 20
+- id: de-q-2001
+  lesson: de-char-complex
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Find the general solution of $y'''' + 6y'' + 13y = 0$.'
+  choices: ['$e^{-2t}(c_1\cos 3t + c_2\sin 3t)$', '$e^{-3t}(c_1\cos 2t + c_2\sin 2t)$', '$e^{3t}(c_1\cos 2t + c_2\sin 2t)$', '$c_1e^{-3t} + c_2e^{2t}$']
+  answer: 1
+  explanation: |-
+    $r = \dfrac{-6 \pm \sqrt{36 - 52}}{2} = -3 \pm 2i$. The real part $-3$ goes in the exponential, the imaginary part 2 in the trig functions.
+- id: de-q-2002
+  lesson: de-char-complex
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'Solve $y'''' + 9y = 0$, $y(0) = 2$, $y''(0) = 6$.'
+  choices: ['$2\cos 3t + 6\sin 3t$', '$2\cos 9t + \tfrac23\sin 9t$', '$2e^{3t}$', '$2\cos 3t + 2\sin 3t$']
+  answer: 3
+  explanation: |-
+    $y = c_1\cos 3t + c_2\sin 3t$; $c_1 = 2$ and $y'(0) = 3c_2 = 6$, so $c_2 = 2$. Forgetting the factor 3 from the chain rule gives $6\sin 3t$.
+- id: de-q-2003
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Solve $y'''' + 6y'' + 13y = 0$, $y(0) = 1$, $y''(0) = 1$.'
+  choices: ['$e^{-3t}(\cos 2t + \tfrac12\sin 2t)$', '$e^{-3t}(\cos 2t + 2\sin 2t)$', '$e^{-3t}(\cos 2t - \sin 2t)$', '$e^{-3t}(\cos 2t + 4\sin 2t)$']
+  answer: 1
+  explanation: |-
+    $c_1 = 1$ and $y'(0) = \lambda c_1 + \mu c_2 = -3 + 2c_2 = 1$, so $c_2 = 2$. Using $y'(0) = \mu c_2$ alone gives $\tfrac12$.
+- id: de-q-2004
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Euler''s formula states that $e^{i\theta} =$'
+  choices: ['$\sin\theta + i\cos\theta$', '$\cos\theta - i\sin\theta$', '$e^{\theta}(\cos\theta + i\sin\theta)$', '$\cos\theta + i\sin\theta$']
+  answer: 3
+  explanation: |-
+    It follows from the Taylor series of $e^x$, $\cos x$ and $\sin x$. With $-\theta$ it gives $\cos\theta - i\sin\theta$.
+- id: de-q-2005
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Write $3\cos 2t + 4\sin 2t$ in the form $R\cos(2t - \delta)$. What is $R$?'
+  choices: ['5', '7', '1', '25']
+  answer: 0
+  explanation: |-
+    $R = \sqrt{3^2 + 4^2} = 5$, with $\cos\delta = 3/5$, $\sin\delta = 4/5$.
+- id: de-q-2006
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Solutions of $y'''' - 2y'' + 10y = 0$ behave how as $t \to \infty$?'
+  choices: ['They oscillate and decay', 'They grow without oscillating', 'They oscillate with growing amplitude', 'They oscillate with constant amplitude']
+  answer: 2
+  explanation: |-
+    $r = 1 \pm 3i$: real part $+1 > 0$, so the envelope $e^{t}$ grows while $\cos 3t$, $\sin 3t$ oscillate.
+- id: de-q-2007
+  lesson: de-char-complex
+  module_quiz: true
+  topic: Characteristic equation
+  stem: 'What is the period of oscillation of solutions of $y'''' + 2y'' + 5y = 0$?'
+  choices: ['$2\pi$', '$\pi/2$', '$2\pi/\sqrt5$', '$\pi$']
+  answer: 3
+  explanation: |-
+    $r = -1 \pm 2i$, so $\mu = 2$ and the quasi-period is $2\pi/2 = \pi$. Using $\sqrt{5}$ (the coefficient of $y$) ignores the damping.
+- id: de-q-2008
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Why can we use $e^{\lambda t}\cos\mu t$ and $e^{\lambda t}\sin\mu t$ instead of the complex solutions $e^{(\lambda \pm i\mu)t}$?'
+  choices: ['Because the complex solutions are wrong', 'For a linear equation with real coefficients, the real and imaginary parts of a complex solution are solutions', 'Because $\cos$ and $\sin$ are the only periodic functions', 'Because the Wronskian of the complex solutions is zero']
+  answer: 1
+  explanation: |-
+    $L[u + iv] = L[u] + iL[v] = 0$ forces $L[u] = 0$ and $L[v] = 0$. The real pair is equivalent to the complex pair, with nonzero Wronskian $\mu e^{2\lambda t}$.
+- id: de-q-2009
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Solve $y'''' + 2y'' + 2y = 0$, $y(0) = 0$, $y''(0) = 2$.'
+  choices: ['$e^{-t}\sin t$', '$2e^{t}\sin t$', '$2e^{-t}\sin t$', '$2e^{-t}\cos t$']
+  answer: 2
+  explanation: |-
+    $r = -1 \pm i$. $c_1 = 0$, and $y'(0) = -c_1 + c_2 = 2$, so $c_2 = 2$.
+- id: de-q-2010
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Write $-\cos t + \sin t$ as $R\cos(t - \delta)$. Which $\delta$ is correct?'
+  choices: ['$\delta = \dfrac{3\pi}{4}$', '$\delta = -\dfrac{\pi}{4}$', '$\delta = \dfrac{\pi}{4}$', '$\delta = -\dfrac{3\pi}{4}$']
+  answer: 0
+  explanation: |-
+    $R = \sqrt2$, $\cos\delta = -1/\sqrt2$, $\sin\delta = 1/\sqrt2$: second quadrant, $\delta = 3\pi/4$. $\arctan(1/(-1)) = -\pi/4$ is in the wrong quadrant because $c_1 < 0$.
+- id: de-q-2011
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: 'Which equation has solutions $e^{2t}\cos 5t$ and $e^{2t}\sin 5t$?'
+  choices: ['$y'''' - 4y'' + 29y = 0$', '$y'''' + 4y'' + 29y = 0$', '$y'''' - 4y'' + 25y = 0$', '$y'''' - 2y'' + 5y = 0$']
+  answer: 0
+  explanation: |-
+    Roots $2 \pm 5i$: $(r - 2)^2 + 25 = r^2 - 4r + 29$.
+# Lesson 21
+- id: de-q-2101
+  lesson: de-reduction
+  module_quiz: true
+  topic: Reduction of order
+  stem: 'In reduction of order, a second solution is sought in the form'
+  choices: ['$y_2 = y_1 + v(t)$', '$y_2 = c\,y_1$', '$y_2 = v(t)\,y_1(t)$', '$y_2 = y_1''$']
+  answer: 2
+  explanation: |-
+    Letting the "constant" multiplier vary turns the problem into a first-order equation for $v'$. A constant multiple would give nothing new.
+- id: de-q-2102
+  lesson: de-reduction
+  module_quiz: true
+  topic: Reduction of order
+  stem: 'Given $y_1 = t^2$ solves $t^2y'''' - 3ty'' + 4y = 0$ ($t > 0$), what is a second solution?'
+  choices: ['$t^{-2}$', '$t^2\ln t$', '$t^3$', '$t\ln t$']
+  answer: 1
+  explanation: |-
+    $p = -3/t$, $e^{-\int p} = t^3$, and $\int \frac{t^3}{t^4}dt = \ln t$, so $y_2 = t^2\ln t$. The indicial equation $m^2 - 4m + 4 = 0$ has a double root 2, which confirms it.
+- id: de-q-2103
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Find the indicial equation of $t^2y'''' + 4ty'' + 2y = 0$.'
+  choices: ['$m^2 + 4m + 2 = 0$', '$m^2 + 5m + 2 = 0$', '$m^2 - 3m + 2 = 0$', '$m^2 + 3m + 2 = 0$']
+  answer: 3
+  explanation: |-
+    $m(m - 1) + 4m + 2 = m^2 + 3m + 2$. Writing $am^2$ instead of $am(m - 1)$ gives $m^2 + 4m + 2$.
+- id: de-q-2104
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Find the general solution of $t^2y'''' + 4ty'' + 2y = 0$, $t > 0$.'
+  choices: ['$c_1t + c_2t^2$', '$c_1t^{-1} + c_2t^{-2}$', '$c_1e^{-t} + c_2e^{-2t}$', '$(c_1 + c_2\ln t)t^{-1}$']
+  answer: 1
+  explanation: |-
+    $m^2 + 3m + 2 = (m + 1)(m + 2)$: $m = -1, -2$, so $y = c_1t^{-1} + c_2t^{-2}$. Exponentials belong to constant-coefficient equations.
+- id: de-q-2105
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Solve $t^2y'''' + ty'' - 9y = 0$, $y(1) = 2$, $y''(1) = 0$.'
+  choices: ['$2t^3$', '$t^3 - t^{-3}$', '$2\cos(3\ln t)$', '$t^3 + t^{-3}$']
+  answer: 3
+  explanation: |-
+    $m^2 - 9 = 0$, $m = \pm 3$. $c_1 + c_2 = 2$ and $3c_1 - 3c_2 = 0$ give $c_1 = c_2 = 1$.
+- id: de-q-2106
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Substituting $y = ve^{3t}$ into $y'''' - 6y'' + 9y = 0$ gives which equation for $v$?'
+  choices: ['$v'''' = 0$', '$v'''' + 6v'' = 0$', '$v'' = 0$', '$v'''' - 9v = 0$']
+  answer: 0
+  explanation: |-
+    All $v$ and $v'$ terms cancel, leaving $e^{3t}v'' = 0$. So $v = c_1 + c_2t$ and the new solution is $te^{3t}$.
+- id: de-q-2107
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Before using $y_2 = y_1\int e^{-\int p\,dt}/y_1^2\,dt$ on $ty'''' + 2y'' + ty = 0$, what is $p$?'
+  choices: ['$2$', '$t$', '$\dfrac{2}{t}$', '$\dfrac{t}{2}$']
+  answer: 2
+  explanation: |-
+    Divide by $t$ to get standard form $y'' + \tfrac2t y' + y = 0$. Skipping the division gives $p = 2$, a common error.
+- id: de-q-2108
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'The Cauchy–Euler equation $t^2y'''' + ty'' + 4y = 0$ ($t > 0$) has general solution'
+  choices: ['$c_1\cos 2t + c_2\sin 2t$', '$c_1t^2 + c_2t^{-2}$', '$t^2(c_1 + c_2\ln t)$', '$c_1\cos(2\ln t) + c_2\sin(2\ln t)$']
+  answer: 3
+  explanation: |-
+    Indicial: $m(m - 1) + m + 4 = m^2 + 4 = 0$, $m = \pm 2i$. So $t^0(c_1\cos(2\ln t) + c_2\sin(2\ln t))$.
+- id: de-q-2109
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Why do the terms involving $v$ itself (not its derivatives) cancel in reduction of order?'
+  choices: ['Because $v$ is constant', 'Their coefficient is $y_1'''' + py_1'' + qy_1$, which is zero since $y_1$ is a solution', 'Because $p = 0$', 'They don''t always cancel']
+  answer: 1
+  explanation: |-
+    Collecting terms gives $v(y_1'' + py_1' + qy_1) + \dots$, and that bracket is $L[y_1] = 0$.
+- id: de-q-2110
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Which substitution turns a Cauchy–Euler equation into one with constant coefficients?'
+  choices: ['$t = \ln x$', '$y = e^{t}v$', '$t = e^x$', '$y = t v$']
+  answer: 2
+  explanation: |-
+    With $t = e^x$, $t^m = e^{mx}$ and $\ln t = x$, which is why the three Cauchy–Euler cases mirror the constant-coefficient cases.
+- id: de-q-2111
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: 'Given $y_1 = e^{t}$ solves $ty'''' - (t + 1)y'' + y = 0$ ($t > 0$), the reduction-of-order formula gives $y_2 = e^t\displaystyle\int (\cdots)\,dt$. Which integrand is correct, and what solution results?'
+  choices: ['$te^{-t}$, giving $y_2 = -(t + 1)$, so $t + 1$ is a solution', '$e^{-t}$, giving $y_2 = -1$', '$(t + 1)e^{-t}$', '$t^2e^{-t}$']
+  answer: 0
+  explanation: |-
+    Standard form: $p = -\dfrac{t + 1}{t}$, so $-\int p\,dt = t + \ln t$ and $e^{-\int p} = te^{t}$. Then $\dfrac{te^t}{e^{2t}} = te^{-t}$, $\int te^{-t}dt = -(t + 1)e^{-t}$, and $y_2 = -(t + 1)$. Check: $0 - (t + 1) + (t + 1) = 0$.

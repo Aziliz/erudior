@@ -1,0 +1,220 @@
+# Module 1 drills
+- id: de-verify-1
+  title: Exponential solutions of a second-order equation
+  topic: DE basics
+  vars:
+    r1: {min: -6, max: 6}
+    r2: {min: -6, max: 6}
+  where: ['r1 < r2', 'r1 + r2 != 0', 'r1*r2 != 0']
+  calc:
+    s: -(r1 + r2)
+    p: r1*r2
+  prompt: 'Find both values of $k$ for which $y = e^{kt}$ solves $y'''' {s:signedcoef}y'' {p:signedcoef}y = 0$. Smaller value first.'
+  answers:
+    - {name: r1, label: '$k_1 =$'}
+    - {name: r2, label: '$k_2 =$'}
+  solution: |-
+    Substitute $y = e^{kt}$, $y' = ke^{kt}$, $y'' = k^2e^{kt}$: $(k^2 {s:signedcoef}k {p:signedcoef})e^{kt} = 0$. Since $e^{kt} \ne 0$, factor $k^2 {s:signedcoef}k {p:signed} = (k - ({r1}))(k - ({r2})) = 0$, so $k =$ **{r1}** and $k =$ **{r2}**.
+- id: de-ivp-constant
+  title: Solve y′ = f(t) with an initial condition
+  topic: DE basics
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -5, max: 5}
+    y1: {min: -10, max: 10}
+  where: ['a != 0', 'b != 0']
+  calc:
+    a3: 3*a
+    b2: 2*b
+    C: y1 - a - b
+  prompt: 'Solve $\dfrac{dy}{dt} = {a3}t^2 {b2:signed}t$ with $y(1) = {y1}$. Give $y$ as a function of $t$.'
+  answers:
+    - {kind: expression, expression: 'a*t^3 + b*t^2 + C', variables: [t], label: '$y =$'}
+  solution: |-
+    Integrate: $y = {a:coef}t^3 {b:signedcoef}t^2 + C$. At $t = 1$: ${y1} = {a} + ({b}) + C$, so $C = {C}$. Answer: $y =$ **${a:coef}t^3 {b:signedcoef}t^2 {C:signed}$**.
+- id: de-slope-eval
+  title: Read a slope from a slope field equation
+  topic: Slope fields
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    p: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+  where: ['a != 0', 'b != 0']
+  calc:
+    m: a*p + b*q
+  prompt: 'In the slope field of $\dfrac{dy}{dx} = {a:coef}x {b:signedcoef}y$, what is the slope of the segment drawn at the point $({p}, {q})$?'
+  answers:
+    - {name: m, label: 'Slope'}
+  figure:
+    type: plot
+    x: [-4, 4]
+    y: [-4, 4]
+    slopeField: {f: 'a*x + b*y', step: 0.5}
+    points: [{at: [p, q], label: '({p}, {q})'}]
+  solution: |-
+    Substitute $x = {p}$ and $y = {q}$: ${a}({p}) + ({b})({q}) =$ **{m}**.
+- id: de-isocline
+  title: Points on an isocline
+  topic: Slope fields
+  vars:
+    a: {min: -4, max: 4}
+    m: {min: -5, max: 5}
+    p: {min: -4, max: 4}
+  where: ['a != 0']
+  calc:
+    yv: m - a*p
+  prompt: 'For $\dfrac{dy}{dx} = {a:coef}x + y$, the isocline of slope ${m}$ is a line. At $x = {p}$, what is the $y$-coordinate of the point on that isocline?'
+  answers:
+    - {name: yv, label: '$y =$'}
+  solution: |-
+    The isocline of slope ${m}$ is ${a:coef}x + y = {m}$, that is $y = {m} - ({a})x$. At $x = {p}$: $y = {m} - ({a})({p}) =$ **{yv}**.
+- id: de-sep-exp
+  title: Separable equation with an exponential solution
+  topic: Separable equations
+  vars:
+    a: {min: 1, max: 4}
+    y0: {min: -6, max: 6}
+    sg: {choices: [-1, 1]}
+  where: ['y0 != 0']
+  calc:
+    c: sg*a
+    c2: 2*c
+  prompt: 'Solve $\dfrac{dy}{dt} = {c2}ty$ with $y(0) = {y0}$.'
+  answers:
+    - {kind: expression, expression: 'y0*exp(c*t^2)', variables: [t], label: '$y =$', show: '$y = {y0:coef}e^{{c:coef}t^2}$'}
+  solution: |-
+    Separate: $\dfrac{dy}{y} = {c2}t\,dt$, so $\ln|y| = {c:coef}t^2 + C$ and $y = Ae^{{c:coef}t^2}$. At $t = 0$, $A = {y0}$. Answer: **$y = {y0:coef}e^{{c:coef}t^2}$**.
+- id: de-sep-power
+  title: Separable equation with a square-root solution
+  topic: Separable equations
+  vars:
+    m: {min: 1, max: 4}
+    y0: {min: 1, max: 6}
+  calc:
+    c: 3*m/2
+    c2: 3*m
+    yy: y0^2
+  prompt: 'Solve $\dfrac{dy}{dx} = \dfrac{{c2}x^2}{2y}$ with $y(0) = {y0}$. Give $y$ as a function of $x$ (the solution valid near $x = 0$).'
+  answers:
+    - {kind: expression, expression: 'sqrt(m*x^3 + yy)', variables: [x], label: '$y =$'}
+  solution: |-
+    Separate: $2y\,dy = {c2}x^2\,dx$, so $y^2 = {m:coef}x^3 + C$. At $x = 0$: $C = {y0}^2 = {yy}$. Since $y(0) > 0$ take the positive root: **$y = \sqrt{{m:coef}x^3 + {yy}}$**.
+- id: de-sep-y2
+  title: A solution that blows up
+  topic: Separable equations
+  vars:
+    k: {min: 1, max: 3}
+    y0: {min: 1, max: 4}
+  calc:
+    ky: k*y0
+    xb: 1/(k*y0)
+    ym: y0/(1 + k*y0)
+  prompt: 'Solve $\dfrac{dy}{dx} = {k:coef}y^2$ with $y(0) = {y0}$. Give $y(-1)$ and the value of $x > 0$ where the solution blows up, both as exact fractions.'
+  answers:
+    - {name: ym, label: '$y(-1) =$', kind: fraction, lowestTerms: true}
+    - {name: xb, label: 'Blow-up at $x =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $y^{-2}dy = {k}\,dx$ gives $-\dfrac1y = {k:coef}x + C$, and $y(0) = {y0}$ gives $C = -\dfrac{1}{{y0}}$. Solving, $y = \dfrac{{y0}}{1 - {ky:coef}x}$. Then $y(-1) = \dfrac{{y0}}{1 + {ky}} =$ **{ym:frac}**, and the denominator is zero at $x = \dfrac{1}{{ky}} =$ **{xb:frac}**.
+- id: de-exp-model
+  title: Exponential growth from two data points
+  topic: Exponential growth
+  vars:
+    P0: {min: 100, max: 900, step: 50}
+    r: {choices: [1.5, 2, 2.5, 3, 4]}
+    t1: {min: 2, max: 6}
+    t2: {min: 7, max: 12}
+  calc:
+    P1: P0*r
+    kk: ln(r)/t1
+    P2: P0*r^(t2/t1)
+  prompt: 'A culture grows exponentially from {P0} cells to {P1} cells in {t1} hours. How many cells are there after {t2} hours? (Nearest whole cell is fine.)'
+  answers:
+    - {name: P2, label: 'Cells', relTolerance: 0.002}
+  solution: |-
+    $P = {P0}e^{kt}$ with $e^{{t1}k} = {P1:sig6}/{P0} = {r}$, so $k = \dfrac{\ln {r}}{{t1}} \approx {kk:num4}$. Then $P({t2}) = {P0}\cdot {r}^{{t2}/{t1}} \approx$ **{P2:num1}** cells.
+- id: de-logistic-value
+  title: Evaluate a logistic solution
+  topic: Logistic growth
+  vars:
+    K: {min: 500, max: 5000, step: 500}
+    P0: {min: 50, max: 400, step: 50}
+    k: {choices: [0.2, 0.3, 0.4, 0.5, 0.6, 0.8]}
+    t1: {min: 2, max: 10}
+  where: ['K != 2*P0']
+  calc:
+    A: (K - P0)/P0
+    Pt: K/(1 + A*exp(-k*t1))
+  prompt: 'A population satisfies $\dfrac{dP}{dt} = {k}P\left(1 - \dfrac{P}{{K:sig6}}\right)$ with $P(0) = {P0}$. Find $P({t1})$ to the nearest whole number.'
+  answers:
+    - {name: Pt, label: '$P({t1}) \approx$', relTolerance: 0.002}
+  solution: |-
+    $A = \dfrac{K - P_0}{P_0} = \dfrac{{K:sig6} - {P0}}{{P0}} = {A:num4}$, so $P(t) = \dfrac{{K:sig6}}{1 + {A:num4}e^{-{k}t}}$. At $t = {t1}$: **{Pt:num1}**.
+- id: de-logistic-max
+  title: Carrying capacity and maximum growth rate
+  topic: Logistic growth
+  vars:
+    c: {choices: [0.001, 0.002, 0.004, 0.005]}
+    M: {min: 200, max: 2000, step: 100}
+  calc:
+    kk: c*M
+    R: c*M^2/4
+    half: M/2
+  prompt: 'A population satisfies $\dfrac{dP}{dt} = {c:sig3}P({M:sig6} - P)$. Find the carrying capacity and the largest possible growth rate $dP/dt$.'
+  answers:
+    - {name: M, label: '$K =$'}
+    - {name: R, label: 'Max rate', relTolerance: 0.001}
+  solution: |-
+    Factor: ${c:sig3}P({M:sig6} - P) = {kk:coef}P\left(1 - \dfrac{P}{{M:sig6}}\right)$, so $K =$ **{M}** and $k = {kk}$. The rate is largest at $P = K/2 = {half}$: ${c:sig3}\cdot{half}\cdot{half} =$ **{R:num2}**.
+- id: de-euler-2step
+  title: Two steps of Euler's method
+  topic: Euler's method
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -2, max: 2}
+    x0: {min: 0, max: 2}
+    y0: {min: -3, max: 4}
+    h: {choices: [0.1, 0.2, 0.5]}
+  where: ['a != 0', 'b != 0']
+  calc:
+    s0: a*x0 + b*y0
+    y1: y0 + h*s0
+    x1: x0 + h
+    s1: a*x1 + b*y1
+    y2: y1 + h*s1
+    x2: x0 + 2*h
+  prompt: 'Use Euler''s method with step $h = {h}$ to estimate $y({x2})$ for $\dfrac{dy}{dx} = {a:coef}x {b:signedcoef}y$, $y({x0}) = {y0}$. (Give 4 decimal places.)'
+  answers:
+    - {name: y2, label: '$y({x2}) \approx$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Step 1: slope at $({x0}, {y0})$ is $({a})({x0}) + ({b})({y0}) = {s0:num4}$, so $y_1 = {y0} + {h}({s0:num4}) = {y1:num4}$ at $x = {x1}$.
+    Step 2: slope at $({x1}, {y1:num4})$ is ${s1:num4}$, so $y_2 = {y1:num4} + {h}({s1:num4}) =$ **{y2:num4}**.
+- id: de-euler-3step
+  title: Three steps of Euler's method
+  topic: Euler's method
+  vars:
+    y0: {min: 1, max: 3}
+    c: {min: 1, max: 3}
+    h: {choices: [0.1, 0.2]}
+  calc:
+    s0: y0 - c*0^2
+    y1: y0 + h*s0
+    s1: y1 - c*h^2
+    y2: y1 + h*s1
+    s2: y2 - c*(2*h)^2
+    y3: y2 + h*s2
+    xe: 3*h
+    x1: h
+    x2: 2*h
+  prompt: 'Use three steps of Euler''s method with $h = {h}$ to estimate $y({xe})$ for $\dfrac{dy}{dx} = y - {c:coef}x^2$, $y(0) = {y0}$. (Give 4 decimal places.)'
+  answers:
+    - {name: y3, label: '$y({xe}) \approx$', tolerance: 0.0005, format: num4}
+  solution: |-
+    | $n$ | $x_n$ | $y_n$ | slope $y_n - {c:coef}x_n^2$ |
+    |---|---|---|---|
+    | 0 | 0 | {y0} | {s0:num4} |
+    | 1 | {x1} | {y1:num4} | {s1:num4} |
+    | 2 | {x2} | {y2:num4} | {s2:num4} |
+    | 3 | {xe} | **{y3:num4}** | |
+
+    Each row: $y_{n+1} = y_n + {h}\cdot(\text{slope})$.

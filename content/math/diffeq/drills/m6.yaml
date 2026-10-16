@@ -1,0 +1,208 @@
+# Module 6 drills
+- id: de-uc-poly
+  title: Particular solution for polynomial forcing
+  topic: Undetermined coefficients
+  vars:
+    b: {min: -4, max: 4}
+    c: {min: -5, max: 5}
+    A: {min: -4, max: 4}
+    B: {min: -5, max: 5}
+  where: ['c != 0', 'A != 0', 'b != 0']
+  calc:
+    p: c*A
+    q: b*A + c*B
+  prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {c:signedcoef}y = {p:coef}t {q:signed}$.'
+  answers:
+    - {kind: expression, expression: 'A*t + B', variables: [t], label: '$Y =$'}
+  solution: |-
+    Guess $Y = At + B$, so $Y' = A$ and $Y'' = 0$. Substituting: $({b})A + ({c})(At + B) = ({c})At + \big(({b})A + ({c})B\big)$. Matching $t$: $({c})A = {p}$, so $A = {A}$. Matching constants: $({b})({A}) + ({c})B = {q}$, so $B = {B}$. Answer: **$Y = {A:coef}t {B:signed}$**.
+- id: de-uc-exp
+  title: Particular solution for exponential forcing
+  topic: Undetermined coefficients
+  vars:
+    b: {min: -4, max: 4}
+    c: {min: -6, max: 6}
+    al: {min: -3, max: 3}
+    A: {min: -3, max: 3}
+  where: ['al^2 + b*al + c != 0', 'al != 0', 'A != 0', 'c != 0', 'b != 0']
+  calc:
+    P: al^2 + b*al + c
+    K: A*P
+  prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {c:signedcoef}y = {K:coef}e^{{al:coef}t}$.'
+  answers:
+    - {kind: expression, expression: 'A*exp(al*t)', variables: [t], label: '$Y =$', show: '$Y = {A:coef}e^{{al:coef}t}$'}
+  solution: |-
+    Since ${al}$ is not a characteristic root, guess $Y = Ae^{{al:coef}t}$. Substituting gives $A\big(({al})^2 + ({b})({al}) + ({c})\big)e^{{al:coef}t} = {P:coef}Ae^{{al:coef}t} = {K:coef}e^{{al:coef}t}$, so $A = {A}$. Answer: **$Y = {A:coef}e^{{al:coef}t}$**.
+- id: de-uc-trig
+  title: Particular solution for trigonometric forcing
+  topic: Undetermined coefficients
+  vars:
+    b: {min: 1, max: 4}
+    c: {min: 1, max: 9}
+    w: {min: 1, max: 3}
+    A: {min: -3, max: 3}
+    B: {min: -3, max: 3}
+  where: ['c != w^2', 'A != 0', 'B != 0', 'P != 0', 'Q != 0']
+  calc:
+    d: c - w^2
+    P: d*A + b*w*B
+    Q: d*B - b*w*A
+    bw: b*w
+    w2: w^2
+  prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {c:signedcoef}y = {P:coef}\cos {w:coef}t {Q:signedcoef}\sin {w:coef}t$.'
+  answers:
+    - {kind: expression, expression: 'A*cos(w*t) + B*sin(w*t)', variables: [t], label: '$Y =$', show: '$Y = {A:coef}\cos {w:coef}t {B:signedcoef}\sin {w:coef}t$'}
+  solution: |-
+    Guess $Y = A\cos {w:coef}t + B\sin {w:coef}t$. Then $Y'' = -{w2:coef}Y$, and collecting terms: $\cos$: $({d})A + {bw:coef}B = {P}$; $\sin$: $({d})B - {bw:coef}A = {Q}$. Solving gives $A = {A}$, $B = {B}$. Answer: **$Y = {A:coef}\cos {w:coef}t {B:signedcoef}\sin {w:coef}t$**.
+- id: de-vp-sec
+  title: Variation of parameters with a secant
+  topic: Variation of parameters
+  vars:
+    w: {min: 1, max: 2}
+    c: {min: 1, max: 4}
+  calc:
+    w2: w^2
+    cw: c/w
+    cw2: c/w^2
+  prompt: 'Use variation of parameters to find a particular solution of $y'''' + {w2:coef}y = {c:coef}\sec {w:coef}t$ near $t = 0$ (use $y_1 = \cos {w:coef}t$, $y_2 = \sin {w:coef}t$, and drop constants of integration).'
+  answers:
+    - {kind: expression, expression: 'cw2*cos(w*t)*ln(cos(w*t)) + cw*t*sin(w*t)', variables: [t], label: '$Y =$', show: '$Y = {cw2:coef}\cos {w:coef}t\,\ln(\cos {w:coef}t) + {cw:coef}\,t\sin {w:coef}t$'}
+  solution: |-
+    $W = {w}$. $u_1' = -\dfrac{y_2g}{W} = -\dfrac{{c}}{{w}}\tan {w:coef}t$, so $u_1 = \dfrac{{c}}{{w2}}\ln(\cos {w:coef}t)$. $u_2' = \dfrac{y_1g}{W} = \dfrac{{c}}{{w}}$, so $u_2 = \dfrac{{c}}{{w}}t$. Answer: **$Y = {cw2:coef}\cos {w:coef}t\,\ln(\cos {w:coef}t) + {cw:coef}\,t\sin {w:coef}t$**.
+- id: de-vp-log
+  title: Variation of parameters with a repeated root
+  topic: Variation of parameters
+  vars:
+    a: {min: -2, max: 2}
+    c: {min: 1, max: 4}
+  where: ['a != 0']
+  calc:
+    b: -2*a
+    a2: a^2
+  prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {a2:signedcoef}y = \dfrac{{c:coef}e^{{a:coef}t}}{t}$ for $t > 0$, using variation of parameters with $y_1 = e^{{a:coef}t}$ and $y_2 = te^{{a:coef}t}$. Drop any multiple of $y_1$ or $y_2$.'
+  answers:
+    - {kind: expression, expression: 'c*t*exp(a*t)*ln(t)', variables: [t], label: '$Y =$', show: '$Y = {c:coef}te^{{a:coef}t}\ln t$'}
+  solution: |-
+    $W = y_1y_2' - y_1'y_2 = e^{2({a})t}$. Then $u_1' = -\dfrac{te^{{a:coef}t}\cdot {c:coef}e^{{a:coef}t}/t}{e^{2({a})t}} = -{c}$, so $u_1 = -{c:coef}t$, and $u_2' = \dfrac{{c}}{t}$, so $u_2 = {c:coef}\ln t$. $Y = -{c:coef}te^{{a:coef}t} + {c:coef}te^{{a:coef}t}\ln t$; drop the first term (a multiple of $y_2$): **$Y = {c:coef}te^{{a:coef}t}\ln t$**.
+- id: de-spring-k
+  title: Spring constant and natural frequency
+  topic: Mechanical vibrations
+  vars:
+    m: {choices: [0.5, 1, 2, 4, 5, 10]}
+    L: {choices: [0.049, 0.098, 0.196, 0.245, 0.49]}
+  calc:
+    k: m*9.8/L
+    w0: sqrt(k/m)
+  prompt: 'A {m} kg mass stretches a spring {L:sig3} m at equilibrium. Find the spring constant $k$ and the natural frequency $\omega_0$ of the undamped motion. ($g = 9.8$ m/s².)'
+  answers:
+    - {name: k, label: '$k$ (N/m)', relTolerance: 0.001}
+    - {name: w0, label: '$\omega_0$ (rad/s)', relTolerance: 0.002}
+  solution: |-
+    $kL = mg$ gives $k = \dfrac{{m}(9.8)}{{L:sig3}} =$ **{k:num2} N/m**. Then $\omega_0 = \sqrt{k/m} = \sqrt{9.8/{L:sig3}} \approx$ **{w0:num4} rad/s** (notice $m$ cancels).
+- id: de-damping-type
+  title: Critical damping
+  topic: Mechanical vibrations
+  vars:
+    m: {choices: [0.5, 1, 2, 3, 4]}
+    k: {min: 2, max: 50}
+  calc:
+    gc: 2*sqrt(k*m)
+    km4: 4*k*m
+  prompt: 'A mass of {m} kg hangs on a spring with $k = {k}$ N/m. What damping coefficient $\gamma$ makes the motion critically damped? (3 decimal places)'
+  answers:
+    - {name: gc, label: '$\gamma_c$ (N·s/m)', tolerance: 0.0006, format: dp3}
+  solution: |-
+    Critical damping means a repeated characteristic root: $\gamma^2 = 4km = {km4}$, so $\gamma_c = 2\sqrt{km} \approx$ **{gc:dp3}**. Smaller $\gamma$ is underdamped; larger is overdamped.
+- id: de-spring-amplitude
+  title: Amplitude and period of simple harmonic motion
+  topic: Mechanical vibrations
+  vars:
+    m: {choices: [0.25, 0.5, 1, 2, 4]}
+    k: {choices: [1, 4, 9, 16, 25, 36]}
+    u0: {min: -0.5, max: 0.5, step: 0.1}
+    v0: {min: -2, max: 2, step: 0.5}
+  where: ['abs(u0) > 0.05 or v0 != 0']
+  calc:
+    w0: sqrt(k/m)
+    B: v0/w0
+    R: sqrt(u0^2 + B^2)
+    T: 2*pi/w0
+  prompt: 'An undamped spring–mass system has $m = {m}$ kg and $k = {k}$ N/m, with $u(0) = {u0:num2}$ m and $u''(0) = {v0}$ m/s. Find the amplitude of the motion and its period. (3 decimal places)'
+  answers:
+    - {name: R, label: 'Amplitude (m)', tolerance: 0.0006, format: dp3}
+    - {name: T, label: 'Period (s)', tolerance: 0.0006, format: dp3}
+  solution: |-
+    $\omega_0 = \sqrt{{k}/{m}} = {w0:num4}$. The motion is $u = {u0:num2}\cos\omega_0t + B\sin\omega_0t$ with $B = \dfrac{u'(0)}{\omega_0} = {B:num4}$. Amplitude $R = \sqrt{A^2 + B^2} \approx$ **{R:dp3} m**; period $2\pi/\omega_0 \approx$ **{T:dp3} s**.
+- id: de-steady-amplitude
+  title: Steady-state amplitude of a forced oscillator
+  topic: Forced vibrations
+  vars:
+    m: {choices: [1, 2]}
+    gam: {choices: [0.5, 1, 2, 3]}
+    k: {min: 2, max: 20}
+    F0: {min: 1, max: 10}
+    w: {choices: [0.5, 1, 1.5, 2, 3]}
+  calc:
+    d: k - m*w^2
+    R: F0/sqrt(d^2 + gam^2*w^2)
+    gw: gam*w
+  prompt: 'Find the amplitude of the steady-state response of ${m:coef}u'''' + {gam:coef}u'' + {k}u = {F0}\cos({w:coef}t)$. (4 decimal places)'
+  answers:
+    - {name: R, label: 'Amplitude', tolerance: 0.00006, format: num4}
+  solution: |-
+    $R = \dfrac{F_0}{\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}} = \dfrac{{F0}}{\sqrt{({d:num4})^2 + ({gw:num4})^2}} \approx$ **{R:num4}**.
+- id: de-rlc-type
+  title: Quasi-frequency of an RLC circuit
+  topic: RLC circuits
+  vars:
+    L: {choices: [0.1, 0.2, 0.5, 1, 2]}
+    R: {choices: [1, 2, 4, 5, 10]}
+    cap: {choices: [0.001, 0.002, 0.005, 0.01, 0.02]}
+  where: ['R^2 < 4*L/cap']
+  calc:
+    disc: 4*L/cap - R^2
+    mu: sqrt(disc)/(2*L)
+    lam: -R/(2*L)
+  prompt: 'A series RLC circuit with no source has $L = {L}$ H, $R = {R}$ Ω and $C = {cap:sig3}$ F. It is underdamped. Find the quasi-frequency $\mu$ of the charge oscillation (rad/s, 2 decimal places).'
+  answers:
+    - {name: mu, label: '$\mu$ (rad/s)', tolerance: 0.006}
+  solution: |-
+    $Lq'' + Rq' + q/C = 0$ has roots $r = \dfrac{-R \pm \sqrt{R^2 - 4L/C}}{2L} = {lam:num2} \pm i\mu$ with $\mu = \dfrac{\sqrt{4L/C - R^2}}{2L} = \dfrac{\sqrt{{disc:num2}}}{2({L})} \approx$ **{mu:num2} rad/s**.
+- id: de-higher-roots
+  title: Roots of a cubic characteristic polynomial
+  topic: Higher-order equations
+  vars:
+    r1: {min: -4, max: 2}
+    r2: {min: -3, max: 3}
+    r3: {min: -2, max: 4}
+  where: ['r1 < r2', 'r2 < r3', 'r1*r2*r3 != 0', 'r1 + r2 + r3 != 0', 'r1*r2 + r1*r3 + r2*r3 != 0']
+  calc:
+    a2: -(r1 + r2 + r3)
+    a1: r1*r2 + r1*r3 + r2*r3
+    a0: -r1*r2*r3
+  prompt: 'The characteristic polynomial of $y'''''' {a2:signedcoef}y'''' {a1:signedcoef}y'' {a0:signedcoef}y = 0$ has three integer roots. Find them, smallest first.'
+  answers:
+    - {name: r1, label: '$r_1 =$'}
+    - {name: r2, label: '$r_2 =$'}
+    - {name: r3, label: '$r_3 =$'}
+  solution: |-
+    Test divisors of the constant term ${a0}$ to find one root, divide it out, and factor the quadratic: $r^3 {a2:signedcoef}r^2 {a1:signedcoef}r {a0:signed} = (r - ({r1}))(r - ({r2}))(r - ({r3}))$. Roots **{r1}**, **{r2}**, **{r3}**, so $y = c_1e^{{r1:coef}t} + c_2e^{{r2:coef}t} + c_3e^{{r3:coef}t}$.
+- id: de-higher-ivp
+  title: Third-order IVP
+  topic: Higher-order equations
+  vars:
+    k: {min: 1, max: 3}
+    c1: {min: -3, max: 3}
+    c2: {min: -2, max: 2}
+    c3: {min: -2, max: 2}
+  where: ['c2 != 0', 'c3 != 0']
+  calc:
+    k2: k^2
+    y0: c1 + c2 + c3
+    v0: k*(c2 - c3)
+    a0: k^2*(c2 + c3)
+  prompt: 'Solve $y'''''' - {k2:coef}y'' = 0$ with $y(0) = {y0}$, $y''(0) = {v0}$, $y''''(0) = {a0}$.'
+  answers:
+    - {kind: expression, expression: 'c1 + c2*exp(k*t) + c3*exp(-k*t)', variables: [t], label: '$y =$', show: '$y = {c1} {c2:signedcoef}e^{{k:coef}t} {c3:signedcoef}e^{-{k:coef}t}$'}
+  solution: |-
+    $r^3 - {k2:coef}r = r(r - {k})(r + {k})$, so $y = c_1 + c_2e^{{k:coef}t} + c_3e^{-{k:coef}t}$. Conditions: $c_1 + c_2 + c_3 = {y0}$, ${k}(c_2 - c_3) = {v0}$, ${k2}(c_2 + c_3) = {a0}$. So $c_2 - c_3 = {v0}/{k}$ and $c_2 + c_3 = {a0}/{k2}$, giving $c_2 = {c2}$, $c_3 = {c3}$, and $c_1 = {c1}$. Answer: **$y = {c1} {c2:signedcoef}e^{{k:coef}t} {c3:signedcoef}e^{-{k:coef}t}$**.

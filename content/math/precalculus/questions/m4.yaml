@@ -1,0 +1,408 @@
+- id: pc-q-1401
+  lesson: pc-exponential
+  module_quiz: true
+  topic: Exponential functions
+  stem: 'Which function is exponential?'
+  choices: ['$f(x) = x^3$', '$f(x) = 3 \cdot 2^x$', '$f(x) = \sqrt{x}$', '$f(x) = 2x + 3$']
+  answer: 1
+  explanation: |-
+    In an exponential function the variable is in the exponent and the base is a positive constant other than 1. $x^3$ and $\sqrt x = x^{1/2}$ are power functions; $2x + 3$ is linear.
+- id: pc-q-1402
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'Which point lies on the graph of $y = b^x$ for every allowed base $b$?'
+  choices: ['$(1, 0)$', '$(1, 1)$', '$(0, 1)$', '$(0, 0)$']
+  answer: 2
+  explanation: |-
+    $b^0 = 1$ for every $b > 0$, so $(0, 1)$ is always on the graph. $(1, 0)$ is the matching point for logarithms.
+- id: pc-q-1403
+  lesson: pc-exponential
+  module_quiz: true
+  topic: Exponential functions
+  stem: 'What is the horizontal asymptote of $y = 3^{x + 2} - 4$?'
+  choices: ['$y = 2$', '$y = -2$', '$y = 0$', '$y = -4$']
+  answer: 3
+  explanation: |-
+    The parent $3^x$ has asymptote $y = 0$. The horizontal shift (left 2) doesn't move a horizontal line; the vertical shift down 4 moves it to $y = -4$.
+- id: pc-q-1404
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'What is the range of $y = -2^x + 5$?'
+  choices: ['$(-\infty, 5)$', '$(5, \infty)$', '$(-\infty, 5]$', 'All real numbers']
+  answer: 0
+  explanation: |-
+    $-2^x$ means $-(2^x)$, which takes every negative value but never 0. Adding 5 gives every value less than 5, but never 5 itself: $(-\infty, 5)$.
+- id: pc-q-1405
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'How does $f(x) = 5(0.8)^x$ change each time $x$ increases by 1?'
+  choices: ['It grows by 80%', 'It decreases by 80%', 'It decreases by 20%', 'It decreases by 0.8']
+  answer: 2
+  explanation: |-
+    Each step multiplies by 0.8, which keeps 80% and loses 20%. It's a decay by a constant percentage, not by a constant amount.
+- id: pc-q-1406
+  lesson: pc-exponential
+  module_quiz: true
+  topic: Exponential functions
+  stem: '\$2,000 is invested at 5% interest compounded quarterly. To the nearest cent, what is it worth after 3 years?'
+  choices: ['\$2,300.00', '\$2,321.51', '\$2,315.25', '\$2,323.67']
+  answer: 1
+  explanation: |-
+    $A = 2000\left(1 + \frac{0.05}{4}\right)^{4 \cdot 3} = 2000(1.0125)^{12} \approx 2321.51$. Simple interest gives \$2,300; annual compounding gives $2000(1.05)^3 = 2315.25$; continuous gives about \$2,323.67.
+- id: pc-q-1407
+  lesson: pc-exponential
+  module_quiz: true
+  topic: Exponential functions
+  stem: '\$1,500 is invested at 3% compounded continuously. What is it worth after 8 years, to the nearest dollar?'
+  choices: ['\$1,860', '\$1,900', '\$1,907', '\$1,950']
+  answer: 2
+  explanation: |-
+    $A = Pe^{rt} = 1500e^{0.03 \cdot 8} = 1500e^{0.24} \approx 1906.87$, about \$1,907. Simple interest would give $1500(1 + 0.24) = 1860$.
+- id: pc-q-1408
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'Which expression gets closer and closer to $e$ as $n$ grows?'
+  choices: ['$\left(1 + \dfrac1n\right)^n$', '$1 + \dfrac1n$', '$\left(1 + n\right)^{1/n}$', '$n^{1/n}$']
+  answer: 0
+  explanation: |-
+    $\left(1 + \frac1n\right)^n$ is \$1 at 100% interest compounded $n$ times a year; as $n \to \infty$ it approaches $e \approx 2.71828$. $1 + \frac1n$ approaches 1, and $n^{1/n}$ also approaches 1.
+- id: pc-q-1409
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'How is the graph of $y = \left(\tfrac13\right)^x$ related to the graph of $y = 3^x$?'
+  choices: ['Reflection across the $x$-axis', 'Reflection across the $y$-axis', 'Reflection across $y = x$', 'Vertical compression by $\tfrac13$']
+  answer: 1
+  explanation: |-
+    $\left(\frac13\right)^x = 3^{-x}$, which replaces $x$ by $-x$: a reflection across the $y$-axis. (Reflection across $y = x$ gives the logarithm $\log_3 x$.)
+- id: pc-q-1410
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'A town of 12,000 people grows by 4% per year. Which model gives its population $t$ years from now?'
+  choices: ['$P = 12000(0.04)^t$', '$P = 12000(1.4)^t$', '$P = 12000 + 0.04t$', '$P = 12000(1.04)^t$']
+  answer: 3
+  explanation: |-
+    Growing 4% means multiplying by $1 + 0.04 = 1.04$ each year. $(0.04)^t$ would shrink to almost nothing; $1.4$ is 40% growth.
+- id: pc-q-1411
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'For very large $x$, which is larger: $1.01^x$ or $x^{100}$?'
+  choices: ['$1.01^x$', '$x^{100}$', 'They are always equal', 'It depends on the units']
+  answer: 0
+  explanation: |-
+    Any exponential with base greater than 1 eventually exceeds any polynomial. $x^{100}$ is bigger for a long while, but repeated multiplication by 1.01 eventually wins.
+- id: pc-q-1412
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'An exponential function $f(x) = a \cdot b^x$ passes through $(0, 3)$ and $(1, 6)$. What is $f(x)$?'
+  choices: ['$f(x) = 3 \cdot 3^x$', '$f(x) = 6 \cdot 2^x$', '$f(x) = 2 \cdot 3^x$', '$f(x) = 3 \cdot 2^x$']
+  answer: 3
+  explanation: |-
+    $f(0) = a = 3$. Then $f(1) = 3b = 6$, so $b = 2$. The output doubles each step: $f(x) = 3 \cdot 2^x$.
+
+- id: pc-q-1501
+  lesson: pc-logarithms
+  module_quiz: true
+  topic: Logarithms
+  stem: 'Evaluate $\log_2 32$.'
+  choices: ['$16$', '$5$', '$6$', '$\tfrac{1}{5}$']
+  answer: 1
+  explanation: |-
+    $\log_2 32$ asks for the exponent on 2 that gives 32. $2^5 = 32$, so it is 5.
+- id: pc-q-1502
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Evaluate $\log_5 \tfrac{1}{25}$.'
+  choices: ['$-2$', '$2$', '$\tfrac12$', '$-\tfrac12$']
+  answer: 0
+  explanation: |-
+    $\frac{1}{25} = 5^{-2}$, so the exponent is $-2$.
+- id: pc-q-1503
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Evaluate $\log_{27} 3$.'
+  choices: ['$3$', '$9$', '$-3$', '$\tfrac13$']
+  answer: 3
+  explanation: |-
+    $27^{1/3} = 3$, so $\log_{27} 3 = \frac13$. (The answer 3 is $\log_3 27$, the reverse.)
+- id: pc-q-1504
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'If $\log_b 81 = 4$, what is $b$?'
+  choices: ['$4$', '$20.25$', '$3$', '$9$']
+  answer: 2
+  explanation: |-
+    In exponential form, $b^4 = 81$. Since $3^4 = 81$, $b = 3$ (bases must be positive).
+- id: pc-q-1505
+  lesson: pc-logarithms
+  module_quiz: true
+  topic: Logarithms
+  stem: 'What is the domain of $f(x) = \ln(x - 3)$?'
+  choices: ['$[3, \infty)$', '$(0, \infty)$', '$(-3, \infty)$', '$(3, \infty)$']
+  answer: 3
+  explanation: |-
+    The argument of a log must be positive: $x - 3 > 0$, so $x > 3$. The endpoint is excluded because $\ln 0$ is undefined (it's the vertical asymptote).
+- id: pc-q-1506
+  lesson: pc-logarithms
+  module_quiz: true
+  topic: Logarithms
+  stem: 'Expand $\log\left(\dfrac{100x^3}{y}\right)$.'
+  choices: ['$2 + 3\log x - \log y$', '$100 + 3\log x - \log y$', '$2 \cdot 3\log x - \log y$', '$\dfrac{2 + 3\log x}{\log y}$']
+  answer: 0
+  explanation: |-
+    Product and quotient rules: $\log 100 + \log x^3 - \log y$. Then $\log 100 = 2$ and the power rule gives $3\log x$.
+- id: pc-q-1507
+  lesson: pc-logarithms
+  module_quiz: true
+  topic: Logarithms
+  stem: 'Write $3\ln x - \ln(x + 2)$ as a single logarithm.'
+  choices: ['$\ln(3x - x - 2)$', '$\dfrac{\ln x^3}{\ln(x + 2)}$', '$\ln\dfrac{x^3}{x + 2}$', '$\ln\dfrac{3x}{x + 2}$']
+  answer: 2
+  explanation: |-
+    Power rule first: $\ln x^3 - \ln(x + 2)$. Quotient rule: $\ln\frac{x^3}{x + 2}$. $\ln\frac{3x}{x+2}$ forgets that the coefficient becomes an exponent; the second choice confuses a quotient of logs with the log of a quotient.
+- id: pc-q-1508
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Which statement is true for all positive $M$, $N$ and real $p$?'
+  choices: ['$\log_b(M + N) = \log_b M + \log_b N$', '$\log_b(M^p) = p\log_b M$', '$\dfrac{\log_b M}{\log_b N} = \log_b M - \log_b N$', '$(\log_b M)^p = p\log_b M$']
+  answer: 1
+  explanation: |-
+    The power rule moves an exponent *inside* the log to the front. There is no rule for the log of a sum, a quotient of logs, or a power of a log.
+- id: pc-q-1509
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Use the change-of-base formula to evaluate $\log_3 20$ to four decimal places.'
+  choices: ['$0.3667$', '$2.9957$', '$1.8205$', '$2.7268$']
+  answer: 3
+  explanation: |-
+    $\log_3 20 = \frac{\ln 20}{\ln 3} \approx \frac{2.9957}{1.0986} \approx 2.7268$. Inverting the fraction gives $0.3667$. Check: $3^{2.7} \approx 19.4$, close to 20.
+- id: pc-q-1510
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Simplify $\ln\left(e^4\right) + 10^{\log 2}$.'
+  choices: ['$6$', '$8$', '$4e + 2$', '$e^4 + 2$']
+  answer: 0
+  explanation: |-
+    Inverse properties: $\ln e^4 = 4$ and $10^{\log 2} = 2$. Sum: 6.
+- id: pc-q-1511
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Which describes the graph of $y = \log_b x$ for $b > 1$?'
+  choices: ['Passes through $(0, 1)$ with horizontal asymptote $y = 0$', 'Passes through $(1, 0)$ with horizontal asymptote $y = 0$', 'Passes through $(1, 0)$ with vertical asymptote $x = 0$', 'Passes through $(0, 1)$ with vertical asymptote $x = 0$']
+  answer: 2
+  explanation: |-
+    The log graph is the exponential graph reflected across $y = x$: $(0, 1)$ becomes $(1, 0)$ and the asymptote $y = 0$ becomes $x = 0$.
+- id: pc-q-1512
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'Given $\log_b 2 \approx 0.3562$ and $\log_b 3 \approx 0.5646$, find $\log_b 12$.'
+  choices: ['$0.9208$', '$1.2770$', '$0.2011$', '$1.4854$']
+  answer: 1
+  explanation: |-
+    $12 = 2^2 \cdot 3$, so $\log_b 12 = 2\log_b 2 + \log_b 3 \approx 0.7124 + 0.5646 = 1.2770$. $0.9208$ is $\log_b 6$; $1.4854$ is $\log_b 18$.
+
+- id: pc-q-1601
+  lesson: pc-exp-log-equations
+  module_quiz: true
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $3^{2x - 1} = 27$.'
+  choices: ['$x = 1$', '$x = 14$', '$x = 2$', '$x = \tfrac32$']
+  answer: 2
+  explanation: |-
+    $27 = 3^3$, so $2x - 1 = 3$ and $x = 2$. Setting $2x - 1 = 27$ ignores that 27 must be written as a power of 3.
+- id: pc-q-1602
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $4^x = 8^{x - 1}$.'
+  choices: ['$x = 3$', '$x = -3$', '$x = 1$', '$x = \tfrac34$']
+  answer: 0
+  explanation: |-
+    $2^{2x} = 2^{3(x - 1)}$, so $2x = 3x - 3$ and $x = 3$. Check: $4^3 = 64 = 8^2$. ✓
+- id: pc-q-1603
+  lesson: pc-exp-log-equations
+  module_quiz: true
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $2 \cdot 5^x = 18$. Round to four decimal places.'
+  choices: ['$1.7959$', '$0.7325$', '$1.6000$', '$1.3652$']
+  answer: 3
+  explanation: |-
+    Isolate: $5^x = 9$. Then $x = \frac{\ln 9}{\ln 5} \approx 1.3652$. Taking logs before dividing by 2 leads to $\frac{\ln 18}{\ln 5} \approx 1.7959$ or similar errors; $0.7325$ is the inverted fraction.
+- id: pc-q-1604
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $e^{0.04t} = 3$ for $t$.'
+  choices: ['$t = 75$', '$t \approx 27.47$', '$t \approx 0.044$', '$t \approx 11.93$']
+  answer: 1
+  explanation: |-
+    Take $\ln$: $0.04t = \ln 3$, so $t = \frac{\ln 3}{0.04} \approx \frac{1.0986}{0.04} \approx 27.47$. $t = 75$ comes from $\frac{3}{0.04}$, forgetting the log.
+- id: pc-q-1605
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $\log_3(x + 1) = 2$.'
+  choices: ['$x = 5$', '$x = 7$', '$x = 8$', '$x = 9$']
+  answer: 2
+  explanation: |-
+    Exponential form: $x + 1 = 3^2 = 9$, so $x = 8$.
+- id: pc-q-1606
+  lesson: pc-exp-log-equations
+  module_quiz: true
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $\log_2 x + \log_2(x + 2) = 3$.'
+  choices: ['$x = 2$ or $x = -4$', '$x = -4$', '$x = 3$', '$x = 2$']
+  answer: 3
+  explanation: |-
+    $\log_2\big(x(x + 2)\big) = 3$, so $x^2 + 2x = 8$ and $(x + 4)(x - 2) = 0$. But $x = -4$ makes $\log_2(-4)$ undefined, so it is extraneous. Only $x = 2$ works: $\log_2 2 + \log_2 4 = 1 + 2 = 3$.
+- id: pc-q-1607
+  lesson: pc-exp-log-equations
+  module_quiz: true
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $\ln x - \ln(x - 1) = \ln 3$.'
+  choices: ['$x = \tfrac32$', '$x = 3$', '$x = \tfrac23$', 'No solution']
+  answer: 0
+  explanation: |-
+    $\ln\frac{x}{x - 1} = \ln 3$, so $\frac{x}{x - 1} = 3$, $x = 3x - 3$ and $x = \frac32$. Both logs are defined there ($x > 1$). ✓
+- id: pc-q-1608
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $e^{2x} - 4e^x + 3 = 0$.'
+  choices: ['$x = 1$ or $x = 3$', '$x = 0$ or $x = \ln 3$', '$x = \ln 1$ only', '$x = e$ or $x = e^3$']
+  answer: 1
+  explanation: |-
+    With $u = e^x$: $u^2 - 4u + 3 = (u - 1)(u - 3) = 0$. So $e^x = 1$ ($x = 0$) or $e^x = 3$ ($x = \ln 3$). Stopping at $u = 1, 3$ gives the first (wrong) choice.
+- id: pc-q-1609
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: |-
+    A student solves $3 \cdot 2^x = 24$ like this. Which step is wrong?
+
+    1. $\log(3 \cdot 2^x) = \log 24$
+    2. $x\log 6 = \log 24$
+    3. $x = \dfrac{\log 24}{\log 6} \approx 1.77$
+  choices: ['Step 1', 'Step 2', 'Step 3', 'No step is wrong']
+  answer: 1
+  explanation: |-
+    $\log(3 \cdot 2^x) = \log 3 + x\log 2$, not $x\log 6$: the 3 is not raised to the $x$. Simplest is to divide by 3 first: $2^x = 8$, so $x = 3$.
+- id: pc-q-1610
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'At 7% interest compounded continuously, about how long does it take an investment to double?'
+  choices: ['About 14.3 years', 'About 7 years', 'About 9.9 years', 'About 28.6 years']
+  answer: 2
+  explanation: |-
+    $e^{0.07t} = 2$, so $t = \frac{\ln 2}{0.07} \approx 9.90$ years. 14.3 is $\frac{1}{0.07}$.
+- id: pc-q-1611
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $3^x = 7^{x - 1}$. Round to four decimal places.'
+  choices: ['$x \approx 0.7704$', '$x \approx 1.7712$', '$x \approx -0.7712$', '$x \approx 2.2966$']
+  answer: 3
+  explanation: |-
+    $x\ln 3 = (x - 1)\ln 7$, so $x\ln 7 - x\ln 3 = \ln 7$ and $x = \frac{\ln 7}{\ln 7 - \ln 3} \approx \frac{1.9459}{0.8473} \approx 2.2966$.
+- id: pc-q-1612
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $\log(x + 3) + \log x = 1$.'
+  choices: ['$x = 2$', '$x = -5$', '$x = 2$ or $x = -5$', '$x = 7$']
+  answer: 0
+  explanation: |-
+    $\log\big(x(x + 3)\big) = 1$, so $x^2 + 3x = 10$ and $(x + 5)(x - 2) = 0$. $x = -5$ is extraneous ($\log(-5)$ is undefined). Check $x = 2$: $\log 5 + \log 2 = \log 10 = 1$. ✓
+
+- id: pc-q-1701
+  lesson: pc-exp-models
+  module_quiz: true
+  topic: Exponential models
+  stem: 'A medicine has a half-life of 8 hours. A patient takes 200 mg. How much remains after 24 hours?'
+  choices: ['$66.7$ mg', '$50$ mg', '$12.5$ mg', '$25$ mg']
+  answer: 3
+  explanation: |-
+    24 hours is three half-lives: $200 \cdot \left(\frac12\right)^3 = 25$ mg. Dividing by 3 instead of halving three times gives 66.7.
+- id: pc-q-1702
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'A population doubles every 5 years. What is its continuous growth rate $k$ in $P = P_0e^{kt}$?'
+  choices: ['$k = 0.2$', '$k \approx 0.1386$', '$k = 2.5$', '$k \approx 0.3466$']
+  answer: 1
+  explanation: |-
+    $e^{5k} = 2$, so $k = \frac{\ln 2}{5} \approx 0.1386$ per year. $0.2 = \frac15$ forgets the $\ln 2$.
+- id: pc-q-1703
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'Carbon-14 has a half-life of about 5,730 years. A sample has 25% of its original carbon-14. About how old is it?'
+  choices: ['1,433 years', '4,298 years', '11,460 years', '22,920 years']
+  answer: 2
+  explanation: |-
+    25% is $\left(\frac12\right)^2$, which takes exactly two half-lives: $2 \times 5730 = 11{,}460$ years.
+- id: pc-q-1704
+  lesson: pc-exp-models
+  module_quiz: true
+  topic: Exponential models
+  stem: 'Under Newton''s law of cooling, $T(t) = 22 + 68e^{-0.05t}$ (°C). What temperature does the object approach in the long run?'
+  choices: ['0°C', '68°C', '90°C', '22°C']
+  answer: 3
+  explanation: |-
+    As $t \to \infty$, $e^{-0.05t} \to 0$, so $T \to 22$°C, the surrounding temperature. The initial temperature is $22 + 68 = 90$°C.
+- id: pc-q-1705
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'For the logistic model $P(t) = \dfrac{5000}{1 + 24e^{-0.3t}}$, what are the initial value and the carrying capacity?'
+  choices: ['Initial 200, capacity 5,000', 'Initial 5,000, capacity 200', 'Initial 208, capacity 5,000', 'Initial 200, capacity 24']
+  answer: 0
+  explanation: |-
+    $P(0) = \frac{5000}{1 + 24} = 200$. As $t \to \infty$, $P \to \frac{5000}{1} = 5000$, the carrying capacity.
+- id: pc-q-1706
+  lesson: pc-exp-models
+  module_quiz: true
+  topic: Exponential models
+  stem: 'For $P(t) = \dfrac{5000}{1 + 24e^{-0.3t}}$, when does the population reach half the carrying capacity?'
+  choices: ['$t = 80$', '$t \approx 10.59$', '$t \approx 3.18$', '$t \approx 2.31$']
+  answer: 1
+  explanation: |-
+    $P = 2500$ when $1 + 24e^{-0.3t} = 2$, i.e. $e^{-0.3t} = \frac{1}{24}$. Then $t = \frac{\ln 24}{0.3} \approx 10.59$. That's also when growth is fastest.
+- id: pc-q-1707
+  lesson: pc-exp-models
+  module_quiz: true
+  topic: Exponential models
+  stem: 'A population of 2,000 grows at a continuous rate of 3% per year. About how large is it after 10 years?'
+  choices: ['2,600', '2,688', '2,700', '6,000']
+  answer: 2
+  explanation: |-
+    $2000e^{0.03 \cdot 10} = 2000e^{0.3} \approx 2699.7$, about 2,700. Linear growth (+60 per year) gives 2,600; $2000(1.03)^{10} \approx 2688$ is annual (not continuous) growth.
+- id: pc-q-1708
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'On the decibel scale $L = 10\log\dfrac{I}{I_0}$, one sound is 40 dB louder than another. How many times more intense is it?'
+  choices: ['40', '400', '4', '10,000']
+  answer: 3
+  explanation: |-
+    $10\log\frac{I_2}{I_1} = 40$, so $\log\frac{I_2}{I_1} = 4$ and $\frac{I_2}{I_1} = 10^4 = 10{,}000$. Each 10 dB is a factor of 10.
+- id: pc-q-1709
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'A substance decays from 1,000 g to 800 g in 2 hours. What is its half-life, to the nearest tenth of an hour?'
+  choices: ['5.0 hours', '6.2 hours', '8.0 hours', '3.1 hours']
+  answer: 1
+  explanation: |-
+    $e^{2k} = 0.8$, so $k = \frac{\ln 0.8}{2} \approx -0.1116$. Half-life $= \frac{\ln 0.5}{k} \approx \frac{-0.6931}{-0.1116} \approx 6.2$ hours. A linear guess (lose 100 g/hour, so 500 g in 5 hours) gives 5.0.
+- id: pc-q-1710
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'A pie at 180°F cools in a 70°F room. After 20 minutes it is 140°F. Using Newton''s law of cooling, what is its temperature after 40 minutes?'
+  choices: ['100.0°F', '114.5°F', '110.0°F', '125.0°F']
+  answer: 1
+  explanation: |-
+    $T = 70 + 110e^{-kt}$ and $e^{-20k} = \frac{70}{110}$. After 40 minutes, $e^{-40k} = \left(\frac{70}{110}\right)^2 \approx 0.405$, so $T \approx 70 + 44.5 = 114.5$°F. Assuming another 40°F drop gives 100°F, which ignores the slowing of cooling.
+- id: pc-q-1711
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'Which situation is best modeled by a logistic function?'
+  choices: ['Money in a savings account with continuous compounding', 'Radioactive decay of iodine-131', 'The number of people in a closed community who have caught a flu', 'The temperature of a cooling cup of tea']
+  answer: 2
+  explanation: |-
+    A flu in a closed community spreads quickly at first and then levels off as fewer people are left to infect: logistic growth with a carrying capacity. Savings grow exponentially; decay and cooling are exponential decays.
+- id: pc-q-1712
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'pH is $-\log[\text{H}^+]$. How many times greater is the hydrogen ion concentration of a solution with pH 3 than one with pH 5?'
+  choices: ['100 times', '2 times', '20 times', '$\tfrac{5}{3}$ times']
+  answer: 0
+  explanation: |-
+    pH 3 means $[\text{H}^+] = 10^{-3}$; pH 5 means $10^{-5}$. The ratio is $\frac{10^{-3}}{10^{-5}} = 10^2 = 100$.

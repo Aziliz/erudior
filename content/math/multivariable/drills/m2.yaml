@@ -1,0 +1,156 @@
+# Module 2 drills
+- id: mv-d-vf-deriv
+  title: Derivative of a vector function
+  topic: Derivatives of vector functions
+  vars:
+    a: {min: 2, max: 6}
+    n: {min: 2, max: 4}
+    b: {min: -3, max: 3}
+    c: {min: 2, max: 5}
+  where: ["b != 0"]
+  calc:
+    an: a*n
+    nm1: n - 1
+  prompt: 'Find $\mathbf r''(t)$ for $\mathbf r(t) = \left\langle {a}t^{n},\; e^{{b:coef}t},\; \sin({c}t)\right\rangle$. Enter each component as an expression in $t$.'
+  answers:
+    - {kind: expression, expression: 'an*t^nm1', variables: [t], label: 'first component', show: '${an}t^{{nm1}}$'}
+    - {kind: expression, expression: 'b*exp(b*t)', variables: [t], label: 'second component', show: '${b}e^{{b:coef}t}$'}
+    - {kind: expression, expression: 'c*cos(c*t)', variables: [t], label: 'third component', show: '${c}\cos({c}t)$'}
+  solution: |-
+    Differentiate each component separately.
+    $\dfrac{d}{dt}\left({a}t^{n}\right) = {an}t^{{nm1}}$; $\dfrac{d}{dt}e^{{b:coef}t} = {b}e^{{b:coef}t}$ (chain rule); $\dfrac{d}{dt}\sin({c}t) = {c}\cos({c}t)$ (chain rule).
+    So $\mathbf r'(t) =$ **$\left\langle {an}t^{{nm1}},\; {b}e^{{b:coef}t},\; {c}\cos({c}t)\right\rangle$**.
+- id: mv-d-vf-integ
+  title: Position from velocity
+  topic: Vector functions
+  vars:
+    a: {min: -3, max: 4}
+    b: {min: -2, max: 3}
+    c: {min: -5, max: 5}
+    x0: {min: -5, max: 5}
+    y0: {min: -5, max: 5}
+    z0: {min: -5, max: 5}
+    tt: {min: 1, max: 3}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    ta: 2*a
+    tb: 3*b
+    X: a*tt^2 + x0
+    Y: b*tt^3 + y0
+    Z: c*tt + z0
+  prompt: 'A particle has velocity $\mathbf r''(t) = \langle {ta}t,\; {tb}t^2,\; {c}\rangle$ and starts at $\mathbf r(0) = \langle {x0}, {y0}, {z0}\rangle$. Find its position at $t = {tt}$.'
+  answers:
+    - {name: X, label: '$x =$'}
+    - {name: Y, label: '$y =$'}
+    - {name: Z, label: '$z =$'}
+  solution: |-
+    Integrate each component and add the starting position: $\mathbf r(t) = \langle {a:coef}t^2 {x0:signed},\; {b:coef}t^3 {y0:signed},\; {c:coef}t {z0:signed}\rangle$.
+    At $t = {tt}$: **$\langle {X}, {Y}, {Z}\rangle$**.
+- id: mv-d-arc-helix
+  title: Length of a helix
+  topic: Arc length
+  vars:
+    R: {min: 1, max: 6}
+    h: {min: 1, max: 6}
+    turns: {min: 1, max: 3}
+  calc:
+    sp: sqrt(R^2 + h^2)
+    tmax: 2*turns
+    L: 2*pi*turns*sp
+  prompt: 'Find the length of the helix $\mathbf r(t) = \langle {R}\cos t,\; {R}\sin t,\; {h}t\rangle$ for $0 \le t \le {tmax}\pi$. (2 decimals.)'
+  answers:
+    - {name: L, label: '$L =$'}
+  solution: |-
+    $\mathbf r'(t) = \langle -{R}\sin t,\; {R}\cos t,\; {h}\rangle$, so $|\mathbf r'(t)| = \sqrt{{R}^2\sin^2t + {R}^2\cos^2t + {h}^2} = \sqrt{{R}^2 + {h}^2} \approx {sp:num4}$, a constant speed.
+    $L = \displaystyle\int_0^{{tmax}\pi}\sqrt{{R}^2 + {h}^2}\,dt = {tmax}\pi\sqrt{{R}^2 + {h}^2} \approx$ **{L:num2}**.
+- id: mv-d-curv-plane
+  title: Curvature of a parabola
+  topic: Curvature
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    x0: {min: -2, max: 2}
+  calc:
+    ta: 2*a
+    slope: 2*a*x0 + b
+    kap: abs(2*a)/(1 + slope^2)^1.5
+    rho: 1/kap
+  where: ["a != 0", "kap >= 0.1"]
+  prompt: 'Find the curvature of $y = {a:coef}x^2 {b:signedcoef}x$ at $x = {x0}$. (2 decimals.)'
+  answers:
+    - {name: kap, label: '$\kappa =$'}
+  solution: |-
+    $f'(x) = {ta}x {b:signed}$ gives $f'({x0}) = {slope}$, and $f''(x) = {ta}$.
+    $\kappa = \dfrac{|f''|}{(1 + f'^2)^{3/2}} = \dfrac{|{ta}|}{(1 + {slope}^2)^{3/2}} \approx$ **{kap:num2}**. (Radius of curvature $1/\kappa \approx {rho:num2}$.)
+- id: mv-d-at-an
+  title: Tangential and normal acceleration
+  topic: Tangential and normal acceleration
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: 1, max: 3}
+    c: {min: -3, max: 3}
+    t0: {min: 1, max: 3}
+  calc:
+    v2: 2*b*t0
+    tb: 2*b
+    sp: sqrt(a^2 + v2^2 + c^2)
+    aT: v2*tb/sp
+    cr1: -tb*c
+    cr3: a*tb
+    aN: sqrt(cr1^2 + cr3^2)/sp
+  prompt: 'A particle moves along $\mathbf r(t) = \langle {a}t,\; {b:coef}t^2,\; {c:coef}t\rangle$. Find the tangential and normal components of its acceleration at $t = {t0}$. (2 decimals.)'
+  answers:
+    - {name: aT, label: '$a_T =$'}
+    - {name: aN, label: '$a_N =$'}
+  solution: |-
+    $\mathbf r'({t0}) = \langle {a}, {v2}, {c}\rangle$ with length $\approx {sp:num4}$, and $\mathbf r''({t0}) = \langle 0, {tb}, 0\rangle$.
+    $a_T = \dfrac{\mathbf r'\cdot\mathbf r''}{|\mathbf r'|} = \dfrac{({v2})({tb})}{{sp:num4}} \approx$ **{aT:num2}**.
+    $\mathbf r'\times\mathbf r'' = \langle {cr1}, 0, {cr3}\rangle$, so $a_N = \dfrac{|\mathbf r'\times\mathbf r''|}{|\mathbf r'|} \approx$ **{aN:num2}**.
+- id: mv-d-projectile
+  title: Projectile range, height and flight time
+  topic: Projectile motion
+  vars:
+    v0: {min: 10, max: 40, step: 5}
+    ang: {min: 15, max: 75, step: 5}
+  calc:
+    ang2: 2*ang
+    vx: v0*cosd(ang)
+    vy: v0*sind(ang)
+    T: 2*vy/9.8
+    R: v0^2*sind(2*ang)/9.8
+    H: vy^2/(2*9.8)
+  prompt: 'A projectile is launched over level ground at {v0} m/s, {ang}° above the horizontal. With $g = 9.8\text{ m/s}^2$ and no air resistance, find its flight time, range and maximum height. (2 decimals.)'
+  answers:
+    - {name: T, label: 'Flight time (s)', relTolerance: 0.002}
+    - {name: R, label: 'Range (m)', relTolerance: 0.002}
+    - {name: H, label: 'Max height (m)', relTolerance: 0.002}
+  solution: |-
+    Components: $v_0\cos\alpha \approx {vx:num2}$ m/s and $v_0\sin\alpha \approx {vy:num2}$ m/s.
+    Flight time $t = \dfrac{2v_0\sin\alpha}{g} \approx$ **{T:num2} s**.
+    Range $R = \dfrac{v_0^2\sin2\alpha}{g} = \dfrac{{v0}^2\sin {ang2}^\circ}{9.8} \approx$ **{R:num2} m**.
+    Max height $H = \dfrac{(v_0\sin\alpha)^2}{2g} \approx$ **{H:num2} m**.
+- id: mv-d-speed
+  title: Velocity and speed
+  topic: Velocity and acceleration
+  vars:
+    p: {min: 1, max: 4}
+    q: {min: -5, max: 5}
+    s3: {min: -2, max: 2}
+    t0: {min: 1, max: 3}
+  where: ["q != 0", "s3 != 0"]
+  calc:
+    vx: 2*p*t0
+    vy: q
+    vz: 3*s3*t0^2
+    tp: 2*p
+    ts: 3*s3
+    spd: sqrt(vx^2 + vy^2 + vz^2)
+  prompt: 'A particle has position $\mathbf r(t) = \langle {p:coef}t^2,\; {q:coef}t,\; {s3:coef}t^3\rangle$. Find its velocity and speed at $t = {t0}$. (Speed to 2 decimals.)'
+  answers:
+    - {name: vx, label: '$v_x =$'}
+    - {name: vy, label: '$v_y =$'}
+    - {name: vz, label: '$v_z =$'}
+    - {name: spd, label: 'speed'}
+  solution: |-
+    $\mathbf v(t) = \mathbf r'(t) = \langle {tp}t,\; {q},\; {ts}t^2\rangle$, so $\mathbf v({t0}) = \langle {vx}, {vy}, {vz}\rangle$.
+    Speed $= \sqrt{({vx})^2 + ({vy})^2 + ({vz})^2} \approx$ **{spd:num2}**.

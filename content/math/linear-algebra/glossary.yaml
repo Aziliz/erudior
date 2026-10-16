@@ -1,0 +1,803 @@
+# Glossary: every bolded term in the lessons, plus notation and abbreviations.
+
+# --- Plane vectors ---
+- term: vector
+  aliases: [vectors]
+  definition: 'An ordered list of numbers, written as a column; in the plane, drawn as an arrow with a length and direction.'
+  topic: Plane vectors
+- term: component
+  aliases: [components, entry of a vector]
+  definition: 'One of the numbers in a vector; $\begin{bmatrix} 3 \\ 4\end{bmatrix}$ has components 3 and 4.'
+  topic: Plane vectors
+- term: position vector
+  aliases: [position vectors]
+  definition: 'The vector from the origin to a point; the point $(a, b)$ has position vector $\begin{bmatrix} a \\ b\end{bmatrix}$.'
+  topic: Plane vectors
+- term: zero vector
+  aliases: ['$\mathbf{0}$']
+  definition: 'The vector with every entry 0, written $\mathbf{0}$; adding it changes nothing.'
+  topic: Plane vectors
+- term: vector addition
+  aliases: [adding vectors, sum of vectors]
+  definition: 'Adding vectors entry by entry; geometrically, placing them tip to tail.'
+  topic: Plane vectors
+- term: parallelogram rule
+  definition: 'Draw $\mathbf{u}$ and $\mathbf{v}$ from the same point; $\mathbf{u} + \mathbf{v}$ is the diagonal of the parallelogram they form.'
+  topic: Plane vectors
+- term: scalar
+  aliases: [scalars]
+  definition: 'A real number, as opposed to a vector or matrix.'
+  topic: Plane vectors
+- term: scalar multiplication
+  aliases: [scaling a vector]
+  definition: 'Multiplying every entry of a vector (or matrix) by the same number $c$; it stretches by $|c|$ and reverses direction when $c < 0$.'
+  topic: Plane vectors
+- term: magnitude
+  aliases: [length, length of a vector]
+  definition: 'The length of a vector: $\|\mathbf{v}\| = \sqrt{v_1^2 + \cdots + v_n^2}$.'
+  topic: Plane vectors
+- term: unit vector
+  aliases: [unit vectors]
+  definition: 'A vector of length 1. For $\mathbf{v} \ne \mathbf{0}$, $\mathbf{v}/\|\mathbf{v}\|$ is the unit vector in the direction of $\mathbf{v}$.'
+  topic: Plane vectors
+- term: standard basis vectors
+  aliases: [standard basis vector, '$\mathbf{e}_1$', 'e1, e2']
+  definition: 'The columns $\mathbf{e}_1, \dots, \mathbf{e}_n$ of the identity matrix; in $\mathbb{R}^2$, $\mathbf{e}_1 = (1, 0)$ and $\mathbf{e}_2 = (0, 1)$.'
+  topic: Plane vectors
+
+# --- Elimination ---
+- term: linear equation
+  aliases: [linear equations]
+  definition: 'An equation $a_1x_1 + \cdots + a_nx_n = b$ with constant coefficients: no products, powers or other functions of the variables.'
+  topic: Elimination
+- term: solution
+  aliases: [solutions]
+  definition: 'A list of values for the variables that makes every equation in a system true.'
+  topic: Elimination
+- term: elimination method
+  aliases: [elimination]
+  definition: 'Solving a system by adding multiples of equations to remove variables one at a time, then back-substituting.'
+  topic: Elimination
+- term: back-substitution
+  definition: 'Solving a triangular system from the last equation upward, substituting known values into earlier equations.'
+  topic: Elimination
+- term: consistent
+  aliases: [consistent system]
+  definition: 'A system with at least one solution.'
+  topic: Elimination
+- term: inconsistent
+  aliases: [inconsistent system]
+  definition: 'A system with no solution; row reduction produces a row $[\,0 \;\cdots\; 0 \;\; b\,]$ with $b \ne 0$.'
+  topic: Elimination
+
+# --- Matrix arithmetic ---
+- term: matrix
+  aliases: [matrices]
+  definition: 'A rectangular array of numbers with $m$ rows and $n$ columns.'
+  topic: Matrix arithmetic
+- term: size
+  aliases: [m × n, dimensions of a matrix]
+  definition: 'The shape $m \times n$ of a matrix: $m$ rows, $n$ columns (rows first).'
+  topic: Matrix arithmetic
+- term: entry
+  aliases: [entries, '$a_{ij}$']
+  definition: 'The number $a_{ij}$ in row $i$ and column $j$ of a matrix.'
+  topic: Matrix arithmetic
+- term: square matrix
+  aliases: [square matrices]
+  definition: 'A matrix with the same number of rows and columns.'
+  topic: Matrix arithmetic
+- term: zero matrix
+  definition: 'A matrix whose entries are all 0, written $0$.'
+  topic: Matrix arithmetic
+- term: matrix product
+  aliases: [matrix multiplication, product of matrices]
+  definition: 'For $A$ ($m \times n$) and $B$ ($n \times p$), $AB$ is $m \times p$ with $(AB)_{ij}$ = row $i$ of $A$ times column $j$ of $B$; equivalently $AB = [\,A\mathbf{b}_1 \cdots A\mathbf{b}_p\,]$.'
+  topic: Matrix arithmetic
+- term: identity matrix
+  aliases: ['$I_n$', identity]
+  definition: 'The square matrix $I_n$ with 1s on the main diagonal and 0s elsewhere; $AI = IA = A$.'
+  topic: Matrix arithmetic
+- term: inverse
+  aliases: [inverse matrix, matrix inverse, '$A^{-1}$']
+  definition: 'For square $A$, the matrix $A^{-1}$ with $AA^{-1} = A^{-1}A = I$, when it exists.'
+  topic: Matrix arithmetic
+- term: determinant
+  aliases: [det, '$\det A$']
+  definition: 'A number $\det A$ assigned to a square matrix; $ad - bc$ for $\begin{bmatrix} a & b \\ c & d\end{bmatrix}$. It is nonzero exactly when $A$ is invertible.'
+  topic: Matrix arithmetic
+
+# --- Linear systems ---
+- term: system of linear equations
+  aliases: [linear system, linear systems, systems of linear equations]
+  definition: 'One or more linear equations in the same variables.'
+  topic: Linear systems
+- term: solution set
+  definition: 'The set of all solutions of a system.'
+  topic: Linear systems
+- term: equivalent systems
+  aliases: [equivalent]
+  definition: 'Systems with the same solution set.'
+  topic: Linear systems
+- term: coefficient matrix
+  definition: 'The matrix of the coefficients of the variables in a linear system, one row per equation and one column per variable.'
+  topic: Linear systems
+- term: augmented matrix
+  definition: 'The coefficient matrix with the right-hand sides appended as a last column, $[\,A \;\; \mathbf{b}\,]$.'
+  topic: Linear systems
+- term: elementary row operations
+  aliases: [elementary row operation, row operations, row operation]
+  definition: 'Replacement (add a multiple of one row to another), interchange (swap two rows) and scaling (multiply a row by a nonzero constant).'
+  topic: Row operations
+- term: row equivalent
+  definition: 'Two matrices are row equivalent if a sequence of elementary row operations turns one into the other.'
+  topic: Row operations
+
+# --- Echelon forms ---
+- term: leading entry
+  aliases: [leading entries]
+  definition: 'The leftmost nonzero entry of a nonzero row.'
+  topic: Echelon forms
+- term: echelon form
+  aliases: [row echelon form]
+  definition: 'Zero rows at the bottom, each leading entry to the right of the one above it, and zeros below each leading entry.'
+  topic: Echelon forms
+- term: reduced echelon form
+  aliases: [reduced row echelon form]
+  definition: 'Echelon form in which every leading entry is 1 and is the only nonzero entry in its column. Each matrix has exactly one.'
+  topic: Echelon forms
+- term: RREF
+  definition: 'Reduced row echelon form.'
+  topic: Echelon forms
+- term: pivot position
+  aliases: [pivot positions]
+  definition: 'A location in $A$ that corresponds to a leading 1 in the reduced echelon form of $A$.'
+  topic: Echelon forms
+- term: pivot column
+  aliases: [pivot columns]
+  definition: 'A column of $A$ that contains a pivot position.'
+  topic: Echelon forms
+- term: pivot
+  aliases: [pivots]
+  definition: 'A nonzero number in a pivot position, used to create zeros above and below it.'
+  topic: Echelon forms
+- term: Gaussian elimination
+  definition: 'The forward phase of row reduction, which produces an echelon form.'
+  topic: Row reduction
+- term: Gauss–Jordan elimination
+  aliases: [Gauss-Jordan elimination]
+  definition: 'Row reduction all the way to reduced echelon form (forward phase plus backward phase).'
+  topic: Row reduction
+
+# --- Existence and uniqueness ---
+- term: basic variable
+  aliases: [basic variables]
+  definition: 'A variable corresponding to a pivot column.'
+  topic: General solution
+- term: free variable
+  aliases: [free variables]
+  definition: 'A variable corresponding to a non-pivot column of the coefficient matrix; it may take any value.'
+  topic: General solution
+- term: general solution
+  definition: 'A description of every solution of a system, with each basic variable written in terms of the free variables.'
+  topic: General solution
+- term: parametric description
+  definition: 'A description of a solution set in which the free variables act as parameters.'
+  topic: General solution
+- term: underdetermined system
+  aliases: [underdetermined]
+  definition: 'A system with more unknowns than equations; it has no solution or infinitely many.'
+  topic: Existence and uniqueness
+- term: overdetermined system
+  aliases: [overdetermined]
+  definition: 'A system with more equations than unknowns; often, but not always, inconsistent.'
+  topic: Existence and uniqueness
+
+# --- Applications ---
+- term: network
+  aliases: [networks]
+  definition: 'A set of nodes joined by branches carrying a flow (traffic, water, current).'
+  topic: Applications of linear systems
+- term: node
+  aliases: [nodes, junction]
+  definition: 'A junction point in a network, where branches meet.'
+  topic: Applications of linear systems
+- term: flow conservation
+  definition: 'At each node of a network, total flow in equals total flow out; each node gives one linear equation.'
+  topic: Applications of linear systems
+- term: balanced chemical equation
+  aliases: [balanced]
+  definition: 'A chemical equation with the same number of atoms of each element on both sides; finding the coefficients is a homogeneous linear system.'
+  topic: Applications of linear systems
+- term: interpolating polynomial
+  definition: 'The unique polynomial of degree at most $n - 1$ through $n$ points with distinct $x$-values.'
+  topic: Applications of linear systems
+- term: Vandermonde matrix
+  definition: 'A matrix with rows $(1, x_i, x_i^2, \dots)$; it is the coefficient matrix for polynomial interpolation and is invertible when the $x_i$ are distinct.'
+  topic: Applications of linear systems
+
+# --- Vectors, combinations, span ---
+- term: column vector
+  aliases: [column vectors]
+  definition: 'A matrix with one column; the standard way to write vectors in $\mathbb{R}^n$.'
+  topic: Vectors in Rn
+- term: R^n
+  aliases: ['$\mathbb{R}^n$', Rn]
+  definition: 'The set of all column vectors with $n$ real entries.'
+  topic: Vectors in Rn
+- term: linear combination
+  aliases: [linear combinations]
+  definition: 'A sum of scalar multiples $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p$.'
+  topic: Linear combinations
+- term: weights
+  aliases: [weight]
+  definition: 'The scalars $c_1, \dots, c_p$ in a linear combination $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p$.'
+  topic: Linear combinations
+- term: vector equation
+  definition: 'An equation $x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n = \mathbf{b}$; it has the same solutions as the system with augmented matrix $[\,\mathbf{a}_1 \cdots \mathbf{a}_n \;\; \mathbf{b}\,]$.'
+  topic: Linear combinations
+- term: span
+  aliases: [spanned by, spans]
+  definition: 'The set of all linear combinations of given vectors, $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$; it is always a subspace.'
+  topic: Span
+
+# --- Matrix equation ---
+- term: matrix–vector product
+  aliases: [matrix-vector product, Ax]
+  definition: '$A\mathbf{x} = x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n$, the combination of the columns of $A$ with weights from $\mathbf{x}$.'
+  topic: Matrix equation
+- term: row–vector rule
+  aliases: [row-vector rule]
+  definition: 'Entry $i$ of $A\mathbf{x}$ is the sum of products of row $i$ of $A$ with the entries of $\mathbf{x}$.'
+  topic: Matrix equation
+
+# --- Solution sets ---
+- term: homogeneous system
+  aliases: [homogeneous]
+  definition: 'A system of the form $A\mathbf{x} = \mathbf{0}$; it is always consistent.'
+  topic: Homogeneous systems
+- term: trivial solution
+  definition: 'The solution $\mathbf{x} = \mathbf{0}$ of $A\mathbf{x} = \mathbf{0}$.'
+  topic: Homogeneous systems
+- term: nontrivial solution
+  aliases: [nontrivial solutions]
+  definition: 'A nonzero solution of $A\mathbf{x} = \mathbf{0}$; one exists exactly when there is a free variable.'
+  topic: Homogeneous systems
+- term: parametric vector form
+  definition: 'A solution set written as $\mathbf{x} = \mathbf{p} + s\mathbf{u} + t\mathbf{v} + \cdots$, one vector per free variable.'
+  topic: Parametric vector form
+- term: particular solution
+  definition: 'Any one solution $\mathbf{p}$ of $A\mathbf{x} = \mathbf{b}$; all solutions are $\mathbf{p}$ plus solutions of $A\mathbf{x} = \mathbf{0}$.'
+  topic: Parametric vector form
+
+# --- Independence ---
+- term: linearly independent
+  aliases: [linear independence, independent]
+  definition: 'Vectors are linearly independent if $x_1\mathbf{v}_1 + \cdots + x_p\mathbf{v}_p = \mathbf{0}$ only when every $x_i = 0$.'
+  topic: Linear independence
+- term: linearly dependent
+  aliases: [linear dependence, dependent]
+  definition: 'Vectors are linearly dependent if some weights, not all zero, give $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p = \mathbf{0}$.'
+  topic: Linear independence
+- term: linear dependence relation
+  aliases: [dependence relation]
+  definition: 'An equation $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p = \mathbf{0}$ with weights not all zero.'
+  topic: Linear independence
+
+# --- Transformations ---
+- term: transformation
+  aliases: [mapping, function]
+  definition: 'A rule $T: \mathbb{R}^n \to \mathbb{R}^m$ assigning to each $\mathbf{x}$ a vector $T(\mathbf{x})$.'
+  topic: Linear transformations
+- term: domain
+  definition: 'The set of inputs of a transformation; $\mathbb{R}^n$ for $T: \mathbb{R}^n \to \mathbb{R}^m$.'
+  topic: Linear transformations
+- term: codomain
+  definition: 'The set where outputs are allowed to lie; $\mathbb{R}^m$ for $T: \mathbb{R}^n \to \mathbb{R}^m$.'
+  topic: Linear transformations
+- term: image
+  definition: 'The output $T(\mathbf{x})$ of a transformation at the input $\mathbf{x}$.'
+  topic: Linear transformations
+- term: range
+  definition: 'The set of all images $T(\mathbf{x})$; for $\mathbf{x} \mapsto A\mathbf{x}$ it is $\operatorname{Col} A$.'
+  topic: Linear transformations
+- term: matrix transformation
+  definition: 'A transformation of the form $\mathbf{x} \mapsto A\mathbf{x}$.'
+  topic: Linear transformations
+- term: linear transformation
+  aliases: [linear transformations, linear map]
+  definition: 'A transformation with $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ and $T(c\mathbf{u}) = cT(\mathbf{u})$.'
+  topic: Linear transformations
+- term: superposition principle
+  definition: '$T(c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p) = c_1T(\mathbf{v}_1) + \cdots + c_pT(\mathbf{v}_p)$ for a linear $T$.'
+  topic: Linear transformations
+
+# --- Standard matrix ---
+- term: standard matrix
+  definition: 'For linear $T: \mathbb{R}^n \to \mathbb{R}^m$, the matrix $[\,T(\mathbf{e}_1) \cdots T(\mathbf{e}_n)\,]$ with $T(\mathbf{x}) = A\mathbf{x}$.'
+  topic: Standard matrix
+- term: reflection
+  aliases: [reflections]
+  definition: 'A transformation that mirrors the plane across a line through the origin, e.g. $\begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$ across the $x_1$-axis.'
+  topic: Geometric transformations
+- term: shear
+  aliases: [shears, horizontal shear, vertical shear]
+  definition: 'A transformation that slides points parallel to an axis by an amount proportional to the other coordinate, e.g. $\begin{bmatrix} 1 & k \\ 0 & 1\end{bmatrix}$.'
+  topic: Geometric transformations
+- term: dilation
+  aliases: [contraction, expansion]
+  definition: 'The map $\mathbf{x} \mapsto r\mathbf{x}$: an expansion if $r > 1$, a contraction if $0 < r < 1$.'
+  topic: Geometric transformations
+- term: projection
+  aliases: [projections]
+  definition: 'A transformation that flattens vectors onto a line or plane, such as $(x_1, x_2) \mapsto (x_1, 0)$.'
+  topic: Geometric transformations
+- term: rotation
+  aliases: [rotations, rotation matrix]
+  definition: 'Counterclockwise rotation by $\theta$ about the origin, with matrix $\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$.'
+  topic: Geometric transformations
+
+# --- One-to-one and onto ---
+- term: onto
+  definition: '$T: \mathbb{R}^n \to \mathbb{R}^m$ is onto if every $\mathbf{b}$ in $\mathbb{R}^m$ is the image of at least one $\mathbf{x}$; for $A\mathbf{x}$, a pivot in every row.'
+  topic: One-to-one and onto
+- term: one-to-one
+  definition: '$T$ is one-to-one if each $\mathbf{b}$ is the image of at most one $\mathbf{x}$; for $A\mathbf{x}$, a pivot in every column.'
+  topic: One-to-one and onto
+
+# --- Matrix operations ---
+- term: main diagonal
+  definition: 'The entries $a_{11}, a_{22}, a_{33}, \dots$ of a matrix.'
+  topic: Matrix multiplication
+- term: diagonal matrix
+  aliases: [diagonal matrices]
+  definition: 'A square matrix whose off-diagonal entries are all 0.'
+  topic: Matrix multiplication
+- term: row–column rule
+  aliases: [row-column rule]
+  definition: '$(AB)_{ij} = a_{i1}b_{1j} + \cdots + a_{in}b_{nj}$: row $i$ of $A$ times column $j$ of $B$.'
+  topic: Matrix multiplication
+- term: matrix power
+  aliases: [powers of a matrix, '$A^k$']
+  definition: 'For square $A$, $A^k$ is the product of $k$ copies of $A$, with $A^0 = I$.'
+  topic: Matrix multiplication
+- term: transpose
+  aliases: ['$A^T$']
+  definition: 'The matrix $A^T$ whose columns are the rows of $A$: $(A^T)_{ij} = a_{ji}$. Note $(AB)^T = B^TA^T$.'
+  topic: Transpose
+- term: homogeneous coordinates
+  definition: 'Representing $(x, y)$ as $(x, y, 1)$ so that translations, as well as linear maps, become matrix products.'
+  topic: Computer graphics
+
+# --- Inverse ---
+- term: invertible matrix
+  aliases: [invertible]
+  definition: 'A square matrix $A$ with an inverse: $CA = AC = I$ for some $C = A^{-1}$.'
+  topic: Matrix inverse
+- term: singular matrix
+  aliases: [singular]
+  definition: 'A square matrix that is not invertible ($\det A = 0$).'
+  topic: Matrix inverse
+- term: nonsingular
+  aliases: [nonsingular matrix]
+  definition: 'Another word for invertible.'
+  topic: Matrix inverse
+
+# --- Elementary matrices and IMT ---
+- term: elementary matrix
+  aliases: [elementary matrices]
+  definition: 'A matrix obtained from $I$ by one elementary row operation; $EA$ performs that operation on $A$.'
+  topic: Elementary matrices
+- term: invertible matrix theorem
+  definition: 'For a square matrix, a long list of conditions (invertible, $n$ pivots, independent columns, columns span, one-to-one, onto, $\det A \ne 0$, 0 not an eigenvalue, rank $n$, …) that are all true or all false together.'
+  topic: Invertible matrix theorem
+- term: IMT
+  definition: 'Invertible matrix theorem.'
+  topic: Invertible matrix theorem
+- term: invertible linear transformation
+  definition: 'A linear $T: \mathbb{R}^n \to \mathbb{R}^n$ with an inverse map $S$ ($S(T(\mathbf{x})) = T(S(\mathbf{x})) = \mathbf{x}$); exactly when its standard matrix is invertible.'
+  topic: Invertible matrix theorem
+
+# --- LU ---
+- term: matrix factorization
+  aliases: [matrix factorizations, factorization]
+  definition: 'An expression of a matrix as a product of simpler matrices, such as $LU$, $QR$, $PDP^{-1}$ or $U\Sigma V^T$.'
+  topic: LU factorization
+- term: lower triangular
+  aliases: [lower triangular matrix]
+  definition: 'A square matrix with all entries above the main diagonal equal to 0.'
+  topic: LU factorization
+- term: upper triangular
+  aliases: [upper triangular matrix]
+  definition: 'A square matrix with all entries below the main diagonal equal to 0.'
+  topic: LU factorization
+- term: unit lower triangular
+  definition: 'Lower triangular with 1s on the main diagonal.'
+  topic: LU factorization
+- term: forward substitution
+  definition: 'Solving a lower triangular system from the first equation down.'
+  topic: LU factorization
+- term: LU factorization
+  aliases: [LU decomposition]
+  definition: '$A = LU$ with $L$ unit lower triangular (holding the row-reduction multipliers) and $U$ an echelon form of $A$.'
+  topic: LU factorization
+- term: permuted LU factorization
+  aliases: [PA = LU]
+  definition: '$PA = LU$, where the permutation matrix $P$ reorders rows so that no interchanges are needed during elimination.'
+  topic: LU factorization
+
+# --- Determinants ---
+- term: minor
+  aliases: [minors]
+  definition: 'The determinant $\det A_{ij}$ of the matrix left after deleting row $i$ and column $j$ of $A$.'
+  topic: Cofactor expansion
+- term: cofactor
+  aliases: [cofactors, '$C_{ij}$']
+  definition: '$C_{ij} = (-1)^{i+j}\det A_{ij}$, the minor with a checkerboard sign.'
+  topic: Cofactor expansion
+- term: cofactor expansion
+  aliases: [Laplace expansion]
+  definition: '$\det A = \sum_j a_{ij}C_{ij}$ (along row $i$) or $\sum_i a_{ij}C_{ij}$ (down column $j$).'
+  topic: Cofactor expansion
+- term: multiplicative property
+  aliases: [product rule for determinants]
+  definition: '$\det(AB) = (\det A)(\det B)$.'
+  topic: Determinant properties
+- term: Cramer's rule
+  definition: 'For invertible $A$, the solution of $A\mathbf{x} = \mathbf{b}$ has $x_i = \det A_i(\mathbf{b})/\det A$, where $A_i(\mathbf{b})$ is $A$ with column $i$ replaced by $\mathbf{b}$.'
+  topic: Cramer's rule
+- term: adjugate
+  aliases: [classical adjoint, adj A]
+  definition: 'The transpose of the matrix of cofactors; $A^{-1} = \dfrac{1}{\det A}\operatorname{adj} A$.'
+  topic: Cramer's rule
+- term: parallelepiped
+  definition: 'A slanted box in $\mathbb{R}^3$ spanned by three vectors; its volume is $|\det A|$ for the matrix with those columns.'
+  topic: Area and volume
+
+# --- Vector spaces ---
+- term: vector space
+  aliases: [vector spaces]
+  definition: 'A set with addition and scalar multiplication satisfying the ten axioms (closure, commutativity, associativity, zero, negatives, distributive laws, $1\mathbf{u} = \mathbf{u}$).'
+  topic: Vector spaces
+- term: axioms
+  aliases: [vector space axioms]
+  definition: 'The ten rules that addition and scalar multiplication must satisfy in a vector space.'
+  topic: Vector spaces
+- term: P_n
+  aliases: ['$\mathbb{P}_n$']
+  definition: 'The vector space of polynomials of degree at most $n$; its dimension is $n + 1$.'
+  topic: Vector spaces
+- term: subspace
+  aliases: [subspaces]
+  definition: 'A subset $H$ of a vector space that contains $\mathbf{0}$ and is closed under addition and scalar multiplication.'
+  topic: Subspaces
+- term: zero subspace
+  definition: 'The subspace $\{\mathbf{0}\}$, of dimension 0.'
+  topic: Subspaces
+- term: spanning set
+  definition: 'A set of vectors whose span is a given subspace.'
+  topic: Subspaces
+- term: null space
+  aliases: [Nul A, '$\operatorname{Nul} A$']
+  definition: '$\operatorname{Nul} A = \{\mathbf{x} : A\mathbf{x} = \mathbf{0}\}$, a subspace of $\mathbb{R}^n$.'
+  topic: Null space
+- term: column space
+  aliases: [Col A, '$\operatorname{Col} A$']
+  definition: '$\operatorname{Col} A$, the span of the columns of $A$; the set of all $A\mathbf{x}$, a subspace of $\mathbb{R}^m$.'
+  topic: Column space
+- term: row space
+  aliases: [Row A, '$\operatorname{Row} A$']
+  definition: 'The span of the rows of $A$; row operations do not change it.'
+  topic: Column space
+- term: kernel
+  definition: 'For a linear $T$, the set of $\mathbf{u}$ with $T(\mathbf{u}) = \mathbf{0}$; for $\mathbf{x} \mapsto A\mathbf{x}$ it is $\operatorname{Nul} A$.'
+  topic: Null space
+- term: basis
+  aliases: [bases]
+  definition: 'A linearly independent set that spans a subspace.'
+  topic: Bases
+- term: standard basis
+  definition: '$\{\mathbf{e}_1, \dots, \mathbf{e}_n\}$ for $\mathbb{R}^n$; $\{1, t, \dots, t^n\}$ for $\mathbb{P}_n$.'
+  topic: Bases
+- term: spanning set theorem
+  definition: 'Removing a vector that is a combination of the others leaves a set with the same span; some subset of a spanning set is a basis.'
+  topic: Bases
+- term: coordinates
+  aliases: [B-coordinates]
+  definition: 'The unique weights $c_1, \dots, c_n$ with $\mathbf{x} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n$ for a basis $\mathcal{B}$.'
+  topic: Coordinates
+- term: coordinate vector
+  aliases: ['$[\mathbf{x}]_{\mathcal{B}}$']
+  definition: 'The vector $[\mathbf{x}]_{\mathcal{B}} = (c_1, \dots, c_n)$ of $\mathcal{B}$-coordinates of $\mathbf{x}$.'
+  topic: Coordinates
+- term: change-of-coordinates matrix
+  aliases: ['$P_{\mathcal{B}}$']
+  definition: '$P_{\mathcal{B}} = [\,\mathbf{b}_1 \cdots \mathbf{b}_n\,]$, satisfying $\mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$.'
+  topic: Coordinates
+- term: coordinate mapping
+  definition: 'The map $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$, a one-to-one linear map of $V$ onto $\mathbb{R}^n$.'
+  topic: Coordinates
+- term: isomorphism
+  definition: 'A one-to-one linear transformation from one vector space onto another; it lets you compute in $\mathbb{R}^n$ instead.'
+  topic: Coordinates
+- term: change-of-basis matrix
+  aliases: ['$P_{\mathcal{C} \leftarrow \mathcal{B}}$']
+  definition: '$P_{\mathcal{C} \leftarrow \mathcal{B}} = [\,[\mathbf{b}_1]_{\mathcal{C}} \cdots [\mathbf{b}_n]_{\mathcal{C}}\,]$, converting $\mathcal{B}$-coordinates to $\mathcal{C}$-coordinates.'
+  topic: Change of basis
+- term: finite-dimensional
+  definition: 'A vector space spanned by a finite set.'
+  topic: Dimension
+- term: dimension
+  aliases: [dim]
+  definition: 'The number of vectors in any basis of a vector space.'
+  topic: Dimension
+- term: rank
+  aliases: [rank A]
+  definition: 'The dimension of $\operatorname{Col} A$, which equals the number of pivots and $\dim\operatorname{Row} A$.'
+  topic: Rank
+- term: nullity
+  definition: 'The dimension of $\operatorname{Nul} A$, the number of free variables.'
+  topic: Rank
+- term: rank–nullity theorem
+  aliases: [rank theorem, rank-nullity theorem]
+  definition: 'For an $m \times n$ matrix, $\operatorname{rank} A + \dim\operatorname{Nul} A = n$.'
+  topic: Rank
+- term: basis theorem
+  definition: 'In a $p$-dimensional space, any $p$ linearly independent vectors, or any $p$ vectors that span, form a basis.'
+  topic: Dimension
+
+# --- Eigenvalues ---
+- term: eigenvector
+  aliases: [eigenvectors]
+  definition: 'A nonzero vector $\mathbf{x}$ with $A\mathbf{x} = \lambda\mathbf{x}$ for some scalar $\lambda$.'
+  topic: Eigenvalues and eigenvectors
+- term: eigenvalue
+  aliases: [eigenvalues]
+  definition: 'A scalar $\lambda$ such that $A\mathbf{x} = \lambda\mathbf{x}$ has a nontrivial solution; equivalently $\det(A - \lambda I) = 0$.'
+  topic: Eigenvalues and eigenvectors
+- term: eigenspace
+  aliases: [eigenspaces]
+  definition: 'For an eigenvalue $\lambda$, the subspace $\operatorname{Nul}(A - \lambda I)$: all eigenvectors for $\lambda$ together with $\mathbf{0}$.'
+  topic: Eigenvalues and eigenvectors
+- term: characteristic equation
+  definition: '$\det(A - \lambda I) = 0$, whose roots are the eigenvalues of $A$.'
+  topic: Characteristic equation
+- term: characteristic polynomial
+  definition: 'The degree-$n$ polynomial $\det(A - \lambda I)$; for $2 \times 2$, $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$.'
+  topic: Characteristic equation
+- term: trace
+  aliases: [tr A]
+  definition: 'The sum of the diagonal entries of a square matrix; it equals the sum of the eigenvalues.'
+  topic: Characteristic equation
+- term: algebraic multiplicity
+  definition: 'The multiplicity of an eigenvalue as a root of the characteristic polynomial.'
+  topic: Characteristic equation
+- term: similar matrices
+  aliases: [similar]
+  definition: '$A$ and $B$ are similar if $B = P^{-1}AP$ for some invertible $P$; they share the characteristic polynomial.'
+  topic: Characteristic equation
+- term: diagonalizable
+  aliases: [diagonalization]
+  definition: 'A square matrix that can be written $A = PDP^{-1}$ with $D$ diagonal; exactly when it has $n$ independent eigenvectors.'
+  topic: Diagonalization
+- term: eigenvector basis
+  definition: 'A basis of $\mathbb{R}^n$ made of eigenvectors of $A$; it exists exactly when $A$ is diagonalizable.'
+  topic: Diagonalization
+- term: geometric multiplicity
+  definition: 'The dimension of the eigenspace $\operatorname{Nul}(A - \lambda I)$; at most the algebraic multiplicity.'
+  topic: Diagonalization
+- term: complex conjugate
+  aliases: [conjugate]
+  definition: 'For $z = a + bi$, the number $\bar z = a - bi$.'
+  topic: Complex eigenvalues
+- term: complex eigenvalue
+  aliases: [complex eigenvalues]
+  definition: 'A non-real root of the characteristic polynomial; for real matrices they come in conjugate pairs.'
+  topic: Complex eigenvalues
+- term: rotation–scaling matrix
+  aliases: [rotation-scaling matrix]
+  definition: '$\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$: rotation by the angle of $(a, b)$ followed by scaling by $r = \sqrt{a^2 + b^2}$; eigenvalues $a \pm bi$.'
+  topic: Complex eigenvalues
+
+# --- Dynamics and Markov ---
+- term: discrete dynamical system
+  aliases: [dynamical system]
+  definition: 'A sequence of state vectors with $\mathbf{x}_{k+1} = A\mathbf{x}_k$, so $\mathbf{x}_k = A^k\mathbf{x}_0$.'
+  topic: Dynamical systems
+- term: attractor
+  definition: 'In a $2 \times 2$ system, the origin when both eigenvalues have $|\lambda| < 1$: all trajectories tend to $\mathbf{0}$.'
+  topic: Dynamical systems
+- term: repeller
+  definition: 'In a $2 \times 2$ system, the origin when both eigenvalues have $|\lambda| > 1$: trajectories move away.'
+  topic: Dynamical systems
+- term: saddle point
+  definition: 'In a $2 \times 2$ system, the origin when one eigenvalue has $|\lambda| > 1$ and the other $|\lambda| < 1$.'
+  topic: Dynamical systems
+- term: probability vector
+  aliases: [probability vectors]
+  definition: 'A vector with nonnegative entries that add up to 1.'
+  topic: Markov chains
+- term: stochastic matrix
+  aliases: [transition matrix]
+  definition: 'A square matrix whose columns are probability vectors.'
+  topic: Markov chains
+- term: Markov chain
+  aliases: [Markov chains]
+  definition: 'A sequence of probability vectors with $\mathbf{x}_{k+1} = P\mathbf{x}_k$ for a stochastic matrix $P$.'
+  topic: Markov chains
+- term: state vector
+  definition: 'The probability vector $\mathbf{x}_k$ at step $k$ of a Markov chain.'
+  topic: Markov chains
+- term: steady-state vector
+  aliases: [steady state, equilibrium vector]
+  definition: 'A probability vector $\mathbf{q}$ with $P\mathbf{q} = \mathbf{q}$ (an eigenvector for eigenvalue 1).'
+  topic: Markov chains
+- term: regular stochastic matrix
+  aliases: [regular]
+  definition: 'A stochastic matrix some power of which has all positive entries; its chains converge to a unique steady state.'
+  topic: Markov chains
+
+# --- Orthogonality ---
+- term: inner product
+  definition: '$\mathbf{u}\cdot\mathbf{v} = \mathbf{u}^T\mathbf{v} = u_1v_1 + \cdots + u_nv_n$.'
+  topic: Inner product
+- term: dot product
+  definition: 'The inner product $\mathbf{u}\cdot\mathbf{v} = u_1v_1 + \cdots + u_nv_n$.'
+  topic: Inner product
+- term: norm
+  definition: 'The length $\|\mathbf{v}\| = \sqrt{\mathbf{v}\cdot\mathbf{v}}$.'
+  topic: Inner product
+- term: distance
+  definition: '$\operatorname{dist}(\mathbf{u}, \mathbf{v}) = \|\mathbf{u} - \mathbf{v}\|$.'
+  topic: Inner product
+- term: orthogonal
+  aliases: [perpendicular, orthogonal vectors]
+  definition: '$\mathbf{u}$ and $\mathbf{v}$ are orthogonal if $\mathbf{u}\cdot\mathbf{v} = 0$.'
+  topic: Orthogonality
+- term: orthogonal complement
+  aliases: ['$W^\perp$', W perp]
+  definition: '$W^\perp$, the set of all vectors orthogonal to every vector in $W$; $(\operatorname{Row} A)^\perp = \operatorname{Nul} A$.'
+  topic: Orthogonality
+- term: orthogonal set
+  definition: 'A set of vectors in which every pair of distinct vectors is orthogonal.'
+  topic: Orthogonal bases
+- term: orthogonal basis
+  definition: 'A basis that is an orthogonal set; coordinates are $c_j = \mathbf{y}\cdot\mathbf{u}_j/\mathbf{u}_j\cdot\mathbf{u}_j$.'
+  topic: Orthogonal bases
+- term: orthogonal projection
+  aliases: [proj]
+  definition: '$\hat{\mathbf{y}} = \operatorname{proj}_W\mathbf{y}$, the point of $W$ closest to $\mathbf{y}$; onto a line, $\dfrac{\mathbf{y}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\mathbf{u}$.'
+  topic: Orthogonal projections
+- term: orthonormal set
+  aliases: [orthonormal basis, orthonormal]
+  definition: 'An orthogonal set of unit vectors.'
+  topic: Orthogonal bases
+- term: orthogonal matrix
+  definition: 'A square matrix with orthonormal columns; $U^{-1} = U^T$.'
+  topic: Orthogonal bases
+- term: best approximation theorem
+  definition: '$\operatorname{proj}_W\mathbf{y}$ is the closest point of $W$ to $\mathbf{y}$.'
+  topic: Orthogonal projections
+- term: Gram–Schmidt process
+  aliases: [Gram-Schmidt process, Gram–Schmidt]
+  definition: 'Turning a basis $\mathbf{x}_1, \dots, \mathbf{x}_p$ into an orthogonal basis by subtracting from each $\mathbf{x}_k$ its projections onto the earlier $\mathbf{v}$ vectors.'
+  topic: Gram–Schmidt
+- term: QR factorization
+  definition: '$A = QR$ with $Q$ having orthonormal columns (a basis of $\operatorname{Col} A$) and $R$ upper triangular with positive diagonal.'
+  topic: QR factorization
+- term: least-squares solution
+  aliases: [least squares]
+  definition: 'An $\hat{\mathbf{x}}$ minimizing $\|\mathbf{b} - A\mathbf{x}\|$; it solves $A^TA\mathbf{x} = A^T\mathbf{b}$.'
+  topic: Least squares
+- term: least-squares error
+  definition: 'The minimum distance $\|\mathbf{b} - A\hat{\mathbf{x}}\|$.'
+  topic: Least squares
+- term: normal equations
+  definition: '$A^TA\mathbf{x} = A^T\mathbf{b}$, whose solutions are the least-squares solutions of $A\mathbf{x} = \mathbf{b}$.'
+  topic: Least squares
+- term: design matrix
+  definition: 'In regression, the matrix $X$ whose rows hold the predictors for each data point, e.g. $(1, x_i)$ for a line.'
+  topic: Linear regression
+- term: residual
+  aliases: [residuals]
+  definition: 'Observed minus predicted value, $y_i - (\beta_0 + \beta_1x_i)$.'
+  topic: Linear regression
+- term: least-squares line
+  aliases: [regression line]
+  definition: 'The line $y = \beta_0 + \beta_1x$ minimizing the sum of squared residuals.'
+  topic: Linear regression
+- term: linear regression
+  aliases: [regression]
+  definition: 'Fitting a model that is linear in its parameters to data by least squares.'
+  topic: Linear regression
+
+# --- Symmetric, quadratic forms, SVD ---
+- term: symmetric matrix
+  aliases: [symmetric]
+  definition: 'A square matrix with $A^T = A$.'
+  topic: Symmetric matrices
+- term: orthogonally diagonalizable
+  definition: '$A = PDP^T$ with $P$ orthogonal and $D$ diagonal; true exactly for symmetric matrices.'
+  topic: Symmetric matrices
+- term: spectral theorem
+  definition: 'A matrix is orthogonally diagonalizable if and only if it is symmetric; its eigenvalues are real and its eigenspaces mutually orthogonal.'
+  topic: Symmetric matrices
+- term: spectral decomposition
+  definition: '$A = \lambda_1\mathbf{u}_1\mathbf{u}_1^T + \cdots + \lambda_n\mathbf{u}_n\mathbf{u}_n^T$ for symmetric $A$ with orthonormal eigenvectors $\mathbf{u}_i$.'
+  topic: Symmetric matrices
+- term: quadratic form
+  aliases: [quadratic forms]
+  definition: 'A function $Q(\mathbf{x}) = \mathbf{x}^TA\mathbf{x}$ with $A$ symmetric.'
+  topic: Quadratic forms
+- term: principal axes theorem
+  definition: 'The change of variable $\mathbf{x} = P\mathbf{y}$ (orthonormal eigenvectors of $A$) turns $\mathbf{x}^TA\mathbf{x}$ into $\sum\lambda_iy_i^2$, with no cross terms.'
+  topic: Quadratic forms
+- term: principal axes
+  definition: 'The orthonormal eigenvectors of the matrix of a quadratic form; the axes of its level curves.'
+  topic: Quadratic forms
+- term: positive definite
+  definition: '$Q(\mathbf{x}) > 0$ for all $\mathbf{x} \ne \mathbf{0}$; all eigenvalues positive.'
+  topic: Quadratic forms
+- term: negative definite
+  definition: '$Q(\mathbf{x}) < 0$ for all $\mathbf{x} \ne \mathbf{0}$; all eigenvalues negative.'
+  topic: Quadratic forms
+- term: indefinite
+  definition: 'A quadratic form taking both positive and negative values; eigenvalues of both signs.'
+  topic: Quadratic forms
+- term: positive semidefinite
+  definition: '$Q(\mathbf{x}) \ge 0$ for all $\mathbf{x}$; all eigenvalues $\ge 0$.'
+  topic: Quadratic forms
+- term: singular value decomposition
+  definition: '$A = U\Sigma V^T$ with $U$, $V$ orthogonal and $\Sigma$ holding the singular values; it exists for every matrix.'
+  topic: Singular value decomposition
+- term: SVD
+  definition: 'Singular value decomposition.'
+  topic: Singular value decomposition
+- term: singular values
+  aliases: [singular value]
+  definition: 'The square roots $\sigma_i$ of the eigenvalues of $A^TA$, listed in decreasing order; $\sigma_i = \|A\mathbf{v}_i\|$.'
+  topic: Singular value decomposition
+- term: right singular vectors
+  definition: 'The columns $\mathbf{v}_i$ of $V$ in $A = U\Sigma V^T$: orthonormal eigenvectors of $A^TA$.'
+  topic: Singular value decomposition
+- term: left singular vectors
+  definition: 'The columns $\mathbf{u}_i = A\mathbf{v}_i/\sigma_i$ of $U$ in $A = U\Sigma V^T$.'
+  topic: Singular value decomposition
+- term: condition number
+  definition: 'For invertible $A$, $\sigma_1/\sigma_n$; large values mean solutions of $A\mathbf{x} = \mathbf{b}$ are sensitive to errors.'
+  topic: Singular value decomposition
+- term: pseudoinverse
+  aliases: ['$A^+$', Moore–Penrose inverse]
+  definition: '$A^+ = V_r\Sigma_r^{-1}U_r^T$; $A^+\mathbf{b}$ is the least-squares solution of smallest length.'
+  topic: Singular value decomposition
+
+# --- Abbreviations and notation ---
+- term: REF
+  definition: 'Row echelon form.'
+  topic: Echelon forms
+- term: LU
+  definition: 'The LU factorization $A = LU$ (lower triangular times upper triangular).'
+  topic: LU factorization
+- term: QR
+  definition: 'The QR factorization $A = QR$ (orthonormal columns times upper triangular).'
+  topic: QR factorization
+- term: PDP^-1
+  aliases: ['$PDP^{-1}$']
+  definition: 'Diagonalization: $P$ has eigenvectors as columns, $D$ has the eigenvalues on its diagonal.'
+  topic: Diagonalization
+- term: tr
+  definition: 'Trace: $\operatorname{tr} A$ is the sum of the diagonal entries.'
+  topic: Characteristic equation
+- term: Nul
+  definition: 'Null space: $\operatorname{Nul} A = \{\mathbf{x} : A\mathbf{x} = \mathbf{0}\}$.'
+  topic: Null space
+- term: Col
+  definition: 'Column space: $\operatorname{Col} A$ is the span of the columns of $A$.'
+  topic: Column space
+- term: adj
+  definition: 'Adjugate: $\operatorname{adj} A$ is the transpose of the cofactor matrix.'
+  topic: Cramer's rule
+- term: M_mxn
+  aliases: ['$M_{m \times n}$']
+  definition: 'The vector space of all $m \times n$ matrices, of dimension $mn$.'
+  topic: Vector spaces

@@ -1,0 +1,201 @@
+# Module 1 drills
+- id: geo-segadd
+  title: Segment addition
+  topic: Postulates
+  vars:
+    p: {min: 2, max: 12}
+    a: {min: 1, max: 5}
+    b: {min: -6, max: 9}
+    c: {min: 1, max: 5}
+    d: {min: -6, max: 9}
+  where: ["b != 0", "d != 0", "a*p + b > 1", "c*p + d > 1"]
+  calc:
+    AB: a*p + b
+    BC: c*p + d
+    AC: AB + BC
+    s: a + c
+    k: b + d
+  prompt: '$B$ is between $A$ and $C$. $AB = {a:coef}x {b:signed}$, $BC = {c:coef}x {d:signed}$ and $AC = {AC}$. Find $x$ and $AB$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: AB, label: '$AB =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 0], to: [AB, 0], label: '{a:coef}x {b:signed}'}
+      - {from: [AB, 0], to: [AC, 0], label: '{c:coef}x {d:signed}'}
+    points:
+      - {at: [0, 0], label: A}
+      - {at: [AB, 0], label: B}
+      - {at: [AC, 0], label: C}
+    caption: 'AC = {AC}'
+  solution: |-
+    Segment addition: $({a:coef}x {b:signed}) + ({c:coef}x {d:signed}) = {AC}$, so ${s}x {k:signed} = {AC}$ and $x =$ **{p}**. Then $AB = {a}({p}) {b:signed} =$ **{AB}** (and $BC = {BC}$; ${AB} + {BC} = {AC}$).
+
+- id: geo-midpoint-alg
+  title: Midpoint algebra
+  topic: Segments and midpoints
+  vars:
+    a: {min: 2, max: 9}
+    c: {min: 1, max: 8}
+    p: {min: 2, max: 12}
+    b: {min: -10, max: 10}
+  where: ["a > c", "b != 0", "a*p + b > 2", "a*p + b - c*p != 0"]
+  calc:
+    half: a*p + b
+    d: half - c*p
+    whole: 2*half
+    da: a - c
+    db: d - b
+  prompt: '$M$ is the midpoint of $\overline{PQ}$. $PM = {a}x {b:signed}$ and $MQ = {c:coef}x {d:signed}$. Find $x$ and $PQ$.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: whole, label: '$PQ =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 0], to: [10, 0]}
+      - {from: [2.5, -0.3], to: [2.5, 0.3]}
+      - {from: [7.5, -0.3], to: [7.5, 0.3]}
+    points:
+      - {at: [0, 0], label: P}
+      - {at: [5, 0], label: M}
+      - {at: [10, 0], label: Q}
+  solution: |-
+    A midpoint makes $PM = MQ$: ${a}x {b:signed} = {c:coef}x {d:signed}$, so ${da:coef}x = {db}$ and $x =$ **{p}**. Each half is ${a}({p}) {b:signed} = {half}$, so $PQ = 2 \cdot {half} =$ **{whole}**.
+
+- id: geo-angadd
+  title: Angle addition
+  topic: Angle measure
+  vars:
+    p: {min: 3, max: 15}
+    a: {min: 1, max: 6}
+    b: {min: -10, max: 20}
+    c: {min: 1, max: 6}
+    d: {min: -10, max: 20}
+  where: ["b != 0", "d != 0", "a*p + b >= 15", "c*p + d >= 15", "a*p + b + c*p + d <= 170"]
+  calc:
+    A1: a*p + b
+    A2: c*p + d
+    T: A1 + A2
+    s: a + c
+    k: b + d
+  prompt: '$D$ is in the interior of $\angle ABC$. $m\angle ABD = ({a:coef}x {b:signed})^\circ$, $m\angle DBC = ({c:coef}x {d:signed})^\circ$ and $m\angle ABC = {T}^\circ$. Find $x$ and $m\angle DBC$ in degrees.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: A2, label: '$m\angle DBC =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 0], to: [8, 0], arrow: true}
+      - {from: [0, 0], to: ['8*cosd(A2)', '8*sind(A2)'], arrow: true}
+      - {from: [0, 0], to: ['8*cosd(T)', '8*sind(T)'], arrow: true}
+    points:
+      - {at: [0, 0], label: B}
+      - {at: [8, 0], label: C}
+      - {at: ['8*cosd(A2)', '8*sind(A2)'], label: D}
+      - {at: ['8*cosd(T)', '8*sind(T)'], label: A}
+  solution: |-
+    Angle addition: $({a:coef}x {b:signed}) + ({c:coef}x {d:signed}) = {T}$, so ${s}x {k:signed} = {T}$ and $x =$ **{p}**. Then $m\angle DBC = {c}({p}) {d:signed} =$ **{A2}°** (and $m\angle ABD = {A1}^\circ$).
+
+- id: geo-comp-supp
+  title: Complement word problem
+  topic: Angle pairs
+  vars:
+    x: {min: 20, max: 85}
+    n: {min: 2, max: 4}
+  calc:
+    c: 90 - x
+    d: x - n*c
+    n1: n + 1
+    rhs: n*90 + d
+  where: ["d > 0", "d <= 40"]
+  prompt: 'An angle measures ${d}^\circ$ more than {n} times its complement. Find the angle in degrees.'
+  answers:
+    - {name: x, label: 'Angle'}
+  solution: |-
+    Let the angle be $x$; its complement is $90 - x$. Then $x = {n}(90 - x) + {d}$. Expand: ${n1}x = {rhs}$, so $x =$ **{x}°**. Check: complement ${c}^\circ$, and ${n} \cdot {c} + {d} = {x}$.
+
+- id: geo-supp-alg
+  title: Supplement word problem
+  topic: Angle pairs
+  vars:
+    x: {min: 20, max: 170}
+    n: {min: 2, max: 5}
+  calc:
+    s: 180 - x
+    d: n*s - x
+    n1: n + 1
+    rhs: n*180 - d
+  where: ["d > 0", "d <= 60", "x != 90"]
+  prompt: 'An angle is ${d}^\circ$ less than {n} times its supplement. Find the angle in degrees.'
+  answers:
+    - {name: x, label: 'Angle'}
+  solution: |-
+    The supplement is $180 - x$, so $x = {n}(180 - x) - {d}$. Then ${n1}x = {rhs}$ and $x =$ **{x}°**. Check: supplement ${s}^\circ$, and ${n} \cdot {s} - {d} = {x}$.
+
+- id: geo-vertical-alg
+  title: Vertical angles with algebra
+  topic: Angle pairs
+  vars:
+    a: {min: 2, max: 7}
+    c: {min: 1, max: 6}
+    p: {min: 5, max: 25}
+    b: {min: -20, max: 30}
+  where: ["a > c", "b != 0", "a*p + b >= 20", "a*p + b <= 160", "a*p + b != 90", "a*p + b - c*p != 0"]
+  calc:
+    v: a*p + b
+    d: v - c*p
+    adj: 180 - v
+    da: a - c
+    db: d - b
+  prompt: 'Two lines intersect. One angle measures $({a}x {b:signed})^\circ$ and the angle vertical to it measures $({c:coef}x {d:signed})^\circ$. Find $x$, the measure of these angles, and the measure of an angle adjacent to them.'
+  answers:
+    - {name: p, label: '$x =$'}
+    - {name: v, label: 'Vertical angles'}
+    - {name: adj, label: 'Adjacent angle'}
+  figure:
+    type: shape
+    segments:
+      - {from: [-6, 0], to: [6, 0]}
+      - {from: ['-6*cosd(v)', '-6*sind(v)'], to: ['6*cosd(v)', '6*sind(v)']}
+    labels:
+      - {at: ['3*cosd(v/2)', '3*sind(v/2)'], text: '({a}x {b:signed})°'}
+      - {at: ['-3*cosd(v/2)', '-3*sind(v/2)'], text: '({c:coef}x {d:signed})°'}
+  solution: |-
+    Vertical angles are congruent: ${a}x {b:signed} = {c:coef}x {d:signed}$, so ${da:coef}x = {db}$ and $x =$ **{p}**. Each vertical angle is ${a}({p}) {b:signed} =$ **{v}°**. An adjacent angle forms a linear pair with it: $180 - {v} =$ **{adj}°**.
+
+- id: geo-angbis
+  title: Angle bisector algebra
+  topic: Angle measure
+  vars:
+    a: {min: 1, max: 6}
+    c: {min: 1, max: 12}
+    y: {min: 3, max: 15}
+    b: {min: -15, max: 20}
+  where: ["c != 2*a", "b != 0", "a*y + b >= 10", "a*y + b <= 85", "2*(a*y + b) - c*y != 0"]
+  calc:
+    h: a*y + b
+    w: 2*h
+    d: w - c*y
+    a2: 2*a
+    b2: 2*b
+    lc: c - a2
+    rc: b2 - d
+  prompt: '$\overrightarrow{QS}$ bisects $\angle PQR$. $m\angle PQS = ({a:coef}y {b:signed})^\circ$ and $m\angle PQR = ({c:coef}y {d:signed})^\circ$. Find $y$ and $m\angle PQR$ in degrees.'
+  answers:
+    - {name: y, label: '$y =$'}
+    - {name: w, label: '$m\angle PQR =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 0], to: [8, 0], arrow: true}
+      - {from: [0, 0], to: ['8*cosd(h)', '8*sind(h)'], arrow: true}
+      - {from: [0, 0], to: ['8*cosd(w)', '8*sind(w)'], arrow: true}
+    points:
+      - {at: [0, 0], label: Q}
+      - {at: [8, 0], label: R}
+      - {at: ['8*cosd(h)', '8*sind(h)'], label: S}
+      - {at: ['8*cosd(w)', '8*sind(w)'], label: P}
+  solution: |-
+    The whole angle is twice either half: ${c:coef}y {d:signed} = 2({a:coef}y {b:signed}) = {a2}y {b2:signed}$. So ${lc:coef}y = {rc}$ and $y =$ **{y}**. Each half is ${h}^\circ$, so $m\angle PQR =$ **{w}°**.

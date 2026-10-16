@@ -1,0 +1,226 @@
+# Module 9 drills
+- id: geo-distance
+  title: Distance between two points
+  topic: Distance and midpoint
+  vars:
+    x1: {min: -9, max: 9}
+    y1: {min: -9, max: 9}
+    x2: {min: -9, max: 9}
+    y2: {min: -9, max: 9}
+  where: ["x1 != x2", "y1 != y2"]
+  calc:
+    dx: x2 - x1
+    dy: y2 - y1
+    s: dx^2 + dy^2
+    d: sqrt(s)
+  prompt: 'Find the distance between $({x1}, {y1})$ and $({x2}, {y2})$ (exact or 2 decimals).'
+  answers:
+    - {name: d, label: 'Distance', tolerance: 0.01}
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    segments:
+      - {from: [x1, y1], to: [x2, y2]}
+      - {from: [x1, y1], to: [x2, y1], dashed: true}
+      - {from: [x2, y1], to: [x2, y2], dashed: true}
+    points:
+      - {at: [x1, y1]}
+      - {at: [x2, y2]}
+  solution: |-
+    The legs are $|\Delta x| = |{dx}|$ and $|\Delta y| = |{dy}|$, so $d = \sqrt{({dx})^2 + ({dy})^2} = \sqrt{{s}} \approx$ **{d:num2}**.
+
+- id: geo-midpoint
+  title: Midpoint and missing endpoint
+  topic: Distance and midpoint
+  vars:
+    ax: {min: -10, max: 10}
+    ay: {min: -10, max: 10}
+    mx: {min: -8, max: 8}
+    my: {min: -8, max: 8}
+  where: ["ax != mx", "ay != my"]
+  calc:
+    bx: 2*mx - ax
+    by: 2*my - ay
+    sx: mx - ax
+    sy: my - ay
+  prompt: '$M({mx}, {my})$ is the midpoint of $\overline{AB}$, and $A = ({ax}, {ay})$. Find $B$.'
+  answers:
+    - {name: bx, label: '$x =$'}
+    - {name: by, label: '$y =$'}
+  solution: |-
+    Going from $A$ to $M$ changes $x$ by ${sx}$ and $y$ by ${sy}$. Do the same again from $M$: $B = ({mx} {sx:signed}, {my} {sy:signed}) =$ **({bx}, {by})**. (Equivalently $\tfrac{{ax} + x}{2} = {mx}$ and $\tfrac{{ay} + y}{2} = {my}$.)
+
+- id: geo-partition
+  title: Partition a segment in a ratio
+  topic: Distance and midpoint
+  vars:
+    m: {min: 1, max: 4}
+    n: {min: 1, max: 4}
+    x1: {min: -9, max: 9}
+    y1: {min: -9, max: 9}
+    dx: {min: -16, max: 16}
+    dy: {min: -16, max: 16}
+  where: ["m != n", "mod(dx, m + n) == 0", "mod(dy, m + n) == 0", "dx != 0", "dy != 0", "abs(x1 + dx) <= 12", "abs(y1 + dy) <= 12"]
+  calc:
+    x2: x1 + dx
+    y2: y1 + dy
+    t: m + n
+    px: x1 + m*dx/t
+    py: y1 + m*dy/t
+  prompt: 'Find the point $P$ on $\overline{AB}$ with $A({x1}, {y1})$ and $B({x2}, {y2})$ such that $AP : PB = {m} : {n}$.'
+  answers:
+    - {name: px, label: '$x =$'}
+    - {name: py, label: '$y =$'}
+  figure:
+    type: plot
+    x: [-13, 13]
+    y: [-13, 13]
+    equal: true
+    segments:
+      - {from: [x1, y1], to: [x2, y2]}
+    points:
+      - {at: [x1, y1], label: 'A'}
+      - {at: [x2, y2], label: 'B'}
+  solution: |-
+    $P$ is $k = \tfrac{{m}}{{m} + {n}} = \tfrac{{m}}{{t}}$ of the way from $A$ to $B$. The changes are $\Delta x = {dx}$ and $\Delta y = {dy}$, so $P = \left({x1} + \tfrac{{m}}{{t}}({dx}),\; {y1} + \tfrac{{m}}{{t}}({dy})\right) =$ **({px}, {py})**.
+
+- id: geo-translate
+  title: Translate a point
+  topic: Rigid motions
+  vars:
+    x: {min: -9, max: 9}
+    y: {min: -9, max: 9}
+    a: {min: -8, max: 8}
+    b: {min: -8, max: 8}
+  where: ["a != 0", "b != 0"]
+  calc:
+    x2: x + a
+    y2: y + b
+  prompt: 'Translate $({x}, {y})$ by $\langle {a}, {b} \rangle$.'
+  answers:
+    - {name: x2, label: '$x'' =$'}
+    - {name: y2, label: '$y'' =$'}
+  solution: |-
+    Add the vector to the point: $({x} {a:signed}, {y} {b:signed}) =$ **({x2}, {y2})**.
+
+- id: geo-reflect
+  title: Reflect a point
+  topic: Rigid motions
+  vars:
+    x: {min: -9, max: 9}
+    y: {min: -9, max: 9}
+    L: {choices: [{label: 'the $x$-axis', value: 1}, {label: 'the $y$-axis', value: 2}, {label: 'the line $y = x$', value: 3}, {label: 'the line $y = -x$', value: 4}]}
+  where: ["x != 0", "y != 0", "x != y", "x != -y"]
+  calc:
+    x2: if(L == 1, x, if(L == 2, -x, if(L == 3, y, -y)))
+    y2: if(L == 1, -y, if(L == 2, y, if(L == 3, x, -x)))
+  prompt: 'Reflect the point $({x}, {y})$ in {L}.'
+  answers:
+    - {name: x2, label: '$x'' =$'}
+    - {name: y2, label: '$y'' =$'}
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    points:
+      - {at: [x, y], label: 'P'}
+  solution: |-
+    Rules: $x$-axis $(x, -y)$; $y$-axis $(-x, y)$; $y = x$ swaps to $(y, x)$; $y = -x$ gives $(-y, -x)$. Reflecting in {L} gives **({x2}, {y2})**.
+
+- id: geo-rotate
+  title: Rotate a point about the origin
+  topic: Rigid motions
+  vars:
+    x: {min: -9, max: 9}
+    y: {min: -9, max: 9}
+    ang: {choices: [90, 180, 270]}
+  where: ["x != 0", "y != 0"]
+  calc:
+    x2: if(ang == 90, -y, if(ang == 180, -x, y))
+    y2: if(ang == 90, x, if(ang == 180, -y, -x))
+  prompt: 'Rotate $({x}, {y})$ by ${ang}^\circ$ counterclockwise about the origin.'
+  answers:
+    - {name: x2, label: '$x'' =$'}
+    - {name: y2, label: '$y'' =$'}
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    points:
+      - {at: [x, y], label: 'P'}
+      - {at: [0, 0], label: 'O'}
+  solution: |-
+    Counterclockwise about the origin: $90^\circ$ gives $(-y, x)$, $180^\circ$ gives $(-x, -y)$, $270^\circ$ gives $(y, -x)$. For ${ang}^\circ$ the image is **({x2}, {y2})**.
+
+- id: geo-dilate
+  title: Dilate about a point
+  topic: Dilations
+  vars:
+    cx: {min: -4, max: 4}
+    cy: {min: -4, max: 4}
+    k: {choices: [{label: '2', value: 2}, {label: '3', value: 3}, {label: '\tfrac12', value: 0.5}, {label: '\tfrac32', value: 1.5}]}
+    px: {min: -8, max: 8}
+    py: {min: -8, max: 8}
+  where: ["px != cx", "py != cy", "k*(px - cx) == round(k*(px - cx))", "k*(py - cy) == round(k*(py - cy))", "abs(cx + k*(px - cx)) <= 13", "abs(cy + k*(py - cy)) <= 13"]
+  calc:
+    dx: px - cx
+    dy: py - cy
+    qx: cx + k*dx
+    qy: cy + k*dy
+    kdx: k*dx
+    kdy: k*dy
+  prompt: 'Dilate $P({px}, {py})$ with center $C({cx}, {cy})$ and scale factor ${k}$.'
+  answers:
+    - {name: qx, label: '$x'' =$'}
+    - {name: qy, label: '$y'' =$'}
+  figure:
+    type: plot
+    x: [-14, 14]
+    y: [-14, 14]
+    equal: true
+    points:
+      - {at: [cx, cy], label: 'C'}
+      - {at: [px, py], label: 'P'}
+    segments:
+      - {from: [cx, cy], to: [px, py], dashed: true}
+  solution: |-
+    Relative to $C$, $P$ is at $({dx}, {dy})$. Scale by ${k}$: $({kdx}, {kdy})$. Add $C$ back: $P' =$ **({qx}, {qy})**.
+
+- id: geo-compose
+  title: Compose two transformations
+  topic: Compositions and symmetry
+  vars:
+    x: {min: -8, max: 8}
+    y: {min: -8, max: 8}
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+  where: ["x != 0", "y != 0", "a != 0", "b != 0"]
+  calc:
+    rx: -y
+    ry: x
+    fx: rx + a
+    fy: ry + b
+  prompt: 'Rotate $({x}, {y})$ by $90^\circ$ counterclockwise about the origin, then translate the image by $\langle {a}, {b} \rangle$. Where does the point end up?'
+  answers:
+    - {name: fx, label: '$x =$'}
+    - {name: fy, label: '$y =$'}
+  solution: |-
+    Rotate first: $(x, y) \to (-y, x)$ gives $({rx}, {ry})$. Then translate: $({rx} {a:signed}, {ry} {b:signed}) =$ **({fx}, {fy})**.
+
+- id: geo-rot-sym
+  title: Symmetry of regular polygons
+  topic: Compositions and symmetry
+  vars:
+    n: {min: 3, max: 20}
+  calc:
+    ang: 360/n
+  prompt: 'A regular polygon has {n} sides. How many lines of symmetry does it have, and what is the smallest positive angle of rotation (in degrees) that maps it onto itself? (2 decimals if needed)'
+  answers:
+    - {name: n, label: 'Lines of symmetry'}
+    - {name: ang, label: 'Angle', tolerance: 0.01}
+  solution: |-
+    A regular $n$-gon has $n$ lines of symmetry (**{n}**) and rotational symmetry of $\tfrac{360^\circ}{n} = \tfrac{360}{{n}} \approx$ **{ang:num2}°**.

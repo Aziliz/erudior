@@ -1,0 +1,583 @@
+# Glossary: every bolded term in the lessons, plus notation and abbreviations
+- term: absolute value
+  definition: 'For a Jacobian, the magnitude $|J|$ used as the area or volume scaling factor in a change of variables, since areas are positive even when a map reverses orientation.'
+  topic: Change of variables
+- term: acceleration
+  definition: 'The derivative of velocity, $\mathbf a(t) = \mathbf v''(t) = \mathbf r''''(t)$; a vector.'
+  topic: Velocity and acceleration
+- term: Ampère's law
+  definition: 'The circulation of a magnetic field around a closed loop equals $\mu_0$ times the current through it: $\oint_C\mathbf B\cdot d\mathbf r = \mu_0I_{\text{enc}}$.'
+  topic: Applications to physics
+- term: arc length
+  definition: 'The length of a curve, $L = \int_a^b|\mathbf r''(t)|\,dt$.'
+  topic: Arc length
+- term: arc length function
+  definition: 'The distance along a curve from a starting time, $s(t) = \int_a^t|\mathbf r''(u)|\,du$, so $ds/dt = |\mathbf r''(t)|$.'
+  topic: Arc length
+- term: average value
+  definition: 'The integral of a function divided by the size of the region: $f_{\text{avg}} = \frac{1}{A(R)}\iint_R f\,dA$ (or divided by volume for a triple integral).'
+  topic: Double integrals
+- term: axis
+  aliases: [axis of a quadric]
+  definition: 'For a quadric surface, the coordinate axis along the odd-one-out variable (the linear variable of a paraboloid, or the one with the different sign in a cone or hyperboloid).'
+  topic: Quadric surfaces
+- term: binormal vector
+  aliases: [binormal]
+  definition: 'The unit vector $\mathbf B = \mathbf T\times\mathbf N$, perpendicular to the osculating plane of a curve.'
+  topic: TNB frame
+- term: bounded
+  definition: 'A set in the plane or in space that fits inside some disk or ball.'
+  topic: Absolute extrema
+- term: center of mass
+  definition: 'The balance point of an object: $\bar x = M_y/m$, $\bar y = M_x/m$ (and $\bar z = M_{xy}/m$ in space).'
+  topic: Mass and center of mass
+- term: centripetal force
+  definition: 'The force directed toward the center that keeps an object in circular motion; magnitude $mv^2/R = mR\omega^2$.'
+  topic: Velocity and acceleration
+- term: centroid
+  definition: 'The center of mass of a region of constant density; it depends only on the shape.'
+  topic: Mass and center of mass
+- term: chain rule
+  definition: 'Rule for differentiating composites. In several variables: $\dfrac{dz}{dt} = f_x\dfrac{dx}{dt} + f_y\dfrac{dy}{dt}$, one term per path in the tree diagram.'
+  topic: Multivariable chain rule
+- term: circulation
+  definition: 'The line integral $\oint_C\mathbf F\cdot d\mathbf r$ of a field around a closed curve; it measures how much the field flows along the curve.'
+  topic: Green's theorem
+- term: Clairaut's theorem
+  definition: 'If $f_{xy}$ and $f_{yx}$ are continuous near a point, they are equal there.'
+  topic: Higher-order partials
+- term: closed
+  aliases: [closed set]
+  definition: 'A set that contains all of its boundary points, like a disk together with its circle.'
+  topic: Absolute extrema
+- term: closed curve
+  definition: 'A curve whose terminal point equals its initial point.'
+  topic: Fundamental theorem for line integrals
+- term: closed surface
+  definition: 'A surface that is the boundary of a solid region, such as a sphere or the surface of a cube; oriented outward by convention.'
+  topic: Divergence theorem
+- term: component functions
+  definition: 'The scalar functions $P, Q, R$ in a vector field $\mathbf F = \langle P, Q, R\rangle$ (or $f, g, h$ in a vector function).'
+  topic: Vector fields
+- term: components
+  aliases: [component]
+  definition: 'The entries $v_1, v_2, v_3$ of a vector $\langle v_1, v_2, v_3\rangle$.'
+  topic: Vector algebra
+- term: cone
+  definition: 'The quadric surface $\dfrac{z^2}{c^2} = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$; vertical traces through the axis are pairs of lines.'
+  topic: Quadric surfaces
+- term: conservative
+  aliases: [conservative field, conservative vector field]
+  definition: 'A vector field that is the gradient of a scalar function, $\mathbf F = \nabla f$. Its line integrals are path independent.'
+  topic: Conservative fields and potentials
+- term: continuity equation
+  definition: 'The conservation-of-mass law $\partial\rho/\partial t + \nabla\cdot(\rho\mathbf v) = 0$ for a fluid with density $\rho$ and velocity $\mathbf v$.'
+  topic: Applications to physics
+- term: continuous
+  definition: '$f$ is continuous at $(a, b)$ if $\lim_{(x,y)\to(a,b)}f(x,y) = f(a, b)$.'
+  topic: Continuity
+- term: contour map
+  definition: 'A drawing of several level curves of a function, labeled with their values, usually equally spaced.'
+  topic: Level curves
+- term: coordinate planes
+  definition: 'The $xy$-, $yz$- and $xz$-planes, which divide space into eight octants.'
+  topic: 3D coordinates
+- term: coplanar
+  definition: 'Lying in a common plane. Three vectors are coplanar exactly when their scalar triple product is 0.'
+  topic: Triple product
+- term: critical point
+  definition: 'A point where $\nabla f = \mathbf 0$ or a partial derivative does not exist; local extrema occur only at critical points.'
+  topic: Critical points
+- term: cross product
+  definition: 'The vector $\mathbf a\times\mathbf b$ perpendicular to both $\mathbf a$ and $\mathbf b$ (right-hand rule), with length $|\mathbf a||\mathbf b|\sin\theta$.'
+  topic: Cross product
+- term: curl
+  definition: '$\operatorname{curl}\mathbf F = \nabla\times\mathbf F = \langle R_y - Q_z, P_z - R_x, Q_x - P_y\rangle$; it measures the rotation of a field.'
+  topic: Curl
+- term: curvature
+  definition: 'How sharply a curve bends: $\kappa = |d\mathbf T/ds| = |\mathbf r''\times\mathbf r''''|/|\mathbf r''|^3$.'
+  topic: Curvature
+- term: cylinder
+  definition: 'A surface made of all lines parallel to a given line through a plane curve; an equation missing one variable is a cylinder parallel to that variable''s axis.'
+  topic: Cylinders
+- term: cylindrical coordinates
+  definition: 'Coordinates $(r, \theta, z)$ with $x = r\cos\theta$, $y = r\sin\theta$; volume element $dV = r\,dz\,dr\,d\theta$.'
+  topic: Cylindrical coordinates
+- term: definite integral
+  definition: 'The limit of Riemann sums $\int_a^b f(x)\,dx$; for $f \ge 0$, the area under the graph.'
+  topic: Integral review
+- term: del
+  aliases: [nabla, del operator]
+  definition: 'The operator $\nabla = \langle\partial_x, \partial_y, \partial_z\rangle$, used to write the gradient $\nabla f$, divergence $\nabla\cdot\mathbf F$ and curl $\nabla\times\mathbf F$.'
+  topic: Curl
+- term: density
+  definition: 'Mass (or charge, population...) per unit area or volume; integrating it gives the total.'
+  topic: Mass and center of mass
+- term: derivative
+  definition: 'The instantaneous rate of change $f''(x) = \lim_{h\to0}\frac{f(x+h) - f(x)}{h}$, the slope of the graph.'
+  topic: Derivative review
+- term: differentiable
+  definition: '$f(x, y)$ is differentiable at a point if its linear approximation is accurate in every direction (error smaller than the distance). Continuous partial derivatives guarantee it.'
+  topic: Tangent planes
+- term: differential
+  definition: 'The quantity $dz = f_x\,dx + f_y\,dy$, the change along the tangent plane; it approximates the actual change $\Delta z$.'
+  topic: Linear approximation and differentials
+- term: differential form
+  definition: 'A physical law stated at points using derivatives (div, curl), such as $\nabla\cdot\mathbf E = \rho/\varepsilon_0$.'
+  topic: Applications to physics
+- term: direction angles
+  aliases: [direction cosines]
+  definition: 'The angles a vector makes with the positive coordinate axes; their cosines are the components of its unit vector.'
+  topic: Dot product
+- term: direction vector
+  definition: 'A vector parallel to a line, used in $\mathbf r = \mathbf r_0 + t\mathbf v$.'
+  topic: Lines in space
+- term: directional derivative
+  definition: 'The rate of change of $f$ in the direction of a unit vector $\mathbf u$: $D_{\mathbf u}f = \nabla f\cdot\mathbf u$.'
+  topic: Directional derivatives
+- term: discriminant
+  definition: 'In the second-derivative test, $D = f_{xx}f_{yy} - (f_{xy})^2$ at a critical point.'
+  topic: Second-derivative test
+- term: divergence
+  definition: '$\operatorname{div}\mathbf F = \nabla\cdot\mathbf F = P_x + Q_y + R_z$; the net outflow per unit volume at a point.'
+  topic: Divergence
+- term: Divergence theorem
+  aliases: [Gauss's theorem]
+  definition: 'For a closed surface $S$ bounding $E$, oriented outward: $\iint_S\mathbf F\cdot d\mathbf S = \iiint_E\operatorname{div}\mathbf F\,dV$.'
+  topic: Divergence theorem
+- term: domain
+  definition: 'The set of inputs where a function is defined; for $f(x,y)$ it is a region in the plane.'
+  topic: Domain and range
+- term: dot product
+  definition: 'The number $\mathbf a\cdot\mathbf b = a_1b_1 + a_2b_2 + a_3b_3 = |\mathbf a||\mathbf b|\cos\theta$.'
+  topic: Dot product
+- term: double integral
+  definition: 'The limit of double Riemann sums $\iint_R f\,dA$; for $f \ge 0$, the volume under the surface over $R$.'
+  topic: Double integrals
+- term: double Riemann sum
+  definition: 'A sum $\sum\sum f(x_{ij}^*, y_{ij}^*)\,\Delta A$ over a grid of small rectangles.'
+  topic: Double integrals
+- term: ellipsoid
+  definition: 'The quadric surface $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1$; all traces are ellipses.'
+  topic: Quadric surfaces
+- term: elliptic paraboloid
+  definition: 'The quadric surface $\dfrac zc = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$: a bowl with elliptical horizontal traces and parabolic vertical traces.'
+  topic: Quadric surfaces
+- term: EVT
+  aliases: [Extreme Value Theorem]
+  definition: 'Extreme Value Theorem: a continuous function on a closed, bounded set attains an absolute maximum and minimum.'
+  topic: Absolute extrema
+- term: flow line
+  aliases: [streamline, flow lines]
+  definition: 'A curve $\mathbf r(t)$ that follows a vector field, $\mathbf r''(t) = \mathbf F(\mathbf r(t))$; the path of a particle carried by the flow.'
+  topic: Vector fields
+- term: flux
+  definition: 'The surface integral $\iint_S\mathbf F\cdot\mathbf n\,dS$ measuring how much of a field passes through a surface (in 2D, $\oint_C\mathbf F\cdot\mathbf n\,ds$ across a curve).'
+  topic: Flux
+- term: FTC
+  aliases: [Fundamental Theorem of Calculus]
+  definition: 'Fundamental Theorem of Calculus: if $F'' = f$ is continuous, $\int_a^b f(x)\,dx = F(b) - F(a)$.'
+  topic: Integral review
+- term: FTLI
+  aliases: [Fundamental Theorem for Line Integrals]
+  definition: 'Fundamental Theorem for Line Integrals: $\int_C\nabla f\cdot d\mathbf r = f(\mathbf r(b)) - f(\mathbf r(a))$.'
+  topic: Fundamental theorem for line integrals
+- term: Fubini's theorem
+  definition: 'For continuous $f$ on a rectangle (or box), the double (or triple) integral equals the iterated integral in any order.'
+  topic: Iterated integrals
+- term: function of two variables
+  definition: 'A rule assigning one number $f(x, y)$ to each point $(x, y)$ of a domain in the plane.'
+  topic: Domain and range
+- term: Gauss's law
+  definition: 'The electric flux through a closed surface equals the enclosed charge divided by $\varepsilon_0$; in differential form $\nabla\cdot\mathbf E = \rho/\varepsilon_0$.'
+  topic: Applications to physics
+- term: gradient
+  definition: 'The vector of partial derivatives $\nabla f = \langle f_x, f_y, f_z\rangle$; it points in the direction of steepest increase and is perpendicular to level sets.'
+  topic: The gradient
+- term: gradient field
+  definition: 'The vector field $\nabla f$ of a scalar function $f$.'
+  topic: Gradient fields
+- term: graph
+  definition: 'For $f(x, y)$, the surface $z = f(x, y)$ in space.'
+  topic: Domain and range
+- term: Green's theorem
+  definition: 'For a positively oriented simple closed curve $C$ bounding $D$: $\oint_C P\,dx + Q\,dy = \iint_D(Q_x - P_y)\,dA$.'
+  topic: Green's theorem
+- term: grid curve
+  aliases: [grid curves]
+  definition: 'A curve on a parametric surface obtained by holding one parameter fixed.'
+  topic: Parametric surfaces
+- term: harmonic
+  aliases: [harmonic function]
+  definition: 'A function whose Laplacian is zero, $\nabla^2 f = 0$.'
+  topic: Divergence
+- term: heat equation
+  definition: 'The PDE $\partial T/\partial t = \alpha\nabla^2T$ governing heat conduction.'
+  topic: Applications to physics
+- term: helix
+  definition: 'A space curve such as $\langle\cos t, \sin t, t\rangle$ that winds around a cylinder while rising steadily.'
+  topic: Vector functions
+- term: Hessian
+  definition: 'The matrix of second partial derivatives $\begin{bmatrix} f_{xx} & f_{xy}\\ f_{xy} & f_{yy}\end{bmatrix}$; its determinant is the discriminant $D$.'
+  topic: Second-derivative test
+- term: hyperbolic paraboloid
+  definition: 'The saddle-shaped quadric $\dfrac zc = \dfrac{x^2}{a^2} - \dfrac{y^2}{b^2}$, with hyperbolic horizontal traces.'
+  topic: Quadric surfaces
+- term: hyperboloid of one sheet
+  definition: 'The connected quadric $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = 1$ (one minus sign).'
+  topic: Quadric surfaces
+- term: hyperboloid of two sheets
+  definition: 'The quadric $-\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1$ (two minus signs), made of two separate pieces.'
+  topic: Quadric surfaces
+- term: implicit function theorem
+  definition: 'If $F(x, y, z) = 0$ and $F_z \ne 0$ at a point, then near it the equation defines $z$ as a differentiable function of $x$ and $y$.'
+  topic: Implicit differentiation
+- term: incompressible
+  definition: 'A fluid flow with zero divergence everywhere: no net outflow from any region.'
+  topic: Divergence
+- term: independent of path
+  aliases: [path independence, path independent]
+  definition: 'A line integral is independent of path if all paths with the same endpoints give the same value; true exactly for conservative fields (on open connected regions).'
+  topic: Conservative fields and potentials
+- term: integral form
+  definition: 'A physical law stated about whole regions using flux or circulation integrals, such as Gauss''s law $\iint_S\mathbf E\cdot d\mathbf S = Q_{\text{enc}}/\varepsilon_0$.'
+  topic: Applications to physics
+- term: integration by parts
+  definition: 'The product rule backwards: $\int u\,dv = uv - \int v\,du$.'
+  topic: Integral review
+- term: irrotational
+  definition: 'A vector field with zero curl.'
+  topic: Curl
+- term: iterated integral
+  definition: 'An integral evaluated one variable at a time from the inside out, such as $\int_a^b\int_c^d f\,dy\,dx$.'
+  topic: Iterated integrals
+- term: Jacobian
+  definition: 'The determinant $\dfrac{\partial(x, y)}{\partial(u, v)} = x_uy_v - x_vy_u$; its absolute value is the area scaling factor of a transformation.'
+  topic: Jacobians
+- term: kinetic energy
+  definition: 'The energy of motion $K = \tfrac12m|\mathbf v|^2$.'
+  topic: Fundamental theorem for line integrals
+- term: Lagrange multiplier
+  aliases: [Lagrange multipliers, method of Lagrange multipliers]
+  definition: 'The scalar $\lambda$ in $\nabla f = \lambda\nabla g$, the condition for an extremum of $f$ subject to $g = k$; it equals the rate of change of the optimal value with $k$.'
+  topic: Lagrange multipliers
+- term: lamina
+  definition: 'A thin flat plate, modeled as a plane region with a density per unit area.'
+  topic: Mass and center of mass
+- term: Laplacian
+  definition: '$\nabla^2 f = \operatorname{div}(\nabla f) = f_{xx} + f_{yy} + f_{zz}$.'
+  topic: Divergence
+- term: level curve
+  aliases: [level curves]
+  definition: 'The set of points where $f(x, y) = c$ for a constant $c$.'
+  topic: Level curves
+- term: level surface
+  aliases: [level surfaces]
+  definition: 'The set of points where $f(x, y, z) = c$.'
+  topic: Level curves
+- term: line integral
+  aliases: [line integrals]
+  definition: 'An integral along a curve: either $\int_C f\,ds$ (scalar) or $\int_C\mathbf F\cdot d\mathbf r$ (vector), computed with a parametrization.'
+  topic: Work and vector line integrals
+- term: linear approximation
+  definition: 'The approximation $f(x, y) \approx L(x, y)$ of a function by its linearization near a point.'
+  topic: Linear approximation and differentials
+- term: linearization
+  definition: '$L(x, y) = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)$, the function whose graph is the tangent plane.'
+  topic: Linear approximation and differentials
+- term: local maximum
+  definition: 'A point where $f$ is at least as large as at all nearby points.'
+  topic: Critical points
+- term: local minimum
+  definition: 'A point where $f$ is at most as large as at all nearby points.'
+  topic: Critical points
+- term: magnitude
+  aliases: [length of a vector]
+  definition: 'The length of a vector, $|\mathbf v| = \sqrt{v_1^2 + v_2^2 + v_3^2}$.'
+  topic: Vector algebra
+- term: mass
+  definition: 'Total amount of matter; for a lamina $m = \iint_D\rho\,dA$, for a solid $m = \iiint_E\rho\,dV$.'
+  topic: Mass and center of mass
+- term: maximum height
+  definition: 'For a projectile launched at speed $v_0$ and angle $\alpha$, $H = \dfrac{(v_0\sin\alpha)^2}{2g}$.'
+  topic: Projectile motion
+- term: moment
+  aliases: [moments]
+  definition: 'Mass weighted by distance from an axis (or plane), e.g. $M_y = \iint x\rho\,dA$; used to locate the center of mass.'
+  topic: Mass and center of mass
+- term: moment of inertia
+  definition: 'Mass weighted by squared distance from an axis, e.g. $I_0 = \iint(x^2 + y^2)\rho\,dA$; resistance to rotational acceleration.'
+  topic: Mass and center of mass
+- term: Newton's second law
+  definition: 'Force equals mass times acceleration, $\mathbf F = m\mathbf a$.'
+  topic: Velocity and acceleration
+- term: normal component
+  definition: 'For acceleration, $a_N = \kappa v^2 = |\mathbf r''\times\mathbf r''''|/|\mathbf r''|$, the part that changes direction. For a field on a surface, $\mathbf F\cdot\mathbf n$.'
+  topic: Tangential and normal acceleration
+- term: normal line
+  definition: 'The line through a point of a surface in the direction of the normal vector, e.g. $\mathbf r_0 + t\nabla F(P)$.'
+  topic: The gradient
+- term: normal vector
+  aliases: [normal]
+  definition: 'A vector perpendicular to a plane or surface; for $ax + by + cz = d$ it is $\langle a, b, c\rangle$, for a parametric surface $\mathbf r_u\times\mathbf r_v$.'
+  topic: Planes
+- term: orientable
+  definition: 'A surface on which a unit normal can be chosen continuously everywhere (a Möbius strip is not orientable).'
+  topic: Flux
+- term: orientation
+  definition: 'A choice of direction: of travel along a curve, or of unit normal on a surface. Reversing it flips the sign of vector line integrals and flux.'
+  topic: Flux
+- term: orthogonal
+  definition: 'Perpendicular; two vectors are orthogonal when their dot product is 0.'
+  topic: Dot product
+- term: osculating circle
+  definition: 'The circle that best fits a curve at a point, on its concave side, with radius $1/\kappa$.'
+  topic: Curvature
+- term: osculating plane
+  definition: 'The plane spanned by $\mathbf T$ and $\mathbf N$ at a point of a curve; its normal is $\mathbf B$.'
+  topic: TNB frame
+- term: parallel
+  definition: 'Two nonzero vectors are parallel when one is a scalar multiple of the other (equivalently, their cross product is $\mathbf 0$).'
+  topic: Vector algebra
+- term: parallelepiped
+  definition: 'A slanted box with edges $\mathbf a, \mathbf b, \mathbf c$; its volume is $|\mathbf a\cdot(\mathbf b\times\mathbf c)|$.'
+  topic: Triple product
+- term: parametric curve
+  definition: 'A curve given by coordinates as functions of a parameter, $x = x(t)$, $y = y(t)$.'
+  topic: Parametric and polar review
+- term: parametric equations
+  definition: 'Equations $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$ giving each coordinate of a line (or curve) in terms of a parameter.'
+  topic: Lines in space
+- term: parametric surface
+  definition: 'A surface given by $\mathbf r(u, v) = \langle x(u,v), y(u,v), z(u,v)\rangle$ for $(u, v)$ in a region $D$.'
+  topic: Parametric surfaces
+- term: partial derivative
+  aliases: [partial derivatives]
+  definition: 'The derivative of $f$ with respect to one variable with the others held constant, e.g. $f_x = \partial f/\partial x$.'
+  topic: Partial derivatives
+- term: PDE
+  aliases: [partial differential equation, partial differential equations]
+  definition: 'Partial differential equation: an equation relating an unknown function to its partial derivatives, such as the heat equation $u_t = u_{xx}$.'
+  topic: Higher-order partials
+- term: planimeter
+  definition: 'A mechanical instrument that measures the area of a region by tracing its boundary, an application of Green''s theorem.'
+  topic: Green's theorem
+- term: polar coordinates
+  definition: 'Coordinates $(r, \theta)$ with $x = r\cos\theta$, $y = r\sin\theta$; area element $dA = r\,dr\,d\theta$.'
+  topic: Parametric and polar review
+- term: polar rectangle
+  definition: 'A region $a \le r \le b$, $\alpha \le \theta \le \beta$: a sector of a ring.'
+  topic: Polar double integrals
+- term: position vector
+  definition: 'The vector from the origin to a point; $\langle x, y, z\rangle$ for the point $(x, y, z)$.'
+  topic: Vector algebra
+- term: positive orientation
+  definition: 'For a closed curve bounding a region, counterclockwise (region on the left); for the boundary of a surface, the direction given by the right-hand rule.'
+  topic: Green's theorem
+- term: potential energy
+  definition: 'A function $U$ with $\mathbf F = -\nabla U$ for a conservative force; the work done equals the loss of $U$.'
+  topic: Fundamental theorem for line integrals
+- term: potential function
+  aliases: [potential]
+  definition: 'A scalar function $f$ with $\nabla f = \mathbf F$.'
+  topic: Conservative fields and potentials
+- term: principal unit normal
+  definition: 'The unit vector $\mathbf N = \mathbf T''/|\mathbf T''|$ pointing in the direction a curve is turning.'
+  topic: TNB frame
+- term: projection
+  definition: 'The shadow of a curve or solid on a coordinate plane, obtained by dropping a coordinate; for a solid, the region $D$ over which the outer integrals run.'
+  topic: Triple integrals
+- term: quadric surface
+  definition: 'The graph of a second-degree equation in $x, y, z$: ellipsoids, paraboloids, cones and hyperboloids.'
+  topic: Quadric surfaces
+- term: radial
+  aliases: [radial field]
+  definition: 'A vector field pointing along the position vector (directly toward or away from the origin) at every point.'
+  topic: Vector fields
+- term: radius of curvature
+  definition: 'The reciprocal $\rho = 1/\kappa$ of the curvature: the radius of the osculating circle.'
+  topic: Curvature
+- term: range
+  definition: 'The set of output values of a function. (For a projectile, "range" also means the horizontal distance traveled, $v_0^2\sin2\alpha/g$ on level ground.)'
+  topic: Domain and range
+- term: resultant
+  definition: 'The sum of several forces (or other vectors) acting together.'
+  topic: Vector algebra
+- term: right-hand rule
+  definition: 'Curl the fingers of the right hand from the first direction to the second; the thumb gives the third (orientation of axes, $\mathbf a\times\mathbf b$, and boundary orientation in Stokes'' theorem).'
+  topic: Cross product
+- term: saddle point
+  definition: 'A critical point where $f$ takes both larger and smaller values arbitrarily close by; the second-derivative test gives $D < 0$.'
+  topic: Second-derivative test
+- term: scalar
+  definition: 'A real number, as opposed to a vector.'
+  topic: Vector algebra
+- term: scalar equation
+  definition: 'The equation $ax + by + cz = d$ of a plane, whose coefficients give a normal vector.'
+  topic: Planes
+- term: scalar line integral
+  definition: 'The integral $\int_C f\,ds = \int_a^b f(\mathbf r(t))|\mathbf r''(t)|\,dt$; independent of direction.'
+  topic: Scalar line integrals
+- term: scalar projection
+  definition: 'The signed length of the shadow of $\mathbf b$ on the line of $\mathbf a$: $\operatorname{comp}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|}$.'
+  topic: Projections
+- term: scalar triple product
+  definition: 'The number $\mathbf a\cdot(\mathbf b\times\mathbf c)$, a $3\times3$ determinant; its absolute value is the volume of a parallelepiped.'
+  topic: Triple product
+- term: second-derivative test
+  definition: 'At a critical point with $D = f_{xx}f_{yy} - f_{xy}^2$: $D > 0, f_{xx} > 0$ min; $D > 0, f_{xx} < 0$ max; $D < 0$ saddle; $D = 0$ inconclusive.'
+  topic: Second-derivative test
+- term: second-order partial derivatives
+  aliases: [second partials, second-order partials]
+  definition: 'Partial derivatives of partial derivatives: $f_{xx}, f_{xy}, f_{yx}, f_{yy}$.'
+  topic: Higher-order partials
+- term: simple closed curve
+  definition: 'A closed curve that does not cross itself.'
+  topic: Green's theorem
+- term: simply connected
+  definition: 'A connected region in which every simple closed curve encloses only points of the region (no holes).'
+  topic: Conservative fields and potentials
+- term: sink
+  definition: 'A point where a field has negative divergence: more flows in than out.'
+  topic: Divergence
+- term: skew lines
+  definition: 'Lines in space that are not parallel and do not intersect.'
+  topic: Lines in space
+- term: smooth
+  aliases: [smooth surface]
+  definition: 'Having continuous derivatives and a nonzero tangent or normal: for a parametric surface, $\mathbf r_u\times\mathbf r_v \ne \mathbf 0$.'
+  topic: Parametric surfaces
+- term: source
+  definition: 'A point where a field has positive divergence: more flows out than in.'
+  topic: Divergence
+- term: space curve
+  definition: 'The curve traced by the tip of a vector function $\mathbf r(t)$ in space.'
+  topic: Vector functions
+- term: speed
+  definition: 'The length of the velocity vector, $|\mathbf r''(t)| = ds/dt$.'
+  topic: Arc length
+- term: sphere
+  definition: 'All points at distance $r$ from a center $(h, k, l)$: $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$.'
+  topic: 3D coordinates
+- term: spherical coordinates
+  definition: 'Coordinates $(\rho, \theta, \phi)$ with $x = \rho\sin\phi\cos\theta$, $y = \rho\sin\phi\sin\theta$, $z = \rho\cos\phi$; $dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$.'
+  topic: Spherical coordinates
+- term: standard basis vectors
+  definition: 'The unit vectors $\mathbf i = \langle 1,0,0\rangle$, $\mathbf j = \langle 0,1,0\rangle$, $\mathbf k = \langle 0,0,1\rangle$ along the axes.'
+  topic: Vector algebra
+- term: Stokes' theorem
+  definition: 'For an oriented surface $S$ with boundary $C$ (right-hand rule): $\oint_C\mathbf F\cdot d\mathbf r = \iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$.'
+  topic: Stokes' theorem
+- term: substitution
+  aliases: [u-substitution]
+  definition: 'The chain rule backwards: with $u = g(x)$, $\int f(g(x))g''(x)\,dx = \int f(u)\,du$ (change the limits too).'
+  topic: Integral review
+- term: surface area element
+  definition: '$dS = |\mathbf r_u\times\mathbf r_v|\,du\,dv$, the area of a small patch of a parametric surface.'
+  topic: Surface area
+- term: symmetric equations
+  definition: 'Equations $\dfrac{x - x_0}{a} = \dfrac{y - y_0}{b} = \dfrac{z - z_0}{c}$ of a line, from solving the parametric equations for $t$.'
+  topic: Lines in space
+- term: tangent
+  aliases: [tangent line]
+  definition: 'Touching a curve and pointing along it; $\mathbf r''(t)$ is tangent to the curve $\mathbf r(t)$.'
+  topic: Derivatives of vector functions
+- term: tangent plane
+  definition: 'The plane that best approximates a surface at a point: $z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)$.'
+  topic: Tangent planes
+- term: tangent plane to a level surface
+  definition: 'At $P$ on $F(x, y, z) = k$, the plane $\nabla F(P)\cdot\langle x - x_0, y - y_0, z - z_0\rangle = 0$.'
+  topic: The gradient
+- term: tangent vector
+  definition: 'The derivative $\mathbf r''(t)$, which points along the curve in the direction of motion.'
+  topic: Derivatives of vector functions
+- term: tangential component
+  definition: 'The part of a vector along the direction of motion: $a_T = \dfrac{\mathbf r''\cdot\mathbf r''''}{|\mathbf r''|}$ for acceleration, $\mathbf F\cdot\mathbf T$ for a field along a curve.'
+  topic: Tangential and normal acceleration
+- term: three-dimensional coordinates
+  definition: 'The system of ordered triples $(x, y, z)$ on three mutually perpendicular axes oriented by the right-hand rule.'
+  topic: 3D coordinates
+- term: time of flight
+  definition: 'For a projectile over level ground, $t = \dfrac{2v_0\sin\alpha}{g}$.'
+  topic: Projectile motion
+- term: TNB frame
+  aliases: [Frenet frame]
+  definition: 'The moving frame of unit tangent $\mathbf T$, principal normal $\mathbf N$ and binormal $\mathbf B$ along a curve.'
+  topic: TNB frame
+- term: torque
+  definition: 'The turning effect of a force: $\boldsymbol\tau = \mathbf r\times\mathbf F$.'
+  topic: Cross product
+- term: torsion
+  definition: 'The rate $\tau$ at which a curve twists out of its osculating plane, defined by $d\mathbf B/ds = -\tau\mathbf N$.'
+  topic: TNB frame
+- term: trace
+  aliases: [traces]
+  definition: 'The curve in which a surface meets a plane, usually one parallel to a coordinate plane.'
+  topic: Quadric surfaces
+- term: transformation
+  definition: 'A map $T(u, v) = (x(u,v), y(u,v))$ from one plane to another, used for changes of variables.'
+  topic: Change of variables
+- term: tree diagram
+  definition: 'A diagram of dependencies used with the chain rule: multiply derivatives along each path and add over paths.'
+  topic: Multivariable chain rule
+- term: triple integral
+  definition: 'The integral $\iiint_E f\,dV$ of a function over a solid region.'
+  topic: Triple integrals
+- term: type 1 solid
+  aliases: [type 1]
+  definition: 'A solid lying between two surfaces $z = u_1(x, y)$ and $z = u_2(x, y)$ over a region $D$ in the $xy$-plane.'
+  topic: Triple integrals
+- term: Type I region
+  aliases: [Type I]
+  definition: 'A plane region $a \le x \le b$, $g_1(x) \le y \le g_2(x)$ (between two graphs of $x$).'
+  topic: General regions
+- term: Type II region
+  aliases: [Type II]
+  definition: 'A plane region $c \le y \le d$, $h_1(y) \le x \le h_2(y)$ (between two graphs of $y$).'
+  topic: General regions
+- term: unit tangent vector
+  definition: '$\mathbf T(t) = \mathbf r''(t)/|\mathbf r''(t)|$.'
+  topic: Derivatives of vector functions
+- term: unit vector
+  definition: 'A vector of length 1; $\mathbf v/|\mathbf v|$ is the unit vector in the direction of $\mathbf v$.'
+  topic: Vector algebra
+- term: vector
+  definition: 'A quantity with length and direction, written $\langle v_1, v_2, v_3\rangle$.'
+  topic: Vector algebra
+- term: vector calculus
+  definition: 'The calculus of vector fields: line and surface integrals, curl, divergence, and the theorems of Green, Stokes and Gauss.'
+  topic: Vector fields
+- term: vector field
+  definition: 'A function assigning a vector $\mathbf F(x, y) = \langle P, Q\rangle$ (or $\langle P, Q, R\rangle$ in space) to each point.'
+  topic: Vector fields
+- term: vector line integral
+  definition: 'The integral $\int_C\mathbf F\cdot d\mathbf r = \int_a^b\mathbf F(\mathbf r(t))\cdot\mathbf r''(t)\,dt$; it changes sign when the direction is reversed.'
+  topic: Work and vector line integrals
+- term: vector projection
+  definition: 'The vector $\operatorname{proj}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|^2}\mathbf a$, the part of $\mathbf b$ along $\mathbf a$.'
+  topic: Projections
+- term: vector-valued function
+  aliases: [vector function]
+  definition: 'A function $\mathbf r(t) = \langle f(t), g(t), h(t)\rangle$ that outputs a vector for each value of $t$.'
+  topic: Vector functions
+- term: velocity
+  definition: 'The derivative of position, $\mathbf v(t) = \mathbf r''(t)$; a vector tangent to the path.'
+  topic: Velocity and acceleration
+- term: work
+  definition: 'Force times displacement along the motion: $\mathbf F\cdot\mathbf D$ for a constant force, $\int_C\mathbf F\cdot d\mathbf r$ in general.'
+  topic: Work and vector line integrals
+- term: Riemann sum
+  definition: 'A sum of function values times small lengths, areas or volumes; its limit defines the integral.'
+  topic: Double integrals
+- term: Möbius strip
+  definition: 'A one-sided surface made by giving a strip a half twist before joining its ends; it is not orientable.'
+  topic: Flux
+- term: Maxwell's equations
+  definition: 'The four laws of electromagnetism (Gauss for $\mathbf E$ and $\mathbf B$, Faraday, Ampère–Maxwell), in integral or differential form.'
+  topic: Applications to physics
+- term: Fourier's law
+  definition: 'Heat flux is proportional to minus the temperature gradient: $\mathbf q = -k\nabla T$.'
+  topic: Applications to physics
+- term: Faraday's law
+  definition: 'A changing magnetic flux induces circulation of the electric field: $\nabla\times\mathbf E = -\partial\mathbf B/\partial t$.'
+  topic: Applications to physics

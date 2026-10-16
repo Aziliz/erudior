@@ -1,0 +1,181 @@
+- id: pre-frac-simplify
+  title: Simplify a fraction
+  topic: Equivalent fractions
+  vars:
+    p: {min: 1, max: 11}
+    q: {min: 2, max: 12}
+    k: {min: 2, max: 12}
+  calc:
+    n: p * k
+    d: q * k
+    g: gcd(n, d)
+    v: n / d
+  where: ["p < q", "gcd(p, q) == 1"]
+  prompt: 'Write $\dfrac{{n}}{{d}}$ in simplest form.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: 'Simplest form'}
+  solution: |-
+    The GCF of {n} and {d} is {g}. Divide the top and bottom by it: $\dfrac{{n} \div {g}}{{d} \div {g}} =$ **${v:texfrac}$**.
+
+- id: pre-frac-missing
+  title: Equivalent fraction
+  topic: Equivalent fractions
+  vars:
+    a: {min: 1, max: 11}
+    b: {min: 2, max: 12}
+    k: {min: 2, max: 9}
+  calc:
+    bk: b * k
+    ak: a * k
+  where: ["a < b", "gcd(a, b) == 1"]
+  prompt: 'Find the missing numerator: $\dfrac{{a}}{{b}} = \dfrac{?}{{bk}}$.'
+  answer: ak
+  format: integer
+  solution: |-
+    The denominator was multiplied by ${bk} \div {b} = {k}$, so multiply the numerator by {k} too: ${a} \times {k} =$ **{ak}**.
+
+- id: pre-frac-mul
+  title: Multiply fractions
+  topic: Multiplying fractions
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 2, max: 12}
+    c: {min: 1, max: 9}
+    d: {min: 2, max: 12}
+  calc:
+    num: a * c
+    den: b * d
+    v: a * c / (b * d)
+  where: ["gcd(a, b) == 1", "gcd(c, d) == 1", "gcd(a*c, b*d) > 1"]
+  prompt: 'Multiply and simplify: $\dfrac{{a}}{{b}} \times \dfrac{{c}}{{d}}$. Give an exact fraction.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Product}
+  solution: |-
+    Multiply straight across: $\dfrac{{a} \times {c}}{{b} \times {d}} = \dfrac{{num}}{{den}}$, then simplify (or cancel common factors first): **${v:texfrac}$**.
+
+- id: pre-frac-div
+  title: Divide fractions
+  topic: Dividing fractions
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 2, max: 12}
+    c: {min: 1, max: 9}
+    d: {min: 2, max: 12}
+  calc:
+    num: a * d
+    den: b * c
+    v: (a / b) / (c / d)
+  where: ["gcd(a, b) == 1", "gcd(c, d) == 1", "a/b != c/d"]
+  prompt: 'Divide and simplify: $\dfrac{{a}}{{b}} \div \dfrac{{c}}{{d}}$. Give an exact fraction.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Quotient}
+  solution: |-
+    Multiply by the reciprocal of the divisor: $\dfrac{{a}}{{b}} \times \dfrac{{d}}{{c}} = \dfrac{{num}}{{den}} =$ **${v:texfrac}$**.
+
+- id: pre-frac-add
+  title: Add fractions with unlike denominators
+  topic: Adding and subtracting fractions
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 2, max: 12}
+    c: {min: 1, max: 9}
+    d: {min: 2, max: 12}
+  calc:
+    L: lcm(b, d)
+    a2: a * L / b
+    c2: c * L / d
+    s2: a2 + c2
+    v: a / b + c / d
+  where: ["a < b", "c < d", "b != d", "gcd(a, b) == 1", "gcd(c, d) == 1", "L <= 60"]
+  prompt: 'Add and simplify: $\dfrac{{a}}{{b}} + \dfrac{{c}}{{d}}$. Give an exact fraction (improper is fine).'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Sum}
+  solution: |-
+    The LCD of {b} and {d} is {L}. Rewrite: $\dfrac{{a2}}{{L}} + \dfrac{{c2}}{{L}} = \dfrac{{s2}}{{L}}$, which simplifies to **${v:texfrac}$**.
+
+- id: pre-frac-sub
+  title: Subtract fractions with unlike denominators
+  topic: Adding and subtracting fractions
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 2, max: 12}
+    c: {min: 1, max: 9}
+    d: {min: 2, max: 12}
+  calc:
+    L: lcm(b, d)
+    a2: a * L / b
+    c2: c * L / d
+    s2: a2 - c2
+    v: a / b - c / d
+  where: ["a < b", "c < d", "b != d", "gcd(a, b) == 1", "gcd(c, d) == 1", "L <= 60"]
+  prompt: 'Subtract and simplify: $\dfrac{{a}}{{b}} - \dfrac{{c}}{{d}}$. Give an exact fraction (it may be negative).'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Difference}
+  solution: |-
+    The LCD of {b} and {d} is {L}. Rewrite: $\dfrac{{a2}}{{L}} - \dfrac{{c2}}{{L}} = \dfrac{{s2}}{{L}}$, which simplifies to **${v:texfrac}$**.
+
+- id: pre-mixed-to-improper
+  title: Mixed number to improper fraction
+  topic: Mixed numbers
+  vars:
+    w: {min: 1, max: 12}
+    a: {min: 1, max: 11}
+    b: {min: 2, max: 12}
+  calc:
+    wb: w * b
+    n: w * b + a
+    v: n / b
+  where: ["a < b", "gcd(a, b) == 1"]
+  prompt: 'Write $\;{w}\tfrac{{a}}{{b}}$ as an improper fraction.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Improper fraction}
+  solution: |-
+    Multiply the whole number by the denominator and add the numerator: ${w} \times {b} + {a} = {wb} + {a} = {n}$. Keep the denominator: **$\dfrac{{n}}{{b}}$**.
+
+- id: pre-mixed-add
+  title: Add mixed numbers
+  topic: Mixed numbers
+  vars:
+    w1: {min: 1, max: 9}
+    a: {min: 1, max: 7}
+    b: {min: 2, max: 8}
+    w2: {min: 1, max: 9}
+    c: {min: 1, max: 7}
+    d: {min: 2, max: 8}
+  calc:
+    L: lcm(b, d)
+    a2: a * L / b
+    c2: c * L / d
+    ws: w1 + w2
+    fs: a2 + c2
+    v: w1 + a / b + w2 + c / d
+    wh: floor(v)
+    rf: v - floor(v)
+  where: ["a < b", "c < d", "b != d", "gcd(a, b) == 1", "gcd(c, d) == 1", "rf > 0"]
+  prompt: 'Add: $\;{w1}\tfrac{{a}}{{b}} + {w2}\tfrac{{c}}{{d}}$. Type a mixed number like 8 5/12 or an improper fraction.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Sum}
+  solution: |-
+    Wholes: ${w1} + {w2} = {ws}$. Fractions with LCD {L}: $\dfrac{{a2}}{{L}} + \dfrac{{c2}}{{L}} = \dfrac{{fs}}{{L}}$ (carry a whole if this is 1 or more).
+    Total: **${wh}{rf:texfrac}$**, which is ${v:texfrac}$ as an improper fraction.
+
+- id: pre-mixed-mul
+  title: Multiply mixed numbers
+  topic: Mixed numbers
+  vars:
+    w1: {min: 1, max: 5}
+    a: {min: 1, max: 5}
+    b: {min: 2, max: 6}
+    w2: {min: 1, max: 5}
+    c: {min: 1, max: 5}
+    d: {min: 2, max: 6}
+  calc:
+    n1: w1 * b + a
+    n2: w2 * d + c
+    v: (n1 / b) * (n2 / d)
+  where: ["a < b", "c < d", "gcd(a, b) == 1", "gcd(c, d) == 1"]
+  prompt: 'Multiply: $\;{w1}\tfrac{{a}}{{b}} \times {w2}\tfrac{{c}}{{d}}$. Type a mixed number like 3 3/4 or an improper fraction.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Product}
+  solution: |-
+    Convert to improper fractions first: $\dfrac{{n1}}{{b}} \times \dfrac{{n2}}{{d}}$. Cancel and multiply: **${v:texfrac}$** (as an improper fraction).

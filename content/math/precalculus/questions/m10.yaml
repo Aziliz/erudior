@@ -1,0 +1,307 @@
+- id: pc-q-3801
+  lesson: pc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: |-
+    Use the table to estimate $\lim_{x\to 2} f(x)$.
+
+    | $x$ | 1.9 | 1.99 | 1.999 | 2.001 | 2.01 | 2.1 |
+    |---|---|---|---|---|---|---|
+    | $f(x)$ | 4.71 | 4.97 | 4.997 | 5.003 | 5.03 | 5.31 |
+  choices: ['$4.997$', '$5$', '$2$', 'It does not exist']
+  answer: 1
+  explanation: |-
+    From both sides the values close in on 5. The limit is the value approached, not any one entry in the table, and not the input 2.
+- id: pc-q-3802
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'The graph of $f$ is a smooth curve with an open dot at $(1, 3)$ and a closed dot at $(1, 5)$. What are $\lim_{x\to1} f(x)$ and $f(1)$?'
+  choices: ['Both are 3', 'Both are 5', 'The limit is 5 and $f(1) = 3$', 'The limit is 3 and $f(1) = 5$']
+  answer: 3
+  explanation: |-
+    The curve approaches height 3 from both sides, so the limit is 3. The closed dot shows the actual value $f(1) = 5$. The limit ignores what happens exactly at $x = 1$.
+- id: pc-q-3803
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'Let $f(x) = \begin{cases} 2x + 1 & x < 1 \\ x^2 + 2 & x \ge 1 \end{cases}$. Find $\lim_{x\to 1} f(x)$.'
+  choices: ['$3$', '$2$', '$1$', 'It does not exist']
+  answer: 0
+  explanation: |-
+    Left: $2(1) + 1 = 3$. Right: $1 + 2 = 3$. The one-sided limits agree, so the limit is 3 (and $f$ is continuous at 1).
+- id: pc-q-3804
+  lesson: pc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: 'Let $g(x) = \begin{cases} x + 1 & x < 0 \\ x - 1 & x \ge 0 \end{cases}$. What is $\lim_{x\to 0} g(x)$?'
+  choices: ['$1$', '$-1$', '$0$', 'It does not exist']
+  answer: 3
+  explanation: |-
+    The left-hand limit is 1 and the right-hand limit is $-1$. They differ (a jump), so the two-sided limit does not exist. $g(0) = -1$ is just the value at 0.
+- id: pc-q-3805
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'How does $\dfrac{1}{x^2}$ behave as $x \to 0$?'
+  choices: ['It approaches 0', 'It grows without bound on both sides, so we write $\lim = \infty$ (no finite limit)', 'It approaches $-\infty$ from the left and $\infty$ from the right', 'It approaches 1']
+  answer: 1
+  explanation: |-
+    $x^2$ is a tiny positive number on both sides of 0, so $\frac{1}{x^2}$ is huge and positive. "$= \infty$" describes this; the limit doesn't exist as a number. The third choice describes $\frac1x$.
+- id: pc-q-3806
+  lesson: pc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: 'Find $\lim_{x\to 0^-}\dfrac{1}{x}$.'
+  choices: ['$0$', '$\infty$', '$-\infty$', '$-1$']
+  answer: 2
+  explanation: |-
+    For small negative $x$ (like $-0.001$), $\frac1x$ is a large negative number ($-1000$), so the left-hand limit is $-\infty$.
+- id: pc-q-3807
+  lesson: pc-limits-intro
+  module_quiz: true
+  topic: Limits
+  stem: 'Which three conditions together mean $f$ is continuous at $x = a$?'
+  choices: ['$f(a)$ is defined; $\lim_{x\to a} f(x)$ exists; they are equal', '$f(a) = 0$; $f$ is a polynomial; $f$ is increasing', '$f$ has no vertical asymptotes; $f(a) > 0$; $a$ is an integer', 'The left limit exists; the right limit exists; $f(a)$ is undefined']
+  answer: 0
+  explanation: |-
+    Continuity at $a$ means $\lim_{x\to a} f(x) = f(a)$, which needs both sides to exist and agree. The graph can be drawn through $a$ without lifting the pencil.
+- id: pc-q-3808
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: '$h(x) = \dfrac{x^2 - 9}{x - 3}$ is undefined at $x = 3$. What value of $h(3)$ would make $h$ continuous there?'
+  choices: ['$0$', '$3$', '$9$', '$6$']
+  answer: 3
+  explanation: |-
+    For $x \ne 3$, $h(x) = x + 3$, which approaches 6. Defining $h(3) = 6$ fills the hole: a removable discontinuity.
+- id: pc-q-3809
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'With $x$ in radians, what is $\lim_{x\to 0}\dfrac{\sin x}{x}$?'
+  choices: ['$0$', '$1$', 'It does not exist', '$\tfrac{\pi}{180}$']
+  answer: 1
+  explanation: |-
+    Tables give $0.9983$ at $x = 0.1$ and $0.999983$ at $x = 0.01$, approaching 1 from both sides. ($\frac{\pi}{180}$ is what you'd get in degree mode.)
+- id: pc-q-3810
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'Which function is continuous at $x = 2$?'
+  choices: ['$\dfrac{1}{x - 2}$', '$\dfrac{x^2 - 4}{x - 2}$', '$x^3 - 5x + 1$', '$\lfloor x \rfloor$']
+  answer: 2
+  explanation: |-
+    Polynomials are continuous everywhere. $\frac{1}{x - 2}$ has an asymptote at 2, $\frac{x^2 - 4}{x - 2}$ is undefined there (a hole), and the floor function jumps at every integer.
+- id: pc-q-3811
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'Why does $\lim_{x\to0}\sin\left(\dfrac1x\right)$ not exist?'
+  choices: ['The function grows without bound', 'The function oscillates between $-1$ and $1$ infinitely often near 0', 'The left and right limits are different numbers', 'The function is undefined at 0']
+  answer: 1
+  explanation: |-
+    As $x \to 0$, $\frac1x$ runs through infinitely many cycles, so the values keep swinging between $-1$ and 1 and never settle. Being undefined at 0 alone wouldn't prevent a limit.
+- id: pc-q-3812
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'Near $x = 3$, a function''s values are $4.9, 4.99, 4.999$ from the left and $7.1, 7.01, 7.001$ from the right. What is $\lim_{x\to3} f(x)$?'
+  choices: ['$5$', '$7$', '$6$', 'It does not exist']
+  answer: 3
+  explanation: |-
+    The left-hand limit appears to be 5 and the right-hand limit 7. They differ, so the two-sided limit does not exist. Averaging them (6) has no meaning.
+
+- id: pc-q-3901
+  lesson: pc-limits-algebra
+  module_quiz: true
+  topic: Limits
+  stem: 'Evaluate $\lim_{x\to 2}(x^3 - 2x + 1)$.'
+  choices: ['$5$', '$3$', '$9$', 'It does not exist']
+  answer: 0
+  explanation: |-
+    Polynomials are continuous, so substitute: $8 - 4 + 1 = 5$.
+- id: pc-q-3902
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'Evaluate $\lim_{x\to 3}\dfrac{x^2 - 9}{x - 3}$.'
+  choices: ['$0$', 'It does not exist', '$6$', '$3$']
+  answer: 2
+  explanation: |-
+    Substitution gives $\frac00$. Factor: $\frac{(x - 3)(x + 3)}{x - 3} = x + 3 \to 6$.
+- id: pc-q-3903
+  lesson: pc-limits-algebra
+  module_quiz: true
+  topic: Limits
+  stem: 'Evaluate $\lim_{x\to -1}\dfrac{x^2 - x - 2}{x + 1}$.'
+  choices: ['$-3$', '$-1$', '$0$', '$3$']
+  answer: 0
+  explanation: |-
+    $x^2 - x - 2 = (x - 2)(x + 1)$, so the expression is $x - 2$ for $x \ne -1$, and the limit is $-1 - 2 = -3$.
+- id: pc-q-3904
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'Evaluate $\lim_{x\to 0}\dfrac{\sqrt{x + 4} - 2}{x}$.'
+  choices: ['$\tfrac12$', '$0$', '$\tfrac14$', '$4$']
+  answer: 2
+  explanation: |-
+    Multiply by the conjugate: $\frac{x}{x(\sqrt{x + 4} + 2)} = \frac{1}{\sqrt{x + 4} + 2} \to \frac{1}{4}$.
+- id: pc-q-3905
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'Evaluate $\lim_{x\to 0}\dfrac{\frac{1}{x + 3} - \frac13}{x}$.'
+  choices: ['$-\tfrac13$', '$-\tfrac19$', '$\tfrac19$', '$0$']
+  answer: 1
+  explanation: |-
+    $\frac{1}{x + 3} - \frac13 = \frac{3 - (x + 3)}{3(x + 3)} = \frac{-x}{3(x + 3)}$. Dividing by $x$: $\frac{-1}{3(x + 3)} \to -\frac19$.
+- id: pc-q-3906
+  lesson: pc-limits-algebra
+  module_quiz: true
+  topic: Limits at infinity
+  stem: 'Evaluate $\lim_{x\to\infty}\dfrac{4x^3 - x}{2x^3 + 5}$.'
+  choices: ['$0$', '$\infty$', '$-\tfrac15$', '$2$']
+  answer: 3
+  explanation: |-
+    Equal degrees: the ratio of leading coefficients, $\frac42 = 2$. (Divide top and bottom by $x^3$.)
+- id: pc-q-3907
+  lesson: pc-limits-algebra
+  module_quiz: true
+  topic: Limits at infinity
+  stem: 'Evaluate $\lim_{x\to\infty}\dfrac{x + 1}{x^2 + 1}$.'
+  choices: ['$1$', '$0$', '$\infty$', '$\tfrac12$']
+  answer: 1
+  explanation: |-
+    The denominator has higher degree, so the fraction shrinks to 0. Dividing by $x^2$: $\frac{\frac1x + \frac{1}{x^2}}{1 + \frac{1}{x^2}} \to 0$.
+- id: pc-q-3908
+  lesson: pc-limits-algebra
+  topic: Limits at infinity
+  stem: 'Evaluate $\lim_{x\to\infty}e^{-x}$.'
+  choices: ['$0$', '$1$', '$\infty$', '$-\infty$']
+  answer: 0
+  explanation: |-
+    $e^{-x} = \frac{1}{e^x}$, and $e^x$ grows without bound, so $e^{-x} \to 0$. The graph has horizontal asymptote $y = 0$.
+- id: pc-q-3909
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'Direct substitution in $\lim_{x\to 1}\dfrac{x + 4}{x - 1}$ gives $\dfrac{5}{0}$. What does this tell you?'
+  choices: ['The limit is 0', 'The limit is 5', 'It is indeterminate; factor and cancel', 'There is a vertical asymptote at $x = 1$; there is no finite limit']
+  answer: 3
+  explanation: |-
+    A nonzero number over 0 means the values blow up: a vertical asymptote. Only $\frac00$ is indeterminate. (Here the one-sided limits are $-\infty$ and $+\infty$.)
+- id: pc-q-3910
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'Substitution gives $\dfrac00$. What does that mean?'
+  choices: ['The limit is 0', 'The limit does not exist', 'The form is indeterminate: more work is needed', 'The limit is 1']
+  answer: 2
+  explanation: |-
+    $\frac00$ can come from limits equal to any number, or from limits that don't exist. Simplify (factor, rationalize, combine fractions) and try again.
+- id: pc-q-3911
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'Evaluate $\lim_{h\to 0}\dfrac{(2 + h)^2 - 4}{h}$.'
+  choices: ['$0$', '$2$', '$4$', 'It does not exist']
+  answer: 2
+  explanation: |-
+    $(2 + h)^2 - 4 = 4h + h^2$, and $\frac{4h + h^2}{h} = 4 + h \to 4$. This is the slope of $y = x^2$ at $x = 2$.
+- id: pc-q-3912
+  lesson: pc-limits-algebra
+  topic: Limits at infinity
+  stem: 'What is $\lim_{x\to\infty}\dfrac{2x^2 + 1}{3x - 5}$?'
+  choices: ['$\tfrac23$', '$0$', '$\infty$ (no finite limit)', '$-\tfrac15$']
+  answer: 2
+  explanation: |-
+    The numerator's degree is larger, so the quotient grows without bound (like $\frac23x$). $\frac23$ would only be right if the degrees were equal.
+
+- id: pc-q-4001
+  lesson: pc-tangent
+  module_quiz: true
+  topic: The derivative
+  stem: 'Which expression defines $f''(a)$, the derivative of $f$ at $a$?'
+  choices: ['$\dfrac{f(b) - f(a)}{b - a}$', '$\lim\limits_{h\to 0}\dfrac{f(a + h) - f(a)}{h}$', '$\lim\limits_{h\to 0}f(a + h)$', '$\dfrac{f(a + h) - f(a)}{h}$']
+  answer: 1
+  explanation: |-
+    The derivative is the limit of the difference quotient as $h \to 0$. Without the limit it's just a secant slope (average rate of change); $\lim_{h\to0}f(a + h)$ is $f(a)$ for continuous $f$.
+- id: pc-q-4002
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'For $f(x) = x^2$, find $f''(5)$.'
+  choices: ['$25$', '$5$', '$10$', '$11$']
+  answer: 2
+  explanation: |-
+    $\frac{(5 + h)^2 - 25}{h} = \frac{10h + h^2}{h} = 10 + h \to 10$. (11 is the secant slope with $h = 1$.)
+- id: pc-q-4003
+  lesson: pc-tangent
+  module_quiz: true
+  topic: The derivative
+  stem: 'What is the tangent line to $y = x^2$ at $x = 1$?'
+  choices: ['$y = 2x - 1$', '$y = 2x + 1$', '$y = x$', '$y = 2x$']
+  answer: 0
+  explanation: |-
+    The slope is $f'(1) = 2$ and the point is $(1, 1)$: $y = 1 + 2(x - 1) = 2x - 1$. $y = 2x$ has the right slope but misses the point.
+- id: pc-q-4004
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'An object falls $s(t) = 4.9t^2$ meters in $t$ seconds. What is its instantaneous velocity at $t = 3$?'
+  choices: ['$14.7$ m/s', '$44.1$ m/s', '$9.8$ m/s', '$29.4$ m/s']
+  answer: 3
+  explanation: |-
+    $\frac{4.9(3 + h)^2 - 44.1}{h} = \frac{29.4h + 4.9h^2}{h} = 29.4 + 4.9h \to 29.4$ m/s. The average velocity over $[0, 3]$ is $\frac{44.1}{3} = 14.7$ m/s.
+- id: pc-q-4005
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'What is $f''(x)$ for $f(x) = 3x + 2$?'
+  choices: ['$3x$', '$3$', '$2$', '$5$']
+  answer: 1
+  explanation: |-
+    $\frac{3(x + h) + 2 - (3x + 2)}{h} = \frac{3h}{h} = 3$. A line's tangent is itself, so the derivative is its slope everywhere.
+- id: pc-q-4006
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'Find $f''(x)$ for $f(x) = x^2 + x$.'
+  choices: ['$2x$', '$2x + 1$', '$x + 1$', '$2x + h + 1$']
+  answer: 1
+  explanation: |-
+    The difference quotient simplifies to $2x + h + 1$; letting $h \to 0$ gives $2x + 1$. Stopping before the limit leaves the $h$.
+- id: pc-q-4007
+  lesson: pc-tangent
+  module_quiz: true
+  topic: The derivative
+  stem: 'What does $f''(a)$ represent?'
+  choices: ['The average rate of change of $f$ on $[0, a]$', 'The value of $f$ at $a$', 'The slope of the tangent line at $(a, f(a))$, the instantaneous rate of change', 'The area under $f$ up to $a$']
+  answer: 2
+  explanation: |-
+    The derivative is the limit of secant slopes: the tangent slope, or the instantaneous rate of change of $f$ at $a$.
+- id: pc-q-4008
+  lesson: pc-tangent
+  module_quiz: true
+  topic: The derivative
+  stem: 'Given $f''(x) = 2x - 6$ for $f(x) = x^2 - 6x$, where does $f$ have a horizontal tangent?'
+  choices: ['$x = -3$', '$x = 0$', '$x = 6$', '$x = 3$']
+  answer: 3
+  explanation: |-
+    Horizontal means slope 0: $2x - 6 = 0$, $x = 3$, the vertex of the parabola. ($x = 0$ and $x = 6$ are the zeros of $f$, not of $f'$.)
+- id: pc-q-4009
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'For $f(x) = \dfrac1x$, the derivative is $f''(x) = -\dfrac{1}{x^2}$. What is the slope of the tangent at $x = 1$?'
+  choices: ['$1$', '$-1$', '$-2$', '$0$']
+  answer: 1
+  explanation: |-
+    $f'(1) = -\frac{1}{1^2} = -1$. The negative slope matches the falling graph of $\frac1x$.
+- id: pc-q-4010
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'Why does $f(x) = \lvert x \rvert$ have no derivative at $x = 0$?'
+  choices: ['Because $f(0) = 0$', 'Because the function is undefined at 0', 'Because the secant slopes approach $-1$ from the left and $1$ from the right, so the limit doesn''t exist', 'Because $\lvert x \rvert$ is not continuous']
+  answer: 2
+  explanation: |-
+    $\frac{|h| - 0}{h}$ is $1$ for $h > 0$ and $-1$ for $h < 0$. The one-sided limits disagree, so there is no tangent slope: the graph has a corner. $|x|$ is continuous; continuity alone doesn't guarantee a derivative.
+- id: pc-q-4011
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'If $f''(x) < 0$ for every $x$ in an interval, what is $f$ doing there?'
+  choices: ['Decreasing', 'Increasing', 'Constant', 'Negative']
+  answer: 0
+  explanation: |-
+    Negative tangent slopes mean the graph falls left to right: $f$ is decreasing. $f$ itself could still be positive.
+- id: pc-q-4012
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'For $f(x) = x^3$, the difference quotient at $a = 2$ simplifies to $12 + 6h + h^2$. What is $f''(2)$?'
+  choices: ['$8$', '$19$', '$6$', '$12$']
+  answer: 3
+  explanation: |-
+    Let $h \to 0$: $12 + 0 + 0 = 12$. (19 is the secant slope with $h = 1$; 8 is $f(2)$.)

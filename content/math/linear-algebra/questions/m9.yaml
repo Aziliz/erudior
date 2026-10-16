@@ -1,0 +1,714 @@
+# Module 9: orthogonality, least squares and symmetric matrices
+
+# --- Lesson 32: inner product, length, orthogonality ---
+- id: la-q-3201
+  lesson: la-inner-product
+  module_quiz: true
+  topic: Inner product
+  stem: 'Compute $\mathbf{u}\cdot\mathbf{v}$ for $\mathbf{u} = (2, -1, 3)$ and $\mathbf{v} = (1, 4, 2)$.'
+  choices: ['$4$', '$12$', '$(2, -4, 6)$', '$-4$']
+  answer: 0
+  explanation: |-
+    $2(1) + (-1)(4) + 3(2) = 2 - 4 + 6 = 4$. The dot product is a number, not a vector; $(2, -4, 6)$ multiplies entries without adding.
+
+- id: la-q-3202
+  lesson: la-inner-product
+  topic: Inner product
+  stem: 'What is $\|(1, 2, 2)\|$?'
+  choices: ['$5$', '$9$', '$3$', '$\sqrt5$']
+  answer: 2
+  explanation: |-
+    $\sqrt{1 + 4 + 4} = \sqrt9 = 3$. Forgetting the square root gives 9.
+
+- id: la-q-3203
+  lesson: la-inner-product
+  topic: Inner product
+  stem: 'What is the distance between $(1, 5)$ and $(4, 1)$?'
+  choices: ['$7$', '$\sqrt{7}$', '$25$', '$5$']
+  answer: 3
+  explanation: |-
+    $\|(1, 5) - (4, 1)\| = \|(-3, 4)\| = \sqrt{9 + 16} = 5$.
+
+- id: la-q-3204
+  lesson: la-inner-product
+  module_quiz: true
+  topic: Orthogonality
+  stem: 'Which pair of vectors is orthogonal?'
+  choices: ['$(1, 2, 3)$ and $(3, 2, 1)$', '$(1, 1, 0)$ and $(1, 1, 1)$', '$(2, 1, -1)$ and $(1, -1, 1)$', '$(1, 0, 1)$ and $(1, 0, -2)$']
+  answer: 2
+  explanation: |-
+    $2(1) + 1(-1) + (-1)(1) = 0$. The other dot products are 10, 2 and $-1$.
+
+- id: la-q-3205
+  lesson: la-inner-product
+  topic: Inner product
+  stem: 'What is the angle between $(1, 0)$ and $(1, 1)$?'
+  choices: ['$30^\circ$', '$45^\circ$', '$60^\circ$', '$90^\circ$']
+  answer: 1
+  explanation: |-
+    $\cos\theta = \dfrac{1}{1 \cdot \sqrt2} = \dfrac{\sqrt2}{2}$, so $\theta = 45^\circ$.
+
+- id: la-q-3206
+  lesson: la-inner-product
+  topic: Inner product
+  stem: 'What is the unit vector in the direction of $(2, -1, 2)$?'
+  choices: ['$\tfrac13(2, -1, 2)$', '$\tfrac19(2, -1, 2)$', '$\tfrac15(2, -1, 2)$', '$\tfrac13(2, 1, 2)$']
+  answer: 0
+  explanation: |-
+    $\|(2, -1, 2)\| = \sqrt{4 + 1 + 4} = 3$, so divide by 3. $\tfrac19$ divides by the squared length; $\tfrac15$ divides by the sum of the absolute entries.
+
+- id: la-q-3207
+  lesson: la-inner-product
+  module_quiz: true
+  topic: Orthogonality
+  stem: 'For an $m \times n$ matrix $A$, what is $(\operatorname{Row} A)^\perp$?'
+  choices: ['$\operatorname{Col} A$', '$\operatorname{Row} A^T$', '$\operatorname{Nul} A^T$', '$\operatorname{Nul} A$']
+  answer: 3
+  explanation: |-
+    $A\mathbf{x} = \mathbf{0}$ says $\mathbf{x}$ has dot product 0 with every row of $A$, which is exactly what it means to be orthogonal to $\operatorname{Row} A$. Similarly $(\operatorname{Col} A)^\perp = \operatorname{Nul} A^T$.
+
+- id: la-q-3208
+  lesson: la-inner-product
+  topic: Orthogonality
+  stem: '$W = \operatorname{Span}\{(1, 2, 3)\}$ in $\mathbb{R}^3$. What is $\dim W^\perp$?'
+  choices: ['0', '1', '2', '3']
+  answer: 2
+  explanation: |-
+    $W^\perp$ is the plane $x_1 + 2x_2 + 3x_3 = 0$, of dimension 2. In general $\dim W + \dim W^\perp = n$.
+
+- id: la-q-3209
+  lesson: la-inner-product
+  topic: Orthogonality
+  stem: '$\mathbf{u}$ and $\mathbf{v}$ are orthogonal with $\|\mathbf{u}\| = 3$ and $\|\mathbf{v}\| = 4$. What is $\|\mathbf{u} + \mathbf{v}\|$?'
+  choices: ['$7$', '$5$', '$25$', '$1$']
+  answer: 1
+  explanation: |-
+    By the Pythagorean theorem, $\|\mathbf{u} + \mathbf{v}\|^2 = 9 + 16 = 25$, so the length is 5. Seven would require the vectors to point the same way.
+
+- id: la-q-3210
+  lesson: la-inner-product
+  topic: Inner product
+  stem: '$\mathbf{u}\cdot\mathbf{v} < 0$ for nonzero vectors $\mathbf{u}$ and $\mathbf{v}$. What can you say about the angle between them?'
+  choices: ['It is acute', 'It is a right angle', 'It is obtuse', 'Nothing']
+  answer: 2
+  explanation: |-
+    $\cos\theta = \dfrac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}$ has the sign of $\mathbf{u}\cdot\mathbf{v}$, and a negative cosine means $90^\circ < \theta \le 180^\circ$.
+
+- id: la-q-3211
+  lesson: la-inner-product
+  module_quiz: true
+  topic: Orthogonality
+  stem: '$W = \operatorname{Span}\{\mathbf{w}_1, \mathbf{w}_2\}$. How do you check whether $\mathbf{z}$ is in $W^\perp$?'
+  choices: ['Check $\mathbf{z}\cdot\mathbf{w}_1 = 0$ only', 'Check $\|\mathbf{z}\| = 0$', 'Check $\mathbf{z}\cdot(\mathbf{w}_1 + \mathbf{w}_2) = 0$ only', 'Check $\mathbf{z}\cdot\mathbf{w}_1 = 0$ and $\mathbf{z}\cdot\mathbf{w}_2 = 0$']
+  answer: 3
+  explanation: |-
+    If $\mathbf{z}$ is orthogonal to both spanning vectors, it's orthogonal to every combination $c_1\mathbf{w}_1 + c_2\mathbf{w}_2$. Checking only the sum isn't enough: $(1, -1, 0)$ is orthogonal to $(1, 0, 0) + (0, 1, 0)$ but not to either one.
+
+# --- Lesson 33: orthogonal sets and projections ---
+- id: la-q-3301
+  lesson: la-projections
+  topic: Orthogonal bases
+  stem: '$\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3\}$ is an orthogonal basis with $\mathbf{u}_2 = (1, -1, 1)$. What is the $\mathbf{u}_2$-coordinate of $\mathbf{y} = (3, 1, 4)$?'
+  choices: ['$6$', '$2$', '$6/\sqrt3$', '$3$']
+  answer: 1
+  explanation: |-
+    $c_2 = \dfrac{\mathbf{y}\cdot\mathbf{u}_2}{\mathbf{u}_2\cdot\mathbf{u}_2} = \dfrac{3 - 1 + 4}{3} = 2$. Forgetting to divide gives 6; dividing by $\|\mathbf{u}_2\|$ instead of $\|\mathbf{u}_2\|^2$ gives $6/\sqrt3$.
+
+- id: la-q-3302
+  lesson: la-projections
+  module_quiz: true
+  topic: Orthogonal projections
+  stem: 'Find the orthogonal projection of $\mathbf{y} = (2, 6)$ onto the line spanned by $\mathbf{u} = (3, 1)$.'
+  choices: ['$(3.6, 1.2)$', '$(-1.6, 4.8)$', '$(36, 12)$', '$(1.2, 3.6)$']
+  answer: 0
+  explanation: |-
+    $\dfrac{\mathbf{y}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\mathbf{u} = \dfrac{12}{10}(3, 1) = (3.6, 1.2)$. $(-1.6, 4.8)$ is the orthogonal component $\mathbf{y} - \hat{\mathbf{y}}$.
+
+- id: la-q-3303
+  lesson: la-projections
+  topic: Orthogonal bases
+  stem: 'Why is an orthogonal set of nonzero vectors linearly independent?'
+  choices: ['Dotting a dependence relation with $\mathbf{u}_j$ leaves $c_j\|\mathbf{u}_j\|^2 = 0$, forcing $c_j = 0$', 'Because orthogonal vectors have length 1', 'Because there are at most $n$ of them', 'Because they span $\mathbb{R}^n$']
+  answer: 0
+  explanation: |-
+    All the cross terms $\mathbf{u}_i\cdot\mathbf{u}_j$ vanish, and $\|\mathbf{u}_j\|^2 > 0$, so every weight must be 0.
+
+- id: la-q-3304
+  lesson: la-projections
+  topic: Orthogonal bases
+  stem: 'A matrix $U$ has orthonormal columns. Which is always true?'
+  choices: ['$UU^T = I$', '$U^TU = I$', '$U$ is square', '$U$ is symmetric']
+  answer: 1
+  explanation: |-
+    Entry $(i, j)$ of $U^TU$ is $\mathbf{u}_i\cdot\mathbf{u}_j$, which is 1 on the diagonal and 0 off it. $UU^T = I$ only when $U$ is also square.
+
+- id: la-q-3305
+  lesson: la-projections
+  module_quiz: true
+  topic: Orthogonal bases
+  stem: 'If $U$ is an orthogonal (square) matrix, what is $U^{-1}$?'
+  choices: ['$U$', '$-U$', '$U^T$', 'It may not exist']
+  answer: 2
+  explanation: |-
+    $U^TU = I$ and $U$ is square, so $U^T$ is its inverse. That's what makes orthogonal matrices so convenient numerically.
+
+- id: la-q-3306
+  lesson: la-projections
+  topic: Orthogonal projections
+  stem: 'The formula $\operatorname{proj}_W\mathbf{y} = \sum \dfrac{\mathbf{y}\cdot\mathbf{u}_i}{\mathbf{u}_i\cdot\mathbf{u}_i}\mathbf{u}_i$ requires that $\{\mathbf{u}_i\}$ be:'
+  choices: ['any basis of $W$', 'an orthogonal basis of $W$', 'a spanning set for $\mathbb{R}^n$', 'a set of unit vectors']
+  answer: 1
+  explanation: |-
+    The formula adds projections onto each direction separately, which is only valid when the directions are mutually perpendicular. With a non-orthogonal basis, first apply Gram–Schmidt.
+
+- id: la-q-3307
+  lesson: la-projections
+  topic: Orthogonal projections
+  stem: 'What is the distance from $\mathbf{y} = (2, 6)$ to the line through $\mathbf{u} = (3, 1)$?'
+  choices: ['$\sqrt{25.6} \approx 5.06$', '$\sqrt{40} \approx 6.32$', '$\sqrt{14.4} \approx 3.79$', '$1.2$']
+  answer: 0
+  explanation: |-
+    The distance is the length of $\mathbf{z} = \mathbf{y} - \hat{\mathbf{y}} = (-1.6, 4.8)$: $\sqrt{2.56 + 23.04} = \sqrt{25.6}$. $\sqrt{40}$ is $\|\mathbf{y}\|$ and $\sqrt{14.4}$ is $\|\hat{\mathbf{y}}\|$.
+
+- id: la-q-3308
+  lesson: la-projections
+  module_quiz: true
+  topic: Orthogonal projections
+  stem: 'What does the best approximation theorem say about $\hat{\mathbf{y}} = \operatorname{proj}_W\mathbf{y}$?'
+  choices: ['It is the longest vector in $W$', 'It equals $\mathbf{y}$ whenever $\mathbf{y} \neq \mathbf{0}$', 'It is orthogonal to $W$', 'It is the point of $W$ closest to $\mathbf{y}$']
+  answer: 3
+  explanation: |-
+    $\|\mathbf{y} - \hat{\mathbf{y}}\| < \|\mathbf{y} - \mathbf{v}\|$ for every other $\mathbf{v}$ in $W$. The *difference* $\mathbf{y} - \hat{\mathbf{y}}$ is orthogonal to $W$; $\hat{\mathbf{y}}$ itself lies in $W$.
+
+- id: la-q-3309
+  lesson: la-projections
+  topic: Orthogonal projections
+  stem: 'What is the projection of $(1, 2, 3)$ onto $W = \operatorname{Span}\{\mathbf{e}_1, \mathbf{e}_2\}$?'
+  choices: ['$(1, 2, 0)$', '$(0, 0, 3)$', '$(1, 2, 3)$', '$(1, 0, 0)$']
+  answer: 0
+  explanation: |-
+    $\mathbf{e}_1, \mathbf{e}_2$ are orthonormal, so $\operatorname{proj}_W\mathbf{y} = (\mathbf{y}\cdot\mathbf{e}_1)\mathbf{e}_1 + (\mathbf{y}\cdot\mathbf{e}_2)\mathbf{e}_2 = (1, 2, 0)$. The leftover $(0, 0, 3)$ is in $W^\perp$.
+
+- id: la-q-3310
+  lesson: la-projections
+  topic: Orthogonal bases
+  stem: '$\{(1, 2), (2, -1)\}$ is an orthogonal basis of $\mathbb{R}^2$. Find the coordinates of $(5, 0)$ in it.'
+  choices: ['$(5, 0)$', '$(1, 2)$', '$(2, 1)$', '$(5, 10)$']
+  answer: 1
+  explanation: |-
+    $c_1 = \dfrac{5}{5} = 1$ and $c_2 = \dfrac{10}{5} = 2$. Check: $1(1, 2) + 2(2, -1) = (5, 0)$. ✓
+
+- id: la-q-3311
+  lesson: la-projections
+  topic: Orthogonal bases
+  stem: 'If $U$ has orthonormal columns, which is true for every $\mathbf{x}$?'
+  choices: ['$\|U\mathbf{x}\| = \|\mathbf{x}\|$', '$U\mathbf{x} = \mathbf{x}$', '$\|U\mathbf{x}\| = 1$', '$U\mathbf{x}$ is orthogonal to $\mathbf{x}$']
+  answer: 0
+  explanation: |-
+    $\|U\mathbf{x}\|^2 = \mathbf{x}^TU^TU\mathbf{x} = \mathbf{x}^T\mathbf{x} = \|\mathbf{x}\|^2$. Such matrices preserve lengths and angles, like rotations and reflections.
+
+# --- Lesson 34: Gram–Schmidt and QR ---
+- id: la-q-3401
+  lesson: la-gram-schmidt
+  module_quiz: true
+  topic: Gram–Schmidt
+  stem: 'Apply Gram–Schmidt to $\mathbf{x}_1 = (1, 1)$, $\mathbf{x}_2 = (1, 3)$. What is $\mathbf{v}_2$?'
+  choices: ['$(1, 3)$', '$(0, 2)$', '$(2, 2)$', '$(-1, 1)$']
+  answer: 3
+  explanation: |-
+    $\mathbf{v}_2 = \mathbf{x}_2 - \dfrac{\mathbf{x}_2\cdot\mathbf{v}_1}{\mathbf{v}_1\cdot\mathbf{v}_1}\mathbf{v}_1 = (1, 3) - \dfrac42(1, 1) = (-1, 1)$. Check: $(-1, 1)\cdot(1, 1) = 0$. ✓ $(2, 2)$ is the projection that was subtracted.
+
+- id: la-q-3402
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  stem: 'In Gram–Schmidt, $\mathbf{v}_3$ is $\mathbf{x}_3$ minus its projections onto:'
+  choices: ['$\mathbf{x}_1$ and $\mathbf{x}_2$', '$\mathbf{e}_1$ and $\mathbf{e}_2$', '$\mathbf{v}_1$ and $\mathbf{v}_2$', '$\mathbf{x}_3$ itself']
+  answer: 2
+  explanation: |-
+    The projection formula needs an orthogonal set, so subtract projections onto the already-orthogonalized $\mathbf{v}_1, \mathbf{v}_2$. Using $\mathbf{x}_1, \mathbf{x}_2$ (not orthogonal) gives a wrong result.
+
+- id: la-q-3403
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  stem: 'Apply Gram–Schmidt to $(1, 0, 1)$ and $(1, 1, 0)$. Which is (a multiple of) $\mathbf{v}_2$?'
+  choices: ['$(1, 2, -1)$', '$(1, 1, 0)$', '$(0, 1, -1)$', '$(1, -1, 1)$']
+  answer: 0
+  explanation: |-
+    $\mathbf{v}_2 = (1, 1, 0) - \tfrac12(1, 0, 1) = \left(\tfrac12, 1, -\tfrac12\right)$, a multiple of $(1, 2, -1)$. Check: $(1, 2, -1)\cdot(1, 0, 1) = 0$. ✓
+
+- id: la-q-3404
+  lesson: la-gram-schmidt
+  module_quiz: true
+  topic: QR factorization
+  stem: 'In $A = QR$ for a matrix with independent columns, what are $Q$ and $R$?'
+  choices: ['$Q$ is upper triangular, $R$ has orthonormal columns', '$Q$ has orthonormal columns spanning $\operatorname{Col} A$; $R$ is upper triangular with positive diagonal', 'Both are orthogonal', '$Q$ is the RREF and $R$ the remainder']
+  answer: 1
+  explanation: |-
+    $Q$ holds the normalized Gram–Schmidt vectors, and $R = Q^TA$ records the dot products, which vanish below the diagonal.
+
+- id: la-q-3405
+  lesson: la-gram-schmidt
+  topic: QR factorization
+  stem: 'Given $Q$ in a QR factorization of $A$, how do you get $R$?'
+  choices: ['$R = AQ$', '$R = Q^{-1}A^T$', '$R = A^TQ$', '$R = Q^TA$']
+  answer: 3
+  explanation: |-
+    $Q^TQ = I$, so multiplying $A = QR$ on the left by $Q^T$ gives $Q^TA = R$.
+
+- id: la-q-3406
+  lesson: la-gram-schmidt
+  topic: QR factorization
+  stem: 'In the QR factorization, what is $r_{11}$?'
+  choices: ['$1$', '$\|\mathbf{x}_1\|$', '$\mathbf{x}_1\cdot\mathbf{x}_2$', '$a_{11}$']
+  answer: 1
+  explanation: |-
+    $\mathbf{q}_1 = \mathbf{x}_1/\|\mathbf{x}_1\|$, so $r_{11} = \mathbf{q}_1\cdot\mathbf{x}_1 = \|\mathbf{x}_1\|$. In general $r_{jj} = \|\mathbf{v}_j\|$.
+
+- id: la-q-3407
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  stem: 'During Gram–Schmidt you get $\mathbf{v}_2 = \left(-\tfrac12, -\tfrac12, 1\right)$. May you replace it by $(-1, -1, 2)$ before computing $\mathbf{v}_3$?'
+  choices: ['No, this changes the span', 'Only if $\mathbf{v}_2$ is a unit vector', 'Only at the very end', 'Yes, scaling doesn''t affect orthogonality or the spans']
+  answer: 3
+  explanation: |-
+    Projections onto a direction don't depend on the length of the vector used, and spans are unchanged by nonzero scaling, so clearing fractions is a common convenience.
+
+- id: la-q-3408
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  stem: 'Normalize $\mathbf{v} = (3, 4)$.'
+  choices: ['$(0.6, 0.8)$', '$(3/7, 4/7)$', '$(0.3, 0.4)$', '$(0.8, 0.6)$']
+  answer: 0
+  explanation: |-
+    $\|\mathbf{v}\| = 5$, so the unit vector is $(3/5, 4/5)$.
+
+- id: la-q-3409
+  lesson: la-gram-schmidt
+  module_quiz: true
+  topic: Gram–Schmidt
+  stem: 'Which property holds for the output of Gram–Schmidt applied to $\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3$?'
+  choices: ['$\mathbf{v}_k = \mathbf{x}_k$ for every $k$', '$\operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\} = \operatorname{Span}\{\mathbf{x}_1, \mathbf{x}_2\}$', 'The $\mathbf{v}_k$ are unit vectors', '$\mathbf{v}_3$ is parallel to $\mathbf{x}_3$']
+  answer: 1
+  explanation: |-
+    Each $\mathbf{v}_k$ is $\mathbf{x}_k$ minus a combination of earlier vectors, so the spans match at every stage. Only $\mathbf{v}_1 = \mathbf{x}_1$ in general, and the $\mathbf{v}$'s are unit vectors only after normalizing.
+
+- id: la-q-3410
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  stem: 'Why can''t Gram–Schmidt produce $\mathbf{v}_k = \mathbf{0}$ when the $\mathbf{x}$''s are linearly independent?'
+  choices: ['Because $\mathbf{v}_k = \mathbf{0}$ would mean $\mathbf{x}_k$ lies in the span of $\mathbf{x}_1, \dots, \mathbf{x}_{k-1}$', 'Because projections are never zero', 'Because the $\mathbf{x}$''s are unit vectors', 'It can; you just skip that vector']
+  answer: 0
+  explanation: |-
+    $\mathbf{v}_k = \mathbf{0}$ means $\mathbf{x}_k$ equals its projection onto $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_{k-1}\} = \operatorname{Span}\{\mathbf{x}_1, \dots, \mathbf{x}_{k-1}\}$, contradicting independence. (With dependent inputs, a zero does appear and that vector is dropped.)
+
+# --- Lesson 35: least squares ---
+- id: la-q-3501
+  lesson: la-least-squares
+  module_quiz: true
+  topic: Least squares
+  stem: 'The least-squares solutions of $A\mathbf{x} = \mathbf{b}$ are the solutions of:'
+  choices: ['$A\mathbf{x} = \mathbf{b}$', '$AA^T\mathbf{x} = \mathbf{b}$', '$A^TA\mathbf{x} = A^T\mathbf{b}$', '$A^T\mathbf{x} = \mathbf{b}$']
+  answer: 2
+  explanation: |-
+    The residual $\mathbf{b} - A\hat{\mathbf{x}}$ must be orthogonal to $\operatorname{Col} A$, i.e. $A^T(\mathbf{b} - A\hat{\mathbf{x}}) = \mathbf{0}$: the normal equations.
+
+- id: la-q-3502
+  lesson: la-least-squares
+  topic: Least squares
+  stem: 'When is the least-squares solution of $A\mathbf{x} = \mathbf{b}$ unique?'
+  choices: ['Always', 'When $A$ is square', 'When the columns of $A$ are linearly independent', 'When $\mathbf{b} = \mathbf{0}$']
+  answer: 2
+  explanation: |-
+    Then $A^TA$ is invertible and $\hat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}$. With dependent columns the normal equations have free variables.
+
+- id: la-q-3503
+  lesson: la-least-squares
+  module_quiz: true
+  topic: Linear regression
+  stem: 'Find the least-squares line $y = \beta_0 + \beta_1x$ for the points $(0, 0)$, $(1, 2)$, $(2, 2)$.'
+  choices: ['$y = x$', '$y = \tfrac13 + x$', '$y = \tfrac23 + \tfrac23x$', '$y = 1 + \tfrac12x$']
+  answer: 1
+  explanation: |-
+    $n = 3$, $\sum x = 3$, $\sum x^2 = 5$, $\sum y = 4$, $\sum xy = 6$. Normal equations: $3\beta_0 + 3\beta_1 = 4$ and $3\beta_0 + 5\beta_1 = 6$. Subtracting, $2\beta_1 = 2$, so $\beta_1 = 1$ and $\beta_0 = 1/3$.
+
+- id: la-q-3504
+  lesson: la-least-squares
+  topic: Linear regression
+  stem: 'Fitting $y = \beta_0 + \beta_1x$, which row of the design matrix does the data point $(5, 2)$ give?'
+  choices: ['$[\,5 \;\; 2\,]$', '$[\,1 \;\; 2\,]$', '$[\,1 \;\; 5\,]$', '$[\,2 \;\; 5\,]$']
+  answer: 2
+  explanation: |-
+    Each row is $(1, x_i)$, matching $\beta_0 \cdot 1 + \beta_1 \cdot x_i$. The $y$-value 2 goes in the observation vector, not the design matrix.
+
+- id: la-q-3505
+  lesson: la-least-squares
+  topic: Least squares
+  stem: 'For $A = \begin{bmatrix} 2 & 0 \\ 0 & 1 \\ 1 & 1\end{bmatrix}$, what is $A^TA$?'
+  choices: ['$\begin{bmatrix} 5 & 1 \\ 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 4 & 0 & 2 \\ 0 & 1 & 1 \\ 2 & 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 4 & 1 \\ 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 5 & 0 \\ 0 & 2\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    Entries are dot products of columns: $(2, 0, 1)\cdot(2, 0, 1) = 5$, $(2, 0, 1)\cdot(0, 1, 1) = 1$, $(0, 1, 1)\cdot(0, 1, 1) = 2$. The $3 \times 3$ choice is $AA^T$.
+
+- id: la-q-3506
+  lesson: la-least-squares
+  topic: Least squares
+  stem: 'What is the least-squares error?'
+  choices: ['$\|\mathbf{b} - A\hat{\mathbf{x}}\|$', '$\|\hat{\mathbf{x}}\|$', '$\|A\hat{\mathbf{x}}\|$', '$\|\mathbf{b}\|^2$']
+  answer: 0
+  explanation: |-
+    It's the distance from $\mathbf{b}$ to the closest point $A\hat{\mathbf{x}}$ of $\operatorname{Col} A$.
+
+- id: la-q-3507
+  lesson: la-least-squares
+  module_quiz: true
+  topic: Least squares
+  stem: 'If $\hat{\mathbf{x}}$ is a least-squares solution, the residual vector $\mathbf{b} - A\hat{\mathbf{x}}$ is:'
+  choices: ['zero', 'in $\operatorname{Col} A$', 'orthogonal to every column of $A$', 'parallel to $\mathbf{b}$']
+  answer: 2
+  explanation: |-
+    $A\hat{\mathbf{x}}$ is the orthogonal projection of $\mathbf{b}$ onto $\operatorname{Col} A$, so what's left over lies in $(\operatorname{Col} A)^\perp = \operatorname{Nul} A^T$. It's zero only when the system is consistent.
+
+- id: la-q-3508
+  lesson: la-least-squares
+  topic: Linear regression
+  stem: 'To fit a parabola $y = \beta_0 + \beta_1x + \beta_2x^2$ by least squares, what does a data point $(x_i, y_i)$ contribute to the design matrix?'
+  choices: ['The row $(1, x_i, x_i^2)$', 'The row $(x_i, y_i)$', 'The row $(1, x_i, y_i)$', 'The column $(1, x_i, x_i^2)$']
+  answer: 0
+  explanation: |-
+    The model is linear in the parameters, so each point gives the equation $\beta_0 + \beta_1x_i + \beta_2x_i^2 = y_i$, with coefficient row $(1, x_i, x_i^2)$.
+
+- id: la-q-3509
+  lesson: la-least-squares
+  topic: Least squares
+  stem: 'Given $A = QR$ with $A$ having independent columns, the least-squares solution satisfies:'
+  choices: ['$Q\hat{\mathbf{x}} = R^T\mathbf{b}$', '$Q^TR\hat{\mathbf{x}} = \mathbf{b}$', '$\hat{\mathbf{x}} = QR\mathbf{b}$', '$R\hat{\mathbf{x}} = Q^T\mathbf{b}$']
+  answer: 3
+  explanation: |-
+    Substitute into the normal equations: $R^TQ^TQR\hat{\mathbf{x}} = R^TQ^T\mathbf{b}$, i.e. $R^TR\hat{\mathbf{x}} = R^TQ^T\mathbf{b}$; $R^T$ is invertible, so $R\hat{\mathbf{x}} = Q^T\mathbf{b}$, a triangular system.
+
+- id: la-q-3510
+  lesson: la-least-squares
+  topic: Least squares
+  stem: 'If $\mathbf{b}$ happens to lie in $\operatorname{Col} A$, what is the least-squares error?'
+  choices: ['$\|\mathbf{b}\|$', '$0$', '$1$', 'It is undefined']
+  answer: 1
+  explanation: |-
+    Then $A\mathbf{x} = \mathbf{b}$ is consistent, and any exact solution is a least-squares solution with residual $\mathbf{0}$.
+
+- id: la-q-3511
+  lesson: la-least-squares
+  topic: Linear regression
+  stem: 'In the least-squares line for $(1, 1), (2, 3), (3, 4), (4, 4)$, the line is $y = 0.5 + x$. What is the residual at $x = 2$?'
+  choices: ['$0.5$', '$-0.5$', '$2.5$', '$3$']
+  answer: 0
+  explanation: |-
+    Residual = observed $-$ predicted $= 3 - (0.5 + 2) = 0.5$.
+
+# --- Lesson 36: symmetric matrices ---
+- id: la-q-3601
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'Which matrix is symmetric?'
+  choices: ['$\begin{bmatrix} 1 & 2 \\ 3 & 1\end{bmatrix}$', '$\begin{bmatrix} 2 & -1 & 0 \\ -1 & 5 & 4 \\ 0 & 4 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 & 3 \\ 2 & 1 & 4\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ -1 & 0\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $a_{ij} = a_{ji}$ for every pair. The last matrix satisfies $A^T = -A$ (skew-symmetric); non-square matrices can't be symmetric.
+
+- id: la-q-3602
+  lesson: la-symmetric
+  module_quiz: true
+  topic: Symmetric matrices
+  stem: 'For a symmetric matrix, eigenvectors corresponding to different eigenvalues are:'
+  choices: ['parallel', 'linearly dependent', 'equal', 'orthogonal']
+  answer: 3
+  explanation: |-
+    $\lambda_1\mathbf{v}_1\cdot\mathbf{v}_2 = \mathbf{v}_1^TA\mathbf{v}_2 = \lambda_2\mathbf{v}_1\cdot\mathbf{v}_2$ forces $\mathbf{v}_1\cdot\mathbf{v}_2 = 0$ when $\lambda_1 \ne \lambda_2$.
+
+- id: la-q-3603
+  lesson: la-symmetric
+  module_quiz: true
+  topic: Symmetric matrices
+  stem: 'According to the spectral theorem, a square matrix is orthogonally diagonalizable exactly when it is:'
+  choices: ['invertible', 'symmetric', 'triangular', 'diagonalizable']
+  answer: 1
+  explanation: |-
+    $PDP^T$ is always symmetric, and conversely every symmetric matrix can be written that way. Diagonalizable matrices with non-orthogonal eigenvectors don't qualify.
+
+- id: la-q-3604
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'Orthogonally diagonalize $A = \begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$. Which $P$ works with $D = \operatorname{diag}(4, 2)$?'
+  choices: ['$\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$', '$\dfrac{1}{\sqrt2}\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$', '$\dfrac{1}{\sqrt2}\begin{bmatrix} 1 & 1 \\ -1 & 1\end{bmatrix}$', '$\dfrac12\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Column 1 must be a unit eigenvector for 4, i.e. along $(1, 1)$; column 2 one for 2, along $(1, -1)$. The first choice isn't normalized; the third puts $(1, -1)$ first, mismatching $D$.
+
+- id: la-q-3605
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'Which is always true for any matrix $B$?'
+  choices: ['$B$ is symmetric', '$B^TB = BB^T$', '$B + B^T = 0$', '$B^TB$ is symmetric']
+  answer: 3
+  explanation: |-
+    $(B^TB)^T = B^T(B^T)^T = B^TB$. That's why $A^TA$ in least squares and the SVD has orthonormal eigenvectors and real, nonnegative eigenvalues.
+
+- id: la-q-3606
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: '$A = \begin{bmatrix} 4 & -2 \\ 1 & 1\end{bmatrix}$ is diagonalizable. Is it orthogonally diagonalizable?'
+  choices: ['Yes, every diagonalizable matrix is', 'No, because it is not symmetric (its eigenvectors $(1, 1)$ and $(2, 1)$ aren''t orthogonal)', 'Yes, because its eigenvalues are real', 'No, because it is not invertible']
+  answer: 1
+  explanation: |-
+    By the spectral theorem only symmetric matrices are orthogonally diagonalizable. Real eigenvalues alone aren't enough.
+
+- id: la-q-3607
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'Can a real symmetric matrix have a non-real eigenvalue?'
+  choices: ['No, all its eigenvalues are real', 'Yes, in conjugate pairs', 'Only if it is $2 \times 2$', 'Only if it is singular']
+  answer: 0
+  explanation: |-
+    The spectral theorem guarantees real eigenvalues. A rotation matrix (complex eigenvalues) is never symmetric unless it's $\pm I$.
+
+- id: la-q-3608
+  lesson: la-symmetric
+  module_quiz: true
+  topic: Symmetric matrices
+  stem: 'In the spectral decomposition $A = \lambda_1\mathbf{u}_1\mathbf{u}_1^T + \cdots + \lambda_n\mathbf{u}_n\mathbf{u}_n^T$, what does the matrix $\mathbf{u}_j\mathbf{u}_j^T$ do to a vector $\mathbf{x}$?'
+  choices: ['Rotates it', 'Projects it onto the line spanned by $\mathbf{u}_j$', 'Scales it by $\lambda_j$', 'Reflects it across $\mathbf{u}_j$']
+  answer: 1
+  explanation: |-
+    $(\mathbf{u}_j\mathbf{u}_j^T)\mathbf{x} = (\mathbf{u}_j\cdot\mathbf{x})\mathbf{u}_j$, the projection onto $\mathbf{u}_j$ (a unit vector). So $A$ is a weighted sum of projections onto perpendicular axes.
+
+- id: la-q-3609
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'A symmetric $3 \times 3$ matrix has a 2-dimensional eigenspace with basis $\{\mathbf{x}_1, \mathbf{x}_2\}$ where $\mathbf{x}_1\cdot\mathbf{x}_2 \ne 0$. What must you do before building $P$?'
+  choices: ['Nothing; any basis works', 'Choose a different eigenvalue', 'Replace the eigenspace with its orthogonal complement', 'Apply Gram–Schmidt within that eigenspace, then normalize']
+  answer: 3
+  explanation: |-
+    Vectors from *different* eigenspaces are automatically orthogonal, but two vectors in the same eigenspace need not be. Gram–Schmidt keeps them in the eigenspace while making them orthogonal.
+
+- id: la-q-3610
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: '$A = \begin{bmatrix} 2 & 3 \\ 3 & 2\end{bmatrix}$ has eigenvector $(1, 1)$ for eigenvalue 5. What is the other eigenvalue, with an eigenvector?'
+  choices: ['$-1$, with $(1, -1)$', '$1$, with $(1, -1)$', '$-1$, with $(1, 1)$', '$5$, with $(1, 0)$']
+  answer: 0
+  explanation: |-
+    The other eigenvector must be orthogonal to $(1, 1)$, so take $(1, -1)$: $A(1, -1) = (-1, 1) = -1\cdot(1, -1)$. Also, $5 + (-1) = 4 = \operatorname{tr} A$.
+
+- id: la-q-3611
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'If $A = PDP^T$ with $P$ orthogonal, why must $A$ be symmetric?'
+  choices: ['Because $D$ is invertible', 'Because $(PDP^T)^T = PD^TP^T = PDP^T$', 'Because $P = P^T$', 'Because $P^TP = I$ means $A = D$']
+  answer: 1
+  explanation: |-
+    Transposing reverses the order and $D^T = D$ for a diagonal matrix, so $A^T = A$.
+
+# --- Lesson 37: quadratic forms ---
+- id: la-q-3701
+  lesson: la-quadratic-forms
+  module_quiz: true
+  topic: Quadratic forms
+  stem: 'What is the matrix of $Q(\mathbf{x}) = 3x_1^2 + 8x_1x_2 - x_2^2$?'
+  choices: ['$\begin{bmatrix} 3 & 8 \\ 8 & -1\end{bmatrix}$', '$\begin{bmatrix} 3 & -4 \\ -4 & -1\end{bmatrix}$', '$\begin{bmatrix} 3 & 8 \\ 0 & -1\end{bmatrix}$', '$\begin{bmatrix} 3 & 4 \\ 4 & -1\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    Squares go on the diagonal; the cross coefficient 8 is split as 4 and 4 in the symmetric off-diagonal positions, since $\mathbf{x}^TA\mathbf{x}$ contributes $2a_{12}x_1x_2$.
+
+- id: la-q-3702
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'Evaluate $\mathbf{x}^TA\mathbf{x}$ for $A = \begin{bmatrix} 2 & 1 \\ 1 & 3\end{bmatrix}$ and $\mathbf{x} = (1, -1)$.'
+  choices: ['$3$', '$7$', '$5$', '$-1$']
+  answer: 0
+  explanation: |-
+    $Q = 2x_1^2 + 2x_1x_2 + 3x_2^2 = 2 - 2 + 3 = 3$. Or compute $A\mathbf{x} = (1, -2)$ and $\mathbf{x}\cdot(1, -2) = 1 + 2 = 3$.
+
+- id: la-q-3703
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'A symmetric matrix has eigenvalues 3 and 5. The quadratic form $\mathbf{x}^TA\mathbf{x}$ is:'
+  choices: ['positive definite', 'negative definite', 'indefinite', 'positive semidefinite but not definite']
+  answer: 0
+  explanation: |-
+    In principal-axis coordinates $Q = 3y_1^2 + 5y_2^2 > 0$ for every $\mathbf{y} \ne \mathbf{0}$.
+
+- id: la-q-3704
+  lesson: la-quadratic-forms
+  module_quiz: true
+  topic: Quadratic forms
+  stem: 'Classify $Q(\mathbf{x}) = x_1^2 - 6x_1x_2 + x_2^2$.'
+  choices: ['Positive definite', 'Negative definite', 'Indefinite', 'Positive semidefinite']
+  answer: 2
+  explanation: |-
+    Its matrix $\begin{bmatrix} 1 & -3 \\ -3 & 1\end{bmatrix}$ has eigenvalues 4 and $-2$ (determinant $-8 < 0$). For example $Q(1, 1) = -4$ while $Q(1, 0) = 1$. The positive diagonal entries are misleading.
+
+- id: la-q-3705
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'For a $2 \times 2$ symmetric matrix $\begin{bmatrix} a & b \\ b & c\end{bmatrix}$ with $\det > 0$ and $a > 0$, the form is:'
+  choices: ['positive definite', 'negative definite', 'indefinite', 'impossible to classify without eigenvalues']
+  answer: 0
+  explanation: |-
+    $\det = \lambda_1\lambda_2 > 0$ means both eigenvalues have the same sign, and $a = Q(1, 0) > 0$ shows that sign is positive.
+
+- id: la-q-3706
+  lesson: la-quadratic-forms
+  module_quiz: true
+  topic: Quadratic forms
+  stem: 'What is the maximum of $5x_1^2 + 4x_1x_2 + 2x_2^2$ over unit vectors $\|\mathbf{x}\| = 1$?'
+  choices: ['$5$', '$6$', '$7$', '$11$']
+  answer: 1
+  explanation: |-
+    The maximum of $\mathbf{x}^TA\mathbf{x}$ on the unit sphere is the largest eigenvalue of $A = \begin{bmatrix} 5 & 2 \\ 2 & 2\end{bmatrix}$, which is 6 (the other is 1), attained at $\pm\tfrac{1}{\sqrt5}(2, 1)$.
+
+- id: la-q-3707
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'Under the change of variable $\mathbf{x} = P\mathbf{y}$, where the columns of $P$ are orthonormal eigenvectors of $A$, the form $\mathbf{x}^TA\mathbf{x}$ becomes:'
+  choices: ['$\mathbf{y}^TA\mathbf{y}$', '$y_1^2 + \cdots + y_n^2$', '$\lambda_1y_1^2 + \cdots + \lambda_ny_n^2$', '$\lambda_1y_1 + \cdots + \lambda_ny_n$']
+  answer: 2
+  explanation: |-
+    $\mathbf{x}^TA\mathbf{x} = \mathbf{y}^TP^TAP\mathbf{y} = \mathbf{y}^TD\mathbf{y}$, which has no cross terms. This is the principal axes theorem.
+
+- id: la-q-3708
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'In principal-axis coordinates a form is $4y_1^2 - 2y_2^2$. What do its level curves $Q = c$ (for $c \ne 0$) look like?'
+  choices: ['Ellipses', 'Circles', 'Hyperbolas', 'Parabolas']
+  answer: 2
+  explanation: |-
+    Coefficients of opposite sign give hyperbolas; same-sign coefficients (positive or negative definite) give ellipses.
+
+- id: la-q-3709
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'The form with matrix $\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$, $Q = (x_1 + x_2)^2$, is:'
+  choices: ['positive definite', 'positive semidefinite but not positive definite', 'indefinite', 'negative definite']
+  answer: 1
+  explanation: |-
+    The eigenvalues are 2 and 0. $Q \ge 0$ always, but $Q(1, -1) = 0$ for a nonzero vector, so it's not positive definite.
+
+- id: la-q-3710
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'What is the matrix of $Q = x_1^2 + x_2^2 + x_3^2 + 2x_1x_3$?'
+  choices: ['$\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 0 \\ 2 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    The $x_1x_3$ coefficient 2 is split into 1 at positions $(1, 3)$ and $(3, 1)$.
+
+- id: la-q-3711
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'A symmetric matrix has eigenvalues $-1$ and $-4$. What is the minimum of $\mathbf{x}^TA\mathbf{x}$ on the unit circle, and how is the form classified?'
+  choices: ['$-1$; negative definite', '$-4$; negative definite', '$-4$; indefinite', '$0$; negative semidefinite']
+  answer: 1
+  explanation: |-
+    The minimum on unit vectors is the smallest eigenvalue, $-4$; with all eigenvalues negative the form is negative definite.
+
+# --- Lesson 38: SVD ---
+- id: la-q-3801
+  lesson: la-svd
+  module_quiz: true
+  topic: Singular value decomposition
+  stem: '$A^TA$ has eigenvalues 45 and 5. What are the singular values of $A$?'
+  choices: ['$45$ and $5$', '$3\sqrt5$ and $\sqrt5$', '$\sqrt{50}$ and $0$', '$9$ and $1$']
+  answer: 1
+  explanation: |-
+    $\sigma_i = \sqrt{\lambda_i(A^TA)}$: $\sqrt{45} = 3\sqrt5 \approx 6.71$ and $\sqrt5 \approx 2.24$, listed largest first.
+
+- id: la-q-3802
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'What are the singular values of $\begin{bmatrix} 3 & 0 \\ 0 & -2\end{bmatrix}$?'
+  choices: ['$3$ and $-2$', '$\sqrt3$ and $\sqrt2$', '$9$ and $4$', '$3$ and $2$']
+  answer: 3
+  explanation: |-
+    $A^TA = \operatorname{diag}(9, 4)$, so $\sigma = 3, 2$. Singular values are never negative, even when eigenvalues are.
+
+- id: la-q-3803
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'How is the rank of $A$ related to its singular values?'
+  choices: ['It equals the largest singular value', 'It equals the number of nonzero singular values', 'It equals the sum of the singular values', 'It equals the number of singular values greater than 1']
+  answer: 1
+  explanation: |-
+    The nonzero singular values correspond to $\mathbf{u}_1, \dots, \mathbf{u}_r$, an orthonormal basis of $\operatorname{Col} A$, so $r$ = rank.
+
+- id: la-q-3804
+  lesson: la-svd
+  module_quiz: true
+  topic: Singular value decomposition
+  stem: 'In $A = U\Sigma V^T$, how is the left singular vector $\mathbf{u}_i$ (for $\sigma_i > 0$) obtained from $\mathbf{v}_i$?'
+  choices: ['$\mathbf{u}_i = \dfrac{1}{\sigma_i}A\mathbf{v}_i$', '$\mathbf{u}_i = A^T\mathbf{v}_i$', '$\mathbf{u}_i = \sigma_iA\mathbf{v}_i$', '$\mathbf{u}_i = \mathbf{v}_i$']
+  answer: 0
+  explanation: |-
+    $\|A\mathbf{v}_i\| = \sigma_i$, so dividing by $\sigma_i$ gives a unit vector, and these are automatically orthogonal.
+
+- id: la-q-3805
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: '$A$ is $3 \times 2$. What size is $\Sigma$ in $A = U\Sigma V^T$?'
+  choices: ['$2 \times 2$', '$3 \times 3$', '$3 \times 2$', '$2 \times 3$']
+  answer: 2
+  explanation: |-
+    $\Sigma$ has the same shape as $A$; $U$ is $3 \times 3$ and $V$ is $2 \times 2$.
+
+- id: la-q-3806
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'What does the largest singular value $\sigma_1$ of $A$ measure?'
+  choices: ['The largest entry of $A$', 'The maximum of $\|A\mathbf{x}\|$ over unit vectors $\mathbf{x}$', 'The determinant of $A$', 'The number of pivots']
+  answer: 1
+  explanation: |-
+    $\|A\mathbf{x}\|^2 = \mathbf{x}^TA^TA\mathbf{x}$, whose maximum on unit vectors is the largest eigenvalue $\sigma_1^2$ of $A^TA$. Geometrically, $\sigma_1$ is the longest semi-axis of the image of the unit sphere.
+
+- id: la-q-3807
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'A $2 \times 2$ matrix has singular values 6 and 2. What is $|\det A|$?'
+  choices: ['$8$', '$36$', '$4$', '$12$']
+  answer: 3
+  explanation: |-
+    $\det A = \det U\det\Sigma\det V^T$ and $\det U, \det V = \pm1$, so $|\det A| = \sigma_1\sigma_2 = 12$.
+
+- id: la-q-3808
+  lesson: la-svd
+  module_quiz: true
+  topic: Singular value decomposition
+  stem: 'An invertible matrix has largest singular value 10 and smallest 0.1. What is its condition number, and what does it suggest?'
+  choices: ['$1$; perfectly conditioned', '$100$; errors in $\mathbf{b}$ can be magnified up to about 100 times in $\mathbf{x}$', '$0.01$; very stable', '$9.9$; singular']
+  answer: 1
+  explanation: |-
+    The condition number is $\sigma_1/\sigma_n = 10/0.1 = 100$. Larger condition numbers mean the matrix is closer to singular and solutions are more sensitive to errors.
+
+- id: la-q-3809
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'Which matrix is the best rank-1 approximation of $A = \sum_{i=1}^r \sigma_i\mathbf{u}_i\mathbf{v}_i^T$?'
+  choices: ['$\sigma_r\mathbf{u}_r\mathbf{v}_r^T$', '$\sigma_1 I$', '$\mathbf{u}_1\mathbf{v}_1^T$', '$\sigma_1\mathbf{u}_1\mathbf{v}_1^T$']
+  answer: 3
+  explanation: |-
+    Keeping the terms with the largest singular values gives the best low-rank approximations; for rank 1, keep the first term. This is the idea behind SVD image compression.
+
+- id: la-q-3810
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'What are the singular values of $A = \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 0 & 0\end{bmatrix}$?'
+  choices: ['$2$ and $0$', '$\sqrt2$ and $\sqrt2$', '$1$ and $1$', '$4$ and $0$']
+  answer: 0
+  explanation: |-
+    $A^TA = \begin{bmatrix} 2 & 2 \\ 2 & 2\end{bmatrix}$ has eigenvalues 4 and 0, so $\sigma_1 = 2$, $\sigma_2 = 0$, and $A$ has rank 1.
+
+- id: la-q-3811
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'For which matrices are the singular values the same as the eigenvalues?'
+  choices: ['All square matrices', 'Symmetric positive semidefinite matrices', 'All invertible matrices', 'Triangular matrices']
+  answer: 1
+  explanation: |-
+    If $A = PDP^T$ with $D \ge 0$, that's already an SVD. In general they differ: $\begin{bmatrix} 3 & 0 \\ 4 & 5\end{bmatrix}$ has eigenvalues 3, 5 but singular values about 6.71 and 2.24.
