@@ -1,0 +1,66 @@
+# Notecards for modules a2-m8 (probability and statistics) and a2-m9 (trigonometry)
+- {front: 'Fundamental counting principle', back: 'For a sequence of choices, multiply the number of options at each step: $m \cdot n \cdot \ldots$', topic: Counting principle}
+- {front: '$n!$', back: '$n(n - 1)\cdots 2 \cdot 1$: the number of ways to order $n$ different objects. $0! = 1$.', topic: Counting principle}
+- {front: 'Simplify $\dfrac{9!}{6!}$', back: '$9 \cdot 8 \cdot 7 = 504$. Cancel the common $6!$ instead of multiplying out.', topic: Counting principle}
+- {front: 'Codes of length $r$ from $n$ symbols, repeats allowed', back: '$n^r$ (for example, $10^4$ four-digit PINs).', topic: Counting principle}
+- {front: 'Permutations formula', back: '$_nP_r = \dfrac{n!}{(n - r)!}$: ordered selections of $r$ from $n$.', topic: Permutations and combinations}
+- {front: 'Combinations formula', back: '$_nC_r = \dfrac{n!}{r!\,(n - r)!} = \dfrac{_nP_r}{r!}$: unordered selections of $r$ from $n$.', topic: Permutations and combinations}
+- {front: 'Permutation or combination?', back: 'Ask whether rearranging the chosen items gives a different outcome. Yes (ranks, titles, codes): permutation. No (groups, hands, committees): combination.', topic: Permutations and combinations}
+- {front: 'Why divide $_nP_r$ by $r!$ to get $_nC_r$?', back: 'Each group of $r$ items appears in $r!$ different orders among the permutations.', topic: Permutations and combinations}
+- {front: 'Arrangements of letters with repeats (e.g. BANANA)', back: 'Divide $n!$ by the factorial of each repeated letter count: $\dfrac{6!}{3!\,2!} = 60$.', topic: Permutations and combinations}
+- {front: '$_nC_r$ symmetry', back: '$_nC_r = {}_nC_{n-r}$: choosing $r$ to take is the same as choosing $n - r$ to leave.', topic: Permutations and combinations}
+- {front: 'Committee of 2 from group A and 3 from group B', back: 'Multiply: $_aC_2 \cdot {}_bC_3$ (both choices happen).', topic: Permutations and combinations}
+- {front: 'Theoretical probability', back: '$P(A) = \dfrac{\text{favorable outcomes}}{\text{total outcomes}}$ when outcomes are equally likely.', topic: Probability rules}
+- {front: 'Complement rule', back: '$P(\text{not } A) = 1 - P(A)$', topic: Probability rules}
+- {front: '"At least one" probabilities', back: 'Use $1 - P(\text{none})$.', topic: Probability rules}
+- {front: 'Addition rule', back: '$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$', topic: Probability rules}
+- {front: 'Mutually exclusive events', back: 'Cannot both happen: $P(A \text{ and } B) = 0$, so $P(A \text{ or } B) = P(A) + P(B)$.', topic: Probability rules}
+- {front: 'Two dice: number of outcomes; ways to roll a sum of 7', back: '36 outcomes; 6 ways, so $P(7) = \tfrac16$.', topic: Probability rules}
+- {front: 'Probability with combinations (e.g. all 3 picks are red)', back: '$\dfrac{\text{ways to choose the favorable items}}{\text{ways to choose any items}}$, e.g. $\dfrac{_rC_3}{_nC_3}$.', topic: Probability rules}
+- {front: 'Conditional probability', back: '$P(B \mid A) = \dfrac{P(A \text{ and } B)}{P(A)}$', topic: Conditional probability}
+- {front: '$P(B \mid A)$ from a two-way table', back: 'Use only the row or column for $A$: divide the count in both by the total for $A$.', topic: Conditional probability}
+- {front: 'Multiplication rule', back: '$P(A \text{ and } B) = P(A) \cdot P(B \mid A)$', topic: Conditional probability}
+- {front: 'Independent events', back: '$P(B \mid A) = P(B)$, so $P(A \text{ and } B) = P(A) \cdot P(B)$.', topic: Conditional probability}
+- {front: 'Draws with vs without replacement', back: 'With replacement: independent. Without: dependent, so the second probability uses what is left.', topic: Conditional probability}
+- {front: 'Are mutually exclusive events independent?', back: 'No (if both have positive probability): if one happens, the other cannot.', topic: Conditional probability}
+- {front: 'Population standard deviation', back: '$\sigma = \sqrt{\dfrac{\sum (x - \mu)^2}{n}}$ (sample $s$ divides by $n - 1$).', topic: Normal distribution}
+- {front: '68–95–99.7 rule', back: 'About 68% of a normal distribution is within $1\sigma$ of the mean, 95% within $2\sigma$, 99.7% within $3\sigma$.', topic: Normal distribution}
+- {front: 'Percent between $\mu$ and $\mu + \sigma$ (normal)', back: '34%', topic: Normal distribution}
+- {front: 'Percent above $\mu + \sigma$ (normal)', back: '16%', topic: Normal distribution}
+- {front: 'Percent above $\mu + 2\sigma$ (normal)', back: '2.5%', topic: Normal distribution}
+- {front: 'z-score', back: '$z = \dfrac{x - \mu}{\sigma}$: standard deviations above (+) or below (−) the mean.', topic: Normal distribution}
+- {front: 'Comparing values on different scales', back: 'Compare z-scores; the larger z is relatively higher.', topic: Normal distribution}
+- {front: 'Normal probability between $a$ and $b$', back: '`normalcdf(a, b, μ, σ)`, or (area left of $z_b$) − (area left of $z_a$).', topic: Normal distribution}
+- {front: 'Area to the right of $z$', back: '$1 -$ (area to the left of $z$).', topic: Normal distribution}
+- {front: 'Area left of $z = 1$, $z = 2$, $z = 1.96$', back: '0.8413, 0.9772, 0.975', topic: Normal distribution}
+- {front: 'Properties of a normal curve', back: 'Symmetric bell centered at $\mu$; total area 1; mean = median; never touches the axis.', topic: Normal distribution}
+- {front: 'Population vs sample', back: 'Population: the whole group of interest. Sample: the part actually measured.', topic: Sampling and surveys}
+- {front: 'Parameter vs statistic', back: 'Parameter describes the population; statistic is computed from a sample to estimate it.', topic: Sampling and surveys}
+- {front: 'Simple random sample', back: 'Every group of $n$ individuals is equally likely to be chosen.', topic: Sampling and surveys}
+- {front: 'Quick margin of error', back: '$\approx \dfrac{1}{\sqrt n}$ for a random sample of size $n$ (about 95% confidence).', topic: Sampling and surveys}
+- {front: 'To halve the margin of error…', back: 'Use about 4 times as many people (because of the square root).', topic: Sampling and surveys}
+- {front: 'Does a bigger sample fix bias?', back: 'No. A biased method (volunteers, convenience) stays biased at any size.', topic: Sampling and surveys}
+- {front: 'Degrees to radians', back: 'Multiply by $\dfrac{\pi}{180^\circ}$. Example: $150^\circ = \dfrac{5\pi}{6}$.', topic: Angles and radians}
+- {front: 'Radians to degrees', back: 'Multiply by $\dfrac{180^\circ}{\pi}$. Example: $\dfrac{3\pi}{4} = 135^\circ$.', topic: Angles and radians}
+- {front: '1 radian', back: 'The angle whose arc equals the radius; about $57.3^\circ$.', topic: Angles and radians}
+- {front: 'Arc length', back: '$s = r\theta$, with $\theta$ in radians.', topic: Angles and radians}
+- {front: 'Coterminal angles', back: 'Add or subtract $360^\circ$ (or $2\pi$) any number of times.', topic: Angles and radians}
+- {front: 'Reference angle by quadrant', back: 'I: $\theta$; II: $180^\circ - \theta$; III: $\theta - 180^\circ$; IV: $360^\circ - \theta$.', topic: Angles and radians}
+- {front: 'Point on the unit circle at angle $\theta$', back: '$(\cos\theta, \sin\theta)$', topic: Unit circle}
+- {front: '$\sin$ and $\cos$ of $30^\circ$ ($\tfrac{\pi}{6}$)', back: '$\sin = \tfrac12$, $\cos = \tfrac{\sqrt3}{2}$', topic: Unit circle}
+- {front: '$\sin$ and $\cos$ of $45^\circ$ ($\tfrac{\pi}{4}$)', back: 'Both $\tfrac{\sqrt2}{2}$', topic: Unit circle}
+- {front: '$\sin$ and $\cos$ of $60^\circ$ ($\tfrac{\pi}{3}$)', back: '$\sin = \tfrac{\sqrt3}{2}$, $\cos = \tfrac12$', topic: Unit circle}
+- {front: 'Signs of sine and cosine by quadrant', back: 'I: both +. II: sin +, cos −. III: both −. IV: sin −, cos +.', topic: Unit circle}
+- {front: 'Evaluating sin or cos of a special angle', back: 'Find the reference angle, use its quadrant I value, then attach the quadrant sign.', topic: Unit circle}
+- {front: 'Pythagorean identity', back: '$\sin^2\theta + \cos^2\theta = 1$', topic: Unit circle}
+- {front: '$\tan\theta$ on the unit circle', back: '$\dfrac{\sin\theta}{\cos\theta} = \dfrac{y}{x}$', topic: Unit circle}
+- {front: 'Period of $\sin x$ and $\cos x$', back: '$2\pi$', topic: Sinusoid graphs}
+- {front: 'Amplitude of $y = a\sin(bx) + k$', back: '$|a| = \dfrac{\max - \min}{2}$', topic: Sinusoid graphs}
+- {front: 'Period of $y = a\sin(bx) + k$', back: '$\dfrac{2\pi}{b}$', topic: Sinusoid graphs}
+- {front: 'Midline of a sinusoid', back: '$y = k = \dfrac{\max + \min}{2}$', topic: Sinusoid graphs}
+- {front: 'Phase shift of $y = \sin(bx - c)$', back: '$\dfrac{c}{b}$ to the right: factor out $b$ first, $\sin\big(b(x - \tfrac cb)\big)$.', topic: Sinusoid graphs}
+- {front: 'Where do $\sin$, $\cos$ and $-\cos$ start a cycle?', back: '$\sin$: on the midline going up. $\cos$: at a maximum. $-\cos$: at a minimum.', topic: Sinusoid graphs}
+- {front: 'Five key points of one cycle', back: 'Start, then every quarter period: midline/max/min points spaced $\tfrac{\text{period}}{4}$ apart.', topic: Sinusoid graphs}
+- {front: 'Frequency', back: '$\dfrac{b}{2\pi}$ cycles per unit, the reciprocal of the period.', topic: Sinusoid graphs}
+- {front: 'Steps to model periodic data', back: 'Midline and amplitude from max and min, $b = \dfrac{2\pi}{\text{period}}$, then pick $\sin$, $\cos$ or $-\cos$ (and a shift) to match the start.', topic: Periodic models}
+- {front: 'Ferris wheel boarding at the bottom', back: '$h(t) = -r\cos\left(\dfrac{2\pi}{T}t\right) + (\text{center height})$', topic: Periodic models}

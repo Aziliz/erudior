@@ -1,0 +1,171 @@
+# Exponential and logarithmic functions drills
+- id: alg-d-compound-interest
+  title: Compound interest
+  topic: Compound interest
+  vars:
+    P: {min: 500, max: 20000, step: 500}
+    rp: {min: 1, max: 9, step: 0.5}
+    n: {choices: [{label: 'annually', value: 1}, {label: 'quarterly', value: 4}, {label: 'monthly', value: 12}]}
+    t: {min: 2, max: 20}
+  calc:
+    r: rp/100
+    A: P*(1 + rp/100/n)^(n*t)
+    nt: n*t
+    nn: n
+  prompt: 'You deposit {P:money0} at {rp}% annual interest, compounded {n}. What is the balance after {t} years (to the nearest cent)?'
+  answers:
+    - {name: A, label: 'Balance', format: money}
+  solution: |-
+    Use $A = P\left(1 + \tfrac{\,r}{\,n}\right)^{n t}$ with $r = {r}$, {nn} compounding periods per year, and {nt} periods in all.
+    $A = {P:dp0}\left(1 + \dfrac{{r}}{{nn}}\right)^{{nt}} \approx$ **{A:money}**.
+
+- id: alg-d-continuous
+  title: Continuous compounding
+  topic: Compound interest
+  vars:
+    P: {min: 1000, max: 50000, step: 500}
+    rp: {min: 1, max: 8, step: 0.25}
+    t: {min: 1, max: 30}
+  calc:
+    r: rp/100
+    rtv: rp/100*t
+    A: P*e^(rp/100*t)
+  prompt: 'An account pays {rp}% interest compounded continuously. If you deposit {P:money0}, what is the balance after {t} years (to the nearest cent)?'
+  answers:
+    - {name: A, label: 'Balance', format: money}
+  solution: |-
+    $A = Pe^{r t} = {P:dp0}\,e^{{r} \cdot {t}} = {P:dp0}\,e^{{rtv:num4}} \approx$ **{A:money}**.
+
+- id: alg-d-half-life
+  title: Half-life
+  topic: Exponential functions
+  vars:
+    A0: {min: 20, max: 500, step: 10}
+    h: {min: 2, max: 30}
+    t: {min: 1, max: 90}
+  calc:
+    k: t/h
+    A: A0*0.5^(t/h)
+  where: ['t != h']
+  prompt: 'A substance has a half-life of {h} days. Starting with {A0} g, how much remains after {t} days? (2 decimal places.)'
+  answers:
+    - {name: A, label: 'Grams remaining', tolerance: 0.006, format: num2}
+  solution: |-
+    The number of half-lives is $\dfrac{{t}}{{h}} \approx {k:num4}$.
+    $A = {A0}\left(\tfrac12\right)^{{t}/{h}} \approx$ **{A:num2}** g.
+
+- id: alg-d-log-eval
+  title: Evaluate a logarithm exactly
+  topic: Logarithms
+  vars:
+    c: {choices: [2, 3, 5]}
+    m: {min: 1, max: 3}
+    n: {min: -4, max: 4}
+  calc:
+    B: c^m
+    X: c^n
+    val: n/m
+  where: ['n != 0', 'B <= 125', 'abs(n) <= 4', 'c^abs(n) <= 625', 'n != m']
+  prompt: 'Evaluate $\log_{{B}} {X:texfrac}$ exactly.'
+  answers:
+    - {name: val, kind: fraction, lowestTerms: true, label: 'Value'}
+  solution: |-
+    Write both as powers of {c}: ${B} = {c}^{{m}}$ and ${X:texfrac} = {c}^{{n}}$. We need $({c}^{{m}})^y = {c}^{{n}}$, so ${m}y = {n}$ and $y =$ **${val:texfrac}$**.
+
+- id: alg-d-log-condense
+  title: Combine logarithms
+  topic: Logarithms
+  vars:
+    b: {choices: [2, 3, 5]}
+    k: {min: 1, max: 4}
+    u: {min: 2, max: 7}
+    v: {min: 2, max: 7}
+  calc:
+    M: b^k*u
+    N: v
+    P: u*v
+  where: ['b^k <= 125', 'mod(u, b) != 0', 'mod(v, b) != 0']
+  prompt: 'Simplify $\log_{{b}} {M} + \log_{{b}} {N} - \log_{{b}} {P}$ to a single number.'
+  answers:
+    - {name: k, label: 'Value'}
+  solution: |-
+    Product and quotient rules: $\log_{{b}} \dfrac{{M} \cdot {N}}{{P}}$. The argument is $\dfrac{{M} \cdot {N}}{{P}} = {b}^{{k}}$, so the value is **{k}**.
+
+- id: alg-d-change-base
+  title: Change of base
+  topic: Logarithms
+  vars:
+    b: {choices: [2, 3, 4, 5, 6, 7, 8, 9, 12]}
+    x: {min: 3, max: 500}
+  calc:
+    val: ln(x)/ln(b)
+    lx: ln(x)
+    lb: ln(b)
+  where: ['abs(val - round(val)) > 0.01']
+  prompt: 'Evaluate $\log_{{b}} {x}$ to three decimal places.'
+  answers:
+    - {name: val, label: 'Value', tolerance: 0.0006, format: dp3}
+  solution: |-
+    Change of base: $\log_{{b}} {x} = \dfrac{\ln {x}}{\ln {b}} \approx \dfrac{{lx:num4}}{{lb:num4}} \approx$ **{val:dp3}**.
+
+- id: alg-d-exp-same-base
+  title: Exponential equation with a common base
+  topic: Exponential equations
+  vars:
+    c: {choices: [2, 3]}
+    m: {min: 1, max: 4}
+    n: {min: 1, max: 5}
+    p: {min: -4, max: 4}
+  calc:
+    B1: c^m
+    B2: c^n
+    mp: m*p
+    nm: n - m
+    xs: m*p/(n - m)
+  where: ['m != n', 'p != 0', 'B1 <= 81', 'B2 <= 243']
+  prompt: 'Solve $\;{B1}^{x {p:signed}} = {B2}^{x}$. Give an exact answer.'
+  answers:
+    - {name: xs, kind: fraction, lowestTerms: true, label: '$x =$'}
+  solution: |-
+    Write both sides as powers of {c}: ${c}^{{m:coef}(x {p:signed})} = {c}^{{n:coef}x}$.
+    Equate exponents: ${m:coef}x {mp:signed} = {n:coef}x$, so ${nm:coef}x = {mp}$ and $x =$ **${xs:texfrac}$**.
+
+- id: alg-d-exp-eq-logs
+  title: Solve an exponential equation with logarithms
+  topic: Exponential equations
+  vars:
+    a: {min: 2, max: 9}
+    b: {choices: [2, 3, 5, 7, 1.5, 1.08]}
+    c: {min: -20, max: 20}
+    d: {min: 10, max: 300}
+  calc:
+    q: (d - c)/a
+    xs: ln((d - c)/a)/ln(b)
+    dc: d - c
+  where: ['(d - c)/a > 1.2', 'c != 0', 'abs(xs - round(xs)) > 0.01']
+  prompt: 'Solve $\;{a} \cdot {b}^{x} {c:signed} = {d}$. Give $x$ to three decimal places.'
+  answers:
+    - {name: xs, label: '$x \approx$', tolerance: 0.0006, format: dp3}
+  solution: |-
+    Isolate the power: ${a} \cdot {b}^x = {dc}$, so ${b}^x = {q:num4}$.
+    Take $\ln$ of both sides: $x = \dfrac{\ln {q:num4}}{\ln {b}} \approx$ **{xs:dp3}**.
+
+- id: alg-d-log-eq
+  title: Solve a logarithmic equation
+  topic: Logarithmic equations
+  vars:
+    b: {choices: [2, 3, 4, 5, 10]}
+    a: {min: 1, max: 6}
+    c: {min: -9, max: 9}
+    k: {min: 1, max: 4}
+  calc:
+    bk: b^k
+    xs: (b^k - c)/a
+    rhs: b^k - c
+  where: ['b^k <= 1000', 'c != 0', 'b^k != c']
+  prompt: 'Solve $\;\log_{{b}}({a:coef}x {c:signed}) = {k}$. Give an exact answer.'
+  answers:
+    - {name: xs, kind: fraction, lowestTerms: true, label: '$x =$'}
+  solution: |-
+    Exponential form: ${a:coef}x {c:signed} = {b}^{{k}} = {bk}$.
+    So ${a:coef}x = {rhs}$ and $x =$ **${xs:texfrac}$**. The argument equals {bk}, which is positive, so the solution checks.

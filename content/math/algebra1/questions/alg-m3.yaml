@@ -1,0 +1,501 @@
+# Functions and linear functions
+- id: alg-q-0801
+  lesson: alg-functions
+  module_quiz: true
+  topic: Functions
+  stem: 'Which relation is a function?'
+  choices: ['$\{(1, 2), (1, 5), (3, 4)\}$', '$\{(2, 3), (4, 3), (6, 3)\}$', '$\{(0, 1), (0, -1)\}$', '$\{(5, 1), (6, 2), (5, 3)\}$']
+  answer: 1
+  explanation: |-
+    A function gives each input one output. In $\{(2, 3), (4, 3), (6, 3)\}$ every input appears once; repeating the output 3 is allowed. Each other relation repeats an input with different outputs.
+- id: alg-q-0802
+  lesson: alg-functions
+  module_quiz: true
+  topic: Functions
+  stem: 'If $f(x) = 3x^2 - 2x + 1$, find $f(-2)$.'
+  choices: ['$9$', '$17$', '$-7$', '$41$']
+  answer: 1
+  explanation: |-
+    $f(-2) = 3(-2)^2 - 2(-2) + 1 = 12 + 4 + 1 = 17$. Getting 9 means $-2(-2)$ was treated as $-4$; 41 comes from squaring $3 \cdot (-2)$.
+- id: alg-q-0803
+  lesson: alg-functions
+  topic: Functions
+  stem: 'If $g(x) = 7 - 2x$, solve $g(x) = 15$.'
+  choices: ['$x = 11$', '$x = -23$', '$x = 4$', '$x = -4$']
+  answer: 3
+  explanation: |-
+    Set $7 - 2x = 15$: $-2x = 8$, so $x = -4$. Check: $g(-4) = 7 + 8 = 15$. The value $-23$ is $g(15)$, an output, not the input asked for.
+- id: alg-q-0804
+  lesson: alg-functions
+  topic: Functions
+  stem: 'If $f(x) = x^2 + 1$, find $f(a + 2)$.'
+  choices: ['$a^2 + 5$', '$a^2 + 4a + 5$', '$a^2 + 2a + 5$', '$a^2 + 3$']
+  answer: 1
+  explanation: |-
+    $f(a + 2) = (a + 2)^2 + 1 = a^2 + 4a + 4 + 1 = a^2 + 4a + 5$. Writing $(a + 2)^2$ as $a^2 + 4$ forgets the middle term.
+- id: alg-q-0805
+  lesson: alg-functions
+  module_quiz: true
+  topic: Functions
+  stem: 'Which equation does not define $y$ as a function of $x$?'
+  choices: ['$y = x^2 - 4$', '$y = |x|$', '$x = y^2 + 1$', '$y = \sqrt{x}$']
+  answer: 2
+  explanation: |-
+    In $x = y^2 + 1$, the input $x = 5$ gives $y^2 = 4$, so $y = 2$ or $y = -2$: two outputs for one input. The others give one $y$ for each allowed $x$.
+- id: alg-q-0806
+  lesson: alg-functions
+  topic: Functions
+  stem: 'Is a circle centered at the origin the graph of a function of $x$?'
+  choices: ['Yes, because it passes the horizontal line test', 'No, because some vertical lines cross it twice', 'Yes, because every $x$ in its domain has a $y$', 'No, because it crosses the $x$-axis twice']
+  answer: 1
+  explanation: |-
+    A vertical line through the inside of the circle crosses it at a top point and a bottom point, so that input has two outputs. The graph fails the vertical line test.
+- id: alg-q-0807
+  lesson: alg-functions
+  topic: Functions
+  stem: 'If $f(x) = 2x + 3$ and $g(x) = x^2 - 4$, find $f(g(1))$.'
+  choices: ['$-3$', '$1$', '$21$', '$5$']
+  answer: 0
+  explanation: |-
+    Inside first: $g(1) = 1 - 4 = -3$. Then $f(-3) = -6 + 3 = -3$. Applying $f$ first gives $g(f(1)) = g(5) = 21$, the other order.
+- id: alg-q-0808
+  lesson: alg-functions
+  topic: Functions
+  stem: 'The cost of buying $n$ items is $C(n) = 15 + 2.5n$ dollars. What does $C(8) = 35$ mean?'
+  choices: ['Each item costs 8 dollars', '35 items cost 8 dollars', '8 items cost 35 dollars', 'The fixed fee is 35 dollars']
+  answer: 2
+  explanation: |-
+    The input is the number of items and the output is the cost, so $C(8) = 35$ says that 8 items cost 35 dollars.
+- id: alg-q-0809
+  lesson: alg-functions
+  topic: Functions
+  stem: 'Use the table to find $f(1) + f(-1)$: $\;\begin{array}{c|cccc} x & -1 & 0 & 1 & 2 \\ \hline f(x) & 5 & 2 & -1 & -4 \end{array}$'
+  choices: ['$6$', '$-6$', '$4$', '$1$']
+  answer: 2
+  explanation: |-
+    From the table, $f(1) = -1$ and $f(-1) = 5$, so the sum is $4$.
+- id: alg-q-0810
+  lesson: alg-functions
+  module_quiz: true
+  topic: Functions
+  stem: 'If $f(x) = 4 - x^2$, which point is on the graph of $f$?'
+  choices: ['$(3, -5)$', '$(3, 13)$', '$(-5, 3)$', '$(3, 1)$']
+  answer: 0
+  explanation: |-
+    $f(3) = 4 - 9 = -5$, so $(3, -5)$ is on the graph. A point $(a, b)$ is on the graph exactly when $f(a) = b$. The value 13 treats $-x^2$ as $+9$.
+- id: alg-q-0811
+  lesson: alg-functions
+  topic: Functions
+  stem: 'For $f(x) = 2x - 1$, which statement is true for all $a$ and $b$?'
+  choices: ['$f(a + b) = f(a) + f(b)$', '$f(a + b) = 2f(a) + 2f(b)$', '$f(a + b) = f(a) + f(b) - 1$', '$f(a + b) = f(a) + f(b) + 1$']
+  answer: 3
+  explanation: |-
+    $f(a + b) = 2a + 2b - 1$, while $f(a) + f(b) = 2a + 2b - 2$. So $f(a + b)$ is 1 more than $f(a) + f(b)$. Function notation is not multiplication, so $f(a + b)$ need not split as a sum.
+
+- id: alg-q-0901
+  lesson: alg-domain-range
+  module_quiz: true
+  topic: Domain and range
+  stem: 'What is the domain of $f(x) = \dfrac{x + 1}{x - 4}$?'
+  choices: ['$(-\infty, 4) \cup (4, \infty)$', '$(-\infty, -1) \cup (-1, \infty)$', '$(4, \infty)$', '$(-\infty, \infty)$']
+  answer: 0
+  explanation: |-
+    The only restriction is a zero denominator, at $x = 4$. The numerator can be 0 (at $x = -1$) without any problem.
+- id: alg-q-0902
+  lesson: alg-domain-range
+  topic: Domain and range
+  stem: 'What is the domain of $g(x) = \sqrt{2x - 6}$?'
+  choices: ['$(-\infty, 3]$', '$(3, \infty)$', '$[3, \infty)$', '$[6, \infty)$']
+  answer: 2
+  explanation: |-
+    The radicand must be nonnegative: $2x - 6 \ge 0$, so $x \ge 3$. The endpoint is included because $\sqrt0 = 0$ is fine.
+- id: alg-q-0903
+  lesson: alg-domain-range
+  topic: Domain and range
+  stem: 'What is the domain of $h(x) = \sqrt{5 - x}$?'
+  choices: ['$[5, \infty)$', '$(-\infty, 5]$', '$(-\infty, -5]$', '$(-\infty, 5)$']
+  answer: 1
+  explanation: |-
+    $5 - x \ge 0$ gives $-x \ge -5$, and multiplying by $-1$ flips the symbol: $x \le 5$. Check: $h(1) = 2$ works, while $h(6)$ would need $\sqrt{-1}$.
+- id: alg-q-0904
+  lesson: alg-domain-range
+  module_quiz: true
+  topic: Domain and range
+  stem: 'What is the domain of $k(x) = \dfrac{1}{\sqrt{x + 3}}$?'
+  choices: ['$[-3, \infty)$', '$(-3, \infty)$', '$(3, \infty)$', '$(-\infty, -3)$']
+  answer: 1
+  explanation: |-
+    The root needs $x + 3 \ge 0$, and since it is in the denominator it can't be 0 either. So $x + 3 > 0$, that is $x > -3$.
+- id: alg-q-0905
+  lesson: alg-domain-range
+  topic: Domain and range
+  stem: 'What is the range of $f(x) = x^2 - 4$?'
+  choices: ['$[-4, \infty)$', '$(-\infty, \infty)$', '$[0, \infty)$', '$[4, \infty)$']
+  answer: 0
+  explanation: |-
+    $x^2 \ge 0$, so $x^2 - 4 \ge -4$, with $-4$ reached at $x = 0$. Every larger value is reached too, so the range is $[-4, \infty)$.
+- id: alg-q-0906
+  lesson: alg-domain-range
+  topic: Domain and range
+  stem: 'What is the range of $g(x) = |x - 2| + 3$?'
+  choices: ['$[2, \infty)$', '$[3, \infty)$', '$(-\infty, 3]$', '$[-3, \infty)$']
+  answer: 1
+  explanation: |-
+    $|x - 2| \ge 0$, so $g(x) \ge 3$, with the minimum 3 at $x = 2$. The 2 is the $x$-coordinate of the corner, which is not a range value.
+- id: alg-q-0907
+  lesson: alg-domain-range
+  module_quiz: true
+  topic: Graphs of functions
+  stem: 'A graph starts with a closed dot at $(-3, 1)$, rises steadily to $(0, 5)$, then falls steadily to an open dot at $(4, -2)$. What is its range?'
+  choices: ['$[1, 5]$', '$[-2, 5]$', '$(-2, 5]$', '$[-3, 4)$']
+  answer: 2
+  explanation: |-
+    The highest point is 5 (included). Heights get arbitrarily close to $-2$ but the point at $-2$ is open, so $-2$ is not reached. Range: $(-2, 5]$. $[-3, 4)$ is the domain.
+- id: alg-q-0908
+  lesson: alg-domain-range
+  topic: Graphs of functions
+  stem: 'For the same graph (closed dot at $(-3, 1)$, peak at $(0, 5)$, open dot at $(4, -2)$), what is the domain?'
+  choices: ['$[-3, 4)$', '$(-3, 4]$', '$[-2, 5]$', '$[-3, 4]$']
+  answer: 0
+  explanation: |-
+    The $x$-values run from $-3$ (closed dot, included) to 4 (open dot, excluded): $[-3, 4)$.
+- id: alg-q-0909
+  lesson: alg-domain-range
+  topic: Graphs of functions
+  stem: 'The graph of $f$ crosses the $x$-axis at $x = -2$ and $x = 5$ and crosses the $y$-axis at $y = -10$. Which statement is correct?'
+  choices: ['$f(0) = -2$', 'The $y$-intercept is $(-10, 0)$', '$f(-10) = 0$', 'The zeros of $f$ are $-2$ and $5$']
+  answer: 3
+  explanation: |-
+    The zeros are the $x$-intercepts: $f(-2) = 0$ and $f(5) = 0$. The $y$-intercept is $(0, -10)$, meaning $f(0) = -10$.
+- id: alg-q-0910
+  lesson: alg-domain-range
+  topic: Graphs of functions
+  stem: 'On which interval is $f(x) = -(x - 1)^2 + 4$ increasing?'
+  choices: ['$(-\infty, 1)$', '$(1, \infty)$', '$(-\infty, 4)$', '$(-1, 3)$']
+  answer: 0
+  explanation: |-
+    The graph is a downward parabola with its peak at $(1, 4)$. It rises to the left of $x = 1$ and falls to the right. Intervals of increase are given in $x$-values, so $(-\infty, 4)$ mixes in the $y$-value.
+- id: alg-q-0911
+  lesson: alg-domain-range
+  topic: Domain and range
+  stem: 'A ball''s height in feet after $t$ seconds is $h(t) = -16t^2 + 48t$. What is the practical domain from launch until landing?'
+  choices: ['$[0, 1.5]$', '$(-\infty, \infty)$', '$[0, 48]$', '$[0, 3]$']
+  answer: 3
+  explanation: |-
+    The height is 0 at launch, $t = 0$, and again at $t = 3$: $h(3) = -16(9) + 48(3) = -144 + 144 = 0$. The ball is in the air for $0 \le t \le 3$. (At $t = 1.5$ it is at its highest point, not landing.)
+- id: alg-q-0912
+  lesson: alg-domain-range
+  topic: Domain and range
+  stem: 'Which function has domain $(-\infty, \infty)$ and range $[0, \infty)$?'
+  choices: ['$f(x) = \sqrt{x}$', '$f(x) = \tfrac{1}{x}$', '$f(x) = x^3$', '$f(x) = |x|$']
+  answer: 3
+  explanation: |-
+    $|x|$ accepts every input and its outputs are all the nonnegative numbers. $\sqrt{x}$ has domain $[0, \infty)$, $x^3$ has range all reals, and $\tfrac1x$ excludes 0 from both.
+- id: alg-q-0913
+  lesson: alg-domain-range
+  topic: Graphs of functions
+  stem: 'For $g(x) = |x - 2| - 3$, on what interval is $g(x) < 0$ (the graph below the $x$-axis)?'
+  choices: ['$(-\infty, -1) \cup (5, \infty)$', '$(-5, 1)$', '$(-1, 5)$', '$(2, \infty)$']
+  answer: 2
+  explanation: |-
+    $|x - 2| - 3 < 0$ means $|x - 2| < 3$, so $-1 < x < 5$. The V has its corner at $(2, -3)$ and crosses the axis at $x = -1$ and $x = 5$.
+
+- id: alg-q-1001
+  lesson: alg-slope
+  module_quiz: true
+  topic: Slope
+  stem: 'Find the slope of the line through $(1, -2)$ and $(5, 10)$.'
+  choices: ['$3$', '$\tfrac13$', '$-3$', '$2$']
+  answer: 0
+  explanation: |-
+    $m = \dfrac{10 - (-2)}{5 - 1} = \dfrac{12}{4} = 3$. $\tfrac13$ puts the run over the rise.
+- id: alg-q-1002
+  lesson: alg-slope
+  topic: Slope
+  stem: 'Find the slope of the line through $(-3, 4)$ and $(2, -6)$.'
+  choices: ['$2$', '$-\tfrac12$', '$-2$', '$-\tfrac25$']
+  answer: 2
+  explanation: |-
+    $m = \dfrac{-6 - 4}{2 - (-3)} = \dfrac{-10}{5} = -2$. The line falls 2 units for each unit to the right.
+- id: alg-q-1003
+  lesson: alg-slope
+  module_quiz: true
+  topic: Slope
+  stem: 'What is the slope of the line through $(4, 1)$ and $(4, -7)$?'
+  choices: ['$0$', 'Undefined', '$-8$', '$\tfrac{1}{4}$']
+  answer: 1
+  explanation: |-
+    The run is $4 - 4 = 0$, so the slope $\tfrac{-8}{0}$ is undefined. The line is vertical: $x = 4$.
+- id: alg-q-1004
+  lesson: alg-slope
+  topic: Slope
+  stem: 'Which line is steepest?'
+  choices: ['$y = 3x + 1$', '$y = -5x + 2$', '$y = \tfrac12 x - 7$', '$y = 4x$']
+  answer: 1
+  explanation: |-
+    Steepness is measured by $|m|$. $|-5| = 5$ is the largest, so $y = -5x + 2$ is steepest (it falls steeply).
+- id: alg-q-1005
+  lesson: alg-slope
+  topic: Slope
+  stem: 'A linear function has the values $\;\begin{array}{c|cccc} x & 2 & 4 & 6 & 8 \\ \hline y & 7 & 4 & 1 & -2 \end{array}\;$. What is its slope?'
+  choices: ['$-\tfrac32$', '$-3$', '$\tfrac32$', '$-\tfrac23$']
+  answer: 0
+  explanation: |-
+    Each step of 2 in $x$ changes $y$ by $-3$, so $m = \tfrac{-3}{2} = -\tfrac32$. Using $-3$ alone forgets that the $x$-step is 2.
+- id: alg-q-1006
+  lesson: alg-slope
+  module_quiz: true
+  topic: Slope
+  stem: 'A plant is 12 cm tall on day 3 and 30 cm tall on day 12. Assuming steady growth, what is its rate of growth?'
+  choices: ['$18$ cm per day', '$0.5$ cm per day', '$2.5$ cm per day', '$2$ cm per day']
+  answer: 3
+  explanation: |-
+    Rate of change $= \dfrac{30 - 12}{12 - 3} = \dfrac{18}{9} = 2$ cm per day. Dividing 30 by 12 ignores the starting height.
+- id: alg-q-1007
+  lesson: alg-slope
+  topic: Slope
+  stem: 'What is the slope of the line $y = -4$?'
+  choices: ['$-4$', '$4$', 'Undefined', '$0$']
+  answer: 3
+  explanation: |-
+    $y = -4$ is horizontal: every point has height $-4$, so the rise between any two points is 0 and the slope is 0.
+- id: alg-q-1008
+  lesson: alg-slope
+  topic: Slope
+  stem: 'A student finds the slope through $(2, 5)$ and $(6, -3)$ as $\dfrac{-3 - 5}{2 - 6} = \dfrac{-8}{-4} = 2$. What is wrong?'
+  choices: ['The slope is undefined because a $y$-value is negative', 'Nothing; the slope is $2$', 'Slope is run over rise, so it is $-\tfrac12$', 'The subtraction order differs on top and bottom; the slope is $-2$']
+  answer: 3
+  explanation: |-
+    The top subtracts the first point from the second, but the bottom subtracts the second from the first. Consistently: $\dfrac{-3 - 5}{6 - 2} = \dfrac{-8}{4} = -2$.
+- id: alg-q-1009
+  lesson: alg-slope
+  topic: Slope
+  stem: 'A line passes through $(1, 3)$ with slope $-\tfrac23$. Which point is also on the line?'
+  choices: ['$(4, 5)$', '$(4, 1)$', '$(3, 4)$', '$(-2, 1)$']
+  answer: 1
+  explanation: |-
+    From $(1, 3)$, run 3 to the right and rise $-2$: $(4, 1)$. Check: $\dfrac{1 - 3}{4 - 1} = -\tfrac23$. $(4, 5)$ gives slope $+\tfrac23$.
+- id: alg-q-1010
+  lesson: alg-slope
+  topic: Slope
+  stem: 'What is the average rate of change of $f(x) = x^2$ from $x = 1$ to $x = 4$?'
+  choices: ['$\tfrac{15}{4}$', '$15$', '$3$', '$5$']
+  answer: 3
+  explanation: |-
+    $\dfrac{f(4) - f(1)}{4 - 1} = \dfrac{16 - 1}{3} = 5$. This is the slope of the segment joining $(1, 1)$ and $(4, 16)$. 15 is the change in $f$ without dividing by the change in $x$.
+- id: alg-q-1011
+  lesson: alg-slope
+  topic: Slope
+  stem: 'A road rises 45 feet over a horizontal distance of 600 feet. What is its grade (slope as a percent)?'
+  choices: ['$75\%$', '$13.3\%$', '$0.075\%$', '$7.5\%$']
+  answer: 3
+  explanation: |-
+    $\dfrac{45}{600} = 0.075 = 7.5\%$. $13.3\%$ divides the run by the rise.
+- id: alg-q-1012
+  lesson: alg-slope
+  topic: Slope
+  stem: 'For what value of $k$ does the line through $(2, k)$ and $(5, 11)$ have slope 3?'
+  choices: ['$k = 8$', '$k = 20$', '$k = 2$', '$k = -2$']
+  answer: 2
+  explanation: |-
+    $\dfrac{11 - k}{5 - 2} = 3$, so $11 - k = 9$ and $k = 2$. Check: $\tfrac{11 - 2}{3} = 3$. Writing $k - 11$ on top gives the wrong $k = 20$.
+
+- id: alg-q-1101
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'What are the slope and $y$-intercept of $y = -4x + 7$?'
+  choices: ['Slope $-4$, $y$-intercept $(0, 7)$', 'Slope $7$, $y$-intercept $(0, -4)$', 'Slope $4$, $y$-intercept $(0, 7)$', 'Slope $-4$, $y$-intercept $(7, 0)$']
+  answer: 0
+  explanation: |-
+    In $y = mx + b$, $m = -4$ is the slope and the $y$-intercept is $(0, b) = (0, 7)$.
+- id: alg-q-1102
+  lesson: alg-line-forms
+  module_quiz: true
+  topic: Equations of lines
+  stem: 'Which is the line through $(3, -1)$ with slope 2?'
+  choices: ['$y = 2x - 5$', '$y = 2x + 5$', '$y = 2x - 7$', '$y = 2x + 7$']
+  answer: 2
+  explanation: |-
+    Point-slope: $y + 1 = 2(x - 3) = 2x - 6$, so $y = 2x - 7$. Check: $2(3) - 7 = -1$. Writing $y - 1$ instead of $y + 1$ gives $2x - 5$.
+- id: alg-q-1103
+  lesson: alg-line-forms
+  module_quiz: true
+  topic: Equations of lines
+  stem: 'Which is the line through $(-2, 3)$ and $(4, 6)$?'
+  choices: ['$y = \tfrac12 x + 4$', '$y = 2x + 7$', '$y = \tfrac12 x + 2$', '$y = \tfrac12 x + 3$']
+  answer: 0
+  explanation: |-
+    $m = \dfrac{6 - 3}{4 - (-2)} = \dfrac36 = \dfrac12$. Then $y - 3 = \tfrac12(x + 2)$, so $y = \tfrac12 x + 4$. Check $(4, 6)$: $2 + 4 = 6$. $y = 2x + 7$ uses the upside-down slope.
+- id: alg-q-1104
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'What is the $x$-intercept of $2x - 5y = 20$?'
+  choices: ['$(10, 0)$', '$(0, -4)$', '$(-4, 0)$', '$(4, 0)$']
+  answer: 0
+  explanation: |-
+    Set $y = 0$: $2x = 20$, so $x = 10$. The point $(0, -4)$ is the $y$-intercept.
+- id: alg-q-1105
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'What is the slope of $6x + 3y = 9$?'
+  choices: ['$6$', '$-2$', '$2$', '$3$']
+  answer: 1
+  explanation: |-
+    Solve for $y$: $3y = -6x + 9$, so $y = -2x + 3$ and $m = -2$. Equivalently $-\tfrac{A}{B} = -\tfrac63$.
+- id: alg-q-1106
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'What is the equation of the vertical line through $(-3, 5)$?'
+  choices: ['$y = -3$', '$x = 5$', '$x = -3$', '$y = 5$']
+  answer: 2
+  explanation: |-
+    Every point on a vertical line has the same $x$-coordinate, here $-3$: $x = -3$. ($y = 5$ is the horizontal line through the point.)
+- id: alg-q-1107
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'Write $y = \tfrac34 x - 2$ in standard form with integer coefficients.'
+  choices: ['$3x - 4y = 2$', '$3x + 4y = 8$', '$3x - 4y = 8$', '$4x - 3y = 8$']
+  answer: 2
+  explanation: |-
+    Multiply by 4: $4y = 3x - 8$. Rearrange: $-3x + 4y = -8$, and multiply by $-1$: $3x - 4y = 8$. Forgetting to multiply the $-2$ by 4 gives the constant 2.
+- id: alg-q-1108
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'Which is a point-slope equation of the line with slope $-5$ through $(1, -4)$?'
+  choices: ['$y - 4 = -5(x - 1)$', '$y + 4 = -5(x - 1)$', '$y + 4 = -5(x + 1)$', '$y - 1 = -5(x + 4)$']
+  answer: 1
+  explanation: |-
+    $y - y_1 = m(x - x_1)$ with $(x_1, y_1) = (1, -4)$: $y - (-4) = -5(x - 1)$, which is $y + 4 = -5(x - 1)$.
+- id: alg-q-1109
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'Which is the line through $(0, 6)$ and $(3, 0)$?'
+  choices: ['$y = -\tfrac12 x + 6$', '$y = 2x + 6$', '$y = -2x + 6$', '$y = -2x + 3$']
+  answer: 2
+  explanation: |-
+    The slope is $\dfrac{0 - 6}{3 - 0} = -2$ and the $y$-intercept is 6: $y = -2x + 6$. The 3 is the $x$-intercept, not $b$.
+- id: alg-q-1110
+  lesson: alg-line-forms
+  module_quiz: true
+  topic: Equations of lines
+  stem: 'A line has $y$-intercept $-3$ and passes through $(2, 5)$. What is its equation?'
+  choices: ['$y = x - 3$', '$y = -3x + 4$', '$y = 4x - 3$', '$y = 4x + 5$']
+  answer: 2
+  explanation: |-
+    The slope from $(0, -3)$ to $(2, 5)$ is $\dfrac{5 - (-3)}{2} = 4$, so $y = 4x - 3$. Computing $\tfrac{5 - 3}{2} = 1$ drops the negative sign.
+- id: alg-q-1111
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'Which point lies on the line $4x - 3y = 12$?'
+  choices: ['$(0, 4)$', '$(4, 6)$', '$(3, 4)$', '$(6, 4)$']
+  answer: 3
+  explanation: |-
+    Substitute: $4(6) - 3(4) = 24 - 12 = 12$. True. The others give $-2$, $0$ and $-12$.
+- id: alg-q-1112
+  lesson: alg-line-forms
+  topic: Equations of lines
+  stem: 'A line crosses the $y$-axis at $(0, 2)$ and passes through $(3, -4)$. What is its equation?'
+  choices: ['$y = -\tfrac12 x + 2$', '$y = 2x - 2$', '$y = -2x + 2$', '$y = -2x - 4$']
+  answer: 2
+  explanation: |-
+    Slope: $\dfrac{-4 - 2}{3 - 0} = -2$. Intercept: 2. So $y = -2x + 2$. Check: $-2(3) + 2 = -4$.
+
+- id: alg-q-1201
+  lesson: alg-parallel-perp
+  module_quiz: true
+  topic: Parallel and perpendicular
+  stem: 'What is the slope of a line perpendicular to $y = 3x - 1$?'
+  choices: ['$3$', '$-3$', '$\tfrac13$', '$-\tfrac13$']
+  answer: 3
+  explanation: |-
+    The negative reciprocal of 3 is $-\tfrac13$; check $3 \cdot \left(-\tfrac13\right) = -1$. Changing only the sign ($-3$) or only flipping ($\tfrac13$) isn't enough.
+- id: alg-q-1202
+  lesson: alg-parallel-perp
+  topic: Parallel and perpendicular
+  stem: 'Which line passes through $(1, 4)$ and is parallel to $2x - y = 5$?'
+  choices: ['$y = -2x + 6$', '$y = -\tfrac12 x + \tfrac92$', '$y = 2x + 4$', '$y = 2x + 2$']
+  answer: 3
+  explanation: |-
+    $2x - y = 5$ is $y = 2x - 5$, slope 2. Parallel line: $y - 4 = 2(x - 1)$, so $y = 2x + 2$. The line with slope $-\tfrac12$ is perpendicular, not parallel.
+- id: alg-q-1203
+  lesson: alg-parallel-perp
+  module_quiz: true
+  topic: Parallel and perpendicular
+  stem: 'Which line passes through $(2, 1)$ and is perpendicular to $y = -\tfrac23 x + 1$?'
+  choices: ['$y = \tfrac32 x - 2$', '$y = -\tfrac32 x + 4$', '$y = \tfrac23 x - \tfrac13$', '$y = \tfrac32 x + 1$']
+  answer: 0
+  explanation: |-
+    The perpendicular slope is $\tfrac32$. Then $y - 1 = \tfrac32(x - 2)$, so $y = \tfrac32 x - 2$. $y = \tfrac32 x + 1$ has the right slope but misses the point.
+- id: alg-q-1204
+  lesson: alg-parallel-perp
+  topic: Parallel and perpendicular
+  stem: 'How are the lines $3x + 4y = 7$ and $8x - 6y = 1$ related?'
+  choices: ['Parallel', 'Perpendicular', 'Neither', 'They are the same line']
+  answer: 1
+  explanation: |-
+    Slopes: $-\tfrac34$ and $-\tfrac{8}{-6} = \tfrac43$. Their product is $-1$, so the lines are perpendicular.
+- id: alg-q-1205
+  lesson: alg-parallel-perp
+  topic: Parallel and perpendicular
+  stem: 'How are the lines $y = 2x + 3$ and $4x - 2y = 6$ related?'
+  choices: ['They are the same line', 'Perpendicular', 'Neither', 'Parallel']
+  answer: 3
+  explanation: |-
+    $4x - 2y = 6$ becomes $y = 2x - 3$. Both slopes are 2 and the intercepts differ (3 and $-3$), so the lines are parallel.
+- id: alg-q-1206
+  lesson: alg-parallel-perp
+  topic: Parallel and perpendicular
+  stem: 'Which line passes through $(1, -2)$ and is perpendicular to $x = 4$?'
+  choices: ['$y = -2$', '$x = 1$', '$y = -\tfrac14 x - \tfrac74$', '$x = -2$']
+  answer: 0
+  explanation: |-
+    $x = 4$ is vertical, so a perpendicular line is horizontal. The horizontal line through $(1, -2)$ is $y = -2$. ($x = 1$ is parallel to $x = 4$.)
+- id: alg-q-1207
+  lesson: alg-parallel-perp
+  module_quiz: true
+  topic: Linear models
+  stem: 'A gym''s total cost after $m$ months is $C = 35m + 50$ dollars. What does the 35 represent?'
+  choices: ['The one-time joining fee', 'The monthly charge', 'The total cost after one month', 'The number of months']
+  answer: 1
+  explanation: |-
+    35 is the slope: the cost goes up 35 dollars for each additional month. The 50 is the intercept, the joining fee paid at $m = 0$.
+- id: alg-q-1208
+  lesson: alg-parallel-perp
+  topic: Linear models
+  stem: 'A 30 cm candle burns down 1.5 cm per hour. After how many hours is it completely burned?'
+  choices: ['$20$ hours', '$45$ hours', '$28.5$ hours', '$15$ hours']
+  answer: 0
+  explanation: |-
+    Height $h = 30 - 1.5t$. Setting $h = 0$: $1.5t = 30$, so $t = 20$ hours.
+- id: alg-q-1209
+  lesson: alg-parallel-perp
+  topic: Linear models
+  stem: 'A company sold 120 thousand units in 2015 and 165 thousand in 2020. Using a linear model, predict sales in 2024.'
+  choices: ['$210$ thousand', '$192$ thousand', '$201$ thousand', '$174$ thousand']
+  answer: 2
+  explanation: |-
+    Rate: $\dfrac{165 - 120}{5} = 9$ thousand per year. From 2020 to 2024 is 4 years: $165 + 4(9) = 201$ thousand.
+- id: alg-q-1210
+  lesson: alg-parallel-perp
+  topic: Linear models
+  stem: 'A linear model of children''s height was built from data for ages 2 to 12. Which use of the model is extrapolation?'
+  choices: ['Predicting the height at age 7', 'Predicting the height at age 30', 'Finding the slope between ages 2 and 12', 'Plotting the data points']
+  answer: 1
+  explanation: |-
+    Age 30 is far outside the data range, and growth certainly doesn't continue linearly into adulthood. Age 7 is inside the range, which is interpolation.
+- id: alg-q-1211
+  lesson: alg-parallel-perp
+  topic: Parallel and perpendicular
+  stem: 'For what value of $k$ is the line $kx + 2y = 5$ perpendicular to $y = 4x - 1$?'
+  choices: ['$k = -\tfrac12$', '$k = -8$', '$k = 8$', '$k = \tfrac12$']
+  answer: 3
+  explanation: |-
+    The slope of $kx + 2y = 5$ is $-\tfrac{k}{2}$. Perpendicular to slope 4 means slope $-\tfrac14$: $-\tfrac{k}{2} = -\tfrac14$, so $k = \tfrac12$. $k = -8$ would make the lines parallel.
+- id: alg-q-1212
+  lesson: alg-parallel-perp
+  topic: Linear models
+  stem: 'In $F = 1.8C + 32$, which converts Celsius to Fahrenheit, what does the slope 1.8 mean?'
+  choices: ['Each 1 °C rise raises the Fahrenheit reading by 1.8 °F', 'Each 1 °F rise raises the Celsius reading by 1.8 °C', 'Water freezes at 1.8 °F', 'The two scales agree at 1.8 degrees']
+  answer: 0
+  explanation: |-
+    Slope is output change per unit of input: degrees Fahrenheit per degree Celsius. The intercept 32 is the Fahrenheit reading at 0 °C.

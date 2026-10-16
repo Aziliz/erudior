@@ -1,0 +1,169 @@
+# Polynomial functions drills
+- id: alg-d-poly-zeros-graph
+  title: Zeros and multiplicity from a factored polynomial
+  topic: Polynomial functions
+  vars:
+    a: {choices: [1, -1, 0.5, -0.5]}
+    r: {min: -3, max: -1}
+    s: {min: -1, max: 1}
+    t: {min: 1, max: 3}
+    m: {choices: [2, 3]}
+  funcs:
+    f(x): a*(x - r)*(x - s)^m*(x - t)
+  calc:
+    deg: m + 2
+    ns: -s
+    nr: -r
+    nt: -t
+    mlt: m
+    xa: r - 0.4
+    xb: t + 0.4
+  where: ['r < s', 's < t', 's != 0']
+  prompt: 'The graph shows $f(x) = {a:coef}(x {nr:signed})(x {ns:signed})^{{m}}(x {nt:signed})$. What is the degree of $f$, and what is the multiplicity of the zero at $x = {s}$?'
+  figure:
+    type: plot
+    x: [-5, 5]
+    y: [-12, 12]
+    functions:
+      - {f: f, from: xa, to: xb}
+    points:
+      - {at: [r, 0], label: '{r}'}
+      - {at: [s, 0], label: '{s}'}
+      - {at: [t, 0], label: '{t}'}
+  answers:
+    - {name: deg, label: 'Degree'}
+    - {name: mlt, label: 'Multiplicity at $x = {s}$'}
+  solution: |-
+    The degree is the sum of the multiplicities: $1 + {m} + 1 =$ **{deg}**.
+    The factor $(x {ns:signed})$ has exponent {m}, so $x = {s}$ has multiplicity **{m}**. (An even multiplicity touches the axis and turns back; an odd one crosses it, flattening out when it's 3 or more, as the graph shows.)
+
+- id: alg-d-poly-from-zeros
+  title: Polynomial from zeros and a point
+  topic: Polynomial functions
+  vars:
+    r: {min: -4, max: 4}
+    s: {min: -4, max: 4}
+    t: {min: -4, max: 4}
+    a: {choices: [-3, -2, -1, 1, 2, 3]}
+  calc:
+    y0: a*(-r)*(-s)*(-t)
+    p0: (-r)*(-s)*(-t)
+    nr: -r
+    ns: -s
+    nt: -t
+  where: ['r < s', 's < t', 'r != 0', 's != 0', 't != 0']
+  prompt: 'Write the cubic polynomial with zeros ${r}$, ${s}$ and ${t}$ whose graph passes through $(0, {y0})$. (Factored form is fine.)'
+  answers:
+    - kind: expression
+      expression: a*(x - r)*(x - s)*(x - t)
+      variables: [x]
+      label: '$f(x) =$'
+      show: '${a:coef}(x {nr:signed})(x {ns:signed})(x {nt:signed})$'
+  solution: |-
+    $f(x) = a(x {nr:signed})(x {ns:signed})(x {nt:signed})$. At $x = 0$: $f(0) = a \cdot ({p0}) = {y0}$, so $a = {a}$.
+    **$f(x) = {a:coef}(x {nr:signed})(x {ns:signed})(x {nt:signed})$**.
+
+- id: alg-d-synthetic
+  title: Synthetic division
+  topic: Polynomial division
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -6, max: 6}
+    d: {min: -9, max: 9}
+    e: {min: -9, max: 9}
+    c: {min: -3, max: 3}
+  calc:
+    q2: a
+    q1: b + a*c
+    q0: d + c*(b + a*c)
+    rem: e + c*(d + c*(b + a*c))
+    t1: a*c
+    t2: c*q1
+    t3: c*q0
+    nc: -c
+  where: ['c != 0', 'b != 0', 'd != 0', 'e != 0', 'q1 != 0', 'q0 != 0']
+  prompt: 'Divide $\;{a:coef}x^3 {b:signedcoef}x^2 {d:signedcoef}x {e:signed}$ by $x {nc:signed}$. Give the quotient and the remainder.'
+  answers:
+    - kind: expression
+      expression: q2*x^2 + q1*x + q0
+      variables: [x]
+      label: 'Quotient'
+      show: '${q2:coef}x^2 {q1:signedcoef}x {q0:signed}$'
+    - {name: rem, label: 'Remainder'}
+  solution: |-
+    Use $c = {c}$ with coefficients ${a}, {b}, {d}, {e}$. Bring down {a}; then ${t1}$ added to ${b}$ gives ${q1}$; ${t2}$ added to ${d}$ gives ${q0}$; ${t3}$ added to ${e}$ gives ${rem}$.
+    Quotient **${q2:coef}x^2 {q1:signedcoef}x {q0:signed}$**, remainder **{rem}**.
+
+- id: alg-d-remainder
+  title: Remainder theorem
+  topic: Polynomial division
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -5, max: 5}
+    d: {min: -6, max: 6}
+    e: {min: -9, max: 9}
+    c: {min: -3, max: 3}
+  funcs:
+    f(x): a*x^4 + b*x^2 + d*x + e
+  calc:
+    rem: f(c)
+    nc: -c
+  where: ['a != 0', 'b != 0', 'd != 0', 'e != 0', 'c != 0']
+  prompt: 'Find the remainder when $f(x) = {a:coef}x^4 {b:signedcoef}x^2 {d:signedcoef}x {e:signed}$ is divided by $x {nc:signed}$.'
+  answers:
+    - {name: rem, label: 'Remainder'}
+  solution: |-
+    By the Remainder Theorem, the remainder is $f({c}) = {a}({c})^4 + ({b})({c})^2 + ({d})({c}) + ({e}) =$ **{rem}**.
+
+- id: alg-d-find-zeros
+  title: Find all zeros of a cubic
+  topic: Rational root theorem
+  vars:
+    r: {min: -6, max: 6}
+    s: {min: -6, max: 6}
+    t: {min: -6, max: 6}
+  calc:
+    B: -(r + s + t)
+    C: r*s + r*t + s*t
+    D: -r*s*t
+    sb: -(s + t)
+    sc: s*t
+    nr: -r
+    ns: -s
+    nt: -t
+  where: ['r < s', 's < t', 'B != 0', 'C != 0', 'D != 0']
+  prompt: 'Find all zeros of $\;x^3 {B:signedcoef}x^2 {C:signedcoef}x {D:signed}$, in increasing order. (All are integers.)'
+  answers:
+    - {name: r, label: 'Smallest'}
+    - {name: s, label: 'Middle'}
+    - {name: t, label: 'Largest'}
+  solution: |-
+    Possible rational zeros are the divisors of {D}. Testing finds $f({r}) = 0$. Dividing by $x {nr:signed}$ leaves $x^2 {sb:signedcoef}x {sc:signed}$, which factors as $(x {ns:signed})(x {nt:signed})$.
+    Zeros: **{r}, {s}, {t}**.
+
+- id: alg-d-cubic-rational
+  title: Cubic with a fractional zero
+  topic: Rational root theorem
+  vars:
+    p: {choices: [2, 3]}
+    q: {min: -5, max: 5}
+    r: {min: -4, max: 4}
+    s: {min: -4, max: 4}
+  calc:
+    z: q/p
+    A: p
+    B: -(q + p*(r + s))
+    C: q*(r + s) + p*r*s
+    D: -q*r*s
+    lo: min(z, r, s)
+    hi: max(z, r, s)
+    mid: z + r + s - min(z, r, s) - max(z, r, s)
+  where: ['gcd(abs(q), p) == 1', 'r < s', 'z != r', 'z != s', 'B != 0', 'C != 0', 'D != 0']
+  prompt: 'Find all zeros of $\;{A}x^3 {B:signedcoef}x^2 {C:signedcoef}x {D:signed}$, in increasing order, as exact fractions.'
+  answers:
+    - {name: lo, kind: fraction, lowestTerms: true, label: 'Smallest'}
+    - {name: mid, kind: fraction, lowestTerms: true, label: 'Middle'}
+    - {name: hi, kind: fraction, lowestTerms: true, label: 'Largest'}
+  solution: |-
+    Candidates are $\pm$(factors of {D}) over (factors of {A}). The integer zeros {r} and {s} check out; dividing them out leaves the linear factor ${A}x - ({q})$, giving $x = {z:texfrac}$.
+    In increasing order: **${lo:texfrac}$, ${mid:texfrac}$, ${hi:texfrac}$**.

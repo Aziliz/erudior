@@ -1,0 +1,280 @@
+# Complex numbers, quadratics, and systems
+- id: alg-q-2901
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Simplify $\sqrt{-49}$.'
+  choices: ['$\pm 7$', '$-7$', '$7i$', '$49i$']
+  answer: 2
+  explanation: |-
+    $\sqrt{-49} = i\sqrt{49} = 7i$. Check: $(7i)^2 = 49i^2 = -49$.
+- id: alg-q-2902
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Simplify $(3 - 2i) + (-5 + 6i)$.'
+  choices: ['$2i$', '$8 - 8i$', '$-2 - 8i$', '$-2 + 4i$']
+  answer: 3
+  explanation: |-
+    Real parts: $3 - 5 = -2$. Imaginary parts: $-2 + 6 = 4$. So $-2 + 4i$.
+- id: alg-q-2903
+  lesson: alg-complex
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Multiply $(4 + i)(2 - 3i)$.'
+  choices: ['$11 - 10i$', '$5 - 10i$', '$8 - 3i$', '$11 - 14i$']
+  answer: 0
+  explanation: |-
+    FOIL: $8 - 12i + 2i - 3i^2 = 8 - 10i + 3 = 11 - 10i$. Treating $-3i^2$ as $-3$ gives $5 - 10i$.
+- id: alg-q-2904
+  lesson: alg-complex
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Simplify $i^{27}$.'
+  choices: ['$-i$', '$i$', '$-1$', '$1$']
+  answer: 0
+  explanation: |-
+    $27 = 4 \cdot 6 + 3$, so $i^{27} = i^3 = -i$.
+- id: alg-q-2905
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'What is the complex conjugate of $-3 + 5i$?'
+  choices: ['$5 - 3i$', '$3 - 5i$', '$3 + 5i$', '$-3 - 5i$']
+  answer: 3
+  explanation: |-
+    The conjugate keeps the real part and changes the sign of the imaginary part: $-3 - 5i$.
+- id: alg-q-2906
+  lesson: alg-complex
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Write $\dfrac{2 + 3i}{1 - i}$ in the form $a + bi$.'
+  choices: ['$\tfrac52 + \tfrac52 i$', '$2 - 3i$', '$-\tfrac12 + \tfrac52 i$', '$-1 + 5i$']
+  answer: 2
+  explanation: |-
+    Multiply by $\tfrac{1 + i}{1 + i}$: the numerator is $2 + 2i + 3i + 3i^2 = -1 + 5i$ and the denominator is $1 + 1 = 2$. Result: $-\tfrac12 + \tfrac52 i$.
+- id: alg-q-2907
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Solve $x^2 + 25 = 0$.'
+  choices: ['$x = \pm 5i$', '$x = \pm 5$', '$x = -5$', 'No solution of any kind']
+  answer: 0
+  explanation: |-
+    $x^2 = -25$, so $x = \pm\sqrt{-25} = \pm 5i$. There are no real solutions, but there are two complex ones.
+- id: alg-q-2908
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Solve $x^2 + 2x + 5 = 0$.'
+  choices: ['$x = -2 \pm 4i$', '$x = 1 \pm 2i$', '$x = -1 \pm 4i$', '$x = -1 \pm 2i$']
+  answer: 3
+  explanation: |-
+    $D = 4 - 20 = -16$, $\sqrt{-16} = 4i$. $x = \dfrac{-2 \pm 4i}{2} = -1 \pm 2i$.
+- id: alg-q-2909
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Evaluate $\sqrt{-4} \cdot \sqrt{-9}$.'
+  choices: ['$-6$', '$6$', '$6i$', '$-6i$']
+  answer: 0
+  explanation: |-
+    Convert first: $(2i)(3i) = 6i^2 = -6$. Multiplying under one root, $\sqrt{36} = 6$, is invalid for two negative radicands.
+- id: alg-q-2910
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Compute $(3 + 4i)(3 - 4i)$.'
+  choices: ['$25$', '$-7$', '$9 - 16i$', '$7$']
+  answer: 0
+  explanation: |-
+    $(a + bi)(a - bi) = a^2 + b^2 = 9 + 16 = 25$. Using $-16$ for $-16i^2$ gives $-7$.
+- id: alg-q-2911
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'What is the imaginary part of $6 - 2i$?'
+  choices: ['$-2i$', '$-2$', '$6$', '$2$']
+  answer: 1
+  explanation: |-
+    For $a + bi$, the imaginary part is the real number $b$. Here $b = -2$.
+
+- id: alg-q-1601
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'Is $(1, -1, 2)$ a solution of $x + y + z = 2$, $2x - y + z = 5$, $x + 2y - z = -3$?'
+  choices: ['No, it fails the second equation', 'Yes', 'No, it fails the third equation', 'No, it fails the first equation']
+  answer: 1
+  explanation: |-
+    $1 - 1 + 2 = 2$, $2 + 1 + 2 = 5$, and $1 - 2 - 2 = -3$. All three hold, so it is a solution.
+- id: alg-q-1602
+  lesson: alg-three-var
+  module_quiz: true
+  topic: Three-variable systems
+  stem: 'Solve: $x + y + z = 6$, $x - y + z = 2$, $2x + y - z = 1$.'
+  choices: ['$(1, 3, 2)$', '$(3, 2, 1)$', '$(2, 1, 3)$', '$(1, 2, 3)$']
+  answer: 3
+  explanation: |-
+    Subtract the second from the first: $2y = 4$, so $y = 2$. Add the first and third: $3x + 2y = 7$, so $x = 1$. Then $z = 6 - 1 - 2 = 3$. Check the third: $2 + 2 - 3 = 1$.
+- id: alg-q-1603
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'You have eliminated $z$ using equations (1) and (2). What should you do next?'
+  choices: ['Solve equation (3) for $z$ and stop', 'Eliminate $x$ using equations (1) and (2)', 'Eliminate $z$ again, using equations (1) and (2)', 'Eliminate $z$ again, using a pair that includes equation (3)']
+  answer: 3
+  explanation: |-
+    You need a second equation in $x$ and $y$ only, and it must use the third equation's information. Eliminating a different variable would give equations in different unknowns.
+- id: alg-q-1604
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'While solving a three-variable system, you reach $0 = 5$. What does this mean?'
+  choices: ['The solution is $(0, 0, 5)$', 'The system has infinitely many solutions', 'The solution has $z = 5$', 'The system has no solution']
+  answer: 3
+  explanation: |-
+    A false statement means the equations contradict each other: the system is inconsistent, so no triple satisfies all three.
+- id: alg-q-1605
+  lesson: alg-three-var
+  module_quiz: true
+  topic: Three-variable systems
+  stem: 'Which parabola $y = ax^2 + bx + c$ passes through $(0, 1)$, $(1, 4)$ and $(-1, 0)$?'
+  choices: ['$y = 2x^2 + x + 1$', '$y = x^2 + 2x + 1$', '$y = x^2 + 3x$', '$y = -x^2 + 2x + 1$']
+  answer: 1
+  explanation: |-
+    $(0, 1)$ gives $c = 1$. Then $a + b + 1 = 4$ and $a - b + 1 = 0$, so $a + b = 3$ and $a - b = -1$, giving $a = 1$, $b = 2$. Check: $y(-1) = 1 - 2 + 1 = 0$.
+- id: alg-q-1606
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'Solve: $x + 2y - z = 4$, $2x - y + z = 3$, $3x + y + 2z = 7$.'
+  choices: ['$(2, 1, 1)$', '$(1, 2, 0)$', '$(2, 1, 0)$', '$(0, 1, 2)$']
+  answer: 2
+  explanation: |-
+    Add the first two: $3x + y = 7$. Twice the first plus the third: $5x + 5y = 15$, so $x + y = 3$. Subtract: $2x = 4$, $x = 2$, $y = 1$. Then $2 + 2 - z = 4$ gives $z = 0$.
+- id: alg-q-1607
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'A museum sold 50 tickets: child ($5), adult ($10) and senior ($7), for $370 in all. Twice as many adult tickets as senior tickets were sold. How many senior tickets were sold?'
+  choices: ['$15$', '$20$', '$10$', '$12$']
+  answer: 2
+  explanation: |-
+    $c + a + s = 50$, $5c + 10a + 7s = 370$, $a = 2s$. Substituting: $c + 3s = 50$ and $5c + 27s = 370$. Then $5(50 - 3s) + 27s = 370$, so $12s = 120$ and $s = 10$ (with $a = 20$, $c = 20$).
+- id: alg-q-1608
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'Geometrically, what does a single linear equation $ax + by + cz = d$ represent?'
+  choices: ['A line in the plane', 'A plane in three-dimensional space', 'A single point', 'A circle']
+  answer: 1
+  explanation: |-
+    In three dimensions a linear equation describes a flat plane. Three planes can meet in a point, a line, a plane, or not at all.
+- id: alg-q-1609
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'Two equations of a system are $x + y + z = 3$ and $x - y + 2z = 1$. Which third equation makes the system dependent, with infinitely many solutions?'
+  choices: ['$x + z = 4$', '$2x + 3z = 5$', '$2x + 2y + 3z = 4$', '$2x + 3z = 4$']
+  answer: 3
+  explanation: |-
+    $2x + 3z = 4$ is exactly the sum of the first two equations, so it adds no new information. $2x + 3z = 5$ would contradict that sum, making the system inconsistent.
+- id: alg-q-1610
+  lesson: alg-three-var
+  topic: Three-variable systems
+  stem: 'Solve: $x = 2y$, $y = 3z$, $x + y + z = 20$.'
+  choices: ['$(12, 6, 2)$', '$(6, 3, 1)$', '$(2, 6, 12)$', '$(10, 5, 5)$']
+  answer: 0
+  explanation: |-
+    Write everything in terms of $z$: $y = 3z$ and $x = 6z$. Then $6z + 3z + z = 20$, so $z = 2$, $y = 6$, $x = 12$.
+
+- id: a2-q-0601
+  lesson: a2-complex-quadratics
+  module_quiz: true
+  topic: Quadratics with complex solutions
+  stem: 'Solve $x^2 - 6x + 10 = 0$.'
+  choices: ['$x = -3 \pm i$', '$x = 6 \pm 2i$', '$x = 3 \pm i$', '$x = 3 \pm 2i$']
+  answer: 2
+  explanation: |-
+    Discriminant: $36 - 40 = -4$, and $\sqrt{-4} = 2i$. So $x = \dfrac{6 \pm 2i}{2} = 3 \pm i$. Not dividing by 2 gives $6 \pm 2i$; dividing only the 6 gives $3 \pm 2i$.
+- id: a2-q-0602
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'What kind of solutions does $3x^2 - 2x + 4 = 0$ have?'
+  choices: ['Two non-real complex solutions', 'Two different real solutions', 'One real double root', 'One real solution and one non-real solution']
+  answer: 0
+  explanation: |-
+    $b^2 - 4ac = 4 - 48 = -44 < 0$, so there are two non-real solutions, which are complex conjugates. A quadratic with real coefficients can never have exactly one non-real solution.
+- id: a2-q-0603
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'Solve $(x - 4)^2 + 9 = 0$.'
+  choices: ['$x = -4 \pm 3i$', '$x = 4 \pm 9i$', '$x = 1$ and $x = 7$', '$x = 4 \pm 3i$']
+  answer: 3
+  explanation: |-
+    $(x - 4)^2 = -9$, so $x - 4 = \pm 3i$ and $x = 4 \pm 3i$. Getting $1$ and $7$ means solving $(x - 4)^2 = 9$, which drops the minus sign.
+- id: a2-q-0604
+  lesson: a2-complex-quadratics
+  module_quiz: true
+  topic: Quadratics with complex solutions
+  stem: 'Solve $2x^2 + 2x + 1 = 0$.'
+  choices: ['$x = -1 \pm \tfrac12 i$', '$x = -\tfrac12 \pm \tfrac12 i$', '$x = -\tfrac12 \pm 2i$', '$x = -1 \pm i$']
+  answer: 1
+  explanation: |-
+    $b^2 - 4ac = 4 - 8 = -4$, so $\sqrt{-4} = 2i$ and $x = \dfrac{-2 \pm 2i}{4}$. Divide both terms by 4: $-\tfrac12 \pm \tfrac12 i$. Dividing by $2$ instead of $2a = 4$ gives $-1 \pm i$.
+- id: a2-q-0605
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'A quadratic equation with real coefficients has $5 + 2i$ as one solution. What is the other solution?'
+  choices: ['$-5 + 2i$', '$5 - 2i$', '$-5 - 2i$', '$2 + 5i$']
+  answer: 1
+  explanation: |-
+    Non-real solutions of a real quadratic come in conjugate pairs $-\tfrac{b}{2a} \pm qi$: same real part, opposite imaginary part. So the other is $5 - 2i$.
+- id: a2-q-0606
+  lesson: a2-complex-quadratics
+  module_quiz: true
+  topic: Quadratics with complex solutions
+  stem: 'Which quadratic has leading coefficient 1 and roots $1 \pm 4i$?'
+  choices: ['$x^2 + 2x + 17$', '$x^2 - 2x - 15$', '$x^2 - 2x + 5$', '$x^2 - 2x + 17$']
+  answer: 3
+  explanation: |-
+    Roots $p \pm qi$ come from $(x - p)^2 + q^2 = (x - 1)^2 + 16 = x^2 - 2x + 17$. Check: the roots add to $2$ ($= -b$) and multiply to $1 + 16 = 17$ ($= c$). Using $-16$ gives $x^2 - 2x - 15$, whose roots are real.
+- id: a2-q-0607
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'The graph of $y = a(x - h)^2 + k$ opens downward and has its vertex at $(2, 5)$. What kind of solutions does $a(x - h)^2 + k = 0$ have?'
+  choices: ['Two real solutions', 'Two complex conjugate solutions', 'One real double root', 'It depends on the value of $h$']
+  answer: 0
+  explanation: |-
+    The vertex is above the $x$-axis and the parabola opens down, so it must cross the axis twice: two real solutions. Algebraically, $a < 0$ and $k = 5 > 0$ have opposite signs, so $-\tfrac ka > 0$ and $\sqrt{-k/a}$ is real.
+- id: a2-q-0608
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'Solve $x^2 + 4x + 7 = 0$ by completing the square.'
+  choices: ['$x = 2 \pm i\sqrt3$', '$x = -2 \pm 3i$', '$x = -2 \pm i\sqrt3$', '$x = -2 \pm \sqrt3$']
+  answer: 2
+  explanation: |-
+    $x^2 + 4x + 4 + 3 = (x + 2)^2 + 3$, so $(x + 2)^2 = -3$ and $x + 2 = \pm i\sqrt3$. Then $x = -2 \pm i\sqrt3$.
+- id: a2-q-0609
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'What is the product of the two solutions of $3x^2 - 12x + 15 = 0$?'
+  choices: ['$15$', '$-5$', '$4$', '$5$']
+  answer: 3
+  explanation: |-
+    The product of the roots is $\tfrac ca = \tfrac{15}{3} = 5$. (The solutions are $2 \pm i$, and $(2 + i)(2 - i) = 4 + 1 = 5$.) Their sum, $-\tfrac ba = 4$, is the other common answer.
+- id: a2-q-0610
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: |-
+    A student solves $x^2 - 2x + 5 = 0$:
+
+    Step 1: $b^2 - 4ac = 4 - 20 = -16$. Step 2: $\sqrt{-16} = 4i$. Step 3: $x = \dfrac{2 \pm 4i}{2}$. Step 4: $x = 1 \pm 4i$.
+
+    Which statement is correct?
+  choices: ['Step 1 is wrong: the discriminant is $4 + 20 = 24$', 'Step 4 is wrong: both terms must be divided by 2, giving $1 \pm 2i$', 'Step 2 is wrong: $\sqrt{-16} = -4$', 'Step 3 is wrong: the numerator should be $-2 \pm 4i$']
+  answer: 1
+  explanation: |-
+    Steps 1 through 3 are right ($-b = 2$). In Step 4, $\dfrac{2 \pm 4i}{2} = 1 \pm 2i$. Check: $(1 + 2i)^2 - 2(1 + 2i) + 5 = -3 + 4i - 2 - 4i + 5 = 0$.
+- id: a2-q-0611
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'Which quadratic has leading coefficient 3 and roots $\pm 2i$?'
+  choices: ['$3x^2 - 12$', '$x^2 + 12$', '$3x^2 + 12$', '$3x^2 + 4$']
+  answer: 2
+  explanation: |-
+    $(x - 2i)(x + 2i) = x^2 - 4i^2 = x^2 + 4$. Multiply by 3: $3x^2 + 12$. The version $3x^2 - 12$ has the real roots $\pm 2$, and $3x^2 + 4$ forgot to multiply the constant by 3.
+- id: a2-q-0612
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'For which values of $c$ does $x^2 + 6x + c = 0$ have non-real solutions?'
+  choices: ['$c > 9$', '$c < 9$', '$c > 36$', '$c > 3$']
+  answer: 0
+  explanation: |-
+    Non-real solutions need $b^2 - 4ac < 0$: $36 - 4c < 0$, so $c > 9$. Graphically, $y = (x + 3)^2 + (c - 9)$ has its vertex above the $x$-axis exactly when $c > 9$.

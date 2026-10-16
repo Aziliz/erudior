@@ -1,0 +1,247 @@
+# Probability and statistics drills
+- id: a2-d-permutation
+  title: Permutations (order matters)
+  topic: Permutations and combinations
+  vars:
+    n: {min: 6, max: 15}
+    r: {min: 2, max: 4}
+  calc:
+    nr: n - r
+    ans: nPr(n, r)
+    c: nCr(n, r)
+  prompt: '{n} runners finish a race with no ties. In how many different ways can the first {r} places be filled?'
+  answers:
+    - {name: ans, label: 'Ways'}
+  solution: |-
+    First, second, third… are different places, so order matters: use a permutation.
+    $_{{n}}P_{{r}} = \dfrac{{n}!}{({n} - {r})!} = \dfrac{{n}!}{{nr}!}$, which is the product of the {r} numbers counting down from {n}: **{ans:int}**.
+    (Ignoring order would give only {c:int} groups of finishers.)
+
+- id: a2-d-combination
+  title: Combinations (order doesn't matter)
+  topic: Permutations and combinations
+  vars:
+    n: {min: 6, max: 16}
+    r: {min: 2, max: 5}
+  where: ['r < n - 1']
+  calc:
+    nr: n - r
+    ans: nCr(n, r)
+    p: nPr(n, r)
+    rf: fact(r)
+  prompt: 'A teacher picks a group of {r} students from a class of {n} to work together on a project. How many different groups are possible?'
+  answers:
+    - {name: ans, label: 'Groups'}
+  solution: |-
+    A group has no first or second member, so order doesn't matter: use a combination.
+    $_{{n}}C_{{r}} = \dfrac{{n}!}{{r}!\,{nr}!} =$ **{ans:int}**.
+    Counting ordered selections would give {p:int}, which lists each group {r}! = {rf} times; {p:int} ÷ {rf} = {ans:int}.
+
+- id: a2-d-committee
+  title: Committees from two groups
+  topic: Counting principle
+  vars:
+    J: {min: 4, max: 9}
+    S: {min: 4, max: 10}
+    a: {min: 1, max: 3}
+    b: {min: 2, max: 4}
+  where: ['a < J', 'b < S']
+  calc:
+    cj: nCr(J, a)
+    cs: nCr(S, b)
+    ans: cj*cs
+  prompt: 'A committee is made up of {a} of the {J} juniors and {b} of the {S} seniors in a club. How many different committees are possible?'
+  answers:
+    - {name: ans, label: 'Committees'}
+  solution: |-
+    Choose the juniors: $_{{J}}C_{{a}} = {cj}$ ways. Choose the seniors: $_{{S}}C_{{b}} = {cs}$ ways.
+    Every choice of juniors goes with every choice of seniors, so multiply (counting principle): ${cj} \times {cs} =$ **{ans:int}**.
+
+- id: a2-d-addition-rule
+  title: Addition rule and complement
+  topic: Probability rules
+  vars:
+    pa: {min: 20, max: 70}
+    pb: {min: 15, max: 60}
+    pab: {min: 5, max: 30}
+  where: ['pab < pa', 'pab < pb', 'pa + pb - pab <= 95']
+  calc:
+    PA: pa/100
+    PB: pb/100
+    PAB: pab/100
+    sumab: (pa + pb)/100
+    ans: (pa + pb - pab)/100
+    none: 1 - (pa + pb - pab)/100
+  prompt: 'For a randomly chosen student, the probability of taking art is $P(A) = {PA}$, of taking band is $P(B) = {PB}$, and of taking both is $P(A \text{ and } B) = {PAB}$. Find the probability the student takes art or band, and the probability the student takes neither.'
+  answers:
+    - {name: ans, label: '$P(A \text{ or } B) =$', tolerance: 0.001}
+    - {name: none, label: 'P(neither) =', tolerance: 0.001}
+  solution: |-
+    Adding ${PA} + {PB} = {sumab}$ counts the students in both twice, so subtract the overlap once:
+    $P(A \text{ or } B) = {PA} + {PB} - {PAB} =$ **{ans}**.
+    "Neither" is the complement of "art or band": $1 - {ans} =$ **{none}**.
+
+- id: a2-d-two-way
+  title: Conditional probability from a two-way table
+  topic: Conditional probability
+  vars:
+    a: {min: 8, max: 40}
+    b: {min: 4, max: 30}
+    c: {min: 8, max: 40}
+    d: {min: 4, max: 30}
+  where: ['a + b != a + c']
+  calc:
+    r1: a + b
+    r2: c + d
+    c1: a + c
+    c2: b + d
+    tot: a + b + c + d
+    p1: a/(a + b)
+    p2: a/(a + c)
+  prompt: |-
+    Students took the same course online or in person:
+
+    | | Passed | Did not pass | Total |
+    |---|---|---|---|
+    | Online | {a} | {b} | {r1} |
+    | In person | {c} | {d} | {r2} |
+    | Total | {c1} | {c2} | {tot} |
+
+    For a randomly chosen student, find $P(\text{passed} \mid \text{online})$ and $P(\text{online} \mid \text{passed})$ as fractions in lowest terms.
+  answers:
+    - {name: p1, kind: fraction, lowestTerms: true, label: '$P(\text{passed} \mid \text{online}) =$'}
+    - {name: p2, kind: fraction, lowestTerms: true, label: '$P(\text{online} \mid \text{passed}) =$'}
+  solution: |-
+    Given "online", use only the Online row ({r1} students), of whom {a} passed: $\dfrac{{a}}{{r1}} =$ **${p1:texfrac}$**.
+    Given "passed", use only the Passed column ({c1} students), of whom {a} were online: $\dfrac{{a}}{{c1}} =$ **${p2:texfrac}$**.
+    Same numerator, different denominators: the condition decides which total you divide by.
+
+- id: a2-d-prob-draw
+  title: Probability by counting (draws without replacement)
+  topic: Probability rules
+  vars:
+    r: {min: 3, max: 8}
+    bl: {min: 2, max: 7}
+    k: {choices: [2, 3]}
+  where: ['k <= r']
+  calc:
+    n: r + bl
+    top: nCr(r, k)
+    bot: nCr(r + bl, k)
+    ans: nCr(r, k)/nCr(r + bl, k)
+  prompt: 'A bag holds {r} red and {bl} blue marbles. You draw {k} marbles at random without replacement. What is the probability that all {k} are red? Give an exact fraction in lowest terms.'
+  answers:
+    - {name: ans, kind: fraction, lowestTerms: true, label: '$P =$'}
+  solution: |-
+    Every set of {k} marbles is equally likely. There are $_{{n}}C_{{k}} = {bot}$ ways to choose {k} of the {n} marbles, and $_{{r}}C_{{k}} = {top}$ ways to choose {k} of the {r} red ones.
+    $P(\text{all red}) = \dfrac{{top}}{{bot}} =$ **${ans:texfrac}$**.
+    (Multiplying along a tree gives the same answer: the first draw is red with probability $\tfrac{{r}}{{n}}$, and each later draw has one fewer red and one fewer marble.)
+
+- id: a2-d-empirical-rule
+  title: The 68–95–99.7 rule
+  topic: Normal distribution
+  vars:
+    mu: {min: 40, max: 160, step: 5}
+    sd: {choices: [2, 3, 4, 5, 6, 8, 10, 12, 15]}
+    k1: {choices: [-3, -2, -1, 0]}
+    k2: {choices: [1, 2, 3]}
+  calc:
+    lo: mu + k1*sd
+    hi: mu + k2*sd
+    F1: if(k1 == -3, 0.15, if(k1 == -2, 2.5, if(k1 == -1, 16, 50)))
+    F2: if(k2 == 1, 84, if(k2 == 2, 97.5, 99.85))
+    ans: F2 - F1
+    m3: mu - 3*sd
+    m2: mu - 2*sd
+    m1: mu - sd
+    p1: mu + sd
+    p2: mu + 2*sd
+    p3: mu + 3*sd
+  prompt: 'A measurement is approximately normal with mean {mu} and standard deviation {sd}. Use the 68–95–99.7 rule to estimate the percent of values between {lo} and {hi}.'
+  figure:
+    type: plot
+    grid: false
+    x: ['mu - 3.6*sd', 'mu + 3.6*sd']
+    y: ['-0.07/sd', '0.45/sd']
+    functions:
+      - {f: 'normpdf(x, mu, sd)'}
+    shade:
+      - {f: 'normpdf(x, mu, sd)', from: lo, to: hi}
+    segments:
+      - {from: ['mu - 3.6*sd', 0], to: ['mu + 3.6*sd', 0]}
+    labels:
+      - {at: ['mu - 3*sd', '-0.04/sd'], text: '{m3}'}
+      - {at: ['mu - 2*sd', '-0.04/sd'], text: '{m2}'}
+      - {at: ['mu - sd', '-0.04/sd'], text: '{m1}'}
+      - {at: [mu, '-0.04/sd'], text: '{mu}'}
+      - {at: ['mu + sd', '-0.04/sd'], text: '{p1}'}
+      - {at: ['mu + 2*sd', '-0.04/sd'], text: '{p2}'}
+      - {at: ['mu + 3*sd', '-0.04/sd'], text: '{p3}'}
+  answers:
+    - {name: ans, label: 'Percent', tolerance: 0.01}
+  solution: |-
+    {lo} is at $z = {k1}$ and {hi} is at $z = {k2}$: that many standard deviations from the mean.
+    From the rule, the percent of values below each mark is: $\mu - 3\sigma$: 0.15%, $\mu - 2\sigma$: 2.5%, $\mu - \sigma$: 16%, $\mu$: 50%, $\mu + \sigma$: 84%, $\mu + 2\sigma$: 97.5%, $\mu + 3\sigma$: 99.85%.
+    So the percent between {lo} and {hi} is {F2}% − {F1}% = **{ans}%**.
+
+- id: a2-d-normal-area
+  title: z-scores and normal probabilities
+  topic: Normal distribution
+  vars:
+    mu: {min: 20, max: 200, step: 5}
+    sd: {choices: [4, 5, 8, 10, 12, 15, 20]}
+    d1: {min: -45, max: -1}
+    d2: {min: 1, max: 45}
+  where: ['d1/sd == round(d1/sd, 2)', 'd2/sd == round(d2/sd, 2)', 'd1 >= -2.8*sd', 'd2 <= 2.8*sd', 'd2 - d1 >= 0.6*sd']
+  calc:
+    lo: mu + d1
+    hi: mu + d2
+    z1: d1/sd
+    z2: d2/sd
+    A1: normcdf(z1)
+    A2: normcdf(z2)
+    P: normcdf(z2) - normcdf(z1)
+  prompt: 'A measurement is normally distributed with mean {mu} and standard deviation {sd}. Find the z-scores of {lo} and {hi}, then the probability that a value is between {lo} and {hi} (4 decimal places).'
+  figure:
+    type: plot
+    grid: false
+    x: ['mu - 3.5*sd', 'mu + 3.5*sd']
+    y: ['-0.07/sd', '0.45/sd']
+    functions:
+      - {f: 'normpdf(x, mu, sd)'}
+    shade:
+      - {f: 'normpdf(x, mu, sd)', from: lo, to: hi}
+    segments:
+      - {from: ['mu - 3.5*sd', 0], to: ['mu + 3.5*sd', 0]}
+    labels:
+      - {at: [lo, '-0.04/sd'], text: '{lo}'}
+      - {at: [mu, '-0.04/sd'], text: '{mu}'}
+      - {at: [hi, '-0.04/sd'], text: '{hi}'}
+  answers:
+    - {name: z1, label: 'z-score of the lower value:', tolerance: 0.005}
+    - {name: z2, label: 'z-score of the upper value:', tolerance: 0.005}
+    - {name: P, label: 'Probability', tolerance: 0.001, format: dp4}
+  solution: |-
+    $z = \dfrac{x - \mu}{\sigma}$: for {lo}, $z = \dfrac{{lo} - {mu}}{{sd}} =$ **{z1}**; for {hi}, $z = \dfrac{{hi} - {mu}}{{sd}} =$ **{z2}**.
+    The area to the left of $z = {z2}$ is {A2:dp4} and to the left of $z = {z1}$ is {A1:dp4}, so the area between is {A2:dp4} − {A1:dp4} ≈ **{P:dp4}**.
+    On a calculator: normalcdf({lo}, {hi}, {mu}, {sd}).
+
+- id: a2-d-margin-error
+  title: Margin of error of a poll
+  topic: Sampling and surveys
+  vars:
+    n: {choices: [100, 225, 400, 625, 900, 1000, 1200, 1500, 1600, 2000, 2500]}
+    ph: {min: 35, max: 65}
+  calc:
+    fr: 1/sqrt(n)
+    moe: 100/sqrt(n)
+    lo: ph - 100/sqrt(n)
+    hi: ph + 100/sqrt(n)
+  prompt: 'In a random sample of {n:int} voters, {ph}% support a ballot measure. Estimate the margin of error using $\dfrac{1}{\sqrt n}$, as a percent to 1 decimal place, and give the likely range of support among all voters.'
+  answers:
+    - {name: moe, label: 'Margin of error (%)', tolerance: 0.1, format: num1}
+    - {name: lo, label: 'Low end (%)', tolerance: 0.15, format: num1}
+    - {name: hi, label: 'High end (%)', tolerance: 0.15, format: num1}
+  solution: |-
+    $\dfrac{1}{\sqrt{{n:dp0}}} \approx {fr:dp4}$, which is {moe:num2}%. So the margin of error is about **{moe:num1}%**.
+    The likely range for all voters is {ph}% ± {moe:num1}%: from **{lo:num1}%** to **{hi:num1}%**.

@@ -1,0 +1,271 @@
+# Functions and their transformations drills
+- id: a2-d-transform-point
+  title: Move a point through a transformation
+  topic: Transformations
+  vars:
+    p: {min: -6, max: 6}
+    q: {min: -6, max: 6}
+    a: {choices: [-3, -2, -1, 2, 3, 4]}
+    h: {min: -5, max: 5}
+    k: {min: -8, max: 8}
+  where: ['h != 0', 'k != 0', 'q != 0']
+  calc:
+    nh: -h
+    nx: p + h
+    aq: a*q
+    ny: a*q + k
+  prompt: 'The point $({p}, {q})$ is on the graph of $y = f(x)$. Find the matching point on the graph of $y = {a:coef}f(x {nh:signed}) {k:signed}$.'
+  answers:
+    - {name: nx, label: 'New $x$'}
+    - {name: ny, label: 'New $y$'}
+  solution: |-
+    Write the function as $a\,f(x - h) + k$ with $h = {h}$, $a = {a}$, $k = {k}$. Points move by $(x, y) \to (x + h,\; ay + k)$: multiply the height first, then add.
+    New $x$: ${p} + ({h}) = {nx}$. New $y$: ${a}({q}) + ({k}) = {aq} + ({k}) = {ny}$. The point is **$({nx}, {ny})$**.
+    Check: at $x = {nx}$ the inside is ${nx} {nh:signed} = {p}$, so the output is ${a}f({p}) + ({k}) = {ny}$.
+
+- id: a2-d-transform-vertex
+  title: Vertex and intercept of a transformed absolute value
+  topic: Transformations
+  vars:
+    a: {choices: [-4, -3, -2, -1, 2, 3, 4]}
+    h: {min: -6, max: 6}
+    k: {min: -9, max: 9}
+  where: ['h != 0', 'k != 0']
+  calc:
+    nh: -h
+    ah: abs(h)
+    yint: a*abs(h) + k
+    dirn: if(a > 0, 1, -1)
+  prompt: 'For $g(x) = {a:coef}\lvert x {nh:signed} \rvert {k:signed}$, find the vertex (corner point) and the $y$-intercept $g(0)$.'
+  answers:
+    - {name: h, label: 'Vertex $x$'}
+    - {name: k, label: 'Vertex $y$'}
+    - {name: yint, label: '$g(0) =$'}
+  solution: |-
+    In $a\lvert x - h \rvert + k$ the corner of $y = \lvert x \rvert$ moves to $(h, k)$. The inside $x {nh:signed}$ is zero at $x = {h}$, so the vertex is **$({h}, {k})$**.
+    $y$-intercept: $g(0) = {a}\lvert {nh} \rvert + ({k}) = {a}({ah}) + ({k}) =$ **{yint}**.
+
+- id: a2-d-transform-write
+  title: Write the equation of a transformed graph
+  topic: Transformations
+  vars:
+    parent: {choices: [{label: 'x^2', value: 2}, {label: 'x^3', value: 3}]}
+    s: {choices: [2, 3, 4]}
+    refl: {choices: [{label: 'reflected across the $x$-axis', value: -1}, {label: 'not reflected', value: 1}]}
+    hdir: {choices: [{label: 'right', value: 1}, {label: 'left', value: -1}]}
+    hm: {min: 1, max: 6}
+    kdir: {choices: [{label: 'up', value: 1}, {label: 'down', value: -1}]}
+    km: {min: 1, max: 9}
+  calc:
+    n: parent
+    a: s*refl
+    h: hdir*hm
+    nh: -h
+    k: kdir*km
+  prompt: 'The graph of $y = {parent}$ is stretched vertically by a factor of {s}, {refl}, and then shifted {hdir} {hm} and {kdir} {km}. Write the equation of the new graph.'
+  answers:
+    - kind: expression
+      expression: a*(x - h)^n + k
+      variables: [x]
+      label: '$y =$'
+      show: '${a:coef}(x {nh:signed})^{n} {k:signed}$'
+  solution: |-
+    Use $y = a(x - h)^{n} + k$. The stretch and reflection give $a = {a}$. Shifting {hdir} {hm} is the inside change $x \to x - ({h})$, and shifting {kdir} {km} is the outside change $k = {k}$.
+    So $y =$ **${a:coef}(x {nh:signed})^{n} {k:signed}$**. Its anchor point (vertex or center) is $({h}, {k})$.
+
+- id: a2-d-piecewise-eval
+  title: Evaluate a piecewise function
+  topic: Piecewise functions
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -3, max: 3}
+    e: {min: -9, max: 9}
+    u: {min: 1, max: 4}
+    w: {min: 0, max: 3}
+  where: ['a != 0', 'b != 0', 'e != 0', 'a*c + b != c^2 + e']
+  calc:
+    t1: c - u
+    t2: c + w
+    v1: a*t1 + b
+    v2: t2^2 + e
+    sq2: t2^2
+  prompt: |-
+    Let $f(x) = \begin{cases} {a:coef}x {b:signed} & \text{if } x < {c} \\ x^2 {e:signed} & \text{if } x \ge {c} \end{cases}$
+
+    Find $f({t1})$ and $f({t2})$.
+  answers:
+    - {name: v1, label: '$f({t1}) =$'}
+    - {name: v2, label: '$f({t2}) =$'}
+  solution: |-
+    ${t1} < {c}$, so use the first piece: $f({t1}) = {a}({t1}) + ({b}) =$ **{v1}**.
+    ${t2} \ge {c}$, so use the second piece: $f({t2}) = ({t2})^2 + ({e}) = {sq2} + ({e}) =$ **{v2}**.
+
+- id: a2-d-piecewise-abs
+  title: Write an absolute value as a piecewise function
+  topic: Piecewise functions
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: -12, max: 12}
+  where: ['b != 0']
+  calc:
+    c: -b/a
+    na: -a
+    nb: -b
+  prompt: 'Write $g(x) = \lvert {a:coef}x {b:signed} \rvert$ as a piecewise function $g(x) = \begin{cases} P(x) & \text{if } x \ge c \\ Q(x) & \text{if } x < c \end{cases}$. Find the break point $c$ (exact) and the linear formulas $P$ and $Q$.'
+  answers:
+    - {name: c, kind: fraction, lowestTerms: true, label: '$c =$'}
+    - {kind: expression, expression: a*x + b, variables: [x], label: '$P(x) =$', show: '${a:coef}x {b:signed}$'}
+    - {kind: expression, expression: -a*x - b, variables: [x], label: '$Q(x) =$', show: '${na:coef}x {nb:signed}$'}
+  solution: |-
+    The break point is where the inside is zero: ${a:coef}x {b:signed} = 0$ gives $c =$ **${c:texfrac}$**.
+    For $x \ge {c:texfrac}$ the inside is nonnegative, so $P(x) =$ **${a:coef}x {b:signed}$**. For $x < {c:texfrac}$ it's negative and the absolute value changes its sign: $Q(x) = -({a:coef}x {b:signed}) =$ **${na:coef}x {nb:signed}$**.
+
+- id: a2-d-step-cost
+  title: Cost from a step function
+  topic: Piecewise functions
+  vars:
+    base: {min: 3, max: 8}
+    r: {min: 2, max: 5}
+    t: {min: 1.25, max: 7.75, step: 0.25}
+  where: ['mod(t, 1) != 0']
+  calc:
+    extra: t - 1
+    blocks: ceil(t - 1)
+    cost: base + r*ceil(t - 1)
+  prompt: 'A parking garage charges \${base} for the first hour or less and \${r} for each additional hour or part of an hour. How much does it cost to park for {t} hours?'
+  answer: cost
+  format: money
+  solution: |-
+    After the first hour there are ${extra}$ more hours. Each started hour counts as a whole one, so round up: {blocks} additional charges.
+    Cost: ${base} + {r} \cdot {blocks} =$ **{cost:money}**.
+
+- id: a2-d-function-ops
+  title: Product and difference of functions
+  topic: Function operations
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -5, max: 5}
+    d: {min: -9, max: 9}
+  where: ['a != 0', 'c != 0', 'b != 0', 'd != 0', 'a != c', 'b != d', 'a*d + b*c != 0']
+  calc:
+    p2: a*c
+    p1: a*d + b*c
+    p0: b*d
+    m1: a - c
+    m0: b - d
+    nc: -c
+    nd: -d
+  prompt: 'Let $f(x) = {a:coef}x {b:signed}$ and $g(x) = {c:coef}x {d:signed}$. Find $(fg)(x)$ and $(f - g)(x)$ in simplified form.'
+  answers:
+    - {kind: expression, expression: (a*x + b)*(c*x + d), variables: [x], label: '$(fg)(x) =$', show: '${p2:coef}x^2 {p1:signedcoef}x {p0:signed}$'}
+    - {kind: expression, expression: (a - c)*x + (b - d), variables: [x], label: '$(f - g)(x) =$', show: '${m1:coef}x {m0:signed}$'}
+  solution: |-
+    Product: $({a:coef}x {b:signed})({c:coef}x {d:signed}) = {p2:coef}x^2 + ({a})({d})x + ({b})({c})x + ({b})({d}) =$ **${p2:coef}x^2 {p1:signedcoef}x {p0:signed}$**.
+    Difference: subtract all of $g$: ${a:coef}x {b:signed} {nc:signedcoef}x {nd:signed} =$ **${m1:coef}x {m0:signed}$**.
+
+- id: a2-d-compose-eval
+  title: Evaluate compositions
+  topic: Composition
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+    t: {min: -4, max: 4}
+  where: ['a != 0', 'a != 1', 'b != 0', 'c != 0', 't != 0']
+  calc:
+    gt: t^2 + c
+    fgt: a*(t^2 + c) + b
+    ft: a*t + b
+    gft: (a*t + b)^2 + c
+    ft2: (a*t + b)^2
+  prompt: 'Let $f(x) = {a:coef}x {b:signed}$ and $g(x) = x^2 {c:signed}$. Find $(f \circ g)({t})$ and $(g \circ f)({t})$.'
+  answers:
+    - {name: fgt, label: '$(f \circ g)({t}) =$'}
+    - {name: gft, label: '$(g \circ f)({t}) =$'}
+  solution: |-
+    Work from the inside out.
+    $(f \circ g)({t}) = f(g({t}))$: first $g({t}) = ({t})^2 + ({c}) = {gt}$, then $f({gt}) = {a}({gt}) + ({b}) =$ **{fgt}**.
+    $(g \circ f)({t}) = g(f({t}))$: first $f({t}) = {a}({t}) + ({b}) = {ft}$, then $g({ft}) = {ft2} + ({c}) =$ **{gft}**.
+
+- id: a2-d-compose-expr
+  title: Find composition formulas
+  topic: Composition
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -6, max: 6}
+    c: {min: -9, max: 9}
+  where: ['a != 0', 'a != 1', 'b != 0', 'c != 0', 'b^2 + c != 0', 'a*c + b != 0']
+  calc:
+    A: a^2
+    B: 2*a*b
+    C: b^2 + c
+    D: a*c + b
+    bb: b^2
+  prompt: 'Let $f(x) = x^2 {c:signed}$ and $g(x) = {a:coef}x {b:signed}$. Find $f(g(x))$ and $g(f(x))$, expanded.'
+  answers:
+    - {kind: expression, expression: (a*x + b)^2 + c, variables: [x], label: '$f(g(x)) =$', show: '${A:coef}x^2 {B:signedcoef}x {C:signed}$'}
+    - {kind: expression, expression: a*(x^2 + c) + b, variables: [x], label: '$g(f(x)) =$', show: '${a:coef}x^2 {D:signed}$'}
+  solution: |-
+    $f(g(x))$: put $g(x)$ into every $x$ of $f$: $({a:coef}x {b:signed})^2 + ({c}) = {A:coef}x^2 {B:signedcoef}x + {bb} + ({c})$, which is **${A:coef}x^2 {B:signedcoef}x {C:signed}$**.
+    $g(f(x))$: ${a}(x^2 {c:signed}) + ({b}) =$ **${a:coef}x^2 {D:signed}$**. The two orders give different functions.
+
+- id: a2-d-inverse-linear
+  title: Inverse of a linear function
+  topic: Inverse functions
+  vars:
+    a: {choices: [-5, -4, -3, -2, 2, 3, 4, 5]}
+    b: {min: -12, max: 12}
+    s: {min: -6, max: 6}
+  where: ['b != 0']
+  calc:
+    nb: -b
+    v: a*s + b
+  prompt: 'Find the inverse of $f(x) = {a:coef}x {b:signed}$, and use it to find $f^{-1}({v})$.'
+  answers:
+    - {kind: expression, expression: (x - b)/a, variables: [x], label: '$f^{-1}(x) =$', show: '$\dfrac{x {nb:signed}}{{a}}$'}
+    - {name: s, label: '$f^{-1}({v}) =$'}
+  solution: |-
+    Write $y = {a:coef}x {b:signed}$ and swap: $x = {a:coef}y {b:signed}$. Then ${a:coef}y = x {nb:signed}$, so $f^{-1}(x) =$ **$\dfrac{x {nb:signed}}{{a}}$**.
+    $f^{-1}({v}) = \dfrac{{v} {nb:signed}}{{a}} =$ **{s}**. Check: $f({s}) = {a}({s}) + ({b}) = {v}$.
+
+- id: a2-d-inverse-value
+  title: Find an inverse value without a formula
+  topic: Inverse functions
+  vars:
+    c: {min: -10, max: 10}
+    s: {min: -3, max: 3}
+  where: ['c != 0']
+  calc:
+    v: s^3 + s + c
+    s3: s^3
+  prompt: 'The function $f(x) = x^3 + x {c:signed}$ is always increasing, so it is one-to-one. Find $f^{-1}({v})$. (Hint: $f^{-1}({v})$ is the input that gives the output ${v}$; try small integers.)'
+  answers:
+    - {name: s, label: '$f^{-1}({v}) =$'}
+  solution: |-
+    We need the $x$ with $f(x) = {v}$, that is, $x^3 + x {c:signed} = {v}$. Testing integers: $f({s}) = {s3} + ({s}) + ({c}) = {v}$.
+    So $f^{-1}({v}) =$ **{s}**. Because $f$ is increasing, no other input gives ${v}$.
+
+- id: a2-d-inverse-rational
+  title: Inverse of a rational function
+  topic: Inverse functions
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: -6, max: 6}
+  where: ['a != 0', 'c != 0', 'b != 0', 'a*c + b != 0', 'a != c']
+  calc:
+    nc: -c
+    na: -a
+  prompt: 'Find the inverse of $f(x) = \dfrac{{a:coef}x {b:signed}}{x {nc:signed}}$.'
+  answers:
+    - kind: expression
+      expression: (c*x + b)/(x - a)
+      variables: [x]
+      label: '$f^{-1}(x) =$'
+      show: '$\dfrac{{c:coef}x {b:signed}}{x {na:signed}}$'
+  solution: |-
+    Swap $x$ and $y$: $x = \dfrac{{a:coef}y {b:signed}}{y {nc:signed}}$. Clear the fraction: $x(y {nc:signed}) = {a:coef}y {b:signed}$, so $xy {nc:signedcoef}x = {a:coef}y {b:signed}$.
+    Collect the $y$ terms: $xy {na:signedcoef}y = {c:coef}x {b:signed}$, so $y(x {na:signed}) = {c:coef}x {b:signed}$.
+    $f^{-1}(x) =$ **$\dfrac{{c:coef}x {b:signed}}{x {na:signed}}$**. (Its excluded value, ${a}$, is the horizontal asymptote of $f$, a value $f$ never outputs.)

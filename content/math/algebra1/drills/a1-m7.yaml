@@ -1,0 +1,251 @@
+# Square roots, exponential functions, and sequences
+- id: a1-d-simplify-root
+  title: Simplify a square root
+  topic: Square roots
+  vars:
+    k: {min: 2, max: 12}
+    s: {choices: [2, 3, 5, 6, 7, 10, 11, 13, 14, 15]}
+  calc:
+    n: k^2*s
+    sq: k^2
+  where: ['n <= 600']
+  prompt: 'Write $\sqrt{{n}}$ in simplest radical form $a\sqrt{b}$.'
+  answers:
+    - {name: k, label: 'Outside number $a$'}
+    - {name: s, label: 'Radicand $b$'}
+  solution: |-
+    The largest perfect square that divides {n} is {sq}, and ${n} = {sq} \cdot {s}$.
+    So $\sqrt{{n}} = \sqrt{{sq}}\,\sqrt{{s}} = {k}\sqrt{{s}}$, and {s} has no perfect-square factor left: $a =$ **{k}**, $b =$ **{s}**.
+
+- id: a1-d-radical-add
+  title: Add and subtract square roots
+  topic: Square roots
+  vars:
+    s: {choices: [2, 3, 5, 6, 7]}
+    p: {min: 2, max: 5}
+    q: {min: 2, max: 5}
+    m: {min: 1, max: 4}
+    n: {min: -4, max: 4}
+  calc:
+    r1: s*p^2
+    r2: s*q^2
+    c1: m*p
+    c2: n*q
+    c: m*p + n*q
+  where: ['n != 0', 'p != q', 'c != 0']
+  prompt: 'Simplify ${m:coef}\sqrt{{r1}} {n:signedcoef}\sqrt{{r2}}$ to the form $c\sqrt{b}$, with $b$ as small as possible.'
+  answers:
+    - {name: c, label: 'Coefficient $c$'}
+    - {name: s, label: 'Radicand $b$'}
+  solution: |-
+    Simplify each root first: $\sqrt{{r1}} = {p}\sqrt{{s}}$ and $\sqrt{{r2}} = {q}\sqrt{{s}}$.
+    Now they are like radicals: ${c1}\sqrt{{s}} {c2:signed}\sqrt{{s}} = {c}\sqrt{{s}}$. So $c =$ **{c}** and $b =$ **{s}**.
+
+- id: a1-d-radical-multiply
+  title: Multiply square roots
+  topic: Square roots
+  vars:
+    k: {choices: [2, 3, 5]}
+    w1: {choices: [1, 2, 3, 5, 7]}
+    w2: {choices: [2, 3, 5, 7, 11]}
+    m: {min: 1, max: 4}
+    n: {min: 1, max: 4}
+  calc:
+    x1: k*w1
+    x2: k*w2
+    prodr: x1*x2
+    mn: m*n
+    ksq: k^2
+    w: w1*w2
+    C: m*n*k
+  where: ['w1 != w2', 'w1 != k', 'w2 != k', 'prodr < 1000']
+  prompt: 'Simplify $({m:coef}\sqrt{{x1}})({n:coef}\sqrt{{x2}})$ to the form $c\sqrt{b}$, with $b$ as small as possible.'
+  answers:
+    - {name: C, label: 'Coefficient $c$'}
+    - {name: w, label: 'Radicand $b$'}
+  solution: |-
+    Multiply outside numbers and radicands: ${mn}\sqrt{{x1} \cdot {x2}} = {mn}\sqrt{{prodr}}$.
+    The largest perfect square in {prodr} is {ksq}: ${prodr} = {ksq} \cdot {w}$, so ${mn}\sqrt{{prodr}} = {mn} \cdot {k}\sqrt{{w}}$.
+    So $c =$ **{C}** and $b =$ **{w}**.
+
+- id: a1-d-exp-evaluate
+  title: Evaluate an exponential function
+  topic: Exponential functions
+  vars:
+    a: {min: 2, max: 9}
+    b: {choices: [2, 3, 4, 5]}
+    n: {min: -2, max: 4}
+  calc:
+    pw: b^n
+    val: a*b^n
+  where: ['val <= 2000', 'n != 0']
+  prompt: 'For $f(x) = {a} \cdot {b}^x$, find $f({n})$. Give an exact value (a fraction is fine).'
+  answers:
+    - {name: val, label: '$f({n}) =$', tolerance: 0.0001, format: fraction}
+  solution: |-
+    Apply the exponent to the base only, then multiply: ${b}^{{n}} = {pw:texfrac}$, so $f({n}) = {a} \cdot {pw:texfrac}$, which is **{val:frac}**.
+
+- id: a1-d-percent-growth
+  title: Percent growth and decay
+  topic: Exponential functions
+  vars:
+    P: {min: 500, max: 9000, step: 100}
+    r: {min: 2, max: 25}
+    dir: {choices: [{label: grows, value: 1}, {label: decreases, value: -1}]}
+    t: {min: 2, max: 10}
+  calc:
+    b: 1 + dir*r/100
+    sr: dir*r/100
+    A: round(P*(1 + dir*r/100)^t, 2)
+  prompt: 'A quantity starts at {P} and {dir} by {r}% per year. What is the yearly factor $b$, and what is the amount after {t} years (to 2 decimal places)?'
+  answers:
+    - {name: b, label: 'Factor $b$', tolerance: 0.00001}
+    - {name: A, label: 'Amount', tolerance: 0.02}
+  solution: |-
+    A change of {r}% per year multiplies by $b = 1 {sr:signed} =$ **{b}** (growth adds the rate to 1, decay subtracts it).
+    Amount: multiply {P} by ${b}^{{t}}$ to get about **{A}**.
+
+- id: a1-d-exp-from-table
+  title: Exponential function from a table
+  topic: Exponential functions
+  vars:
+    a: {min: 2, max: 12}
+    b: {choices: [2, 3, 4, 5, 0.5]}
+  calc:
+    y0: a
+    y1: a*b
+    y2: a*b^2
+    y3: a*b^3
+  where: ['y3 == round(y3)', 'y3 <= 2000']
+  prompt: |-
+    The table shows an exponential function $y = a \cdot b^x$. Find $a$ and $b$.
+
+    | $x$ | 0 | 1 | 2 | 3 |
+    |---|---|---|---|---|
+    | $y$ | {y0} | {y1} | {y2} | {y3} |
+  answers:
+    - {name: a, label: '$a =$'}
+    - {name: b, label: '$b =$'}
+  solution: |-
+    The value at $x = 0$ is $a$: $a =$ **{a}**.
+    Each step multiplies by the same ratio: $\dfrac{{y1}}{{y0}} = \dfrac{{y2}}{{y1}} = {b}$, so $b =$ **{b}** and $y = {a}({b})^x$.
+
+- id: a1-d-two-models
+  title: Linear and exponential models through two points
+  topic: Linear vs exponential
+  vars:
+    A: {min: 40, max: 400, step: 20}
+    r: {choices: [10, 20, 25, 50]}
+    n: {min: 3, max: 8}
+  calc:
+    B: A*(1 + r/100)
+    m: A*r/100
+    b: 1 + r/100
+    Ln: A + m*n
+    En: round(A*(1 + r/100)^n, 2)
+  prompt: 'A linear model $L$ and an exponential model $E$ both pass through $(0, {A})$ and $(1, {B})$. Find $L({n})$ and $E({n})$ (round $E$ to 2 decimal places).'
+  answers:
+    - {name: Ln, label: '$L({n}) =$'}
+    - {name: En, label: '$E({n}) =$', tolerance: 0.02}
+  solution: |-
+    Linear: the difference is ${B} - {A} = {m}$, so $L(x) = {A} + {m}x$ and $L({n}) =$ **{Ln}**.
+    Exponential: the ratio is $\dfrac{{B}}{{A}} = {b}$, so $E(x) = {A}({b})^x$ and $E({n}) \approx$ **{En}**.
+
+- id: a1-d-exp-overtakes
+  title: When exponential overtakes linear
+  topic: Linear vs exponential
+  vars:
+    a: {choices: [1, 2, 3, 5, 10]}
+    b: {choices: [2, 3]}
+    c: {min: 20, max: 200, step: 10}
+    m: {min: 5, max: 60, step: 5}
+  funcs:
+    g(k): if(a*b^k <= c + m*k, 1, 0)
+  calc:
+    first: sum(g, 0, 60)
+    before: first - 1
+    Lb: c + m*(first - 1)
+    Eb: a*b^(first - 1)
+    La: c + m*first
+    Ea: a*b^first
+  where: ['a < c', 'first >= 3', 'first <= 14']
+  prompt: 'Let $L(x) = {c} + {m}x$ and $E(x) = {a:coef}({b})^x$. What is the first whole number $x$ for which $E(x) > L(x)$?'
+  answers:
+    - {name: first, label: '$x =$'}
+  solution: |-
+    Make a table. At $x = {before}$: $L$ is {Lb} and $E$ is {Eb}, so $L$ is still at least as large.
+    At $x = {first}$: $L$ is {La} and $E$ is {Ea}, so $E$ is larger, and it stays ahead because it multiplies by {b} each step while $L$ adds only {m}.
+    First whole number: **{first}**.
+
+- id: a1-d-arith-nth
+  title: Arithmetic sequence formula and term
+  topic: Sequences
+  vars:
+    a1: {min: -20, max: 30}
+    d: {min: -9, max: 9}
+    n: {min: 12, max: 60}
+  calc:
+    t2: a1 + d
+    t3: a1 + 2*d
+    t4: a1 + 3*d
+    c: a1 - d
+    an: a1 + (n - 1)*d
+    nm: n - 1
+  where: ['d != 0', 'c != 0']
+  prompt: 'The arithmetic sequence ${a1}, {t2}, {t3}, {t4}, \dots$ continues. Write its explicit formula and find $a_{{n}}$.'
+  answers:
+    - kind: expression
+      expression: d*n + c
+      variables: [n]
+      label: '$a_n =$'
+      show: '${d:coef}n {c:signed}$'
+    - {name: an, label: '$a_{{n}} =$'}
+  solution: |-
+    $a_1 = {a1}$ and $d = {t2} - ({a1}) = {d}$.
+    $a_n = {a1} + (n - 1)({d}) =$ **${d:coef}n {c:signed}$**.
+    $a_{{n}} = {a1} + ({nm})({d}) =$ **{an}**.
+
+- id: a1-d-geom-nth
+  title: Term of a geometric sequence
+  topic: Sequences
+  vars:
+    a1: {min: 1, max: 9}
+    r: {choices: [2, 3, -2, -3, 4]}
+    n: {min: 5, max: 10}
+  calc:
+    t2: a1*r
+    t3: a1*r^2
+    nm: n - 1
+    pw: r^(n - 1)
+    an: a1*r^(n - 1)
+  where: ['abs(an) <= 200000']
+  prompt: 'Find the {n}th term of the geometric sequence ${a1}, {t2}, {t3}, \dots$'
+  answers:
+    - {name: an, label: '$a_{{n}} =$'}
+  solution: |-
+    Common ratio: $r = \dfrac{{t2}}{{a1}} = {r}$. Then $a_n = {a1}({r})^{n-1}$.
+    $a_{{n}} = {a1}({r})^{{nm}}$. Since $({r})^{{nm}}$ is {pw}, $a_{{n}}$ is {a1} × {pw} = **{an}**.
+
+- id: a1-d-arith-two-terms
+  title: Arithmetic sequence from two terms
+  topic: Sequences
+  vars:
+    p: {min: 3, max: 6}
+    gap: {min: 3, max: 10}
+    d: {min: -8, max: 8}
+    a1: {min: -20, max: 20}
+  calc:
+    q: p + gap
+    ap: a1 + (p - 1)*d
+    aq: a1 + (q - 1)*d
+    rise: aq - ap
+    back: p - 1
+  where: ['d != 0']
+  prompt: 'In an arithmetic sequence, $a_{{p}} = {ap}$ and $a_{{q}} = {aq}$. Find the common difference $d$ and the first term $a_1$.'
+  answers:
+    - {name: d, label: '$d =$'}
+    - {name: a1, label: '$a_1 =$'}
+  solution: |-
+    From term {p} to term {q} is ${q} - {p} = {gap}$ steps, and the value changes by ${aq} - ({ap}) = {rise}$.
+    $d = \dfrac{{rise}}{{gap}} =$ **{d}**.
+    Back up {back} steps from $a_{{p}}$: $a_1 = {ap} - {back}({d}) =$ **{a1}**.

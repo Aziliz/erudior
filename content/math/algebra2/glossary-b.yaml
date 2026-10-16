@@ -1,0 +1,202 @@
+# Glossary terms for modules a2-m8 (probability and statistics) and a2-m9 (trigonometry)
+- term: tree diagram
+  aliases: [tree diagrams]
+  definition: 'A branching diagram that lists the outcomes of a multi-step process; each path from start to end is one outcome. For probability, multiply along a path.'
+  topic: Counting principle
+- term: fundamental counting principle
+  aliases: [counting principle, multiplication principle]
+  definition: 'If one choice can be made in $m$ ways and a following choice in $n$ ways, the two can be made together in $m \cdot n$ ways. Extends to any number of steps.'
+  topic: Counting principle
+- term: factorial
+  aliases: [factorials]
+  definition: '$n! = n(n - 1)(n - 2)\cdots 2 \cdot 1$, the number of ways to order $n$ different objects. By definition $0! = 1$.'
+  topic: Counting principle
+- term: permutation
+  aliases: [permutations]
+  definition: 'An arrangement in which order matters. The number of permutations of $r$ objects from $n$ is $_nP_r = \dfrac{n!}{(n - r)!}$.'
+  topic: Permutations and combinations
+- term: combination
+  aliases: [combinations, n choose r]
+  definition: 'A selection in which order does not matter. The number of combinations of $r$ objects from $n$ is $_nC_r = \dbinom{n}{r} = \dfrac{n!}{r!\,(n - r)!}$.'
+  topic: Permutations and combinations
+- term: sample space
+  definition: 'The set of all possible outcomes of an experiment, such as $\{1, 2, 3, 4, 5, 6\}$ for one roll of a die.'
+  topic: Probability rules
+- term: outcome
+  aliases: [outcomes]
+  definition: 'One possible result of an experiment.'
+  topic: Probability rules
+- term: event
+  aliases: [events]
+  definition: 'A set of outcomes of an experiment, such as "roll an even number."'
+  topic: Probability rules
+- term: theoretical probability
+  definition: 'For equally likely outcomes, $P(A) = \dfrac{\text{number of outcomes in } A}{\text{number of outcomes in the sample space}}$.'
+  topic: Probability rules
+- term: experimental probability
+  aliases: [empirical probability]
+  definition: 'The fraction of trials in which an event actually happened: $\dfrac{\text{times it occurred}}{\text{number of trials}}$.'
+  topic: Probability rules
+- term: complement
+  aliases: [complements, complement of an event]
+  definition: 'The complement $A^c$ of an event $A$ is every outcome not in $A$; $P(A^c) = 1 - P(A)$.'
+  topic: Probability rules
+- term: mutually exclusive
+  aliases: [disjoint, mutually exclusive events]
+  definition: 'Events that cannot happen at the same time, so $P(A \text{ and } B) = 0$ and $P(A \text{ or } B) = P(A) + P(B)$.'
+  topic: Probability rules
+- term: addition rule
+  definition: '$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$. The overlap is subtracted because it was counted twice.'
+  topic: Probability rules
+- term: two-way table
+  aliases: [two-way tables, contingency table]
+  definition: 'A table of counts for data classified two ways, with one variable in the rows and the other in the columns.'
+  topic: Conditional probability
+- term: conditional probability
+  aliases: [conditional probabilities]
+  definition: 'The probability of $B$ given that $A$ has happened: $P(B \mid A) = \dfrac{P(A \text{ and } B)}{P(A)}$.'
+  topic: Conditional probability
+- term: multiplication rule
+  definition: '$P(A \text{ and } B) = P(A) \cdot P(B \mid A)$; for independent events this is $P(A) \cdot P(B)$.'
+  topic: Conditional probability
+- term: independent events
+  aliases: [independent, independence]
+  definition: 'Events where knowing one happened does not change the probability of the other: $P(B \mid A) = P(B)$, equivalently $P(A \text{ and } B) = P(A)P(B)$.'
+  topic: Conditional probability
+- term: dependent events
+  aliases: [dependent]
+  definition: 'Events that are not independent: the outcome of one changes the probability of the other, as with draws without replacement.'
+  topic: Conditional probability
+- term: mean
+  aliases: [μ, average]
+  definition: 'The sum of the values divided by how many there are. The population mean is written $\mu$.'
+  topic: Normal distribution
+- term: standard deviation
+  aliases: [SD, σ, standard deviations]
+  definition: 'A measure of spread, roughly the typical distance of values from the mean. For a population, $\sigma = \sqrt{\sum (x - \mu)^2 / n}$; the sample version $s$ divides by $n - 1$.'
+  topic: Normal distribution
+- term: normal distribution
+  aliases: [normal distributions, normally distributed]
+  definition: 'A continuous, symmetric, bell-shaped distribution described by its mean $\mu$ and standard deviation $\sigma$.'
+  topic: Normal distribution
+- term: normal curve
+  aliases: [bell curve]
+  definition: 'The bell-shaped graph of a normal distribution. The total area under it is 1, and the area between two values is the probability of landing between them.'
+  topic: Normal distribution
+- term: 68–95–99.7 rule
+  aliases: [empirical rule, 68-95-99.7 rule]
+  definition: 'In a normal distribution, about 68% of values lie within 1 standard deviation of the mean, 95% within 2 and 99.7% within 3.'
+  topic: Normal distribution
+- term: z-score
+  aliases: [z-scores, standard score]
+  definition: 'The number of standard deviations a value lies from the mean: $z = \dfrac{x - \mu}{\sigma}$. Positive above the mean, negative below.'
+  topic: Normal distribution
+- term: standard normal distribution
+  definition: 'The normal distribution with mean 0 and standard deviation 1; z-scores follow it.'
+  topic: Normal distribution
+- term: normal CDF
+  aliases: [normalcdf, CDF, cumulative distribution function]
+  definition: 'A function (on many calculators, normalcdf(lower, upper, μ, σ)) that gives the area under a normal curve between two values, that is, the probability of landing between them.'
+  topic: Normal distribution
+- term: skewed
+  aliases: [skewed distribution, skew]
+  definition: 'Lopsided, with a long tail on one side. Skewed data are not normal, so the 68–95–99.7 rule does not apply.'
+  topic: Normal distribution
+- term: population
+  definition: 'The entire group that a study wants to learn about.'
+  topic: Sampling and surveys
+- term: sample
+  aliases: [samples]
+  definition: 'The part of a population that is actually observed or surveyed.'
+  topic: Sampling and surveys
+- term: parameter
+  definition: 'A number that describes a population, such as the true percent of all voters who support a law. Usually unknown.'
+  topic: Sampling and surveys
+- term: statistic
+  definition: 'A number computed from a sample, used to estimate a parameter.'
+  topic: Sampling and surveys
+- term: simple random sample
+  aliases: [SRS, random sample]
+  definition: 'A sample chosen so that every group of $n$ individuals in the population is equally likely to be selected.'
+  topic: Sampling and surveys
+- term: bias
+  aliases: [biased]
+  definition: 'A systematic tendency of a sampling method to over- or under-represent part of the population. A larger sample does not remove it.'
+  topic: Sampling and surveys
+- term: margin of error
+  aliases: [MOE]
+  definition: 'How far a sample result is likely to be from the population value. For a random sample of size $n$, about $\dfrac{1}{\sqrt n}$ at 95% confidence.'
+  topic: Sampling and surveys
+- term: standard position
+  definition: 'An angle with its vertex at the origin and its initial side along the positive $x$-axis.'
+  topic: Angles and radians
+- term: initial side
+  definition: 'The ray where the rotation forming an angle starts; in standard position, the positive $x$-axis.'
+  topic: Angles and radians
+- term: terminal side
+  definition: 'The ray where the rotation forming an angle ends.'
+  topic: Angles and radians
+- term: quadrantal angle
+  aliases: [quadrantal angles]
+  definition: 'An angle in standard position whose terminal side lies on an axis, such as $0^\circ$, $90^\circ$, $180^\circ$ or $270^\circ$.'
+  topic: Angles and radians
+- term: radian
+  aliases: [radians, rad]
+  definition: 'The central angle that cuts off an arc equal in length to the radius. $2\pi$ radians $= 360^\circ$, so $\pi$ radians $= 180^\circ$.'
+  topic: Angles and radians
+- term: coterminal angles
+  aliases: [coterminal, coterminal angle]
+  definition: 'Angles in standard position that share a terminal side; they differ by a multiple of $360^\circ$ ($2\pi$).'
+  topic: Angles and radians
+- term: reference angle
+  aliases: [reference angles]
+  definition: 'The acute angle between the terminal side of an angle and the $x$-axis. Trig values of an angle equal those of its reference angle, up to sign.'
+  topic: Angles and radians
+- term: arc length
+  definition: 'The length of a piece of a circle: $s = r\theta$, with $\theta$ in radians.'
+  topic: Angles and radians
+- term: unit circle
+  definition: 'The circle of radius 1 centered at the origin, $x^2 + y^2 = 1$. The point at angle $\theta$ is $(\cos\theta, \sin\theta)$.'
+  topic: Unit circle
+- term: cosine
+  aliases: [cos]
+  definition: 'For an angle $\theta$ in standard position, the $x$-coordinate of its point on the unit circle. For an acute angle in a right triangle, adjacent over hypotenuse.'
+  topic: Unit circle
+- term: sine
+  aliases: [sin]
+  definition: 'For an angle $\theta$ in standard position, the $y$-coordinate of its point on the unit circle. For an acute angle in a right triangle, opposite over hypotenuse.'
+  topic: Unit circle
+- term: tangent
+  aliases: [tan]
+  definition: '$\tan\theta = \dfrac{\sin\theta}{\cos\theta}$, the ratio $\tfrac{y}{x}$ of the unit-circle point; undefined when $\cos\theta = 0$.'
+  topic: Unit circle
+- term: Pythagorean identity
+  definition: '$\sin^2\theta + \cos^2\theta = 1$ for every angle $\theta$, because the point $(\cos\theta, \sin\theta)$ lies on $x^2 + y^2 = 1$.'
+  topic: Unit circle
+- term: periodic function
+  aliases: [periodic]
+  definition: 'A function whose values repeat at regular intervals: $f(x + P) = f(x)$ for all $x$.'
+  topic: Sinusoid graphs
+- term: period
+  definition: 'The length of the shortest interval over which a periodic function repeats. For $y = a\sin(bx)$ or $a\cos(bx)$ it is $\dfrac{2\pi}{b}$.'
+  topic: Sinusoid graphs
+- term: cycle
+  aliases: [cycles]
+  definition: 'One complete copy of the repeating pattern of a periodic graph.'
+  topic: Sinusoid graphs
+- term: sinusoid
+  aliases: [sinusoids, sinusoidal]
+  definition: 'A graph with the shape of a sine wave: $y = a\sin\big(b(x - h)\big) + k$ or the cosine version.'
+  topic: Sinusoid graphs
+- term: amplitude
+  definition: 'For a sinusoid, $|a|$: the distance from the midline to a maximum, half the distance from maximum to minimum.'
+  topic: Sinusoid graphs
+- term: frequency
+  definition: 'The number of cycles per unit of the input, $\dfrac{b}{2\pi}$; the reciprocal of the period.'
+  topic: Sinusoid graphs
+- term: midline
+  definition: 'The horizontal line $y = k$ halfway between the maximum and minimum of a sinusoid: $k = \dfrac{\max + \min}{2}$.'
+  topic: Sinusoid graphs
+- term: phase shift
+  definition: 'The horizontal shift $h$ of a sinusoid $y = a\sin\big(b(x - h)\big) + k$; right when $h > 0$. Factor $b$ out first: $\sin(bx - c)$ shifts by $\tfrac{c}{b}$.'
+  topic: Sinusoid graphs

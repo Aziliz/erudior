@@ -1,0 +1,265 @@
+# Exponents, polynomials, and factoring drills
+- id: alg-d-exp-simplify
+  title: Simplify with exponent rules
+  topic: Exponents
+  vars:
+    a: {min: 2, max: 3}
+    m: {min: 1, max: 4}
+    n: {min: 2, max: 3}
+    k: {min: -4, max: 4}
+  calc:
+    cf: a^n
+    mn: m*n
+    ex: m*n + k
+  where: ['k != 0', 'k != 1', 'ex != 0', 'ex != 1']
+  prompt: 'Simplify $(\,{a}x^{{m}})^{{n}} \cdot x^{{k}}$. Type your answer like 8x^5 (a negative exponent is fine).'
+  answers:
+    - kind: expression
+      expression: a^n*x^(m*n + k)
+      variables: [x]
+      label: 'Simplified'
+      show: '${cf}x^{{ex}}$'
+  solution: |-
+    Power of a product: $({a}x^{{m}})^{{n}} = {a}^{{n}} x^{{m} \cdot {n}} = {cf}x^{{mn}}$.
+    Product rule: ${cf}x^{{mn}} \cdot x^{{k}} = {cf}x^{{mn} + ({k})} =$ **${cf}x^{{ex}}$**.
+
+- id: alg-d-negative-exp
+  title: Negative exponents
+  topic: Exponents
+  vars:
+    p: {min: 1, max: 5}
+    q: {min: 2, max: 6}
+    n: {min: 1, max: 3}
+  calc:
+    val: (q/p)^n
+    qn: q^n
+    pn: p^n
+  where: ['gcd(p, q) == 1', 'p != q']
+  prompt: 'Evaluate $\left(\dfrac{{p}}{{q}}\right)^{-{n}}$ as an exact fraction.'
+  answers:
+    - {name: val, kind: fraction, lowestTerms: true, label: 'Value'}
+  solution: |-
+    A negative exponent flips the fraction: $\left(\dfrac{{p}}{{q}}\right)^{-{n}} = \left(\dfrac{{q}}{{p}}\right)^{{n}} = \dfrac{{qn}}{{pn}}$, which is **${val:texfrac}$**.
+
+- id: alg-d-sci-notation
+  title: Multiply in scientific notation
+  topic: Scientific notation
+  vars:
+    a: {min: 1.1, max: 9.9, step: 0.1}
+    b: {min: 1.1, max: 9.9, step: 0.1}
+    m: {min: -9, max: 9}
+    n: {min: -9, max: 9}
+  calc:
+    prod: round(a*b, 4)
+    sh: floor(log10(prod) + 0.0000001)
+    c: round(prod/10^sh, 4)
+    ex: m + n + sh
+    mn: m + n
+  where: ['abs(prod - 10) > 0.001', 'ex != 0']
+  prompt: 'Compute $({a} \times 10^{{m}})({b} \times 10^{{n}})$ and write it in scientific notation $c \times 10^{k}$ with $1 \le c < 10$.'
+  answers:
+    - {name: c, label: '$c =$', tolerance: 0.0001, format: num4}
+    - {name: ex, label: '$k =$'}
+  solution: |-
+    Multiply the decimals: ${a} \times {b} = {prod:num4}$. Add the exponents: $10^{{m}} \cdot 10^{{n}} = 10^{{mn}}$.
+    Adjust so the decimal is between 1 and 10: ${prod:num4} \times 10^{{mn}} =$ **${c:num4} \times 10^{{ex}}$**.
+
+- id: alg-d-poly-add
+  title: Subtract polynomials
+  topic: Polynomials
+  vars:
+    a: {min: -6, max: 8}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+    d: {min: -6, max: 8}
+    e2: {min: -9, max: 9}
+    f: {min: -9, max: 9}
+  calc:
+    r2: a - d
+    r1: b - e2
+    r0: c - f
+  where: ['a != 0', 'd != 0', 'b != 0', 'e2 != 0', 'c != 0', 'f != 0', 'r2 != 0', 'r1 != 0', 'r0 != 0']
+  prompt: 'Simplify $({a:coef}x^2 {b:signedcoef}x {c:signed}) - ({d:coef}x^2 {e2:signedcoef}x {f:signed})$.'
+  answers:
+    - kind: expression
+      expression: (a*x^2 + b*x + c) - (d*x^2 + e2*x + f)
+      variables: [x]
+      label: 'Result'
+      show: '${r2:coef}x^2 {r1:signedcoef}x {r0:signed}$'
+  solution: |-
+    Distribute the minus sign to every term of the second polynomial, then combine like terms:
+    $({a} - ({d}))x^2 + ({b} - ({e2}))x + ({c} - ({f})) =$ **${r2:coef}x^2 {r1:signedcoef}x {r0:signed}$**.
+
+- id: alg-d-foil
+  title: Multiply two binomials
+  topic: Polynomials
+  vars:
+    a: {min: 1, max: 6}
+    b: {min: -9, max: 9}
+    c: {min: 1, max: 6}
+    d: {min: -9, max: 9}
+  calc:
+    F: a*c
+    O: a*d
+    I: b*c
+    L: b*d
+    mid: a*d + b*c
+  where: ['b != 0', 'd != 0', 'mid != 0']
+  prompt: 'Multiply and simplify: $({a:coef}x {b:signed})({c:coef}x {d:signed})$'
+  answers:
+    - kind: expression
+      expression: (a*x + b)*(c*x + d)
+      variables: [x]
+      label: 'Product'
+      show: '${F:coef}x^2 {mid:signedcoef}x {L:signed}$'
+  solution: |-
+    First ${F:coef}x^2$, Outer ${O:coef}x$, Inner ${I:coef}x$, Last ${L}$.
+    Combine the middle terms: **${F:coef}x^2 {mid:signedcoef}x {L:signed}$**.
+
+- id: alg-d-binomial-square
+  title: Square a binomial
+  topic: Polynomials
+  vars:
+    a: {min: 1, max: 7}
+    b: {min: -9, max: 9}
+  calc:
+    a2: a^2
+    m2: 2*a*b
+    b2: b^2
+  where: ['b != 0']
+  prompt: 'Expand $({a:coef}x {b:signed})^2$.'
+  answers:
+    - kind: expression
+      expression: (a*x + b)^2
+      variables: [x]
+      label: 'Expanded'
+      show: '${a2:coef}x^2 {m2:signedcoef}x + {b2}$'
+  solution: |-
+    Use $(p + q)^2 = p^2 + 2pq + q^2$ with $p = {a:coef}x$ and $q = {b}$:
+    $({a:coef}x)^2 + 2({a:coef}x)({b}) + ({b})^2 =$ **${a2:coef}x^2 {m2:signedcoef}x + {b2}$**. Don't forget the middle term.
+
+- id: alg-d-factor-gcf
+  title: Factor out the greatest common factor
+  topic: Factoring
+  vars:
+    k: {min: 2, max: 9}
+    m: {min: 2, max: 3}
+    p: {min: 1, max: 7}
+    q: {min: -9, max: 9}
+    r: {min: -9, max: 9}
+  calc:
+    t2: k*p
+    t1: k*q
+    t0: k*r
+    e2: m + 2
+    e1: m + 1
+  where: ['q != 0', 'r != 0', 'gcd(gcd(p, abs(q)), abs(r)) == 1']
+  prompt: 'Factor out the GCF: $\;{t2}x^{{e2}} {t1:signed}x^{{e1}} {t0:signed}x^{{m}}$. (Type the factored form, like 3x^2(2x^2 - x + 5).)'
+  answers:
+    - kind: expression
+      expression: k*x^m*(p*x^2 + q*x + r)
+      variables: [x]
+      label: 'Factored'
+      show: '${k}x^{{m}}({p:coef}x^2 {q:signedcoef}x {r:signed})$'
+  solution: |-
+    The GCF of the coefficients is {k}, and the lowest power of $x$ is $x^{{m}}$, so the GCF is ${k}x^{{m}}$.
+    Divide each term by it: **${k}x^{{m}}({p:coef}x^2 {q:signedcoef}x {r:signed})$**. Multiply back to check.
+
+- id: alg-d-factor-grouping
+  title: Factor by grouping
+  topic: Factoring
+  vars:
+    p: {min: -7, max: 7}
+    q: {min: 1, max: 5}
+    r: {min: -9, max: 9}
+  calc:
+    c3: q
+    c2: p*q
+    c1: r
+    c0: p*r
+  where: ['p != 0', 'r != 0', 'gcd(q, abs(r)) == 1', 'not (r < 0 and sqrt(q) == round(sqrt(q)) and sqrt(-r) == round(sqrt(-r)))']
+  prompt: 'Factor by grouping: $\;{c3:coef}x^3 {c2:signedcoef}x^2 {c1:signedcoef}x {c0:signed}$.'
+  answers:
+    - kind: expression
+      expression: (x + p)*(q*x^2 + r)
+      variables: [x]
+      label: 'Factored'
+      show: '$(x {p:signed})({q:coef}x^2 {r:signed})$'
+  solution: |-
+    Group the first two and last two terms: $({c3:coef}x^3 {c2:signedcoef}x^2) + ({c1:coef}x {c0:signed})$.
+    Factor each: ${q:coef}x^2(x {p:signed}) + ({r})(x {p:signed})$. The common binomial gives **$(x {p:signed})({q:coef}x^2 {r:signed})$**.
+
+- id: alg-d-factor-ac
+  title: Factor ax² + bx + c
+  topic: Factoring
+  vars:
+    p: {min: 1, max: 4}
+    q: {min: -7, max: 7}
+    r: {min: 2, max: 5}
+    s: {min: -7, max: 7}
+  calc:
+    A: p*r
+    B: p*s + q*r
+    C: q*s
+    AC: p*r*q*s
+    n1: p*s
+    n2: q*r
+  where: ['q != 0', 's != 0', 'B != 0', 'gcd(p, abs(q)) == 1', 'gcd(r, abs(s)) == 1', 'A > 1']
+  prompt: 'Factor $\;{A}x^2 {B:signedcoef}x {C:signed}$.'
+  answers:
+    - kind: expression
+      expression: (p*x + q)*(r*x + s)
+      variables: [x]
+      label: 'Factored'
+      show: '$({p:coef}x {q:signed})({r}x {s:signed})$'
+  solution: |-
+    $ac = {A} \cdot ({C}) = {AC}$. Two numbers with product {AC} and sum {B}: {n1} and {n2}.
+    Split the middle term, ${A}x^2 {n1:signedcoef}x {n2:signedcoef}x {C:signed}$, and group to get **$({p:coef}x {q:signed})({r}x {s:signed})$**.
+
+- id: alg-d-factor-special
+  title: Factor a difference of squares
+  topic: Factoring
+  vars:
+    k: {choices: [1, 1, 2, 3, 5]}
+    a: {min: 1, max: 9}
+    b: {min: 1, max: 12}
+  calc:
+    A: k*a^2
+    B: k*b^2
+    a2: a^2
+    b2: b^2
+  where: ['gcd(a, b) == 1']
+  prompt: 'Factor completely: $\;{A:coef}x^2 - {B}$.'
+  answers:
+    - kind: expression
+      expression: k*(a*x + b)*(a*x - b)
+      variables: [x]
+      label: 'Factored'
+      show: '${k:coef}({a:coef}x + {b})({a:coef}x - {b})$'
+  solution: |-
+    First take out any common factor (here {k}): ${k:coef}({a2:coef}x^2 - {b2})$.
+    Then $a^2 - b^2 = (a + b)(a - b)$ with ${a2:coef}x^2 = ({a:coef}x)^2$ and ${b2} = {b}^2$: **${k:coef}({a:coef}x + {b})({a:coef}x - {b})$**.
+
+- id: alg-d-factor-cubes
+  title: Factor a sum or difference of cubes
+  topic: Factoring
+  vars:
+    a: {min: 1, max: 4}
+    s: {choices: [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]}
+  calc:
+    A: a^3
+    S: s^3
+    a2: a^2
+    ms: -a*s
+    s2: s^2
+  where: ['gcd(a, abs(s)) == 1']
+  prompt: 'Factor $\;{A:coef}x^3 {S:signed}$.'
+  answers:
+    - kind: expression
+      expression: (a*x + s)*(a^2*x^2 - a*s*x + s^2)
+      variables: [x]
+      label: 'Factored'
+      show: '$({a:coef}x {s:signed})({a2:coef}x^2 {ms:signedcoef}x + {s2})$'
+  solution: |-
+    Write it as $({a:coef}x)^3 + ({s})^3$ and use $u^3 + v^3 = (u + v)(u^2 - uv + v^2)$ with $u = {a:coef}x$, $v = {s}$.
+    Result: **$({a:coef}x {s:signed})({a2:coef}x^2 {ms:signedcoef}x + {s2})$**. (Signs: same, opposite, always positive.)

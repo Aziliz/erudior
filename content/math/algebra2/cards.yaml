@@ -1,0 +1,102 @@
+# Notecards
+- {front: 'Strategy for a 3×3 system', back: 'Eliminate the same variable from two different pairs, solve the resulting 2×2 system, then back-substitute.', topic: Three-variable systems}
+- {front: 'Parabola through three points', back: 'Substitute each point into $y = ax^2 + bx + c$ and solve the 3×3 system for $a$, $b$, $c$.', topic: Three-variable systems}
+- {front: 'Product and quotient properties of radicals', back: '$\sqrt[n]{ab} = \sqrt[n]{a}\sqrt[n]{b}$ and $\sqrt[n]{\tfrac ab} = \tfrac{\sqrt[n]a}{\sqrt[n]b}$. Roots do not split over sums.', topic: Radicals}
+- {front: 'Simplify $\sqrt{72}$', back: '$6\sqrt2$', topic: Radicals}
+- {front: '$\sqrt{x^2}$', back: '$|x|$', topic: Radicals}
+- {front: 'Rationalizing a two-term denominator', back: 'Multiply top and bottom by the conjugate: $(a + \sqrt b)(a - \sqrt b) = a^2 - b$.', topic: Radicals}
+- {front: 'Rational exponent $a^{m/n}$', back: '$\left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m}$: denominator = root, numerator = power.', topic: Rational exponents}
+- {front: '$8^{2/3}$ and $16^{-3/4}$', back: '$4$ and $\tfrac18$.', topic: Rational exponents}
+- {front: 'Steps for a radical equation', back: 'Isolate the radical, raise both sides to the index power, solve, and check every candidate.', topic: Radical equations}
+- {front: 'Why can squaring create extraneous solutions?', back: '$a^2 = b^2$ only gives $a = \pm b$, so solutions of $a = -b$ sneak in.', topic: Radical equations}
+- {front: '$\sqrt{u} = -3$', back: 'No solution: a principal square root is never negative.', topic: Radical equations}
+- {front: 'Imaginary unit', back: '$i^2 = -1$; $\sqrt{-b} = i\sqrt b$ for $b > 0$.', topic: Complex numbers}
+- {front: 'Powers of $i$', back: 'They cycle $i, -1, -i, 1$. Reduce the exponent mod 4.', topic: Complex numbers}
+- {front: '$(a + bi)(a - bi)$', back: '$a^2 + b^2$', topic: Complex numbers}
+- {front: 'Dividing complex numbers', back: 'Multiply top and bottom by the conjugate of the denominator.', topic: Complex numbers}
+- {front: '$\sqrt{-4}\sqrt{-9}$', back: '$(2i)(3i) = -6$ (not $\sqrt{36}$).', topic: Complex numbers}
+- {front: 'Excluded values of a rational expression', back: 'Values that make an original denominator zero; find them before simplifying.', topic: Rational expressions}
+- {front: 'Simplifying rational expressions', back: 'Factor completely, then cancel common factors only (never terms).', topic: Rational expressions}
+- {front: '$\dfrac{a - b}{b - a}$', back: '$-1$', topic: Rational expressions}
+- {front: 'Dividing rational expressions', back: 'Multiply by the reciprocal of the divisor; the divisor''s numerator also can''t be zero.', topic: Rational expressions}
+- {front: 'Hole vs vertical asymptote', back: 'A factor that cancels gives a hole; a denominator zero that remains gives a vertical asymptote.', topic: Rational expressions}
+- {front: 'Least common denominator', back: 'Each distinct factor of the denominators, to the highest power it appears.', topic: Rational expressions}
+- {front: '$\dfrac1x + \dfrac1y$', back: '$\dfrac{x + y}{xy}$', topic: Rational expressions}
+- {front: 'Subtracting rational expressions', back: 'Put the second numerator in parentheses so the minus sign reaches every term.', topic: Rational expressions}
+- {front: 'Simplifying a complex fraction', back: 'Multiply top and bottom by the LCD of all the inner fractions (or combine each part and divide).', topic: Complex fractions}
+- {front: 'Solving a rational equation', back: 'Note excluded values, multiply every term by the LCD, solve, and reject excluded values.', topic: Rational equations}
+- {front: 'Proportion $\tfrac ab = \tfrac cd$', back: 'Cross products: $ad = bc$.', topic: Rational equations}
+- {front: 'Work problems', back: 'Rates add: $\dfrac{1}{t_1} + \dfrac{1}{t_2} = \dfrac{1}{T}$.', topic: Work and rate}
+- {front: 'Pipes taking 6 h and 3 h together', back: '$\tfrac16 + \tfrac13 = \tfrac12$, so 2 hours.', topic: Work and rate}
+- {front: 'Equal-time motion problem', back: 'Use $t = \tfrac dr$ for each trip and set the times equal.', topic: Work and rate}
+- {front: 'End behavior of a polynomial', back: 'Follows the leading term: even degree, ends match; odd degree, opposite ends. Negative leading coefficient flips.', topic: Polynomial functions}
+- {front: 'End behavior of $-2x^5 + \cdots$', back: 'Up on the left, down on the right.', topic: Polynomial functions}
+- {front: 'Odd vs even multiplicity at a zero', back: 'Odd: graph crosses the $x$-axis. Even: graph touches and turns back.', topic: Polynomial functions}
+- {front: 'Degree $n$ polynomial: max real zeros and turning points', back: 'At most $n$ real zeros and at most $n - 1$ turning points.', topic: Polynomial functions}
+- {front: 'Intermediate Value Theorem (polynomials)', back: 'If $f(a)$ and $f(b)$ have opposite signs, $f$ has a zero between $a$ and $b$.', topic: Polynomial functions}
+- {front: 'Division algorithm', back: '$f(x) = d(x)q(x) + r(x)$, with $r = 0$ or $\deg r < \deg d$.', topic: Polynomial division}
+- {front: 'Synthetic division: what number for divisor $x + 3$?', back: '$-3$, since $x + 3 = x - (-3)$.', topic: Polynomial division}
+- {front: 'Missing powers in division', back: 'Insert zero coefficients, e.g. $x^3 - 8$ is $1, 0, 0, -8$.', topic: Polynomial division}
+- {front: 'Remainder Theorem', back: 'Dividing $f(x)$ by $x - c$ leaves remainder $f(c)$.', topic: Polynomial division}
+- {front: 'Factor Theorem', back: '$(x - c)$ is a factor of $f(x)$ exactly when $f(c) = 0$.', topic: Polynomial division}
+- {front: 'Rational Root Theorem', back: 'Possible rational zeros are $\pm\dfrac{\text{factors of the constant}}{\text{factors of the leading coefficient}}$.', topic: Rational root theorem}
+- {front: 'Finding all zeros of a cubic', back: 'List rational candidates, test to find one zero, divide it out, solve the quadratic quotient.', topic: Rational root theorem}
+- {front: 'Fundamental Theorem of Algebra', back: 'A degree-$n$ polynomial has exactly $n$ complex zeros counting multiplicity.', topic: Rational root theorem}
+- {front: 'Conjugate pairs', back: 'If a real-coefficient polynomial has zero $a + bi$, it also has $a - bi$.', topic: Rational root theorem}
+- {front: 'Exponential function', back: '$f(x) = ab^x$: growth if $b > 1$, decay if $0 < b < 1$; $y$-intercept $a$; asymptote $y = 0$.', topic: Exponential functions}
+- {front: 'Linear vs exponential change', back: 'Linear adds a constant each step; exponential multiplies by a constant each step.', topic: Exponential functions}
+- {front: 'Growth or decay by $r$ per period', back: '$A = a(1 + r)^t$ or $A = a(1 - r)^t$', topic: Exponential functions}
+- {front: 'Half-life formula', back: '$A = A_0\left(\tfrac12\right)^{t/h}$', topic: Exponential functions}
+- {front: 'Compound interest', back: '$A = P\left(1 + \dfrac rn\right)^{nt}$', topic: Compound interest}
+- {front: 'Continuous compounding', back: '$A = Pe^{rt}$', topic: Compound interest}
+- {front: 'The number $e$', back: '$e \approx 2.71828$, the limit of $\left(1 + \tfrac1n\right)^n$.', topic: Compound interest}
+- {front: 'Definition of logarithm', back: '$\log_b x = y \iff b^y = x$', topic: Logarithms}
+- {front: '$\log x$ and $\ln x$', back: '$\log x$ is base 10; $\ln x$ is base $e$.', topic: Logarithms}
+- {front: 'Inverse properties of logs', back: '$\log_b b^x = x$ and $b^{\log_b x} = x$.', topic: Logarithms}
+- {front: 'Product rule (logarithms)', back: '$\log_b(MN) = \log_b M + \log_b N$', topic: Logarithms}
+- {front: 'Quotient rule (logarithms)', back: '$\log_b\dfrac MN = \log_b M - \log_b N$', topic: Logarithms}
+- {front: 'Power rule (logarithms)', back: '$\log_b M^k = k\log_b M$', topic: Logarithms}
+- {front: 'Is there a rule for $\log(M + N)$?', back: 'No. It does not simplify.', topic: Logarithms}
+- {front: 'Change-of-base formula', back: '$\log_b x = \dfrac{\ln x}{\ln b}$', topic: Logarithms}
+- {front: 'Graph of $y = \log_b x$', back: 'Reflection of $y = b^x$ across $y = x$: domain $(0, \infty)$, $x$-intercept $(1, 0)$, vertical asymptote $x = 0$.', topic: Logarithms}
+- {front: 'Solving $b^{(\ldots)} = c$ without a common base', back: 'Isolate the power, take $\ln$ of both sides, use the power rule, divide.', topic: Exponential equations}
+- {front: 'Solving $\log_b(\text{stuff}) = c$', back: 'Rewrite as $\text{stuff} = b^c$, solve, then check that every log argument is positive.', topic: Logarithmic equations}
+- {front: 'Doubling time at rate $r$ (annual compounding)', back: '$t = \dfrac{\ln 2}{\ln(1 + r)}$; roughly $\tfrac{72}{\text{rate in percent}}$.', topic: Exponential equations}
+- {front: 'Half-life of $A_0e^{-kt}$', back: '$t = \dfrac{\ln 2}{k}$', topic: Exponential equations}
+- {front: 'Explicit vs recursive formula', back: 'Explicit gives $a_n$ from $n$; recursive gives $a_1$ and $a_n$ from $a_{n-1}$.', topic: Arithmetic sequences}
+- {front: 'nth term of an arithmetic sequence', back: '$a_n = a_1 + (n - 1)d$', topic: Arithmetic sequences}
+- {front: 'Sum of an arithmetic series', back: '$S_n = \dfrac{n(a_1 + a_n)}{2} = \dfrac n2[2a_1 + (n - 1)d]$', topic: Arithmetic sequences}
+- {front: '$1 + 2 + \cdots + n$', back: '$\dfrac{n(n + 1)}{2}$', topic: Arithmetic sequences}
+- {front: 'Sigma notation', back: '$\sum_{k=1}^{n} a_k = a_1 + a_2 + \cdots + a_n$', topic: Series}
+- {front: 'nth term of a geometric sequence', back: '$a_n = a_1r^{n-1}$', topic: Geometric sequences}
+- {front: 'Arithmetic or geometric test', back: 'Equal differences: arithmetic. Equal ratios: geometric.', topic: Geometric sequences}
+- {front: 'Sum of a finite geometric series', back: '$S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ ($r \ne 1$)', topic: Series}
+- {front: 'Sum of an infinite geometric series', back: '$S = \dfrac{a_1}{1 - r}$ if $|r| < 1$; otherwise it diverges.', topic: Series}
+- {front: 'Repeating decimal $0.\overline{36}$ as a fraction', back: '$\tfrac{36}{99} = \tfrac{4}{11}$ (an infinite geometric series with $r = 0.01$).', topic: Series}
+- {front: 'Parent function gallery', back: '$x$, $x^2$, $x^3$, $\lvert x \rvert$, $\sqrt x$, $\sqrt[3]x$, $\tfrac1x$, $2^x$: know each shape and a few exact points.', topic: Transformations}
+- {front: '$y = f(x) + k$ vs $y = f(x - h)$', back: 'Outside $+k$: up $k$. Inside $-h$: right $h$ (inside changes act opposite to how they look).', topic: Transformations}
+- {front: '$-f(x)$ vs $f(-x)$', back: '$-f(x)$ reflects across the $x$-axis; $f(-x)$ reflects across the $y$-axis.', topic: Transformations}
+- {front: '$a\,f(x)$ and $f(bx)$', back: '$a f(x)$: vertical stretch by $a$ (compression if $0 < a < 1$). $f(bx)$: horizontal compression by $\tfrac1b$.', topic: Transformations}
+- {front: 'Point mapping for $y = a\,f(x - h) + k$', back: '$(x, y) \to (x + h,\; ay + k)$: multiply the height first, then add $k$.', topic: Transformations}
+- {front: 'Evaluating a piecewise function', back: 'Find the condition the input satisfies, then use only that piece''s formula.', topic: Piecewise functions}
+- {front: 'Open vs closed dots on a piecewise graph', back: 'Closed: endpoint included ($\le$, $\ge$). Open: endpoint excluded ($<$, $>$).', topic: Piecewise functions}
+- {front: '$\lvert x \rvert$ as a piecewise function', back: '$x$ if $x \ge 0$; $-x$ if $x < 0$. For $\lvert mx + b \rvert$, break where $mx + b = 0$.', topic: Piecewise functions}
+- {front: '$\lfloor -1.2 \rfloor$', back: '$-2$: the floor rounds down on the number line.', topic: Piecewise functions}
+- {front: 'Domain of $f + g$, $fg$, $\tfrac fg$', back: 'Where both $f$ and $g$ are defined; for $\tfrac fg$ also exclude $g(x) = 0$.', topic: Function operations}
+- {front: '$(f \circ g)(x)$', back: '$f(g(x))$: apply $g$ first, then $f$. Evaluate from the inside out.', topic: Composition}
+- {front: 'Domain of $f(g(x))$', back: '$x$ in the domain of $g$, and $g(x)$ in the domain of $f$.', topic: Composition}
+- {front: 'Is $f(g(x)) = g(f(x))$?', back: 'Usually not: with $f(x) = x^2$, $g(x) = x + 3$, $(x + 3)^2 \ne x^2 + 3$.', topic: Composition}
+- {front: 'Meaning of $f^{-1}(b) = a$', back: '$f(a) = b$. Points $(a, b)$ on $f$ become $(b, a)$ on $f^{-1}$; domain and range swap.', topic: Inverse functions}
+- {front: 'When does $f$ have an inverse function?', back: 'When it is one-to-one: it passes the horizontal line test.', topic: Inverse functions}
+- {front: 'Finding $f^{-1}$', back: 'Write $y = f(x)$, swap $x$ and $y$, solve for $y$; restrict the domain to the range of $f$ if needed.', topic: Inverse functions}
+- {front: 'Graph of $f^{-1}$', back: 'The reflection of the graph of $f$ across the line $y = x$.', topic: Inverse functions}
+- {front: 'Verifying inverses', back: 'Check that $f(g(x)) = x$ and $g(f(x)) = x$.', topic: Inverse functions}
+- {front: 'Discriminant $b^2 - 4ac$', back: 'Positive: two real roots. Zero: a double root. Negative: two complex conjugate roots.', topic: Quadratics with complex solutions}
+- {front: 'Complex roots of $ax^2 + bx + c$ when $b^2 - 4ac < 0$', back: '$-\tfrac{b}{2a} \pm \tfrac{\sqrt{4ac - b^2}}{2a}\,i$', topic: Quadratics with complex solutions}
+- {front: 'Sum and product of the roots of $ax^2 + bx + c$', back: 'Sum $-\tfrac ba$, product $\tfrac ca$.', topic: Quadratics with complex solutions}
+- {front: 'Quadratic with roots $p \pm qi$', back: '$(x - p)^2 + q^2 = x^2 - 2px + p^2 + q^2$', topic: Quadratics with complex solutions}
+- {front: 'When does $a(x - h)^2 + k = 0$ have non-real solutions?', back: 'When $a$ and $k$ have the same sign: the parabola opens away from the $x$-axis.', topic: Quadratics with complex solutions}
+- {front: 'Hole vs vertical asymptote', back: 'Factor and cancel. A cancelled factor gives a hole; a denominator factor that remains gives a vertical asymptote.', topic: Rational functions}
+- {front: 'Horizontal asymptote of a rational function', back: 'Top degree smaller: $y = 0$. Equal: ratio of leading coefficients. Top larger: none.', topic: Rational functions}
+- {front: 'Asymptotes of $y = \dfrac{a}{x - h} + k$', back: 'Vertical $x = h$, horizontal $y = k$.', topic: Rational functions}
+- {front: 'Inverse variation', back: '$y = \dfrac kx$ with $k = xy$ constant; doubling $x$ halves $y$.', topic: Inverse variation}

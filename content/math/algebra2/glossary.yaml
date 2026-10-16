@@ -1,0 +1,414 @@
+# Glossary
+- term: linear equation in three variables
+  definition: 'An equation $ax + by + cz = d$; its graph is a plane.'
+  topic: Three-variable systems
+- term: ordered triple
+  definition: 'A solution $(x, y, z)$ of an equation or system in three variables.'
+  topic: Three-variable systems
+- term: square root
+  definition: 'A number whose square is a given number; every positive number has two square roots.'
+  topic: Radicals
+- term: principal square root
+  definition: 'The nonnegative square root, written $\sqrt{a}$.'
+  topic: Radicals
+- term: nth root
+  definition: '$\sqrt[n]{a}$, a number whose $n$th power is $a$ (the nonnegative one when $n$ is even).'
+  topic: Radicals
+- term: index
+  definition: 'In $\sqrt[n]{a}$, the number $n$ that tells which root.'
+  topic: Radicals
+- term: radicand
+  definition: 'The expression under a radical sign.'
+  topic: Radicals
+- term: radical
+  aliases: [radicals]
+  definition: 'An expression $\sqrt[n]{a}$ involving a root.'
+  topic: Radicals
+- term: simplest radical form
+  definition: 'A radical with no perfect-power factors in the radicand, no fractions under the radical, and no radical in a denominator.'
+  topic: Radicals
+- term: like radicals
+  definition: 'Radicals with the same index and radicand, such as $3\sqrt5$ and $4\sqrt5$; they combine like like terms.'
+  topic: Radicals
+- term: rationalizing the denominator
+  aliases: [rationalize, rationalize the denominator]
+  definition: 'Rewriting a fraction so that no radical appears in its denominator.'
+  topic: Radicals
+- term: conjugate
+  aliases: [conjugates]
+  definition: 'For $a + \sqrt b$, the expression $a - \sqrt b$; their product $a^2 - b$ has no radical.'
+  topic: Radicals
+- term: rational exponent
+  aliases: [rational exponents]
+  definition: '$a^{m/n} = \left(\sqrt[n]{a}\right)^m$: the denominator is the root and the numerator is the power.'
+  topic: Rational exponents
+- term: radical equation
+  aliases: [radical equations]
+  definition: 'An equation with the variable inside a radical.'
+  topic: Radical equations
+- term: extraneous solution
+  aliases: [extraneous solutions, extraneous]
+  definition: 'A value that solves a transformed equation (after squaring or clearing denominators) but not the original equation.'
+  topic: Radical equations
+- term: imaginary unit
+  aliases: [i]
+  definition: 'The number $i$ with $i^2 = -1$.'
+  topic: Complex numbers
+- term: complex number
+  aliases: [complex numbers]
+  definition: 'A number $a + bi$ with $a$ and $b$ real.'
+  topic: Complex numbers
+- term: real part
+  definition: 'In $a + bi$, the number $a$.'
+  topic: Complex numbers
+- term: imaginary part
+  definition: 'In $a + bi$, the real number $b$ (not $bi$).'
+  topic: Complex numbers
+- term: pure imaginary number
+  definition: 'A complex number $bi$ with $b \ne 0$, such as $3i$.'
+  topic: Complex numbers
+- term: complex plane
+  definition: 'A plane in which $a + bi$ is plotted at $(a, b)$: real parts horizontally, imaginary parts vertically.'
+  topic: Complex numbers
+- term: complex conjugate
+  definition: 'The conjugate of $a + bi$ is $a - bi$; their product is $a^2 + b^2$.'
+  topic: Complex numbers
+- term: rational expression
+  aliases: [rational expressions]
+  definition: 'A quotient of two polynomials, $\tfrac{P}{Q}$ with $Q$ not the zero polynomial.'
+  topic: Rational expressions
+- term: excluded values
+  aliases: [excluded value, restrictions]
+  definition: 'Values of the variable that make a denominator zero; they are not in the domain.'
+  topic: Rational expressions
+- term: fundamental principle of fractions
+  definition: '$\dfrac{AC}{BC} = \dfrac{A}{B}$ for $C \ne 0$: a common factor can be cancelled.'
+  topic: Rational expressions
+- term: lowest terms
+  definition: 'A fraction or rational expression with no common factors left in the numerator and denominator.'
+  topic: Rational expressions
+- term: hole
+  definition: 'A single missing point on a graph, where a factor cancels from the numerator and denominator.'
+  topic: Rational expressions
+- term: rational function
+  aliases: [rational functions]
+  definition: 'A function given by a rational expression, such as $f(x) = \tfrac1x$.'
+  topic: Rational expressions
+- term: vertical asymptote
+  definition: 'A vertical line $x = a$ that a graph approaches but never touches, where the function values blow up.'
+  topic: Rational expressions
+- term: least common denominator
+  aliases: [LCD]
+  definition: 'The simplest expression that every denominator divides: each distinct factor to its highest power.'
+  topic: Rational expressions
+- term: complex fraction
+  aliases: [complex fractions]
+  definition: 'A fraction with a fraction in its numerator, denominator, or both.'
+  topic: Complex fractions
+- term: rational equation
+  aliases: [rational equations]
+  definition: 'An equation containing rational expressions.'
+  topic: Rational equations
+- term: proportion
+  aliases: [proportions]
+  definition: 'An equation of two ratios, $\tfrac ab = \tfrac cd$.'
+  topic: Rational equations
+- term: cross products
+  aliases: [cross-multiply]
+  definition: 'In $\tfrac ab = \tfrac cd$, the products $ad$ and $bc$, which must be equal.'
+  topic: Rational equations
+- term: polynomial function
+  aliases: [polynomial functions]
+  definition: 'A function $f(x) = a_nx^n + \cdots + a_1x + a_0$ with whole-number exponents.'
+  topic: Polynomial functions
+- term: continuous
+  definition: 'Having a graph with no breaks, holes or jumps.'
+  topic: Polynomial functions
+- term: smooth
+  definition: 'Having a graph with no sharp corners.'
+  topic: Polynomial functions
+- term: end behavior
+  definition: 'What $f(x)$ does as $x \to \infty$ and $x \to -\infty$; for a polynomial it follows the leading term.'
+  topic: Polynomial functions
+- term: multiplicity
+  definition: 'The number of times a factor $(x - c)$ appears; odd multiplicity crosses the axis, even multiplicity touches it.'
+  topic: Polynomial functions
+- term: turning point
+  aliases: [turning points]
+  definition: 'A point where a graph changes from rising to falling or the reverse; degree $n$ allows at most $n - 1$.'
+  topic: Polynomial functions
+- term: Intermediate Value Theorem
+  aliases: [IVT]
+  definition: 'If a continuous function has $f(a)$ and $f(b)$ of opposite signs, it has a zero between $a$ and $b$.'
+  topic: Polynomial functions
+- term: quotient
+  definition: 'The result of a division; in $f = d \cdot q + r$, the polynomial $q$.'
+  topic: Polynomial division
+- term: remainder
+  definition: 'What is left over in division; in $f = d \cdot q + r$, the polynomial $r$, of smaller degree than $d$.'
+  topic: Polynomial division
+- term: division algorithm
+  definition: '$f(x) = d(x)q(x) + r(x)$ with $r = 0$ or $\deg r < \deg d$.'
+  topic: Polynomial division
+- term: synthetic division
+  definition: 'A shortcut for dividing a polynomial by $x - c$ using only its coefficients.'
+  topic: Polynomial division
+- term: Remainder Theorem
+  definition: 'The remainder when $f(x)$ is divided by $x - c$ is $f(c)$.'
+  topic: Polynomial division
+- term: Factor Theorem
+  definition: '$x - c$ is a factor of $f(x)$ exactly when $f(c) = 0$.'
+  topic: Polynomial division
+- term: Rational Root Theorem
+  aliases: [rational zero theorem]
+  definition: 'Any rational zero $\tfrac pq$ (lowest terms) of a polynomial with integer coefficients has $p$ dividing the constant term and $q$ dividing the leading coefficient.'
+  topic: Rational root theorem
+- term: depressed polynomial
+  definition: 'The quotient left after dividing out a known factor; its zeros are the remaining zeros.'
+  topic: Rational root theorem
+- term: Fundamental Theorem of Algebra
+  aliases: [FTA]
+  definition: 'Every polynomial of degree $n \ge 1$ has a complex zero; hence exactly $n$ complex zeros counting multiplicity.'
+  topic: Rational root theorem
+- term: conjugate pairs
+  aliases: [conjugate pair]
+  definition: 'For polynomials with real coefficients, non-real zeros come as $a \pm bi$.'
+  topic: Rational root theorem
+- term: exponential function
+  aliases: [exponential functions]
+  definition: 'A function $f(x) = ab^x$ with $b > 0$, $b \ne 1$.'
+  topic: Exponential functions
+- term: exponential growth
+  definition: 'Increase by a constant factor $b > 1$ per unit of time.'
+  topic: Exponential functions
+- term: exponential decay
+  definition: 'Decrease by a constant factor $0 < b < 1$ per unit of time.'
+  topic: Exponential functions
+- term: horizontal asymptote
+  definition: 'A horizontal line that a graph approaches as $x \to \infty$ or $x \to -\infty$; $y = 0$ for $y = b^x$.'
+  topic: Exponential functions
+- term: half-life
+  definition: 'The time for a decaying quantity to fall to half its amount: $A = A_0\left(\tfrac12\right)^{t/h}$.'
+  topic: Exponential functions
+- term: doubling time
+  definition: 'The time for a growing quantity to double: $A = A_0 \cdot 2^{t/d}$.'
+  topic: Exponential functions
+- term: compound interest
+  definition: 'Interest earned on interest: $A = P\left(1 + \tfrac rn\right)^{nt}$.'
+  topic: Compound interest
+- term: natural base
+  aliases: [e]
+  definition: 'The number $e \approx 2.71828$, the limit of $\left(1 + \tfrac1n\right)^n$.'
+  topic: Compound interest
+- term: continuous compounding
+  definition: 'Interest compounded infinitely often: $A = Pe^{rt}$.'
+  topic: Compound interest
+- term: natural exponential function
+  definition: 'The function $f(x) = e^x$.'
+  topic: Exponential functions
+- term: logarithm
+  aliases: [logarithms, log]
+  definition: '$\log_b x$ is the exponent $y$ with $b^y = x$ (for $b > 0$, $b \ne 1$, $x > 0$).'
+  topic: Logarithms
+- term: exponential form
+  definition: 'The statement $b^y = x$, equivalent to the logarithmic form $\log_b x = y$.'
+  topic: Logarithms
+- term: common logarithm
+  definition: 'The base-10 logarithm, written $\log x$.'
+  topic: Logarithms
+- term: natural logarithm
+  aliases: [ln]
+  definition: 'The base-$e$ logarithm, written $\ln x$.'
+  topic: Logarithms
+- term: inverse functions
+  aliases: [inverse function, inverse]
+  definition: 'Two functions that undo each other: $f^{-1}(f(x)) = x$ and $f(f^{-1}(x)) = x$. Their graphs are reflections across $y = x$; for example, $b^x$ and $\log_b x$.'
+  topic: Inverse functions
+- term: change-of-base formula
+  aliases: [change of base]
+  definition: '$\log_b x = \dfrac{\ln x}{\ln b} = \dfrac{\log x}{\log b}$.'
+  topic: Logarithms
+- term: exponential equation
+  aliases: [exponential equations]
+  definition: 'An equation with the variable in an exponent, such as $3^x = 20$.'
+  topic: Exponential equations
+- term: logarithmic equation
+  aliases: [logarithmic equations]
+  definition: 'An equation with the variable inside a logarithm, such as $\log_2(x + 1) = 5$.'
+  topic: Logarithmic equations
+- term: sequence
+  aliases: [sequences]
+  definition: 'An ordered list of numbers $a_1, a_2, a_3, \dots$; a function on the positive integers.'
+  topic: Arithmetic sequences
+- term: explicit formula
+  definition: 'A rule giving $a_n$ directly from $n$, such as $a_n = 3n + 2$.'
+  topic: Arithmetic sequences
+- term: recursive formula
+  definition: 'A rule giving the first term and each term from the previous one, such as $a_1 = 5$, $a_n = a_{n-1} + 3$.'
+  topic: Arithmetic sequences
+- term: arithmetic sequence
+  aliases: [arithmetic sequences]
+  definition: 'A sequence with a constant difference between terms: $a_n = a_1 + (n - 1)d$.'
+  topic: Arithmetic sequences
+- term: common difference
+  definition: 'The constant $d = a_n - a_{n-1}$ of an arithmetic sequence.'
+  topic: Arithmetic sequences
+- term: series
+  definition: 'The sum of the terms of a sequence.'
+  topic: Series
+- term: sigma notation
+  aliases: [summation notation]
+  definition: '$\sum_{k=1}^{n} a_k$ means $a_1 + a_2 + \cdots + a_n$.'
+  topic: Series
+- term: arithmetic series
+  definition: 'The sum of an arithmetic sequence: $S_n = \dfrac{n(a_1 + a_n)}{2}$.'
+  topic: Arithmetic sequences
+- term: geometric sequence
+  aliases: [geometric sequences]
+  definition: 'A sequence with a constant ratio between terms: $a_n = a_1r^{n-1}$.'
+  topic: Geometric sequences
+- term: common ratio
+  definition: 'The constant $r = \tfrac{a_n}{a_{n-1}}$ of a geometric sequence.'
+  topic: Geometric sequences
+- term: geometric series
+  definition: 'The sum of a geometric sequence: $S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ for $r \ne 1$.'
+  topic: Series
+- term: infinite geometric series
+  definition: '$a_1 + a_1r + a_1r^2 + \cdots$; it has the sum $\dfrac{a_1}{1 - r}$ when $|r| < 1$.'
+  topic: Series
+- term: converges
+  aliases: [converge, convergent]
+  definition: 'Said of an infinite series whose partial sums approach a finite number.'
+  topic: Series
+- term: diverges
+  aliases: [diverge, divergent]
+  definition: 'Said of an infinite series that has no finite sum.'
+  topic: Series
+- term: inconsistent
+  aliases: [inconsistent system]
+  definition: 'Describes a system of equations with no solution; elimination leads to a false statement such as $0 = 2$.'
+  topic: Three-variable systems
+- term: zero
+  aliases: [zeros, zero of a function]
+  definition: 'A number $c$ with $f(c) = 0$. Real zeros are the $x$-intercepts of the graph.'
+  topic: Polynomial functions
+- term: base
+  definition: 'In a power $b^x$, the number $b$ being raised to the exponent. In $f(x) = ab^x$ it is the growth or decay factor.'
+  topic: Exponential functions
+- term: growth factor
+  aliases: [decay factor]
+  definition: 'The number $b$ that an exponential function $ab^x$ multiplies by at each step: growth if $b > 1$, decay if $0 < b < 1$.'
+  topic: Exponential functions
+- term: parent function
+  aliases: [parent functions]
+  definition: 'The simplest function in a family, such as $y = x^2$ or $y = \sqrt x$, from which the others are made by transformations.'
+  topic: Transformations
+- term: transformation
+  aliases: [transformations]
+  definition: 'A change to a graph''s position, orientation or size: a translation, reflection, stretch or compression.'
+  topic: Transformations
+- term: translation
+  aliases: [translations, shift]
+  definition: 'A transformation that slides a graph without turning or resizing it. $y = f(x - h) + k$ moves the graph of $f$ right $h$ and up $k$.'
+  topic: Transformations
+- term: vertical shift
+  aliases: [vertical shifts]
+  definition: 'Moving a graph up or down: $y = f(x) + k$ moves the graph of $f$ up $k$ units (down if $k < 0$).'
+  topic: Transformations
+- term: horizontal shift
+  aliases: [horizontal shifts]
+  definition: 'Moving a graph left or right: $y = f(x - h)$ moves the graph of $f$ right $h$ units (left if $h < 0$).'
+  topic: Transformations
+- term: reflection
+  aliases: [reflections]
+  definition: 'A transformation that flips a graph across a line: $-f(x)$ reflects across the $x$-axis and $f(-x)$ across the $y$-axis.'
+  topic: Transformations
+- term: vertical stretch
+  definition: 'The graph of $y = af(x)$ with $a > 1$: every point moves away from the $x$-axis, $(x, y) \to (x, ay)$.'
+  topic: Transformations
+- term: vertical compression
+  definition: 'The graph of $y = af(x)$ with $0 < a < 1$: every point moves toward the $x$-axis, $(x, y) \to (x, ay)$.'
+  topic: Transformations
+- term: horizontal compression
+  definition: 'The graph of $y = f(bx)$ with $b > 1$: the graph is squeezed toward the $y$-axis, $(x, y) \to \left(\tfrac xb, y\right)$.'
+  topic: Transformations
+- term: horizontal stretch
+  definition: 'The graph of $y = f(bx)$ with $0 < b < 1$: the graph is pulled away from the $y$-axis, $(x, y) \to \left(\tfrac xb, y\right)$.'
+  topic: Transformations
+- term: piecewise-defined function
+  aliases: [piecewise function, piecewise functions, piecewise-defined functions]
+  definition: 'A function that uses different formulas on different, non-overlapping intervals of its domain.'
+  topic: Piecewise functions
+- term: break point
+  aliases: [break points]
+  definition: 'In a piecewise function, an input where the rule changes from one formula to another.'
+  topic: Piecewise functions
+- term: step function
+  aliases: [step functions]
+  definition: 'A piecewise function that is constant on each piece, so its graph looks like a staircase.'
+  topic: Piecewise functions
+- term: greatest integer function
+  aliases: [floor function, floor]
+  definition: '$\lfloor x \rfloor$, the greatest integer less than or equal to $x$; for example $\lfloor 3.7 \rfloor = 3$ and $\lfloor -1.2 \rfloor = -2$.'
+  topic: Piecewise functions
+- term: composition
+  aliases: [composition of functions, compose]
+  definition: 'The function $(f \circ g)(x) = f(g(x))$: apply $g$ first, then apply $f$ to the result.'
+  topic: Composition
+- term: composite function
+  aliases: [composite functions]
+  definition: 'A function formed by composition, such as $f(g(x))$.'
+  topic: Composition
+- term: decompose
+  aliases: [decomposing, decomposition]
+  definition: 'To write a function as a composition $f(g(x))$ of simpler functions, as in $(3x + 1)^5$ with $g(x) = 3x + 1$ and $f(x) = x^5$.'
+  topic: Composition
+- term: one-to-one
+  aliases: [one-to-one function]
+  definition: 'A function in which different inputs always give different outputs; exactly the functions that have inverse functions.'
+  topic: Inverse functions
+- term: horizontal line test
+  definition: 'A function is one-to-one exactly when no horizontal line crosses its graph more than once.'
+  topic: Inverse functions
+- term: restrict the domain
+  aliases: [restricting the domain, domain restriction]
+  definition: 'Keep only part of a function''s domain, often so that it becomes one-to-one, as with $y = x^2$ for $x \ge 0$.'
+  topic: Inverse functions
+- term: invertible
+  definition: 'Having an inverse function; a function is invertible exactly when it is one-to-one.'
+  topic: Inverse functions
+- term: vertex form
+  definition: 'A quadratic written as $f(x) = a(x - h)^2 + k$; its vertex is $(h, k)$.'
+  topic: Quadratics with complex solutions
+- term: completing the square
+  aliases: [complete the square]
+  definition: 'Rewriting $x^2 + bx$ as $\left(x + \tfrac b2\right)^2 - \left(\tfrac b2\right)^2$, used to reach vertex form or solve a quadratic.'
+  topic: Quadratics with complex solutions
+- term: quadratic formula
+  definition: 'The solutions of $ax^2 + bx + c = 0$: $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.'
+  topic: Quadratics with complex solutions
+- term: discriminant
+  definition: 'The quantity $b^2 - 4ac$. Positive: two real solutions; zero: one double root; negative: two complex conjugate solutions.'
+  topic: Quadratics with complex solutions
+- term: double root
+  aliases: [repeated root]
+  definition: 'A root that occurs twice, as $x = 3$ in $(x - 3)^2 = 0$; the parabola touches the $x$-axis there.'
+  topic: Quadratics with complex solutions
+- term: reciprocal function
+  definition: 'The function $y = \dfrac1x$, with vertical asymptote $x = 0$ and horizontal asymptote $y = 0$.'
+  topic: Rational functions
+- term: oblique asymptote
+  aliases: [slant asymptote]
+  definition: 'A slanted line that a graph approaches at its ends; a rational function has one when the numerator''s degree is one more than the denominator''s.'
+  topic: Rational functions
+- term: inverse variation
+  aliases: [varies inversely, inversely proportional]
+  definition: 'A relationship $y = \dfrac kx$ ($k \ne 0$): the product $xy$ is constant, so doubling one quantity halves the other.'
+  topic: Inverse variation
+- term: constant of variation
+  definition: 'The constant $k$ in a variation: $k = xy$ for inverse variation and $k = \tfrac yx$ for direct variation.'
+  topic: Inverse variation
+- term: direct variation
+  aliases: [varies directly, directly proportional]
+  definition: 'A relationship $y = kx$ ($k \ne 0$): the ratio $\tfrac yx$ is constant, so the quantities grow together.'
+  topic: Inverse variation

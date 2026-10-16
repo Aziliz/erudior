@@ -1,0 +1,418 @@
+# Functions and their transformations
+- id: a2-q-0101
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'How is the graph of $y = (x + 4)^2$ related to the graph of $y = x^2$?'
+  choices: ['It is shifted right 4', 'It is shifted up 4', 'It is shifted left 4', 'It is shifted down 4']
+  answer: 2
+  explanation: |-
+    $x + 4 = x - (-4)$, so $h = -4$: the inside change moves the graph horizontally, opposite to how it looks. The vertex is where the inside is zero, $x = -4$, so the graph moved left 4.
+- id: a2-q-0102
+  lesson: a2-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'The graph of $y = \sqrt{x}$ is reflected across the $x$-axis, then shifted right 2 and up 5. Which equation describes the result?'
+  choices: ['$y = -\sqrt{x - 2} + 5$', '$y = \sqrt{-x - 2} + 5$', '$y = -\sqrt{x + 2} + 5$', '$y = -\sqrt{x - 5} + 2$']
+  answer: 0
+  explanation: |-
+    Reflecting across the $x$-axis negates the output: $-\sqrt{x}$. Right 2 is an inside change of $-2$: $-\sqrt{x - 2}$. Up 5 is an outside change: $-\sqrt{x - 2} + 5$. Putting the minus inside ($\sqrt{-x - 2}$) would reflect across the $y$-axis instead.
+- id: a2-q-0103
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'What is the vertex (corner point) of the graph of $y = -3\lvert x - 1 \rvert + 6$?'
+  choices: ['$(-1, 6)$', '$(1, -6)$', '$(-3, 6)$', '$(1, 6)$']
+  answer: 3
+  explanation: |-
+    In $y = a\lvert x - h \rvert + k$ the corner of the parent V moves to $(h, k)$. Here $h = 1$ and $k = 6$, so the vertex is $(1, 6)$. The $-3$ only stretches and flips the V; it doesn't move the corner.
+- id: a2-q-0104
+  lesson: a2-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'The point $(4, -2)$ is on the graph of $y = f(x)$. Which point must be on the graph of $y = 2f(x + 1) - 3$?'
+  choices: ['$(5, -7)$', '$(3, -7)$', '$(3, -10)$', '$(3, -1)$']
+  answer: 1
+  explanation: |-
+    Points move by $(x, y) \to (x + h, ay + k)$ with $h = -1$, $a = 2$, $k = -3$: $(4 - 1,\; 2(-2) - 3) = (3, -7)$. Check: at $x = 3$, $2f(3 + 1) - 3 = 2f(4) - 3 = 2(-2) - 3 = -7$. Moving right gives $(5, -7)$; adding $-3$ before doubling gives $-10$.
+- id: a2-q-0105
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'Which transformation turns the graph of $y = f(x)$ into the graph of $y = f(-x)$?'
+  choices: ['A reflection across the $x$-axis', 'A reflection across the $y$-axis', 'A reflection across the line $y = x$', 'A shift left by 1 unit']
+  answer: 1
+  explanation: |-
+    Negating the input means the output $f$ had at $x$ now appears at $-x$: $(x, y) \to (-x, y)$, a left-right flip across the $y$-axis. Negating the output, $-f(x)$, would flip across the $x$-axis.
+- id: a2-q-0106
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'Compared with the graph of $y = \lvert x \rvert$, the graph of $y = \tfrac13\lvert x \rvert$ is'
+  choices: ['a vertical stretch by a factor of 3', 'a shift down by $\tfrac13$', 'a horizontal compression by a factor of $\tfrac13$', 'a vertical compression by a factor of $\tfrac13$']
+  answer: 3
+  explanation: |-
+    Multiplying the output by $a$ with $0 < a < 1$ moves every point toward the $x$-axis: $(x, y) \to (x, \tfrac13 y)$. That's a vertical compression. (It also equals $\lvert x/3 \rvert$, a horizontal stretch by 3, not a compression.)
+- id: a2-q-0107
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'What are the domain and range of $g(x) = \sqrt{x + 3} - 2$?'
+  choices: ['Domain $x \ge -3$, range $y \ge -2$', 'Domain $x \ge 3$, range $y \ge -2$', 'Domain $x \ge -3$, range $y \ge 2$', 'Domain $x \ge -2$, range $y \ge -3$']
+  answer: 0
+  explanation: |-
+    The parent $\sqrt x$ starts at $(0, 0)$. Shifting left 3 and down 2 moves the starting point to $(-3, -2)$. The radicand needs $x + 3 \ge 0$, so $x \ge -3$; the outputs start at $-2$ and increase, so $y \ge -2$.
+- id: a2-q-0108
+  lesson: a2-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'The graph of $y = x^2$ is stretched vertically by a factor of 2, shifted left 1, and shifted down 8. Where does the new graph cross the $x$-axis?'
+  choices: ['$x = -1$ and $x = 3$', '$x = -1 \pm 2\sqrt2$', '$x = 1$ and $x = -3$', '$x = \pm 2$']
+  answer: 2
+  explanation: |-
+    The new function is $y = 2(x + 1)^2 - 8$. Set it to zero: $(x + 1)^2 = 4$, so $x + 1 = \pm 2$ and $x = 1$ or $x = -3$. Shifting right instead of left gives $-1$ and $3$; forgetting the stretch gives $(x + 1)^2 = 8$.
+- id: a2-q-0109
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'Which equation describes the graph of $y = x^3$ shifted right 5 and down 2?'
+  choices: ['$y = (x + 5)^3 - 2$', '$y = (x - 2)^3 + 5$', '$y = x^3 - 7$', '$y = (x - 5)^3 - 2$']
+  answer: 3
+  explanation: |-
+    Right 5 is the inside change $x \to x - 5$; down 2 is the outside change $-2$. So $y = (x - 5)^3 - 2$. Its center point is at $(5, -2)$.
+- id: a2-q-0110
+  lesson: a2-transformations
+  topic: Transformations
+  stem: |-
+    A student moves the point $(2, 4)$ on $y = x^2$ to the graph of $y = 3(x - 1)^2 + 2$:
+
+    Step 1: shift right 1, giving $(3, 4)$. Step 2: add 2, giving $(3, 6)$. Step 3: multiply the height by 3, giving $(3, 18)$.
+
+    What went wrong?
+  choices: ['Step 1: the shift should be left 1, giving $(1, 4)$', 'Steps 2 and 3 are in the wrong order; the point is $(3, 14)$', 'Step 3: the stretch should multiply $x$, giving $(9, 6)$', 'Step 2: the 2 should be subtracted, giving $(3, 2)$']
+  answer: 1
+  explanation: |-
+    Heights go $y \to ay + k$: multiply by 3 first, then add 2. So $4 \to 12 \to 14$ and the point is $(3, 14)$. Check: $3(3 - 1)^2 + 2 = 3(4) + 2 = 14$. The shift right 1 in Step 1 was correct.
+- id: a2-q-0111
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'The graph of $y = 2^x$ has horizontal asymptote $y = 0$. What is the horizontal asymptote of the graph of $y = 2^x - 3$?'
+  choices: ['$y = 0$', '$y = 3$', '$y = -3$', '$x = -3$']
+  answer: 2
+  explanation: |-
+    Subtracting 3 outside moves every point, and the asymptote with them, down 3. So the new asymptote is $y = -3$, and the range is $y > -3$.
+- id: a2-q-0112
+  lesson: a2-transformations
+  module_quiz: true
+  topic: Transformations
+  stem: 'The point $(6, 3)$ is on the graph of $y = f(x)$. Which point must be on the graph of $y = f(3x)$?'
+  choices: ['$(2, 3)$', '$(18, 3)$', '$(6, 9)$', '$(6, 1)$']
+  answer: 0
+  explanation: |-
+    Multiplying the input by 3 is a horizontal compression: $(x, y) \to \left(\tfrac x3, y\right)$. So $(6, 3) \to (2, 3)$. Check: $f(3 \cdot 2) = f(6) = 3$. Multiplying $x$ by 3 instead is the common mistake.
+
+- id: a2-q-0201
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'Let $f(x) = \begin{cases} x^2 - 1 & \text{if } x < 2 \\ 3x + 1 & \text{if } x \ge 2 \end{cases}$. Find $f(2)$.'
+  choices: ['$3$', '$7$', '$10$', '$5$']
+  answer: 1
+  explanation: |-
+    The input 2 satisfies $x \ge 2$, so use the second piece: $f(2) = 3(2) + 1 = 7$. Using the first piece gives $2^2 - 1 = 3$, but 2 is not less than 2.
+- id: a2-q-0202
+  lesson: a2-piecewise
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'Let $g(x) = \begin{cases} -x & \text{if } x \le 0 \\ 2x + 1 & \text{if } 0 < x < 3 \\ 5 & \text{if } x \ge 3 \end{cases}$. Find $g(-4) + g(3)$.'
+  choices: ['$11$', '$1$', '$3$', '$9$']
+  answer: 3
+  explanation: |-
+    $-4 \le 0$, so $g(-4) = -(-4) = 4$. $3 \ge 3$, so $g(3) = 5$. The sum is 9. Using the middle piece at 3 gives $g(3) = 7$ and a sum of 11; forgetting that $-(-4) = 4$ gives 1.
+- id: a2-q-0203
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'Evaluate $\lfloor -2.5 \rfloor$.'
+  choices: ['$-3$', '$-2$', '$2$', '$-2.5$']
+  answer: 0
+  explanation: |-
+    $\lfloor x \rfloor$ is the greatest integer less than or equal to $x$. On the number line, the integers just below and above $-2.5$ are $-3$ and $-2$; $-2$ is greater than $-2.5$, so the answer is $-3$. Chopping off the decimal gives $-2$, which is the common mistake.
+- id: a2-q-0204
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'On the graph of $f(x) = \begin{cases} x + 1 & \text{if } x < 1 \\ 4 - x & \text{if } x \ge 1 \end{cases}$, what is drawn at $x = 1$?'
+  choices: ['A closed dot at $(1, 2)$ and an open dot at $(1, 3)$', 'A single closed dot at $(1, 2)$', 'An open dot at $(1, 2)$ and a closed dot at $(1, 3)$', 'Open dots at both $(1, 2)$ and $(1, 3)$']
+  answer: 2
+  explanation: |-
+    The first piece would reach $1 + 1 = 2$ at $x = 1$, but excludes it ($x < 1$): open dot at $(1, 2)$. The second piece includes $x = 1$ and gives $4 - 1 = 3$: closed dot at $(1, 3)$. So $f(1) = 3$ and the graph jumps there.
+- id: a2-q-0205
+  lesson: a2-piecewise
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'Which piecewise function equals $\lvert x + 4 \rvert$?'
+  choices: ['$\begin{cases} x + 4 & \text{if } x \ge 0 \\ -x - 4 & \text{if } x < 0 \end{cases}$', '$\begin{cases} -x - 4 & \text{if } x \ge -4 \\ x + 4 & \text{if } x < -4 \end{cases}$', '$\begin{cases} x + 4 & \text{if } x \ge -4 \\ x - 4 & \text{if } x < -4 \end{cases}$', '$\begin{cases} x + 4 & \text{if } x \ge -4 \\ -x - 4 & \text{if } x < -4 \end{cases}$']
+  answer: 3
+  explanation: |-
+    The break point is where the inside is zero: $x = -4$. When $x + 4 \ge 0$ the absolute value leaves it alone; when $x + 4 < 0$ it negates it: $-(x + 4) = -x - 4$. Breaking at $x = 0$ is wrong: at $x = -1$ that version gives $-3$, but $\lvert -1 + 4 \rvert = 3$.
+- id: a2-q-0206
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'For what value of $k$ do the two pieces of $f(x) = \begin{cases} 2x + k & \text{if } x < 3 \\ x^2 - 1 & \text{if } x \ge 3 \end{cases}$ meet, so the graph has no jump at $x = 3$?'
+  choices: ['$k = 8$', '$k = 2$', '$k = -2$', '$k = 14$']
+  answer: 1
+  explanation: |-
+    At $x = 3$ the second piece gives $9 - 1 = 8$, and the first piece approaches $6 + k$. They meet when $6 + k = 8$, so $k = 2$.
+- id: a2-q-0207
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'A courier charges \$6 for a package of up to 1 pound and \$2 for each additional pound or part of a pound. What is the charge for a 3.2-pound package?'
+  choices: ['\$10', '\$10.40', '\$12', '\$14']
+  answer: 2
+  explanation: |-
+    Up to 1 lb: \$6; over 1 up to 2: \$8; over 2 up to 3: \$10; over 3 up to 4: \$12. A 3.2-lb package is in the last of these, so it costs \$12. Rounding down gives \$10, and charging \$2 per exact pound gives $6 + 2(2.2) = 10.40$ dollars.
+- id: a2-q-0208
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'Let $h(x) = \begin{cases} 3 - x & \text{if } x < 0 \\ x^2 + 3 & \text{if } x \ge 0 \end{cases}$. For which inputs is $h(x) = 7$?'
+  choices: ['$x = -4$ and $x = 2$', '$x = -4$, $x = -2$ and $x = 2$', '$x = 2$ only', '$x = -4$ only']
+  answer: 0
+  explanation: |-
+    Solve each piece and keep only solutions inside that piece's interval. $3 - x = 7$ gives $x = -4$, which is $< 0$: keep. $x^2 + 3 = 7$ gives $x = \pm 2$; only $x = 2$ satisfies $x \ge 0$. So $x = -4$ and $x = 2$.
+- id: a2-q-0209
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'Which inputs satisfy $\lfloor x \rfloor = 4$?'
+  choices: ['$4 \le x < 5$', '$3 < x \le 4$', '$4 < x \le 5$', '$3.5 \le x < 4.5$']
+  answer: 0
+  explanation: |-
+    The floor is 4 for every number from 4 up to, but not including, 5: $\lfloor 4 \rfloor = 4$, $\lfloor 4.99 \rfloor = 4$, but $\lfloor 5 \rfloor = 5$. That's why each step of the graph is closed on the left and open on the right.
+- id: a2-q-0210
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'What is the range of $f(x) = \begin{cases} -2 & \text{if } x < 0 \\ 3 & \text{if } x \ge 0 \end{cases}$?'
+  choices: ['All $y$ with $-2 \le y \le 3$', 'All real numbers', 'Only the two values $-2$ and $3$', 'Only the value $3$']
+  answer: 2
+  explanation: |-
+    Every output is either $-2$ or $3$; nothing in between is ever produced. The graph is two horizontal rays at those heights, so the range is the set $\{-2, 3\}$.
+- id: a2-q-0211
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'Why is "$f(x) = x$ if $x \le 2$, and $f(x) = x^2$ if $x \ge 2$" not a valid definition of a function?'
+  choices: ['A piecewise function must have exactly three pieces', 'The input 2 belongs to both pieces and would get two outputs, 2 and 4', 'The pieces of a piecewise function must be the same kind of formula', 'A piecewise function cannot contain a quadratic piece']
+  answer: 1
+  explanation: |-
+    Both conditions include $x = 2$, and the formulas disagree there ($2$ versus $4$). A function gives each input exactly one output, so the conditions must not overlap (for example, $x < 2$ and $x \ge 2$).
+- id: a2-q-0212
+  lesson: a2-piecewise
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'Evaluate $\lfloor 2.7 \rfloor + \lfloor -2.7 \rfloor$.'
+  choices: ['$0$', '$1$', '$-5$', '$-1$']
+  answer: 3
+  explanation: |-
+    $\lfloor 2.7 \rfloor = 2$ and $\lfloor -2.7 \rfloor = -3$ (round down on the number line). The sum is $-1$. Treating $\lfloor -2.7 \rfloor$ as $-2$ gives 0.
+
+- id: a2-q-0301
+  lesson: a2-composition
+  module_quiz: true
+  topic: Composition
+  stem: 'Let $f(x) = x + 3$ and $g(x) = 2x^2$. Find $(f \circ g)(2)$.'
+  choices: ['$50$', '$40$', '$13$', '$11$']
+  answer: 3
+  explanation: |-
+    Inside first: $g(2) = 2(4) = 8$. Then $f(8) = 11$. Doing $f$ first gives $g(f(2)) = g(5) = 50$; multiplying gives $f(2)g(2) = 5 \cdot 8 = 40$; adding gives 13.
+- id: a2-q-0302
+  lesson: a2-composition
+  module_quiz: true
+  topic: Composition
+  stem: 'Let $f(x) = 3x - 1$ and $g(x) = x^2$. Find $f(g(x))$.'
+  choices: ['$(3x - 1)^2$', '$3x^2 - 1$', '$9x^2 - 1$', '$3x^3 - x^2$']
+  answer: 1
+  explanation: |-
+    Substitute $g(x) = x^2$ for $x$ in $f$: $f(x^2) = 3x^2 - 1$. The expression $(3x - 1)^2$ is $g(f(x))$, the other order, and $3x^3 - x^2$ is the product $f(x)g(x)$.
+- id: a2-q-0303
+  lesson: a2-composition
+  topic: Composition
+  stem: 'Let $f(x) = 3x - 1$ and $g(x) = x^2$. Find $g(f(x))$.'
+  choices: ['$9x^2 + 1$', '$3x^2 - 1$', '$9x^2 - 6x + 1$', '$9x^2 - 1$']
+  answer: 2
+  explanation: |-
+    $g(f(x)) = (3x - 1)^2 = 9x^2 - 6x + 1$. Squaring term by term (giving $9x^2 + 1$) drops the middle term.
+- id: a2-q-0304
+  lesson: a2-composition
+  topic: Composition
+  stem: 'Use $f(1) = 3$, $f(2) = 4$, $f(3) = 2$, $f(4) = 1$ and $g(1) = 2$, $g(2) = 3$, $g(3) = 4$, $g(4) = 1$. Find $f(g(3))$.'
+  choices: ['$1$', '$3$', '$8$', '$6$']
+  answer: 0
+  explanation: |-
+    Inside first: $g(3) = 4$. Then $f(4) = 1$. The other order gives $g(f(3)) = g(2) = 3$; the product $f(3)g(3)$ is 8 and the sum is 6.
+- id: a2-q-0305
+  lesson: a2-composition
+  module_quiz: true
+  topic: Composition
+  stem: 'Let $f(x) = \sqrt{x}$ and $g(x) = x - 7$. What is the domain of $f(g(x))$?'
+  choices: ['$x \ge 7$', '$x \ge 0$', '$x \ge -7$', 'All real numbers']
+  answer: 0
+  explanation: |-
+    $f(g(x)) = \sqrt{x - 7}$. Every $x$ is allowed in $g$, but $f$ can only accept $g(x) \ge 0$, so $x - 7 \ge 0$ and $x \ge 7$.
+- id: a2-q-0306
+  lesson: a2-composition
+  topic: Function operations
+  stem: 'Let $f(x) = x + 1$ and $g(x) = x^2 - 9$. What is the domain of $\left(\dfrac fg\right)(x)$?'
+  choices: ['All real numbers except $-1$', 'All real numbers except $3$', 'All real numbers except $3$ and $-3$', 'All real numbers except $-1$, $3$ and $-3$']
+  answer: 2
+  explanation: |-
+    Both $f$ and $g$ are defined everywhere, so the only restriction is $g(x) \ne 0$: $x^2 - 9 = 0$ at $x = \pm 3$. The zero of the numerator, $-1$, is allowed (the quotient is 0 there).
+- id: a2-q-0307
+  lesson: a2-composition
+  topic: Function operations
+  stem: 'Let $f(x) = x^2 + 2x$ and $g(x) = x^2 - 3x + 4$. Find $(f - g)(x)$.'
+  choices: ['$5x + 4$', '$5x - 4$', '$-x + 4$', '$2x^2 - x + 4$']
+  answer: 1
+  explanation: |-
+    Subtract all of $g$: $x^2 + 2x - (x^2 - 3x + 4) = x^2 + 2x - x^2 + 3x - 4 = 5x - 4$. Forgetting to distribute the minus to the $+4$ gives $5x + 4$.
+- id: a2-q-0308
+  lesson: a2-composition
+  topic: Composition
+  stem: 'Which choice of $f$ and $g$ gives $h(x) = (x^2 - 5)^4$ as $h(x) = f(g(x))$?'
+  choices: ['$f(x) = x^2 - 5$ and $g(x) = x^4$', '$f(x) = x^4 - 5$ and $g(x) = x^2$', '$f(x) = x^4$ and $g(x) = x - 5$', '$f(x) = x^4$ and $g(x) = x^2 - 5$']
+  answer: 3
+  explanation: |-
+    The inside expression is $x^2 - 5$ and the outside action is "raise to the 4th power," so $g(x) = x^2 - 5$ (applied first) and $f(x) = x^4$. Check the others: $g(x) = x^4$ with $f(x) = x^2 - 5$, and $g(x) = x^2$ with $f(x) = x^4 - 5$, both give $f(g(x)) = x^8 - 5$, while $g(x) = x - 5$ with $f(x) = x^4$ gives $(x - 5)^4$.
+- id: a2-q-0309
+  lesson: a2-composition
+  topic: Composition
+  stem: 'A circle''s radius grows as $r(t) = 2t$ cm after $t$ seconds, and its area is $A(r) = \pi r^2$. Which function gives the area as a function of time?'
+  choices: ['$(A \circ r)(t) = 2\pi t^2$', '$(r \circ A)(t) = 2\pi t^2$', '$(A \circ r)(t) = 4\pi t^2$', '$(A \circ r)(t) = 4\pi^2 t^2$']
+  answer: 2
+  explanation: |-
+    Time goes into $r$ first, and the radius goes into $A$: $A(r(t)) = \pi(2t)^2 = 4\pi t^2$. Forgetting to square the 2 gives $2\pi t^2$.
+- id: a2-q-0310
+  lesson: a2-composition
+  module_quiz: true
+  topic: Composition
+  stem: 'A store applies a 25% discount, $D(x) = 0.75x$, and a \$10 coupon, $C(x) = x - 10$. Which expression gives the final price of an item priced $x$ when the discount is applied first?'
+  choices: ['$C(D(x)) = 0.75x - 10$', '$D(C(x)) = 0.75x - 7.5$', '$C(D(x)) = 0.75x - 7.5$', '$D(C(x)) = 0.75x - 10$']
+  answer: 0
+  explanation: |-
+    The discount acts first, so it's the inside function: $C(D(x)) = 0.75x - 10$. Applying the coupon first gives $D(C(x)) = 0.75(x - 10) = 0.75x - 7.5$, which is \$2.50 more.
+- id: a2-q-0311
+  lesson: a2-composition
+  topic: Composition
+  stem: |-
+    For $f(x) = x^2 + 1$ and $g(x) = x - 2$, a student finds $f(g(x))$:
+
+    Step 1: $f(g(x)) = f(x - 2)$. Step 2: $= (x - 2)^2 + 1$. Step 3: $= x^2 + 4 + 1 = x^2 + 5$.
+
+    Which statement is correct?
+  choices: ['Step 1 is wrong: it should be $g(f(x))$', 'Step 2 is wrong: it should be $(x^2 + 1) - 2$', 'Step 3 is wrong: the answer should be $x^2 + 3$', 'Step 3 is wrong: $(x - 2)^2 = x^2 - 4x + 4$, so $f(g(x)) = x^2 - 4x + 5$']
+  answer: 3
+  explanation: |-
+    Steps 1 and 2 correctly substitute $x - 2$ into $f$. Step 3 squares a binomial term by term; the correct expansion is $x^2 - 4x + 4$, giving $x^2 - 4x + 5$. Check at $x = 3$: $g(3) = 1$ and $f(1) = 2$, and $9 - 12 + 5 = 2$.
+- id: a2-q-0312
+  lesson: a2-composition
+  topic: Composition
+  stem: 'Let $f(x) = \dfrac{1}{x - 3}$ and $g(x) = x + 1$. What is the domain of $f(g(x))$?'
+  choices: ['All real numbers except $3$', 'All real numbers except $2$', 'All real numbers except $-1$', 'All real numbers except $2$ and $3$']
+  answer: 1
+  explanation: |-
+    $f(g(x)) = \dfrac{1}{(x + 1) - 3} = \dfrac{1}{x - 2}$. $g$ accepts every $x$, and $f$ rejects the input 3, so we need $x + 1 \ne 3$, that is, $x \ne 2$. The value 3 itself is fine: $g(3) = 4$ and $f(4) = 1$.
+
+- id: a2-q-0401
+  lesson: a2-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = 4x + 8$.'
+  choices: ['$f^{-1}(x) = \dfrac{x - 8}{4}$', '$f^{-1}(x) = \dfrac{x}{4} - 8$', '$f^{-1}(x) = \dfrac{1}{4x + 8}$', '$f^{-1}(x) = 4x - 8$']
+  answer: 0
+  explanation: |-
+    Swap and solve: $x = 4y + 8$, so $x - 8 = 4y$ and $y = \dfrac{x - 8}{4}$. Undo the last step first: subtract 8, then divide by 4. Dividing first gives $\tfrac x4 - 8$, and $\tfrac{1}{4x + 8}$ is the reciprocal, not the inverse.
+- id: a2-q-0402
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'If $f^{-1}(5) = 2$, which statement must be true?'
+  choices: ['$f(5) = 2$', '$\dfrac{1}{f(5)} = 2$', '$f(2) = 5$', '$f(2) = \dfrac15$']
+  answer: 2
+  explanation: |-
+    The inverse reverses the function: $f^{-1}(b) = a$ means $f(a) = b$. So $f(2) = 5$.
+- id: a2-q-0403
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'Which function is one-to-one on all real numbers?'
+  choices: ['$y = x^2$', '$y = x^3$', '$y = \lvert x \rvert$', '$y = x^4 + 1$']
+  answer: 1
+  explanation: |-
+    $y = x^3$ is always increasing, so every horizontal line crosses it exactly once. The others are symmetric about the $y$-axis: for example $(-2)^2 = 2^2$, $\lvert -2 \rvert = \lvert 2 \rvert$, and $(-1)^4 + 1 = 1^4 + 1$.
+- id: a2-q-0404
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'A horizontal line crosses the graph of a function $f$ at three points. What can you conclude?'
+  choices: ['$f$ is not a function', '$f$ has exactly three zeros', '$f$ is one-to-one', '$f$ is not one-to-one, so it has no inverse function']
+  answer: 3
+  explanation: |-
+    The three crossing points are three inputs with the same output, so $f$ fails the horizontal line test and can't be reversed. It is still a function; that's decided by the vertical line test. Only the line $y = 0$ would tell you about zeros.
+- id: a2-q-0405
+  lesson: a2-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = (x - 1)^3 + 2$.'
+  choices: ['$f^{-1}(x) = \sqrt[3]{x + 2} - 1$', '$f^{-1}(x) = \sqrt[3]{x - 1} + 2$', '$f^{-1}(x) = \sqrt[3]{x - 2} + 1$', '$f^{-1}(x) = \dfrac{1}{(x - 1)^3 + 2}$']
+  answer: 2
+  explanation: |-
+    Swap: $x = (y - 1)^3 + 2$. Subtract 2: $x - 2 = (y - 1)^3$. Cube root: $\sqrt[3]{x - 2} = y - 1$. Add 1: $y = \sqrt[3]{x - 2} + 1$. Check with $f(2) = 1 + 2 = 3$: $f^{-1}(3) = \sqrt[3]{1} + 1 = 2$.
+- id: a2-q-0406
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'A function has $f(-1) = 7$, $f(0) = 4$, $f(1) = 1$ and $f(2) = -2$. Find $f^{-1}(-2)$.'
+  choices: ['$2$', '$-\tfrac12$', '$7$', '$-2$']
+  answer: 0
+  explanation: |-
+    $f^{-1}(-2)$ asks which input gives the output $-2$. From the table, $f(2) = -2$, so $f^{-1}(-2) = 2$. The value $-\tfrac12$ is the reciprocal $\tfrac{1}{-2}$, which is unrelated.
+- id: a2-q-0407
+  lesson: a2-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'The point $(3, -1)$ is on the graph of a one-to-one function $f$. Which point must be on the graph of $f^{-1}$?'
+  choices: ['$(1, -3)$', '$(-3, 1)$', '$(3, 1)$', '$(-1, 3)$']
+  answer: 3
+  explanation: |-
+    Inverses swap coordinates: $f(3) = -1$ means $f^{-1}(-1) = 3$, so $(-1, 3)$ is on $f^{-1}$. Geometrically, that's the reflection of $(3, -1)$ across $y = x$.
+- id: a2-q-0408
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = \sqrt{x + 1}$.'
+  choices: ['$f^{-1}(x) = x^2 - 1$ for all real $x$', '$f^{-1}(x) = x^2 - 1$ for $x \ge 0$', '$f^{-1}(x) = x^2 + 1$ for $x \ge 0$', '$f^{-1}(x) = (x - 1)^2$ for $x \ge -1$']
+  answer: 1
+  explanation: |-
+    Swap: $x = \sqrt{y + 1}$. Square: $x^2 = y + 1$, so $y = x^2 - 1$. The range of $f$ is $y \ge 0$, and that becomes the domain of $f^{-1}$; without the restriction $x \ge 0$, $x^2 - 1$ isn't one-to-one and isn't the inverse.
+- id: a2-q-0409
+  lesson: a2-inverses
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Which pair of functions are inverses of each other?'
+  choices: ['$f(x) = 2x + 6$ and $g(x) = \tfrac12 x - 6$', '$f(x) = 2x + 6$ and $g(x) = \tfrac12 x - 3$', '$f(x) = x - 4$ and $g(x) = 4 - x$', '$f(x) = 5x$ and $g(x) = -5x$']
+  answer: 1
+  explanation: |-
+    Compose: $g(f(x)) = \tfrac12(2x + 6) - 3 = x + 3 - 3 = x$, and $f(g(x)) = 2\left(\tfrac12 x - 3\right) + 6 = x$. With $g(x) = \tfrac12 x - 6$, $g(f(x)) = x + 3 - 6 = x - 3$; with $f(x) = x - 4$ and $g(x) = 4 - x$, $g(f(x)) = 4 - (x - 4) = 8 - x$; with $f(x) = 5x$ and $g(x) = -5x$, $g(f(x)) = -25x$.
+- id: a2-q-0410
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'Find the inverse of $f(x) = \dfrac{x + 2}{x - 1}$.'
+  choices: ['$f^{-1}(x) = \dfrac{x - 1}{x + 2}$', '$f^{-1}(x) = \dfrac{x - 2}{x + 1}$', '$f^{-1}(x) = \dfrac{x + 1}{x - 2}$', '$f^{-1}(x) = \dfrac{x + 2}{x - 1}$']
+  answer: 3
+  explanation: |-
+    Swap: $x = \dfrac{y + 2}{y - 1}$, so $xy - x = y + 2$. Collect $y$: $xy - y = x + 2$, so $y(x - 1) = x + 2$ and $y = \dfrac{x + 2}{x - 1}$. This function is its own inverse. Check: $f(3) = \tfrac52$ and $f\left(\tfrac52\right) = \dfrac{4.5}{1.5} = 3$.
+- id: a2-q-0411
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'To make $g(x) = (x + 3)^2$ one-to-one while keeping its full range $y \ge 0$, which domain restriction works?'
+  choices: ['$x \ge -3$', '$x \ge 0$', '$x \ge 3$', '$x \le 0$']
+  answer: 0
+  explanation: |-
+    The vertex is at $x = -3$. Keeping one side of it, $x \ge -3$, makes $g$ increasing (one-to-one) and still gives every output from 0 up. With $x \ge 0$ or $x \ge 3$ the function is one-to-one but the range shrinks to $y \ge 9$ or $y \ge 36$; $x \le 0$ still contains both sides of the vertex.
+- id: a2-q-0412
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: |-
+    A student finds the inverse of $f(x) = 5 - 2x$:
+
+    Step 1: $y = 5 - 2x$. Step 2: $x = 5 - 2y$. Step 3: $2y = 5 + x$. Step 4: $y = \dfrac{5 + x}{2}$.
+
+    Which step is wrong?
+  choices: ['Step 2: $x$ and $y$ should not be swapped', 'Step 4: it should be $y = 2(5 + x)$', 'Step 3: it should be $2y = 5 - x$', 'Step 1: it should be $x = 5 - 2x$']
+  answer: 2
+  explanation: |-
+    From $x = 5 - 2y$, add $2y$ and subtract $x$: $2y = 5 - x$, so $f^{-1}(x) = \dfrac{5 - x}{2}$. Check: $f(1) = 3$ and $\dfrac{5 - 3}{2} = 1$. The student's version gives $\dfrac{5 + 3}{2} = 4$.

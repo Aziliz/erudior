@@ -1,0 +1,207 @@
+# Complex numbers, quadratics, and systems drills
+- id: alg-d-complex-mult
+  title: Multiply complex numbers
+  topic: Complex numbers
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+    d: {min: -6, max: 6}
+  calc:
+    re: a*c - b*d
+    im: a*d + b*c
+    bd: b*d
+    nbd: -b*d
+  where: ['b != 0', 'd != 0', 'a != 0', 'c != 0']
+  prompt: 'Multiply $({a} {b:signedcoef}i)({c} {d:signedcoef}i)$ and write the result as $a + bi$.'
+  answers:
+    - {name: re, label: 'Real part'}
+    - {name: im, label: 'Imaginary part'}
+  solution: |-
+    FOIL, then use $i^2 = -1$: the $i^2$ term is ${bd}i^2 = {nbd}$.
+    Real part $({a})({c}) + ({nbd}) =$ **{re}**; imaginary part ${a}({d}) + ({b})({c}) =$ **{im}**.
+
+- id: alg-d-complex-div
+  title: Divide complex numbers
+  topic: Complex numbers
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: 1, max: 5}
+    d: {min: -5, max: 5}
+  calc:
+    den: c^2 + d^2
+    nre: a*c + b*d
+    nim: b*c - a*d
+    re: (a*c + b*d)/(c^2 + d^2)
+    im: (b*c - a*d)/(c^2 + d^2)
+    nd: -d
+  where: ['d != 0', 'b != 0', 'a != c or b != d']
+  prompt: 'Write $\dfrac{{a} {b:signedcoef}i}{{c} {d:signedcoef}i}$ in the form $a + bi$. Give exact fractions.'
+  answers:
+    - {name: re, kind: fraction, lowestTerms: true, label: 'Real part'}
+    - {name: im, kind: fraction, lowestTerms: true, label: 'Imaginary part'}
+  solution: |-
+    Multiply top and bottom by the conjugate ${c} {nd:signedcoef}i$. The denominator becomes ${c}^2 + ({d})^2 = {den}$, and the numerator becomes ${nre} {nim:signedcoef}i$.
+    Divide each part by {den}: the real part is $\dfrac{{nre}}{{den}} =$ **${re:texfrac}$** and the imaginary part is $\dfrac{{nim}}{{den}} =$ **${im:texfrac}$**.
+
+- id: alg-d-i-power
+  title: Powers of i
+  topic: Complex numbers
+  vars:
+    n: {min: 5, max: 99}
+    a: {min: 1, max: 9}
+  calc:
+    r: mod(n, 4)
+    re: a*if(r == 0, 1, if(r == 2, -1, 0))
+    im: a*if(r == 1, 1, if(r == 3, -1, 0))
+    qq: floor(n/4)
+  prompt: 'Simplify ${a:coef}i^{{n}}$ and give its real and imaginary parts.'
+  answers:
+    - {name: re, label: 'Real part'}
+    - {name: im, label: 'Imaginary part'}
+  solution: |-
+    Powers of $i$ repeat every 4. ${n} = 4 \cdot {qq} + {r}$, so $i^{{n}} = i^{{r}}$ (the cycle is $i^0 = 1$, $i^1 = i$, $i^2 = -1$, $i^3 = -i$).
+    Real part **{re}**, imaginary part **{im}**.
+
+- id: alg-d-system3
+  title: Solve a 3×3 system
+  topic: Three-variable systems
+  vars:
+    xs: {min: -4, max: 4}
+    ys: {min: -4, max: 4}
+    zs: {min: -4, max: 4}
+    a1: {choices: [1, 2, -1]}
+    b1: {choices: [1, -1, 2]}
+    c1: {choices: [1, -1, 3]}
+    a2: {choices: [2, 1, 3]}
+    b2: {choices: [-1, 1, -2]}
+    c2: {choices: [1, 2, -1]}
+    a3: {choices: [1, -1, 3]}
+    b3: {choices: [2, 1, 3]}
+    c3: {choices: [-1, -2, 1]}
+  calc:
+    d1: a1*xs + b1*ys + c1*zs
+    d2: a2*xs + b2*ys + c2*zs
+    d3: a3*xs + b3*ys + c3*zs
+    det: a1*(b2*c3 - c2*b3) - b1*(a2*c3 - c2*a3) + c1*(a2*b3 - b2*a3)
+  where: ['det != 0']
+  prompt: |-
+    Solve the system:
+
+    $$\begin{cases} {a1:coef}x {b1:signedcoef}y {c1:signedcoef}z = {d1} \\ {a2:coef}x {b2:signedcoef}y {c2:signedcoef}z = {d2} \\ {a3:coef}x {b3:signedcoef}y {c3:signedcoef}z = {d3} \end{cases}$$
+  answers:
+    - {name: xs, label: '$x =$'}
+    - {name: ys, label: '$y =$'}
+    - {name: zs, label: '$z =$'}
+  solution: |-
+    Eliminate one variable (say $z$) from two different pairs of equations to get two equations in $x$ and $y$; solve that pair, then back-substitute.
+    The solution is **$({xs}, {ys}, {zs})$**. Check the first equation: ${a1}({xs}) + ({b1})({ys}) + ({c1})({zs}) = {d1}$.
+
+- id: alg-d-parabola-3pts
+  title: Parabola through three points
+  topic: Three-variable systems
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -4, max: 4}
+    c: {min: -5, max: 5}
+    u: {min: -3, max: -1}
+    v: {min: 0, max: 1}
+    w: {choices: [2, 3]}
+  funcs:
+    f(x): a*x^2 + b*x + c
+  calc:
+    fu: f(u)
+    fv: f(v)
+    fw: f(w)
+    ylo: min(fu, fv, fw, 0) - 3
+    yhi: max(fu, fv, fw, 0) + 3
+  where: ['a != 0']
+  prompt: 'Find $a$, $b$ and $c$ so that $y = ax^2 + bx + c$ passes through $({u}, {fu})$, $({v}, {fv})$ and $({w}, {fw})$.'
+  figure:
+    type: plot
+    x: [-4, 4]
+    y: [ylo, yhi]
+    points:
+      - {at: [u, fu], label: '({u}, {fu})'}
+      - {at: [v, fv], label: '({v}, {fv})'}
+      - {at: [w, fw], label: '({w}, {fw})'}
+  answers:
+    - {name: a, label: '$a =$'}
+    - {name: b, label: '$b =$'}
+    - {name: c, label: '$c =$'}
+  solution: |-
+    Substitute each point to get three linear equations in $a$, $b$, $c$, for example ${fu} = a({u})^2 + b({u}) + c$.
+    Solving the system gives **$a = {a}$, $b = {b}$, $c = {c}$**, so $y = {a:coef}x^2 + ({b})x + ({c})$.
+
+
+- id: a2-d-cq-vertex
+  title: Solve a quadratic in vertex form
+  topic: Quadratics with complex solutions
+  vars:
+    a: {choices: [-3, -2, -1, 1, 2, 3]}
+    h: {min: -6, max: 6}
+    m: {choices: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 16, 25]}
+  where: ['h != 0']
+  calc:
+    k: a*m
+    nh: -h
+    nk: -k
+    q: sqrt(m)
+  prompt: 'Solve ${a:coef}(x {nh:signed})^2 {k:signed} = 0$. The solutions have the form $p \pm qi$ with $q > 0$. Give $p$ and $q$ exactly (you can type a root as sqrt(5)).'
+  answers:
+    - {name: h, label: '$p =$'}
+    - {name: q, label: '$q =$'}
+  solution: |-
+    Isolate the square: ${a:coef}(x {nh:signed})^2 = {nk}$, so $(x {nh:signed})^2 = \dfrac{{nk}}{{a}} = -{m}$.
+    Take square roots: $x {nh:signed} = \pm\sqrt{-{m}} = \pm i\sqrt{{m}}$, so $x = {h} \pm i\sqrt{{m}}$.
+    So $p =$ **{h}** and $q = \sqrt{{m}} \approx$ **{q:num2}**. (Since $a = {a}$ and $k = {k}$ have the same sign, the parabola opens away from the $x$-axis from its vertex $({h}, {k})$ and never crosses it, which is why the solutions aren't real.)
+
+- id: a2-d-cq-formula
+  title: Quadratic formula with a negative discriminant
+  topic: Quadratics with complex solutions
+  vars:
+    a: {choices: [1, 2, 3]}
+    p: {min: -5, max: 5}
+    q: {min: 1, max: 5}
+  where: ['p != 0']
+  calc:
+    b: -2*a*p
+    c: a*(p^2 + q^2)
+    disc: b^2 - 4*a*c
+    nd: -(b^2 - 4*a*c)
+    rt: 2*a*q
+    nb: 2*a*p
+    twoa: 2*a
+  prompt: 'Solve ${a:coef}x^2 {b:signedcoef}x {c:signed} = 0$ with the quadratic formula. The solutions are $p \pm qi$ with $q > 0$; give $p$ and $q$.'
+  answers:
+    - {name: p, label: '$p =$'}
+    - {name: q, label: '$q =$'}
+  solution: |-
+    Discriminant: $b^2 - 4ac = ({b})^2 - 4({a})({c}) = {disc}$, which is negative, so the solutions are complex conjugates.
+    $\sqrt{{disc}} = i\sqrt{{nd}} = {rt}i$. Then $x = \dfrac{{nb} \pm {rt}i}{{twoa}}$; divide both terms by ${twoa}$: $x = {p} \pm {q:coef}i$.
+    So $p =$ **{p}** and $q =$ **{q}**.
+
+- id: a2-d-cq-from-roots
+  title: Build a quadratic from complex roots
+  topic: Quadratics with complex solutions
+  vars:
+    a: {choices: [1, 1, 2, 3, -1]}
+    p: {min: -6, max: 6}
+    q: {min: 1, max: 6}
+  where: ['p != 0']
+  calc:
+    b: -2*a*p
+    c: a*(p^2 + q^2)
+    np: -p
+    pq: p^2 + q^2
+    q2: q^2
+    m2p: -2*p
+  prompt: 'Find $b$ and $c$ so that $y = {a:coef}x^2 + bx + c$ has roots ${p} \pm {q:coef}i$.'
+  answers:
+    - {name: b, label: '$b =$'}
+    - {name: c, label: '$c =$'}
+  solution: |-
+    Roots $p \pm qi$ come from $(x - p)^2 + q^2$: here $(x {np:signed})^2 + {q2} = x^2 {m2p:signedcoef}x + {pq}$.
+    Multiply by the leading coefficient ${a}$: ${a:coef}x^2 {b:signedcoef}x {c:signed}$. So $b =$ **{b}** and $c =$ **{c}**.
+    Check: the roots add to $2({p})$, which equals $-\tfrac ba = -\tfrac{{b}}{{a}}$, and multiply to $({p})^2 + {q2} = {pq}$, which equals $\tfrac ca = \tfrac{{c}}{{a}}$.

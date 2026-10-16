@@ -1,0 +1,26 @@
+id: math-algebra2
+title: Algebra 2
+description: >-
+  High school Algebra 2: function transformations, composition and inverses, complex numbers, systems in three variables, polynomial functions, radicals and rational exponents, rational expressions and functions, exponentials and logarithms, sequences and series, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.
+revision: 1
+released: true
+order: 3
+modules:
+  - id: a2-m1
+    title: Functions and their transformations
+  - id: a2-m2
+    title: Complex numbers, quadratics, and systems
+  - id: a2-m3
+    title: Polynomial functions
+  - id: a2-m4
+    title: Radicals and rational exponents
+  - id: a2-m5
+    title: Rational expressions and functions
+  - id: a2-m6
+    title: Exponential and logarithmic functions
+  - id: a2-m7
+    title: Sequences and series
+  - id: a2-m8
+    title: Probability and statistics
+  - id: a2-m9
+    title: Introduction to trigonometry

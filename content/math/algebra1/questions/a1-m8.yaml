@@ -1,0 +1,304 @@
+# Data and statistics
+- id: a1-q-3001
+  lesson: a1-one-var-data
+  module_quiz: true
+  topic: Center and spread
+  stem: 'Find the median of 12, 5, 9, 20, 7, 15.'
+  choices: ['10.5', '11.3', '9', '14.5']
+  answer: 0
+  explanation: |-
+    Sort first: 5, 7, 9, 12, 15, 20. With six values, the median is the mean of the 3rd and 4th: $\tfrac{9 + 12}{2} = 10.5$.
+    14.5 averages the middle two of the unsorted list (9 and 20); 11.3 is the mean, $\tfrac{68}{6}$.
+- id: a1-q-3002
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'Find the mean of 4, 8, 10, 10, 18.'
+  choices: ['14', '10', '12.5', '8']
+  answer: 1
+  explanation: |-
+    Sum $= 4 + 8 + 10 + 10 + 18 = 50$, and there are 5 values: $\bar x = \tfrac{50}{5} = 10$. Dividing by 4 instead of 5 gives 12.5.
+- id: a1-q-3003
+  lesson: a1-one-var-data
+  module_quiz: true
+  topic: Center and spread
+  stem: 'Find the interquartile range of 3, 7, 8, 12, 14, 15, 21.'
+  choices: ['7', '12', '8', '18']
+  answer: 2
+  explanation: |-
+    $n = 7$, so the median is the 4th value, 12. Leave it out: lower half 3, 7, 8 gives $Q_1 = 7$; upper half 14, 15, 21 gives $Q_3 = 15$. IQR $= 15 - 7 = 8$.
+    18 is the range; 7 comes from wrongly including the median in both halves ($Q_1 = 7.5$, $Q_3 = 14.5$).
+- id: a1-q-3004
+  lesson: a1-one-var-data
+  module_quiz: true
+  topic: Center and spread
+  stem: 'A data set has $Q_1 = 20$ and $Q_3 = 32$. Which value would be an outlier by the $1.5 \times \text{IQR}$ rule?'
+  choices: ['48', '4', '35', '52']
+  answer: 3
+  explanation: |-
+    IQR $= 12$ and $1.5 \times 12 = 18$. Fences: $20 - 18 = 2$ and $32 + 18 = 50$. Only 52 lies outside $[2, 50]$.
+- id: a1-q-3005
+  lesson: a1-one-var-data
+  module_quiz: true
+  topic: Data displays
+  stem: 'Household incomes in a city are strongly skewed right. Which is most likely true?'
+  choices: ['The mean income is greater than the median income', 'The median income is greater than the mean income', 'The mean and median incomes are equal', 'Most households have incomes in the right tail']
+  answer: 0
+  explanation: |-
+    A long right tail of very large incomes pulls the mean up, while the median depends only on the middle of the sorted list. So mean > median. Most values are in the clump on the left, not in the tail.
+- id: a1-q-3006
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'Which statistic is resistant to outliers?'
+  choices: ['The range', 'The interquartile range', 'The mean', 'The standard deviation']
+  answer: 1
+  explanation: |-
+    The IQR uses only $Q_1$ and $Q_3$, which barely move when an extreme value changes. The mean, standard deviation and range all use the extreme values directly.
+- id: a1-q-3007
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'Find the population standard deviation $\sigma$ (divide by $n$) of 2, 4, 4, 6.'
+  choices: ['About 1.63', '8', 'About 1.41', '2']
+  answer: 2
+  explanation: |-
+    Mean $= 4$. Deviations $-2, 0, 0, 2$; squares $4, 0, 0, 4$, sum 8. Average: $\tfrac84 = 2$. $\sigma = \sqrt2 \approx 1.41$.
+    2 is the variance (no square root); 1.63 is the sample version $\sqrt{8/3}$.
+- id: a1-q-3008
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'Data set A is 48, 50, 52 and data set B is 30, 50, 70. Which statement is true?'
+  choices: ['A has the larger standard deviation', 'They have the same standard deviation because their means are equal', 'B has the larger mean', 'B has the larger standard deviation']
+  answer: 3
+  explanation: |-
+    Both means are 50, but B's values lie 20 from the mean while A's lie at most 2 away. Standard deviation measures that typical distance, so B's is much larger (about 16.3 vs 1.6).
+- id: a1-q-3009
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'Every value in a data set is increased by 5. What happens to the mean and the standard deviation?'
+  choices: ['The mean increases by 5; the standard deviation is unchanged', 'Both increase by 5', 'The mean is unchanged; the standard deviation increases by 5', 'Both are unchanged']
+  answer: 0
+  explanation: |-
+    Each value and the mean both move up 5, so every deviation $x - \bar x$ is the same as before. The spread, and so $\sigma$, doesn't change.
+- id: a1-q-3010
+  lesson: a1-one-var-data
+  topic: Data displays
+  stem: 'A histogram has bins 0–10, 10–20, 20–30, 30–40, 40–50 with heights 4, 7, 5, 2, 2. What percent of the values are at least 20?'
+  choices: ['9%', '45%', '35%', '55%']
+  answer: 1
+  explanation: |-
+    Total $= 4 + 7 + 5 + 2 + 2 = 20$. At least 20 means the last three bins: $5 + 2 + 2 = 9$ values, and $\tfrac{9}{20} = 45\%$. (9 is the count, not the percent; 55% is the share below 20.)
+- id: a1-q-3011
+  lesson: a1-one-var-data
+  topic: Data displays
+  stem: 'A box plot shows the five-number summary 12, 18, 25, 31, 46. About what fraction of the data lies between 18 and 31?'
+  choices: ['About three quarters', 'All of it', 'About half', 'About one quarter']
+  answer: 2
+  explanation: |-
+    18 is $Q_1$ and 31 is $Q_3$. The box holds the middle half of the data: a quarter between $Q_1$ and the median and a quarter between the median and $Q_3$.
+- id: a1-q-3012
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'For the data 10, 12, 13, 15, 100, which changes more when the 100 is removed?'
+  choices: ['The median, which drops from 13 to 12.5', 'Both drop by the same amount', 'Neither one changes', 'The mean, which drops from 30 to 12.5']
+  answer: 3
+  explanation: |-
+    With 100: mean $= \tfrac{150}{5} = 30$, median 13. Without it: mean $= \tfrac{50}{4} = 12.5$, median $= \tfrac{12 + 13}{2} = 12.5$. The mean falls by 17.5, the median by only 0.5.
+- id: a1-q-3013
+  lesson: a1-one-var-data
+  topic: Data displays
+  stem: 'On an easy quiz, most scores are between 85 and 100, with a few scores near 40. How is the distribution best described?'
+  choices: ['Skewed left', 'Skewed right', 'Symmetric', 'Uniform']
+  answer: 0
+  explanation: |-
+    The long tail stretches toward the low scores (to the left on a number line), so it is skewed left. Skew is named for the direction of the tail, not the clump.
+- id: a1-q-3101
+  lesson: a1-two-way
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'A survey asked 250 people their favorite season: $$\begin{array}{l|cc|c} & \text{Summer} & \text{Winter} & \text{Total} \\ \hline \text{Adults} & 60 & 40 & 100 \\ \text{Teens} & 120 & 30 & 150 \\ \hline \text{Total} & 180 & 70 & 250 \end{array}$$ What percent of teens prefer winter?'
+  choices: ['60%', '20%', '12%', '42.9%']
+  answer: 1
+  explanation: |-
+    "Of teens" restricts to the teen row, total 150: $\tfrac{30}{150} = 20\%$.
+    12% divides by the grand total (a joint relative frequency); 42.9% divides by the winter column total.
+- id: a1-q-3102
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'A survey asked 250 people their favorite season: $$\begin{array}{l|cc|c} & \text{Summer} & \text{Winter} & \text{Total} \\ \hline \text{Adults} & 60 & 40 & 100 \\ \text{Teens} & 120 & 30 & 150 \\ \hline \text{Total} & 180 & 70 & 250 \end{array}$$ What percent of all people surveyed are adults who prefer summer?'
+  choices: ['33.3%', '40%', '24%', '60%']
+  answer: 2
+  explanation: |-
+    "Of all people" means the grand total: $\tfrac{60}{250} = 24\%$, a joint relative frequency. 60% is the percent of adults who prefer summer, a conditional one.
+- id: a1-q-3103
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'A survey asked 250 people their favorite season: $$\begin{array}{l|cc|c} & \text{Summer} & \text{Winter} & \text{Total} \\ \hline \text{Adults} & 60 & 40 & 100 \\ \text{Teens} & 120 & 30 & 150 \\ \hline \text{Total} & 180 & 70 & 250 \end{array}$$ What is the marginal relative frequency of preferring winter?'
+  choices: ['20%', '40%', '70%', '28%']
+  answer: 3
+  explanation: |-
+    Marginal: the winter column total over the grand total, $\tfrac{70}{250} = 28\%$. 70 is the count itself.
+- id: a1-q-3104
+  lesson: a1-two-way
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'A survey asked 250 people their favorite season: $$\begin{array}{l|cc|c} & \text{Summer} & \text{Winter} & \text{Total} \\ \hline \text{Adults} & 60 & 40 & 100 \\ \text{Teens} & 120 & 30 & 150 \\ \hline \text{Total} & 180 & 70 & 250 \end{array}$$ What percent of the people who prefer winter are adults?'
+  choices: ['57.1%', '40%', '16%', '28%']
+  answer: 0
+  explanation: |-
+    Restrict to the winter column (total 70): $\tfrac{40}{70} \approx 57.1\%$. 40% is a different question, the percent of adults who prefer winter ($\tfrac{40}{100}$).
+- id: a1-q-3105
+  lesson: a1-two-way
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'A survey asked 250 people their favorite season: $$\begin{array}{l|cc|c} & \text{Summer} & \text{Winter} & \text{Total} \\ \hline \text{Adults} & 60 & 40 & 100 \\ \text{Teens} & 120 & 30 & 150 \\ \hline \text{Total} & 180 & 70 & 250 \end{array}$$ Is there an association between age group and favorite season?'
+  choices: ['Yes: 120 teens prefer summer but only 60 adults do', 'Yes: 40% of adults prefer winter, but only 20% of teens do', 'No: more teens than adults were surveyed', 'No: most people in both groups prefer summer']
+  answer: 1
+  explanation: |-
+    Compare conditional percents: adults $\tfrac{40}{100} = 40\%$ winter, teens $\tfrac{30}{150} = 20\%$ winter. They differ a lot, so the variables are associated. Raw counts (120 vs 60) can't be compared because the groups have different sizes.
+- id: a1-q-3106
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'Of 80 students, 50 play a school sport. 30 of the athletes and 10 of the non-athletes have a part-time job. How many non-athletes do NOT have a job?'
+  choices: ['30', '10', '20', '40']
+  answer: 2
+  explanation: |-
+    Non-athletes: $80 - 50 = 30$. Of those, 10 have a job, so $30 - 10 = 20$ do not. (40 is the total number of students with jobs.)
+- id: a1-q-3107
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'To find a conditional relative frequency from a two-way table, you divide a cell by'
+  choices: ['the grand total', 'the sum of the other cells in its row', 'the number of categories', 'the total of the given row or column group']
+  answer: 3
+  explanation: |-
+    "Among the members of a group" means the group is the whole: divide by that group's row or column total. Dividing by the grand total gives a joint relative frequency.
+- id: a1-q-3108
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'In a survey, 8 of 40 left-handed students and 32 of 160 right-handed students play chess. Which conclusion is correct?'
+  choices: ['No association: 20% of each group plays chess', 'Association: four times as many right-handers play chess', 'Association: the two groups have different sizes', 'Not enough information without the grand total']
+  answer: 0
+  explanation: |-
+    $\tfrac{8}{40} = 20\%$ and $\tfrac{32}{160} = 20\%$. The conditional percents are equal, so there is no association. The raw counts differ only because the groups differ in size.
+- id: a1-q-3109
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'In a two-way table of joint relative frequencies (every cell divided by the grand total), what do the inner cells add up to?'
+  choices: ['It depends on the data', '1, or 100%', 'The number of rows', 'The grand total']
+  answer: 1
+  explanation: |-
+    Every individual is in exactly one inner cell, so the cell counts add to the grand total, and after dividing by the grand total they add to 1.
+- id: a1-q-3110
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'A survey finds that students who eat breakfast are more likely to have high grades. Which conclusion is justified?'
+  choices: ['Having high grades causes students to eat breakfast', 'There is no association because the data came from a survey', 'Breakfast and grades are associated, but the survey does not show that breakfast causes higher grades', 'Eating breakfast causes higher grades']
+  answer: 2
+  explanation: |-
+    The conditional percents differ, so there is an association. But a survey doesn't control other factors; for example, students with more structured home routines may both eat breakfast and do homework. Association is not causation.
+- id: a1-q-3111
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'A survey asked 250 people their favorite season: $$\begin{array}{l|cc|c} & \text{Summer} & \text{Winter} & \text{Total} \\ \hline \text{Adults} & 60 & 40 & 100 \\ \text{Teens} & 120 & 30 & 150 \\ \hline \text{Total} & 180 & 70 & 250 \end{array}$$ Which question does the fraction $\tfrac{30}{150}$ answer?'
+  choices: ['What fraction of winter-lovers are teens?', 'What fraction of all people are teens who prefer winter?', 'What fraction of all people prefer winter?', 'What fraction of teens prefer winter?']
+  answer: 3
+  explanation: |-
+    30 is the teen-winter cell and 150 is the teen row total, so it's a conditional relative frequency within teens. Winter-lovers who are teens would be $\tfrac{30}{70}$; teens who prefer winter among everyone would be $\tfrac{30}{250}$.
+- id: a1-q-3201
+  lesson: a1-scatter
+  module_quiz: true
+  topic: Correlation and residuals
+  stem: 'A scatter plot has correlation coefficient $r = -0.92$. What does this indicate?'
+  choices: ['A strong negative linear association', 'A weak negative linear association', 'A strong positive linear association', 'No association']
+  answer: 0
+  explanation: |-
+    The sign gives the direction (negative: $y$ tends to decrease as $x$ increases) and $|r| = 0.92$ is close to 1, so the linear pattern is strong.
+- id: a1-q-3202
+  lesson: a1-scatter
+  topic: Correlation and residuals
+  stem: 'Which correlation coefficient shows the strongest linear relationship?'
+  choices: ['$r = 0.02$', '$r = -0.91$', '$r = 0.85$', '$r = 0.40$']
+  answer: 1
+  explanation: |-
+    Strength is measured by $|r|$: 0.91 is the largest. A negative $r$ is just as strong as a positive one of the same size.
+- id: a1-q-3203
+  lesson: a1-scatter
+  module_quiz: true
+  topic: Correlation and residuals
+  stem: 'Using the line $\hat y = 2x + 10$, what is the residual for the data point $(5, 23)$?'
+  choices: ['$23$', '$20$', '$3$', '$-3$']
+  answer: 2
+  explanation: |-
+    Predicted: $\hat y = 2(5) + 10 = 20$. Residual $=$ actual $-$ predicted $= 23 - 20 = 3$. $-3$ subtracts in the wrong order.
+- id: a1-q-3204
+  lesson: a1-scatter
+  topic: Scatter plots
+  stem: 'A line of best fit is $\hat y = 4.2x + 35$, where $x$ is years of experience and $y$ is salary in thousands of dollars. What does the slope mean?'
+  choices: ['A worker with no experience earns about \$4,200', 'Salary rises by \$35,000 per year of experience', 'Every worker earns exactly \$4,200 more each year', 'Each additional year of experience goes with about \$4,200 more salary, on average']
+  answer: 3
+  explanation: |-
+    The slope is the predicted change in $y$ per unit of $x$: 4.2 thousand dollars per year of experience, as an average trend, not a guarantee for each person. The 35 is the intercept (predicted salary with 0 years).
+- id: a1-q-3205
+  lesson: a1-scatter
+  topic: Correlation and residuals
+  stem: 'Across many fires, the number of firefighters sent is positively correlated with the amount of damage. Which explanation is most reasonable?'
+  choices: ['Bigger fires bring both more firefighters and more damage', 'Firefighters cause the damage', 'The damage causes firefighters to be sent after the fire', 'The correlation must be a calculation error']
+  answer: 0
+  explanation: |-
+    The size of the fire is a lurking variable that drives both. Correlation alone doesn't show that firefighters cause damage.
+- id: a1-q-3206
+  lesson: a1-scatter
+  module_quiz: true
+  topic: Correlation and residuals
+  stem: 'A residual plot for a linear model shows a clear U-shaped pattern. What does that suggest?'
+  choices: ['There are no outliers', 'A curved model would fit the data better than a line', 'The line is a good model', 'The correlation coefficient must be close to 0']
+  answer: 1
+  explanation: |-
+    A good linear fit leaves residuals scattered randomly around 0. A U shape means the line overpredicts in the middle and underpredicts at the ends, so the data curve. This can happen even when $r$ is close to 1.
+- id: a1-q-3207
+  lesson: a1-scatter
+  module_quiz: true
+  topic: Scatter plots
+  stem: 'A line of fit passes through $(2, 50)$ and $(6, 70)$. What is its equation?'
+  choices: ['$\hat y = 5x + 50$', '$\hat y = 20x + 10$', '$\hat y = 5x + 40$', '$\hat y = 0.2x + 49.6$']
+  answer: 2
+  explanation: |-
+    Slope $= \dfrac{70 - 50}{6 - 2} = 5$. Then $50 = 5(2) + b$ gives $b = 40$. $0.2$ is run over rise; $5x + 50$ uses 50 as the intercept although $x = 2$, not 0, there.
+- id: a1-q-3208
+  lesson: a1-scatter
+  topic: Scatter plots
+  stem: 'A model of children''s height from age, fit to children aged 2 to 10, is used to predict an adult''s height at age 40. Why is that prediction unreliable?'
+  choices: ['The slope is too small to use', 'Residuals are always negative for adults', 'The correlation coefficient is not exactly 1', 'It is extrapolation far outside the data, where the trend does not continue']
+  answer: 3
+  explanation: |-
+    Children grow at a fairly steady rate, but growth stops in the late teens. Predicting at 40 extends the line far beyond ages 2–10 and would give an absurd height.
+- id: a1-q-3209
+  lesson: a1-scatter
+  topic: Correlation and residuals
+  stem: 'A data point has a positive residual. Where is it relative to the line of fit?'
+  choices: ['Above the line', 'Below the line', 'On the line', 'To the right of all other points']
+  answer: 0
+  explanation: |-
+    Residual $= y - \hat y > 0$ means the actual $y$ is larger than predicted, so the point sits above the line.
+- id: a1-q-3210
+  lesson: a1-scatter
+  topic: Correlation and residuals
+  stem: 'Seven points lie exactly on the parabola $y = x^2$ at $x = -3, -2, \dots, 3$. What is true about $r$?'
+  choices: ['$r$ cannot be computed for these points', '$r = 0$, even though $y$ is completely determined by $x$', '$r = 1$', '$r = -1$']
+  answer: 1
+  explanation: |-
+    The pattern falls on the left and rises on the right symmetrically, so there is no overall linear trend and $r = 0$. The correlation coefficient measures only linear association; always look at the plot.
+- id: a1-q-3211
+  lesson: a1-scatter
+  topic: Scatter plots
+  stem: 'Using $\hat y = 5.5x + 56.4$ (score from hours studied), what score is predicted for 2.5 hours?'
+  choices: ['13.75', '146.5', '70.15', '61.9']
+  answer: 2
+  explanation: |-
+    $\hat y = 5.5(2.5) + 56.4 = 13.75 + 56.4 = 70.15$. 61.9 adds the slope without multiplying; 13.75 forgets the intercept; 146.5 swaps slope and intercept.
+- id: a1-q-3212
+  lesson: a1-scatter
+  topic: Scatter plots
+  stem: 'Which pair of variables is most likely to have a negative association?'
+  choices: ['Height and shoe size', 'Hours studied and test score', 'A child''s age and vocabulary size', 'Outdoor temperature and a home''s heating bill']
+  answer: 3
+  explanation: |-
+    As the temperature goes up, less heating is needed, so the bill tends to go down: a negative association. The other pairs tend to increase together.

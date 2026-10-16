@@ -1,0 +1,222 @@
+# Rational expressions and functions drills
+- id: alg-d-rat-simplify
+  title: Simplify a rational expression
+  topic: Rational expressions
+  vars:
+    p: {min: -6, max: 6}
+    q: {min: -6, max: 6}
+    r: {min: -6, max: 6}
+  calc:
+    nb: p + q
+    nc: p*q
+    db: p + r
+    dc: p*r
+  where: ['p != 0', 'q != 0', 'r != 0', 'q != r', 'p != q', 'p != r', 'nb != 0', 'db != 0']
+  prompt: 'Simplify $\dfrac{x^2 {nb:signedcoef}x {nc:signed}}{x^2 {db:signedcoef}x {dc:signed}}$.'
+  answers:
+    - kind: expression
+      expression: (x + q)/(x + r)
+      variables: [x]
+      label: 'Simplified'
+      show: '$\dfrac{x {q:signed}}{x {r:signed}}$'
+  solution: |-
+    Factor both: $\dfrac{(x {p:signed})(x {q:signed})}{(x {p:signed})(x {r:signed})}$.
+    Cancel the common factor $(x {p:signed})$: **$\dfrac{x {q:signed}}{x {r:signed}}$** (with the original excluded values still excluded).
+
+- id: alg-d-rat-multiply
+  title: Multiply rational expressions
+  topic: Rational expressions
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+    d: {min: -6, max: 6}
+  calc:
+    s1: a + b
+    p1: a*b
+    s2: c + d
+    p2: c*d
+  where: ['a != 0', 'b != 0', 'c != 0', 'd != 0', 'a != b', 'c != d', 'a != c', 'b != d', 'a != d', 'b != c', 's1 != 0', 's2 != 0']
+  prompt: 'Multiply and simplify: $\dfrac{x^2 {s1:signedcoef}x {p1:signed}}{x^2 {s2:signedcoef}x {p2:signed}} \cdot \dfrac{x {c:signed}}{x {a:signed}}$'
+  answers:
+    - kind: expression
+      expression: (x + b)/(x + d)
+      variables: [x]
+      label: 'Product'
+      show: '$\dfrac{x {b:signed}}{x {d:signed}}$'
+  solution: |-
+    Factor: $\dfrac{(x {a:signed})(x {b:signed})}{(x {c:signed})(x {d:signed})} \cdot \dfrac{x {c:signed}}{x {a:signed}}$.
+    Cancel $(x {a:signed})$ and $(x {c:signed})$: **$\dfrac{x {b:signed}}{x {d:signed}}$**.
+
+- id: alg-d-rat-add
+  title: Add rational expressions
+  topic: Rational expressions
+  vars:
+    a: {min: -7, max: 7}
+    b: {min: -7, max: 7}
+    p: {min: -6, max: 6}
+    q: {min: -6, max: 6}
+  calc:
+    A: a + b
+    B: a*q + b*p
+    aq: a*q
+    bp: b*p
+  where: ['a != 0', 'b != 0', 'p != 0', 'q != 0', 'p != q', 'A != 0', 'B != 0']
+  prompt: 'Add and write as a single fraction: $\dfrac{{a}}{x {p:signed}} + \dfrac{{b}}{x {q:signed}}$'
+  answers:
+    - kind: expression
+      expression: a/(x + p) + b/(x + q)
+      variables: [x]
+      label: 'Sum'
+      show: '$\dfrac{{A:coef}x {B:signed}}{(x {p:signed})(x {q:signed})}$'
+  solution: |-
+    The LCD is $(x {p:signed})(x {q:signed})$. Rewrite: $\dfrac{{a}(x {q:signed}) {b:signed}(x {p:signed})}{(x {p:signed})(x {q:signed})}$.
+    The numerator is ${a:coef}x {aq:signed} {b:signedcoef}x {bp:signed} = {A:coef}x {B:signed}$, so the sum is **$\dfrac{{A:coef}x {B:signed}}{(x {p:signed})(x {q:signed})}$**.
+
+- id: alg-d-complex-fraction
+  title: Simplify a numeric complex fraction
+  topic: Complex fractions
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: 2, max: 9}
+    c: {min: 1, max: 5}
+    d: {min: 2, max: 9}
+    f: {min: 2, max: 9}
+  calc:
+    top: a/b + c/d
+    val: (a/b + c/d)*f
+  where: ['b != d', 'gcd(a, b) == 1', 'gcd(c, d) == 1']
+  prompt: 'Simplify $\dfrac{\dfrac{{a}}{{b}} + \dfrac{{c}}{{d}}}{\dfrac{1}{{f}}}$ to an exact fraction.'
+  answers:
+    - {name: val, kind: fraction, lowestTerms: true, label: 'Value'}
+  solution: |-
+    The numerator is $\dfrac{{a}}{{b}} + \dfrac{{c}}{{d}} = {top:texfrac}$. Dividing by $\dfrac{1}{{f}}$ means multiplying by {f}: ${top:texfrac} \cdot {f} =$ **${val:texfrac}$**.
+
+- id: alg-d-rat-eq
+  title: Solve a rational equation
+  topic: Rational equations
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 1, max: 9}
+    p: {min: -8, max: 8}
+    q: {min: -8, max: 8}
+  calc:
+    xs: (b*p - a*q)/(a - b)
+    aq: a*q
+    bp: b*p
+    amb: a - b
+    np: -p
+    nq: -q
+    rhs: b*p - a*q
+  where: ['a != b', 'p != q', 'xs != -p', 'xs != -q', 'rhs != 0']
+  prompt: 'Solve $\;\dfrac{{a}}{x {p:signed}} = \dfrac{{b}}{x {q:signed}}$. Give an exact answer.'
+  answers:
+    - {name: xs, kind: fraction, lowestTerms: true, label: '$x =$'}
+  solution: |-
+    Excluded values: $x \ne {np}$ and $x \ne {nq}$. Cross-multiply: ${a}(x {q:signed}) = {b}(x {p:signed})$.
+    So ${a:coef}x {aq:signed} = {b:coef}x {bp:signed}$, giving ${amb:coef}x = {rhs}$ and $x =$ **${xs:texfrac}$**, which isn't excluded.
+
+- id: alg-d-work
+  title: Working together
+  topic: Work and rate
+  vars:
+    t1: {min: 2, max: 12}
+    t2: {min: 2, max: 15}
+  calc:
+    tot: t1*t2/(t1 + t2)
+    pr: t1*t2
+    sm: t1 + t2
+  where: ['t1 < t2']
+  prompt: 'One machine finishes a job in {t1} hours and another in {t2} hours. Working together, how many hours do they take? (Exact fraction.)'
+  answers:
+    - {name: tot, kind: fraction, lowestTerms: true, label: 'Hours'}
+  solution: |-
+    Rates add: $\dfrac{1}{{t1}} + \dfrac{1}{{t2}} = \dfrac{1}{T}$. Multiply by ${t1} \cdot {t2} \cdot T$: ${t2}T + {t1}T = {pr}$.
+    So $T = \dfrac{{pr}}{{sm}} =$ **${tot:texfrac}$** hours.
+
+- id: alg-d-current
+  title: Boat speed against a current
+  topic: Work and rate
+  vars:
+    bs: {min: 8, max: 30}
+    c: {min: 1, max: 6}
+    t: {choices: [1, 1.5, 2, 2.5, 3]}
+  calc:
+    D1: (bs + c)*t
+    D2: (bs - c)*t
+  where: ['bs > 2*c']
+  prompt: 'A boat travels {D1} km downstream in the same time it travels {D2} km upstream. The current flows at {c} km/h. What is the boat''s speed in still water (km/h)?'
+  answers:
+    - {name: bs, label: 'Speed (km/h)'}
+  solution: |-
+    Equal times: $\dfrac{{D1}}{b + {c}} = \dfrac{{D2}}{b - {c}}$. Cross-multiply and solve: **{bs}** km/h.
+    Check: each trip takes {t} h.
+
+- id: a2-d-rat-features
+  title: Asymptotes and intercepts of a rational function
+  topic: Rational functions
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    e: {min: -6, max: 6}
+  where: ['a != 0', 'b != 0', 'e != 0', 'b != a*e']
+  calc:
+    va: -e
+    xi: -b/a
+    yi: b/e
+  prompt: 'For $f(x) = \dfrac{{a:coef}x {b:signed}}{x {e:signed}}$, find the vertical asymptote, the horizontal asymptote, the $x$-intercept and the $y$-intercept. Give exact values.'
+  answers:
+    - {name: va, label: 'Vertical asymptote $x =$'}
+    - {name: a, label: 'Horizontal asymptote $y =$'}
+    - {name: xi, kind: fraction, lowestTerms: true, label: '$x$-intercept $x =$'}
+    - {name: yi, kind: fraction, lowestTerms: true, label: '$y$-intercept $y =$'}
+  solution: |-
+    The denominator is zero at $x = {va}$, and the numerator there is not zero, so nothing cancels: vertical asymptote **$x = {va}$**.
+    Both degrees are 1, so the horizontal asymptote is the ratio of leading coefficients: **$y = {a}$**.
+    $x$-intercept: ${a:coef}x {b:signed} = 0$ gives **$x = {xi:texfrac}$**. $y$-intercept: $f(0) = \dfrac{{b}}{{e}} =$ **${yi:texfrac}$**.
+
+- id: a2-d-rat-hole
+  title: Hole and vertical asymptote
+  topic: Rational functions
+  vars:
+    r: {min: -6, max: 6}
+    s: {min: -6, max: 6}
+    t: {min: -6, max: 6}
+  where: ['r != s', 'r != t', 's != t', 'r + s != 0', 'r + t != 0', 'r*s != 0', 'r*t != 0']
+  calc:
+    n1: -(r + s)
+    n0: r*s
+    d1: -(r + t)
+    d0: r*t
+    hy: (r - s)/(r - t)
+    ns: -s
+    nt: -t
+    nr: -r
+  prompt: 'The graph of $g(x) = \dfrac{x^2 {n1:signedcoef}x {n0:signed}}{x^2 {d1:signedcoef}x {d0:signed}}$ has one hole and one vertical asymptote. Find the hole $(x, y)$ (exact) and the vertical asymptote.'
+  answers:
+    - {name: r, label: 'Hole $x =$'}
+    - {name: hy, kind: fraction, lowestTerms: true, label: 'Hole $y =$'}
+    - {name: t, label: 'Vertical asymptote $x =$'}
+  solution: |-
+    Factor: $g(x) = \dfrac{(x {nr:signed})(x {ns:signed})}{(x {nr:signed})(x {nt:signed})}$.
+    The common factor $(x {nr:signed})$ cancels, so there's a hole at $x = {r}$. Its height comes from the simplified form $\dfrac{x {ns:signed}}{x {nt:signed}}$: $\dfrac{{r} {ns:signed}}{{r} {nt:signed}} = {hy:texfrac}$. Hole: **$\left({r}, {hy:texfrac}\right)$**.
+    The factor $(x {nt:signed})$ remains in the denominator: vertical asymptote **$x = {t}$**.
+
+- id: a2-d-inverse-variation
+  title: Inverse variation
+  topic: Inverse variation
+  vars:
+    ctx: {choices: [{label: 'The time to finish a job varies inversely with the number of workers', value: 1}, {label: 'The time to drive a fixed route varies inversely with the average speed', value: 2}, {label: 'A quantity $y$ varies inversely with $x$', value: 3}]}
+    x1: {min: 2, max: 12}
+    y1: {min: 2, max: 30}
+    x2: {min: 2, max: 20}
+  where: ['x2 != x1', 'mod(x1*y1, x2) == 0']
+  calc:
+    kc: x1*y1
+    y2: x1*y1/x2
+  prompt: '{ctx}. When the input is {x1}, the output is {y1}. Find the output when the input is {x2}.'
+  answers:
+    - {name: y2, label: 'Output'}
+  solution: |-
+    Inverse variation means $y = \dfrac{k}{x}$, so the product is constant: $k = {x1} \cdot {y1} = {kc}$.
+    Then $y = \dfrac{{kc}}{{x2}} =$ **{y2}**.

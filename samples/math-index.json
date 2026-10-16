@@ -3,5 +3,15 @@
   "id": "math-prealgebra",
   "title": "Pre-algebra and Arithmetic",
   "revision": 1
+ },
+ {
+  "id": "math-algebra1",
+  "title": "Algebra 1",
+  "revision": 1
+ },
+ {
+  "id": "math-algebra2",
+  "title": "Algebra 2",
+  "revision": 1
  }
 ]

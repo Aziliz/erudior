@@ -1,0 +1,741 @@
+# Glossary
+- term: natural numbers
+  aliases: [natural number, counting numbers]
+  definition: 'The counting numbers $1, 2, 3, \dots$'
+  topic: Real numbers
+- term: whole numbers
+  aliases: [whole number]
+  definition: 'The natural numbers together with 0: $0, 1, 2, 3, \dots$'
+  topic: Real numbers
+- term: integers
+  aliases: [integer]
+  definition: 'The whole numbers and their negatives: $\dots, -2, -1, 0, 1, 2, \dots$'
+  topic: Real numbers
+- term: rational number
+  aliases: [rational numbers]
+  definition: 'A number that can be written as $\tfrac{p}{q}$ with integers $p$, $q$ and $q \ne 0$. Its decimal form terminates or repeats.'
+  topic: Real numbers
+- term: irrational number
+  aliases: [irrational numbers]
+  definition: 'A real number that is not rational; its decimal never ends or repeats. Examples: $\sqrt2$, $\pi$.'
+  topic: Real numbers
+- term: real numbers
+  aliases: [real number]
+  definition: 'All rational and irrational numbers together, written $\mathbb{R}$; every point on the number line.'
+  topic: Real numbers
+- term: number line
+  definition: 'A line on which every real number has a point; numbers increase to the right.'
+  topic: Real numbers
+- term: absolute value
+  definition: 'The distance of a number from 0, written $|a|$. It is never negative: $|-5| = 5$.'
+  topic: Real numbers
+- term: opposite
+  aliases: [opposites]
+  definition: 'The number with the same absolute value and the other sign; the opposite of $a$ is $-a$.'
+  topic: Real numbers
+- term: reciprocal
+  definition: 'For $a \ne 0$, the number $\tfrac{1}{a}$; the reciprocal of $\tfrac{c}{d}$ is $\tfrac{d}{c}$. A number times its reciprocal is 1.'
+  topic: Real numbers
+- term: commutative property
+  definition: 'Order does not matter: $a + b = b + a$ and $ab = ba$.'
+  topic: Real numbers
+- term: associative property
+  definition: 'Grouping does not matter: $(a + b) + c = a + (b + c)$ and $(ab)c = a(bc)$.'
+  topic: Real numbers
+- term: identity property
+  definition: 'Adding 0 or multiplying by 1 leaves a number unchanged: $a + 0 = a$, $a \cdot 1 = a$.'
+  topic: Real numbers
+- term: inverse property
+  definition: 'A number plus its opposite is 0, and a nonzero number times its reciprocal is 1.'
+  topic: Real numbers
+- term: distributive property
+  definition: 'Multiplication distributes over addition: $a(b + c) = ab + ac$.'
+  topic: Real numbers
+- term: additive identity
+  definition: 'The number 0, since $a + 0 = a$.'
+  topic: Real numbers
+- term: multiplicative identity
+  definition: 'The number 1, since $a \cdot 1 = a$.'
+  topic: Real numbers
+- term: additive inverse
+  definition: 'The opposite $-a$ of a number $a$; their sum is 0.'
+  topic: Real numbers
+- term: multiplicative inverse
+  definition: 'The reciprocal $\tfrac1a$ of a nonzero number $a$; their product is 1.'
+  topic: Real numbers
+- term: undefined
+  definition: 'Having no value. Division by zero is undefined, and so is the slope of a vertical line.'
+  topic: Real numbers
+- term: variable
+  aliases: [variables]
+  definition: 'A letter that stands for a number that is unknown or allowed to vary.'
+  topic: Expressions
+- term: constant
+  aliases: [constants]
+  definition: 'A fixed number, such as 5 or $\pi$.'
+  topic: Expressions
+- term: algebraic expression
+  aliases: [expression, expressions]
+  definition: 'A combination of numbers, variables and operations with no equals sign, such as $3x^2 - 5x + 1$.'
+  topic: Expressions
+- term: terms
+  aliases: [term]
+  definition: 'The parts of an expression that are added together. In $4x^2 - 7x + 9$ the terms are $4x^2$, $-7x$ and $9$.'
+  topic: Expressions
+- term: coefficient
+  aliases: [coefficients]
+  definition: 'The number multiplying the variable part of a term; in $-7xy$ it is $-7$.'
+  topic: Expressions
+- term: constant term
+  definition: 'A term with no variable, such as the 9 in $4x^2 - 7x + 9$.'
+  topic: Expressions
+- term: order of operations
+  definition: 'The agreed order for evaluating: grouping, exponents, multiplication and division (left to right), addition and subtraction (left to right).'
+  topic: Expressions
+- term: PEMDAS
+  definition: 'Memory aid for the order of operations: Parentheses, Exponents, Multiplication/Division, Addition/Subtraction. Pairs of equal rank go left to right.'
+  topic: Expressions
+- term: evaluate
+  definition: 'To find the value of an expression by substituting numbers for its variables and computing.'
+  topic: Expressions
+- term: like terms
+  definition: 'Terms with exactly the same variables raised to the same powers, such as $5x^2$ and $-2x^2$. They combine by adding coefficients.'
+  topic: Expressions
+- term: simplify
+  definition: 'To rewrite an expression in an equivalent, simpler form, for example by distributing and combining like terms.'
+  topic: Expressions
+- term: linear equation
+  aliases: [linear equations]
+  definition: 'An equation in which the variable appears only to the first power, such as $3x - 7 = 11$.'
+  topic: Linear equations
+- term: solution
+  aliases: [solutions]
+  definition: 'A value of the variable (or an ordered pair or triple) that makes an equation, inequality or system true.'
+  topic: Linear equations
+- term: solution set
+  definition: 'The set of all solutions of an equation or inequality.'
+  topic: Linear equations
+- term: equivalent equations
+  definition: 'Equations that have the same solution set.'
+  topic: Linear equations
+- term: addition property of equality
+  definition: 'If $a = b$, then $a + c = b + c$: the same number may be added to (or subtracted from) both sides.'
+  topic: Linear equations
+- term: multiplication property of equality
+  definition: 'If $a = b$, then $ac = bc$: both sides may be multiplied (or divided) by the same nonzero number.'
+  topic: Linear equations
+- term: no solution
+  aliases: [empty set]
+  definition: 'The outcome when no value satisfies an equation; the solution set is the empty set $\varnothing$.'
+  topic: Linear equations
+- term: contradiction
+  definition: 'An equation that is false for every value of the variable, such as $x + 1 = x + 2$; it has no solution.'
+  topic: Linear equations
+- term: identity
+  definition: 'An equation that is true for every value of the variable, such as $2(x + 1) = 2x + 2$.'
+  topic: Linear equations
+- term: conditional equation
+  definition: 'An equation that is true for some values of the variable and false for others.'
+  topic: Linear equations
+- term: literal equation
+  aliases: [literal equations]
+  definition: 'An equation with two or more variables, such as a formula.'
+  topic: Literal equations
+- term: formula
+  aliases: [formulas]
+  definition: 'A literal equation that states a known relationship, such as $d = rt$.'
+  topic: Literal equations
+- term: solve for
+  definition: 'To isolate a particular variable on one side of an equation.'
+  topic: Literal equations
+- term: factor
+  aliases: [factors]
+  definition: 'A number or expression that is multiplied by another. To factor an expression is to write it as a product.'
+  topic: Factoring
+- term: consecutive integers
+  definition: 'Integers that follow one another, $n, n + 1, n + 2, \dots$; consecutive even or odd integers step by 2.'
+  topic: Linear applications
+- term: percent change
+  definition: '$\dfrac{\text{new} - \text{original}}{\text{original}} \times 100\%$; positive for an increase, negative for a decrease.'
+  topic: Linear applications
+- term: linear inequality
+  aliases: [linear inequalities]
+  definition: 'A statement like $2x - 5 < 7$ using $<$, $\le$, $>$ or $\ge$ with a first-degree expression.'
+  topic: Linear inequalities
+- term: interval notation
+  definition: 'Writing a set of numbers by its endpoints: brackets include an endpoint, parentheses exclude it, as in $[-2, 5)$.'
+  topic: Linear inequalities
+- term: set-builder notation
+  definition: 'Describing a set by a rule, such as $\{x \mid x > 2\}$, read "the set of $x$ such that $x > 2$."'
+  topic: Linear inequalities
+- term: compound inequality
+  aliases: [compound inequalities]
+  definition: 'Two inequalities joined by "and" (both must hold) or "or" (at least one must hold).'
+  topic: Compound inequalities
+- term: intersection
+  definition: 'The set of elements in both sets, written $\cap$; the solution of an "and" compound inequality.'
+  topic: Compound inequalities
+- term: double inequality
+  definition: 'An "and" inequality written in one line, such as $-2 < x \le 3$.'
+  topic: Compound inequalities
+- term: union
+  definition: 'The set of elements in either set, written $\cup$; the solution of an "or" compound inequality.'
+  topic: Compound inequalities
+- term: relation
+  definition: 'Any set of ordered pairs.'
+  topic: Functions
+- term: domain
+  definition: 'The set of inputs (first coordinates) of a relation or function.'
+  topic: Functions
+- term: range
+  definition: 'The set of outputs (second coordinates) of a relation or function. For a data set, the range is a measure of spread: maximum minus minimum.'
+  topic: Functions
+- term: function
+  aliases: [functions]
+  definition: 'A relation in which each input has exactly one output.'
+  topic: Functions
+- term: independent variable
+  definition: 'The input variable of a function, usually $x$.'
+  topic: Functions
+- term: dependent variable
+  definition: 'The output variable of a function, usually $y$ or $f(x)$; its value depends on the input.'
+  topic: Functions
+- term: vertical line test
+  definition: 'A graph is a function exactly when no vertical line crosses it more than once.'
+  topic: Functions
+- term: composition
+  aliases: [composite function]
+  definition: 'Applying one function to the output of another: $f(g(x))$ means apply $g$, then $f$.'
+  topic: Functions
+- term: function notation
+  aliases: ['f(x)']
+  definition: '$f(x)$, read "$f$ of $x$," is the output of the function $f$ at input $x$; it is not multiplication.'
+  topic: Functions
+- term: y-intercept
+  aliases: [y-intercepts]
+  definition: 'The point where a graph crosses the $y$-axis, $(0, f(0))$.'
+  topic: Graphs of functions
+- term: x-intercept
+  aliases: [x-intercepts]
+  definition: 'A point where a graph meets the $x$-axis; its $x$-coordinate is a zero of the function.'
+  topic: Graphs of functions
+- term: zero
+  aliases: [zeros, zero of a function]
+  definition: 'An input $c$ with $f(c) = 0$. Real zeros are the $x$-intercepts of the graph.'
+  topic: Graphs of functions
+- term: increasing
+  definition: 'A function is increasing on an interval if its graph rises from left to right there.'
+  topic: Graphs of functions
+- term: decreasing
+  definition: 'A function is decreasing on an interval if its graph falls from left to right there.'
+  topic: Graphs of functions
+- term: maximum value
+  aliases: [maximum]
+  definition: 'The largest output of a function (the height of its highest point).'
+  topic: Graphs of functions
+- term: minimum value
+  aliases: [minimum]
+  definition: 'The smallest output of a function (the height of its lowest point).'
+  topic: Graphs of functions
+- term: practical domain
+  aliases: [reasonable domain]
+  definition: 'The inputs that make sense in a real situation, which may be fewer than the formula allows.'
+  topic: Domain and range
+- term: rise
+  definition: 'The vertical change between two points, $y_2 - y_1$.'
+  topic: Slope
+- term: run
+  definition: 'The horizontal change between two points, $x_2 - x_1$.'
+  topic: Slope
+- term: slope
+  definition: 'The steepness of a line, $m = \dfrac{y_2 - y_1}{x_2 - x_1}$ (rise over run).'
+  topic: Slope
+- term: horizontal line
+  definition: 'A line $y = b$ with slope 0.'
+  topic: Slope
+- term: vertical line
+  definition: 'A line $x = a$; its slope is undefined.'
+  topic: Slope
+- term: undefined slope
+  definition: 'The slope of a vertical line, where the run is 0.'
+  topic: Slope
+- term: rate of change
+  definition: 'How fast one quantity changes relative to another; for a line it is the slope, in output units per input unit.'
+  topic: Slope
+- term: average rate of change
+  definition: 'For a function on $[a, b]$, $\dfrac{f(b) - f(a)}{b - a}$: the slope of the segment joining the two points.'
+  topic: Slope
+- term: linear function
+  aliases: [linear functions]
+  definition: 'A function $f(x) = mx + b$; its graph is a line.'
+  topic: Equations of lines
+- term: slope-intercept form
+  definition: '$y = mx + b$, with slope $m$ and $y$-intercept $(0, b)$.'
+  topic: Equations of lines
+- term: point-slope form
+  definition: '$y - y_1 = m(x - x_1)$, the line with slope $m$ through $(x_1, y_1)$.'
+  topic: Equations of lines
+- term: standard form
+  definition: 'For a line, $Ax + By = C$. For a polynomial, terms written from highest degree to lowest. For a quadratic equation, $ax^2 + bx + c = 0$.'
+  topic: Equations of lines
+- term: parallel lines
+  aliases: [parallel]
+  definition: 'Lines in a plane that never meet; non-vertical parallel lines have equal slopes.'
+  topic: Parallel and perpendicular
+- term: perpendicular lines
+  aliases: [perpendicular]
+  definition: 'Lines that meet at a right angle; their slopes multiply to $-1$ (unless one is vertical).'
+  topic: Parallel and perpendicular
+- term: negative reciprocal
+  definition: 'For $m \ne 0$, the number $-\tfrac1m$; the slope of a line perpendicular to one with slope $m$.'
+  topic: Parallel and perpendicular
+- term: linear model
+  definition: 'A linear function describing a quantity that changes at a constant rate; the slope is the rate and the intercept the starting value.'
+  topic: Linear models
+- term: interpolation
+  definition: 'Using a model to predict within the range of the data.'
+  topic: Linear models
+- term: extrapolation
+  definition: 'Using a model to predict outside the range of the data, which is less reliable.'
+  topic: Linear models
+- term: system of linear equations
+  aliases: [system, systems of equations, linear system]
+  definition: 'Two or more linear equations in the same variables, considered together.'
+  topic: Systems of equations
+- term: solution of a system
+  definition: 'An ordered pair (or triple) that satisfies every equation in the system; graphically, an intersection point.'
+  topic: Systems of equations
+- term: consistent system
+  aliases: [consistent]
+  definition: 'A system with at least one solution.'
+  topic: Systems of equations
+- term: inconsistent system
+  aliases: [inconsistent]
+  definition: 'A system with no solution, such as two parallel lines.'
+  topic: Systems of equations
+- term: independent equations
+  aliases: [independent]
+  definition: 'Equations in a system that give different lines (or planes), so the system has a unique solution when consistent.'
+  topic: Systems of equations
+- term: dependent equations
+  aliases: [dependent]
+  definition: 'Equations that describe the same line (or add no new information), giving infinitely many solutions.'
+  topic: Systems of equations
+- term: substitution method
+  aliases: [substitution]
+  definition: 'Solving a system by solving one equation for a variable and substituting that expression into the other equation.'
+  topic: Systems of equations
+- term: elimination method
+  aliases: [elimination, addition method]
+  definition: 'Solving a system by adding multiples of the equations so that a variable cancels.'
+  topic: Systems of equations
+- term: least common multiple
+  aliases: [LCM]
+  definition: 'The smallest positive number (or simplest expression) that two or more numbers divide evenly.'
+  topic: Systems of equations
+- term: cost function
+  definition: 'Total cost as a function of quantity, often fixed costs plus a cost per item.'
+  topic: System applications
+- term: revenue function
+  aliases: [revenue]
+  definition: 'Income as a function of quantity sold: price times quantity.'
+  topic: System applications
+- term: break-even point
+  definition: 'The quantity at which revenue equals cost; the intersection of the cost and revenue graphs.'
+  topic: System applications
+- term: linear inequality in two variables
+  definition: 'An inequality such as $2x - 3y < 6$; its solutions form a half-plane.'
+  topic: Systems of inequalities
+- term: half-plane
+  definition: 'The region on one side of a line in the plane.'
+  topic: Systems of inequalities
+- term: boundary line
+  definition: 'The line that separates the half-planes of a linear inequality; solid if included ($\le$, $\ge$), dashed if not.'
+  topic: Systems of inequalities
+- term: test point
+  definition: 'A point off the boundary line used to decide which side of an inequality to shade.'
+  topic: Systems of inequalities
+- term: system of linear inequalities
+  definition: 'Several linear inequalities to be satisfied at once; its solution is the overlap of their half-planes.'
+  topic: Systems of inequalities
+- term: feasible region
+  definition: 'The set of points satisfying every constraint of a system of inequalities.'
+  topic: Systems of inequalities
+- term: vertex
+  aliases: [vertices, corner point]
+  definition: 'The turning point of a parabola; also a corner point of a feasible region, where boundary lines meet.'
+  topic: Quadratic functions
+- term: linear programming
+  definition: 'Finding the maximum or minimum of a linear objective function over a region defined by linear constraints.'
+  topic: Systems of inequalities
+- term: objective function
+  definition: 'The quantity to maximize or minimize in linear programming, such as profit $P = 3x + 2y$.'
+  topic: Systems of inequalities
+- term: constraints
+  aliases: [constraint]
+  definition: 'The inequalities that limit the possible values in an optimization problem.'
+  topic: Systems of inequalities
+- term: power
+  aliases: [powers]
+  definition: 'An expression $a^n$, meaning $n$ factors of $a$ (for positive integer $n$).'
+  topic: Exponents
+- term: base
+  definition: 'In $a^n$, the number $a$ being multiplied; for an exponential function $b^x$, the number $b$.'
+  topic: Exponents
+- term: exponent
+  aliases: [exponents]
+  definition: 'In $a^n$, the number $n$ that tells how many factors of the base to use.'
+  topic: Exponents
+- term: product rule
+  definition: 'For exponents: $a^m a^n = a^{m+n}$.'
+  topic: Exponents
+- term: quotient rule
+  definition: 'For exponents: $\dfrac{a^m}{a^n} = a^{m-n}$.'
+  topic: Exponents
+- term: power rule
+  definition: 'For exponents: $(a^m)^n = a^{mn}$.'
+  topic: Exponents
+- term: zero exponent
+  definition: '$a^0 = 1$ for $a \ne 0$.'
+  topic: Exponents
+- term: negative exponent
+  definition: '$a^{-n} = \dfrac{1}{a^n}$ for $a \ne 0$; it means a reciprocal, not a negative number.'
+  topic: Exponents
+- term: scientific notation
+  definition: 'Writing a number as $c \times 10^n$ with $1 \le |c| < 10$ and $n$ an integer.'
+  topic: Scientific notation
+- term: monomial
+  aliases: [monomials]
+  definition: 'A single term: a number, or a number times variables with whole-number exponents.'
+  topic: Polynomials
+- term: polynomial
+  aliases: [polynomials]
+  definition: 'A sum of monomials, such as $4x^3 - x + 7$.'
+  topic: Polynomials
+- term: binomial
+  aliases: [binomials]
+  definition: 'A polynomial with two terms.'
+  topic: Polynomials
+- term: trinomial
+  aliases: [trinomials]
+  definition: 'A polynomial with three terms.'
+  topic: Polynomials
+- term: degree
+  definition: 'Of a term, the sum of its exponents; of a polynomial, the largest degree of its terms.'
+  topic: Polynomials
+- term: leading term
+  definition: 'The term of highest degree in a polynomial.'
+  topic: Polynomials
+- term: leading coefficient
+  definition: 'The coefficient of the leading term.'
+  topic: Polynomials
+- term: FOIL
+  definition: 'First, Outer, Inner, Last: a checklist for the four products when multiplying two binomials.'
+  topic: Polynomials
+- term: area model
+  definition: 'A grid in which each cell holds the product of a row term and a column term, used to multiply polynomials.'
+  topic: Polynomials
+- term: perfect square trinomial
+  definition: 'A trinomial of the form $a^2 \pm 2ab + b^2 = (a \pm b)^2$.'
+  topic: Factoring
+- term: difference of squares
+  definition: '$a^2 - b^2 = (a + b)(a - b)$.'
+  topic: Factoring
+- term: factoring
+  aliases: [factor out]
+  definition: 'Rewriting a sum as a product of factors.'
+  topic: Factoring
+- term: factored completely
+  aliases: [factor completely]
+  definition: 'Written as a product of prime polynomials, with no factor that can be factored further.'
+  topic: Factoring
+- term: greatest common factor
+  aliases: [GCF]
+  definition: 'The largest expression dividing every term; for monomials, the GCF of the coefficients times each shared variable to its lowest power.'
+  topic: Factoring
+- term: grouping
+  aliases: [factoring by grouping]
+  definition: 'Factoring a four-term polynomial by factoring each pair of terms and then factoring out the common binomial.'
+  topic: Factoring
+- term: prime
+  aliases: [prime polynomial]
+  definition: 'A polynomial that cannot be factored using integer coefficients, such as $x^2 + 4$.'
+  topic: Factoring
+- term: ac method
+  definition: 'To factor $ax^2 + bx + c$, find two numbers with product $ac$ and sum $b$, split the middle term with them, and group.'
+  topic: Factoring
+- term: sum of cubes
+  definition: '$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.'
+  topic: Factoring
+- term: difference of cubes
+  definition: '$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$.'
+  topic: Factoring
+- term: SOAP
+  definition: 'Sign memory aid for cubes: the binomial has the Same sign, then Opposite, then Always Positive.'
+  topic: Factoring
+- term: quadratic equation
+  aliases: [quadratic equations]
+  definition: 'An equation that can be written as $ax^2 + bx + c = 0$ with $a \ne 0$.'
+  topic: Quadratic equations
+- term: roots
+  aliases: [root]
+  definition: 'Solutions of an equation; for a polynomial, its zeros.'
+  topic: Quadratic equations
+- term: zero product property
+  definition: 'If $AB = 0$, then $A = 0$ or $B = 0$.'
+  topic: Quadratic equations
+- term: double root
+  definition: 'A root that occurs twice (multiplicity 2), such as $x = 5$ in $(x - 5)^2 = 0$; the graph touches the axis there.'
+  topic: Quadratic equations
+- term: square root property
+  definition: 'If $u^2 = k$ with $k \ge 0$, then $u = \pm\sqrt{k}$.'
+  topic: Quadratic equations
+- term: completing the square
+  definition: 'Adding $\left(\tfrac b2\right)^2$ to $x^2 + bx$ to make the perfect square $\left(x + \tfrac b2\right)^2$.'
+  topic: Quadratic equations
+- term: quadratic formula
+  definition: 'The solutions of $ax^2 + bx + c = 0$ are $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.'
+  topic: Quadratic formula
+- term: discriminant
+  definition: 'The quantity $b^2 - 4ac$; positive gives two real roots, zero gives one, negative gives none.'
+  topic: Discriminant
+- term: quadratic function
+  aliases: [quadratic functions]
+  definition: 'A function $f(x) = ax^2 + bx + c$ with $a \ne 0$; its graph is a parabola.'
+  topic: Quadratic functions
+- term: parabola
+  aliases: [parabolas]
+  definition: 'The U-shaped graph of a quadratic function.'
+  topic: Quadratic functions
+- term: axis of symmetry
+  definition: 'The vertical line through a parabola''s vertex, $x = -\tfrac{b}{2a}$; the parabola is symmetric about it.'
+  topic: Quadratic functions
+- term: opens upward
+  definition: 'A parabola with $a > 0$; its vertex is a minimum.'
+  topic: Quadratic functions
+- term: opens downward
+  definition: 'A parabola with $a < 0$; its vertex is a maximum.'
+  topic: Quadratic functions
+- term: vertex form
+  definition: '$f(x) = a(x - h)^2 + k$, a quadratic with vertex $(h, k)$.'
+  topic: Quadratic functions
+- term: intercept form
+  aliases: [factored form]
+  definition: '$f(x) = a(x - r)(x - s)$, a quadratic with $x$-intercepts $r$ and $s$.'
+  topic: Quadratic functions
+- term: principal square root
+  definition: 'The nonnegative square root of a number, written $\sqrt a$: $\sqrt{25} = 5$, not $-5$.'
+  topic: Square roots
+- term: radical
+  aliases: [radicals, radical sign]
+  definition: 'The root symbol $\sqrt{\phantom{x}}$, or an expression that uses it, such as $3\sqrt5$.'
+  topic: Square roots
+- term: radicand
+  definition: 'The number or expression under a radical sign: in $\sqrt{40}$ the radicand is 40.'
+  topic: Square roots
+- term: perfect square
+  aliases: [perfect squares]
+  definition: 'The square of a whole number: $1, 4, 9, 16, 25, \dots$ Its square root is a whole number.'
+  topic: Square roots
+- term: product rule for square roots
+  definition: '$\sqrt{ab} = \sqrt a\,\sqrt b$ for $a, b \ge 0$; used to pull perfect-square factors out of a root.'
+  topic: Square roots
+- term: simplest radical form
+  definition: 'A square root whose radicand has no perfect-square factor other than 1, such as $6\sqrt2$ rather than $\sqrt{72}$.'
+  topic: Square roots
+- term: like radicals
+  definition: 'Radicals with the same radicand, such as $2\sqrt3$ and $5\sqrt3$; only like radicals can be added or subtracted.'
+  topic: Square roots
+- term: exponential function
+  aliases: [exponential functions]
+  definition: 'A function $f(x) = a \cdot b^x$ with $a \ne 0$, $b > 0$, $b \ne 1$: the output is multiplied by $b$ each time $x$ increases by 1.'
+  topic: Exponential functions
+- term: initial value
+  definition: 'In $y = a \cdot b^x$, the value $a$, the output when $x = 0$.'
+  topic: Exponential functions
+- term: growth factor
+  aliases: [decay factor]
+  definition: 'In $y = a \cdot b^x$, the base $b$: the number the output is multiplied by for each increase of 1 in $x$.'
+  topic: Exponential functions
+- term: exponential growth
+  definition: 'Change by a constant factor greater than 1 per step ($b > 1$): slow at first, then faster and faster.'
+  topic: Exponential functions
+- term: exponential decay
+  definition: 'Change by a constant factor between 0 and 1 per step ($0 < b < 1$): the amount shrinks toward 0 but never reaches it.'
+  topic: Exponential functions
+- term: horizontal asymptote
+  aliases: [asymptote]
+  definition: 'A horizontal line that a graph approaches more and more closely; for $y = a \cdot b^x$ it is $y = 0$.'
+  topic: Exponential functions
+- term: growth rate
+  definition: 'The percent increase per step, as a decimal $r$; the growth factor is $b = 1 + r$.'
+  topic: Exponential functions
+- term: decay rate
+  definition: 'The percent decrease per step, as a decimal $r$; the decay factor is $b = 1 - r$.'
+  topic: Exponential functions
+- term: compound interest
+  definition: 'Interest earned on the principal and on earlier interest: $A = P(1 + r)^t$ when compounded once a year.'
+  topic: Exponential functions
+- term: constant difference
+  definition: 'Equal changes in output over equal steps in input (the same amount added each step), the signature of a linear function.'
+  topic: Linear vs exponential
+- term: constant ratio
+  definition: 'Equal factors of change over equal steps in input (the output multiplied by the same number each step), the signature of an exponential function.'
+  topic: Linear vs exponential
+- term: exponential model
+  definition: 'An exponential function $y = a \cdot b^x$ used to describe a quantity that changes by a fixed percent per step.'
+  topic: Linear vs exponential
+- term: sequence
+  aliases: [sequences]
+  definition: 'An ordered list of numbers; a function whose inputs are the positions $1, 2, 3, \dots$'
+  topic: Sequences
+- term: term of a sequence
+  aliases: [term of the sequence]
+  definition: 'One number in a sequence; $a_n$ is the $n$th term.'
+  topic: Sequences
+- term: explicit formula
+  definition: 'A formula that gives the $n$th term of a sequence directly from $n$, such as $a_n = 4n + 3$.'
+  topic: Sequences
+- term: recursive formula
+  definition: 'A first term together with a rule that gives each term from the one before it, such as $a_1 = 7$, $a_n = a_{n-1} + 4$.'
+  topic: Sequences
+- term: arithmetic sequence
+  aliases: [arithmetic sequences]
+  definition: 'A sequence that adds the same number $d$ each time: $a_n = a_1 + (n - 1)d$. It is a linear function of $n$.'
+  topic: Sequences
+- term: common difference
+  definition: 'The constant $d$ added to each term of an arithmetic sequence to get the next.'
+  topic: Sequences
+- term: geometric sequence
+  aliases: [geometric sequences]
+  definition: 'A sequence that multiplies by the same number $r$ each time: $a_n = a_1 r^{n-1}$. When $r > 0$ it is an exponential function of $n$.'
+  topic: Sequences
+- term: common ratio
+  definition: 'The constant $r$ each term of a geometric sequence is multiplied by to get the next.'
+  topic: Sequences
+- term: dot plot
+  aliases: [dot plots]
+  definition: 'A display that stacks one dot per data value above a number line.'
+  topic: Data displays
+- term: histogram
+  aliases: [histograms]
+  definition: 'A bar graph of numerical data grouped into equal-width bins; each bar''s height is the number of values in its bin, and the bars touch.'
+  topic: Data displays
+- term: symmetric
+  definition: 'A distribution whose left and right sides are roughly mirror images; its mean and median are about equal.'
+  topic: Data displays
+- term: skewed right
+  aliases: [right-skewed]
+  definition: 'A distribution with a long tail toward large values; its mean is usually greater than its median.'
+  topic: Data displays
+- term: skewed left
+  aliases: [left-skewed]
+  definition: 'A distribution with a long tail toward small values; its mean is usually less than its median.'
+  topic: Data displays
+- term: mean
+  aliases: [average]
+  definition: 'The sum of the data values divided by how many there are, written $\bar x$.'
+  topic: Center and spread
+- term: median
+  definition: 'The middle value of sorted data (the mean of the two middle values when there is an even number).'
+  topic: Center and spread
+- term: quartiles
+  aliases: [quartile, first quartile, third quartile, Q1, Q3]
+  definition: 'Values that split sorted data into four parts: $Q_1$ is the median of the lower half, $Q_2$ the median, $Q_3$ the median of the upper half.'
+  topic: Center and spread
+- term: interquartile range
+  aliases: [IQR]
+  definition: 'IQR = interquartile range, $Q_3 - Q_1$: the width of the middle half of the data.'
+  topic: Center and spread
+- term: five-number summary
+  definition: 'Minimum, $Q_1$, median, $Q_3$, maximum.'
+  topic: Center and spread
+- term: box plot
+  aliases: [box plots, box-and-whisker plot]
+  definition: 'A display of the five-number summary: a box from $Q_1$ to $Q_3$ with a line at the median, and whiskers to the smallest and largest non-outlier values.'
+  topic: Data displays
+- term: outlier
+  aliases: [outliers]
+  definition: 'A value far from the rest of the data; by the standard rule, below $Q_1 - 1.5\,\text{IQR}$ or above $Q_3 + 1.5\,\text{IQR}$.'
+  topic: Center and spread
+- term: resistant
+  definition: 'Describes a statistic that extreme values barely change, such as the median and IQR (the mean and standard deviation are not resistant).'
+  topic: Center and spread
+- term: standard deviation
+  aliases: [σ, sample standard deviation]
+  definition: 'A measure of how far values typically lie from the mean: $\sigma = \sqrt{\sum (x - \bar x)^2 / n}$. The sample version $s$ divides by $n - 1$.'
+  topic: Center and spread
+- term: categorical data
+  definition: 'Data that place each individual in a category (such as grade level or yes/no) rather than recording a number.'
+  topic: Two-way tables
+- term: two-way table
+  aliases: [two-way tables, contingency table]
+  definition: 'A table counting individuals by two categorical variables, one labeling the rows and one the columns.'
+  topic: Two-way tables
+- term: joint frequency
+  aliases: [joint frequencies]
+  definition: 'A count in an inner cell of a two-way table: individuals in that row and that column.'
+  topic: Two-way tables
+- term: marginal frequency
+  aliases: [marginal frequencies]
+  definition: 'A row or column total of a two-way table.'
+  topic: Two-way tables
+- term: relative frequency
+  aliases: [relative frequencies]
+  definition: 'A count divided by a total, written as a fraction, decimal or percent.'
+  topic: Two-way tables
+- term: joint relative frequency
+  definition: 'A cell of a two-way table divided by the grand total.'
+  topic: Two-way tables
+- term: marginal relative frequency
+  definition: 'A row or column total divided by the grand total.'
+  topic: Two-way tables
+- term: conditional relative frequency
+  definition: 'A cell divided by its row or column total: the fraction within a given group, as in "among 9th graders, 30% prefer online."'
+  topic: Two-way tables
+- term: association
+  aliases: [associated]
+  definition: 'A relationship between two variables. For categorical data, conditional relative frequencies differ between groups; for numerical data, $y$ tends to change as $x$ changes.'
+  topic: Two-way tables
+- term: bivariate data
+  definition: 'Data with two numerical variables recorded for each individual, shown in a scatter plot.'
+  topic: Scatter plots
+- term: scatter plot
+  aliases: [scatter plots, scatterplot]
+  definition: 'A graph of bivariate data with one point $(x, y)$ per individual.'
+  topic: Scatter plots
+- term: explanatory variable
+  definition: 'The variable on the $x$-axis, thought to help explain or predict the other.'
+  topic: Scatter plots
+- term: response variable
+  definition: 'The outcome variable, on the $y$-axis.'
+  topic: Scatter plots
+- term: positive association
+  definition: 'A pattern in which $y$ tends to increase as $x$ increases.'
+  topic: Scatter plots
+- term: negative association
+  definition: 'A pattern in which $y$ tends to decrease as $x$ increases.'
+  topic: Scatter plots
+- term: correlation coefficient
+  aliases: [correlation]
+  definition: 'The number $r$, $-1 \le r \le 1$, measuring the direction (sign) and strength (closeness to $\pm 1$) of a linear association.'
+  topic: Correlation and residuals
+- term: lurking variable
+  aliases: [confounding variable]
+  definition: 'A variable outside the analysis that affects both variables studied and can create a correlation without causation.'
+  topic: Correlation and residuals
+- term: line of fit
+  aliases: [trend line]
+  definition: 'A line drawn through the middle of a scatter plot to model the trend and make predictions.'
+  topic: Scatter plots
+- term: line of best fit
+  aliases: [least-squares regression line, regression line]
+  definition: 'The line that makes the sum of the squared residuals as small as possible; found with a calculator or software.'
+  topic: Scatter plots
+- term: residual
+  aliases: [residuals]
+  definition: 'Actual minus predicted, $y - \hat y$; positive when the point lies above the line.'
+  topic: Correlation and residuals
+- term: residual plot
+  definition: 'A graph of residuals against $x$; random scatter around 0 supports a linear model, a curved pattern does not.'
+  topic: Correlation and residuals

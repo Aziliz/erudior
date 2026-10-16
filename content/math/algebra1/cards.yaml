@@ -1,0 +1,167 @@
+# Notecards
+- {front: 'Natural ⊂ whole ⊂ integers ⊂ rational ⊂ real: give one example of each that is in no smaller set', back: '$7$ (natural), $0$ (whole), $-3$ (integer), $\tfrac25$ (rational); $\sqrt2$ is real but irrational.', topic: Real numbers}
+- {front: 'How can you tell from a decimal whether a number is rational?', back: 'Rational decimals terminate or repeat; irrational decimals do neither.', topic: Real numbers}
+- {front: 'Absolute value as distance', back: '$|a|$ is the distance from $a$ to 0; $|a - b|$ is the distance between $a$ and $b$.', topic: Real numbers}
+- {front: 'Commutative vs associative', back: 'Commutative changes order ($a + b = b + a$); associative changes grouping ($(a + b) + c = a + (b + c)$).', topic: Real numbers}
+- {front: 'Distributive property', back: '$a(b + c) = ab + ac$', topic: Real numbers}
+- {front: 'Why is $\tfrac{6}{0}$ undefined?', back: 'No number $n$ satisfies $n \cdot 0 = 6$. (But $\tfrac{0}{6} = 0$.)', topic: Real numbers}
+- {front: 'Dividing fractions', back: '$\dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{d}{c}$: multiply by the reciprocal.', topic: Real numbers}
+- {front: 'Adding fractions', back: '$\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{ad + bc}{bd}$ (or use the least common denominator). Never add straight across.', topic: Real numbers}
+- {front: 'Order of operations', back: 'Grouping, exponents, multiplication and division left to right, addition and subtraction left to right.', topic: Expressions}
+- {front: '$-3^2$ vs $(-3)^2$', back: '$-3^2 = -9$ (the exponent applies only to 3); $(-3)^2 = 9$.', topic: Expressions}
+- {front: 'Evaluate $12 \div 3 \cdot 2$', back: '$8$: division and multiplication go left to right.', topic: Expressions}
+- {front: 'Like terms', back: 'Same variables to the same powers. Combine by adding coefficients: $5x^2 - 2x^2 = 3x^2$.', topic: Expressions}
+- {front: 'Simplify $-(2x - 7)$', back: '$-2x + 7$: the minus sign multiplies every term by $-1$.', topic: Expressions}
+- {front: '"5 less than $x$" as an expression', back: '$x - 5$ ("less than" reverses the reading order).', topic: Expressions}
+- {front: 'Steps for a linear equation', back: 'Clear fractions, simplify each side, collect variable terms on one side, isolate the variable, check.', topic: Linear equations}
+- {front: 'Variable vanishes leaving a false statement (like $0 = 5$)', back: 'No solution (contradiction).', topic: Linear equations}
+- {front: 'Variable vanishes leaving a true statement (like $3 = 3$)', back: 'All real numbers are solutions (identity).', topic: Linear equations}
+- {front: 'Clearing fractions in an equation', back: 'Multiply every term on both sides by the least common denominator.', topic: Linear equations}
+- {front: 'Solving a literal equation when the variable appears twice', back: 'Collect those terms on one side and factor the variable out, then divide.', topic: Literal equations}
+- {front: 'Solve $A = P + Prt$ for $P$', back: '$P = \dfrac{A}{1 + rt}$', topic: Literal equations}
+- {front: 'Solve $P = 2l + 2w$ for $w$', back: '$w = \dfrac{P - 2l}{2}$', topic: Literal equations}
+- {front: '$F$ to $C$ and back', back: '$C = \tfrac59(F - 32)$ and $F = \tfrac95C + 32$.', topic: Literal equations}
+- {front: 'Distance, rate, time', back: '$d = rt$, so $r = \tfrac dt$ and $t = \tfrac dr$.', topic: Linear applications}
+- {front: 'Consecutive odd (or even) integers', back: '$n$, $n + 2$, $n + 4$: they step by 2.', topic: Linear applications}
+- {front: 'Percent change', back: '$\dfrac{\text{new} - \text{original}}{\text{original}} \times 100\%$', topic: Linear applications}
+- {front: 'Price after a 15% discount', back: '$0.85 \times$ original. After a 15% increase: $1.15 \times$ original.', topic: Linear applications}
+- {front: 'Simple interest', back: '$I = Prt$', topic: Linear applications}
+- {front: 'The one new rule for solving inequalities', back: 'Multiplying or dividing both sides by a negative number reverses the inequality symbol.', topic: Linear inequalities}
+- {front: 'Open vs closed dot; parenthesis vs bracket', back: 'Open dot / parenthesis: endpoint excluded ($<$, $>$). Closed dot / bracket: included ($\le$, $\ge$). Always a parenthesis next to $\infty$.', topic: Linear inequalities}
+- {front: '$x \le -4$ in interval notation', back: '$(-\infty, -4]$', topic: Linear inequalities}
+- {front: '"And" vs "or" compound inequalities', back: '"And" is the intersection (overlap), often a single interval. "Or" is the union of the two solution sets.', topic: Compound inequalities}
+- {front: 'Solving a double inequality like $-5 \le 2x + 3 < 9$', back: 'Do the same operation to all three parts: $-4 \le x < 3$.', topic: Compound inequalities}
+- {front: '$|u| = k$ with $k > 0$', back: '$u = k$ or $u = -k$. (No solution if $k < 0$.)', topic: Absolute value}
+- {front: '$|u| < k$', back: '$-k < u < k$ ("less than" means between).', topic: Absolute value}
+- {front: '$|u| > k$', back: '$u < -k$ or $u > k$ ("greater than" means or).', topic: Absolute value}
+- {front: 'First step in solving $3|2x - 1| + 4 = 25$', back: 'Isolate the absolute value: $|2x - 1| = 7$.', topic: Absolute value}
+- {front: '$|x - c| \le r$ in words', back: 'All $x$ within $r$ units of $c$.', topic: Absolute value}
+- {front: 'Definition of a function', back: 'A relation in which each input has exactly one output.', topic: Functions}
+- {front: 'Vertical line test', back: 'A graph is a function if no vertical line crosses it more than once.', topic: Functions}
+- {front: '$f(3)$ vs solving $f(x) = 3$', back: '$f(3)$ is an output (plug in 3). $f(x) = 3$ asks which inputs give output 3.', topic: Functions}
+- {front: 'Composition $f(g(x))$', back: 'Apply $g$ first, then $f$ to the result. Order matters.', topic: Functions}
+- {front: 'Domain restrictions from a formula', back: 'Exclude zeros of denominators and inputs that make even roots negative.', topic: Domain and range}
+- {front: 'Domain of $\sqrt{3 - 2x}$', back: '$3 - 2x \ge 0$, so $x \le \tfrac32$: $(-\infty, \tfrac32]$.', topic: Domain and range}
+- {front: 'Domain of $\dfrac{1}{\sqrt{x + 4}}$', back: '$x + 4 > 0$: $(-4, \infty)$.', topic: Domain and range}
+- {front: 'Reading domain and range from a graph', back: 'Domain: horizontal extent ($x$-values). Range: vertical extent ($y$-values).', topic: Domain and range}
+- {front: 'Zeros of a function on its graph', back: 'The $x$-intercepts, where $f(x) = 0$.', topic: Graphs of functions}
+- {front: 'Increasing/decreasing intervals are given in terms of…', back: '$x$-values.', topic: Graphs of functions}
+- {front: 'Slope formula', back: '$m = \dfrac{y_2 - y_1}{x_2 - x_1}$ (rise over run)', topic: Slope}
+- {front: 'Slope of a horizontal line; of a vertical line', back: 'Horizontal: 0. Vertical: undefined.', topic: Slope}
+- {front: 'What does the size of the slope measure?', back: 'Steepness: larger $|m|$ means steeper. The sign gives the direction.', topic: Slope}
+- {front: 'Units of slope in context', back: 'Output units per input unit (a rate of change), e.g. dollars per hour.', topic: Slope}
+- {front: 'Average rate of change of $f$ on $[a, b]$', back: '$\dfrac{f(b) - f(a)}{b - a}$', topic: Slope}
+- {front: 'Slope-intercept form', back: '$y = mx + b$: slope $m$, $y$-intercept $(0, b)$.', topic: Equations of lines}
+- {front: 'Point-slope form', back: '$y - y_1 = m(x - x_1)$', topic: Equations of lines}
+- {front: 'Standard form of a line and its slope', back: '$Ax + By = C$; slope $-\tfrac{A}{B}$.', topic: Equations of lines}
+- {front: 'Intercepts of $Ax + By = C$', back: '$x$-intercept: set $y = 0$. $y$-intercept: set $x = 0$.', topic: Equations of lines}
+- {front: 'Line through two points: method', back: 'Find the slope, then use point-slope form with either point; check with the other.', topic: Equations of lines}
+- {front: 'Equations of vertical and horizontal lines through $(a, b)$', back: 'Vertical: $x = a$. Horizontal: $y = b$.', topic: Equations of lines}
+- {front: 'Parallel lines', back: 'Same slope, different intercepts.', topic: Parallel and perpendicular}
+- {front: 'Perpendicular lines', back: 'Slopes are negative reciprocals: $m_2 = -\tfrac{1}{m_1}$, so $m_1m_2 = -1$.', topic: Parallel and perpendicular}
+- {front: 'Perpendicular slope to $\tfrac25$', back: '$-\tfrac52$', topic: Parallel and perpendicular}
+- {front: 'In a linear model $y = mx + b$, what are $m$ and $b$?', back: '$m$: the constant rate of change. $b$: the starting value (output at input 0).', topic: Linear models}
+- {front: 'Interpolation vs extrapolation', back: 'Predicting inside the data range vs outside it (less reliable).', topic: Linear models}
+- {front: 'Three possibilities for two linear equations', back: 'One solution (lines cross), no solution (parallel), infinitely many (same line).', topic: Systems of equations}
+- {front: 'Substitution method', back: 'Solve one equation for a variable, substitute into the other, solve, back-substitute, check.', topic: Systems of equations}
+- {front: 'Elimination method', back: 'Multiply equations so one variable has opposite coefficients, add to eliminate it, solve, back-substitute.', topic: Systems of equations}
+- {front: 'When is substitution the better method?', back: 'When a variable is already isolated or has coefficient $\pm1$.', topic: Systems of equations}
+- {front: 'Elimination gives $0 = 7$', back: 'No solution: the system is inconsistent (parallel lines).', topic: Systems of equations}
+- {front: 'Elimination gives $0 = 0$', back: 'Infinitely many solutions: the equations are dependent (same line).', topic: Systems of equations}
+- {front: 'Value/mixture problem setup', back: 'One equation counts items (or volume); the other counts value (or amount of substance).', topic: System applications}
+- {front: 'Speeds with a current $c$ (boat speed $b$)', back: 'Downstream $b + c$; upstream $b - c$.', topic: System applications}
+- {front: 'Break-even point', back: 'Where revenue equals cost: solve $R(x) = C(x)$.', topic: System applications}
+- {front: 'Graphing a linear inequality in two variables', back: 'Graph the boundary (solid for $\le$, $\ge$; dashed for $<$, $>$), then shade the side containing a true test point.', topic: Systems of inequalities}
+- {front: 'Where does a linear objective function reach its max or min on a polygon?', back: 'At a vertex (corner point) of the feasible region.', topic: Systems of inequalities}
+- {front: 'Product rule (exponents)', back: '$a^m a^n = a^{m+n}$', topic: Exponents}
+- {front: 'Quotient rule (exponents)', back: '$\dfrac{a^m}{a^n} = a^{m-n}$', topic: Exponents}
+- {front: 'Power rule (exponents)', back: '$(a^m)^n = a^{mn}$', topic: Exponents}
+- {front: 'Power of a product', back: '$(ab)^n = a^nb^n$, so $(2x^3)^4 = 16x^{12}$.', topic: Exponents}
+- {front: 'Zero and negative exponents', back: '$a^0 = 1$ and $a^{-n} = \dfrac{1}{a^n}$ (for $a \ne 0$).', topic: Exponents}
+- {front: '$\left(\tfrac ab\right)^{-n}$', back: '$\left(\tfrac ba\right)^{n}$', topic: Exponents}
+- {front: 'Is $(x + y)^2 = x^2 + y^2$?', back: 'No. Exponents distribute over products, not sums: $(x + y)^2 = x^2 + 2xy + y^2$.', topic: Exponents}
+- {front: 'Scientific notation', back: '$c \times 10^n$ with $1 \le |c| < 10$.', topic: Scientific notation}
+- {front: 'Multiplying in scientific notation', back: 'Multiply the decimals, add the exponents, then adjust so the decimal is between 1 and 10.', topic: Scientific notation}
+- {front: 'Degree and leading coefficient of $3x^2 - 7x^5 + 1$', back: 'Degree 5, leading coefficient $-7$.', topic: Polynomials}
+- {front: 'FOIL', back: 'First, Outer, Inner, Last: $(a + b)(c + d) = ac + ad + bc + bd$.', topic: Polynomials}
+- {front: 'Square of a binomial', back: '$(a \pm b)^2 = a^2 \pm 2ab + b^2$', topic: Polynomials}
+- {front: 'Sum times difference', back: '$(a + b)(a - b) = a^2 - b^2$', topic: Polynomials}
+- {front: 'Cube of a binomial', back: '$(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$', topic: Polynomials}
+- {front: 'Degree of a product of polynomials', back: 'The sum of their degrees.', topic: Polynomials}
+- {front: 'First step in any factoring problem', back: 'Factor out the greatest common factor.', topic: Factoring}
+- {front: 'GCF of $12x^4y^2$, $18x^3y$, $30x^2y^3$', back: '$6x^2y$ (GCF of coefficients, lowest power of each shared variable).', topic: Factoring}
+- {front: 'Factoring by grouping', back: 'Pair the terms, factor each pair, then factor out the common binomial.', topic: Factoring}
+- {front: 'Factoring $x^2 + bx + c$', back: 'Find integers with product $c$ and sum $b$.', topic: Factoring}
+- {front: 'ac method for $ax^2 + bx + c$', back: 'Find two numbers with product $ac$ and sum $b$, split $bx$ with them, factor by grouping.', topic: Factoring}
+- {front: 'Difference of squares', back: '$a^2 - b^2 = (a + b)(a - b)$', topic: Factoring}
+- {front: 'Sum of cubes', back: '$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$', topic: Factoring}
+- {front: 'Difference of cubes', back: '$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$', topic: Factoring}
+- {front: 'Does $a^2 + b^2$ factor over the reals?', back: 'No, a sum of squares like $x^2 + 4$ is prime over the reals (it is never zero, so it has no real linear factor).', topic: Factoring}
+- {front: 'Factoring strategy by number of terms', back: '2 terms: squares/cubes patterns. 3 terms: perfect square, sum-product, or ac method. 4 terms: grouping.', topic: Factoring}
+- {front: 'Factor $x^4 - 16$ completely', back: '$(x^2 + 4)(x + 2)(x - 2)$', topic: Factoring}
+- {front: 'Zero product property', back: 'If $AB = 0$, then $A = 0$ or $B = 0$. It needs 0 on one side.', topic: Quadratic equations}
+- {front: 'Why not divide $x^2 = 4x$ by $x$?', back: 'It loses the solution $x = 0$. Factor instead: $x(x - 4) = 0$.', topic: Quadratic equations}
+- {front: 'Square root property', back: '$u^2 = k$ ($k \ge 0$) means $u = \pm\sqrt{k}$.', topic: Quadratic equations}
+- {front: 'Completing the square on $x^2 + bx$', back: 'Add $\left(\tfrac b2\right)^2$: $x^2 + bx + \left(\tfrac b2\right)^2 = \left(x + \tfrac b2\right)^2$.', topic: Quadratic equations}
+- {front: 'Before completing the square on $ax^2 + bx + c = 0$', back: 'Divide every term by $a$.', topic: Quadratic equations}
+- {front: 'Equation with roots $r$ and $s$', back: '$(x - r)(x - s) = 0$', topic: Quadratic equations}
+- {front: 'Quadratic formula', back: '$x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$', topic: Quadratic formula}
+- {front: 'Before using the quadratic formula', back: 'Write the equation in standard form $ax^2 + bx + c = 0$ and read $a$, $b$, $c$ with their signs.', topic: Quadratic formula}
+- {front: 'Discriminant', back: '$D = b^2 - 4ac$', topic: Discriminant}
+- {front: '$D > 0$, $D = 0$, $D < 0$', back: 'Two real roots; one (double) real root; no real roots (the parabola misses the $x$-axis).', topic: Discriminant}
+- {front: 'Discriminant is a perfect square (integer coefficients)', back: 'Rational roots; the quadratic factors over the integers.', topic: Discriminant}
+- {front: 'Which method for a quadratic?', back: '$x^2 = k$ form: square roots. Factors easily: factor. Otherwise: quadratic formula (always works).', topic: Quadratic formula}
+- {front: 'Vertex form', back: '$f(x) = a(x - h)^2 + k$, vertex $(h, k)$, axis $x = h$.', topic: Quadratic functions}
+- {front: 'Vertex from standard form', back: '$x = -\dfrac{b}{2a}$, then $y = f\left(-\dfrac{b}{2a}\right)$.', topic: Quadratic functions}
+- {front: 'Effect of $a$ in $y = ax^2$', back: '$a > 0$ opens up, $a < 0$ opens down; $|a| > 1$ narrower, $|a| < 1$ wider.', topic: Quadratic functions}
+- {front: 'Vertex of $y = 3(x + 2)^2 - 5$', back: '$(-2, -5)$', topic: Quadratic functions}
+- {front: 'Intercept form', back: '$f(x) = a(x - r)(x - s)$: $x$-intercepts $r$ and $s$; vertex at $x = \tfrac{r + s}{2}$.', topic: Quadratic functions}
+- {front: 'Range of a parabola with vertex $(h, k)$', back: 'Opens up: $[k, \infty)$. Opens down: $(-\infty, k]$.', topic: Quadratic functions}
+- {front: 'Projectile height (feet and meters)', back: '$h(t) = -16t^2 + v_0t + h_0$ (ft) or $-4.9t^2 + v_0t + h_0$ (m).', topic: Quadratic applications}
+- {front: 'Max or min of a quadratic: where and what', back: 'Where: $x = -\tfrac{b}{2a}$. What: $f\left(-\tfrac{b}{2a}\right)$. Max if $a < 0$, min if $a > 0$.', topic: Quadratic applications}
+- {front: 'Rectangle with fixed perimeter: maximum area', back: 'A square. (Along a river with 3 fenced sides, the long side is twice the short side.)', topic: Quadratic applications}
+- {front: 'Revenue', back: 'Price × quantity sold.', topic: Quadratic applications}
+- {front: '$\sqrt{25}$ vs the solutions of $x^2 = 25$', back: '$\sqrt{25} = 5$ only (the principal root); $x^2 = 25$ has two solutions, $x = \pm 5$.', topic: Square roots}
+- {front: 'When is $\sqrt n$ rational (for a whole number $n$)?', back: 'Exactly when $n$ is a perfect square. Otherwise it is irrational.', topic: Square roots}
+- {front: 'Product rule for square roots', back: '$\sqrt{ab} = \sqrt a\,\sqrt b$ for $a, b \ge 0$.', topic: Square roots}
+- {front: 'How to simplify $\sqrt n$', back: 'Write $n$ as (largest perfect square) × (rest), then take the root of the square: $\sqrt{72} = \sqrt{36 \cdot 2} = 6\sqrt2$.', topic: Square roots}
+- {front: 'Is $\sqrt{a + b} = \sqrt a + \sqrt b$?', back: 'No. $\sqrt{9 + 16} = 5$, but $\sqrt9 + \sqrt{16} = 7$.', topic: Square roots}
+- {front: 'Adding radicals', back: 'Only like radicals combine: $4\sqrt3 + 2\sqrt3 = 6\sqrt3$. Simplify first; $\sqrt2 + \sqrt3$ stays as is.', topic: Square roots}
+- {front: '$\sqrt a \cdot \sqrt a$', back: '$a$ (for $a \ge 0$).', topic: Square roots}
+- {front: 'Rational + irrational; nonzero rational × irrational', back: 'Both are always irrational.', topic: Square roots}
+- {front: 'Exponential function', back: '$f(x) = a \cdot b^x$, $a \ne 0$, $b > 0$, $b \ne 1$. $a$ = value at $x = 0$; $b$ = factor per unit increase in $x$.', topic: Exponential functions}
+- {front: 'Growth vs decay from $b$', back: '$b > 1$: growth. $0 < b < 1$: decay.', topic: Exponential functions}
+- {front: 'Growth or decay rate $r$ → factor', back: 'Growth: $b = 1 + r$. Decay: $b = 1 - r$. (15% decay keeps 85%: $b = 0.85$.)', topic: Exponential functions}
+- {front: 'Domain, range and asymptote of $y = a \cdot b^x$ with $a > 0$', back: 'Domain all real numbers; range $y > 0$; horizontal asymptote $y = 0$.', topic: Exponential functions}
+- {front: 'Is $3 \cdot 2^x$ the same as $6^x$?', back: 'No. The exponent applies only to the base 2: at $x = 2$, $3 \cdot 2^2 = 12$ but $6^2 = 36$.', topic: Exponential functions}
+- {front: 'Compound interest (once a year)', back: '$A = P(1 + r)^t$.', topic: Exponential functions}
+- {front: 'Linear or exponential from a table (equal $x$-steps)?', back: 'Constant differences → linear. Constant ratios → exponential.', topic: Linear vs exponential}
+- {front: '"Increases by 5 each year" vs "increases by 5% each year"', back: 'Fixed amount → linear. Fixed percent → exponential.', topic: Linear vs exponential}
+- {front: 'Growing exponential vs growing linear in the long run', back: 'The exponential eventually exceeds the linear (and any quadratic), whatever the head start.', topic: Linear vs exponential}
+- {front: 'Linear decrease vs exponential decay', back: 'A linear decrease reaches 0 and goes negative; exponential decay approaches 0 but stays positive.', topic: Linear vs exponential}
+- {front: 'Arithmetic sequence: explicit and recursive', back: '$a_n = a_1 + (n - 1)d$; $a_1$ given, $a_n = a_{n-1} + d$.', topic: Sequences}
+- {front: 'Geometric sequence: explicit and recursive', back: '$a_n = a_1 r^{\,n-1}$; $a_1$ given, $a_n = r\,a_{n-1}$.', topic: Sequences}
+- {front: 'Arithmetic and geometric sequences as functions', back: 'Arithmetic = linear function of $n$ (slope $d$). Geometric with $r > 0$ = exponential function of $n$ (base $r$).', topic: Sequences}
+- {front: 'Finding $d$ from two terms $a_p$ and $a_q$', back: '$d = \dfrac{a_q - a_p}{q - p}$ (change over number of steps).', topic: Sequences}
+- {front: 'Why $n - 1$ in the sequence formulas?', back: 'The $n$th term is $n - 1$ steps past the first term.', topic: Sequences}
+- {front: 'Dot plot vs histogram vs box plot', back: 'Dot plot: every value. Histogram: counts in equal bins (shape of large data). Box plot: five-number summary.', topic: Data displays}
+- {front: 'Skewed right: mean vs median', back: 'Mean > median (the tail pulls the mean). Skewed left: mean < median. Symmetric: about equal.', topic: Data displays}
+- {front: 'Direction of skew', back: 'Named for the long tail, not for where most of the data are.', topic: Data displays}
+- {front: 'Quartiles (this course''s method)', back: '$Q_1$ = median of the lower half, $Q_3$ = median of the upper half; leave out the median when $n$ is odd.', topic: Center and spread}
+- {front: 'Five-number summary', back: 'Min, $Q_1$, median, $Q_3$, max.', topic: Center and spread}
+- {front: '1.5 × IQR outlier rule', back: 'Outlier if below $Q_1 - 1.5\,\text{IQR}$ or above $Q_3 + 1.5\,\text{IQR}$.', topic: Center and spread}
+- {front: 'Standard deviation steps', back: 'Mean → deviations → square → average (÷ $n$, or $n - 1$ for a sample) → square root.', topic: Center and spread}
+- {front: 'Which summaries resist outliers?', back: 'Median and IQR. The mean, standard deviation and range do not.', topic: Center and spread}
+- {front: 'Mean/SD or median/IQR?', back: 'Roughly symmetric with no outliers: mean and SD. Skewed or with outliers: median and IQR.', topic: Center and spread}
+- {front: 'Add 5 to every data value: effect on mean and SD', back: 'Mean goes up 5; standard deviation is unchanged.', topic: Center and spread}
+- {front: 'Joint, marginal, conditional relative frequency', back: 'Joint: cell ÷ grand total. Marginal: row/column total ÷ grand total. Conditional: cell ÷ its group''s total.', topic: Two-way tables}
+- {front: '"What percent of seniors said yes?" — divide by?', back: 'The seniors total (the group after "of").', topic: Two-way tables}
+- {front: 'Association in a two-way table', back: 'Conditional relative frequencies differ noticeably between groups. Compare percents, not raw counts.', topic: Two-way tables}
+- {front: 'Describing a scatter plot', back: 'Direction, form, strength, and unusual points.', topic: Scatter plots}
+- {front: 'Correlation coefficient $r$', back: '$-1 \le r \le 1$. Sign = direction; $|r|$ near 1 = strong linear pattern; near 0 = weak linear pattern.', topic: Correlation and residuals}
+- {front: '$r$ near 0 means no relationship?', back: 'No: only no linear relationship. Points on a U-shaped curve can have $r \approx 0$.', topic: Correlation and residuals}
+- {front: 'Correlation vs causation', back: 'Correlation does not prove cause; a lurking variable may drive both. Experiments establish causation.', topic: Correlation and residuals}
+- {front: 'Residual', back: 'Actual − predicted, $y - \hat y$. Positive: point above the line.', topic: Correlation and residuals}
+- {front: 'What a residual plot tells you', back: 'Random scatter around 0: a line fits well. A curve (like a U): use a nonlinear model.', topic: Correlation and residuals}
+- {front: 'Interpreting the slope of a line of fit', back: 'The predicted (average) change in $y$ for each 1-unit increase in $x$, in context units.', topic: Scatter plots}
+- {front: 'Interpolation vs extrapolation', back: 'Predicting inside the range of the data (fairly safe) vs outside it (risky).', topic: Scatter plots}
