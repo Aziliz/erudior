@@ -198,10 +198,21 @@ export interface ParseOptions {
 }
 
 export function parse(src: string, opts: ParseOptions = {}): Node {
-  const toks = tokenize(src);
   const userFns = new Set(opts.funcNames ?? []);
   const vars = new Set(opts.vars ?? []);
   const isFn = (name: string) => name in FUNCS || HIGHER.has(name) || userFns.has(name);
+  let toks = tokenize(src);
+  if (opts.implicit) {
+    // Typed answers: split run-together names into separate factors before parsing, so
+    // "te^t" is t·e^t (not (te)^t) and "tsin(t)" is t·sin(t).
+    toks = toks.flatMap((t, i) => {
+      if (t.t !== "id" || t.v.length < 2 || vars.has(t.v) || t.v in CONSTS || isFn(t.v) || ["and", "or", "not"].includes(t.v))
+        return [t];
+      const beforeParen = toks[i + 1]?.t === "op" && toks[i + 1].v === "(";
+      const parts = splitName(t.v, vars, beforeParen ? isFn : undefined);
+      return parts && parts.length > 1 ? parts.map((v) => ({ ...t, v })) : [t];
+    });
+  }
   let p = 0;
   let absDepth = 0;
   const peek = () => toks[p];
@@ -352,11 +363,13 @@ export function parse(src: string, opts: ParseOptions = {}): Node {
 }
 
 /** Split "xypi" into known names ["x", "y", "pi"]; null if it can't be. */
-function splitName(s: string, vars: Set<string>): string[] | null {
+function splitName(s: string, vars: Set<string>, fnAtEnd?: (name: string) => boolean): string[] | null {
   if (!s) return [];
+  // A function name may end the run when "(" follows: "tsin(t)" -> t, sin.
+  if (fnAtEnd?.(s)) return [s];
   for (const cand of [...vars, ...Object.keys(CONSTS)].sort((a, b) => b.length - a.length)) {
     if (s.startsWith(cand)) {
-      const rest = splitName(s.slice(cand.length), vars);
+      const rest = splitName(s.slice(cand.length), vars, fnAtEnd);
       if (rest) return [cand, ...rest];
     }
   }

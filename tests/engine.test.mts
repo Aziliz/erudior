@@ -73,6 +73,14 @@ const quad = { id: "q", title: "Quadratic", vars: { a: { min: 1, max: 3 }, b: { 
   calc: { disc: "b^2 - 4*a*c", root: "(-b + sqrt(disc)) / (2*a)" }, where: ["disc > 0", "root == round(root)"],
   prompt: "", answer: "root", format: "number" as const, solution: "" };
 for (let i = 0; i < 200; i++) { const g = generate(quad as any); const r = g.answer as number; if (Math.round(r) !== r) { fails++; console.log("FAIL where", g.values); break; } }
+// Typed answers with run-together names
+const I = (src: string, sc: Record<string, number>) => evaluate(src, sc, undefined, { implicit: true });
+eq("te^t", I("5te^(2t)", { t: 1.3 }), 5 * 1.3 * Math.exp(2.6), 1e-9);
+eq("tsin(t)", I("tsin(t)", { t: 0.7 }), 0.7 * Math.sin(0.7), 1e-12);
+eq("xe^x", I("xe^x", { x: 2 }), 2 * Math.exp(2), 1e-9);
+eq("2xpi", I("2xpi", { x: 3 }), 6 * Math.PI, 1e-12);
+eq("xy^2", I("xy^2", { x: 2, y: 3 }), 18, 1e-12);
+eq("e^(-t)cos(2t)", I("e^(-t)cos(2t)", { t: 0.5 }), Math.exp(-0.5) * Math.cos(1), 1e-12);
 // Typing exactly the shown (rounded) answer is accepted, even with a tight tolerance.
 const third = { id: "t", title: "Third", vars: { a: { choices: [7] } }, calc: { r: "a/3" }, prompt: "", answer: "r",
   answers: [{ name: "r", format: "num2", tolerance: 0.0001 }], solution: "" };
