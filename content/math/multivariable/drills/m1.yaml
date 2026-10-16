@@ -3,7 +3,7 @@
   title: Product rule with an exponential
   topic: Derivative review
   vars:
-    n: {min: 2, max: 4}
+    n: {min: 3, max: 5}
     k: {min: -4, max: 4}
   where: ["k != 0"]
   calc:
@@ -16,7 +16,7 @@
       show: '${n}x^{{nm1}}e^{{k:coef}x} {k:signedcoef}x^{{n}}e^{{k:coef}x}$'
       label: '$f''(x) =$'
   solution: |-
-    Product rule with $u = x^{n}$ and $v = e^{{k:coef}x}$: $u' = {n}x^{nm1}$ and, by the chain rule, $v' = {k}e^{{k:coef}x}$.
+    Product rule with $u = x^{n}$ and $v = e^{{k:coef}x}$: $u' = {n}x^{nm1}$ and, by the chain rule, $v' = {k:coef}e^{{k:coef}x}$.
     So $f'(x) = u'v + uv' =$ **${n}x^{nm1}e^{{k:coef}x} {k:signedcoef}x^{n}e^{{k:coef}x}$**.
 - id: mv-d-bridge-integ
   title: Definite integral by substitution
@@ -268,7 +268,7 @@
   solution: |-
     $\overrightarrow{PQ} = \langle {u1}, {u2}, {u3}\rangle$ and $\overrightarrow{PR} = \langle {v1}, {v2}, {v3}\rangle$, so $\mathbf n = \langle {n1}, {n2}, {n3}\rangle$.
     Then $d = \mathbf n\cdot P = ({n1})({px}) + ({n2})({py}) + ({n3})({pz}) = {d}$.
-    The plane is **${n1}x {n2:signed}y {n3:signed}z = {d}$**.
+    The plane is **${n1:coef}x {n2:signedcoef}y {n3:signedcoef}z = {d}$**.
 - id: mv-d-point-plane
   title: Distance from a point to a plane
   topic: Planes
@@ -311,7 +311,7 @@
     - {name: l, label: '$l =$'}
     - {name: r, label: '$r =$'}
   solution: |-
-    Complete the square in each variable: the center coordinate is minus half the linear coefficient.
-    Half of ${m1}$ is ${h}$ with its sign flipped, so $h = {h}$; likewise $k = {k}$ and $l = {l}$.
+    Complete the square in each variable: each center coordinate is minus half that variable's linear coefficient,
+    so $h = -\tfrac12({m1}) = {h}$, $k = -\tfrac12({m2}) = {k}$ and $l = -\tfrac12({m3}) = {l}$.
     Then $(x - h)^2 + (y - k)^2 + (z - l)^2 = h^2 + k^2 + l^2 - ({cst}) = {r}^2$.
     Center **$({h}, {k}, {l})$**, radius **{r}**.

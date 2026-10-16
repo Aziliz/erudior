@@ -77,10 +77,11 @@ Then $\mathbf F(\mathbf r(t)) = \langle t^2, t^2\rangle$, $\mathbf r' = \langle 
 $W = \int_0^1 2t^2\,dt = \tfrac23$.
 
 Same endpoints, different work: for this field the line integral depends on the path. In
-the next lesson we characterize the fields for which it does not.
+the next lesson we show that the fields for which it does not are exactly the conservative
+fields (Lesson 28), so $\langle x^2, xy\rangle$ is not conservative.
 
 ```plot
-{"x": [-0.2, 1.3], "y": [-0.2, 1.3], "equal": true, "vectorField": {"u": "x^2", "v": "x*y", "step": 0.2}, "functions": [{"f": "x^2", "from": 0, "to": 1, "label": "y = x²: W = 11/15"}, {"f": "x", "from": 0, "to": 1, "dashed": true, "label": "y = x: W = 2/3"}], "caption": "The field ⟨x², xy⟩ does different work along two paths with the same ends"}
+{"x": [-0.2, 1.3], "y": [-0.2, 1.3], "equal": true, "vectorField": {"u": "x^2", "v": "x*y", "step": 0.2}, "functions": [{"f": "x^2", "from": 0, "to": 1}, {"f": "x", "from": 0, "to": 1, "dashed": true}], "labels": [{"at": [0.75, 0.3], "text": "y = x²: W = 11/15"}, {"at": [0.3, 0.75], "text": "y = x: W = 2/3"}], "caption": "The field ⟨x², xy⟩ does different work along two paths with the same ends"}
 ```
 
 ### Example 4: in space

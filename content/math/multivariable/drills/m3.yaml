@@ -11,7 +11,7 @@
   where: ["a != 0", "b != 0"]
   calc:
     val: a*x0^2*y0 + b*y0^2 - c*x0
-  prompt: 'Evaluate $f(x, y) = {a:coef}x^2y {b:signedcoef}y^2 - {c}x$ at $({x0}, {y0})$.'
+  prompt: 'Evaluate $f(x, y) = {a:coef}x^2y {b:signedcoef}y^2 - {c:coef}x$ at $({x0}, {y0})$.'
   answers:
     - {name: val, label: '$f({x0}, {y0}) =$'}
   solution: |-
@@ -53,17 +53,17 @@
     a: {min: -4, max: 4}
     b: {min: -4, max: 4}
     m: {min: -3, max: 3}
-  where: ["a != b"]
+  where: ["a != b", "a != 0", "b != 0", "m != 0"]
   calc:
     m2: m^2
     num: a + b*m^2
     den: 1 + m^2
     L: num/den
-  prompt: 'Find the limit of $f(x, y) = \dfrac{{a:coef}x^2 {b:signedcoef}y^2}{x^2 + y^2}$ as $(x, y)\to(0, 0)$ along the line $y = {m}x$. (Exact fraction.)'
+  prompt: 'Find the limit of $f(x, y) = \dfrac{{a:coef}x^2 {b:signedcoef}y^2}{x^2 + y^2}$ as $(x, y)\to(0, 0)$ along the line $y = {m:coef}x$. (Exact fraction.)'
   answers:
     - {name: L, kind: fraction, label: 'Limit along the line'}
   solution: |-
-    Substitute $y = {m}x$: $\dfrac{{a}x^2 + ({b})({m2})x^2}{x^2 + {m2}x^2} = \dfrac{{num}}{{den}}$ for $x \ne 0$, so the limit along this line is **${L:texfrac}$**.
+    Substitute $y = {m:coef}x$: $\dfrac{{a:coef}x^2 + ({b})({m2})x^2}{(1 + {m2})x^2} = \dfrac{{num}}{{den}}$ for $x \ne 0$, so the limit along this line is **${L:texfrac}$**.
     Because the answer depends on the slope (it is ${a}$ along the $x$-axis and ${b}$ along the $y$-axis), the two-variable limit does not exist.
 - id: mv-d-partials
   title: First partial derivatives
@@ -131,7 +131,8 @@
     - {name: C, label: '$C =$'}
   solution: |-
     $z_0 = f({x0}, {y0}) = {z0}$. Partials: $f_x = 2({a})x + ({c})y = {fx}$ and $f_y = 2({b})y + ({c})x = {fy}$ at the point.
-    $z = {z0} + ({fx})(x - ({x0})) + ({fy})(y - ({y0}))$, which simplifies to **$z = {fx}x {fy:signed}y {C:signed}$**.
+    $z = z_0 + f_x(x - x_0) + f_y(y - y_0)$ expands to $z = f_x\,x + f_y\,y + (z_0 - f_x x_0 - f_y y_0)$, so $A = {fx}$, $B = {fy}$ and $C = {z0} - ({fx})({x0}) - ({fy})({y0}) = {C}$.
+    **$A = {fx}$, $B = {fy}$, $C = {C}$.**
 - id: mv-d-linearize
   title: Estimate with a linearization
   topic: Linear approximation and differentials
@@ -154,7 +155,7 @@
   answers:
     - {name: Lv, label: '$L({x1}, {y1}) =$'}
   solution: |-
-    $f({x0}, {y0}) = {f0}$, $f_x = 2({a})xy = {fx}$, $f_y = {a}x^2 = {fy}$ at the base point.
+    $f({x0}, {y0}) = {f0}$, $f_x = 2({a})xy = {fx}$, $f_y = {a:coef}x^2 = {fy}$ at the base point.
     $L = {f0} + {fx}({dx}) + {fy}({dy}) =$ **{Lv:num2}**. (The exact value is about {actual:num4}.)
 - id: mv-d-chain
   title: Chain rule along a path
@@ -164,7 +165,7 @@
     b: {min: -3, max: 3}
     c: {min: -3, max: 3}
     t0: {min: -2, max: 2}
-  where: ["a != 0", "c != 0"]
+  where: ["a != 0", "b != 0", "c != 0"]
   calc:
     X: t0^2 + b
     Y: c*t0
@@ -172,14 +173,14 @@
     zy: a*X
     xt: 2*t0
     yt: c
-    dz: zx*xt + zy*yt
+    rate: zx*xt + zy*yt
   prompt: 'Let $z = x^2 {a:signedcoef}xy$ with $x = t^2 {b:signed}$ and $y = {c:coef}t$. Use the chain rule to find $\dfrac{dz}{dt}$ at $t = {t0}$.'
   answers:
-    - {name: dz, label: '$\dfrac{dz}{dt} =$'}
+    - {name: rate, label: '$\dfrac{dz}{dt} =$'}
   solution: |-
     At $t = {t0}$: $x = {X}$, $y = {Y}$.
     $z_x = 2x + ({a})y = {zx}$, $z_y = ({a})x = {zy}$, $\dfrac{dx}{dt} = 2t = {xt}$, $\dfrac{dy}{dt} = {yt}$.
-    $\dfrac{dz}{dt} = z_x\dfrac{dx}{dt} + z_y\dfrac{dy}{dt} = ({zx})({xt}) + ({zy})({yt}) =$ **{dz}**.
+    $\dfrac{dz}{dt} = z_x\dfrac{dx}{dt} + z_y\dfrac{dy}{dt} = ({zx})({xt}) + ({zy})({yt}) =$ **{rate}**.
 - id: mv-d-implicit
   title: Implicit differentiation
   topic: Implicit differentiation
@@ -230,13 +231,13 @@
     y0: {min: -2, max: 2}
     v1: {min: -4, max: 4}
     v2: {min: -4, max: 4}
-  where: ["a != 0", "b != 0", "v1 != 0", "v2 != 0", "abs(D) > 0.05"]
+  where: ["a != 0", "b != 0", "c != 0", "v1 != 0", "v2 != 0", "abs(D) > 0.05"]
   calc:
     gx: 2*a*x0 + b*y0
     gy: b*x0 + 2*c*y0
     nv: sqrt(v1^2 + v2^2)
     D: (gx*v1 + gy*v2)/nv
-  prompt: 'Find the directional derivative of $f(x, y) = {a:coef}x^2 {b:signedcoef}xy {c:signed}y^2$ at $({x0}, {y0})$ in the direction of $\mathbf v = \langle {v1}, {v2}\rangle$. (2 decimals.)'
+  prompt: 'Find the directional derivative of $f(x, y) = {a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2$ at $({x0}, {y0})$ in the direction of $\mathbf v = \langle {v1}, {v2}\rangle$. (2 decimals.)'
   figure:
     type: plot
     x: [-7, 7]
@@ -272,5 +273,5 @@
     - {name: gy, label: '$f_y =$'}
     - {name: rate, label: 'max rate'}
   solution: |-
-    $f_x = {a}y^2 + 2({b})x = {gx}$ and $f_y = 2({a})xy = {gy}$ at the point, so $\nabla f = \langle {gx}, {gy}\rangle$.
+    $f_x = {a:coef}y^2 + 2({b})x = {gx}$ and $f_y = 2({a})xy = {gy}$ at the point, so $\nabla f = \langle {gx}, {gy}\rangle$.
     The maximum rate of increase is $|\nabla f| = \sqrt{({gx})^2 + ({gy})^2} \approx$ **{rate:num2}**, in the direction of $\nabla f$.

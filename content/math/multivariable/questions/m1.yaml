@@ -275,7 +275,7 @@
   answer: 1
   explanation: |-
     $\mathbf a\cdot\mathbf b = 5$ and $|\mathbf a|^2 = 2$, so $\operatorname{proj}_{\mathbf a}\mathbf b = \tfrac52\langle 1,1,0\rangle$.
-    Dividing by $|\mathbf a|$ instead of $|\mathbf a|^2$ gives the first choice; the third projects $\mathbf a$ onto $\mathbf b$.
+    Dividing by $|\mathbf a|$ instead of $|\mathbf a|^2$ gives $\left\langle \tfrac{5}{\sqrt2}, \tfrac{5}{\sqrt2}, 0\right\rangle$; $\left\langle \tfrac{20}{17}, \tfrac{5}{17}, 0\right\rangle$ projects $\mathbf a$ onto $\mathbf b$ instead.
 - id: mv-q-0307
   lesson: mv-dot
   topic: Dot product
@@ -308,7 +308,7 @@
   choices: ['Nothing; this is correct', 'The result has the right direction but the wrong length unless $|\mathbf a| = 1$', 'It should be $\mathbf b$ at the end, not $\mathbf a$', 'The dot product should be a cross product']
   answer: 1
   explanation: |-
-    The correct formula is $\dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|^2}\mathbf a$: the scalar projection $\tfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|}$ times the *unit* vector $\tfrac{\mathbf a}{|\mathbf a|}$.
+    The correct formula is $\dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|^2}\mathbf a$: the scalar projection $\tfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|}$ times the unit vector $\tfrac{\mathbf a}{|\mathbf a|}$.
     The student's version is off by a factor of $|\mathbf a|$ but still points along $\mathbf a$.
 - id: mv-q-0311
   lesson: mv-dot
@@ -441,7 +441,7 @@
   choices: ['$x = 1 + 4t,\ y = 2 - t,\ z = 3 + 2t$', '$x = 4 + t,\ y = -1 + 2t,\ z = 2 + 3t$', '$4x - y + 2z = 8$', '$x = 4t,\ y = -t,\ z = 2t$']
   answer: 0
   explanation: |-
-    $\mathbf r = \mathbf r_0 + t\mathbf v$: start at the point, move in the direction. The second choice swaps the roles of point and direction; the plane equation describes a plane, not a line.
+    $\mathbf r = \mathbf r_0 + t\mathbf v$: start at the point, move in the direction. $x = 4 + t$, $y = -1 + 2t$, $z = 2 + 3t$ swaps the roles of point and direction; $4x - y + 2z = 8$ describes a plane, not a line.
 - id: mv-q-0502
   lesson: mv-lines-planes
   topic: Planes
@@ -527,7 +527,7 @@
   answer: 2
   explanation: |-
     Solve each parametric equation $x = 2 + 3t$, $y = -2t$, $z = -1 + 5t$ for $t$ and set them equal.
-    The second choice is a plane with that normal; the last flips the point's signs.
+    $3(x-2) - 2y + 5(z+1) = 0$ is a plane with that normal; $\dfrac{x+2}{3} = \dfrac{y}{-2} = \dfrac{z-1}{5}$ flips the point's signs.
 - id: mv-q-0512
   lesson: mv-lines-planes
   topic: Lines in space
@@ -628,4 +628,4 @@
   choices: ['$x^2 + y^2 - z^2 = 1$', '$x^2 - y^2 - z = 0$', '$x^2 - y^2 - z^2 = 1$', '$x^2 - y^2 - z^2 = 0$']
   answer: 2
   explanation: |-
-    Constant on the right positive and two minus signs: two sheets (axis the $x$-axis). The first is one sheet, the second a hyperbolic paraboloid, the last a cone.
+    Constant on the right positive and two minus signs: two sheets (axis the $x$-axis). $x^2 + y^2 - z^2 = 1$ is one sheet, $x^2 - y^2 - z = 0$ a hyperbolic paraboloid, and $x^2 - y^2 - z^2 = 0$ a cone.

@@ -88,7 +88,7 @@ gives $\iint\operatorname{curl}\mathbf F\cdot\mathbf k\,dA$, where
 $\operatorname{curl}\mathbf F\cdot\mathbf k = 1 - (-1) = 2$, so $2\pi$ again. ✓
 
 ```plot
-{"x": [-1.6, 1.6], "y": [-0.4, 1.4], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "pi"], "label": "hemisphere S₁"}], "segments": [{"from": [-1, 0], "to": [1, 0], "label": "disk S₂"}, {"from": [0, 0], "to": [0, 0.5], "arrow": true, "dashed": true, "label": "n"}, {"from": [0.7071, 0.7071], "to": [1.06, 1.06], "arrow": true, "label": "n"}], "caption": "Side view: the hemisphere and the flat disk share the boundary circle, so they carry the same flux of curl F"}
+{"x": [-1.6, 1.6], "y": [-0.4, 1.4], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "pi"]}], "segments": [{"from": [-1, 0], "to": [1, 0]}, {"from": [0.4, 0], "to": [0.4, 0.5], "arrow": true, "dashed": true, "label": "n"}, {"from": [0.7071, 0.7071], "to": [1.06, 1.06], "arrow": true, "label": "n"}], "labels": [{"at": [-0.95, 0.85], "text": "hemisphere S₁"}, {"at": [-0.55, 0.1], "text": "disk S₂"}], "yLabel": "z", "caption": "Side view: the hemisphere and the flat disk share the boundary circle, so they carry the same flux of curl F"}
 ```
 
 ## Consequences

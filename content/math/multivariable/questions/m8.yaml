@@ -8,7 +8,7 @@
   answer: 0
   explanation: |-
     $\langle R_y - Q_z,\; P_z - R_x,\; Q_x - P_y\rangle = \langle 0 - y,\; 0 - z^2,\; 0 - x^2\rangle$.
-    The second choice reverses every subtraction; the third lists the terms of the divergence.
+    $\langle y, z^2, x^2\rangle$ reverses every subtraction; $\langle 2xy, z, 2xz\rangle$ lists the terms of the divergence.
 - id: mv-q-3202
   lesson: mv-curl-div
   topic: Divergence
@@ -50,7 +50,7 @@
   choices: ['$\operatorname{curl}(\operatorname{div}\mathbf F)$', '$0$', '$|\mathbf F|$', '$\nabla^2\mathbf F$']
   answer: 1
   explanation: |-
-    Expanding, the six terms cancel in pairs by Clairaut's theorem. (The first choice is meaningless: the curl of a scalar is not defined.)
+    Expanding, the six terms cancel in pairs by Clairaut's theorem. ($\operatorname{curl}(\operatorname{div}\mathbf F)$ is meaningless: the curl of a scalar is not defined.)
 - id: mv-q-3207
   lesson: mv-curl-div
   topic: Curl
@@ -101,7 +101,7 @@
   choices: ['$\langle 9\cos\theta,\, 9\sin\theta,\, z\rangle$', '$\langle 3\cos\theta,\, 3\sin\theta,\, 5\rangle$', '$\langle 3\sin\phi\cos\theta,\, 3\sin\phi\sin\theta,\, 3\cos\phi\rangle$', '$\langle 3\cos\theta,\, 3\sin\theta,\, z\rangle$, $0 \le \theta \le 2\pi$, $0 \le z \le 5$']
   answer: 3
   explanation: |-
-    Radius 3 (not 9), angle all the way around, height free between 0 and 5. The second choice is just the top circle; the third is a sphere.
+    Radius 3 (not 9), angle all the way around, height free between 0 and 5. $\langle 3\cos\theta, 3\sin\theta, 5\rangle$ is just the top circle; the one using $\phi$ is a sphere.
 - id: mv-q-3302
   lesson: mv-param-surfaces
   topic: Parametric surfaces
@@ -140,7 +140,7 @@
   lesson: mv-param-surfaces
   topic: Surface area
   stem: 'Using the parametrization $\langle x, y, f(x, y)\rangle$, what is $\mathbf r_x\times\mathbf r_y$?'
-  choices: ['$\langle -f_x,\, -f_y,\, 1\rangle$', '$\langle f_x,\, f_y,\, 1\rangle$', '$\langle 1,\, 1,\, f_x + f_y\rangle$', '$\langle f_x,\, f_y,\, -1\rangle$ only']
+  choices: ['$\langle -f_x,\, -f_y,\, 1\rangle$', '$\langle f_x,\, f_y,\, 1\rangle$', '$\langle 1,\, 1,\, f_x + f_y\rangle$', '$\langle f_x,\, f_y,\, -1\rangle$']
   answer: 0
   explanation: |-
     $\langle 1, 0, f_x\rangle\times\langle 0, 1, f_y\rangle = \langle 0\cdot f_y - f_x\cdot1,\; f_x\cdot0 - 1\cdot f_y,\; 1\rangle = \langle -f_x, -f_y, 1\rangle$, whose length is $\sqrt{1 + f_x^2 + f_y^2}$.
@@ -168,7 +168,7 @@
   choices: ['$\langle u, u + v, v\rangle$', '$\langle 1 + u, v, u + v\rangle$', '$\langle 1, u, v\rangle$', '$\langle 1 + u,\, u + v,\, v\rangle$']
   answer: 3
   explanation: |-
-    $\mathbf r_0 + u\mathbf a + v\mathbf b = \langle 1,0,0\rangle + u\langle 1,1,0\rangle + v\langle 0,1,1\rangle = \langle 1 + u, u + v, v\rangle$. The first choice passes through the origin instead.
+    $\mathbf r_0 + u\mathbf a + v\mathbf b = \langle 1,0,0\rangle + u\langle 1,1,0\rangle + v\langle 0,1,1\rangle = \langle 1 + u, u + v, v\rangle$. $\langle u, u + v, v\rangle$ passes through the origin instead.
 - id: mv-q-3310
   lesson: mv-param-surfaces
   topic: Parametric surfaces
@@ -228,7 +228,7 @@
   choices: ['$P + Q + R$', '$Pg_x + Qg_y - R$', '$-Pg_x - Qg_y + R$', '$R\sqrt{1 + g_x^2 + g_y^2}$']
   answer: 2
   explanation: |-
-    $\mathbf F\cdot(\mathbf r_x\times\mathbf r_y)$ with $\mathbf r_x\times\mathbf r_y = \langle -g_x, -g_y, 1\rangle$. The second choice is the downward version.
+    $\mathbf F\cdot(\mathbf r_x\times\mathbf r_y)$ with $\mathbf r_x\times\mathbf r_y = \langle -g_x, -g_y, 1\rangle$. $Pg_x + Qg_y - R$ is the downward version.
 - id: mv-q-3407
   lesson: mv-surface-integrals
   topic: Flux
@@ -449,7 +449,7 @@
   choices: ['$\dfrac{q}{\varepsilon_0}$', '$\dfrac{q}{4\pi\varepsilon_0a^2}$', '$\dfrac{qa}{\varepsilon_0}$', '$0$']
   answer: 0
   explanation: |-
-    $\mathbf E\cdot\mathbf n = \tfrac{q}{4\pi\varepsilon_0a^2}$ on the sphere, times area $4\pi a^2$, gives $q/\varepsilon_0$, independent of $a$. The second choice is the field strength, not the flux.
+    $\mathbf E\cdot\mathbf n = \tfrac{q}{4\pi\varepsilon_0a^2}$ on the sphere, times area $4\pi a^2$, gives $q/\varepsilon_0$, independent of $a$. $\dfrac{q}{4\pi\varepsilon_0a^2}$ is the field strength, not the flux.
 - id: mv-q-3702
   lesson: mv-physics
   topic: Applications to physics

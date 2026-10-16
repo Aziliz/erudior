@@ -69,7 +69,7 @@ Find the volume of the solid inside the cylinder $x^2 + y^2 = 1$, above $z = 0$ 
 Evaluate $\iiint_E (x^2 + y^2)\,dV$, where $E$ is the solid between the cone $z = \sqrt{x^2 + y^2}$ and the plane $z = 2$.
 
 ```plot
-{"x": [-0.3, 2.6], "y": [-0.3, 2.6], "equal": true, "functions": [{"f": "x", "from": 0, "to": 2, "label": "cone z = r"}, {"f": "2", "from": 0, "to": 2, "label": "plane z = 2"}], "shade": [{"f": "2", "g": "x", "from": 0, "to": 2}], "segments": [{"from": [1, 1], "to": [1, 2], "arrow": true}], "xLabel": "r", "yLabel": "z", "caption": "Cross-section in the (r, z) half-plane: for each r, z runs from r up to 2"}
+{"x": [-0.3, 2.6], "y": [-0.3, 2.6], "equal": true, "functions": [{"f": "x", "from": 0, "to": 2}, {"f": "2", "from": 0, "to": 2}], "labels": [{"at": [1.75, 1.2], "text": "cone z = r"}, {"at": [0.6, 2.2], "text": "plane z = 2"}], "shade": [{"f": "2", "g": "x", "from": 0, "to": 2}], "segments": [{"from": [1, 1], "to": [1, 2], "arrow": true}], "xLabel": "r", "yLabel": "z", "caption": "Cross-section in the (r, z) half-plane: for each r, z runs from r up to 2"}
 ```
 
 1. In cylindrical form the cone is $z = r$, and it meets $z = 2$ at $r = 2$. So: $0 \le \theta \le 2\pi$, $0 \le r \le 2$, $r \le z \le 2$.

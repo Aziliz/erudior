@@ -118,7 +118,7 @@ is nearly a triangle of area $\tfrac12 r^2\,d\theta$. That wedge reappears in Le
 the area element $dA = r\,dr\,d\theta$.
 
 ```plot
-{"x": [-2.5, 2.5], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "(1+cos(t))*cos(t)", "y": "(1+cos(t))*sin(t)", "t": [0, "2pi"], "label": "r = 1 + cos θ"}, {"x": "1.5*cos(t)", "y": "1.5*sin(t)", "t": [0, "2pi"], "dashed": true, "label": "r = 1.5"}], "caption": "Polar curves: a cardioid and a circle"}
+{"x": [-2.5, 2.5], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "(1+cos(t))*cos(t)", "y": "(1+cos(t))*sin(t)", "t": [0, "2pi"]}, {"x": "1.5*cos(t)", "y": "1.5*sin(t)", "t": ["-1.25*pi", "0.75*pi"], "dashed": true}], "caption": "Polar curves: the cardioid r = 1 + cos θ (solid) and the circle r = 1.5 (dashed)"}
 ```
 
 ## Where each tool shows up later

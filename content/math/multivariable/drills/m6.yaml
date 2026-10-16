@@ -13,20 +13,20 @@
     t1: p*a^2/2*b*c
     t2: q*a*b^2/2*c^2/2
     ans: t1 + t2
-  prompt: 'Evaluate $\displaystyle\iiint_B({p}x {q:signedcoef}yz)\,dV$ over the box $B = [0, {a}]\times[0, {b}]\times[0, {c}]$. (Exact or 2 decimals.)'
+  prompt: 'Evaluate $\displaystyle\iiint_B({p:coef}x {q:signedcoef}yz)\,dV$ over the box $B = [0, {a}]\times[0, {b}]\times[0, {c}]$. (Exact or 2 decimals.)'
   answers:
     - {name: ans, label: 'Value'}
   solution: |-
     Split and factor each term over the box:
-    $\displaystyle\iiint {p}x\,dV = {p}\cdot\frac{{a}^2}{2}\cdot{b}\cdot{c} = {t1}$ and $\displaystyle\iiint ({q})yz\,dV = ({q})\cdot{a}\cdot\frac{{b}^2}{2}\cdot\frac{{c}^2}{2} = {t2}$.
+    $\displaystyle\iiint {p:coef}x\,dV = {p}\cdot\frac{{a}^2}{2}\cdot{b}\cdot{c} = {t1}$ and $\displaystyle\iiint {q:coef}yz\,dV = ({q})\cdot{a}\cdot\frac{{b}^2}{2}\cdot\frac{{c}^2}{2} = {t2}$.
     Total: **{ans}**.
 - id: mv-d-tetra-vol
   title: Volume and centroid height of a tetrahedron
   topic: Triple integrals
   vars:
-    a: {min: 1, max: 6}
-    b: {min: 1, max: 6}
-    c: {min: 1, max: 6}
+    a: {min: 2, max: 6}
+    b: {min: 2, max: 6}
+    c: {min: 2, max: 6}
   calc:
     V: a*b*c/6
     zb: c/4
@@ -93,9 +93,9 @@
     thd: {choices: [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330]}
     phd: {choices: [30, 45, 60, 90, 120, 135, 150]}
   calc:
-    X: rho*sind(phd)*cosd(thd)
-    Y: rho*sind(phd)*sind(thd)
-    Z: rho*cosd(phd)
+    X: round(rho*sind(phd)*cosd(thd), 9) + 0
+    Y: round(rho*sind(phd)*sind(thd), 9) + 0
+    Z: round(rho*cosd(phd), 9) + 0
   prompt: 'Convert the spherical point $\rho = {rho}$, $\theta = {thd}^\circ$, $\phi = {phd}^\circ$ to rectangular coordinates. (2 decimals.)'
   answers:
     - {name: X, label: '$x =$'}
@@ -111,16 +111,17 @@
   topic: Spherical coordinates
   vars:
     a: {min: 1, max: 3}
-    n: {min: 0, max: 3}
+    n: {choices: [{label: '\sqrt{x^2 + y^2 + z^2}', value: 1}, {label: 'x^2 + y^2 + z^2', value: 2}, {label: '(x^2 + y^2 + z^2)^{3/2}', value: 3}, {label: '(x^2 + y^2 + z^2)^2', value: 4}]}
   calc:
+    n2: n + 2
     n3: n + 3
     ans: 4*pi*a^(n+3)/(n+3)
-  prompt: 'Evaluate $\displaystyle\iiint_B\left(\sqrt{x^2 + y^2 + z^2}\right)^{n}\,dV$ over the ball $x^2 + y^2 + z^2 \le {a}^2$. (2 decimals.)'
+  prompt: 'Evaluate $\displaystyle\iiint_B {n}\,dV$ over the ball $x^2 + y^2 + z^2 \le {a}^2$. (2 decimals.)'
   answers:
     - {name: ans, label: 'Value', relTolerance: 0.001}
   solution: |-
-    In spherical coordinates the integrand is $\rho^{n}$ and $dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$:
-    $\displaystyle\int_0^\pi\sin\phi\,d\phi\int_0^{2\pi}d\theta\int_0^{{a}}\rho^{n}\rho^2\,d\rho = 2\cdot2\pi\cdot\frac{{a}^{{n3}}}{{n3}} \approx$ **{ans:num2}**.
+    In spherical coordinates $\sqrt{x^2 + y^2 + z^2} = \rho$, so the integrand is a power of $\rho$; multiplied by the $\rho^2$ in $dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$ it becomes $\rho^{{n2}}$:
+    $\displaystyle\int_0^\pi\sin\phi\,d\phi\int_0^{2\pi}d\theta\int_0^{{a}}\rho^{{n2}}\,d\rho = 2\cdot2\pi\cdot\frac{{a}^{{n3}}}{{n3}} \approx$ **{ans:num2}**.
 - id: mv-d-jacobian
   title: Compute a Jacobian
   topic: Jacobians
@@ -137,8 +138,8 @@
   answers:
     - {kind: expression, expression: 'k1*u^2 + k2*v', variables: [u, v], label: '$\dfrac{\partial(x,y)}{\partial(u,v)} =$', show: '${k1}u^2 {k2:signedcoef}v$'}
   solution: |-
-    $x_u = {a2}u$, $x_v = {b}$, $y_u = {c}v$, $y_v = {c}u$.
-    $\dfrac{\partial(x,y)}{\partial(u,v)} = x_uy_v - x_vy_u = ({a2}u)({c}u) - ({b})({c}v) =$ **${k1}u^2 {k2:signedcoef}v$**.
+    $x_u = {a2}u$, $x_v = {b}$, $y_u = {c:coef}v$, $y_v = {c:coef}u$.
+    $\dfrac{\partial(x,y)}{\partial(u,v)} = x_uy_v - x_vy_u = ({a2}u)({c:coef}u) - ({b})({c:coef}v) =$ **${k1}u^2 {k2:signedcoef}v$**.
 - id: mv-d-cov-linear
   title: Area of a parallelogram by change of variables
   topic: Change of variables

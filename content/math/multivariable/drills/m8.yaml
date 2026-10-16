@@ -75,8 +75,8 @@
   answers:
     - {name: A, label: 'Area', relTolerance: 0.001}
   solution: |-
-    Parametrize $\mathbf r(r, \theta) = \langle r\cos\theta,\; r\sin\theta,\; {k}r\rangle$ with $0 \le r \le {R}$ (since $z = {h}$ when $r = {R}$), $0 \le \theta \le 2\pi$.
-    $\mathbf r_r\times\mathbf r_\theta = \langle -{k}r\cos\theta,\; -{k}r\sin\theta,\; r\rangle$, of length $r\sqrt{1 + {k}^2}$.
+    Parametrize $\mathbf r(r, \theta) = \langle r\cos\theta,\; r\sin\theta,\; {k:coef}r\rangle$ with $0 \le r \le {R}$ (since $z = {h}$ when $r = {R}$), $0 \le \theta \le 2\pi$.
+    $\mathbf r_r\times\mathbf r_\theta = \langle -{k:coef}r\cos\theta,\; -{k:coef}r\sin\theta,\; r\rangle$, of length $r\sqrt{1 + {k}^2}$.
     $A = \displaystyle\int_0^{2\pi}\int_0^{{R}}r\sqrt{1 + {k}^2}\,dr\,d\theta = \pi\cdot{R}^2\sqrt{1 + {k}^2} \approx$ **{A:num2}**.
 - id: mv-d-flux-plane
   title: Flux through a slanted triangle
@@ -110,7 +110,7 @@
     - {name: ans, label: 'Value', relTolerance: 0.001}
   solution: |-
     Parametrize with spherical angles: $z = {a}\cos\phi$ and $dS = {a}^2\sin\phi\,d\phi\,d\theta$ for $0 \le \phi \le \frac\pi2$.
-    $\iint_S {p}\,dS = {p}\cdot2\pi\cdot{a}^2 \approx {t1:num2}$ (the area of the hemisphere is $2\pi a^2$), and $\iint_S {q}z\,dS = {q}\cdot\pi\cdot{a}^3 \approx {t2:num2}$.
+    $\iint_S {p}\,dS = {p}\cdot2\pi\cdot{a}^2 \approx {t1:num2}$ (the area of the hemisphere is $2\pi a^2$), and $\iint_S {q:coef}z\,dS = {q}\cdot\pi\cdot{a}^3 \approx {t2:num2}$.
     Total $\approx$ **{ans:num2}**.
 - id: mv-d-stokes-disk
   title: Circulation by Stokes' theorem
@@ -167,7 +167,7 @@
   answers:
     - {name: ans, label: 'Flux', relTolerance: 0.001}
   solution: |-
-    $\operatorname{div}\mathbf F = {a} + {b} + {c} = {d}$ (the squared terms have zero partial derivatives in their own slots).
+    $\operatorname{div}\mathbf F = {a} {b:signed} {c:signed} = {d}$ (the squared terms have zero partial derivatives in their own slots).
     By the Divergence theorem the flux is ${d}\cdot\frac43\pi\cdot{R}^3 \approx$ **{ans:num2}**.
 - id: mv-d-gauss-flux
   title: Gauss's law

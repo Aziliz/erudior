@@ -81,7 +81,7 @@ contour map, gradient vectors cross the level curves at right angles, pointing t
 higher values, and they are longer where the curves are crowded.
 
 ```plot
-{"x": [-3, 3], "y": [-2.2, 2.2], "equal": true, "curves": [{"x": "sqrt(2)*cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "c = 2"}, {"x": "2*cos(t)", "y": "sqrt(2)*sin(t)", "t": [0, "2pi"], "label": "c = 4"}, {"x": "sqrt(6)*cos(t)", "y": "sqrt(3)*sin(t)", "t": [0, "2pi"], "label": "c = 6"}], "vectorField": {"u": "2*x", "v": "4*y", "step": 0.75}, "caption": "f = x² + 2y²: the gradient field ⟨2x, 4y⟩ crosses every level curve at a right angle"}
+{"x": [-3, 3], "y": [-2.2, 2.2], "equal": true, "curves": [{"x": "sqrt(2)*cos(t)", "y": "sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 2"}, {"x": "2*cos(t)", "y": "sqrt(2)*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 4"}, {"x": "sqrt(6)*cos(t)", "y": "sqrt(3)*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 6"}], "vectorField": {"u": "2*x", "v": "4*y", "step": 0.75}, "caption": "f = x² + 2y²: the gradient field ⟨2x, 4y⟩ crosses every level curve at a right angle"}
 ```
 
 The same argument in three variables shows that $\nabla F(x_0, y_0, z_0)$ is perpendicular to

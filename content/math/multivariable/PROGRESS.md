@@ -73,3 +73,136 @@ References: mv-ref-vectors, mv-ref-differential, mv-ref-integrals, mv-ref-vector
 - `mv-d-second-test` asks for a classification as a number code (1 min, 2 max, 3 saddle),
   since drills cannot take text answers.
 - Lesson 37 (physics) states Maxwell's equations in SI vacuum form; worth a physics reviewer's glance.
+
+
+## Review (2026-10-16)
+
+Independent review in three parts: every question solved before checking its key, every lesson example checked with sympy, every drill generated hundreds of times against an independent solver. All answer keys were correct.
+
+# Review: math-multivariable, modules mv-m1 to mv-m3 (lessons 01-16, questions m1-m3, drills m1-m3, cards)
+
+All 187 questions were solved independently before I looked at the keys. All keys are correct, and each question has exactly one correct choice. I checked the worked examples in lessons 01-16 with sympy. They are correct. I generated each of the 32 drills 400-500 times and checked them against my own calculations; every computed answer matched.
+
+## Questions (explanations)
+- Some explanations pointed to choices by position. Answer positions are shuffled, so I replaced each reference with the choice's actual expression. Affected questions: mv-q-0306, 0501, 0511, 0611, 0705, 0707, 0709, 0903, 1003 (twice), 1301, 1305, 1403, 1504.
+- mv-q-0310: removed Markdown italics (*unit*).
+
+## Drills
+- mv-d-chain: a value named `dz` collided with the `\dfrac{dz}{dt}` TeX, so the prompt, label and solution showed "\dfrac-36{dt}". I renamed the value to `rate`.
+- Cleaned ugly output:
+  - mv-d-bridge-deriv: "x^1" (n range is now 3-5) and "1e^{x}" in the solution.
+  - mv-d-vf-deriv: "t^{1}" (n range is now 3-5) and "1e^{t}" / "-1e^{-t}" in the shown answer.
+  - mv-d-arc-helix: "1\cos t" and "1t" (now uses coef).
+  - mv-d-at-an: "1t" and "0t" (c != 0).
+  - mv-d-vf-integ: "+ 0" (nonzero start values).
+  - mv-d-curv-plane: "+ 0x" (b != 0), and "(1 + -3^2)" is now "(1 + (-3)^2)".
+  - mv-d-plane-3pts: "1x" / "+ -" in the plane equation.
+  - mv-d-domain-eval: "- 1x".
+  - mv-d-limit-path: "0x^2", "y = 0x", "1x" and "x^2 + 1x^2".
+  - mv-d-chain: "t^2 + 0" (b != 0).
+  - mv-d-dir-deriv: "+ 1y^2" / "+ 0y^2".
+  - mv-d-linearize and mv-d-max-rate: "1x^2" / "1y^2".
+  - mv-d-tangent-plane: the solution printed "(x - (-2))", "0x" and "+ 0". It now gives A, B and C directly.
+- mv-d-sphere-center: the "half of m with its sign flipped" wording was ambiguous. It now says h = -1/2(m).
+
+## Lessons
+- Figure labels were overlapping or clipped so badly that they could not be read. I moved or replaced them, and the content of the figures is unchanged:
+  - 01 (cardioid/circle), 03 (proj labels on the tick numbers), 04 (|b| sin θ on top of b)
+  - 06 (ellipse traces, saddle k labels), 07 (helix projection labels)
+  - 10 (α labels piled at the landing point; the caption now identifies the curves)
+  - 11 (circle labels, and parabola c labels piled at the top; c labels now sit at the vertices)
+  - 12 ("c = -1" label sat at the origin), 13 (P on top of +y, c labels), 16 (c labels)
+- Lesson 10: said "we found a = -ω²r" for a result Lesson 9 never derives. Changed to "differentiating twice gives".
+
+## Cards
+- All 187 cards checked; no errors.
+
+## Final checks
+- build.py and check-course both pass with 0 problems.
+
+## Outside my scope
+- I noticed nothing wrong in other modules. mv-d-centroid uses a "{k:coef}{n}" pattern that looks intentional; I did not check it.
+
+# Review: math-multivariable, modules mv-m4 to mv-m6 (lessons 17-27)
+
+## Method
+- Solved all 124 questions in questions/m4-m6.yaml from stems and choices alone, then compared with the keys: all 124 keys correct, exactly one correct choice each. Read every explanation and distractor note.
+- Checked every worked example in lessons 17-27 (second-derivative tests, closed-region tables, Lagrange systems, iterated, polar, cylindrical and spherical integrals, Jacobians) with sympy. No math errors found.
+- Rendered all 22 lesson figures in the scope and sample drill figures with renderFigure, then took Playwright/Chromium screenshots. All regions match their bounds.
+- Generated 400 instances of each of the 22 drills (8,800 total) and solved each one independently from the prompt text as shown (sympy/scipy; area by shoelace; Lagrange by solving the system). 0 mismatches, and every shown answer is accepted when typed.
+
+## Fixes
+
+### Questions (positional references; choices are shuffled)
+- mv-q-2104: "the third choice" changed to name the integral itself.
+- mv-q-2207: "The last choice" changed to name the theta range.
+
+### Drills
+- mv-d-lagrange-line: the solution wrote `{a}^2 + {b}^2`, which shows as -3^2 (that is, -9) for negative coefficients. It now writes `({a})^2`. Also fixed "-1\lambda" by using coef.
+- mv-d-dbl-region: q could be 0, giving "+ 0x" in the integrand (added `q != 0`). Fixed "1x" for m = 1 in the solution and the figure label.
+- mv-d-dbl-rect: the inner-integral step showed "1x(2)"-style text. Rewrote it as an evaluated antiderivative.
+- mv-d-reverse: k = 1 gave "x/1" and "1y" (k now runs from 2 to 4).
+- mv-d-polar-disk: the solution showed "1r^2", "H/1" and a rounded radius sqrt(3.3333). It now uses coef and an exact fraction.
+- mv-d-polar-area: the outer integral had no limits (added them). The caption showed "1 cos". The figure range now scales with a, so small roses aren't tiny.
+- mv-d-mass-lamina: density could show "+ 0x + 0y". q and s are now at least 1, and coef avoids "1x".
+- mv-d-centroid: the prompt and solution showed "x^1" and "1x^1". The power term is now a labeled choice. The figure's y-range was fixed at 10 and clipped the region and the centroid point (up to y = 54), so it now scales with the curve.
+- mv-d-surf-area-graph: "z = 0 + ..." (c is now at least 1).
+- mv-d-triple-box: "1x" and "(1)yz" fixed with coef.
+- mv-d-tetra-vol: "x/1" in the prompt and caption (a, b and c are now at least 2).
+- mv-d-sph-convert: displayed "-0.00" (values are now rounded and normalized to 0).
+- mv-d-sph-ball: the integrand showed "(...)^0" or "^1". It now uses labeled choices (sqrt, square, 3/2 power, 4th power), and the solution no longer prints rho^1.
+- mv-d-jacobian: "1v" and "1u" for c = 1 (coef).
+
+### Lesson figures (overlapping, unreadable labels)
+- Lesson 17 contour map: the five level-curve labels were stacked at the top edge. Replaced them with placed labels.
+- Lesson 25 (r, z) cross-section: the "cone z = r" and "plane z = 2" labels overlapped. Replaced them with placed labels.
+
+## Outside my scope (not edited)
+Questions that refer to choices by position, which break when choices are shuffled:
+- m1: 112, 278, 425, 444, 530
+- m2: 48, 66, 82, 240, 347-348
+- m3: 196, 229, 323, 426
+- m7: 60, 186, 239
+- m8: 11, 53, 104, 171, 231, 452
+
+These are line numbers in questions/mN.yaml.
+
+## Final state
+`python3 content/math/build.py multivariable` and `npx tsx tests/check-course.mts samples/math-drafts/math-multivariable.json` both report OK with zero problems.
+
+# Review: multivariable mv-m7 / mv-m8 (lessons 28-37), glossary, references
+
+All 58 m7/m8 questions solved independently (sympy, q.py); all keys correct, one correct choice each.
+All lesson worked examples re-derived (curls, divs, line/surface integrals, cross products): no math errors.
+18 drills x 400 instances checked against independent calcs (drills.mts): all answers correct, shown answers accepted.
+
+## Fixes
+Questions
+- 10 explanations referred to choices by position (answers are shuffled): mv-q-2807, 2911, 3005, 3011, 3201, 3206, 3301, 3309, 3406, 3701. Now name the choice by content.
+- mv-q-3306: distractor "<f_x, f_y, -1> only" had a stray "only"; removed.
+
+Lessons
+- L29: Example 3 now states that path-independent fields are exactly the conservative ones (mv-q-2903, in L29's quiz, relied on that fact).
+- Figures: L29 overlapping path labels (unreadable) moved; L35 overlapping S1/S2/n labels moved; L36 "n = -k" label overlapped the lid label; L37 curve label clipped off the plot; side views in L34/35/36 now label the vertical axis z, not y.
+
+Drills
+- mv-d-vf-eval: b could be 0, giving "xy + 0"; added b != 0.
+- mv-d-line-scalar: "+ (0)t" in parametrization; require x1 != x2, y1 != y2.
+- mv-d-work-line: "2t^{1}" in solution; now "{n}t^{{n} - 1}".
+- mv-d-green-rect: "(1x)" / "(-1x)"; now uses :coef.
+- mv-d-cone-area: "1r" in solution; now :coef.
+- mv-d-surf-int: "1z" in solution; now :coef.
+- mv-d-div-thm-ball: "-1 + 1 + -1"; now signed.
+
+References
+- vectors.md: cone traces "ellipses, line pairs" -> vertical traces are hyperbolas (line pairs only through the axis).
+- vectors.md: point-to-plane formula now names the plane form ax + by + cz = d (sign of d was ambiguous).
+
+Glossary: no errors found.
+
+## Unresolved / notes
+- mv-d-gauss-flux answer box shows "2,258.87" while asking for 3 sig figs (accepted either way; display only).
+- mv-d-work-line figure label shows "y = x^2" with a caret (figure text can't superscript a variable).
+- No errors noticed outside my area.
+
+Build + check-course: OK, zero problems.

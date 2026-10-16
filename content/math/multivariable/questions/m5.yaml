@@ -139,7 +139,7 @@
   answer: 3
   explanation: |-
     The triangle lies below the line $y = x$ and above the $x$-axis, for $0 \le x \le 1$. A vertical line enters at $y = 0$ and leaves at $y = x$.
-    $\int_x^1$ describes the triangle above $y = x$; the third choice has a variable in the outer limits.
+    $\int_x^1$ describes the triangle above $y = x$; $\int_0^x\int_0^1$ has a variable in the outer limits.
 - id: mv-q-2105
   lesson: mv-double-general
   topic: Reversing the order
@@ -256,7 +256,7 @@
   choices: ['$0 \le r \le 9$, $0 \le \theta \le \pi$', '$0 \le r \le 3$, $0 \le \theta \le \pi$', '$0 \le r \le 3$, $0 \le \theta \le 2\pi$', '$0 \le r \le 3$, $-\tfrac\pi2 \le \theta \le \tfrac\pi2$']
   answer: 1
   explanation: |-
-    Radius 3 (not 9: $r^2 = 9$), and $y \ge 0$ is the upper half, $0 \le \theta \le \pi$. The last choice is the right half ($x \ge 0$).
+    Radius 3 (not 9: $r^2 = 9$), and $y \ge 0$ is the upper half, $0 \le \theta \le \pi$. $-\tfrac\pi2 \le \theta \le \tfrac\pi2$ gives the right half ($x \ge 0$).
 - id: mv-q-2208
   lesson: mv-double-polar
   topic: Polar double integrals

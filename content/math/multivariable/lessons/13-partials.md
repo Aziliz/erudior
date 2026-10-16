@@ -52,7 +52,7 @@ the positive $x$-direction from a point and seeing which level curves you cross 
 quickly.
 
 ```plot
-{"x": [-3.2, 3.2], "y": [-2.4, 2.4], "equal": true, "curves": [{"x": "sqrt(2)*cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "c = 2"}, {"x": "2*cos(t)", "y": "sqrt(2)*sin(t)", "t": [0, "2pi"], "label": "c = 4"}, {"x": "sqrt(6)*cos(t)", "y": "sqrt(3)*sin(t)", "t": [0, "2pi"], "label": "c = 6"}, {"x": "sqrt(8)*cos(t)", "y": "2*sin(t)", "t": [0, "2pi"], "label": "c = 8"}], "points": [{"at": [1, 1], "label": "P(1, 1)"}], "segments": [{"from": [1, 1], "to": [1.8, 1], "arrow": true, "label": "+x"}, {"from": [1, 1], "to": [1, 1.8], "arrow": true, "label": "+y"}], "caption": "Level curves of f = x² + 2y². At P, f = 3; moving right or up crosses higher levels, so f_x > 0 and f_y > 0."}
+{"x": [-3.2, 3.2], "y": [-2.4, 2.4], "equal": true, "curves": [{"x": "sqrt(2)*cos(t)", "y": "sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 2"}, {"x": "2*cos(t)", "y": "sqrt(2)*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 4"}, {"x": "sqrt(6)*cos(t)", "y": "sqrt(3)*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 6"}, {"x": "sqrt(8)*cos(t)", "y": "2*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 8"}], "points": [{"at": [1, 1]}], "segments": [{"from": [1, 1], "to": [1.8, 1], "arrow": true, "label": "+x"}, {"from": [1, 1], "to": [1, 1.8], "arrow": true, "label": "+y"}], "caption": "Level curves of f = x² + 2y². At P, f = 3; moving right or up crosses higher levels, so f_x > 0 and f_y > 0.", "labels": [{"at": [1.45, 0.72], "text": "P(1, 1)"}]}
 ```
 
 For $f(x, y) = x^2 + 2y^2$ the partials at $P(1, 1)$ are $f_x = 2$ and $f_y = 4$. The

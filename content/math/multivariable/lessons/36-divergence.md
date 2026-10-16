@@ -78,7 +78,7 @@ Find the upward flux of $\mathbf F = \langle x, y, z\rangle$ through the parabol
 4. Flux through the paraboloid $= 24\pi - 0 = 24\pi$.
 
 ```plot
-{"x": [-2.6, 2.6], "y": [-1, 4.6], "equal": true, "functions": [{"f": "4-x^2", "from": -2, "to": 2, "label": "paraboloid"}], "segments": [{"from": [-2, 0], "to": [2, 0], "label": "lid z = 0"}, {"from": [0.5, 0], "to": [0.5, -0.7], "arrow": true, "label": "n = −k"}, {"from": [1, 3], "to": [1.6, 3.3], "arrow": true, "label": "n"}], "shade": [{"f": "4-x^2", "from": -2, "to": 2}], "caption": "Closing the paraboloid with a flat lid; both normals point out of the solid"}
+{"x": [-2.6, 2.6], "y": [-1, 4.6], "equal": true, "functions": [{"f": "4-x^2", "from": -2, "to": 2, "label": "paraboloid"}], "segments": [{"from": [-2, 0], "to": [2, 0], "label": "lid z = 0"}, {"from": [1.3, 0], "to": [1.3, -0.7], "arrow": true, "label": "n = −k"}, {"from": [1, 3], "to": [1.6, 3.3], "arrow": true, "label": "n"}], "shade": [{"f": "4-x^2", "from": -2, "to": 2}], "yLabel": "z", "caption": "Closing the paraboloid with a flat lid; both normals point out of the solid"}
 ```
 
 ## Sources, sinks, and regions with holes

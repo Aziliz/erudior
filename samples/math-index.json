@@ -33,5 +33,10 @@
   "id": "math-calculus",
   "title": "Calculus",
   "revision": 1
+ },
+ {
+  "id": "math-multivariable",
+  "title": "Multivariable Calculus",
+  "revision": 1
  }
 ]

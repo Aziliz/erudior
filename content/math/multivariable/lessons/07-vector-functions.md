@@ -28,7 +28,7 @@ spiral staircase. Looking straight down the $z$-axis, you see only the circle. T
 the *projection* of the curve onto the $xy$-plane, obtained by dropping the $z$-component.
 
 ```plot
-{"x": [-1.6, 1.6], "y": [-1.6, 1.6], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "projection of the helix"}], "points": [{"at": [1, 0], "label": "t = 0, 2π, 4π, …"}], "segments": [{"from": [0.7071, 0.7071], "to": [0.35, 1.06], "arrow": true}], "caption": "Seen from above, the helix ⟨cos t, sin t, t⟩ circles counterclockwise forever"}
+{"x": [-1.6, 1.6], "y": [-1.6, 1.6], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": ["-0.25*pi", "1.75*pi"]}], "points": [{"at": [1, 0]}], "segments": [{"from": [0.7071, 0.7071], "to": [0.35, 1.06], "arrow": true}], "caption": "Seen from above, the helix ⟨cos t, sin t, t⟩ circles counterclockwise forever", "labels": [{"at": [0.5, 0.1], "text": "t = 0, 2π, 4π, …"}]}
 ```
 
 Projections onto the other coordinate planes help too: onto the $xz$-plane the helix

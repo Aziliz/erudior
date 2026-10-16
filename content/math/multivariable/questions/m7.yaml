@@ -57,7 +57,7 @@
   choices: ['$x^2 + y^2$', '$2xy$', '$x^2 + xy + y^2$', '$x^2y + xy^2$']
   answer: 2
   explanation: |-
-    $\partial_x(x^2 + xy + y^2) = 2x + y$ and $\partial_y(x^2 + xy + y^2) = x + 2y$. ✓ The first choice misses the $xy$ term.
+    $\partial_x(x^2 + xy + y^2) = 2x + y$ and $\partial_y(x^2 + xy + y^2) = x + 2y$. ✓ $x^2 + y^2$ misses the $xy$ term.
 - id: mv-q-2808
   lesson: mv-vector-fields
   module_quiz: true
@@ -183,7 +183,7 @@
   choices: ['$\langle 4 - 3t,\, 6 - 4t\rangle$', '$\langle 1 + 3t,\, 2 + 4t\rangle$', '$\langle 1 + 4t,\, 2 + 6t\rangle$', '$\langle 3t,\, 4t\rangle$']
   answer: 1
   explanation: |-
-    $(1 - t)\langle 1, 2\rangle + t\langle 4, 6\rangle = \langle 1 + 3t, 2 + 4t\rangle$. The first choice runs backward, from $(4,6)$ to $(1,2)$.
+    $(1 - t)\langle 1, 2\rangle + t\langle 4, 6\rangle = \langle 1 + 3t, 2 + 4t\rangle$. $\langle 4 - 3t,\, 6 - 4t\rangle$ runs backward, from $(4,6)$ to $(1,2)$.
 - id: mv-q-2912
   lesson: mv-line-integrals
   module_quiz: true
@@ -236,7 +236,7 @@
   choices: ['$3x + x^2y$', '$3 + x^2y - y^3$', '$3x + 2x^2y - 3y^3$', '$3x + x^2y - y^3$']
   answer: 3
   explanation: |-
-    Integrate $P$ in $x$: $3x + x^2y + g(y)$. Matching $f_y = x^2 + g'(y) = x^2 - 3y^2$ gives $g = -y^3$. The first choice misses $g(y)$.
+    Integrate $P$ in $x$: $3x + x^2y + g(y)$. Matching $f_y = x^2 + g'(y) = x^2 - 3y^2$ gives $g = -y^3$. $3x + x^2y$ misses $g(y)$.
 - id: mv-q-3006
   lesson: mv-conservative
   topic: Fundamental theorem for line integrals
@@ -285,7 +285,7 @@
   choices: ['$\langle y, -x\rangle$', '$\langle x + y,\, x - y\rangle$', '$\langle x^2, xy\rangle$', '$\langle xy, x\rangle$']
   answer: 1
   explanation: |-
-    For $\langle x + y, x - y\rangle$: $P_y = 1 = Q_x$ (potential $\tfrac{x^2}{2} + xy - \tfrac{y^2}{2}$). The others: $-1$ vs $1$; $0$ vs $y$; $x$ vs $1$.
+    For $\langle x + y, x - y\rangle$: $P_y = 1 = Q_x$ (potential $\tfrac{x^2}{2} + xy - \tfrac{y^2}{2}$). The others fail: $\langle y, -x\rangle$ has $1$ vs $-1$; $\langle x^2, xy\rangle$ has $0$ vs $y$; $\langle xy, x\rangle$ has $x$ vs $1$.
 - id: mv-q-3012
   lesson: mv-conservative
   module_quiz: true

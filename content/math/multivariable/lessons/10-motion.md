@@ -45,7 +45,7 @@ so the arc length from $t = 1$ to $t = e$ is $\int_1^e(2t + 1/t)\,dt = e^2 - 1 +
 
 **Newton's second law** in vector form is $\mathbf F(t) = m\,\mathbf a(t)$. Knowing the
 force tells us the acceleration; integrating twice gives the motion. For uniform circular
-motion $\mathbf r = \langle R\cos\omega t, R\sin\omega t\rangle$, we found
+motion $\mathbf r = \langle R\cos\omega t, R\sin\omega t\rangle$, differentiating twice gives
 $\mathbf a = -\omega^2\mathbf r$, so the force must point toward the center with magnitude
 $mR\omega^2$: that is the **centripetal force**, provided by tension in a string, friction on a
 road, or gravity for an orbit.
@@ -72,7 +72,7 @@ Eliminating $t$ shows the path is a parabola:
 $y = (\tan\alpha)\,x - \dfrac{g}{2v_0^2\cos^2\alpha}x^2$.
 
 ```plot
-{"x": [0, 11], "y": [0, 4], "equal": true, "functions": [{"f": "x - 9.8/(2*100*0.5)*x^2", "from": 0, "to": 10.204, "label": "α = 45°"}, {"f": "tan(pi/3)*x - 9.8/(2*100*0.25)*x^2", "from": 0, "to": 8.837, "dashed": true, "label": "α = 60°"}, {"f": "tan(pi/6)*x - 9.8/(2*100*0.75)*x^2", "from": 0, "to": 8.837, "label": "α = 30°"}], "xLabel": "x (m)", "yLabel": "y (m)", "caption": "Launches at 10 m/s: 30° and 60° land at the same spot; 45° goes farthest"}
+{"x": [0, 11], "y": [0, 4], "equal": true, "functions": [{"f": "x - 9.8/(2*100*0.5)*x^2", "from": 0, "to": 10.204}, {"f": "tan(pi/3)*x - 9.8/(2*100*0.25)*x^2", "from": 0, "to": 8.837, "dashed": true}, {"f": "tan(pi/6)*x - 9.8/(2*100*0.75)*x^2", "from": 0, "to": 8.837}], "xLabel": "x (m)", "yLabel": "y (m)", "caption": "Launches at 10 m/s: the 30° (lowest) and 60° (highest, dashed) paths land at the same spot; 45° goes farthest"}
 ```
 
 ### Example 2

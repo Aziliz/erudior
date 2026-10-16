@@ -67,7 +67,7 @@ Often we want to split a vector into a part along a given direction and a part
 perpendicular to it, for example the component of gravity along a ramp.
 
 ```plot
-{"x": [-0.5, 6.5], "y": [-0.5, 4], "equal": true, "segments": [{"from": [0, 0], "to": [6, 0], "arrow": true, "label": "a"}, {"from": [0, 0], "to": [4, 3], "arrow": true, "label": "b"}, {"from": [0, 0], "to": [4, 0], "arrow": true, "label": "proj_a b"}, {"from": [4, 0], "to": [4, 3], "dashed": true}], "rightAngles": [[[4, 0], [6, 0], [4, 3]]], "caption": "The projection of b onto a is the shadow of b on the line of a"}
+{"x": [-0.5, 6.5], "y": [-0.5, 4], "equal": true, "segments": [{"from": [0, 0], "to": [6, 0], "arrow": true}, {"from": [0, 0], "to": [4, 3], "arrow": true, "label": "b"}, {"from": [0, 0], "to": [4, 0], "arrow": true}, {"from": [4, 0], "to": [4, 3], "dashed": true}], "rightAngles": [[[4, 0], [6, 0], [4, 3]]], "caption": "The projection of b onto a is the shadow of b on the line of a", "labels": [{"at": [5.4, 0.25], "text": "a"}, {"at": [2.2, 0.25], "text": "proj_a b"}]}
 ```
 
 Drop a perpendicular from the tip of $\mathbf b$ to the line of $\mathbf a$. The signed

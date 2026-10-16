@@ -45,7 +45,7 @@
   answer: 0
   explanation: |-
     The point is $\mathbf r(1) = \langle 1,1,1\rangle$ and the direction is $\mathbf r'(1) = \langle 2t, 3t^2, 1\rangle\big|_{t=1} = \langle 2, 3, 1\rangle$.
-    Line: point $+ s\cdot$direction. The second choice swaps point and direction; the third passes through the origin, not the curve.
+    Line: point $+ s\cdot$direction. $\langle 2 + s, 3 + s, 1 + s\rangle$ swaps point and direction; $\langle 2s, 3s, s\rangle$ passes through the origin, not the curve.
 - id: mv-q-0706
   lesson: mv-vector-functions
   topic: Vector functions
@@ -63,7 +63,7 @@
   answer: 2
   explanation: |-
     Antiderivative: $\langle t, t^2, e^t\rangle + \mathbf C$. At $t = 0$ this is $\langle 0, 0, 1\rangle + \mathbf C = \langle 0, 1, 0\rangle$, so $\mathbf C = \langle 0, 1, -1\rangle$.
-    The second choice forgets that $e^0 = 1$, not 0.
+    $\langle t, t^2 + 1, e^t\rangle$ forgets that $e^0 = 1$, not 0.
 - id: mv-q-0708
   lesson: mv-vector-functions
   topic: Derivatives of vector functions
@@ -79,7 +79,7 @@
   choices: ['$(\mathbf u\times\mathbf v)'' = \mathbf u''\times\mathbf v + \mathbf u\times\mathbf v''$', '$(\mathbf u\times\mathbf v)'' = \mathbf u''\times\mathbf v''$', '$(\mathbf u\times\mathbf v)'' = \mathbf v''\times\mathbf u + \mathbf v\times\mathbf u''$', '$(\mathbf u\times\mathbf v)'' = \mathbf u''\cdot\mathbf v + \mathbf u\cdot\mathbf v''$']
   answer: 0
   explanation: |-
-    The product rule holds with the order of factors kept. The third choice reverses both orders and equals $-(\mathbf u\times\mathbf v)'$.
+    The product rule holds with the order of factors kept. $\mathbf v'\times\mathbf u + \mathbf v\times\mathbf u'$ reverses both orders and equals $-(\mathbf u\times\mathbf v)'$.
 - id: mv-q-0710
   lesson: mv-vector-functions
   topic: Vector functions
@@ -237,7 +237,7 @@
   answer: 2
   explanation: |-
     $\mathbf T = \tfrac{1}{\sqrt2}\langle -\sin t, \cos t, 1\rangle$, so $\mathbf T' = \tfrac{1}{\sqrt2}\langle -\cos t, -\sin t, 0\rangle$; normalizing gives $\langle -\cos t, -\sin t, 0\rangle$, pointing horizontally at the $z$-axis.
-    The second choice is $\mathbf T$; the first points away from the axis.
+    $\tfrac{1}{\sqrt2}\langle -\sin t, \cos t, 1\rangle$ is $\mathbf T$; $\langle \cos t, \sin t, 0\rangle$ points away from the axis.
 - id: mv-q-0904
   lesson: mv-tnb
   module_quiz: true
@@ -344,8 +344,8 @@
   choices: ['$\langle t, 2t, 3t - 10t^2\rangle$', '$\langle 1, 2, 3 - 10t\rangle$', '$\langle t, 2t, 3t - 5t^2\rangle$', '$\langle 0, 0, -5t^2\rangle$']
   answer: 2
   explanation: |-
-    $\mathbf v(t) = \langle 1, 2, 3 - 10t\rangle$ (that is the second choice, the velocity). Integrate again with $\mathbf r(0) = \mathbf 0$: $\langle t, 2t, 3t - 5t^2\rangle$.
-    The first choice forgets the $\tfrac12$ from integrating $t$.
+    $\mathbf v(t) = \langle 1, 2, 3 - 10t\rangle$ (that is the velocity, not the position). Integrate again with $\mathbf r(0) = \mathbf 0$: $\langle t, 2t, 3t - 5t^2\rangle$.
+    $\langle t, 2t, 3t - 10t^2\rangle$ forgets the $\tfrac12$ from integrating $t$.
 - id: mv-q-1004
   lesson: mv-motion
   module_quiz: true

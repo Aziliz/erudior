@@ -118,7 +118,7 @@ $k = 2$. Find the rate of heat flow out of the unit ball.
 Directly: on the unit sphere $\mathbf q\cdot\mathbf n = 4$, times area $4\pi$, gives $16\pi$. ✓
 
 ```plot
-{"x": [-1.8, 1.8], "y": [-1.8, 1.8], "equal": true, "vectorField": {"u": "4*x", "v": "4*y", "step": 0.45}, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "unit sphere (cross-section)"}], "caption": "Heat flux q = −k∇T points outward, from the hot center to the cooler surface"}
+{"x": [-1.8, 1.8], "y": [-1.8, 1.8], "equal": true, "vectorField": {"u": "4*x", "v": "4*y", "step": 0.45}, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"]}], "caption": "Heat flux q = −k∇T points outward, from the hot center to the cooler surface (circle: cross-section of the unit sphere)"}
 ```
 
 ## Common mistakes

@@ -33,7 +33,7 @@ Tests: orthogonal ⇔ $\mathbf a\cdot\mathbf b = 0$; parallel ⇔ $\mathbf a\tim
 | Plane | $a(x-x_0) + b(y-y_0) + c(z-z_0) = 0$, normal $\langle a,b,c\rangle$ |
 | Plane through $P, Q, R$ | normal $\overrightarrow{PQ}\times\overrightarrow{PR}$ |
 | Line of two planes | direction $\mathbf n_1\times\mathbf n_2$ |
-| Point to plane | $D = \dfrac{\lvert ax_1 + by_1 + cz_1 - d\rvert}{\sqrt{a^2+b^2+c^2}}$ |
+| Point to plane $ax + by + cz = d$ | $D = \dfrac{\lvert ax_1 + by_1 + cz_1 - d\rvert}{\sqrt{a^2+b^2+c^2}}$ |
 
 ## Quadric surfaces
 
@@ -42,7 +42,7 @@ Tests: orthogonal ⇔ $\mathbf a\cdot\mathbf b = 0$; parallel ⇔ $\mathbf a\tim
 | Ellipsoid | $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$ | ellipses |
 | Elliptic paraboloid | $\frac zc = \frac{x^2}{a^2} + \frac{y^2}{b^2}$ | ellipses, parabolas |
 | Hyperbolic paraboloid | $\frac zc = \frac{x^2}{a^2} - \frac{y^2}{b^2}$ | hyperbolas, parabolas |
-| Cone | $\frac{z^2}{c^2} = \frac{x^2}{a^2} + \frac{y^2}{b^2}$ | ellipses, line pairs |
+| Cone | $\frac{z^2}{c^2} = \frac{x^2}{a^2} + \frac{y^2}{b^2}$ | ellipses, hyperbolas (line pairs through the axis) |
 | Hyperboloid, one sheet | $\frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1$ | ellipses, hyperbolas |
 | Hyperboloid, two sheets | $-\frac{x^2}{a^2} - \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$ | ellipses ($\lvert z\rvert > c$), hyperbolas |
 

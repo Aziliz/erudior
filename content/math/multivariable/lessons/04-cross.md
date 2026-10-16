@@ -61,7 +61,7 @@ $$|\mathbf a\times\mathbf b| = \text{area of the parallelogram spanned by } \mat
 A triangle with those two sides has half that area.
 
 ```plot
-{"x": [-0.5, 7], "y": [-0.5, 4], "equal": true, "polygons": [{"points": [[0, 0], [5, 0], [6.5, 3], [1.5, 3]], "fill": true}], "segments": [{"from": [0, 0], "to": [5, 0], "arrow": true, "label": "a"}, {"from": [0, 0], "to": [1.5, 3], "arrow": true, "label": "b"}, {"from": [1.5, 3], "to": [1.5, 0], "dashed": true, "label": "|b| sin θ"}], "caption": "Area = base |a| times height |b| sin θ = |a × b|"}
+{"x": [-0.5, 7], "y": [-0.5, 4], "equal": true, "polygons": [{"points": [[0, 0], [5, 0], [6.5, 3], [1.5, 3]], "fill": true}], "segments": [{"from": [0, 0], "to": [5, 0], "arrow": true, "label": "a"}, {"from": [0, 0], "to": [1.5, 3], "arrow": true, "label": "b"}, {"from": [1.5, 3], "to": [1.5, 0], "dashed": true}], "caption": "Area = base |a| times height |b| sin θ = |a × b|", "labels": [{"at": [2.4, 1.4], "text": "|b| sin θ"}]}
 ```
 
 ## Algebra rules (and non-rules)

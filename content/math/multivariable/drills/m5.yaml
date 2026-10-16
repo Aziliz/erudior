@@ -28,7 +28,7 @@
   answers:
     - {name: ans, label: 'Value'}
   solution: |-
-    Integrate in $y$ first: $\displaystyle\int_{{c}}^{{d}}({p:coef}x + {q:coef}xy)\,dy = {p}x({h}) + {q:coef}x\cdot\frac{{d}^2 - {c}^2}{2} = ({p}\cdot{h} + {q}\cdot{Y2})x$.
+    Integrate in $y$ first, holding $x$ constant: $\displaystyle\int_{{c}}^{{d}}({p:coef}x + {q:coef}xy)\,dy = \left[{p:coef}xy + {q:coef}x\frac{y^2}{2}\right]_{y={c}}^{y={d}} = ({p}\cdot{h} + {q}\cdot{Y2})x$.
     Then in $x$: $\displaystyle\int_{{a}}^{{b}}x\,dx = \frac{{b}^2 - {a}^2}{2} = {X2}$, so the value is $\left({p}\cdot{h} + {q}\cdot{Y2}\right)({X2}) =$ **{ans}**.
 - id: mv-d-dbl-avg
   title: Average value over a rectangle
@@ -56,14 +56,14 @@
     area: m^3/6
     mx: m^4/12
     ans: p*area + q*mx
-  where: ["ans != 0"]
+  where: ["ans != 0", "q != 0"]
   prompt: 'Let $D$ be the region between $y = x^2$ and $y = {m:coef}x$. Evaluate $\displaystyle\iint_D({p} {q:signedcoef}x)\,dA$. (Exact or 2 decimals.)'
   figure:
     type: plot
     x: [-0.5, 3.5]
     y: [-0.5, 10]
     functions:
-      - {f: 'm*x', label: 'y = {m}x'}
+      - {f: 'm*x', label: 'y = {m:coef}x'}
       - {f: 'x^2', label: 'y = x²'}
     shade:
       - {f: 'm*x', g: 'x^2', from: 0, to: m}
@@ -72,13 +72,13 @@
     - {name: ans, label: 'Value'}
   solution: |-
     The curves meet at $x = 0$ and $x = {m}$, with the line on top. Type I:
-    $\displaystyle\int_0^{{m}}\int_{x^2}^{{m}x}({p} {q:signedcoef}x)\,dy\,dx = \int_0^{{m}}({p} {q:signedcoef}x)({m}x - x^2)\,dx$.
-    Since $\int_0^{{m}}({m}x - x^2)\,dx = \frac{{m}^3}{6}$ and $\int_0^{{m}}x({m}x - x^2)\,dx = \frac{{m}^4}{12}$, the value is ${p}\cdot\frac{{m}^3}{6} + ({q})\cdot\frac{{m}^4}{12} =$ **{ans:num2}**.
+    $\displaystyle\int_0^{{m}}\int_{x^2}^{{m:coef}x}({p} {q:signedcoef}x)\,dy\,dx = \int_0^{{m}}({p} {q:signedcoef}x)({m:coef}x - x^2)\,dx$.
+    Since $\int_0^{{m}}({m:coef}x - x^2)\,dx = \frac{{m}^3}{6}$ and $\int_0^{{m}}x({m:coef}x - x^2)\,dx = \frac{{m}^4}{12}$, the value is ${p}\cdot\frac{{m}^3}{6} + ({q})\cdot\frac{{m}^4}{12} =$ **{ans:num2}**.
 - id: mv-d-reverse
   title: Reverse the order of integration
   topic: Reversing the order
   vars:
-    k: {min: 1, max: 4}
+    k: {min: 2, max: 4}
     b: {choices: [0.5, 1, 1.5]}
   calc:
     top: k*b
@@ -106,13 +106,14 @@
     k: {min: 1, max: 3}
   calc:
     R2: H/k
+    k2: 2*k
     V: pi*H^2/(2*k)
   prompt: 'Find the volume of the solid under $z = {H} - {k:coef}(x^2 + y^2)$ and above the $xy$-plane. (2 decimals.)'
   answers:
     - {name: V, label: '$V =$', relTolerance: 0.001}
   solution: |-
-    The paraboloid meets $z = 0$ where $r^2 = {H}/{k}$, so the base is the disk $r \le \sqrt{{R2:num4}}$.
-    $V = \displaystyle\int_0^{2\pi}\int_0^{\sqrt{{H}/{k}}}({H} - {k}r^2)\,r\,dr\,d\theta = 2\pi\left[\frac{{H}r^2}{2} - \frac{{k}r^4}{4}\right]_0^{\sqrt{{H}/{k}}} = \frac{\pi\cdot{H}^2}{2\cdot{k}} \approx$ **{V:num2}**.
+    The paraboloid meets $z = 0$ where ${k:coef}r^2 = {H}$, that is $r^2 = {R2:texfrac}$, so the base is the disk $r \le \sqrt{{R2:texfrac}}$.
+    $V = \displaystyle\int_0^{2\pi}\int_0^{\sqrt{{R2:texfrac}}}({H} - {k:coef}r^2)\,r\,dr\,d\theta = 2\pi\left[\frac{{H}r^2}{2} - \frac{{k:coef}r^4}{4}\right]_0^{\sqrt{{R2:texfrac}}} = \frac{\pi\cdot{H}^2}{{k2}} \approx$ **{V:num2}**.
 - id: mv-d-polar-area
   title: Area of a rose petal
   topic: Polar double integrals
@@ -125,17 +126,17 @@
   prompt: 'Find the area of one petal of the rose $r = {a:coef}\cos({n}\theta)$. (2 decimals.)'
   figure:
     type: plot
-    x: [-4.5, 4.5]
-    y: [-4.5, 4.5]
+    x: ['-a - 0.5', 'a + 0.5']
+    y: ['-a - 0.5', 'a + 0.5']
     equal: true
     curves:
       - {x: 'a*cos(n*t)*cos(t)', y: 'a*cos(n*t)*sin(t)', t: [0, '2pi']}
-    caption: 'r = {a} cos({n}θ)'
+    caption: 'r = {a:coef}cos({n}θ)'
   answers:
     - {name: A, label: 'Area', relTolerance: 0.002}
   solution: |-
     One petal runs between consecutive zeros of $\cos({n}\theta)$: $-\frac{\pi}{2\cdot{n}} \le \theta \le \frac{\pi}{2\cdot{n}}$.
-    Area $= \displaystyle\int\int_0^{{a:coef}\cos({n}\theta)}r\,dr\,d\theta = \frac{{a}^2}{2}\int_{-\pi/(2\cdot{n})}^{\pi/(2\cdot{n})}\cos^2({n}\theta)\,d\theta = \frac{{a}^2}{2}\cdot\frac{\pi}{2\cdot{n}} \approx$ **{A:num2}**.
+    Area $= \displaystyle\int_{-\pi/(2\cdot{n})}^{\pi/(2\cdot{n})}\int_0^{{a:coef}\cos({n}\theta)}r\,dr\,d\theta = \frac{{a}^2}{2}\int_{-\pi/(2\cdot{n})}^{\pi/(2\cdot{n})}\cos^2({n}\theta)\,d\theta = \frac{{a}^2}{2}\cdot\frac{\pi}{2\cdot{n}} \approx$ **{A:num2}**.
 - id: mv-d-mass-lamina
   title: Mass of a lamina
   topic: Mass and center of mass
@@ -143,44 +144,45 @@
     A: {min: 1, max: 4}
     B: {min: 1, max: 4}
     p: {min: 1, max: 5}
-    q: {min: 0, max: 3}
-    s: {min: 0, max: 3}
+    q: {min: 1, max: 3}
+    s: {min: 1, max: 3}
   calc:
     m: p*A*B + q*A^2*B/2 + s*A*B^2/2
-  prompt: 'A lamina occupies $[0, {A}]\times[0, {B}]$ and has density $\rho(x, y) = {p} + {q}x + {s}y$. Find its mass. (Exact or 2 decimals.)'
+  prompt: 'A lamina occupies $[0, {A}]\times[0, {B}]$ and has density $\rho(x, y) = {p} + {q:coef}x + {s:coef}y$. Find its mass. (Exact or 2 decimals.)'
   answers:
     - {name: m, label: '$m =$'}
   solution: |-
-    $m = \displaystyle\int_0^{{A}}\int_0^{{B}}({p} + {q}x + {s}y)\,dy\,dx = {p}({A})({B}) + {q}\cdot\frac{{A}^2}{2}\cdot{B} + {s}\cdot{A}\cdot\frac{{B}^2}{2} =$ **{m:num2}**.
+    $m = \displaystyle\int_0^{{A}}\int_0^{{B}}({p} + {q:coef}x + {s:coef}y)\,dy\,dx = {p}({A})({B}) + {q}\cdot\frac{{A}^2}{2}\cdot{B} + {s}\cdot{A}\cdot\frac{{B}^2}{2} =$ **{m:num2}**.
 - id: mv-d-centroid
   title: Centroid of the region under a power curve
   topic: Mass and center of mass
   vars:
     a: {min: 1, max: 3}
-    n: {min: 1, max: 3}
+    n: {choices: [{label: 'x', value: 1}, {label: 'x^2', value: 2}, {label: 'x^3', value: 3}]}
     k: {min: 1, max: 2}
   calc:
     area: k*a^(n+1)/(n+1)
     xb: (n+1)*a/(n+2)
     yb: (n+1)*k*a^n/(2*(2*n+1))
-  prompt: 'Find the centroid of the region under $y = {k:coef}x^{n}$ for $0 \le x \le {a}$ (above the $x$-axis). (2 decimals.)'
+    ytop: k*a^n + 0.5
+  prompt: 'Find the centroid of the region under $y = {k:coef}{n}$ for $0 \le x \le {a}$ (above the $x$-axis). (2 decimals.)'
   figure:
     type: plot
     x: [-0.3, 3.3]
-    y: [-0.5, 10]
+    y: [-0.5, ytop]
     functions:
       - {f: 'k*x^n', from: 0, to: a}
     shade:
       - {f: 'k*x^n', from: 0, to: a}
     points:
       - {at: [xb, yb], label: 'centroid'}
-    caption: 'The region under y = {k}x^{n}'
+    caption: 'The region under the curve for 0 ≤ x ≤ {a}'
   answers:
     - {name: xb, label: '$\bar x =$'}
     - {name: yb, label: '$\bar y =$'}
   solution: |-
-    Area $A = \int_0^{{a}}{k}x^{n}\,dx \approx {area:num4}$.
-    $\bar x = \dfrac1A\displaystyle\int_0^{{a}}x\cdot{k}x^{n}\,dx$ and $\bar y = \dfrac1A\displaystyle\int_0^{{a}}\int_0^{{k}x^{n}}y\,dy\,dx = \dfrac1A\int_0^{{a}}\frac{({k}x^{n})^2}{2}\,dx$.
+    Area $A = \displaystyle\int_0^{{a}}{k:coef}{n}\,dx \approx {area:num4}$.
+    $\bar x = \dfrac1A\displaystyle\int_0^{{a}}x\cdot {k:coef}{n}\,dx$ and $\bar y = \dfrac1A\displaystyle\int_0^{{a}}\int_0^{{k:coef}{n}}y\,dy\,dx = \dfrac1A\int_0^{{a}}\frac{({k:coef}{n})^2}{2}\,dx$.
     These give **$\bar x \approx {xb:num2}$** and **$\bar y \approx {yb:num2}$**.
 - id: mv-d-surf-area-graph
   title: Surface area of a plane over a rectangle
@@ -188,7 +190,7 @@
   vars:
     p: {min: -4, max: 4}
     q: {min: -4, max: 4}
-    c: {min: 0, max: 5}
+    c: {min: 1, max: 5}
     A: {min: 1, max: 5}
     B: {min: 1, max: 5}
   where: ["p != 0", "q != 0"]

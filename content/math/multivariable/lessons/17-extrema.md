@@ -43,7 +43,7 @@ hyperbolas facing each other, with high ground on two opposite sides and low gro
 the other two.
 
 ```plot
-{"x": [-3, 3], "y": [-3, 3], "equal": true, "functions": [{"f": "sqrt(x^2+1)", "label": "c = 1"}, {"f": "-sqrt(x^2+1)"}, {"f": "sqrt(x^2+4)", "label": "c = 4"}, {"f": "-sqrt(x^2+4)"}, {"f": "x", "dashed": true, "label": "c = 0"}, {"f": "-x", "dashed": true}], "curves": [{"x": "sqrt(t^2+1)", "y": "t", "t": [-3, 3], "label": "c = −1"}, {"x": "-sqrt(t^2+1)", "y": "t", "t": [-3, 3]}, {"x": "sqrt(t^2+4)", "y": "t", "t": [-3, 3], "label": "c = −4"}, {"x": "-sqrt(t^2+4)", "y": "t", "t": [-3, 3]}], "points": [{"at": [0, 0], "label": "saddle"}], "caption": "Contour map of f = y² − x²: high to the north and south, low to the east and west"}
+{"x": [-3, 3], "y": [-3, 3], "equal": true, "functions": [{"f": "sqrt(x^2+1)"}, {"f": "-sqrt(x^2+1)"}, {"f": "sqrt(x^2+4)"}, {"f": "-sqrt(x^2+4)"}, {"f": "x", "dashed": true}, {"f": "-x", "dashed": true}], "curves": [{"x": "sqrt(t^2+1)", "y": "t", "t": [-3, 3]}, {"x": "-sqrt(t^2+1)", "y": "t", "t": [-3, 3]}, {"x": "sqrt(t^2+4)", "y": "t", "t": [-3, 3]}, {"x": "-sqrt(t^2+4)", "y": "t", "t": [-3, 3]}], "labels": [{"at": [0.55, 1.3], "text": "c = 1"}, {"at": [0.55, 2.3], "text": "c = 4"}, {"at": [1.45, 0.2], "text": "c = −1"}, {"at": [2.45, 0.2], "text": "c = −4"}, {"at": [2.55, 2.25], "text": "c = 0"}], "points": [{"at": [0, 0], "label": "saddle"}], "caption": "Contour map of f = y² − x²: high to the north and south, low to the east and west"}
 ```
 
 ## The second-derivative test

@@ -62,7 +62,7 @@ Identify $z = x^2 + 4y^2$.
 3. Conclusion: an elliptic paraboloid with axis the $z$-axis, opening upward, a bowl.
 
 ```plot
-{"x": [-3, 3], "y": [-2, 2], "equal": true, "curves": [{"x": "cos(t)", "y": "0.5*sin(t)", "t": [0, "2pi"], "label": "k = 1"}, {"x": "2*cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "k = 4"}, {"x": "sqrt(6)*cos(t)", "y": "sqrt(6)/2*sin(t)", "t": [0, "2pi"], "label": "k = 6"}], "caption": "Horizontal traces of z = x² + 4y²: ellipses x² + 4y² = k, viewed from above"}
+{"x": [-3, 3], "y": [-2, 2], "equal": true, "curves": [{"x": "cos(t)", "y": "0.5*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "k = 1"}, {"x": "2*cos(t)", "y": "sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "k = 4"}, {"x": "sqrt(6)*cos(t)", "y": "sqrt(6)/2*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "k = 6"}], "caption": "Horizontal traces of z = x² + 4y²: ellipses x² + 4y² = k, viewed from above"}
 ```
 
 ### Example 2: the saddle
@@ -79,7 +79,7 @@ the other, like a saddle or a riding pass between two hills. We will meet the or
 in Lesson 17 as the classic **saddle point**.
 
 ```plot
-{"x": [-3, 3], "y": [-3, 3], "equal": true, "functions": [{"f": "sqrt(x^2+1)", "label": "k = 1"}, {"f": "-sqrt(x^2+1)"}, {"f": "x", "dashed": true, "label": "k = 0"}, {"f": "-x", "dashed": true}], "curves": [{"x": "sqrt(t^2+1)", "y": "t", "t": [-3, 3], "label": "k = -1"}, {"x": "-sqrt(t^2+1)", "y": "t", "t": [-3, 3]}], "caption": "Horizontal traces of the saddle z = y² − x²"}
+{"x": [-3, 3], "y": [-3, 3], "equal": true, "functions": [{"f": "sqrt(x^2+1)"}, {"f": "-sqrt(x^2+1)"}, {"f": "x", "dashed": true}, {"f": "-x", "dashed": true}], "curves": [{"x": "sqrt(t^2+1)", "y": "t", "t": [-3, 3]}, {"x": "-sqrt(t^2+1)", "y": "t", "t": [-3, 3]}], "caption": "Horizontal traces of the saddle z = y² − x²: hyperbolas for k = ±1, the dashed lines y = ±x for k = 0", "labels": [{"at": [0.75, 1.55], "text": "k = 1"}, {"at": [1.75, 0.15], "text": "k = −1"}]}
 ```
 
 ## Completing the square

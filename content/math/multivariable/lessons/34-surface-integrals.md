@@ -101,7 +101,7 @@ so the flux is $2\cdot4\pi = 8\pi$. The horizontal parts of $\mathbf F$ slide al
 contribute nothing.
 
 ```plot
-{"x": [-3, 3], "y": [-1, 3], "equal": true, "segments": [{"from": [-2, 0], "to": [2, 0], "label": "disk S (edge view)"}, {"from": [-1, 0], "to": [0.5, 1], "arrow": true, "label": "F"}, {"from": [1, 0], "to": [1, 1], "arrow": true, "dashed": true, "label": "n"}, {"from": [-1, 0], "to": [-1, 1], "dashed": true}], "caption": "Only the normal component of F carries flux through the surface"}
+{"x": [-3, 3], "y": [-1, 3], "equal": true, "segments": [{"from": [-2, 0], "to": [2, 0], "label": "disk S (edge view)"}, {"from": [-1, 0], "to": [0.5, 1], "arrow": true, "label": "F"}, {"from": [1, 0], "to": [1, 1], "arrow": true, "dashed": true, "label": "n"}, {"from": [-1, 0], "to": [-1, 1], "dashed": true}], "yLabel": "z", "caption": "Only the normal component of F carries flux through the surface"}
 ```
 
 ## Common mistakes

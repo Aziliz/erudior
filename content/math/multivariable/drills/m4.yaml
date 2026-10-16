@@ -103,8 +103,8 @@
     - {name: Y, kind: fraction, label: '$y =$'}
     - {name: fmin, kind: fraction, label: 'min $f =$'}
   solution: |-
-    $\nabla f = \lambda\nabla g$: $2x = {a}\lambda$ and $2y = {b}\lambda$, so $x = \tfrac{{a}}{2}\lambda$, $y = \tfrac{{b}}{2}\lambda$.
-    Substitute into the constraint: $\tfrac{\lambda}{2}\left({a}^2 + {b}^2\right) = {k}$, so $\lambda = \dfrac{2\cdot{k}}{{ss}}$.
+    $\nabla f = \lambda\nabla g$: $2x = {a:coef}\lambda$ and $2y = {b:coef}\lambda$, so $x = \tfrac{{a}}{2}\lambda$, $y = \tfrac{{b}}{2}\lambda$.
+    Substitute into the constraint: $\tfrac{\lambda}{2}\left(({a})^2 + ({b})^2\right) = {k}$, so $\lambda = \dfrac{2\cdot{k}}{{ss}}$.
     Then $x =$ **${X:texfrac}$**, $y =$ **${Y:texfrac}$**, and $f = x^2 + y^2 =$ **${fmin:texfrac}$**.
 - id: mv-d-lagrange-box
   title: Maximize a product (Lagrange)

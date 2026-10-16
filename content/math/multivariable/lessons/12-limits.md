@@ -43,7 +43,7 @@ $f = \cos2\theta$ depends only on direction), so arbitrarily close to $(0,0)$ th
 takes every value between $-1$ and $1$.
 
 ```plot
-{"x": [-3, 3], "y": [-3, 3], "equal": true, "functions": [{"f": "0*x", "label": "c = 1"}, {"f": "0.57735*x", "label": "c = 0.5"}, {"f": "-0.57735*x"}, {"f": "x", "label": "c = 0"}, {"f": "-x"}, {"f": "1.73205*x", "label": "c = −0.5"}, {"f": "-1.73205*x"}], "segments": [{"from": [0, -3], "to": [0, 3], "label": "c = −1"}], "points": [{"at": [0, 0], "open": true}], "caption": "Level curves of (x² − y²)/(x² + y²) all crowd into the origin"}
+{"x": [-3, 3], "y": [-3, 3], "equal": true, "functions": [{"f": "0*x"}, {"f": "0.57735*x", "label": "c = 0.5"}, {"f": "-0.57735*x"}, {"f": "x", "label": "c = 0"}, {"f": "-x"}, {"f": "1.73205*x", "label": "c = −0.5"}, {"f": "-1.73205*x"}], "segments": [{"from": [0, -3], "to": [0, 3]}], "points": [{"at": [0, 0], "open": true}], "caption": "Level curves of (x² − y²)/(x² + y²) all crowd into the origin", "labels": [{"at": [2.4, 0.25], "text": "c = 1"}, {"at": [0.55, -2.7], "text": "c = −1"}]}
 ```
 
 ### Example 2: lines are not enough

@@ -67,7 +67,7 @@ steepens), and for $g$ they grow linearly (a cone with constant slope). Always r
 labels.
 
 ```plot
-{"x": [-4.5, 4.5], "y": [-4.5, 4.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "c = 1"}, {"x": "2*cos(t)", "y": "2*sin(t)", "t": [0, "2pi"], "label": "c = 4"}, {"x": "3*cos(t)", "y": "3*sin(t)", "t": [0, "2pi"], "label": "c = 9"}, {"x": "4*cos(t)", "y": "4*sin(t)", "t": [0, "2pi"], "label": "c = 16"}], "caption": "Contour map of f(x, y) = x² + y² at c = 1, 4, 9, 16"}
+{"x": [-4.5, 4.5], "y": [-4.5, 4.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 1"}, {"x": "2*cos(t)", "y": "2*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 4"}, {"x": "3*cos(t)", "y": "3*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 9"}, {"x": "4*cos(t)", "y": "4*sin(t)", "t": ["-0.25*pi", "1.75*pi"], "label": "c = 16"}], "caption": "Contour map of f(x, y) = x² + y² at c = 1, 4, 9, 16"}
 ```
 
 ### Example 3: parabolas
@@ -80,7 +80,7 @@ move in the $y$ direction, everywhere. (The graph $z = y - x^2$ is in fact a par
 cylinder whose rulings tilt upward along the direction $\langle 0, 1, 1\rangle$.)
 
 ```plot
-{"x": [-3, 3], "y": [-3, 4], "functions": [{"f": "x^2-2", "label": "c = −2"}, {"f": "x^2-1", "label": "c = −1"}, {"f": "x^2", "label": "c = 0"}, {"f": "x^2+1", "label": "c = 1"}, {"f": "x^2+2", "label": "c = 2"}], "caption": "Level curves of f(x, y) = y − x²"}
+{"x": [-3, 3], "y": [-3, 4], "functions": [{"f": "x^2-2"}, {"f": "x^2-1"}, {"f": "x^2"}, {"f": "x^2+1"}, {"f": "x^2+2"}], "caption": "Level curves of f(x, y) = y − x²", "points": [{"at": [0, -2], "label": "c = −2"}, {"at": [0, -1], "label": "c = −1"}, {"at": [0, 0], "label": "c = 0"}, {"at": [0, 1], "label": "c = 1"}, {"at": [0, 2], "label": "c = 2"}]}
 ```
 
 A saddle has a very different signature: for $f(x, y) = xy$, the level curves $xy = c$ are

@@ -4,7 +4,7 @@
   topic: Derivatives of vector functions
   vars:
     a: {min: 2, max: 6}
-    n: {min: 2, max: 4}
+    n: {min: 3, max: 5}
     b: {min: -3, max: 3}
     c: {min: 2, max: 5}
   where: ["b != 0"]
@@ -14,12 +14,12 @@
   prompt: 'Find $\mathbf r''(t)$ for $\mathbf r(t) = \left\langle {a}t^{n},\; e^{{b:coef}t},\; \sin({c}t)\right\rangle$. Enter each component as an expression in $t$.'
   answers:
     - {kind: expression, expression: 'an*t^nm1', variables: [t], label: 'first component', show: '${an}t^{{nm1}}$'}
-    - {kind: expression, expression: 'b*exp(b*t)', variables: [t], label: 'second component', show: '${b}e^{{b:coef}t}$'}
+    - {kind: expression, expression: 'b*exp(b*t)', variables: [t], label: 'second component', show: '${b:coef}e^{{b:coef}t}$'}
     - {kind: expression, expression: 'c*cos(c*t)', variables: [t], label: 'third component', show: '${c}\cos({c}t)$'}
   solution: |-
     Differentiate each component separately.
-    $\dfrac{d}{dt}\left({a}t^{n}\right) = {an}t^{{nm1}}$; $\dfrac{d}{dt}e^{{b:coef}t} = {b}e^{{b:coef}t}$ (chain rule); $\dfrac{d}{dt}\sin({c}t) = {c}\cos({c}t)$ (chain rule).
-    So $\mathbf r'(t) =$ **$\left\langle {an}t^{{nm1}},\; {b}e^{{b:coef}t},\; {c}\cos({c}t)\right\rangle$**.
+    $\dfrac{d}{dt}\left({a}t^{n}\right) = {an}t^{{nm1}}$; $\dfrac{d}{dt}e^{{b:coef}t} = {b:coef}e^{{b:coef}t}$ (chain rule); $\dfrac{d}{dt}\sin({c}t) = {c}\cos({c}t)$ (chain rule).
+    So $\mathbf r'(t) =$ **$\left\langle {an}t^{{nm1}},\; {b:coef}e^{{b:coef}t},\; {c}\cos({c}t)\right\rangle$**.
 - id: mv-d-vf-integ
   title: Position from velocity
   topic: Vector functions
@@ -31,7 +31,7 @@
     y0: {min: -5, max: 5}
     z0: {min: -5, max: 5}
     tt: {min: 1, max: 3}
-  where: ["a != 0", "b != 0", "c != 0"]
+  where: ["a != 0", "b != 0", "c != 0", "x0 != 0", "y0 != 0", "z0 != 0"]
   calc:
     ta: 2*a
     tb: 3*b
@@ -57,11 +57,11 @@
     sp: sqrt(R^2 + h^2)
     tmax: 2*turns
     L: 2*pi*turns*sp
-  prompt: 'Find the length of the helix $\mathbf r(t) = \langle {R}\cos t,\; {R}\sin t,\; {h}t\rangle$ for $0 \le t \le {tmax}\pi$. (2 decimals.)'
+  prompt: 'Find the length of the helix $\mathbf r(t) = \langle {R:coef}\cos t,\; {R:coef}\sin t,\; {h:coef}t\rangle$ for $0 \le t \le {tmax}\pi$. (2 decimals.)'
   answers:
     - {name: L, label: '$L =$'}
   solution: |-
-    $\mathbf r'(t) = \langle -{R}\sin t,\; {R}\cos t,\; {h}\rangle$, so $|\mathbf r'(t)| = \sqrt{{R}^2\sin^2t + {R}^2\cos^2t + {h}^2} = \sqrt{{R}^2 + {h}^2} \approx {sp:num4}$, a constant speed.
+    $\mathbf r'(t) = \langle -{R:coef}\sin t,\; {R:coef}\cos t,\; {h}\rangle$, so $|\mathbf r'(t)| = \sqrt{{R}^2\sin^2t + {R}^2\cos^2t + {h}^2} = \sqrt{{R}^2 + {h}^2} \approx {sp:num4}$, a constant speed.
     $L = \displaystyle\int_0^{{tmax}\pi}\sqrt{{R}^2 + {h}^2}\,dt = {tmax}\pi\sqrt{{R}^2 + {h}^2} \approx$ **{L:num2}**.
 - id: mv-d-curv-plane
   title: Curvature of a parabola
@@ -75,13 +75,13 @@
     slope: 2*a*x0 + b
     kap: abs(2*a)/(1 + slope^2)^1.5
     rho: 1/kap
-  where: ["a != 0", "kap >= 0.1"]
+  where: ["a != 0", "b != 0", "kap >= 0.1"]
   prompt: 'Find the curvature of $y = {a:coef}x^2 {b:signedcoef}x$ at $x = {x0}$. (2 decimals.)'
   answers:
     - {name: kap, label: '$\kappa =$'}
   solution: |-
     $f'(x) = {ta}x {b:signed}$ gives $f'({x0}) = {slope}$, and $f''(x) = {ta}$.
-    $\kappa = \dfrac{|f''|}{(1 + f'^2)^{3/2}} = \dfrac{|{ta}|}{(1 + {slope}^2)^{3/2}} \approx$ **{kap:num2}**. (Radius of curvature $1/\kappa \approx {rho:num2}$.)
+    $\kappa = \dfrac{|f''|}{(1 + f'^2)^{3/2}} = \dfrac{|{ta}|}{(1 + ({slope})^2)^{3/2}} \approx$ **{kap:num2}**. (Radius of curvature $1/\kappa \approx {rho:num2}$.)
 - id: mv-d-at-an
   title: Tangential and normal acceleration
   topic: Tangential and normal acceleration
@@ -90,6 +90,7 @@
     b: {min: 1, max: 3}
     c: {min: -3, max: 3}
     t0: {min: 1, max: 3}
+  where: ["c != 0"]
   calc:
     v2: 2*b*t0
     tb: 2*b
@@ -98,7 +99,7 @@
     cr1: -tb*c
     cr3: a*tb
     aN: sqrt(cr1^2 + cr3^2)/sp
-  prompt: 'A particle moves along $\mathbf r(t) = \langle {a}t,\; {b:coef}t^2,\; {c:coef}t\rangle$. Find the tangential and normal components of its acceleration at $t = {t0}$. (2 decimals.)'
+  prompt: 'A particle moves along $\mathbf r(t) = \langle {a:coef}t,\; {b:coef}t^2,\; {c:coef}t\rangle$. Find the tangential and normal components of its acceleration at $t = {t0}$. (2 decimals.)'
   answers:
     - {name: aT, label: '$a_T =$'}
     - {name: aN, label: '$a_N =$'}

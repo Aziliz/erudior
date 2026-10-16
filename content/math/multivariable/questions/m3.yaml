@@ -193,7 +193,7 @@
   choices: ['$3x^2y^2 + 4x$', '$3x^2y^2 + 4y$', '$3x^2 \cdot 2y + 4$', '$2x^3y + 4x$']
   answer: 1
   explanation: |-
-    Hold $y$ constant: $\partial_x(x^3y^2) = 3x^2y^2$ and $\partial_x(4xy) = 4y$. The last choice is $f_y$.
+    Hold $y$ constant: $\partial_x(x^3y^2) = 3x^2y^2$ and $\partial_x(4xy) = 4y$. $2x^3y + 4x$ is $f_y$.
 - id: mv-q-1302
   lesson: mv-partials
   topic: Partial derivatives
@@ -226,7 +226,7 @@
   choices: ['$x\cos(xy)$', '$x^2\cos(xy)$', '$\sin(xy) + xy\cos(xy)$', '$\cos(xy)$']
   answer: 1
   explanation: |-
-    $x$ is a constant factor; the chain rule gives $\partial_y\sin(xy) = x\cos(xy)$. So $f_y = x\cdot x\cos(xy) = x^2\cos(xy)$. The third choice is $f_x$.
+    $x$ is a constant factor; the chain rule gives $\partial_y\sin(xy) = x\cos(xy)$. So $f_y = x\cdot x\cos(xy) = x^2\cos(xy)$. $\sin(xy) + xy\cos(xy)$ is $f_x$.
 - id: mv-q-1306
   lesson: mv-partials
   module_quiz: true
@@ -320,7 +320,7 @@
   choices: ['$L = 5 + 3(x - 3) + 4(y - 4)$', '$L = 5 + 0.6(x - 3) + 0.8(y - 4)$', '$L = 0.6x + 0.8y + 5$', '$L = 5 + 0.8(x - 3) + 0.6(y - 4)$']
   answer: 1
   explanation: |-
-    $f(3,4) = 5$, $f_x = x/\sqrt{x^2+y^2} = 0.6$, $f_y = y/\sqrt{x^2+y^2} = 0.8$. The last choice swaps them.
+    $f(3,4) = 5$, $f_x = x/\sqrt{x^2+y^2} = 0.6$, $f_y = y/\sqrt{x^2+y^2} = 0.8$. $5 + 0.8(x - 3) + 0.6(y - 4)$ swaps them.
 - id: mv-q-1404
   lesson: mv-tangent-planes
   module_quiz: true
@@ -423,7 +423,7 @@
   choices: ['$e^x\sin y\cdot 2st + e^x\cos y\cdot s^2$', '$e^x\sin y\cdot t^2 + e^x\cos y\cdot 2st$', '$e^x\cos y\cdot t^2 + e^x\sin y\cdot 2st$', '$e^x\sin y\cdot t^2$']
   answer: 1
   explanation: |-
-    $z_x\,x_s + z_y\,y_s$ with $z_x = e^x\sin y$, $x_s = t^2$, $z_y = e^x\cos y$, $y_s = 2st$. The first choice is $\partial z/\partial t$; the last keeps only one path.
+    $z_x\,x_s + z_y\,y_s$ with $z_x = e^x\sin y$, $x_s = t^2$, $z_y = e^x\cos y$, $y_s = 2st$. $e^x\sin y\cdot 2st + e^x\cos y\cdot s^2$ is $\partial z/\partial t$; $e^x\sin y\cdot t^2$ keeps only one path.
 - id: mv-q-1505
   lesson: mv-chain-rule
   module_quiz: true

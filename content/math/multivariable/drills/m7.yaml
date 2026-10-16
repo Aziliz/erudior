@@ -8,7 +8,7 @@
     c: {min: -2, max: 2}
     x0: {min: -2, max: 2}
     y0: {min: -2, max: 2}
-  where: ["a != 0", "c != 0", "P0^2 + Q0^2 > 0"]
+  where: ["a != 0", "b != 0", "c != 0", "P0^2 + Q0^2 > 0"]
   calc:
     P0: a*x0*y0 + b
     Q0: c*x0^2 - y0
@@ -57,7 +57,7 @@
     y1: {min: -3, max: 3}
     x2: {min: -3, max: 3}
     y2: {min: -3, max: 3}
-  where: ["p != 0", "q != 0", "L > 0", "abs(ans) > 0.05"]
+  where: ["p != 0", "q != 0", "x1 != x2", "y1 != y2", "abs(ans) > 0.05"]
   calc:
     dx: x2 - x1
     dy: y2 - y1
@@ -100,7 +100,7 @@
   answers:
     - {name: W, kind: fraction, label: '$W =$'}
   solution: |-
-    Parametrize $\mathbf r(t) = \langle t, t^{n}\rangle$, $0 \le t \le 1$, so $\mathbf r'(t) = \langle 1, {n}t^{{nm1}}\rangle$ and $\mathbf F(\mathbf r(t)) = \langle {a:coef}t^2,\; {b:coef}t^{{n1}}\rangle$.
+    Parametrize $\mathbf r(t) = \langle t, t^{n}\rangle$, $0 \le t \le 1$, so $\mathbf r'(t) = \langle 1, {n}t^{{n} - 1}\rangle$ and $\mathbf F(\mathbf r(t)) = \langle {a:coef}t^2,\; {b:coef}t^{{n1}}\rangle$.
     $\mathbf F\cdot\mathbf r' = {a:coef}t^2 + ({b})({n})\,t^{{nn}}$, so $W = \displaystyle\int_0^1\left({a:coef}t^2 + ({b})({n})\,t^{{nn}}\right)dt = \frac{{a}}{3} + \frac{{b}\cdot{n}}{{n2}} =$ **${W:texfrac}$**.
 - id: mv-d-potential
   title: Find a potential function
@@ -161,7 +161,7 @@
   answers:
     - {name: ans, label: 'Value'}
   solution: |-
-    $Q_x - P_y = ({b2}x {c:signed}) - ({a}x) = {k:coef}x {c:signed}$.
+    $Q_x - P_y = ({b2}x {c:signed}) - ({a:coef}x) = {k:coef}x {c:signed}$.
     $\displaystyle\iint_R({k:coef}x {c:signed})\,dA = {k}\cdot\frac{{A}^2}{2}\cdot{B} + ({c})\cdot{A}\cdot{B} =$ **{ans}**.
 - id: mv-d-green-area
   title: Area of a triangle with Green's theorem
