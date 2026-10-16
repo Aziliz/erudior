@@ -177,8 +177,9 @@ def build(folder: pathlib.Path):
     if errors:
         raise BuildError(f"{folder.name}: {len(errors)} problem(s):\n  " + "\n  ".join(errors))
 
-    cards = load_yaml(folder / "cards.yaml") if (folder / "cards.yaml").exists() else []
-    glossary = load_yaml(folder / "glossary.yaml") if (folder / "glossary.yaml").exists() else []
+    # cards.yaml / glossary.yaml, plus any cards-*.yaml / glossary-*.yaml split files.
+    cards = [c for f in sorted(folder.glob("cards*.yaml")) for c in (load_yaml(f) or [])]
+    glossary = [g for f in sorted(folder.glob("glossary*.yaml")) for g in (load_yaml(f) or [])]
 
     # Bolded glossary terms become pop-up links: **slope** -> **[[slope]]**.
     names = {}
