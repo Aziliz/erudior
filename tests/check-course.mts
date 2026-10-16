@@ -62,6 +62,10 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
       checkText(`question ${q.id} stem`, q.stem);
       q.choices.forEach((ch, i) => checkText(`question ${q.id} choice ${i + 1}`, ch));
       checkText(`question ${q.id} explanation`, q.explanation);
+      // Questions render as plain text with math, not Markdown.
+      for (const [what, t] of [["stem", q.stem], ["explanation", q.explanation], ...q.choices.map((ch, i) => [`choice ${i + 1}`, ch])])
+        if (/^\s*\|.*\|\s*$/m.test(t) || /\*\*[^*]+\*\*/.test(t.replace(/\$[^$]*\$/g, "")))
+          say(`question ${q.id} ${what}: uses Markdown (tables/bold), which questions don't render`);
     }
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front), checkText(`card ${k.id} back`, k.back));
   for (const g of c.glossary) checkText(`glossary ${g.term}`, g.definition);
