@@ -1,7 +1,14 @@
 id: lang-german-b1
 title: German B1
 description: >-
-  Placeholder; rewritten once the outline is final.
+  The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat
+  B1. Lessons cover telling stories in the simple past and past perfect, time clauses,
+  the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors,
+  relative clauses in every case, the genitive, the passive, the full Konjunktiv II,
+  verbs with prepositions, and writing e-mails, forum posts and short presentations. About
+  1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a
+  reading list suggests graded readers and real news at this level. Unlocks when German A2
+  is complete.
 revision: 1
 released: false
 order: 102
@@ -19,4 +26,14 @@ language:
   vocabSource: Goethe-Institut B1 word list size, including A1 and A2
 modules:
   - id: de3-m1
-    title: Module 1
+    title: Stories and time
+  - id: de3-m2
+    title: Reasons, goals and contrasts
+  - id: de3-m3
+    title: Describing in detail
+  - id: de3-m4
+    title: Society and the world
+  - id: de3-m5
+    title: "If only: Konjunktiv II and more"
+  - id: de3-m6
+    title: Living independently and the B1 exam
