@@ -60,6 +60,15 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Language courses
+
+- One course per proficiency level (German A1, A2, …), sources in `content/languages/<folder>/`, built by `content/math/build.py` (it covers both areas) to `samples/languages/`. Guide: `content/languages/AUTHORING.md`; `content/languages/check-module.sh <course> mN` builds one module alone.
+- Course JSON adds `language` (code, name, tts voice, character keys, ime, level, vocabTarget), `vocab` (term, meanings, pos, plural, example…; nouns carry der/die/das) and `readingList`.
+- Vocabulary replaces notecards for language courses (other courses keep notecards). Each word has two typed cards (word → English, English → word). Stages Novice → Beginner → Advanced → Expert, 5 right in a row each; a miss resets the count within the stage; after Expert the card is retired. One counted answer per card per day; misses come back later in the session uncounted; extra practice never changes state. Words unlock when their lesson is complete. Progress key `vocab["courseId/itemId/dir"]`.
+- Checking: English meanings are lenient (any listed meaning, ignores to/a/the and parentheses, one or two typos on longer words). German recall is exact except capitalization (accepted with a note); a missing article or ae/oe/ue/ss for umlauts asks again without penalty; a wrong article is wrong.
+- Character buttons insert at the cursor; 🔊 uses the device's voices and hides when none exists for the language.
+- German A1 status: see `content/languages/german-a1/PROGRESS.md` and `RESEARCH.md`.
+
 ## Code map
 
 | Path | Role |
@@ -75,6 +84,9 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |
 | `src/lib/updates.ts` | The updater wrapper (currently disabled by `UPDATES_ENABLED`) |
+| `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
+| `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech; input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
+| `src/pages/VocabRunner.tsx`, `src/pages/VocabTabs.tsx` | Vocabulary review/practice screen; Vocabulary and Reading list tabs |
 | `src/pages/*` | Library, CourseHome (all the tabs), LessonView, Runner (exams and practice), Results, BankHome, Editor (banks), CourseEditor, DeckEditor, CardsRunner, DrillRunner, RefView, ProgressPage, SearchPage |
 | `content/` | Course sources and `build_course.py`, described in the next section |
 
