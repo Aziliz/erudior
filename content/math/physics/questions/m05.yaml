@@ -337,6 +337,106 @@
   answer: 3
   explanation: |-
     A low center of gravity and a wide base mean the car must tilt much farther before the center of gravity passes beyond the wheels' contact line, so cornering forces are less likely to roll it over.
+- id: phys-q-el01
+  lesson: phys-elasticity
+  module_quiz: true
+  topic: Elasticity
+  stem: 'A steel wire 2.0 mm in diameter supports a 500 N load. What is the tensile stress in the wire?'
+  choices: ['$4.0\times10^{7}$ Pa', '$1.3\times10^{8}$ Pa', '$1.6\times10^{8}$ Pa', '$1.6\times10^{2}$ Pa']
+  answer: 2
+  explanation: |-
+    The radius is 1.0 mm, so $A = \pi(1.0\times10^{-3})^2 = 3.14\times10^{-6}$ m² and the stress is $500/(3.14\times10^{-6}) = 1.6\times10^{8}$ Pa. Using the diameter as the radius makes the area 4 times too big and gives $4.0\times10^{7}$ Pa. Taking the area as $d^2$ (no $\pi/4$) gives $1.3\times10^{8}$ Pa. Leaving the area in mm² (3.14 mm²) gives 160 Pa.
+- id: phys-q-el02
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'A 3.0 m aluminum rod ($Y = 7.0\times10^{10}$ Pa) is under a tensile stress of $1.4\times10^{7}$ Pa. How much does it stretch?'
+  choices: ['0.60 mm', '0.20 mm', '0.067 mm', '$1.5\times10^{4}$ m']
+  answer: 0
+  explanation: |-
+    Strain $= 1.4\times10^{7}/7.0\times10^{10} = 2.0\times10^{-4}$, so $\Delta L = (2.0\times10^{-4})(3.0\text{ m}) = 6.0\times10^{-4}$ m $= 0.60$ mm. Reading the strain itself as the stretch in meters gives 0.20 mm (the length was never multiplied in). Dividing by the length instead of multiplying gives 0.067 mm. Dividing $Y$ by the stress (upside down) gives the absurd 15 km.
+- id: phys-q-el03
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'The Young''s modulus of a metal rod depends on'
+  choices: ['the length of the rod', 'the cross-sectional area of the rod', 'the size of the load, as long as it is small', 'only the material the rod is made of']
+  answer: 3
+  explanation: |-
+    Stress divides out the area and strain divides out the length, so $Y = (F/A)/(\Delta L/L_0)$ is a property of the material alone. A longer or thinner rod does stretch more, but that shows up in $\Delta L = FL_0/(YA)$, not in $Y$. Within the linear range the ratio is the same for every small load.
+- id: phys-q-el04
+  lesson: phys-elasticity
+  module_quiz: true
+  topic: Elasticity
+  stem: 'What is the elastic limit of a material?'
+  choices: ['The stress at which the material breaks', 'The largest stress after which the material still returns fully to its original shape', 'The stress at which the strain reaches 1', 'The stress at which Young''s modulus drops to zero']
+  answer: 1
+  explanation: |-
+    Below the elastic limit the deformation is elastic: remove the load and the object springs back. Beyond it the deformation is partly permanent (plastic). Breaking happens later, at or after the ultimate strength, so confusing the two is the usual mistake. A strain of 1 (doubling in length) is far beyond what metals reach, and the modulus is the slope of the straight part, not something that drops to zero at a particular stress.
+- id: phys-q-el05
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'Wires A and B are made of the same metal and carry the same load. Wire B is twice as long as A and has twice the diameter. How does B''s stretch compare with A''s?'
+  choices: ['$2$ times as much', '$\tfrac12$ as much', 'the same', '$\tfrac14$ as much']
+  answer: 1
+  explanation: |-
+    $\Delta L = FL_0/(YA)$ with $A \propto d^2$. Doubling $L_0$ doubles the stretch; doubling $d$ quadruples $A$, quartering it. Net: $2/4 = \tfrac12$. Ignoring the area change gives 2 times; treating doubled diameter as doubled area gives the same stretch; ignoring the doubled length gives one quarter.
+- id: phys-q-el06
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'A rubber block 3.0 cm thick has a square top face 10 cm on a side and a shear modulus of $6.0\times10^{5}$ Pa. Its bottom is glued down, and a 120 N force acts along its top face. How far does the top shift sideways?'
+  choices: ['2.0 mm', '2.0 cm', '6.0 mm', '0.60 mm']
+  answer: 3
+  explanation: |-
+    The force lies along the top face, $A = (0.10)^2 = 0.010$ m². $\Delta x = FL_0/(SA) = (120)(0.030)/[(6.0\times10^{5})(0.010)] = 6.0\times10^{-4}$ m $= 0.60$ mm. Using the side face ($0.10\times0.030$ m²) as the area gives 2.0 mm. Leaving out $L_0$ gives the strain 0.020, misread as 2.0 cm. Converting 3.0 cm as 0.30 m gives 6.0 mm.
+- id: phys-q-el07
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'Water has a bulk modulus of $2.2\times10^{9}$ Pa. What increase in pressure compresses a sample of water by 1.0% of its volume?'
+  choices: ['$2.2\times10^{7}$ Pa', '$2.2\times10^{9}$ Pa', '$2.2\times10^{5}$ Pa', '$2.2\times10^{11}$ Pa']
+  answer: 0
+  explanation: |-
+    $\Delta P = B\,|\Delta V|/V_0 = (2.2\times10^{9})(0.010) = 2.2\times10^{7}$ Pa, about 220 atmospheres. Giving $B$ itself forgets to multiply by the fractional change. Using 0.0001 (treating 1.0% as 0.01%) gives $2.2\times10^{5}$ Pa, and dividing by 0.010 instead of multiplying gives $2.2\times10^{11}$ Pa.
+- id: phys-q-el08
+  lesson: phys-elasticity
+  module_quiz: true
+  topic: Elasticity
+  stem: 'Which statement about a liquid such as water is correct?'
+  choices: ['It has a large shear modulus, so it resists sideways forces', 'It has no bulk modulus, so it is easy to compress', 'It has a bulk modulus but no shear modulus, so it flows under a sideways force', 'It has about the same shear modulus as steel']
+  answer: 2
+  explanation: |-
+    A liquid resists being squeezed (water's bulk modulus is $2.2\times10^{9}$ Pa, so it is hard to compress), but it can't hold a sideways shear: it just flows. Having no shear modulus is what makes something a fluid.
+- id: phys-q-el09
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'A steel wire ($Y = 2.0\times10^{11}$ Pa) is 2.0 m long with a cross-sectional area of $1.0\times10^{-6}$ m². Treated as a spring, what is its spring constant?'
+  choices: ['$4.0\times10^{5}$ N/m', '$1.0\times10^{11}$ N/m', '$1.0\times10^{-5}$ N/m', '$1.0\times10^{5}$ N/m']
+  answer: 3
+  explanation: |-
+    From $F = (YA/L_0)\Delta L$, $k = YA/L_0 = (2.0\times10^{11})(1.0\times10^{-6})/2.0 = 1.0\times10^{5}$ N/m. Multiplying by the length instead of dividing gives $4.0\times10^{5}$. Leaving out the area gives $1.0\times10^{11}$, and inverting the whole expression gives $1.0\times10^{-5}$.
+- id: phys-q-el10
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'In the straight part of a metal''s stress–strain graph, a stress of $1.5\times10^{8}$ Pa produces a strain of 0.075%. What is the metal''s Young''s modulus?'
+  choices: ['$2.0\times10^{9}$ Pa', '$2.0\times10^{11}$ Pa', '$5.0\times10^{-12}$ Pa', '$1.1\times10^{5}$ Pa']
+  answer: 1
+  explanation: |-
+    A strain of 0.075% is $7.5\times10^{-4}$. $Y = \text{stress}/\text{strain} = 1.5\times10^{8}/7.5\times10^{-4} = 2.0\times10^{11}$ Pa (steel). Using 0.075 without converting the percent gives $2.0\times10^{9}$. Dividing strain by stress gives $5.0\times10^{-12}$, and multiplying them gives $1.1\times10^{5}$.
+- id: phys-q-el11
+  lesson: phys-elasticity
+  module_quiz: true
+  topic: Elasticity
+  stem: 'A steel rod 1.0 cm in diameter has an elastic limit of $2.5\times10^{8}$ Pa. What is the largest tension it can carry without being permanently stretched?'
+  choices: ['$7.9\times10^{4}$ N', '$2.5\times10^{4}$ N', '$2.0\times10^{4}$ N', '$2.0\times10^{3}$ N']
+  answer: 2
+  explanation: |-
+    $A = \pi(0.0050)^2 = 7.85\times10^{-5}$ m², so $F = (2.5\times10^{8})(7.85\times10^{-5}) = 2.0\times10^{4}$ N. Using the diameter as the radius gives $7.9\times10^{4}$ N; using $d^2$ as the area gives $2.5\times10^{4}$ N. Dividing by $g$ gives about $2.0\times10^{3}$, which is a mass in kilograms, not a force.
+- id: phys-q-el12
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'Concrete beams are usually built with steel rods cast inside them, mainly because concrete is'
+  choices: ['strong in compression but weak in tension', 'weak in compression but strong in tension', 'unable to resist any shear', 'much stiffer than steel']
+  answer: 0
+  explanation: |-
+    Concrete holds up well when squeezed but cracks easily when pulled. In a loaded beam the bottom side is stretched, so steel rods there carry the tension. Concrete is less stiff than steel ($3\times10^{10}$ Pa against $2.0\times10^{11}$ Pa), and as a solid it does resist shear.
 - id: phys-q-1901
   lesson: phys-gravitation
   module_quiz: true

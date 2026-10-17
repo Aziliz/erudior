@@ -260,3 +260,28 @@
 - {front: 'Decay law', back: '$N = N_0e^{-\lambda t} = N_0(\tfrac12)^{t/T_{1/2}}$', topic: Radioactive decay}
 - {front: 'Half-life and decay constant', back: '$T_{1/2} = \ln 2/\lambda = 0.693/\lambda$; activity $R = \lambda N$', topic: Radioactive decay}
 - {front: 'Fraction left after n half-lives', back: '$(1/2)^n$: 1/2, 1/4, 1/8, …', topic: Radioactive decay}
+# ---- gap lessons (2026-10-17): appended at the end so existing card ids stay the same
+- {front: 'Blackbody peak (Wien''s law)', back: '$\lambda_{\max}T = 2.898\times10^{-3}$ m·K: hotter objects peak at shorter wavelengths.', topic: Photons}
+- {front: 'Compton shift', back: '$\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$, $h/(m_ec) = 2.43$ pm; largest (4.86 pm) for $\theta = 180^\circ$.', topic: Photons}
+- {front: 'Stress and strain', back: 'Stress $= F/A$ (Pa); strain $= \Delta L/L_0$ (no units).', topic: Elasticity}
+- {front: 'Young''s modulus', back: '$\dfrac{F}{A} = Y\dfrac{\Delta L}{L_0}$, so $\Delta L = \dfrac{FL_0}{YA}$; steel $Y \approx 2.0\times10^{11}$ Pa.', topic: Elasticity}
+- {front: 'A rod as a spring', back: '$k = YA/L_0$', topic: Elasticity}
+- {front: 'Shear modulus', back: '$\dfrac{F}{A} = S\dfrac{\Delta x}{L_0}$, with $A$ the face the force lies along; fluids have no shear modulus.', topic: Elasticity}
+- {front: 'Bulk modulus', back: '$\Delta P = -B\dfrac{\Delta V}{V_0}$; water $B \approx 2.2\times10^{9}$ Pa.', topic: Elasticity}
+- {front: 'Elastic limit vs ultimate strength', back: 'Elastic limit: largest stress with full spring-back. Ultimate strength: greatest stress before failure.', topic: Elasticity}
+- {front: 'Normal near point and far point', back: 'Near point 25 cm (by convention); far point infinity.', topic: Vision}
+- {front: 'Correcting myopia', back: 'Diverging lens with $f = -(\text{far point})$, so $P < 0$.', topic: Vision}
+- {front: 'Correcting hyperopia', back: 'Converging lens that images an object at 25 cm at the eye''s near point: $\dfrac1f = \dfrac1{25} - \dfrac1{\text{near point}}$ (cm).', topic: Vision}
+- {front: 'Angular magnification', back: '$M = \theta/\theta_0$, with $\theta_0 = h/(25\text{ cm})$ the best unaided angle.', topic: Optical instruments}
+- {front: 'Simple magnifier', back: '$M = 25\text{ cm}/f$ (image at infinity); $M = 1 + 25\text{ cm}/f$ (image at near point).', topic: Optical instruments}
+- {front: 'Compound microscope magnification', back: '$M = m_{\text{obj}}M_{\text{eye}} = \left(-\dfrac{d_i}{d_o}\right)\dfrac{25\text{ cm}}{f_e}$', topic: Optical instruments}
+- {front: 'Refracting telescope', back: '$M = -f_o/f_e$; lenses about $f_o + f_e$ apart.', topic: Optical instruments}
+- {front: 'Why big telescope objectives?', back: 'More light gathered (area) and finer resolution ($\theta_{\min} \propto \lambda/D$), not more magnification.', topic: Optical instruments}
+- {front: 'The four quantum numbers', back: '$n = 1, 2, \ldots$; $l = 0$ to $n - 1$ (s, p, d, f); $m_l = -l$ to $l$; $m_s = \pm\tfrac12$.', topic: Multielectron atoms}
+- {front: 'Pauli exclusion principle', back: 'No two electrons in an atom share all four quantum numbers; at most 2 electrons per orbital.', topic: Multielectron atoms}
+- {front: 'Electrons per subshell and per shell', back: 'Subshell $2(2l + 1)$: s 2, p 6, d 10, f 14. Shell $2n^2$.', topic: Multielectron atoms}
+- {front: 'Subshell filling order', back: '1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, …', topic: Multielectron atoms}
+- {front: 'X-ray cutoff wavelength', back: '$\lambda_{\min} = \dfrac{hc}{eV}$ (depends only on the tube voltage)', topic: X-rays and lasers}
+- {front: 'Kα estimate (Moseley)', back: '$E_{K\alpha} \approx 10.2\text{ eV}\,(Z - 1)^2$', topic: X-rays and lasers}
+- {front: 'Stimulated emission', back: 'A matching photon triggers emission of an identical photon (same energy, direction, phase).', topic: X-rays and lasers}
+- {front: 'What a laser needs', back: 'Population inversion (via a metastable level and pumping) plus mirrors to build up stimulated emission.', topic: X-rays and lasers}

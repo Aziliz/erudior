@@ -88,9 +88,9 @@ A convex security mirror has a radius of curvature of 1.2 m. A shopper stands 3.
 
 $f = -R/2 = -0.60$ m. $\dfrac{1}{d_i} = -\dfrac{1}{0.60} - \dfrac{1}{3.0} = -2.0$, so $d_i = -0.50$ m (virtual, behind the mirror). $m = -(-0.50)/3.0 = +0.17$: upright, one-sixth size.
 
-## Optical instruments, briefly
+## Lens power and lens systems
 
-**Lens power** is $P = 1/f$ in diopters (m⁻¹); optometrists prescribe lenses this way. A nearsighted eye focuses distant objects in front of the retina and needs a diverging (negative-power) lens; a farsighted eye needs a converging one. In multi-lens systems, the image from the first lens acts as the object for the second, and the total magnification is the product $m_1m_2$. A compound microscope uses a short-focal-length objective to make a magnified real image, which the eyepiece then magnifies again.
+**Lens power** is $P = 1/f$ in diopters (m⁻¹); optometrists prescribe lenses this way. A nearsighted eye focuses distant objects in front of the retina and needs a diverging (negative-power) lens; a farsighted eye needs a converging one. In multi-lens systems, the image from the first lens acts as the object for the second, and the total magnification is the product $m_1m_2$. The next lesson uses these ideas for the eye, eyeglasses, magnifiers, microscopes and telescopes.
 
 ### Example 4: two lenses
 

@@ -69,6 +69,15 @@ title: Mechanics equations
 
 Rolling from height $h$ ($I = cMR^2$): $v = \sqrt{2gh/(1 + c)}$. Static equilibrium: $\sum\vec F = 0$, $\sum\tau = 0$.
 
+## Elasticity
+
+| | |
+|---|---|
+| Stress, strain | stress $= F/A$ (Pa); strain $= \Delta L/L_0$ |
+| Young's modulus | $\dfrac{F}{A} = Y\dfrac{\Delta L}{L_0}$; $\Delta L = \dfrac{FL_0}{YA}$; rod as spring $k = YA/L_0$ |
+| Shear | $\dfrac{F}{A} = S\dfrac{\Delta x}{L_0}$ ($A$ = face the force lies along) |
+| Bulk | $\Delta P = -B\dfrac{\Delta V}{V_0}$ |
+
 ## Gravitation
 
 | | |

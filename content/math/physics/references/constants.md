@@ -56,3 +56,14 @@ title: Physical constants and data
 | Latent heat of vaporization of water | $2.26\times10^6$ J/kg |
 | Resistivity of copper | $1.7\times10^{-8}$ Ω·m |
 | Index of refraction: water, glass, diamond | 1.33, about 1.5, 2.42 |
+
+## Elastic moduli (typical)
+
+| Material | Young's $Y$ (Pa) | Shear $S$ (Pa) | Bulk $B$ (Pa) |
+|---|---|---|---|
+| Steel | $2.0\times10^{11}$ | $8.0\times10^{10}$ | $1.6\times10^{11}$ |
+| Copper | $1.1\times10^{11}$ | $4.4\times10^{10}$ | $1.4\times10^{11}$ |
+| Aluminum | $7.0\times10^{10}$ | $2.5\times10^{10}$ | $7.5\times10^{10}$ |
+| Water | — | — | $2.2\times10^{9}$ |
+
+Structural steel: elastic limit about $2.5\times10^{8}$ Pa, ultimate strength about $4\times10^{8}$ to $5\times10^{8}$ Pa.

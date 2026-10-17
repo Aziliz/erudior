@@ -128,6 +128,71 @@
     Lens 2: $d_{i2} = \left(\dfrac{1}{{f2}} - \dfrac{1}{{obj2:num2}}\right)^{-1} =$ **{img2:num2} cm**.
 
     Total $m = m_1m_2 = \left(-\dfrac{d_{i1}}{d_{o1}}\right)\left(-\dfrac{d_{i2}}{d_{o2}}\right) =$ **{m:num4}**.
+- id: phys-magnifier
+  title: Simple magnifier
+  topic: Optical instruments
+  vars:
+    fl: {min: 2, max: 12, step: 0.5}
+  calc:
+    M1: 25/fl
+    M2: 1 + 25/fl
+    dob: 25*fl/(25 + fl)
+  prompt: 'A magnifying glass has a focal length of {fl:num1} cm, and the viewer''s near point is 25 cm. Find its angular magnification (a) with the image at infinity and (b) with the image at the near point, and (c) the object''s distance from the lens in case (b), in cm. Give each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: M1, label: '(a) $M =$', relTolerance: 0.01}
+    - {format: sig4, name: M2, label: '(b) $M =$', relTolerance: 0.01}
+    - {format: sig4, name: dob, label: '(c) $d_o =$', relTolerance: 0.01, units: {cm: 1, mm: 0.1, m: 100}}
+  solution: |-
+    (a) Object at the focal point, image at infinity: $M = \dfrac{25\text{ cm}}{f} = \dfrac{25}{{fl:num1}} =$ **{M1:sig3}**.
+
+    (b) Image at the near point: $M = 1 + \dfrac{25\text{ cm}}{f} =$ **{M2:sig3}**.
+
+    (c) With $d_i = -25$ cm, $\dfrac1{d_o} = \dfrac1f - \dfrac1{d_i} = \dfrac{1}{{fl:num1}} + \dfrac{1}{25}$, so $d_o = \dfrac{25({fl:num1})}{25 + {fl:num1}} =$ **{dob:sig3} cm**, just inside the focal length.
+- id: phys-microscope
+  title: Compound microscope
+  topic: Optical instruments
+  vars:
+    fo: {min: 0.2, max: 1.0, step: 0.05}
+    fe: {min: 1.5, max: 5.0, step: 0.5}
+    sep: {min: 12, max: 22}
+  calc:
+    dio: sep - fe
+    doo: 1/(1/fo - 1/dio)
+    mo: -dio/doo
+    Me: 25/fe
+    Mt: mo*Me
+  where: ['abs(mo + 15.54) > 0.3', 'abs(Mt + 15.54) > 0.3']
+  prompt: 'A compound microscope has an objective of focal length {fo:num2} cm and an eyepiece of focal length {fe:num1} cm, mounted {sep} cm apart. It is adjusted so the final image is at infinity (near point 25 cm). Find (a) the specimen''s distance from the objective (cm), (b) the objective''s magnification and (c) the overall angular magnification (negative = inverted), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: doo, label: '(a) $d_o =$', relTolerance: 0.01, units: {cm: 1, mm: 0.1}}
+    - {format: sig4, name: mo, label: '(b) $m_{\text{obj}} =$', relTolerance: 0.01}
+    - {format: sig4, name: Mt, label: '(c) $M =$', relTolerance: 0.01}
+  solution: |-
+    For a final image at infinity, the objective's image sits at the eyepiece's focal point: $d_i = {sep} - {fe:num1} = {dio:num1}$ cm from the objective.
+
+    (a) $\dfrac1{d_o} = \dfrac1{f_o} - \dfrac1{d_i} = \dfrac{1}{{fo:num2}} - \dfrac{1}{{dio:num1}}$, so $d_o =$ **{doo:dp3} cm**, just outside $f_o$.
+
+    (b) $m_{\text{obj}} = -\dfrac{d_i}{d_o} = -\dfrac{{dio:num1}}{{doo:num4}} =$ **{mo:sig3}**.
+
+    (c) The eyepiece gives $M_e = 25/{fe:num1} = {Me:num2}$, so $M = m_{\text{obj}}M_e =$ **{Mt:sig3}**.
+- id: phys-telescope
+  title: Refracting telescope
+  topic: Optical instruments
+  vars:
+    fo: {min: 40, max: 200, step: 5}
+    fe: {min: 0.5, max: 5.0, step: 0.5}
+  calc:
+    M: -fo/fe
+    len: fo + fe
+  where: ['abs(M + 15.54) > 0.3']
+  prompt: 'A refracting telescope has an objective of focal length {fo} cm and an eyepiece of focal length {fe:num1} cm, adjusted for viewing with a relaxed eye. Find its angular magnification (negative = inverted) and the distance between the lenses (cm), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: M, label: '$M =$', relTolerance: 0.01}
+    - {format: sig4, name: len, label: 'Length', relTolerance: 0.01, units: {cm: 1, m: 100}}
+  solution: |-
+    $M = -\dfrac{f_o}{f_e} = -\dfrac{{fo}}{{fe:num1}} =$ **{M:sig3}**.
+
+    The objective's image lies at both lenses' focal points, so the lenses are $f_o + f_e = {fo} + {fe:num1} =$ **{len:sig3} cm** apart.
 - id: phys-double-slit
   title: Double-slit fringes
   topic: Interference

@@ -90,7 +90,7 @@ Doppler shifts are used in radar speed guns, Doppler ultrasound of blood flow, a
 
 A sound wave can be described in two ways: by how far the air molecules are displaced from their usual positions, or by how much the pressure rises and falls. The two patterns are a quarter wavelength out of step. Where neighboring air moves toward a point from both sides, the air bunches up and the pressure swings are largest, yet the air right at that point barely moves. So a displacement node is a pressure antinode, and vice versa. That's why the closed end of a pipe, where the air can't move (displacement node), is where the pressure swings most (pressure antinode), and the open end, held near atmospheric pressure, is a pressure node.
 
-The speed of sound in a fluid is $v = \sqrt{B/\rho}$, where $B$ is the bulk modulus (how hard the fluid is to compress) and $\rho$ its density: the same "stiffness over inertia" pattern as $\sqrt{F_T/\mu}$ for a string. Water is much denser than air but far harder to compress, so sound travels over four times faster in it.
+The speed of sound in a fluid is $v = \sqrt{B/\rho}$, where $B$ is the bulk modulus (how hard the fluid is to compress; see the elasticity lesson) and $\rho$ its density: the same "stiffness over inertia" pattern as $\sqrt{F_T/\mu}$ for a string. Water is much denser than air but far harder to compress, so sound travels over four times faster in it.
 
 ### Example 4
 

@@ -52,6 +52,9 @@ title: Electricity, magnetism, optics, and modern physics
 | Mirrors and lenses | $\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$; $m = -\dfrac{d_i}{d_o}$; mirror $f = R/2$; $P = 1/f$ |
 | Double slit, grating | $d\sin\theta = m\lambda$ (bright); $\Delta y = \lambda L/d$ |
 | Single slit | $a\sin\theta = m\lambda$ (dark) |
+| Vision | near point 25 cm, far point $\infty$; myopia: $f = -(\text{far point})$; hyperopia: image an object at 25 cm at the near point |
+| Angular magnification | $M = \theta/\theta_0$, $\theta_0 = h/(25\text{ cm})$; magnifier $M = 25\text{ cm}/f$ (image at $\infty$) or $1 + 25\text{ cm}/f$ |
+| Microscope, telescope | $M = \left(-\dfrac{d_i}{d_o}\right)\dfrac{25\text{ cm}}{f_e}$; $M = -\dfrac{f_o}{f_e}$, length $f_o + f_e$ |
 | Resolution | $\theta_{\min} = 1.22\lambda/D$ |
 | Thin film | one flip (soap film in air): bright when $2nt = (m + \tfrac12)\lambda$; zero or two flips: bright when $2nt = m\lambda$ |
 
@@ -66,6 +69,8 @@ title: Electricity, magnetism, optics, and modern physics
 | Photoelectric effect | $K_{\max} = hf - \phi$ |
 | Blackbody, Compton | Wien $\lambda_{\max}T = 2.898\times10^{-3}$ m·K; $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$, $\dfrac{h}{m_ec} = 2.43$ pm |
 | Hydrogen | $E_n = -\dfrac{13.6\text{ eV}}{n^2}$ |
+| Quantum numbers | $n \ge 1$; $l = 0$ to $n - 1$; $m_l = -l$ to $l$; $m_s = \pm\tfrac12$; subshell $2(2l + 1)$, shell $2n^2$ electrons |
+| X-rays | cutoff $\lambda_{\min} = \dfrac{hc}{eV}$; $E_{K\alpha} \approx 10.2\text{ eV}\,(Z - 1)^2$ |
 | Matter waves | $\lambda = h/p$; $\Delta x\,\Delta p \ge h/(4\pi)$ |
 | Binding energy | $E_B = \Delta m\,c^2$ (1 u ↔ 931.5 MeV) |
 | Decay | $N = N_0e^{-\lambda t} = N_0(\tfrac12)^{t/T_{1/2}}$; $T_{1/2} = \ln 2/\lambda$; $R = \lambda N$ |

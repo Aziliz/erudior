@@ -196,6 +196,106 @@
   answer: 2
   explanation: |-
     From $\dfrac{1}{d_i} = \dfrac1f - \dfrac{1}{d_o}$: as $d_o$ shrinks toward $f$, $\dfrac{1}{d_o}$ grows toward $\dfrac1f$, so $\dfrac{1}{d_i}$ shrinks toward zero and $d_i$ grows without limit. With $|m| = d_i/d_o$, the image also grows. It stays real while the object is outside $f$; only inside $f$ does it become virtual. The image is near the focal point only when the object is very far away.
+- id: phys-q-oi01
+  lesson: phys-optical-instruments
+  module_quiz: true
+  topic: Vision
+  stem: 'An eye''s near point is'
+  choices: ['the farthest distance at which the eye can focus', 'the closest distance at which the eye can focus clearly', 'the focal length of the relaxed eye', 'the distance from the eye''s lens to the retina']
+  answer: 1
+  explanation: |-
+    The near point is the closest an object can be and still be focused, by convention 25 cm for a young adult. The farthest such distance is the far point. The lens-to-retina distance (about 2.0 cm) is fixed and is not the near point, and the relaxed eye's focal length is also about 2.0 cm.
+- id: phys-q-oi02
+  lesson: phys-optical-instruments
+  module_quiz: true
+  topic: Vision
+  stem: 'A nearsighted person''s far point is 2.0 m. What contact-lens power lets them see distant objects clearly?'
+  choices: ['$+0.50$ D', '$-2.0$ D', '$-0.0050$ D', '$-0.50$ D']
+  answer: 3
+  explanation: |-
+    The lens must image a distant object at the far point, on the object's side: $f = -2.0$ m, so $P = 1/f = -0.50$ D. A converging $+0.50$ D lens has the wrong sign (it makes myopia worse). $-2.0$ D uses $f$ instead of $1/f$, and $-0.0050$ D uses 200 cm instead of 2.0 m.
+- id: phys-q-oi03
+  lesson: phys-optical-instruments
+  topic: Vision
+  stem: 'A farsighted person''s near point is 50 cm. What lens power lets them read a page held 25 cm away? (Treat the lens as at the eye.)'
+  choices: ['$+2.0$ D', '$-2.0$ D', '$+6.0$ D', '$+0.020$ D']
+  answer: 0
+  explanation: |-
+    Object at $d_o = 25$ cm, virtual image at the near point, $d_i = -50$ cm: $1/f = 1/25 - 1/50 = 1/50$, so $f = 50$ cm $= 0.50$ m and $P = +2.0$ D. Taking $d_i = +50$ cm (forgetting the image is virtual) gives $+6.0$ D. A diverging lens ($-2.0$ D) is the correction for myopia, and $+0.020$ D comes from leaving $f$ in centimeters.
+- id: phys-q-oi04
+  lesson: phys-optical-instruments
+  topic: Optical instruments
+  stem: 'A magnifying glass has a focal length of 4.0 cm. What is its angular magnification when the image is at infinity (relaxed eye)? (Near point 25 cm.)'
+  choices: ['7.3', '0.16', '6.3', '100']
+  answer: 2
+  explanation: |-
+    With the object at the focal point, $M = 25\text{ cm}/f = 25/4.0 = 6.25 \approx 6.3$. The value 7.3 is $1 + 25/f$, which applies when the image is at the near point instead. 0.16 is the ratio upside down, and 100 multiplies 25 by 4.0.
+- id: phys-q-oi05
+  lesson: phys-optical-instruments
+  topic: Optical instruments
+  stem: 'Why does a magnifying glass make a small object look bigger?'
+  choices: ['It lets the object sit closer than the near point while the eye still sees it in focus, so the object fills a larger angle', 'It forms a real, enlarged image that the eye looks at from 25 cm', 'It gathers more light, and brighter objects look bigger', 'It moves the image farther away, and farther images look bigger']
+  answer: 0
+  explanation: |-
+    Apparent size is set by the angle an object subtends. Unaided, you can't bring the object closer than 25 cm and keep it sharp. The lens makes a virtual image you can focus on, so the object can sit just inside $f$, much closer, and fill a larger angle. The image of a magnifier is virtual, not real, and distance alone makes things look smaller, not bigger.
+- id: phys-q-oi06
+  lesson: phys-optical-instruments
+  module_quiz: true
+  topic: Optical instruments
+  stem: 'A microscope objective forms an image with magnification $-40$. The eyepiece has a focal length of 2.5 cm and is used with the final image at infinity. What is the overall magnification? (Near point 25 cm.)'
+  choices: ['$-50$', '$-16$', '$-400$', '$-4.0$']
+  answer: 2
+  explanation: |-
+    The eyepiece's angular magnification is $25/2.5 = 10$, and the stages multiply: $M = (-40)(10) = -400$. Adding them gives $-50$. Dividing $-40$ by the eyepiece focal length gives $-16$, and dividing by the eyepiece magnification gives $-4.0$.
+- id: phys-q-oi07
+  lesson: phys-optical-instruments
+  module_quiz: true
+  topic: Optical instruments
+  stem: 'A refracting telescope has an objective of focal length 120 cm and an eyepiece of focal length 3.0 cm. Find its angular magnification and its approximate length.'
+  choices: ['$-360$; 123 cm', '$-40$; 117 cm', '$-0.025$; 123 cm', '$-40$; 123 cm']
+  answer: 3
+  explanation: |-
+    $M = -f_o/f_e = -120/3.0 = -40$ (inverted), and the lenses sit $f_o + f_e = 123$ cm apart because they share a focal point. Multiplying the focal lengths gives $-360$, inverting the ratio gives $-0.025$, and subtracting the focal lengths gives 117 cm.
+- id: phys-q-oi08
+  lesson: phys-optical-instruments
+  topic: Optical instruments
+  stem: 'Astronomers build telescopes with very wide objectives mainly because a wider objective'
+  choices: ['gives a higher angular magnification', 'gathers more light and resolves finer detail', 'makes the telescope shorter', 'removes the need for an eyepiece']
+  answer: 1
+  explanation: |-
+    Light collected grows with the objective's area, so fainter objects show up, and the smallest resolvable angle shrinks as $\lambda/D$. Magnification is $f_o/f_e$, set by focal lengths, not diameter. A wide objective doesn't shorten the tube or replace the eyepiece.
+- id: phys-q-oi09
+  lesson: phys-optical-instruments
+  topic: Vision
+  stem: 'Model an eye as one lens 2.0 cm from the retina. By how much must its power increase to change focus from a very distant object to one 25 cm away?'
+  choices: ['54 D', '50 D', '4.0 D', '0.25 D']
+  answer: 2
+  explanation: |-
+    Distant object: $P = 1/0.020 = 50$ D. At 25 cm: $P = 1/0.25 + 1/0.020 = 54$ D. The increase is $54 - 50 = 4.0$ D. The values 54 D and 50 D are the two powers themselves, not the change, and 0.25 D uses the distance instead of its reciprocal.
+- id: phys-q-oi10
+  lesson: phys-optical-instruments
+  topic: Vision
+  stem: 'What causes presbyopia, the need for reading glasses with age?'
+  choices: ['The eye''s lens stiffens, so accommodation decreases and the near point moves farther away', 'The eyeball grows longer, so the far point moves closer', 'The cornea becomes more strongly curved', 'The retina loses its sensitivity to red light']
+  answer: 0
+  explanation: |-
+    With age the lens can't bulge as much, so the eye can't add enough power for close objects and the near point recedes. Converging reading glasses supply the missing power. An eye that focuses too strongly (a long eyeball or steep cornea) is myopia, a different problem; color sensitivity isn't involved.
+- id: phys-q-oi11
+  lesson: phys-optical-instruments
+  topic: Optical instruments
+  stem: 'The Moon (diameter $3.5\times10^{6}$ m, distance $3.8\times10^{8}$ m) is viewed through a telescope with angular magnification of magnitude 50. About what angle does its image fill?'
+  choices: ['0.0092 rad', '0.46 rad', '0.00018 rad', '26 rad']
+  answer: 1
+  explanation: |-
+    Unaided, $\theta_0 \approx h/d = 3.5\times10^{6}/3.8\times10^{8} = 0.0092$ rad. The telescope multiplies the angle by 50: $0.46$ rad (about 26°). 0.0092 rad forgets the telescope, 0.00018 rad divides by 50, and 26 rad mixes up degrees and radians.
+- id: phys-q-oi12
+  lesson: phys-optical-instruments
+  topic: Optical instruments
+  stem: 'In a compound microscope, the image formed by the objective lens is'
+  choices: ['virtual, upright and enlarged', 'real, upright and reduced', 'virtual, inverted and reduced', 'real, inverted and enlarged']
+  answer: 3
+  explanation: |-
+    The specimen sits just outside the objective's focal point (between $f$ and $2f$), which gives a real, inverted, enlarged image inside the tube. The eyepiece then acts as a magnifier on that real image and produces the virtual image you see.
 - id: phys-q-4301
   lesson: phys-wave-optics
   module_quiz: true

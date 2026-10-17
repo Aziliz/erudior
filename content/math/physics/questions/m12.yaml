@@ -180,6 +180,149 @@
   answer: 1
   explanation: |-
     $K_{\max} = hf - \phi$ is a line with slope $h$ (the same for every metal) and intercept $-\phi$.
+- id: phys-q-4512
+  lesson: phys-quantum
+  module_quiz: true
+  topic: Photons
+  stem: 'A star''s spectrum peaks at 725 nm. Treating it as a blackbody, what is its surface temperature? (Wien constant $2.898\times10^{-3}$ m·K)'
+  choices: ['$4.0\times10^{-6}$ K', '$2.1\times10^{-9}$ K', '$3.7\times10^{3}$ K', '$4.0\times10^{3}$ K']
+  answer: 3
+  explanation: |-
+    $T = 2.898\times10^{-3}/\lambda_{\max} = 2.898\times10^{-3}/(725\times10^{-9}) = 4.0\times10^{3}$ K, a cool orange-red star. Leaving the wavelength in nm gives $4.0\times10^{-6}$ K, and multiplying instead of dividing gives $2.1\times10^{-9}$ K. Subtracting 273 gives $3.7\times10^{3}$, which is the temperature in °C, not kelvins.
+- id: phys-q-4513
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'A blackbody is heated to a higher temperature. What happens to its spectrum?'
+  choices: ['The peak moves to shorter wavelengths and the total power increases', 'The peak moves to longer wavelengths and the total power increases', 'The peak stays put and only the total power increases', 'The peak moves to shorter wavelengths and the total power stays the same']
+  answer: 0
+  explanation: |-
+    Wien's law, $\lambda_{\max}T = \text{constant}$, moves the peak to shorter wavelengths as $T$ rises (red, then orange, then white-hot), and the total power grows as $T^4$. The other combinations each miss one of these two effects or reverse the direction of the shift.
+- id: phys-q-4514
+  lesson: phys-quantum
+  module_quiz: true
+  topic: Photons
+  stem: 'X-rays of wavelength 50.0 pm scatter off nearly free electrons. What is the wavelength of the X-rays scattered through 90°? ($h/(m_ec) = 2.43$ pm)'
+  choices: ['47.6 pm', '50.0 pm', '52.4 pm', '54.9 pm']
+  answer: 2
+  explanation: |-
+    $\Delta\lambda = (2.43\text{ pm})(1 - \cos 90^\circ) = 2.43$ pm, so $\lambda' = 50.0 + 2.43 = 52.4$ pm. The photon loses energy to the electron, so the wavelength gets longer; subtracting the shift gives 47.6 pm. 54.9 pm uses the 180° shift ($1 - \cos\theta = 2$), and 50.0 pm takes $\cos 90^\circ$ as 1, giving no shift.
+- id: phys-q-4515
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'Why is the Compton shift easy to see with X-rays but not with visible light?'
+  choices: ['Visible-light photons carry no momentum', 'The shift is at most about 5 pm, a tiny fraction of a visible wavelength but a large fraction of an X-ray wavelength', 'Electrons cannot scatter visible light', 'Visible light behaves only as a wave and X-rays only as particles']
+  answer: 1
+  explanation: |-
+    The shift $\dfrac{h}{m_ec}(1 - \cos\theta)$ is at most 4.86 pm whatever the wavelength. Against a 500 nm visible wavelength that is a change of one part in $10^{5}$; against a 50 pm X-ray it is about 10%. Visible photons do carry momentum $h/\lambda$ and do scatter from electrons, and both kinds of light show wave and particle behavior.
+- id: phys-q-4516
+  lesson: phys-quantum
+  topic: Photons
+  stem: 'In Compton scattering, at what scattering angle does the photon lose the most energy to the electron?'
+  choices: ['0°', '90°', '45°', '180°']
+  answer: 3
+  explanation: |-
+    The wavelength shift $\dfrac{h}{m_ec}(1 - \cos\theta)$ is largest when $\cos\theta = -1$, at 180° (bounced straight back), where it equals $2h/(m_ec) = 4.86$ pm. A longer wavelength means a lower-energy photon, so this is where the electron gains the most. At 0° the photon barely deflects and loses nothing; 90° and 45° give intermediate shifts.
+- id: phys-q-at01
+  lesson: phys-atomic
+  module_quiz: true
+  topic: Multielectron atoms
+  stem: 'What is the largest number of electrons the $n = 3$ shell can hold?'
+  choices: ['18', '9', '8', '6']
+  answer: 0
+  explanation: |-
+    The shell has subshells $l = 0, 1, 2$ with $1 + 3 + 5 = 9$ orbitals, each holding two spin states: $2n^2 = 18$. Counting orbitals without spin gives 9. Eight is the number of elements in the third row of the periodic table, which is shorter because 3d fills after 4s. Six is $2n$.
+- id: phys-q-at02
+  lesson: phys-atomic
+  topic: Multielectron atoms
+  stem: 'Which values of the orbital quantum number $l$ are allowed when $n = 3$?'
+  choices: ['$l = 1, 2, 3$', '$l = 0, 1, 2, 3$', '$l = 0, 1, 2$', '$l = -2, -1, 0, 1, 2$']
+  answer: 2
+  explanation: |-
+    $l$ runs from 0 to $n - 1$, so 0, 1 and 2 (3s, 3p, 3d). Letting $l$ reach $n$ is the common slip. The list from $-2$ to 2 is the set of $m_l$ values for $l = 2$, not values of $l$.
+- id: phys-q-at03
+  lesson: phys-atomic
+  module_quiz: true
+  topic: Multielectron atoms
+  stem: 'Which statement is the Pauli exclusion principle?'
+  choices: ['No two electrons in an atom can be in the same shell', 'No two electrons in an atom can have the same set of four quantum numbers', 'Electrons always fill the highest energy levels first', 'Each orbital can hold only one electron']
+  answer: 1
+  explanation: |-
+    Pauli forbids two electrons sharing all four of $n$, $l$, $m_l$, $m_s$. A shell holds many electrons (up to $2n^2$), and an orbital holds two, one with each spin; one per orbital forgets spin. Electrons fill the lowest available levels first, not the highest.
+- id: phys-q-at04
+  lesson: phys-atomic
+  topic: Multielectron atoms
+  stem: 'What is the maximum number of electrons in a d subshell?'
+  choices: ['5', '6', '14', '10']
+  answer: 3
+  explanation: |-
+    A d subshell has $l = 2$, so $m_l = -2$ to 2 (5 values), each with 2 spins: $2(2l + 1) = 10$. Five forgets spin, 6 is the p subshell, and 14 is the f subshell.
+- id: phys-q-at05
+  lesson: phys-atomic
+  topic: Multielectron atoms
+  stem: 'What is the ground-state electron configuration of magnesium ($Z = 12$)?'
+  choices: ['$1s^2\,2s^2\,2p^8$', '$1s^2\,2s^2\,2p^6\,3p^2$', '$1s^2\,2s^2\,2p^6\,2d^2$', '$1s^2\,2s^2\,2p^6\,3s^2$']
+  answer: 3
+  explanation: |-
+    After 1s (2), 2s (2) and 2p (6), the last two electrons go into 3s. A p subshell holds at most 6, so $2p^8$ breaks the Pauli principle. 3p lies above 3s, and there is no 2d subshell ($l$ can be at most $n - 1 = 1$).
+- id: phys-q-at06
+  lesson: phys-atomic
+  module_quiz: true
+  topic: X-rays and lasers
+  stem: 'An X-ray tube operates at 25 kV. What is the shortest wavelength in its spectrum? ($hc = 1240$ eV·nm)'
+  choices: ['49.6 nm', '0.0496 nm', '0.0992 nm', '20.2 nm']
+  answer: 1
+  explanation: |-
+    The most energetic photon takes an electron's full energy, $eV = 25\,000$ eV, so $\lambda_{\min} = 1240/25\,000 = 0.0496$ nm (49.6 pm). Using 25 instead of 25 000 eV gives 49.6 nm. Halving the voltage, as if the energy were $\tfrac12eV$, gives 0.0992 nm, and dividing 25 000 by 1240 gives 20.2.
+- id: phys-q-at07
+  lesson: phys-atomic
+  topic: X-rays and lasers
+  stem: 'The voltage on an X-ray tube is increased. What happens to the X-ray spectrum?'
+  choices: ['The cutoff wavelength and the characteristic lines both shift to shorter wavelengths', 'Neither the cutoff nor the characteristic lines change', 'The cutoff wavelength gets shorter, but the characteristic lines stay at the same wavelengths', 'The characteristic lines shift, but the cutoff wavelength stays the same']
+  answer: 2
+  explanation: |-
+    The cutoff $\lambda_{\min} = hc/(eV)$ depends only on the voltage, so it shortens. The characteristic lines come from the target atoms' own inner energy levels, which don't depend on how hard the electrons hit, so they stay put (they may get brighter).
+- id: phys-q-at08
+  lesson: phys-atomic
+  module_quiz: true
+  topic: X-rays and lasers
+  stem: 'Estimate the energy of the Kα X-ray line of molybdenum ($Z = 42$) using $E \approx 10.2\text{ eV}\,(Z - 1)^2$.'
+  choices: ['17.1 keV', '18.0 keV', '22.9 keV', '0.42 keV']
+  answer: 0
+  explanation: |-
+    $E \approx 10.2(41)^2 = 10.2(1681) = 1.71\times10^{4}$ eV $= 17.1$ keV (measured: 17.5 keV). Using $Z^2$ instead of $(Z - 1)^2$ gives 18.0 keV. Using 13.6 eV, which forgets the $(1 - \tfrac14)$ factor for the drop from $n = 2$ to $n = 1$, gives 22.9 keV. Forgetting to square gives 0.42 keV.
+- id: phys-q-at09
+  lesson: phys-atomic
+  topic: X-rays and lasers
+  stem: 'A photon whose energy matches an atom''s transition passes an atom in the upper state and causes stimulated emission. What comes out?'
+  choices: ['One photon in a random direction with a random phase', 'Two photons with the same energy, direction and phase', 'One photon with twice the original energy', 'One photon and an ejected electron']
+  answer: 1
+  explanation: |-
+    The passing photon continues, and the atom adds an exact copy of it (same energy, direction, phase and polarization). That copying is how a laser amplifies light. A random direction and phase describes spontaneous emission. The atom only releases its transition energy, so no photon of twice the energy appears, and no electron is ejected.
+- id: phys-q-at10
+  lesson: phys-atomic
+  module_quiz: true
+  topic: X-rays and lasers
+  stem: 'Why must a laser have a population inversion?'
+  choices: ['To make the emitted light polarized', 'To make spontaneous emission happen faster', 'To stop the atoms absorbing the pump energy', 'So that stimulated emission happens more often than absorption']
+  answer: 3
+  explanation: |-
+    A passing photon can either be absorbed by an atom in the lower state or stimulate emission from one in the upper state. Only if more atoms are in the upper state does emission win, so the light grows. Polarization and the speed of spontaneous emission are not what the inversion is for, and the atoms must absorb pump energy to get into the upper state at all.
+- id: phys-q-at11
+  lesson: phys-atomic
+  topic: X-rays and lasers
+  stem: 'A laser transition runs from a level 2.10 eV above the ground state to one 0.30 eV above it. What is the laser wavelength? ($hc = 1240$ eV·nm)'
+  choices: ['689 nm', '590 nm', '517 nm', '4130 nm']
+  answer: 0
+  explanation: |-
+    The photon carries the difference, $2.10 - 0.30 = 1.80$ eV, so $\lambda = 1240/1.80 = 689$ nm (red). Using the upper level alone gives 590 nm, adding the two levels gives 517 nm, and using the lower level alone gives 4130 nm.
+- id: phys-q-at12
+  lesson: phys-atomic
+  topic: Multielectron atoms
+  stem: 'Why do lithium, sodium and potassium have similar chemical behavior?'
+  choices: ['They have the same total number of electrons', 'They have the same number of filled shells', 'Each has a single s electron outside completely filled subshells', 'Each has a half-filled p subshell']
+  answer: 2
+  explanation: |-
+    Chemistry depends mostly on the outermost electrons. Lithium ($2s^1$), sodium ($3s^1$) and potassium ($4s^1$) each have one loosely held s electron beyond filled subshells, which they give up easily. Their totals (3, 11, 19) and numbers of filled shells differ, and none has an unfilled p subshell in its ground state.
 - id: phys-q-4601
   lesson: phys-nuclear
   module_quiz: true

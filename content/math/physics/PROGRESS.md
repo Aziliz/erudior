@@ -347,3 +347,50 @@ Build and checker: 0 problems.
   readable, so I left them unchanged.
 - The lesson 40 sin² figure label says "green line", so it relies on color. The dark theme also uses a green for
   that series.
+
+# Gap lessons (2026-10-17)
+
+Closes the VERIFY.md coverage gaps (core: blackbody/Compton practice; common: elasticity, vision and optical instruments, atomic physics beyond Bohr).
+
+## New lessons
+| File | Id | Title | Module | Qs | Drills |
+|---|---|---|---|---|---|
+| lessons/19-elasticity.md | phys-elasticity | Elasticity | phys-m5 | 12 | phys-stretch-wire, phys-shear-pad, phys-bulk-compression |
+| lessons/44-optical-instruments.md | phys-optical-instruments | The eye and optical instruments | phys-m11 | 12 | phys-magnifier, phys-microscope, phys-telescope |
+| lessons/48-atomic-physics.md | phys-atomic | Atoms with many electrons, X-rays, and lasers | phys-m12 | 12 | phys-atomic-states, phys-xray-tube, phys-moseley |
+
+Each: 1,550–1,780 words, 4–5 worked examples, figures (stress–strain curve, shear block; magnifier and telescope ray diagrams; X-ray spectrum, three-level laser), Common mistakes, Key points.
+
+Lesson files renumbered (ids unchanged): old 19–42 → 20–43, old 43–45 → 45–47, old 46 → 49. So "lesson 45" (quantum) is now lessons/47-quantum.md.
+
+## New questions (41; answer positions 10/10/10/11)
+- phys-elasticity: phys-q-el01 – el12 (module quiz: el01, el04, el08, el11)
+- phys-optical-instruments: phys-q-oi01 – oi12 (module quiz: oi01, oi02, oi06, oi07)
+- phys-atomic: phys-q-at01 – at12 (module quiz: at01, at03, at06, at08, at10)
+- phys-quantum (blackbody/Compton, Task B): phys-q-4512 – 4516 (module quiz: 4512, 4514)
+Inserted after each lesson's existing block so module quizzes stay in lesson order.
+
+## New drills (11)
+phys-stretch-wire, phys-shear-pad, phys-bulk-compression (drills/m05.yaml); phys-magnifier, phys-microscope, phys-telescope (m11); phys-wien, phys-compton, phys-atomic-states, phys-xray-tube, phys-moseley (m12).
+
+## Other edits
+- Cross-references: L18 equilibrium points to elasticity; L23 sound links the bulk modulus to the elasticity lesson; L43 "Optical instruments, briefly" retitled "Lens power and lens systems" and points to the new lesson; L45 wave optics notes telescopes from the previous lesson; L47 quantum points to the atomic lesson (one phrase trimmed elsewhere to keep it at about 1,800 words).
+- L47 quantum links 4 drills (phys-photoelectric, phys-compton, phys-bohr, phys-de-broglie); phys-photon-energy and phys-wien remain in the course, unlisted.
+- glossary.yaml: +45 terms (elasticity, vision/instruments, quantum numbers, X-rays, lasers). cards.yaml: +24 cards appended at the end (card ids are positional), including Wien and Compton cards.
+- References: mechanics.md Elasticity table; constants.md elastic moduli table; em-modern.md rows for vision, angular magnification, microscope/telescope, quantum numbers, X-rays.
+
+## Verification
+- Every new question solved in Python (/tmp/claude-0/gaps/physics/solve.py) before fixing keys; each named distractor value recomputed.
+- Drills: /tmp/claude-0/gaps/physics/verify.mts, 1000 instances each, answers recomputed independently from the prompt text: 0 mismatches; shown answers, bold solution values and 3-s.f. answers all accepted.
+- New figures rendered and screenshotted (figs.mts, shot.mjs).
+- Build: 49 lessons, 558 questions, 144 drills, 274 cards, 407 terms. check-course: OK.
+
+## Notes for a reviewer
+- Moduli are typical textbook values (steel Y 2.0e11, copper 1.1e11, aluminum 7.0e10, bone 1.5e10; water B 2.2e9); structural-steel elastic limit 2.5e8 Pa is approximate.
+- Kα estimate uses 10.2 eV (Z − 1)² (Moseley); copper gives 0.155 nm vs measured 0.154 nm, molybdenum 17.1 keV vs 17.5 keV (stated in q-at08).
+- L47 quantum lists 4 drills (trimmed from 6 in review); cards now 274 (guideline 120–250).
+- Global answer positions are 141/135/144/138 (the new questions are balanced; the older imbalance was left alone).
+
+## Review (2026-10-17)
+- All 41 new keys re-solved independently: correct. Drills: 1500 instances each recomputed from the prompt; no mismatches.
+- Fixed: L19 Example 1 strain shown as 6.2e-4 but used as 6.24e-4 (now 6.24e-4); L19 Example 4 used $\Delta P = \rho gh$ before the fluid-statics lesson (now stated with a pointer). L47 drills trimmed to 4.

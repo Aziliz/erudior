@@ -9,7 +9,7 @@ refs: [phys-ref-mechanics]
 ---
 ## Structures that stay put
 
-Bridges, shelves, ladders and your own skeleton are designed not to move. Engineers need to know the forces in each support and cable to make sure nothing breaks or tips over. For a point particle, staying at rest just needs zero net force. An extended object can have zero net force and still start spinning (think of two equal, opposite forces at opposite ends of a ruler), so it needs a second condition. This lesson puts torque to work on objects that don't move at all.
+Bridges, shelves, ladders and your own skeleton are designed not to move. Engineers need to know the forces in each support and cable to make sure nothing breaks or tips over. For a point particle, staying at rest just needs zero net force. An extended object can have zero net force and still start spinning (think of two equal, opposite forces at opposite ends of a ruler), so it needs a second condition. This lesson puts torque to work on objects that don't move at all. The next lesson then asks how much those supports and cables stretch or squeeze under the forces found here.
 
 ## The two conditions
 

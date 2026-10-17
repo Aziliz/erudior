@@ -181,6 +181,74 @@
     Torques about A: $F_B({L}) = {mb}(9.8)({L}/2) + {m}(9.8)({x:num2})$, so $F_B =$ **{FB:sig3} N**.
 
     Vertical forces: $F_A = ({mb} + {m})(9.8) - F_B =$ **{FA:sig3} N**.
+- id: phys-stretch-wire
+  title: Stress and stretch of a hanging wire
+  topic: Elasticity
+  vars:
+    mat: {choices: [{label: 'steel ($Y = 2.0\times10^{11}$ Pa)', value: 2.0e+11}, {label: 'copper ($Y = 1.1\times10^{11}$ Pa)', value: 1.1e+11}, {label: 'aluminum ($Y = 7.0\times10^{10}$ Pa)', value: 7.0e+10}, {label: 'brass ($Y = 9.0\times10^{10}$ Pa)', value: 9.0e+10}]}
+    len: {min: 1, max: 10, step: 0.5}
+    dia: {min: 0.5, max: 3.0, step: 0.1}
+    mass: {min: 2, max: 60}
+  calc:
+    Aw: pi*(dia/2000)^2
+    Fw: mass*9.8
+    stress: Fw/Aw
+    dLm: stress*len/mat
+    dLmm: dLm*1000
+  where: ['stress < 1.5e8', 'stress > 5e6']
+  prompt: 'A {len:num1} m long {mat} wire with a diameter of {dia:num1} mm hangs vertically with a {mass} kg mass at its lower end. Using $g = 9.8$ m/s², find the tensile stress in the wire (Pa) and how much the wire stretches (mm), each to 3 significant figures.'
+  answers:
+    - {name: stress, label: 'Stress', format: sci, relTolerance: 0.01, units: {Pa: 1, 'N/m^2': 1, MPa: 1e6}}
+    - {format: sig4, name: dLmm, label: 'Stretch', relTolerance: 0.01, units: {mm: 1, m: 1000, cm: 10}}
+  solution: |-
+    The radius is half the diameter, so $A = \pi r^2 = \pi\left(\dfrac{{dia:num1}}{2}\times10^{-3}\right)^2 = {Aw:texsci}$ m². The tension equals the weight, $mg = {mass}(9.8) = {Fw:num1}$ N.
+
+    Stress $= \dfrac{F}{A} = \dfrac{{Fw:num1}}{{Aw:texsci}} = \mathbf{{stress:texsci}}$ Pa.
+
+    Strain $=$ stress$/Y$, and $\Delta L = \text{strain}\times L_0 = \dfrac{({stress:texsci})({len:num1})}{{mat:texsci}} = {dLm:texsci}$ m $=$ **{dLmm:sig3} mm**.
+- id: phys-shear-pad
+  title: Shear deformation of a pad
+  topic: Elasticity
+  vars:
+    side: {min: 10, max: 60, step: 5}
+    thick: {min: 1, max: 10}
+    shmod: {choices: [{label: '$3.0\times10^{5}$ Pa', value: 3.0e+5}, {label: '$6.0\times10^{5}$ Pa', value: 6.0e+5}, {label: '$1.0\times10^{6}$ Pa', value: 1.0e+6}]}
+    force: {min: 50, max: 5000, step: 50}
+  calc:
+    sidem: side/100
+    Ar: sidem^2
+    tau: force/Ar
+    dxmm: force*(thick/100)/(shmod*Ar)*1000
+  where: ['dxmm < 5*thick', 'dxmm > 0.05']
+  prompt: 'A rubber pad {thick} cm thick has a square top face {side} cm on a side and a shear modulus of {shmod}. Its bottom is fixed, and a sideways force of {force:dp0} N acts along its top face. Find the shear stress (Pa) and how far the top face shifts sideways (mm), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: tau, label: 'Shear stress', relTolerance: 0.01, units: {Pa: 1, kPa: 1000}}
+    - {format: sig4, name: dxmm, label: 'Shift', relTolerance: 0.01, units: {mm: 1, cm: 10, m: 1000}}
+  solution: |-
+    The force lies along the top face, a square {side} cm $= {sidem:num2}$ m on a side, so $A = ({sidem:num2})^2 = {Ar:num4}$ m².
+
+    Shear stress $= \dfrac{F}{A} = \dfrac{{force:dp0}}{{Ar:num4}} =$ **{tau:sig3} Pa**.
+
+    $\Delta x = \dfrac{F L_0}{SA} = \dfrac{({force:dp0})({thick}/100)}{({shmod:texsci})({Ar:num4})} =$ **{dxmm:sig3} mm**.
+- id: phys-bulk-compression
+  title: Bulk compression under water
+  topic: Elasticity
+  vars:
+    mat: {choices: [{label: 'aluminum block ($B = 7.5\times10^{10}$ Pa)', value: 7.5e+10}, {label: 'steel block ($B = 1.6\times10^{11}$ Pa)', value: 1.6e+11}, {label: 'copper block ($B = 1.4\times10^{11}$ Pa)', value: 1.4e+11}, {label: 'sealed flexible bag of water ($B = 2.2\times10^{9}$ Pa)', value: 2.2e+9}]}
+    depth: {min: 200, max: 10000, step: 100}
+    vol: {min: 0.5, max: 20, step: 0.5}
+  calc:
+    dP: 1000*9.8*depth
+    dV: vol*1000*dP/mat
+  where: ['dV > 0.01']
+  prompt: 'A {vol:num1} L {mat} is lowered to a depth of {depth:dp0} m in water of density 1000 kg/m³. Ignoring the atmosphere and using $g = 9.8$ m/s², find the increase in pressure on it (Pa) and how much its volume decreases (cm³), each to 3 significant figures.'
+  answers:
+    - {name: dP, label: 'Pressure increase', format: sci, relTolerance: 0.01, units: {Pa: 1, kPa: 1000, MPa: 1e6}}
+    - {format: sig4, name: dV, label: 'Volume decrease', relTolerance: 0.01, units: {'cm^3': 1, 'cm³': 1, mL: 1, L: 1000}}
+  solution: |-
+    $\Delta P = \rho g h = (1000)(9.8)({depth:dp0}) = \mathbf{{dP:texsci}}$ Pa.
+
+    From $\Delta P = -B\,\Delta V/V_0$, the volume decrease is $|\Delta V| = V_0\dfrac{\Delta P}{B} = ({vol:num1}\times1000\text{ cm}^3)\dfrac{{dP:texsci}}{{mat:texsci}} =$ **{dV:sig3} cm³**.
 - id: phys-grav-force
   title: Gravitational force and surface gravity
   topic: Gravitation

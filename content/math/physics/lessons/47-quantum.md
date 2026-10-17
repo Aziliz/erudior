@@ -4,7 +4,7 @@ module: phys-m12
 title: Photons, atoms, and matter waves
 minutes: 45
 topics: [Photons, Atomic structure, Wave–particle duality]
-drills: [phys-photon-energy, phys-photoelectric, phys-bohr, phys-de-broglie]
+drills: [phys-photoelectric, phys-compton, phys-bohr, phys-de-broglie]
 refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## Energy comes in packets
@@ -27,7 +27,7 @@ A 5.0 mW green laser emits 532 nm light. What is the energy of each photon, and 
 
 $E = \dfrac{1240\text{ eV·nm}}{532\text{ nm}} = 2.33$ eV $= 2.33(1.602\times10^{-19}) = 3.73\times10^{-19}$ J.
 
-Photons per second: $\dfrac{5.0\times10^{-3}}{3.73\times10^{-19}} = 1.34\times10^{16}$. Individual photons are tiny; even a weak beam contains enormous numbers.
+Photons per second: $\dfrac{5.0\times10^{-3}}{3.73\times10^{-19}} = 1.34\times10^{16}$. Even a weak beam contains enormous numbers of photons.
 
 ## The photoelectric effect
 
@@ -71,7 +71,7 @@ where $\theta$ is the angle through which the photon is scattered and $h/(m_ec) 
 
 ## Atomic spectra and the Bohr model
 
-Heated gases emit light only at specific wavelengths, an **emission spectrum** of bright lines unique to each element (the fingerprints astronomers use to read the composition of stars). Cool gases absorb the same wavelengths.
+Heated gases emit light only at specific wavelengths, an **emission spectrum** of bright lines unique to each element (astronomers use them to read stars' compositions). Cool gases absorb the same wavelengths.
 
 Niels Bohr (1913) explained hydrogen's lines by proposing that its electron can occupy only certain orbits, with **energy levels**
 
@@ -89,7 +89,7 @@ Find the wavelength of the photon emitted when hydrogen's electron drops from $n
 
 $E_3 = -13.6/9 = -1.511$ eV; $E_2 = -13.6/4 = -3.400$ eV. Photon energy: $1.889$ eV. $\lambda = 1240/1.889 = 656$ nm, red: the brightest line in hydrogen's visible spectrum.
 
-The Bohr model gets hydrogen's energies right but fails for other atoms; the full theory is quantum mechanics, in which electrons occupy probability clouds (orbitals) rather than orbits. The energy levels survive.
+The Bohr model gets hydrogen's energies right but fails for other atoms; the full theory is quantum mechanics, in which electrons occupy probability clouds (orbitals) rather than orbits. The energy levels survive; the next lesson builds on them.
 
 ## Matter waves and wave–particle duality
 

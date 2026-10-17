@@ -73,7 +73,7 @@ $$a\sin\theta = m\lambda, \qquad m = \pm1, \pm2, \ldots$$
 
 $$\theta_{\min} = 1.22\frac{\lambda}{D}$$
 
-for a circular aperture of diameter $D$ (the **Rayleigh criterion**). That's why big telescopes see finer detail, and why microscopes using shorter wavelengths (or electrons) resolve smaller things.
+for a circular aperture of diameter $D$ (the **Rayleigh criterion**). That's why big telescopes (previous lesson) see finer detail, and why microscopes using shorter wavelengths (or electrons) resolve smaller things.
 
 ## Thin films
 

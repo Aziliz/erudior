@@ -85,6 +85,45 @@
     Photon energy: $1240/{lam:dp0} = {E:num4}$ eV. $K_{\max} = hf - \phi = {E:num4} - {metal:num2} =$ **{K:num4} eV** (stopping potential {K:num4} V).
 
     Threshold: $\lambda_0 = hc/\phi = 1240/{metal:num2} =$ **{l0:num1} nm**.
+- id: phys-wien
+  title: Blackbody peak (Wien's law)
+  topic: Photons
+  vars:
+    temp: {min: 1000, max: 30000, step: 100}
+    lam2: {min: 200, max: 3000, step: 10}
+  calc:
+    lmax: 2.898e6/temp
+    lmaxm: lmax*1e-9
+    T2: 2.898e6/lam2
+  prompt: 'Treat each object as a blackbody, with $\lambda_{\max}T = 2.898\times10^{-3}$ m·K. (a) A star''s surface is at {temp:dp0} K. At what wavelength (nm) does its spectrum peak? (b) Another object''s spectrum peaks at {lam2:dp0} nm. What is its temperature (K)? Give each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: lmax, label: '(a) $\lambda_{\max} =$', relTolerance: 0.01, units: {nm: 1, m: 1e9, 'μm': 1000, um: 1000}}
+    - {format: sig4, name: T2, label: '(b) $T =$', relTolerance: 0.01, units: {K: 1}}
+  solution: |-
+    (a) $\lambda_{\max} = \dfrac{2.898\times10^{-3}\text{ m·K}}{{temp:dp0}\text{ K}} = {lmaxm:texsci}$ m $=$ **{lmax:sig3} nm**.
+
+    (b) $T = \dfrac{2.898\times10^{-3}}{{lam2:dp0}\times10^{-9}} =$ **{T2:sig3} K**.
+- id: phys-compton
+  title: Compton scattering
+  topic: Photons
+  vars:
+    lam: {min: 5, max: 100, step: 0.5}
+    th: {min: 30, max: 180, step: 5}
+  calc:
+    dl: 2.43*(1 - cosd(th))
+    lp: lam + dl
+    Ke: 1240*dl/(lam*lp)
+  prompt: 'An X-ray photon of wavelength {lam:num1} pm scatters off a nearly free electron and leaves at {th}° to its original direction. Using $h/(m_ec) = 2.43$ pm and $hc = 1240$ keV·pm, find (a) the wavelength shift (pm), (b) the scattered wavelength (pm) and (c) the kinetic energy given to the electron (keV), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: dl, label: '(a) $\Delta\lambda =$', relTolerance: 0.01, units: {pm: 1, nm: 1000}}
+    - {format: sig4, name: lp, label: '(b) $\lambda'' =$', relTolerance: 0.01, units: {pm: 1, nm: 1000}}
+    - {format: sig4, name: Ke, label: '(c) $K =$', relTolerance: 0.01, units: {keV: 1, eV: 0.001}}
+  solution: |-
+    (a) $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta) = 2.43(1 - \cos{th}^\circ) =$ **{dl:sig3} pm**.
+
+    (b) $\lambda' = \lambda + \Delta\lambda = {lam:num1} + {dl:num4} =$ **{lp:sig3} pm**.
+
+    (c) The electron gains the energy the photon loses: $K = \dfrac{hc}{\lambda} - \dfrac{hc}{\lambda'} = \dfrac{1240}{{lam:num1}} - \dfrac{1240}{{lp:num4}} =$ **{Ke:sig3} keV**. (Keep extra digits: the two energies are close.)
 - id: phys-bohr
   title: Hydrogen transition (Bohr model)
   topic: Atomic structure
@@ -120,6 +159,72 @@
     $K = eV$ and $p = \sqrt{2mK} = \sqrt{2({part:texsci})(1.602\times10^{-19})({V:dp0})} = {p:texsci}$ kg·m/s.
 
     $\lambda = \dfrac hp = {lam:texsci}$ m $= \mathbf{{lnm:texsci}}$ nm.
+- id: phys-atomic-states
+  title: Counting quantum states
+  topic: Multielectron atoms
+  vars:
+    n: {min: 1, max: 7}
+    sub: {choices: [{label: 's', value: 0}, {label: 'p', value: 1}, {label: 'd', value: 2}, {label: 'f', value: 3}]}
+  where: ['sub <= n - 1']
+  calc:
+    lval: sub
+    nml: 2*sub + 1
+    esub: 2*(2*sub + 1)
+    eshell: 2*n^2
+  prompt: 'Consider the {n}{sub} subshell of an atom. Give (a) its orbital quantum number $l$, (b) the number of allowed $m_l$ values, (c) the greatest number of electrons the subshell can hold, and (d) the greatest number of electrons the whole $n = {n}$ shell can hold.'
+  answers:
+    - {name: lval, label: '(a) $l =$', format: integer}
+    - {name: nml, label: '(b) $m_l$ values', format: integer}
+    - {name: esub, label: '(c) subshell', format: integer}
+    - {name: eshell, label: '(d) shell', format: integer}
+  solution: |-
+    (a) The letters s, p, d, f stand for $l = 0, 1, 2, 3$, so {sub} means $l =$ **{lval:int}**.
+
+    (b) $m_l$ runs from $-l$ to $l$, so the number of values is $2l + 1 =$ **{nml:int}**.
+
+    (c) Each $m_l$ allows two spins ($m_s = \pm\tfrac12$), so the subshell holds $2(2l + 1) =$ **{esub:int}** electrons (Pauli exclusion principle).
+
+    (d) The shell holds $2n^2 = 2({n})^2 =$ **{eshell:int}** electrons.
+- id: phys-xray-tube
+  title: X-ray tube cutoff
+  topic: X-rays and lasers
+  vars:
+    kV: {min: 10, max: 150}
+  calc:
+    Emax: kV
+    lmin: 1240/kV
+    fmax: kV*1000*1.602e-19/6.63e-34
+  prompt: 'An X-ray tube accelerates electrons through {kV} kV. Find (a) the energy of the most energetic X-ray photon (keV), (b) the cutoff wavelength (pm) and (c) the highest X-ray frequency (Hz), each to 3 significant figures. ($hc = 1240$ eV·nm, $h = 6.63\times10^{-34}$ J·s, $e = 1.602\times10^{-19}$ C)'
+  answers:
+    - {format: sig4, name: Emax, label: '(a) $E_{\max} =$', relTolerance: 0.01, units: {keV: 1, eV: 0.001}}
+    - {format: sig4, name: lmin, label: '(b) $\lambda_{\min} =$', relTolerance: 0.01, units: {pm: 1, nm: 1000}}
+    - {name: fmax, label: '(c) $f_{\max} =$', format: sci, relTolerance: 0.01, units: {Hz: 1}}
+  solution: |-
+    (a) The most energetic photon takes all of an electron's kinetic energy, $eV$: **{Emax} keV**.
+
+    (b) $\lambda_{\min} = \dfrac{hc}{eV}$. With $hc = 1240$ eV·nm $= 1240$ keV·pm, $\lambda_{\min} = \dfrac{1240\text{ keV·pm}}{{kV}\text{ keV}} =$ **{lmin:sig3} pm**.
+
+    (c) $f_{\max} = \dfrac{eV}{h} = \dfrac{(1.602\times10^{-19})({kV}\times10^{3})}{6.63\times10^{-34}} = \mathbf{{fmax:texsci}}$ Hz.
+- id: phys-moseley
+  title: Characteristic X-ray (Kα) estimate
+  topic: X-rays and lasers
+  vars:
+    el: {choices: [{label: 'titanium ($Z = 22$)', value: 22}, {label: 'chromium ($Z = 24$)', value: 24}, {label: 'iron ($Z = 26$)', value: 26}, {label: 'cobalt ($Z = 27$)', value: 27}, {label: 'nickel ($Z = 28$)', value: 28}, {label: 'copper ($Z = 29$)', value: 29}, {label: 'zinc ($Z = 30$)', value: 30}, {label: 'molybdenum ($Z = 42$)', value: 42}, {label: 'silver ($Z = 47$)', value: 47}, {label: 'tungsten ($Z = 74$)', value: 74}]}
+  calc:
+    EeV: 10.2*(el - 1)^2
+    EkeV: EeV/1000
+    lam: 1240*1000/EeV
+    lamnm: lam/1000
+  prompt: 'Estimate the energy (keV) and wavelength (pm) of the Kα X-ray line of {el}, using $E \approx 10.2\text{ eV}\,(Z - 1)^2$ and $hc = 1240$ eV·nm. Give each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: EkeV, label: 'Energy', relTolerance: 0.01, units: {keV: 1, eV: 0.001}}
+    - {format: sig4, name: lam, label: 'Wavelength', relTolerance: 0.01, units: {pm: 1, nm: 1000}}
+  solution: |-
+    The remaining 1s electron screens one unit of nuclear charge, so the dropping electron sees about $Z - 1 = {el:dp0} - 1$.
+
+    $E \approx 10.2({el:dp0} - 1)^2 = {EeV:dp0}$ eV $=$ **{EkeV:sig3} keV**.
+
+    $\lambda = \dfrac{hc}{E} = \dfrac{1240\text{ eV·nm}}{{EeV:dp0}\text{ eV}} = {lamnm:num4}$ nm $=$ **{lam:sig3} pm**.
 - id: phys-half-life
   title: Radioactive decay
   topic: Radioactive decay

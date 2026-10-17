@@ -374,6 +374,45 @@
   aliases: [CG]
   definition: 'The point where an object''s total weight effectively acts; equals the center of mass in uniform gravity.'
   topic: Static equilibrium
+- term: stress
+  aliases: [tensile stress, compressive stress]
+  definition: 'Force per unit area on a material, $F/A$, in pascals; tensile stress pulls, compressive stress pushes.'
+  topic: Elasticity
+- term: strain
+  definition: 'The fractional change in length, $\Delta L/L_0$; it has no units.'
+  topic: Elasticity
+- term: Young's modulus
+  aliases: [Y, modulus of elasticity]
+  definition: 'The ratio of tensile (or compressive) stress to strain in the linear range, $Y = \dfrac{F/A}{\Delta L/L_0}$; about $2.0\times10^{11}$ Pa for steel.'
+  topic: Elasticity
+- term: elastic deformation
+  definition: 'A deformation that disappears completely when the load is removed; stress is proportional to strain.'
+  topic: Elasticity
+- term: elastic limit
+  definition: 'The largest stress a material can take and still return fully to its original shape.'
+  topic: Elasticity
+- term: plastic deformation
+  aliases: [plastic, permanent set]
+  definition: 'Permanent deformation that remains after the load is removed, once the stress has exceeded the elastic limit.'
+  topic: Elasticity
+- term: ultimate strength
+  aliases: [tensile strength, ultimate tensile strength]
+  definition: 'The greatest stress a material can withstand before it starts to fail.'
+  topic: Elasticity
+- term: shear stress
+  definition: 'Force per unit area applied parallel to a surface, $F/A$.'
+  topic: Elasticity
+- term: shear strain
+  definition: 'The sideways displacement of one face relative to the opposite face divided by the distance between them, $\Delta x/L_0$.'
+  topic: Elasticity
+- term: shear modulus
+  aliases: [S (shear modulus), modulus of rigidity]
+  definition: 'The ratio of shear stress to shear strain, $S = \dfrac{F/A}{\Delta x/L_0}$; fluids have none.'
+  topic: Elasticity
+- term: bulk modulus
+  aliases: [B (bulk modulus)]
+  definition: 'The resistance to uniform compression, $B = -\dfrac{\Delta P}{\Delta V/V_0}$; about $2.2\times10^{9}$ Pa for water.'
+  topic: Elasticity
 - term: Newton's law of gravitation
   aliases: [universal gravitation, law of universal gravitation]
   definition: 'Any two masses attract with $F = Gm_1m_2/r^2$ along the line joining them.'
@@ -1116,6 +1155,59 @@
 - term: lensmaker's equation
   definition: '$\dfrac1f = (n - 1)\left(\dfrac1{R_1} - \dfrac1{R_2}\right)$ for a thin lens.'
   topic: Thin lenses
+- term: cornea
+  definition: 'The curved, transparent front surface of the eye, which does most of its focusing.'
+  topic: Vision
+- term: retina
+  definition: 'The light-sensitive layer at the back of the eye, where the eye forms a real, inverted image.'
+  topic: Vision
+- term: accommodation
+  definition: 'The eye''s ability to change the shape, and so the focal length, of its lens to focus on objects at different distances.'
+  topic: Vision
+- term: near point
+  definition: 'The closest distance at which an eye can focus clearly; 25 cm by convention for a normal eye.'
+  topic: Vision
+- term: far point
+  definition: 'The farthest distance at which an eye can focus; infinity for a normal eye.'
+  topic: Vision
+- term: myopia
+  aliases: [nearsightedness, nearsighted]
+  definition: 'Nearsightedness: the eye focuses too strongly, so its far point is closer than infinity; corrected with a diverging lens.'
+  topic: Vision
+- term: hyperopia
+  aliases: [farsightedness, farsighted]
+  definition: 'Farsightedness: the eye focuses too weakly, so its near point is farther than 25 cm; corrected with a converging lens.'
+  topic: Vision
+- term: presbyopia
+  definition: 'Loss of accommodation with age as the eye''s lens stiffens, so the near point recedes.'
+  topic: Vision
+- term: angular magnification
+  definition: 'The ratio $M = \theta/\theta_0$ of the angle an image subtends through an instrument to the angle the object subtends to the unaided eye at its best viewing distance.'
+  topic: Optical instruments
+- term: magnifier
+  aliases: [magnifying glass, simple magnifier]
+  definition: 'A single converging lens used with the object inside its focal length; angular magnification $25\text{ cm}/f$ (image at infinity) or $1 + 25\text{ cm}/f$ (image at the near point).'
+  topic: Optical instruments
+- term: compound microscope
+  aliases: [microscope]
+  definition: 'Two converging lenses: a short-focal-length objective makes a real, enlarged image that the eyepiece magnifies; $M = m_{\text{obj}}M_{\text{eye}}$.'
+  topic: Optical instruments
+- term: objective
+  aliases: [objective lens]
+  definition: 'The lens or mirror of a microscope or telescope nearest the object; it forms the first, real image.'
+  topic: Optical instruments
+- term: eyepiece
+  aliases: [ocular]
+  definition: 'The lens nearest the eye in a microscope or telescope; it acts as a magnifier for the objective''s image.'
+  topic: Optical instruments
+- term: refracting telescope
+  aliases: [refractor]
+  definition: 'A telescope with a long-focal-length objective lens and a short-focal-length eyepiece; $M = -f_o/f_e$, length about $f_o + f_e$.'
+  topic: Optical instruments
+- term: reflecting telescope
+  aliases: [reflector]
+  definition: 'A telescope whose objective is a concave mirror; mirrors avoid color fringes and can be made much larger than lenses.'
+  topic: Optical instruments
 - term: coherent
   aliases: [coherence]
   definition: 'Describes sources with a constant phase relationship, needed for a stable interference pattern.'
@@ -1212,6 +1304,78 @@
   aliases: [Heisenberg uncertainty principle]
   definition: 'Position and momentum cannot both be sharply defined: $\Delta x\,\Delta p \ge h/(4\pi)$.'
   topic: Wave–particle duality
+- term: orbital
+  aliases: [orbitals]
+  definition: 'A standing-wave state of an electron in an atom, labeled by $n$, $l$ and $m_l$; it holds at most two electrons.'
+  topic: Multielectron atoms
+- term: principal quantum number
+  aliases: [n (quantum number)]
+  definition: 'The quantum number $n = 1, 2, 3, \ldots$ that mainly sets an electron''s energy and orbital size.'
+  topic: Multielectron atoms
+- term: shell
+  aliases: [shells, electron shell]
+  definition: 'All the electron states with the same principal quantum number $n$; it holds up to $2n^2$ electrons.'
+  topic: Multielectron atoms
+- term: orbital quantum number
+  aliases: [angular momentum quantum number, l (quantum number)]
+  definition: 'The quantum number $l = 0, 1, \ldots, n - 1$ that sets an orbital''s shape and orbital angular momentum $L = \sqrt{l(l+1)}\,h/(2\pi)$; $l = 0, 1, 2, 3$ are called s, p, d, f.'
+  topic: Multielectron atoms
+- term: subshell
+  aliases: [subshells]
+  definition: 'All the electron states with the same $n$ and $l$, such as 2p; it holds up to $2(2l + 1)$ electrons.'
+  topic: Multielectron atoms
+- term: magnetic quantum number
+  aliases: [m_l]
+  definition: 'The quantum number $m_l = -l, \ldots, l$ that sets an orbital''s orientation; the angular momentum component along an axis is $m_l h/(2\pi)$.'
+  topic: Multielectron atoms
+- term: spin quantum number
+  aliases: [m_s]
+  definition: 'The quantum number $m_s = +\tfrac12$ or $-\tfrac12$ that gives the direction of an electron''s spin.'
+  topic: Multielectron atoms
+- term: spin
+  aliases: [electron spin]
+  definition: 'The built-in angular momentum (and magnetism) of an electron, which has only two possible settings, up and down.'
+  topic: Multielectron atoms
+- term: Pauli exclusion principle
+  aliases: [exclusion principle, Pauli principle]
+  definition: 'No two electrons in an atom can have the same set of four quantum numbers $n$, $l$, $m_l$, $m_s$.'
+  topic: Multielectron atoms
+- term: electron configuration
+  aliases: [electron configurations]
+  definition: 'The list of an atom''s occupied subshells with the number of electrons in each, such as $1s^2\,2s^2\,2p^6\,3s^1$ for sodium.'
+  topic: Multielectron atoms
+- term: X-ray tube
+  definition: 'A tube in which electrons accelerated through a high voltage strike a metal target and produce X-rays.'
+  topic: X-rays and lasers
+- term: bremsstrahlung
+  aliases: [braking radiation]
+  definition: 'X-rays emitted with a continuous spread of energies as fast electrons are deflected and slowed by nuclei.'
+  topic: X-rays and lasers
+- term: cutoff wavelength
+  aliases: [λmin]
+  definition: 'The shortest wavelength from an X-ray tube, $\lambda_{\min} = hc/(eV)$, set only by the accelerating voltage.'
+  topic: X-rays and lasers
+- term: characteristic X-rays
+  aliases: [characteristic X-ray, Kα line, characteristic lines]
+  definition: 'X-ray lines at wavelengths fixed by the target element, emitted when an electron drops into a vacancy in an inner shell; $E_{K\alpha} \approx 10.2\text{ eV}\,(Z - 1)^2$.'
+  topic: X-rays and lasers
+- term: spontaneous emission
+  definition: 'Emission of a photon by an excited atom on its own, at a random moment and in a random direction.'
+  topic: X-rays and lasers
+- term: stimulated emission
+  definition: 'Emission triggered by a passing photon of matching energy; the new photon has the same energy, direction, phase and polarization.'
+  topic: X-rays and lasers
+- term: laser
+  aliases: [lasers]
+  definition: 'Light amplification by stimulated emission of radiation: a source of monochromatic, coherent, directional light.'
+  topic: X-rays and lasers
+- term: population inversion
+  definition: 'A state with more atoms in an upper level than in a lower one, needed for stimulated emission to outpace absorption.'
+  topic: X-rays and lasers
+- term: metastable state
+  aliases: [metastable]
+  definition: 'An excited state that lasts unusually long (around a millisecond rather than about 10 ns), letting atoms pile up in it.'
+  topic: X-rays and lasers
 - term: nucleon
   aliases: [nucleons]
   definition: 'A proton or neutron.'

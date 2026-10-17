@@ -257,7 +257,7 @@
   "order": 13,
   "title": "Physics",
   "description": "Algebra-based physics at the high school / AP Physics 1 and 2 level (no calculus): measurement and vectors, kinematics, Newton's laws, energy and momentum, rotation and gravitation, oscillations, waves and sound, fluids and thermodynamics, electrostatics, circuits, magnetism and induction, optics, and modern physics. For the calculus-based versions, see University Physics I and II.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Science",
   "level": [
    "High school"
