@@ -102,7 +102,7 @@ Find $\displaystyle\int\frac{dx}{\sqrt{x^2 + 4}}$.
 
 $x = 2\tan\theta$, $dx = 2\sec^2\theta\,d\theta$, $\sqrt{x^2 + 4} = 2\sec\theta$:
 $$\int\frac{2\sec^2\theta}{2\sec\theta}\,d\theta = \int\sec\theta\,d\theta = \ln|\sec\theta + \tan\theta| + C.$$
-From the triangle ($\tan\theta = \frac x2$, hypotenuse $\sqrt{x^2 + 4}$): $\ln\left|\frac{\sqrt{x^2 + 4} + x}{2}\right| + C$, which is $\ln\left(x + \sqrt{x^2 + 4}\right) + C'$ after absorbing $-\ln2$ into the constant.
+From the triangle ($\tan\theta = \frac x2$, hypotenuse $\sqrt{x^2 + 4}$): $\ln\left|\frac{\sqrt{x^2 + 4} + x}{2}\right| + C$, which is $\ln\left(x + \sqrt{x^2 + 4}\right) + C'$ after absorbing $-\ln2$ into the constant. (Lesson 36 shows that $\ln\frac{x + \sqrt{x^2 + 4}}{2}$ is the inverse hyperbolic sine $\sinh^{-1}\frac x2$, a shortcut for integrals of this shape.)
 
 *Check before substituting.* If the integrand has an $x$ that matches the derivative of the inside, ordinary substitution is faster: $\int\frac{x\,dx}{\sqrt{9 - x^2}} = -\sqrt{9 - x^2} + C$ with $u = 9 - x^2$.
 

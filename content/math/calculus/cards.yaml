@@ -409,6 +409,9 @@
 - front: $\lim\sum_{i=1}^n f\left(a + \frac{(b - a)i}{n}\right)\frac{b - a}{n}$
   back: $\displaystyle\int_a^b f(x)\,dx$
   topic: Riemann sums
+- front: Trapezoidal sum from a table with uneven spacing
+  back: Add $\frac{f(x_{i-1}) + f(x_i)}{2}\,\Delta x_i$ over the pieces, each with its own width $\Delta x_i$.
+  topic: Riemann sums
 - front: Definite integral as area
   back: 'Net signed area: area above the axis minus area below.'
   topic: Definite integral
@@ -465,6 +468,9 @@
   topic: U-substitution
 - front: Even function on $[-a, a]$
   back: $\int_{-a}^a f = 2\int_0^a f$
+  topic: U-substitution
+- front: 'Completing the square: $\displaystyle\int\frac{dx}{x^2 + 2hx + c}$ with $c > h^2$'
+  back: 'Write $(x + h)^2 + k^2$ with $k^2 = c - h^2$: the integral is $\dfrac1k\arctan\dfrac{x + h}{k} + C$.'
   topic: U-substitution
 - front: Displacement vs distance from $v(t)$
   back: Displacement $\int v\,dt$; distance $\int|v|\,dt$.
@@ -658,6 +664,33 @@
 - front: $\displaystyle\int_0^\infty e^{-ax}\,dx$ ($a > 0$)
   back: $\dfrac1a$
   topic: Improper integrals
+- front: Definitions of $\cosh x$ and $\sinh x$
+  back: $\cosh x = \dfrac{e^x + e^{-x}}{2}$, $\sinh x = \dfrac{e^x - e^{-x}}{2}$
+  topic: Hyperbolic functions
+- front: Main hyperbolic identity
+  back: $\cosh^2x - \sinh^2x = 1$ (so $(\cosh t, \sinh t)$ lies on $x^2 - y^2 = 1$).
+  topic: Hyperbolic functions
+- front: $\dfrac{d}{dx}\sinh x$ and $\dfrac{d}{dx}\cosh x$
+  back: $\cosh x$ and $\sinh x$ (no minus sign).
+  topic: Hyperbolic functions
+- front: $\dfrac{d}{dx}\tanh x$
+  back: $\operatorname{sech}^2x$
+  topic: Hyperbolic functions
+- front: $\displaystyle\int\tanh x\,dx$
+  back: $\ln(\cosh x) + C$
+  topic: Hyperbolic functions
+- front: $\sinh^{-1}x$ as a logarithm
+  back: $\ln\left(x + \sqrt{x^2 + 1}\right)$, for all $x$.
+  topic: Hyperbolic functions
+- front: $\dfrac{d}{dx}\sinh^{-1}x$, $\dfrac{d}{dx}\cosh^{-1}x$, $\dfrac{d}{dx}\tanh^{-1}x$
+  back: $\dfrac{1}{\sqrt{x^2 + 1}}$, $\dfrac{1}{\sqrt{x^2 - 1}}$ ($x > 1$), $\dfrac{1}{1 - x^2}$ ($\lvert x\rvert < 1$).
+  topic: Hyperbolic functions
+- front: $\displaystyle\int\frac{dx}{\sqrt{x^2 + a^2}}$
+  back: $\sinh^{-1}\dfrac xa + C = \ln\left(x + \sqrt{x^2 + a^2}\right) + C'$
+  topic: Hyperbolic functions
+- front: Catenary and its arc length
+  back: $y = a\cosh\frac xa$; length on $[-b, b]$ is $2a\sinh\frac ba$.
+  topic: Hyperbolic functions
 - front: Slope field segments parallel in each column
   back: The equation is $\frac{dy}{dx} = f(x)$ (slope depends on $x$ only).
   topic: Slope fields
@@ -700,6 +733,27 @@
 - front: 'Logistic: long-run limit'
   back: $M$, the carrying capacity.
   topic: Exponential and logistic models
+- front: Standard form of a first-order linear equation
+  back: $y' + P(x)y = Q(x)$ (divide by the coefficient of $y'$ first).
+  topic: Linear differential equations
+- front: Integrating factor
+  back: $\mu = e^{\int P(x)\,dx}$; then $(\mu y)' = \mu Q$.
+  topic: Linear differential equations
+- front: Solution of $y' + P(x)y = Q(x)$
+  back: $y = \dfrac{1}{\mu}\left(\displaystyle\int\mu Q\,dx + C\right)$, $\mu = e^{\int P\,dx}$
+  topic: Linear differential equations
+- front: Solution of $y' + ky = b$, $y(0) = y_0$
+  back: $y = \frac bk + \left(y_0 - \frac bk\right)e^{-kt}$
+  topic: Linear differential equations
+- front: Mixing problem equation
+  back: $\dfrac{dQ}{dt} = (\text{conc. in})(\text{flow in}) - \dfrac{Q}{V}(\text{flow out})$
+  topic: Linear differential equations
+- front: RL circuit with constant voltage $E$, $I(0) = 0$
+  back: $I = \dfrac ER\left(1 - e^{-Rt/L}\right)$; time constant $\dfrac LR$.
+  topic: Linear differential equations
+- front: Is $\frac{dy}{dx} = x + y$ linear?
+  back: Yes; $y' - y = x$ with $\mu = e^{-x}$ gives $y = Ce^x - x - 1$.
+  topic: Linear differential equations
 - front: $\lim r^n$
   back: $0$ if $|r| < 1$; $1$ if $r = 1$; diverges otherwise.
   topic: Sequences
@@ -822,6 +876,12 @@
   topic: Parametric equations
 - front: Horizontal and vertical tangents (parametric)
   back: 'Horizontal: $y'' = 0$, $x'' \ne 0$. Vertical: $x'' = 0$, $y'' \ne 0$.'
+  topic: Parametric equations
+- front: 'Vector-valued motion $\mathbf r(t) = \langle x(t), y(t)\rangle$'
+  back: '$\mathbf v = \mathbf r''$, $\mathbf a = \mathbf v''$, speed $\lvert\mathbf v\rvert$; $\mathbf r(b) = \mathbf r(a) + \int_a^b\mathbf v\,dt$.'
+  topic: Parametric equations
+- front: Displacement vs distance for motion in the plane
+  back: Displacement is the vector $\int_a^b\mathbf v\,dt$; distance traveled is the number $\int_a^b\lvert\mathbf v\rvert\,dt$.
   topic: Parametric equations
 - front: Polar to rectangular
   back: $x = r\cos\theta$, $y = r\sin\theta$; $r^2 = x^2 + y^2$.

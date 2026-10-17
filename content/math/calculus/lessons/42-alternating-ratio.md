@@ -9,7 +9,7 @@ refs: [calc-ref-series]
 ---
 ## Series with signs
 
-The tests of Lesson 39 need positive terms. Many important series have terms that switch sign, like $1 - \frac12 + \frac13 - \frac14 + \cdots$, and the power series coming next have both signs and factorials. This lesson completes the toolkit: the alternating series test, absolute versus conditional convergence, and the ratio and root tests.
+The tests of Lesson 41 need positive terms. Many important series have terms that switch sign, like $1 - \frac12 + \frac13 - \frac14 + \cdots$, and the power series coming next have both signs and factorials. This lesson completes the toolkit: the alternating series test, absolute versus conditional convergence, and the ratio and root tests.
 
 ## Alternating series
 

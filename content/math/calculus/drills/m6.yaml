@@ -278,3 +278,93 @@
       - {at: [xc, fav]}
   solution: |-
     $f_{\text{avg}} = \dfrac{1}{{c}}\displaystyle\int_0^{{c}}({a:coef}x^2 {b:signed})\,dx = \dfrac{1}{{c}}\left[\dfrac{{a:coef}x^3}{3} {b:signedcoef}x\right]_0^{{c}} = \dfrac{1}{{c}}\cdot{I:texfrac} =$ **{fav:frac}**. Solve ${a:coef}x^2 {b:signed} = {fav:texfrac}$: $x^2 = \dfrac{{c}^2}{3}$, so $x = \dfrac{{c}}{\sqrt3} \approx$ **{xc:num4}**.
+- id: calc-d-trap-table
+  title: Trapezoidal and left sums from uneven data
+  topic: Riemann sums
+  vars:
+    w1: {min: 1, max: 4}
+    w2: {min: 1, max: 4}
+    w3: {min: 1, max: 4}
+    r0: {min: 2, max: 20}
+    r1: {min: 2, max: 20}
+    r2: {min: 2, max: 20}
+    r3: {min: 2, max: 20}
+  where: ["w1 != w2 or w2 != w3"]
+  calc:
+    t1: w1
+    t2: w1 + w2
+    t3: w1 + w2 + w3
+    T: (r0 + r1)/2*w1 + (r1 + r2)/2*w2 + (r2 + r3)/2*w3
+    Lsum: r0*w1 + r1*w2 + r2*w3
+    p1: (r0 + r1)/2*w1
+    p2: (r1 + r2)/2*w2
+    p3: (r2 + r3)/2*w3
+  prompt: |-
+    Water flows into a tank at rate $r(t)$ liters per minute. Measurements:
+
+    | $t$ (min) | 0 | {t1} | {t2} | {t3} |
+    |---|---|---|---|---|
+    | $r(t)$ (L/min) | {r0} | {r1} | {r2} | {r3} |
+
+    Estimate $\displaystyle\int_0^{{t3}} r(t)\,dt$ with a trapezoidal sum and with a left Riemann sum, using the subintervals in the table.
+  answers:
+    - {name: T, label: 'Trapezoidal $\approx$', tolerance: 0.01, format: num1}
+    - {name: Lsum, label: 'Left sum $\approx$'}
+  figure:
+    type: plot
+    x: [-0.5, 't3 + 0.5']
+    y: [0, 22]
+    xLabel: t
+    yLabel: r
+    polygons:
+      - {points: [[0, 0], [0, r0], [t1, r1], [t1, 0]]}
+      - {points: [[t1, 0], [t1, r1], [t2, r2], [t2, 0]]}
+      - {points: [[t2, 0], [t2, r2], [t3, r3], [t3, 0]]}
+    points: [[0, r0], [t1, r1], [t2, r2], [t3, r3]]
+  solution: |-
+    The widths are {w1}, {w2} and {w3} minutes; each piece uses its own width.
+
+    *Trapezoidal:* $\dfrac{{r0} + {r1}}{2}({w1}) + \dfrac{{r1} + {r2}}{2}({w2}) + \dfrac{{r2} + {r3}}{2}({w3}) = {p1} + {p2} + {p3} =$ **{T:num1}** liters.
+
+    *Left sum:* ${r0}({w1}) + {r1}({w2}) + {r2}({w3}) =$ **{Lsum}** liters.
+- id: calc-d-complete-square
+  title: Complete the square, then arctan
+  topic: U-substitution
+  vars:
+    h: {min: -4, max: 4}
+    k: {min: 2, max: 5}
+    span: {choices: [0, 1, 2]}
+  where: ["h != 0"]
+  calc:
+    b: 2*h
+    hh: h^2
+    c: h^2 + k^2
+    k2: k^2
+    ulo: if(span == 0, 0, -1)
+    uhi: if(span == 2, 0, 1)
+    U1: k*if(span == 0, 0, -1)
+    U2: k*if(span == 2, 0, 1)
+    lo: -h + k*if(span == 0, 0, -1)
+    hi: -h + k*if(span == 2, 0, 1)
+    den: if(span == 1, 2*k, 4*k)
+    V: (atan(if(span == 2, 0, 1)) - atan(if(span == 0, 0, -1)))/k
+  funcs:
+    f(x): 1/(x^2 + b*x + c)
+  prompt: 'Write $x^2 {b:signedcoef}x + {c}$ as $(x + h)^2 + k^2$ with $k > 0$, then evaluate $\displaystyle\int_{{lo}}^{{hi}}\frac{dx}{x^2 {b:signedcoef}x + {c}}$. (Exact, like pi/8, or 4 decimals.)'
+  answers:
+    - {name: h, label: '$h =$'}
+    - {name: k, label: '$k =$'}
+    - {name: V, label: 'Integral', tolerance: 0.0001, format: num4}
+  figure:
+    type: plot
+    x: ['lo - 2', 'hi + 2']
+    y: [0, '1.25/k2']
+    functions: [f]
+    shade: [{f: f, from: lo, to: hi}]
+  solution: |-
+    Half of ${b}$ is ${h}$, and $(x {h:signed})^2 = x^2 {b:signedcoef}x + {hh}$. So
+    $$x^2 {b:signedcoef}x + {c} = (x {h:signed})^2 + {k2},$$
+    which gives $h =$ **{h}** and $k =$ **{k}**.
+
+    Let $u = x {h:signed}$, so $du = dx$; the limits $x = {lo}$ and $x = {hi}$ become $u = {U1}$ and $u = {U2}$. Then
+    $$\int_{{U1}}^{{U2}}\frac{du}{u^2 + {k2}} = \frac{1}{{k}}\left[\arctan\frac{u}{{k}}\right]_{{U1}}^{{U2}} = \frac{1}{{k}}\left(\arctan({uhi}) - \arctan({ulo})\right) = \frac{\pi}{{den}} \approx \mathbf{{V:num4}}.$$

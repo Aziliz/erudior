@@ -95,6 +95,49 @@
   explanation: |-
     $\int y\,dx = \int_0^{2\pi}(1 - \cos t)^2\,dt = \int_0^{2\pi}(1 - 2\cos t + \cos^2t)\,dt = 2\pi + \pi = 3\pi$.
 
+- id: calc-q-4312
+  lesson: calc-parametric
+  module_quiz: true
+  topic: Parametric equations
+  stem: 'A particle has position $\mathbf r(t) = \langle t^3, t^2\rangle$. What is its acceleration vector at $t = 1$?'
+  choices: ['$\langle 3, 2\rangle$', '$\langle 6, 2\rangle$', '$\langle 1, 1\rangle$', '$\langle 6, 0\rangle$']
+  answer: 1
+  explanation: |-
+    $\mathbf v = \langle 3t^2, 2t\rangle$ and $\mathbf a = \mathbf v' = \langle 6t, 2\rangle$, which is $\langle 6, 2\rangle$ at $t = 1$. $\langle 3, 2\rangle$ is the velocity; $\langle 1, 1\rangle$ is the position; and $\langle 6, 0\rangle$ differentiates the second component one time too many.
+- id: calc-q-4313
+  lesson: calc-parametric
+  topic: Parametric equations
+  stem: 'A particle has velocity $\mathbf v(t) = \langle 2t, t^2 - 1\rangle$. What is its speed at $t = 2$?'
+  choices: ['$7$', '$\langle 4, 3\rangle$', '$25$', '$5$']
+  answer: 3
+  explanation: |-
+    $\mathbf v(2) = \langle 4, 3\rangle$, and speed is its length: $\sqrt{4^2 + 3^2} = 5$. Adding the components gives 7; 25 forgets the square root; and $\langle 4, 3\rangle$ is the velocity vector, while speed is a number.
+- id: calc-q-4314
+  lesson: calc-parametric
+  module_quiz: true
+  topic: Parametric equations
+  stem: 'A particle moves along $\mathbf r(t) = \langle \cos t, \sin t\rangle$ for $0 \le t \le 2\pi$. What are its displacement and the distance it travels?'
+  choices: ['Displacement $\langle 0, 0\rangle$; distance $2\pi$', 'Displacement $\langle 0, 0\rangle$; distance $0$', 'Displacement $\langle 2\pi, 0\rangle$; distance $2\pi$', 'Displacement $2\pi$; distance $2\pi$']
+  answer: 0
+  explanation: |-
+    It goes once around the unit circle and ends where it started, so $\mathbf r(2\pi) - \mathbf r(0) = \langle 0, 0\rangle$. Its speed is $\lvert\langle -\sin t, \cos t\rangle\rvert = 1$, so the distance is $\int_0^{2\pi}1\,dt = 2\pi$. Distance 0 confuses distance with the length of the displacement; $\langle 2\pi, 0\rangle$ and $2\pi$ give the displacement the distance's value, though a closed loop has zero displacement.
+- id: calc-q-4315
+  lesson: calc-parametric
+  topic: Parametric equations
+  stem: 'A particle has velocity $\mathbf v(t) = \langle 6t, e^t\rangle$ and position $\mathbf r(0) = \langle 1, 2\rangle$. Find $\mathbf r(1)$.'
+  choices: ['$\langle 3, e - 1\rangle$', '$\langle 4, 2 + e\rangle$', '$\langle 4, 1 + e\rangle$', '$\langle 6, e\rangle$']
+  answer: 2
+  explanation: |-
+    $\mathbf r(1) = \mathbf r(0) + \int_0^1\mathbf v\,dt = \langle 1, 2\rangle + \langle 3, e - 1\rangle = \langle 4, 1 + e\rangle$. $\langle 3, e - 1\rangle$ is only the displacement (the starting point was left out); $2 + e$ forgets that $e^t$ evaluated at 0 is 1, not 0; and $\langle 6, e\rangle$ is the velocity at $t = 1$.
+- id: calc-q-4316
+  lesson: calc-parametric
+  topic: Parametric equations
+  stem: 'A particle has velocity $\mathbf v(t) = \langle t, t^2\rangle$. Which expression gives the distance it travels from $t = 0$ to $t = 2$?'
+  choices: ['$\left\lvert\displaystyle\int_0^2\mathbf v(t)\,dt\right\rvert$', '$\displaystyle\int_0^2\sqrt{t^2 + t^4}\,dt$', '$\displaystyle\int_0^2(t + t^2)\,dt$', '$\displaystyle\int_0^2\sqrt{t + t^2}\,dt$']
+  answer: 1
+  explanation: |-
+    Distance is the integral of speed: $\int_0^2\lvert\mathbf v\rvert\,dt = \int_0^2\sqrt{t^2 + t^4}\,dt$. The length of $\int\mathbf v\,dt$ is the size of the displacement, which can be shorter than the path; adding the components isn't the length of a vector; and $\sqrt{t + t^2}$ forgets to square the components.
+
 - id: calc-q-4401
   lesson: calc-polar
   module_quiz: true

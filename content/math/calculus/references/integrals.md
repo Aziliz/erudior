@@ -17,6 +17,9 @@ title: Integral table
 | $\int\dfrac{dx}{x^2 - a^2}$ | $\dfrac{1}{2a}\ln\left\lvert\dfrac{x - a}{x + a}\right\rvert + C$ | $\int\dfrac{dx}{x\sqrt{x^2 - a^2}}$ | $\dfrac1a\text{arcsec}\dfrac{\lvert x\rvert}{a} + C$ |
 | $\int\ln x\,dx$ | $x\ln x - x + C$ | $\int\sec^3x\,dx$ | $\tfrac12(\sec x\tan x + \ln\lvert\sec x + \tan x\rvert) + C$ |
 | $\int\sin^2 x\,dx$ | $\dfrac x2 - \dfrac{\sin 2x}{4} + C$ | $\int\cos^2 x\,dx$ | $\dfrac x2 + \dfrac{\sin 2x}{4} + C$ |
+| $\int\sinh x\,dx$ | $\cosh x + C$ | $\int\cosh x\,dx$ | $\sinh x + C$ |
+| $\int\operatorname{sech}^2x\,dx$ | $\tanh x + C$ | $\int\tanh x\,dx$ | $\ln(\cosh x) + C$ |
+| $\int\dfrac{dx}{\sqrt{x^2 + a^2}}$ | $\sinh^{-1}\dfrac xa + C$ | $\int\dfrac{dx}{\sqrt{x^2 - a^2}}$ ($x > a$) | $\cosh^{-1}\dfrac xa + C$ |
 
 ## Fundamental Theorem
 
@@ -39,6 +42,8 @@ $\int_a^a f = 0$; $\int_b^a f = -\int_a^b f$; $\int_a^b f + \int_b^c f = \int_a^
 | Trapezoid $T_n$ | $\dfrac{\Delta x}{2}[f(x_0) + 2f(x_1) + \dots + 2f(x_{n-1}) + f(x_n)]$ | $\dfrac{K(b - a)^3}{12n^2}$, $\lvert f''\rvert \le K$ |
 | Simpson $S_n$ ($n$ even) | $\dfrac{\Delta x}{3}[f(x_0) + 4f(x_1) + 2f(x_2) + \dots + 4f(x_{n-1}) + f(x_n)]$ | $\dfrac{K(b - a)^5}{180n^4}$, $\lvert f^{(4)}\rvert \le K$ |
 
+Uneven widths (data tables): trapezoidal sum $\sum\dfrac{f(x_{i-1}) + f(x_i)}{2}\,\Delta x_i$, each piece with its own $\Delta x_i$.
+
 Sums: $\sum_{i=1}^n i = \frac{n(n+1)}{2}$, $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$, $\sum_{i=1}^n i^3 = \left[\frac{n(n+1)}{2}\right]^2$.
 
 ## Techniques
@@ -51,6 +56,7 @@ Sums: $\sum_{i=1}^n i = \frac{n(n+1)}{2}$, $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1
 | Trig substitution | $\sqrt{a^2 - x^2}$, $\sqrt{a^2 + x^2}$, $\sqrt{x^2 - a^2}$ | $x = a\sin\theta$, $a\tan\theta$, $a\sec\theta$ |
 | Partial fractions | rational functions | factor the denominator, split |
 | Completing the square | irreducible $x^2 + bx + c$ (alone or under a root) | rewrite as $(x + h)^2 + k^2$, then arctan, arcsin or trig substitution |
+| Hyperbolic forms | $\sqrt{x^2 + a^2}$ or $\sqrt{x^2 - a^2}$ in a denominator | $\sinh^{-1}\frac xa$ or $\cosh^{-1}\frac xa$ directly |
 
 ## Improper integrals
 

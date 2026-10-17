@@ -128,3 +128,92 @@
     points: [{at: [th, half]}]
   solution: |-
     $P(t) = \dfrac{M}{1 + Ae^{-kt}}$ with $M = {cap}$, $k = {rate}$, and $A = \dfrac{M - P_0}{P_0} = {A:num4}$. Then $P({t1}) = \dfrac{{cap}}{1 + {A:num4}e^{-{rate}\cdot{t1}}} \approx$ **{Pt:int}**. Growth is fastest when $P = \tfrac M2 = {half:int}$: $1 + Ae^{-kt} = 2$, so $t = \dfrac{\ln A}{{rate}} \approx$ **{th:num2}**.
+- id: calc-d-linear-ode
+  title: Solve a linear equation with an integrating factor
+  topic: Linear differential equations
+  vars:
+    n: {min: 2, max: 3}
+    ex: {choices: [{label: 'x', value: 1}, {label: 'x^2', value: 2}, {label: 'x^3', value: 3}]}
+    c: {min: 2, max: 8}
+    y1: {min: -3, max: 5}
+  calc:
+    ne: n + ex
+    nm: n + ex - 1
+    Cc: y1 - c/(n + ex)
+    Y: c*2^ex/(n + ex) + (y1 - c/(n + ex))/2^n
+    tn: 2^n
+    te: 2^ex
+  prompt: 'Solve $xy'' + {n}y = {c}{ex}$ for $x > 0$ with $y(1) = {y1}$, then find $y(2)$. (Exact fraction.)'
+  answers:
+    - {name: Y, kind: fraction, lowestTerms: true, label: '$y(2) =$'}
+  solution: |-
+    *Standard form:* divide by $x$ to get $y' + \dfrac{{n}}{x}y = \dfrac{{c}{ex}}{x}$, so $P(x) = \dfrac{{n}}{x}$.
+
+    *Integrating factor:* $\mu = e^{\int ({n}/x)\,dx} = e^{{n}\ln x} = x^{{n}}$.
+
+    Multiply through: $\left(x^{{n}}y\right)' = x^{{n}}\cdot\dfrac{{c}{ex}}{x} = {c}x^{{nm}}$, so $x^{{n}}y = \dfrac{{c}x^{{ne}}}{{ne}} + C$ and $y = \dfrac{{c}{ex}}{{ne}} + \dfrac{C}{x^{{n}}}$.
+
+    At $x = 1$: ${y1} = \dfrac{{c}}{{ne}} + C$, so $C = {Cc:texfrac}$. Then
+    $$y(2) = \frac{{c}\cdot{te}}{{ne}} + \frac{C}{{tn}} = \mathbf{{Y:texfrac}}.$$
+- id: calc-d-mixing
+  title: Salt in a mixing tank
+  topic: Linear differential equations
+  vars:
+    V: {choices: [100, 200, 400, 500, 1000]}
+    r: {choices: [2, 4, 5, 10]}
+    conc: {choices: [0.1, 0.2, 0.25, 0.5]}
+    q0: {min: 0, max: 20, step: 5}
+    T: {choices: [10, 20, 30, 60]}
+  where: ["q0 < conc*V"]
+  calc:
+    rin: conc*r
+    kk: r/V
+    tau: V/r
+    Qss: conc*V
+    diff: q0 - conc*V
+    QT: conc*V + (q0 - conc*V)*e^(-r*T/V)
+    expo: r*T/V
+  prompt: 'A tank holds {V:dp0} L of water containing {q0} kg of dissolved salt. Brine with {conc} kg of salt per liter flows in at {r} L/min, and the well-mixed solution drains at {r} L/min. How much salt is in the tank after {T} minutes (2 decimals), and how much in the long run?'
+  answers:
+    - {name: QT, label: '$Q({T}) \approx$', tolerance: 0.01, format: num2}
+    - {name: Qss, label: 'Long run: $Q \to$'}
+  figure:
+    type: plot
+    x: [0, '3*tau']
+    y: [0, 'Qss*1.15']
+    xLabel: t (min)
+    yLabel: Q (kg)
+    functions: ['Qss + diff*e^(-x/tau)', {f: Qss, dashed: true}]
+  solution: |-
+    Rate in $= {conc}\times{r} = {rin}$ kg/min. Rate out $= \dfrac{Q}{{V:dp0}}\times{r} = \dfrac{Q}{{tau}}$ kg/min. So
+    $$\frac{dQ}{dt} + \frac{Q}{{tau}} = {rin}, \qquad Q(0) = {q0}.$$
+    This is $Q' + kQ = b$ with $k = \frac{1}{{tau}}$ and $b = {rin}$: the steady state is $\frac bk = {rin}\times{tau} = {Qss}$ kg, and
+    $$Q(t) = {Qss} {diff:signed}e^{-t/{tau}}.$$
+    At $t = {T}$: $Q = {Qss} {diff:signed}e^{-{expo}} \approx$ **{QT:num2}** kg. As $t \to \infty$ the transient dies out and $Q \to$ **{Qss}** kg ({conc} kg/L times {V:dp0} L).
+- id: calc-d-rl-circuit
+  title: Current in an RL circuit
+  topic: Linear differential equations
+  vars:
+    R: {min: 2, max: 20}
+    Lh: {choices: [0.5, 1, 2, 4]}
+    E: {choices: [6, 12, 24, 48, 60, 120]}
+    t1: {choices: [0.05, 0.1, 0.2, 0.5]}
+  where: ["R*t1/Lh >= 0.2", "R*t1/Lh <= 3"]
+  calc:
+    k: R/Lh
+    EL: E/Lh
+    Iss: E/R
+    It: E/R*(1 - e^(-R*t1/Lh))
+    tc: Lh/R
+    t90: Lh/R*ln(10)
+    kt: R*t1/Lh
+  prompt: 'A circuit with resistance $R = {R}\ \Omega$ and inductance $L = {Lh}$ H is connected to a {E}-volt battery at $t = 0$, so $I(0) = 0$. Find the current at $t = {t1}$ s, and the time when the current reaches 90% of its steady-state value. (3 decimals)'
+  answers:
+    - {name: It, label: '$I({t1}) \approx$ (A)', tolerance: 0.001, format: dp3}
+    - {name: t90, label: '90% at $t \approx$ (s)', tolerance: 0.001, format: dp3}
+  solution: |-
+    $LI' + RI = E$ in standard form is $I' + {k:num4}I = {EL:num4}$. The steady state is $\frac ER = {Iss:num4}$ A and the time constant is $\frac LR = {tc:num4}$ s, so
+    $$I(t) = {Iss:num4}\left(1 - e^{-{k:num4}t}\right).$$
+    At $t = {t1}$: $I = {Iss:num4}\left(1 - e^{-{kt:num4}}\right) \approx$ **{It:dp3}** A.
+
+    90% of the steady state means $e^{-{k:num4}t} = 0.1$, so $t = \dfrac{\ln 10}{{k:num4}} \approx$ **{t90:dp3}** s.

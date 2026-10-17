@@ -4,7 +4,7 @@ module: calc-m6
 title: Riemann sums and the definite integral
 minutes: 40
 topics: [Riemann sums, Definite integral]
-drills: [calc-d-riemann, calc-d-sigma, calc-d-geometric-area]
+drills: [calc-d-riemann, calc-d-trap-table, calc-d-sigma, calc-d-geometric-area]
 refs: [calc-ref-integrals]
 ---
 ## The area problem

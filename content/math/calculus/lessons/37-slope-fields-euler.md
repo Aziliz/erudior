@@ -11,7 +11,7 @@ refs: [calc-ref-applications]
 
 A **differential equation** relates an unknown function to its derivatives. Lesson 21 solved the simplest kind, $\frac{dy}{dx} = f(x)$, by antidifferentiating. But most laws of nature describe a rate in terms of the *current state*: a population grows in proportion to its size ($\frac{dP}{dt} = kP$), a cup of coffee cools in proportion to how much hotter it is than the room. These equations, with $y$ on the right side, can't be solved by simply integrating.
 
-This module introduces them at the AP/Calculus II level. (A full treatment is its own course.) This lesson gives two ways to understand solutions without a formula: a picture (slope fields) and a numerical approximation (Euler's method).
+This module introduces them at the AP/Calculus II level. (A full treatment is its own course.) This lesson gives two ways to understand solutions without a formula: a picture (slope fields) and a numerical approximation (Euler's method). Lessons 38 and 39 then find exact solutions for two large families, separable and linear equations.
 
 ## Solutions and the order of an equation
 
@@ -53,7 +53,7 @@ To match an equation with a field, test a few easy points: along the axes, where
 
 Which equation goes with a slope field whose segments are horizontal along the lines $y = 0$ and $y = 4$, point upward between them, and downward above $y = 4$?
 
-Slope depends only on $y$, is zero at $y = 0$ and $y = 4$, positive for $0 < y < 4$ and negative for $y > 4$. That matches $\frac{dy}{dx} = y(4 - y)$, a logistic equation (Lesson 37). Solutions starting between 0 and 4 rise toward 4.
+Slope depends only on $y$, is zero at $y = 0$ and $y = 4$, positive for $0 < y < 4$ and negative for $y > 4$. That matches $\frac{dy}{dx} = y(4 - y)$, a logistic equation (Lesson 38). Solutions starting between 0 and 4 rise toward 4.
 
 ```plot
 {"x": [0, 4], "y": [-1, 6], "slopeField": {"f": "y(4 - y)", "step": 0.5}, "functions": [{"f": "4", "dashed": true}, {"f": "0", "dashed": true}], "caption": "dy/dx = y(4 − y): equilibria at y = 0 and y = 4"}

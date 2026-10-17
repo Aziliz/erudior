@@ -210,3 +210,104 @@
   answer: 1
   explanation: |-
     $k = \frac{1}{y}\frac{dy}{dt}$: the rate of change per unit of the quantity, like an interest rate.
+
+- id: calc-q-lin-01
+  lesson: calc-linear-de
+  module_quiz: true
+  topic: Linear differential equations
+  stem: 'Find an integrating factor for $\dfrac{dy}{dx} + \dfrac3xy = x$, $x > 0$.'
+  choices: ['$3\ln x$', '$e^{3x}$', '$x^3$', '$\dfrac{1}{x^3}$']
+  answer: 2
+  explanation: |-
+    $\mu = e^{\int P\,dx} = e^{3\ln x} = x^3$. Check: $(x^3y)' = x^3y' + 3x^2y = x^3\left(y' + \frac3xy\right)$. ✓ $3\ln x$ is $\int P\,dx$ before exponentiating; $e^{3x}$ treats $P$ as 3 instead of $\frac3x$; $\frac1{x^3}$ comes from a sign slip, $e^{-3\ln x}$.
+- id: calc-q-lin-02
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'Which differential equation is linear?'
+  choices: ['$y'' + y^2 = x$', '$y'' + x^2y = e^x$', '$y'' = \sin y$', '$yy'' = x$']
+  answer: 1
+  explanation: |-
+    $y' + x^2y = e^x$ has the form $y' + P(x)y = Q(x)$ with $P = x^2$, $Q = e^x$. The rest each have a nonlinear term: $y^2$ is a power of $y$, $\sin y$ puts $y$ inside a function, and $yy'$ multiplies $y$ by $y'$. (Functions of $x$ such as $x^2$ or $e^x$ are allowed.)
+- id: calc-q-lin-03
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'Put $xy'' - 4y = x^5$ ($x > 0$) in standard form. What is $P(x)$?'
+  choices: ['$-4$', '$\dfrac4x$', '$-4x$', '$-\dfrac4x$']
+  answer: 3
+  explanation: |-
+    Divide by $x$: $y' - \frac4xy = x^4$, so $P(x) = -\frac4x$ (and $Q = x^4$). Using $-4$ skips dividing by the coefficient of $y'$; $\frac4x$ drops the minus sign; $-4x$ multiplies by $x$ instead of dividing.
+- id: calc-q-lin-04
+  lesson: calc-linear-de
+  module_quiz: true
+  topic: Linear differential equations
+  stem: 'Solve $\dfrac{dy}{dx} + 2y = 6$ with $y(0) = 1$.'
+  choices: ['$y = 3 - 2e^{-2x}$', '$y = 3 + 2e^{-2x}$', '$y = 3 - 2e^{2x}$', '$y = 6 - 5e^{-2x}$']
+  answer: 0
+  explanation: |-
+    $\mu = e^{2x}$: $(e^{2x}y)' = 6e^{2x}$, so $e^{2x}y = 3e^{2x} + C$ and $y = 3 + Ce^{-2x}$. At $x = 0$: $1 = 3 + C$, $C = -2$. The plus version has the wrong sign of $C$ (it starts at 5); $e^{2x}$ grows instead of decaying (it doesn't satisfy the equation); and 6 is $b$, while the steady state is $\frac bk = 3$.
+- id: calc-q-lin-05
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'Every solution of $\dfrac{dy}{dt} + 0.5y = 4$ approaches what value as $t \to \infty$?'
+  choices: ['$4$', '$2$', '$8$', '$0$']
+  answer: 2
+  explanation: |-
+    $y = \frac bk + Ce^{-kt}$ with $k = 0.5$, $b = 4$: the transient dies out and $y \to \frac{4}{0.5} = 8$. Equivalently, the equilibrium has $y' = 0$, so $0.5y = 4$. The value 4 forgets to divide by $k$; 2 multiplies by $k$ instead; and 0 is the limit only when $b = 0$.
+- id: calc-q-lin-06
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'Solving $y'' + 2y = 1$, a student writes $(e^{2x}y)'' = e^{2x}$, then $e^{2x}y = \tfrac12e^{2x} + C$, then $y = \tfrac12 + C$. What went wrong?'
+  choices: ['The integrating factor should be $e^{-2x}$', 'The constant must be divided by $e^{2x}$ too: $y = \tfrac12 + Ce^{-2x}$', 'The antiderivative of $e^{2x}$ is $2e^{2x}$', 'The right side should not have been multiplied by $e^{2x}$']
+  answer: 1
+  explanation: |-
+    Dividing $e^{2x}y = \frac12e^{2x} + C$ by $e^{2x}$ divides every term, so $y = \frac12 + Ce^{-2x}$. The integrating factor $e^{\int2\,dx} = e^{2x}$ was right; $\int e^{2x}\,dx = \frac12e^{2x}$, so that step was right too; and the right side must be multiplied by $\mu$ like every other term.
+- id: calc-q-lin-07
+  lesson: calc-linear-de
+  module_quiz: true
+  topic: Linear differential equations
+  stem: 'A 100 L tank starts with pure water. Brine containing 0.3 kg of salt per liter flows in at 5 L/min, and the well-mixed solution drains at 5 L/min. Which equation does the salt $Q(t)$ (kg) satisfy?'
+  choices: ['$Q'' = 1.5 - 5Q$', '$Q'' = 0.3 - \dfrac{Q}{20}$', '$Q'' = 1.5 - \dfrac{Q}{20}$', '$Q'' = 1.5 - \dfrac{Q}{100}$']
+  answer: 2
+  explanation: |-
+    Rate in $= 0.3(5) = 1.5$ kg/min. Rate out $=$ concentration $\times$ flow $= \frac{Q}{100}(5) = \frac{Q}{20}$. So $Q' = 1.5 - \frac{Q}{20}$. $5Q$ forgets to divide by the volume; $0.3$ is a concentration, not a rate (it needs the factor of 5 L/min); $\frac{Q}{100}$ is the outgoing concentration without multiplying by the flow.
+- id: calc-q-lin-08
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'For the tank with $Q'' = 1.5 - \dfrac{Q}{20}$ (100 L, inflow 0.3 kg/L), how much salt does the tank hold in the long run?'
+  choices: ['$30$ kg', '$1.5$ kg', '$150$ kg', '$0.3$ kg']
+  answer: 0
+  explanation: |-
+    The steady state has $Q' = 0$: $\frac{Q}{20} = 1.5$, so $Q = 30$ kg. That is 100 L at the incoming 0.3 kg/L, as it must be. $1.5$ is the rate in (kg/min); $150$ multiplies the rate 1.5 by the volume 100, which mixes kg/min with liters; $0.3$ is the concentration (kg/L), not an amount.
+- id: calc-q-lin-09
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'A tank holds 50 L at $t = 0$. Brine flows in at 4 L/min and the mixture drains at 2 L/min. What is the rate at which salt leaves, if the tank holds $Q(t)$ kg of salt?'
+  choices: ['$\dfrac{2Q}{50}$ kg/min', '$\dfrac{4Q}{50 + 2t}$ kg/min', '$\dfrac{2Q}{50 - 2t}$ kg/min', '$\dfrac{2Q}{50 + 2t}$ kg/min']
+  answer: 3
+  explanation: |-
+    The volume gains $4 - 2 = 2$ L each minute, so $V = 50 + 2t$, and salt leaves at concentration $\times$ outflow $= \frac{Q}{50 + 2t}(2)$. $\frac{2Q}{50}$ treats the volume as constant; using 4 confuses inflow with outflow; and $50 - 2t$ has the tank emptying when it is actually filling.
+- id: calc-q-lin-10
+  lesson: calc-linear-de
+  module_quiz: true
+  topic: Linear differential equations
+  stem: 'An RL circuit has $R = 10\ \Omega$, $L = 2$ H and a constant 20 V source, with $I(0) = 0$. Find $I(t)$ in amperes.'
+  choices: ['$2\left(1 - e^{-t/5}\right)$', '$2\left(1 - e^{-5t}\right)$', '$10\left(1 - e^{-5t}\right)$', '$2e^{-5t}$']
+  answer: 1
+  explanation: |-
+    $2I' + 10I = 20$, so $I' + 5I = 10$. The steady state is $\frac{10}{5} = 2$ A $= \frac ER$, and $I = 2 + Ce^{-5t}$ with $C = -2$. The exponent $-t/5$ inverts $\frac RL$; 10 is $\frac EL$ rather than the steady state $\frac ER$; and $2e^{-5t}$ is only the transient, which starts at 2 instead of 0.
+- id: calc-q-lin-11
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'What is the time constant of an RL circuit with $R = 8\ \Omega$ and $L = 0.5$ H?'
+  choices: ['$16$ s', '$4$ s', '$0.0625$ s', '$8$ s']
+  answer: 2
+  explanation: |-
+    In standard form $I' + \frac RLI = \frac EL$, so $k = \frac RL = 16$ per second and the time constant is $\frac1k = \frac LR = \frac{0.5}{8} = 0.0625$ s. 16 is $\frac RL$ itself (a rate, not a time); 4 is $RL$; 8 is just $R$.
+- id: calc-q-lin-12
+  lesson: calc-linear-de
+  topic: Linear differential equations
+  stem: 'Find the general solution of $\dfrac{dy}{dx} - y = e^{2x}$.'
+  choices: ['$y = e^{2x} + Ce^x$', '$y = \tfrac13e^{2x} + Ce^{-x}$', '$y = e^{2x} + C$', '$y = \tfrac12e^{3x} + Ce^x$']
+  answer: 0
+  explanation: |-
+    $P = -1$, so $\mu = e^{-x}$: $(e^{-x}y)' = e^{-x}e^{2x} = e^x$, giving $e^{-x}y = e^x + C$ and $y = e^{2x} + Ce^x$. Using $\mu = e^x$ (ignoring the minus sign in $P$) leads to $\frac13e^{2x} + Ce^{-x}$; $e^{2x} + C$ forgets to divide $C$ by $\mu$; and $\frac12e^{3x} + Ce^x$ comes from integrating $e^{2x}$ without first multiplying it by $\mu$.

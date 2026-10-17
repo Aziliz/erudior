@@ -11,7 +11,7 @@ refs: [calc-ref-integrals]
 
 A rational function is a polynomial divided by a polynomial. We can already integrate a few: $\int\frac{1}{x - 3}\,dx = \ln|x - 3| + C$ and $\int\frac{1}{x^2 + 1}\,dx = \arctan x + C$. **Partial fractions** is the algebra that breaks any rational function into a sum of such simple pieces. It's adding fractions run backward: since
 $$\frac{2}{x - 1} + \frac{3}{x + 2} = \frac{5x + 1}{(x - 1)(x + 2)},$$
-we can integrate the right side by splitting it into the left side. Partial fractions is BC and college Calculus II material, and it reappears in logistic growth (Lesson 37) and telescoping series (Lesson 38).
+we can integrate the right side by splitting it into the left side. Partial fractions is BC and college Calculus II material, and it reappears in logistic growth (Lesson 38) and telescoping series (Lesson 40).
 
 ## Step 0: is it proper?
 

@@ -23,6 +23,7 @@ $v = s'$, $a = v' = s''$; speed $= \lvert v\rvert$. Speeding up when $v$ and $a$
 
 - Displacement on $[a, b]$: $\int_a^b v(t)\,dt$. Distance: $\int_a^b\lvert v(t)\rvert\,dt$.
 - Position: $s(b) = s(a) + \int_a^b v(t)\,dt$.
+- In the plane, $\mathbf r(t) = \langle x(t), y(t)\rangle$: $\mathbf v = \mathbf r'$, $\mathbf a = \mathbf v'$, speed $\lvert\mathbf v\rvert$; $\mathbf r(b) = \mathbf r(a) + \int_a^b\mathbf v\,dt$; distance $\int_a^b\lvert\mathbf v\rvert\,dt$.
 
 ## Area and volume
 
@@ -60,6 +61,10 @@ Water: $\rho g \approx 9800$ N/m³ $= 62.4$ lb/ft³.
 | Newton's law of cooling | $\dfrac{dT}{dt} = k(T - T_s)$ | $T = T_s + (T_0 - T_s)e^{kt}$ |
 | Logistic | $\dfrac{dP}{dt} = kP\left(1 - \dfrac PM\right)$ | $P = \dfrac{M}{1 + Ae^{-kt}}$, $A = \dfrac{M - P_0}{P_0}$ |
 | Separable | $\dfrac{dy}{dx} = g(x)h(y)$ | $\int\dfrac{dy}{h(y)} = \int g(x)\,dx$ |
+| First-order linear | $\dfrac{dy}{dx} + P(x)y = Q(x)$ | $y = \dfrac1\mu\left(\int\mu Q\,dx + C\right)$, $\mu = e^{\int P\,dx}$ |
+| Constant coefficients | $\dfrac{dy}{dt} + ky = b$ | $y = \dfrac bk + \left(y_0 - \dfrac bk\right)e^{-kt}$ |
+| Mixing tank | $\dfrac{dQ}{dt} = (\text{rate in}) - \dfrac QV(\text{flow out})$ | linear in $Q$ |
+| RL circuit | $L\dfrac{dI}{dt} + RI = E$ | constant $E$: $I = \dfrac ER\left(1 - e^{-Rt/L}\right)$ if $I(0) = 0$ |
 | Euler's method | $y_{n+1} = y_n + h\,F(x_n, y_n)$ | |
 
 Half-life: $t_{1/2} = \dfrac{\ln 2}{\lvert k\rvert}$. Logistic growth is fastest at $P = M/2$.

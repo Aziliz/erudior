@@ -629,6 +629,37 @@
   - p-integrals
   definition: $\int_1^\infty\frac{dx}{x^p}$ converges iff $p > 1$; $\int_0^1\frac{dx}{x^p}$ converges iff $p < 1$.
   topic: Improper integrals
+- term: hyperbolic functions
+  aliases:
+  - hyperbolic function
+  definition: 'The functions $\sinh$, $\cosh$, $\tanh$, $\coth$, $\operatorname{sech}$ and $\operatorname{csch}$, built from $e^x$ and $e^{-x}$; they satisfy identities like the trig functions, with $\cosh^2x - \sinh^2x = 1$.'
+  topic: Hyperbolic functions
+- term: hyperbolic cosine
+  aliases:
+  - cosh
+  definition: '$\cosh x = \frac{e^x + e^{-x}}{2}$, the even part of $e^x$; its minimum value is $\cosh 0 = 1$ and $\frac{d}{dx}\cosh x = \sinh x$.'
+  topic: Hyperbolic functions
+- term: hyperbolic sine
+  aliases:
+  - sinh
+  definition: '$\sinh x = \frac{e^x - e^{-x}}{2}$, the odd part of $e^x$; $\frac{d}{dx}\sinh x = \cosh x$.'
+  topic: Hyperbolic functions
+- term: hyperbolic tangent
+  aliases:
+  - tanh
+  definition: '$\tanh x = \frac{\sinh x}{\cosh x}$; it lies between $-1$ and $1$ and $\frac{d}{dx}\tanh x = \operatorname{sech}^2x$.'
+  topic: Hyperbolic functions
+- term: inverse hyperbolic sine
+  aliases:
+  - arsinh
+  - inverse hyperbolic functions
+  definition: '$\sinh^{-1}x = \ln\left(x + \sqrt{x^2 + 1}\right)$, the inverse of $\sinh$; its derivative is $\frac{1}{\sqrt{x^2 + 1}}$. Similarly $\cosh^{-1}x = \ln(x + \sqrt{x^2 - 1})$ for $x \ge 1$.'
+  topic: Hyperbolic functions
+- term: catenary
+  aliases:
+  - catenaries
+  definition: 'The curve $y = a\cosh\frac xa$ formed by a flexible cable hanging under its own weight; its arc length on $[-b, b]$ is $2a\sinh\frac ba$.'
+  topic: Hyperbolic functions
 - term: solution
   definition: A function that makes a differential equation true when substituted.
   topic: Slope fields
@@ -688,6 +719,45 @@
 - term: carrying capacity
   definition: The limiting population $M$ in the logistic equation.
   topic: Exponential and logistic models
+- term: linear differential equation
+  aliases:
+  - linear differential equations
+  - first-order linear equation
+  - first-order linear equations
+  definition: 'A first-order equation that can be written as $\frac{dy}{dx} + P(x)y = Q(x)$, with $y$ and $y''$ appearing only to the first power.'
+  topic: Linear differential equations
+- term: standard form
+  definition: 'For a first-order linear differential equation, the form $y'' + P(x)y = Q(x)$, with coefficient 1 on $y''$; find $P$ and $Q$ only after writing it this way.'
+  topic: Linear differential equations
+- term: integrating factor
+  aliases:
+  - integrating factors
+  definition: 'The multiplier $\mu(x) = e^{\int P(x)\,dx}$ that turns the left side of $y'' + Py = Q$ into $(\mu y)''$, so $y = \frac1\mu\left(\int\mu Q\,dx + C\right)$.'
+  topic: Linear differential equations
+- term: steady-state solution
+  aliases:
+  - steady state
+  - steady-state
+  definition: 'The constant (equilibrium) part of a solution that remains as $t\to\infty$; for $y'' + ky = b$ with $k > 0$ it is $\frac bk$.'
+  topic: Linear differential equations
+- term: transient
+  aliases:
+  - transient term
+  definition: 'The part of a solution that decays to 0 over time, such as $(y_0 - \frac bk)e^{-kt}$ in the solution of $y'' + ky = b$.'
+  topic: Linear differential equations
+- term: time constant
+  definition: 'For $y'' + ky = b$ with $k > 0$, the time $\frac1k$ over which the transient shrinks by a factor of $e$; for an RL circuit it is $\frac LR$.'
+  topic: Linear differential equations
+- term: mixing problem
+  aliases:
+  - mixing problems
+  definition: 'A model of a substance in a well-stirred tank: $\frac{dQ}{dt} = (\text{rate in}) - \frac{Q}{V}(\text{flow out})$, a linear equation in $Q$.'
+  topic: Linear differential equations
+- term: RL circuit
+  aliases:
+  - RL circuits
+  definition: 'A circuit with resistance $R$ and inductance $L$ driven by voltage $E$; the current satisfies $L\frac{dI}{dt} + RI = E$ and approaches $\frac ER$ for constant $E$.'
+  topic: Linear differential equations
 - term: sequence
   aliases:
   - sequences

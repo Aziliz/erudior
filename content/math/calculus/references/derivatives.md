@@ -51,6 +51,16 @@ Tangent line at $a$: $y = f(a) + f'(a)(x - a)$. Normal line slope: $-1/f'(a)$.
 
 The $\text{arcsec}$ formula assumes the range $[0, \pi]$ without $\frac\pi2$ (so $\text{arcsec}\,x = \arccos\frac1x$); books using $[0, \frac\pi2) \cup [\pi, \frac{3\pi}{2})$ get $\frac{1}{x\sqrt{x^2 - 1}}$.
 
+## Hyperbolic
+
+$\cosh x = \dfrac{e^x + e^{-x}}{2}$, $\sinh x = \dfrac{e^x - e^{-x}}{2}$, $\tanh x = \dfrac{\sinh x}{\cosh x}$; $\cosh^2x - \sinh^2x = 1$.
+
+| $f(x)$ | $f'(x)$ | $f(x)$ | $f'(x)$ |
+|---|---|---|---|
+| $\sinh x$ | $\cosh x$ | $\sinh^{-1}x = \ln\left(x + \sqrt{x^2 + 1}\right)$ | $\dfrac{1}{\sqrt{x^2 + 1}}$ |
+| $\cosh x$ | $\sinh x$ | $\cosh^{-1}x = \ln\left(x + \sqrt{x^2 - 1}\right)$ | $\dfrac{1}{\sqrt{x^2 - 1}}$ ($x > 1$) |
+| $\tanh x$ | $\operatorname{sech}^2x$ | $\tanh^{-1}x = \dfrac12\ln\dfrac{1 + x}{1 - x}$ | $\dfrac{1}{1 - x^2}$ ($\lvert x\rvert < 1$) |
+
 ## Techniques
 
 - **Implicit:** differentiate both sides in $x$; each $y$ term gets a factor $\frac{dy}{dx}$; solve for $\frac{dy}{dx}$.

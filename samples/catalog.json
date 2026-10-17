@@ -140,7 +140,7 @@
   "order": 7,
   "title": "Calculus",
   "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, hyperbolic functions, introductory differential equations (separable and first-order linear), sequences and series, Taylor series, and calculus with parametric and polar curves.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Math",
   "level": [
    "High school",
@@ -266,10 +266,10 @@
    "Course",
    "Exam prep"
   ],
-  "lessons": 46,
-  "questions": 517,
-  "cards": 250,
-  "drills": 133
+  "lessons": 49,
+  "questions": 558,
+  "cards": 274,
+  "drills": 144
  },
  {
   "id": "science-uphys1",

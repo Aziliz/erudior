@@ -4,8 +4,8 @@ module: calc-m11
 title: Calculus with parametric curves
 minutes: 40
 topics: [Parametric equations]
-drills: [calc-d-param-slope, calc-d-param-arc]
-refs: [calc-ref-series]
+drills: [calc-d-param-slope, calc-d-param-arc, calc-d-vector-motion]
+refs: [calc-ref-series, calc-ref-applications]
 ---
 ## Curves described by motion
 

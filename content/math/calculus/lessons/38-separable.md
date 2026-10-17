@@ -9,7 +9,7 @@ refs: [calc-ref-applications]
 ---
 ## Solving by separating variables
 
-Lesson 36 approximated solutions. For one large class of equations we can find them exactly. A first-order equation is **separable** if the right side factors into a function of $x$ times a function of $y$:
+Lesson 37 approximated solutions. For one large class of equations we can find them exactly. A first-order equation is **separable** if the right side factors into a function of $x$ times a function of $y$:
 
 $$\frac{dy}{dx} = g(x)\,h(y).$$
 
@@ -104,7 +104,7 @@ Fastest growth at $P = 500$: $1 + 9e^{-0.6t} = 2 \Rightarrow t = \frac{\ln 9}{0.
 
 ## Common mistakes
 
-- *Separating a sum.* $\frac{dy}{dx} = x + y$ is not separable; you can't split $x + y$ into a product.
+- *Separating a sum.* $\frac{dy}{dx} = x + y$ is not separable; you can't split $x + y$ into a product. (It is linear, though; the next lesson solves it with an integrating factor.)
 - **Forgetting $+C$,** or adding it only after exponentiating (then it multiplies instead of adds; that's fine only if you track it).
 - *Dropping the sign choice* when solving $y^2 = \dots$; the initial condition decides.
 - **Using $T = T_0e^{kt}$ for cooling.** The exponential applies to the difference $T - T_s$.

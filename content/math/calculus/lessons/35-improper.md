@@ -9,7 +9,7 @@ refs: [calc-ref-integrals]
 ---
 ## Infinite regions with finite area
 
-Can a region that stretches out forever have finite area? The definite integral as defined so far needs a finite interval and a bounded function. **Improper integrals** relax both conditions, using limits. They appear in probability (the normal distribution's total area is 1), in physics (escape velocity, the energy to move a charge "to infinity"), and as a test for infinite series (Lesson 39). This is BC and Calculus II material.
+Can a region that stretches out forever have finite area? The definite integral as defined so far needs a finite interval and a bounded function. **Improper integrals** relax both conditions, using limits. They appear in probability (the normal distribution's total area is 1), in physics (escape velocity, the energy to move a charge "to infinity"), and as a test for infinite series (Lesson 41). This is BC and Calculus II material.
 
 ## Type 1: infinite intervals
 

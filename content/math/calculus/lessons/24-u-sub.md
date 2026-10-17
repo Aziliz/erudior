@@ -4,7 +4,7 @@ module: calc-m6
 title: Integration by substitution
 minutes: 35
 topics: [U-substitution]
-drills: [calc-d-usub-indef, calc-d-usub-def]
+drills: [calc-d-usub-indef, calc-d-usub-def, calc-d-complete-square]
 refs: [calc-ref-integrals]
 ---
 ## Undoing the chain rule

@@ -486,3 +486,114 @@
   answer: 1
   explanation: |-
     By parts: $\left[-xe^{-x} - e^{-x}\right]_0^t = -te^{-t} - e^{-t} + 1 \to 1$, since $te^{-t} \to 0$.
+
+- id: calc-q-hyp-01
+  lesson: calc-hyperbolic
+  module_quiz: true
+  topic: Hyperbolic functions
+  stem: 'Find $\dfrac{d}{dx}\cosh(4x)$.'
+  choices: ['$-4\sinh(4x)$', '$4\sinh(4x)$', '$\sinh(4x)$', '$4\cosh(4x)$']
+  answer: 1
+  explanation: |-
+    $(\cosh u)' = \sinh u\cdot u'$ with $u = 4x$, so the derivative is $4\sinh(4x)$. The minus sign belongs to $(\cos x)' = -\sin x$, not to cosh; $\sinh(4x)$ forgets the chain-rule factor 4; and $4\cosh(4x)$ treats cosh as its own derivative, like $e^x$.
+- id: calc-q-hyp-02
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Evaluate $\sinh(\ln 3)$.'
+  choices: ['$\tfrac53$', '$\tfrac83$', '$\tfrac45$', '$\tfrac43$']
+  answer: 3
+  explanation: |-
+    $e^{\ln 3} = 3$ and $e^{-\ln 3} = \frac13$, so $\sinh(\ln 3) = \frac{3 - \frac13}{2} = \frac{8/3}{2} = \frac43$. Adding instead of subtracting gives $\cosh(\ln 3) = \frac53$; $\frac83$ forgets to divide by 2; $\frac45$ is $\tanh(\ln 3) = \frac{4/3}{5/3}$.
+- id: calc-q-hyp-03
+  lesson: calc-hyperbolic
+  module_quiz: true
+  topic: Hyperbolic functions
+  stem: 'Which identity holds for every real $x$?'
+  choices: ['$\cosh^2x - \sinh^2x = 1$', '$\cosh^2x + \sinh^2x = 1$', '$1 + \tanh^2x = \operatorname{sech}^2x$', '$\sinh 2x = \cosh^2x + \sinh^2x$']
+  answer: 0
+  explanation: |-
+    Squaring the definitions, $\cosh^2x = \frac{e^{2x} + 2 + e^{-2x}}{4}$ and $\sinh^2x = \frac{e^{2x} - 2 + e^{-2x}}{4}$; their difference is $\frac44 = 1$. The plus-sign version copies the trig identity (at $x = 1$ it gives about 3.76, not 1). Dividing the true identity by $\cosh^2x$ gives $1 - \tanh^2x = \operatorname{sech}^2x$, with a minus. $\cosh^2x + \sinh^2x$ equals $\cosh 2x$, not $\sinh 2x = 2\sinh x\cosh x$.
+- id: calc-q-hyp-04
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Find $\displaystyle\int\sinh(3x)\,dx$.'
+  choices: ['$-\tfrac13\cosh(3x) + C$', '$3\cosh(3x) + C$', '$\tfrac13\cosh(3x) + C$', '$\cosh(3x) + C$']
+  answer: 2
+  explanation: |-
+    With $u = 3x$, $dx = \frac13du$: $\frac13\int\sinh u\,du = \frac13\cosh(3x) + C$. Check: its derivative is $\frac13\cdot3\sinh(3x)$. The minus sign is carried over from $\int\sin x\,dx = -\cos x$; multiplying by 3 instead of dividing, or dropping the $\frac13$, fails the derivative check.
+- id: calc-q-hyp-05
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Find $\dfrac{d}{dx}\tanh(x^2)$.'
+  choices: ['$\operatorname{sech}^2(x^2)$', '$-2x\operatorname{sech}^2(x^2)$', '$\dfrac{2x}{\cosh(x^2)}$', '$2x\operatorname{sech}^2(x^2)$']
+  answer: 3
+  explanation: |-
+    $(\tanh u)' = \operatorname{sech}^2u\cdot u'$ with $u = x^2$: $2x\operatorname{sech}^2(x^2)$. Leaving off $2x$ forgets the chain rule; the minus sign belongs to the derivatives of $\operatorname{sech}$ and $\coth$, not $\tanh$; and $\frac{2x}{\cosh(x^2)}$ is $2x\operatorname{sech}(x^2)$, missing the square.
+- id: calc-q-hyp-06
+  lesson: calc-hyperbolic
+  module_quiz: true
+  topic: Hyperbolic functions
+  stem: 'Evaluate $\displaystyle\int_0^3\frac{dx}{\sqrt{x^2 + 16}}$.'
+  choices: ['$\ln 2$', '$\tfrac14\ln 2$', '$\arcsin\tfrac34$', '$\tfrac14\arctan\tfrac34$']
+  answer: 0
+  explanation: |-
+    $\int\frac{dx}{\sqrt{x^2 + a^2}} = \sinh^{-1}\frac xa + C$ with $a = 4$, so the value is $\sinh^{-1}\frac34 = \ln\left(\frac34 + \sqrt{\frac9{16} + 1}\right) = \ln\left(\frac34 + \frac54\right) = \ln 2$. The factor $\frac14$ belongs to the arctan formula, not this one; arcsin goes with $\sqrt{a^2 - x^2}$; and arctan goes with $\frac{1}{a^2 + x^2}$, which has no square root.
+- id: calc-q-hyp-07
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Which expression equals $\sinh^{-1}x$ for every real $x$?'
+  choices: ['$\ln\left(x + \sqrt{x^2 - 1}\right)$', '$\ln\left(x + \sqrt{x^2 + 1}\right)$', '$\dfrac{1}{\sinh x}$', '$\dfrac12\ln\dfrac{1 + x}{1 - x}$']
+  answer: 1
+  explanation: |-
+    Solving $x = \sinh y$ gives $(e^y)^2 - 2xe^y - 1 = 0$, so $e^y = x + \sqrt{x^2 + 1}$ (the positive root) and $y = \ln\left(x + \sqrt{x^2 + 1}\right)$. With $\sqrt{x^2 - 1}$ it is $\cosh^{-1}x$, defined only for $x \ge 1$; $\frac{1}{\sinh x}$ is $\operatorname{csch}x$, a reciprocal, not an inverse; $\frac12\ln\frac{1 + x}{1 - x}$ is $\tanh^{-1}x$.
+- id: calc-q-hyp-08
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Find $\dfrac{d}{dx}\sinh^{-1}(2x)$.'
+  choices: ['$\dfrac{1}{\sqrt{4x^2 + 1}}$', '$\dfrac{2}{\sqrt{1 - 4x^2}}$', '$\dfrac{2}{\sqrt{4x^2 + 1}}$', '$\dfrac{2}{\sqrt{4x^2 - 1}}$']
+  answer: 2
+  explanation: |-
+    $\frac{d}{du}\sinh^{-1}u = \frac{1}{\sqrt{u^2 + 1}}$, times $u' = 2$: $\frac{2}{\sqrt{4x^2 + 1}}$. Without the 2 the chain rule is missing; $\sqrt{1 - 4x^2}$ is the arcsin pattern; $\sqrt{4x^2 - 1}$ is the $\cosh^{-1}$ pattern.
+- id: calc-q-hyp-09
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'A cable hangs in the shape $y = 10\cosh\dfrac{x}{10}$ between supports at $x = -10$ and $x = 10$. How long is the cable?'
+  choices: ['$20\cosh 1 \approx 30.9$', '$10\sinh 1 \approx 11.8$', '$20$', '$20\sinh 1 \approx 23.5$']
+  answer: 3
+  explanation: |-
+    $\sqrt{1 + (y')^2} = \sqrt{1 + \sinh^2\frac{x}{10}} = \cosh\frac{x}{10}$, so $L = \int_{-10}^{10}\cosh\frac{x}{10}\,dx = 20\sinh 1 \approx 23.50$. $20\cosh 1$ uses the antiderivative of the wrong function; $10\sinh 1$ is only the half from $x = 0$ to $x = 10$; and 20 is the straight-line distance between the supports, which a sagging cable must exceed.
+- id: calc-q-hyp-10
+  lesson: calc-hyperbolic
+  module_quiz: true
+  topic: Hyperbolic functions
+  stem: 'For the cable $y = 10\cosh\dfrac{x}{10}$ with supports at $x = \pm10$, how far below the supports is its lowest point?'
+  choices: ['$10(\cosh 1 - 1) \approx 5.43$', '$10\cosh 1 \approx 15.43$', '$10\sinh 1 \approx 11.75$', '$10(1 - \cos 1) \approx 4.60$']
+  answer: 0
+  explanation: |-
+    The supports are at height $10\cosh 1 \approx 15.43$ and the low point (at $x = 0$) is at height $10\cosh 0 = 10$. The sag is the difference, $10(\cosh 1 - 1) \approx 5.43$. The height $15.43$ alone measures from the $x$-axis, not from the low point; $10\sinh 1$ is half the cable length; and $\cos 1$ swaps in the circular cosine.
+- id: calc-q-hyp-11
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Which statement about $y = \tanh x$ is true?'
+  choices: ['It is periodic with period $\pi$', 'It has vertical asymptotes where $\cosh x = 0$', 'It is increasing, with horizontal asymptotes $y = 1$ and $y = -1$', 'It takes every real value'
+  ]
+  answer: 2
+  explanation: |-
+    $(\tanh x)' = \operatorname{sech}^2x > 0$, so it increases; and $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}} \to 1$ as $x \to \infty$ and $\to -1$ as $x \to -\infty$. It is not periodic (that's $\tan x$); $\cosh x \ge 1$ is never 0, so there are no vertical asymptotes; and its values stay strictly between $-1$ and $1$.
+- id: calc-q-hyp-12
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Solving $x = \sinh y$ leads to $(e^y)^2 - 2x\,e^y - 1 = 0$, so $e^y = x \pm\sqrt{x^2 + 1}$. Why is the minus sign rejected?'
+  choices: ['Because $x - \sqrt{x^2 + 1}$ is always negative, and $e^y$ is always positive', 'Because $\sinh$ is an odd function', 'Because $x$ must be positive', 'Because a quadratic in $e^y$ has only one root'
+  ]
+  answer: 0
+  explanation: |-
+    $\sqrt{x^2 + 1} > \sqrt{x^2} = \lvert x\rvert \ge x$, so $x - \sqrt{x^2 + 1} < 0$ for every $x$, and no exponential can equal a negative number. Being odd is true of $\sinh$ but doesn't choose a root; $x$ can be any real number (the formula works for negative $x$ too); and this quadratic does have two real roots, one of which is simply unusable.
+- id: calc-q-hyp-13
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'As $t$ runs over all real numbers, the point $(\cosh t, \sinh t)$ traces part of which curve?'
+  choices: ['$x^2 + y^2 = 1$', '$y^2 - x^2 = 1$', '$xy = 1$', '$x^2 - y^2 = 1$']
+  answer: 3
+  explanation: |-
+    $x^2 - y^2 = \cosh^2t - \sinh^2t = 1$; since $\cosh t \ge 1$, the point traces the right branch of this hyperbola. The circle is traced by $(\cos t, \sin t)$; $y^2 - x^2 = 1$ swaps the roles of the coordinates; and $xy = \cosh t\sinh t = \frac12\sinh 2t$ is not constant.

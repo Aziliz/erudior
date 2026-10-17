@@ -49,7 +49,7 @@ $$L = \int_1^2\left(\frac{x^2}{2} + \frac{1}{2x^2}\right)dx = \left[\frac{x^3}{6
 
 Set up the length of $y = x^2$ from $x = 0$ to $x = 1$, and estimate it.
 
-$L = \int_0^1\sqrt{1 + 4x^2}\,dx$. It can be done with trig substitution (Lesson 32), but numerically it's about **1.4789**. Sanity check: the straight line from $(0, 0)$ to $(1, 1)$ has length $\sqrt2 \approx 1.414$, and the curve must be at least that long.
+$L = \int_0^1\sqrt{1 + 4x^2}\,dx$. It can be done with trig substitution (Lesson 32), but numerically it's about **1.4789**. Sanity check: the straight line from $(0, 0)$ to $(1, 1)$ has length $\sqrt2 \approx 1.414$, and the curve must be at least that long. (Few curves have arc-length integrals that come out exactly; the hanging-cable curve of Lesson 36 is a famous one that does.)
 
 ## Surface area of revolution
 

@@ -9,7 +9,7 @@ refs: [calc-ref-series]
 ---
 ## Adding infinitely many numbers
 
-Can you add infinitely many numbers and get a finite answer? Walk halfway to a wall, then half the remaining distance, then half again: $\frac12 + \frac14 + \frac18 + \cdots$. You never quite arrive, yet the total distance is clearly 1. Making that precise is the job of this module, which is BC and Calculus II material. Series turn out to be a powerful tool: they let us write functions like $e^x$ and $\sin x$ as "infinite polynomials" (Lesson 42), which is how calculators compute them.
+Can you add infinitely many numbers and get a finite answer? Walk halfway to a wall, then half the remaining distance, then half again: $\frac12 + \frac14 + \frac18 + \cdots$. You never quite arrive, yet the total distance is clearly 1. Making that precise is the job of this module, which is BC and Calculus II material. Series turn out to be a powerful tool: they let us write functions like $e^x$ and $\sin x$ as "infinite polynomials" (Lesson 44), which is how calculators compute them.
 
 We start with sequences, because a series is defined through a sequence of partial sums.
 

@@ -273,3 +273,43 @@ No errors found.
 - Lesson 44 cardioid/rose figure and lesson 41 geometric-series figure: curve labels overlap a little near their ends.
 - calc-d-separable solution leaves the exponent unsimplified (e.g. $3x^3/3$). This is correct.
 - calc-d-geometric-series solution shows $(r)^1$ for the n = 1 first term. This is intentional and correct.
+
+## Gap lessons (2026-10-17)
+
+Fills the two "Common" coverage gaps from VERIFY.md and makes the three short source-check sections quizzable.
+
+### New lessons
+- `calc-hyperbolic`, "Hyperbolic functions" (calc-m8), `lessons/36-hyperbolic.md`: definitions, graphs, identities (with the hyperbola picture), derivatives/integrals, inverse hyperbolics as logs with derivatives and the $\int dx/\sqrt{x^2 \pm a^2}$ forms, the catenary (sag and arc length). 4 worked examples, 4 figures. Placed last in the techniques module (after improper integrals) so it can use trig substitution (L32) and arc length (L29).
+- `calc-linear-de`, "First-order linear equations and integrating factors" (calc-m9), `lessons/39-linear-de.md`: standard form, integrating factor derivation, constant-coefficient steady state/transient/time constant, mixing (constant and changing volume), RL (and RC) circuits. 5 worked examples, 1 figure.
+
+### Renumbered files (ids unchanged)
+36-slope-fields-euler -> 37, 37-separable -> 38, 38-sequences-series -> 40, 39-integral-comparison -> 41, 40-alternating-ratio -> 42, 41-power-series -> 43, 42-taylor -> 44, 43-parametric -> 45, 44-polar -> 46. Every "Lesson N" cross-reference with N >= 36 in lessons was updated to the new numbers. Question ids keep the original scheme (calc-q-43xx still belongs to calc-parametric, now file 45).
+
+### New questions (38; positions 9/10/10/9)
+- Hyperbolic (questions/m8.yaml): calc-q-hyp-01 … calc-q-hyp-13 (module quiz: 01, 03, 06, 10).
+- Linear DE (questions/m9.yaml): calc-q-lin-01 … calc-q-lin-12 (module quiz: 01, 04, 07, 10).
+- Lesson 22 trapezoidal sums with uneven data: calc-q-2212 (module quiz), 2213, 2214, 2215.
+- Lesson 24 completing the square: calc-q-2412 (module quiz), 2413, 2414, 2415.
+- Lesson 45 (was 43) vector-valued functions: calc-q-4312 (module quiz), 4313, 4314 (module quiz), 4315, 4316.
+
+### New drills (9)
+- m8: calc-d-hyp-deriv (expression), calc-d-hyp-integral (Pythagorean-triple limits, exact ln answer accepted), calc-d-catenary (sag + length).
+- m9: calc-d-linear-ode (xy' + ny = cx^e, exact fraction), calc-d-mixing, calc-d-rl-circuit.
+- m6: calc-d-trap-table (uneven table, trapezoidal + left sum; lesson 22), calc-d-complete-square (h, k, then arctan integral; lesson 24).
+- m11: calc-d-vector-motion (r(T), speed, distance; lesson 45).
+
+### Other edits
+- glossary +14 (hyperbolic functions, hyperbolic cosine/sine/tangent, inverse hyperbolic sine, catenary, linear differential equation, standard form, integrating factor, steady-state solution, transient, time constant, mixing problem, RL circuit) -> 216. Cards +20 -> 302.
+- References: hyperbolic derivative table (calc-ref-derivatives); hyperbolic integrals, "Hyperbolic forms" technique row and uneven-width trapezoid line (calc-ref-integrals); linear/mixing/RL rows and planar vector motion (calc-ref-applications). Lesson 45 now also links calc-ref-applications.
+- Cross-references added: L29 (catenary pointer), L32 Example 6 (sinh⁻¹ pointer), L37 intro (Lessons 38 and 39), L38 common mistakes (x + y is linear; next lesson). course.yaml description mentions hyperbolic functions and first-order linear equations (protected fields untouched).
+
+### Verification
+- Every new question solved in sympy before keying (tmp script vq.py); distractors checked to be wrong; all lesson examples re-derived (dsolve for the ODE examples).
+- Each new drill generated 600 times (tsx: generate/checkAll on the built JSON): answers matched an independent computation parsed from the prompt (RK4 for ODE drills, Simpson for integrals), the displayed answers were accepted when typed, alternative exact forms accepted (ln(5/3), pi/12, sqrt(981), expanded derivative), common wrong answers rejected, no unfilled placeholders or "+ -" text: 0 failures.
+- Figures for both lessons and drills rendered with the app stylesheet and inspected.
+- build.py and check-course: zero problems (46 lessons, 518 questions, 99 drills).
+
+### For a reviewer
+- Lesson 22 now links 4 drills (calc-d-riemann, calc-d-trap-table, calc-d-sigma, calc-d-geometric-area), one over the guideline of 3, to avoid orphaning an existing drill.
+- The catenary ODE $y'' = \frac1a\sqrt{1 + (y')^2}$ is stated, not derived (the lesson verifies that $a\cosh(x/a)$ satisfies it).
+- calc-d-hyp-deriv expects learners to type sinh/cosh; the parser has no sech, so the drill avoids tanh.

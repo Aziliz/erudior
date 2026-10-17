@@ -9,7 +9,7 @@ refs: [calc-ref-series]
 ---
 ## Which power series is it?
 
-Lesson 41 found power series for a few functions by manipulating the geometric series. That trick doesn't reach $e^x$ or $\sin x$. Taylor series answer the general question: if a function has a power series, what must its coefficients be? The answer uses derivatives, and the resulting polynomials are how calculators evaluate $e^x$, $\sin x$ and $\ln x$.
+Lesson 43 found power series for a few functions by manipulating the geometric series. That trick doesn't reach $e^x$ or $\sin x$. Taylor series answer the general question: if a function has a power series, what must its coefficients be? The answer uses derivatives, and the resulting polynomials are how calculators evaluate $e^x$, $\sin x$ and $\ln x$.
 
 ## Finding the coefficients
 
@@ -35,7 +35,7 @@ Stopping after the $(x - a)^n$ term gives the **Taylor polynomial** of degree $n
 
 Every derivative of $e^x$ is $e^x$, which is 1 at $x = 0$. So $c_n = \frac{1}{n!}$:
 $$e^x = \sum_{n=0}^\infty\frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots, \quad\text{all } x.$$
-(Radius $\infty$ by Lesson 41, Example 2.) At $x = 1$: $e = 1 + 1 + \frac12 + \frac16 + \frac1{24} + \cdots \approx 2.71828$.
+(Radius $\infty$ by Lesson 43, Example 2.) At $x = 1$: $e = 1 + 1 + \frac12 + \frac16 + \frac1{24} + \cdots \approx 2.71828$.
 
 ### Example 2 ($\sin x$ and $\cos x$)
 
@@ -90,7 +90,7 @@ The error $R_n(x) = f(x) - P_n(x)$ is controlled by the next derivative.
 
 $$|R_n(x)| \le \frac{M}{(n + 1)!}|x - a|^{n+1}.$$
 
-It looks like the next term of the series, with the derivative replaced by its worst-case size $M$. (For an alternating series with decreasing terms, the simpler alternating series bound from Lesson 40 also works.)
+It looks like the next term of the series, with the derivative replaced by its worst-case size $M$. (For an alternating series with decreasing terms, the simpler alternating series bound from Lesson 42 also works.)
 
 ### Example 5
 

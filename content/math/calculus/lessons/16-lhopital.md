@@ -106,7 +106,7 @@ Find $\displaystyle\lim_{x\to0}\frac{x - \sin x}{x^3}$ and $\displaystyle\lim_{x
 - $\frac00$ three times in a row: $\dfrac{1 - \cos x}{3x^2} \to \dfrac{\sin x}{6x} \to \dfrac{\cos x}{6} \to \mathbf{\dfrac16}$. (On the second line you could also use $\frac{\sin x}{x} \to 1$.)
 - The form is $\infty^0$. Let $y = x^{1/x}$, so $\ln y = \dfrac{\ln x}{x}$, which is $\frac\infty\infty$; L'Hôpital gives $\dfrac{1/x}{1} \to 0$. So $y \to e^0 = \mathbf 1$.
 
-The first result says $\sin x \approx x - \frac{x^3}{6}$ for small $x$, a preview of Taylor series (Lesson 42).
+The first result says $\sin x \approx x - \frac{x^3}{6}$ for small $x$, a preview of Taylor series (Lesson 44).
 
 ## A quick checklist
 

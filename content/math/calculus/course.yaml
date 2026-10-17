@@ -5,11 +5,12 @@ description: >-
   then BC, then college Calculus I and II: limits and continuity, the derivative and its
   rules, related rates, optimization and curve sketching, integrals and the Fundamental
   Theorem, applications of integration, techniques of integration, improper integrals,
-  introductory differential equations, sequences and series, Taylor series, and calculus
+  hyperbolic functions, introductory differential equations (separable and first-order linear),
+  sequences and series, Taylor series, and calculus
   with parametric and polar curves.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.
+changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections; new lessons on hyperbolic functions and first-order linear differential equations.
 order: 7
 subject: Math
 level: [High school, College]
