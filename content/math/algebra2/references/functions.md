@@ -86,6 +86,17 @@ Radical equations: isolate the radical, raise both sides to the index power, sol
 | Transformed reciprocal | $y = \dfrac{a}{x - h} + k$: asymptotes $x = h$, $y = k$ |
 | Inverse variation | $y = \dfrac kx$, $k = xy$ |
 
+## Polynomial and rational inequalities
+
+| Step | What to do |
+|---|---|
+| 1 | Get 0 on one side; combine into one fraction (never multiply by an expression in $x$) |
+| 2 | Factor; critical values = zeros of the numerator and of the denominator |
+| 3 | Test one value per interval (or multiply factor signs) |
+| 4 | Keep intervals with the right sign; include numerator zeros for $\le$, $\ge$; never denominator zeros |
+
+The sign changes at a zero of odd multiplicity and not at a zero of even multiplicity.
+
 ## Polynomial functions
 
 | Fact | Statement |

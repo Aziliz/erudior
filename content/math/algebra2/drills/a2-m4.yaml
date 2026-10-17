@@ -96,3 +96,28 @@
     Square both sides: $x {p:signed} = (x {q:signed})^2$, which rearranges to $x^2 {B:signedcoef}x {C:signed} = 0$, with roots ${s}$ and ${e}$.
     Check: at $x = {s}$ the right side is ${sq} \ge 0$ and matches the root, so **{s}** is valid. At $x = {e}$ the right side is ${eq} < 0$, but a square root can't be negative, so **{e}** is extraneous.
 
+
+- id: a2-d-even-exp
+  title: Rational exponent with an even numerator
+  topic: Radical equations
+  vars:
+    m: {choices: [2, 4]}
+    r: {min: 1, max: 4}
+    h: {min: -9, max: 9}
+  calc:
+    c: r^m
+    r3: r^3
+    nr3: -r^3
+    nr: -r
+    nh: -h
+    s1: -h - r^3
+    s2: -h + r^3
+  where: ['h != 0', 'c <= 100']
+  prompt: 'Solve $(x {h:signed})^{{m}/3} = {c}$. Enter both solutions, smaller first.'
+  answers:
+    - {name: s1, label: 'Smaller solution'}
+    - {name: s2, label: 'Larger solution'}
+  solution: |-
+    Write the power with a cube root: $\left(\sqrt[3]{x {h:signed}}\right)^{{m}} = {c}$. The numerator {m} of the exponent is even, so undoing it gives both signs: $\sqrt[3]{x {h:signed}} = \pm {r}$.
+    Cube: $x {h:signed} = \pm {r3}$. So $x = {nh} - {r3} =$ **{s1}** or $x = {nh} + {r3} =$ **{s2}**.
+    Both check, since $({nr3})^{{m}/3} = ({nr})^{{m}} = {c}$ and $({r3})^{{m}/3} = {r}^{{m}} = {c}$. Raising both sides to the power $\tfrac{3}{{m}}$ alone would find only {s2}.

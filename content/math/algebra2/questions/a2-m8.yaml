@@ -99,6 +99,107 @@
   answer: 3
   explanation: |-
     $_{10}P_3$ lists ordered selections. Any one group of 3 people can be ordered in $3! = 6$ ways, so it appears 6 times in that list. Dividing by $3!$ counts each group once.
+- id: a2-q-binom-01
+  lesson: a2-binomial
+  topic: Pascal's triangle
+  stem: 'Which row of Pascal''s triangle gives the coefficients of $(a + b)^5$?'
+  choices: ['$1, 4, 6, 4, 1$', '$1, 6, 15, 20, 15, 6, 1$', '$1, 5, 10, 5, 1$', '$1, 5, 10, 10, 5, 1$']
+  answer: 3
+  explanation: |-
+    $(a + b)^5$ uses row 5, which has 6 entries: $1, 5, 10, 10, 5, 1$ (from row 4: $1 + 4 = 5$, $4 + 6 = 10$, $6 + 4 = 10$, $4 + 1 = 5$). Row 4 is $1, 4, 6, 4, 1$ and row 6 is $1, 6, 15, 20, 15, 6, 1$, the off-by-one mistakes of counting the top row as row 1 or not. The row $1, 5, 10, 5, 1$ has only 5 entries, but $(a + b)^5$ has 6 terms.
+- id: a2-q-binom-02
+  lesson: a2-binomial
+  module_quiz: true
+  topic: Pascal's triangle
+  stem: 'Row 7 of Pascal''s triangle is $1, 7, 21, 35, 35, 21, 7, 1$. What is the third entry of row 8 (the one after $1, 8$)?'
+  choices: ['$21$', '$28$', '$42$', '$56$']
+  answer: 1
+  explanation: |-
+    Each entry is the sum of the two above it. The third entry of row 8 sits below 7 and 21, so it is $7 + 21 = 28$ (and $_8C_2 = 28$ agrees). 21 just copies an entry, 42 adds 21 to itself, and 56 adds the wrong pair, $21 + 35$.
+- id: a2-q-binom-03
+  lesson: a2-binomial
+  topic: Pascal's triangle
+  stem: 'What is the sum of the entries in row 6 of Pascal''s triangle?'
+  choices: ['$64$', '$36$', '$32$', '$720$']
+  answer: 0
+  explanation: |-
+    Setting $a = b = 1$ in $(a + b)^6$ gives $2^6 = 64$, and directly $1 + 6 + 15 + 20 + 15 + 6 + 1 = 64$. 36 is $6^2$, 32 is $2^5$ (an off-by-one row), and 720 is $6!$.
+- id: a2-q-binom-04
+  lesson: a2-binomial
+  topic: Pascal's triangle
+  stem: 'Counting the top row as row 0 and the first entry of each row as entry 0, what is entry $k$ of row $n$ in Pascal''s triangle?'
+  choices: ['$_nP_k$', '$n \cdot k$', '$_nC_k$', '$n^k$']
+  answer: 2
+  explanation: |-
+    Entry $k$ of row $n$ is the coefficient of $a^{n-k}b^k$ in $(a + b)^n$, which counts the ways to choose $k$ of the $n$ factors to supply $b$: $_nC_k$. Permutations count ordered choices, which is too many (row 4, entry 2 is 6, but $_4P_2 = 12$); $n \cdot k$ and $n^k$ don't match the triangle either ($4 \cdot 2 = 8$, $4^2 = 16$).
+- id: a2-q-binom-05
+  lesson: a2-binomial
+  topic: Binomial theorem
+  stem: 'Expand $(x + 3)^3$.'
+  choices: ['$x^3 + 27$', '$x^3 + 9x^2 + 27x + 27$', '$x^3 + 3x^2 + 3x + 27$', '$x^3 + 9x^2 + 9x + 27$']
+  answer: 1
+  explanation: |-
+    Row 3 is $1, 3, 3, 1$: $x^3 + 3x^2(3) + 3x(3^2) + 3^3 = x^3 + 9x^2 + 27x + 27$. $x^3 + 27$ cubes each term separately; $x^3 + 3x^2 + 3x + 27$ uses the coefficients without the powers of 3; and $9x$ uses $3$ instead of $3^2$ in the third term.
+- id: a2-q-binom-06
+  lesson: a2-binomial
+  module_quiz: true
+  topic: Binomial theorem
+  stem: 'Expand $(2x - 1)^4$.'
+  choices: ['$16x^4 + 32x^3 + 24x^2 + 8x + 1$', '$2x^4 - 8x^3 + 12x^2 - 8x + 1$', '$16x^4 - 1$', '$16x^4 - 32x^3 + 24x^2 - 8x + 1$']
+  answer: 3
+  explanation: |-
+    With $a = 2x$, $b = -1$ and row $1, 4, 6, 4, 1$: $(2x)^4 + 4(2x)^3(-1) + 6(2x)^2(-1)^2 + 4(2x)(-1)^3 + (-1)^4 = 16x^4 - 32x^3 + 24x^2 - 8x + 1$. The all-plus version drops the sign of $-1$, $2x^4 - 8x^3 + \cdots$ doesn't raise the 2 to each power, and $16x^4 - 1$ raises each term to the 4th power separately.
+- id: a2-q-binom-07
+  lesson: a2-binomial
+  topic: Binomial theorem
+  stem: 'How many terms does the expansion of $(a + b)^9$ have?'
+  choices: ['$9$', '$11$', '$10$', '$18$']
+  answer: 2
+  explanation: |-
+    The power of $b$ runs from 0 to 9, which is 10 values, so there are $9 + 1 = 10$ terms. Forgetting the $b^0$ term gives 9, 11 adds 2 instead of 1, and 18 doubles the exponent as if each power contributed two terms.
+- id: a2-q-binom-08
+  lesson: a2-binomial
+  topic: Binomial theorem
+  stem: 'Find the coefficient of $x^3$ in the expansion of $(x + 2)^6$.'
+  choices: ['$160$', '$20$', '$40$', '$240$']
+  answer: 0
+  explanation: |-
+    The power of $x$ is $6 - k$, so $x^3$ needs $k = 3$: $_6C_3\, x^3\, 2^3 = 20 \cdot 8\, x^3 = 160x^3$. 20 forgets the factor $2^3$, 40 uses $2$ instead of $2^3$, and 240 uses $k = 2$ with the powers mismatched ($_6C_2 \cdot 2^4$).
+- id: a2-q-binom-09
+  lesson: a2-binomial
+  module_quiz: true
+  topic: Binomial theorem
+  stem: 'Find the coefficient of $x^4$ in the expansion of $(x - 3)^7$.'
+  choices: ['$-945$', '$945$', '$-105$', '$2835$']
+  answer: 0
+  explanation: |-
+    $x^4$ needs $k = 3$ (since $7 - k = 4$): $_7C_3\,(-3)^3 = 35 \cdot (-27) = -945$. Dropping the sign gives 945, using $-3$ instead of $(-3)^3$ gives $-105$, and $35 \cdot (-3)^4 = 2835$ is the coefficient of $x^3$.
+- id: a2-q-binom-10
+  lesson: a2-binomial
+  topic: Binomial theorem
+  stem: 'What is the 5th term of $(a + b)^8$?'
+  choices: ['$56a^3b^5$', '$56a^5b^3$', '$70a^4b^4$', '$8a^4b^4$']
+  answer: 2
+  explanation: |-
+    The 5th term has $k = 4$: $_8C_4\, a^4b^4 = 70a^4b^4$. Using $k = 5$ gives $56a^3b^5$ (the 6th term) and $k = 3$ gives $56a^5b^3$ (the 4th term), both off-by-one errors. 8 is $_8C_1$, not $_8C_4$.
+- id: a2-q-binom-11
+  lesson: a2-binomial
+  topic: Binomial theorem
+  stem: 'A student writes $(x + 5)^2 = x^2 + 25$. What is the correct expansion?'
+  choices: ['$x^2 + 5x + 25$', '$x^2 + 10x + 25$', '$x^2 + 10x + 10$', '$2x + 10$']
+  answer: 1
+  explanation: |-
+    Row 2 is $1, 2, 1$: $x^2 + 2(x)(5) + 5^2 = x^2 + 10x + 25$. The student's version leaves out the middle term. $5x$ uses coefficient 1 instead of 2, $+10$ doubles 5 instead of squaring it, and $2x + 10$ multiplies by 2 instead of squaring.
+- id: a2-q-binom-12
+  lesson: a2-binomial
+  module_quiz: true
+  topic: Binomial theorem
+  stem: 'Find the term containing $x^6$ in the expansion of $(x^2 + 2)^5$.'
+  choices: ['$10x^6$', '$80x^6$', '$20x^6$', '$40x^6$']
+  answer: 3
+  explanation: |-
+    The general term is $_5C_k\,(x^2)^{5-k}\,2^k$, with power of $x$ equal to $2(5 - k)$. Setting $2(5 - k) = 6$ gives $k = 2$: $_5C_2\, x^6 \cdot 2^2 = 10 \cdot 4\, x^6 = 40x^6$. $10x^6$ leaves out $2^2$, $20x^6$ uses $2$ instead of $2^2$, and $80x^6$ uses $2^3$, the power for $k = 3$.
+
 - id: a2-q-2301
   lesson: a2-probability
   topic: Probability rules

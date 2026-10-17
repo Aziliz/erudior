@@ -7,7 +7,7 @@ topics: [Probability rules, Conditional probability]
 drills: [a2-d-addition-rule, a2-d-two-way, a2-d-prob-draw]
 refs: [a2-ref-prob-trig]
 ---
-Probability measures how likely something is, on a scale from 0 (impossible) to 1 (certain). This lesson sets up the language of probability, then builds the rules for "not", "or" and "and", including what changes when one event affects another. The counting tools from the last lesson come back at the end, when the outcomes are too many to list.
+Probability measures how likely something is, on a scale from 0 (impossible) to 1 (certain). This lesson sets up the language of probability, then builds the rules for "not", "or" and "and", including what changes when one event affects another. The counting tools from the counting lesson come back at the end, when the outcomes are too many to list.
 
 ## Sample spaces and events
 

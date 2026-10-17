@@ -7,7 +7,7 @@ topics: [Rational functions, Inverse variation]
 drills: [a2-d-rat-features, a2-d-rat-hole, a2-d-inverse-variation]
 refs: [alg-ref-functions]
 ---
-The lessons so far in this module treated rational expressions as algebra: simplify, combine, solve. This lesson looks at them as functions and asks what their graphs look like. Unlike polynomials, rational functions have breaks: vertical asymptotes where the graph shoots up or down, holes where a single point is missing, and horizontal asymptotes that the graph levels off toward. The factoring and excluded-value skills from earlier in the module find every one of these features. The lesson ends with inverse variation, the simplest rational model.
+The lessons so far in this module treated rational expressions as algebra: simplify, combine, solve. This lesson looks at them as functions and asks what their graphs look like. Unlike polynomials, rational functions have breaks: vertical asymptotes where the graph shoots up or down, holes where a single point is missing, and horizontal asymptotes that the graph levels off toward. The factoring and excluded-value skills from earlier in the module find every one of these features. The lesson ends with inverse variation, the simplest rational model. The next lesson uses the same zeros and asymptotes to solve inequalities.
 
 ## The reciprocal function
 

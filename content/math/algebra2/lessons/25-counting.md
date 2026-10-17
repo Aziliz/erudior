@@ -7,7 +7,7 @@ topics: [Counting principle, Permutations and combinations]
 drills: [a2-d-permutation, a2-d-combination, a2-d-committee]
 refs: [a2-ref-prob-trig]
 ---
-Probability questions usually come down to two counts: how many outcomes are possible, and how many of them are the ones you want. When there are only a handful of outcomes you can list them, but a lottery ticket or a 7-character password has millions. This lesson builds the counting tools that replace listing: the fundamental counting principle, factorials, permutations and combinations. The next lesson puts them to work in probability.
+Probability questions usually come down to two counts: how many outcomes are possible, and how many of them are the ones you want. When there are only a handful of outcomes you can list them, but a lottery ticket or a 7-character password has millions. This lesson builds the counting tools that replace listing: the fundamental counting principle, factorials, permutations and combinations. The next lesson uses combinations to expand powers like $(a + b)^n$, and the lesson after that puts the counting tools to work in probability.
 
 ## The fundamental counting principle
 

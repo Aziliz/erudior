@@ -100,3 +100,17 @@
 - {front: 'Horizontal asymptote of a rational function', back: 'Top degree smaller: $y = 0$. Equal: ratio of leading coefficients. Top larger: none.', topic: Rational functions}
 - {front: 'Asymptotes of $y = \dfrac{a}{x - h} + k$', back: 'Vertical $x = h$, horizontal $y = k$.', topic: Rational functions}
 - {front: 'Inverse variation', back: '$y = \dfrac kx$ with $k = xy$ constant; doubling $x$ halves $y$.', topic: Inverse variation}
+- {front: 'Solving a line-and-curve system by substitution', back: 'Solve the linear equation for one variable, substitute into the other, solve the quadratic, then get each partner from the linear equation and check.', topic: Nonlinear systems}
+- {front: 'Number of intersections of a line with a parabola or circle', back: 'Substitute to get a quadratic: discriminant $> 0$, two points; $= 0$, one (tangent); $< 0$, none.', topic: Nonlinear systems}
+- {front: 'Circle centered at the origin with radius $r$', back: '$x^2 + y^2 = r^2$; centered at $(h, k)$: $(x - h)^2 + (y - k)^2 = r^2$.', topic: Nonlinear systems}
+- {front: 'When to use elimination on a nonlinear system', back: 'When both equations contain only $x^2$ and $y^2$ terms: add or subtract to eliminate one, then take $\pm$ square roots (up to four solutions).', topic: Nonlinear systems}
+- {front: 'Augmented matrix of a system', back: 'One row per equation, one column per variable (0 for a missing variable), constants after the bar.', topic: Matrices}
+- {front: 'The three row operations', back: 'Swap two rows; multiply a row by a nonzero number; add a multiple of one row to another row.', topic: Matrices}
+- {front: 'Row echelon form vs. RREF', back: 'REF: staircase of leading 1s with zeros below them, then back-substitute. RREF: zeros above and below each leading 1, so the solution can be read off.', topic: Matrices}
+- {front: 'Row $[\,0 \;\; 0 \;\; 0 \mid c\,]$ with $c \ne 0$', back: 'It says $0 = c$: the system has no solution (inconsistent).', topic: Matrices}
+- {front: 'Inverse of a $2 \times 2$ matrix', back: '$\begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} = \dfrac{1}{ad - bc}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$, when $ad - bc \ne 0$.', topic: Matrices}
+- {front: 'Solving $AX = B$ with an inverse', back: '$X = A^{-1}B$ (multiply on the left); possible only when $\det A \ne 0$.', topic: Matrices}
+- {front: 'Steps for a polynomial or rational inequality', back: 'Get 0 on one side, factor (one fraction), find critical values, test each interval, keep the intervals with the right sign.', topic: Polynomial inequalities}
+- {front: 'Critical values of a rational inequality', back: 'Zeros of the numerator (included for $\le$, $\ge$) and zeros of the denominator (never included).', topic: Rational inequalities}
+- {front: 'Sign change at a repeated zero', back: 'The sign changes at a zero of odd multiplicity and stays the same at a zero of even multiplicity.', topic: Polynomial inequalities}
+- {front: 'Why not multiply both sides by $x - 3$?', back: 'Its sign is unknown, so you cannot tell whether to flip the inequality. Subtract to get 0 on one side and use a sign chart.', topic: Rational inequalities}

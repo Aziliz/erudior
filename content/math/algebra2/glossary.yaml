@@ -412,3 +412,74 @@
   aliases: [varies directly, directly proportional]
   definition: 'A relationship $y = kx$ ($k \ne 0$): the ratio $\tfrac yx$ is constant, so the quantities grow together.'
   topic: Inverse variation
+- term: nonlinear system
+  aliases: [nonlinear systems, system of nonlinear equations]
+  definition: 'A system of equations in which at least one equation is not linear (it has a square, a product of variables, and so on). Its real solutions are the points where the graphs meet.'
+  topic: Nonlinear systems
+- term: circle
+  aliases: [circles]
+  definition: 'The set of points at a fixed distance $r$ (the radius) from a center. Centered at the origin its equation is $x^2 + y^2 = r^2$; centered at $(h, k)$ it is $(x - h)^2 + (y - k)^2 = r^2$.'
+  topic: Nonlinear systems
+- term: matrix
+  aliases: [matrices]
+  definition: 'A rectangular array of numbers arranged in rows and columns, written in brackets.'
+  topic: Matrices
+- term: dimensions
+  aliases: [dimension]
+  definition: 'The size of a matrix, written rows $\times$ columns: a matrix with 2 rows and 3 columns is $2 \times 3$.'
+  topic: Matrices
+- term: entry
+  aliases: [entries]
+  definition: 'One of the numbers in a matrix. The entry in row $i$ and column $j$ is written $a_{ij}$.'
+  topic: Matrices
+- term: augmented matrix
+  aliases: [augmented matrices]
+  definition: 'A matrix holding a linear system: each row is an equation, the columns left of the bar hold the coefficients of each variable, and the column after the bar holds the constants.'
+  topic: Matrices
+- term: coefficient matrix
+  definition: 'The matrix of a linear system''s coefficients only, without the constants; the part of the augmented matrix left of the bar.'
+  topic: Matrices
+- term: row operations
+  aliases: [row operation, elementary row operations]
+  definition: 'The three moves that change an augmented matrix into one for an equivalent system: swap two rows, multiply a row by a nonzero number, or add a multiple of one row to another.'
+  topic: Matrices
+- term: row echelon form
+  aliases: [REF]
+  definition: 'A staircase form of a matrix: the first nonzero entry of each row is a leading 1, each leading 1 is to the right of the one above it (so the entries below it are 0), and any zero rows are at the bottom.'
+  topic: Matrices
+- term: Gaussian elimination
+  definition: 'Solving a linear system by using row operations to reach row echelon form, then back-substituting from the bottom row up.'
+  topic: Matrices
+- term: reduced row echelon form
+  definition: 'Row echelon form in which each leading 1 is the only nonzero entry in its column, so the solution of the system can be read off directly.'
+  topic: Matrices
+- term: RREF
+  definition: 'Reduced row echelon form: each leading 1 is the only nonzero entry in its column. Calculators compute it with an rref command.'
+  topic: Matrices
+- term: identity matrix
+  definition: 'A square matrix $I$ with 1s on the main diagonal and 0s elsewhere, such as $\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$; multiplying by it changes nothing, like multiplying by 1.'
+  topic: Matrices
+- term: inverse matrix
+  aliases: [inverse of a matrix]
+  definition: 'For a square matrix $A$, the matrix $A^{-1}$ with $A^{-1}A = AA^{-1} = I$. It exists exactly when $\det A \ne 0$, and then $AX = B$ has the solution $X = A^{-1}B$.'
+  topic: Matrices
+- term: determinant
+  aliases: [det]
+  definition: 'A number computed from a square matrix; for $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ it is $ad - bc$. The matrix has an inverse exactly when the determinant is not 0.'
+  topic: Matrices
+- term: critical values
+  aliases: [critical value]
+  definition: 'In a polynomial or rational inequality, the zeros of the numerator and of the denominator (after moving everything to one side). The sign of the expression can change only at these numbers.'
+  topic: Polynomial inequalities
+- term: sign chart
+  aliases: [sign charts, sign analysis]
+  definition: 'A number line marked with the critical values of an expression and its sign ($+$ or $-$) on each interval between them, used to solve inequalities.'
+  topic: Polynomial inequalities
+- term: polynomial inequality
+  aliases: [polynomial inequalities]
+  definition: 'An inequality that can be written as $p(x) > 0$, $p(x) < 0$, $p(x) \ge 0$ or $p(x) \le 0$ for a polynomial $p$.'
+  topic: Polynomial inequalities
+- term: rational inequality
+  aliases: [rational inequalities]
+  definition: 'An inequality with the variable in a denominator, such as $\dfrac{x + 1}{x - 3} \le 0$. Zeros of the denominator are never part of the solution.'
+  topic: Rational inequalities

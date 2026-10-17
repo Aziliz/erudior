@@ -205,3 +205,205 @@
     Roots $p \pm qi$ come from $(x - p)^2 + q^2$: here $(x {np:signed})^2 + {q2} = x^2 {m2p:signedcoef}x + {pq}$.
     Multiply by the leading coefficient ${a}$: ${a:coef}x^2 {b:signedcoef}x {c:signed}$. So $b =$ **{b}** and $c =$ **{c}**.
     Check: the roots add to $2({p})$, which equals $-\tfrac ba = -\tfrac{{b}}{{a}}$, and multiply to $({p})^2 + {q2} = {pq}$, which equals $\tfrac ca = \tfrac{{c}}{{a}}$.
+
+
+- id: a2-d-nls-line-parabola
+  title: Line and parabola
+  topic: Nonlinear systems
+  vars:
+    r1: {min: -5, max: 5}
+    r2: {min: -5, max: 5}
+    p: {min: -4, max: 4}
+    k: {min: -6, max: 6}
+  calc:
+    m: p + r1 + r2
+    q: k + r1*r2
+    a: p - m
+    c: q - k
+    nr1: -r1
+    nr2: -r2
+    y1: m*r1 + k
+    y2: m*r2 + k
+  where: ['r1 < r2', 'r1 + r2 != 0', 'r1*r2 != 0', 'p != 0', 'k != 0', 'q != 0', 'm != 0', 'abs(m) <= 5']
+  prompt: 'Solve the system $y = x^2 {p:signedcoef}x {q:signed}$ and $y = {m:coef}x {k:signed}$. Enter the intersection point with the smaller $x$-coordinate first.'
+  answers:
+    - {name: r1, label: '$x_1 =$'}
+    - {name: y1, label: '$y_1 =$'}
+    - {name: r2, label: '$x_2 =$'}
+    - {name: y2, label: '$y_2 =$'}
+  solution: |-
+    Set the right sides equal: $x^2 {p:signedcoef}x {q:signed} = {m:coef}x {k:signed}$. Move everything to the left: $x^2 {a:signedcoef}x {c:signed} = 0$, which factors as $(x {nr1:signed})(x {nr2:signed}) = 0$. So $x = {r1}$ or $x = {r2}$.
+    Find each partner from the line: $y = {m}({r1}) {k:signed} = {y1}$ and $y = {m}({r2}) {k:signed} = {y2}$.
+    The intersection points are **$({r1}, {y1})$** and **$({r2}, {y2})$**.
+
+- id: a2-d-nls-line-circle
+  title: Line and circle
+  topic: Nonlinear systems
+  vars:
+    p: {min: -7, max: 7}
+    q: {min: -7, max: 7}
+    m: {choices: [-3, -2, -1, 1, 2, 3]}
+  calc:
+    R: p^2 + q^2
+    k: q - m*p
+    u: -2*(p + q*m)/(1 + m^2)
+    x2: p + u
+    y2: q + m*u
+    xa: min(p, x2)
+    xb: max(p, x2)
+    ya: if(p < x2, q, y2)
+    yb: if(p < x2, y2, q)
+    A: 1 + m^2
+    B: 2*m*k
+    C: k^2 - p^2 - q^2
+  where: ['u != 0', 'u == round(u)', 'R <= 100', 'R > 0', 'k != 0', 'C != 0']
+  prompt: 'Solve the system $x^2 + y^2 = {R}$ and $y = {m:coef}x {k:signed}$. Enter the intersection point with the smaller $x$-coordinate first.'
+  answers:
+    - {name: xa, label: '$x_1 =$'}
+    - {name: ya, label: '$y_1 =$'}
+    - {name: xb, label: '$x_2 =$'}
+    - {name: yb, label: '$y_2 =$'}
+  solution: |-
+    Substitute the line into the circle: $x^2 + ({m:coef}x {k:signed})^2 = {R}$. Expanding the square and collecting terms gives ${A}x^2 {B:signedcoef}x {C:signed} = 0$.
+    Solve it (factor, or use the quadratic formula): $x = {xa}$ or $x = {xb}$.
+    Find each partner from the line: $y = {m}({xa}) {k:signed} = {ya}$ and $y = {m}({xb}) {k:signed} = {yb}$.
+    The points are **$({xa}, {ya})$** and **$({xb}, {yb})$**. Check one in the circle: $({xa})^2 + ({ya})^2 = {R}$.
+
+- id: a2-d-nls-elimination
+  title: Elimination with x² and y²
+  topic: Nonlinear systems
+  vars:
+    x0: {min: 1, max: 6}
+    yy: {min: 1, max: 6}
+    z:
+      choices:
+        - {label: 'Each of $x$ and $y$ has two square roots, and only squares appear in the equations, so every sign combination works: there are **4** solutions in all.', value: 1}
+        - {label: 'Each of $x$ and $y$ has two square roots, and only squares appear in the equations, so every sign combination works: there are **4** solutions in all.', value: 1}
+        - {label: 'Here $x$ has two square roots but $y$ can only be 0, so there are just **2** solutions in all.', value: 0}
+    a: {choices: [1, 2, 3]}
+    b: {choices: [1, 2, 3, -1]}
+    d: {choices: [1, 2, -1]}
+    e: {choices: [-1, -2, 1, 2]}
+  calc:
+    y0: z*yy
+    X: x0^2
+    Y: y0^2
+    c1: a*X + b*Y
+    c2: d*X + e*Y
+    det: a*e - b*d
+    n1: e*c1 - b*c2
+    nsol: 2 + 2*z
+  where: ['det != 0', 'x0 != yy']
+  prompt: |-
+    Solve the system
+
+    $$\begin{cases} {a:coef}x^2 {b:signedcoef}y^2 = {c1} \\ {d:coef}x^2 {e:signedcoef}y^2 = {c2} \end{cases}$$
+
+    Enter the solution with $x > 0$ and $y \ge 0$, then the total number of real solutions.
+  answers:
+    - {name: x0, label: '$x =$'}
+    - {name: y0, label: '$y =$'}
+    - {name: nsol, label: 'Number of solutions'}
+  solution: |-
+    Treat $X = x^2$ and $Y = y^2$ as the unknowns of a linear system: ${a:coef}X {b:signedcoef}Y = {c1}$ and ${d:coef}X {e:signedcoef}Y = {c2}$.
+    Multiply the first equation by ${e}$ and the second by ${b}$, then subtract to eliminate $Y$: ${det:coef}X = {n1}$, so $X = {X}$. Substituting back gives $Y = {Y}$.
+    So $x^2 = {X}$ and $y^2 = {Y}$, and the solution with $x > 0$ and $y \ge 0$ is **$({x0}, {y0})$**. {z}
+
+- id: a2-d-aug-2x2
+  title: Row-reduce a 2×2 system
+  topic: Matrices
+  vars:
+    xs: {min: -6, max: 6}
+    ys: {min: -6, max: 6}
+    b1: {min: -4, max: 4}
+    a2: {choices: [-3, -2, 2, 3, 4, 5]}
+    b2: {min: -5, max: 5}
+  calc:
+    c1: xs + b1*ys
+    c2: a2*xs + b2*ys
+    p: b2 - a2*b1
+    qq: c2 - a2*c1
+    by: b1*ys
+  where: ['b1 != 0', 'b2 != 0', 'p != 0', 'ys != 0']
+  prompt: 'Solve the system $x {b1:signedcoef}y = {c1}$, ${a2}x {b2:signedcoef}y = {c2}$ by writing its augmented matrix and row-reducing.'
+  answers:
+    - {name: xs, label: '$x =$'}
+    - {name: ys, label: '$y =$'}
+  solution: |-
+    The augmented matrix already has a leading 1 in row 1. Clear the entry below it:
+    $$\left[\begin{array}{cc|c} 1 & {b1} & {c1} \\ {a2} & {b2} & {c2} \end{array}\right] \xrightarrow{R_2 - ({a2})R_1 \to R_2} \left[\begin{array}{cc|c} 1 & {b1} & {c1} \\ 0 & {p} & {qq} \end{array}\right]$$
+    Row 2 says ${p:coef}y = {qq}$, so **$y = {ys}$**. Row 1 says $x + ({b1})({ys}) = {c1}$, so $x = {c1} - ({by})$, which gives **$x = {xs}$**.
+
+- id: a2-d-row-operation
+  title: Perform a row operation
+  topic: Matrices
+  vars:
+    r2: {min: -5, max: 5}
+    r3: {min: -5, max: 5}
+    r4: {min: -9, max: 9}
+    f: {choices: [-4, -3, -2, 2, 3, 4, 5]}
+    g: {min: -5, max: 5}
+    t2: {min: -5, max: 5}
+    t3: {min: -5, max: 5}
+    t4: {min: -9, max: 9}
+    s2: {min: -5, max: 5}
+    s3: {min: -5, max: 5}
+    s4: {min: -9, max: 9}
+    i: {choices: [2, 3]}
+  calc:
+    k: -f
+    a1: if(i == 2, f, g)
+    b1: if(i == 2, g, f)
+    w2: if(i == 2, t2, s2)
+    w3: if(i == 2, t3, s3)
+    w4: if(i == 2, t4, s4)
+    k2: k*r2
+    k3: k*r3
+    k4: k*r4
+    n1: '0'
+    n2: w2 + k*r2
+    n3: w3 + k*r3
+    n4: w4 + k*r4
+  prompt: |-
+    Apply the row operation $R_{i} {k:signedcoef}R_1 \to R_{i}$ to
+
+    $$\left[\begin{array}{ccc|c} 1 & {r2} & {r3} & {r4} \\ {a1} & {t2} & {t3} & {t4} \\ {b1} & {s2} & {s3} & {s4} \end{array}\right]$$
+
+    and enter the four entries of the new row {i}.
+  answers:
+    - {name: n1, label: 'Column 1'}
+    - {name: n2, label: 'Column 2'}
+    - {name: n3, label: 'Column 3'}
+    - {name: n4, label: 'After the bar'}
+  solution: |-
+    Add ${k}$ times row 1 to row {i}, entry by entry, including the constant after the bar. Row {i} is $[\,{f} \;\; {w2} \;\; {w3} \mid {w4}\,]$ and ${k}$ times row 1 is $[\,{k} \;\; {k2} \;\; {k3} \mid {k4}\,]$.
+    Sum: **$[\,0 \;\; {n2} \;\; {n3} \mid {n4}\,]$**. The first entry becomes 0, which is the point of the operation: it clears column 1 below the leading 1.
+
+- id: a2-d-inverse-2x2
+  title: Solve a 2×2 system with an inverse matrix
+  topic: Matrices
+  vars:
+    a: {min: -5, max: 5}
+    b: {min: -5, max: 5}
+    c: {min: -5, max: 5}
+    d: {min: -5, max: 5}
+    xs: {min: -6, max: 6}
+    ys: {min: -6, max: 6}
+  calc:
+    det: a*d - b*c
+    e1: a*xs + b*ys
+    e2: c*xs + d*ys
+    nb: -b
+    nc: -c
+    u: d*e1 - b*e2
+    v: -c*e1 + a*e2
+  where: ['a != 0', 'b != 0', 'c != 0', 'd != 0', 'det != 0', 'abs(det) <= 6']
+  prompt: 'Write the system ${a:coef}x {b:signedcoef}y = {e1}$, ${c:coef}x {d:signedcoef}y = {e2}$ as $AX = B$ and solve it with $X = A^{-1}B$. Enter $\det A$, then $x$ and $y$.'
+  answers:
+    - {name: det, label: '$\det A =$'}
+    - {name: xs, label: '$x =$'}
+    - {name: ys, label: '$y =$'}
+  solution: |-
+    $A = \begin{bmatrix} {a} & {b} \\ {c} & {d} \end{bmatrix}$, so $\det A = ({a})({d}) - ({b})({c}) =$ **{det}**.
+    Swap the diagonal, negate the other two entries, and divide by the determinant: $A^{-1} = \dfrac{1}{{det}}\begin{bmatrix} {d} & {nb} \\ {nc} & {a} \end{bmatrix}$.
+    Then $X = A^{-1}B = \dfrac{1}{{det}}\begin{bmatrix} ({d})({e1}) + ({nb})({e2}) \\ ({nc})({e1}) + ({a})({e2}) \end{bmatrix} = \dfrac{1}{{det}}\begin{bmatrix} {u} \\ {v} \end{bmatrix}$, so **$x = {xs}$** and **$y = {ys}$**.

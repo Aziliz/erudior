@@ -183,3 +183,45 @@
   explanation: |-
     $\sqrt{L/9.8} = \tfrac{3}{2\pi}$, so $L = 9.8\left(\tfrac{3}{2\pi}\right)^2 \approx 9.8 \times 0.228 \approx 2.23$ m. Forgetting to square gives about 4.68.
 
+- id: alg-q-2811
+  lesson: alg-radical-eq
+  topic: Radical equations
+  stem: 'Solve $x^{2/3} = 9$.'
+  choices: ['$x = 27$', '$x = \pm 3\sqrt[3]{3}$', '$x = \pm 729$', '$x = \pm 27$']
+  answer: 3
+  explanation: |-
+    Write it as $\left(\sqrt[3]{x}\right)^2 = 9$, so $\sqrt[3]{x} = \pm 3$ and $x = \pm 27$. Both check: $(-27)^{2/3} = (-3)^2 = 9$. Raising both sides to the $\tfrac32$ power alone gives only 27, missing the negative solution. $\pm 3\sqrt[3]{3}$ is $9^{2/3}$, from raising to the $\tfrac23$ power instead of its reciprocal, and $\pm 729$ cubes 9 without taking the square root.
+- id: alg-q-2812
+  lesson: alg-radical-eq
+  module_quiz: true
+  topic: Radical equations
+  stem: 'Which equation has two real solutions?'
+  choices: ['$x^{2/5} = 4$', '$x^{3/2} = 8$', '$x^{3/5} = 8$', '$x^{1/3} = 2$']
+  answer: 0
+  explanation: |-
+    The numerator of the exponent is even only in $x^{2/5} = 4$: $\left(\sqrt[5]{x}\right)^2 = 4$, so $\sqrt[5]{x} = \pm 2$ and $x = \pm 32$. The other numerators are odd, so each has one solution: $x^{3/2} = 8$ gives $x = 4$, $x^{3/5} = 8$ gives $x = 32$, and $x^{1/3} = 2$ gives $x = 8$.
+- id: alg-q-2813
+  lesson: alg-radical-eq
+  topic: Radical equations
+  stem: 'Solve $(x + 2)^{2/3} = 4$.'
+  choices: ['$x = 6$', '$x = 0$ or $x = -4$', '$x = \pm 6$', '$x = 6$ or $x = -10$']
+  answer: 3
+  explanation: |-
+    $\left(\sqrt[3]{x + 2}\right)^2 = 4$, so $\sqrt[3]{x + 2} = \pm 2$ and $x + 2 = \pm 8$. Then $x = 6$ or $x = -10$; check $(-8)^{2/3} = (-2)^2 = 4$. $x = 6$ alone misses the negative case, $x = \pm 6$ puts the $\pm$ on $x$ instead of on $x + 2$, and $0$ or $-4$ comes from $x + 2 = \pm 2$, forgetting to cube.
+- id: alg-q-2814
+  lesson: alg-radical-eq
+  topic: Radical equations
+  stem: 'Solve $x^{4/3} = 16$.'
+  choices: ['$x = \pm 8$', '$x = 8$', '$x = \pm 2$', '$x = \pm 64$']
+  answer: 0
+  explanation: |-
+    $\left(\sqrt[3]{x}\right)^4 = 16$, so $\sqrt[3]{x} = \pm 2$ (an even power hides the sign) and $x = \pm 8$. Check: $(-8)^{4/3} = (-2)^4 = 16$. $x = 8$ alone forgets the $\pm$, $\pm 2$ stops after the fourth root without cubing, and $\pm 64$ is $16^{3/2}$, using the wrong reciprocal power.
+- id: alg-q-2815
+  lesson: alg-radical-eq
+  module_quiz: true
+  topic: Radical equations
+  stem: 'Solve $x^{2/3} = -4$.'
+  choices: ['$x = -8$', 'No real solution', '$x = \pm 8$', '$x = 8$']
+  answer: 1
+  explanation: |-
+    $x^{2/3} = \left(\sqrt[3]{x}\right)^2$ is a square, so it is never negative and can't equal $-4$. There is no real solution. Each candidate fails the check: $8^{2/3} = 4$ and $(-8)^{2/3} = (-2)^2 = 4$, not $-4$. A negative base doesn't make the square negative.

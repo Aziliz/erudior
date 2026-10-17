@@ -14,6 +14,16 @@ title: Probability, statistics and trigonometry
 
 Repeats allowed (PINs, plates): $n^r$. Symmetry: $_nC_r = {}_nC_{n-r}$.
 
+## Binomial theorem
+
+| Idea | Formula |
+|---|---|
+| Binomial theorem | $(a + b)^n = \sum_{k=0}^{n} {}_nC_k\, a^{n-k}b^k$ |
+| Term containing $b^k$ | $_nC_k\, a^{n-k}b^k$, the $(k + 1)$st term |
+| Pascal's triangle | row $n$ is $_nC_0, \ldots, {}_nC_n$; each entry is the sum of the two above; row sum $2^n$ |
+
+Rows 0 to 6: 1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1; 1 6 15 20 15 6 1.
+
 ## Probability
 
 | Rule | Formula |

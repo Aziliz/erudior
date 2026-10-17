@@ -4,7 +4,7 @@ module: a2-m4
 title: Radical equations
 minutes: 25
 topics: [Radical equations]
-drills: [alg-d-radical-eq, alg-d-radical-extraneous]
+drills: [alg-d-radical-eq, alg-d-radical-extraneous, a2-d-even-exp]
 refs: [alg-ref-functions]
 ---
 A **radical equation** has the variable inside a radical, like $\sqrt{2x + 3} = 5$. The natural way to remove a square root is to square both sides. That works, but it comes with a catch: squaring can create "solutions" that don't satisfy the original equation. This lesson shows the method and why checking is not optional.

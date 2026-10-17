@@ -64,3 +64,9 @@
 - {front: 'Frequency', back: '$\dfrac{b}{2\pi}$ cycles per unit, the reciprocal of the period.', topic: Sinusoid graphs}
 - {front: 'Steps to model periodic data', back: 'Midline and amplitude from max and min, $b = \dfrac{2\pi}{\text{period}}$, then pick $\sin$, $\cos$ or $-\cos$ (and a shift) to match the start.', topic: Periodic models}
 - {front: 'Ferris wheel boarding at the bottom', back: '$h(t) = -r\cos\left(\dfrac{2\pi}{T}t\right) + (\text{center height})$', topic: Periodic models}
+- {front: 'Rule for building Pascal''s triangle', back: 'Each row starts and ends with 1; every other entry is the sum of the two entries above it. The top row is row 0.', topic: Pascal's triangle}
+- {front: 'Row 5 of Pascal''s triangle', back: '1, 5, 10, 10, 5, 1: the coefficients of $(a + b)^5$.', topic: Pascal's triangle}
+- {front: 'Sum of row $n$ of Pascal''s triangle', back: '$2^n$ (set $a = b = 1$ in $(a + b)^n$).', topic: Pascal's triangle}
+- {front: 'Binomial theorem', back: '$(a + b)^n = \sum_{k=0}^{n} {}_nC_k\, a^{n-k}b^k$', topic: Binomial theorem}
+- {front: 'The term containing $b^k$ in $(a + b)^n$', back: '$_nC_k\, a^{n-k}b^k$, which is the $(k + 1)$st term.', topic: Binomial theorem}
+- {front: 'Expanding $(2x - 3)^n$', back: 'Use $a = 2x$ and $b = -3$, keeping each in parentheses, so the 2 and the sign are raised to each power.', topic: Binomial theorem}

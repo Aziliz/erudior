@@ -1,6 +1,6 @@
 ---
 id: alg-ref-equations
-title: Equations, inequalities, lines and systems
+title: Equations, inequalities, lines, systems and matrices
 ---
 ## Properties of real numbers
 
@@ -55,6 +55,31 @@ Variable vanishes: false statement means no solution; true statement means all r
 | one solution | lines cross | values for each variable |
 | no solution | parallel lines | false statement, e.g. $0 = 5$ |
 | infinitely many | same line | true statement, e.g. $0 = 0$ |
+
+Three variables: eliminate the same variable from two different pairs of equations, solve the $2 \times 2$ system, back-substitute.
+
+## Nonlinear systems
+
+| Method | When | Notes |
+|---|---|---|
+| Substitution | one equation is linear | solve it for a variable, substitute, solve the quadratic; partners from the linear equation |
+| Elimination | only $x^2$ and $y^2$ terms | add or subtract, then take $\pm$ square roots (up to 4 solutions) |
+| Discriminant of the substituted quadratic | counting intersections | $> 0$: two; $= 0$: one (tangent); $< 0$: none |
+
+Circle: $x^2 + y^2 = r^2$ (center origin), $(x - h)^2 + (y - k)^2 = r^2$ (center $(h, k)$).
+
+## Matrices
+
+| Idea | Statement |
+|---|---|
+| Augmented matrix | rows = equations, columns = variables (0 if missing), constants after the bar |
+| Row operations | $R_i \leftrightarrow R_j$; $cR_i \to R_i$ ($c \ne 0$); $R_i + cR_j \to R_i$ |
+| Row echelon form | leading 1s in a staircase, zeros below; back-substitute |
+| RREF | zeros above and below each leading 1; read off the solution |
+| $[\,0 \;\cdots\; 0 \mid c\,]$, $c \ne 0$ | no solution |
+| Determinant ($2 \times 2$) | $\det\begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc$ |
+| Inverse ($2 \times 2$) | $\dfrac{1}{ad - bc}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$, if $ad - bc \ne 0$ |
+| Matrix equation | $AX = B \Rightarrow X = A^{-1}B$ |
 
 Linear programming: the maximum or minimum of a linear objective on a polygonal feasible region occurs at a vertex.
 

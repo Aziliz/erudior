@@ -245,3 +245,73 @@
   solution: |-
     $\dfrac{1}{\sqrt{{n:dp0}}} \approx {fr:dp4}$, which is {moe:num2}%. So the margin of error is about **{moe:num1}%**.
     The likely range for all voters is {ph}% ± {moe:num1}%: from **{lo:num1}%** to **{hi:num1}%**.
+
+
+- id: a2-d-binom-expand
+  title: Expand a binomial to the 4th power
+  topic: Binomial theorem
+  vars:
+    a: {choices: [-2, -1, 1, 2, 3]}
+    b: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
+  calc:
+    c4: a^4
+    c3: 4*a^3*b
+    c2: 6*a^2*b^2
+    c1: 4*a*b^3
+    c0: b^4
+  prompt: 'Expand $({a:coef}x {b:signed})^4$. Enter the coefficients of $x^4$, $x^3$, $x^2$ and $x$, and the constant term.'
+  answers:
+    - {name: c4, label: '$x^4$:'}
+    - {name: c3, label: '$x^3$:'}
+    - {name: c2, label: '$x^2$:'}
+    - {name: c1, label: '$x$:'}
+    - {name: c0, label: 'Constant:'}
+  solution: |-
+    Row 4 of Pascal's triangle is 1, 4, 6, 4, 1. The first term is ${a:coef}x$ and the second is ${b}$; keep each in parentheses so its coefficient and sign are raised to the power:
+    $$({a:coef}x)^4 + 4({a:coef}x)^3({b}) + 6({a:coef}x)^2({b})^2 + 4({a:coef}x)({b})^3 + ({b})^4$$
+    $$= {c4:coef}x^4 {c3:signedcoef}x^3 {c2:signedcoef}x^2 {c1:signedcoef}x {c0:signed}.$$
+    The coefficients are **{c4}**, **{c3}**, **{c2}**, **{c1}** and **{c0}**.
+
+- id: a2-d-binom-coef
+  title: One coefficient of a binomial expansion
+  topic: Binomial theorem
+  vars:
+    n: {min: 4, max: 8}
+    k: {min: 1, max: 6}
+    a: {choices: [-2, -1, 1, 2, 3]}
+    b: {choices: [-3, -2, -1, 1, 2, 3]}
+  calc:
+    j: n - k
+    C: nCr(n, k)
+    pa: a^(n - k)
+    pb: b^k
+    ans: nCr(n, k)*a^(n - k)*b^k
+  where: ['k >= 2', 'k <= n - 2', 'abs(ans) <= 50000']
+  prompt: 'Find the coefficient of $x^{{j}}$ in the expansion of $({a:coef}x {b:signed})^{{n}}$.'
+  answers:
+    - {name: ans, label: 'Coefficient'}
+  solution: |-
+    Each term is $_{{n}}C_k\,({a:coef}x)^{{n} - k}\,({b})^k$, and the power of $x$ is ${n} - k$. For $x^{{j}}$ you need $k = {k}$.
+    The term is $_{{n}}C_{{k}}\,({a:coef}x)^{{j}}\,({b})^{{k}} = {C} \cdot ({pa}) \cdot ({pb})\,x^{{j}}$, so the coefficient is **{ans}**.
+
+- id: a2-d-binom-term
+  title: A given term of a binomial expansion
+  topic: Binomial theorem
+  vars:
+    n: {min: 4, max: 7}
+    r: {min: 3, max: 6}
+    c: {choices: [-3, -2, -1, 2, 3]}
+  calc:
+    k: r - 1
+    nk: n - r + 1
+    C: nCr(n, r - 1)
+    ck: c^(r - 1)
+    T: nCr(n, r - 1)*c^(r - 1)
+  where: ['r <= n - 1']
+  prompt: 'Find term number {r} (counting the first term as term 1) in the expansion of $(x {c:signedcoef}y)^{{n}}$. Type it using $x$ and $y$, for example 60x^3y^2.'
+  answers:
+    - {kind: expression, expression: 'nCr(n, r - 1)*c^(r - 1)*x^(n - r + 1)*y^(r - 1)', variables: [x, y], show: '${T:dp0}x^{{nk}}y^{{k}}$', label: 'Term:'}
+  solution: |-
+    The terms are numbered from $k = 0$, so term {r} has $k = {k}$:
+    $$_{{n}}C_{{k}}\,x^{{nk}}\,({c:coef}y)^{{k}} = {C} \cdot x^{{nk}} \cdot ({ck})\,y^{{k}}.$$
+    The term is **${T:dp0}x^{{nk}}y^{{k}}$**.

@@ -220,3 +220,95 @@
   solution: |-
     Inverse variation means $y = \dfrac{k}{x}$, so the product is constant: $k = {x1} \cdot {y1} = {kc}$.
     Then $y = \dfrac{{kc}}{{x2}} =$ **{y2}**.
+
+
+- id: a2-d-poly-ineq-signs
+  title: Sign chart for a cubic inequality
+  topic: Polynomial inequalities
+  vars:
+    p: {min: -6, max: 6}
+    q: {min: -6, max: 6}
+    r: {min: -6, max: 6}
+    rel: {choices: [{label: '<', value: 0}, {label: '\le', value: 1}, {label: '>', value: 2}, {label: '\ge', value: 3}]}
+  funcs:
+    f(x): (x - p)*(x - q)*(x - r)
+    ok(x): if(rel == 0, f(x) < 0, if(rel == 1, f(x) <= 0, if(rel == 2, f(x) > 0, f(x) >= 0)))
+  calc:
+    lo: min(p, q, r)
+    hi: max(p, q, r)
+    mid: p + q + r - lo - hi
+    np: -p
+    nq: -q
+    nr: -r
+    t1: lo - 1
+    t2: lo + 1
+    t3: mid + 1
+    t4: hi + 1
+    v1: f(t1)
+    v2: f(t2)
+    v3: f(t3)
+    v4: f(t4)
+    cnt: sum(ok, lo, hi)
+  where: ['p != 0', 'q != 0', 'r != 0', 'mid - lo >= 2', 'hi - mid >= 2']
+  prompt: 'Solve $(x {np:signed})(x {nq:signed})(x {nr:signed}) {rel} 0$ with a sign chart. Enter the three critical values from smallest to largest, then the number of integers from the smallest to the largest critical value (inclusive) that satisfy the inequality.'
+  answers:
+    - {name: lo, label: 'Smallest critical value'}
+    - {name: mid, label: 'Middle critical value'}
+    - {name: hi, label: 'Largest critical value'}
+    - {name: cnt, label: 'Integers in the solution'}
+  solution: |-
+    Call the product $f(x)$. Its critical values are the zeros of the factors: **{lo}**, **{mid}** and **{hi}**.
+    Test one value in each interval: $f({t1}) = {v1}$, $f({t2}) = {v2}$, $f({t3}) = {v3}$, $f({t4}) = {v4}$. The signs alternate because each zero has multiplicity 1.
+    Keep the intervals whose sign makes $f(x) {rel} 0$ true, and include the critical values themselves only for $\le$ or $\ge$. Counting the integers from {lo} to {hi} in that solution gives **{cnt}**.
+
+- id: a2-d-rat-ineq
+  title: Rational inequality with a constant
+  topic: Rational inequalities
+  vars:
+    m: {min: -6, max: 6}
+    n: {min: -6, max: 6}
+    k: {choices: [2, 3, 4]}
+    rel: {choices: [{label: '>', value: 0}, {label: '\ge', value: 1}]}
+  calc:
+    u: (k - 1)*m - k*n
+    nn: -n
+    a1: 1 - k
+    b1: u + k*n
+    sm: if(m < n, if(rel == 1, m, m + 1), n + 1)
+    lg: if(m < n, n - 1, if(rel == 1, m, m - 1))
+    tm: (m + n)/2
+    vt: (tm + u)/(tm - n)
+  where: ['m != 0', 'n != 0', 'u != 0', 'abs(m - n) >= 2', 'abs(u) <= 20']
+  prompt: 'Solve $\dfrac{x {u:signed}}{x {nn:signed}} {rel} {k}$. Enter the smallest and the largest integer that satisfy the inequality.'
+  answers:
+    - {name: sm, label: 'Smallest integer solution'}
+    - {name: lg, label: 'Largest integer solution'}
+  solution: |-
+    Don't multiply by $x {nn:signed}$ (its sign is unknown). Subtract {k} and use the common denominator:
+    $$\frac{x {u:signed} - {k}(x {nn:signed})}{x {nn:signed}} = \frac{{a1:coef}x {b1:signed}}{x {nn:signed}} {rel} 0.$$
+    Critical values: {m} (the numerator is 0) and {n} (the denominator is 0). A test value between them, $x = {tm}$, gives the original fraction $\approx {vt:num2}$, which is more than {k}; far to either side the left side of the last inequality is negative. So the solution is the interval between {n} and {m}: {n} is never included (the fraction has no value there), and {m} is included only for $\ge$.
+    Smallest integer solution **{sm}**, largest **{lg}**.
+
+- id: a2-d-ineq-height
+  title: When is the ball high enough?
+  topic: Polynomial inequalities
+  vars:
+    t1: {choices: [1, 2, 3]}
+    gap: {choices: [1, 2, 3, 4]}
+    H: {min: 10, max: 120, step: 5}
+  calc:
+    t2: t1 + gap
+    v: 5*(t1 + t2)
+    h0: H - 5*t1*t2
+    c0: -5*t1*t2
+    bb: -(t1 + t2)
+    cc: t1*t2
+  where: ['h0 > 0', 'h0 <= 40']
+  prompt: 'A ball''s height after $t$ seconds is $h = -5t^2 + {v}t + {h0}$ meters. When does it first reach a height of {H} m, and for how many seconds is it at least {H} m high?'
+  answers:
+    - {name: t1, label: 'First reaches it at t ='}
+    - {name: gap, label: 'Seconds at or above'}
+  solution: |-
+    Solve $-5t^2 + {v}t + {h0} \ge {H}$. Subtract {H}: $-5t^2 + {v}t {c0:signed} \ge 0$.
+    Divide by $-5$ and flip the symbol: $t^2 {bb:signedcoef}t {cc:signed} \le 0$, which factors as $(t - {t1})(t - {t2}) \le 0$.
+    The product is negative between its zeros and 0 at them, so ${t1} \le t \le {t2}$. The ball first reaches {H} m at **{t1} s** and stays at least that high for ${t2} - {t1} =$ **{gap} s**.

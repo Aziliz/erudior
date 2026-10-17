@@ -7,7 +7,7 @@ topics: [Three-variable systems]
 drills: [alg-d-system3, alg-d-parabola-3pts]
 refs: [alg-ref-equations]
 ---
-Some problems have three unknowns: three kinds of ticket, three investments, or the three coefficients of a parabola. Three unknowns need three equations. The elimination method from Algebra 1 extends naturally: use pairs of equations to knock out one variable, which leaves an ordinary two-variable system.
+Some problems have three unknowns: three kinds of ticket, three investments, or the three coefficients of a parabola. Three unknowns need three equations. The elimination method from Algebra 1 extends naturally: use pairs of equations to knock out one variable, which leaves an ordinary two-variable system. The next lesson redoes the same work more efficiently with matrices.
 
 ## What a solution looks like
 

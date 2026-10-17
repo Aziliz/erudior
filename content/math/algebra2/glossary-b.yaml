@@ -200,3 +200,22 @@
 - term: phase shift
   definition: 'The horizontal shift $h$ of a sinusoid $y = a\sin\big(b(x - h)\big) + k$; right when $h > 0$. Factor $b$ out first: $\sin(bx - c)$ shifts by $\tfrac{c}{b}$.'
   topic: Sinusoid graphs
+- term: binomial
+  aliases: [binomials]
+  definition: 'A polynomial with two terms, such as $a + b$ or $2x - 3$.'
+  topic: Binomial theorem
+- term: binomial expansion
+  aliases: [expansion]
+  definition: 'A power of a binomial, such as $(a + b)^n$, written out as a sum of terms.'
+  topic: Binomial theorem
+- term: Pascal's triangle
+  aliases: ['Pascal’s triangle']
+  definition: 'A triangle of numbers with 1s along the edges in which each other entry is the sum of the two above it. Row $n$ (starting from row 0) lists the coefficients of $(a + b)^n$, which are $_nC_0, {}_nC_1, \ldots, {}_nC_n$.'
+  topic: Pascal's triangle
+- term: binomial coefficients
+  aliases: [binomial coefficient]
+  definition: 'The numbers $_nC_k = \binom{n}{k} = \dfrac{n!}{k!\,(n - k)!}$, the coefficients in the expansion of $(a + b)^n$.'
+  topic: Binomial theorem
+- term: binomial theorem
+  definition: '$(a + b)^n = \sum_{k=0}^{n} {}_nC_k\, a^{n-k}b^k$ for any whole number $n$; the term containing $b^k$ is the $(k + 1)$st term.'
+  topic: Binomial theorem

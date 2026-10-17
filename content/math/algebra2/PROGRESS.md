@@ -227,3 +227,65 @@ Final state: `build.py algebra2` and `check-course.mts` both report OK.
   - "Multiplicity at $x = {s}$"
 - `$a_{{n}} =$` and `$S_{{n}} =$` in a2-m7 render as "a_n =" and "S_n =". They're harmless, so I left them.
 - references/equations.md mentions linear programming, which this course doesn't teach. It's harmless, so I left it.
+
+
+## Gap lessons (2026-10-17)
+
+Fills the four "Common" coverage gaps from VERIFY.md and makes the lesson 12 (now file 14) even-numerator section quizzable.
+
+### New lessons
+
+| File | Id | Module | Title | Topics | Drills |
+|---|---|---|---|---|---|
+| 07-nonlinear-systems | a2-nonlinear-systems | a2-m2 | Nonlinear systems | Nonlinear systems | a2-d-nls-line-parabola, a2-d-nls-line-circle, a2-d-nls-elimination |
+| 09-matrices | a2-matrices | a2-m2 | Solving systems with matrices | Matrices | a2-d-aug-2x2, a2-d-row-operation, a2-d-inverse-2x2 |
+| 19-polynomial-rational-inequalities | a2-poly-rational-ineq | a2-m5 | Polynomial and rational inequalities | Polynomial inequalities; Rational inequalities | a2-d-poly-ineq-signs, a2-d-rat-ineq, a2-d-ineq-height |
+| 26-binomial-theorem | a2-binomial | a2-m8 | The binomial theorem and Pascal's triangle | Pascal's triangle; Binomial theorem | a2-d-binom-expand, a2-d-binom-coef, a2-d-binom-term |
+
+About 950–1,050 words of prose each (not counting display math or figures), 4–5 worked examples each, Common mistakes and Key points. Figures: 3 in 07 (intersections of lines, a parabola, a circle and a hyperbola), 3 in 19 (a parabola and two sign charts), 1 in 26 (Pascal's triangle). 09 has none, since its displayed matrices carry the visuals.
+
+### Renumbering (ids unchanged)
+
+07-three-variables → 08; 08–12 → 10–14; 13–16 → 15–18; 17–21 → 20–24; 22-counting → 25; 23–26 → 27–30. The source check's "Lesson 12" (radical equations) is now file 14. Order in module a2-m2: complex numbers, complex quadratics, nonlinear systems (uses the discriminant from the lesson before), three variables, matrices.
+
+### Cross-references updated
+
+- 08-three-variables: intro points to the matrices lesson next.
+- 18-rational-graphs: intro points to the inequalities lesson next.
+- 25-counting: "the next lesson" now names the binomial theorem, then probability.
+- 27-probability: "the last lesson" became "the counting lesson".
+- 14-radical-equations: links the new drill a2-d-even-exp.
+
+### Questions (53 new)
+
+- `questions/a2-m2.yaml`: a2-q-nls-01…12 (module quiz: 03, 05, 10, 12) and a2-q-mat-01…12 (module quiz: 03, 06, 09, 12).
+- `questions/a2-m5.yaml`: a2-q-ineq-01…12 (module quiz: 02, 05, 08, 10; 01–06 polynomial, 07–12 rational).
+- `questions/a2-m8.yaml` (placed after the counting questions): a2-q-binom-01…12 (module quiz: 02, 06, 09, 12; 01–04 Pascal's triangle).
+- `questions/a2-m4.yaml`: alg-q-2811…2815 for alg-radical-eq, all on $u^{m/n} = c$ with $m$ even (module quiz: 2812, 2815). Lesson alg-radical-eq now has 15 questions with answer positions 4/4/4/3.
+- Each new lesson has answer positions 3/3/3/3.
+
+### Drills (13 new)
+
+The 12 drills listed above, plus a2-d-even-exp (`drills/a2-m4.yaml`): solve $(x + h)^{m/3} = c$ with $m = 2$ or $4$, both solutions.
+
+### Cards, glossary, references
+
+- `glossary.yaml`: +19 terms (nonlinear system, circle, matrix, dimensions, entry, augmented matrix, coefficient matrix, row operations, row echelon form, Gaussian elimination, reduced row echelon form, RREF, identity matrix, inverse matrix, determinant, critical values, sign chart, polynomial inequality, rational inequality). `glossary-b.yaml`: +5 (binomial, binomial expansion, Pascal's triangle, binomial coefficients, binomial theorem). No duplicate names or aliases; every bolded term in all 30 lessons has an entry.
+- `cards.yaml` +14, `cards-b.yaml` +6.
+- `references/equations.md` (title now "…, systems and matrices"): three-variable line, Nonlinear systems and Matrices sections. `references/functions.md`: Polynomial and rational inequalities section. `references/prob-trig.md`: Binomial theorem section.
+- `course.yaml`: description only (mentions the new topics). id, revision, released, order, subject, level, type and modules unchanged.
+
+### Verification
+
+- Every new question solved with sympy before fixing its key (`/tmp/claude-0/gaps/algebra2/vq.py`): 53/53 keys match.
+- Every new drill generated 300 times with `generate()` on the built JSON (`dump.mts`). `vd.py` re-solved each instance from the prompt text alone (so the prompt values are the ones used), with sympy: 3,900 instances, 0 mismatches. The shown answer, typed back, was accepted in every instance, and a wrong answer was rejected. The term drill also accepts implicit products like `84x^5y^2` and rejects the unexpanded binomial.
+- Lesson examples checked in sympy; figures rendered to PNG and inspected.
+- `python3 content/math/build.py algebra2`: 30 lessons, 351 questions, 84 drills, 186 cards, 197 terms, 4 refs. `npx tsx tests/check-course.mts samples/math/math-algebra2.json`: OK.
+
+### Notes for a reviewer
+
+- The hyperbola figure in 07 sets `"color": "var(--fig-0)"` on both branches so they match. The CSS variable keeps the colour right in dark mode; the renderer passes it straight into a style attribute.
+- a2-d-nls-elimination: about a third of instances have $y = 0$ (2 solutions), the rest 4, so the "number of solutions" box can't be answered by rote (reviewer change).
+- a2-d-poly-ineq-signs asks for a count of integer solutions between the outer critical values. This tests endpoint inclusion without typing interval notation.
+- Matrices are taught at Algebra 2 depth: row reduction, RREF read-off, and the $2 \times 2$ inverse formula. $3 \times 3$ inverses are left to a calculator.
+- VERIFY.md's coverage-gap list is unchanged; its four "Common" items are now covered.
