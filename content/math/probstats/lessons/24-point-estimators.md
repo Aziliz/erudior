@@ -46,7 +46,7 @@ $$\operatorname{MSE}(\hat\theta) = E\big[(\hat\theta - \theta)^2\big] = \operato
 $2(E\hat\theta - \theta)\,E[\hat\theta - E\hat\theta]$ is zero because $E[\hat\theta - E\hat\theta] = 0$, leaving variance plus squared bias.
 
 ```plot
-{"x": [3, 17], "y": [0, 0.55], "xLabel": "value of the estimator", "yLabel": "density", "functions": [{"f": "normpdf(x, 10, 2)", "label": "unbiased, SD 2"}, {"f": "normpdf(x, 10.8, 0.8)", "label": "biased, SD 0.8"}], "segments": [{"from": [10, 0], "to": [10, 0.53], "dashed": true}], "labels": [{"at": [9.3, 0.52], "text": "θ = 10"}], "caption": "Sampling distributions of two estimators of θ = 10: MSE 4 for the unbiased one, 0.64 + 0.64 = 1.28 for the biased one"}
+{"x": [3, 17], "y": [0, 0.55], "xLabel": "value of the estimator", "yLabel": "density", "functions": [{"f": "normpdf(x, 10, 2)"}, {"f": "normpdf(x, 10.8, 0.8)"}], "segments": [{"from": [10, 0], "to": [10, 0.53], "dashed": true}], "labels": [{"at": [9.3, 0.52], "text": "θ = 10"}], "caption": "Sampling distributions of two estimators of θ = 10: the wide curve is unbiased with SD 2 (MSE 4); the tall narrow curve is centred at 10.8 with SD 0.8 (MSE 0.64 + 0.64 = 1.28)"}
 ```
 
 A small bias can be worth paying for a large cut in variance, as the figure shows.

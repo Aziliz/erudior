@@ -47,6 +47,7 @@
     sd: {min: 1, max: 6}
     a: {choices: [-4, -3, -2, 2, 3, 5, 10]}
     b: {min: -20, max: 50}
+  where: ['b != 0']
   calc:
     ex2: sd^2 + mu^2
     var: sd^2
@@ -182,11 +183,11 @@
     - {name: mu, label: '$E(X) =$', tolerance: 0.001, format: dp3}
     - {name: sd, label: '$\operatorname{SD}(X) =$', tolerance: 0.001, format: dp3}
   solution: |-
-    First {k1} failures, then a success: $P(X = {k}) = ({q})^{{k1}}({p}) \approx$ **{pk:num4}**.
+    $k - 1 = {k1}$ failures, then a success: $P(X = {k}) = ({q})^{{k1}}({p}) \approx$ **{pk:num4}**.
 
     More than {m} trials means the first {m} all fail: $P(X > {m}) = ({q})^{{m}} \approx$ **{pm:num4}**.
 
-    $E(X) = 1/p =$ **{mu:dp3}** and $\operatorname{SD}(X) = \sqrt{q}/p = \sqrt{{q}}/{p} \approx$ **{sd:dp3}**.
+    $E(X) = 1/p =$ **{mu:dp3}** and $\operatorname{SD}(X) = \sqrt{\,q}/p = \sqrt{{q}}/{p} \approx$ **{sd:dp3}**.
 
 - id: ps-d-negbin
   title: Negative binomial probabilities
@@ -258,13 +259,13 @@
     exact: binomcdf(n, p, k)
     approx: poissoncdf(lam, k)
   prompt: |-
-    $X \sim \text{Bin}({n:dp0}, {p})$. Find $P(X \le {k})$ exactly, and then using the Poisson approximation
+    $X \sim \text{Bin}({n:dp0}, {p:sig3})$. Find $P(X \le {k})$ exactly, and then using the Poisson approximation
     (4 decimals each).
   answers:
     - {name: exact, label: 'Exact', tolerance: 0.0001, format: num4}
     - {name: approx, label: 'Poisson', tolerance: 0.0001, format: num4}
   solution: |-
-    Exact: $P(X \le {k}) = \sum_{j=0}^{{k}}\binom{{n:dp0}}{j}({p})^j(1 - {p})^{{n:dp0} - j} \approx$ **{exact:num4}**.
+    Exact: $P(X \le {k}) = \sum_{j=0}^{{k}}\binom{{n:dp0}}{j}({p:sig3})^j(1 - {p:sig3})^{{n:dp0} - j} \approx$ **{exact:num4}**.
 
     Approximation: $\lambda = np = {lam:num2}$, and
     $P(X \le {k}) \approx \sum_{j=0}^{{k}} e^{-\lambda}\dfrac{\lambda^j}{j!} \approx$ **{approx:num4}**.
@@ -283,8 +284,8 @@
     pk: poissonpdf(lam, k)
     p1: 1 - exp(-lam)
   prompt: |-
-    Requests reach a server as a Poisson process with rate {rate} per hour. For a period of {mins}
-    minutes, find the probability of exactly {k} requests and the probability of at least one request (4 decimals).
+    Requests reach a server as a Poisson process with rate {rate} per hour. Let $N$ be the number of requests
+    in a period of {mins} minutes. Find $P(N = {k})$ and the probability of at least one request (4 decimals).
   answers:
     - {name: pk, label: '$P(N = {k}) =$', tolerance: 0.0001, format: num4}
     - {name: p1, label: '$P(N \ge 1) =$', tolerance: 0.0001, format: num4}
@@ -313,15 +314,15 @@
     $X$ takes the values 0, {a} and {b} with probabilities {p0}, {p1} and {p2}. Write the moment
     generating function $M(t)$, and use it to find $E(X)$ and $\operatorname{Var}(X)$.
   answers:
-    - {kind: expression, expression: 'p0 + p1*e^(a*t) + p2*e^(b*t)', variables: [t], label: '$M(t) =$', show: '${p0} + {p1}e^{{a}t} + {p2}e^{{b}t}$'}
+    - {kind: expression, expression: 'p0 + p1*e^(a*t) + p2*e^(b*t)', variables: [t], label: '$M(t) =$', show: '${p0} + {p1}e^{{a:coef}t} + {p2}e^{{b}t}$'}
     - {name: mu, label: '$E(X) =$', tolerance: 0.0001}
     - {name: var, label: '$\operatorname{Var}(X) =$', tolerance: 0.0001, format: num4}
   solution: |-
-    $M(t) = E(e^{tX}) = {p0}e^{0} + {p1}e^{{a}t} + {p2}e^{{b}t}$, so **$M(t) = {p0} + {p1}e^{{a}t} + {p2}e^{{b}t}$**.
+    $M(t) = E(e^{tX}) = {p0}e^{0} + {p1}e^{{a:coef}t} + {p2}e^{{b}t}$, so **$M(t) = {p0} + {p1}e^{{a:coef}t} + {p2}e^{{b}t}$**.
 
-    $M'(t) = {a}({p1})e^{{a}t} + {b}({p2})e^{{b}t}$, so $E(X) = M'(0) =$ **{mu:num4}**.
+    $M'(t) = {a}({p1})e^{{a:coef}t} + {b}({p2})e^{{b}t}$, so $E(X) = M'(0) =$ **{mu:num4}**.
 
-    $M''(t) = {a}^2({p1})e^{{a}t} + {b}^2({p2})e^{{b}t}$, so $E(X^2) = M''(0) = {ex2:num4}$ and
+    $M''(t) = {a}^2({p1})e^{{a:coef}t} + {b}^2({p2})e^{{b}t}$, so $E(X^2) = M''(0) = {ex2:num4}$ and
     $\operatorname{Var}(X) = {ex2:num4} - ({mu:num4})^2 =$ **{var:num4}**.
 
 - id: ps-d-mgf-identify
@@ -341,7 +342,7 @@
     vy: a^2*n*p*q
   prompt: |-
     A random variable $Y$ has moment generating function
-    $$M_Y(t) = e^{{b}t}\left({q} + {p}e^{{a}t}\right)^{{n}}.$$
+    $$M_Y(t) = e^{{b:coef}t}\left({q} + {p}e^{{a:coef}t}\right)^{{n}}.$$
     Recognize it as the MGF of $aX + b$ for a familiar $X$, and find $E(Y)$ and $\operatorname{Var}(Y)$.
   answers:
     - {name: my, label: '$E(Y) =$', tolerance: 0.001}
@@ -365,7 +366,7 @@
     pk: poissonpdf(lam, k)
   prompt: |-
     Breakdowns on line A are Poisson({l1}) per week and on line B Poisson({l2}) per week, independently.
-    Find the probability of exactly {k} breakdowns in total in a week (4 decimals), and the variance of the total.
+    Let $T$ be the total number of breakdowns in a week. Find $P(T = {k})$ (4 decimals) and $\operatorname{Var}(T)$.
   answers:
     - {name: pk, label: '$P(T = {k}) =$', tolerance: 0.0001, format: num4}
     - {name: lam, label: '$\operatorname{Var}(T) =$', tolerance: 0.0001}

@@ -274,8 +274,8 @@
   choices: ['$e^{-50}$', '$0.5$', '$e^{-0.5}$', '$e^{-2}$']
   answer: 3
   explanation: |-
-    By invariance, plug in $\hat\lambda = 0.2$: $e^{-10(0.2)} = e^{-2} \approx 0.135$. $e^{-50}$ uses $\bar x$ as the rate, and $e^{-0.5}$ uses
-    $10\lambda$ with $\lambda = 1/20$.
+    By invariance, plug in $\hat\lambda = 0.2$: $e^{-10(0.2)} = e^{-2} \approx 0.135$. $e^{-50}$ uses $\bar x$ as the rate, and $e^{-0.5}$ swaps the roles
+    of 10 and $\bar x$, computing $e^{-\bar x/10}$.
 
 - id: ps-q-2504
   lesson: ps-mle
@@ -315,7 +315,7 @@
   choices: ['$s\ln p + (n - s)\ln(1 - p)$', '$p^s(1 - p)^{n - s}$', '$s\ln p - n\ln(1 - p)$', '$\ln\binom{n}{s} + p$']
   answer: 0
   explanation: |-
-    $L(p) = p^s(1-p)^{n-s}$; taking logs turns the product into $s\ln p + (n - s)\ln(1 - p)$. The second choice is $L$
+    $L(p) = p^s(1-p)^{n-s}$; taking logs turns the product into $s\ln p + (n - s)\ln(1 - p)$. $p^s(1 - p)^{n - s}$ is $L$
     itself, not its log.
 
 - id: ps-q-2508
@@ -576,7 +576,7 @@
   choices: ['$4$', '$3.5$', '$14$', '$4.67$']
   answer: 1
   explanation: |-
-    Gamma$(\alpha, \beta)$ prior plus counts gives Gamma$(\alpha + \sum x_i,\ \beta + n)$ = Gamma(14, 4), with mean $14/4 = 3.5$. 4 is the sample mean (the MLE), and
+    Gamma$(\alpha, \beta)$ prior (shape $\alpha$, rate $\beta$) plus counts gives Gamma$(\alpha + \sum x_i,\ \beta + n)$ = Gamma(14, 4), with mean $14/4 = 3.5$. 4 is the sample mean (the MLE), and
     4.67 divides by $n$ instead of $\beta + n$.
 
 - id: ps-q-2709

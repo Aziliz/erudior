@@ -3,7 +3,7 @@
   title: Normalizing constant of a pdf
   topic: Densities and cdfs
   vars:
-    pw: {min: 1, max: 4}
+    pw: {min: 2, max: 4}
     bb: {min: 1, max: 4}
     aa: {min: 0.5, max: 3.5, step: 0.5}
   where: ['aa < bb']
@@ -29,7 +29,7 @@
   title: Mean, variance and a probability from a pdf
   topic: Continuous expectation
   vars:
-    b: {min: 1, max: 6}
+    b: {min: 2, max: 6}
     frac: {choices: [0.2, 0.25, 0.4, 0.5, 0.6, 0.75, 0.8]}
   funcs:
     f(x): 12*x*(b - x)^2/b^4
@@ -162,7 +162,7 @@
   prompt: |-
     Alerts arrive as a Poisson process at {rate} per hour. Find (a) the probability that the wait for the
     next alert exceeds {tm} minutes (4 decimals), (b) the mean wait in minutes, and (c) the probability of
-    at least 2 alerts in {hr} hours (4 decimals).
+    at least 2 alerts in a {hr}-hour period (4 decimals).
   answers:
     - {name: pw, label: '(a)', tolerance: 0.0001, format: num4}
     - {name: mw, label: '(b) minutes', tolerance: 0.01}
@@ -173,7 +173,7 @@
 
     (b) $E(T) = 1/\lambda = \tfrac{1}{{rate}}$ hour $=$ **{mw}** minutes.
 
-    (c) $N \sim \text{Poisson}({lh})$ in {hr} hours: $P(N \ge 2) = 1 - e^{-{lh}}(1 + {lh}) \approx$ **{p2:num4}**.
+    (c) $N \sim \text{Poisson}({lh})$ in a {hr}-hour period: $P(N \ge 2) = 1 - e^{-{lh}}(1 + {lh}) \approx$ **{p2:num4}**.
 
 - id: ps-d-normal-prob
   title: Normal probabilities
@@ -221,13 +221,13 @@
     hi: mu + k*sd
     pin: normcdf(k) - normcdf(-k)
   prompt: |-
-    $X \sim \text{N}({mu}, {sd}^2)$. Find the value $x$ with $P(X \le x) = {p}$ (2 decimals), and the probability
+    $X \sim \text{N}({mu}, {sd}^2)$. Find the value $x$ with $P(X \le x) = {p:sig4}$ (2 decimals), and the probability
     that $X$ lies between {lo} and {hi} (4 decimals).
   answers:
     - {name: xp, label: '$x =$', tolerance: 0.02, format: num2}
     - {name: pin, label: 'Probability', tolerance: 0.0002, format: num4}
   solution: |-
-    $z_{p} = \Phi^{-1}({p}) \approx {zp:num4}$, so $x = {mu} + ({zp:num4})({sd}) \approx$ **{xp:num2}**.
+    $z = \Phi^{-1}({p:sig4}) \approx {zp:num4}$, so $x = {mu} + ({zp:num4})({sd}) \approx$ **{xp:num2}**.
 
     {lo} and {hi} are ${k}$ standard deviations either side of the mean:
     $P = \Phi({k}) - \Phi(-{k}) = 2\Phi({k}) - 1 \approx$ **{pin:num4}**.
@@ -264,19 +264,19 @@
   title: Integrals with the gamma function
   topic: Gamma distribution
   vars:
-    m: {choices: [1, 2, 3, 4, 5, 0.5, 1.5, 2.5, 3.5]}
-    beta: {choices: [0.5, 1, 2, 3, 4]}
+    m: {choices: [2, 3, 4, 5, 0.5, 1.5, 2.5, 3.5]}
+    sc: {choices: [0.5, 2, 3, 4]}
   calc:
     al: m + 1
     gal: gamma(m + 1)
-    val: gamma(m + 1)*beta^(m + 1)
+    val: gamma(m + 1)*sc^(m + 1)
   prompt: |-
-    Evaluate $\displaystyle\int_0^\infty x^{{m}}e^{-x/{beta}}\,dx$ (4 significant figures).
+    Evaluate $\displaystyle\int_0^\infty x^{{m}}e^{-x/{sc}}\,dx$ (4 significant figures).
   answers:
     - {name: val, label: 'Value', relTolerance: 0.0005, format: sig4}
   solution: |-
-    Use $\int_0^\infty x^{\alpha - 1}e^{-x/\beta}\,dx = \Gamma(\alpha)\beta^{\alpha}$ with $\alpha - 1 = {m}$, so $\alpha = {al}$ and $\beta = {beta}$:
-    $$\Gamma({al})\,({beta})^{{al}} \approx {gal:sig4} \times {beta}^{{al}} \approx \mathbf{{val:sig4}}.$$
+    Use $\int_0^\infty x^{\alpha - 1}e^{-x/\theta}\,dx = \Gamma(\alpha)\theta^{\alpha}$ with $\alpha - 1 = {m}$, so $\alpha = {al}$ and $\theta = {sc}$:
+    $$\Gamma({al})\,({sc})^{{al}} \approx {gal:sig4} \times {sc}^{{al}} \approx \mathbf{{val:sig4}}.$$
     (Recall $\Gamma(n) = (n-1)!$ and $\Gamma(\tfrac12) = \sqrt\pi$, with $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$.)
 
 - id: ps-d-gamma-dist
@@ -289,7 +289,6 @@
   funcs:
     term(j): exp(-rate*t)*(rate*t)^j/fact(j)
   calc:
-    beta: 1/rate
     mu: k/rate
     sd: sqrt(k)/rate
     lt: rate*t
@@ -297,17 +296,17 @@
     pt: sum(term, 0, k - 1)
   where: ['pt > 0.01', 'pt < 0.99']
   prompt: |-
-    Failures occur as a Poisson process with rate {rate} per day. Let $T$ be the time of the {k}th failure.
+    Failures occur as a Poisson process with rate {rate} per day. Let $T$ be the time of failure number {k}.
     Find $E(T)$ and $\operatorname{SD}(T)$ in days (3 decimals) and $P(T > {t})$ (4 decimals).
   answers:
     - {name: mu, label: '$E(T) =$', tolerance: 0.001, format: dp3}
     - {name: sd, label: '$\operatorname{SD}(T) =$', tolerance: 0.001, format: dp3}
     - {name: pt, label: '$P(T > {t}) =$', tolerance: 0.0001, format: num4}
   solution: |-
-    $T$ is a sum of {k} independent exponential gaps, so $T \sim \text{Gamma}({k}, \beta)$ with scale $\beta = 1/{rate}$.
-    $E(T) = k\beta =$ **{mu:dp3}** and $\operatorname{SD}(T) = \sqrt{k}\,\beta =$ **{sd:dp3}**.
+    $T$ is a sum of {k} independent exponential gaps, so $T \sim \text{Gamma}({k}, \theta)$ with scale $\theta = 1/{rate}$.
+    $E(T) = k\theta =$ **{mu:dp3}** and $\operatorname{SD}(T) = \sqrt{\,k}\,\theta =$ **{sd:dp3}**.
 
-    $T > {t}$ exactly when at most {km} failures occur by time {t}; that count is Poisson$({lt})$, so
+    $T > {t}$ exactly when fewer than {k} failures occur by time {t}; that count is Poisson$({lt})$, so
     $P(T > {t}) = \sum_{j=0}^{{km}} e^{-{lt}}\dfrac{{lt}^j}{j!} \approx$ **{pt:num4}**.
 
 - id: ps-d-beta
@@ -383,19 +382,19 @@
     $X$ is exponential with rate {lam}, and $Y = \sqrt{X}$. Use the change-of-variables formula to find the
     pdf $f_Y(y)$ for $y > 0$, then compute $P(Y \le {y0})$ (4 decimals).
   answers:
-    - {kind: expression, expression: '2*lam*y*e^(-lam*y^2)', variables: [y], label: '$f_Y(y) =$', show: '${two}\,y\,e^{-{lam}y^2}$'}
+    - {kind: expression, expression: '2*lam*y*e^(-lam*y^2)', variables: [y], label: '$f_Y(y) =$', show: '${two:coef}\,y\,e^{-{lam:coef}y^2}$'}
     - {name: cy, label: '$P(Y \le {y0}) =$', tolerance: 0.0001, format: num4}
   solution: |-
     $g(x) = \sqrt x$ is increasing on $x > 0$ with inverse $x = y^2$ and $\dfrac{dx}{dy} = 2y$. So
-    $$f_Y(y) = f_X(y^2)\cdot 2y = {lam}e^{-{lam}y^2}\cdot 2y = \mathbf{{two}\,y\,e^{-{lam}y^2}}, \quad y > 0.$$
-    Then $P(Y \le {y0}) = P(X \le {y0}^2) = 1 - e^{-{lam}({y0})^2} \approx$ **{cy:num4}**.
+    $$f_Y(y) = f_X(y^2)\cdot 2y = {lam:coef}e^{-{lam:coef}y^2}\cdot 2y = \mathbf{{two:coef}\,y\,e^{-{lam:coef}y^2}}, \quad y > 0.$$
+    Then $P(Y \le {y0}) = P(X \le {y0}^2) = 1 - e^{-{lam:coef}({y0})^2} \approx$ **{cy:num4}**.
 
 - id: ps-d-inverse-transform
   title: Inverse transform sampling
   topic: Functions of a random variable
   vars:
-    s: {choices: [1, 2, 5, 10, 20]}
-    k: {choices: [0.5, 1, 1.5, 2, 3]}
+    s: {choices: [2, 5, 10, 20]}
+    k: {choices: [0.5, 1.5, 2, 3]}
     u: {choices: [0.1, 0.2, 0.25, 0.3, 0.5, 0.6, 0.75, 0.8, 0.9, 0.95]}
   calc:
     q: round(1 - u, 2)

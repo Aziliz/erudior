@@ -10,6 +10,7 @@ description: >-
   nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used
   for joint densities.
 revision: 1
+released: true
 order: 12
 modules:
   - id: ps-m1

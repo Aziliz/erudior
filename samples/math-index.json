@@ -53,5 +53,10 @@
   "id": "math-ap-statistics",
   "title": "AP Statistics",
   "revision": 1
+ },
+ {
+  "id": "math-probstats",
+  "title": "Probability and Statistics",
+  "revision": 1
  }
 ]

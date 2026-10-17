@@ -414,13 +414,13 @@
   topic: Nonparametric tests
   stem: 'For the rank-sum test with $m = 8$ and $n = 10$, what are $E(W)$ and $\operatorname{Var}(W)$ under $H_0$ ($W$ = rank sum of the first sample)?'
   choices:
-    - '$90$ and $126.7$'
+    - '$95$ and $126.7$'
     - '$76$ and $215.3$'
     - '$72$ and $126.7$'
     - '$76$ and $126.7$'
   answer: 3
   explanation: |-
-    $N = 18$: $E(W) = m(N+1)/2 = 8(19)/2 = 76$; $\operatorname{Var}(W) = mn(N+1)/12 = 80(19)/12 = 126.7$. 215.3 is $m(N^2 - 1)/12$, which treats the ranks as drawn with replacement; 72 uses $N$ in place of $N + 1$; 90 is the second sample's mean $n(N+1)/2$.
+    $N = 18$: $E(W) = m(N+1)/2 = 8(19)/2 = 76$; $\operatorname{Var}(W) = mn(N+1)/12 = 80(19)/12 = 126.7$. 215.3 is $m(N^2 - 1)/12$, which treats the ranks as drawn with replacement; 72 uses $N$ in place of $N + 1$; 95 is the second sample's mean $n(N+1)/2$.
 
 - id: ps-q-3407
   lesson: ps-nonparametric

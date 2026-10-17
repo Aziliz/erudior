@@ -35,9 +35,9 @@ integers: the gamma function extends the factorial to non-integers.
 $\sqrt2\int_0^\infty e^{-z^2/2}\,dz = \sqrt2 \cdot \tfrac12\sqrt{2\pi} = \sqrt\pi$, using the normal integral of
 lesson 12. Then the recursion gives, for example, $\Gamma(\tfrac52) = \tfrac32 \cdot \tfrac12 \cdot \sqrt\pi = \tfrac34\sqrt\pi \approx 1.329$.
 
-**The key integral.** Substituting $x = \beta u$ in the definition shows, for $\alpha, \beta > 0$,
+**The key integral.** Substituting $x = \theta u$ in the definition shows, for $\alpha, \theta > 0$,
 
-$$\int_0^\infty x^{\alpha - 1}e^{-x/\beta}\,dx = \Gamma(\alpha)\,\beta^{\alpha}.$$
+$$\int_0^\infty x^{\alpha - 1}e^{-x/\theta}\,dx = \Gamma(\alpha)\,\theta^{\alpha}.$$
 
 This one formula evaluates every integral in this lesson. For instance
 $\int_0^\infty x^3e^{-2x}\,dx = \Gamma(4)(\tfrac12)^4 = 6/16 = 0.375$ — no repeated integration by parts.
@@ -45,28 +45,28 @@ $\int_0^\infty x^3e^{-2x}\,dx = \Gamma(4)(\tfrac12)^4 = 6/16 = 0.375$ — no rep
 ## The gamma distribution
 
 Dividing the integrand of the key integral by its total gives a density. $X$ has the
-**gamma distribution** with **shape parameter** $\alpha > 0$ and **scale parameter** $\beta > 0$ if
+**gamma distribution** with **shape parameter** $\alpha > 0$ and **scale parameter** $\theta > 0$ if
 
-$$f(x) = \frac{x^{\alpha - 1}e^{-x/\beta}}{\Gamma(\alpha)\,\beta^{\alpha}}, \qquad x > 0.$$
+$$f(x) = \frac{x^{\alpha - 1}e^{-x/\theta}}{\Gamma(\alpha)\,\theta^{\alpha}}, \qquad x > 0.$$
 
-(Some texts use the rate $\lambda = 1/\beta$ instead of the scale.) With $\alpha = 1$ it is the
-exponential distribution with mean $\beta$.
+(Some texts write the scale as $\beta$, and some use the rate $\lambda = 1/\theta$ instead of the scale, so check which a formula means.) With $\alpha = 1$ it is the
+exponential distribution with mean $\theta$.
 
 **Moments.** By the key integral with $\alpha + k$ in place of $\alpha$,
 
-$$E(X^k) = \frac{\Gamma(\alpha + k)\,\beta^{\alpha + k}}{\Gamma(\alpha)\,\beta^{\alpha}} = \beta^k\frac{\Gamma(\alpha + k)}{\Gamma(\alpha)}.$$
+$$E(X^k) = \frac{\Gamma(\alpha + k)\,\theta^{\alpha + k}}{\Gamma(\alpha)\,\theta^{\alpha}} = \theta^k\frac{\Gamma(\alpha + k)}{\Gamma(\alpha)}.$$
 
-So $E(X) = \alpha\beta$ and $E(X^2) = \alpha(\alpha + 1)\beta^2$, giving $\operatorname{Var}(X) = \alpha\beta^2$. The MGF,
-by the same integral with $1/\beta - t$ in place of $1/\beta$, is $M(t) = (1 - \beta t)^{-\alpha}$ for
-$t < 1/\beta$.
+So $E(X) = \alpha\theta$ and $E(X^2) = \alpha(\alpha + 1)\theta^2$, giving $\operatorname{Var}(X) = \alpha\theta^2$. The MGF,
+by the same integral with $1/\theta - t$ in place of $1/\theta$, is $M(t) = (1 - \theta t)^{-\alpha}$ for
+$t < 1/\theta$.
 
 ```plot
-{"x": [0, 10], "y": [0, 1.05], "xLabel": "x", "yLabel": "f(x)", "functions": [{"f": "exp(-x)", "label": "α = 1"}, {"f": "x*exp(-x)", "label": "α = 2"}, {"f": "x^3*exp(-x)/6", "label": "α = 4"}], "caption": "Gamma densities with scale β = 1: shape α = 1 (exponential), 2 and 4"}
+{"x": [0, 10], "y": [0, 1.05], "xLabel": "x", "yLabel": "f(x)", "functions": [{"f": "exp(-x)"}, {"f": "x*exp(-x)"}, {"f": "x^3*exp(-x)/6"}], "labels": [{"at": [0.8, 0.62], "text": "α = 1"}, {"at": [1.9, 0.42], "text": "α = 2"}, {"at": [4.3, 0.27], "text": "α = 4"}], "caption": "Gamma densities with scale θ = 1: shape α = 1 (exponential), 2 and 4"}
 ```
 
-**Sums.** If $X_1 \sim \text{Gamma}(\alpha_1, \beta)$ and $X_2 \sim \text{Gamma}(\alpha_2, \beta)$ are independent
-with the *same scale*, the product of MGFs is $(1 - \beta t)^{-(\alpha_1 + \alpha_2)}$, so
-$X_1 + X_2 \sim \text{Gamma}(\alpha_1 + \alpha_2, \beta)$. In particular, a sum of $k$ independent
+**Sums.** If $X_1 \sim \text{Gamma}(\alpha_1, \theta)$ and $X_2 \sim \text{Gamma}(\alpha_2, \theta)$ are independent
+with the *same scale*, the product of MGFs is $(1 - \theta t)^{-(\alpha_1 + \alpha_2)}$, so
+$X_1 + X_2 \sim \text{Gamma}(\alpha_1 + \alpha_2, \theta)$. In particular, a sum of $k$ independent
 Exponential$(\lambda)$ variables is $\text{Gamma}(k, 1/\lambda)$.
 
 **Waiting for the $k$-th event.** In a Poisson process with rate $\lambda$, the time $T_k$ of the
@@ -88,7 +88,7 @@ $T \sim \text{Gamma}(3, \tfrac12)$.
 ## The chi-square distribution
 
 The **chi-square distribution** with $\nu$ **degrees of freedom**, $\chi^2(\nu)$, is the gamma
-distribution with $\alpha = \nu/2$ and $\beta = 2$:
+distribution with $\alpha = \nu/2$ and $\theta = 2$:
 
 $$f(x) = \frac{x^{\nu/2 - 1}e^{-x/2}}{\Gamma(\nu/2)\,2^{\nu/2}}, \quad x > 0; \qquad E(X) = \nu, \qquad \operatorname{Var}(X) = 2\nu.$$
 
@@ -121,7 +121,7 @@ the ends. Beta distributions model proportions (the fraction of a day a line is 
 as prior distributions for an unknown probability $p$ in Bayesian statistics.
 
 ```plot
-{"x": [0, 1], "y": [0, 2.6], "xLabel": "x", "yLabel": "f(x)", "functions": [{"f": "30*x*(1-x)^4", "label": "Beta(2, 5)"}, {"f": "6*x*(1-x)", "label": "Beta(2, 2)"}, {"f": "30*x^4*(1-x)", "label": "Beta(5, 2)"}], "shade": [{"f": "30*x*(1-x)^4", "from": 0.5, "to": 1}], "caption": "Beta densities; shaded: P(X > 0.5) = 7/64 for Beta(2, 5)"}
+{"x": [0, 1], "y": [0, 2.9], "xLabel": "x", "yLabel": "f(x)", "functions": [{"f": "30*x*(1-x)^4"}, {"f": "6*x*(1-x)"}, {"f": "30*x^4*(1-x)"}], "labels": [{"at": [0.2, 2.65], "text": "Beta(2, 5)"}, {"at": [0.5, 1.65], "text": "Beta(2, 2)"}, {"at": [0.8, 2.65], "text": "Beta(5, 2)"}], "shade": [{"f": "30*x*(1-x)^4", "from": 0.5, "to": 1}], "caption": "Beta densities; shaded: P(X > 0.5) = 7/64 for Beta(2, 5)"}
 ```
 
 ### Example 2: a beta proportion
@@ -135,13 +135,13 @@ The fraction $X$ of a shift that a crane is idle is modeled as $\text{Beta}(2, 5
 
 ### Example 3: a gamma integral in disguise
 
-Evaluate $\int_0^\infty x^{5/2}e^{-x/3}\,dx$. Here $\alpha - 1 = \tfrac52$, so $\alpha = \tfrac72$, and $\beta = 3$:
+Evaluate $\int_0^\infty x^{5/2}e^{-x/3}\,dx$. Here $\alpha - 1 = \tfrac52$, so $\alpha = \tfrac72$, and $\theta = 3$:
 the integral is $\Gamma(\tfrac72)\,3^{7/2}$. With $\Gamma(\tfrac72) = \tfrac52 \cdot \tfrac32 \cdot \tfrac12\sqrt\pi = \tfrac{15}{8}\sqrt\pi \approx 3.323$
 and $3^{7/2} \approx 46.77$, the value is about 155.4.
 
 ## Common mistakes
 
-- Mixing scale and rate: with scale $\beta$ the mean is $\alpha\beta$; with rate $\lambda$ it is $\alpha/\lambda$.
+- Mixing scale and rate: with scale $\theta$ the mean is $\alpha\theta$; with rate $\lambda$ it is $\alpha/\lambda$.
 - Writing $\Gamma(n) = n!$; it is $(n - 1)!$.
 - Adding gamma variables with different scales and expecting a gamma.
 - Forgetting the normalizing constant $1/B(a, b)$ when integrating a beta density.
@@ -150,7 +150,7 @@ and $3^{7/2} \approx 46.77$, the value is about 155.4.
 ## Key points
 
 - $\Gamma(\alpha) = \int_0^\infty x^{\alpha-1}e^{-x}dx$; $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$; $\Gamma(n) = (n-1)!$; $\Gamma(\tfrac12) = \sqrt\pi$.
-- $\int_0^\infty x^{\alpha-1}e^{-x/\beta}dx = \Gamma(\alpha)\beta^\alpha$.
-- $\text{Gamma}(\alpha, \beta)$: mean $\alpha\beta$, variance $\alpha\beta^2$, MGF $(1 - \beta t)^{-\alpha}$; same-scale sums add shapes.
+- $\int_0^\infty x^{\alpha-1}e^{-x/\theta}dx = \Gamma(\alpha)\theta^\alpha$.
+- $\text{Gamma}(\alpha, \theta)$: mean $\alpha\theta$, variance $\alpha\theta^2$, MGF $(1 - \theta t)^{-\alpha}$; same-scale sums add shapes.
 - Time of the $k$-th Poisson event is $\text{Gamma}(k, 1/\lambda)$; $\chi^2(\nu) = \text{Gamma}(\nu/2, 2)$, mean $\nu$, variance $2\nu$.
 - $\text{Beta}(a, b)$ on $(0, 1)$: mean $a/(a + b)$, variance $ab/[(a + b)^2(a + b + 1)]$; $B(a, b) = \Gamma(a)\Gamma(b)/\Gamma(a + b)$.

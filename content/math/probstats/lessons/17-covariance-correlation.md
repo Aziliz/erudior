@@ -86,8 +86,8 @@ $\operatorname{Cov}(U, V) = \rho$. A variance is never negative, so
 
 $$0 \le \operatorname{Var}(U \pm V) = 1 + 1 \pm 2\rho,$$
 
-which gives $\rho \ge -1$ (with $+$) and $\rho \le 1$ (with $-$). Equality forces $\operatorname{Var}(U \mp V) = 0$,
-so $U \mp V$ is a constant: $|\rho| = 1$ exactly when $Y = a + bX$ with probability 1, with $b$
+which gives $\rho \ge -1$ (with $+$) and $\rho \le 1$ (with $-$). Equality forces $\operatorname{Var}(U \pm V) = 0$,
+so $U \pm V$ is a constant: $|\rho| = 1$ exactly when $Y = a + bX$ with probability 1, with $b$
 having the sign of $\rho$. Correlation therefore measures *linear* association.
 
 *Uncorrelated is not independent.* Let $X$ be $-1, 0, 1$ with probability $\tfrac13$ each, and

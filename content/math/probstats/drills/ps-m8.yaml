@@ -72,7 +72,7 @@
     se: s/sqrt(sxx)
     tt: b1/se
     pv: 2*(1 - tcdf(abs(tt), dfree))
-  where: ['abs(bb) >= 0.1', 'abs(tt) >= 0.5', 'abs(tt) <= 6']
+  where: ['abs(bb) >= 0.1', 'abs(tt) >= 0.5', 'abs(tt) <= 6', 'pv >= 0.0005']
   prompt: |-
     A regression on $n = {nn}$ points has $S_{xx} = {sxx}$, $S_{xy} = {sxy:num1}$ and $S_{yy} = {syy:num1}$.
     Test $H_0: \beta_1 = 0$ against $H_1: \beta_1 \ne 0$. Find $b_1$ (4 decimals), the $t$ statistic
@@ -108,7 +108,7 @@
     hpi: ts*sres*sqrt(1 + kk)
   where: ['abs(b1v) >= 0.1']
   prompt: |-
-    A regression on $n = {nn}$ points gives $\hat y = {b0v:num2} {b1v:signed}x$, with $s = {sres:num2}$,
+    A regression on $n = {nn}$ points gives $\hat y = {b0v:num2} {b1v:signedcoef}x$, with $s = {sres:num2}$,
     $\bar x = {xbar:num1}$ and $S_{xx} = {sxx}$. At $x_0 = {x0:num1}$, find $\hat y_0$, the half-width of the
     95% confidence interval for the mean response, and the half-width of the 95% prediction interval
     for a new observation (3 decimals each).
@@ -233,7 +233,7 @@
     mse: sse2/df2
     ff: mstr/mse
     pv: 1 - fcdf(ff, df1, df2)
-  where: ['ff >= 0.4', 'ff <= 12']
+  where: ['ff >= 0.4', 'ff <= 12', 'pv >= 0.0005']
   prompt: |-
     A one-way ANOVA compares {kk} groups of {ng} observations each. The treatment sum of squares is
     $\text{SSTr} = {sstr:num1}$ and the total sum of squares is $\text{SST} = {sst:num1}$. Find MSE and $F$

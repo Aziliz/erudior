@@ -25,7 +25,7 @@
   answer: 0
   explanation: |-
     The marginal pmf of $X$ adds across the row: $P(X = 2) = 0.25 + 0.15 = 0.40$. 0.25 and 0.15 are single
-    cells, and 0.65 adds the $x = 2$ row to the wrong column total.
+    cells, and 0.65 adds the cell 0.25 to the $y = 0$ column total 0.40, mixing a row with a column.
 
 - id: ps-q-1503
   lesson: ps-joint-dist
@@ -84,7 +84,7 @@
   explanation: |-
     The event $Y > \tfrac12$ inside the support needs $\tfrac12 < y < x$, which forces $x > \tfrac12$. So $x$ runs from
     $\tfrac12$ to 1 and, for each $x$, $y$ from $\tfrac12$ to $x$. The square limits include points with $y > x$ outside
-    the support; the inner limits $0$ to $x$ compute $P(X > \tfrac12)$; the last integral computes $P(Y < \tfrac12)$.
+    the support; the inner limits $0$ to $x$ compute $P(X > \tfrac12)$; integrating $y$ from 0 to $\tfrac12$ (outer) and $x$ from $y$ to 1 computes $P(Y < \tfrac12)$.
 
 - id: ps-q-1508
   lesson: ps-joint-dist
@@ -215,7 +215,7 @@
   answer: 1
   explanation: |-
     $6e^{-2x-3y} = (2e^{-2x})(3e^{-3y})$ on the product set $(0, \infty)^2$, so it factors: independent exponentials. The
-    first and third densities look like products but live on non-rectangular supports, which ties $x$
+    densities $2e^{-x-y}$ on $0 < x < y$ and $8xy$ on $0 < y < x < 1$ look like products but live on non-rectangular supports, which ties $x$
     and $y$ together; $x + y$ cannot be written as $g(x)h(y)$.
 
 - id: ps-q-1607
@@ -292,7 +292,7 @@
   answer: 0
   explanation: |-
     $\operatorname{Cov}(X, Y) = E[XY] - E[X]E[Y] = 1 - (2)(-1) = 3$. Getting $-1$ comes from adding instead of subtracting
-    the product of means, and $-3$ from a sign slip in $(2)(-1)$.
+    the product of means, and $-3$ from subtracting in the wrong order, $E[X]E[Y] - E[XY]$.
 
 - id: ps-q-1702
   lesson: ps-covariance
@@ -676,7 +676,7 @@
   answer: 3
   explanation: |-
     The conditional SD is $\sigma_Y\sqrt{1 - \rho^2} = 20\sqrt{0.4375} \approx 13.23$, the same for every $x$. 8.75 forgets the
-    square root, and 5 uses $1 - \rho$.
+    square root, and 5 is $20(1 - \rho)$, which uses $1 - \rho$ in place of $\sqrt{1 - \rho^2}$.
 
 - id: ps-q-2003
   lesson: ps-bivariate-normal
@@ -709,7 +709,7 @@
   answer: 0
   explanation: |-
     $\operatorname{Var}(X + Y) = 9 + 16 + 2(-0.5)(3)(4) = 13$, and $X + Y$ is normal. 25 ignores the correlation, 37 uses
-    $+0.5$, and 7 subtracts the SDs.
+    $+0.5$, and 7 adds the SDs.
 
 - id: ps-q-2006
   lesson: ps-bivariate-normal

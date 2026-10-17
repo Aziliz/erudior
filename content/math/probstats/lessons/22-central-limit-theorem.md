@@ -60,7 +60,7 @@ wiped out by the factor $1/n$. That is why the limit is the same for every popul
 theorem needs only a finite variance; the general proof uses characteristic functions.)
 
 ```plot
-{"x": [0, 2.6], "y": [0, 1.75], "xLabel": "value of the sample mean", "yLabel": "density", "functions": [{"f": "e^(-x)", "label": "n = 1"}, {"f": "256 x^3 e^(-4x)/6", "label": "n = 4"}, {"f": "16^16 x^15 e^(-16x)/1307674368000", "label": "n = 16"}, {"f": "normpdf(x, 1, 0.25)", "dashed": true}], "caption": "Exact density of the mean of n exponential(1) values; the dashed curve is the CLT normal for n = 16"}
+{"x": [0, 2.6], "y": [0, 1.75], "xLabel": "value of the sample mean", "yLabel": "density", "functions": [{"f": "e^(-x)"}, {"f": "256 x^3 e^(-4x)/6"}, {"f": "16^16 x^15 e^(-16x)/1307674368000"}, {"f": "normpdf(x, 1, 0.25)", "dashed": true}], "caption": "Exact density of the mean of n exponential(1) values: the decreasing curve is n = 1, the low hump n = 4 and the tall peak n = 16; the dashed curve is the CLT normal for n = 16"}
 ```
 
 The figure shows the CLT at work on a strongly skewed population: by $n = 16$ the exact

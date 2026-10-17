@@ -117,7 +117,7 @@ nothing; the maximum is at a boundary where $L$ jumps.
 
 For the data $0.4, 1.1, 0.7, 4.6, 0.9$ the MLE is 4.6. It is biased low (from the order statistics
 lesson, $E[X_{(n)}] = \frac{n}{n+1}\theta$), and the unbiased version $\frac{n+1}{n}X_{(n)} = 5.52$ is the
-efficient estimator we met last lesson.
+estimator that beat $2\bar X$ so decisively last lesson.
 
 ## Large-sample behavior of the MLE
 

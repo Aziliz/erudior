@@ -70,7 +70,7 @@ $H_0: \lambda = 2$ versus $H_1: \lambda = 1$, and its power.
 
 1. *Ratio.* $\dfrac{L(2)}{L(1)} = \dfrac{2^{10} e^{-2\sum x_i}}{e^{-\sum x_i}} = 2^{10} e^{-\sum x_i}$, which decreases in $\sum x_i$.
    So reject when $S = \sum x_i \ge c$: long lifetimes favor the new design.
-2. *Null distribution.* $S \sim \text{Gamma}(n, \lambda)$, and $2\lambda S \sim \chi^2_{2n}$ (an MGF check:
+2. *Null distribution.* $S \sim \text{Gamma}(n, 1/\lambda)$ (scale $1/\lambda$), and $2\lambda S \sim \chi^2_{2n}$ (an MGF check:
    $(1 - 2t)^{-n}$). Under $H_0$, $4S \sim \chi^2_{20}$.
 3. *Critical value.* $P(4S \ge 4c) = 0.05$ gives $4c = \chi^2_{0.05, 20} = 31.41$, so $c = 7.853$.
 4. *Power.* Under $H_1$, $2S \sim \chi^2_{20}$, so power $= P(\chi^2_{20} \ge 15.71) \approx 0.735$.

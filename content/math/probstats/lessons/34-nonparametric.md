@@ -140,11 +140,11 @@ once for all data sets.
 ## When to prefer them
 
 - *Small samples with skewness, heavy tails or outliers.* One wild value can dominate $\bar x$ and
-  $s$, but it moves a rank by at most its position.
+  $s$, but as a rank it counts no more than the largest (or smallest) ordinary value, however far out it lies.
 - *Ordinal data*, where only the order is meaningful.
 - *Little cost when the data are normal.* The **asymptotic relative efficiency** (ARE) compares
   the sample sizes two tests need for equal power. Under normality the Wilcoxon tests have ARE
-  $3/\pi \approx 0.955$ relative to the $t$ tests: about 95 observations do the work of 100. The
+  $3/\pi \approx 0.955$ relative to the $t$ tests: the $t$ test gets from about 95 observations the power the Wilcoxon test needs 100 for. The
   sign test's ARE is only $2/\pi \approx 0.64$. For heavy-tailed populations the Wilcoxon tests can
   be far *more* efficient than $t$, and their ARE relative to $t$ never falls below 0.864.
 

@@ -74,7 +74,7 @@ must sum to zero, so only $n - 1$ of them are free. This is also why $S^2$ divid
 $E[\chi^2_{n-1}] = n - 1$, we get $E[S^2] = \sigma^2$; and $\operatorname{Var}(S^2) = \frac{\sigma^4}{(n-1)^2}\cdot 2(n-1) = \frac{2\sigma^4}{n-1}$.
 
 ```plot
-{"x": [0, 20], "y": [0, 0.17], "xLabel": "5S²/σ²", "yLabel": "density", "bars": [{"x": 0.5, "height": 0.0383, "width": 1}, {"x": 1.5, "height": 0.1167, "width": 1}, {"x": 2.5, "height": 0.147, "width": 1}, {"x": 3.5, "height": 0.149, "width": 1}, {"x": 4.5, "height": 0.1367, "width": 1}, {"x": 5.5, "height": 0.118, "width": 1}, {"x": 6.5, "height": 0.0803, "width": 1}, {"x": 7.5, "height": 0.0577, "width": 1}, {"x": 8.5, "height": 0.048, "width": 1}, {"x": 9.5, "height": 0.0353, "width": 1}, {"x": 10.5, "height": 0.0203, "width": 1}, {"x": 11.5, "height": 0.0177, "width": 1}, {"x": 12.5, "height": 0.0097, "width": 1}, {"x": 13.5, "height": 0.0087, "width": 1}, {"x": 14.5, "height": 0.0053, "width": 1}, {"x": 15.5, "height": 0.0047, "width": 1}, {"x": 16.5, "height": 0.002, "width": 1}, {"x": 17.5, "height": 0.002, "width": 1}, {"x": 18.5, "height": 0.0007, "width": 1}, {"x": 19.5, "height": 0.0007, "width": 1}], "functions": [{"f": "chi2pdf(x, 5)", "label": "χ² density, 5 df"}], "caption": "3000 simulated samples of size 6 from a normal population: the histogram of 5S²/σ² matches the chi-square density with 5 df"}
+{"x": [0, 20], "y": [0, 0.17], "xLabel": "5S²/σ²", "yLabel": "density", "bars": [{"x": 0.5, "height": 0.0383, "width": 1}, {"x": 1.5, "height": 0.1167, "width": 1}, {"x": 2.5, "height": 0.147, "width": 1}, {"x": 3.5, "height": 0.149, "width": 1}, {"x": 4.5, "height": 0.1367, "width": 1}, {"x": 5.5, "height": 0.118, "width": 1}, {"x": 6.5, "height": 0.0803, "width": 1}, {"x": 7.5, "height": 0.0577, "width": 1}, {"x": 8.5, "height": 0.048, "width": 1}, {"x": 9.5, "height": 0.0353, "width": 1}, {"x": 10.5, "height": 0.0203, "width": 1}, {"x": 11.5, "height": 0.0177, "width": 1}, {"x": 12.5, "height": 0.0097, "width": 1}, {"x": 13.5, "height": 0.0087, "width": 1}, {"x": 14.5, "height": 0.0053, "width": 1}, {"x": 15.5, "height": 0.0047, "width": 1}, {"x": 16.5, "height": 0.002, "width": 1}, {"x": 17.5, "height": 0.002, "width": 1}, {"x": 18.5, "height": 0.0007, "width": 1}, {"x": 19.5, "height": 0.0007, "width": 1}], "functions": [{"f": "chi2pdf(x, 5)"}], "caption": "3000 simulated samples of size 6 from a normal population: the histogram of 5S²/σ² matches the chi-square density with 5 df"}
 ```
 
 ### Example 1
@@ -109,7 +109,7 @@ This is the result W. S. Gosset published in 1908 under the pen name "Student", 
 exact small-sample inference about $\mu$ possible.
 
 ```plot
-{"x": [-4.5, 4.5], "y": [0, 0.43], "xLabel": "t", "yLabel": "density", "functions": [{"f": "tpdf(x, 2)", "label": "2 df"}, {"f": "tpdf(x, 5)", "label": "5 df"}, {"f": "normpdf(x)", "dashed": true, "label": "N(0, 1)"}], "caption": "t densities have heavier tails than the standard normal and approach it as the df grow"}
+{"x": [-4.5, 4.5], "y": [0, 0.43], "xLabel": "t", "yLabel": "density", "functions": [{"f": "tpdf(x, 2)"}, {"f": "tpdf(x, 5)"}, {"f": "normpdf(x)", "dashed": true}], "caption": "t densities with 2 df (lowest peak, heaviest tails) and 5 df, and the dashed standard normal: t has heavier tails and approaches N(0, 1) as the df grow"}
 ```
 
 ### Example 2

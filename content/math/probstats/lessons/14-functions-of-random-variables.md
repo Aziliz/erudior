@@ -46,7 +46,7 @@ Differentiate with the chain rule, using $\Phi' = \phi$:
 
 $$f_Y(y) = 2\phi(\sqrt y)\cdot\frac{1}{2\sqrt y} = \frac{1}{\sqrt{2\pi}}\,y^{-1/2}e^{-y/2}, \qquad y > 0.$$
 
-This is the gamma density with $\alpha = \tfrac12$, $\beta = 2$ (check the constant:
+This is the gamma density with $\alpha = \tfrac12$, $\theta = 2$ (check the constant:
 $\Gamma(\tfrac12)\,2^{1/2} = \sqrt{2\pi}$). So $Z^2 \sim \chi^2(1)$, the fact promised in lesson 13.
 
 ### Example 2: a non-monotone function

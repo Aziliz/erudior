@@ -46,6 +46,7 @@
     cc: (pb + 1)*(pa + pb + 2)
     s1: pa + pb + 1
     s2: pa + pb + 2
+    b1: pb + 1
     pr: hh^s2
   prompt: |-
     $(X, Y)$ has joint density $f(x, y) = c\,{pa}{pb}$ on the triangle $0 < y < x < 1$ (and 0 elsewhere).
@@ -55,10 +56,10 @@
     - {name: pr, label: '$P(X \le {hh}) =$', tolerance: 0.0005, format: num4}
   solution: |-
     For fixed $x \in (0, 1)$, $y$ runs from 0 to $x$:
-    $\int_0^x x^{{pa:int}}y^{{pb:int}}\,dy = \dfrac{x^{{s1:int}}}{{pb:int} + 1}$.
-    Then $\int_0^1 \dfrac{x^{{s1:int}}}{{pb:int} + 1}\,dx = \dfrac{1}{({pb:int} + 1)({s2:int})}$, so $c = ({pb:int} + 1)({s2:int}) =$ **{cc:int}**.
+    $\int_0^x {pa}{pb}\,dy = \dfrac{x^{{s1:int}}}{{b1:int}}$.
+    Then $\int_0^1 \dfrac{x^{{s1:int}}}{{b1:int}}\,dx = \dfrac{1}{{b1:int} \cdot {s2:int}}$, so $c = {b1:int} \cdot {s2:int} =$ **{cc:int}**.
 
-    The marginal of $X$ is $f_X(x) = c\,\dfrac{x^{{s1:int}}}{{pb:int} + 1} = {s2:int}\,x^{{s1:int}}$ on $(0, 1)$, so
+    The marginal of $X$ is $f_X(x) = c\,\dfrac{x^{{s1:int}}}{{b1:int}} = {s2:int}\,x^{{s1:int}}$ on $(0, 1)$, so
     $P(X \le {hh}) = {hh}^{{s2:int}} =$ **{pr:num4}**.
 
 - id: ps-d-cond-table
@@ -127,7 +128,7 @@
     - {name: pr, label: '$P(Y \le {y0} \mid X = {x0}) =$', tolerance: 0.0005, format: num4}
   solution: |-
     Divide the joint density by the marginal:
-    $f_{Y \mid X}(y \mid x) = \dfrac{{cc:int}\,x^{{pa:int}}y^{{pb:int}}}{{s2:int}\,x^{{s1:int}}} = \dfrac{{b1:int}\,y^{{pb:int}}}{x^{{b1:int}}}$ for $0 < y < x$.
+    $f_{Y \mid X}(y \mid x) = \dfrac{{cc:int}\,{pa}{pb}}{{s2:int}\,x^{{s1:int}}} = \dfrac{{b1:int}\,{pb}}{x^{{b1:int}}}$ for $0 < y < x$.
     At $y = {y0}$, $x = {x0}$ this is **{dens:num4}**.
 
     Integrate over $0 < y \le {y0}$:
@@ -292,8 +293,8 @@
     minutes, and the probability that leg 1 takes more than {dd} minutes longer than leg 2. Give 4
     decimals.
   answers:
-    - {name: p1, label: '$P(X_1 + X_2 > {cut:int}) =$', tolerance: 0.001, format: num4}
-    - {name: p2, label: '$P(X_1 - X_2 > {dd}) =$', tolerance: 0.001, format: num4}
+    - {name: p1, label: '$P(X_1 + X_2 > {cut:int}) =$', tolerance: 0.0025, format: num4}
+    - {name: p2, label: '$P(X_1 - X_2 > {dd}) =$', tolerance: 0.0025, format: num4}
   solution: |-
     Both $X_1 + X_2$ and $X_1 - X_2$ are normal, and in both cases the variances add:
     $\operatorname{Var} = {s1}^2 + {s2}^2 = {vt:int}$, SD $= {sdt:num4}$.
@@ -340,8 +341,8 @@
     pr: exp(-lt)*(1 + lt)
     mean: 2*mm
   prompt: |-
-    A repair has two independent stages, each taking an exponential time with mean {mm} hours. Find the
-    probability that the whole repair takes more than {tt} hours. Give 4 decimals.
+    A repair has two independent stages, each taking an exponential time (in hours) with mean {mm}. Let $T$
+    be the total repair time in hours. Find $P(T > {tt})$. Give 4 decimals.
   answers:
     - {name: pr, label: '$P(T > {tt}) =$', tolerance: 0.0005, format: num4}
   solution: |-
@@ -349,7 +350,7 @@
     $f_T(z) = \lambda^2 z e^{-\lambda z}$ for $z > 0$. Integrating by parts,
     $P(T > t) = \displaystyle\int_t^\infty \lambda^2 z e^{-\lambda z}\,dz = e^{-\lambda t}(1 + \lambda t).$
     Here $\lambda t = {tt}/{mm} = {lt:num4}$, so $P(T > {tt}) = e^{-{lt:num4}}(1 + {lt:num4}) =$ **{pr:num4}**.
-    (The mean total is ${mean}$ hours.)
+    (The mean of $T$ is ${mean}$.)
 
 - id: ps-d-mixture
   title: Mean and SD of a mixture
@@ -462,7 +463,7 @@
   answers:
     - {name: cm, label: '$E[Y \mid X] =$', tolerance: 0.01, format: num2}
     - {name: csd, label: '$\operatorname{SD}(Y \mid X) =$', tolerance: 0.01, format: num2}
-    - {name: pr, label: 'Probability', tolerance: 0.002, format: num4}
+    - {name: pr, label: 'Probability', tolerance: 0.0025, format: num4}
   solution: |-
     $E[Y \mid X = x] = \mu_Y + \rho\dfrac{\sigma_Y}{\sigma_X}(x - \mu_X) = {my} + ({slope:num4})({xx:num1} - {mx}) =$ **{cm:num2}**.
 
@@ -494,7 +495,7 @@
     $P(X + Y > {cut:int})$ (4 decimals).
   answers:
     - {name: sdt, label: '$\operatorname{SD}(X + Y) =$', tolerance: 0.01, format: num2}
-    - {name: pr, label: '$P(X + Y > {cut:int}) =$', tolerance: 0.002, format: num4}
+    - {name: pr, label: '$P(X + Y > {cut:int}) =$', tolerance: 0.0025, format: num4}
   solution: |-
     A linear combination of bivariate normal variables is normal. Its variance includes the covariance
     term: $\operatorname{Var}(X + Y) = {sx}^2 + {sy}^2 + 2({rho})({sx})({sy}) = {vt:num2}$, so the SD is **{sdt:num2}**.
@@ -515,8 +516,8 @@
     pmax: (1 - exp(-tt/mm))^nn
   prompt: |-
     A system has {nn} components with iid exponential lifetimes, each with mean {mm} hours. Find the mean
-    time to the *first* failure, and the probability that *all* components have failed by {tt} hours
-    (4 decimals).
+    time to the *first* failure (2 decimals), and the probability that *all* components have failed by
+    {tt} hours (4 decimals).
   answers:
     - {name: emin, label: 'Mean time to first failure', tolerance: 0.01, format: num2}
     - {name: pmax, label: '$P(X_{(n)} \le {tt}) =$', tolerance: 0.0005, format: num4}

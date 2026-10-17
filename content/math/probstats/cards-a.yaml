@@ -74,7 +74,7 @@
 - {front: 'MGF of a sum of independent variables', back: '$M_{X+Y}(t) = M_X(t)M_Y(t)$', topic: Moment generating functions}
 - {front: 'Uniqueness of MGFs', back: 'MGFs that agree on an open interval around 0 belong to the same distribution.', topic: Moment generating functions}
 - {front: 'MGFs: binomial, Poisson, geometric', back: 'Binomial $(1 - p + pe^t)^n$; Poisson $e^{\lambda(e^t - 1)}$; geometric $\dfrac{pe^t}{1 - (1-p)e^t}$.', topic: Moment generating functions}
-- {front: 'MGFs: exponential, gamma, normal', back: 'Exponential $\dfrac{\lambda}{\lambda - t}$; gamma $(1 - \beta t)^{-\alpha}$; normal $e^{\mu t + \sigma^2t^2/2}$.', topic: Moment generating functions}
+- {front: 'MGFs: exponential, gamma, normal', back: 'Exponential $\dfrac{\lambda}{\lambda - t}$; gamma $(1 - \theta t)^{-\alpha}$; normal $e^{\mu t + \sigma^2t^2/2}$.', topic: Moment generating functions}
 # Continuous random variables
 - {front: 'Valid pdf', back: '$f(x) \ge 0$ and $\int_{-\infty}^{\infty} f(x)\,dx = 1$. $f$ may exceed 1.', topic: Densities and cdfs}
 - {front: '$P(X = a)$ for a continuous variable', back: '0, so $<$ and $\le$ give the same probabilities.', topic: Densities and cdfs}
@@ -96,9 +96,9 @@
 - {front: 'Normal approximation to the binomial', back: '$\text{Bin}(n, p) \approx \text{N}(np, np(1-p))$ when $np \ge 10$ and $n(1-p) \ge 10$.', topic: Normal approximation}
 - {front: 'Continuity correction', back: '$P(X \le k) \approx \Phi\left(\frac{k + 0.5 - np}{\sigma}\right)$; $P(X \ge k) \approx 1 - \Phi\left(\frac{k - 0.5 - np}{\sigma}\right)$.', topic: Normal approximation}
 - {front: 'Gamma function facts', back: '$\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n - 1)!$, $\Gamma(\tfrac12) = \sqrt\pi$.', topic: Gamma distribution}
-- {front: 'Key gamma integral', back: '$\int_0^\infty x^{\alpha - 1}e^{-x/\beta}\,dx = \Gamma(\alpha)\beta^\alpha$', topic: Gamma distribution}
-- {front: 'Gamma$(\alpha, \beta)$ (scale $\beta$)', back: 'Density $\dfrac{x^{\alpha - 1}e^{-x/\beta}}{\Gamma(\alpha)\beta^\alpha}$; mean $\alpha\beta$, variance $\alpha\beta^2$.', topic: Gamma distribution}
-- {front: 'Sum of independent gammas', back: 'Same scale $\beta$: shapes add. Sum of $k$ independent Exponential$(\lambda)$ is Gamma$(k, 1/\lambda)$.', topic: Gamma distribution}
+- {front: 'Key gamma integral', back: '$\int_0^\infty x^{\alpha - 1}e^{-x/\theta}\,dx = \Gamma(\alpha)\theta^\alpha$', topic: Gamma distribution}
+- {front: 'Gamma$(\alpha, \theta)$ (scale $\theta$)', back: 'Density $\dfrac{x^{\alpha - 1}e^{-x/\theta}}{\Gamma(\alpha)\theta^\alpha}$; mean $\alpha\theta$, variance $\alpha\theta^2$.', topic: Gamma distribution}
+- {front: 'Sum of independent gammas', back: 'Same scale $\theta$: shapes add. Sum of $k$ independent Exponential$(\lambda)$ is Gamma$(k, 1/\lambda)$.', topic: Gamma distribution}
 - {front: 'Time of the $k$-th Poisson event', back: '$T_k \sim \text{Gamma}(k, 1/\lambda)$ and $P(T_k > t) = \sum_{j=0}^{k-1}e^{-\lambda t}\dfrac{(\lambda t)^j}{j!}$.', topic: Gamma distribution}
 - {front: 'Chi-square distribution', back: '$\chi^2(\nu) = \text{Gamma}(\nu/2, 2)$; mean $\nu$, variance $2\nu$; $Z^2 \sim \chi^2(1)$.', topic: Gamma distribution}
 - {front: 'Beta$(a, b)$', back: 'Density $\dfrac{x^{a-1}(1 - x)^{b-1}}{B(a, b)}$ on $(0, 1)$, $B(a, b) = \dfrac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$; mean $\dfrac{a}{a + b}$.', topic: Beta distribution}

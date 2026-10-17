@@ -425,19 +425,19 @@
   choices: ['24', '384', '1536', '768']
   answer: 3
   explanation: |-
-    Use $\int_0^\infty x^{\alpha - 1}e^{-x/\beta}\,dx = \Gamma(\alpha)\beta^\alpha$ with $\alpha = 5$, $\beta = 2$:
+    Use $\int_0^\infty x^{\alpha - 1}e^{-x/\theta}\,dx = \Gamma(\alpha)\theta^\alpha$ with $\alpha = 5$, $\theta = 2$:
     $\Gamma(5) \cdot 2^5 = 24 \times 32 = 768$. The values 384 and 1536 pair $\Gamma(5)$ with the wrong power of 2
-    ($2^4$ and $2^6$); 24 forgets the factor $\beta^\alpha$.
+    ($2^4$ and $2^6$); 24 forgets the factor $\theta^\alpha$.
 
 - id: ps-q-1304
   lesson: ps-gamma-beta
   module_quiz: true
   topic: Gamma distribution
-  stem: '$X$ has a gamma distribution with shape $\alpha = 3$ and scale $\beta = 2$. Find its mean and variance.'
+  stem: '$X$ has a gamma distribution with shape $\alpha = 3$ and scale $\theta = 2$. Find its mean and variance.'
   choices: ['6 and 24', '1.5 and 0.75', '6 and 12', '6 and 18']
   answer: 2
   explanation: |-
-    Mean $\alpha\beta = 6$ and variance $\alpha\beta^2 = 12$. Treating 2 as a rate instead of a scale gives
+    Mean $\alpha\theta = 6$ and variance $\alpha\theta^2 = 12$. Treating 2 as a rate instead of a scale gives
     1.5 and 0.75.
 
 - id: ps-q-1305

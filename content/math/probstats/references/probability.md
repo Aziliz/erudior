@@ -40,7 +40,7 @@ title: Probability rules and distributions
 | cdf | $F(x) = \sum_{t \le x} p(t)$ | $F(x) = \int_{-\infty}^x f(t)\,dt$, $F' = f$ |
 | Mean | $\sum x\,p(x)$ | $\int x f(x)\,dx$ |
 | LOTUS | $E[g(X)] = \sum g(x)p(x)$ | $E[g(X)] = \int g(x) f(x)\,dx$ |
-| Tail formula ($X \ge 0$) | $E(X) = \sum_{k \ge 0} P(X > k)$ | $E(X) = \int_0^\infty P(X > x)\,dx$ |
+| Tail formula ($X \ge 0$) | $E(X) = \sum_{k \ge 0} P(X > k)$ (integer values) | $E(X) = \int_0^\infty P(X > x)\,dx$ |
 
 - $\operatorname{Var}(X) = E(X^2) - [E(X)]^2$; $E(aX + b) = aE(X) + b$; $\operatorname{Var}(aX + b) = a^2\operatorname{Var}(X)$.
 - MGF $M_X(t) = E(e^{tX})$: $E(X^k) = M^{(k)}(0)$; $M_{aX+b}(t) = e^{bt}M_X(at)$; $M_{X+Y} = M_XM_Y$ if independent.
@@ -66,14 +66,14 @@ Geometric tail: $P(X > k) = q^k$. Poisson process with rate $\lambda$: count in 
 | Uniform$(a, b)$ | $\dfrac{1}{b - a}$, $a \le x \le b$ | $\dfrac{a + b}{2}$ | $\dfrac{(b - a)^2}{12}$ | $\dfrac{e^{tb} - e^{ta}}{t(b - a)}$ |
 | Exponential$(\lambda)$ | $\lambda e^{-\lambda x}$, $x \ge 0$ | $\dfrac1\lambda$ | $\dfrac{1}{\lambda^2}$ | $\dfrac{\lambda}{\lambda - t}$, $t < \lambda$ |
 | Normal$(\mu, \sigma^2)$ | $\dfrac{1}{\sigma\sqrt{2\pi}}e^{-(x - \mu)^2/(2\sigma^2)}$ | $\mu$ | $\sigma^2$ | $e^{\mu t + \sigma^2t^2/2}$ |
-| Gamma$(\alpha, \beta)$, scale $\beta$ | $\dfrac{x^{\alpha - 1}e^{-x/\beta}}{\Gamma(\alpha)\beta^\alpha}$, $x > 0$ | $\alpha\beta$ | $\alpha\beta^2$ | $(1 - \beta t)^{-\alpha}$, $t < 1/\beta$ |
+| Gamma$(\alpha, \theta)$, scale $\theta$ | $\dfrac{x^{\alpha - 1}e^{-x/\theta}}{\Gamma(\alpha)\theta^\alpha}$, $x > 0$ | $\alpha\theta$ | $\alpha\theta^2$ | $(1 - \theta t)^{-\alpha}$, $t < 1/\theta$ |
 | Chi-square$(\nu)$ | Gamma$(\nu/2, 2)$ | $\nu$ | $2\nu$ | $(1 - 2t)^{-\nu/2}$ |
 | Beta$(a, b)$ | $\dfrac{x^{a-1}(1 - x)^{b-1}}{B(a, b)}$, $0 < x < 1$ | $\dfrac{a}{a + b}$ | $\dfrac{ab}{(a + b)^2(a + b + 1)}$ | — |
 
 - Exponential: $P(X > x) = e^{-\lambda x}$, median $\ln 2/\lambda$, memoryless.
 - Normal: $Z = (X - \mu)/\sigma$; $x_p = \mu + \sigma z_p$; $z_{0.90} = 1.2816$, $z_{0.95} = 1.6449$, $z_{0.975} = 1.9600$, $z_{0.99} = 2.3263$.
 - Binomial ≈ Normal$(np, npq)$ when $np, nq \ge 10$; continuity correction $P(X \le k) \approx \Phi\left(\frac{k + 0.5 - np}{\sqrt{npq}}\right)$.
-- Gamma function: $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n-1)!$, $\Gamma(\tfrac12) = \sqrt\pi$; $\int_0^\infty x^{\alpha-1}e^{-x/\beta}dx = \Gamma(\alpha)\beta^\alpha$.
+- Gamma function: $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n-1)!$, $\Gamma(\tfrac12) = \sqrt\pi$; $\int_0^\infty x^{\alpha-1}e^{-x/\theta}dx = \Gamma(\alpha)\theta^\alpha$.
 - Beta function: $B(a, b) = \Gamma(a)\Gamma(b)/\Gamma(a + b)$.
 - Time of the $k$-th event of a rate-$\lambda$ Poisson process: Gamma$(k, 1/\lambda)$, with $P(T_k > t) = P(\text{Poisson}(\lambda t) \le k - 1)$.
 

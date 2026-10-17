@@ -64,8 +64,8 @@ the standard deviation equals the mean.
 
 **MGF:** $M(t) = \int_0^\infty e^{tx}\lambda e^{-\lambda x}\,dx = \dfrac{\lambda}{\lambda - t}$ for $t < \lambda$.
 
-Watch the parametrization. Some texts and software use the mean $\beta = 1/\lambda$ instead of the
-rate, writing $f(x) = \tfrac{1}{\beta}e^{-x/\beta}$. "Exponential with mean 5" and "exponential with
+Watch the parametrization. Some texts and software use the mean $\theta = 1/\lambda$ instead of the
+rate, writing $f(x) = \tfrac{1}{\theta}e^{-x/\theta}$. "Exponential with mean 5" and "exponential with
 rate 0.2" are the same distribution.
 
 **Median:** $1 - e^{-\lambda m} = \tfrac12$ gives $m = \dfrac{\ln 2}{\lambda} \approx 0.693/\lambda$, below the mean

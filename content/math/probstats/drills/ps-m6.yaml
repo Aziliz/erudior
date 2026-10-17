@@ -251,7 +251,7 @@
 
     Maximum likelihood: $L(\theta) = \theta^{-5}$ when $\theta \ge \max x_i$ and 0 otherwise. It decreases for $\theta \ge \max x_i$, so
     $\hat\theta = \max x_i =$ **{mle:num2}**. (If the MoM value is below the maximum it is impossible as a value of $\theta$; the
-    bias-corrected $\tfrac{6}{5}\max x_i = {unb:num2}$ is the efficient unbiased choice.)
+    bias-corrected $\tfrac{6}{5}\max x_i = {unb:num2}$ is the unbiased estimator based on the maximum, which has a much smaller variance than $2\bar x$.)
 
 - id: ps-d-ci-t
   title: t confidence interval for a mean
@@ -358,6 +358,7 @@
     wt: nn/(aa + bb + nn)
     ph: xx/nn
     fail: nn - xx
+  where: ['xx >= 1', 'xx <= nn - 1']
   prompt: |-
     A new coupling passes a stress test with unknown probability $\theta$, which is given a Beta({aa}, {bb}) prior.
     In {nn} independent tests, {xx:int} couplings pass. Find the parameters of the posterior beta distribution

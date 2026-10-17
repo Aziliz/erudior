@@ -220,15 +220,15 @@
     ppv: tp/pos
     q: 1 - prev
   prompt: |-
-    A condition has prevalence {prev}. A test has sensitivity {sens} and specificity {spec}.
+    A condition has prevalence {prev:sig3}. A test has sensitivity {sens} and specificity {spec:sig3}.
     Find the probability of a positive result (5 decimals) and the probability that a person
     who tests positive has the condition (4 decimals).
   answers:
     - {name: pos, label: '$P(+) =$', tolerance: 0.00001, format: dp5}
     - {name: ppv, label: '$P(D \mid +) =$', tolerance: 0.0002, format: num4}
   solution: |-
-    False-positive rate $= 1 - {spec} = {fp}$.
-    $P(+) = P(D)P(+ \mid D) + P(D^c)P(+ \mid D^c) = {prev}({sens}) + {q}({fp}) =$ **{pos:dp5}**.
+    False-positive rate $= 1 - {spec:sig3} = {fp:sig3}$.
+    $P(+) = P(D)P(+ \mid D) + P(D^c)P(+ \mid D^c) = {prev:sig3}({sens}) + {q:sig4}({fp:sig3}) =$ **{pos:dp5}**.
     Bayes: $P(D \mid +) = \dfrac{{tp:dp5}}{{pos:dp5}} \approx$ **{ppv:num4}**.
 
 - id: ps-d-reliability

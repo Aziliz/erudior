@@ -49,7 +49,7 @@
   answer: 1
   explanation: |-
     Markov: $3/12 = 0.25$. Exact: $P(X \ge 12) = e^{-12/3} = e^{-4} \approx 0.018$. The bound is valid but loose because
-    it uses only the mean. $e^{-12}$ uses 12 as the rate rather than $12/3$.
+    it uses only the mean. $e^{-12}$ forgets to divide 12 by the mean 3.
 
 - id: ps-q-2106
   lesson: ps-lln
@@ -207,7 +207,7 @@
   answer: 1
   explanation: |-
     Convergence in distribution is about probabilities: the cdfs approach the limiting cdf at its
-    continuity points. The last choice describes convergence in probability, a stronger notion.
+    continuity points. $P(|Y_n - Y| \ge \varepsilon) \to 0$ describes convergence in probability, a stronger notion.
 
 - id: ps-q-2209
   lesson: ps-clt

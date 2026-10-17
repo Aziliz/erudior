@@ -108,8 +108,8 @@ is much more concentrated than Chebyshev assumes.
 
 To estimate $I = \int_0^1 e^{-x^2}\,dx$, draw $U_1, \dots, U_n$ iid Uniform(0, 1) and average
 $g(U_i) = e^{-U_i^2}$. Since $E[g(U)] = \int_0^1 g(u)\,du = I$, the WLLN says the average converges to $I$.
-Its accuracy depends on $\operatorname{Var}(g(U)) = \int_0^1 e^{-2u^2}du - I^2 \approx 0.598 - 0.558 = 0.040$. For error at most
-0.01 with probability at least 0.95, Chebyshev asks for $0.040/(n \cdot 0.0001) \le 0.05$, about
+Its accuracy depends on $\operatorname{Var}(g(U)) = \int_0^1 e^{-2u^2}du - I^2 \approx 0.5981 - 0.5577 = 0.0404$. For error at most
+0.01 with probability at least 0.95, Chebyshev asks for $0.0404/(n \cdot 0.0001) \le 0.05$, about
 $n \ge 8100$ draws. This is how high-dimensional integrals in physics and finance are computed.
 
 ## What the law does *not* say

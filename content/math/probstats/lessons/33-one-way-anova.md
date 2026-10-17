@@ -11,8 +11,9 @@ refs: [ps-ref-testing]
 
 The pooled two-sample $t$ test compares two normal means. With $k \ge 3$ groups (three ballast
 materials, four tamping schedules), testing every pair separately is a trap: with three pairs
-at $\alpha = 0.05$ each, the chance of at least one false alarm when all means are equal can be as
-high as $1 - 0.95^3 \approx 0.14$, and with ten pairs about 0.40. **Analysis of variance**
+at $\alpha = 0.05$ each, the chance of at least one false alarm when all means are equal would be
+$1 - 0.95^3 \approx 0.14$ if the tests were independent (and can be as high as $3(0.05) = 0.15$),
+and with ten pairs about 0.40. **Analysis of variance**
 (ANOVA) tests all the means at once with a single $F$ statistic. It is also our second example of
 splitting a total sum of squares into pieces, as in regression.
 

@@ -46,14 +46,14 @@
     approximation.
   answers:
     - {name: ncheb, label: 'Chebyshev $n =$', format: integer}
-    - {name: nclt, label: 'CLT $n =$', format: integer}
+    - {name: nclt, label: 'CLT $n =$', format: integer, tolerance: 1}
   solution: |-
     Chebyshev: $P(|\bar X - \mu| \ge {eps}) \le \dfrac{\sigma^2}{n({eps})^2}$. Setting this $\le {dl}$ gives
     $n \ge \dfrac{{sig}^2}{({eps})^2({dl})}$, so $n =$ **{ncheb:int}**.
 
     CLT: $P(|\bar X - \mu| \ge {eps}) \approx 2P\Big(Z \ge \dfrac{{eps}\sqrt n}{{sig}}\Big)$. Setting $\dfrac{{eps}\sqrt n}{{sig}} = z = {zz:num4}$ gives
-    $n = \left(\dfrac{{zz:num4} \times {sig}}{{eps}}\right)^2$, rounded up: **{nclt:int}**. The guarantee costs many more observations
-    than the approximation.
+    $n = \left(\dfrac{{zz:num4} \times {sig}}{{eps}}\right)^2$, rounded up: **{nclt:int}** (rounding $z$ differently can shift this by 1,
+    which is accepted). The guarantee costs many more observations than the approximation.
 
 - id: ps-d-clt-sum
   title: CLT for a total of uniform amounts
@@ -78,7 +78,7 @@
     Central Limit Theorem to approximate the probability that the total length exceeds {cut:int} metres. Give 4
     decimals.
   answers:
-    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+    - {name: pr, label: 'Probability', tolerance: 0.0025, format: num4}
   solution: |-
     Each length has mean $\dfrac{{aa} + {bb:int}}{2} = {mu:num2}$ and variance $\dfrac{({bb:int} - {aa})^2}{12} = {var1:num4}$.
     The total of {nn} has mean ${nn} \times {mu:num2} = {mt:num2}$ and SD $\sqrt{{nn} \times {var1:num4}} = {sdt:num4}$, and is approximately normal.
@@ -106,11 +106,11 @@
     approximation with a continuity correction to estimate the probability that **{side} {kc:int}** buy one.
     Give 4 decimals.
   answers:
-    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+    - {name: pr, label: 'Probability', tolerance: 0.0025, format: num4}
   solution: |-
     $X \sim \text{Bin}({nn}, {pp})$ has mean $np = {mu:num2}$ and SD $\sqrt{np(1-p)} = {sd:num4}$.
-    The continuity correction treats {kc:int} as the interval from {kc:int} − 0.5 to {kc:int} + 0.5, so "{side} {kc:int}" starts at
-    ${edge:num1}$. $z = \dfrac{{edge:num1} - {mu:num2}}{{sd:num4}} = {zz:num2}$, giving **{pr:num4}**. (The exact binomial value is {exact:num4}.)
+    The continuity correction treats {kc:int} as the interval from {kc:int} − 0.5 to {kc:int} + 0.5, so for "{side} {kc:int}" the
+    cutoff is ${edge:num1}$. $z = \dfrac{{edge:num1} - {mu:num2}}{{sd:num4}} = {zz:num2}$, giving **{pr:num4}**. (The exact binomial value is {exact:num4}.)
 
 - id: ps-d-clt-poisson-mean
   title: CLT for a mean of Poisson counts
@@ -129,7 +129,7 @@
     kilometres. Approximate the probability that the average number of faults per kilometre exceeds {cut}.
     Give 4 decimals.
   answers:
-    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+    - {name: pr, label: 'Probability', tolerance: 0.0025, format: num4}
   solution: |-
     A Poisson count has mean and variance both equal to {lam}, so $\bar X$ has mean {lam} and SD
     $\sqrt{{lam}/{nn}} = {se:num4}$. By the CLT, $\bar X$ is approximately normal:

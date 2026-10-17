@@ -65,7 +65,7 @@ as a Beta(2, 8) prior (mean 0.2). Inspecting 20 fasteners finds 3 defective.
    beta quantiles with software: about $(0.058,\; 0.317)$.
 
 ```plot
-{"x": [0, 0.7], "y": [0, 7], "xLabel": "θ", "yLabel": "density", "functions": [{"f": "72 x (1 - x)^7", "label": "prior Beta(2, 8)"}, {"f": "23940 x^3 (1 - x)^17", "dashed": true, "label": "likelihood (scaled)"}, {"f": "593775 x^4 (1 - x)^24", "label": "posterior Beta(5, 25)"}], "caption": "The posterior combines the prior and the likelihood and is narrower than either"}
+{"x": [0, 0.7], "y": [0, 7], "xLabel": "θ", "yLabel": "density", "functions": [{"f": "72 x (1 - x)^7"}, {"f": "23940 x^3 (1 - x)^17", "dashed": true}, {"f": "593775 x^4 (1 - x)^24"}], "caption": "Prior Beta(2, 8) (the lowest, widest curve), scaled likelihood (dashed) and posterior Beta(5, 25) (the tallest curve): the posterior combines the prior and the likelihood and is narrower than either"}
 ```
 
 ## The normal–normal model

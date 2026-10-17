@@ -326,13 +326,13 @@
   definition: '$\Gamma(\alpha) = \int_0^\infty x^{\alpha-1}e^{-x}\,dx$; $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n-1)!$, $\Gamma(\tfrac12) = \sqrt\pi$.'
   topic: Gamma distribution
 - term: gamma distribution
-  definition: 'Density $x^{\alpha-1}e^{-x/\beta}/[\Gamma(\alpha)\beta^\alpha]$ for $x > 0$; mean $\alpha\beta$, variance $\alpha\beta^2$, MGF $(1 - \beta t)^{-\alpha}$.'
+  definition: 'Density $x^{\alpha-1}e^{-x/\theta}/[\Gamma(\alpha)\theta^\alpha]$ for $x > 0$; mean $\alpha\theta$, variance $\alpha\theta^2$, MGF $(1 - \theta t)^{-\alpha}$.'
   topic: Gamma distribution
 - term: shape parameter
   definition: 'A parameter that changes the form of a density (for the gamma distribution, $\alpha$), not just its location or spread.'
   topic: Gamma distribution
 - term: scale parameter
-  definition: 'A parameter that stretches a distribution along the axis (for the gamma distribution, $\beta$; the rate is $1/\beta$).'
+  definition: 'A parameter that stretches a distribution along the axis (for the gamma distribution, $\theta$; the rate is $1/\theta$).'
   topic: Gamma distribution
 - term: Erlang distribution
   definition: 'A gamma distribution with integer shape $k$: the time of the $k$-th event in a Poisson process.'
