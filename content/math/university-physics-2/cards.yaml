@@ -100,3 +100,30 @@
 - {front: 'Decay law', back: '$N = N_0e^{-\lambda t} = N_0(\tfrac12)^{t/T_{1/2}}$', topic: Radioactive decay}
 - {front: 'Half-life and decay constant', back: '$T_{1/2} = \ln 2/\lambda = 0.693/\lambda$; activity $R = \lambda N$', topic: Radioactive decay}
 - {front: 'Fraction left after n half-lives', back: '$(1/2)^n$: 1/2, 1/4, 1/8, …', topic: Radioactive decay}
+- {front: 'Electric dipole moment', back: '$\vec p = q\vec d$, from $-q$ to $+q$; unit C·m', topic: Electric dipoles}
+- {front: 'Field of a dipole far away', back: 'Axis: $E \approx 2kp/x^3$ along $\vec p$. Bisector: $E \approx kp/y^3$ opposite $\vec p$. Falls as $1/r^3$.', topic: Electric dipoles}
+- {front: 'Dipole in a uniform field: force and torque', back: 'Net force zero; torque $\vec\tau = \vec p\times\vec E$, $\tau = pE\sin\theta$', topic: Electric dipoles}
+- {front: 'Potential energy of a dipole', back: '$U = -\vec p\cdot\vec E = -pE\cos\theta$: $-pE$ aligned (stable), $+pE$ antiparallel (unstable)', topic: Electric dipoles}
+- {front: 'Dipole in a nonuniform field', back: 'An aligned dipole is pulled toward the stronger field (comb picks up paper).', topic: Electric dipoles}
+- {front: 'Hall voltage', back: '$V_H = v_dBw = \dfrac{IB}{nqt}$, $t$ = thickness along $\vec B$', topic: Hall effect}
+- {front: 'What does the sign of the Hall voltage tell you?', back: 'The sign of the charge carriers (both signs are pushed to the same edge).', topic: Hall effect}
+- {front: 'Field in a solenoid filled with a material', back: '$B = K_mB_0 = \mu nI$, $K_m = 1 + \chi_m$, $\mu = K_m\mu_0$', topic: Magnetic materials}
+- {front: 'Dia-, para-, ferromagnetism', back: 'Dia: $\chi_m \sim -10^{-5}$, all matter. Para: small $+\chi_m \propto 1/T$. Ferro: domains, $K_m$ up to $10^5$, hysteresis.', topic: Magnetic materials}
+- {front: 'Magnetization', back: 'Dipole moment per volume $M$ (A/m); $B = B_0 + \mu_0M$', topic: Magnetic materials}
+- {front: 'Curie temperature', back: 'Above it a ferromagnet loses its domains and becomes paramagnetic (iron: 770°C).', topic: Magnetic materials}
+- {front: 'Energy density of an EM wave', back: '$u = \tfrac12\varepsilon_0E^2 + \dfrac{B^2}{2\mu_0} = \varepsilon_0E^2$, shared equally; average $\tfrac12\varepsilon_0E_0^2$', topic: Energy in electromagnetic waves}
+- {front: 'Poynting vector', back: '$\vec S = \dfrac{1}{\mu_0}\vec E\times\vec B$ (W/m²), along the direction of travel', topic: Energy in electromagnetic waves}
+- {front: 'Intensity of an EM wave', back: '$I = \dfrac{E_0B_0}{2\mu_0} = \tfrac12c\varepsilon_0E_0^2 = cu_{\text{avg}}$; point source $I = P/(4\pi r^2)$', topic: Energy in electromagnetic waves}
+- {front: 'Radiation pressure', back: '$I/c$ absorbed, $2I/c$ reflected; momentum $p = U/c$', topic: Energy in electromagnetic waves}
+- {front: 'Refraction at a spherical surface', back: '$\dfrac{n_1}{d_o} + \dfrac{n_2}{d_i} = \dfrac{n_2 - n_1}{R}$, $m = -\dfrac{n_1d_i}{n_2d_o}$; $R > 0$ if the center is on the outgoing side', topic: Refraction at a curved surface}
+- {front: 'Apparent depth', back: 'Flat surface: $d_i = -(n_2/n_1)d_o$; water seen from air looks 0.75 as deep.', topic: Refraction at a curved surface}
+- {front: 'Correcting nearsightedness and farsightedness', back: 'Near: diverging lens, $f = -$(far point). Far: converging lens imaging 25 cm to the near point.', topic: Optical instruments}
+- {front: 'Magnifier, microscope, telescope', back: 'Magnifier $M = 25\text{ cm}/f$; microscope $M = m_o(25\text{ cm}/f_e)$; telescope $M = -f_o/f_e$', topic: Optical instruments}
+- {front: 'Wien''s displacement law', back: '$\lambda_{\max}T = 2.898\times10^{-3}$ m·K', topic: Blackbody radiation}
+- {front: 'Stefan–Boltzmann law', back: '$P = e\sigma AT^4$, $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴); net $e\sigma A(T^4 - T_s^4)$', topic: Blackbody radiation}
+- {front: 'How did Planck fix the ultraviolet catastrophe?', back: 'Oscillator energies come in multiples of $hf$, so high-frequency modes ($hf \gg k_BT$) are frozen out.', topic: Blackbody radiation}
+- {front: 'Compton shift', back: '$\lambda'' - \lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$, $h/(m_ec) = 2.43$ pm; electron gets $K = hc/\lambda - hc/\lambda''$', topic: Compton effect}
+- {front: 'Brewster''s angle', back: '$\tan\theta_B = n_2/n_1$; reflected light fully polarized parallel to the surface; reflected and refracted rays perpendicular', topic: Electromagnetic waves}
+- {front: 'Displacement current', back: '$I_d = \varepsilon_0\,d\Phi_E/dt$; in a charging capacitor''s gap it equals the wire current', topic: Electromagnetic waves}
+- {front: 'Mutual inductance', back: '$\mathcal{E}_2 = -M\,dI_1/dt$; $M$ (henries) depends on geometry and is the same both ways', topic: Inductance}
+- {front: 'Phase angle and power factor (series RLC)', back: '$\tan\phi = (X_L - X_C)/R$ (current lags if positive); $P = I_{\text{rms}}V_{\text{rms}}\cos\phi$, $\cos\phi = R/Z$', topic: AC circuits}

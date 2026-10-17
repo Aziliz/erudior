@@ -200,6 +200,53 @@
     $E = \dfrac{\Delta V}{d} = \dfrac{{V}}{{dmm}\times10^{-3}} =$ **{E:sig3} V/m**.
 
     $F = qE = ({qn}\times10^{-9})({E:dp0}) = \mathbf{{F:texsci}}$ N.
+- id: phys-dipole-axis
+  title: Dipole moment and the field on the axis
+  topic: Electric dipoles
+  vars:
+    qn: {min: 1.0, max: 9.9, step: 0.1}
+    dmm: {min: 0.5, max: 5, step: 0.5}
+    xcm: {min: 3, max: 30, step: 0.5}
+  where: ['xcm*10 >= 15*dmm']
+  calc:
+    p: qn*1e-9*dmm*1e-3
+    ppc: qn*dmm
+    E: 2*8.99e9*p/(xcm/100)^3
+    Eex: 8.99e9*qn*1e-9*(1/(xcm/100 - dmm/2000)^2 - 1/(xcm/100 + dmm/2000)^2)
+  prompt: 'Charges of $+{qn}$ nC and $-{qn}$ nC are {dmm} mm apart. Find the dipole moment (in pC·m; 1 pC·m = $10^{-12}$ C·m) and, using the far-field approximation, the electric field on the dipole''s axis {xcm} cm from its center (N/C). Give each to 3 significant figures. ($k = 8.99\times10^9$ N·m²/C²)'
+  answers:
+    - {name: ppc, label: '$p =$', format: sig4, relTolerance: 0.01, units: {'pC·m': 1, 'C·m': 1.0e+12}}
+    - {name: E, label: '$E =$', format: sci, relTolerance: 0.01, units: {'N/C': 1, 'V/m': 1, 'kN/C': 1000}}
+  solution: |-
+    $p = qd = ({qn}\times10^{-9})({dmm}\times10^{-3}) = {p:texsci}$ C·m $=$ **{ppc:sig3} pC·m**, pointing from the negative charge to the positive one.
+
+    The point is far compared with the spacing, so $E \approx \dfrac{2kp}{x^3} = \dfrac{2(8.99\times10^9)({p:texsci})}{({xcm}/100)^3} = \mathbf{{E:texsci}}$ N/C, along $\vec p$. (The exact two-charge formula gives ${Eex:texsci}$ N/C: this far out, the approximation is excellent.)
+- id: phys-dipole-torque
+  title: Torque and energy of a dipole in a field
+  topic: Electric dipoles
+  vars:
+    pm: {min: 1.0, max: 9.9, step: 0.1}
+    Ek: {min: 1, max: 100}
+    th: {min: 10, max: 170, step: 5}
+  where: ['th != 90']
+  calc:
+    pE: pm*1e-9*Ek*1e3
+    tau: pE*sind(th)
+    U: -pE*cosd(th)
+    W: pE*(1 - cosd(th))
+  prompt: 'A dipole of moment ${pm}\times10^{-9}$ C·m makes an angle of {th}° with a uniform electric field of {Ek} kN/C. Find (a) the torque on it (N·m), (b) its potential energy (J, taking $U = 0$ at $90^\circ$; include the sign), and (c) the work the field does on it as it swings into alignment with the field (J). Give each to 3 significant figures.'
+  answers:
+    - {name: tau, label: '(a) $\tau =$', format: sci, relTolerance: 0.01, units: {'N·m': 1, 'N m': 1}}
+    - {name: U, label: '(b) $U =$', format: sci, relTolerance: 0.01, units: {J: 1}}
+    - {name: W, label: '(c) $W =$', format: sci, relTolerance: 0.01, units: {J: 1}}
+  solution: |-
+    $pE = ({pm}\times10^{-9})({Ek}\times10^3) = {pE:texsci}$ N·m.
+
+    (a) $\tau = pE\sin\theta = ({pE:texsci})\sin {th}^\circ = \mathbf{{tau:texsci}}$ N·m, turning the dipole toward the field.
+
+    (b) $U = -pE\cos\theta = -({pE:texsci})\cos {th}^\circ = \mathbf{{U:texsci}}$ J.
+
+    (c) Aligned, $U = -pE$. The field's work is the drop in potential energy: $W = U - (-pE) = pE(1 - \cos {th}^\circ) = \mathbf{{W:texsci}}$ J.
 - id: phys-parallel-plate
   title: Parallel-plate capacitor
   topic: Capacitance

@@ -41,7 +41,7 @@ Filling the gap with an insulating material, a **dielectric**, increases the cap
 
 $$C = \kappa\frac{\varepsilon_0A}{d}.$$
 
-For air $\kappa \approx 1.0006$, paper about 3.7, glass 5–10, water about 80. The dielectric's molecules polarize in the field, lining up so that their bound charges partly cancel the field inside. With less field for the same plate charge, the voltage is lower, so $C = Q/V$ is higher. Dielectrics also prevent breakdown: air sparks at about $3\times10^6$ V/m, while many plastics withstand ten times that.
+For air $\kappa \approx 1.0006$, paper about 3.7, glass 5–10, water about 80. The dielectric's molecules polarize in the field: polar molecules twist toward alignment and others become induced dipoles (the previous lesson), and their bound charges partly cancel the field inside. With less field for the same plate charge, the voltage is lower, so $C = Q/V$ is higher. Dielectrics also prevent breakdown: air sparks at about $3\times10^6$ V/m, while many plastics withstand ten times that.
 
 ## Combining capacitors
 

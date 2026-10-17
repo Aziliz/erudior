@@ -4,7 +4,7 @@ module: phys-m11
 title: 'Light: electromagnetic waves, reflection, and refraction'
 minutes: 45
 topics: [Electromagnetic waves, Reflection and refraction]
-drills: [phys-em-wavelength, phys-snell, phys-critical-angle, phys-malus]
+drills: [phys-snell, phys-critical-angle, phys-malus, phys-brewster]
 refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## Light is an electromagnetic wave
@@ -19,7 +19,7 @@ $$c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = 3.00\times10^8\text{ m/s},$$
 
 and as with any wave $c = f\lambda$. The field magnitudes are linked by $E = cB$.
 
-EM waves carry energy. Their *intensity* (average power per area) is $I = \tfrac12c\varepsilon_0E_0^2$, where $E_0$ is the peak field. Sunlight at Earth's distance delivers about 1360 W/m². They also carry momentum, exerting a small radiation pressure: $I/c$ on a surface that absorbs the light and $2I/c$ on one that reflects it straight back, which is why solar sails are mirrors.
+EM waves carry energy. Their *intensity* (average power per area) is $I = \tfrac12c\varepsilon_0E_0^2$, where $E_0$ is the peak field (the next lesson derives this and the results below). Sunlight at Earth's distance delivers about 1360 W/m². They also carry momentum, exerting a small radiation pressure: $I/c$ on a surface that absorbs the light and $2I/c$ on one that reflects it straight back, which is why solar sails are mirrors.
 
 *The electromagnetic spectrum.* All EM waves are the same phenomenon, differing only in frequency and wavelength:
 
@@ -39,7 +39,7 @@ In ordinary light from the Sun or a bulb, the electric field points in random di
 
 $$I = I_0\cos^2\theta,$$
 
-**Malus's law**. Crossed polarizers ($\theta = 90^\circ$) block everything. Light reflected from water or roads is partly polarized horizontally, which is why polarized sunglasses (with vertical axes) cut glare. At one angle of incidence, Brewster's angle, given by $\tan\theta_B = n_2/n_1$ (about $53^\circ$ for air to water), the reflected light is completely polarized parallel to the surface.
+**Malus's law**. Crossed polarizers ($\theta = 90^\circ$) block everything. Light reflected from water or roads is partly polarized horizontally, which is why polarized sunglasses (with vertical axes) cut glare. At one angle of incidence, **Brewster's angle**, given by $\tan\theta_B = n_2/n_1$ (about $53^\circ$ for air to water), the reflected light is completely polarized parallel to the surface. At that angle the reflected and refracted rays are exactly perpendicular, so the angle of refraction is $90^\circ - \theta_B$; Snell's law with $\sin\theta_2 = \cos\theta_B$ gives the tangent formula.
 
 ## Rays and reflection
 
@@ -93,7 +93,7 @@ Into water: $\sin\theta_c = 1.33/1.52 = 0.875$, so $\theta_c = 61.0^\circ$. The 
 
 ## The wave equation and Fermat's principle
 
-Maxwell's reverse effect is built into Ampère's law. Around a charging capacitor, a loop's current depends on whether the surface it bounds cuts the wire or passes between the plates, where no charge flows but the electric flux is changing. Maxwell fixed this by adding a **displacement current** $I_d = \varepsilon_0\,d\Phi_E/dt$ to the enclosed current. With that term, the four **Maxwell's equations** in integral form are
+Maxwell's reverse effect is built into Ampère's law. Around a charging capacitor, a loop's current depends on whether the surface it bounds cuts the wire or passes between the plates, where no charge flows but the electric flux is changing. Maxwell fixed this by adding a **displacement current** $I_d = \varepsilon_0\,d\Phi_E/dt$ to the enclosed current. Between the plates the flux is $\Phi_E = Q/\varepsilon_0$, so $I_d = dQ/dt$: the displacement current in the gap exactly equals the conduction current in the wires, and both surfaces give the same answer. With that term, the four **Maxwell's equations** in integral form are
 
 $$\oint\vec E\cdot d\vec A = \frac{Q_{\text{enc}}}{\varepsilon_0}, \qquad \oint\vec B\cdot d\vec A = 0,$$
 
@@ -119,4 +119,5 @@ Snell's law also follows from **Fermat's principle**: light takes the path of le
 - EM waves: transverse, $c = 3.00\times10^8$ m/s $= 1/\sqrt{\mu_0\varepsilon_0}$, $c = f\lambda$, $E = cB$.
 - Malus: $I = I_0\cos^2\theta$; unpolarized light halves through a polarizer.
 - Reflection: $\theta_r = \theta_i$. Refraction: $n = c/v$, $n_1\sin\theta_1 = n_2\sin\theta_2$.
-- Critical angle $\sin\theta_c = n_2/n_1$ for $n_1 > n_2$.
+- Critical angle $\sin\theta_c = n_2/n_1$ for $n_1 > n_2$. Brewster's angle $\tan\theta_B = n_2/n_1$: reflected light fully polarized.
+- Displacement current $I_d = \varepsilon_0\,d\Phi_E/dt$ completes Maxwell's equations.

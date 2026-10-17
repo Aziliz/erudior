@@ -18,6 +18,9 @@ title: Physical constants and data
 | Gas constant | $R$ | $8.314$ J/(mol·K) |
 | Avogadro's number | $N_A$ | $6.022\times10^{23}$ mol⁻¹ |
 | Stefan–Boltzmann constant | $\sigma$ | $5.67\times10^{-8}$ W/(m²·K⁴) |
+| Wien's displacement constant | $b$ | $2.898\times10^{-3}$ m·K |
+| Compton wavelength of the electron | $h/(m_ec)$ | $2.43\times10^{-12}$ m |
+| Bohr magneton | $\mu_B$ | $9.27\times10^{-24}$ J/T |
 
 ## Particle masses
 
@@ -55,4 +58,6 @@ title: Physical constants and data
 | Latent heat of fusion of water | $3.34\times10^5$ J/kg |
 | Latent heat of vaporization of water | $2.26\times10^6$ J/kg |
 | Resistivity of copper | $1.7\times10^{-8}$ Ω·m |
+| Free-electron density of copper | $8.5\times10^{28}$ m⁻³ |
+| Near point of a normal eye | 25 cm |
 | Index of refraction: water, glass, diamond | 1.33, about 1.5, 2.42 |

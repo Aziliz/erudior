@@ -180,6 +180,107 @@
   answer: 1
   explanation: |-
     $K_{\max} = hf - \phi$ is a line with slope $h$ (the same for every metal) and intercept $-\phi$.
+- id: phys-q-5101
+  lesson: phys-blackbody-compton
+  module_quiz: true
+  topic: Blackbody radiation
+  stem: 'A glowing object''s spectrum peaks at 725 nm. What is its temperature? (Wien''s constant $2.898\times10^{-3}$ m·K)'
+  choices: ['$4.0\times10^{3}$ K', '$4.0\times10^{-6}$ K', '$2.1\times10^{-9}$ K', '$2.5\times10^{-4}$ K']
+  answer: 0
+  explanation: |-
+    $T = \dfrac{2.898\times10^{-3}}{725\times10^{-9}} = 4.0\times10^3$ K. Leaving the wavelength in nanometers gives $4.0\times10^{-6}$ K; multiplying instead of dividing gives $2.1\times10^{-9}$; dividing the wavelength by the constant (upside down) gives $2.5\times10^{-4}$.
+- id: phys-q-5102
+  lesson: phys-blackbody-compton
+  module_quiz: true
+  topic: Blackbody radiation
+  stem: 'The absolute temperature of a blackbody is doubled. By what factor does the total power it radiates change?'
+  choices: ['2', '4', '8', '16']
+  answer: 3
+  explanation: |-
+    $P = \sigma AT^4$, so doubling $T$ multiplies $P$ by $2^4 = 16$. Factors of 2, 4 and 8 come from using the first, second or third power of $T$.
+- id: phys-q-5103
+  lesson: phys-blackbody-compton
+  topic: Blackbody radiation
+  stem: 'Star A has twice the surface temperature of star B. Compared with star B''s peak wavelength, star A''s is'
+  choices: ['twice as long', 'half as long', 'one sixteenth as long', 'the same']
+  answer: 1
+  explanation: |-
+    Wien's law, $\lambda_{\max}T$ = constant, makes $\lambda_{\max} \propto 1/T$: twice the temperature, half the peak wavelength (hotter stars look bluer). Twice as long inverts the relationship, and one sixteenth borrows the fourth power from the Stefan–Boltzmann law, which governs total power, not the peak.
+- id: phys-q-5104
+  lesson: phys-blackbody-compton
+  topic: Blackbody radiation
+  stem: 'A blackbody of surface area 0.020 m² at 500 K sits in surroundings at 300 K. What net power does it lose by radiation? ($\sigma = 5.67\times10^{-8}$ W/(m²·K⁴))'
+  choices: ['71 W', '1.8 W', '62 W', '9.2 W']
+  answer: 2
+  explanation: |-
+    $P_{\text{net}} = \sigma A(T^4 - T_s^4) = (5.67\times10^{-8})(0.020)(500^4 - 300^4) = 62$ W. Ignoring the radiation absorbed from the surroundings gives 71 W; using $(T - T_s)^4$ gives 1.8 W; 9.2 W is the power absorbed from the surroundings alone.
+- id: phys-q-5105
+  lesson: phys-blackbody-compton
+  module_quiz: true
+  topic: Blackbody radiation
+  stem: 'What was the "ultraviolet catastrophe"?'
+  choices: ['Classical physics predicted blackbody intensity growing without limit at short wavelengths', 'Ultraviolet light was found to destroy blackbody cavities', 'Blackbodies were observed to emit no ultraviolet at any temperature', 'Planck''s formula predicted infinite power at long wavelengths']
+  answer: 0
+  explanation: |-
+    Giving every mode the classical energy $k_BT$ makes the predicted intensity grow as $1/\lambda^4$, so short wavelengths would carry infinite power. Real blackbodies do emit some ultraviolet when hot enough, and it was the classical theory, not Planck's, that failed; at long wavelengths both agree.
+- id: phys-q-5106
+  lesson: phys-blackbody-compton
+  topic: Blackbody radiation
+  stem: 'What assumption did Planck make to obtain the correct blackbody spectrum?'
+  choices: ['Light travels slower inside a hot cavity', 'Every mode of the field has average energy $k_BT$', 'The oscillating charges can have only energies that are whole-number multiples of $hf$', 'Electrons orbit nuclei only at certain radii']
+  answer: 2
+  explanation: |-
+    Quantized energies $nhf$ starve high-frequency modes, where $hf \gg k_BT$, and turn the spectrum over. Equal energy $k_BT$ for every mode is the classical assumption that failed. Quantized orbits came later, with Bohr's 1913 model of hydrogen, and the speed of light plays no role.
+- id: phys-q-5107
+  lesson: phys-blackbody-compton
+  module_quiz: true
+  topic: Compton effect
+  stem: 'X-rays scatter from free electrons at $120^\circ$. What is the Compton shift $\lambda'' - \lambda$? ($h/(m_ec) = 2.43$ pm)'
+  choices: ['$-1.22$ pm', '3.65 pm', '1.22 pm', '4.86 pm']
+  answer: 1
+  explanation: |-
+    $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos 120^\circ) = 2.43(1 + 0.5) = 3.65$ pm. Using $\cos\theta$ alone gives $-1.22$ pm; using $1 + \cos\theta$ gives 1.22 pm; 4.86 pm is the maximum shift, at $180^\circ$.
+- id: phys-q-5108
+  lesson: phys-blackbody-compton
+  topic: Compton effect
+  stem: 'A 50.0 pm X-ray photon is scattered straight back ($180^\circ$) by a free electron. What kinetic energy does the electron gain? ($h/(m_ec) = 2.43$ pm, $hc = 1240$ eV·nm)'
+  choices: ['24.8 keV', '22.6 keV', '1.1 keV', '2.2 keV']
+  answer: 3
+  explanation: |-
+    $\lambda' = 50.0 + 2(2.43) = 54.86$ pm, and $K = 1240\left(\dfrac{1}{0.0500} - \dfrac{1}{0.05486}\right)$ eV $= 2.2$ keV. 24.8 keV is the incoming photon's energy and 22.6 keV the scattered photon's; 1.1 keV uses the $90^\circ$ shift instead of the $180^\circ$ one.
+- id: phys-q-5109
+  lesson: phys-blackbody-compton
+  topic: Compton effect
+  stem: 'Why is the Compton effect not noticed when visible light scatters from electrons?'
+  choices: ['The shift of at most 4.86 pm is negligible compared with visible wavelengths of 400 to 700 nm', 'Visible photons have no momentum', 'Visible light cannot scatter from electrons', 'The shift is larger for longer wavelengths and becomes unmeasurable']
+  answer: 0
+  explanation: |-
+    The shift does not depend on wavelength, so for 500 nm light it is a change of about one part in $10^5$, too small to matter. Visible photons do carry momentum $h/\lambda$ and do scatter; the shift is the same size for every wavelength, so it is the fractional change that becomes tiny.
+- id: phys-q-5110
+  lesson: phys-blackbody-compton
+  topic: Compton effect
+  stem: 'Which change increases the Compton wavelength shift of the scattered X-rays?'
+  choices: ['Increasing the X-ray intensity', 'Decreasing the incoming wavelength', 'Detecting X-rays scattered at a larger angle, closer to $180^\circ$', 'Scattering from protons instead of electrons']
+  answer: 2
+  explanation: |-
+    $\Delta\lambda = \dfrac{h}{mc}(1 - \cos\theta)$ grows with $\theta$, from zero at $0^\circ$ to its maximum at $180^\circ$. Intensity changes the number of photons, not each one's shift; the shift does not depend on the incoming wavelength; a proton's mass is 1836 times larger, making the shift far smaller.
+- id: phys-q-5111
+  lesson: phys-blackbody-compton
+  module_quiz: true
+  topic: Compton effect
+  stem: 'What did the Compton effect show that classical wave theory could not explain?'
+  choices: ['That X-rays travel slower than visible light', 'That electrons have wave properties', 'That scattered X-rays keep exactly their original wavelength', 'That X-ray photons carry momentum $h/\lambda$ and lose energy in collisions with electrons like particles']
+  answer: 3
+  explanation: |-
+    A classical wave makes an electron oscillate at the wave's own frequency, so the scattered light would keep its wavelength. The measured angle-dependent increase in wavelength matches a particle collision with momentum $h/\lambda$. Electron waves were shown by electron diffraction, a different experiment, and X-rays travel at $c$.
+- id: phys-q-5112
+  lesson: phys-blackbody-compton
+  topic: Blackbody radiation
+  stem: 'Which of these is the best approximation to an ideal blackbody?'
+  choices: ['A polished silver mirror', 'A small hole in the wall of a hollow box', 'A sheet of clear glass', 'A white-painted plate']
+  answer: 1
+  explanation: |-
+    Light entering a small hole bounces around inside and is almost all absorbed before it can escape, so the hole absorbs nearly everything and emits the ideal thermal spectrum. Mirrors and white paint reflect most light, and clear glass transmits it, so they are poor absorbers and therefore poor emitters.
 - id: phys-q-4601
   lesson: phys-nuclear
   module_quiz: true

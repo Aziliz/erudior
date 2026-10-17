@@ -13,11 +13,11 @@ By 1900 light was firmly established as a wave. Then a series of experiments sho
 
 ## Photons
 
-Max Planck (1900) explained the spectrum of glowing objects by assuming energy is exchanged in multiples of $hf$. Einstein (1905) went further: light itself consists of quanta, now called **photons**, each with energy
+Max Planck (1900) explained the spectrum of glowing objects by assuming energy is exchanged in multiples of $hf$ (the next lesson tells that story). Einstein (1905) went further: light itself consists of quanta, now called **photons**, each with energy
 
 $$E = hf = \frac{hc}{\lambda},$$
 
-where $h = 6.63\times10^{-34}$ J·s is **Planck's constant**. A handy combination: $hc = 1240$ eV·nm, so a photon of wavelength $\lambda$ (in nm) has energy $1240/\lambda$ eV. Red light (700 nm) photons carry 1.8 eV; violet (400 nm) 3.1 eV; X-rays thousands of eV. Photons also carry momentum $p = h/\lambda$ even though they have no mass.
+where $h = 6.63\times10^{-34}$ J·s is **Planck's constant**. A handy combination: $hc = 1240$ eV·nm, so a photon of wavelength $\lambda$ (in nm) has energy $1240/\lambda$ eV. Red light (700 nm) photons carry 1.8 eV; violet (400 nm) 3.1 eV; X-rays thousands of eV. Photons also carry momentum $p = h/\lambda$ even though they have no mass; the Compton effect in the next lesson shows that momentum directly.
 
 A beam's brightness tells you how many photons arrive per second; the color tells you how much energy each one has.
 

@@ -81,7 +81,7 @@ A rectangular loop carrying current in a magnetic field feels forces on opposite
 
 $$\tau = NIAB\sin\phi,$$
 
-where $\phi$ is the angle between the field and the loop's normal. The quantity $\mu = NIA$ is the loop's **magnetic dipole moment**. The torque tries to align the loop's normal with the field, just as a compass needle aligns. An electric **motor** keeps the loop turning by reversing the current every half turn (with a commutator), so the torque always pushes the same rotational way. Analog meters and loudspeakers work on the same force.
+where $\phi$ is the angle between the field and the loop's normal. The quantity $\mu = NIA$ is the loop's **magnetic dipole moment**. The torque tries to align the loop's normal with the field, just as a compass needle aligns. In vector form $\vec\tau = \vec\mu\times\vec B$ and the loop's energy is $U = -\vec\mu\cdot\vec B$, exactly like an electric dipole's $\vec\tau = \vec p\times\vec E$ and $U = -\vec p\cdot\vec E$. An electric **motor** keeps the loop turning by reversing the current every half turn (with a commutator), so the torque always pushes the same rotational way. Analog meters and loudspeakers work on the same force.
 
 ## Current elements and the full Lorentz force
 

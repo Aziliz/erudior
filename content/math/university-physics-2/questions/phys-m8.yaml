@@ -330,6 +330,114 @@
   answer: 1
   explanation: |-
     No work is done moving along an equipotential, so the field has no component along it: field lines cross equipotentials at right angles, pointing toward lower potential.
+- id: phys-q-4701
+  lesson: phys-dipoles
+  module_quiz: true
+  topic: Electric dipoles
+  stem: 'Charges of $+3.0$ μC and $-3.0$ μC are 4.0 mm apart. What is the magnitude of the dipole moment?'
+  choices: ['$1.2\times10^{-8}$ C·m', '$6.0\times10^{-9}$ C·m', '$1.2\times10^{-5}$ C·m', '$2.4\times10^{-8}$ C·m']
+  answer: 0
+  explanation: |-
+    $p = qd = (3.0\times10^{-6})(4.0\times10^{-3}) = 1.2\times10^{-8}$ C·m. Using half the separation gives $6.0\times10^{-9}$; leaving the separation in millimeters gives $1.2\times10^{-5}$; adding the two charges' magnitudes before multiplying gives $2.4\times10^{-8}$. Only one charge's magnitude goes into $p$.
+- id: phys-q-4702
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'Which way does the electric dipole moment $\vec p$ of a pair of charges $\pm q$ point?'
+  choices: ['From the positive charge to the negative charge', 'Perpendicular to the line joining the charges', 'From the negative charge to the positive charge', 'Along the external field, whatever the charges'' positions']
+  answer: 2
+  explanation: |-
+    By definition $\vec p = q\vec d$ with $\vec d$ running from $-q$ to $+q$. The reverse direction is the direction of the field between the charges, which is easy to confuse with $\vec p$. The moment belongs to the charge pair, so an external field does not set its direction (it only exerts a torque on it).
+- id: phys-q-4703
+  lesson: phys-dipoles
+  module_quiz: true
+  topic: Electric dipoles
+  stem: 'Far from a dipole, you triple your distance from it along its axis. Its field changes by a factor of'
+  choices: ['1/9', '1/27', '1/3', '1/81']
+  answer: 1
+  explanation: |-
+    The far field of a dipole is $E \approx 2kp/r^3$, so tripling $r$ divides $E$ by $3^3 = 27$. The factor 1/9 applies the $1/r^2$ law of a single point charge; 1/3 is a $1/r$ law; 1/81 uses a fourth power.
+- id: phys-q-4704
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'A dipole with $p = 5.0\times10^{-12}$ C·m is far from any other charges. Estimate the field on its axis 0.10 m from its center. ($k = 8.99\times10^9$ N·m²/C²)'
+  choices: ['45.0 N/C', '8.99 N/C', '4.50 N/C', '89.9 N/C']
+  answer: 3
+  explanation: |-
+    $E \approx \dfrac{2kp}{x^3} = \dfrac{2(8.99\times10^9)(5.0\times10^{-12})}{(0.10)^3} = 89.9$ N/C. Leaving out the 2 gives 45.0 N/C, which is the field on the perpendicular bisector at that distance. Dividing by $x^2$ instead of $x^3$ gives 8.99 N/C (with the 2) or 4.50 N/C (without it).
+- id: phys-q-4705
+  lesson: phys-dipoles
+  module_quiz: true
+  topic: Electric dipoles
+  stem: 'A dipole of moment $2.0\times10^{-9}$ C·m makes a $30^\circ$ angle with a uniform $3.0\times10^4$ N/C field. What torque acts on it?'
+  choices: ['$5.2\times10^{-5}$ N·m', '$6.0\times10^{-5}$ N·m', '$3.0\times10^{-5}$ N·m', '$1.5\times10^{-5}$ N·m']
+  answer: 2
+  explanation: |-
+    $\tau = pE\sin\theta = (2.0\times10^{-9})(3.0\times10^4)\sin 30^\circ = 3.0\times10^{-5}$ N·m. Using $\cos\theta$ gives $5.2\times10^{-5}$; leaving out the angle factor gives the maximum torque, $6.0\times10^{-5}$; counting the torque of only one of the two charges gives $1.5\times10^{-5}$.
+- id: phys-q-4706
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'An electric dipole sits in a uniform electric field, tilted at an angle to it. What does the field do to the dipole?'
+  choices: ['It exerts a torque but no net force', 'It exerts a net force along the field but no torque', 'It exerts both a net force and a torque', 'It exerts neither a force nor a torque']
+  answer: 0
+  explanation: |-
+    The forces $+q\vec E$ and $-q\vec E$ are equal and opposite, so the net force is zero in a uniform field. They act at different points, though, so they form a couple with torque $pE\sin\theta$. A net force appears only in a nonuniform field, and the torque vanishes only when the dipole is parallel or antiparallel to the field.
+- id: phys-q-4707
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'A dipole with $p = 4.0\times10^{-9}$ C·m makes a $120^\circ$ angle with a uniform field of $2.5\times10^4$ N/C. What is its potential energy (zero at $90^\circ$)?'
+  choices: ['$-5.0\times10^{-5}$ J', '$+5.0\times10^{-5}$ J', '$8.7\times10^{-5}$ J', '$1.0\times10^{-4}$ J']
+  answer: 1
+  explanation: |-
+    $U = -pE\cos\theta = -(4.0\times10^{-9})(2.5\times10^4)\cos 120^\circ = -(1.0\times10^{-4})(-0.50) = +5.0\times10^{-5}$ J. The dipole points partly against the field, so its energy is above zero. Dropping the minus sign in $U = -pE\cos\theta$ gives $-5.0\times10^{-5}$ J; using $\sin\theta$ gives $8.7\times10^{-5}$ J; $1.0\times10^{-4}$ J is $pE$ with no angle factor.
+- id: phys-q-4708
+  lesson: phys-dipoles
+  module_quiz: true
+  topic: Electric dipoles
+  stem: 'In which orientation is a dipole in a uniform field in stable equilibrium?'
+  choices: ['Perpendicular to the field, where $U = 0$', 'Antiparallel to the field, where $U = +pE$', 'At $45^\circ$, where the torque and energy balance', 'Parallel to the field, where $U = -pE$']
+  answer: 3
+  explanation: |-
+    Stable equilibrium is the minimum of $U = -pE\cos\theta$, at $\theta = 0$. Antiparallel is also an equilibrium (no torque) but it is the energy maximum, so any nudge makes the dipole flip. At $90^\circ$ the torque is largest, so it is not an equilibrium at all, and nothing special happens at $45^\circ$.
+- id: phys-q-4709
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'How much work must an external agent do to turn a dipole of moment $1.5\times10^{-9}$ C·m from aligned with a $2.0\times10^4$ N/C field to antiparallel, slowly?'
+  choices: ['$6.0\times10^{-5}$ J', '$3.0\times10^{-5}$ J', '0 J', '$-6.0\times10^{-5}$ J']
+  answer: 0
+  explanation: |-
+    $W = U_{\text{final}} - U_{\text{initial}} = (+pE) - (-pE) = 2pE = 2(1.5\times10^{-9})(2.0\times10^4) = 6.0\times10^{-5}$ J. $3.0\times10^{-5}$ J is the work to turn only to $90^\circ$. Zero would mean the two orientations have equal energy, and the negative value has the sign of the field's work, not the agent's.
+- id: phys-q-4710
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'A small dipole, aligned with the field, sits near a positive point charge. What net force does it feel?'
+  choices: ['None, because the dipole is neutral', 'A pull toward the point charge', 'A push away from the point charge', 'A force perpendicular to the line toward the charge']
+  answer: 1
+  explanation: |-
+    The point charge's field is stronger closer in. The aligned dipole's near end ($-q$, since $\vec p$ points along the field, away from the charge) is attracted more strongly than its far end ($+q$) is repelled, so the net force points toward the stronger field. Zero net force holds only in a uniform field. This is how a charged comb picks up neutral paper.
+- id: phys-q-4711
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'What is the electric potential at a point on the perpendicular bisector of a dipole (taking $V = 0$ at infinity)?'
+  choices: ['$kp/y^2$', '$2kp/y^3$', '$kq/y$', 'Zero']
+  answer: 3
+  explanation: |-
+    Every point on the bisector is equally far from $+q$ and $-q$, so $kq/r - kq/r = 0$. The field there is not zero (it points opposite to $\vec p$), which shows that zero potential does not mean zero field. $kp/y^2$ is the far-field potential on the axis, $2kp/y^3$ is the axis field, and $kq/y$ counts only one charge.
+- id: phys-q-4712
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'Water molecules have $p = 6.2\times10^{-30}$ C·m. In a field of $5.0\times10^5$ N/C at room temperature, why are they only slightly aligned on average?'
+  choices: ['The field exerts no torque on a molecule', 'The molecules have no net charge, so the field cannot affect them', 'The energy difference $2pE$ is hundreds of times smaller than the thermal energy $k_BT$', 'The field is too strong and flips them back and forth']
+  answer: 2
+  explanation: |-
+    $2pE = 6.2\times10^{-24}$ J while $k_BT \approx 4.1\times10^{-21}$ J at 300 K, so collisions randomize orientations far faster than the field can line them up. The field does exert a torque, and a neutral molecule still feels a torque because its charges are separated.
+- id: phys-q-4713
+  lesson: phys-dipoles
+  topic: Electric dipoles
+  stem: 'At a point on a dipole''s axis a distance $2d$ from its center ($d$ = charge separation), how does the far-field formula $2kp/x^3$ compare with the exact field?'
+  choices: ['It underestimates the exact field by about 12%', 'It overestimates the exact field by about 12%', 'It is exact at every distance', 'It is off by a factor of 2']
+  answer: 0
+  explanation: |-
+    Exact: $E = \dfrac{2kqxd}{(x^2 - d^2/4)^2}$. With $x = 2d$, $E = \dfrac{4kqd^2}{(15d^2/4)^2} = 0.284\,kq/d^2$, while $2kp/x^3 = 0.250\,kq/d^2$. Dropping the $d^2/4$ makes the denominator too large, so the approximation is low, not high, and it only becomes exact in the limit $x \gg d$. A factor of 2 would come from mixing up the axis and bisector formulas.
 - id: phys-q-3301
   lesson: phys-capacitance
   module_quiz: true

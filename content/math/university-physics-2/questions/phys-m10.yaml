@@ -164,6 +164,106 @@
   answer: 3
   explanation: |-
     An Ampère loop of radius $r$ encloses $I(r/R)^2$, so $B(2\pi r) = \mu_0Ir^2/R^2$ and $B = \mu_0Ir/(2\pi R^2)$, rising linearly from zero at the center.
+- id: phys-q-4801
+  lesson: phys-hall-matter
+  module_quiz: true
+  topic: Hall effect
+  stem: 'A copper strip 1.5 cm wide and 0.50 mm thick carries 10 A in a 2.0 T field perpendicular to its face. Copper has $8.5\times10^{28}$ free electrons per m³. What is the Hall voltage? ($e = 1.602\times10^{-19}$ C)'
+  choices: ['$9.8\times10^{-8}$ V', '$7.3\times10^{-7}$ V', '$2.9\times10^{-6}$ V', '$2.9\times10^{-9}$ V']
+  answer: 2
+  explanation: |-
+    $V_H = \dfrac{IB}{nqt} = \dfrac{(10)(2.0)}{(8.5\times10^{28})(1.602\times10^{-19})(5.0\times10^{-4})} = 2.9\times10^{-6}$ V. Using the width (1.5 cm) where the thickness along $\vec B$ belongs gives $9.8\times10^{-8}$ V; dividing by $B$ instead of multiplying gives $7.3\times10^{-7}$ V; leaving the thickness in millimeters gives $2.9\times10^{-9}$ V.
+- id: phys-q-4802
+  lesson: phys-hall-matter
+  topic: Hall effect
+  stem: 'Which property of a conductor can the sign of its Hall voltage reveal?'
+  choices: ['The sign of its charge carriers', 'Its resistivity', 'Its total charge', 'Whether it is ferromagnetic']
+  answer: 0
+  explanation: |-
+    For a given current direction, positive and negative carriers are pushed to the same edge, so that edge charges with the carriers' sign. The Hall voltage depends on $n$ and $q$, not on resistivity or magnetic ordering, and a current-carrying wire is neutral overall.
+- id: phys-q-4803
+  lesson: phys-hall-matter
+  topic: Hall effect
+  stem: 'A strip carries a current to the right in a magnetic field. If its carriers were positive instead of negative, with the same current, density and field, the Hall voltage would'
+  choices: ['vanish, because the forces would cancel', 'double', 'keep its sign, because both kinds of carrier go to the same edge', 'have the same size but the opposite sign']
+  answer: 3
+  explanation: |-
+    Both kinds of carrier are pushed to the same edge (opposite charge times opposite velocity gives the same force direction), but that edge then holds positive rather than negative charge, so $V_H$ flips sign. Its size $IB/(n|q|t)$ is unchanged. Concluding the sign stays the same forgets that the edge charge itself changes sign.
+- id: phys-q-4804
+  lesson: phys-hall-matter
+  module_quiz: true
+  topic: Hall effect
+  stem: 'Why are Hall probes for measuring magnetic fields made from semiconductors rather than metals?'
+  choices: ['Semiconductors have larger drift speeds because they have more carriers', 'Semiconductors have far fewer carriers, so $V_H = IB/(nqt)$ is much larger', 'Metals have no Hall effect', 'Semiconductors are ferromagnetic and concentrate the field']
+  answer: 1
+  explanation: |-
+    $V_H$ is inversely proportional to the carrier density $n$. A semiconductor has millions of times fewer carriers than a metal, so for the same current the carriers drift faster and the Hall voltage is far easier to measure. Metals do show a Hall effect, just a tiny one, and semiconductor probes are not ferromagnetic.
+- id: phys-q-4805
+  lesson: phys-hall-matter
+  topic: Hall effect
+  stem: 'Carriers drift at $2.0\times10^{-4}$ m/s along a strip 2.0 cm wide in a 0.80 T field perpendicular to it. What is the Hall voltage across the strip?'
+  choices: ['$3.2\times10^{-6}$ V', '$3.2\times10^{-4}$ V', '$5.0\times10^{-6}$ V', '$1.6\times10^{-4}$ V']
+  answer: 0
+  explanation: |-
+    In equilibrium $E_H = v_dB = 1.6\times10^{-4}$ V/m, and $V_H = E_Hw = (1.6\times10^{-4})(0.020) = 3.2\times10^{-6}$ V. Stopping at the Hall field gives $1.6\times10^{-4}$; leaving the width in centimeters gives $3.2\times10^{-4}$ V; dividing by $B$ instead of multiplying gives $5.0\times10^{-6}$ V.
+- id: phys-q-4806
+  lesson: phys-hall-matter
+  module_quiz: true
+  topic: Magnetic materials
+  stem: 'A solenoid with 1000 turns per meter carries 0.20 A and is filled with iron of relative permeability $K_m = 2000$. What is the field inside? ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  choices: ['$2.5\times10^{-4}$ T', '0.080 T', '$1.3\times10^{-7}$ T', '0.50 T']
+  answer: 3
+  explanation: |-
+    $B = K_m\mu_0nI = 2000(4\pi\times10^{-7})(1000)(0.20) = 0.50$ T. $2.5\times10^{-4}$ T ignores the iron; 0.080 T uses the straight-wire constant $\mu_0/(2\pi)$ in place of $\mu_0$; $1.3\times10^{-7}$ T divides by $K_m$ instead of multiplying.
+- id: phys-q-4807
+  lesson: phys-hall-matter
+  topic: Magnetic materials
+  stem: 'Which statement about diamagnetism is correct?'
+  choices: ['It occurs only in materials with no electrons', 'It is the strong attraction of iron to a magnet', 'It is present in all materials and gives a small negative susceptibility', 'It makes a material keep its magnetization after the field is removed']
+  answer: 2
+  explanation: |-
+    An applied field alters every atom's electron motion so the induced moments oppose it (Lenz's law at the atomic scale), giving $\chi_m \approx -10^{-5}$. Strong attraction and retained magnetization are ferromagnetic behavior, and every material has electrons.
+- id: phys-q-4808
+  lesson: phys-hall-matter
+  module_quiz: true
+  topic: Magnetic materials
+  stem: 'A paramagnetic salt obeys Curie''s law. Its absolute temperature is doubled. Its susceptibility'
+  choices: ['doubles', 'is halved', 'is unchanged', 'changes sign']
+  answer: 1
+  explanation: |-
+    Curie's law says $\chi_m \propto 1/T$: more thermal agitation means less alignment, so doubling $T$ halves $\chi_m$. Doubling would mean heat helps alignment. A paramagnet's susceptibility stays positive; a negative value would make it diamagnetic.
+- id: phys-q-4809
+  lesson: phys-hall-matter
+  topic: Magnetic materials
+  stem: 'What happens to a piece of iron heated above its Curie temperature (770°C)?'
+  choices: ['It loses its domains and becomes paramagnetic', 'It becomes diamagnetic', 'It becomes a superconductor', 'Its relative permeability rises sharply']
+  answer: 0
+  explanation: |-
+    Above the Curie temperature thermal motion overwhelms the interaction that aligns neighboring moments, so the domains disappear. The atoms still have moments, so the iron is weakly paramagnetic, not diamagnetic. Its permeability falls, not rises, and superconductivity needs very low temperatures.
+- id: phys-q-4810
+  lesson: phys-hall-matter
+  topic: Magnetic materials
+  stem: 'Transformer cores are made of "soft" ferromagnetic material with a narrow hysteresis loop because'
+  choices: ['a narrow loop gives the strongest permanent magnet', 'soft materials are diamagnetic', 'soft materials do not saturate', 'the loop area is energy lost as heat every cycle, so a narrow loop wastes little']
+  answer: 3
+  explanation: |-
+    The core is cycled around its loop 60 times a second, and the area enclosed measures the energy turned into heat each cycle. A wide loop makes a good permanent magnet, the opposite of what a transformer needs. Soft iron is ferromagnetic, and it does saturate.
+- id: phys-q-4811
+  lesson: phys-hall-matter
+  topic: Magnetic materials
+  stem: 'A material has relative permeability $K_m = 0.99983$. It is'
+  choices: ['ferromagnetic', 'diamagnetic', 'paramagnetic', 'a superconductor']
+  answer: 1
+  explanation: |-
+    $\chi_m = K_m - 1 = -1.7\times10^{-4}$: small and negative, so diamagnetic (this is bismuth). A paramagnet would have $K_m$ slightly above 1, a ferromagnet hundreds or more, and a superconductor $K_m = 0$.
+- id: phys-q-4812
+  lesson: phys-hall-matter
+  topic: Hall effect
+  stem: 'A semiconductor strip 0.10 mm thick carries 4.0 mA in a 0.50 T field and shows a Hall voltage of 5.0 mV. How many carriers per cubic meter does it have (charge $e$ each)?'
+  choices: ['$2.5\times10^{19}$', '$1.0\times10^{23}$', '$2.5\times10^{22}$', '$2.5\times10^{25}$']
+  answer: 2
+  explanation: |-
+    $n = \dfrac{IB}{eV_Ht} = \dfrac{(4.0\times10^{-3})(0.50)}{(1.602\times10^{-19})(5.0\times10^{-3})(1.0\times10^{-4})} = 2.5\times10^{22}$ m⁻³. Forgetting to convert either millivolts or millimeters gives $2.5\times10^{19}$; forgetting the milliamperes gives $2.5\times10^{25}$; dividing by $B$ instead of multiplying gives $1.0\times10^{23}$.
 - id: phys-q-3901
   lesson: phys-induction
   module_quiz: true
@@ -331,3 +431,61 @@
   answer: 3
   explanation: |-
     $X_C = \dfrac{1}{2\pi fC} = \dfrac{1}{2\pi(60)(10\times10^{-6})} = 265$ Ω. Forgetting the $2\pi$ gives 1670 Ω; $3.8\times10^{-3}$ Ω is $2\pi fC$ without taking the reciprocal.
+- id: phys-q-4011
+  lesson: phys-inductance
+  module_quiz: true
+  topic: Inductance
+  stem: 'Two coils have a mutual inductance of 4.0 mH. The current in the first coil changes at 250 A/s. What emf is induced in the second coil?'
+  choices: ['1.0 V', '1000 V', '$1.6\times10^{-5}$ V', '62.5 V']
+  answer: 0
+  explanation: |-
+    $|\mathcal{E}_2| = M\dfrac{dI_1}{dt} = (4.0\times10^{-3})(250) = 1.0$ V. Leaving $M$ in millihenries gives 1000 V; dividing $M$ by the rate gives $1.6\times10^{-5}$ V; dividing the rate by 4.0 gives 62.5 V.
+- id: phys-q-4012
+  lesson: phys-inductance
+  topic: Inductance
+  stem: 'A changing current of 10 A/s in coil 1 induces 0.30 V in coil 2. If instead the current in coil 2 changes at 10 A/s, what emf is induced in coil 1?'
+  choices: ['It depends on which coil has more turns', 'Zero, since mutual induction works in one direction only', '0.30 V', '0.030 V']
+  answer: 2
+  explanation: |-
+    The mutual inductance is the same in both directions, $M_{12} = M_{21} = M = 0.030$ H, so the same rate of change induces the same 0.30 V. The turns of both coils are already built into $M$, so they don't make the two directions differ, and induction works both ways. 0.030 V is just the value of $M$ in henries, not an emf.
+- id: phys-q-4013
+  lesson: phys-inductance
+  topic: Inductance
+  stem: 'The mutual inductance of two coils depends on'
+  choices: ['the current in the first coil', 'the coils'' shapes, numbers of turns, separation, orientation and any core between them', 'how fast the current is changing', 'the resistance of the second coil']
+  answer: 1
+  explanation: |-
+    $M$ measures how much of one coil's flux links the other per ampere, which is fixed by geometry and materials. The current and its rate of change determine the induced emf through $\mathcal{E}_2 = -M\,dI_1/dt$, but not $M$ itself, and resistance affects the induced current, not the emf or $M$.
+- id: phys-q-4014
+  lesson: phys-inductance
+  module_quiz: true
+  topic: AC circuits
+  stem: 'A series RLC circuit has $R = 40$ Ω, $X_L = 50$ Ω and $X_C = 20$ Ω. What are the phase angle and the power factor?'
+  choices: ['$53.1^\circ$ and 0.60', '$36.9^\circ$ and 0.60', '$51.3^\circ$ and 0.62', '$36.9^\circ$ and 0.80']
+  answer: 3
+  explanation: |-
+    $\tan\phi = \dfrac{X_L - X_C}{R} = \dfrac{30}{40}$, so $\phi = 36.9^\circ$; $Z = \sqrt{40^2 + 30^2} = 50$ Ω and the power factor is $\cos\phi = R/Z = 0.80$. Inverting the tangent ratio gives $53.1^\circ$ and 0.60; taking $\sin\phi$ as the power factor gives 0.60; ignoring the capacitor ($\tan\phi = 50/40$) gives $51.3^\circ$ and 0.62.
+- id: phys-q-4015
+  lesson: phys-inductance
+  topic: AC circuits
+  stem: 'A 120 V (rms) source drives a series RLC circuit with $R = 40$ Ω and impedance $Z = 50$ Ω. What average power does the circuit draw?'
+  choices: ['230 W', '288 W', '360 W', '184 W']
+  answer: 0
+  explanation: |-
+    $I_{\text{rms}} = 120/50 = 2.4$ A, and $P = I_{\text{rms}}V_{\text{rms}}\cos\phi = (2.4)(120)(40/50) = 230$ W, the same as $I_{\text{rms}}^2R$. Leaving out the power factor gives 288 W; using $V^2/R$ as if the reactances were absent gives 360 W; applying the power factor twice gives 184 W.
+- id: phys-q-4016
+  lesson: phys-inductance
+  topic: AC circuits
+  stem: 'A series RLC circuit is driven at its resonant frequency. Its power factor is'
+  choices: ['0', '0.707', '1', 'equal to $X_L/R$']
+  answer: 2
+  explanation: |-
+    At resonance $X_L = X_C$, so $\tan\phi = 0$, $\phi = 0$ and $\cos\phi = 1$: the source sees a pure resistance and delivers the most power. A power factor of 0 describes a circuit with only an inductor or capacitor; 0.707 corresponds to $\phi = 45^\circ$; $X_L/R$ is not a power factor at all and can exceed 1.
+- id: phys-q-4017
+  lesson: phys-inductance
+  topic: AC circuits
+  stem: 'In a series RLC circuit with $X_L > X_C$, how is the current related to the source voltage?'
+  choices: ['It leads the voltage by $90^\circ$', 'It lags the voltage by an angle between $0^\circ$ and $90^\circ$', 'It is exactly in phase with the voltage', 'It leads the voltage by an angle between $0^\circ$ and $90^\circ$']
+  answer: 1
+  explanation: |-
+    $\tan\phi = (X_L - X_C)/R > 0$, so the circuit acts inductively and the current lags the voltage by $\phi$, which is less than $90^\circ$ because the resistor keeps the circuit from being purely reactive. Leading belongs to circuits with $X_C > X_L$; a full $90^\circ$ would need $R = 0$; being in phase happens only at resonance.

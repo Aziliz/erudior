@@ -98,3 +98,39 @@ Split on 2026-10-16 from the original Physics draft (old lessons 29–46: electr
   - The sig formats drop trailing zeros (for example "1.1 N" for 1.10 N).
   - In the L10 field plot, the outermost arrows are small and the "I out of page" label touches one arrow.
   - Lessons 13 and 17 link 4 drills each (AUTHORING says 1-3), as in the twin.
+
+# Gap lessons (2026-10-17)
+
+Filled the coverage gaps listed in VERIFY.md. Lesson files were renumbered to make room (ids unchanged): old 05–18 are now 06–11, 13–15, 17, 19–21, 23. Build: 23 lessons, 261 questions, 66 drills, 128 cards, 196 glossary terms. build.py and check-course: 0 problems.
+
+## New lessons
+| File | id | Title | Module | Questions | Drills |
+|---|---|---|---|---|---|
+| 05-dipoles.md | phys-dipoles | Electric dipoles | phys-m8 | phys-q-4701 – 4713 (13) | phys-dipole-axis, phys-dipole-torque |
+| 12-hall-magnetism.md | phys-hall-matter | The Hall effect and magnetism in matter | phys-m10 | phys-q-4801 – 4812 (12) | phys-hall-voltage, phys-magnetic-core |
+| 16-em-energy.md | phys-em-energy | Energy and momentum in electromagnetic waves | phys-m11 | phys-q-4901 – 4912 (12) | phys-em-intensity, phys-radiation-pressure |
+| 18-optical-instruments.md | phys-optical-instruments | Refraction at curved surfaces and optical instruments | phys-m11 | phys-q-5001 – 5012 (12) | phys-spherical-surface, phys-corrective-lens, phys-microscope |
+| 22-blackbody-compton.md | phys-blackbody-compton | Blackbody radiation and the Compton effect | phys-m12 | phys-q-5101 – 5112 (12) | phys-blackbody, phys-compton |
+
+Each: 1,250–1,620 words, 2–4 worked examples, 1–2 figures, Common mistakes, Key points; 4–5 module_quiz questions; answer positions balanced (3/3/3/3, dipoles 4/3/3/3).
+
+## Short sections made quizzable
+- phys-light (L15): displacement current / Maxwell phys-q-4112 – 4114; Brewster's angle phys-q-4115 – 4117 (4112, 4115 module_quiz). New drill phys-brewster. Lesson text now states I_d = dQ/dt in the capacitor gap and that reflected and refracted rays are perpendicular at Brewster's angle (both used by questions); key points extended.
+- phys-inductance (L14): mutual inductance phys-q-4011 – 4013; phase angle / power factor phys-q-4014 – 4017 (4011, 4014 module_quiz). New drill phys-power-factor. Lesson text now says current lags when X_L > X_C, P = I²R, power factor 1 at resonance; key points extended.
+
+## Other edits
+- Glossary: 44 new terms (dipole moment, Hall effect, susceptibility, permeability, dia/paramagnetism, hysteresis, Poynting vector, intensity, radiation pressure, near/far point, blackbody, Wien, Stefan–Boltzmann, Compton, Brewster's angle, mutual inductance, phase angle, power factor, …); "energy density" and "electric dipole" definitions extended.
+- Cards: 27 appended at the end of cards.yaml (card ids are positional, so existing ids are unchanged).
+- References: em-modern.md rows for dipole, Hall, magnetic materials, mutual inductance, phase/power, displacement current, wave energy, radiation pressure, Brewster, single surface, instruments, blackbody, Compton; constants.md adds Wien's constant, Compton wavelength, Bohr magneton, copper electron density, near point.
+- Cross-references: L02 (dipole forward pointer), L06 (dielectric polarization → previous lesson), L10 (τ = μ×B, U = −μ·B parallel to the electric dipole), L11 (magnetic materials → next lesson), L15 (intensity → next lesson), L17 (instruments → next lesson), L21 (Planck and photon momentum → next lesson).
+
+## Verification
+- All numeric keys recomputed in Python (qcheck.py); conceptual keys checked by hand; every distractor named with its mistake.
+- Drills: verify.mts, 1000–3000 instances each; answers recomputed independently from the prompt text, shown answer (with and without unit) accepted, 3 s.f. answers accepted, a 10%-off answer rejected, bold solution values match. Learner-chain checks for phys-compton (λ′ to 4 s.f. then K), phys-power-factor (X_L, X_C to 4 s.f.) and phys-microscope (each step to 3 s.f.). 0 mismatches.
+- New figures rendered and inspected (labels moved to avoid overlaps).
+
+## Notes for a reviewer
+- L15 (light) now links 4 drills (phys-em-wavelength unlinked, still in the course) and L14 (inductance) 4 (AUTHORING suggests 1–3).
+- phys-power-factor's power uses relTolerance 0.015 and phys-compton's K 0.015 (rounding chains); phys-compton keeps λ < 100 pm so that λ′ to 4 s.f. is precise enough for K.
+- Magnetic-materials notation: relative permeability K_m (also written μ_r), χ_m defined by μ0M = χ_m B0 (no H field introduced).
+- Planck figure and hysteresis loop are schematic (relative units).

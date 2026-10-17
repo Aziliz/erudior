@@ -122,6 +122,43 @@
     $K = eV$ and $p = \sqrt{2mK} = \sqrt{2({mcoef:sig4}\times10^{{mexp}})(1.602\times10^{-19})({V:dp0})} = {p:texsci}$ kg·m/s.
 
     $\lambda = \dfrac hp = {lam:texsci}$ m $= \mathbf{{lnm:texsci}}$ nm.
+- id: phys-blackbody
+  title: Wien's law and Stefan–Boltzmann law
+  topic: Blackbody radiation
+  vars:
+    lam: {min: 100, max: 3000, step: 10}
+    ems: {choices: [1, 0.95, 0.90, 0.80]}
+    A: {min: 0.01, max: 2, step: 0.01}
+  calc:
+    T: 2.898e-3/(lam*1e-9)
+    P: ems*5.67e-8*A*T^4
+  prompt: 'An object''s thermal spectrum peaks at {lam:dp0} nm. Its surface has area {A} m² and emissivity {ems:num2}. Find its temperature (K) and the total power it radiates (W), each to 3 significant figures. (Wien''s constant $2.898\times10^{-3}$ m·K, $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴))'
+  answers:
+    - {format: sig4, name: T, label: '$T =$', relTolerance: 0.01, units: {K: 1}}
+    - {name: P, label: '$P =$', format: sci, relTolerance: 0.01, units: {W: 1, kW: 1000, MW: 1000000}}
+  solution: |-
+    Wien's law: $T = \dfrac{2.898\times10^{-3}\text{ m·K}}{{lam:dp0}\times10^{-9}\text{ m}} =$ **{T:sig3} K**.
+
+    Stefan–Boltzmann: $P = e\sigma AT^4 = ({ems:num2})(5.67\times10^{-8})({A})({T:sig4})^4 = \mathbf{{P:texsci}}$ W.
+- id: phys-compton
+  title: Compton scattering
+  topic: Compton effect
+  vars:
+    lam: {min: 5, max: 95, step: 0.5}
+    th: {min: 60, max: 180, step: 5}
+  calc:
+    dl: 2.43*(1 - cosd(th))
+    lp: lam + dl
+    K: 1240*(1/lam - 1/lp)
+  prompt: 'X-rays of wavelength {lam:num1} pm scatter from free electrons, and you detect those scattered at {th}°. Find the Compton shift (pm, 3 significant figures), the scattered wavelength (pm, 4 significant figures), and the recoiling electron''s kinetic energy (keV, 3 significant figures). ($h/(m_ec) = 2.43$ pm, $hc = 1240$ eV·nm $= 1240$ keV·pm)'
+  answers:
+    - {format: sig4, name: dl, label: '$\Delta\lambda =$', relTolerance: 0.01, units: {pm: 1}}
+    - {format: sig4, name: lp, label: '$\lambda'' =$', relTolerance: 0.001, units: {pm: 1, nm: 1000}}
+    - {format: sig4, name: K, label: '$K =$', relTolerance: 0.015, units: {keV: 1, eV: 0.001}}
+  solution: |-
+    $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta) = 2.43(1 - \cos {th}^\circ) =$ **{dl:sig3} pm**, so $\lambda' = {lam:num1} + {dl:sig4} =$ **{lp:sig4} pm**.
+
+    The electron gets the energy the photon lost: $K = hc\left(\dfrac{1}{\lambda} - \dfrac{1}{\lambda'}\right) = 1240\left(\dfrac{1}{{lam:num1}} - \dfrac{1}{{lp:sig4}}\right)$ keV $=$ **{K:sig3} keV**.
 - id: phys-half-life
   title: Radioactive decay
   topic: Radioactive decay

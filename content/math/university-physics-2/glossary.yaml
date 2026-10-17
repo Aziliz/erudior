@@ -49,7 +49,7 @@
   topic: Electric field
 - term: electric dipole
   aliases: [dipole]
-  definition: 'Two equal and opposite charges separated by a small distance.'
+  definition: 'Two equal and opposite charges separated by a small distance; characterized by its dipole moment $p = qd$.'
   topic: Electric field
 - term: electric field lines
   aliases: [field lines]
@@ -118,7 +118,7 @@
   definition: 'The factor $\kappa$ by which a dielectric multiplies capacitance.'
   topic: Capacitance
 - term: energy density
-  definition: 'Energy per unit volume stored in a field; for an electric field $u = \tfrac12\varepsilon_0E^2$.'
+  definition: 'Energy per unit volume stored in a field: $u_E = \tfrac12\varepsilon_0E^2$ for an electric field and $u_B = B^2/(2\mu_0)$ for a magnetic field.'
   topic: Capacitance
 # ---- m9 Circuits
 - term: electric current
@@ -533,3 +533,161 @@
 - term: mean lifetime
   definition: 'The average lifetime of an unstable nucleus, $\tau = 1/\lambda = T_{1/2}/\ln 2$.'
   topic: Radioactive decay
+# ---- gap lessons (2026-10-17)
+- term: electric dipole moment
+  aliases: [dipole moment]
+  definition: 'The vector $\vec p = q\vec d$ of a dipole, pointing from $-q$ to $+q$; unit C·m.'
+  topic: Electric dipoles
+- term: polar molecule
+  aliases: [polar molecules]
+  definition: 'A molecule with a permanent electric dipole moment, such as water.'
+  topic: Electric dipoles
+- term: induced dipole
+  aliases: [induced dipoles]
+  definition: 'A dipole created when an external field pulls an atom''s or molecule''s positive and negative charges apart; its moment is proportional to the field.'
+  topic: Electric dipoles
+- term: Hall effect
+  definition: 'The transverse voltage that appears across a current-carrying conductor in a magnetic field, as the magnetic force pushes carriers to one edge.'
+  topic: Hall effect
+- term: Hall voltage
+  aliases: [V_H]
+  definition: 'The voltage across a strip in the Hall effect, $V_H = v_dBw = IB/(nqt)$; its sign gives the sign of the carriers.'
+  topic: Hall effect
+- term: Hall probe
+  aliases: [Hall sensor]
+  definition: 'A small semiconductor chip that measures magnetic field through its Hall voltage, which is proportional to $B$.'
+  topic: Hall effect
+- term: Bohr magneton
+  aliases: [μB]
+  definition: 'The natural unit of atomic magnetic moment, $\mu_B = e\hbar/(2m_e) = 9.27\times10^{-24}$ J/T, about the spin moment of an electron.'
+  topic: Magnetic materials
+- term: magnetization
+  definition: 'Net magnetic dipole moment per unit volume of a material, $M$, in A/m; it adds $\mu_0M$ to the field.'
+  topic: Magnetic materials
+- term: magnetic susceptibility
+  aliases: [susceptibility, χm]
+  definition: 'The dimensionless $\chi_m$ in $\mu_0M = \chi_mB_0$: negative for diamagnets, small and positive for paramagnets, large for ferromagnets.'
+  topic: Magnetic materials
+- term: relative permeability
+  aliases: [Km, μr]
+  definition: '$K_m = \mu/\mu_0 = 1 + \chi_m$, the factor by which a material filling a solenoid multiplies its field.'
+  topic: Magnetic materials
+- term: permeability
+  aliases: [magnetic permeability]
+  definition: 'A material''s $\mu = K_m\mu_0$; inside a filled solenoid $B = \mu nI$.'
+  topic: Magnetic materials
+- term: diamagnetism
+  aliases: [diamagnetic]
+  definition: 'The weak response of all materials in which induced atomic moments oppose an applied field; $\chi_m \approx -10^{-5}$, weakly repelled from strong fields.'
+  topic: Magnetic materials
+- term: paramagnetism
+  aliases: [paramagnetic]
+  definition: 'Weak alignment of permanent atomic moments with an applied field against thermal agitation; small positive $\chi_m$ that falls with temperature.'
+  topic: Magnetic materials
+- term: Curie's law
+  definition: 'For a paramagnet, the susceptibility is inversely proportional to absolute temperature, $\chi_m \propto 1/T$.'
+  topic: Magnetic materials
+- term: magnetic domain
+  aliases: [magnetic domains, domains]
+  definition: 'A region of a ferromagnet in which the atomic moments are all aligned.'
+  topic: Magnetic materials
+- term: saturation
+  aliases: [saturates, saturate]
+  definition: 'The state of a ferromagnet whose domains are all aligned, so that further increases in the applied field add little magnetization (around 2 T for iron).'
+  topic: Magnetic materials
+- term: hysteresis
+  definition: 'The lag of a ferromagnet''s magnetization behind the applied field, so that the B-versus-applied-field curve forms a loop; the loop area is energy lost per cycle.'
+  topic: Magnetic materials
+- term: remanence
+  aliases: [remanent, remanent field]
+  definition: 'The magnetization a ferromagnet keeps after the applied field returns to zero; it is what makes a permanent magnet.'
+  topic: Magnetic materials
+- term: Curie temperature
+  aliases: [Curie point]
+  definition: 'The temperature above which a ferromagnet loses its domains and becomes paramagnetic (770°C for iron).'
+  topic: Magnetic materials
+- term: Poynting vector
+  definition: '$\vec S = \vec E\times\vec B/\mu_0$, the rate of electromagnetic energy flow per unit area (W/m²), pointing along the direction of energy flow.'
+  topic: Energy in electromagnetic waves
+- term: intensity
+  definition: 'Average power per unit area carried by a wave; for an EM wave $I = \tfrac12c\varepsilon_0E_0^2 = E_0B_0/(2\mu_0)$.'
+  topic: Energy in electromagnetic waves
+- term: radiation pressure
+  definition: 'Pressure exerted by electromagnetic waves because they carry momentum: $I/c$ when absorbed, $2I/c$ when reflected straight back.'
+  topic: Energy in electromagnetic waves
+- term: apparent depth
+  definition: 'The depth at which an object under a flat surface appears, $(n_2/n_1)$ times its true depth; about 0.75 of the true depth seen from air into water.'
+  topic: Refraction at a curved surface
+- term: accommodation
+  definition: 'The eye''s change of lens shape to focus on objects at different distances.'
+  topic: Optical instruments
+- term: near point
+  definition: 'The closest distance at which an eye can focus, about 25 cm for a young adult.'
+  topic: Optical instruments
+- term: far point
+  definition: 'The farthest distance at which an eye can focus; infinity for a normal eye.'
+  topic: Optical instruments
+- term: nearsighted
+  aliases: [nearsightedness, myopia, myopic]
+  definition: 'Having a far point closer than infinity; corrected with a diverging lens of focal length minus the far-point distance.'
+  topic: Optical instruments
+- term: farsighted
+  aliases: [farsightedness, hyperopia, hyperopic]
+  definition: 'Having a near point farther than about 25 cm; corrected with a converging lens.'
+  topic: Optical instruments
+- term: angular magnification
+  definition: 'The ratio of the angle an image covers at the eye to the angle the object covers without the instrument; $M = 25\text{ cm}/f$ for a magnifier.'
+  topic: Optical instruments
+- term: compound microscope
+  aliases: [microscope]
+  definition: 'Two converging lenses: an objective that forms an enlarged real image and an eyepiece that magnifies it; $M = m_oM_e$.'
+  topic: Optical instruments
+- term: objective
+  aliases: [objective lens]
+  definition: 'The lens (or mirror) of a microscope or telescope nearest the object, which forms the first image.'
+  topic: Optical instruments
+- term: eyepiece
+  definition: 'The lens of a microscope or telescope nearest the eye, used as a magnifier to view the image formed by the objective.'
+  topic: Optical instruments
+- term: blackbody
+  aliases: [black body, blackbody radiation]
+  definition: 'An ideal object that absorbs all radiation falling on it; its thermal emission spectrum depends only on its temperature.'
+  topic: Blackbody radiation
+- term: Wien's displacement law
+  aliases: [Wien's law]
+  definition: 'The peak wavelength of blackbody emission satisfies $\lambda_{\max}T = 2.898\times10^{-3}$ m·K.'
+  topic: Blackbody radiation
+- term: Stefan–Boltzmann law
+  aliases: [Stefan-Boltzmann law]
+  definition: 'The power radiated by a surface is $P = e\sigma AT^4$ with $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴).'
+  topic: Blackbody radiation
+- term: emissivity
+  definition: 'The fraction $e$ (0 to 1) of blackbody radiation that a surface emits at a given temperature; 1 for a blackbody.'
+  topic: Blackbody radiation
+- term: ultraviolet catastrophe
+  definition: 'The failure of classical physics, which predicted that blackbody intensity grows without limit at short wavelengths.'
+  topic: Blackbody radiation
+- term: Planck's radiation law
+  aliases: [Planck's law]
+  definition: 'The blackbody spectrum $I(\lambda, T) = 2\pi hc^2/[\lambda^5(e^{hc/\lambda k_BT} - 1)]$, derived by quantizing oscillator energies in steps of $hf$.'
+  topic: Blackbody radiation
+- term: Compton effect
+  aliases: [Compton scattering]
+  definition: 'The increase in wavelength of X-rays scattered by electrons, $\lambda'' - \lambda = (h/m_ec)(1 - \cos\theta)$, explained by photon–electron collisions.'
+  topic: Compton effect
+- term: Compton wavelength
+  definition: '$h/(m_ec) = 2.43$ pm for the electron; the Compton shift at $90^\circ$.'
+  topic: Compton effect
+- term: Brewster's angle
+  aliases: [Brewster angle, polarizing angle]
+  definition: 'The angle of incidence $\tan\theta_B = n_2/n_1$ at which reflected light is completely polarized parallel to the surface; reflected and refracted rays are then perpendicular.'
+  topic: Electromagnetic waves
+- term: mutual inductance
+  definition: 'The constant $M$ (in henries) linking two coils: a changing current in one induces $\mathcal{E}_2 = -M\,dI_1/dt$ in the other; the same in both directions.'
+  topic: Inductance
+- term: phase angle
+  definition: 'In an AC circuit, the angle $\phi$ by which the current lags the source voltage; series RLC $\tan\phi = (X_L - X_C)/R$.'
+  topic: AC circuits
+- term: power factor
+  definition: '$\cos\phi = R/Z$ in an AC circuit; the average power is $P = I_{\text{rms}}V_{\text{rms}}\cos\phi$.'
+  topic: AC circuits

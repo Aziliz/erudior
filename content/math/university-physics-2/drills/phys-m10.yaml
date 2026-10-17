@@ -104,6 +104,54 @@
     - {format: sig4, name: FmN, label: 'Force per meter', relTolerance: 0.01, units: {'mN/m': 1, 'N/m': 1000}}
   solution: |-
     $\dfrac FL = \dfrac{\mu_0I_1I_2}{2\pi d} = \dfrac{(2\times10^{-7})({I1})({I2})}{{dcm}/100} =$ **{FmN:sig3} mN/m**, attractive (currents in the same direction attract).
+- id: phys-hall-voltage
+  title: Hall voltage and drift speed
+  topic: Hall effect
+  vars:
+    mat: {choices: [{label: 'copper ($8.5\times10^{28}$ free electrons per m³)', value: 8.5e+28}, {label: 'silver ($5.9\times10^{28}$ free electrons per m³)', value: 5.9e+28}, {label: 'aluminum ($1.8\times10^{29}$ free electrons per m³)', value: 1.8e+29}]}
+    I: {min: 1, max: 40}
+    B: {min: 0.2, max: 2.5, step: 0.1}
+    tmm: {min: 0.1, max: 2, step: 0.1}
+    wcm: {min: 0.5, max: 4, step: 0.5}
+  calc:
+    nn: mat*1
+    VH: I*B/(mat*1.602e-19*tmm*1e-3)
+    vd: I/(mat*1.602e-19*(wcm/100)*(tmm/1000))
+  prompt: 'A strip of {mat} is {wcm} cm wide and {tmm} mm thick. It carries {I} A along its length, in a {B} T field perpendicular to its face. Find the Hall voltage (V) and the electrons'' drift speed (m/s), each to 3 significant figures. ($e = 1.602\times10^{-19}$ C)'
+  answers:
+    - {name: VH, label: '$V_H =$', format: sci, relTolerance: 0.01, units: {V: 1, mV: 0.001, 'μV': 1.0e-6, uV: 1.0e-6}}
+    - {name: vd, label: '$v_d =$', format: sci, relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    The thickness along $\vec B$ is what matters: $V_H = \dfrac{IB}{nqt} = \dfrac{({I})({B})}{({nn:texsci})(1.602\times10^{-19})({tmm}\times10^{-3})} = \mathbf{{VH:texsci}}$ V.
+
+    $v_d = \dfrac{\,I}{nqA} = \dfrac{{I}}{({nn:texsci})(1.602\times10^{-19})({wcm}\times10^{-2})({tmm}\times10^{-3})} = \mathbf{{vd:texsci}}$ m/s. Check: $v_dBw$ gives the same Hall voltage.
+- id: phys-magnetic-core
+  title: Solenoid with a ferromagnetic core
+  topic: Magnetic materials
+  vars:
+    N: {min: 100, max: 2000, step: 100}
+    lcm: {min: 10, max: 50, step: 5}
+    I: {min: 0.01, max: 0.5, step: 0.01}
+    Km: {choices: [200, 500, 1000, 2000, 5000]}
+  calc:
+    n: N/(lcm/100)
+    B0mT: 4*pi*1e-7*n*I*1000
+    B: Km*B0mT/1000
+    M: (Km - 1)*n*I
+  where: ['B > 0.05', 'B < 1.8']
+  prompt: 'A solenoid {lcm} cm long has {N:dp0} turns and carries {I} A. Find the field inside (a) when it is empty, in mT, and (b) when it is filled with iron of relative permeability {Km:dp0}, in T. (c) Find the iron''s magnetization in A/m. Give each to 3 significant figures. ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  answers:
+    - {format: sig4, name: B0mT, label: '(a) $B_0 =$', relTolerance: 0.01, units: {mT: 1, T: 1000}}
+    - {format: sig4, name: B, label: '(b) $B =$', relTolerance: 0.01, units: {T: 1, mT: 0.001}}
+    - {name: M, label: '(c) $M =$', format: sci, relTolerance: 0.01, units: {'A/m': 1}}
+  solution: |-
+    $n = \dfrac{{N:dp0}}{{lcm}/100\text{ m}} = {n:sig4}$ turns/m.
+
+    (a) $B_0 = \mu_0nI = (4\pi\times10^{-7})({n:sig4})({I}) =$ **{B0mT:sig3} mT**.
+
+    (b) $B = K_mB_0 = {Km:dp0}({B0mT:sig4}\text{ mT}) =$ **{B:sig3} T**.
+
+    (c) $M = \dfrac{B - B_0}{\mu_0} = (K_m - 1)nI = ({Km:dp0} - 1)({n:sig4})({I}) = \mathbf{{M:texsci}}$ A/m.
 - id: phys-faraday-emf
   title: Induced emf in a coil
   topic: Electromagnetic induction
@@ -228,3 +276,34 @@
     (b) $P = V_{\text{rms}}^2/R =$ **{P:sig3} W** (not $V_0^2/R$, which is the peak power).
 
     (c) $X_C = \dfrac{1}{2\pi fC} = \dfrac{1}{2\pi({f:dp0})({C}\times10^{-6})} =$ **{XC:sig3} Ω**.
+- id: phys-power-factor
+  title: Phase angle and power in a series RLC circuit
+  topic: AC circuits
+  vars:
+    Vr: {min: 12, max: 240, step: 6}
+    R: {min: 20, max: 200, step: 5}
+    LmH: {min: 5, max: 300, step: 5}
+    CuF: {min: 1, max: 50}
+    f: {choices: [60, 400, 1000]}
+  calc:
+    XL: 2*pi*f*LmH*1e-3
+    XC: 1/(2*pi*f*CuF*1e-6)
+    Z: sqrt(R^2 + (XL - XC)^2)
+    phi: atand((XL - XC)/R)
+    pf: R/Z
+    I: Vr/Z
+    P: I^2*R
+  where: ['XL < 4*R', 'XC < 4*R', 'abs(XL - XC) > 0.05*R']
+  prompt: 'A {Vr:dp0} V (rms), {f:dp0} Hz source drives a series circuit of a {R:dp0} Ω resistor, a {LmH:dp0} mH inductor and a {CuF:dp0} μF capacitor. Find the impedance (Ω, 3 significant figures), the phase angle $\phi$ (degrees to the nearest 0.1°, positive if the current lags), and the average power delivered (W, 3 significant figures).'
+  answers:
+    - {format: sig4, name: Z, label: '$Z =$', relTolerance: 0.01, units: {'Ω': 1, ohm: 1, ohms: 1}}
+    - {format: sig4, name: phi, label: '$\phi =$', tolerance: 0.3, units: {'°': 1, deg: 1}}
+    - {format: sig4, name: P, label: '$P =$', relTolerance: 0.015, units: {W: 1}}
+  solution: |-
+    $X_L = 2\pi fL = 2\pi({f:dp0})({LmH:dp0}\times10^{-3}) = {XL:sig4}$ Ω and $X_C = \dfrac{1}{2\pi fC} = \dfrac{1}{2\pi({f:dp0})({CuF:dp0}\times10^{-6})} = {XC:sig4}$ Ω.
+
+    $Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{{R:dp0}^2 + ({XL:sig4} - {XC:sig4})^2} =$ **{Z:sig3} Ω**.
+
+    $\tan\phi = \dfrac{X_L - X_C}{\,R}$, so $\phi =$ **{phi:num1}°** and the power factor is $\cos\phi = R/Z = {pf:dp3}$.
+
+    $I_{\text{rms}} = V_{\text{rms}}/Z = {I:sig4}$ A, and $P = I_{\text{rms}}V_{\text{rms}}\cos\phi = I_{\text{rms}}^2R =$ **{P:sig3} W**.

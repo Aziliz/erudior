@@ -45,7 +45,7 @@ The field from several charges is the vector sum of their individual fields. For
 
 ### Example 2
 
-A $+2.0$ μC charge is at the origin and a $-2.0$ μC charge at $x = 0.10$ m (an **electric dipole**). Find the field at the midpoint, $x = 0.050$ m.
+A $+2.0$ μC charge is at the origin and a $-2.0$ μC charge at $x = 0.10$ m (an **electric dipole**, the subject of a lesson of its own after electric potential). Find the field at the midpoint, $x = 0.050$ m.
 
 Positive charge's field at the midpoint points away from it, in $+x$: $E_1 = (8.99\times10^9)\dfrac{2.0\times10^{-6}}{(0.050)^2} = 7.19\times10^6$ N/C.
 

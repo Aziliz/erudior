@@ -4,7 +4,7 @@ module: phys-m10
 title: Inductance, RL and LC circuits, and AC
 minutes: 45
 topics: [Inductance, AC circuits]
-drills: [phys-rl-time, phys-lc-frequency, phys-ac-rms]
+drills: [phys-rl-time, phys-lc-frequency, phys-ac-rms, phys-power-factor]
 refs: [phys-ref-em-modern]
 ---
 ## Circuits that resist change
@@ -31,7 +31,7 @@ $$U_L = \tfrac12LI^2.$$
 
 The magnetic energy density is $u_B = \dfrac{B^2}{2\mu_0}$, the counterpart of $\tfrac12\varepsilon_0E^2$.
 
-*Mutual inductance.* When two coils sit near each other, a changing current in one sends changing flux through the other and induces an emf there: $\mathcal{E}_2 = -M\,dI_1/dt$, where the mutual inductance $M$ (also in henries) depends only on the coils' geometry and is the same in both directions. A transformer is two coils with a large $M$; wireless phone chargers work the same way.
+*Mutual inductance.* When two coils sit near each other, a changing current in one sends changing flux through the other and induces an emf there: $\mathcal{E}_2 = -M\,dI_1/dt$, where the **mutual inductance** $M$ (also in henries) depends only on the coils' geometry (and any iron core) and is the same in both directions. A transformer is two coils with a large $M$; wireless phone chargers work the same way.
 
 ### Example 1
 
@@ -91,7 +91,7 @@ $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{
 
 The current is largest when $X_L = X_C$, at the resonant frequency $\omega_0 = 1/\sqrt{LC}$: the same frequency at which the LC circuit oscillates on its own.
 
-In a capacitor or inductor the current and voltage are a quarter cycle out of step (current leads voltage by $90^\circ$ in a capacitor and lags it by $90^\circ$ in an inductor), so on average they absorb no energy. In the series RLC circuit the current is out of step with the source by the phase angle $\phi$, where $\tan\phi = (X_L - X_C)/R$, and only the resistor dissipates energy: $P_{\text{avg}} = I_{\text{rms}}V_{\text{rms}}\cos\phi$. The factor $\cos\phi = R/Z$ is the power factor.
+In a capacitor or inductor the current and voltage are a quarter cycle out of step (current leads voltage by $90^\circ$ in a capacitor and lags it by $90^\circ$ in an inductor), so on average they absorb no energy. In the series RLC circuit the current is out of step with the source by the **phase angle** $\phi$, where $\tan\phi = (X_L - X_C)/R$. When $X_L > X_C$, $\phi$ is positive and the current lags the voltage (the circuit acts inductively); when $X_C > X_L$ it leads. Only the resistor dissipates energy: $P_{\text{avg}} = I_{\text{rms}}V_{\text{rms}}\cos\phi = I_{\text{rms}}^2R$. The factor $\cos\phi = R/Z$ is the **power factor**: 1 at resonance, near 0 for an almost purely reactive load.
 
 ## Deriving the RL, LC and rms results
 
@@ -118,3 +118,4 @@ The rms value comes from averaging $\sin^2$ over a cycle: $\dfrac1T\int_0^T V_0^
 - RL: $\tau = L/R$; $I = (\mathcal{E}/R)(1 - e^{-t/\tau})$.
 - LC: $f = \dfrac{1}{2\pi\sqrt{LC}}$, energy oscillates like a mass on a spring.
 - AC: $V_{\text{rms}} = V_0/\sqrt2$; $X_C = 1/(\omega C)$, $X_L = \omega L$, $Z = \sqrt{R^2 + (X_L - X_C)^2}$.
+- Mutual inductance: $\mathcal{E}_2 = -M\,dI_1/dt$. Phase angle $\tan\phi = (X_L - X_C)/R$; power $P = I_{\text{rms}}V_{\text{rms}}\cos\phi$, power factor $\cos\phi = R/Z$.
