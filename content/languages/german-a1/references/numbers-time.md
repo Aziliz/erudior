@@ -136,7 +136,7 @@ Hours + *Uhr* + minutes. Used for timetables, opening hours, appointments, radio
 |---|---|---|
 | 8:00 | *acht (Uhr)* | |
 | 8:05 | *fünf nach acht* | *nach* = past |
-| 8:15 | *Viertel nach acht* | regional: *Viertel neun* |
+| 8:15 | *Viertel nach acht* | regional: *viertel neun* |
 | 8:20 | *zwanzig nach acht* | also *zehn vor halb neun* |
 | 8:25 | *fünf vor halb neun* | |
 | 8:30 | *halb neun* | half way to nine |

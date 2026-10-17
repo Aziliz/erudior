@@ -187,7 +187,7 @@ Elif wants to register for a German course and asks at the language school offic
 >
 > Frau Roth: Gern. Hier ist das Formular. Haben Sie eine Frage?
 >
-> Elif: Ja. Was ist der Familienstand?
+> Elif: Ja. Was heißt „Familienstand“?
 >
 > Frau Roth: Sind Sie verheiratet oder ledig?
 >
@@ -205,7 +205,7 @@ Translation:
 >
 > Frau Roth: Of course. Here's the form. Do you have a question?
 >
-> Elif: Yes. What is "Familienstand"?
+> Elif: Yes. What does "Familienstand" mean?
 >
 > Frau Roth: Are you married or single?
 >

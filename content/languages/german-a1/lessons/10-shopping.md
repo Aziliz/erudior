@@ -4,6 +4,7 @@ module: de1-m3
 title: Shopping and prices
 minutes: 35
 topics: [Numbers, Prices, Accusative, Shopping]
+refs: [de1-ref-numbers-time]
 ---
 ## What this lesson is for
 
@@ -24,7 +25,7 @@ You already know 0 to 100 (lesson 3). Bigger numbers follow the same logic and a
 | 999 | neunhundertneunundneunzig |
 | 1.000 | tausend / eintausend |
 | 1.500 | tausendfünfhundert / eintausendfünfhundert |
-| 2.026 | zweitausendsechsundzwanzig |
+| 2.480 | zweitausendvierhundertachtzig |
 | 10.000 | zehntausend |
 | 100.000 | hunderttausend |
 | 1.000.000 | eine Million |
@@ -134,30 +135,50 @@ Some useful little words: *viel* (a lot, much), *wenig* (little, not much), *all
 
 ## Dialogue: At the market
 
-> Verkäuferin: Guten Tag! Was brauchen Sie?\
-> Lena: Guten Tag! Was kosten die Äpfel?\
-> Verkäuferin: Welche? Diese hier kosten 2,40 € das Kilo, und diese dort 3,10 €.\
-> Lena: Dann nehme ich die hier. Ein Kilo, bitte. Und 200 Gramm Käse.\
-> Verkäuferin: Gern. Welchen Käse möchten Sie? Der Gouda ist heute im Angebot: 100 Gramm kosten nur 1,20 €.\
-> Lena: Super, dann 200 Gramm Gouda. Gibt es auch Eier?\
-> Verkäuferin: Ja, natürlich. Zehn Stück kosten 3,20 €.\
-> Lena: Gut, zehn Eier, bitte. Das ist alles. Was macht das zusammen?\
-> Verkäuferin: Das macht zusammen acht Euro.\
-> Lena: Hier sind zehn Euro.\
+> Verkäuferin: Guten Tag! Was brauchen Sie?
+>
+> Lena: Guten Tag! Was kosten die Äpfel?
+>
+> Verkäuferin: Welche? Diese hier kosten 2,40 € das Kilo, und diese dort 3,10 €.
+>
+> Lena: Dann nehme ich die hier. Ein Kilo, bitte. Und 200 Gramm Käse.
+>
+> Verkäuferin: Gern. Welchen Käse möchten Sie? Der Gouda ist heute im Angebot: 100 Gramm kosten nur 1,20 €.
+>
+> Lena: Super, dann 200 Gramm Gouda. Gibt es auch Eier?
+>
+> Verkäuferin: Ja, natürlich. Zehn Stück kosten 3,20 €.
+>
+> Lena: Gut, zehn Eier, bitte. Das ist alles. Was macht das zusammen?
+>
+> Verkäuferin: Das macht zusammen acht Euro.
+>
+> Lena: Hier sind zehn Euro.
+>
 > Verkäuferin: Und zwei Euro zurück. Vielen Dank und einen schönen Tag noch!
 
 In English:
 
-> Saleswoman: Hello! What do you need?\
-> Lena: Hello! How much are the apples?\
-> Saleswoman: Which ones? These here are 2.40 a kilo, and those there 3.10.\
-> Lena: Then I'll take these here. A kilo, please. And 200 grams of cheese.\
-> Saleswoman: Sure. Which cheese would you like? The Gouda is on special offer today: 100 grams cost only 1.20.\
-> Lena: Great, 200 grams of Gouda then. Are there eggs too?\
-> Saleswoman: Yes, of course. Ten cost 3.20.\
-> Lena: Good, ten eggs, please. That's everything. What does that come to altogether?\
-> Saleswoman: That's eight euros altogether.\
-> Lena: Here's ten euros.\
+> Saleswoman: Hello! What do you need?
+>
+> Lena: Hello! How much are the apples?
+>
+> Saleswoman: Which ones? These here are 2.40 a kilo, and those there 3.10.
+>
+> Lena: Then I'll take these here. A kilo, please. And 200 grams of cheese.
+>
+> Saleswoman: Sure. Which cheese would you like? The Gouda is on special offer today: 100 grams cost only 1.20.
+>
+> Lena: Great, 200 grams of Gouda then. Are there eggs too?
+>
+> Saleswoman: Yes, of course. Ten cost 3.20.
+>
+> Lena: Good, ten eggs, please. That's everything. What does that come to altogether?
+>
+> Saleswoman: That's eight euros altogether.
+>
+> Lena: Here's ten euros.
+>
 > Saleswoman: And two euros back. Thank you and have a nice day!
 
 Check the maths: 2,40 + 2,40 + 3,20 = 8,00 €. *Verkäuferin* is a female shop assistant (lesson 7 had *der Verkäufer*). *im Angebot* means "on special offer"; take it as a fixed phrase. *zurück* = back; *einen schönen Tag noch* = have a nice day.

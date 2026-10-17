@@ -4,6 +4,7 @@ module: de1-m3
 title: Food, drink and the accusative
 minutes: 35
 topics: [Accusative, Food and drink, Verbs]
+refs: [de1-ref-articles, de1-ref-verbs]
 ---
 ## What this lesson is for
 
@@ -47,7 +48,7 @@ In lesson 6 you met the nominative, the case of the subject (and of anything aft
 | nominative (subject) | der / ein / kein | die / eine / keine | das / ein / kein | die / – / keine |
 | accusative (object) | den / einen / keinen | die / eine / keine | das / ein / kein | die / – / keine |
 
-Feminine, neuter and plural forms are exactly the same in both cases. Only the masculine gets an -n: *der* becomes *den*, *ein* becomes *einen*, *kein* becomes *keinen*. A memory hook: the masculine article is the only one that changes, and it always picks up an *n* (*den, einen, keinen*), the same *n* you hear at the end of *Mann*.
+Feminine, neuter and plural forms are exactly the same in both cases. Only the masculine gets an -n: *der* becomes *den*, *ein* becomes *einen*, *kein* becomes *keinen*. A memory hook: the masculine is the only one that changes, and it always picks up an *n*: *den, einen, keinen*.
 
 - *Der Kaffee ist heiß.* — The coffee is hot. (subject: nominative)
 - *Ich trinke den Kaffee.* — I'm drinking the coffee. (object: accusative)
@@ -133,31 +134,49 @@ German says "I have hunger": *Ich habe Hunger* (I'm hungry) and *Ich habe Durst*
 
 *Kellnerin* is a female waiter.
 
-> Kellnerin: Guten Morgen! Was möchten Sie?\
-> Herr Weber: Ich nehme einen Kaffee mit Milch, bitte.\
-> Kellnerin: Und Sie?\
-> Frau Weber: Ich habe Durst. Ich möchte einen Orangensaft und ein Wasser.\
-> Kellnerin: Möchten Sie auch etwas essen? Das Frühstück ist heute sehr gut.\
-> Frau Weber: Ja, gern. Ein Brötchen mit Butter und Käse, bitte. Haben Sie auch Eier?\
-> Kellnerin: Ja, natürlich. Und Sie, Herr Weber? Nehmen Sie auch ein Brötchen?\
-> Herr Weber: Nein, ich habe keinen Hunger. Aber der Apfelkuchen dort sieht toll aus …\
-> Frau Weber: Paul! Du isst jeden Morgen Kuchen!\
+> Kellnerin: Guten Morgen! Was möchten Sie?
+>
+> Herr Weber: Ich nehme einen Kaffee mit Milch, bitte.
+>
+> Kellnerin: Und Sie?
+>
+> Frau Weber: Ich habe Durst. Ich möchte einen Orangensaft und ein Wasser.
+>
+> Kellnerin: Möchten Sie auch etwas essen? Das Frühstück ist heute sehr gut.
+>
+> Frau Weber: Ja, gern. Ein Brötchen mit Butter und Käse, bitte. Haben Sie auch Eier?
+>
+> Kellnerin: Ja, natürlich. Und Sie, Herr Weber? Nehmen Sie auch ein Brötchen?
+>
+> Herr Weber: Nein, ich habe keinen Hunger. Aber der Apfelkuchen dort sieht toll aus …
+>
+> Frau Weber: Paul! Du isst jeden Morgen Kuchen!
+>
 > Herr Weber: Ja, Kuchen ist lecker. Einen Apfelkuchen, bitte.
 
 In English:
 
-> Waitress: Good morning! What would you like?\
-> Mr Weber: I'll have a coffee with milk, please.\
-> Waitress: And you?\
-> Mrs Weber: I'm thirsty. I'd like an orange juice and a water.\
-> Waitress: Would you like something to eat too? The breakfast is very good today.\
-> Mrs Weber: Yes, please. A roll with butter and cheese, please. Do you have eggs too?\
-> Waitress: Yes, of course. And you, Mr Weber? Are you having a roll too?\
-> Mr Weber: No, I'm not hungry. But the apple cake there looks great …\
-> Mrs Weber: Paul! You eat cake every morning!\
+> Waitress: Good morning! What would you like?
+>
+> Mr Weber: I'll have a coffee with milk, please.
+>
+> Waitress: And you?
+>
+> Mrs Weber: I'm thirsty. I'd like an orange juice and a water.
+>
+> Waitress: Would you like something to eat too? The breakfast is very good today.
+>
+> Mrs Weber: Yes, please. A roll with butter and cheese, please. Do you have eggs too?
+>
+> Waitress: Yes, of course. And you, Mr Weber? Are you having a roll too?
+>
+> Mr Weber: No, I'm not hungry. But the apple cake there looks great …
+>
+> Mrs Weber: Paul! You eat cake every morning!
+>
 > Mr Weber: Yes, cake is delicious. An apple cake, please.
 
-Look at the objects: *einen Kaffee*, *einen Orangensaft* and *einen Apfelkuchen* are masculine, so they take *einen*; *ein Wasser* and *ein Brötchen* are neuter and stay *ein*. *Ich habe keinen Hunger* uses *keinen* because *Hunger* is masculine. (*etwas* = something, *natürlich* = of course, *jeden Morgen* = every morning, *sieht … aus* = looks.)
+Look at the objects: *einen Kaffee*, *einen Orangensaft* and *einen Apfelkuchen* are masculine, so they take *einen*; *ein Wasser* and *ein Brötchen* are neuter and stay *ein*. *Ich habe keinen Hunger* uses *keinen* because *Hunger* is masculine. (*etwas* = something, *natürlich* = of course, *jeden Morgen* = every morning, *sieht … aus* = looks.) In a café, *einen Apfelkuchen, bitte* means a slice, not the whole cake; you can also say *ein Stück Apfelkuchen* (lesson 10).
 
 ## Pronunciation
 

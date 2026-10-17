@@ -20,7 +20,7 @@ sentence).
 - Time phrase first: *Gestern habe ich Fußball gespielt.*
 - Yes/no question: *Hast du gestern Fußball gespielt?*
 - W-question: *Wann bist du nach Hause gekommen?*
-- With a modal verb the perfect is rare at A1; use the present or *war/hatte* instead.
+- Modal verbs are not used in the perfect at A1; their past forms (*ich konnte, ich musste*) come at A2.
 
 ## haben or sein?
 
@@ -107,6 +107,9 @@ Regular *haben* verbs are not listed. *Sein* verbs are marked by *ist* in the la
 | werden | wird | ist geworden |
 | wissen | weiß | hat gewusst |
 | zurückkommen | kommt zurück | ist zurückgekommen |
+
+*Schwimmen* can also take *haben* when it means the activity rather than going somewhere
+(*Ich habe eine Stunde geschwommen*); *ist geschwommen* is always correct.
 
 ## war and hatte
 

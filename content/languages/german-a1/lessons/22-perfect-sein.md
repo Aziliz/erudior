@@ -97,6 +97,9 @@ One small exception you may notice: *fahren* takes *haben* when there is an obje
 then you are driving something: *Ich habe das Auto gefahren* (I drove the car). Without an
 object, it's *sein*: *Ich bin nach Köln gefahren.*
 
+*Schwimmen* can also take *haben* when you mean the activity and not going anywhere (*Ich
+habe eine Stunde geschwommen*), but *ist geschwommen* is always correct.
+
 In southern Germany, Austria and Switzerland people also say *ich bin gesessen, gestanden,
 gelegen* (sat, stood, lain). In the north and in most textbooks these take *haben*.
 
@@ -222,7 +225,8 @@ Tag* is "every day"; *schmutzig* means "dirty"; *mitten in* is "right in the mid
 - *das Meer* sounds exactly like *mehr* (more): a long, closed *e*.
 - *der See* is said [zeː], like English "zay" with a long vowel; the *s* is voiced, like
   English z.
-- *die Ferien* is stressed on the first syllable: FE-ri-en, three syllables.
+- *die Ferien* is stressed on the first syllable, and the *i* glides into the ending:
+  FAY-ryen, not "fe-REE-en".
 - *plötzlich*: the *ö* is short, and *tz* sounds like "ts": PLÖTZ-lich.
 
 ## Common mistakes

@@ -48,10 +48,10 @@
   lesson: de1-food-accusative
   topic: Food and drink
   stem: 'How do you say "I''m hungry" in German?'
-  choices: ['Ich bin Hunger.', 'Ich habe ein Hunger.', 'Ich habe Hunger.', 'Ich habe einen Hunger.']
+  choices: ['Ich bin Hunger.', 'Ich habe ein Hunger.', 'Ich habe Hunger.', 'Ich hat Hunger.']
   answer: 2
   explanation: |-
-    German says "I have hunger" with no article: Ich habe Hunger. In the same way, Ich habe Durst means I'm thirsty. "Ich bin Hunger" would mean "I am hunger".
+    German says "I have hunger" with no article: Ich habe Hunger. In the same way, Ich habe Durst means I'm thirsty. "Ich bin Hunger" would mean "I am hunger", and "ich hat" has the wrong verb form (ich habe).
 - id: de1-q-0907
   lesson: de1-food-accusative
   topic: Accusative
@@ -133,10 +133,10 @@
   module_quiz: true
   topic: Shopping
   stem: 'Complete: "Ich möchte ein Kilo ___, bitte."'
-  choices: ['von Äpfel', 'Äpfel', 'Äpfeln von', 'der Äpfel']
+  choices: ['von Äpfel', 'Äpfel', 'Äpfeln von', 'die Äpfel']
   answer: 1
   explanation: |-
-    German puts the amount straight in front of the food with no word for "of": ein Kilo Äpfel, eine Flasche Wasser, 200 Gramm Käse. "ein Kilo von Äpfel" copies English.
+    German puts the amount straight in front of the food with no word for "of" and no article: ein Kilo Äpfel, eine Flasche Wasser, 200 Gramm Käse. "ein Kilo von Äpfel" copies English.
 - id: de1-q-1005
   lesson: de1-shopping
   module_quiz: true
@@ -275,7 +275,7 @@
 - id: de1-q-1109
   lesson: de1-time
   module_quiz: true
-  topic: Word order
+  topic: Time
   stem: 'Complete: "Kaffee? Nein danke, ich trinke ___ Kaffee."'
   choices: ['immer', 'oft', 'nie', 'manchmal']
   answer: 2

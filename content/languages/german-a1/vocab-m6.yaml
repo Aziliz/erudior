@@ -89,6 +89,7 @@
   lesson: de1-perfect-haben
   term: kennenlernen
   pos: verb
+  alt: ["kennen lernen"]
   meanings: ["to get to know", "to meet (for the first time)", "to meet", "to become acquainted with"]
   example: Ich habe meinen Mann im Urlaub kennengelernt.
   exampleEn: I met my husband on holiday.
@@ -278,7 +279,7 @@
   meanings: ["lake"]
   example: Im Sommer schwimmen wir im See.
   exampleEn: In the summer we swim in the lake.
-  note: 'die See (feminine) means "the sea", but it is rare; the lake is der See.'
+  note: 'die See (feminine) also means "the sea" (an der See = at the seaside), but das Meer is the everyday word; the lake is der See.'
 - id: berg
   lesson: de1-perfect-sein
   term: der Berg
@@ -751,8 +752,8 @@
   pos: noun
   plural: die Seiten
   meanings: ["page (of a book)", "page", "side"]
-  example: Öffnen Sie das Buch auf Seite zehn.
-  exampleEn: Open the book at page ten.
+  example: Lesen Sie bitte den Text auf Seite zehn.
+  exampleEn: Please read the text on page ten.
 - id: punkt
   lesson: de1-exam-review
   term: der Punkt

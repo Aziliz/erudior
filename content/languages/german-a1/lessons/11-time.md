@@ -4,6 +4,7 @@ module: de1-m3
 title: Days, times and the clock
 minutes: 35
 topics: [Time, Prepositions, Word order]
+refs: [de1-ref-numbers-time]
 ---
 ## What this lesson is for
 
@@ -60,7 +61,7 @@ When people talk, they normally use the 12-hour clock and count minutes *nach* (
 
 People also count from *halb*: *fünf vor halb vier* is 3:25 and *fünf nach halb vier* is 3:35. You don't have to say these yourself, but you will hear them.
 
-In parts of southern and eastern Germany and in Austria you may also hear *Viertel vier* for 3:15 and *drei viertel vier* for 3:45. Everyone understands *Viertel nach* and *Viertel vor*, so use those.
+In parts of southern and eastern Germany and in Austria you may also hear *viertel vier* for 3:15 and *drei viertel vier* (also written *dreiviertel vier*) for 3:45, counting quarters towards the next hour like *halb*. Everyone understands *Viertel nach* and *Viertel vor*, so use those.
 
 ### One o'clock
 
@@ -150,26 +151,42 @@ For "every day" German uses the accusative from lesson 9: *jeden Tag* (der Tag �
 
 ## Dialogue: Do you have time on Saturday?
 
-> Anna: Hallo Tom! Hast du am Samstag Zeit?\
-> Tom: Am Samstag? Am Vormittag arbeite ich. Aber am Nachmittag habe ich Zeit.\
-> Anna: Super! Möchtest du einen Kaffee trinken?\
-> Tom: Gern! Wann denn? Um zwei?\
-> Anna: Um zwei habe ich noch Deutschkurs. Der Kurs ist von zehn bis halb drei.\
-> Tom: Dann um drei?\
-> Anna: Ja, um drei. Und ich habe Zeit bis sechs. Am Abend kommt meine Schwester.\
-> Tom: Gut. Dann bis Samstag um drei!\
+> Anna: Hallo Tom! Hast du am Samstag Zeit?
+>
+> Tom: Am Samstag? Am Vormittag arbeite ich. Aber am Nachmittag habe ich Zeit.
+>
+> Anna: Super! Möchtest du einen Kaffee trinken?
+>
+> Tom: Gern! Wann denn? Um zwei?
+>
+> Anna: Um zwei habe ich noch Deutschkurs. Der Kurs ist von zehn bis halb drei.
+>
+> Tom: Dann um drei?
+>
+> Anna: Ja, um drei. Und ich habe Zeit bis sechs. Am Abend kommt meine Schwester.
+>
+> Tom: Gut. Dann bis Samstag um drei!
+>
 > Anna: Bis Samstag! Tschüss!
 
 In English:
 
-> Anna: Hi Tom! Do you have time on Saturday?\
-> Tom: On Saturday? In the morning I work. But in the afternoon I have time.\
-> Anna: Great! Would you like to have a coffee?\
-> Tom: I'd love to! When? At two?\
-> Anna: At two I still have my German course. The course is from ten until half past two.\
-> Tom: At three, then?\
-> Anna: Yes, at three. And I have time until six. In the evening my sister is coming.\
-> Tom: Good. See you on Saturday at three, then!\
+> Anna: Hi Tom! Do you have time on Saturday?
+>
+> Tom: On Saturday? In the morning I work. But in the afternoon I have time.
+>
+> Anna: Great! Would you like to have a coffee?
+>
+> Tom: I'd love to! When? At two?
+>
+> Anna: At two I still have my German course. The course is from ten until half past two.
+>
+> Tom: At three, then?
+>
+> Anna: Yes, at three. And I have time until six. In the evening my sister is coming.
+>
+> Tom: Good. See you on Saturday at three, then!
+>
 > Anna: See you Saturday! Bye!
 
 *die Zeit* means time in general: *Hast du Zeit?* — Do you have time? *denn* in *Wann denn?* just makes the question sound friendlier. *Bis Samstag!* (until Saturday) is how you say "see you on Saturday".
@@ -179,7 +196,7 @@ In English:
 - *Viertel*: the *v* is an *f* and the *ie* is short here: FIR-tel.
 - *Uhr* sounds like "oor" with a long *u*.
 - *Abend* and *Tag* end in a *t* and a *k* sound: AH-bent, tahk. That's the final devoicing from lesson 1.
-- *Mittwoch* is stressed on the first syllable: MIT-voch, with the *ch* of *Bach*. So is *Nacht*.
+- *Mittwoch* is stressed on the first syllable: MIT-voch, with the *ch* of *Bach*. *Nacht* has the same *ch*.
 - *Dienstag*: long *ie*, DEENS-tahk. Don't confuse it with *Donnerstag*, DON-ners-tahk.
 - *gestern*: GES-tern, with a hard *g*.
 

@@ -60,6 +60,7 @@ including a full model test (*Modellsatz*) with audio and answers:
 
 - [Exam overview: Goethe-Zertifikat A1: Start Deutsch 1](https://www.goethe.de/ins/si/de/spr/prf/gzsd1.html)
 - [Free practice material (Modellsatz and Übungssätze)](https://www.goethe.de/de/spr/prf/ueb/pa1.html)
+- [Official exam regulations (Durchführungsbestimmungen, PDF)](https://www.goethe.de/resources/files/pdf325/durchfuehrungsbestimmungen_a1_start_deutsch_1.pdf)
 
 Details such as dates, fees and the exact format can change, so always check with the exam
 centre where you register. Other A1 exams (for example telc or ÖSD) are similar in level.
@@ -195,11 +196,15 @@ Ben and Yuki are practising together for the speaking part.
 >
 > Yuki: Machst du gern Sport?
 >
-> Ben: Ja, ich spiele Fußball. Was bedeutet „Verein“?
+> Ben: Ja, ich spiele Fußball in einem Verein.
 >
-> Yuki: Das weiß ich nicht. Ich glaube, das ist eine Gruppe. Wie sagt man das auf Englisch?
+> Yuki: Entschuldigung, was bedeutet „Verein“?
 >
-> Ben: „Club“. Gut, jetzt eine Bitte. Deine Karte zeigt ein Fenster.
+> Ben: Das ist eine Gruppe, zum Beispiel für Sport. Auf Englisch sagt man „club“.
+>
+> Yuki: Ah, danke!
+>
+> Ben: Gut, jetzt eine Bitte. Deine Karte zeigt ein Fenster.
 >
 > Yuki: Kannst du bitte das Fenster öffnen?
 >
@@ -216,11 +221,15 @@ Translation:
 >
 > Yuki: Do you like doing sport?
 >
-> Ben: Yes, I play football. What does "Verein" mean?
+> Ben: Yes, I play football in a club.
 >
-> Yuki: I don't know. I think it's a group. How do you say it in English?
+> Yuki: Sorry, what does "Verein" mean?
 >
-> Ben: "Club". OK, now a request. Your card shows a window.
+> Ben: It's a group, for example for sport. In English you say "club".
+>
+> Yuki: Ah, thanks!
+>
+> Ben: OK, now a request. Your card shows a window.
 >
 > Yuki: Can you open the window, please?
 >

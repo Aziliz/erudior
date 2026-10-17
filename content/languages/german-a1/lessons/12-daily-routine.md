@@ -4,6 +4,7 @@ module: de1-m3
 title: 'A day in my life: separable verbs and word order'
 minutes: 35
 topics: [Separable verbs, Word order, Daily routine]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 
@@ -108,28 +109,46 @@ In English:
 
 ## Dialogue: Are you coming along?
 
-> Lukas: Wann stehst du morgen auf?\
-> Sara: Um halb sechs. Mein Zug kommt um acht in Köln an.\
-> Lukas: So früh! Ich habe morgen frei. Zuerst schlafe ich lange, dann räume ich die Küche auf.\
-> Sara: Und danach?\
-> Lukas: Danach kaufe ich ein. Und am Abend gehen Tim und ich ins Kino. Kommst du mit?\
-> Sara: Wann fängt der Film an?\
-> Lukas: Um acht.\
-> Sara: Nein danke, morgen Abend bin ich sicher müde. Ich gehe früh ins Bett.\
-> Lukas: Schade! Vielleicht am Samstag?\
+> Lukas: Wann stehst du morgen auf?
+>
+> Sara: Um halb sechs. Mein Zug kommt um acht in Köln an.
+>
+> Lukas: So früh! Ich habe morgen frei. Zuerst schlafe ich lange, dann räume ich die Küche auf.
+>
+> Sara: Und danach?
+>
+> Lukas: Danach kaufe ich ein. Und am Abend gehen Tim und ich ins Kino. Kommst du mit?
+>
+> Sara: Wann fängt der Film an?
+>
+> Lukas: Um acht.
+>
+> Sara: Nein danke, morgen Abend bin ich sicher müde. Ich gehe früh ins Bett.
+>
+> Lukas: Schade! Vielleicht am Samstag?
+>
 > Sara: Ja, am Samstag komme ich gern mit!
 
 In English:
 
-> Lukas: When are you getting up tomorrow?\
-> Sara: At half past five. My train arrives in Cologne at eight.\
-> Lukas: So early! I've got the day off tomorrow. First I'll sleep in, then I'll tidy the kitchen.\
-> Sara: And after that?\
-> Lukas: After that I'll do the shopping. And in the evening Tim and I are going to the cinema. Are you coming along?\
-> Sara: When does the film start?\
-> Lukas: At eight.\
-> Sara: No thanks, tomorrow evening I'll surely be tired. I'm going to bed early.\
-> Lukas: Pity! Maybe on Saturday?\
+> Lukas: When are you getting up tomorrow?
+>
+> Sara: At half past five. My train arrives in Cologne at eight.
+>
+> Lukas: So early! I've got the day off tomorrow. First I'll sleep in, then I'll tidy the kitchen.
+>
+> Sara: And after that?
+>
+> Lukas: After that I'll do the shopping. And in the evening Tim and I are going to the cinema. Are you coming along?
+>
+> Sara: When does the film start?
+>
+> Lukas: At eight.
+>
+> Sara: No thanks, tomorrow evening I'll surely be tired. I'm going to bed early.
+>
+> Lukas: Pity! Maybe on Saturday?
+>
 > Sara: Yes, on Saturday I'd love to come along!
 
 German often uses the present tense for the future when a time word makes it clear: *Morgen kaufe ich ein* — Tomorrow I'll go shopping. (*frei haben* = to have the day off, *ins Kino* = to the cinema, *sicher* = surely, *schade* = pity, *vielleicht* = maybe.)
@@ -140,7 +159,7 @@ German often uses the present tense for the future when a time word makes it cle
 
 - Separable verbs are stressed on the prefix: AUF-stehen, AN-rufen, FERN-sehen, EIN-kaufen, MIT-kommen, AB-holen. *frühstücken* is also stressed at the front (FRÜH-stücken) but never splits, because *früh* is not a separable prefix. Stress alone doesn't tell you, so learn which verbs split.
 - In a sentence the prefix at the end keeps a strong stress: *Ich stehe um sieben AUF.*
-- *duschen*: the *sch* is like English "sh", and the *u* is short: DU-shen.
+- *duschen*: the *sch* is like English "sh"; the *u* is short in some regions and long in others (DU-shen or DOO-shen), and both are fine.
 - *müde*: long *ü*; round your lips as for "oo" and say "ee".
 - *Feierabend*: FEI-er-ah-bent; *ei* as in "eye".
 

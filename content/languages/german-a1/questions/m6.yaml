@@ -195,12 +195,12 @@
   topic: Reading
   stem: |-
     Read the text:
-    "Letztes Jahr bin ich mit meiner Freundin nach Kroatien gefahren. Wir waren zwei Wochen auf einer Insel. Am Strand war es sehr heiß. Plötzlich ist meine Freundin krank geworden, und wir sind früher nach Hause gefahren."
-    Why did they go home early?
-  choices: ['The weather was bad.', 'His girlfriend became ill.', 'They had no money left.', 'The beach was closed.']
+    "Letztes Jahr bin ich mit meiner Freundin nach Kroatien gefahren. Wir waren auf einer Insel. Am Strand war es sehr heiß. Nach drei Tagen ist meine Freundin plötzlich krank geworden, und wir sind nach Hause gefahren."
+    Why did they go home?
+  choices: ['The weather was bad.', 'The writer''s girlfriend became ill.', 'They had no money left.', 'The beach was closed.']
   answer: 1
   explanation: |-
-    "Plötzlich ist meine Freundin krank geworden" means "Suddenly my girlfriend became ill". "Geworden" is the participle of "werden" (to become), which takes sein. The weather was hot ("sehr heiß"), not bad.
+    "Nach drei Tagen ist meine Freundin plötzlich krank geworden" means "After three days my girlfriend suddenly became ill". "Geworden" is the participle of "werden" (to become), which takes sein. The weather was hot ("sehr heiß"), not bad.
 - id: de1-q-2210
   lesson: de1-perfect-sein
   topic: haben or sein

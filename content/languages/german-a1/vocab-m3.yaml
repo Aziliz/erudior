@@ -180,6 +180,7 @@
   meanings: [coffee]
   example: Ich trinke Kaffee mit Milch.
   exampleEn: I drink coffee with milk.
+  note: 'When ordering, the singular follows a number: zwei Kaffee, bitte.'
 - id: tee
   lesson: de1-food-accusative
   term: der Tee
@@ -192,10 +193,11 @@
   lesson: de1-food-accusative
   term: das Wasser
   pos: noun
-  plural: die Wasser (rare)
+  plural: —
   meanings: [water]
   example: Ein Wasser, bitte.
   exampleEn: A water, please.
+  note: 'Normally uncountable. When ordering: ein Wasser, zwei Wasser (glasses or bottles).'
 - id: milch
   lesson: de1-food-accusative
   term: die Milch
@@ -321,7 +323,7 @@
   lesson: de1-shopping
   term: der Euro
   pos: noun
-  plural: die Euro (after numbers always zehn Euro)
+  plural: die Euros (but after a number always zehn Euro)
   meanings: [euro]
   example: Das kostet zehn Euro.
   exampleEn: That costs ten euros.
@@ -329,7 +331,7 @@
   lesson: de1-shopping
   term: der Cent
   pos: noun
-  plural: die Cent
+  plural: die Cents (but after a number always fünfzig Cent)
   meanings: [cent]
   example: Ein Brötchen kostet 50 Cent.
   exampleEn: A roll costs 50 cents.
@@ -345,10 +347,11 @@
   lesson: de1-shopping
   term: das Geld
   pos: noun
-  plural: die Gelder (rare)
+  plural: —
   meanings: [money]
   example: Ich habe kein Geld.
   exampleEn: I don't have any money.
+  note: 'Uncountable, as in English. The plural die Gelder means funds (formal).'
 - id: geschaeft
   lesson: de1-shopping
   term: das Geschäft
@@ -385,7 +388,7 @@
   lesson: de1-shopping
   term: das Kilo
   pos: noun
-  plural: die Kilo (zwei Kilo)
+  plural: die Kilos (but after a number always zwei Kilo)
   alt: [das Kilogramm]
   meanings: [kilo, kilogram, kilogramme]
   example: Ein Kilo Äpfel, bitte.
@@ -394,8 +397,9 @@
   lesson: de1-shopping
   term: das Gramm
   pos: noun
-  plural: die Gramm (200 Gramm)
+  plural: —
   meanings: [gram, gramme]
+  note: 'After a number it doesn''t change: 200 Gramm.'
   example: Ich nehme 200 Gramm Käse.
   exampleEn: I'll take 200 grams of cheese.
 - id: liter
@@ -406,6 +410,7 @@
   meanings: [litre, liter]
   example: Ein Liter Milch kostet einen Euro.
   exampleEn: A litre of milk costs one euro.
+  note: 'In everyday speech also das Liter. After a number: zwei Liter.'
 - id: flasche
   lesson: de1-shopping
   term: die Flasche
@@ -555,7 +560,7 @@
   term: das Viertel
   pos: noun
   plural: die Viertel
-  meanings: [quarter]
+  meanings: [quarter, quarter of an hour]
   example: Es ist Viertel nach acht.
   exampleEn: It's a quarter past eight.
 - id: halb
@@ -570,9 +575,10 @@
   lesson: de1-time
   term: nach
   pos: preposition
-  meanings: [after (time), after, past]
+  meanings: [after (time); to (a city or country), after, past, to]
   example: Es ist zehn nach vier.
   exampleEn: It's ten past four.
+  note: 'Also "to" with cities and most countries: nach Berlin, nach Spanien (lesson 18). Takes the dative.'
 - id: vor
   lesson: de1-time
   term: vor
@@ -967,6 +973,7 @@
   pos: noun
   plural: —
   meanings: [everyday life, daily routine, daily life, routine]
+  note: 'The plural die Alltage is rare.'
   example: Mein Alltag ist ziemlich ruhig.
   exampleEn: My everyday life is fairly quiet.
 - id: muede

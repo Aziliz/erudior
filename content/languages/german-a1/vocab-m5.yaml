@@ -337,7 +337,7 @@
   term: die Fahrkarte
   pos: noun
   plural: die Fahrkarten
-  meanings: ["ticket (for a train or bus)", "ticket", "travel ticket", "fare"]
+  meanings: ["ticket (for a train or bus)", "ticket", "travel ticket", "train ticket", "bus ticket"]
   example: Eine Fahrkarte nach Hamburg, bitte.
   exampleEn: A ticket to Hamburg, please.
 - id: ticket
@@ -485,14 +485,6 @@
   note: 'Always takes the dative, with the present tense: Ich wohne seit einem Jahr hier.'
   example: Ich lerne seit drei Monaten Deutsch.
   exampleEn: I've been learning German for three months.
-- id: nach-to
-  lesson: de1-travel-dative
-  term: nach
-  pos: preposition
-  meanings: ["to (a city or country)", "to"]
-  note: 'Takes the dative. Used for towns and countries without an article: nach Berlin, nach Spanien; also nach Hause.'
-  example: Im Sommer fahren wir nach Italien.
-  exampleEn: In the summer we're going to Italy.
 - id: nach-hause
   lesson: de1-travel-dative
   kind: phrase
@@ -573,7 +565,7 @@
   lesson: de1-home
   term: der Balkon
   pos: noun
-  plural: die Balkone (also die Balkons)
+  plural: die Balkons (also die Balkone)
   meanings: ["balcony"]
   example: Wir frühstücken auf dem Balkon.
   exampleEn: We have breakfast on the balcony.
@@ -597,7 +589,7 @@
   lesson: de1-home
   term: der Stock
   pos: noun
-  plural: die Stock (drei Stock hoch); also die Stockwerke
+  plural: '— (counted as drei Stock; as a plural noun use die Stockwerke)'
   meanings: ["floor (storey of a building)", "floor", "storey", "story", "level"]
   note: 'Im ersten Stock = on the first floor (UK), second floor (US). The ground floor is das Erdgeschoss.'
   example: Ich wohne im dritten Stock.
