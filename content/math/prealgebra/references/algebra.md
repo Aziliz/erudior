@@ -67,6 +67,33 @@ Multiply: multiply coefficients, add exponents. Divide: divide coefficients, sub
 
 Clear fractions by multiplying every term by the LCD. A true statement like $5 = 5$ means every number is a solution; a false one like $5 = 6$ means no solution.
 
+Solving a formula for a letter: same steps, treating the other letters as numbers. $P = 2l + 2w \Rightarrow w = \dfrac{P - 2l}{2}$.
+
+## Money problems
+
+Total value = number of items × value of each.
+
+| Problem | Equation (one variable) |
+|---|---|
+| 30 dimes and quarters worth \$5.10 | $10d + 25(30 - d) = 510$ (cents) |
+| 220 tickets at \$12 and \$7, sales \$2,190 | $12a + 7(220 - a) = 2{,}190$ |
+| 20 lb blend of \$9 and \$14 coffee at \$11/lb | $9x + 14(20 - x) = 20 \times 11$ |
+
+## Graphing lines
+
+| Idea | Rule |
+|---|---|
+| Ordered pair $(x, y)$ | across first, then up or down |
+| Quadrants | I $(+,+)$, II $(-,+)$, III $(-,-)$, IV $(+,-)$ |
+| $x$-intercept | set $y = 0$ |
+| $y$-intercept | set $x = 0$ |
+| Slope | $m = \dfrac{\text{rise}}{\text{run}} = \dfrac{y_2 - y_1}{x_2 - x_1}$ |
+| Slope-intercept form | $y = mx + b$: slope $m$, $y$-intercept $(0, b)$ |
+| Horizontal line $y = k$ | slope 0 |
+| Vertical line $x = k$ | slope undefined |
+
+Distance between two points: $\sqrt{(\text{across})^2 + (\text{up or down})^2}$ (Pythagorean theorem).
+
 ## Inequalities
 
 Same steps as equations, but multiplying or dividing by a negative number reverses the symbol.

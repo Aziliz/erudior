@@ -348,3 +348,46 @@
       - {from: [b, a], to: [0, 0], label: '{c}'}
   solution: |-
     The hypotenuse is given, so subtract: $b^2 = c^2 - a^2 = {c2:dp0} - {a2:dp0} = {b2:dp0}$, and $b = \sqrt{{b2:dp0}} =$ **{b}**.
+
+- id: pre-grid-distance
+  title: Distance between two points
+  topic: Coordinate plane
+  vars:
+    t: {min: 1, max: 4}
+    sx: {choices: [-1, 1]}
+    sy: {choices: [-1, 1]}
+    sw: {choices: [0, 1]}
+    x1: {min: -6, max: 6}
+    y1: {min: -6, max: 6}
+  calc:
+    p: if(t == 1, 3, if(t == 2, 5, if(t == 3, 8, 6)))
+    r: if(t == 1, 4, if(t == 2, 12, if(t == 3, 15, 8)))
+    c: if(t == 1, 5, if(t == 2, 13, if(t == 3, 17, 10)))
+    dx: if(sw == 1, r, p)
+    dy: if(sw == 1, p, r)
+    x2: x1 + sx * dx
+    y2: y1 + sy * dy
+    dx2: dx^2
+    dy2: dy^2
+    c2: c^2
+    lox: min(x1, x2) - 2
+    hix: max(x1, x2) + 2
+    loy: min(y1, y2) - 2
+    hiy: max(y1, y2) + 2
+  prompt: 'Find the distance between the points $({x1}, {y1})$ and $({x2}, {y2})$.'
+  answers:
+    - {name: c, label: Distance}
+  figure:
+    type: plot
+    x: [lox, hix]
+    y: [loy, hiy]
+    equal: true
+    points:
+      - {at: [x1, y1], label: '({x1}, {y1})'}
+      - {at: [x2, y2], label: '({x2}, {y2})'}
+    segments:
+      - {from: [x1, y1], to: [x2, y1], dashed: true}
+      - {from: [x2, y1], to: [x2, y2], dashed: true}
+      - {from: [x1, y1], to: [x2, y2]}
+  solution: |-
+    The move across is $|{x2} - ({x1})| = {dx}$ units and the move up or down is $|{y2} - ({y1})| = {dy}$ units. They are the legs of a right triangle, so the distance is $\sqrt{{dx}^2 + {dy}^2} = \sqrt{{dx2} + {dy2}} = \sqrt{{c2}} =$ **{c}**.

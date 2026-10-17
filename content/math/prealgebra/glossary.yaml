@@ -440,6 +440,13 @@
 - term: no solution
   definition: 'Describes an equation that is never true, like $2x + 6 = 2x + 5$.'
   topic: Multi-step equations
+- term: total value
+  definition: 'In money problems, the number of items times the value of each item: 7 quarters have a total value of $7 \times 25 = 175$ cents.'
+  topic: Money word problems
+- term: mixture problem
+  aliases: [mixture problems]
+  definition: 'A problem that blends two ingredients with different prices per unit; the values of the parts add up to the value of the mix (its amount times its price).'
+  topic: Money word problems
 - term: inequality
   aliases: [inequalities]
   definition: 'A statement using $<$, $>$, $\le$, $\ge$ or $\ne$ to compare two expressions.'
@@ -623,14 +630,46 @@
   topic: Pythagorean theorem
 - term: coordinate plane
   definition: 'A flat grid formed by a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) crossing at the origin; each point is named by an ordered pair.'
-  topic: Pythagorean theorem
+  topic: Coordinate plane
 - term: origin
   definition: 'The point $(0, 0)$ where the $x$-axis and $y$-axis cross.'
-  topic: Pythagorean theorem
+  topic: Coordinate plane
 - term: ordered pair
   aliases: [ordered pairs]
   definition: 'A pair of numbers $(x, y)$ naming a point: $x$ is the move left or right from the origin, $y$ the move up or down.'
-  topic: Pythagorean theorem
+  topic: Coordinate plane
+- term: x-axis
+  definition: 'The horizontal number line of the coordinate plane.'
+  topic: Coordinate plane
+- term: y-axis
+  definition: 'The vertical number line of the coordinate plane.'
+  topic: Coordinate plane
+- term: quadrants
+  aliases: [quadrant]
+  definition: 'The four regions the axes cut the coordinate plane into, numbered I to IV counterclockwise from the upper right, where both coordinates are positive.'
+  topic: Coordinate plane
+- term: graph of an equation
+  aliases: [graph]
+  definition: 'All the points whose coordinates make the equation true, drawn on the coordinate plane.'
+  topic: Graphing lines
+- term: linear equation
+  aliases: [linear equations]
+  definition: 'An equation in $x$ and $y$ whose graph is a straight line, such as $y = 2x - 1$ or $2x + 3y = 12$.'
+  topic: Graphing lines
+- term: x-intercept
+  aliases: [x-intercepts]
+  definition: 'The point where a graph crosses the $x$-axis; find it by setting $y = 0$.'
+  topic: Graphing lines
+- term: y-intercept
+  aliases: [y-intercepts]
+  definition: 'The point where a graph crosses the $y$-axis; find it by setting $x = 0$. In $y = mx + b$ it is $(0, b)$.'
+  topic: Graphing lines
+- term: slope
+  definition: 'The steepness of a line: rise over run, $m = \dfrac{y_2 - y_1}{x_2 - x_1}$. Positive slopes rise to the right, negative ones fall, 0 is horizontal, and a vertical line''s slope is undefined.'
+  topic: Slope
+- term: slope-intercept form
+  definition: 'The form $y = mx + b$ of a linear equation, where $m$ is the slope and $b$ is the $y$-intercept.'
+  topic: Slope
 - term: Pythagorean triples
   aliases: [Pythagorean triple]
   definition: 'Whole numbers $a, b, c$ with $a^2 + b^2 = c^2$, such as 3, 4, 5 and 5, 12, 13.'

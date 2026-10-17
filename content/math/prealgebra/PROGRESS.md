@@ -155,3 +155,38 @@ Cards (196), glossary (214), and all 3 reference sheets: no errors found.
 - PROGRESS.md still says lesson 33 has no figure (left untouched because it is a shared file).
 
 Build: 0 problems; check-course: OK.
+
+## Gap lessons (2026-10-17)
+
+Fills the coverage gaps listed in VERIFY.md (graphing lines; coin/ticket money problems; no questions on the short real-numbers, coordinate-plane and formula sections).
+
+### New lessons (module pre-m7)
+- 27 `pre-money-problems` — Money word problems — lessons/27-money-problems.md (coins in cents, tickets, mixtures; 5 worked examples, value tables, number-line figure). Drills: pre-coin-problem, pre-ticket-problem, pre-mixture-problem.
+- 29 `pre-graphing-lines` — Graphing linear equations — lessons/29-graphing-lines.md (coordinate plane and quadrants, table of values, intercepts, slope as rise over run, y = mx + b, horizontal/vertical lines; 5 worked examples, 5 plots). Drills: pre-slope-points, pre-intercepts, pre-line-equation.
+
+Renumbered files (ids unchanged): 27-inequalities → 28, 28–36 → 30–38. New course order in pre-m7: …, 26 equations-2, 27 money, 28 inequalities, 29 graphing. Cross-references updated: lesson 32 (area) now cites Lesson 30 for units; lesson 35 (Pythagorean) cites Lesson 32 for area and Lesson 29 for the coordinate plane; lesson 26 points ahead to Lessons 27 and 29.
+
+### New questions (38; correct index across the whole bank now 110/109/110/109)
+- pre-money-problems: pre-q-money-01 … pre-q-money-12 (module quiz: 01, 02, 04, 07)
+- pre-graphing-lines: pre-q-graph-01 … pre-q-graph-13 (module quiz: 01, 03, 06, 09)
+- pre-powers-roots (real numbers): pre-q-2013 … pre-q-2016 (module quiz: 2013, 2015)
+- pre-equations-2 (solving a formula): pre-q-2613 … pre-q-2617 (module quiz: 2613, 2616)
+- pre-pythagorean (coordinate plane, distance): pre-q-3312 … pre-q-3315 (module quiz: 3314)
+
+### New drills (9)
+pre-coin-problem, pre-ticket-problem, pre-mixture-problem, pre-slope-points, pre-intercepts, pre-line-equation (m7); pre-formula-solve (lesson 26, solve ax + by = c for y); pre-irrational-count (lesson 20); pre-grid-distance (lesson 35, Pythagorean triples so distances are whole).
+
+### Other changes
+- Glossary +11: x-axis, y-axis, quadrants, graph of an equation, linear equation, x-intercept, y-intercept, slope, slope-intercept form, total value, mixture problem. coordinate plane / origin / ordered pair moved to topic "Coordinate plane"; they are now bolded in lesson 29 instead of lesson 35.
+- Cards +21 (topics Real numbers, Formulas, Money word problems, Coordinate plane, Graphing lines, Slope).
+- pre-ref-algebra: new "Money problems" and "Graphing lines" sections, formula-solving line.
+- Lesson topics: lesson 20 + Real numbers; lesson 26 + Formulas; lesson 35 + Coordinate plane. Lesson 35's distance section gained a negative-coordinate example and a key point.
+
+### Verification
+Every new question's key and distractors were checked in sympy (script qs.py). Each new drill was generated 600 times; answers were recomputed independently from the prompt text, and the displayed answer was typed back and accepted (0 mismatches). build.py and check-course.mts: zero problems.
+
+### For a reviewer
+- Lesson 26 now links 4 drills (pre-pct-solve already does the same).
+- pre-irrational-count always lists one decimal radicand first (5 value bins keep the radicands increasing).
+- pre-line-equation keeps the slope in lowest terms with |m| ≠ 1 and b ≠ 0 so the shown answer reads cleanly.
+- Lesson figures were checked by the course checker's renderer only (no image viewer available here).

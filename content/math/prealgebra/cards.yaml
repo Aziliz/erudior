@@ -106,6 +106,10 @@
 - {front: '$\sqrt{9 + 16}$', back: '$\sqrt{25} = 5$, not $3 + 4$.', topic: 'Square roots'}
 - {front: 'Estimating $\sqrt{58}$', back: 'Between $\sqrt{49} = 7$ and $\sqrt{64} = 8$; about 7.6.', topic: 'Square roots'}
 - {front: 'Cube root', back: '$\sqrt[3]{n}$: the number whose cube is $n$; $\sqrt[3]{-27} = -3$.', topic: 'Square roots'}
+- {front: 'Rational number', back: 'A number that can be written as $\tfrac ab$ with integers $a$, $b$ and $b \ne 0$: integers, fractions, terminating and repeating decimals.', topic: 'Real numbers'}
+- {front: 'Irrational number', back: 'A real number that is not rational; its decimal never ends or repeats: $\sqrt2$, $\sqrt{58}$, $\pi$.', topic: 'Real numbers'}
+- {front: 'Real numbers', back: 'The rational and irrational numbers together: every point on the number line.', topic: 'Real numbers'}
+- {front: 'Is $\sqrt{n}$ rational?', back: 'Only when $n$ is a perfect square (like $\sqrt{49} = 7$ or $\sqrt{0.36} = 0.6$); otherwise it is irrational.', topic: 'Real numbers'}
 - {front: 'Product rule', back: '$b^m \cdot b^n = b^{m+n}$', topic: 'Exponent rules'}
 - {front: 'Quotient rule', back: '$\dfrac{b^m}{b^n} = b^{m-n}$ for $b \ne 0$', topic: 'Exponent rules'}
 - {front: 'Power of a power', back: '$(b^m)^n = b^{mn}$', topic: 'Exponent rules'}
@@ -137,10 +141,26 @@
 - {front: 'Variable disappears: $6 = 6$ or $6 = 5$', back: 'True → every number is a solution (identity); false → no solution.', topic: 'Multi-step equations'}
 - {front: 'Consecutive integers', back: '$n$, $n + 1$, $n + 2$, …', topic: 'Equation word problems'}
 - {front: 'Word-problem steps', back: 'Define the variable, write an equation, solve, answer in words with units, check.', topic: 'Equation word problems'}
+- {front: 'Solving a formula for a letter', back: 'Use the same inverse operations as for an equation, treating the other letters as numbers: $d = rt \Rightarrow t = \dfrac dr$.', topic: 'Formulas'}
+- {front: 'Solve $P = 2l + 2w$ for $w$', back: '$w = \dfrac{P - 2l}{2}$ (subtract $2l$, then divide the whole side by 2).', topic: 'Formulas'}
+- {front: 'Total value', back: 'number of items × value of each item.', topic: 'Money word problems'}
+- {front: 'Coin problem setup', back: 'Let $d$ = one kind of coin; the other is (total − $d$). Values in cents add to the total value: $10d + 25(30 - d) = 510$.', topic: 'Money word problems'}
+- {front: 'Ticket problem setup', back: 'Let $a$ = adult tickets, (total − $a$) = child tickets; price × number for each, summed = total sales.', topic: 'Money word problems'}
+- {front: 'Mixture problem setup', back: 'Value of part 1 + value of part 2 = (total amount) × (mix price).', topic: 'Money word problems'}
+- {front: 'Price of a blend', back: 'Always between the two ingredient prices, closer to the one used more; not simply their average.', topic: 'Money word problems'}
 - {front: 'Flipping an inequality', back: 'Reverse the symbol when multiplying or dividing both sides by a negative number.', topic: 'Inequalities'}
 - {front: 'Open vs closed circle', back: 'Open for $<$ and $>$; closed for $\le$ and $\ge$.', topic: 'Inequalities'}
 - {front: '"At least" / "at most"', back: '$\ge$ / $\le$', topic: 'Inequalities'}
 - {front: '$4 < x$ is the same as', back: '$x > 4$', topic: 'Inequalities'}
+- {front: 'Plotting $(x, y)$', back: 'From the origin: $x$ left or right first, then $y$ up or down.', topic: 'Coordinate plane'}
+- {front: 'Quadrants', back: 'I $(+, +)$, II $(-, +)$, III $(-, -)$, IV $(+, -)$, counterclockwise from the upper right.', topic: 'Coordinate plane'}
+- {front: 'Graphing from a table', back: 'Pick several $x$-values, compute each $y$, plot at least three points and draw the line.', topic: 'Graphing lines'}
+- {front: 'Finding intercepts', back: '$x$-intercept: set $y = 0$. $y$-intercept: set $x = 0$.', topic: 'Graphing lines'}
+- {front: 'Slope', back: '$m = \dfrac{\text{rise}}{\text{run}} = \dfrac{y_2 - y_1}{x_2 - x_1}$', topic: 'Slope'}
+- {front: 'Sign of the slope', back: 'Positive rises to the right; negative falls; 0 is horizontal; vertical is undefined.', topic: 'Slope'}
+- {front: 'Slope-intercept form', back: '$y = mx + b$: slope $m$, $y$-intercept $(0, b)$.', topic: 'Slope'}
+- {front: 'Slope of $2x + 3y = 12$', back: 'Solve for $y$: $y = -\tfrac23 x + 4$, so $m = -\tfrac23$ (not 2).', topic: 'Slope'}
+- {front: 'Horizontal vs vertical line', back: '$y = 3$: horizontal, slope 0. $x = -2$: vertical, slope undefined.', topic: 'Slope'}
 - {front: 'Feet, yards, miles', back: '12 in = 1 ft; 3 ft = 1 yd; 5,280 ft = 1 mi.', topic: 'Unit conversion'}
 - {front: 'Cups, pints, quarts, gallons', back: '2 c = 1 pt; 2 pt = 1 qt; 4 qt = 1 gal.', topic: 'Unit conversion'}
 - {front: 'Ounces, pounds, tons', back: '16 oz = 1 lb; 2,000 lb = 1 ton.', topic: 'Unit conversion'}
@@ -178,6 +198,7 @@
 - {front: 'Finding a leg', back: '$a = \sqrt{c^2 - b^2}$', topic: 'Pythagorean theorem'}
 - {front: 'Common Pythagorean triples', back: '3-4-5, 5-12-13, 8-15-17, 7-24-25', topic: 'Pythagorean theorem'}
 - {front: 'Is it a right triangle?', back: 'Check whether $a^2 + b^2 = c^2$ with $c$ the longest side.', topic: 'Pythagorean theorem'}
+- {front: 'Distance between two points', back: 'Legs = move across and move up/down; distance = $\sqrt{\text{across}^2 + \text{up}^2}$: $(1, 2)$ to $(7, 10)$ is $\sqrt{36 + 64} = 10$.', topic: 'Coordinate plane'}
 - {front: 'Mean', back: 'Sum ÷ count.', topic: 'Measures of center'}
 - {front: 'Median', back: 'Middle of the ordered data; average the two middle values if the count is even.', topic: 'Measures of center'}
 - {front: 'Mode', back: 'The most frequent value (there may be none or several).', topic: 'Measures of center'}

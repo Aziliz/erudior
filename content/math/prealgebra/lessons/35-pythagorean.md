@@ -3,13 +3,13 @@ id: pre-pythagorean
 module: pre-m8
 title: The Pythagorean theorem
 minutes: 25
-topics: [Pythagorean theorem]
-drills: [pre-hypotenuse, pre-leg]
+topics: [Pythagorean theorem, Coordinate plane]
+drills: [pre-hypotenuse, pre-leg, pre-grid-distance]
 refs: [pre-ref-geometry]
 ---
 ## Distances you can't measure directly
 
-How long a ladder reaches the window? How far is it across a rectangular field on the diagonal? What's the screen size of a TV that is 48 inches wide and 27 inches tall? All of these involve right triangles, and one theorem answers them all. It ties together squares and square roots (Lesson 20), equations (Module 7) and area (Lesson 30).
+How long a ladder reaches the window? How far is it across a rectangular field on the diagonal? What's the screen size of a TV that is 48 inches wide and 27 inches tall? All of these involve right triangles, and one theorem answers them all. It ties together squares and square roots (Lesson 20), equations (Module 7) and area (Lesson 32).
 
 ## Parts of a right triangle
 
@@ -97,7 +97,7 @@ $c^2 = 48^2 + 27^2 = 2{,}304 + 729 = 3{,}033$, so $c = \sqrt{3{,}033} \approx 55
 
 ## Distance on a grid
 
-The theorem also measures straight-line distance between two points on a grid. The grid here is the **coordinate plane**: a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) that cross at 0, a point called the **origin**. Every point is named by an **ordered pair** $(x, y)$: the first number says how far to move left or right from the origin, the second how far to move up or down. Order matters: $(1, 2)$ and $(2, 1)$ are different points. The axes split the plane into four regions called quadrants; points with negative coordinates, like $(-3, 4)$, sit left of or below the origin.
+The theorem also measures straight-line distance between two points on a grid. The grid here is the coordinate plane from Lesson 29: a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) that cross at 0, a point called the origin. Every point is named by an ordered pair $(x, y)$: the first number says how far to move left or right from the origin, the second how far to move up or down. Order matters: $(1, 2)$ and $(2, 1)$ are different points. The axes split the plane into four regions called quadrants; points with negative coordinates, like $(-3, 4)$, sit left of or below the origin.
 
 To go from $(1, 2)$ to $(7, 10)$, you move 6 units across and 8 units up. Those moves are the legs of a right triangle, and the straight-line distance is the hypotenuse:
 
@@ -106,6 +106,8 @@ $$d = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10.$$
 ```plot
 {"x": [0, 9], "y": [0, 12], "equal": true, "points": [{"at": [1, 2], "label": "(1, 2)"}, {"at": [7, 10], "label": "(7, 10)"}], "segments": [{"from": [1, 2], "to": [7, 2], "dashed": true, "label": "6"}, {"from": [7, 2], "to": [7, 10], "dashed": true, "label": "8"}, {"from": [1, 2], "to": [7, 10], "label": "10"}], "caption": "The distance between two points is the hypotenuse of a right triangle"}
 ```
+
+With negative coordinates, find each move by subtracting (Lesson 7) and ignore the sign, since a length is never negative. From $(-2, 3)$ to $(2, 0)$ the move across is $2 - (-2) = 4$ units and the move down is $3 - 0 = 3$ units, so the distance is $\sqrt{4^2 + 3^2} = \sqrt{25} = 5$.
 
 In algebra this becomes the distance formula, but it is nothing more than the Pythagorean theorem.
 
@@ -123,3 +125,4 @@ In algebra this becomes the distance formula, but it is nothing more than the Py
 - Hypotenuse: $c = \sqrt{a^2 + b^2}$. Leg: $a = \sqrt{c^2 - b^2}$.
 - Common triples: 3-4-5, 5-12-13, 8-15-17, 7-24-25, and their multiples.
 - If $a^2 + b^2 = c^2$ for a triangle's sides, it's a right triangle.
+- The distance between two points on the coordinate plane is the hypotenuse of a right triangle whose legs are the moves across and up or down.

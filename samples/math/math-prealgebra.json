@@ -5,8 +5,8 @@
  "title": "Pre-algebra and Arithmetic",
  "description": "Arithmetic and pre-algebra from place value up through the level of a college developmental math course: whole numbers, integers, fractions, decimals, ratios and proportions, percents, exponents and scientific notation, expressions and equations, measurement and basic geometry, and basic data and probability, with word problems throughout.",
  "author": "Examiner",
- "revision": 2,
- "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections.",
+ "revision": 3,
+ "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on money word problems and graphing lines.",
  "modules": [
   {
    "id": "pre-m1",
@@ -107,6 +107,8 @@
     "pre-q-2001",
     "pre-q-2003",
     "pre-q-2005",
+    "pre-q-2013",
+    "pre-q-2015",
     "pre-q-2101",
     "pre-q-2103",
     "pre-q-2106",
@@ -131,9 +133,19 @@
     "pre-q-2601",
     "pre-q-2602",
     "pre-q-2606",
+    "pre-q-2613",
+    "pre-q-2616",
+    "pre-q-money-01",
+    "pre-q-money-02",
+    "pre-q-money-04",
+    "pre-q-money-07",
     "pre-q-2701",
     "pre-q-2703",
-    "pre-q-2708"
+    "pre-q-2708",
+    "pre-q-graph-01",
+    "pre-q-graph-03",
+    "pre-q-graph-06",
+    "pre-q-graph-09"
    ]
   },
   {
@@ -158,7 +170,8 @@
     "pre-q-3210",
     "pre-q-3301",
     "pre-q-3302",
-    "pre-q-3307"
+    "pre-q-3307",
+    "pre-q-3314"
    ]
   },
   {
@@ -782,11 +795,13 @@
    "minutes": 25,
    "topics": [
     "Powers",
-    "Square roots"
+    "Square roots",
+    "Real numbers"
    ],
    "drills": [
     "pre-power-eval",
-    "pre-sqrt-estimate"
+    "pre-sqrt-estimate",
+    "pre-irrational-count"
    ],
    "refs": [
     "pre-ref-algebra"
@@ -804,7 +819,11 @@
     "pre-q-2009",
     "pre-q-2010",
     "pre-q-2011",
-    "pre-q-2012"
+    "pre-q-2012",
+    "pre-q-2013",
+    "pre-q-2014",
+    "pre-q-2015",
+    "pre-q-2016"
    ]
   },
   {
@@ -966,17 +985,19 @@
    "minutes": 30,
    "topics": [
     "Multi-step equations",
-    "Equation word problems"
+    "Equation word problems",
+    "Formulas"
    ],
    "drills": [
     "pre-multi-step",
     "pre-distribute-solve",
-    "pre-eq-word"
+    "pre-eq-word",
+    "pre-formula-solve"
    ],
    "refs": [
     "pre-ref-algebra"
    ],
-   "body": "## Putting the tools together\n\nReal equations rarely arrive in the tidy form $ax + b = c$. They have parentheses, variables on both sides, and fractions. This lesson combines the simplifying tools from Lesson 24 with the solving steps from Lesson 25 into one general method, then applies it to word problems, which is where equations earn their keep.\n\n## A general strategy\n\n1. *Simplify each side* separately: distribute to remove parentheses, then combine like terms.\n2. *Collect the variable terms on one side* by adding or subtracting a variable term on both sides.\n3. *Collect the constants on the other side.*\n4. *Divide* by the coefficient of the variable.\n5. *Check* in the *original* equation.\n\n## Parentheses\n\n### Example 1\n\nSolve $4(x - 3) + 2x = 18$.\n\n- Distribute: $4x - 12 + 2x = 18$.\n- Combine like terms: $6x - 12 = 18$.\n- Add 12: $6x = 30$.\n- Divide by 6: $x = 5$.\n\nCheck: $4(5 - 3) + 2(5) = 8 + 10 = 18$. ✓\n\n## Variables on both sides\n\nWhen the variable appears on both sides, move all the variable terms to one side. It's usually easiest to move them to the side with the larger coefficient, which keeps the coefficient positive, but any choice works.\n\n### Example 2\n\nSolve $7x - 5 = 3x + 11$.\n\n- Subtract $3x$ from both sides: $4x - 5 = 11$.\n- Add 5: $4x = 16$.\n- Divide by 4: $x = 4$.\n\nCheck: left $7(4) - 5 = 23$; right $3(4) + 11 = 23$. ✓\n\n### Example 3\n\nSolve $2(3y + 1) = 5y - 2(y - 7)$.\n\n- Distribute both sides: $6y + 2 = 5y - 2y + 14$.\n- Combine on the right: $6y + 2 = 3y + 14$.\n- Subtract $3y$: $3y + 2 = 14$.\n- Subtract 2: $3y = 12$, so $y = 4$.\n\nCheck: left $2(13) = 26$; right $20 - 2(-3) = 26$. ✓\n\n## Fractions in equations\n\nIf an equation has fractions, you can *clear them* by multiplying every term on both sides by the LCD of the denominators. This turns it into an equation with whole-number coefficients.\n\n### Example 4\n\nSolve $\\dfrac{x}{3} + \\dfrac{1}{2} = \\dfrac{5}{6}$.\n\nThe LCD of 3, 2 and 6 is 6. Multiply every term by 6:\n\n$$6 \\cdot \\frac{x}{3} + 6 \\cdot \\frac12 = 6 \\cdot \\frac56 \\quad\\Rightarrow\\quad 2x + 3 = 5.$$\n\nThen $2x = 2$ and $x = 1$. Check: $\\tfrac13 + \\tfrac12 = \\tfrac26 + \\tfrac36 = \\tfrac56$. ✓\n\nDecimals can be cleared the same way: multiply $0.4x + 1.2 = 3$ by 10 to get $4x + 12 = 30$, so $x = 4.5$.\n\n## Special cases\n\nSometimes the variable disappears.\n\n- $2(x + 3) = 2x + 6$ simplifies to $2x + 6 = 2x + 6$, and subtracting $2x$ leaves $6 = 6$, which is always true. Every number is a solution; the equation is an **[[identity]]**.\n- $2(x + 3) = 2x + 5$ leaves $6 = 5$, which is never true. The equation has **[[no solution]]**.\n\n## Solving a formula for a variable\n\nThe same steps work on a formula with several letters. To solve $d = rt$ for $t$, treat $r$ like a number multiplying $t$ and divide both sides by it: $t = \\dfrac{d}{r}$ (for $r \\ne 0$). To solve the perimeter formula $P = 2l + 2w$ for $w$, subtract $2l$ from both sides, giving $P - 2l = 2w$, then divide by 2: $w = \\dfrac{P - 2l}{2}$. Rewriting a formula this way is useful when you need the same unknown many times, such as the width of several rectangles with known perimeters and lengths.\n\n## Word problems\n\nA reliable process:\n\n1. *Read* the problem and identify what you're asked to find.\n2. *Define a variable* for the unknown (\"let $n$ = …\"). If there are other unknowns, write them in terms of the same variable.\n3. *Write an equation* that says the same thing as the problem.\n4. *Solve* it.\n5. *Answer* the question in a sentence with units, and check that it makes sense in the story.\n\n### Example 5 (number problem)\n\nThree times a number, decreased by 7, equals the number increased by 9. Find the number.\n\nLet $n$ be the number. \"Three times a number, decreased by 7\" is $3n - 7$; \"the number increased by 9\" is $n + 9$.\n\n$3n - 7 = n + 9$, so $2n = 16$ and $n = 8$. Check: $3(8) - 7 = 17$ and $8 + 9 = 17$. ✓\n\n### Example 6 (consecutive integers)\n\nThe sum of three consecutive integers is 72. Find them.\n\nConsecutive integers each differ by 1. Let the smallest be $n$; the others are $n + 1$ and $n + 2$.\n\n$n + (n + 1) + (n + 2) = 72 \\Rightarrow 3n + 3 = 72 \\Rightarrow 3n = 69 \\Rightarrow n = 23$.\n\nThe integers are 23, 24 and 25. Check: $23 + 24 + 25 = 72$. ✓\n\n### Example 7 (comparing plans)\n\nPlan A charges \\$40 per month plus \\$0.10 per minute. Plan B charges \\$25 per month plus \\$0.25 per minute. For how many minutes do the plans cost the same?\n\nLet $m$ be the minutes. Cost A: $40 + 0.10m$. Cost B: $25 + 0.25m$. Set them equal:\n\n$40 + 0.10m = 25 + 0.25m$. Subtract $0.10m$: $40 = 25 + 0.15m$. Subtract 25: $15 = 0.15m$. Divide: $m = 100$.\n\nAt 100 minutes both cost \\$50. (Fewer minutes favor Plan B; more favor Plan A.)\n\n### Example 8 (perimeter)\n\nA rectangle's length is 4 cm more than twice its width, and its perimeter is 56 cm. Find its dimensions.\n\nLet $w$ be the width; the length is $2w + 4$. Perimeter: $2w + 2(2w + 4) = 56$.\n\nSimplify: $2w + 4w + 8 = 56 \\Rightarrow 6w = 48 \\Rightarrow w = 8$. The length is $2(8) + 4 = 20$.\n\nThe rectangle is 8 cm by 20 cm. Check: $2(8) + 2(20) = 56$. ✓\n\n## Common mistakes\n\n- *Not distributing to every term* inside parentheses, especially with a negative in front.\n- *Moving a term without changing its sign.* Subtracting $3x$ from both sides of $7x - 5 = 3x + 11$ removes $3x$ from the right and *subtracts* it on the left.\n- *Multiplying only some terms* when clearing fractions. Every term on both sides gets multiplied.\n- *Checking in a simplified equation* instead of the original, which can hide a distribution error.\n- *Answering the wrong question:* in Example 8 the problem asks for both dimensions, not just $w$.\n\n## Key points\n\n- Simplify each side, collect variable terms on one side and constants on the other, then divide.\n- Clear fractions by multiplying every term by the LCD.\n- If the variable vanishes, a true statement means every number works; a false one means no solution.\n- Solve a formula for one of its letters with the same inverse operations, treating the other letters as numbers.\n- For word problems: define the variable, write the equation, solve, answer in words, check.\n",
+   "body": "## Putting the tools together\n\nReal equations rarely arrive in the tidy form $ax + b = c$. They have parentheses, variables on both sides, and fractions. This lesson combines the simplifying tools from Lesson 24 with the solving steps from Lesson 25 into one general method, then applies it to word problems, which is where equations earn their keep.\n\n## A general strategy\n\n1. *Simplify each side* separately: distribute to remove parentheses, then combine like terms.\n2. *Collect the variable terms on one side* by adding or subtracting a variable term on both sides.\n3. *Collect the constants on the other side.*\n4. *Divide* by the coefficient of the variable.\n5. *Check* in the *original* equation.\n\n## Parentheses\n\n### Example 1\n\nSolve $4(x - 3) + 2x = 18$.\n\n- Distribute: $4x - 12 + 2x = 18$.\n- Combine like terms: $6x - 12 = 18$.\n- Add 12: $6x = 30$.\n- Divide by 6: $x = 5$.\n\nCheck: $4(5 - 3) + 2(5) = 8 + 10 = 18$. ✓\n\n## Variables on both sides\n\nWhen the variable appears on both sides, move all the variable terms to one side. It's usually easiest to move them to the side with the larger coefficient, which keeps the coefficient positive, but any choice works.\n\n### Example 2\n\nSolve $7x - 5 = 3x + 11$.\n\n- Subtract $3x$ from both sides: $4x - 5 = 11$.\n- Add 5: $4x = 16$.\n- Divide by 4: $x = 4$.\n\nCheck: left $7(4) - 5 = 23$; right $3(4) + 11 = 23$. ✓\n\n### Example 3\n\nSolve $2(3y + 1) = 5y - 2(y - 7)$.\n\n- Distribute both sides: $6y + 2 = 5y - 2y + 14$.\n- Combine on the right: $6y + 2 = 3y + 14$.\n- Subtract $3y$: $3y + 2 = 14$.\n- Subtract 2: $3y = 12$, so $y = 4$.\n\nCheck: left $2(13) = 26$; right $20 - 2(-3) = 26$. ✓\n\n## Fractions in equations\n\nIf an equation has fractions, you can *clear them* by multiplying every term on both sides by the LCD of the denominators. This turns it into an equation with whole-number coefficients.\n\n### Example 4\n\nSolve $\\dfrac{x}{3} + \\dfrac{1}{2} = \\dfrac{5}{6}$.\n\nThe LCD of 3, 2 and 6 is 6. Multiply every term by 6:\n\n$$6 \\cdot \\frac{x}{3} + 6 \\cdot \\frac12 = 6 \\cdot \\frac56 \\quad\\Rightarrow\\quad 2x + 3 = 5.$$\n\nThen $2x = 2$ and $x = 1$. Check: $\\tfrac13 + \\tfrac12 = \\tfrac26 + \\tfrac36 = \\tfrac56$. ✓\n\nDecimals can be cleared the same way: multiply $0.4x + 1.2 = 3$ by 10 to get $4x + 12 = 30$, so $x = 4.5$.\n\n## Special cases\n\nSometimes the variable disappears.\n\n- $2(x + 3) = 2x + 6$ simplifies to $2x + 6 = 2x + 6$, and subtracting $2x$ leaves $6 = 6$, which is always true. Every number is a solution; the equation is an **[[identity]]**.\n- $2(x + 3) = 2x + 5$ leaves $6 = 5$, which is never true. The equation has **[[no solution]]**.\n\n## Solving a formula for a variable\n\nThe same steps work on a formula with several letters. To solve $d = rt$ for $t$, treat $r$ like a number multiplying $t$ and divide both sides by it: $t = \\dfrac{d}{r}$ (for $r \\ne 0$). To solve the perimeter formula $P = 2l + 2w$ for $w$, subtract $2l$ from both sides, giving $P - 2l = 2w$, then divide by 2: $w = \\dfrac{P - 2l}{2}$. Rewriting a formula this way is useful when you need the same unknown many times, such as the width of several rectangles with known perimeters and lengths. In Lesson 29 you will solve equations like $2x + 3y = 12$ for $y$ in exactly this way.\n\n## Word problems\n\nA reliable process:\n\n1. *Read* the problem and identify what you're asked to find.\n2. *Define a variable* for the unknown (\"let $n$ = …\"). If there are other unknowns, write them in terms of the same variable.\n3. *Write an equation* that says the same thing as the problem.\n4. *Solve* it.\n5. *Answer* the question in a sentence with units, and check that it makes sense in the story.\n\nThe next lesson applies this process to a family of money problems: coins, tickets and mixtures.\n\n### Example 5 (number problem)\n\nThree times a number, decreased by 7, equals the number increased by 9. Find the number.\n\nLet $n$ be the number. \"Three times a number, decreased by 7\" is $3n - 7$; \"the number increased by 9\" is $n + 9$.\n\n$3n - 7 = n + 9$, so $2n = 16$ and $n = 8$. Check: $3(8) - 7 = 17$ and $8 + 9 = 17$. ✓\n\n### Example 6 (consecutive integers)\n\nThe sum of three consecutive integers is 72. Find them.\n\nConsecutive integers each differ by 1. Let the smallest be $n$; the others are $n + 1$ and $n + 2$.\n\n$n + (n + 1) + (n + 2) = 72 \\Rightarrow 3n + 3 = 72 \\Rightarrow 3n = 69 \\Rightarrow n = 23$.\n\nThe integers are 23, 24 and 25. Check: $23 + 24 + 25 = 72$. ✓\n\n### Example 7 (comparing plans)\n\nPlan A charges \\$40 per month plus \\$0.10 per minute. Plan B charges \\$25 per month plus \\$0.25 per minute. For how many minutes do the plans cost the same?\n\nLet $m$ be the minutes. Cost A: $40 + 0.10m$. Cost B: $25 + 0.25m$. Set them equal:\n\n$40 + 0.10m = 25 + 0.25m$. Subtract $0.10m$: $40 = 25 + 0.15m$. Subtract 25: $15 = 0.15m$. Divide: $m = 100$.\n\nAt 100 minutes both cost \\$50. (Fewer minutes favor Plan B; more favor Plan A.)\n\n### Example 8 (perimeter)\n\nA rectangle's length is 4 cm more than twice its width, and its perimeter is 56 cm. Find its dimensions.\n\nLet $w$ be the width; the length is $2w + 4$. Perimeter: $2w + 2(2w + 4) = 56$.\n\nSimplify: $2w + 4w + 8 = 56 \\Rightarrow 6w = 48 \\Rightarrow w = 8$. The length is $2(8) + 4 = 20$.\n\nThe rectangle is 8 cm by 20 cm. Check: $2(8) + 2(20) = 56$. ✓\n\n## Common mistakes\n\n- *Not distributing to every term* inside parentheses, especially with a negative in front.\n- *Moving a term without changing its sign.* Subtracting $3x$ from both sides of $7x - 5 = 3x + 11$ removes $3x$ from the right and *subtracts* it on the left.\n- *Multiplying only some terms* when clearing fractions. Every term on both sides gets multiplied.\n- *Checking in a simplified equation* instead of the original, which can hide a distribution error.\n- *Answering the wrong question:* in Example 8 the problem asks for both dimensions, not just $w$.\n\n## Key points\n\n- Simplify each side, collect variable terms on one side and constants on the other, then divide.\n- Clear fractions by multiplying every term by the LCD.\n- If the variable vanishes, a true statement means every number works; a false one means no solution.\n- Solve a formula for one of its letters with the same inverse operations, treating the other letters as numbers.\n- For word problems: define the variable, write the equation, solve, answer in words, check.\n",
    "quiz": [
     "pre-q-2601",
     "pre-q-2602",
@@ -989,7 +1010,44 @@
     "pre-q-2609",
     "pre-q-2610",
     "pre-q-2611",
-    "pre-q-2612"
+    "pre-q-2612",
+    "pre-q-2613",
+    "pre-q-2614",
+    "pre-q-2615",
+    "pre-q-2616",
+    "pre-q-2617"
+   ]
+  },
+  {
+   "id": "pre-money-problems",
+   "module": "pre-m7",
+   "title": "Money word problems",
+   "minutes": 30,
+   "topics": [
+    "Money word problems"
+   ],
+   "drills": [
+    "pre-coin-problem",
+    "pre-ticket-problem",
+    "pre-mixture-problem"
+   ],
+   "refs": [
+    "pre-ref-algebra"
+   ],
+   "body": "## Two kinds of numbers in one story\n\nLesson 26 gave you a five-step process for word problems: define a variable, write an equation, solve, answer, check. This lesson applies it to a family of problems that all share one structure: a jar of coins, a night of ticket sales, a bag of mixed nuts. Each story mixes two kinds of numbers, *how many* items there are and *how much each one is worth*, and the whole trick is keeping them apart.\n\n## Count times value\n\nEvery money problem rests on one multiplication. The **[[total value]]** of a group of identical items is\n\n$$\\text{total value} = \\text{number of items} \\times \\text{value of each item}.$$\n\nSeven quarters are worth $7 \\times 0.25 = 1.75$ dollars. Twelve adult tickets at \\$9 bring in $12 \\times 9 = 108$ dollars. Five pounds of coffee at \\$8 a pound cost $5 \\times 8 = 40$ dollars. When a problem has two kinds of items, two facts are usually given:\n\n1. the *number* of items altogether (or a relationship between the numbers), and\n2. the **[[total value]]** of everything together.\n\nThe numbers add up to the total number, and the values add up to the total value. What does *not* work is adding a count to a value, or adding the prices of the two kinds and calling that a total.\n\nA small table keeps the two kinds of numbers in separate columns. Fill in one row per kind of item, then write the equation from the last column.\n\n| Kind | Number | Value each | Total value |\n|---|---|---|---|\n| first kind | $x$ | … | $x \\times \\ldots$ |\n| second kind | (in terms of $x$) | … | … |\n| all together | given | | given |\n\n*Work in cents for coins.* Dimes are worth 10 cents, quarters 25 cents, and \\$5.10 is 510 cents. Using cents keeps every number whole, so you avoid decimal slips. Just be consistent: never put cents on one side of the equation and dollars on the other.\n\n## Coin problems\n\n### Example 1\n\nA jar holds 30 coins, all dimes and quarters, worth \\$5.10 altogether. How many of each are there?\n\n*Define the variable.* Let $d$ be the number of dimes. There are 30 coins in all, so the quarters are whatever is left: $30 - d$.\n\n| Kind | Number | Value each (cents) | Total value (cents) |\n|---|---|---|---|\n| dimes | $d$ | 10 | $10d$ |\n| quarters | $30 - d$ | 25 | $25(30 - d)$ |\n| all together | 30 | | 510 |\n\n*Write the equation* from the last column: the two values add to 510 cents.\n\n$$10d + 25(30 - d) = 510$$\n\n*Solve.* Distribute: $10d + 750 - 25d = 510$. Combine like terms: $-15d + 750 = 510$. Subtract 750: $-15d = -240$. Divide by $-15$: $d = 16$.\n\n*Answer.* There are 16 dimes and $30 - 16 = 14$ quarters.\n\n*Check.* $16 + 14 = 30$ coins, and $16(10) + 14(25) = 160 + 350 = 510$ cents. ✓\n\nWhy \"$30 - d$\"? If you knew there were 12 dimes, you'd find the quarters by computing $30 - 12$. With an unknown number of dimes, you do the same subtraction with $d$. A second letter for the quarters would give two unknowns, and so far you have only solved equations with one.\n\n### Example 2\n\nTara has nickels and dimes worth \\$2.65. She has 4 more than twice as many dimes as nickels. How many of each coin does she have?\n\nHere the relationship between the counts is given instead of the total count. Let $n$ be the number of nickels; then the dimes number $2n + 4$.\n\nValues in cents: nickels $5n$, dimes $10(2n + 4)$, total 265.\n\n$$5n + 10(2n + 4) = 265$$\n\nDistribute: $5n + 20n + 40 = 265$. Combine: $25n + 40 = 265$. Subtract 40: $25n = 225$. Divide: $n = 9$.\n\nShe has 9 nickels and $2(9) + 4 = 22$ dimes. Check: $9(5) + 22(10) = 45 + 220 = 265$ cents. ✓\n\n## Ticket problems\n\nTicket problems are coin problems in disguise: two kinds of tickets, each with its own price, a total number sold and a total amount collected.\n\n### Example 3\n\nA school play sold 220 tickets. Adult tickets cost \\$12 and student tickets cost \\$7. The ticket sales brought in \\$2,190. How many adult tickets were sold?\n\nLet $a$ be the adult tickets; the student tickets are $220 - a$.\n\n| Kind | Number | Price | Money |\n|---|---|---|---|\n| adult | $a$ | 12 | $12a$ |\n| student | $220 - a$ | 7 | $7(220 - a)$ |\n| all together | 220 | | 2,190 |\n\n$$12a + 7(220 - a) = 2{,}190$$\n\nDistribute: $12a + 1{,}540 - 7a = 2{,}190$. Combine: $5a + 1{,}540 = 2{,}190$. Subtract: $5a = 650$, so $a = 130$.\n\nThe play sold 130 adult tickets (and 90 student tickets). Check: $130(12) + 90(7) = 1{,}560 + 630 = 2{,}190$. ✓\n\nA quick reasonableness test helps here. If all 220 tickets had been student tickets, sales would be $220 \\times 7 = 1{,}540$ dollars. Each adult ticket adds \\$5 more than a student ticket, and the actual sales are \\$650 above that, so there must be $650 \\div 5 = 130$ adult tickets. This is the same arithmetic the equation did, seen from another angle.\n\n## Mixture problems\n\nA **[[mixture problem]]** blends two ingredients with different prices into a mix with a price in between. The \"number\" is now an amount (pounds, liters) and the \"value each\" is a price per unit, but the table and the equation have the same shape. The new idea is that the mix itself has a value too: its total amount times its price per unit.\n\n### Example 4\n\nA shop blends coffee that sells for \\$9 per pound with coffee that sells for \\$14 per pound to make 20 pounds of a blend that sells for \\$11 per pound. How many pounds of each should it use?\n\nLet $x$ be the pounds of \\$9 coffee; then $20 - x$ pounds are the \\$14 coffee. The blend is worth $20 \\times 11 = 220$ dollars.\n\n$$9x + 14(20 - x) = 220$$\n\nDistribute: $9x + 280 - 14x = 220$. Combine: $-5x + 280 = 220$. Subtract 280: $-5x = -60$. Divide: $x = 12$.\n\nUse 12 pounds of the \\$9 coffee and 8 pounds of the \\$14 coffee. Check: $12(9) + 8(14) = 108 + 112 = 220$. ✓\n\nNotice that \\$11 is closer to \\$9 than to \\$14, so the blend needs *more* of the cheaper coffee. The number line shows the idea: the mix price sits between the two prices, nearer the ingredient there is more of.\n\n```numberline\n{\"x\": [8, 15], \"points\": [{\"at\": [9, 0], \"label\": \"$9 (12 lb)\"}, {\"at\": [11, 0], \"label\": \"blend $11\"}, {\"at\": [14, 0], \"label\": \"$14 (8 lb)\"}], \"caption\": \"The blend's price lies between the two prices, closer to the one used more\"}\n```\n\n### Example 5\n\nHow many pounds of peanuts at \\$4 per pound must be added to 6 pounds of cashews at \\$10 per pound to make a mix worth \\$6 per pound?\n\nThis time one amount is fixed and the total is unknown. Let $p$ be the pounds of peanuts. The mix weighs $p + 6$ pounds and is worth $6(p + 6)$ dollars.\n\n$$4p + 10(6) = 6(p + 6)$$\n\nSimplify: $4p + 60 = 6p + 36$. Subtract $4p$: $60 = 2p + 36$. Subtract 36: $24 = 2p$, so $p = 12$.\n\nAdd 12 pounds of peanuts, making 18 pounds of mix. Check: $12(4) + 60 = 108$ and $18 \\times 6 = 108$. ✓\n\n## Common mistakes\n\n- *Adding counts and values together*, such as writing $d + 25(30 - d) = 510$. Each term in the value equation must be a count *times* a value.\n- *Mixing units*: $10d + 25q = 5.10$ puts cents on the left and dollars on the right. Use cents throughout, or dollars throughout.\n- *Using two unknowns* without relating them. If you know the total number, write the second count as \"total minus the first.\"\n- *Averaging the prices.* The blend in Example 4 is not \\$11.50 just because $\\tfrac{9 + 14}{2} = 11.5$; the price depends on how much of each is used.\n- *Answering half the question.* After finding $d = 16$, the problem still wants the number of quarters.\n- *Forgetting the mix in a mixture problem*: its total value is (total amount) × (its price), not the sum of the two prices.\n\n## Key points\n\n- Total value = number of items × value of each item.\n- Let the variable be one count, and write the other count in terms of it (total minus the first, or the given relationship).\n- The values of the parts add up to the total value; write that as the equation.\n- For coins, work in cents. For mixtures, the mix's value is its amount times its price.\n- Check both facts: the counts and the values.\n",
+   "quiz": [
+    "pre-q-money-01",
+    "pre-q-money-02",
+    "pre-q-money-03",
+    "pre-q-money-04",
+    "pre-q-money-05",
+    "pre-q-money-06",
+    "pre-q-money-07",
+    "pre-q-money-08",
+    "pre-q-money-09",
+    "pre-q-money-10",
+    "pre-q-money-11",
+    "pre-q-money-12"
    ]
   },
   {
@@ -1021,6 +1079,41 @@
     "pre-q-2709",
     "pre-q-2710",
     "pre-q-2711"
+   ]
+  },
+  {
+   "id": "pre-graphing-lines",
+   "module": "pre-m7",
+   "title": "Graphing linear equations",
+   "minutes": 35,
+   "topics": [
+    "Coordinate plane",
+    "Graphing lines",
+    "Slope"
+   ],
+   "drills": [
+    "pre-slope-points",
+    "pre-intercepts",
+    "pre-line-equation"
+   ],
+   "refs": [
+    "pre-ref-algebra"
+   ],
+   "body": "## From a number line to a plane\n\nIn Lesson 28 you graphed inequalities in one variable on a number line. An equation with *two* variables, such as $y = 2x - 1$, needs more room: each solution is a pair of numbers, one for $x$ and one for $y$, so it takes two directions to show it. This lesson builds the grid that does that, then shows how equations like $y = 2x - 1$ draw straight lines on it, and how to read a line's steepness and starting point straight from its equation.\n\n## The coordinate plane\n\nThe **[[coordinate plane]]** is made from two number lines that cross at right angles at their zeros. The horizontal one is the **[[x-axis]]**, the vertical one is the **[[y-axis]]**, and the point where they cross is the **[[origin]]**.\n\nEvery point is named by an **[[ordered pair]]** $(x, y)$. To plot $(3, -2)$, start at the origin, move 3 units right (the $x$-coordinate), then 2 units down (the $y$-coordinate). Negative $x$ means left; negative $y$ means down. The order matters: $(3, -2)$ and $(-2, 3)$ are different points.\n\nThe axes cut the plane into four **[[quadrants]]**, numbered I to IV counterclockwise starting from the upper right:\n\n| Quadrant | Signs of $(x, y)$ | Example |\n|---|---|---|\n| I | $(+, +)$ | $(2, 4)$ |\n| II | $(-, +)$ | $(-3, 1)$ |\n| III | $(-, -)$ | $(-1, -3)$ |\n| IV | $(+, -)$ | $(3, -2)$ |\n\nA point on an axis is in no quadrant. Points on the $x$-axis have $y = 0$, like $(5, 0)$; points on the $y$-axis have $x = 0$, like $(0, -4)$.\n\n```plot\n{\"x\": [-5, 5], \"y\": [-5, 5], \"equal\": true, \"points\": [{\"at\": [2, 4], \"label\": \"(2, 4)\"}, {\"at\": [-3, 1], \"label\": \"(-3, 1)\"}, {\"at\": [-1, -3], \"label\": \"(-1, -3)\"}, {\"at\": [3, -2], \"label\": \"(3, -2)\"}], \"labels\": [{\"at\": [4, 4.5], \"text\": \"I\"}, {\"at\": [-4, 4.5], \"text\": \"II\"}, {\"at\": [-4, -4.5], \"text\": \"III\"}, {\"at\": [4, -4.5], \"text\": \"IV\"}], \"caption\": \"One point in each quadrant\"}\n```\n\n## Solutions are points\n\nA solution of an equation in two variables is an ordered pair that makes it true. For $y = 2x - 1$, the pair $(3, 5)$ is a solution because $2(3) - 1 = 5$; the pair $(5, 3)$ is not, because $2(5) - 1 = 9 \\ne 3$. There are infinitely many solutions: pick any $x$, and the equation tells you the matching $y$. Plotting them all gives the equation's **[[graph]]**.\n\nAn equation whose graph is a straight line is a **[[linear equation]]**. In this course that means $x$ and $y$ appear only to the first power and are never multiplied together: $y = 2x - 1$ and $2x + 3y = 12$ are linear; $y = x^2$ is not.\n\n### Example 1\n\nGraph $y = 2x - 1$ by making a table of values.\n\nChoose a few easy $x$-values, including a negative one and 0, and compute each $y$:\n\n| $x$ | $y = 2x - 1$ | point |\n|---|---|---|\n| $-1$ | $2(-1) - 1 = -3$ | $(-1, -3)$ |\n| 0 | $2(0) - 1 = -1$ | $(0, -1)$ |\n| 1 | $2(1) - 1 = 1$ | $(1, 1)$ |\n| 2 | $2(2) - 1 = 3$ | $(2, 3)$ |\n| 3 | $2(3) - 1 = 5$ | $(3, 5)$ |\n\nPlot the points; they line up. Draw the line through them with arrows on both ends, since the solutions continue forever.\n\n```plot\n{\"x\": [-3, 5], \"y\": [-5, 7], \"equal\": true, \"functions\": [{\"f\": \"2x - 1\", \"label\": \"y = 2x - 1\"}], \"points\": [{\"at\": [-1, -3]}, {\"at\": [0, -1]}, {\"at\": [1, 1]}, {\"at\": [2, 3]}, {\"at\": [3, 5], \"label\": \"(3, 5)\"}], \"caption\": \"The points from the table lie on one straight line\"}\n```\n\nTwo points determine a line, but plot at least three: if one lands off the line, you've made an arithmetic slip.\n\n## Intercepts\n\nThe places where a line crosses the axes are especially useful.\n\n- The **[[x-intercept]]** is where the line crosses the $x$-axis. There $y = 0$, so set $y = 0$ and solve for $x$.\n- The **[[y-intercept]]** is where the line crosses the $y$-axis. There $x = 0$, so set $x = 0$ and solve for $y$.\n\nIntercepts give a fast way to graph an equation written like $2x + 3y = 12$, where making a table would mean solving for $y$ each time.\n\n### Example 2\n\nFind the intercepts of $2x + 3y = 12$ and graph the line.\n\n- $x$-intercept: set $y = 0$. Then $2x = 12$, so $x = 6$. The point is $(6, 0)$.\n- $y$-intercept: set $x = 0$. Then $3y = 12$, so $y = 4$. The point is $(0, 4)$.\n\nCheck with a third point: $x = 3$ gives $6 + 3y = 12$, so $y = 2$, and $(3, 2)$ should be on the same line.\n\n```plot\n{\"x\": [-2, 8], \"y\": [-2, 6], \"equal\": true, \"functions\": [{\"f\": \"4 - 2x/3\", \"label\": \"2x + 3y = 12\"}], \"points\": [{\"at\": [6, 0], \"label\": \"(6, 0)\"}, {\"at\": [0, 4], \"label\": \"(0, 4)\"}, {\"at\": [3, 2], \"label\": \"(3, 2)\"}], \"caption\": \"The intercepts (6, 0) and (0, 4), with the check point (3, 2)\"}\n```\n\n## Slope: rise over run\n\nLines differ in steepness. The **[[slope]]** of a line measures it: how much $y$ changes for each step in $x$. Between two points on the line,\n\n$$\\text{slope} = m = \\frac{\\text{rise}}{\\text{run}} = \\frac{\\text{change in } y}{\\text{change in } x} = \\frac{y_2 - y_1}{x_2 - x_1}.$$\n\nThe letter $m$ is the usual name for slope. Because a line is straight, it rises at the same rate everywhere, so *any* two points on it give the same slope. In Example 1, going from $(0, -1)$ to $(3, 5)$ rises 6 while running 3, so $m = \\tfrac63 = 2$; from $(1, 1)$ to $(2, 3)$ it rises 2 and runs 1, again $m = 2$.\n\nThe sign of the slope tells the direction:\n\n- *positive slope*: the line rises from left to right;\n- *negative slope*: it falls from left to right;\n- *zero slope*: it is horizontal (no rise), like $y = 3$;\n- a vertical line, like $x = -2$, has no run, and dividing by 0 is undefined, so its slope is *undefined*.\n\n### Example 3\n\nFind the slope of the line through $(-2, 5)$ and $(4, 1)$.\n\nSubtract in the same order on top and bottom (second point minus first):\n\n$$m = \\frac{1 - 5}{4 - (-2)} = \\frac{-4}{6} = -\\frac{2}{3}.$$\n\nThe slope is negative, so the line falls: for every 3 units to the right, it drops 2. Subtracting in the other order gives $\\tfrac{5 - 1}{-2 - 4} = \\tfrac{4}{-6}$, the same $-\\tfrac23$, so either order works as long as top and bottom match.\n\n```plot\n{\"x\": [-4, 6], \"y\": [-2, 7], \"equal\": true, \"functions\": [{\"f\": \"11/3 - 2x/3\"}], \"points\": [{\"at\": [-2, 5], \"label\": \"(-2, 5)\"}, {\"at\": [4, 1], \"label\": \"(4, 1)\"}], \"segments\": [{\"from\": [-2, 5], \"to\": [4, 5], \"dashed\": true, \"label\": \"run 6\"}, {\"from\": [4, 5], \"to\": [4, 1], \"dashed\": true, \"label\": \"rise -4\"}], \"caption\": \"Run 6, rise -4: slope -4/6 = -2/3\"}\n```\n\n## Slope-intercept form: y = mx + b\n\nLook again at $y = 2x - 1$. Its slope is 2 and its $y$-intercept is $-1$, and both numbers are sitting in the equation. That is no coincidence. In any equation\n\n$$y = mx + b,$$\n\nsetting $x = 0$ gives $y = b$, so the line crosses the $y$-axis at $(0, b)$. And each time $x$ increases by 1, $mx$ increases by $m$, so $y$ rises by $m$: the slope is $m$. This is called **[[slope-intercept form]]**. It lets you graph a line without a table: plot $(0, b)$, then use the slope to step to a second point.\n\n### Example 4\n\nGraph $y = \\tfrac34 x - 2$.\n\n- The $y$-intercept is $b = -2$: plot $(0, -2)$.\n- The slope is $m = \\tfrac34$: from $(0, -2)$ run 4 to the right and rise 3, landing on $(4, 1)$.\n- Do it again to reach $(8, 4)$, or go backward (left 4, down 3) to $(-4, -5)$. Draw the line through the points.\n\nCheck $(4, 1)$: $\\tfrac34(4) - 2 = 3 - 2 = 1$. ✓\n\n```plot\n{\"x\": [-5, 9], \"y\": [-6, 5], \"equal\": true, \"functions\": [{\"f\": \"3x/4 - 2\", \"label\": \"y = (3/4)x - 2\"}], \"points\": [{\"at\": [0, -2], \"label\": \"(0, -2)\"}, {\"at\": [4, 1], \"label\": \"(4, 1)\"}], \"segments\": [{\"from\": [0, -2], \"to\": [4, -2], \"dashed\": true, \"label\": \"run 4\"}, {\"from\": [4, -2], \"to\": [4, 1], \"dashed\": true, \"label\": \"rise 3\"}], \"caption\": \"Start at the y-intercept, then run 4 and rise 3\"}\n```\n\n### Example 5\n\nFind the slope and $y$-intercept of $2x + 3y = 12$.\n\nThe equation isn't in the form $y = mx + b$ yet, so solve it for $y$, as in Lesson 26:\n\n- Subtract $2x$: $3y = -2x + 12$.\n- Divide every term by 3: $y = -\\tfrac23 x + 4$.\n\nThe slope is $-\\tfrac23$ and the $y$-intercept is 4. This matches Example 2: from $(0, 4)$ to $(6, 0)$ the line drops 4 while running 6, a slope of $-\\tfrac46 = -\\tfrac23$.\n\n### Slope in a story\n\nIn a real situation, the slope is a *rate* and the $y$-intercept is a *starting amount*. A taxi that charges \\$4 to start plus \\$2.50 per mile costs $y = 2.5x + 4$ dollars for $x$ miles. The slope 2.5 is dollars per mile, and the $y$-intercept 4 is the cost before the car moves.\n\n## Horizontal and vertical lines\n\n- $y = 3$ means $y$ is 3 no matter what $x$ is: a horizontal line through $(0, 3)$, slope 0. (It is $y = 0x + 3$.)\n- $x = -2$ means $x$ is always $-2$: a vertical line through $(-2, 0)$, slope undefined. It can't be written as $y = mx + b$.\n\n## Common mistakes\n\n- *Plotting $(x, y)$ backward*: the first number is always the move left or right.\n- *Run over rise.* Slope is change in $y$ divided by change in $x$, not the reverse.\n- *Mismatched subtraction*: $\\tfrac{y_2 - y_1}{x_1 - x_2}$ flips the sign. Subtract in the same order on top and bottom.\n- *Reading $m$ and $b$ from the wrong form.* In $2x + 3y = 12$ the slope is not 2 and the $y$-intercept is not 12; solve for $y$ first.\n- *Mixing up the intercepts*: for the $x$-intercept, set $y = 0$ (not $x = 0$).\n- *Calling a vertical line's slope 0.* Horizontal lines have slope 0; vertical lines have undefined slope.\n\n## Key points\n\n- A point is an ordered pair $(x, y)$: across first, then up or down. The quadrants I–IV go counterclockwise from the upper right.\n- The graph of a linear equation is a straight line; make a table, plot at least three points, and connect them.\n- $x$-intercept: set $y = 0$. $y$-intercept: set $x = 0$.\n- Slope $m = \\dfrac{\\text{rise}}{\\text{run}} = \\dfrac{y_2 - y_1}{x_2 - x_1}$: positive rises, negative falls, 0 is horizontal, vertical is undefined.\n- In $y = mx + b$, $m$ is the slope and $b$ is the $y$-intercept. Solve for $y$ to get this form.\n",
+   "quiz": [
+    "pre-q-graph-01",
+    "pre-q-graph-02",
+    "pre-q-graph-03",
+    "pre-q-graph-04",
+    "pre-q-graph-05",
+    "pre-q-graph-06",
+    "pre-q-graph-07",
+    "pre-q-graph-08",
+    "pre-q-graph-09",
+    "pre-q-graph-10",
+    "pre-q-graph-11",
+    "pre-q-graph-12",
+    "pre-q-graph-13"
    ]
   },
   {
@@ -1103,7 +1196,7 @@
    "refs": [
     "pre-ref-geometry"
    ],
-   "body": "## Measuring the inside\n\nPerimeter measures the distance around a shape; **[[area]]** measures the amount of surface inside it. Area is counted in **[[square units]]**: a square 1 cm on each side has an area of 1 square centimeter (1 cm²). To find an area is to count how many of these unit squares fit inside. This lesson builds the area formulas for the common polygons, each one from the one before, so you can rebuild any of them if you forget.\n\n## Rectangles and squares\n\nA rectangle 5 units long and 3 units wide holds 3 rows of 5 unit squares, or 15 squares in all.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [5, 0], [5, 3], [0, 3]]}], \"segments\": [{\"from\": [1, 0], \"to\": [1, 3]}, {\"from\": [2, 0], \"to\": [2, 3]}, {\"from\": [3, 0], \"to\": [3, 3]}, {\"from\": [4, 0], \"to\": [4, 3]}, {\"from\": [0, 1], \"to\": [5, 1]}, {\"from\": [0, 2], \"to\": [5, 2]}], \"caption\": \"A 5 by 3 rectangle contains 15 unit squares\"}\n```\n\n$$\\text{Rectangle: } A = lw \\qquad \\text{Square: } A = s^2$$\n\nThe formula works for fractional and decimal sides too: a 2.5 m by 4 m rug covers 10 m².\n\n## Parallelograms\n\nA **[[parallelogram]]** is a quadrilateral whose opposite sides are parallel. Cut a right triangle off one end and slide it to the other end, and the parallelogram becomes a rectangle with the same base and the same height.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [6, 0], [8, 3], [2, 3]]}], \"segments\": [{\"from\": [2, 3], \"to\": [2, 0], \"dashed\": true, \"label\": \"h\"}, {\"from\": [0, -0.4], \"to\": [6, -0.4], \"label\": \"b\"}], \"rightAngles\": [[[2, 0], [3, 0], [2, 1]]], \"caption\": \"A parallelogram with base b and height h\"}\n```\n\n$$\\text{Parallelogram: } A = bh$$\n\nThe **[[height]]** must be measured *perpendicular* to the base (the dashed line), not along the slanted side. The slanted side is longer than the height, and using it gives too big an area.\n\n## Triangles\n\nTwo copies of any triangle fit together to make a parallelogram with the same base and height. So a triangle's area is half the parallelogram's:\n\n$$\\text{Triangle: } A = \\tfrac12 bh$$\n\nAgain, the height is the perpendicular distance from the base to the opposite vertex. In a right triangle the two legs are a base and its height. In an obtuse triangle the height may fall outside the triangle.\n\n### Example 1\n\nFind the area of a triangle with base 14 cm and height 9 cm.\n\n$A = \\tfrac12(14)(9) = 63 \\text{ cm}^2$.\n\n### Example 2\n\nA triangle has sides 13, 13 and 10 in, and its height to the 10-inch side is 12 in. Find the area and perimeter.\n\nArea: $\\tfrac12(10)(12) = 60 \\text{ in}^2$. Perimeter: $13 + 13 + 10 = 36$ in. Notice that the 13-inch sides are not used for the area, and the height isn't used for the perimeter.\n\n## Trapezoids\n\nA **[[trapezoid]]** has exactly one pair of parallel sides, called the bases $b_1$ and $b_2$. Two copies of a trapezoid, one flipped, fit together to make a parallelogram with base $b_1 + b_2$ and the same height. Half of that is\n\n$$\\text{Trapezoid: } A = \\tfrac12 (b_1 + b_2) h.$$\n\nIn words: the average of the two bases, times the height.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [9, 0], [7, 4], [2, 4]]}], \"segments\": [{\"from\": [0, -0.4], \"to\": [9, -0.4], \"label\": \"b₁ = 9\"}, {\"from\": [2, 4.4], \"to\": [7, 4.4], \"label\": \"b₂ = 5\"}, {\"from\": [2, 4], \"to\": [2, 0], \"dashed\": true, \"label\": \"h = 4\"}], \"rightAngles\": [[[2, 0], [3, 0], [2, 1]]], \"caption\": \"Trapezoid with bases 9 and 5 and height 4\"}\n```\n\n### Example 3\n\nFind the area of the trapezoid in the figure.\n\n$A = \\tfrac12(9 + 5)(4) = \\tfrac12(14)(4) = 28$ square units.\n\n## Composite figures\n\nMany real shapes are combinations of rectangles, triangles and trapezoids. Find the area by *splitting* the shape into simple pieces and adding, or by *subtracting* a missing piece from a larger shape.\n\n### Example 4\n\nAn L-shaped room is described by the figure. Find its floor area.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [12, 0], [12, 5], [5, 5], [5, 10], [0, 10]]}], \"segments\": [{\"from\": [0, -0.5], \"to\": [12, -0.5], \"label\": \"12 ft\"}, {\"from\": [12.5, 0], \"to\": [12.5, 5], \"label\": \"5 ft\"}, {\"from\": [-0.5, 0], \"to\": [-0.5, 10], \"label\": \"10 ft\"}, {\"from\": [0, 10.5], \"to\": [5, 10.5], \"label\": \"5 ft\"}, {\"from\": [5, 5], \"to\": [5, 0], \"dashed\": true}], \"caption\": \"An L-shaped room\"}\n```\n\nSplit with the dashed line into a 5 ft by 10 ft rectangle on the left and a 7 ft by 5 ft rectangle on the right (the bottom is 12 ft, so the right part is $12 - 5 = 7$ ft wide).\n\n$A = 5 \\times 10 + 7 \\times 5 = 50 + 35 = 85 \\text{ ft}^2$.\n\nCheck by subtracting: the full 12 by 10 rectangle is 120 ft², and the missing top-right corner is $7 \\times 5 = 35$ ft². $120 - 35 = 85$. ✓\n\n### Example 5\n\nCarpet costs \\$4.25 per square foot. How much does it cost to carpet the room in Example 4?\n\n$85 \\times 4.25 = 361.25$, so \\$361.25.\n\n## Changing units of area\n\nRecall from Lesson 28 that area units convert by the square of the length factor. A room of 85 ft² is $85 \\div 9 \\approx 9.44$ square yards, since 1 yd² = 9 ft².\n\n## Area and perimeter are different\n\nTwo shapes with the same perimeter can have very different areas. A 1 ft by 11 ft rectangle and a 6 ft by 6 ft square both have perimeter 24 ft, but their areas are 11 ft² and 36 ft². Among rectangles with a given perimeter, the square has the largest area. Long, thin shapes have a lot of edge for very little inside.\n\n### Example 6\n\nA farmer has 40 m of fence for a rectangular pen. Compare a 5 m by 15 m pen with a 10 m by 10 m pen.\n\nBoth use $2(5) + 2(15) = 40$ m and $2(10) + 2(10) = 40$ m of fence. The areas are $5 \\times 15 = 75$ m² and $10 \\times 10 = 100$ m². The square pen encloses a third more ground with the same fence.\n\n## Common mistakes\n\n- *Using a slanted side as the height.* The height is always perpendicular to the base.\n- *Forgetting the $\\tfrac12$* for triangles and trapezoids.\n- *Giving area in plain units.* Area is in square units: ft², cm², m².\n- *Missing a hidden length* in a composite figure; find it from the lengths you know (like $12 - 5 = 7$).\n- *Converting area with the length factor:* 1 yd² is 9 ft², not 3 ft².\n\n## Key points\n\n- Rectangle $A = lw$; square $A = s^2$; parallelogram $A = bh$.\n- Triangle $A = \\tfrac12 bh$; trapezoid $A = \\tfrac12(b_1 + b_2)h$.\n- Heights are perpendicular to the base.\n- Composite figures: split into pieces and add, or subtract a missing piece.\n- Area is measured in square units.\n",
+   "body": "## Measuring the inside\n\nPerimeter measures the distance around a shape; **[[area]]** measures the amount of surface inside it. Area is counted in **[[square units]]**: a square 1 cm on each side has an area of 1 square centimeter (1 cm²). To find an area is to count how many of these unit squares fit inside. This lesson builds the area formulas for the common polygons, each one from the one before, so you can rebuild any of them if you forget.\n\n## Rectangles and squares\n\nA rectangle 5 units long and 3 units wide holds 3 rows of 5 unit squares, or 15 squares in all.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [5, 0], [5, 3], [0, 3]]}], \"segments\": [{\"from\": [1, 0], \"to\": [1, 3]}, {\"from\": [2, 0], \"to\": [2, 3]}, {\"from\": [3, 0], \"to\": [3, 3]}, {\"from\": [4, 0], \"to\": [4, 3]}, {\"from\": [0, 1], \"to\": [5, 1]}, {\"from\": [0, 2], \"to\": [5, 2]}], \"caption\": \"A 5 by 3 rectangle contains 15 unit squares\"}\n```\n\n$$\\text{Rectangle: } A = lw \\qquad \\text{Square: } A = s^2$$\n\nThe formula works for fractional and decimal sides too: a 2.5 m by 4 m rug covers 10 m².\n\n## Parallelograms\n\nA **[[parallelogram]]** is a quadrilateral whose opposite sides are parallel. Cut a right triangle off one end and slide it to the other end, and the parallelogram becomes a rectangle with the same base and the same height.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [6, 0], [8, 3], [2, 3]]}], \"segments\": [{\"from\": [2, 3], \"to\": [2, 0], \"dashed\": true, \"label\": \"h\"}, {\"from\": [0, -0.4], \"to\": [6, -0.4], \"label\": \"b\"}], \"rightAngles\": [[[2, 0], [3, 0], [2, 1]]], \"caption\": \"A parallelogram with base b and height h\"}\n```\n\n$$\\text{Parallelogram: } A = bh$$\n\nThe **[[height]]** must be measured *perpendicular* to the base (the dashed line), not along the slanted side. The slanted side is longer than the height, and using it gives too big an area.\n\n## Triangles\n\nTwo copies of any triangle fit together to make a parallelogram with the same base and height. So a triangle's area is half the parallelogram's:\n\n$$\\text{Triangle: } A = \\tfrac12 bh$$\n\nAgain, the height is the perpendicular distance from the base to the opposite vertex. In a right triangle the two legs are a base and its height. In an obtuse triangle the height may fall outside the triangle.\n\n### Example 1\n\nFind the area of a triangle with base 14 cm and height 9 cm.\n\n$A = \\tfrac12(14)(9) = 63 \\text{ cm}^2$.\n\n### Example 2\n\nA triangle has sides 13, 13 and 10 in, and its height to the 10-inch side is 12 in. Find the area and perimeter.\n\nArea: $\\tfrac12(10)(12) = 60 \\text{ in}^2$. Perimeter: $13 + 13 + 10 = 36$ in. Notice that the 13-inch sides are not used for the area, and the height isn't used for the perimeter.\n\n## Trapezoids\n\nA **[[trapezoid]]** has exactly one pair of parallel sides, called the bases $b_1$ and $b_2$. Two copies of a trapezoid, one flipped, fit together to make a parallelogram with base $b_1 + b_2$ and the same height. Half of that is\n\n$$\\text{Trapezoid: } A = \\tfrac12 (b_1 + b_2) h.$$\n\nIn words: the average of the two bases, times the height.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [9, 0], [7, 4], [2, 4]]}], \"segments\": [{\"from\": [0, -0.4], \"to\": [9, -0.4], \"label\": \"b₁ = 9\"}, {\"from\": [2, 4.4], \"to\": [7, 4.4], \"label\": \"b₂ = 5\"}, {\"from\": [2, 4], \"to\": [2, 0], \"dashed\": true, \"label\": \"h = 4\"}], \"rightAngles\": [[[2, 0], [3, 0], [2, 1]]], \"caption\": \"Trapezoid with bases 9 and 5 and height 4\"}\n```\n\n### Example 3\n\nFind the area of the trapezoid in the figure.\n\n$A = \\tfrac12(9 + 5)(4) = \\tfrac12(14)(4) = 28$ square units.\n\n## Composite figures\n\nMany real shapes are combinations of rectangles, triangles and trapezoids. Find the area by *splitting* the shape into simple pieces and adding, or by *subtracting* a missing piece from a larger shape.\n\n### Example 4\n\nAn L-shaped room is described by the figure. Find its floor area.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [12, 0], [12, 5], [5, 5], [5, 10], [0, 10]]}], \"segments\": [{\"from\": [0, -0.5], \"to\": [12, -0.5], \"label\": \"12 ft\"}, {\"from\": [12.5, 0], \"to\": [12.5, 5], \"label\": \"5 ft\"}, {\"from\": [-0.5, 0], \"to\": [-0.5, 10], \"label\": \"10 ft\"}, {\"from\": [0, 10.5], \"to\": [5, 10.5], \"label\": \"5 ft\"}, {\"from\": [5, 5], \"to\": [5, 0], \"dashed\": true}], \"caption\": \"An L-shaped room\"}\n```\n\nSplit with the dashed line into a 5 ft by 10 ft rectangle on the left and a 7 ft by 5 ft rectangle on the right (the bottom is 12 ft, so the right part is $12 - 5 = 7$ ft wide).\n\n$A = 5 \\times 10 + 7 \\times 5 = 50 + 35 = 85 \\text{ ft}^2$.\n\nCheck by subtracting: the full 12 by 10 rectangle is 120 ft², and the missing top-right corner is $7 \\times 5 = 35$ ft². $120 - 35 = 85$. ✓\n\n### Example 5\n\nCarpet costs \\$4.25 per square foot. How much does it cost to carpet the room in Example 4?\n\n$85 \\times 4.25 = 361.25$, so \\$361.25.\n\n## Changing units of area\n\nRecall from Lesson 30 that area units convert by the square of the length factor. A room of 85 ft² is $85 \\div 9 \\approx 9.44$ square yards, since 1 yd² = 9 ft².\n\n## Area and perimeter are different\n\nTwo shapes with the same perimeter can have very different areas. A 1 ft by 11 ft rectangle and a 6 ft by 6 ft square both have perimeter 24 ft, but their areas are 11 ft² and 36 ft². Among rectangles with a given perimeter, the square has the largest area. Long, thin shapes have a lot of edge for very little inside.\n\n### Example 6\n\nA farmer has 40 m of fence for a rectangular pen. Compare a 5 m by 15 m pen with a 10 m by 10 m pen.\n\nBoth use $2(5) + 2(15) = 40$ m and $2(10) + 2(10) = 40$ m of fence. The areas are $5 \\times 15 = 75$ m² and $10 \\times 10 = 100$ m². The square pen encloses a third more ground with the same fence.\n\n## Common mistakes\n\n- *Using a slanted side as the height.* The height is always perpendicular to the base.\n- *Forgetting the $\\tfrac12$* for triangles and trapezoids.\n- *Giving area in plain units.* Area is in square units: ft², cm², m².\n- *Missing a hidden length* in a composite figure; find it from the lengths you know (like $12 - 5 = 7$).\n- *Converting area with the length factor:* 1 yd² is 9 ft², not 3 ft².\n\n## Key points\n\n- Rectangle $A = lw$; square $A = s^2$; parallelogram $A = bh$.\n- Triangle $A = \\tfrac12 bh$; trapezoid $A = \\tfrac12(b_1 + b_2)h$.\n- Heights are perpendicular to the base.\n- Composite figures: split into pieces and add, or subtract a missing piece.\n- Area is measured in square units.\n",
    "quiz": [
     "pre-q-3001",
     "pre-q-3002",
@@ -1186,16 +1279,18 @@
    "title": "The Pythagorean theorem",
    "minutes": 25,
    "topics": [
-    "Pythagorean theorem"
+    "Pythagorean theorem",
+    "Coordinate plane"
    ],
    "drills": [
     "pre-hypotenuse",
-    "pre-leg"
+    "pre-leg",
+    "pre-grid-distance"
    ],
    "refs": [
     "pre-ref-geometry"
    ],
-   "body": "## Distances you can't measure directly\n\nHow long a ladder reaches the window? How far is it across a rectangular field on the diagonal? What's the screen size of a TV that is 48 inches wide and 27 inches tall? All of these involve right triangles, and one theorem answers them all. It ties together squares and square roots (Lesson 20), equations (Module 7) and area (Lesson 30).\n\n## Parts of a right triangle\n\nIn a right triangle, the two sides that form the right angle are the **[[legs]]**, usually called $a$ and $b$. The side opposite the right angle is the **[[hypotenuse]]**, $c$. The hypotenuse is always the longest side.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [4, 0], [4, 3]]}], \"rightAngles\": [[[4, 0], [0, 0], [4, 3]]], \"segments\": [{\"from\": [0, 0], \"to\": [4, 0], \"label\": \"a = 4\"}, {\"from\": [4, 0], \"to\": [4, 3], \"label\": \"b = 3\"}, {\"from\": [4, 3], \"to\": [0, 0], \"label\": \"c = 5\"}], \"caption\": \"A right triangle with legs 3 and 4 and hypotenuse 5\"}\n```\n\n## The theorem\n\nThe **[[Pythagorean theorem]]**: in a right triangle with legs $a$ and $b$ and hypotenuse $c$,\n\n$$a^2 + b^2 = c^2.$$\n\nIn the triangle above, $3^2 + 4^2 = 9 + 16 = 25 = 5^2$. ✓\n\nIn terms of area: a square built on the hypotenuse has exactly the same area as the two squares built on the legs combined.\n\n*Why it's true (one of many proofs).* Take four copies of the right triangle and arrange them inside a big square of side $a + b$, with their hypotenuses forming a tilted square of side $c$ in the middle. The big square's area is $(a + b)^2$. It's also the four triangles plus the middle square: $4 \\cdot \\tfrac12 ab + c^2 = 2ab + c^2$. Now rearrange the same four triangles in the big square as two $a \\times b$ rectangles (each cut along its diagonal), leaving two squares uncovered, of areas $a^2$ and $b^2$. Both big squares have the same area and hold the same four triangles, so the uncovered areas are equal: $c^2 = a^2 + b^2$.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [7, 0], [7, 7], [0, 7]]}, {\"points\": [[9, 0], [16, 0], [16, 7], [9, 7]]}, {\"points\": [[0, 0], [3, 0], [0, 4]], \"fill\": true}, {\"points\": [[7, 0], [7, 3], [3, 0]], \"fill\": true}, {\"points\": [[7, 7], [4, 7], [7, 3]], \"fill\": true}, {\"points\": [[0, 7], [0, 4], [4, 7]], \"fill\": true}, {\"points\": [[12, 0], [16, 0], [16, 3]], \"fill\": true}, {\"points\": [[12, 0], [12, 3], [16, 3]], \"fill\": true}, {\"points\": [[9, 3], [12, 3], [12, 7]], \"fill\": true}, {\"points\": [[9, 3], [9, 7], [12, 7]], \"fill\": true}], \"segments\": [{\"from\": [0, -0.5], \"to\": [3, -0.5], \"label\": \"a\"}, {\"from\": [3, -0.5], \"to\": [7, -0.5], \"label\": \"b\"}, {\"from\": [9, -0.5], \"to\": [12, -0.5], \"label\": \"a\"}, {\"from\": [12, -0.5], \"to\": [16, -0.5], \"label\": \"b\"}], \"labels\": [{\"at\": [3.5, 3.5], \"text\": \"c²\"}, {\"at\": [10.5, 1.5], \"text\": \"a²\"}, {\"at\": [14, 5], \"text\": \"b²\"}], \"caption\": \"The same four right triangles (legs a and b, hypotenuse c) in two squares of side a + b. Left: the uncovered area is c². Right: it is a² + b².\"}\n```\n\nThe theorem works only for *right* triangles. For other triangles, $a^2 + b^2 \\ne c^2$.\n\n## Finding the hypotenuse\n\n### Example 1\n\nA rectangular field is 60 m by 80 m. How long is the diagonal path across it?\n\nThe diagonal is the hypotenuse of a right triangle with legs 60 and 80.\n\n$c^2 = 60^2 + 80^2 = 3{,}600 + 6{,}400 = 10{,}000$, so $c = \\sqrt{10{,}000} = 100$ m.\n\n### Example 2\n\nFind the hypotenuse of a right triangle with legs 5 and 9, to the nearest tenth.\n\n$c^2 = 25 + 81 = 106$, so $c = \\sqrt{106} \\approx 10.3$. (Check the estimate: $10^2 = 100$ and $11^2 = 121$, so it should be a bit over 10. ✓)\n\n## Finding a leg\n\nIf you know the hypotenuse and one leg, subtract:\n\n$$a^2 = c^2 - b^2.$$\n\n### Example 3\n\nA 13-foot ladder leans against a wall with its foot 5 feet from the wall. How high up the wall does it reach?\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [5, 0], [0, 12]]}], \"rightAngles\": [[[0, 0], [5, 0], [0, 12]]], \"segments\": [{\"from\": [0, 0], \"to\": [5, 0], \"label\": \"5 ft\"}, {\"from\": [5, 0], \"to\": [0, 12], \"label\": \"13 ft\"}, {\"from\": [0, 0], \"to\": [0, 12], \"label\": \"h\"}], \"caption\": \"A ladder against a wall\"}\n```\n\nThe ladder is the hypotenuse. $h^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $h = 12$ ft.\n\nA very common mistake is adding $13^2 + 5^2$ here. Ask \"which side is across from the right angle?\" That one is $c$, and it must be the largest.\n\n## Pythagorean triples\n\nSets of whole numbers that fit the theorem are called **[[Pythagorean triples]]**. The most common are\n\n$$3, 4, 5 \\qquad 5, 12, 13 \\qquad 8, 15, 17 \\qquad 7, 24, 25$$\n\nMultiples work too: 6, 8, 10 and 9, 12, 15 come from 3, 4, 5. Recognizing these saves time.\n\n## Testing for a right angle\n\nThe converse is also true: if the sides of a triangle satisfy $a^2 + b^2 = c^2$ (with $c$ the longest), the triangle is a right triangle. Builders use this to check square corners: mark 3 ft along one wall and 4 ft along the other; if the marks are 5 ft apart, the corner is square.\n\n### Example 4\n\nIs a triangle with sides 7, 10 and 12 a right triangle?\n\nLongest side 12: $7^2 + 10^2 = 49 + 100 = 149$, but $12^2 = 144$. Not equal, so no.\n\n### Example 5\n\nA TV screen is 48 in wide and 27 in tall. Screen sizes are given by the diagonal. What size is it?\n\n$c^2 = 48^2 + 27^2 = 2{,}304 + 729 = 3{,}033$, so $c = \\sqrt{3{,}033} \\approx 55.1$ in: a \"55-inch\" TV.\n\n## Distance on a grid\n\nThe theorem also measures straight-line distance between two points on a grid. The grid here is the **[[coordinate plane]]**: a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) that cross at 0, a point called the **[[origin]]**. Every point is named by an **[[ordered pair]]** $(x, y)$: the first number says how far to move left or right from the origin, the second how far to move up or down. Order matters: $(1, 2)$ and $(2, 1)$ are different points. The axes split the plane into four regions called quadrants; points with negative coordinates, like $(-3, 4)$, sit left of or below the origin.\n\nTo go from $(1, 2)$ to $(7, 10)$, you move 6 units across and 8 units up. Those moves are the legs of a right triangle, and the straight-line distance is the hypotenuse:\n\n$$d = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10.$$\n\n```plot\n{\"x\": [0, 9], \"y\": [0, 12], \"equal\": true, \"points\": [{\"at\": [1, 2], \"label\": \"(1, 2)\"}, {\"at\": [7, 10], \"label\": \"(7, 10)\"}], \"segments\": [{\"from\": [1, 2], \"to\": [7, 2], \"dashed\": true, \"label\": \"6\"}, {\"from\": [7, 2], \"to\": [7, 10], \"dashed\": true, \"label\": \"8\"}, {\"from\": [1, 2], \"to\": [7, 10], \"label\": \"10\"}], \"caption\": \"The distance between two points is the hypotenuse of a right triangle\"}\n```\n\nIn algebra this becomes the distance formula, but it is nothing more than the Pythagorean theorem.\n\n## Common mistakes\n\n- *Adding when you should subtract.* If the hypotenuse is given, $a^2 = c^2 - b^2$.\n- *Forgetting the square root at the end:* $c^2 = 100$ means $c = 10$, not 100.\n- *Writing $a + b = c$* or $\\sqrt{a^2 + b^2} = a + b$. The square root does not split across addition.\n- *Using the theorem on a triangle that isn't a right triangle.*\n- *Calling a leg the hypotenuse.* The hypotenuse is opposite the right angle and is always longest.\n\n## Key points\n\n- In a right triangle, $a^2 + b^2 = c^2$, where $c$ is the hypotenuse (opposite the right angle).\n- Hypotenuse: $c = \\sqrt{a^2 + b^2}$. Leg: $a = \\sqrt{c^2 - b^2}$.\n- Common triples: 3-4-5, 5-12-13, 8-15-17, 7-24-25, and their multiples.\n- If $a^2 + b^2 = c^2$ for a triangle's sides, it's a right triangle.\n",
+   "body": "## Distances you can't measure directly\n\nHow long a ladder reaches the window? How far is it across a rectangular field on the diagonal? What's the screen size of a TV that is 48 inches wide and 27 inches tall? All of these involve right triangles, and one theorem answers them all. It ties together squares and square roots (Lesson 20), equations (Module 7) and area (Lesson 32).\n\n## Parts of a right triangle\n\nIn a right triangle, the two sides that form the right angle are the **[[legs]]**, usually called $a$ and $b$. The side opposite the right angle is the **[[hypotenuse]]**, $c$. The hypotenuse is always the longest side.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [4, 0], [4, 3]]}], \"rightAngles\": [[[4, 0], [0, 0], [4, 3]]], \"segments\": [{\"from\": [0, 0], \"to\": [4, 0], \"label\": \"a = 4\"}, {\"from\": [4, 0], \"to\": [4, 3], \"label\": \"b = 3\"}, {\"from\": [4, 3], \"to\": [0, 0], \"label\": \"c = 5\"}], \"caption\": \"A right triangle with legs 3 and 4 and hypotenuse 5\"}\n```\n\n## The theorem\n\nThe **[[Pythagorean theorem]]**: in a right triangle with legs $a$ and $b$ and hypotenuse $c$,\n\n$$a^2 + b^2 = c^2.$$\n\nIn the triangle above, $3^2 + 4^2 = 9 + 16 = 25 = 5^2$. ✓\n\nIn terms of area: a square built on the hypotenuse has exactly the same area as the two squares built on the legs combined.\n\n*Why it's true (one of many proofs).* Take four copies of the right triangle and arrange them inside a big square of side $a + b$, with their hypotenuses forming a tilted square of side $c$ in the middle. The big square's area is $(a + b)^2$. It's also the four triangles plus the middle square: $4 \\cdot \\tfrac12 ab + c^2 = 2ab + c^2$. Now rearrange the same four triangles in the big square as two $a \\times b$ rectangles (each cut along its diagonal), leaving two squares uncovered, of areas $a^2$ and $b^2$. Both big squares have the same area and hold the same four triangles, so the uncovered areas are equal: $c^2 = a^2 + b^2$.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [7, 0], [7, 7], [0, 7]]}, {\"points\": [[9, 0], [16, 0], [16, 7], [9, 7]]}, {\"points\": [[0, 0], [3, 0], [0, 4]], \"fill\": true}, {\"points\": [[7, 0], [7, 3], [3, 0]], \"fill\": true}, {\"points\": [[7, 7], [4, 7], [7, 3]], \"fill\": true}, {\"points\": [[0, 7], [0, 4], [4, 7]], \"fill\": true}, {\"points\": [[12, 0], [16, 0], [16, 3]], \"fill\": true}, {\"points\": [[12, 0], [12, 3], [16, 3]], \"fill\": true}, {\"points\": [[9, 3], [12, 3], [12, 7]], \"fill\": true}, {\"points\": [[9, 3], [9, 7], [12, 7]], \"fill\": true}], \"segments\": [{\"from\": [0, -0.5], \"to\": [3, -0.5], \"label\": \"a\"}, {\"from\": [3, -0.5], \"to\": [7, -0.5], \"label\": \"b\"}, {\"from\": [9, -0.5], \"to\": [12, -0.5], \"label\": \"a\"}, {\"from\": [12, -0.5], \"to\": [16, -0.5], \"label\": \"b\"}], \"labels\": [{\"at\": [3.5, 3.5], \"text\": \"c²\"}, {\"at\": [10.5, 1.5], \"text\": \"a²\"}, {\"at\": [14, 5], \"text\": \"b²\"}], \"caption\": \"The same four right triangles (legs a and b, hypotenuse c) in two squares of side a + b. Left: the uncovered area is c². Right: it is a² + b².\"}\n```\n\nThe theorem works only for *right* triangles. For other triangles, $a^2 + b^2 \\ne c^2$.\n\n## Finding the hypotenuse\n\n### Example 1\n\nA rectangular field is 60 m by 80 m. How long is the diagonal path across it?\n\nThe diagonal is the hypotenuse of a right triangle with legs 60 and 80.\n\n$c^2 = 60^2 + 80^2 = 3{,}600 + 6{,}400 = 10{,}000$, so $c = \\sqrt{10{,}000} = 100$ m.\n\n### Example 2\n\nFind the hypotenuse of a right triangle with legs 5 and 9, to the nearest tenth.\n\n$c^2 = 25 + 81 = 106$, so $c = \\sqrt{106} \\approx 10.3$. (Check the estimate: $10^2 = 100$ and $11^2 = 121$, so it should be a bit over 10. ✓)\n\n## Finding a leg\n\nIf you know the hypotenuse and one leg, subtract:\n\n$$a^2 = c^2 - b^2.$$\n\n### Example 3\n\nA 13-foot ladder leans against a wall with its foot 5 feet from the wall. How high up the wall does it reach?\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [5, 0], [0, 12]]}], \"rightAngles\": [[[0, 0], [5, 0], [0, 12]]], \"segments\": [{\"from\": [0, 0], \"to\": [5, 0], \"label\": \"5 ft\"}, {\"from\": [5, 0], \"to\": [0, 12], \"label\": \"13 ft\"}, {\"from\": [0, 0], \"to\": [0, 12], \"label\": \"h\"}], \"caption\": \"A ladder against a wall\"}\n```\n\nThe ladder is the hypotenuse. $h^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $h = 12$ ft.\n\nA very common mistake is adding $13^2 + 5^2$ here. Ask \"which side is across from the right angle?\" That one is $c$, and it must be the largest.\n\n## Pythagorean triples\n\nSets of whole numbers that fit the theorem are called **[[Pythagorean triples]]**. The most common are\n\n$$3, 4, 5 \\qquad 5, 12, 13 \\qquad 8, 15, 17 \\qquad 7, 24, 25$$\n\nMultiples work too: 6, 8, 10 and 9, 12, 15 come from 3, 4, 5. Recognizing these saves time.\n\n## Testing for a right angle\n\nThe converse is also true: if the sides of a triangle satisfy $a^2 + b^2 = c^2$ (with $c$ the longest), the triangle is a right triangle. Builders use this to check square corners: mark 3 ft along one wall and 4 ft along the other; if the marks are 5 ft apart, the corner is square.\n\n### Example 4\n\nIs a triangle with sides 7, 10 and 12 a right triangle?\n\nLongest side 12: $7^2 + 10^2 = 49 + 100 = 149$, but $12^2 = 144$. Not equal, so no.\n\n### Example 5\n\nA TV screen is 48 in wide and 27 in tall. Screen sizes are given by the diagonal. What size is it?\n\n$c^2 = 48^2 + 27^2 = 2{,}304 + 729 = 3{,}033$, so $c = \\sqrt{3{,}033} \\approx 55.1$ in: a \"55-inch\" TV.\n\n## Distance on a grid\n\nThe theorem also measures straight-line distance between two points on a grid. The grid here is the coordinate plane from Lesson 29: a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) that cross at 0, a point called the origin. Every point is named by an ordered pair $(x, y)$: the first number says how far to move left or right from the origin, the second how far to move up or down. Order matters: $(1, 2)$ and $(2, 1)$ are different points. The axes split the plane into four regions called quadrants; points with negative coordinates, like $(-3, 4)$, sit left of or below the origin.\n\nTo go from $(1, 2)$ to $(7, 10)$, you move 6 units across and 8 units up. Those moves are the legs of a right triangle, and the straight-line distance is the hypotenuse:\n\n$$d = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10.$$\n\n```plot\n{\"x\": [0, 9], \"y\": [0, 12], \"equal\": true, \"points\": [{\"at\": [1, 2], \"label\": \"(1, 2)\"}, {\"at\": [7, 10], \"label\": \"(7, 10)\"}], \"segments\": [{\"from\": [1, 2], \"to\": [7, 2], \"dashed\": true, \"label\": \"6\"}, {\"from\": [7, 2], \"to\": [7, 10], \"dashed\": true, \"label\": \"8\"}, {\"from\": [1, 2], \"to\": [7, 10], \"label\": \"10\"}], \"caption\": \"The distance between two points is the hypotenuse of a right triangle\"}\n```\n\nWith negative coordinates, find each move by subtracting (Lesson 7) and ignore the sign, since a length is never negative. From $(-2, 3)$ to $(2, 0)$ the move across is $2 - (-2) = 4$ units and the move down is $3 - 0 = 3$ units, so the distance is $\\sqrt{4^2 + 3^2} = \\sqrt{25} = 5$.\n\nIn algebra this becomes the distance formula, but it is nothing more than the Pythagorean theorem.\n\n## Common mistakes\n\n- *Adding when you should subtract.* If the hypotenuse is given, $a^2 = c^2 - b^2$.\n- *Forgetting the square root at the end:* $c^2 = 100$ means $c = 10$, not 100.\n- *Writing $a + b = c$* or $\\sqrt{a^2 + b^2} = a + b$. The square root does not split across addition.\n- *Using the theorem on a triangle that isn't a right triangle.*\n- *Calling a leg the hypotenuse.* The hypotenuse is opposite the right angle and is always longest.\n\n## Key points\n\n- In a right triangle, $a^2 + b^2 = c^2$, where $c$ is the hypotenuse (opposite the right angle).\n- Hypotenuse: $c = \\sqrt{a^2 + b^2}$. Leg: $a = \\sqrt{c^2 - b^2}$.\n- Common triples: 3-4-5, 5-12-13, 8-15-17, 7-24-25, and their multiples.\n- If $a^2 + b^2 = c^2$ for a triangle's sides, it's a right triangle.\n- The distance between two points on the coordinate plane is the hypotenuse of a right triangle whose legs are the moves across and up or down.\n",
    "quiz": [
     "pre-q-3301",
     "pre-q-3302",
@@ -1207,7 +1302,11 @@
     "pre-q-3308",
     "pre-q-3309",
     "pre-q-3310",
-    "pre-q-3311"
+    "pre-q-3311",
+    "pre-q-3312",
+    "pre-q-3313",
+    "pre-q-3314",
+    "pre-q-3315"
    ]
   },
   {
@@ -4921,6 +5020,70 @@
      "explanation": "$5^2 = 25$ and $6^2 = 36$; 30 is a bit closer to 25, so the root is a little under 5.5. Check: $5.5^2 = 30.25$, very close. ($\\sqrt{30} \\approx 5.48$.) 5.1 is too small: $5.1^2 = 26.01$."
     },
     {
+     "id": "pre-q-2013",
+     "section": "pre-m6",
+     "topic": "Real numbers",
+     "stem": "Which number is irrational?",
+     "choices": [
+      "$0.\\overline{6}$",
+      "$\\sqrt{49}$",
+      "$-\\tfrac{8}{3}$",
+      "$\\sqrt{20}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "20 is not a perfect square, so $\\sqrt{20}$ is an endless, non-repeating decimal (about 4.47): irrational. $0.\\overline{6}$ repeats, so it is rational ($\\tfrac23$); a decimal that goes on forever is not automatically irrational. $\\sqrt{49} = 7$ is an integer, and $-\\tfrac83$ is a fraction of integers, so both are rational."
+    },
+    {
+     "id": "pre-q-2014",
+     "section": "pre-m6",
+     "topic": "Real numbers",
+     "stem": "Which number is rational?",
+     "choices": [
+      "$\\sqrt{0.09}$",
+      "$\\sqrt{2}$",
+      "$\\pi$",
+      "$\\sqrt{50}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$\\sqrt{0.09} = 0.3$ because $0.3^2 = 0.09$, and $0.3 = \\tfrac{3}{10}$ is rational. Having a radical sign does not make a number irrational; what matters is the value. $\\sqrt2$ and $\\sqrt{50}$ are square roots of non-perfect squares, and $\\pi$ is irrational too ($\\tfrac{22}{7}$ is only an approximation)."
+    },
+    {
+     "id": "pre-q-2015",
+     "section": "pre-m6",
+     "topic": "Real numbers",
+     "stem": "Which statement is true?",
+     "choices": [
+      "Every square root is irrational",
+      "Every integer is a rational number",
+      "$\\pi$ is exactly equal to $\\tfrac{22}{7}$",
+      "A decimal that never ends is always irrational"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Any integer $n$ can be written as $\\tfrac{n}{1}$, so it is rational. Square roots of perfect squares, like $\\sqrt{25} = 5$, are rational. $\\tfrac{22}{7} = 3.142857\\ldots$ is close to $\\pi = 3.14159\\ldots$ but not equal; $\\pi$ is irrational. A never-ending decimal that repeats, like $0.\\overline{3} = \\tfrac13$, is rational; only endless decimals that never repeat are irrational."
+    },
+    {
+     "id": "pre-q-2016",
+     "section": "pre-m6",
+     "topic": "Real numbers",
+     "stem": "Which list contains only rational numbers?",
+     "choices": [
+      "$2,\\ \\sqrt{3},\\ 0.5$",
+      "$\\pi,\\ \\tfrac12,\\ 4$",
+      "$-3,\\ 0.75,\\ \\sqrt{16}$",
+      "$\\sqrt{8},\\ -1,\\ 0$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$-3 = \\tfrac{-3}{1}$, $0.75 = \\tfrac34$ and $\\sqrt{16} = 4$ are all rational. Each other list hides one irrational number: $\\sqrt3$ and $\\sqrt8$ are square roots of non-perfect squares, and $\\pi$ is irrational."
+    },
+    {
      "id": "pre-q-2101",
      "section": "pre-m6",
      "topic": "Exponent rules",
@@ -5993,6 +6156,278 @@
      "explanation": "Let $s$ be the son's age; Ana is $2s + 4$. Then $s + 2s + 4 = 46$, so $3s = 42$ and $s = 14$. Ana is 32."
     },
     {
+     "id": "pre-q-2613",
+     "section": "pre-m7",
+     "topic": "Formulas",
+     "stem": "Solve the formula $d = rt$ for $r$.",
+     "choices": [
+      "$r = dt$",
+      "$r = \\dfrac{t}{d}$",
+      "$r = d - t$",
+      "$r = \\dfrac{d}{t}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$r$ is multiplied by $t$, so divide both sides by $t$: $r = \\dfrac{d}{t}$ (for $t \\ne 0$). Check with numbers: 120 miles in 2 hours is $120 \\div 2 = 60$ mph. $r = dt$ multiplies instead of dividing, $\\tfrac{t}{d}$ divides upside down, and $d - t$ undoes multiplication with subtraction."
+    },
+    {
+     "id": "pre-q-2614",
+     "section": "pre-m7",
+     "topic": "Formulas",
+     "stem": "Solve the perimeter formula $P = 2l + 2w$ for $l$.",
+     "choices": [
+      "$l = \\dfrac{P - 2w}{2}$",
+      "$l = P - 2w$",
+      "$l = \\dfrac{P - w}{2}$",
+      "$l = \\dfrac{P}{2} - 2w$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Subtract $2w$ from both sides: $P - 2w = 2l$. Divide both sides by 2: $l = \\dfrac{P - 2w}{2}$. $P - 2w$ stops before dividing by 2. $\\dfrac{P - w}{2}$ subtracts $w$ instead of $2w$. $\\dfrac{P}{2} - 2w$ divides only $P$ by 2; the whole side must be divided."
+    },
+    {
+     "id": "pre-q-2615",
+     "section": "pre-m7",
+     "topic": "Formulas",
+     "stem": "Solve the triangle area formula $A = \\tfrac12 bh$ for $h$.",
+     "choices": [
+      "$h = \\dfrac{A}{2b}$",
+      "$h = \\dfrac{2A}{b}$",
+      "$h = \\dfrac{A}{b}$",
+      "$h = \\dfrac{2b}{A}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Multiply both sides by 2 to clear the fraction: $2A = bh$. Divide by $b$: $h = \\dfrac{2A}{b}$. Check: a triangle with area 12 and base 4 has height $\\tfrac{24}{4} = 6$, and $\\tfrac12(4)(6) = 12$. ✓ $\\dfrac{A}{2b}$ multiplies by $\\tfrac12$ again instead of undoing it. $\\dfrac{A}{b}$ ignores the $\\tfrac12$. $\\dfrac{2b}{A}$ is upside down."
+    },
+    {
+     "id": "pre-q-2616",
+     "section": "pre-m7",
+     "topic": "Formulas",
+     "stem": "Solve $3x + 2y = 12$ for $y$.",
+     "choices": [
+      "$y = \\dfrac{12 + 3x}{2}$",
+      "$y = 6 - 3x$",
+      "$y = \\dfrac{12 - 3x}{2}$",
+      "$y = 12 - \\dfrac{3x}{2}$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Subtract $3x$ from both sides: $2y = 12 - 3x$. Divide both sides by 2: $y = \\dfrac{12 - 3x}{2}$, which is also $y = 6 - \\tfrac32 x$. $\\dfrac{12 + 3x}{2}$ adds $3x$ instead of subtracting it. $6 - 3x$ divides only the 12 by 2, and $12 - \\dfrac{3x}{2}$ divides only the $3x$; every term must be divided."
+    },
+    {
+     "id": "pre-q-2617",
+     "section": "pre-m7",
+     "topic": "Formulas",
+     "stem": "Solve $F = \\tfrac95 C + 32$ for $C$.",
+     "choices": [
+      "$C = \\tfrac59 F - 32$",
+      "$C = \\tfrac95(F - 32)$",
+      "$C = \\tfrac59(F + 32)$",
+      "$C = \\tfrac59(F - 32)$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Subtract 32: $F - 32 = \\tfrac95 C$. Multiply both sides by $\\tfrac59$, the reciprocal of $\\tfrac95$: $C = \\tfrac59(F - 32)$. Check: $F = 212$ gives $\\tfrac59(180) = 100$. ✓ $\\tfrac59 F - 32$ undoes the steps in the wrong order. $\\tfrac95(F - 32)$ multiplies by $\\tfrac95$ again instead of its reciprocal. $\\tfrac59(F + 32)$ adds 32 instead of subtracting it."
+    },
+    {
+     "id": "pre-q-money-01",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A jar holds 25 coins, all nickels and dimes, worth \\$1.90 in all. How many dimes are in the jar?",
+     "choices": [
+      "13",
+      "12",
+      "19",
+      "38"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Let $d$ be the dimes; the nickels are $25 - d$. In cents: $10d + 5(25 - d) = 190$, so $5d + 125 = 190$, $5d = 65$ and $d = 13$. Check: 13 dimes and 12 nickels are worth $130 + 60 = 190$ cents. (12 is the number of nickels, the other count. 19 and 38 divide 190 cents by 10 or by 5, as if every coin were a dime or every coin a nickel.)"
+    },
+    {
+     "id": "pre-q-money-02",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A box holds 40 coins, all quarters and dimes, worth \\$7.30. If $q$ is the number of quarters, which equation models the problem?",
+     "choices": [
+      "$25q + 10(40 - q) = 7.30$",
+      "$25q + 10(40 - q) = 730$",
+      "$25q + 10q = 730$",
+      "$q + (40 - q) = 730$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The dimes are $40 - q$, and each term must be a count times a value, all in cents: $25q + 10(40 - q) = 730$ (it gives $q = 22$). Writing 7.30 on the right mixes cents with dollars. Using $q$ for the dimes too ignores that the counts add to 40. Adding the counts gives 40, not a value in cents."
+    },
+    {
+     "id": "pre-q-money-03",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A fair sold 300 tickets: adult tickets at \\$10 and child tickets at \\$6. Ticket sales were \\$2,520. How many child tickets were sold?",
+     "choices": [
+      "180",
+      "252",
+      "420",
+      "120"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Let $a$ be the adult tickets; the child tickets are $300 - a$. Then $10a + 6(300 - a) = 2{,}520$, so $4a + 1{,}800 = 2{,}520$, $4a = 720$ and $a = 180$. The child tickets number $300 - 180 = 120$. Check: $1{,}800 + 720 = 2{,}520$. (180 is the adult count, the variable but not the question. 252 and 420 divide the sales by one price, as if every ticket cost the same.)"
+    },
+    {
+     "id": "pre-q-money-04",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "Candy selling for \\$3 per pound is mixed with candy selling for \\$8 per pound to make 10 pounds of a mix worth \\$5 per pound. How many pounds of the \\$3 candy are used?",
+     "choices": [
+      "4",
+      "5",
+      "15",
+      "6"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Let $x$ be the pounds of \\$3 candy; the rest, $10 - x$, is \\$8 candy. The mix is worth $10 \\times 5 = 50$ dollars: $3x + 8(10 - x) = 50$, so $-5x + 80 = 50$ and $x = 6$. Check: $18 + 32 = 50$. (4 is the amount of \\$8 candy. 5 assumes equal amounts, but equal amounts would give \\$5.50 a pound. 15 comes from setting the values equal to 5, the price, instead of 50, the mix's total value.)"
+    },
+    {
+     "id": "pre-q-money-05",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A bag has $q$ quarters and $18 - q$ nickels. Which expression gives the value of the coins in cents?",
+     "choices": [
+      "$25q + 5(18 - q)$",
+      "$0.25q + 5(18 - q)$",
+      "$q + (18 - q)$",
+      "$25q + 5q$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Value is count times value each: $25q$ cents for the quarters and $5(18 - q)$ cents for the nickels. Using 0.25 mixes dollars with cents. $q + (18 - q)$ is the number of coins, 18, not their value. $25q + 5q$ wrongly uses $q$ for the number of nickels."
+    },
+    {
+     "id": "pre-q-money-06",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "Sam has three times as many dimes as quarters. The coins are worth \\$4.95. How many quarters does he have?",
+     "choices": [
+      "27",
+      "9",
+      "36",
+      "14"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Let $q$ be the quarters; the dimes number $3q$. In cents: $25q + 10(3q) = 495$, so $55q = 495$ and $q = 9$. Check: 9 quarters and 27 dimes are worth $225 + 270 = 495$ cents. (27 is the number of dimes and 36 the number of coins. About 14 comes from $25q + 10q = 495$, which forgets that there are three times as many dimes.)"
+    },
+    {
+     "id": "pre-q-money-07",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A concert sold twice as many general tickets at \\$15 as VIP tickets at \\$40. Ticket sales were \\$5,250. How many VIP tickets were sold?",
+     "choices": [
+      "150",
+      "225",
+      "75",
+      "about 95.5"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Let $v$ be the VIP tickets; general tickets number $2v$. Then $40v + 15(2v) = 5{,}250$, so $70v = 5{,}250$ and $v = 75$. Check: 75 VIP and 150 general tickets bring in $3{,}000 + 2{,}250 = 5{,}250$. (150 is the general count and 225 the total. About 95.5 comes from $40v + 15v = 5{,}250$, which leaves out the \"twice as many,\" and a ticket count must be a whole number anyway.)"
+    },
+    {
+     "id": "pre-q-money-08",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A student solves $10d + 25(20 - d) = 395$ for the number of dimes:\nStep 1: $10d + 500 - 25d = 395$\nStep 2: $-15d + 500 = 395$\nStep 3: $-15d = 895$\nStep 4: $d \\approx -59.7$\nIn which step is the first error?",
+     "choices": [
+      "Step 1",
+      "Step 2",
+      "Step 3",
+      "Step 4"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Steps 1 and 2 distribute and combine correctly. In Step 3, 500 must be subtracted from both sides, giving $-15d = -105$; the student added it instead. Then $d = 7$. A negative or fractional count of coins is a sign that something went wrong. Step 4 divides correctly, but it starts from the wrong equation."
+    },
+    {
+     "id": "pre-q-money-09",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "How many liters of juice worth \\$2 per liter must be mixed with 5 liters of juice worth \\$5 per liter to make a blend worth \\$3 per liter?",
+     "choices": [
+      "5",
+      "25",
+      "15",
+      "10"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Let $x$ be the liters of \\$2 juice. The blend has $x + 5$ liters worth $3(x + 5)$ dollars: $2x + 25 = 3(x + 5)$. So $2x + 25 = 3x + 15$ and $x = 10$. Check: $20 + 25 = 45 = 3 \\times 15$. (5 liters of each would give \\$3.50 per liter. 25 comes from $2x + 25 = 3x$, which forgets the 5 liters in the blend's amount. 15 is the total liters of blend, not the \\$2 juice.)"
+    },
+    {
+     "id": "pre-q-money-10",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "A purse holds dimes, nickels and pennies worth \\$1.13. There are twice as many nickels as dimes, and 3 more pennies than nickels. How many dimes are there?",
+     "choices": [
+      "5",
+      "10",
+      "13",
+      "28"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Let $d$ be the dimes. Nickels: $2d$. Pennies: $2d + 3$. In cents: $10d + 5(2d) + 1(2d + 3) = 113$, so $22d + 3 = 113$, $22d = 110$ and $d = 5$. Check: 5 dimes, 10 nickels, 13 pennies: $50 + 50 + 13 = 113$. (10 and 13 are the nickel and penny counts; 28 is the number of coins.)"
+    },
+    {
+     "id": "pre-q-money-11",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "Coffee worth \\$6 per pound is blended with coffee worth \\$10 per pound. Without solving anything, which could be the price per pound of the blend?",
+     "choices": [
+      "\\$16.00",
+      "\\$8.50",
+      "\\$5.50",
+      "\\$10.50"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A blend's price per pound always lies between the prices of its ingredients, here between \\$6 and \\$10, so only \\$8.50 is possible (it means more of the \\$10 coffee). \\$16 adds the two prices. \\$5.50 and \\$10.50 lie outside the range; no blend of \\$6 and \\$10 coffee can cost less than the cheaper one or more than the dearer one."
+    },
+    {
+     "id": "pre-q-money-12",
+     "section": "pre-m7",
+     "topic": "Money word problems",
+     "stem": "Solving a coin problem, a student gets $d = 12.5$ dimes. What should the student conclude?",
+     "choices": [
+      "There are 13 dimes, rounding the answer up",
+      "There are 12 dimes, rounding the answer down",
+      "The equation or the arithmetic has an error, since a number of coins must be whole",
+      "There are 12 dimes plus 5 cents in other coins"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Counts of coins (or tickets) are whole numbers, so a fractional count means the equation was set up wrong or there is an arithmetic slip. Go back and check it; rounding up or down hides the mistake, and the leftover 5 cents does not fit the problem's own facts."
+    },
+    {
      "id": "pre-q-2701",
      "section": "pre-m7",
      "topic": "Inequalities",
@@ -6167,6 +6602,214 @@
       2
      ],
      "explanation": "$\\dfrac{72 + 88 + 81 + s}{4} \\ge 80$, so $241 + s \\ge 320$ and $s \\ge 79$."
+    },
+    {
+     "id": "pre-q-graph-01",
+     "section": "pre-m7",
+     "topic": "Coordinate plane",
+     "stem": "In which quadrant is the point $(-4, -7)$?",
+     "choices": [
+      "Quadrant I",
+      "Quadrant II",
+      "Quadrant III",
+      "Quadrant IV"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Both coordinates are negative: 4 units left and 7 units down from the origin. That is Quadrant III, the lower left. Quadrant I has $(+, +)$, Quadrant II $(-, +)$ and Quadrant IV $(+, -)$; the quadrants are numbered counterclockwise from the upper right."
+    },
+    {
+     "id": "pre-q-graph-02",
+     "section": "pre-m7",
+     "topic": "Coordinate plane",
+     "stem": "Which point lies on the $y$-axis?",
+     "choices": [
+      "$(-6, 0)$",
+      "$(-6, -6)$",
+      "$(6, -6)$",
+      "$(0, -6)$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Points on the $y$-axis have $x = 0$: no move left or right. So $(0, -6)$ is on it, 6 units below the origin. $(-6, 0)$ has $y = 0$, so it is on the $x$-axis instead (the coordinates were read in the wrong order). The other two points are in Quadrants III and IV."
+    },
+    {
+     "id": "pre-q-graph-03",
+     "section": "pre-m7",
+     "topic": "Graphing lines",
+     "stem": "Which ordered pair is a solution of $y = 3x - 4$?",
+     "choices": [
+      "$(2, 2)$",
+      "$(2, 10)$",
+      "$(0, 4)$",
+      "$(5, 3)$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Substitute the $x$-coordinate and see whether the $y$-coordinate comes out: $3(2) - 4 = 2$, so $(2, 2)$ works. $(2, 10)$ adds 4 instead of subtracting it. $(0, 4)$ has the wrong sign: at $x = 0$, $y = -4$. $(5, 3)$ swaps the coordinates of the solution $(3, 5)$; at $x = 5$, $y = 11$."
+    },
+    {
+     "id": "pre-q-graph-04",
+     "section": "pre-m7",
+     "topic": "Graphing lines",
+     "stem": "What is the $x$-intercept of $4x - 5y = 20$?",
+     "choices": [
+      "$(0, -4)$",
+      "$(5, 0)$",
+      "$(0, 5)$",
+      "$(4, 0)$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "At the $x$-intercept, $y = 0$: $4x = 20$, so $x = 5$, giving $(5, 0)$. $(0, -4)$ is the $y$-intercept (set $x = 0$: $-5y = 20$). $(0, 5)$ puts the right number on the wrong axis. $(4, 0)$ divides 20 by 5, the size of the coefficient of $y$, instead of by 4, the coefficient of $x$."
+    },
+    {
+     "id": "pre-q-graph-05",
+     "section": "pre-m7",
+     "topic": "Graphing lines",
+     "stem": "What is the $y$-intercept of $3x + 2y = 18$?",
+     "choices": [
+      "$(6, 0)$",
+      "$(0, 18)$",
+      "$(0, 9)$",
+      "$(0, 6)$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "At the $y$-intercept, $x = 0$: $2y = 18$, so $y = 9$, giving $(0, 9)$. $(6, 0)$ is the $x$-intercept. $(0, 18)$ forgets to divide by 2, and $(0, 6)$ divides by 3, the coefficient of $x$."
+    },
+    {
+     "id": "pre-q-graph-06",
+     "section": "pre-m7",
+     "topic": "Slope",
+     "stem": "What is the slope of the line through $(1, 2)$ and $(5, 10)$?",
+     "choices": [
+      "$\\tfrac12$",
+      "$-2$",
+      "8",
+      "2"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Rise over run: $m = \\dfrac{10 - 2}{5 - 1} = \\dfrac{8}{4} = 2$. $\\tfrac12$ is run over rise. $-2$ comes from subtracting in opposite orders on top and bottom. 8 is the rise alone, without dividing by the run."
+    },
+    {
+     "id": "pre-q-graph-07",
+     "section": "pre-m7",
+     "topic": "Slope",
+     "stem": "What is the slope of the line through $(-3, 4)$ and $(3, -2)$?",
+     "choices": [
+      "$-1$",
+      "1",
+      "undefined",
+      "$-\\tfrac13$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$m = \\dfrac{-2 - 4}{3 - (-3)} = \\dfrac{-6}{6} = -1$. The line falls from left to right, so the slope must be negative, which rules out 1. \"Undefined\" comes from computing the run as $3 - 3 = 0$, dropping the sign of $-3$. $-\\tfrac13$ comes from computing the rise as $-2$ instead of $-2 - 4 = -6$."
+    },
+    {
+     "id": "pre-q-graph-08",
+     "section": "pre-m7",
+     "topic": "Slope",
+     "stem": "Which line has an undefined slope?",
+     "choices": [
+      "$y = 4$",
+      "$x = 4$",
+      "$y = x$",
+      "$y = -4x$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$x = 4$ is a vertical line: all its points have $x = 4$, so the run between any two of them is 0, and dividing by 0 is undefined. $y = 4$ is horizontal with slope 0 (the usual mix-up). $y = x$ and $y = -4x$ have slopes 1 and $-4$."
+    },
+    {
+     "id": "pre-q-graph-09",
+     "section": "pre-m7",
+     "topic": "Slope",
+     "stem": "What are the slope and $y$-intercept of $y = -5x + 7$?",
+     "choices": [
+      "slope 7, $y$-intercept $-5$",
+      "slope 5, $y$-intercept 7",
+      "slope $-5$, $y$-intercept 7",
+      "slope $-5$, $y$-intercept $-7$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "In $y = mx + b$, $m$ is the slope and $b$ the $y$-intercept, so $m = -5$ and $b = 7$. Swapping them confuses the roles. The slope keeps its sign: $-5x$ means $m = -5$, not 5. The intercept is $+7$; at $x = 0$, $y = 7$."
+    },
+    {
+     "id": "pre-q-graph-10",
+     "section": "pre-m7",
+     "topic": "Slope",
+     "stem": "What is the slope of the line $4x + 2y = 10$?",
+     "choices": [
+      "4",
+      "2",
+      "5",
+      "$-2$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Solve for $y$: subtract $4x$ to get $2y = -4x + 10$, then divide by 2: $y = -2x + 5$. The slope is $-2$. 4 is the coefficient of $x$ in the original form, which is not the slope. 2 loses the minus sign from moving $4x$. 5 is the $y$-intercept."
+    },
+    {
+     "id": "pre-q-graph-11",
+     "section": "pre-m7",
+     "topic": "Graphing lines",
+     "stem": "The table lists three points on a line. Which equation does the line have? $\\begin{array}{c|ccc} x & 0 & 2 & 4 \\\\ \\hline y & 3 & 7 & 11 \\end{array}$",
+     "choices": [
+      "$y = 2x + 3$",
+      "$y = 4x + 3$",
+      "$y = 3x + 2$",
+      "$y = \\tfrac12 x + 3$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "At $x = 0$, $y = 3$, so $b = 3$. Each time $x$ goes up 2, $y$ goes up 4, so $m = \\tfrac42 = 2$: $y = 2x + 3$. Check: $2(4) + 3 = 11$. $y = 4x + 3$ uses the rise without dividing by the run of 2. $y = 3x + 2$ swaps $m$ and $b$. $y = \\tfrac12 x + 3$ divides run by rise."
+    },
+    {
+     "id": "pre-q-graph-12",
+     "section": "pre-m7",
+     "topic": "Slope",
+     "stem": "A plumber's charge in dollars for a job lasting $x$ hours is $y = 45x + 60$. What does the 45 represent?",
+     "choices": [
+      "The fee charged before any work is done",
+      "The charge per hour of work",
+      "The total charge for a one-hour job",
+      "The number of hours worked"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The slope is a rate: each extra hour adds \\$45, so 45 is dollars per hour. The 60 is the $y$-intercept, the charge at $x = 0$ hours. A one-hour job costs $45 + 60 = 105$ dollars, not 45. The number of hours is the variable $x$."
+    },
+    {
+     "id": "pre-q-graph-13",
+     "section": "pre-m7",
+     "topic": "Graphing lines",
+     "stem": "A line has $y$-intercept $-3$ and passes through $(2, 5)$. What is its equation?",
+     "choices": [
+      "$y = 4x + 3$",
+      "$y = 8x - 3$",
+      "$y = 4x - 3$",
+      "$y = -3x + 2$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The line passes through $(0, -3)$ and $(2, 5)$: $m = \\dfrac{5 - (-3)}{2 - 0} = \\dfrac{8}{2} = 4$, and $b = -3$, so $y = 4x - 3$. Check: $4(2) - 3 = 5$. ✓ $y = 4x + 3$ drops the sign of the intercept. $y = 8x - 3$ uses the rise without dividing by the run. $y = -3x + 2$ puts the intercept where the slope goes and the $x$-coordinate where the intercept goes."
     },
     {
      "id": "pre-q-2801",
@@ -7223,6 +7866,70 @@
       3
      ],
      "explanation": "$c^2 = 1{,}024 + 324 = 1{,}348$, so $c = \\sqrt{1{,}348} \\approx 36.7$, about 37 in."
+    },
+    {
+     "id": "pre-q-3312",
+     "section": "pre-m8",
+     "topic": "Coordinate plane",
+     "stem": "Starting at the origin, how do you plot the point $(-3, 4)$?",
+     "choices": [
+      "Move 3 units left, then 4 units up",
+      "Move 3 units right, then 4 units down",
+      "Move 3 units up, then 4 units left",
+      "Move 4 units left, then 3 units up"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The first number is the move left or right (negative means left), and the second is the move up or down (positive means up): 3 left, then 4 up. Going right and down reverses both signs. \"3 up, then 4 left\" and \"4 left, then 3 up\" read the coordinates in the wrong order; that is the point $(-4, 3)$."
+    },
+    {
+     "id": "pre-q-3313",
+     "section": "pre-m8",
+     "topic": "Coordinate plane",
+     "stem": "Which point lies to the left of the origin and below it?",
+     "choices": [
+      "$(2, -6)$",
+      "$(-2, -6)$",
+      "$(-2, 6)$",
+      "$(6, -2)$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Left of the origin means a negative $x$-coordinate; below means a negative $y$-coordinate. Only $(-2, -6)$ has both. $(2, -6)$ and $(6, -2)$ are to the right and below, and $(-2, 6)$ is to the left and above."
+    },
+    {
+     "id": "pre-q-3314",
+     "section": "pre-m8",
+     "topic": "Coordinate plane",
+     "stem": "What is the distance between $(2, 1)$ and $(8, 9)$?",
+     "choices": [
+      "14",
+      "100",
+      "10",
+      "48"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The move across is $8 - 2 = 6$ and the move up is $9 - 1 = 8$. These are the legs of a right triangle, so the distance is $\\sqrt{6^2 + 8^2} = \\sqrt{100} = 10$. 14 adds the legs instead of using the Pythagorean theorem. 100 forgets the square root. 48 multiplies the legs."
+    },
+    {
+     "id": "pre-q-3315",
+     "section": "pre-m8",
+     "topic": "Coordinate plane",
+     "stem": "What is the distance between $(-2, 3)$ and $(3, -9)$?",
+     "choices": [
+      "17",
+      "$\\sqrt{145}$",
+      "169",
+      "13"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Across: $3 - (-2) = 5$ units. Down: $3 - (-9) = 12$ units. Distance: $\\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$ (a 5-12-13 triangle). 17 adds the legs. $\\sqrt{145}$ uses $3 - 2 = 1$ for the move across, dropping the sign of $-2$. 169 forgets the square root."
     },
     {
      "id": "pre-q-3401",
@@ -8404,534 +9111,660 @@
     },
     {
      "id": "c108",
+     "front": "Rational number",
+     "back": "A number that can be written as $\\tfrac ab$ with integers $a$, $b$ and $b \\ne 0$: integers, fractions, terminating and repeating decimals.",
+     "topic": "Real numbers"
+    },
+    {
+     "id": "c109",
+     "front": "Irrational number",
+     "back": "A real number that is not rational; its decimal never ends or repeats: $\\sqrt2$, $\\sqrt{58}$, $\\pi$.",
+     "topic": "Real numbers"
+    },
+    {
+     "id": "c110",
+     "front": "Real numbers",
+     "back": "The rational and irrational numbers together: every point on the number line.",
+     "topic": "Real numbers"
+    },
+    {
+     "id": "c111",
+     "front": "Is $\\sqrt{n}$ rational?",
+     "back": "Only when $n$ is a perfect square (like $\\sqrt{49} = 7$ or $\\sqrt{0.36} = 0.6$); otherwise it is irrational.",
+     "topic": "Real numbers"
+    },
+    {
+     "id": "c112",
      "front": "Product rule",
      "back": "$b^m \\cdot b^n = b^{m+n}$",
      "topic": "Exponent rules"
     },
     {
-     "id": "c109",
+     "id": "c113",
      "front": "Quotient rule",
      "back": "$\\dfrac{b^m}{b^n} = b^{m-n}$ for $b \\ne 0$",
      "topic": "Exponent rules"
     },
     {
-     "id": "c110",
+     "id": "c114",
      "front": "Power of a power",
      "back": "$(b^m)^n = b^{mn}$",
      "topic": "Exponent rules"
     },
     {
-     "id": "c111",
+     "id": "c115",
      "front": "Power of a product",
      "back": "$(ab)^n = a^n b^n$: $(2x)^3 = 8x^3$.",
      "topic": "Exponent rules"
     },
     {
-     "id": "c112",
+     "id": "c116",
      "front": "Zero exponent",
      "back": "$b^0 = 1$ for $b \\ne 0$.",
      "topic": "Exponent rules"
     },
     {
-     "id": "c113",
+     "id": "c117",
      "front": "Negative exponent",
      "back": "$b^{-n} = \\dfrac{1}{b^n}$ for $b \\ne 0$: $2^{-3} = \\tfrac18$ (not negative).",
      "topic": "Exponent rules"
     },
     {
-     "id": "c114",
+     "id": "c118",
      "front": "$(a + b)^2 = a^2 + b^2$?",
      "back": "No. Exponents distribute over products, not sums.",
      "topic": "Exponent rules"
     },
     {
-     "id": "c115",
+     "id": "c119",
      "front": "Scientific notation form",
      "back": "$a \\times 10^n$ with $1 \\le a < 10$, $n$ an integer.",
      "topic": "Scientific notation"
     },
     {
-     "id": "c116",
+     "id": "c120",
      "front": "Sign of the exponent",
      "back": "Positive for numbers 10 or more; negative for numbers between 0 and 1.",
      "topic": "Scientific notation"
     },
     {
-     "id": "c117",
+     "id": "c121",
      "front": "Multiply in scientific notation",
      "back": "Multiply coefficients, add exponents, then adjust the coefficient.",
      "topic": "Scientific notation"
     },
     {
-     "id": "c118",
+     "id": "c122",
      "front": "$15 \\times 10^{10}$ adjusted",
      "back": "$1.5 \\times 10^{11}$",
      "topic": "Scientific notation"
     },
     {
-     "id": "c119",
+     "id": "c123",
      "front": "Expression vs equation",
      "back": "An expression has no equals sign; an equation says two expressions are equal.",
      "topic": "Expressions"
     },
     {
-     "id": "c120",
+     "id": "c124",
      "front": "Coefficient of $y$ in $4 - 7y$",
      "back": "$-7$ (the sign goes with the term).",
      "topic": "Expressions"
     },
     {
-     "id": "c121",
+     "id": "c125",
      "front": "Evaluating",
      "back": "Substitute values in parentheses, then follow the order of operations.",
      "topic": "Expressions"
     },
     {
-     "id": "c122",
+     "id": "c126",
      "front": "\"5 less than $n$\"",
      "back": "$n - 5$",
      "topic": "Translating words"
     },
     {
-     "id": "c123",
+     "id": "c127",
      "front": "\"3 times the sum of $n$ and 1\"",
      "back": "$3(n + 1)$",
      "topic": "Translating words"
     },
     {
-     "id": "c124",
+     "id": "c128",
      "front": "\"the sum of 3 times $n$ and 1\"",
      "back": "$3n + 1$",
      "topic": "Translating words"
     },
     {
-     "id": "c125",
+     "id": "c129",
      "front": "Distributive property",
      "back": "$a(b + c) = ab + ac$",
      "topic": "Distributive property"
     },
     {
-     "id": "c126",
+     "id": "c130",
      "front": "$-(x - 6)$",
      "back": "$-x + 6$: a minus sign changes every sign inside.",
      "topic": "Distributive property"
     },
     {
-     "id": "c127",
+     "id": "c131",
      "front": "Like terms",
      "back": "Same variables to the same powers: $3x^2$ and $-x^2$.",
      "topic": "Simplifying expressions"
     },
     {
-     "id": "c128",
+     "id": "c132",
      "front": "Combining like terms",
      "back": "Add coefficients, keep the variable part: $5x^2 + 3x^2 = 8x^2$.",
      "topic": "Simplifying expressions"
     },
     {
-     "id": "c129",
+     "id": "c133",
      "front": "Factoring out the GCF",
      "back": "$12y - 8 = 4(3y - 2)$",
      "topic": "Distributive property"
     },
     {
-     "id": "c130",
+     "id": "c134",
      "front": "Solution of an equation",
      "back": "A value that makes it true; check by substituting into both sides.",
      "topic": "Solving equations"
     },
     {
-     "id": "c131",
+     "id": "c135",
      "front": "Properties of equality",
      "back": "Add, subtract, multiply or divide both sides by the same number (not dividing by 0).",
      "topic": "Solving equations"
     },
     {
-     "id": "c132",
+     "id": "c136",
      "front": "Two-step equations",
      "back": "Undo addition/subtraction first, then multiplication/division.",
      "topic": "Solving equations"
     },
     {
-     "id": "c133",
+     "id": "c137",
      "front": "Solve $\\tfrac23 m = 14$",
      "back": "Multiply by $\\tfrac32$: $m = 21$.",
      "topic": "Solving equations"
     },
     {
-     "id": "c134",
+     "id": "c138",
      "front": "Multi-step strategy",
      "back": "Distribute, combine like terms, collect variables on one side and constants on the other, divide, check.",
      "topic": "Multi-step equations"
     },
     {
-     "id": "c135",
+     "id": "c139",
      "front": "Clearing fractions",
      "back": "Multiply every term on both sides by the LCD.",
      "topic": "Multi-step equations"
     },
     {
-     "id": "c136",
+     "id": "c140",
      "front": "Variable disappears: $6 = 6$ or $6 = 5$",
      "back": "True → every number is a solution (identity); false → no solution.",
      "topic": "Multi-step equations"
     },
     {
-     "id": "c137",
+     "id": "c141",
      "front": "Consecutive integers",
      "back": "$n$, $n + 1$, $n + 2$, …",
      "topic": "Equation word problems"
     },
     {
-     "id": "c138",
+     "id": "c142",
      "front": "Word-problem steps",
      "back": "Define the variable, write an equation, solve, answer in words with units, check.",
      "topic": "Equation word problems"
     },
     {
-     "id": "c139",
+     "id": "c143",
+     "front": "Solving a formula for a letter",
+     "back": "Use the same inverse operations as for an equation, treating the other letters as numbers: $d = rt \\Rightarrow t = \\dfrac dr$.",
+     "topic": "Formulas"
+    },
+    {
+     "id": "c144",
+     "front": "Solve $P = 2l + 2w$ for $w$",
+     "back": "$w = \\dfrac{P - 2l}{2}$ (subtract $2l$, then divide the whole side by 2).",
+     "topic": "Formulas"
+    },
+    {
+     "id": "c145",
+     "front": "Total value",
+     "back": "number of items × value of each item.",
+     "topic": "Money word problems"
+    },
+    {
+     "id": "c146",
+     "front": "Coin problem setup",
+     "back": "Let $d$ = one kind of coin; the other is (total − $d$). Values in cents add to the total value: $10d + 25(30 - d) = 510$.",
+     "topic": "Money word problems"
+    },
+    {
+     "id": "c147",
+     "front": "Ticket problem setup",
+     "back": "Let $a$ = adult tickets, (total − $a$) = child tickets; price × number for each, summed = total sales.",
+     "topic": "Money word problems"
+    },
+    {
+     "id": "c148",
+     "front": "Mixture problem setup",
+     "back": "Value of part 1 + value of part 2 = (total amount) × (mix price).",
+     "topic": "Money word problems"
+    },
+    {
+     "id": "c149",
+     "front": "Price of a blend",
+     "back": "Always between the two ingredient prices, closer to the one used more; not simply their average.",
+     "topic": "Money word problems"
+    },
+    {
+     "id": "c150",
      "front": "Flipping an inequality",
      "back": "Reverse the symbol when multiplying or dividing both sides by a negative number.",
      "topic": "Inequalities"
     },
     {
-     "id": "c140",
+     "id": "c151",
      "front": "Open vs closed circle",
      "back": "Open for $<$ and $>$; closed for $\\le$ and $\\ge$.",
      "topic": "Inequalities"
     },
     {
-     "id": "c141",
+     "id": "c152",
      "front": "\"At least\" / \"at most\"",
      "back": "$\\ge$ / $\\le$",
      "topic": "Inequalities"
     },
     {
-     "id": "c142",
+     "id": "c153",
      "front": "$4 < x$ is the same as",
      "back": "$x > 4$",
      "topic": "Inequalities"
     },
     {
-     "id": "c143",
+     "id": "c154",
+     "front": "Plotting $(x, y)$",
+     "back": "From the origin: $x$ left or right first, then $y$ up or down.",
+     "topic": "Coordinate plane"
+    },
+    {
+     "id": "c155",
+     "front": "Quadrants",
+     "back": "I $(+, +)$, II $(-, +)$, III $(-, -)$, IV $(+, -)$, counterclockwise from the upper right.",
+     "topic": "Coordinate plane"
+    },
+    {
+     "id": "c156",
+     "front": "Graphing from a table",
+     "back": "Pick several $x$-values, compute each $y$, plot at least three points and draw the line.",
+     "topic": "Graphing lines"
+    },
+    {
+     "id": "c157",
+     "front": "Finding intercepts",
+     "back": "$x$-intercept: set $y = 0$. $y$-intercept: set $x = 0$.",
+     "topic": "Graphing lines"
+    },
+    {
+     "id": "c158",
+     "front": "Slope",
+     "back": "$m = \\dfrac{\\text{rise}}{\\text{run}} = \\dfrac{y_2 - y_1}{x_2 - x_1}$",
+     "topic": "Slope"
+    },
+    {
+     "id": "c159",
+     "front": "Sign of the slope",
+     "back": "Positive rises to the right; negative falls; 0 is horizontal; vertical is undefined.",
+     "topic": "Slope"
+    },
+    {
+     "id": "c160",
+     "front": "Slope-intercept form",
+     "back": "$y = mx + b$: slope $m$, $y$-intercept $(0, b)$.",
+     "topic": "Slope"
+    },
+    {
+     "id": "c161",
+     "front": "Slope of $2x + 3y = 12$",
+     "back": "Solve for $y$: $y = -\\tfrac23 x + 4$, so $m = -\\tfrac23$ (not 2).",
+     "topic": "Slope"
+    },
+    {
+     "id": "c162",
+     "front": "Horizontal vs vertical line",
+     "back": "$y = 3$: horizontal, slope 0. $x = -2$: vertical, slope undefined.",
+     "topic": "Slope"
+    },
+    {
+     "id": "c163",
      "front": "Feet, yards, miles",
      "back": "12 in = 1 ft; 3 ft = 1 yd; 5,280 ft = 1 mi.",
      "topic": "Unit conversion"
     },
     {
-     "id": "c144",
+     "id": "c164",
      "front": "Cups, pints, quarts, gallons",
      "back": "2 c = 1 pt; 2 pt = 1 qt; 4 qt = 1 gal.",
      "topic": "Unit conversion"
     },
     {
-     "id": "c145",
+     "id": "c165",
      "front": "Ounces, pounds, tons",
      "back": "16 oz = 1 lb; 2,000 lb = 1 ton.",
      "topic": "Unit conversion"
     },
     {
-     "id": "c146",
+     "id": "c166",
      "front": "Metric prefixes",
      "back": "kilo = 1,000; centi = $\\tfrac{1}{100}$; milli = $\\tfrac{1}{1000}$.",
      "topic": "Unit conversion"
     },
     {
-     "id": "c147",
+     "id": "c167",
      "front": "Inches to centimeters",
      "back": "1 in = 2.54 cm (exact).",
      "topic": "Unit conversion"
     },
     {
-     "id": "c148",
+     "id": "c168",
      "front": "Square and cubic units",
      "back": "1 ft² = 144 in²; 1 yd² = 9 ft²; 1 yd³ = 27 ft³.",
      "topic": "Unit conversion"
     },
     {
-     "id": "c149",
+     "id": "c169",
      "front": "Conversion factor",
      "back": "A fraction equal to 1, like $\\tfrac{12 \\text{ in}}{1 \\text{ ft}}$, arranged so unwanted units cancel.",
      "topic": "Dimensional analysis"
     },
     {
-     "id": "c150",
+     "id": "c170",
      "front": "60 mi/h in ft/s",
      "back": "88 ft/s",
      "topic": "Dimensional analysis"
     },
     {
-     "id": "c151",
+     "id": "c171",
      "front": "155 minutes in hours and minutes",
      "back": "2 h 35 min (not 2.58 h read as 2 h 58 min).",
      "topic": "Unit conversion"
     },
     {
-     "id": "c152",
+     "id": "c172",
      "front": "Acute, right, obtuse, straight",
      "back": "< 90°, = 90°, between 90° and 180°, = 180°.",
      "topic": "Angles"
     },
     {
-     "id": "c153",
+     "id": "c173",
      "front": "Complementary vs supplementary",
      "back": "Sum 90° vs sum 180°.",
      "topic": "Angles"
     },
     {
-     "id": "c154",
+     "id": "c174",
      "front": "Vertical angles",
      "back": "Opposite angles at crossing lines; always equal.",
      "topic": "Angles"
     },
     {
-     "id": "c155",
+     "id": "c175",
      "front": "Angles of a triangle",
      "back": "Sum to 180°.",
      "topic": "Angles"
     },
     {
-     "id": "c156",
+     "id": "c176",
      "front": "Isosceles triangle angles",
      "back": "The angles opposite the equal sides are equal.",
      "topic": "Angles"
     },
     {
-     "id": "c157",
+     "id": "c177",
      "front": "Perimeter of a rectangle",
      "back": "$P = 2l + 2w$",
      "topic": "Perimeter"
     },
     {
-     "id": "c158",
+     "id": "c178",
      "front": "Area of a rectangle and square",
      "back": "$A = lw$; $A = s^2$",
      "topic": "Area"
     },
     {
-     "id": "c159",
+     "id": "c179",
      "front": "Area of a parallelogram",
      "back": "$A = bh$ (perpendicular height)",
      "topic": "Area"
     },
     {
-     "id": "c160",
+     "id": "c180",
      "front": "Area of a triangle",
      "back": "$A = \\tfrac12 bh$",
      "topic": "Area"
     },
     {
-     "id": "c161",
+     "id": "c181",
      "front": "Area of a trapezoid",
      "back": "$A = \\tfrac12(b_1 + b_2)h$",
      "topic": "Area"
     },
     {
-     "id": "c162",
+     "id": "c182",
      "front": "Composite figures",
      "back": "Split into simple shapes and add, or subtract a missing piece.",
      "topic": "Area"
     },
     {
-     "id": "c163",
+     "id": "c183",
      "front": "Diameter and radius",
      "back": "$d = 2r$",
      "topic": "Circles"
     },
     {
-     "id": "c164",
+     "id": "c184",
      "front": "Circumference",
      "back": "$C = \\pi d = 2\\pi r$",
      "topic": "Circles"
     },
     {
-     "id": "c165",
+     "id": "c185",
      "front": "Area of a circle",
      "back": "$A = \\pi r^2$ (use the radius)",
      "topic": "Circles"
     },
     {
-     "id": "c166",
+     "id": "c186",
      "front": "$\\pi$",
      "back": "$C/d$ for every circle, $\\approx 3.14159$ or $\\tfrac{22}{7}$.",
      "topic": "Circles"
     },
     {
-     "id": "c167",
+     "id": "c187",
      "front": "Doubling the radius",
      "back": "Doubles the circumference; quadruples the area.",
      "topic": "Circles"
     },
     {
-     "id": "c168",
+     "id": "c188",
      "front": "Volume of a box",
      "back": "$V = lwh$",
      "topic": "Volume"
     },
     {
-     "id": "c169",
+     "id": "c189",
      "front": "Volume of a cube",
      "back": "$V = s^3$",
      "topic": "Volume"
     },
     {
-     "id": "c170",
+     "id": "c190",
      "front": "Volume of a cylinder",
      "back": "$V = \\pi r^2 h$",
      "topic": "Volume"
     },
     {
-     "id": "c171",
+     "id": "c191",
      "front": "Volume of a cone and a pyramid",
      "back": "$\\tfrac13 \\pi r^2 h$ and $\\tfrac13 Bh$",
      "topic": "Volume"
     },
     {
-     "id": "c172",
+     "id": "c192",
      "front": "Volume of a sphere",
      "back": "$V = \\tfrac43 \\pi r^3$",
      "topic": "Volume"
     },
     {
-     "id": "c173",
+     "id": "c193",
      "front": "Surface area of a box",
      "back": "$SA = 2lw + 2lh + 2wh$",
      "topic": "Surface area"
     },
     {
-     "id": "c174",
+     "id": "c194",
      "front": "Surface area of a cylinder",
      "back": "$SA = 2\\pi r^2 + 2\\pi rh$",
      "topic": "Surface area"
     },
     {
-     "id": "c175",
+     "id": "c195",
      "front": "Perimeter, area, volume units",
      "back": "Length units; square units; cubic units.",
      "topic": "Surface area"
     },
     {
-     "id": "c176",
+     "id": "c196",
      "front": "Pythagorean theorem",
      "back": "$a^2 + b^2 = c^2$ in a right triangle, $c$ the hypotenuse.",
      "topic": "Pythagorean theorem"
     },
     {
-     "id": "c177",
+     "id": "c197",
      "front": "Finding a leg",
      "back": "$a = \\sqrt{c^2 - b^2}$",
      "topic": "Pythagorean theorem"
     },
     {
-     "id": "c178",
+     "id": "c198",
      "front": "Common Pythagorean triples",
      "back": "3-4-5, 5-12-13, 8-15-17, 7-24-25",
      "topic": "Pythagorean theorem"
     },
     {
-     "id": "c179",
+     "id": "c199",
      "front": "Is it a right triangle?",
      "back": "Check whether $a^2 + b^2 = c^2$ with $c$ the longest side.",
      "topic": "Pythagorean theorem"
     },
     {
-     "id": "c180",
+     "id": "c200",
+     "front": "Distance between two points",
+     "back": "Legs = move across and move up/down; distance = $\\sqrt{\\text{across}^2 + \\text{up}^2}$: $(1, 2)$ to $(7, 10)$ is $\\sqrt{36 + 64} = 10$.",
+     "topic": "Coordinate plane"
+    },
+    {
+     "id": "c201",
      "front": "Mean",
      "back": "Sum ÷ count.",
      "topic": "Measures of center"
     },
     {
-     "id": "c181",
+     "id": "c202",
      "front": "Median",
      "back": "Middle of the ordered data; average the two middle values if the count is even.",
      "topic": "Measures of center"
     },
     {
-     "id": "c182",
+     "id": "c203",
      "front": "Mode",
      "back": "The most frequent value (there may be none or several).",
      "topic": "Measures of center"
     },
     {
-     "id": "c183",
+     "id": "c204",
      "front": "Range",
      "back": "Maximum − minimum.",
      "topic": "Range"
     },
     {
-     "id": "c184",
+     "id": "c205",
      "front": "Mean or median with outliers?",
      "back": "Median: it resists outliers; the mean is pulled toward them.",
      "topic": "Measures of center"
     },
     {
-     "id": "c185",
+     "id": "c206",
      "front": "Missing value for a target mean",
      "back": "Needed total = target mean × count; subtract the known sum.",
      "topic": "Measures of center"
     },
     {
-     "id": "c186",
+     "id": "c207",
      "front": "Bar, line and circle graphs",
      "back": "Compare categories; change over time; parts of a whole.",
      "topic": "Tables and graphs"
     },
     {
-     "id": "c187",
+     "id": "c208",
      "front": "Angle of a circle-graph sector",
      "back": "Its percent of 360°: 25% → 90°.",
      "topic": "Tables and graphs"
     },
     {
-     "id": "c188",
+     "id": "c209",
      "front": "Misleading bar graph",
      "back": "A vertical axis that doesn't start at 0 exaggerates differences.",
      "topic": "Tables and graphs"
     },
     {
-     "id": "c189",
+     "id": "c210",
      "front": "Probability of an event",
      "back": "$P(E) = \\dfrac{\\text{favorable outcomes}}{\\text{total outcomes}}$ (equally likely outcomes).",
      "topic": "Probability"
     },
     {
-     "id": "c190",
+     "id": "c211",
      "front": "Range of a probability",
      "back": "From 0 (impossible) to 1 (certain).",
      "topic": "Probability"
     },
     {
-     "id": "c191",
+     "id": "c212",
      "front": "Complement rule",
      "back": "$P(\\text{not } E) = 1 - P(E)$",
      "topic": "Probability"
     },
     {
-     "id": "c192",
+     "id": "c213",
      "front": "Experimental probability",
      "back": "Successes ÷ trials.",
      "topic": "Probability"
     },
     {
-     "id": "c193",
+     "id": "c214",
      "front": "Expected count",
      "back": "Probability × number of trials.",
      "topic": "Probability"
     },
     {
-     "id": "c194",
+     "id": "c215",
      "front": "Independent events",
      "back": "$P(A \\text{ and } B) = P(A) \\cdot P(B)$",
      "topic": "Probability"
     },
     {
-     "id": "c195",
+     "id": "c216",
      "front": "Counting principle",
      "back": "Multiply the number of choices at each stage: 3 × 5 × 4 = 60 meals.",
      "topic": "Probability"
     },
     {
-     "id": "c196",
+     "id": "c217",
      "front": "Most likely sum of two dice",
      "back": "7, with probability $\\tfrac{6}{36} = \\tfrac16$.",
      "topic": "Probability"
@@ -9731,6 +10564,19 @@
    "topic": "Multi-step equations"
   },
   {
+   "term": "total value",
+   "definition": "In money problems, the number of items times the value of each item: 7 quarters have a total value of $7 \\times 25 = 175$ cents.",
+   "topic": "Money word problems"
+  },
+  {
+   "term": "mixture problem",
+   "aliases": [
+    "mixture problems"
+   ],
+   "definition": "A problem that blends two ingredients with different prices per unit; the values of the parts add up to the value of the mix (its amount times its price).",
+   "topic": "Money word problems"
+  },
+  {
    "term": "inequality",
    "aliases": [
     "inequalities"
@@ -10053,12 +10899,12 @@
   {
    "term": "coordinate plane",
    "definition": "A flat grid formed by a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) crossing at the origin; each point is named by an ordered pair.",
-   "topic": "Pythagorean theorem"
+   "topic": "Coordinate plane"
   },
   {
    "term": "origin",
    "definition": "The point $(0, 0)$ where the $x$-axis and $y$-axis cross.",
-   "topic": "Pythagorean theorem"
+   "topic": "Coordinate plane"
   },
   {
    "term": "ordered pair",
@@ -10066,7 +10912,67 @@
     "ordered pairs"
    ],
    "definition": "A pair of numbers $(x, y)$ naming a point: $x$ is the move left or right from the origin, $y$ the move up or down.",
-   "topic": "Pythagorean theorem"
+   "topic": "Coordinate plane"
+  },
+  {
+   "term": "x-axis",
+   "definition": "The horizontal number line of the coordinate plane.",
+   "topic": "Coordinate plane"
+  },
+  {
+   "term": "y-axis",
+   "definition": "The vertical number line of the coordinate plane.",
+   "topic": "Coordinate plane"
+  },
+  {
+   "term": "quadrants",
+   "aliases": [
+    "quadrant"
+   ],
+   "definition": "The four regions the axes cut the coordinate plane into, numbered I to IV counterclockwise from the upper right, where both coordinates are positive.",
+   "topic": "Coordinate plane"
+  },
+  {
+   "term": "graph of an equation",
+   "aliases": [
+    "graph"
+   ],
+   "definition": "All the points whose coordinates make the equation true, drawn on the coordinate plane.",
+   "topic": "Graphing lines"
+  },
+  {
+   "term": "linear equation",
+   "aliases": [
+    "linear equations"
+   ],
+   "definition": "An equation in $x$ and $y$ whose graph is a straight line, such as $y = 2x - 1$ or $2x + 3y = 12$.",
+   "topic": "Graphing lines"
+  },
+  {
+   "term": "x-intercept",
+   "aliases": [
+    "x-intercepts"
+   ],
+   "definition": "The point where a graph crosses the $x$-axis; find it by setting $y = 0$.",
+   "topic": "Graphing lines"
+  },
+  {
+   "term": "y-intercept",
+   "aliases": [
+    "y-intercepts"
+   ],
+   "definition": "The point where a graph crosses the $y$-axis; find it by setting $x = 0$. In $y = mx + b$ it is $(0, b)$.",
+   "topic": "Graphing lines"
+  },
+  {
+   "term": "slope",
+   "definition": "The steepness of a line: rise over run, $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. Positive slopes rise to the right, negative ones fall, 0 is horizontal, and a vertical line's slope is undefined.",
+   "topic": "Slope"
+  },
+  {
+   "term": "slope-intercept form",
+   "definition": "The form $y = mx + b$ of a linear equation, where $m$ is the slope and $b$ is the $y$-intercept.",
+   "topic": "Slope"
   },
   {
    "term": "Pythagorean triples",
@@ -10251,7 +11157,7 @@
   {
    "id": "pre-ref-algebra",
    "title": "Order of operations, exponents and equations",
-   "body": "## Order of operations\n\n1. Grouping symbols: ( ), [ ], { }, fraction bars, absolute value bars, radicals (innermost first)\n2. Exponents and roots\n3. Multiplication and division, left to right\n4. Addition and subtraction, left to right\n\n$-3^2 = -9$ but $(-3)^2 = 9$.\n\n## Properties\n\n| Property | Statement |\n|---|---|\n| Commutative | $a + b = b + a$, $ab = ba$ |\n| Associative | $(a + b) + c = a + (b + c)$, $(ab)c = a(bc)$ |\n| Distributive | $a(b + c) = ab + ac$ |\n| Identity | $a + 0 = a$, $a \\cdot 1 = a$ |\n| Inverses | $a + (-a) = 0$, $a \\cdot \\tfrac1a = 1$ ($a \\ne 0$) |\n| Zero | $a \\cdot 0 = 0$; $a \\div 0$ is undefined |\n\n## Exponent rules\n\n| Rule | Statement |\n|---|---|\n| Product | $b^m b^n = b^{m+n}$ |\n| Quotient | $\\dfrac{b^m}{b^n} = b^{m-n}$ ($b \\ne 0$) |\n| Power of a power | $(b^m)^n = b^{mn}$ |\n| Power of a product | $(ab)^n = a^n b^n$ |\n| Power of a quotient | $\\left(\\dfrac{a}{b}\\right)^n = \\dfrac{a^n}{b^n}$ |\n| Zero exponent | $b^0 = 1$ ($b \\ne 0$) |\n| Negative exponent | $b^{-n} = \\dfrac{1}{b^n}$ ($b \\ne 0$) |\n\n## Squares, roots and cubes\n\n| $n$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| $n^2$ | 1 | 4 | 9 | 16 | 25 | 36 | 49 | 64 | 81 | 100 | 121 | 144 | 169 | 196 | 225 |\n\nCubes: $1, 8, 27, 64, 125, \\ldots, 10^3 = 1000$. $\\sqrt{n}$ is the nonnegative root; $\\sqrt{a + b} \\ne \\sqrt a + \\sqrt b$.\n\n## Scientific notation\n\n$a \\times 10^n$ with $1 \\le a < 10$. Large numbers: $n > 0$; numbers between 0 and 1: $n < 0$.\nMultiply: multiply coefficients, add exponents. Divide: divide coefficients, subtract exponents. Then adjust.\n\n## Translating words\n\n| Words | Algebra |\n|---|---|\n| 5 more than $x$ | $x + 5$ |\n| 5 less than $x$ | $x - 5$ |\n| twice $x$ | $2x$ |\n| the quotient of $x$ and 5 | $\\dfrac{x}{5}$ |\n| 3 times the sum of $x$ and 2 | $3(x + 2)$ |\n| at least / at most | $\\ge$ / $\\le$ |\n\n## Solving linear equations\n\n1. Distribute and combine like terms on each side.\n2. Move variable terms to one side, constants to the other (add or subtract on both sides).\n3. Divide both sides by the coefficient.\n4. Check in the original equation.\n\nClear fractions by multiplying every term by the LCD. A true statement like $5 = 5$ means every number is a solution; a false one like $5 = 6$ means no solution.\n\n## Inequalities\n\nSame steps as equations, but multiplying or dividing by a negative number reverses the symbol.\nGraph: open circle for $<$, $>$; closed circle for $\\le$, $\\ge$.\n"
+   "body": "## Order of operations\n\n1. Grouping symbols: ( ), [ ], { }, fraction bars, absolute value bars, radicals (innermost first)\n2. Exponents and roots\n3. Multiplication and division, left to right\n4. Addition and subtraction, left to right\n\n$-3^2 = -9$ but $(-3)^2 = 9$.\n\n## Properties\n\n| Property | Statement |\n|---|---|\n| Commutative | $a + b = b + a$, $ab = ba$ |\n| Associative | $(a + b) + c = a + (b + c)$, $(ab)c = a(bc)$ |\n| Distributive | $a(b + c) = ab + ac$ |\n| Identity | $a + 0 = a$, $a \\cdot 1 = a$ |\n| Inverses | $a + (-a) = 0$, $a \\cdot \\tfrac1a = 1$ ($a \\ne 0$) |\n| Zero | $a \\cdot 0 = 0$; $a \\div 0$ is undefined |\n\n## Exponent rules\n\n| Rule | Statement |\n|---|---|\n| Product | $b^m b^n = b^{m+n}$ |\n| Quotient | $\\dfrac{b^m}{b^n} = b^{m-n}$ ($b \\ne 0$) |\n| Power of a power | $(b^m)^n = b^{mn}$ |\n| Power of a product | $(ab)^n = a^n b^n$ |\n| Power of a quotient | $\\left(\\dfrac{a}{b}\\right)^n = \\dfrac{a^n}{b^n}$ |\n| Zero exponent | $b^0 = 1$ ($b \\ne 0$) |\n| Negative exponent | $b^{-n} = \\dfrac{1}{b^n}$ ($b \\ne 0$) |\n\n## Squares, roots and cubes\n\n| $n$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| $n^2$ | 1 | 4 | 9 | 16 | 25 | 36 | 49 | 64 | 81 | 100 | 121 | 144 | 169 | 196 | 225 |\n\nCubes: $1, 8, 27, 64, 125, \\ldots, 10^3 = 1000$. $\\sqrt{n}$ is the nonnegative root; $\\sqrt{a + b} \\ne \\sqrt a + \\sqrt b$.\n\n## Scientific notation\n\n$a \\times 10^n$ with $1 \\le a < 10$. Large numbers: $n > 0$; numbers between 0 and 1: $n < 0$.\nMultiply: multiply coefficients, add exponents. Divide: divide coefficients, subtract exponents. Then adjust.\n\n## Translating words\n\n| Words | Algebra |\n|---|---|\n| 5 more than $x$ | $x + 5$ |\n| 5 less than $x$ | $x - 5$ |\n| twice $x$ | $2x$ |\n| the quotient of $x$ and 5 | $\\dfrac{x}{5}$ |\n| 3 times the sum of $x$ and 2 | $3(x + 2)$ |\n| at least / at most | $\\ge$ / $\\le$ |\n\n## Solving linear equations\n\n1. Distribute and combine like terms on each side.\n2. Move variable terms to one side, constants to the other (add or subtract on both sides).\n3. Divide both sides by the coefficient.\n4. Check in the original equation.\n\nClear fractions by multiplying every term by the LCD. A true statement like $5 = 5$ means every number is a solution; a false one like $5 = 6$ means no solution.\n\nSolving a formula for a letter: same steps, treating the other letters as numbers. $P = 2l + 2w \\Rightarrow w = \\dfrac{P - 2l}{2}$.\n\n## Money problems\n\nTotal value = number of items × value of each.\n\n| Problem | Equation (one variable) |\n|---|---|\n| 30 dimes and quarters worth \\$5.10 | $10d + 25(30 - d) = 510$ (cents) |\n| 220 tickets at \\$12 and \\$7, sales \\$2,190 | $12a + 7(220 - a) = 2{,}190$ |\n| 20 lb blend of \\$9 and \\$14 coffee at \\$11/lb | $9x + 14(20 - x) = 20 \\times 11$ |\n\n## Graphing lines\n\n| Idea | Rule |\n|---|---|\n| Ordered pair $(x, y)$ | across first, then up or down |\n| Quadrants | I $(+,+)$, II $(-,+)$, III $(-,-)$, IV $(+,-)$ |\n| $x$-intercept | set $y = 0$ |\n| $y$-intercept | set $x = 0$ |\n| Slope | $m = \\dfrac{\\text{rise}}{\\text{run}} = \\dfrac{y_2 - y_1}{x_2 - x_1}$ |\n| Slope-intercept form | $y = mx + b$: slope $m$, $y$-intercept $(0, b)$ |\n| Horizontal line $y = k$ | slope 0 |\n| Vertical line $x = k$ | slope undefined |\n\nDistance between two points: $\\sqrt{(\\text{across})^2 + (\\text{up or down})^2}$ (Pythagorean theorem).\n\n## Inequalities\n\nSame steps as equations, but multiplying or dividing by a negative number reverses the symbol.\nGraph: open circle for $<$, $>$; closed circle for $\\le$, $\\ge$.\n"
   },
   {
    "id": "pre-ref-arithmetic",
@@ -12327,6 +13233,93 @@
    "format": "number"
   },
   {
+   "id": "pre-irrational-count",
+   "title": "Rational or irrational?",
+   "topic": "Real numbers",
+   "vars": {
+    "n1": {
+     "choices": [
+      0.25,
+      0.36,
+      0.4,
+      0.5,
+      0.81,
+      0.9
+     ]
+    },
+    "n2": {
+     "choices": [
+      2,
+      3,
+      4,
+      5,
+      8,
+      9
+     ]
+    },
+    "n3": {
+     "choices": [
+      12,
+      16,
+      18,
+      20,
+      25,
+      27
+     ]
+    },
+    "n4": {
+     "choices": [
+      36,
+      40,
+      49,
+      50,
+      64,
+      75
+     ]
+    },
+    "n5": {
+     "choices": [
+      81,
+      99,
+      100,
+      121,
+      125,
+      144,
+      169,
+      200
+     ]
+    }
+   },
+   "calc": {
+    "r1": "sqrt(round(100 * n1)) == round(sqrt(round(100 * n1)))",
+    "r2": "sqrt(round(100 * n2)) == round(sqrt(round(100 * n2)))",
+    "r3": "sqrt(round(100 * n3)) == round(sqrt(round(100 * n3)))",
+    "r4": "sqrt(round(100 * n4)) == round(sqrt(round(100 * n4)))",
+    "r5": "sqrt(round(100 * n5)) == round(sqrt(round(100 * n5)))",
+    "rat": "r1 + r2 + r3 + r4 + r5",
+    "irr": "5 - rat",
+    "s1": "sqrt(n1)",
+    "s2": "sqrt(n2)",
+    "s3": "sqrt(n3)",
+    "s4": "sqrt(n4)",
+    "s5": "sqrt(n5)"
+   },
+   "where": [
+    "rat >= 1",
+    "irr >= 1"
+   ],
+   "prompt": "How many of these numbers are irrational? $\\;\\sqrt{{n1}},\\ \\sqrt{{n2}},\\ \\sqrt{{n3}},\\ \\sqrt{{n4}},\\ \\sqrt{{n5}}$",
+   "answers": [
+    {
+     "name": "irr",
+     "label": "Irrational"
+    }
+   ],
+   "solution": "A square root is rational only when the number under the radical is a perfect square (of a whole number or a decimal, like $0.36 = 0.6^2$); then the root is a terminating decimal. Otherwise it is an endless, non-repeating decimal: irrational.\nThe values are $\\sqrt{{n1}} = {s1:num4}$, $\\sqrt{{n2}} = {s2:num4}$, $\\sqrt{{n3}} = {s3:num4}$, $\\sqrt{{n4}} = {s4:num4}$ and $\\sqrt{{n5}} = {s5:num4}$, with the irrational ones rounded to 4 decimal places.\n{rat} of them are exact, so **{irr}** are irrational.",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "pre-evaluate",
    "title": "Evaluate an expression",
    "topic": "Expressions",
@@ -12849,6 +13842,343 @@
     }
    ],
    "solution": "Let $s$ be the sessions: ${F} + {r}s \\le {B}$. Subtract {F}: ${r}s \\le {BF}$. Divide: $s \\le {q:num2}$. The greatest whole number is **{n}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-formula-solve",
+   "title": "Solve an equation for y",
+   "topic": "Formulas",
+   "vars": {
+    "bb": {
+     "min": -6,
+     "max": 6
+    },
+    "m0": {
+     "min": -5,
+     "max": 5
+    },
+    "k": {
+     "min": -9,
+     "max": 9
+    }
+   },
+   "calc": {
+    "a": "-m0 * bb",
+    "na": "m0 * bb",
+    "c": "bb * k"
+   },
+   "where": [
+    "abs(bb) > 1",
+    "m0 != 0",
+    "k != 0"
+   ],
+   "prompt": "Solve $\\;{a:coef}x {bb:signedcoef}y = {c}\\;$ for $y$.",
+   "answers": [
+    {
+     "kind": "expression",
+     "expression": "m0*x + k",
+     "variables": [
+      "x"
+     ],
+     "label": "$y =$",
+     "show": "${m0:coef}x {k:signed}$"
+    }
+   ],
+   "solution": "Treat $x$ like a number and undo the steps around $y$. Subtract ${a:coef}x$ from both sides: ${bb:coef}y = {na:coef}x {c:signed}$.\nDivide every term by ${bb}$: $y =$ **${m0:coef}x {k:signed}$**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-coin-problem",
+   "title": "Coin problem",
+   "topic": "Money word problems",
+   "vars": {
+    "N": {
+     "min": 12,
+     "max": 40
+    },
+    "d": {
+     "min": 2,
+     "max": 38
+    }
+   },
+   "calc": {
+    "qn": "N - d",
+    "V": "10 * d + 25 * (N - d)",
+    "Vd": "V / 100",
+    "N25": "25 * N",
+    "diff": "V - 25 * N"
+   },
+   "where": [
+    "d <= N - 2"
+   ],
+   "prompt": "A jar holds {N} coins, all dimes and quarters, worth {Vd:money} in all. How many dimes are in the jar?",
+   "answers": [
+    {
+     "name": "d",
+     "label": "Dimes"
+    }
+   ],
+   "solution": "Let $d$ be the number of dimes; the quarters are the rest, ${N} - d$. Work in cents: $10d + 25({N} - d) = {V:dp0}$.\nDistribute: $10d + {N25:dp0} - 25d = {V:dp0}$, so $-15d + {N25:dp0} = {V:dp0}$ and $-15d = {diff:dp0}$. Divide by $-15$: $d =$ **{d}**.\nCheck: {d} dimes and {qn} quarters are worth $10({d}) + 25({qn}) = {V:dp0}$ cents.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-ticket-problem",
+   "title": "Ticket sales problem",
+   "topic": "Money word problems",
+   "vars": {
+    "N": {
+     "min": 80,
+     "max": 400,
+     "step": 10
+    },
+    "pa": {
+     "min": 8,
+     "max": 25
+    },
+    "pc": {
+     "min": 3,
+     "max": 15
+    },
+    "a": {
+     "min": 10,
+     "max": 390
+    }
+   },
+   "calc": {
+    "c": "N - a",
+    "T": "pa * a + pc * (N - a)",
+    "pcN": "pc * N",
+    "dp": "pa - pc",
+    "Tm": "T - pc * N"
+   },
+   "where": [
+    "pc <= pa - 2",
+    "a <= N - 10"
+   ],
+   "prompt": "A theater sold {N} tickets. Adult tickets cost {pa:money0} and child tickets cost {pc:money0}. Ticket sales were {T:money0}. How many adult tickets were sold?",
+   "answers": [
+    {
+     "name": "a",
+     "label": "Adult tickets"
+    }
+   ],
+   "solution": "Let $a$ be the adult tickets; the child tickets are ${N} - a$. In dollars: ${pa}a + {pc}({N} - a) = {T:dp0}$.\nDistribute: ${pa}a + {pcN:dp0} - {pc}a = {T:dp0}$, so ${dp}a + {pcN:dp0} = {T:dp0}$ and ${dp}a = {Tm:dp0}$. Divide by {dp}: $a =$ **{a}**.\nCheck: {a} adult and {c} child tickets bring in ${pa}({a}) + {pc}({c}) = {T:dp0}$ dollars.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-mixture-problem",
+   "title": "Mixture problem",
+   "topic": "Money word problems",
+   "vars": {
+    "p1": {
+     "min": 2,
+     "max": 10
+    },
+    "gap": {
+     "min": 2,
+     "max": 8
+    },
+    "W": {
+     "min": 10,
+     "max": 60,
+     "step": 5
+    },
+    "x": {
+     "min": 1,
+     "max": 59
+    }
+   },
+   "calc": {
+    "p2": "p1 + gap",
+    "rest": "W - x",
+    "tot": "p1 * x + (p1 + gap) * (W - x)",
+    "P": "tot / W",
+    "p2W": "(p1 + gap) * W",
+    "dpp": "-gap",
+    "diff": "tot - (p1 + gap) * W"
+   },
+   "where": [
+    "x <= W - 1",
+    "mod(tot * 100, W) == 0"
+   ],
+   "prompt": "A shop mixes nuts worth {p1:money0} per pound with nuts worth {p2:money0} per pound to make {W} pounds of a mix worth {P:money} per pound. How many pounds of the {p1:money0} nuts does it use?",
+   "answers": [
+    {
+     "name": "x",
+     "label": "Pounds"
+    }
+   ],
+   "solution": "Let $x$ be the pounds of the cheaper nuts; the rest, ${W} - x$ pounds, are the dearer nuts. The whole mix is worth ${W} \\times {P:dp2} = {tot:dp0}$ dollars, so\n$${p1}x + {p2}({W} - x) = {tot:dp0}.$$\nDistribute: ${p1}x + {p2W:dp0} - {p2}x = {tot:dp0}$, so ${dpp}x + {p2W:dp0} = {tot:dp0}$ and ${dpp}x = {diff:dp0}$. Divide by ${dpp}$: $x =$ **{x}** pounds (and {rest} pounds of the dearer nuts).",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-slope-points",
+   "title": "Slope from two points",
+   "topic": "Slope",
+   "vars": {
+    "x1": {
+     "min": -9,
+     "max": 9
+    },
+    "y1": {
+     "min": -9,
+     "max": 9
+    },
+    "x2": {
+     "min": -9,
+     "max": 9
+    },
+    "y2": {
+     "min": -9,
+     "max": 9
+    }
+   },
+   "calc": {
+    "dy": "y2 - y1",
+    "dx": "x2 - x1",
+    "m": "(y2 - y1) / (x2 - x1)"
+   },
+   "where": [
+    "x1 != x2",
+    "y1 != y2"
+   ],
+   "prompt": "Find the slope of the line through $({x1}, {y1})$ and $({x2}, {y2})$. Give an integer or a fraction in lowest terms.",
+   "answers": [
+    {
+     "name": "m",
+     "kind": "fraction",
+     "lowestTerms": true,
+     "label": "$m =$"
+    }
+   ],
+   "solution": "Rise over run, subtracting in the same order on top and bottom:\n$$m = \\dfrac{{y2} - ({y1})}{{x2} - ({x1})} = \\dfrac{{dy}}{{dx}} = {m:texfrac}.$$\nThe slope is **{m:frac}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-intercepts",
+   "title": "Find the intercepts",
+   "topic": "Graphing lines",
+   "vars": {
+    "a": {
+     "min": -9,
+     "max": 9
+    },
+    "bq": {
+     "min": -9,
+     "max": 9
+    },
+    "k": {
+     "min": -4,
+     "max": 4
+    }
+   },
+   "calc": {
+    "c": "a * bq * k",
+    "xi": "bq * k",
+    "yi": "a * k"
+   },
+   "where": [
+    "a != 0",
+    "bq != 0",
+    "k != 0",
+    "gcd(abs(a), abs(bq)) == 1",
+    "abs(a) + abs(bq) > 2"
+   ],
+   "prompt": "Find the intercepts of the line $\\;{a:coef}x {bq:signedcoef}y = {c}$. Give the $x$-coordinate of the $x$-intercept and the $y$-coordinate of the $y$-intercept.",
+   "answers": [
+    {
+     "name": "xi",
+     "label": "$x$-intercept: $x =$"
+    },
+    {
+     "name": "yi",
+     "label": "$y$-intercept: $y =$"
+    }
+   ],
+   "solution": "$x$-intercept: set $y = 0$. Then ${a:coef}x = {c}$, so $x =$ **{xi}**; the point is $({xi}, 0)$.\n$y$-intercept: set $x = 0$. Then ${bq:coef}y = {c}$, so $y =$ **{yi}**; the point is $(0, {yi})$.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-line-equation",
+   "title": "Equation of a line from its graph",
+   "topic": "Graphing lines",
+   "vars": {
+    "b0": {
+     "min": -5,
+     "max": 5
+    },
+    "run": {
+     "min": 1,
+     "max": 4
+    },
+    "rise": {
+     "min": -6,
+     "max": 6
+    }
+   },
+   "calc": {
+    "m": "rise / run",
+    "y2": "b0 + rise"
+   },
+   "where": [
+    "rise != 0",
+    "b0 != 0",
+    "abs(rise) != run",
+    "abs(b0 + rise) <= 8",
+    "gcd(abs(rise), run) == 1"
+   ],
+   "prompt": "The line passes through the two marked points, $(0, {b0})$ and $({run}, {y2})$. Write its equation in slope-intercept form, $y = mx + b$.",
+   "answers": [
+    {
+     "kind": "expression",
+     "expression": "m*x + b0",
+     "variables": [
+      "x"
+     ],
+     "label": "$y =$",
+     "show": "${m:texfrac}x {b0:signed}$"
+    }
+   ],
+   "figure": {
+    "type": "plot",
+    "x": [
+     -6,
+     6
+    ],
+    "y": [
+     -10,
+     10
+    ],
+    "functions": [
+     {
+      "f": "m*x + b0"
+     }
+    ],
+    "points": [
+     {
+      "at": [
+       0,
+       "b0"
+      ],
+      "label": "(0, {b0})"
+     },
+     {
+      "at": [
+       "run",
+       "y2"
+      ],
+      "label": "({run}, {y2})"
+     }
+    ]
+   },
+   "solution": "The line crosses the $y$-axis at $(0, {b0})$, so $b = {b0}$.\nFrom $(0, {b0})$ to $({run}, {y2})$, $y$ changes by ${rise}$ while $x$ changes by ${run}$, so $m = \\dfrac{{rise}}{{run}} = {m:texfrac}$.\nThe equation is **$y = {m:texfrac}x {b0:signed}$**.",
    "answer": "",
    "format": "number"
   },
@@ -13920,6 +15250,131 @@
     ]
    },
    "solution": "The hypotenuse is given, so subtract: $b^2 = c^2 - a^2 = {c2:dp0} - {a2:dp0} = {b2:dp0}$, and $b = \\sqrt{{b2:dp0}} =$ **{b}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "pre-grid-distance",
+   "title": "Distance between two points",
+   "topic": "Coordinate plane",
+   "vars": {
+    "t": {
+     "min": 1,
+     "max": 4
+    },
+    "sx": {
+     "choices": [
+      -1,
+      1
+     ]
+    },
+    "sy": {
+     "choices": [
+      -1,
+      1
+     ]
+    },
+    "sw": {
+     "choices": [
+      0,
+      1
+     ]
+    },
+    "x1": {
+     "min": -6,
+     "max": 6
+    },
+    "y1": {
+     "min": -6,
+     "max": 6
+    }
+   },
+   "calc": {
+    "p": "if(t == 1, 3, if(t == 2, 5, if(t == 3, 8, 6)))",
+    "r": "if(t == 1, 4, if(t == 2, 12, if(t == 3, 15, 8)))",
+    "c": "if(t == 1, 5, if(t == 2, 13, if(t == 3, 17, 10)))",
+    "dx": "if(sw == 1, r, p)",
+    "dy": "if(sw == 1, p, r)",
+    "x2": "x1 + sx * dx",
+    "y2": "y1 + sy * dy",
+    "dx2": "dx^2",
+    "dy2": "dy^2",
+    "c2": "c^2",
+    "lox": "min(x1, x2) - 2",
+    "hix": "max(x1, x2) + 2",
+    "loy": "min(y1, y2) - 2",
+    "hiy": "max(y1, y2) + 2"
+   },
+   "prompt": "Find the distance between the points $({x1}, {y1})$ and $({x2}, {y2})$.",
+   "answers": [
+    {
+     "name": "c",
+     "label": "Distance"
+    }
+   ],
+   "figure": {
+    "type": "plot",
+    "x": [
+     "lox",
+     "hix"
+    ],
+    "y": [
+     "loy",
+     "hiy"
+    ],
+    "equal": true,
+    "points": [
+     {
+      "at": [
+       "x1",
+       "y1"
+      ],
+      "label": "({x1}, {y1})"
+     },
+     {
+      "at": [
+       "x2",
+       "y2"
+      ],
+      "label": "({x2}, {y2})"
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       "x1",
+       "y1"
+      ],
+      "to": [
+       "x2",
+       "y1"
+      ],
+      "dashed": true
+     },
+     {
+      "from": [
+       "x2",
+       "y1"
+      ],
+      "to": [
+       "x2",
+       "y2"
+      ],
+      "dashed": true
+     },
+     {
+      "from": [
+       "x1",
+       "y1"
+      ],
+      "to": [
+       "x2",
+       "y2"
+      ]
+     }
+    ]
+   },
+   "solution": "The move across is $|{x2} - ({x1})| = {dx}$ units and the move up or down is $|{y2} - ({y1})| = {dy}$ units. They are the legs of a right triangle, so the distance is $\\sqrt{{dx}^2 + {dy}^2} = \\sqrt{{dx2} + {dy2}} = \\sqrt{{c2}} =$ **{c}**.",
    "answer": "",
    "format": "number"
   },

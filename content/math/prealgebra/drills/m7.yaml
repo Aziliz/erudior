@@ -226,3 +226,162 @@
     - {name: n, label: Sessions}
   solution: |-
     Let $s$ be the sessions: ${F} + {r}s \le {B}$. Subtract {F}: ${r}s \le {BF}$. Divide: $s \le {q:num2}$. The greatest whole number is **{n}**.
+
+- id: pre-formula-solve
+  title: Solve an equation for y
+  topic: Formulas
+  vars:
+    bb: {min: -6, max: 6}
+    m0: {min: -5, max: 5}
+    k: {min: -9, max: 9}
+  calc:
+    a: -m0 * bb
+    na: m0 * bb
+    c: bb * k
+  where: ["abs(bb) > 1", "m0 != 0", "k != 0"]
+  prompt: 'Solve $\;{a:coef}x {bb:signedcoef}y = {c}\;$ for $y$.'
+  answers:
+    - {kind: expression, expression: 'm0*x + k', variables: [x], label: '$y =$', show: '${m0:coef}x {k:signed}$'}
+  solution: |-
+    Treat $x$ like a number and undo the steps around $y$. Subtract ${a:coef}x$ from both sides: ${bb:coef}y = {na:coef}x {c:signed}$.
+    Divide every term by ${bb}$: $y =$ **${m0:coef}x {k:signed}$**.
+
+# --- pre-money-problems ---
+- id: pre-coin-problem
+  title: Coin problem
+  topic: Money word problems
+  vars:
+    N: {min: 12, max: 40}
+    d: {min: 2, max: 38}
+  calc:
+    qn: N - d
+    V: 10 * d + 25 * (N - d)
+    Vd: V / 100
+    N25: 25 * N
+    diff: V - 25 * N
+  where: ["d <= N - 2"]
+  prompt: 'A jar holds {N} coins, all dimes and quarters, worth {Vd:money} in all. How many dimes are in the jar?'
+  answers:
+    - {name: d, label: Dimes}
+  solution: |-
+    Let $d$ be the number of dimes; the quarters are the rest, ${N} - d$. Work in cents: $10d + 25({N} - d) = {V:dp0}$.
+    Distribute: $10d + {N25:dp0} - 25d = {V:dp0}$, so $-15d + {N25:dp0} = {V:dp0}$ and $-15d = {diff:dp0}$. Divide by $-15$: $d =$ **{d}**.
+    Check: {d} dimes and {qn} quarters are worth $10({d}) + 25({qn}) = {V:dp0}$ cents.
+
+- id: pre-ticket-problem
+  title: Ticket sales problem
+  topic: Money word problems
+  vars:
+    N: {min: 80, max: 400, step: 10}
+    pa: {min: 8, max: 25}
+    pc: {min: 3, max: 15}
+    a: {min: 10, max: 390}
+  calc:
+    c: N - a
+    T: pa * a + pc * (N - a)
+    pcN: pc * N
+    dp: pa - pc
+    Tm: T - pc * N
+  where: ["pc <= pa - 2", "a <= N - 10"]
+  prompt: 'A theater sold {N} tickets. Adult tickets cost {pa:money0} and child tickets cost {pc:money0}. Ticket sales were {T:money0}. How many adult tickets were sold?'
+  answers:
+    - {name: a, label: Adult tickets}
+  solution: |-
+    Let $a$ be the adult tickets; the child tickets are ${N} - a$. In dollars: ${pa}a + {pc}({N} - a) = {T:dp0}$.
+    Distribute: ${pa}a + {pcN:dp0} - {pc}a = {T:dp0}$, so ${dp}a + {pcN:dp0} = {T:dp0}$ and ${dp}a = {Tm:dp0}$. Divide by {dp}: $a =$ **{a}**.
+    Check: {a} adult and {c} child tickets bring in ${pa}({a}) + {pc}({c}) = {T:dp0}$ dollars.
+
+- id: pre-mixture-problem
+  title: Mixture problem
+  topic: Money word problems
+  vars:
+    p1: {min: 2, max: 10}
+    gap: {min: 2, max: 8}
+    W: {min: 10, max: 60, step: 5}
+    x: {min: 1, max: 59}
+  calc:
+    p2: p1 + gap
+    rest: W - x
+    tot: p1 * x + (p1 + gap) * (W - x)
+    P: tot / W
+    p2W: (p1 + gap) * W
+    dpp: -gap
+    diff: tot - (p1 + gap) * W
+  where: ["x <= W - 1", "mod(tot * 100, W) == 0"]
+  prompt: 'A shop mixes nuts worth {p1:money0} per pound with nuts worth {p2:money0} per pound to make {W} pounds of a mix worth {P:money} per pound. How many pounds of the {p1:money0} nuts does it use?'
+  answers:
+    - {name: x, label: Pounds}
+  solution: |-
+    Let $x$ be the pounds of the cheaper nuts; the rest, ${W} - x$ pounds, are the dearer nuts. The whole mix is worth ${W} \times {P:dp2} = {tot:dp0}$ dollars, so
+    $${p1}x + {p2}({W} - x) = {tot:dp0}.$$
+    Distribute: ${p1}x + {p2W:dp0} - {p2}x = {tot:dp0}$, so ${dpp}x + {p2W:dp0} = {tot:dp0}$ and ${dpp}x = {diff:dp0}$. Divide by ${dpp}$: $x =$ **{x}** pounds (and {rest} pounds of the dearer nuts).
+
+# --- pre-graphing-lines ---
+- id: pre-slope-points
+  title: Slope from two points
+  topic: Slope
+  vars:
+    x1: {min: -9, max: 9}
+    y1: {min: -9, max: 9}
+    x2: {min: -9, max: 9}
+    y2: {min: -9, max: 9}
+  calc:
+    dy: y2 - y1
+    dx: x2 - x1
+    m: (y2 - y1) / (x2 - x1)
+  where: ["x1 != x2", "y1 != y2"]
+  prompt: 'Find the slope of the line through $({x1}, {y1})$ and $({x2}, {y2})$. Give an integer or a fraction in lowest terms.'
+  answers:
+    - {name: m, kind: fraction, lowestTerms: true, label: '$m =$'}
+  solution: |-
+    Rise over run, subtracting in the same order on top and bottom:
+    $$m = \dfrac{{y2} - ({y1})}{{x2} - ({x1})} = \dfrac{{dy}}{{dx}} = {m:texfrac}.$$
+    The slope is **{m:frac}**.
+
+- id: pre-intercepts
+  title: Find the intercepts
+  topic: Graphing lines
+  vars:
+    a: {min: -9, max: 9}
+    bq: {min: -9, max: 9}
+    k: {min: -4, max: 4}
+  calc:
+    c: a * bq * k
+    xi: bq * k
+    yi: a * k
+  where: ["a != 0", "bq != 0", "k != 0", "gcd(abs(a), abs(bq)) == 1", "abs(a) + abs(bq) > 2"]
+  prompt: 'Find the intercepts of the line $\;{a:coef}x {bq:signedcoef}y = {c}$. Give the $x$-coordinate of the $x$-intercept and the $y$-coordinate of the $y$-intercept.'
+  answers:
+    - {name: xi, label: '$x$-intercept: $x =$'}
+    - {name: yi, label: '$y$-intercept: $y =$'}
+  solution: |-
+    $x$-intercept: set $y = 0$. Then ${a:coef}x = {c}$, so $x =$ **{xi}**; the point is $({xi}, 0)$.
+    $y$-intercept: set $x = 0$. Then ${bq:coef}y = {c}$, so $y =$ **{yi}**; the point is $(0, {yi})$.
+
+- id: pre-line-equation
+  title: Equation of a line from its graph
+  topic: Graphing lines
+  vars:
+    b0: {min: -5, max: 5}
+    run: {min: 1, max: 4}
+    rise: {min: -6, max: 6}
+  calc:
+    m: rise / run
+    y2: b0 + rise
+  where: ["rise != 0", "b0 != 0", "abs(rise) != run", "abs(b0 + rise) <= 8", "gcd(abs(rise), run) == 1"]
+  prompt: 'The line passes through the two marked points, $(0, {b0})$ and $({run}, {y2})$. Write its equation in slope-intercept form, $y = mx + b$.'
+  answers:
+    - {kind: expression, expression: 'm*x + b0', variables: [x], label: '$y =$', show: '${m:texfrac}x {b0:signed}$'}
+  figure:
+    type: plot
+    x: [-6, 6]
+    y: [-10, 10]
+    functions:
+      - {f: 'm*x + b0'}
+    points:
+      - {at: [0, b0], label: '(0, {b0})'}
+      - {at: [run, y2], label: '({run}, {y2})'}
+  solution: |-
+    The line crosses the $y$-axis at $(0, {b0})$, so $b = {b0}$.
+    From $(0, {b0})$ to $({run}, {y2})$, $y$ changes by ${rise}$ while $x$ changes by ${run}$, so $m = \dfrac{{rise}}{{run}} = {m:texfrac}$.
+    The equation is **$y = {m:texfrac}x {b0:signed}$**.

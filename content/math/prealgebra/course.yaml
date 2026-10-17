@@ -6,9 +6,9 @@ description: >-
   proportions, percents, exponents and scientific notation, expressions and equations,
   measurement and basic geometry, and basic data and probability, with word problems
   throughout.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections.
+changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on money word problems and graphing lines.
 order: 1
 subject: Math
 level: [High school]

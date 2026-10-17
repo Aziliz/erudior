@@ -3,8 +3,8 @@ id: pre-equations-2
 module: pre-m7
 title: Multi-step equations and word problems
 minutes: 30
-topics: [Multi-step equations, Equation word problems]
-drills: [pre-multi-step, pre-distribute-solve, pre-eq-word]
+topics: [Multi-step equations, Equation word problems, Formulas]
+drills: [pre-multi-step, pre-distribute-solve, pre-eq-word, pre-formula-solve]
 refs: [pre-ref-algebra]
 ---
 ## Putting the tools together
@@ -82,7 +82,7 @@ Sometimes the variable disappears.
 
 ## Solving a formula for a variable
 
-The same steps work on a formula with several letters. To solve $d = rt$ for $t$, treat $r$ like a number multiplying $t$ and divide both sides by it: $t = \dfrac{d}{r}$ (for $r \ne 0$). To solve the perimeter formula $P = 2l + 2w$ for $w$, subtract $2l$ from both sides, giving $P - 2l = 2w$, then divide by 2: $w = \dfrac{P - 2l}{2}$. Rewriting a formula this way is useful when you need the same unknown many times, such as the width of several rectangles with known perimeters and lengths.
+The same steps work on a formula with several letters. To solve $d = rt$ for $t$, treat $r$ like a number multiplying $t$ and divide both sides by it: $t = \dfrac{d}{r}$ (for $r \ne 0$). To solve the perimeter formula $P = 2l + 2w$ for $w$, subtract $2l$ from both sides, giving $P - 2l = 2w$, then divide by 2: $w = \dfrac{P - 2l}{2}$. Rewriting a formula this way is useful when you need the same unknown many times, such as the width of several rectangles with known perimeters and lengths. In Lesson 29 you will solve equations like $2x + 3y = 12$ for $y$ in exactly this way.
 
 ## Word problems
 
@@ -93,6 +93,8 @@ A reliable process:
 3. *Write an equation* that says the same thing as the problem.
 4. *Solve* it.
 5. *Answer* the question in a sentence with units, and check that it makes sense in the story.
+
+The next lesson applies this process to a family of money problems: coins, tickets and mixtures.
 
 ### Example 5 (number problem)
 

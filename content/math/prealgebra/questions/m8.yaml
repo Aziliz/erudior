@@ -617,3 +617,40 @@
   answer: 3
   explanation: |-
     $c^2 = 1{,}024 + 324 = 1{,}348$, so $c = \sqrt{1{,}348} \approx 36.7$, about 37 in.
+
+- id: pre-q-3312
+  lesson: pre-pythagorean
+  topic: Coordinate plane
+  stem: 'Starting at the origin, how do you plot the point $(-3, 4)$?'
+  choices: ['Move 3 units left, then 4 units up', 'Move 3 units right, then 4 units down', 'Move 3 units up, then 4 units left', 'Move 4 units left, then 3 units up']
+  answer: 0
+  explanation: |-
+    The first number is the move left or right (negative means left), and the second is the move up or down (positive means up): 3 left, then 4 up. Going right and down reverses both signs. "3 up, then 4 left" and "4 left, then 3 up" read the coordinates in the wrong order; that is the point $(-4, 3)$.
+
+- id: pre-q-3313
+  lesson: pre-pythagorean
+  topic: Coordinate plane
+  stem: 'Which point lies to the left of the origin and below it?'
+  choices: ['$(2, -6)$', '$(-2, -6)$', '$(-2, 6)$', '$(6, -2)$']
+  answer: 1
+  explanation: |-
+    Left of the origin means a negative $x$-coordinate; below means a negative $y$-coordinate. Only $(-2, -6)$ has both. $(2, -6)$ and $(6, -2)$ are to the right and below, and $(-2, 6)$ is to the left and above.
+
+- id: pre-q-3314
+  lesson: pre-pythagorean
+  module_quiz: true
+  topic: Coordinate plane
+  stem: 'What is the distance between $(2, 1)$ and $(8, 9)$?'
+  choices: ['14', '100', '10', '48']
+  answer: 2
+  explanation: |-
+    The move across is $8 - 2 = 6$ and the move up is $9 - 1 = 8$. These are the legs of a right triangle, so the distance is $\sqrt{6^2 + 8^2} = \sqrt{100} = 10$. 14 adds the legs instead of using the Pythagorean theorem. 100 forgets the square root. 48 multiplies the legs.
+
+- id: pre-q-3315
+  lesson: pre-pythagorean
+  topic: Coordinate plane
+  stem: 'What is the distance between $(-2, 3)$ and $(3, -9)$?'
+  choices: ['17', '$\sqrt{145}$', '169', '13']
+  answer: 3
+  explanation: |-
+    Across: $3 - (-2) = 5$ units. Down: $3 - (-9) = 12$ units. Distance: $\sqrt{5^2 + 12^2} = \sqrt{169} = 13$ (a 5-12-13 triangle). 17 adds the legs. $\sqrt{145}$ uses $3 - 2 = 1$ for the move across, dropping the sign of $-2$. 169 forgets the square root.

@@ -99,7 +99,7 @@ $85 \times 4.25 = 361.25$, so \$361.25.
 
 ## Changing units of area
 
-Recall from Lesson 28 that area units convert by the square of the length factor. A room of 85 ft² is $85 \div 9 \approx 9.44$ square yards, since 1 yd² = 9 ft².
+Recall from Lesson 30 that area units convert by the square of the length factor. A room of 85 ft² is $85 \div 9 \approx 9.44$ square yards, since 1 yd² = 9 ft².
 
 ## Area and perimeter are different
 

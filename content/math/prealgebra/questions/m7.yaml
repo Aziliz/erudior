@@ -426,6 +426,172 @@
   explanation: |-
     Let $s$ be the son's age; Ana is $2s + 4$. Then $s + 2s + 4 = 46$, so $3s = 42$ and $s = 14$. Ana is 32.
 
+- id: pre-q-2613
+  lesson: pre-equations-2
+  module_quiz: true
+  topic: Formulas
+  stem: 'Solve the formula $d = rt$ for $r$.'
+  choices: ['$r = dt$', '$r = \dfrac{t}{d}$', '$r = d - t$', '$r = \dfrac{d}{t}$']
+  answer: 3
+  explanation: |-
+    $r$ is multiplied by $t$, so divide both sides by $t$: $r = \dfrac{d}{t}$ (for $t \ne 0$). Check with numbers: 120 miles in 2 hours is $120 \div 2 = 60$ mph. $r = dt$ multiplies instead of dividing, $\tfrac{t}{d}$ divides upside down, and $d - t$ undoes multiplication with subtraction.
+
+- id: pre-q-2614
+  lesson: pre-equations-2
+  topic: Formulas
+  stem: 'Solve the perimeter formula $P = 2l + 2w$ for $l$.'
+  choices: ['$l = \dfrac{P - 2w}{2}$', '$l = P - 2w$', '$l = \dfrac{P - w}{2}$', '$l = \dfrac{P}{2} - 2w$']
+  answer: 0
+  explanation: |-
+    Subtract $2w$ from both sides: $P - 2w = 2l$. Divide both sides by 2: $l = \dfrac{P - 2w}{2}$. $P - 2w$ stops before dividing by 2. $\dfrac{P - w}{2}$ subtracts $w$ instead of $2w$. $\dfrac{P}{2} - 2w$ divides only $P$ by 2; the whole side must be divided.
+
+- id: pre-q-2615
+  lesson: pre-equations-2
+  topic: Formulas
+  stem: 'Solve the triangle area formula $A = \tfrac12 bh$ for $h$.'
+  choices: ['$h = \dfrac{A}{2b}$', '$h = \dfrac{2A}{b}$', '$h = \dfrac{A}{b}$', '$h = \dfrac{2b}{A}$']
+  answer: 1
+  explanation: |-
+    Multiply both sides by 2 to clear the fraction: $2A = bh$. Divide by $b$: $h = \dfrac{2A}{b}$. Check: a triangle with area 12 and base 4 has height $\tfrac{24}{4} = 6$, and $\tfrac12(4)(6) = 12$. ✓ $\dfrac{A}{2b}$ multiplies by $\tfrac12$ again instead of undoing it. $\dfrac{A}{b}$ ignores the $\tfrac12$. $\dfrac{2b}{A}$ is upside down.
+
+- id: pre-q-2616
+  lesson: pre-equations-2
+  module_quiz: true
+  topic: Formulas
+  stem: 'Solve $3x + 2y = 12$ for $y$.'
+  choices: ['$y = \dfrac{12 + 3x}{2}$', '$y = 6 - 3x$', '$y = \dfrac{12 - 3x}{2}$', '$y = 12 - \dfrac{3x}{2}$']
+  answer: 2
+  explanation: |-
+    Subtract $3x$ from both sides: $2y = 12 - 3x$. Divide both sides by 2: $y = \dfrac{12 - 3x}{2}$, which is also $y = 6 - \tfrac32 x$. $\dfrac{12 + 3x}{2}$ adds $3x$ instead of subtracting it. $6 - 3x$ divides only the 12 by 2, and $12 - \dfrac{3x}{2}$ divides only the $3x$; every term must be divided.
+
+- id: pre-q-2617
+  lesson: pre-equations-2
+  topic: Formulas
+  stem: 'Solve $F = \tfrac95 C + 32$ for $C$.'
+  choices: ['$C = \tfrac59 F - 32$', '$C = \tfrac95(F - 32)$', '$C = \tfrac59(F + 32)$', '$C = \tfrac59(F - 32)$']
+  answer: 3
+  explanation: |-
+    Subtract 32: $F - 32 = \tfrac95 C$. Multiply both sides by $\tfrac59$, the reciprocal of $\tfrac95$: $C = \tfrac59(F - 32)$. Check: $F = 212$ gives $\tfrac59(180) = 100$. ✓ $\tfrac59 F - 32$ undoes the steps in the wrong order. $\tfrac95(F - 32)$ multiplies by $\tfrac95$ again instead of its reciprocal. $\tfrac59(F + 32)$ adds 32 instead of subtracting it.
+
+# --- pre-money-problems ---
+- id: pre-q-money-01
+  lesson: pre-money-problems
+  module_quiz: true
+  topic: Money word problems
+  stem: 'A jar holds 25 coins, all nickels and dimes, worth \$1.90 in all. How many dimes are in the jar?'
+  choices: ['13', '12', '19', '38']
+  answer: 0
+  explanation: |-
+    Let $d$ be the dimes; the nickels are $25 - d$. In cents: $10d + 5(25 - d) = 190$, so $5d + 125 = 190$, $5d = 65$ and $d = 13$. Check: 13 dimes and 12 nickels are worth $130 + 60 = 190$ cents. (12 is the number of nickels, the other count. 19 and 38 divide 190 cents by 10 or by 5, as if every coin were a dime or every coin a nickel.)
+
+- id: pre-q-money-02
+  lesson: pre-money-problems
+  module_quiz: true
+  topic: Money word problems
+  stem: 'A box holds 40 coins, all quarters and dimes, worth \$7.30. If $q$ is the number of quarters, which equation models the problem?'
+  choices: ['$25q + 10(40 - q) = 7.30$', '$25q + 10(40 - q) = 730$', '$25q + 10q = 730$', '$q + (40 - q) = 730$']
+  answer: 1
+  explanation: |-
+    The dimes are $40 - q$, and each term must be a count times a value, all in cents: $25q + 10(40 - q) = 730$ (it gives $q = 22$). Writing 7.30 on the right mixes cents with dollars. Using $q$ for the dimes too ignores that the counts add to 40. Adding the counts gives 40, not a value in cents.
+
+- id: pre-q-money-03
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'A fair sold 300 tickets: adult tickets at \$10 and child tickets at \$6. Ticket sales were \$2,520. How many child tickets were sold?'
+  choices: ['180', '252', '420', '120']
+  answer: 3
+  explanation: |-
+    Let $a$ be the adult tickets; the child tickets are $300 - a$. Then $10a + 6(300 - a) = 2{,}520$, so $4a + 1{,}800 = 2{,}520$, $4a = 720$ and $a = 180$. The child tickets number $300 - 180 = 120$. Check: $1{,}800 + 720 = 2{,}520$. (180 is the adult count, the variable but not the question. 252 and 420 divide the sales by one price, as if every ticket cost the same.)
+
+- id: pre-q-money-04
+  lesson: pre-money-problems
+  module_quiz: true
+  topic: Money word problems
+  stem: 'Candy selling for \$3 per pound is mixed with candy selling for \$8 per pound to make 10 pounds of a mix worth \$5 per pound. How many pounds of the \$3 candy are used?'
+  choices: ['4', '5', '15', '6']
+  answer: 3
+  explanation: |-
+    Let $x$ be the pounds of \$3 candy; the rest, $10 - x$, is \$8 candy. The mix is worth $10 \times 5 = 50$ dollars: $3x + 8(10 - x) = 50$, so $-5x + 80 = 50$ and $x = 6$. Check: $18 + 32 = 50$. (4 is the amount of \$8 candy. 5 assumes equal amounts, but equal amounts would give \$5.50 a pound. 15 comes from setting the values equal to 5, the price, instead of 50, the mix's total value.)
+
+- id: pre-q-money-05
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'A bag has $q$ quarters and $18 - q$ nickels. Which expression gives the value of the coins in cents?'
+  choices: ['$25q + 5(18 - q)$', '$0.25q + 5(18 - q)$', '$q + (18 - q)$', '$25q + 5q$']
+  answer: 0
+  explanation: |-
+    Value is count times value each: $25q$ cents for the quarters and $5(18 - q)$ cents for the nickels. Using 0.25 mixes dollars with cents. $q + (18 - q)$ is the number of coins, 18, not their value. $25q + 5q$ wrongly uses $q$ for the number of nickels.
+
+- id: pre-q-money-06
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'Sam has three times as many dimes as quarters. The coins are worth \$4.95. How many quarters does he have?'
+  choices: ['27', '9', '36', '14']
+  answer: 1
+  explanation: |-
+    Let $q$ be the quarters; the dimes number $3q$. In cents: $25q + 10(3q) = 495$, so $55q = 495$ and $q = 9$. Check: 9 quarters and 27 dimes are worth $225 + 270 = 495$ cents. (27 is the number of dimes and 36 the number of coins. About 14 comes from $25q + 10q = 495$, which forgets that there are three times as many dimes.)
+
+- id: pre-q-money-07
+  lesson: pre-money-problems
+  module_quiz: true
+  topic: Money word problems
+  stem: 'A concert sold twice as many general tickets at \$15 as VIP tickets at \$40. Ticket sales were \$5,250. How many VIP tickets were sold?'
+  choices: ['150', '225', '75', 'about 95.5']
+  answer: 2
+  explanation: |-
+    Let $v$ be the VIP tickets; general tickets number $2v$. Then $40v + 15(2v) = 5{,}250$, so $70v = 5{,}250$ and $v = 75$. Check: 75 VIP and 150 general tickets bring in $3{,}000 + 2{,}250 = 5{,}250$. (150 is the general count and 225 the total. About 95.5 comes from $40v + 15v = 5{,}250$, which leaves out the "twice as many," and a ticket count must be a whole number anyway.)
+
+- id: pre-q-money-08
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: |-
+    A student solves $10d + 25(20 - d) = 395$ for the number of dimes:
+    Step 1: $10d + 500 - 25d = 395$
+    Step 2: $-15d + 500 = 395$
+    Step 3: $-15d = 895$
+    Step 4: $d \approx -59.7$
+    In which step is the first error?
+  choices: ['Step 1', 'Step 2', 'Step 3', 'Step 4']
+  answer: 2
+  explanation: |-
+    Steps 1 and 2 distribute and combine correctly. In Step 3, 500 must be subtracted from both sides, giving $-15d = -105$; the student added it instead. Then $d = 7$. A negative or fractional count of coins is a sign that something went wrong. Step 4 divides correctly, but it starts from the wrong equation.
+
+- id: pre-q-money-09
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'How many liters of juice worth \$2 per liter must be mixed with 5 liters of juice worth \$5 per liter to make a blend worth \$3 per liter?'
+  choices: ['5', '25', '15', '10']
+  answer: 3
+  explanation: |-
+    Let $x$ be the liters of \$2 juice. The blend has $x + 5$ liters worth $3(x + 5)$ dollars: $2x + 25 = 3(x + 5)$. So $2x + 25 = 3x + 15$ and $x = 10$. Check: $20 + 25 = 45 = 3 \times 15$. (5 liters of each would give \$3.50 per liter. 25 comes from $2x + 25 = 3x$, which forgets the 5 liters in the blend's amount. 15 is the total liters of blend, not the \$2 juice.)
+
+- id: pre-q-money-10
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'A purse holds dimes, nickels and pennies worth \$1.13. There are twice as many nickels as dimes, and 3 more pennies than nickels. How many dimes are there?'
+  choices: ['5', '10', '13', '28']
+  answer: 0
+  explanation: |-
+    Let $d$ be the dimes. Nickels: $2d$. Pennies: $2d + 3$. In cents: $10d + 5(2d) + 1(2d + 3) = 113$, so $22d + 3 = 113$, $22d = 110$ and $d = 5$. Check: 5 dimes, 10 nickels, 13 pennies: $50 + 50 + 13 = 113$. (10 and 13 are the nickel and penny counts; 28 is the number of coins.)
+
+- id: pre-q-money-11
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'Coffee worth \$6 per pound is blended with coffee worth \$10 per pound. Without solving anything, which could be the price per pound of the blend?'
+  choices: ['\$16.00', '\$8.50', '\$5.50', '\$10.50']
+  answer: 1
+  explanation: |-
+    A blend's price per pound always lies between the prices of its ingredients, here between \$6 and \$10, so only \$8.50 is possible (it means more of the \$10 coffee). \$16 adds the two prices. \$5.50 and \$10.50 lie outside the range; no blend of \$6 and \$10 coffee can cost less than the cheaper one or more than the dearer one.
+
+- id: pre-q-money-12
+  lesson: pre-money-problems
+  topic: Money word problems
+  stem: 'Solving a coin problem, a student gets $d = 12.5$ dimes. What should the student conclude?'
+  choices: ['There are 13 dimes, rounding the answer up', 'There are 12 dimes, rounding the answer down', 'The equation or the arithmetic has an error, since a number of coins must be whole', 'There are 12 dimes plus 5 cents in other coins']
+  answer: 2
+  explanation: |-
+    Counts of coins (or tickets) are whole numbers, so a fractional count means the equation was set up wrong or there is an arithmetic slip. Go back and check it; rounding up or down hides the mistake, and the leftover 5 cents does not fit the problem's own facts.
+
 # --- pre-inequalities ---
 - id: pre-q-2701
   lesson: pre-inequalities
@@ -528,3 +694,127 @@
   answer: 2
   explanation: |-
     $\dfrac{72 + 88 + 81 + s}{4} \ge 80$, so $241 + s \ge 320$ and $s \ge 79$.
+
+# --- pre-graphing-lines ---
+- id: pre-q-graph-01
+  lesson: pre-graphing-lines
+  module_quiz: true
+  topic: Coordinate plane
+  stem: 'In which quadrant is the point $(-4, -7)$?'
+  choices: ['Quadrant I', 'Quadrant II', 'Quadrant III', 'Quadrant IV']
+  answer: 2
+  explanation: |-
+    Both coordinates are negative: 4 units left and 7 units down from the origin. That is Quadrant III, the lower left. Quadrant I has $(+, +)$, Quadrant II $(-, +)$ and Quadrant IV $(+, -)$; the quadrants are numbered counterclockwise from the upper right.
+
+- id: pre-q-graph-02
+  lesson: pre-graphing-lines
+  topic: Coordinate plane
+  stem: 'Which point lies on the $y$-axis?'
+  choices: ['$(-6, 0)$', '$(-6, -6)$', '$(6, -6)$', '$(0, -6)$']
+  answer: 3
+  explanation: |-
+    Points on the $y$-axis have $x = 0$: no move left or right. So $(0, -6)$ is on it, 6 units below the origin. $(-6, 0)$ has $y = 0$, so it is on the $x$-axis instead (the coordinates were read in the wrong order). The other two points are in Quadrants III and IV.
+
+- id: pre-q-graph-03
+  lesson: pre-graphing-lines
+  module_quiz: true
+  topic: Graphing lines
+  stem: 'Which ordered pair is a solution of $y = 3x - 4$?'
+  choices: ['$(2, 2)$', '$(2, 10)$', '$(0, 4)$', '$(5, 3)$']
+  answer: 0
+  explanation: |-
+    Substitute the $x$-coordinate and see whether the $y$-coordinate comes out: $3(2) - 4 = 2$, so $(2, 2)$ works. $(2, 10)$ adds 4 instead of subtracting it. $(0, 4)$ has the wrong sign: at $x = 0$, $y = -4$. $(5, 3)$ swaps the coordinates of the solution $(3, 5)$; at $x = 5$, $y = 11$.
+
+- id: pre-q-graph-04
+  lesson: pre-graphing-lines
+  topic: Graphing lines
+  stem: 'What is the $x$-intercept of $4x - 5y = 20$?'
+  choices: ['$(0, -4)$', '$(5, 0)$', '$(0, 5)$', '$(4, 0)$']
+  answer: 1
+  explanation: |-
+    At the $x$-intercept, $y = 0$: $4x = 20$, so $x = 5$, giving $(5, 0)$. $(0, -4)$ is the $y$-intercept (set $x = 0$: $-5y = 20$). $(0, 5)$ puts the right number on the wrong axis. $(4, 0)$ divides 20 by 5, the size of the coefficient of $y$, instead of by 4, the coefficient of $x$.
+
+- id: pre-q-graph-05
+  lesson: pre-graphing-lines
+  topic: Graphing lines
+  stem: 'What is the $y$-intercept of $3x + 2y = 18$?'
+  choices: ['$(6, 0)$', '$(0, 18)$', '$(0, 9)$', '$(0, 6)$']
+  answer: 2
+  explanation: |-
+    At the $y$-intercept, $x = 0$: $2y = 18$, so $y = 9$, giving $(0, 9)$. $(6, 0)$ is the $x$-intercept. $(0, 18)$ forgets to divide by 2, and $(0, 6)$ divides by 3, the coefficient of $x$.
+
+- id: pre-q-graph-06
+  lesson: pre-graphing-lines
+  module_quiz: true
+  topic: Slope
+  stem: 'What is the slope of the line through $(1, 2)$ and $(5, 10)$?'
+  choices: ['$\tfrac12$', '$-2$', '8', '2']
+  answer: 3
+  explanation: |-
+    Rise over run: $m = \dfrac{10 - 2}{5 - 1} = \dfrac{8}{4} = 2$. $\tfrac12$ is run over rise. $-2$ comes from subtracting in opposite orders on top and bottom. 8 is the rise alone, without dividing by the run.
+
+- id: pre-q-graph-07
+  lesson: pre-graphing-lines
+  topic: Slope
+  stem: 'What is the slope of the line through $(-3, 4)$ and $(3, -2)$?'
+  choices: ['$-1$', '1', 'undefined', '$-\tfrac13$']
+  answer: 0
+  explanation: |-
+    $m = \dfrac{-2 - 4}{3 - (-3)} = \dfrac{-6}{6} = -1$. The line falls from left to right, so the slope must be negative, which rules out 1. "Undefined" comes from computing the run as $3 - 3 = 0$, dropping the sign of $-3$. $-\tfrac13$ comes from computing the rise as $-2$ instead of $-2 - 4 = -6$.
+
+- id: pre-q-graph-08
+  lesson: pre-graphing-lines
+  topic: Slope
+  stem: 'Which line has an undefined slope?'
+  choices: ['$y = 4$', '$x = 4$', '$y = x$', '$y = -4x$']
+  answer: 1
+  explanation: |-
+    $x = 4$ is a vertical line: all its points have $x = 4$, so the run between any two of them is 0, and dividing by 0 is undefined. $y = 4$ is horizontal with slope 0 (the usual mix-up). $y = x$ and $y = -4x$ have slopes 1 and $-4$.
+
+- id: pre-q-graph-09
+  lesson: pre-graphing-lines
+  module_quiz: true
+  topic: Slope
+  stem: 'What are the slope and $y$-intercept of $y = -5x + 7$?'
+  choices: ['slope 7, $y$-intercept $-5$', 'slope 5, $y$-intercept 7', 'slope $-5$, $y$-intercept 7', 'slope $-5$, $y$-intercept $-7$']
+  answer: 2
+  explanation: |-
+    In $y = mx + b$, $m$ is the slope and $b$ the $y$-intercept, so $m = -5$ and $b = 7$. Swapping them confuses the roles. The slope keeps its sign: $-5x$ means $m = -5$, not 5. The intercept is $+7$; at $x = 0$, $y = 7$.
+
+- id: pre-q-graph-10
+  lesson: pre-graphing-lines
+  topic: Slope
+  stem: 'What is the slope of the line $4x + 2y = 10$?'
+  choices: ['4', '2', '5', '$-2$']
+  answer: 3
+  explanation: |-
+    Solve for $y$: subtract $4x$ to get $2y = -4x + 10$, then divide by 2: $y = -2x + 5$. The slope is $-2$. 4 is the coefficient of $x$ in the original form, which is not the slope. 2 loses the minus sign from moving $4x$. 5 is the $y$-intercept.
+
+- id: pre-q-graph-11
+  lesson: pre-graphing-lines
+  topic: Graphing lines
+  stem: |-
+    The table lists three points on a line. Which equation does the line have?
+    $\begin{array}{c|ccc} x & 0 & 2 & 4 \\ \hline y & 3 & 7 & 11 \end{array}$
+  choices: ['$y = 2x + 3$', '$y = 4x + 3$', '$y = 3x + 2$', '$y = \tfrac12 x + 3$']
+  answer: 0
+  explanation: |-
+    At $x = 0$, $y = 3$, so $b = 3$. Each time $x$ goes up 2, $y$ goes up 4, so $m = \tfrac42 = 2$: $y = 2x + 3$. Check: $2(4) + 3 = 11$. $y = 4x + 3$ uses the rise without dividing by the run of 2. $y = 3x + 2$ swaps $m$ and $b$. $y = \tfrac12 x + 3$ divides run by rise.
+
+- id: pre-q-graph-12
+  lesson: pre-graphing-lines
+  topic: Slope
+  stem: 'A plumber''s charge in dollars for a job lasting $x$ hours is $y = 45x + 60$. What does the 45 represent?'
+  choices: ['The fee charged before any work is done', 'The charge per hour of work', 'The total charge for a one-hour job', 'The number of hours worked']
+  answer: 1
+  explanation: |-
+    The slope is a rate: each extra hour adds \$45, so 45 is dollars per hour. The 60 is the $y$-intercept, the charge at $x = 0$ hours. A one-hour job costs $45 + 60 = 105$ dollars, not 45. The number of hours is the variable $x$.
+
+- id: pre-q-graph-13
+  lesson: pre-graphing-lines
+  topic: Graphing lines
+  stem: 'A line has $y$-intercept $-3$ and passes through $(2, 5)$. What is its equation?'
+  choices: ['$y = 4x + 3$', '$y = 8x - 3$', '$y = 4x - 3$', '$y = -3x + 2$']
+  answer: 2
+  explanation: |-
+    The line passes through $(0, -3)$ and $(2, 5)$: $m = \dfrac{5 - (-3)}{2 - 0} = \dfrac{8}{2} = 4$, and $b = -3$, so $y = 4x - 3$. Check: $4(2) - 3 = 5$. ✓ $y = 4x + 3$ drops the sign of the intercept. $y = 8x - 3$ uses the rise without dividing by the run. $y = -3x + 2$ puts the intercept where the slope goes and the $x$-coordinate where the intercept goes.

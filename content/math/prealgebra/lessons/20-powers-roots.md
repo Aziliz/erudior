@@ -3,8 +3,8 @@ id: pre-powers-roots
 module: pre-m6
 title: Powers and square roots
 minutes: 25
-topics: [Powers, Square roots]
-drills: [pre-power-eval, pre-sqrt-estimate]
+topics: [Powers, Square roots, Real numbers]
+drills: [pre-power-eval, pre-sqrt-estimate, pre-irrational-count]
 refs: [pre-ref-algebra]
 ---
 ## Back to exponents

@@ -111,6 +111,44 @@
   explanation: |-
     $5^2 = 25$ and $6^2 = 36$; 30 is a bit closer to 25, so the root is a little under 5.5. Check: $5.5^2 = 30.25$, very close. ($\sqrt{30} \approx 5.48$.) 5.1 is too small: $5.1^2 = 26.01$.
 
+- id: pre-q-2013
+  lesson: pre-powers-roots
+  module_quiz: true
+  topic: Real numbers
+  stem: 'Which number is irrational?'
+  choices: ['$0.\overline{6}$', '$\sqrt{49}$', '$-\tfrac{8}{3}$', '$\sqrt{20}$']
+  answer: 3
+  explanation: |-
+    20 is not a perfect square, so $\sqrt{20}$ is an endless, non-repeating decimal (about 4.47): irrational. $0.\overline{6}$ repeats, so it is rational ($\tfrac23$); a decimal that goes on forever is not automatically irrational. $\sqrt{49} = 7$ is an integer, and $-\tfrac83$ is a fraction of integers, so both are rational.
+
+- id: pre-q-2014
+  lesson: pre-powers-roots
+  topic: Real numbers
+  stem: 'Which number is rational?'
+  choices: ['$\sqrt{0.09}$', '$\sqrt{2}$', '$\pi$', '$\sqrt{50}$']
+  answer: 0
+  explanation: |-
+    $\sqrt{0.09} = 0.3$ because $0.3^2 = 0.09$, and $0.3 = \tfrac{3}{10}$ is rational. Having a radical sign does not make a number irrational; what matters is the value. $\sqrt2$ and $\sqrt{50}$ are square roots of non-perfect squares, and $\pi$ is irrational too ($\tfrac{22}{7}$ is only an approximation).
+
+- id: pre-q-2015
+  lesson: pre-powers-roots
+  module_quiz: true
+  topic: Real numbers
+  stem: 'Which statement is true?'
+  choices: ['Every square root is irrational', 'Every integer is a rational number', '$\pi$ is exactly equal to $\tfrac{22}{7}$', 'A decimal that never ends is always irrational']
+  answer: 1
+  explanation: |-
+    Any integer $n$ can be written as $\tfrac{n}{1}$, so it is rational. Square roots of perfect squares, like $\sqrt{25} = 5$, are rational. $\tfrac{22}{7} = 3.142857\ldots$ is close to $\pi = 3.14159\ldots$ but not equal; $\pi$ is irrational. A never-ending decimal that repeats, like $0.\overline{3} = \tfrac13$, is rational; only endless decimals that never repeat are irrational.
+
+- id: pre-q-2016
+  lesson: pre-powers-roots
+  topic: Real numbers
+  stem: 'Which list contains only rational numbers?'
+  choices: ['$2,\ \sqrt{3},\ 0.5$', '$\pi,\ \tfrac12,\ 4$', '$-3,\ 0.75,\ \sqrt{16}$', '$\sqrt{8},\ -1,\ 0$']
+  answer: 2
+  explanation: |-
+    $-3 = \tfrac{-3}{1}$, $0.75 = \tfrac34$ and $\sqrt{16} = 4$ are all rational. Each other list hides one irrational number: $\sqrt3$ and $\sqrt8$ are square roots of non-perfect squares, and $\pi$ is irrational.
+
 # --- pre-exp-rules ---
 - id: pre-q-2101
   lesson: pre-exp-rules
