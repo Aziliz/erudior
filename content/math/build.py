@@ -215,7 +215,7 @@ def build(folder: pathlib.Path):
     language = meta.get("language")
     vocab = [v for f in sorted(folder.glob("vocab*.yaml")) for v in (load_yaml(f) or [])]
     reading = load_yaml(folder / "reading.yaml") if (folder / "reading.yaml").exists() else []
-    vids, terms = set(), {}
+    vids, terms, prompts = set(), {}, {}
     for v in vocab:
         where = f"vocab {v.get('id') or v.get('term')}"
         if not ID.match(str(v.get("id", ""))):
@@ -233,6 +233,12 @@ def build(folder: pathlib.Path):
         if key in terms:
             errors.append(f"{where}: same term and part of speech as {terms[key]}")
         terms[key] = v.get("id")
+        first = str((v.get("meanings") or [""])[0]).strip().lower()
+        if first in prompts:
+            errors.append(f"{where}: first meaning '{first}' is also {prompts[first]}'s; add a note in parentheses so the English prompt has one answer")
+        prompts[first] = v.get("id")
+        if not isinstance(v.get("meanings"), list):
+            errors.append(f"{where}: meanings must be a list")
     if vocab and not language:
         errors.append("vocab*.yaml needs a language: block in course.yaml")
     for r in reading or []:
@@ -331,6 +337,8 @@ def build(folder: pathlib.Path):
 def main():
     names = sys.argv[1:]
     def find(n):
+        if (pathlib.Path(n) / "course.yaml").exists():
+            return pathlib.Path(n).resolve()
         hits = [a / n for a in AREAS if (a / n / "course.yaml").exists()]
         if not hits:
             sys.exit(f"no course folder named {n}")
