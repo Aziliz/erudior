@@ -13,7 +13,8 @@ Many processes update a state vector by the same rule at every step: populations
 year to the next, market shares from one month to the next, rental cars moving between
 locations each day. When the rule is linear, the state evolves by $\mathbf{x}_{k+1} = A\mathbf{x}_k$,
 and eigenvalues and eigenvectors predict the long-run behavior without computing hundreds of
-steps. Markov chains are the most important special case.
+steps. Markov chains are the most important special case. (The next lesson treats quantities
+that change continuously in time, $\mathbf{x}' = A\mathbf{x}$.)
 
 ## Discrete dynamical systems
 

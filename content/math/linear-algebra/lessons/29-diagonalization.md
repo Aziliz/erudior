@@ -4,7 +4,7 @@ module: la-m8
 title: Diagonalization
 minutes: 35
 topics: [Diagonalization]
-drills: [la-diag-power, la-eigvec]
+drills: [la-diag-power, la-eigvec, la-b-matrix]
 refs: [la-ref-factor]
 ---
 ## A matrix in its own best coordinates

@@ -7,9 +7,9 @@ description: >-
   eigenvalues, orthogonality and least squares, symmetric matrices, quadratic forms and
   the singular value decomposition, with applications to networks, chemistry, graphics,
   Markov chains and regression.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.
+changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections; new lessons on systems of differential equations and positive definite matrices with Cholesky factorization.
 order: 10
 subject: Math
 level: [College]

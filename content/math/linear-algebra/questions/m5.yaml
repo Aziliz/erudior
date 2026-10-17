@@ -114,6 +114,43 @@
   explanation: |-
     Diagonal matrices multiply entry by entry along the diagonal: $2 \cdot 4 = 8$ and $3 \cdot (-1) = -3$. (This is one of the few cases where $AB = BA$.)
 
+- id: la-q-1513
+  lesson: la-matrix-ops
+  module_quiz: true
+  topic: Matrix multiplication
+  stem: 'Assuming the block sizes are compatible, what is $\begin{bmatrix} I & B \\ 0 & I\end{bmatrix}\begin{bmatrix} X \\ Y\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} X + YB \\ Y\end{bmatrix}$', '$\begin{bmatrix} X + B \\ Y\end{bmatrix}$', '$\begin{bmatrix} X + BY \\ Y\end{bmatrix}$', '$\begin{bmatrix} X \\ BX + Y\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    Use the row–column rule on the blocks, keeping each product in order: the top block is $IX + BY = X + BY$ and the bottom block is $0X + IY = Y$. Writing $YB$ reverses a product, which matrices don't allow. Dropping the $Y$ from $BY$ forgets to multiply. Putting $BX$ in the bottom block uses the bottom row of blocks wrongly: it is $0$ and $I$, not $B$ and $I$.
+
+- id: la-q-1514
+  lesson: la-matrix-ops
+  topic: Matrix multiplication
+  stem: 'A $4 \times 5$ matrix is partitioned as $A = [\,A_1 \;\; A_2\,]$, where $A_1$ is $4 \times 2$ and $A_2$ is $4 \times 3$. To compute $AB = A_1B_1 + A_2B_2$ with $B = \begin{bmatrix} B_1 \\ B_2\end{bmatrix}$, how many rows must $B_1$ have?'
+  choices: ['2', '4', '3', '5']
+  answer: 0
+  explanation: |-
+    The product $A_1B_1$ needs the number of columns of $A_1$ (2) to equal the number of rows of $B_1$. In general the column split of $A$ (here $2 + 3$) must match the row split of $B$. The answer 4 uses the rows of $A_1$ instead of its columns, 3 belongs to $B_2$, and 5 is the number of rows of all of $B$.
+
+- id: la-q-1515
+  lesson: la-matrix-ops
+  topic: Matrix multiplication
+  stem: 'Let $A = [\,A_1 \;\; A_2\,]$ and $B = \begin{bmatrix} B_1 \\ B_2\end{bmatrix}$ with $A_1 = \begin{bmatrix} 1 & 2 \\ 0 & 1\end{bmatrix}$, $A_2 = \begin{bmatrix} 0 \\ 3\end{bmatrix}$, $B_1 = \begin{bmatrix} 1 & 0 \\ 1 & 1\end{bmatrix}$ and $B_2 = \begin{bmatrix} 2 & -1\end{bmatrix}$. Find $AB$.'
+  choices: ['$\begin{bmatrix} 3 & 2 \\ 1 & 1\end{bmatrix}$', '$\begin{bmatrix} 3 & 2 \\ -5 & 4\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 7 & 0\end{bmatrix}$', '$\begin{bmatrix} 3 & 2 \\ 7 & -2\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $AB = A_1B_1 + A_2B_2$. Here $A_1B_1 = \begin{bmatrix} 3 & 2 \\ 1 & 1\end{bmatrix}$ and $A_2B_2 = \begin{bmatrix} 0 & 0 \\ 6 & -3\end{bmatrix}$ (a column times a row), so $AB = \begin{bmatrix} 3 & 2 \\ 7 & -2\end{bmatrix}$. Stopping at $A_1B_1$ leaves out the second block term, subtracting $A_2B_2$ is a sign slip, and the matrix with first row $(1, 2)$ comes from computing $B_1A_1$ instead of $A_1B_1$.
+
+- id: la-q-1516
+  lesson: la-matrix-ops
+  topic: Computer graphics
+  stem: 'In homogeneous coordinates a $2 \times 2$ linear map $M$ becomes $\begin{bmatrix} M & \mathbf{0} \\ \mathbf{0}^T & 1\end{bmatrix}$. Multiplying block by block, what is $\begin{bmatrix} M & \mathbf{0} \\ \mathbf{0}^T & 1\end{bmatrix}\begin{bmatrix} \mathbf{x} \\ 1\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} M\mathbf{x} \\ 0\end{bmatrix}$', '$\begin{bmatrix} M\mathbf{x} \\ 1\end{bmatrix}$', '$\begin{bmatrix} \mathbf{x}M \\ 1\end{bmatrix}$', '$\begin{bmatrix} M\mathbf{x} \\ \mathbf{x}\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Top block: $M\mathbf{x} + \mathbf{0}\cdot 1 = M\mathbf{x}$. Bottom block: $\mathbf{0}^T\mathbf{x} + 1 \cdot 1 = 1$. So the point is moved by $M$ and keeps its final 1. A bottom entry of 0 forgets the $1 \cdot 1$ term; $\mathbf{x}M$ reverses the order of a product (and isn't even defined for a column $\mathbf{x}$); a bottom block $\mathbf{x}$ treats $\mathbf{0}^T\mathbf{x}$ as $\mathbf{x}$ instead of the number 0.
+
 # --- Lesson 16: inverse ---
 - id: la-q-1601
   lesson: la-inverse

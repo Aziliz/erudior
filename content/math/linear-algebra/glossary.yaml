@@ -368,6 +368,10 @@
 - term: homogeneous coordinates
   definition: 'Representing $(x, y)$ as $(x, y, 1)$ so that translations, as well as linear maps, become matrix products.'
   topic: Computer graphics
+- term: partitioned matrix
+  aliases: [block matrix, partitioned matrices, block matrices]
+  definition: 'A matrix cut by horizontal and vertical lines into blocks; with compatible cuts, products can be computed block by block, keeping the order of each product.'
+  topic: Matrix multiplication
 
 # --- Inverse ---
 - term: invertible matrix
@@ -598,6 +602,10 @@
   aliases: [rotation-scaling matrix]
   definition: '$\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$: rotation by the angle of $(a, b)$ followed by scaling by $r = \sqrt{a^2 + b^2}$; eigenvalues $a \pm bi$.'
   topic: Complex eigenvalues
+- term: B-matrix
+  aliases: [matrix of a transformation relative to a basis]
+  definition: 'For a basis $\mathcal{B}$ given by the columns of $P$, the matrix $P^{-1}AP$ that sends $[\mathbf{x}]_{\mathcal{B}}$ to $[A\mathbf{x}]_{\mathcal{B}}$; it is diagonal when $\mathcal{B}$ is an eigenvector basis.'
+  topic: Diagonalization
 
 # --- Dynamics and Markov ---
 - term: discrete dynamical system
@@ -611,7 +619,8 @@
   definition: 'In a $2 \times 2$ system, the origin when both eigenvalues have $|\lambda| > 1$: trajectories move away.'
   topic: Dynamical systems
 - term: saddle point
-  definition: 'In a $2 \times 2$ system, the origin when one eigenvalue has $|\lambda| > 1$ and the other $|\lambda| < 1$.'
+  aliases: [saddle]
+  definition: 'In a $2 \times 2$ system, an origin that attracts along one eigenvector and repels along another: $|\lambda_1| > 1 > |\lambda_2|$ for $\mathbf{x}_{k+1} = A\mathbf{x}_k$, or real eigenvalues of opposite signs for $\mathbf{x}'' = A\mathbf{x}$.'
   topic: Dynamical systems
 - term: probability vector
   aliases: [probability vectors]
@@ -636,6 +645,35 @@
   aliases: [regular]
   definition: 'A stochastic matrix some power of which has all positive entries; its chains converge to a unique steady state.'
   topic: Markov chains
+
+# --- Systems of differential equations ---
+- term: system of linear differential equations
+  aliases: [system of differential equations, systems of differential equations]
+  definition: 'An equation $\mathbf{x}''(t) = A\mathbf{x}(t)$ for a vector of functions; each rate of change is a linear combination of the current values.'
+  topic: Systems of differential equations
+- term: decoupled
+  aliases: [decoupling, decouple]
+  definition: 'A system in which each equation involves only one unknown; the substitution $\mathbf{x} = P\mathbf{y}$ (eigenvectors in $P$) turns $\mathbf{x}'' = A\mathbf{x}$ into $y_i'' = \lambda_iy_i$.'
+  topic: Systems of differential equations
+- term: matrix exponential
+  aliases: ['$e^{At}$']
+  definition: '$e^{At} = I + At + (At)^2/2! + \cdots$; it solves $\mathbf{x}'' = A\mathbf{x}$ as $\mathbf{x}(t) = e^{At}\mathbf{x}(0)$, and equals $Pe^{Dt}P^{-1}$ when $A = PDP^{-1}$.'
+  topic: Matrix exponential
+- term: asymptotically stable
+  aliases: [asymptotic stability]
+  definition: 'Every solution tends to $\mathbf{0}$; for $\mathbf{x}'' = A\mathbf{x}$ this happens exactly when every eigenvalue of $A$ has negative real part.'
+  topic: Systems of differential equations
+- term: sink
+  aliases: [spiral sink]
+  definition: 'For $\mathbf{x}'' = A\mathbf{x}$, an origin that all solutions approach: eigenvalues with negative real parts (a spiral sink if they are complex).'
+  topic: Systems of differential equations
+- term: source
+  aliases: [spiral source]
+  definition: 'For $\mathbf{x}'' = A\mathbf{x}$, an origin that solutions move away from: eigenvalues with positive real parts (a spiral source if they are complex).'
+  topic: Systems of differential equations
+- term: center
+  definition: 'For $\mathbf{x}'' = A\mathbf{x}$ in $\mathbb{R}^2$, an origin surrounded by closed loops; the eigenvalues are purely imaginary, $\pm bi$.'
+  topic: Systems of differential equations
 
 # --- Orthogonality ---
 - term: inner product
@@ -736,7 +774,8 @@
   definition: 'The orthonormal eigenvectors of the matrix of a quadratic form; the axes of its level curves.'
   topic: Quadratic forms
 - term: positive definite
-  definition: '$Q(\mathbf{x}) > 0$ for all $\mathbf{x} \ne \mathbf{0}$; all eigenvalues positive.'
+  aliases: [positive definite matrix, positive definite matrices]
+  definition: '$Q(\mathbf{x}) = \mathbf{x}^TA\mathbf{x} > 0$ for all $\mathbf{x} \ne \mathbf{0}$ ($A$ symmetric); equivalently all eigenvalues, all pivots, or all leading principal minors are positive.'
   topic: Quadratic forms
 - term: negative definite
   definition: '$Q(\mathbf{x}) < 0$ for all $\mathbf{x} \ne \mathbf{0}$; all eigenvalues negative.'
@@ -747,6 +786,17 @@
 - term: positive semidefinite
   definition: '$Q(\mathbf{x}) \ge 0$ for all $\mathbf{x}$; all eigenvalues $\ge 0$.'
   topic: Quadratic forms
+- term: leading principal minors
+  aliases: [leading principal minor, leading minors]
+  definition: 'The determinants $D_1, \dots, D_n$ of the upper-left $1 \times 1, 2 \times 2, \dots, n \times n$ submatrices; a symmetric matrix is positive definite exactly when all are positive.'
+  topic: Positive definite matrices
+- term: Sylvester's criterion
+  definition: 'A symmetric matrix is positive definite exactly when all its leading principal minors are positive.'
+  topic: Positive definite matrices
+- term: Cholesky factorization
+  aliases: [Cholesky, Cholesky factor, Cholesky decomposition]
+  definition: '$A = R^TR$ with $R$ upper triangular with positive diagonal (equivalently $A = LL^T$); it exists exactly when the symmetric matrix $A$ is positive definite.'
+  topic: Cholesky factorization
 - term: singular value decomposition
   definition: '$A = U\Sigma V^T$ with $U$, $V$ orthogonal and $\Sigma$ holding the singular values; it exists for every matrix.'
   topic: Singular value decomposition

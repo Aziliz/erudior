@@ -49,4 +49,5 @@ Because $\det A^T = \det A$, the same rules hold for columns.
 | Area of triangle from edge vectors $\mathbf{u}, \mathbf{v}$ | $\tfrac12\lvert\det[\,\mathbf{u} \;\; \mathbf{v}\,]\rvert$ |
 | Volume of parallelepiped | $\lvert\det[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,]\rvert$ |
 | Area/volume scaling by $\mathbf{x} \mapsto A\mathbf{x}$ | multiply by $\lvert\det A\rvert$ |
+| Positive definite test | symmetric $A$: all leading principal minors $D_1, \dots, D_n > 0$ |
 | Characteristic equation | $\det(A - \lambda I) = 0$; for $2 \times 2$, $\lambda^2 - (\operatorname{tr} A)\lambda + \det A = 0$ |

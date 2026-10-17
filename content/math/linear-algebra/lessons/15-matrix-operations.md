@@ -4,7 +4,7 @@ module: la-m5
 title: Matrix operations and composition
 minutes: 35
 topics: [Matrix multiplication, Transpose, Computer graphics]
-drills: [la-mat-mult23, la-mat-power, la-homog]
+drills: [la-mat-mult23, la-mat-power, la-homog, la-block-mult]
 refs: [la-ref-factor]
 ---
 ## Why multiply matrices this way?

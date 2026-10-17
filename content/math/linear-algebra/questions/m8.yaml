@@ -339,6 +339,43 @@
   explanation: |-
     Column $j$ of $P$ must be an eigenvector for the $j$th diagonal entry of $D$, so reorder both together.
 
+- id: la-q-2913
+  lesson: la-diagonalization
+  module_quiz: true
+  topic: Diagonalization
+  stem: 'The columns of an invertible matrix $P$ form a basis $\mathcal{B}$ of $\mathbb{R}^n$. Which matrix sends $[\mathbf{x}]_{\mathcal{B}}$ to $[A\mathbf{x}]_{\mathcal{B}}$, i.e. is the matrix of $\mathbf{x} \mapsto A\mathbf{x}$ relative to $\mathcal{B}$?'
+  choices: ['$PAP^{-1}$', '$AP$', '$P^{-1}A$', '$P^{-1}AP$']
+  answer: 3
+  explanation: |-
+    Start from $\mathcal{B}$-coordinates: $P$ turns them into ordinary coordinates, $A$ acts, and $P^{-1}$ converts back, so $[A\mathbf{x}]_{\mathcal{B}} = P^{-1}AP\,[\mathbf{x}]_{\mathcal{B}}$. $PAP^{-1}$ has the conversions the wrong way round. $AP$ leaves the result in ordinary coordinates, and $P^{-1}A$ applies $A$ to $\mathcal{B}$-coordinates as if they were ordinary ones.
+
+- id: la-q-2914
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: '$A = \begin{bmatrix} 4 & -2 \\ 1 & 1\end{bmatrix}$ has eigenvectors $(1, 1)$ for $\lambda = 2$ and $(2, 1)$ for $\lambda = 3$. What is the matrix of $\mathbf{x} \mapsto A\mathbf{x}$ relative to the basis $\mathcal{B} = \{(1, 1), (2, 1)\}$?'
+  choices: ['$\begin{bmatrix} 4 & -2 \\ 1 & 1\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 3 & 0 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 1 & 1\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    In an eigenvector basis the map multiplies each coordinate by its eigenvalue, so the $\mathcal{B}$-matrix is $D = P^{-1}AP$ with the eigenvalues in the order of the basis: $2$ then $3$. Listing $3$ first mismatches the order of the basis vectors. $A$ itself is the matrix in standard coordinates, and $\begin{bmatrix} 1 & 2 \\ 1 & 1\end{bmatrix}$ is the change-of-coordinates matrix $P$, not the map.
+
+- id: la-q-2915
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'Relative to an eigenvector basis $\mathcal{B}$, the matrix of $\mathbf{x} \mapsto A\mathbf{x}$ is $D = \begin{bmatrix} 3 & 0 \\ 0 & 5\end{bmatrix}$. If $[\mathbf{x}]_{\mathcal{B}} = (2, -1)$, what is $[A\mathbf{x}]_{\mathcal{B}}$?'
+  choices: ['$(3, 5)$', '$(10, -3)$', '$(6, -5)$', '$(5, 4)$']
+  answer: 2
+  explanation: |-
+    $[A\mathbf{x}]_{\mathcal{B}} = D[\mathbf{x}]_{\mathcal{B}} = (3 \cdot 2,\ 5 \cdot (-1)) = (6, -5)$: each coordinate is multiplied by its own eigenvalue. $(10, -3)$ pairs each coordinate with the other eigenvalue, $(5, 4)$ adds the eigenvalues instead of multiplying, and $(3, 5)$ is just the eigenvalues, ignoring $\mathbf{x}$.
+
+- id: la-q-2916
+  lesson: la-diagonalization
+  topic: Diagonalization
+  stem: 'Let $A = \begin{bmatrix} 1 & 2 \\ 0 & 3\end{bmatrix}$ and $P = \begin{bmatrix} 1 & 0 \\ 1 & 1\end{bmatrix}$. What is the matrix of $\mathbf{x} \mapsto A\mathbf{x}$ relative to the basis formed by the columns of $P$?'
+  choices: ['$\begin{bmatrix} 3 & 2 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} -1 & 2 \\ -4 & 5\end{bmatrix}$', '$\begin{bmatrix} 3 & 2 \\ 3 & 3\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 3\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    Compute $P^{-1}AP$. $AP = \begin{bmatrix} 3 & 2 \\ 3 & 3\end{bmatrix}$ and $P^{-1} = \begin{bmatrix} 1 & 0 \\ -1 & 1\end{bmatrix}$, so $P^{-1}AP = \begin{bmatrix} 3 & 2 \\ 0 & 1\end{bmatrix}$. It has the same trace (4) and determinant (3) as $A$, as similar matrices must. $\begin{bmatrix} -1 & 2 \\ -4 & 5\end{bmatrix}$ is $PAP^{-1}$ (conversions reversed), $\begin{bmatrix} 3 & 2 \\ 3 & 3\end{bmatrix}$ stops at $AP$, and the diagonal matrix assumes both basis vectors are eigenvectors. Only $(1, 1)$ is (for $\lambda = 3$), which is why the first column of the answer is $(3, 0)$; $(0, 1)$ is not, since $A(0, 1) = (2, 3)$.
+
 # --- Lesson 30: complex eigenvalues ---
 - id: la-q-3001
   lesson: la-complex-eig
@@ -563,3 +600,129 @@
   answer: 1
   explanation: |-
     The dominant term $c_1(1.05)^k\mathbf{v}_1$ outgrows the others, so $\mathbf{x}_k$ lines up with $\mathbf{v}_1$ and grows by a factor of about 1.05 each step.
+
+# --- Lesson 32: systems of differential equations ---
+# (ids la-q-deNN: the la-q-32NN ids already belong to the inner-product lesson)
+- id: la-q-de01
+  lesson: la-ode-systems
+  module_quiz: true
+  topic: Systems of differential equations
+  stem: |-
+    If $A\mathbf{v} = \lambda\mathbf{v}$ with $\mathbf{v} \ne \mathbf{0}$, which function solves $\mathbf{x}' = A\mathbf{x}$?
+  choices: ['$\mathbf{x}(t) = e^{\lambda t}\mathbf{v}$', '$\mathbf{x}(t) = \lambda^t\mathbf{v}$', '$\mathbf{x}(t) = \lambda t\,\mathbf{v}$', '$\mathbf{x}(t) = e^{t}\mathbf{v}$']
+  answer: 0
+  explanation: |-
+    The derivative of $e^{\lambda t}\mathbf{v}$ is $\lambda e^{\lambda t}\mathbf{v} = e^{\lambda t}A\mathbf{v} = A(e^{\lambda t}\mathbf{v})$. The power $\lambda^t$ belongs to the discrete system $\mathbf{x}_{k+1} = A\mathbf{x}_k$. $\lambda t\,\mathbf{v}$ has the constant derivative $\lambda\mathbf{v}$, which is not $A$ times it. $e^{t}\mathbf{v}$ works only when $\lambda = 1$.
+
+- id: la-q-de02
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: |-
+    $A = \begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$ has eigenvectors $(1, 1)$ for $\lambda = 3$ and $(1, -1)$ for $\lambda = 1$. Solve $\mathbf{x}' = A\mathbf{x}$ with $\mathbf{x}(0) = (5, 1)$.
+  choices: ['$5e^{3t}(1, 1) + e^{t}(1, -1)$', '$2e^{3t}(1, 1) + 3e^{t}(1, -1)$', '$3e^{3t}(1, 1) + 2e^{t}(1, -1)$', '$3e^{t}(1, 1) + 2e^{3t}(1, -1)$']
+  answer: 2
+  explanation: |-
+    The weights solve $c_1(1, 1) + c_2(1, -1) = (5, 1)$: $c_1 + c_2 = 5$ and $c_1 - c_2 = 1$, so $c_1 = 3$ and $c_2 = 2$. Each weight and exponential go with their own eigenvector: $3e^{3t}(1, 1) + 2e^{t}(1, -1)$. Using 5 and 1 as weights mistakes the entries of $\mathbf{x}(0)$ for the weights; the version with 2 and 3 swaps the weights; the version with $e^{t}$ on $(1, 1)$ swaps the eigenvalues.
+
+- id: la-q-de03
+  lesson: la-ode-systems
+  module_quiz: true
+  topic: Systems of differential equations
+  stem: |-
+    A $2 \times 2$ system $\mathbf{x}' = A\mathbf{x}$ has eigenvalues $0.5$ and $0.8$. The origin is:
+  choices: ['a sink: every solution tends to $\mathbf{0}$', 'a saddle point', 'a center', 'a source: solutions move away from $\mathbf{0}$']
+  answer: 3
+  explanation: |-
+    Both eigenvalues are positive, so both terms $e^{0.5t}$ and $e^{0.8t}$ grow. Calling it a sink applies the discrete test $|\lambda| < 1$, which is for $\mathbf{x}_{k+1} = A\mathbf{x}_k$; for differential equations the sign of the real part decides. A saddle needs eigenvalues of opposite signs, and a center needs purely imaginary eigenvalues.
+
+- id: la-q-de04
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: |-
+    $A$ is a real $2 \times 2$ matrix with eigenvalues $-2 \pm 3i$. How do the solutions of $\mathbf{x}' = A\mathbf{x}$ behave?
+  choices: ['They spiral away from $\mathbf{0}$', 'They spiral in toward $\mathbf{0}$', 'They travel around closed loops', 'They approach along one line and leave along another']
+  answer: 1
+  explanation: |-
+    The real part $-2$ makes the size shrink like $e^{-2t}$, and the imaginary part 3 makes the solutions rotate: a spiral sink. Spiraling outward would need a positive real part, closed loops (a center) need real part 0, and approaching along one line while leaving along another describes a saddle, which has real eigenvalues of opposite signs.
+
+- id: la-q-de05
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: |-
+    $A$ is a real $2 \times 2$ matrix with eigenvalues $\pm 2i$. The origin of $\mathbf{x}' = A\mathbf{x}$ is:
+  choices: ['asymptotically stable: solutions spiral into $\mathbf{0}$', 'a spiral source', 'a center: solutions travel around closed loops', 'a saddle point']
+  answer: 2
+  explanation: |-
+    With real part 0 the factor $e^{0t} = 1$ neither shrinks nor grows the solutions; they only rotate, so they go around closed loops forever. They don't approach $\mathbf{0}$, so the origin is not asymptotically stable, and there is no outward growth for a spiral source. A saddle needs two real eigenvalues of opposite signs.
+
+- id: la-q-de06
+  lesson: la-ode-systems
+  module_quiz: true
+  topic: Matrix exponential
+  stem: |-
+    For $D = \begin{bmatrix} 2 & 0 \\ 0 & -1\end{bmatrix}$, what is $e^{Dt}$?
+  choices: ['$\begin{bmatrix} e^{2t} & 0 \\ 0 & e^{-t}\end{bmatrix}$', '$\begin{bmatrix} e^{2t} & 1 \\ 1 & e^{-t}\end{bmatrix}$', '$\begin{bmatrix} 2e^{t} & 0 \\ 0 & -e^{t}\end{bmatrix}$', '$\begin{bmatrix} 1 + 2t & 0 \\ 0 & 1 - t\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    Every power of a diagonal matrix is diagonal, so the series $I + Dt + (Dt)^2/2! + \cdots$ sums entry by entry along the diagonal to $e^{2t}$ and $e^{-t}$, with zeros elsewhere. Putting 1s off the diagonal exponentiates the zero entries ($e^0 = 1$), which the series never does. $2e^{t}$ and $-e^{t}$ put the eigenvalue outside the exponential. $1 + 2t$ and $1 - t$ keep only the first two terms of the series.
+
+- id: la-q-de07
+  lesson: la-ode-systems
+  topic: Matrix exponential
+  stem: |-
+    If $A = PDP^{-1}$ with $D$ diagonal, what is $e^{At}$?
+  choices: ['$e^{Dt}$', '$P^{-1}e^{Dt}P$', '$e^{Pt}e^{Dt}e^{P^{-1}t}$', '$Pe^{Dt}P^{-1}$']
+  answer: 3
+  explanation: |-
+    Each term of the series is $(At)^k/k! = P\big((Dt)^k/k!\big)P^{-1}$, so the sum is $Pe^{Dt}P^{-1}$. $e^{Dt}$ alone is $e^{At}$ in eigenvector coordinates, not standard ones. $P^{-1}e^{Dt}P$ puts $P$ and $P^{-1}$ on the wrong sides. Exponentiating $P$ and $P^{-1}$ treats the change of coordinates as if it were part of the dynamics.
+
+- id: la-q-de08
+  lesson: la-ode-systems
+  topic: Matrix exponential
+  stem: |-
+    What is $e^{Nt}$ for $N = \begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix}$?
+  choices: ['$\begin{bmatrix} 1 & e^{t} \\ 1 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & t \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} e^{t} & t \\ 0 & e^{t}\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $N^2 = 0$, so the series stops after two terms: $e^{Nt} = I + Nt$. Exponentiating each entry gives the matrix with $e^{t}$ and 1s, which is not how $e^{At}$ works. The identity comes from reasoning that the only eigenvalue is 0 so $e^{Dt} = I$, but $N$ is not diagonalizable. The matrix with $e^{t}$ on the diagonal is $e^{At}$ for $A = I + N$, whose eigenvalue is 1, not 0.
+
+- id: la-q-de09
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: |-
+    $A = PDP^{-1}$, where the columns of $P$ are eigenvectors. Substituting $\mathbf{x} = P\mathbf{y}$ into $\mathbf{x}' = A\mathbf{x}$ gives which system for $\mathbf{y}$?
+  choices: ['$\mathbf{y}'' = A\mathbf{y}$', '$\mathbf{y}'' = P^{-1}\mathbf{y}$', '$\mathbf{y}'' = D\mathbf{y}$, so $y_i'' = \lambda_iy_i$ for each $i$', '$\mathbf{y}'' = PD\mathbf{y}$']
+  answer: 2
+  explanation: |-
+    $P\mathbf{y}' = AP\mathbf{y}$, so $\mathbf{y}' = P^{-1}AP\mathbf{y} = D\mathbf{y}$: the system is decoupled, one equation per eigenvalue. Keeping $A$ forgets that the variables changed. $P^{-1}\mathbf{y}$ drops $A$ entirely, and $PD\mathbf{y}$ is $AP\mathbf{y}$ before multiplying by $P^{-1}$, so it is still in the old coordinates.
+
+- id: la-q-de10
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: |-
+    $A = \begin{bmatrix} -2 & 1 \\ 1 & -2\end{bmatrix}$ has eigenvectors $(1, 1)$ for $\lambda = -1$ and $(1, -1)$ for $\lambda = -3$. For $\mathbf{x}' = A\mathbf{x}$ with $\mathbf{x}(0) = (2, 0)$, what is $x_1(t)$?
+  choices: ['$2e^{-t}$', '$e^{-t} - e^{-3t}$', '$2e^{-t} + 2e^{-3t}$', '$e^{-t} + e^{-3t}$']
+  answer: 3
+  explanation: |-
+    The weights solve $c_1 + c_2 = 2$ and $c_1 - c_2 = 0$, so $c_1 = c_2 = 1$ and $\mathbf{x}(t) = e^{-t}(1, 1) + e^{-3t}(1, -1)$. Its first entry is $e^{-t} + e^{-3t}$. $e^{-t} - e^{-3t}$ is $x_2(t)$. $2e^{-t}$ uses the entries of $\mathbf{x}(0)$ as weights, and $2e^{-t} + 2e^{-3t}$ doubles both weights, so it fails the check $x_1(0) = 2$.
+
+- id: la-q-de11
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: |-
+    For a real $2 \times 2$ matrix $A$, which condition is equivalent to every solution of $\mathbf{x}' = A\mathbf{x}$ tending to $\mathbf{0}$?
+  choices: ['$\operatorname{tr} A < 0$ only', '$\operatorname{tr} A < 0$ and $\det A > 0$', '$\det A < 0$', 'Both diagonal entries of $A$ are negative']
+  answer: 1
+  explanation: |-
+    The trace is $\lambda_1 + \lambda_2$ and the determinant is $\lambda_1\lambda_2$. Both real parts are negative exactly when the sum is negative and the product is positive. A negative trace alone allows a saddle (eigenvalues 1 and $-3$), and $\det A < 0$ always means a saddle. Negative diagonal entries aren't enough: $\begin{bmatrix} -1 & 3 \\ 3 & -1\end{bmatrix}$ has eigenvalues 2 and $-4$.
+
+- id: la-q-de12
+  lesson: la-ode-systems
+  module_quiz: true
+  topic: Matrix exponential
+  stem: |-
+    A solution of $\mathbf{x}' = A\mathbf{x}$ is recorded at $t = 0, 1, 2, \dots$. Which matrix $B$ gives $\mathbf{x}(k + 1) = B\mathbf{x}(k)$?
+  choices: ['$e^{A}$', '$A$', '$I + A$', '$A^2$']
+  answer: 0
+  explanation: |-
+    $\mathbf{x}(k + 1) = e^{A(k + 1)}\mathbf{x}(0) = e^{A}e^{Ak}\mathbf{x}(0) = e^{A}\mathbf{x}(k)$. Using $A$ itself confuses the rate of change with the one-step map. $I + A$ is only the first two terms of the series for $e^{A}$ (Euler's approximation), and $A^2$ has no role here. This is why $|e^{\lambda}| < 1$ matches $\operatorname{Re}\lambda < 0$.

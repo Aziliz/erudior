@@ -86,6 +86,7 @@
 # Matrix algebra
 - {front: 'Matrix of "apply $B$, then $A$"', back: '$AB$ (the first map is on the right)', topic: Matrix multiplication}
 - {front: 'Columns of $AB$', back: '$AB = [\,A\mathbf{b}_1 \;\cdots\; A\mathbf{b}_p\,]$', topic: Matrix multiplication}
+- {front: 'Block multiplication $\begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22}\end{bmatrix}\begin{bmatrix} B_1 \\ B_2\end{bmatrix}$', back: '$\begin{bmatrix} A_{11}B_1 + A_{12}B_2 \\ A_{21}B_1 + A_{22}B_2\end{bmatrix}$, when the column split of $A$ matches the row split of $B$; keep the order in each product', topic: Matrix multiplication}
 - {front: 'Rules that fail for matrices', back: '$AB = BA$; cancellation ($AB = AC \Rightarrow B = C$); $AB = 0 \Rightarrow A = 0$ or $B = 0$', topic: Matrix multiplication}
 - {front: '$(AB)^T$', back: '$B^TA^T$', topic: Transpose}
 - {front: '$(A^T)_{ij}$', back: '$a_{ji}$', topic: Transpose}
@@ -162,6 +163,7 @@
 - {front: '$A^k$ for diagonalizable $A$', back: '$PD^kP^{-1}$', topic: Diagonalization}
 - {front: 'Sufficient condition for diagonalizable', back: '$n$ distinct real eigenvalues', topic: Diagonalization}
 - {front: 'Diagonalizable with repeated eigenvalues ⟺', back: 'All eigenvalues are real and each eigenspace dimension (geometric multiplicity) equals the algebraic multiplicity', topic: Diagonalization}
+- {front: 'Matrix of $\mathbf{x} \mapsto A\mathbf{x}$ relative to the basis formed by the columns of $P$', back: '$P^{-1}AP$ (it sends $[\mathbf{x}]_{\mathcal{B}}$ to $[A\mathbf{x}]_{\mathcal{B}}$); for an eigenvector basis it is $D$', topic: Diagonalization}
 - {front: 'Classic non-diagonalizable matrix', back: '$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$: eigenvalue 2 twice, only a 1-dimensional eigenspace', topic: Diagonalization}
 - {front: 'Eigenvalues of $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$', back: '$a \pm bi$; it rotates by the angle of $(a, b)$ and scales by $\sqrt{a^2 + b^2}$', topic: Complex eigenvalues}
 - {front: 'Complex eigenvalues of a real matrix', back: 'Come in conjugate pairs, with conjugate eigenvectors', topic: Complex eigenvalues}
@@ -193,6 +195,20 @@
 - {front: 'Least-squares line: design matrix and normal equations', back: 'Rows $(1, x_i)$; $\begin{bmatrix} n & \sum x \\ \sum x & \sum x^2\end{bmatrix}\boldsymbol\beta = \begin{bmatrix} \sum y \\ \sum xy\end{bmatrix}$', topic: Linear regression}
 - {front: 'What does least squares minimize in regression?', back: 'The sum of squared vertical residuals $y_i - \hat y_i$', topic: Linear regression}
 
+# Systems of differential equations
+- {front: 'Eigenvector solution of $\mathbf{x}'' = A\mathbf{x}$', back: 'If $A\mathbf{v} = \lambda\mathbf{v}$, then $\mathbf{x}(t) = e^{\lambda t}\mathbf{v}$', topic: Systems of differential equations}
+- {front: 'General solution of $\mathbf{x}'' = A\mathbf{x}$ (eigenvector basis)', back: '$\mathbf{x}(t) = c_1e^{\lambda_1t}\mathbf{v}_1 + \cdots + c_ne^{\lambda_nt}\mathbf{v}_n$, with $P\mathbf{c} = \mathbf{x}(0)$', topic: Systems of differential equations}
+- {front: 'Decoupling $\mathbf{x}'' = A\mathbf{x}$', back: 'Substitute $\mathbf{x} = P\mathbf{y}$ (eigenvectors in $P$): $\mathbf{y}'' = D\mathbf{y}$, i.e. $y_i'' = \lambda_iy_i$', topic: Systems of differential equations}
+- {front: 'Asymptotic stability of $\mathbf{x}'' = A\mathbf{x}$ vs $\mathbf{x}_{k+1} = A\mathbf{x}_k$', back: 'Continuous: every $\operatorname{Re}\lambda < 0$. Discrete: every $\lvert\lambda\rvert < 1$', topic: Systems of differential equations}
+- {front: '$2 \times 2$ test: all solutions of $\mathbf{x}'' = A\mathbf{x}$ tend to $\mathbf{0}$', back: '$\operatorname{tr} A < 0$ and $\det A > 0$', topic: Systems of differential equations}
+- {front: 'Origin of $\mathbf{x}'' = A\mathbf{x}$ for eigenvalues: both negative / both positive / opposite signs', back: 'Sink / source / saddle', topic: Systems of differential equations}
+- {front: 'Origin of $\mathbf{x}'' = A\mathbf{x}$ for eigenvalues $a \pm bi$', back: 'Spiral sink if $a < 0$, spiral source if $a > 0$, center (closed loops) if $a = 0$', topic: Systems of differential equations}
+- {front: 'Matrix exponential $e^{At}$', back: '$I + At + \dfrac{(At)^2}{2!} + \cdots$; $\dfrac{d}{dt}e^{At} = Ae^{At}$, and $\mathbf{x}(t) = e^{At}\mathbf{x}(0)$', topic: Matrix exponential}
+- {front: '$e^{At}$ when $A = PDP^{-1}$', back: '$Pe^{Dt}P^{-1}$, with $e^{Dt} = \operatorname{diag}(e^{\lambda_1t}, \dots, e^{\lambda_nt})$', topic: Matrix exponential}
+- {front: '$e^{Nt}$ for $N = \begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix}$', back: '$I + Nt = \begin{bmatrix} 1 & t \\ 0 & 1\end{bmatrix}$ (the series stops because $N^2 = 0$)', topic: Matrix exponential}
+- {front: '$e^{Ct}$ for $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$', back: '$e^{at}\begin{bmatrix} \cos bt & -\sin bt \\ \sin bt & \cos bt\end{bmatrix}$: rotate at $b$ rad per unit time, scale by $e^{at}$', topic: Matrix exponential}
+- {front: 'Is $e^{At}$ the matrix of $e^{a_{ij}t}$?', back: 'No. Even for diagonal $A$ only the diagonal entries are exponentiated (the zeros stay 0). Use $Pe^{Dt}P^{-1}$ or the series', topic: Matrix exponential}
+
 # Symmetric, quadratic forms, SVD
 - {front: 'Spectral theorem', back: '$A$ symmetric ⟺ $A = PDP^T$ with $P$ orthogonal; real eigenvalues, orthogonal eigenspaces', topic: Symmetric matrices}
 - {front: 'Eigenvectors of a symmetric matrix for different eigenvalues', back: 'Orthogonal', topic: Symmetric matrices}
@@ -202,6 +218,14 @@
 - {front: 'Classify a quadratic form by eigenvalues', back: 'All $> 0$: positive definite; all $< 0$: negative definite; mixed signs: indefinite; all $\ge 0$: positive semidefinite; all $\le 0$: negative semidefinite', topic: Quadratic forms}
 - {front: 'Max and min of $\mathbf{x}^TA\mathbf{x}$ on $\|\mathbf{x}\| = 1$', back: 'Largest and smallest eigenvalues of $A$ (at unit eigenvectors)', topic: Quadratic forms}
 - {front: '$2 \times 2$ determinant test for quadratic forms', back: '$\det < 0$: indefinite; $\det > 0$ and $a > 0$: positive definite; $\det > 0$ and $a < 0$: negative definite', topic: Quadratic forms}
+- {front: 'Tests for a positive definite (symmetric) matrix', back: 'All eigenvalues $> 0$; all pivots $> 0$ (no row swaps); all leading principal minors $> 0$; $A = R^TR$ (Cholesky)', topic: Positive definite matrices}
+- {front: 'Leading principal minor $D_k$', back: 'Determinant of the upper-left $k \times k$ submatrix; pivot $p_k = D_k/D_{k-1}$', topic: Positive definite matrices}
+- {front: 'Leading-minor pattern for negative definite', back: '$D_1 < 0$, $D_2 > 0$, $D_3 < 0$, … (alternating)', topic: Positive definite matrices}
+- {front: 'Do leading minors $\ge 0$ prove positive semidefinite?', back: 'No: $\begin{bmatrix} 0 & 0 \\ 0 & -1\end{bmatrix}$ has minors 0, 0. Use eigenvalues', topic: Positive definite matrices}
+- {front: 'When is $B^TB$ positive definite?', back: 'Always positive semidefinite ($\mathbf{x}^TB^TB\mathbf{x} = \|B\mathbf{x}\|^2$); positive definite exactly when $B$ has independent columns', topic: Positive definite matrices}
+- {front: 'Cholesky factorization', back: '$A = R^TR$, $R$ upper triangular with positive diagonal; exists exactly when $A$ is symmetric positive definite', topic: Cholesky factorization}
+- {front: 'Cholesky entries (row by row)', back: '$r_{11} = \sqrt{a_{11}}$, $r_{1j} = a_{1j}/r_{11}$, $r_{22} = \sqrt{a_{22} - r_{12}^2}$, $r_{23} = (a_{23} - r_{12}r_{13})/r_{22}$, $r_{33} = \sqrt{a_{33} - r_{13}^2 - r_{23}^2}$', topic: Cholesky factorization}
+- {front: 'Solve $A\mathbf{x} = \mathbf{b}$ with $A = R^TR$', back: 'Forward: $R^T\mathbf{y} = \mathbf{b}$; then back: $R\mathbf{x} = \mathbf{y}$', topic: Cholesky factorization}
 - {front: 'Singular values of $A$', back: '$\sigma_i = \sqrt{\lambda_i(A^TA)}$, decreasing; $\sigma_i = \|A\mathbf{v}_i\|$', topic: Singular value decomposition}
 - {front: 'SVD', back: '$A = U\Sigma V^T$: $V$ eigenvectors of $A^TA$, $\mathbf{u}_i = A\mathbf{v}_i/\sigma_i$, $\Sigma$ same shape as $A$', topic: Singular value decomposition}
 - {front: 'Rank from the SVD', back: 'Number of nonzero singular values', topic: Singular value decomposition}

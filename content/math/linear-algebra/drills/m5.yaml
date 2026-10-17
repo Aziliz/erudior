@@ -287,3 +287,45 @@
     Column 2: $\ell_{32} = {r32}/({u22}) = {l32}$. Clearing it leaves the last pivot $u_{33} = {u33}$.
     **Answer:** $\ell_{21} = {l21}$, $\ell_{31} = {l31}$, $\ell_{32} = {l32}$, $u_{33} = {u33}$, so
     $$L = \begin{bmatrix} 1 & 0 & 0 \\ {l21} & 1 & 0 \\ {l31} & {l32} & 1\end{bmatrix}, \quad U = \begin{bmatrix} {u11} & {u12} & {u13} \\ 0 & {u22} & {u23} \\ 0 & 0 & {u33}\end{bmatrix}.$$
+
+- id: la-block-mult
+  title: Multiply partitioned matrices block by block
+  topic: Matrix multiplication
+  vars:
+    a11: {min: -3, max: 3}
+    a12: {min: -3, max: 3}
+    a21: {min: -3, max: 3}
+    a22: {min: -3, max: 3}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+    b11: {min: -3, max: 3}
+    b12: {min: -3, max: 3}
+    b21: {min: -3, max: 3}
+    b22: {min: -3, max: 3}
+    d1: {min: -3, max: 3}
+    d2: {min: -3, max: 3}
+  where: ["c1 != 0", "c2 != 0", "d1 != 0", "d2 != 0"]
+  calc:
+    p11: a11*b11 + a12*b21 + 0
+    p12: a11*b12 + a12*b22 + 0
+    p21: a21*b11 + a22*b21 + 0
+    p22: a21*b12 + a22*b22 + 0
+    q11: c1*d1 + 0
+    q12: c1*d2 + 0
+    q21: c2*d1 + 0
+    q22: c2*d2 + 0
+    r11: p11 + q11 + 0
+    r12: p12 + q12 + 0
+    r21: p21 + q21 + 0
+    r22: p22 + q22 + 0
+  prompt: |-
+    $A = [\,A_1 \;\; A_2\,]$ and $B = \begin{bmatrix} B_1 \\ B_2\end{bmatrix}$ are partitioned with $A_1 = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$, $A_2 = \begin{bmatrix} {c1} \\ {c2}\end{bmatrix}$, $B_1 = \begin{bmatrix} {b11} & {b12} \\ {b21} & {b22}\end{bmatrix}$ and $B_2 = \begin{bmatrix} {d1} & {d2}\end{bmatrix}$. Compute $AB = A_1B_1 + A_2B_2$.
+  answers:
+    - {name: r11, label: 'row 1, col 1'}
+    - {name: r12, label: 'row 1, col 2'}
+    - {name: r21, label: 'row 2, col 1'}
+    - {name: r22, label: 'row 2, col 2'}
+  solution: |-
+    The column split of $A$ ($2 + 1$) matches the row split of $B$, so multiply block by block, keeping each product in order.
+    $A_1B_1 = \begin{bmatrix} {p11} & {p12} \\ {p21} & {p22}\end{bmatrix}$, and $A_2B_2$ (a column times a row) $= \begin{bmatrix} {q11} & {q12} \\ {q21} & {q22}\end{bmatrix}$.
+    Adding: $AB =$ **$\begin{bmatrix} {r11} & {r12} \\ {r21} & {r22}\end{bmatrix}$**.

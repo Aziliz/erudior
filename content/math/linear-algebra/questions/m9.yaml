@@ -1,6 +1,6 @@
 # Module 9: orthogonality, least squares and symmetric matrices
 
-# --- Lesson 32: inner product, length, orthogonality ---
+# --- Lesson 33: inner product, length, orthogonality (ids la-q-32NN) ---
 - id: la-q-3201
   lesson: la-inner-product
   module_quiz: true
@@ -104,7 +104,7 @@
   explanation: |-
     If $\mathbf{z}$ is orthogonal to both spanning vectors, it's orthogonal to every combination $c_1\mathbf{w}_1 + c_2\mathbf{w}_2$. Checking only the sum isn't enough: $(1, -1, 0)$ is orthogonal to $(1, 0, 0) + (0, 1, 0)$ but not to either one.
 
-# --- Lesson 33: orthogonal sets and projections ---
+# --- Lesson 34: orthogonal sets and projections (ids la-q-33NN) ---
 - id: la-q-3301
   lesson: la-projections
   topic: Orthogonal bases
@@ -207,7 +207,7 @@
   explanation: |-
     $\|U\mathbf{x}\|^2 = \mathbf{x}^TU^TU\mathbf{x} = \mathbf{x}^T\mathbf{x} = \|\mathbf{x}\|^2$. Such matrices preserve lengths and angles, like rotations and reflections.
 
-# --- Lesson 34: Gram–Schmidt and QR ---
+# --- Lesson 35: Gram–Schmidt and QR (ids la-q-34NN) ---
 - id: la-q-3401
   lesson: la-gram-schmidt
   module_quiz: true
@@ -301,7 +301,7 @@
   explanation: |-
     $\mathbf{v}_k = \mathbf{0}$ means $\mathbf{x}_k$ equals its projection onto $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_{k-1}\} = \operatorname{Span}\{\mathbf{x}_1, \dots, \mathbf{x}_{k-1}\}$, contradicting independence. (With dependent inputs, a zero does appear and that vector is dropped.)
 
-# --- Lesson 35: least squares ---
+# --- Lesson 36: least squares (ids la-q-35NN) ---
 - id: la-q-3501
   lesson: la-least-squares
   module_quiz: true
@@ -404,7 +404,7 @@
   explanation: |-
     Residual = observed $-$ predicted $= 3 - (0.5 + 2) = 0.5$.
 
-# --- Lesson 36: symmetric matrices ---
+# --- Lesson 37: symmetric matrices (ids la-q-36NN) ---
 - id: la-q-3601
   lesson: la-symmetric
   topic: Symmetric matrices
@@ -507,7 +507,7 @@
   explanation: |-
     Transposing reverses the order and $D^T = D$ for a diagonal matrix, so $A^T = A$.
 
-# --- Lesson 37: quadratic forms ---
+# --- Lesson 38: quadratic forms (ids la-q-37NN) ---
 - id: la-q-3701
   lesson: la-quadratic-forms
   module_quiz: true
@@ -610,7 +610,130 @@
   explanation: |-
     The minimum on unit vectors is the smallest eigenvalue, $-4$; with all eigenvalues negative the form is negative definite.
 
-# --- Lesson 38: SVD ---
+# --- Lesson 39: positive definite matrices and Cholesky ---
+# (ids la-q-pdNN: question ids keep the original lesson numbers, so new lessons get letter codes)
+- id: la-q-pd01
+  lesson: la-pos-def
+  module_quiz: true
+  topic: Positive definite matrices
+  stem: 'What are the leading principal minors $D_1, D_2, D_3$ of $A = \begin{bmatrix} 2 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 2\end{bmatrix}$?'
+  choices: ['$2, 2, 2$', '$2, 3, 4$', '$2, 4, 8$', '$2, 3, 6$']
+  answer: 1
+  explanation: |-
+    $D_1 = 2$, $D_2 = 2 \cdot 2 - 1 \cdot 1 = 3$, and expanding along row 1, $D_3 = 2(4 - 1) - 1(2 - 0) = 4$. All are positive, so $A$ is positive definite. $2, 2, 2$ are just the diagonal entries; $2, 4, 8$ multiplies diagonal entries and ignores the off-diagonal ones; $D_3 = 6$ keeps only the first term of the cofactor expansion.
+
+- id: la-q-pd02
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: 'Which symmetric matrix is positive definite?'
+  choices: ['$\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$', '$\begin{bmatrix} -2 & 1 \\ 1 & -1\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 1 & 1\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $\begin{bmatrix} 2 & 1 \\ 1 & 1\end{bmatrix}$ has $D_1 = 2 > 0$ and $D_2 = 2 - 1 = 1 > 0$. The matrix with 2s off the diagonal has positive diagonal entries but $D_2 = -3$, so it is indefinite. The one with $-2$ in the corner has $D_2 = 1 > 0$ but $D_1 = -2 < 0$: it is negative definite. The matrix of 1s has $D_2 = 0$, so it is only semidefinite.
+
+- id: la-q-pd03
+  lesson: la-pos-def
+  module_quiz: true
+  topic: Positive definite matrices
+  stem: 'For which values of $k$ is $\begin{bmatrix} 4 & k \\ k & 1\end{bmatrix}$ positive definite?'
+  choices: ['$-2 < k < 2$', '$k < 4$', '$-4 < k < 4$', '$k > 2$']
+  answer: 0
+  explanation: |-
+    $D_1 = 4 > 0$ always, and $D_2 = 4 - k^2 > 0$ exactly when $k^2 < 4$, i.e. $-2 < k < 2$. $k < 4$ comes from writing the determinant as $4 - k$ (using $k$ once instead of $k \cdot k$). $-4 < k < 4$ compares $k^2$ with 16 instead of 4. $k > 2$ reverses the inequality.
+
+- id: la-q-pd04
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: 'What are the pivots of $\begin{bmatrix} 1 & 2 \\ 2 & 7\end{bmatrix}$ (elimination without row swaps)?'
+  choices: ['$1$ and $7$', '$1$ and $5$', '$1$ and $3$', '$1$ and $11$']
+  answer: 2
+  explanation: |-
+    Subtract 2 times row 1 from row 2: $7 - 2 \cdot 2 = 3$. The pivots 1 and 3 are positive, so the matrix is positive definite (and $1 \cdot 3 = 3 = \det A$). $1$ and $7$ reads off the diagonal without eliminating; $7 - 2 = 5$ subtracts the multiplier instead of the multiplier times the entry; $7 + 4 = 11$ adds instead of subtracting.
+
+- id: la-q-pd05
+  lesson: la-pos-def
+  module_quiz: true
+  topic: Cholesky factorization
+  stem: 'Find the upper triangular $R$ with positive diagonal such that $R^TR = \begin{bmatrix} 4 & 2 \\ 2 & 5\end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 2 & 2 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 4 & 2 \\ 0 & 5\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & \sqrt5\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $r_{11} = \sqrt4 = 2$, $r_{12} = 2/2 = 1$, $r_{22} = \sqrt{5 - 1^2} = 2$. Check: $R^TR = \begin{bmatrix} 4 & 2 \\ 2 & 1 + 4\end{bmatrix}$. ✓ Using $r_{12} = 2$ forgets to divide by $r_{11}$. Copying the upper triangle of $A$ skips the square roots. $r_{22} = \sqrt5$ forgets to subtract $r_{12}^2$.
+
+- id: la-q-pd06
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: 'Why is $B^TB$ positive semidefinite for every matrix $B$?'
+  choices: ['Because $\mathbf{x}^TB^TB\mathbf{x} = \|B\mathbf{x}\|^2 \ge 0$', 'Because $B^TB$ is symmetric', 'Because the diagonal entries of $B^TB$ are sums of squares', 'Because $\det(B^TB) \ge 0$']
+  answer: 0
+  explanation: |-
+    $\mathbf{x}^TB^TB\mathbf{x} = (B\mathbf{x})^T(B\mathbf{x})$ is a squared length, never negative. Symmetry alone says nothing about sign ($-I$ is symmetric). Nonnegative diagonal entries and a nonnegative determinant are necessary conditions but don't imply semidefiniteness: $\begin{bmatrix} 1 & 3 \\ 3 & 1\end{bmatrix}$ has positive diagonal and $-I_2$ has determinant 1.
+
+- id: la-q-pd07
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: '$B$ is an $m \times n$ matrix. When is $B^TB$ positive definite?'
+  choices: ['Exactly when $B$ is square', 'Exactly when the rows of $B$ are linearly independent', 'Exactly when the columns of $B$ are linearly independent', 'Exactly when $B$ is symmetric']
+  answer: 2
+  explanation: |-
+    $\mathbf{x}^TB^TB\mathbf{x} = \|B\mathbf{x}\|^2$ is zero only when $B\mathbf{x} = \mathbf{0}$, so $B^TB$ is positive definite exactly when $B\mathbf{x} = \mathbf{0}$ has only the trivial solution: independent columns. Independent rows aren't enough: $B = \begin{bmatrix} 1 & 1\end{bmatrix}$ has one independent row but $B^TB = \begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$ is singular. Being square or symmetric is neither needed nor sufficient (the zero matrix is both).
+
+- id: la-q-pd08
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: 'A symmetric $3 \times 3$ matrix has leading principal minors $D_1 = -2$, $D_2 = 3$, $D_3 = -4$. It is:'
+  choices: ['positive definite', 'negative definite', 'indefinite, because the minors have mixed signs', 'impossible to classify without eigenvalues']
+  answer: 1
+  explanation: |-
+    For $-A$ the minors are $(-1)^kD_k$: $2, 3, 4$, all positive, so $-A$ is positive definite and $A$ is negative definite. Equivalently, the pivots $-2$, $3/(-2) = -1.5$ and $-4/3$ are all negative. Alternating signs starting with $D_1 < 0$ is exactly the negative definite pattern, so "mixed signs" doesn't mean indefinite here, and no eigenvalues are needed.
+
+- id: la-q-pd09
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: 'A student says: "$A = \begin{bmatrix} 0 & 0 \\ 0 & -3\end{bmatrix}$ has leading principal minors 0 and 0, both $\ge 0$, so $A$ is positive semidefinite." What is wrong?'
+  choices: ['Nothing; $A$ is positive semidefinite', 'Nothing; in fact $A$ is positive definite', 'The minors are wrong: they are $0$ and $-3$', 'Leading minors $\ge 0$ don''t prove semidefiniteness: $\mathbf{x} = (0, 1)$ gives $\mathbf{x}^TA\mathbf{x} = -3$']
+  answer: 3
+  explanation: |-
+    The minors really are $D_1 = 0$ and $D_2 = \det A = 0$, but the leading-minor test only works for strict positivity (definite matrices). Here $\mathbf{x}^TA\mathbf{x} = -3x_2^2$, so $A$ is negative semidefinite. A positive definite matrix would need $D_1 > 0$, and $-3$ is an entry of $A$, not its second leading minor.
+
+- id: la-q-pd10
+  lesson: la-pos-def
+  module_quiz: true
+  topic: Positive definite matrices
+  stem: 'Elimination without row swaps on a symmetric $3 \times 3$ matrix gives the pivots $3$, $-1$, $2$. How is the matrix classified?'
+  choices: ['Positive definite, since two of the three pivots are positive', 'Indefinite', 'Negative definite, since $\det A = -6 < 0$', 'Positive semidefinite']
+  answer: 1
+  explanation: |-
+    Writing $\mathbf{x}^TA\mathbf{x}$ as a sum of squares gives $3u_1^2 - u_2^2 + 2u_3^2$, which takes both signs, so the matrix is indefinite. Positive definite needs every pivot positive, not most of them, and semidefinite would need no negative pivot. A negative determinant alone doesn't make a $3 \times 3$ matrix negative definite: that needs all pivots negative, and here $D_1 = 3 > 0$.
+
+- id: la-q-pd11
+  lesson: la-pos-def
+  topic: Cholesky factorization
+  stem: 'Given the Cholesky factorization $A = R^TR$, how do you solve $A\mathbf{x} = \mathbf{b}$?'
+  choices: ['Solve $R\mathbf{y} = \mathbf{b}$, then $R^T\mathbf{x} = \mathbf{y}$', 'Solve $R^T\mathbf{x} = \mathbf{b}$ only', 'Solve $R^T\mathbf{y} = \mathbf{b}$, then $R\mathbf{x} = \mathbf{y}$', 'Solve $R\mathbf{x} = \mathbf{b}$ only']
+  answer: 2
+  explanation: |-
+    $R^T(R\mathbf{x}) = \mathbf{b}$, so set $\mathbf{y} = R\mathbf{x}$: first forward-substitute in $R^T\mathbf{y} = \mathbf{b}$ (lower triangular), then back-substitute in $R\mathbf{x} = \mathbf{y}$. Doing $R$ first solves $RR^T\mathbf{x} = \mathbf{b}$, a different system, since $RR^T \ne R^TR$ in general. Solving with only one factor ignores the other.
+
+- id: la-q-pd12
+  lesson: la-pos-def
+  topic: Cholesky factorization
+  stem: 'For $A = \begin{bmatrix} 9 & 3 & 6 \\ 3 & 5 & 4 \\ 6 & 4 & 14\end{bmatrix}$, the Cholesky factor has first row $(3, 1, 2)$ and second row $(0, 2, 1)$. What is $r_{33}$?'
+  choices: ['$3$', '$\sqrt{14}$', '$\sqrt{10}$', '$\sqrt{13}$']
+  answer: 0
+  explanation: |-
+    $r_{33} = \sqrt{a_{33} - r_{13}^2 - r_{23}^2} = \sqrt{14 - 4 - 1} = 3$. $\sqrt{14}$ subtracts nothing, $\sqrt{10}$ subtracts only $r_{13}^2$, and $\sqrt{13}$ subtracts only $r_{23}^2$. Check: the $(3, 3)$ entry of $R^TR$ is $2^2 + 1^2 + 3^2 = 14$. ✓
+
+- id: la-q-pd13
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  stem: 'A symmetric matrix $A$ has $a_{22} = -1$. What can you conclude?'
+  choices: ['It can still be positive definite if $\det A > 0$', 'It must be negative definite', 'It is not positive definite (not even positive semidefinite)', 'It must be indefinite']
+  answer: 2
+  explanation: |-
+    $\mathbf{e}_2^TA\mathbf{e}_2 = a_{22} = -1 < 0$, so the form takes a negative value. No determinant condition can rescue it. It need not be negative definite (another diagonal entry might be positive) and need not be indefinite ($-I$ has $a_{22} = -1$ and is negative definite).
+
+# --- Lesson 40: SVD (ids la-q-38NN) ---
 - id: la-q-3801
   lesson: la-svd
   module_quiz: true

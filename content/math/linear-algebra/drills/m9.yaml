@@ -397,6 +397,103 @@
   solution: |-
     First $A\mathbf{x} = ({y1}, {y2}, {y3})$. Then $\mathbf{x}^T(A\mathbf{x}) = ({x1})({y1}) + ({x2})({y2}) + ({x3})({y3}) =$ **{qv}**.
 
+- id: la-pd-minors
+  title: Leading principal minors with a parameter
+  topic: Positive definite matrices
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    d: {min: 1, max: 6}
+    e: {min: -3, max: 3}
+  where: ["a*d - b^2 > 0", "c != 0", "e != 0", "R0 != 0"]
+  calc:
+    D2: a*d - b^2 + 0
+    m31: b*e - c*d + 0
+    m32: b*c - a*e + 0
+    R0: c*(b*e - c*d) + e*(b*c - a*e) + 0
+    k0: -(c*(b*e - c*d) + e*(b*c - a*e))/(a*d - b^2) + 0
+  prompt: |-
+    For which $k$ is $A = \begin{bmatrix} {a} & {b} & {c} \\ {b} & {d} & {e} \\ {c} & {e} & k\end{bmatrix}$ positive definite? Find the leading minor $D_2$ and the number $k_0$ such that $A$ is positive definite exactly when $k > k_0$ (exact fraction).
+  answers:
+    - {name: D2, label: '$D_2 =$'}
+    - {name: k0, label: '$k_0 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $D_1 = {a} > 0$ and $D_2 = ({a})({d}) - ({b})^2 = {D2} > 0$, whatever $k$ is.
+    Expand $D_3 = \det A$ along row 3: the cofactors are $C_{31} = ({b})({e}) - ({c})({d}) = {m31}$, $C_{32} = -\big(({a})({e}) - ({c})({b})\big) = {m32}$ and $C_{33} = D_2 = {D2}$, so $D_3 = ({c})({m31}) + ({e})({m32}) + {D2}k = {D2:coef}k {R0:signed}$.
+    $D_3 > 0$ exactly when $k > k_0 =$ **${k0:texfrac}$**.
+
+- id: la-pd-pivots
+  title: Test positive definiteness by pivots
+  topic: Positive definite matrices
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    d: {min: 1, max: 8}
+    e: {min: -3, max: 3}
+    f: {min: 1, max: 8}
+  where: ["a*d - b*b != 0", "b != 0", "c != 0", "dt3 != 0"]
+  calc:
+    u22: d - b*b/a + 0
+    u23: e - b*c/a + 0
+    u33: f - c*c/a + 0
+    p1: a + 0
+    p2: d - b*b/a + 0
+    dt3: a*(d*f - e*e) - b*(b*f - e*c) + c*(b*e - d*c) + 0
+    p3: (a*(d*f - e*e) - b*(b*f - e*c) + c*(b*e - d*c))/(a*d - b*b) + 0
+    ml: (e - b*c/a)/(d - b*b/a) + 0
+    mb: b/a + 0
+    mc: c/a + 0
+    pdf: if(a*d - b*b > 0 and a*(d*f - e*e) - b*(b*f - e*c) + c*(b*e - d*c) > 0, 1, 0)
+  prompt: |-
+    Use elimination without row swaps to find the pivots of $A = \begin{bmatrix} {a} & {b} & {c} \\ {b} & {d} & {e} \\ {c} & {e} & {f}\end{bmatrix}$ (exact fractions). Then enter 1 if $A$ is positive definite and 0 if it is not.
+  answers:
+    - {name: p1, label: '$p_1 =$', kind: fraction, lowestTerms: true}
+    - {name: p2, label: '$p_2 =$', kind: fraction, lowestTerms: true}
+    - {name: p3, label: '$p_3 =$', kind: fraction, lowestTerms: true}
+    - {name: pdf, label: 'positive definite? (1 = yes, 0 = no)'}
+  solution: |-
+    Clear column 1 with the multipliers ${mb:texfrac}$ (row 2) and ${mc:texfrac}$ (row 3): the lower-right block becomes $\begin{bmatrix} {u22:texfrac} & {u23:texfrac} \\ {u23:texfrac} & {u33:texfrac}\end{bmatrix}$ (still symmetric).
+    Clear below its first entry with the multiplier ${ml:texfrac}$: the last pivot is ${u33:texfrac} - ({ml:texfrac})({u23:texfrac}) = {p3:texfrac}$.
+    Pivots: **${p1}$, ${p2:texfrac}$, ${p3:texfrac}$**. $A$ is positive definite exactly when all three are positive, so the answer is **{pdf}**. (Check: $p_1p_2p_3 = \det A$.)
+
+- id: la-cholesky
+  title: Cholesky factorization of a 3×3 matrix
+  topic: Cholesky factorization
+  vars:
+    r11: {min: 1, max: 3}
+    r22: {min: 1, max: 3}
+    r33: {min: 1, max: 3}
+    r12: {min: -3, max: 3}
+    r13: {min: -3, max: 3}
+    r23: {min: -3, max: 3}
+  where: ["r12 != 0 or r13 != 0", "r23 != 0"]
+  calc:
+    a11: r11^2 + 0
+    a12: r11*r12 + 0
+    a13: r11*r13 + 0
+    a22: r12^2 + r22^2 + 0
+    a23: r12*r13 + r22*r23 + 0
+    a33: r13^2 + r23^2 + r33^2 + 0
+    s22: r22^2 + 0
+    t23: r22*r23 + 0
+    s33: r33^2 + 0
+  prompt: |-
+    Find the Cholesky factor of $A = \begin{bmatrix} {a11} & {a12} & {a13} \\ {a12} & {a22} & {a23} \\ {a13} & {a23} & {a33}\end{bmatrix}$: the upper triangular $R$ with positive diagonal and $A = R^TR$.
+  answers:
+    - {name: r11, label: '$r_{11} =$'}
+    - {name: r12, label: '$r_{12} =$'}
+    - {name: r13, label: '$r_{13} =$'}
+    - {name: r22, label: '$r_{22} =$'}
+    - {name: r23, label: '$r_{23} =$'}
+    - {name: r33, label: '$r_{33} =$'}
+  solution: |-
+    Row 1: $r_{11} = \sqrt{{a11}} = {r11}$, $r_{12} = {a12}/{r11} = {r12}$, $r_{13} = {a13}/{r11} = {r13}$.
+    Row 2: $r_{22} = \sqrt{{a22} - ({r12})^2} = \sqrt{{s22}} = {r22}$, $r_{23} = \big({a23} - ({r12})({r13})\big)/{r22} = {t23}/{r22} = {r23}$.
+    Row 3: $r_{33} = \sqrt{{a33} - ({r13})^2 - ({r23})^2} = \sqrt{{s33}} = {r33}$.
+    $R =$ **$\begin{bmatrix} {r11} & {r12} & {r13} \\ 0 & {r22} & {r23} \\ 0 & 0 & {r33}\end{bmatrix}$**. Every square root was of a positive number, which confirms that $A$ is positive definite.
+
 - id: la-singular
   title: Singular values of a 2×2 matrix
   topic: Singular value decomposition

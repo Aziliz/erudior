@@ -164,6 +164,41 @@
     $A^{{kp}} = PD^{{kp}}P^{-1}$ with $D^{{kp}} = \begin{bmatrix} {m1} & 0 \\ 0 & {m2}\end{bmatrix}$ and ($\det P = 1$) $P^{-1} = \begin{bmatrix} {d11} & {np} \\ {nq} & 1\end{bmatrix}$. Multiplying out:
     $$A^{{kp}} = \begin{bmatrix} {r11} & {r12} \\ {r21} & {r22}\end{bmatrix}.$$
 
+- id: la-b-matrix
+  title: Matrix of a transformation relative to a basis
+  topic: Diagonalization
+  vars:
+    pp: {min: -2, max: 2}
+    qq: {min: -1, max: 1}
+    m11: {min: -3, max: 3}
+    m12: {min: -3, max: 3}
+    m21: {min: -3, max: 3}
+    m22: {min: -3, max: 3}
+  where: ["pp != 0 or qq != 0", "m12 != 0 or m21 != 0", "max(abs(a11), abs(a12), abs(a21), abs(a22)) <= 15"]
+  calc:
+    dd: pp*qq + 1 + 0
+    np: -pp + 0
+    nq: -qq + 0
+    s11: m11 + pp*m21 + 0
+    s12: m12 + pp*m22 + 0
+    s21: qq*m11 + (pp*qq + 1)*m21 + 0
+    s22: qq*m12 + (pp*qq + 1)*m22 + 0
+    a11: (m11 + pp*m21)*(pp*qq + 1) - (m12 + pp*m22)*qq + 0
+    a12: -(m11 + pp*m21)*pp + m12 + pp*m22 + 0
+    a21: (qq*m11 + (pp*qq + 1)*m21)*(pp*qq + 1) - (qq*m12 + (pp*qq + 1)*m22)*qq + 0
+    a22: -(qq*m11 + (pp*qq + 1)*m21)*pp + qq*m12 + (pp*qq + 1)*m22 + 0
+  prompt: |-
+    Let $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$ and let $\mathcal{B}$ be the basis formed by the columns of $P = \begin{bmatrix} 1 & {pp} \\ {qq} & {dd}\end{bmatrix}$. Find the matrix of $\mathbf{x} \mapsto A\mathbf{x}$ relative to $\mathcal{B}$, that is, $P^{-1}AP$.
+  answers:
+    - {name: m11, label: 'row 1, col 1'}
+    - {name: m12, label: 'row 1, col 2'}
+    - {name: m21, label: 'row 2, col 1'}
+    - {name: m22, label: 'row 2, col 2'}
+  solution: |-
+    First $AP = \begin{bmatrix} {s11} & {s12} \\ {s21} & {s22}\end{bmatrix}$ (column $j$ is $A$ times basis vector $j$). Since $\det P = 1$, $P^{-1} = \begin{bmatrix} {dd} & {np} \\ {nq} & 1\end{bmatrix}$. Then
+    $$P^{-1}AP = \begin{bmatrix} {dd} & {np} \\ {nq} & 1\end{bmatrix}\begin{bmatrix} {s11} & {s12} \\ {s21} & {s22}\end{bmatrix} = \begin{bmatrix} {m11} & {m12} \\ {m21} & {m22}\end{bmatrix}.$$
+    Column $j$ holds the $\mathcal{B}$-coordinates of $A$ times basis vector $j$. (Check: it has the same trace and determinant as $A$.)
+
 - id: la-complex-eig
   title: Complex eigenvalues of a 2×2 matrix
   topic: Complex eigenvalues
@@ -299,3 +334,90 @@
   solution: |-
     First write $\mathbf{x}_0 = {c1:coef}\mathbf{v}_1 {c2:signedcoef}\mathbf{v}_2$ (solve for the weights). Then
     $\mathbf{x}_{{kk}} = {c1:coef}({la})^{{kk}}\mathbf{v}_1 {c2:signedcoef}({lb})^{{kk}}\mathbf{v}_2 = {f1:coef}\,\mathbf{v}_1 {f2:signedcoef}\,\mathbf{v}_2 =$ **({xk1:num4}, {xk2:num4})**.
+
+- id: la-ode-solve
+  title: Solve x' = Ax from eigenvectors
+  topic: Systems of differential equations
+  vars:
+    pp: {min: -2, max: 2}
+    qq: {min: -2, max: 2}
+    l1: {choices: [-3, -2, -1, 1, 2]}
+    l2: {choices: [-3, -2, -1, 1, 2]}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+  where: ["l1 != l2", "pp != 0", "c1 != 0", "c2 != 0"]
+  calc:
+    dd: pp*qq + 1 + 0
+    np: -pp + 0
+    nq: -qq + 0
+    a11: l1*(pp*qq + 1) - pp*qq*l2 + 0
+    a12: pp*(l2 - l1) + 0
+    a21: qq*(pp*qq + 1)*(l1 - l2) + 0
+    a22: -qq*pp*l1 + (pp*qq + 1)*l2 + 0
+    x01: c1 + c2*pp + 0
+    x02: c1*qq + c2*(pp*qq + 1) + 0
+    k2: c2*pp + 0
+  prompt: |-
+    $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$ has eigenvectors $\mathbf{v}_1 = (1, {qq})$ for $\lambda_1 = {l1}$ and $\mathbf{v}_2 = ({pp}, {dd})$ for $\lambda_2 = {l2}$. The solution of $\mathbf{x}' = A\mathbf{x}$ with $\mathbf{x}(0) = ({x01}, {x02})$ is $\mathbf{x}(t) = c_1e^{\lambda_1t}\mathbf{v}_1 + c_2e^{\lambda_2t}\mathbf{v}_2$. Find $c_1$, $c_2$ and the first entry $x_1(t)$ (type e^(2t) for $e^{2t}$).
+  answers:
+    - {name: c1, label: '$c_1 =$'}
+    - {name: c2, label: '$c_2 =$'}
+    - {kind: expression, expression: 'c1*exp(l1*t) + c2*pp*exp(l2*t)', variables: [t], label: '$x_1(t) =$', show: '${c1:coef}e^{{l1:coef}t} {k2:signedcoef}e^{{l2:coef}t}$'}
+  solution: |-
+    The weights solve $P\mathbf{c} = \mathbf{x}(0)$ with $P = \begin{bmatrix} 1 & {pp} \\ {qq} & {dd}\end{bmatrix}$. Since $\det P = 1$, $P^{-1} = \begin{bmatrix} {dd} & {np} \\ {nq} & 1\end{bmatrix}$, and $\mathbf{c} = P^{-1}({x01}, {x02}) = ({c1}, {c2})$.
+    So $\mathbf{x}(t) = {c1:coef}e^{{l1:coef}t}(1, {qq}) {c2:signedcoef}e^{{l2:coef}t}({pp}, {dd})$, and the first entry is $x_1(t) =$ **${c1:coef}e^{{l1:coef}t} {k2:signedcoef}e^{{l2:coef}t}$**. Check: at $t = 0$ it equals ${c1} + ({k2}) = {x01}$.
+
+- id: la-ode-exp
+  title: Matrix exponential of a diagonalizable matrix
+  topic: Matrix exponential
+  vars:
+    pp: {min: -2, max: 2}
+    qq: {choices: [-1, 1]}
+    l1: {choices: [-3, -2, -1, 1, 2]}
+    l2: {choices: [-3, -2, -1, 1, 2]}
+  where: ["l1 != l2", "pp != 0", "pp*qq != -1"]
+  calc:
+    dd: pp*qq + 1 + 0
+    np: -pp + 0
+    nq: -qq + 0
+    npq: -pp*qq + 0
+    qd: qq*(pp*qq + 1) + 0
+    a11: l1*(pp*qq + 1) - pp*qq*l2 + 0
+    a12: pp*(l2 - l1) + 0
+    a21: qq*(pp*qq + 1)*(l1 - l2) + 0
+    a22: -qq*pp*l1 + (pp*qq + 1)*l2 + 0
+  prompt: |-
+    $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix} = PDP^{-1}$ with $P = \begin{bmatrix} 1 & {pp} \\ {qq} & {dd}\end{bmatrix}$ and $D = \begin{bmatrix} {l1} & 0 \\ 0 & {l2}\end{bmatrix}$. Find the entries of $e^{At}$ (type e^(2t) for $e^{2t}$).
+  answers:
+    - {kind: expression, expression: '(pp*qq + 1)*exp(l1*t) - pp*qq*exp(l2*t)', variables: [t], label: 'row 1, col 1', show: '${dd:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t}$'}
+    - {kind: expression, expression: 'pp*(exp(l2*t) - exp(l1*t))', variables: [t], label: 'row 1, col 2', show: '${pp:coef}(e^{{l2:coef}t} - e^{{l1:coef}t})$'}
+    - {kind: expression, expression: 'qq*(pp*qq + 1)*(exp(l1*t) - exp(l2*t))', variables: [t], label: 'row 2, col 1', show: '${qd:coef}(e^{{l1:coef}t} - e^{{l2:coef}t})$'}
+    - {kind: expression, expression: '-pp*qq*exp(l1*t) + (pp*qq + 1)*exp(l2*t)', variables: [t], label: 'row 2, col 2', show: '${npq:coef}e^{{l1:coef}t} {dd:signedcoef}e^{{l2:coef}t}$'}
+  solution: |-
+    $e^{At} = Pe^{Dt}P^{-1}$ with $e^{Dt} = \begin{bmatrix} e^{{l1:coef}t} & 0 \\ 0 & e^{{l2:coef}t}\end{bmatrix}$ and ($\det P = 1$) $P^{-1} = \begin{bmatrix} {dd} & {np} \\ {nq} & 1\end{bmatrix}$. First
+    $$Pe^{Dt} = \begin{bmatrix} e^{{l1:coef}t} & {pp:coef}e^{{l2:coef}t} \\ {qq:coef}e^{{l1:coef}t} & {dd:coef}e^{{l2:coef}t}\end{bmatrix},$$
+    then multiply by $P^{-1}$ on the right (row of $Pe^{Dt}$ times column of $P^{-1}$):
+    $$e^{At} = \begin{bmatrix} {dd:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t} & {pp:coef}(e^{{l2:coef}t} - e^{{l1:coef}t}) \\ {qd:coef}(e^{{l1:coef}t} - e^{{l2:coef}t}) & {npq:coef}e^{{l1:coef}t} {dd:signedcoef}e^{{l2:coef}t}\end{bmatrix}.$$
+    Check: at $t = 0$ this is $I$.
+
+- id: la-ode-spiral
+  title: Solve x' = Cx for a rotation–scaling matrix
+  topic: Matrix exponential
+  vars:
+    aa: {choices: [-2, -1, 1]}
+    bb: {choices: [1, 2, 3]}
+    u: {min: -3, max: 3}
+    v: {min: -3, max: 3}
+  where: ["u != 0", "v != 0"]
+  calc:
+    nb: -bb + 0
+    nv: -v + 0
+  prompt: |-
+    Solve $\mathbf{x}' = C\mathbf{x}$ with $C = \begin{bmatrix} {aa} & {nb} \\ {bb} & {aa}\end{bmatrix}$ and $\mathbf{x}(0) = ({u}, {v})$. Give both entries of $\mathbf{x}(t)$ (type e^(-t), cos(2t), sin(2t)).
+  answers:
+    - {kind: expression, expression: 'exp(aa*t)*(u*cos(bb*t) - v*sin(bb*t))', variables: [t], label: '$x_1(t) =$', show: '$e^{{aa:coef}t}({u:coef}\cos {bb:coef}t {nv:signedcoef}\sin {bb:coef}t)$'}
+    - {kind: expression, expression: 'exp(aa*t)*(u*sin(bb*t) + v*cos(bb*t))', variables: [t], label: '$x_2(t) =$', show: '$e^{{aa:coef}t}({u:coef}\sin {bb:coef}t {v:signedcoef}\cos {bb:coef}t)$'}
+  solution: |-
+    $C$ has the form $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ with $a = {aa}$, $b = {bb}$, so $e^{Ct} = e^{{aa:coef}t}\begin{bmatrix} \cos {bb:coef}t & -\sin {bb:coef}t \\ \sin {bb:coef}t & \cos {bb:coef}t\end{bmatrix}$ and $\mathbf{x}(t) = e^{Ct}({u}, {v})$:
+    $x_1(t) =$ **$e^{{aa:coef}t}({u:coef}\cos {bb:coef}t {nv:signedcoef}\sin {bb:coef}t)$**, $x_2(t) =$ **$e^{{aa:coef}t}({u:coef}\sin {bb:coef}t {v:signedcoef}\cos {bb:coef}t)$**.
+    The eigenvalues are ${aa} \pm {bb:coef}i$: solutions turn counterclockwise through the angle ${bb:coef}t$ (radians), and the factor $e^{{aa:coef}t}$ makes them spiral in when $a < 0$ and spiral out when $a > 0$ (with $a = 0$ they would circle forever).

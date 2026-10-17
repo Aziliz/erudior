@@ -73,6 +73,8 @@ The form in Example 1 has eigenvalues 6 and 1, so it's positive definite: its le
 are ellipses. For $2 \times 2$ forms there's a shortcut: $\det A = \lambda_1\lambda_2$, so
 $\det A < 0$ means indefinite, $\det A > 0$ means definite (positive if $a > 0$, negative if
 $a < 0$), and $\det A = 0$ means one eigenvalue is 0, so the form is only semidefinite.
+The next lesson extends this shortcut to any size, with tests that use pivots or determinants
+instead of eigenvalues.
 
 ### Example 2
 

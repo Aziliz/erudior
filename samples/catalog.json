@@ -199,7 +199,7 @@
   "order": 10,
   "title": "Linear Algebra",
   "description": "A first course in linear algebra, starting from high school vectors, elimination and matrix arithmetic and building through row reduction, span and independence, linear transformations, matrix algebra and factorizations, determinants, vector spaces, eigenvalues, orthogonality and least squares, symmetric matrices, quadratic forms and the singular value decomposition, with applications to networks, chemistry, graphics, Markov chains and regression.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Math",
   "level": [
    "College"
@@ -304,9 +304,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 20,
-  "questions": 212,
-  "cards": 101,
-  "drills": 57
+  "lessons": 23,
+  "questions": 261,
+  "cards": 128,
+  "drills": 66
  }
 ]

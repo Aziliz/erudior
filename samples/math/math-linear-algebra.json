@@ -5,8 +5,8 @@
  "title": "Linear Algebra",
  "description": "A first course in linear algebra, starting from high school vectors, elimination and matrix arithmetic and building through row reduction, span and independence, linear transformations, matrix algebra and factorizations, determinants, vector spaces, eigenvalues, orthogonality and least squares, symmetric matrices, quadratic forms and the singular value decomposition, with applications to networks, chemistry, graphics, Markov chains and regression.",
  "author": "Examiner",
- "revision": 2,
- "changelog": "Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.",
+ "revision": 3,
+ "changelog": "Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections; new lessons on systems of differential equations and positive definite matrices with Cholesky factorization.",
  "modules": [
   {
    "id": "la-m1",
@@ -96,6 +96,7 @@
     "la-q-1504",
     "la-q-1506",
     "la-q-1508",
+    "la-q-1513",
     "la-q-1601",
     "la-q-1604",
     "la-q-1607",
@@ -166,13 +167,18 @@
     "la-q-2904",
     "la-q-2908",
     "la-q-2912",
+    "la-q-2913",
     "la-q-3002",
     "la-q-3005",
     "la-q-3008",
     "la-q-3102",
     "la-q-3103",
     "la-q-3106",
-    "la-q-3112"
+    "la-q-3112",
+    "la-q-de01",
+    "la-q-de03",
+    "la-q-de06",
+    "la-q-de12"
    ]
   },
   {
@@ -198,6 +204,10 @@
     "la-q-3701",
     "la-q-3704",
     "la-q-3706",
+    "la-q-pd01",
+    "la-q-pd03",
+    "la-q-pd05",
+    "la-q-pd10",
     "la-q-3801",
     "la-q-3804",
     "la-q-3808"
@@ -652,7 +662,8 @@
    "drills": [
     "la-mat-mult23",
     "la-mat-power",
-    "la-homog"
+    "la-homog",
+    "la-block-mult"
    ],
    "refs": [
     "la-ref-factor"
@@ -670,7 +681,11 @@
     "la-q-1509",
     "la-q-1510",
     "la-q-1511",
-    "la-q-1512"
+    "la-q-1512",
+    "la-q-1513",
+    "la-q-1514",
+    "la-q-1515",
+    "la-q-1516"
    ]
   },
   {
@@ -1098,7 +1113,8 @@
    ],
    "drills": [
     "la-diag-power",
-    "la-eigvec"
+    "la-eigvec",
+    "la-b-matrix"
    ],
    "refs": [
     "la-ref-factor"
@@ -1116,7 +1132,11 @@
     "la-q-2909",
     "la-q-2910",
     "la-q-2911",
-    "la-q-2912"
+    "la-q-2912",
+    "la-q-2913",
+    "la-q-2914",
+    "la-q-2915",
+    "la-q-2916"
    ]
   },
   {
@@ -1167,7 +1187,7 @@
    "refs": [
     "la-ref-factor"
    ],
-   "body": "## Systems that step forward in time\n\nMany processes update a state vector by the same rule at every step: populations from one\nyear to the next, market shares from one month to the next, rental cars moving between\nlocations each day. When the rule is linear, the state evolves by $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$,\nand eigenvalues and eigenvectors predict the long-run behavior without computing hundreds of\nsteps. Markov chains are the most important special case.\n\n## Discrete dynamical systems\n\nA **[[discrete dynamical system]]** is a sequence of vectors with $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$\nfor $k = 0, 1, 2, \\dots$, starting from an initial state $\\mathbf{x}_0$. Then\n$\\mathbf{x}_k = A^k\\mathbf{x}_0$.\n\nSuppose $A$ is $n \\times n$ with an eigenvector basis $\\mathbf{v}_1, \\dots, \\mathbf{v}_n$ and\neigenvalues $\\lambda_1, \\dots, \\lambda_n$. Write $\\mathbf{x}_0 = c_1\\mathbf{v}_1 + \\cdots + c_n\\mathbf{v}_n$.\nBecause $A^k\\mathbf{v}_i = \\lambda_i^k\\mathbf{v}_i$,\n\n$$\\mathbf{x}_k = c_1\\lambda_1^k\\mathbf{v}_1 + c_2\\lambda_2^k\\mathbf{v}_2 + \\cdots + c_n\\lambda_n^k\\mathbf{v}_n.$$\n\nEach eigen-direction grows or decays on its own. Terms with $|\\lambda_i| < 1$ fade away;\nterms with $|\\lambda_i| > 1$ grow; the term with the largest $|\\lambda_i|$ eventually dominates,\nso (if its weight $c_i \\neq 0$) $\\mathbf{x}_k$ lines up with that eigenvector and grows by a\nfactor of about $\\lambda_i$ per step.\n\nFor $2 \\times 2$ systems the origin is classified by the eigenvalues:\n\n| Eigenvalues | Name | Behavior |\n|---|---|---|\n| both $\\lvert\\lambda\\rvert < 1$ | **[[attractor]]** | every trajectory tends to $\\mathbf{0}$ |\n| both $\\lvert\\lambda\\rvert > 1$ | **[[repeller]]** | trajectories move away from $\\mathbf{0}$ |\n| one $\\lvert\\lambda\\rvert > 1$, one $\\lvert\\lambda\\rvert < 1$ | **[[saddle point]]** | attracted along one direction, repelled along the other |\n\n### Example 1\n\nLet $A = \\begin{bmatrix} 0.85 & 0.25 \\\\ 0.25 & 0.85\\end{bmatrix}$ and $\\mathbf{x}_0 = (3, 1)$. Describe $\\mathbf{x}_k$.\n\n1. Eigenvectors: $A(1, 1) = (1.1, 1.1)$, so $\\lambda_1 = 1.1$ with $\\mathbf{v}_1 = (1, 1)$; $A(1, -1) = (0.6, -0.6)$, so $\\lambda_2 = 0.6$ with $\\mathbf{v}_2 = (1, -1)$.\n2. Decompose: $(3, 1) = 2(1, 1) + 1(1, -1)$.\n3. So $\\mathbf{x}_k = 2(1.1)^k(1, 1) + (0.6)^k(1, -1)$.\n4. As $k$ grows, $(0.6)^k \\to 0$, so $\\mathbf{x}_k \\approx 2(1.1)^k(1, 1)$: the two components become equal and grow 10% per step. The origin is a saddle point.\n\n```plot\n{\"x\": [-1, 8], \"y\": [-1, 8], \"equal\": true, \"functions\": [{\"f\": \"x\", \"dashed\": true, \"label\": \"eigenvector line (λ = 1.1)\"}], \"points\": [{\"at\": [3, 1], \"label\": \"x₀\"}, {\"at\": [2.8, 1.6]}, {\"at\": [2.78, 2.06]}, {\"at\": [2.88, 2.45]}, {\"at\": [3.06, 2.8]}, {\"at\": [3.3, 3.14]}, {\"at\": [3.59, 3.5]}, {\"at\": [3.93, 3.87]}, {\"at\": [4.3, 4.27]}, {\"at\": [4.73, 4.71]}, {\"at\": [5.19, 5.18]}], \"caption\": \"The trajectory from x₀ = (3, 1) bends onto the line of the dominant eigenvector\"}\n```\n\n## Markov chains\n\nA **[[probability vector]]** has nonnegative entries that add up to 1. A **[[stochastic matrix]]** is a\nsquare matrix whose columns are probability vectors. A **[[Markov chain]]** is a dynamical system\n$\\mathbf{x}_{k+1} = P\\mathbf{x}_k$ with $P$ stochastic and $\\mathbf{x}_0$ a probability vector;\neach $\\mathbf{x}_k$, called a **[[state vector]]**, is then also a probability vector. Entry $p_{ij}$\nis the probability of moving *to* state $i$ *from* state $j$ in one step.\n\n### Example 2\n\nA rental company has two lots, A and B. Each day, 80% of the cars at A stay at A and 20% are\nreturned to B; 30% of the cars at B end up at A and 70% stay at B. Today half the fleet is at\neach lot. Find the distribution tomorrow and the day after.\n\n1. Columns are \"from\", rows are \"to\": $P = \\begin{bmatrix} 0.8 & 0.3 \\\\ 0.2 & 0.7\\end{bmatrix}$. Each column sums to 1.\n2. $\\mathbf{x}_1 = P\\mathbf{x}_0 = \\begin{bmatrix} 0.8(0.5) + 0.3(0.5) \\\\ 0.2(0.5) + 0.7(0.5)\\end{bmatrix} = \\begin{bmatrix} 0.55 \\\\ 0.45\\end{bmatrix}$.\n3. $\\mathbf{x}_2 = P\\mathbf{x}_1 = \\begin{bmatrix} 0.44 + 0.135 \\\\ 0.11 + 0.315\\end{bmatrix} = \\begin{bmatrix} 0.575 \\\\ 0.425\\end{bmatrix}$.\n\n## Steady states\n\nA **[[steady-state vector]]** (or equilibrium) of a stochastic matrix $P$ is a probability vector\n$\\mathbf{q}$ with $P\\mathbf{q} = \\mathbf{q}$: an eigenvector for eigenvalue 1, scaled so its entries\nadd to 1. Every stochastic matrix has eigenvalue 1 (the rows of $P - I$ add to the zero row, so\n$P - I$ is singular). A stochastic matrix is **[[regular]]** if some power $P^k$ has all entries\nstrictly positive.\n\n> *Theorem.* If $P$ is a regular stochastic matrix, it has a unique steady-state vector $\\mathbf{q}$, and for every initial probability vector, $\\mathbf{x}_k \\to \\mathbf{q}$.\n\nTo find $\\mathbf{q}$: solve $(P - I)\\mathbf{x} = \\mathbf{0}$, then divide by the sum of the entries.\n\n### Example 3\n\nFind the steady state for the rental cars.\n\n1. $P - I = \\begin{bmatrix} -0.2 & 0.3 \\\\ 0.2 & -0.3\\end{bmatrix}$. Row 2 is $-1$ times row 1, so $-0.2x_1 + 0.3x_2 = 0$: $x_1 = 1.5x_2$.\n2. Take $x_2 = 2$: $(3, 2)$. Divide by $3 + 2 = 5$: $\\mathbf{q} = (0.6, 0.4)$.\n3. Check: $P\\mathbf{q} = (0.48 + 0.12,\\ 0.12 + 0.28) = (0.6, 0.4)$. ✓\n\nIn the long run 60% of the cars are at lot A, whatever the starting split. The other\neigenvalue of $P$ is $0.5$ (from $\\operatorname{tr} P = 1.5 = 1 + 0.5$), so the distance to the\nsteady state halves each day: $0.5 \\to 0.55 \\to 0.575 \\to \\cdots \\to 0.6$.\n\n## Common mistakes\n\n- *Rows vs columns.* In this convention the *columns* of a stochastic matrix sum to 1, and $p_{ij}$ is the chance of going from $j$ to $i$.\n- *Forgetting to normalize* the eigenvector for $\\lambda = 1$ into a probability vector.\n- *Assuming every trajectory follows the dominant eigenvector.* If $\\mathbf{x}_0$ has zero weight on it, it never appears.\n- *Calling a system with eigenvalues 1.2 and 0.5 an attractor.* One eigenvalue bigger than 1 in absolute value makes the origin a saddle.\n\n## Key points\n\n- $\\mathbf{x}_k = A^k\\mathbf{x}_0 = \\sum c_i\\lambda_i^k\\mathbf{v}_i$ when $\\mathbf{x}_0 = \\sum c_i\\mathbf{v}_i$ in an eigenvector basis.\n- The largest $|\\lambda|$ dominates in the long run; $|\\lambda| < 1$ terms die out. Attractor, repeller and saddle describe $2 \\times 2$ cases.\n- A stochastic matrix has probability-vector columns; a Markov chain is $\\mathbf{x}_{k+1} = P\\mathbf{x}_k$.\n- A steady state solves $P\\mathbf{q} = \\mathbf{q}$ with entries summing to 1; for regular $P$ every chain converges to it.\n",
+   "body": "## Systems that step forward in time\n\nMany processes update a state vector by the same rule at every step: populations from one\nyear to the next, market shares from one month to the next, rental cars moving between\nlocations each day. When the rule is linear, the state evolves by $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$,\nand eigenvalues and eigenvectors predict the long-run behavior without computing hundreds of\nsteps. Markov chains are the most important special case. (The next lesson treats quantities\nthat change continuously in time, $\\mathbf{x}' = A\\mathbf{x}$.)\n\n## Discrete dynamical systems\n\nA **[[discrete dynamical system]]** is a sequence of vectors with $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$\nfor $k = 0, 1, 2, \\dots$, starting from an initial state $\\mathbf{x}_0$. Then\n$\\mathbf{x}_k = A^k\\mathbf{x}_0$.\n\nSuppose $A$ is $n \\times n$ with an eigenvector basis $\\mathbf{v}_1, \\dots, \\mathbf{v}_n$ and\neigenvalues $\\lambda_1, \\dots, \\lambda_n$. Write $\\mathbf{x}_0 = c_1\\mathbf{v}_1 + \\cdots + c_n\\mathbf{v}_n$.\nBecause $A^k\\mathbf{v}_i = \\lambda_i^k\\mathbf{v}_i$,\n\n$$\\mathbf{x}_k = c_1\\lambda_1^k\\mathbf{v}_1 + c_2\\lambda_2^k\\mathbf{v}_2 + \\cdots + c_n\\lambda_n^k\\mathbf{v}_n.$$\n\nEach eigen-direction grows or decays on its own. Terms with $|\\lambda_i| < 1$ fade away;\nterms with $|\\lambda_i| > 1$ grow; the term with the largest $|\\lambda_i|$ eventually dominates,\nso (if its weight $c_i \\neq 0$) $\\mathbf{x}_k$ lines up with that eigenvector and grows by a\nfactor of about $\\lambda_i$ per step.\n\nFor $2 \\times 2$ systems the origin is classified by the eigenvalues:\n\n| Eigenvalues | Name | Behavior |\n|---|---|---|\n| both $\\lvert\\lambda\\rvert < 1$ | **[[attractor]]** | every trajectory tends to $\\mathbf{0}$ |\n| both $\\lvert\\lambda\\rvert > 1$ | **[[repeller]]** | trajectories move away from $\\mathbf{0}$ |\n| one $\\lvert\\lambda\\rvert > 1$, one $\\lvert\\lambda\\rvert < 1$ | **[[saddle point]]** | attracted along one direction, repelled along the other |\n\n### Example 1\n\nLet $A = \\begin{bmatrix} 0.85 & 0.25 \\\\ 0.25 & 0.85\\end{bmatrix}$ and $\\mathbf{x}_0 = (3, 1)$. Describe $\\mathbf{x}_k$.\n\n1. Eigenvectors: $A(1, 1) = (1.1, 1.1)$, so $\\lambda_1 = 1.1$ with $\\mathbf{v}_1 = (1, 1)$; $A(1, -1) = (0.6, -0.6)$, so $\\lambda_2 = 0.6$ with $\\mathbf{v}_2 = (1, -1)$.\n2. Decompose: $(3, 1) = 2(1, 1) + 1(1, -1)$.\n3. So $\\mathbf{x}_k = 2(1.1)^k(1, 1) + (0.6)^k(1, -1)$.\n4. As $k$ grows, $(0.6)^k \\to 0$, so $\\mathbf{x}_k \\approx 2(1.1)^k(1, 1)$: the two components become equal and grow 10% per step. The origin is a saddle point.\n\n```plot\n{\"x\": [-1, 8], \"y\": [-1, 8], \"equal\": true, \"functions\": [{\"f\": \"x\", \"dashed\": true, \"label\": \"eigenvector line (λ = 1.1)\"}], \"points\": [{\"at\": [3, 1], \"label\": \"x₀\"}, {\"at\": [2.8, 1.6]}, {\"at\": [2.78, 2.06]}, {\"at\": [2.88, 2.45]}, {\"at\": [3.06, 2.8]}, {\"at\": [3.3, 3.14]}, {\"at\": [3.59, 3.5]}, {\"at\": [3.93, 3.87]}, {\"at\": [4.3, 4.27]}, {\"at\": [4.73, 4.71]}, {\"at\": [5.19, 5.18]}], \"caption\": \"The trajectory from x₀ = (3, 1) bends onto the line of the dominant eigenvector\"}\n```\n\n## Markov chains\n\nA **[[probability vector]]** has nonnegative entries that add up to 1. A **[[stochastic matrix]]** is a\nsquare matrix whose columns are probability vectors. A **[[Markov chain]]** is a dynamical system\n$\\mathbf{x}_{k+1} = P\\mathbf{x}_k$ with $P$ stochastic and $\\mathbf{x}_0$ a probability vector;\neach $\\mathbf{x}_k$, called a **[[state vector]]**, is then also a probability vector. Entry $p_{ij}$\nis the probability of moving *to* state $i$ *from* state $j$ in one step.\n\n### Example 2\n\nA rental company has two lots, A and B. Each day, 80% of the cars at A stay at A and 20% are\nreturned to B; 30% of the cars at B end up at A and 70% stay at B. Today half the fleet is at\neach lot. Find the distribution tomorrow and the day after.\n\n1. Columns are \"from\", rows are \"to\": $P = \\begin{bmatrix} 0.8 & 0.3 \\\\ 0.2 & 0.7\\end{bmatrix}$. Each column sums to 1.\n2. $\\mathbf{x}_1 = P\\mathbf{x}_0 = \\begin{bmatrix} 0.8(0.5) + 0.3(0.5) \\\\ 0.2(0.5) + 0.7(0.5)\\end{bmatrix} = \\begin{bmatrix} 0.55 \\\\ 0.45\\end{bmatrix}$.\n3. $\\mathbf{x}_2 = P\\mathbf{x}_1 = \\begin{bmatrix} 0.44 + 0.135 \\\\ 0.11 + 0.315\\end{bmatrix} = \\begin{bmatrix} 0.575 \\\\ 0.425\\end{bmatrix}$.\n\n## Steady states\n\nA **[[steady-state vector]]** (or equilibrium) of a stochastic matrix $P$ is a probability vector\n$\\mathbf{q}$ with $P\\mathbf{q} = \\mathbf{q}$: an eigenvector for eigenvalue 1, scaled so its entries\nadd to 1. Every stochastic matrix has eigenvalue 1 (the rows of $P - I$ add to the zero row, so\n$P - I$ is singular). A stochastic matrix is **[[regular]]** if some power $P^k$ has all entries\nstrictly positive.\n\n> *Theorem.* If $P$ is a regular stochastic matrix, it has a unique steady-state vector $\\mathbf{q}$, and for every initial probability vector, $\\mathbf{x}_k \\to \\mathbf{q}$.\n\nTo find $\\mathbf{q}$: solve $(P - I)\\mathbf{x} = \\mathbf{0}$, then divide by the sum of the entries.\n\n### Example 3\n\nFind the steady state for the rental cars.\n\n1. $P - I = \\begin{bmatrix} -0.2 & 0.3 \\\\ 0.2 & -0.3\\end{bmatrix}$. Row 2 is $-1$ times row 1, so $-0.2x_1 + 0.3x_2 = 0$: $x_1 = 1.5x_2$.\n2. Take $x_2 = 2$: $(3, 2)$. Divide by $3 + 2 = 5$: $\\mathbf{q} = (0.6, 0.4)$.\n3. Check: $P\\mathbf{q} = (0.48 + 0.12,\\ 0.12 + 0.28) = (0.6, 0.4)$. ✓\n\nIn the long run 60% of the cars are at lot A, whatever the starting split. The other\neigenvalue of $P$ is $0.5$ (from $\\operatorname{tr} P = 1.5 = 1 + 0.5$), so the distance to the\nsteady state halves each day: $0.5 \\to 0.55 \\to 0.575 \\to \\cdots \\to 0.6$.\n\n## Common mistakes\n\n- *Rows vs columns.* In this convention the *columns* of a stochastic matrix sum to 1, and $p_{ij}$ is the chance of going from $j$ to $i$.\n- *Forgetting to normalize* the eigenvector for $\\lambda = 1$ into a probability vector.\n- *Assuming every trajectory follows the dominant eigenvector.* If $\\mathbf{x}_0$ has zero weight on it, it never appears.\n- *Calling a system with eigenvalues 1.2 and 0.5 an attractor.* One eigenvalue bigger than 1 in absolute value makes the origin a saddle.\n\n## Key points\n\n- $\\mathbf{x}_k = A^k\\mathbf{x}_0 = \\sum c_i\\lambda_i^k\\mathbf{v}_i$ when $\\mathbf{x}_0 = \\sum c_i\\mathbf{v}_i$ in an eigenvector basis.\n- The largest $|\\lambda|$ dominates in the long run; $|\\lambda| < 1$ terms die out. Attractor, repeller and saddle describe $2 \\times 2$ cases.\n- A stochastic matrix has probability-vector columns; a Markov chain is $\\mathbf{x}_{k+1} = P\\mathbf{x}_k$.\n- A steady state solves $P\\mathbf{q} = \\mathbf{q}$ with entries summing to 1; for regular $P$ every chain converges to it.\n",
    "quiz": [
     "la-q-3101",
     "la-q-3102",
@@ -1181,6 +1201,39 @@
     "la-q-3110",
     "la-q-3111",
     "la-q-3112"
+   ]
+  },
+  {
+   "id": "la-ode-systems",
+   "module": "la-m8",
+   "title": "Systems of differential equations",
+   "minutes": 40,
+   "topics": [
+    "Systems of differential equations",
+    "Matrix exponential"
+   ],
+   "drills": [
+    "la-ode-solve",
+    "la-ode-exp",
+    "la-ode-spiral"
+   ],
+   "refs": [
+    "la-ref-factor"
+   ],
+   "body": "## From steps to continuous time\n\nThe last lesson followed a state vector that jumps forward one step at a time,\n$\\mathbf{x}_{k+1} = A\\mathbf{x}_k$. Many quantities change continuously instead: the temperatures\nof connected rooms, the amounts of a drug in blood and tissue, the currents in a circuit, the\npositions and velocities of masses joined by springs. When each rate of change is a linear\ncombination of the current values, the model is\n\n$$\\mathbf{x}'(t) = A\\mathbf{x}(t),$$\n\na **[[system of linear differential equations]]**. Here $\\mathbf{x}(t)$ is a vector of functions, the\nprime means the derivative of every entry, and $A$ is a constant $n \\times n$ matrix. Eigenvalues\nand eigenvectors solve it in almost the same way they solved the discrete system; the only change\nis that $\\lambda^k$ becomes $e^{\\lambda t}$. This lesson uses one fact from calculus: the\nderivative of $e^{\\lambda t}$ is $\\lambda e^{\\lambda t}$.\n\n## Eigenvector solutions\n\nFor one equation, $x' = ax$ has the solutions $x(t) = ce^{at}$. For a system, try a solution that\nkeeps a fixed direction and changes only in size: $\\mathbf{x}(t) = e^{\\lambda t}\\mathbf{v}$. Its\nderivative is $\\lambda e^{\\lambda t}\\mathbf{v}$, and $A\\mathbf{x}(t) = e^{\\lambda t}A\\mathbf{v}$. These\nagree for every $t$ exactly when $A\\mathbf{v} = \\lambda\\mathbf{v}$:\n\n> If $A\\mathbf{v} = \\lambda\\mathbf{v}$, then $\\mathbf{x}(t) = e^{\\lambda t}\\mathbf{v}$ solves $\\mathbf{x}' = A\\mathbf{x}$.\n\nThe system is linear, so sums and scalar multiples of solutions are again solutions. If $A$ has\nan eigenvector basis $\\mathbf{v}_1, \\dots, \\mathbf{v}_n$ with eigenvalues $\\lambda_1, \\dots, \\lambda_n$,\nevery solution has the form\n\n$$\\mathbf{x}(t) = c_1e^{\\lambda_1t}\\mathbf{v}_1 + c_2e^{\\lambda_2t}\\mathbf{v}_2 + \\cdots + c_ne^{\\lambda_nt}\\mathbf{v}_n.$$\n\nAt $t = 0$ every exponential equals 1, so the weights come from the initial state:\n$c_1\\mathbf{v}_1 + \\cdots + c_n\\mathbf{v}_n = \\mathbf{x}(0)$, that is, $P\\mathbf{c} = \\mathbf{x}(0)$ with\n$P = [\\,\\mathbf{v}_1 \\;\\cdots\\; \\mathbf{v}_n\\,]$.\n\n### Example 1\n\nSolve $\\mathbf{x}' = A\\mathbf{x}$ with $A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 2\\end{bmatrix}$ and $\\mathbf{x}(0) = (3, 2)$.\n\n1. Eigenvalues: $\\operatorname{tr} A = 3$ and $\\det A = -4$, so $\\lambda^2 - 3\\lambda - 4 = (\\lambda - 4)(\\lambda + 1) = 0$, giving $\\lambda = 4$ and $\\lambda = -1$.\n2. Eigenvectors: $A - 4I = \\begin{bmatrix} -3 & 2 \\\\ 3 & -2\\end{bmatrix}$ gives $\\mathbf{v}_1 = (2, 3)$; $A + I = \\begin{bmatrix} 2 & 2 \\\\ 3 & 3\\end{bmatrix}$ gives $\\mathbf{v}_2 = (1, -1)$.\n3. Weights: $c_1(2, 3) + c_2(1, -1) = (3, 2)$ means $2c_1 + c_2 = 3$ and $3c_1 - c_2 = 2$. Adding, $5c_1 = 5$, so $c_1 = 1$ and $c_2 = 1$.\n4. Solution: $\\mathbf{x}(t) = e^{4t}\\begin{bmatrix} 2 \\\\ 3\\end{bmatrix} + e^{-t}\\begin{bmatrix} 1 \\\\ -1\\end{bmatrix}$.\n5. Check: at $t = 0$ this is $(2 + 1, 3 - 1) = (3, 2)$. ✓ For large $t$ the $e^{-t}$ term dies away and $\\mathbf{x}(t)$ runs off along the line through $(2, 3)$.\n\n```plot\n{\"x\": [-5, 5], \"y\": [-5, 5], \"equal\": true, \"vectorField\": {\"u\": \"x + 2*y\", \"v\": \"3*x + 2*y\", \"step\": 1}, \"functions\": [{\"f\": \"1.5*x\", \"dashed\": true, \"label\": \"λ = 4\"}, {\"f\": \"-x\", \"dashed\": true, \"label\": \"λ = -1\"}], \"curves\": [{\"x\": \"2*exp(4*t) + exp(-t)\", \"y\": \"3*exp(4*t) - exp(-t)\", \"t\": [-1.4, 0.2]}], \"points\": [{\"at\": [3, 2], \"label\": \"x(0)\"}], \"caption\": \"A saddle: the solution comes in along the λ = -1 line and leaves along the λ = 4 line\"}\n```\n\n## Decoupling\n\nWhy does this work? Change variables to eigenvector coordinates, $\\mathbf{x} = P\\mathbf{y}$. Then\n$P\\mathbf{y}' = AP\\mathbf{y}$, so\n\n$$\\mathbf{y}' = P^{-1}AP\\,\\mathbf{y} = D\\mathbf{y}, \\qquad\\text{i.e.}\\qquad y_1' = \\lambda_1y_1,\\ \\dots,\\ y_n' = \\lambda_ny_n.$$\n\nIn the original variables every rate depends on every other variable; in the new ones each\nequation involves a single unknown. The system is **[[decoupled]]** into $n$ separate one-variable\nequations, solved by $y_i = c_ie^{\\lambda_it}$. Multiplying back by $P$ gives the general solution\nabove. This is the same idea as diagonalization, now applied to rates of change.\n\n### Example 2\n\nTwo rooms share a wall. Let $x_1$ and $x_2$ be how many degrees each room is above the outdoor\ntemperature, with $t$ in hours. Each room loses heat outdoors at rate $2x_i$ and gains heat from\nthe other room at rate $x_j - x_i$, so $x_1' = -3x_1 + x_2$ and $x_2' = x_1 - 3x_2$. Room 1\nstarts $4^\\circ$ above outside and room 2 at the outdoor temperature. Find $\\mathbf{x}(t)$.\n\n1. $A = \\begin{bmatrix} -3 & 1 \\\\ 1 & -3\\end{bmatrix}$. $A(1, 1) = (-2, -2)$ and $A(1, -1) = (-4, 4)$, so $\\lambda_1 = -2$ with $\\mathbf{v}_1 = (1, 1)$ and $\\lambda_2 = -4$ with $\\mathbf{v}_2 = (1, -1)$.\n2. Weights: $c_1(1, 1) + c_2(1, -1) = (4, 0)$ gives $c_1 = c_2 = 2$.\n3. $\\mathbf{x}(t) = 2e^{-2t}(1, 1) + 2e^{-4t}(1, -1)$, so $x_1 = 2e^{-2t} + 2e^{-4t}$ and $x_2 = 2e^{-2t} - 2e^{-4t}$.\n4. Read the decoupled pieces: the average $\\tfrac12(x_1 + x_2) = 2e^{-2t}$ decays at rate 2 (heat leaving the house), and the difference $x_1 - x_2 = 4e^{-4t}$ decays faster, at rate 4 (the rooms evening out).\n5. Room 2 warms at first, then cools: $x_2' = -4e^{-2t} + 8e^{-4t} = 0$ when $e^{-2t} = \\tfrac12$, at $t = \\tfrac12\\ln 2 \\approx 0.35$ hours, where $x_2 = 1 - 0.5 = 0.5^\\circ$.\n\n```plot\n{\"x\": [0, 2.5], \"y\": [0, 4.2], \"xLabel\": \"t (hours)\", \"yLabel\": \"degrees above outside\", \"functions\": [{\"f\": \"2*exp(-2*x) + 2*exp(-4*x)\", \"color\": \"#2c5e8f\"}, {\"f\": \"2*exp(-2*x) - 2*exp(-4*x)\", \"dashed\": true, \"color\": \"#c2570c\"}], \"points\": [{\"at\": [0.347, 0.5], \"label\": \"peak\"}], \"labels\": [{\"at\": [0.45, 2.3], \"text\": \"room 1: x₁(t)\"}, {\"at\": [1.1, 0.95], \"text\": \"room 2: x₂(t), dashed\"}], \"caption\": \"Both rooms approach the outdoor temperature; room 2 first warms, then cools\"}\n```\n\n## The matrix exponential\n\nFor one equation the solution is $x(t) = e^{at}x(0)$. The same formula works for systems once\n$e^{At}$ is defined, using the power series of $e^x$:\n\n$$e^{At} = I + At + \\frac{(At)^2}{2!} + \\frac{(At)^3}{3!} + \\cdots$$\n\nThis **[[matrix exponential]]** always converges. Differentiating term by term gives\n$\\frac{d}{dt}e^{At} = A + A^2t + \\frac{A^3t^2}{2!} + \\cdots = Ae^{At}$, and $e^{A\\cdot0} = I$, so\n\n> $\\mathbf{x}(t) = e^{At}\\mathbf{x}(0)$ is the solution of $\\mathbf{x}' = A\\mathbf{x}$ with initial state $\\mathbf{x}(0)$.\n\nYou never sum the series by hand for a diagonalizable matrix. Since $A^k = PD^kP^{-1}$, every term\nhas the form $P(\\cdots)P^{-1}$, and the diagonal series sums entry by entry:\n\n$$e^{At} = Pe^{Dt}P^{-1}, \\qquad e^{Dt} = \\begin{bmatrix} e^{\\lambda_1t} & & \\\\ & \\ddots & \\\\ & & e^{\\lambda_nt}\\end{bmatrix}.$$\n\n### Example 3\n\nFind $e^{At}$ for the rooms matrix $A = \\begin{bmatrix} -3 & 1 \\\\ 1 & -3\\end{bmatrix}$.\n\n1. From Example 2, $P = \\begin{bmatrix} 1 & 1 \\\\ 1 & -1\\end{bmatrix}$ and $D = \\operatorname{diag}(-2, -4)$. Then $P^{-1} = \\tfrac12\\begin{bmatrix} 1 & 1 \\\\ 1 & -1\\end{bmatrix}$.\n2. $Pe^{Dt} = \\begin{bmatrix} e^{-2t} & e^{-4t} \\\\ e^{-2t} & -e^{-4t}\\end{bmatrix}$.\n3. $e^{At} = \\dfrac12\\begin{bmatrix} e^{-2t} + e^{-4t} & e^{-2t} - e^{-4t} \\\\ e^{-2t} - e^{-4t} & e^{-2t} + e^{-4t}\\end{bmatrix}$.\n4. Check: at $t = 0$ this is $I$. ✓ And $e^{At}(4, 0)$ is 4 times the first column, $(2e^{-2t} + 2e^{-4t},\\ 2e^{-2t} - 2e^{-4t})$, matching Example 2.\n\nTwo cautions. First, $e^{At}$ is *not* the matrix of exponentials of the entries: in Example 3\nthe entries of $At$ are $-3t$ and $t$, and nothing like $e^{-3t}$ appears. Second, the series\nalso handles matrices that can't be diagonalized. For $N = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0\\end{bmatrix}$,\n$N^2 = 0$, so the series stops: $e^{Nt} = I + Nt = \\begin{bmatrix} 1 & t \\\\ 0 & 1\\end{bmatrix}$.\nFor $\\begin{bmatrix} \\lambda & 1 \\\\ 0 & \\lambda\\end{bmatrix} = \\lambda I + N$, the result is\n$e^{\\lambda t}\\begin{bmatrix} 1 & t \\\\ 0 & 1\\end{bmatrix}$, so a missing eigenvector shows up as a\nfactor $t$. (The rule $e^{X + Y} = e^Xe^Y$ used here needs $XY = YX$, which holds because\n$\\lambda I$ commutes with everything.)\n\n## Complex eigenvalues: spirals\n\nFor the rotation–scaling matrix $C = \\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$ (eigenvalues\n$a \\pm bi$), the series gives\n\n$$e^{Ct} = e^{at}\\begin{bmatrix} \\cos bt & -\\sin bt \\\\ \\sin bt & \\cos bt\\end{bmatrix}.$$\n\nEvery solution turns through the angle $bt$ (counterclockwise when $b > 0$) while its length is\nmultiplied by $e^{at}$: it spirals in if $a < 0$, spirals out if $a > 0$, and goes around a\nclosed loop if $a = 0$. A general real $2 \\times 2$ matrix with eigenvalues $a \\pm bi$ is\n$PCP^{-1}$, so its solutions are the same spirals viewed through the change of coordinates $P$.\n\n```plot\n{\"x\": [-4.5, 4.5], \"y\": [-4, 4], \"equal\": true, \"vectorField\": {\"u\": \"-x - 2*y\", \"v\": \"2*x - y\", \"step\": 1}, \"curves\": [{\"x\": \"4*exp(-t)*cos(2*t)\", \"y\": \"4*exp(-t)*sin(2*t)\", \"t\": [0, 6]}], \"points\": [{\"at\": [4, 0], \"label\": \"x(0)\"}], \"caption\": \"x′ = Cx with a = -1, b = 2: eigenvalues -1 ± 2i, a spiral sink\"}\n```\n\n## Stability\n\nEach term $c_ie^{\\lambda_it}\\mathbf{v}_i$ decays when $\\lambda_i < 0$ and grows when $\\lambda_i > 0$,\nand for complex $\\lambda = a \\pm bi$ the size is controlled by $e^{at}$. So the test is the *sign\nof the real part*, not the size of $|\\lambda|$:\n\n> The origin is **[[asymptotically stable]]** (every solution tends to $\\mathbf{0}$) exactly when every eigenvalue of $A$ has negative real part.\n\nFor $2 \\times 2$ systems:\n\n| Eigenvalues of $A$ | Origin | Solutions |\n|---|---|---|\n| real, both negative | **[[sink]]** (attractor) | approach $\\mathbf{0}$ |\n| real, both positive | **[[source]]** (repeller) | move away from $\\mathbf{0}$ |\n| real, opposite signs | saddle point | in along one eigenvector, out along the other |\n| $a \\pm bi$ with $a < 0$ | spiral sink | spiral in |\n| $a \\pm bi$ with $a > 0$ | spiral source | spiral out |\n| $\\pm bi$ (real part 0) | **[[center]]** | closed loops around $\\mathbf{0}$ |\n\nBecause $\\operatorname{tr} A = \\lambda_1 + \\lambda_2$ and $\\det A = \\lambda_1\\lambda_2$ (complex\neigenvalues included), a $2 \\times 2$ system is asymptotically stable exactly when\n$\\operatorname{tr} A < 0$ and $\\det A > 0$. Example 1 ($\\det A = -4$) is a saddle; Example 2\n($\\operatorname{tr} = -6$, $\\det = 8$) is a sink.\n\nThe discrete and continuous tests fit together. Sampling a solution once per time unit gives\n$\\mathbf{x}(k + 1) = e^{A}\\mathbf{x}(k)$, a discrete system whose matrix $e^A$ has eigenvalues\n$e^{\\lambda}$. Since $|e^{\\lambda}| = e^{\\operatorname{Re}\\lambda}$, the condition $|e^{\\lambda}| < 1$\nis the same as $\\operatorname{Re}\\lambda < 0$.\n\n## Common mistakes\n\n- *Using the discrete test.* For $\\mathbf{x}' = A\\mathbf{x}$, eigenvalues $0.5$ and $0.8$ give a source, not an attractor: $e^{0.8t}$ grows. Look at the sign of the real part, not whether $|\\lambda| < 1$.\n- *Exponentiating entries.* $e^{At}$ is $Pe^{Dt}P^{-1}$ (or the series), never the matrix of $e^{a_{ij}t}$. Even for a diagonal matrix only the diagonal entries are exponentiated; the zeros stay 0.\n- *Using $\\mathbf{x}(0)$ as the weights.* The weights solve $P\\mathbf{c} = \\mathbf{x}(0)$; they equal the entries of $\\mathbf{x}(0)$ only when the eigenvectors are the standard basis.\n- *Pairing a weight with the wrong exponential.* $c_i$ and $e^{\\lambda_it}$ go with the eigenvector $\\mathbf{v}_i$ for that same $\\lambda_i$.\n\n## Key points\n\n- If $A\\mathbf{v} = \\lambda\\mathbf{v}$, then $e^{\\lambda t}\\mathbf{v}$ solves $\\mathbf{x}' = A\\mathbf{x}$; with an eigenvector basis, $\\mathbf{x}(t) = \\sum c_ie^{\\lambda_it}\\mathbf{v}_i$ where $P\\mathbf{c} = \\mathbf{x}(0)$.\n- The substitution $\\mathbf{x} = P\\mathbf{y}$ decouples the system into $y_i' = \\lambda_iy_i$.\n- $\\mathbf{x}(t) = e^{At}\\mathbf{x}(0)$, with $e^{At} = \\sum (At)^k/k!$; for diagonalizable $A$, $e^{At} = Pe^{Dt}P^{-1}$.\n- Asymptotically stable ⟺ every eigenvalue has negative real part ($2 \\times 2$: $\\operatorname{tr} A < 0$ and $\\det A > 0$). Complex eigenvalues $a \\pm bi$ give spirals, and $a = 0$ gives a center.\n",
+   "quiz": [
+    "la-q-de01",
+    "la-q-de02",
+    "la-q-de03",
+    "la-q-de04",
+    "la-q-de05",
+    "la-q-de06",
+    "la-q-de07",
+    "la-q-de08",
+    "la-q-de09",
+    "la-q-de10",
+    "la-q-de11",
+    "la-q-de12"
    ]
   },
   {
@@ -1352,7 +1405,7 @@
    "refs": [
     "la-ref-factor"
    ],
-   "body": "## Second-degree expressions in several variables\n\nExpressions like $5x_1^2 + 4x_1x_2 + 2x_2^2$ appear as energy in physics, as variance in\nstatistics, as the second-derivative test in multivariable calculus, and as the equations of\nellipses and hyperbolas. The cross term $4x_1x_2$ makes them hard to read. Using the\nspectral theorem, a change of variables removes every cross term, and the eigenvalues of a\nsymmetric matrix then tell you everything: the shape of the level curves and whether the\nexpression is always positive.\n\n## Quadratic forms and their matrices\n\nA **[[quadratic form]]** on $\\mathbb{R}^n$ is a function $Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x}$, where\n$A$ is an $n \\times n$ symmetric matrix, called the matrix of the form. For $n = 2$,\n\n$$\\begin{bmatrix} x_1 & x_2\\end{bmatrix}\\begin{bmatrix} a & b \\\\ b & c\\end{bmatrix}\\begin{bmatrix} x_1 \\\\ x_2\\end{bmatrix} = ax_1^2 + 2bx_1x_2 + cx_2^2.$$\n\nSo squared terms go on the diagonal, and each cross-term coefficient is *split in half*\nbetween the two symmetric off-diagonal positions. For three variables,\n$Q = 3x_1^2 - x_2^2 + 4x_3^2 + 6x_1x_2 - 2x_2x_3$ has matrix\n$\\begin{bmatrix} 3 & 3 & 0 \\\\ 3 & -1 & -1 \\\\ 0 & -1 & 4\\end{bmatrix}$.\n\n## Removing cross terms: the principal axes theorem\n\nSince $A$ is symmetric, $A = PDP^T$ with $P$ orthogonal. Substitute $\\mathbf{x} = P\\mathbf{y}$:\n\n$$Q = \\mathbf{x}^TA\\mathbf{x} = \\mathbf{y}^TP^TAP\\mathbf{y} = \\mathbf{y}^TD\\mathbf{y} = \\lambda_1y_1^2 + \\lambda_2y_2^2 + \\cdots + \\lambda_ny_n^2.$$\n\n> The **[[principal axes theorem]]**: every quadratic form $\\mathbf{x}^TA\\mathbf{x}$ can be turned into one with no cross terms by an orthogonal change of variable $\\mathbf{x} = P\\mathbf{y}$, where the columns of $P$ are orthonormal eigenvectors of $A$ and the new coefficients are the eigenvalues.\n\nThe columns of $P$ are the **[[principal axes]]** of the form. Because $P$ is orthogonal, the new\ncoordinates are just a rotation (possibly with a reflection) of the old ones.\n\n### Example 1\n\nRemove the cross term from $Q(\\mathbf{x}) = 5x_1^2 + 4x_1x_2 + 2x_2^2$ and describe the curve $Q(\\mathbf{x}) = 6$.\n\n1. Matrix: $A = \\begin{bmatrix} 5 & 2 \\\\ 2 & 2\\end{bmatrix}$ (the 4 is split into $2 + 2$).\n2. Eigenvalues: $\\lambda^2 - 7\\lambda + 6 = (\\lambda - 6)(\\lambda - 1)$, so 6 and 1.\n3. Eigenvectors: $(2, 1)$ for 6 and $(1, -2)$ for 1; normalized, $P = \\dfrac{1}{\\sqrt5}\\begin{bmatrix} 2 & 1 \\\\ 1 & -2\\end{bmatrix}$.\n4. With $\\mathbf{x} = P\\mathbf{y}$: $Q = 6y_1^2 + y_2^2$.\n5. The curve $6y_1^2 + y_2^2 = 6$, i.e. $y_1^2 + \\dfrac{y_2^2}{6} = 1$, is an ellipse with semi-axis 1 along $(2, 1)$ and semi-axis $\\sqrt6$ along $(1, -2)$.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"equal\": true, \"curves\": [{\"x\": \"(2*cos(t) + sqrt(6)*sin(t))/sqrt(5)\", \"y\": \"(cos(t) - 2*sqrt(6)*sin(t))/sqrt(5)\", \"t\": [0, \"2pi\"]}], \"segments\": [{\"from\": [0, 0], \"to\": [0.894, 0.447], \"arrow\": true, \"label\": \"u₁ (λ = 6)\"}, {\"from\": [0, 0], \"to\": [0.447, -0.894], \"arrow\": true, \"label\": \"u₂ (λ = 1)\"}], \"caption\": \"5x₁² + 4x₁x₂ + 2x₂² = 6 is a tilted ellipse; its axes are the eigenvectors\"}\n```\n\n## Classifying quadratic forms\n\nThe diagonal form shows at once whether $Q$ can be negative. A quadratic form (and its\nmatrix) is:\n\n| Name | Meaning | Eigenvalues of $A$ |\n|---|---|---|\n| **[[positive definite]]** | $Q(\\mathbf{x}) > 0$ for all $\\mathbf{x} \\ne \\mathbf{0}$ | all positive |\n| **[[negative definite]]** | $Q(\\mathbf{x}) < 0$ for all $\\mathbf{x} \\ne \\mathbf{0}$ | all negative |\n| **[[indefinite]]** | takes both positive and negative values | some positive, some negative |\n| **[[positive semidefinite]]** | $Q(\\mathbf{x}) \\ge 0$ for all $\\mathbf{x}$ | all $\\ge 0$ |\n| negative semidefinite | $Q(\\mathbf{x}) \\le 0$ for all $\\mathbf{x}$ | all $\\le 0$ |\n\nEvery positive definite form is also positive semidefinite (and likewise for negative), so\n\"semidefinite but not definite\" means some eigenvalue is 0.\n\nThe form in Example 1 has eigenvalues 6 and 1, so it's positive definite: its level curves\nare ellipses. For $2 \\times 2$ forms there's a shortcut: $\\det A = \\lambda_1\\lambda_2$, so\n$\\det A < 0$ means indefinite, $\\det A > 0$ means definite (positive if $a > 0$, negative if\n$a < 0$), and $\\det A = 0$ means one eigenvalue is 0, so the form is only semidefinite.\n\n### Example 2\n\nClassify $Q(\\mathbf{x}) = x_1^2 - 6x_1x_2 + x_2^2$.\n\n1. $A = \\begin{bmatrix} 1 & -3 \\\\ -3 & 1\\end{bmatrix}$, $\\det A = 1 - 9 = -8 < 0$.\n2. Eigenvalues: $\\lambda^2 - 2\\lambda - 8 = (\\lambda - 4)(\\lambda + 2)$: 4 and $-2$.\n3. Mixed signs: indefinite. For example $Q(1, 1) = 1 - 6 + 1 = -4$ but $Q(1, -1) = 1 + 6 + 1 = 8$.\n4. In principal-axis coordinates $Q = 4y_1^2 - 2y_2^2$, so its level curves are hyperbolas.\n\n## Constrained optimization\n\nWhat are the largest and smallest values of $Q(\\mathbf{x})$ on the unit sphere $\\|\\mathbf{x}\\| = 1$?\nIn principal-axis coordinates ($\\|\\mathbf{y}\\| = \\|\\mathbf{x}\\|$ because $P$ is orthogonal),\n$Q = \\sum\\lambda_iy_i^2$ with $\\sum y_i^2 = 1$: a weighted average of the eigenvalues.\n\n> The maximum of $\\mathbf{x}^TA\\mathbf{x}$ over unit vectors is the largest eigenvalue of $A$, attained at a corresponding unit eigenvector; the minimum is the smallest eigenvalue.\n\nFor Example 1, the maximum of $5x_1^2 + 4x_1x_2 + 2x_2^2$ on the unit circle is 6, at\n$\\pm\\tfrac{1}{\\sqrt5}(2, 1)$, and the minimum is 1. This is the idea behind principal component\nanalysis: the direction of greatest variance is the top eigenvector of a covariance matrix.\n\n## Common mistakes\n\n- *Not halving the cross term.* $4x_1x_2$ puts 2 (not 4) in each off-diagonal slot.\n- *Classifying by the diagonal entries.* $\\begin{bmatrix} 1 & -3 \\\\ -3 & 1\\end{bmatrix}$ has positive diagonal but is indefinite. Use eigenvalues (or the determinant test in $2 \\times 2$).\n- *Using a non-orthogonal $P$.* Then $P^TAP$ isn't diagonal and lengths aren't preserved.\n- *Mixing up semidefinite and definite.* Eigenvalue 0 allows $Q(\\mathbf{x}) = 0$ for some $\\mathbf{x} \\ne \\mathbf{0}$.\n\n## Key points\n\n- $Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x}$ with $A$ symmetric; squares on the diagonal, half of each cross coefficient off the diagonal.\n- Principal axes theorem: $\\mathbf{x} = P\\mathbf{y}$ (orthonormal eigenvectors) gives $Q = \\sum\\lambda_iy_i^2$.\n- Positive definite ⟺ all eigenvalues positive; indefinite ⟺ eigenvalues of both signs.\n- On unit vectors, $Q$ ranges between the smallest and largest eigenvalues of $A$.\n",
+   "body": "## Second-degree expressions in several variables\n\nExpressions like $5x_1^2 + 4x_1x_2 + 2x_2^2$ appear as energy in physics, as variance in\nstatistics, as the second-derivative test in multivariable calculus, and as the equations of\nellipses and hyperbolas. The cross term $4x_1x_2$ makes them hard to read. Using the\nspectral theorem, a change of variables removes every cross term, and the eigenvalues of a\nsymmetric matrix then tell you everything: the shape of the level curves and whether the\nexpression is always positive.\n\n## Quadratic forms and their matrices\n\nA **[[quadratic form]]** on $\\mathbb{R}^n$ is a function $Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x}$, where\n$A$ is an $n \\times n$ symmetric matrix, called the matrix of the form. For $n = 2$,\n\n$$\\begin{bmatrix} x_1 & x_2\\end{bmatrix}\\begin{bmatrix} a & b \\\\ b & c\\end{bmatrix}\\begin{bmatrix} x_1 \\\\ x_2\\end{bmatrix} = ax_1^2 + 2bx_1x_2 + cx_2^2.$$\n\nSo squared terms go on the diagonal, and each cross-term coefficient is *split in half*\nbetween the two symmetric off-diagonal positions. For three variables,\n$Q = 3x_1^2 - x_2^2 + 4x_3^2 + 6x_1x_2 - 2x_2x_3$ has matrix\n$\\begin{bmatrix} 3 & 3 & 0 \\\\ 3 & -1 & -1 \\\\ 0 & -1 & 4\\end{bmatrix}$.\n\n## Removing cross terms: the principal axes theorem\n\nSince $A$ is symmetric, $A = PDP^T$ with $P$ orthogonal. Substitute $\\mathbf{x} = P\\mathbf{y}$:\n\n$$Q = \\mathbf{x}^TA\\mathbf{x} = \\mathbf{y}^TP^TAP\\mathbf{y} = \\mathbf{y}^TD\\mathbf{y} = \\lambda_1y_1^2 + \\lambda_2y_2^2 + \\cdots + \\lambda_ny_n^2.$$\n\n> The **[[principal axes theorem]]**: every quadratic form $\\mathbf{x}^TA\\mathbf{x}$ can be turned into one with no cross terms by an orthogonal change of variable $\\mathbf{x} = P\\mathbf{y}$, where the columns of $P$ are orthonormal eigenvectors of $A$ and the new coefficients are the eigenvalues.\n\nThe columns of $P$ are the **[[principal axes]]** of the form. Because $P$ is orthogonal, the new\ncoordinates are just a rotation (possibly with a reflection) of the old ones.\n\n### Example 1\n\nRemove the cross term from $Q(\\mathbf{x}) = 5x_1^2 + 4x_1x_2 + 2x_2^2$ and describe the curve $Q(\\mathbf{x}) = 6$.\n\n1. Matrix: $A = \\begin{bmatrix} 5 & 2 \\\\ 2 & 2\\end{bmatrix}$ (the 4 is split into $2 + 2$).\n2. Eigenvalues: $\\lambda^2 - 7\\lambda + 6 = (\\lambda - 6)(\\lambda - 1)$, so 6 and 1.\n3. Eigenvectors: $(2, 1)$ for 6 and $(1, -2)$ for 1; normalized, $P = \\dfrac{1}{\\sqrt5}\\begin{bmatrix} 2 & 1 \\\\ 1 & -2\\end{bmatrix}$.\n4. With $\\mathbf{x} = P\\mathbf{y}$: $Q = 6y_1^2 + y_2^2$.\n5. The curve $6y_1^2 + y_2^2 = 6$, i.e. $y_1^2 + \\dfrac{y_2^2}{6} = 1$, is an ellipse with semi-axis 1 along $(2, 1)$ and semi-axis $\\sqrt6$ along $(1, -2)$.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"equal\": true, \"curves\": [{\"x\": \"(2*cos(t) + sqrt(6)*sin(t))/sqrt(5)\", \"y\": \"(cos(t) - 2*sqrt(6)*sin(t))/sqrt(5)\", \"t\": [0, \"2pi\"]}], \"segments\": [{\"from\": [0, 0], \"to\": [0.894, 0.447], \"arrow\": true, \"label\": \"u₁ (λ = 6)\"}, {\"from\": [0, 0], \"to\": [0.447, -0.894], \"arrow\": true, \"label\": \"u₂ (λ = 1)\"}], \"caption\": \"5x₁² + 4x₁x₂ + 2x₂² = 6 is a tilted ellipse; its axes are the eigenvectors\"}\n```\n\n## Classifying quadratic forms\n\nThe diagonal form shows at once whether $Q$ can be negative. A quadratic form (and its\nmatrix) is:\n\n| Name | Meaning | Eigenvalues of $A$ |\n|---|---|---|\n| **[[positive definite]]** | $Q(\\mathbf{x}) > 0$ for all $\\mathbf{x} \\ne \\mathbf{0}$ | all positive |\n| **[[negative definite]]** | $Q(\\mathbf{x}) < 0$ for all $\\mathbf{x} \\ne \\mathbf{0}$ | all negative |\n| **[[indefinite]]** | takes both positive and negative values | some positive, some negative |\n| **[[positive semidefinite]]** | $Q(\\mathbf{x}) \\ge 0$ for all $\\mathbf{x}$ | all $\\ge 0$ |\n| negative semidefinite | $Q(\\mathbf{x}) \\le 0$ for all $\\mathbf{x}$ | all $\\le 0$ |\n\nEvery positive definite form is also positive semidefinite (and likewise for negative), so\n\"semidefinite but not definite\" means some eigenvalue is 0.\n\nThe form in Example 1 has eigenvalues 6 and 1, so it's positive definite: its level curves\nare ellipses. For $2 \\times 2$ forms there's a shortcut: $\\det A = \\lambda_1\\lambda_2$, so\n$\\det A < 0$ means indefinite, $\\det A > 0$ means definite (positive if $a > 0$, negative if\n$a < 0$), and $\\det A = 0$ means one eigenvalue is 0, so the form is only semidefinite.\nThe next lesson extends this shortcut to any size, with tests that use pivots or determinants\ninstead of eigenvalues.\n\n### Example 2\n\nClassify $Q(\\mathbf{x}) = x_1^2 - 6x_1x_2 + x_2^2$.\n\n1. $A = \\begin{bmatrix} 1 & -3 \\\\ -3 & 1\\end{bmatrix}$, $\\det A = 1 - 9 = -8 < 0$.\n2. Eigenvalues: $\\lambda^2 - 2\\lambda - 8 = (\\lambda - 4)(\\lambda + 2)$: 4 and $-2$.\n3. Mixed signs: indefinite. For example $Q(1, 1) = 1 - 6 + 1 = -4$ but $Q(1, -1) = 1 + 6 + 1 = 8$.\n4. In principal-axis coordinates $Q = 4y_1^2 - 2y_2^2$, so its level curves are hyperbolas.\n\n## Constrained optimization\n\nWhat are the largest and smallest values of $Q(\\mathbf{x})$ on the unit sphere $\\|\\mathbf{x}\\| = 1$?\nIn principal-axis coordinates ($\\|\\mathbf{y}\\| = \\|\\mathbf{x}\\|$ because $P$ is orthogonal),\n$Q = \\sum\\lambda_iy_i^2$ with $\\sum y_i^2 = 1$: a weighted average of the eigenvalues.\n\n> The maximum of $\\mathbf{x}^TA\\mathbf{x}$ over unit vectors is the largest eigenvalue of $A$, attained at a corresponding unit eigenvector; the minimum is the smallest eigenvalue.\n\nFor Example 1, the maximum of $5x_1^2 + 4x_1x_2 + 2x_2^2$ on the unit circle is 6, at\n$\\pm\\tfrac{1}{\\sqrt5}(2, 1)$, and the minimum is 1. This is the idea behind principal component\nanalysis: the direction of greatest variance is the top eigenvector of a covariance matrix.\n\n## Common mistakes\n\n- *Not halving the cross term.* $4x_1x_2$ puts 2 (not 4) in each off-diagonal slot.\n- *Classifying by the diagonal entries.* $\\begin{bmatrix} 1 & -3 \\\\ -3 & 1\\end{bmatrix}$ has positive diagonal but is indefinite. Use eigenvalues (or the determinant test in $2 \\times 2$).\n- *Using a non-orthogonal $P$.* Then $P^TAP$ isn't diagonal and lengths aren't preserved.\n- *Mixing up semidefinite and definite.* Eigenvalue 0 allows $Q(\\mathbf{x}) = 0$ for some $\\mathbf{x} \\ne \\mathbf{0}$.\n\n## Key points\n\n- $Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x}$ with $A$ symmetric; squares on the diagonal, half of each cross coefficient off the diagonal.\n- Principal axes theorem: $\\mathbf{x} = P\\mathbf{y}$ (orthonormal eigenvectors) gives $Q = \\sum\\lambda_iy_i^2$.\n- Positive definite ⟺ all eigenvalues positive; indefinite ⟺ eigenvalues of both signs.\n- On unit vectors, $Q$ ranges between the smallest and largest eigenvalues of $A$.\n",
    "quiz": [
     "la-q-3701",
     "la-q-3702",
@@ -1365,6 +1418,41 @@
     "la-q-3709",
     "la-q-3710",
     "la-q-3711"
+   ]
+  },
+  {
+   "id": "la-pos-def",
+   "module": "la-m9",
+   "title": "Positive definite matrices and Cholesky factorization",
+   "minutes": 35,
+   "topics": [
+    "Positive definite matrices",
+    "Cholesky factorization"
+   ],
+   "drills": [
+    "la-pd-minors",
+    "la-pd-pivots",
+    "la-cholesky"
+   ],
+   "refs": [
+    "la-ref-factor",
+    "la-ref-det"
+   ],
+   "body": "## Testing positivity without eigenvalues\n\nThe last lesson classified a quadratic form $\\mathbf{x}^TA\\mathbf{x}$ by the signs of the eigenvalues of\nits symmetric matrix. Positive definite matrices are the most important class: they are the\ncovariance matrices of statistics, the energy matrices of mechanics, the Hessians in the\nsecond-derivative test for a minimum, and the matrices $A^TA$ in least squares. But finding the eigenvalues of\na $3 \\times 3$ matrix means solving a cubic. This lesson gives two tests that need only\nelimination or determinants, and a factorization, $A = R^TR$, that positive definite matrices\nalways have.\n\nThroughout, $A$ is symmetric. A symmetric $A$ is a **[[positive definite matrix]]** when\n$\\mathbf{x}^TA\\mathbf{x} > 0$ for every $\\mathbf{x} \\ne \\mathbf{0}$, which (as the last lesson showed) happens\nexactly when all its eigenvalues are positive.\n\n## Quick consequences\n\n- *Diagonal entries are positive.* Taking $\\mathbf{x} = \\mathbf{e}_i$ gives $\\mathbf{e}_i^TA\\mathbf{e}_i = a_{ii} > 0$. This is necessary but far from sufficient: $\\begin{bmatrix} 1 & 3 \\\\ 3 & 1\\end{bmatrix}$ has positive diagonal but is indefinite.\n- *Positive determinant.* $\\det A$ is the product of the eigenvalues, so it is positive, and $A$ is invertible.\n- *Matrices $B^TB$.* For any $m \\times n$ matrix $B$, $\\mathbf{x}^T(B^TB)\\mathbf{x} = (B\\mathbf{x})\\cdot(B\\mathbf{x}) = \\|B\\mathbf{x}\\|^2 \\ge 0$, so $B^TB$ is always positive semidefinite. It is positive definite exactly when $B\\mathbf{x} \\ne \\mathbf{0}$ for every $\\mathbf{x} \\ne \\mathbf{0}$, that is, when the columns of $B$ are linearly independent. That is why the normal equations $A^TA\\hat{\\mathbf{x}} = A^T\\mathbf{b}$ have a unique solution when $A$ has independent columns.\n\n## The pivot test: completing the square\n\nWrite a $2 \\times 2$ form with $a \\ne 0$ and complete the square:\n\n$$ax_1^2 + 2bx_1x_2 + cx_2^2 = a\\Big(x_1 + \\frac{b}{a}x_2\\Big)^2 + \\frac{ac - b^2}{a}\\,x_2^2.$$\n\nNow look at elimination on $\\begin{bmatrix} a & b \\\\ b & c\\end{bmatrix}$: the first pivot is $a$,\nand subtracting $\\tfrac{b}{a}$ times row 1 from row 2 leaves the second pivot\n$c - \\tfrac{b^2}{a} = \\tfrac{ac - b^2}{a}$. The coefficients of the squares are *exactly the\npivots*, and the multiplier $\\tfrac{b}{a}$ sits inside the first square. A sum\n$p_1u_1^2 + p_2u_2^2$ is positive for every nonzero $(u_1, u_2)$ exactly when $p_1 > 0$ and\n$p_2 > 0$, and $(u_1, u_2)$ ranges over all nonzero vectors as $\\mathbf{x}$ does.\n\nThe same thing happens for any size. Elimination without row swaps writes a symmetric matrix\nas $A = LDL^T$ ($L$ unit lower triangular holding the multipliers, $D$ diagonal holding the\npivots), and then $\\mathbf{x}^TA\\mathbf{x} = \\sum p_iu_i^2$ with $\\mathbf{u} = L^T\\mathbf{x}$.\n\n> *Pivot test.* A symmetric matrix is positive definite exactly when elimination without row swaps produces $n$ pivots, all positive.\n\nMore generally, when there are $n$ nonzero pivots, the number of positive pivots equals the\nnumber of positive eigenvalues (and likewise for negative ones), so pivots of mixed sign mean\nindefinite. If a zero turns up in a pivot position, $A$ is not positive definite.\n\n## The determinant test: leading principal minors\n\nThe **[[leading principal minors]]** of $A$ are $D_1, D_2, \\dots, D_n$, where $D_k$ is the determinant of\nthe upper-left $k \\times k$ submatrix. For a $3 \\times 3$ matrix,\n\n$$D_1 = a_{11}, \\qquad D_2 = \\begin{vmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22}\\end{vmatrix}, \\qquad D_3 = \\det A.$$\n\nElimination down the first $k$ columns uses only the first $k$ rows to change rows $1$ to $k$, and\nreplacements don't change determinants, so $D_k = p_1p_2\\cdots p_k$ and $p_k = D_k/D_{k-1}$.\nPositive pivots and positive leading minors are therefore the same condition.\n\n> *Determinant test (Sylvester's criterion).* A symmetric matrix is positive definite exactly when all of its leading principal minors are positive.\n\nApplying the test to $-A$ gives the negative definite test: $D_1 < 0$, $D_2 > 0$, $D_3 < 0$, …,\nalternating in sign, because $\\det(-A_k) = (-1)^kD_k$.\n\n### Example 1\n\nTest $A = \\begin{bmatrix} 2 & -1 & 0 \\\\ -1 & 2 & -1 \\\\ 0 & -1 & 2\\end{bmatrix}$ three ways.\n\n1. *Minors.* $D_1 = 2$; $D_2 = 4 - 1 = 3$; expanding along row 1, $D_3 = 2(4 - 1) - (-1)(-2 - 0) = 6 - 2 = 4$. All positive.\n2. *Pivots.* They are the ratios $D_1 = 2$, $D_2/D_1 = \\tfrac32$, $D_3/D_2 = \\tfrac43$. By elimination: $R_2 + \\tfrac12R_1$ gives row 2 $= (0, \\tfrac32, -1)$; then $R_3 + \\tfrac23R_2$ gives the last pivot $2 - \\tfrac23 = \\tfrac43$. All positive.\n3. *Eigenvalues.* They are $2 - \\sqrt2$, $2$ and $2 + \\sqrt2$, all positive, confirming that $A$ is positive definite.\n\nThe minors were by far the least work. This matrix (2s on the diagonal, $-1$s beside it) shows\nup whenever a second derivative is approximated on a grid.\n\n### Example 2\n\nFor which $k$ is $A = \\begin{bmatrix} 1 & 1 & 0 \\\\ 1 & 3 & 2 \\\\ 0 & 2 & k\\end{bmatrix}$ positive definite?\n\n1. $D_1 = 1 > 0$ and $D_2 = 3 - 1 = 2 > 0$, whatever $k$ is.\n2. Row 1 expansion: $D_3 = 1(3k - 4) - 1(k - 0) + 0 = 2k - 4$.\n3. Positive definite exactly when $2k - 4 > 0$, i.e. $k > 2$.\n4. Pivot check: $R_2 - R_1$ gives $(0, 2, 2)$, then $R_3 - R_2$ gives the last pivot $k - 2$. The pivots are $1, 2, k - 2$, which agrees.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"equal\": true, \"curves\": [{\"x\": \"(cos(t)/sqrt(1.5) + sin(t)/sqrt(0.5))/sqrt(2)\", \"y\": \"(cos(t)/sqrt(1.5) - sin(t)/sqrt(0.5))/sqrt(2)\", \"t\": [0, \"2pi\"], \"color\": \"#2c5e8f\"}, {\"x\": \"(cosh(t)/sqrt(3) + sinh(t))/sqrt(2)\", \"y\": \"(cosh(t)/sqrt(3) - sinh(t))/sqrt(2)\", \"t\": [-2.5, 2.5], \"color\": \"#6b46c1\"}, {\"x\": \"(-cosh(t)/sqrt(3) + sinh(t))/sqrt(2)\", \"y\": \"(-cosh(t)/sqrt(3) - sinh(t))/sqrt(2)\", \"t\": [-2.5, 2.5], \"color\": \"#6b46c1\"}], \"functions\": [{\"f\": \"1 - x\", \"dashed\": true, \"color\": \"#c2570c\"}, {\"f\": \"-1 - x\", \"dashed\": true, \"color\": \"#c2570c\"}], \"labels\": [{\"at\": [1.1, -1.3], \"text\": \"b = 0.5\"}, {\"at\": [-2.9, 2.2], \"text\": \"b = 1\"}, {\"at\": [1.7, 0.4], \"text\": \"b = 2\"}], \"caption\": \"x₁² + 2b x₁x₂ + x₂² = 1: an ellipse for b = 0.5 (D₂ > 0), two parallel lines for b = 1 (D₂ = 0), a hyperbola for b = 2 (D₂ < 0)\"}\n```\n\nThe figure shows the $2 \\times 2$ case $\\begin{bmatrix} 1 & b \\\\ b & 1\\end{bmatrix}$, with\n$D_1 = 1$ and $D_2 = 1 - b^2$: the level curve $\\mathbf{x}^TA\\mathbf{x} = 1$ is a closed ellipse only\nwhile $|b| < 1$.\n\n*A warning about semidefinite matrices.* Leading minors $\\ge 0$ do *not* show positive\nsemidefiniteness. $\\begin{bmatrix} 0 & 0 \\\\ 0 & -1\\end{bmatrix}$ has $D_1 = 0$ and $D_2 = 0$, yet\n$\\mathbf{x}^TA\\mathbf{x} = -x_2^2$ is negative at $(0, 1)$. For semidefinite questions use the\neigenvalues (or check every principal minor, not only the leading ones).\n\n## Cholesky factorization\n\nPositive pivots let us take square roots. Put $R = \\sqrt{D}\\,L^T$, where $\\sqrt{D}$ holds the\nsquare roots of the pivots. Then $R^TR = L\\sqrt{D}\\sqrt{D}L^T = LDL^T = A$.\n\n> A symmetric matrix $A$ is positive definite exactly when $A = R^TR$ for an upper triangular $R$ with positive diagonal entries. This is the **[[Cholesky factorization]]** of $A$, and $R$ is unique.\n\n(Some books write $A = LL^T$ with $L = R^T$ lower triangular; it is the same factorization.)\nTo compute $R$, match entries of $R^TR$ with $A$ row by row: each diagonal entry is a square\nroot of what remains, and each entry to its right is divided by it. For $3 \\times 3$:\n\n$$r_{11} = \\sqrt{a_{11}},\\quad r_{12} = \\frac{a_{12}}{r_{11}},\\quad r_{13} = \\frac{a_{13}}{r_{11}},\\quad r_{22} = \\sqrt{a_{22} - r_{12}^2},\\quad r_{23} = \\frac{a_{23} - r_{12}r_{13}}{r_{22}},\\quad r_{33} = \\sqrt{a_{33} - r_{13}^2 - r_{23}^2}.$$\n\nIf a number under a square root is zero or negative, the matrix is not positive definite, so\nattempting Cholesky is itself a practical test. Cholesky needs about half the arithmetic of\n$LU$, never needs row swaps, and is how software solves systems with positive definite\nmatrices (least squares via $A^TA$, simulations, optimization). Solve $A\\mathbf{x} = \\mathbf{b}$ by\nforward substitution in $R^T\\mathbf{y} = \\mathbf{b}$, then back substitution in $R\\mathbf{x} = \\mathbf{y}$.\n\n### Example 3\n\nFactor $A = \\begin{bmatrix} 4 & 2 & -2 \\\\ 2 & 10 & 2 \\\\ -2 & 2 & 6\\end{bmatrix}$ and solve $A\\mathbf{x} = (2, 4, 4)$.\n\n1. Row 1 of $R$: $r_{11} = \\sqrt4 = 2$, $r_{12} = 2/2 = 1$, $r_{13} = -2/2 = -1$.\n2. Row 2: $r_{22} = \\sqrt{10 - 1^2} = 3$, $r_{23} = \\big(2 - (1)(-1)\\big)/3 = 1$.\n3. Row 3: $r_{33} = \\sqrt{6 - (-1)^2 - 1^2} = 2$. So $R = \\begin{bmatrix} 2 & 1 & -1 \\\\ 0 & 3 & 1 \\\\ 0 & 0 & 2\\end{bmatrix}$. All square roots were of positive numbers, so $A$ is positive definite.\n4. Forward: $R^T\\mathbf{y} = (2, 4, 4)$ reads $2y_1 = 2$, $y_1 + 3y_2 = 4$, $-y_1 + y_2 + 2y_3 = 4$, so $\\mathbf{y} = (1, 1, 2)$.\n5. Back: $R\\mathbf{x} = (1, 1, 2)$ gives $x_3 = 1$, then $3x_2 + 1 = 1$ so $x_2 = 0$, then $2x_1 + 0 - 1 = 1$ so $x_1 = 1$.\n6. Check: $A(1, 0, 1) = (4 - 2,\\ 2 + 2,\\ -2 + 6) = (2, 4, 4)$. ✓\n\n## Common mistakes\n\n- *Judging by the diagonal.* Positive diagonal entries are necessary, not sufficient; $\\begin{bmatrix} 1 & 3 \\\\ 3 & 1\\end{bmatrix}$ is indefinite.\n- *Using any minors.* The test uses the *leading* (upper-left) minors in order, and all of them; $\\det A > 0$ alone doesn't do it ($-I_2$ has determinant 1).\n- *Extending the test to semidefinite.* Leading minors $\\ge 0$ don't prove positive semidefinite.\n- *Forgetting to subtract in Cholesky.* $r_{22} = \\sqrt{a_{22} - r_{12}^2}$, not $\\sqrt{a_{22}}$; and $r_{12} = a_{12}/r_{11}$, not $a_{12}$.\n- *Solving in the wrong order.* With $A = R^TR$, solve $R^T\\mathbf{y} = \\mathbf{b}$ first, then $R\\mathbf{x} = \\mathbf{y}$.\n\n## Key points\n\n- For symmetric $A$ these are equivalent: positive definite; all eigenvalues $> 0$; all pivots (no row swaps) $> 0$; all leading principal minors $> 0$; $A = R^TR$ with $R$ upper triangular and positive diagonal.\n- Pivots are the coefficients when $\\mathbf{x}^TA\\mathbf{x}$ is written as a sum of squares, and $p_k = D_k/D_{k-1}$.\n- Negative definite: leading minors alternate in sign starting with $D_1 < 0$.\n- $B^TB$ is always positive semidefinite, and positive definite exactly when $B$ has independent columns.\n- Cholesky: $r_{11} = \\sqrt{a_{11}}$, divide across, subtract what is known, take square roots down the diagonal; solve with $R^T\\mathbf{y} = \\mathbf{b}$, $R\\mathbf{x} = \\mathbf{y}$.\n",
+   "quiz": [
+    "la-q-pd01",
+    "la-q-pd02",
+    "la-q-pd03",
+    "la-q-pd04",
+    "la-q-pd05",
+    "la-q-pd06",
+    "la-q-pd07",
+    "la-q-pd08",
+    "la-q-pd09",
+    "la-q-pd10",
+    "la-q-pd11",
+    "la-q-pd12",
+    "la-q-pd13"
    ]
   },
   {
@@ -4311,6 +4399,70 @@
      "explanation": "Diagonal matrices multiply entry by entry along the diagonal: $2 \\cdot 4 = 8$ and $3 \\cdot (-1) = -3$. (This is one of the few cases where $AB = BA$.)"
     },
     {
+     "id": "la-q-1513",
+     "section": "la-m5",
+     "topic": "Matrix multiplication",
+     "stem": "Assuming the block sizes are compatible, what is $\\begin{bmatrix} I & B \\\\ 0 & I\\end{bmatrix}\\begin{bmatrix} X \\\\ Y\\end{bmatrix}$?",
+     "choices": [
+      "$\\begin{bmatrix} X + YB \\\\ Y\\end{bmatrix}$",
+      "$\\begin{bmatrix} X + B \\\\ Y\\end{bmatrix}$",
+      "$\\begin{bmatrix} X + BY \\\\ Y\\end{bmatrix}$",
+      "$\\begin{bmatrix} X \\\\ BX + Y\\end{bmatrix}$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Use the row–column rule on the blocks, keeping each product in order: the top block is $IX + BY = X + BY$ and the bottom block is $0X + IY = Y$. Writing $YB$ reverses a product, which matrices don't allow. Dropping the $Y$ from $BY$ forgets to multiply. Putting $BX$ in the bottom block uses the bottom row of blocks wrongly: it is $0$ and $I$, not $B$ and $I$."
+    },
+    {
+     "id": "la-q-1514",
+     "section": "la-m5",
+     "topic": "Matrix multiplication",
+     "stem": "A $4 \\times 5$ matrix is partitioned as $A = [\\,A_1 \\;\\; A_2\\,]$, where $A_1$ is $4 \\times 2$ and $A_2$ is $4 \\times 3$. To compute $AB = A_1B_1 + A_2B_2$ with $B = \\begin{bmatrix} B_1 \\\\ B_2\\end{bmatrix}$, how many rows must $B_1$ have?",
+     "choices": [
+      "2",
+      "4",
+      "3",
+      "5"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The product $A_1B_1$ needs the number of columns of $A_1$ (2) to equal the number of rows of $B_1$. In general the column split of $A$ (here $2 + 3$) must match the row split of $B$. The answer 4 uses the rows of $A_1$ instead of its columns, 3 belongs to $B_2$, and 5 is the number of rows of all of $B$."
+    },
+    {
+     "id": "la-q-1515",
+     "section": "la-m5",
+     "topic": "Matrix multiplication",
+     "stem": "Let $A = [\\,A_1 \\;\\; A_2\\,]$ and $B = \\begin{bmatrix} B_1 \\\\ B_2\\end{bmatrix}$ with $A_1 = \\begin{bmatrix} 1 & 2 \\\\ 0 & 1\\end{bmatrix}$, $A_2 = \\begin{bmatrix} 0 \\\\ 3\\end{bmatrix}$, $B_1 = \\begin{bmatrix} 1 & 0 \\\\ 1 & 1\\end{bmatrix}$ and $B_2 = \\begin{bmatrix} 2 & -1\\end{bmatrix}$. Find $AB$.",
+     "choices": [
+      "$\\begin{bmatrix} 3 & 2 \\\\ 1 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 3 & 2 \\\\ -5 & 4\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 & 2 \\\\ 7 & 0\\end{bmatrix}$",
+      "$\\begin{bmatrix} 3 & 2 \\\\ 7 & -2\\end{bmatrix}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$AB = A_1B_1 + A_2B_2$. Here $A_1B_1 = \\begin{bmatrix} 3 & 2 \\\\ 1 & 1\\end{bmatrix}$ and $A_2B_2 = \\begin{bmatrix} 0 & 0 \\\\ 6 & -3\\end{bmatrix}$ (a column times a row), so $AB = \\begin{bmatrix} 3 & 2 \\\\ 7 & -2\\end{bmatrix}$. Stopping at $A_1B_1$ leaves out the second block term, subtracting $A_2B_2$ is a sign slip, and the matrix with first row $(1, 2)$ comes from computing $B_1A_1$ instead of $A_1B_1$."
+    },
+    {
+     "id": "la-q-1516",
+     "section": "la-m5",
+     "topic": "Computer graphics",
+     "stem": "In homogeneous coordinates a $2 \\times 2$ linear map $M$ becomes $\\begin{bmatrix} M & \\mathbf{0} \\\\ \\mathbf{0}^T & 1\\end{bmatrix}$. Multiplying block by block, what is $\\begin{bmatrix} M & \\mathbf{0} \\\\ \\mathbf{0}^T & 1\\end{bmatrix}\\begin{bmatrix} \\mathbf{x} \\\\ 1\\end{bmatrix}$?",
+     "choices": [
+      "$\\begin{bmatrix} M\\mathbf{x} \\\\ 0\\end{bmatrix}$",
+      "$\\begin{bmatrix} M\\mathbf{x} \\\\ 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} \\mathbf{x}M \\\\ 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} M\\mathbf{x} \\\\ \\mathbf{x}\\end{bmatrix}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Top block: $M\\mathbf{x} + \\mathbf{0}\\cdot 1 = M\\mathbf{x}$. Bottom block: $\\mathbf{0}^T\\mathbf{x} + 1 \\cdot 1 = 1$. So the point is moved by $M$ and keeps its final 1. A bottom entry of 0 forgets the $1 \\cdot 1$ term; $\\mathbf{x}M$ reverses the order of a product (and isn't even defined for a column $\\mathbf{x}$); a bottom block $\\mathbf{x}$ treats $\\mathbf{0}^T\\mathbf{x}$ as $\\mathbf{x}$ instead of the number 0."
+    },
+    {
      "id": "la-q-1601",
      "section": "la-m5",
      "topic": "Matrix inverse",
@@ -6999,6 +7151,70 @@
      "explanation": "Column $j$ of $P$ must be an eigenvector for the $j$th diagonal entry of $D$, so reorder both together."
     },
     {
+     "id": "la-q-2913",
+     "section": "la-m8",
+     "topic": "Diagonalization",
+     "stem": "The columns of an invertible matrix $P$ form a basis $\\mathcal{B}$ of $\\mathbb{R}^n$. Which matrix sends $[\\mathbf{x}]_{\\mathcal{B}}$ to $[A\\mathbf{x}]_{\\mathcal{B}}$, i.e. is the matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ relative to $\\mathcal{B}$?",
+     "choices": [
+      "$PAP^{-1}$",
+      "$AP$",
+      "$P^{-1}A$",
+      "$P^{-1}AP$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Start from $\\mathcal{B}$-coordinates: $P$ turns them into ordinary coordinates, $A$ acts, and $P^{-1}$ converts back, so $[A\\mathbf{x}]_{\\mathcal{B}} = P^{-1}AP\\,[\\mathbf{x}]_{\\mathcal{B}}$. $PAP^{-1}$ has the conversions the wrong way round. $AP$ leaves the result in ordinary coordinates, and $P^{-1}A$ applies $A$ to $\\mathcal{B}$-coordinates as if they were ordinary ones."
+    },
+    {
+     "id": "la-q-2914",
+     "section": "la-m8",
+     "topic": "Diagonalization",
+     "stem": "$A = \\begin{bmatrix} 4 & -2 \\\\ 1 & 1\\end{bmatrix}$ has eigenvectors $(1, 1)$ for $\\lambda = 2$ and $(2, 1)$ for $\\lambda = 3$. What is the matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ relative to the basis $\\mathcal{B} = \\{(1, 1), (2, 1)\\}$?",
+     "choices": [
+      "$\\begin{bmatrix} 4 & -2 \\\\ 1 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 2 & 0 \\\\ 0 & 3\\end{bmatrix}$",
+      "$\\begin{bmatrix} 3 & 0 \\\\ 0 & 2\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 & 2 \\\\ 1 & 1\\end{bmatrix}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "In an eigenvector basis the map multiplies each coordinate by its eigenvalue, so the $\\mathcal{B}$-matrix is $D = P^{-1}AP$ with the eigenvalues in the order of the basis: $2$ then $3$. Listing $3$ first mismatches the order of the basis vectors. $A$ itself is the matrix in standard coordinates, and $\\begin{bmatrix} 1 & 2 \\\\ 1 & 1\\end{bmatrix}$ is the change-of-coordinates matrix $P$, not the map."
+    },
+    {
+     "id": "la-q-2915",
+     "section": "la-m8",
+     "topic": "Diagonalization",
+     "stem": "Relative to an eigenvector basis $\\mathcal{B}$, the matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ is $D = \\begin{bmatrix} 3 & 0 \\\\ 0 & 5\\end{bmatrix}$. If $[\\mathbf{x}]_{\\mathcal{B}} = (2, -1)$, what is $[A\\mathbf{x}]_{\\mathcal{B}}$?",
+     "choices": [
+      "$(3, 5)$",
+      "$(10, -3)$",
+      "$(6, -5)$",
+      "$(5, 4)$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$[A\\mathbf{x}]_{\\mathcal{B}} = D[\\mathbf{x}]_{\\mathcal{B}} = (3 \\cdot 2,\\ 5 \\cdot (-1)) = (6, -5)$: each coordinate is multiplied by its own eigenvalue. $(10, -3)$ pairs each coordinate with the other eigenvalue, $(5, 4)$ adds the eigenvalues instead of multiplying, and $(3, 5)$ is just the eigenvalues, ignoring $\\mathbf{x}$."
+    },
+    {
+     "id": "la-q-2916",
+     "section": "la-m8",
+     "topic": "Diagonalization",
+     "stem": "Let $A = \\begin{bmatrix} 1 & 2 \\\\ 0 & 3\\end{bmatrix}$ and $P = \\begin{bmatrix} 1 & 0 \\\\ 1 & 1\\end{bmatrix}$. What is the matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ relative to the basis formed by the columns of $P$?",
+     "choices": [
+      "$\\begin{bmatrix} 3 & 2 \\\\ 0 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} -1 & 2 \\\\ -4 & 5\\end{bmatrix}$",
+      "$\\begin{bmatrix} 3 & 2 \\\\ 3 & 3\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 & 0 \\\\ 0 & 3\\end{bmatrix}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Compute $P^{-1}AP$. $AP = \\begin{bmatrix} 3 & 2 \\\\ 3 & 3\\end{bmatrix}$ and $P^{-1} = \\begin{bmatrix} 1 & 0 \\\\ -1 & 1\\end{bmatrix}$, so $P^{-1}AP = \\begin{bmatrix} 3 & 2 \\\\ 0 & 1\\end{bmatrix}$. It has the same trace (4) and determinant (3) as $A$, as similar matrices must. $\\begin{bmatrix} -1 & 2 \\\\ -4 & 5\\end{bmatrix}$ is $PAP^{-1}$ (conversions reversed), $\\begin{bmatrix} 3 & 2 \\\\ 3 & 3\\end{bmatrix}$ stops at $AP$, and the diagonal matrix assumes both basis vectors are eigenvectors. Only $(1, 1)$ is (for $\\lambda = 3$), which is why the first column of the answer is $(3, 0)$; $(0, 1)$ is not, since $A(0, 1) = (2, 3)$."
+    },
+    {
      "id": "la-q-3001",
      "section": "la-m8",
      "topic": "Complex eigenvalues",
@@ -7381,6 +7597,198 @@
       1
      ],
      "explanation": "The dominant term $c_1(1.05)^k\\mathbf{v}_1$ outgrows the others, so $\\mathbf{x}_k$ lines up with $\\mathbf{v}_1$ and grows by a factor of about 1.05 each step."
+    },
+    {
+     "id": "la-q-de01",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "If $A\\mathbf{v} = \\lambda\\mathbf{v}$ with $\\mathbf{v} \\ne \\mathbf{0}$, which function solves $\\mathbf{x}' = A\\mathbf{x}$?",
+     "choices": [
+      "$\\mathbf{x}(t) = e^{\\lambda t}\\mathbf{v}$",
+      "$\\mathbf{x}(t) = \\lambda^t\\mathbf{v}$",
+      "$\\mathbf{x}(t) = \\lambda t\\,\\mathbf{v}$",
+      "$\\mathbf{x}(t) = e^{t}\\mathbf{v}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The derivative of $e^{\\lambda t}\\mathbf{v}$ is $\\lambda e^{\\lambda t}\\mathbf{v} = e^{\\lambda t}A\\mathbf{v} = A(e^{\\lambda t}\\mathbf{v})$. The power $\\lambda^t$ belongs to the discrete system $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$. $\\lambda t\\,\\mathbf{v}$ has the constant derivative $\\lambda\\mathbf{v}$, which is not $A$ times it. $e^{t}\\mathbf{v}$ works only when $\\lambda = 1$."
+    },
+    {
+     "id": "la-q-de02",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "$A = \\begin{bmatrix} 2 & 1 \\\\ 1 & 2\\end{bmatrix}$ has eigenvectors $(1, 1)$ for $\\lambda = 3$ and $(1, -1)$ for $\\lambda = 1$. Solve $\\mathbf{x}' = A\\mathbf{x}$ with $\\mathbf{x}(0) = (5, 1)$.",
+     "choices": [
+      "$5e^{3t}(1, 1) + e^{t}(1, -1)$",
+      "$2e^{3t}(1, 1) + 3e^{t}(1, -1)$",
+      "$3e^{3t}(1, 1) + 2e^{t}(1, -1)$",
+      "$3e^{t}(1, 1) + 2e^{3t}(1, -1)$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The weights solve $c_1(1, 1) + c_2(1, -1) = (5, 1)$: $c_1 + c_2 = 5$ and $c_1 - c_2 = 1$, so $c_1 = 3$ and $c_2 = 2$. Each weight and exponential go with their own eigenvector: $3e^{3t}(1, 1) + 2e^{t}(1, -1)$. Using 5 and 1 as weights mistakes the entries of $\\mathbf{x}(0)$ for the weights; the version with 2 and 3 swaps the weights; the version with $e^{t}$ on $(1, 1)$ swaps the eigenvalues."
+    },
+    {
+     "id": "la-q-de03",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "A $2 \\times 2$ system $\\mathbf{x}' = A\\mathbf{x}$ has eigenvalues $0.5$ and $0.8$. The origin is:",
+     "choices": [
+      "a sink: every solution tends to $\\mathbf{0}$",
+      "a saddle point",
+      "a center",
+      "a source: solutions move away from $\\mathbf{0}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Both eigenvalues are positive, so both terms $e^{0.5t}$ and $e^{0.8t}$ grow. Calling it a sink applies the discrete test $|\\lambda| < 1$, which is for $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$; for differential equations the sign of the real part decides. A saddle needs eigenvalues of opposite signs, and a center needs purely imaginary eigenvalues."
+    },
+    {
+     "id": "la-q-de04",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "$A$ is a real $2 \\times 2$ matrix with eigenvalues $-2 \\pm 3i$. How do the solutions of $\\mathbf{x}' = A\\mathbf{x}$ behave?",
+     "choices": [
+      "They spiral away from $\\mathbf{0}$",
+      "They spiral in toward $\\mathbf{0}$",
+      "They travel around closed loops",
+      "They approach along one line and leave along another"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The real part $-2$ makes the size shrink like $e^{-2t}$, and the imaginary part 3 makes the solutions rotate: a spiral sink. Spiraling outward would need a positive real part, closed loops (a center) need real part 0, and approaching along one line while leaving along another describes a saddle, which has real eigenvalues of opposite signs."
+    },
+    {
+     "id": "la-q-de05",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "$A$ is a real $2 \\times 2$ matrix with eigenvalues $\\pm 2i$. The origin of $\\mathbf{x}' = A\\mathbf{x}$ is:",
+     "choices": [
+      "asymptotically stable: solutions spiral into $\\mathbf{0}$",
+      "a spiral source",
+      "a center: solutions travel around closed loops",
+      "a saddle point"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "With real part 0 the factor $e^{0t} = 1$ neither shrinks nor grows the solutions; they only rotate, so they go around closed loops forever. They don't approach $\\mathbf{0}$, so the origin is not asymptotically stable, and there is no outward growth for a spiral source. A saddle needs two real eigenvalues of opposite signs."
+    },
+    {
+     "id": "la-q-de06",
+     "section": "la-m8",
+     "topic": "Matrix exponential",
+     "stem": "For $D = \\begin{bmatrix} 2 & 0 \\\\ 0 & -1\\end{bmatrix}$, what is $e^{Dt}$?",
+     "choices": [
+      "$\\begin{bmatrix} e^{2t} & 0 \\\\ 0 & e^{-t}\\end{bmatrix}$",
+      "$\\begin{bmatrix} e^{2t} & 1 \\\\ 1 & e^{-t}\\end{bmatrix}$",
+      "$\\begin{bmatrix} 2e^{t} & 0 \\\\ 0 & -e^{t}\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 + 2t & 0 \\\\ 0 & 1 - t\\end{bmatrix}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Every power of a diagonal matrix is diagonal, so the series $I + Dt + (Dt)^2/2! + \\cdots$ sums entry by entry along the diagonal to $e^{2t}$ and $e^{-t}$, with zeros elsewhere. Putting 1s off the diagonal exponentiates the zero entries ($e^0 = 1$), which the series never does. $2e^{t}$ and $-e^{t}$ put the eigenvalue outside the exponential. $1 + 2t$ and $1 - t$ keep only the first two terms of the series."
+    },
+    {
+     "id": "la-q-de07",
+     "section": "la-m8",
+     "topic": "Matrix exponential",
+     "stem": "If $A = PDP^{-1}$ with $D$ diagonal, what is $e^{At}$?",
+     "choices": [
+      "$e^{Dt}$",
+      "$P^{-1}e^{Dt}P$",
+      "$e^{Pt}e^{Dt}e^{P^{-1}t}$",
+      "$Pe^{Dt}P^{-1}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Each term of the series is $(At)^k/k! = P\\big((Dt)^k/k!\\big)P^{-1}$, so the sum is $Pe^{Dt}P^{-1}$. $e^{Dt}$ alone is $e^{At}$ in eigenvector coordinates, not standard ones. $P^{-1}e^{Dt}P$ puts $P$ and $P^{-1}$ on the wrong sides. Exponentiating $P$ and $P^{-1}$ treats the change of coordinates as if it were part of the dynamics."
+    },
+    {
+     "id": "la-q-de08",
+     "section": "la-m8",
+     "topic": "Matrix exponential",
+     "stem": "What is $e^{Nt}$ for $N = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0\\end{bmatrix}$?",
+     "choices": [
+      "$\\begin{bmatrix} 1 & e^{t} \\\\ 1 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 & t \\\\ 0 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 & 0 \\\\ 0 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} e^{t} & t \\\\ 0 & e^{t}\\end{bmatrix}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$N^2 = 0$, so the series stops after two terms: $e^{Nt} = I + Nt$. Exponentiating each entry gives the matrix with $e^{t}$ and 1s, which is not how $e^{At}$ works. The identity comes from reasoning that the only eigenvalue is 0 so $e^{Dt} = I$, but $N$ is not diagonalizable. The matrix with $e^{t}$ on the diagonal is $e^{At}$ for $A = I + N$, whose eigenvalue is 1, not 0."
+    },
+    {
+     "id": "la-q-de09",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "$A = PDP^{-1}$, where the columns of $P$ are eigenvectors. Substituting $\\mathbf{x} = P\\mathbf{y}$ into $\\mathbf{x}' = A\\mathbf{x}$ gives which system for $\\mathbf{y}$?",
+     "choices": [
+      "$\\mathbf{y}' = A\\mathbf{y}$",
+      "$\\mathbf{y}' = P^{-1}\\mathbf{y}$",
+      "$\\mathbf{y}' = D\\mathbf{y}$, so $y_i' = \\lambda_iy_i$ for each $i$",
+      "$\\mathbf{y}' = PD\\mathbf{y}$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$P\\mathbf{y}' = AP\\mathbf{y}$, so $\\mathbf{y}' = P^{-1}AP\\mathbf{y} = D\\mathbf{y}$: the system is decoupled, one equation per eigenvalue. Keeping $A$ forgets that the variables changed. $P^{-1}\\mathbf{y}$ drops $A$ entirely, and $PD\\mathbf{y}$ is $AP\\mathbf{y}$ before multiplying by $P^{-1}$, so it is still in the old coordinates."
+    },
+    {
+     "id": "la-q-de10",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "$A = \\begin{bmatrix} -2 & 1 \\\\ 1 & -2\\end{bmatrix}$ has eigenvectors $(1, 1)$ for $\\lambda = -1$ and $(1, -1)$ for $\\lambda = -3$. For $\\mathbf{x}' = A\\mathbf{x}$ with $\\mathbf{x}(0) = (2, 0)$, what is $x_1(t)$?",
+     "choices": [
+      "$2e^{-t}$",
+      "$e^{-t} - e^{-3t}$",
+      "$2e^{-t} + 2e^{-3t}$",
+      "$e^{-t} + e^{-3t}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The weights solve $c_1 + c_2 = 2$ and $c_1 - c_2 = 0$, so $c_1 = c_2 = 1$ and $\\mathbf{x}(t) = e^{-t}(1, 1) + e^{-3t}(1, -1)$. Its first entry is $e^{-t} + e^{-3t}$. $e^{-t} - e^{-3t}$ is $x_2(t)$. $2e^{-t}$ uses the entries of $\\mathbf{x}(0)$ as weights, and $2e^{-t} + 2e^{-3t}$ doubles both weights, so it fails the check $x_1(0) = 2$."
+    },
+    {
+     "id": "la-q-de11",
+     "section": "la-m8",
+     "topic": "Systems of differential equations",
+     "stem": "For a real $2 \\times 2$ matrix $A$, which condition is equivalent to every solution of $\\mathbf{x}' = A\\mathbf{x}$ tending to $\\mathbf{0}$?",
+     "choices": [
+      "$\\operatorname{tr} A < 0$ only",
+      "$\\operatorname{tr} A < 0$ and $\\det A > 0$",
+      "$\\det A < 0$",
+      "Both diagonal entries of $A$ are negative"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The trace is $\\lambda_1 + \\lambda_2$ and the determinant is $\\lambda_1\\lambda_2$. Both real parts are negative exactly when the sum is negative and the product is positive. A negative trace alone allows a saddle (eigenvalues 1 and $-3$), and $\\det A < 0$ always means a saddle. Negative diagonal entries aren't enough: $\\begin{bmatrix} -1 & 3 \\\\ 3 & -1\\end{bmatrix}$ has eigenvalues 2 and $-4$."
+    },
+    {
+     "id": "la-q-de12",
+     "section": "la-m8",
+     "topic": "Matrix exponential",
+     "stem": "A solution of $\\mathbf{x}' = A\\mathbf{x}$ is recorded at $t = 0, 1, 2, \\dots$. Which matrix $B$ gives $\\mathbf{x}(k + 1) = B\\mathbf{x}(k)$?",
+     "choices": [
+      "$e^{A}$",
+      "$A$",
+      "$I + A$",
+      "$A^2$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$\\mathbf{x}(k + 1) = e^{A(k + 1)}\\mathbf{x}(0) = e^{A}e^{Ak}\\mathbf{x}(0) = e^{A}\\mathbf{x}(k)$. Using $A$ itself confuses the rate of change with the one-step map. $I + A$ is only the first two terms of the series for $e^{A}$ (Euler's approximation), and $A^2$ has no role here. This is why $|e^{\\lambda}| < 1$ matches $\\operatorname{Re}\\lambda < 0$."
     },
     {
      "id": "la-q-3201",
@@ -8423,6 +8831,214 @@
      "explanation": "The minimum on unit vectors is the smallest eigenvalue, $-4$; with all eigenvalues negative the form is negative definite."
     },
     {
+     "id": "la-q-pd01",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "What are the leading principal minors $D_1, D_2, D_3$ of $A = \\begin{bmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2\\end{bmatrix}$?",
+     "choices": [
+      "$2, 2, 2$",
+      "$2, 3, 4$",
+      "$2, 4, 8$",
+      "$2, 3, 6$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$D_1 = 2$, $D_2 = 2 \\cdot 2 - 1 \\cdot 1 = 3$, and expanding along row 1, $D_3 = 2(4 - 1) - 1(2 - 0) = 4$. All are positive, so $A$ is positive definite. $2, 2, 2$ are just the diagonal entries; $2, 4, 8$ multiplies diagonal entries and ignores the off-diagonal ones; $D_3 = 6$ keeps only the first term of the cofactor expansion."
+    },
+    {
+     "id": "la-q-pd02",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "Which symmetric matrix is positive definite?",
+     "choices": [
+      "$\\begin{bmatrix} 1 & 2 \\\\ 2 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} -2 & 1 \\\\ 1 & -1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 & 1 \\\\ 1 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 2 & 1 \\\\ 1 & 1\\end{bmatrix}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$\\begin{bmatrix} 2 & 1 \\\\ 1 & 1\\end{bmatrix}$ has $D_1 = 2 > 0$ and $D_2 = 2 - 1 = 1 > 0$. The matrix with 2s off the diagonal has positive diagonal entries but $D_2 = -3$, so it is indefinite. The one with $-2$ in the corner has $D_2 = 1 > 0$ but $D_1 = -2 < 0$: it is negative definite. The matrix of 1s has $D_2 = 0$, so it is only semidefinite."
+    },
+    {
+     "id": "la-q-pd03",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "For which values of $k$ is $\\begin{bmatrix} 4 & k \\\\ k & 1\\end{bmatrix}$ positive definite?",
+     "choices": [
+      "$-2 < k < 2$",
+      "$k < 4$",
+      "$-4 < k < 4$",
+      "$k > 2$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$D_1 = 4 > 0$ always, and $D_2 = 4 - k^2 > 0$ exactly when $k^2 < 4$, i.e. $-2 < k < 2$. $k < 4$ comes from writing the determinant as $4 - k$ (using $k$ once instead of $k \\cdot k$). $-4 < k < 4$ compares $k^2$ with 16 instead of 4. $k > 2$ reverses the inequality."
+    },
+    {
+     "id": "la-q-pd04",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "What are the pivots of $\\begin{bmatrix} 1 & 2 \\\\ 2 & 7\\end{bmatrix}$ (elimination without row swaps)?",
+     "choices": [
+      "$1$ and $7$",
+      "$1$ and $5$",
+      "$1$ and $3$",
+      "$1$ and $11$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Subtract 2 times row 1 from row 2: $7 - 2 \\cdot 2 = 3$. The pivots 1 and 3 are positive, so the matrix is positive definite (and $1 \\cdot 3 = 3 = \\det A$). $1$ and $7$ reads off the diagonal without eliminating; $7 - 2 = 5$ subtracts the multiplier instead of the multiplier times the entry; $7 + 4 = 11$ adds instead of subtracting."
+    },
+    {
+     "id": "la-q-pd05",
+     "section": "la-m9",
+     "topic": "Cholesky factorization",
+     "stem": "Find the upper triangular $R$ with positive diagonal such that $R^TR = \\begin{bmatrix} 4 & 2 \\\\ 2 & 5\\end{bmatrix}$.",
+     "choices": [
+      "$\\begin{bmatrix} 2 & 2 \\\\ 0 & 1\\end{bmatrix}$",
+      "$\\begin{bmatrix} 4 & 2 \\\\ 0 & 5\\end{bmatrix}$",
+      "$\\begin{bmatrix} 2 & 1 \\\\ 0 & \\sqrt5\\end{bmatrix}$",
+      "$\\begin{bmatrix} 2 & 1 \\\\ 0 & 2\\end{bmatrix}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$r_{11} = \\sqrt4 = 2$, $r_{12} = 2/2 = 1$, $r_{22} = \\sqrt{5 - 1^2} = 2$. Check: $R^TR = \\begin{bmatrix} 4 & 2 \\\\ 2 & 1 + 4\\end{bmatrix}$. ✓ Using $r_{12} = 2$ forgets to divide by $r_{11}$. Copying the upper triangle of $A$ skips the square roots. $r_{22} = \\sqrt5$ forgets to subtract $r_{12}^2$."
+    },
+    {
+     "id": "la-q-pd06",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "Why is $B^TB$ positive semidefinite for every matrix $B$?",
+     "choices": [
+      "Because $\\mathbf{x}^TB^TB\\mathbf{x} = \\|B\\mathbf{x}\\|^2 \\ge 0$",
+      "Because $B^TB$ is symmetric",
+      "Because the diagonal entries of $B^TB$ are sums of squares",
+      "Because $\\det(B^TB) \\ge 0$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$\\mathbf{x}^TB^TB\\mathbf{x} = (B\\mathbf{x})^T(B\\mathbf{x})$ is a squared length, never negative. Symmetry alone says nothing about sign ($-I$ is symmetric). Nonnegative diagonal entries and a nonnegative determinant are necessary conditions but don't imply semidefiniteness: $\\begin{bmatrix} 1 & 3 \\\\ 3 & 1\\end{bmatrix}$ has positive diagonal and $-I_2$ has determinant 1."
+    },
+    {
+     "id": "la-q-pd07",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "$B$ is an $m \\times n$ matrix. When is $B^TB$ positive definite?",
+     "choices": [
+      "Exactly when $B$ is square",
+      "Exactly when the rows of $B$ are linearly independent",
+      "Exactly when the columns of $B$ are linearly independent",
+      "Exactly when $B$ is symmetric"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$\\mathbf{x}^TB^TB\\mathbf{x} = \\|B\\mathbf{x}\\|^2$ is zero only when $B\\mathbf{x} = \\mathbf{0}$, so $B^TB$ is positive definite exactly when $B\\mathbf{x} = \\mathbf{0}$ has only the trivial solution: independent columns. Independent rows aren't enough: $B = \\begin{bmatrix} 1 & 1\\end{bmatrix}$ has one independent row but $B^TB = \\begin{bmatrix} 1 & 1 \\\\ 1 & 1\\end{bmatrix}$ is singular. Being square or symmetric is neither needed nor sufficient (the zero matrix is both)."
+    },
+    {
+     "id": "la-q-pd08",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "A symmetric $3 \\times 3$ matrix has leading principal minors $D_1 = -2$, $D_2 = 3$, $D_3 = -4$. It is:",
+     "choices": [
+      "positive definite",
+      "negative definite",
+      "indefinite, because the minors have mixed signs",
+      "impossible to classify without eigenvalues"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "For $-A$ the minors are $(-1)^kD_k$: $2, 3, 4$, all positive, so $-A$ is positive definite and $A$ is negative definite. Equivalently, the pivots $-2$, $3/(-2) = -1.5$ and $-4/3$ are all negative. Alternating signs starting with $D_1 < 0$ is exactly the negative definite pattern, so \"mixed signs\" doesn't mean indefinite here, and no eigenvalues are needed."
+    },
+    {
+     "id": "la-q-pd09",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "A student says: \"$A = \\begin{bmatrix} 0 & 0 \\\\ 0 & -3\\end{bmatrix}$ has leading principal minors 0 and 0, both $\\ge 0$, so $A$ is positive semidefinite.\" What is wrong?",
+     "choices": [
+      "Nothing; $A$ is positive semidefinite",
+      "Nothing; in fact $A$ is positive definite",
+      "The minors are wrong: they are $0$ and $-3$",
+      "Leading minors $\\ge 0$ don't prove semidefiniteness: $\\mathbf{x} = (0, 1)$ gives $\\mathbf{x}^TA\\mathbf{x} = -3$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The minors really are $D_1 = 0$ and $D_2 = \\det A = 0$, but the leading-minor test only works for strict positivity (definite matrices). Here $\\mathbf{x}^TA\\mathbf{x} = -3x_2^2$, so $A$ is negative semidefinite. A positive definite matrix would need $D_1 > 0$, and $-3$ is an entry of $A$, not its second leading minor."
+    },
+    {
+     "id": "la-q-pd10",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "Elimination without row swaps on a symmetric $3 \\times 3$ matrix gives the pivots $3$, $-1$, $2$. How is the matrix classified?",
+     "choices": [
+      "Positive definite, since two of the three pivots are positive",
+      "Indefinite",
+      "Negative definite, since $\\det A = -6 < 0$",
+      "Positive semidefinite"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Writing $\\mathbf{x}^TA\\mathbf{x}$ as a sum of squares gives $3u_1^2 - u_2^2 + 2u_3^2$, which takes both signs, so the matrix is indefinite. Positive definite needs every pivot positive, not most of them, and semidefinite would need no negative pivot. A negative determinant alone doesn't make a $3 \\times 3$ matrix negative definite: that needs all pivots negative, and here $D_1 = 3 > 0$."
+    },
+    {
+     "id": "la-q-pd11",
+     "section": "la-m9",
+     "topic": "Cholesky factorization",
+     "stem": "Given the Cholesky factorization $A = R^TR$, how do you solve $A\\mathbf{x} = \\mathbf{b}$?",
+     "choices": [
+      "Solve $R\\mathbf{y} = \\mathbf{b}$, then $R^T\\mathbf{x} = \\mathbf{y}$",
+      "Solve $R^T\\mathbf{x} = \\mathbf{b}$ only",
+      "Solve $R^T\\mathbf{y} = \\mathbf{b}$, then $R\\mathbf{x} = \\mathbf{y}$",
+      "Solve $R\\mathbf{x} = \\mathbf{b}$ only"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$R^T(R\\mathbf{x}) = \\mathbf{b}$, so set $\\mathbf{y} = R\\mathbf{x}$: first forward-substitute in $R^T\\mathbf{y} = \\mathbf{b}$ (lower triangular), then back-substitute in $R\\mathbf{x} = \\mathbf{y}$. Doing $R$ first solves $RR^T\\mathbf{x} = \\mathbf{b}$, a different system, since $RR^T \\ne R^TR$ in general. Solving with only one factor ignores the other."
+    },
+    {
+     "id": "la-q-pd12",
+     "section": "la-m9",
+     "topic": "Cholesky factorization",
+     "stem": "For $A = \\begin{bmatrix} 9 & 3 & 6 \\\\ 3 & 5 & 4 \\\\ 6 & 4 & 14\\end{bmatrix}$, the Cholesky factor has first row $(3, 1, 2)$ and second row $(0, 2, 1)$. What is $r_{33}$?",
+     "choices": [
+      "$3$",
+      "$\\sqrt{14}$",
+      "$\\sqrt{10}$",
+      "$\\sqrt{13}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$r_{33} = \\sqrt{a_{33} - r_{13}^2 - r_{23}^2} = \\sqrt{14 - 4 - 1} = 3$. $\\sqrt{14}$ subtracts nothing, $\\sqrt{10}$ subtracts only $r_{13}^2$, and $\\sqrt{13}$ subtracts only $r_{23}^2$. Check: the $(3, 3)$ entry of $R^TR$ is $2^2 + 1^2 + 3^2 = 14$. ✓"
+    },
+    {
+     "id": "la-q-pd13",
+     "section": "la-m9",
+     "topic": "Positive definite matrices",
+     "stem": "A symmetric matrix $A$ has $a_{22} = -1$. What can you conclude?",
+     "choices": [
+      "It can still be positive definite if $\\det A > 0$",
+      "It must be negative definite",
+      "It is not positive definite (not even positive semidefinite)",
+      "It must be indefinite"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$\\mathbf{e}_2^TA\\mathbf{e}_2 = a_{22} = -1 < 0$, so the form takes a negative value. No determinant condition can rescue it. It need not be negative definite (another diagonal entry might be positive) and need not be indefinite ($-I$ has $a_{22} = -1$ and is negative definite)."
+    },
+    {
      "id": "la-q-3801",
      "section": "la-m9",
      "topic": "Singular value decomposition",
@@ -8998,714 +9614,846 @@
     },
     {
      "id": "c66",
+     "front": "Block multiplication $\\begin{bmatrix} A_{11} & A_{12} \\\\ A_{21} & A_{22}\\end{bmatrix}\\begin{bmatrix} B_1 \\\\ B_2\\end{bmatrix}$",
+     "back": "$\\begin{bmatrix} A_{11}B_1 + A_{12}B_2 \\\\ A_{21}B_1 + A_{22}B_2\\end{bmatrix}$, when the column split of $A$ matches the row split of $B$; keep the order in each product",
+     "topic": "Matrix multiplication"
+    },
+    {
+     "id": "c67",
      "front": "Rules that fail for matrices",
      "back": "$AB = BA$; cancellation ($AB = AC \\Rightarrow B = C$); $AB = 0 \\Rightarrow A = 0$ or $B = 0$",
      "topic": "Matrix multiplication"
     },
     {
-     "id": "c67",
+     "id": "c68",
      "front": "$(AB)^T$",
      "back": "$B^TA^T$",
      "topic": "Transpose"
     },
     {
-     "id": "c68",
+     "id": "c69",
      "front": "$(A^T)_{ij}$",
      "back": "$a_{ji}$",
      "topic": "Transpose"
     },
     {
-     "id": "c69",
+     "id": "c70",
      "front": "Translation by $(h, k)$ in homogeneous coordinates",
      "back": "$\\begin{bmatrix} 1 & 0 & h \\\\ 0 & 1 & k \\\\ 0 & 0 & 1\\end{bmatrix}$",
      "topic": "Computer graphics"
     },
     {
-     "id": "c70",
+     "id": "c71",
      "front": "$(AB)^{-1}$",
      "back": "$B^{-1}A^{-1}$",
      "topic": "Matrix inverse"
     },
     {
-     "id": "c71",
+     "id": "c72",
      "front": "$(A^T)^{-1}$",
      "back": "$(A^{-1})^T$",
      "topic": "Matrix inverse"
     },
     {
-     "id": "c72",
+     "id": "c73",
      "front": "Algorithm for $A^{-1}$",
      "back": "Row-reduce $[\\,A \\;\\; I\\,]$ to $[\\,I \\;\\; A^{-1}\\,]$; a zero row on the left means $A$ is singular",
      "topic": "Matrix inverse"
     },
     {
-     "id": "c73",
+     "id": "c74",
      "front": "Inverse of a diagonal matrix",
      "back": "Reciprocals of the diagonal entries (all must be nonzero)",
      "topic": "Matrix inverse"
     },
     {
-     "id": "c74",
+     "id": "c75",
      "front": "What does $EA$ do, for an elementary matrix $E$?",
      "back": "Performs $E$'s row operation on $A$",
      "topic": "Elementary matrices"
     },
     {
-     "id": "c75",
+     "id": "c76",
      "front": "Inverse of an elementary matrix",
      "back": "The elementary matrix of the reverse operation",
      "topic": "Elementary matrices"
     },
     {
-     "id": "c76",
+     "id": "c77",
      "front": "When is $A$ invertible (row reduction)?",
      "back": "Exactly when $A$ is row equivalent to $I_n$",
      "topic": "Invertible matrix theorem"
     },
     {
-     "id": "c77",
+     "id": "c78",
      "front": "IMT: name six equivalent conditions for square $A$",
      "back": "Invertible; $n$ pivots; $A\\mathbf{x} = \\mathbf{0}$ only trivial; columns independent; columns span $\\mathbb{R}^n$; $\\mathbf{x} \\mapsto A\\mathbf{x}$ one-to-one and onto",
      "topic": "Invertible matrix theorem"
     },
     {
-     "id": "c78",
+     "id": "c79",
      "front": "Square $A$ with $CA = I$",
      "back": "Then $A$ is invertible and $C = A^{-1}$ (one-sided suffices for square matrices)",
      "topic": "Invertible matrix theorem"
     },
     {
-     "id": "c79",
+     "id": "c80",
      "front": "LU factorization",
      "back": "$A = LU$: $L$ unit lower triangular (multipliers), $U$ an echelon form",
      "topic": "LU factorization"
     },
     {
-     "id": "c80",
+     "id": "c81",
      "front": "Solving with $A = LU$",
      "back": "Forward-substitute $L\\mathbf{y} = \\mathbf{b}$, then back-substitute $U\\mathbf{x} = \\mathbf{y}$",
      "topic": "LU factorization"
     },
     {
-     "id": "c81",
+     "id": "c82",
      "front": "Entry $\\ell_{ij}$ of $L$",
      "back": "The multiplier in $R_i \\leftarrow R_i - \\ell_{ij}R_j$ (entry cleared ÷ pivot)",
      "topic": "LU factorization"
     },
     {
-     "id": "c82",
+     "id": "c83",
      "front": "When is LU worth it?",
      "back": "Many right-hand sides with the same $A$: elimination once ($\\sim\\tfrac23n^3$), then two $\\sim n^2$ substitutions each",
      "topic": "LU factorization"
     },
     {
-     "id": "c83",
+     "id": "c84",
      "front": "Cofactor $C_{ij}$",
      "back": "$(-1)^{i+j}\\det A_{ij}$ (delete row $i$, column $j$)",
      "topic": "Cofactor expansion"
     },
     {
-     "id": "c84",
+     "id": "c85",
      "front": "Cofactor expansion along row $i$",
      "back": "$\\det A = a_{i1}C_{i1} + \\cdots + a_{in}C_{in}$",
      "topic": "Cofactor expansion"
     },
     {
-     "id": "c85",
+     "id": "c86",
      "front": "Sign pattern for cofactors",
      "back": "Checkerboard starting with $+$ at $(1, 1)$",
      "topic": "Cofactor expansion"
     },
     {
-     "id": "c86",
+     "id": "c87",
      "front": "Determinant of a triangular matrix",
      "back": "Product of the diagonal entries",
      "topic": "Cofactor expansion"
     },
     {
-     "id": "c87",
+     "id": "c88",
      "front": "Which row or column to expand along?",
      "back": "The one with the most zeros",
      "topic": "Cofactor expansion"
     },
     {
-     "id": "c88",
+     "id": "c89",
      "front": "Effect of a row replacement on $\\det$",
      "back": "None",
      "topic": "Determinant properties"
     },
     {
-     "id": "c89",
+     "id": "c90",
      "front": "Effect of a row interchange on $\\det$",
      "back": "Multiplies it by $-1$",
      "topic": "Determinant properties"
     },
     {
-     "id": "c90",
+     "id": "c91",
      "front": "Effect of scaling one row by $k$ on $\\det$",
      "back": "Multiplies it by $k$",
      "topic": "Determinant properties"
     },
     {
-     "id": "c91",
+     "id": "c92",
      "front": "$\\det(cA)$ for $n \\times n$ $A$",
      "back": "$c^n\\det A$",
      "topic": "Determinant properties"
     },
     {
-     "id": "c92",
+     "id": "c93",
      "front": "$\\det(AB)$, $\\det A^T$, $\\det A^{-1}$",
      "back": "$\\det A\\det B$; $\\det A$; $1/\\det A$",
      "topic": "Determinant properties"
     },
     {
-     "id": "c93",
+     "id": "c94",
      "front": "Determinant test for invertibility",
      "back": "$A$ is invertible ⟺ $\\det A \\ne 0$",
      "topic": "Determinant properties"
     },
     {
-     "id": "c94",
+     "id": "c95",
      "front": "$\\det$ by row reduction",
      "back": "$(-1)^{\\text{\\#swaps}} \\times$ product of the pivots of an echelon form (no scaling)",
      "topic": "Determinant properties"
     },
     {
-     "id": "c95",
+     "id": "c96",
      "front": "Cramer's rule",
      "back": "$x_i = \\dfrac{\\det A_i(\\mathbf{b})}{\\det A}$, $A_i(\\mathbf{b})$ = $A$ with column $i$ replaced by $\\mathbf{b}$",
      "topic": "Cramer's rule"
     },
     {
-     "id": "c96",
+     "id": "c97",
      "front": "Inverse via the adjugate",
      "back": "$A^{-1} = \\dfrac{1}{\\det A}\\operatorname{adj} A$, with $(\\operatorname{adj} A)_{ij} = C_{ji}$",
      "topic": "Cramer's rule"
     },
     {
-     "id": "c97",
+     "id": "c98",
      "front": "Area of the parallelogram spanned by $\\mathbf{u}, \\mathbf{v}$ in $\\mathbb{R}^2$",
      "back": "$|\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v}\\,]|$",
      "topic": "Area and volume"
     },
     {
-     "id": "c98",
+     "id": "c99",
      "front": "Area of image of region $S$ under $\\mathbf{x} \\mapsto A\\mathbf{x}$",
      "back": "$|\\det A| \\cdot \\text{area}(S)$",
      "topic": "Area and volume"
     },
     {
-     "id": "c99",
+     "id": "c100",
      "front": "Area of the triangle with edge vectors $\\mathbf{u}, \\mathbf{v}$",
      "back": "$\\tfrac12|\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v}\\,]|$",
      "topic": "Area and volume"
     },
     {
-     "id": "c100",
+     "id": "c101",
      "front": "Three conditions for a subspace $H$",
      "back": "$\\mathbf{0} \\in H$; closed under addition; closed under scalar multiplication",
      "topic": "Subspaces"
     },
     {
-     "id": "c101",
+     "id": "c102",
      "front": "Fastest way to show a set is a subspace",
      "back": "Write it as a span",
      "topic": "Subspaces"
     },
     {
-     "id": "c102",
+     "id": "c103",
      "front": "Subspaces of $\\mathbb{R}^3$",
      "back": "$\\{\\mathbf{0}\\}$, lines through $\\mathbf{0}$, planes through $\\mathbf{0}$, and $\\mathbb{R}^3$",
      "topic": "Subspaces"
     },
     {
-     "id": "c103",
+     "id": "c104",
      "front": "Examples of vector spaces besides $\\mathbb{R}^n$",
      "back": "$\\mathbb{P}_n$ (polynomials of degree $\\le n$), $M_{m\\times n}$ (matrices), functions on an interval",
      "topic": "Vector spaces"
     },
     {
-     "id": "c104",
+     "id": "c105",
      "front": "$\\operatorname{Nul} A$ vs $\\operatorname{Col} A$: where do they live?",
      "back": "$\\operatorname{Nul} A \\subseteq \\mathbb{R}^n$ (inputs); $\\operatorname{Col} A \\subseteq \\mathbb{R}^m$ (outputs)",
      "topic": "Null space"
     },
     {
-     "id": "c105",
+     "id": "c106",
      "front": "Test whether $\\mathbf{v}$ is in $\\operatorname{Nul} A$",
      "back": "Compute $A\\mathbf{v}$ and check for $\\mathbf{0}$",
      "topic": "Null space"
     },
     {
-     "id": "c106",
+     "id": "c107",
      "front": "Test whether $\\mathbf{b}$ is in $\\operatorname{Col} A$",
      "back": "Check whether $A\\mathbf{x} = \\mathbf{b}$ is consistent",
      "topic": "Column space"
     },
     {
-     "id": "c107",
+     "id": "c108",
      "front": "Which subspaces do row operations preserve?",
      "back": "$\\operatorname{Nul} A$ and $\\operatorname{Row} A$, not $\\operatorname{Col} A$",
      "topic": "Column space"
     },
     {
-     "id": "c108",
+     "id": "c109",
      "front": "Basis for $\\operatorname{Col} A$",
      "back": "The pivot columns of $A$ itself",
      "topic": "Bases"
     },
     {
-     "id": "c109",
+     "id": "c110",
      "front": "Basis for $\\operatorname{Nul} A$",
      "back": "The vectors in the parametric vector form of $A\\mathbf{x} = \\mathbf{0}$",
      "topic": "Bases"
     },
     {
-     "id": "c110",
+     "id": "c111",
      "front": "Basis for $\\operatorname{Row} A$",
      "back": "The nonzero rows of an echelon form of $A$",
      "topic": "Bases"
     },
     {
-     "id": "c111",
+     "id": "c112",
      "front": "Basis",
      "back": "A linearly independent spanning set",
      "topic": "Bases"
     },
     {
-     "id": "c112",
+     "id": "c113",
      "front": "Coordinates in $\\mathbb{R}^n$",
      "back": "$\\mathbf{x} = P_{\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$ with $P_{\\mathcal{B}} = [\\,\\mathbf{b}_1 \\cdots \\mathbf{b}_n\\,]$",
      "topic": "Coordinates"
     },
     {
-     "id": "c113",
+     "id": "c114",
      "front": "Change-of-basis matrix $P_{\\mathcal{C} \\leftarrow \\mathcal{B}}$",
      "back": "Columns $[\\mathbf{b}_j]_{\\mathcal{C}}$; row-reduce $[\\,\\mathcal{C} \\;|\\; \\mathcal{B}\\,]$ to $[\\,I \\;|\\; P_{\\mathcal{C} \\leftarrow \\mathcal{B}}\\,]$",
      "topic": "Change of basis"
     },
     {
-     "id": "c114",
+     "id": "c115",
      "front": "$(P_{\\mathcal{C} \\leftarrow \\mathcal{B}})^{-1}$",
      "back": "$P_{\\mathcal{B} \\leftarrow \\mathcal{C}}$",
      "topic": "Change of basis"
     },
     {
-     "id": "c115",
+     "id": "c116",
      "front": "$\\dim \\mathbb{P}_n$",
      "back": "$n + 1$",
      "topic": "Dimension"
     },
     {
-     "id": "c116",
+     "id": "c117",
      "front": "$\\dim M_{m \\times n}$",
      "back": "$mn$",
      "topic": "Dimension"
     },
     {
-     "id": "c117",
+     "id": "c118",
      "front": "Basis theorem",
      "back": "In a $p$-dimensional space, $p$ independent vectors (or $p$ spanning vectors) automatically form a basis",
      "topic": "Dimension"
     },
     {
-     "id": "c118",
+     "id": "c119",
      "front": "Rank theorem",
      "back": "$\\operatorname{rank} A + \\dim\\operatorname{Nul} A = n$ (number of columns)",
      "topic": "Rank"
     },
     {
-     "id": "c119",
+     "id": "c120",
      "front": "$\\operatorname{rank} A$ vs $\\operatorname{rank} A^T$",
      "back": "Equal: $\\dim\\operatorname{Col} A = \\dim\\operatorname{Row} A$",
      "topic": "Rank"
     },
     {
-     "id": "c120",
+     "id": "c121",
      "front": "$\\dim\\operatorname{Nul} A$ and $\\dim\\operatorname{Col} A$ from pivots",
      "back": "Nullity = number of free variables; rank = number of pivot columns",
      "topic": "Rank"
     },
     {
-     "id": "c121",
+     "id": "c122",
      "front": "Eigenvector",
      "back": "Nonzero $\\mathbf{x}$ with $A\\mathbf{x} = \\lambda\\mathbf{x}$",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c122",
+     "id": "c123",
      "front": "Test whether $\\lambda$ is an eigenvalue",
      "back": "Is $A - \\lambda I$ singular? (does $(A - \\lambda I)\\mathbf{x} = \\mathbf{0}$ have a nontrivial solution)",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c123",
+     "id": "c124",
      "front": "Eigenspace for $\\lambda$",
      "back": "$\\operatorname{Nul}(A - \\lambda I)$",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c124",
+     "id": "c125",
      "front": "Eigenvalues of a triangular matrix",
      "back": "Its diagonal entries",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c125",
+     "id": "c126",
      "front": "0 is an eigenvalue of $A$ ⟺",
      "back": "$A$ is not invertible",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c126",
+     "id": "c127",
      "front": "Eigenvectors for distinct eigenvalues are…",
      "back": "Linearly independent",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c127",
+     "id": "c128",
      "front": "If $A\\mathbf{x} = \\lambda\\mathbf{x}$, then $A^k\\mathbf{x} =$",
      "back": "$\\lambda^k\\mathbf{x}$",
      "topic": "Eigenvalues and eigenvectors"
     },
     {
-     "id": "c128",
+     "id": "c129",
      "front": "Characteristic equation",
      "back": "$\\det(A - \\lambda I) = 0$",
      "topic": "Characteristic equation"
     },
     {
-     "id": "c129",
+     "id": "c130",
      "front": "Characteristic polynomial of a $2 \\times 2$ matrix",
      "back": "$\\lambda^2 - (\\operatorname{tr} A)\\lambda + \\det A$",
      "topic": "Characteristic equation"
     },
     {
-     "id": "c130",
+     "id": "c131",
      "front": "Sum and product of the eigenvalues",
      "back": "Sum = trace; product = determinant (with multiplicity, complex eigenvalues included)",
      "topic": "Characteristic equation"
     },
     {
-     "id": "c131",
+     "id": "c132",
      "front": "Similar matrices share…",
      "back": "The characteristic polynomial, eigenvalues and multiplicities (not necessarily eigenvectors)",
      "topic": "Characteristic equation"
     },
     {
-     "id": "c132",
+     "id": "c133",
      "front": "Diagonalization theorem",
      "back": "$A = PDP^{-1}$ ⟺ $A$ has $n$ independent eigenvectors (columns of $P$), eigenvalues on $D$",
      "topic": "Diagonalization"
     },
     {
-     "id": "c133",
+     "id": "c134",
      "front": "$A^k$ for diagonalizable $A$",
      "back": "$PD^kP^{-1}$",
      "topic": "Diagonalization"
     },
     {
-     "id": "c134",
+     "id": "c135",
      "front": "Sufficient condition for diagonalizable",
      "back": "$n$ distinct real eigenvalues",
      "topic": "Diagonalization"
     },
     {
-     "id": "c135",
+     "id": "c136",
      "front": "Diagonalizable with repeated eigenvalues ⟺",
      "back": "All eigenvalues are real and each eigenspace dimension (geometric multiplicity) equals the algebraic multiplicity",
      "topic": "Diagonalization"
     },
     {
-     "id": "c136",
+     "id": "c137",
+     "front": "Matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ relative to the basis formed by the columns of $P$",
+     "back": "$P^{-1}AP$ (it sends $[\\mathbf{x}]_{\\mathcal{B}}$ to $[A\\mathbf{x}]_{\\mathcal{B}}$); for an eigenvector basis it is $D$",
+     "topic": "Diagonalization"
+    },
+    {
+     "id": "c138",
      "front": "Classic non-diagonalizable matrix",
      "back": "$\\begin{bmatrix} 2 & 1 \\\\ 0 & 2\\end{bmatrix}$: eigenvalue 2 twice, only a 1-dimensional eigenspace",
      "topic": "Diagonalization"
     },
     {
-     "id": "c137",
+     "id": "c139",
      "front": "Eigenvalues of $\\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$",
      "back": "$a \\pm bi$; it rotates by the angle of $(a, b)$ and scales by $\\sqrt{a^2 + b^2}$",
      "topic": "Complex eigenvalues"
     },
     {
-     "id": "c138",
+     "id": "c140",
      "front": "Complex eigenvalues of a real matrix",
      "back": "Come in conjugate pairs, with conjugate eigenvectors",
      "topic": "Complex eigenvalues"
     },
     {
-     "id": "c139",
+     "id": "c141",
      "front": "Real $2 \\times 2$ $A$ with eigenvalue $a - bi$, eigenvector $\\mathbf{v}$",
      "back": "$A = PCP^{-1}$, $P = [\\,\\operatorname{Re}\\mathbf{v} \\;\\; \\operatorname{Im}\\mathbf{v}\\,]$, $C = \\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$",
      "topic": "Complex eigenvalues"
     },
     {
-     "id": "c140",
+     "id": "c142",
      "front": "Iterates of a matrix with complex eigenvalues, $|\\lambda| < 1$",
      "back": "Spiral inward to $\\mathbf{0}$ (outward if $|\\lambda| > 1$)",
      "topic": "Complex eigenvalues"
     },
     {
-     "id": "c141",
+     "id": "c143",
      "front": "Solution of $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$ with eigenvector basis",
      "back": "$\\mathbf{x}_k = c_1\\lambda_1^k\\mathbf{v}_1 + \\cdots + c_n\\lambda_n^k\\mathbf{v}_n$",
      "topic": "Dynamical systems"
     },
     {
-     "id": "c142",
+     "id": "c144",
      "front": "Attractor / repeller / saddle (2×2)",
      "back": "Both $|\\lambda| < 1$ / both $|\\lambda| > 1$ / one of each",
      "topic": "Dynamical systems"
     },
     {
-     "id": "c143",
+     "id": "c145",
      "front": "Stochastic matrix",
      "back": "Square, nonnegative, every column sums to 1",
      "topic": "Markov chains"
     },
     {
-     "id": "c144",
+     "id": "c146",
      "front": "Finding the steady state of $P$",
      "back": "Solve $(P - I)\\mathbf{x} = \\mathbf{0}$, then divide by the sum of the entries",
      "topic": "Markov chains"
     },
     {
-     "id": "c145",
+     "id": "c147",
      "front": "Regular stochastic matrix guarantees…",
      "back": "A unique steady state, and every chain converges to it",
      "topic": "Markov chains"
     },
     {
-     "id": "c146",
+     "id": "c148",
      "front": "Inner (dot) product",
      "back": "$\\mathbf{u}\\cdot\\mathbf{v} = \\mathbf{u}^T\\mathbf{v} = \\sum u_iv_i$",
      "topic": "Inner product"
     },
     {
-     "id": "c147",
+     "id": "c149",
      "front": "Angle between $\\mathbf{u}$ and $\\mathbf{v}$",
      "back": "$\\cos\\theta = \\dfrac{\\mathbf{u}\\cdot\\mathbf{v}}{\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|}$",
      "topic": "Inner product"
     },
     {
-     "id": "c148",
+     "id": "c150",
      "front": "Pythagorean theorem for vectors",
      "back": "$\\|\\mathbf{u} + \\mathbf{v}\\|^2 = \\|\\mathbf{u}\\|^2 + \\|\\mathbf{v}\\|^2$ ⟺ $\\mathbf{u}\\cdot\\mathbf{v} = 0$",
      "topic": "Orthogonality"
     },
     {
-     "id": "c149",
+     "id": "c151",
      "front": "$(\\operatorname{Row} A)^\\perp$ and $(\\operatorname{Col} A)^\\perp$",
      "back": "$\\operatorname{Nul} A$ and $\\operatorname{Nul} A^T$",
      "topic": "Orthogonality"
     },
     {
-     "id": "c150",
+     "id": "c152",
      "front": "$\\dim W + \\dim W^\\perp$ in $\\mathbb{R}^n$",
      "back": "$n$",
      "topic": "Orthogonality"
     },
     {
-     "id": "c151",
+     "id": "c153",
      "front": "Coordinates in an orthogonal basis",
      "back": "$c_j = \\dfrac{\\mathbf{y}\\cdot\\mathbf{u}_j}{\\mathbf{u}_j\\cdot\\mathbf{u}_j}$",
      "topic": "Orthogonal bases"
     },
     {
-     "id": "c152",
+     "id": "c154",
      "front": "Projection of $\\mathbf{y}$ onto the line through $\\mathbf{u}$",
      "back": "$\\dfrac{\\mathbf{y}\\cdot\\mathbf{u}}{\\mathbf{u}\\cdot\\mathbf{u}}\\mathbf{u}$",
      "topic": "Orthogonal projections"
     },
     {
-     "id": "c153",
+     "id": "c155",
      "front": "Projection onto $W$ with orthogonal basis $\\mathbf{u}_1, \\dots, \\mathbf{u}_p$",
      "back": "$\\sum_j \\dfrac{\\mathbf{y}\\cdot\\mathbf{u}_j}{\\mathbf{u}_j\\cdot\\mathbf{u}_j}\\mathbf{u}_j$",
      "topic": "Orthogonal projections"
     },
     {
-     "id": "c154",
+     "id": "c156",
      "front": "Best approximation theorem",
      "back": "$\\operatorname{proj}_W\\mathbf{y}$ is the point of $W$ closest to $\\mathbf{y}$",
      "topic": "Orthogonal projections"
     },
     {
-     "id": "c155",
+     "id": "c157",
      "front": "Matrix with orthonormal columns",
      "back": "$U^TU = I$; preserves lengths and dot products",
      "topic": "Orthogonal bases"
     },
     {
-     "id": "c156",
+     "id": "c158",
      "front": "Inverse of an orthogonal matrix",
      "back": "$U^{-1} = U^T$",
      "topic": "Orthogonal bases"
     },
     {
-     "id": "c157",
+     "id": "c159",
      "front": "Gram–Schmidt step",
      "back": "$\\mathbf{v}_k = \\mathbf{x}_k - \\sum_{i<k}\\dfrac{\\mathbf{x}_k\\cdot\\mathbf{v}_i}{\\mathbf{v}_i\\cdot\\mathbf{v}_i}\\mathbf{v}_i$",
      "topic": "Gram–Schmidt"
     },
     {
-     "id": "c158",
+     "id": "c160",
      "front": "QR factorization",
      "back": "$A = QR$: $Q$ orthonormal columns (basis for $\\operatorname{Col} A$), $R = Q^TA$ upper triangular, positive diagonal",
      "topic": "QR factorization"
     },
     {
-     "id": "c159",
+     "id": "c161",
      "front": "Normal equations",
      "back": "$A^TA\\mathbf{x} = A^T\\mathbf{b}$",
      "topic": "Least squares"
     },
     {
-     "id": "c160",
+     "id": "c162",
      "front": "Unique least-squares solution",
      "back": "When $A$ has independent columns: $\\hat{\\mathbf{x}} = (A^TA)^{-1}A^T\\mathbf{b}$",
      "topic": "Least squares"
     },
     {
-     "id": "c161",
+     "id": "c163",
      "front": "Least squares with $A = QR$",
      "back": "Solve $R\\hat{\\mathbf{x}} = Q^T\\mathbf{b}$",
      "topic": "Least squares"
     },
     {
-     "id": "c162",
+     "id": "c164",
      "front": "Least-squares line: design matrix and normal equations",
      "back": "Rows $(1, x_i)$; $\\begin{bmatrix} n & \\sum x \\\\ \\sum x & \\sum x^2\\end{bmatrix}\\boldsymbol\\beta = \\begin{bmatrix} \\sum y \\\\ \\sum xy\\end{bmatrix}$",
      "topic": "Linear regression"
     },
     {
-     "id": "c163",
+     "id": "c165",
      "front": "What does least squares minimize in regression?",
      "back": "The sum of squared vertical residuals $y_i - \\hat y_i$",
      "topic": "Linear regression"
     },
     {
-     "id": "c164",
+     "id": "c166",
+     "front": "Eigenvector solution of $\\mathbf{x}' = A\\mathbf{x}$",
+     "back": "If $A\\mathbf{v} = \\lambda\\mathbf{v}$, then $\\mathbf{x}(t) = e^{\\lambda t}\\mathbf{v}$",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c167",
+     "front": "General solution of $\\mathbf{x}' = A\\mathbf{x}$ (eigenvector basis)",
+     "back": "$\\mathbf{x}(t) = c_1e^{\\lambda_1t}\\mathbf{v}_1 + \\cdots + c_ne^{\\lambda_nt}\\mathbf{v}_n$, with $P\\mathbf{c} = \\mathbf{x}(0)$",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c168",
+     "front": "Decoupling $\\mathbf{x}' = A\\mathbf{x}$",
+     "back": "Substitute $\\mathbf{x} = P\\mathbf{y}$ (eigenvectors in $P$): $\\mathbf{y}' = D\\mathbf{y}$, i.e. $y_i' = \\lambda_iy_i$",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c169",
+     "front": "Asymptotic stability of $\\mathbf{x}' = A\\mathbf{x}$ vs $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$",
+     "back": "Continuous: every $\\operatorname{Re}\\lambda < 0$. Discrete: every $\\lvert\\lambda\\rvert < 1$",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c170",
+     "front": "$2 \\times 2$ test: all solutions of $\\mathbf{x}' = A\\mathbf{x}$ tend to $\\mathbf{0}$",
+     "back": "$\\operatorname{tr} A < 0$ and $\\det A > 0$",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c171",
+     "front": "Origin of $\\mathbf{x}' = A\\mathbf{x}$ for eigenvalues: both negative / both positive / opposite signs",
+     "back": "Sink / source / saddle",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c172",
+     "front": "Origin of $\\mathbf{x}' = A\\mathbf{x}$ for eigenvalues $a \\pm bi$",
+     "back": "Spiral sink if $a < 0$, spiral source if $a > 0$, center (closed loops) if $a = 0$",
+     "topic": "Systems of differential equations"
+    },
+    {
+     "id": "c173",
+     "front": "Matrix exponential $e^{At}$",
+     "back": "$I + At + \\dfrac{(At)^2}{2!} + \\cdots$; $\\dfrac{d}{dt}e^{At} = Ae^{At}$, and $\\mathbf{x}(t) = e^{At}\\mathbf{x}(0)$",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c174",
+     "front": "$e^{At}$ when $A = PDP^{-1}$",
+     "back": "$Pe^{Dt}P^{-1}$, with $e^{Dt} = \\operatorname{diag}(e^{\\lambda_1t}, \\dots, e^{\\lambda_nt})$",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c175",
+     "front": "$e^{Nt}$ for $N = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0\\end{bmatrix}$",
+     "back": "$I + Nt = \\begin{bmatrix} 1 & t \\\\ 0 & 1\\end{bmatrix}$ (the series stops because $N^2 = 0$)",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c176",
+     "front": "$e^{Ct}$ for $C = \\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$",
+     "back": "$e^{at}\\begin{bmatrix} \\cos bt & -\\sin bt \\\\ \\sin bt & \\cos bt\\end{bmatrix}$: rotate at $b$ rad per unit time, scale by $e^{at}$",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c177",
+     "front": "Is $e^{At}$ the matrix of $e^{a_{ij}t}$?",
+     "back": "No. Even for diagonal $A$ only the diagonal entries are exponentiated (the zeros stay 0). Use $Pe^{Dt}P^{-1}$ or the series",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c178",
      "front": "Spectral theorem",
      "back": "$A$ symmetric ⟺ $A = PDP^T$ with $P$ orthogonal; real eigenvalues, orthogonal eigenspaces",
      "topic": "Symmetric matrices"
     },
     {
-     "id": "c165",
+     "id": "c179",
      "front": "Eigenvectors of a symmetric matrix for different eigenvalues",
      "back": "Orthogonal",
      "topic": "Symmetric matrices"
     },
     {
-     "id": "c166",
+     "id": "c180",
      "front": "Spectral decomposition",
      "back": "$A = \\sum \\lambda_j\\mathbf{u}_j\\mathbf{u}_j^T$",
      "topic": "Symmetric matrices"
     },
     {
-     "id": "c167",
+     "id": "c181",
      "front": "Matrix of $ax_1^2 + bx_1x_2 + cx_2^2$",
      "back": "$\\begin{bmatrix} a & b/2 \\\\ b/2 & c\\end{bmatrix}$",
      "topic": "Quadratic forms"
     },
     {
-     "id": "c168",
+     "id": "c182",
      "front": "Principal axes theorem",
      "back": "$\\mathbf{x} = P\\mathbf{y}$ (orthonormal eigenvectors) gives $\\mathbf{x}^TA\\mathbf{x} = \\sum\\lambda_iy_i^2$",
      "topic": "Quadratic forms"
     },
     {
-     "id": "c169",
+     "id": "c183",
      "front": "Classify a quadratic form by eigenvalues",
      "back": "All $> 0$: positive definite; all $< 0$: negative definite; mixed signs: indefinite; all $\\ge 0$: positive semidefinite; all $\\le 0$: negative semidefinite",
      "topic": "Quadratic forms"
     },
     {
-     "id": "c170",
+     "id": "c184",
      "front": "Max and min of $\\mathbf{x}^TA\\mathbf{x}$ on $\\|\\mathbf{x}\\| = 1$",
      "back": "Largest and smallest eigenvalues of $A$ (at unit eigenvectors)",
      "topic": "Quadratic forms"
     },
     {
-     "id": "c171",
+     "id": "c185",
      "front": "$2 \\times 2$ determinant test for quadratic forms",
      "back": "$\\det < 0$: indefinite; $\\det > 0$ and $a > 0$: positive definite; $\\det > 0$ and $a < 0$: negative definite",
      "topic": "Quadratic forms"
     },
     {
-     "id": "c172",
+     "id": "c186",
+     "front": "Tests for a positive definite (symmetric) matrix",
+     "back": "All eigenvalues $> 0$; all pivots $> 0$ (no row swaps); all leading principal minors $> 0$; $A = R^TR$ (Cholesky)",
+     "topic": "Positive definite matrices"
+    },
+    {
+     "id": "c187",
+     "front": "Leading principal minor $D_k$",
+     "back": "Determinant of the upper-left $k \\times k$ submatrix; pivot $p_k = D_k/D_{k-1}$",
+     "topic": "Positive definite matrices"
+    },
+    {
+     "id": "c188",
+     "front": "Leading-minor pattern for negative definite",
+     "back": "$D_1 < 0$, $D_2 > 0$, $D_3 < 0$, … (alternating)",
+     "topic": "Positive definite matrices"
+    },
+    {
+     "id": "c189",
+     "front": "Do leading minors $\\ge 0$ prove positive semidefinite?",
+     "back": "No: $\\begin{bmatrix} 0 & 0 \\\\ 0 & -1\\end{bmatrix}$ has minors 0, 0. Use eigenvalues",
+     "topic": "Positive definite matrices"
+    },
+    {
+     "id": "c190",
+     "front": "When is $B^TB$ positive definite?",
+     "back": "Always positive semidefinite ($\\mathbf{x}^TB^TB\\mathbf{x} = \\|B\\mathbf{x}\\|^2$); positive definite exactly when $B$ has independent columns",
+     "topic": "Positive definite matrices"
+    },
+    {
+     "id": "c191",
+     "front": "Cholesky factorization",
+     "back": "$A = R^TR$, $R$ upper triangular with positive diagonal; exists exactly when $A$ is symmetric positive definite",
+     "topic": "Cholesky factorization"
+    },
+    {
+     "id": "c192",
+     "front": "Cholesky entries (row by row)",
+     "back": "$r_{11} = \\sqrt{a_{11}}$, $r_{1j} = a_{1j}/r_{11}$, $r_{22} = \\sqrt{a_{22} - r_{12}^2}$, $r_{23} = (a_{23} - r_{12}r_{13})/r_{22}$, $r_{33} = \\sqrt{a_{33} - r_{13}^2 - r_{23}^2}$",
+     "topic": "Cholesky factorization"
+    },
+    {
+     "id": "c193",
+     "front": "Solve $A\\mathbf{x} = \\mathbf{b}$ with $A = R^TR$",
+     "back": "Forward: $R^T\\mathbf{y} = \\mathbf{b}$; then back: $R\\mathbf{x} = \\mathbf{y}$",
+     "topic": "Cholesky factorization"
+    },
+    {
+     "id": "c194",
      "front": "Singular values of $A$",
      "back": "$\\sigma_i = \\sqrt{\\lambda_i(A^TA)}$, decreasing; $\\sigma_i = \\|A\\mathbf{v}_i\\|$",
      "topic": "Singular value decomposition"
     },
     {
-     "id": "c173",
+     "id": "c195",
      "front": "SVD",
      "back": "$A = U\\Sigma V^T$: $V$ eigenvectors of $A^TA$, $\\mathbf{u}_i = A\\mathbf{v}_i/\\sigma_i$, $\\Sigma$ same shape as $A$",
      "topic": "Singular value decomposition"
     },
     {
-     "id": "c174",
+     "id": "c196",
      "front": "Rank from the SVD",
      "back": "Number of nonzero singular values",
      "topic": "Singular value decomposition"
     },
     {
-     "id": "c175",
+     "id": "c197",
      "front": "Condition number",
      "back": "$\\sigma_1/\\sigma_n$ (invertible $A$); large means sensitive to errors",
      "topic": "Singular value decomposition"
     },
     {
-     "id": "c176",
+     "id": "c198",
      "front": "Best rank-$k$ approximation",
      "back": "$\\sigma_1\\mathbf{u}_1\\mathbf{v}_1^T + \\cdots + \\sigma_k\\mathbf{u}_k\\mathbf{v}_k^T$",
      "topic": "Singular value decomposition"
     },
     {
-     "id": "c177",
+     "id": "c199",
      "front": "Solve one square system by hand",
      "back": "Row reduction (Cramer's rule or $A^{-1}$ only for small $2 \\times 2$ cases)",
      "topic": "Row reduction"
     },
     {
-     "id": "c178",
+     "id": "c200",
      "front": "Same $A$, many right-hand sides",
      "back": "LU factorization once, then substitutions",
      "topic": "LU factorization"
     },
     {
-     "id": "c179",
+     "id": "c201",
      "front": "Inconsistent (overdetermined) system: best approximate solution",
      "back": "Least squares via the normal equations or QR",
      "topic": "Least squares"
     },
     {
-     "id": "c180",
+     "id": "c202",
      "front": "Compute $A^{100}$",
      "back": "Diagonalize: $A^{100} = PD^{100}P^{-1}$",
      "topic": "Diagonalization"
     },
     {
-     "id": "c181",
+     "id": "c203",
      "front": "Long-run behavior of a Markov chain",
      "back": "Find the steady-state vector (eigenvector for eigenvalue 1)",
      "topic": "Markov chains"
     },
     {
-     "id": "c182",
+     "id": "c204",
      "front": "Is a big determinant zero?",
      "back": "Row-reduce to triangular form; don't expand by cofactors",
      "topic": "Determinant properties"
     },
     {
-     "id": "c183",
+     "id": "c205",
      "front": "Orthonormal basis from any basis",
      "back": "Gram–Schmidt, then normalize",
      "topic": "Gram–Schmidt"
     },
     {
-     "id": "c184",
+     "id": "c206",
      "front": "Remove cross terms from a quadratic form",
      "back": "Orthogonally diagonalize its symmetric matrix",
      "topic": "Quadratic forms"
@@ -10393,6 +11141,16 @@
    "topic": "Computer graphics"
   },
   {
+   "term": "partitioned matrix",
+   "aliases": [
+    "block matrix",
+    "partitioned matrices",
+    "block matrices"
+   ],
+   "definition": "A matrix cut by horizontal and vertical lines into blocks; with compatible cuts, products can be computed block by block, keeping the order of each product.",
+   "topic": "Matrix multiplication"
+  },
+  {
    "term": "invertible matrix",
    "aliases": [
     "invertible"
@@ -10814,6 +11572,14 @@
    "topic": "Complex eigenvalues"
   },
   {
+   "term": "B-matrix",
+   "aliases": [
+    "matrix of a transformation relative to a basis"
+   ],
+   "definition": "For a basis $\\mathcal{B}$ given by the columns of $P$, the matrix $P^{-1}AP$ that sends $[\\mathbf{x}]_{\\mathcal{B}}$ to $[A\\mathbf{x}]_{\\mathcal{B}}$; it is diagonal when $\\mathcal{B}$ is an eigenvector basis.",
+   "topic": "Diagonalization"
+  },
+  {
    "term": "discrete dynamical system",
    "aliases": [
     "dynamical system"
@@ -10833,7 +11599,10 @@
   },
   {
    "term": "saddle point",
-   "definition": "In a $2 \\times 2$ system, the origin when one eigenvalue has $|\\lambda| > 1$ and the other $|\\lambda| < 1$.",
+   "aliases": [
+    "saddle"
+   ],
+   "definition": "In a $2 \\times 2$ system, an origin that attracts along one eigenvector and repels along another: $|\\lambda_1| > 1 > |\\lambda_2|$ for $\\mathbf{x}_{k+1} = A\\mathbf{x}_k$, or real eigenvalues of opposite signs for $\\mathbf{x}' = A\\mathbf{x}$.",
    "topic": "Dynamical systems"
   },
   {
@@ -10881,6 +11650,61 @@
    ],
    "definition": "A stochastic matrix some power of which has all positive entries; its chains converge to a unique steady state.",
    "topic": "Markov chains"
+  },
+  {
+   "term": "system of linear differential equations",
+   "aliases": [
+    "system of differential equations",
+    "systems of differential equations"
+   ],
+   "definition": "An equation $\\mathbf{x}'(t) = A\\mathbf{x}(t)$ for a vector of functions; each rate of change is a linear combination of the current values.",
+   "topic": "Systems of differential equations"
+  },
+  {
+   "term": "decoupled",
+   "aliases": [
+    "decoupling",
+    "decouple"
+   ],
+   "definition": "A system in which each equation involves only one unknown; the substitution $\\mathbf{x} = P\\mathbf{y}$ (eigenvectors in $P$) turns $\\mathbf{x}' = A\\mathbf{x}$ into $y_i' = \\lambda_iy_i$.",
+   "topic": "Systems of differential equations"
+  },
+  {
+   "term": "matrix exponential",
+   "aliases": [
+    "$e^{At}$"
+   ],
+   "definition": "$e^{At} = I + At + (At)^2/2! + \\cdots$; it solves $\\mathbf{x}' = A\\mathbf{x}$ as $\\mathbf{x}(t) = e^{At}\\mathbf{x}(0)$, and equals $Pe^{Dt}P^{-1}$ when $A = PDP^{-1}$.",
+   "topic": "Matrix exponential"
+  },
+  {
+   "term": "asymptotically stable",
+   "aliases": [
+    "asymptotic stability"
+   ],
+   "definition": "Every solution tends to $\\mathbf{0}$; for $\\mathbf{x}' = A\\mathbf{x}$ this happens exactly when every eigenvalue of $A$ has negative real part.",
+   "topic": "Systems of differential equations"
+  },
+  {
+   "term": "sink",
+   "aliases": [
+    "spiral sink"
+   ],
+   "definition": "For $\\mathbf{x}' = A\\mathbf{x}$, an origin that all solutions approach: eigenvalues with negative real parts (a spiral sink if they are complex).",
+   "topic": "Systems of differential equations"
+  },
+  {
+   "term": "source",
+   "aliases": [
+    "spiral source"
+   ],
+   "definition": "For $\\mathbf{x}' = A\\mathbf{x}$, an origin that solutions move away from: eigenvalues with positive real parts (a spiral source if they are complex).",
+   "topic": "Systems of differential equations"
+  },
+  {
+   "term": "center",
+   "definition": "For $\\mathbf{x}' = A\\mathbf{x}$ in $\\mathbb{R}^2$, an origin surrounded by closed loops; the eigenvalues are purely imaginary, $\\pm bi$.",
+   "topic": "Systems of differential equations"
   },
   {
    "term": "inner product",
@@ -11061,7 +11885,11 @@
   },
   {
    "term": "positive definite",
-   "definition": "$Q(\\mathbf{x}) > 0$ for all $\\mathbf{x} \\ne \\mathbf{0}$; all eigenvalues positive.",
+   "aliases": [
+    "positive definite matrix",
+    "positive definite matrices"
+   ],
+   "definition": "$Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x} > 0$ for all $\\mathbf{x} \\ne \\mathbf{0}$ ($A$ symmetric); equivalently all eigenvalues, all pivots, or all leading principal minors are positive.",
    "topic": "Quadratic forms"
   },
   {
@@ -11078,6 +11906,30 @@
    "term": "positive semidefinite",
    "definition": "$Q(\\mathbf{x}) \\ge 0$ for all $\\mathbf{x}$; all eigenvalues $\\ge 0$.",
    "topic": "Quadratic forms"
+  },
+  {
+   "term": "leading principal minors",
+   "aliases": [
+    "leading principal minor",
+    "leading minors"
+   ],
+   "definition": "The determinants $D_1, \\dots, D_n$ of the upper-left $1 \\times 1, 2 \\times 2, \\dots, n \\times n$ submatrices; a symmetric matrix is positive definite exactly when all are positive.",
+   "topic": "Positive definite matrices"
+  },
+  {
+   "term": "Sylvester's criterion",
+   "definition": "A symmetric matrix is positive definite exactly when all its leading principal minors are positive.",
+   "topic": "Positive definite matrices"
+  },
+  {
+   "term": "Cholesky factorization",
+   "aliases": [
+    "Cholesky",
+    "Cholesky factor",
+    "Cholesky decomposition"
+   ],
+   "definition": "$A = R^TR$ with $R$ upper triangular with positive diagonal (equivalently $A = LL^T$); it exists exactly when the symmetric matrix $A$ is positive definite.",
+   "topic": "Cholesky factorization"
   },
   {
    "term": "singular value decomposition",
@@ -11177,12 +12029,12 @@
   {
    "id": "la-ref-det",
    "title": "Determinant properties",
-   "body": "## Computing determinants\n\n| Method | Formula / steps |\n|---|---|\n| $2 \\times 2$ | $\\begin{vmatrix} a & b \\\\ c & d\\end{vmatrix} = ad - bc$ |\n| $3 \\times 3$ (row 1) | $a_{11}\\begin{vmatrix} a_{22} & a_{23} \\\\ a_{32} & a_{33}\\end{vmatrix} - a_{12}\\begin{vmatrix} a_{21} & a_{23} \\\\ a_{31} & a_{33}\\end{vmatrix} + a_{13}\\begin{vmatrix} a_{21} & a_{22} \\\\ a_{31} & a_{32}\\end{vmatrix}$ |\n| Cofactor | $C_{ij} = (-1)^{i+j}\\det A_{ij}$ ($A_{ij}$: delete row $i$, column $j$) |\n| Expansion | along row $i$: $\\sum_j a_{ij}C_{ij}$; down column $j$: $\\sum_i a_{ij}C_{ij}$ |\n| Sign pattern | $\\begin{bmatrix} + & - & + \\\\ - & + & - \\\\ + & - & +\\end{bmatrix}$ |\n| Triangular | product of the diagonal entries |\n| Row reduction | $\\det A = (-1)^r \\times$ (product of pivots of an echelon form) when only replacements and swaps are used, $r$ = number of swaps |\n\n## Row (and column) operations\n\n| Operation | Effect on $\\det$ |\n|---|---|\n| Add a multiple of one row to another | no change |\n| Swap two rows | multiply by $-1$ |\n| Multiply one row by $k$ | multiply by $k$ |\n| Row of zeros, or two equal rows | $\\det = 0$ |\n\nBecause $\\det A^T = \\det A$, the same rules hold for columns.\n\n## Algebraic properties ($n \\times n$)\n\n| Property | Formula |\n|---|---|\n| Product | $\\det(AB) = \\det A \\cdot \\det B$ |\n| Transpose | $\\det A^T = \\det A$ |\n| Inverse | $\\det A^{-1} = 1/\\det A$ |\n| Scalar | $\\det(cA) = c^n\\det A$ |\n| Power | $\\det(A^k) = (\\det A)^k$ |\n| Similar matrices | $\\det(P^{-1}AP) = \\det A$ |\n| Eigenvalues | $\\det A = \\lambda_1\\lambda_2\\cdots\\lambda_n$ (with multiplicity, complex ones included) |\n| Sum | no rule: $\\det(A + B) \\neq \\det A + \\det B$ in general |\n| Invertibility | $A$ invertible ⟺ $\\det A \\neq 0$ |\n\n## Applications\n\n| Use | Formula |\n|---|---|\n| Cramer's rule | $x_i = \\dfrac{\\det A_i(\\mathbf{b})}{\\det A}$ ($A_i(\\mathbf{b})$: column $i$ replaced by $\\mathbf{b}$) |\n| Inverse | $A^{-1} = \\dfrac{1}{\\det A}\\operatorname{adj} A$ |\n| Area of parallelogram from $\\mathbf{u}, \\mathbf{v}$ | $\\lvert\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v}\\,]\\rvert$ |\n| Area of triangle from edge vectors $\\mathbf{u}, \\mathbf{v}$ | $\\tfrac12\\lvert\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v}\\,]\\rvert$ |\n| Volume of parallelepiped | $\\lvert\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v} \\;\\; \\mathbf{w}\\,]\\rvert$ |\n| Area/volume scaling by $\\mathbf{x} \\mapsto A\\mathbf{x}$ | multiply by $\\lvert\\det A\\rvert$ |\n| Characteristic equation | $\\det(A - \\lambda I) = 0$; for $2 \\times 2$, $\\lambda^2 - (\\operatorname{tr} A)\\lambda + \\det A = 0$ |\n"
+   "body": "## Computing determinants\n\n| Method | Formula / steps |\n|---|---|\n| $2 \\times 2$ | $\\begin{vmatrix} a & b \\\\ c & d\\end{vmatrix} = ad - bc$ |\n| $3 \\times 3$ (row 1) | $a_{11}\\begin{vmatrix} a_{22} & a_{23} \\\\ a_{32} & a_{33}\\end{vmatrix} - a_{12}\\begin{vmatrix} a_{21} & a_{23} \\\\ a_{31} & a_{33}\\end{vmatrix} + a_{13}\\begin{vmatrix} a_{21} & a_{22} \\\\ a_{31} & a_{32}\\end{vmatrix}$ |\n| Cofactor | $C_{ij} = (-1)^{i+j}\\det A_{ij}$ ($A_{ij}$: delete row $i$, column $j$) |\n| Expansion | along row $i$: $\\sum_j a_{ij}C_{ij}$; down column $j$: $\\sum_i a_{ij}C_{ij}$ |\n| Sign pattern | $\\begin{bmatrix} + & - & + \\\\ - & + & - \\\\ + & - & +\\end{bmatrix}$ |\n| Triangular | product of the diagonal entries |\n| Row reduction | $\\det A = (-1)^r \\times$ (product of pivots of an echelon form) when only replacements and swaps are used, $r$ = number of swaps |\n\n## Row (and column) operations\n\n| Operation | Effect on $\\det$ |\n|---|---|\n| Add a multiple of one row to another | no change |\n| Swap two rows | multiply by $-1$ |\n| Multiply one row by $k$ | multiply by $k$ |\n| Row of zeros, or two equal rows | $\\det = 0$ |\n\nBecause $\\det A^T = \\det A$, the same rules hold for columns.\n\n## Algebraic properties ($n \\times n$)\n\n| Property | Formula |\n|---|---|\n| Product | $\\det(AB) = \\det A \\cdot \\det B$ |\n| Transpose | $\\det A^T = \\det A$ |\n| Inverse | $\\det A^{-1} = 1/\\det A$ |\n| Scalar | $\\det(cA) = c^n\\det A$ |\n| Power | $\\det(A^k) = (\\det A)^k$ |\n| Similar matrices | $\\det(P^{-1}AP) = \\det A$ |\n| Eigenvalues | $\\det A = \\lambda_1\\lambda_2\\cdots\\lambda_n$ (with multiplicity, complex ones included) |\n| Sum | no rule: $\\det(A + B) \\neq \\det A + \\det B$ in general |\n| Invertibility | $A$ invertible ⟺ $\\det A \\neq 0$ |\n\n## Applications\n\n| Use | Formula |\n|---|---|\n| Cramer's rule | $x_i = \\dfrac{\\det A_i(\\mathbf{b})}{\\det A}$ ($A_i(\\mathbf{b})$: column $i$ replaced by $\\mathbf{b}$) |\n| Inverse | $A^{-1} = \\dfrac{1}{\\det A}\\operatorname{adj} A$ |\n| Area of parallelogram from $\\mathbf{u}, \\mathbf{v}$ | $\\lvert\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v}\\,]\\rvert$ |\n| Area of triangle from edge vectors $\\mathbf{u}, \\mathbf{v}$ | $\\tfrac12\\lvert\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v}\\,]\\rvert$ |\n| Volume of parallelepiped | $\\lvert\\det[\\,\\mathbf{u} \\;\\; \\mathbf{v} \\;\\; \\mathbf{w}\\,]\\rvert$ |\n| Area/volume scaling by $\\mathbf{x} \\mapsto A\\mathbf{x}$ | multiply by $\\lvert\\det A\\rvert$ |\n| Positive definite test | symmetric $A$: all leading principal minors $D_1, \\dots, D_n > 0$ |\n| Characteristic equation | $\\det(A - \\lambda I) = 0$; for $2 \\times 2$, $\\lambda^2 - (\\operatorname{tr} A)\\lambda + \\det A = 0$ |\n"
   },
   {
    "id": "la-ref-factor",
    "title": "Matrix factorizations and key formulas",
-   "body": "## Factorizations\n\n| Name | Form | Conditions | Built from | Main use |\n|---|---|---|---|---|\n| Inverse ($2 \\times 2$) | $A^{-1} = \\frac{1}{ad - bc}\\begin{bmatrix} d & -b \\\\ -c & a\\end{bmatrix}$ | $ad - bc \\neq 0$ | swap, negate, divide | small systems |\n| LU | $A = LU$ | no row swaps needed (else $PA = LU$) | $L$: multipliers $\\ell_{ij}$; $U$: echelon form | many right-hand sides: $L\\mathbf{y} = \\mathbf{b}$, $U\\mathbf{x} = \\mathbf{y}$ |\n| Diagonalization | $A = PDP^{-1}$ | $n$ independent (real) eigenvectors | $P$: eigenvectors; $D$: eigenvalues (same order) | powers $A^k = PD^kP^{-1}$, dynamics |\n| Rotation–scaling | $A = PCP^{-1}$, $C = \\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$ | real $2 \\times 2$, eigenvalue $a - bi$ | $P = [\\,\\operatorname{Re}\\mathbf{v} \\;\\; \\operatorname{Im}\\mathbf{v}\\,]$ | spirals, rotations |\n| QR | $A = QR$ | independent columns | $Q$: Gram–Schmidt, normalized; $R = Q^TA$ | least squares: $R\\hat{\\mathbf{x}} = Q^T\\mathbf{b}$ |\n| Orthogonal diagonalization | $A = PDP^T$ | $A$ symmetric | orthonormal eigenvectors | quadratic forms, spectral decomposition |\n| SVD | $A = U\\Sigma V^T$ | any matrix | $V$: eigenvectors of $A^TA$; $\\sigma_i = \\sqrt{\\lambda_i}$; $\\mathbf{u}_i = A\\mathbf{v}_i/\\sigma_i$ | rank, low-rank approximation, condition number |\n\n## Eigenvalues\n\n| Item | Formula |\n|---|---|\n| Eigen-equation | $A\\mathbf{x} = \\lambda\\mathbf{x}$, $\\mathbf{x} \\neq \\mathbf{0}$ |\n| Eigenspace | $\\operatorname{Nul}(A - \\lambda I)$ |\n| $2 \\times 2$ characteristic polynomial | $\\lambda^2 - (\\operatorname{tr} A)\\lambda + \\det A$ |\n| Sum / product | $\\sum\\lambda_i = \\operatorname{tr} A$, $\\prod\\lambda_i = \\det A$ (with multiplicity, complex ones included) |\n| Rotation–scaling | $\\lambda = a \\pm bi$, $r = \\lvert\\lambda\\rvert = \\sqrt{a^2 + b^2}$, angle of $(a, b)$ |\n| Dynamical system | $\\mathbf{x}_k = c_1\\lambda_1^k\\mathbf{v}_1 + \\cdots + c_n\\lambda_n^k\\mathbf{v}_n$ |\n| Markov steady state | $P\\mathbf{q} = \\mathbf{q}$, entries of $\\mathbf{q}$ sum to 1 |\n\n## Orthogonality and least squares\n\n| Item | Formula |\n|---|---|\n| Dot product, length | $\\mathbf{u}\\cdot\\mathbf{v} = \\mathbf{u}^T\\mathbf{v}$, $\\lVert\\mathbf{v}\\rVert = \\sqrt{\\mathbf{v}\\cdot\\mathbf{v}}$ |\n| Angle | $\\cos\\theta = \\dfrac{\\mathbf{u}\\cdot\\mathbf{v}}{\\lVert\\mathbf{u}\\rVert\\lVert\\mathbf{v}\\rVert}$ |\n| Projection onto a line | $\\operatorname{proj}_{\\mathbf{u}}\\mathbf{y} = \\dfrac{\\mathbf{y}\\cdot\\mathbf{u}}{\\mathbf{u}\\cdot\\mathbf{u}}\\mathbf{u}$ |\n| Projection onto $W$ (orthogonal basis) | $\\sum_j \\dfrac{\\mathbf{y}\\cdot\\mathbf{u}_j}{\\mathbf{u}_j\\cdot\\mathbf{u}_j}\\mathbf{u}_j$ |\n| Gram–Schmidt | $\\mathbf{v}_k = \\mathbf{x}_k - \\sum_{i<k}\\dfrac{\\mathbf{x}_k\\cdot\\mathbf{v}_i}{\\mathbf{v}_i\\cdot\\mathbf{v}_i}\\mathbf{v}_i$ |\n| Orthonormal columns | $U^TU = I$; square: $U^{-1} = U^T$ |\n| Normal equations | $A^TA\\hat{\\mathbf{x}} = A^T\\mathbf{b}$ |\n| Least-squares line | $\\begin{bmatrix} n & \\sum x_i \\\\ \\sum x_i & \\sum x_i^2\\end{bmatrix}\\begin{bmatrix} \\beta_0 \\\\ \\beta_1\\end{bmatrix} = \\begin{bmatrix} \\sum y_i \\\\ \\sum x_iy_i\\end{bmatrix}$ |\n| Quadratic form | $Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x}$; $ax_1^2 + bx_1x_2 + cx_2^2 \\leftrightarrow \\begin{bmatrix} a & b/2 \\\\ b/2 & c\\end{bmatrix}$ |\n\n## Matrix algebra rules\n\n| Rule | Formula |\n|---|---|\n| Product size | $(m \\times n)(n \\times p) = m \\times p$ |\n| Columns of a product | $AB = [\\,A\\mathbf{b}_1 \\;\\cdots\\; A\\mathbf{b}_p\\,]$ |\n| Transpose of product | $(AB)^T = B^TA^T$ |\n| Inverse of product | $(AB)^{-1} = B^{-1}A^{-1}$ |\n| Homogeneous translation | $\\begin{bmatrix} 1 & 0 & h \\\\ 0 & 1 & k \\\\ 0 & 0 & 1\\end{bmatrix}$ |\n| Rotation by $\\theta$ | $\\begin{bmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta\\end{bmatrix}$ |\n"
+   "body": "## Factorizations\n\n| Name | Form | Conditions | Built from | Main use |\n|---|---|---|---|---|\n| Inverse ($2 \\times 2$) | $A^{-1} = \\frac{1}{ad - bc}\\begin{bmatrix} d & -b \\\\ -c & a\\end{bmatrix}$ | $ad - bc \\neq 0$ | swap, negate, divide | small systems |\n| LU | $A = LU$ | no row swaps needed (else $PA = LU$) | $L$: multipliers $\\ell_{ij}$; $U$: echelon form | many right-hand sides: $L\\mathbf{y} = \\mathbf{b}$, $U\\mathbf{x} = \\mathbf{y}$ |\n| Diagonalization | $A = PDP^{-1}$ | $n$ independent (real) eigenvectors | $P$: eigenvectors; $D$: eigenvalues (same order) | powers $A^k = PD^kP^{-1}$, dynamics |\n| Rotation–scaling | $A = PCP^{-1}$, $C = \\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$ | real $2 \\times 2$, eigenvalue $a - bi$ | $P = [\\,\\operatorname{Re}\\mathbf{v} \\;\\; \\operatorname{Im}\\mathbf{v}\\,]$ | spirals, rotations |\n| QR | $A = QR$ | independent columns | $Q$: Gram–Schmidt, normalized; $R = Q^TA$ | least squares: $R\\hat{\\mathbf{x}} = Q^T\\mathbf{b}$ |\n| Orthogonal diagonalization | $A = PDP^T$ | $A$ symmetric | orthonormal eigenvectors | quadratic forms, spectral decomposition |\n| Cholesky | $A = R^TR$ | $A$ symmetric positive definite | $R$ upper triangular, positive diagonal: $r_{11} = \\sqrt{a_{11}}$, divide across, subtract, take square roots | solve $R^T\\mathbf{y} = \\mathbf{b}$, $R\\mathbf{x} = \\mathbf{y}$ |\n| SVD | $A = U\\Sigma V^T$ | any matrix | $V$: eigenvectors of $A^TA$; $\\sigma_i = \\sqrt{\\lambda_i}$; $\\mathbf{u}_i = A\\mathbf{v}_i/\\sigma_i$ | rank, low-rank approximation, condition number |\n\n## Eigenvalues\n\n| Item | Formula |\n|---|---|\n| Eigen-equation | $A\\mathbf{x} = \\lambda\\mathbf{x}$, $\\mathbf{x} \\neq \\mathbf{0}$ |\n| Eigenspace | $\\operatorname{Nul}(A - \\lambda I)$ |\n| Matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ in the basis of $P$'s columns | $P^{-1}AP$ (it is $D$ when the columns are eigenvectors) |\n| $2 \\times 2$ characteristic polynomial | $\\lambda^2 - (\\operatorname{tr} A)\\lambda + \\det A$ |\n| Sum / product | $\\sum\\lambda_i = \\operatorname{tr} A$, $\\prod\\lambda_i = \\det A$ (with multiplicity, complex ones included) |\n| Rotation–scaling | $\\lambda = a \\pm bi$, $r = \\lvert\\lambda\\rvert = \\sqrt{a^2 + b^2}$, angle of $(a, b)$ |\n| Dynamical system | $\\mathbf{x}_k = c_1\\lambda_1^k\\mathbf{v}_1 + \\cdots + c_n\\lambda_n^k\\mathbf{v}_n$ |\n| Markov steady state | $P\\mathbf{q} = \\mathbf{q}$, entries of $\\mathbf{q}$ sum to 1 |\n| $\\mathbf{x}' = A\\mathbf{x}$ | $\\mathbf{x}(t) = c_1e^{\\lambda_1t}\\mathbf{v}_1 + \\cdots + c_ne^{\\lambda_nt}\\mathbf{v}_n$, $P\\mathbf{c} = \\mathbf{x}(0)$ |\n| Matrix exponential | $\\mathbf{x}(t) = e^{At}\\mathbf{x}(0)$; $e^{At} = \\sum_k \\dfrac{(At)^k}{k!} = Pe^{Dt}P^{-1}$ |\n| $e^{Ct}$, $C = \\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$ | $e^{at}\\begin{bmatrix} \\cos bt & -\\sin bt \\\\ \\sin bt & \\cos bt\\end{bmatrix}$ |\n| Stability | discrete: all $\\lvert\\lambda\\rvert < 1$; continuous: all $\\operatorname{Re}\\lambda < 0$ ($2 \\times 2$: $\\operatorname{tr} A < 0$, $\\det A > 0$) |\n\n## Orthogonality and least squares\n\n| Item | Formula |\n|---|---|\n| Dot product, length | $\\mathbf{u}\\cdot\\mathbf{v} = \\mathbf{u}^T\\mathbf{v}$, $\\lVert\\mathbf{v}\\rVert = \\sqrt{\\mathbf{v}\\cdot\\mathbf{v}}$ |\n| Angle | $\\cos\\theta = \\dfrac{\\mathbf{u}\\cdot\\mathbf{v}}{\\lVert\\mathbf{u}\\rVert\\lVert\\mathbf{v}\\rVert}$ |\n| Projection onto a line | $\\operatorname{proj}_{\\mathbf{u}}\\mathbf{y} = \\dfrac{\\mathbf{y}\\cdot\\mathbf{u}}{\\mathbf{u}\\cdot\\mathbf{u}}\\mathbf{u}$ |\n| Projection onto $W$ (orthogonal basis) | $\\sum_j \\dfrac{\\mathbf{y}\\cdot\\mathbf{u}_j}{\\mathbf{u}_j\\cdot\\mathbf{u}_j}\\mathbf{u}_j$ |\n| Gram–Schmidt | $\\mathbf{v}_k = \\mathbf{x}_k - \\sum_{i<k}\\dfrac{\\mathbf{x}_k\\cdot\\mathbf{v}_i}{\\mathbf{v}_i\\cdot\\mathbf{v}_i}\\mathbf{v}_i$ |\n| Orthonormal columns | $U^TU = I$; square: $U^{-1} = U^T$ |\n| Normal equations | $A^TA\\hat{\\mathbf{x}} = A^T\\mathbf{b}$ |\n| Least-squares line | $\\begin{bmatrix} n & \\sum x_i \\\\ \\sum x_i & \\sum x_i^2\\end{bmatrix}\\begin{bmatrix} \\beta_0 \\\\ \\beta_1\\end{bmatrix} = \\begin{bmatrix} \\sum y_i \\\\ \\sum x_iy_i\\end{bmatrix}$ |\n| Quadratic form | $Q(\\mathbf{x}) = \\mathbf{x}^TA\\mathbf{x}$; $ax_1^2 + bx_1x_2 + cx_2^2 \\leftrightarrow \\begin{bmatrix} a & b/2 \\\\ b/2 & c\\end{bmatrix}$ |\n| Positive definite (symmetric $A$) | all eigenvalues $> 0$ ⟺ all pivots $> 0$ ⟺ all leading principal minors $D_k > 0$ ⟺ $A = R^TR$ |\n| Pivots and minors | $p_k = D_k/D_{k-1}$; negative definite: $D_1 < 0, D_2 > 0, D_3 < 0, \\dots$ |\n\n## Matrix algebra rules\n\n| Rule | Formula |\n|---|---|\n| Product size | $(m \\times n)(n \\times p) = m \\times p$ |\n| Columns of a product | $AB = [\\,A\\mathbf{b}_1 \\;\\cdots\\; A\\mathbf{b}_p\\,]$ |\n| Block product | $\\begin{bmatrix} A_{11} & A_{12} \\\\ A_{21} & A_{22}\\end{bmatrix}\\begin{bmatrix} B_1 \\\\ B_2\\end{bmatrix} = \\begin{bmatrix} A_{11}B_1 + A_{12}B_2 \\\\ A_{21}B_1 + A_{22}B_2\\end{bmatrix}$ (compatible cuts, order kept) |\n| Transpose of product | $(AB)^T = B^TA^T$ |\n| Inverse of product | $(AB)^{-1} = B^{-1}A^{-1}$ |\n| Homogeneous translation | $\\begin{bmatrix} 1 & 0 & h \\\\ 0 & 1 & k \\\\ 0 & 0 & 1\\end{bmatrix}$ |\n| Rotation by $\\theta$ | $\\begin{bmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta\\end{bmatrix}$ |\n"
   },
   {
    "id": "la-ref-imt",
@@ -14106,6 +14958,103 @@
    "format": "number"
   },
   {
+   "id": "la-block-mult",
+   "title": "Multiply partitioned matrices block by block",
+   "topic": "Matrix multiplication",
+   "vars": {
+    "a11": {
+     "min": -3,
+     "max": 3
+    },
+    "a12": {
+     "min": -3,
+     "max": 3
+    },
+    "a21": {
+     "min": -3,
+     "max": 3
+    },
+    "a22": {
+     "min": -3,
+     "max": 3
+    },
+    "c1": {
+     "min": -3,
+     "max": 3
+    },
+    "c2": {
+     "min": -3,
+     "max": 3
+    },
+    "b11": {
+     "min": -3,
+     "max": 3
+    },
+    "b12": {
+     "min": -3,
+     "max": 3
+    },
+    "b21": {
+     "min": -3,
+     "max": 3
+    },
+    "b22": {
+     "min": -3,
+     "max": 3
+    },
+    "d1": {
+     "min": -3,
+     "max": 3
+    },
+    "d2": {
+     "min": -3,
+     "max": 3
+    }
+   },
+   "where": [
+    "c1 != 0",
+    "c2 != 0",
+    "d1 != 0",
+    "d2 != 0"
+   ],
+   "calc": {
+    "p11": "a11*b11 + a12*b21 + 0",
+    "p12": "a11*b12 + a12*b22 + 0",
+    "p21": "a21*b11 + a22*b21 + 0",
+    "p22": "a21*b12 + a22*b22 + 0",
+    "q11": "c1*d1 + 0",
+    "q12": "c1*d2 + 0",
+    "q21": "c2*d1 + 0",
+    "q22": "c2*d2 + 0",
+    "r11": "p11 + q11 + 0",
+    "r12": "p12 + q12 + 0",
+    "r21": "p21 + q21 + 0",
+    "r22": "p22 + q22 + 0"
+   },
+   "prompt": "$A = [\\,A_1 \\;\\; A_2\\,]$ and $B = \\begin{bmatrix} B_1 \\\\ B_2\\end{bmatrix}$ are partitioned with $A_1 = \\begin{bmatrix} {a11} & {a12} \\\\ {a21} & {a22}\\end{bmatrix}$, $A_2 = \\begin{bmatrix} {c1} \\\\ {c2}\\end{bmatrix}$, $B_1 = \\begin{bmatrix} {b11} & {b12} \\\\ {b21} & {b22}\\end{bmatrix}$ and $B_2 = \\begin{bmatrix} {d1} & {d2}\\end{bmatrix}$. Compute $AB = A_1B_1 + A_2B_2$.",
+   "answers": [
+    {
+     "name": "r11",
+     "label": "row 1, col 1"
+    },
+    {
+     "name": "r12",
+     "label": "row 1, col 2"
+    },
+    {
+     "name": "r21",
+     "label": "row 2, col 1"
+    },
+    {
+     "name": "r22",
+     "label": "row 2, col 2"
+    }
+   ],
+   "solution": "The column split of $A$ ($2 + 1$) matches the row split of $B$, so multiply block by block, keeping each product in order.\n$A_1B_1 = \\begin{bmatrix} {p11} & {p12} \\\\ {p21} & {p22}\\end{bmatrix}$, and $A_2B_2$ (a column times a row) $= \\begin{bmatrix} {q11} & {q12} \\\\ {q21} & {q22}\\end{bmatrix}$.\nAdding: $AB =$ **$\\begin{bmatrix} {r11} & {r12} \\\\ {r21} & {r22}\\end{bmatrix}$**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "la-det3",
    "title": "Determinant of a 3×3 matrix",
    "topic": "Cofactor expansion",
@@ -15546,6 +16495,77 @@
    "format": "number"
   },
   {
+   "id": "la-b-matrix",
+   "title": "Matrix of a transformation relative to a basis",
+   "topic": "Diagonalization",
+   "vars": {
+    "pp": {
+     "min": -2,
+     "max": 2
+    },
+    "qq": {
+     "min": -1,
+     "max": 1
+    },
+    "m11": {
+     "min": -3,
+     "max": 3
+    },
+    "m12": {
+     "min": -3,
+     "max": 3
+    },
+    "m21": {
+     "min": -3,
+     "max": 3
+    },
+    "m22": {
+     "min": -3,
+     "max": 3
+    }
+   },
+   "where": [
+    "pp != 0 or qq != 0",
+    "m12 != 0 or m21 != 0",
+    "max(abs(a11), abs(a12), abs(a21), abs(a22)) <= 15"
+   ],
+   "calc": {
+    "dd": "pp*qq + 1 + 0",
+    "np": "-pp + 0",
+    "nq": "-qq + 0",
+    "s11": "m11 + pp*m21 + 0",
+    "s12": "m12 + pp*m22 + 0",
+    "s21": "qq*m11 + (pp*qq + 1)*m21 + 0",
+    "s22": "qq*m12 + (pp*qq + 1)*m22 + 0",
+    "a11": "(m11 + pp*m21)*(pp*qq + 1) - (m12 + pp*m22)*qq + 0",
+    "a12": "-(m11 + pp*m21)*pp + m12 + pp*m22 + 0",
+    "a21": "(qq*m11 + (pp*qq + 1)*m21)*(pp*qq + 1) - (qq*m12 + (pp*qq + 1)*m22)*qq + 0",
+    "a22": "-(qq*m11 + (pp*qq + 1)*m21)*pp + qq*m12 + (pp*qq + 1)*m22 + 0"
+   },
+   "prompt": "Let $A = \\begin{bmatrix} {a11} & {a12} \\\\ {a21} & {a22}\\end{bmatrix}$ and let $\\mathcal{B}$ be the basis formed by the columns of $P = \\begin{bmatrix} 1 & {pp} \\\\ {qq} & {dd}\\end{bmatrix}$. Find the matrix of $\\mathbf{x} \\mapsto A\\mathbf{x}$ relative to $\\mathcal{B}$, that is, $P^{-1}AP$.",
+   "answers": [
+    {
+     "name": "m11",
+     "label": "row 1, col 1"
+    },
+    {
+     "name": "m12",
+     "label": "row 1, col 2"
+    },
+    {
+     "name": "m21",
+     "label": "row 2, col 1"
+    },
+    {
+     "name": "m22",
+     "label": "row 2, col 2"
+    }
+   ],
+   "solution": "First $AP = \\begin{bmatrix} {s11} & {s12} \\\\ {s21} & {s22}\\end{bmatrix}$ (column $j$ is $A$ times basis vector $j$). Since $\\det P = 1$, $P^{-1} = \\begin{bmatrix} {dd} & {np} \\\\ {nq} & 1\\end{bmatrix}$. Then\n$$P^{-1}AP = \\begin{bmatrix} {dd} & {np} \\\\ {nq} & 1\\end{bmatrix}\\begin{bmatrix} {s11} & {s12} \\\\ {s21} & {s22}\\end{bmatrix} = \\begin{bmatrix} {m11} & {m12} \\\\ {m21} & {m22}\\end{bmatrix}.$$\nColumn $j$ holds the $\\mathcal{B}$-coordinates of $A$ times basis vector $j$. (Check: it has the same trace and determinant as $A$.)",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "la-complex-eig",
    "title": "Complex eigenvalues of a 2×2 matrix",
    "topic": "Complex eigenvalues",
@@ -15855,6 +16875,242 @@
     }
    ],
    "solution": "First write $\\mathbf{x}_0 = {c1:coef}\\mathbf{v}_1 {c2:signedcoef}\\mathbf{v}_2$ (solve for the weights). Then\n$\\mathbf{x}_{{kk}} = {c1:coef}({la})^{{kk}}\\mathbf{v}_1 {c2:signedcoef}({lb})^{{kk}}\\mathbf{v}_2 = {f1:coef}\\,\\mathbf{v}_1 {f2:signedcoef}\\,\\mathbf{v}_2 =$ **({xk1:num4}, {xk2:num4})**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "la-ode-solve",
+   "title": "Solve x' = Ax from eigenvectors",
+   "topic": "Systems of differential equations",
+   "vars": {
+    "pp": {
+     "min": -2,
+     "max": 2
+    },
+    "qq": {
+     "min": -2,
+     "max": 2
+    },
+    "l1": {
+     "choices": [
+      -3,
+      -2,
+      -1,
+      1,
+      2
+     ]
+    },
+    "l2": {
+     "choices": [
+      -3,
+      -2,
+      -1,
+      1,
+      2
+     ]
+    },
+    "c1": {
+     "min": -3,
+     "max": 3
+    },
+    "c2": {
+     "min": -3,
+     "max": 3
+    }
+   },
+   "where": [
+    "l1 != l2",
+    "pp != 0",
+    "c1 != 0",
+    "c2 != 0"
+   ],
+   "calc": {
+    "dd": "pp*qq + 1 + 0",
+    "np": "-pp + 0",
+    "nq": "-qq + 0",
+    "a11": "l1*(pp*qq + 1) - pp*qq*l2 + 0",
+    "a12": "pp*(l2 - l1) + 0",
+    "a21": "qq*(pp*qq + 1)*(l1 - l2) + 0",
+    "a22": "-qq*pp*l1 + (pp*qq + 1)*l2 + 0",
+    "x01": "c1 + c2*pp + 0",
+    "x02": "c1*qq + c2*(pp*qq + 1) + 0",
+    "k2": "c2*pp + 0"
+   },
+   "prompt": "$A = \\begin{bmatrix} {a11} & {a12} \\\\ {a21} & {a22}\\end{bmatrix}$ has eigenvectors $\\mathbf{v}_1 = (1, {qq})$ for $\\lambda_1 = {l1}$ and $\\mathbf{v}_2 = ({pp}, {dd})$ for $\\lambda_2 = {l2}$. The solution of $\\mathbf{x}' = A\\mathbf{x}$ with $\\mathbf{x}(0) = ({x01}, {x02})$ is $\\mathbf{x}(t) = c_1e^{\\lambda_1t}\\mathbf{v}_1 + c_2e^{\\lambda_2t}\\mathbf{v}_2$. Find $c_1$, $c_2$ and the first entry $x_1(t)$ (type e^(2t) for $e^{2t}$).",
+   "answers": [
+    {
+     "name": "c1",
+     "label": "$c_1 =$"
+    },
+    {
+     "name": "c2",
+     "label": "$c_2 =$"
+    },
+    {
+     "kind": "expression",
+     "expression": "c1*exp(l1*t) + c2*pp*exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "$x_1(t) =$",
+     "show": "${c1:coef}e^{{l1:coef}t} {k2:signedcoef}e^{{l2:coef}t}$"
+    }
+   ],
+   "solution": "The weights solve $P\\mathbf{c} = \\mathbf{x}(0)$ with $P = \\begin{bmatrix} 1 & {pp} \\\\ {qq} & {dd}\\end{bmatrix}$. Since $\\det P = 1$, $P^{-1} = \\begin{bmatrix} {dd} & {np} \\\\ {nq} & 1\\end{bmatrix}$, and $\\mathbf{c} = P^{-1}({x01}, {x02}) = ({c1}, {c2})$.\nSo $\\mathbf{x}(t) = {c1:coef}e^{{l1:coef}t}(1, {qq}) {c2:signedcoef}e^{{l2:coef}t}({pp}, {dd})$, and the first entry is $x_1(t) =$ **${c1:coef}e^{{l1:coef}t} {k2:signedcoef}e^{{l2:coef}t}$**. Check: at $t = 0$ it equals ${c1} + ({k2}) = {x01}$.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "la-ode-exp",
+   "title": "Matrix exponential of a diagonalizable matrix",
+   "topic": "Matrix exponential",
+   "vars": {
+    "pp": {
+     "min": -2,
+     "max": 2
+    },
+    "qq": {
+     "choices": [
+      -1,
+      1
+     ]
+    },
+    "l1": {
+     "choices": [
+      -3,
+      -2,
+      -1,
+      1,
+      2
+     ]
+    },
+    "l2": {
+     "choices": [
+      -3,
+      -2,
+      -1,
+      1,
+      2
+     ]
+    }
+   },
+   "where": [
+    "l1 != l2",
+    "pp != 0",
+    "pp*qq != -1"
+   ],
+   "calc": {
+    "dd": "pp*qq + 1 + 0",
+    "np": "-pp + 0",
+    "nq": "-qq + 0",
+    "npq": "-pp*qq + 0",
+    "qd": "qq*(pp*qq + 1) + 0",
+    "a11": "l1*(pp*qq + 1) - pp*qq*l2 + 0",
+    "a12": "pp*(l2 - l1) + 0",
+    "a21": "qq*(pp*qq + 1)*(l1 - l2) + 0",
+    "a22": "-qq*pp*l1 + (pp*qq + 1)*l2 + 0"
+   },
+   "prompt": "$A = \\begin{bmatrix} {a11} & {a12} \\\\ {a21} & {a22}\\end{bmatrix} = PDP^{-1}$ with $P = \\begin{bmatrix} 1 & {pp} \\\\ {qq} & {dd}\\end{bmatrix}$ and $D = \\begin{bmatrix} {l1} & 0 \\\\ 0 & {l2}\\end{bmatrix}$. Find the entries of $e^{At}$ (type e^(2t) for $e^{2t}$).",
+   "answers": [
+    {
+     "kind": "expression",
+     "expression": "(pp*qq + 1)*exp(l1*t) - pp*qq*exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "row 1, col 1",
+     "show": "${dd:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t}$"
+    },
+    {
+     "kind": "expression",
+     "expression": "pp*(exp(l2*t) - exp(l1*t))",
+     "variables": [
+      "t"
+     ],
+     "label": "row 1, col 2",
+     "show": "${pp:coef}(e^{{l2:coef}t} - e^{{l1:coef}t})$"
+    },
+    {
+     "kind": "expression",
+     "expression": "qq*(pp*qq + 1)*(exp(l1*t) - exp(l2*t))",
+     "variables": [
+      "t"
+     ],
+     "label": "row 2, col 1",
+     "show": "${qd:coef}(e^{{l1:coef}t} - e^{{l2:coef}t})$"
+    },
+    {
+     "kind": "expression",
+     "expression": "-pp*qq*exp(l1*t) + (pp*qq + 1)*exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "row 2, col 2",
+     "show": "${npq:coef}e^{{l1:coef}t} {dd:signedcoef}e^{{l2:coef}t}$"
+    }
+   ],
+   "solution": "$e^{At} = Pe^{Dt}P^{-1}$ with $e^{Dt} = \\begin{bmatrix} e^{{l1:coef}t} & 0 \\\\ 0 & e^{{l2:coef}t}\\end{bmatrix}$ and ($\\det P = 1$) $P^{-1} = \\begin{bmatrix} {dd} & {np} \\\\ {nq} & 1\\end{bmatrix}$. First\n$$Pe^{Dt} = \\begin{bmatrix} e^{{l1:coef}t} & {pp:coef}e^{{l2:coef}t} \\\\ {qq:coef}e^{{l1:coef}t} & {dd:coef}e^{{l2:coef}t}\\end{bmatrix},$$\nthen multiply by $P^{-1}$ on the right (row of $Pe^{Dt}$ times column of $P^{-1}$):\n$$e^{At} = \\begin{bmatrix} {dd:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t} & {pp:coef}(e^{{l2:coef}t} - e^{{l1:coef}t}) \\\\ {qd:coef}(e^{{l1:coef}t} - e^{{l2:coef}t}) & {npq:coef}e^{{l1:coef}t} {dd:signedcoef}e^{{l2:coef}t}\\end{bmatrix}.$$\nCheck: at $t = 0$ this is $I$.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "la-ode-spiral",
+   "title": "Solve x' = Cx for a rotation–scaling matrix",
+   "topic": "Matrix exponential",
+   "vars": {
+    "aa": {
+     "choices": [
+      -2,
+      -1,
+      1
+     ]
+    },
+    "bb": {
+     "choices": [
+      1,
+      2,
+      3
+     ]
+    },
+    "u": {
+     "min": -3,
+     "max": 3
+    },
+    "v": {
+     "min": -3,
+     "max": 3
+    }
+   },
+   "where": [
+    "u != 0",
+    "v != 0"
+   ],
+   "calc": {
+    "nb": "-bb + 0",
+    "nv": "-v + 0"
+   },
+   "prompt": "Solve $\\mathbf{x}' = C\\mathbf{x}$ with $C = \\begin{bmatrix} {aa} & {nb} \\\\ {bb} & {aa}\\end{bmatrix}$ and $\\mathbf{x}(0) = ({u}, {v})$. Give both entries of $\\mathbf{x}(t)$ (type e^(-t), cos(2t), sin(2t)).",
+   "answers": [
+    {
+     "kind": "expression",
+     "expression": "exp(aa*t)*(u*cos(bb*t) - v*sin(bb*t))",
+     "variables": [
+      "t"
+     ],
+     "label": "$x_1(t) =$",
+     "show": "$e^{{aa:coef}t}({u:coef}\\cos {bb:coef}t {nv:signedcoef}\\sin {bb:coef}t)$"
+    },
+    {
+     "kind": "expression",
+     "expression": "exp(aa*t)*(u*sin(bb*t) + v*cos(bb*t))",
+     "variables": [
+      "t"
+     ],
+     "label": "$x_2(t) =$",
+     "show": "$e^{{aa:coef}t}({u:coef}\\sin {bb:coef}t {v:signedcoef}\\cos {bb:coef}t)$"
+    }
+   ],
+   "solution": "$C$ has the form $\\begin{bmatrix} a & -b \\\\ b & a\\end{bmatrix}$ with $a = {aa}$, $b = {bb}$, so $e^{Ct} = e^{{aa:coef}t}\\begin{bmatrix} \\cos {bb:coef}t & -\\sin {bb:coef}t \\\\ \\sin {bb:coef}t & \\cos {bb:coef}t\\end{bmatrix}$ and $\\mathbf{x}(t) = e^{Ct}({u}, {v})$:\n$x_1(t) =$ **$e^{{aa:coef}t}({u:coef}\\cos {bb:coef}t {nv:signedcoef}\\sin {bb:coef}t)$**, $x_2(t) =$ **$e^{{aa:coef}t}({u:coef}\\sin {bb:coef}t {v:signedcoef}\\cos {bb:coef}t)$**.\nThe eigenvalues are ${aa} \\pm {bb:coef}i$: solutions turn counterclockwise through the angle ${bb:coef}t$ (radians), and the factor $e^{{aa:coef}t}$ makes them spiral in when $a < 0$ and spiral out when $a > 0$ (with $a = 0$ they would circle forever).",
    "answer": "",
    "format": "number"
   },
@@ -16794,6 +18050,216 @@
     }
    ],
    "solution": "First $A\\mathbf{x} = ({y1}, {y2}, {y3})$. Then $\\mathbf{x}^T(A\\mathbf{x}) = ({x1})({y1}) + ({x2})({y2}) + ({x3})({y3}) =$ **{qv}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "la-pd-minors",
+   "title": "Leading principal minors with a parameter",
+   "topic": "Positive definite matrices",
+   "vars": {
+    "a": {
+     "min": 1,
+     "max": 4
+    },
+    "b": {
+     "min": -3,
+     "max": 3
+    },
+    "c": {
+     "min": -3,
+     "max": 3
+    },
+    "d": {
+     "min": 1,
+     "max": 6
+    },
+    "e": {
+     "min": -3,
+     "max": 3
+    }
+   },
+   "where": [
+    "a*d - b^2 > 0",
+    "c != 0",
+    "e != 0",
+    "R0 != 0"
+   ],
+   "calc": {
+    "D2": "a*d - b^2 + 0",
+    "m31": "b*e - c*d + 0",
+    "m32": "b*c - a*e + 0",
+    "R0": "c*(b*e - c*d) + e*(b*c - a*e) + 0",
+    "k0": "-(c*(b*e - c*d) + e*(b*c - a*e))/(a*d - b^2) + 0"
+   },
+   "prompt": "For which $k$ is $A = \\begin{bmatrix} {a} & {b} & {c} \\\\ {b} & {d} & {e} \\\\ {c} & {e} & k\\end{bmatrix}$ positive definite? Find the leading minor $D_2$ and the number $k_0$ such that $A$ is positive definite exactly when $k > k_0$ (exact fraction).",
+   "answers": [
+    {
+     "name": "D2",
+     "label": "$D_2 =$"
+    },
+    {
+     "name": "k0",
+     "label": "$k_0 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    }
+   ],
+   "solution": "$D_1 = {a} > 0$ and $D_2 = ({a})({d}) - ({b})^2 = {D2} > 0$, whatever $k$ is.\nExpand $D_3 = \\det A$ along row 3: the cofactors are $C_{31} = ({b})({e}) - ({c})({d}) = {m31}$, $C_{32} = -\\big(({a})({e}) - ({c})({b})\\big) = {m32}$ and $C_{33} = D_2 = {D2}$, so $D_3 = ({c})({m31}) + ({e})({m32}) + {D2}k = {D2:coef}k {R0:signed}$.\n$D_3 > 0$ exactly when $k > k_0 =$ **${k0:texfrac}$**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "la-pd-pivots",
+   "title": "Test positive definiteness by pivots",
+   "topic": "Positive definite matrices",
+   "vars": {
+    "a": {
+     "min": 1,
+     "max": 4
+    },
+    "b": {
+     "min": -3,
+     "max": 3
+    },
+    "c": {
+     "min": -3,
+     "max": 3
+    },
+    "d": {
+     "min": 1,
+     "max": 8
+    },
+    "e": {
+     "min": -3,
+     "max": 3
+    },
+    "f": {
+     "min": 1,
+     "max": 8
+    }
+   },
+   "where": [
+    "a*d - b*b != 0",
+    "b != 0",
+    "c != 0",
+    "dt3 != 0"
+   ],
+   "calc": {
+    "u22": "d - b*b/a + 0",
+    "u23": "e - b*c/a + 0",
+    "u33": "f - c*c/a + 0",
+    "p1": "a + 0",
+    "p2": "d - b*b/a + 0",
+    "dt3": "a*(d*f - e*e) - b*(b*f - e*c) + c*(b*e - d*c) + 0",
+    "p3": "(a*(d*f - e*e) - b*(b*f - e*c) + c*(b*e - d*c))/(a*d - b*b) + 0",
+    "ml": "(e - b*c/a)/(d - b*b/a) + 0",
+    "mb": "b/a + 0",
+    "mc": "c/a + 0",
+    "pdf": "if(a*d - b*b > 0 and a*(d*f - e*e) - b*(b*f - e*c) + c*(b*e - d*c) > 0, 1, 0)"
+   },
+   "prompt": "Use elimination without row swaps to find the pivots of $A = \\begin{bmatrix} {a} & {b} & {c} \\\\ {b} & {d} & {e} \\\\ {c} & {e} & {f}\\end{bmatrix}$ (exact fractions). Then enter 1 if $A$ is positive definite and 0 if it is not.",
+   "answers": [
+    {
+     "name": "p1",
+     "label": "$p_1 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    },
+    {
+     "name": "p2",
+     "label": "$p_2 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    },
+    {
+     "name": "p3",
+     "label": "$p_3 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    },
+    {
+     "name": "pdf",
+     "label": "positive definite? (1 = yes, 0 = no)"
+    }
+   ],
+   "solution": "Clear column 1 with the multipliers ${mb:texfrac}$ (row 2) and ${mc:texfrac}$ (row 3): the lower-right block becomes $\\begin{bmatrix} {u22:texfrac} & {u23:texfrac} \\\\ {u23:texfrac} & {u33:texfrac}\\end{bmatrix}$ (still symmetric).\nClear below its first entry with the multiplier ${ml:texfrac}$: the last pivot is ${u33:texfrac} - ({ml:texfrac})({u23:texfrac}) = {p3:texfrac}$.\nPivots: **${p1}$, ${p2:texfrac}$, ${p3:texfrac}$**. $A$ is positive definite exactly when all three are positive, so the answer is **{pdf}**. (Check: $p_1p_2p_3 = \\det A$.)",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "la-cholesky",
+   "title": "Cholesky factorization of a 3×3 matrix",
+   "topic": "Cholesky factorization",
+   "vars": {
+    "r11": {
+     "min": 1,
+     "max": 3
+    },
+    "r22": {
+     "min": 1,
+     "max": 3
+    },
+    "r33": {
+     "min": 1,
+     "max": 3
+    },
+    "r12": {
+     "min": -3,
+     "max": 3
+    },
+    "r13": {
+     "min": -3,
+     "max": 3
+    },
+    "r23": {
+     "min": -3,
+     "max": 3
+    }
+   },
+   "where": [
+    "r12 != 0 or r13 != 0",
+    "r23 != 0"
+   ],
+   "calc": {
+    "a11": "r11^2 + 0",
+    "a12": "r11*r12 + 0",
+    "a13": "r11*r13 + 0",
+    "a22": "r12^2 + r22^2 + 0",
+    "a23": "r12*r13 + r22*r23 + 0",
+    "a33": "r13^2 + r23^2 + r33^2 + 0",
+    "s22": "r22^2 + 0",
+    "t23": "r22*r23 + 0",
+    "s33": "r33^2 + 0"
+   },
+   "prompt": "Find the Cholesky factor of $A = \\begin{bmatrix} {a11} & {a12} & {a13} \\\\ {a12} & {a22} & {a23} \\\\ {a13} & {a23} & {a33}\\end{bmatrix}$: the upper triangular $R$ with positive diagonal and $A = R^TR$.",
+   "answers": [
+    {
+     "name": "r11",
+     "label": "$r_{11} =$"
+    },
+    {
+     "name": "r12",
+     "label": "$r_{12} =$"
+    },
+    {
+     "name": "r13",
+     "label": "$r_{13} =$"
+    },
+    {
+     "name": "r22",
+     "label": "$r_{22} =$"
+    },
+    {
+     "name": "r23",
+     "label": "$r_{23} =$"
+    },
+    {
+     "name": "r33",
+     "label": "$r_{33} =$"
+    }
+   ],
+   "solution": "Row 1: $r_{11} = \\sqrt{{a11}} = {r11}$, $r_{12} = {a12}/{r11} = {r12}$, $r_{13} = {a13}/{r11} = {r13}$.\nRow 2: $r_{22} = \\sqrt{{a22} - ({r12})^2} = \\sqrt{{s22}} = {r22}$, $r_{23} = \\big({a23} - ({r12})({r13})\\big)/{r22} = {t23}/{r22} = {r23}$.\nRow 3: $r_{33} = \\sqrt{{a33} - ({r13})^2 - ({r23})^2} = \\sqrt{{s33}} = {r33}$.\n$R =$ **$\\begin{bmatrix} {r11} & {r12} & {r13} \\\\ 0 & {r22} & {r23} \\\\ 0 & 0 & {r33}\\end{bmatrix}$**. Every square root was of a positive number, which confirms that $A$ is positive definite.",
    "answer": "",
    "format": "number"
   },

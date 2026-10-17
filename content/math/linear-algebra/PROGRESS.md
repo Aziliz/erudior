@@ -213,3 +213,45 @@ Build: `python3 content/math/build.py linear-algebra` and `npx tsx tests/check-c
 ## Source verification (2026-10-17)
 
 Checked against Interactive Linear Algebra (Georgia Tech), MIT OCW 18.06, GT Math 1554 lecture schedule and Northeastern quadratic-form notes. Fixes: diagonalizability criterion now requires real eigenvalues (lesson 29, cards, factor sheet); trace/determinant = sum/product of eigenvalues now says complex eigenvalues are included (lesson 28, glossary, cards, det/factor sheets); negative semidefinite and the det = 0 case added to lesson 37 (and a card); SVD "rotate" wording notes reflections (lesson 38). Short gap-closing paragraphs: partitioned matrices (lesson 15), the B-matrix of x -> Ax (lesson 29). Full report was delivered in the verification hand-off.
+
+## Gap lessons (2026-10-17)
+
+Closes the two "common" coverage gaps from the source check (VERIFY.md) and makes its two short added sections quizzable.
+
+### New lessons
+- 32 `la-ode-systems` — Systems of differential equations (la-m8), `lessons/32-differential-equations.md`. Eigenvector solutions $e^{\lambda t}\mathbf{v}$, decoupling with $\mathbf{x} = P\mathbf{y}$, the matrix exponential ($e^{At} = Pe^{Dt}P^{-1}$, nilpotent case), $e^{Ct}$ spirals for $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$, stability (Re λ < 0; 2×2 table; tr/det test; link to the discrete |λ| < 1 test via $e^A$). 3 worked examples, 3 figures. Topics: Systems of differential equations, Matrix exponential.
+- 39 `la-pos-def` — Positive definite matrices and Cholesky factorization (la-m9), `lessons/39-positive-definite.md`. Quick consequences, $B^TB$, pivot test by completing the square ($LDL^T$), leading principal minors (Sylvester), negative definite pattern, semidefinite warning, Cholesky $A = R^TR$ with entry formulas and solving. 3 worked examples, 1 figure. Topics: Positive definite matrices, Cholesky factorization.
+
+Renumbered files (ids unchanged): 32–37 → 33–38, 38-singular-value-decomposition → 40. Question ids keep their original lesson numbers (e.g. la-q-32NN is still the inner-product lesson, now file 33); questions/m9.yaml section headers note this.
+
+### New questions (32)
+- la-ode-systems: la-q-de01 … la-q-de12 (module quiz: de01, de03, de06, de12)
+- la-pos-def: la-q-pd01 … la-q-pd13 (module quiz: pd01, pd03, pd05, pd10)
+- Lesson 15 (partitioned matrices): la-q-1513 … la-q-1516 (module quiz: 1513)
+- Lesson 29 (diagonalization as change of coordinates / B-matrix): la-q-2913 … la-q-2916 (module quiz: 2913)
+
+Answer positions over the whole bank are now 0/1/2/3 = 122/119/119/120.
+
+### New drills (8)
+- la-block-mult (m5, lesson 15), la-b-matrix (m8, lesson 29)
+- la-ode-solve, la-ode-exp, la-ode-spiral (m8, lesson 32; expression answers in t with `show` strings)
+- la-pd-minors, la-pd-pivots, la-cholesky (m9, lesson 39)
+
+### Other edits
+- Cross-references: lesson 31 points ahead to $\mathbf{x}' = A\mathbf{x}$; lesson 38 (quadratic forms) points ahead to the positive definite tests.
+- Lessons 15 and 29 front matter link the new drills (lesson 15 now lists 4 drills).
+- Reference sheets: factor.md gains Cholesky, B-matrix, $\mathbf{x}' = A\mathbf{x}$, $e^{At}$, $e^{Ct}$, stability, positive definite tests and the block product; det.md gains the leading-minor test.
+- Glossary +12 (now 222): partitioned matrix, B-matrix, system of linear differential equations, decoupled, matrix exponential, asymptotically stable, sink, source, center, leading principal minors, Sylvester's criterion, Cholesky factorization; "saddle point" now covers the continuous case; "positive definite" gains matrix aliases and the pivot/minor tests.
+- Cards +22 (now 206).
+
+### Verification
+- Every new question solved independently with sympy (vq.py in /tmp/claude-0/gaps/linear-algebra/) before fixing keys; distractors checked wrong.
+- Each new drill generated 400 times (3,200 instances) with generate()/checkAll(); answers recomputed from the prompt text with sympy (matrix products, $P^{-1}AP$, $e^{At}$ by sympy's matrix exponential, Cholesky, minors, pivots): 0 mismatches. The shown answer, typed back, is accepted in every instance; a wrong answer is rejected in every instance.
+- Lesson examples checked with sympy; figures rendered with the app CSS and inspected.
+- `python3 content/math/build.py linear-algebra` and `npx tsx tests/check-course.mts samples/math/math-linear-algebra.json`: OK.
+
+### For a reviewer
+- New lesson question ids use letter codes (la-q-deNN, la-q-pdNN) because la-q-32NN/la-q-39NN collide with or would be confused with existing numbering.
+- Lesson 32 states the stability table for 2×2 only and gives the nilpotent/$t e^{\lambda t}$ case briefly, without Jordan form. Lesson 39 states "number of positive pivots = number of positive eigenvalues" (Sylvester's law of inertia) without proof.
+- Lesson 32 uses one calculus fact ($\frac{d}{dt}e^{\lambda t} = \lambda e^{\lambda t}$) and term-by-term differentiation of the series; the course otherwise assumes no calculus.
+- la-pd-pivots asks for a 0/1 "positive definite?" box (about 40% of instances are positive definite). Verification caught a floating-point zero last pivot judged positive; the last pivot and the verdict now use the exact integer $\det A$, and singular matrices are excluded. Solutions of la-pd-minors / la-cholesky / la-pd-pivots show substitutions such as $(0)(1)$ when an entry is 0.
