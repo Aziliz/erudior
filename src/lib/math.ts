@@ -88,6 +88,8 @@ export function hasMath(src: string): boolean {
 }
 
 export function renderTex(tex: string, display = false): string {
+  // Thousands separators: in TeX "1,000" renders as "1, 000"; "1{,}000" keeps it tight.
+  tex = tex.replace(/(\d),(?=\d{3}(?![\d.]))/g, "$1{,}");
   return katex.renderToString(tex, { displayMode: display, throwOnError: false, strict: "ignore", output: "htmlAndMathml" });
 }
 
