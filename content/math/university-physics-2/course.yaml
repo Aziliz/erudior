@@ -2,8 +2,9 @@ id: science-uphys2
 title: University Physics II
 description: >-
   Calculus-based University Physics II: electric charge and fields, Gauss's law, electric potential, capacitance, current and DC circuits, RC circuits, magnetic forces and fields, induction, inductance and AC circuits, electromagnetic waves and optics, interference and diffraction, and an introduction to relativity, quantum and nuclear physics. Assumes University Physics I and Calculus II.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections.
 order: 15
 subject: Science
 level: [College]

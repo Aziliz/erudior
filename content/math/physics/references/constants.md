@@ -11,7 +11,7 @@ title: Physical constants and data
 | Elementary charge | $e$ | $1.602\times10^{-19}$ C |
 | Coulomb constant | $k = 1/(4\pi\varepsilon_0)$ | $8.99\times10^9$ N·m²/C² |
 | Permittivity of free space | $\varepsilon_0$ | $8.85\times10^{-12}$ C²/(N·m²) |
-| Permeability of free space | $\mu_0$ | $4\pi\times10^{-7}$ T·m/A |
+| Permeability of free space | $\mu_0$ | $1.257\times10^{-6}$ T·m/A $\approx 4\pi\times10^{-7}$ (exact before the 2019 SI redefinition; still equal to about 10 digits) |
 | Planck's constant | $h$ | $6.63\times10^{-34}$ J·s $= 4.14\times10^{-15}$ eV·s |
 | | $hc$ | $1240$ eV·nm |
 | Boltzmann's constant | $k_B$ | $1.38\times10^{-23}$ J/K |

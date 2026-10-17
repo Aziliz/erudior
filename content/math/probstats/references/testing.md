@@ -50,6 +50,8 @@ $$S_p^2 = \frac{(m-1)S_1^2 + (n-1)S_2^2}{m+n-2}, \qquad \nu = \frac{(S_1^2/m + S
 | Independence / homogeneity | $X^2 = \sum(O_{ij} - E_{ij})^2/E_{ij}$, $E_{ij} = R_iC_j/n$ | $\chi^2_{(r-1)(c-1)}$ |
 | Likelihood ratio version | $G^2 = 2\sum O\ln(O/E)$ | same df |
 
+Multinomial counts: $P(o_1, \dots, o_k) = \dfrac{n!}{o_1!\cdots o_k!}\prod p_i^{o_i}$, $E(O_i) = np_i$, $\operatorname{Cov}(O_i, O_j) = -np_ip_j$.
+
 Use the chi-square approximations when all expected counts are at least about 5.
 
 ## Simple linear regression

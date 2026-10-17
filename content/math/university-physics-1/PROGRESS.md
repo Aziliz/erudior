@@ -133,3 +133,7 @@ and a wrong answer is rejected. Build and checker: OK, 0 problems.
 ## Unresolved / notes
 - The glossary still mentions electrostatic force and Coulomb's law in passing, as examples under "conservative force" and "inverse-square law". Both are correct, so they were left.
 - Lesson 28 Example 3 quotes entropies to 0.1 J/K using T = 273 K. This is consistent but more precise than the data justifies; not changed.
+
+## Source verification (2026-10-17)
+
+Checked against OpenStax University Physics Vol 1-2 (LibreTexts), NIST CODATA 2022, MIT OCW 8.01SC, HyperPhysics, ETSU and UF Physics I syllabi. Fixes: steel-on-ice mu_k 0.03 -> 0.02 (L08); STP convention (1 atm, 22.4 L) now stated with the IUPAC 1 bar / 22.7 L note (L26, glossary); Carnot "maximum possible" qualified as "between the same two reservoirs" (glossary, card). Coverage additions: rocket equation (L13), stress/strain/Young's modulus (L18, 3 glossary terms), wave power on a string (L21). All ~115 re-solved questions and 16 drills checked agreed with sources; no key changes.

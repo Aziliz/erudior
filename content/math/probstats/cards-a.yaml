@@ -63,7 +63,7 @@
 - {front: 'Poisson$(\lambda)$ pmf', back: '$P(X = k) = e^{-\lambda}\dfrac{\lambda^k}{k!}$, $k = 0, 1, 2, \ldots$', topic: Poisson distribution}
 - {front: 'Poisson mean and variance', back: 'Both equal $\lambda$.', topic: Poisson distribution}
 - {front: 'Poisson approximation to the binomial', back: '$\text{Bin}(n, p) \approx \text{Poisson}(np)$ for large $n$ and small $p$ (e.g. $n \ge 20$, $p \le 0.05$).', topic: Poisson distribution}
-- {front: 'Poisson recursion', back: '$p(k) = \dfrac{\lambda}{k}\,p(k-1)$; the mode is $\lfloor\lambda\rfloor$.', topic: Poisson distribution}
+- {front: 'Poisson recursion', back: '$p(k) = \dfrac{\lambda}{k}\,p(k-1)$; the mode is $\lfloor\lambda\rfloor$ (when $\lambda$ is a whole number, $\lambda - 1$ and $\lambda$ tie).', topic: Poisson distribution}
 - {front: 'Poisson process with rate $\lambda$', back: 'Counts in disjoint intervals are independent; the count in an interval of length $t$ is Poisson$(\lambda t)$; gaps are Exponential$(\lambda)$.', topic: Poisson process}
 - {front: 'Sum of independent Poissons', back: 'Poisson$(\lambda_1)$ + Poisson$(\lambda_2)$ = Poisson$(\lambda_1 + \lambda_2)$.', topic: Poisson process}
 # MGFs

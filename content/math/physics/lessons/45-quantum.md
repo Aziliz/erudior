@@ -9,7 +9,7 @@ refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## Energy comes in packets
 
-By 1900 light was firmly established as a wave. Then a series of experiments showed that light's energy arrives in discrete lumps, that atoms emit only certain colors, and that electrons, supposedly particles, produce interference patterns. Explaining all this required quantum physics, the foundation of chemistry, lasers, LEDs, solar cells and transistors. This lesson covers photons, the photoelectric effect, the Bohr model of hydrogen, and wave–particle duality.
+By 1900 light was firmly established as a wave. Then a series of experiments showed that light's energy arrives in discrete lumps, that atoms emit only certain colors, and that electrons, supposedly particles, produce interference patterns. Explaining all this required quantum physics, the foundation of chemistry, lasers, LEDs, solar cells and transistors. This lesson covers photons, the photoelectric effect, blackbody radiation and Compton scattering, the Bohr model of hydrogen, and wave–particle duality.
 
 ## Photons
 
@@ -50,6 +50,24 @@ Sodium has a work function of 2.28 eV. (a) What is its threshold wavelength? (b)
 (a) $\lambda_0 = \dfrac{hc}{\phi} = \dfrac{1240}{2.28} = 544$ nm. Longer wavelengths (yellow, red) eject nothing.
 
 (b) $hf = 1240/400 = 3.10$ eV. $K_{\max} = 3.10 - 2.28 = 0.82$ eV; stopping potential 0.82 V.
+
+## Blackbody radiation and Compton scattering
+
+Two more experiments complete the case for photons.
+
+*Blackbody radiation.* Every object emits electromagnetic radiation because of its temperature. An ideal perfect absorber, called a **blackbody**, is also the best possible emitter, and its spectrum depends only on its temperature. The curve rises to a peak and then falls off toward short wavelengths. As the object gets hotter, the total power rises steeply (as $T^4$, the Stefan–Boltzmann law from the heat lesson) and the peak shifts to shorter wavelengths according to **Wien's displacement law**:
+
+$$\lambda_{\max}T = 2.898\times10^{-3}\text{ m·K},$$
+
+with $T$ in kelvins. That's why a heated poker glows dull red, then orange, then yellow-white. Classical wave theory predicted that the emitted power should keep growing without limit at short wavelengths, which is absurd. Planck's assumption that energy is exchanged only in packets of $hf$ made short-wavelength packets too costly to emit often, which bent the curve back down and matched experiment.
+
+For example, the Sun's surface (about 5800 K) peaks near $2.898\times10^{-3}/5800 = 5.0\times10^{-7}$ m $= 500$ nm, in the middle of the visible range. Your skin (about 310 K) peaks near 9.3 μm, in the infrared, which is what thermal cameras detect.
+
+*Compton scattering.* In 1923 Arthur Compton bounced X-rays off electrons in graphite and found that the scattered X-rays had *longer* wavelengths than the incoming ones, by an amount that depended on the scattering angle. A classical wave would come out at its original wavelength. Photons explain the shift: a photon with momentum $h/\lambda$ collides with a nearly free electron, gives it some energy and momentum, and leaves with less energy, so a longer wavelength. Applying conservation of energy and momentum to this collision gives the shift for **Compton scattering**:
+
+$$\Delta\lambda = \lambda' - \lambda = \frac{h}{m_ec}(1 - \cos\theta),$$
+
+where $\theta$ is the angle through which the photon is scattered and $h/(m_ec) = 2.43\times10^{-12}$ m. The shift is zero for a photon that barely deflects and largest, $2h/(m_ec) = 4.86\times10^{-12}$ m, for one that bounces straight back. A few picometers is a large fraction of an X-ray's wavelength but only about a hundred-thousandth of visible light's, which is why the effect shows up only for X-rays and gamma rays. Compton's result showed that photons carry momentum in collisions just as particles do.
 
 ## Atomic spectra and the Bohr model
 
@@ -124,5 +142,6 @@ $E_2 = 2^2E_1 = 6.02$ eV, so the photon carries $E_2 - E_1 = 3E_1 = 4.52$ eV and
 
 - Photon: $E = hf = hc/\lambda$, $p = h/\lambda$; $hc = 1240$ eV·nm.
 - Photoelectric: $K_{\max} = hf - \phi$; threshold $f_0 = \phi/h$; intensity changes the number, not the energy.
+- Blackbody peak (Wien): $\lambda_{\max}T = 2.898\times10^{-3}$ m·K. Compton shift: $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$.
 - Hydrogen: $E_n = -13.6\text{ eV}/n^2$; emitted photon energy is the level difference.
 - de Broglie: $\lambda = h/p$; wave–particle duality applies to light and matter.

@@ -55,7 +55,8 @@ $$\operatorname{Var}(X) = E[X(X-1)] + E(X) - (EX)^2 = n(n-1)p^2 + np - n^2p^2 = 
 $p(1-p)$.)
 
 **Shape.** The pmf rises and then falls, peaking near $np$ (the most likely value, the
-**mode**, is $\lfloor (n+1)p \rfloor$). It is symmetric when $p = \tfrac12$, skewed right for small
+**mode**, is $\lfloor (n+1)p \rfloor$; when $(n+1)p$ is a whole number between 1 and $n$, the two
+values $(n+1)p - 1$ and $(n+1)p$ tie as modes). It is symmetric when $p = \tfrac12$, skewed right for small
 $p$ and skewed left for large $p$.
 
 ### Example 1: signal faults

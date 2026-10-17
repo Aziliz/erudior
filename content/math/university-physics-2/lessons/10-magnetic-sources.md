@@ -17,7 +17,7 @@ A long straight wire carrying current $I$ makes a magnetic field that circles th
 
 $$B = \frac{\mu_0I}{2\pi r},$$
 
-where $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the **permeability of free space**. (This and the other field formulas in this lesson are derived at the end, from the Biot–Savart law and Ampère's law.) The field weakens as $1/r$, like the electric field of a line charge.
+where $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the **permeability of free space**. (Since the 2019 redefinition of the SI units, $\mu_0$ is a measured constant, $1.25663706\times10^{-6}$ T·m/A, which still equals $4\pi\times10^{-7}$ to about one part in $10^{10}$, so the $4\pi$ form is exact enough for any calculation here.) (This and the other field formulas in this lesson are derived at the end, from the Biot–Savart law and Ampère's law.) The field weakens as $1/r$, like the electric field of a line charge.
 
 *Direction (right-hand grip rule).* Grasp the wire with your right thumb along the current; your fingers curl in the direction of $\vec B$. Seen from above with current coming toward you, the field circles counterclockwise.
 
@@ -57,7 +57,7 @@ Each of two parallel wires sits in the field of the other, so each feels a force
 
 $$\frac FL = \frac{\mu_0I_1I_2}{2\pi d}.$$
 
-Using the right-hand rules: currents in the *same* direction attract, currents in *opposite* directions repel (the reverse of electric charges). This force once defined the ampere: two wires 1 m apart, each carrying 1 A, feel $2\times10^{-7}$ N per meter.
+Using the right-hand rules: currents in the *same* direction attract, currents in *opposite* directions repel (the reverse of electric charges). This force defined the ampere until 2019: two wires 1 m apart, each carrying 1 A, feel $2\times10^{-7}$ N per meter. (The ampere is now defined by fixing the value of the elementary charge $e$.)
 
 ### Example 3
 
@@ -81,11 +81,11 @@ and the total field is the integral over the wire. It's the magnetic analog of C
 
 *Straight wire.* For an element at position $x$ along an infinite wire, a point at perpendicular distance $a$ gets $dB = \dfrac{\mu_0I}{4\pi}\dfrac{a\,dx}{(x^2 + a^2)^{3/2}}$; integrating over all $x$ gives $\dfrac{\mu_0I}{2\pi a}$.
 
-**Ampère's law** is the magnetic counterpart of Gauss's law, a shortcut for symmetric situations. Around any closed path,
+**Ampère's law** is the magnetic counterpart of Gauss's law, a shortcut for symmetric situations. For steady currents, around any closed path,
 
 $$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}},$$
 
-where $I_{\text{enc}}$ is the current passing through the path. For a straight wire, choose a circle of radius $r$: $B(2\pi r) = \mu_0I$, the result above in one line. For a solenoid, a rectangular path with one side inside (length $L$) gives $BL = \mu_0nLI$. Inside a thick wire of radius $R$ carrying uniform current, a circle of radius $r < R$ encloses $I(r/R)^2$, so $B = \dfrac{\mu_0Ir}{2\pi R^2}$, growing linearly from zero at the center.
+where $I_{\text{enc}}$ is the current passing through any surface bounded by the path. (With changing electric fields, as in a charging capacitor, Maxwell's extra term is needed; see the light lesson.) For a straight wire, choose a circle of radius $r$: $B(2\pi r) = \mu_0I$, the result above in one line. For a solenoid, a rectangular path with one side inside (length $L$) gives $BL = \mu_0nLI$. Inside a thick wire of radius $R$ carrying uniform current, a circle of radius $r < R$ encloses $I(r/R)^2$, so $B = \dfrac{\mu_0Ir}{2\pi R^2}$, growing linearly from zero at the center.
 
 ## Common mistakes
 
@@ -99,5 +99,5 @@ where $I_{\text{enc}}$ is the current passing through the path. For a straight w
 - Straight wire: $B = \mu_0I/(2\pi r)$, circling the wire (right-hand grip).
 - Loop center: $B = \mu_0I/(2R)$ per turn. Solenoid: $B = \mu_0nI$, uniform inside.
 - Parallel wires: $F/L = \mu_0I_1I_2/(2\pi d)$; same direction attract.
-- $\mu_0 = 4\pi\times10^{-7}$ T·m/A.
+- $\mu_0 = 4\pi\times10^{-7}$ T·m/A (measured since 2019, but equal to this to 10 digits).
 - Biot–Savart: $d\vec B = \dfrac{\mu_0}{4\pi}\dfrac{I\,d\vec\ell\times\hat r}{r^2}$. Ampère: $\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$.

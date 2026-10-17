@@ -82,6 +82,12 @@ in the units of $y$. Report both.
 
 ## Outliers, leverage and influential points
 
+*AP exam scope:* the AP Statistics framework that took effect in the 2026–27 school year
+removed the topic "analyzing departures from linearity," which covered this section's
+outliers, high-leverage points and influential points (and the transformations of the next
+lesson). The ideas are still standard in introductory college statistics and worth knowing
+when you read any regression, but they are no longer tested on their own.
+
 - An **outlier** in regression is a point with a large residual — far from the line in
   the $y$ direction.
 - A point has high **leverage** if its $x$ value is far from $\bar{x}$. Such points pull on

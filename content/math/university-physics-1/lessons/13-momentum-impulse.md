@@ -105,6 +105,14 @@ $$J = \int_0^{0.010} (4.0\times10^{7})(0.010\,t - t^2)\,dt = (4.0\times10^{7})\l
 
 The ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midpoint, $t = 0.005$ s: $F_{\max} = (4.0\times10^{7})(0.005)(0.005) = 1000$ N. The average force is $J/\Delta t = 667$ N, two-thirds of the peak, as expected for a parabolic pulse.
 
+## Rockets: momentum with changing mass
+
+A rocket is the standard example of a system that loses mass as it moves. Far from any planet (no external force), let the rocket have mass $m$ and velocity $v$, and let it eject exhaust backward at speed $u$ *relative to the rocket*. In a time $dt$ its mass changes by $dm$ (negative) and the exhaust carries away mass $-dm$ moving at $v - u$. Conserving momentum, $mv = (m + dm)(v + dv) + (-dm)(v - u)$, and dropping the tiny product $dm\,dv$ leaves $m\,dv = -u\,dm$. Separating variables and integrating from the initial mass $m_i$ to the final mass $m_f$:
+
+$$\Delta v = u\ln\frac{m_i}{m_f}.$$
+
+This is the rocket equation. The push on the rocket, the thrust, is $u\,|dm/dt|$. Because the gain grows only with the logarithm of the mass ratio, a rocket with $u = 3.0$ km/s that burns 80% of its mass ($m_i/m_f = 5$) gains only $3.0\ln 5 = 4.8$ km/s, which is why orbital rockets drop empty stages.
+
 ## Common mistakes
 
 - Ignoring direction: momentum and impulse are vectors, and a rebound reverses the sign of $v$.

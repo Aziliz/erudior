@@ -17,7 +17,7 @@ A long straight wire carrying current $I$ makes a magnetic field that circles th
 
 $$B = \frac{\mu_0I}{2\pi r},$$
 
-where $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the **permeability of free space**. The field weakens as $1/r$, like the electric field of a line charge.
+where $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the **permeability of free space**. (That value was exact until the SI units were redefined in 2019; $\mu_0$ is now a measured constant, but it still agrees with $4\pi\times10^{-7}$ to about ten digits, so the formula is used unchanged.) The field weakens as $1/r$, like the electric field of a line charge.
 
 *Direction (right-hand grip rule).* Grasp the wire with your right thumb along the current; your fingers curl in the direction of $\vec B$. Seen from above with current coming toward you, the field circles counterclockwise.
 
@@ -110,5 +110,5 @@ The loop-center formula $\mu_0I/(2R)$ isn't symmetric enough for this shortcut; 
 - Straight wire: $B = \mu_0I/(2\pi r)$, circling the wire (right-hand grip).
 - Loop center: $B = \mu_0I/(2R)$ per turn. Solenoid: $B = \mu_0nI$, uniform inside.
 - Parallel wires: $F/L = \mu_0I_1I_2/(2\pi d)$; same direction attract.
-- $\mu_0 = 4\pi\times10^{-7}$ T·m/A.
+- $\mu_0 \approx 4\pi\times10^{-7}$ T·m/A $= 1.257\times10^{-6}$ T·m/A.
 - Fields add as vectors (superposition). Ampère's law for symmetric cases: $B \times (\text{path length}) = \mu_0I_{\text{enc}}$.

@@ -6,8 +6,9 @@ description: >-
   gravitation, oscillations, waves and sound, fluids and thermodynamics, electrostatics,
   circuits, magnetism and induction, optics, and modern physics. For the calculus-based
   versions, see University Physics I and II.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections.
 order: 13
 subject: Science
 level: [High school]

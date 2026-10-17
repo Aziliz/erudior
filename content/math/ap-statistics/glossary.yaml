@@ -66,6 +66,10 @@
   aliases: [statistical inference, inference]
   definition: 'Methods that use sample data to draw conclusions about a population, with a statement of uncertainty.'
   topic: Types of data
+- term: investigative question
+  aliases: [investigative questions, statistical investigative question]
+  definition: 'The question about a population that a study is designed to answer, fixed before data are collected; it names the variables, the kind of answer wanted (an estimate, a direction of difference, or an association) and the population.'
+  topic: Types of data
 - term: distribution
   aliases: [distributions]
   definition: 'What values a variable takes and how often it takes each one.'
@@ -102,6 +106,10 @@
   aliases: [segmented bar charts, stacked bar chart]
   definition: 'A chart with one bar per group, scaled to 100% and divided into segments for each category; shows conditional distributions.'
   topic: Categorical displays
+- term: mosaic plot
+  aliases: [mosaic plots]
+  definition: 'A segmented bar chart whose bar widths are proportional to the group sizes, so segment heights show conditional distributions and rectangle areas are proportional to cell counts.'
+  topic: Two-way tables
 - term: truncated axis
   definition: 'A vertical axis that does not start at zero; it exaggerates differences in bar charts.'
   topic: Categorical displays
@@ -744,7 +752,7 @@
   topic: Sampling distributions
 - term: central limit theorem
   aliases: [CLT]
-  definition: 'For large $n$, the sampling distribution of $\bar{x}$ is approximately normal with mean $\mu$ and SD $\sigma/\sqrt{n}$, whatever the population''s shape.'
+  definition: 'For a random sample (independent observations) from any population with finite mean $\mu$ and SD $\sigma$, the sampling distribution of $\bar{x}$ is approximately normal with mean $\mu$ and SD $\sigma/\sqrt{n}$ when $n$ is large, whatever the population''s shape.'
   topic: Central Limit Theorem
 - term: standard error of the mean
   aliases: [SEM]

@@ -98,7 +98,8 @@ $$\text{Bin}(n, p) \approx \text{N}\big(np,\ np(1 - p)\big),$$
 
 a result due to de Moivre and Laplace and the first instance of the Central Limit Theorem. A
 common guideline is $np \ge 10$ and $n(1 - p) \ge 10$, so the distribution is not crammed against
-0 or $n$.
+0 or $n$. This course uses 10; many textbooks use the looser cutoff 5, so check which one a
+problem expects.
 
 **Continuity correction.** The binomial puts its probability on whole numbers; picture each
 $P(X = k)$ as a bar of width 1 from $k - 0.5$ to $k + 0.5$. To approximate $P(X \le k)$ by an area

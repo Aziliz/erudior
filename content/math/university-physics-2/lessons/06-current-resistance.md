@@ -19,7 +19,7 @@ $$I = \frac{\Delta Q}{\Delta t},$$
 
 measured in **amperes** (A): $1\text{ A} = 1\text{ C/s}$. By convention, current direction is the direction positive charges would move, from the high-potential (+) terminal of a battery, through the external circuit, to the low-potential (−) terminal. In metal wires the moving charges are actually electrons, flowing the opposite way; for circuit analysis the two descriptions are equivalent.
 
-A battery is a source of **electromotive force** (emf, symbol $\mathcal{E}$), which is not a force but a potential difference maintained by chemistry: it does work $\mathcal{E}$ on each coulomb pushed through it. A 9 V battery gives each coulomb 9 J.
+A battery is a source of **electromotive force** (emf, symbol $\mathcal{E}$), which is not a force at all but the work per unit charge the source does (by chemistry, in a battery) moving charge through it: it does work $\mathcal{E}$ on each coulomb pushed through it, and with no current flowing it equals the voltage across the terminals. A 9 V battery gives each coulomb 9 J.
 
 ## Drift velocity
 

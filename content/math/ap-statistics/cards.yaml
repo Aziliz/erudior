@@ -107,7 +107,7 @@
 - {front: 'Systematic sample', back: 'Random start among the first $k$, then every $k$th individual, $k = N/n$.', topic: 'Sampling and bias'}
 - {front: 'Proportional allocation', back: 'Stratum sample size = $n \times$ (stratum size ÷ $N$).', topic: 'Sampling and bias'}
 - {front: 'Biases in surveys even with random sampling', back: 'Undercoverage, nonresponse, response bias, question wording.', topic: 'Sampling and bias'}
-- {front: 'Bias vs. sampling variability', back: 'Bias: systematic error, fixed by random selection. Variability: chance error, reduced by larger samples.', topic: 'Sampling and bias'}
+- {front: 'Bias vs. sampling variability', back: 'Bias: systematic error; random selection removes selection bias, but not nonresponse, response or wording bias. Variability: chance error, reduced by larger samples.', topic: 'Sampling and bias'}
 # Experiments
 - {front: 'Principles of experimental design', back: 'Comparison, random assignment, replication, control of other variables.', topic: 'Experimental design'}
 - {front: 'Treatments in a multifactor experiment', back: 'Number of treatments = product of the numbers of levels of each factor.', topic: 'Experimental design'}
@@ -180,7 +180,7 @@
 - {front: 'Does population size affect precision?', back: 'Barely, as long as the sample is under 10% of the population; $n$ matters.', topic: 'Sampling distributions'}
 # CLT
 - {front: 'Mean and SD of x̄', back: '$\mu_{\bar{x}} = \mu$; $\sigma_{\bar{x}} = \sigma/\sqrt{n}$.', topic: 'Central Limit Theorem'}
-- {front: 'Central Limit Theorem', back: 'For large $n$ (often $n \ge 30$), $\bar{x}$ is approximately normal whatever the population''s shape.', topic: 'Central Limit Theorem'}
+- {front: 'Central Limit Theorem', back: 'For a random sample from a population with finite mean and SD, $\bar{x}$ is approximately normal for large $n$ (often $n \ge 30$), whatever the population''s shape.', topic: 'Central Limit Theorem'}
 - {front: 'Normal population and x̄', back: '$\bar{x}$ is exactly normal for every $n$.', topic: 'Central Limit Theorem'}
 - {front: 'Probability about a total of n values', back: 'Total has mean $n\mu$ and SD $\sqrt{n}\,\sigma$ (or convert to $\bar{x}$ = total/$n$).', topic: 'Central Limit Theorem'}
 # CI proportions

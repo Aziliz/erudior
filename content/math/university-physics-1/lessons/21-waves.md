@@ -95,6 +95,8 @@ $$I = \frac{P}{4\pi r^2}.$$
 
 That's another inverse-square law, which we'll use for sound.
 
+For a sinusoidal wave on a string the average power carried is $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$: it grows with the square of both the amplitude and the frequency, and with the wave speed.
+
 ## The wave function and the wave equation
 
 A sinusoidal wave moving in the $+x$ direction is

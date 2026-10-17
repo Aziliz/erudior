@@ -64,6 +64,7 @@ title: Electricity, magnetism, optics, and modern physics
 | Energy, momentum | $E = \gamma mc^2$, $K = (\gamma - 1)mc^2$, $p = \gamma mv$, $E^2 = (pc)^2 + (mc^2)^2$ |
 | Photons | $E = hf = hc/\lambda$; $p = h/\lambda$ |
 | Photoelectric effect | $K_{\max} = hf - \phi$ |
+| Blackbody, Compton | Wien $\lambda_{\max}T = 2.898\times10^{-3}$ m·K; $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$, $\dfrac{h}{m_ec} = 2.43$ pm |
 | Hydrogen | $E_n = -\dfrac{13.6\text{ eV}}{n^2}$ |
 | Matter waves | $\lambda = h/p$; $\Delta x\,\Delta p \ge h/(4\pi)$ |
 | Binding energy | $E_B = \Delta m\,c^2$ (1 u ↔ 931.5 MeV) |

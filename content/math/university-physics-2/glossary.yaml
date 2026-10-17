@@ -219,7 +219,7 @@
   topic: Magnetic force
 - term: permeability of free space
   aliases: [μ0, mu naught]
-  definition: '$\mu_0 = 4\pi\times10^{-7}$ T·m/A, the constant in magnetic field formulas.'
+  definition: '$\mu_0 \approx 4\pi\times10^{-7}$ T·m/A, the constant in magnetic field formulas (exact before the 2019 SI redefinition; now measured, but equal to $4\pi\times10^{-7}$ to about 10 digits).'
   topic: Sources of magnetic field
 - term: solenoid
   definition: 'A long coil of wire; inside, $B = \mu_0nI$, nearly uniform and along the axis.'
@@ -236,7 +236,7 @@
   definition: '$d\vec B = \dfrac{\mu_0}{4\pi}\dfrac{I\,d\vec\ell\times\hat r}{r^2}$: the field contribution of a current element.'
   topic: Sources of magnetic field
 - term: Ampère's law
-  definition: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$; used with symmetry to find magnetic fields.'
+  definition: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$ for steady currents; used with symmetry to find magnetic fields. Maxwell added a displacement-current term for changing electric fields.'
   topic: Sources of magnetic field
 - term: magnetic flux
   definition: '$\Phi_B = \int\vec B\cdot d\vec A$; $BA\cos\theta$ for a flat loop in a uniform field, in webers.'
@@ -290,6 +290,13 @@
   definition: 'Total opposition to AC in a circuit; series RLC: $Z = \sqrt{R^2 + (X_L - X_C)^2}$.'
   topic: AC circuits
 # ---- m11 Light and optics
+- term: displacement current
+  definition: '$I_d = \varepsilon_0\,d\Phi_E/dt$, the term Maxwell added to Ampère''s law so that a changing electric field produces a magnetic field just as a current does.'
+  topic: Electromagnetic waves
+- term: Maxwell's equations
+  aliases: [Maxwell equations]
+  definition: 'The four laws of electromagnetism: Gauss''s law, Gauss''s law for magnetism ($\oint\vec B\cdot d\vec A = 0$), Faraday''s law, and the Ampère–Maxwell law.'
+  topic: Electromagnetic waves
 - term: electromagnetic wave
   aliases: [EM wave, electromagnetic waves, light wave]
   definition: 'A self-sustaining wave of perpendicular oscillating electric and magnetic fields, traveling at $c = 1/\sqrt{\mu_0\varepsilon_0}$ in vacuum.'
@@ -382,7 +389,7 @@
   definition: '$P = 1/f$ in diopters (m⁻¹).'
   topic: Thin lenses
 - term: lensmaker's equation
-  definition: '$\dfrac1f = (n - 1)\left(\dfrac1{R_1} - \dfrac1{R_2}\right)$ for a thin lens.'
+  definition: '$\dfrac1f = (n - 1)\left(\dfrac1{R_1} - \dfrac1{R_2}\right)$ for a thin lens in air (in a medium of index $n_m$, use $n/n_m - 1$).'
   topic: Thin lenses
 - term: coherent
   aliases: [coherence]

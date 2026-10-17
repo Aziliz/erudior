@@ -14,6 +14,12 @@ in points is converted to a percentage. Each is a random variable built from oth
 lesson gives the rules for the mean and standard deviation of such combinations — rules
 that underlie every two-sample inference procedure later in the course.
 
+*AP exam scope:* the AP Statistics framework that took effect in the 2026–27 school year
+dropped "combining random variables" as a separate topic. The rule that variances add for
+independent variables is still the reason behind the standard errors of $\hat{p}_1 - \hat{p}_2$
+and $\bar{x}_1 - \bar{x}_2$ on the AP formula sheet, so the main idea of this lesson is still
+used in Module 7.
+
 ## Linear transformations
 
 For $Y = a + bX$, exactly as with data in Module 2:

@@ -31,6 +31,7 @@
 - {front: 'One-proportion $z$ test', back: '$Z = \dfrac{\hat p - p_0}{\sqrt{p_0(1 - p_0)/n}}$; the standard error uses $p_0$ because it is computed under $H_0$. Needs $np_0, n(1-p_0) \ge 10$.', topic: Tests for proportions}
 - {front: 'Two-proportion $z$ test', back: '$Z = \dfrac{\hat p_1 - \hat p_2}{\sqrt{\hat p(1 - \hat p)(1/n_1 + 1/n_2)}}$ with pooled $\hat p = (X_1 + X_2)/(n_1 + n_2)$.', topic: Tests for proportions}
 - {front: 'Pearson''s chi-square statistic', back: '$X^2 = \sum\dfrac{(O - E)^2}{E}$ over all cells; reject $H_0$ for large values.', topic: Chi-square tests}
+- {front: 'Multinomial distribution', back: '$P(o_1, \dots, o_k) = \dfrac{n!}{o_1!\cdots o_k!}p_1^{o_1}\cdots p_k^{o_k}$; $E(O_i) = np_i$, $\operatorname{Var}(O_i) = np_i(1 - p_i)$, $\operatorname{Cov}(O_i, O_j) = -np_ip_j$.', topic: Chi-square tests}
 - {front: 'Goodness-of-fit degrees of freedom', back: '$k - 1 - m$, for $k$ categories and $m$ parameters estimated from the data.', topic: Chi-square tests}
 - {front: 'Expected counts in a two-way table', back: '$E_{ij} = R_iC_j/n$ (row total times column total over grand total).', topic: Chi-square tests}
 - {front: 'Degrees of freedom for independence', back: '$(r - 1)(c - 1)$ = $(rc - 1) - [(r - 1) + (c - 1)]$, the free parameters of the full model minus those under independence.', topic: Chi-square tests}

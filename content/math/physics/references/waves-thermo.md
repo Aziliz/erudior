@@ -51,7 +51,7 @@ title: Oscillations, waves, fluids, and thermodynamics
 
 | | |
 |---|---|
-| First law | $\Delta E_{\text{int}} = Q - W$ ($W$ by the gas) |
+| First law | $\Delta E_{\text{int}} = Q - W$ ($W$ by the gas); AP Physics 2 form: $\Delta U = Q + W$ with $W = -P\Delta V$ done *on* the gas |
 | Work by gas | area under the $PV$ curve; isobaric $P\Delta V$; isothermal $nRT\ln(V_f/V_i)$ |
 | Adiabatic | $PV^\gamma$ = const, $TV^{\gamma - 1}$ = const |
 | Engine | $e = \dfrac{W}{Q_H} = 1 - \dfrac{Q_C}{Q_H}$; Carnot $e = 1 - \dfrac{T_C}{T_H}$ |

@@ -374,6 +374,18 @@
   aliases: [CG]
   definition: 'The point where an object''s total weight effectively acts; equals the center of mass in uniform gravity.'
   topic: Static equilibrium
+- term: stress
+  aliases: [tensile stress]
+  definition: 'Force per unit area applied to a material, $F/A$, in pascals.'
+  topic: Static equilibrium
+- term: strain
+  aliases: [tensile strain]
+  definition: 'The fractional deformation of a material, such as $\Delta L/L$; dimensionless.'
+  topic: Static equilibrium
+- term: Young's modulus
+  aliases: [elastic modulus]
+  definition: 'The ratio of tensile stress to strain for small deformations, $Y = (F/A)/(\Delta L/L)$; about $2\times10^{11}$ Pa for steel.'
+  topic: Static equilibrium
 - term: Newton's law of gravitation
   aliases: [universal gravitation, law of universal gravitation]
   definition: 'Any two masses attract with $F = Gm_1m_2/r^2$ along the line joining them.'
@@ -656,7 +668,7 @@
   topic: Ideal gas law
 - term: STP
   aliases: [standard temperature and pressure]
-  definition: 'Standard temperature and pressure: 0°C (273.15 K) and 1 atm; one mole of ideal gas occupies 22.4 L.'
+  definition: 'Standard temperature and pressure: in this course 0°C (273.15 K) and 1 atm, where one mole of ideal gas occupies 22.4 L. (IUPAC now uses 1 bar = 100 kPa, giving 22.7 L.)'
   topic: Ideal gas law
 - term: root-mean-square speed
   aliases: [rms speed, vrms]
@@ -722,7 +734,7 @@
   topic: Heat engines
 - term: Carnot cycle
   aliases: [Carnot engine, Carnot efficiency]
-  definition: 'The reversible cycle of two isotherms and two adiabats; its efficiency $1 - T_C/T_H$ is the maximum possible.'
+  definition: 'The reversible cycle of two isotherms and two adiabats; its efficiency $1 - T_C/T_H$ is the maximum possible for any engine working between those two reservoir temperatures.'
   topic: Heat engines
 - term: refrigerator
   definition: 'A device that uses work to move heat from a cold region to a warmer one.'

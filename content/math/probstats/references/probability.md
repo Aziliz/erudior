@@ -72,7 +72,7 @@ Geometric tail: $P(X > k) = q^k$. Poisson process with rate $\lambda$: count in 
 
 - Exponential: $P(X > x) = e^{-\lambda x}$, median $\ln 2/\lambda$, memoryless.
 - Normal: $Z = (X - \mu)/\sigma$; $x_p = \mu + \sigma z_p$; $z_{0.90} = 1.2816$, $z_{0.95} = 1.6449$, $z_{0.975} = 1.9600$, $z_{0.99} = 2.3263$.
-- Binomial ≈ Normal$(np, npq)$ when $np, nq \ge 10$; continuity correction $P(X \le k) \approx \Phi\left(\frac{k + 0.5 - np}{\sqrt{npq}}\right)$.
+- Binomial ≈ Normal$(np, npq)$ when $np, nq \ge 10$ (many texts use 5); continuity correction $P(X \le k) \approx \Phi\left(\frac{k + 0.5 - np}{\sqrt{npq}}\right)$.
 - Gamma function: $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n-1)!$, $\Gamma(\tfrac12) = \sqrt\pi$; $\int_0^\infty x^{\alpha-1}e^{-x/\theta}dx = \Gamma(\alpha)\theta^\alpha$.
 - Beta function: $B(a, b) = \Gamma(a)\Gamma(b)/\Gamma(a + b)$.
 - Time of the $k$-th event of a rate-$\lambda$ Poisson process: Gamma$(k, 1/\lambda)$, with $P(T_k > t) = P(\text{Poisson}(\lambda t) \le k - 1)$.
@@ -85,4 +85,5 @@ Geometric tail: $P(X > k) = q^k$. Poisson process with rate $\lambda$: count in 
 | cdf method | $F_Y(y) = P(g(X) \le y)$, then $f_Y = F_Y'$ |
 | Monotone $g$ | $f_Y(y) = f_X(g^{-1}(y))\left\lvert \dfrac{d}{dy}g^{-1}(y)\right\rvert$ |
 | Linear $Y = aX + b$ | $f_Y(y) = \dfrac{1}{\lvert a \rvert}f_X\left(\dfrac{y - b}{a}\right)$ |
+| Two variables, one-to-one | $f_{U,V}(u, v) = f_{X,Y}(x(u,v), y(u,v))\,\lvert J\rvert$, $J = \det\dfrac{\partial(x, y)}{\partial(u, v)}$ |
 | Probability integral transform | $F(X) \sim$ Uniform$(0, 1)$; $F^{-1}(U)$ has cdf $F$ |

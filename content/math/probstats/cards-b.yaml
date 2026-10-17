@@ -96,6 +96,8 @@
 - {front: 'MLEs for $N(\mu, \sigma^2)$', back: '$\hat\mu = \bar x$, $\hat\sigma^2 = \tfrac1n\sum(x_i - \bar x)^2$ (divide by $n$).', topic: 'Maximum likelihood'}
 - {front: 'MLE for Uniform$(0, \theta)$', back: '$\hat\theta = \max x_i$, at the boundary where $L$ jumps; $L''(\theta) = 0$ has no solution.', topic: 'Maximum likelihood'}
 - {front: 'Invariance of the MLE', back: 'The MLE of $g(\theta)$ is $g(\hat\theta)$ (but unbiasedness is not preserved).', topic: 'Maximum likelihood'}
+- {front: 'Delta method', back: 'If $\hat\theta \approx N(\theta, v)$, then $g(\hat\theta) \approx N\big(g(\theta), [g''(\theta)]^2v\big)$ for differentiable $g$ with $g''(\theta) \ne 0$.', topic: 'Maximum likelihood'}
+- {front: 'Factorization theorem for sufficiency', back: '$T = u(\mathbf X)$ is sufficient for $\theta$ iff $f(\mathbf x; \theta) = \phi(u(\mathbf x); \theta)\,h(\mathbf x)$ with $h$ free of $\theta$. Example: $\sum X_i$ for Poisson data.', topic: 'Maximum likelihood'}
 - {front: 'Large-sample distribution of the MLE', back: '$\hat\theta \approx N\big(\theta, 1/(nI(\theta))\big)$; SE $\approx 1/\sqrt{nI(\hat\theta)}$.', topic: 'Maximum likelihood'}
 # Confidence intervals
 - {front: 'Pivotal quantity', back: 'A function of data and $\theta$ with a fully known distribution; invert $P(a \le Q \le b) = 1 - \alpha$.', topic: 'Confidence intervals'}

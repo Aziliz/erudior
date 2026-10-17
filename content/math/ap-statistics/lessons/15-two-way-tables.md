@@ -63,6 +63,12 @@ there would be no association.
 A **segmented bar chart** (one bar per age group, each scaled to 100% and divided by
 mode) or a **side-by-side bar chart** shows the comparison at a glance.
 
+A **mosaic plot** is a segmented bar chart with one extra feature: each bar's *width* is
+proportional to the size of its group. Here the under-30 bar would be 60 units wide, the 30–50
+bar 80 units wide and the over-50 bar 60 units wide. The heights of the segments still show
+each group's conditional distribution, the widths show the marginal distribution of age
+group, and the area of each rectangle is proportional to its cell count.
+
 ```plot
 {"x": [0.4, 3.9], "y": [-0.12, 1.05], "grid": false, "polygons": [{"points": [[0.7, 0], [1.3, 0], [1.3, 0.5], [0.7, 0.5]], "fill": true, "color": "#2c5e8f"}, {"points": [[0.7, 0.5], [1.3, 0.5], [1.3, 0.8333], [0.7, 0.8333]], "fill": true, "color": "#c2570c"}, {"points": [[0.7, 0.8333], [1.3, 0.8333], [1.3, 1], [0.7, 1]], "fill": true, "color": "#2f855a"}, {"points": [[1.7, 0], [2.3, 0], [2.3, 0.3125], [1.7, 0.3125]], "fill": true, "color": "#2c5e8f"}, {"points": [[1.7, 0.3125], [2.3, 0.3125], [2.3, 0.5], [1.7, 0.5]], "fill": true, "color": "#c2570c"}, {"points": [[1.7, 0.5], [2.3, 0.5], [2.3, 1], [1.7, 1]], "fill": true, "color": "#2f855a"}, {"points": [[2.7, 0], [3.3, 0], [3.3, 0.25], [2.7, 0.25]], "fill": true, "color": "#2c5e8f"}, {"points": [[2.7, 0.25], [3.3, 0.25], [3.3, 0.4167], [2.7, 0.4167]], "fill": true, "color": "#c2570c"}, {"points": [[2.7, 0.4167], [3.3, 0.4167], [3.3, 1], [2.7, 1]], "fill": true, "color": "#2f855a"}], "segments": [{"from": [0.5, 0], "to": [3.5, 0]}], "labels": [{"at": [1, -0.06], "text": "Under 30"}, {"at": [2, -0.06], "text": "30–50"}, {"at": [3, -0.06], "text": "Over 50"}, {"at": [3.62, 0.12], "text": "train"}, {"at": [3.6, 0.33], "text": "bus"}, {"at": [3.6, 0.7], "text": "car"}], "caption": "Segmented bar chart: the car share (top segment) grows with age"}
 ```

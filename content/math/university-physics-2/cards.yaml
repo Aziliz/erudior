@@ -49,7 +49,7 @@
 - {front: 'Field at the center of a loop', back: '$B = \dfrac{\mu_0I}{2R}$ (times $N$ for $N$ turns)', topic: Sources of magnetic field}
 - {front: 'Field inside a solenoid', back: '$B = \mu_0nI$, $n$ = turns per meter', topic: Sources of magnetic field}
 - {front: 'Force between parallel wires', back: '$F/L = \dfrac{\mu_0I_1I_2}{2\pi d}$; same direction attract', topic: Sources of magnetic field}
-- {front: 'Ampère''s law', back: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$', topic: Sources of magnetic field}
+- {front: 'Ampère''s law', back: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$ (steady currents)', topic: Sources of magnetic field}
 - {front: 'Magnetic flux', back: '$\Phi_B = BA\cos\theta$ (Wb)', topic: Electromagnetic induction}
 - {front: 'Faraday''s law', back: '$\mathcal{E} = -N\dfrac{d\Phi_B}{dt}$', topic: Electromagnetic induction}
 - {front: 'Lenz''s law', back: 'The induced current opposes the change in flux.', topic: Electromagnetic induction}

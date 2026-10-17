@@ -143,7 +143,7 @@
 - {front: 'Average translational KE of a gas molecule', back: '$\tfrac12m\overline{v^2} = \tfrac32k_BT$', topic: Kinetic theory}
 - {front: 'rms speed', back: '$v_{\text{rms}} = \sqrt{3RT/M}$ ($M$ in kg/mol)', topic: Kinetic theory}
 - {front: 'Internal energy of a monatomic ideal gas', back: '$E_{\text{int}} = \tfrac32nRT$', topic: Kinetic theory}
-- {front: 'First law of thermodynamics', back: '$\Delta E_{\text{int}} = Q - W$ ($Q$ in, $W$ by the gas)', topic: First law of thermodynamics}
+- {front: 'First law of thermodynamics', back: '$\Delta E_{\text{int}} = Q - W$ ($Q$ in, $W$ by the gas). AP Physics 2 form: $\Delta U = Q + W$ with $W$ done on the gas.', topic: First law of thermodynamics}
 - {front: 'Work done by a gas', back: 'The area under the path on a PV diagram; $W = P\Delta V$ at constant pressure.', topic: First law of thermodynamics}
 - {front: 'Isothermal work (ideal gas)', back: '$W = nRT\ln(V_f/V_i)$, and $Q = W$', topic: First law of thermodynamics}
 - {front: 'Adiabatic ideal gas', back: '$Q = 0$; $PV^\gamma$ = const; $TV^{\gamma-1}$ = const; $\gamma = 5/3$ monatomic', topic: First law of thermodynamics}

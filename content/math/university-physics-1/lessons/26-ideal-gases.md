@@ -32,7 +32,7 @@ Special cases for a fixed amount of gas:
 - Constant $V$: $P_1/T_1 = P_2/T_2$ (Gay-Lussac's law).
 - In general: $\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$.
 
-At **STP** (0°C, 1 atm), one mole of any ideal gas occupies 22.4 L.
+At **STP** (0°C, 1 atm), one mole of any ideal gas occupies 22.4 L. This course uses the 1 atm definition, as most physics texts do; IUPAC has defined standard pressure as 1 bar (100 kPa) since 1982, which gives 22.7 L per mole, so check which one a problem or table assumes.
 
 ### Example 1
 

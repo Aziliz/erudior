@@ -143,7 +143,7 @@
 - {front: 'Adiabatic ideal gas', back: '$Q = 0$; $PV^\gamma$ = const; $TV^{\gamma-1}$ = const; $\gamma = 5/3$ monatomic', topic: First law of thermodynamics}
 - {front: 'Monatomic ideal gas molar specific heats', back: '$C_V = \tfrac32R$, $C_P = \tfrac52R$, $C_P - C_V = R$', topic: First law of thermodynamics}
 - {front: 'Heat engine efficiency', back: '$e = W/Q_H = 1 - Q_C/Q_H$', topic: Heat engines}
-- {front: 'Carnot efficiency', back: '$e_C = 1 - T_C/T_H$ (kelvins); the maximum possible.', topic: Heat engines}
+- {front: 'Carnot efficiency', back: '$e_C = 1 - T_C/T_H$ (kelvins); no engine between the same two reservoirs can do better.', topic: Heat engines}
 - {front: 'Refrigerator COP', back: '$K = Q_C/W$; Carnot limit $T_C/(T_H - T_C)$', topic: Heat engines}
 - {front: 'Entropy change at constant temperature', back: '$\Delta S = Q/T$', topic: Entropy}
 - {front: 'Entropy change heating from $T_1$ to $T_2$', back: '$\Delta S = mc\ln(T_2/T_1)$', topic: Entropy}

@@ -94,11 +94,11 @@ $f = -R/2 = -0.60$ m. $\dfrac{1}{d_i} = -\dfrac{1}{0.60} - \dfrac{1}{3.0} = -2.0
 
 ## The lensmaker's equation and moving images
 
-The **lensmaker's equation** gives a thin lens's focal length from its shape:
+The **lensmaker's equation** gives the focal length of a thin lens in air from its shape:
 
 $$\frac1f = (n - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right),$$
 
-where $R_1$ and $R_2$ are the radii of the two surfaces (positive if the center of curvature is on the outgoing side). It comes from applying Snell's law at each surface in the small-angle approximation, $\sin\theta \approx \tan\theta \approx \theta$, the same approximation that makes all rays from a point meet at a single image point.
+where $n$ is the lens's index and $R_1$ and $R_2$ are the radii of the two surfaces (positive if the center of curvature is on the outgoing side, i.e. the surface bulges toward the incoming light). For a lens immersed in a medium of index $n_m$, replace $n - 1$ by $n/n_m - 1$; that factor is smaller in water, which is why a glass lens is weaker underwater. It comes from applying Snell's law at each surface in the small-angle approximation, $\sin\theta \approx \tan\theta \approx \theta$, the same approximation that makes all rays from a point meet at a single image point.
 
 Differentiating the lens equation shows how images move: holding $f$ fixed, $-\dfrac{1}{d_o^2}\,dd_o - \dfrac{1}{d_i^2}\,dd_i = 0$, so $\dfrac{dd_i}{dd_o} = -\dfrac{d_i^2}{d_o^2} = -m^2$. The *longitudinal magnification* is $m^2$ in size: that's why a camera focused on a distant scene barely has to move its lens, while a macro lens focused close up is very sensitive. If an object approaches a converging lens (focal length 10 cm) at 2.0 cm/s from 30 cm away, its image moves away from the lens at $(0.50)^2(2.0) = 0.50$ cm/s.
 

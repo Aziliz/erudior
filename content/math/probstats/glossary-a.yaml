@@ -223,7 +223,7 @@
   definition: '$E[X(X-1)]$ (and higher analogues), often easier to compute for discrete distributions; $\operatorname{Var}(X) = E[X(X-1)] + E(X) - [E(X)]^2$.'
   topic: Binomial distribution
 - term: mode
-  definition: 'The most likely value of a discrete distribution (or the peak of a density). For $\text{Bin}(n, p)$ it is $\lfloor (n+1)p \rfloor$.'
+  definition: 'The most likely value of a discrete distribution (or the peak of a density). For $\text{Bin}(n, p)$ it is $\lfloor (n+1)p \rfloor$; when $(n+1)p$ is a whole number between 1 and $n$, both $(n+1)p - 1$ and $(n+1)p$ are modes.'
   topic: Binomial distribution
 - term: hypergeometric distribution
   definition: 'The number of successes in a sample of $n$ drawn without replacement from $N$ items containing $K$ successes: $\binom{K}{k}\binom{N-K}{n-k}/\binom{N}{n}$; mean $nK/N$.'

@@ -85,6 +85,14 @@ Torque balance for continuous loads uses integrals. A beam carrying a distribute
 
 Equilibrium can also be stable or unstable, which ties back to potential energy: an object resting where its gravitational $U = Mgy_{\text{cg}}$ is at a minimum (any small tilt raises its center of gravity) is stable; at a maximum, unstable.
 
+## Elasticity: supports that stretch
+
+Equilibrium problems treat beams and cables as rigid, but every real support deforms a little. For small deformations the **stress** (force per unit area, $F/A$, in pascals) is proportional to the **strain** (the fractional change in length, $\Delta L/L$, a pure number):
+
+$$\frac{F}{A} = Y\,\frac{\Delta L}{L},$$
+
+where $Y$ is **Young's modulus**, a property of the material (roughly $2\times10^{11}$ Pa for steel, $7\times10^{10}$ Pa for aluminum). This is Hooke's law written for materials. Past the material's elastic limit it no longer springs back, and beyond that it breaks. Similar moduli describe shearing (the shear modulus) and squeezing from all sides (the bulk modulus $B$, which sets the speed of sound in a fluid). For instance, the cable in Example 3 is $4.0/\cos 30^\circ = 4.6$ m long; if it is steel with a 1.0 cm² cross-section, the 1029 N tension stretches it by $\Delta L = \dfrac{FL}{AY} = \dfrac{1029(4.6)}{(1.0\times10^{-4})(2\times10^{11})} \approx 0.24$ mm, small enough that treating it as rigid was fine.
+
 ## Common mistakes
 
 - Taking torques about a point but then including forces acting at that point (they have zero lever arm).

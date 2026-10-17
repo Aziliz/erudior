@@ -19,7 +19,7 @@ $$c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = 3.00\times10^8\text{ m/s},$$
 
 and as with any wave $c = f\lambda$. The field magnitudes are linked by $E = cB$.
 
-EM waves carry energy. Their *intensity* (average power per area) is $I = \tfrac12c\varepsilon_0E_0^2$, where $E_0$ is the peak field. Sunlight at Earth's distance delivers about 1360 W/m². They also carry momentum, exerting a small radiation pressure, $I/c$ for absorbed light, which solar sails use.
+EM waves carry energy. Their *intensity* (average power per area) is $I = \tfrac12c\varepsilon_0E_0^2$, where $E_0$ is the peak field. Sunlight at Earth's distance delivers about 1360 W/m². They also carry momentum, exerting a small radiation pressure: $I/c$ on a surface that absorbs the light and $2I/c$ on one that reflects it straight back, which is why solar sails are mirrors.
 
 *The electromagnetic spectrum.* All EM waves are the same phenomenon, differing only in frequency and wavelength:
 
@@ -39,7 +39,7 @@ In ordinary light from the Sun or a bulb, the electric field points in random di
 
 $$I = I_0\cos^2\theta,$$
 
-**Malus's law**. Crossed polarizers ($\theta = 90^\circ$) block everything. Light reflected from water or roads is partly polarized horizontally, which is why polarized sunglasses (with vertical axes) cut glare.
+**Malus's law**. Crossed polarizers ($\theta = 90^\circ$) block everything. Light reflected from water or roads is partly polarized horizontally, which is why polarized sunglasses (with vertical axes) cut glare. At one angle of incidence, Brewster's angle, given by $\tan\theta_B = n_2/n_1$ (about $53^\circ$ for air to water), the reflected light is completely polarized parallel to the surface.
 
 ## Rays and reflection
 
@@ -93,13 +93,19 @@ Into water: $\sin\theta_c = 1.33/1.52 = 0.875$, so $\theta_c = 61.0^\circ$. The 
 
 ## The wave equation and Fermat's principle
 
-Maxwell's equations in empty space combine to give, for the electric field, the wave equation
+Maxwell's reverse effect is built into Ampère's law. Around a charging capacitor, a loop's current depends on whether the surface it bounds cuts the wire or passes between the plates, where no charge flows but the electric flux is changing. Maxwell fixed this by adding a **displacement current** $I_d = \varepsilon_0\,d\Phi_E/dt$ to the enclosed current. With that term, the four **Maxwell's equations** in integral form are
+
+$$\oint\vec E\cdot d\vec A = \frac{Q_{\text{enc}}}{\varepsilon_0}, \qquad \oint\vec B\cdot d\vec A = 0,$$
+
+$$\oint\vec E\cdot d\vec\ell = -\frac{d\Phi_B}{dt}, \qquad \oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}} + \mu_0\varepsilon_0\frac{d\Phi_E}{dt}:$$
+
+Gauss's law, Gauss's law for magnetism (no magnetic monopoles), Faraday's law, and the Ampère–Maxwell law. In empty space they combine to give, for the electric field, the wave equation
 
 $$\frac{\partial^2E}{\partial x^2} = \mu_0\varepsilon_0\frac{\partial^2E}{\partial t^2},$$
 
 whose solutions travel at $1/\sqrt{\mu_0\varepsilon_0}$. A plane wave $E = E_0\sin(kx - \omega t)$, $B = B_0\sin(kx - \omega t)$ satisfies Faraday's law only if $E_0 = cB_0$. The energy density $u = \tfrac12\varepsilon_0E^2 + \tfrac{1}{2\mu_0}B^2$ splits equally between the fields, and averaging $\sin^2$ over a cycle gives $I = \tfrac12c\varepsilon_0E_0^2$.
 
-Snell's law also follows from **Fermat's principle**: light takes the path of least time. For a ray from a point in medium 1 to a point in medium 2, crossing the boundary at position $x$, the travel time is $t(x) = \dfrac{\sqrt{a^2 + x^2}}{v_1} + \dfrac{\sqrt{b^2 + (d - x)^2}}{v_2}$. Setting $dt/dx = 0$ gives $\dfrac{\sin\theta_1}{v_1} = \dfrac{\sin\theta_2}{v_2}$, which is Snell's law since $v = c/n$.
+Snell's law also follows from **Fermat's principle**: light takes the path of least time (strictly, a path whose time is stationary, which for refraction at a flat surface is a minimum). For a ray from a point in medium 1 to a point in medium 2, crossing the boundary at position $x$, the travel time is $t(x) = \dfrac{\sqrt{a^2 + x^2}}{v_1} + \dfrac{\sqrt{b^2 + (d - x)^2}}{v_2}$. Setting $dt/dx = 0$ gives $\dfrac{\sin\theta_1}{v_1} = \dfrac{\sin\theta_2}{v_2}$, which is Snell's law since $v = c/n$.
 
 ## Common mistakes
 

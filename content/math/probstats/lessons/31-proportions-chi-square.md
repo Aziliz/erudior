@@ -57,7 +57,15 @@ Crew A's welds fail inspection 38 times in 250; crew B's 22 times in 240. Do the
 ## Goodness of fit
 
 Now suppose each of $n$ independent observations falls in one of $k$ categories with
-probabilities $p_1, \dots, p_k$, so the counts $(O_1, \dots, O_k)$ are multinomial. To test
+probabilities $p_1, \dots, p_k$. The counts $(O_1, \dots, O_k)$ then have the
+**multinomial distribution**, the $k$-category version of the binomial:
+
+$$P(O_1 = o_1, \dots, O_k = o_k) = \frac{n!}{o_1!\cdots o_k!}\,p_1^{o_1}\cdots p_k^{o_k}, \qquad o_1 + \cdots + o_k = n.$$
+
+The multinomial coefficient counts the orders in which the categories can occur, and each order has
+probability $p_1^{o_1}\cdots p_k^{o_k}$. Each count alone is $\text{Bin}(n, p_i)$, so $E(O_i) = np_i$ and
+$\operatorname{Var}(O_i) = np_i(1 - p_i)$; two different counts compete for the same $n$ trials, and
+$\operatorname{Cov}(O_i, O_j) = -np_ip_j$. To test
 $H_0: p_i = p_{i0}$ for all $i$, compare observed counts with **expected counts**
 $E_i = np_{i0}$ through **Pearson's chi-square statistic**
 

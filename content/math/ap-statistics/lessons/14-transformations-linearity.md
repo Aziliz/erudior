@@ -17,6 +17,11 @@ statisticians *transform* one or both variables so that the relationship becomes
 linear, fit a least-squares line to the transformed data, and then transform back to
 make predictions.
 
+*AP exam scope:* transformations to achieve linearity were part of the "analyzing
+departures from linearity" topic, which the AP Statistics framework removed starting in the
+2026–27 school year. Treat this lesson as enrichment if you are preparing for a current AP
+exam; it remains part of many college statistics courses and of older AP exams.
+
 ## The idea in one line
 
 If $y$ depends on $x$ in a known curved way, find a function that "undoes" the

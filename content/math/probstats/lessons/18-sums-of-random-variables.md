@@ -78,6 +78,20 @@ This is the gamma density with shape 2 and scale $\theta = 1/\lambda$. If two in
 take an exponential time with rate 1.5 per hour, the chance the whole repair takes more than 2
 hours is $\int_2^\infty 2.25 z e^{-1.5z}\,dz = e^{-3}(1 + 3) \approx 0.199$ (integrate by parts).
 
+## Two-variable change of variables
+
+Convolution is one case of a general tool. If $(U, V)$ is a one-to-one, differentiable
+transformation of a continuous pair $(X, Y)$, with inverse $x = x(u, v)$, $y = y(u, v)$, the
+one-variable formula from the functions-of-a-random-variable lesson extends to
+
+$$f_{U,V}(u, v) = f_{X,Y}\big(x(u, v),\, y(u, v)\big)\,\lvert J\rvert, \qquad J = \det\begin{pmatrix} \partial x/\partial u & \partial x/\partial v \\ \partial y/\partial u & \partial y/\partial v \end{pmatrix},$$
+
+on the image of the support. The absolute value of the Jacobian determinant $J$ does the job of
+$|dx/dy|$: it rescales area instead of length. To find the density of a single function such as
+$X + Y$, add a convenient second variable, transform, and integrate it out. With $U = X + Y$ and
+$V = X$, the inverse is $x = v$, $y = u - v$, so $J = -1$ and $f_{U,V}(u, v) = f_X(v)f_Y(u - v)$ for
+independent $X, Y$; integrating over $v$ gives the convolution formula again.
+
 ## The MGF method
 
 Convolutions get heavy fast. Moment generating functions turn them into multiplication. If

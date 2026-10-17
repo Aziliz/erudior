@@ -677,7 +677,7 @@
   definition: 'A graph of pressure versus volume; the area under a process curve is the work done by the gas.'
   topic: First law of thermodynamics
 - term: first law of thermodynamics
-  definition: '$\Delta E_{\text{int}} = Q - W$, with $Q$ heat into the system and $W$ work done by it.'
+  definition: '$\Delta E_{\text{int}} = Q - W$, with $Q$ heat into the system and $W$ work done by it. (AP Physics 2 writes $\Delta U = Q + W$ with $W$ the work done on the system; same physics, opposite sign for $W$.)'
   topic: First law of thermodynamics
 - term: state variable
   aliases: [state function]
@@ -955,7 +955,7 @@
   topic: Magnetic force
 - term: permeability of free space
   aliases: [μ0, mu naught]
-  definition: '$\mu_0 = 4\pi\times10^{-7}$ T·m/A, the constant in magnetic field formulas.'
+  definition: '$\mu_0 \approx 4\pi\times10^{-7} = 1.257\times10^{-6}$ T·m/A, the constant in magnetic field formulas (exactly $4\pi\times10^{-7}$ before the 2019 SI redefinition).'
   topic: Sources of magnetic field
 - term: solenoid
   definition: 'A long coil of wire; inside, $B = \mu_0nI$, nearly uniform and along the axis.'
@@ -1177,6 +1177,18 @@
   topic: Photons
 - term: threshold frequency
   definition: 'The lowest light frequency, $f_0 = \phi/h$, that can eject photoelectrons.'
+  topic: Photons
+- term: blackbody
+  aliases: [blackbodies, black body, blackbody radiation]
+  definition: 'An ideal object that absorbs all radiation falling on it; it is also the best emitter, and its emission spectrum depends only on its temperature.'
+  topic: Photons
+- term: Wien's displacement law
+  aliases: [Wien's law]
+  definition: 'The peak wavelength of blackbody radiation is inversely proportional to absolute temperature: $\lambda_{\max}T = 2.898\times10^{-3}$ m·K.'
+  topic: Photons
+- term: Compton scattering
+  aliases: [Compton effect, Compton shift]
+  definition: 'Scattering of an X-ray or gamma-ray photon by a nearly free electron, which lengthens the photon''s wavelength by $\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$; evidence that photons carry momentum.'
   topic: Photons
 - term: emission spectrum
   aliases: [line spectrum, spectral lines]

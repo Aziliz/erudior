@@ -9,7 +9,7 @@ refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## Inside the nucleus
 
-Almost all of an atom's mass is packed into its nucleus, a region about $10^{-15}$ m across, 100 000 times smaller than the atom. Nuclear physics explains why some nuclei are stable and others fall apart, where the Sun's energy comes from, how reactors and medical isotopes work, and how we date ancient objects. This final lesson draws on two ideas from earlier: $E = mc^2$ and exponential decay.
+Almost all of an atom's mass is packed into its nucleus, a region a few femtometers across (1 fm $= 10^{-15}$ m; from about 2 fm for light nuclei to about 15 fm for uranium), tens of thousands of times smaller than the atom. Nuclear physics explains why some nuclei are stable and others fall apart, where the Sun's energy comes from, how reactors and medical isotopes work, and how we date ancient objects. This final lesson draws on two ideas from earlier: $E = mc^2$ and exponential decay.
 
 ## Nuclear structure
 

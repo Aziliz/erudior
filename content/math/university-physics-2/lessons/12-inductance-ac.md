@@ -31,6 +31,8 @@ $$U_L = \tfrac12LI^2.$$
 
 The magnetic energy density is $u_B = \dfrac{B^2}{2\mu_0}$, the counterpart of $\tfrac12\varepsilon_0E^2$.
 
+*Mutual inductance.* When two coils sit near each other, a changing current in one sends changing flux through the other and induces an emf there: $\mathcal{E}_2 = -M\,dI_1/dt$, where the mutual inductance $M$ (also in henries) depends only on the coils' geometry and is the same in both directions. A transformer is two coils with a large $M$; wireless phone chargers work the same way.
+
 ### Example 1
 
 A solenoid 0.30 m long with 1500 turns has cross-sectional area $4.0\times10^{-4}$ m². Find its inductance, the emf when its current rises at 50 A/s, and its stored energy at 2.0 A.
@@ -75,7 +77,7 @@ $C = \dfrac{1}{(2\pi f)^2L} = \dfrac{1}{(6.28\times10^8)^2(2.0\times10^{-6})} = 
 
 Power outlets supply **alternating current**: $V(t) = V_0\sin(\omega t)$, at 60 Hz in North America and 50 Hz in much of the world. Because the voltage keeps changing sign, we quote **rms** (root-mean-square) values, the equivalent steady values that deliver the same average power to a resistor:
 
-$$V_{\text{rms}} = \frac{V_0}{\sqrt2}, \qquad I_{\text{rms}} = \frac{I_0}{\sqrt2}, \qquad P_{\text{avg}} = I_{\text{rms}}V_{\text{rms}}.$$
+$$V_{\text{rms}} = \frac{V_0}{\sqrt2}, \qquad I_{\text{rms}} = \frac{I_0}{\sqrt2}, \qquad P_{\text{avg}} = I_{\text{rms}}V_{\text{rms}} \text{ (resistor)}.$$
 
 "120 V" household voltage is the rms value; the peak is $120\sqrt2 = 170$ V.
 
@@ -88,6 +90,8 @@ A capacitor blocks low frequencies and passes high ones; an inductor does the re
 $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{Z}.$$
 
 The current is largest when $X_L = X_C$, at the resonant frequency $\omega_0 = 1/\sqrt{LC}$: the same frequency at which the LC circuit oscillates on its own.
+
+In a capacitor or inductor the current and voltage are a quarter cycle out of step (current leads voltage by $90^\circ$ in a capacitor and lags it by $90^\circ$ in an inductor), so on average they absorb no energy. In the series RLC circuit the current is out of step with the source by the phase angle $\phi$, where $\tan\phi = (X_L - X_C)/R$, and only the resistor dissipates energy: $P_{\text{avg}} = I_{\text{rms}}V_{\text{rms}}\cos\phi$. The factor $\cos\phi = R/Z$ is the power factor.
 
 ## Deriving the RL, LC and rms results
 

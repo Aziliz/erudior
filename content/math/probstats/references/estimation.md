@@ -80,6 +80,8 @@ title: Joint distributions, limit theorems and estimation
 | Fisher information | $I(\theta) = -E\big[\partial_\theta^2\ln f(X; \theta)\big]$ |
 | Cramér–Rao bound | $\operatorname{Var}(\hat\theta) \ge 1/(nI(\theta))$ (unbiased, regular family) |
 | Large-sample MLE | $\hat\theta \approx N(\theta, 1/(nI(\theta)))$ |
+| Delta method | $g(\hat\theta) \approx N\big(g(\theta), [g'(\theta)]^2\operatorname{Var}(\hat\theta)\big)$ |
+| Sufficiency (factorization) | $T = u(\mathbf X)$ sufficient iff $f(\mathbf x; \theta) = \phi(u(\mathbf x); \theta)\,h(\mathbf x)$, $h$ free of $\theta$ |
 
 | Model | MoM | MLE | $I(\theta)$ |
 |---|---|---|---|

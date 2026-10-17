@@ -25,7 +25,7 @@ The **internal energy** $E_{\text{int}}$ (often written $U$) of a system is the 
 
 $$\Delta E_{\text{int}} = Q - W,$$
 
-with the sign convention: $Q > 0$ when heat flows *into* the system, $W > 0$ when the system does work *on* its surroundings. (Some books, especially in chemistry, use $W$ for work done *on* the system and write $\Delta U = Q + W$; the physics is identical.)
+with the sign convention: $Q > 0$ when heat flows *into* the system, $W > 0$ when the system does work *on* its surroundings. This course uses that physics-textbook convention throughout. The AP Physics 2 exam (and most chemistry books) instead lets $W$ stand for the work done *on* the gas, and so writes $\Delta U = Q + W$, with $W = -P\Delta V$ at constant pressure. The two $W$'s are the same size with opposite signs, so the physics is identical; just check which one a problem means. In this lesson, $W$ always means work done *by* the gas.
 
 Internal energy is a **state variable**: it depends only on the current state (for an ideal gas, only on $T$), not on history. $Q$ and $W$ individually depend on the path, but their difference doesn't.
 

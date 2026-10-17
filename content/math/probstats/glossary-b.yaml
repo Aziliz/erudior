@@ -248,6 +248,17 @@
   aliases: [invariance, invariance of the MLE]
   definition: 'If $\hat\theta$ is the MLE of $\theta$, then $g(\hat\theta)$ is the MLE of $g(\theta)$.'
   topic: Maximum likelihood
+- term: delta method
+  definition: 'If $\hat\theta \approx N(\theta, v)$ and $g$ is differentiable with $g''(\theta) \ne 0$, then $g(\hat\theta) \approx N(g(\theta), [g''(\theta)]^2 v)$, from a first-order Taylor expansion.'
+  topic: Maximum likelihood
+- term: sufficient statistic
+  aliases: [sufficient statistics, sufficiency]
+  definition: 'A statistic $T$ such that the conditional distribution of the sample given $T$ does not depend on $\theta$; once $T$ is known, the rest of the data carries no more information about $\theta$.'
+  topic: Maximum likelihood
+- term: factorization theorem
+  aliases: [Fisher–Neyman factorization theorem, Neyman factorization theorem]
+  definition: '$T = u(X_1, \dots, X_n)$ is sufficient for $\theta$ if and only if the joint pmf or pdf factors as $\phi(u(x_1, \dots, x_n); \theta)\,h(x_1, \dots, x_n)$ with $h$ free of $\theta$.'
+  topic: Maximum likelihood
 # ---- Confidence intervals
 - term: pivotal quantity
   aliases: [pivot, pivots, pivotal quantities]

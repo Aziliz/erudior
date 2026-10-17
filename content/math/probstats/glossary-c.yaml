@@ -101,7 +101,7 @@
   topic: Neyman–Pearson lemma
 - term: monotone likelihood ratio
   aliases: [MLR, monotone likelihood ratio property]
-  definition: 'A family has a monotone likelihood ratio in a statistic $T$ if $L(\theta_1)/L(\theta_0)$ is an increasing function of $T$ whenever $\theta_1 > \theta_0$; one-parameter exponential families have it.'
+  definition: 'A family has a monotone likelihood ratio in a statistic $T$ if $L(\theta_1)/L(\theta_0)$ is an increasing function of $T$ whenever $\theta_1 > \theta_0$; a one-parameter exponential family has it in its natural statistic $T$ when the natural parameter is increasing in $\theta$ (in $-T$ when it is decreasing).'
   topic: Neyman–Pearson lemma
 - term: likelihood ratio test
   aliases: [LRT, likelihood ratio tests, generalized likelihood ratio test, GLRT]
@@ -130,6 +130,9 @@
 - term: Pearson's chi-square statistic
   aliases: [Pearson chi-square statistic, chi-square statistic, X²]
   definition: 'The statistic $X^2 = \sum (O - E)^2/E$ over all cells, approximately chi-square under $H_0$ when expected counts are not too small.'
+  topic: Chi-square tests
+- term: multinomial distribution
+  definition: 'The joint distribution of the counts in $k$ categories from $n$ independent trials with category probabilities $p_1, \dots, p_k$: $P(o_1, \dots, o_k) = \frac{n!}{o_1!\cdots o_k!}p_1^{o_1}\cdots p_k^{o_k}$; each count is $\text{Bin}(n, p_i)$ and $\operatorname{Cov}(O_i, O_j) = -np_ip_j$.'
   topic: Chi-square tests
 - term: goodness-of-fit test
   aliases: [goodness of fit test, chi-square goodness-of-fit test]

@@ -57,7 +57,8 @@ intuitive $z$ test is most powerful.
 Notice that $c$ does not depend on which $\mu_1 > \mu_0$ we picked. The same region is most
 powerful against *every* $\mu_1 > \mu_0$, so it is a **uniformly most powerful test** (UMP) for
 $H_1: \mu > \mu_0$. This happens whenever the likelihood ratio is monotone in a statistic
-$T$ (a **monotone likelihood ratio**), which is true for one-parameter exponential families. For
+$T$ (a **monotone likelihood ratio**), which is true for one-parameter exponential families whose
+natural parameter is monotone in $\theta$ (normal, Poisson, binomial and exponential models among them). For
 the two-sided $H_1: \mu \ne \mu_0$ there is no UMP test: the best region against $\mu_1 > \mu_0$ is
 the upper tail, against $\mu_1 < \mu_0$ the lower tail, and no single region is best for both.
 

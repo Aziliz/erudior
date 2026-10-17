@@ -130,6 +130,35 @@ Asymptotically it is unbiased and attains the Cramér–Rao bound, which is why 
 likelihood is the default method. The approximation also gives a standard error,
 $1/\sqrt{nI(\hat\theta)}$, used for large-sample confidence intervals.
 
+The same idea gives standard errors for a function of the parameter. If $\hat\theta \approx N(\theta, v)$ and $g$
+is differentiable with $g'(\theta) \ne 0$, the first-order Taylor expansion
+$g(\hat\theta) \approx g(\theta) + g'(\theta)(\hat\theta - \theta)$ gives the **delta method**:
+
+$$g(\hat\theta) \approx N\!\big(g(\theta),\; [g'(\theta)]^2\,v\big).$$
+
+In Example 3, $I(\lambda) = 1/\lambda^2$, so $\hat\lambda \approx N(\lambda, \lambda^2/n)$. The mean lifetime $g(\lambda) = 1/\lambda$ has
+$g'(\lambda) = -1/\lambda^2$, so its MLE $1/\hat\lambda = \bar x$ has standard error about $\frac{1}{\lambda^2}\cdot\frac{\lambda}{\sqrt n} = \frac{1}{\lambda\sqrt n}$,
+estimated by $140/\sqrt 5 \approx 62.6$ hours.
+
+## Sufficient statistics
+
+In every example above the likelihood depended on the data only through a summary: $\sum x_i$
+for the Bernoulli, Poisson and exponential models, the pair $(\sum x_i, \sum x_i^2)$ for the normal,
+and $\max x_i$ for the uniform. A statistic $T$ is a **sufficient statistic** for $\theta$ if the
+conditional distribution of the sample given $T$ does not depend on $\theta$: once $T$ is known, the
+rest of the data says nothing more about $\theta$. The **factorization theorem** gives a quick test:
+$T = u(X_1, \dots, X_n)$ is sufficient if and only if the joint pmf or pdf can be written
+
+$$f(x_1, \dots, x_n; \theta) = \phi\big(u(x_1, \dots, x_n);\, \theta\big)\; h(x_1, \dots, x_n),$$
+
+where $h$ does not involve $\theta$. For Poisson data,
+$\prod e^{-\lambda}\lambda^{x_i}/x_i! = \big(e^{-n\lambda}\lambda^{\sum x_i}\big)\cdot\big(1/\prod x_i!\big)$, so $\sum X_i$
+(equivalently $\bar X$) is sufficient. Because $h$ plays no part in maximizing over $\theta$, a unique
+MLE depends on the data only through a sufficient statistic. The Rao–Blackwell theorem adds that
+replacing an unbiased estimator by its conditional mean given a sufficient statistic keeps it
+unbiased and never increases its variance, which is the standard route to minimum-variance
+unbiased estimators in a more advanced course.
+
 ## Common mistakes
 
 - *Maximizing over the data instead of the parameter.* In $L(\theta)$ the data are fixed numbers.

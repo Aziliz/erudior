@@ -13,7 +13,11 @@ The binomial counts successes in a *fixed* number of trials. A different questio
 just as often: *how many trials until the first success?* How many calls until a customer
 answers, how many welds until the first defective one, how many rolls until a six. When the
 trials are independent with the same success probability, the answer follows the geometric
-distribution — the second named discrete distribution in AP Statistics.
+distribution, the second most common named discrete distribution in introductory statistics.
+
+*AP exam scope:* the geometric distribution was part of AP Statistics until the framework
+revision that took effect in the 2026–27 school year, which removed it. It is still taught in
+most introductory college statistics courses.
 
 ## The geometric setting
 
@@ -70,8 +74,8 @@ independent and the coin, die or caller has no memory of the earlier failures.
 ```
 
 (Some books define the geometric variable as the number of *failures* before the first
-success, with values $0, 1, 2, \ldots$ and mean $(1-p)/p$. AP Statistics, and this course,
-counts trials.)
+success, with values $0, 1, 2, \ldots$ and mean $(1-p)/p$. This course counts trials, as
+AP Statistics did and as most introductory textbooks do.)
 
 ### Example 1
 

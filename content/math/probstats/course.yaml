@@ -9,8 +9,9 @@ description: >-
   intervals, hypothesis testing and likelihood ratio tests, regression, ANOVA and
   nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used
   for joint densities.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections.
 order: 12
 subject: Math
 level: [College]

@@ -19,7 +19,7 @@ Microscopically, even polished surfaces are rough, and contact points form tempo
 
 $$f_k = \mu_k n,$$
 
-where $n$ is the normal force and $\mu_k$ is the **coefficient of kinetic friction**, a dimensionless number depending on the pair of surfaces (rubber on dry concrete is about 0.7, steel on ice about 0.03). It points opposite to the sliding velocity, and to a good approximation it doesn't depend on speed or contact area.
+where $n$ is the normal force and $\mu_k$ is the **coefficient of kinetic friction**, a dimensionless number depending on the pair of surfaces (rubber on dry concrete is about 0.7, steel on ice about 0.02). It points opposite to the sliding velocity, and to a good approximation it doesn't depend on speed or contact area.
 
 **Static friction** acts when surfaces are not sliding but something is trying to make them. It adjusts to whatever value keeps the surfaces stuck, up to a maximum:
 

@@ -15,6 +15,11 @@ blood type, die face. To test a claim about the *whole distribution* of such a v
 need a way to compare a full set of observed counts to a full set of expected counts at once.
 That is the chi-square goodness-of-fit test.
 
+*AP exam scope:* the AP Statistics framework that took effect in the 2026–27 school year
+removed the goodness-of-fit test but kept the chi-square tests for two-way tables (next
+lesson). This lesson introduces the chi-square statistic, its distribution and its
+conditions, which the next lesson relies on, so read it either way.
+
 ## The idea
 
 State a hypothesized distribution (the proportion in each category). Multiply by the sample

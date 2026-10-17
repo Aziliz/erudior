@@ -113,6 +113,27 @@ you compute are parameters, not estimates.
 with a statement of how uncertain those conclusions are. Modules 1–3 are mostly
 descriptive; modules 7–9 are inferential; probability (modules 5–6) is the bridge.
 
+## Starting from an investigative question
+
+Every study should begin with an **investigative question**: the question about a
+population that the data are collected to answer. Decide it before gathering data, and
+don't rewrite it after seeing the results. A useful investigative question does three jobs.
+
+1. It names the variables, which tells you what to measure.
+2. It says what kind of answer is wanted, which tells you how to analyze the data:
+   estimating a parameter (such as a mean or a proportion), or checking whether a parameter
+   is larger than, smaller than or different from some value, or whether two variables are
+   associated.
+3. It names the population the answer is about, which limits what can be concluded.
+
+"Do students at our school who live more than 5 miles away sleep less on school nights, on
+average, than students who live closer?" names a population (students at this school), two
+variables (distance from home to school, hours of sleep), a parameter for each group (mean
+hours of sleep) and a direction (less). "Is sleep important?" does none of those things,
+so no data set can answer it. An investigative question is also different from the
+questions on a survey form. Those are the tool for collecting the data; the investigative
+question is what the whole study is trying to find out.
+
 ## Distributions
 
 The **distribution** of a variable tells what values it takes and how often it takes
