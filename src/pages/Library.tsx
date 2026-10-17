@@ -192,6 +192,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
 }
 
 type Filters = { q: string; subject: string[]; level: string[]; type: string[] };
+/** Catalog cards per page. */
+const PAGE_SIZE = 15;
 const FILTER_KEY = "examiner.catalogFilters";
 
 function readFilters(): Filters {
@@ -216,6 +218,7 @@ function matches(e: CatalogEntry, f: Filters): boolean {
 function Catalog({ api }: { api: AppApi }) {
   const [f, setF] = useState<Filters>(readFilters);
   const [adding, setAdding] = useState<string | null>(null);
+  const [page, setPage] = useState(0);
   const opts = useMemo(facets, []);
   useEffect(() => {
     try {
@@ -228,6 +231,11 @@ function Catalog({ api }: { api: AppApi }) {
   const toggle = (k: "subject" | "level" | "type", v: string) =>
     setF((x) => ({ ...x, [k]: x[k].includes(v) ? x[k].filter((y) => y !== v) : [...x[k], v] }));
   const shown = CATALOG.filter((e) => matches(e, f));
+  const pages = Math.max(1, Math.ceil(shown.length / PAGE_SIZE));
+  const pageNow = Math.min(page, pages - 1);
+  const visible = shown.slice(pageNow * PAGE_SIZE, pageNow * PAGE_SIZE + PAGE_SIZE);
+  // A new search or filter starts back on the first page.
+  useEffect(() => setPage(0), [f.q, f.subject, f.level, f.type]);
   const filtered = f.q || f.subject.length || f.level.length || f.type.length;
   const installed = new Set(api.courses.map((c) => c.id));
 
@@ -257,7 +265,8 @@ function Catalog({ api }: { api: AppApi }) {
           Course catalog
         </h2>
         <span className="small muted">
-          {shown.length} of {CATALOG.length} courses
+          {shown.length === CATALOG.length ? `${CATALOG.length} courses` : `${shown.length} of ${CATALOG.length} courses`}
+          {pages > 1 && ` · page ${pageNow + 1} of ${pages}`}
         </span>
       </div>
       <div className="catalog-filters">
@@ -282,10 +291,24 @@ function Catalog({ api }: { api: AppApi }) {
         <p className="muted small">No courses match. Try fewer filters.</p>
       ) : (
         <div className="catalog-grid">
-          {shown.map((e) => {
+          {visible.map((e) => {
             const have = installed.has(e.id);
+            const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
-              <div key={e.id} className="catalog-card">
+              <div
+                key={e.id}
+                className="catalog-card"
+                role="button"
+                tabIndex={0}
+                aria-label={`${e.title}: ${have ? "open course" : "view overview"}`}
+                onClick={open}
+                onKeyDown={(ev) => {
+                  if (ev.target === ev.currentTarget && (ev.key === "Enter" || ev.key === " ")) {
+                    ev.preventDefault();
+                    open();
+                  }
+                }}
+              >
                 <div className="catalog-tags">
                   <span className="pill neutral">{e.subject}</span>
                   {e.level.map((l) => (
@@ -307,11 +330,18 @@ function Catalog({ api }: { api: AppApi }) {
                     .join(", ")}
                 </p>
                 {have ? (
-                  <button className="btn sm" onClick={() => api.go({ name: "course", courseId: e.id })}>
+                  <button className="btn sm" onClick={(ev) => (ev.stopPropagation(), open())}>
                     In progress: open
                   </button>
                 ) : (
-                  <button className="btn sm primary" disabled={adding !== null} onClick={() => add(e.id)}>
+                  <button
+                    className="btn sm primary"
+                    disabled={adding !== null}
+                    onClick={(ev) => {
+                      ev.stopPropagation();
+                      add(e.id);
+                    }}
+                  >
                     {adding === e.id ? "Adding…" : "Start course"}
                   </button>
                 )}
@@ -319,6 +349,21 @@ function Catalog({ api }: { api: AppApi }) {
             );
           })}
         </div>
+      )}
+      {pages > 1 && (
+        <nav className="pager" aria-label="Course catalog pages">
+          <button className="btn sm" disabled={pageNow === 0} onClick={() => setPage(pageNow - 1)}>
+            ← Previous
+          </button>
+          {Array.from({ length: pages }, (_, i) => (
+            <button key={i} className="btn sm" aria-current={i === pageNow ? "page" : undefined} onClick={() => setPage(i)}>
+              {i + 1}
+            </button>
+          ))}
+          <button className="btn sm" disabled={pageNow >= pages - 1} onClick={() => setPage(pageNow + 1)}>
+            Next →
+          </button>
+        </nav>
       )}
     </section>
   );

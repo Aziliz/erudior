@@ -19,6 +19,7 @@ import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
 import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse } from "./lib/catalog";
 import RefView from "./pages/RefView";
+import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
@@ -38,7 +39,8 @@ export type View =
   | { name: "deckEdit"; courseId: string; deckId: string }
   | { name: "drill"; courseId: string; drillIds: string[]; count: number }
   | { name: "ref"; courseId: string; refId: string }
-  | { name: "search"; q: string };
+  | { name: "search"; q: string }
+  | { name: "overview"; catalogId: string };
 
 export interface AppApi {
   banks: Bank[];
@@ -313,6 +315,9 @@ export default function App() {
       if (attempt) body = <Results api={api} attempt={attempt} bank={bankFor(attempt.bankId)} back={view.back} />;
       break;
     }
+    case "overview":
+      body = <CourseOverview api={api} id={view.catalogId} />;
+      break;
     case "course": {
       const c = courseFor(view.courseId);
       if (c) body = <CourseHome key={c.id} api={api} course={c} tab={view.tab ?? "today"} />;

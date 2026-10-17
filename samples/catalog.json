@@ -16,7 +16,97 @@
   "lessons": 48,
   "questions": 809,
   "cards": 590,
-  "drills": 25
+  "drills": 25,
+  "outline": [
+   {
+    "title": "Real property, land use and title",
+    "lessons": [
+     "Real vs. personal property, fixtures, and legal descriptions",
+     "Estates and forms of ownership",
+     "Encumbrances: liens, easements, encroachments, and adverse possession",
+     "Land use controls: public and private",
+     "Transfer of title: deeds, title insurance, recording, and foreclosure"
+    ]
+   },
+   {
+    "title": "Valuation, financing and math",
+    "lessons": [
+     "Appraisal and valuation",
+     "Financing concepts: notes, liens and clauses",
+     "Loan types and the secondary market",
+     "Lending laws: RESPA, TILA, TRID and ECOA",
+     "Real estate math with worked examples",
+     "Federal income tax and real estate",
+     "Construction loans, appraiser regulation and professional bodies"
+    ]
+   },
+   {
+    "title": "Contracts and property disclosures",
+    "lessons": [
+     "Contract law fundamentals",
+     "Offers, acceptance and contract tools",
+     "Breach, remedies, purchase agreements and leases",
+     "Property disclosures and environmental hazards"
+    ]
+   },
+   {
+    "title": "Agency, practice and property management",
+    "lessons": [
+     "Agency fundamentals and listing agreements",
+     "Fiduciary duties, disclosure and representing multiple parties",
+     "Fair housing and the ADA",
+     "Practice laws: antitrust, marketing rules, funds and supervision",
+     "Property management and landlord-tenant basics",
+     "Commercial leasing and specialty properties",
+     "Technology, MLS/IDX, data security and safety"
+    ]
+   },
+   {
+    "title": "Colorado license law and the Commission",
+    "lessons": [
+     "The Division and the Real Estate Commission",
+     "Getting licensed in Colorado",
+     "Renewal, CE, license status, and E&O insurance",
+     "Advertising, supervision, and compensation",
+     "Documents, practice of law, assistants, and discipline",
+     "Commission rules in day-to-day practice"
+    ]
+   },
+   {
+    "title": "Colorado brokerage relationships and trust accounts",
+    "lessons": [
+     "Colorado brokerage relationships and disclosures",
+     "Broker duties, disclosures and engagement contracts",
+     "Trust accounts and earnest money",
+     "Record keeping, retention and Commission audits",
+     "Audits, complaints and discipline in practice"
+    ]
+   },
+   {
+    "title": "Colorado contracts and forms",
+    "lessons": [
+     "Commission-approved forms and the practice-of-law line",
+     "The residential contract, part 1: price, deadlines, financing and appraisal",
+     "The residential contract, part 2: title, disclosures, inspection, closing and default",
+     "Counterproposals, amend/extend, notices and multiple offers",
+     "Listing and buyer agreements, disclosures, addenda, closing and seller financing",
+     "Beyond CBS1: other Commission-approved contracts and addenda",
+     "Homeowners' associations and the Colorado Common Interest Ownership Act"
+    ]
+   },
+   {
+    "title": "Colorado closings and special topics",
+    "lessons": [
+     "Closings in Colorado",
+     "Prorations and settlement math",
+     "Property management and landlord-tenant in Colorado",
+     "Water rights, wells, minerals and Colorado taxes",
+     "Colorado fair housing, foreclosure and the Foreclosure Protection Act",
+     "The Colorado closing worksheet",
+     "Worked closings: new loan, loan assumption and seller financing"
+    ]
+   }
+  ]
  },
  {
   "id": "math-prealgebra",
@@ -35,7 +125,92 @@
   "lessons": 38,
   "questions": 438,
   "cards": 217,
-  "drills": 96
+  "drills": 96,
+  "outline": [
+   {
+    "title": "Whole numbers",
+    "lessons": [
+     "Place value, rounding and estimation",
+     "Operations with whole numbers",
+     "Exponents and the order of operations",
+     "Factors, multiples, divisibility and primes",
+     "Prime factorization, GCF and LCM"
+    ]
+   },
+   {
+    "title": "Integers",
+    "lessons": [
+     "Integers, the number line and absolute value",
+     "Adding and subtracting integers",
+     "Multiplying and dividing integers"
+    ]
+   },
+   {
+    "title": "Fractions",
+    "lessons": [
+     "Fractions, equivalent fractions and simplifying",
+     "Multiplying and dividing fractions",
+     "Adding and subtracting fractions",
+     "Mixed numbers"
+    ]
+   },
+   {
+    "title": "Decimals, ratios and proportions",
+    "lessons": [
+     "Decimals: place value, rounding and converting",
+     "Operations with decimals",
+     "Ratios, rates and unit rates",
+     "Proportions"
+    ]
+   },
+   {
+    "title": "Percents",
+    "lessons": [
+     "Percents, fractions and decimals",
+     "Solving percent problems and percent change",
+     "Tax, tips, discounts, commission and simple interest"
+    ]
+   },
+   {
+    "title": "Exponents, roots and scientific notation",
+    "lessons": [
+     "Powers and square roots",
+     "Exponent rules, zero and negative exponents",
+     "Scientific notation"
+    ]
+   },
+   {
+    "title": "Variables, expressions and equations",
+    "lessons": [
+     "Variables, expressions and evaluating",
+     "Like terms and the distributive property",
+     "Solving one- and two-step equations",
+     "Multi-step equations and word problems",
+     "Money word problems",
+     "Inequalities and number lines",
+     "Graphing linear equations"
+    ]
+   },
+   {
+    "title": "Measurement and geometry",
+    "lessons": [
+     "Measurement and unit conversion",
+     "Angles, triangles and perimeter",
+     "Area of polygons",
+     "Circles",
+     "Volume and surface area",
+     "The Pythagorean theorem"
+    ]
+   },
+   {
+    "title": "Data and probability",
+    "lessons": [
+     "Mean, median, mode and range",
+     "Reading tables and graphs",
+     "Simple probability"
+    ]
+   }
+  ]
  },
  {
   "id": "math-algebra1",
@@ -54,7 +229,85 @@
   "lessons": 36,
   "questions": 435,
   "cards": 184,
-  "drills": 93
+  "drills": 93,
+  "outline": [
+   {
+    "title": "Foundations and linear equations",
+    "lessons": [
+     "Real numbers and their properties",
+     "Expressions, order of operations, and like terms",
+     "Solving linear equations",
+     "Literal equations and formulas",
+     "Linear equations in applications"
+    ]
+   },
+   {
+    "title": "Inequalities and absolute value",
+    "lessons": [
+     "Linear and compound inequalities",
+     "Absolute value equations and inequalities"
+    ]
+   },
+   {
+    "title": "Functions and linear functions",
+    "lessons": [
+     "Functions and function notation",
+     "Domain, range, and graphs of functions",
+     "Slope and rate of change",
+     "Equations of lines",
+     "Parallel and perpendicular lines; linear models",
+     "Piecewise and step functions"
+    ]
+   },
+   {
+    "title": "Systems of equations and inequalities",
+    "lessons": [
+     "Systems of equations by graphing and substitution",
+     "Solving systems by elimination",
+     "Applications of linear systems",
+     "Linear inequalities in two variables and systems of inequalities"
+    ]
+   },
+   {
+    "title": "Exponents, polynomials, and factoring",
+    "lessons": [
+     "Exponent rules and scientific notation",
+     "Polynomial operations and special products",
+     "Factoring: greatest common factor and grouping",
+     "Factoring trinomials and special patterns"
+    ]
+   },
+   {
+    "title": "Quadratic equations and functions",
+    "lessons": [
+     "Solving quadratic equations by factoring",
+     "The square root property and completing the square",
+     "The quadratic formula and the discriminant",
+     "Graphing quadratic functions",
+     "Quadratic applications: maximum, minimum, and projectiles",
+     "Solving f(x) = g(x): linear-quadratic systems and intersections"
+    ]
+   },
+   {
+    "title": "Square roots, exponential functions, and sequences",
+    "lessons": [
+     "Square roots and simplifying radicals",
+     "Square root and cube root functions",
+     "Exponential functions: growth and decay",
+     "Comparing linear and exponential models",
+     "Arithmetic and geometric sequences"
+    ]
+   },
+   {
+    "title": "Data and statistics",
+    "lessons": [
+     "Describing data: displays, center, and spread",
+     "Two-way tables and relative frequency",
+     "Scatter plots, correlation, and lines of fit",
+     "Fitting quadratic and exponential models to data"
+    ]
+   }
+  ]
  },
  {
   "id": "math-algebra2",
@@ -73,7 +326,84 @@
   "lessons": 30,
   "questions": 351,
   "cards": 186,
-  "drills": 84
+  "drills": 84,
+  "outline": [
+   {
+    "title": "Functions and their transformations",
+    "lessons": [
+     "Transformations of parent functions",
+     "Piecewise-defined functions",
+     "Combining and composing functions",
+     "Inverse functions"
+    ]
+   },
+   {
+    "title": "Complex numbers, quadratics, and systems",
+    "lessons": [
+     "Complex numbers",
+     "Quadratics with complex solutions",
+     "Nonlinear systems",
+     "Systems in three variables",
+     "Solving systems with matrices"
+    ]
+   },
+   {
+    "title": "Polynomial functions",
+    "lessons": [
+     "Polynomial functions: end behavior, zeros, and multiplicity",
+     "Polynomial division; the remainder and factor theorems",
+     "The rational root theorem and finding all zeros"
+    ]
+   },
+   {
+    "title": "Radicals and rational exponents",
+    "lessons": [
+     "Radicals and rational exponents",
+     "Radical equations"
+    ]
+   },
+   {
+    "title": "Rational expressions and functions",
+    "lessons": [
+     "Simplifying, multiplying, and dividing rational expressions",
+     "Adding and subtracting rational expressions; complex fractions",
+     "Rational equations and applications",
+     "Graphing rational functions",
+     "Polynomial and rational inequalities"
+    ]
+   },
+   {
+    "title": "Exponential and logarithmic functions",
+    "lessons": [
+     "Exponential functions, growth and decay, and compound interest",
+     "Logarithms and their properties",
+     "Exponential and logarithmic equations"
+    ]
+   },
+   {
+    "title": "Sequences and series",
+    "lessons": [
+     "Arithmetic sequences and series",
+     "Geometric sequences and series"
+    ]
+   },
+   {
+    "title": "Probability and statistics",
+    "lessons": [
+     "Counting principles, permutations and combinations",
+     "The binomial theorem and Pascal's triangle",
+     "Probability",
+     "The normal distribution and sampling"
+    ]
+   },
+   {
+    "title": "Introduction to trigonometry",
+    "lessons": [
+     "Angles, radians and the unit circle",
+     "Graphs of sine and cosine"
+    ]
+   }
+  ]
  },
  {
   "id": "math-geometry",
@@ -92,7 +422,100 @@
   "lessons": 41,
   "questions": 476,
   "cards": 184,
-  "drills": 103
+  "drills": 103,
+  "outline": [
+   {
+    "title": "Foundations of geometry",
+    "lessons": [
+     "Points, lines and planes",
+     "Measuring segments and angles",
+     "Angle pairs",
+     "Constructions with compass and straightedge"
+    ]
+   },
+   {
+    "title": "Reasoning and proof",
+    "lessons": [
+     "Inductive reasoning and conditional statements",
+     "Deductive reasoning and algebraic proof",
+     "Two-column and paragraph proofs"
+    ]
+   },
+   {
+    "title": "Parallel and perpendicular lines",
+    "lessons": [
+     "Parallel lines and transversals",
+     "Perpendicular lines and slope"
+    ]
+   },
+   {
+    "title": "Triangles and congruence",
+    "lessons": [
+     "Classifying triangles and their angles",
+     "Congruent triangles, SSS and SAS",
+     "ASA, AAS, HL and CPCTC",
+     "Isosceles and equilateral triangles",
+     "Inequalities in triangles"
+    ]
+   },
+   {
+    "title": "Special segments, polygons and quadrilaterals",
+    "lessons": [
+     "Perpendicular bisectors, angle bisectors and their centers",
+     "Medians, altitudes and midsegments",
+     "Polygons and their angle sums",
+     "Parallelograms",
+     "Rectangles, rhombuses, squares, trapezoids and kites"
+    ]
+   },
+   {
+    "title": "Similarity and right triangles",
+    "lessons": [
+     "Ratios, proportions and similar polygons",
+     "Proving triangles similar; proportional segments",
+     "The Pythagorean theorem and its converse",
+     "Special right triangles and the geometric mean",
+     "Sine, cosine and tangent",
+     "The Law of Sines",
+     "The Law of Cosines and solving any triangle"
+    ]
+   },
+   {
+    "title": "Circles",
+    "lessons": [
+     "Circles, arcs and arc length",
+     "Chords and tangents",
+     "Inscribed angles and other angles in circles",
+     "Segment lengths in circles and the equation of a circle"
+    ]
+   },
+   {
+    "title": "Area, surface area and volume",
+    "lessons": [
+     "Perimeter and area of polygons",
+     "Circles, sectors and regular polygons",
+     "Solids and surface area",
+     "Volume and Cavalieri's principle"
+    ]
+   },
+   {
+    "title": "Coordinate geometry and transformations",
+    "lessons": [
+     "Coordinate geometry and coordinate proofs",
+     "Translations, reflections and rotations",
+     "Dilations, compositions and symmetry",
+     "Parabolas from focus and directrix; all circles are similar"
+    ]
+   },
+   {
+    "title": "Axioms, other geometries and probability",
+    "lessons": [
+     "Axiomatic systems and Euclid's postulates",
+     "Non-Euclidean geometry",
+     "Geometric probability"
+    ]
+   }
+  ]
  },
  {
   "id": "math-trigonometry",
@@ -112,7 +535,93 @@
   "lessons": 39,
   "questions": 447,
   "cards": 216,
-  "drills": 92
+  "drills": 92,
+  "outline": [
+   {
+    "title": "Angles and their measure",
+    "lessons": [
+     "Angles and degree measure",
+     "Radian measure",
+     "Arc length and sector area",
+     "Angular and linear speed"
+    ]
+   },
+   {
+    "title": "Right-triangle trigonometry",
+    "lessons": [
+     "The six trigonometric ratios",
+     "Special right triangles and cofunctions",
+     "Solving right triangles",
+     "Elevation, depression and bearings"
+    ]
+   },
+   {
+    "title": "Trig functions of any angle",
+    "lessons": [
+     "Trig functions of any angle",
+     "Reference angles",
+     "The unit circle",
+     "Domain, range, periodicity and symmetry"
+    ]
+   },
+   {
+    "title": "Graphs of trig functions",
+    "lessons": [
+     "Graphs of sine and cosine",
+     "Amplitude, period, phase shift and vertical shift",
+     "Graphs of tangent and cotangent",
+     "Graphs of secant and cosecant",
+     "Modeling periodic data and harmonic motion"
+    ]
+   },
+   {
+    "title": "Inverse functions and basic equations",
+    "lessons": [
+     "Inverse sine, cosine and tangent",
+     "Compositions and other inverse functions",
+     "Solving basic trig equations"
+    ]
+   },
+   {
+    "title": "Identities and equations",
+    "lessons": [
+     "The fundamental identities",
+     "Verifying identities",
+     "Sum and difference formulas",
+     "Double-angle and power-reducing formulas",
+     "Half-angle formulas",
+     "Product-to-sum and sum-to-product formulas",
+     "Solving trig equations with identities"
+    ]
+   },
+   {
+    "title": "Oblique triangles",
+    "lessons": [
+     "The law of sines",
+     "The ambiguous case (SSA)",
+     "The law of cosines",
+     "Area of a triangle"
+    ]
+   },
+   {
+    "title": "Vectors in the plane",
+    "lessons": [
+     "Vectors in the plane",
+     "The dot product and angles between vectors",
+     "Vector applications - forces, navigation and work"
+    ]
+   },
+   {
+    "title": "Polar coordinates, parametric equations and complex numbers",
+    "lessons": [
+     "Polar coordinates",
+     "Graphs of polar equations",
+     "Parametric equations",
+     "Complex numbers in trigonometric form",
+     "De Moivre's theorem and nth roots"
+    ]
+   }
+  ]
  },
  {
   "id": "math-precalculus",
@@ -132,7 +641,102 @@
   "lessons": 43,
   "questions": 527,
   "cards": 225,
-  "drills": 105
+  "drills": 105,
+  "outline": [
+   {
+    "title": "Functions in depth",
+    "lessons": [
+     "Functions, notation, domain and range",
+     "Piecewise functions and reading graphs",
+     "Increasing, decreasing, extrema and average rate of change"
+    ]
+   },
+   {
+    "title": "Parent functions, transformations and inverses",
+    "lessons": [
+     "Parent functions and symmetry",
+     "Transformations of graphs",
+     "Combining functions and composition",
+     "Inverse functions"
+    ]
+   },
+   {
+    "title": "Polynomial and rational functions",
+    "lessons": [
+     "Polynomial functions and their graphs",
+     "Dividing polynomials; the remainder and factor theorems",
+     "Complex numbers",
+     "Finding the zeros of a polynomial",
+     "Rational functions: holes and asymptotes",
+     "Slant asymptotes and graphing rational functions",
+     "Polynomial and rational inequalities"
+    ]
+   },
+   {
+    "title": "Exponential and logarithmic functions",
+    "lessons": [
+     "Exponential functions",
+     "Logarithmic functions and their properties",
+     "Solving exponential and logarithmic equations",
+     "Exponential, logarithmic and logistic models",
+     "Modeling with functions and fitting data"
+    ]
+   },
+   {
+    "title": "Trigonometry review",
+    "lessons": [
+     "Radians and the unit circle",
+     "Trig graphs and key identities"
+    ]
+   },
+   {
+    "title": "Systems and matrices",
+    "lessons": [
+     "Linear systems and Gaussian elimination",
+     "Matrix operations",
+     "Inverse matrices",
+     "Determinants and Cramer's rule",
+     "Partial fraction decomposition",
+     "Systems of inequalities and linear programming"
+    ]
+   },
+   {
+    "title": "Conics, parametric equations and polar coordinates",
+    "lessons": [
+     "Parabolas",
+     "Ellipses and circles",
+     "Hyperbolas and identifying conics",
+     "Parametric equations",
+     "Polar coordinates and polar graphs",
+     "Polar equations of conics"
+    ]
+   },
+   {
+    "title": "Vectors",
+    "lessons": [
+     "Vectors in the plane",
+     "The dot product and vectors in space"
+    ]
+   },
+   {
+    "title": "Sequences, series, induction and counting",
+    "lessons": [
+     "Sequences, sigma notation and arithmetic series",
+     "Geometric sequences and series",
+     "Mathematical induction",
+     "The binomial theorem",
+     "Counting and probability basics"
+    ]
+   },
+   {
+    "title": "Introduction to limits and the derivative",
+    "lessons": [
+     "Limits from tables and graphs",
+     "Evaluating limits algebraically",
+     "Tangent lines and the derivative"
+    ]
+   }
+  ]
  },
  {
   "id": "math-calculus",
@@ -153,7 +757,110 @@
   "lessons": 46,
   "questions": 518,
   "cards": 302,
-  "drills": 99
+  "drills": 99,
+  "outline": [
+   {
+    "title": "Limits and continuity",
+    "lessons": [
+     "What a limit is (graphs and tables)",
+     "Limit laws and algebraic techniques",
+     "Infinite limits and limits at infinity",
+     "The squeeze theorem, trig limits and ε-δ",
+     "Continuity and the Intermediate Value Theorem"
+    ]
+   },
+   {
+    "title": "The derivative",
+    "lessons": [
+     "The derivative at a point",
+     "The derivative as a function; differentiability",
+     "Basic rules: power, sum, exponential; higher derivatives"
+    ]
+   },
+   {
+    "title": "Differentiation rules",
+    "lessons": [
+     "The product and quotient rules",
+     "Derivatives of trigonometric functions",
+     "The chain rule",
+     "Implicit differentiation and inverse trig derivatives",
+     "Exponentials, logarithms and inverse functions"
+    ]
+   },
+   {
+    "title": "Rates and approximation",
+    "lessons": [
+     "Related rates",
+     "Linear approximation, differentials and Newton's method",
+     "L'Hôpital's rule and indeterminate forms"
+    ]
+   },
+   {
+    "title": "Analyzing functions with derivatives",
+    "lessons": [
+     "Extreme values and the Mean Value Theorem",
+     "Increasing, decreasing and the first derivative test",
+     "Concavity, the second derivative test and curve sketching",
+     "Optimization"
+    ]
+   },
+   {
+    "title": "Integrals and the Fundamental Theorem",
+    "lessons": [
+     "Antiderivatives and initial value problems",
+     "Riemann sums and the definite integral",
+     "The Fundamental Theorem of Calculus",
+     "Integration by substitution",
+     "Motion, net change and average value"
+    ]
+   },
+   {
+    "title": "Applications of integration",
+    "lessons": [
+     "Area between curves",
+     "Volume: cross sections, disks and washers",
+     "Volume: cylindrical shells",
+     "Arc length and surface area",
+     "Work, fluid force and center of mass"
+    ]
+   },
+   {
+    "title": "Techniques of integration",
+    "lessons": [
+     "Integration by parts",
+     "Trigonometric integrals and trigonometric substitution",
+     "Partial fractions",
+     "Integration strategy and numerical integration",
+     "Improper integrals",
+     "Hyperbolic functions"
+    ]
+   },
+   {
+    "title": "Differential equations",
+    "lessons": [
+     "Slope fields and Euler's method",
+     "Separable equations, exponential and logistic growth",
+     "First-order linear equations and integrating factors"
+    ]
+   },
+   {
+    "title": "Sequences and series",
+    "lessons": [
+     "Sequences and infinite series",
+     "The integral test and comparison tests",
+     "Alternating series, absolute convergence, ratio and root tests",
+     "Power series",
+     "Taylor and Maclaurin series"
+    ]
+   },
+   {
+    "title": "Parametric equations and polar coordinates",
+    "lessons": [
+     "Calculus with parametric curves",
+     "Calculus in polar coordinates"
+    ]
+   }
+  ]
  },
  {
   "id": "math-multivariable",
@@ -172,7 +879,87 @@
   "lessons": 38,
   "questions": 443,
   "cards": 196,
-  "drills": 76
+  "drills": 76,
+  "outline": [
+   {
+    "title": "Vectors and the geometry of space",
+    "lessons": [
+     "Bridge: the single-variable toolkit",
+     "Space and vectors",
+     "The dot product and projections",
+     "The cross product",
+     "Lines and planes",
+     "Cylinders and quadric surfaces"
+    ]
+   },
+   {
+    "title": "Vector functions and motion",
+    "lessons": [
+     "Vector functions and space curves",
+     "Arc length and curvature",
+     "The TNB frame and components of acceleration",
+     "Motion in space and projectiles"
+    ]
+   },
+   {
+    "title": "Partial derivatives",
+    "lessons": [
+     "Functions of several variables",
+     "Limits and continuity",
+     "Partial derivatives",
+     "Tangent planes and linear approximation",
+     "The chain rule",
+     "Directional derivatives and the gradient"
+    ]
+   },
+   {
+    "title": "Optimization",
+    "lessons": [
+     "Local extrema and the second-derivative test",
+     "Absolute extrema on closed regions",
+     "Lagrange multipliers",
+     "Least squares fitting"
+    ]
+   },
+   {
+    "title": "Double integrals",
+    "lessons": [
+     "Double integrals over rectangles",
+     "Double integrals over general regions",
+     "Double integrals in polar coordinates",
+     "Applications: mass, centers of mass, surface area"
+    ]
+   },
+   {
+    "title": "Triple integrals and change of variables",
+    "lessons": [
+     "Triple integrals",
+     "Cylindrical coordinates",
+     "Spherical coordinates",
+     "Change of variables and Jacobians"
+    ]
+   },
+   {
+    "title": "Vector fields and line integrals",
+    "lessons": [
+     "Vector fields",
+     "Line integrals",
+     "Conservative fields and the fundamental theorem",
+     "Green's theorem"
+    ]
+   },
+   {
+    "title": "Surface integrals and the big theorems",
+    "lessons": [
+     "Curl and divergence",
+     "Parametric surfaces and their areas",
+     "Surface integrals and flux",
+     "Stokes' theorem",
+     "The Divergence theorem",
+     "Vector calculus in physics"
+    ]
+   }
+  ]
  },
  {
   "id": "math-diffeq",
@@ -191,7 +978,95 @@
   "lessons": 41,
   "questions": 463,
   "cards": 195,
-  "drills": 86
+  "drills": 86,
+  "outline": [
+   {
+    "title": "Bridge: differential equations at the AP level",
+    "lessons": [
+     "What a differential equation is",
+     "Slope fields",
+     "Separable equations",
+     "Exponential and logistic growth",
+     "Euler's method"
+    ]
+   },
+   {
+    "title": "Classification and first-order methods",
+    "lessons": [
+     "Classifying differential equations",
+     "Existence and uniqueness",
+     "Linear first-order equations",
+     "Exact equations",
+     "Bernoulli and homogeneous equations"
+    ]
+   },
+   {
+    "title": "Modeling with first-order equations",
+    "lessons": [
+     "Growth, decay, interest and cooling",
+     "Mixing problems",
+     "Falling objects and RL/RC circuits"
+    ]
+   },
+   {
+    "title": "Autonomous equations and numerical methods",
+    "lessons": [
+     "Autonomous equations and phase lines",
+     "Population models and bifurcations",
+     "Error and the improved Euler method",
+     "Runge–Kutta methods"
+    ]
+   },
+   {
+    "title": "Second-order linear equations",
+    "lessons": [
+     "Second-order linear equations and the Wronskian",
+     "Constant coefficients: real roots",
+     "Constant coefficients: complex roots",
+     "Reduction of order"
+    ]
+   },
+   {
+    "title": "Nonhomogeneous equations and applications",
+    "lessons": [
+     "Undetermined coefficients",
+     "Variation of parameters",
+     "Free vibrations",
+     "Forced vibrations, resonance and RLC circuits",
+     "Sinusoidal response with complex exponentials",
+     "Higher-order linear equations"
+    ]
+   },
+   {
+    "title": "Laplace transforms",
+    "lessons": [
+     "The Laplace transform",
+     "Inverse transforms and partial fractions",
+     "Solving IVPs with Laplace transforms",
+     "Step functions and the second shifting theorem",
+     "Impulses and convolution"
+    ]
+   },
+   {
+    "title": "Systems of differential equations",
+    "lessons": [
+     "Systems of first-order equations",
+     "Real eigenvalues and phase portraits",
+     "Complex and repeated eigenvalues",
+     "Nonhomogeneous systems and the matrix exponential",
+     "Nonlinear systems and linearization"
+    ]
+   },
+   {
+    "title": "Series solutions, Fourier series and PDEs",
+    "lessons": [
+     "Series solutions near ordinary points",
+     "Fourier series",
+     "The heat and wave equations",
+     "Heat flow with insulated ends and nonzero end temperatures"
+    ]
+   }
+  ]
  },
  {
   "id": "math-linear-algebra",
@@ -210,7 +1085,94 @@
   "lessons": 40,
   "questions": 480,
   "cards": 206,
-  "drills": 86
+  "drills": 86,
+  "outline": [
+   {
+    "title": "Bridge: vectors, systems and matrices",
+    "lessons": [
+     "Vectors in the plane",
+     "Solving systems by elimination",
+     "Matrix arithmetic"
+    ]
+   },
+   {
+    "title": "Systems of linear equations",
+    "lessons": [
+     "Linear systems and row operations",
+     "Row reduction and echelon forms",
+     "Existence, uniqueness and the general solution",
+     "Applications: networks, chemistry and curve fitting"
+    ]
+   },
+   {
+    "title": "Vector equations and linear independence",
+    "lessons": [
+     "Linear combinations and span",
+     "The matrix equation Ax = b",
+     "Solution sets and parametric vector form",
+     "Linear independence"
+    ]
+   },
+   {
+    "title": "Linear transformations",
+    "lessons": [
+     "Linear transformations",
+     "The standard matrix and geometric transformations",
+     "One-to-one and onto"
+    ]
+   },
+   {
+    "title": "Matrix algebra",
+    "lessons": [
+     "Matrix operations and composition",
+     "The inverse of a matrix",
+     "Elementary matrices and the invertible matrix theorem",
+     "LU factorization"
+    ]
+   },
+   {
+    "title": "Determinants",
+    "lessons": [
+     "Determinants by cofactor expansion",
+     "Properties of determinants",
+     "Cramer's rule, the adjugate, and area and volume"
+    ]
+   },
+   {
+    "title": "Vector spaces",
+    "lessons": [
+     "Vector spaces and subspaces",
+     "Null space, column space and kernel",
+     "Bases",
+     "Coordinates and change of basis",
+     "Dimension and rank"
+    ]
+   },
+   {
+    "title": "Eigenvalues and eigenvectors",
+    "lessons": [
+     "Eigenvalues and eigenvectors",
+     "The characteristic equation",
+     "Diagonalization",
+     "Complex eigenvalues",
+     "Discrete dynamical systems and Markov chains",
+     "Systems of differential equations"
+    ]
+   },
+   {
+    "title": "Orthogonality, least squares and symmetric matrices",
+    "lessons": [
+     "Inner product, length and orthogonality",
+     "Orthogonal sets and projections",
+     "Gram–Schmidt and the QR factorization",
+     "Least squares and linear regression",
+     "Symmetric matrices and orthogonal diagonalization",
+     "Quadratic forms",
+     "Positive definite matrices and Cholesky factorization",
+     "The singular value decomposition"
+    ]
+   }
+  ]
  },
  {
   "id": "math-ap-statistics",
@@ -230,7 +1192,93 @@
   "lessons": 39,
   "questions": 430,
   "cards": 214,
-  "drills": 83
+  "drills": 83,
+  "outline": [
+   {
+    "title": "Exploring one-variable data",
+    "lessons": [
+     "Data, variables and types",
+     "Displaying categorical data",
+     "Dotplots, stemplots and histograms",
+     "Measures of center",
+     "Measures of spread",
+     "Five-number summary, outliers and boxplots"
+    ]
+   },
+   {
+    "title": "Position and the normal model",
+    "lessons": [
+     "Percentiles and z-scores",
+     "Linear transformations of data",
+     "Density curves and the normal distribution",
+     "Normal calculations and inverse normal"
+    ]
+   },
+   {
+    "title": "Two-variable data",
+    "lessons": [
+     "Scatterplots and correlation",
+     "Least-squares regression",
+     "Residuals, r² and influential points",
+     "Transformations to achieve linearity",
+     "Two-way tables and conditional distributions"
+    ]
+   },
+   {
+    "title": "Collecting data",
+    "lessons": [
+     "Sampling methods and bias",
+     "Designing experiments",
+     "Observational studies, confounding and scope of inference"
+    ]
+   },
+   {
+    "title": "Probability",
+    "lessons": [
+     "Probability rules and Venn diagrams",
+     "Simulation",
+     "Conditional probability and independence",
+     "Tree diagrams and Bayes' theorem",
+     "Counting: permutations and combinations"
+    ]
+   },
+   {
+    "title": "Random variables",
+    "lessons": [
+     "Discrete random variables and expected value",
+     "Transforming and combining random variables",
+     "The binomial distribution",
+     "The geometric distribution"
+    ]
+   },
+   {
+    "title": "Sampling distributions and confidence intervals",
+    "lessons": [
+     "Sampling distributions and the sample proportion",
+     "The sample mean and the Central Limit Theorem",
+     "Confidence intervals for a proportion",
+     "Confidence intervals for a mean (t procedures)",
+     "Comparing two groups with confidence intervals"
+    ]
+   },
+   {
+    "title": "Significance tests",
+    "lessons": [
+     "The logic of significance tests",
+     "Type I and Type II errors and power",
+     "Significance tests for proportions",
+     "Significance tests for means"
+    ]
+   },
+   {
+    "title": "Chi-square and regression inference",
+    "lessons": [
+     "Chi-square goodness-of-fit test",
+     "Chi-square tests for two-way tables",
+     "Inference for the regression slope"
+    ]
+   }
+  ]
  },
  {
   "id": "math-probstats",
@@ -249,7 +1297,85 @@
   "lessons": 36,
   "questions": 459,
   "cards": 289,
-  "drills": 105
+  "drills": 105,
+  "outline": [
+   {
+    "title": "Probability foundations",
+    "lessons": [
+     "Sample spaces, events and the axioms of probability",
+     "Counting and equally likely outcomes",
+     "Conditional probability and Bayes' theorem",
+     "Independence"
+    ]
+   },
+   {
+    "title": "Discrete random variables",
+    "lessons": [
+     "Discrete random variables, expectation and variance",
+     "Bernoulli, binomial and hypergeometric distributions",
+     "Geometric and negative binomial distributions",
+     "The Poisson distribution",
+     "Moment generating functions"
+    ]
+   },
+   {
+    "title": "Continuous random variables",
+    "lessons": [
+     "Continuous random variables",
+     "The uniform and exponential distributions",
+     "The normal distribution",
+     "The gamma and beta distributions",
+     "Functions of a random variable"
+    ]
+   },
+   {
+    "title": "Joint distributions",
+    "lessons": [
+     "Joint distributions and marginals",
+     "Conditional distributions and independence",
+     "Expectation, covariance and correlation",
+     "Sums of independent random variables",
+     "Conditional expectation and the laws of total expectation and variance",
+     "The bivariate normal distribution and order statistics"
+    ]
+   },
+   {
+    "title": "Limit theorems",
+    "lessons": [
+     "Markov and Chebyshev inequalities and the law of large numbers",
+     "The Central Limit Theorem"
+    ]
+   },
+   {
+    "title": "Estimation",
+    "lessons": [
+     "Sampling distributions: chi-square, t and F",
+     "Point estimators: bias, variance and efficiency",
+     "Method of moments and maximum likelihood",
+     "Rao–Blackwell, completeness and minimum-variance unbiased estimators",
+     "Confidence intervals from pivotal quantities",
+     "The bootstrap and resampling",
+     "Introduction to Bayesian inference"
+    ]
+   },
+   {
+    "title": "Hypothesis testing",
+    "lessons": [
+     "The testing framework: errors, power and p-values",
+     "Tests for means and variances of normal samples",
+     "Most powerful tests and likelihood ratio tests",
+     "Tests for proportions and chi-square tests"
+    ]
+   },
+   {
+    "title": "Regression, ANOVA and nonparametric methods",
+    "lessons": [
+     "Simple linear regression",
+     "One-way analysis of variance",
+     "Nonparametric methods"
+    ]
+   }
+  ]
  },
  {
   "id": "science-physics",
@@ -269,7 +1395,118 @@
   "lessons": 49,
   "questions": 558,
   "cards": 274,
-  "drills": 144
+  "drills": 144,
+  "outline": [
+   {
+    "title": "Measurement and vectors",
+    "lessons": [
+     "Measurement, units, and significant figures",
+     "Vectors"
+    ]
+   },
+   {
+    "title": "Kinematics",
+    "lessons": [
+     "Describing motion in one dimension",
+     "Constant acceleration and free fall",
+     "Projectile motion",
+     "Motion in two dimensions and relative motion"
+    ]
+   },
+   {
+    "title": "Forces and Newton's laws",
+    "lessons": [
+     "Newton's laws and free-body diagrams",
+     "Friction and inclined planes",
+     "Tension, pulleys, and connected objects",
+     "Uniform circular motion"
+    ]
+   },
+   {
+    "title": "Energy and momentum",
+    "lessons": [
+     "Work and kinetic energy",
+     "Potential energy, conservation of energy, and power",
+     "Momentum, impulse, and center of mass",
+     "Collisions"
+    ]
+   },
+   {
+    "title": "Rotation and gravitation",
+    "lessons": [
+     "Rotational kinematics and moment of inertia",
+     "Torque and rotational dynamics",
+     "Rolling and angular momentum",
+     "Static equilibrium",
+     "Elasticity",
+     "Gravitation and orbits"
+    ]
+   },
+   {
+    "title": "Oscillations, waves, and sound",
+    "lessons": [
+     "Simple harmonic motion",
+     "Waves and superposition",
+     "Sound"
+    ]
+   },
+   {
+    "title": "Fluids and thermodynamics",
+    "lessons": [
+     "Pressure and buoyancy",
+     "Fluid flow and Bernoulli's equation",
+     "Temperature, heat, and phase changes",
+     "Ideal gases and kinetic theory",
+     "The first law of thermodynamics",
+     "Heat engines, entropy, and the second law"
+    ]
+   },
+   {
+    "title": "Electrostatics",
+    "lessons": [
+     "Electric charge and Coulomb's law",
+     "The electric field",
+     "Gauss's law",
+     "Electric potential and potential energy",
+     "Capacitance and dielectrics"
+    ]
+   },
+   {
+    "title": "Electric circuits",
+    "lessons": [
+     "Current, resistance, and power",
+     "DC circuits and Kirchhoff's rules",
+     "RC circuits"
+    ]
+   },
+   {
+    "title": "Magnetism and induction",
+    "lessons": [
+     "Magnetic forces",
+     "Sources of magnetic fields",
+     "Electromagnetic induction",
+     "Inductance, RL and LC circuits, and AC"
+    ]
+   },
+   {
+    "title": "Light and optics",
+    "lessons": [
+     "Light: electromagnetic waves, reflection, and refraction",
+     "Mirrors and thin lenses",
+     "The eye and optical instruments",
+     "Interference and diffraction"
+    ]
+   },
+   {
+    "title": "Modern physics",
+    "lessons": [
+     "Special relativity",
+     "Photons, atoms, and matter waves",
+     "Atoms with many electrons, X-rays, and lasers",
+     "Nuclear physics and radioactivity"
+    ]
+   }
+  ]
  },
  {
   "id": "science-uphys1",
@@ -288,7 +1525,73 @@
   "lessons": 29,
   "questions": 319,
   "cards": 162,
-  "drills": 86
+  "drills": 86,
+  "outline": [
+   {
+    "title": "Measurement and vectors",
+    "lessons": [
+     "Measurement, units, and significant figures",
+     "Vectors"
+    ]
+   },
+   {
+    "title": "Kinematics",
+    "lessons": [
+     "Describing motion in one dimension",
+     "Constant acceleration and free fall",
+     "Projectile motion",
+     "Motion in two dimensions and relative motion"
+    ]
+   },
+   {
+    "title": "Forces and Newton's laws",
+    "lessons": [
+     "Newton's laws and free-body diagrams",
+     "Friction and inclined planes",
+     "Tension, pulleys, and connected objects",
+     "Uniform circular motion"
+    ]
+   },
+   {
+    "title": "Energy and momentum",
+    "lessons": [
+     "Work and kinetic energy",
+     "Potential energy, conservation of energy, and power",
+     "Momentum, impulse, and center of mass",
+     "Collisions"
+    ]
+   },
+   {
+    "title": "Rotation and gravitation",
+    "lessons": [
+     "Rotational kinematics and moment of inertia",
+     "Torque and rotational dynamics",
+     "Rolling and angular momentum",
+     "Static equilibrium",
+     "Gravitation and orbits"
+    ]
+   },
+   {
+    "title": "Oscillations, waves, and sound",
+    "lessons": [
+     "Simple harmonic motion",
+     "Damped and driven oscillations",
+     "Waves and superposition",
+     "Sound"
+    ]
+   },
+   {
+    "title": "Fluids and thermodynamics",
+    "lessons": [
+     "Pressure and buoyancy",
+     "Fluid flow and Bernoulli's equation",
+     "Temperature, heat, and phase changes",
+     "Ideal gases and kinetic theory",
+     "The first law of thermodynamics",
+     "Heat engines, entropy, and the second law"
+    ]
+   }
+  ]
  },
  {
   "id": "science-uphys2",
@@ -307,6 +1610,56 @@
   "lessons": 23,
   "questions": 261,
   "cards": 128,
-  "drills": 66
+  "drills": 66,
+  "outline": [
+   {
+    "title": "Electrostatics",
+    "lessons": [
+     "Electric charge and Coulomb's law",
+     "The electric field",
+     "Gauss's law",
+     "Electric potential and potential energy",
+     "Electric dipoles",
+     "Capacitance and dielectrics"
+    ]
+   },
+   {
+    "title": "Electric circuits",
+    "lessons": [
+     "Current, resistance, and power",
+     "DC circuits and Kirchhoff's rules",
+     "RC circuits"
+    ]
+   },
+   {
+    "title": "Magnetism and induction",
+    "lessons": [
+     "Magnetic forces",
+     "Sources of magnetic fields",
+     "The Hall effect and magnetism in matter",
+     "Electromagnetic induction",
+     "Inductance, RL and LC circuits, and AC"
+    ]
+   },
+   {
+    "title": "Light and optics",
+    "lessons": [
+     "Light: electromagnetic waves, reflection, and refraction",
+     "Energy and momentum in electromagnetic waves",
+     "Mirrors and thin lenses",
+     "Refraction at curved surfaces and optical instruments",
+     "Interference and diffraction"
+    ]
+   },
+   {
+    "title": "Modern physics",
+    "lessons": [
+     "Special relativity",
+     "Photons, atoms, and matter waves",
+     "Blackbody radiation and the Compton effect",
+     "Nuclear physics and radioactivity"
+    ]
+   }
+  ]
  }
 ]

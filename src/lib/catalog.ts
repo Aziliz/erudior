@@ -20,6 +20,10 @@ export interface CatalogEntry {
   questions: number;
   cards: number;
   drills: number;
+  /** Lesson plan: module titles and their lesson titles. */
+  outline?: { title: string; lessons: string[] }[];
+  /** Language courses: target vocabulary size and items in the course. */
+  words?: number;
 }
 
 export const CATALOG = catalogJson as CatalogEntry[];

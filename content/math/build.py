@@ -307,6 +307,11 @@ def write_manifest():
             "questions": sum(len(b.get("questions", [])) for b in c.get("banks", [])),
             "cards": sum(len(d.get("cards", [])) for d in c.get("decks", [])),
             "drills": len(c.get("drills", [])),
+            # Lesson plan for the catalog's Overview page (titles only).
+            "outline": [
+                {"title": m.get("title", ""), "lessons": [l.get("title", "") for l in c.get("lessons", []) if l.get("module") == m.get("id")]}
+                for m in c.get("modules", [])
+            ],
         }
 
     items = []
