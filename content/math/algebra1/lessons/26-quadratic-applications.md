@@ -7,7 +7,7 @@ topics: [Quadratic applications]
 drills: [alg-d-projectile, alg-d-fence-max, alg-d-revenue-max]
 refs: [alg-ref-polynomials]
 ---
-Many real questions ask for the largest or smallest possible value of something: the most area a fence can enclose, the price that brings in the most revenue, the highest point a ball reaches. When the quantity is a quadratic function, the answer is at the vertex of its parabola. This lesson puts the vertex formula from Lesson 24 and the solving methods from Lessons 21–23 to work on such problems.
+Many real questions ask for the largest or smallest possible value of something: the most area a fence can enclose, the price that brings in the most revenue, the highest point a ball reaches. When the quantity is a quadratic function, the answer is at the vertex of its parabola. This lesson puts the vertex formula from Lesson 25 and the solving methods from Lessons 22–24 to work on such problems.
 
 ## Optimization with a quadratic
 

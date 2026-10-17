@@ -7,7 +7,7 @@ topics: [Quadratic equations]
 drills: [alg-d-sqrt-property, alg-d-complete-square]
 refs: [alg-ref-polynomials]
 ---
-Factoring is quick when it works, but most quadratics don't factor over the integers. $x^2 + 6x - 2 = 0$ is a typical example. This lesson develops a method that always works: rewrite the equation so that a perfect square equals a number, then take square roots. The process, called completing the square, is also how the quadratic formula is derived (next lesson) and how a parabola's vertex is found (Lesson 24).
+Factoring is quick when it works, but most quadratics don't factor over the integers. $x^2 + 6x - 2 = 0$ is a typical example. This lesson develops a method that always works: rewrite the equation so that a perfect square equals a number, then take square roots. The process, called completing the square, is also how the quadratic formula is derived (next lesson) and how a parabola's vertex is found (Lesson 25).
 
 ## The square root property
 
@@ -37,11 +37,11 @@ Solve $(3x + 2)^2 = 20$.
 2. $3x = -2 \pm 2\sqrt5$, so $x = \dfrac{-2 \pm 2\sqrt5}{3}$.
 3. Approximately $x \approx 0.824$ or $x \approx -2.157$.
 
-(Simplifying $\sqrt{20} = 2\sqrt5$ uses a radical rule that Lesson 26 develops fully: $\sqrt{20} = \sqrt{4 \cdot 5} = 2\sqrt5$.)
+(Simplifying $\sqrt{20} = 2\sqrt5$ uses a radical rule that Lesson 28 develops fully: $\sqrt{20} = \sqrt{4 \cdot 5} = 2\sqrt5$.)
 
 ## Completing the square
 
-The square root property only applies when one side is a perfect square. **Completing the square** creates one. The key observation, from Lesson 18:
+The square root property only applies when one side is a perfect square. **Completing the square** creates one. The key observation, from Lesson 19:
 
 $$(x + h)^2 = x^2 + 2hx + h^2.$$
 
@@ -98,7 +98,7 @@ Write $x^2 - 8x + 5$ in the form $(x - h)^2 + k$.
 2. Add and subtract 16: $x^2 - 8x + 16 - 16 + 5$.
 3. Group: $(x - 4)^2 - 11$.
 
-This form shows at once that the smallest value of $x^2 - 8x + 5$ is $-11$, reached when $x = 4$ (since a square is never negative). That's the vertex of its parabola, as Lesson 24 will explain.
+This form shows at once that the smallest value of $x^2 - 8x + 5$ is $-11$, reached when $x = 4$ (since a square is never negative). That's the vertex of its parabola, as Lesson 25 will explain.
 
 ## Common mistakes
 

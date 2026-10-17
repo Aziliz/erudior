@@ -74,13 +74,13 @@ The left side is a perfect square: $(x - 5)^2 = 0$. Both factors give $x = 5$. T
 
 ## Seeing the roots on a graph
 
-The solutions of $ax^2 + bx + c = 0$ are the $x$-intercepts of the graph of $y = ax^2 + bx + c$, because those are the points where $y = 0$. The graph of a quadratic is a U-shaped curve called a parabola (Lesson 24 studies it in detail).
+The solutions of $ax^2 + bx + c = 0$ are the $x$-intercepts of the graph of $y = ax^2 + bx + c$, because those are the points where $y = 0$. The graph of a quadratic is a U-shaped curve called a parabola (Lesson 25 studies it in detail).
 
 ```plot
 {"x": [-7, 7], "y": [-18, 8], "functions": [{"f": "x^2 + 2*x - 15", "label": "y = x² + 2x - 15", "from": -7, "to": 5}, {"f": "x^2 - 10*x + 25", "dashed": true, "label": "y = (x - 5)²", "from": 1, "to": 8}], "points": [{"at": [-5, 0], "label": "-5"}, {"at": [3, 0], "label": "3"}, {"at": [5, 0], "label": "5 (double)"}], "caption": "Two roots where the parabola crosses the axis; a double root where it just touches"}
 ```
 
-The solid parabola from Example 1 crosses the $x$-axis at $-5$ and 3. The dashed one from Example 4 touches the axis at 5 without crossing, the picture of a double root. A parabola that stays entirely above or below the axis has no real roots; you'll see how to detect that in Lesson 23.
+The solid parabola from Example 1 crosses the $x$-axis at $-5$ and 3. The dashed one from Example 4 touches the axis at 5 without crossing, the picture of a double root. A parabola that stays entirely above or below the axis has no real roots; you'll see how to detect that in Lesson 24.
 
 ## Writing an equation from its roots
 

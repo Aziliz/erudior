@@ -7,7 +7,7 @@ topics: [Square roots]
 drills: [a1-d-simplify-root, a1-d-radical-add, a1-d-radical-multiply]
 refs: [alg-ref-functions]
 ---
-Square roots have already appeared in this course: the square root property and the quadratic formula both end with a $\sqrt{\phantom{x}}$, and Lesson 22 quietly rewrote $\sqrt{20}$ as $2\sqrt5$. This lesson explains what a square root is, why $\sqrt{20}$ and $2\sqrt5$ are the same number, how to add and multiply square roots, and how to tell whether an answer is rational or irrational. It opens Module 7, which moves from squaring toward the other big family of Algebra 1 functions: exponential functions.
+Square roots have already appeared in this course: the square root property and the quadratic formula both end with a $\sqrt{\phantom{x}}$, and Lesson 23 quietly rewrote $\sqrt{20}$ as $2\sqrt5$. This lesson explains what a square root is, why $\sqrt{20}$ and $2\sqrt5$ are the same number, how to add and multiply square roots, and how to tell whether an answer is rational or irrational. It opens Module 7, which moves from squaring toward the other big family of Algebra 1 functions: exponential functions. The next lesson turns $\sqrt x$ into a function and graphs it.
 
 ## What a square root is
 

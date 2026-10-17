@@ -4,8 +4,8 @@ module: alg-m6
 title: Graphing quadratic functions
 minutes: 35
 topics: [Quadratic functions]
-drills: [alg-d-vertex-standard, alg-d-quad-from-graph, alg-d-quad-intercepts]
-refs: [alg-ref-polynomials]
+drills: [alg-d-vertex-standard, alg-d-quad-from-graph, alg-d-quad-intercepts, a1-d-transform-point]
+refs: [alg-ref-polynomials, alg-ref-functions]
 ---
 The last three lessons solved $ax^2 + bx + c = 0$. Now we look at the function $f(x) = ax^2 + bx + c$ as a whole. Its graph, the parabola, has a lowest or highest point, a line of symmetry, and intercepts, and all of them can be read from the right form of the equation. This lesson shows how to find each feature and sketch the graph quickly.
 
@@ -36,7 +36,7 @@ is called **vertex form**, because the vertex is $(h, k)$ and the axis of symmet
 
 In terms of shifting, the graph of $a(x - h)^2 + k$ is the graph of $ax^2$ moved $h$ units right and $k$ units up. Watch the sign: $(x - 3)^2$ shifts right 3, and $(x + 3)^2 = (x - (-3))^2$ shifts left 3.
 
-These moves work for any function, not just $x^2$. Starting from the graph of $y = f(x)$: $y = f(x) + k$ moves it up $k$ units (down if $k < 0$); $y = f(x - h)$ moves it right $h$ units (left if $h < 0$); and $y = a\,f(x)$ stretches it vertically by the factor $|a|$, flipping it over the $x$-axis when $a < 0$. For example, $y = |x - 2| + 1$ is the V of $y = |x|$ moved right 2 and up 1, with its corner at $(2, 1)$, and $y = \sqrt{x + 4}$ is the graph of $y = \sqrt x$ moved left 4.
+These moves work for any function, not just $x^2$. Starting from the graph of $y = f(x)$: $y = f(x) + k$ moves it up $k$ units (down if $k < 0$); $y = f(x - h)$ moves it right $h$ units (left if $h < 0$); and $y = a\,f(x)$ stretches it vertically by the factor $|a|$, flipping it over the $x$-axis when $a < 0$. For example, $y = |x - 2| + 1$ is the V of $y = |x|$ moved right 2 and up 1, with its corner at $(2, 1)$, and $y = \sqrt{x + 4}$ is the graph of $y = \sqrt x$ moved left 4. Lesson 29 uses these moves to graph square root and cube root functions.
 
 ### Example 1
 
@@ -53,7 +53,7 @@ Graph $f(x) = -2(x + 1)^2 + 8$.
 
 ## The vertex from standard form
 
-For $f(x) = ax^2 + bx + c$, completing the square (as in Lesson 22) gives the vertex's $x$-coordinate
+For $f(x) = ax^2 + bx + c$, completing the square (as in Lesson 23) gives the vertex's $x$-coordinate
 
 $$h = -\frac{b}{2a},$$
 

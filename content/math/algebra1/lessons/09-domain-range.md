@@ -16,7 +16,7 @@ When a function is given only by a formula, its domain is every real number for 
 1. *Division by zero.* A denominator can't be 0.
 2. *Even roots of negative numbers.* $\sqrt{u}$ (and $\sqrt[4]{u}$, and so on) requires $u \ge 0$ to give a real number.
 
-Polynomials like $3x^2 - x + 5$ have neither problem, so their domain is all real numbers, $(-\infty, \infty)$. Odd roots, like $\sqrt[3]{x}$, work for negative inputs too.
+Polynomials like $3x^2 - x + 5$ have neither problem, so their domain is all real numbers, $(-\infty, \infty)$. Odd roots, like $\sqrt[3]{x}$, work for negative inputs too (Lesson 29 graphs $y = \sqrt[3]{x}$).
 
 ### Example 1
 

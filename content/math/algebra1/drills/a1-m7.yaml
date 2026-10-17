@@ -249,3 +249,91 @@
     From term {p} to term {q} is ${q} - {p} = {gap}$ steps, and the value changes by ${aq} - ({ap}) = {rise}$.
     $d = \dfrac{{rise}}{{gap}} =$ **{d}**.
     Back up {back} steps from $a_{{p}}$: $a_1 = {ap} - {back}({d}) =$ **{a1}**.
+
+- id: a1-d-rate-restate
+  title: Restate a growth rate over a longer time step
+  topic: Exponential functions
+  vars:
+    r: {min: 1, max: 8, step: 0.5}
+    per: {choices: [{label: month, value: 12}, {label: quarter, value: 4}, {label: half-year, value: 2}]}
+    dir: {choices: [{label: grows, value: 1}, {label: shrinks, value: -1}]}
+  calc:
+    n: per
+    b: 1 + dir*r/100
+    B: (1 + dir*r/100)^per
+    pct: ((1 + dir*r/100)^per - 1)*100
+    naive: dir*r*per
+  prompt: 'A quantity {dir} by {r}% per {per}. Find its growth factor per year (4 decimal places) and its percent change per year (2 decimal places; use a negative number for a decrease).'
+  answers:
+    - {name: B, label: 'Yearly factor', format: num4, tolerance: 0.0001}
+    - {name: pct, label: 'Percent change per year', format: num2, tolerance: 0.011}
+  solution: |-
+    The factor per {per} is $b = {b:num4}$, and a year is {n} of these steps, so the yearly factor is ${b:num4}^{{n}} \approx$ **{B:num4}**.
+    As a percent change: $({B:num4} - 1) \times 100 \approx$ **{pct:num2}**% per year. (Simply multiplying {r}% by {n} would give {naive}%, which ignores compounding.)
+
+- id: a1-d-root-transform
+  title: Graph features of a transformed square root
+  topic: Root functions
+  vars:
+    a: {choices: [-3, -2, -1, 1, 2, 3]}
+    h: {min: -6, max: 6}
+    k: {min: -6, max: 6}
+    sq: {min: 1, max: 5}
+  calc:
+    nh: -h
+    x0: h + sq^2
+    inner: sq^2
+    val: a*sq + k
+    asq: a*sq
+  where: ['h != 0', 'k != 0']
+  prompt: 'For $f(x) = {a:coef}\sqrt{x {nh:signed}} {k:signed}$, give the starting point of the graph and the value $f({x0})$.'
+  answers:
+    - {name: h, label: 'Starting point: $x =$'}
+    - {name: k, label: '$y =$'}
+    - {name: val, label: '$f({x0}) =$'}
+  solution: |-
+    The radicand $x {nh:signed}$ is 0 at $x = {h}$, where $f = {k}$: the graph starts at **({h}, {k})**, and its domain is $x \ge {h}$.
+    $f({x0}) = {a:coef}\sqrt{{inner}} {k:signed} = {a}({sq}) {k:signed} = {asq} {k:signed} =$ **{val}**.
+
+- id: a1-d-cbrt-eval
+  title: Evaluate a cube root function
+  topic: Root functions
+  vars:
+    a: {choices: [-3, -2, -1, 2, 3, 4]}
+    h: {min: -6, max: 6}
+    k: {min: -9, max: 9}
+    u: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
+  calc:
+    nh: -h
+    x0: h + u^3
+    cube: u^3
+    val: a*u + k
+    au: a*u
+  where: ['h != 0', 'k != 0']
+  prompt: 'For $g(x) = {a:coef}\sqrt[3]{x {nh:signed}} {k:signed}$, find $g({x0})$.'
+  answers:
+    - {name: val, label: '$g({x0}) =$'}
+  solution: |-
+    Inside the root: ${x0} {nh:signed} = {cube}$, and $\sqrt[3]{{cube}} = {u}$ because $({u})^3 = {cube}$. (Cube roots of negative numbers are negative.)
+    So $g({x0}) = {a}({u}) {k:signed} = {au} {k:signed} =$ **{val}**.
+
+- id: a1-d-root-from-graph
+  title: Equation of a square root graph
+  topic: Root functions
+  vars:
+    a: {choices: [-4, -3, -2, -1, 2, 3, 4]}
+    h: {min: -5, max: 5}
+    k: {min: -5, max: 5}
+    sq: {min: 1, max: 4}
+  calc:
+    nh: -h
+    x1: h + sq^2
+    y1: k + a*sq
+    rise: a*sq
+  where: ['h != 0', 'k != 0']
+  prompt: 'The graph of $y = a\sqrt{x {nh:signed}} {k:signed}$ starts at $({h}, {k})$ and passes through $({x1}, {y1})$. Find $a$.'
+  answers:
+    - {name: a, label: '$a =$'}
+  solution: |-
+    Substitute the point: ${y1} = a\sqrt{{x1} {nh:signed}} {k:signed} = a\sqrt{{sq}^2} {k:signed} = {sq:coef}a {k:signed}$.
+    So ${sq:coef}a = {y1} - ({k}) = {rise}$ and $a =$ **{a}**.

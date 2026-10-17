@@ -283,6 +283,44 @@
   explanation: |-
     $x = \dfrac{-3 \pm \sqrt{9 + 28}}{2} = \dfrac{-3 \pm \sqrt{37}}{2}$. The positive root is $\dfrac{-3 + 6.083}{2} \approx 1.54$.
 
+- id: alg-q-2413
+  lesson: alg-quad-graphs
+  module_quiz: true
+  topic: Quadratic functions
+  stem: 'The graph of $y = |x|$ is moved 2 units right and 3 units down. What is the new equation?'
+  choices: ['$y = |x - 2| - 3$', '$y = |x + 2| - 3$', '$y = |x - 2| + 3$', '$y = |x - 3| - 2$']
+  answer: 0
+  explanation: |-
+    Right 2 replaces $x$ with $x - 2$; down 3 subtracts 3: $y = |x - 2| - 3$, with its corner at $(2, -3)$.
+    $|x + 2|$ moves left, the usual sign trap. $+3$ moves up instead of down. $|x - 3| - 2$ swaps the horizontal and vertical amounts.
+- id: alg-q-2414
+  lesson: alg-quad-graphs
+  module_quiz: true
+  topic: Quadratic functions
+  stem: 'The point $(3, 4)$ is on the graph of $y = f(x)$. Which point must be on the graph of $y = -2f(x) + 1$?'
+  choices: ['$(-3, -7)$', '$(3, -7)$', '$(3, 9)$', '$(3, -10)$']
+  answer: 1
+  explanation: |-
+    Nothing happens inside $f$, so $x$ stays 3. The height is multiplied by $-2$ and then raised by 1: $-2(4) + 1 = -7$. The point is $(3, -7)$.
+    $(3, 9)$ ignores the negative sign (no flip). $(3, -10)$ adds 1 before multiplying: $-2(4 + 1)$. $(-3, -7)$ also flips $x$, but a negative outside $f$ reflects over the $x$-axis only.
+- id: alg-q-2415
+  lesson: alg-quad-graphs
+  topic: Quadratic functions
+  stem: 'How does the graph of $y = \sqrt{x + 4} - 1$ compare with the graph of $y = \sqrt x$?'
+  choices: ['Shifted 4 units left and 1 unit up', 'Shifted 1 unit left and 4 units down', 'Shifted 4 units left and 1 unit down', 'Shifted 4 units right and 1 unit down']
+  answer: 2
+  explanation: |-
+    $x + 4 = x - (-4)$, so $h = -4$: a shift 4 units left. The $-1$ outside shifts it 1 unit down. The starting point moves from $(0, 0)$ to $(-4, -1)$.
+    "Right 4" reads the $+4$ as a move in the positive direction. "Up 1" ignores the sign of $-1$. "Left 1, down 4" swaps the inside and outside numbers.
+- id: alg-q-2416
+  lesson: alg-quad-graphs
+  topic: Quadratic functions
+  stem: 'Compared with the graph of $y = f(x)$, the graph of $y = f(x - 5)$ is:'
+  choices: ['Shifted 5 units left', 'Shifted 5 units down', 'Shifted 5 units up', 'Shifted 5 units right']
+  answer: 3
+  explanation: |-
+    For $y = f(x - 5)$ to produce the output that $f$ gives at some input $p$, you need $x - 5 = p$, so $x = p + 5$: every point moves 5 units right.
+    "Left" is the sign trap: subtracting inside moves the graph right. A change inside the parentheses moves the graph horizontally, so neither "up" nor "down" applies; that would be $f(x) \pm 5$.
 - id: alg-q-2501
   lesson: alg-quad-graphs
   topic: Quadratic functions
@@ -474,3 +512,114 @@
   answer: 0
   explanation: |-
     Width $w$, length $18 - w$: $A = w(18 - w)$, maximized at $w = 9$. A 9 by 9 square has area 81 cm².
+- id: a1-q-fg01
+  lesson: a1-solve-fg
+  module_quiz: true
+  topic: Solving f(x) = g(x)
+  stem: 'Solve the system $y = x^2 - 2x - 3$ and $y = x + 1$.'
+  choices: ['$(4, 5)$ and $(-1, 0)$', '$(3, 4)$ and $(-1, 0)$', '$(-4, -3)$ and $(1, 2)$', '$(4, 5)$ only']
+  answer: 0
+  explanation: |-
+    Set equal: $x^2 - 2x - 3 = x + 1$, so $x^2 - 3x - 4 = 0$ and $(x - 4)(x + 1) = 0$. Then $x = 4$ gives $y = 5$ and $x = -1$ gives $y = 0$; both check in the parabola.
+    $(3, 4)$ comes from solving $x^2 - 2x - 3 = 0$ (the parabola's $x$-intercepts) instead of setting the two sides equal. $(-4, -3)$ and $(1, 2)$ use the wrong signs in the factors. Keeping only $(4, 5)$ drops the second root.
+- id: a1-q-fg02
+  lesson: a1-solve-fg
+  module_quiz: true
+  topic: Solving f(x) = g(x)
+  stem: 'The graphs of $y = f(x)$ and $y = g(x)$ intersect at $(-2, 5)$ and $(3, 0)$ and nowhere else. What are the solutions of $f(x) = g(x)$?'
+  choices: ['$x = -2,\ 0,\ 3,\ 5$', '$x = -2$ and $x = 3$', '$x = 5$ and $x = 0$', '$x = 3$ only']
+  answer: 1
+  explanation: |-
+    Solutions of $f(x) = g(x)$ are the $x$-coordinates of the intersection points: $-2$ and $3$.
+    5 and 0 are the common output values ($y$-coordinates), not inputs. Keeping only $x = 3$ confuses this with solving $f(x) = 0$, the $x$-intercept. Listing all four numbers mixes $x$- and $y$-coordinates.
+- id: a1-q-fg03
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'How many points do $y = x^2 + 4$ and $y = 2x + 1$ have in common?'
+  choices: ['Two', 'Infinitely many', 'None', 'One']
+  answer: 2
+  explanation: |-
+    Set equal: $x^2 + 4 = 2x + 1$, so $x^2 - 2x + 3 = 0$. $D = (-2)^2 - 4(1)(3) = 4 - 12 = -8 < 0$: no real solutions, so the line misses the parabola.
+    Two comes from computing $D = 4 + 12$ (a sign slip in $-4ac$). One would need $D = 0$. A line and a parabola can never share infinitely many points.
+- id: a1-q-fg04
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'For what value of $k$ is the line $y = 2x + k$ tangent to the parabola $y = x^2$ (touching it at exactly one point)?'
+  choices: ['$k = 1$', '$k = 0$', '$k = -4$', '$k = -1$']
+  answer: 3
+  explanation: |-
+    $x^2 = 2x + k$ gives $x^2 - 2x - k = 0$. One point means $D = 0$: $(-2)^2 - 4(1)(-k) = 4 + 4k = 0$, so $k = -1$. (The line $y = 2x - 1$ touches at $(1, 1)$.)
+    $k = 1$ comes from writing the constant term as $+k$ instead of $-k$. $k = 0$ makes the line pass through the vertex, but $x^2 = 2x$ has two solutions, 0 and 2. $k = -4$ leaves out the 4 in $4ac$: $4 + k = 0$.
+- id: a1-q-fg05
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'Use the table to find a solution of $3^x = 2x + 5$. $$\begin{array}{c|ccccc} x & 0 & 1 & 2 & 3 & 4 \\ \hline 3^x & 1 & 3 & 9 & 27 & 81 \\ 2x + 5 & 5 & 7 & 9 & 11 & 13 \end{array}$$'
+  choices: ['$x = 2$', '$x = 9$', '$x = 1$', '$x = 3$']
+  answer: 0
+  explanation: |-
+    At $x = 2$ both expressions equal 9, so $x = 2$ is a solution.
+    9 is the common output, not the input. At $x = 1$ the outputs are 3 and 7, and at $x = 3$ they are 27 and 11, so neither is a solution.
+- id: a1-q-fg06
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'Two functions with unbroken graphs have $f(1) = 4$, $g(1) = 6$, $f(2) = 9$ and $g(2) = 6$. What can you conclude?'
+  choices: ['$f(x) = g(x)$ has no solution between 1 and 2', '$f(x) = g(x)$ has a solution between $x = 1$ and $x = 2$', '$x = 6$ is a solution of $f(x) = g(x)$', '$x = 1.5$ is a solution of $f(x) = g(x)$']
+  answer: 1
+  explanation: |-
+    At $x = 1$, $f < g$; at $x = 2$, $f > g$. Since the graphs are unbroken, they must cross somewhere in between, so there is a solution with $1 < x < 2$.
+    6 is an output of $g$, not an input. The crossing need not be at the midpoint 1.5; you'd need a finer table or technology to locate it. "No solution" misses that the comparison switched.
+- id: a1-q-fg07
+  lesson: a1-solve-fg
+  module_quiz: true
+  topic: Solving f(x) = g(x)
+  stem: 'A ball''s height is $h = -16t^2 + 48t + 4$ feet and a drone''s height is $d = 20t + 4$ feet, $t$ seconds after both leave the same 4-foot platform. When, after $t = 0$, are they at the same height again?'
+  choices: ['$t = 1.5$ s', '$t = 4.25$ s', '$t = 1.75$ s', '$t = 3$ s']
+  answer: 2
+  explanation: |-
+    Set equal: $-16t^2 + 48t + 4 = 20t + 4$, so $-16t^2 + 28t = 0$ and $-4t(4t - 7) = 0$. Then $t = 0$ (the start) or $t = \tfrac74 = 1.75$ s.
+    3 s solves $-16t^2 + 48t = 0$, which compares the ball with the platform height and ignores the drone. 1.5 s is when the ball is highest. 4.25 s comes from adding the $20t$ instead of subtracting it: $-16t^2 + 68t = 0$.
+- id: a1-q-fg08
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'Solve $|x| = 2x - 3$.'
+  choices: ['$x = 1$ and $x = 3$', '$x = 1$ only', '$x = -3$ and $x = 3$', '$x = 3$ only']
+  answer: 3
+  explanation: |-
+    For $x \ge 0$: $x = 2x - 3$, so $x = 3$, which satisfies $x \ge 0$. For $x < 0$: $-x = 2x - 3$, so $x = 1$, which does not satisfy $x < 0$; reject it. Check: $|1| = 1$ but $2(1) - 3 = -1$.
+    Keeping $x = 1$ ignores the piece's condition. $x = -3$ comes from solving $|x| = 3$ instead of the given equation.
+- id: a1-q-fg09
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'A student solves the system $y = x^2$ and $y = 5x$ by dividing $x^2 = 5x$ by $x$, getting $x = 5$ and the single point $(5, 25)$. What went wrong?'
+  choices: ['Dividing by $x$ lost $x = 0$; the points are $(0, 0)$ and $(5, 25)$', 'The $y$-value is wrong; the point should be $(5, 5)$', 'Nothing; a line meets a parabola at most once', 'The equation is really $x^2 = 5$, so $x = \pm\sqrt5$']
+  answer: 0
+  explanation: |-
+    Write $x^2 - 5x = 0$ and factor: $x(x - 5) = 0$, so $x = 0$ or $x = 5$. Dividing by $x$ assumes $x \ne 0$ and throws that solution away. The points are $(0, 0)$ and $(5, 25)$.
+    $(5, 5)$ is not on either graph ($5^2 = 25$ and $5(5) = 25$). A line can meet a parabola twice. $x = \pm\sqrt5$ drops the $x$ from $5x$.
+- id: a1-q-fg10
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'Solve the system $y = -x^2 + 6$ and $y = x$.'
+  choices: ['$(\sqrt6, \sqrt6)$ and $(-\sqrt6, -\sqrt6)$', '$(2, 2)$ and $(-3, -3)$', '$(-2, -2)$ and $(3, 3)$', '$(2, 2)$ and $(-3, 15)$']
+  answer: 1
+  explanation: |-
+    $x = -x^2 + 6$ gives $x^2 + x - 6 = 0$, so $(x + 3)(x - 2) = 0$: $x = 2$ or $x = -3$. On the line $y = x$, the points are $(2, 2)$ and $(-3, -3)$. Check: $-(-3)^2 + 6 = -3$.
+    $(-2, -2)$ and $(3, 3)$ use the wrong signs in the factors. $(-3, 15)$ evaluates $-(-3)^2$ as $+9$ in the parabola. $\pm\sqrt6$ are the parabola's $x$-intercepts, where $y = 0$, not where it meets the line.
+- id: a1-q-fg11
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'How many times do the graphs of $y = \sqrt x$ and $y = x - 2$ intersect?'
+  choices: ['Never', 'Once, at $(1, 1)$', 'Once, at $(4, 2)$', 'Twice, at $(1, 1)$ and $(4, 2)$']
+  answer: 2
+  explanation: |-
+    At $x = 4$: $\sqrt4 = 2$ and $4 - 2 = 2$, so they meet at $(4, 2)$. For $0 \le x < 4$ the root is above the line, and past 4 the line (slope 1) rises faster than $\sqrt x$, so there is no other meeting point.
+    $(1, 1)$ is on $y = \sqrt x$ but not on the line, since $1 - 2 = -1$. It is a false solution that appears if you square both sides of $\sqrt x = x - 2$ and don't check. "Never" misses $(4, 2)$.
+- id: a1-q-fg12
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'The equation $2^x = 3x$ has two solutions. Between which two consecutive integers is the larger one?'
+  choices: ['2 and 3', '4 and 5', '0 and 1', '3 and 4']
+  answer: 3
+  explanation: |-
+    Compare $2^x$ with $3x$: at $x = 3$, $8 < 9$; at $x = 4$, $16 > 12$. The comparison switches, so the graphs cross between 3 and 4 (at about $x \approx 3.31$).
+    Between 2 and 3, $2^x$ stays below $3x$ ($4 < 6$, $8 < 9$). Between 4 and 5, $2^x$ stays above ($16 > 12$, $32 > 15$). The interval from 0 to 1 holds the smaller solution ($x \approx 0.46$), not the larger.

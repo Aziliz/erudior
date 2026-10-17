@@ -739,3 +739,48 @@
 - term: residual plot
   definition: 'A graph of residuals against $x$; random scatter around 0 supports a linear model, a curved pattern does not.'
   topic: Correlation and residuals
+- term: piecewise function
+  aliases: [piecewise functions, piecewise-defined function]
+  definition: 'A function that uses different formulas on different parts of its domain, each with a condition saying which inputs it applies to; the conditions must not overlap.'
+  topic: Piecewise functions
+- term: step function
+  aliases: [step functions]
+  definition: 'A piecewise function that is constant on each piece, so its graph looks like a staircase of horizontal segments.'
+  topic: Piecewise functions
+- term: greatest integer function
+  aliases: [floor function, floor]
+  definition: 'The function $\lfloor x \rfloor$: the greatest integer less than or equal to $x$. $\lfloor 3.7 \rfloor = 3$, $\lfloor -1.2 \rfloor = -2$.'
+  topic: Piecewise functions
+- term: linear-quadratic system
+  aliases: [linear-quadratic systems, linear–quadratic system]
+  definition: 'A system made of one linear and one quadratic equation. It has two, one or no real solutions, the points where the line meets the parabola.'
+  topic: Solving f(x) = g(x)
+- term: tangent line
+  aliases: [tangent]
+  definition: 'Here, a line that touches a parabola (or other curve) at exactly one point without crossing it; substituting gives a quadratic with discriminant 0.'
+  topic: Solving f(x) = g(x)
+- term: square root function
+  aliases: [square root functions]
+  definition: 'The function $f(x) = \sqrt x$, with domain and range $[0, \infty)$. Its graph starts at the origin and rises ever more slowly.'
+  topic: Root functions
+- term: cube root
+  aliases: [cube roots]
+  definition: 'The number whose cube is $a$, written $\sqrt[3]{a}$. Every real number has exactly one real cube root: $\sqrt[3]{8} = 2$, $\sqrt[3]{-8} = -2$.'
+  topic: Root functions
+- term: cube root function
+  aliases: [cube root functions]
+  definition: 'The function $g(x) = \sqrt[3]{x}$, with domain and range all real numbers. Its graph is symmetric about the origin and always increasing.'
+  topic: Root functions
+- term: regression
+  definition: 'Finding the function of a chosen type (linear, quadratic, exponential, …) that best fits a data set, usually by making the sum of squared residuals as small as possible.'
+  topic: Regression models
+- term: quadratic regression
+  definition: 'Fitting the best quadratic model $\hat y = ax^2 + bx + c$ to data with technology.'
+  topic: Regression models
+- term: exponential regression
+  definition: 'Fitting the best exponential model $\hat y = a \cdot b^x$ to data with technology.'
+  topic: Regression models
+- term: second differences
+  aliases: [second difference]
+  definition: 'The differences of the first differences in a table with equally spaced inputs. Constant second differences mean quadratic data; for steps of 1 they equal $2a$.'
+  topic: Regression models

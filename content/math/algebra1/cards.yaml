@@ -165,3 +165,21 @@
 - {front: 'What a residual plot tells you', back: 'Random scatter around 0: a line fits well. A curve (like a U): use a nonlinear model.', topic: Correlation and residuals}
 - {front: 'Interpreting the slope of a line of fit', back: 'The predicted (average) change in $y$ for each 1-unit increase in $x$, in context units.', topic: Scatter plots}
 - {front: 'Interpolation vs extrapolation', back: 'Predicting inside the range of the data (fairly safe) vs outside it (risky).', topic: Scatter plots}
+- {front: 'Evaluating a piecewise function', back: 'Find the condition the input satisfies, then use only that piece''s formula. Watch $<$ versus $\le$ at the boundaries.', topic: Piecewise functions}
+- {front: 'Open or closed dot at the end of a piece?', back: 'Closed if the condition includes the endpoint ($\le$, $\ge$); open if it doesn''t ($<$, $>$).', topic: Piecewise functions}
+- {front: '$|x|$ as a piecewise function', back: '$|x| = x$ for $x \ge 0$ and $-x$ for $x < 0$. In general $|ax + b|$ splits where $ax + b = 0$.', topic: Piecewise functions}
+- {front: '$\lfloor -2.3 \rfloor$', back: '$-3$: the greatest integer less than or equal to $-2.3$. (For negatives, the floor moves away from 0.)', topic: Piecewise functions}
+- {front: '"\$5 per hour or part of an hour": cost of 3 hours 20 minutes', back: '\$20: any part of the fourth hour counts as a full hour (round up).', topic: Piecewise functions}
+- {front: 'Solving $f(x) = g(x)$ with graphs', back: 'The solutions are the $x$-coordinates of the points where $y = f(x)$ and $y = g(x)$ intersect.', topic: Solving f(x) = g(x)}
+- {front: 'Steps for a linear-quadratic system', back: 'Set the $y$-expressions equal, rearrange to $ax^2 + bx + c = 0$, solve, find each $y$ from the line, check in the quadratic.', topic: Solving f(x) = g(x)}
+- {front: 'How many points can a line and a parabola share?', back: 'Two, one (tangent) or none, according to whether the discriminant of the combined quadratic is positive, zero or negative.', topic: Solving f(x) = g(x)}
+- {front: 'Solving $f(x) = g(x)$ with a table', back: 'Look for an input with equal outputs, or for a switch in which output is larger: a crossing lies between those inputs.', topic: Solving f(x) = g(x)}
+- {front: '$y = \sqrt x$ vs $y = \sqrt[3]{x}$: domain and range', back: '$\sqrt x$: both $[0, \infty)$. $\sqrt[3]{x}$: both all real numbers.', topic: Root functions}
+- {front: 'Starting point and domain of $y = a\sqrt{x - h} + k$', back: 'Starts at $(h, k)$; domain $x \ge h$; range $y \ge k$ if $a > 0$, $y \le k$ if $a < 0$.', topic: Root functions}
+- {front: 'Center of $y = a\sqrt[3]{x - h} + k$', back: '$(h, k)$. Domain and range are all real numbers.', topic: Root functions}
+- {front: 'Easy points to plot on $y = \sqrt{x - h}$', back: 'Choose $x$ so that $x - h$ is $0, 1, 4, 9, \dots$; the root is then a whole number.', topic: Root functions}
+- {front: 'Constant second differences', back: 'With equally spaced inputs they mean the data are quadratic; for steps of 1 the second difference is $2a$.', topic: Regression models}
+- {front: 'Interpreting $\hat y = a \cdot b^x$ from exponential regression', back: '$a$: predicted value at $x = 0$. $b$: factor per unit of $x$; $b = 0.9$ means a 10% decrease per unit.', topic: Regression models}
+- {front: 'Choosing between linear, quadratic and exponential models', back: 'Use the context, the differences or ratios, and above all the residual plot: pick the model whose residuals show no pattern.', topic: Regression models}
+- {front: 'Restating an exponential rate over another time step', back: 'A factor $b$ per step is $b^n$ per $n$ steps and $\sqrt b$ per half-step: 10% per month is $1.1^{12} \approx 3.14$, about 214% per year, not 120%.', topic: Exponential functions}
+- {front: 'Moving a point under $y = a\,f(x - h) + k$', back: 'The point $(p, q)$ on $y = f(x)$ moves to $(p + h,\ aq + k)$.', topic: Quadratic functions}

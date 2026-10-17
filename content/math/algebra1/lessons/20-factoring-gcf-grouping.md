@@ -78,7 +78,7 @@ Factor $2x^3 - 6x^2 - 8x + 24$ completely.
 
 1. GCF first: all terms are divisible by 2. $2(x^3 - 3x^2 - 4x + 12)$.
 2. Group inside: $x^2(x - 3) - 4(x - 3) = (x - 3)(x^2 - 4)$.
-3. $x^2 - 4$ is a difference of squares (Lesson 18): $(x - 2)(x + 2)$.
+3. $x^2 - 4$ is a difference of squares (Lesson 19): $(x - 2)(x + 2)$.
 4. Completely factored: $2(x - 3)(x - 2)(x + 2)$.
 
 This example shows why "completely" matters: stopping at $2(x - 3)(x^2 - 4)$ leaves a factor that still breaks down.

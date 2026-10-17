@@ -7,7 +7,7 @@ topics: [Scatter plots, Correlation and residuals]
 drills: [a1-d-fit-two-points, a1-d-predict-residual, a1-d-fit-solve-x]
 refs: [a1-ref-data, alg-ref-equations]
 ---
-This last lesson brings the course full circle. In Module 3 you wrote equations of lines through exact points. Real paired data, like hours of study and test scores, never fall exactly on a line, but they often cluster around one. This lesson shows how to picture such data, how to measure how closely it follows a line, how to fit a line and use it to predict, and how to check whether a line was a good choice in the first place.
+This lesson brings the course full circle. In Module 3 you wrote equations of lines through exact points. Real paired data, like hours of study and test scores, never fall exactly on a line, but they often cluster around one. This lesson shows how to picture such data, how to measure how closely it follows a line, how to fit a line and use it to predict, and how to check whether a line was a good choice in the first place.
 
 ## Scatter plots
 
@@ -111,7 +111,7 @@ The data $(1, 1), (2, 5), (3, 8), (4, 16), (5, 26), (6, 36), (7, 48), (8, 64)$ h
 {"x": [0, 9], "y": [-8, 10], "points": [[1, 6.8], [2, 1.8], [3, -4.1], [4, -5.0], [5, -4.0], [6, -2.9], [7, 0.2], [8, 7.3]], "functions": [{"f": "0", "dashed": true}], "xLabel": "x", "yLabel": "residual", "caption": "A U-shaped residual plot: the line overpredicts in the middle and underpredicts at both ends"}
 ```
 
-3. The residuals are positive, then negative, then positive: a clear U shape. The data curve upward (they look like $y \approx x^2$), so a quadratic model would fit better. The high $r$ alone was misleading.
+3. The residuals are positive, then negative, then positive: a clear U shape. The data curve upward (they look like $y \approx x^2$), so a quadratic model would fit better. The high $r$ alone was misleading. The next lesson shows how to fit curved models like that one.
 
 By contrast, the study-hours residuals from $\hat y = 5.5x + 56.4$ (about $-1.2, 3.1, -4.7, 2.6, -2.2, 4.1, -3.7, 1.6, 1.1, -1.4$ in order of $x$) bounce up and down with no pattern, so the line is a reasonable model there.
 

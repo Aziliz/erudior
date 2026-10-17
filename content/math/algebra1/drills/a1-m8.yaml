@@ -243,3 +243,54 @@
     - {name: xt, label: 'Hours'}
   solution: |-
     Set the prediction equal to {target} and solve: ${m}x + {b} = {target}$, so ${m}x = {diff}$ and $x = \dfrac{{diff}}{{m}} =$ **{xt}** hours.
+
+- id: a1-d-exp-model-predict
+  title: Use an exponential regression model
+  topic: Regression models
+  vars:
+    A: {min: 50, max: 900, step: 10}
+    b: {choices: [0.82, 0.85, 0.88, 0.9, 0.93, 0.95, 1.04, 1.05, 1.08, 1.1, 1.12, 1.15, 1.2]}
+    x0: {min: 2, max: 9}
+    dev: {min: -15, max: 15}
+  calc:
+    rate: round((b - 1)*100, 6)
+    yhat: A*b^x0
+    y0: round(A*b^x0) + dev
+    res: round(A*b^x0) + dev - A*b^x0
+  where: ['dev != 0', 'A*b^x0 <= 999', 'A*b^x0 >= 30']
+  prompt: 'Exponential regression on a data set gives $\hat y = {A}({b})^x$. (a) By what percent does the model change per unit of $x$ (negative for a decrease)? (b) What does it predict at $x = {x0}$ (2 decimal places)? (c) The actual value at $x = {x0}$ was {y0}. What is the residual?'
+  answers:
+    - {name: rate, label: '(a) Percent per unit', tolerance: 0.0001}
+    - {name: yhat, label: '(b) $\hat y =$', format: num2, tolerance: 0.011}
+    - {name: res, label: '(c) Residual', format: num2, tolerance: 0.011}
+  solution: |-
+    (a) The factor is $b = {b}$, so each unit of $x$ multiplies $\hat y$ by {b}: a change of $({b} - 1) \times 100 =$ **{rate}**%.
+    (b) $\hat y = {A}({b})^{{x0}} \approx$ **{yhat:num2}**.
+    (c) Residual = actual − predicted $= {y0} - {yhat:num2} \approx$ **{res:num2}**.
+
+- id: a1-d-quad-model-predict
+  title: Use a quadratic regression model
+  topic: Regression models
+  vars:
+    a: {choices: [-0.4, -0.5, -0.6, -0.8, -1.2, -1.5, -2.5]}
+    b: {min: 6, max: 24}
+    c: {min: 5, max: 40}
+    x0: {min: 1, max: 10}
+    dev: {min: -9, max: 9}
+  calc:
+    yhat: a*x0^2 + b*x0 + c
+    y0: round(a*x0^2 + b*x0 + c) + dev
+    res: round(a*x0^2 + b*x0 + c) + dev - (a*x0^2 + b*x0 + c)
+    xv: -b/(2*a)
+    ymax: a*(-b/(2*a))^2 + b*(-b/(2*a)) + c
+    twoa: 2*a
+  where: ['dev != 0', 'xv <= 15', 'yhat >= 10']
+  prompt: 'Quadratic regression gives the model $\hat y = {a}x^2 + {b}x + {c}$. (a) Predict $y$ at $x = {x0}$. (b) The actual value there was {y0}; find the residual. (c) At what $x$ does the model reach its maximum (2 decimal places)?'
+  answers:
+    - {name: yhat, label: '(a) $\hat y =$', format: num2, tolerance: 0.011}
+    - {name: res, label: '(b) Residual', format: num2, tolerance: 0.011}
+    - {name: xv, label: '(c) $x =$', format: num2, tolerance: 0.011}
+  solution: |-
+    (a) $\hat y = {a}({x0})^2 + {b}({x0}) + {c} =$ **{yhat:num2}**.
+    (b) Residual = actual − predicted $= {y0} - {yhat:num2} =$ **{res:num2}**.
+    (c) $a < 0$, so the parabola opens down and the maximum is at the vertex: $x = -\dfrac{\,b}{2a} = -\dfrac{{b}}{{twoa}} \approx$ **{xv:num2}** (where $\hat y \approx {ymax:num2}$).

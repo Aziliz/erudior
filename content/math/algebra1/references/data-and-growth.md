@@ -11,6 +11,7 @@ title: Growth, sequences and statistics
 | Growth / decay | $b > 1$ growth; $0 < b < 1$ decay |
 | Percent rate $r$ | growth $b = 1 + r$; decay $b = 1 - r$ |
 | Interest (yearly) | $A = P(1 + r)^t$ |
+| Another time step | factor $b$ per step $\Rightarrow$ $b^n$ per $n$ steps, $\sqrt b$ per half-step: $1.21^t = 1.1^{2t}$ |
 | Graph ($a > 0$) | domain all reals, range $y > 0$, asymptote $y = 0$ |
 
 ## Linear vs exponential
@@ -63,3 +64,12 @@ Association: the conditional relative frequencies differ noticeably from one gro
 | Residual | actual − predicted $= y - \hat y$ (positive: point above the line) |
 | Good linear fit | residual plot shows random scatter around 0, no curve |
 | Caution | correlation is not causation; extrapolating far outside the data is unreliable |
+
+## Choosing and fitting models
+
+| Idea | Rule |
+|---|---|
+| Quadratic regression | $\hat y = ax^2 + bx + c$; vertex gives the max or min; $c$ = prediction at $x = 0$ |
+| Exponential regression | $\hat y = a \cdot b^x$; $a$ = prediction at $x = 0$; rate per step $b - 1$ (growth) or $1 - b$ (decay) |
+| Equal $x$-steps | constant differences: linear; constant second differences: quadratic; constant ratios: exponential |
+| Choosing | pick the model with a patternless residual plot that fits the context; a high $r$ or $R^2$ alone is not enough |

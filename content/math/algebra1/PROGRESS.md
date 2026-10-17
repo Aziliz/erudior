@@ -179,3 +179,56 @@ Method: every question solved independently (sympy for algebraic choices); worke
 - Cosmetic only, left as is: `x^{1}` / `(…)^{1}` can appear in alg-d-exp-simplify, alg-d-negative-exp and alg-d-sci-notation prompts and solutions when an exponent is 1.
 
 Build: `python3 content/math/build.py algebra1` OK; `npx tsx tests/check-course.mts samples/math-drafts/math-algebra1.json` reports OK (0 problems).
+
+
+## Gap lessons (2026-10-17)
+
+Fills the "Common" coverage gaps from VERIFY.md. Build and check-course: zero problems. Totals now: 36 lessons, 435 questions, 93 drills, 184 cards, 229 glossary terms, 4 reference sheets.
+
+### New lessons
+
+| File | Id | Title | Module |
+|---|---|---|---|
+| 13-piecewise-functions.md | a1-piecewise | Piecewise and step functions | alg-m3 |
+| 27-linear-quadratic-systems.md | a1-solve-fg | Solving f(x) = g(x): linear-quadratic systems and intersections | alg-m6 |
+| 29-root-functions.md | a1-root-functions | Square root and cube root functions | a1-m7 |
+| 36-regression-models.md | a1-regression-models | Fitting quadratic and exponential models to data | a1-m8 |
+
+Renumbered files (ids unchanged): old 13–25 are now 14–26, old 26 (square roots) is 28, old 27–32 are 30–35. Every "Lesson N" cross-reference in the lessons was renumbered to match. The Outline table above still shows the old numbers.
+
+Cross-references added: 09 (Lesson 29 graphs the cube root), 25 (Lesson 29 uses the transformations; refs now include alg-ref-functions), 28 (next lesson graphs √x), 35 (no longer "this last lesson"; points to the next lesson for curved models).
+
+### New questions (56)
+
+- a1-piecewise: a1-q-pw01 … a1-q-pw12 (module quiz: pw01, pw03, pw05, pw08)
+- a1-solve-fg: a1-q-fg01 … a1-q-fg12 (module quiz: fg01, fg02, fg07)
+- a1-root-functions: a1-q-rt01 … a1-q-rt12 (module quiz: rt01, rt03, rt06)
+- a1-regression-models: a1-q-rg01 … a1-q-rg12 (module quiz: rg01, rg02, rg07)
+- Task B, Lesson 25 general transformations (alg-quad-graphs): alg-q-2413 … alg-q-2416 (module quiz: 2413, 2414)
+- Task B, Lesson 30 restating rates over another time step (a1-exponential): a1-q-2713 … a1-q-2716 (module quiz: 2713)
+
+Correct answers are spread evenly (3 per position in each 12-question set, 1 per position in each Task B set).
+
+### New drills (13)
+
+- Lesson 13: a1-d-piecewise-eval, a1-d-step-cost, a1-d-floor-eval
+- Lesson 27: a1-d-lin-quad-system, a1-d-intersection-count, a1-d-abs-line
+- Lesson 29: a1-d-root-transform, a1-d-cbrt-eval, a1-d-root-from-graph
+- Lesson 36: a1-d-exp-model-predict, a1-d-quad-model-predict
+- Task B: a1-d-transform-point (linked from Lesson 25), a1-d-rate-restate (linked from Lesson 30). Both lessons now list 4 drills.
+
+Also added: 12 glossary terms (piecewise function, step function, greatest integer function, linear-quadratic system, tangent line, square root function, cube root, cube root function, regression, quadratic regression, exponential regression, second differences) and 18 notecards, appended to the end of cards.yaml so existing card ids (c1…c166) keep their positions. Reference sheets: functions.md gained transformations, piecewise/step, and root-function tables; polynomials.md gained linear-quadratic systems; data-and-growth.md gained "another time step" and a model-choice table.
+
+### Verification
+
+- All 56 questions solved independently in Python/sympy/numpy before fixing the keys (script: /tmp/claude-0/gaps/algebra1/work/verify_q.py); distractor explanations checked by recomputing each mistake.
+- Each new drill generated 1,000 times with tsx (generate + checkAll on the built JSON): answers matched an independent calculation from the raw inputs, the displayed answer and independently rounded answers were accepted, a wrong value in each box was rejected, and the text was scanned for "+ 0", "1x", double signs, unrounded values and unfilled placeholders.
+- Lesson numbers were recomputed (regression fits with numpy and scipy). Figures were rendered and inspected.
+
+### Notes for a reviewer
+
+- Lesson 36's data sets are made up for the lesson. Rocket: quadratic fit −4.91t² + 21.01t + 1.29. Car values: the log-linear exponential fit (what most calculators' ExpReg does) gives 30,980(0.8603)^x, and a direct least-squares fit gives 30,920(0.8609)^x. The lesson quotes 30,980(0.86)^x and says tools may differ slightly. Residuals in Example 3 come from the rounded models.
+- Lesson 13 introduces ⌈x⌉ only in passing. Drills and questions model "per hour or part of an hour" as a list of pieces, not with ceiling notation.
+- Lesson 27 Example 4 and question fg12 find approximate intersections with tables or technology. Logarithms are not used.
+- Question fg11 mentions in its explanation that squaring √x = x − 2 gives a false solution. Squaring both sides is not taught in this course, so the lesson itself only uses graphs and checking.
+- The VERIFY.md conventions are kept: exponential b > 0 and b ≠ 1, residual = actual − predicted, and no hand computation of r.

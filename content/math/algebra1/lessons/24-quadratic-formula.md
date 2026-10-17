@@ -11,7 +11,7 @@ Completing the square solves any quadratic, but doing it from scratch each time 
 
 ## Deriving the formula
 
-Start with $ax^2 + bx + c = 0$, $a \ne 0$, and follow the completing-the-square steps from Lesson 22.
+Start with $ax^2 + bx + c = 0$, $a \ne 0$, and follow the completing-the-square steps from Lesson 23.
 
 1. Divide by $a$: $x^2 + \dfrac{b}{a}x + \dfrac{c}{a} = 0$.
 2. Move the constant: $x^2 + \dfrac{b}{a}x = -\dfrac{c}{a}$.

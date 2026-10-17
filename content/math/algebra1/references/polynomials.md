@@ -60,3 +60,12 @@ Strategy: GCF first; 2 terms → squares/cubes; 3 terms → trinomial methods; 4
 | Intercept | $a(x - r)(x - s)$ | $x$-intercepts $r$, $s$ |
 
 $a > 0$: opens up, minimum at the vertex. $a < 0$: opens down, maximum. Projectiles: $h(t) = -16t^2 + v_0t + h_0$ (ft), $-4.9t^2 + v_0t + h_0$ (m).
+
+## Linear-quadratic systems
+
+| Step | What to do |
+|---|---|
+| Substitute | set the two expressions for $y$ equal (or substitute the line into the quadratic) |
+| Rearrange | get $ax^2 + bx + c = 0$ and solve |
+| Back-substitute | find $y$ from the linear equation; check in the quadratic |
+| Count | $D > 0$: two points; $D = 0$: one (tangent); $D < 0$: none |

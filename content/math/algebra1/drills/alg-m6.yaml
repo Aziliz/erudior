@@ -338,3 +338,115 @@
     With $n$ one-dollar increases, revenue is $R(n) = ({P} + n)({N} - {d}n)$, a downward parabola.
     Its zeros are $n = -{P}$ and $n = {N}/{d}$; the vertex is halfway between, at $n = {ns}$.
     Best price: **{price:money}**, selling {sold} tickets, for revenue **{R:money}**.
+
+- id: a1-d-transform-point
+  title: Move a point with a transformation
+  topic: Quadratic functions
+  vars:
+    p: {min: -6, max: 6}
+    q: {min: -6, max: 6}
+    a: {choices: [-3, -2, -1, 2, 3, 0.5, -0.5]}
+    h: {min: -5, max: 5}
+    k: {min: -6, max: 6}
+  calc:
+    nh: -h
+    xn: p + h
+    aq: a*q
+    yn: a*q + k
+  where: ['h != 0', 'k != 0', 'q != 0']
+  prompt: 'The point $({p}, {q})$ is on the graph of $y = f(x)$. Which point must be on the graph of $y = {a:coef}f(x {nh:signed}) {k:signed}$?'
+  answers:
+    - {name: xn, label: '$x =$'}
+    - {name: yn, label: '$y =$'}
+  solution: |-
+    $f(x {nh:signed})$ shifts the graph horizontally by {h} (positive is right, negative is left), so the $x$-coordinate becomes ${p} {h:signed} = {xn}$.
+    Multiplying by {a} scales the height: ${a} \times ({q}) = {aq}$. Adding {k} shifts it vertically: ${aq} {k:signed} = {yn}$.
+    The point is **({xn}, {yn})**.
+
+- id: a1-d-lin-quad-system
+  title: Solve a linear-quadratic system
+  topic: Solving f(x) = g(x)
+  vars:
+    r1: {min: -5, max: 5}
+    r2: {min: -5, max: 5}
+    m: {min: -4, max: 4}
+    k: {min: -6, max: 6}
+  calc:
+    b: m - r1 - r2
+    c: k + r1*r2
+    s: -(r1 + r2)
+    t: r1*r2
+    n1: -r1
+    n2: -r2
+    y1: m*r1 + k
+    y2: m*r2 + k
+  where: ['r1 < r2', 'r1 + r2 != 0', 'r1 != 0', 'r2 != 0', 'm != 0', 'k != 0', 'b != 0', 'c != 0']
+  prompt: 'Solve the system $y = x^2 {b:signedcoef}x {c:signed}$ and $y = {m:coef}x {k:signed}$. Give the intersection point with the smaller $x$-coordinate first.'
+  answers:
+    - {name: r1, label: 'First point: $x =$'}
+    - {name: y1, label: '$y =$'}
+    - {name: r2, label: 'Second point: $x =$'}
+    - {name: y2, label: '$y =$'}
+  solution: |-
+    Set the two expressions for $y$ equal: $x^2 {b:signedcoef}x {c:signed} = {m:coef}x {k:signed}$.
+    Move everything to the left: $x^2 {s:signedcoef}x {t:signed} = 0$, which factors as $(x {n1:signed})(x {n2:signed}) = 0$. So $x = {r1}$ or $x = {r2}$.
+    Find $y$ from the line: $y = {m}({r1}) {k:signed} = {y1}$ and $y = {m}({r2}) {k:signed} = {y2}$.
+    The points are **({r1}, {y1})** and **({r2}, {y2})**.
+
+- id: a1-d-intersection-count
+  title: Count intersections with the discriminant
+  topic: Solving f(x) = g(x)
+  vars:
+    a: {choices: [-2, -1, 1, 2]}
+    r: {min: -3, max: 3}
+    kind: {choices: [0, 1, 2]}
+    mag: {min: 1, max: 9}
+    m: {min: -5, max: 5}
+    k: {min: -8, max: 8}
+  calc:
+    ee: if(kind == 1, 0, if(kind == 0, sign(a)*mag, -sign(a)*mag))
+    s: -2*a*r
+    t: a*r^2 + ee
+    b: m - 2*a*r
+    c: k + a*r^2 + ee
+    D: (-2*a*r)^2 - 4*a*(a*r^2 + ee)
+    s2: (-2*a*r)^2
+    fourat: 4*a*(a*r^2 + ee)
+    count: kind
+  where: ['r != 0', 't != 0', 'm != 0', 'k != 0', 'b != 0', 'c != 0']
+  prompt: 'How many points do the parabola $y = {a:coef}x^2 {b:signedcoef}x {c:signed}$ and the line $y = {m:coef}x {k:signed}$ have in common? Give the discriminant of the equation you get by setting them equal, and the number of points.'
+  answers:
+    - {name: D, label: 'Discriminant $D =$'}
+    - {name: count, label: 'Number of points'}
+  solution: |-
+    Set equal and move everything to one side: ${a:coef}x^2 {s:signedcoef}x {t:signed} = 0$.
+    $D = ({s})^2 - 4({a})({t}) = {s2} - ({fourat}) =$ **{D}**.
+    $D > 0$ means two points, $D = 0$ one (the line is tangent), $D < 0$ none. Here: **{count}**.
+
+- id: a1-d-abs-line
+  title: Solve an absolute value equal to a line
+  topic: Solving f(x) = g(x)
+  vars:
+    h: {min: -6, max: 6}
+    d1: {min: 1, max: 12}
+    d2: {min: 1, max: 12}
+  calc:
+    x1: h - d1
+    x2: h + d2
+    sl: (d2 - d1)/(d1 + d2)
+    k: d1 - sl*(h - d1)
+    nh: -h
+    om: 1 - sl
+    op: 1 + sl
+    hk: h + k
+    hmk: h - k
+  where: ['sl != 0', 'round(4*sl) == 4*sl', 'k != 0', 'h != 0', 'k == round(k, 2)']
+  prompt: 'Solve $|x {nh:signed}| = {sl}x {k:signed}$. Enter the smaller solution first.'
+  answers:
+    - {name: x1, label: 'Smaller $x =$'}
+    - {name: x2, label: 'Larger $x =$'}
+  solution: |-
+    Split at $x = {h}$, where the inside is 0.
+    For $x \ge {h}$: $x {nh:signed} = {sl}x {k:signed}$, so ${om}x = {hk}$ and $x = {x2}$, which is $\ge {h}$. Keep it.
+    For $x < {h}$: $-(x {nh:signed}) = {sl}x {k:signed}$, so $-x {h:signed} = {sl}x {k:signed}$, giving ${op}x = {hmk}$ and $x = {x1}$, which is $< {h}$. Keep it.
+    Solutions: **{x1}** and **{x2}**.

@@ -302,3 +302,114 @@
   answer: 3
   explanation: |-
     As the temperature goes up, less heating is needed, so the bill tends to go down: a negative association. The other pairs tend to increase together.
+- id: a1-q-rg01
+  lesson: a1-regression-models
+  module_quiz: true
+  topic: Regression models
+  stem: 'Exponential regression on subscriber counts gives $\hat y = 1200(1.07)^x$, where $x$ is years since 2020. What does the 1.07 tell you?'
+  choices: ['Subscribers are predicted to grow about 7% per year', 'Subscribers are predicted to grow by about 1.07 per year', 'Subscribers are predicted to grow about 107% per year', 'The model predicts 1.07 subscribers in 2020']
+  answer: 0
+  explanation: |-
+    1.07 is the factor per year: each year multiplies the prediction by 1.07, which adds $0.07 = 7\%$ of the current value.
+    "1.07 per year" reads the factor as a constant amount added, as in a linear model. 107% per year confuses the factor with the rate; 107% growth would be a factor of 2.07. The prediction for 2020 ($x = 0$) is $a = 1200$.
+- id: a1-q-rg02
+  lesson: a1-regression-models
+  module_quiz: true
+  topic: Regression models
+  stem: 'For a data set, a linear model has $r = -0.98$ and a U-shaped residual plot. An exponential model has residuals that scatter randomly around 0. Which model should you use?'
+  choices: ['Either one, since both fit with a strong correlation', 'The exponential model, because its residuals show no pattern', 'The linear model, because $r$ is close to $-1$', 'The linear model, because a U-shaped residual plot means a good fit']
+  answer: 1
+  explanation: |-
+    A curved pattern in the residuals means the line misses the shape of the data; random residuals mean the exponential captures it. Choose the exponential.
+    A value of $r$ near $\pm1$ only says the points are close to some line; curved data can still give one. A U shape is a warning sign, not a good fit. The two models are not equally good: the residual plots tell them apart.
+- id: a1-q-rg03
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'Which model fits this table exactly? $$\begin{array}{c|ccccc} x & 0 & 1 & 2 & 3 & 4 \\ \hline y & 3 & 5 & 11 & 21 & 35 \end{array}$$'
+  choices: ['Exponential', 'Quadratic, with $a = 4$', 'Quadratic, with $a = 2$', 'Linear']
+  answer: 2
+  explanation: |-
+    First differences: 2, 6, 10, 14. Second differences: 4, 4, 4, constant, so the data are quadratic. With steps of 1, the second difference is $2a$, so $a = 2$. (Indeed $y = 2x^2 + 3$.)
+    Linear would need constant first differences. Exponential would need constant ratios, but $\tfrac53 \ne \tfrac{11}{5}$. $a = 4$ forgets that the second difference equals $2a$, not $a$.
+- id: a1-q-rg04
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'Which model fits this table? $$\begin{array}{c|cccc} x & 0 & 1 & 2 & 3 \\ \hline y & 400 & 300 & 225 & 168.75 \end{array}$$'
+  choices: ['$y = -100x + 400$', '$y = 400(0.25)^x$', '$y = 400 - 25x^2$', '$y = 400(0.75)^x$']
+  answer: 3
+  explanation: |-
+    Ratios: $\tfrac{300}{400} = \tfrac{225}{300} = \tfrac{168.75}{225} = 0.75$, constant, so the data are exponential with $b = 0.75$ (a 25% decrease per step) and $a = 400$.
+    $-100x + 400$ fits only the first step; the differences shrink (100, 75, 56.25). $400(0.25)^x$ uses the rate of decrease as the factor. $400 - 25x^2$ gives 375 at $x = 1$.
+- id: a1-q-rg05
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'Using the model $\hat y = 500(1.2)^x$, what is the prediction at $x = 4$?'
+  choices: ['$1036.8$', '$2400$', '$900$', '$1244.16$']
+  answer: 0
+  explanation: |-
+    $\hat y = 500(1.2)^4 = 500(2.0736) = 1036.8$.
+    2400 multiplies $500 \times 1.2 \times 4$ instead of raising 1.2 to the 4th power. 900 adds 20% of 500 four times, a linear model. 1244.16 uses one step too many: $500(1.2)^5$.
+- id: a1-q-rg06
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'A quadratic model for a ball''s height is $\hat h = -4.9t^2 + 20t + 2$ meters. At $t = 2$ s the measured height was 23.0 m. What is the residual?'
+  choices: ['$-9.2$ m', '$0.6$ m', '$-0.6$ m', '$22.4$ m']
+  answer: 1
+  explanation: |-
+    Predicted: $\hat h(2) = -4.9(4) + 20(2) + 2 = -19.6 + 40 + 2 = 22.4$ m. Residual $=$ actual $-$ predicted $= 23.0 - 22.4 = 0.6$ m.
+    $-0.6$ computes predicted minus actual. 22.4 is the prediction, not the residual. $-9.2$ uses $-4.9 \times 2$ instead of $-4.9 \times 2^2$, predicting 32.2.
+- id: a1-q-rg07
+  lesson: a1-regression-models
+  module_quiz: true
+  topic: Regression models
+  stem: 'Quadratic regression gives $\hat y = -2x^2 + 24x + 50$ for weekly profit (in dollars) at price $x$ (dollars). What price gives the greatest predicted profit, and what is that profit?'
+  choices: ['$x = 12$, $\hat y = 50$', '$x = 6$, $\hat y = 50$', '$x = 6$, $\hat y = 122$', '$x = -6$, $\hat y = -166$']
+  answer: 2
+  explanation: |-
+    $a < 0$, so the vertex is a maximum: $x = -\tfrac{b}{2a} = -\tfrac{24}{2(-2)} = 6$, and $\hat y(6) = -72 + 144 + 50 = 122$.
+    $x = -6$ drops the minus sign in $-\tfrac{b}{2a}$. $x = 12$ is where the profit returns to its starting value of 50, the mirror image of $x = 0$. A profit of \$50 reads the constant $c$ as the maximum.
+- id: a1-q-rg08
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'A model rocket''s heights fit $\hat h = -4.91t^2 + 21.01t + 1.29$ (meters, seconds). What does 1.29 represent?'
+  choices: ['The predicted maximum height', 'The predicted launch speed', 'The predicted time in the air', 'The predicted height at launch, $t = 0$']
+  answer: 3
+  explanation: |-
+    At $t = 0$, $\hat h = 1.29$, so $c$ is the predicted launch height, about 1.3 m.
+    The maximum height is at the vertex ($t \approx 2.14$ s, about 23.8 m). The launch speed is estimated by $b \approx 21$ m/s. The time in the air comes from solving $\hat h = 0$ (about 4.34 s).
+- id: a1-q-rg09
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'A linear fit to some data has $r = 0.97$. Before concluding that a line is a good model, what should you check?'
+  choices: ['The residual plot, for a curved pattern', 'Nothing; $r = 0.97$ proves the data are linear', 'Whether the slope is positive', 'The value of $r$ with $x$ and $y$ swapped']
+  answer: 0
+  explanation: |-
+    A high $|r|$ can come from curved data, so look at the residual plot: random scatter supports the line, a curve says to try another model.
+    $r$ alone never proves the form is linear. The slope's sign only gives the direction, and swapping $x$ and $y$ doesn't change $r$, so neither checks the fit.
+- id: a1-q-rg10
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'Which situation is best modeled by a quadratic function?'
+  choices: ['The value of a car that loses 12% of its value each year', 'The height of a thrown ball over time', 'The balance of an account earning 4% interest per year', 'The cost of gas at a fixed price per gallon']
+  answer: 1
+  explanation: |-
+    A thrown ball rises and then falls; its height is a quadratic function of time (the $-16t^2$ or $-4.9t^2$ term comes from gravity).
+    A fixed percent per year, gaining or losing, is exponential, so both the account and the car are exponential. A fixed price per gallon adds the same amount for each gallon: linear.
+- id: a1-q-rg11
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'A quadratic model was fitted to ticket sales for prices from \$0 to \$10. It opens downward with its vertex at a price of \$8. At a price of \$30 it predicts negative sales. What is the best explanation?'
+  choices: ['Quadratic models can never give negative outputs', 'The residual at \$30 must be negative', '\$30 is far outside the data, and the parabola keeps falling past its vertex', 'The regression must have been computed incorrectly']
+  answer: 2
+  explanation: |-
+    Predicting at \$30 is extrapolation far beyond the data. A downward parabola falls without limit after its vertex, so the model eventually gives impossible values even if it fits the data well.
+    Nothing suggests a computing error. Quadratics can output negative numbers. A residual needs an actual observation at \$30, and there isn't one.
+- id: a1-q-rg12
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'Exponential regression models the amount of a medicine in the body as $\hat y = 75(0.92)^x$ mg after $x$ hours. What does the model predict after 5 hours?'
+  choices: ['45 mg', '345 mg', 'About 0.0002 mg', 'About 49.4 mg']
+  answer: 3
+  explanation: |-
+    $\hat y = 75(0.92)^5 \approx 75(0.6591) \approx 49.4$ mg.
+    45 mg subtracts 8% of 75 (6 mg) each hour, a linear model. 345 mg multiplies $75 \times 0.92 \times 5$ instead of using the exponent. 0.0002 mg uses the 8% rate as the factor: $75(0.08)^5$.

@@ -7,7 +7,7 @@ topics: [Factoring]
 drills: [alg-d-factor-ac, alg-d-factor-special, alg-d-factor-cubes]
 refs: [alg-ref-polynomials]
 ---
-Quadratic trinomials like $x^2 + 5x + 6$ are the polynomials you'll factor most often, because they lead directly to solving quadratic equations in Module 6. This lesson reverses FOIL to factor them, then reverses the special products from Lesson 18 to recognize perfect squares, differences of squares, and sums and differences of cubes. It ends with a strategy for deciding which method to use.
+Quadratic trinomials like $x^2 + 5x + 6$ are the polynomials you'll factor most often, because they lead directly to solving quadratic equations in Module 6. This lesson reverses FOIL to factor them, then reverses the special products from Lesson 19 to recognize perfect squares, differences of squares, and sums and differences of cubes. It ends with a strategy for deciding which method to use.
 
 ## Trinomials with leading coefficient 1
 

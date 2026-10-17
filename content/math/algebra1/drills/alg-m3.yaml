@@ -295,3 +295,68 @@
   solution: |-
     The price per poster is the slope: (cost change) ÷ (poster change) = {dc} ÷ {dn} = **{rate:money}**.
     The fee is what's left of the first order: {c1:money} − {n1} × {rate:money} = **{fee:money}**.
+
+- id: a1-d-piecewise-eval
+  title: Evaluate a piecewise function
+  topic: Piecewise functions
+  vars:
+    p: {min: -3, max: 3}
+    m1: {min: -4, max: 4}
+    b1: {min: -6, max: 6}
+    m2: {min: -4, max: 4}
+    b2: {min: -6, max: 6}
+    side: {choices: [{label: first, value: 1}, {label: second, value: 2}]}
+    d: {min: 1, max: 3}
+  calc:
+    x0: if(side == 1, p - d, p + d - 1)
+    mm: if(side == 1, m1, m2)
+    bb: if(side == 1, b1, b2)
+    val: mm*x0 + bb
+  where: ['m1 != 0', 'm2 != 0', 'b1 != 0', 'b2 != 0', 'm1*p + b1 != m2*p + b2']
+  prompt: |-
+    Find $f({x0})$ for
+    $$f(x) = \begin{cases} {m1:coef}x {b1:signed}, & x < {p} \\ {m2:coef}x {b2:signed}, & x \ge {p} \end{cases}$$
+  answers:
+    - {name: val, label: '$f({x0}) =$'}
+  solution: |-
+    The first piece is for inputs less than {p}; the second is for inputs of {p} or more. The input {x0} belongs to the {side} piece, so use only ${mm:coef}x {bb:signed}$:
+    $f({x0}) = {mm}({x0}) {bb:signed} =$ **{val}**.
+
+- id: a1-d-step-cost
+  title: Step-function pricing
+  topic: Piecewise functions
+  vars:
+    base: {min: 4, max: 12}
+    add: {choices: [1.5, 2, 2.5, 3, 3.5, 4, 4.5]}
+    w: {min: 1.2, max: 9.6, step: 0.2}
+  calc:
+    n: ceil(w)
+    extra: ceil(w) - 1
+    addcost: add*(ceil(w) - 1)
+    cost: base + add*(ceil(w) - 1)
+  prompt: 'A courier charges {base:money} for the first pound or any part of a pound, plus {add:money} for each additional pound or part of a pound. What does it cost to ship a package that weighs {w} pounds?'
+  answers:
+    - {name: cost, label: 'Cost', format: money}
+  solution: |-
+    "Or any part of" means the weight rounds up: {w} lb is charged as {n} pounds.
+    The first pound costs {base:money} and the other {extra} cost {add:money} each, which is {addcost:money}.
+    Total: {base:money} + {addcost:money} = **{cost:money}**.
+
+- id: a1-d-floor-eval
+  title: Evaluate with the greatest integer function
+  topic: Piecewise functions
+  vars:
+    a: {choices: [-3, -2, 2, 3, 4, 5]}
+    k: {min: -9, max: 9}
+    x0: {min: -6.9, max: 6.9, step: 0.1}
+  calc:
+    fl: floor(x0)
+    prod: a*floor(x0)
+    val: a*floor(x0) + k
+  where: ['x0 != round(x0)', 'k != 0']
+  prompt: 'For $f(x) = {a}\lfloor x \rfloor {k:signed}$, where $\lfloor x \rfloor$ is the greatest integer less than or equal to $x$, find $f({x0})$.'
+  answers:
+    - {name: val, label: '$f({x0}) =$'}
+  solution: |-
+    The greatest integer that is less than or equal to {x0} is $\lfloor {x0} \rfloor = {fl}$. (For a negative input, that is the integer just below it, further from 0, not the one you get by dropping the decimals.)
+    Then $f({x0}) = {a}({fl}) {k:signed} = {prod} {k:signed} =$ **{val}**.
