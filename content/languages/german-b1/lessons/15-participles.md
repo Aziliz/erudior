@@ -114,13 +114,13 @@ Notes: *kostenlos* and *gratis* both mean "free of charge"; *frei* means free as
 
 A product page for a coffee grinder, with two customer reviews.
 
-> Kaffeemühle „Morgenrot" – jetzt im Sonderangebot!
+> Kaffeemühle „Morgenrot“ – jetzt im Sonderangebot!
 >
 > Frisch gemahlener Kaffee schmeckt einfach besser. Unsere hochwertige Mühle aus rostfreiem Stahl wird in einer kleinen Werkstatt in Thüringen hergestellt. Sie ist leise, praktisch und dank ihres abnehmbaren Behälters leicht zu reinigen. Nur für kurze Zeit: kostenlose Lieferung innerhalb von drei Werktagen. Wegen großer Nachfrage ist die Stückzahl begrenzt.
 >
-> ★★★★★ Paula M.: „Ich hatte mehrere billige Mühlen ausprobiert, aber keine war so gut wie diese. Die bestellte Mühle kam schon nach zwei Tagen, gut verpackt und mit einer ausführlichen Anleitung. Absolut empfehlenswert!"
+> ★★★★★ Paula M.: „Ich hatte mehrere billige Mühlen ausprobiert, aber keine war so gut wie diese. Die bestellte Mühle kam schon nach zwei Tagen, gut verpackt und mit einer ausführlichen Anleitung. Absolut empfehlenswert!“
 >
-> ★★☆☆☆ Bernd K.: „Trotz guter Bewertungen bin ich enttäuscht. Die gelieferte Mühle hatte einen beschädigten Deckel. Die Rücksendung war zwar kostenlos, aber die neue Mühle ist leider erst in drei Wochen wieder vorrätig. Der Kundenservice hat nett geantwortet, aber für ein Produkt in dieser Preisklasse erwarte ich mehr."
+> ★★☆☆☆ Bernd K.: „Trotz guter Bewertungen bin ich enttäuscht. Die gelieferte Mühle hatte einen beschädigten Deckel. Die Rücksendung war zwar kostenlos, aber die neue Mühle ist leider erst in drei Wochen wieder vorrätig. Der Kundenservice hat nett geantwortet, aber für ein Produkt in dieser Preisklasse erwarte ich mehr.“
 
 In English:
 

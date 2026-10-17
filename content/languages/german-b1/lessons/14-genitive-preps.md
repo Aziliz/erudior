@@ -111,7 +111,7 @@ Notes:
 
 First an announcement at a station, then the e-mail Herr Okafor wrote afterwards.
 
-> „Information zu ICE 578 nach Hamburg, Abfahrt 14:12 Uhr: Wegen einer Störung an einem Stellwerk verzögert sich die Abfahrt um voraussichtlich 40 Minuten. Fahrgäste nach Bremen nutzen bitte statt des ICE den Regionalexpress um 14:30 Uhr von Bahnsteig 3. Wir bitten um Entschuldigung."
+> „Information zu ICE 578 nach Hamburg, Abfahrt 14:12 Uhr: Wegen einer Störung an einem Stellwerk verzögert sich die Abfahrt um voraussichtlich 40 Minuten. Fahrgäste nach Bremen nutzen bitte statt des ICE den Regionalexpress um 14:30 Uhr von Bahnsteig 3. Wir bitten um Entschuldigung.“
 >
 > Sehr geehrte Damen und Herren,
 >

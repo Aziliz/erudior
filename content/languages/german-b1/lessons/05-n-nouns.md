@@ -13,7 +13,7 @@ The first group are the **weak nouns**, which add *-n* or *-en* in every case ex
 
 ## Weak nouns: the n-declension
 
-A weak noun (the pattern is called the **n-declension**) is always masculine. It adds *-n* or *-en* everywhere except in the nominative singular.
+A weak noun (the pattern is called the **n-declension**) is masculine (the one neuter exception, *das Herz*, comes below). It adds *-n* or *-en* everywhere except in the nominative singular.
 
 | | singular | plural |
 |---|---|---|
@@ -43,7 +43,7 @@ You can't tell from every noun, but three groups cover almost all of them:
 | group | examples |
 |---|---|
 | 1. masculine nouns ending in *-e* for people and animals | *der Junge, der Kollege, der Kunde, der Zeuge, der Experte, der Neffe, der Franzose, der Löwe* |
-| 2. masculine foreign words for people ending in *-ant, -ent, -ist, -at, -oge, -et* | *der Praktikant, der Student, der Präsident, der Polizist, der Tourist, der Soldat, der Kandidat, der Biologe, der Planet* |
+| 2. masculine foreign words, mostly for people, ending in *-ant, -ent, -ist, -at, -oge, -et* | *der Praktikant, der Student, der Präsident, der Polizist, der Tourist, der Soldat, der Kandidat, der Biologe, der Planet* |
 | 3. a few short masculine nouns, to learn one by one | *der Mensch, der Herr, der Nachbar, der Bauer, der Held, der Bär, der Prinz* |
 
 *der Herr* adds only *-n* in the singular but *-en* in the plural: *Ich gebe Herrn Schulz den Brief* (dative singular), *Sehr geehrte Damen und Herren* (plural). *der Nachbar* and *der Bauer* add *-n*: *den Nachbarn, dem Bauern* (female: *die Bäuerin*, farmer).

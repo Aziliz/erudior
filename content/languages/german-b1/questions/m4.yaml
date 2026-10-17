@@ -1,0 +1,511 @@
+# German B1, module 4: Society and the world (lessons 16–20)
+
+# --- 16 The passive in the present ---
+- id: de3-q-1601
+  lesson: de3-passive-present
+  module_quiz: true
+  topic: Passive
+  stem: 'Complete: "Das Altpapier ___ jeden Freitag abgeholt."'
+  choices: ['wird', 'ist', 'hat', 'werden']
+  answer: 0
+  explanation: |-
+    The present passive is werden + past participle, and the subject "das Altpapier" is singular, so it is "wird". "ist abgeholt" would describe a finished state (it has been collected), not the regular action, and "werden" is plural.
+- id: de3-q-1602
+  lesson: de3-passive-present
+  topic: Passive
+  stem: 'Complete: "Die Flaschen ___ nach Farben sortiert."'
+  choices: ['wird', 'sind', 'werden', 'haben']
+  answer: 2
+  explanation: |-
+    "Die Flaschen" is plural, so werden must be plural too: "Die Flaschen werden sortiert." "wird" is the singular form. The passive is never formed with haben, and "sind sortiert" would mean they are already sorted (a state).
+- id: de3-q-1603
+  lesson: de3-passive-present
+  module_quiz: true
+  topic: Passive
+  stem: 'Which sentence is the passive of "Die Firma produziert Solaranlagen."?'
+  choices: ['Solaranlagen sind von der Firma produziert.', 'Solaranlagen werden von der Firma produziert.', 'Die Firma wird Solaranlagen produziert.', 'Solaranlagen werden von die Firma produziert.']
+  answer: 1
+  explanation: |-
+    The object "Solaranlagen" becomes the subject, werden agrees with it (plural "werden"), and the company comes back with von + dative: "von der Firma". "von die Firma" uses the wrong case, "sind produziert" uses sein instead of werden, and "Die Firma wird Solaranlagen produziert" mixes active and passive.
+- id: de3-q-1604
+  lesson: de3-passive-present
+  topic: Passive
+  stem: 'Complete: "Die Luft wird ___ Abgase verschmutzt."'
+  choices: ['von', 'bei', 'mit', 'durch']
+  answer: 3
+  explanation: |-
+    Exhaust fumes are a cause, not a person acting, so German uses durch + accusative: "durch Abgase". von + dative is for the person or organisation that does the action (von der Stadt). "bei" and "mit" don't introduce the agent of a passive.
+- id: de3-q-1605
+  lesson: de3-passive-present
+  topic: Passive
+  stem: 'Complete: "Der Müll wird ___ abgeholt." (by the town)'
+  choices: ['durch die Stadt', 'von der Stadt', 'bei der Stadt', 'von die Stadt']
+  answer: 1
+  explanation: |-
+    The town is the organisation that does the collecting, so it is von + dative: "von der Stadt". "von die Stadt" has the wrong case (von always takes the dative). "durch" is for a means or cause, and "bei" never means "by" in a passive.
+- id: de3-q-1606
+  lesson: de3-passive-present
+  module_quiz: true
+  topic: Passive
+  stem: 'Which sentence is correct?'
+  choices: ['Es ist wichtig, dass der Müll wird richtig getrennt.', 'Es ist wichtig, dass der Müll richtig wird getrennt.', 'Es ist wichtig, dass der Müll richtig trennen wird.', 'Es ist wichtig, dass der Müll richtig getrennt wird.']
+  answer: 3
+  explanation: |-
+    After dass, the conjugated verb goes to the end, so the order is participle + wird: "getrennt wird". Putting "wird" in second position is main-clause order, and "trennen wird" is the future active (the rubbish would do the separating).
+- id: de3-q-1607
+  lesson: de3-passive-present
+  topic: man as an alternative
+  stem: 'Which sentence means the same as "Hier wird der Müll getrennt."?'
+  choices: ['Hier trennt man den Müll.', 'Hier trennen man den Müll.', 'Hier trennt man der Müll.', 'Hier wird man den Müll trennen.']
+  answer: 0
+  explanation: |-
+    With man the verb is active and in the er/sie/es form (trennt), and the rubbish is the object again, in the accusative: "den Müll". "trennen man" has the wrong verb form, "der Müll" the wrong case, and "wird man … trennen" is the future: one will separate it.
+- id: de3-q-1608
+  lesson: de3-passive-present
+  topic: werden
+  stem: 'What does "wird" mean in "Der Strom wird immer teurer."?'
+  choices: ['is being made (passive)', 'will (future)', 'is getting / becomes', 'would']
+  answer: 2
+  explanation: |-
+    werden + an adjective (teurer) is the full verb "to become, get": electricity is getting more and more expensive. With a participle it would be passive, with an infinitive future. "would" is würde.
+- id: de3-q-1609
+  lesson: de3-passive-present
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "In Deutschland gibt es auf viele Flaschen und Dosen Pfand. Wenn man eine Plastikflasche kauft, bezahlt man 25 Cent extra. Die leere Flasche wird im Supermarkt in einen Automaten gegeben, und man bekommt das Geld zurück. Mehrwegflaschen werden gereinigt und wieder gefüllt. Einwegflaschen werden zerkleinert, und aus dem Kunststoff werden neue Produkte gemacht." What happens to single-use bottles (Einwegflaschen)?'
+  choices: ['They are cleaned and filled again.', 'They are shredded, and new products are made from the plastic.', 'They are thrown away.', 'They are sold back to the customers.']
+  answer: 1
+  explanation: |-
+    The last sentence says "Einwegflaschen werden zerkleinert, und aus dem Kunststoff werden neue Produkte gemacht": they are shredded and the plastic becomes new products. Cleaning and refilling is what happens to Mehrwegflaschen (returnable bottles).
+- id: de3-q-1610
+  lesson: de3-passive-present
+  topic: Reading
+  stem: 'Read: "So wird aus altem Papier neues Papier: Zuerst wird das Altpapier aus den blauen Tonnen gesammelt. Dann wird es in die Fabrik gebracht und dort mit Wasser gemischt. Im nächsten Schritt werden Plastik und andere Reste entfernt. Danach wird die Masse gereinigt und getrocknet. Zum Schluss wird sie zu großen Rollen verarbeitet." What happens right after the paper is mixed with water?'
+  choices: ['It is dried.', 'It is collected from the blue bins.', 'It is made into large rolls.', 'Plastic and other leftovers are removed.']
+  answer: 3
+  explanation: |-
+    "Im nächsten Schritt" (in the next step) after mixing with water, "werden Plastik und andere Reste entfernt": plastic and other leftovers are removed. Drying comes after that (danach), and the rolls come last (zum Schluss).
+- id: de3-q-1611
+  lesson: de3-passive-present
+  topic: Vocabulary
+  stem: 'Which word fits? "Ein Ort, an dem Strom erzeugt wird, ist ein ___."'
+  choices: ['Kraftwerk', 'Container', 'Rohstoff', 'Ablauf']
+  answer: 0
+  explanation: |-
+    das Kraftwerk is a power station, a place where electricity is generated. der Container is a big bin, der Rohstoff a raw material and der Ablauf a procedure.
+- id: de3-q-1612
+  lesson: de3-passive-present
+  topic: Passive
+  stem: 'What is wrong in this sentence? "Den Abfall wird jeden Montag abgeholt."'
+  choices: ['"wird" should be "ist".', '"abgeholt" should be "abholen".', '"Den Abfall" should be "Der Abfall": the passive subject is in the nominative.', 'Nothing is wrong.']
+  answer: 2
+  explanation: |-
+    In the active sentence "Man holt den Abfall ab", den Abfall is the accusative object. In the passive it becomes the subject, so it must be nominative: "Der Abfall wird jeden Montag abgeholt." wird + participle is the correct passive.
+
+# --- 17 The passive in the past ---
+- id: de3-q-1701
+  lesson: de3-passive-past
+  module_quiz: true
+  topic: Passive
+  stem: 'Complete: "Die Brücke ___ 1950 gebaut."'
+  choices: ['wurde', 'würde', 'hat', 'wird worden']
+  answer: 0
+  explanation: |-
+    The Präteritum passive is wurde + participle: "Die Brücke wurde 1950 gebaut." würde (with an umlaut) is Konjunktiv II, "would". The passive is never formed with haben, and "wird worden" doesn't exist.
+- id: de3-q-1702
+  lesson: de3-passive-past
+  module_quiz: true
+  topic: Passive
+  stem: 'Complete: "Mein Fahrrad ist gestern ___."'
+  choices: ['gestohlen geworden', 'gestohlen worden', 'gestohlen wurden', 'gestehlt worden']
+  answer: 1
+  explanation: |-
+    The Perfekt passive is sein + participle + worden. In the passive, the participle of werden is "worden" without ge-; "geworden" is only for "become". The participle of stehlen is "gestohlen", not "gestehlt".
+- id: de3-q-1703
+  lesson: de3-passive-past
+  topic: Passive
+  stem: 'Which sentence is correct?'
+  choices: ['Das Haus hat 1900 gebaut worden.', 'Das Haus ist 1900 gebaut geworden.', 'Das Haus ist 1900 gebaut worden.', 'Das Haus wurde 1900 gebaut worden.']
+  answer: 2
+  explanation: |-
+    The Perfekt passive always takes sein, and the last word is worden: "ist gebaut worden". haben is wrong, "geworden" is the participle for "become", and "wurde … worden" mixes the Präteritum and the Perfekt.
+- id: de3-q-1704
+  lesson: de3-passive-past
+  topic: Passive
+  stem: 'Complete: "Ich habe gelesen, dass zwei Bilder aus dem Museum ___."'
+  choices: ['sind gestohlen worden', 'gestohlen sind worden', 'worden gestohlen sind', 'gestohlen worden sind']
+  answer: 3
+  explanation: |-
+    In a subordinate clause, the conjugated verb (sind) goes to the very end, after the participle and worden: "gestohlen worden sind". "sind gestohlen worden" is main-clause order.
+- id: de3-q-1705
+  lesson: de3-passive-past
+  topic: werden
+  stem: 'Complete: "Meine Schwester ist letztes Jahr Journalistin ___."'
+  choices: ['worden', 'geworden', 'wurde', 'gewesen worden']
+  answer: 1
+  explanation: |-
+    Here werden is the full verb "to become" (she became a journalist), so the participle is "geworden". "worden" is only used in the passive, together with another participle (ist gebaut worden).
+- id: de3-q-1706
+  lesson: de3-passive-past
+  module_quiz: true
+  topic: State passive
+  stem: 'A sign says: "Die Straße ist gesperrt." What does it mean?'
+  choices: ['Someone is closing the road at this moment.', 'The road was closed once but is open again now.', 'The road will be closed soon.', 'The road is closed (that is its state now).']
+  answer: 3
+  explanation: |-
+    sein + participle without worden is the state passive: it describes the result, the road's present state. The action of closing it would be "Die Straße wird gesperrt" (now) or "wurde gesperrt" (in the past).
+- id: de3-q-1707
+  lesson: de3-passive-past
+  topic: Impersonal passive
+  stem: 'What does "Auf der Hochzeit wurde bis drei Uhr getanzt." mean?'
+  choices: ['At the wedding there was dancing until three.', 'The wedding was danced until three.', 'At the wedding they will dance until three.', 'The wedding would have dancing until three.']
+  answer: 0
+  explanation: |-
+    This is the impersonal passive: a passive without a subject that says an activity took place. wurde shows the past. "würde" would be "would", and the future would need werden + infinitive (wird … tanzen).
+- id: de3-q-1708
+  lesson: de3-passive-past
+  topic: Vocabulary
+  stem: 'What does "Hier finden Sie die aktuellen Nachrichten." mean?'
+  choices: ['Here you can find the actual news.', 'Here you can find the latest news.', 'Here you can find the real news.', 'Here you can find old news.']
+  answer: 1
+  explanation: |-
+    aktuell is a false friend: it means current, up to date, latest. "Actual" or "actually" is eigentlich or tatsächlich in German.
+- id: de3-q-1709
+  lesson: de3-passive-past
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Diebstahl im Stadtmuseum: In der Nacht auf Mittwoch sind aus dem Stadtmuseum drei wertvolle Uhren gestohlen worden. Der Diebstahl wurde am Morgen von einer Mitarbeiterin bemerkt. Die Polizei wurde sofort informiert. Ein Fenster im Erdgeschoss wurde beschädigt. Das Museum bleibt bis Freitag geschlossen. Zeugen werden gebeten, sich bei der Polizei zu melden." Who noticed the theft?'
+  choices: ['A neighbour', 'The police', 'A member of the museum staff', 'A visitor']
+  answer: 2
+  explanation: |-
+    "Der Diebstahl wurde am Morgen von einer Mitarbeiterin bemerkt": it was noticed by a (female) member of staff. von + dative names the person who did the action in a passive sentence. The police were informed afterwards.
+- id: de3-q-1710
+  lesson: de3-passive-past
+  topic: Reading
+  stem: 'Read the same report again: "In der Nacht auf Mittwoch sind aus dem Stadtmuseum drei wertvolle Uhren gestohlen worden. … Ein Fenster im Erdgeschoss wurde beschädigt. Das Museum bleibt bis Freitag geschlossen. Zeugen werden gebeten, sich bei der Polizei zu melden." Which statement is true?'
+  choices: ['Four watches were stolen.', 'The thieves broke a door.', 'The thieves have been caught.', 'The museum is closed until Friday.']
+  answer: 3
+  explanation: |-
+    "Das Museum bleibt bis Freitag geschlossen": the museum stays closed until Friday. Three watches (not four) were stolen, a window (not a door) was damaged, and the police are still looking for witnesses, so nobody has been caught.
+- id: de3-q-1711
+  lesson: de3-passive-past
+  topic: Reading
+  stem: 'Read: "Der Bahnhof unserer Stadt wurde 1872 eröffnet. Er wurde von einer privaten Firma gebaut. Im Zweiten Weltkrieg wurde das Gebäude stark beschädigt, aber in den 1950er Jahren wurde es wieder aufgebaut. 2019 wurde der Bahnhof renoviert. Heute wird er jeden Tag von etwa 20.000 Menschen benutzt." When was the station rebuilt?'
+  choices: ['In 1872', 'During the Second World War', 'In the 1950s', 'In 2019']
+  answer: 2
+  explanation: |-
+    "in den 1950er Jahren wurde es wieder aufgebaut": it was rebuilt in the 1950s. 1872 is when it was opened, during the war it was damaged, and in 2019 it was renovated.
+- id: de3-q-1712
+  lesson: de3-passive-past
+  topic: News language
+  stem: 'A headline says: "Rathaus nach Brand geschlossen". What does it mean?'
+  choices: ['The town hall has been closed after a fire.', 'The town hall closed the fire.', 'The town hall will be closed after a fire.', 'A fire closed the town hall''s door.']
+  answer: 0
+  explanation: |-
+    Headlines leave out the auxiliary verb, so the participle stands alone: "Rathaus nach Brand geschlossen" = "Das Rathaus ist nach dem Brand geschlossen worden." Nothing points to the future, and the town hall isn't the one doing the closing.
+
+# --- 18 The passive with modal verbs ---
+- id: de3-q-1801
+  lesson: de3-passive-modal
+  module_quiz: true
+  topic: Modal passive
+  stem: 'Complete: "Das Formular muss bis Freitag ___."'
+  choices: ['unterschreiben werden', 'unterschrieben worden', 'unterschrieben wird', 'unterschrieben werden']
+  answer: 3
+  explanation: |-
+    After a modal verb, the passive infinitive goes to the end: participle + werden, "unterschrieben werden". "worden" belongs to the Perfekt passive only, "wird" can't follow a modal, and "unterschreiben werden" uses the infinitive instead of the participle.
+- id: de3-q-1802
+  lesson: de3-passive-modal
+  module_quiz: true
+  topic: Modal passive
+  stem: 'A sign means "Bikes may not be parked here". Complete: "Fahrräder ___ hier nicht abgestellt werden."'
+  choices: ['darf', 'dürfen', 'müssen', 'dürften']
+  answer: 1
+  explanation: |-
+    A ban is nicht dürfen, and the modal agrees with the plural subject "Fahrräder": "dürfen". "darf" is singular. "müssen nicht" would mean bikes don't have to be parked here, and "dürften" is Konjunktiv II.
+- id: de3-q-1803
+  lesson: de3-passive-modal
+  topic: Modal passive
+  stem: 'What does "Der Antrag muss nicht persönlich abgegeben werden." mean?'
+  choices: ['The application must not be handed in in person.', 'The application must be handed in in person.', 'The application doesn''t have to be handed in in person.', 'The application can''t be handed in.']
+  answer: 2
+  explanation: |-
+    nicht müssen means "not have to": you may hand it in in person, but you don't need to. English "must not" (a ban) is nicht dürfen in German: "darf nicht persönlich abgegeben werden".
+- id: de3-q-1804
+  lesson: de3-passive-modal
+  module_quiz: true
+  topic: Modal passive
+  stem: 'Complete: "Im Brief steht, dass die Gebühr bis Ende Mai ___."'
+  choices: ['bezahlt werden muss', 'muss bezahlt werden', 'bezahlt muss werden', 'werden bezahlt muss']
+  answer: 0
+  explanation: |-
+    In a subordinate clause the conjugated modal goes to the very end, after the passive infinitive: participle + werden + modal, "bezahlt werden muss". "muss bezahlt werden" is main-clause order.
+- id: de3-q-1805
+  lesson: de3-passive-modal
+  topic: Modal passive
+  stem: 'Complete: "Wegen des Unfalls ___ die Straße gestern gesperrt werden."'
+  choices: ['muss', 'hat', 'wurde', 'musste']
+  answer: 3
+  explanation: |-
+    For the past, use the Präteritum of the modal: "musste … gesperrt werden" (had to be closed). "muss" is present, and neither "hat" nor "wurde" can be followed by "gesperrt werden".
+- id: de3-q-1806
+  lesson: de3-passive-modal
+  topic: sein + zu
+  stem: 'On a form you read: "Der Ausweis ist auf Verlangen vorzulegen." What does it mean?'
+  choices: ['You must show your ID on request.', 'You can show your ID if you want to.', 'Your ID has been shown.', 'Your ID will be sent to you on request.']
+  answer: 0
+  explanation: |-
+    sein + zu + infinitive in rules and official texts means "must be done": "ist vorzulegen" = "muss vorgelegt werden". With separable verbs, zu goes between the prefix and the verb: vor-zu-legen.
+- id: de3-q-1807
+  lesson: de3-passive-modal
+  topic: sein + zu
+  stem: 'Which sentence means the same as "Das Problem ist leicht zu lösen."?'
+  choices: ['Das Problem muss leicht gelöst werden.', 'Das Problem kann leicht gelöst werden.', 'Das Problem wurde leicht gelöst.', 'Das Problem ist leicht gelöst worden.']
+  answer: 1
+  explanation: |-
+    With words like leicht, schwer or kaum, sein + zu means "can be done": the problem can easily be solved. It says nothing about the past, so "wurde gelöst" and "ist gelöst worden" are wrong, and "muss leicht gelöst werden" makes no sense.
+- id: de3-q-1808
+  lesson: de3-passive-modal
+  topic: -bar adjectives
+  stem: 'What does "Die Wohnung ist für uns nicht bezahlbar." mean?'
+  choices: ['We haven''t paid for the flat yet.', 'We don''t have to pay for the flat.', 'The flat is free for us.', 'We can''t afford the flat.']
+  answer: 3
+  explanation: |-
+    -bar means "can be …-ed": bezahlbar = kann bezahlt werden, affordable. "nicht bezahlbar" means it can't be paid for by us: we can't afford it.
+- id: de3-q-1809
+  lesson: de3-passive-modal
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Stadtbibliothek – Hinweise: Bücher können bis zu vier Wochen ausgeliehen werden. Die Ausleihe kann zweimal online verlängert werden. Für verspätete Rückgaben muss eine Gebühr von 50 Cent pro Tag bezahlt werden. Im Lesesaal darf nicht gegessen werden; Getränke in Flaschen sind erlaubt. Taschen und Jacken müssen im Erdgeschoss gelassen werden." Which of these is allowed in the reading room?'
+  choices: ['Eating a sandwich', 'Taking your bag in', 'Drinking water from a bottle', 'Wearing your jacket']
+  answer: 2
+  explanation: |-
+    "Getränke in Flaschen sind erlaubt": drinks in bottles are allowed. Eating is not (darf nicht gegessen werden), and bags and jackets must be left on the ground floor (müssen im Erdgeschoss gelassen werden).
+- id: de3-q-1810
+  lesson: de3-passive-modal
+  topic: Reading
+  stem: 'Read the library notice again: "Bücher können bis zu vier Wochen ausgeliehen werden. Die Ausleihe kann zweimal online verlängert werden. Für verspätete Rückgaben muss eine Gebühr von 50 Cent pro Tag bezahlt werden." You return a book three days late. What happens?'
+  choices: ['You pay 1.50 euros.', 'You pay 50 cents.', 'Nothing, because you can extend online.', 'You can''t borrow books any more.']
+  answer: 0
+  explanation: |-
+    A fee of 50 cents per day must be paid (muss bezahlt werden): three days × 50 cents = 1.50 euros. Extending online (verlängern) only helps before the book is late, and the notice says nothing about a ban.
+- id: de3-q-1811
+  lesson: de3-passive-modal
+  topic: Vocabulary
+  stem: 'Which word fits? "Wer falsch parkt, muss ein ___ bezahlen."'
+  choices: ['Gesetz', 'Bußgeld', 'Genehmigung', 'Nachweis']
+  answer: 1
+  explanation: |-
+    das Bußgeld is a fine for a minor offence such as parking in the wrong place. das Gesetz is a law, die Genehmigung a permit (and feminine, so "eine"), and der Nachweis is proof.
+- id: de3-q-1812
+  lesson: de3-passive-modal
+  topic: Modal passive
+  stem: 'Which sign means "Keep off the grass"?'
+  choices: ['Der Rasen muss nicht betreten werden.', 'Der Rasen wird nicht betreten.', 'Der Rasen darf nicht betreten werden.', 'Der Rasen kann betreten werden.']
+  answer: 2
+  explanation: |-
+    A ban is nicht dürfen: "darf nicht betreten werden" (may not be walked on). "muss nicht" only says it isn't necessary, "kann betreten werden" allows it, and "wird nicht betreten" just describes what happens.
+
+# --- 19 Opinions; da- and wo- compounds ---
+- id: de3-q-1901
+  lesson: de3-opinions-media
+  module_quiz: true
+  topic: Da- and wo- compounds
+  stem: 'Complete: "Freust du dich auf die Ferien?" – "Ja, ich freue mich sehr ___."'
+  choices: ['darüber', 'auf sie', 'darauf', 'worauf']
+  answer: 2
+  explanation: |-
+    sich freuen auf (to look forward to) keeps its preposition, and for a thing (die Ferien) you replace "auf + noun" with the da-compound "darauf". "auf sie" is for people, "darüber" belongs to sich freuen über (pleased about), and "worauf" is a question word.
+- id: de3-q-1902
+  lesson: de3-opinions-media
+  topic: Da- and wo- compounds
+  stem: 'Complete: "___ hast du Angst?" – "Vor Gewittern."'
+  choices: ['Wovor', 'Wofür', 'Davor', 'Vor wem']
+  answer: 0
+  explanation: |-
+    Angst haben vor: to ask about a thing (thunderstorms), use wo + vor = "Wovor". "Vor wem" asks about a person, "Davor" is not a question word, and "Wofür" has the wrong preposition.
+- id: de3-q-1903
+  lesson: de3-opinions-media
+  topic: Da- and wo- compounds
+  stem: 'Complete: "Wartest du auf deinen Bruder?" – "Ja, ich warte ___."'
+  choices: ['darauf', 'auf ihm', 'worauf', 'auf ihn']
+  answer: 3
+  explanation: |-
+    For a person, don't use a da-compound: use the preposition + pronoun. warten auf takes the accusative, so "auf ihn". "darauf" would refer to a thing, and "auf ihm" is dative.
+- id: de3-q-1904
+  lesson: de3-opinions-media
+  module_quiz: true
+  topic: Da- and wo- compounds
+  stem: 'Complete: "Es kommt ___ an, ob das Wetter gut ist."'
+  choices: ['davon', 'darauf', 'daran', 'dafür']
+  answer: 1
+  explanation: |-
+    The fixed expression is "es kommt darauf an" (it depends). The da-compound points ahead to the ob-clause. "davon" goes with "es hängt davon ab, ob …", which means the same but uses a different verb.
+- id: de3-q-1905
+  lesson: de3-opinions-media
+  topic: Opinions
+  stem: 'Complete: "Ich bin ___, dass Handys in der Schule verboten werden."'
+  choices: ['für', 'dafür', 'darüber', 'dazu']
+  answer: 1
+  explanation: |-
+    To say you are in favour of something expressed by a whole clause, German puts the da-compound before it: "Ich bin dafür, dass …". "für" alone can't introduce a dass-clause, and "darüber" and "dazu" don't go with sein in this meaning.
+- id: de3-q-1906
+  lesson: de3-opinions-media
+  topic: Opinions
+  stem: 'Complete: "Ich halte das ___ eine gute Idee."'
+  choices: ['als', 'wie', 'für', 'zu']
+  answer: 2
+  explanation: |-
+    "halten für" + accusative means "to consider, think something is": "Ich halte das für eine gute Idee." English "regard as" tempts learners to use "als", but halten always takes für in this meaning.
+- id: de3-q-1907
+  lesson: de3-opinions-media
+  module_quiz: true
+  topic: Opinions
+  stem: 'Your friend says: "Ich finde, man sollte soziale Medien für Kinder ganz verbieten." Which reply partly agrees?'
+  choices: ['Genau, das sehe ich genauso.', 'Da hast du zwar recht, aber ein Verbot hilft meiner Meinung nach wenig.', 'Das ist mir egal.', 'Da muss ich dir widersprechen.']
+  answer: 1
+  explanation: |-
+    "Da hast du zwar recht, aber …" accepts part of the point and then adds a different view. "Genau, das sehe ich genauso" agrees completely, "Da muss ich dir widersprechen" disagrees, and "Das ist mir egal" shows no opinion.
+- id: de3-q-1908
+  lesson: de3-opinions-media
+  topic: Opinions
+  stem: 'Complete: "Da muss ich ___ widersprechen."'
+  choices: ['dich', 'du', 'dein', 'dir']
+  answer: 3
+  explanation: |-
+    widersprechen takes the dative, like zustimmen: "Ich widerspreche dir. Ich stimme dir zu." "dich" is accusative, the case English speakers expect after "contradict you".
+- id: de3-q-1909
+  lesson: de3-opinions-media
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Ich lese Nachrichten fast nur noch in den sozialen Medien. Das ist praktisch, aber ich sehe dort oft Falschmeldungen. Letzte Woche wurde ein Beitrag über einen angeblichen Stromausfall tausendmal geteilt. Ich habe die Quelle überprüft: Es war eine Lüge. Seitdem lese ich jeden Morgen wieder eine Zeitung online." What has the writer done since last week?'
+  choices: ['Read an online newspaper every morning', 'Stopped using social media completely', 'Shared the post about the power cut', 'Written to the newspaper']
+  answer: 0
+  explanation: |-
+    "Seitdem lese ich jeden Morgen wieder eine Zeitung online": since then the writer has been reading an online newspaper every morning again. The text doesn't say they stopped using social media, and they checked the post rather than sharing it.
+- id: de3-q-1910
+  lesson: de3-opinions-media
+  topic: Reading
+  stem: 'In the same post, what does "ein Beitrag über einen angeblichen Stromausfall" tell you about the power cut?'
+  choices: ['It definitely happened.', 'It happened last year.', 'It was only claimed; it may not be true.', 'It was reported by a newspaper.']
+  answer: 2
+  explanation: |-
+    angeblich means "supposedly, allegedly": somebody claimed there was a power cut, but it isn't confirmed. In fact the writer then found out it was a lie (eine Lüge).
+- id: de3-q-1911
+  lesson: de3-opinions-media
+  topic: Opinions
+  stem: 'Which sentence is correct?'
+  choices: ['Meiner Meinung nach soziale Medien sind gefährlich.', 'Meiner Meinung nach, ich finde soziale Medien gefährlich.', 'Nach meiner Meinung soziale Medien gefährlich sind.', 'Meiner Meinung nach sind soziale Medien gefährlich.']
+  answer: 3
+  explanation: |-
+    "Meiner Meinung nach" fills position 1, so the verb comes straight after it: "Meiner Meinung nach sind …". It isn't followed by a comma and a new main clause, and it doesn't send the verb to the end.
+- id: de3-q-1912
+  lesson: de3-opinions-media
+  topic: Da- and wo- compounds
+  stem: 'Complete: "Das ist etwas, ___ ich mich sehr freue."'
+  choices: ['worüber', 'was', 'darüber', 'über das']
+  answer: 0
+  explanation: |-
+    After etwas, the relative pronoun is was, but when the verb needs a preposition (sich freuen über), was becomes a wo-compound: "worüber". "darüber" can't start a relative clause, and "über das" doesn't follow etwas.
+
+# --- 20 Politics and society ---
+- id: de3-q-2001
+  lesson: de3-politics-society
+  module_quiz: true
+  topic: Politics
+  stem: 'Complete: "Der Bundestag wird alle vier Jahre ___."'
+  choices: ['gewählt worden', 'gewählt', 'wählen', 'abgestimmt']
+  answer: 1
+  explanation: |-
+    Present passive: wird + participle, "wird gewählt" (is elected). "wählen" is the infinitive, which would make it future active, and "gewählt worden" needs ist. You abstimmen over a question, but you wählen a parliament.
+- id: de3-q-2002
+  lesson: de3-politics-society
+  topic: Politics
+  stem: 'Complete: "Im Parlament wird morgen über das neue Gesetz ___."'
+  choices: ['gewählt', 'gestimmt', 'abgestimmt', 'zugestimmt worden']
+  answer: 2
+  explanation: |-
+    To vote on a question or a law is "abstimmen über": "Es wird über das Gesetz abgestimmt." wählen is for people and parties. "zugestimmt worden" is the Perfekt and doesn't fit with "morgen".
+- id: de3-q-2003
+  lesson: de3-politics-society
+  topic: Vocabulary
+  stem: 'Complete: "Heute Abend gehe ich auf eine ___ bei meiner Freundin. Es gibt Musik und Pizza."'
+  choices: ['Partei', 'Wahl', 'Politik', 'Party']
+  answer: 3
+  explanation: |-
+    A party with music and food is "die Party" (or die Feier). "die Partei" is only a political party, a common mix-up for English speakers.
+- id: de3-q-2004
+  lesson: de3-politics-society
+  module_quiz: true
+  topic: Nominal style
+  stem: 'What does "nach der Einführung des Gesetzes" mean?'
+  choices: ['after the law was introduced', 'after the law introduced something', 'before the law is introduced', 'after the introduction to the law (a text)']
+  answer: 0
+  explanation: |-
+    This is nominal style: the noun Einführung stands for the verb einführen, and the genitive "des Gesetzes" is its object. Turned back into a clause: "nachdem das Gesetz eingeführt worden war" – after the law was introduced.
+- id: de3-q-2005
+  lesson: de3-politics-society
+  topic: Nominal style
+  stem: 'Which sentence means the same as "Die Regierung plant die Erhöhung der Steuern."?'
+  choices: ['Die Steuern planen die Regierung.', 'Die Regierung hat die Steuern schon erhöht.', 'Die Regierung plant, die Steuern zu erhöhen.', 'Die Regierung wird von den Steuern erhöht.']
+  answer: 2
+  explanation: |-
+    die Erhöhung der Steuern = die Steuern erhöhen: the government is planning to raise taxes. It hasn't done it yet (plant), and the taxes are the object, not the subject.
+- id: de3-q-2006
+  lesson: de3-politics-society
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete: "Die Politikerin, ___ viele junge Leute vertrauen, ist erst 30 Jahre alt."'
+  choices: ['die', 'der', 'den', 'denen']
+  answer: 1
+  explanation: |-
+    vertrauen takes the dative (jemandem vertrauen), and Politikerin is feminine singular, so the relative pronoun is "der". "die" is nominative or accusative, and "denen" is dative plural.
+- id: de3-q-2007
+  lesson: de3-politics-society
+  topic: Genitive
+  stem: 'Complete: "Das Grundgesetz schützt die Rechte ___ Bürger."'
+  choices: ['der', 'des', 'den', 'die']
+  answer: 0
+  explanation: |-
+    "die Bürger" (plural) in the genitive is "der Bürger": the rights of the citizens. "des" is masculine or neuter singular, which would need "des Bürgers".
+- id: de3-q-2008
+  lesson: de3-politics-society
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "In der Schweiz wählen die Bürgerinnen und Bürger nicht nur Parteien. Mehrmals im Jahr wird auch direkt über wichtige Fragen abgestimmt, zum Beispiel über neue Gesetze oder Steuern. So eine Abstimmung heißt Volksabstimmung. Viele Schweizer finden dieses System sehr demokratisch. Kritiker sagen aber, dass manche Themen für eine Abstimmung zu kompliziert sind." What is a Volksabstimmung?'
+  choices: ['An election in which people choose a party', 'A demonstration in front of parliament', 'A meeting of the government', 'A vote in which citizens decide a question directly']
+  answer: 3
+  explanation: |-
+    The text says people vote directly on important questions (direkt über wichtige Fragen abgestimmt), and this is called a Volksabstimmung. Choosing parties is a Wahl.
+- id: de3-q-2009
+  lesson: de3-politics-society
+  topic: Reading
+  stem: 'In the same text about Switzerland, what do the critics say?'
+  choices: ['There are too few votes each year.', 'Some topics are too complicated for a vote.', 'The system isn''t democratic.', 'Only parties should decide about taxes.']
+  answer: 1
+  explanation: |-
+    "Kritiker sagen aber, dass manche Themen für eine Abstimmung zu kompliziert sind": some topics are too complicated to be decided by a vote. It is the supporters who call the system very democratic.
+- id: de3-q-2010
+  lesson: de3-politics-society
+  topic: Reading
+  stem: 'Read: "Ich heiße Tarek, bin 24 und studiere Informatik. Seit zwei Jahren engagiere ich mich in einem Sprachcafé. Dort treffen sich jeden Donnerstag Menschen, die Deutsch lernen, mit Menschen, die Deutsch als Muttersprache sprechen. Für die Integration ist das sehr wichtig. Ich mache das ehrenamtlich, aber ich habe viele neue Freunde gefunden." Which statement is true?'
+  choices: ['Tarek isn''t paid for his work in the language café.', 'Tarek works as a German teacher.', 'The café meets every day.', 'Tarek started two months ago.']
+  answer: 0
+  explanation: |-
+    ehrenamtlich means voluntary and unpaid. Tarek studies computer science, the café meets on Thursdays, and he has been involved for two years (seit zwei Jahren).
+- id: de3-q-2011
+  lesson: de3-politics-society
+  topic: Politics
+  stem: 'According to the lesson, who elects the Federal Chancellor (Bundeskanzler) in Germany?'
+  choices: ['All citizens over 18, directly', 'The Federal President', 'The members of the Bundestag', 'The governments of the federal states']
+  answer: 2
+  explanation: |-
+    The people elect the Bundestag; after a coalition has been formed, the members of the Bundestag (die Abgeordneten) elect the Chancellor. The Federal President is the head of state and appoints the ministers.
+- id: de3-q-2012
+  lesson: de3-politics-society
+  topic: Nominal style
+  stem: 'What does "Nach der Wahl des neuen Bürgermeisters gab es ein Fest." mean?'
+  choices: ['After the new mayor chose a party, there was a celebration.', 'Before the new mayor was elected, there was a party.', 'The new mayor voted after the party.', 'After the new mayor had been elected, there was a party.']
+  answer: 3
+  explanation: |-
+    "die Wahl des neuen Bürgermeisters" is nominal style for "der neue Bürgermeister wurde gewählt": the mayor is the one being elected, not the one choosing. "nach" means after, not before.

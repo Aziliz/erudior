@@ -113,7 +113,7 @@ Some notes:
 
 Mara writes a travel blog. Kronstein is an invented town, but there are many like it.
 
-> Kronstein ist eine Stadt, von der viele noch nie gehört haben. Das ist schade, denn kulturell gibt es vieles, was man hier entdecken kann. Wir haben am Freitagabend im Hotel „Zum Turm" eingecheckt, das direkt am Marktplatz liegt, wo jeden Samstag ein Bauernmarkt stattfindet.
+> Kronstein ist eine Stadt, von der viele noch nie gehört haben. Das ist schade, denn kulturell gibt es vieles, was man hier entdecken kann. Wir haben am Freitagabend im Hotel „Zum Turm“ eingecheckt, das direkt am Marktplatz liegt, wo jeden Samstag ein Bauernmarkt stattfindet.
 >
 > Am Samstag haben wir eine Führung durch die Altstadt gemacht. Unsere Stadtführerin hat uns alles gezeigt, was man in Kronstein gesehen haben muss: das Rathaus aus dem 16. Jahrhundert, den Dom, dessen Turm man schon von Weitem sieht, und den alten Brunnen, wo sich die Jugendlichen am Abend treffen. Das Einzige, was uns nicht so gut gefallen hat, war die Fußgängerzone: zu viele Ketten, zu wenig eigene Geschäfte.
 >

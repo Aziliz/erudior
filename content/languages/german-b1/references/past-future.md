@@ -35,6 +35,7 @@ Every verb uses the same endings after its past stem. The *ich* and *er/sie/es* 
 | schweigen | schweigt | schwieg | hat geschwiegen | to be silent |
 | steigen | steigt | stieg | ist gestiegen | to climb, to rise |
 | entscheiden | entscheidet | entschied | hat entschieden | to decide |
+| erscheinen | erscheint | erschien | ist erschienen | to appear, to come out |
 
 ### ei – i – i
 
@@ -42,7 +43,7 @@ Every verb uses the same endings after its past stem. The *ich* and *er/sie/es* 
 |---|---|---|---|---|
 | greifen | greift | griff | hat gegriffen | to grab |
 | leiden | leidet | litt | hat gelitten | to suffer |
-| reiten | reitet | ritt | ist/hat geritten | to ride (a horse) |
+| reiten | reitet | ritt | ist/hat geritten | to ride (a horse); *ist* for movement, *hat* with an object (*ein Pferd*) |
 | schneiden | schneidet | schnitt | hat geschnitten | to cut |
 | streiten | streitet | stritt | hat gestritten | to argue |
 
@@ -139,7 +140,6 @@ Every verb uses the same endings after its past stem. The *ich* and *er/sie/es* 
 | rufen | ruft | rief | hat gerufen | to call, to shout |
 | laufen | läuft | lief | ist gelaufen | to run, to walk |
 | heißen | heißt | hieß | hat geheißen | to be called |
-| erscheinen | erscheint | erschien | ist erschienen | to appear, to come out |
 
 ### Mixed verbs
 

@@ -52,12 +52,12 @@ A **strong verb** changes its stem vowel and takes no *-te*: *finden → fand, s
 | a → u → a | fahren | fuhr | ist gefahren | tragen, schlagen, waschen, einladen (lud ein) |
 | a → ie → a | schlafen | schlief | hat geschlafen | fallen (fiel), halten (hielt), lassen (ließ) |
 
-A few common verbs follow no pattern and are simply irregular: *gehen → ging*, *stehen → stand*, *kommen → kam*, *sitzen → saß*, *liegen → lag*, *tun → tat*, *rufen → rief*, *laufen → lief*, *heißen → hieß*. The reference sheet at the end of the module lists about sixty verbs grouped like this.
+A few common verbs follow no pattern and are simply irregular: *gehen → ging*, *stehen → stand*, *kommen → kam*, *sitzen → saß*, *liegen → lag*, *tun → tat*, *rufen → rief*, *laufen → lief*, *heißen → hieß*. The reference sheet at the end of the module lists about seventy verbs grouped like this.
 
 Two memory hooks help:
 
 - **The *ich* form equals the *er* form.** *Ich fand, er fand. Ich schrieb, sie schrieb.* No *-e*, no *-t*. A form like ~~er fande~~ or ~~ich schriebte~~ is never right.
-- **The *ei* verbs are almost all strong**, and they always go to *ie* or *i*: *bleiben – blieb, scheinen – schien, schneiden – schnitt*. Only a few everyday *ei* verbs are weak: *arbeiten, heiraten, reisen, zeigen, bereiten*.
+- **Many common *ei* verbs are strong**, and when they are, they go to *ie* or *i*: *bleiben – blieb, scheinen – schien, schneiden – schnitt*. But some everyday *ei* verbs are weak, so check new ones: *arbeiten, heiraten, meinen, reisen, teilen, zeigen*.
 
 Examples from stories:
 
@@ -106,7 +106,7 @@ Both past tenses mean the same thing. The choice depends on the kind of text:
 
 A newspaper writes *Der Bürgermeister eröffnete gestern die neue Brücke*; a friend tells you *Gestern hat der Bürgermeister die neue Brücke eröffnet*. Same fact, different register.
 
-There is also a regional difference. In northern Germany the simple past is quite common in speech, even for verbs like *ging* and *kam*: *Ich kam gestern nach Hause und …*. In southern Germany, Austria and Switzerland, everyday speech uses almost only the perfect; Swiss German dialects have lost the simple past completely. In writing, everyone uses the simple past for stories. For you this means: write stories and reports in the simple past, but in conversation, use the perfect for most verbs.
+There is also a regional difference. In northern Germany the simple past is quite common in speech, even for verbs like *ging* and *kam*: *Ich kam gestern nach Hause und …*. In southern Germany, Austria and Switzerland, everyday speech uses almost only the perfect; Swiss German dialects have lost the simple past almost completely. In writing, everyone uses the simple past for stories. For you this means: write stories and reports in the simple past, but in conversation, use the perfect for most verbs.
 
 ## Story words: telling a story in order
 

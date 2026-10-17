@@ -17,7 +17,7 @@
   choices: ['käme', 'kam', 'kommte', 'würde kommt']
   answer: 0
   explanation: |-
-    Strong verbs form the Konjunktiv II from the simple past stem (kam) plus an umlaut and -e: käme. "kam" is just the simple past, "kommte" doesnt exist, and after würde the verb must be an infinitive (würde kommen).
+    Strong verbs form the Konjunktiv II from the simple past stem (kam) plus an umlaut and -e: käme. "kam" is just the simple past, "kommte" doesn't exist, and after würde the verb must be an infinitive (würde kommen).
 - id: de3-q-2103
   lesson: de3-konj2-present
   module_quiz: true
@@ -26,7 +26,7 @@
   choices: ['Wenn ich reich wäre, würde ich ein Haus kaufen.', 'Wenn ich reich wäre, ich würde ein Haus kaufen.', 'Wenn ich wäre reich, würde ich ein Haus kaufen.', 'Wenn ich reich bin, würde ich ein Haus kaufen.']
   answer: 0
   explanation: |-
-    The wenn clause has the verb at the end (reich wäre) and counts as position 1, so the main clause starts with its verb: würde ich. Putting "ich" first copies English word order, and "wenn ich reich bin" is the indicative, which doesnt match an imagined result.
+    The wenn clause has the verb at the end (reich wäre) and counts as position 1, so the main clause starts with its verb: würde ich. Putting "ich" first copies English word order, and "wenn ich reich bin" is the indicative, which doesn't match an imagined result.
 - id: de3-q-2104
   lesson: de3-konj2-present
   topic: Unreal conditions
@@ -42,7 +42,7 @@
   choices: ['kann', 'könnte', 'konnte', 'würde können']
   answer: 1
   explanation: |-
-    The speaker is imagining something that wont happen, so the modal goes into the Konjunktiv II: könnte (with umlaut). "konnte" without the umlaut is the simple past, "kann" states a fact, and modals dont use würde.
+    The speaker is imagining something that won't happen, so the modal goes into the Konjunktiv II: könnte (with umlaut). "konnte" without the umlaut is the simple past, "kann" states a fact, and modals don't use würde.
 - id: de3-q-2106
   lesson: de3-konj2-present
   topic: Konjunktiv II
@@ -50,16 +50,16 @@
   choices: ['Wenn ich nach Japan fliegen würde, …', 'Wenn ich nach Japan flöge, …', 'Wenn ich nach Japan flog, …', 'Wenn ich nach Japan geflogen würde, …']
   answer: 0
   explanation: |-
-    For most verbs, spoken German uses würde + infinitive. "flöge" is correct but sounds old-fashioned or literary. "flog" is the simple past, and würde cant be combined with a participle.
+    For most verbs, spoken German uses würde + infinitive. "flöge" is correct but sounds old-fashioned or literary. "flog" is the simple past, and würde can't be combined with a participle.
 - id: de3-q-2107
   lesson: de3-konj2-present
   module_quiz: true
   topic: Reading
   stem: 'Read: "Tom arbeitet in einer Bank in Frankfurt. Er verdient gut, aber er hat kaum Freizeit. Wenn er könnte, würde er nach Portugal auswandern und dort ein kleines Café eröffnen. Leider spricht er kein Portugiesisch, und seine Freundin möchte in Deutschland bleiben. Vielleicht macht er erst einmal einen Sprachkurs." Which statement is true?'
-  choices: ['Tom already lives in Portugal.', 'Tom has opened a café.', 'Tom would like to emigrate, but there are obstacles.', 'Toms girlfriend wants to move to Portugal.']
+  choices: ['Tom already lives in Portugal.', 'Tom has opened a café.', 'Tom would like to emigrate, but there are obstacles.', 'Tom''s girlfriend wants to move to Portugal.']
   answer: 2
   explanation: |-
-    "Wenn er könnte, würde er … auswandern" is an unreal condition: its his dream, not reality. The language and his girlfriend, who wants to stay in Germany, are the obstacles. He hasnt moved or opened a café.
+    "Wenn er könnte, würde er … auswandern" is an unreal condition: it's his dream, not reality. The language and his girlfriend, who wants to stay in Germany, are the obstacles. He hasn't moved or opened a café.
 - id: de3-q-2108
   lesson: de3-konj2-present
   topic: Vocabulary
@@ -84,7 +84,7 @@
   choices: ['wüsste', 'wusste', 'wisste', 'weiß']
   answer: 0
   explanation: |-
-    "wissen" is a mixed verb: simple past wusste, plus umlaut gives wüsste ("Wenn ich das wüsste!"). "wusste" is the simple past, "weiß" the present, and "wisste" doesnt exist.
+    "wissen" is a mixed verb: simple past wusste, plus umlaut gives wüsste ("Wenn ich das wüsste!"). "wusste" is the simple past, "weiß" the present, and "wisste" doesn't exist.
 - id: de3-q-2111
   lesson: de3-konj2-present
   topic: Dialogue
@@ -108,7 +108,7 @@
   choices: ['langweilig', 'unabhängig', 'abwechslungsreich', 'ehrgeizig']
   answer: 2
   explanation: |-
-    "abwechslungsreich" means varied, full of variety, which matches "every day is different". "langweilig" (boring) is the opposite; "unabhängig" (independent) and "ehrgeizig" (ambitious) describe people, not a jobs variety.
+    "abwechslungsreich" means varied, full of variety, which matches "every day is different". "langweilig" (boring) is the opposite; "unabhängig" (independent) and "ehrgeizig" (ambitious) describe people, not a job's variety.
 
 # --- 22 The past subjunctive ---
 - id: de3-q-2201
@@ -127,7 +127,7 @@
   choices: ['hast', 'hättest', 'würdest', 'wärst']
   answer: 1
   explanation: |-
-    The wenn clause also needs the past subjunctive, and fragen takes haben: du hättest gefragt. "hast" would be the indicative perfect, "würdest" cant go with a participle, and fragen doesnt take sein.
+    The wenn clause also needs the past subjunctive, and fragen takes haben: du hättest gefragt. "hast" would be the indicative perfect, "würdest" can't go with a participle, and fragen doesn't take sein.
 - id: de3-q-2203
   lesson: de3-konj2-past
   module_quiz: true
@@ -141,19 +141,19 @@
   lesson: de3-konj2-past
   topic: Past subjunctive
   stem: 'What does "Du hättest mich anrufen können!" express?'
-  choices: ['a request: could you call me?', 'a fact: you were able to call me', 'a reproach: you could have called me (but didnt)', 'a plan: you will call me later']
+  choices: ['a request: could you call me?', 'a fact: you were able to call me', 'a reproach: you could have called me (but didn''t)', 'a plan: you will call me later']
   answer: 2
   explanation: |-
-    "hätte … können" refers to a possibility in the past that wasnt used. Said with an exclamation mark, it is a reproach. A request for now would be "Könntest du mich anrufen?"
+    "hätte … können" refers to a possibility in the past that wasn't used. Said with an exclamation mark, it is a reproach. A request for now would be "Könntest du mich anrufen?"
 - id: de3-q-2205
   lesson: de3-konj2-past
   module_quiz: true
   topic: Past subjunctive
-  stem: 'Which sentence describes something that almost happened but didnt?'
+  stem: 'Which sentence describes something that almost happened but didn''t?'
   choices: ['Ich wäre beinahe gefallen.', 'Ich bin gefallen.', 'Ich falle beinahe.', 'Ich würde fallen.']
   answer: 0
   explanation: |-
-    beinahe (or fast) + past subjunctive describes a near miss: "Ich wäre beinahe gefallen" means I almost fell, so I didnt. "Ich bin gefallen" says it did happen; the others are present or hypothetical.
+    beinahe (or fast) + past subjunctive describes a near miss: "Ich wäre beinahe gefallen" means I almost fell, so I didn't. "Ich bin gefallen" says it did happen; the others are present or hypothetical.
 - id: de3-q-2206
   lesson: de3-konj2-past
   topic: Past subjunctive
@@ -194,7 +194,7 @@
   choices: ['Schuld', 'Ursache', 'Wirkung', 'Reue']
   answer: 0
   explanation: |-
-    "Das ist meine/deine Schuld" means thats my/your fault. "die Ursache" is a cause (of an event, not a persons blame), "die Wirkung" is an effect and "die Reue" is remorse.
+    "Das ist meine/deine Schuld" means that's my/your fault. "die Ursache" is a cause (of an event, not a person's blame), "die Wirkung" is an effect and "die Reue" is remorse.
 - id: de3-q-2211
   lesson: de3-konj2-past
   topic: Vocabulary
@@ -202,7 +202,7 @@
   choices: ['verursachen', 'bereuen', 'versäumen', 'verhindern']
   answer: 3
   explanation: |-
-    "verhindern" means to prevent: with a helmet the injury could have been prevented. "verursachen" (to cause) is the opposite, "bereuen" (to regret) and "versäumen" (to miss) dont fit.
+    "verhindern" means to prevent: with a helmet the injury could have been prevented. "verursachen" (to cause) is the opposite, "bereuen" (to regret) and "versäumen" (to miss) don't fit.
 - id: de3-q-2212
   lesson: de3-konj2-past
   topic: Past subjunctive
@@ -210,7 +210,7 @@
   choices: ['Sonst bin ich natürlich gekommen.', 'Sonst hätte ich natürlich gekommen.', 'Sonst wäre ich natürlich gekommen.', 'Sonst würde ich natürlich gekommen.']
   answer: 2
   explanation: |-
-    B imagines a past that didnt happen, so the past subjunctive is needed. "kommen" takes sein in the perfect (ist gekommen), so its "wäre gekommen". "würde gekommen" doesnt exist.
+    B imagines a past that didn't happen, so the past subjunctive is needed. "kommen" takes sein in the perfect (ist gekommen), so it's "wäre gekommen". "würde gekommen" doesn't exist.
 
 # --- 23 Wishes, advice and polite requests ---
 - id: de3-q-2301
@@ -229,7 +229,7 @@
   choices: ['Hätte ich bloß mehr Zeit!', 'Hätte ich das bloß nicht gesagt!', 'Wäre ich doch zu Hause!', 'Könnte ich doch schwimmen!']
   answer: 1
   explanation: |-
-    A wish about the past uses the past subjunctive (hätte/wäre + participle): Hätte ich das bloß nicht gesagt! (If only I hadnt said that!) The other three wish for something different now.
+    A wish about the past uses the past subjunctive (hätte/wäre + participle): Hätte ich das bloß nicht gesagt! (If only I hadn't said that!) The other three wish for something different now.
 - id: de3-q-2303
   lesson: de3-advice-wishes
   module_quiz: true
@@ -263,16 +263,16 @@
   choices: ['Du solltest mehr Wasser trinken.', 'Du hättest mehr Wasser trinken sollen.', 'Du hast zu wenig Wasser getrunken.', 'Warum hast du nichts getrunken?']
   answer: 0
   explanation: |-
-    "Du solltest …" is advice for now or the future. "Du hättest … sollen" refers to the past: its too late, so it sounds like a reproach. The other two are statements or questions about the past.
+    "Du solltest …" is advice for now or the future. "Du hättest … sollen" refers to the past: it's too late, so it sounds like a reproach. The other two are statements or questions about the past.
 - id: de3-q-2307
   lesson: de3-advice-wishes
   module_quiz: true
   topic: Reading
-  stem: 'Read: "Liebe Frau Lindner, meine beste Freundin ist vor drei Monaten nach Australien gezogen. Seitdem fühle ich mich einsam. Wir schreiben uns zwar oft, aber das ist nicht dasselbe. Ich traue mich nicht, in einen Verein zu gehen, weil ich dort niemanden kenne. Was soll ich tun? Mia" What is Mias problem?'
+  stem: 'Read: "Liebe Frau Lindner, meine beste Freundin ist vor drei Monaten nach Australien gezogen. Seitdem fühle ich mich einsam. Wir schreiben uns zwar oft, aber das ist nicht dasselbe. Ich traue mich nicht, in einen Verein zu gehen, weil ich dort niemanden kenne. Was soll ich tun? Mia" What is Mia''s problem?'
   choices: ['She wants to move to Australia.', 'She has had an argument with her best friend.', 'She has too little time for her hobbies.', 'She feels lonely and is too shy to meet new people.']
   answer: 3
   explanation: |-
-    Mia says "fühle ich mich einsam" (I feel lonely) and "Ich traue mich nicht, in einen Verein zu gehen" (I dont dare join a club). Her friend moved away; there was no argument, and Mia doesnt say she wants to move.
+    Mia says "fühle ich mich einsam" (I feel lonely) and "Ich traue mich nicht, in einen Verein zu gehen" (I don't dare join a club). Her friend moved away; there was no argument, and Mia doesn't say she wants to move.
 - id: de3-q-2308
   lesson: de3-advice-wishes
   topic: Wishes
@@ -285,10 +285,10 @@
   lesson: de3-advice-wishes
   topic: Unreal comparison
   stem: 'What does "Er tut so, als ob er krank wäre." mean?'
-  choices: ['He is ill, so he stays at home.', 'He would be ill if he went out.', 'He asks whether he is ill.', 'He acts as if he were ill (but he isnt).']
+  choices: ['He is ill, so he stays at home.', 'He would be ill if he went out.', 'He asks whether he is ill.', 'He acts as if he were ill (but he isn''t).']
   answer: 3
   explanation: |-
-    "als ob" + Konjunktiv II is an unreal comparison: it describes how someone seems or behaves, while suggesting it isnt true. "so tun, als ob" means to act as if, to pretend.
+    "als ob" + Konjunktiv II is an unreal comparison: it describes how someone seems or behaves, while suggesting it isn't true. "so tun, als ob" means to act as if, to pretend.
 - id: de3-q-2310
   lesson: de3-advice-wishes
   topic: Unreal comparison
@@ -296,7 +296,7 @@
   choices: ['Sie sieht aus, als hätte sie nicht geschlafen.', 'Sie sieht aus, als ob hätte sie nicht geschlafen.', 'Sie sieht aus, als sie nicht geschlafen hätte.', 'Sie sieht aus, ob sie nicht geschlafen hätte.']
   answer: 0
   explanation: |-
-    The short form of "als ob" is "als" with the conjugated verb straight after it: als hätte sie nicht geschlafen. With als ob, the verb goes to the end; you cant mix the two orders.
+    The short form of "als ob" is "als" with the conjugated verb straight after it: als hätte sie nicht geschlafen. With als ob, the verb goes to the end; you can't mix the two orders.
 - id: de3-q-2311
   lesson: de3-advice-wishes
   topic: Vocabulary
@@ -340,7 +340,7 @@
   choices: ['deinem', 'deinen', 'dein', 'deiner']
   answer: 0
   explanation: |-
-    "zufrieden mit" takes the dative, because mit is always dative. "Job" is masculine, so its "mit deinem neuen Job".
+    "zufrieden mit" takes the dative, because mit is always dative. "Job" is masculine, so it's "mit deinem neuen Job".
 - id: de3-q-2404
   lesson: de3-verb-prep
   topic: Nouns with prepositions
@@ -348,7 +348,7 @@
   choices: ['Sie hat großes Interesse an Kunst.', 'Sie hat großes Interesse für Kunst.', 'Sie hat großes Interesse in Kunst.', 'Sie hat großes Interesse auf Kunst.']
   answer: 0
   explanation: |-
-    The noun "das Interesse" takes an + dative, although the verb is "sich interessieren für". This is one of the nouns whose preposition differs from its verbs.
+    The noun "das Interesse" takes an + dative, although the verb is "sich interessieren für". This is one of the nouns whose preposition differs from the verb's.
 - id: de3-q-2405
   lesson: de3-verb-prep
   module_quiz: true
@@ -365,7 +365,7 @@
   choices: ['Über was hast du dich gewundert?', 'Über wen hast du dich gewundert?', 'Worüber hast du dich gewundert?', 'Was hast du dich gewundert?']
   answer: 2
   explanation: |-
-    For a thing in a prepositional object, use wo(r)- + preposition: worüber. "Über was" is colloquial, "über wen" is for people, and the question cant drop the preposition.
+    For a thing in a prepositional object, use wo(r)- + preposition: worüber. "Über was" is colloquial, "über wen" is for people, and the question can't drop the preposition.
 - id: de3-q-2407
   lesson: de3-verb-prep
   module_quiz: true
@@ -374,7 +374,7 @@
   choices: ['Worum sorgt sie sich?', 'Um wen sorgt sie sich?', 'Wen sorgt sie sich?', 'Um wem sorgt sie sich?']
   answer: 1
   explanation: |-
-    For a person, keep the preposition and add wen (accusative) or wem (dative). um takes the accusative, so its "Um wen". "Worum" would ask about a thing.
+    For a person, keep the preposition and add wen (accusative) or wem (dative). um takes the accusative, so it's "Um wen". "Worum" would ask about a thing.
 - id: de3-q-2408
   lesson: de3-verb-prep
   topic: Verbs with prepositions
@@ -382,31 +382,31 @@
   choices: ['Es hängt ab, ob ich Zeit habe.', 'Es hängt davon ab, ich Zeit habe.', 'Es hängt von ab, ob ich Zeit habe.', 'Es hängt davon ab, ob ich Zeit habe.']
   answer: 3
   explanation: |-
-    When a prepositional verb is followed by a clause, the da-word points ahead to it: davon ab, ob … The preposition cant stand alone, and the ob clause needs its conjunction.
+    When a prepositional verb is followed by a clause, the da-word points ahead to it: davon ab, ob … The preposition can't stand alone, and the ob clause needs its conjunction.
 - id: de3-q-2409
   lesson: de3-verb-prep
   topic: Reading
   stem: 'Read: "Herr Brandt ist 72 und begeistert von Computern. Jeden Dienstag geht er in einen Kurs für Senioren. Er beschäftigt sich vor allem mit Fotos: Er sortiert und bearbeitet alte Familienbilder. Seine Enkel sind stolz auf ihn, aber sie wundern sich manchmal, wie viel Zeit er vor dem Bildschirm verbringt." Which statement is true?'
-  choices: ['Herr Brandts grandchildren are worried about his health.', 'Herr Brandt teaches a computer course.', 'Herr Brandt spends a lot of time working on family photos.', 'Herr Brandt isnt interested in computers.']
+  choices: ['Herr Brandt''s grandchildren are worried about his health.', 'Herr Brandt teaches a computer course.', 'Herr Brandt spends a lot of time working on family photos.', 'Herr Brandt isn''t interested in computers.']
   answer: 2
   explanation: |-
-    "Er beschäftigt sich vor allem mit Fotos … bearbeitet alte Familienbilder" and the grandchildren are surprised how much time he spends at the screen. He attends the course (he doesnt teach it), and "begeistert von" means hes enthusiastic, not uninterested.
+    "Er beschäftigt sich vor allem mit Fotos … bearbeitet alte Familienbilder" and the grandchildren are surprised how much time he spends at the screen. He attends the course (he doesn't teach it), and "begeistert von" means he's enthusiastic, not uninterested.
 - id: de3-q-2410
   lesson: de3-verb-prep
   topic: Vocabulary
   stem: 'What does "Ich bin gespannt auf den neuen Film." mean?'
-  choices: ['Im disappointed by the new film.', 'I cant wait to see the new film.', 'Im tired of the new film.', 'Im afraid of the new film.']
+  choices: ['I''m disappointed by the new film.', 'I can''t wait to see the new film.', 'I''m tired of the new film.', 'I''m afraid of the new film.']
   answer: 1
   explanation: |-
-    "gespannt auf" describes eager, curious anticipation: Im excited to see it. Disappointed is "enttäuscht von", afraid is "Angst haben vor".
+    "gespannt auf" describes eager, curious anticipation: I'm excited to see it. Disappointed is "enttäuscht von", afraid is "Angst haben vor".
 - id: de3-q-2411
   lesson: de3-verb-prep
   topic: Verbs with prepositions
-  stem: 'Complete: "Im Urlaub verzichte ich ___ mein Handy."'
+  stem: 'Complete: "I''m Urlaub verzichte ich ___ mein Handy."'
   choices: ['an', 'von', 'auf', 'ohne']
   answer: 2
   explanation: |-
-    "verzichten auf + accusative" means to do without, give up. "ohne" means without, but it isnt used with verzichten.
+    "verzichten auf + accusative" means to do without, give up. "ohne" means without, but it isn't used with verzichten.
 - id: de3-q-2412
   lesson: de3-verb-prep
   topic: Verbs with prepositions
@@ -429,11 +429,11 @@
 - id: de3-q-2502
   lesson: de3-work-career
   topic: Infinitive constructions
-  stem: 'Which sentence means "You dont have to bring anything."?'
+  stem: 'Which sentence means "You don''t have to bring anything."?'
   choices: ['Du darfst nichts mitbringen.', 'Du brauchst nichts mitzubringen.', 'Du brauchst etwas mitzubringen.', 'Du musst etwas mitbringen.']
   answer: 1
   explanation: |-
-    "brauchen nicht/nichts/kein … zu" is the negative of müssen: no need to. "Du darfst nichts mitbringen" means youre not allowed to bring anything. With a separable verb, zu goes between the prefix and the verb: mitzubringen.
+    "brauchen nicht/nichts/kein … zu" is the negative of müssen: no need to. "Du darfst nichts mitbringen" means you're not allowed to bring anything. With a separable verb, zu goes between the prefix and the verb: mitzubringen.
 - id: de3-q-2503
   lesson: de3-work-career
   module_quiz: true
@@ -473,7 +473,7 @@
   module_quiz: true
   topic: Reading
   stem: 'Read the job advert: "Wir suchen ab sofort eine Fachkraft für unser Lager (m/w/d) in Vollzeit. Wir bieten: einen unbefristeten Vertrag, Gleitzeit und regelmäßige Weiterbildung. Sie haben eine abgeschlossene Ausbildung und arbeiten gern im Team. Die Probezeit beträgt sechs Monate. Bitte schicken Sie Ihre Bewerbung bis zum 15. Juni an Frau Kaya." Which is true?'
-  choices: ['The job is part-time.', 'You dont need any training for the job.', 'The job is permanent and the hours are flexible.', 'The probationary period is one year.']
+  choices: ['The job is part-time.', 'You don''t need any training for the job.', 'The job is permanent and the hours are flexible.', 'The probationary period is one year.']
   answer: 2
   explanation: |-
     The advert offers "einen unbefristeten Vertrag" (permanent) and "Gleitzeit" (flexitime). It is "in Vollzeit" (full-time), asks for "eine abgeschlossene Ausbildung", and the probation is six months.
@@ -484,12 +484,12 @@
   choices: ['Sehr geehrte Frau Kaya, Mit großem Interesse habe ich Ihre Anzeige gelesen.', 'Sehr geehrter Frau Kaya, mit großem Interesse habe ich Ihre Anzeige gelesen.', 'Hallo Frau Kaya! mit großem Interesse habe ich deine Anzeige gelesen.', 'Sehr geehrte Frau Kaya, mit großem Interesse habe ich Ihre Anzeige gelesen.']
   answer: 3
   explanation: |-
-    Formal: "Sehr geehrte" for a woman (geehrter for a man), a comma after the name, then a small letter to continue, and Ihre with a capital I. After a comma German doesnt start with a capital, and "deine" is informal.
+    Formal: "Sehr geehrte" for a woman (geehrter for a man), a comma after the name, then a small letter to continue, and Ihre with a capital I. After a comma German doesn't start with a capital, and "deine" is informal.
 - id: de3-q-2509
   lesson: de3-work-career
   topic: Infinitive constructions
   stem: 'What does "Der Antrag ist bis Freitag abzugeben." mean?'
-  choices: ['The application must be handed in by Friday.', 'The application was handed in on Friday.', 'The application cant be handed in until Friday.', 'You dont need to hand in the application.']
+  choices: ['The application must be handed in by Friday.', 'The application was handed in on Friday.', 'The application can''t be handed in until Friday.', 'You don''t need to hand in the application.']
   answer: 0
   explanation: |-
     "sein + zu + infinitive" has a passive meaning of must or can: it must be handed in (muss abgegeben werden). It is typical of rules and official texts.
@@ -500,7 +500,7 @@
   choices: ['beworben', 'entlassen', 'gekündigt', 'befördert']
   answer: 3
   explanation: |-
-    "befördern" means to promote: she was promoted to head of department. "entlassen" (to dismiss) and "kündigen" (to quit, give notice) dont fit "zur Abteilungsleiterin", and "sich bewerben" is to apply.
+    "befördern" means to promote: she was promoted to head of department. "entlassen" (to dismiss) and "kündigen" (to quit, give notice) don't fit "zur Abteilungsleiterin", and "sich bewerben" is to apply.
 - id: de3-q-2511
   lesson: de3-work-career
   topic: Infinitive constructions

@@ -63,17 +63,17 @@ Strong verbs also have their own Konjunktiv II. The recipe: take the simple past
 | Infinitive | Simple past | Konjunktiv II | Example |
 |---|---|---|---|
 | *kommen* | *kam* | *käme* | *Wenn du kämst, wäre ich froh.* |
-| *gehen* | *ging* | *ginge* | *Das ginge auch morgen.* — That would work tomorrow too. |
+| *gehen* | *ging* | *ginge* | *Ginge das auch morgen?* — Would tomorrow work too? (also: *Würde das auch morgen gehen?*) |
 | *geben* | *gab* | *gäbe* | *Ohne dich gäbe es kein Fest.* |
-| *bleiben* | *blieb* | *bliebe* | *Ich bliebe gern noch.* |
+| *bleiben* | *blieb* | *bliebe* | *Wenn ich bliebe, …* (in speech usually: *Ich würde gern noch bleiben.*) |
 | *finden* | *fand* | *fände* | *Ich fände das super.* |
 | *lassen* | *ließ* | *ließe* | *Das ließe sich ändern.* |
 | *wissen* | *wusste* | *wüsste* | *Wenn ich das wüsste!* |
 | *brauchen* | *brauchte* | *bräuchte* | *Ich bräuchte mehr Zeit.* (spoken) |
 
-*wissen* is a mixed verb but follows the same recipe. *bräuchte* is used all the time in speech, although some grammar books call it informal.
+*wissen* is a mixed verb but follows the same recipe. *brauchen* is actually a weak verb, so by the rules its Konjunktiv II would be *brauchte*; *bräuchte* copies the strong pattern. It is used all the time in speech and is accepted by Duden, although some grammar books still call it informal.
 
-You don't need to produce a strong form for every verb. Native speakers mostly use these one-word forms for a small group of very common verbs: *wäre, hätte*, the modals, *wüsste, gäbe, käme, ginge, fände, bliebe, bräuchte*. For everything else they say *würde* + infinitive, and so can you: *Ich würde fliegen* is perfectly natural, while *Ich flöge* sounds like an old novel. In newspapers and literature you will meet more one-word forms (*läge, stünde, hielte, nähme, sähe*); recognize them by the umlaut and the *-e* ending.
+You don't need to produce a strong form for every verb. Native speakers mostly use these one-word forms for a small group of very common verbs: *wäre, hätte*, the modals, *wüsste, gäbe*, *fände* (*Ich fände das gut*) and *bräuchte*. *käme, ginge* and *bliebe* are common in set phrases (*Das ginge*, *Wie wäre es, wenn du morgen kämst?*), but in an ordinary statement people usually say *würde kommen / gehen / bleiben*. For everything else they say *würde* + infinitive, and so can you: *Ich würde fliegen* is perfectly natural, while *Ich flöge* sounds like an old novel. In newspapers and literature you will meet more one-word forms (*läge, stünde, hielte, nähme, sähe*); recognize them by the umlaut and the *-e* ending.
 
 ### Which form when?
 
@@ -158,14 +158,14 @@ Notes: *einteilen* means to divide up, plan (time, money); *sich etwas aussuchen
 
 - *wäre* has a long *ä*, like the vowel in English "air" but purer: WÄ-re. Don't confuse it with *war* (long *a*) or *Ware* (goods).
 - *hätte* has a short *ä* followed by a double *t*: HÄT-te. *hatte* has a short *a*. The umlaut is the whole difference, so make it clear.
-- *würde* has a long *ü*: round your lips for *u* and say *i*. *wurde* (was, became) has a long *u*.
+- *würde* has a short *ü*: say *i* with rounded lips. *wurde* (was, became) has a short *u*: the umlaut is again the whole difference.
 - *Sehnsucht*: the *h* is silent and lengthens the *e*: SEHN-sucht. *Abwechslung*: AB-wechs-lung; *ehrgeizig*: EHR-gei-zig.
 
 ## Common mistakes
 
 - Forgetting the umlaut: ~~Wenn ich konnte, würde ich kommen.~~ → *Wenn ich könnte, …* Without the umlaut, *konnte* is the simple past ("I was able to").
 - Indicative in the condition: ~~Wenn ich reich bin, würde ich eine Weltreise machen.~~ Use Konjunktiv II in both clauses: *Wenn ich reich wäre, würde ich …* (or, if it's a real possibility, indicative in both: *Wenn ich reich bin, mache ich …*).
-- würde with sein and haben: ~~Ich würde gern mehr Zeit haben~~ is understood, but *Ich hätte gern mehr Zeit* is what people say and write.
+- würde with sein and haben: *Ich würde gern mehr Zeit haben* isn't wrong, but *Ich hätte gern mehr Zeit* is what people usually say and write; *Ich würde reich sein* sounds clumsy next to *Ich wäre reich*.
 - Word order after the wenn clause: ~~Wenn ich Zeit hätte, ich würde kommen.~~ The main clause starts with the verb: *…, würde ich kommen.*
 - Word order without wenn: ~~Ich hätte mehr Geld, würde ich reisen.~~ For a condition, the verb comes first: *Hätte ich mehr Geld, würde ich reisen.*
 - Two würde forms in one clause: ~~Ich würde gern reisen würden.~~ *würde* appears once; the other verb is an infinitive at the end.
@@ -174,7 +174,7 @@ Notes: *einteilen* means to divide up, plan (time, money); *sich etwas aussuchen
 ## Key points
 
 - Indicative = real; Konjunktiv II = imagined, unreal, hypothetical.
-- One-word forms: *wäre, hätte, würde*, the modals (*könnte, müsste, dürfte, sollte, wollte, möchte*) and a few common strong verbs (*käme, ginge, gäbe, wüsste, fände, bliebe, bräuchte*).
+- One-word forms: *wäre, hätte, würde*, the modals (*könnte, müsste, dürfte, sollte, wollte, möchte*) and a few common verbs (*gäbe, wüsste, fände, bräuchte*; in set phrases also *käme, ginge, bliebe*).
 - All other verbs: *würde* + infinitive at the end (the würde form).
 - Strong forms: simple past stem + umlaut + *-e*: *kam → käme, gab → gäbe*. Recognize the rest when you read them.
 - Unreal conditions: *Wenn ich Zeit hätte, würde ich kommen.* Without *wenn*, the verb comes first: *Hätte ich Zeit, würde ich kommen.*

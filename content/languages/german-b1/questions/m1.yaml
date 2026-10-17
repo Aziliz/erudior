@@ -99,10 +99,10 @@
   lesson: de3-praeteritum
   topic: Stories and books
   stem: 'Which word completes the sentence? "Zuerst glaubte ihr niemand, aber ___ fand die Polizei den Ring doch in ihrem Garten."'
-  choices: ['zunächst', 'eines Tages', 'früher', 'schließlich']
+  choices: ['zunächst', 'vorher', 'früher', 'schließlich']
   answer: 3
   explanation: |-
-    schließlich means "in the end, eventually", which fits a story where something finally happens after a long time. zunächst means "at first", the opposite end of the story; früher means "in the past"; eines Tages introduces a new event, not the outcome.
+    schließlich means "in the end, eventually", which fits a story where something finally happens after a long time. zunächst means "at first", the opposite end of the story; vorher means "before that" and früher "in the past", which both get the order of events wrong.
 
 # --- 02 Before that: the past perfect, nachdem and bevor ---
 - id: de3-q-0201
@@ -169,11 +169,11 @@
   module_quiz: true
   topic: Reading
   stem: |-
-    Read the text: "Meine Großmutter wurde 1940 in Königsberg geboren. Ihr Vater war schon im ersten Kriegsjahr gestorben. 1945 floh sie mit ihrer Mutter in den Westen. Nachdem sie zwei Jahre in einem Lager gelebt hatten, fanden sie eine Wohnung in Hamburg." What happened first?
+    Read the text: "Meine Großmutter wurde 1940 in Königsberg geboren. Ihr Vater war schon 1942 gestorben. 1945 floh sie mit ihrer Mutter in den Westen. Nachdem sie zwei Jahre in einem Lager gelebt hatten, fanden sie eine Wohnung in Hamburg." What happened first?
   choices: ['The family found a flat in Hamburg.', 'The grandmother fled to the West.', 'The family lived in a camp.', 'The grandmother''s father died.']
   answer: 3
   explanation: |-
-    "Ihr Vater war schon im ersten Kriegsjahr gestorben" is in the past perfect and comes before the flight of 1945. Then they lived in a camp for two years, and after that they found a flat in Hamburg.
+    "Ihr Vater war schon 1942 gestorben" is in the past perfect and comes before the flight of 1945. Then they lived in a camp for two years, and after that they found a flat in Hamburg.
 - id: de3-q-0209
   lesson: de3-plusquamperfekt
   topic: History
@@ -245,11 +245,11 @@
 - id: de3-q-0305
   lesson: de3-temporal-clauses
   topic: Time clauses
-  stem: 'Which conjunction fits? "Du kannst bei uns wohnen, ___ du willst."'
-  choices: ['solange', 'sobald', 'seitdem', 'bevor']
+  stem: 'Which conjunction fits? "Ich werde diesen Tag nie vergessen, ___ ich lebe."'
+  choices: ['solange', 'sobald', 'seitdem', 'nachdem']
   answer: 0
   explanation: |-
-    solange means "as long as": the staying lasts for the same time as the wanting. sobald (as soon as) marks a starting point, seitdem looks back to the past, and bevor (before) makes no sense here.
+    solange means "as long as": the not forgetting lasts for the same time as the living. sobald (as soon as) marks a starting point, seitdem looks back from a point in the past, and nachdem (after) needs an earlier, finished action.
 - id: de3-q-0306
   lesson: de3-temporal-clauses
   module_quiz: true
@@ -478,7 +478,7 @@
   module_quiz: true
   topic: Reading
   stem: |-
-    Read the text: "In unserem Haus wohnen zwölf Parteien. Die meisten Bewohner sind Rentner, aber im zweiten Stock wohnt eine Studentin aus Polen. Sie hilft einem älteren Nachbarn beim Einkaufen. Dafür bringt er ihr Deutsch bei. Seit kurzem gibt es auch eine Gruppe im Treppenhaus, die jeden Monat ein Fest organisiert." Which statement matches the text?
+    Read the text: "In unserem Haus wohnen zwölf Parteien. Die meisten Bewohner sind Rentner, aber im zweiten Stock wohnt eine Studentin aus Polen. Sie hilft einem älteren Nachbarn beim Einkaufen. Dafür bringt er ihr Deutsch bei. Seit kurzem gibt es auch eine Gruppe im Haus, die jeden Monat ein Fest organisiert." Which statement matches the text?
   choices: ['Most of the residents are students.', 'The Polish student teaches German to a neighbour.', 'The residents organise a party once a year.', 'An older neighbour teaches the student German.']
   answer: 3
   explanation: |-

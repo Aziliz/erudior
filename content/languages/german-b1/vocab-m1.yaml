@@ -99,7 +99,7 @@
   meanings: [end (of something), end, ending]
   example: Das Ende des Buches hat mich überrascht.
   exampleEn: The ending of the book surprised me.
-  note: 'am Ende = in the end, at the end; zu Ende sein = to be over.'
+  note: 'am Ende = in the end, at the end; zu Ende sein = to be over. The plural is for physical ends: an beiden Enden (at both ends).'
 - id: erscheinen
   lesson: de3-praeteritum
   term: erscheinen
@@ -327,11 +327,11 @@
   lesson: de3-plusquamperfekt
   term: die Wende
   pos: noun
-  plural: die Wenden
+  plural: —
   meanings: [turning point, change, the Wende (1989), turn]
   example: Nach der Wende zogen viele junge Leute in den Westen.
   exampleEn: After the Wende many young people moved to the West.
-  note: die Wende = the changes of 1989–90 in East Germany.
+  note: 'die Wende = the changes of 1989–90 in East Germany. A plural (die Wenden) exists for "turns" but is rare.'
 - id: freiheit
   lesson: de3-plusquamperfekt
   term: die Freiheit
@@ -408,10 +408,11 @@
   lesson: de3-plusquamperfekt
   term: die Flucht
   pos: noun
-  plural: die Fluchten
+  plural: —
   meanings: [escape, flight (running away), flight]
   example: Die Flucht über die Berge dauerte drei Tage.
   exampleEn: The escape over the mountains took three days.
+  note: 'The plural (die Fluchten) is rare; say viele Fluchtversuche (many escape attempts).'
 - id: fluechtling
   lesson: de3-plusquamperfekt
   term: der Flüchtling
@@ -513,7 +514,7 @@
   lesson: de3-plusquamperfekt
   term: die Wiedervereinigung
   pos: noun
-  plural: die Wiedervereinigungen
+  plural: —
   meanings: [reunification]
   example: Die Wiedervereinigung war am 3. Oktober 1990.
   exampleEn: Reunification was on 3 October 1990.
@@ -764,6 +765,7 @@
   term: die Cousine
   pos: noun
   plural: die Cousinen
+  alt: [die Kusine]
   meanings: [cousin (female), cousin]
   example: Meine Cousine studiert in Graz.
   exampleEn: My cousin is studying in Graz.
@@ -814,6 +816,7 @@
   lesson: de3-temporal-clauses
   term: alleinerziehend
   pos: adjective
+  alt: [allein erziehend]
   meanings: [single (parent), single, bringing up a child alone]
   example: Sie ist alleinerziehend und hat zwei Kinder.
   exampleEn: She is a single mother with two children.
@@ -1024,7 +1027,7 @@
   lesson: de3-futur
   term: vermutlich
   pos: adverb
-  meanings: [presumably, probably, supposedly, I suppose]
+  meanings: [presumably, probably, I suppose]
   example: Er hat vermutlich den Zug verpasst.
   exampleEn: He has presumably missed the train.
 - id: wahrscheinlich
@@ -1040,8 +1043,8 @@
   pos: noun
   plural: die Prognosen
   meanings: [forecast, prognosis, prediction, projection]
-  example: Die Prognose für das Wetter am Wochenende ist gut.
-  exampleEn: The forecast for the weekend weather is good.
+  example: Die Prognosen für die Wirtschaft sind nicht gut.
+  exampleEn: The forecasts for the economy are not good.
 - id: vorhersagen
   lesson: de3-futur
   term: vorhersagen
@@ -1295,10 +1298,11 @@
   lesson: de3-n-nouns
   term: die Bevölkerung
   pos: noun
-  plural: die Bevölkerungen
+  plural: —
   meanings: [population, people, inhabitants]
   example: Die Bevölkerung der Stadt wächst.
   exampleEn: The population of the city is growing.
+  note: 'Singular, even for many people: Die Bevölkerung ist dagegen. A plural (die Bevölkerungen) is rare.'
 - id: gruppe
   lesson: de3-n-nouns
   term: die Gruppe
@@ -1329,8 +1333,8 @@
   pos: noun
   plural: die Ausländer
   meanings: [foreigner (male), foreigner, foreign national]
-  example: Als Ausländer muss man sich beim Bürgeramt anmelden.
-  exampleEn: 'As a foreigner you have to register at the citizens'' office.'
+  example: In unserer Stadt leben viele Ausländer.
+  exampleEn: Many foreigners live in our town.
 - id: auslaenderin
   lesson: de3-n-nouns
   term: die Ausländerin

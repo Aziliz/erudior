@@ -124,15 +124,15 @@ A magazine has a column where readers ask for advice. Read the letter and the an
 
 > Liebes Team,
 >
-> ich arbeite seit zwei Jahren in einem kleinen Büro, in dem wir zu viert sitzen. Mit zwei Kollegen verstehe ich mich gut. Das Problem ist Herr K., mit dem ich jeden Tag ein Projekt bespreche. Er ist zuverlässig und klug, aber er kritisiert alles, was ich mache, und zwar vor allen anderen. Lob, auf das ich mich freuen könnte, gibt es nie. Gestern hat er eine Präsentation, an der ich zwei Wochen gearbeitet hatte, in der Besprechung „chaotisch" genannt. Ich bin eigentlich ein geduldiger Mensch, aber ich habe keine Lust mehr. Soll ich mit unserer Chefin sprechen, deren Büro gleich nebenan ist?
+> ich arbeite seit zwei Jahren in einem kleinen Büro, in dem wir zu viert sitzen. Mit zwei Kollegen verstehe ich mich gut. Das Problem ist Herr K., mit dem ich jeden Tag ein Projekt bespreche. Er ist zuverlässig und klug, aber er kritisiert alles, was ich mache, und zwar vor allen anderen. Lob, auf das ich mich freuen könnte, gibt es nie. Gestern hat er eine Präsentation, an der ich zwei Wochen gearbeitet hatte, in der Besprechung „chaotisch“ genannt. Ich bin eigentlich ein geduldiger Mensch, aber ich habe keine Lust mehr. Soll ich mit unserer Chefin sprechen, deren Büro gleich nebenan ist?
 >
 > Lena, 29
 >
 > Liebe Lena,
 >
-> Kritik, die vor allen geäußert wird, tut weh. Bevor Sie zur Chefin gehen, sprechen Sie zuerst mit Herrn K. selbst, und zwar allein. Wählen Sie einen ruhigen Moment, in dem keiner von Ihnen gestresst ist. Sagen Sie ihm, wie sein Verhalten auf Sie wirkt, ohne ihm Vorwürfe zu machen: „Ich fühle mich nicht respektiert, wenn …" ist besser als „Du bist immer …". Vielleicht weiß er gar nicht, wie er wirkt. Viele Menschen, denen Qualität sehr wichtig ist, vergessen, dass Lob genauso wichtig ist wie Kritik. Wenn das Gespräch nichts ändert, ist die Chefin die richtige Person, an die Sie sich wenden können. Ein Konflikt, über den man offen spricht, lässt sich meistens lösen.
+> Kritik, die vor allen geäußert wird, tut weh. Bevor Sie zur Chefin gehen, sprechen Sie zuerst mit Herrn K. selbst, und zwar allein. Wählen Sie einen ruhigen Moment, in dem keiner von Ihnen gestresst ist. Sagen Sie ihm, wie sein Verhalten auf Sie wirkt, ohne ihm Vorwürfe zu machen: „Ich fühle mich nicht respektiert, wenn …“ ist besser als „Du bist immer …“. Vielleicht weiß er gar nicht, wie er wirkt. Viele Menschen, denen Qualität sehr wichtig ist, vergessen, dass Lob genauso wichtig ist wie Kritik. Wenn das Gespräch nichts ändert, ist die Chefin die richtige Person, an die Sie sich wenden können. Ein Konflikt, über den man offen spricht, lässt sich meistens lösen.
 >
-> Ihr Team von „Arbeit & Leben"
+> Ihr Team von „Arbeit & Leben“
 
 In English:
 
