@@ -1,0 +1,862 @@
+# German A2, module 1: Telling your story (lessons 01–04)
+
+# --- 01 Your life so far: the perfect, extended ---
+- id: geboren
+  lesson: de2-perfect-review
+  term: geboren
+  pos: adjective
+  meanings: [born]
+  example: Ich bin 1994 in Dresden geboren.
+  exampleEn: I was born in Dresden in 1994.
+  note: 'Use with sein: Ich bin … geboren. Formal or for people who have died: Er wurde … geboren.'
+- id: die-geburt
+  lesson: de2-perfect-review
+  term: die Geburt
+  pos: noun
+  plural: die Geburten
+  meanings: [birth]
+  example: Nach der Geburt war sie drei Tage im Krankenhaus.
+  exampleEn: After the birth she was in hospital for three days.
+- id: aufwachsen
+  lesson: de2-perfect-review
+  term: aufwachsen
+  pos: verb
+  meanings: [to grow up]
+  example: Ich bin auf einem Bauernhof aufgewachsen.
+  exampleEn: I grew up on a farm.
+  note: 'Separable, stem change: du wächst auf, er wächst auf. Perfect: ist aufgewachsen.'
+- id: die-kindheit
+  lesson: de2-perfect-review
+  term: die Kindheit
+  pos: noun
+  plural: —
+  meanings: [childhood]
+  example: In meiner Kindheit haben wir oft am See gezeltet.
+  exampleEn: In my childhood we often went camping by the lake.
+- id: die-jugend
+  lesson: de2-perfect-review
+  term: die Jugend
+  pos: noun
+  plural: —
+  meanings: [youth (the teenage years), youth, adolescence, young people]
+  example: In seiner Jugend hat er in einer Band gespielt.
+  exampleEn: In his youth he played in a band.
+- id: der-lebenslauf
+  lesson: de2-perfect-review
+  term: der Lebenslauf
+  pos: noun
+  plural: die Lebensläufe
+  meanings: [CV, curriculum vitae, résumé, resume]
+  example: Schicken Sie uns bitte Ihren Lebenslauf.
+  exampleEn: Please send us your CV.
+- id: die-ausbildung
+  lesson: de2-perfect-review
+  term: die Ausbildung
+  pos: noun
+  plural: die Ausbildungen
+  meanings: [vocational training, training, apprenticeship, education]
+  example: Meine Schwester macht eine Ausbildung als Köchin.
+  exampleEn: My sister is training as a cook.
+- id: der-abschluss
+  lesson: de2-perfect-review
+  term: der Abschluss
+  pos: noun
+  plural: die Abschlüsse
+  meanings: [qualification (school or university), degree, diploma, graduation, completion]
+  example: Nach dem Abschluss möchte ich ein Jahr reisen.
+  exampleEn: After graduating I'd like to travel for a year.
+- id: das-studium
+  lesson: de2-perfect-review
+  term: das Studium
+  pos: noun
+  plural: die Studien
+  meanings: [university studies, studies, degree course, degree]
+  example: Das Studium hat fünf Jahre gedauert.
+  exampleEn: The degree course took five years.
+- id: heiraten
+  lesson: de2-perfect-review
+  term: heiraten
+  pos: verb
+  meanings: [to marry, to get married]
+  example: Meine Eltern haben 1985 geheiratet.
+  exampleEn: My parents got married in 1985.
+  note: 'Perfect: hat geheiratet.'
+- id: die-hochzeit
+  lesson: de2-perfect-review
+  term: die Hochzeit
+  pos: noun
+  plural: die Hochzeiten
+  meanings: [wedding]
+  example: Zur Hochzeit kommen achtzig Gäste.
+  exampleEn: Eighty guests are coming to the wedding.
+- id: die-rente
+  lesson: de2-perfect-review
+  term: die Rente
+  pos: noun
+  plural: die Renten
+  meanings: [pension, retirement]
+  example: Mein Vater geht nächstes Jahr in Rente.
+  exampleEn: My father is retiring next year.
+  note: 'in Rente gehen = to retire; in Rente sein = to be retired.'
+- id: der-rentner
+  lesson: de2-perfect-review
+  term: der Rentner
+  pos: noun
+  plural: die Rentner
+  meanings: [retiree (male), pensioner, retiree, retired person]
+  example: Als Rentner hat er endlich Zeit für seinen Garten.
+  exampleEn: As a pensioner he finally has time for his garden.
+- id: die-rentnerin
+  lesson: de2-perfect-review
+  term: die Rentnerin
+  pos: noun
+  plural: die Rentnerinnen
+  meanings: [retiree (female), pensioner, retiree, retired person]
+  example: Unsere Nachbarin ist Rentnerin und reist viel.
+  exampleEn: Our neighbour is retired and travels a lot.
+- id: das-leben
+  lesson: de2-perfect-review
+  term: das Leben
+  pos: noun
+  plural: die Leben
+  meanings: [life]
+  example: Das Leben in der Stadt ist teuer.
+  exampleEn: Life in the city is expensive.
+- id: erleben
+  lesson: de2-perfect-review
+  term: erleben
+  pos: verb
+  meanings: [to experience, to go through, to see (live through)]
+  example: Auf der Reise haben wir viel erlebt.
+  exampleEn: We experienced a lot on the trip.
+  note: 'Inseparable, perfect: hat erlebt.'
+- id: das-erlebnis
+  lesson: de2-perfect-review
+  term: das Erlebnis
+  pos: noun
+  plural: die Erlebnisse
+  meanings: [experience (one event), experience, event, adventure]
+  example: Das Konzert war ein tolles Erlebnis.
+  exampleEn: The concert was a great experience.
+- id: die-erfahrung
+  lesson: de2-perfect-review
+  term: die Erfahrung
+  pos: noun
+  plural: die Erfahrungen
+  meanings: [experience (knowledge from doing things), experience]
+  example: Haben Sie Erfahrung mit Kindern?
+  exampleEn: Do you have experience with children?
+- id: der-umzug
+  lesson: de2-perfect-review
+  term: der Umzug
+  pos: noun
+  plural: die Umzüge
+  meanings: [move (to a new home), move, removal, relocation]
+  example: Nach dem Umzug waren wir total müde.
+  exampleEn: After the move we were completely exhausted.
+- id: gruenden
+  lesson: de2-perfect-review
+  term: gründen
+  pos: verb
+  meanings: [to found, to set up, to start (a company or family), to establish]
+  example: Mein Onkel hat 1990 eine Firma gegründet.
+  exampleEn: My uncle founded a company in 1990.
+  note: 'Perfect: hat gegründet.'
+- id: wechseln
+  lesson: de2-perfect-review
+  term: wechseln
+  pos: verb
+  meanings: [to change (swap one thing for another), to change, to switch, to exchange]
+  example: Ich möchte die Stelle wechseln.
+  exampleEn: I'd like to change jobs.
+  note: 'ich wechsle. Perfect: hat gewechselt.'
+- id: die-heimat
+  lesson: de2-perfect-review
+  term: die Heimat
+  pos: noun
+  plural: die Heimaten (rare)
+  meanings: [home (where you feel you belong), homeland, home country, home town]
+  example: Ihre Heimat ist Kroatien, aber sie lebt in Wien.
+  exampleEn: Her homeland is Croatia, but she lives in Vienna.
+- id: erst
+  lesson: de2-perfect-review
+  term: erst
+  pos: adverb
+  meanings: [only (not before, not until), not until, only]
+  example: Ich habe erst mit 25 schwimmen gelernt.
+  exampleEn: I didn't learn to swim until I was 25.
+- id: sterben
+  lesson: de2-perfect-review
+  term: sterben
+  pos: verb
+  meanings: [to die]
+  example: Ihr Großvater ist letzten Winter gestorben.
+  exampleEn: Her grandfather died last winter.
+  note: 'Stem change: du stirbst, er stirbt. Perfect: ist gestorben.'
+- id: die-vergangenheit
+  lesson: de2-perfect-review
+  term: die Vergangenheit
+  pos: noun
+  plural: die Vergangenheiten (rare)
+  meanings: [past (the time before now), the past, past tense]
+  example: Über seine Vergangenheit spricht er nicht gern.
+  exampleEn: He doesn't like talking about his past.
+- id: nennen
+  lesson: de2-perfect-review
+  term: nennen
+  pos: verb
+  meanings: [to name, to call]
+  example: Alle nennen mich Sami.
+  exampleEn: Everyone calls me Sami.
+  note: 'Mixed verb. Perfect: hat genannt.'
+- id: rennen
+  lesson: de2-perfect-review
+  term: rennen
+  pos: verb
+  meanings: [to run fast, to race, to dash, to run]
+  example: Ich bin zum Bus gerannt.
+  exampleEn: I ran to the bus.
+  note: 'Mixed verb. Perfect: ist gerannt.'
+- id: verlassen
+  lesson: de2-perfect-review
+  term: verlassen
+  pos: verb
+  meanings: [to leave (a place or person), to leave, to abandon]
+  example: Sie hat ihre Heimat mit 20 verlassen.
+  exampleEn: She left her home country at 20.
+  note: 'Stem change: du verlässt, er verlässt. Perfect: hat verlassen. Needs an accusative object.'
+- id: beginnen
+  lesson: de2-perfect-review
+  term: beginnen
+  pos: verb
+  meanings: [to begin (a bit more formal than anfangen), to begin, to start]
+  example: Der Kurs beginnt um neun Uhr.
+  exampleEn: The course begins at nine o'clock.
+  note: 'Perfect: hat begonnen.'
+
+# --- 02 When I was a child: the simple past ---
+- id: der-kindergarten
+  lesson: de2-praeteritum
+  term: der Kindergarten
+  pos: noun
+  plural: die Kindergärten
+  meanings: [kindergarten, nursery school, preschool]
+  example: Unsere Tochter geht seit Montag in den Kindergarten.
+  exampleEn: Our daughter has been going to kindergarten since Monday.
+- id: die-grundschule
+  lesson: de2-praeteritum
+  term: die Grundschule
+  pos: noun
+  plural: die Grundschulen
+  meanings: [primary school, elementary school, grade school]
+  example: Die Grundschule war nur fünf Minuten von zu Hause.
+  exampleEn: The primary school was only five minutes from home.
+- id: die-klasse
+  lesson: de2-praeteritum
+  term: die Klasse
+  pos: noun
+  plural: die Klassen
+  meanings: [class (at school), class, grade, year, form]
+  example: In der vierten Klasse hatte ich eine neue Lehrerin.
+  exampleEn: In fourth grade I had a new teacher.
+- id: das-fach
+  lesson: de2-praeteritum
+  term: das Fach
+  pos: noun
+  plural: die Fächer
+  meanings: [subject (at school), subject]
+  example: Mein Lieblingsfach war Kunst.
+  exampleEn: My favourite subject was art.
+- id: die-note
+  lesson: de2-praeteritum
+  term: die Note
+  pos: noun
+  plural: die Noten
+  meanings: [grade (mark at school), grade, mark]
+  example: In Englisch hatte ich immer gute Noten.
+  exampleEn: I always had good grades in English.
+- id: das-zeugnis
+  lesson: de2-praeteritum
+  term: das Zeugnis
+  pos: noun
+  plural: die Zeugnisse
+  meanings: [school report, report card, certificate, reference]
+  example: Im Juli gibt es Zeugnisse.
+  exampleEn: School reports come out in July.
+- id: streng
+  lesson: de2-praeteritum
+  term: streng
+  pos: adjective
+  meanings: [strict]
+  example: Mein Vater war sehr streng.
+  exampleEn: My father was very strict.
+- id: die-pause
+  lesson: de2-praeteritum
+  term: die Pause
+  pos: noun
+  plural: die Pausen
+  meanings: [break (a short rest), break, pause, recess]
+  example: In der Pause haben wir Fußball gespielt.
+  exampleEn: We played football at break.
+- id: der-spielplatz
+  lesson: de2-praeteritum
+  term: der Spielplatz
+  pos: noun
+  plural: die Spielplätze
+  meanings: [playground]
+  example: Hinter unserem Haus war ein großer Spielplatz.
+  exampleEn: There was a big playground behind our house.
+- id: das-spielzeug
+  lesson: de2-praeteritum
+  term: das Spielzeug
+  pos: noun
+  plural: die Spielzeuge
+  meanings: [toy, toys]
+  example: Das Kinderzimmer ist voll mit Spielzeug.
+  exampleEn: The children's room is full of toys.
+- id: die-puppe
+  lesson: de2-praeteritum
+  term: die Puppe
+  pos: noun
+  plural: die Puppen
+  meanings: [doll, puppet]
+  example: Meine Puppe hieß Lotte.
+  exampleEn: My doll was called Lotte.
+- id: klettern
+  lesson: de2-praeteritum
+  term: klettern
+  pos: verb
+  meanings: [to climb]
+  example: Als Kind bin ich gern auf Bäume geklettert.
+  exampleEn: As a child I liked climbing trees.
+  note: 'Perfect: ist geklettert.'
+- id: sich-erinnern
+  lesson: de2-praeteritum
+  term: sich erinnern
+  pos: verb
+  meanings: [to remember, to recall]
+  example: Ich erinnere mich gut an meine erste Lehrerin.
+  exampleEn: I remember my first teacher well.
+  note: 'Reflexive: ich erinnere mich, du erinnerst dich. sich erinnern an + accusative. Perfect: hat sich erinnert.'
+- id: die-erinnerung
+  lesson: de2-praeteritum
+  term: die Erinnerung
+  pos: noun
+  plural: die Erinnerungen
+  meanings: [memory (something you remember), memory, recollection, reminder]
+  example: Ich habe schöne Erinnerungen an diesen Sommer.
+  exampleEn: I have lovely memories of that summer.
+- id: das-maerchen
+  lesson: de2-praeteritum
+  term: das Märchen
+  pos: noun
+  plural: die Märchen
+  meanings: [fairy tale, fairytale, fairy story]
+  example: Meine Oma hat mir jeden Abend ein Märchen erzählt.
+  exampleEn: My grandma told me a fairy tale every evening.
+- id: erlauben
+  lesson: de2-praeteritum
+  term: erlauben
+  pos: verb
+  meanings: [to allow, to permit, to let]
+  example: Meine Eltern haben mir das nie erlaubt.
+  exampleEn: My parents never allowed me that.
+  note: 'Inseparable: jemandem (dative) etwas erlauben. Perfect: hat erlaubt.'
+- id: der-nachbar
+  lesson: de2-praeteritum
+  term: der Nachbar
+  pos: noun
+  plural: die Nachbarn
+  meanings: [neighbour (male), neighbor, neighbour]
+  example: Unser Nachbar hat einen großen Hund.
+  exampleEn: Our neighbour has a big dog.
+- id: die-nachbarin
+  lesson: de2-praeteritum
+  term: die Nachbarin
+  pos: noun
+  plural: die Nachbarinnen
+  meanings: [neighbour (female), neighbor, neighbour]
+  example: Die Nachbarin gießt unsere Blumen im Urlaub.
+  exampleEn: The neighbour waters our flowers when we're on holiday.
+- id: aufpassen
+  lesson: de2-praeteritum
+  term: aufpassen
+  pos: verb
+  meanings: [to pay attention, to watch out, to be careful, to look after]
+  example: Pass auf, die Straße ist glatt!
+  exampleEn: Watch out, the road is slippery!
+  note: 'Separable: er passt auf. aufpassen auf + accusative = to look after. Perfect: hat aufgepasst.'
+- id: brav
+  lesson: de2-praeteritum
+  term: brav
+  pos: adjective
+  meanings: [good (well-behaved), well-behaved, good]
+  example: Die Kinder waren heute sehr brav.
+  exampleEn: The children were very good today.
+- id: frech
+  lesson: de2-praeteritum
+  term: frech
+  pos: adjective
+  meanings: [cheeky, rude, naughty, impudent, sassy]
+  example: Sei nicht so frech!
+  exampleEn: Don't be so cheeky!
+- id: das-verbot
+  lesson: de2-praeteritum
+  term: das Verbot
+  pos: noun
+  plural: die Verbote
+  meanings: [ban, prohibition]
+  example: Im Park gibt es ein Verbot für Hunde.
+  exampleEn: There's a ban on dogs in the park.
+- id: schimpfen
+  lesson: de2-praeteritum
+  term: schimpfen
+  pos: verb
+  meanings: [to scold, to tell off, to grumble, to complain]
+  example: Die Lehrerin hat mit uns geschimpft.
+  exampleEn: The teacher told us off.
+  note: 'mit jemandem schimpfen = to tell someone off. Perfect: hat geschimpft.'
+- id: verstecken
+  lesson: de2-praeteritum
+  term: verstecken
+  pos: verb
+  meanings: [to hide]
+  example: Wo hast du die Schokolade versteckt?
+  exampleEn: Where did you hide the chocolate?
+  note: 'Inseparable, perfect: hat versteckt. sich verstecken = to hide (yourself).'
+- id: der-schulhof
+  lesson: de2-praeteritum
+  term: der Schulhof
+  pos: noun
+  plural: die Schulhöfe
+  meanings: [schoolyard, school playground, playground (at school)]
+  example: Auf dem Schulhof darf man nicht Fahrrad fahren.
+  exampleEn: You're not allowed to ride bikes in the schoolyard.
+
+# --- 03 Reasons and opinions: weil and dass ---
+- id: weil
+  lesson: de2-weil-dass
+  term: weil
+  pos: conjunction
+  meanings: [because (verb goes to the end), because, since]
+  example: Ich bleibe zu Hause, weil ich krank bin.
+  exampleEn: I'm staying at home because I'm ill.
+- id: dass
+  lesson: de2-weil-dass
+  term: dass
+  pos: conjunction
+  meanings: [that (conjunction)]
+  example: Ich hoffe, dass du bald kommst.
+  exampleEn: I hope that you're coming soon.
+  note: 'Verb goes to the end. Not the same as das (the, that one).'
+- id: die-meinung
+  lesson: de2-weil-dass
+  term: die Meinung
+  pos: noun
+  plural: die Meinungen
+  meanings: [opinion, view]
+  example: Was ist deine Meinung?
+  exampleEn: What's your opinion?
+- id: meiner-meinung-nach
+  lesson: de2-weil-dass
+  kind: phrase
+  term: meiner Meinung nach
+  pos: phrase
+  meanings: [in my opinion]
+  example: Meiner Meinung nach ist der Film zu lang.
+  exampleEn: In my opinion the film is too long.
+- id: meinen
+  lesson: de2-weil-dass
+  term: meinen
+  pos: verb
+  meanings: [to think (to have an opinion), to think, to mean, to believe, to say]
+  example: Was meinst du, sollen wir ein Taxi nehmen?
+  exampleEn: What do you think, should we take a taxi?
+- id: der-grund
+  lesson: de2-weil-dass
+  term: der Grund
+  pos: noun
+  plural: die Gründe
+  meanings: [reason, cause, ground]
+  example: Aus welchem Grund lernen Sie Deutsch?
+  exampleEn: For what reason are you learning German?
+- id: hoffen
+  lesson: de2-weil-dass
+  term: hoffen
+  pos: verb
+  meanings: [to hope]
+  example: Ich hoffe, dass es morgen nicht regnet.
+  exampleEn: I hope it doesn't rain tomorrow.
+- id: die-hoffnung
+  lesson: de2-weil-dass
+  term: die Hoffnung
+  pos: noun
+  plural: die Hoffnungen
+  meanings: [hope]
+  example: Wir haben die Hoffnung noch nicht aufgegeben.
+  exampleEn: We haven't given up hope yet.
+- id: wahr
+  lesson: de2-weil-dass
+  term: wahr
+  pos: adjective
+  meanings: [true]
+  example: Ist das wirklich wahr?
+  exampleEn: Is that really true?
+- id: die-wahrheit
+  lesson: de2-weil-dass
+  term: die Wahrheit
+  pos: noun
+  plural: die Wahrheiten
+  meanings: [truth]
+  example: Sag mir bitte die Wahrheit.
+  exampleEn: Please tell me the truth.
+- id: der-vorteil
+  lesson: de2-weil-dass
+  term: der Vorteil
+  pos: noun
+  plural: die Vorteile
+  meanings: [advantage, benefit, pro]
+  example: Ein Vorteil von der Wohnung ist der Balkon.
+  exampleEn: One advantage of the flat is the balcony.
+- id: der-nachteil
+  lesson: de2-weil-dass
+  term: der Nachteil
+  pos: noun
+  plural: die Nachteile
+  meanings: [disadvantage, drawback, con]
+  example: Der Nachteil ist, dass sie sehr laut ist.
+  exampleEn: The disadvantage is that it's very noisy.
+- id: egal
+  lesson: de2-weil-dass
+  term: egal
+  pos: adjective
+  meanings: [doesn't matter (all the same), all the same, it doesn't matter, don't care, whatever, no matter]
+  example: Das ist mir egal.
+  exampleEn: I don't mind. / I don't care.
+- id: froh
+  lesson: de2-weil-dass
+  term: froh
+  pos: adjective
+  meanings: [glad, happy, pleased, relieved]
+  example: Ich bin froh, dass du da bist.
+  exampleEn: I'm glad you're here.
+- id: traurig
+  lesson: de2-weil-dass
+  term: traurig
+  pos: adjective
+  meanings: [sad, unhappy]
+  example: Sie ist traurig, weil ihre Katze krank ist.
+  exampleEn: She's sad because her cat is ill.
+- id: gluecklich
+  lesson: de2-weil-dass
+  term: glücklich
+  pos: adjective
+  meanings: [happy (deeply), happy, lucky]
+  example: Die beiden sind sehr glücklich zusammen.
+  exampleEn: The two of them are very happy together.
+- id: zufrieden
+  lesson: de2-weil-dass
+  term: zufrieden
+  pos: adjective
+  meanings: [satisfied, content, happy (with something), pleased]
+  example: Bist du mit deiner neuen Wohnung zufrieden?
+  exampleEn: Are you happy with your new flat?
+- id: enttaeuscht
+  lesson: de2-weil-dass
+  term: enttäuscht
+  pos: adjective
+  meanings: [disappointed]
+  example: Ich bin enttäuscht, weil du nicht gekommen bist.
+  exampleEn: I'm disappointed because you didn't come.
+- id: wuetend
+  lesson: de2-weil-dass
+  term: wütend
+  pos: adjective
+  meanings: [furious, angry, mad]
+  example: Der Chef war wütend auf uns.
+  exampleEn: The boss was furious with us.
+- id: ueberrascht
+  lesson: de2-weil-dass
+  term: überrascht
+  pos: adjective
+  meanings: [surprised]
+  example: Wir waren überrascht, dass so viele Leute gekommen sind.
+  exampleEn: We were surprised that so many people came.
+- id: stolz
+  lesson: de2-weil-dass
+  term: stolz
+  pos: adjective
+  meanings: [proud]
+  example: Meine Eltern sind stolz auf mich.
+  exampleEn: My parents are proud of me.
+  note: 'stolz auf + accusative = proud of.'
+- id: nervoes
+  lesson: de2-weil-dass
+  term: nervös
+  pos: adjective
+  meanings: [nervous]
+  example: Vor der Prüfung war ich sehr nervös.
+  exampleEn: I was very nervous before the exam.
+- id: die-angst
+  lesson: de2-weil-dass
+  term: die Angst
+  pos: noun
+  plural: die Ängste
+  meanings: [fear, anxiety, worry]
+  example: Mein Sohn hat Angst vor Hunden.
+  exampleEn: My son is afraid of dogs.
+  note: 'Angst haben (vor + dative) = to be afraid (of).'
+- id: die-sorge
+  lesson: de2-weil-dass
+  term: die Sorge
+  pos: noun
+  plural: die Sorgen
+  meanings: [worry, concern, care]
+  example: Mach dir keine Sorgen!
+  exampleEn: Don't worry!
+  note: 'sich Sorgen machen = to worry.'
+- id: das-gefuehl
+  lesson: de2-weil-dass
+  term: das Gefühl
+  pos: noun
+  plural: die Gefühle
+  meanings: [feeling, emotion, sense]
+  example: Ich habe das Gefühl, dass er lügt.
+  exampleEn: I have the feeling he's lying.
+- id: die-freude
+  lesson: de2-weil-dass
+  term: die Freude
+  pos: noun
+  plural: die Freuden
+  meanings: [joy, pleasure, delight]
+  example: Die Arbeit macht mir viel Freude.
+  exampleEn: I really enjoy the work.
+- id: zustimmen
+  lesson: de2-weil-dass
+  term: zustimmen
+  pos: verb
+  meanings: [to agree (with someone), to agree, to approve]
+  example: Da stimme ich dir zu.
+  exampleEn: I agree with you there.
+  note: 'Separable, with the dative: Ich stimme dir zu. Perfect: hat zugestimmt.'
+- id: recht-haben
+  lesson: de2-weil-dass
+  kind: phrase
+  term: recht haben
+  pos: phrase
+  alt: [Recht haben]
+  meanings: [to be right]
+  example: Du hast recht, es ist schon spät.
+  exampleEn: You're right, it's already late.
+- id: unbedingt
+  lesson: de2-weil-dass
+  term: unbedingt
+  pos: adverb
+  meanings: [absolutely, definitely, really, at all costs, by all means]
+  example: Diesen Film musst du unbedingt sehen!
+  exampleEn: You absolutely have to see this film!
+
+# --- 04 If, when and whether: wenn, als, ob ---
+- id: wenn
+  lesson: de2-wenn-als-ob
+  term: wenn
+  pos: conjunction
+  meanings: [if (a condition), if, when, whenever]
+  example: Wenn du Zeit hast, komm doch vorbei.
+  exampleEn: If you have time, come round.
+  note: 'Verb goes to the end. Also "when(ever)" for repeated events and the future.'
+- id: als-when
+  lesson: de2-wenn-als-ob
+  term: als
+  pos: conjunction
+  meanings: [when (one time in the past), when, as]
+  example: Als ich klein war, wohnten wir in Kiel.
+  exampleEn: When I was little, we lived in Kiel.
+  note: 'Verb goes to the end. Only for one event or one period in the past; for repeated events use wenn.'
+- id: ob
+  lesson: de2-wenn-als-ob
+  term: ob
+  pos: conjunction
+  meanings: [whether, if (whether)]
+  example: Weißt du, ob der Supermarkt noch offen ist?
+  exampleEn: Do you know whether the supermarket is still open?
+  note: 'Starts an indirect yes/no question; verb goes to the end.'
+- id: falls
+  lesson: de2-wenn-als-ob
+  term: falls
+  pos: conjunction
+  meanings: [in case, if (in case)]
+  example: Nimm einen Schirm mit, falls es regnet.
+  exampleEn: Take an umbrella in case it rains.
+- id: entscheiden
+  lesson: de2-wenn-als-ob
+  term: entscheiden
+  pos: verb
+  meanings: [to decide]
+  example: Das musst du selbst entscheiden.
+  exampleEn: You have to decide that yourself.
+  note: 'Inseparable. Perfect: hat entschieden. sich entscheiden (für) = to make up your mind, to decide (on).'
+- id: die-entscheidung
+  lesson: de2-wenn-als-ob
+  term: die Entscheidung
+  pos: noun
+  plural: die Entscheidungen
+  meanings: [decision]
+  example: Das war die richtige Entscheidung.
+  exampleEn: That was the right decision.
+- id: die-moeglichkeit
+  lesson: de2-wenn-als-ob
+  term: die Möglichkeit
+  pos: noun
+  plural: die Möglichkeiten
+  meanings: [possibility, opportunity, option, chance]
+  example: Es gibt zwei Möglichkeiten, den Bus oder ein Taxi.
+  exampleEn: There are two options, the bus or a taxi.
+- id: moeglich
+  lesson: de2-wenn-als-ob
+  term: möglich
+  pos: adjective
+  meanings: [possible]
+  example: Ist ein Termin am Montag möglich?
+  exampleEn: Is an appointment on Monday possible?
+- id: unmoeglich
+  lesson: de2-wenn-als-ob
+  term: unmöglich
+  pos: adjective
+  meanings: [impossible]
+  example: Bis morgen? Das ist unmöglich!
+  exampleEn: By tomorrow? That's impossible!
+- id: planen
+  lesson: de2-wenn-als-ob
+  term: planen
+  pos: verb
+  meanings: [to plan]
+  example: Wir planen eine Reise nach Norwegen.
+  exampleEn: We're planning a trip to Norway.
+- id: vorhaben
+  lesson: de2-wenn-als-ob
+  term: vorhaben
+  pos: verb
+  meanings: [to plan (to do), to intend, to have planned, to be up to]
+  example: Was hast du heute Abend vor?
+  exampleEn: What are you doing this evening?
+  note: 'Separable: er hat vor. Perfect: hat vorgehabt.'
+- id: die-zukunft
+  lesson: de2-wenn-als-ob
+  term: die Zukunft
+  pos: noun
+  plural: die Zukünfte (rare)
+  meanings: [future]
+  example: In Zukunft fahre ich mit dem Fahrrad zur Arbeit.
+  exampleEn: In future I'll cycle to work.
+- id: der-fall
+  lesson: de2-wenn-als-ob
+  term: der Fall
+  pos: noun
+  plural: die Fälle
+  meanings: [case, instance, event]
+  example: In diesem Fall rufen Sie bitte die Polizei.
+  exampleEn: In this case, please call the police.
+- id: auf-jeden-fall
+  lesson: de2-wenn-als-ob
+  kind: phrase
+  term: auf jeden Fall
+  pos: phrase
+  meanings: [definitely, in any case, at any rate, by all means]
+  example: Ich komme auf jeden Fall zu deiner Party.
+  exampleEn: I'm definitely coming to your party.
+- id: klappen
+  lesson: de2-wenn-als-ob
+  term: klappen
+  pos: verb
+  meanings: [to work out (colloquial), to work out, to work, to go well]
+  example: Hat alles gut geklappt?
+  exampleEn: Did everything go well?
+- id: schaffen
+  lesson: de2-wenn-als-ob
+  term: schaffen
+  pos: verb
+  meanings: [to manage (to do), to manage, to make it, to cope, to get done]
+  example: Schaffst du das bis Freitag?
+  exampleEn: Can you get it done by Friday?
+  note: 'Perfect: hat geschafft.'
+- id: aufgeben
+  lesson: de2-wenn-als-ob
+  term: aufgeben
+  pos: verb
+  meanings: [to give up, to quit]
+  example: Du darfst jetzt nicht aufgeben!
+  exampleEn: You mustn't give up now!
+  note: 'Separable, stem change: du gibst auf, er gibt auf. Perfect: hat aufgegeben.'
+- id: versuchen
+  lesson: de2-wenn-als-ob
+  term: versuchen
+  pos: verb
+  meanings: [to try, to attempt]
+  example: Ich versuche es morgen noch einmal.
+  exampleEn: I'll try again tomorrow.
+  note: 'Inseparable. Perfect: hat versucht.'
+- id: der-versuch
+  lesson: de2-wenn-als-ob
+  term: der Versuch
+  pos: noun
+  plural: die Versuche
+  meanings: [attempt, try, experiment]
+  example: Beim zweiten Versuch hat es geklappt.
+  exampleEn: It worked on the second attempt.
+- id: die-chance
+  lesson: de2-wenn-als-ob
+  term: die Chance
+  pos: noun
+  plural: die Chancen
+  meanings: [chance, opportunity]
+  example: Das ist eine gute Chance für dich.
+  exampleEn: That's a good opportunity for you.
+- id: das-ziel
+  lesson: de2-wenn-als-ob
+  term: das Ziel
+  pos: noun
+  plural: die Ziele
+  meanings: [goal, aim, target, destination, finish line]
+  example: Mein Ziel ist das Zertifikat B1.
+  exampleEn: My goal is the B1 certificate.
+- id: erreichen
+  lesson: de2-wenn-als-ob
+  term: erreichen
+  pos: verb
+  meanings: [to reach, to achieve, to catch (a train or bus), to get hold of]
+  example: Ich habe den Zug gerade noch erreicht.
+  exampleEn: I only just caught the train.
+  note: 'Inseparable. Perfect: hat erreicht.'
+- id: aendern
+  lesson: de2-wenn-als-ob
+  term: ändern
+  pos: verb
+  meanings: [to change (make different), to change, to alter, to modify]
+  example: Wir müssen unseren Plan ändern.
+  exampleEn: We have to change our plan.
+  note: 'Perfect: hat geändert.'
+- id: die-aenderung
+  lesson: de2-wenn-als-ob
+  term: die Änderung
+  pos: noun
+  plural: die Änderungen
+  meanings: [change, alteration, modification, amendment]
+  example: Gibt es eine Änderung im Fahrplan?
+  exampleEn: Is there a change to the timetable?
+- id: ueberlegen
+  lesson: de2-wenn-als-ob
+  term: überlegen
+  pos: verb
+  meanings: [to think about (consider), to consider, to think over, to think about, to reflect]
+  example: Ich überlege noch, ob ich mitkomme.
+  exampleEn: I'm still thinking about whether to come along.
+  note: 'Inseparable (no ge-). Perfect: hat überlegt.'
+- id: das-risiko
+  lesson: de2-wenn-als-ob
+  term: das Risiko
+  pos: noun
+  plural: die Risiken
+  meanings: [risk]
+  example: Das Risiko ist mir zu groß.
+  exampleEn: The risk is too big for me.

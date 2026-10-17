@@ -1,0 +1,886 @@
+# German A2, module 2: People and relationships (lessons 05–08)
+
+# --- 05 Reflexive verbs ---
+- id: sich-anziehen
+  lesson: de2-reflexive
+  term: sich anziehen
+  pos: verb
+  meanings: [to get dressed, to dress, to put on (clothes)]
+  example: Ich ziehe mich schnell an.
+  exampleEn: I get dressed quickly.
+  note: 'Separable: ich ziehe mich an. Perfect: hat sich angezogen. With an object: Ich ziehe mir eine Jacke an.'
+- id: sich-ausziehen
+  lesson: de2-reflexive
+  term: sich ausziehen
+  pos: verb
+  meanings: [to get undressed, to undress, to take off (clothes)]
+  example: Die Kinder ziehen sich aus und gehen ins Bett.
+  exampleEn: The children get undressed and go to bed.
+  note: 'Separable: er zieht sich aus. Perfect: hat sich ausgezogen.'
+- id: sich-umziehen
+  lesson: de2-reflexive
+  term: sich umziehen
+  pos: verb
+  meanings: [to get changed, to change (clothes), to change clothes]
+  example: Nach der Arbeit ziehe ich mich um.
+  exampleEn: After work I get changed.
+  note: 'Separable. Perfect: hat sich umgezogen. Without sich, umziehen means to move house (ist umgezogen).'
+- id: sich-rasieren
+  lesson: de2-reflexive
+  term: sich rasieren
+  pos: verb
+  meanings: [to shave]
+  example: Mein Vater rasiert sich jeden Morgen.
+  exampleEn: My father shaves every morning.
+  note: 'Perfect: hat sich rasiert (no ge-).'
+- id: sich-kaemmen
+  lesson: de2-reflexive
+  term: sich kämmen
+  pos: verb
+  meanings: [to comb your hair, to comb one's hair, to comb]
+  example: Sie kämmt sich vor dem Spiegel.
+  exampleEn: She combs her hair in front of the mirror.
+- id: sich-schminken
+  lesson: de2-reflexive
+  term: sich schminken
+  pos: verb
+  meanings: [to put on make-up, to put on makeup, to do your make-up, to make up]
+  example: Ich schminke mich im Bus.
+  exampleEn: I put my make-up on in the bus.
+- id: sich-beeilen
+  lesson: de2-reflexive
+  term: sich beeilen
+  pos: verb
+  meanings: [to hurry, to hurry up, to rush]
+  example: Beeil dich, der Zug fährt gleich!
+  exampleEn: Hurry up, the train's about to leave!
+  note: 'Perfect: hat sich beeilt.'
+- id: sich-ausruhen
+  lesson: de2-reflexive
+  term: sich ausruhen
+  pos: verb
+  meanings: [to have a rest, to rest, to take a rest]
+  example: Nach dem Essen ruht sich Opa eine Stunde aus.
+  exampleEn: After lunch Grandpa has a rest for an hour.
+  note: 'Separable: ich ruhe mich aus. Perfect: hat sich ausgeruht.'
+- id: sich-fuehlen
+  lesson: de2-reflexive
+  term: sich fühlen
+  pos: verb
+  meanings: [to feel (how you are), to feel]
+  example: Wie fühlst du dich heute?
+  exampleEn: How are you feeling today?
+- id: sich-wohlfuehlen
+  lesson: de2-reflexive
+  term: sich wohlfühlen
+  pos: verb
+  alt: [sich wohl fühlen]
+  meanings: [to feel comfortable, to feel well, to feel good, to feel at home]
+  example: In meiner Wohnung fühle ich mich wohl.
+  exampleEn: I feel at home in my flat.
+  note: 'Separable: ich fühle mich wohl. Perfect: hat sich wohlgefühlt.'
+- id: sich-freuen
+  lesson: de2-reflexive
+  term: sich freuen
+  pos: verb
+  meanings: [to be pleased, to be glad, to be happy]
+  example: Ich freue mich über deinen Brief.
+  exampleEn: I'm pleased about your letter.
+  note: 'sich freuen über + Akk = to be pleased about; sich freuen auf + Akk = to look forward to.'
+- id: sich-aergern
+  lesson: de2-reflexive
+  term: sich ärgern
+  pos: verb
+  meanings: [to be annoyed, to get annoyed, to get angry]
+  example: Ich ärgere mich über den Lärm.
+  exampleEn: I'm annoyed about the noise.
+  note: 'sich ärgern über + Akk.'
+- id: sich-aufregen
+  lesson: de2-reflexive
+  term: sich aufregen
+  pos: verb
+  meanings: [to get worked up, to get upset, to get excited (angry)]
+  example: Reg dich nicht auf, es ist nur ein Spiel.
+  exampleEn: Don't get worked up, it's only a game.
+  note: 'Separable: er regt sich auf. Perfect: hat sich aufgeregt.'
+- id: sich-langweilen
+  lesson: de2-reflexive
+  term: sich langweilen
+  pos: verb
+  meanings: [to be bored, to get bored]
+  example: Im Unterricht langweilt er sich oft.
+  exampleEn: He's often bored in class.
+- id: sich-entspannen
+  lesson: de2-reflexive
+  term: sich entspannen
+  pos: verb
+  meanings: [to relax, to unwind]
+  example: Am Wochenende entspanne ich mich im Garten.
+  exampleEn: At the weekend I relax in the garden.
+  note: 'Perfect: hat sich entspannt.'
+- id: sich-erholen
+  lesson: de2-reflexive
+  term: sich erholen
+  pos: verb
+  meanings: [to recover, to get some rest, to recuperate]
+  example: Im Urlaub haben wir uns gut erholt.
+  exampleEn: We had a good rest on holiday.
+  note: 'Perfect: hat sich erholt (no ge-).'
+- id: sich-konzentrieren
+  lesson: de2-reflexive
+  term: sich konzentrieren
+  pos: verb
+  meanings: [to concentrate, to focus]
+  example: Bei dem Lärm kann ich mich nicht konzentrieren.
+  exampleEn: I can't concentrate with this noise.
+  note: 'Perfect: hat sich konzentriert (no ge-).'
+- id: sich-verletzen
+  lesson: de2-reflexive
+  term: sich verletzen
+  pos: verb
+  meanings: [to hurt yourself, to injure yourself, to get hurt, to get injured]
+  example: Er hat sich beim Fußball verletzt.
+  exampleEn: He hurt himself playing football.
+  note: 'Perfect: hat sich verletzt (no ge-).'
+- id: sich-erkaelten
+  lesson: de2-reflexive
+  term: sich erkälten
+  pos: verb
+  meanings: [to catch a cold, to catch cold]
+  example: Zieh eine Jacke an, sonst erkältest du dich.
+  exampleEn: Put a jacket on or you'll catch a cold.
+  note: 'Perfect: hat sich erkältet (no ge-).'
+- id: spiegel
+  lesson: de2-reflexive
+  term: der Spiegel
+  pos: noun
+  plural: die Spiegel
+  meanings: [mirror]
+  example: Der Spiegel hängt im Bad.
+  exampleEn: The mirror is in the bathroom.
+- id: zahnbuerste
+  lesson: de2-reflexive
+  term: die Zahnbürste
+  pos: noun
+  plural: die Zahnbürsten
+  meanings: [toothbrush]
+  example: Wo ist meine Zahnbürste?
+  exampleEn: Where's my toothbrush?
+- id: zahnpasta
+  lesson: de2-reflexive
+  term: die Zahnpasta
+  pos: noun
+  plural: die Zahnpasten
+  meanings: [toothpaste]
+  example: Die Zahnpasta ist leer.
+  exampleEn: The toothpaste has run out.
+- id: seife
+  lesson: de2-reflexive
+  term: die Seife
+  pos: noun
+  plural: die Seifen
+  meanings: [soap]
+  example: Wasch dir die Hände mit Seife!
+  exampleEn: Wash your hands with soap!
+- id: shampoo
+  lesson: de2-reflexive
+  term: das Shampoo
+  pos: noun
+  plural: die Shampoos
+  meanings: [shampoo]
+  example: Das Shampoo riecht nach Apfel.
+  exampleEn: The shampoo smells of apple.
+- id: handtuch
+  lesson: de2-reflexive
+  term: das Handtuch
+  pos: noun
+  plural: die Handtücher
+  meanings: [towel]
+  example: Kannst du mir ein Handtuch geben?
+  exampleEn: Can you give me a towel?
+- id: kamm
+  lesson: de2-reflexive
+  term: der Kamm
+  pos: noun
+  plural: die Kämme
+  meanings: [comb]
+  example: Mein Kamm liegt im Bad.
+  exampleEn: My comb is in the bathroom.
+- id: creme
+  lesson: de2-reflexive
+  term: die Creme
+  pos: noun
+  plural: die Cremes
+  alt: [die Crème]
+  meanings: [cream (for the skin), cream, lotion]
+  example: Die Creme ist gut für die Haut.
+  exampleEn: The cream is good for your skin.
+- id: haut
+  lesson: de2-reflexive
+  term: die Haut
+  pos: noun
+  plural: die Häute
+  meanings: [skin]
+  example: Im Winter ist meine Haut sehr trocken.
+  exampleEn: In winter my skin is very dry.
+
+# --- 06 Verbs with prepositions; wo- and da- words ---
+- id: beziehung
+  lesson: de2-verb-prepositions
+  term: die Beziehung
+  pos: noun
+  plural: die Beziehungen
+  meanings: [relationship, relation]
+  example: Sie haben eine gute Beziehung.
+  exampleEn: They have a good relationship.
+- id: partner
+  lesson: de2-verb-prepositions
+  term: der Partner
+  pos: noun
+  plural: die Partner
+  meanings: [partner (male), partner]
+  example: Mein Partner kommt aus Italien.
+  exampleEn: My partner is from Italy.
+- id: partnerin
+  lesson: de2-verb-prepositions
+  term: die Partnerin
+  pos: noun
+  plural: die Partnerinnen
+  meanings: [partner (female), partner]
+  example: Er wohnt mit seiner Partnerin in Köln.
+  exampleEn: He lives with his partner in Cologne.
+- id: paar-couple
+  lesson: de2-verb-prepositions
+  term: das Paar
+  pos: noun
+  plural: die Paare
+  meanings: [couple, pair]
+  example: Die beiden sind seit zehn Jahren ein Paar.
+  exampleEn: The two of them have been a couple for ten years.
+  note: 'Not to be confused with ein paar (a few), written small.'
+- id: liebe
+  lesson: de2-verb-prepositions
+  term: die Liebe
+  pos: noun
+  plural: —
+  meanings: [love (the noun), love]
+  example: Sie schreibt ein Buch über die Liebe.
+  exampleEn: She's writing a book about love.
+- id: lieben
+  lesson: de2-verb-prepositions
+  term: lieben
+  pos: verb
+  meanings: [to love]
+  example: Ich liebe dich.
+  exampleEn: I love you.
+- id: verliebt
+  lesson: de2-verb-prepositions
+  term: verliebt
+  pos: adjective
+  meanings: [in love]
+  example: Tom ist total verliebt.
+  exampleEn: Tom is totally in love.
+- id: sich-verlieben
+  lesson: de2-verb-prepositions
+  term: sich verlieben
+  pos: verb
+  meanings: [to fall in love]
+  example: Sie hat sich in ihren Nachbarn verliebt.
+  exampleEn: She fell in love with her neighbour.
+  note: 'sich verlieben in + Akk. Perfect: hat sich verliebt.'
+- id: freundschaft
+  lesson: de2-verb-prepositions
+  term: die Freundschaft
+  pos: noun
+  plural: die Freundschaften
+  meanings: [friendship]
+  example: Unsere Freundschaft ist mir sehr wichtig.
+  exampleEn: Our friendship is very important to me.
+- id: bekannter
+  lesson: de2-verb-prepositions
+  term: der Bekannte
+  pos: noun
+  plural: die Bekannten
+  alt: [ein Bekannter]
+  meanings: [acquaintance (male), acquaintance]
+  example: Das ist ein Bekannter von mir.
+  exampleEn: That's an acquaintance of mine.
+  note: 'An adjective used as a noun: der Bekannte, but ein Bekannter.'
+- id: bekannte
+  lesson: de2-verb-prepositions
+  term: die Bekannte
+  pos: noun
+  plural: die Bekannten
+  alt: [eine Bekannte]
+  meanings: [acquaintance (female), acquaintance]
+  example: Eine Bekannte hat mir die Wohnung empfohlen.
+  exampleEn: An acquaintance recommended the flat to me.
+- id: streit
+  lesson: de2-verb-prepositions
+  term: der Streit
+  pos: noun
+  plural: die Streits
+  meanings: [argument (quarrel), argument, quarrel, fight, row]
+  example: Nach dem Streit haben sie nicht mehr gesprochen.
+  exampleEn: After the argument they didn't talk any more.
+  note: 'The plural is rare; Streite is also possible.'
+- id: sich-streiten
+  lesson: de2-verb-prepositions
+  term: sich streiten
+  pos: verb
+  meanings: [to argue, to quarrel, to fight (with words), to have an argument]
+  example: Die Kinder streiten sich über das Spielzeug.
+  exampleEn: The children are arguing about the toy.
+  note: 'sich streiten mit + Dat, über + Akk. Perfect: hat sich gestritten.'
+- id: sich-entschuldigen
+  lesson: de2-verb-prepositions
+  term: sich entschuldigen
+  pos: verb
+  meanings: [to apologise, to apologize, to say sorry]
+  example: Ich entschuldige mich für die Verspätung.
+  exampleEn: I apologise for being late.
+  note: 'sich entschuldigen bei + Dat (person), für + Akk (thing).'
+- id: verzeihen
+  lesson: de2-verb-prepositions
+  term: verzeihen
+  pos: verb
+  meanings: [to forgive, to pardon]
+  example: Kannst du mir verzeihen?
+  exampleEn: Can you forgive me?
+  note: 'Takes the dative: Ich verzeihe dir. Perfect: hat verziehen.'
+- id: vertrauen
+  lesson: de2-verb-prepositions
+  term: vertrauen
+  pos: verb
+  meanings: [to trust]
+  example: Ich vertraue meiner Freundin.
+  exampleEn: I trust my friend.
+  note: 'Takes the dative: Ich vertraue dir.'
+- id: das-vertrauen
+  lesson: de2-verb-prepositions
+  term: das Vertrauen
+  pos: noun
+  plural: —
+  meanings: [trust (the noun), trust, confidence]
+  example: Vertrauen ist in einer Beziehung sehr wichtig.
+  exampleEn: Trust is very important in a relationship.
+- id: sich-verabreden
+  lesson: de2-verb-prepositions
+  term: sich verabreden
+  pos: verb
+  meanings: [to arrange to meet, to make a date, to make plans (to meet)]
+  example: Ich habe mich mit Lisa im Café verabredet.
+  exampleEn: I've arranged to meet Lisa in the café.
+  note: 'sich verabreden mit + Dat. Perfect: hat sich verabredet.'
+- id: verabredung
+  lesson: de2-verb-prepositions
+  term: die Verabredung
+  pos: noun
+  plural: die Verabredungen
+  meanings: [arrangement to meet, date, appointment (private)]
+  example: Ich habe heute Abend eine Verabredung.
+  exampleEn: I've got a date this evening.
+- id: sich-verstehen
+  lesson: de2-verb-prepositions
+  term: sich verstehen
+  pos: verb
+  meanings: [to get on (with someone), to get on, to get along]
+  example: Ich verstehe mich gut mit meiner Schwester.
+  exampleEn: I get on well with my sister.
+  note: 'sich verstehen mit + Dat. Perfect: hat sich verstanden.'
+- id: sich-interessieren
+  lesson: de2-verb-prepositions
+  term: sich interessieren
+  pos: verb
+  meanings: [to be interested]
+  example: Ich interessiere mich für Geschichte.
+  exampleEn: I'm interested in history.
+  note: 'sich interessieren für + Akk.'
+- id: sich-kuemmern
+  lesson: de2-verb-prepositions
+  term: sich kümmern
+  pos: verb
+  meanings: [to look after, to take care of, to care for, to deal with]
+  example: Wer kümmert sich um die Katze?
+  exampleEn: Who's looking after the cat?
+  note: 'sich kümmern um + Akk.'
+- id: sich-unterhalten
+  lesson: de2-verb-prepositions
+  term: sich unterhalten
+  pos: verb
+  meanings: [to chat, to talk, to have a conversation]
+  example: Wir haben uns lange über den Film unterhalten.
+  exampleEn: We chatted about the film for a long time.
+  note: 'Stem change: er unterhält sich. Inseparable. Perfect: hat sich unterhalten. mit + Dat, über + Akk.'
+- id: teilnehmen
+  lesson: de2-verb-prepositions
+  term: teilnehmen
+  pos: verb
+  meanings: [to take part, to participate, to attend]
+  example: Ich nehme an einem Deutschkurs teil.
+  exampleEn: I'm taking part in a German course.
+  note: 'Separable, stem change: er nimmt teil. Perfect: hat teilgenommen. teilnehmen an + Dat.'
+- id: traeumen
+  lesson: de2-verb-prepositions
+  term: träumen
+  pos: verb
+  meanings: [to dream]
+  example: Sie träumt von einer Reise um die Welt.
+  exampleEn: She dreams of a trip around the world.
+  note: 'träumen von + Dat.'
+- id: traum
+  lesson: de2-verb-prepositions
+  term: der Traum
+  pos: noun
+  plural: die Träume
+  meanings: [dream]
+  example: Ein Haus am Meer ist mein Traum.
+  exampleEn: A house by the sea is my dream.
+- id: gemeinsam
+  lesson: de2-verb-prepositions
+  term: gemeinsam
+  pos: adjective
+  meanings: [in common (shared), shared, joint, common, together]
+  example: Wir haben viel gemeinsam.
+  exampleEn: We have a lot in common.
+  note: 'Also an adverb: Wir kochen gemeinsam (together).'
+
+# --- 07 Verbs with the dative and two objects ---
+- id: danken
+  lesson: de2-dative-verbs
+  term: danken
+  pos: verb
+  meanings: [to thank]
+  example: Ich danke dir für deine Hilfe.
+  exampleEn: Thank you for your help.
+  note: 'Takes the dative: Ich danke Ihnen. danken für + Akk.'
+- id: sich-bedanken
+  lesson: de2-dative-verbs
+  term: sich bedanken
+  pos: verb
+  meanings: [to say thank you, to thank (someone, reflexive), to express thanks]
+  example: Ich möchte mich bei Ihnen bedanken.
+  exampleEn: I'd like to say thank you to you.
+  note: 'sich bedanken bei + Dat (person), für + Akk (thing). Perfect: hat sich bedankt.'
+- id: gratulieren
+  lesson: de2-dative-verbs
+  term: gratulieren
+  pos: verb
+  meanings: [to congratulate]
+  example: Wir gratulieren dir zum Geburtstag!
+  exampleEn: Happy birthday from us!
+  note: 'Takes the dative. gratulieren zu + Dat: zum Geburtstag, zur Hochzeit. Perfect: hat gratuliert.'
+- id: gefallen
+  lesson: de2-dative-verbs
+  term: gefallen
+  pos: verb
+  meanings: [to like (how something looks or seems), to please, to be pleasing]
+  example: Die Stadt gefällt mir sehr.
+  exampleEn: I really like the city.
+  note: 'The thing liked is the subject, the person is dative. Stem change: es gefällt. Perfect: hat gefallen.'
+- id: schmecken
+  lesson: de2-dative-verbs
+  term: schmecken
+  pos: verb
+  meanings: [to taste (good), to taste, to like (food)]
+  example: Schmeckt dir der Kuchen?
+  exampleEn: Do you like the cake?
+  note: 'The food is the subject, the person is dative: Das schmeckt mir.'
+- id: gehoeren
+  lesson: de2-dative-verbs
+  term: gehören
+  pos: verb
+  meanings: [to belong (to), to belong]
+  example: Wem gehört die Tasche? – Sie gehört mir.
+  exampleEn: Whose bag is this? – It's mine.
+  note: 'Takes the dative. Perfect: hat gehört.'
+- id: passen
+  lesson: de2-dative-verbs
+  term: passen
+  pos: verb
+  meanings: [to fit, to suit, to be convenient, to go with (passen zu)]
+  example: Die Schuhe passen mir nicht.
+  exampleEn: The shoes don't fit me.
+  note: 'Takes the dative: Passt dir Montag? passen zu + Dat = to go with.'
+- id: fehlen
+  lesson: de2-dative-verbs
+  term: fehlen
+  pos: verb
+  meanings: [to be missing, to be absent, to miss (Du fehlst mir)]
+  example: Du fehlst mir.
+  exampleEn: I miss you.
+  note: 'With a dative person the roles flip: Du fehlst mir = I miss you.'
+- id: leihen
+  lesson: de2-dative-verbs
+  term: leihen
+  pos: verb
+  meanings: [to lend, to borrow (sich etwas leihen), to loan]
+  example: Kannst du mir dein Fahrrad leihen?
+  exampleEn: Can you lend me your bike?
+  note: 'Perfect: hat geliehen. Ich leihe mir … = I borrow …'
+- id: borgen
+  lesson: de2-dative-verbs
+  term: borgen
+  pos: verb
+  meanings: [to borrow, to lend]
+  example: Ich habe mir das Buch von Anna geborgt.
+  exampleEn: I borrowed the book from Anna.
+  note: 'Like leihen: jemandem etwas borgen = to lend; sich etwas borgen = to borrow.'
+- id: empfehlen
+  lesson: de2-dative-verbs
+  term: empfehlen
+  pos: verb
+  meanings: [to recommend]
+  example: Ich empfehle Ihnen die Suppe.
+  exampleEn: I recommend the soup.
+  note: 'Stem change: du empfiehlst, er empfiehlt. Perfect: hat empfohlen.'
+- id: empfehlung
+  lesson: de2-dative-verbs
+  term: die Empfehlung
+  pos: noun
+  plural: die Empfehlungen
+  meanings: [recommendation]
+  example: Danke für die Empfehlung!
+  exampleEn: Thanks for the recommendation!
+- id: wuenschen
+  lesson: de2-dative-verbs
+  term: wünschen
+  pos: verb
+  meanings: [to wish]
+  example: Ich wünsche dir alles Gute!
+  exampleEn: I wish you all the best!
+  note: 'Dative person + accusative thing. sich etwas wünschen = to want something (as a wish or present).'
+- id: wunsch
+  lesson: de2-dative-verbs
+  term: der Wunsch
+  pos: noun
+  plural: die Wünsche
+  meanings: [wish]
+  example: Hast du einen Wunsch zum Geburtstag?
+  exampleEn: Is there anything you'd like for your birthday?
+- id: ueberraschen
+  lesson: de2-dative-verbs
+  term: überraschen
+  pos: verb
+  meanings: [to surprise]
+  example: Wir wollen Mama mit einem Kuchen überraschen.
+  exampleEn: We want to surprise Mum with a cake.
+  note: 'Inseparable. Perfect: hat überrascht.'
+- id: ueberraschung
+  lesson: de2-dative-verbs
+  term: die Überraschung
+  pos: noun
+  plural: die Überraschungen
+  meanings: [surprise]
+  example: Das ist aber eine Überraschung!
+  exampleEn: What a surprise!
+- id: gutschein
+  lesson: de2-dative-verbs
+  term: der Gutschein
+  pos: noun
+  plural: die Gutscheine
+  meanings: [voucher, gift card, coupon, gift voucher]
+  example: Ich schenke ihr einen Gutschein für das Kino.
+  exampleEn: I'm giving her a voucher for the cinema.
+- id: paket
+  lesson: de2-dative-verbs
+  term: das Paket
+  pos: noun
+  plural: die Pakete
+  meanings: [parcel, package]
+  example: Ein Paket für Sie!
+  exampleEn: A parcel for you!
+- id: paeckchen
+  lesson: de2-dative-verbs
+  term: das Päckchen
+  pos: noun
+  plural: die Päckchen
+  meanings: [small parcel, small package, packet]
+  example: Ich schicke dir ein Päckchen mit Schokolade.
+  exampleEn: I'm sending you a small parcel of chocolate.
+- id: schmuck
+  lesson: de2-dative-verbs
+  term: der Schmuck
+  pos: noun
+  plural: —
+  meanings: [jewellery, jewelry]
+  example: Sie trägt nicht gern Schmuck.
+  exampleEn: She doesn't like wearing jewellery.
+- id: kette
+  lesson: de2-dative-verbs
+  term: die Kette
+  pos: noun
+  plural: die Ketten
+  meanings: [necklace, chain]
+  example: Die Kette ist von meiner Oma.
+  exampleEn: The necklace is from my grandma.
+- id: ring
+  lesson: de2-dative-verbs
+  term: der Ring
+  pos: noun
+  plural: die Ringe
+  meanings: [ring]
+  example: Der Ring passt mir nicht.
+  exampleEn: The ring doesn't fit me.
+- id: armband
+  lesson: de2-dative-verbs
+  term: das Armband
+  pos: noun
+  plural: die Armbänder
+  meanings: [bracelet, wristband]
+  example: Das Armband hat sie selbst gemacht.
+  exampleEn: She made the bracelet herself.
+- id: parfuem
+  lesson: de2-dative-verbs
+  term: das Parfüm
+  pos: noun
+  plural: die Parfüms
+  alt: [das Parfum]
+  meanings: [perfume, scent]
+  example: Das Parfüm riecht sehr gut.
+  exampleEn: The perfume smells very good.
+- id: portemonnaie
+  lesson: de2-dative-verbs
+  term: das Portemonnaie
+  pos: noun
+  plural: die Portemonnaies
+  alt: [das Portmonee]
+  meanings: [wallet, purse]
+  example: Mein Portemonnaie ist weg!
+  exampleEn: My wallet's gone!
+  note: 'Also der Geldbeutel (south) or die Geldbörse.'
+- id: regenschirm
+  lesson: de2-dative-verbs
+  term: der Regenschirm
+  pos: noun
+  plural: die Regenschirme
+  meanings: [umbrella]
+  example: Nimm einen Regenschirm mit, es regnet.
+  exampleEn: Take an umbrella, it's raining.
+- id: sonnenbrille
+  lesson: de2-dative-verbs
+  term: die Sonnenbrille
+  pos: noun
+  plural: die Sonnenbrillen
+  meanings: [sunglasses]
+  example: Die Sonnenbrille steht dir gut.
+  exampleEn: The sunglasses suit you.
+  note: 'Singular for one pair, like die Brille.'
+
+# --- 08 Describing people; werden; jeder, alle, etwas, niemand ---
+- id: aussehen
+  lesson: de2-people-werden
+  term: aussehen
+  pos: verb
+  meanings: [to look (appearance), to look, to appear]
+  example: Du siehst müde aus.
+  exampleEn: You look tired.
+  note: 'Separable, stem change: er sieht aus. Perfect: hat ausgesehen.'
+- id: das-aussehen
+  lesson: de2-people-werden
+  term: das Aussehen
+  pos: noun
+  plural: —
+  meanings: [appearance, looks]
+  example: Das Aussehen ist nicht so wichtig.
+  exampleEn: Looks aren't that important.
+- id: gesicht
+  lesson: de2-people-werden
+  term: das Gesicht
+  pos: noun
+  plural: die Gesichter
+  meanings: [face]
+  example: Wasch dir das Gesicht!
+  exampleEn: Wash your face!
+- id: haar
+  lesson: de2-people-werden
+  term: das Haar
+  pos: noun
+  plural: die Haare
+  meanings: [hair]
+  example: Seine Haare sind kurz und blond.
+  exampleEn: His hair is short and blond.
+  note: 'German usually uses the plural for the hair on your head: die Haare.'
+- id: bart
+  lesson: de2-people-werden
+  term: der Bart
+  pos: noun
+  plural: die Bärte
+  meanings: [beard]
+  example: Mein Onkel hat einen Bart.
+  exampleEn: My uncle has a beard.
+- id: blond
+  lesson: de2-people-werden
+  term: blond
+  pos: adjective
+  meanings: [blond, blonde, fair (hair)]
+  example: Ihre Haare sind blond.
+  exampleEn: Her hair is blond.
+- id: lockig
+  lesson: de2-people-werden
+  term: lockig
+  pos: adjective
+  meanings: [curly]
+  example: Seine Haare sind dunkel und lockig.
+  exampleEn: His hair is dark and curly.
+- id: schlank
+  lesson: de2-people-werden
+  term: schlank
+  pos: adjective
+  meanings: [slim, slender]
+  example: Mein Bruder ist groß und schlank.
+  exampleEn: My brother is tall and slim.
+- id: duenn
+  lesson: de2-people-werden
+  term: dünn
+  pos: adjective
+  meanings: [thin, skinny]
+  example: Der Hund ist sehr dünn.
+  exampleEn: The dog is very thin.
+- id: dick
+  lesson: de2-people-werden
+  term: dick
+  pos: adjective
+  meanings: [fat, thick]
+  example: Unsere Katze ist zu dick.
+  exampleEn: Our cat is too fat.
+- id: huebsch
+  lesson: de2-people-werden
+  term: hübsch
+  pos: adjective
+  meanings: [pretty, good-looking, attractive]
+  example: Das Kleid ist hübsch.
+  exampleEn: The dress is pretty.
+- id: haesslich
+  lesson: de2-people-werden
+  term: hässlich
+  pos: adjective
+  meanings: [ugly]
+  example: Das Wetter ist heute hässlich.
+  exampleEn: The weather is horrible today.
+- id: freundlich
+  lesson: de2-people-werden
+  term: freundlich
+  pos: adjective
+  meanings: [friendly, kind]
+  example: Die Verkäuferin war sehr freundlich.
+  exampleEn: The shop assistant was very friendly.
+- id: unfreundlich
+  lesson: de2-people-werden
+  term: unfreundlich
+  pos: adjective
+  meanings: [unfriendly, rude]
+  example: Der Kellner war unfreundlich.
+  exampleEn: The waiter was unfriendly.
+- id: nett
+  lesson: de2-people-werden
+  term: nett
+  pos: adjective
+  meanings: [nice (kind), nice, kind, pleasant]
+  example: Das ist sehr nett von dir!
+  exampleEn: That's very kind of you!
+- id: sympathisch
+  lesson: de2-people-werden
+  term: sympathisch
+  pos: adjective
+  meanings: [likeable, likable, pleasant]
+  example: Ich finde deinen Freund sehr sympathisch.
+  exampleEn: I find your friend very likeable.
+  note: 'False friend: not "sympathetic".'
+- id: lustig
+  lesson: de2-people-werden
+  term: lustig
+  pos: adjective
+  meanings: [funny, fun, amusing]
+  example: Der Film war wirklich lustig.
+  exampleEn: The film was really funny.
+- id: ernst
+  lesson: de2-people-werden
+  term: ernst
+  pos: adjective
+  meanings: [serious]
+  example: Warum bist du heute so ernst?
+  exampleEn: Why are you so serious today?
+- id: ehrlich
+  lesson: de2-people-werden
+  term: ehrlich
+  pos: adjective
+  meanings: [honest]
+  example: 'Sei ehrlich: Gefällt dir mein Bild?'
+  exampleEn: 'Be honest: do you like my picture?'
+- id: fleissig
+  lesson: de2-people-werden
+  term: fleißig
+  pos: adjective
+  alt: [fleissig]
+  meanings: [hard-working, hardworking, diligent]
+  example: Meine Schwester ist sehr fleißig.
+  exampleEn: My sister is very hard-working.
+- id: faul
+  lesson: de2-people-werden
+  term: faul
+  pos: adjective
+  meanings: [lazy]
+  example: Am Sonntag bin ich gern faul.
+  exampleEn: On Sundays I like being lazy.
+- id: hoeflich
+  lesson: de2-people-werden
+  term: höflich
+  pos: adjective
+  meanings: [polite]
+  example: Die Kinder sind immer sehr höflich.
+  exampleEn: The children are always very polite.
+- id: klug
+  lesson: de2-people-werden
+  term: klug
+  pos: adjective
+  meanings: [clever, smart, intelligent, wise]
+  example: Meine Tochter ist sehr klug.
+  exampleEn: My daughter is very clever.
+- id: neugierig
+  lesson: de2-people-werden
+  term: neugierig
+  pos: adjective
+  meanings: [curious, nosy, inquisitive]
+  example: Unsere Nachbarin ist sehr neugierig.
+  exampleEn: Our neighbour is very nosy.
+- id: charakter
+  lesson: de2-people-werden
+  term: der Charakter
+  pos: noun
+  plural: die Charaktere
+  meanings: [character, personality]
+  example: Ich mag seinen Charakter.
+  exampleEn: I like his character.
+- id: eigenschaft
+  lesson: de2-people-werden
+  term: die Eigenschaft
+  pos: noun
+  plural: die Eigenschaften
+  meanings: [quality (trait), quality, trait, characteristic]
+  example: Welche Eigenschaften findest du wichtig?
+  exampleEn: Which qualities do you think are important?
+- id: aehnlich
+  lesson: de2-people-werden
+  term: ähnlich
+  pos: adjective
+  meanings: [similar, alike, like]
+  example: Du siehst deiner Mutter sehr ähnlich.
+  exampleEn: You look very like your mother.
+  note: 'With the dative: jemandem ähnlich sein / sehen.'
+- id: jeder
+  lesson: de2-people-werden
+  term: jeder
+  pos: pronoun
+  alt: [jede, jedes]
+  meanings: [every, each, everyone, everybody]
+  example: Ich gehe jeden Tag spazieren.
+  exampleEn: I go for a walk every day.
+  note: 'Endings like der: jeder, jede, jedes; Akk jeden. Singular only; plural alle.'
+- id: einige
+  lesson: de2-people-werden
+  term: einige
+  pos: pronoun
+  meanings: [some (a few), a few, several, some]
+  example: Einige Freunde kommen auch.
+  exampleEn: Some friends are coming too.

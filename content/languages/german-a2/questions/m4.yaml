@@ -1,0 +1,664 @@
+# German A2, module 4: Home, travel and wishes (lessons 13–16)
+
+- id: de2-q-1301
+  lesson: de2-two-way
+  module_quiz: true
+  topic: Two-way prepositions
+  stem: 'Complete: "Ich lege das Handy auf ___ Tisch."'
+  choices:
+  - den
+  - dem
+  - der
+  - das
+  answer: 0
+  explanation: 'Putting something somewhere is movement to a new place (Wohin?), so "auf" takes the accusative.
+    "Tisch" is masculine: auf den Tisch. "Dem" would be the dative, which is for a position (Das Handy
+    liegt auf dem Tisch).'
+- id: de2-q-1302
+  lesson: de2-two-way
+  topic: Two-way prepositions
+  stem: 'Complete: "Das Handy liegt auf ___ Tisch."'
+  choices:
+  - den
+  - dem
+  - die
+  - das
+  answer: 1
+  explanation: '"liegen" describes where something is (Wo?), so "auf" takes the dative: auf dem Tisch.
+    "Den" is the accusative, used with "legen" (Ich lege das Handy auf den Tisch).'
+- id: de2-q-1303
+  lesson: de2-two-way
+  module_quiz: true
+  topic: Position verbs
+  stem: 'Complete: "Wohin hast du die Flasche ___? – In den Kühlschrank."'
+  choices:
+  - gestanden
+  - gelegen
+  - gestellt
+  - gesessen
+  answer: 2
+  explanation: 'The question is Wohin? and there is an object (die Flasche), so you need the putting verb
+    "stellen" (a bottle stands upright): hast du … gestellt. "Gestanden" is the perfect of "stehen", which
+    has no object and answers Wo?.'
+- id: de2-q-1304
+  lesson: de2-two-way
+  topic: Position verbs
+  stem: Which sentence is correct?
+  choices:
+  - Ich stehe die Lampe neben das Sofa.
+  - Ich stelle die Lampe neben dem Sofa.
+  - Die Lampe stellt neben dem Sofa.
+  - Ich stelle die Lampe neben das Sofa.
+  answer: 3
+  explanation: '"stellen" + accusative is the action of putting: Ich stelle die Lampe neben das Sofa.
+    "Stehen" can''t take an object, "neben dem Sofa" is the dative for a position, and "Die Lampe stellt"
+    mixes up the two verbs (it should be "Die Lampe steht neben dem Sofa").'
+- id: de2-q-1305
+  lesson: de2-two-way
+  topic: Contractions
+  stem: 'Complete: "Wir gehen heute Abend ___ Kino."'
+  choices:
+  - ins
+  - im
+  - in den
+  - am
+  answer: 0
+  explanation: 'Going to the cinema is movement (Wohin?), so "in" takes the accusative. "Kino" is neuter:
+    in das Kino, contracted to "ins Kino". "Im Kino" (dative) means you are already there; "in den" would
+    be masculine.'
+- id: de2-q-1306
+  lesson: de2-two-way
+  module_quiz: true
+  topic: Position verbs
+  stem: 'Complete: "Gestern habe ich das Bild an die Wand ___."'
+  choices:
+  - gehangen
+  - gehängt
+  - gehangt
+  - hängt
+  answer: 1
+  explanation: 'Here someone hangs the picture up (with an object and the accusative "an die Wand"), so
+    "hängen" is regular: hat gehängt. "Gehangen" is only for something that was hanging (Das Bild hat
+    an der Wand gehangen). "Gehangt" doesn''t exist.'
+- id: de2-q-1307
+  lesson: de2-two-way
+  topic: Position verbs
+  stem: 'Complete: "Der Mantel hat den ganzen Winter im Keller ___."'
+  choices:
+  - gehängt
+  - hängen
+  - gehangen
+  - gestellt
+  answer: 2
+  explanation: 'The coat was hanging there (Wo? im Keller, no object), so you need the irregular perfect:
+    hat gehangen. "Gehängt" is for hanging something up, and "gestellt" needs an object.'
+- id: de2-q-1308
+  lesson: de2-two-way
+  topic: Moving house
+  stem: What does "Wir ziehen am Montag ein." mean?
+  choices:
+  - We're moving out on Monday.
+  - We're pulling in on Monday.
+  - We're getting dressed on Monday.
+  - We're moving in on Monday.
+  answer: 3
+  explanation: '"einziehen" (separable) means to move in: wir ziehen … ein. Moving out is "ausziehen",
+    and getting dressed is "sich anziehen".'
+- id: de2-q-1309
+  lesson: de2-two-way
+  topic: Moving house
+  stem: 'Read the ad: "Helle 2-Zimmer-Wohnung im 3. Stock, mit Balkon. Miete 720 Euro plus 160 Euro Nebenkosten.
+    Kaution: 1.400 Euro. Waschmaschine im Keller." What are the 160 euros for?'
+  choices:
+  - extra costs such as heating and water, on top of the rent
+  - the deposit
+  - the washing machine
+  - the balcony
+  answer: 0
+  explanation: '"Nebenkosten" are the additional costs (heating, water, rubbish) paid on top of the rent.
+    The deposit is the "Kaution" (1,400 euros), and the washing machine is simply in the cellar.'
+- id: de2-q-1310
+  lesson: de2-two-way
+  module_quiz: true
+  topic: Position verbs
+  stem: '"Wo ist denn mein Schlüssel?" Which answer is correct?'
+  choices:
+  - Er liegt auf den Tisch.
+  - Er liegt auf dem Tisch.
+  - Er legt auf dem Tisch.
+  - Er hat auf den Tisch gelegen.
+  answer: 1
+  explanation: 'A key lying somewhere is a position: liegen + dative, auf dem Tisch. "Auf den Tisch" is
+    the accusative (for movement), and "Er legt" is the putting verb, which needs an object.'
+- id: de2-q-1311
+  lesson: de2-two-way
+  topic: Position verbs
+  stem: Which sentence has a mistake?
+  choices:
+  - Setz dich bitte auf das Sofa.
+  - Das Kind sitzt auf dem Stuhl.
+  - Ich sitze mich neben dich.
+  - Die Katze sitzt unter dem Tisch.
+  answer: 2
+  explanation: '"sitzen" is never reflexive. To sit down is "sich setzen": Ich setze mich neben dich.
+    The other sentences are correct: "Setz dich" + accusative (movement), and "sitzen" + dative (position).'
+- id: de2-q-1312
+  lesson: de2-two-way
+  module_quiz: true
+  topic: Two-way prepositions
+  stem: 'The crate is standing between the cupboard and the door. Complete: "Die Kiste steht ___."'
+  choices:
+  - zwischen den Schrank und die Tür
+  - zwischen der Schrank und die Tür
+  - zwischen dem Schrank und die Tür
+  - zwischen dem Schrank und der Tür
+  answer: 3
+  explanation: '"stehen" is a position (Wo?), so both nouns after "zwischen" are dative: dem Schrank (masculine)
+    and der Tür (feminine). "Den … die" would be accusative, for movement with "stellen". Don''t mix the
+    cases.'
+- id: de2-q-1313
+  lesson: de2-two-way
+  topic: Moving house
+  stem: Who is "der Vermieter"?
+  choices:
+  - the landlord
+  - the tenant
+  - the neighbour
+  - the removal man
+  answer: 0
+  explanation: '"vermieten" means to rent out, so "der Vermieter" is the landlord. The tenant, who pays
+    the rent, is "der Mieter".'
+- id: de2-q-1401
+  lesson: de2-travel
+  module_quiz: true
+  topic: Time prepositions
+  stem: 'Complete: "Ich war ___ zwei Jahren in Berlin." (two years ago)'
+  choices:
+  - vor
+  - seit
+  - für
+  - in
+  answer: 0
+  explanation: '"ago" is "vor" + dative, placed before the time: vor zwei Jahren. "Seit" is for something
+    still going on, "für" for a planned length of time, and "in" points into the future.'
+- id: de2-q-1402
+  lesson: de2-travel
+  topic: Time prepositions
+  stem: 'Complete: "Wir wohnen ___ drei Jahren in Leipzig." (we moved there three years ago and still
+    live there)'
+  choices:
+  - für
+  - seit
+  - vor
+  - ab
+  answer: 1
+  explanation: 'Something that started in the past and is still true takes "seit" + dative with the present
+    tense: Wir wohnen seit drei Jahren in Leipzig. English says "for three years", which tempts learners
+    to use "für".'
+- id: de2-q-1403
+  lesson: de2-travel
+  module_quiz: true
+  topic: Time prepositions
+  stem: Which sentence is correct?
+  choices:
+  - Ich lerne Deutsch für zwei Jahre.
+  - Ich habe Deutsch seit zwei Jahren gelernt.
+  - Ich lerne seit zwei Jahren Deutsch.
+  - Ich lerne Deutsch seit zwei Jahre.
+  answer: 2
+  explanation: 'For something still going on, German uses "seit" + dative and the present tense: Ich lerne
+    seit zwei Jahren Deutsch. "Für zwei Jahre" and the perfect tense copy English; "seit zwei Jahre" is
+    missing the dative plural -n.'
+- id: de2-q-1404
+  lesson: de2-travel
+  topic: Time prepositions
+  stem: 'Complete: "Der Zug fährt ___ zehn Minuten ab." (ten minutes from now)'
+  choices:
+  - nach
+  - vor
+  - für
+  - in
+  answer: 3
+  explanation: '"in" + dative points forward from now: in zehn Minuten. "Nach" means after an event (nach
+    dem Essen), and "vor" would mean ten minutes ago.'
+- id: de2-q-1405
+  lesson: de2-travel
+  topic: Time prepositions
+  stem: 'Complete: "Frühstück gibt es ___ sieben Uhr." (from seven o''clock on)'
+  choices:
+  - ab
+  - seit
+  - vor
+  - für
+  answer: 0
+  explanation: '"ab" marks a starting point: ab sieben Uhr, ab Montag. "Seit" looks back to a start in
+    the past, and "vor sieben Uhr" would mean before seven.'
+- id: de2-q-1406
+  lesson: de2-travel
+  module_quiz: true
+  topic: Travel
+  stem: 'Read the e-mail: "Guten Tag, ich möchte ein Einzelzimmer reservieren, vom 3. bis zum 6. Mai,
+    mit Frühstück. Ich komme mit dem Zug und bin wahrscheinlich gegen 21 Uhr da. Ist die Rezeption dann
+    noch offen? Viele Grüße, Tom Becker" How many nights does Tom want to stay?'
+  choices:
+  - two
+  - three
+  - four
+  - six
+  answer: 1
+  explanation: From the 3rd to the 6th of May is three nights (3rd, 4th and 5th); he leaves on the 6th.
+    He wants a single room ("Einzelzimmer") and asks whether reception is still open at about 9 p.m.
+- id: de2-q-1407
+  lesson: de2-travel
+  topic: Travel
+  stem: 'At the hotel reception: "Guten Abend! Haben Sie eine Reservierung?" Which answer fits?'
+  choices:
+  - Ja, ich bin für drei Nächte.
+  - Ja, ich habe Halbpension gegessen.
+  - Ja, auf den Namen Becker.
+  - Ja, ich reserviere morgen.
+  answer: 2
+  explanation: '"Auf den Namen …" (in the name of …) is the usual way to answer. "Ich bin für drei Nächte"
+    is not German, "Halbpension gegessen" makes no sense, and reserving tomorrow doesn''t answer the question.'
+- id: de2-q-1408
+  lesson: de2-travel
+  topic: Directions
+  stem: 'Complete: "Ich bringe die Koffer ___." (upstairs, as a movement)'
+  choices:
+  - oben
+  - unten
+  - draußen
+  - nach oben
+  answer: 3
+  explanation: '"oben" describes a place (Das Zimmer ist oben). For a direction you need "nach oben":
+    Ich bringe die Koffer nach oben. "Unten" and "draußen" are also places, and they mean downstairs and
+    outside.'
+- id: de2-q-1409
+  lesson: de2-travel
+  topic: Directions
+  stem: What does "Ich bin gerade unterwegs." mean?
+  choices:
+  - I'm out and about (on the way somewhere) right now.
+  - I'm underground right now.
+  - I'm downstairs right now.
+  - I'm on holiday right now.
+  answer: 0
+  explanation: '"unterwegs" means on the way, on the road, out and about. It has nothing to do with "unter"
+    (under) in the sense of underground; downstairs is "unten".'
+- id: de2-q-1410
+  lesson: de2-travel
+  module_quiz: true
+  topic: Future
+  stem: Which sentence uses the future with werden correctly?
+  choices:
+  - Morgen ich werde dich anrufen.
+  - Ich werde dich morgen anrufen.
+  - Ich werde anrufen dich morgen.
+  - Ich wird dich morgen anrufen.
+  answer: 1
+  explanation: 'A form of "werden" in position 2 and the infinitive at the end: Ich werde dich morgen
+    anrufen. "Morgen ich werde" breaks verb-second order, "anrufen" must go to the end, and the ich form
+    is "werde", not "wird".'
+- id: de2-q-1411
+  lesson: de2-travel
+  topic: Directions
+  stem: 'Complete: "Komm ___!" (come here, towards the speaker)'
+  choices:
+  - hin
+  - hinauf
+  - her
+  - weg
+  answer: 2
+  explanation: '"her" shows movement towards the speaker: Komm her! "Hin" and "hinauf" point away from
+    the speaker, and "weg" means away.'
+- id: de2-q-1412
+  lesson: de2-travel
+  topic: Time prepositions
+  stem: Which sentence has a mistake?
+  choices:
+  - Wir fahren für eine Woche an die Ostsee.
+  - Seit Montag bin ich krank.
+  - Ab dem ersten Juni arbeite ich hier.
+  - Ich habe das Hotel vor zwei Woche gebucht.
+  answer: 3
+  explanation: '"vor" takes the dative, and in the dative plural "Woche" becomes "Wochen": vor zwei Wochen.
+    The other sentences are correct.'
+- id: de2-q-1413
+  lesson: de2-travel
+  topic: Travel
+  stem: What is "das Gepäck"?
+  choices:
+  - luggage
+  - the passport
+  - the booking
+  - customs
+  answer: 0
+  explanation: '"das Gepäck" is luggage (a collective noun with no plural). The passport is "der Pass",
+    the booking "die Buchung" and customs "der Zoll".'
+- id: de2-q-1501
+  lesson: de2-konjunktiv
+  module_quiz: true
+  topic: Polite requests
+  stem: Which is the most polite way to ask for help?
+  choices:
+  - Könnten Sie mir bitte helfen?
+  - Helfen Sie mir!
+  - Sie müssen mir helfen.
+  - Konnten Sie mir helfen?
+  answer: 0
+  explanation: '"Könnten Sie …?" (Konjunktiv II) plus "bitte" is the polite request. The imperative and
+    "Sie müssen" are direct, and "Konnten" without the umlaut is the simple past: "Were you able to help
+    me?"'
+- id: de2-q-1502
+  lesson: de2-konjunktiv
+  topic: Konjunktiv II forms
+  stem: 'Ordering in a café. Complete: "Ich ___ gern ein Stück Kuchen."'
+  choices:
+  - hatte
+  - hätte
+  - wäre
+  - würde
+  answer: 1
+  explanation: '"Ich hätte gern …" (I would like) is the polite way to ask for something. "Hatte" is the
+    simple past (I had), "wäre" means would be, and "würde" would need an infinitive at the end.'
+- id: de2-q-1503
+  lesson: de2-konjunktiv
+  topic: Conditional
+  stem: 'Complete: "Wenn ich reich ___, würde ich eine Weltreise machen."'
+  choices:
+  - war
+  - bin
+  - wäre
+  - würde
+  answer: 2
+  explanation: 'An unreal "if" needs the Konjunktiv II of sein: wenn ich reich wäre (if I were rich).
+    "War" is the simple past, "bin" a real condition, and "würde" is used in the other half of the sentence.'
+- id: de2-q-1504
+  lesson: de2-konjunktiv
+  module_quiz: true
+  topic: Advice
+  stem: Your friend is always tired. What advice do you give?
+  choices:
+  - Du hättest mehr schlafen.
+  - Du würdest mehr schlafen.
+  - Du wärst mehr schlafen.
+  - Du solltest mehr schlafen.
+  answer: 3
+  explanation: 'Advice uses "sollte": Du solltest mehr schlafen (you should sleep more). "Du würdest mehr
+    schlafen" means "you would sleep more", which isn''t advice; the other two aren''t correct German.'
+- id: de2-q-1505
+  lesson: de2-konjunktiv
+  topic: Konjunktiv II forms
+  stem: What does "Konnten Sie mir helfen?" (without an umlaut) mean?
+  choices:
+  - Were you able to help me?
+  - Could you help me?
+  - Can you help me?
+  - Would you help me?
+  answer: 0
+  explanation: 'Without the umlaut, "konnten" is the simple past of "können": were you able to. The polite
+    "could you" is "Könnten Sie", with ö. The umlaut makes the whole difference.'
+- id: de2-q-1506
+  lesson: de2-konjunktiv
+  topic: Konjunktiv II forms
+  stem: 'Complete: "___ du mir bitte das Salz geben?"'
+  choices:
+  - Würde
+  - Würdest
+  - Wurdest
+  - Würden
+  answer: 1
+  explanation: 'With "du" the form is "würdest": Würdest du mir bitte das Salz geben? "Würde" is the ich/er
+    form, "Würden" goes with wir/sie/Sie, and "wurdest" (no umlaut) is the simple past of "werden".'
+- id: de2-q-1507
+  lesson: de2-konjunktiv
+  module_quiz: true
+  topic: Suggestions
+  stem: You want to suggest going to the museum. Which sentence fits?
+  choices:
+  - Wir mussten ins Museum gehen.
+  - Wir wären ins Museum.
+  - Wir könnten ins Museum gehen.
+  - Wir hatten ins Museum gehen.
+  answer: 2
+  explanation: '"Wir könnten …" (we could) makes a suggestion. "Wir mussten" means we had to (past), and
+    the other two are not correct sentences.'
+- id: de2-q-1508
+  lesson: de2-konjunktiv
+  topic: Conditional
+  stem: Which sentence is correct?
+  choices:
+  - Wenn ich Zeit hätte, ich würde mitkommen.
+  - Wenn ich hätte Zeit, würde ich mitkommen.
+  - Wenn ich Zeit hätte würde mitkommen ich.
+  - Wenn ich Zeit hätte, würde ich mitkommen.
+  answer: 3
+  explanation: 'In the "wenn" clause the verb goes to the end (hätte). The whole clause is position 1,
+    so the next sentence starts with the verb: …, würde ich mitkommen (verb–comma–verb). Starting the
+    second half with "ich" is English word order.'
+- id: de2-q-1509
+  lesson: de2-konjunktiv
+  topic: Wishes
+  stem: 'Read the text: "Mein Traum? Ich wäre gern Koch in einem kleinen Restaurant am Meer. Leider habe
+    ich im Moment kein Geld und keine Zeit. Aber irgendwann mache ich das!" What is true?'
+  choices:
+  - The writer would like to be a cook by the sea.
+  - The writer works as a cook by the sea.
+  - The writer has enough money for a restaurant.
+  - The writer never wants to cook.
+  answer: 0
+  explanation: '"Ich wäre gern Koch" is a wish: I would like to be a cook. He doesn''t work as one yet,
+    has no money at the moment, and says he will do it "irgendwann" (one day).'
+- id: de2-q-1510
+  lesson: de2-konjunktiv
+  topic: Polite requests
+  stem: '"Vielen Dank für Ihre Hilfe!" What is a good reply?'
+  choices:
+  - Gute Besserung!
+  - Gern geschehen!
+  - Viel Glück!
+  - Selbstverständlich nicht!
+  answer: 1
+  explanation: '"Gern geschehen!" (my pleasure) is the reply to thanks. "Gute Besserung" is "get well
+    soon" and "Viel Glück" is "good luck".'
+- id: de2-q-1511
+  lesson: de2-konjunktiv
+  topic: Wishes
+  stem: What does "Ich komme eventuell später." mean?
+  choices:
+  - I'll eventually come later.
+  - I'm definitely coming later.
+  - I might come later.
+  - I'm coming later instead.
+  answer: 2
+  explanation: '"eventuell" is a false friend: it means possibly, maybe. "Eventually" in German is "irgendwann"
+    or "schließlich", and "instead" is "stattdessen".'
+- id: de2-q-1512
+  lesson: de2-konjunktiv
+  module_quiz: true
+  topic: Konjunktiv II forms
+  stem: Which sentence has a mistake?
+  choices:
+  - An deiner Stelle würde ich sofort anrufen.
+  - Wie wäre es mit einem Picknick?
+  - Ich hätte gern mehr Zeit.
+  - Ich würde sein gern berühmt.
+  answer: 3
+  explanation: 'With "sein", use "wäre" directly: Ich wäre gern berühmt. "Würde sein" is clumsy, and here
+    the infinitive isn''t even at the end. The other sentences are correct.'
+- id: de2-q-1513
+  lesson: de2-konjunktiv
+  topic: Polite requests
+  stem: 'Asking permission very politely. Complete: "___ ich hier kurz telefonieren?"'
+  choices:
+  - Dürfte
+  - Durfte
+  - Darf es
+  - Dürfe
+  answer: 0
+  explanation: '"Dürfte ich …?" (might I …?) is the Konjunktiv II of "dürfen": past "durfte" + umlaut.
+    "Durfte" without the umlaut means "was allowed to"; "Dürfe" is not used here.'
+- id: de2-q-1601
+  lesson: de2-connectors
+  module_quiz: true
+  topic: Linking adverbs
+  stem: Which sentence is correct?
+  choices:
+  - Es regnet. Deshalb bleibe ich zu Hause.
+  - Es regnet. Deshalb ich bleibe zu Hause.
+  - Es regnet. Deshalb zu Hause ich bleibe.
+  - Es regnet. Deshalb bleibe zu Hause ich.
+  answer: 0
+  explanation: '"deshalb" takes position 1, so the verb comes straight after it and then the subject:
+    Deshalb bleibe ich zu Hause. "Deshalb ich bleibe" is English word order.'
+- id: de2-q-1602
+  lesson: de2-connectors
+  topic: Linking adverbs
+  stem: 'Complete: "Das Wetter ist schlecht. ___ gehen wir wandern." (we go anyway)'
+  choices:
+  - Deshalb
+  - Trotzdem
+  - Sondern
+  - Weil
+  answer: 1
+  explanation: '"trotzdem" (anyway, nevertheless) is for something that happens against expectation. "Deshalb"
+    would mean bad weather is the reason for hiking; "sondern" needs a negative before it, and "weil"
+    would send the verb to the end.'
+- id: de2-q-1603
+  lesson: de2-connectors
+  topic: Linking adverbs
+  stem: 'Complete: "Zieh eine Jacke an, ___ frierst du."'
+  choices:
+  - deshalb
+  - außerdem
+  - sonst
+  - trotzdem
+  answer: 2
+  explanation: '"sonst" means otherwise: put a jacket on, otherwise you''ll be cold. "Deshalb" gives a
+    result, "außerdem" adds a point, and "trotzdem" means anyway.'
+- id: de2-q-1604
+  lesson: de2-connectors
+  module_quiz: true
+  topic: sondern
+  stem: 'Complete: "Morgen wird es nicht sonnig, ___ bewölkt."'
+  choices:
+  - aber
+  - denn
+  - deshalb
+  - sondern
+  answer: 3
+  explanation: After a negative (nicht sonnig), the correction "but rather" is "sondern". "Aber" means
+    "but, however" and doesn't correct a negative.
+- id: de2-q-1605
+  lesson: de2-connectors
+  topic: Sentence types
+  stem: 'Complete: "Ich fahre mit dem Rad, ___ ich die Umwelt schützen will."'
+  choices:
+  - weil
+  - deshalb
+  - denn
+  - trotzdem
+  answer: 0
+  explanation: 'The verb "will" is at the end of the clause, so you need a subordinating conjunction:
+    weil. "Denn" would need normal order (denn ich will …), and "deshalb" or "trotzdem" would be followed
+    directly by the verb.'
+- id: de2-q-1606
+  lesson: de2-connectors
+  module_quiz: true
+  topic: Sentence types
+  stem: Which sentence is correct?
+  choices:
+  - Ich bleibe zu Hause, weil es regnet stark.
+  - Ich bleibe zu Hause, weil es stark regnet.
+  - Ich bleibe zu Hause, deshalb es regnet stark.
+  - Ich bleibe zu Hause, denn regnet es stark.
+  answer: 1
+  explanation: 'After "weil" the conjugated verb goes to the very end: weil es stark regnet. After "denn"
+    the order is normal (denn es regnet stark), and "deshalb" gives a result, not a reason.'
+- id: de2-q-1607
+  lesson: de2-connectors
+  topic: Word order
+  stem: Which sentence has the most natural word order?
+  choices:
+  - Ich fahre nach Berlin morgen mit dem Zug.
+  - Ich fahre mit dem Zug nach Berlin morgen.
+  - Ich fahre morgen mit dem Zug nach Berlin.
+  - Ich fahre nach Berlin mit dem Zug morgen.
+  answer: 2
+  explanation: 'In the middle of a German sentence the order is time – manner – place: morgen (when) mit
+    dem Zug (how) nach Berlin (where). English puts the place first, which is the tempting mistake.'
+- id: de2-q-1608
+  lesson: de2-connectors
+  topic: Linking adverbs
+  stem: '"Die Wohnung ist zu klein. Außerdem ist sie laut." What does "außerdem" do here?'
+  choices:
+  - It shows a contrast.
+  - It gives a result.
+  - It sets a condition.
+  - It adds another point (besides).
+  answer: 3
+  explanation: '"außerdem" means besides, in addition: the flat is too small, and on top of that it''s
+    noisy. A result would be "deshalb", a contrast "aber" or "trotzdem".'
+- id: de2-q-1609
+  lesson: de2-connectors
+  module_quiz: true
+  topic: Weather
+  stem: 'Read the forecast: "Morgen ist es im Norden bewölkt und windig, am Nachmittag gibt es Regen.
+    Im Süden bleibt es trocken und sonnig bei 24 Grad. In der Nacht sind in den Bergen Gewitter möglich."
+    Where will it be dry tomorrow?'
+  choices:
+  - in the south
+  - in the north
+  - in the mountains at night
+  - everywhere
+  answer: 0
+  explanation: '"Im Süden bleibt es trocken und sonnig": the south stays dry and sunny. The north gets
+    rain in the afternoon, and thunderstorms are possible in the mountains at night.'
+- id: de2-q-1610
+  lesson: de2-connectors
+  topic: Weather
+  stem: 'Complete: "Heute sind es 30 ___. Was für eine Hitze!"'
+  choices:
+  - Grade
+  - Grad
+  - Graden
+  - Grads
+  answer: 1
+  explanation: 'After a number, "Grad" has no plural ending: 30 Grad, minus 5 Grad.'
+- id: de2-q-1611
+  lesson: de2-connectors
+  topic: Environment
+  stem: What does "Strom sparen" mean?
+  choices:
+  - to swim against the stream
+  - to buy electricity
+  - to save electricity
+  - to waste energy
+  answer: 2
+  explanation: '"der Strom" is electricity (it can also mean a big river) and "sparen" is to save. Wasting
+    energy would be the opposite.'
+- id: de2-q-1612
+  lesson: de2-connectors
+  topic: Weather
+  stem: '"Es ist so kalt hier drinnen!" Which reply fits best?'
+  choices:
+  - Ja, es ist sehr trocken hier.
+  - Ja, deshalb ist es so heiß.
+  - Nein, es ist nicht kalt, aber warm.
+  - Ja, ich friere auch. Mach doch das Fenster zu.
+  answer: 3
+  explanation: '"Ich friere auch" (I''m cold too) answers the complaint, and closing the window is a sensible
+    suggestion. "Nicht kalt, aber warm" should be "nicht kalt, sondern warm", and the other two don''t
+    fit.'
+- id: de2-q-1613
+  lesson: de2-connectors
+  topic: Linking adverbs
+  stem: Which sentence has a mistake?
+  choices:
+  - Trotzdem fahren wir ans Meer.
+  - Außerdem ist das gut für die Umwelt.
+  - Wir trennen den Müll, deshalb wir recyceln viel.
+  - Es ist nicht kalt, sondern warm.
+  answer: 2
+  explanation: 'After "deshalb" the verb must come next: deshalb recyceln wir viel. The other sentences
+    are correct.'

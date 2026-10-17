@@ -1,0 +1,409 @@
+# German A2, module 2: People and relationships (lessons 05–08)
+
+# --- 05 Reflexive verbs ---
+- id: de2-q-0501
+  lesson: de2-reflexive
+  module_quiz: true
+  topic: Reflexive verbs
+  stem: 'Complete: "Ich ziehe ___ schnell an."'
+  choices: ['mich', 'mir', 'sich', 'mein']
+  answer: 0
+  explanation: |-
+    sich anziehen (to get dressed) is reflexive, and with ich the accusative reflexive pronoun is mich. There is no other object in the sentence, so it is not the dative mir. sich is only for er, sie, es, sie (plural) and Sie.
+- id: de2-q-0502
+  lesson: de2-reflexive
+  topic: Reflexive verbs
+  stem: 'Complete: "Er rasiert ___ jeden Morgen."'
+  choices: ['ihn', 'sich', 'ihm', 'er']
+  answer: 1
+  explanation: |-
+    When he shaves himself, the pronoun points back to the subject, so it is the reflexive pronoun sich. "Er rasiert ihn" would mean he shaves someone else.
+- id: de2-q-0503
+  lesson: de2-reflexive
+  module_quiz: true
+  topic: Reflexive verbs
+  stem: 'Complete: "Ich putze ___ die Zähne."'
+  choices: ['mich', 'meine', 'mir', 'sich']
+  answer: 2
+  explanation: |-
+    The sentence already has an accusative object (die Zähne), so the reflexive pronoun moves to the dative: mir. "mich" is the form without another object (Ich wasche mich). German uses the article with body parts, not a possessive.
+- id: de2-q-0504
+  lesson: de2-reflexive
+  topic: Reflexive verbs
+  stem: 'Complete: "Wir haben ___ im Urlaub gut erholt."'
+  choices: ['sich', 'wir', 'unser', 'uns']
+  answer: 3
+  explanation: |-
+    The reflexive pronoun for wir is uns, in both accusative and dative. sich is only for third person and Sie, so "Wir haben sich erholt" is a common mistake.
+- id: de2-q-0505
+  lesson: de2-reflexive
+  topic: Reflexive verbs
+  stem: 'Which sentence is correct?'
+  choices: ['Ich habe mich erkältet.', 'Ich bin mich erkältet.', 'Ich habe erkältet mich.', 'Ich habe mir erkältet.']
+  answer: 0
+  explanation: |-
+    Reflexive verbs always form the perfect with haben, the pronoun stays right after haben, and the participle goes to the end. There is no other object, so the pronoun is the accusative mich, not mir.
+- id: de2-q-0506
+  lesson: de2-reflexive
+  topic: Feelings
+  stem: 'What does "Ich langweile mich." mean?'
+  choices: ['I''m boring.', 'I''m bored.', 'I''m tired.', 'I''m annoyed.']
+  answer: 1
+  explanation: |-
+    sich langweilen means to be bored. "I'm boring" would be "Ich bin langweilig", which describes you, not how you feel. Annoyed is "Ich ärgere mich"; tired is "Ich bin müde".
+- id: de2-q-0507
+  lesson: de2-reflexive
+  topic: Daily routine
+  stem: 'What does "Nach der Arbeit ziehe ich mich um." mean?'
+  choices: ['After work I move house.', 'After work I get undressed.', 'After work I get changed.', 'After work I go for a walk.']
+  answer: 2
+  explanation: |-
+    With sich, umziehen means to get changed (put on different clothes). Without sich it means to move house: "Wir ziehen nach Berlin um." To get undressed is sich ausziehen.
+- id: de2-q-0508
+  lesson: de2-reflexive
+  module_quiz: true
+  topic: Daily routine
+  stem: 'Read: "Lukas steht um sieben auf. Er duscht, rasiert sich und zieht sich an. Dann trinkt er schnell einen Kaffee, weil er sich beeilen muss. Seine Schwester Mia schläft noch. Sie hat sich erkältet und bleibt heute zu Hause." Why is Mia at home today?'
+  choices: ['She has to hurry.', 'She is bored.', 'She is resting after sport.', 'She has caught a cold.']
+  answer: 3
+  explanation: |-
+    "Sie hat sich erkältet" means she has caught a cold. It is Lukas who has to hurry (sich beeilen). Nothing in the text says Mia is bored or did sport.
+- id: de2-q-0509
+  lesson: de2-reflexive
+  topic: Feelings
+  stem: 'Your friend asks: "Wie fühlst du dich heute?" Which answer is correct?'
+  choices: ['Danke, viel besser. Ich fühle mich wieder wohl.', 'Ich fühle dich gut.', 'Ja, ich fühle.', 'Ich bin mich gut.']
+  answer: 0
+  explanation: |-
+    sich fühlen and sich wohlfühlen need the reflexive pronoun mich after ich. "Ich fühle dich" means "I feel you" (touching), and "Ich bin mich" mixes up sein and a reflexive verb.
+- id: de2-q-0510
+  lesson: de2-reflexive
+  topic: Reflexive verbs
+  stem: 'Find the mistake: "Du musst sich beeilen."'
+  choices: ['musst should be muss', 'sich should be dich', 'beeilen should be beeilt', 'Du should be Dich']
+  answer: 1
+  explanation: |-
+    The reflexive pronoun must match the subject. For du it is dich: "Du musst dich beeilen." With a modal verb, the infinitive beeilen at the end is correct, and du musst is the right form.
+- id: de2-q-0511
+  lesson: de2-reflexive
+  topic: Reflexive verbs
+  stem: 'Complete: "Kannst du ___ bitte konzentrieren?"'
+  choices: ['dir', 'mich', 'dich', 'du']
+  answer: 2
+  explanation: |-
+    sich konzentrieren with du takes dich. There is no other accusative object, so the dative dir is wrong. mich would mean the speaker, not the person who should concentrate.
+- id: de2-q-0512
+  lesson: de2-reflexive
+  module_quiz: true
+  topic: Reflexive verbs
+  stem: 'Which is the most natural German for "I wash my hands"?'
+  choices: ['Ich wasche meine Hände mich.', 'Ich wasche mich die Hände.', 'Ich wasche sich die Hände.', 'Ich wasche mir die Hände.']
+  answer: 3
+  explanation: |-
+    With a body part as the object, German uses a dative reflexive pronoun and the article: mir die Hände. "mich" is accusative and only works without another object, and sich is the wrong person.
+
+# --- 06 Verbs with prepositions; wo- and da- words ---
+- id: de2-q-0601
+  lesson: de2-verb-prepositions
+  module_quiz: true
+  topic: Verbs with prepositions
+  stem: 'Complete: "Ich warte ___ den Bus."'
+  choices: ['auf', 'für', 'an', 'über']
+  answer: 0
+  explanation: |-
+    warten takes auf + accusative: auf den Bus. English "wait for" tempts learners to use für, but "Ich warte für den Bus" is wrong in German.
+- id: de2-q-0602
+  lesson: de2-verb-prepositions
+  topic: Verbs with prepositions
+  stem: 'Complete: "Sie interessiert sich ___ Kunst."'
+  choices: ['an', 'für', 'auf', 'in']
+  answer: 1
+  explanation: |-
+    sich interessieren takes für + accusative. English says "interested in", but German uses für; "in" is a direct translation and wrong here.
+- id: de2-q-0603
+  lesson: de2-verb-prepositions
+  module_quiz: true
+  topic: Verbs with prepositions
+  stem: 'Complete: "Ich denke oft ___ meine Großeltern."'
+  choices: ['von', 'auf', 'an', 'über']
+  answer: 2
+  explanation: |-
+    denken takes an + accusative: an meine Großeltern. English "think of" suggests von, but "denken von" is used only for opinions (Was denkst du von ihm?) and is less common.
+- id: de2-q-0604
+  lesson: de2-verb-prepositions
+  topic: Verbs with prepositions
+  stem: 'Complete: "Nächsten Monat haben wir Ferien. Ich freue mich schon ___ die Ferien!"'
+  choices: ['über', 'für', 'an', 'auf']
+  answer: 3
+  explanation: |-
+    The holidays are still in the future, so it is sich freuen auf (to look forward to). sich freuen über is for something you already have or that has happened: Ich freue mich über das Geschenk.
+- id: de2-q-0605
+  lesson: de2-verb-prepositions
+  topic: Verbs with prepositions
+  stem: 'Complete: "Ich nehme an ___ Kurs teil." (der Kurs)'
+  choices: ['dem', 'den', 'der', 'das']
+  answer: 0
+  explanation: |-
+    teilnehmen an takes the dative, and the dative of der Kurs is dem Kurs (often shortened to am Kurs). "den" is accusative, which is right after denken an but not after teilnehmen an.
+- id: de2-q-0606
+  lesson: de2-verb-prepositions
+  module_quiz: true
+  topic: Questions
+  stem: 'Ask a question about "von einem Haus am Meer" in "Ich träume von einem Haus am Meer."'
+  choices: ['Woran träumst du?', 'Wovon träumst du?', 'Von was träumst du dich?', 'Worauf träumst du?']
+  answer: 1
+  explanation: |-
+    It is a thing, so use wo + the verb's preposition: träumen von → wovon. woran and worauf use the wrong preposition, and träumen is not reflexive.
+- id: de2-q-0607
+  lesson: de2-verb-prepositions
+  topic: Questions
+  stem: 'Ask about the person: "Ich spreche mit meiner Schwester."'
+  choices: ['Womit sprichst du?', 'Mit wen sprichst du?', 'Mit wem sprichst du?', 'Wem sprichst du?']
+  answer: 2
+  explanation: |-
+    For a person, keep the preposition and add wem or wen. mit takes the dative, so it is mit wem. Womit is only for things, and wen is accusative.
+- id: de2-q-0608
+  lesson: de2-verb-prepositions
+  module_quiz: true
+  topic: Verbs with prepositions
+  stem: '"Freust du dich auf das Konzert?" Which answer is correct?'
+  choices: ['Ja, ich freue mich auf es.', 'Ja, ich freue mich daran.', 'Ja, ich freue mich dafür.', 'Ja, ich freue mich darauf.']
+  answer: 3
+  explanation: |-
+    To refer back to a thing after a preposition, use da(r) + the same preposition: auf → darauf. "auf es" is not used for things, and daran and dafür have the wrong preposition.
+- id: de2-q-0609
+  lesson: de2-verb-prepositions
+  topic: Relationships
+  stem: 'Read: "Hallo Tim, es tut mir so leid! Ich habe mich gestern mit Jana verabredet und total vergessen, dass wir ins Kino gehen wollten. Ich möchte mich bei dir entschuldigen. Kann ich dich am Freitag zum Essen einladen? Ben" Why is Ben writing?'
+  choices: ['To apologise for forgetting a plan', 'To invite Jana to the cinema', 'To say that he is ill', 'To ask Tim to meet Jana']
+  answer: 0
+  explanation: |-
+    Ben forgot the cinema with Tim because he arranged to meet Jana (sich mit Jana verabreden), and he writes "Ich möchte mich bei dir entschuldigen": he wants to apologise to Tim. The invitation on Friday is for Tim, not Jana.
+- id: de2-q-0610
+  lesson: de2-verb-prepositions
+  topic: Verbs with prepositions
+  stem: 'Complete: "Das Kind hat Angst ___ Hund." (der Hund)'
+  choices: ['vor den', 'vor dem', 'für den', 'von dem']
+  answer: 1
+  explanation: |-
+    Angst haben takes vor + dative: vor dem Hund. English "afraid of" tempts von, and "vor den" uses the accusative, which is wrong here.
+- id: de2-q-0611
+  lesson: de2-verb-prepositions
+  topic: Verbs with prepositions
+  stem: 'What does "Ich freue mich über das Geschenk." mean?'
+  choices: ['I''m looking forward to the present.', 'I''m annoyed about the present.', 'I''m pleased about the present.', 'I''m thinking about the present.']
+  answer: 2
+  explanation: |-
+    sich freuen über means to be pleased about something you have. Looking forward to is sich freuen auf, annoyed about is sich ärgern über, and thinking about is denken an.
+- id: de2-q-0612
+  lesson: de2-verb-prepositions
+  topic: Verbs with prepositions
+  stem: 'Find the mistake: "Ich interessiere für Fußball."'
+  choices: ['für should be an', 'Fußball needs an article', 'interessiere should be interessiert', 'The reflexive pronoun mich is missing']
+  answer: 3
+  explanation: |-
+    sich interessieren is reflexive: "Ich interessiere mich für Fußball." The preposition für is correct, sports usually have no article here, and interessiere is the right ich form.
+
+# --- 07 Verbs with the dative and two objects ---
+- id: de2-q-0701
+  lesson: de2-dative-verbs
+  module_quiz: true
+  topic: Dative
+  stem: 'Complete: "Kannst du ___ helfen?" (ich)'
+  choices: ['mir', 'mich', 'ich', 'mein']
+  answer: 0
+  explanation: |-
+    helfen takes a dative object, and the dative of ich is mir. "mich" is the accusative, the mistake English speakers make because "help me" looks like a direct object.
+- id: de2-q-0702
+  lesson: de2-dative-verbs
+  topic: Dative
+  stem: 'Complete: "Die Schuhe ___ mir sehr."'
+  choices: ['gefällt', 'gefallen', 'gefalle', 'gefallt']
+  answer: 1
+  explanation: |-
+    With gefallen, the thing liked is the subject. Die Schuhe is plural, so the verb is gefallen. "gefällt" is the singular form (Der Schuh gefällt mir).
+- id: de2-q-0703
+  lesson: de2-dative-verbs
+  module_quiz: true
+  topic: Dative
+  stem: 'Which sentence means "I miss you"?'
+  choices: ['Ich fehle dir.', 'Ich fehle dich.', 'Du fehlst mir.', 'Du fehlst mich.']
+  answer: 2
+  explanation: |-
+    With fehlen the person who is missed is the subject and the person who misses them is dative: "Du fehlst mir" (you are missing to me). "Ich fehle dir" means the opposite: you miss me.
+- id: de2-q-0704
+  lesson: de2-dative-verbs
+  topic: Dative
+  stem: '"Wem gehört der Regenschirm?" Which answer is correct?'
+  choices: ['Er gehört mich.', 'Ich gehöre ihn.', 'Er gehört ich.', 'Er gehört mir.']
+  answer: 3
+  explanation: |-
+    gehören takes the dative: the thing is the subject (er = der Regenschirm) and the owner is dative, mir. "Ich gehöre ihn" turns the roles round and uses the accusative.
+- id: de2-q-0705
+  lesson: de2-dative-verbs
+  topic: Word order
+  stem: 'Complete with the correct order: "Ich schenke ___." (my father, a book)'
+  choices: ['meinem Vater ein Buch', 'ein Buch meinem Vater', 'meinen Vater ein Buch', 'meinem Vater einem Buch']
+  answer: 0
+  explanation: |-
+    With two nouns, the dative (the person) comes before the accusative (the thing): meinem Vater ein Buch. "meinen Vater" is accusative, and the book is the direct object, so it is ein Buch, not einem Buch.
+- id: de2-q-0706
+  lesson: de2-dative-verbs
+  module_quiz: true
+  topic: Word order
+  stem: '"Hast du Lisa das Buch gegeben?" – "Ja, ich habe ___ gestern gegeben."'
+  choices: ['ihr es', 'es ihr', 'sie es', 'es sie']
+  answer: 1
+  explanation: |-
+    With two pronouns, the accusative comes first: es (the book), then the dative ihr (to Lisa). "ihr es" is English order, and sie is the accusative of Lisa, which is wrong after geben.
+- id: de2-q-0707
+  lesson: de2-dative-verbs
+  topic: Dative
+  stem: 'Complete: "Wir gratulieren dir ___ Geburtstag!"'
+  choices: ['für den', 'an dem', 'zum', 'auf den']
+  answer: 2
+  explanation: |-
+    gratulieren uses zu + dative for the occasion: zum Geburtstag (zu dem). "für den Geburtstag" is a translation of English "for" and wrong here.
+- id: de2-q-0708
+  lesson: de2-dative-verbs
+  topic: Verbs
+  stem: 'Complete: "Was ___ du mir?" (empfehlen)'
+  choices: ['empfehlst', 'empfehlt', 'empfiehle', 'empfiehlst']
+  answer: 3
+  explanation: |-
+    empfehlen changes e to ie in the du and er forms: du empfiehlst, er empfiehlt. "empfehlst" forgets the stem change, and the ich form has no change: ich empfehle.
+- id: de2-q-0709
+  lesson: de2-dative-verbs
+  module_quiz: true
+  topic: Gifts
+  stem: 'Read: "Liebe Oma, vielen Dank für das Päckchen! Die Schokolade schmeckt mir sehr gut, und der Schal gefällt Mama total. Nur die Mütze passt mir leider nicht, sie ist zu klein. Kann ich sie meinem Bruder Paul schenken? Er ist erst fünf. Deine Lea" What is the problem?'
+  choices: ['The hat is too small for Lea.', 'Lea doesn''t like the chocolate.', 'Mum doesn''t like the scarf.', 'Paul doesn''t want the hat.']
+  answer: 0
+  explanation: |-
+    "Die Mütze passt mir nicht, sie ist zu klein" means the hat doesn't fit Lea because it is too small. The chocolate tastes good to her (schmeckt mir), and Mum really likes the scarf (gefällt Mama total).
+- id: de2-q-0710
+  lesson: de2-dative-verbs
+  topic: Dative
+  stem: 'What does "Das Kleid steht dir gut." mean?'
+  choices: ['The dress is standing up well.', 'The dress suits you.', 'The dress belongs to you.', 'The dress fits in your cupboard.']
+  answer: 1
+  explanation: |-
+    stehen + dative, used about clothes, means to suit someone. Belonging is gehören (Das Kleid gehört dir), and fitting in size is passen.
+- id: de2-q-0711
+  lesson: de2-dative-verbs
+  topic: Word order
+  stem: 'Which is correct for "Give it to me!"?'
+  choices: ['Gib mir es!', 'Gib mich es!', 'Gib es mir!', 'Gib es mich!']
+  answer: 2
+  explanation: |-
+    Two pronouns: accusative first (es), then dative (mir). "Gib mir es" follows English order, and mich is accusative, which is wrong for the person who receives.
+- id: de2-q-0712
+  lesson: de2-dative-verbs
+  topic: Dative
+  stem: 'Find the mistake: "Ich danke dich für die Blumen."'
+  choices: ['für should be zu', 'Blumen should be Blume', 'danke should be danken', 'dich should be dir']
+  answer: 3
+  explanation: |-
+    danken takes the dative, so the person is dir: "Ich danke dir für die Blumen." The reason after danken is für + accusative, so für is correct.
+
+# --- 08 Describing people; werden; jeder, alle, etwas, niemand ---
+- id: de2-q-0801
+  lesson: de2-people-werden
+  module_quiz: true
+  topic: werden
+  stem: 'Complete: "Mein Bruder ___ nächste Woche dreißig."'
+  choices: ['wird', 'werdet', 'wirdt', 'ist']
+  answer: 0
+  explanation: |-
+    werden + an age means to turn that age, and the er form is wird, with no extra -t. "ist dreißig" means he is thirty now, not next week, and werdet is the ihr form.
+- id: de2-q-0802
+  lesson: de2-people-werden
+  topic: werden
+  stem: 'Complete: "Warum ___ du so rot?"'
+  choices: ['werdest', 'wirst', 'wirdst', 'werdet']
+  answer: 1
+  explanation: |-
+    The du form of werden is irregular: du wirst, with no d. "wirdst" adds the d from er wird, and werdet is the ihr form.
+- id: de2-q-0803
+  lesson: de2-people-werden
+  module_quiz: true
+  topic: werden
+  stem: 'Complete: "Sie ___ Lehrerin geworden."'
+  choices: ['hat', 'wird', 'ist', 'war']
+  answer: 2
+  explanation: |-
+    werden describes a change, so its perfect uses sein: sie ist geworden. "hat geworden" is the most common mistake.
+- id: de2-q-0804
+  lesson: de2-people-werden
+  topic: werden
+  stem: 'Which sentence means "I want to become a doctor"?'
+  choices: ['Ich werde einen Arzt.', 'Ich will einen Arzt werden.', 'Ich werde ein Arzt.', 'Ich will Arzt werden.']
+  answer: 3
+  explanation: |-
+    "want" is wollen (ich will), and werden goes to the end as an infinitive. Jobs after werden have no article: Arzt werden. "Ich werde …" means "I become / will become", not "I want".
+- id: de2-q-0805
+  lesson: de2-people-werden
+  topic: jeder
+  stem: 'Complete: "Ich gehe ___ Tag joggen."'
+  choices: ['jeden', 'jeder', 'jedem', 'alle']
+  answer: 0
+  explanation: |-
+    Time expressions with jeder are in the accusative, and der Tag is masculine: jeden Tag. jeder is the nominative, and alle needs a plural noun (alle Tage is unusual here).
+- id: de2-q-0806
+  lesson: de2-people-werden
+  topic: jeder
+  stem: 'Complete: "___ Kinder haben ein Geschenk bekommen."'
+  choices: ['Jede', 'Alle', 'Jedes', 'Jeder']
+  answer: 1
+  explanation: |-
+    Kinder is plural, and jeder only works with singular nouns, so the plural word is alle. With the singular you would say "Jedes Kind hat ein Geschenk bekommen."
+- id: de2-q-0807
+  lesson: de2-people-werden
+  module_quiz: true
+  topic: Pronouns
+  stem: 'Complete: "Hallo Sara! Gibt es etwas ___?"'
+  choices: ['neu', 'neues', 'Neues', 'Neue']
+  answer: 2
+  explanation: |-
+    After etwas, an adjective becomes a noun: capital letter and the ending -es, so etwas Neues (anything new). Small "neues" forgets the capital, and "neu" has no ending.
+- id: de2-q-0808
+  lesson: de2-people-werden
+  topic: Describing people
+  stem: 'What does "sympathisch" mean?'
+  choices: ['sympathetic', 'sad', 'good-looking', 'likeable']
+  answer: 3
+  explanation: |-
+    sympathisch is a false friend: it means likeable, someone you take to. Sympathetic (understanding) is "verständnisvoll"; good-looking is hübsch or gut aussehend.
+- id: de2-q-0809
+  lesson: de2-people-werden
+  module_quiz: true
+  topic: Describing people
+  stem: 'Read: "Herr Wagner wohnt seit Mai neben uns. Er ist groß, hat graue Haare und trägt eine Brille. Er ist sehr höflich, aber ein bisschen ernst. Jeden Morgen um sechs geht er mit seinem Hund spazieren." Which is true?'
+  choices: ['He wears glasses.', 'He laughs a lot.', 'He has a beard.', 'He is short and blond.']
+  answer: 0
+  explanation: |-
+    "trägt eine Brille" means he wears glasses. He is ernst (serious), not someone who laughs a lot; the text doesn't mention a beard; and he is groß (tall) with grey hair.
+- id: de2-q-0810
+  lesson: de2-people-werden
+  topic: Describing people
+  stem: 'Which answer fits the question "Wie sieht deine Schwester aus?"'
+  choices: ['Sie ist sehr fleißig und ehrlich.', 'Sie ist schlank und hat lange Haare.', 'Sie sieht gern fern.', 'Es geht ihr gut.']
+  answer: 1
+  explanation: |-
+    "Wie sieht … aus?" asks about appearance, so the answer describes her body and hair. fleißig and ehrlich are character (Wie ist sie?), fernsehen is watching TV, and "Es geht ihr gut" answers "Wie geht es ihr?".
+- id: de2-q-0811
+  lesson: de2-people-werden
+  topic: Pronouns
+  stem: 'Complete: "Der Park war ganz leer. Ich habe ___ gesehen."'
+  choices: ['jemand', 'etwas', 'niemand', 'alle']
+  answer: 2
+  explanation: |-
+    The park was empty, so you saw nobody: niemand (or niemanden). jemand and alle would mean you saw people, and etwas means something.
+- id: de2-q-0812
+  lesson: de2-people-werden
+  topic: werden
+  stem: 'Find the mistake: "Mein Opa hat sehr alt geworden."'
+  choices: ['Opa needs an article', 'sehr should be viel', 'alt should be älter', 'hat should be ist']
+  answer: 3
+  explanation: |-
+    werden forms the perfect with sein: "Mein Opa ist sehr alt geworden." Mein already acts as the article, and sehr alt is correct.

@@ -1,0 +1,880 @@
+# German A2, module 6: Media, celebrations and the A2 exam (lessons 21–24)
+
+# --- 21 Media, technology and relative clauses ---
+- id: internet
+  lesson: de2-media-relative
+  term: das Internet
+  pos: noun
+  plural: —
+  meanings: [internet, the internet, the web]
+  example: Ich suche die Adresse im Internet.
+  exampleEn: I'm looking for the address on the internet.
+- id: online
+  lesson: de2-media-relative
+  term: online
+  pos: adjective
+  meanings: [online]
+  example: Ich kaufe die Fahrkarte online.
+  exampleEn: I'm buying the ticket online.
+- id: webseite
+  lesson: de2-media-relative
+  term: die Webseite
+  pos: noun
+  plural: die Webseiten
+  alt: [die Website]
+  meanings: [website, web page, site]
+  example: Auf der Webseite gibt es alle Informationen.
+  exampleEn: All the information is on the website.
+- id: herunterladen
+  lesson: de2-media-relative
+  term: herunterladen
+  pos: verb
+  alt: [runterladen]
+  meanings: [to download]
+  example: Ich lade die App herunter.
+  exampleEn: I'm downloading the app.
+  note: 'Separable, stem change a→ä: du lädst herunter, er lädt herunter. Perfect: hat heruntergeladen.'
+- id: hochladen
+  lesson: de2-media-relative
+  term: hochladen
+  pos: verb
+  meanings: [to upload]
+  example: Sie hat die Fotos hochgeladen.
+  exampleEn: She uploaded the photos.
+  note: 'Separable, stem change a→ä: er lädt hoch. Perfect: hat hochgeladen.'
+- id: speichern
+  lesson: de2-media-relative
+  term: speichern
+  pos: verb
+  meanings: [to save (a file), to save, to store]
+  example: Hast du den Text gespeichert?
+  exampleEn: Have you saved the text?
+- id: loeschen
+  lesson: de2-media-relative
+  term: löschen
+  pos: verb
+  meanings: [to delete, to erase, to remove]
+  example: Ich lösche die alten Nachrichten.
+  exampleEn: I'm deleting the old messages.
+- id: passwort
+  lesson: de2-media-relative
+  term: das Passwort
+  pos: noun
+  plural: die Passwörter
+  meanings: [password]
+  example: Ich habe mein Passwort vergessen.
+  exampleEn: I've forgotten my password.
+- id: sich-einloggen
+  lesson: de2-media-relative
+  term: sich einloggen
+  pos: verb
+  alt: [einloggen]
+  meanings: [to log in, to log on, to sign in]
+  example: Ich logge mich mit meinem Passwort ein.
+  exampleEn: I log in with my password.
+  note: 'Reflexive and separable: ich logge mich ein. Perfect: hat sich eingeloggt.'
+- id: netz
+  lesson: de2-media-relative
+  term: das Netz
+  pos: noun
+  plural: die Netze
+  meanings: [network, net, the net, (phone) signal]
+  example: Hier im Keller habe ich kein Netz.
+  exampleEn: I have no signal here in the basement.
+- id: wlan
+  lesson: de2-media-relative
+  term: das WLAN
+  pos: noun
+  plural: die WLANs
+  alt: [das W-LAN]
+  meanings: [Wi-Fi, wifi, wireless internet, WLAN]
+  example: Gibt es im Hotel WLAN?
+  exampleEn: Is there Wi-Fi in the hotel?
+  note: 'Said "VAY-lahn".'
+- id: bildschirm
+  lesson: de2-media-relative
+  term: der Bildschirm
+  pos: noun
+  plural: die Bildschirme
+  meanings: [screen, monitor, display]
+  example: Der Bildschirm ist zu dunkel.
+  exampleEn: The screen is too dark.
+- id: tastatur
+  lesson: de2-media-relative
+  term: die Tastatur
+  pos: noun
+  plural: die Tastaturen
+  meanings: [keyboard (computer), keyboard]
+  example: Auf einer deutschen Tastatur gibt es ä, ö und ü.
+  exampleEn: A German keyboard has ä, ö and ü.
+  note: 'Stress on the end: tas-ta-TUR.'
+- id: laptop
+  lesson: de2-media-relative
+  term: der Laptop
+  pos: noun
+  plural: die Laptops
+  alt: [das Laptop]
+  meanings: [laptop, notebook computer]
+  example: Mein Laptop ist schon sechs Jahre alt.
+  exampleEn: My laptop is already six years old.
+  note: 'Mostly masculine; das Laptop is also used.'
+- id: programm
+  lesson: de2-media-relative
+  term: das Programm
+  pos: noun
+  plural: die Programme
+  meanings: [program (computer), programme, program, channel, schedule]
+  example: Mit diesem Programm kann man Videos schneiden.
+  exampleEn: You can edit videos with this program.
+- id: app
+  lesson: de2-media-relative
+  term: die App
+  pos: noun
+  plural: die Apps
+  meanings: [app, application (on a phone)]
+  example: Die App zeigt mir den Fahrplan.
+  exampleEn: The app shows me the timetable.
+- id: fernsehen-noun
+  lesson: de2-media-relative
+  term: das Fernsehen
+  pos: noun
+  plural: —
+  meanings: [television (the medium), television, TV]
+  example: Was kommt heute im Fernsehen?
+  exampleEn: What's on TV today?
+- id: sendung
+  lesson: de2-media-relative
+  term: die Sendung
+  pos: noun
+  plural: die Sendungen
+  meanings: [programme (on TV or radio), broadcast, show, program]
+  example: Die Sendung beginnt um acht Uhr.
+  exampleEn: The programme starts at eight o'clock.
+- id: nachrichten
+  lesson: de2-media-relative
+  term: die Nachrichten
+  pos: noun
+  plural: die Nachrichten (plural only)
+  meanings: [the news, news]
+  example: Ich höre jeden Morgen die Nachrichten.
+  exampleEn: I listen to the news every morning.
+  note: 'Plural in this sense. Singular die Nachricht = a message (A1).'
+- id: artikel
+  lesson: de2-media-relative
+  term: der Artikel
+  pos: noun
+  plural: die Artikel
+  meanings: [article (in a newspaper), article]
+  example: Hast du den Artikel über die Stadt gelesen?
+  exampleEn: Have you read the article about the city?
+- id: zeitschrift
+  lesson: de2-media-relative
+  term: die Zeitschrift
+  pos: noun
+  plural: die Zeitschriften
+  meanings: [magazine, journal]
+  example: Sie liest gern Zeitschriften über Reisen.
+  exampleEn: She likes reading travel magazines.
+- id: bericht
+  lesson: de2-media-relative
+  term: der Bericht
+  pos: noun
+  plural: die Berichte
+  meanings: [report, account]
+  example: Im Radio kam ein Bericht über das Wetter.
+  exampleEn: There was a report about the weather on the radio.
+- id: werbung
+  lesson: de2-media-relative
+  term: die Werbung
+  pos: noun
+  plural: die Werbungen
+  meanings: [advertising, advertisement, adverts, ads, commercials]
+  example: Vor dem Film kommt viel Werbung.
+  exampleEn: There are a lot of adverts before the film.
+  note: Usually singular for advertising in general.
+- id: radio
+  lesson: de2-media-relative
+  term: das Radio
+  pos: noun
+  plural: die Radios
+  meanings: [radio]
+  example: Im Auto höre ich immer Radio.
+  exampleEn: I always listen to the radio in the car.
+- id: aufnehmen
+  lesson: de2-media-relative
+  term: aufnehmen
+  pos: verb
+  meanings: [to record, to film, to tape]
+  example: Ich nehme die Sendung auf.
+  exampleEn: I'm recording the programme.
+  note: 'Separable, like nehmen: du nimmst auf, er nimmt auf. Perfect: hat aufgenommen.'
+- id: video
+  lesson: de2-media-relative
+  term: das Video
+  pos: noun
+  plural: die Videos
+  meanings: [video]
+  example: Das Video hat schon tausend Kommentare.
+  exampleEn: The video already has a thousand comments.
+- id: kommentar
+  lesson: de2-media-relative
+  term: der Kommentar
+  pos: noun
+  plural: die Kommentare
+  meanings: [comment, commentary]
+  example: Er schreibt einen Kommentar unter das Foto.
+  exampleEn: He's writing a comment under the photo.
+
+# --- 22 Holidays and celebrations ---
+- id: feiertag
+  lesson: de2-celebrations
+  term: der Feiertag
+  pos: noun
+  plural: die Feiertage
+  meanings: [public holiday, holiday, bank holiday]
+  example: Am Feiertag sind die Geschäfte geschlossen.
+  exampleEn: The shops are closed on the public holiday.
+- id: weihnachten
+  lesson: de2-celebrations
+  term: Weihnachten
+  meanings: [Christmas, Xmas]
+  example: Weihnachten fahren wir zu meinen Eltern.
+  exampleEn: At Christmas we're going to my parents'.
+  note: 'Neuter, usually without an article: an/zu Weihnachten.'
+- id: ostern
+  lesson: de2-celebrations
+  term: Ostern
+  meanings: [Easter]
+  example: Zu Ostern suchen die Kinder Eier im Garten.
+  exampleEn: At Easter the children look for eggs in the garden.
+  note: 'Neuter, usually without an article: an/zu Ostern.'
+- id: silvester
+  lesson: de2-celebrations
+  term: Silvester
+  meanings: [New Year's Eve]
+  example: Was machst du an Silvester?
+  exampleEn: What are you doing on New Year's Eve?
+  note: 'Neuter, usually without an article. Spelled with i.'
+- id: neujahr
+  lesson: de2-celebrations
+  term: Neujahr
+  meanings: [New Year's Day, New Year]
+  example: Neujahr ist ein Feiertag.
+  exampleEn: New Year's Day is a public holiday.
+  note: Neuter, usually without an article.
+- id: karneval
+  lesson: de2-celebrations
+  term: der Karneval
+  pos: noun
+  plural: die Karnevale
+  alt: [der Fasching, die Fastnacht]
+  meanings: [carnival, Mardi Gras]
+  example: Im Karneval tragen viele Leute Kostüme.
+  exampleEn: At carnival many people wear costumes.
+  note: 'Karneval in the Rhineland, der Fasching in Bavaria and Austria, die Fastnacht in the south-west. Plural rare.'
+- id: adventskalender
+  lesson: de2-celebrations
+  term: der Adventskalender
+  pos: noun
+  plural: die Adventskalender
+  meanings: [Advent calendar]
+  example: Jeden Morgen öffnet sie eine Tür im Adventskalender.
+  exampleEn: Every morning she opens a door in the Advent calendar.
+- id: weihnachtsbaum
+  lesson: de2-celebrations
+  term: der Weihnachtsbaum
+  pos: noun
+  plural: die Weihnachtsbäume
+  meanings: [Christmas tree]
+  example: Wir kaufen den Weihnachtsbaum auf dem Markt.
+  exampleEn: We buy the Christmas tree at the market.
+- id: kerze
+  lesson: de2-celebrations
+  term: die Kerze
+  pos: noun
+  plural: die Kerzen
+  meanings: [candle]
+  example: Auf dem Tisch brennt eine Kerze.
+  exampleEn: A candle is burning on the table.
+- id: feuerwerk
+  lesson: de2-celebrations
+  term: das Feuerwerk
+  pos: noun
+  plural: die Feuerwerke
+  meanings: [fireworks, firework display]
+  example: Um Mitternacht beginnt das Feuerwerk.
+  exampleEn: The fireworks start at midnight.
+- id: tradition
+  lesson: de2-celebrations
+  term: die Tradition
+  pos: noun
+  plural: die Traditionen
+  meanings: [tradition]
+  example: Bei uns ist das eine alte Tradition.
+  exampleEn: That's an old tradition in our family.
+- id: brauch
+  lesson: de2-celebrations
+  term: der Brauch
+  pos: noun
+  plural: die Bräuche
+  meanings: [custom, practice, tradition (a custom)]
+  example: Jedes Dorf hat seine eigenen Bräuche.
+  exampleEn: Every village has its own customs.
+- id: gastgeber
+  lesson: de2-celebrations
+  term: der Gastgeber
+  pos: noun
+  plural: die Gastgeber
+  meanings: [host (male), host]
+  example: Der Gastgeber begrüßt alle Gäste.
+  exampleEn: The host welcomes all the guests.
+- id: gastgeberin
+  lesson: de2-celebrations
+  term: die Gastgeberin
+  pos: noun
+  plural: die Gastgeberinnen
+  meanings: [host (female), hostess, host]
+  example: Wir bringen der Gastgeberin Blumen mit.
+  exampleEn: We're bringing the hostess some flowers.
+- id: feier
+  lesson: de2-celebrations
+  term: die Feier
+  pos: noun
+  plural: die Feiern
+  meanings: [celebration, party, ceremony]
+  example: Die Feier beginnt um sieben Uhr.
+  exampleEn: The celebration starts at seven o'clock.
+- id: anstossen
+  lesson: de2-celebrations
+  term: anstoßen
+  pos: verb
+  meanings: [to clink glasses, to toast, to drink to]
+  example: Lasst uns auf das neue Jahr anstoßen!
+  exampleEn: Let's drink to the new year!
+  note: 'Separable, stem change: er stößt an. Perfect: hat angestoßen. auf + accusative = to drink to.'
+- id: prost
+  lesson: de2-celebrations
+  term: Prost!
+  pos: interjection
+  alt: [Prost, Prosit, Zum Wohl]
+  meanings: [cheers!, cheers]
+  example: Prost! Auf deinen Geburtstag!
+  exampleEn: Cheers! To your birthday!
+- id: torte
+  lesson: de2-celebrations
+  term: die Torte
+  pos: noun
+  plural: die Torten
+  meanings: [gateau, layer cake, cake (with cream), torte]
+  example: Zum Geburtstag gibt es eine Schokoladentorte.
+  exampleEn: There's a chocolate gateau for the birthday.
+- id: dekoration
+  lesson: de2-celebrations
+  term: die Dekoration
+  pos: noun
+  plural: die Dekorationen
+  alt: [die Deko]
+  meanings: [decoration, decorations, decor]
+  example: Die Dekoration für die Party habe ich selbst gemacht.
+  exampleEn: I made the decorations for the party myself.
+- id: schmuecken
+  lesson: de2-celebrations
+  term: schmücken
+  pos: verb
+  meanings: [to decorate, to adorn]
+  example: Am Abend schmücken wir den Baum.
+  exampleEn: In the evening we decorate the tree.
+- id: sich-verkleiden
+  lesson: de2-celebrations
+  term: sich verkleiden
+  pos: verb
+  alt: [verkleiden]
+  meanings: [to dress up (in a costume), to dress up, to disguise oneself]
+  example: Im Fasching verkleide ich mich als Pirat.
+  exampleEn: At carnival I dress up as a pirate.
+  note: 'Reflexive: ich verkleide mich. Perfect: hat sich verkleidet.'
+- id: kostuem
+  lesson: de2-celebrations
+  term: das Kostüm
+  pos: noun
+  plural: die Kostüme
+  meanings: [costume, fancy dress, (women's) suit]
+  example: Dein Kostüm ist wirklich lustig.
+  exampleEn: Your costume is really funny.
+- id: heiligabend
+  lesson: de2-celebrations
+  term: der Heiligabend
+  pos: noun
+  plural: die Heiligabende
+  alt: [Heiligabend, der Heilige Abend]
+  meanings: [Christmas Eve]
+  example: An Heiligabend gibt es bei uns die Geschenke.
+  exampleEn: In our family the presents are on Christmas Eve.
+  note: 'Often without an article: an Heiligabend.'
+- id: sekt
+  lesson: de2-celebrations
+  term: der Sekt
+  pos: noun
+  plural: die Sekte
+  meanings: [sparkling wine, champagne, bubbly]
+  example: Um Mitternacht trinken wir ein Glas Sekt.
+  exampleEn: At midnight we drink a glass of sparkling wine.
+- id: einpacken
+  lesson: de2-celebrations
+  term: einpacken
+  pos: verb
+  meanings: [to wrap (up), to wrap, to pack]
+  example: Kannst du das Geschenk schön einpacken?
+  exampleEn: Can you wrap the present nicely?
+  note: 'Separable: ich packe ein. Perfect: hat eingepackt.'
+- id: glueckwunsch
+  lesson: de2-celebrations
+  term: der Glückwunsch
+  pos: noun
+  plural: die Glückwünsche
+  meanings: [congratulations (the noun), good wishes, congratulation, congratulations]
+  example: Viele Glückwünsche zur Hochzeit!
+  exampleEn: Congratulations on your wedding!
+- id: frohe-weihnachten
+  lesson: de2-celebrations
+  kind: phrase
+  term: Frohe Weihnachten!
+  pos: phrase
+  alt: [Frohe Weihnachten, Fröhliche Weihnachten!]
+  meanings: [Merry Christmas!, Merry Christmas, Happy Christmas]
+  example: Frohe Weihnachten und bis nächstes Jahr!
+  exampleEn: Merry Christmas and see you next year!
+- id: guten-rutsch
+  lesson: de2-celebrations
+  kind: phrase
+  term: Guten Rutsch!
+  pos: phrase
+  alt: [Guten Rutsch, Einen guten Rutsch!]
+  meanings: [Happy New Year! (said before 1 January), Happy New Year, have a good New Year]
+  example: Tschüss und guten Rutsch!
+  exampleEn: Bye and Happy New Year!
+
+# --- 23 Writing SMS and e-mails ---
+- id: mitteilung
+  lesson: de2-writing
+  term: die Mitteilung
+  pos: noun
+  plural: die Mitteilungen
+  meanings: [notice (written), notification, message, announcement (written), communication]
+  example: Die Schule hat eine Mitteilung an alle Eltern geschickt.
+  exampleEn: The school has sent a notice to all parents.
+- id: mitteilen
+  lesson: de2-writing
+  term: mitteilen
+  pos: verb
+  meanings: [to notify (formal), to inform, to tell, to let know, to notify]
+  example: Bitte teilen Sie uns Ihre neue Adresse mit.
+  exampleEn: Please let us know your new address.
+  note: 'Separable: ich teile mit. Dative person: Ich teile Ihnen mit, dass … Perfect: hat mitgeteilt.'
+- id: bestaetigen
+  lesson: de2-writing
+  term: bestätigen
+  pos: verb
+  meanings: [to confirm]
+  example: Können Sie den Termin bitte bestätigen?
+  exampleEn: Could you please confirm the appointment?
+  note: 'Inseparable: hat bestätigt.'
+- id: bestaetigung
+  lesson: de2-writing
+  term: die Bestätigung
+  pos: noun
+  plural: die Bestätigungen
+  meanings: [confirmation]
+  example: Ich habe noch keine Bestätigung bekommen.
+  exampleEn: I haven't received a confirmation yet.
+- id: verschieben
+  lesson: de2-writing
+  term: verschieben
+  pos: verb
+  meanings: [to postpone, to put off, to move (to another time), to reschedule]
+  example: Wir müssen das Treffen auf Freitag verschieben.
+  exampleEn: We have to move the meeting to Friday.
+  note: 'Perfect: hat verschoben. auf + accusative = to (a new time).'
+- id: sich-verspaeten
+  lesson: de2-writing
+  term: sich verspäten
+  pos: verb
+  alt: [verspäten]
+  meanings: [to be late, to be delayed, to run late]
+  example: Entschuldigung, ich verspäte mich ein bisschen.
+  exampleEn: Sorry, I'm running a bit late.
+  note: 'Reflexive: ich verspäte mich. Perfect: hat sich verspätet.'
+- id: bescheid-sagen
+  lesson: de2-writing
+  kind: phrase
+  term: Bescheid sagen
+  pos: phrase
+  alt: [Bescheid geben]
+  meanings: [to let (someone) know, to let know, to tell, to inform]
+  example: Sag mir Bescheid, wenn du zu Hause bist.
+  exampleEn: Let me know when you're at home.
+  note: 'The person is dative: Sag mir Bescheid. Formal also: Bescheid geben.'
+- id: rueckmeldung
+  lesson: de2-writing
+  term: die Rückmeldung
+  pos: noun
+  plural: die Rückmeldungen
+  meanings: [reply, feedback, response]
+  example: Ich freue mich auf Ihre Rückmeldung.
+  exampleEn: I look forward to your reply.
+- id: informieren
+  lesson: de2-writing
+  term: informieren
+  pos: verb
+  meanings: [to inform (someone), to inform, to tell]
+  example: Wir informieren Sie per E-Mail.
+  exampleEn: We will inform you by e-mail.
+  note: 'Perfect: hat informiert. sich informieren über = to find out about.'
+- id: auskunft
+  lesson: de2-writing
+  term: die Auskunft
+  pos: noun
+  plural: die Auskünfte
+  meanings: [information (an answer to a question), information, information desk, enquiry]
+  example: Können Sie mir eine Auskunft geben?
+  exampleEn: Could you give me some information?
+- id: betreff
+  lesson: de2-writing
+  term: der Betreff
+  pos: noun
+  plural: die Betreffe
+  meanings: [subject (of an e-mail), subject line, re]
+  example: Im Betreff steht nur „Frage“.
+  exampleEn: The subject line just says "Question".
+- id: anhang
+  lesson: de2-writing
+  term: der Anhang
+  pos: noun
+  plural: die Anhänge
+  meanings: [attachment, appendix]
+  example: Im Anhang finden Sie meinen Lebenslauf.
+  exampleEn: Please find my CV attached.
+- id: weiterleiten
+  lesson: de2-writing
+  term: weiterleiten
+  pos: verb
+  meanings: [to forward, to pass on]
+  example: Ich leite dir die E-Mail weiter.
+  exampleEn: I'll forward you the e-mail.
+  note: 'Separable: ich leite weiter. Perfect: hat weitergeleitet.'
+- id: dringend
+  lesson: de2-writing
+  term: dringend
+  pos: adjective
+  meanings: [urgent, urgently, pressing]
+  example: Ich muss dich dringend sprechen.
+  exampleEn: I urgently need to talk to you.
+- id: rechtzeitig
+  lesson: de2-writing
+  term: rechtzeitig
+  pos: adjective
+  meanings: [in good time, on time, in time, timely]
+  example: Bitte sagen Sie rechtzeitig ab.
+  exampleEn: Please cancel in good time.
+- id: vorher
+  lesson: de2-writing
+  term: vorher
+  pos: adverb
+  meanings: [before (that), beforehand, before, earlier, first]
+  example: Ich rufe dich vorher an.
+  exampleEn: I'll call you beforehand.
+- id: nachher
+  lesson: de2-writing
+  term: nachher
+  pos: adverb
+  meanings: [afterwards (later on), afterwards, later, after that]
+  example: Wir sehen uns nachher!
+  exampleEn: See you later!
+- id: inzwischen
+  lesson: de2-writing
+  term: inzwischen
+  pos: adverb
+  meanings: [meanwhile, in the meantime, by now, now]
+  example: Inzwischen geht es mir besser.
+  exampleEn: I'm feeling better by now.
+- id: moeglichst
+  lesson: de2-writing
+  term: möglichst
+  pos: adverb
+  meanings: [as … as possible, if possible, as possible]
+  example: Bitte antworten Sie möglichst bald.
+  exampleEn: Please answer as soon as possible.
+- id: mit-freundlichen-gruessen
+  lesson: de2-writing
+  kind: phrase
+  term: Mit freundlichen Grüßen
+  pos: phrase
+  meanings: [Yours sincerely (formal closing), Yours faithfully, kind regards, best regards, sincerely]
+  example: Mit freundlichen Grüßen, Anna Lindqvist
+  exampleEn: Yours sincerely, Anna Lindqvist
+- id: sehr-geehrte-frau
+  lesson: de2-writing
+  kind: phrase
+  term: Sehr geehrte Frau
+  pos: phrase
+  meanings: [Dear Ms (formal letter to a woman), Dear Mrs, Dear Ms]
+  example: Sehr geehrte Frau Brandt, vielen Dank für Ihre E-Mail.
+  exampleEn: Dear Ms Brandt, thank you for your e-mail.
+  note: Followed by the surname.
+- id: sehr-geehrter-herr
+  lesson: de2-writing
+  kind: phrase
+  term: Sehr geehrter Herr
+  pos: phrase
+  meanings: [Dear Mr (formal letter to a man), Dear Mr, Dear Sir]
+  example: Sehr geehrter Herr Wagner, ich habe eine Frage.
+  exampleEn: Dear Mr Wagner, I have a question.
+  note: Followed by the surname.
+- id: herzlich
+  lesson: de2-writing
+  term: herzlich
+  pos: adjective
+  meanings: [warm (friendly, heartfelt), warm, warmly, cordial, heartfelt, kind]
+  example: Sie sind herzlich eingeladen.
+  exampleEn: You are warmly invited.
+- id: liebe-gruesse
+  lesson: de2-writing
+  kind: phrase
+  term: Liebe Grüße
+  pos: phrase
+  alt: [LG]
+  meanings: [love (informal closing), lots of love, love from, best wishes]
+  example: Bis morgen! Liebe Grüße, Mia
+  exampleEn: See you tomorrow! Love, Mia
+- id: sich-melden
+  lesson: de2-writing
+  term: sich melden
+  pos: verb
+  meanings: [to get in touch, to be in touch, to call, to contact]
+  example: Melde dich, wenn du angekommen bist!
+  exampleEn: Get in touch when you've arrived!
+  note: 'Reflexive: ich melde mich. Perfect: hat sich gemeldet.'
+- id: es-tut-mir-leid
+  lesson: de2-writing
+  kind: phrase
+  term: Es tut mir leid.
+  pos: phrase
+  alt: [Tut mir leid, Es tut mir leid]
+  meanings: [I'm sorry., I'm sorry, sorry, I apologize]
+  example: Es tut mir leid, dass ich zu spät bin.
+  exampleEn: I'm sorry I'm late.
+- id: zusagen
+  lesson: de2-writing
+  term: zusagen
+  pos: verb
+  meanings: [to accept (an invitation), to accept, to say yes, to agree to come]
+  example: Fünf Gäste haben schon zugesagt.
+  exampleEn: Five guests have already accepted.
+  note: 'Separable: ich sage zu. Perfect: hat zugesagt. Opposite: absagen.'
+- id: erreichbar
+  lesson: de2-writing
+  term: erreichbar
+  pos: adjective
+  meanings: [reachable, available (by phone), can be reached, contactable]
+  example: Ich bin ab 15 Uhr telefonisch erreichbar.
+  exampleEn: I can be reached by phone from 3 pm.
+
+# --- 24 The Goethe-Zertifikat A2 and review ---
+- id: anzeige
+  lesson: de2-exam-review
+  term: die Anzeige
+  pos: noun
+  plural: die Anzeigen
+  meanings: [ad (small advertisement), ad, advertisement, classified ad, advert]
+  example: Ich habe eine Anzeige für eine Wohnung gelesen.
+  exampleEn: I read an ad for a flat.
+- id: kalender
+  lesson: de2-exam-review
+  term: der Kalender
+  pos: noun
+  plural: die Kalender
+  meanings: [calendar, diary]
+  example: Ich schreibe den Termin in meinen Kalender.
+  exampleEn: I'm writing the appointment in my calendar.
+- id: zeitpunkt
+  lesson: de2-exam-review
+  term: der Zeitpunkt
+  pos: noun
+  plural: die Zeitpunkte
+  meanings: [point in time, time, moment]
+  example: Jetzt ist kein guter Zeitpunkt.
+  exampleEn: Now isn't a good time.
+- id: vereinbaren
+  lesson: de2-exam-review
+  term: vereinbaren
+  pos: verb
+  meanings: [to arrange, to agree (on), to make (an appointment), to set up]
+  example: Ich möchte einen Termin vereinbaren.
+  exampleEn: I'd like to make an appointment.
+  note: 'Inseparable: hat vereinbart.'
+- id: zusammenfassen
+  lesson: de2-exam-review
+  term: zusammenfassen
+  pos: verb
+  meanings: [to summarize, to sum up]
+  example: Kannst du den Text kurz zusammenfassen?
+  exampleEn: Can you summarize the text briefly?
+  note: 'Separable: ich fasse zusammen. Perfect: hat zusammengefasst.'
+- id: zusammenfassung
+  lesson: de2-exam-review
+  term: die Zusammenfassung
+  pos: noun
+  plural: die Zusammenfassungen
+  meanings: [summary]
+  example: Am Ende gibt es eine Zusammenfassung.
+  exampleEn: There's a summary at the end.
+- id: durchsage
+  lesson: de2-exam-review
+  term: die Durchsage
+  pos: noun
+  plural: die Durchsagen
+  meanings: [announcement (over a loudspeaker), announcement, public announcement]
+  example: Achtung, eine Durchsage zu Gleis 5!
+  exampleEn: Attention, an announcement about platform 5!
+- id: ansage
+  lesson: de2-exam-review
+  term: die Ansage
+  pos: noun
+  plural: die Ansagen
+  meanings: [recorded announcement (on the phone), announcement, recorded message, voicemail greeting]
+  example: Die Ansage sagt, dass die Praxis geschlossen ist.
+  exampleEn: The recorded message says that the practice is closed.
+- id: hinweis
+  lesson: de2-exam-review
+  term: der Hinweis
+  pos: noun
+  plural: die Hinweise
+  meanings: [note (piece of advice or information), tip, notice, hint, clue]
+  example: Bitte lesen Sie die Hinweise unten.
+  exampleEn: Please read the notes below.
+- id: beachten
+  lesson: de2-exam-review
+  term: beachten
+  pos: verb
+  meanings: [to pay attention to, to note, to observe, to follow (a rule)]
+  example: Bitte beachten Sie die neuen Öffnungszeiten.
+  exampleEn: Please note the new opening hours.
+  note: 'Inseparable: hat beachtet.'
+- id: missverstaendnis
+  lesson: de2-exam-review
+  term: das Missverständnis
+  pos: noun
+  plural: die Missverständnisse
+  meanings: [misunderstanding]
+  example: Das war nur ein Missverständnis.
+  exampleEn: That was just a misunderstanding.
+- id: verwechseln
+  lesson: de2-exam-review
+  term: verwechseln
+  pos: verb
+  meanings: [to mix up, to confuse, to mistake]
+  example: Ich verwechsle immer die Namen der Zwillinge.
+  exampleEn: I always mix up the twins' names.
+  note: 'Perfect: hat verwechselt. ich verwechsle (also verwechsele).'
+- id: unterschiedlich
+  lesson: de2-exam-review
+  term: unterschiedlich
+  pos: adjective
+  meanings: [different (from each other), different, various, varying]
+  example: Die Preise sind sehr unterschiedlich.
+  exampleEn: The prices vary a lot.
+- id: unterschied
+  lesson: de2-exam-review
+  term: der Unterschied
+  pos: noun
+  plural: die Unterschiede
+  meanings: [difference]
+  example: Was ist der Unterschied zwischen „wenn“ und „als“?
+  exampleEn: What's the difference between "wenn" and "als"?
+- id: ungefaehr
+  lesson: de2-exam-review
+  term: ungefähr
+  pos: adverb
+  meanings: [about (approximately), about, approximately, roughly, around]
+  example: Die Fahrt dauert ungefähr eine Stunde.
+  exampleEn: The journey takes about an hour.
+- id: genau
+  lesson: de2-exam-review
+  term: genau
+  pos: adjective
+  meanings: [exact, exactly, precise, precisely, careful, carefully]
+  example: Lesen Sie die Aufgabe genau.
+  exampleEn: Read the task carefully.
+  note: 'Also a reply: Genau! = Exactly!'
+- id: thema
+  lesson: de2-exam-review
+  term: das Thema
+  pos: noun
+  plural: die Themen
+  meanings: [topic, subject, theme]
+  example: Das Thema heute ist „Wohnen“.
+  exampleEn: Today's topic is "living".
+- id: bedeuten
+  lesson: de2-exam-review
+  term: bedeuten
+  pos: verb
+  meanings: [to mean]
+  example: Was bedeutet dieses Wort?
+  exampleEn: What does this word mean?
+  note: 'Inseparable: hat bedeutet.'
+- id: bedeutung
+  lesson: de2-exam-review
+  term: die Bedeutung
+  pos: noun
+  plural: die Bedeutungen
+  meanings: [meaning, significance, importance]
+  example: Das Wort hat zwei Bedeutungen.
+  exampleEn: The word has two meanings.
+- id: ergebnis
+  lesson: de2-exam-review
+  term: das Ergebnis
+  pos: noun
+  plural: die Ergebnisse
+  meanings: [result, outcome, score]
+  example: Wann bekomme ich das Ergebnis?
+  exampleEn: When do I get the result?
+- id: teilnehmer
+  lesson: de2-exam-review
+  term: der Teilnehmer
+  pos: noun
+  plural: die Teilnehmer
+  meanings: [participant (male), participant, candidate, attendee]
+  example: Jeder Teilnehmer bekommt ein Zertifikat.
+  exampleEn: Every participant gets a certificate.
+- id: teilnehmerin
+  lesson: de2-exam-review
+  term: die Teilnehmerin
+  pos: noun
+  plural: die Teilnehmerinnen
+  meanings: [participant (female), participant, candidate, attendee]
+  example: Die Teilnehmerin aus Spanien spricht sehr gut Deutsch.
+  exampleEn: The participant from Spain speaks German very well.
+- id: korrigieren
+  lesson: de2-exam-review
+  term: korrigieren
+  pos: verb
+  meanings: [to correct, to mark (a test)]
+  example: Die Lehrerin korrigiert die Tests.
+  exampleEn: The teacher is marking the tests.
+  note: 'Perfect: hat korrigiert.'
+- id: uhrzeit
+  lesson: de2-exam-review
+  term: die Uhrzeit
+  pos: noun
+  plural: die Uhrzeiten
+  meanings: [time (on the clock), time of day, time]
+  example: Um welche Uhrzeit beginnt der Kurs?
+  exampleEn: What time does the course start?
+- id: gespraech
+  lesson: de2-exam-review
+  term: das Gespräch
+  pos: noun
+  plural: die Gespräche
+  meanings: [conversation, talk, discussion, chat]
+  example: Das Gespräch hat eine Stunde gedauert.
+  exampleEn: The conversation lasted an hour.

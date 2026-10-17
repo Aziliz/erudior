@@ -1,0 +1,409 @@
+# German A2, module 1: Telling your story (lessons 01–04)
+
+# --- 01 Your life so far: the perfect, extended ---
+- id: de2-q-0101
+  lesson: de2-perfect-review
+  module_quiz: true
+  topic: Perfect tense
+  stem: 'Complete: "Ich ___ in einem kleinen Dorf aufgewachsen."'
+  choices: ['habe', 'bin', 'hat', 'war']
+  answer: 1
+  explanation: |-
+    aufwachsen (to grow up) is a change of state, so it takes sein: Ich bin aufgewachsen. "habe" is the usual guess, but verbs like aufwachsen, sterben and werden use sein.
+- id: de2-q-0102
+  lesson: de2-perfect-review
+  topic: Participles
+  stem: 'What is the past participle of "verstehen"?'
+  choices: ['geverstanden', 'verstehen', 'verstanden', 'versteht']
+  answer: 2
+  explanation: |-
+    ver- is an inseparable prefix, so there is no ge-. Build it like stehen → gestanden, then drop the ge-: verstanden. "geverstanden" adds a ge- that inseparable verbs never take.
+- id: de2-q-0103
+  lesson: de2-perfect-review
+  module_quiz: true
+  topic: Participles
+  stem: 'Complete: "Sie hat in Graz Medizin ___."'
+  choices: ['studiert', 'gestudiert', 'studieren', 'gestudieren']
+  answer: 0
+  explanation: |-
+    Verbs ending in -ieren take no ge- in the participle: studieren → studiert. "gestudiert" is the most common mistake.
+- id: de2-q-0104
+  lesson: de2-perfect-review
+  topic: Participles
+  stem: 'Complete: "Meine Eltern haben mich nach meinem Großvater ___."'
+  choices: ['genennt', 'gennant', 'nennt', 'genannt']
+  answer: 3
+  explanation: |-
+    nennen is a mixed verb: the vowel changes to a and the participle ends in -t, like kennen → gekannt. So: genannt. "genennt" forgets the vowel change.
+- id: de2-q-0105
+  lesson: de2-perfect-review
+  module_quiz: true
+  topic: Dates and years
+  stem: 'Which sentence is correct?'
+  choices: ['Ich habe in 2015 geheiratet.', '2015 habe ich geheiratet.', 'In 2015 ich habe geheiratet.', 'Ich bin 2015 geheiratet.']
+  answer: 1
+  explanation: |-
+    German puts a year on its own, with no "in" (or with "im Jahr"). The year is position 1, so the verb follows: 2015 habe ich geheiratet. heiraten takes haben, not sein.
+- id: de2-q-0106
+  lesson: de2-perfect-review
+  topic: Perfect tense
+  stem: 'Complete: "Mein Großvater ___ letztes Jahr gestorben."'
+  choices: ['hat', 'wird', 'ist', 'habe']
+  answer: 2
+  explanation: |-
+    sterben (to die) is a change of state, so it takes sein: Er ist gestorben. "hat gestorben" is wrong.
+- id: de2-q-0107
+  lesson: de2-perfect-review
+  topic: Participles
+  stem: 'Which verb has NO ge- in its past participle?'
+  choices: ['aufwachsen', 'heiraten', 'umziehen', 'erleben']
+  answer: 3
+  explanation: |-
+    er- is an inseparable prefix, so erleben → erlebt. The others all have ge-: aufgewachsen and umgezogen (separable, -ge- in the middle) and geheiratet (heiraten has no prefix at all).
+- id: de2-q-0108
+  lesson: de2-perfect-review
+  topic: Life events
+  stem: 'What does "Ich habe erst mit 30 Auto fahren gelernt" mean?'
+  choices: ['I didn''t learn to drive until I was 30.', 'I learned to drive first, at 30.', 'I learned to drive at 30 at the earliest.', 'I first learned to drive 30 years ago.']
+  answer: 0
+  explanation: |-
+    erst + a time means "only then, not until then": something happened later than you might expect. It does not mean "first" (that's zuerst).
+- id: de2-q-0109
+  lesson: de2-perfect-review
+  topic: Life events
+  stem: 'Read: "Paula ist 1979 in Bremen geboren. Nach dem Abitur hat sie eine Ausbildung als Köchin gemacht. 2005 hat sie ein eigenes Restaurant gegründet. Seit 2021 ist sie in Rente." What is Paula doing now?'
+  choices: ['She is training to be a cook.', 'She is starting a restaurant.', 'She is retired.', 'She is studying in Bremen.']
+  answer: 2
+  explanation: |-
+    in Rente sein means to be retired, and seit 2021 tells you it is still true today. The training and the restaurant (gegründet = founded) were earlier stages of her life.
+- id: de2-q-0110
+  lesson: de2-perfect-review
+  module_quiz: true
+  topic: Life events
+  stem: 'A friend asks: "Wo bist du aufgewachsen?" Which answer fits?'
+  choices: ['In Hamburg, aber mit 18 bin ich nach München gezogen.', 'Ich bin 1,80 Meter groß.', 'Ich habe in Hamburg aufgewachsen.', 'Seit zwei Jahren.']
+  answer: 0
+  explanation: |-
+    The question is where you grew up, so you name a place. "Ich habe in Hamburg aufgewachsen" uses the wrong auxiliary (bin aufgewachsen), and the other two answer different questions (how tall, how long).
+- id: de2-q-0111
+  lesson: de2-perfect-review
+  topic: Life events
+  stem: 'Which word fits? "Die Reise nach Island war ein tolles ___."'
+  choices: ['Erfahrung', 'Erlebnis', 'Lebenslauf', 'Umzug']
+  answer: 1
+  explanation: |-
+    das Erlebnis is one memorable event you experience, and it is neuter, which fits "ein tolles". die Erfahrung is experience you gain over time, and it is feminine, so it would need "eine tolle".
+- id: de2-q-0112
+  lesson: de2-perfect-review
+  topic: Participles
+  stem: 'Find the mistake: "Nach dem Abschluss habe ich meine Heimat verlassen und bin nach Wien gegangt."'
+  choices: ['habe … verlassen', 'meine Heimat', 'Nach dem Abschluss', 'gegangt']
+  answer: 3
+  explanation: |-
+    gehen is a strong verb: the participle is gegangen, not "gegangt". verlassen is correct: an inseparable verb whose participle looks like the infinitive.
+
+# --- 02 When I was a child: the simple past ---
+- id: de2-q-0201
+  lesson: de2-praeteritum
+  module_quiz: true
+  topic: Modal verbs
+  stem: 'Complete: "Als Kind ___ ich jeden Tag um sieben Uhr aufstehen."'
+  choices: ['musste', 'müsste', 'musstet', 'habe gemusst']
+  answer: 0
+  explanation: |-
+    The simple past of müssen drops the umlaut and adds -te: ich musste. The ich form has no extra ending, so "musstet" (the ihr form) is wrong, and "müsste" is a different form meaning "would have to".
+- id: de2-q-0202
+  lesson: de2-praeteritum
+  topic: Modal verbs
+  stem: 'Complete: "Wir ___ abends nicht fernsehen." (we weren''t allowed to)'
+  choices: ['dürften', 'durfen', 'durften', 'darften']
+  answer: 2
+  explanation: |-
+    dürfen → drop the umlaut, add -te: durfte; with wir: durften. "dürften" keeps the umlaut, which makes it a different form (lesson 15).
+- id: de2-q-0203
+  lesson: de2-praeteritum
+  module_quiz: true
+  topic: Modal verbs
+  stem: 'How do you say "I wanted a bike" in German?'
+  choices: ['Ich möchtete ein Fahrrad.', 'Ich mochte ein Fahrrad.', 'Ich habe ein Fahrrad gemöchtet.', 'Ich wollte ein Fahrrad.']
+  answer: 3
+  explanation: |-
+    möchten has no past form of its own, so for "wanted" you use the past of wollen: ich wollte. "Ich mochte ein Fahrrad" means "I liked a bike".
+- id: de2-q-0204
+  lesson: de2-praeteritum
+  topic: Simple past
+  stem: 'Complete: "Du ___ damals sehr frech."'
+  choices: ['war', 'warst', 'wart', 'bist gewesen']
+  answer: 1
+  explanation: |-
+    The du form of the simple past adds -st: du warst. "war" is the ich and er/sie/es form, and "wart" is the ihr form.
+- id: de2-q-0205
+  lesson: de2-praeteritum
+  topic: Simple past
+  stem: 'Which infinitive belongs to "sie ging"?'
+  choices: ['gehen', 'geben', 'gingen', 'gewinnen']
+  answer: 0
+  explanation: |-
+    ging is the simple past of gehen (to go): a strong verb with a new vowel and no ending. The simple past of geben is gab.
+- id: de2-q-0206
+  lesson: de2-praeteritum
+  module_quiz: true
+  topic: Simple past
+  stem: 'In a normal conversation, which sentence sounds most natural?'
+  choices: ['Gestern ich habe Oma besucht.', 'Gestern besuchte ich Oma, und wir aßen Kuchen.', 'Gestern habe ich Oma besucht, und wir haben Kuchen gegessen.', 'Gestern bin ich Oma besucht.']
+  answer: 2
+  explanation: |-
+    In speech Germans use the perfect for most verbs: habe besucht, haben gegessen. The simple past "besuchte … aßen" is correct but sounds like a book. The first option breaks verb-second order, and besuchen takes haben.
+- id: de2-q-0207
+  lesson: de2-praeteritum
+  topic: Simple past
+  stem: 'What does "Damals gab es kein Internet" mean?'
+  choices: ['Back then he didn''t give us internet.', 'Back then there was no internet.', 'Back then the internet didn''t work.', 'Back then we gave up the internet.']
+  answer: 1
+  explanation: |-
+    gab is the simple past of geben, and es gab is the past of es gibt: "there was / there were". It's one of the most common simple past forms.
+- id: de2-q-0208
+  lesson: de2-praeteritum
+  topic: Childhood and school
+  stem: 'Read: "In der Grundschule hatte ich eine strenge Lehrerin. In der Pause durften wir nicht auf die Bäume klettern, und wer frech war, musste in der Klasse bleiben." What was NOT allowed?'
+  choices: ['talking in class', 'leaving school early', 'playing football at break', 'climbing trees at break']
+  answer: 3
+  explanation: |-
+    durften nicht klettern = were not allowed to climb. Children who were cheeky (frech) had to stay in the classroom, but the text only names climbing trees as forbidden.
+- id: de2-q-0209
+  lesson: de2-praeteritum
+  topic: Childhood and school
+  stem: 'In Germany, what does the grade 1 on a Zeugnis mean?'
+  choices: ['very good, the best grade', 'failed, the worst grade', 'satisfactory', 'not graded']
+  answer: 0
+  explanation: |-
+    German school grades go from 1 (sehr gut) to 6 (ungenügend), so 1 is the best. Many English speakers expect the opposite.
+- id: de2-q-0210
+  lesson: de2-praeteritum
+  module_quiz: true
+  topic: Modal verbs
+  stem: 'Find the mistake: "Mit sechs Jahren konntet ich schon lesen, aber ich mochte keine Märchen."'
+  choices: ['Mit sechs Jahren', 'konntet', 'mochte', 'keine Märchen']
+  answer: 1
+  explanation: |-
+    The ich form of a modal in the simple past has no ending after -te: ich konnte. "konntet" is the ihr form. mochte is correct (the past of mögen).
+- id: de2-q-0211
+  lesson: de2-praeteritum
+  topic: Childhood and school
+  stem: 'Which sentence means "I remember my first teacher"?'
+  choices: ['Ich erinnere meine erste Lehrerin.', 'Ich erinnere mich meine erste Lehrerin.', 'Ich erinnere mich an meine erste Lehrerin.', 'Ich bin erinnert an meine erste Lehrerin.']
+  answer: 2
+  explanation: |-
+    The chunk is sich erinnern an + accusative: Ich erinnere mich an … You need both the mich and the an.
+- id: de2-q-0212
+  lesson: de2-praeteritum
+  topic: Simple past
+  stem: 'Complete: "Mozart ___ 1756 in Salzburg geboren."'
+  choices: ['ist', 'hat', 'wird', 'wurde']
+  answer: 3
+  explanation: |-
+    For people who have died, Germans say wurde … geboren, using the simple past of werden. "ist geboren" is for living people (Ich bin 1990 geboren), and "wird" is present tense.
+
+# --- 03 Reasons and opinions: weil and dass ---
+- id: de2-q-0301
+  lesson: de2-weil-dass
+  module_quiz: true
+  topic: weil
+  stem: 'Which sentence is correct?'
+  choices: ['Ich lerne Deutsch, weil ich in Wien arbeiten will.', 'Ich lerne Deutsch, weil ich will in Wien arbeiten.', 'Ich lerne Deutsch, weil will ich in Wien arbeiten.', 'Ich lerne Deutsch weil ich in Wien will arbeiten.']
+  answer: 0
+  explanation: |-
+    weil sends the conjugated verb to the end, so the modal will comes last, after the infinitive: weil ich in Wien arbeiten will. And there is always a comma before weil.
+- id: de2-q-0302
+  lesson: de2-weil-dass
+  topic: weil
+  stem: 'Complete: "Ich bin müde, weil ich jeden Tag um fünf Uhr ___."'
+  choices: ['stehe auf', 'auf stehe', 'aufstehe', 'aufstehen']
+  answer: 2
+  explanation: |-
+    In a subordinate clause the separable verb moves to the end and joins its prefix again, written as one word: aufstehe. "stehe auf" is main-clause order.
+- id: de2-q-0303
+  lesson: de2-weil-dass
+  module_quiz: true
+  topic: weil
+  stem: 'Complete: "Ich bin enttäuscht, weil du nicht ___."'
+  choices: ['hast angerufen', 'angerufen hast', 'anrufen hast', 'hast anrufen']
+  answer: 1
+  explanation: |-
+    In the perfect, the auxiliary comes last of all in a subordinate clause, after the participle: angerufen hast.
+- id: de2-q-0304
+  lesson: de2-weil-dass
+  topic: weil
+  stem: 'Which sentence is correct?'
+  choices: ['Weil es regnet, ich nehme den Bus.', 'Weil regnet es, nehme ich den Bus.', 'Weil es regnet nehme den Bus ich.', 'Weil es regnet, nehme ich den Bus.']
+  answer: 3
+  explanation: |-
+    When the weil clause comes first, it fills position 1, so the main verb follows straight after the comma: verb, comma, verb (regnet, nehme). "ich nehme" after the comma is English word order.
+- id: de2-q-0305
+  lesson: de2-weil-dass
+  topic: dass
+  stem: 'Which sentence is NOT correct?'
+  choices: ['Ich glaube, dass er krank ist.', 'Ich glaube, er ist krank.', 'Ich glaube, dass er ist krank.', 'Ich glaube, er ist heute krank.']
+  answer: 2
+  explanation: |-
+    You can use dass with the verb at the end, or leave dass out and use main-clause order. You can't mix them: "dass er ist krank" keeps the verb in the wrong place.
+- id: de2-q-0306
+  lesson: de2-weil-dass
+  module_quiz: true
+  topic: dass
+  stem: 'Complete: "Es ist wichtig, ___ du pünktlich bist."'
+  choices: ['dass', 'das', 'weil', 'denn']
+  answer: 0
+  explanation: |-
+    After "Es ist wichtig" you need the conjunction dass (double s), and the verb bist is at the end. "das" is the article or pronoun; "denn" would need the verb in position 2.
+- id: de2-q-0307
+  lesson: de2-weil-dass
+  topic: weil
+  stem: 'Which word completes BOTH gaps? "Ich bleibe heute zu Hause, ___ ich bin krank." / "Ich gehe nicht mit, ___ ich habe keine Zeit."'
+  choices: ['weil', 'dass', 'denn', 'deshalb']
+  answer: 2
+  explanation: |-
+    The verb comes right after the subject (ich bin, ich habe), which is main-clause order, so the word must be denn. weil would need the verb at the end: weil ich krank bin.
+- id: de2-q-0308
+  lesson: de2-weil-dass
+  topic: Opinions and feelings
+  stem: 'Your friend says: "Ich finde, der Film war viel zu lang." You agree. What do you say?'
+  choices: ['Das ist mir egal.', 'Da hast du recht.', 'Ich bin recht.', 'Das stimmt nicht.']
+  answer: 1
+  explanation: |-
+    Da hast du recht = You're right there. recht haben uses haben, so "Ich bin recht" is wrong. "Das stimmt nicht" disagrees, and "Das ist mir egal" means you don't care.
+- id: de2-q-0309
+  lesson: de2-weil-dass
+  topic: Opinions and feelings
+  stem: 'What does "Ich bin stolz auf meine Tochter" mean?'
+  choices: ['I''m worried about my daughter.', 'I''m angry with my daughter.', 'I''m disappointed in my daughter.', 'I''m proud of my daughter.']
+  answer: 3
+  explanation: |-
+    stolz auf = proud of. Worried would be "Ich mache mir Sorgen um …", furious is wütend and disappointed is enttäuscht.
+- id: de2-q-0310
+  lesson: de2-weil-dass
+  module_quiz: true
+  topic: Opinions and feelings
+  stem: 'Read: "Lina wollte am Samstag mit Ben ins Konzert gehen. Aber Ben hat die Karten vergessen, und das Konzert war ausverkauft." How does Lina probably feel?'
+  choices: ['enttäuscht', 'stolz', 'zufrieden', 'froh']
+  answer: 0
+  explanation: |-
+    Ben forgot the tickets and the concert was sold out (ausverkauft), so Lina missed it: she is disappointed (enttäuscht). The other words are positive feelings.
+- id: de2-q-0311
+  lesson: de2-weil-dass
+  topic: Opinions and feelings
+  stem: 'Complete: "Meiner Meinung nach ___ das Hotel zu teuer."'
+  choices: ['das ist', 'ist', 'es ist', 'sei ist']
+  answer: 1
+  explanation: |-
+    "Meiner Meinung nach" fills position 1, so the verb follows at once and then the subject: Meiner Meinung nach ist das Hotel zu teuer.
+- id: de2-q-0312
+  lesson: de2-weil-dass
+  topic: weil
+  stem: 'A friend asks: "Warum hast du so schlechte Laune?" Which answer is correct?'
+  choices: ['Denn ich habe schlecht geschlafen.', 'Weil ich habe schlecht geschlafen.', 'Weil ich schlecht geschlafen hast.', 'Weil ich schlecht geschlafen habe.']
+  answer: 3
+  explanation: |-
+    A weil clause can answer a warum question on its own, with the auxiliary at the end: weil ich schlecht geschlafen habe. denn can't stand alone as an answer, and "hast" is the du form. (schlechte Laune = a bad mood)
+
+# --- 04 If, when and whether: wenn, als, ob ---
+- id: de2-q-0401
+  lesson: de2-wenn-als-ob
+  module_quiz: true
+  topic: wenn and als
+  stem: 'Complete: "___ ich ein Kind war, hatte ich einen Hund."'
+  choices: ['Als', 'Wenn', 'Wann', 'Ob']
+  answer: 0
+  explanation: |-
+    "When I was a child" is one period in the past, so German uses als. wenn is for repeated events or the future, and wann only asks questions.
+- id: de2-q-0402
+  lesson: de2-wenn-als-ob
+  topic: wenn and als
+  stem: 'Complete: "___ ich meine Oma besucht habe, gab es immer Kuchen."'
+  choices: ['Als', 'Wann', 'Wenn', 'Ob']
+  answer: 2
+  explanation: |-
+    "immer" shows that it happened every time, again and again. For repeated events in the past, use wenn (whenever). als is only for one single occasion.
+- id: de2-q-0403
+  lesson: de2-wenn-als-ob
+  module_quiz: true
+  topic: Indirect questions
+  stem: 'Complete: "Ich weiß nicht, ___ er morgen kommt." (whether)'
+  choices: ['wenn', 'ob', 'dass', 'als']
+  answer: 1
+  explanation: |-
+    "whether" fits in English, so German needs ob. English often says "if" here, which makes "wenn" tempting, but wenn is only for conditions and time.
+- id: de2-q-0404
+  lesson: de2-wenn-als-ob
+  topic: Indirect questions
+  stem: 'Which question is correct?'
+  choices: ['Können Sie mir sagen, wo ist der Bahnhof?', 'Können Sie mir sagen, wo der Bahnhof ist?', 'Können Sie mir sagen, wo der Bahnhof?', 'Können Sie mir sagen, der Bahnhof wo ist?']
+  answer: 1
+  explanation: |-
+    In an indirect question the question word stays at the front of the clause and the verb goes to the end: wo der Bahnhof ist. "wo ist der Bahnhof" keeps direct-question order.
+- id: de2-q-0405
+  lesson: de2-wenn-als-ob
+  topic: wenn and als
+  stem: 'Which sentence is correct?'
+  choices: ['Wenn das Wetter schön ist, gehen wir schwimmen.', 'Wenn das Wetter ist schön, gehen wir schwimmen.', 'Wenn das Wetter schön ist, wir gehen schwimmen.', 'Wann das Wetter schön ist, gehen wir schwimmen.']
+  answer: 0
+  explanation: |-
+    The wenn clause has its verb at the end (schön ist), and the main clause starts with the verb: verb, comma, verb. wann is only a question word.
+- id: de2-q-0406
+  lesson: de2-wenn-als-ob
+  module_quiz: true
+  topic: Indirect questions
+  stem: 'Turn into an indirect question: "Wann fängt der Kurs an?" → "Weißt du, ___?"'
+  choices: ['wann fängt der Kurs an', 'wenn der Kurs anfängt', 'ob der Kurs anfängt wann', 'wann der Kurs anfängt']
+  answer: 3
+  explanation: |-
+    Keep the question word wann, send the verb to the end and join the separable verb back together: wann der Kurs anfängt. "wenn" is not a question word.
+- id: de2-q-0407
+  lesson: de2-wenn-als-ob
+  topic: wenn and als
+  stem: 'Find the mistake: "Wann ich nach Hause komme, koche ich immer zuerst einen Tee."'
+  choices: ['Wann', 'nach Hause komme', 'koche ich', 'zuerst']
+  answer: 0
+  explanation: |-
+    wann is only for questions. For "when(ever)" in a statement about something that happens again and again, use wenn: Wenn ich nach Hause komme, …
+- id: de2-q-0408
+  lesson: de2-wenn-als-ob
+  topic: Decisions and plans
+  stem: 'A colleague asks: "Was hast du am Wochenende vor?" What is she asking?'
+  choices: ['What did you do at the weekend?', 'What are you doing at the weekend?', 'Do you have time before the weekend?', 'What do you have in front of you?']
+  answer: 1
+  explanation: |-
+    vorhaben (separable: hast … vor) means to plan or intend, so she is asking about your plans. It's the normal way to ask what someone is doing later.
+- id: de2-q-0409
+  lesson: de2-wenn-als-ob
+  topic: Decisions and plans
+  stem: 'Read: "Hallo Tim, ich weiß noch nicht, ob ich am Freitag kommen kann. Falls es klappt, bringe ich einen Salat mit. Ich sage dir morgen Bescheid. Mia" What do we know?'
+  choices: ['Mia is definitely coming on Friday.', 'Mia isn''t coming, but she will send a salad.', 'Mia doesn''t know yet whether she can come.', 'Mia wants Tim to bring a salad.']
+  answer: 2
+  explanation: |-
+    "ob ich am Freitag kommen kann" = whether I can come on Friday, so it's not decided. falls es klappt = in case it works out; only then will she bring a salad. (Bescheid sagen = to let someone know)
+- id: de2-q-0410
+  lesson: de2-wenn-als-ob
+  module_quiz: true
+  topic: wenn and als
+  stem: 'Complete: "___ wir in Rom ankamen, hat es geregnet."'
+  choices: ['Wenn', 'Ob', 'Wann', 'Als']
+  answer: 3
+  explanation: |-
+    This is one occasion in the past (the day we arrived in Rome), so it's als. wenn would mean "whenever we arrived", which doesn't fit one trip.
+- id: de2-q-0411
+  lesson: de2-wenn-als-ob
+  topic: Decisions and plans
+  stem: 'Your friend is nervous about an exam. What do you say to encourage her?'
+  choices: ['Das ist mir egal.', 'Hat es geklappt?', 'Das ist unmöglich.', 'Das schaffst du!']
+  answer: 3
+  explanation: |-
+    Das schaffst du! = You can do it! (schaffen = to manage). "Hat es geklappt?" asks afterwards whether it worked out, and the other two are discouraging.
+- id: de2-q-0412
+  lesson: de2-wenn-als-ob
+  topic: Decisions and plans
+  stem: 'Which word fits? "Wir müssen unseren Plan ___, weil das Museum am Montag geschlossen ist."'
+  choices: ['wechseln', 'erreichen', 'ändern', 'aufgeben']
+  answer: 2
+  explanation: |-
+    ändern = to change something, to make it different. wechseln is for swapping one thing for another (die Stelle wechseln), erreichen means to reach, and aufgeben means to give up the plan completely.

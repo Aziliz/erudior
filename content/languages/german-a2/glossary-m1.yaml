@@ -1,0 +1,65 @@
+# German A2, module 1 glossary terms (lessons 01–04)
+- term: perfect tense
+  aliases: [perfect, Perfekt, present perfect, conversational past]
+  definition: 'The main past tense of spoken German: a present-tense form of haben or sein in position 2 plus a past participle at the end of the clause (Ich habe in Köln studiert. Wir sind 2010 umgezogen). It translates both "I studied" and "I have studied".'
+  topic: Past tenses
+- term: auxiliary verb
+  aliases: [auxiliary verbs, auxiliary, helping verb, Hilfsverb]
+  definition: 'A helper verb that combines with another verb to form a tense. In the perfect the auxiliary is haben or sein; it takes the person ending and stands in position 2 (or last of all in a subordinate clause: weil ich gegessen habe).'
+  topic: Past tenses
+- term: past participle
+  aliases: [past participles, participle, participles, Partizip II, Partizip]
+  definition: 'The verb form used in the perfect, placed at the end of the clause: gemacht, gesehen, aufgewachsen. Most participles have ge-; verbs with an inseparable prefix and verbs in -ieren do not (verstanden, studiert).'
+  topic: Past tenses
+- term: sentence bracket
+  aliases: [verb bracket, Satzklammer, verbal bracket]
+  definition: 'The German pattern that splits the verb into two parts: the conjugated verb in position 2 and the rest (an infinitive, a separable prefix or a participle) at the end, with everything else in between: Ich habe 2018 in Polen geheiratet.'
+  topic: Word order
+- term: weak verb
+  aliases: [weak verbs, regular verb, regular verbs]
+  definition: 'A regular verb whose stem does not change. Its past participle is ge- + stem + -t (gemacht, geheiratet) and its simple past adds -te (machte, heiratete). Most German verbs are weak.'
+  topic: Past tenses
+- term: strong verb
+  aliases: [strong verbs, irregular verb, irregular verbs]
+  definition: 'A verb that changes its stem vowel in the past. Its participle ends in -en (geschrieben, gefunden) and its simple past has a new vowel and no ending in the ich and er forms (schrieb, fand). The forms have to be learned with the verb.'
+  topic: Past tenses
+- term: mixed verb
+  aliases: [mixed verbs]
+  definition: 'A verb that changes its vowel like a strong verb but ends in -t like a weak verb: bringen – brachte – gebracht, denken – dachte – gedacht, kennen – kannte – gekannt, wissen – wusste – gewusst, nennen – nannte – genannt, rennen – rannte – gerannt.'
+  topic: Past tenses
+- term: separable verb
+  aliases: [separable verbs, trennbares Verb, separable prefix, separable prefixes]
+  definition: 'A verb with a stressed prefix (auf-, an-, um-, mit- …) that splits off and goes to the end of a main clause: Ich stehe früh auf. In the participle -ge- goes between prefix and verb (aufgewachsen), and in a subordinate clause the verb joins up again at the end (weil ich früh aufstehe).'
+  topic: Verbs
+- term: inseparable prefix
+  aliases: [inseparable prefixes, inseparable verb, inseparable verbs, untrennbares Verb]
+  definition: 'One of the seven unstressed prefixes be-, emp-, ent-, er-, ge-, ver- and zer-, which never separate from their verb. Verbs with these prefixes take no ge- in the past participle: bekommen, empfohlen, entschieden, erlebt, gehört, verlassen, zerstört.'
+  topic: Verbs
+- term: simple past
+  aliases: [Präteritum, preterite, simple past tense, imperfect, Imperfekt]
+  definition: 'The one-word past tense: ich war, ich hatte, ich konnte, er ging. It means the same as the perfect but is used mainly in writing and stories; in speech Germans use it for sein, haben, werden and the modal verbs. Weak verbs add -te (sagte), strong verbs change their vowel (ging).'
+  topic: Past tenses
+- term: main clause
+  aliases: [main clauses, Hauptsatz, independent clause]
+  definition: 'A clause that can stand alone as a sentence. In a German statement its conjugated verb is in position 2: Ich bleibe heute zu Hause.'
+  topic: Word order
+- term: subordinate clause
+  aliases: [subordinate clauses, Nebensatz, dependent clause]
+  definition: 'A clause that depends on a main clause and cannot stand alone, introduced by a word such as weil, dass, wenn, als, ob or a question word. Its conjugated verb goes to the end, and a comma separates it from the main clause: …, weil ich krank bin.'
+  topic: Word order
+- term: subordinating conjunction
+  aliases: [subordinating conjunctions, subjunction, Subjunktion]
+  definition: 'A word that starts a subordinate clause and sends the conjugated verb to the end: weil, dass, wenn, als, ob, falls. If the subordinate clause comes first, the main verb follows straight after the comma: Weil es regnet, bleibe ich zu Hause.'
+  topic: Conjunctions
+- term: coordinating conjunction
+  aliases: [coordinating conjunctions]
+  definition: 'A word that joins two main clauses without changing their word order: und, aber, oder, denn, sondern. It stands in position zero, so the verb stays in position 2: Ich bleibe zu Hause, denn ich bin krank.'
+  topic: Conjunctions
+- term: indirect question
+  aliases: [indirect questions, embedded question, indirekte Frage]
+  definition: 'A question inside another sentence: Können Sie mir sagen, wo der Bahnhof ist? It starts with a question word or, for a yes/no question, with ob, and the verb goes to the end. Indirect questions are a polite way of asking.'
+  topic: Word order
+- term: yes/no question
+  aliases: [yes/no questions, yes-no question, closed question]
+  definition: 'A question without a question word, which you answer with ja or nein. In a direct question the verb comes first (Kommst du morgen?); in an indirect one it starts with ob and the verb goes to the end (Ich weiß nicht, ob er morgen kommt).'
+  topic: Word order

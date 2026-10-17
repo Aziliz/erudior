@@ -1,0 +1,923 @@
+# German A2, module 3: Describing things (lessons 09–12)
+
+# --- 09 Adjective endings after ein, kein and mein (clothes) ---
+- id: kleidung
+  lesson: de2-adj-indef
+  term: die Kleidung
+  pos: noun
+  plural: —
+  meanings: [clothes, clothing]
+  example: Für den Urlaub brauche ich leichte Kleidung.
+  exampleEn: I need light clothes for the holiday.
+- id: kleid
+  lesson: de2-adj-indef
+  term: das Kleid
+  pos: noun
+  plural: die Kleider
+  meanings: [dress]
+  example: Sie trägt ein langes, rotes Kleid.
+  exampleEn: She's wearing a long red dress.
+- id: rock
+  lesson: de2-adj-indef
+  term: der Rock
+  pos: noun
+  plural: die Röcke
+  meanings: [skirt]
+  example: Der Rock ist mir zu kurz.
+  exampleEn: The skirt is too short for me.
+- id: hose
+  lesson: de2-adj-indef
+  term: die Hose
+  pos: noun
+  plural: die Hosen
+  meanings: [trousers, pants, pair of trousers]
+  example: Ich brauche eine neue Hose für die Arbeit.
+  exampleEn: I need new trousers for work.
+  note: 'Singular in German: eine Hose = one pair of trousers.'
+- id: jeans
+  lesson: de2-adj-indef
+  term: die Jeans
+  pos: noun
+  plural: die Jeans
+  meanings: [jeans]
+  example: Am Wochenende trage ich meistens eine alte Jeans.
+  exampleEn: At the weekend I usually wear old jeans.
+  note: 'Used as singular (eine Jeans) or plural.'
+- id: hemd
+  lesson: de2-adj-indef
+  term: das Hemd
+  pos: noun
+  plural: die Hemden
+  meanings: [shirt]
+  example: Mein Vater trägt jeden Tag ein weißes Hemd.
+  exampleEn: My father wears a white shirt every day.
+- id: bluse
+  lesson: de2-adj-indef
+  term: die Bluse
+  pos: noun
+  plural: die Blusen
+  meanings: [blouse]
+  example: Die gestreifte Bluse passt gut zu dem Rock.
+  exampleEn: The striped blouse goes well with the skirt.
+- id: t-shirt
+  lesson: de2-adj-indef
+  term: das T-Shirt
+  pos: noun
+  plural: die T-Shirts
+  meanings: [T-shirt, tee shirt, t shirt]
+  example: Im Sommer trage ich nur T-Shirts.
+  exampleEn: In summer I only wear T-shirts.
+- id: pullover
+  lesson: de2-adj-indef
+  term: der Pullover
+  pos: noun
+  plural: die Pullover
+  alt: [der Pulli]
+  meanings: [jumper, sweater, pullover]
+  example: Nimm einen warmen Pullover mit, es wird kalt.
+  exampleEn: Take a warm jumper with you, it's getting cold.
+- id: jacke
+  lesson: de2-adj-indef
+  term: die Jacke
+  pos: noun
+  plural: die Jacken
+  meanings: [jacket]
+  example: Wo ist meine schwarze Jacke?
+  exampleEn: Where's my black jacket?
+- id: mantel
+  lesson: de2-adj-indef
+  term: der Mantel
+  pos: noun
+  plural: die Mäntel
+  meanings: [coat, overcoat]
+  example: Im Winter braucht man einen dicken Mantel.
+  exampleEn: In winter you need a thick coat.
+- id: anzug
+  lesson: de2-adj-indef
+  term: der Anzug
+  pos: noun
+  plural: die Anzüge
+  meanings: [suit]
+  example: Zur Hochzeit trägt er einen dunklen Anzug.
+  exampleEn: He's wearing a dark suit to the wedding.
+- id: schuh
+  lesson: de2-adj-indef
+  term: der Schuh
+  pos: noun
+  plural: die Schuhe
+  meanings: [shoe]
+  example: Diese Schuhe sind sehr bequem.
+  exampleEn: These shoes are very comfortable.
+- id: stiefel
+  lesson: de2-adj-indef
+  term: der Stiefel
+  pos: noun
+  plural: die Stiefel
+  meanings: [boot]
+  example: Für den Schnee brauchst du Stiefel.
+  exampleEn: You need boots for the snow.
+- id: socke
+  lesson: de2-adj-indef
+  term: die Socke
+  pos: noun
+  plural: die Socken
+  meanings: [sock]
+  example: Ich finde nur eine Socke!
+  exampleEn: I can only find one sock!
+- id: hut
+  lesson: de2-adj-indef
+  term: der Hut
+  pos: noun
+  plural: die Hüte
+  meanings: [hat (with a brim), hat]
+  example: Mein Opa trägt immer einen grauen Hut.
+  exampleEn: My grandad always wears a grey hat.
+- id: muetze
+  lesson: de2-adj-indef
+  term: die Mütze
+  pos: noun
+  plural: die Mützen
+  meanings: [woolly hat, cap, beanie, hat (soft)]
+  example: Zieh eine Mütze an, es ist kalt draußen.
+  exampleEn: Put a woolly hat on, it's cold outside.
+- id: schal
+  lesson: de2-adj-indef
+  term: der Schal
+  pos: noun
+  plural: die Schals
+  meanings: [scarf]
+  example: Der karierte Schal ist ein Geschenk von meiner Oma.
+  exampleEn: The checked scarf is a present from my grandma.
+- id: handschuh
+  lesson: de2-adj-indef
+  term: der Handschuh
+  pos: noun
+  plural: die Handschuhe
+  meanings: [glove]
+  example: Ich habe meine Handschuhe im Bus vergessen.
+  exampleEn: I left my gloves on the bus.
+- id: guertel
+  lesson: de2-adj-indef
+  term: der Gürtel
+  pos: noun
+  plural: die Gürtel
+  meanings: [belt]
+  example: Die Hose ist zu weit, ich brauche einen Gürtel.
+  exampleEn: The trousers are too loose, I need a belt.
+- id: groesse
+  lesson: de2-adj-indef
+  term: die Größe
+  pos: noun
+  plural: die Größen
+  meanings: [size]
+  example: Haben Sie die Jacke auch in Größe 42?
+  exampleEn: Do you have the jacket in size 42 too?
+- id: mode
+  lesson: de2-adj-indef
+  term: die Mode
+  pos: noun
+  plural: die Moden
+  meanings: [fashion]
+  example: Meine Schwester interessiert sich sehr für Mode.
+  exampleEn: My sister is very interested in fashion.
+- id: tragen
+  lesson: de2-adj-indef
+  term: tragen
+  pos: verb
+  meanings: [to wear, to carry]
+  example: Was trägst du heute Abend?
+  exampleEn: What are you wearing this evening?
+  note: 'Stem change: du trägst, er trägt. Perfect: hat getragen.'
+- id: anprobieren
+  lesson: de2-adj-indef
+  term: anprobieren
+  pos: verb
+  meanings: [to try on]
+  example: Darf ich die Hose anprobieren?
+  exampleEn: May I try the trousers on?
+  note: 'Separable: ich probiere die Hose an. Perfect: hat anprobiert.'
+- id: eng
+  lesson: de2-adj-indef
+  term: eng
+  pos: adjective
+  meanings: [tight, narrow]
+  example: Die Schuhe sind leider zu eng.
+  exampleEn: Unfortunately the shoes are too tight.
+- id: bequem
+  lesson: de2-adj-indef
+  term: bequem
+  pos: adjective
+  meanings: [comfortable, comfy]
+  example: Zu Hause trage ich gern bequeme Kleidung.
+  exampleEn: At home I like wearing comfortable clothes.
+- id: modisch
+  lesson: de2-adj-indef
+  term: modisch
+  pos: adjective
+  meanings: [fashionable, stylish, trendy]
+  example: Das ist ein sehr modischer Mantel.
+  exampleEn: That's a very fashionable coat.
+- id: gestreift
+  lesson: de2-adj-indef
+  term: gestreift
+  pos: adjective
+  meanings: [striped]
+  example: Er trägt ein blau-weiß gestreiftes Hemd.
+  exampleEn: He's wearing a blue and white striped shirt.
+- id: kariert
+  lesson: de2-adj-indef
+  term: kariert
+  pos: adjective
+  meanings: [checked, checkered, plaid, chequered]
+  example: Ich suche einen karierten Rock.
+  exampleEn: I'm looking for a checked skirt.
+- id: bunt
+  lesson: de2-adj-indef
+  term: bunt
+  pos: adjective
+  meanings: [colourful, multicoloured, colorful]
+  example: Kinder tragen oft bunte Mützen.
+  exampleEn: Children often wear colourful woolly hats.
+
+# --- 10 Adjective endings after der, dieser and welcher (department store) ---
+- id: kaufhaus
+  lesson: de2-adj-def
+  term: das Kaufhaus
+  pos: noun
+  plural: die Kaufhäuser
+  meanings: [department store]
+  example: Das Kaufhaus hat sechs Stockwerke.
+  exampleEn: The department store has six floors.
+- id: abteilung
+  lesson: de2-adj-def
+  term: die Abteilung
+  pos: noun
+  plural: die Abteilungen
+  meanings: [department]
+  example: Die Schuhabteilung ist im ersten Stock.
+  exampleEn: The shoe department is on the first floor.
+- id: erdgeschoss
+  lesson: de2-adj-def
+  term: das Erdgeschoss
+  pos: noun
+  plural: die Erdgeschosse
+  alt: [das Erdgeschoß]
+  meanings: [ground floor, first floor (US)]
+  example: Die Kasse ist im Erdgeschoss.
+  exampleEn: The till is on the ground floor.
+  note: 'Austrian spelling: das Erdgeschoß.'
+- id: rolltreppe
+  lesson: de2-adj-def
+  term: die Rolltreppe
+  pos: noun
+  plural: die Rolltreppen
+  meanings: [escalator]
+  example: Die Rolltreppe ist leider kaputt.
+  exampleEn: Unfortunately the escalator is out of order.
+- id: aufzug
+  lesson: de2-adj-def
+  term: der Aufzug
+  pos: noun
+  plural: die Aufzüge
+  alt: [der Lift, der Fahrstuhl]
+  meanings: [lift, elevator]
+  example: Mit dem Kinderwagen nehmen wir lieber den Aufzug.
+  exampleEn: With the pram we'd rather take the lift.
+- id: umkleidekabine
+  lesson: de2-adj-def
+  term: die Umkleidekabine
+  pos: noun
+  plural: die Umkleidekabinen
+  meanings: [changing room, fitting room]
+  example: Die Umkleidekabinen sind dort hinten links.
+  exampleEn: The changing rooms are back there on the left.
+- id: kunde
+  lesson: de2-adj-def
+  term: der Kunde
+  pos: noun
+  plural: die Kunden
+  meanings: [customer (male), customer, client]
+  example: Der Kunde möchte mit dem Chef sprechen.
+  exampleEn: The customer would like to speak to the manager.
+  note: 'Adds -n in every form except the nominative singular: den Kunden, dem Kunden.'
+- id: kundin
+  lesson: de2-adj-def
+  term: die Kundin
+  pos: noun
+  plural: die Kundinnen
+  meanings: [customer (female), customer, client]
+  example: Eine Kundin sucht die Umkleidekabine.
+  exampleEn: A customer is looking for the changing room.
+- id: marke
+  lesson: de2-adj-def
+  term: die Marke
+  pos: noun
+  plural: die Marken
+  meanings: [brand, make]
+  example: Welche Marke ist das?
+  exampleEn: What brand is that?
+- id: rabatt
+  lesson: de2-adj-def
+  term: der Rabatt
+  pos: noun
+  plural: die Rabatte
+  meanings: [discount, reduction]
+  example: Heute gibt es zwanzig Prozent Rabatt auf alle Schuhe.
+  exampleEn: Today there's twenty per cent off all shoes.
+- id: reduziert
+  lesson: de2-adj-def
+  term: reduziert
+  pos: adjective
+  meanings: [reduced, on sale, marked down]
+  example: Die reduzierten Pullover liegen vorne am Eingang.
+  exampleEn: The reduced jumpers are at the front by the entrance.
+- id: guenstig
+  lesson: de2-adj-def
+  term: günstig
+  pos: adjective
+  meanings: [good value, cheap, inexpensive, reasonably priced, affordable]
+  example: Das Hemd war sehr günstig, nur zwölf Euro.
+  exampleEn: The shirt was very good value, only twelve euros.
+- id: tuete
+  lesson: de2-adj-def
+  term: die Tüte
+  pos: noun
+  plural: die Tüten
+  meanings: ['bag (paper or plastic, from a shop)', carrier bag, plastic bag, paper bag, bag]
+  example: Brauchen Sie eine Tüte?
+  exampleEn: Do you need a bag?
+- id: quittung
+  lesson: de2-adj-def
+  term: die Quittung
+  pos: noun
+  plural: die Quittungen
+  meanings: [receipt]
+  example: Bitte heben Sie die Quittung gut auf.
+  exampleEn: Please keep the receipt safe.
+- id: kassenzettel
+  lesson: de2-adj-def
+  term: der Kassenzettel
+  pos: noun
+  plural: die Kassenzettel
+  alt: [der Kassenbon, der Bon]
+  meanings: [till receipt, receipt, sales slip]
+  example: Ohne Kassenzettel können wir die Hose nicht umtauschen.
+  exampleEn: We can't exchange the trousers without the receipt.
+- id: umtauschen
+  lesson: de2-adj-def
+  term: umtauschen
+  pos: verb
+  meanings: [to exchange (for something else), to exchange, to swap, to change]
+  example: Kann ich diese Schuhe umtauschen? Sie sind zu klein.
+  exampleEn: Can I exchange these shoes? They're too small.
+  note: 'Separable: ich tausche die Schuhe um. Perfect: hat umgetauscht.'
+- id: zurueckgeben
+  lesson: de2-adj-def
+  term: zurückgeben
+  pos: verb
+  meanings: [to give back, to return (something)]
+  example: Ich gebe dir das Buch morgen zurück.
+  exampleEn: I'll give you the book back tomorrow.
+  note: 'Separable, with the stem change of geben: du gibst zurück, er gibt zurück. Perfect: hat zurückgegeben.'
+- id: reklamieren
+  lesson: de2-adj-def
+  term: reklamieren
+  pos: verb
+  meanings: [to complain about (a faulty product), to make a complaint, to complain]
+  example: Der Drucker funktioniert nicht, ich muss ihn reklamieren.
+  exampleEn: The printer doesn't work, I'll have to take it back and complain.
+  note: 'Perfect: hat reklamiert (no ge-).'
+- id: garantie
+  lesson: de2-adj-def
+  term: die Garantie
+  pos: noun
+  plural: die Garantien
+  meanings: [guarantee, warranty]
+  example: Auf den Fernseher gibt es zwei Jahre Garantie.
+  exampleEn: The TV has a two-year guarantee.
+- id: material
+  lesson: de2-adj-def
+  term: das Material
+  pos: noun
+  plural: die Materialien
+  meanings: [material]
+  example: Aus welchem Material ist die Tasche?
+  exampleEn: What material is the bag made of?
+- id: baumwolle
+  lesson: de2-adj-def
+  term: die Baumwolle
+  pos: noun
+  plural: —
+  meanings: [cotton]
+  example: Das T-Shirt ist aus hundert Prozent Baumwolle.
+  exampleEn: The T-shirt is a hundred per cent cotton.
+- id: wolle
+  lesson: de2-adj-def
+  term: die Wolle
+  pos: noun
+  plural: —
+  meanings: [wool]
+  example: Ein Pullover aus Wolle ist schön warm.
+  exampleEn: A wool jumper is nice and warm.
+- id: leder
+  lesson: de2-adj-def
+  term: das Leder
+  pos: noun
+  plural: —
+  meanings: [leather]
+  example: Die Jacke ist aus echtem Leder.
+  exampleEn: The jacket is made of real leather.
+- id: holz
+  lesson: de2-adj-def
+  term: das Holz
+  pos: noun
+  plural: die Hölzer
+  meanings: [wood (the material), wood, timber]
+  example: Unser Esstisch ist aus Holz.
+  exampleEn: Our dining table is made of wood.
+- id: metall
+  lesson: de2-adj-def
+  term: das Metall
+  pos: noun
+  plural: die Metalle
+  meanings: [metal]
+  example: Der Stuhl ist aus Metall und sehr schwer.
+  exampleEn: The chair is made of metal and very heavy.
+- id: plastik
+  lesson: de2-adj-def
+  term: das Plastik
+  pos: noun
+  plural: —
+  meanings: [plastic]
+  example: Wir kaufen weniger Sachen aus Plastik.
+  exampleEn: We buy fewer things made of plastic.
+- id: glas
+  lesson: de2-adj-def
+  term: das Glas
+  pos: noun
+  plural: die Gläser
+  meanings: [glass]
+  example: Kann ich bitte ein Glas Wasser haben?
+  exampleEn: Can I have a glass of water, please?
+  note: 'Both the material (aus Glas) and a drinking glass.'
+
+# --- 11 Adjectives without an article (food and cooking) ---
+- id: rezept
+  lesson: de2-adj-no-article
+  term: das Rezept
+  pos: noun
+  plural: die Rezepte
+  meanings: [recipe]
+  example: Das Rezept ist von meiner Oma.
+  exampleEn: The recipe is from my grandma.
+  note: 'Also a doctor''s prescription.'
+- id: zutat
+  lesson: de2-adj-no-article
+  term: die Zutat
+  pos: noun
+  plural: die Zutaten
+  meanings: [ingredient]
+  example: Für diesen Kuchen brauchst du nur vier Zutaten.
+  exampleEn: You only need four ingredients for this cake.
+- id: braten
+  lesson: de2-adj-no-article
+  term: braten
+  pos: verb
+  meanings: [to fry, to roast]
+  example: Er brät die Kartoffeln in der Pfanne.
+  exampleEn: He's frying the potatoes in the pan.
+  note: 'Stem change: du brätst, er brät. Perfect: hat gebraten.'
+- id: backen
+  lesson: de2-adj-no-article
+  term: backen
+  pos: verb
+  meanings: [to bake]
+  example: Am Sonntag backen wir einen Apfelkuchen.
+  exampleEn: On Sunday we're baking an apple cake.
+  note: 'du backst / bäckst, er backt / bäckt. Perfect: hat gebacken.'
+- id: schneiden
+  lesson: de2-adj-no-article
+  term: schneiden
+  pos: verb
+  meanings: [to cut, to slice, to chop]
+  example: Kannst du bitte das Brot schneiden?
+  exampleEn: Can you cut the bread, please?
+  note: 'Perfect: hat geschnitten.'
+- id: schaelen
+  lesson: de2-adj-no-article
+  term: schälen
+  pos: verb
+  meanings: [to peel]
+  example: Zuerst schälst du die Kartoffeln.
+  exampleEn: First you peel the potatoes.
+- id: probieren
+  lesson: de2-adj-no-article
+  term: probieren
+  pos: verb
+  meanings: [to taste, to try (food), to try]
+  example: Probier mal die Soße! Ist sie zu scharf?
+  exampleEn: Taste the sauce! Is it too spicy?
+  note: 'Perfect: hat probiert. For clothes: anprobieren.'
+- id: topf
+  lesson: de2-adj-no-article
+  term: der Topf
+  pos: noun
+  plural: die Töpfe
+  meanings: [pot, saucepan, pan (for boiling)]
+  example: Die Nudeln kochen in einem großen Topf.
+  exampleEn: The pasta is cooking in a big pot.
+- id: pfanne
+  lesson: de2-adj-no-article
+  term: die Pfanne
+  pos: noun
+  plural: die Pfannen
+  meanings: [frying pan, pan, skillet]
+  example: Die Pfanne ist sehr heiß, Vorsicht!
+  exampleEn: The frying pan is very hot, careful!
+- id: teller
+  lesson: de2-adj-no-article
+  term: der Teller
+  pos: noun
+  plural: die Teller
+  meanings: [plate]
+  example: Stell bitte vier Teller auf den Tisch.
+  exampleEn: Put four plates on the table, please.
+- id: tasse
+  lesson: de2-adj-no-article
+  term: die Tasse
+  pos: noun
+  plural: die Tassen
+  meanings: [cup, mug]
+  example: Möchtest du eine Tasse Tee?
+  exampleEn: Would you like a cup of tea?
+- id: loeffel
+  lesson: de2-adj-no-article
+  term: der Löffel
+  pos: noun
+  plural: die Löffel
+  meanings: [spoon]
+  example: Für die Suppe brauchst du einen Löffel.
+  exampleEn: You need a spoon for the soup.
+- id: gabel
+  lesson: de2-adj-no-article
+  term: die Gabel
+  pos: noun
+  plural: die Gabeln
+  meanings: [fork]
+  example: Entschuldigung, mir fehlt eine Gabel.
+  exampleEn: Excuse me, I don't have a fork.
+- id: messer
+  lesson: de2-adj-no-article
+  term: das Messer
+  pos: noun
+  plural: die Messer
+  meanings: [knife]
+  example: Dieses Messer ist nicht scharf genug.
+  exampleEn: This knife isn't sharp enough.
+- id: salz
+  lesson: de2-adj-no-article
+  term: das Salz
+  pos: noun
+  plural: —
+  meanings: [salt]
+  example: Die Suppe braucht noch ein bisschen Salz.
+  exampleEn: The soup needs a bit more salt.
+- id: pfeffer
+  lesson: de2-adj-no-article
+  term: der Pfeffer
+  pos: noun
+  plural: —
+  meanings: [pepper (the spice), pepper]
+  example: Gibst du mir bitte den Pfeffer?
+  exampleEn: Can you pass me the pepper, please?
+- id: zucker
+  lesson: de2-adj-no-article
+  term: der Zucker
+  pos: noun
+  plural: —
+  meanings: [sugar]
+  example: Ich trinke Kaffee ohne Zucker.
+  exampleEn: I drink coffee without sugar.
+- id: oel
+  lesson: de2-adj-no-article
+  term: das Öl
+  pos: noun
+  plural: die Öle
+  alt: [das Oel]
+  meanings: [oil]
+  example: Gib etwas Öl in die Pfanne.
+  exampleEn: Put a little oil in the pan.
+- id: suess
+  lesson: de2-adj-no-article
+  term: süß
+  pos: adjective
+  meanings: [sweet, cute]
+  example: Der Nachtisch ist mir zu süß.
+  exampleEn: The dessert is too sweet for me.
+- id: sauer
+  lesson: de2-adj-no-article
+  term: sauer
+  pos: adjective
+  meanings: [sour, cross (informal), annoyed]
+  example: Die Äpfel sind noch sehr sauer.
+  exampleEn: The apples are still very sour.
+  note: 'Drops the e before an ending: saure Gurken. Informally also "annoyed": Bist du sauer?'
+- id: salzig
+  lesson: de2-adj-no-article
+  term: salzig
+  pos: adjective
+  meanings: [salty, savoury]
+  example: Die Pommes sind viel zu salzig.
+  exampleEn: The chips are far too salty.
+- id: scharf
+  lesson: de2-adj-no-article
+  term: scharf
+  pos: adjective
+  meanings: [spicy, hot (spicy), sharp]
+  example: Ich esse gern scharfes Essen.
+  exampleEn: I like eating spicy food.
+- id: frisch
+  lesson: de2-adj-no-article
+  term: frisch
+  pos: adjective
+  meanings: [fresh]
+  example: Auf dem Markt gibt es frisches Gemüse.
+  exampleEn: There are fresh vegetables at the market.
+- id: speisekarte
+  lesson: de2-adj-no-article
+  term: die Speisekarte
+  pos: noun
+  plural: die Speisekarten
+  meanings: [menu]
+  example: Können wir bitte die Speisekarte haben?
+  exampleEn: Could we have the menu, please?
+- id: vorspeise
+  lesson: de2-adj-no-article
+  term: die Vorspeise
+  pos: noun
+  plural: die Vorspeisen
+  meanings: [starter, appetizer, first course]
+  example: Als Vorspeise nehme ich einen kleinen Salat.
+  exampleEn: As a starter I'll have a small salad.
+- id: hauptspeise
+  lesson: de2-adj-no-article
+  term: die Hauptspeise
+  pos: noun
+  plural: die Hauptspeisen
+  alt: [das Hauptgericht]
+  meanings: [main course, main dish, entree]
+  example: Als Hauptspeise gibt es heute Fisch mit Reis.
+  exampleEn: Today the main course is fish with rice.
+- id: nachtisch
+  lesson: de2-adj-no-article
+  term: der Nachtisch
+  pos: noun
+  plural: die Nachtische
+  alt: [die Nachspeise, das Dessert]
+  meanings: [dessert, pudding, sweet]
+  example: Zum Nachtisch gibt es Eis.
+  exampleEn: There's ice cream for dessert.
+- id: bestellen
+  lesson: de2-adj-no-article
+  term: bestellen
+  pos: verb
+  meanings: [to order]
+  example: Wir möchten bitte bestellen.
+  exampleEn: We'd like to order, please.
+  note: 'Perfect: hat bestellt (inseparable).'
+- id: rechnung
+  lesson: de2-adj-no-article
+  term: die Rechnung
+  pos: noun
+  plural: die Rechnungen
+  meanings: [bill, check, invoice]
+  example: Die Rechnung, bitte!
+  exampleEn: The bill, please!
+- id: trinkgeld
+  lesson: de2-adj-no-article
+  term: das Trinkgeld
+  pos: noun
+  plural: die Trinkgelder
+  meanings: [tip (money), tip, gratuity]
+  example: Wie viel Trinkgeld gibt man in Deutschland?
+  exampleEn: How much do you tip in Germany?
+
+# --- 12 Comparing (town and country) ---
+- id: grossstadt
+  lesson: de2-comparison
+  term: die Großstadt
+  pos: noun
+  plural: die Großstädte
+  meanings: [big city, city, large city]
+  example: In der Großstadt ist immer etwas los.
+  exampleEn: There's always something going on in the big city.
+- id: hauptstadt
+  lesson: de2-comparison
+  term: die Hauptstadt
+  pos: noun
+  plural: die Hauptstädte
+  meanings: [capital (city), capital, capital city]
+  example: Wien ist die Hauptstadt von Österreich.
+  exampleEn: Vienna is the capital of Austria.
+- id: einwohner
+  lesson: de2-comparison
+  term: der Einwohner
+  pos: noun
+  plural: die Einwohner
+  meanings: [inhabitant, resident]
+  example: Unser Dorf hat nur 800 Einwohner.
+  exampleEn: Our village has only 800 inhabitants.
+  note: 'Female: die Einwohnerin.'
+- id: gegend
+  lesson: de2-comparison
+  term: die Gegend
+  pos: noun
+  plural: die Gegenden
+  meanings: [area, region, neighbourhood, district]
+  example: Das ist eine ruhige Gegend.
+  exampleEn: It's a quiet area.
+- id: umgebung
+  lesson: de2-comparison
+  term: die Umgebung
+  pos: noun
+  plural: die Umgebungen
+  meanings: [surroundings, surrounding area, environs, vicinity]
+  example: In der Umgebung von München gibt es viele Seen.
+  exampleEn: There are lots of lakes in the area around Munich.
+- id: landschaft
+  lesson: de2-comparison
+  term: die Landschaft
+  pos: noun
+  plural: die Landschaften
+  meanings: [landscape, countryside, scenery]
+  example: Die Landschaft in den Alpen ist wunderschön.
+  exampleEn: The scenery in the Alps is beautiful.
+- id: grenze
+  lesson: de2-comparison
+  term: die Grenze
+  pos: noun
+  plural: die Grenzen
+  meanings: [border, limit, frontier]
+  example: Basel liegt direkt an der Grenze.
+  exampleEn: Basel is right on the border.
+- id: wald
+  lesson: de2-comparison
+  term: der Wald
+  pos: noun
+  plural: die Wälder
+  meanings: [forest, woods, wood (forest)]
+  example: Am Sonntag gehen wir im Wald spazieren.
+  exampleEn: On Sunday we go for a walk in the woods.
+- id: wiese
+  lesson: de2-comparison
+  term: die Wiese
+  pos: noun
+  plural: die Wiesen
+  meanings: [meadow, field (of grass), lawn]
+  example: Die Kinder spielen auf der Wiese.
+  exampleEn: The children are playing in the meadow.
+- id: feld
+  lesson: de2-comparison
+  term: das Feld
+  pos: noun
+  plural: die Felder
+  meanings: [field (for crops), field]
+  example: Hinter dem Dorf liegen große Felder.
+  exampleEn: There are big fields behind the village.
+- id: bauernhof
+  lesson: de2-comparison
+  term: der Bauernhof
+  pos: noun
+  plural: die Bauernhöfe
+  meanings: [farm]
+  example: Im Urlaub wohnen wir auf einem Bauernhof.
+  exampleEn: On holiday we stay on a farm.
+- id: huegel
+  lesson: de2-comparison
+  term: der Hügel
+  pos: noun
+  plural: die Hügel
+  meanings: [hill]
+  example: Von dem Hügel sieht man die ganze Stadt.
+  exampleEn: You can see the whole town from the hill.
+- id: tal
+  lesson: de2-comparison
+  term: das Tal
+  pos: noun
+  plural: die Täler
+  meanings: [valley]
+  example: Das Dorf liegt in einem engen Tal.
+  exampleEn: The village lies in a narrow valley.
+- id: ufer
+  lesson: de2-comparison
+  term: das Ufer
+  pos: noun
+  plural: die Ufer
+  meanings: [bank (of a river), shore, bank]
+  example: Wir machen ein Picknick am Ufer.
+  exampleEn: We're having a picnic on the bank.
+- id: kueste
+  lesson: de2-comparison
+  term: die Küste
+  pos: noun
+  plural: die Küsten
+  meanings: [coast, seaside]
+  example: Im Sommer fahren viele Familien an die Küste.
+  exampleEn: In summer lots of families go to the coast.
+- id: norden
+  lesson: de2-comparison
+  term: der Norden
+  pos: noun
+  plural: —
+  meanings: [north, the north]
+  example: Hamburg liegt im Norden von Deutschland.
+  exampleEn: Hamburg is in the north of Germany.
+- id: sueden
+  lesson: de2-comparison
+  term: der Süden
+  pos: noun
+  plural: —
+  meanings: [south, the south]
+  example: Im Süden ist es oft wärmer.
+  exampleEn: It's often warmer in the south.
+- id: osten
+  lesson: de2-comparison
+  term: der Osten
+  pos: noun
+  plural: —
+  meanings: [east, the east]
+  example: Die Sonne geht im Osten auf.
+  exampleEn: The sun rises in the east.
+- id: westen
+  lesson: de2-comparison
+  term: der Westen
+  pos: noun
+  plural: —
+  meanings: [west, the west]
+  example: Der Wind kommt heute aus dem Westen.
+  exampleEn: The wind is coming from the west today.
+- id: hoch
+  lesson: de2-comparison
+  term: hoch
+  pos: adjective
+  meanings: [high, tall]
+  example: Der Turm ist hundert Meter hoch.
+  exampleEn: The tower is a hundred metres high.
+  note: 'Before a noun: hoh- (ein hoher Berg). höher, am höchsten.'
+- id: tief
+  lesson: de2-comparison
+  term: tief
+  pos: adjective
+  meanings: [deep, low]
+  example: Der See ist hier sehr tief.
+  exampleEn: The lake is very deep here.
+- id: breit
+  lesson: de2-comparison
+  term: breit
+  pos: adjective
+  meanings: [wide, broad]
+  example: Die Straße ist breit genug für zwei Busse.
+  exampleEn: The road is wide enough for two buses.
+- id: schmal
+  lesson: de2-comparison
+  term: schmal
+  pos: adjective
+  meanings: [narrow, thin, slim]
+  example: Ein schmaler Weg führt zum Fluss.
+  exampleEn: A narrow path leads to the river.
+- id: flach
+  lesson: de2-comparison
+  term: flach
+  pos: adjective
+  meanings: [flat (level), flat, shallow, level]
+  example: Norddeutschland ist sehr flach.
+  exampleEn: Northern Germany is very flat.
+- id: gefaehrlich
+  lesson: de2-comparison
+  term: gefährlich
+  pos: adjective
+  meanings: [dangerous]
+  example: Schwimmen ist hier gefährlich.
+  exampleEn: Swimming is dangerous here.
+- id: sauber
+  lesson: de2-comparison
+  term: sauber
+  pos: adjective
+  meanings: [clean]
+  example: Das Wasser im See ist sehr sauber.
+  exampleEn: The water in the lake is very clean.
+- id: schmutzig
+  lesson: de2-comparison
+  term: schmutzig
+  pos: adjective
+  meanings: [dirty]
+  example: Nach dem Spiel sind die Schuhe ganz schmutzig.
+  exampleEn: After the game the shoes are all dirty.
+- id: mehr
+  lesson: de2-comparison
+  term: mehr
+  pos: adverb
+  meanings: [more]
+  example: Auf dem Land hat man mehr Platz.
+  exampleEn: You have more space in the country.
+  note: 'Comparative of viel; never takes an ending. am meisten = the most.'

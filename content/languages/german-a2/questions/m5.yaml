@@ -1,0 +1,409 @@
+# German A2, module 5: Work, learning and services (lessons 17–20)
+
+# --- 17 At work; zu + infinitive ---
+- id: de2-q-1701
+  lesson: de2-work
+  module_quiz: true
+  topic: Infinitive with zu
+  stem: 'Complete: "Ich habe heute keine Zeit, ins Kino ___."'
+  choices: ['zu gehen', 'gehen', 'zu geht', 'gehen zu']
+  answer: 0
+  explanation: |-
+    After "keine Zeit haben" the second verb goes to the end with zu in front: ins Kino zu gehen. "gehen" without zu is only right after a modal verb (Ich kann ins Kino gehen), and zu always comes before the verb, never after it.
+- id: de2-q-1702
+  lesson: de2-work
+  module_quiz: true
+  topic: Infinitive with zu
+  stem: 'Complete: "Vergiss nicht, die Kundin ___!" (anrufen)'
+  choices: ['zu anrufen', 'anzurufen', 'anrufen', 'an zu rufen']
+  answer: 1
+  explanation: |-
+    With a separable verb, zu goes between the prefix and the verb, written as one word: anzurufen. "zu anrufen" puts zu in front as with ordinary verbs, and "an zu rufen" splits it into three words.
+- id: de2-q-1703
+  lesson: de2-work
+  topic: Infinitive with zu
+  stem: 'Which sentence is correct?'
+  choices: ['Ich muss morgen zu arbeiten.', 'Ich morgen muss arbeiten.', 'Ich muss morgen arbeiten.', 'Ich muss arbeiten morgen.']
+  answer: 2
+  explanation: |-
+    müssen is a modal verb, so the second verb goes to the end without zu: Ich muss morgen arbeiten. "zu arbeiten" adds a zu that modals never take; the other two break the verb-second rule or the bracket.
+- id: de2-q-1704
+  lesson: de2-work
+  topic: Infinitive with zu
+  stem: 'Complete: "Ich habe vor, ___ um die Stelle zu bewerben."'
+  choices: ['sich', 'mir', 'dich', 'mich']
+  answer: 3
+  explanation: |-
+    The reflexive pronoun in the infinitive clause matches the subject of the sentence, ich: mich zu bewerben. "sich" is the dictionary form (sich bewerben), a common slip; "mir" is dative.
+- id: de2-q-1705
+  lesson: de2-work
+  module_quiz: true
+  topic: Work
+  stem: 'Your colleague says: "Ich muss mich heute leider krankmelden." What does she mean?'
+  choices: ['She has to see a doctor today.', 'She is calling in sick today.', 'She is reporting a colleague who is ill.', 'She has to work although she is ill.']
+  answer: 1
+  explanation: |-
+    sich krankmelden means to tell your employer you are ill and won't come in: to call in sick. It doesn't say anything about seeing a doctor, and she is talking about herself (mich), not someone else.
+- id: de2-q-1706
+  lesson: de2-work
+  topic: Work
+  stem: 'Complete: "Sie bewirbt sich ___ eine Stelle als Verkäuferin."'
+  choices: ['für', 'auf', 'um', 'bei']
+  answer: 2
+  explanation: |-
+    You apply for a job with um: sich um eine Stelle bewerben. "für" is the English pattern ("apply for"). bei is used for the company: sich bei einer Bank bewerben.
+- id: de2-q-1707
+  lesson: de2-work
+  topic: Work
+  stem: 'Complete: "Mein Bruder ___ sich bei einer großen Firma."'
+  choices: ['bewirbt', 'bewerbt', 'bewirbst', 'bewerben']
+  answer: 0
+  explanation: |-
+    bewerben changes e to i in the du and er/sie/es forms: er bewirbt sich. "bewerbt" forgets the stem change, and "bewirbst" is the du form.
+- id: de2-q-1708
+  lesson: de2-work
+  module_quiz: true
+  topic: Infinitive with zu
+  stem: 'Which sentence correctly says "I hope the boss is coming"?'
+  choices: ['Ich hoffe, der Chef zu kommen.', 'Ich hoffe, dass kommt der Chef.', 'Ich hoffe, der Chef kommt zu.', 'Ich hoffe, dass der Chef kommt.']
+  answer: 3
+  explanation: |-
+    The person hoping (ich) and the person coming (der Chef) are different, so you need a dass clause with the verb at the end: dass der Chef kommt. zu + infinitive only works when both actions belong to the same subject.
+- id: de2-q-1709
+  lesson: de2-work
+  topic: Work
+  stem: 'Read the note on your desk: "Herr Vogel hat um 10 Uhr angerufen. Er ist für die neuen Verträge zuständig und bittet Sie, ihn heute noch zurückzurufen. Morgen ist er nicht im Büro." What should you do?'
+  choices: ['Send Herr Vogel the new contracts tomorrow.', 'Visit Herr Vogel in his office tomorrow.', 'Wait until Herr Vogel calls again.', 'Call Herr Vogel back today.']
+  answer: 3
+  explanation: |-
+    "bittet Sie, ihn heute noch zurückzurufen" means he asks you to call him back today. Tomorrow he isn't in the office, so waiting or visiting tomorrow won't work. He is in charge of the contracts (zuständig für), but he doesn't ask you to send them.
+- id: de2-q-1710
+  lesson: de2-work
+  topic: Phone calls
+  stem: 'You call a company. "Firma Lindner, guten Tag." – "Kann ich bitte Frau Roth sprechen?" – "Tut mir leid, sie ist gerade in einer Besprechung." What do you say next?'
+  choices: ['Könnten Sie ihr bitte sagen, dass ich angerufen habe?', 'Kann ich etwas ausrichten?', 'Ich verbinde Sie.', 'Vogel am Apparat.']
+  answer: 0
+  explanation: |-
+    As the caller you leave a message: Könnten Sie ihr bitte sagen, dass ich angerufen habe? "Kann ich etwas ausrichten?" (Can I take a message?) and "Ich verbinde Sie" are what the person answering says, and "Vogel am Apparat" is how you answer the phone.
+- id: de2-q-1711
+  lesson: de2-work
+  topic: Work
+  stem: 'What does "das Gehalt" mean?'
+  choices: ['contract', 'salary', 'meeting', 'overtime']
+  answer: 1
+  explanation: |-
+    das Gehalt is the salary you earn (plural die Gehälter). A contract is der Vertrag, a meeting die Besprechung and overtime die Überstunden.
+- id: de2-q-1712
+  lesson: de2-work
+  topic: Infinitive with zu
+  stem: 'Which sentence is correct?'
+  choices: ['Es ist wichtig, pünktlich sein.', 'Es ist wichtig, zu pünktlich sein.', 'Es ist wichtig, pünktlich zu sein.', 'Es ist wichtig, pünktlich zu sind.']
+  answer: 2
+  explanation: |-
+    After "es ist wichtig" the verb goes to the end as an infinitive with zu, and zu stands directly before it: pünktlich zu sein. Without zu the sentence is incomplete, "zu pünktlich" means "too punctual", and the verb after zu is always the infinitive (sein), never a conjugated form.
+
+# --- 18 School, courses and learning; whose is it? ---
+- id: de2-q-1801
+  lesson: de2-school-learning
+  module_quiz: true
+  topic: Possession
+  stem: 'How do you write "Anna''s book" in German? "___ Buch liegt auf dem Tisch."'
+  choices: ['Annas', 'Anna''s', 'Das Annas', 'Die Anna']
+  answer: 0
+  explanation: |-
+    With a name, German adds -s without an apostrophe and without an article: Annas Buch. "Anna's" copies English spelling, and "Das Annas Buch" adds an article that this form never takes.
+- id: de2-q-1802
+  lesson: de2-school-learning
+  module_quiz: true
+  topic: Possession
+  stem: 'Complete: "Das ist das Auto von ___ Bruder."'
+  choices: ['mein', 'meinen', 'meinem', 'meines']
+  answer: 2
+  explanation: |-
+    von always takes the dative, and Bruder is masculine: von meinem Bruder. "meinen" is accusative, and "meines" is the genitive form, which comes without von (das Auto meines Bruders).
+- id: de2-q-1803
+  lesson: de2-school-learning
+  topic: Possession
+  stem: 'The name Max ends in an s-sound. How do you write "Max''s bike"?'
+  choices: ['Maxs Fahrrad', 'Max'' Fahrrad', 'Max''s Fahrrad', 'das Max Fahrrad']
+  answer: 1
+  explanation: |-
+    When a name ends in s, ß, x or z, German writes an apostrophe instead of adding -s: Max' Fahrrad. In speech most people avoid it and say das Fahrrad von Max. "Max's" is the English spelling.
+- id: de2-q-1804
+  lesson: de2-school-learning
+  topic: Possession
+  stem: 'What does "am Ende der Woche" mean?'
+  choices: ['at the weekend', 'every weekend', 'since last week', 'at the end of the week']
+  answer: 3
+  explanation: |-
+    "der Woche" is a genitive (of the week), so am Ende der Woche is "at the end of the week". The weekend is das Wochenende, a different word.
+- id: de2-q-1805
+  lesson: de2-school-learning
+  module_quiz: true
+  topic: Separable verbs
+  stem: 'Complete: "Leider ___ er bei der Prüfung durchgefallen."'
+  choices: ['hat', 'ist', 'habe', 'sind']
+  answer: 1
+  explanation: |-
+    durchfallen is a verb of falling, so like fallen it forms the perfect with sein: er ist durchgefallen. "hat" is the most common mistake; "habe" and "sind" don't match er.
+- id: de2-q-1806
+  lesson: de2-school-learning
+  topic: Separable verbs
+  stem: 'Complete: "Ich habe meine Aussprache stark ___."'
+  choices: ['geverbessert', 'verbesserte', 'verbessert', 'verbessern']
+  answer: 2
+  explanation: |-
+    verbessern has the unstressed prefix ver-, so it is inseparable and takes no ge- in the perfect: verbessert. "geverbessert" adds ge- by mistake, and "verbesserte" is the simple past, which doesn't go with habe.
+- id: de2-q-1807
+  lesson: de2-school-learning
+  topic: Education
+  stem: 'Your friend says: "Ich habe die Prüfung bestanden!" What happened?'
+  choices: ['She took the exam.', 'She failed the exam.', 'She passed the exam.', 'She signed up for the exam.']
+  answer: 2
+  explanation: |-
+    bestehen means to pass an exam. "Ich habe die Prüfung gemacht" would only mean she took it; failing is durchfallen, and signing up is sich anmelden.
+- id: de2-q-1808
+  lesson: de2-school-learning
+  topic: Education
+  stem: 'Read the ad: "Spanisch für Anfänger. Volkshochschule Bremen. Dienstags, 18.30 bis 20 Uhr, ab 7. Oktober, zehn Abende. Gebühr: 98 Euro. Anmeldung bis 30. September online oder im Büro. Am Ende bekommen alle Teilnehmer ein Zertifikat." Which statement is true?'
+  choices: ['The course starts on 30 September.', 'You have to register by 30 September.', 'The course takes place on Tuesday mornings.', 'Only participants who pass a test get a certificate.']
+  answer: 1
+  explanation: |-
+    "Anmeldung bis 30. September" means registration is open until 30 September. The course starts on 7 October (ab 7. Oktober), it runs in the evening (18.30 bis 20 Uhr), and all participants get a certificate.
+- id: de2-q-1809
+  lesson: de2-school-learning
+  topic: Education
+  stem: 'Mia says: "Ich habe Geschichte studiert." What did she study?'
+  choices: ['history', 'stories', 'geography', 'art']
+  answer: 0
+  explanation: |-
+    die Geschichte means both story and history; as a subject you study, it is history. Geography is Erdkunde and art is Kunst.
+- id: de2-q-1810
+  lesson: de2-school-learning
+  module_quiz: true
+  topic: Education
+  stem: 'What is a "Gymnasium" in Germany?'
+  choices: ['a sports hall', 'a university', 'a vocational school', 'an academic secondary school']
+  answer: 3
+  explanation: |-
+    A Gymnasium is the academic secondary school that ends with the Abitur. It is a false friend: a gym is das Fitnessstudio or, at school, die Turnhalle. Vocational school is die Berufsschule.
+- id: de2-q-1811
+  lesson: de2-school-learning
+  topic: Education
+  stem: 'Complete: "Ich möchte ___ für den Englischkurs anmelden."'
+  choices: ['mich', 'mir', 'sich', 'ich']
+  answer: 0
+  explanation: |-
+    sich anmelden is reflexive with an accusative pronoun that matches the subject: ich möchte mich anmelden. "sich" is only for er/sie/es and sie/Sie, and "mir" is dative.
+- id: de2-q-1812
+  lesson: de2-school-learning
+  topic: Education
+  stem: '"Weißt du, wann wir den Test schreiben?" – "___ Frag doch Frau Haas."'
+  choices: ['Kein Problem!', 'Gute Besserung!', 'Herzlichen Glückwunsch!', 'Keine Ahnung!']
+  answer: 3
+  explanation: |-
+    Keine Ahnung! means "No idea!", which fits because the speaker then suggests asking the teacher. Kein Problem answers a request, Gute Besserung is said to someone who is ill, and Herzlichen Glückwunsch congratulates.
+
+# --- 19 Banks, offices and phone calls ---
+- id: de2-q-1901
+  lesson: de2-services
+  module_quiz: true
+  topic: Indirect questions
+  stem: 'Complete politely: "Können Sie mir sagen, wo ___?"'
+  choices: ['ist der Geldautomat', 'der Geldautomat ist', 'der Geldautomat', 'ist es der Geldautomat']
+  answer: 1
+  explanation: |-
+    In an indirect question the conjugated verb goes to the end: wo der Geldautomat ist. "wo ist der Geldautomat" keeps the word order of a direct question, the most common mistake.
+- id: de2-q-1902
+  lesson: de2-services
+  module_quiz: true
+  topic: Indirect questions
+  stem: 'Complete: "Wissen Sie, ___ ich für den Antrag einen Termin brauche?"'
+  choices: ['wenn', 'dass', 'was', 'ob']
+  answer: 3
+  explanation: |-
+    The direct question is a yes/no question (Brauche ich einen Termin?), so the indirect question uses ob, "whether". "wenn" means if/when and is a typical mistake from English "if"; dass doesn't ask anything.
+- id: de2-q-1903
+  lesson: de2-services
+  topic: lassen
+  stem: 'Complete: "Ich lasse mein Fahrrad in der Werkstatt ___."'
+  choices: ['reparieren', 'zu reparieren', 'repariert', 'repariere']
+  answer: 0
+  explanation: |-
+    lassen works like a modal verb: the second verb goes to the end as a plain infinitive without zu: reparieren lassen. "zu reparieren" adds a zu that lassen never takes.
+- id: de2-q-1904
+  lesson: de2-services
+  module_quiz: true
+  topic: lassen
+  stem: 'What does "Ich habe mein Auto reparieren lassen" mean?'
+  choices: ['I repaired my car myself.', 'I had my car repaired.', 'I let my car get damaged.', 'I left my car at the garage.']
+  answer: 1
+  explanation: |-
+    lassen + infinitive means getting someone else to do the job: I had my car repaired. If you did it yourself, you'd say Ich habe mein Auto repariert. Leaving something somewhere is lassen without a second verb.
+- id: de2-q-1905
+  lesson: de2-services
+  topic: lassen
+  stem: 'Complete: "Meine Schwester ___ sich die Haare schneiden."'
+  choices: ['lasst', 'lass', 'lassen', 'lässt']
+  answer: 3
+  explanation: |-
+    lassen changes a to ä in the du and er/sie/es forms: sie lässt. "lasst" is the ihr form, and "lass" is the du imperative.
+- id: de2-q-1906
+  lesson: de2-services
+  topic: Services
+  stem: 'You need cash from your account. What do you do at the cash machine?'
+  choices: ['Geld einzahlen', 'Geld überweisen', 'Geld abheben', 'Geld sparen']
+  answer: 2
+  explanation: |-
+    Geld abheben means to withdraw money. einzahlen is to pay money in, überweisen is to transfer it to another account, and sparen is to save.
+- id: de2-q-1907
+  lesson: de2-services
+  module_quiz: true
+  topic: Phone calls
+  stem: 'A message on your answering machine: "Hallo Frau Schulz, hier ist die Autowerkstatt Brenner. Ihr Auto ist leider noch nicht fertig, wir warten noch auf ein Teil. Sie können es am Donnerstag ab 14 Uhr abholen." When can Frau Schulz collect her car?'
+  choices: ['today', 'on Thursday morning', 'on Thursday afternoon', 'only after she calls back']
+  answer: 2
+  explanation: |-
+    "am Donnerstag ab 14 Uhr" means on Thursday from 2 p.m., so in the afternoon. The car isn't ready today (noch nicht fertig), and the message doesn't ask her to call back.
+- id: de2-q-1908
+  lesson: de2-services
+  topic: Services
+  stem: 'Complete: "Ich möchte einen neuen Reisepass ___."'
+  choices: ['bewerben', 'beantragen', 'anmelden', 'melden']
+  answer: 1
+  explanation: |-
+    You apply for a document with beantragen. sich bewerben is for jobs and places, anmelden is for registering (yourself or an address), and melden means to report something.
+- id: de2-q-1909
+  lesson: de2-services
+  topic: Phone calls
+  stem: 'You call the Bürgeramt and hear a short beeping sound again and again. Your friend says: "Es ist besetzt." What does that mean?'
+  choices: ['The line is busy.', 'The office is closed.', 'Nobody is answering.', 'The number is wrong.']
+  answer: 0
+  explanation: |-
+    besetzt means engaged or busy: someone else is on the line. A closed office is geschlossen, and a wrong number is eine falsche Nummer.
+- id: de2-q-1910
+  lesson: de2-services
+  topic: Phone calls
+  stem: 'The bank employee says: "Einen Moment bitte, ich verbinde Sie mit meiner Kollegin." What is happening?'
+  choices: ['You are being put through to her colleague.', 'Her colleague will call you back later.', 'Her colleague is busy at the moment.', 'You should call her colleague directly.']
+  answer: 0
+  explanation: |-
+    verbinden on the phone means to connect or put through: she is transferring your call. Calling back would be zurückrufen, and busy would be besetzt.
+- id: de2-q-1911
+  lesson: de2-services
+  topic: Services
+  stem: 'You have just moved into a flat in Germany. "Wo muss ich meine neue Adresse anmelden?" – "Beim ___."'
+  choices: ['Finanzamt', 'Standesamt', 'Bürgeramt', 'Arzt']
+  answer: 2
+  explanation: |-
+    You register your address at the Bürgeramt (citizens' office) within two weeks of moving in. The Finanzamt deals with taxes and the Standesamt with births and marriages.
+- id: de2-q-1912
+  lesson: de2-services
+  topic: Indirect questions
+  stem: 'Which sentence has a mistake?'
+  choices: ['Können Sie mir sagen, wann das Amt öffnet?', 'Ich möchte wissen, ob ich hier parken darf.', 'Könnten Sie mir sagen, wie viel das kostet?', 'Wissen Sie, wo ist die Post?']
+  answer: 3
+  explanation: |-
+    In an indirect question the verb goes to the end: Wissen Sie, wo die Post ist? The other three sentences all put the verb last correctly (öffnet, darf, kostet).
+
+# --- 20 Health and the doctor's office ---
+- id: de2-q-2001
+  lesson: de2-health
+  module_quiz: true
+  topic: seit
+  stem: 'Complete: "Ich habe ___ drei Tagen Fieber." (The fever started three days ago and I still have it.)'
+  choices: ['vor', 'seit', 'für', 'ab']
+  answer: 1
+  explanation: |-
+    For something that started in the past and is still going on, German uses seit + dative with the present tense: seit drei Tagen. "vor drei Tagen" means three days ago, and "für" is the English pattern ("for three days").
+- id: de2-q-2002
+  lesson: de2-health
+  module_quiz: true
+  topic: seit
+  stem: 'Which sentence means "I''ve been ill for a week" (and still am)?'
+  choices: ['Ich bin seit einer Woche krank.', 'Ich war für eine Woche krank.', 'Ich bin vor einer Woche krank gewesen.', 'Ich habe eine Woche krank.']
+  answer: 0
+  explanation: |-
+    German uses the present tense with seit: Ich bin seit einer Woche krank. The other sentences use a past tense, which says the illness is over, or use haben where krank needs sein.
+- id: de2-q-2003
+  lesson: de2-health
+  topic: seit
+  stem: 'Complete: "Sie hat seit drei ___ Rückenschmerzen."'
+  choices: ['Monat', 'Monate', 'Monaten', 'Monats']
+  answer: 2
+  explanation: |-
+    seit takes the dative, and dative plural nouns add -n: seit drei Monaten. "Monate" is the nominative and accusative plural, the form learners often forget to change.
+- id: de2-q-2004
+  lesson: de2-health
+  topic: Advice
+  stem: 'Give your friend advice: "Du ___ zum Arzt gehen."'
+  choices: ['sollst', 'solltest', 'sollen', 'sollte']
+  answer: 1
+  explanation: |-
+    Advice uses the Konjunktiv II form sollte, and the du form is solltest. "Du sollst" means someone has told you to (an order, not advice), and "sollte" is the ich and er/sie/es form.
+- id: de2-q-2005
+  lesson: de2-health
+  topic: Imperative
+  stem: 'Tell a friend to take the tablet: "___ die Tablette mit viel Wasser!"'
+  choices: ['Nehmst', 'Nimmst', 'Nimm', 'Nehmen']
+  answer: 2
+  explanation: |-
+    The du imperative is the du form without du and without -st, keeping the e→i change: du nimmst → Nimm! "Nimmst" keeps the ending, and "Nehmen" without Sie isn't a polite command.
+- id: de2-q-2006
+  lesson: de2-health
+  topic: Imperative
+  stem: 'Which sentence is a correct instruction from a doctor to a patient?'
+  choices: ['Sie einatmen tief.', 'Atmen Sie tief ein.', 'Atmest du tief ein.', 'Einatmen Sie tief.']
+  answer: 1
+  explanation: |-
+    The Sie imperative puts the verb first with Sie after it, and a separable prefix goes to the end: Atmen Sie tief ein. "Einatmen Sie" forgets to split the verb, and a doctor uses Sie, not du.
+- id: de2-q-2007
+  lesson: de2-health
+  module_quiz: true
+  topic: Health
+  stem: 'From a package insert: "Nehmen Sie dreimal täglich zwei Tabletten nach dem Essen. Nehmen Sie nicht mehr als sechs Tabletten pro Tag. Schwangere sollten vorher mit dem Arzt sprechen." How many tablets a day is the normal dose?'
+  choices: ['two', 'three', 'six', 'nine']
+  answer: 2
+  explanation: |-
+    dreimal täglich zwei Tabletten is three times a day two tablets, so six a day, which is also the maximum. "two" is one dose, and "three" is how many times a day.
+- id: de2-q-2008
+  lesson: de2-health
+  topic: Health
+  stem: 'The doctor asks: "Was fehlt Ihnen denn?" What is a good answer?'
+  choices: ['Ich fehle heute bei der Arbeit.', 'Mir fehlt mein Portemonnaie.', 'Nein, mir fehlt nichts, ich bin krank.', 'Ich habe seit gestern Halsschmerzen und Fieber.']
+  answer: 3
+  explanation: |-
+    "Was fehlt Ihnen?" is the doctor's way of asking "What's the matter?", so you describe your symptoms. The other answers take fehlen literally (to be missing or absent), and "mir fehlt nichts" would mean you're fine.
+- id: de2-q-2009
+  lesson: de2-health
+  topic: Health
+  stem: 'Someone sneezes next to you. What do you say?'
+  choices: ['Gute Besserung!', 'Prost!', 'Entschuldigung!', 'Gesundheit!']
+  answer: 3
+  explanation: |-
+    Germans say Gesundheit! (health) after a sneeze, like "Bless you!". Gute Besserung is for someone who is ill, Prost is a toast, and Entschuldigung is what the person who sneezed might say.
+- id: de2-q-2010
+  lesson: de2-health
+  topic: Health
+  stem: 'Complete: "Ich habe eine Allergie ___ Katzen."'
+  choices: ['für', 'von', 'mit', 'gegen']
+  answer: 3
+  explanation: |-
+    An allergy in German is "against" something: eine Allergie gegen Katzen. "für" and "von" are guesses from English ("allergy for", "allergic to"); German always uses gegen.
+- id: de2-q-2011
+  lesson: de2-health
+  module_quiz: true
+  topic: Advice
+  stem: 'How do you say "I really ought to do more sport"? "Ich ___ eigentlich mehr Sport machen."'
+  choices: ['müsste', 'musste', 'muss', 'müssen']
+  answer: 0
+  explanation: |-
+    müsste (with umlaut) is the Konjunktiv II of müssen: "really ought to, would have to". "musste" without the umlaut is the simple past (had to), and "muss" is a plain "must".
+- id: de2-q-2012
+  lesson: de2-health
+  topic: Health
+  stem: 'What is "der Krankenwagen"?'
+  choices: ['ambulance', 'hospital', 'waiting room', 'sick note']
+  answer: 0
+  explanation: |-
+    der Krankenwagen (literally "sick car") is an ambulance. A hospital is das Krankenhaus, the waiting room das Wartezimmer, and a sick note die Krankschreibung.

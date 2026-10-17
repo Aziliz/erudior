@@ -1,0 +1,918 @@
+# German A2, module 5: Work, learning and services (lessons 17–20)
+
+# --- 17 At work; zu + infinitive ---
+- id: kollege
+  lesson: de2-work
+  term: der Kollege
+  pos: noun
+  plural: die Kollegen
+  meanings: [colleague (male), colleague, co-worker, workmate]
+  example: Mein Kollege hilft mir oft.
+  exampleEn: My colleague often helps me.
+  note: 'Adds -n in every case except the nominative singular: mit meinem Kollegen.'
+- id: kollegin
+  lesson: de2-work
+  term: die Kollegin
+  pos: noun
+  plural: die Kolleginnen
+  meanings: [colleague (female), colleague, co-worker, workmate]
+  example: Meine Kollegin ist heute krank.
+  exampleEn: My colleague is ill today.
+- id: chef
+  lesson: de2-work
+  term: der Chef
+  pos: noun
+  plural: die Chefs
+  meanings: [boss (male), boss, manager, head]
+  example: Der Chef ist gerade in einer Besprechung.
+  exampleEn: The boss is in a meeting right now.
+  note: 'Pronounced "shef". It means the boss, not a cook (der Koch).'
+- id: chefin
+  lesson: de2-work
+  term: die Chefin
+  pos: noun
+  plural: die Chefinnen
+  meanings: [boss (female), boss, manager, head]
+  example: Unsere Chefin ist sehr nett.
+  exampleEn: Our boss is very nice.
+- id: mitarbeiter
+  lesson: de2-work
+  term: der Mitarbeiter
+  pos: noun
+  plural: die Mitarbeiter
+  meanings: [employee (male), employee, member of staff, co-worker]
+  example: Die Firma hat fünfzig Mitarbeiter.
+  exampleEn: The company has fifty employees.
+- id: mitarbeiterin
+  lesson: de2-work
+  term: die Mitarbeiterin
+  pos: noun
+  plural: die Mitarbeiterinnen
+  meanings: [employee (female), employee, member of staff, co-worker]
+  example: Eine Mitarbeiterin zeigt uns das Büro.
+  exampleEn: An employee shows us the office.
+- id: stelle
+  lesson: de2-work
+  term: die Stelle
+  pos: noun
+  plural: die Stellen
+  meanings: [job (a position), job, position, post, vacancy]
+  example: Ich suche eine neue Stelle.
+  exampleEn: I'm looking for a new job.
+- id: bewerbung
+  lesson: de2-work
+  term: die Bewerbung
+  pos: noun
+  plural: die Bewerbungen
+  meanings: [application (for a job), application, job application]
+  example: Ich habe meine Bewerbung gestern geschickt.
+  exampleEn: I sent my application yesterday.
+- id: sich-bewerben
+  lesson: de2-work
+  term: sich bewerben
+  pos: verb
+  alt: [bewerben]
+  meanings: [to apply (for a job), to apply]
+  example: Er bewirbt sich um eine Stelle bei einer Bank.
+  exampleEn: He's applying for a job at a bank.
+  note: 'Stem change: du bewirbst dich, er bewirbt sich. Perfect: hat sich beworben. sich um eine Stelle bewerben (for), bei einer Firma (at).'
+- id: vorstellungsgespraech
+  lesson: de2-work
+  term: das Vorstellungsgespräch
+  pos: noun
+  plural: die Vorstellungsgespräche
+  meanings: [job interview, interview]
+  example: Morgen habe ich ein Vorstellungsgespräch.
+  exampleEn: I have a job interview tomorrow.
+- id: gehalt
+  lesson: de2-work
+  term: das Gehalt
+  pos: noun
+  plural: die Gehälter
+  meanings: [salary, pay, wage]
+  example: Das Gehalt kommt am Ende des Monats.
+  exampleEn: The salary comes at the end of the month.
+- id: verdienen
+  lesson: de2-work
+  term: verdienen
+  pos: verb
+  meanings: [to earn, to deserve]
+  example: Sie verdient gut.
+  exampleEn: She earns well.
+  note: 'Inseparable: hat verdient.'
+- id: besprechung
+  lesson: de2-work
+  term: die Besprechung
+  pos: noun
+  plural: die Besprechungen
+  meanings: [meeting (at work), meeting, discussion]
+  example: Die Besprechung beginnt um zehn Uhr.
+  exampleEn: The meeting starts at ten o'clock.
+- id: ueberstunde
+  lesson: de2-work
+  term: die Überstunde
+  pos: noun
+  plural: die Überstunden
+  meanings: [hour of overtime, overtime, extra hour]
+  example: Diese Woche mache ich viele Überstunden.
+  exampleEn: I'm doing a lot of overtime this week.
+  note: 'Usually plural: Überstunden machen.'
+- id: sich-krankmelden
+  lesson: de2-work
+  term: sich krankmelden
+  pos: verb
+  alt: [krankmelden, sich krank melden]
+  meanings: [to call in sick, to report sick]
+  example: Ich muss mich heute krankmelden.
+  exampleEn: I have to call in sick today.
+  note: 'Separable: Er meldet sich krank. Perfect: hat sich krankgemeldet.'
+- id: kuendigen
+  lesson: de2-work
+  term: kündigen
+  pos: verb
+  meanings: [to quit (a job), to quit, to resign, to give notice, to cancel (a contract)]
+  example: Sie hat letzten Monat gekündigt.
+  exampleEn: She quit last month.
+  note: 'Also of an employer: Die Firma hat ihm gekündigt (dative) — the company let him go.'
+- id: kuendigung
+  lesson: de2-work
+  term: die Kündigung
+  pos: noun
+  plural: die Kündigungen
+  meanings: [notice (of termination), notice, resignation, dismissal, cancellation]
+  example: Er hat die Kündigung heute bekommen.
+  exampleEn: He got his notice today.
+- id: arbeitslos
+  lesson: de2-work
+  term: arbeitslos
+  pos: adjective
+  meanings: [unemployed, out of work, jobless]
+  example: Mein Onkel ist seit einem Jahr arbeitslos.
+  exampleEn: My uncle has been unemployed for a year.
+- id: betrieb
+  lesson: de2-work
+  term: der Betrieb
+  pos: noun
+  plural: die Betriebe
+  meanings: [business (a firm), company, firm, business, plant]
+  example: Ich arbeite in einem kleinen Betrieb.
+  exampleEn: I work in a small company.
+- id: erledigen
+  lesson: de2-work
+  term: erledigen
+  pos: verb
+  meanings: [to get done, to deal with, to take care of, to finish, to do]
+  example: Ich erledige das sofort.
+  exampleEn: I'll deal with it right away.
+  note: 'Inseparable: hat erledigt.'
+- id: zustaendig
+  lesson: de2-work
+  term: zuständig
+  pos: adjective
+  meanings: [responsible (in charge), in charge, responsible, competent]
+  example: Wer ist für die Verträge zuständig?
+  exampleEn: Who's in charge of the contracts?
+  note: 'zuständig für + accusative.'
+- id: drucker
+  lesson: de2-work
+  term: der Drucker
+  pos: noun
+  plural: die Drucker
+  meanings: [printer]
+  example: Der Drucker ist schon wieder kaputt.
+  exampleEn: The printer is broken again.
+- id: drucken
+  lesson: de2-work
+  term: drucken
+  pos: verb
+  meanings: [to print]
+  example: Kannst du mir den Vertrag drucken?
+  exampleEn: Can you print the contract for me?
+  note: 'ausdrucken = to print out.'
+- id: kopieren
+  lesson: de2-work
+  term: kopieren
+  pos: verb
+  meanings: [to copy, to photocopy]
+  example: Ich kopiere die Unterlagen für alle.
+  exampleEn: I'm copying the documents for everyone.
+  note: 'Perfect: hat kopiert (no ge-).'
+- id: vertrag
+  lesson: de2-work
+  term: der Vertrag
+  pos: noun
+  plural: die Verträge
+  meanings: [contract, agreement]
+  example: Bitte unterschreiben Sie den Vertrag hier.
+  exampleEn: Please sign the contract here.
+- id: arbeitsplatz
+  lesson: de2-work
+  term: der Arbeitsplatz
+  pos: noun
+  plural: die Arbeitsplätze
+  meanings: [workplace, place of work, job, workstation]
+  example: Mein Arbeitsplatz ist direkt am Fenster.
+  exampleEn: My workplace is right by the window.
+- id: teilzeit
+  lesson: de2-work
+  term: die Teilzeit
+  pos: noun
+  plural: —
+  meanings: [part-time (work), part-time, part time]
+  example: Sie arbeitet in Teilzeit.
+  exampleEn: She works part-time.
+  note: 'Opposite: die Vollzeit (full-time).'
+- id: aufhoeren
+  lesson: de2-work
+  term: aufhören
+  pos: verb
+  meanings: [to stop (doing something), to stop, to quit, to end]
+  example: Hör bitte auf, so laut zu telefonieren!
+  exampleEn: Please stop talking so loudly on the phone!
+  note: 'Separable: Ich höre auf. Perfect: hat aufgehört. With a verb: aufhören, etwas zu tun.'
+- id: ausrichten
+  lesson: de2-work
+  term: ausrichten
+  pos: verb
+  meanings: [to pass on (a message), to give a message, to tell, to pass on]
+  example: Kann ich etwas ausrichten?
+  exampleEn: Can I take a message?
+  note: 'Separable: Ich richte es ihm aus. Perfect: hat ausgerichtet.'
+
+# --- 18 School, courses and learning; whose is it? ---
+- id: gymnasium
+  lesson: de2-school-learning
+  term: das Gymnasium
+  pos: noun
+  plural: die Gymnasien
+  meanings: [Gymnasium (academic secondary school), grammar school, academic high school, secondary school, high school]
+  example: Meine Tochter geht aufs Gymnasium.
+  exampleEn: My daughter goes to the Gymnasium.
+  note: 'A school, not a sports hall (die Turnhalle).'
+- id: realschule
+  lesson: de2-school-learning
+  term: die Realschule
+  pos: noun
+  plural: die Realschulen
+  meanings: [Realschule (secondary school to grade 10), secondary school, middle school]
+  example: Nach der Realschule hat er eine Ausbildung gemacht.
+  exampleEn: After the Realschule he did an apprenticeship.
+- id: gesamtschule
+  lesson: de2-school-learning
+  term: die Gesamtschule
+  pos: noun
+  plural: die Gesamtschulen
+  meanings: [comprehensive school, comprehensive, high school]
+  example: In der Gesamtschule lernen alle Kinder zusammen.
+  exampleEn: At a comprehensive school all children learn together.
+- id: berufsschule
+  lesson: de2-school-learning
+  term: die Berufsschule
+  pos: noun
+  plural: die Berufsschulen
+  meanings: [vocational school, trade school, vocational college]
+  example: Zweimal pro Woche gehe ich in die Berufsschule.
+  exampleEn: I go to vocational school twice a week.
+- id: abitur
+  lesson: de2-school-learning
+  term: das Abitur
+  pos: noun
+  plural: die Abiture (rare)
+  alt: [das Abi]
+  meanings: [Abitur (school-leaving exam), school-leaving exam, A levels, high school diploma]
+  example: Ich habe 2015 Abitur gemacht.
+  exampleEn: I did my Abitur in 2015.
+  note: 'Often shortened to das Abi. In Austria and Switzerland: die Matura.'
+- id: unterricht
+  lesson: de2-school-learning
+  term: der Unterricht
+  pos: noun
+  plural: —
+  meanings: [lessons (teaching), lessons, classes, teaching, instruction]
+  example: Der Unterricht beginnt um acht Uhr.
+  exampleEn: Lessons start at eight o'clock.
+- id: unterrichten
+  lesson: de2-school-learning
+  term: unterrichten
+  pos: verb
+  meanings: [to teach]
+  example: Sie unterrichtet Kunst an einem Gymnasium.
+  exampleEn: She teaches art at a Gymnasium.
+  note: 'Inseparable: hat unterrichtet.'
+- id: mathematik
+  lesson: de2-school-learning
+  term: die Mathematik
+  pos: noun
+  plural: —
+  alt: [Mathematik, die Mathe, Mathe]
+  meanings: [mathematics, maths, math]
+  example: Mathe war nie mein Lieblingsfach.
+  exampleEn: Maths was never my favourite subject.
+  note: 'Usually shortened to Mathe. Stress: ma-the-ma-TIK.'
+- id: biologie
+  lesson: de2-school-learning
+  term: die Biologie
+  pos: noun
+  plural: —
+  alt: [Biologie, die Bio, Bio]
+  meanings: [biology]
+  example: In Biologie lernen wir viel über Tiere.
+  exampleEn: In biology we learn a lot about animals.
+- id: chemie
+  lesson: de2-school-learning
+  term: die Chemie
+  pos: noun
+  plural: —
+  alt: [Chemie]
+  meanings: [chemistry]
+  example: Chemie finde ich schwer.
+  exampleEn: I find chemistry hard.
+  note: 'Stress on the last syllable: che-MIE.'
+- id: physik
+  lesson: de2-school-learning
+  term: die Physik
+  pos: noun
+  plural: —
+  alt: [Physik]
+  meanings: [physics]
+  example: Wir haben heute zwei Stunden Physik.
+  exampleEn: We have two periods of physics today.
+  note: 'Stress on the last syllable: phy-SIK.'
+- id: erdkunde
+  lesson: de2-school-learning
+  term: die Erdkunde
+  pos: noun
+  plural: —
+  alt: [Erdkunde]
+  meanings: [geography (school subject), geography]
+  example: In Erdkunde lernen wir die Hauptstädte.
+  exampleEn: In geography we learn the capitals.
+  note: 'Also called Geografie.'
+- id: kunst
+  lesson: de2-school-learning
+  term: die Kunst
+  pos: noun
+  plural: die Künste
+  meanings: [art]
+  example: In Kunst hatte ich immer gute Noten.
+  exampleEn: I always had good grades in art.
+- id: fremdsprache
+  lesson: de2-school-learning
+  term: die Fremdsprache
+  pos: noun
+  plural: die Fremdsprachen
+  meanings: [foreign language]
+  example: Wie viele Fremdsprachen sprichst du?
+  exampleEn: How many foreign languages do you speak?
+- id: test
+  lesson: de2-school-learning
+  term: der Test
+  pos: noun
+  plural: die Tests
+  meanings: [test, quiz]
+  example: Morgen schreiben wir einen Test.
+  exampleEn: We're having a test tomorrow.
+- id: durchfallen
+  lesson: de2-school-learning
+  term: durchfallen
+  pos: verb
+  meanings: [to fail (an exam), to fail, to flunk]
+  example: Er ist leider bei der Prüfung durchgefallen.
+  exampleEn: Unfortunately he failed the exam.
+  note: 'Separable, stem change: er fällt durch. Perfect with sein: ist durchgefallen. Also: durch die Prüfung fallen.'
+- id: weiterbildung
+  lesson: de2-school-learning
+  term: die Weiterbildung
+  pos: noun
+  plural: die Weiterbildungen
+  meanings: [further training, further education, professional development, training]
+  example: Die Firma bezahlt meine Weiterbildung.
+  exampleEn: The company is paying for my further training.
+- id: zertifikat
+  lesson: de2-school-learning
+  term: das Zertifikat
+  pos: noun
+  plural: die Zertifikate
+  meanings: [certificate]
+  example: Am Ende des Kurses bekommen Sie ein Zertifikat.
+  exampleEn: At the end of the course you get a certificate.
+- id: sich-anmelden
+  lesson: de2-school-learning
+  term: sich anmelden
+  pos: verb
+  alt: [anmelden]
+  meanings: [to register, to sign up, to enrol, to enroll, to register (an address)]
+  example: Ich möchte mich für den Spanischkurs anmelden.
+  exampleEn: I'd like to sign up for the Spanish course.
+  note: 'Separable: Ich melde mich an. Perfect: hat sich angemeldet. sich für einen Kurs anmelden; sich beim Bürgeramt anmelden (register your address).'
+- id: anmeldung
+  lesson: de2-school-learning
+  term: die Anmeldung
+  pos: noun
+  plural: die Anmeldungen
+  meanings: [registration, enrolment, enrollment, sign-up, reception (desk)]
+  example: Die Anmeldung ist bis Freitag möglich.
+  exampleEn: Registration is possible until Friday.
+- id: gebuehr
+  lesson: de2-school-learning
+  term: die Gebühr
+  pos: noun
+  plural: die Gebühren
+  meanings: [fee, charge]
+  example: Die Gebühr für den Kurs beträgt 120 Euro.
+  exampleEn: The fee for the course is 120 euros.
+- id: teilnehmer
+  lesson: de2-school-learning
+  term: der Teilnehmer
+  pos: noun
+  plural: die Teilnehmer
+  meanings: [participant (male), participant, member (of a course)]
+  example: Der Kurs hat zwölf Teilnehmer.
+  exampleEn: The course has twelve participants.
+- id: teilnehmerin
+  lesson: de2-school-learning
+  term: die Teilnehmerin
+  pos: noun
+  plural: die Teilnehmerinnen
+  meanings: [participant (female), participant, member (of a course)]
+  example: Jede Teilnehmerin bekommt ein Buch.
+  exampleEn: Each participant gets a book.
+- id: ergebnis
+  lesson: de2-school-learning
+  term: das Ergebnis
+  pos: noun
+  plural: die Ergebnisse
+  meanings: [result, outcome, score]
+  example: Wann bekommen wir die Ergebnisse?
+  exampleEn: When do we get the results?
+- id: verbessern
+  lesson: de2-school-learning
+  term: verbessern
+  pos: verb
+  meanings: [to improve, to correct]
+  example: Ich möchte mein Deutsch verbessern.
+  exampleEn: I'd like to improve my German.
+  note: 'Inseparable: hat verbessert.'
+- id: ahnung
+  lesson: de2-school-learning
+  term: die Ahnung
+  pos: noun
+  plural: die Ahnungen
+  meanings: [notion (as in keine Ahnung), idea, clue, notion, hunch]
+  example: Keine Ahnung!
+  exampleEn: No idea!
+  note: 'Mostly in keine Ahnung haben: Ich habe keine Ahnung von Physik.'
+
+# --- 19 Banks, offices and phone calls ---
+- id: konto
+  lesson: de2-services
+  term: das Konto
+  pos: noun
+  plural: die Konten
+  meanings: [account (at a bank), account, bank account]
+  example: Ich möchte ein Konto eröffnen.
+  exampleEn: I'd like to open an account.
+- id: girokonto
+  lesson: de2-services
+  term: das Girokonto
+  pos: noun
+  plural: die Girokonten
+  meanings: [current account, checking account]
+  example: Mein Gehalt kommt auf mein Girokonto.
+  exampleEn: My salary goes into my current account.
+- id: kreditkarte
+  lesson: de2-services
+  term: die Kreditkarte
+  pos: noun
+  plural: die Kreditkarten
+  meanings: [credit card]
+  example: Kann ich mit Kreditkarte bezahlen?
+  exampleEn: Can I pay by credit card?
+- id: ec-karte
+  lesson: de2-services
+  term: die EC-Karte
+  pos: noun
+  plural: die EC-Karten
+  alt: [die Girocard, die EC Karte]
+  meanings: [debit card, bank card, cash card]
+  example: Ich habe meine EC-Karte verloren.
+  exampleEn: I've lost my debit card.
+  note: 'The everyday name; the official name today is Girocard.'
+- id: geldautomat
+  lesson: de2-services
+  term: der Geldautomat
+  pos: noun
+  plural: die Geldautomaten
+  meanings: [cash machine, ATM, cashpoint]
+  example: Wo ist hier ein Geldautomat?
+  exampleEn: Where's a cash machine around here?
+  note: 'Adds -en in all cases except the nominative singular: am Geldautomaten.'
+- id: abheben
+  lesson: de2-services
+  term: abheben
+  pos: verb
+  meanings: [to withdraw (money), to withdraw, to take out]
+  example: Ich hebe 50 Euro ab.
+  exampleEn: I'm withdrawing 50 euros.
+  note: 'Separable: Ich hebe ab. Perfect: hat abgehoben.'
+- id: einzahlen
+  lesson: de2-services
+  term: einzahlen
+  pos: verb
+  meanings: [to pay in, to deposit]
+  example: Er zahlt das Geld auf sein Konto ein.
+  exampleEn: He pays the money into his account.
+  note: 'Separable: Ich zahle ein. Perfect: hat eingezahlt.'
+- id: ueberweisen
+  lesson: de2-services
+  term: überweisen
+  pos: verb
+  meanings: [to transfer (money), to transfer, to wire]
+  example: Ich überweise dir das Geld morgen.
+  exampleEn: I'll transfer the money to you tomorrow.
+  note: 'Inseparable. Perfect: hat überwiesen.'
+- id: ueberweisung
+  lesson: de2-services
+  term: die Überweisung
+  pos: noun
+  plural: die Überweisungen
+  meanings: [bank transfer, transfer, remittance]
+  example: Die Überweisung dauert einen Tag.
+  exampleEn: The transfer takes a day.
+  note: 'At the doctor''s also a referral to a specialist.'
+- id: amt
+  lesson: de2-services
+  term: das Amt
+  pos: noun
+  plural: die Ämter
+  meanings: [office (public authority), office, authority, agency]
+  example: Das Amt ist nur vormittags geöffnet.
+  exampleEn: The office is only open in the mornings.
+- id: behoerde
+  lesson: de2-services
+  term: die Behörde
+  pos: noun
+  plural: die Behörden
+  meanings: [authority (public), authority, public authority, government office]
+  example: Für den Antrag ist eine andere Behörde zuständig.
+  exampleEn: A different authority is responsible for the application.
+- id: buergeramt
+  lesson: de2-services
+  term: das Bürgeramt
+  pos: noun
+  plural: die Bürgerämter
+  meanings: [citizens' office, town hall office, registration office]
+  example: Ich muss mich beim Bürgeramt anmelden.
+  exampleEn: I have to register at the citizens' office.
+- id: antrag
+  lesson: de2-services
+  term: der Antrag
+  pos: noun
+  plural: die Anträge
+  meanings: [application (official form), application, request, form]
+  example: Haben Sie den Antrag schon ausgefüllt?
+  exampleEn: Have you already filled in the application?
+  note: 'einen Antrag stellen = to submit an application.'
+- id: beantragen
+  lesson: de2-services
+  term: beantragen
+  pos: verb
+  meanings: [to apply for (a document), to apply for, to request]
+  example: Ich möchte einen neuen Pass beantragen.
+  exampleEn: I'd like to apply for a new passport.
+  note: 'Inseparable: hat beantragt. For jobs use sich bewerben.'
+- id: bescheinigung
+  lesson: de2-services
+  term: die Bescheinigung
+  pos: noun
+  plural: die Bescheinigungen
+  meanings: [certificate (official confirmation), confirmation, certificate, written proof]
+  example: Sie brauchen eine Bescheinigung von der Polizei.
+  exampleEn: You need a confirmation from the police.
+- id: versicherung
+  lesson: de2-services
+  term: die Versicherung
+  pos: noun
+  plural: die Versicherungen
+  meanings: [insurance, insurance company, insurance policy]
+  example: Die Versicherung bezahlt den Schaden.
+  exampleEn: The insurance pays for the damage.
+- id: versichern
+  lesson: de2-services
+  term: versichern
+  pos: verb
+  meanings: [to insure, to assure]
+  example: Ist dein Fahrrad versichert?
+  exampleEn: Is your bike insured?
+  note: 'Inseparable: hat versichert.'
+- id: polizei
+  lesson: de2-services
+  term: die Polizei
+  pos: noun
+  plural: —
+  meanings: [police, the police]
+  example: Rufen Sie die Polizei!
+  exampleEn: Call the police!
+- id: melden
+  lesson: de2-services
+  term: melden
+  pos: verb
+  meanings: [to report, to notify]
+  example: Wir haben den Unfall der Polizei gemeldet.
+  exampleEn: We reported the accident to the police.
+  note: 'sich melden = to get in touch.'
+- id: schaden
+  lesson: de2-services
+  term: der Schaden
+  pos: noun
+  plural: die Schäden
+  meanings: [damage, harm, loss]
+  example: Der Schaden ist nicht groß.
+  exampleEn: The damage isn't big.
+- id: werkstatt
+  lesson: de2-services
+  term: die Werkstatt
+  pos: noun
+  plural: die Werkstätten
+  meanings: [workshop (repair shop), garage (for repairs), repair shop, workshop]
+  example: Mein Auto ist in der Werkstatt.
+  exampleEn: My car is at the garage.
+- id: reparatur
+  lesson: de2-services
+  term: die Reparatur
+  pos: noun
+  plural: die Reparaturen
+  meanings: [repair, repairs]
+  example: Die Reparatur kostet 80 Euro.
+  exampleEn: The repair costs 80 euros.
+- id: reparieren
+  lesson: de2-services
+  term: reparieren
+  pos: verb
+  meanings: [to repair, to fix, to mend]
+  example: Kannst du mein Fahrrad reparieren?
+  exampleEn: Can you fix my bike?
+  note: 'Perfect: hat repariert (no ge-).'
+- id: anrufbeantworter
+  lesson: de2-services
+  term: der Anrufbeantworter
+  pos: noun
+  plural: die Anrufbeantworter
+  meanings: [answering machine, voicemail]
+  example: Ich habe eine Nachricht auf dem Anrufbeantworter.
+  exampleEn: I have a message on the answering machine.
+- id: besetzt
+  lesson: de2-services
+  term: besetzt
+  pos: adjective
+  meanings: [busy (phone line), engaged, occupied, taken]
+  example: Es ist schon wieder besetzt.
+  exampleEn: It's busy again.
+  note: 'Also of seats and toilets: Ist hier besetzt? — Is this seat taken?'
+- id: zurueckrufen
+  lesson: de2-services
+  term: zurückrufen
+  pos: verb
+  meanings: [to call back, to ring back, to phone back]
+  example: Ich rufe Sie in zehn Minuten zurück.
+  exampleEn: I'll call you back in ten minutes.
+  note: 'Separable. Perfect: hat zurückgerufen.'
+- id: verbinden
+  lesson: de2-services
+  term: verbinden
+  pos: verb
+  meanings: [to connect (put through), to put through, to connect, to link, to bandage]
+  example: Einen Moment, ich verbinde Sie.
+  exampleEn: One moment, I'll put you through.
+  note: 'Inseparable. Perfect: hat verbunden.'
+- id: lassen
+  lesson: de2-services
+  term: lassen
+  pos: verb
+  meanings: [to let (allow; have something done), to let, to allow, to have something done, to leave]
+  example: Ich lasse mein Auto reparieren.
+  exampleEn: I'm having my car repaired.
+  note: 'Stem change: du lässt, er lässt. No zu before the second verb. Perfect: hat gelassen; with a verb: hat … reparieren lassen.'
+
+# --- 20 Health and the doctor's office ---
+- id: gesundheit
+  lesson: de2-health
+  term: die Gesundheit
+  pos: noun
+  plural: —
+  meanings: [health]
+  example: Sport ist gut für die Gesundheit.
+  exampleEn: Sport is good for your health.
+  note: 'Gesundheit! is also what you say when someone sneezes.'
+- id: krankheit
+  lesson: de2-health
+  term: die Krankheit
+  pos: noun
+  plural: die Krankheiten
+  meanings: [illness, disease, sickness]
+  example: Grippe ist eine gefährliche Krankheit.
+  exampleEn: Flu is a dangerous illness.
+- id: erkaeltung
+  lesson: de2-health
+  term: die Erkältung
+  pos: noun
+  plural: die Erkältungen
+  meanings: [cold (illness), cold, common cold]
+  example: Ich habe eine Erkältung.
+  exampleEn: I have a cold.
+- id: der-husten
+  lesson: de2-health
+  term: der Husten
+  pos: noun
+  plural: —
+  meanings: [cough (the illness), cough]
+  example: Ich habe seit drei Tagen Husten.
+  exampleEn: I've had a cough for three days.
+- id: husten
+  lesson: de2-health
+  term: husten
+  pos: verb
+  meanings: [to cough]
+  example: Husten Sie bitte einmal.
+  exampleEn: Please cough once.
+- id: schnupfen
+  lesson: de2-health
+  term: der Schnupfen
+  pos: noun
+  plural: die Schnupfen
+  meanings: [runny nose, head cold, sniffles, cold]
+  example: Mein Sohn hat Schnupfen.
+  exampleEn: My son has a runny nose.
+- id: grippe
+  lesson: de2-health
+  term: die Grippe
+  pos: noun
+  plural: die Grippen (rare)
+  meanings: [flu, influenza]
+  example: Sie liegt mit Grippe im Bett.
+  exampleEn: She's in bed with flu.
+- id: allergie
+  lesson: de2-health
+  term: die Allergie
+  pos: noun
+  plural: die Allergien
+  meanings: [allergy]
+  example: Ich habe eine Allergie gegen Katzen.
+  exampleEn: I'm allergic to cats.
+  note: 'eine Allergie gegen + accusative.'
+- id: verletzung
+  lesson: de2-health
+  term: die Verletzung
+  pos: noun
+  plural: die Verletzungen
+  meanings: [injury, wound]
+  example: Die Verletzung ist nicht schlimm.
+  exampleEn: The injury isn't bad.
+- id: verletzt
+  lesson: de2-health
+  term: verletzt
+  pos: adjective
+  meanings: [injured, hurt, wounded]
+  example: Bei dem Unfall war niemand verletzt.
+  exampleEn: Nobody was injured in the accident.
+- id: bluten
+  lesson: de2-health
+  term: bluten
+  pos: verb
+  meanings: [to bleed]
+  example: Mein Finger blutet.
+  exampleEn: My finger is bleeding.
+- id: wunde
+  lesson: de2-health
+  term: die Wunde
+  pos: noun
+  plural: die Wunden
+  meanings: [wound, cut, sore]
+  example: Die Wunde ist sauber.
+  exampleEn: The wound is clean.
+- id: pflaster
+  lesson: de2-health
+  term: das Pflaster
+  pos: noun
+  plural: die Pflaster
+  meanings: [plaster (for a cut), plaster, Band-Aid, sticking plaster, bandaid]
+  example: Hast du ein Pflaster für mich?
+  exampleEn: Do you have a plaster for me?
+- id: verband
+  lesson: de2-health
+  term: der Verband
+  pos: noun
+  plural: die Verbände
+  meanings: [bandage, dressing]
+  example: Die Ärztin macht einen Verband um das Knie.
+  exampleEn: The doctor puts a bandage on the knee.
+- id: spritze
+  lesson: de2-health
+  term: die Spritze
+  pos: noun
+  plural: die Spritzen
+  meanings: [injection, shot, syringe]
+  example: Ich habe Angst vor Spritzen.
+  exampleEn: I'm afraid of injections.
+- id: krankenkasse
+  lesson: de2-health
+  term: die Krankenkasse
+  pos: noun
+  plural: die Krankenkassen
+  meanings: [health insurance fund, health insurance, health insurer]
+  example: Bei welcher Krankenkasse sind Sie?
+  exampleEn: Which health insurance fund are you with?
+- id: versichertenkarte
+  lesson: de2-health
+  term: die Versichertenkarte
+  pos: noun
+  plural: die Versichertenkarten
+  alt: [die Krankenkassenkarte, die Gesundheitskarte]
+  meanings: [health insurance card, insurance card]
+  example: Bitte bringen Sie Ihre Versichertenkarte mit.
+  exampleEn: Please bring your health insurance card.
+- id: zahnarzt
+  lesson: de2-health
+  term: der Zahnarzt
+  pos: noun
+  plural: die Zahnärzte
+  meanings: [dentist (male), dentist]
+  example: Ich habe morgen einen Termin beim Zahnarzt.
+  exampleEn: I have an appointment at the dentist's tomorrow.
+  note: 'Female: die Zahnärztin.'
+- id: untersuchen
+  lesson: de2-health
+  term: untersuchen
+  pos: verb
+  meanings: [to examine, to check, to investigate]
+  example: Die Ärztin untersucht das Kind.
+  exampleEn: The doctor examines the child.
+  note: 'Inseparable: hat untersucht.'
+- id: untersuchung
+  lesson: de2-health
+  term: die Untersuchung
+  pos: noun
+  plural: die Untersuchungen
+  meanings: [examination (medical), examination, check-up, test, investigation]
+  example: Die Untersuchung dauert nur zehn Minuten.
+  exampleEn: The examination only takes ten minutes.
+- id: operieren
+  lesson: de2-health
+  term: operieren
+  pos: verb
+  meanings: [to operate (on), to operate, to perform surgery]
+  example: Man muss das Knie operieren.
+  exampleEn: The knee has to be operated on.
+  note: 'Perfect: hat operiert (no ge-).'
+- id: operation
+  lesson: de2-health
+  term: die Operation
+  pos: noun
+  plural: die Operationen
+  meanings: [operation, surgery]
+  example: Die Operation war erfolgreich.
+  exampleEn: The operation was successful.
+- id: notfall
+  lesson: de2-health
+  term: der Notfall
+  pos: noun
+  plural: die Notfälle
+  meanings: [emergency]
+  example: Im Notfall rufen Sie die 112.
+  exampleEn: In an emergency, call 112.
+- id: krankenwagen
+  lesson: de2-health
+  term: der Krankenwagen
+  pos: noun
+  plural: die Krankenwagen
+  meanings: [ambulance]
+  example: Schnell, wir brauchen einen Krankenwagen!
+  exampleEn: Quick, we need an ambulance!
+- id: taeglich
+  lesson: de2-health
+  term: täglich
+  pos: adjective
+  meanings: [daily, every day, a day]
+  example: Nehmen Sie die Tabletten dreimal täglich.
+  exampleEn: Take the tablets three times a day.
+- id: woechentlich
+  lesson: de2-health
+  term: wöchentlich
+  pos: adjective
+  meanings: [weekly, every week, a week]
+  example: Der Kurs findet wöchentlich statt.
+  exampleEn: The course takes place weekly.
+- id: schwanger
+  lesson: de2-health
+  term: schwanger
+  pos: adjective
+  meanings: [pregnant]
+  example: Meine Schwester ist schwanger.
+  exampleEn: My sister is pregnant.
+- id: niesen
+  lesson: de2-health
+  term: niesen
+  pos: verb
+  meanings: [to sneeze]
+  example: Wenn ich niese, sagen alle „Gesundheit!“.
+  exampleEn: When I sneeze, everyone says "Bless you!".

@@ -1,0 +1,904 @@
+# German A2, module 4: Home, travel and wishes (lessons 13–16)
+
+# --- 13 Where is it, where does it go? Two-way prepositions ---
+- id: stellen
+  lesson: de2-two-way
+  term: stellen
+  pos: verb
+  meanings: [to put (upright), to put, to place, to stand (something somewhere), to set]
+  example: Ich stelle die Flasche in den Kühlschrank.
+  exampleEn: I'm putting the bottle in the fridge.
+  note: 'Regular. Wohin? + accusative: auf den Tisch stellen. Perfect: hat gestellt.'
+- id: stehen
+  lesson: de2-two-way
+  term: stehen
+  pos: verb
+  meanings: [to stand (be upright), to stand, to be (standing)]
+  example: Die Lampe steht neben dem Sofa.
+  exampleEn: The lamp is next to the sofa.
+  note: 'Wo? + dative. Perfect: hat gestanden (southern Germany, Austria, Switzerland: ist gestanden).'
+- id: legen
+  lesson: de2-two-way
+  term: legen
+  pos: verb
+  meanings: [to put (lying flat), to lay, to put, to put down, to place]
+  example: Leg den Schlüssel bitte auf den Tisch.
+  exampleEn: Please put the key on the table.
+  note: 'Regular. Wohin? + accusative. Perfect: hat gelegt.'
+- id: liegen
+  lesson: de2-two-way
+  term: liegen
+  pos: verb
+  meanings: [to lie (be lying flat), to lie, to be (lying)]
+  example: Dein Handy liegt unter dem Kissen.
+  exampleEn: Your phone is under the cushion.
+  note: 'Wo? + dative. Perfect: hat gelegen (southern: ist gelegen).'
+- id: setzen
+  lesson: de2-two-way
+  term: setzen
+  pos: verb
+  meanings: [to sit (someone) down, to seat, to put, to set, to place]
+  example: Sie setzt das Kind auf den Stuhl.
+  exampleEn: She sits the child on the chair.
+  note: 'Regular. Wohin? + accusative. sich setzen = to sit down: Setz dich! Perfect: hat gesetzt.'
+- id: sitzen
+  lesson: de2-two-way
+  term: sitzen
+  pos: verb
+  meanings: [to sit (be sitting), to sit, to be sitting]
+  example: Die Gäste sitzen schon am Tisch.
+  exampleEn: The guests are already sitting at the table.
+  note: 'Wo? + dative. Perfect: hat gesessen (southern: ist gesessen).'
+- id: haengen
+  lesson: de2-two-way
+  term: hängen
+  pos: verb
+  meanings: [to hang (both to hang up and to be hanging), to hang, to hang up, to be hanging]
+  example: Das Bild hängt über dem Sofa.
+  exampleEn: The picture is hanging above the sofa.
+  note: 'Hanging something up (Wohin? + accusative): hat gehängt. Being there (Wo? + dative): hat gehangen.'
+- id: stecken
+  lesson: de2-two-way
+  term: stecken
+  pos: verb
+  meanings: [to put (into something), to stick, to put, to insert, to be (inside), to be stuck]
+  example: Der Schlüssel steckt in der Tür.
+  exampleEn: The key is in the door.
+  note: 'Both senses: hat gesteckt. Putting: in die Tasche stecken; being there: in der Tasche stecken.'
+- id: einziehen
+  lesson: de2-two-way
+  term: einziehen
+  pos: verb
+  meanings: [to move in, to move into]
+  example: Wir ziehen im Mai in die neue Wohnung ein.
+  exampleEn: We're moving into the new flat in May.
+  note: 'Separable. Perfect: ist eingezogen. in + accusative.'
+- id: ausziehen
+  lesson: de2-two-way
+  term: ausziehen
+  pos: verb
+  meanings: [to move out, to move out of]
+  example: Mein Sohn ist mit 19 ausgezogen.
+  exampleEn: My son moved out at 19.
+  note: 'Separable. Perfect: ist ausgezogen. aus + dative. (sich ausziehen = to get undressed.)'
+- id: moebel
+  lesson: de2-two-way
+  term: die Möbel
+  pos: noun
+  plural: die Möbel (plural only)
+  meanings: [furniture, furnishings]
+  example: Die Möbel kommen morgen früh.
+  exampleEn: The furniture is coming tomorrow morning.
+  note: 'One piece of furniture: das Möbelstück.'
+- id: karton
+  lesson: de2-two-way
+  term: der Karton
+  pos: noun
+  plural: die Kartons
+  meanings: [cardboard box, box, carton]
+  example: In diesem Karton sind meine Bücher.
+  exampleEn: My books are in this box.
+- id: kiste
+  lesson: de2-two-way
+  term: die Kiste
+  pos: noun
+  plural: die Kisten
+  meanings: [crate (a wooden or plastic box), crate, box, chest]
+  example: Die Kiste mit den Flaschen ist im Keller.
+  exampleEn: The crate with the bottles is in the cellar.
+- id: teppich
+  lesson: de2-two-way
+  term: der Teppich
+  pos: noun
+  plural: die Teppiche
+  meanings: [carpet, rug]
+  example: Der Teppich liegt im Wohnzimmer.
+  exampleEn: The rug is in the living room.
+- id: vorhang
+  lesson: de2-two-way
+  term: der Vorhang
+  pos: noun
+  plural: die Vorhänge
+  meanings: [curtain, drape]
+  example: Kannst du den Vorhang zumachen?
+  exampleEn: Can you close the curtain?
+- id: kissen
+  lesson: de2-two-way
+  term: das Kissen
+  pos: noun
+  plural: die Kissen
+  meanings: [cushion, pillow]
+  example: Auf dem Sofa liegen drei Kissen.
+  exampleEn: There are three cushions on the sofa.
+- id: decke
+  lesson: de2-two-way
+  term: die Decke
+  pos: noun
+  plural: die Decken
+  meanings: [blanket (also ceiling), blanket, ceiling, duvet, cover]
+  example: Die Lampe hängt an der Decke.
+  exampleEn: The lamp hangs from the ceiling.
+- id: herd
+  lesson: de2-two-way
+  term: der Herd
+  pos: noun
+  plural: die Herde
+  meanings: [cooker, stove, oven, range]
+  example: Der Topf steht auf dem Herd.
+  exampleEn: The pan is on the cooker.
+- id: spuelmaschine
+  lesson: de2-two-way
+  term: die Spülmaschine
+  pos: noun
+  plural: die Spülmaschinen
+  meanings: [dishwasher]
+  example: Stell die Teller bitte in die Spülmaschine.
+  exampleEn: Please put the plates in the dishwasher.
+- id: waschmaschine
+  lesson: de2-two-way
+  term: die Waschmaschine
+  pos: noun
+  plural: die Waschmaschinen
+  meanings: [washing machine, washer]
+  example: Die Waschmaschine steht im Bad.
+  exampleEn: The washing machine is in the bathroom.
+- id: muell
+  lesson: de2-two-way
+  term: der Müll
+  pos: noun
+  plural: —
+  meanings: [rubbish, garbage, trash, waste]
+  example: Bringst du bitte den Müll raus?
+  exampleEn: Will you take the rubbish out, please?
+- id: sauber-machen
+  lesson: de2-two-way
+  term: sauber machen
+  pos: verb
+  meanings: [to clean up (make clean), to clean, to clean up]
+  example: Am Samstag machen wir die Wohnung sauber.
+  exampleEn: On Saturday we're cleaning the flat.
+  note: 'Separates like a separable verb: Ich mache das Bad sauber. Perfect: hat sauber gemacht.'
+- id: abwaschen
+  lesson: de2-two-way
+  term: abwaschen
+  pos: verb
+  meanings: [to wash up (do the dishes), to wash up, to do the dishes, to wash the dishes]
+  example: Wer wäscht heute ab?
+  exampleEn: Who's washing up today?
+  note: 'Separable, stem change: du wäschst ab, er wäscht ab. Perfect: hat abgewaschen.'
+- id: staubsaugen
+  lesson: de2-two-way
+  term: staubsaugen
+  pos: verb
+  alt: [Staub saugen]
+  meanings: [to vacuum, to hoover, to vacuum-clean]
+  example: Ich muss noch staubsaugen.
+  exampleEn: I still have to vacuum.
+  note: 'Usually not split: er staubsaugt. Perfect: hat gestaubsaugt (also written Staub saugen, hat Staub gesaugt).'
+- id: vermieter
+  lesson: de2-two-way
+  term: der Vermieter
+  pos: noun
+  plural: die Vermieter
+  meanings: [landlord, owner (of a rented flat)]
+  example: Der Vermieter wohnt im ersten Stock.
+  exampleEn: The landlord lives on the first floor.
+  note: 'A female landlord is die Vermieterin.'
+- id: mieter
+  lesson: de2-two-way
+  term: der Mieter
+  pos: noun
+  plural: die Mieter
+  meanings: [tenant, renter]
+  example: Die Mieter müssen den Müll trennen.
+  exampleEn: The tenants have to separate their rubbish.
+  note: 'A female tenant is die Mieterin.'
+- id: nebenkosten
+  lesson: de2-two-way
+  term: die Nebenkosten
+  pos: noun
+  plural: die Nebenkosten (plural only)
+  meanings: [additional costs (heating, water etc. on top of rent), additional costs, extra costs, utilities, service charges]
+  example: Die Miete ist 700 Euro plus Nebenkosten.
+  exampleEn: The rent is 700 euros plus utilities.
+- id: kaution
+  lesson: de2-two-way
+  term: die Kaution
+  pos: noun
+  plural: die Kautionen
+  meanings: [deposit (for a rented flat), deposit, security deposit]
+  example: Die Kaution ist 1.500 Euro.
+  exampleEn: The deposit is 1,500 euros.
+- id: keller
+  lesson: de2-two-way
+  term: der Keller
+  pos: noun
+  plural: die Keller
+  meanings: [cellar, basement]
+  example: Die Fahrräder stehen im Keller.
+  exampleEn: The bikes are in the cellar.
+- id: schreibtisch
+  lesson: de2-two-way
+  term: der Schreibtisch
+  pos: noun
+  plural: die Schreibtische
+  meanings: [desk, writing desk]
+  example: Mein Schreibtisch steht am Fenster.
+  exampleEn: My desk is by the window.
+
+# --- 14 Planning a trip ---
+- id: unterkunft
+  lesson: de2-travel
+  term: die Unterkunft
+  pos: noun
+  plural: die Unterkünfte
+  meanings: [accommodation, lodging, place to stay]
+  example: Wir suchen eine günstige Unterkunft in Berlin.
+  exampleEn: We're looking for cheap accommodation in Berlin.
+- id: doppelzimmer
+  lesson: de2-travel
+  term: das Doppelzimmer
+  pos: noun
+  plural: die Doppelzimmer
+  meanings: [double room]
+  example: Ein Doppelzimmer kostet 90 Euro pro Nacht.
+  exampleEn: A double room costs 90 euros a night.
+- id: einzelzimmer
+  lesson: de2-travel
+  term: das Einzelzimmer
+  pos: noun
+  plural: die Einzelzimmer
+  meanings: [single room]
+  example: Haben Sie noch ein Einzelzimmer frei?
+  exampleEn: Do you still have a single room free?
+- id: uebernachtung
+  lesson: de2-travel
+  term: die Übernachtung
+  pos: noun
+  plural: die Übernachtungen
+  meanings: [overnight stay, night (at a hotel), stay, night's stay]
+  example: Die Übernachtung mit Frühstück kostet 70 Euro.
+  exampleEn: A night with breakfast costs 70 euros.
+- id: uebernachten
+  lesson: de2-travel
+  term: übernachten
+  pos: verb
+  meanings: [to stay overnight, to spend the night, to stay the night, to stay]
+  example: Wir übernachten bei Freunden in Hamburg.
+  exampleEn: We're staying the night with friends in Hamburg.
+  note: 'Inseparable (ü- stays together): hat übernachtet.'
+- id: buchen
+  lesson: de2-travel
+  term: buchen
+  pos: verb
+  meanings: [to book]
+  example: Ich habe den Flug schon gebucht.
+  exampleEn: I've already booked the flight.
+- id: buchung
+  lesson: de2-travel
+  term: die Buchung
+  pos: noun
+  plural: die Buchungen
+  meanings: [booking]
+  example: Die Buchung kommt per E-Mail.
+  exampleEn: The booking comes by e-mail.
+- id: reservieren
+  lesson: de2-travel
+  term: reservieren
+  pos: verb
+  meanings: [to reserve, to book (a table or room)]
+  example: Ich möchte einen Tisch für vier Personen reservieren.
+  exampleEn: I'd like to reserve a table for four people.
+  note: 'Perfect: hat reserviert (no ge-).'
+- id: reservierung
+  lesson: de2-travel
+  term: die Reservierung
+  pos: noun
+  plural: die Reservierungen
+  meanings: [reservation]
+  example: Haben Sie eine Reservierung?
+  exampleEn: Do you have a reservation?
+- id: halbpension
+  lesson: de2-travel
+  term: die Halbpension
+  pos: noun
+  plural: —
+  meanings: [half board, half-board]
+  example: Das Hotel bietet auch Halbpension an.
+  exampleEn: The hotel also offers half board.
+- id: rezeption
+  lesson: de2-travel
+  term: die Rezeption
+  pos: noun
+  plural: die Rezeptionen
+  meanings: [reception (desk), reception, front desk]
+  example: Den Schlüssel bekommen Sie an der Rezeption.
+  exampleEn: You get the key at reception.
+- id: gast
+  lesson: de2-travel
+  term: der Gast
+  pos: noun
+  plural: die Gäste
+  meanings: [guest]
+  example: Die Gäste frühstücken auf der Terrasse.
+  exampleEn: The guests have breakfast on the terrace.
+- id: reisefuehrer
+  lesson: de2-travel
+  term: der Reiseführer
+  pos: noun
+  plural: die Reiseführer
+  meanings: [guidebook (also tour guide), guidebook, travel guide, tour guide, guide]
+  example: Im Reiseführer steht, das Museum ist montags zu.
+  exampleEn: The guidebook says the museum is closed on Mondays.
+  note: 'A female tour guide is die Reiseführerin.'
+- id: sehenswuerdigkeit
+  lesson: de2-travel
+  term: die Sehenswürdigkeit
+  pos: noun
+  plural: die Sehenswürdigkeiten
+  meanings: [sight (tourist attraction), sight, attraction, place of interest, landmark]
+  example: Die Brücke ist die bekannteste Sehenswürdigkeit hier.
+  exampleEn: The bridge is the best-known sight here.
+- id: besichtigen
+  lesson: de2-travel
+  term: besichtigen
+  pos: verb
+  meanings: [to visit (a sight), to see, to tour, to look round, to visit]
+  example: Morgen besichtigen wir die alte Kirche.
+  exampleEn: Tomorrow we're visiting the old church.
+  note: 'Inseparable: hat besichtigt. For people, use besuchen.'
+- id: gepaeck
+  lesson: de2-travel
+  term: das Gepäck
+  pos: noun
+  plural: —
+  meanings: [luggage, baggage]
+  example: Wo kann ich mein Gepäck lassen?
+  exampleEn: Where can I leave my luggage?
+- id: packen
+  lesson: de2-travel
+  term: packen
+  pos: verb
+  meanings: [to pack]
+  example: Hast du den Koffer schon gepackt?
+  exampleEn: Have you packed the suitcase yet?
+- id: pass
+  lesson: de2-travel
+  term: der Pass
+  pos: noun
+  plural: die Pässe
+  meanings: [passport]
+  example: Vergiss deinen Pass nicht!
+  exampleEn: Don't forget your passport!
+  note: 'Also der Reisepass.'
+- id: visum
+  lesson: de2-travel
+  term: das Visum
+  pos: noun
+  plural: die Visa (also die Visen)
+  meanings: [visa]
+  example: Für dieses Land brauchen Sie ein Visum.
+  exampleEn: You need a visa for this country.
+- id: zoll
+  lesson: de2-travel
+  term: der Zoll
+  pos: noun
+  plural: die Zölle (as charges)
+  meanings: [customs, customs duty, duty]
+  example: Am Zoll mussten wir den Koffer öffnen.
+  exampleEn: At customs we had to open the suitcase.
+- id: reisetasche
+  lesson: de2-travel
+  term: die Reisetasche
+  pos: noun
+  plural: die Reisetaschen
+  meanings: [travel bag, holdall, duffel bag]
+  example: Meine Reisetasche ist zu klein.
+  exampleEn: My travel bag is too small.
+- id: draussen
+  lesson: de2-travel
+  term: draußen
+  pos: adverb
+  alt: [draussen]
+  meanings: [outside, outdoors, out]
+  example: Heute essen wir draußen.
+  exampleEn: Today we're eating outside.
+- id: drinnen
+  lesson: de2-travel
+  term: drinnen
+  pos: adverb
+  meanings: [inside (indoors), inside, indoors, in]
+  example: Bei Regen spielen die Kinder drinnen.
+  exampleEn: When it rains, the children play indoors.
+- id: unterwegs
+  lesson: de2-travel
+  term: unterwegs
+  pos: adverb
+  meanings: [on the way, on the road, out and about, travelling, en route]
+  example: Ich bin gerade unterwegs und rufe später an.
+  exampleEn: I'm out at the moment and will call later.
+- id: campingplatz
+  lesson: de2-travel
+  term: der Campingplatz
+  pos: noun
+  plural: die Campingplätze
+  meanings: [campsite, campground, camping site]
+  example: Der Campingplatz liegt direkt am See.
+  exampleEn: The campsite is right by the lake.
+- id: zelt
+  lesson: de2-travel
+  term: das Zelt
+  pos: noun
+  plural: die Zelte
+  meanings: [tent]
+  example: Wir schlafen im Zelt.
+  exampleEn: We're sleeping in the tent.
+- id: ab
+  lesson: de2-travel
+  term: ab
+  pos: preposition
+  meanings: [from (a time on), from, starting, as of, starting from]
+  example: Ab Montag habe ich Urlaub.
+  exampleEn: From Monday I'm on holiday.
+  note: 'Takes the dative: ab dem ersten Mai.'
+- id: oben
+  lesson: de2-travel
+  term: oben
+  pos: adverb
+  meanings: [upstairs (at the top), upstairs, above, at the top, up]
+  example: Das Bad ist oben.
+  exampleEn: The bathroom is upstairs.
+  note: 'Direction: nach oben (up, upstairs).'
+- id: unten
+  lesson: de2-travel
+  term: unten
+  pos: adverb
+  meanings: [downstairs (at the bottom), downstairs, below, at the bottom, down]
+  example: Die Küche ist unten.
+  exampleEn: The kitchen is downstairs.
+  note: 'Direction: nach unten (down, downstairs).'
+
+# --- 15 Wishes and polite requests ---
+- id: bitten
+  lesson: de2-konjunktiv
+  term: bitten
+  pos: verb
+  meanings: [to ask (for something), to request, to ask, to beg]
+  example: Darf ich Sie um einen Gefallen bitten?
+  exampleEn: May I ask you a favour?
+  note: 'bitten um + accusative. Perfect: hat gebeten.'
+- id: die-bitte
+  lesson: de2-konjunktiv
+  term: die Bitte
+  pos: noun
+  plural: die Bitten
+  meanings: [request, favour]
+  example: Ich habe eine Bitte an dich.
+  exampleEn: I have a favour to ask you.
+- id: rat
+  lesson: de2-konjunktiv
+  term: der Rat
+  pos: noun
+  plural: — (use die Ratschläge)
+  meanings: [advice, piece of advice, tip]
+  example: Kannst du mir einen Rat geben?
+  exampleEn: Can you give me some advice?
+- id: raten
+  lesson: de2-konjunktiv
+  term: raten
+  pos: verb
+  meanings: [to advise, to guess]
+  example: Der Arzt rät mir, mehr zu schlafen.
+  exampleEn: The doctor advises me to sleep more.
+  note: 'Stem change: du rätst, er rät. Perfect: hat geraten. raten + dative (the person).'
+- id: vorschlagen
+  lesson: de2-konjunktiv
+  term: vorschlagen
+  pos: verb
+  meanings: [to suggest, to propose]
+  example: Ich schlage vor, wir gehen heute ins Kino.
+  exampleEn: I suggest we go to the cinema today.
+  note: 'Separable, stem change: du schlägst vor, er schlägt vor. Perfect: hat vorgeschlagen.'
+- id: vorschlag
+  lesson: de2-konjunktiv
+  term: der Vorschlag
+  pos: noun
+  plural: die Vorschläge
+  meanings: [suggestion, proposal]
+  example: Hast du einen besseren Vorschlag?
+  exampleEn: Have you got a better suggestion?
+- id: reich
+  lesson: de2-konjunktiv
+  term: reich
+  pos: adjective
+  meanings: [rich, wealthy]
+  example: Wenn ich reich wäre, würde ich ein Haus kaufen.
+  exampleEn: If I were rich, I'd buy a house.
+- id: arm-poor
+  lesson: de2-konjunktiv
+  term: arm
+  pos: adjective
+  meanings: [poor]
+  example: Als Student war ich ziemlich arm.
+  exampleEn: As a student I was fairly poor.
+  note: 'Comparative: ärmer. Not the noun der Arm (arm).'
+- id: beruehmt
+  lesson: de2-konjunktiv
+  term: berühmt
+  pos: adjective
+  meanings: [famous, well-known]
+  example: Sie wäre gern eine berühmte Sängerin.
+  exampleEn: She'd like to be a famous singer.
+- id: weltreise
+  lesson: de2-konjunktiv
+  term: die Weltreise
+  pos: noun
+  plural: die Weltreisen
+  meanings: [trip around the world, world trip, round-the-world trip]
+  example: Nach der Schule machen sie eine Weltreise.
+  exampleEn: After school they're going on a trip around the world.
+- id: abenteuer
+  lesson: de2-konjunktiv
+  term: das Abenteuer
+  pos: noun
+  plural: die Abenteuer
+  meanings: [adventure]
+  example: Die Reise war ein echtes Abenteuer.
+  exampleEn: The trip was a real adventure.
+- id: freiwillig
+  lesson: de2-konjunktiv
+  term: freiwillig
+  pos: adjective
+  meanings: [voluntary (also as a volunteer), voluntary, voluntarily, as a volunteer]
+  example: Sie hilft freiwillig in der Schule.
+  exampleEn: She helps at the school as a volunteer.
+- id: irgendwann
+  lesson: de2-konjunktiv
+  term: irgendwann
+  pos: adverb
+  meanings: [sometime (at some point), sometime, some day, one day, at some point]
+  example: Irgendwann möchte ich in Italien leben.
+  exampleEn: One day I'd like to live in Italy.
+- id: irgendwo
+  lesson: de2-konjunktiv
+  term: irgendwo
+  pos: adverb
+  meanings: [somewhere, anywhere]
+  example: Meine Brille muss irgendwo hier sein.
+  exampleEn: My glasses must be somewhere around here.
+- id: sofort
+  lesson: de2-konjunktiv
+  term: sofort
+  pos: adverb
+  meanings: [immediately, at once, right away, straight away, instantly]
+  example: Kommen Sie bitte sofort!
+  exampleEn: Please come immediately!
+- id: eventuell
+  lesson: de2-konjunktiv
+  term: eventuell
+  pos: adverb
+  meanings: [possibly (not eventually), possibly, perhaps, maybe, might]
+  example: Ich komme eventuell etwas später.
+  exampleEn: I might come a bit later.
+  note: 'False friend: eventually = irgendwann, schließlich.'
+- id: stattdessen
+  lesson: de2-konjunktiv
+  term: stattdessen
+  pos: adverb
+  meanings: [instead]
+  example: Das Kino ist voll. Stattdessen gehen wir essen.
+  exampleEn: The cinema is full. We're going out to eat instead.
+- id: ausprobieren
+  lesson: de2-konjunktiv
+  term: ausprobieren
+  pos: verb
+  meanings: [to try out, to try, to test]
+  example: Ich möchte das neue Restaurant ausprobieren.
+  exampleEn: I'd like to try out the new restaurant.
+  note: 'Separable. Perfect: hat ausprobiert (no ge-).'
+- id: gelegenheit
+  lesson: de2-konjunktiv
+  term: die Gelegenheit
+  pos: noun
+  plural: die Gelegenheiten
+  meanings: [opportunity (occasion), opportunity, occasion, chance]
+  example: Das ist eine gute Gelegenheit, Deutsch zu sprechen.
+  exampleEn: That's a good opportunity to speak German.
+- id: noetig
+  lesson: de2-konjunktiv
+  term: nötig
+  pos: adjective
+  meanings: [necessary, needed]
+  example: Ein Auto ist in der Stadt nicht nötig.
+  exampleEn: A car isn't necessary in the city.
+- id: ausnahmsweise
+  lesson: de2-konjunktiv
+  term: ausnahmsweise
+  pos: adverb
+  meanings: [as an exception, for once, just this once, exceptionally]
+  example: Heute darfst du ausnahmsweise länger fernsehen.
+  exampleEn: Today, just this once, you can watch TV for longer.
+- id: hilfe
+  lesson: de2-konjunktiv
+  term: die Hilfe
+  pos: noun
+  plural: die Hilfen
+  meanings: [help (the noun), help, assistance, aid]
+  example: Danke für deine Hilfe!
+  exampleEn: Thanks for your help!
+- id: gewinnen
+  lesson: de2-konjunktiv
+  term: gewinnen
+  pos: verb
+  meanings: [to win]
+  example: Wer hat das Spiel gewonnen?
+  exampleEn: Who won the game?
+  note: 'Perfect: hat gewonnen.'
+- id: glueck
+  lesson: de2-konjunktiv
+  term: das Glück
+  pos: noun
+  plural: —
+  meanings: [luck (also happiness), luck, happiness, fortune]
+  example: Viel Glück bei der Prüfung!
+  exampleEn: Good luck in the exam!
+  note: 'Glück haben = to be lucky.'
+- id: selbstverstaendlich
+  lesson: de2-konjunktiv
+  term: selbstverständlich
+  pos: adverb
+  meanings: [of course (it goes without saying), of course, naturally, certainly, obviously]
+  example: Selbstverständlich helfe ich Ihnen.
+  exampleEn: Of course I'll help you.
+- id: gern-geschehen
+  lesson: de2-konjunktiv
+  kind: phrase
+  term: Gern geschehen!
+  alt: [gern geschehen, Gern geschehen]
+  pos: phrase
+  meanings: [my pleasure (reply to thanks), my pleasure, don't mention it, you're welcome]
+  example: Danke für die Hilfe! – Gern geschehen!
+  exampleEn: Thanks for the help! – My pleasure!
+
+# --- 16 Linking ideas; weather and environment ---
+- id: klima
+  lesson: de2-connectors
+  term: das Klima
+  pos: noun
+  plural: die Klimas (also die Klimate)
+  meanings: [climate]
+  example: Das Klima in Spanien ist wärmer als bei uns.
+  exampleEn: The climate in Spain is warmer than here.
+- id: umwelt
+  lesson: de2-connectors
+  term: die Umwelt
+  pos: noun
+  plural: —
+  meanings: [environment, the environment]
+  example: Plastik ist schlecht für die Umwelt.
+  exampleEn: Plastic is bad for the environment.
+- id: schuetzen
+  lesson: de2-connectors
+  term: schützen
+  pos: verb
+  meanings: [to protect, to shield]
+  example: Wir müssen die Natur schützen.
+  exampleEn: We have to protect nature.
+- id: umweltschutz
+  lesson: de2-connectors
+  term: der Umweltschutz
+  pos: noun
+  plural: —
+  meanings: [environmental protection, protecting the environment, conservation]
+  example: Umweltschutz ist mir sehr wichtig.
+  exampleEn: Protecting the environment is very important to me.
+- id: energie
+  lesson: de2-connectors
+  term: die Energie
+  pos: noun
+  plural: die Energien
+  meanings: [energy, power]
+  example: Diese Lampe braucht wenig Energie.
+  exampleEn: This lamp uses little energy.
+- id: strom
+  lesson: de2-connectors
+  term: der Strom
+  pos: noun
+  plural: — (as electricity)
+  meanings: [electricity (also a big river), electricity, power, current]
+  example: Der Strom ist schon wieder teurer geworden.
+  exampleEn: Electricity has got more expensive again.
+  note: 'In the sense of a large river or stream the plural is die Ströme.'
+- id: sparen
+  lesson: de2-connectors
+  term: sparen
+  pos: verb
+  meanings: [to save (money or energy), to save, to economize]
+  example: Wir sparen für eine neue Waschmaschine.
+  exampleEn: We're saving for a new washing machine.
+- id: verbrauchen
+  lesson: de2-connectors
+  term: verbrauchen
+  pos: verb
+  meanings: [to consume (use up), to consume, to use, to use up]
+  example: Ein Kühlschrank verbraucht viel Strom.
+  exampleEn: A fridge uses a lot of electricity.
+  note: 'Inseparable: hat verbraucht.'
+- id: trennen
+  lesson: de2-connectors
+  term: trennen
+  pos: verb
+  meanings: [to separate (also to sort rubbish), to separate, to sort, to divide, to split]
+  example: In Deutschland trennt man den Müll.
+  exampleEn: In Germany people separate their rubbish.
+- id: recyceln
+  lesson: de2-connectors
+  term: recyceln
+  pos: verb
+  meanings: [to recycle]
+  example: Glas kann man gut recyceln.
+  exampleEn: Glass is easy to recycle.
+  note: 'ich recycle, er recycelt. Perfect: hat recycelt.'
+- id: temperatur
+  lesson: de2-connectors
+  term: die Temperatur
+  pos: noun
+  plural: die Temperaturen
+  meanings: [temperature]
+  example: Die Temperatur steigt auf 25 Grad.
+  exampleEn: The temperature is rising to 25 degrees.
+- id: grad
+  lesson: de2-connectors
+  term: der Grad
+  pos: noun
+  plural: die Grade (after a number unchanged, 20 Grad)
+  meanings: [degree (of temperature), degree, degrees]
+  example: Heute sind es nur zwei Grad.
+  exampleEn: It's only two degrees today.
+  note: 'For temperature also das Grad. After a number: 30 Grad, minus 5 Grad.'
+- id: gewitter
+  lesson: de2-connectors
+  term: das Gewitter
+  pos: noun
+  plural: die Gewitter
+  meanings: [thunderstorm, storm]
+  example: Am Abend gibt es ein Gewitter.
+  exampleEn: There'll be a thunderstorm in the evening.
+- id: nebel
+  lesson: de2-connectors
+  term: der Nebel
+  pos: noun
+  plural: die Nebel
+  meanings: [fog, mist]
+  example: Bei Nebel fahre ich langsam.
+  exampleEn: I drive slowly in fog.
+  note: 'Adjective: neblig (foggy).'
+- id: wolke
+  lesson: de2-connectors
+  term: die Wolke
+  pos: noun
+  plural: die Wolken
+  meanings: [cloud]
+  example: Am Himmel ist keine Wolke.
+  exampleEn: There isn't a cloud in the sky.
+- id: bewoelkt
+  lesson: de2-connectors
+  term: bewölkt
+  pos: adjective
+  meanings: [cloudy, overcast]
+  example: Morgen ist es bewölkt.
+  exampleEn: Tomorrow it'll be cloudy.
+- id: sonnig
+  lesson: de2-connectors
+  term: sonnig
+  pos: adjective
+  meanings: [sunny]
+  example: Das Wochenende wird sonnig.
+  exampleEn: The weekend will be sunny.
+- id: windig
+  lesson: de2-connectors
+  term: windig
+  pos: adjective
+  meanings: [windy]
+  example: An der Küste ist es oft windig.
+  exampleEn: It's often windy on the coast.
+- id: nass
+  lesson: de2-connectors
+  term: nass
+  pos: adjective
+  meanings: [wet]
+  example: Meine Haare sind noch nass.
+  exampleEn: My hair is still wet.
+- id: trocken
+  lesson: de2-connectors
+  term: trocken
+  pos: adjective
+  meanings: [dry]
+  example: Die Handtücher sind schon trocken.
+  exampleEn: The towels are already dry.
+- id: himmel
+  lesson: de2-connectors
+  term: der Himmel
+  pos: noun
+  plural: die Himmel
+  meanings: [sky (also heaven), sky, heaven]
+  example: Der Himmel ist heute ganz blau.
+  exampleEn: The sky is completely blue today.
+- id: eis
+  lesson: de2-connectors
+  term: das Eis
+  pos: noun
+  plural: —
+  meanings: [ice (also ice cream), ice, ice cream]
+  example: Vorsicht, auf der Straße ist Eis!
+  exampleEn: Careful, there's ice on the road!
+  note: 'As ice cream: ein Eis, zwei Eis.'
+- id: frieren
+  lesson: de2-connectors
+  term: frieren
+  pos: verb
+  meanings: [to be cold (feel cold), to freeze, to be cold, to feel cold]
+  example: Ich friere, mach bitte das Fenster zu.
+  exampleEn: I'm cold, please close the window.
+  note: 'Perfect: hat gefroren (felt cold); ist gefroren (turned to ice).'
+- id: hitze
+  lesson: de2-connectors
+  term: die Hitze
+  pos: noun
+  plural: —
+  meanings: [heat, hot weather]
+  example: Bei dieser Hitze kann ich nicht schlafen.
+  exampleEn: I can't sleep in this heat.
+- id: sturm
+  lesson: de2-connectors
+  term: der Sturm
+  pos: noun
+  plural: die Stürme
+  meanings: [storm (strong wind), storm, gale]
+  example: Heute Nacht kommt ein Sturm.
+  exampleEn: A storm is coming tonight.
+- id: ausserdem
+  lesson: de2-connectors
+  term: außerdem
+  pos: adverb
+  alt: [ausserdem]
+  meanings: [besides (in addition), besides, in addition, also, moreover, furthermore, what's more]
+  example: Die Wohnung ist zu klein. Außerdem ist sie zu teuer.
+  exampleEn: The flat is too small. Besides, it's too expensive.
+  note: 'In position 1 the verb follows directly: Außerdem ist …'
+- id: trotzdem
+  lesson: de2-connectors
+  term: trotzdem
+  pos: adverb
+  meanings: [nevertheless (anyway), nevertheless, anyway, all the same, still, even so]
+  example: Es regnet. Trotzdem gehen wir spazieren.
+  exampleEn: It's raining. We're going for a walk anyway.
+  note: 'In position 1 the verb follows directly: Trotzdem gehe ich …'
+- id: sonst
+  lesson: de2-connectors
+  term: sonst
+  pos: adverb
+  meanings: [otherwise (or else), otherwise, or else, else]
+  example: Beeil dich, sonst fährt der Bus ohne dich.
+  exampleEn: Hurry up, otherwise the bus will leave without you.
+  note: 'In position 1 the verb follows directly. Also: Sonst noch etwas? (Anything else?)'
