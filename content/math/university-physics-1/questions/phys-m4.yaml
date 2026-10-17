@@ -1,0 +1,348 @@
+- id: phys-q-1101
+  lesson: phys-work
+  module_quiz: true
+  topic: Work and kinetic energy
+  stem: 'A 40 N force pulls a wagon 10 m along level ground. The force is directed $60^\circ$ above the horizontal. How much work does it do?'
+  choices: ['400 J', '346 J', '200 J', '0 J']
+  answer: 2
+  explanation: |-
+    $W = Fd\cos\theta = 40(10)\cos 60^\circ = 200$ J. Only the horizontal component (20 N) acts along the displacement. 346 J uses $\sin 60^\circ$.
+- id: phys-q-1102
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A ball on a string moves in a horizontal circle at constant speed. How much work does the string tension do during one revolution?'
+  choices: ['Zero, because the tension is perpendicular to the motion', 'Positive, because the tension pulls the ball', '$T \cdot 2\pi r$', 'Negative, because the tension points inward']
+  answer: 0
+  explanation: |-
+    The tension is always perpendicular to the velocity ($\cos 90^\circ = 0$), so it does no work, consistent with the speed (and kinetic energy) staying constant.
+- id: phys-q-1103
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A 1000 kg car moves at 20 m/s. What is its kinetic energy?'
+  choices: ['20 kJ', '400 kJ', '10 kJ', '200 kJ']
+  answer: 3
+  explanation: |-
+    $K = \tfrac12mv^2 = \tfrac12(1000)(20)^2 = 200\,000$ J $= 200$ kJ. Forgetting the $\tfrac12$ gives 400 kJ; forgetting to square gives 10 kJ.
+- id: phys-q-1104
+  lesson: phys-work
+  module_quiz: true
+  topic: Work and kinetic energy
+  stem: 'A 2.0 kg box at rest has 100 J of net work done on it. What is its final speed?'
+  choices: ['10 m/s', '50 m/s', '7.1 m/s', '100 m/s']
+  answer: 0
+  explanation: |-
+    $W_{\text{net}} = \tfrac12mv^2$: $100 = \tfrac12(2.0)v^2$, so $v^2 = 100$ and $v = 10$ m/s. 7.1 m/s forgets the $\tfrac12$.
+- id: phys-q-1105
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'If an object''s speed triples, its kinetic energy'
+  choices: ['triples', 'increases by a factor of 6', 'increases by a factor of 9', 'increases by a factor of 27']
+  answer: 2
+  explanation: |-
+    $K \propto v^2$, so tripling $v$ multiplies $K$ by $3^2 = 9$.
+- id: phys-q-1106
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'How much work is needed to stretch a spring with $k = 200$ N/m by 0.15 m from its natural length?'
+  choices: ['2.25 J', '30 J', '4.5 J', '15 J']
+  answer: 0
+  explanation: |-
+    $W = \tfrac12kx^2 = \tfrac12(200)(0.15)^2 = 2.25$ J. Using $kx^2$ gives 4.5 J; $kx = 30$ N is the final force, not the work.
+- id: phys-q-1107
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A box slides across a rough floor and comes to rest. The work done on it by kinetic friction is'
+  choices: ['positive', 'zero', 'equal to its weight times the distance', 'negative']
+  answer: 3
+  explanation: |-
+    Friction points opposite the displacement ($\theta = 180^\circ$), so $W = -f_kd < 0$. That negative net work is what removes the kinetic energy.
+- id: phys-q-1108
+  lesson: phys-work
+  module_quiz: true
+  topic: Work and kinetic energy
+  stem: 'A force $F(x) = 4x^3$ N acts along $x$. How much work does it do from $x = 0$ to $x = 2$ m?'
+  choices: ['32 J', '16 J', '64 J', '8 J']
+  answer: 1
+  explanation: |-
+    $W = \int_0^2 4x^3\,dx = [x^4]_0^2 = 16$ J. Multiplying $F(2) = 32$ N by 2 m gives 64 J, wrongly treating the force as constant.
+- id: phys-q-1109
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'On a graph of force versus position, the work done by the force between two positions equals'
+  choices: ['the slope of the graph', 'the force at the final position times the distance', 'the area under the graph between them', 'the average of the two forces']
+  answer: 2
+  explanation: |-
+    $W = \int F\,dx$ is the area under the $F$–$x$ curve. For a constant force it's a rectangle, $Fd$; for a spring it's a triangle, $\tfrac12kx^2$.
+- id: phys-q-1110
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A weightlifter holds a 100 kg barbell motionless overhead for 5 s. How much work does she do on the barbell during that time?'
+  choices: ['0 J', '980 J', '4900 J', '500 J']
+  answer: 0
+  explanation: |-
+    Work requires a displacement. The barbell doesn't move, so $W = 0$ even though she exerts 980 N and her muscles use chemical energy.
+- id: phys-q-1201
+  lesson: phys-energy
+  module_quiz: true
+  topic: Conservation of energy
+  stem: 'A sled starts from rest at the top of a frictionless hill 5.0 m high. What is its speed at the bottom? ($g = 9.8$ m/s²)'
+  choices: ['49 m/s', '7.0 m/s', '98 m/s', '9.9 m/s']
+  answer: 3
+  explanation: |-
+    $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{98} = 9.9$ m/s. 7.0 m/s is $\sqrt{gh}$, missing the 2. The mass and the hill's shape don't matter.
+- id: phys-q-1202
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'Two identical balls are released from the same height: one slides down a steep frictionless ramp, the other down a gentle frictionless ramp. At the bottom,'
+  choices: ['the steep-ramp ball is faster', 'they have the same speed', 'the gentle-ramp ball is faster', 'it depends on the masses']
+  answer: 1
+  explanation: |-
+    Gravity's work depends only on the height drop and the normal force does no work, so both reach $v = \sqrt{2gh}$. The steep ramp just gets there sooner.
+- id: phys-q-1203
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'A pendulum bob is released from rest 0.80 m above its lowest point. Ignoring air resistance, how fast does it move at the bottom? ($g = 9.8$ m/s²)'
+  choices: ['4.0 m/s', '2.8 m/s', '7.8 m/s', '15.7 m/s']
+  answer: 0
+  explanation: |-
+    The string tension is perpendicular to the motion and does no work, so $v = \sqrt{2gh} = \sqrt{2(9.8)(0.80)} = 3.96$ m/s.
+- id: phys-q-1204
+  lesson: phys-energy
+  module_quiz: true
+  topic: Conservation of energy
+  stem: 'A 3.0 kg block slides down a 2.0 m high ramp from rest and reaches the bottom at 5.0 m/s. How much work did friction do? ($g = 9.8$ m/s²)'
+  choices: ['−37.5 J', '−58.8 J', '−21.3 J', '+21.3 J']
+  answer: 2
+  explanation: |-
+    $U_i = 3.0(9.8)(2.0) = 58.8$ J and $K_f = \tfrac12(3.0)(25) = 37.5$ J. $W_{\text{nc}} = K_f - U_i = -21.3$ J. Friction removes mechanical energy, so its work is negative.
+- id: phys-q-1205
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'Which force is nonconservative?'
+  choices: ['Gravity', 'The force of an ideal spring', 'The electrostatic force', 'Kinetic friction']
+  answer: 3
+  explanation: |-
+    The work done by kinetic friction depends on the path length (longer path, more negative work), so no potential energy can be defined for it. Gravity, springs and electrostatic forces are conservative.
+- id: phys-q-1206
+  lesson: phys-energy
+  topic: Power
+  stem: 'A 60 kg student runs up stairs that rise 5.0 m in 10 s. What average power does she deliver against gravity? ($g = 9.8$ m/s²)'
+  choices: ['30 W', '294 W', '2940 W', '588 W']
+  answer: 1
+  explanation: |-
+    $P = \dfrac{mgh}{t} = \dfrac{60(9.8)(5.0)}{10} = 294$ W, about 0.4 hp.
+- id: phys-q-1207
+  lesson: phys-energy
+  topic: Power
+  stem: 'A car''s engine delivers 15 kW while the car moves at a steady 30 m/s. What is the total resistive force on the car?'
+  choices: ['500 N', '450 kN', '2000 N', '50 N']
+  answer: 0
+  explanation: |-
+    At constant speed the driving force equals the resistive force, and $P = Fv$: $F = 15\,000/30 = 500$ N.
+- id: phys-q-1208
+  lesson: phys-energy
+  topic: Power
+  stem: 'A household bill charges for kilowatt-hours. A kilowatt-hour is a unit of'
+  choices: ['power, equal to 1000 W', 'energy, equal to $3.6\times10^6$ J', 'energy, equal to 1000 J', 'power, equal to 3600 W']
+  answer: 1
+  explanation: |-
+    1 kWh is the energy used at 1000 W for 3600 s: $3.6\times10^6$ J. It's an energy unit, not a power.
+- id: phys-q-1209
+  lesson: phys-energy
+  module_quiz: true
+  topic: Conservation of energy
+  stem: 'A potential energy function is $U(x) = 2x^2 - 8x$ (J, m). What is the force at $x = 1$ m, and where is the equilibrium point?'
+  choices: ['$F = -4$ N; $x = 2$ m', '$F = 4$ N; $x = 4$ m', '$F = -6$ N; $x = 0$', '$F = 4$ N; $x = 2$ m']
+  answer: 3
+  explanation: |-
+    $F = -dU/dx = -(4x - 8)$, so $F(1) = 4$ N. Equilibrium where $dU/dx = 0$: $x = 2$ m (a minimum, so stable). Forgetting the minus sign gives $-4$ N.
+- id: phys-q-1210
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'A 0.50 kg ball is launched straight up by a spring ($k = 400$ N/m) compressed 0.20 m. How high above the release point does it rise? ($g = 9.8$ m/s²)'
+  choices: ['1.6 m', '16 m', '3.3 m', '8.2 m']
+  answer: 0
+  explanation: |-
+    $\tfrac12kx^2 = \tfrac12(400)(0.04) = 8.0$ J $= mgh$, so $h = 8.0/(0.50 \times 9.8) = 1.63$ m. 3.3 m drops the $\tfrac12$ in the spring energy.
+- id: phys-q-1211
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'On a potential energy diagram, a particle with total energy $E$ has a turning point where'
+  choices: ['$U(x)$ has a minimum', '$U(x) = 0$', '$U(x) = E$', '$dU/dx = 0$']
+  answer: 2
+  explanation: |-
+    Kinetic energy is $E - U(x)$; at a turning point the particle stops, so $K = 0$ and $U = E$. Minima of $U$ are stable equilibria, not turning points.
+- id: phys-q-1301
+  lesson: phys-momentum
+  module_quiz: true
+  topic: Momentum and impulse
+  stem: 'A 0.50 kg ball moving at 8.0 m/s hits a wall and rebounds at 6.0 m/s. What is the magnitude of the impulse from the wall?'
+  choices: ['1.0 N·s', '7.0 N·s', '4.0 N·s', '3.0 N·s']
+  answer: 1
+  explanation: |-
+    Taking the rebound direction as positive, $\Delta p = 0.50(6.0 - (-8.0)) = 7.0$ N·s. Ignoring the change of direction gives $0.50(8.0 - 6.0) = 1.0$ N·s.
+- id: phys-q-1302
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'Air bags reduce injuries in a crash mainly because they'
+  choices: ['reduce the passenger''s change in momentum', 'increase the time over which the passenger stops, reducing the average force', 'reduce the passenger''s mass', 'absorb the car''s momentum']
+  answer: 1
+  explanation: |-
+    The passenger's $\Delta p$ is fixed by the initial speed. Impulse $F_{\text{avg}}\Delta t = \Delta p$, so a longer stopping time means a smaller average force.
+- id: phys-q-1303
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'A 4.0 kg rifle fires a 20 g bullet at 400 m/s. What is the rifle''s recoil speed?'
+  choices: ['2.0 m/s', '0.2 m/s', '20 m/s', '8.0 m/s']
+  answer: 0
+  explanation: |-
+    Total momentum stays zero: $0.020(400) = 4.0\,v$, so $v = 2.0$ m/s backward.
+- id: phys-q-1304
+  lesson: phys-momentum
+  module_quiz: true
+  topic: Center of mass
+  stem: 'A 1.0 kg mass is at $x = 0$ and a 3.0 kg mass is at $x = 4.0$ m. Where is the center of mass?'
+  choices: ['$x = 2.0$ m', '$x = 1.0$ m', '$x = 3.0$ m', '$x = 1.3$ m']
+  answer: 2
+  explanation: |-
+    $x_{\text{cm}} = \dfrac{1.0(0) + 3.0(4.0)}{4.0} = 3.0$ m, closer to the heavier mass. 1.0 m weights the positions the wrong way round.
+- id: phys-q-1305
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'Under what condition is the total momentum of a system conserved?'
+  choices: ['When kinetic energy is conserved', 'When no internal forces act', 'When all collisions are elastic', 'When the net external force on the system is zero']
+  answer: 3
+  explanation: |-
+    Internal forces cancel in third-law pairs, so only a net external force can change total momentum. Kinetic energy conservation is a separate condition.
+- id: phys-q-1306
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'A truck and a bicycle have the same momentum. Which has more kinetic energy?'
+  choices: ['The bicycle', 'The truck', 'They have the same kinetic energy', 'It cannot be determined']
+  answer: 0
+  explanation: |-
+    $K = p^2/(2m)$. With the same $p$, the smaller mass has the larger kinetic energy (it must be moving much faster).
+- id: phys-q-1307
+  lesson: phys-momentum
+  topic: Center of mass
+  stem: 'A firework shell moving along a parabolic path explodes into many fragments in midair. Until any fragment lands, the center of mass of the fragments'
+  choices: ['stops at the explosion point', 'moves straight up', 'continues along the original parabola', 'falls straight down']
+  answer: 2
+  explanation: |-
+    The explosion forces are internal. The only external force is gravity, so $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$ gives $\vec a_{\text{cm}} = \vec g$, exactly as before the explosion.
+- id: phys-q-1308
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'A force $F(t) = 30t^2$ N acts on an object from $t = 0$ to $t = 2$ s. What impulse does it deliver?'
+  choices: ['120 N·s', '240 N·s', '60 N·s', '80 N·s']
+  answer: 3
+  explanation: |-
+    $J = \int_0^2 30t^2\,dt = [10t^3]_0^2 = 80$ N·s. $F(2) \times 2$ s $= 240$ N·s wrongly treats the force as constant.
+- id: phys-q-1309
+  lesson: phys-momentum
+  module_quiz: true
+  topic: Momentum and impulse
+  stem: 'A 0.15 kg ball is caught: it goes from 30 m/s to rest in 0.050 s. What is the average force on the catcher''s glove?'
+  choices: ['90 N', '4.5 N', '225 N', '600 N']
+  answer: 0
+  explanation: |-
+    $F_{\text{avg}} = \Delta p/\Delta t = 0.15(30)/0.050 = 90$ N. (4.5 kg·m/s is the momentum change, not the force.)
+- id: phys-q-1310
+  lesson: phys-momentum
+  topic: Center of mass
+  stem: 'A thin rod of length $L$ has linear density $\lambda(x) = cx$, increasing from one end. Where is its center of mass?'
+  choices: ['$L/2$', '$2L/3$', '$L/3$', '$3L/4$']
+  answer: 1
+  explanation: |-
+    $M = \int_0^L cx\,dx = cL^2/2$ and $\int_0^L x\cdot cx\,dx = cL^3/3$, so $x_{\text{cm}} = \dfrac{cL^3/3}{cL^2/2} = 2L/3$, toward the denser end.
+- id: phys-q-1401
+  lesson: phys-collisions
+  module_quiz: true
+  topic: Collisions
+  stem: 'A 2.0 kg cart moving at 3.0 m/s collides with a 1.0 kg cart at rest, and they stick together. What is their final speed?'
+  choices: ['3.0 m/s', '1.5 m/s', '1.0 m/s', '2.0 m/s']
+  answer: 3
+  explanation: |-
+    $2.0(3.0) = 3.0\,v_f$, so $v_f = 2.0$ m/s. Momentum is conserved in every collision.
+- id: phys-q-1402
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'In the previous collision (2.0 kg at 3.0 m/s sticking to 1.0 kg at rest), how much kinetic energy is lost?'
+  choices: ['3.0 J', '9.0 J', '6.0 J', '0 J']
+  answer: 0
+  explanation: |-
+    $K_i = \tfrac12(2.0)(9.0) = 9.0$ J; $K_f = \tfrac12(3.0)(4.0) = 6.0$ J. Lost: 3.0 J, turned into heat and deformation.
+- id: phys-q-1403
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'Which quantity is conserved in an elastic collision but not in a perfectly inelastic one?'
+  choices: ['Momentum', 'Total energy', 'Kinetic energy', 'Mass']
+  answer: 2
+  explanation: |-
+    Momentum (and total energy, and mass) is conserved in both. Only in an elastic collision is kinetic energy also conserved.
+- id: phys-q-1404
+  lesson: phys-collisions
+  module_quiz: true
+  topic: Collisions
+  stem: 'A 2.0 kg ball moving at 6.0 m/s collides elastically head-on with a 1.0 kg ball at rest. What are the final velocities?'
+  choices: ['$v_1 = 0$, $v_2 = 12$ m/s', '$v_1 = 4.0$ m/s, $v_2 = 4.0$ m/s', '$v_1 = -2.0$ m/s, $v_2 = 8.0$ m/s', '$v_1 = 2.0$ m/s, $v_2 = 8.0$ m/s']
+  answer: 3
+  explanation: |-
+    $v_{1f} = \dfrac{2 - 1}{3}(6.0) = 2.0$ m/s; $v_{2f} = \dfrac{2(2)}{3}(6.0) = 8.0$ m/s. Check: relative velocity 6.0 before, $8.0 - 2.0 = 6.0$ after. 4.0 m/s each would be the perfectly inelastic result.
+- id: phys-q-1405
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'Two identical billiard balls collide elastically head-on; one was at rest. Afterward,'
+  choices: ['both move at half the original speed', 'the moving ball stops and the other moves off with its velocity', 'the moving ball bounces back', 'both stop']
+  answer: 1
+  explanation: |-
+    With $m_1 = m_2$: $v_{1f} = 0$ and $v_{2f} = v_{1i}$. Equal masses exchange velocities in a head-on elastic collision.
+- id: phys-q-1406
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'In a ballistic pendulum problem, why can''t you use conservation of mechanical energy from the instant before the bullet hits until the block reaches its highest point?'
+  choices: ['Because momentum is not conserved during the swing', 'Because gravity does work during the collision', 'Because the collision is perfectly inelastic and converts much kinetic energy to heat', 'Because the strings do work on the block']
+  answer: 2
+  explanation: |-
+    Use momentum conservation for the collision (where kinetic energy is lost) and energy conservation only for the swing afterward.
+- id: phys-q-1407
+  lesson: phys-collisions
+  module_quiz: true
+  topic: Collisions
+  stem: 'An 8.0 g bullet embeds in a 1.992 kg block hanging as a pendulum, which then rises 5.0 cm. What was the bullet''s speed? ($g = 9.8$ m/s²)'
+  choices: ['0.99 m/s', '35 m/s', '248 m/s', '500 m/s']
+  answer: 2
+  explanation: |-
+    Swing: $V = \sqrt{2gh} = \sqrt{2(9.8)(0.050)} = 0.990$ m/s. Collision: $v = \dfrac{m + M}{m}V = \dfrac{2.000}{0.008}(0.990) = 248$ m/s.
+- id: phys-q-1408
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'A 5.0 kg object moving east at 2.0 m/s collides with a 3.0 kg object moving north at 4.0 m/s, and they stick. How fast does the wreckage move?'
+  choices: ['1.95 m/s', '2.75 m/s', '3.12 m/s', '15.6 m/s']
+  answer: 0
+  explanation: |-
+    $p_x = 5.0(2.0) = 10$ kg·m/s and $p_y = 3.0(4.0) = 12$ kg·m/s, so $p = \sqrt{100 + 144} = 15.6$ kg·m/s. Dividing by the total mass, 8.0 kg: $v = 1.95$ m/s. Adding the momenta as scalars gives $22/8 = 2.75$ m/s; dividing by only 5.0 kg gives 3.12 m/s; 15.6 is the momentum, not the speed.
+- id: phys-q-1409
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'A tennis ball (light) hits a stationary bowling ball (heavy) head-on elastically. The tennis ball'
+  choices: ['stops dead', 'continues forward at about the same speed', 'moves forward at twice its speed', 'bounces back with nearly its original speed']
+  answer: 3
+  explanation: |-
+    With $m_1 \ll m_2$, $v_{1f} = \dfrac{m_1 - m_2}{m_1 + m_2}v_{1i} \approx -v_{1i}$: the light ball rebounds, and the heavy ball barely moves.
+- id: phys-q-1410
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'For an elastic head-on collision, the relative velocity of the two objects'
+  choices: ['is reversed, with the same magnitude', 'becomes zero', 'doubles', 'is unchanged in direction']
+  answer: 0
+  explanation: |-
+    Combining momentum and kinetic energy conservation gives $v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$: they separate as fast as they approached (coefficient of restitution 1).
+- id: phys-q-1411
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'In the center-of-mass frame, which part of the kinetic energy can be lost in a collision?'
+  choices: ['Only the part $\tfrac12Mv_{\text{cm}}^2$', 'Only the kinetic energy of motion relative to the CM', 'All of it', 'None of it']
+  answer: 1
+  explanation: |-
+    $v_{\text{cm}}$ can't change (momentum is conserved), so $\tfrac12Mv_{\text{cm}}^2$ must remain. Only the relative kinetic energy can be converted; a perfectly inelastic collision converts all of it.

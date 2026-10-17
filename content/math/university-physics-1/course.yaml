@@ -1,0 +1,21 @@
+id: science-uphys1
+title: University Physics I
+description: >-
+  Calculus-based University Physics I: measurement and vectors, kinematics, Newton's laws, work and energy, momentum and collisions, rotation, gravitation, oscillations, waves and sound, fluids, and thermodynamics. Assumes Calculus I (derivatives and integrals are used throughout).
+revision: 1
+order: 14
+modules:
+  - id: phys-m1
+    title: Measurement and vectors
+  - id: phys-m2
+    title: Kinematics
+  - id: phys-m3
+    title: Forces and Newton's laws
+  - id: phys-m4
+    title: Energy and momentum
+  - id: phys-m5
+    title: Rotation and gravitation
+  - id: phys-m6
+    title: Oscillations, waves, and sound
+  - id: phys-m7
+    title: Fluids and thermodynamics

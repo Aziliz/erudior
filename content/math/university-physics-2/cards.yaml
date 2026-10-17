@@ -1,0 +1,102 @@
+# Notecards
+- {front: 'Elementary charge', back: '$e = 1.602\times10^{-19}$ C; charge is quantized ($q = ne$) and conserved.', topic: Electric charge}
+- {front: 'Coulomb''s law', back: '$F = k\dfrac{|q_1q_2|}{r^2}$, $k = 8.99\times10^9$ N·m²/C² $= 1/(4\pi\varepsilon_0)$', topic: Coulomb's law}
+- {front: 'How can a charged rod attract a neutral object?', back: 'By polarization: the near side gets the opposite charge, and the closer attraction wins.', topic: Electric charge}
+- {front: 'Electric field definition', back: '$\vec E = \vec F/q_0$; force on any charge $\vec F = q\vec E$', topic: Electric field}
+- {front: 'Field of a point charge', back: '$E = k|q|/r^2$, away from $+$, toward $-$', topic: Electric field}
+- {front: 'Field-line rules', back: 'Start on +, end on −; density ∝ strength; never cross.', topic: Electric field}
+- {front: 'Acceleration of a charge in a uniform field', back: '$a = qE/m$ (projectile-like paths)', topic: Electric field}
+- {front: 'Conductor in electrostatic equilibrium', back: '$E = 0$ inside; excess charge on surface; $E$ ⊥ surface, $E = \sigma/\varepsilon_0$ just outside.', topic: Electric field}
+- {front: 'Electric flux', back: '$\Phi_E = \oint\vec E\cdot d\vec A$; flat area: $EA\cos\theta$', topic: Gauss's law}
+- {front: 'Gauss''s law', back: '$\oint\vec E\cdot d\vec A = Q_{\text{enc}}/\varepsilon_0$', topic: Gauss's law}
+- {front: 'Field of a long line charge', back: '$E = \dfrac{\lambda}{2\pi\varepsilon_0 r} = \dfrac{2k\lambda}{r}$', topic: Gauss's law}
+- {front: 'Field of an infinite sheet', back: '$E = \sigma/(2\varepsilon_0)$, independent of distance', topic: Gauss's law}
+- {front: 'Field inside a uniformly charged solid sphere', back: '$E = kQr/R^3$ (grows linearly); outside $kQ/r^2$', topic: Gauss's law}
+- {front: 'Field inside a charged spherical shell', back: 'Zero.', topic: Gauss's law}
+- {front: 'Potential of a point charge', back: '$V = kq/r$ (scalar, keep the sign)', topic: Electric potential}
+- {front: 'Potential energy of two point charges', back: '$U = kq_1q_2/r$', topic: Electric potential}
+- {front: 'Energy change crossing a potential difference', back: '$\Delta U = q\Delta V$; from rest, $K = |q\Delta V|$.', topic: Electric potential}
+- {front: 'Uniform field and potential difference', back: '$\Delta V = Ed$, so $E = \Delta V/d$ (1 V/m = 1 N/C)', topic: Electric potential}
+- {front: 'Field from potential', back: '$\vec E = -\nabla V$; $E_x = -\partial V/\partial x$', topic: Electric potential}
+- {front: 'Electron volt', back: '$1\text{ eV} = 1.602\times10^{-19}$ J', topic: Electric potential}
+- {front: 'Capacitance definition', back: '$C = Q/V$ (farads)', topic: Capacitance}
+- {front: 'Parallel-plate capacitance', back: '$C = \kappa\varepsilon_0A/d$', topic: Capacitance}
+- {front: 'Capacitors in parallel', back: '$C_{\text{eq}} = C_1 + C_2 + \cdots$ (same voltage)', topic: Capacitance}
+- {front: 'Capacitors in series', back: '$1/C_{\text{eq}} = 1/C_1 + 1/C_2 + \cdots$ (same charge)', topic: Capacitance}
+- {front: 'Energy stored in a capacitor', back: '$U = \tfrac12CV^2 = \tfrac12QV = Q^2/(2C)$', topic: Capacitance}
+- {front: 'Current', back: '$I = \Delta Q/\Delta t$ (or $dQ/dt$); 1 A = 1 C/s', topic: Current and resistance}
+- {front: 'Ohm''s law', back: '$V = IR$', topic: Current and resistance}
+- {front: 'Resistance of a wire', back: '$R = \rho L/A$', topic: Current and resistance}
+- {front: 'Electric power (three forms)', back: '$P = IV = I^2R = V^2/R$', topic: Electric power}
+- {front: 'Resistors in series', back: '$R_{\text{eq}} = R_1 + R_2 + \cdots$ (same current)', topic: Series and parallel circuits}
+- {front: 'Resistors in parallel', back: '$1/R_{\text{eq}} = 1/R_1 + 1/R_2 + \cdots$ (same voltage); two: $R_1R_2/(R_1 + R_2)$', topic: Series and parallel circuits}
+- {front: 'Terminal voltage of a real battery', back: '$V = \mathcal{E} - Ir$; $I = \mathcal{E}/(R + r)$', topic: Series and parallel circuits}
+- {front: 'Kirchhoff''s junction and loop rules', back: '$\sum I_{\text{in}} = \sum I_{\text{out}}$; $\sum\Delta V = 0$ around a loop', topic: Kirchhoff's rules}
+- {front: 'Loop-rule signs', back: 'Resistor with the current: $-IR$; against: $+IR$. Battery − to +: $+\mathcal{E}$.', topic: Kirchhoff's rules}
+- {front: 'Ammeter vs voltmeter', back: 'Ammeter: series, tiny resistance. Voltmeter: parallel, huge resistance.', topic: Series and parallel circuits}
+- {front: 'Maximum power transfer', back: 'Load resistance equals internal resistance, $R = r$.', topic: Series and parallel circuits}
+- {front: 'RC time constant', back: '$\tau = RC$ (seconds); 63% charged after one τ, ~99% after 5τ', topic: RC circuits}
+- {front: 'Charging capacitor', back: '$q = C\mathcal{E}(1 - e^{-t/RC})$, $I = (\mathcal{E}/R)e^{-t/RC}$', topic: RC circuits}
+- {front: 'Discharging capacitor', back: '$q = Q_0e^{-t/RC}$, $I = (V_0/R)e^{-t/RC}$; half-life $RC\ln 2$', topic: RC circuits}
+- {front: 'Capacitor at t = 0 and t → ∞ (DC)', back: 'Uncharged: acts like a wire. Fully charged: acts like an open circuit.', topic: RC circuits}
+- {front: 'Magnetic force on a moving charge', back: '$F = |q|vB\sin\theta$; $\vec F = q\vec v\times\vec B$ (reverse for negative charges)', topic: Magnetic force}
+- {front: 'Radius of a charge circling in a magnetic field', back: '$r = \dfrac{mv}{|q|B}$; period $\dfrac{2\pi m}{|q|B}$', topic: Magnetic force}
+- {front: 'Does a magnetic force do work?', back: 'No: it is always perpendicular to the velocity, so speed is unchanged.', topic: Magnetic force}
+- {front: 'Force on a current-carrying wire', back: '$F = ILB\sin\theta$', topic: Magnetic force}
+- {front: 'Torque on a current loop', back: '$\tau = NIAB\sin\phi$', topic: Magnetic force}
+- {front: 'Velocity selector', back: 'Crossed $E$ and $B$ pass only $v = E/B$.', topic: Magnetic force}
+- {front: 'Field of a long straight wire', back: '$B = \dfrac{\mu_0I}{2\pi r}$ (circles the wire; right-hand grip rule)', topic: Sources of magnetic field}
+- {front: 'Field at the center of a loop', back: '$B = \dfrac{\mu_0I}{2R}$ (times $N$ for $N$ turns)', topic: Sources of magnetic field}
+- {front: 'Field inside a solenoid', back: '$B = \mu_0nI$, $n$ = turns per meter', topic: Sources of magnetic field}
+- {front: 'Force between parallel wires', back: '$F/L = \dfrac{\mu_0I_1I_2}{2\pi d}$; same direction attract', topic: Sources of magnetic field}
+- {front: 'Ampère''s law', back: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$', topic: Sources of magnetic field}
+- {front: 'Magnetic flux', back: '$\Phi_B = BA\cos\theta$ (Wb)', topic: Electromagnetic induction}
+- {front: 'Faraday''s law', back: '$\mathcal{E} = -N\dfrac{d\Phi_B}{dt}$', topic: Electromagnetic induction}
+- {front: 'Lenz''s law', back: 'The induced current opposes the change in flux.', topic: Electromagnetic induction}
+- {front: 'Motional emf', back: '$\mathcal{E} = BLv$', topic: Electromagnetic induction}
+- {front: 'Generator emf', back: '$\mathcal{E} = NBA\omega\sin\omega t$; peak $NBA\omega$', topic: Electromagnetic induction}
+- {front: 'Transformer equations', back: '$V_s/V_p = N_s/N_p$; $V_pI_p = V_sI_s$ (ideal)', topic: Electromagnetic induction}
+- {front: 'Self-induced emf and inductor energy', back: '$\mathcal{E} = -L\,dI/dt$; $U = \tfrac12LI^2$', topic: Inductance}
+- {front: 'RL time constant and current growth', back: '$\tau = L/R$; $I = (\mathcal{E}/R)(1 - e^{-t/\tau})$', topic: Inductance}
+- {front: 'LC oscillation frequency', back: '$f = \dfrac{1}{2\pi\sqrt{LC}}$', topic: Inductance}
+- {front: 'rms values for sinusoidal AC', back: '$V_{\text{rms}} = V_0/\sqrt2$, $I_{\text{rms}} = I_0/\sqrt2$', topic: AC circuits}
+- {front: 'Capacitive and inductive reactance', back: '$X_C = 1/(\omega C)$, $X_L = \omega L$', topic: AC circuits}
+- {front: 'Series RLC impedance and resonance', back: '$Z = \sqrt{R^2 + (X_L - X_C)^2}$; resonance at $\omega_0 = 1/\sqrt{LC}$', topic: AC circuits}
+- {front: 'Speed of EM waves', back: '$c = 1/\sqrt{\mu_0\varepsilon_0} = 3.00\times10^8$ m/s; $c = f\lambda$; $E = cB$', topic: Electromagnetic waves}
+- {front: 'EM spectrum order (long to short wavelength)', back: 'Radio, microwave, infrared, visible, ultraviolet, X-ray, gamma.', topic: Electromagnetic waves}
+- {front: 'Malus''s law', back: '$I = I_0\cos^2\theta$; unpolarized light loses half through the first polarizer.', topic: Electromagnetic waves}
+- {front: 'Law of reflection', back: '$\theta_r = \theta_i$, angles from the normal', topic: Reflection and refraction}
+- {front: 'Index of refraction', back: '$n = c/v$; in the medium $\lambda_n = \lambda/n$, same frequency', topic: Reflection and refraction}
+- {front: 'Snell''s law', back: '$n_1\sin\theta_1 = n_2\sin\theta_2$; toward the normal when entering higher $n$', topic: Reflection and refraction}
+- {front: 'Critical angle', back: '$\sin\theta_c = n_2/n_1$ (only for $n_1 > n_2$)', topic: Reflection and refraction}
+- {front: 'Thin-lens / mirror equation', back: '$\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$; $m = -d_i/d_o$', topic: Thin lenses}
+- {front: 'Sign of f', back: 'Positive: converging lens, concave mirror. Negative: diverging lens, convex mirror.', topic: Thin lenses}
+- {front: 'Sign of $d_i$ and $m$', back: '$d_i > 0$ real, $< 0$ virtual; $m > 0$ upright, $< 0$ inverted.', topic: Thin lenses}
+- {front: 'Mirror focal length', back: '$f = R/2$', topic: Mirrors}
+- {front: 'Converging lens with object inside f', back: 'Virtual, upright, enlarged image (magnifying glass).', topic: Thin lenses}
+- {front: 'Lens power', back: '$P = 1/f$ in diopters; nearsighted eyes need negative power.', topic: Thin lenses}
+- {front: 'Double-slit bright fringes', back: '$d\sin\theta = m\lambda$; spacing $\Delta y = \lambda L/d$ (small angles)', topic: Interference}
+- {front: 'Single-slit dark fringes', back: '$a\sin\theta = m\lambda$, $m = \pm1, \pm2, \ldots$', topic: Diffraction}
+- {front: 'Grating maxima', back: '$d\sin\theta = m\lambda$ with $d$ = 1/(lines per meter); highest $m \le d/\lambda$', topic: Diffraction}
+- {front: 'Rayleigh resolution limit', back: '$\theta_{\min} = 1.22\lambda/D$', topic: Diffraction}
+- {front: 'Thin film in air (one phase flip): bright reflection', back: '$2nt = (m + \tfrac12)\lambda$', topic: Interference}
+- {front: 'Postulates of special relativity', back: 'Physics is the same in all inertial frames; light speed $c$ is the same for all observers.', topic: Special relativity}
+- {front: 'Lorentz factor', back: '$\gamma = 1/\sqrt{1 - v^2/c^2}$', topic: Special relativity}
+- {front: 'Time dilation', back: '$\Delta t = \gamma\Delta t_0$ ($\Delta t_0$ = proper time)', topic: Special relativity}
+- {front: 'Length contraction', back: '$L = L_0/\gamma$ (along the motion only)', topic: Special relativity}
+- {front: 'Relativistic velocity addition', back: '$u = \dfrac{u'' + v}{1 + u''v/c^2}$', topic: Special relativity}
+- {front: 'Relativistic energy and momentum', back: '$p = \gamma mv$, $E = \gamma mc^2$, $K = (\gamma - 1)mc^2$, $E^2 = (pc)^2 + (mc^2)^2$', topic: Special relativity}
+- {front: 'Photon energy', back: '$E = hf = hc/\lambda$; $hc = 1240$ eV·nm', topic: Photons}
+- {front: 'Photoelectric equation', back: '$K_{\max} = hf - \phi$; threshold $f_0 = \phi/h$', topic: Photons}
+- {front: 'Brighter light in the photoelectric effect', back: 'More electrons, same maximum energy.', topic: Photons}
+- {front: 'Hydrogen energy levels', back: '$E_n = -13.6\text{ eV}/n^2$', topic: Atomic structure}
+- {front: 'Photon from a hydrogen transition', back: '$hf = 13.6\text{ eV}\left(\dfrac1{n_f^2} - \dfrac1{n_i^2}\right)$', topic: Atomic structure}
+- {front: 'de Broglie wavelength', back: '$\lambda = h/p = h/(mv)$', topic: Wave–particle duality}
+- {front: 'Uncertainty principle', back: '$\Delta x\,\Delta p \ge h/(4\pi)$', topic: Wave–particle duality}
+- {front: 'Nuclear notation $^A_Z$X', back: '$Z$ protons, $A$ nucleons, $N = A - Z$ neutrons', topic: Nuclear structure}
+- {front: 'Binding energy', back: '$E_B = \Delta m\,c^2$; 1 u ↔ 931.5 MeV', topic: Nuclear structure}
+- {front: 'Why do fission and fusion both release energy?', back: 'Both move toward the peak of binding energy per nucleon near iron-56.', topic: Nuclear structure}
+- {front: 'Alpha, beta-minus, beta-plus, gamma decay', back: 'α: $Z-2$, $A-4$. β⁻: $Z+1$. β⁺: $Z-1$. γ: no change.', topic: Radioactive decay}
+- {front: 'Decay law', back: '$N = N_0e^{-\lambda t} = N_0(\tfrac12)^{t/T_{1/2}}$', topic: Radioactive decay}
+- {front: 'Half-life and decay constant', back: '$T_{1/2} = \ln 2/\lambda = 0.693/\lambda$; activity $R = \lambda N$', topic: Radioactive decay}
+- {front: 'Fraction left after n half-lives', back: '$(1/2)^n$: 1/2, 1/4, 1/8, …', topic: Radioactive decay}

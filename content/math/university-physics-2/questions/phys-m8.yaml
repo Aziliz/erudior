@@ -1,0 +1,415 @@
+- id: phys-q-2901
+  lesson: phys-coulomb
+  module_quiz: true
+  topic: Coulomb's law
+  stem: 'Two point charges, $+2.0$ μC and $+3.0$ μC, are 0.30 m apart. What is the force between them? ($k = 8.99\times10^9$ N·m²/C²)'
+  choices: ['0.60 N, repulsive', '0.60 N, attractive', '0.18 N, repulsive', '$6.0\times10^{5}$ N, repulsive']
+  answer: 0
+  explanation: |-
+    $F = k\dfrac{q_1q_2}{r^2} = (8.99\times10^9)\dfrac{(2.0\times10^{-6})(3.0\times10^{-6})}{0.090} = 0.60$ N. Like charges repel. Forgetting to square $r$ gives 0.18 N; forgetting the μ conversion gives an absurd $6\times10^5$ N.
+- id: phys-q-2902
+  lesson: phys-coulomb
+  topic: Coulomb's law
+  stem: 'If the distance between two charges is doubled, the electric force between them'
+  choices: ['doubles', 'halves', 'quarters', 'is unchanged']
+  answer: 2
+  explanation: |-
+    Coulomb's law is an inverse-square law: $F \propto 1/r^2$, so doubling $r$ gives $F/4$.
+- id: phys-q-2903
+  lesson: phys-coulomb
+  topic: Electric charge
+  stem: 'How many excess electrons give an object a charge of $-1.0$ μC?'
+  choices: ['$1.6\times10^{-13}$', '$6.2\times10^{12}$', '$6.2\times10^{18}$', '$1.0\times10^{6}$']
+  answer: 1
+  explanation: |-
+    $n = q/e = (1.0\times10^{-6})/(1.602\times10^{-19}) = 6.2\times10^{12}$ electrons. $6.2\times10^{18}$ is the number in a full coulomb.
+- id: phys-q-2904
+  lesson: phys-coulomb
+  module_quiz: true
+  topic: Electric charge
+  stem: 'A negatively charged rod is brought near (not touching) a small neutral piece of paper. The paper'
+  choices: ['is repelled', 'feels no force because it is neutral', 'becomes negatively charged', 'is attracted, because it becomes polarized']
+  answer: 3
+  explanation: |-
+    The rod pushes the paper's electrons slightly away, leaving the near side slightly positive. The nearer positive side is attracted more strongly than the farther negative side is repelled, so there's a net attraction.
+- id: phys-q-2905
+  lesson: phys-coulomb
+  topic: Electric charge
+  stem: 'When a glass rod is rubbed with silk and becomes positively charged, what has happened?'
+  choices: ['Protons moved from the silk to the glass', 'Electrons moved from the glass to the silk', 'Positive charge was created in the glass', 'Electrons were destroyed']
+  answer: 1
+  explanation: |-
+    Charge is conserved and only electrons move easily in ordinary materials. The glass lost electrons (becoming positive) and the silk gained the same number (becoming equally negative).
+- id: phys-q-2906
+  lesson: phys-coulomb
+  topic: Coulomb's law
+  stem: 'Charges $+q$ at $x = 0$ and $+q$ at $x = 2d$. Where on the line between them is the net force on a third charge zero?'
+  choices: ['At $x = d$', 'At $x = d/2$', 'Nowhere between them', 'At $x = 1.5d$']
+  answer: 0
+  explanation: |-
+    At the midpoint the two equal repulsions (or attractions) have equal size and opposite directions, so they cancel, whatever the sign of the third charge.
+- id: phys-q-2907
+  lesson: phys-coulomb
+  topic: Coulomb's law
+  stem: 'Charges $+4.0$ μC at $x = 0$ and $-2.0$ μC at $x = 0.30$ m. What is the direction of the net force on a $+1.0$ μC charge at $x = 0.10$ m?'
+  choices: ['$-x$ (toward the $+4.0$ μC charge)', 'It is zero', '$+x$ (toward the $-2.0$ μC charge)', 'Perpendicular to the line']
+  answer: 2
+  explanation: |-
+    The $+4.0$ μC charge repels it in $+x$, and the $-2.0$ μC charge attracts it toward itself, also $+x$. Both forces point the same way (3.60 N + 0.45 N = 4.05 N).
+- id: phys-q-2908
+  lesson: phys-coulomb
+  module_quiz: true
+  topic: Coulomb's law
+  stem: 'Compared with the gravitational attraction between two protons, their electric repulsion is'
+  choices: ['about equal', 'about $10^{36}$ times larger', 'about $10^{36}$ times smaller', 'about 2000 times larger']
+  answer: 1
+  explanation: |-
+    $\dfrac{ke^2}{Gm_p^2} \approx 1.2\times10^{36}$. Gravity dominates large-scale structure only because matter is almost perfectly neutral.
+- id: phys-q-2909
+  lesson: phys-coulomb
+  topic: Electric charge
+  stem: 'Which statement about electric charge is correct?'
+  choices: ['Charge can take any value', 'Neutral objects contain no charge', 'Charge is conserved only in conductors', 'Charge is quantized in multiples of $e$ and conserved']
+  answer: 3
+  explanation: |-
+    Free charges come in multiples of $e = 1.602\times10^{-19}$ C, and total charge never changes. Neutral objects contain equal positive and negative charge.
+- id: phys-q-2910
+  lesson: phys-coulomb
+  topic: Coulomb's law
+  stem: 'A uniformly charged rod of total charge $Q$ and length $L$ lies on the $x$ axis from 0 to $L$. Far away ($a \gg L$ beyond its end), the force it exerts on a point charge $q$ approaches'
+  choices: ['$kqQ/a^2$', '$kqQ/(aL)$', '$kqQ/a$', 'zero']
+  answer: 0
+  explanation: |-
+    Integrating gives $F = \dfrac{kqQ}{a(L + a)}$, which tends to $kqQ/a^2$ when $a \gg L$: from far away, any finite charge distribution looks like a point charge.
+- id: phys-q-3001
+  lesson: phys-efield
+  module_quiz: true
+  topic: Electric field
+  stem: 'What is the electric field 0.30 m from a $+4.0$ nC point charge? ($k = 8.99\times10^9$ N·m²/C²)'
+  choices: ['120 N/C toward the charge', '400 N/C away from the charge', '400 N/C toward the charge', '1200 N/C away from the charge']
+  answer: 1
+  explanation: |-
+    $E = kq/r^2 = (8.99\times10^9)(4.0\times10^{-9})/0.090 = 400$ N/C, pointing away from a positive charge. 120 N/C forgets to square $r$.
+- id: phys-q-3002
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'A $-3.0$ μC charge sits where the electric field is 500 N/C pointing east. The force on it is'
+  choices: ['$1.5\times10^{-3}$ N east', '$1.5\times10^{-3}$ N west', '$6.0\times10^{-9}$ N west', '167 N west']
+  answer: 1
+  explanation: |-
+    $F = |q|E = (3.0\times10^{-6})(500) = 1.5\times10^{-3}$ N. A negative charge is pushed opposite to $\vec E$: west.
+- id: phys-q-3003
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'Which statement about electric field lines is false?'
+  choices: ['They start on positive charges and end on negative charges', 'Their density shows the field strength', 'They can cross where two fields overlap', 'They are tangent to the field direction']
+  answer: 2
+  explanation: |-
+    The field has a single direction at each point, so field lines never cross. The other statements are the rules for drawing them.
+- id: phys-q-3004
+  lesson: phys-efield
+  module_quiz: true
+  topic: Electric field
+  stem: 'A proton is placed in a uniform field of 1000 N/C. What is its acceleration? ($m_p = 1.67\times10^{-27}$ kg, $e = 1.60\times10^{-19}$ C)'
+  choices: ['$9.6\times10^{10}$ m/s²', '$1.6\times10^{-16}$ m/s²', '$1.0\times10^{3}$ m/s²', '$1.8\times10^{14}$ m/s²']
+  answer: 0
+  explanation: |-
+    $a = eE/m_p = (1.60\times10^{-19})(1000)/(1.67\times10^{-27}) = 9.6\times10^{10}$ m/s². $1.6\times10^{-16}$ is the force in newtons. $1.8\times10^{14}$ uses the electron's mass.
+- id: phys-q-3005
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'Two equal positive charges are a distance $d$ apart. The electric field at the midpoint is'
+  choices: ['zero', 'twice the field of one charge', 'directed toward one of the charges', 'perpendicular to the line joining them']
+  answer: 0
+  explanation: |-
+    Each charge's field at the midpoint has the same magnitude and points away from it, so the two fields are opposite and cancel.
+- id: phys-q-3006
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'For an electric dipole ($+q$ and $-q$), the field at the midpoint between the charges points'
+  choices: ['toward the positive charge', 'toward the negative charge', 'perpendicular to the dipole', 'nowhere; it is zero']
+  answer: 1
+  explanation: |-
+    The $+q$ field points away from $+q$ (toward $-q$) and the $-q$ field points toward $-q$: both point toward the negative charge, so they add.
+- id: phys-q-3007
+  lesson: phys-efield
+  module_quiz: true
+  topic: Electric field
+  stem: 'In electrostatic equilibrium, the electric field inside the material of a conductor is'
+  choices: ['equal to the field outside', 'largest at the center', 'directed toward the surface', 'zero']
+  answer: 3
+  explanation: |-
+    If there were a field inside, free electrons would move; equilibrium means they have rearranged until the internal field vanishes. Excess charge sits on the surface.
+- id: phys-q-3008
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'An electron moves horizontally into the uniform field between two horizontal deflection plates. Its path between the plates is'
+  choices: ['a straight line', 'a parabola', 'a circle', 'an exponential curve']
+  answer: 1
+  explanation: |-
+    The field gives a constant acceleration perpendicular to the initial velocity, just like gravity on a horizontally launched projectile, so the path is parabolic.
+- id: phys-q-3009
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'The field on the axis of a charged ring is $E = \dfrac{kQx}{(x^2 + a^2)^{3/2}}$. At the center of the ring ($x = 0$) the field is'
+  choices: ['zero', '$kQ/a^2$', 'infinite', '$kQ/a$']
+  answer: 0
+  explanation: |-
+    At the center every element's field is canceled by the element directly opposite, matching $E(0) = 0$ from the formula.
+- id: phys-q-3010
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'Why are you relatively safe inside a car during a lightning strike?'
+  choices: ['Rubber tires insulate the car from the ground', 'The metal body acts as a Faraday cage; charge stays on the outside and the field inside stays near zero', 'Glass windows block electric fields', 'Lightning cannot strike moving objects']
+  answer: 1
+  explanation: |-
+    Charge on a conductor resides on its outer surface and the field inside a closed conducting shell is shielded. The tires have nothing to do with it; lightning easily jumps a few centimeters of rubber.
+- id: phys-q-3101
+  lesson: phys-gauss
+  module_quiz: true
+  topic: Gauss's law
+  stem: 'A closed surface surrounds a $+2.0$ μC charge. What is the net electric flux through it? ($\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²))'
+  choices: ['$2.26\times10^5$ N·m²/C', '$1.77\times10^{-17}$ N·m²/C', 'It depends on the shape of the surface', 'Zero']
+  answer: 0
+  explanation: |-
+    Gauss: $\Phi_E = Q_{\text{enc}}/\varepsilon_0 = (2.0\times10^{-6})/(8.85\times10^{-12}) = 2.26\times10^5$ N·m²/C, for any closed surface around the charge.
+- id: phys-q-3102
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'A closed surface encloses no charge, but a charge sits just outside it. The net flux through the surface is'
+  choices: ['positive', 'negative', 'zero', 'impossible to determine']
+  answer: 2
+  explanation: |-
+    Every field line from the outside charge that enters the surface also leaves it. The field on the surface isn't zero, but the net flux is.
+- id: phys-q-3103
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'A uniform field of 100 N/C passes through a flat 0.50 m² surface whose normal makes $60^\circ$ with the field. What is the flux?'
+  choices: ['50 N·m²/C', '43 N·m²/C', '25 N·m²/C', '100 N·m²/C']
+  answer: 2
+  explanation: |-
+    $\Phi = EA\cos\theta = 100(0.50)\cos 60^\circ = 25$ N·m²/C. 43 uses $\sin 60^\circ$.
+- id: phys-q-3104
+  lesson: phys-gauss
+  module_quiz: true
+  topic: Gauss's law
+  stem: 'What is the electric field inside a thin, uniformly charged spherical shell?'
+  choices: ['$kQ/R^2$', '$kQ/r^2$', 'It increases toward the center', 'Zero']
+  answer: 3
+  explanation: |-
+    A Gaussian sphere inside the shell encloses no charge, and by symmetry the field must be radial and uniform on it, so $E = 0$.
+- id: phys-q-3105
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'A long straight wire carries 2.0 nC/m. What is the field 5.0 cm away? ($k = 8.99\times10^9$ N·m²/C²)'
+  choices: ['360 N/C', '7200 N/C', '720 N/C', '36 N/C']
+  answer: 2
+  explanation: |-
+    $E = 2k\lambda/r = 2(8.99\times10^9)(2.0\times10^{-9})/0.050 = 719$ N/C. Forgetting the factor 2 gives 360 N/C.
+- id: phys-q-3106
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'Inside a uniformly charged solid insulating sphere, the field at distance $r$ from the center is proportional to'
+  choices: ['$1/r^2$', '$r$', '$1/r$', '$r^2$']
+  answer: 1
+  explanation: |-
+    The enclosed charge grows as $r^3$ and the Gaussian area as $r^2$, so $E = kQr/R^3 \propto r$.
+- id: phys-q-3107
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'For an infinite charged sheet, how does the field depend on distance from the sheet?'
+  choices: ['It falls as $1/r^2$', 'It falls as $1/r$', 'It is independent of distance', 'It grows with distance']
+  answer: 2
+  explanation: |-
+    The pillbox argument gives $E = \sigma/(2\varepsilon_0)$ with no distance in it. That's why the field between large parallel plates is uniform.
+- id: phys-q-3108
+  lesson: phys-gauss
+  module_quiz: true
+  topic: Gauss's law
+  stem: 'Gauss''s law is always true, but it gives the field directly only when'
+  choices: ['the charge is positive', 'symmetry makes $E$ constant and perpendicular (or parallel) over a chosen surface', 'the surface is a cube', 'there are no conductors present']
+  answer: 1
+  explanation: |-
+    The flux integral collapses to $E\times$(area) only with spherical, cylindrical or planar symmetry. Otherwise Gauss's law still holds but doesn't isolate $E$.
+- id: phys-q-3109
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'A point charge $+q$ sits inside a cavity in a neutral conducting block. What charge appears on the cavity wall and on the outer surface?'
+  choices: ['$-q$ on the wall, $+q$ on the outer surface', '$+q$ on the wall, $-q$ outside', 'zero on both', '$-q$ on both']
+  answer: 0
+  explanation: |-
+    A Gaussian surface inside the metal (where $E = 0$) must enclose zero net charge, so the wall carries $-q$. The block is neutral, so $+q$ appears on its outer surface.
+- id: phys-q-3110
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'The field just outside the surface of a conductor with surface charge density $\sigma$ is'
+  choices: ['$\sigma/(2\varepsilon_0)$', '$\sigma/\varepsilon_0$', '$\sigma\varepsilon_0$', 'zero']
+  answer: 1
+  explanation: |-
+    A pillbox straddling the surface has flux only through its outer cap (the field inside the metal is zero): $EA = \sigma A/\varepsilon_0$.
+- id: phys-q-3201
+  lesson: phys-potential
+  module_quiz: true
+  topic: Electric potential
+  stem: 'What is the electric potential 0.30 m from a $+2.0$ nC charge (zero at infinity)? ($k = 8.99\times10^9$ N·m²/C²)'
+  choices: ['200 V', '600 V', '20 V', '60 V']
+  answer: 3
+  explanation: |-
+    $V = kq/r = (8.99\times10^9)(2.0\times10^{-9})/0.30 = 59.9$ V. Using $1/r^2$ gives 200 V.
+- id: phys-q-3202
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'Charges $+4.0$ nC and $-4.0$ nC are 0.20 m apart. What is the potential at the midpoint?'
+  choices: ['$7.2\times10^2$ V', '$3.6\times10^2$ V', 'Zero', '$-7.2\times10^2$ V']
+  answer: 2
+  explanation: |-
+    Potentials add as scalars with signs: $k(4.0\times10^{-9})/0.10 + k(-4.0\times10^{-9})/0.10 = 0$. (The field there is not zero, though.)
+- id: phys-q-3203
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'A proton is accelerated from rest through a potential difference of 100 V. How much kinetic energy does it gain?'
+  choices: ['100 J', '100 eV ($1.6\times10^{-17}$ J)', '$1.6\times10^{-21}$ J', '50 eV']
+  answer: 1
+  explanation: |-
+    $K = |q\Delta V| = e(100\text{ V}) = 100$ eV $= 1.6\times10^{-17}$ J.
+- id: phys-q-3204
+  lesson: phys-potential
+  module_quiz: true
+  topic: Electric potential
+  stem: 'Two parallel plates 3.0 mm apart are connected to a 9.0 V battery. What is the field between them?'
+  choices: ['27 V/m', '3.0 V/m', '0.33 V/m', '3000 V/m']
+  answer: 3
+  explanation: |-
+    $E = \Delta V/d = 9.0/0.0030 = 3000$ V/m. Forgetting to convert mm to m gives 3.0 V/m.
+- id: phys-q-3205
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'What is the potential energy of a $+2.0$ μC charge and a $-3.0$ μC charge 0.20 m apart?'
+  choices: ['$+0.27$ J', '$-1.35$ J', '$-0.27$ J', '$-0.054$ J']
+  answer: 2
+  explanation: |-
+    $U = kq_1q_2/r = (8.99\times10^9)(2.0\times10^{-6})(-3.0\times10^{-6})/0.20 = -0.27$ J. Negative: the pair is bound. $-1.35$ J divides by $r^2$.
+- id: phys-q-3206
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'An electron released from rest in an electric field moves toward'
+  choices: ['higher potential', 'lower potential', 'a region of zero field', 'a point of zero potential']
+  answer: 0
+  explanation: |-
+    Its potential energy $U = qV = -eV$ decreases as $V$ increases, so the electron "falls" toward higher potential. Positive charges move toward lower potential.
+- id: phys-q-3207
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'How much work does the electric field do on a charge moved along an equipotential surface?'
+  choices: ['$qV$', 'It depends on the path', '$qEd$', 'Zero']
+  answer: 3
+  explanation: |-
+    $W = -q\Delta V$ and $\Delta V = 0$ along an equipotential. Equivalently, the field is perpendicular to equipotentials, so it does no work along them.
+- id: phys-q-3208
+  lesson: phys-potential
+  module_quiz: true
+  topic: Electric potential
+  stem: 'The potential in a region is $V(x) = 5x^2$ volts ($x$ in m). What is the electric field at $x = 2$ m?'
+  choices: ['$-20$ V/m (pointing in $-x$)', '$+20$ V/m', '$-10$ V/m', '$+40$ V/m']
+  answer: 0
+  explanation: |-
+    $E_x = -dV/dx = -10x = -20$ V/m at $x = 2$: the field points in $-x$, toward lower potential. Forgetting the minus sign gives $+20$.
+- id: phys-q-3209
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'An electron volt (eV) is a unit of'
+  choices: ['potential', 'charge', 'energy', 'electric field']
+  answer: 2
+  explanation: |-
+    It's the kinetic energy gained by charge $e$ crossing 1 V: $1.602\times10^{-19}$ J.
+- id: phys-q-3210
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'Electric field lines and equipotential surfaces are'
+  choices: ['parallel', 'perpendicular', 'at $45^\circ$', 'unrelated']
+  answer: 1
+  explanation: |-
+    No work is done moving along an equipotential, so the field has no component along it: field lines cross equipotentials at right angles, pointing toward lower potential.
+- id: phys-q-3301
+  lesson: phys-capacitance
+  module_quiz: true
+  topic: Capacitance
+  stem: 'A parallel-plate capacitor has plates of area 0.020 m² separated by 0.50 mm of air. What is its capacitance? ($\varepsilon_0 = 8.85\times10^{-12}$ F/m)'
+  choices: ['354 pF', '0.354 pF', '89 pF', '3.54 nF']
+  answer: 0
+  explanation: |-
+    $C = \varepsilon_0A/d = (8.85\times10^{-12})(0.020)/(5.0\times10^{-4}) = 3.54\times10^{-10}$ F $= 354$ pF.
+- id: phys-q-3302
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'If the plate separation of a parallel-plate capacitor is doubled (same area), its capacitance'
+  choices: ['doubles', 'quadruples', 'is unchanged', 'halves']
+  answer: 3
+  explanation: |-
+    $C = \varepsilon_0A/d$, so $C \propto 1/d$: doubling $d$ halves $C$.
+- id: phys-q-3303
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'A 4.0 μF and a 12 μF capacitor are connected in series. Their equivalent capacitance is'
+  choices: ['16 μF', '3.0 μF', '8.0 μF', '0.33 μF']
+  answer: 1
+  explanation: |-
+    $1/C = 1/4.0 + 1/12 = 4/12$, so $C = 3.0$ μF, smaller than either. 16 μF is the parallel combination.
+- id: phys-q-3304
+  lesson: phys-capacitance
+  module_quiz: true
+  topic: Capacitance
+  stem: 'How much energy is stored in a 10 μF capacitor charged to 100 V?'
+  choices: ['0.10 J', '0.050 J', '1000 J', '$5.0\times10^{-4}$ J']
+  answer: 1
+  explanation: |-
+    $U = \tfrac12CV^2 = \tfrac12(10\times10^{-6})(100)^2 = 0.050$ J. $CV^2 = 0.10$ J forgets the $\tfrac12$.
+- id: phys-q-3305
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'Capacitors in series all have the same'
+  choices: ['voltage', 'capacitance', 'charge', 'energy']
+  answer: 2
+  explanation: |-
+    In a single path, the charge pushed onto one plate induces an equal charge on each successive plate, so every series capacitor carries the same $Q$. The voltages divide, with the smallest capacitor taking the largest share.
+- id: phys-q-3306
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'A capacitor is connected to a battery, then a dielectric with $\kappa = 3$ is slid between the plates while the battery stays connected. The charge on the plates'
+  choices: ['triples', 'is unchanged', 'drops to one-third', 'drops to zero']
+  answer: 0
+  explanation: |-
+    $C$ triples and the battery holds $V$ fixed, so $Q = CV$ triples (the battery supplies the extra charge).
+- id: phys-q-3307
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'The energy stored in a capacitor is located'
+  choices: ['in the battery that charged it', 'in the electric field between the plates', 'in the metal of the plates', 'in the wires']
+  answer: 1
+  explanation: |-
+    The energy is stored in the field, with density $u = \tfrac12\varepsilon_0E^2$; integrating over the volume between the plates gives $\tfrac12CV^2$.
+- id: phys-q-3308
+  lesson: phys-capacitance
+  module_quiz: true
+  topic: Capacitance
+  stem: 'Three 6.0 μF capacitors are connected in parallel across a 10 V source. What is the total charge stored?'
+  choices: ['20 μC', '60 μC', '180 μC', '600 μC']
+  answer: 2
+  explanation: |-
+    Parallel: $C_{\text{eq}} = 18$ μF; $Q = 18(10) = 180$ μC (60 μC on each). 20 μC would be the series result.
+- id: phys-q-3309
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'Integrating $dU = (q/C)\,dq$ from 0 to $Q$ gives the stored energy'
+  choices: ['$Q^2/C$', '$QC/2$', '$Q/(2C)$', '$Q^2/(2C)$']
+  answer: 3
+  explanation: |-
+    $\int_0^Q q\,dq/C = Q^2/(2C)$, equal to $\tfrac12CV^2$ and $\tfrac12QV$.
+- id: phys-q-3310
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'The capacitance of an isolated conducting sphere of radius $R$ is'
+  choices: ['$4\pi\varepsilon_0R$', '$\varepsilon_0R^2$', '$4\pi\varepsilon_0/R$', '$\varepsilon_0/(4\pi R)$']
+  answer: 0
+  explanation: |-
+    $V = kQ/R$, so $C = Q/V = R/k = 4\pi\varepsilon_0R$. Larger spheres hold more charge per volt.

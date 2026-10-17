@@ -1,0 +1,200 @@
+- id: phys-q-0101
+  lesson: phys-measurement
+  module_quiz: true
+  topic: Units and conversions
+  stem: 'Convert 72 km/h to m/s.'
+  choices: ['$20\text{ m/s}$', '$259\text{ m/s}$', '$2.0\text{ m/s}$', '$1.2\text{ m/s}$']
+  answer: 0
+  explanation: |-
+    $72\,\tfrac{\text{km}}{\text{h}} \times \tfrac{1000\text{ m}}{1\text{ km}} \times \tfrac{1\text{ h}}{3600\text{ s}} = 20\text{ m/s}$ (equivalently, divide by 3.6). Multiplying by 3.6 instead gives 259; using 60 s per hour gives 1.2.
+- id: phys-q-0102
+  lesson: phys-measurement
+  topic: Units and conversions
+  stem: 'How many square meters are in $1\text{ cm}^2$?'
+  choices: ['$10^{-4}\text{ m}^2$', '$10^{-2}\text{ m}^2$', '$10^{-6}\text{ m}^2$', '$10^{2}\text{ m}^2$']
+  answer: 0
+  explanation: |-
+    $1\text{ cm} = 10^{-2}\text{ m}$, so $1\text{ cm}^2 = (10^{-2}\text{ m})^2 = 10^{-4}\text{ m}^2$. The choice $10^{-2}$ forgets to square the conversion factor; $10^{-6}$ is the factor for cm³.
+- id: phys-q-0103
+  lesson: phys-measurement
+  module_quiz: true
+  topic: Significant figures
+  stem: 'How many significant figures does $0.004050$ have?'
+  choices: ['3', '7', '4', '6']
+  answer: 2
+  explanation: |-
+    Leading zeros (0.00) only locate the decimal point. The digits 4, 0 (between nonzero digits), 5 and the trailing 0 after the decimal point are significant: four in all. In scientific notation it is $4.050 \times 10^{-3}$.
+- id: phys-q-0104
+  lesson: phys-measurement
+  topic: Significant figures
+  stem: 'A car travels 125.4 m in 4.2 s. Reported with the correct number of significant figures, its average speed is'
+  choices: ['$29.857\text{ m/s}$', '$29.86\text{ m/s}$', '$29.9\text{ m/s}$', '$30\text{ m/s}$']
+  answer: 3
+  explanation: |-
+    $125.4 / 4.2 = 29.857\ldots$ For division, keep the fewest significant figures among the inputs: 4.2 has two, so the answer is 30 m/s (two sig figs; $3.0 \times 10^1$ m/s makes that explicit).
+- id: phys-q-0105
+  lesson: phys-measurement
+  topic: Significant figures
+  stem: 'Add $12.52\text{ m} + 3.1\text{ m} + 0.236\text{ m}$ and report the result correctly.'
+  choices: ['$15.9\text{ m}$', '$15.856\text{ m}$', '$16\text{ m}$', '$15.86\text{ m}$']
+  answer: 0
+  explanation: |-
+    The exact sum is 15.856 m. For addition, keep the fewest decimal places among the inputs: 3.1 has one decimal place, so round to 15.9 m. (Counting sig figs, as for multiplication, is the wrong rule here.)
+- id: phys-q-0106
+  lesson: phys-measurement
+  module_quiz: true
+  topic: Dimensional analysis
+  stem: 'Which expression has the dimensions of a length? ($v$ is a speed, $a$ an acceleration, $t$ a time.)'
+  choices: ['$v t^2$', '$v^2/a$', '$a t$', '$v/a$']
+  answer: 1
+  explanation: |-
+    $[v^2/a] = \dfrac{L^2/T^2}{L/T^2} = L$. The others: $vt^2$ is $L\cdot T$; $at$ is $L/T$ (a speed); $v/a$ is $T$ (a time).
+- id: phys-q-0107
+  lesson: phys-measurement
+  topic: Units and conversions
+  stem: 'The newton expressed in SI base units is'
+  choices: ['$\text{kg·m/s}$', '$\text{kg·m}^2/\text{s}^2$', '$\text{kg·m/s}^2$', '$\text{kg/(m·s}^2)$']
+  answer: 2
+  explanation: |-
+    From $F = ma$: kg × m/s² = kg·m/s². The choice kg·m²/s² is the joule; kg·m/s is the unit of momentum; kg/(m·s²) is the pascal.
+- id: phys-q-0108
+  lesson: phys-measurement
+  topic: Dimensional analysis
+  stem: 'In $x(t) = A e^{-t/\tau}\cos(\omega t)$, $t$ is a time and $x$ a length. What must the units of $\tau$ and $\omega$ be?'
+  choices: ['$\tau$ in m, $\omega$ in m/s', '$\tau$ in s, $\omega$ in s', '$\tau$ in 1/s, $\omega$ in 1/s', '$\tau$ in s, $\omega$ in 1/s']
+  answer: 3
+  explanation: |-
+    Arguments of $e^x$ and $\cos$ must be dimensionless. $t/\tau$ is dimensionless only if $\tau$ is a time (s); $\omega t$ is dimensionless only if $\omega$ has units 1/s. $A$ carries the length unit.
+- id: phys-q-0109
+  lesson: phys-measurement
+  topic: Units and conversions
+  stem: 'A tank holds $2.5\text{ m}^3$ of water. How many liters is that? ($1\text{ L} = 1000\text{ cm}^3$)'
+  choices: ['2500 L', '25 L', '250 000 L', '2.5 L']
+  answer: 0
+  explanation: |-
+    $1\text{ m}^3 = (100\text{ cm})^3 = 10^6\text{ cm}^3 = 1000\text{ L}$. So $2.5\text{ m}^3 = 2500$ L. Using 100 cm per m without cubing, or slipping a factor of 1000 between m³ and L, leads to the wrong choices.
+- id: phys-q-0110
+  lesson: phys-measurement
+  topic: Significant figures
+  stem: 'A dart player''s throws all land within 1 cm of each other, but 10 cm left of the bullseye. The throws are'
+  choices: ['accurate and precise', 'precise but not accurate', 'accurate but not precise', 'neither accurate nor precise']
+  answer: 1
+  explanation: |-
+    Precision is how tightly results cluster (very tight here); accuracy is closeness to the true target (they all miss by 10 cm). A systematic error like this produces precise but inaccurate results.
+- id: phys-q-0111
+  lesson: phys-measurement
+  module_quiz: true
+  topic: Dimensional analysis
+  stem: 'A student derives $v = \sqrt{2 g h^2}$ for the speed of an object dropped from height $h$. What does dimensional analysis say?'
+  choices: ['It is correct', 'It is wrong only by a numerical factor', 'It is wrong: the units come out m^(3/2)/s', 'It cannot be checked dimensionally']
+  answer: 2
+  explanation: |-
+    $[g h^2] = \tfrac{L}{T^2}L^2 = L^3/T^2$, whose square root is $L^{3/2}/T$, not a speed. The correct result is $v = \sqrt{2gh}$, where $[gh] = L^2/T^2$.
+- id: phys-q-0112
+  lesson: phys-measurement
+  topic: Units and conversions
+  stem: 'Write $0.000\,0372\text{ s}$ in scientific notation and with a prefix.'
+  choices: ['$3.72 \times 10^{-4}$ s $= 372$ μs', '$3.72 \times 10^{-6}$ s $= 3.72$ μs', '$372 \times 10^{-5}$ s $= 37.2$ ms', '$3.72 \times 10^{-5}$ s $= 37.2$ μs']
+  answer: 3
+  explanation: |-
+    Move the decimal 5 places right: $3.72 \times 10^{-5}$ s. Since 1 μs $= 10^{-6}$ s, this is $37.2 \times 10^{-6}$ s $= 37.2$ μs.
+- id: phys-q-0201
+  lesson: phys-vectors
+  module_quiz: true
+  topic: Vectors
+  stem: 'A vector has magnitude 10 m and points $60^\circ$ above the $+x$ axis. Its components are'
+  choices: ['$A_x = 5.0\text{ m},\ A_y = 8.7\text{ m}$', '$A_x = 8.7\text{ m},\ A_y = 5.0\text{ m}$', '$A_x = 5.0\text{ m},\ A_y = 5.0\text{ m}$', '$A_x = 10\text{ m},\ A_y = 6.0\text{ m}$']
+  answer: 0
+  explanation: |-
+    $A_x = 10\cos 60^\circ = 5.0$ m and $A_y = 10\sin 60^\circ = 8.66$ m. Swapping sine and cosine gives the second choice.
+- id: phys-q-0202
+  lesson: phys-vectors
+  topic: Vectors
+  stem: 'Which of these is a vector quantity?'
+  choices: ['Mass', 'Kinetic energy', 'Acceleration', 'Temperature']
+  answer: 2
+  explanation: |-
+    Acceleration has a direction (it points the way velocity is changing). Mass, energy and temperature are scalars: one number and a unit describe them fully.
+- id: phys-q-0203
+  lesson: phys-vectors
+  module_quiz: true
+  topic: Vectors
+  stem: 'You walk 6 m east and then 8 m north. What is the magnitude of your displacement?'
+  choices: ['14 m', '2 m', '48 m', '10 m']
+  answer: 3
+  explanation: |-
+    The legs are perpendicular, so $\sqrt{6^2 + 8^2} = \sqrt{100} = 10$ m. 14 m is the distance walked (adding magnitudes), not the displacement.
+- id: phys-q-0204
+  lesson: phys-vectors
+  topic: Vectors
+  stem: 'A vector has components $A_x = -3$ and $A_y = 3$. What angle does it make with the $+x$ axis (counterclockwise)?'
+  choices: ['$-45^\circ$', '$135^\circ$', '$45^\circ$', '$225^\circ$']
+  answer: 1
+  explanation: |-
+    $\tan^{-1}(3/(-3)) = -45^\circ$ on a calculator, but the vector is in the second quadrant ($A_x < 0$, $A_y > 0$), so add $180^\circ$: $135^\circ$.
+- id: phys-q-0205
+  lesson: phys-vectors
+  topic: Vectors
+  stem: 'Given $\vec A = 2\hat\imath + 5\hat\jmath$ and $\vec B = 4\hat\imath - 1\hat\jmath$, find $\vec A - \vec B$.'
+  choices: ['$6\hat\imath + 4\hat\jmath$', '$-2\hat\imath + 4\hat\jmath$', '$-2\hat\imath + 6\hat\jmath$', '$2\hat\imath - 6\hat\jmath$']
+  answer: 2
+  explanation: |-
+    Subtract components: $(2-4)\hat\imath + (5-(-1))\hat\jmath = -2\hat\imath + 6\hat\jmath$. The choice $-2\hat\imath + 4\hat\jmath$ comes from $5 - 1$, a sign slip.
+- id: phys-q-0206
+  lesson: phys-vectors
+  topic: Vectors
+  stem: 'Two forces of 3 N and 4 N act on an object. Which total force magnitude is impossible?'
+  choices: ['1 N', '5 N', '7 N', '8 N']
+  answer: 3
+  explanation: |-
+    The resultant of two vectors ranges from $|A - B| = 1$ N (opposite directions) to $A + B = 7$ N (same direction). 5 N occurs when they are perpendicular. 8 N exceeds the maximum.
+- id: phys-q-0207
+  lesson: phys-vectors
+  module_quiz: true
+  topic: Vector products
+  stem: 'Compute $\vec A \cdot \vec B$ for $\vec A = 3\hat\imath - 2\hat\jmath + \hat k$ and $\vec B = 4\hat\imath + 5\hat\jmath - 2\hat k$.'
+  choices: ['0', '24', '-4', '12']
+  answer: 0
+  explanation: |-
+    $3(4) + (-2)(5) + 1(-2) = 12 - 10 - 2 = 0$. A zero dot product means the vectors are perpendicular.
+- id: phys-q-0208
+  lesson: phys-vectors
+  topic: Vector products
+  stem: 'What is $\hat\imath \times \hat\jmath$?'
+  choices: ['$0$', '$\hat k$', '$-\hat k$', '$1$']
+  answer: 1
+  explanation: |-
+    By the right-hand rule, fingers along $+x$ curled toward $+y$ put the thumb along $+z$: $\hat\imath \times \hat\jmath = \hat k$. (The dot product $\hat\imath\cdot\hat\jmath$ is 0, and $\hat\jmath\times\hat\imath = -\hat k$.)
+- id: phys-q-0209
+  lesson: phys-vectors
+  topic: Vector products
+  stem: 'Two vectors of magnitudes 4 and 5 make a $30^\circ$ angle. What is the magnitude of their cross product?'
+  choices: ['17.3', '20', '10', '0.5']
+  answer: 2
+  explanation: |-
+    $|\vec A\times\vec B| = AB\sin\phi = 4(5)\sin 30^\circ = 10$. Using cosine gives 17.3, which is the dot product.
+- id: phys-q-0210
+  lesson: phys-vectors
+  topic: Vector products
+  stem: 'If $\vec A \times \vec B = 2\hat\imath - 3\hat k$, what is $\vec B \times \vec A$?'
+  choices: ['$2\hat\imath - 3\hat k$', '$-2\hat\imath - 3\hat k$', '$3\hat\imath - 2\hat k$', '$-2\hat\imath + 3\hat k$']
+  answer: 3
+  explanation: |-
+    The cross product is anticommutative: $\vec B\times\vec A = -(\vec A\times\vec B) = -2\hat\imath + 3\hat k$.
+- id: phys-q-0211
+  lesson: phys-vectors
+  topic: Vectors
+  stem: 'A block sits on a ramp inclined at $25^\circ$. To simplify a force problem, the most useful choice of axes is'
+  choices: ['$x$ along the ramp, $y$ perpendicular to it', '$x$ horizontal, $y$ vertical', '$x$ along gravity, $y$ along the ramp', 'axes at $45^\circ$ to the ramp']
+  answer: 0
+  explanation: |-
+    With $x$ along the ramp, the acceleration has only an $x$ component and the normal force only a $y$ component; only gravity needs to be split into components. Any axes give the same physics, but these give the least algebra.
+- id: phys-q-0212
+  lesson: phys-vectors
+  module_quiz: true
+  topic: Vectors
+  stem: 'A displacement of 12 m points $40^\circ$ south of west. Its components ($+x$ east, $+y$ north) are'
+  choices: ['$(9.19, 7.71)$ m', '$(-9.19, -7.71)$ m', '$(-7.71, -9.19)$ m', '$(9.19, -7.71)$ m']
+  answer: 1
+  explanation: |-
+    The angle is measured from the west ($-x$) direction toward south. The west component is $12\cos 40^\circ = 9.19$ m and the south component is $12\sin 40^\circ = 7.71$ m, so $(A_x, A_y) = (-9.19, -7.71)$ m. Both components are negative in the third quadrant.

@@ -1,0 +1,257 @@
+- id: phys-q-3401
+  lesson: phys-current
+  module_quiz: true
+  topic: Current and resistance
+  stem: 'A current of 0.50 A flows in a wire for 1.0 minute. How much charge passes a point in the wire?'
+  choices: ['0.50 C', '120 C', '0.0083 C', '30 C']
+  answer: 3
+  explanation: |-
+    $Q = It = 0.50(60) = 30$ C. Using 1.0 (minutes) instead of 60 s gives 0.50 C.
+- id: phys-q-3402
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'A 120 V source drives 2.0 A through a resistor. What is the resistance?'
+  choices: ['240 Ω', '60 Ω', '0.017 Ω', '122 Ω']
+  answer: 1
+  explanation: |-
+    $R = V/I = 120/2.0 = 60$ Ω. Multiplying gives 240 (that's the power in watts).
+- id: phys-q-3403
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'A wire''s length is doubled and its diameter is doubled. Its resistance'
+  choices: ['halves', 'is unchanged', 'doubles', 'quadruples']
+  answer: 0
+  explanation: |-
+    $R = \rho L/A$. Doubling $L$ doubles $R$; doubling the diameter quadruples $A$, dividing $R$ by 4. Net: $2/4 = 1/2$.
+- id: phys-q-3404
+  lesson: phys-current
+  module_quiz: true
+  topic: Electric power
+  stem: 'A 1500 W hair dryer runs on 120 V. What current does it draw, and what is its resistance?'
+  choices: ['12.5 A and 9.6 Ω', '0.08 A and 1500 Ω', '12.5 A and 1500 Ω', '180 A and 0.67 Ω']
+  answer: 0
+  explanation: |-
+    $I = P/V = 1500/120 = 12.5$ A; $R = V/I = 9.6$ Ω (or $V^2/P$).
+- id: phys-q-3405
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'What is the resistance of a 100 m copper wire of diameter 1.0 mm? ($\rho = 1.7\times10^{-8}$ Ω·m)'
+  choices: ['0.54 Ω', '2.2 Ω', '1.7 Ω', '8.7 Ω']
+  answer: 1
+  explanation: |-
+    $A = \pi(0.50\times10^{-3})^2 = 7.85\times10^{-7}$ m². $R = (1.7\times10^{-8})(100)/(7.85\times10^{-7}) = 2.2$ Ω. Using the diameter as the radius gives 0.54 Ω.
+- id: phys-q-3406
+  lesson: phys-current
+  topic: Electric power
+  stem: 'Power companies transmit electricity at very high voltage mainly because'
+  choices: ['high voltage travels faster', 'for the same power, the current is smaller, reducing $I^2R$ losses in the lines', 'high voltage is safer', 'resistance decreases at high voltage']
+  answer: 1
+  explanation: |-
+    $P = IV$: at higher $V$ the same power needs less $I$, and the heat lost in the lines is $I^2R$, so losses drop with the square of the current.
+- id: phys-q-3407
+  lesson: phys-current
+  module_quiz: true
+  topic: Electric power
+  stem: 'A 1500 W heater runs 4.0 hours. At \$0.12 per kWh, what does it cost?'
+  choices: ['\$720', '\$0.18', '\$7.20', '\$0.72']
+  answer: 3
+  explanation: |-
+    Energy $= 1.5\text{ kW} \times 4.0\text{ h} = 6.0$ kWh; cost $= 6.0 \times 0.12 =$ \$0.72. Forgetting to convert W to kW gives \$720.
+- id: phys-q-3408
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'The drift velocity of electrons in a typical household wire is about'
+  choices: ['the speed of light', '$10^6$ m/s', 'less than 1 mm/s', '343 m/s']
+  answer: 2
+  explanation: |-
+    $v_d = I/(nqA)$ is around $10^{-4}$ m/s. Lights still turn on instantly because the electric field spreads through the wire at nearly light speed, moving all the electrons at once.
+- id: phys-q-3409
+  lesson: phys-current
+  topic: Electric power
+  stem: 'A 10 Ω resistor carries 2.0 A. At what rate does it produce heat?'
+  choices: ['20 W', '5.0 W', '200 W', '40 W']
+  answer: 3
+  explanation: |-
+    $P = I^2R = (2.0)^2(10) = 40$ W. $IR = 20$ is the voltage, not the power.
+- id: phys-q-3410
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'The charge through a wire is $q(t) = 3t^2 + 2t$ coulombs. What is the current at $t = 2$ s?'
+  choices: ['16 A', '12 A', '8 A', '14 A']
+  answer: 3
+  explanation: |-
+    $I = dq/dt = 6t + 2 = 14$ A at $t = 2$ s. 16 is the charge $q(2)$.
+- id: phys-q-3501
+  lesson: phys-dc-circuits
+  module_quiz: true
+  topic: Series and parallel circuits
+  stem: 'Resistors of 2.0 Ω, 4.0 Ω and 6.0 Ω are connected in parallel. Their equivalent resistance is'
+  choices: ['12 Ω', '4.0 Ω', '0.92 Ω', '1.09 Ω']
+  answer: 3
+  explanation: |-
+    $\dfrac1R = \dfrac12 + \dfrac14 + \dfrac16 = \dfrac{11}{12}$, so $R = 12/11 = 1.09$ Ω, less than the smallest. 12 Ω is the series total; 0.92 forgets to take the reciprocal.
+- id: phys-q-3502
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'Two resistors in series carry'
+  choices: ['the same voltage', 'currents in inverse proportion to their resistances', 'the same current', 'currents adding to zero']
+  answer: 2
+  explanation: |-
+    There's only one path, so the same current flows through both; the voltage divides in proportion to resistance.
+- id: phys-q-3503
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'A 6.0 Ω and a 3.0 Ω resistor are in parallel across 12 V. What is the current through the 3.0 Ω resistor and the total current?'
+  choices: ['4.0 A and 6.0 A', '2.0 A and 6.0 A', '4.0 A and 1.3 A', '1.3 A and 1.3 A']
+  answer: 0
+  explanation: |-
+    Each has the full 12 V: $12/3.0 = 4.0$ A and $12/6.0 = 2.0$ A, total 6.0 A (equivalent resistance 2.0 Ω). 1.3 A treats them as series.
+- id: phys-q-3504
+  lesson: phys-dc-circuits
+  module_quiz: true
+  topic: Series and parallel circuits
+  stem: 'A 12 V battery with internal resistance 1.0 Ω is connected to a 5.0 Ω resistor. What is the terminal voltage?'
+  choices: ['12 V', '2.0 V', '10 V', '11 V']
+  answer: 2
+  explanation: |-
+    $I = \mathcal{E}/(R + r) = 12/6.0 = 2.0$ A; $V = \mathcal{E} - Ir = 12 - 2.0 = 10$ V.
+- id: phys-q-3505
+  lesson: phys-dc-circuits
+  topic: Kirchhoff's rules
+  stem: 'Kirchhoff''s junction rule is a consequence of conservation of'
+  choices: ['energy', 'momentum', 'charge', 'resistance']
+  answer: 2
+  explanation: |-
+    Charge can't accumulate at a junction, so what flows in must flow out. The loop rule expresses conservation of energy.
+- id: phys-q-3506
+  lesson: phys-dc-circuits
+  topic: Kirchhoff's rules
+  stem: 'Going around a loop, you cross a resistor $R$ in the same direction as its current $I$. The potential change is'
+  choices: ['$+IR$', '$-IR$', '$+\mathcal{E}$', 'zero']
+  answer: 1
+  explanation: |-
+    Current flows from high to low potential through a resistor, so moving with the current you go downhill: $\Delta V = -IR$.
+- id: phys-q-3507
+  lesson: phys-dc-circuits
+  topic: Kirchhoff's rules
+  stem: 'Solving a circuit with Kirchhoff''s rules, you get $I_2 = -0.5$ A. This means'
+  choices: ['you made an algebra error', 'current flows opposite to the direction you assumed for $I_2$', 'the branch has no current', 'the battery is reversed in the diagram']
+  answer: 1
+  explanation: |-
+    Assumed directions are guesses; a negative result simply means 0.5 A flows the other way.
+- id: phys-q-3508
+  lesson: phys-dc-circuits
+  module_quiz: true
+  topic: Kirchhoff's rules
+  stem: 'Three currents meet at a junction: 3.0 A flows in, 1.2 A flows out. The third current is'
+  choices: ['1.8 A out', '4.2 A out', '1.8 A in', '4.2 A in']
+  answer: 0
+  explanation: |-
+    Junction rule: in = out, so $3.0 = 1.2 + I_3$ and $I_3 = 1.8$ A flowing out.
+- id: phys-q-3509
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'How should a voltmeter be connected, and what resistance should it have?'
+  choices: ['In series, very low resistance', 'In parallel, very low resistance', 'In series, very high resistance', 'In parallel, very high resistance']
+  answer: 3
+  explanation: |-
+    A voltmeter measures the potential difference across a component, so it goes in parallel, and its high resistance keeps it from drawing current and disturbing the circuit. Ammeters go in series with low resistance.
+- id: phys-q-3510
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'More appliances are plugged into parallel outlets on one household circuit. The total current drawn from the circuit'
+  choices: ['increases, because the equivalent resistance decreases', 'decreases', 'stays the same', 'increases, because the voltage increases']
+  answer: 0
+  explanation: |-
+    Each new parallel path lowers $R_{\text{eq}}$ while the voltage stays 120 V, so total current rises, which is why circuit breakers are needed.
+- id: phys-q-3511
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'A source has emf $\mathcal{E}$ and internal resistance $r$. Maximizing $P = \mathcal{E}^2R/(R + r)^2$ shows the load gets the most power when'
+  choices: ['$R = 0$', '$R = r$', '$R = 2r$', '$R \to \infty$']
+  answer: 1
+  explanation: |-
+    $dP/dR = \mathcal{E}^2\dfrac{(R + r) - 2R}{(R + r)^3} = 0$ gives $R = r$ (impedance matching).
+- id: phys-q-3601
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  stem: 'What is the time constant of a 10 kΩ resistor in series with a 100 μF capacitor?'
+  choices: ['1.0 s', '1000 s', '0.001 s', '10 s']
+  answer: 0
+  explanation: |-
+    $\tau = RC = (10\times10^3)(100\times10^{-6}) = 1.0$ s.
+- id: phys-q-3602
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'A capacitor charging through a resistor reaches what fraction of its final charge after two time constants?'
+  choices: ['63%', '95%', '86%', '100%']
+  answer: 2
+  explanation: |-
+    $1 - e^{-2} = 0.865$. After one time constant it's 63%, after three 95%.
+- id: phys-q-3603
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'At the instant the switch is closed in a series circuit with a battery, a resistor and an uncharged capacitor, the current is'
+  choices: ['zero', '$\mathcal{E}/R$, its maximum', '$\mathcal{E}/(2R)$', '$\mathcal{E}C$']
+  answer: 1
+  explanation: |-
+    An uncharged capacitor has no voltage across it, so the whole emf appears across $R$: $I_0 = \mathcal{E}/R$. The current then decays exponentially.
+- id: phys-q-3604
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  stem: 'A capacitor charged to 20 V discharges through a resistor. After one time constant, its voltage is about'
+  choices: ['12.6 V', '10 V', '0 V', '7.4 V']
+  answer: 3
+  explanation: |-
+    Discharging: $V = V_0e^{-t/RC} = 20e^{-1} = 7.36$ V. 12.6 V would be the charging value $20(1 - e^{-1})$.
+- id: phys-q-3605
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'Long after the switch is closed in a DC circuit, a capacitor behaves like'
+  choices: ['a short circuit (plain wire)', 'an open circuit (a break)', 'a resistor equal to $R$', 'a battery of emf $2\mathcal{E}$']
+  answer: 1
+  explanation: |-
+    Once fully charged, no more current flows into it, so it acts as a break in that branch.
+- id: phys-q-3606
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'A 2.0 μF capacitor discharges through a 1.0 MΩ resistor. How long until its charge halves?'
+  choices: ['1.4 s', '2.0 s', '0.69 s', '0.35 s']
+  answer: 0
+  explanation: |-
+    $t_{1/2} = RC\ln 2 = (1.0\times10^6)(2.0\times10^{-6})(0.693) = 1.39$ s.
+- id: phys-q-3607
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'When a capacitor is charged to $\mathcal{E}$ through a resistor, what fraction of the energy supplied by the battery ends up stored in the capacitor?'
+  choices: ['All of it', 'It depends on $R$', 'One half', 'One quarter']
+  answer: 2
+  explanation: |-
+    The battery supplies $C\mathcal{E}^2$; the capacitor stores $\tfrac12C\mathcal{E}^2$; the rest, $\tfrac12C\mathcal{E}^2$, heats the resistor, independent of $R$.
+- id: phys-q-3608
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  stem: 'Which change makes an RC circuit charge faster?'
+  choices: ['Larger resistance', 'Larger capacitance', 'Larger battery emf', 'Smaller resistance']
+  answer: 3
+  explanation: |-
+    The timing depends only on $\tau = RC$. Smaller $R$ (or $C$) shortens it. A larger emf changes the final charge, not the time to reach a given fraction.
+- id: phys-q-3609
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'The loop rule for a discharging RC circuit gives $R\,dq/dt + q/C = 0$. Its solution is'
+  choices: ['$q = Q_0e^{-t/RC}$', '$q = Q_0(1 - e^{-t/RC})$', '$q = Q_0\cos(t/RC)$', '$q = Q_0 - t/RC$']
+  answer: 0
+  explanation: |-
+    $dq/q = -dt/(RC)$, so $\ln(q/Q_0) = -t/RC$ and $q = Q_0e^{-t/RC}$: exponential decay.
+- id: phys-q-3610
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'What are the units of the product $RC$?'
+  choices: ['seconds', 'ohm-farads, which are not a time', 'coulombs', 'hertz']
+  answer: 0
+  explanation: |-
+    $\Omega\cdot F = \dfrac{V}{A}\cdot\dfrac{C}{V} = \dfrac{C}{A} = \dfrac{C}{C/s} = s$. That's why $RC$ is called the time constant.

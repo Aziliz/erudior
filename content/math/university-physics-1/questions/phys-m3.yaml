@@ -1,0 +1,356 @@
+- id: phys-q-0701
+  lesson: phys-newton
+  module_quiz: true
+  topic: Newton's laws
+  stem: 'A spacecraft far from any planet coasts with its engines off. According to Newton''s first law, it'
+  choices: ['gradually slows down and stops', 'continues at constant velocity', 'accelerates slowly', 'moves in a circle']
+  answer: 1
+  explanation: |-
+    With no net force there is no acceleration, so the velocity (speed and direction) stays constant. A force is needed to change motion, not to maintain it.
+- id: phys-q-0702
+  lesson: phys-newton
+  topic: Newton's laws
+  stem: 'A 10 kg box is pushed across a floor by a 50 N horizontal force while kinetic friction of 29.4 N opposes it. What is its acceleration?'
+  choices: ['5.0 m/s²', '7.9 m/s²', '2.9 m/s²', '2.1 m/s²']
+  answer: 3
+  explanation: |-
+    Net force $= 50 - 29.4 = 20.6$ N, so $a = 20.6/10 = 2.06$ m/s². Ignoring friction gives 5.0 m/s²; 7.9 m/s² adds the forces instead of subtracting.
+- id: phys-q-0703
+  lesson: phys-newton
+  module_quiz: true
+  topic: Newton's laws
+  stem: 'A book rests on a table. What is the third-law partner of the gravitational force Earth exerts on the book?'
+  choices: ['The normal force of the table on the book', 'The force of the book on the table', 'The gravitational force of the book on Earth', 'The normal force of the floor on the table']
+  answer: 2
+  explanation: |-
+    Third-law pairs are the same type of force between the same two objects, acting on each other. Earth pulls the book down gravitationally, so the book pulls Earth up gravitationally. The normal force on the book is equal and opposite to its weight here, but it acts on the same object and is a different interaction.
+- id: phys-q-0704
+  lesson: phys-newton
+  topic: Free-body diagrams
+  stem: 'A 70 kg person stands on a scale in an elevator that is accelerating downward at 1.5 m/s². What does the scale read? ($g = 9.8$ m/s²)'
+  choices: ['581 N', '686 N', '791 N', '105 N']
+  answer: 0
+  explanation: |-
+    Up positive: $n - mg = ma$ with $a = -1.5$ m/s², so $n = m(g + a) = 70(9.8 - 1.5) = 581$ N. 791 N would be for upward acceleration; 686 N is the true weight.
+- id: phys-q-0705
+  lesson: phys-newton
+  topic: Free-body diagrams
+  stem: 'An elevator moves upward at a constant 3 m/s. Compared with the passenger''s weight, the normal force from the floor is'
+  choices: ['larger', 'smaller', 'zero', 'equal']
+  answer: 3
+  explanation: |-
+    Constant velocity means $a = 0$, so the net force is zero and $n = mg$. Only acceleration, not velocity, changes the apparent weight.
+- id: phys-q-0706
+  lesson: phys-newton
+  topic: Newton's laws
+  stem: 'An astronaut has a mass of 80 kg on Earth. On the Moon ($g = 1.62$ m/s²), her mass and weight are'
+  choices: ['80 kg and 130 N', '13 kg and 130 N', '80 kg and 784 N', '13 kg and 784 N']
+  answer: 0
+  explanation: |-
+    Mass is an intrinsic property and doesn't change: 80 kg. Weight is $mg = 80(1.62) = 130$ N on the Moon (784 N on Earth).
+- id: phys-q-0707
+  lesson: phys-newton
+  module_quiz: true
+  topic: Free-body diagrams
+  stem: 'A 5.0 kg block on a frictionless floor is pulled by a 20 N force at $37^\circ$ above horizontal ($\cos 37^\circ \approx 0.80$, $\sin 37^\circ \approx 0.60$). What is the normal force on the block? ($g = 9.8$ m/s²)'
+  choices: ['37 N', '49 N', '61 N', '33 N']
+  answer: 0
+  explanation: |-
+    Vertically $n + 20\sin 37^\circ - mg = 0$, so $n = 49 - 12 = 37$ N. The upward pull reduces the normal force; 61 N adds it instead.
+- id: phys-q-0708
+  lesson: phys-newton
+  topic: Free-body diagrams
+  stem: 'Which of these belongs on the free-body diagram of a ball in flight after it leaves a pitcher''s hand (no air resistance)?'
+  choices: ['The force of the throw, along the velocity', 'Weight only', 'Weight and the force of the throw', 'Weight and a centripetal force']
+  answer: 1
+  explanation: |-
+    Once released, nothing touches the ball, so the only force is gravity. The "force of the throw" acted only while the hand was in contact; the ball keeps moving because of inertia.
+- id: phys-q-0709
+  lesson: phys-newton
+  topic: Newton's laws
+  stem: 'A 2.0 kg object starts from rest and feels a force $F(t) = 4t$ N along $x$. What is its speed at $t = 3$ s?'
+  choices: ['6 m/s', '12 m/s', '18 m/s', '9 m/s']
+  answer: 3
+  explanation: |-
+    $m\,dv/dt = 4t \Rightarrow dv/dt = 2t \Rightarrow v = t^2$. At 3 s, $v = 9$ m/s. Treating $F(3)/m = 6$ m/s² as constant over 3 s would give 18 m/s.
+- id: phys-q-0710
+  lesson: phys-newton
+  topic: Newton's laws
+  stem: 'Two blocks, 4.0 kg and 2.0 kg, sit side by side on a frictionless floor. A 30 N horizontal push on the 4.0 kg block moves both. What force does the 4.0 kg block exert on the 2.0 kg block?'
+  choices: ['30 N', '20 N', '10 N', '15 N']
+  answer: 2
+  explanation: |-
+    Whole system: $a = 30/6.0 = 5.0$ m/s². The 2.0 kg block's only horizontal force is the contact force, so $F = 2.0(5.0) = 10$ N.
+- id: phys-q-0711
+  lesson: phys-newton
+  topic: Newton's laws
+  stem: 'Newton''s second law in its most general form is'
+  choices: ['$\vec F = m\vec v$', '$\vec F = d\vec p/dt$', '$\vec F = m\,d\vec x/dt$', '$\vec F = \vec p\,t$']
+  answer: 1
+  explanation: |-
+    $\vec F_{\text{net}} = d\vec p/dt$ with $\vec p = m\vec v$. For constant mass it reduces to $m\vec a$; it also covers systems whose mass changes.
+- id: phys-q-0801
+  lesson: phys-friction
+  module_quiz: true
+  topic: Friction
+  stem: 'A crate with $\mu_s n = 50$ N rests on the floor. You push it horizontally with 20 N and it doesn''t move. The static friction force is'
+  choices: ['50 N', '70 N', '30 N', '20 N']
+  answer: 3
+  explanation: |-
+    Static friction adjusts to prevent sliding: it equals 20 N to balance your push. $\mu_s n = 50$ N is only the maximum it could supply.
+- id: phys-q-0802
+  lesson: phys-friction
+  topic: Friction
+  stem: 'Why is it usually harder to start a heavy box sliding than to keep it sliding?'
+  choices: ['Because $\mu_s > \mu_k$', 'Because the normal force decreases once it moves', 'Because kinetic friction increases with speed', 'Because inertia vanishes once it moves']
+  answer: 0
+  explanation: |-
+    The maximum static friction $\mu_s n$ is usually larger than kinetic friction $\mu_k n$. The normal force doesn't change, and kinetic friction is roughly independent of speed.
+- id: phys-q-0803
+  lesson: phys-friction
+  module_quiz: true
+  topic: Inclined planes
+  stem: 'A block slides down a frictionless $30^\circ$ incline. What is its acceleration? ($g = 9.8$ m/s²)'
+  choices: ['8.5 m/s²', '9.8 m/s²', '4.9 m/s²', '5.7 m/s²']
+  answer: 2
+  explanation: |-
+    Along the slope only $mg\sin\theta$ acts, so $a = g\sin 30^\circ = 4.9$ m/s². 8.5 m/s² uses cosine by mistake.
+- id: phys-q-0804
+  lesson: phys-friction
+  topic: Inclined planes
+  stem: 'A block slides down a $30^\circ$ incline with $\mu_k = 0.20$. What is its acceleration? ($g = 9.8$ m/s²)'
+  choices: ['3.2 m/s²', '4.9 m/s²', '2.9 m/s²', '6.6 m/s²']
+  answer: 0
+  explanation: |-
+    $a = g(\sin\theta - \mu_k\cos\theta) = 9.8(0.500 - 0.20 \times 0.866) = 3.2$ m/s². 6.6 m/s² adds friction instead of subtracting it.
+- id: phys-q-0805
+  lesson: phys-friction
+  topic: Inclined planes
+  stem: 'On an incline at angle $\theta$ with no other perpendicular forces, the normal force on a block of mass $m$ is'
+  choices: ['$mg$', '$mg\sin\theta$', '$mg\tan\theta$', '$mg\cos\theta$']
+  answer: 3
+  explanation: |-
+    Perpendicular to the slope there's no acceleration: $n - mg\cos\theta = 0$. Check: on a flat surface ($\theta = 0$) it gives $mg$; on a vertical wall it gives 0.
+- id: phys-q-0806
+  lesson: phys-friction
+  module_quiz: true
+  topic: Inclined planes
+  stem: 'A coin on a book starts to slide when the book is tilted to $31^\circ$. What is the coefficient of static friction?'
+  choices: ['0.52', '0.60', '0.86', '0.31']
+  answer: 1
+  explanation: |-
+    At the verge of slipping, $mg\sin\theta = \mu_s mg\cos\theta$, so $\mu_s = \tan 31^\circ = 0.60$. 0.52 is $\sin 31^\circ$; 0.86 is $\cos 31^\circ$.
+- id: phys-q-0807
+  lesson: phys-friction
+  topic: Friction
+  stem: 'You pull a sled with a rope angled upward instead of horizontally (same rope tension). Compared with a horizontal pull, the kinetic friction on the sled is'
+  choices: ['larger, because the force is at an angle', 'unchanged, because $\mu_k$ is the same', 'smaller, because the normal force is smaller', 'zero']
+  answer: 2
+  explanation: |-
+    The upward component of the pull reduces the normal force ($n = mg - T\sin\theta$), and $f_k = \mu_k n$, so friction drops.
+- id: phys-q-0808
+  lesson: phys-friction
+  topic: Friction
+  stem: 'A 20 kg box slides across a floor with $\mu_k = 0.40$ and no applied force. How quickly does it slow down? ($g = 9.8$ m/s²)'
+  choices: ['3.9 m/s²', '78 m/s²', '0.4 m/s²', '8.0 m/s²']
+  answer: 0
+  explanation: |-
+    Only friction acts horizontally: $\mu_k mg = ma$, so $a = \mu_k g = 0.40(9.8) = 3.92$ m/s². The mass cancels. 78 is the friction force in newtons, not the acceleration.
+- id: phys-q-0809
+  lesson: phys-friction
+  topic: Inclined planes
+  stem: 'A block is pushed up a ramp and released while still moving up. While it slides up, the friction force points'
+  choices: ['up the ramp', 'perpendicular to the ramp', 'down the ramp', 'nowhere; friction only acts on the way down']
+  answer: 2
+  explanation: |-
+    Kinetic friction opposes the sliding velocity. Moving up the slope, friction points down the slope, adding to $mg\sin\theta$: $a = -g(\sin\theta + \mu_k\cos\theta)$.
+- id: phys-q-0810
+  lesson: phys-friction
+  topic: Friction
+  stem: 'An object falling with linear drag obeys $m\,dv/dt = mg - bv$. Its terminal velocity is'
+  choices: ['$mg/b$', '$b/(mg)$', '$\sqrt{mg/b}$', '$g\,m/b^2$']
+  answer: 0
+  explanation: |-
+    At terminal velocity $dv/dt = 0$, so $mg = bv_T$ and $v_T = mg/b$. The solution approaches it as $v = v_T(1 - e^{-bt/m})$.
+- id: phys-q-0811
+  lesson: phys-friction
+  topic: Friction
+  stem: 'With linear drag, a falling object starting from rest reaches what fraction of its terminal velocity after one time constant $m/b$?'
+  choices: ['37%', '50%', '63%', '100%']
+  answer: 2
+  explanation: |-
+    $v = v_T(1 - e^{-bt/m})$; at $t = m/b$, $v = v_T(1 - e^{-1}) = 0.632\,v_T$.
+- id: phys-q-0901
+  lesson: phys-tension
+  module_quiz: true
+  topic: Tension and pulleys
+  stem: 'In an Atwood machine with $m_1 = 4.0$ kg and $m_2 = 2.0$ kg on an ideal pulley, what is the acceleration? ($g = 9.8$ m/s²)'
+  choices: ['4.9 m/s²', '9.8 m/s²', '1.6 m/s²', '3.3 m/s²']
+  answer: 3
+  explanation: |-
+    $a = \dfrac{m_1 - m_2}{m_1 + m_2}g = \dfrac{2.0}{6.0}(9.8) = 3.27$ m/s². 4.9 m/s² divides by $m_1$ alone.
+- id: phys-q-0902
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'In the same Atwood machine (4.0 kg and 2.0 kg), what is the rope tension?'
+  choices: ['26 N', '39 N', '20 N', '59 N']
+  answer: 0
+  explanation: |-
+    $T = \dfrac{2m_1m_2}{m_1 + m_2}g = \dfrac{2(4.0)(2.0)}{6.0}(9.8) = 26.1$ N. Check: it lies between the weights 19.6 N and 39.2 N, as it must.
+- id: phys-q-0903
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'A 10 kg lamp hangs at rest from two cables, each $30^\circ$ above horizontal. What is the tension in each cable? ($g = 9.8$ m/s²)'
+  choices: ['49 N', '57 N', '98 N', '196 N']
+  answer: 2
+  explanation: |-
+    $2T\sin 30^\circ = mg = 98$ N, so $T = 98/(2 \times 0.5) = 98$ N. Each cable carries the full weight because shallow cables need large tension to supply the vertical support.
+- id: phys-q-0904
+  lesson: phys-tension
+  module_quiz: true
+  topic: Tension and pulleys
+  stem: 'A 5.0 kg block on a table ($\mu_k = 0.25$) is connected over an ideal pulley to a hanging 3.0 kg mass. What is the acceleration? ($g = 9.8$ m/s²)'
+  choices: ['3.7 m/s²', '2.1 m/s²', '1.5 m/s²', '5.9 m/s²']
+  answer: 1
+  explanation: |-
+    $a = \dfrac{m_2 - \mu_k m_1}{m_1 + m_2}g = \dfrac{3.0 - 1.25}{8.0}(9.8) = 2.14$ m/s². 3.7 m/s² ignores friction.
+- id: phys-q-0905
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'A mass hangs from a rope in an elevator that accelerates upward. The rope tension is'
+  choices: ['less than $mg$', 'equal to $mg$', 'zero', 'greater than $mg$']
+  answer: 3
+  explanation: |-
+    $T - mg = ma$ with $a > 0$, so $T = m(g + a) > mg$. Tension equals the weight only when the mass isn't accelerating.
+- id: phys-q-0906
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'When you treat two blocks joined by a rope as a single system to find their common acceleration, why can you ignore the rope tension?'
+  choices: ['Tension is always small', 'It is an internal force; its pulls on the two blocks cancel in the system''s net force', 'The rope is massless, so it has no tension', 'Tension acts only when the system is at rest']
+  answer: 1
+  explanation: |-
+    The rope pulls block A toward B and block B toward A with equal magnitude. Within the system these cancel, so only external forces determine the system's acceleration.
+- id: phys-q-0907
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'A 200 N load hangs from a movable pulley supported by two strands of the same rope. In equilibrium, what force must you pull with, and how far must you pull to raise the load 1 m?'
+  choices: ['100 N, 2 m', '200 N, 1 m', '100 N, 1 m', '400 N, 0.5 m']
+  answer: 0
+  explanation: |-
+    Two strands support the load, so $2T = 200$ N and $T = 100$ N. Raising the load 1 m shortens each strand by 1 m, so you pull 2 m of rope. Force is halved, distance doubled, work unchanged.
+- id: phys-q-0908
+  lesson: phys-tension
+  module_quiz: true
+  topic: Tension and pulleys
+  stem: 'An Atwood machine has equal masses on both sides and is given a push so it moves. What happens next?'
+  choices: ['It speeds up', 'It slows down and stops', 'It keeps moving at constant speed', 'It oscillates back and forth']
+  answer: 2
+  explanation: |-
+    With $m_1 = m_2$, $a = 0$: the net force on each mass is zero, so they keep the velocity they were given (Newton's first law).
+- id: phys-q-0909
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'A uniform rope of mass 2.0 kg and length 4.0 m hangs vertically from a ceiling. What is the tension at its midpoint? ($g = 9.8$ m/s²)'
+  choices: ['19.6 N', '4.9 N', '39.2 N', '9.8 N']
+  answer: 3
+  explanation: |-
+    The midpoint supports the rope below it: half the rope, 1.0 kg, weighing 9.8 N. Tension in a massive rope grows toward the top (19.6 N at the ceiling, 0 at the bottom).
+- id: phys-q-0910
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'Block A on a frictionless table is tied over a pulley to a hanging block B. Taking "A moves toward the pulley" and "B moves down" as positive, the correct equations are'
+  choices: ['$T = m_Aa$ and $m_Bg - T = m_Ba$', '$T = m_Aa$ and $T - m_Bg = m_Ba$', '$-T = m_Aa$ and $m_Bg + T = m_Ba$', '$T = m_Ag$ and $T = m_Bg$']
+  answer: 0
+  explanation: |-
+    Only tension acts horizontally on A (toward the pulley, positive). On B, weight acts down (positive) and tension up (negative). Adding gives $a = m_Bg/(m_A + m_B)$.
+- id: phys-q-1001
+  lesson: phys-circular
+  module_quiz: true
+  topic: Circular motion
+  stem: 'A car moves at 10 m/s around a circle of radius 5.0 m. What is its centripetal acceleration?'
+  choices: ['2.0 m/s²', '50 m/s²', '20 m/s²', '0 m/s²']
+  answer: 2
+  explanation: |-
+    $a_c = v^2/r = 100/5.0 = 20$ m/s², directed toward the center. 2.0 m/s² is $v/r$ (that's the angular speed in rad/s).
+- id: phys-q-1002
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'A ball whirled in a horizontal circle on a string is released when it is at the north side of the circle, moving east. Immediately after release it moves'
+  choices: ['north, away from the center', 'east, along the tangent', 'south, toward the center', 'in a smaller circle']
+  answer: 1
+  explanation: |-
+    With the string's inward force gone, there's no horizontal force, so the ball continues with the velocity it had: east, tangent to the circle. It doesn't fly radially outward.
+- id: phys-q-1003
+  lesson: phys-circular
+  module_quiz: true
+  topic: Circular motion
+  stem: 'What is the maximum speed for a car on a flat curve of radius 80 m if $\mu_s = 0.50$? ($g = 9.8$ m/s²)'
+  choices: ['39 m/s', '28 m/s', '392 m/s', '20 m/s']
+  answer: 3
+  explanation: |-
+    Static friction supplies the inward force: $\mu_s mg = mv^2/r$, so $v = \sqrt{\mu_s g r} = \sqrt{0.50(9.8)(80)} = \sqrt{392} = 19.8$ m/s.
+- id: phys-q-1004
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'At what angle should a curve of radius 80 m be banked so that cars at 20 m/s need no friction? ($g = 9.8$ m/s²)'
+  choices: ['$27^\circ$', '$63^\circ$', '$14^\circ$', '$30^\circ$']
+  answer: 0
+  explanation: |-
+    $\tan\theta = v^2/(rg) = 400/784 = 0.510$, so $\theta = 27.0^\circ$. 63° inverts the ratio.
+- id: phys-q-1005
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'What is the minimum speed at the top of a vertical loop of radius 10 m for a roller coaster car to stay on the track? ($g = 9.8$ m/s²)'
+  choices: ['98 m/s', '14 m/s', '9.9 m/s', '4.9 m/s']
+  answer: 2
+  explanation: |-
+    At the minimum, the normal force is zero and gravity alone provides the inward force: $mg = mv^2/r$, so $v = \sqrt{gr} = \sqrt{98} = 9.9$ m/s.
+- id: phys-q-1006
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'At the bottom of a vertical loop, the normal force on a rider is'
+  choices: ['greater than her weight', 'equal to her weight', 'less than her weight', 'zero']
+  answer: 0
+  explanation: |-
+    The net force must point up (toward the center): $n - mg = mv^2/r$, so $n = mg + mv^2/r > mg$. That's why riders feel heavy at the bottom.
+- id: phys-q-1007
+  lesson: phys-circular
+  module_quiz: true
+  topic: Circular motion
+  stem: 'If a car takes the same curve at twice the speed, the inward force needed becomes'
+  choices: ['twice as large', 'the same', 'half as large', 'four times as large']
+  answer: 3
+  explanation: |-
+    $F = mv^2/r$ depends on $v^2$, so doubling $v$ quadruples the required force.
+- id: phys-q-1008
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'An object moves in a circle of radius 2.0 m with a period of 4.0 s. What is its speed?'
+  choices: ['0.5 m/s', '3.1 m/s', '8.0 m/s', '1.6 m/s']
+  answer: 1
+  explanation: |-
+    $v = 2\pi r/T = 2\pi(2.0)/4.0 = \pi \approx 3.14$ m/s.
+- id: phys-q-1009
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'A 0.50 kg puck on frictionless ice moves in a circle of radius 0.80 m at 4.0 m/s, held by a horizontal string. What is the tension?'
+  choices: ['2.5 N', '1.6 N', '10 N', '20 N']
+  answer: 2
+  explanation: |-
+    The string alone provides the inward force: $T = mv^2/r = 0.50(16)/0.80 = 10$ N.
+- id: phys-q-1010
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'For $\vec r(t) = R\cos(\omega t)\,\hat\imath + R\sin(\omega t)\,\hat\jmath$, the acceleration is'
+  choices: ['$\omega\vec r$', '$-\omega^2\vec r$', '$\omega^2\vec r$', '$-\omega\vec r$']
+  answer: 1
+  explanation: |-
+    Differentiating twice brings down $(-\omega^2)$ on each component: $\vec a = -\omega^2\vec r$, pointing toward the center with magnitude $R\omega^2 = v^2/R$.
+- id: phys-q-1011
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'Which statement about "centripetal force" is correct?'
+  choices: ['It is an extra force that appears whenever objects move in circles', 'It points outward from the center', 'It exists only on banked curves', 'It is the name for the net inward force supplied by real forces such as tension, friction or gravity']
+  answer: 3
+  explanation: |-
+    Centripetal force is a role played by real forces. You never add a separate centripetal arrow to a free-body diagram; you set the net inward force equal to $mv^2/r$.
