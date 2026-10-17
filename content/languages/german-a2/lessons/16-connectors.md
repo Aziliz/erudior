@@ -4,6 +4,7 @@ module: de2-m4
 title: 'Linking ideas: deshalb, trotzdem, sondern; weather and environment'
 minutes: 40
 topics: [Linking words, Word order, Weather and environment]
+refs: [de2-ref-prepositions-wishes, de2-ref-sentences]
 ---
 ## What this lesson is for
 

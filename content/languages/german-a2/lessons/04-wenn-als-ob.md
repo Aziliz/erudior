@@ -4,6 +4,7 @@ module: de2-m1
 title: 'If, when and whether: wenn, als, ob and indirect questions'
 minutes: 40
 topics: [Subordinate clauses, wenn and als, Indirect questions, Decisions and plans]
+refs: [de2-ref-sentences]
 ---
 ## What this lesson is for
 

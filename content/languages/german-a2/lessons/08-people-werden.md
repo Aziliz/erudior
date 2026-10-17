@@ -4,6 +4,7 @@ module: de2-m2
 title: Describing people; werden; jeder, alle, etwas, niemand
 minutes: 40
 topics: [Describing people, werden, Pronouns]
+refs: [de2-ref-verbs-cases]
 ---
 ## What this lesson is for
 

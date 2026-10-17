@@ -4,6 +4,7 @@ module: de2-m6
 title: The Goethe-Zertifikat A2 and review
 minutes: 40
 topics: [A2 exam, Exam strategies, Course review]
+refs: [de2-ref-past, de2-ref-adjectives, de2-ref-sentences]
 ---
 ## What this lesson is for
 

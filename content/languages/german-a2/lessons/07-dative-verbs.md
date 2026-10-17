@@ -4,6 +4,7 @@ module: de2-m2
 title: Verbs with the dative and two objects
 minutes: 40
 topics: [Dative, Word order, Gifts]
+refs: [de2-ref-verbs-cases]
 ---
 ## What this lesson is for
 

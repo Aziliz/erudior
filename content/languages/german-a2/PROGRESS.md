@@ -290,10 +290,10 @@ Lesson ids `de2-…`, files `NN-slug.md` with NN = 01–24, question ids `de2-q-
 
 ## Status
 
-- [ ] m1 lessons 01–04
-- [ ] m2 lessons 05–08
-- [ ] m3 lessons 09–12
-- [ ] m4 lessons 13–16
-- [ ] m5 lessons 17–20
-- [ ] m6 lessons 21–24
-- [ ] reading.yaml (from RESEARCH.md), refs wiring, dedupe, full build, independent review
+- [x] m1 lessons 01–04
+- [x] m2 lessons 05–08
+- [x] m3 lessons 09–12
+- [x] m4 lessons 13–16
+- [x] m5 lessons 17–20
+- [x] m6 lessons 21–24
+- [x] reading.yaml (from RESEARCH.md), refs wiring, dedupe, full build, independent review

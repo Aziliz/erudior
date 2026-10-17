@@ -4,6 +4,7 @@ module: de2-m2
 title: Reflexive verbs
 minutes: 40
 topics: [Reflexive verbs, Pronouns, Daily routine]
+refs: [de2-ref-verbs-cases]
 ---
 ## What this lesson is for
 

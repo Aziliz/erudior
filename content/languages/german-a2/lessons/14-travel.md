@@ -4,6 +4,7 @@ module: de2-m4
 title: Planning a trip
 minutes: 40
 topics: [Time prepositions, Directions, Future, Travel]
+refs: [de2-ref-prepositions-wishes]
 ---
 ## What this lesson is for
 

@@ -4,6 +4,7 @@ module: de2-m3
 title: Adjective endings after der, dieser and welcher
 minutes: 40
 topics: [Adjective endings, Shopping]
+refs: [de2-ref-adjectives]
 ---
 ## What this lesson is for
 

@@ -4,6 +4,7 @@ module: de2-m5
 title: Health and the doctor's office
 minutes: 40
 topics: [Health, seit, Advice, Imperative]
+refs: [de2-ref-prepositions-wishes]
 ---
 ## What this lesson is for
 

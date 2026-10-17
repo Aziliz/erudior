@@ -4,6 +4,7 @@ module: de2-m4
 title: Where is it, where does it go? Two-way prepositions
 minutes: 40
 topics: [Two-way prepositions, Position verbs, Home and moving]
+refs: [de2-ref-prepositions-wishes]
 ---
 ## What this lesson is for
 

@@ -4,6 +4,7 @@ module: de2-m1
 title: 'When I was a child: the simple past'
 minutes: 40
 topics: [Simple past, Modal verbs, Childhood and school]
+refs: [de2-ref-past]
 ---
 ## What this lesson is for
 

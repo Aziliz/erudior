@@ -4,6 +4,7 @@ module: de2-m3
 title: Adjective endings after ein, kein and mein
 minutes: 40
 topics: [Adjective endings, Clothes]
+refs: [de2-ref-adjectives]
 ---
 ## What this lesson is for
 

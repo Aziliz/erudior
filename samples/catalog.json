@@ -2411,5 +2411,111 @@
     ]
    }
   ]
+ },
+ {
+  "id": "lang-german-a2",
+  "file": "languages/lang-german-a2.json",
+  "order": 101,
+  "title": "German A2",
+  "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "A2"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "questions": 292,
+  "cards": 0,
+  "drills": 0,
+  "words": 1384,
+  "carried": 717,
+  "requires": [
+   "lang-german-a1"
+  ],
+  "lessonIds": [
+   "de2-perfect-review",
+   "de2-praeteritum",
+   "de2-weil-dass",
+   "de2-wenn-als-ob",
+   "de2-reflexive",
+   "de2-verb-prepositions",
+   "de2-dative-verbs",
+   "de2-people-werden",
+   "de2-adj-indef",
+   "de2-adj-def",
+   "de2-adj-no-article",
+   "de2-comparison",
+   "de2-two-way",
+   "de2-travel",
+   "de2-konjunktiv",
+   "de2-connectors",
+   "de2-work",
+   "de2-school-learning",
+   "de2-services",
+   "de2-health",
+   "de2-media-relative",
+   "de2-celebrations",
+   "de2-writing",
+   "de2-exam-review"
+  ],
+  "outline": [
+   {
+    "title": "Telling your story",
+    "lessons": [
+     "Your life so far: the perfect, extended",
+     "When I was a child: the simple past",
+     "Reasons and opinions: weil and dass",
+     "If, when and whether: wenn, als, ob and indirect questions"
+    ]
+   },
+   {
+    "title": "People and relationships",
+    "lessons": [
+     "Reflexive verbs",
+     "Verbs with prepositions; wo- and da- words",
+     "Verbs with the dative and two objects",
+     "Describing people; werden; jeder, alle, etwas, niemand"
+    ]
+   },
+   {
+    "title": "Describing things",
+    "lessons": [
+     "Adjective endings after ein, kein and mein",
+     "Adjective endings after der, dieser and welcher",
+     "Adjectives without an article; food and cooking",
+     "Comparing: bigger, the biggest"
+    ]
+   },
+   {
+    "title": "Home, travel and wishes",
+    "lessons": [
+     "Where is it, where does it go? Two-way prepositions",
+     "Planning a trip",
+     "Wishes and polite requests: würde, hätte, wäre, könnte",
+     "Linking ideas: deshalb, trotzdem, sondern; weather and environment"
+    ]
+   },
+   {
+    "title": "Work, learning and services",
+    "lessons": [
+     "At work; zu + infinitive",
+     "School, courses and learning; whose is it?",
+     "Banks, offices and phone calls",
+     "Health and the doctor's office"
+    ]
+   },
+   {
+    "title": "Media, celebrations and the A2 exam",
+    "lessons": [
+     "Media, technology and relative clauses",
+     "Holidays and celebrations",
+     "Writing SMS and e-mails: asking, apologizing, cancelling",
+     "The Goethe-Zertifikat A2 and review"
+    ]
+   }
+  ]
  }
 ]

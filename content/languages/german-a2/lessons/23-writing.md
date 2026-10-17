@@ -4,6 +4,7 @@ module: de2-m6
 title: 'Writing SMS and e-mails: asking, apologizing, cancelling'
 minutes: 40
 topics: [Writing messages, Register, Linking]
+refs: [de2-ref-relative-writing]
 ---
 ## What this lesson is for
 

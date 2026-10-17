@@ -4,6 +4,7 @@ module: de2-m4
 title: 'Wishes and polite requests: würde, hätte, wäre, könnte'
 minutes: 40
 topics: [Konjunktiv II, Polite requests, Wishes and advice]
+refs: [de2-ref-prepositions-wishes]
 ---
 ## What this lesson is for
 

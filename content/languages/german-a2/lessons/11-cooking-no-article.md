@@ -4,6 +4,7 @@ module: de2-m3
 title: Adjectives without an article; food and cooking
 minutes: 40
 topics: [Adjective endings, Food and cooking]
+refs: [de2-ref-adjectives]
 ---
 ## What this lesson is for
 

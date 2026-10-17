@@ -4,6 +4,7 @@ module: de2-m6
 title: Holidays and celebrations
 minutes: 35
 topics: [Celebrations, Dative, Dates, Pronouns]
+refs: [de2-ref-verbs-cases]
 ---
 ## What this lesson is for
 

@@ -4,6 +4,7 @@ module: de2-m2
 title: Verbs with prepositions; wo- and da- words
 minutes: 40
 topics: [Verbs with prepositions, Questions, Relationships]
+refs: [de2-ref-verbs-cases]
 ---
 ## What this lesson is for
 

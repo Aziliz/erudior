@@ -4,6 +4,7 @@ module: de2-m1
 title: 'Your life so far: the perfect, extended'
 minutes: 40
 topics: [Perfect tense, Participles, Life events, Dates and years]
+refs: [de2-ref-past]
 ---
 ## What this lesson is for
 

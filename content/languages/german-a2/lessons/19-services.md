@@ -4,6 +4,7 @@ module: de2-m5
 title: Banks, offices and phone calls
 minutes: 40
 topics: [Services, Indirect questions, lassen, Phone calls]
+refs: [de2-ref-sentences]
 ---
 ## What this lesson is for
 

@@ -4,6 +4,7 @@ module: de2-m3
 title: 'Comparing: bigger, the biggest'
 minutes: 40
 topics: [Comparison, Landscape]
+refs: [de2-ref-adjectives]
 ---
 ## What this lesson is for
 

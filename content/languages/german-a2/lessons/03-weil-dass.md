@@ -4,6 +4,7 @@ module: de2-m1
 title: 'Reasons and opinions: weil and dass'
 minutes: 40
 topics: [Subordinate clauses, weil, dass, Opinions and feelings]
+refs: [de2-ref-sentences]
 ---
 ## What this lesson is for
 

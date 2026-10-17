@@ -4,6 +4,7 @@ module: de2-m6
 title: Media, technology and relative clauses
 minutes: 40
 topics: [Relative clauses, Media and technology]
+refs: [de2-ref-relative-writing]
 ---
 ## What this lesson is for
 

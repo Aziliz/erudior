@@ -280,6 +280,14 @@ def build(folder: pathlib.Path):
     # cards.yaml / glossary.yaml, plus any cards-*.yaml / glossary-*.yaml split files.
     cards = [c for f in sorted(folder.glob("cards*.yaml")) for c in (load_yaml(f) or [])]
     glossary = [g for f in sorted(folder.glob("glossary*.yaml")) for g in (load_yaml(f) or [])]
+    names = {}
+    # Language courses are written by several writers per module, so catch repeated terms
+    # (math courses deliberately share symbol aliases such as Ω for ohm and ω).
+    for g in glossary if meta.get("language") else []:
+        for n in {str(x).strip().lower() for x in [g.get("term", "")] + list(g.get("aliases") or [])}:
+            if n in names and names[n] != g.get("term"):
+                raise BuildError(f"{folder.name}: glossary term or alias '{n}' is defined twice ({names[n]} / {g.get('term')})")
+            names[n] = g.get("term")
 
     # Bolded glossary terms become pop-up links: **slope** -> **[[slope]]**.
     names = {}

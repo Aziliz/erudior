@@ -4,6 +4,7 @@ module: de2-m5
 title: School, courses and learning; whose is it?
 minutes: 40
 topics: [Education, Possession, Separable verbs]
+refs: [de2-ref-sentences]
 ---
 ## What this lesson is for
 
