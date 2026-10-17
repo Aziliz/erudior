@@ -253,6 +253,120 @@
     $\hat\theta = \max x_i =$ **{mle:num2}**. (If the MoM value is below the maximum it is impossible as a value of $\theta$; the
     bias-corrected $\tfrac{6}{5}\max x_i = {unb:num2}$ is the unbiased estimator based on the maximum, which has a much smaller variance than $2\bar x$.)
 
+- id: ps-d-delta-method
+  title: Delta-method standard error
+  topic: Maximum likelihood
+  vars:
+    nn: {choices: [20, 25, 30, 40, 50]}
+    tot: {min: 10, max: 150}
+  where: ['tot/nn >= 0.5', 'tot/nn <= 3']
+  calc:
+    xbar: tot/nn
+    est: exp(-xbar)
+    sel: sqrt(xbar/nn)
+    se: est*sel
+  prompt: |-
+    Faults on {nn} days are modeled as iid Poisson($\lambda$), and the total count is {tot}. Find the MLE of
+    the probability of a fault-free day, $e^{-\lambda}$, and use the delta method to estimate its standard
+    error. Give 4 decimals.
+  answers:
+    - {name: est, label: 'MLE of $e^{-\lambda}$', tolerance: 0.0005, format: num4}
+    - {name: se, label: 'SE $\approx$', tolerance: 0.0005, format: num4}
+  solution: |-
+    $\hat\lambda = \bar x = {tot}/{nn} = {xbar:num4}$, so by invariance the MLE of $e^{-\lambda}$ is $e^{-{xbar:num4}} =$ **{est:num4}**.
+
+    $\hat\lambda$ has variance $\lambda/n$ (Fisher information $1/\lambda$), estimated SE $\sqrt{{xbar:num4}/{nn}} = {sel:num4}$. For
+    $g(\lambda) = e^{-\lambda}$, $|g'(\lambda)| = e^{-\lambda}$, so the delta method gives
+    $\operatorname{SE} \approx e^{-\hat\lambda}\sqrt{\hat\lambda/n} = {est:num4} \times {sel:num4} =$ **{se:num4}**.
+
+- id: ps-d-umvue-bernoulli
+  title: MVUEs for Bernoulli trials
+  topic: Minimum-variance unbiased estimation
+  vars:
+    nn: {min: 8, max: 30}
+    tt: {min: 2, max: 28}
+  where: ['tt <= nn - 2']
+  calc:
+    p2: tt*(tt - 1)/(nn*(nn - 1))
+    pq: tt*(nn - tt)/(nn*(nn - 1))
+    ph: tt/nn
+    plug: ph^2
+    nm: nn*(nn - 1)
+    tm: tt - 1
+    nt: nn - tt
+  prompt: |-
+    In {nn} independent Bernoulli($p$) trials there are $T = {tt}$ successes. Find the minimum-variance unbiased
+    estimates of $p^2$ and of $p(1 - p)$. Give exact fractions or 4 significant figures.
+  answers:
+    - {name: p2, label: 'MVUE of $p^2$', relTolerance: 0.001, format: sig4}
+    - {name: pq, label: 'MVUE of $p(1-p)$', relTolerance: 0.001, format: sig4}
+  solution: |-
+    $T$ is complete sufficient, so an unbiased function of $T$ is the MVUE (Lehmann–Scheffé). Rao–Blackwellizing
+    $X_1X_2$ gives $P(X_1 = X_2 = 1 \mid T) = \dfrac{T(T-1)}{n(n-1)}$, and Rao–Blackwellizing $X_1(1 - X_2)$ gives $\dfrac{T(n-T)}{n(n-1)}$.
+
+    - $p^2$: $\dfrac{{tt} \times {tm}}{{nm}} = {p2:texfrac} \approx$ **{p2:sig4}**.
+    - $p(1-p)$: $\dfrac{{tt} \times {nt}}{{nm}} = {pq:texfrac} \approx$ **{pq:sig4}**.
+
+    Compare the biased plug-in $\hat p^2 = ({ph:sig4})^2 = {plug:sig4}$.
+
+- id: ps-d-umvue-poisson
+  title: MVUEs for Poisson probabilities
+  topic: Minimum-variance unbiased estimation
+  vars:
+    c1: {min: 0, max: 6}
+    c2: {min: 0, max: 6}
+    c3: {min: 0, max: 6}
+    c4: {min: 0, max: 6}
+    c5: {min: 0, max: 6}
+    c6: {min: 0, max: 6}
+  calc:
+    tt: c1 + c2 + c3 + c4 + c5 + c6
+    u0: (5/6)^tt
+    u1: (tt/6)*(5/6)^(tt - 1)
+    xb: tt/6
+    mle0: exp(-xb)
+    tm: tt - 1
+  where: ['tt >= 2', 'tt <= 24']
+  prompt: |-
+    Daily fault counts on six days are {c1}, {c2}, {c3}, {c4}, {c5}, {c6}, modeled as iid Poisson($\lambda$). Find the
+    minimum-variance unbiased estimates of $P(X = 0) = e^{-\lambda}$ and of $P(X = 1) = \lambda e^{-\lambda}$. Give 4 decimals.
+  answers:
+    - {name: u0, label: 'MVUE of $P(X = 0)$', tolerance: 0.0005, format: num4}
+    - {name: u1, label: 'MVUE of $P(X = 1)$', tolerance: 0.0005, format: num4}
+  solution: |-
+    $T = \sum X_i = {tt}$ is complete sufficient. Given $T = t$, $X_1 \sim$ Binomial$(t, 1/6)$, so Rao–Blackwellizing the
+    indicators of $X_1 = 0$ and $X_1 = 1$ gives
+
+    - $P(X_1 = 0 \mid T) = (5/6)^T = (5/6)^{{tt}} =$ **{u0:num4}**;
+    - $P(X_1 = 1 \mid T) = T\cdot\tfrac16\,(5/6)^{T-1} = {tt} \times \tfrac16 \times (5/6)^{{tm}} =$ **{u1:num4}**.
+
+    These are unbiased functions of $T$, hence the MVUEs. (The MLE of $P(X = 0)$ is $e^{-\bar x} = e^{-{xb:num4}} = {mle0:num4}$, which is biased.)
+
+- id: ps-d-umvue-exp
+  title: MLE versus MVUE of an exponential rate
+  topic: Minimum-variance unbiased estimation
+  vars:
+    x1: {min: 20, max: 400, step: 5}
+    x2: {min: 20, max: 400, step: 5}
+    x3: {min: 20, max: 400, step: 5}
+    x4: {min: 20, max: 400, step: 5}
+    x5: {min: 20, max: 400, step: 5}
+  calc:
+    tot: x1 + x2 + x3 + x4 + x5
+    mle: 5/tot
+    mvue: 4/tot
+  prompt: |-
+    Five component lifetimes (hours) are {x1}, {x2}, {x3}, {x4}, {x5}, modeled as iid exponential with rate
+    $\lambda$. Find the MLE of $\lambda$ and the minimum-variance unbiased estimate of $\lambda$. Give 4 significant figures.
+  answers:
+    - {name: mle, label: 'MLE $\hat\lambda =$', relTolerance: 0.002, format: sig4}
+    - {name: mvue, label: 'MVUE of $\lambda$', relTolerance: 0.002, format: sig4}
+  solution: |-
+    $T = \sum X_i = {tot:dp0}$ is complete sufficient (exponential family). The MLE is $n/T = 5/{tot:dp0} =$ **{mle:sig4}** per hour.
+
+    $T \sim$ Gamma(shape $n$, scale $1/\lambda$), and $E[1/T] = \dfrac{\lambda}{n - 1}$, so $E[n/T] = \dfrac{n}{n-1}\lambda$: the MLE is biased upward.
+    $(n-1)/T$ is unbiased and a function of $T$, so it is the MVUE: $4/{tot:dp0} =$ **{mvue:sig4}** per hour.
+
 - id: ps-d-ci-t
   title: t confidence interval for a mean
   topic: Confidence intervals
@@ -340,6 +454,100 @@
     Pooled variance: $s_p^2 = \dfrac{({n1} - 1)({s1:num1})^2 + ({n2} - 1)({s2:num1})^2}{{df}} = {sp2:num4}$, so $s_p = {sp:num4}$.
     $SE = s_p\sqrt{1/{n1} + 1/{n2}} = {se:num4}$, and $t_{0.025,\,{df}} = {tc:num4}$.
     Interval: $({m1:num1} - {m2:num1}) \pm {tc:num4} \times {se:num4}$, from **{lo:num2}** to **{hi:num2}**.
+
+- id: ps-d-boot-se-mean
+  title: Ideal bootstrap standard error of a mean
+  topic: Bootstrap and resampling
+  vars:
+    x1: {min: 1, max: 30}
+    x2: {min: 1, max: 30}
+    x3: {min: 1, max: 30}
+    x4: {min: 1, max: 30}
+    x5: {min: 1, max: 30}
+  calc:
+    xb: mean(x1, x2, x3, x4, x5)
+    ss: 5*pvariance(x1, x2, x3, x4, x5)
+    pv: pvariance(x1, x2, x3, x4, x5)
+    bse: sqrt(pv/5)
+    usual: stdev(x1, x2, x3, x4, x5)/sqrt(5)
+  where: ['pv >= 4']
+  prompt: |-
+    For the data {x1}, {x2}, {x3}, {x4}, {x5}, find the ideal bootstrap standard error of the sample mean
+    (the limit as the number of resamples $B \to \infty$) and, for comparison, the usual $s/\sqrt n$. Give 3 decimals.
+  answers:
+    - {name: bse, label: 'Bootstrap SE', tolerance: 0.001, format: dp3}
+    - {name: usual, label: '$s/\sqrt n =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    $\bar x = {xb:num4}$, and the squared deviations sum to {ss:sig6}. Under the empirical distribution one draw has
+    variance $\hat\sigma^2 = {ss:sig6}/5 = {pv:sig6}$ (divide by $n$), and a bootstrap mean averages 5 independent draws, so
+
+    $$\operatorname{SE}_{\text{boot}} = \sqrt{\hat\sigma^2/n} = \sqrt{{pv:sig6}/5} = \textbf{{bse:dp3}}.$$
+
+    The usual estimate divides by $n - 1 = 4$ inside $s$: $s/\sqrt 5 = \sqrt{{ss:sig6}/4/5} =$ **{usual:dp3}**, larger by the factor $\sqrt{5/4}$.
+
+- id: ps-d-boot-median3
+  title: Exact bootstrap distribution of a median of three
+  topic: Bootstrap and resampling
+  vars:
+    lo: {min: 1, max: 20}
+    g1: {min: 1, max: 12}
+    g2: {min: 1, max: 12}
+  where: ['g1 != g2']
+  calc:
+    mid: lo + g1
+    hi: lo + g1 + g2
+    mb: (7*lo + 13*mid + 7*hi)/27
+    m2: (7*lo^2 + 13*mid^2 + 7*hi^2)/27
+    bias: mb - mid
+    se: sqrt(m2 - mb^2)
+    s7: 7*lo + 13*mid + 7*hi
+    q7: 7*lo^2 + 13*mid^2 + 7*hi^2
+  prompt: |-
+    A sample of three is {hi}, {lo}, {mid}, and the statistic is the sample median. Using all 27 equally likely
+    bootstrap samples, find the mean of the bootstrap medians, the bootstrap estimate of the median's bias,
+    and the bootstrap standard error. Give 3 decimals.
+  answers:
+    - {name: mb, label: 'Mean of bootstrap medians', tolerance: 0.001, format: dp3}
+    - {name: bias, label: 'Bias estimate', tolerance: 0.001, format: dp3}
+    - {name: se, label: 'Bootstrap SE', tolerance: 0.001, format: dp3}
+  solution: |-
+    Sorted, the data are {lo}, {mid}, {hi}, and the sample median is {mid}. A bootstrap median equals {lo} when at least
+    two of the three draws are {lo}: $3 \cdot 2 + 1 = 7$ of the 27 samples. Likewise it is {hi} in 7 samples, and {mid} in the other 13.
+
+    Mean: $\dfrac{7({lo}) + 13({mid}) + 7({hi})}{27} = \dfrac{{s7:dp0}}{27} =$ **{mb:dp3}**. Bias estimate: ${mb:dp3} - {mid} =$ **{bias:dp3}**.
+
+    $E[(\text{median}^*)^2] = \dfrac{{q7:dp0}}{27} = {m2:dp4}$, so the bootstrap SE is $\sqrt{{m2:dp4} - {mb:dp4}^2} =$ **{se:dp3}**.
+
+- id: ps-d-permutation-p
+  title: Exact permutation p-value for two small groups
+  topic: Bootstrap and resampling
+  vars:
+    x1: {min: 10, max: 40}
+    x2: {min: 10, max: 40}
+    x3: {min: 10, max: 40}
+    y1: {min: 5, max: 35}
+    y2: {min: 5, max: 35}
+    y3: {min: 5, max: 35}
+  calc:
+    obs: x1 + x2 + x3
+    tot: x1 + x2 + x3 + y1 + y2 + y3
+    cnt: (x1+x2+x3 >= obs) + (x1+x2+y1 >= obs) + (x1+x2+y2 >= obs) + (x1+x2+y3 >= obs) + (x1+x3+y1 >= obs) + (x1+x3+y2 >= obs) + (x1+x3+y3 >= obs) + (x1+y1+y2 >= obs) + (x1+y1+y3 >= obs) + (x1+y2+y3 >= obs) + (x2+x3+y1 >= obs) + (x2+x3+y2 >= obs) + (x2+x3+y3 >= obs) + (x2+y1+y2 >= obs) + (x2+y1+y3 >= obs) + (x2+y2+y3 >= obs) + (x3+y1+y2 >= obs) + (x3+y1+y3 >= obs) + (x3+y2+y3 >= obs) + (y1+y2+y3 >= obs)
+    pv: cnt/20
+    ma: obs/3
+    mb: (tot - obs)/3
+  where: ['x1 != x2', 'x1 != x3', 'x2 != x3', 'y1 != y2', 'y1 != y3', 'y2 != y3', 'x1 != y1', 'x1 != y2', 'x1 != y3', 'x2 != y1', 'x2 != y2', 'x2 != y3', 'x3 != y1', 'x3 != y2', 'x3 != y3', 'obs > tot - obs', 'cnt <= 8']
+  prompt: |-
+    Group A: {x1}, {x2}, {x3}. Group B: {y1}, {y2}, {y3}. Test whether A tends to be larger with a permutation
+    test based on the difference in means, using all $\binom63 = 20$ ways to choose which three values are labeled A.
+    Find the one-sided p-value (exact, as a decimal or fraction).
+  answers:
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num2}
+  solution: |-
+    The six values total {tot}, so the difference in means is $\tfrac{2}{3}(\text{A sum}) - \tfrac{{tot}}{3}$: a larger
+    difference is the same as a larger A sum. The observed A sum is {obs} (means {ma:num2} and {mb:num2}).
+
+    Listing the 20 possible A groups, {cnt} of them (the observed one included) have a sum of at least {obs}. Under $H_0$ every
+    labeling is equally likely, so $p = {cnt}/20 =$ **{pv:num2}**.
 
 - id: ps-d-beta-binomial
   title: Beta–binomial updating

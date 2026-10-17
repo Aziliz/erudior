@@ -4,7 +4,7 @@ module: ps-m4
 title: Sums of independent random variables
 minutes: 35
 topics: [Sums of random variables]
-drills: [ps-d-sum-normal, ps-d-sum-poisson, ps-d-sum-exp]
+drills: [ps-d-sum-normal, ps-d-sum-poisson, ps-d-sum-exp, ps-d-jacobian]
 refs: [ps-ref-estimation]
 ---
 ## Why sums matter

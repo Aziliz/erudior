@@ -238,7 +238,7 @@
   "order": 12,
   "title": "Probability and Statistics",
   "description": "Calculus-based probability and mathematical statistics at the college level: probability axioms, counting and Bayes' theorem, discrete and continuous random variables, moment generating functions, joint distributions, covariance and conditional expectation, the law of large numbers and the Central Limit Theorem, sampling distributions, point estimation, maximum likelihood and minimum-variance unbiased estimators, confidence intervals and the bootstrap, hypothesis testing and likelihood ratio tests, regression, ANOVA and nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used for joint densities.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Math",
   "level": [
    "College"

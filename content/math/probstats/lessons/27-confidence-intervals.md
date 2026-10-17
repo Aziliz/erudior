@@ -13,7 +13,8 @@ A point estimate gives one number with no indication of how far off it might be.
 interval gives a range of plausible values together with a guarantee about the *procedure*:
 over repeated samples, intervals built this way capture the true parameter a stated fraction
 of the time. This lesson shows a single recipe, the pivotal quantity, that produces every
-standard interval, using the sampling distributions from two lessons ago.
+standard interval, using the sampling distributions of the chi-square, $t$ and $F$ lesson. When no
+pivot is available, the bootstrap of the next lesson builds intervals by computation instead.
 
 ## Pivots and the recipe
 
@@ -143,7 +144,7 @@ advantage is poorly determined.
 ## Common mistakes
 
 - *"There is a 95% probability that $\mu$ is in (45.69, 50.91)."* In the frequentist framework $\mu$ is
-  fixed; the 95% refers to the procedure. (Bayesian credible intervals, next lesson, do allow
+  fixed; the 95% refers to the procedure. (Bayesian credible intervals, two lessons on, do allow
   that statement.)
 - *Using $z$ with a small sample and unknown $\sigma$*: use $t_{n-1}$.
 - *Swapping chi-square quantiles* in the variance interval, or making it symmetric about $s^2$.

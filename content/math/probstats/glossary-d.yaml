@@ -1,0 +1,59 @@
+# Glossary for the gap lessons added 2026-10-17 (lesson 26: MVUEs; lesson 28: bootstrap).
+# Kept in a separate file so the existing entries keep their order.
+# ---- Minimum-variance unbiased estimation
+- term: minimum-variance unbiased estimator
+  aliases: [MVUE, MVUEs, UMVUE, UMVUEs, uniformly minimum-variance unbiased estimator, minimum variance unbiased estimator, minimum-variance unbiased estimators]
+  definition: 'An unbiased estimator of $\tau(\theta)$ whose variance is no larger than that of any other unbiased estimator, for every value of $\theta$.'
+  topic: Minimum-variance unbiased estimation
+- term: Rao–Blackwell theorem
+  aliases: [Rao-Blackwell theorem, Rao–Blackwell, Rao-Blackwell]
+  definition: 'If $W$ is unbiased for $\tau(\theta)$ and $T$ is sufficient, then $\phi(T) = E[W \mid T]$ is an estimator, is unbiased for $\tau(\theta)$, and has $\operatorname{Var}(\phi(T)) \le \operatorname{Var}(W)$ for every $\theta$.'
+  topic: Minimum-variance unbiased estimation
+- term: Rao–Blackwellization
+  aliases: [Rao-Blackwellization, Rao–Blackwellize, Rao-Blackwellize, Rao–Blackwellizing]
+  definition: 'Replacing an unbiased estimator $W$ by its conditional expectation $E[W \mid T]$ given a sufficient statistic $T$, which keeps it unbiased and never increases its variance.'
+  topic: Minimum-variance unbiased estimation
+- term: complete statistic
+  aliases: [complete, completeness, complete sufficient statistic, complete sufficient statistics]
+  definition: 'A statistic $T$ such that $E_\theta[g(T)] = 0$ for every $\theta$ forces $g(T) = 0$ with probability 1; then an unbiased estimator that is a function of $T$ is unique.'
+  topic: Minimum-variance unbiased estimation
+- term: Lehmann–Scheffé theorem
+  aliases: [Lehmann-Scheffé theorem, Lehmann-Scheffe theorem, Lehmann–Scheffé]
+  definition: 'If $T$ is a complete sufficient statistic and $\phi(T)$ is unbiased for $\tau(\theta)$, then $\phi(T)$ is the unique minimum-variance unbiased estimator of $\tau(\theta)$.'
+  topic: Minimum-variance unbiased estimation
+- term: exponential family
+  aliases: [exponential families, one-parameter exponential family]
+  definition: 'A family of densities or pmfs of the form $h(x)\,c(\theta)\exp(w(\theta)\,t(x))$ with support free of $\theta$; $w(\theta)$ is the natural parameter, and $\sum t(X_i)$ is complete sufficient when $w(\theta)$ ranges over an interval.'
+  topic: Minimum-variance unbiased estimation
+# ---- Bootstrap and resampling
+- term: bootstrap
+  aliases: [bootstrapping, nonparametric bootstrap]
+  definition: 'A method that estimates the sampling distribution of a statistic by recomputing it on many samples drawn with replacement from the observed data.'
+  topic: Bootstrap and resampling
+- term: empirical distribution
+  aliases: [empirical distribution function, empirical cdf]
+  definition: 'The distribution $\hat F_n$ that puts probability $1/n$ on each observed value $x_1, \dots, x_n$; it converges to the population distribution as $n$ grows.'
+  topic: Bootstrap and resampling
+- term: plug-in principle
+  aliases: [plug-in, plug-in estimate]
+  definition: 'Estimate a feature of the unknown distribution $F$ by the same feature of the empirical distribution $\hat F_n$; the bootstrap applies it to whole sampling distributions.'
+  topic: Bootstrap and resampling
+- term: bootstrap sample
+  aliases: [bootstrap samples, resample, resamples]
+  definition: 'A sample of size $n$ drawn with replacement from the $n$ observed values; on average it contains about 63% of the distinct original values.'
+  topic: Bootstrap and resampling
+- term: bootstrap replicate
+  aliases: [bootstrap replicates, replicate, replicates]
+  definition: 'The value $\hat\theta^*$ of a statistic computed on one bootstrap sample.'
+  topic: Bootstrap and resampling
+- term: bootstrap standard error
+  aliases: [bootstrap SE]
+  definition: 'The standard deviation of $B$ bootstrap replicates, used as an estimate of the standard error of $\hat\theta$; for the mean it tends to $\hat\sigma/\sqrt n$ as $B \to \infty$.'
+  topic: Bootstrap and resampling
+- term: percentile interval
+  aliases: [bootstrap percentile interval, percentile intervals]
+  definition: 'A bootstrap confidence interval whose endpoints are the $\alpha/2$ and $1 - \alpha/2$ quantiles of the bootstrap replicates.'
+  topic: Bootstrap and resampling
+- term: parametric bootstrap
+  definition: 'A bootstrap that fits a model to the data and draws new samples from the fitted model, rather than from the data themselves.'
+  topic: Bootstrap and resampling

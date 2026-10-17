@@ -82,6 +82,10 @@ title: Joint distributions, limit theorems and estimation
 | Large-sample MLE | $\hat\theta \approx N(\theta, 1/(nI(\theta)))$ |
 | Delta method | $g(\hat\theta) \approx N\big(g(\theta), [g'(\theta)]^2\operatorname{Var}(\hat\theta)\big)$ |
 | Sufficiency (factorization) | $T = u(\mathbf X)$ sufficient iff $f(\mathbf x; \theta) = \phi(u(\mathbf x); \theta)\,h(\mathbf x)$, $h$ free of $\theta$ |
+| Rao–Blackwell | $W$ unbiased, $T$ sufficient: $E[W \mid T]$ unbiased, $\operatorname{Var}(E[W \mid T]) \le \operatorname{Var}(W)$ |
+| Complete statistic | $E_\theta[g(T)] = 0$ for all $\theta$ $\Rightarrow$ $g(T) = 0$ |
+| Lehmann–Scheffé | unbiased function of a complete sufficient $T$ = unique MVUE |
+| Exponential family | $f = h(x)c(\theta)e^{w(\theta)t(x)}$: $\sum t(X_i)$ complete sufficient if $w(\theta)$ fills an interval |
 
 | Model | MoM | MLE | $I(\theta)$ |
 |---|---|---|---|
@@ -91,6 +95,14 @@ title: Joint distributions, limit theorems and estimation
 | Geometric($p$), $x \ge 1$ | $1/\bar x$ | $1/\bar x$ | $1/(p^2(1-p))$ |
 | $N(\mu, \sigma^2)$ | $\bar x$, $\frac1n\sum(x_i - \bar x)^2$ | same | $1/\sigma^2$ for $\mu$ |
 | Uniform$(0, \theta)$ | $2\bar x$ | $\max x_i$ | (not regular) |
+
+| Target | MVUE (from complete sufficient $T$) |
+|---|---|
+| Bernoulli $p$, $p^2$, $p(1-p)$ | $T/n$, $\dfrac{T(T-1)}{n(n-1)}$, $\dfrac{T(n-T)}{n(n-1)}$ with $T = \sum X_i$ |
+| Poisson $\lambda$, $e^{-\lambda}$ | $\bar X$, $(1 - 1/n)^T$ |
+| Exponential rate $\lambda$ | $(n-1)/\sum X_i$ (MLE $n/\sum X_i$ is biased) |
+| Normal $\mu$, $\sigma^2$, $\mu^2$ | $\bar X$, $S^2$, $\bar X^2 - S^2/n$ |
+| Uniform$(0, \theta)$ | $\frac{n+1}{n}X_{(n)}$ |
 
 ## Confidence intervals
 
@@ -107,6 +119,18 @@ title: Joint distributions, limit theorems and estimation
 
 Pooled variance: $s_p^2 = \dfrac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}$. Sample size for margin $E$: $n = (z_{\alpha/2}\sigma/E)^2$, rounded up.
 $\chi^2_L$ and $\chi^2_U$ are the $\alpha/2$ and $1 - \alpha/2$ quantiles. Common $z_{\alpha/2}$: 1.645 (90%), 1.960 (95%), 2.576 (99%).
+
+## Bootstrap and resampling
+
+| Quantity | Formula |
+|---|---|
+| Bootstrap sample | $n$ draws with replacement from $x_1, \dots, x_n$; a point is omitted with probability $(1 - 1/n)^n \approx 0.368$ |
+| Bootstrap SE | SD of the replicates $\hat\theta^*_1, \dots, \hat\theta^*_B$ (divide by $B - 1$) |
+| Bias estimate | $\bar\theta^* - \hat\theta$ |
+| Ideal SE of $\bar x$ | $\hat\sigma/\sqrt n$, $\hat\sigma^2 = \frac1n\sum(x_i - \bar x)^2$ |
+| Percentile interval | $\alpha/2$ and $1 - \alpha/2$ quantiles of the replicates |
+| Normal bootstrap interval | $\hat\theta \pm z_{\alpha/2}\,\widehat{\text{SE}}_{\text{boot}}$ |
+| Permutation p-value | fraction of relabelings (without replacement) with a statistic at least as extreme as observed |
 
 ## Bayesian conjugate updates
 

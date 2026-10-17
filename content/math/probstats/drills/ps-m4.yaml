@@ -352,6 +352,42 @@
     Here $\lambda t = {tt}/{mm} = {lt:num4}$, so $P(T > {tt}) = e^{-{lt:num4}}(1 + {lt:num4}) =$ **{pr:num4}**.
     (The mean of $T$ is ${mean}$.)
 
+- id: ps-d-jacobian
+  title: Joint density after a linear change of variables
+  topic: Sums of random variables
+  vars:
+    lam: {choices: [0.5, 1, 2]}
+    ka: {min: 1, max: 3}
+    kb: {choices: [-3, -2, -1, 1, 2, 3]}
+    kc: {choices: [-3, -2, -1, 1, 2, 3]}
+    kd: {min: 1, max: 3}
+    x0: {min: 0.5, max: 3, step: 0.5}
+    y0: {min: 0.5, max: 3, step: 0.5}
+  calc:
+    det: ka*kd - kb*kc
+    adet: abs(det)
+    jac: 1/adet
+    u0: ka*x0 + kb*y0
+    v0: kc*x0 + kd*y0
+    fxy: lam^2*exp(-lam*(x0 + y0))
+    fuv: fxy*jac
+    s0: x0 + y0
+  where: ['det != 0', 'fuv >= 0.0005']
+  prompt: |-
+    $X$ and $Y$ are independent exponential random variables with rate $\lambda = {lam}$. Let
+    $U = {ka:coef}X {kb:signedcoef}Y$ and $V = {kc:coef}X {kd:signedcoef}Y$. Find $\lvert J\rvert$, the absolute Jacobian of the inverse
+    transformation, and the joint density $f_{U,V}$ at the point $(u, v) = ({u0}, {v0})$. Give 4 significant figures.
+  answers:
+    - {name: jac, label: '$\lvert J\rvert =$', relTolerance: 0.001, format: sig4}
+    - {name: fuv, label: '$f_{U,V}({u0}, {v0}) =$', relTolerance: 0.002, format: sig4}
+  solution: |-
+    The map is linear with determinant $({ka})({kd}) - ({kb})({kc}) = {det}$. Its inverse is linear too, with
+    determinant $1/({det})$ (the inverse matrix has the reciprocal determinant), so $\lvert J\rvert = 1/{adet} =$ **{jac:sig4}**.
+
+    The point $(u, v) = ({u0}, {v0})$ comes from $x = {x0}$, $y = {y0}$ (check: ${ka:coef}({x0}) {kb:signedcoef}({y0}) = {u0}$ and
+    ${kc:coef}({x0}) {kd:signedcoef}({y0}) = {v0}$). Both are positive, so the point is in the support, and
+    $$f_{U,V} = f_X(x)f_Y(y)\,\lvert J\rvert = {lam}^2 e^{-{lam} \cdot {s0}} \times \frac{1}{{adet}} = \textbf{{fuv:sig4}}.$$
+
 - id: ps-d-mixture
   title: Mean and SD of a mixture
   topic: Conditional expectation

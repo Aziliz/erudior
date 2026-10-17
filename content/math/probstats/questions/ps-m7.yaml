@@ -687,3 +687,46 @@
   answer: 0
   explanation: |-
     $P(X \ge 15) = \sum_{x=15}^{20}\binom{20}{x}/2^{20} = 21700/1048576 = 0.0207$. 0.0127 is the normal approximation without continuity correction, 0.0148 is only $P(X = 15)$, and 0.0414 is the two-sided value.
+
+- id: ps-q-3114
+  lesson: ps-proportions-chisq
+  module_quiz: true
+  topic: Chi-square tests
+  stem: 'Each of 10 independent trains is classified on time, slightly late or very late with probabilities 0.5, 0.3 and 0.2. Find the probability of exactly 5, 3 and 2 trains in the three classes.'
+  choices: ['$0.0000338$', '$0.0198$', '$0.0851$', '$0.0085$']
+  answer: 2
+  explanation: |-
+    Multinomial: $\dfrac{10!}{5!\,3!\,2!}(0.5)^5(0.3)^3(0.2)^2 = 2520 \times 0.03125 \times 0.027 \times 0.04 \approx 0.0851$. 0.0000338 leaves out the multinomial
+    coefficient (that is one particular order), 0.0085 uses the binomial coefficient $\binom{10}{5} = 252$ instead of 2520, and 0.0198 multiplies the three
+    binomial marginal probabilities as if the counts were independent.
+
+- id: ps-q-3115
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'Counts $(O_1, O_2, O_3)$ are multinomial with $n = 50$ and probabilities $0.2, 0.3, 0.5$. Find $\operatorname{Cov}(O_1, O_2)$.'
+  choices: ['$3$', '$-3$', '$0$', '$-0.06$']
+  answer: 1
+  explanation: |-
+    $\operatorname{Cov}(O_i, O_j) = -np_ip_j = -50(0.2)(0.3) = -3$. The sign is negative because the counts share the fixed total: more in one category leaves
+    fewer for the others. $+3$ drops the sign, 0 treats the counts as independent, and $-0.06$ forgets the factor $n$.
+
+- id: ps-q-3116
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: '$(O_1, O_2, O_3)$ is multinomial with $n$ trials and probabilities $p_1, p_2, p_3$. What is the distribution of $O_1 + O_2$?'
+  choices: ['$\text{Bin}(2n, (p_1 + p_2)/2)$', 'Poisson with mean $n(p_1 + p_2)$', 'Not binomial, because $O_1$ and $O_2$ are dependent', '$\text{Bin}(n, p_1 + p_2)$']
+  answer: 3
+  explanation: |-
+    Merge categories 1 and 2: each trial lands in the merged category with probability $p_1 + p_2$, independently, so $O_1 + O_2 \sim \text{Bin}(n, p_1 + p_2)$.
+    The dependence between $O_1$ and $O_2$ does not prevent this; the sum still counts successes in $n$ trials. $2n$ trials double-counts them, and the
+    Poisson is only an approximation for rare categories.
+
+- id: ps-q-3117
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'In a multinomial sample of 200 observations, category 3 has probability 0.15. What are the mean and variance of its count $O_3$?'
+  choices: ['Mean 30, variance 25.5', 'Mean 30, variance 30', 'Mean 30, variance 4.5', 'Mean 30, variance 5.05']
+  answer: 0
+  explanation: |-
+    Each count alone is binomial: $O_3 \sim \text{Bin}(200, 0.15)$, so $E(O_3) = 30$ and $\operatorname{Var}(O_3) = 200(0.15)(0.85) = 25.5$. Variance 30 uses the Poisson
+    rule (variance = mean), 4.5 multiplies by $p$ instead of $1 - p$, and 5.05 is the standard deviation $\sqrt{25.5}$.

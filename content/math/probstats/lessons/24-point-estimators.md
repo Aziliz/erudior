@@ -125,7 +125,9 @@ For $f(x; p) = p^x(1-p)^{1-x}$, $x \in \{0, 1\}$:
 So the sample proportion is efficient. The same calculation for Poisson($\lambda$) gives
 $I(\lambda) = 1/\lambda$ and bound $\lambda/n = \operatorname{Var}(\bar X)$, and for $N(\mu, \sigma^2)$ with known $\sigma$ it gives $\sigma^2/n$: in
 all three cases the sample mean is efficient. The uniform example above escapes the bound
-(variance of order $1/n^2$) precisely because its support $(0, \theta)$ depends on $\theta$.
+(variance of order $1/n^2$) precisely because its support $(0, \theta)$ depends on $\theta$. When no unbiased
+estimator attains the bound, the best one can still be found; that is the subject of the lesson
+after next.
 
 ## Common mistakes
 

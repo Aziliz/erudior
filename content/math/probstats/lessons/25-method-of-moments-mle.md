@@ -4,7 +4,7 @@ module: ps-m6
 title: Method of moments and maximum likelihood
 minutes: 45
 topics: [Method of moments, Maximum likelihood]
-drills: [ps-d-mle-exp, ps-d-mle-normal, ps-d-mom-uniform]
+drills: [ps-d-mle-exp, ps-d-mle-normal, ps-d-mom-uniform, ps-d-delta-method]
 refs: [ps-ref-estimation]
 ---
 ## Where do estimators come from?
@@ -154,10 +154,9 @@ $$f(x_1, \dots, x_n; \theta) = \phi\big(u(x_1, \dots, x_n);\, \theta\big)\; h(x_
 where $h$ does not involve $\theta$. For Poisson data,
 $\prod e^{-\lambda}\lambda^{x_i}/x_i! = \big(e^{-n\lambda}\lambda^{\sum x_i}\big)\cdot\big(1/\prod x_i!\big)$, so $\sum X_i$
 (equivalently $\bar X$) is sufficient. Because $h$ plays no part in maximizing over $\theta$, a unique
-MLE depends on the data only through a sufficient statistic. The Rao–Blackwell theorem adds that
-replacing an unbiased estimator by its conditional mean given a sufficient statistic keeps it
-unbiased and never increases its variance, which is the standard route to minimum-variance
-unbiased estimators in a more advanced course.
+MLE depends on the data only through a sufficient statistic. The next lesson shows that the best
+unbiased estimators also depend on the data only through a sufficient statistic (the Rao–Blackwell
+theorem), and how to find them.
 
 ## Common mistakes
 
@@ -175,4 +174,5 @@ unbiased estimators in a more advanced course.
 - MLEs: Bernoulli $\hat p = \bar x$; Poisson $\hat\lambda = \bar x$; exponential $\hat\lambda = 1/\bar x$; normal
   $\hat\mu = \bar x$, $\hat\sigma^2 = \frac1n\sum(x_i - \bar x)^2$; Uniform$(0, \theta)$: $\hat\theta = \max x_i$.
 - Invariance: the MLE of $g(\theta)$ is $g(\hat\theta)$.
-- Large $n$: $\hat\theta \approx N(\theta, 1/(nI(\theta)))$.
+- Large $n$: $\hat\theta \approx N(\theta, 1/(nI(\theta)))$; delta method: $\operatorname{SE}(g(\hat\theta)) \approx |g'(\theta)|\operatorname{SE}(\hat\theta)$.
+- Factorization: $T$ is sufficient iff $f(\mathbf x; \theta) = \phi(T; \theta)\,h(\mathbf x)$; a unique MLE is a function of $T$.

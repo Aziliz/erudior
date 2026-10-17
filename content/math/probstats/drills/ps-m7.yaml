@@ -392,3 +392,34 @@
 
     Summing $(O - E)^2/E$ over the six cells gives $X^2 =$ **{x2:dp3}** on $(2-1)(3-1) = 2$ df, so the
     p-value is $P(\chi^2_2 \ge {x2:dp3}) \approx$ **{pv:num4}**.
+
+- id: ps-d-multinom-dist
+  title: Multinomial probabilities and covariances
+  topic: Chi-square tests
+  vars:
+    pset: {choices: [1, 2, 3, 4]}
+    nn: {min: 5, max: 12}
+    o1: {min: 0, max: 12}
+    o2: {min: 0, max: 12}
+  calc:
+    p1: if(pset == 1, 0.5, if(pset == 2, 0.6, if(pset == 3, 0.4, 0.7)))
+    p2: if(pset == 1, 0.3, if(pset == 2, 0.25, if(pset == 3, 0.35, 0.2)))
+    p3: 1 - p1 - p2
+    o3: nn - o1 - o2
+    coef: fact(nn)/(fact(o1)*fact(o2)*fact(o3))
+    pr: coef*p1^o1*p2^o2*p3^o3
+    cv: -nn*p1*p2
+  where: ['o1 >= 2', 'o2 >= 2', 'o3 >= 2', 'pr >= 0.005']
+  prompt: |-
+    Each of {nn} independent inspections rates a sleeper as good, fair or poor with probabilities {p1}, {p2} and {p3:num4}.
+    Find the probability of exactly {o1} good, {o2} fair and {o3} poor ratings (4 significant figures), and the covariance
+    of the good and fair counts (3 decimals).
+  answers:
+    - {name: pr, label: 'Probability', relTolerance: 0.002, format: sig4}
+    - {name: cv, label: '$\operatorname{Cov}(O_1, O_2) =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    The counts are multinomial: $P = \dfrac{n!}{o_1!\,o_2!\,o_3!}\,p_1^{o_1}p_2^{o_2}p_3^{o_3}$. The coefficient is
+    $\dfrac{{nn}!}{{o1}!\,{o2}!\,{o3}!} = {coef:dp0}$, so
+    $$P = {coef:dp0} \times {p1}^{{o1}} \times {p2}^{{o2}} \times {p3:num4}^{{o3}} = \textbf{{pr:sig4}}.$$
+
+    Two counts compete for the same trials: $\operatorname{Cov}(O_1, O_2) = -np_1p_2 = -{nn} \times {p1} \times {p2} =$ **{cv:dp3}**.

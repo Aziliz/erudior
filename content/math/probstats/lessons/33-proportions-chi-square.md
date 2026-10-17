@@ -4,7 +4,7 @@ module: ps-m7
 title: Tests for proportions and chi-square tests
 minutes: 45
 topics: [Tests for proportions, Chi-square tests]
-drills: [ps-d-two-prop-z, ps-d-gof, ps-d-independence]
+drills: [ps-d-two-prop-z, ps-d-gof, ps-d-independence, ps-d-multinom-dist]
 refs: [ps-ref-testing]
 ---
 ## Counting data

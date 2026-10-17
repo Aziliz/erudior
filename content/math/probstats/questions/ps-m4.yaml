@@ -532,6 +532,50 @@
     Each stage has mean 3 and variance $3^2 = 9$. The total (gamma, shape 4, scale 3) has mean $4 \times 3 = 12$ and
     variance $4 \times 9 = 36$. Variance 144 is $(4 \times 3)^2$, the variance of 4 times one stage.
 
+- id: ps-q-1813
+  lesson: ps-sums
+  module_quiz: true
+  topic: Sums of random variables
+  stem: 'For a continuous pair $(X, Y)$, let $U = X + Y$ and $V = X - Y$. What is $\lvert J\rvert$, the absolute Jacobian of the inverse transformation, in $f_{U,V}(u, v) = f_{X,Y}(x, y)\lvert J\rvert$?'
+  choices: ['$2$', '$\tfrac12$', '$-\tfrac12$', '$1$']
+  answer: 1
+  explanation: |-
+    Invert: $x = (u + v)/2$, $y = (u - v)/2$. Then $J = \det\begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix} = -\tfrac14 - \tfrac14 = -\tfrac12$, and $\lvert J\rvert = \tfrac12$.
+    2 is the absolute determinant of the forward map $(x, y) \mapsto (u, v)$, the reciprocal of what is needed; $-\tfrac12$ forgets the absolute value;
+    1 assumes a sum-and-difference map keeps area.
+
+- id: ps-q-1814
+  lesson: ps-sums
+  topic: Sums of random variables
+  stem: '$X$ and $Y$ are iid exponential with rate 1. With $U = X + Y$ and $V = X/(X + Y)$, what is the joint density of $(U, V)$ for $u > 0$, $0 < v < 1$?'
+  choices: ['$e^{-u}$', '$e^{-u}/u$', '$u^2e^{-u}$', '$ue^{-u}$']
+  answer: 3
+  explanation: |-
+    The inverse is $x = uv$, $y = u(1 - v)$, with $J = \det\begin{pmatrix} v & u \\ 1 - v & -u \end{pmatrix} = -u$. So $f_{U,V} = e^{-(x + y)}\lvert J\rvert = ue^{-u}$: $U$ is gamma (shape 2) and
+    $V$ is Uniform(0, 1), independent of $U$. $e^{-u}$ omits the Jacobian (it would make the total $X + Y$ exponential, but a sum of two exponentials is gamma),
+    $e^{-u}/u$ uses the forward Jacobian $1/(x + y)$ and does not integrate to 1, and $u^2e^{-u}$ has an extra factor of $u$ and integrates to 2.
+
+- id: ps-q-1815
+  lesson: ps-sums
+  topic: Sums of random variables
+  stem: '$X$ and $Y$ are iid Uniform(0, 1). Let $U = 2X + Y$ and $V = Y$. What is $f_{U,V}(u, v)$ on its support $\{0 < v < 1,\ v < u < v + 2\}$?'
+  choices: ['$\tfrac12$', '$2$', '$1$', '$\tfrac14$']
+  answer: 0
+  explanation: |-
+    The inverse is $x = (u - v)/2$, $y = v$, so $J = \det\begin{pmatrix} 1/2 & -1/2 \\ 0 & 1 \end{pmatrix} = \tfrac12$ and $f_{U,V} = 1 \cdot \tfrac12$. Check: the support is a parallelogram of
+    area 2, and $\tfrac12 \times 2 = 1$. 2 uses the forward determinant, 1 forgets the Jacobian, and $\tfrac14$ squares it.
+
+- id: ps-q-1816
+  lesson: ps-sums
+  topic: Sums of random variables
+  stem: 'In the two-variable change-of-variables formula $f_{U,V}(u, v) = f_{X,Y}\big(x(u, v), y(u, v)\big)\lvert J\rvert$, how is $J$ computed?'
+  choices: ['As the determinant of the partial derivatives of $u(x, y)$ and $v(x, y)$', 'As the product $\dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v}$ alone', 'As the determinant of the partial derivatives of the inverse functions $x(u, v)$ and $y(u, v)$ with respect to $u$ and $v$', 'As the sum of the four partial derivatives of $x(u, v)$ and $y(u, v)$']
+  answer: 2
+  explanation: |-
+    $J = \det\begin{pmatrix} \partial x/\partial u & \partial x/\partial v \\ \partial y/\partial u & \partial y/\partial v \end{pmatrix}$, built from the inverse map, just as the one-variable formula uses $\lvert dx/dy\rvert$.
+    The forward determinant gives the reciprocal $1/\lvert J\rvert$. The product of the diagonal terms alone is the determinant only when an off-diagonal term is zero,
+    and summing the partials has no geometric meaning.
+
 # ---- Lesson 19: conditional expectation
 - id: ps-q-1901
   lesson: ps-cond-expectation

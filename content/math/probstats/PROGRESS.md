@@ -332,3 +332,72 @@ the prompt text as shown (all matched; shown answers accepted); cards-c, glossar
 
 ## Unresolved / notes
 - None in scope. Minor cosmetic: ANOVA boxplot "grand mean" label slightly overlaps box B (left as is).
+
+
+## Gap lessons (2026-10-17)
+
+Fills the VERIFY.md "common" gaps on Rao–Blackwell/MVUE/completeness and on the bootstrap, and makes the
+sections added during the source check (sufficiency and the delta method in lesson 25, the multinomial
+distribution in lesson 33 (was 31), the two-variable Jacobian in lesson 18) quizzable.
+Totals now: 36 lessons, 459 questions, 105 drills, 289 cards, 269 glossary terms, 3 reference sheets.
+Build and check-course: zero problems.
+
+### New lessons
+| File | id | Module | Title |
+|---|---|---|---|
+| lessons/26-rao-blackwell-mvue.md | ps-mvue | ps-m6 | Rao–Blackwell, completeness and minimum-variance unbiased estimators (Bernoulli, Poisson, normal, uniform, exponential examples; exponential families) |
+| lessons/28-bootstrap.md | ps-bootstrap | ps-m6 | The bootstrap and resampling (empirical distribution, bootstrap SE and bias, exact small cases, percentile intervals, limits, parametric bootstrap, permutation preview) |
+
+Placed after MLE (25) and after confidence intervals (now 27). Renumbered files (ids unchanged): old 26 is now 27;
+old 27–34 are now 29–36. No lesson text used file numbers; relative references were updated:
+lesson 24 (pointer to "the lesson after next"), lesson 25 (sufficiency paragraph now points to the next lesson; key points
+gained delta-method and factorization lines), lesson 27 (pivot recipe now cites the chi-square/t/F lesson; points to the
+bootstrap; "credible intervals, two lessons on"), lesson 29 ("confidence intervals of two lessons ago"), lesson 36
+(permutation section notes the bootstrap-lesson preview). questions/ps-m6.yaml section comments renumbered.
+Both new lessons link ps-ref-estimation. course.yaml: description mentions MVUEs and the bootstrap; modules unchanged;
+id/revision/released/order/subject/level/type untouched.
+
+### New questions (37)
+- ps-mvue: ps-q-2551 – ps-q-2562 (12; module quiz 2551, 2553, 2555, 2559). Topic "Minimum-variance unbiased estimation".
+- ps-bootstrap: ps-q-2651 – ps-q-2662 (12; module quiz 2651, 2653, 2656, 2662). Topic "Bootstrap and resampling".
+- Task B, ps-mle (sufficiency, factorization, delta method): ps-q-2513 – ps-q-2517 (5; module quiz 2513, 2516).
+- Task B, ps-proportions-chisq (multinomial): ps-q-3114 – ps-q-3117 (4; module quiz 3114).
+- Task B, ps-sums (Jacobian): ps-q-1813 – ps-q-1816 (4; module quiz 1813).
+- Correct positions across the 37: 0×9, 1×9, 2×10, 3×9 (each new lesson exactly 3/3/3/3).
+
+### New drills (9)
+- ps-m6: ps-d-umvue-bernoulli, ps-d-umvue-poisson, ps-d-umvue-exp (lesson 26); ps-d-boot-se-mean, ps-d-boot-median3,
+  ps-d-permutation-p (lesson 28); ps-d-delta-method (lesson 25).
+- ps-m7: ps-d-multinom-dist (lesson 33). ps-m4: ps-d-jacobian (lesson 18).
+
+### Also added
+- glossary-d.yaml (14 terms): minimum-variance unbiased estimator (MVUE/UMVUE), Rao–Blackwell theorem, Rao–Blackwellization,
+  complete statistic (alias "complete"), Lehmann–Scheffé theorem, exponential family, bootstrap, empirical distribution,
+  plug-in principle, bootstrap sample, bootstrap replicate, bootstrap standard error, percentile interval, parametric bootstrap.
+- cards-d.yaml (15 cards): 1 two-variable Jacobian, 8 MVUE, 6 bootstrap. New files (sorted after a/b/c) so existing
+  card ids, which are numbered in file order, do not shift.
+- references/estimation.md: Rao–Blackwell, completeness, Lehmann–Scheffé and exponential-family rows; an MVUE table;
+  a "Bootstrap and resampling" section.
+
+### Verification
+- Every new question solved in Python before fixing keys (/tmp/claude-0/gaps/probstats/keycheck.py: fractions, sympy
+  Jacobians, scipy multinomial/Poisson sums, itertools enumeration of bootstrap and permutation cases); distractors checked wrong.
+- Lesson numbers checked (UMVUE values, variance curves, ideal bootstrap SEs, exact median-of-3 distribution, exact
+  bootstrap-median distribution for n = 15, permutation count); the histogram is one seeded run (numpy seed 2026, B = 2000).
+- Each new drill generated 600 times (/tmp/claude-0/gaps/probstats/drills.mts): targets match an independent solver that
+  reads the prompt as shown (full 5^5 resample enumeration, 27-sample enumeration, 20-subset enumeration, finite-difference
+  Jacobians, direct multinomial pmf); shown answer and a rounded answer accepted; a wrong answer rejected; no "+ -",
+  "1X", "^{1}" or comma-grouped numbers inside math.
+- Lesson figures rendered (renderFigure) and screenshotted.
+
+### Notes for a reviewer
+- course.yaml revision not bumped (not allowed in this task); whoever releases should bump it and mention the two lessons.
+- Lessons 18, 25 and 33 now link 4 drills each (AUTHORING suggests 1–3).
+- The bootstrap lesson comes before Module 7, so its permutation section is a short *preview* (p-value described
+  informally, "formalized in the next module"), not a recap; lesson 36 keeps the full treatment and now refers back.
+- Lesson 26 states without proof that exponential-family statistics are complete when the natural parameter fills an
+  interval, and that (ΣX, ΣX²) is complete for the two-parameter normal; Bernoulli, Poisson and uniform completeness are proved.
+- Lesson 28 example 3 reports one simulation run (SE 0.49, interval 1.2 to 3.5); the exact bootstrap distribution gives
+  SE 0.48 and lower 2.5% point 1.1, which the lesson mentions as Monte Carlo variation.
+- Pre-existing glossary duplicates (not from this work): "central limit theorem", "p-value", "r-squared" each appear twice
+  across glossary files.

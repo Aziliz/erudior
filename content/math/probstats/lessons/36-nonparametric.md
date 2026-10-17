@@ -120,7 +120,7 @@ and the variance formula then needs a small correction that software applies.
 
 ## The permutation idea
 
-Rank tests are special cases of a general principle. If $H_0$ says the group labels don't matter,
+Rank tests are special cases of a general principle, previewed in the bootstrap lesson. If $H_0$ says the group labels don't matter,
 then every relabeling of the observed data was equally likely. A **permutation test** computes
 any chosen statistic (a difference in means, say) for every relabeling and reports the fraction at
 least as extreme as the observed one.

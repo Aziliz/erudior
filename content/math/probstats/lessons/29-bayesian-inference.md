@@ -15,7 +15,7 @@ by a probability distribution. Before seeing data we hold a **prior distribution
 update it, through Bayes' theorem, to a **posterior distribution**, which summarizes everything
 we then believe about $\theta$. This lesson develops the idea, works through the two classic
 "conjugate" models where the update has a closed form, and compares credible intervals with
-the confidence intervals of the last lesson.
+the confidence intervals of two lessons ago.
 
 ## Bayes' theorem for parameters
 

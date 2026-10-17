@@ -5,13 +5,13 @@ description: >-
   probability axioms, counting and Bayes' theorem, discrete and continuous random
   variables, moment generating functions, joint distributions, covariance and
   conditional expectation, the law of large numbers and the Central Limit Theorem,
-  sampling distributions, point estimation and maximum likelihood, confidence
-  intervals, hypothesis testing and likelihood ratio tests, regression, ANOVA and
+  sampling distributions, point estimation, maximum likelihood and minimum-variance
+  unbiased estimators, confidence intervals and the bootstrap, hypothesis testing and likelihood ratio tests, regression, ANOVA and
   nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used
   for joint densities.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections.
+changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lessons on Rao–Blackwell and minimum-variance unbiased estimators, and the bootstrap.
 order: 12
 subject: Math
 level: [College]
