@@ -51,7 +51,7 @@ Task: a friend has moved and wants to know how your new job is going. Tell her w
 
 > Liebe Jana,
 >
-> danke für deine Mail! Schön, dass du dich in Leipzig schon so wohlfühlst. Bei mir gibt es auch Neuigkeiten: Seit Montag arbeite ich in der Buchhandlung am Markt. Die erste Woche war anstrengend, weil ich viel lernen musste, aber die Kollegen sind sehr nett. Am besten gefällt mir, dass ich Kunden beraten darf. Gestern hat mich eine Frau nach einem Krimi gefragt, und ich wusste sofort, welchen sie meint!
+> danke für deine Mail! Schön, dass du dich in Leipzig schon so wohlfühlst. Bei mir gibt es auch Neuigkeiten: Seit Montag arbeite ich in der Buchhandlung am Markt. Die erste Woche war anstrengend, weil ich viel lernen musste, aber die Kollegen sind sehr nett. Am besten gefällt mir, dass ich Kunden beraten darf. Gestern hat mich eine Frau nach einem Krimi gefragt, und ich wusste sofort, welchen sie meinte!
 >
 > Hast du Lust, mich im Mai zu besuchen? Dann zeige ich dir meinen Laden.
 >
@@ -66,7 +66,7 @@ Task: in an online forum on a city website, people discuss the question: *Sollte
 
 > Ich finde die Idee grundsätzlich gut, aber man sollte sie gut planen. Einerseits wäre die Luft in der Innenstadt viel besser, und Fußgänger und Radfahrer hätten mehr Platz. In meiner Heimatstadt gibt es schon seit Jahren eine autofreie Zone, und die Geschäfte dort sind heute beliebter als früher. Andererseits müssen ältere Menschen und Familien mit kleinen Kindern weiter in die Stadt kommen können. Deshalb brauchen wir vorher bessere Busse und genug Parkplätze am Stadtrand. Mein Fazit: Ja, aber Schritt für Schritt.
 
-(about 85 words) A forum post has no *Anrede* or *Grußformel*, or only a short *Hallo zusammen*. Take a clear position (*Stellung nehmen*) in the first sentence, give a reason and an example from your own experience, mention the other side, and end with a short *Fazit* (conclusion). In the exam, you may also have to react to another user's comment: *Ich stimme Max zu, dass … / Ich sehe das anders als Max.*
+(about 80 words) A forum post has no *Anrede* or *Grußformel*, or only a short *Hallo zusammen*. Take a clear position (*Stellung nehmen*) in the first sentence, give a reason and an example from your own experience, mention the other side, and end with a short *Fazit* (conclusion). In the exam, you may also have to react to another user's comment: *Ich stimme Max zu, dass … / Ich sehe das anders als Max.*
 
 ## Model 3: a semi-formal message
 
@@ -139,14 +139,14 @@ Notes: *mit Bezug auf* (with reference to) + accusative is a formal way to *erw�
 - Nouns have capitals, including nouns made from verbs and adjectives: *beim Lesen, etwas Neues, das Gute*.
 - Commas before every subordinate clause: *Ich hoffe, dass … / …, weil … / …, obwohl … / …, die …* — and after it if the main clause continues: *Wenn du Zeit hast, komm vorbei.*
 - Commas before infinitive groups with *um, ohne, statt*: *Ich schreibe Ihnen, um mich zu erkundigen.*
-- **No comma before *und* or *oder*** joining two short parts: *Ich habe angerufen und eine Nachricht hinterlassen.*
-- ***dass* vs *das***: *dass* starts a clause after a verb of saying or thinking; *das* is an article or pronoun. If you can replace it with *dieses* or *welches*, it's *das*.
-- ***ß* vs *ss***: *ß* after a long vowel or a diphthong (*Grüße, heißen*), *ss* after a short vowel (*müssen, dass*).
+- No comma before *und* or *oder* joining two short parts: *Ich habe angerufen und eine Nachricht hinterlassen.*
+- *dass* vs *das*: *dass* starts a clause after a verb of saying or thinking; *das* is an article or pronoun. If you can replace it with *dieses* or *welches*, it's *das*.
+- *ß* vs *ss*: *ß* after a long vowel or a diphthong (*Grüße, heißen*), *ss* after a short vowel (*müssen, dass*).
 
 ## Pronunciation
 
 - *Reklamation*: re-kla-ma-TSION; *Stellungnahme*: STEL-lungs-nah-me, stress on the first part.
-- *beziehungsweise*: be-TSIE-hungs-wei-se; in speech, people also say the letters: *beh-zeh-weh*.
+- *beziehungsweise*: be-TSIE-hungs-wei-se; in speech, some people even say the abbreviation letter by letter: *beh-tsett-veh*.
 - *Anliegen*: AN-lie-gen.
 
 ## Common mistakes

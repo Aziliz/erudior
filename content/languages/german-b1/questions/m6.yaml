@@ -59,7 +59,7 @@
   choices: ['a bank transfer to the doctor', 'a sick note for your employer', 'a prescription for medicine', 'a referral to a specialist']
   answer: 3
   explanation: |-
-    At the doctor's, eine Überweisung is a referral: it sends you on to a Facharzt or Fachärztin. You know the word from A2 as a bank transfer, but here the meaning is "sent over to someone else". A sick note is eine Krankmeldung; a prescription is ein Rezept.
+    At the doctor's, eine Überweisung is a referral: it sends you on to a Facharzt or Fachärztin. You know the word from A2 as a bank transfer, but here the meaning is "sent over to someone else". A sick note is a doctor's certificate (die Krankschreibung); a prescription is ein Rezept.
 - id: de3-q-2608
   lesson: de3-health-system
   topic: Health system
@@ -71,11 +71,11 @@
 - id: de3-q-2609
   lesson: de3-health-system
   topic: Health system
-  stem: 'Your boss asks you for a "Krankmeldung". What does she want?'
-  choices: ['a referral to a specialist', 'a doctor''s note saying you are unable to work', 'your health insurance card', 'the date of your next appointment']
+  stem: 'You wake up with a high fever and can''t go to work. What is "die Krankmeldung"?'
+  choices: ['a referral to a specialist', 'telling your employer that you are ill and can''t work', 'your health insurance card', 'a prescription for medicine']
   answer: 1
   explanation: |-
-    Die Krankmeldung is the sick note. The doctor writes it when he or she krankschreibt you (signs you off sick). In Germany employers usually need it from the fourth day of illness, some from the first.
+    Die Krankmeldung is the notification that you are ill, which your employer needs on the first day (colloquially the word is also used for the doctor's note). If you are ill for more than three days, your employer also needs a doctor's certificate: the doctor krankschreibt you (signs you off sick). A referral is eine Überweisung, a prescription ein Rezept.
 - id: de3-q-2610
   lesson: de3-health-system
   topic: Reported speech
@@ -91,7 +91,7 @@
   choices: ['Sie hat gesagt, ob ich mich zwei Tage ausruhe.', 'Sie hat gesagt, ich soll ausruhen mich zwei Tage.', 'Sie hat gefragt, dass ich mich zwei Tage ausruhen soll.', 'Sie hat gesagt, dass ich mich zwei Tage ausruhen soll.']
   answer: 3
   explanation: |-
-    An instruction is reported with dass … sollen, verb at the end, and the reflexive pronoun changes to fit the new speaker (mich). ob is for questions, "gefragt, dass" mixes a question verb with a statement, and the third option has the wrong word order.
+    An instruction is reported with dass … sollen, verb at the end, and the reflexive pronoun changes to fit the new speaker (mich). ob is for questions, "gefragt, dass" mixes a question verb with a statement, and "ich soll ausruhen mich" has the wrong word order.
 - id: de3-q-2612
   lesson: de3-health-system
   module_quiz: true
@@ -185,7 +185,7 @@
   choices: ['A barbecue in the courtyard in the evening.', 'Some moving boxes.', 'Money for their help.', 'Help with their own move.']
   answer: 0
   explanation: |-
-    Jonas wants to borrow boxes (sich etwas ausleihen) and invites everyone zum Grillen in den Hof as a thank-you. He is asking for the boxes, not offering them.
+    Jonas wants to borrow boxes (Kann mir jemand … ausleihen? = Can someone lend me …?) and invites everyone zum Grillen in den Hof as a thank-you. He is asking for the boxes, not offering them.
 - id: de3-q-2710
   lesson: de3-neighbourhood
   topic: lassen
@@ -202,7 +202,7 @@
   choices: ['Der Wasserhahn in meiner Küche tropfen. Könnten Sie bitte einen Handwerker schicken?', 'Mein Wasserhahn tropft mich. Bitte lassen Sie reparieren.', 'Der Wasserhahn in meiner Küche tropft. Könnten Sie bitte einen Handwerker schicken?', 'Der Wasserhahn ist undicht gelassen. Schicken Sie bitte lassen.']
   answer: 2
   explanation: |-
-    Der Wasserhahn tropft (third person singular), followed by a polite Könnten Sie bitte …? The second option has the infinitive tropfen instead of tropft, and the others misuse lassen without an infinitive and an object.
+    Der Wasserhahn tropft (third person singular), followed by a polite Könnten Sie bitte …? The first option has the infinitive tropfen instead of tropft, and the other two are ungrammatical (tropft mich) and misuse lassen without an infinitive.
 - id: de3-q-2712
   lesson: de3-neighbourhood
   topic: lassen
@@ -399,7 +399,7 @@
   choices: ['Schick mir bitte die Hausaufgaben!', 'Sie müssen mir die Hausaufgaben schicken.', 'Hausaufgaben schicken, danke.', 'Könnten Sie mir bitte die Hausaufgaben schicken?']
   answer: 3
   explanation: |-
-    Könnten Sie … bitte …? is the key polite form. The second option uses du, which is wrong for a teacher you call Sie, "Sie müssen" sounds like an order, and the last is not a sentence.
+    Könnten Sie … bitte …? is the key polite form. "Schick mir …" uses du, which is wrong for a teacher you call Sie; "Sie müssen" sounds like an order; and "Hausaufgaben schicken, danke" is not a sentence.
 - id: de3-q-2909
   lesson: de3-writing
   topic: Letters
@@ -476,7 +476,7 @@
   choices: ['Retake only the Hören module.', 'Retake all four modules.', 'Wait two years before you try again.', 'Nothing: the result is final.']
   answer: 0
   explanation: |-
-    The adult B1 exam is modular: you can take and repeat each module separately. Results from the same year can often be combined into one certificate, but check the rules with your exam centre.
+    The adult B1 exam is modular: you can take and repeat each module separately. Modules passed within one year can usually be listed on one combined certificate, but check the rules with your exam centre.
 - id: de3-q-3005
   lesson: de3-exam-review
   module_quiz: true

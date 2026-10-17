@@ -40,7 +40,7 @@ Each module is scored out of 100 points and passed with 60. The grades are the s
 | 70–79 | befriedigend (satisfactory) |
 | 60–69 | ausreichend (sufficient, a pass) |
 
-Because the modules are separate, you can repeat only the one you failed. Results from the same year can usually be combined into one certificate if you took them at the same exam centre or in the same country; the details depend on the centre, so ask before you register. Dates, fees and rules can change too.
+Because the modules are separate, you can repeat only the one you failed. Modules passed within one year can usually be listed together on one combined certificate, sometimes for an extra fee; how this works depends on the exam centre, so ask before you register. Dates, fees and rules can change too.
 
 The Goethe-Institut publishes free official practice material:
 
@@ -69,7 +69,7 @@ Other B1 exams, such as telc Deutsch B1 and the ÖSD Zertifikat B1, and the *Deu
 ### Schreiben
 
 - Lesson 29 is your preparation. For each task, plan for two minutes: a short *Gliederung* (outline) with the content points in order.
-- Cover every point. The *Inhalt* (content) counts as much as language.
+- Cover every point. Doing the task, with all its *Inhalt* (content), is one of the main marking criteria, so a missing point costs marks however good your German is.
 - Choose the right register: friend → informal; forum → neutral; teacher or landlord → semi-formal.
 - Show what you can do: one or two subordinate clauses, a connector or two, a polite Konjunktiv II. Write sentences you are sure of; a simple, correct *Formulierung* is better than a complicated wrong one.
 - Save five minutes to check *Rechtschreibung* (spelling), capitals, verb position and commas.
@@ -202,7 +202,7 @@ These words come up in instructions, in feedback and in your own planning:
 - In Lesen, choosing an ad because one word matches. It has to fit the whole situation.
 - In Schreiben, writing 150 words for an 80-word task. Longer isn't better; it only gives you more room for mistakes and less time to check.
 - Learning set phrases for the presentation but not practising them aloud. Say your introduction and conclusion until they feel automatic.
-- *die Prüfung bestehen* (pass) vs *die Prüfung machen / ablegen* (take): ~~Ich habe die Prüfung gemacht~~ doesn't tell anyone whether you passed.
+- *die Prüfung bestehen* (pass) vs *die Prüfung machen / ablegen* (take): *Ich habe die Prüfung gemacht* only says that you took it. If you passed, say *Ich habe die Prüfung bestanden.*
 
 ## Key points
 

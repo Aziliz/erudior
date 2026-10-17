@@ -21,9 +21,9 @@ It also teaches two practical skills. The first is grammar: the little words *hi
 
 *Das Bundesland* is a compound of *der Bund* (federation) and *das Land*. Switzerland is divided into *Kantone*; German is the main language in most of them, but French, Italian and Romansh are spoken in others.
 
-The *Alpen* (Alps, plural only) cross the south of Germany, most of Austria and much of Switzerland. Germany's highest mountain, the Zugspitze, is just under 3,000 metres; the highest in Austria, the Großglockner, is almost 3,800. In a *Gebirge* (mountain range) you'll find *Gipfel* (summits), *Hütten* (mountain huts) where hikers eat and sleep, and *Seilbahnen* (cable cars) that take you up without the climb.
+The *Alpen* (Alps, plural only) cover most of Austria and much of Switzerland and reach into the far south of Germany. Germany's highest mountain, the Zugspitze, is just under 3,000 metres; the highest in Austria, the Großglockner, is almost 3,800. In a *Gebirge* (mountain range) you'll find *Gipfel* (summits), *Hütten* (mountain huts) where hikers eat and sleep, and *Seilbahnen* (cable cars) that take you up without the climb.
 
-Every region has a *Dialekt* or *Mundart* (both mean dialect; *Mundart* sounds more traditional). In Switzerland, almost everyone speaks Swiss German in daily life and writes standard German. In northern Germany, older people in the countryside may still speak *Plattdeutsch*. You don't need to speak a dialect, but it helps to know that people will switch to standard German for you if you ask: *Könnten Sie bitte Hochdeutsch sprechen?*
+Every region has a *Dialekt* or *Mundart* (both mean dialect; *Mundart* sounds more traditional). In German-speaking Switzerland, almost everyone speaks Swiss German in daily life and writes standard German. In northern Germany, older people in the countryside may still speak *Plattdeutsch*. You don't need to speak a dialect, but it helps to know that people will switch to standard German for you if you ask: *Könnten Sie bitte Hochdeutsch sprechen?*
 
 Some sentences with the words of this lesson:
 
@@ -79,7 +79,7 @@ Some uses have become idioms: *Wo ist mein Handy hin?* (Where has my phone got t
 
 ## Giving a short presentation
 
-In a short presentation (*eine Präsentation* or *ein kurzer Vortrag*) you speak for about three minutes about a question, such as *Sollte man im Urlaub lieber in die Berge oder ans Meer fahren?* A clear structure makes it easier for you and for your listeners. In a course or at work you'd have slides (*Folien*); in the exam you have five short notes on a sheet. Each part has its typical phrases.
+In a short presentation (*eine Präsentation* or *ein kurzer Vortrag*) you speak for about three minutes about a question, such as *Sollte man im Urlaub lieber in die Berge oder ans Meer fahren?* A clear structure makes it easier for you and for your listeners. In a course or at work you'd have slides (*Folien*); in the exam you get five "slides" printed on paper, one for each part below. Each part has its typical phrases.
 
 ### 1. Introduction (die Einleitung)
 
@@ -112,7 +112,7 @@ In a short presentation (*eine Präsentation* or *ein kurzer Vortrag*) you speak
 - *Zusammenfassend kann man sagen: …* — In summary, you can say: …
 - *Vielen Dank fürs Zuhören. Haben Sie noch Fragen?* — Thank you for listening. Do you have any questions?
 
-*einerseits … andererseits* work like *deshalb* or *trotzdem*: they take position 1 and the verb comes right after: *Einerseits ist die Hauptsaison teuer, andererseits ist das Wetter dann am besten.*
+*einerseits … andererseits* work like *deshalb* or *trotzdem*: when they start the clause, they fill position 1 and the verb comes right after: *Einerseits ist die Hauptsaison teuer, andererseits ist das Wetter dann am besten.*
 
 ## A model presentation
 
@@ -145,7 +145,7 @@ Notes: *dieselbe Region* (the same region) is written as one word. *Hunderte von
 ## Pronunciation
 
 - *Tourismus*: tu-RIS-mus; *Tourist*: tu-RIST, stress on the last syllable.
-- *Saison*: sä-ZONG in most of Germany, with a nasal ending as in French; in Austria and the south you also hear sä-ZOHN.
+- *Saison*: sä-ZONG, or with a French nasal ending, in Germany and Switzerland; in Austria (and parts of south-east Germany) it's se-SOHN, with a sharp *s* and a plain *n* (plural there: *Saisonen*).
 - *Spezialität*: shpe-tsi-a-li-TÄT, stress on the last syllable, like all nouns in *-ität*.
 - *hinein, heraus*: stress on the second part: hi-NEIN, he-RAUS.
 

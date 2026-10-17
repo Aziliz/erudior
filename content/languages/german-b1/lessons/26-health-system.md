@@ -7,7 +7,7 @@ topics: [Reported speech, Konjunktiv I, Health system, Social services]
 ---
 ## What this lesson is for
 
-This last module is about living on your own in a German-speaking country: dealing with doctors and offices, neighbours and landlords, travelling, writing letters, and finally the B1 exam. We start with the health system and social services, the part of daily life where you most often have to pass on what someone told you: *Die Ärztin hat gesagt, dass ich drei Tage zu Hause bleiben soll.* *Die Krankenkasse hat gefragt, ob ich eine Überweisung habe.*
+This last module is about living on your own in a German-speaking country: dealing with doctors and offices, neighbours and landlords, travelling, writing letters, and finally the B1 exam. We start with the health system and social services, the part of daily life where you most often have to pass on what someone told you: *Die Ärztin hat gesagt, dass ich drei Tage zu Hause bleiben soll.* *Die Sprechstundenhilfe hat gefragt, ob ich eine Überweisung habe.*
 
 So the grammar of this lesson is **reported speech**: saying what someone else said, asked or told you to do. In everyday German you already have nearly everything you need for it (*dass*, *ob*, question words and the Konjunktiv II from module 5). The new part is a set of verb forms you will mainly meet in the news, the **Konjunktiv I** (*er sei, sie habe, er komme*). At B1 you only need to recognize them; using them actively is a B2 skill.
 
@@ -25,9 +25,9 @@ Health insurance is compulsory in Germany. Most employees have statutory insuran
 
 Notice how German builds these: *Kranken-* + *Versicherung*, *Arbeitslosen-* + *Versicherung*. The last part decides the gender (*die Versicherung*, so all of them are *die*), and the first part says what kind.
 
-When you're ill, you usually go to your *Hausarzt* or *Hausärztin* (family doctor, GP) first, ideally during the *Sprechstunde* (surgery hours). For many problems the family doctor gives you an *Überweisung* to a *Facharzt* or *Fachärztin* (specialist). You know *die Überweisung* as a bank transfer from A2; here it means a referral, and the logic is the same: something is "sent over" to someone else. If you're too ill to work, the doctor will *krankschreiben* you (sign you off sick). In Germany your employer usually needs this sick note, the *Krankmeldung*, from the fourth day of illness, though some employers want it from the first day.
+When you're ill, you usually go to your *Hausarzt* or *Hausärztin* (family doctor, GP) first, ideally during the *Sprechstunde* (surgery hours). For many problems the family doctor gives you an *Überweisung* to a *Facharzt* or *Fachärztin* (specialist). You know *die Überweisung* as a bank transfer from A2; here it means a referral, and the logic is the same: something is "sent over" to someone else. If you're too ill to work, you must tell your employer on the first day: that's the *Krankmeldung* (notification of sickness; colloquially the word is also used for the doctor's note). The doctor can *krankschreiben* you (sign you off sick). Under the current rules, your employer needs the doctor's certificate if you are ill for more than three calendar days, so from the fourth day, though employers may ask for it from the first day. Since 2023 the doctor normally sends it electronically to your *Krankenkasse*, and your employer collects it from there. Politicians have discussed changing these rules, so check what applies when you need it.
 
-In an emergency you go to the *Notaufnahme* (A&E, emergency room) of a hospital, or call 112. For anything that can wait until the next day, many people sit in the *Wartezimmer* (waiting room) of their family doctor instead.
+In an emergency you go to the *Notaufnahme* (A&E, emergency room) of a hospital, or call 112. If it isn't an emergency but can't wait until your practice opens, call the out-of-hours medical service on 116 117. Anything else can wait for the *Wartezimmer* (waiting room) of your family doctor.
 
 Some other words you will need:
 
@@ -153,7 +153,7 @@ Notes: find the Konjunktiv I forms (*sei, gebe, bekomme*) and the Konjunktiv II 
 - Forgetting to change the pronouns: „Ich bin müde", sagt Tom → ~~Tom sagt, dass ich müde bin.~~ → *Tom sagt, dass er müde ist.*
 - Using *wenn* or *dass* for a yes/no question: ~~Sie fragt, wenn ich Zeit habe.~~ → *Sie fragt, ob ich Zeit habe.*
 - Main-clause order after *dass*: ~~Er sagt, dass er hat Fieber.~~ → *Er sagt, dass er Fieber hat* or *Er sagt, er hat Fieber.*
-- Using *müssen* for a reported request: „Kommen Sie morgen!" → *Sie hat gesagt, ich soll morgen kommen* (not *muss*, which sounds like an obligation from outside).
+- Using *müssen* for a reported request: „Kommen Sie morgen!" → *Sie hat gesagt, ich soll morgen kommen.* *sollen* shows that it was her instruction; *muss* would present it as a plain necessity.
 - Reading *er sei* as a typo or a command. It's the Konjunktiv I of *sein*: he is (they say).
 - *der Patient* is a weak noun: *den Patienten, dem Patienten* (lesson 5).
 - *vorbeugen* with the accusative: ~~eine Krankheit vorbeugen~~ → *einer Krankheit vorbeugen*.

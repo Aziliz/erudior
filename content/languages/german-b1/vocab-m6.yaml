@@ -214,9 +214,10 @@
   term: die Krankmeldung
   pos: noun
   plural: die Krankmeldungen
-  meanings: [sick note, doctor's note, notification of sickness]
-  example: Ich habe die Krankmeldung an meinen Chef geschickt.
-  exampleEn: I sent the sick note to my boss.
+  meanings: [notification of sickness (to an employer), notification of sickness, calling in sick, sick note, doctor's note]
+  example: Ich habe meine Krankmeldung heute früh an meine Chefin geschickt.
+  exampleEn: I sent my boss a message this morning saying I was ill.
+  note: 'Telling your employer you are ill; colloquially also the doctor''s certificate (die Krankschreibung).'
 - id: leistung
   lesson: de3-health-system
   term: die Leistung

@@ -71,7 +71,7 @@ When *lassen* is used with another infinitive, its perfect uses the infinitive *
 
 Without another infinitive, the normal participle is used: *Ich habe meine Brille zu Hause gelassen.* — I left my glasses at home.
 
-In everyday speech, Germans often avoid this perfect and use the Präteritum *ließ* or just rephrase: *Ich ließ die Waschmaschine reparieren.* In a subordinate clause the word order gets unusual (*…, dass ich das Auto habe reparieren lassen*), so most people simply say *…, dass das Auto repariert worden ist* or *…, dass ich das Auto in der Werkstatt hatte*. Recognize the form; you don't need to build it.
+In main clauses this perfect is completely normal in speech, so use it. In writing you will also see the Präteritum: *Sie ließ die Waschmaschine reparieren.* Only the subordinate clause is awkward: in standard German *haben* comes before the two infinitives (*…, dass ich das Auto habe reparieren lassen*), and many speakers avoid it by rephrasing (*…, weil das Auto in der Werkstatt war*). Recognize that subordinate-clause form; you don't need to build it.
 
 ## sich lassen: "can be done" *(receptive)*
 
@@ -128,7 +128,7 @@ Some useful words for the friendly side of living together:
 - *Wir tolerieren den Lärm am Wochenende, aber nicht nachts.* — We put up with the noise at the weekend, but not at night.
 - *Kann ich mir deine Leiter ausleihen?* — Can I borrow your ladder?
 
-*ausleihen* is separable and works in both directions: *sich etwas ausleihen* is to borrow, *jemandem etwas ausleihen* is to lend: *Ich leihe dir mein Fahrrad aus.* Tenants who share pets, parcels and tools often notice how much easier the *Zusammenleben* gets. Is a *Haustier* (pet) allowed? Check your rental contract.
+*ausleihen* is separable and works in both directions: *sich etwas ausleihen* is to borrow, *jemandem etwas ausleihen* is to lend: *Ich leihe dir mein Fahrrad aus.* Neighbours who take in each other's parcels and lend each other tools often notice how much easier the *Zusammenleben* gets. Want a *Haustier* (pet)? Check your rental contract first.
 
 ## Pronunciation
 
