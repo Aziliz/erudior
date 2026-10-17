@@ -54,6 +54,11 @@ const MONTHS = [
 
 export function formatNum(v: number | string, fmt?: string): string {
   if (typeof v === "string") return v;
+  // A value that rounds to zero shouldn't print as "-0" or "-0.00".
+  return formatRaw(v, fmt).replace(/^(\$?)-(?=\$?0(?:\.0+)?(?![\d.]))/, "$1").replace(/^-\$(?=0(?:\.0+)?(?![\d.]))/, "$");
+}
+
+function formatRaw(v: number, fmt?: string): string {
   switch (fmt) {
     case "money":
       return v.toLocaleString("en-US", { style: "currency", currency: "USD" });

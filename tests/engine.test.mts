@@ -1,5 +1,5 @@
 import { evaluate, compileFuncs } from "../src/lib/expr.ts";
-import { generate, checkAll } from "../src/lib/drills.ts";
+import { generate, checkAll, formatNum } from "../src/lib/drills.ts";
 let fails = 0;
 const eq = (name: string, got: number, want: number, tol = 1e-6) => {
   const ok = Math.abs(got - want) <= tol * Math.max(1, Math.abs(want));
@@ -81,6 +81,11 @@ eq("xe^x", I("xe^x", { x: 2 }), 2 * Math.exp(2), 1e-9);
 eq("2xpi", I("2xpi", { x: 3 }), 6 * Math.PI, 1e-12);
 eq("xy^2", I("xy^2", { x: 2, y: 3 }), 18, 1e-12);
 eq("e^(-t)cos(2t)", I("e^(-t)cos(2t)", { t: 0.5 }), Math.exp(-0.5) * Math.cos(1), 1e-12);
+// No negative zero in formatted numbers.
+for (const [v, f, want] of [[-0.0004, "num2", "0.00"], [-0, undefined, "0"], [-0.3, "dp0", "0"], [-0.5, "num1", "-0.5"], [-0.001, "money", "$0.00"]] as const) {
+  const got = formatNum(v, f as string | undefined);
+  if (got !== want) { fails++; console.log("FAIL -0 format", v, f, got); }
+}
 // Typing exactly the shown (rounded) answer is accepted, even with a tight tolerance.
 const third = { id: "t", title: "Third", vars: { a: { choices: [7] } }, calc: { r: "a/3" }, prompt: "", answer: "r",
   answers: [{ name: "r", format: "num2", tolerance: 0.0001 }], solution: "" };
