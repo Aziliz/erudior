@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
-import { CATALOG, facets, type CatalogEntry } from "../lib/catalog";
+import { CATALOG, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
@@ -293,6 +293,7 @@ function Catalog({ api }: { api: AppApi }) {
         <div className="catalog-grid">
           {visible.map((e) => {
             const have = installed.has(e.id);
+            const needs = have ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
             const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
               <div
@@ -325,6 +326,7 @@ function Catalog({ api }: { api: AppApi }) {
                     e.lessons && `${e.lessons} lessons`,
                     e.questions && `${e.questions} questions`,
                     e.drills && `${e.drills} drills`,
+                    e.words && `${e.words} words`,
                   ]
                     .filter(Boolean)
                     .join(", ")}
@@ -332,6 +334,10 @@ function Catalog({ api }: { api: AppApi }) {
                 {have ? (
                   <button className="btn sm" onClick={(ev) => (ev.stopPropagation(), open())}>
                     In progress: open
+                  </button>
+                ) : needs.length ? (
+                  <button className="btn sm" onClick={(ev) => (ev.stopPropagation(), open())}>
+                    🔒 Finish {needs.map((r) => r.title).join(", ")} first
                   </button>
                 ) : (
                   <button

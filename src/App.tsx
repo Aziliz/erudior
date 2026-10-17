@@ -17,9 +17,10 @@ import LessonView from "./pages/LessonView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
-import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse } from "./lib/catalog";
+import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites } from "./lib/catalog";
 import RefView from "./pages/RefView";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
+import { migrateVocabKeys } from "./lib/vocab";
 import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
@@ -159,6 +160,12 @@ export default function App() {
           p = { ...p, catalogV1: true };
           await store.saveProgress(p);
         }
+        // Vocabulary progress moved from per-course to per-language keys (v0.11).
+        const migrated = migrateVocabKeys(p, (await store.listCourses()).courses);
+        if (migrated !== p) {
+          p = migrated;
+          await store.saveProgress(p);
+        }
         progressRef.current = p;
         setProgressState(p);
         await reload();
@@ -200,6 +207,11 @@ export default function App() {
     async (id: string) => {
       const entry = CATALOG.find((e) => e.id === id);
       if (!entry) return;
+      const needs = prerequisites(entry, progressRef.current).filter((r) => !r.done);
+      if (needs.length) {
+        toast(`Finish ${needs.map((r) => r.title).join(" and ")} first`);
+        return;
+      }
       try {
         await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
         await reload();

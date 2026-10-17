@@ -63,9 +63,40 @@ ok("norm vocab", c.vocab?.length === 2 && c.language?.keys?.length === 4);
 ok("norm reading url dropped", c.readingList?.[0].url === undefined);
 const p: any = { lessonsDone: { "de-a1/l1": "2026-10-01" }, vocab: {} };
 ok("due unlocked only", dueCards(c, p, "2026-10-02").length === 2);
-p.vocab["de-a1/hund/meaning"] = { stage: 0, streak: 1, last: "2026-10-02" };
+p.vocab["de:hund/meaning"] = { stage: 0, streak: 1, last: "2026-10-02" };
 ok("once a day", dueCards(c, p, "2026-10-02").length === 1 && dueCards(c, p, "2026-10-03").length === 2);
 ok("summary", vocabSummary(c, p, "2026-10-02").unlocked === 1);
 
 console.log(fails ? `${fails} FAILURES` : "all vocab tests passed");
+if (fails) process.exit(1);
+
+// Carried-over words (A1 inside A2), shared keys and pacing.
+{
+  const { unlockedItems, migrateVocabKeys, vocabKey, CARRY_PER_DAY, applyAnswer } = await import("../src/lib/vocab.ts");
+  const a1 = Array.from({ length: 30 }, (_, i) => ({ id: `w${i}`, lesson: i < 5 ? "a1l1" : "a1l2", term: `wort${i}`, meanings: [`word ${i}`], from: "de-a1" }));
+  const c2 = normalizeCourse({
+    id: "de-a2", title: "German A2", language: { code: "de", name: "German" },
+    modules: [{ id: "m", title: "M" }], lessons: [{ id: "b1", module: "m", title: "B", body: "" }],
+    vocab: [...a1, { id: "neu", lesson: "b1", term: "neu", meanings: ["new"] }],
+  });
+  ok("from kept", c2.vocab?.[0].from === "de-a1");
+  ok("shared key", vocabKey(c2, "w1", "meaning") === "de:w1/meaning");
+  const q: any = { lessonsDone: { "de-a1/a1l1": "2026-01-01" }, vocab: {} };
+  let u = unlockedItems(c2, q, "2026-10-17");
+  ok("a1 lesson words + drip", u.length === 5 + CARRY_PER_DAY, u.length);
+  ok("own lesson locked", !u.some((v) => v.id === "neu"));
+  // Introduce 20 today: no more room until tomorrow.
+  for (const v of u.filter((v) => !["w0","w1","w2","w3","w4"].includes(v.id)))
+    q.vocab[vocabKey(c2, v.id, "meaning")] = applyAnswer({ stage: 0, streak: 0 }, true, "2026-10-17").next;
+  u = unlockedItems(c2, q, "2026-10-17");
+  ok("drip capped per day", u.length === 25, u.length);
+  u = unlockedItems(c2, q, "2026-10-18");
+  ok("drip resumes next day", u.length === 30, u.length);
+  const old: any = { lessonsDone: {}, vocab: { "de-a1/w1/meaning": { stage: 2, streak: 1 }, "other/x": { stage: 0, streak: 0 } } };
+  const c1 = normalizeCourse({ id: "de-a1", title: "A1", language: { code: "de", name: "German" }, modules: [], lessons: [], vocab: [] });
+  const m = migrateVocabKeys(old, [c1]);
+  ok("migrated", m.vocab?.["de:w1/meaning"]?.stage === 2 && !m.vocab?.["de-a1/w1/meaning"] && !!m.vocab?.["other/x"]);
+  ok("migrate idempotent", migrateVocabKeys(m, [c1]) === m);
+}
+console.log(fails ? `${fails} FAILURES` : "carry tests passed");
 if (fails) process.exit(1);

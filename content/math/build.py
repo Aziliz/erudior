@@ -35,6 +35,21 @@ OUT = SAMPLES / "math"
 DRAFTS = SAMPLES / "math-drafts"
 
 
+def folder_for_id(cid):
+    return next((f for f in course_folders() if (load_yaml(f / "course.yaml") or {}).get("id") == cid), None)
+
+
+def course_vocab(folder):
+    """A course's full word list: words carried from the courses it requires, then its own."""
+    meta = load_yaml(folder / "course.yaml") or {}
+    out = []
+    for rid in meta.get("requires") or []:
+        rf = folder_for_id(rid)
+        if rf:
+            out += [{**v, "from": v.get("from") or rid} for v in course_vocab(rf)]
+    return out + [v for f in sorted(folder.glob("vocab*.yaml")) for v in (load_yaml(f) or [])]
+
+
 def out_dirs(folder: pathlib.Path):
     area = folder.parent.name
     return SAMPLES / area, SAMPLES / f"{area}-drafts"
@@ -214,6 +229,15 @@ def build(folder: pathlib.Path):
     # Language courses: vocabulary and reading list.
     language = meta.get("language")
     vocab = [v for f in sorted(folder.glob("vocab*.yaml")) for v in (load_yaml(f) or [])]
+    # Words from the courses this one requires (e.g. A1 inside A2) come first, tagged `from`.
+    carried = []
+    for rid in meta.get("requires") or []:
+        rf = folder_for_id(rid)
+        if not rf:
+            errors.append(f"requires: no course with id {rid}")
+            continue
+        carried += [{**v, "from": v.get("from") or rid} for v in course_vocab(rf)]
+    vocab = carried + vocab
     reading = load_yaml(folder / "reading.yaml") if (folder / "reading.yaml").exists() else []
     vids, terms, prompts = set(), {}, {}
     for v in vocab:
@@ -221,9 +245,9 @@ def build(folder: pathlib.Path):
         if not ID.match(str(v.get("id", ""))):
             errors.append(f"{where}: bad or missing id")
         elif v["id"] in vids:
-            errors.append(f"{where}: duplicate id")
+            errors.append(f"{where}: duplicate id" + (" (already in an earlier course: reuse it, don't re-add it)" if any(c["id"] == v["id"] for c in carried) else ""))
         vids.add(v.get("id"))
-        if v.get("lesson") not in lesson_by_id:
+        if not v.get("from") and v.get("lesson") not in lesson_by_id:
             errors.append(f"{where}: lesson '{v.get('lesson')}' doesn't exist")
         if not v.get("term") or not v.get("meanings"):
             errors.append(f"{where}: needs term and meanings")
@@ -231,7 +255,7 @@ def build(folder: pathlib.Path):
             errors.append(f"{where}: German nouns need der/die/das in the term")
         key = (v.get("term"), v.get("pos"))
         if key in terms:
-            errors.append(f"{where}: same term and part of speech as {terms[key]}")
+            errors.append(f"{where}: same term and part of speech as {terms[key]}" + (" (from an earlier course)" if any(c["id"] == terms[key] for c in carried) else ""))
         terms[key] = v.get("id")
         first = str((v.get("meanings") or [""])[0]).strip().lower()
         if first in prompts:
@@ -319,6 +343,8 @@ def build(folder: pathlib.Path):
         del course["changelog"]
     if language:
         course["language"] = language
+    if meta.get("requires"):
+        course["requires"] = meta["requires"]
     if vocab:
         course["vocab"] = [{k: unwrap(x) if isinstance(x, str) and k in ("note",) else x for k, x in v.items()} for v in vocab]
     if reading:
@@ -331,7 +357,7 @@ def build(folder: pathlib.Path):
     path.write_text(json.dumps(course, indent=1, ensure_ascii=False), encoding="utf-8")
     return path, {"lessons": len(lessons), "questions": len(bank_questions), "drills": len(drills),
                   "cards": len(cards or []), "terms": len(glossary or []), "refs": len(refs),
-                  **({"words": len(vocab), "readings": len(reading or [])} if vocab else {})}
+                  **({"words": len(vocab) - len(carried), "carried words": len(carried), "readings": len(reading or [])} if vocab else {})}
 
 
 def main():
@@ -374,6 +400,9 @@ def write_manifest():
             "cards": sum(len(d.get("cards", [])) for d in c.get("decks", [])),
             "drills": len(c.get("drills", [])),
             **({"words": len(c["vocab"])} if c.get("vocab") else {}),
+            **({"carried": sum(1 for v in c["vocab"] if v.get("from"))} if any(v.get("from") for v in c.get("vocab", [])) else {}),
+            **({"requires": c["requires"]} if c.get("requires") else {}),
+            "lessonIds": [l.get("id") for l in c.get("lessons", [])],
             # Lesson plan for the catalog's Overview page (titles only).
             "outline": [
                 {"title": m.get("title", ""), "lessons": [l.get("title", "") for l in c.get("lessons", []) if l.get("module") == m.get("id")]}

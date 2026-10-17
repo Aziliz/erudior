@@ -70,7 +70,7 @@ export default function VocabRunner({ api, course, mode, lessonIds, count }: Pro
   const initial = useMemo<QItem[]>(() => {
     if (mode === "review") return shuffled(dueCards(course, api.progress)).map((c) => ({ ...c, counted: true }));
     let items = unlockedItems(course, api.progress);
-    if (lessonIds?.length) items = (course.vocab ?? []).filter((v) => lessonIds.includes(v.lesson));
+    if (lessonIds?.length) items = (course.vocab ?? []).filter((v) => !v.from && lessonIds.includes(v.lesson));
     const cards = shuffled(cardsFor(course, items));
     return (count ? cards.slice(0, count) : cards).map((c) => ({ ...c, counted: false }));
   }, []);

@@ -21,7 +21,12 @@ export interface VocabCard {
   key: string;
 }
 
-export const vocabKey = (courseId: string, itemId: string, dir: VocabDirection) => `${courseId}/${itemId}/${dir}`;
+/**
+ * Progress key for one card. Keys are per language, not per course, so a word's level carries
+ * from German A1 into German A2 (whose list includes A1's words).
+ */
+export const vocabKey = (course: Course, itemId: string, dir: VocabDirection) =>
+  `${course.language?.code ?? course.id}:${itemId}/${dir}`;
 
 export const directions = (item: VocabItem): VocabDirection[] => item.directions ?? ["meaning", "recall"];
 
@@ -29,21 +34,68 @@ export function stateOf(p: Progress, key: string): VocabState {
   return p.vocab?.[key] ?? { stage: 0, streak: 0 };
 }
 
-/** Words whose lesson is done (in course order). */
-export function unlockedItems(course: Course, p: Progress): VocabItem[] {
-  return (course.vocab ?? []).filter((v) => p.lessonsDone[`${course.id}/${v.lesson}`]);
+/** Carried-over words (from an earlier course) that haven't been reviewed yet join this many per day. */
+export const CARRY_PER_DAY = 20;
+
+const started = (course: Course, p: Progress, it: VocabItem) =>
+  directions(it).some((d) => !!p.vocab?.[vocabKey(course, it.id, d)]);
+
+/** A word's own lesson is done (in this course, or in the earlier course it came from). */
+const lessonDone = (course: Course, p: Progress, it: VocabItem) => !!p.lessonsDone[`${it.from ?? course.id}/${it.lesson}`];
+
+/**
+ * Words in the review rotation: this course's words whose lesson is done, plus carried-over
+ * words that are already started or whose lesson was done in the earlier course. Carried-over
+ * words not yet seen join CARRY_PER_DAY a day (counting the ones first reviewed today).
+ */
+export function unlockedItems(course: Course, p: Progress, now = today()): VocabItem[] {
+  const items = course.vocab ?? [];
+  const introducedToday = items.filter(
+    (it) => it.from && !lessonDone(course, p, it) && directions(it).some((d) => p.vocab?.[vocabKey(course, it.id, d)]?.intro === now),
+  ).length;
+  let room = Math.max(0, CARRY_PER_DAY - introducedToday);
+  return items.filter((it) => {
+    if (!it.from) return lessonDone(course, p, it);
+    if (lessonDone(course, p, it) || started(course, p, it)) return true;
+    if (room > 0) {
+      room--;
+      return true;
+    }
+    return false;
+  });
 }
 
 export function cardsFor(course: Course, items: VocabItem[]): VocabCard[] {
-  return items.flatMap((item) => directions(item).map((dir) => ({ item, dir, key: vocabKey(course.id, item.id, dir) })));
+  return items.flatMap((item) => directions(item).map((dir) => ({ item, dir, key: vocabKey(course, item.id, dir) })));
 }
 
 /** Cards that can be reviewed (counted) today. */
 export function dueCards(course: Course, p: Progress, now = today()): VocabCard[] {
-  return cardsFor(course, unlockedItems(course, p)).filter((c) => {
+  return cardsFor(course, unlockedItems(course, p, now)).filter((c) => {
     const s = stateOf(p, c.key);
     return !s.done && s.last !== now;
   });
+}
+
+/**
+ * Move vocabulary progress saved under the old per-course keys (`courseId/itemId/dir`) to the
+ * per-language keys. Returns the same object when there's nothing to move.
+ */
+export function migrateVocabKeys(p: Progress, courses: Course[]): Progress {
+  if (!p.vocab) return p;
+  const lang = new Map(courses.filter((c) => c.language).map((c) => [c.id, c.language!.code]));
+  let changed = false;
+  const out: Record<string, VocabState> = {};
+  for (const [k, v] of Object.entries(p.vocab)) {
+    const m = /^(.+)\/([^/]+)\/(meaning|recall)$/.exec(k);
+    const code = m && lang.get(m[1]);
+    if (m && code) {
+      const nk = `${code}:${m[2]}/${m[3]}`;
+      if (!p.vocab[nk] && !out[nk]) out[nk] = v;
+      changed = true;
+    } else out[k] = v;
+  }
+  return changed ? { ...p, vocab: out } : p;
 }
 
 export interface VocabSummary {
@@ -59,7 +111,7 @@ export interface VocabSummary {
 
 export function vocabSummary(course: Course, p: Progress, now = today()): VocabSummary {
   const items = course.vocab ?? [];
-  const unlocked = unlockedItems(course, p);
+  const unlocked = unlockedItems(course, p, now);
   const byStage = [0, 0, 0, 0];
   let learnedCards = 0;
   for (const c of cardsFor(course, unlocked)) {
@@ -67,12 +119,13 @@ export function vocabSummary(course: Course, p: Progress, now = today()): VocabS
     if (s.done) learnedCards++;
     else byStage[s.stage]++;
   }
-  const learned = unlocked.filter((it) => directions(it).every((d) => stateOf(p, vocabKey(course.id, it.id, d)).done)).length;
+  const learned = unlocked.filter((it) => directions(it).every((d) => stateOf(p, vocabKey(course, it.id, d)).done)).length;
   return { total: items.length, unlocked: unlocked.length, learned, due: dueCards(course, p, now).length, byStage, learnedCards };
 }
 
 /** Apply one counted answer. Returns the new state and what happened. */
 export function applyAnswer(s: VocabState, correct: boolean, now = today()): { next: VocabState; event: "up" | "learned" | "step" | "reset" } {
+  s = { ...s, intro: s.intro ?? now };
   if (!correct) return { next: { ...s, streak: 0, last: now, wrong: (s.wrong ?? 0) + 1 }, event: "reset" };
   const right = (s.right ?? 0) + 1;
   if (s.streak + 1 < PER_STAGE) return { next: { ...s, streak: s.streak + 1, last: now, right }, event: "step" };

@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import type { Course } from "../lib/types";
-import { directions, stageLabel, stateOf, STAGES, vocabKey, vocabSummary } from "../lib/vocab";
-import { lessonKey } from "../lib/planner";
+import { CARRY_PER_DAY, directions, stageLabel, stateOf, STAGES, unlockedItems, vocabKey, vocabSummary } from "../lib/vocab";
+import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
@@ -13,18 +13,21 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const lessonTitle = useMemo(() => new Map(course.lessons.map((l) => [l.id, l.title])), [course]);
   const target = lang?.vocabTarget;
 
+  const unlocked = new Set(unlockedItems(course, progress).map((v) => v.id));
+  const groupOf = (v: { from?: string; lesson: string }) => (v.from ? `from:${v.from}` : v.lesson);
   const rows = (course.vocab ?? []).filter((v) => {
-    const open = !!progress.lessonsDone[lessonKey(course.id, v.lesson)];
-    const learned = directions(v).every((d) => stateOf(progress, vocabKey(course.id, v.id, d)).done);
+    const open = unlocked.has(v.id);
+    const learned = directions(v).every((d) => stateOf(progress, vocabKey(course, v.id, d)).done);
     if (filter === "all") return true;
     if (filter === "unlocked") return open;
     if (filter === "learned") return open && learned;
     return open && !learned;
   });
   const groups = new Map<string, typeof rows>();
-  for (const r of rows) groups.set(r.lesson, [...(groups.get(r.lesson) ?? []), r]);
-  const lessonOrder = course.lessons.map((l) => l.id);
-  const ordered = [...groups.entries()].sort((a, b) => lessonOrder.indexOf(a[0]) - lessonOrder.indexOf(b[0]));
+  for (const r of rows) groups.set(groupOf(r), [...(groups.get(groupOf(r)) ?? []), r]);
+  // Carried-over words first (they're the foundation), then this course's lessons in order.
+  const order = (g: string) => (g.startsWith("from:") ? -1 : course.lessons.findIndex((l) => l.id === g));
+  const ordered = [...groups.entries()].sort((a, b) => order(a[0]) - order(b[0]));
 
   return (
     <div className="stack">
@@ -93,13 +96,18 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
         {!ordered.length && (
           <p className="muted">{filter === "unlocked" ? "Finish a lesson to unlock its words." : "Nothing here yet."}</p>
         )}
-        {ordered.map(([lessonId, items]) => {
-          const open = !!progress.lessonsDone[lessonKey(course.id, lessonId)];
+        {ordered.map(([group, all]) => {
+          const carried = group.startsWith("from:");
+          const items = all;
+          const waiting = items.filter((v) => !unlocked.has(v.id)).length;
           return (
-            <div key={lessonId} className="vocab-group">
+            <div key={group} className="vocab-group">
               <h3>
-                {lessonTitle.get(lessonId) ?? lessonId}
-                {!open && <span className="muted small"> · locked until you finish the lesson</span>}
+                {carried ? `From ${catalogEntry(group.slice(5))?.title ?? "an earlier course"}` : lessonTitle.get(group) ?? group}
+                {carried && waiting > 0 && (
+                  <span className="muted small"> · {waiting} more join your reviews, {CARRY_PER_DAY} a day</span>
+                )}
+                {!carried && waiting > 0 && <span className="muted small"> · locked until you finish the lesson</span>}
               </h3>
               <table className="table vocab-table">
                 <tbody>
@@ -112,10 +120,10 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
                       </td>
                       <td>{v.meanings.join("; ")}</td>
                       <td className="muted small">
-                        {open &&
+                        {unlocked.has(v.id) &&
                           directions(v).map((d) => (
                             <div key={d}>
-                              {d === "meaning" ? "→ English" : `→ ${lang?.name ?? "word"}`}: {stageLabel(stateOf(progress, vocabKey(course.id, v.id, d)))}
+                              {d === "meaning" ? "→ English" : `→ ${lang?.name ?? "word"}`}: {stageLabel(stateOf(progress, vocabKey(course, v.id, d)))}
                             </div>
                           ))}
                       </td>

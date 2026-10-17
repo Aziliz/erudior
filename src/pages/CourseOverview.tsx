@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { AppApi } from "../App";
-import { catalogEntry } from "../lib/catalog";
+import { catalogEntry, prerequisites } from "../lib/catalog";
 
 /** A catalog course before it's started: description, details and the lesson plan. */
 export default function CourseOverview({ api, id }: { api: AppApi; id: string }) {
@@ -17,6 +17,8 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
     );
 
   const started = api.courses.some((c) => c.id === e.id);
+  const missing = prerequisites(e, api.progress).filter((r) => !r.done);
+  const locked = !started && missing.length > 0;
   async function start() {
     setAdding(true);
     await api.addCourse(e!.id);
@@ -53,12 +55,27 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
               Open course
             </button>
           ) : (
-            <button className="btn primary" disabled={adding} onClick={start}>
-              {adding ? "Adding…" : "Start course"}
+            <button className="btn primary" disabled={adding || locked} onClick={start}>
+              {locked ? "🔒 Locked" : adding ? "Adding…" : "Start course"}
             </button>
           )}
         </div>
       </div>
+
+      {locked && (
+        <section className="panel locked-note" role="note">
+          <h2 className="section-title">🔒 Finish {missing.map((r) => r.title).join(" and ")} first</h2>
+          {missing.map((r) => (
+            <p key={r.id}>
+              {r.title}: {r.lessonsDone} of {r.lessons} lessons complete. Complete every lesson, or pass its full practice exam
+              if you already know the material, to unlock this course.{" "}
+              <button className="linklike" onClick={() => api.go({ name: "overview", catalogId: r.id })}>
+                Go to {r.title}
+              </button>
+            </p>
+          ))}
+        </section>
+      )}
 
       <section className="panel overview-about">
         <h2 className="section-title">Overview</h2>
@@ -67,7 +84,7 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
           {[
             e.lessons && `${e.lessons} lessons`,
             e.questions && `${e.questions} questions`,
-            e.words && `${e.words} words to learn`,
+            e.words && (e.carried ? `${e.words} words (${e.words - e.carried} new, ${e.carried} carried over)` : `${e.words} words to learn`),
             e.cards && !e.words && `${e.cards} notecards`,
             e.drills && `${e.drills} practice drills`,
           ]

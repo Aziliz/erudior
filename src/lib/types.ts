@@ -342,6 +342,8 @@ export type VocabDirection = "meaning" | "recall";
 
 export interface VocabItem {
   id: string;
+  /** Set on words carried over from an earlier course (its course id), e.g. A1 words inside A2. */
+  from?: string;
   /** Lesson that introduces it; it joins the review backlog once that lesson is done. */
   lesson: string;
   kind?: "word" | "phrase" | "char";
@@ -388,6 +390,8 @@ export interface VocabState {
   last?: string;
   right?: number;
   wrong?: number;
+  /** YYYY-MM-DD the card was first reviewed (paces carried-over words in). */
+  intro?: string;
 }
 
 // ---------------------------------------------------------------------------

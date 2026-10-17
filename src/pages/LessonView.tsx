@@ -19,7 +19,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const module = course.modules[moduleIdx];
 
   const topics = lesson.topics ?? [];
-  const words = (course.vocab ?? []).filter((v) => v.lesson === lesson.id);
+  const words = (course.vocab ?? []).filter((v) => v.lesson === lesson.id && !v.from);
   const lang = course.language;
   const bank = mainBank(course);
   const lessonDrills = course.drills.filter((d) => lesson.drills?.includes(d.id));

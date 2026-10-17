@@ -133,6 +133,7 @@ export function normalizeCourse(raw: unknown): Course {
       const dirs = strs(v.directions).filter((d) => d === "meaning" || d === "recall") as VocabItem["directions"];
       return {
         id: safeId(v.id, `w${i + 1}`),
+        ...(str(v.from) ? { from: safeId(v.from, "") || undefined } : {}),
         lesson: str(v.lesson),
         kind: (["word", "phrase", "char"].includes(str(v.kind)) ? str(v.kind) : undefined) as VocabItem["kind"],
         term: str(v.term).trim(),
