@@ -1,6 +1,6 @@
 ---
 id: trig-ref-triangles
-title: Triangles, vectors, polar and complex
+title: Triangles, vectors, polar, parametric and complex
 ---
 ## Right triangles
 
@@ -62,6 +62,17 @@ title: Triangles, vectors, polar and complex
 | Rose $r = a\cos n\theta$ or $a\sin n\theta$ | $n$ petals if $n$ odd, $2n$ if $n$ even |
 | Limaçon $r = a \pm b\cos\theta$ | inner loop if $a < b$; cardioid if $a = b$ |
 | Lemniscate | $r^2 = a^2\cos 2\theta$ |
+
+## Parametric equations
+
+| Fact | Formula |
+|---|---|
+| Eliminate $t$ | solve for $t$ and substitute, or use $\cos^2 t + \sin^2 t = 1$; keep restrictions |
+| Segment $P \to Q$ | $x = x_1 + (x_2 - x_1)t$, $y = y_1 + (y_2 - y_1)t$, $0 \le t \le 1$ |
+| Circle, center $(h, k)$, radius $r$ | $x = h + r\cos t$, $y = k + r\sin t$ (counterclockwise) |
+| Ellipse | $x = h + a\cos t$, $y = k + b\sin t$ |
+| Projectile | $x = (v_0\cos\theta)t$, $y = h + (v_0\sin\theta)t - \tfrac12 gt^2$ |
+| Projectile, level ground | flight time $\tfrac{2v_0\sin\theta}{g}$, range $\tfrac{v_0^2\sin 2\theta}{g}$, top at $t = \tfrac{v_0\sin\theta}{g}$ |
 
 ## Complex numbers
 

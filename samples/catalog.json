@@ -32,10 +32,10 @@
   "type": [
    "Course"
   ],
-  "lessons": 36,
-  "questions": 400,
-  "cards": 196,
-  "drills": 87
+  "lessons": 38,
+  "questions": 438,
+  "cards": 217,
+  "drills": 96
  },
  {
   "id": "math-algebra1",
@@ -89,18 +89,18 @@
   "type": [
    "Course"
   ],
-  "lessons": 38,
-  "questions": 425,
-  "cards": 164,
-  "drills": 93
+  "lessons": 41,
+  "questions": 476,
+  "cards": 184,
+  "drills": 103
  },
  {
   "id": "math-trigonometry",
   "file": "math/math-trigonometry.json",
   "order": 5,
   "title": "Trigonometry",
-  "description": "Trigonometry from the first angle through a full college course: degrees and radians, arc length and angular speed, right-triangle trig, the unit circle, graphs of all six functions and sinusoidal models, inverse functions, identities and equations, the laws of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric form with De Moivre's theorem.",
-  "revision": 2,
+  "description": "Trigonometry from the first angle through a full college course: degrees and radians, arc length and angular speed, right-triangle trig, the unit circle, graphs of all six functions and sinusoidal models, inverse functions, identities and equations, the laws of sines and cosines, vectors, polar coordinates, parametric equations, and complex numbers in trigonometric form with De Moivre's theorem.",
+  "revision": 3,
   "subject": "Math",
   "level": [
    "High school",
@@ -109,10 +109,10 @@
   "type": [
    "Course"
   ],
-  "lessons": 38,
-  "questions": 430,
-  "cards": 206,
-  "drills": 88
+  "lessons": 39,
+  "questions": 447,
+  "cards": 216,
+  "drills": 92
  },
  {
   "id": "math-precalculus",

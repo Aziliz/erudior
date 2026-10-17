@@ -220,6 +220,48 @@
   explanation: |-
     3 is outside $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$. The angle in that range with the same sine is the supplement-style
     angle $\pi - 3$ (since $\sin(\pi - x) = \sin x$), about $0.1416$.
+- id: trig-q-1913
+  lesson: trig-inverse-comp
+  module_quiz: true
+  topic: Inverse compositions
+  stem: 'Solve $3\cos^{-1}x = \pi$.'
+  choices: ['$x = \tfrac12$', '$x = -1$', '$x = \tfrac{\pi}{3}$', '$x = \tfrac{\sqrt3}{2}$']
+  answer: 0
+  explanation: |-
+    Isolate the inverse function: $\cos^{-1}x = \tfrac{\pi}{3}$, which is in $[0, \pi]$, so a solution exists. Apply cosine: $x = \cos\tfrac{\pi}{3} = \tfrac12$. Taking the cosine before dividing by 3 gives $\cos\pi = -1$; $\tfrac{\pi}{3}$ is the angle, not $x$; and $\tfrac{\sqrt3}{2}$ is $\sin\tfrac{\pi}{3}$, the wrong function.
+- id: trig-q-1914
+  lesson: trig-inverse-comp
+  topic: Inverse compositions
+  stem: 'Which equation has no solution?'
+  choices: ['$\cos^{-1}x = \tfrac{2\pi}{3}$', '$\sin^{-1}x = \tfrac{2\pi}{3}$', '$\tan^{-1}x = -\tfrac{\pi}{3}$', '$\sin^{-1}x = -\tfrac{\pi}{4}$']
+  answer: 1
+  explanation: |-
+    $\sin^{-1}$ only returns angles in $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$, and $\tfrac{2\pi}{3}$ is outside it, so $\sin^{-1}x = \tfrac{2\pi}{3}$ has no solution. Applying sine anyway gives $x = \tfrac{\sqrt3}{2}$, but $\sin^{-1}\tfrac{\sqrt3}{2} = \tfrac{\pi}{3}$, so that check fails. The others are in range: $\cos^{-1}x = \tfrac{2\pi}{3}$ gives $x = -\tfrac12$ (the range of $\cos^{-1}$ is $[0, \pi]$), $\tan^{-1}x = -\tfrac{\pi}{3}$ gives $x = -\sqrt3$, and $\sin^{-1}x = -\tfrac{\pi}{4}$ gives $x = -\tfrac{\sqrt2}{2}$.
+- id: trig-q-1915
+  lesson: trig-inverse-comp
+  module_quiz: true
+  topic: Inverse compositions
+  stem: 'If $\sin^{-1}x = 0.3$ (radians), what is $\cos^{-1}x$?'
+  choices: ['$0.3$', '$\pi - 0.3 \approx 2.8416$', '$\tfrac{\pi}{2} - 0.3 \approx 1.2708$', '$\cos 0.3 \approx 0.9553$']
+  answer: 2
+  explanation: |-
+    For every $x$ in $[-1, 1]$, $\sin^{-1}x + \cos^{-1}x = \tfrac{\pi}{2}$, so $\cos^{-1}x = \tfrac{\pi}{2} - 0.3 \approx 1.2708$. The two angles are complementary, not equal ($0.3$) and not supplementary ($\pi - 0.3$). $\cos 0.3$ is the cosine of the angle, which is a ratio, not the angle $\cos^{-1}x$.
+- id: trig-q-1916
+  lesson: trig-inverse-comp
+  topic: Inverse compositions
+  stem: 'Evaluate $\sin^{-1}0.37 + \cos^{-1}0.37$ exactly.'
+  choices: ['$1$', '$\pi$', '$0.74$', '$\tfrac{\pi}{2}$']
+  answer: 3
+  explanation: |-
+    If $\theta = \sin^{-1}0.37$, then $\tfrac{\pi}{2} - \theta$ is in $[0, \pi]$ and has cosine $\sin\theta = 0.37$, so it is $\cos^{-1}0.37$. The sum is $\tfrac{\pi}{2}$ (numerically $0.3790 + 1.1918 = 1.5708$). The value 1 confuses this with $\sin^2\theta + \cos^2\theta = 1$, $\pi$ treats the angles as supplementary, and $0.74$ just adds the inputs.
+- id: trig-q-1917
+  lesson: trig-inverse-comp
+  topic: Inverse compositions
+  stem: 'Solve $y = 2\tan^{-1}\tfrac{x}{5}$ for $x$ (for $-\pi < y < \pi$).'
+  choices: ['$x = \tfrac52\tan y$', '$x = \tfrac15\tan\tfrac{y}{2}$', '$x = 5\tan\tfrac{y}{2}$', '$x = 2\tan\tfrac{y}{5}$']
+  answer: 2
+  explanation: |-
+    Divide by 2 first: $\tfrac{y}{2} = \tan^{-1}\tfrac{x}{5}$. Apply tangent: $\tfrac{x}{5} = \tan\tfrac{y}{2}$, so $x = 5\tan\tfrac{y}{2}$. Taking the tangent before dividing by 2 leads to $\tfrac52\tan y$; dividing by 5 instead of multiplying gives $\tfrac15\tan\tfrac{y}{2}$; and $2\tan\tfrac{y}{5}$ swaps the two constants.
 
 - id: trig-q-2001
   lesson: trig-basic-equations

@@ -99,6 +99,116 @@
     curves:
       - {x: 'a*if(f == 0, cos(n*t), sin(n*t))*cos(t)', y: 'a*if(f == 0, cos(n*t), sin(n*t))*sin(t)', t: [0, 6.2832]}
 
+- id: trig-d-param-eliminate
+  title: Eliminate the parameter (ellipse)
+  topic: Parametric equations
+  vars:
+    h: {min: -6, max: 6}
+    k: {min: -6, max: 6}
+    a: {min: 2, max: 6}
+    b: {min: 2, max: 6}
+    fx: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
+    fy: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
+  where: ["fx != fy", "h != 0", "k != 0", "a != b"]
+  calc:
+    hn: -h
+    kn: -k
+    A2: a^2
+    B2: b^2
+  prompt: 'Eliminate the parameter from $x = {h} {a:signed}{fx} t$, $y = {k} {b:signed}{fy} t$. The result has the form $\dfrac{(x - h)^2}{\,A} + \dfrac{(y - k)^2}{\,B} = 1$. Find $h$, $k$, $A$ and $B$.'
+  answers:
+    - {name: h, label: '$h$'}
+    - {name: k, label: '$k$'}
+    - {name: A2, label: '$A$'}
+    - {name: B2, label: '$B$'}
+  solution: |-
+    Isolate the trig functions: ${fx} t = \dfrac{x {hn:signed}}{{a}}$ and ${fy} t = \dfrac{y {kn:signed}}{{b}}$. Square both and add;
+    since $\cos^2 t + \sin^2 t = 1$,
+    $$\dfrac{(x {hn:signed})^2}{{A2}} + \dfrac{(y {kn:signed})^2}{{B2}} = 1.$$
+    So $h =$ **{h}**, $k =$ **{k}**, $A =$ **{A2}** and $B =$ **{B2}**: an ellipse centered at $({h}, {k})$ reaching {a} units
+    left and right and {b} units up and down from the center.
+  figure:
+    type: plot
+    x: ['h - 7', 'h + 7']
+    y: ['k - 7', 'k + 7']
+    equal: true
+    curves:
+      - {x: 'h + a*if(fx == 0, cos(t), sin(t))', y: 'k + b*if(fy == 0, cos(t), sin(t))', t: [0, 6.2832]}
+    points:
+      - {at: ['h', 'k'], label: 'center'}
+
+- id: trig-d-param-line
+  title: Parametrize a line segment
+  topic: Parametric equations
+  vars:
+    x1: {min: -6, max: 6}
+    y1: {min: -6, max: 6}
+    x2: {min: -6, max: 6}
+    y2: {min: -6, max: 6}
+    s: {choices: [{label: '\tfrac14', value: 0.25}, {label: '\tfrac12', value: 0.5}, {label: '\tfrac34', value: 0.75}]}
+  where: ["x1 != 0", "y1 != 0", "dx != 0", "dy != 0"]
+  calc:
+    dx: x2 - x1
+    dy: y2 - y1
+    px: x1 + dx * s
+    py: y1 + dy * s
+  prompt: 'Parametrize the segment from $P({x1}, {y1})$ to $Q({x2}, {y2})$ so that $t = 0$ gives $P$ and $t = 1$ gives $Q$. Then find the point where $t = {s}$ (fractions or decimals).'
+  answers:
+    - {kind: expression, expression: 'x1 + dx*t', variables: [t], show: '${x1} {dx:signedcoef}t$', label: '$x(t) =$'}
+    - {kind: expression, expression: 'y1 + dy*t', variables: [t], show: '${y1} {dy:signedcoef}t$', label: '$y(t) =$'}
+    - {name: px, label: '$x$ at $t = {s}$', tolerance: 0.001}
+    - {name: py, label: '$y$ at $t = {s}$', tolerance: 0.001}
+  solution: |-
+    The direction is $\overrightarrow{PQ} = \langle {x2} - ({x1}),\ {y2} - ({y1})\rangle = \langle {dx}, {dy}\rangle$. Start at $P$ and add $t$ copies:
+    **$x = {x1} {dx:signedcoef}t$**, **$y = {y1} {dy:signedcoef}t$**, $0 \le t \le 1$.
+    At $t = {s}$: $x = {x1} + ({dx})\left({s}\right) =$ **{px}** and $y = {y1} + ({dy})\left({s}\right) =$ **{py}**.
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    equal: true
+    segments:
+      - {from: ['x1', 'y1'], to: ['x2', 'y2'], arrow: true}
+    points:
+      - {at: ['x1', 'y1'], label: 'P (t = 0)'}
+      - {at: ['x2', 'y2'], label: 'Q (t = 1)'}
+
+- id: trig-d-projectile
+  title: Projectile motion with parametric equations
+  topic: Parametric equations
+  vars:
+    v: {min: 12, max: 40}
+    th: {min: 20, max: 70, step: 5}
+    h: {min: 1, max: 25}
+  calc:
+    vx: v * cosd(th)
+    vy: v * sind(th)
+    T: (vy + sqrt(vy^2 + 19.6 * h)) / 9.8
+    R: vx * T
+    tp: vy / 9.8
+    H: h + vy^2 / 19.6
+  prompt: 'A ball is launched from {h} m above level ground at {v} m/s, ${th}^\circ$ above the horizontal. Use $g = 9.8$ m/s² and ignore air resistance. Find the time until it lands (2 decimals), how far away it lands horizontally (1 decimal), and its maximum height (1 decimal).'
+  answers:
+    - {name: T, label: 'Time in the air', tolerance: 0.011, format: num2, units: {'s': 1}}
+    - {name: R, label: 'Horizontal distance', tolerance: 0.3, format: num1, units: {'m': 1}}
+    - {name: H, label: 'Maximum height', tolerance: 0.1, format: num1, units: {'m': 1}}
+  solution: |-
+    $x = ({v}\cos {th}^\circ)t \approx {vx:dp3}\,t$ and $y = {h} + ({v}\sin {th}^\circ)t - 4.9t^2 \approx {h} + {vy:dp3}\,t - 4.9t^2$.
+    It lands when $y = 0$: $t = \dfrac{{vy:dp3} + \sqrt{{vy:dp3}^2 + 4(4.9)({h})}}{9.8} \approx$ **{T:num2} s** (the other root is negative).
+    Then $x \approx {vx:dp3}({T:dp3}) \approx$ **{R:num1} m**. The top is where the vertical velocity ${vy:dp3} - 9.8t$ is zero, at
+    $t \approx {tp:dp3}$ s, where $y = {h} + \dfrac{{vy:dp3}^2}{19.6} \approx$ **{H:num1} m**.
+  figure:
+    type: plot
+    x: [0, 'R * 1.08']
+    y: [0, 'H * 1.2']
+    xLabel: 'x (m)'
+    yLabel: 'y (m)'
+    curves:
+      - {x: 'vx*t', y: 'h + vy*t - 4.9*t^2', t: [0, 'T']}
+    points:
+      - {at: ['vx*tp', 'H'], label: 'top'}
+      - {at: ['R', 0], label: 'lands'}
+
 - id: trig-d-complex-trig
   title: Trigonometric form of a complex number
   topic: Trigonometric form of complex numbers

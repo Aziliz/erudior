@@ -117,6 +117,10 @@ Graphing calculators and software have a polar mode in which you enter $r$ as a 
 $\theta$ and choose a $\theta$-range. Use $0 \le \theta \le 2\pi$ for most curves, and remember that some (odd
 roses, for instance) are complete after $\theta = \pi$.
 
+The same software usually has a parametric mode as well, where you enter $x$ and $y$ separately as
+functions of a parameter. A polar curve $r = f(\theta)$ is the parametric curve $x = f(\theta)\cos\theta$, $y = f(\theta)\sin\theta$,
+and the next lesson takes up parametric equations in their own right.
+
 ## Common mistakes
 
 - **Counting rose petals wrong.** Odd $n$: $n$ petals. Even $n$: $2n$ petals. $r = \cos 2\theta$ has 4, not 2.

@@ -83,6 +83,32 @@
     ($\sqrt{1 + x^2}$ or $\sqrt{1 - x^2}$), and read off the outer function: ${k} =$ **${ans}$**. The inverse's
     range keeps $\theta$ in a quadrant where this expression has the right sign.
 
+- id: trig-d-inverse-equation
+  title: Equations containing an inverse trig function
+  topic: Inverse compositions
+  vars:
+    fi: {choices: [{label: '\sin^{-1}', value: 0}, {label: '\cos^{-1}', value: 1}, {label: '\tan^{-1}', value: 2}]}
+    fo: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}, {label: '\tan', value: 2}]}
+    pa: {choices: [{label: '\cos^{-1}', value: 0}, {label: '\sin^{-1}', value: 1}, {label: '\cot^{-1}', value: 2}]}
+    a: {min: 2, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+  where: ["fi == fo", "fi == pa", "b != 0", "num != 0", "gcd(abs(num), a) == 1", "fi != 0 or abs(th) <= 1.5", "fi != 1 or (th > 0 and th < 3.1)", "fi != 2 or abs(th) <= 1.5"]
+  calc:
+    num: c - b
+    th: num / a
+    x: if(fi == 0, sin(th), if(fi == 1, cos(th), tan(th)))
+    other: pi / 2 - th
+  prompt: 'Solve ${a}\,{fi}(x) {b:signed} = {c}$ for $x$ (4 decimals; angles are in radians). Then use the complementary-angle identity to find ${pa}(x)$ for the same $x$.'
+  answers:
+    - {name: x, label: '$x$', tolerance: 0.0002, format: num4}
+    - {name: other, label: '${pa}(x)$', tolerance: 0.0002, format: num4}
+  solution: |-
+    Isolate the inverse function: ${fi}(x) = \dfrac{{c} - ({b})}{{a}} = {th:texfrac} \approx {th:num4}$. That angle is in the range of
+    ${fi}$, so the equation has a solution. Apply ${fo}$ to both sides: $x = {fo}\left({th:texfrac}\right) \approx$ **{x:num4}**.
+    Since $\sin^{-1}x + \cos^{-1}x = \tfrac{\pi}{2}$ (and $\cot^{-1}x = \tfrac{\pi}{2} - \tan^{-1}x$),
+    ${pa}(x) = \tfrac{\pi}{2} - \left({th:texfrac}\right) \approx$ **{other:num4}**.
+
 - id: trig-d-basic-eq
   title: Solve a basic trig equation (degrees)
   topic: Trig equations

@@ -102,7 +102,7 @@ they form a square.
 
 Find both square roots of $-2 + 2\sqrt3\,i$.
 
-From Lesson 37, $-2 + 2\sqrt3\,i = 4\operatorname{cis}120^\circ$. The square roots have modulus $\sqrt4 = 2$ and
+From Lesson 38, $-2 + 2\sqrt3\,i = 4\operatorname{cis}120^\circ$. The square roots have modulus $\sqrt4 = 2$ and
 arguments $\tfrac{120^\circ + 360^\circ k}{2} = 60^\circ + 180^\circ k$:
 $$w_0 = 2\operatorname{cis}60^\circ = 1 + \sqrt3\,i, \qquad w_1 = 2\operatorname{cis}240^\circ = -1 - \sqrt3\,i.$$
 Check: $(1 + \sqrt3\,i)^2 = 1 + 2\sqrt3\,i + 3i^2 = -2 + 2\sqrt3\,i$. ✓ The two square roots are negatives of each

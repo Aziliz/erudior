@@ -4,11 +4,11 @@ description: >-
   Trigonometry from the first angle through a full college course: degrees and radians,
   arc length and angular speed, right-triangle trig, the unit circle, graphs of all six
   functions and sinusoidal models, inverse functions, identities and equations, the laws
-  of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric
+  of sines and cosines, vectors, polar coordinates, parametric equations, and complex numbers in trigonometric
   form with De Moivre's theorem.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections.
+changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, added a few short sections, and added a lesson on parametric equations.
 order: 5
 subject: Math
 level: [High school, College]
@@ -31,4 +31,4 @@ modules:
   - id: trig-m8
     title: Vectors in the plane
   - id: trig-m9
-    title: Polar coordinates and complex numbers
+    title: Polar coordinates, parametric equations and complex numbers

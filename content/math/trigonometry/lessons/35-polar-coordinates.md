@@ -116,7 +116,7 @@ form, and that's fine: choose whichever system makes the problem easier.
 ## Why polar coordinates are useful
 
 Anything with rotational symmetry is simpler in polar form: circles centered at the
-origin, radar sweeps, planetary orbits, antenna radiation patterns. Lesson 37 applies the
+origin, radar sweeps, planetary orbits, antenna radiation patterns. Lesson 38 applies the
 same idea to complex numbers.
 
 ## Common mistakes

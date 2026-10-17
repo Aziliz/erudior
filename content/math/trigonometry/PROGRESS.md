@@ -193,3 +193,35 @@ References: all three sheets checked; no errors.
 
 ## Outside my scope
 - The checker reports that trig-d-simplify (drills/m6.yaml) can't generate: "no inputs met where". This is probably the m6 reviewer's work in progress.
+
+## Gap lessons (2026-10-17)
+
+Closes the VERIFY.md coverage gap "parametric equations" and makes the lesson 19 source-check section quizzable.
+
+New lesson
+- `trig-parametric`, "Parametric equations", `lessons/37-parametric-equations.md`, module trig-m9 (after polar graphs, before complex numbers). About 1,150 words of prose (1,700 with math), 5 worked examples, 4 plots. Covers graphing from a table and orientation, eliminating the parameter (substitution and the Pythagorean identity, with carried-over restrictions), parametrizing graphs, segments, circles and ellipses, and projectile motion (time of flight, maximum height, height at a given distance, link to the range formula in lesson 24). Refs: trig-ref-triangles.
+- Renumbered files only (ids unchanged): 37-complex-trig-form.md -> 38-complex-trig-form.md, 38-de-moivre-and-roots.md -> 39-de-moivre-and-roots.md.
+- Cross-references updated: "Lesson 37" -> "Lesson 38" in lessons 23, 35 and 39; lesson 36 now ends its technology section by pointing to the next lesson (and notes that a polar curve is the parametric curve $x = f(\theta)\cos\theta$, $y = f(\theta)\sin\theta$).
+- course.yaml: module trig-m9 retitled "Polar coordinates, parametric equations and complex numbers"; description and changelog mention the new lesson. id, revision, released, order, subject, level and type are unchanged.
+
+New questions (17)
+- trig-parametric: trig-q-param-01 to trig-q-param-12 (module quiz: param-02, -05, -06, -09). These ids don't use the `trig-q-LLNN` pattern, because 37xx already belongs to the complex-numbers lesson.
+- trig-inverse-comp (equations that contain an inverse function; $\sin^{-1}x + \cos^{-1}x = \tfrac{\pi}{2}$): trig-q-1913 to trig-q-1917 (module quiz: 1913, 1915).
+- Correct-answer positions in the new questions: 0:4, 1:4, 2:5, 3:4. Course total: 111/112/113/111.
+
+New drills (4)
+- trig-d-param-eliminate: ellipse $x = h + a\cos t$, $y = k + b\sin t$ (or with sin and cos swapped). Find $h, k, A = a^2, B = b^2$.
+- trig-d-param-line: parametrize a segment (two expression answers in $t$), then give the point at $t = \tfrac14, \tfrac12, \tfrac34$.
+- trig-d-projectile: time of flight, horizontal distance and maximum height, with $g = 9.8$, launch height 1 to 25 m.
+- trig-d-inverse-equation (linked from lesson 19): solve $a\,f^{-1}(x) + b = c$, then find the complementary inverse ($\cos^{-1}$, $\sin^{-1}$ or $\cot^{-1}$) as $\tfrac{\pi}{2} - f^{-1}(x)$.
+
+Also: 8 glossary terms (parametric equations, parameter, plane curve, orientation, eliminating the parameter, parametrization, projectile motion, time of flight); 10 cards (8 parametric, 2 inverse equations); a "Parametric equations" table in trig-ref-triangles (title now "Triangles, vectors, polar, parametric and complex"); one line on $\sin^{-1}x + \cos^{-1}x$ and inverse equations under "Inverse functions" in trig-ref-unit-circle.
+
+Verification
+- Every new question was solved independently in Python before its key was fixed. Exactly one choice is correct, and each distractor's mistake is named in the explanation.
+- Each new drill was generated 600 times (tsx with generate/checkAll on the normalized built JSON). The prompt was parsed back and checked against an independent calculation. The displayed answers are accepted when typed. Plausible wrong answers are rejected. For the projectile drill, answers computed from rounded intermediates (t to 2 dp, $v_0\sin\theta$ to 2 dp) are accepted; this is why its tolerances are 0.3 m (distance) and 0.1 m (height).
+- `build.py trigonometry`: 39 lessons, 447 questions, 92 drills, 216 cards, 176 terms. `check-course.mts`: OK.
+
+For a reviewer
+- The trig-d-inverse-equation drill's $\cot^{-1}$ partner relies on the course's $(0, \pi)$ convention ($\cot^{-1}x = \tfrac{\pi}{2} - \tan^{-1}x$).
+- Projectile motion uses $g = 9.8$ m/s² throughout; the lesson mentions $16t^2$ for feet, but no question or drill uses feet.

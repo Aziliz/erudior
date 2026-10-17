@@ -4,7 +4,7 @@ module: trig-m5
 title: Compositions and other inverse functions
 minutes: 35
 topics: [Inverse compositions]
-drills: [trig-d-inverse-comp, trig-d-inv-comp-algebra]
+drills: [trig-d-inverse-comp, trig-d-inv-comp-algebra, trig-d-inverse-equation]
 refs: [trig-ref-unit-circle]
 ---
 ## Undoing, and when it fails

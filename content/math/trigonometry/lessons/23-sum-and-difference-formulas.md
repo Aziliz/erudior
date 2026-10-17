@@ -130,7 +130,7 @@ The sum of the two waves has amplitude 2, more than either piece but less than $
 The sum and difference formulas are the source of almost every identity in the rest of this
 module: double-angle formulas set $\beta = \alpha$, half-angle formulas come from those, and
 product-to-sum formulas come from adding two sum formulas. In physics they describe how two
-waves combine. In Lesson 37 they explain why multiplying complex numbers adds their
+waves combine. In Lesson 38 they explain why multiplying complex numbers adds their
 angles. If you remember only one group of identities beyond the Pythagorean ones, make it this
 one, because the others can be rebuilt from it in a few lines.
 

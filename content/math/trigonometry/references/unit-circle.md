@@ -95,3 +95,5 @@ title: Angles and the unit circle
 | $\sin^{-1} x$ | $[-1, 1]$ | $[-\tfrac{\pi}{2}, \tfrac{\pi}{2}]$ |
 | $\cos^{-1} x$ | $[-1, 1]$ | $[0, \pi]$ |
 | $\tan^{-1} x$ | all reals | $(-\tfrac{\pi}{2}, \tfrac{\pi}{2})$ |
+
+For $-1 \le x \le 1$: $\sin^{-1}x + \cos^{-1}x = \tfrac{\pi}{2}$. To solve an equation containing an inverse function, isolate it, check the angle is in its range, then apply the function to both sides.

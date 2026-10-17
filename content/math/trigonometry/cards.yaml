@@ -130,6 +130,8 @@
 - {front: '$\sin(\tan^{-1}x)$', back: '$\dfrac{x}{\sqrt{1 + x^2}}$', topic: Inverse compositions}
 - {front: 'Evaluating trig(inverse trig$(a)$)', back: 'Name the angle, place it using the inverse''s range, draw a reference triangle, read off the outer function with the sign.', topic: Inverse compositions}
 - {front: '$\sec^{-1}x$, $\csc^{-1}x$, $\cot^{-1}x$', back: '$\cos^{-1}\tfrac1x$, $\sin^{-1}\tfrac1x$, $\tfrac{\pi}{2} - \tan^{-1}x$', topic: Inverse compositions}
+- {front: '$\sin^{-1}x + \cos^{-1}x$', back: '$\tfrac{\pi}{2}$ for every $x$ in $[-1, 1]$: the two angles are complementary.', topic: Inverse compositions}
+- {front: 'Solving an equation such as $a\sin^{-1}x + b = c$', back: 'Isolate the inverse, check the angle is in its range (if not, no solution), then apply the function: $x = \sin\tfrac{c - b}{a}$.', topic: Inverse compositions}
 # Equations
 - {front: 'General solution of $\sin x = c$', back: '$x = \sin^{-1}c + 2k\pi$ or $x = \pi - \sin^{-1}c + 2k\pi$', topic: Trig equations}
 - {front: 'General solution of $\cos x = c$', back: '$x = \pm\cos^{-1}c + 2k\pi$', topic: Trig equations}
@@ -213,6 +215,15 @@
 - {front: 'Limaçon $r = a + b\cos\theta$ shapes', back: '$a < b$: inner loop. $a = b$: cardioid. $b < a < 2b$: dimpled. $a \ge 2b$: convex.', topic: Polar graphs}
 - {front: 'Lemniscate', back: '$r^2 = a^2\cos 2\theta$ or $r^2 = a^2\sin 2\theta$: a figure eight through the pole', topic: Polar graphs}
 - {front: 'Polar symmetry tests', back: '$\theta \to -\theta$: polar axis. $\theta \to \pi - \theta$: line $\theta = \tfrac{\pi}{2}$. $r \to -r$: pole.', topic: Polar graphs}
+# Parametric equations
+- {front: 'Parametric equations', back: '$x = f(t)$, $y = g(t)$ for $t$ in an interval: a curve plus its direction of travel (orientation)', topic: Parametric equations}
+- {front: 'Two ways to eliminate the parameter', back: 'Solve one equation for $t$ and substitute, or isolate $\cos t$ and $\sin t$ and use $\cos^2 t + \sin^2 t = 1$. Keep any restriction on $x$ or $y$.', topic: Parametric equations}
+- {front: 'Parametrize the segment from $P(x_1, y_1)$ to $Q(x_2, y_2)$', back: '$x = x_1 + (x_2 - x_1)t$, $y = y_1 + (y_2 - y_1)t$, $0 \le t \le 1$', topic: Parametric equations}
+- {front: 'Parametrize the circle with center $(h, k)$, radius $r$', back: '$x = h + r\cos t$, $y = k + r\sin t$, $0 \le t \le 2\pi$: counterclockwise from $(h + r, k)$', topic: Parametric equations}
+- {front: 'Parametrize the ellipse $\tfrac{(x - h)^2}{a^2} + \tfrac{(y - k)^2}{b^2} = 1$', back: '$x = h + a\cos t$, $y = k + b\sin t$, $0 \le t \le 2\pi$', topic: Parametric equations}
+- {front: 'Projectile motion (launch height $h$, speed $v_0$, angle $\theta$)', back: '$x = (v_0\cos\theta)t$, $y = h + (v_0\sin\theta)t - \tfrac12 gt^2$; $g \approx 9.8$ m/s² ($16t^2$ in feet)', topic: Parametric equations}
+- {front: 'Projectile: time to the top and maximum height', back: '$t = \tfrac{v_0\sin\theta}{g}$; height $h + \tfrac{(v_0\sin\theta)^2}{2g}$', topic: Parametric equations}
+- {front: '$x = \sin t$, $y = \cos 2t$', back: 'Only the arc of $y = 1 - 2x^2$ with $-1 \le x \le 1$, traced back and forth', topic: Parametric equations}
 # Complex numbers
 - {front: 'Modulus of $a + bi$', back: '$\sqrt{a^2 + b^2}$', topic: Trigonometric form of complex numbers}
 - {front: 'Trigonometric form', back: '$z = r(\cos\theta + i\sin\theta) = r\operatorname{cis}\theta$', topic: Trigonometric form of complex numbers}

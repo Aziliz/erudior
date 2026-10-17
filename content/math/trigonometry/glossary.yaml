@@ -579,3 +579,33 @@
 - term: triangle inequality
   definition: 'In any triangle each side is shorter than the sum of the other two; also $\lVert\mathbf{u} + \mathbf{v}\rVert \le \lVert\mathbf{u}\rVert + \lVert\mathbf{v}\rVert$ for vectors.'
   topic: Law of cosines
+- term: parametric equations
+  aliases: [parametric equation, parametric form]
+  definition: 'A pair of equations $x = f(t)$, $y = g(t)$ that give both coordinates of a point in terms of a third variable, the parameter.'
+  topic: Parametric equations
+- term: parameter
+  aliases: [parameters]
+  definition: 'The independent variable (often $t$, for time) in parametric equations; each value of it gives one point $(f(t), g(t))$.'
+  topic: Parametric equations
+- term: plane curve
+  aliases: [plane curves, parametric curve, parametric curves]
+  definition: 'The set of points $(f(t), g(t))$ traced as the parameter $t$ runs through an interval.'
+  topic: Parametric equations
+- term: orientation
+  definition: 'The direction in which a parametric curve is traced as the parameter increases, shown with arrows on a graph.'
+  topic: Parametric equations
+- term: eliminating the parameter
+  aliases: [eliminate the parameter, elimination of the parameter]
+  definition: 'Removing $t$ from parametric equations to get an equation in $x$ and $y$, by solving for $t$ and substituting or by an identity such as $\cos^2 t + \sin^2 t = 1$. Restrictions on $x$ and $y$ must be carried over, and the orientation is lost.'
+  topic: Parametric equations
+- term: parametrization
+  aliases: [parametrizations, parameterization, parametrize]
+  definition: 'A set of parametric equations that traces a given curve; a curve has many, differing in start, direction and speed. Example: $x = h + r\cos t$, $y = k + r\sin t$ for a circle.'
+  topic: Parametric equations
+- term: projectile motion
+  aliases: [projectile]
+  definition: 'Motion under gravity alone after launch: $x = (v_0\cos\theta)t$, $y = h + (v_0\sin\theta)t - \tfrac12 gt^2$, with $g \approx 9.8$ m/s² or 32 ft/s².'
+  topic: Parametric equations
+- term: time of flight
+  definition: 'How long a projectile is in the air: the positive solution of $y(t) = 0$; on level ground, $\tfrac{2v_0\sin\theta}{g}$.'
+  topic: Parametric equations
