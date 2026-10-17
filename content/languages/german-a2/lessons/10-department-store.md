@@ -34,7 +34,7 @@ A *Kaufhaus* is a big shop with many *Abteilungen* (departments) on several floo
 
 *günstig* is the polite, positive way to say something is cheap; *billig* (A1) can sound like "cheap and nasty". *Die Jacke ist sehr günstig* is a compliment; *Die Jacke sieht billig aus* is not.
 
-At the till you'll hear *Brauchen Sie eine Tüte?* (Do you need a bag?). Bags usually cost a few cents, so many people bring their own.
+At the till you'll hear *Brauchen Sie eine Tüte?* (Do you need a bag?). Bags cost extra, so many people bring their own.
 
 ## Materials: aus + dative
 
@@ -55,7 +55,7 @@ To say what something is made of, use *aus* (from, out of) and the material with
 
 ## The endings after der-words
 
-*der, die, das* and the words that take the same endings — *dieser, jeder, welcher* and, in the plural, *alle* — are called **der-words**. They show gender and case very clearly: *dieser* can only be masculine nominative, *diesem* only masculine or neuter dative. Because the article always gives the signal, the adjective never needs to: it takes only *-e* or *-en*.
+*der, die, das* and the words that take the same endings — *dieser, jeder, welcher* and, in the plural, *alle* — are called **der-words**. They show gender and case very clearly: in *dieser Rock* the article can only be masculine nominative, and *diesem* can only be masculine or neuter dative. Because the article always gives the signal, the adjective never needs to: it takes only *-e* or *-en*.
 
 | | masculine | feminine | neuter | plural |
 |---|---|---|---|---|

@@ -55,7 +55,7 @@ Stems ending in *-t* or *-d* add an *e* so you can pronounce them: *heiraten →
 
 ## Inseparable prefixes: no ge-
 
-Some prefixes are glued to their verb for good. They are never stressed, they never split off, and the participle gets no *ge-*. There are seven of them, and a short list is easy to learn:
+Some prefixes are glued to their verb for good. They are never stressed, they never split off, and the participle gets no *ge-*. There are only a few, and these seven are the ones you need:
 
 | **inseparable prefix** | infinitive | participle | meaning |
 |---|---|---|---|
@@ -76,7 +76,7 @@ Notice what happens: you build the participle exactly as for the verb without th
 
 ### Separable or inseparable?
 
-Listen for the stress. Separable prefixes are stressed: AUF-wachsen, UM-ziehen. Inseparable ones never are: be-KOM-men, ver-LAS-sen. A few verbs look like they have a prefix but don't: in *heiraten* the *-raten* is not a verb, so it is simply weak with ge-: *geheiratet*.
+Listen for the stress. Separable prefixes are stressed: AUF-wachsen, UM-ziehen. Inseparable ones never are: be-KOM-men, ver-LAS-sen. A few verbs only look as if they have a prefix: *heiraten* is not *he-* + *raten*; it's one simple weak verb, so it takes ge-: *geheiratet*.
 
 Be careful with *gefallen* and *gehören*: the *ge-* at the start is part of the verb, and you don't add another one. *Das Buch hat mir gefallen* (I liked the book), never *gegefallen*.
 
@@ -214,7 +214,7 @@ Look at the participles: *aufgewachsen* and *gekommen* take *sein*; *bekommen, v
 ## Key points
 
 - Perfect = *haben* or *sein* in position 2 + participle at the end. Change-of-state verbs like *aufwachsen*, *sterben* and *werden* take *sein*.
-- The inseparable prefixes are be-, emp-, ent-, er-, ge-, ver-, zer-. They are unstressed and the participle has no *ge-*: *bekommen, entschieden, erlebt, verlassen*.
+- The main inseparable prefixes are be-, emp-, ent-, er-, ge-, ver-, zer-. They are unstressed and the participle has no *ge-*: *bekommen, entschieden, erlebt, verlassen*.
 - Verbs in *-ieren* take no *ge-*: *studiert, passiert*.
 - Mixed verbs change their vowel and end in *-t*: *gebracht, gedacht, gekannt, gewusst, genannt, gerannt*.
 - A year stands alone or with *im Jahr*: *2010* / *im Jahr 2010*, never *in 2010*. *mit 18* = at 18. *Ich bin 1990 geboren.*

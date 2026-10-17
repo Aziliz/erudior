@@ -499,7 +499,7 @@
   lesson: de2-weil-dass
   term: wahr
   pos: adjective
-  meanings: [true]
+  meanings: ['true']
   example: Ist das wirklich wahr?
   exampleEn: Is that really true?
 - id: die-wahrheit
@@ -524,8 +524,8 @@
   pos: noun
   plural: die Nachteile
   meanings: [disadvantage, drawback, con]
-  example: Der Nachteil ist, dass sie sehr laut ist.
-  exampleEn: The disadvantage is that it's very noisy.
+  example: Der Nachteil ist, dass die Wohnung sehr laut ist.
+  exampleEn: The disadvantage is that the flat is very noisy.
 - id: egal
   lesson: de2-weil-dass
   term: egal
@@ -710,7 +710,7 @@
   pos: noun
   plural: die Möglichkeiten
   meanings: [possibility, opportunity, option, chance]
-  example: Es gibt zwei Möglichkeiten, den Bus oder ein Taxi.
+  example: 'Es gibt zwei Möglichkeiten: den Bus oder ein Taxi.'
   exampleEn: There are two options, the bus or a taxi.
 - id: moeglich
   lesson: de2-wenn-als-ob

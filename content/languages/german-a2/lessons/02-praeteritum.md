@@ -7,7 +7,7 @@ topics: [Simple past, Modal verbs, Childhood and school]
 ---
 ## What this lesson is for
 
-In lesson 1 you told your life story in the perfect. But some verbs sound clumsy in the perfect, and Germans avoid it with them. You already know two: nobody says *Ich bin müde gewesen*; they say *Ich war müde*. At A1 you learned *war* and *hatte*, the **simple past** of *sein* and *haben*.
+In lesson 1 you told your life story in the perfect. But some verbs sound clumsy in the perfect, and Germans avoid it with them. You already know two: Germans rarely say *Ich bin müde gewesen*; they say *Ich war müde*. At A1 you learned *war* and *hatte*, the **simple past** of *sein* and *haben*.
 
 This lesson adds the rest of the simple past you need at A2. You'll learn to *use* it for the modal verbs, because *konnte, musste, durfte* are what Germans actually say when they talk about what they could, had to or were allowed to do as children. You'll learn to *recognise* the simple past of other common verbs, because you'll meet them in every story, article and fairy tale you read. And you'll find out when Germans choose which past tense.
 
@@ -147,7 +147,7 @@ The noun is *die Erinnerung* (memory): *Ich habe schöne Erinnerungen an meine K
 
 ## School in Germany
 
-Children usually go to *der Kindergarten* from age three, and to *die Grundschule* (primary school) at six. A school year is divided into *Klassen*: *Ich war in der dritten Klasse* (I was in third grade). *Die Klasse* also means the group of children. A school subject is *das Fach*, and at the end of each half-year children get a report, *das Zeugnis*, with *Noten* (grades) from 1 (sehr gut) to 6 (ungenügend). In Germany a 1 is the best grade, not the worst! Between lessons there's *die Pause*, and children play outside on *der Schulhof* (the schoolyard).
+Children usually go to *der Kindergarten* from age three, and to *die Grundschule* (primary school) at six. School years are counted in *Klassen*: *Ich war in der dritten Klasse* (I was in third grade, in year 3). *Die Klasse* also means the group of children. A school subject is *das Fach*, and at the end of each half-year children get a report, *das Zeugnis*, with *Noten* (grades) from 1 (sehr gut) to 6 (ungenügend). In Germany a 1 is the best grade, not the worst! Between lessons there's *die Pause*, and children play outside on *der Schulhof* (the schoolyard).
 
 ## Allowed and forbidden
 

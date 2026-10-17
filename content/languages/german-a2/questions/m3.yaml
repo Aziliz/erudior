@@ -159,7 +159,7 @@
   module_quiz: true
   topic: Shopping
   stem: 'How do you say "a bag made of leather"?'
-  choices: ['eine Tasche von Leder', 'eine Tasche aus Leder', 'eine Tasche mit Leder', 'eine Tasche in Leder']
+  choices: ['eine Tasche von Leder', 'eine Tasche aus Leder', 'eine Tasche mit Leder', 'eine Tasche für Leder']
   answer: 1
   explanation: |-
     German uses aus + the material, with no article: aus Leder, aus Holz, aus Baumwolle. "von Leder" is a literal translation of English "of" and sounds wrong.
@@ -320,11 +320,11 @@
   lesson: de2-comparison
   module_quiz: true
   topic: Comparison
-  stem: 'Complete: "Der See ist so tief ___ das Meer."'
+  stem: 'Complete: "Mein Bruder ist so groß ___ ich."'
   choices: ['als', 'dass', 'wie', 'von']
   answer: 2
   explanation: |-
-    so + adjective + wie means "as … as": so tief wie (as deep as). als goes with a comparative: tiefer als.
+    so + adjective + wie means "as … as": so groß wie (as tall as). als goes with a comparative: größer als.
 - id: de2-q-1203
   lesson: de2-comparison
   module_quiz: true
@@ -403,7 +403,7 @@
   lesson: de2-comparison
   topic: Comparison
   stem: 'Which sentence has a mistake?'
-  choices: ['Berlin hat mehr Einwohner als Hamburg.', 'Mein Bruder ist älter als ich.', 'Das Tal ist nicht so breit wie der Fluss.', 'Der Wald ist mehr schön als der Park.']
+  choices: ['Berlin hat mehr Einwohner als Hamburg.', 'Mein Bruder ist älter als ich.', 'Das Dorf ist nicht so laut wie die Stadt.', 'Der Wald ist mehr schön als der Park.']
   answer: 3
   explanation: |-
     German always forms the comparative with -er, even for longer adjectives: schöner, not "mehr schön". mehr is only the comparative of viel: mehr Einwohner.

@@ -122,7 +122,7 @@ To choose an ending, ask three questions: What gender is the noun (or is it plur
 ## Small spelling changes
 
 - Adjectives ending in *-el* drop the *e* before an ending: *dunkel* → *eine dunkle Hose*.
-- Adjectives ending in *-er* after a vowel usually drop it too: *teuer* → *ein teures Hemd*.
+- Adjectives ending in *-er* after *au* or *eu* drop that *e* too: *teuer* → *ein teures Hemd*.
 - Two or more adjectives take the same ending: *ein langer, warmer Mantel*.
 - A few colours borrowed from other languages, like *lila* (purple) and *rosa* (pink), take no ending at all in standard German: *ein rosa Hemd*.
 

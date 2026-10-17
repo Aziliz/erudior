@@ -29,7 +29,7 @@ This lesson teaches that third and last table, shows how *viele, einige* and *ei
 | der Zucker | sugar |
 | das Öl | oil |
 
-The verbs of cooking are mostly regular, but three change their vowel or their perfect:
+The verbs of cooking are mostly regular, but *braten*, *backen* and *schneiden* change their vowel or have an irregular perfect:
 
 | | present (du / er) | perfect |
 |---|---|---|
@@ -103,7 +103,7 @@ German recipes use the polite imperative (*Schneiden Sie …*) or, more often, j
 >
 > Etwas Öl in einer schweren Pfanne heiß machen. Eine kleine Kelle Teig in die Pfanne geben und den Pfannkuchen auf beiden Seiten goldbraun braten.
 >
-> Mit frischem Obst oder mit Zucker und Zimt servieren. Mein Opa isst sie lieber salzig, mit gebratenem Speck. Probieren Sie beides!
+> Mit frischem Obst oder mit Zucker und Zimt servieren. Mein Opa isst sie lieber herzhaft, mit gebratenem Speck. Probieren Sie beides!
 
 In English:
 
@@ -117,7 +117,7 @@ In English:
 >
 > Serve with fresh fruit or with sugar and cinnamon. My grandad prefers them savoury, with fried bacon. Try both!
 
-Find the no-article endings: *frische Eier* (plural), *kalte Milch* (feminine), *mit frischem Obst* and *mit gebratenem Speck* (dative, *-em*). Compare *in einer schweren Pfanne* (lesson 9) and *eine große Schüssel*. *ein halber Liter* shows that *halb* is an adjective too. (*das Mehl* = flour, *die Schüssel* = bowl, *der Teig* = batter, dough, *die Kelle* = ladle, *der Zimt* = cinnamon, *der Speck* = bacon, *eine Prise* = a pinch.)
+Find the no-article endings: *frische Eier* (plural), *kalte Milch* (feminine), *mit frischem Obst* and *mit gebratenem Speck* (dative, *-em*). Compare *in einer schweren Pfanne* (lesson 9) and *eine große Schüssel*. *ein halber Liter* shows that *halb* is an adjective too. (*das Mehl* = flour, *die Schüssel* = bowl, *der Teig* = batter, dough, *die Kelle* = ladle, *der Zimt* = cinnamon, *der Speck* = bacon, *eine Prise* = a pinch, *herzhaft* = savoury, not sweet.)
 
 ## In a restaurant
 

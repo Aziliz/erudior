@@ -402,8 +402,8 @@
 - id: de2-q-0412
   lesson: de2-wenn-als-ob
   topic: Decisions and plans
-  stem: 'Which word fits? "Wir müssen unseren Plan ___, weil das Museum am Montag geschlossen ist."'
+  stem: 'Which word fits? "Das Museum ist am Montag geschlossen. Wir müssen unseren Plan ein bisschen ___: Wir gehen am Dienstag hin."'
   choices: ['wechseln', 'erreichen', 'ändern', 'aufgeben']
   answer: 2
   explanation: |-
-    ändern = to change something, to make it different. wechseln is for swapping one thing for another (die Stelle wechseln), erreichen means to reach, and aufgeben means to give up the plan completely.
+    ändern = to change something, to make it different. wechseln is for swapping one thing for another (die Stelle wechseln), erreichen means to reach, and aufgeben means to give up the plan completely, but here the plan only moves by a day.

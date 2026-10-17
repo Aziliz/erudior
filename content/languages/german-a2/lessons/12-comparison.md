@@ -73,7 +73,7 @@ Many common one-syllable adjectives with *a, o* or *u* add an **umlaut** in the 
 | warm | wärmer | am wärmsten |
 | kalt | kälter | am kältesten |
 | arm — poor | ärmer | am ärmsten |
-| oft | öfter | am häufigsten (also am öftesten) |
+| oft | öfter | am häufigsten (*am öftesten* is rare) |
 
 Not every short adjective does it: *flach → flacher*, *klar → klarer*, *voll → voller*. Adjectives with *au* never do (*laut → lauter*), and neither do longer ones (*sauber → sauberer*). If you aren't sure, the dictionary shows it, and the vocabulary notes in this course do too.
 
@@ -124,9 +124,9 @@ A few very common adjectives have irregular forms. You know the first from A1.
 ## als and wie
 
 - *als* follows a comparative: *größer als*, *mehr als*, *lieber als*.
-- *so … wie* means "as … as", with the plain adjective: *Der See ist so tief wie das Meer.* — The lake is as deep as the sea.
-- *genauso … wie* means "just as … as": *Die Luft ist hier genauso sauber wie in den Bergen.*
-- *nicht so … wie* means "not as … as": *Das Tal ist nicht so breit wie der Fluss.*
+- *so … wie* means "as … as", with the plain adjective: *Mein Bruder ist so groß wie ich.* — My brother is as tall as me.
+- *genauso … wie* means "just as … as": *Die Luft ist hier genauso sauber wie in den Bergen.* — The air here is just as clean as in the mountains.
+- *nicht so … wie* means "not as … as": *Unser Dorf ist nicht so laut wie die Stadt.* — Our village isn't as noisy as the town.
 
 A short way to remember: different → *als*; the same → *wie*.
 

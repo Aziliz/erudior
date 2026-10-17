@@ -57,7 +57,7 @@
   pos: noun
   plural: die Blusen
   meanings: [blouse]
-  example: Die gestreifte Bluse passt gut zu dem Rock.
+  example: Die gestreifte Bluse passt gut zum Rock.
   exampleEn: The striped blouse goes well with the skirt.
 - id: t-shirt
   lesson: de2-adj-indef
@@ -626,7 +626,7 @@
   lesson: de2-adj-no-article
   term: salzig
   pos: adjective
-  meanings: [salty, savoury]
+  meanings: [salty]
   example: Die Pommes sind viel zu salzig.
   exampleEn: The chips are far too salty.
 - id: scharf
@@ -798,7 +798,7 @@
   pos: noun
   plural: die Hügel
   meanings: [hill]
-  example: Von dem Hügel sieht man die ganze Stadt.
+  example: Vom Hügel sieht man die ganze Stadt.
   exampleEn: You can see the whole town from the hill.
 - id: tal
   lesson: de2-comparison

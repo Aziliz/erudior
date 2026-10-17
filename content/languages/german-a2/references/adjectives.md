@@ -94,7 +94,7 @@ take no ending. If the noun is understood, keep the ending and drop the noun: *W
 | kurz | kürzer | am kürzesten |
 | lang | länger | am längsten |
 | warm | wärmer | am wärmsten |
-| oft | öfter | am häufigsten |
+| oft | öfter | am häufigsten (*am öftesten* is rare) |
 
 No umlaut: *flach, klar, voll*, all adjectives with *au* (*laut, lauter*) and longer adjectives
 (*sauber, sauberer*).
@@ -116,8 +116,8 @@ No umlaut: *flach, klar, voll*, all adjectives with *au* (*laut, lauter*) and lo
 | Meaning | Pattern | Example |
 |---|---|---|
 | different | comparative + *als* | *Die Stadt ist lauter als das Dorf.* |
-| the same | *so* + adjective + *wie* | *Der See ist so tief wie das Meer.* |
+| the same | *so* + adjective + *wie* | *Mein Bruder ist so groß wie ich.* |
 | exactly the same | *genauso* + adjective + *wie* | *Hier ist es genauso schön wie dort.* |
-| not the same | *nicht so* + adjective + *wie* | *Das Tal ist nicht so breit wie der Fluss.* |
+| not the same | *nicht so* + adjective + *wie* | *Unser Dorf ist nicht so laut wie die Stadt.* |
 | growing | *immer* + comparative | *Die Stadt wird immer größer.* |
 | much more | *viel* + comparative | *Die Luft ist hier viel sauberer.* |
