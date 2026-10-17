@@ -77,6 +77,27 @@ export function dueCards(course: Course, p: Progress, now = today()): VocabCard[
   });
 }
 
+/** Most cards one review session holds; the rest wait for the next session. */
+export const REVIEW_CAP = 100;
+
+/**
+ * One review session: up to REVIEW_CAP due cards, in a shuffled order. Cards already in
+ * progress come first (lowest level, longest unseen), then cards not yet started, in course order.
+ */
+export function reviewBatch(course: Course, p: Progress, now = today(), cap = REVIEW_CAP): VocabCard[] {
+  const due = dueCards(course, p, now);
+  const rank = (c: VocabCard) => {
+    const st = p.vocab?.[c.key];
+    return st ? [0, st.stage, st.last ?? ""] : [1, 0, ""];
+  };
+  const order = due.map((c, i) => ({ c, i, r: rank(c) }));
+  order.sort((a, b) => {
+    for (let k = 0; k < 3; k++) if (a.r[k] !== b.r[k]) return a.r[k] < b.r[k] ? -1 : 1;
+    return a.i - b.i;
+  });
+  return shuffled(order.slice(0, cap).map((x) => x.c));
+}
+
 /**
  * Move vocabulary progress saved under the old per-course keys (`courseId/itemId/dir`) to the
  * per-language keys. Returns the same object when there's nothing to move.

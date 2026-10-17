@@ -43,7 +43,7 @@ export type View =
   | { name: "ref"; courseId: string; refId: string }
   | { name: "search"; q: string }
   | { name: "overview"; catalogId: string }
-  | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number };
+  | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number };
 
 export interface AppApi {
   banks: Bank[];

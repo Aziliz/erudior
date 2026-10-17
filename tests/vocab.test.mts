@@ -100,3 +100,15 @@ if (fails) process.exit(1);
 }
 console.log(fails ? `${fails} FAILURES` : "carry tests passed");
 if (fails) process.exit(1);
+
+{
+  const { reviewBatch, vocabKey } = await import("../src/lib/vocab.ts");
+  const many = Array.from({ length: 150 }, (_, i) => ({ id: `x${i}`, lesson: "l1", term: `x${i}`, meanings: [`x ${i}`] }));
+  const c = normalizeCourse({ id: "cap", title: "Cap", language: { code: "xx", name: "X" }, modules: [{ id: "m", title: "M" }], lessons: [{ id: "l1", module: "m", title: "L", body: "" }], vocab: many });
+  const p: any = { lessonsDone: { "cap/l1": "2026-01-01" }, vocab: { [vocabKey(c, "x149", "recall")]: { stage: 1, streak: 0, last: "2026-10-01" } } };
+  const b = reviewBatch(c, p, "2026-10-17");
+  ok("cap 100", b.length === 100, b.length);
+  ok("in-progress first", b.some((x) => x.key === vocabKey(c, "x149", "recall")));
+}
+console.log(fails ? `${fails} FAILURES` : "cap tests passed");
+if (fails) process.exit(1);

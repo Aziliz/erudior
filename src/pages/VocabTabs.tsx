@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import type { Course } from "../lib/types";
-import { CARRY_PER_DAY, directions, stageLabel, stateOf, STAGES, unlockedItems, vocabKey, vocabSummary } from "../lib/vocab";
+import { REVIEW_CAP, CARRY_PER_DAY, directions, stageLabel, stateOf, STAGES, unlockedItems, vocabKey, vocabSummary } from "../lib/vocab";
 import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
 
@@ -53,7 +53,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
             disabled={!s.due}
             onClick={() => api.go({ name: "vocab", courseId: course.id, mode: "review" })}
           >
-            {s.due ? `Review ${s.due} due` : "No reviews due"}
+            {s.due > REVIEW_CAP ? `Review ${REVIEW_CAP} of ${s.due} due` : s.due ? `Review ${s.due} due` : "No reviews due"}
           </button>
         </div>
       </section>
