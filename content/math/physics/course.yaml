@@ -7,7 +7,7 @@ description: >-
   rotation and gravitation, oscillations, waves and sound, fluids and thermodynamics,
   electrostatics, circuits, magnetism and induction, optics, and modern physics.
 revision: 1
-order: 12
+order: 13
 modules:
   - id: phys-m1
     title: Measurement and vectors
