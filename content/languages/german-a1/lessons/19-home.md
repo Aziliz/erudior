@@ -4,6 +4,7 @@ module: de1-m5
 title: 'At home: rooms, furniture and where things are'
 minutes: 40
 topics: [Two-way prepositions, Pronouns for things, Home]
+refs: [de1-ref-prepositions]
 ---
 ## What this lesson is for
 

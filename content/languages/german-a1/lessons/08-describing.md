@@ -4,6 +4,7 @@ module: de1-m2
 title: 'Describing things: adjectives and negation'
 minutes: 35
 topics: [Adjectives, Negation]
+refs: [de1-ref-articles]
 ---
 ## What this lesson is for
 
@@ -159,7 +160,7 @@ contradict it, answer *doch* instead of *ja*:
 To agree with a negative, use *nein*: *Ist das nicht dein Handy?* — *Nein, das ist nicht mein
 Handy.* *Doch* is a small word called a **particle**; you'll hear it constantly.
 
-## Dialogue: buying a used bike online
+## Dialogue: buying a second-hand bike
 
 Jonas looks at a second-hand bike that Frau Weber is selling.
 

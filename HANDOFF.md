@@ -67,7 +67,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - Vocabulary replaces notecards for language courses (other courses keep notecards). Each word has two typed cards (word → English, English → word). Stages Novice → Beginner → Advanced → Expert, 5 right in a row each; a miss resets the count within the stage; after Expert the card is retired. One counted answer per card per day; misses come back later in the session uncounted; extra practice never changes state. Words unlock when their lesson is complete. Progress key `vocab["courseId/itemId/dir"]`.
 - Checking: English meanings are lenient (any listed meaning, ignores to/a/the and parentheses, one or two typos on longer words). German recall is exact except capitalization (accepted with a note); a missing article or ae/oe/ue/ss for umlauts asks again without penalty; a wrong article is wrong.
 - Character buttons insert at the cursor; 🔊 uses the device's voices and hides when none exists for the language.
-- German A1 status: see `content/languages/german-a1/PROGRESS.md` and `RESEARCH.md`.
+- German A1 (v0.10.0): 24 lessons, 300 questions, 717 words, 11 readings; written per module, then independently reviewed against DWDS/Duden and the Goethe A1 exam rules. Notes in `content/languages/german-a1/PROGRESS.md` and `RESEARCH.md`. Next: German A2 (target 1,300 words; A2 reading candidates in RESEARCH.md).
 
 ## Code map
 

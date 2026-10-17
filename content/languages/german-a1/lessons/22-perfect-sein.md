@@ -4,6 +4,7 @@ module: de1-m6
 title: The perfect with sein, and war/hatte
 minutes: 40
 topics: [Perfect tense, haben or sein, war and hatte]
+refs: [de1-ref-perfect]
 ---
 ## What this lesson is for
 

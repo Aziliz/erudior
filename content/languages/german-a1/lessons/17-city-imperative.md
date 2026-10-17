@@ -4,6 +4,7 @@ module: de1-m5
 title: 'In the city: places, directions and the imperative'
 minutes: 35
 topics: [Imperative, Directions]
+refs: [de1-ref-prepositions]
 ---
 ## What this lesson is for
 

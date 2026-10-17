@@ -4,6 +4,7 @@ module: de1-m1
 title: Sounds, letters and spelling
 minutes: 35
 topics: [Pronunciation, Spelling]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 
@@ -34,10 +35,10 @@ below are approximate English sounds.
 | H | hah | Q | koo | Z | tset |
 | I | ee | R | air (roughly) | ß | ess-tset |
 
-The three letters English speakers mix up most are E (ay), I (ee) and J (yot):
-an English speaker spelling *Jill* says "jay, eye, ell, ell", which a German hears as
-something like "G, A, L, L". Practise your own name until the German letter names come
-without thinking.
+The letters English speakers mix up most are A (ah), E (ay), I (ee) and J (yot). English
+"ay" is the German name of E, and English "ee" is the German name of I, so if you spell *Jane*
+the English way ("jay, ay, en, ee"), a German writes down something like "?, E, N, I".
+Practise your own name until the German letter names come without thinking.
 
 ## Vowels: long and short
 
@@ -50,7 +51,8 @@ meaning of a word. Some rough rules for spotting a long vowel:
 
 A vowel before a double **consonant** (*ll*, *mm*, *ss*, *tt*…) is short: *Hallo*, *kommen*,
 *bitte*. Short vowels are clipped, as in English *bit* or *hot*; long vowels are held, with no
-glide at the end. German *e* in *Tee* is a pure "eh-ay" sound, not the English "ay-ee".
+glide at the end. Long *e* in *Tee* is a pure, steady "ay" that doesn't slide into "ee" the way English
+"ay" does.
 
 | Short | Long |
 |---|---|
@@ -88,8 +90,9 @@ sharp *s* as in *kiss*. The rule for when to use it:
   write *ß*: *Straße*, *heißen*, *Grüß Gott*;
 - after a short vowel, write *ss*: *Tschüss*, *dass*, *Wasser*.
 
-Switzerland doesn't use *ß* at all and writes *ss* everywhere. There's no capital *ß* at the
-start of a word, because no German word begins with it.
+Switzerland doesn't use *ß* at all and writes *ss* everywhere. No German word begins with
+*ß*, so you never need it as a capital at the start of a word; in text written all in capitals,
+*ß* becomes *SS* (*STRASSE*).
 
 ## Vowel pairs: ei, ie, eu, äu, au
 
@@ -217,12 +220,13 @@ in Bravo".
 
 ## Pronunciation
 
-- *Entschuldigung*: stress on *SCHUL*; *-ung* rhymes with English *lung* without a hard g.
+- *Entschuldigung*: stress on *SCHUL*; *-ung* is a short "oo" plus the *ng* of English *sing*,
+  with no hard g: "oong".
 - *Tschüss*: one syllable; start with "ch" as in *church*, then *ü*.
 - *Wiedersehen*: "VEE-der-zay-en", with *w* as v and *s* as z.
 - *buchstabieren*: *ch* at the back (after *u*), *st* as "sht", stress on *BIE*.
 - *schreiben*: "SHRY-ben", *ei* as in *eye*.
-- *Familienname*: *Fa-MI-li-en-na-me*, six syllables.
+- *Familienname*: stress on *MI*; *-lien* is one syllable, "lyen": "fa-MEE-lyen-nah-meh".
 
 ## Common mistakes
 

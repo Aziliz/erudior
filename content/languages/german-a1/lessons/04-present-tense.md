@@ -4,6 +4,7 @@ module: de1-m1
 title: The present tense and asking questions
 minutes: 45
 topics: [Verbs, Questions, Word order]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 

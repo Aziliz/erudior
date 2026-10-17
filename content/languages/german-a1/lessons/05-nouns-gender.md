@@ -4,6 +4,7 @@ module: de1-m2
 title: Nouns, gender and articles
 minutes: 35
 topics: [Articles, Plurals]
+refs: [de1-ref-articles]
 ---
 ## What this lesson is for
 
@@ -93,7 +94,8 @@ You can't guess every gender, but some endings are reliable:
 
 Two more hints:
 
-- Words borrowed from English that end in *-y* are usually neuter: *das Handy*, *das Hobby*.
+- Words borrowed from English that end in *-y* are often neuter (*das Handy*, *das Hobby*,
+  *das Baby*), but not always: *die Party*.
 - In a **compound noun** — two nouns joined into one word — the *last* part decides the gender.
   *das Haus* (house) + *die Tür* = *die Haustür* (the front door). *das Handy* + *die Nummer* =
   *die Handynummer*. The first part only adds meaning.

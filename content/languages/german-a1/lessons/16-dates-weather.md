@@ -4,6 +4,7 @@ module: de1-m4
 title: Dates, seasons, weather and invitations
 minutes: 40
 topics: [Dates and ordinal numbers, Weather, Accusative prepositions, Invitations]
+refs: [de1-ref-numbers-time, de1-ref-prepositions]
 ---
 ## What this lesson is for
 
@@ -33,8 +34,8 @@ short for *in dem*; for now just learn *im* + month or season as a chunk.
 - *Mein Bruder hat im Januar Geburtstag.* — My brother's birthday is in January.
 - *Ein Jahr hat zwölf Monate.* — A year has twelve months.
 
-In Austria January is usually *Jänner*. People say *Juno* instead of *Juni* on the phone,
-so it isn't confused with *Juli*.
+In Austria January is *Jänner*. On the phone or over a loudspeaker, some people say *Juno*
+for *Juni* and *Julei* for *Juli*, so the two aren't confused.
 
 ## Ordinal numbers and dates
 

@@ -4,6 +4,7 @@ module: de1-m2
 title: Jobs, languages and countries
 minutes: 35
 topics: [Jobs, Languages, Verbs]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 
@@ -36,7 +37,7 @@ says *Ich bin Lehrer*. With jobs (and *Student*, *Schüler*) after *sein*,
 German leaves the article out. ~~Ich bin ein Lehrer~~ isn't wrong grammar, but it
 sounds odd — like stressing "I'm a teacher (and not something else)".
 
-Two other useful patterns:
+Other useful patterns:
 
 - *Ich arbeite als Kellner.* — I work as a waiter. (*als* = as)
 - *Ich studiere Englisch.* — I'm studying English (at university).
@@ -191,7 +192,7 @@ phrase.)
   po-li-TSIST, u-ni-ver-si-TÄT, bü-RO, in-ter-na-tsio-NAL. *z* and *-ti-* sound like *ts*.
 - *Koch*: the throaty *ach*-sound. *Köchin* and *sprichst*: the soft *ich*-sound.
 - *Spanien*, *sprechen*, *Sprache*, *Student*: *sp* and *st* at the start of a word sound like
-  *shp* and *sht*: SHPAH-ni-en, SHTU-dent.
+  *shp* and *sht*: SHPAH-nyen, shtu-DENT (*Student* is stressed on the second syllable).
 - *Türkei* is stressed at the end: tür-KAI.
 
 ## Common mistakes

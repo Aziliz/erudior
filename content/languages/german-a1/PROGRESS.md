@@ -246,12 +246,12 @@ lesson. Numbers, weekdays, months, colours and countries are each owned by one l
 
 ## Status
 
-- [ ] m1 lessons 01–04, vocab-m1.yaml, questions/m1.yaml
-- [ ] m2 lessons 05–08
-- [ ] m3 lessons 09–12
-- [ ] m4 lessons 13–16
-- [ ] m5 lessons 17–20
-- [ ] m6 lessons 21–24
-- [ ] glossary.yaml, references (articles and cases; verb endings and stem changes; numbers,
+- [x] m1 lessons 01–04, vocab-m1.yaml, questions/m1.yaml
+- [x] m2 lessons 05–08
+- [x] m3 lessons 09–12
+- [x] m4 lessons 13–16
+- [x] m5 lessons 17–20
+- [x] m6 lessons 21–24
+- [x] glossary.yaml, references (articles and cases; verb endings and stem changes; numbers,
       time and dates; modal verbs; perfect participles), reading.yaml
-- [ ] dedupe vocabulary, build, check, independent review
+- [x] dedupe vocabulary, build, check, independent review

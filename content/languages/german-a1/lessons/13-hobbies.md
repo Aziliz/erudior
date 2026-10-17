@@ -4,6 +4,7 @@ module: de1-m4
 title: Hobbies and stem-changing verbs
 minutes: 35
 topics: [Stem-changing verbs, Likes and preferences, Hobbies]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 
@@ -20,7 +21,8 @@ verbs, including several hobby verbs, behave this way.
 ## Talking about hobbies
 
 The easiest way to ask about free time is with *gern*, which you know from lesson 4. *Gern*
-goes after the verb (and after a simple object) and means that you like doing it.
+goes right after the verb (after a short pronoun like *das* if there is one: *Ich mache das
+gern*) and before the rest: *Ich spiele gern Gitarre.* It means that you like doing it.
 
 - *Was machst du gern?* — What do you like doing?
 - *Was machen Sie in der Freizeit?* — What do you do in your free time?
@@ -82,8 +84,9 @@ three patterns at A1.
 | ihr | sprecht | gebt | helft | trefft |
 | sie/Sie | sprechen | geben | helfen | treffen |
 
-*Essen* (du isst, er isst) and *nehmen* (du nimmst, er nimmt) belong here too. *Nehmen* and
-*treffen* also change a consonant, so learn their du and er forms by heart.
+*Essen* (du isst, er isst) and *nehmen* (du nimmst, er nimmt) belong here too. *Nehmen* also
+changes its consonants (*du nimmst, er nimmt*), so learn those two forms by heart; *treffen*
+keeps its double *f* (*du triffst, er trifft*).
 
 ### Pattern 3: e → ie
 
@@ -136,7 +139,7 @@ They all sit where *gern* sits, after the verb:
 - *Trinkst du lieber Kaffee oder Tee?* — Do you prefer coffee or tea?
 - *Ich höre am liebsten Musik.* — Most of all I like listening to music.
 
-When *am liebsten* comes first in the sentence, remember the rule from lesson 12: the verb stays
+When *am liebsten* comes first in the sentence, remember the rule from lesson 4: the verb stays
 in position 2 and the subject moves behind it. *Am liebsten wandere ich* (not "Am liebsten ich
 wandere").
 

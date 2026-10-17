@@ -173,7 +173,7 @@
   exampleEn: The children are playing football.
   alt:
   - der Fussball
-  note: 'No article for the game: Ich spiele Fußball.'
+  note: 'No article for the game: Ich spiele Fußball. The plural die Fußbälle means footballs (the balls).'
 - id: fahrrad
   lesson: de1-hobbies
   term: das Fahrrad
@@ -205,7 +205,7 @@
   - match
   - play (game)
   example: Das Spiel ist sehr lustig.
-  exampleEn: The game is very funny.
+  exampleEn: The game is great fun.
 - id: film
   lesson: de1-hobbies
   term: der Film
@@ -993,8 +993,8 @@
   - June
   example: Im Juni ist das Wetter schön.
   exampleEn: The weather is nice in June.
-  note: Months are masculine. im Juni = in June. On the phone often said Juno, to avoid confusion with
-    Juli.
+  note: Months are masculine. im Juni = in June. Sometimes said Juno in speech, to avoid confusion
+    with Juli.
 - id: juli
   lesson: de1-dates-weather
   term: der Juli

@@ -4,6 +4,7 @@ module: de1-m6
 title: Linking sentences and writing short messages
 minutes: 40
 topics: [Conjunctions, Writing messages, Forms]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 

@@ -380,7 +380,7 @@
   lesson: de1-describing
   module_quiz: true
   topic: Reading
-  stem: 'Read the ad: "Verkaufe Fahrrad, rot, 2 Jahre alt, sehr schnell. Das Licht ist kaputt. Nur 90 Euro!" (Verkaufe = for sale, Fahrrad = bicycle, Licht = light, nur = only) Which statement is true?'
+  stem: 'Read the ad: "Verkaufe Fahrrad, rot, 2 Jahre alt, sehr schnell. Das Licht ist kaputt. Nur 90 Euro!" (Verkaufe = I''m selling, Fahrrad = bicycle, Licht = light, nur = only) Which statement is true?'
   choices: ['The bike is blue.', 'The bike’s light doesn’t work.', 'The bike is very slow.', 'The bike costs 190 euros.']
   answer: 1
   explanation: |-

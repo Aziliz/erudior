@@ -4,6 +4,7 @@ module: de1-m1
 title: Numbers, age and phone numbers
 minutes: 40
 topics: [Numbers, Personal details]
+refs: [de1-ref-numbers-time]
 ---
 ## What this lesson is for
 
@@ -25,8 +26,8 @@ These have to be learned one by one, as in English.
 | 12 *zwölf* | | | |
 
 Watch the sounds from Lesson 1: *zwei* and *zehn* start with "ts", *vier* starts with "f",
-*neun* rhymes with "coin", and *sechs* sounds like "zex". *Elf* is
-not the creature from stories; it's eleven.
+*neun* rhymes with "coin", and *sechs* sounds like "zex". *elf* looks
+like the English creature, but it's eleven.
 
 On the phone and in announcements, people often say *zwo* instead of *zwei*, so it can't be
 confused with *drei*. You'll hear *zwo* at train stations and in phone numbers; both are correct.
@@ -73,8 +74,8 @@ the ten, all as one word:
 | 99 | *neunundneunzig* | nine-and-ninety |
 
 Memory hook: think of the old English nursery rhyme "four-and-twenty blackbirds". German
-always counts this way. When you hear a number, write the second digit you hear first:
-*dreiundsiebzig* — you hear 3, then 70, and you write 73. Practise by reading numbers off
+always counts this way. When you hear a number, hold the first part in your head until the
+ten arrives: *dreiundsiebzig* — you hear 3, then 70, and you write 73. Practise by reading numbers off
 car number plates or prices until you stop reversing them.
 
 *eins* becomes *ein* inside a longer number: *einundzwanzig*, *einunddreißig*. On its own, or

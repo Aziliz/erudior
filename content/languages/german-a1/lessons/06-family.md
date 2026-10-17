@@ -4,6 +4,7 @@ module: de1-m2
 title: Family and possessives
 minutes: 35
 topics: [Possessives, Family]
+refs: [de1-ref-articles]
 ---
 ## What this lesson is for
 
@@ -17,7 +18,7 @@ You'll also learn all forms of *haben* (to have), so you can say *Ich habe zwei 
 
 ## Family words
 
-| Masculine | Feminine | Neuter / plural |
+| Masculine | Feminine | Neuter, plural and others |
 |---|---|---|
 | der Vater (father) | die Mutter (mother) | die Eltern (parents — plural only) |
 | der Sohn (son) | die Tochter (daughter) | das Kind, die Kinder (child, children) |
@@ -197,8 +198,9 @@ things by their grammatical gender: a masculine noun is "he" (*er*) and takes *s
   after *ö* it's the soft *ich*-sound.
 - *Eltern*, *Geschwister*, *verheiratet*, *geschieden*: stress *EL-tern*, *ge-SCHWIS-ter*,
   *ver-HEI-ra-tet*, *ge-SCHIE-den*. *ei* sounds like "eye", *ie* like "ee".
-- *Familie* has four syllables: fa-MI-li-e.
-- *Baby* is said as in English, with a German *a*: BEH-bi.
+- *Familie* has three syllables, stressed on *MI*: "fa-MEE-lyeh". The final *-ie* is a
+  quick "yeh", not "ee".
+- *Baby* is said much as in English, "BAY-bee", but with a pure, steady German *e*.
 
 ## Common mistakes
 

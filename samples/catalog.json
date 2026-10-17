@@ -1661,5 +1661,81 @@
     ]
    }
   ]
+ },
+ {
+  "id": "lang-german-a1",
+  "file": "languages/lang-german-a1.json",
+  "order": 100,
+  "title": "German A1",
+  "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, and a reading list points to graded readers you can try on your own.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "A1"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "questions": 300,
+  "cards": 0,
+  "drills": 0,
+  "words": 717,
+  "outline": [
+   {
+    "title": "First steps",
+    "lessons": [
+     "Sounds, letters and spelling",
+     "Greetings and introductions",
+     "Numbers, age and phone numbers",
+     "The present tense and asking questions"
+    ]
+   },
+   {
+    "title": "People and things",
+    "lessons": [
+     "Nouns, gender and articles",
+     "Family and possessives",
+     "Jobs, languages and countries",
+     "Describing things: adjectives and negation"
+    ]
+   },
+   {
+    "title": "Food, shopping and time",
+    "lessons": [
+     "Food, drink and the accusative",
+     "Shopping and prices",
+     "Days, times and the clock",
+     "A day in my life: separable verbs and word order"
+    ]
+   },
+   {
+    "title": "Free time and plans",
+    "lessons": [
+     "Hobbies and stem-changing verbs",
+     "Modal verbs: können, wollen, möchten",
+     "Modal verbs: müssen, dürfen, sollen — rules and obligations",
+     "Dates, seasons, weather and invitations"
+    ]
+   },
+   {
+    "title": "Town, travel and home",
+    "lessons": [
+     "In the city: places, directions and the imperative",
+     "Travel and transport: the dative after prepositions",
+     "At home: rooms, furniture and where things are",
+     "Body, health and personal pronouns"
+    ]
+   },
+   {
+    "title": "The past and the A1 exam",
+    "lessons": [
+     "Talking about the past: the perfect with haben",
+     "The perfect with sein, and war/hatte",
+     "Linking sentences and writing short messages",
+     "The Goethe A1 exam and review"
+    ]
+   }
+  ]
  }
 ]

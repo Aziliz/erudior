@@ -4,6 +4,7 @@ module: de1-m6
 title: The Goethe A1 exam and review
 minutes: 40
 topics: [A1 exam, Exam strategies, Course review]
+refs: [de1-ref-verbs, de1-ref-articles, de1-ref-perfect]
 ---
 ## What this lesson is for
 

@@ -4,6 +4,7 @@ module: de1-m4
 title: 'Modal verbs: müssen, dürfen, sollen — rules and obligations'
 minutes: 35
 topics: [Modal verbs, Rules and signs, Polite requests]
+refs: [de1-ref-modals]
 ---
 ## What this lesson is for
 

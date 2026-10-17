@@ -4,6 +4,7 @@ module: de1-m6
 title: 'Talking about the past: the perfect with haben'
 minutes: 40
 topics: [Perfect tense, Past participles, Time words for the past]
+refs: [de1-ref-perfect]
 ---
 ## What this lesson is for
 

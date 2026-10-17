@@ -15,7 +15,8 @@ title: Modal verbs and the sentence bracket
 
 Patterns:
 
-- ich and er/sie/es are identical and have no ending: *ich kann, er kann*.
+- ich and er/sie/es are identical and have no ending: *ich kann, er kann* (*möchte* keeps its
+  *-e*: *ich möchte, er möchte*).
 - The singular has its own vowel (*können → kann*, *dürfen → darf*, *müssen → muss*,
   *wollen → will*, *mögen → mag*); *sollen* keeps its vowel.
 - The plural is regular and built from the infinitive: *wir müssen, ihr müsst*.

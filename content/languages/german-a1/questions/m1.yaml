@@ -105,7 +105,8 @@
   answer: 0
   explanation: |-
     The German letter J is called "yot", and it sounds like English y: Jens is "Yens". "Jay"
-    is the English name, and a German listener might hear it as the letter G ("gay").
+    is the English name and isn't a German letter name at all; "ee" is the German I, and
+    "gay" is the German G.
 
 - id: de1-q-0111
   lesson: de1-sounds
@@ -296,8 +297,8 @@
   choices: ['74', '70', '47', '17']
   answer: 2
   explanation: |-
-    Sieben (7) und vierzig (40) = 47. The unit comes first, so write the second digit you hear
-    first. 74 would be vierundsiebzig.
+    Sieben (7) und vierzig (40) = 47. German says the unit first and the ten second, so you
+    hear 7, then 40. 74 would be vierundsiebzig.
 
 - id: de1-q-0303
   lesson: de1-numbers

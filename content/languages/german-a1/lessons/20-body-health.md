@@ -4,6 +4,7 @@ module: de1-m5
 title: 'Body, health and personal pronouns'
 minutes: 40
 topics: [Pronouns, Health, Body]
+refs: [de1-ref-articles]
 ---
 ## What this lesson is for
 

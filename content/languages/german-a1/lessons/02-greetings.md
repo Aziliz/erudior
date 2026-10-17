@@ -4,6 +4,7 @@ module: de1-m1
 title: Greetings and introductions
 minutes: 35
 topics: [Greetings, Verbs]
+refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 
@@ -32,8 +33,8 @@ Frau Schulz.* *Frau* is used for every adult woman, married or not; there's no G
 equivalent of "Miss" in everyday use.
 
 When in doubt, start with *Sie*. Switching from *Sie* to *du* is a small social step, and
-usually the older person or the one in a senior position offers it: *Wir können du sagen.*
-(We can say *du*.) Among students, young people and in many workplaces, *du* is normal from
+usually the older person or the one in a senior position offers it: *Wir können gern du
+sagen.* (We can say *du* to each other, if you like.) Among students, young people and in many workplaces, *du* is normal from
 the first minute.
 
 ## The verb sein (to be)
@@ -126,7 +127,7 @@ best to worst:
 
 *Sehr gut, danke!* — Very well, thanks!
 *Gut.* — Fine / good.
-*Auch gut.* — Also fine (when someone answers *Und dir?*).
+*Auch gut.* — Fine too (after the other person has said they're fine and asked *Und dir?*).
 *Es geht.* — So-so.
 *Nicht so gut.* — Not so good.
 

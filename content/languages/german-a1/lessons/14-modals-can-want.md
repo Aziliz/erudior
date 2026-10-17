@@ -4,6 +4,7 @@ module: de1-m4
 title: 'Modal verbs: können, wollen, möchten'
 minutes: 35
 topics: [Modal verbs, Sentence bracket, Abilities and plans]
+refs: [de1-ref-modals]
 ---
 ## What this lesson is for
 
@@ -35,6 +36,7 @@ This lesson covers *können*, *wollen*, *mögen* and *möchten*. Lesson 15 adds 
 Modal verbs are irregular in the singular. Three things are true of all of them:
 
 1. The ich and er/sie/es forms are the same and have no ending: *ich kann, er kann*.
+   (*möchten* is the one exception: *ich möchte, er möchte* are the same but end in *-e*.)
 2. Most of them change their vowel in the singular: *können → ich kann*.
 3. The plural is regular, built from the infinitive: *wir können, ihr könnt, sie können*.
 
@@ -221,8 +223,8 @@ you?"), *mitbringen* (to bring along, separable like *mitkommen*).
 ## Key points
 
 - Modal verbs: *können* (can), *wollen* (want), *mögen* (like), *möchten* (would like).
-- ich and er/sie/es forms are identical with no ending: *ich kann, er kann; ich will, er will;
-  ich möchte, er möchte.*
+- ich and er/sie/es forms are identical: *ich kann, er kann; ich will, er will; ich möchte, er
+  möchte* (no ending, except the *-e* of *möchte*).
 - Sentence bracket: modal in position 2, infinitive at the end, everything else in between.
 - Questions: *Kannst du …?* with the infinitive at the end. *Nicht* goes before the infinitive.
 - Separable verbs join up again at the end: *Willst du mitkommen?*
