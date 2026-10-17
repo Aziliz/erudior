@@ -65,6 +65,6 @@ title: Electricity, magnetism, optics, and modern physics
 | Photons | $E = hf = hc/\lambda$; $p = h/\lambda$ |
 | Photoelectric effect | $K_{\max} = hf - \phi$ |
 | Hydrogen | $E_n = -\dfrac{13.6\text{ eV}}{n^2}$ |
-| Matter waves | $\lambda = h/p$; $\Delta x\,\Delta p \ge h/4\pi$ |
+| Matter waves | $\lambda = h/p$; $\Delta x\,\Delta p \ge h/(4\pi)$ |
 | Binding energy | $E_B = \Delta m\,c^2$ (1 u ↔ 931.5 MeV) |
 | Decay | $N = N_0e^{-\lambda t} = N_0(\tfrac12)^{t/T_{1/2}}$; $T_{1/2} = \ln 2/\lambda$; $R = \lambda N$ |

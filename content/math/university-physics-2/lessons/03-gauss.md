@@ -9,7 +9,7 @@ refs: [phys-ref-em-modern]
 ---
 ## A shortcut built on symmetry
 
-Integrating Coulomb's law over a charge distribution works, but it's laborious. For distributions with high symmetry (spheres, long cylinders, flat sheets) there's a far quicker route: Gauss's law, which relates the field crossing a closed surface to the charge inside. It's also one of Maxwell's four equations, the complete laws of electromagnetism. This lesson is mostly at the University Physics level, but the key results (fields of spheres, lines and sheets) are used at every level.
+Integrating Coulomb's law over a charge distribution works, but it's laborious. For distributions with high symmetry (spheres, long cylinders, flat sheets) there's a far quicker route: Gauss's law, which relates the field crossing a closed surface to the charge inside. It's also one of Maxwell's four equations, the complete laws of electromagnetism. Its key results (the fields of spheres, lines and sheets) are used throughout the rest of the course.
 
 ## Electric flux
 
@@ -52,7 +52,7 @@ $$E = \frac{kQr}{R^3} \quad (r < R),$$
 rising linearly from zero at the center to the surface value $kQ/R^2$.
 
 ```plot
-{"x": [0, 4], "y": [0, 1.15], "xLabel": "r / R", "yLabel": "E / (kQ/R²)", "functions": [{"f": "x", "from": 0, "to": 1, "label": "inside: ∝ r"}, {"f": "1/x^2", "from": 1, "to": 4, "label": "outside: ∝ 1/r²"}], "caption": "Field of a uniformly charged solid sphere"}
+{"x": [0, 4], "y": [0, 1.15], "xLabel": "r / R", "yLabel": "E / (kQ/R²)", "functions": [{"f": "x", "from": 0, "to": 1, "label": "inside: ∝ r"}, {"f": "1/x^2", "from": 1, "to": 4}], "labels": [{"at": [2.6, 0.32], "text": "outside: ∝ 1/r²"}], "caption": "Field of a uniformly charged solid sphere"}
 ```
 
 *Cylindrical symmetry.* For an infinitely long line (or cylinder) with charge $\lambda$ per meter, use a coaxial cylinder of radius $r$ and length $L$. The field is radial, so there's no flux through the end caps; through the curved side, $E(2\pi rL) = \lambda L/\varepsilon_0$:
@@ -87,7 +87,7 @@ twice the isolated-sheet value, because no field lines leave through the inner c
 
 And if a conductor has a cavity with a charge $q$ inside it, the cavity's wall must carry $-q$ (so that a surface within the metal encloses zero), and the outer surface carries the rest.
 
-## With calculus: the full statement
+## Nonuniform charge and the differential form
 
 In general, the flux integral is $\oint\vec E\cdot d\vec A$ over a closed surface, which can be hard to evaluate; Gauss's law is a tool for *finding* $E$ only with symmetry. For a nonuniform charge density, the enclosed charge itself is an integral. For example, a sphere with $\rho(r) = \rho_0 r/R$ encloses
 

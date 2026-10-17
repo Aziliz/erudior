@@ -13,7 +13,7 @@ Geometric optics treats light as rays, which works when openings and objects are
 
 ## Coherence and interference
 
-The superposition principle from the waves lesson applies to light: where two light waves overlap, their fields add. To see a stable pattern, the sources must be **coherent**, keeping a fixed phase relationship (same frequency, steady phase difference). Two separate bulbs aren't coherent; light from one source split into two paths is.
+The superposition principle from your study of waves in University Physics I applies to light: where two light waves overlap, their fields add. To see a stable pattern, the sources must be **coherent**, keeping a fixed phase relationship (same frequency, steady phase difference). Two separate bulbs aren't coherent; light from one source split into two paths is.
 
 As with sound, two coherent waves interfere constructively where their path difference is a whole number of wavelengths and destructively where it's a half-integer number.
 
@@ -90,7 +90,7 @@ A soap film ($n = 1.33$) in air looks green ($\lambda = 532$ nm) in reflection. 
 
 One phase flip, so constructive reflection needs $2nt = \tfrac12\lambda$ for the thinnest film: $t = \dfrac{532}{4(1.33)} = 100$ nm.
 
-## With calculus
+## Intensity patterns
 
 The full double-slit intensity comes from adding two waves with phase difference $\phi = \dfrac{2\pi}{\lambda}d\sin\theta$:
 

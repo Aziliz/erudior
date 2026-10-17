@@ -38,11 +38,11 @@ The factor $\gamma$ (the **Lorentz factor**) is always at least 1. $\Delta t_0$ 
 
 ### Example 1
 
-Muons created in the upper atmosphere have a half-life of 1.56 μs in their own rest frame. They travel at $0.995c$. How long is their half-life as measured from the ground, and how far do they travel in that time?
+Muons created in the upper atmosphere have a half-life of 1.52 μs in their own rest frame. They travel at $0.995c$. How long is their half-life as measured from the ground, and how far do they travel in that time?
 
 $\gamma = 1/\sqrt{1 - 0.995^2} = 1/\sqrt{0.009975} = 10.0$.
 
-Ground half-life: $\Delta t = 10.0(1.56)$ μs $= 15.6$ μs. Distance: $(0.995)(3.00\times10^8)(15.6\times10^{-6}) = 4.66$ km. Without time dilation they'd go only 466 m per half-life and few would reach the ground; in fact many do, a direct confirmation.
+Ground half-life: $\Delta t = 10.0(1.52)$ μs $= 15.2$ μs. Distance: $(0.995)(3.00\times10^8)(15.2\times10^{-6}) = 4.54$ km. Without time dilation they'd go only 454 m per half-life and few would reach the ground; in fact many do, a direct confirmation.
 
 ## Length contraction
 
@@ -50,7 +50,7 @@ An object's length is longest in its own rest frame (its **proper length** $L_0$
 
 $$L = \frac{L_0}{\gamma} = L_0\sqrt{1 - v^2/c^2}.$$
 
-Only lengths along the direction of motion contract; perpendicular dimensions don't change. **Length contraction** and time dilation are two views of the same thing: in the muon's frame, its half-life is the normal 1.56 μs, but the atmosphere rushing toward it is contracted to a tenth of its height.
+Only lengths along the direction of motion contract; perpendicular dimensions don't change. **Length contraction** and time dilation are two views of the same thing: in the muon's frame, its half-life is the normal 1.52 μs, but the atmosphere rushing toward it is contracted to a tenth of its height.
 
 ### Example 2
 
@@ -96,7 +96,7 @@ $\gamma = 2.294$. $E = 2.294(0.511) = 1.172$ MeV. $K = 1.172 - 0.511 = 0.661$ Me
 
 $pc = \gamma mc^2(v/c) = 1.172(0.90) = 1.055$ MeV, so $p = 1.055$ MeV/$c$. Check: $\sqrt{1.055^2 + 0.511^2} = 1.172$ ✓. (The classical $\tfrac12mv^2 = 0.207$ MeV would badly underestimate $K$.)
 
-## With calculus
+## The Lorentz transformation and relativistic kinetic energy
 
 The **Lorentz transformation** replaces the classical $x' = x - vt$, $t' = t$:
 

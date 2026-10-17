@@ -6,7 +6,7 @@
   choices: ['0.60 N, repulsive', '0.60 N, attractive', '0.18 N, repulsive', '$6.0\times10^{5}$ N, repulsive']
   answer: 0
   explanation: |-
-    $F = k\dfrac{q_1q_2}{r^2} = (8.99\times10^9)\dfrac{(2.0\times10^{-6})(3.0\times10^{-6})}{0.090} = 0.60$ N. Like charges repel. Forgetting to square $r$ gives 0.18 N; forgetting the μ conversion gives an absurd $6\times10^5$ N.
+    $F = k\dfrac{q_1q_2}{r^2} = (8.99\times10^9)\dfrac{(2.0\times10^{-6})(3.0\times10^{-6})}{0.090} = 0.60$ N. Like charges repel. Forgetting to square $r$ gives 0.18 N; converting only one of the charges from μC to C gives an absurd $6.0\times10^5$ N.
 - id: phys-q-2902
   lesson: phys-coulomb
   topic: Coulomb's law

@@ -11,8 +11,8 @@
   lesson: phys-relativity
   topic: Special relativity
   stem: 'Which statement is one of Einstein''s postulates of special relativity?'
-  choices: ['Mass is always conserved', 'Time passes at the same rate for all observers', 'Nothing can move faster than sound', 'The speed of light in vacuum is the same in all inertial frames']
-  answer: 3
+  choices: ['The speed of light in vacuum is the same in all inertial frames', 'Mass is always conserved', 'Time passes at the same rate for all observers', 'Nothing can move faster than sound']
+  answer: 0
   explanation: |-
     The two postulates are the principle of relativity and the constancy of $c$. Absolute time is exactly what relativity abandons.
 - id: phys-q-4403
@@ -113,7 +113,7 @@
   choices: ['4.96 eV', '9.5 eV', '0 eV, no electrons', '0.46 eV']
   answer: 3
   explanation: |-
-    Photon energy: $1240/250 = 4.96$ eV. $K_{\max} = 4.96 - 4.5 = 0.46$ eV.
+    Photon energy: $1240/250 = 4.96$ eV. $K_{\max} = 4.96 - 4.5 = 0.46$ eV. 4.96 eV forgets to subtract the work function, and 9.5 eV adds it instead.
 - id: phys-q-4504
   lesson: phys-quantum
   module_quiz: true
@@ -185,8 +185,8 @@
   module_quiz: true
   topic: Radioactive decay
   stem: 'A radioactive sample has a half-life of 3.0 hours. What fraction remains after 12 hours?'
-  choices: ['1/4', '1/12', '1/8', '1/16']
-  answer: 3
+  choices: ['1/16', '1/4', '1/12', '1/8']
+  answer: 0
   explanation: |-
     12 hours is 4 half-lives: $(\tfrac12)^4 = 1/16$. Dividing 12 by 3 and calling it 1/4 confuses the number of half-lives with the fraction.
 - id: phys-q-4602
@@ -216,6 +216,7 @@
     β⁻: $n \to p + e^- + \bar\nu$, so $Z$ rises by 1 and $A$ is unchanged (e.g. carbon-14 → nitrogen-14).
 - id: phys-q-4605
   lesson: phys-nuclear
+  module_quiz: true
   topic: Nuclear structure
   stem: 'A nucleus has a mass defect of 0.100 u. What is its binding energy? (1 u = 931.5 MeV/$c^2$)'
   choices: ['93.2 MeV', '0.100 MeV', '931.5 MeV', '9.32 MeV']
@@ -237,7 +238,7 @@
   choices: ['20 kBq', '10 kBq', '5.0 kBq', '0 kBq']
   answer: 2
   explanation: |-
-    20 days is 4 half-lives: $80/2^4 = 5.0$ kBq. Activity decays with the same half-life as the number of nuclei.
+    20 days is 4 half-lives: $80/2^4 = 5.0$ kBq. Activity decays with the same half-life as the number of nuclei. 20 kBq stops after 2 half-lives and 10 kBq after 3.
 - id: phys-q-4608
   lesson: phys-nuclear
   module_quiz: true
@@ -259,8 +260,8 @@
   lesson: phys-nuclear
   topic: Radioactive decay
   stem: 'Which type of radiation is the most penetrating?'
-  choices: ['Alpha', 'Beta', 'They penetrate equally', 'Gamma']
-  answer: 3
+  choices: ['Gamma', 'Alpha', 'Beta', 'They penetrate equally']
+  answer: 0
   explanation: |-
     Gamma rays (photons) need thick lead or concrete to stop; beta particles are stopped by millimeters of aluminum; alpha particles by paper or skin.
 - id: phys-q-4611
@@ -270,4 +271,4 @@
   choices: ['1430 years', '4300 years', '22 900 years', '11 460 years']
   answer: 3
   explanation: |-
-    25% is $(\tfrac12)^2$: two half-lives, $2(5730) = 11\,460$ years.
+    25% is $(\tfrac12)^2$: two half-lives, $2(5730) = 11\,460$ years. 22 900 years counts four half-lives (as if 25% were $(\tfrac12)^4$), and 1430 years divides the half-life by 4.

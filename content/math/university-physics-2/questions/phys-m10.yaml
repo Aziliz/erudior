@@ -3,10 +3,10 @@
   module_quiz: true
   topic: Magnetic force
   stem: 'A proton moves at $2.0\times10^6$ m/s perpendicular to a 0.50 T magnetic field. What force acts on it? ($e = 1.6\times10^{-19}$ C)'
-  choices: ['$8.0\times10^{-14}$ N', '0 N', '$6.4\times10^{-13}$ N', '$1.6\times10^{-13}$ N']
+  choices: ['$1.7\times10^{-21}$ N', '0 N', '$6.4\times10^{-13}$ N', '$1.6\times10^{-13}$ N']
   answer: 3
   explanation: |-
-    $F = qvB\sin 90^\circ = (1.6\times10^{-19})(2.0\times10^6)(0.50) = 1.6\times10^{-13}$ N.
+    $F = qvB\sin 90^\circ = (1.6\times10^{-19})(2.0\times10^6)(0.50) = 1.6\times10^{-13}$ N. Dividing by $B$ instead of multiplying gives $6.4\times10^{-13}$ N; using the proton's mass in place of its charge gives $1.7\times10^{-21}$ N; 0 N would be right only for motion along the field.
 - id: phys-q-3702
   lesson: phys-mag-force
   topic: Magnetic force
@@ -31,7 +31,7 @@
   choices: ['5.7 mm', '5.7 m', '0.57 mm', '57 cm']
   answer: 0
   explanation: |-
-    $r = \dfrac{mv}{eB} = \dfrac{(9.11\times10^{-31})(1.0\times10^7)}{(1.6\times10^{-19})(0.010)} = 5.7\times10^{-3}$ m.
+    $r = \dfrac{mv}{eB} = \dfrac{(9.11\times10^{-31})(1.0\times10^7)}{(1.6\times10^{-19})(0.010)} = 5.7\times10^{-3}$ m $= 5.7$ mm. The other choices have the right digits but a slipped power of ten.
 - id: phys-q-3705
   lesson: phys-mag-force
   topic: Magnetic force
@@ -47,7 +47,7 @@
   choices: ['10 N', '0.40 N', '0.10 N', '0.016 N']
   answer: 1
   explanation: |-
-    $F = ILB = 5.0(0.40)(0.20) = 0.40$ N.
+    $F = ILB = 5.0(0.40)(0.20) = 0.40$ N. Dividing by $B$ instead of multiplying gives 10 N.
 - id: phys-q-3707
   lesson: phys-mag-force
   topic: Magnetic force
@@ -89,7 +89,7 @@
   choices: ['$1.0\times10^{-4}$ T', '$3.1\times10^{-4}$ T', '$1.0\times10^{-6}$ T', '$5.0\times10^{-3}$ T']
   answer: 0
   explanation: |-
-    $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})(10)}{2\pi(0.020)} = 1.0\times10^{-4}$ T. Forgetting the $2\pi$ gives $3.1\times10^{-4}$.
+    $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})(10)}{2\pi(0.020)} = 1.0\times10^{-4}$ T. Using the loop-center formula $\mu_0I/(2r)$ by mistake gives $3.1\times10^{-4}$ T.
 - id: phys-q-3802
   lesson: phys-mag-sources
   topic: Sources of magnetic field
@@ -105,7 +105,7 @@
   choices: ['$2.5\times10^{-6}$ T', '$4.0\times10^{-4}$ T', '$1.3\times10^{-3}$ T', '$2.5\times10^{-3}$ T']
   answer: 3
   explanation: |-
-    $B = \mu_0nI = (4\pi\times10^{-7})(1000)(2.0) = 2.5\times10^{-3}$ T, uniform across the interior.
+    $B = \mu_0nI = (4\pi\times10^{-7})(1000)(2.0) = 2.5\times10^{-3}$ T, uniform across the interior. Using the straight-wire constant $\mu_0/(2\pi) = 2\times10^{-7}$ in place of $\mu_0$ gives $4.0\times10^{-4}$ T.
 - id: phys-q-3804
   lesson: phys-mag-sources
   module_quiz: true
@@ -172,7 +172,7 @@
   choices: ['0.80 V', '8.0 V', '0.080 V', '12 V']
   answer: 1
   explanation: |-
-    $|\mathcal{E}| = N\dfrac{\Delta\Phi}{\Delta t} = 100\dfrac{(0.40)(0.020)}{0.10} = 8.0$ V. Leaving out $N$ gives 0.080 V.
+    $|\mathcal{E}| = N\dfrac{\Delta\Phi}{\Delta t} = 100\dfrac{(0.40)(0.020)}{0.10} = 8.0$ V. Leaving out $N$ gives 0.080 V; using the final field 0.60 T instead of the change gives 12 V.
 - id: phys-q-3902
   lesson: phys-induction
   topic: Electromagnetic induction
@@ -197,7 +197,7 @@
   choices: ['10 V', '1.0 V', '2.5 V', '40 V']
   answer: 0
   explanation: |-
-    Motional emf $\mathcal{E} = BLv = 2.0(0.50)(10) = 10$ V.
+    Motional emf $\mathcal{E} = BLv = 2.0(0.50)(10) = 10$ V. Dividing by $B$ instead of multiplying gives 2.5 V.
 - id: phys-q-3905
   lesson: phys-induction
   topic: Electromagnetic induction
@@ -213,7 +213,7 @@
   choices: ['12 V', '120 V', '1200 V', '0 V']
   answer: 2
   explanation: |-
-    $V_s = V_p(N_s/N_p) = 120(10) = 1200$ V. The current is stepped down by the same factor (ideal transformer).
+    $V_s = V_p(N_s/N_p) = 120(10) = 1200$ V (12 V uses the turns ratio upside down). The current is stepped down by the same factor (ideal transformer).
 - id: phys-q-3907
   lesson: phys-induction
   topic: Electromagnetic induction
@@ -263,7 +263,7 @@
   choices: ['0.18 J', '0.090 J', '0.60 J', '0.30 J']
   answer: 1
   explanation: |-
-    $U = \tfrac12LI^2 = \tfrac12(2.0)(0.090) = 0.090$ J.
+    $U = \tfrac12LI^2 = \tfrac12(2.0)(0.090) = 0.090$ J. Leaving out the $\tfrac12$ gives 0.18 J; forgetting to square the current gives 0.30 J (or 0.60 J without the $\tfrac12$ as well).
 - id: phys-q-4003
   lesson: phys-inductance
   topic: Inductance
@@ -283,6 +283,7 @@
     $f = \dfrac{1}{2\pi\sqrt{LC}} = \dfrac{1}{2\pi\sqrt{(0.010)(1.0\times10^{-6})}} = \dfrac{1}{2\pi(10^{-4})} = 1.59$ kHz. $1/\sqrt{LC} = 10^4$ is $\omega$ in rad/s.
 - id: phys-q-4005
   lesson: phys-inductance
+  module_quiz: true
   topic: AC circuits
   stem: 'Household AC is rated 120 V (rms). What is the peak voltage?'
   choices: ['85 V', '120 V', '240 V', '170 V']
@@ -329,4 +330,4 @@
   choices: ['$3.8\times10^{-3}$ Ω', '1670 Ω', '0.0060 Ω', '265 Ω']
   answer: 3
   explanation: |-
-    $X_C = \dfrac{1}{2\pi fC} = \dfrac{1}{2\pi(60)(10\times10^{-6})} = 265$ Ω. Forgetting the $2\pi$ gives 1670 Ω.
+    $X_C = \dfrac{1}{2\pi fC} = \dfrac{1}{2\pi(60)(10\times10^{-6})} = 265$ Ω. Forgetting the $2\pi$ gives 1670 Ω; $3.8\times10^{-3}$ Ω is $2\pi fC$ without taking the reciprocal.

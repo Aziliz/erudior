@@ -89,7 +89,7 @@ The negative $I_2$ means current flows *down* through the 6.0 V battery: the str
 
 An **ammeter** measures current and is placed in series with the branch; it must have very small resistance so it doesn't change the current. A **voltmeter** measures potential difference and is connected in parallel across the component; it must have very large resistance so it draws almost no current. Connecting an ammeter in parallel short-circuits the component and can damage the meter.
 
-## With calculus
+## Larger networks and maximum power
 
 Kirchhoff's rules give a system of linear equations, naturally written as a matrix equation $\mathbf{R}\,\vec I = \vec{\mathcal{E}}$ and solved by elimination or Cramer's rule; circuit simulation software does exactly this for thousands of unknowns. For Example 3, substituting the junction rule gives
 

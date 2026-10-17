@@ -15,7 +15,7 @@ Faraday's law applies to a coil's own field too. When the current in a coil chan
 
 A coil's flux is proportional to its current, so the self-induced emf is proportional to the rate of change of current:
 
-$$\mathcal{E}_L = -L\frac{\Delta I}{\Delta t}.$$
+$$\mathcal{E}_L = -L\frac{dI}{dt}.$$
 
 The constant $L$ is the coil's **inductance**, measured in **henries** (H): $1\text{ H} = 1$ V·s/A. A component designed for inductance is an **inductor**. By Lenz's law the emf opposes the change: it fights a rising current and tries to keep a falling current going. A steady current produces no emf at all.
 
@@ -37,19 +37,19 @@ A solenoid 0.30 m long with 1500 turns has cross-sectional area $4.0\times10^{-4
 
 $L = \dfrac{(4\pi\times10^{-7})(1500)^2(4.0\times10^{-4})}{0.30} = 3.77\times10^{-3}$ H $= 3.77$ mH.
 
-$|\mathcal{E}| = L\dfrac{\Delta I}{\Delta t} = (3.77\times10^{-3})(50) = 0.19$ V.
+$|\mathcal{E}| = L\dfrac{dI}{dt} = (3.77\times10^{-3})(50) = 0.19$ V.
 
 $U = \tfrac12(3.77\times10^{-3})(2.0)^2 = 7.5\times10^{-3}$ J.
 
 ## RL circuits
 
-Connect an inductor $L$ in series with a resistor $R$ and a battery $\mathcal{E}$. At the instant the switch closes, the inductor prevents any sudden jump in current, so $I = 0$ at first and the full emf appears across the inductor. The current then rises toward its final value $\mathcal{E}/R$:
+Connect an inductor $L$ in series with a resistor $R$ and a battery $\mathcal{E}$. At the instant the switch closes, the inductor prevents any sudden jump in current, so $I = 0$ at first and the full emf appears across the inductor. The current then rises toward its final value $\mathcal{E}/R$ (the derivation is at the end of the lesson):
 
 $$I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau}\right), \qquad \tau = \frac LR.$$
 
 The time constant $L/R$ plays the same role as $RC$. If the battery is then removed (with a path left for the current), the current decays as $I = I_0e^{-t/\tau}$. An inductor acts like an open circuit at the instant of switching on and like a plain wire once the current is steady, the opposite of a capacitor.
 
-Breaking an inductive circuit abruptly forces $\Delta I/\Delta t$ to be huge, inducing a large voltage that can spark across the switch. Car ignition coils use this deliberately to make the tens of kilovolts that fire a spark plug.
+Breaking an inductive circuit abruptly forces $dI/dt$ to be huge, inducing a large voltage that can spark across the switch. Car ignition coils use this deliberately to make the tens of kilovolts that fire a spark plug.
 
 ### Example 2
 
@@ -89,7 +89,7 @@ $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{
 
 The current is largest when $X_L = X_C$, at the resonant frequency $\omega_0 = 1/\sqrt{LC}$: the same frequency at which the LC circuit oscillates on its own.
 
-## With calculus
+## Deriving the RL, LC and rms results
 
 Apply the loop rule to the RL circuit, with the inductor contributing $-L\,dI/dt$:
 

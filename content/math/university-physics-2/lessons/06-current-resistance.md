@@ -83,7 +83,7 @@ $I = 60/120 = 0.50$ A; $R = 120/0.50 = 240$ Ω.
 
 Energy: $(0.060\text{ kW})(5 \times 30\text{ h}) = 9.0$ kWh. Cost: $9.0 \times 0.15 =$ \$1.35. (A 9 W LED giving the same light would cost about 20 cents.)
 
-## With calculus
+## Current as a derivative, and current density
 
 Current is the derivative of charge: $I = \dfrac{dQ}{dt}$, and the charge that flows in a time interval is $Q = \int I\,dt$. If the current in a wire is $I(t) = 4.0e^{-t/2}$ A, the total charge that ever passes is $\int_0^\infty 4.0e^{-t/2}\,dt = 8.0$ C.
 
@@ -100,7 +100,7 @@ For a conductor with a cross-section that varies along its length, add resistanc
 
 ## Key points
 
-- $I = \Delta Q/\Delta t$ (amperes); conventional current flows from + to − outside the source.
+- $I = dQ/dt$ (average $\Delta Q/\Delta t$; amperes); conventional current flows from + to − outside the source.
 - $R = V/I$; Ohm's law $V = IR$ for ohmic materials.
 - $R = \rho L/A$; resistivity rises with temperature for metals.
 - $P = IV = I^2R = V^2/R$; energy in kWh = power (kW) × time (h).

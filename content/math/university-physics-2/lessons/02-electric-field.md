@@ -71,7 +71,7 @@ Two large parallel plates with equal and opposite charges produce a nearly **uni
 
 $$a = \frac{qE}{m}.$$
 
-All the constant-acceleration kinematics from earlier applies. An electron fired sideways between deflection plates follows a parabola, exactly like a projectile, which is how old cathode-ray tubes steered their beams. (Gravity on an electron is negligible by a factor of about $10^{13}$ in typical fields.)
+All the constant-acceleration kinematics from mechanics applies. An electron fired sideways between deflection plates follows a parabola, exactly like a projectile, which is how old cathode-ray tubes steered their beams. (Gravity on an electron is negligible: even in a weak field of 100 N/C, the electric force $eE$ is about $2\times10^{12}$ times its weight $m_eg$.)
 
 ### Example 3
 
@@ -92,7 +92,7 @@ When charges in a conductor have stopped moving (**electrostatic equilibrium**):
 
 A hollow metal box shields its interior from outside fields: a **Faraday cage**. That's why you're safe in a car during a lightning storm and why your phone loses signal in an elevator.
 
-## With calculus: continuous distributions
+## Continuous charge distributions
 
 For a continuous charge distribution, add up the fields of tiny elements $dq$:
 
@@ -100,9 +100,9 @@ $$\vec E = \int k\frac{dq}{r^2}\,\hat r.$$
 
 Use symmetry to see which components cancel before integrating.
 
-*Field on the axis of a ring.* A ring of radius $a$ carries charge $Q$. At distance $x$ along its axis, each element is at distance $\sqrt{x^2 + a^2}$. Perpendicular components cancel by symmetry; the axial component of each element's field is $dE\cos\theta$, with $\cos\theta = x/\sqrt{x^2 + a^2}$. Every element has the same geometry, so
+*Field on the axis of a ring.* A ring of radius $a$ carries charge $Q$. At distance $x$ along its axis, each element is at distance $\sqrt{x^2 + a^2}$. Perpendicular components cancel by symmetry; the axial component of each element's field is $dE\cos\theta$, with $\cos\theta = x/\sqrt{x^2 + a^2}$. Every element has the same geometry, so the distance and angle come out of the integral and $\int dq = Q$:
 
-$$E_x = \frac{kQx}{(x^2 + a^2)^{3/2}}.$$
+$$E_x = \int\frac{k\,dq}{x^2 + a^2}\cdot\frac{x}{\sqrt{x^2 + a^2}} = \frac{kx}{(x^2 + a^2)^{3/2}}\int dq = \frac{kQx}{(x^2 + a^2)^{3/2}}.$$
 
 At the center ($x = 0$) it's zero; far away ($x \gg a$) it becomes $kQ/x^2$, a point charge.
 

@@ -77,7 +77,7 @@
 - {front: 'Lens power', back: '$P = 1/f$ in diopters; nearsighted eyes need negative power.', topic: Thin lenses}
 - {front: 'Double-slit bright fringes', back: '$d\sin\theta = m\lambda$; spacing $\Delta y = \lambda L/d$ (small angles)', topic: Interference}
 - {front: 'Single-slit dark fringes', back: '$a\sin\theta = m\lambda$, $m = \pm1, \pm2, \ldots$', topic: Diffraction}
-- {front: 'Grating maxima', back: '$d\sin\theta = m\lambda$ with $d$ = 1/(lines per meter); highest $m \le d/\lambda$', topic: Diffraction}
+- {front: 'Grating maxima', back: '$d\sin\theta = m\lambda$ with $d$ = 1/(lines per meter); highest order is the largest whole number $m < d/\lambda$', topic: Diffraction}
 - {front: 'Rayleigh resolution limit', back: '$\theta_{\min} = 1.22\lambda/D$', topic: Diffraction}
 - {front: 'Thin film in air (one phase flip): bright reflection', back: '$2nt = (m + \tfrac12)\lambda$', topic: Interference}
 - {front: 'Postulates of special relativity', back: 'Physics is the same in all inertial frames; light speed $c$ is the same for all observers.', topic: Special relativity}

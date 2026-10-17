@@ -23,9 +23,9 @@ where $\theta$ is the angle between $\vec B$ and the loop's normal. The unit is 
 
 **Faraday's law** says a changing magnetic flux through a circuit induces an emf:
 
-$$\mathcal{E} = -N\frac{\Delta\Phi_B}{\Delta t}$$
+$$\mathcal{E} = -N\frac{d\Phi_B}{dt}$$
 
-for a coil of $N$ turns. The flux can change in three ways, and all of them work:
+for a coil of $N$ turns. When the flux changes at a steady rate, the derivative is just $\Delta\Phi_B/\Delta t$. The flux can change in three ways, and all of them work:
 
 - the field strength changes (a magnet moves closer, an electromagnet switches on);
 - the area changes (a loop expands, a sliding rod sweeps out area);
@@ -81,9 +81,9 @@ $$\frac{V_s}{V_p} = \frac{N_s}{N_p}.$$
 
 An ideal transformer conserves power, $V_pI_p = V_sI_s$, so stepping voltage up steps current down. That's why grids transmit power at hundreds of kilovolts and step it down near homes. Transformers need AC; a steady DC current makes no changing flux.
 
-## With calculus
+## Faraday's law in integral form
 
-Faraday's law in its general form uses the flux integral and its time derivative:
+For a single loop and a field that varies over the surface, Faraday's law uses the flux integral and its time derivative:
 
 $$\mathcal{E} = \oint\vec E\cdot d\vec\ell = -\frac{d\Phi_B}{dt}, \qquad \Phi_B = \int\vec B\cdot d\vec A.$$
 
@@ -95,7 +95,7 @@ A single circular loop of radius 0.10 m lies perpendicular to a field $B(t) = 0.
 
 $\Phi_B = \pi(0.10)^2(0.20 + 0.30t^2)$, so $\mathcal{E} = -\dfrac{d\Phi_B}{dt} = -\pi(0.010)(0.60t)$. At $t = 2.0$ s, $|\mathcal{E}| = \pi(0.010)(1.2) = 0.038$ V.
 
-For the generator, differentiating $\Phi_B = NBA\cos\omega t$ gives $\mathcal{E} = NBA\omega\sin\omega t$ directly.
+For the generator, differentiating the flux through all $N$ turns, $N\Phi_B = NBA\cos\omega t$, gives $\mathcal{E} = NBA\omega\sin\omega t$ directly.
 
 ## Common mistakes
 
@@ -107,7 +107,7 @@ For the generator, differentiating $\Phi_B = NBA\cos\omega t$ gives $\mathcal{E}
 ## Key points
 
 - $\Phi_B = BA\cos\theta$ (webers).
-- Faraday: $\mathcal{E} = -N\,\Delta\Phi_B/\Delta t$ (or $-N\,d\Phi_B/dt$).
+- Faraday: $\mathcal{E} = -N\,d\Phi_B/dt$ ($-N\,\Delta\Phi_B/\Delta t$ for a steady change).
 - Lenz: induced current opposes the change in flux (energy conservation).
 - Motional emf $\mathcal{E} = BLv$; generator peak emf $NBA\omega$.
 - Transformer: $V_s/V_p = N_s/N_p$, with $V_pI_p = V_sI_s$.

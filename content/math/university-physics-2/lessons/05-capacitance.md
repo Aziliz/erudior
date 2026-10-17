@@ -83,7 +83,7 @@ A defibrillator's 150 μF capacitor is charged to 2000 V. How much energy does i
 
 $U = \tfrac12(150\times10^{-6})(2000)^2 = 300$ J. Average power $= 300/0.0040 = 75$ kW, far more than the charger could supply directly, which is the point of storing it.
 
-## With calculus
+## Energy by integration, and other geometries
 
 The stored energy comes from integrating the work to move each increment of charge $dq$ against the current voltage $v = q/C$:
 

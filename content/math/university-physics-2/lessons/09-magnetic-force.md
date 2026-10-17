@@ -83,7 +83,7 @@ $$\tau = NIAB\sin\phi,$$
 
 where $\phi$ is the angle between the field and the loop's normal. The quantity $\mu = NIA$ is the loop's **magnetic dipole moment**. The torque tries to align the loop's normal with the field, just as a compass needle aligns. An electric **motor** keeps the loop turning by reversing the current every half turn (with a commutator), so the torque always pushes the same rotational way. Analog meters and loudspeakers work on the same force.
 
-## With calculus
+## Current elements and the full Lorentz force
 
 The general force on a current element is $d\vec F = I\,d\vec\ell\times\vec B$, so for a curved wire or nonuniform field,
 

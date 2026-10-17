@@ -6,7 +6,7 @@
   choices: ['$1.7\times10^{-6}$ m', '$1.5\times10^{23}$ m', '600 m', '600 nm']
   answer: 3
   explanation: |-
-    $\lambda = c/f = (3.00\times10^8)/(5.0\times10^{14}) = 6.0\times10^{-7}$ m $= 600$ nm (orange light).
+    $\lambda = c/f = (3.00\times10^8)/(5.0\times10^{14}) = 6.0\times10^{-7}$ m $= 600$ nm (orange light). Multiplying $c$ by $f$ instead of dividing gives $1.5\times10^{23}$ m.
 - id: phys-q-4102
   lesson: phys-light
   topic: Electromagnetic waves
@@ -61,8 +61,8 @@
   lesson: phys-light
   topic: Electromagnetic waves
   stem: 'Unpolarized light of intensity $I_0$ passes through two polarizers whose axes are $60^\circ$ apart. The transmitted intensity is'
-  choices: ['$0.25I_0$', '$0.50I_0$', '$0.75I_0$', '$0.125I_0$']
-  answer: 3
+  choices: ['$0.125I_0$', '$0.25I_0$', '$0.50I_0$', '$0.75I_0$']
+  answer: 0
   explanation: |-
     The first polarizer halves it: $0.5I_0$. Malus's law at the second: $0.5I_0\cos^2 60^\circ = 0.5I_0(0.25) = 0.125I_0$. Forgetting the first halving gives $0.25I_0$.
 - id: phys-q-4109
@@ -97,7 +97,7 @@
   choices: ['15 cm, virtual', '40 cm, real', '80 cm, real', '30 cm on the far side, real']
   answer: 3
   explanation: |-
-    $\dfrac1{d_i} = \dfrac1{20} - \dfrac1{60} = \dfrac{2}{60}$, so $d_i = +30$ cm: real, on the far side, inverted, half size ($m = -0.5$).
+    $\dfrac1{d_i} = \dfrac1{20} - \dfrac1{60} = \dfrac{2}{60}$, so $d_i = +30$ cm: real, on the far side, inverted, half size ($m = -0.5$). Adding $1/60$ instead of subtracting it gives 15 cm.
 - id: phys-q-4202
   lesson: phys-mirrors-lenses
   topic: Thin lenses
@@ -127,8 +127,8 @@
   lesson: phys-mirrors-lenses
   topic: Thin lenses
   stem: 'An image has magnification $m = -2.0$. It is'
-  choices: ['upright and twice as large', 'inverted and half as large', 'upright and half as large', 'inverted and twice as large']
-  answer: 3
+  choices: ['inverted and twice as large', 'upright and twice as large', 'inverted and half as large', 'upright and half as large']
+  answer: 0
   explanation: |-
     A negative $m$ means inverted; $|m| = 2$ means twice the object's size.
 - id: phys-q-4206
@@ -155,7 +155,7 @@
   choices: ['Converging, 2.5 m', 'Diverging, 0.40 m', 'Diverging, 2.5 m', 'Converging, 0.40 m']
   answer: 1
   explanation: |-
-    $P = 1/f$: $f = 1/(-2.5) = -0.40$ m. Negative power means a diverging lens, which corrects nearsightedness.
+    $P = 1/f$: $f = 1/(-2.5) = -0.40$ m. Negative power means a diverging lens, which corrects nearsightedness. 2.5 m treats the power as if it were the focal length.
 - id: phys-q-4209
   lesson: phys-mirrors-lenses
   topic: Mirrors
@@ -262,7 +262,7 @@
   choices: ['1', '3', '2', '4']
   answer: 2
   explanation: |-
-    $\sin\theta = m\lambda/d \le 1$ requires $m \le 2.0/0.70 = 2.86$, so $m = 2$.
+    $\sin\theta = m\lambda/d \le 1$ requires $m \le 2.0/0.70 = 2.86$, so $m = 2$. Rounding 2.86 up to 3 would need $\sin\theta = 1.05$, which is impossible.
 - id: phys-q-4311
   lesson: phys-wave-optics
   topic: Interference

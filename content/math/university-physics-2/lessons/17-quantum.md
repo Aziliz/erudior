@@ -93,7 +93,7 @@ $K = 100$ eV $= 1.602\times10^{-17}$ J. $p = \sqrt{2mK} = \sqrt{2(9.11\times10^{
 
 $\lambda = \dfrac{6.63\times10^{-34}}{5.40\times10^{-24}} = 1.23\times10^{-10}$ m $= 0.123$ nm, about the spacing of atoms in a crystal, which is why such electrons diffract from crystals.
 
-## With calculus
+## Bohr radii and the Schrödinger equation
 
 The Bohr energies come from combining the Coulomb force with quantized angular momentum, $L = mvr = n\hbar$ ($\hbar = h/2\pi$): the allowed radii are $r_n = n^2a_0$ with $a_0 = 0.0529$ nm, and the energy $E = \tfrac12mv^2 - ke^2/r$ works out to $-13.6\text{ eV}/n^2$.
 

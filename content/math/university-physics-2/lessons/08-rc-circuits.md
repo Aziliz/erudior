@@ -23,7 +23,7 @@ The charge and current follow exponential curves:
 
 $$q(t) = C\mathcal{E}\left(1 - e^{-t/RC}\right), \qquad I(t) = \frac{\mathcal{E}}{R}e^{-t/RC}.$$
 
-The capacitor's voltage is $V_C = \mathcal{E}(1 - e^{-t/RC})$.
+The capacitor's voltage is $V_C = \mathcal{E}(1 - e^{-t/RC})$. (The last section derives these from the loop rule as a differential equation.)
 
 ## The time constant
 
@@ -39,7 +39,7 @@ has units of seconds (Ω·F = (V/A)(C/V) = C/A = s) and is called the **time con
 A larger resistor slows the flow of charge; a larger capacitor needs more charge. Either way, larger $RC$ means slower charging.
 
 ```plot
-{"x": [0, 5.2], "y": [0, 1.1], "xLabel": "t / RC", "yLabel": "fraction of final value", "functions": [{"f": "1 - exp(-x)", "label": "charge q / CE"}, {"f": "exp(-x)", "dashed": true, "label": "current I / I₀"}], "points": [{"at": [1, 0.632], "label": "63%"}, {"at": [1, 0.368], "label": "37%"}], "caption": "Charging an RC circuit: charge rises and current decays with time constant RC"}
+{"x": [0, 5.2], "y": [0, 1.1], "xLabel": "t / RC", "yLabel": "fraction of final value", "functions": [{"f": "1 - exp(-x)", "label": "charge q / CE"}, {"f": "exp(-x)", "dashed": true}], "labels": [{"at": [3.3, 0.16], "text": "current I / I₀ (dashed)"}], "points": [{"at": [1, 0.632], "label": "63%"}, {"at": [1, 0.368], "label": "37%"}], "caption": "Charging an RC circuit: charge rises and current decays with time constant RC"}
 ```
 
 ### Example 1
@@ -80,7 +80,7 @@ Because $\tau = RC$ can be set anywhere from nanoseconds to minutes by choosing 
 
 RC circuits also act as filters. A capacitor needs time to respond, so it can't follow voltage changes much faster than $1/\tau$. Take the output across the capacitor and rapid fluctuations are smoothed away while slow changes pass through: a **low-pass filter**, used to remove hiss from audio and to smooth the ripple from a power supply. Take the output across the resistor instead and only the rapid changes get through, a high-pass filter. The crossover frequency is about $f = \dfrac{1}{2\pi RC}$. A 10 kΩ resistor with a 16 nF capacitor gives roughly 1 kHz.
 
-## With calculus
+## Deriving the exponentials
 
 Apply the loop rule to the charging circuit, with $I = dq/dt$:
 

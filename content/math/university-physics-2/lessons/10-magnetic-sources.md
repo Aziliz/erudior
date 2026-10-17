@@ -17,12 +17,12 @@ A long straight wire carrying current $I$ makes a magnetic field that circles th
 
 $$B = \frac{\mu_0I}{2\pi r},$$
 
-where $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the **permeability of free space**. The field weakens as $1/r$, like the electric field of a line charge.
+where $\mu_0 = 4\pi\times10^{-7}$ T·m/A is the **permeability of free space**. (This and the other field formulas in this lesson are derived at the end, from the Biot–Savart law and Ampère's law.) The field weakens as $1/r$, like the electric field of a line charge.
 
 *Direction (right-hand grip rule).* Grasp the wire with your right thumb along the current; your fingers curl in the direction of $\vec B$. Seen from above with current coming toward you, the field circles counterclockwise.
 
 ```plot
-{"x": [-2.6, 2.6], "y": [-2.6, 2.6], "equal": true, "vectorField": {"u": "-y/(x^2+y^2)", "v": "x/(x^2+y^2)", "step": 0.65}, "points": [{"at": [0, 0], "label": "I out of page"}], "caption": "Field around a wire carrying current out of the page: counterclockwise circles, weaker farther out"}
+{"x": [-2.6, 2.6], "y": [-2.6, 2.6], "equal": true, "vectorField": {"u": "-y/(x^2+y^2)", "v": "x/(x^2+y^2)", "step": 0.5}, "points": [{"at": [0, 0], "label": "I out of page"}], "caption": "Field around a wire carrying current out of the page: counterclockwise circles, weaker farther out"}
 ```
 
 ### Example 1
@@ -69,7 +69,7 @@ $\dfrac FL = \dfrac{(4\pi\times10^{-7})(10)(15)}{2\pi(0.050)} = 6.0\times10^{-4}
 
 Electrons spin and orbit, so atoms can be tiny magnets. In most materials these cancel or point randomly. In **ferromagnetic** materials (iron, nickel, cobalt), neighboring atoms' magnets align in regions called domains; an external field grows the domains that point with it, producing strong magnetization. Some ferromagnets keep their alignment when the field is removed: permanent magnets. Heating past the Curie temperature (770°C for iron) destroys ferromagnetism.
 
-## With calculus
+## Deriving the fields: the Biot–Savart law and Ampère's law
 
 The **Biot–Savart law** gives the field of any current distribution. A short element $d\vec\ell$ of wire carrying current $I$ contributes, at a point displaced $\vec r$ from it,
 

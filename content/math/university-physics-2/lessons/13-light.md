@@ -91,7 +91,7 @@ Into air: $\sin\theta_c = 1/1.52 = 0.658$, so $\theta_c = 41.1^\circ$.
 
 Into water: $\sin\theta_c = 1.33/1.52 = 0.875$, so $\theta_c = 61.0^\circ$. The smaller the index difference, the larger the critical angle.
 
-## With calculus
+## The wave equation and Fermat's principle
 
 Maxwell's equations in empty space combine to give, for the electric field, the wave equation
 

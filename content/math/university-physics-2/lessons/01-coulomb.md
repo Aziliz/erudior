@@ -70,7 +70,7 @@ Two identical small spheres each carry $+3.0$ μC, sitting at two corners of an 
 
 Each force has magnitude $F = (8.99\times10^9)\dfrac{(3.0\times10^{-6})(1.0\times10^{-6})}{0.25} = 0.108$ N, directed away from its source. Put the two sources on the $x$ axis; then the horizontal components cancel by symmetry and the vertical components add. Each force makes $30^\circ$ with the vertical: $F_{\text{net}} = 2(0.108)\cos 30^\circ = 0.187$ N, straight away from the midpoint of the other two.
 
-## With calculus
+## Vector form and continuous charge
 
 Coulomb's law in vector form: the force on $q_2$ due to $q_1$ is
 
