@@ -4,7 +4,7 @@ module: de-m6
 title: Forced vibrations, resonance and RLC circuits
 minutes: 35
 topics: [Forced vibrations, RLC circuits]
-drills: [de-steady-amplitude, de-rlc-type]
+drills: [de-steady-amplitude, de-peak-frequency, de-rlc-type]
 refs: [de-ref-solutions, de-ref-models]
 ---
 ## Pushing on a spring
@@ -89,6 +89,9 @@ $$\omega_{\max}^2 = \omega_0^2 - \frac{\gamma^2}{2m^2},$$
 slightly below $\omega_0$, provided $\gamma^2 < 2mk$. With heavier damping
 ($\gamma^2 \ge 2mk$) there is no peak at all: the amplitude simply falls as $\omega$
 increases from 0.
+
+The next lesson rederives $R$ in one line with complex exponentials and adds the second
+half of the story: how far the response lags behind the force.
 
 ### Example 2
 

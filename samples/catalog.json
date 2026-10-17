@@ -180,7 +180,7 @@
   "order": 9,
   "title": "Differential Equations",
   "description": "Ordinary differential equations from the AP-calculus bridge (slope fields, separable equations, exponential and logistic growth, Euler's method) through a full sophomore college course: first-order methods and models, autonomous equations and bifurcations, numerical methods, second-order and higher-order linear equations, vibrations and circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series solutions, and an introduction to Fourier series and the heat and wave equations.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Math",
   "level": [
    "College"

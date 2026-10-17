@@ -11,8 +11,8 @@ refs: [de-ref-solutions, de-ref-models]
 
 Most interesting systems are nonlinear: predators eat prey at a rate proportional to how
 often they meet ($xy$), a pendulum's restoring force is $\sin\theta$, competing species crowd
-each other. Nonlinear systems rarely have formula solutions, but the tools of the last three
-lessons still tell us a great deal, because near an equilibrium a smooth nonlinear system
+each other. Nonlinear systems rarely have formula solutions, but the eigenvalue tools of Lessons
+33–35 still tell us a great deal, because near an equilibrium a smooth nonlinear system
 looks almost linear. This lesson develops **linearization** and applies it to the classic
 **predator–prey** model.
 

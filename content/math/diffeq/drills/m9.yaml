@@ -105,3 +105,49 @@
     - {name: fn, label: 'Mode $n$ (Hz)', tolerance: 0.06, format: num1}
   solution: |-
     Mode $n$ oscillates as $\cos\dfrac{n\pi at}{L}$, with angular frequency $\dfrac{n\pi a}{L}$, so its frequency is $\dfrac{na}{2L}$ Hz. Fundamental: $\dfrac{{a}}{2({len})} \approx$ **{f1:num1} Hz**; mode {n}: $\dfrac{{n}\cdot{a}}{2({len})} \approx$ **{fn:num1} Hz**.
+- id: de-heat-insulated
+  title: Heat flow in an insulated rod
+  topic: Heat boundary conditions
+  vars:
+    L: {choices: [2, 3, 4]}
+    al2: {choices: [0.05, 0.1, 0.2, 0.5]}
+    A0: {min: 10, max: 60, step: 5}
+    n: {min: 1, max: 4}
+    an: {min: -12, max: 12}
+    x0f: {choices: [0, 0.25, 0.5]}
+    t0: {choices: [0.2, 0.5, 1, 2]}
+  where: ['an != 0', 'rate*t0 < 4']
+  calc:
+    rate: al2*(n*pi/L)^2
+    x0: x0f*L
+    dec: exp(-rate*t0)
+    cs: cos(n*pi*x0/L)
+    u: A0 + an*dec*cs
+  prompt: 'A rod of length $L = {L}$ with $\alpha^2 = {al2}$ is insulated at both ends and starts at $u(x, 0) = {A0} {an:signedcoef}\cos\dfrac{{n:coef}\pi x}{{L}}$. Find $u({x0}, {t0})$ (4 decimal places) and the temperature the rod approaches as $t \to \infty$.'
+  answers:
+    - {name: u, label: '$u({x0}, {t0}) \approx$', tolerance: 0.00006, format: num4}
+    - {name: A0, label: 'Long-run temperature'}
+  solution: |-
+    The data is already a cosine series: constant term ${A0}$ and the $n = {n}$ mode with coefficient ${an}$. That mode decays at rate $\alpha^2\left(\dfrac{{n:coef}\pi}{{L}}\right)^2 \approx {rate:num4}$, so $u = {A0} {an:signedcoef}e^{-{rate:num4}t}\cos\dfrac{{n:coef}\pi x}{{L}}$. At $x = {x0}$, $t = {t0}$: $\cos = {cs:num4}$ and $e^{-{rate:num4}\cdot{t0}} \approx {dec:num4}$, so $u \approx$ **{u:num4}**. The cosine mode dies away, leaving the average temperature **{A0}**.
+- id: de-heat-steady
+  title: Rod with fixed nonzero end temperatures
+  topic: Heat boundary conditions
+  vars:
+    len: {choices: [2, 4, 5, 10]}
+    T1: {min: 0, max: 40, step: 10}
+    T2: {min: 50, max: 100, step: 10}
+    c0: {min: 0, max: 40, step: 5}
+    x0f: {choices: [0.25, 0.5, 0.75]}
+  where: ['4*(c0 - T1) - 2*(T2 - T1) != 0', 'c0 != T1']
+  calc:
+    x0: x0f*len
+    rise: T2 - T1
+    v: T1 + (T2 - T1)*x0/len
+    d1: c0 - T1
+    b1: (4*(c0 - T1) - 2*(T2 - T1))/pi
+  prompt: 'A rod of length $L = {len}$ starts at a uniform {c0}°. Its ends are then held at $u(0, t) = {T1}$ and $u({len}, t) = {T2}$. Find the equilibrium temperature $v({x0})$ and the first sine coefficient $b_1$ of $w(x, 0) = u(x, 0) - v(x)$. (2 decimal places)'
+  answers:
+    - {name: v, label: '$v({x0}) =$', tolerance: 0.006, format: num2}
+    - {name: b1, label: '$b_1 \approx$', tolerance: 0.006, format: num2}
+  solution: |-
+    The equilibrium is the line through the end temperatures: $v(x) = {T1} + \dfrac{{rise}x}{{len}}$, so $v({x0}) =$ **{v:num2}**. Then $w(x, 0) = {c0} - v(x) = {d1} - \dfrac{{rise}x}{{len}}$. Using $\displaystyle\int_0^L\sin\frac{\pi x}{L}\,dx = \frac{2L}{\pi}$ and $\displaystyle\int_0^Lx\sin\frac{\pi x}{L}\,dx = \frac{L^2}{\pi}$: $b_1 = \dfrac2L\left[({d1})\dfrac{2L}{\pi} - \dfrac{{rise}}{L}\cdot\dfrac{L^2}{\pi}\right] = \dfrac{4({d1}) - 2({rise})}{\pi} \approx$ **{b1:num2}**.

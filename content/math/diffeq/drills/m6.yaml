@@ -210,3 +210,68 @@
     - {kind: expression, expression: 'c1 + c2*exp(k*t) + c3*exp(-k*t)', variables: [t], label: '$y =$', show: '$y = {c1} {c2:signedcoef}e^{{k:coef}t} {c3:signedcoef}e^{-{k:coef}t}$'}
   solution: |-
     $r^3 - {k2:coef}r = r(r - {k})(r + {k})$, so $y = c_1 + c_2e^{{k:coef}t} + c_3e^{-{k:coef}t}$. Conditions: $c_1 + c_2 + c_3 = {y0}$, ${k}(c_2 - c_3) = {v0}$, ${k2}(c_2 + c_3) = {a0}$. So $c_2 - c_3 = {v0}/{k}$ and $c_2 + c_3 = {a0}/{k2}$, giving $c_2 = {c2}$, $c_3 = {c3}$, and $c_1 = {c1}$. Answer: **$y = {c1} {c2:signedcoef}e^{{k:coef}t} {c3:signedcoef}e^{-{k:coef}t}$**.
+- id: de-peak-frequency
+  title: Practical-resonance peak frequency
+  topic: Forced vibrations
+  vars:
+    m: {choices: [1, 2]}
+    gam: {choices: [0.5, 1, 1.5, 2, 3]}
+    k: {min: 4, max: 20}
+    F0: {min: 1, max: 10}
+  where: ['gam^2 < 2*m*k']
+  calc:
+    g2: gam^2
+    tmk: 2*m*k
+    w02: k/m
+    wmax2: k/m - gam^2/(2*m^2)
+    wmax: sqrt(wmax2)
+    kd: gam^2/(2*m)
+    Rmax: F0/(gam*sqrt(k/m - gam^2/(4*m^2)))
+    R0: F0/(gam*sqrt(k/m))
+  prompt: 'For ${m:coef}u'''' {gam:signedcoef}u'' + {k}u = {F0:coef}\cos\omega t$, find the forcing frequency $\omega_{\max}$ that gives the largest steady-state amplitude, and that largest amplitude $R_{\max}$. (3 decimal places)'
+  answers:
+    - {name: wmax, label: '$\omega_{\max} \approx$', tolerance: 0.0006, format: dp3}
+    - {name: Rmax, label: '$R_{\max} \approx$', tolerance: 0.0006, format: dp3}
+  solution: |-
+    $\omega_0^2 = k/m = {w02:sig6}$. Since $\gamma^2 = {g2} < 2mk = {tmk}$, the amplitude has a peak at $\omega_{\max}^2 = \omega_0^2 - \dfrac{\gamma^2}{2m^2} = {wmax2:sig6}$, so $\omega_{\max} \approx$ **{wmax:dp3}**, a little below $\omega_0$. There $k - m\omega^2 = \dfrac{\gamma^2}{2m} = {kd:sig6}$, and $R = \dfrac{F_0}{\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}}$ simplifies to $R_{\max} = \dfrac{F_0}{\gamma\sqrt{\omega_0^2 - \gamma^2/(4m^2)}} \approx$ **{Rmax:dp3}** (slightly more than the value $F_0/(\gamma\omega_0) \approx {R0:dp3}$ at $\omega_0$).
+- id: de-gain-phase
+  title: Gain and phase lag
+  topic: Complex gain
+  vars:
+    m: {choices: [1, 2]}
+    gam: {choices: [0.5, 1, 2, 3]}
+    k: {min: 1, max: 12}
+    w: {choices: [0.5, 1, 1.5, 2, 3]}
+  calc:
+    re: k - m*w^2
+    im: gam*w
+    mod: sqrt(re^2 + im^2)
+    gain: 1/mod
+    phi: atan2(im, re)
+  prompt: 'For ${m:coef}x'''' {gam:signedcoef}x'' + {k:coef}x = F_0\cos({w:coef}t)$, find the gain $g = 1/|p(i\omega)|$ and the phase lag $\phi$ (radians, between 0 and $\pi$) of the steady-state response. (4 decimal places for $g$, 3 for $\phi$)'
+  answers:
+    - {name: gain, label: '$g \approx$', relTolerance: 0.0005, format: num4}
+    - {name: phi, label: '$\phi \approx$', tolerance: 0.0006, format: dp3}
+  solution: |-
+    $p(i\omega) = (k - m\omega^2) + i\gamma\omega = {re:sig6} + {im:coef}i$. Its modulus is $\sqrt{({re:sig6})^2 + ({im:sig6})^2} \approx {mod:num4}$, so $g = 1/{mod:num4} \approx$ **{gain:num4}**. Its angle (in the upper half-plane, so check the sign of the real part ${re:sig6}$ for the quadrant) is $\phi \approx$ **{phi:dp3}** rad. The steady state is $gF_0\cos({w:coef}t - \phi)$.
+- id: de-complex-replace
+  title: Steady state by complex replacement
+  topic: Complex gain
+  vars:
+    bb: {min: 1, max: 4}
+    cc: {min: 1, max: 10}
+    w: {min: 1, max: 3}
+    F: {choices: [2, 3, 4, 5, 6, 10, 12]}
+  calc:
+    P: cc - w^2
+    Q: bb*w
+    D: P^2 + Q^2
+    A: F*P/D
+    B: F*Q/D
+  where: ['P != 0']
+  prompt: 'Use complex replacement to find the steady-state solution $x_p = A\cos {w:coef}t + B\sin {w:coef}t$ of $x'''' {bb:signedcoef}x'' + {cc:coef}x = {F}\cos {w:coef}t$. Give $A$ and $B$ as exact fractions.'
+  answers:
+    - {name: A, label: '$A =$', kind: fraction, lowestTerms: true}
+    - {name: B, label: '$B =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $p(r) = r^2 {bb:signedcoef}r + {cc}$, so $p({w:coef}i) = {P} + {Q:coef}i$. Then $z_p = \dfrac{{F}}{{P} + {Q:coef}i}e^{{w:coef}it} = \dfrac{{F}({P} - {Q:coef}i)}{{D}}\big(\cos {w:coef}t + i\sin {w:coef}t\big)$. The real part is $\dfrac{{F}\cdot({P})}{{D}}\cos {w:coef}t + \dfrac{{F}\cdot{Q}}{{D}}\sin {w:coef}t$, so $A =$ **{A:frac}** and $B =$ **{B:frac}**.

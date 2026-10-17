@@ -24,7 +24,7 @@ what trajectories do near the equilibrium at the origin.
 
 Solve $\mathbf{x}' = \begin{bmatrix} 1 & 1 \\ 4 & 1 \end{bmatrix}\mathbf{x}$, $\mathbf{x}(0) = \begin{bmatrix} 2 \\ 0 \end{bmatrix}$.
 
-- From Lesson 32: $\lambda = 3$, $\mathbf{v} = (1, 2)$; $\lambda = -1$, $\mathbf{v} = (1, -2)$.
+- From Lesson 33: $\lambda = 3$, $\mathbf{v} = (1, 2)$; $\lambda = -1$, $\mathbf{v} = (1, -2)$.
 - At $t = 0$: $c_1\begin{bmatrix} 1 \\ 2 \end{bmatrix} + c_2\begin{bmatrix} 1 \\ -2 \end{bmatrix} = \begin{bmatrix} 2 \\ 0 \end{bmatrix}$, so
   $c_1 + c_2 = 2$ and $2c_1 - 2c_2 = 0$: $c_1 = c_2 = 1$.
 - $x_1 = e^{3t} + e^{-t}$, $x_2 = 2e^{3t} - 2e^{-t}$.
@@ -50,7 +50,7 @@ The solution along $\mathbf{v}^{(2)}$ decays into the origin, the one along $\ma
 away. Every other trajectory comes in roughly parallel to $\mathbf{v}^{(2)}$, swings near the
 origin, and leaves roughly parallel to $\mathbf{v}^{(1)}$, like water flowing past a mountain
 pass. Almost every solution goes to infinity: a **saddle point** is **unstable**. Example 1
-and the figure in Lesson 32 show one. Test: $\det A < 0$ exactly when the eigenvalues have
+and the figure in Lesson 33 show one. Test: $\det A < 0$ exactly when the eigenvalues have
 opposite signs.
 
 ### Nodal sink: $\lambda_1 < \lambda_2 < 0$
@@ -105,7 +105,7 @@ case that rarely matters in applications but makes good exam questions.
 Phase portraits answer questions without formulas: Will the tanks' salt both go to zero?
 (Sink: yes.) Will a small disturbance from equilibrium grow? (Saddle or source: yes.) Along
 which combination does the system decay slowest? (The slow eigenvector.) For the two-tank
-example in Lesson 32, the matrix has trace $-0.2$ and determinant $0.005$, giving
+example in Lesson 33, the matrix has trace $-0.2$ and determinant $0.005$, giving
 $\lambda = -0.1 \pm \sqrt{0.005}$, about $-0.029$ and $-0.171$. Both negative: a sink, and the salt
 washes out, slowly, along the slow eigenvector.
 

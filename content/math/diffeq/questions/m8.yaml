@@ -90,7 +90,7 @@
   answer: 1
   explanation: |-
     Trace 1, det $-6$: $\lambda^2 - \lambda - 6 = (\lambda - 3)(\lambda + 2)$.
-# Lesson 33
+# Lesson 34
 - id: de-q-3301
   lesson: de-eigen-real
   module_quiz: true
@@ -182,7 +182,7 @@
   answer: 2
   explanation: |-
     $\mathbf{x} = e^{3t}(1, 2) + e^{-t}(1, -2)$, so $x_2 = 2e^{3t} - 2e^{-t}$ (and $x_1 = e^{3t} + e^{-t}$).
-# Lesson 34
+# Lesson 35
 - id: de-q-3401
   lesson: de-eigen-complex
   module_quiz: true
@@ -274,7 +274,108 @@
   answer: 0
   explanation: |-
     Solutions involve $\cos\beta t$ and $\sin\beta t$, which repeat every $2\pi/\beta$.
-# Lesson 35
+# Lesson 36
+- id: de-q-ns01
+  lesson: de-nonhomog-systems
+  module_quiz: true
+  topic: Nonhomogeneous systems
+  stem: 'Find the constant particular solution of $\mathbf{x}'' = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}\mathbf{x} + \begin{bmatrix} 1 \\ 0 \end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 1 \\ -1 \end{bmatrix}$', '$\begin{bmatrix} -1 \\ 1 \end{bmatrix}$', '$\begin{bmatrix} -2 \\ -1 \end{bmatrix}$', '$\begin{bmatrix} -\frac12 \\ 0 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    A constant $\mathbf{a}$ needs $A\mathbf{a} + \mathbf{b} = \mathbf{0}$, so $\mathbf{a} = -A^{-1}\mathbf{b}$. Here $\det A = 1$ and $A^{-1} = \begin{bmatrix} 1 & -1 \\ -1 & 2 \end{bmatrix}$, so $\mathbf{a} = -(1, -1) = (-1, 1)$. Check: $A\mathbf{a} = (-1, 0) = -\mathbf{b}$. $(1, -1)$ is $A^{-1}\mathbf{b}$ (sign dropped); $(-2, -1)$ is $-A\mathbf{b}$ (multiplied instead of inverting); $(-\tfrac12, 0)$ divides by the diagonal entry as if $A$ were diagonal.
+- id: de-q-ns02
+  lesson: de-nonhomog-systems
+  module_quiz: true
+  topic: Matrix exponential
+  stem: 'What is $e^{At}$ for $A = \begin{bmatrix} -1 & 0 \\ 0 & 3 \end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} e^{-t} & 1 \\ 1 & e^{3t} \end{bmatrix}$', '$\begin{bmatrix} -e^{-t} & 0 \\ 0 & 3e^{3t} \end{bmatrix}$', '$\begin{bmatrix} 1 - t & 0 \\ 0 & 1 + 3t \end{bmatrix}$', '$\begin{bmatrix} e^{-t} & 0 \\ 0 & e^{3t} \end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    Powers of a diagonal matrix are diagonal with the entries raised to that power, so the series exponentiates each diagonal entry and leaves zeros off the diagonal. The matrix with 1s off the diagonal exponentiates every entry ($e^{0} = 1$); the one with $-e^{-t}$ and $3e^{3t}$ is the derivative $Ae^{At}$; $I + At$ keeps only two terms of the series.
+- id: de-q-ns03
+  lesson: de-nonhomog-systems
+  topic: Matrix exponential
+  stem: 'What is $e^{At}$ for $A = \begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}$?'
+  choices: ['$e^{3t}\begin{bmatrix} 1 & t \\ 0 & 1 \end{bmatrix}$', '$\begin{bmatrix} e^{3t} & e^{t} \\ 1 & e^{3t} \end{bmatrix}$', '$e^{3t}\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$', '$e^{3t}\begin{bmatrix} 1 & t \\ t & 1 \end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $A = 3I + N$ with $N = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ and $N^2 = 0$, so $e^{At} = e^{3t}(I + Nt)$. Exponentiating each entry is the scalar-thinking mistake; $e^{3t}\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$ forgets the factor $t$ on $N$; the version with $t$ in both corners puts $N$'s entry where $N$ has a zero.
+- id: de-q-ns04
+  lesson: de-nonhomog-systems
+  topic: Matrix exponential
+  stem: 'Which two properties determine the matrix function $X(t) = e^{At}$?'
+  choices: ['$X'' = X$ and $X(0) = A$', '$X'' = AX$ and $X(0) = A$', '$X'' = AX$ and $X(0) = I$', 'Each entry is $e^{a_{ij}t}$ and $X(0) = I$']
+  answer: 2
+  explanation: |-
+    Differentiating the series gives $\tfrac{d}{dt}e^{At} = Ae^{At}$, and at $t = 0$ only $I$ survives; that matrix IVP has exactly one solution. $X' = X$ describes $e^tI$ times a constant, not $e^{At}$; starting at $A$ instead of $I$ is wrong because $e^{A\cdot 0} = I$; entrywise exponentials agree with $e^{At}$ only for diagonal $A$.
+- id: de-q-ns05
+  lesson: de-nonhomog-systems
+  topic: Matrix exponential
+  stem: 'If $\Psi(t)$ is any fundamental matrix of $\mathbf{x}'' = A\mathbf{x}$, then $e^{At}$ equals'
+  choices: ['$\Psi(0)^{-1}\Psi(t)$', '$\Psi(t)\Psi(0)$', '$\Psi(t)^{-1}$', '$\Psi(t)\Psi(0)^{-1}$']
+  answer: 3
+  explanation: |-
+    $\Psi(t)\Psi(0)^{-1}$ has columns that are combinations of solutions, so it solves $X' = AX$, and it equals $I$ at $t = 0$. Putting $\Psi(0)^{-1}$ on the left generally gives something that no longer solves $X' = AX$ (matrix products don't commute); $\Psi(t)\Psi(0)$ is not $I$ at $t = 0$; $\Psi(t)^{-1}$ isn't a solution matrix at all.
+- id: de-q-ns06
+  lesson: de-nonhomog-systems
+  module_quiz: true
+  topic: Nonhomogeneous systems
+  stem: 'Find a particular solution of $\mathbf{x}'' = \begin{bmatrix} 1 & 1 \\ 4 & 1 \end{bmatrix}\mathbf{x} + e^{2t}\begin{bmatrix} 3 \\ 0 \end{bmatrix}$. (The eigenvalues are 3 and $-1$.)'
+  choices: ['$e^{2t}\begin{bmatrix} 1 \\ 4 \end{bmatrix}$', '$e^{2t}\begin{bmatrix} -1 \\ -4 \end{bmatrix}$', '$te^{2t}\begin{bmatrix} -1 \\ -4 \end{bmatrix}$', '$e^{2t}\begin{bmatrix} \frac32 \\ 0 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    2 is not an eigenvalue, so try $e^{2t}\mathbf{a}$ with $(2I - A)\mathbf{a} = \mathbf{b}$: $a_1 - a_2 = 3$ and $-4a_1 + a_2 = 0$, giving $\mathbf{a} = (-1, -4)$. Check: $2\mathbf{a} = (-2, -8) = A\mathbf{a} + \mathbf{b}$. Solving with $A - 2I$ flips the sign; the factor $t$ is only needed when 2 is an eigenvalue; $(\tfrac32, 0)$ divides $\mathbf{b}$ by $r$ and ignores $A$.
+- id: de-q-ns07
+  lesson: de-nonhomog-systems
+  topic: Nonhomogeneous systems
+  stem: 'For $\mathbf{x}'' = A\mathbf{x} + e^{rt}\mathbf{b}$, the guess $\mathbf{x}_p = e^{rt}\mathbf{a}$ fails when'
+  choices: ['$\det A = 0$', '$r < 0$', '$r$ is an eigenvalue of $A$', '$\mathbf{b}$ is an eigenvector of $A$']
+  answer: 2
+  explanation: |-
+    The guess needs $(rI - A)\mathbf{a} = \mathbf{b}$, which has a unique solution exactly when $rI - A$ is invertible, that is, when $r$ is not an eigenvalue. $\det A = 0$ only matters for constant forcing ($r = 0$); the sign of $r$ is irrelevant; $\mathbf{b}$ being an eigenvector does not make $rI - A$ singular.
+- id: de-q-ns08
+  lesson: de-nonhomog-systems
+  topic: Nonhomogeneous systems
+  stem: 'Variation of parameters for $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}(t)$ with fundamental matrix $\Psi$ gives'
+  choices: ['$\mathbf{x}_p = \Psi(t)\displaystyle\int\Psi(t)^{-1}\mathbf{g}(t)\,dt$', '$\mathbf{x}_p = \Psi(t)^{-1}\displaystyle\int\Psi(t)\mathbf{g}(t)\,dt$', '$\mathbf{x}_p = \displaystyle\int\Psi(t)^{-1}\mathbf{g}(t)\,dt$', '$\mathbf{x}_p = \Psi(t)\displaystyle\int\mathbf{g}(t)\,dt$']
+  answer: 0
+  explanation: |-
+    Substituting $\mathbf{x} = \Psi\mathbf{u}$ leaves $\Psi\mathbf{u}' = \mathbf{g}$, so $\mathbf{u} = \int\Psi^{-1}\mathbf{g}\,dt$ and $\mathbf{x}_p = \Psi\mathbf{u}$. Swapping $\Psi$ and $\Psi^{-1}$ reverses the derivation; stopping at $\int\Psi^{-1}\mathbf{g}$ forgets to multiply back by $\Psi$; dropping $\Psi^{-1}$ inside the integral treats $\Psi$ as constant.
+- id: de-q-ns09
+  lesson: de-nonhomog-systems
+  module_quiz: true
+  topic: Nonhomogeneous systems
+  stem: 'Every solution of $\mathbf{x}'' = \begin{bmatrix} -2 & 1 \\ 1 & -2 \end{bmatrix}\mathbf{x} + \begin{bmatrix} 3 \\ 0 \end{bmatrix}$ approaches what as $t \to \infty$? (The eigenvalues are $-1$ and $-3$.)'
+  choices: ['$(2, 1)$', '$(-2, -1)$', '$(0, 0)$', 'Nothing: solutions grow without bound']
+  answer: 0
+  explanation: |-
+    Both eigenvalues are negative, so $\mathbf{x}_c \to \mathbf{0}$ and $\mathbf{x} \to \mathbf{a} = -A^{-1}\mathbf{b}$. Solving $-2a_1 + a_2 = -3$, $a_1 - 2a_2 = 0$ gives $\mathbf{a} = (2, 1)$. $(-2, -1)$ is $A^{-1}\mathbf{b}$ (sign error); $(0, 0)$ is the limit only without forcing; growth would need a positive eigenvalue.
+- id: de-q-ns10
+  lesson: de-nonhomog-systems
+  topic: Matrix exponential
+  stem: 'Which formula solves $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}(t)$, $\mathbf{x}(0) = \mathbf{x}_0$, for constant $A$?'
+  choices: ['$e^{At}\mathbf{x}_0 + \displaystyle\int_0^te^{As}\mathbf{g}(s)\,ds$', '$e^{At}\Big(\mathbf{x}_0 + \displaystyle\int_0^t\mathbf{g}(s)\,ds\Big)$', '$e^{At}\mathbf{x}_0 + \displaystyle\int_0^te^{A(t - s)}\mathbf{g}(s)\,ds$', '$e^{-At}\mathbf{x}_0 + \displaystyle\int_0^te^{A(t - s)}\mathbf{g}(s)\,ds$']
+  answer: 2
+  explanation: |-
+    This is variation of parameters with $\Psi = e^{At}$: each input $\mathbf{g}(s)$ is carried forward by $e^{A(t - s)}$ for the time $t - s$ since it arrived. Using $e^{As}$ evolves the input for the wrong length of time; $e^{At}\int\mathbf{g}$ omits the $e^{-As}$ inside the integral; $e^{-At}\mathbf{x}_0$ runs the initial state backward.
+- id: de-q-ns11
+  lesson: de-nonhomog-systems
+  topic: Nonhomogeneous systems
+  stem: 'Solve $x_1'' = 2x_1$, $x_2'' = -x_2 + 3$ with $\mathbf{x}(0) = (1, 0)$. What is $x_2(t)$?'
+  choices: ['$3$', '$3 - 3e^{-t}$', '$-3 + 3e^{-t}$', '$3e^{-t}$']
+  answer: 1
+  explanation: |-
+    The constant particular solution is $x_2 = 3$ (from $0 = -a_2 + 3$), so $x_2 = 3 + ce^{-t}$, and $x_2(0) = 0$ gives $c = -3$. Fitting the initial condition to $ce^{-t}$ alone gives $c = 0$ and the answer 3; $-3 + 3e^{-t}$ uses the wrong-signed constant $A^{-1}\mathbf{b}$; $3e^{-t}$ doesn't satisfy $x_2(0) = 0$ or approach the equilibrium. ($x_1 = e^{2t}$.)
+- id: de-q-ns12
+  lesson: de-nonhomog-systems
+  topic: Nonhomogeneous systems
+  stem: 'For $\mathbf{x}'' = \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}\mathbf{x} + \begin{bmatrix} e^t \\ e^{2t} \end{bmatrix}$, use $\Psi = \begin{bmatrix} e^t & 0 \\ 0 & e^{2t} \end{bmatrix}$ and variation of parameters. A particular solution is'
+  choices: ['$\begin{bmatrix} e^t \\ e^{2t} \end{bmatrix}$', '$\begin{bmatrix} t \\ t \end{bmatrix}$', '$\begin{bmatrix} te^{-t} \\ te^{-2t} \end{bmatrix}$', '$\begin{bmatrix} te^t \\ te^{2t} \end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $\Psi^{-1}\mathbf{g} = (e^{-t}e^t, e^{-2t}e^{2t}) = (1, 1)$, so $\mathbf{u} = (t, t)$ and $\mathbf{x}_p = \Psi\mathbf{u} = (te^t, te^{2t})$. $(e^t, e^{2t})$ is the failed undetermined-coefficients guess (the forcing rates are eigenvalues); $(t, t)$ is $\mathbf{u}$ without multiplying by $\Psi$; $(te^{-t}, te^{-2t})$ multiplies by $\Psi^{-1}$ instead of $\Psi$.
+# Lesson 37
 - id: de-q-3501
   lesson: de-nonlinear
   module_quiz: true

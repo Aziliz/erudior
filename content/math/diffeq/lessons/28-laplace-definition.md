@@ -128,7 +128,7 @@ Let $f(t) = 2$ for $0 \le t < 3$ and $f(t) = 0$ for $t \ge 3$. Then
 
 $$F(s) = \int_0^3 2e^{-st}\,dt = \left[-\frac{2e^{-st}}{s}\right]_0^3 = \frac{2(1 - e^{-3s})}{s}.$$
 
-The factor $e^{-3s}$ records the switch-off time. Lesson 30 turns this observation into a
+The factor $e^{-3s}$ records the switch-off time. Lesson 31 turns this observation into a
 general rule (step functions and the second shifting theorem), so that you rarely need to
 integrate by hand.
 

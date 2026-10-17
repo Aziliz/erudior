@@ -5,8 +5,8 @@
  "title": "Differential Equations",
  "description": "Ordinary differential equations from the AP-calculus bridge (slope fields, separable equations, exponential and logistic growth, Euler's method) through a full sophomore college course: first-order methods and models, autonomous equations and bifurcations, numerical methods, second-order and higher-order linear equations, vibrations and circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series solutions, and an introduction to Fourier series and the heat and wave equations.",
  "author": "Examiner",
- "revision": 2,
- "changelog": "Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.",
+ "revision": 3,
+ "changelog": "Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections; new lessons on complex gain and sinusoidal response, nonhomogeneous systems and the matrix exponential, and heat problems with other boundary conditions.",
  "modules": [
   {
    "id": "de-m1",
@@ -117,6 +117,12 @@
     "de-q-2501",
     "de-q-2502",
     "de-q-2507",
+    "de-q-2512",
+    "de-q-2515",
+    "de-q-cg01",
+    "de-q-cg02",
+    "de-q-cg04",
+    "de-q-cg09",
     "de-q-2601",
     "de-q-2603"
    ]
@@ -155,6 +161,10 @@
     "de-q-3401",
     "de-q-3402",
     "de-q-3407",
+    "de-q-ns01",
+    "de-q-ns02",
+    "de-q-ns06",
+    "de-q-ns09",
     "de-q-3501",
     "de-q-3502",
     "de-q-3507"
@@ -172,7 +182,11 @@
     "de-q-3706",
     "de-q-3801",
     "de-q-3802",
-    "de-q-3806"
+    "de-q-3806",
+    "de-q-hb01",
+    "de-q-hb02",
+    "de-q-hb03",
+    "de-q-hb06"
    ]
   }
  ],
@@ -926,13 +940,14 @@
    ],
    "drills": [
     "de-steady-amplitude",
+    "de-peak-frequency",
     "de-rlc-type"
    ],
    "refs": [
     "de-ref-solutions",
     "de-ref-models"
    ],
-   "body": "## Pushing on a spring\n\nNow add an external periodic force, a motor with an off-center weight, wind gusts on a\nbridge, a road's bumps under a car:\n\n$$mu'' + \\gamma u' + ku = F_0\\cos\\omega t.$$\n\nThe solution is $u = u_c + U$, where $u_c$ is the free vibration from the last lesson and\n$U$ comes from undetermined coefficients. The interplay between the **[[forcing frequency]]**\n$\\omega$ and the natural frequency $\\omega_0 = \\sqrt{k/m}$ produces the most important\nphenomena in vibration engineering: beats and resonance.\n\n## Undamped forcing, $\\omega \\ne \\omega_0$\n\nWith $\\gamma = 0$, guess $U = A\\cos\\omega t$ (no sine is needed because there's no $u'$\nterm, though including $B\\sin\\omega t$ just gives $B = 0$):\n\n$$(k - m\\omega^2)A = F_0 \\quad\\Longrightarrow\\quad U = \\frac{F_0}{m(\\omega_0^2 - \\omega^2)}\\cos\\omega t.$$\n\nThe response amplitude $\\dfrac{F_0}{m|\\omega_0^2 - \\omega^2|}$ grows as $\\omega$ approaches\n$\\omega_0$.\n\n### Beats\n\nStart from rest, $u(0) = 0$, $u'(0) = 0$. Then\n\n$$u = \\frac{F_0}{m(\\omega_0^2 - \\omega^2)}(\\cos\\omega t - \\cos\\omega_0t) = \\frac{2F_0}{m(\\omega_0^2 - \\omega^2)}\\sin\\frac{(\\omega_0 - \\omega)t}{2}\\,\\sin\\frac{(\\omega_0 + \\omega)t}{2},$$\n\nusing the identity $\\cos A - \\cos B = 2\\sin\\frac{B - A}{2}\\sin\\frac{A + B}{2}$. When $\\omega$\nis close to $\\omega_0$, this is a fast oscillation (frequency $\\frac{\\omega_0 + \\omega}{2}$)\ninside a slowly varying envelope (frequency $\\frac{|\\omega_0 - \\omega|}{2}$). The amplitude\nswells and fades periodically: **[[beats]]**, the wah-wah you hear when two guitar strings are\nslightly out of tune.\n\n```plot\n{\"x\": [0, 60], \"y\": [-1.2, 1.2], \"xLabel\": \"t\", \"yLabel\": \"u\", \"functions\": [{\"f\": \"sin(0.05x)*sin(0.95x)\", \"label\": \"u(t)\"}, {\"f\": \"sin(0.05x)\", \"dashed\": true}, {\"f\": \"-sin(0.05x)\", \"dashed\": true}], \"caption\": \"Beats: a fast oscillation inside a slowly varying envelope, when the forcing frequency is close to the natural frequency (here ω₀ = 1, ω = 0.9, scaled).\"}\n```\n\n## Resonance\n\nWhen $\\omega = \\omega_0$ exactly (still undamped), the guess $A\\cos\\omega_0t$ solves the\nhomogeneous equation, so the modification rule applies: $U = t(A\\cos\\omega_0t + B\\sin\\omega_0t)$.\nWorking it out:\n\n$$U = \\frac{F_0}{2m\\omega_0}\\,t\\sin\\omega_0t.$$\n\nThe amplitude grows linearly without bound. That's **[[resonance]]**: forcing at the natural\nfrequency pumps energy in on every cycle. In practice something breaks, or the\nnonlinear effects and damping that the model ignored take over.\n\n### Example 1\n\nA mass of 1 kg on a spring with $k = 4$ N/m is driven by $F(t) = 3\\cos 2t$, starting from\nrest at equilibrium. Find the motion.\n\n- $\\omega_0 = 2 = \\omega$: resonance. $U = \\dfrac{3}{2(1)(2)}t\\sin 2t = \\dfrac34 t\\sin 2t$\n  (this was Example 5 in Lesson 22).\n- $u = c_1\\cos 2t + c_2\\sin 2t + \\tfrac34t\\sin 2t$; $u(0) = 0$ gives $c_1 = 0$, and\n  $u'(0) = 2c_2 = 0$ gives $c_2 = 0$.\n- $u = \\tfrac34t\\sin 2t$, growing amplitude $\\tfrac34t$.\n\n## Damped forcing: transient and steady state\n\nWith $\\gamma > 0$, the free part $u_c$ decays (all its roots have negative real part), so it's\ncalled the **[[transient solution]]**. The particular solution\n$U = A\\cos\\omega t + B\\sin\\omega t$ persists; it's the **[[steady-state solution]]**, oscillating\nat the forcing frequency. Its amplitude is\n\n$$R = \\frac{F_0}{\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}} = \\frac{F_0}{\\sqrt{m^2(\\omega_0^2 - \\omega^2)^2 + \\gamma^2\\omega^2}}.$$\n\nDamping keeps $R$ finite even at $\\omega = \\omega_0$, where $R = F_0/(\\gamma\\omega_0)$. For light\ndamping that's still large, which is why damped systems show a sharp peak in response near\n$\\omega_0$: **[[practical resonance]]**.\n\nThe peak is not exactly at $\\omega_0$. Minimizing the expression under the square root\n(it is a quadratic in $\\omega^2$) puts the maximum amplitude at\n\n$$\\omega_{\\max}^2 = \\omega_0^2 - \\frac{\\gamma^2}{2m^2},$$\n\nslightly below $\\omega_0$, provided $\\gamma^2 < 2mk$. With heavier damping\n($\\gamma^2 \\ge 2mk$) there is no peak at all: the amplitude simply falls as $\\omega$\nincreases from 0.\n\n### Example 2\n\nFind the steady-state response of $u'' + 2u' + 5u = 10\\cos t$ and its amplitude.\n\n- Guess $U = A\\cos t + B\\sin t$. $U'' = -U$, so the equation becomes\n  $4U + 2U' = 10\\cos t$:\n  - $\\cos t$: $4A + 2B = 10$\n  - $\\sin t$: $4B - 2A = 0$, so $A = 2B$.\n- Then $8B + 2B = 10$: $B = 1$, $A = 2$. $U = 2\\cos t + \\sin t$.\n- Amplitude $\\sqrt{5} \\approx 2.236$. Formula check: $\\dfrac{10}{\\sqrt{(5 - 1)^2 + 4}} = \\dfrac{10}{\\sqrt{20}} = \\sqrt5$. ✓\n- Whatever the initial conditions, $u(t) \\to 2\\cos t + \\sin t$ as the transient\n  $e^{-t}(\\cdots)$ dies away.\n\n## RLC circuits\n\nA resistor, inductor and capacitor in series with a voltage source $E(t)$ obey Kirchhoff's\nlaw $LI' + RI + q/C = E$ (Lesson 13). Since $I = q'$:\n\n$$Lq'' + Rq' + \\frac1Cq = E(t).$$\n\nIt's the spring–mass equation with a new dictionary:\n\n| Spring–mass | RLC circuit |\n|---|---|\n| mass $m$ | inductance $L$ |\n| damping $\\gamma$ | resistance $R$ |\n| spring constant $k$ | $1/C$ |\n| displacement $u$ | charge $q$ |\n| velocity $u'$ | current $I$ |\n| external force $F(t)$ | voltage $E(t)$ |\n\nSo everything carries over: the circuit is underdamped when $R^2 < 4L/C$, critically damped\nwhen $R^2 = 4L/C$, overdamped when $R^2 > 4L/C$; its natural frequency is $\\omega_0 = 1/\\sqrt{LC}$.\nRadio tuning works by adjusting $C$ so that $\\omega_0$ matches the station's frequency,\ncreating practical resonance for that signal only.\n\n### Example 3\n\nA circuit has $L = 0.5$ H, $R = 2$ Ω, $C = 0.1$ F, no source, $q(0) = 1$ C, $I(0) = 0$.\nFind $q(t)$.\n\n- $0.5q'' + 2q' + 10q = 0$, or $q'' + 4q' + 20q = 0$.\n- $R^2 = 4 < 4L/C = 20$: underdamped. $r = -2 \\pm 4i$.\n- $q = e^{-2t}(A\\cos 4t + B\\sin 4t)$; $A = 1$; $q'(0) = -2A + 4B = 0$, $B = \\tfrac12$.\n- $q = e^{-2t}\\left(\\cos 4t + \\tfrac12\\sin 4t\\right)$ coulombs.\n\n## Common mistakes\n\n- **Missing the modification rule at resonance.** If $\\omega = \\omega_0$ and $\\gamma = 0$, the\n  guess needs a factor $t$.\n- **Treating the transient as steady state.** The steady state oscillates at the *forcing*\n  frequency $\\omega$, not at the natural frequency.\n- **Wrong RLC dictionary.** The capacitor term is $q/C$, so it plays the role of $k = 1/C$.\n- **Using the undamped amplitude formula with damping.**\n\n## Key points\n\n- $mu'' + \\gamma u' + ku = F_0\\cos\\omega t$; solution = transient + steady state.\n- Undamped, $\\omega \\ne \\omega_0$: amplitude $F_0/(m|\\omega_0^2 - \\omega^2|)$; near $\\omega_0$, beats.\n- Undamped, $\\omega = \\omega_0$: resonance, $U = \\dfrac{F_0}{2m\\omega_0}t\\sin\\omega_0t$.\n- Damped steady-state amplitude $F_0/\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}$.\n- RLC: $Lq'' + Rq' + q/C = E(t)$, the same mathematics with $m \\to L$, $\\gamma \\to R$, $k \\to 1/C$.\n",
+   "body": "## Pushing on a spring\n\nNow add an external periodic force, a motor with an off-center weight, wind gusts on a\nbridge, a road's bumps under a car:\n\n$$mu'' + \\gamma u' + ku = F_0\\cos\\omega t.$$\n\nThe solution is $u = u_c + U$, where $u_c$ is the free vibration from the last lesson and\n$U$ comes from undetermined coefficients. The interplay between the **[[forcing frequency]]**\n$\\omega$ and the natural frequency $\\omega_0 = \\sqrt{k/m}$ produces the most important\nphenomena in vibration engineering: beats and resonance.\n\n## Undamped forcing, $\\omega \\ne \\omega_0$\n\nWith $\\gamma = 0$, guess $U = A\\cos\\omega t$ (no sine is needed because there's no $u'$\nterm, though including $B\\sin\\omega t$ just gives $B = 0$):\n\n$$(k - m\\omega^2)A = F_0 \\quad\\Longrightarrow\\quad U = \\frac{F_0}{m(\\omega_0^2 - \\omega^2)}\\cos\\omega t.$$\n\nThe response amplitude $\\dfrac{F_0}{m|\\omega_0^2 - \\omega^2|}$ grows as $\\omega$ approaches\n$\\omega_0$.\n\n### Beats\n\nStart from rest, $u(0) = 0$, $u'(0) = 0$. Then\n\n$$u = \\frac{F_0}{m(\\omega_0^2 - \\omega^2)}(\\cos\\omega t - \\cos\\omega_0t) = \\frac{2F_0}{m(\\omega_0^2 - \\omega^2)}\\sin\\frac{(\\omega_0 - \\omega)t}{2}\\,\\sin\\frac{(\\omega_0 + \\omega)t}{2},$$\n\nusing the identity $\\cos A - \\cos B = 2\\sin\\frac{B - A}{2}\\sin\\frac{A + B}{2}$. When $\\omega$\nis close to $\\omega_0$, this is a fast oscillation (frequency $\\frac{\\omega_0 + \\omega}{2}$)\ninside a slowly varying envelope (frequency $\\frac{|\\omega_0 - \\omega|}{2}$). The amplitude\nswells and fades periodically: **[[beats]]**, the wah-wah you hear when two guitar strings are\nslightly out of tune.\n\n```plot\n{\"x\": [0, 60], \"y\": [-1.2, 1.2], \"xLabel\": \"t\", \"yLabel\": \"u\", \"functions\": [{\"f\": \"sin(0.05x)*sin(0.95x)\", \"label\": \"u(t)\"}, {\"f\": \"sin(0.05x)\", \"dashed\": true}, {\"f\": \"-sin(0.05x)\", \"dashed\": true}], \"caption\": \"Beats: a fast oscillation inside a slowly varying envelope, when the forcing frequency is close to the natural frequency (here ω₀ = 1, ω = 0.9, scaled).\"}\n```\n\n## Resonance\n\nWhen $\\omega = \\omega_0$ exactly (still undamped), the guess $A\\cos\\omega_0t$ solves the\nhomogeneous equation, so the modification rule applies: $U = t(A\\cos\\omega_0t + B\\sin\\omega_0t)$.\nWorking it out:\n\n$$U = \\frac{F_0}{2m\\omega_0}\\,t\\sin\\omega_0t.$$\n\nThe amplitude grows linearly without bound. That's **[[resonance]]**: forcing at the natural\nfrequency pumps energy in on every cycle. In practice something breaks, or the\nnonlinear effects and damping that the model ignored take over.\n\n### Example 1\n\nA mass of 1 kg on a spring with $k = 4$ N/m is driven by $F(t) = 3\\cos 2t$, starting from\nrest at equilibrium. Find the motion.\n\n- $\\omega_0 = 2 = \\omega$: resonance. $U = \\dfrac{3}{2(1)(2)}t\\sin 2t = \\dfrac34 t\\sin 2t$\n  (this was Example 5 in Lesson 22).\n- $u = c_1\\cos 2t + c_2\\sin 2t + \\tfrac34t\\sin 2t$; $u(0) = 0$ gives $c_1 = 0$, and\n  $u'(0) = 2c_2 = 0$ gives $c_2 = 0$.\n- $u = \\tfrac34t\\sin 2t$, growing amplitude $\\tfrac34t$.\n\n## Damped forcing: transient and steady state\n\nWith $\\gamma > 0$, the free part $u_c$ decays (all its roots have negative real part), so it's\ncalled the **[[transient solution]]**. The particular solution\n$U = A\\cos\\omega t + B\\sin\\omega t$ persists; it's the **[[steady-state solution]]**, oscillating\nat the forcing frequency. Its amplitude is\n\n$$R = \\frac{F_0}{\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}} = \\frac{F_0}{\\sqrt{m^2(\\omega_0^2 - \\omega^2)^2 + \\gamma^2\\omega^2}}.$$\n\nDamping keeps $R$ finite even at $\\omega = \\omega_0$, where $R = F_0/(\\gamma\\omega_0)$. For light\ndamping that's still large, which is why damped systems show a sharp peak in response near\n$\\omega_0$: **[[practical resonance]]**.\n\nThe peak is not exactly at $\\omega_0$. Minimizing the expression under the square root\n(it is a quadratic in $\\omega^2$) puts the maximum amplitude at\n\n$$\\omega_{\\max}^2 = \\omega_0^2 - \\frac{\\gamma^2}{2m^2},$$\n\nslightly below $\\omega_0$, provided $\\gamma^2 < 2mk$. With heavier damping\n($\\gamma^2 \\ge 2mk$) there is no peak at all: the amplitude simply falls as $\\omega$\nincreases from 0.\n\nThe next lesson rederives $R$ in one line with complex exponentials and adds the second\nhalf of the story: how far the response lags behind the force.\n\n### Example 2\n\nFind the steady-state response of $u'' + 2u' + 5u = 10\\cos t$ and its amplitude.\n\n- Guess $U = A\\cos t + B\\sin t$. $U'' = -U$, so the equation becomes\n  $4U + 2U' = 10\\cos t$:\n  - $\\cos t$: $4A + 2B = 10$\n  - $\\sin t$: $4B - 2A = 0$, so $A = 2B$.\n- Then $8B + 2B = 10$: $B = 1$, $A = 2$. $U = 2\\cos t + \\sin t$.\n- Amplitude $\\sqrt{5} \\approx 2.236$. Formula check: $\\dfrac{10}{\\sqrt{(5 - 1)^2 + 4}} = \\dfrac{10}{\\sqrt{20}} = \\sqrt5$. ✓\n- Whatever the initial conditions, $u(t) \\to 2\\cos t + \\sin t$ as the transient\n  $e^{-t}(\\cdots)$ dies away.\n\n## RLC circuits\n\nA resistor, inductor and capacitor in series with a voltage source $E(t)$ obey Kirchhoff's\nlaw $LI' + RI + q/C = E$ (Lesson 13). Since $I = q'$:\n\n$$Lq'' + Rq' + \\frac1Cq = E(t).$$\n\nIt's the spring–mass equation with a new dictionary:\n\n| Spring–mass | RLC circuit |\n|---|---|\n| mass $m$ | inductance $L$ |\n| damping $\\gamma$ | resistance $R$ |\n| spring constant $k$ | $1/C$ |\n| displacement $u$ | charge $q$ |\n| velocity $u'$ | current $I$ |\n| external force $F(t)$ | voltage $E(t)$ |\n\nSo everything carries over: the circuit is underdamped when $R^2 < 4L/C$, critically damped\nwhen $R^2 = 4L/C$, overdamped when $R^2 > 4L/C$; its natural frequency is $\\omega_0 = 1/\\sqrt{LC}$.\nRadio tuning works by adjusting $C$ so that $\\omega_0$ matches the station's frequency,\ncreating practical resonance for that signal only.\n\n### Example 3\n\nA circuit has $L = 0.5$ H, $R = 2$ Ω, $C = 0.1$ F, no source, $q(0) = 1$ C, $I(0) = 0$.\nFind $q(t)$.\n\n- $0.5q'' + 2q' + 10q = 0$, or $q'' + 4q' + 20q = 0$.\n- $R^2 = 4 < 4L/C = 20$: underdamped. $r = -2 \\pm 4i$.\n- $q = e^{-2t}(A\\cos 4t + B\\sin 4t)$; $A = 1$; $q'(0) = -2A + 4B = 0$, $B = \\tfrac12$.\n- $q = e^{-2t}\\left(\\cos 4t + \\tfrac12\\sin 4t\\right)$ coulombs.\n\n## Common mistakes\n\n- **Missing the modification rule at resonance.** If $\\omega = \\omega_0$ and $\\gamma = 0$, the\n  guess needs a factor $t$.\n- **Treating the transient as steady state.** The steady state oscillates at the *forcing*\n  frequency $\\omega$, not at the natural frequency.\n- **Wrong RLC dictionary.** The capacitor term is $q/C$, so it plays the role of $k = 1/C$.\n- **Using the undamped amplitude formula with damping.**\n\n## Key points\n\n- $mu'' + \\gamma u' + ku = F_0\\cos\\omega t$; solution = transient + steady state.\n- Undamped, $\\omega \\ne \\omega_0$: amplitude $F_0/(m|\\omega_0^2 - \\omega^2|)$; near $\\omega_0$, beats.\n- Undamped, $\\omega = \\omega_0$: resonance, $U = \\dfrac{F_0}{2m\\omega_0}t\\sin\\omega_0t$.\n- Damped steady-state amplitude $F_0/\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}$.\n- RLC: $Lq'' + Rq' + q/C = E(t)$, the same mathematics with $m \\to L$, $\\gamma \\to R$, $k \\to 1/C$.\n",
    "quiz": [
     "de-q-2501",
     "de-q-2502",
@@ -944,7 +959,42 @@
     "de-q-2508",
     "de-q-2509",
     "de-q-2510",
-    "de-q-2511"
+    "de-q-2511",
+    "de-q-2512",
+    "de-q-2513",
+    "de-q-2514",
+    "de-q-2515"
+   ]
+  },
+  {
+   "id": "de-complex-gain",
+   "module": "de-m6",
+   "title": "Sinusoidal response with complex exponentials",
+   "minutes": 35,
+   "topics": [
+    "Complex gain"
+   ],
+   "drills": [
+    "de-gain-phase",
+    "de-complex-replace"
+   ],
+   "refs": [
+    "de-ref-solutions"
+   ],
+   "body": "## One division instead of two equations\n\nIn the last lesson you found steady-state responses to $F_0\\cos\\omega t$ by guessing\n$A\\cos\\omega t + B\\sin\\omega t$, substituting, and solving two equations for $A$ and $B$. It\nworks, but the answer arrives as two numbers that hide what an engineer actually wants to\nknow: *how much bigger or smaller* the output is than the input, and *how far behind* it runs.\n\nThis lesson replaces the cosine by a complex exponential. Differentiating $e^{rt}$ only\nmultiplies it by $r$, so the whole equation collapses to one complex division, and the\nanswer comes out directly in amplitude–phase form. You'll need Euler's formula\n$e^{i\\theta} = \\cos\\theta + i\\sin\\theta$ from Lesson 20 and a little complex arithmetic.\n\n## The characteristic polynomial as an operator\n\nWrite a constant-coefficient linear equation as $p(D)x = f(t)$, where $D$ means $d/dt$ and\n$p$ is the characteristic polynomial. For $mx'' + \\gamma x' + kx$, $p(r) = mr^2 + \\gamma r + k$.\nThe key fact is\n\n$$p(D)e^{rt} = p(r)\\,e^{rt},$$\n\nbecause each derivative of $e^{rt}$ brings down one factor of $r$. Lesson 19 used this with\n$p(r) = 0$ to find homogeneous solutions; now we use it when $p(r) \\ne 0$.\n\n## Complex replacement\n\nSince $\\cos\\omega t = \\operatorname{Re}\\,e^{i\\omega t}$, solve the **[[complexified equation]]**\n\n$$p(D)z = F_0e^{i\\omega t}$$\n\ninstead. Try $z = Ce^{i\\omega t}$: the left side is $Cp(i\\omega)e^{i\\omega t}$, so\n$C = F_0/p(i\\omega)$. This is the **[[exponential response formula]]**:\n\n$$z_p = \\frac{F_0}{p(i\\omega)}\\,e^{i\\omega t}, \\qquad \\text{provided } p(i\\omega) \\ne 0.$$\n\nBecause $p$ has real coefficients, taking real parts commutes with $p(D)$:\n$p(D)(\\operatorname{Re}z) = \\operatorname{Re}\\big(p(D)z\\big) = F_0\\cos\\omega t$. So\n$x_p = \\operatorname{Re}z_p$. Replacing a real input with a complex exponential and taking\nthe real part at the end is called **[[complex replacement]]**. For an input $F_0\\sin\\omega t$,\ntake the imaginary part instead, since $\\sin\\omega t = \\operatorname{Im}\\,e^{i\\omega t}$.\n\n### Example 1\n\nFind the steady-state response of $x'' + 2x' + 5x = 10\\cos t$ (Example 2 of Lesson 25).\n\n- $p(r) = r^2 + 2r + 5$, so $p(i) = -1 + 2i + 5 = 4 + 2i$.\n- $z_p = \\dfrac{10}{4 + 2i}e^{it}$. Multiply top and bottom by the conjugate:\n  $\\dfrac{10(4 - 2i)}{16 + 4} = 2 - i$.\n- $z_p = (2 - i)(\\cos t + i\\sin t)$. Its real part is $2\\cos t + \\sin t$\n  (from $2\\cos t$ and $-i \\cdot i\\sin t = \\sin t$).\n\nThat matches Lesson 25, with one division in place of a $2 \\times 2$ system.\n\n## Gain and phase lag\n\nThe real payoff comes from writing $p(i\\omega)$ in polar form,\n$p(i\\omega) = |p(i\\omega)|e^{i\\phi}$. Then\n\n$$z_p = \\frac{F_0}{|p(i\\omega)|}e^{i(\\omega t - \\phi)}, \\qquad x_p = \\frac{F_0}{|p(i\\omega)|}\\cos(\\omega t - \\phi).$$\n\nSo the response is a cosine at the input frequency with\n\n- **[[gain]]** $g(\\omega) = \\dfrac{1}{|p(i\\omega)|}$: output amplitude $= g \\times$ input amplitude;\n- **[[phase lag]]** $\\phi = \\arg p(i\\omega)$: the response reaches its peaks $\\phi/\\omega$ time\n  units after the input does.\n\nThe single complex number $\\dfrac{1}{p(i\\omega)} = g\\,e^{-i\\phi}$ is the **[[complex gain]]**; it\npackages both. (Some books scale the input differently, for example writing the right side\nas $k\\cos\\omega t$, so their gain differs from this one by a constant factor.)\n\nFor the spring $p(i\\omega) = (k - m\\omega^2) + i\\gamma\\omega$, so\n\n$$g = \\frac{1}{\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}}, \\qquad \\tan\\phi = \\frac{\\gamma\\omega}{k - m\\omega^2}.$$\n\nThe gain times $F_0$ is exactly the amplitude $R$ from Lesson 25, and its peak is the\npractical resonance found there. Because the imaginary part $\\gamma\\omega$ is positive,\n$p(i\\omega)$ lies in the upper half-plane and $0 < \\phi < \\pi$. Use the quadrant, not just\n$\\arctan$: below $\\omega_0$ the real part is positive and $\\phi < \\pi/2$; at $\\omega_0$ the\nreal part is zero and $\\phi = \\pi/2$; above $\\omega_0$ the real part is negative and\n$\\phi > \\pi/2$.\n\n```plot\n{\"x\": [0, 3], \"y\": [0, 4.5], \"xLabel\": \"ω\", \"yLabel\": \"gain g(ω)\", \"functions\": [{\"f\": \"1/sqrt((1-x^2)^2+(0.25*x)^2)\"}, {\"f\": \"1/sqrt((1-x^2)^2+(0.5*x)^2)\", \"dashed\": true}, {\"f\": \"1/sqrt((1-x^2)^2+(x)^2)\"}, {\"f\": \"1/sqrt((1-x^2)^2+(2*x)^2)\", \"dashed\": true}], \"labels\": [{\"at\": [1.4, 4.0], \"text\": \"γ = 0.25\"}], \"caption\": \"Gain of x″ + γx′ + x = cos ωt (m = k = 1, ω₀ = 1). From the tallest curve down: γ = 0.25, 0.5, 1, 2. Light damping gives a tall peak just below ω₀; with γ² ≥ 2 (the bottom curve) there is no peak.\"}\n```\n\n```plot\n{\"x\": [0, 3], \"y\": [0, 3.3], \"xLabel\": \"ω\", \"yLabel\": \"phase lag φ\", \"functions\": [{\"f\": \"atan2(0.25*x, 1-x^2)\"}, {\"f\": \"atan2(x, 1-x^2)\", \"dashed\": true}], \"points\": [{\"at\": [1, 1.5708], \"label\": \"φ = π/2 at ω₀\"}], \"caption\": \"Phase lag for the same oscillator (solid: γ = 0.25, dashed: γ = 1): near 0 for slow forcing, π/2 at ω₀, approaching π for fast forcing. Lighter damping makes the switch sharper.\"}\n```\n\nThe pictures tell the physical story. Shake a spring slowly and the mass follows the hand\n(lag near 0, gain near $1/k$). Shake it at $\\omega_0$ and it lags by a quarter cycle with a\nlarge amplitude. Shake it fast and it barely moves, half a cycle out of step with you.\n\n### Example 2\n\nAn RC-type first-order system $x' + 2x = 4\\cos 2t$. Find the gain, phase lag and steady\nstate.\n\n- $p(r) = r + 2$, so $p(2i) = 2 + 2i$, with $|p(2i)| = 2\\sqrt2$ and $\\phi = \\arctan\\frac22 = \\frac\\pi4$\n  (first quadrant).\n- Gain $g = \\dfrac{1}{2\\sqrt2}$; amplitude $4g = \\sqrt2$.\n- $x_p = \\sqrt2\\cos\\left(2t - \\dfrac\\pi4\\right)$, which expands to $\\cos 2t + \\sin 2t$.\n- Check: $x_p' = -2\\sin 2t + 2\\cos 2t$, and $x_p' + 2x_p = 4\\cos 2t$. ✓ The output peaks\n  $\\phi/\\omega = \\pi/8 \\approx 0.39$ time units after the input.\n\n## Other exponential inputs\n\nThe formula works for any complex exponent $a + ib$. An input $e^{at}\\cos bt$ or\n$e^{at}\\sin bt$ is the real or imaginary part of $e^{(a + ib)t}$, so\n$z_p = e^{(a + ib)t}/p(a + ib)$.\n\n### Example 3\n\nFind a particular solution of $y'' + y' + y = e^{-t}\\sin t$.\n\n- Complexify: $e^{-t}\\sin t = \\operatorname{Im}\\,e^{(-1 + i)t}$.\n- $p(-1 + i) = (-1 + i)^2 + (-1 + i) + 1 = -2i - 1 + i + 1 = -i$.\n- $z_p = \\dfrac{e^{(-1 + i)t}}{-i} = ie^{-t}(\\cos t + i\\sin t)$, since $\\frac{1}{-i} = i$.\n- The imaginary part of $ie^{-t}\\cos t - e^{-t}\\sin t$ is $e^{-t}\\cos t$. So $y_p = e^{-t}\\cos t$,\n  which you can confirm by substituting.\n\n## When $p(i\\omega) = 0$: resonance\n\nIf $i\\omega$ is a root of $p$, the formula divides by zero; the input frequency is a\nnatural frequency of the undamped system. Then (for a simple root)\n\n$$z_p = \\frac{F_0\\,t\\,e^{i\\omega t}}{p'(i\\omega)}.$$\n\nFor $x'' + 4x = 3\\cos 2t$: $p'(r) = 2r$, $p'(2i) = 4i$, and\n$z_p = \\dfrac{3t}{4i}e^{2it} = -\\dfrac{3i}{4}t(\\cos 2t + i\\sin 2t)$, whose real part is\n$\\dfrac34t\\sin 2t$, the growing resonance response of Lesson 25.\n\n## Common mistakes\n\n- **Evaluating $p(\\omega)$ instead of $p(i\\omega)$.** The exponent is $i\\omega$; real $\\omega$\n  loses the damping term's role entirely.\n- **Taking the real part too early.** $\\operatorname{Re}\\dfrac{F_0}{p(i\\omega)}$ times\n  $\\cos\\omega t$ is wrong; take the real part of the whole product $\\dfrac{F_0}{p(i\\omega)}e^{i\\omega t}$.\n- **Wrong quadrant for $\\phi$.** Above $\\omega_0$ the real part $k - m\\omega^2$ is negative and the\n  lag exceeds $\\pi/2$; a calculator's $\\arctan$ returns a negative angle there.\n- **Phase lead vs lag.** The response is $\\cos(\\omega t - \\phi)$ with $\\phi = \\arg p(i\\omega)$;\n  the complex gain has angle $-\\phi$.\n- **Using the real part for a sine input.** For $\\sin\\omega t$, take the imaginary part.\n\n## Key points\n\n- $p(D)e^{rt} = p(r)e^{rt}$. For input $F_0e^{i\\omega t}$, $z_p = \\dfrac{F_0}{p(i\\omega)}e^{i\\omega t}$ if $p(i\\omega) \\ne 0$.\n- Complex replacement: real part for $\\cos$ inputs, imaginary part for $\\sin$ inputs.\n- Steady state $x_p = gF_0\\cos(\\omega t - \\phi)$ with gain $g = 1/|p(i\\omega)|$ and phase lag $\\phi = \\arg p(i\\omega)$.\n- Spring: $\\tan\\phi = \\dfrac{\\gamma\\omega}{k - m\\omega^2}$, $0 < \\phi < \\pi$, and $\\phi = \\pi/2$ at $\\omega_0$.\n- If $p(i\\omega) = 0$ (a simple root), use $z_p = \\dfrac{F_0te^{i\\omega t}}{p'(i\\omega)}$.\n",
+   "quiz": [
+    "de-q-cg01",
+    "de-q-cg02",
+    "de-q-cg03",
+    "de-q-cg04",
+    "de-q-cg05",
+    "de-q-cg06",
+    "de-q-cg07",
+    "de-q-cg08",
+    "de-q-cg09",
+    "de-q-cg10",
+    "de-q-cg11",
+    "de-q-cg12"
    ]
   },
   {
@@ -992,7 +1042,7 @@
    "refs": [
     "de-ref-laplace"
    ],
-   "body": "## A new way to solve linear equations\n\nUndetermined coefficients and variation of parameters solve an IVP in stages: find $y_c$,\nfind $Y$, then fit constants. The **[[Laplace transform]]** does it all at once by turning a\ndifferential equation into an *algebra* problem. It shines exactly where the earlier\nmethods struggle: forcing that switches on and off, sudden impulses, piecewise inputs.\nEngineers use it constantly in circuits and control systems. This module builds it in\nfive steps: definition and table, inverting, solving IVPs, step functions, and impulses\nwith convolution.\n\n## The definition\n\nFor a function $f(t)$ defined for $t \\ge 0$, its Laplace transform is\n\n$$\\mathcal{L}\\{f(t)\\} = F(s) = \\int_0^\\infty e^{-st}f(t)\\,dt,$$\n\nfor those values of $s$ where the improper integral converges. The transform takes a\nfunction of $t$ and produces a function of a new variable $s$. Lowercase letters\n($f$, $y$) denote functions of $t$; capitals ($F$, $Y$) their transforms.\n\n### Example 1: a constant\n\n$$\\mathcal{L}\\{1\\} = \\int_0^\\infty e^{-st}\\,dt = \\lim_{b\\to\\infty}\\left[-\\frac{e^{-st}}{s}\\right]_0^b = \\frac1s \\quad (s > 0).$$\n\nFor $s \\le 0$ the integral diverges, so the transform exists only for $s > 0$.\n\n### Example 2: an exponential\n\n$$\\mathcal{L}\\{e^{at}\\} = \\int_0^\\infty e^{-(s - a)t}\\,dt = \\frac{1}{s - a} \\quad (s > a).$$\n\n### Example 3: sine and cosine\n\nUsing $e^{iat} = \\cos at + i\\sin at$ and Example 2 with $a$ replaced by $ia$:\n\n$$\\frac{1}{s - ia} = \\frac{s + ia}{s^2 + a^2},$$\n\nso matching real and imaginary parts,\n\n$$\\mathcal{L}\\{\\cos at\\} = \\frac{s}{s^2 + a^2}, \\qquad \\mathcal{L}\\{\\sin at\\} = \\frac{a}{s^2 + a^2} \\quad (s > 0).$$\n\n(Integrating by parts twice gives the same result without complex numbers.)\n\n### Example 4: powers of $t$\n\nIntegration by parts gives $\\mathcal{L}\\{t\\} = \\dfrac{1}{s^2}$, and in general\n\n$$\\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}} \\quad (s > 0).$$\n\n## Linearity\n\nThe integral is linear, so the transform is too:\n\n$$\\mathcal{L}\\{af(t) + bg(t)\\} = aF(s) + bG(s).$$\n\n### Example 5\n\n$\\mathcal{L}\\{3 - 2t^2 + 5e^{-4t}\\} = \\dfrac3s - 2\\cdot\\dfrac{2}{s^3} + \\dfrac{5}{s + 4} = \\dfrac3s - \\dfrac{4}{s^3} + \\dfrac{5}{s + 4}$.\n\n### Example 6\n\n$\\mathcal{L}\\{\\cos^2 t\\}$: use $\\cos^2t = \\tfrac12 + \\tfrac12\\cos 2t$ to get\n$\\dfrac{1}{2s} + \\dfrac{s}{2(s^2 + 4)}$. The transform of a product is not the product of\ntransforms, so identities like this are needed.\n\n## The first shifting theorem\n\nMultiplying by an exponential shifts the transform:\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s - a).$$\n\nProof: $\\displaystyle\\int_0^\\infty e^{-st}e^{at}f(t)\\,dt = \\int_0^\\infty e^{-(s - a)t}f(t)\\,dt = F(s - a)$.\n\n### Example 7\n\n- $\\mathcal{L}\\{e^{2t}\\sin 3t\\} = \\dfrac{3}{(s - 2)^2 + 9}$.\n- $\\mathcal{L}\\{t^3e^{-t}\\} = \\dfrac{6}{(s + 1)^4}$.\n\nDamped oscillations $e^{\\lambda t}\\cos\\mu t$ have transforms with a completed-square\ndenominator $(s - \\lambda)^2 + \\mu^2$. Recognizing that shape is key for inverting.\n\n## When does the transform exist?\n\nThe transform exists (for large enough $s$) if $f$ is **[[piecewise continuous]]** (finitely\nmany jump discontinuities on each bounded interval) and of **[[exponential order]]**, meaning\n$|f(t)| \\le Me^{ct}$ for large $t$. Polynomials, exponentials, sines, cosines and step\nfunctions all qualify. $e^{t^2}$ does not: it grows faster than every exponential. Also,\nfor any such $f$, $F(s) \\to 0$ as $s \\to \\infty$, so a function like $F(s) = s$ is not the\ntransform of any ordinary function.\n\n## The basic table\n\n| $f(t)$ | $F(s)$ |\n|---|---|\n| $1$ | $\\dfrac1s$ |\n| $t^n$ | $\\dfrac{n!}{s^{n+1}}$ |\n| $e^{at}$ | $\\dfrac{1}{s - a}$ |\n| $\\sin bt$ | $\\dfrac{b}{s^2 + b^2}$ |\n| $\\cos bt$ | $\\dfrac{s}{s^2 + b^2}$ |\n| $e^{at}\\sin bt$ | $\\dfrac{b}{(s - a)^2 + b^2}$ |\n| $e^{at}\\cos bt$ | $\\dfrac{s - a}{(s - a)^2 + b^2}$ |\n| $t^ne^{at}$ | $\\dfrac{n!}{(s - a)^{n+1}}$ |\n\nThe full table, including the entries from later lessons, is on the Laplace reference sheet.\n\n### Example 8: a numerical value\n\n$F(s) = \\mathcal{L}\\{e^{-t}\\cos 2t\\}$ at $s = 1$: $F(s) = \\dfrac{s + 1}{(s + 1)^2 + 4}$, so\n$F(1) = \\dfrac{2}{4 + 4} = \\dfrac14$. As a check, numerically integrating\n$\\int_0^\\infty e^{-2t}\\cos 2t\\,dt$ gives 0.25.\n\n## Transforming a piecewise function from the definition\n\nThe definition works directly on piecewise functions: split the integral where the formula\nchanges.\n\n### Example 9\n\nLet $f(t) = 2$ for $0 \\le t < 3$ and $f(t) = 0$ for $t \\ge 3$. Then\n\n$$F(s) = \\int_0^3 2e^{-st}\\,dt = \\left[-\\frac{2e^{-st}}{s}\\right]_0^3 = \\frac{2(1 - e^{-3s})}{s}.$$\n\nThe factor $e^{-3s}$ records the switch-off time. Lesson 30 turns this observation into a\ngeneral rule (step functions and the second shifting theorem), so that you rarely need to\nintegrate by hand.\n\n### Example 10: a power times an exponential\n\n$\\mathcal{L}\\{te^{-5t}\\}$: start from $\\mathcal{L}\\{t\\} = \\dfrac{1}{s^2}$ and shift $s \\to s + 5$ to get\n$\\dfrac{1}{(s + 5)^2}$. Repeated linear factors like $(s + 5)^2$ in a denominator always signal\na factor $t$ in the original function, a fact you'll use constantly when inverting.\n\n## Common mistakes\n\n- **Product of transforms.** $\\mathcal{L}\\{fg\\} \\ne FG$; use identities or shifting.\n- **Sine and cosine swapped.** $\\sin bt \\to \\dfrac{b}{s^2 + b^2}$ has the constant on top;\n  $\\cos bt \\to \\dfrac{s}{s^2 + b^2}$ has $s$.\n- **Shift direction.** $e^{at}f(t) \\to F(s - a)$: multiplying by $e^{2t}$ replaces $s$ by $s - 2$.\n- **Forgetting $n!$** in $\\mathcal{L}\\{t^n\\}$.\n\n## Key points\n\n- $\\mathcal{L}\\{f\\} = \\int_0^\\infty e^{-st}f(t)\\,dt$; it's linear.\n- Core table: $1/s$, $n!/s^{n+1}$, $1/(s - a)$, $b/(s^2 + b^2)$, $s/(s^2 + b^2)$.\n- First shift: $\\mathcal{L}\\{e^{at}f\\} = F(s - a)$.\n- Transforms exist for piecewise continuous functions of exponential order.\n",
+   "body": "## A new way to solve linear equations\n\nUndetermined coefficients and variation of parameters solve an IVP in stages: find $y_c$,\nfind $Y$, then fit constants. The **[[Laplace transform]]** does it all at once by turning a\ndifferential equation into an *algebra* problem. It shines exactly where the earlier\nmethods struggle: forcing that switches on and off, sudden impulses, piecewise inputs.\nEngineers use it constantly in circuits and control systems. This module builds it in\nfive steps: definition and table, inverting, solving IVPs, step functions, and impulses\nwith convolution.\n\n## The definition\n\nFor a function $f(t)$ defined for $t \\ge 0$, its Laplace transform is\n\n$$\\mathcal{L}\\{f(t)\\} = F(s) = \\int_0^\\infty e^{-st}f(t)\\,dt,$$\n\nfor those values of $s$ where the improper integral converges. The transform takes a\nfunction of $t$ and produces a function of a new variable $s$. Lowercase letters\n($f$, $y$) denote functions of $t$; capitals ($F$, $Y$) their transforms.\n\n### Example 1: a constant\n\n$$\\mathcal{L}\\{1\\} = \\int_0^\\infty e^{-st}\\,dt = \\lim_{b\\to\\infty}\\left[-\\frac{e^{-st}}{s}\\right]_0^b = \\frac1s \\quad (s > 0).$$\n\nFor $s \\le 0$ the integral diverges, so the transform exists only for $s > 0$.\n\n### Example 2: an exponential\n\n$$\\mathcal{L}\\{e^{at}\\} = \\int_0^\\infty e^{-(s - a)t}\\,dt = \\frac{1}{s - a} \\quad (s > a).$$\n\n### Example 3: sine and cosine\n\nUsing $e^{iat} = \\cos at + i\\sin at$ and Example 2 with $a$ replaced by $ia$:\n\n$$\\frac{1}{s - ia} = \\frac{s + ia}{s^2 + a^2},$$\n\nso matching real and imaginary parts,\n\n$$\\mathcal{L}\\{\\cos at\\} = \\frac{s}{s^2 + a^2}, \\qquad \\mathcal{L}\\{\\sin at\\} = \\frac{a}{s^2 + a^2} \\quad (s > 0).$$\n\n(Integrating by parts twice gives the same result without complex numbers.)\n\n### Example 4: powers of $t$\n\nIntegration by parts gives $\\mathcal{L}\\{t\\} = \\dfrac{1}{s^2}$, and in general\n\n$$\\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}} \\quad (s > 0).$$\n\n## Linearity\n\nThe integral is linear, so the transform is too:\n\n$$\\mathcal{L}\\{af(t) + bg(t)\\} = aF(s) + bG(s).$$\n\n### Example 5\n\n$\\mathcal{L}\\{3 - 2t^2 + 5e^{-4t}\\} = \\dfrac3s - 2\\cdot\\dfrac{2}{s^3} + \\dfrac{5}{s + 4} = \\dfrac3s - \\dfrac{4}{s^3} + \\dfrac{5}{s + 4}$.\n\n### Example 6\n\n$\\mathcal{L}\\{\\cos^2 t\\}$: use $\\cos^2t = \\tfrac12 + \\tfrac12\\cos 2t$ to get\n$\\dfrac{1}{2s} + \\dfrac{s}{2(s^2 + 4)}$. The transform of a product is not the product of\ntransforms, so identities like this are needed.\n\n## The first shifting theorem\n\nMultiplying by an exponential shifts the transform:\n\n$$\\mathcal{L}\\{e^{at}f(t)\\} = F(s - a).$$\n\nProof: $\\displaystyle\\int_0^\\infty e^{-st}e^{at}f(t)\\,dt = \\int_0^\\infty e^{-(s - a)t}f(t)\\,dt = F(s - a)$.\n\n### Example 7\n\n- $\\mathcal{L}\\{e^{2t}\\sin 3t\\} = \\dfrac{3}{(s - 2)^2 + 9}$.\n- $\\mathcal{L}\\{t^3e^{-t}\\} = \\dfrac{6}{(s + 1)^4}$.\n\nDamped oscillations $e^{\\lambda t}\\cos\\mu t$ have transforms with a completed-square\ndenominator $(s - \\lambda)^2 + \\mu^2$. Recognizing that shape is key for inverting.\n\n## When does the transform exist?\n\nThe transform exists (for large enough $s$) if $f$ is **[[piecewise continuous]]** (finitely\nmany jump discontinuities on each bounded interval) and of **[[exponential order]]**, meaning\n$|f(t)| \\le Me^{ct}$ for large $t$. Polynomials, exponentials, sines, cosines and step\nfunctions all qualify. $e^{t^2}$ does not: it grows faster than every exponential. Also,\nfor any such $f$, $F(s) \\to 0$ as $s \\to \\infty$, so a function like $F(s) = s$ is not the\ntransform of any ordinary function.\n\n## The basic table\n\n| $f(t)$ | $F(s)$ |\n|---|---|\n| $1$ | $\\dfrac1s$ |\n| $t^n$ | $\\dfrac{n!}{s^{n+1}}$ |\n| $e^{at}$ | $\\dfrac{1}{s - a}$ |\n| $\\sin bt$ | $\\dfrac{b}{s^2 + b^2}$ |\n| $\\cos bt$ | $\\dfrac{s}{s^2 + b^2}$ |\n| $e^{at}\\sin bt$ | $\\dfrac{b}{(s - a)^2 + b^2}$ |\n| $e^{at}\\cos bt$ | $\\dfrac{s - a}{(s - a)^2 + b^2}$ |\n| $t^ne^{at}$ | $\\dfrac{n!}{(s - a)^{n+1}}$ |\n\nThe full table, including the entries from later lessons, is on the Laplace reference sheet.\n\n### Example 8: a numerical value\n\n$F(s) = \\mathcal{L}\\{e^{-t}\\cos 2t\\}$ at $s = 1$: $F(s) = \\dfrac{s + 1}{(s + 1)^2 + 4}$, so\n$F(1) = \\dfrac{2}{4 + 4} = \\dfrac14$. As a check, numerically integrating\n$\\int_0^\\infty e^{-2t}\\cos 2t\\,dt$ gives 0.25.\n\n## Transforming a piecewise function from the definition\n\nThe definition works directly on piecewise functions: split the integral where the formula\nchanges.\n\n### Example 9\n\nLet $f(t) = 2$ for $0 \\le t < 3$ and $f(t) = 0$ for $t \\ge 3$. Then\n\n$$F(s) = \\int_0^3 2e^{-st}\\,dt = \\left[-\\frac{2e^{-st}}{s}\\right]_0^3 = \\frac{2(1 - e^{-3s})}{s}.$$\n\nThe factor $e^{-3s}$ records the switch-off time. Lesson 31 turns this observation into a\ngeneral rule (step functions and the second shifting theorem), so that you rarely need to\nintegrate by hand.\n\n### Example 10: a power times an exponential\n\n$\\mathcal{L}\\{te^{-5t}\\}$: start from $\\mathcal{L}\\{t\\} = \\dfrac{1}{s^2}$ and shift $s \\to s + 5$ to get\n$\\dfrac{1}{(s + 5)^2}$. Repeated linear factors like $(s + 5)^2$ in a denominator always signal\na factor $t$ in the original function, a fact you'll use constantly when inverting.\n\n## Common mistakes\n\n- **Product of transforms.** $\\mathcal{L}\\{fg\\} \\ne FG$; use identities or shifting.\n- **Sine and cosine swapped.** $\\sin bt \\to \\dfrac{b}{s^2 + b^2}$ has the constant on top;\n  $\\cos bt \\to \\dfrac{s}{s^2 + b^2}$ has $s$.\n- **Shift direction.** $e^{at}f(t) \\to F(s - a)$: multiplying by $e^{2t}$ replaces $s$ by $s - 2$.\n- **Forgetting $n!$** in $\\mathcal{L}\\{t^n\\}$.\n\n## Key points\n\n- $\\mathcal{L}\\{f\\} = \\int_0^\\infty e^{-st}f(t)\\,dt$; it's linear.\n- Core table: $1/s$, $n!/s^{n+1}$, $1/(s - a)$, $b/(s^2 + b^2)$, $s/(s^2 + b^2)$.\n- First shift: $\\mathcal{L}\\{e^{at}f\\} = F(s - a)$.\n- Transforms exist for piecewise continuous functions of exponential order.\n",
    "quiz": [
     "de-q-2701",
     "de-q-2702",
@@ -1142,7 +1192,7 @@
    "refs": [
     "de-ref-solutions"
    ],
-   "body": "## Many quantities changing together\n\nSo far each problem had one unknown function. Real systems usually have several that\ninfluence each other: predators and prey, salt in two connected tanks, currents in the\nloops of a circuit, position and velocity of a mass. This module studies **[[systems]]** of\nfirst-order equations,\n\n$$x_1' = f_1(t, x_1, \\dots, x_n), \\quad \\dots, \\quad x_n' = f_n(t, x_1, \\dots, x_n),$$\n\nespecially **linear systems with constant coefficients**, which can be solved completely\nwith eigenvalues and eigenvectors from linear algebra.\n\n## Higher-order equations become systems\n\nAny $n$th-order equation can be rewritten as $n$ first-order equations. For\n$y'' + py' + qy = g$, let $x_1 = y$ and $x_2 = y'$. Then\n\n$$x_1' = x_2, \\qquad x_2' = -qx_1 - px_2 + g.$$\n\nThis is how numerical solvers (Lesson 17) handle higher-order equations, and it shows that\nsystems are the more general framework.\n\n### Example 1\n\nConvert $y'' + 3y' + 2y = 0$ to a system. With $x_1 = y$, $x_2 = y'$:\n$x_1' = x_2$, $x_2' = -2x_1 - 3x_2$.\n\n## Matrix form\n\nA linear system with constant coefficients\n\n$$x_1' = ax_1 + bx_2, \\qquad x_2' = cx_1 + dx_2$$\n\nis written compactly as\n\n$$\\mathbf{x}' = A\\mathbf{x}, \\qquad \\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}, \\quad A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}.$$\n\nFor Example 1, $A = \\begin{bmatrix} 0 & 1 \\\\ -2 & -3 \\end{bmatrix}$. A nonhomogeneous system\nadds a forcing vector: $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t)$.\n\n### Example 2: two tanks\n\nTank 1 and tank 2 each hold 100 L. Water flows from tank 1 to tank 2 at 10 L/min, from tank 2\nback to tank 1 at 5 L/min, and out of tank 2 at 5 L/min; pure water enters tank 1 at\n5 L/min. With $Q_1$, $Q_2$ the salt amounts:\n\n$$Q_1' = -\\frac{10}{100}Q_1 + \\frac{5}{100}Q_2, \\qquad Q_2' = \\frac{10}{100}Q_1 - \\frac{10}{100}Q_2,$$\n\nso $A = \\begin{bmatrix} -0.1 & 0.05 \\\\ 0.1 & -0.1 \\end{bmatrix}$. (Tank 2 loses 10 L/min in\ntotal: 5 back to tank 1 and 5 out.)\n\n## The structure of solutions\n\nThe theory parallels Lesson 18:\n\n- **[[Superposition]]**: if $\\mathbf{x}^{(1)}$ and $\\mathbf{x}^{(2)}$ solve $\\mathbf{x}' = A\\mathbf{x}$,\n  so does $c_1\\mathbf{x}^{(1)} + c_2\\mathbf{x}^{(2)}$.\n- **[[Wronskian]]**: $W = \\det\\big[\\mathbf{x}^{(1)}\\ \\mathbf{x}^{(2)}\\big]$. If it's nonzero, the two\n  solutions form a fundamental set, and every solution is $c_1\\mathbf{x}^{(1)} + c_2\\mathbf{x}^{(2)}$.\n- An IVP $\\mathbf{x}' = A\\mathbf{x}$, $\\mathbf{x}(0) = \\mathbf{x}_0$ has exactly one solution.\n\n## Eigenvalues: the key idea\n\nFor a single equation $x' = ax$ the solution is $e^{at}x_0$. For a system, try a solution\nthat changes only by an exponential factor along a fixed direction:\n\n$$\\mathbf{x} = e^{\\lambda t}\\mathbf{v}.$$\n\nThen $\\mathbf{x}' = \\lambda e^{\\lambda t}\\mathbf{v}$ and $A\\mathbf{x} = e^{\\lambda t}A\\mathbf{v}$. They're equal\nexactly when\n\n$$A\\mathbf{v} = \\lambda\\mathbf{v}.$$\n\nSo $\\lambda$ must be an **[[eigenvalue]]** of $A$ and $\\mathbf{v}$ a corresponding **[[eigenvector]]**\n(nonzero). Eigenvalues solve the **[[characteristic equation]]**\n\n$$\\det(A - \\lambda I) = 0.$$\n\nFor a $2 \\times 2$ matrix this is\n\n$$\\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A = 0,$$\n\nwhere the **[[trace]]** $\\operatorname{tr}A = a + d$ and $\\det A = ad - bc$. Once you have $\\lambda$, find\n$\\mathbf{v}$ by solving $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$; the two rows are multiples of each\nother, so one row is enough.\n\n### Example 3\n\nFind the eigenvalues and eigenvectors of $A = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}$.\n\n- $\\operatorname{tr}A = 2$, $\\det A = 1 - 4 = -3$. Characteristic equation $\\lambda^2 - 2\\lambda - 3 = (\\lambda - 3)(\\lambda + 1) = 0$.\n- $\\lambda_1 = 3$: $A - 3I = \\begin{bmatrix} -2 & 1 \\\\ 4 & -2 \\end{bmatrix}$. First row: $-2v_1 + v_2 = 0$, so\n  $\\mathbf{v}^{(1)} = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$.\n- $\\lambda_2 = -1$: $A + I = \\begin{bmatrix} 2 & 1 \\\\ 4 & 2 \\end{bmatrix}$. $2v_1 + v_2 = 0$, so\n  $\\mathbf{v}^{(2)} = \\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix}$.\n- General solution: $\\mathbf{x} = c_1e^{3t}\\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2e^{-t}\\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix}$.\n\n### Example 4: the link to the characteristic equation\n\nFor Example 1's matrix $\\begin{bmatrix} 0 & 1 \\\\ -2 & -3 \\end{bmatrix}$: trace $-3$, determinant $2$,\nso $\\lambda^2 + 3\\lambda + 2 = 0$. That's exactly the characteristic equation of\n$y'' + 3y' + 2y = 0$. Eigenvalues of the system are the characteristic roots of the equation.\n\n## Phase plane\n\nInstead of graphing $x_1$ and $x_2$ against $t$, we usually plot the curve\n$(x_1(t), x_2(t))$ in the $x_1x_2$-plane, the **[[phase plane]]**. The system assigns a velocity\nvector $A\\mathbf{x}$ to every point, giving a **[[direction field]]** (vector field); solution\ncurves, called **[[trajectories]]**, follow it. A picture with several trajectories is a\n**[[phase portrait]]**. Where $A\\mathbf{x} = \\mathbf{0}$ there's an equilibrium (a **[[critical point]]**);\nfor invertible $A$ the only one is the origin.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"xLabel\": \"x₁\", \"yLabel\": \"x₂\", \"equal\": true, \"vectorField\": {\"u\": \"x + y\", \"v\": \"4x + y\", \"step\": 0.5}, \"functions\": [{\"f\": \"2x\", \"dashed\": true, \"label\": \"v⁽¹⁾ (λ = 3)\"}, {\"f\": \"-2x\", \"dashed\": true, \"label\": \"v⁽²⁾ (λ = −1)\"}], \"curves\": [{\"x\": \"0.5exp(3t) + exp(-t)\", \"y\": \"exp(3t) - 2exp(-t)\", \"t\": [-2, 1]}, {\"x\": \"-0.5exp(3t) - exp(-t)\", \"y\": \"-exp(3t) + 2exp(-t)\", \"t\": [-2, 1]}, {\"x\": \"0.5exp(3t) - exp(-t)\", \"y\": \"exp(3t) + 2exp(-t)\", \"t\": [-2, 1]}, {\"x\": \"-0.5exp(3t) + exp(-t)\", \"y\": \"-exp(3t) - 2exp(-t)\", \"t\": [-2, 1]}], \"caption\": \"Phase portrait of x′ = Ax with A = [[1, 1], [4, 1]]: trajectories come in along v⁽²⁾ and leave along v⁽¹⁾.\"}\n```\n\nThe straight-line solutions run along the eigenvector directions: outward along\n$\\mathbf{v}^{(1)}$ (growth, $\\lambda = 3$) and inward along $\\mathbf{v}^{(2)}$ (decay, $\\lambda = -1$).\nThe next two lessons classify such pictures.\n\n## Common mistakes\n\n- **Mixing up rows and columns** of $A$: row $i$ holds the coefficients in the equation for $x_i'$.\n- **Sign of the trace term.** The characteristic equation is $\\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A = 0$.\n- **Using the zero vector** as an eigenvector. Eigenvectors must be nonzero; any nonzero\n  multiple works.\n- **Forgetting the $g$ term** when converting a forced equation to a system.\n\n## Key points\n\n- Higher-order equations become first-order systems via $x_1 = y$, $x_2 = y'$, ….\n- $\\mathbf{x}' = A\\mathbf{x}$; trying $e^{\\lambda t}\\mathbf{v}$ requires $A\\mathbf{v} = \\lambda\\mathbf{v}$.\n- $2 \\times 2$: $\\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A = 0$.\n- Distinct eigenvalues give $\\mathbf{x} = c_1e^{\\lambda_1t}\\mathbf{v}^{(1)} + c_2e^{\\lambda_2t}\\mathbf{v}^{(2)}$.\n",
+   "body": "## Many quantities changing together\n\nSo far each problem had one unknown function. Real systems usually have several that\ninfluence each other: predators and prey, salt in two connected tanks, currents in the\nloops of a circuit, position and velocity of a mass. This module studies **[[systems]]** of\nfirst-order equations,\n\n$$x_1' = f_1(t, x_1, \\dots, x_n), \\quad \\dots, \\quad x_n' = f_n(t, x_1, \\dots, x_n),$$\n\nespecially **linear systems with constant coefficients**, which can be solved completely\nwith eigenvalues and eigenvectors from linear algebra.\n\n## Higher-order equations become systems\n\nAny $n$th-order equation can be rewritten as $n$ first-order equations. For\n$y'' + py' + qy = g$, let $x_1 = y$ and $x_2 = y'$. Then\n\n$$x_1' = x_2, \\qquad x_2' = -qx_1 - px_2 + g.$$\n\nThis is how numerical solvers (Lesson 17) handle higher-order equations, and it shows that\nsystems are the more general framework.\n\n### Example 1\n\nConvert $y'' + 3y' + 2y = 0$ to a system. With $x_1 = y$, $x_2 = y'$:\n$x_1' = x_2$, $x_2' = -2x_1 - 3x_2$.\n\n## Matrix form\n\nA linear system with constant coefficients\n\n$$x_1' = ax_1 + bx_2, \\qquad x_2' = cx_1 + dx_2$$\n\nis written compactly as\n\n$$\\mathbf{x}' = A\\mathbf{x}, \\qquad \\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}, \\quad A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}.$$\n\nFor Example 1, $A = \\begin{bmatrix} 0 & 1 \\\\ -2 & -3 \\end{bmatrix}$. A nonhomogeneous system\nadds a forcing vector: $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t)$; Lesson 36 shows how to solve those.\n\n### Example 2: two tanks\n\nTank 1 and tank 2 each hold 100 L. Water flows from tank 1 to tank 2 at 10 L/min, from tank 2\nback to tank 1 at 5 L/min, and out of tank 2 at 5 L/min; pure water enters tank 1 at\n5 L/min. With $Q_1$, $Q_2$ the salt amounts:\n\n$$Q_1' = -\\frac{10}{100}Q_1 + \\frac{5}{100}Q_2, \\qquad Q_2' = \\frac{10}{100}Q_1 - \\frac{10}{100}Q_2,$$\n\nso $A = \\begin{bmatrix} -0.1 & 0.05 \\\\ 0.1 & -0.1 \\end{bmatrix}$. (Tank 2 loses 10 L/min in\ntotal: 5 back to tank 1 and 5 out.)\n\n## The structure of solutions\n\nThe theory parallels Lesson 18:\n\n- **[[Superposition]]**: if $\\mathbf{x}^{(1)}$ and $\\mathbf{x}^{(2)}$ solve $\\mathbf{x}' = A\\mathbf{x}$,\n  so does $c_1\\mathbf{x}^{(1)} + c_2\\mathbf{x}^{(2)}$.\n- **[[Wronskian]]**: $W = \\det\\big[\\mathbf{x}^{(1)}\\ \\mathbf{x}^{(2)}\\big]$. If it's nonzero, the two\n  solutions form a fundamental set, and every solution is $c_1\\mathbf{x}^{(1)} + c_2\\mathbf{x}^{(2)}$.\n- An IVP $\\mathbf{x}' = A\\mathbf{x}$, $\\mathbf{x}(0) = \\mathbf{x}_0$ has exactly one solution.\n\n## Eigenvalues: the key idea\n\nFor a single equation $x' = ax$ the solution is $e^{at}x_0$. For a system, try a solution\nthat changes only by an exponential factor along a fixed direction:\n\n$$\\mathbf{x} = e^{\\lambda t}\\mathbf{v}.$$\n\nThen $\\mathbf{x}' = \\lambda e^{\\lambda t}\\mathbf{v}$ and $A\\mathbf{x} = e^{\\lambda t}A\\mathbf{v}$. They're equal\nexactly when\n\n$$A\\mathbf{v} = \\lambda\\mathbf{v}.$$\n\nSo $\\lambda$ must be an **[[eigenvalue]]** of $A$ and $\\mathbf{v}$ a corresponding **[[eigenvector]]**\n(nonzero). Eigenvalues solve the **[[characteristic equation]]**\n\n$$\\det(A - \\lambda I) = 0.$$\n\nFor a $2 \\times 2$ matrix this is\n\n$$\\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A = 0,$$\n\nwhere the **[[trace]]** $\\operatorname{tr}A = a + d$ and $\\det A = ad - bc$. Once you have $\\lambda$, find\n$\\mathbf{v}$ by solving $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$; the two rows are multiples of each\nother, so one row is enough.\n\n### Example 3\n\nFind the eigenvalues and eigenvectors of $A = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}$.\n\n- $\\operatorname{tr}A = 2$, $\\det A = 1 - 4 = -3$. Characteristic equation $\\lambda^2 - 2\\lambda - 3 = (\\lambda - 3)(\\lambda + 1) = 0$.\n- $\\lambda_1 = 3$: $A - 3I = \\begin{bmatrix} -2 & 1 \\\\ 4 & -2 \\end{bmatrix}$. First row: $-2v_1 + v_2 = 0$, so\n  $\\mathbf{v}^{(1)} = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$.\n- $\\lambda_2 = -1$: $A + I = \\begin{bmatrix} 2 & 1 \\\\ 4 & 2 \\end{bmatrix}$. $2v_1 + v_2 = 0$, so\n  $\\mathbf{v}^{(2)} = \\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix}$.\n- General solution: $\\mathbf{x} = c_1e^{3t}\\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2e^{-t}\\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix}$.\n\n### Example 4: the link to the characteristic equation\n\nFor Example 1's matrix $\\begin{bmatrix} 0 & 1 \\\\ -2 & -3 \\end{bmatrix}$: trace $-3$, determinant $2$,\nso $\\lambda^2 + 3\\lambda + 2 = 0$. That's exactly the characteristic equation of\n$y'' + 3y' + 2y = 0$. Eigenvalues of the system are the characteristic roots of the equation.\n\n## Phase plane\n\nInstead of graphing $x_1$ and $x_2$ against $t$, we usually plot the curve\n$(x_1(t), x_2(t))$ in the $x_1x_2$-plane, the **[[phase plane]]**. The system assigns a velocity\nvector $A\\mathbf{x}$ to every point, giving a **[[direction field]]** (vector field); solution\ncurves, called **[[trajectories]]**, follow it. A picture with several trajectories is a\n**[[phase portrait]]**. Where $A\\mathbf{x} = \\mathbf{0}$ there's an equilibrium (a **[[critical point]]**);\nfor invertible $A$ the only one is the origin.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"xLabel\": \"x₁\", \"yLabel\": \"x₂\", \"equal\": true, \"vectorField\": {\"u\": \"x + y\", \"v\": \"4x + y\", \"step\": 0.5}, \"functions\": [{\"f\": \"2x\", \"dashed\": true, \"label\": \"v⁽¹⁾ (λ = 3)\"}, {\"f\": \"-2x\", \"dashed\": true, \"label\": \"v⁽²⁾ (λ = −1)\"}], \"curves\": [{\"x\": \"0.5exp(3t) + exp(-t)\", \"y\": \"exp(3t) - 2exp(-t)\", \"t\": [-2, 1]}, {\"x\": \"-0.5exp(3t) - exp(-t)\", \"y\": \"-exp(3t) + 2exp(-t)\", \"t\": [-2, 1]}, {\"x\": \"0.5exp(3t) - exp(-t)\", \"y\": \"exp(3t) + 2exp(-t)\", \"t\": [-2, 1]}, {\"x\": \"-0.5exp(3t) + exp(-t)\", \"y\": \"-exp(3t) - 2exp(-t)\", \"t\": [-2, 1]}], \"caption\": \"Phase portrait of x′ = Ax with A = [[1, 1], [4, 1]]: trajectories come in along v⁽²⁾ and leave along v⁽¹⁾.\"}\n```\n\nThe straight-line solutions run along the eigenvector directions: outward along\n$\\mathbf{v}^{(1)}$ (growth, $\\lambda = 3$) and inward along $\\mathbf{v}^{(2)}$ (decay, $\\lambda = -1$).\nThe next two lessons classify such pictures.\n\n## Common mistakes\n\n- **Mixing up rows and columns** of $A$: row $i$ holds the coefficients in the equation for $x_i'$.\n- **Sign of the trace term.** The characteristic equation is $\\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A = 0$.\n- **Using the zero vector** as an eigenvector. Eigenvectors must be nonzero; any nonzero\n  multiple works.\n- **Forgetting the $g$ term** when converting a forced equation to a system.\n\n## Key points\n\n- Higher-order equations become first-order systems via $x_1 = y$, $x_2 = y'$, ….\n- $\\mathbf{x}' = A\\mathbf{x}$; trying $e^{\\lambda t}\\mathbf{v}$ requires $A\\mathbf{v} = \\lambda\\mathbf{v}$.\n- $2 \\times 2$: $\\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A = 0$.\n- Distinct eigenvalues give $\\mathbf{x} = c_1e^{\\lambda_1t}\\mathbf{v}^{(1)} + c_2e^{\\lambda_2t}\\mathbf{v}^{(2)}$.\n",
    "quiz": [
     "de-q-3201",
     "de-q-3202",
@@ -1172,7 +1222,7 @@
    "refs": [
     "de-ref-solutions"
    ],
-   "body": "## Solving and picturing $\\mathbf{x}' = A\\mathbf{x}$\n\nLast lesson showed that each eigenpair $(\\lambda, \\mathbf{v})$ of $A$ gives a solution\n$e^{\\lambda t}\\mathbf{v}$. When $A$ ($2 \\times 2$) has two distinct real eigenvalues, the two\nsolutions are independent (eigenvectors for different eigenvalues are never parallel), so\n\n$$\\mathbf{x}(t) = c_1e^{\\lambda_1t}\\mathbf{v}^{(1)} + c_2e^{\\lambda_2t}\\mathbf{v}^{(2)}.$$\n\nThis lesson solves IVPs with that formula and, more importantly, reads off the geometry:\nwhat trajectories do near the equilibrium at the origin.\n\n## Solving an IVP\n\n### Example 1\n\nSolve $\\mathbf{x}' = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}\\mathbf{x}$, $\\mathbf{x}(0) = \\begin{bmatrix} 2 \\\\ 0 \\end{bmatrix}$.\n\n- From Lesson 32: $\\lambda = 3$, $\\mathbf{v} = (1, 2)$; $\\lambda = -1$, $\\mathbf{v} = (1, -2)$.\n- At $t = 0$: $c_1\\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2\\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix} = \\begin{bmatrix} 2 \\\\ 0 \\end{bmatrix}$, so\n  $c_1 + c_2 = 2$ and $2c_1 - 2c_2 = 0$: $c_1 = c_2 = 1$.\n- $x_1 = e^{3t} + e^{-t}$, $x_2 = 2e^{3t} - 2e^{-t}$.\n\n### Example 2\n\nSolve $x_1' = -2x_1 + x_2$, $x_2' = x_1 - 2x_2$ with $x_1(0) = 3$, $x_2(0) = 1$.\n\n- $A = \\begin{bmatrix} -2 & 1 \\\\ 1 & -2 \\end{bmatrix}$: trace $-4$, det $3$, so $\\lambda^2 + 4\\lambda + 3 = 0$,\n  $\\lambda = -1, -3$.\n- $\\lambda = -1$: $A + I = \\begin{bmatrix} -1 & 1 \\\\ 1 & -1 \\end{bmatrix}$, $\\mathbf{v} = (1, 1)$.\n- $\\lambda = -3$: $A + 3I = \\begin{bmatrix} 1 & 1 \\\\ 1 & 1 \\end{bmatrix}$, $\\mathbf{v} = (1, -1)$.\n- $c_1 + c_2 = 3$, $c_1 - c_2 = 1$: $c_1 = 2$, $c_2 = 1$.\n- $x_1 = 2e^{-t} + e^{-3t}$, $x_2 = 2e^{-t} - e^{-3t}$. Both decay to 0.\n\n## Three portraits for real eigenvalues\n\nThe signs of the eigenvalues decide everything.\n\n### Saddle point: $\\lambda_1 > 0 > \\lambda_2$\n\nThe solution along $\\mathbf{v}^{(2)}$ decays into the origin, the one along $\\mathbf{v}^{(1)}$ grows\naway. Every other trajectory comes in roughly parallel to $\\mathbf{v}^{(2)}$, swings near the\norigin, and leaves roughly parallel to $\\mathbf{v}^{(1)}$, like water flowing past a mountain\npass. Almost every solution goes to infinity: a **[[saddle point]]** is **[[unstable]]**. Example 1\nand the figure in Lesson 32 show one. Test: $\\det A < 0$ exactly when the eigenvalues have\nopposite signs.\n\n### Nodal sink: $\\lambda_1 < \\lambda_2 < 0$\n\nBoth terms decay, so every trajectory approaches the origin: an asymptotically stable\n**[[node]]** (a **[[sink]]**). Which direction do they come in along? As $t \\to \\infty$ the term with\nthe less negative eigenvalue, $\\lambda_2$, decays more slowly and dominates, so trajectories\nenter tangent to the **[[slow eigenvector]]** $\\mathbf{v}^{(2)}$. Looking backward in time\n($t \\to -\\infty$), the fast term dominates, so far from the origin trajectories run parallel\nto the fast eigenvector.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"xLabel\": \"x₁\", \"yLabel\": \"x₂\", \"equal\": true, \"vectorField\": {\"u\": \"-2x + y\", \"v\": \"x - 2y\", \"step\": 0.5}, \"functions\": [{\"f\": \"x\", \"dashed\": true, \"label\": \"slow: v = (1, 1), λ = −1\"}, {\"f\": \"-x\", \"dashed\": true, \"label\": \"fast: v = (1, −1), λ = −3\"}], \"curves\": [{\"x\": \"2exp(-t) + exp(-3t)\", \"y\": \"2exp(-t) - exp(-3t)\", \"t\": [-0.4, 6]}, {\"x\": \"-2exp(-t) - exp(-3t)\", \"y\": \"-2exp(-t) + exp(-3t)\", \"t\": [-0.4, 6]}, {\"x\": \"exp(-t) - 2exp(-3t)\", \"y\": \"exp(-t) + 2exp(-3t)\", \"t\": [-0.2, 6]}, {\"x\": \"-exp(-t) + 2exp(-3t)\", \"y\": \"-exp(-t) - 2exp(-3t)\", \"t\": [-0.2, 6]}], \"caption\": \"Nodal sink for Example 2: trajectories approach the origin tangent to the slow eigenvector (1, 1).\"}\n```\n\n### Nodal source: $0 < \\lambda_1 < \\lambda_2$\n\nThe same picture with arrows reversed: everything flows out. It's **[[unstable]]**. Trajectories\nleave the origin tangent to the slower-growing eigenvector (the one with the smaller\npositive eigenvalue).\n\n## Summary table\n\n| Eigenvalues | Name | Stability |\n|---|---|---|\n| $\\lambda_1 > 0 > \\lambda_2$ | saddle point | unstable |\n| both negative | nodal sink | asymptotically stable |\n| both positive | nodal source | unstable |\n\n### Example 3\n\nClassify the origin for $\\mathbf{x}' = \\begin{bmatrix} 3 & -2 \\\\ 2 & -2 \\end{bmatrix}\\mathbf{x}$.\n\n- Trace 1, det $-6 + 4 = -2 < 0$: a saddle point, unstable, without even finding the\n  eigenvalues. (They are $\\lambda^2 - \\lambda - 2 = 0$: $2$ and $-1$.)\n\n### Example 4\n\nClassify the origin for $\\mathbf{x}' = \\begin{bmatrix} 4 & 1 \\\\ 2 & 3 \\end{bmatrix}\\mathbf{x}$.\n\n- Trace 7, det 10: $\\lambda^2 - 7\\lambda + 10 = 0$, $\\lambda = 2, 5$. Both positive: nodal source.\n\n## Zero eigenvalue\n\nIf $\\det A = 0$, one eigenvalue is 0 and $A$ is not invertible: there's a whole line of\nequilibria (the eigenvector for $\\lambda = 0$). Trajectories are parallel straight lines moving\ntoward that line (if the other eigenvalue is negative) or away from it. This is a borderline\ncase that rarely matters in applications but makes good exam questions.\n\n## Reading solutions from the picture\n\nPhase portraits answer questions without formulas: Will the tanks' salt both go to zero?\n(Sink: yes.) Will a small disturbance from equilibrium grow? (Saddle or source: yes.) Along\nwhich combination does the system decay slowest? (The slow eigenvector.) For the two-tank\nexample in Lesson 32, the matrix has trace $-0.2$ and determinant $0.005$, giving\n$\\lambda = -0.1 \\pm \\sqrt{0.005}$, about $-0.029$ and $-0.171$. Both negative: a sink, and the salt\nwashes out, slowly, along the slow eigenvector.\n\n## Common mistakes\n\n- **Fitting $c_1, c_2$ to the wrong equations.** At $t = 0$ the exponentials are 1, so solve\n  $c_1\\mathbf{v}^{(1)} + c_2\\mathbf{v}^{(2)} = \\mathbf{x}_0$.\n- **Calling a saddle stable** because some trajectories approach the origin. Almost all leave.\n- **Tangent direction.** Sink trajectories enter along the *slow* eigenvector (eigenvalue closer to 0).\n- **Forgetting the determinant test.** $\\det A < 0$ means saddle, immediately.\n\n## Key points\n\n- Distinct real eigenvalues: $\\mathbf{x} = c_1e^{\\lambda_1t}\\mathbf{v}^{(1)} + c_2e^{\\lambda_2t}\\mathbf{v}^{(2)}$.\n- Opposite signs: saddle (unstable). Both negative: nodal sink (stable). Both positive: nodal source (unstable).\n- Straight-line trajectories follow eigenvectors; others are tangent to the slow eigenvector near a node.\n",
+   "body": "## Solving and picturing $\\mathbf{x}' = A\\mathbf{x}$\n\nLast lesson showed that each eigenpair $(\\lambda, \\mathbf{v})$ of $A$ gives a solution\n$e^{\\lambda t}\\mathbf{v}$. When $A$ ($2 \\times 2$) has two distinct real eigenvalues, the two\nsolutions are independent (eigenvectors for different eigenvalues are never parallel), so\n\n$$\\mathbf{x}(t) = c_1e^{\\lambda_1t}\\mathbf{v}^{(1)} + c_2e^{\\lambda_2t}\\mathbf{v}^{(2)}.$$\n\nThis lesson solves IVPs with that formula and, more importantly, reads off the geometry:\nwhat trajectories do near the equilibrium at the origin.\n\n## Solving an IVP\n\n### Example 1\n\nSolve $\\mathbf{x}' = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}\\mathbf{x}$, $\\mathbf{x}(0) = \\begin{bmatrix} 2 \\\\ 0 \\end{bmatrix}$.\n\n- From Lesson 33: $\\lambda = 3$, $\\mathbf{v} = (1, 2)$; $\\lambda = -1$, $\\mathbf{v} = (1, -2)$.\n- At $t = 0$: $c_1\\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2\\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix} = \\begin{bmatrix} 2 \\\\ 0 \\end{bmatrix}$, so\n  $c_1 + c_2 = 2$ and $2c_1 - 2c_2 = 0$: $c_1 = c_2 = 1$.\n- $x_1 = e^{3t} + e^{-t}$, $x_2 = 2e^{3t} - 2e^{-t}$.\n\n### Example 2\n\nSolve $x_1' = -2x_1 + x_2$, $x_2' = x_1 - 2x_2$ with $x_1(0) = 3$, $x_2(0) = 1$.\n\n- $A = \\begin{bmatrix} -2 & 1 \\\\ 1 & -2 \\end{bmatrix}$: trace $-4$, det $3$, so $\\lambda^2 + 4\\lambda + 3 = 0$,\n  $\\lambda = -1, -3$.\n- $\\lambda = -1$: $A + I = \\begin{bmatrix} -1 & 1 \\\\ 1 & -1 \\end{bmatrix}$, $\\mathbf{v} = (1, 1)$.\n- $\\lambda = -3$: $A + 3I = \\begin{bmatrix} 1 & 1 \\\\ 1 & 1 \\end{bmatrix}$, $\\mathbf{v} = (1, -1)$.\n- $c_1 + c_2 = 3$, $c_1 - c_2 = 1$: $c_1 = 2$, $c_2 = 1$.\n- $x_1 = 2e^{-t} + e^{-3t}$, $x_2 = 2e^{-t} - e^{-3t}$. Both decay to 0.\n\n## Three portraits for real eigenvalues\n\nThe signs of the eigenvalues decide everything.\n\n### Saddle point: $\\lambda_1 > 0 > \\lambda_2$\n\nThe solution along $\\mathbf{v}^{(2)}$ decays into the origin, the one along $\\mathbf{v}^{(1)}$ grows\naway. Every other trajectory comes in roughly parallel to $\\mathbf{v}^{(2)}$, swings near the\norigin, and leaves roughly parallel to $\\mathbf{v}^{(1)}$, like water flowing past a mountain\npass. Almost every solution goes to infinity: a **[[saddle point]]** is **[[unstable]]**. Example 1\nand the figure in Lesson 33 show one. Test: $\\det A < 0$ exactly when the eigenvalues have\nopposite signs.\n\n### Nodal sink: $\\lambda_1 < \\lambda_2 < 0$\n\nBoth terms decay, so every trajectory approaches the origin: an asymptotically stable\n**[[node]]** (a **[[sink]]**). Which direction do they come in along? As $t \\to \\infty$ the term with\nthe less negative eigenvalue, $\\lambda_2$, decays more slowly and dominates, so trajectories\nenter tangent to the **[[slow eigenvector]]** $\\mathbf{v}^{(2)}$. Looking backward in time\n($t \\to -\\infty$), the fast term dominates, so far from the origin trajectories run parallel\nto the fast eigenvector.\n\n```plot\n{\"x\": [-3, 3], \"y\": [-3, 3], \"xLabel\": \"x₁\", \"yLabel\": \"x₂\", \"equal\": true, \"vectorField\": {\"u\": \"-2x + y\", \"v\": \"x - 2y\", \"step\": 0.5}, \"functions\": [{\"f\": \"x\", \"dashed\": true, \"label\": \"slow: v = (1, 1), λ = −1\"}, {\"f\": \"-x\", \"dashed\": true, \"label\": \"fast: v = (1, −1), λ = −3\"}], \"curves\": [{\"x\": \"2exp(-t) + exp(-3t)\", \"y\": \"2exp(-t) - exp(-3t)\", \"t\": [-0.4, 6]}, {\"x\": \"-2exp(-t) - exp(-3t)\", \"y\": \"-2exp(-t) + exp(-3t)\", \"t\": [-0.4, 6]}, {\"x\": \"exp(-t) - 2exp(-3t)\", \"y\": \"exp(-t) + 2exp(-3t)\", \"t\": [-0.2, 6]}, {\"x\": \"-exp(-t) + 2exp(-3t)\", \"y\": \"-exp(-t) - 2exp(-3t)\", \"t\": [-0.2, 6]}], \"caption\": \"Nodal sink for Example 2: trajectories approach the origin tangent to the slow eigenvector (1, 1).\"}\n```\n\n### Nodal source: $0 < \\lambda_1 < \\lambda_2$\n\nThe same picture with arrows reversed: everything flows out. It's **[[unstable]]**. Trajectories\nleave the origin tangent to the slower-growing eigenvector (the one with the smaller\npositive eigenvalue).\n\n## Summary table\n\n| Eigenvalues | Name | Stability |\n|---|---|---|\n| $\\lambda_1 > 0 > \\lambda_2$ | saddle point | unstable |\n| both negative | nodal sink | asymptotically stable |\n| both positive | nodal source | unstable |\n\n### Example 3\n\nClassify the origin for $\\mathbf{x}' = \\begin{bmatrix} 3 & -2 \\\\ 2 & -2 \\end{bmatrix}\\mathbf{x}$.\n\n- Trace 1, det $-6 + 4 = -2 < 0$: a saddle point, unstable, without even finding the\n  eigenvalues. (They are $\\lambda^2 - \\lambda - 2 = 0$: $2$ and $-1$.)\n\n### Example 4\n\nClassify the origin for $\\mathbf{x}' = \\begin{bmatrix} 4 & 1 \\\\ 2 & 3 \\end{bmatrix}\\mathbf{x}$.\n\n- Trace 7, det 10: $\\lambda^2 - 7\\lambda + 10 = 0$, $\\lambda = 2, 5$. Both positive: nodal source.\n\n## Zero eigenvalue\n\nIf $\\det A = 0$, one eigenvalue is 0 and $A$ is not invertible: there's a whole line of\nequilibria (the eigenvector for $\\lambda = 0$). Trajectories are parallel straight lines moving\ntoward that line (if the other eigenvalue is negative) or away from it. This is a borderline\ncase that rarely matters in applications but makes good exam questions.\n\n## Reading solutions from the picture\n\nPhase portraits answer questions without formulas: Will the tanks' salt both go to zero?\n(Sink: yes.) Will a small disturbance from equilibrium grow? (Saddle or source: yes.) Along\nwhich combination does the system decay slowest? (The slow eigenvector.) For the two-tank\nexample in Lesson 33, the matrix has trace $-0.2$ and determinant $0.005$, giving\n$\\lambda = -0.1 \\pm \\sqrt{0.005}$, about $-0.029$ and $-0.171$. Both negative: a sink, and the salt\nwashes out, slowly, along the slow eigenvector.\n\n## Common mistakes\n\n- **Fitting $c_1, c_2$ to the wrong equations.** At $t = 0$ the exponentials are 1, so solve\n  $c_1\\mathbf{v}^{(1)} + c_2\\mathbf{v}^{(2)} = \\mathbf{x}_0$.\n- **Calling a saddle stable** because some trajectories approach the origin. Almost all leave.\n- **Tangent direction.** Sink trajectories enter along the *slow* eigenvector (eigenvalue closer to 0).\n- **Forgetting the determinant test.** $\\det A < 0$ means saddle, immediately.\n\n## Key points\n\n- Distinct real eigenvalues: $\\mathbf{x} = c_1e^{\\lambda_1t}\\mathbf{v}^{(1)} + c_2e^{\\lambda_2t}\\mathbf{v}^{(2)}$.\n- Opposite signs: saddle (unstable). Both negative: nodal sink (stable). Both positive: nodal source (unstable).\n- Straight-line trajectories follow eigenvectors; others are tangent to the slow eigenvector near a node.\n",
    "quiz": [
     "de-q-3301",
     "de-q-3302",
@@ -1218,6 +1268,40 @@
    ]
   },
   {
+   "id": "de-nonhomog-systems",
+   "module": "de-m8",
+   "title": "Nonhomogeneous systems and the matrix exponential",
+   "minutes": 40,
+   "topics": [
+    "Nonhomogeneous systems",
+    "Matrix exponential"
+   ],
+   "drills": [
+    "de-sys-const-forcing",
+    "de-sys-exp-forcing",
+    "de-matrix-exp"
+   ],
+   "refs": [
+    "de-ref-solutions",
+    "de-ref-methods"
+   ],
+   "body": "## Forcing a system\n\nThe last two lessons solved $\\mathbf{x}' = A\\mathbf{x}$ completely. Real systems are usually\ndriven from outside: brine pumped into a tank, a voltage source in one loop of a circuit, a\ndrug infused into the bloodstream. That adds a **[[forcing vector]]** $\\mathbf{g}(t)$:\n\n$$\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t).$$\n\nThe structure is the same as for a single equation (Lesson 22). If $\\mathbf{x}_p$ is any one\nsolution, every solution is\n\n$$\\mathbf{x} = \\mathbf{x}_c + \\mathbf{x}_p,$$\n\nwhere $\\mathbf{x}_c$ is the general solution of the homogeneous system. The reason is also the\nsame: the difference of two solutions of the forced system solves the unforced one. So the\nwork is finding one $\\mathbf{x}_p$, and this lesson gives two ways, undetermined coefficients\nand variation of parameters, after first packaging the homogeneous solutions into a matrix.\n\n## Fundamental matrices\n\nPut two independent solutions of $\\mathbf{x}' = A\\mathbf{x}$ side by side as columns:\n\n$$\\Psi(t) = \\big[\\mathbf{x}^{(1)}(t)\\ \\ \\mathbf{x}^{(2)}(t)\\big].$$\n\nThis is a **[[fundamental matrix]]**. Its determinant is the Wronskian (Lesson 33), so it is\ninvertible for every $t$. Each column solves the system, so $\\Psi' = A\\Psi$, and the general\nhomogeneous solution is $\\mathbf{x}_c = \\Psi(t)\\mathbf{c}$ for a constant vector $\\mathbf{c}$.\nAn initial condition $\\mathbf{x}(0) = \\mathbf{x}_0$ gives $\\mathbf{c} = \\Psi(0)^{-1}\\mathbf{x}_0$.\n\n## The matrix exponential\n\nFor a single equation $x' = ax$, the solution is $x = e^{at}x_0$. The same formula works for\nsystems once $e^{At}$ is defined, using the power series of the exponential:\n\n$$e^{At} = I + At + \\frac{A^2t^2}{2!} + \\frac{A^3t^3}{3!} + \\cdots$$\n\nThis **[[matrix exponential]]** always converges. Differentiating term by term gives\n$\\dfrac{d}{dt}e^{At} = A + A^2t + \\dfrac{A^3t^2}{2!} + \\cdots = Ae^{At}$, and at $t = 0$ it is $I$.\nSo $\\mathbf{x} = e^{At}\\mathbf{x}_0$ solves $\\mathbf{x}' = A\\mathbf{x}$, $\\mathbf{x}(0) = \\mathbf{x}_0$.\n\nIn other words, $e^{At}$ is the fundamental matrix that equals $I$ at $t = 0$. Any fundamental\nmatrix gives it:\n\n$$e^{At} = \\Psi(t)\\Psi(0)^{-1}.$$\n\n(Both sides solve $X' = AX$ with $X(0) = I$, and that matrix IVP has only one solution.) Two\neasy special cases: for a diagonal matrix, exponentiate the diagonal entries; and if\n$A = \\lambda I + N$ with $N^2 = 0$, the series for $e^{Nt}$ stops after two terms, so\n$e^{At} = e^{\\lambda t}(I + Nt)$. For example,\n$\\begin{bmatrix} 2 & 1 \\\\ 0 & 2 \\end{bmatrix}$ gives $e^{At} = e^{2t}\\begin{bmatrix} 1 & t \\\\ 0 & 1 \\end{bmatrix}$.\n\n### Example 1\n\nFind $e^{At}$ for $A = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}$.\n\n- From Lesson 33, Example 3: $\\lambda = 3$ with $(1, 2)$ and $\\lambda = -1$ with $(1, -2)$. So\n  $\\Psi = \\begin{bmatrix} e^{3t} & e^{-t} \\\\ 2e^{3t} & -2e^{-t} \\end{bmatrix}$.\n- $\\Psi(0) = \\begin{bmatrix} 1 & 1 \\\\ 2 & -2 \\end{bmatrix}$ has determinant $-4$, so\n  $\\Psi(0)^{-1} = \\dfrac{1}{-4}\\begin{bmatrix} -2 & -1 \\\\ -2 & 1 \\end{bmatrix} = \\begin{bmatrix} \\frac12 & \\frac14 \\\\ \\frac12 & -\\frac14 \\end{bmatrix}$.\n- Multiply:\n\n$$e^{At} = \\begin{bmatrix} \\frac12(e^{3t} + e^{-t}) & \\frac14(e^{3t} - e^{-t}) \\\\ e^{3t} - e^{-t} & \\frac12(e^{3t} + e^{-t}) \\end{bmatrix}.$$\n\n- Check: at $t = 0$ this is $I$. Its first column is the solution starting at $(1, 0)$.\n\n## Undetermined coefficients for systems\n\nWhen $A$ is constant and $\\mathbf{g}$ is built from constants, polynomials, exponentials, sines\nand cosines, guess $\\mathbf{x}_p$ of the same form with unknown *vector* coefficients.\n\n- **Constant forcing** $\\mathbf{g} = \\mathbf{b}$: try a constant $\\mathbf{x}_p = \\mathbf{a}$. Then\n  $\\mathbf{0} = A\\mathbf{a} + \\mathbf{b}$, so $\\mathbf{a} = -A^{-1}\\mathbf{b}$ (if $\\det A \\ne 0$). This\n  constant solution is the equilibrium of the forced system.\n- **Exponential forcing** $\\mathbf{g} = e^{rt}\\mathbf{b}$: try $\\mathbf{x}_p = e^{rt}\\mathbf{a}$. Then\n  $re^{rt}\\mathbf{a} = e^{rt}(A\\mathbf{a} + \\mathbf{b})$, so $(rI - A)\\mathbf{a} = \\mathbf{b}$. This works\n  when $r$ is not an eigenvalue of $A$.\n- **Polynomial forcing** $\\mathbf{g} = t\\mathbf{b}_1 + \\mathbf{b}_0$: try $\\mathbf{x}_p = t\\mathbf{a}_1 + \\mathbf{a}_0$\n  and match powers of $t$.\n\nIf $r$ *is* an eigenvalue, the guess must include $te^{rt}\\mathbf{a} + e^{rt}\\mathbf{d}$ (both\nvectors unknown), which is fiddly; variation of parameters is usually simpler.\n\n### Example 2: brine in two tanks\n\nUse the tanks of Lesson 33, Example 2, but now the 5 L/min entering tank 1 is brine at\n2 g/L, bringing in 10 g/min of salt:\n\n$$\\mathbf{Q}' = \\begin{bmatrix} -0.1 & 0.05 \\\\ 0.1 & -0.1 \\end{bmatrix}\\mathbf{Q} + \\begin{bmatrix} 10 \\\\ 0 \\end{bmatrix}.$$\n\n- Constant guess $\\mathbf{a}$: $-0.1a_1 + 0.05a_2 = -10$ and $0.1a_1 - 0.1a_2 = 0$.\n- The second gives $a_1 = a_2$; then $-0.05a_1 = -10$, so $\\mathbf{a} = (200, 200)$.\n- The eigenvalues of $A$ are $-0.1 \\pm 0.05\\sqrt2$, both negative, so $\\mathbf{x}_c \\to \\mathbf{0}$\n  and every solution approaches $(200, 200)$ g: both tanks end at 2 g/L, the inflow\n  concentration, as they should.\n\n```plot\n{\"x\": [0, 150], \"y\": [0, 230], \"xLabel\": \"t (min)\", \"yLabel\": \"salt (g)\", \"functions\": [{\"f\": \"200 - 170.71*exp(-0.029289*x) - 29.289*exp(-0.170711*x)\"}, {\"f\": \"200 - 241.42*exp(-0.029289*x) + 41.421*exp(-0.170711*x)\", \"dashed\": true}, {\"f\": \"200\", \"dashed\": true}], \"caption\": \"Example 2 starting with fresh water in both tanks: Q₁ (solid) leads, Q₂ (dashed) follows, and both approach the equilibrium 200 g.\"}\n```\n\n### Example 3\n\nFind a particular solution of $\\mathbf{x}' = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}\\mathbf{x} + \\begin{bmatrix} e^t \\\\ 0 \\end{bmatrix}$.\n\n- $\\mathbf{g} = e^t(1, 0)$ and $r = 1$ is not an eigenvalue ($3$ and $-1$), so try $e^t\\mathbf{a}$.\n- $(I - A)\\mathbf{a} = \\mathbf{b}$: $\\begin{bmatrix} 0 & -1 \\\\ -4 & 0 \\end{bmatrix}\\mathbf{a} = \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}$, so\n  $a_2 = -1$ and $a_1 = 0$.\n- $\\mathbf{x}_p = e^t\\begin{bmatrix} 0 \\\\ -1 \\end{bmatrix}$. Check the first row:\n  $x_1' = 0$ and $x_1 + x_2 + e^t = 0 - e^t + e^t = 0$. ✓\n- General solution: $c_1e^{3t}(1, 2) + c_2e^{-t}(1, -2) + e^t(0, -1)$.\n\n## Variation of parameters\n\nThis method works for any continuous $\\mathbf{g}(t)$, even when $A$ depends on $t$. Replace the\nconstant $\\mathbf{c}$ in $\\Psi\\mathbf{c}$ by a function: $\\mathbf{x} = \\Psi(t)\\mathbf{u}(t)$. Then\n\n$$\\mathbf{x}' = \\Psi'\\mathbf{u} + \\Psi\\mathbf{u}' = A\\Psi\\mathbf{u} + \\Psi\\mathbf{u}'.$$\n\nSetting this equal to $A\\Psi\\mathbf{u} + \\mathbf{g}$ leaves $\\Psi\\mathbf{u}' = \\mathbf{g}$, so\n\n$$\\mathbf{u}' = \\Psi^{-1}\\mathbf{g}, \\qquad \\mathbf{x}_p = \\Psi(t)\\int\\Psi(t)^{-1}\\mathbf{g}(t)\\,dt.$$\n\nWith $\\Psi = e^{At}$ (constant $A$), using $(e^{At})^{-1} = e^{-At}$ and an IVP, this becomes the\n**[[variation of constants formula]]**\n\n$$\\mathbf{x}(t) = e^{At}\\mathbf{x}_0 + \\int_0^te^{A(t - s)}\\mathbf{g}(s)\\,ds,$$\n\nthe exact analog of the integrating-factor solution of $x' = ax + g$ in Lesson 8: the\ninitial state evolved forward, plus every past input evolved forward from when it arrived.\n\n### Example 4\n\nFind a particular solution of $\\mathbf{x}' = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}\\mathbf{x} + \\begin{bmatrix} 0 \\\\ 4e^{-t} \\end{bmatrix}$.\nHere $r = -1$ is an eigenvalue, so the simple guess fails.\n\n- $\\det\\Psi = -2e^{2t} - 2e^{2t} = -4e^{2t}$, so\n  $\\Psi^{-1} = \\dfrac{1}{-4e^{2t}}\\begin{bmatrix} -2e^{-t} & -e^{-t} \\\\ -2e^{3t} & e^{3t} \\end{bmatrix} = \\begin{bmatrix} \\frac12e^{-3t} & \\frac14e^{-3t} \\\\ \\frac12e^{t} & -\\frac14e^{t} \\end{bmatrix}$.\n- $\\mathbf{u}' = \\Psi^{-1}\\mathbf{g} = \\begin{bmatrix} e^{-4t} \\\\ -1 \\end{bmatrix}$, so $\\mathbf{u} = \\begin{bmatrix} -\\frac14e^{-4t} \\\\ -t \\end{bmatrix}$\n  (any antiderivative will do).\n- $\\mathbf{x}_p = \\Psi\\mathbf{u} = \\begin{bmatrix} -\\frac14e^{-t} - te^{-t} \\\\ -\\frac12e^{-t} + 2te^{-t} \\end{bmatrix}$.\n- The $te^{-t}$ terms are the system's version of resonance: the forcing rate matches an\n  eigenvalue. Substituting back confirms the answer.\n\n## Common mistakes\n\n- **Scalar thinking with matrices.** $e^{At}$ is not the matrix of entrywise exponentials\n  $e^{a_{ij}t}$ unless $A$ is diagonal, and $e^{A + B} \\ne e^Ae^B$ in general.\n- **Wrong order of multiplication.** It is $\\Psi(t)\\Psi(0)^{-1}$ and $\\Psi(t)\\int\\Psi^{-1}\\mathbf{g}$;\n  matrix products don't commute.\n- **Sign in the constant case.** $A\\mathbf{a} + \\mathbf{b} = \\mathbf{0}$ gives $\\mathbf{a} = -A^{-1}\\mathbf{b}$, not $A^{-1}\\mathbf{b}$.\n- **$(A - rI)$ instead of $(rI - A)$** for exponential forcing, which flips the sign of $\\mathbf{a}$.\n- **Fitting initial conditions to $\\mathbf{x}_c$ alone.** Fit them to $\\mathbf{x}_c + \\mathbf{x}_p$.\n\n## Key points\n\n- $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}$: general solution $\\mathbf{x}_c + \\mathbf{x}_p$.\n- A fundamental matrix $\\Psi$ has independent solutions as columns; $\\mathbf{x}_c = \\Psi\\mathbf{c}$.\n- $e^{At} = I + At + \\frac{A^2t^2}{2!} + \\cdots = \\Psi(t)\\Psi(0)^{-1}$; it solves the IVP: $\\mathbf{x} = e^{At}\\mathbf{x}_0$.\n- Undetermined coefficients: constant $\\mathbf{b}$ gives $\\mathbf{a} = -A^{-1}\\mathbf{b}$; $e^{rt}\\mathbf{b}$ gives $(rI - A)\\mathbf{a} = \\mathbf{b}$ ($r$ not an eigenvalue).\n- Variation of parameters: $\\mathbf{x}_p = \\Psi\\int\\Psi^{-1}\\mathbf{g}\\,dt$; with $e^{At}$, $\\mathbf{x} = e^{At}\\mathbf{x}_0 + \\int_0^te^{A(t - s)}\\mathbf{g}(s)\\,ds$.\n",
+   "quiz": [
+    "de-q-ns01",
+    "de-q-ns02",
+    "de-q-ns03",
+    "de-q-ns04",
+    "de-q-ns05",
+    "de-q-ns06",
+    "de-q-ns07",
+    "de-q-ns08",
+    "de-q-ns09",
+    "de-q-ns10",
+    "de-q-ns11",
+    "de-q-ns12"
+   ]
+  },
+  {
    "id": "de-nonlinear",
    "module": "de-m8",
    "title": "Nonlinear systems and linearization",
@@ -1233,7 +1317,7 @@
     "de-ref-solutions",
     "de-ref-models"
    ],
-   "body": "## Beyond linear\n\nMost interesting systems are nonlinear: predators eat prey at a rate proportional to how\noften they meet ($xy$), a pendulum's restoring force is $\\sin\\theta$, competing species crowd\neach other. Nonlinear systems rarely have formula solutions, but the tools of the last three\nlessons still tell us a great deal, because near an equilibrium a smooth nonlinear system\nlooks almost linear. This lesson develops **[[linearization]]** and applies it to the classic\n**[[predator–prey]]** model.\n\n## Autonomous systems and equilibria\n\nWe study autonomous systems\n\n$$x' = F(x, y), \\qquad y' = G(x, y).$$\n\nAn **[[equilibrium]]** (critical point) is a point where $F = 0$ and $G = 0$ simultaneously. Unlike a\nlinear system with $\\det A \\ne 0$, there can be several isolated ones. Find them by solving the two equations together;\nfactoring usually helps.\n\n## Linearization\n\nNear an equilibrium $(x_0, y_0)$, approximate $F$ and $G$ by their tangent planes. Since\n$F(x_0, y_0) = G(x_0, y_0) = 0$, with $u = x - x_0$ and $v = y - y_0$:\n\n$$\\begin{bmatrix} u \\\\ v \\end{bmatrix}' \\approx J\\begin{bmatrix} u \\\\ v \\end{bmatrix}, \\qquad J = \\begin{bmatrix} F_x & F_y \\\\ G_x & G_y \\end{bmatrix}\\Bigg|_{(x_0, y_0)}.$$\n\n$J$ is the **[[Jacobian matrix]]** evaluated at the equilibrium. The linear system $\\mathbf{u}' = J\\mathbf{u}$ is\nthe **[[linearization]]**.\n\n**Theorem (linearization).** If the eigenvalues of $J$ are not purely imaginary and not\nzero, the nonlinear system near the equilibrium has the same type and stability as the\nlinearization: saddles stay saddles, nodes stay nodes, spirals stay spirals, and sinks stay\nsinks. (One fine point: if $J$ has a repeated real eigenvalue, the nonlinear terms can turn the\nnode into a spiral, though stability is unchanged.)\n\nThe borderline cases are the exception. If $J$ has a center (purely imaginary eigenvalues),\nthe nonlinear terms decide: the true picture may be a center, a slow spiral sink, or a slow\nspiral source. Linearization alone can't tell.\n\n### Example 1\n\nFind and classify the equilibria of $x' = x - y$, $y' = x^2 - 4$.\n\n- Equilibria: $x^2 = 4$ gives $x = \\pm 2$, and $x = y$. So $(2, 2)$ and $(-2, -2)$.\n- Jacobian: $J = \\begin{bmatrix} 1 & -1 \\\\ 2x & 0 \\end{bmatrix}$.\n- At $(2, 2)$: $J = \\begin{bmatrix} 1 & -1 \\\\ 4 & 0 \\end{bmatrix}$, $T = 1$, $D = 4$, $T^2 - 4D = -15 < 0$: spiral source (unstable).\n- At $(-2, -2)$: $J = \\begin{bmatrix} 1 & -1 \\\\ -4 & 0 \\end{bmatrix}$, $D = -4 < 0$: saddle.\n\n## Predator–prey (Lotka–Volterra)\n\nLet $x$ be the prey population (rabbits) and $y$ the predators (foxes). Without foxes,\nrabbits grow exponentially; without rabbits, foxes die off; encounters (proportional to\n$xy$) hurt rabbits and help foxes:\n\n$$x' = ax - \\alpha xy, \\qquad y' = -cy + \\gamma xy,$$\n\nwith all constants positive. This is the **[[Lotka–Volterra]]** model.\n\n**Equilibria.** $x(a - \\alpha y) = 0$ and $y(-c + \\gamma x) = 0$ give $(0, 0)$ and\n$\\left(\\dfrac{c}{\\gamma}, \\dfrac{a}{\\alpha}\\right)$.\n\n**Linearize.** $J = \\begin{bmatrix} a - \\alpha y & -\\alpha x \\\\ \\gamma y & -c + \\gamma x \\end{bmatrix}$.\n\n- At $(0, 0)$: $J = \\begin{bmatrix} a & 0 \\\\ 0 & -c \\end{bmatrix}$, eigenvalues $a > 0 > -c$: a saddle. Total\n  extinction is unstable.\n- At $\\left(\\dfrac c\\gamma, \\dfrac a\\alpha\\right)$: $J = \\begin{bmatrix} 0 & -\\alpha c/\\gamma \\\\ \\gamma a/\\alpha & 0 \\end{bmatrix}$,\n  $T = 0$, $D = ac > 0$: eigenvalues $\\pm i\\sqrt{ac}$, a center for the linearization.\n\nThe linearization is inconclusive, but a separate argument settles it: separating\n$\\dfrac{dy}{dx} = \\dfrac{y(-c + \\gamma x)}{x(a - \\alpha y)}$ gives a conserved quantity\n$H = \\gamma x - c\\ln x + \\alpha y - a\\ln y$, constant along trajectories. Its level curves are\nclosed loops, so the true picture is a center: populations cycle forever, with the predator\npeak lagging the prey peak by about a quarter cycle. The period near equilibrium is about\n$\\dfrac{2\\pi}{\\sqrt{ac}}$.\n\n### Example 2\n\nFor $x' = x - 0.5xy$, $y' = -0.75y + 0.25xy$:\n\n- $a = 1$, $\\alpha = 0.5$, $c = 0.75$, $\\gamma = 0.25$. Coexistence equilibrium:\n  $\\left(\\dfrac{0.75}{0.25}, \\dfrac{1}{0.5}\\right) = (3, 2)$.\n- Small oscillations around it have period about $\\dfrac{2\\pi}{\\sqrt{0.75}} \\approx 7.26$.\n\n```plot\n{\"x\": [0, 9], \"y\": [0, 6], \"xLabel\": \"prey x\", \"yLabel\": \"predators y\", \"vectorField\": {\"u\": \"x - 0.5x*y\", \"v\": \"-0.75y + 0.25x*y\", \"step\": 0.75}, \"points\": [{\"at\": [3, 2], \"label\": \"(3, 2)\"}], \"caption\": \"Lotka–Volterra direction field: trajectories circle counterclockwise around the coexistence equilibrium (3, 2).\"}\n```\n\nCounterclockwise: when prey are plentiful (right), predators grow (up); then prey decline\n(left), then predators decline (down), and prey recover.\n\n## Competing species\n\nTwo species competing for the same food, each logistic on its own:\n\n$$x' = x(\\epsilon_1 - \\sigma_1x - \\alpha_1y), \\qquad y' = y(\\epsilon_2 - \\sigma_2y - \\alpha_2x).$$\n\nLinearizing at the four possible equilibria (both extinct, one extinct, coexistence) shows\ntwo typical outcomes: if competition is weak, the coexistence point is a stable node; if\nstrong, it's a saddle and one species wins, depending on the starting point.\n\n### Example 3\n\nFor $x' = x(1 - x - y)$, $y' = y(0.75 - y - 0.5x)$, the coexistence point solves\n$x + y = 1$, $0.5x + y = 0.75$: $x = 0.5$, $y = 0.5$. There\n$J = \\begin{bmatrix} -x & -x \\\\ -0.5y & -y \\end{bmatrix} = \\begin{bmatrix} -0.5 & -0.5 \\\\ -0.25 & -0.5 \\end{bmatrix}$,\n$T = -1$, $D = 0.25 - 0.125 = 0.125$, $T^2 - 4D = 0.5 > 0$: a nodal sink. The species coexist stably.\n\n## The pendulum\n\n$\\theta'' + \\sin\\theta = 0$ becomes $x' = y$, $y' = -\\sin x$. Equilibria at $x = k\\pi$, $y = 0$.\n$J = \\begin{bmatrix} 0 & 1 \\\\ -\\cos x & 0 \\end{bmatrix}$: at $x = 0$, eigenvalues $\\pm i$ (center: small swings);\nat $x = \\pi$, $D = -1 < 0$ (saddle: balanced upside down, unstable).\n\n## Common mistakes\n\n- **Missing equilibria.** Solve $F = 0$ and $G = 0$ *together*; check every factor combination.\n- **Jacobian entries in the wrong places.** Row 1 is the partials of $F$, row 2 of $G$.\n- **Evaluating $J$ at the origin** instead of at the equilibrium in question.\n- **Trusting a linearized center.** Purely imaginary eigenvalues are inconclusive for the\n  nonlinear system.\n\n## Key points\n\n- Equilibria: $F = G = 0$. Linearize with the Jacobian $J$ of partial derivatives at each one.\n- If $J$'s eigenvalues have nonzero real parts, the nonlinear system has the same type and stability.\n- Lotka–Volterra $x' = ax - \\alpha xy$, $y' = -cy + \\gamma xy$: saddle at the origin, center at\n  $(c/\\gamma, a/\\alpha)$; populations cycle.\n",
+   "body": "## Beyond linear\n\nMost interesting systems are nonlinear: predators eat prey at a rate proportional to how\noften they meet ($xy$), a pendulum's restoring force is $\\sin\\theta$, competing species crowd\neach other. Nonlinear systems rarely have formula solutions, but the eigenvalue tools of Lessons\n33–35 still tell us a great deal, because near an equilibrium a smooth nonlinear system\nlooks almost linear. This lesson develops **[[linearization]]** and applies it to the classic\n**[[predator–prey]]** model.\n\n## Autonomous systems and equilibria\n\nWe study autonomous systems\n\n$$x' = F(x, y), \\qquad y' = G(x, y).$$\n\nAn **[[equilibrium]]** (critical point) is a point where $F = 0$ and $G = 0$ simultaneously. Unlike a\nlinear system with $\\det A \\ne 0$, there can be several isolated ones. Find them by solving the two equations together;\nfactoring usually helps.\n\n## Linearization\n\nNear an equilibrium $(x_0, y_0)$, approximate $F$ and $G$ by their tangent planes. Since\n$F(x_0, y_0) = G(x_0, y_0) = 0$, with $u = x - x_0$ and $v = y - y_0$:\n\n$$\\begin{bmatrix} u \\\\ v \\end{bmatrix}' \\approx J\\begin{bmatrix} u \\\\ v \\end{bmatrix}, \\qquad J = \\begin{bmatrix} F_x & F_y \\\\ G_x & G_y \\end{bmatrix}\\Bigg|_{(x_0, y_0)}.$$\n\n$J$ is the **[[Jacobian matrix]]** evaluated at the equilibrium. The linear system $\\mathbf{u}' = J\\mathbf{u}$ is\nthe **[[linearization]]**.\n\n**Theorem (linearization).** If the eigenvalues of $J$ are not purely imaginary and not\nzero, the nonlinear system near the equilibrium has the same type and stability as the\nlinearization: saddles stay saddles, nodes stay nodes, spirals stay spirals, and sinks stay\nsinks. (One fine point: if $J$ has a repeated real eigenvalue, the nonlinear terms can turn the\nnode into a spiral, though stability is unchanged.)\n\nThe borderline cases are the exception. If $J$ has a center (purely imaginary eigenvalues),\nthe nonlinear terms decide: the true picture may be a center, a slow spiral sink, or a slow\nspiral source. Linearization alone can't tell.\n\n### Example 1\n\nFind and classify the equilibria of $x' = x - y$, $y' = x^2 - 4$.\n\n- Equilibria: $x^2 = 4$ gives $x = \\pm 2$, and $x = y$. So $(2, 2)$ and $(-2, -2)$.\n- Jacobian: $J = \\begin{bmatrix} 1 & -1 \\\\ 2x & 0 \\end{bmatrix}$.\n- At $(2, 2)$: $J = \\begin{bmatrix} 1 & -1 \\\\ 4 & 0 \\end{bmatrix}$, $T = 1$, $D = 4$, $T^2 - 4D = -15 < 0$: spiral source (unstable).\n- At $(-2, -2)$: $J = \\begin{bmatrix} 1 & -1 \\\\ -4 & 0 \\end{bmatrix}$, $D = -4 < 0$: saddle.\n\n## Predator–prey (Lotka–Volterra)\n\nLet $x$ be the prey population (rabbits) and $y$ the predators (foxes). Without foxes,\nrabbits grow exponentially; without rabbits, foxes die off; encounters (proportional to\n$xy$) hurt rabbits and help foxes:\n\n$$x' = ax - \\alpha xy, \\qquad y' = -cy + \\gamma xy,$$\n\nwith all constants positive. This is the **[[Lotka–Volterra]]** model.\n\n**Equilibria.** $x(a - \\alpha y) = 0$ and $y(-c + \\gamma x) = 0$ give $(0, 0)$ and\n$\\left(\\dfrac{c}{\\gamma}, \\dfrac{a}{\\alpha}\\right)$.\n\n**Linearize.** $J = \\begin{bmatrix} a - \\alpha y & -\\alpha x \\\\ \\gamma y & -c + \\gamma x \\end{bmatrix}$.\n\n- At $(0, 0)$: $J = \\begin{bmatrix} a & 0 \\\\ 0 & -c \\end{bmatrix}$, eigenvalues $a > 0 > -c$: a saddle. Total\n  extinction is unstable.\n- At $\\left(\\dfrac c\\gamma, \\dfrac a\\alpha\\right)$: $J = \\begin{bmatrix} 0 & -\\alpha c/\\gamma \\\\ \\gamma a/\\alpha & 0 \\end{bmatrix}$,\n  $T = 0$, $D = ac > 0$: eigenvalues $\\pm i\\sqrt{ac}$, a center for the linearization.\n\nThe linearization is inconclusive, but a separate argument settles it: separating\n$\\dfrac{dy}{dx} = \\dfrac{y(-c + \\gamma x)}{x(a - \\alpha y)}$ gives a conserved quantity\n$H = \\gamma x - c\\ln x + \\alpha y - a\\ln y$, constant along trajectories. Its level curves are\nclosed loops, so the true picture is a center: populations cycle forever, with the predator\npeak lagging the prey peak by about a quarter cycle. The period near equilibrium is about\n$\\dfrac{2\\pi}{\\sqrt{ac}}$.\n\n### Example 2\n\nFor $x' = x - 0.5xy$, $y' = -0.75y + 0.25xy$:\n\n- $a = 1$, $\\alpha = 0.5$, $c = 0.75$, $\\gamma = 0.25$. Coexistence equilibrium:\n  $\\left(\\dfrac{0.75}{0.25}, \\dfrac{1}{0.5}\\right) = (3, 2)$.\n- Small oscillations around it have period about $\\dfrac{2\\pi}{\\sqrt{0.75}} \\approx 7.26$.\n\n```plot\n{\"x\": [0, 9], \"y\": [0, 6], \"xLabel\": \"prey x\", \"yLabel\": \"predators y\", \"vectorField\": {\"u\": \"x - 0.5x*y\", \"v\": \"-0.75y + 0.25x*y\", \"step\": 0.75}, \"points\": [{\"at\": [3, 2], \"label\": \"(3, 2)\"}], \"caption\": \"Lotka–Volterra direction field: trajectories circle counterclockwise around the coexistence equilibrium (3, 2).\"}\n```\n\nCounterclockwise: when prey are plentiful (right), predators grow (up); then prey decline\n(left), then predators decline (down), and prey recover.\n\n## Competing species\n\nTwo species competing for the same food, each logistic on its own:\n\n$$x' = x(\\epsilon_1 - \\sigma_1x - \\alpha_1y), \\qquad y' = y(\\epsilon_2 - \\sigma_2y - \\alpha_2x).$$\n\nLinearizing at the four possible equilibria (both extinct, one extinct, coexistence) shows\ntwo typical outcomes: if competition is weak, the coexistence point is a stable node; if\nstrong, it's a saddle and one species wins, depending on the starting point.\n\n### Example 3\n\nFor $x' = x(1 - x - y)$, $y' = y(0.75 - y - 0.5x)$, the coexistence point solves\n$x + y = 1$, $0.5x + y = 0.75$: $x = 0.5$, $y = 0.5$. There\n$J = \\begin{bmatrix} -x & -x \\\\ -0.5y & -y \\end{bmatrix} = \\begin{bmatrix} -0.5 & -0.5 \\\\ -0.25 & -0.5 \\end{bmatrix}$,\n$T = -1$, $D = 0.25 - 0.125 = 0.125$, $T^2 - 4D = 0.5 > 0$: a nodal sink. The species coexist stably.\n\n## The pendulum\n\n$\\theta'' + \\sin\\theta = 0$ becomes $x' = y$, $y' = -\\sin x$. Equilibria at $x = k\\pi$, $y = 0$.\n$J = \\begin{bmatrix} 0 & 1 \\\\ -\\cos x & 0 \\end{bmatrix}$: at $x = 0$, eigenvalues $\\pm i$ (center: small swings);\nat $x = \\pi$, $D = -1 < 0$ (saddle: balanced upside down, unstable).\n\n## Common mistakes\n\n- **Missing equilibria.** Solve $F = 0$ and $G = 0$ *together*; check every factor combination.\n- **Jacobian entries in the wrong places.** Row 1 is the partials of $F$, row 2 of $G$.\n- **Evaluating $J$ at the origin** instead of at the equilibrium in question.\n- **Trusting a linearized center.** Purely imaginary eigenvalues are inconclusive for the\n  nonlinear system.\n\n## Key points\n\n- Equilibria: $F = G = 0$. Linearize with the Jacobian $J$ of partial derivatives at each one.\n- If $J$'s eigenvalues have nonzero real parts, the nonlinear system has the same type and stability.\n- Lotka–Volterra $x' = ax - \\alpha xy$, $y' = -cy + \\gamma xy$: saddle at the origin, center at\n  $(c/\\gamma, a/\\alpha)$; populations cycle.\n",
    "quiz": [
     "de-q-3501",
     "de-q-3502",
@@ -1323,7 +1407,7 @@
    "refs": [
     "de-ref-solutions"
    ],
-   "body": "## From ODEs to PDEs\n\nThe course ends where Fourier began: with **[[partial differential equations]]** for\ntemperature in a rod and vibrations of a string. The technique, **[[separation of variables]]**,\nreduces each PDE to ODEs you already know how to solve, and Fourier series stitch the pieces\ntogether to match the initial data. Everything in this course meets here: linear equations,\nsuperposition, characteristic equations, boundary value problems and Fourier series.\n\n## The heat equation\n\nA thin rod of length $L$ with insulated sides has temperature $u(x, t)$ at position $x$ and\ntime $t$. Heat flows from hot to cold at a rate proportional to the temperature gradient,\nand a short derivation (conservation of energy) gives the **[[heat equation]]**\n\n$$u_t = \\alpha^2u_{xx}, \\qquad 0 < x < L,\\ t > 0,$$\n\nwhere $\\alpha^2$ is the **[[thermal diffusivity]]** of the material. We add:\n\n- **[[Boundary conditions]]**: ends held at 0°: $u(0, t) = 0$, $u(L, t) = 0$.\n- An **[[initial condition]]**: $u(x, 0) = f(x)$, the starting temperature profile.\n\nIntuition: $u_{xx} > 0$ where the profile is concave up (a cold spot between warmer\nneighbours), and there $u_t > 0$: it warms. The equation smooths bumps out.\n\n## Separation of variables\n\nLook for solutions of the form $u(x, t) = X(x)T(t)$. Substitute:\n\n$$X(x)T'(t) = \\alpha^2X''(x)T(t) \\quad\\Longrightarrow\\quad \\frac{T'}{\\alpha^2T} = \\frac{X''}{X}.$$\n\nThe left side depends only on $t$, the right only on $x$. For them to be equal for all $x$\nand $t$, both must equal the same constant, written $-\\lambda$:\n\n$$X'' + \\lambda X = 0, \\qquad T' + \\alpha^2\\lambda T = 0.$$\n\nThe boundary conditions become $X(0) = 0$, $X(L) = 0$ (otherwise $T \\equiv 0$).\n\n### The eigenvalue problem\n\n$X'' + \\lambda X = 0$, $X(0) = X(L) = 0$ is a boundary value problem (Lesson 6). It has\nnonzero solutions only for special $\\lambda$:\n\n- $\\lambda \\le 0$: only $X = 0$ (exponentials or lines can't vanish at both ends unless zero).\n- $\\lambda > 0$: $X = c_1\\cos\\sqrt\\lambda x + c_2\\sin\\sqrt\\lambda x$. $X(0) = 0$ gives $c_1 = 0$;\n  $X(L) = c_2\\sin\\sqrt\\lambda L = 0$ needs $\\sqrt\\lambda L = n\\pi$.\n\nSo the **[[eigenvalues]]** and **[[eigenfunctions]]** are\n\n$$\\lambda_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad X_n = \\sin\\frac{n\\pi x}{L}, \\qquad n = 1, 2, 3, \\dots$$\n\nThen $T' = -\\alpha^2\\lambda_nT$ gives $T_n = e^{-\\alpha^2n^2\\pi^2t/L^2}$.\n\n### Superposition and Fourier series\n\nEach $u_n = e^{-\\alpha^2n^2\\pi^2t/L^2}\\sin\\dfrac{n\\pi x}{L}$ satisfies the PDE and boundary\nconditions; the equation is linear and homogeneous, so any sum does too:\n\n$$u(x, t) = \\sum_{n=1}^\\infty b_ne^{-\\alpha^2n^2\\pi^2t/L^2}\\sin\\frac{n\\pi x}{L}.$$\n\nAt $t = 0$ this must equal $f(x)$: $f(x) = \\sum b_n\\sin\\dfrac{n\\pi x}{L}$. That's the Fourier sine\nseries of $f$, so\n\n$$b_n = \\frac2L\\int_0^Lf(x)\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\n### Example 1\n\nA rod of length $L = 1$ with $\\alpha^2 = 0.1$ starts at $u(x, 0) = 3\\sin\\pi x - \\sin 4\\pi x$, ends at 0.\n\n- The initial data is already a sine series: $b_1 = 3$, $b_4 = -1$, others 0.\n- $u(x, t) = 3e^{-0.1\\pi^2t}\\sin\\pi x - e^{-1.6\\pi^2t}\\sin 4\\pi x$.\n- The $n = 4$ mode decays 16 times faster. Higher modes die quickly, so after a short time\n  the rod's profile is essentially one sine hump fading away.\n\n### Example 2\n\nSame rod, initial temperature $u(x, 0) = 50$ (uniform). From Lesson 37, Example 3, the sine\nseries of a constant is $\\dfrac{4\\cdot50}{\\pi}\\displaystyle\\sum_{n\\text{ odd}}\\frac1n\\sin n\\pi x$. So\n\n$$u(x, t) = \\frac{200}{\\pi}\\sum_{n\\text{ odd}}\\frac1ne^{-0.1n^2\\pi^2t}\\sin n\\pi x.$$\n\nAt the center at $t = 1$: the first term is $\\dfrac{200}{\\pi}e^{-0.1\\pi^2}\\sin\\dfrac\\pi2 \\approx 63.66 \\times 0.3727 \\approx 23.7$;\nthe $n = 3$ term is about $-\\dfrac{200}{3\\pi}e^{-0.9\\pi^2} \\approx -0.003$. So $u(0.5, 1) \\approx 23.7$.\n\n```plot\n{\"x\": [0, 1], \"y\": [0, 60], \"xLabel\": \"x\", \"yLabel\": \"u\", \"functions\": [{\"f\": \"(200/pi)*(exp(-0.1*pi^2*0.05)*sin(pi*x) + exp(-0.9*pi^2*0.05)*sin(3*pi*x)/3 + exp(-2.5*pi^2*0.05)*sin(5*pi*x)/5 + exp(-4.9*pi^2*0.05)*sin(7*pi*x)/7)\", \"label\": \"t = 0.05\"}, {\"f\": \"(200/pi)*(exp(-0.1*pi^2*0.5)*sin(pi*x) + exp(-0.9*pi^2*0.5)*sin(3*pi*x)/3)\", \"label\": \"t = 0.5\"}, {\"f\": \"(200/pi)*exp(-0.1*pi^2*2)*sin(pi*x)\", \"label\": \"t = 2\"}], \"caption\": \"Temperature profiles for Example 2: the uniform 50° rod loses heat through its ends, and the profile relaxes to a fading sine hump. Top to bottom: t = 0.05, 0.5, 2.\"}\n```\n\n## The wave equation\n\nA taut string of length $L$, fixed at both ends, with small vertical displacement $u(x, t)$\nobeys the **[[wave equation]]**\n\n$$u_{tt} = a^2u_{xx},$$\n\nwhere $a = \\sqrt{\\tau/\\rho}$ is the wave speed, with $\\tau$ the tension and $\\rho$ the string's\nlinear density (mass per unit length). Being second order in $t$,\nit needs two initial conditions: position $u(x, 0) = f(x)$ and velocity $u_t(x, 0) = g(x)$.\n\nSeparating $u = X(x)T(t)$ gives the same $X$ problem, so $X_n = \\sin\\dfrac{n\\pi x}{L}$, and now\n$T'' + a^2\\lambda_nT = 0$: an oscillator! So\n\n$$u(x, t) = \\sum_{n=1}^\\infty\\left(b_n\\cos\\frac{n\\pi at}{L} + c_n\\sin\\frac{n\\pi at}{L}\\right)\\sin\\frac{n\\pi x}{L},$$\n\nwith $b_n$ the sine coefficients of $f$, and $c_n\\dfrac{n\\pi a}{L}$ the sine coefficients of $g$.\n\n### Normal modes and music\n\nEach term is a **[[normal mode]]** (a standing wave) vibrating at frequency\n$\\omega_n = \\dfrac{n\\pi a}{L}$ rad/s, that is $\\dfrac{na}{2L}$ cycles per second. The **[[fundamental]]**\n($n = 1$) sets the pitch; the higher modes are **[[harmonics]]** at whole-number multiples, which\nis why a plucked string sounds musical. Shortening the string or tightening it (raising $a$)\nraises the pitch, just as a guitarist's fingers and tuning pegs do.\n\n### Example 3\n\nA string with $L = 2$, $a = 3$ is released from rest ($g = 0$) with $f(x) = 0.1\\sin\\dfrac{\\pi x}{2} + 0.02\\sin\\dfrac{3\\pi x}{2}$.\n\n- $b_1 = 0.1$, $b_3 = 0.02$, all $c_n = 0$.\n- $u = 0.1\\cos\\dfrac{3\\pi t}{2}\\sin\\dfrac{\\pi x}{2} + 0.02\\cos\\dfrac{9\\pi t}{2}\\sin\\dfrac{3\\pi x}{2}$.\n- Fundamental frequency $\\dfrac{a}{2L} = 0.75$ cycles per second; the third harmonic is 2.25.\n\n## Heat versus waves\n\n| | Heat $u_t = \\alpha^2u_{xx}$ | Wave $u_{tt} = a^2u_{xx}$ |\n|---|---|---|\n| time factor | $e^{-\\alpha^2(n\\pi/L)^2t}$ (decays) | $\\cos$, $\\sin$ of $\\frac{n\\pi at}{L}$ (oscillates) |\n| initial data | $u(x, 0)$ | $u(x, 0)$ and $u_t(x, 0)$ |\n| long run | $u \\to 0$ (with zero-temperature ends) | vibrates forever (no damping) |\n| high modes | die fastest; smooths | persist; corners stay sharp |\n\n## Common mistakes\n\n- **Wrong separation constant sign.** Choosing $-\\lambda$ makes $\\lambda > 0$ the useful case.\n- **Using the full Fourier series** on $0 < x < L$ with zero ends; it's a sine series.\n- **Forgetting the $n^2$** in the heat equation's exponent.\n- **One initial condition for the wave equation.** It needs both $f$ and $g$.\n\n## Key points\n\n- Separation $u = X(x)T(t)$ splits a PDE into ODEs; zero boundary values give\n  $X_n = \\sin\\frac{n\\pi x}{L}$, $\\lambda_n = (n\\pi/L)^2$.\n- Heat: $u = \\sum b_ne^{-\\alpha^2(n\\pi/L)^2t}\\sin\\frac{n\\pi x}{L}$, $b_n$ = sine coefficients of $u(x, 0)$.\n- Wave: $u = \\sum\\big(b_n\\cos\\frac{n\\pi at}{L} + c_n\\sin\\frac{n\\pi at}{L}\\big)\\sin\\frac{n\\pi x}{L}$; normal\n  modes with frequencies $\\frac{na}{2L}$.\n",
+   "body": "## From ODEs to PDEs\n\nThe course closes where Fourier began: with **[[partial differential equations]]** for\ntemperature in a rod and vibrations of a string. The technique, **[[separation of variables]]**,\nreduces each PDE to ODEs you already know how to solve, and Fourier series stitch the pieces\ntogether to match the initial data. Everything in this course meets here: linear equations,\nsuperposition, characteristic equations, boundary value problems and Fourier series.\n\n## The heat equation\n\nA thin rod of length $L$ with insulated sides has temperature $u(x, t)$ at position $x$ and\ntime $t$. Heat flows from hot to cold at a rate proportional to the temperature gradient,\nand a short derivation (conservation of energy) gives the **[[heat equation]]**\n\n$$u_t = \\alpha^2u_{xx}, \\qquad 0 < x < L,\\ t > 0,$$\n\nwhere $\\alpha^2$ is the **[[thermal diffusivity]]** of the material. We add:\n\n- **[[Boundary conditions]]**: ends held at 0°: $u(0, t) = 0$, $u(L, t) = 0$.\n- An **[[initial condition]]**: $u(x, 0) = f(x)$, the starting temperature profile.\n\nIntuition: $u_{xx} > 0$ where the profile is concave up (a cold spot between warmer\nneighbours), and there $u_t > 0$: it warms. The equation smooths bumps out.\n\n## Separation of variables\n\nLook for solutions of the form $u(x, t) = X(x)T(t)$. Substitute:\n\n$$X(x)T'(t) = \\alpha^2X''(x)T(t) \\quad\\Longrightarrow\\quad \\frac{T'}{\\alpha^2T} = \\frac{X''}{X}.$$\n\nThe left side depends only on $t$, the right only on $x$. For them to be equal for all $x$\nand $t$, both must equal the same constant, written $-\\lambda$:\n\n$$X'' + \\lambda X = 0, \\qquad T' + \\alpha^2\\lambda T = 0.$$\n\nThe boundary conditions become $X(0) = 0$, $X(L) = 0$ (otherwise $T \\equiv 0$).\n\n### The eigenvalue problem\n\n$X'' + \\lambda X = 0$, $X(0) = X(L) = 0$ is a boundary value problem (Lesson 6). It has\nnonzero solutions only for special $\\lambda$:\n\n- $\\lambda \\le 0$: only $X = 0$ (exponentials or lines can't vanish at both ends unless zero).\n- $\\lambda > 0$: $X = c_1\\cos\\sqrt\\lambda x + c_2\\sin\\sqrt\\lambda x$. $X(0) = 0$ gives $c_1 = 0$;\n  $X(L) = c_2\\sin\\sqrt\\lambda L = 0$ needs $\\sqrt\\lambda L = n\\pi$.\n\nSo the **[[eigenvalues]]** and **[[eigenfunctions]]** are\n\n$$\\lambda_n = \\left(\\frac{n\\pi}{L}\\right)^2, \\qquad X_n = \\sin\\frac{n\\pi x}{L}, \\qquad n = 1, 2, 3, \\dots$$\n\nThen $T' = -\\alpha^2\\lambda_nT$ gives $T_n = e^{-\\alpha^2n^2\\pi^2t/L^2}$.\n\n### Superposition and Fourier series\n\nEach $u_n = e^{-\\alpha^2n^2\\pi^2t/L^2}\\sin\\dfrac{n\\pi x}{L}$ satisfies the PDE and boundary\nconditions; the equation is linear and homogeneous, so any sum does too:\n\n$$u(x, t) = \\sum_{n=1}^\\infty b_ne^{-\\alpha^2n^2\\pi^2t/L^2}\\sin\\frac{n\\pi x}{L}.$$\n\nAt $t = 0$ this must equal $f(x)$: $f(x) = \\sum b_n\\sin\\dfrac{n\\pi x}{L}$. That's the Fourier sine\nseries of $f$, so\n\n$$b_n = \\frac2L\\int_0^Lf(x)\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\n### Example 1\n\nA rod of length $L = 1$ with $\\alpha^2 = 0.1$ starts at $u(x, 0) = 3\\sin\\pi x - \\sin 4\\pi x$, ends at 0.\n\n- The initial data is already a sine series: $b_1 = 3$, $b_4 = -1$, others 0.\n- $u(x, t) = 3e^{-0.1\\pi^2t}\\sin\\pi x - e^{-1.6\\pi^2t}\\sin 4\\pi x$.\n- The $n = 4$ mode decays 16 times faster. Higher modes die quickly, so after a short time\n  the rod's profile is essentially one sine hump fading away.\n\n### Example 2\n\nSame rod, initial temperature $u(x, 0) = 50$ (uniform). From Lesson 39, Example 3, the sine\nseries of a constant is $\\dfrac{4\\cdot50}{\\pi}\\displaystyle\\sum_{n\\text{ odd}}\\frac1n\\sin n\\pi x$. So\n\n$$u(x, t) = \\frac{200}{\\pi}\\sum_{n\\text{ odd}}\\frac1ne^{-0.1n^2\\pi^2t}\\sin n\\pi x.$$\n\nAt the center at $t = 1$: the first term is $\\dfrac{200}{\\pi}e^{-0.1\\pi^2}\\sin\\dfrac\\pi2 \\approx 63.66 \\times 0.3727 \\approx 23.7$;\nthe $n = 3$ term is about $-\\dfrac{200}{3\\pi}e^{-0.9\\pi^2} \\approx -0.003$. So $u(0.5, 1) \\approx 23.7$.\n\n```plot\n{\"x\": [0, 1], \"y\": [0, 60], \"xLabel\": \"x\", \"yLabel\": \"u\", \"functions\": [{\"f\": \"(200/pi)*(exp(-0.1*pi^2*0.05)*sin(pi*x) + exp(-0.9*pi^2*0.05)*sin(3*pi*x)/3 + exp(-2.5*pi^2*0.05)*sin(5*pi*x)/5 + exp(-4.9*pi^2*0.05)*sin(7*pi*x)/7)\", \"label\": \"t = 0.05\"}, {\"f\": \"(200/pi)*(exp(-0.1*pi^2*0.5)*sin(pi*x) + exp(-0.9*pi^2*0.5)*sin(3*pi*x)/3)\", \"label\": \"t = 0.5\"}, {\"f\": \"(200/pi)*exp(-0.1*pi^2*2)*sin(pi*x)\", \"label\": \"t = 2\"}], \"caption\": \"Temperature profiles for Example 2: the uniform 50° rod loses heat through its ends, and the profile relaxes to a fading sine hump. Top to bottom: t = 0.05, 0.5, 2.\"}\n```\n\n## The wave equation\n\nA taut string of length $L$, fixed at both ends, with small vertical displacement $u(x, t)$\nobeys the **[[wave equation]]**\n\n$$u_{tt} = a^2u_{xx},$$\n\nwhere $a = \\sqrt{\\tau/\\rho}$ is the wave speed, with $\\tau$ the tension and $\\rho$ the string's\nlinear density (mass per unit length). Being second order in $t$,\nit needs two initial conditions: position $u(x, 0) = f(x)$ and velocity $u_t(x, 0) = g(x)$.\n\nSeparating $u = X(x)T(t)$ gives the same $X$ problem, so $X_n = \\sin\\dfrac{n\\pi x}{L}$, and now\n$T'' + a^2\\lambda_nT = 0$: an oscillator! So\n\n$$u(x, t) = \\sum_{n=1}^\\infty\\left(b_n\\cos\\frac{n\\pi at}{L} + c_n\\sin\\frac{n\\pi at}{L}\\right)\\sin\\frac{n\\pi x}{L},$$\n\nwith $b_n$ the sine coefficients of $f$, and $c_n\\dfrac{n\\pi a}{L}$ the sine coefficients of $g$.\n\n### Normal modes and music\n\nEach term is a **[[normal mode]]** (a standing wave) vibrating at frequency\n$\\omega_n = \\dfrac{n\\pi a}{L}$ rad/s, that is $\\dfrac{na}{2L}$ cycles per second. The **[[fundamental]]**\n($n = 1$) sets the pitch; the higher modes are **[[harmonics]]** at whole-number multiples, which\nis why a plucked string sounds musical. Shortening the string or tightening it (raising $a$)\nraises the pitch, just as a guitarist's fingers and tuning pegs do.\n\n### Example 3\n\nA string with $L = 2$, $a = 3$ is released from rest ($g = 0$) with $f(x) = 0.1\\sin\\dfrac{\\pi x}{2} + 0.02\\sin\\dfrac{3\\pi x}{2}$.\n\n- $b_1 = 0.1$, $b_3 = 0.02$, all $c_n = 0$.\n- $u = 0.1\\cos\\dfrac{3\\pi t}{2}\\sin\\dfrac{\\pi x}{2} + 0.02\\cos\\dfrac{9\\pi t}{2}\\sin\\dfrac{3\\pi x}{2}$.\n- Fundamental frequency $\\dfrac{a}{2L} = 0.75$ cycles per second; the third harmonic is 2.25.\n\n## Heat versus waves\n\n| | Heat $u_t = \\alpha^2u_{xx}$ | Wave $u_{tt} = a^2u_{xx}$ |\n|---|---|---|\n| time factor | $e^{-\\alpha^2(n\\pi/L)^2t}$ (decays) | $\\cos$, $\\sin$ of $\\frac{n\\pi at}{L}$ (oscillates) |\n| initial data | $u(x, 0)$ | $u(x, 0)$ and $u_t(x, 0)$ |\n| long run | $u \\to 0$ (with zero-temperature ends; Lesson 41 changes the ends) | vibrates forever (no damping) |\n| high modes | die fastest; smooths | persist; corners stay sharp |\n\n## Common mistakes\n\n- **Wrong separation constant sign.** Choosing $-\\lambda$ makes $\\lambda > 0$ the useful case.\n- **Using the full Fourier series** on $0 < x < L$ with zero ends; it's a sine series.\n- **Forgetting the $n^2$** in the heat equation's exponent.\n- **One initial condition for the wave equation.** It needs both $f$ and $g$.\n\n## Key points\n\n- Separation $u = X(x)T(t)$ splits a PDE into ODEs; zero boundary values give\n  $X_n = \\sin\\frac{n\\pi x}{L}$, $\\lambda_n = (n\\pi/L)^2$.\n- Heat: $u = \\sum b_ne^{-\\alpha^2(n\\pi/L)^2t}\\sin\\frac{n\\pi x}{L}$, $b_n$ = sine coefficients of $u(x, 0)$.\n- Wave: $u = \\sum\\big(b_n\\cos\\frac{n\\pi at}{L} + c_n\\sin\\frac{n\\pi at}{L}\\big)\\sin\\frac{n\\pi x}{L}$; normal\n  modes with frequencies $\\frac{na}{2L}$.\n- Other ends (insulated, or held at nonzero temperatures) change the eigenfunctions; that is\n  the next lesson.\n",
    "quiz": [
     "de-q-3801",
     "de-q-3802",
@@ -1336,6 +1420,37 @@
     "de-q-3809",
     "de-q-3810",
     "de-q-3811"
+   ]
+  },
+  {
+   "id": "de-heat-boundary",
+   "module": "de-m9",
+   "title": "Heat flow with insulated ends and nonzero end temperatures",
+   "minutes": 35,
+   "topics": [
+    "Heat boundary conditions"
+   ],
+   "drills": [
+    "de-heat-insulated",
+    "de-heat-steady"
+   ],
+   "refs": [
+    "de-ref-solutions"
+   ],
+   "body": "## Changing what happens at the ends\n\nThe last lesson held both ends of the rod at 0°, so every bit of heat eventually leaked out\nand the temperature fell to zero. Real rods are treated differently: the ends may be\nwrapped so that no heat crosses them, or clamped to blocks kept at two different\ntemperatures. The heat equation $u_t = \\alpha^2u_{xx}$ is unchanged; what changes are the\nboundary conditions, and with them the eigenfunctions and the long-run behaviour. This\nlesson handles both cases with the tools you already have: separation of variables,\nFourier series, and one new idea, subtracting off a steady state.\n\n## Two kinds of boundary condition\n\nHeat flows from hot to cold at a rate proportional to the temperature gradient (Fourier's\nlaw): the heat flux across a point is $-\\kappa u_x$, where $\\kappa > 0$ is the conductivity.\n\n- Prescribing the temperature at an end, like $u(0, t) = 0$, is a **Dirichlet boundary\n  condition**.\n- Prescribing the flux instead is a **[[Neumann boundary condition]]**. An **[[insulated end]]**\n  lets no heat through, so the flux is zero there: $u_x(0, t) = 0$.\n\nA rod insulated at both ends (and along its sides) is a closed box for heat: none enters\nor leaves, so it should keep its total heat and just even out.\n\n## Insulated ends: a cosine series\n\nSolve $u_t = \\alpha^2u_{xx}$ with $u_x(0, t) = u_x(L, t) = 0$ and $u(x, 0) = f(x)$. Separating\n$u = X(x)T(t)$ gives the same two ODEs as before,\n\n$$X'' + \\lambda X = 0, \\qquad T' + \\alpha^2\\lambda T = 0,$$\n\nbut now with $X'(0) = 0$ and $X'(L) = 0$. Check each sign of $\\lambda$:\n\n- $\\lambda < 0$: $X = c_1e^{kx} + c_2e^{-kx}$ ($k = \\sqrt{-\\lambda}$). $X'(0) = 0$ forces $c_1 = c_2$,\n  and then $X'(L) = c_1k(e^{kL} - e^{-kL}) = 0$ forces $c_1 = 0$. Nothing.\n- $\\lambda = 0$: $X = c_1 + c_2x$, and $X' = c_2 = 0$. So *constants survive*: $\\lambda_0 = 0$,\n  $X_0 = 1$. This is new; with zero ends, $\\lambda = 0$ gave nothing.\n- $\\lambda > 0$: $X = c_1\\cos\\sqrt\\lambda x + c_2\\sin\\sqrt\\lambda x$. $X'(0) = \\sqrt\\lambda c_2 = 0$ gives\n  $c_2 = 0$; then $X'(L) = -c_1\\sqrt\\lambda\\sin\\sqrt\\lambda L = 0$ needs $\\sqrt\\lambda L = n\\pi$.\n\nSo the eigenvalues are $\\lambda_n = (n\\pi/L)^2$ for $n = 0, 1, 2, \\dots$, with eigenfunctions\n$\\cos\\dfrac{n\\pi x}{L}$ (the $n = 0$ one is the constant 1). Superposing,\n\n$$u(x, t) = \\frac{a_0}{2} + \\sum_{n=1}^\\infty a_ne^{-\\alpha^2(n\\pi/L)^2t}\\cos\\frac{n\\pi x}{L},$$\n\nand $t = 0$ asks for the **[[Fourier cosine series]]** of $f$ on $(0, L)$:\n\n$$a_n = \\frac2L\\int_0^Lf(x)\\cos\\frac{n\\pi x}{L}\\,dx \\qquad (n = 0, 1, 2, \\dots).$$\n\nAs $t \\to \\infty$ every term but the constant dies, so\n\n$$u(x, t) \\to \\frac{a_0}{2} = \\frac1L\\int_0^Lf(x)\\,dx,$$\n\nthe *average* of the initial temperature. Heat is conserved and spreads out evenly, as the\nphysics promised.\n\n### Example 1\n\nAn insulated rod with $L = 1$, $\\alpha^2 = 0.1$ starts at $u(x, 0) = 100x$ (cold at the left end,\nhot at the right).\n\n- Long-run temperature: $\\dfrac{a_0}{2} = \\displaystyle\\int_0^1100x\\,dx = 50$.\n- For $n \\ge 1$, integrate by parts: $a_n = 2\\displaystyle\\int_0^1100x\\cos n\\pi x\\,dx = \\dfrac{200\\big((-1)^n - 1\\big)}{n^2\\pi^2}$,\n  which is $-\\dfrac{400}{n^2\\pi^2}$ for odd $n$ and 0 for even $n$.\n- So $u(x, t) = 50 - \\dfrac{400}{\\pi^2}\\displaystyle\\sum_{n\\text{ odd}}\\frac{1}{n^2}e^{-0.1n^2\\pi^2t}\\cos n\\pi x$.\n- At the cold end at $t = 1$: the $n = 1$ term is $\\dfrac{400}{\\pi^2}e^{-0.1\\pi^2} \\approx 40.53 \\times 0.3727 \\approx 15.11$,\n  and the $n = 3$ term is below 0.001. So $u(0, 1) \\approx 50 - 15.11 = 34.89$.\n\n```plot\n{\"x\": [0, 1], \"y\": [0, 100], \"xLabel\": \"x\", \"yLabel\": \"u\", \"functions\": [{\"f\": \"100*x\", \"dashed\": true, \"label\": \"t = 0\"}, {\"f\": \"50 - (400/pi^2)*(exp(-0.1*pi^2*0.02)*cos(1*pi*x)/1 + exp(-0.9*pi^2*0.02)*cos(3*pi*x)/9 + exp(-2.5*pi^2*0.02)*cos(5*pi*x)/25 + exp(-4.9*pi^2*0.02)*cos(7*pi*x)/49 + exp(-8.1*pi^2*0.02)*cos(9*pi*x)/81 + exp(-12.1*pi^2*0.02)*cos(11*pi*x)/121)\"}, {\"f\": \"50 - (400/pi^2)*(exp(-0.1*pi^2*0.3)*cos(1*pi*x)/1 + exp(-0.9*pi^2*0.3)*cos(3*pi*x)/9 + exp(-2.5*pi^2*0.3)*cos(5*pi*x)/25)\"}, {\"f\": \"50 - (400/pi^2)*(exp(-0.1*pi^2*2)*cos(1*pi*x)/1)\"}, {\"f\": \"50\", \"dashed\": true}], \"caption\": \"Example 1: the insulated rod starting at u = 100x (dashed line). Profiles at t = 0.02, 0.3 and 2 flatten toward the average, 50, and always meet the ends with zero slope.\"}\n```\n\nNotice the profiles meet the ends with zero slope, exactly what $u_x = 0$ says.\n\n### Example 2\n\nA rod with $L = 2$, $\\alpha^2 = 0.5$ and insulated ends starts at\n$u(x, 0) = 40 + 12\\cos\\pi x - 5\\cos\\dfrac{3\\pi x}{2}$. Find $u(0, 0.2)$.\n\n- With $L = 2$, $\\cos\\pi x = \\cos\\dfrac{2\\pi x}{2}$ is the $n = 2$ mode and $\\cos\\dfrac{3\\pi x}{2}$ is $n = 3$.\n  The data is already a cosine series: $\\frac{a_0}{2} = 40$, $a_2 = 12$, $a_3 = -5$.\n- Decay rates $\\alpha^2(n\\pi/L)^2$: $0.5\\pi^2$ for $n = 2$ and $0.5(1.5\\pi)^2 = 1.125\\pi^2$ for $n = 3$.\n- $u(0, 0.2) = 40 + 12e^{-0.1\\pi^2} - 5e^{-0.225\\pi^2} \\approx 40 + 4.47 - 0.54 = 43.93$.\n- Long run: $40$.\n\n### Mixed ends\n\nIf one end is held at 0 and the other insulated, say $u(0, t) = 0$ and $u_x(L, t) = 0$, the same\nsteps give $X_n = \\sin\\dfrac{(2n - 1)\\pi x}{2L}$, $n = 1, 2, \\dots$: quarter-waves that vanish at\n$x = 0$ and are flat at $x = L$.\n\n| Ends | Eigenfunctions | Long run |\n|---|---|---|\n| $u = 0$ at both | $\\sin\\frac{n\\pi x}{L}$, $n \\ge 1$ | $u \\to 0$ |\n| insulated at both | $1$ and $\\cos\\frac{n\\pi x}{L}$, $n \\ge 1$ | $u \\to$ average of $f$ |\n| $u(0) = 0$, insulated at $L$ | $\\sin\\frac{(2n - 1)\\pi x}{2L}$, $n \\ge 1$ | $u \\to 0$ |\n\n## Ends held at nonzero temperatures\n\nNow let $u(0, t) = T_1$ and $u(L, t) = T_2$. Separation fails directly: a sum of products\n$X(x)T(t)$ can't equal a nonzero constant at an end for all $t$, because each $T(t)$ decays.\nThe fix is to find where the rod is heading first.\n\n**Step 1: the equilibrium temperature.** A time-independent solution $v(x)$ has $u_t = 0$, so\n$v'' = 0$: a straight line. Matching the ends,\n\n$$v(x) = T_1 + (T_2 - T_1)\\frac{x}{L}.$$\n\n**Step 2: subtract it.** Let $w = u - v$. Since $v_t = 0$ and $v_{xx} = 0$, $w$ satisfies the same heat\nequation, and its end values are $T_1 - T_1 = 0$ and $T_2 - T_2 = 0$: zero ends, solved in the last\nlesson with a sine series. Its initial data is $w(x, 0) = f(x) - v(x)$.\n\n**Step 3: add back.**\n\n$$u(x, t) = v(x) + \\sum_{n=1}^\\infty b_ne^{-\\alpha^2(n\\pi/L)^2t}\\sin\\frac{n\\pi x}{L}, \\qquad b_n = \\frac2L\\int_0^L\\big(f(x) - v(x)\\big)\\sin\\frac{n\\pi x}{L}\\,dx.$$\n\nAs $t \\to \\infty$, $u \\to v$: the rod settles to a straight-line profile between the two end\ntemperatures, whatever it started as.\n\n### Example 3\n\nA rod with $L = 1$, $\\alpha^2 = 0.1$ is at 20° throughout. At $t = 0$ the left end is kept at 20°\nand the right end is suddenly raised to 50°. Find $u(x, t)$ and $u(0.5, 1)$.\n\n- Equilibrium: $v(x) = 20 + 30x$.\n- $w(x, 0) = 20 - (20 + 30x) = -30x$. Its sine coefficients (integration by parts, as in\n  Lesson 39, Example 4) are $b_n = 2\\displaystyle\\int_0^1(-30x)\\sin n\\pi x\\,dx = \\dfrac{60(-1)^n}{n\\pi}$.\n- $u(x, t) = 20 + 30x + \\dfrac{60}{\\pi}\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^n}{n}e^{-0.1n^2\\pi^2t}\\sin n\\pi x$.\n- At $x = 0.5$, even $n$ terms vanish ($\\sin n\\pi/2 = 0$). The $n = 1$ term is\n  $-\\dfrac{60}{\\pi}e^{-0.1\\pi^2} \\approx -19.10 \\times 0.3727 \\approx -7.12$; the $n = 3$ term is under 0.001.\n  So $u(0.5, 1) \\approx 35 - 7.12 = 27.88$, still well below its final value $v(0.5) = 35$.\n\n```plot\n{\"x\": [0, 1], \"y\": [0, 55], \"xLabel\": \"x\", \"yLabel\": \"u\", \"functions\": [{\"f\": \"20 + 30*x - (60/pi)*exp(-0.1*pi^2*0.01)*sin(1*pi*x)/1 + (60/pi)*exp(-0.4*pi^2*0.01)*sin(2*pi*x)/2 - (60/pi)*exp(-0.9*pi^2*0.01)*sin(3*pi*x)/3 + (60/pi)*exp(-1.6*pi^2*0.01)*sin(4*pi*x)/4 - (60/pi)*exp(-2.5*pi^2*0.01)*sin(5*pi*x)/5 + (60/pi)*exp(-3.6*pi^2*0.01)*sin(6*pi*x)/6 - (60/pi)*exp(-4.9*pi^2*0.01)*sin(7*pi*x)/7 + (60/pi)*exp(-6.4*pi^2*0.01)*sin(8*pi*x)/8 - (60/pi)*exp(-8.1*pi^2*0.01)*sin(9*pi*x)/9 + (60/pi)*exp(-10*pi^2*0.01)*sin(10*pi*x)/10 - (60/pi)*exp(-12.1*pi^2*0.01)*sin(11*pi*x)/11 + (60/pi)*exp(-14.4*pi^2*0.01)*sin(12*pi*x)/12 - (60/pi)*exp(-16.9*pi^2*0.01)*sin(13*pi*x)/13 + (60/pi)*exp(-19.6*pi^2*0.01)*sin(14*pi*x)/14 - (60/pi)*exp(-22.5*pi^2*0.01)*sin(15*pi*x)/15 + (60/pi)*exp(-25.6*pi^2*0.01)*sin(16*pi*x)/16 - (60/pi)*exp(-28.9*pi^2*0.01)*sin(17*pi*x)/17 + (60/pi)*exp(-32.4*pi^2*0.01)*sin(18*pi*x)/18 - (60/pi)*exp(-36.1*pi^2*0.01)*sin(19*pi*x)/19 + (60/pi)*exp(-40*pi^2*0.01)*sin(20*pi*x)/20\"}, {\"f\": \"20 + 30*x - (60/pi)*exp(-0.1*pi^2*0.2)*sin(1*pi*x)/1 + (60/pi)*exp(-0.4*pi^2*0.2)*sin(2*pi*x)/2 - (60/pi)*exp(-0.9*pi^2*0.2)*sin(3*pi*x)/3 + (60/pi)*exp(-1.6*pi^2*0.2)*sin(4*pi*x)/4 - (60/pi)*exp(-2.5*pi^2*0.2)*sin(5*pi*x)/5 + (60/pi)*exp(-3.6*pi^2*0.2)*sin(6*pi*x)/6\"}, {\"f\": \"20 + 30*x - (60/pi)*exp(-0.1*pi^2*1)*sin(1*pi*x)/1 + (60/pi)*exp(-0.4*pi^2*1)*sin(2*pi*x)/2 - (60/pi)*exp(-0.9*pi^2*1)*sin(3*pi*x)/3\"}, {\"f\": \"20 + 30*x\", \"dashed\": true, \"label\": \"v(x)\"}], \"caption\": \"Example 3: profiles at t = 0.01, 0.2 and 1 (lowest to highest in the middle) rise from 20° toward the equilibrium line v(x) = 20 + 30x (dashed).\"}\n```\n\n## Common mistakes\n\n- **Dropping the $n = 0$ term** with insulated ends. The constant mode is the long-run\n  temperature; without it the rod would wrongly cool to 0.\n- **Using a sine series for insulated ends.** Zero slope at the ends calls for cosines.\n- **Separating directly with nonzero end temperatures.** First subtract the equilibrium\n  $v(x)$ so the ends become zero.\n- **Expanding $f$ instead of $f - v$.** The sine series is for $w(x, 0) = f(x) - v(x)$.\n- **Confusing $u_x = 0$ with $u = 0$.** Insulated means no heat flow, not zero temperature.\n\n## Key points\n\n- Dirichlet: $u$ given at an end. Neumann: $u_x$ given; insulated means $u_x = 0$.\n- Insulated ends: $u = \\frac{a_0}{2} + \\sum a_ne^{-\\alpha^2(n\\pi/L)^2t}\\cos\\frac{n\\pi x}{L}$, $a_n$ from the cosine series of $f$; $u \\to$ the average of $f$.\n- Ends at $T_1$, $T_2$: $u = v + w$ with $v = T_1 + (T_2 - T_1)x/L$ and $w$ the zero-end solution starting from $f - v$; $u \\to v$.\n- Each boundary condition picks its own eigenfunctions; the time factors $e^{-\\alpha^2\\lambda_nt}$ always decay.\n",
+   "quiz": [
+    "de-q-hb01",
+    "de-q-hb02",
+    "de-q-hb03",
+    "de-q-hb04",
+    "de-q-hb05",
+    "de-q-hb06",
+    "de-q-hb07",
+    "de-q-hb08",
+    "de-q-hb09",
+    "de-q-hb10",
+    "de-q-hb11",
+    "de-q-hb12"
    ]
   }
  ],
@@ -5868,6 +5983,262 @@
      "explanation": "Only the steady-state particular solution survives, and it oscillates like the forcing $\\cos\\omega t$."
     },
     {
+     "id": "de-q-2512",
+     "section": "de-m6",
+     "topic": "Forced vibrations",
+     "stem": "For $u'' + 2u' + 10u = F_0\\cos\\omega t$, at what forcing frequency is the steady-state amplitude largest?",
+     "choices": [
+      "$\\omega = \\sqrt{10} \\approx 3.16$",
+      "$\\omega = 2\\sqrt2 \\approx 2.83$",
+      "$\\omega = \\sqrt6 \\approx 2.45$",
+      "$\\omega = 3$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$\\omega_{\\max}^2 = \\omega_0^2 - \\dfrac{\\gamma^2}{2m^2} = 10 - \\dfrac42 = 8$, so $\\omega_{\\max} = 2\\sqrt2$. $\\sqrt{10}$ is the natural frequency $\\omega_0$, where the peak would sit without damping; $\\sqrt6$ subtracts $\\gamma^2/m^2$ (missing the factor 2); 3 is the quasi-frequency $\\sqrt{\\omega_0^2 - \\gamma^2/(4m^2)}$ of the free damped motion, not the peak of the forced response."
+    },
+    {
+     "id": "de-q-2513",
+     "section": "de-m6",
+     "topic": "Forced vibrations",
+     "stem": "A forced oscillator has $m = 2$ and $k = 9$. Which damping constant gives an amplitude curve with no practical-resonance peak at all?",
+     "choices": [
+      "$\\gamma = 5$",
+      "$\\gamma = 3$",
+      "$\\gamma = 1$",
+      "$\\gamma = 7$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A peak exists only when $\\gamma^2 < 2mk = 36$, that is $\\gamma < 6$. With $\\gamma = 7$ the amplitude just decreases as $\\omega$ grows, even though the system is still underdamped ($\\gamma < 2\\sqrt{km} \\approx 8.49$). The values 5, 3 and 1 all satisfy $\\gamma^2 < 36$ and do have a peak; picking one of them confuses the no-peak threshold with the onset of heavy damping in general."
+    },
+    {
+     "id": "de-q-2514",
+     "section": "de-m6",
+     "topic": "Forced vibrations",
+     "stem": "As the damping $\\gamma$ increases (with $\\gamma^2 < 2mk$ throughout), the practical-resonance peak",
+     "choices": [
+      "moves to lower frequencies and gets lower",
+      "stays at $\\omega_0$ and gets lower",
+      "moves to higher frequencies and gets lower",
+      "moves to lower frequencies and gets taller"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$\\omega_{\\max}^2 = \\omega_0^2 - \\gamma^2/(2m^2)$ shrinks as $\\gamma$ grows, and the peak height $F_0/\\big(\\gamma\\sqrt{\\omega_0^2 - \\gamma^2/(4m^2)}\\big)$ falls. The peak sits exactly at $\\omega_0$ only in the undamped limit; it never moves above $\\omega_0$; more damping always lowers the amplitude rather than raising it."
+    },
+    {
+     "id": "de-q-2515",
+     "section": "de-m6",
+     "topic": "Forced vibrations",
+     "stem": "For $u'' + 2u' + 10u = 20\\cos\\omega t$, what is the largest possible steady-state amplitude (over all $\\omega$)?",
+     "choices": [
+      "$\\sqrt{10} \\approx 3.16$",
+      "2",
+      "$\\tfrac{10}{3}$",
+      "$\\tfrac{5}{\\sqrt2} \\approx 3.54$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "At $\\omega_{\\max}^2 = 10 - 2 = 8$: $k - m\\omega^2 = 2$ and $\\gamma^2\\omega^2 = 32$, so $R = \\dfrac{20}{\\sqrt{4 + 32}} = \\dfrac{20}{6} = \\dfrac{10}{3}$. $\\sqrt{10} = F_0/(\\gamma\\omega_0)$ is the amplitude at $\\omega_0$, just below the true peak; 2 is the static response $F_0/k$ at $\\omega = 0$; $\\tfrac{5}{\\sqrt2} = F_0/(\\gamma\\omega_{\\max})$ drops the $(k - m\\omega^2)^2$ term."
+    },
+    {
+     "id": "de-q-cg01",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "For $p(D)x = x'' + 3x' + 2x$, what is $p(D)e^{2t}$?",
+     "choices": [
+      "$9e^{2t}$",
+      "$12e^{2t}$",
+      "$6e^{2t}$",
+      "$4e^{2t}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$p(D)e^{rt} = p(r)e^{rt}$ with $p(r) = r^2 + 3r + 2$, and $p(2) = 4 + 6 + 2 = 12$. Writing 3 instead of $3r$ for the $x'$ term gives 9; dropping the $x'$ term gives 6; keeping only $r^2$ gives 4."
+    },
+    {
+     "id": "de-q-cg02",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "Use complex replacement to find the steady-state solution of $x'' + 4x' + 3x = 10\\cos t$.",
+     "choices": [
+      "$\\cos t - 2\\sin t$",
+      "$\\cos t$",
+      "$2\\cos t + \\sin t$",
+      "$\\cos t + 2\\sin t$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$p(i) = -1 + 4i + 3 = 2 + 4i$, so $z_p = \\dfrac{10}{2 + 4i}e^{it} = \\dfrac{10(2 - 4i)}{20}e^{it} = (1 - 2i)(\\cos t + i\\sin t)$, whose real part is $\\cos t + 2\\sin t$. Writing $2 + 4i$ instead of its conjugate $2 - 4i$ in the numerator gives $1 + 2i$ and the minus sign; taking the real part of $\\tfrac{10}{2 + 4i}$ before multiplying by $e^{it}$ gives $\\cos t$ alone; $2\\cos t + \\sin t$ swaps the coefficients."
+    },
+    {
+     "id": "de-q-cg03",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "For $x'' + x' + 4x = F_0\\cos\\omega t$, find the gain $g$ and phase lag $\\phi$ at $\\omega = 2$.",
+     "choices": [
+      "$g = \\tfrac12$, $\\phi = \\tfrac\\pi2$",
+      "$g = \\tfrac12$, $\\phi = -\\tfrac\\pi2$",
+      "$g = 2$, $\\phi = \\tfrac\\pi2$",
+      "$g = \\tfrac{1}{10}$, $\\phi = 0$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$p(2i) = -4 + 2i + 4 = 2i$, so $|p(2i)| = 2$ and $\\arg p(2i) = \\tfrac\\pi2$. The gain is $1/|p(2i)| = \\tfrac12$ and the lag is $\\tfrac\\pi2$ (here $\\omega = \\omega_0$). A lag of $-\\tfrac\\pi2$ is the angle of the complex gain $1/p$, not of $p$; $g = 2$ is $|p|$ instead of $1/|p|$; $\\tfrac1{10}$ comes from evaluating $p(2)$ instead of $p(2i)$."
+    },
+    {
+     "id": "de-q-cg04",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "For $x'' + x' + x = \\cos 2t$, what is the phase lag $\\phi$ of the steady-state response (in radians)?",
+     "choices": [
+      "$-\\arctan\\tfrac23 \\approx -0.59$",
+      "$\\arctan\\tfrac23 \\approx 0.59$",
+      "$\\pi - \\arctan\\tfrac23 \\approx 2.55$",
+      "$\\tfrac\\pi2 \\approx 1.57$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$p(2i) = -4 + 2i + 1 = -3 + 2i$ lies in the second quadrant, so $\\phi = \\pi - \\arctan\\tfrac23 \\approx 2.55$: forcing above $\\omega_0 = 1$ gives a lag beyond $\\tfrac\\pi2$. A calculator's $\\arctan(2/(-3))$ gives $-0.59$ (wrong quadrant); $0.59$ ignores the negative real part; $\\tfrac\\pi2$ is the lag only at $\\omega = \\omega_0$."
+    },
+    {
+     "id": "de-q-cg05",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "Why is $\\operatorname{Re}z$ a solution of $p(D)x = F_0\\cos\\omega t$ when $z$ solves $p(D)z = F_0e^{i\\omega t}$?",
+     "choices": [
+      "$p(i\\omega)$ is always a real number",
+      "The imaginary part of $z$ is always zero",
+      "$e^{i\\omega t}$ is real for every $t$",
+      "$p$ has real coefficients, so $p(D)(\\operatorname{Re}z) = \\operatorname{Re}\\big(p(D)z\\big)$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Differentiation and multiplication by real constants act separately on real and imaginary parts, so $p(D)(\\operatorname{Re}z) = \\operatorname{Re}(F_0e^{i\\omega t}) = F_0\\cos\\omega t$. $p(i\\omega)$ is generally complex (that is where the phase comes from), $z$ usually has a nonzero imaginary part, and $e^{i\\omega t}$ is not real except at special times."
+    },
+    {
+     "id": "de-q-cg06",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "Find the steady-state solution of $x' + x = \\sin t$.",
+     "choices": [
+      "$\\tfrac12(\\sin t + \\cos t)$",
+      "$\\tfrac12(\\sin t - \\cos t)$",
+      "$\\tfrac12(\\cos t - \\sin t)$",
+      "$\\tfrac12\\sin t$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$\\sin t = \\operatorname{Im}e^{it}$ and $p(i) = 1 + i$, so $z_p = \\dfrac{1 - i}{2}(\\cos t + i\\sin t)$, whose imaginary part is $\\tfrac12(\\sin t - \\cos t)$. The real part, $\\tfrac12(\\sin t + \\cos t)$, answers a cosine input; $\\tfrac12(\\cos t - \\sin t)$ has the sign flipped; $\\tfrac12\\sin t$ ignores the phase lag."
+    },
+    {
+     "id": "de-q-cg07",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "Write the steady-state solution of $x'' + 4x' + 4x = 15\\cos t$ as $R\\cos(t - \\phi)$.",
+     "choices": [
+      "$3\\cos(t + 0.927)$",
+      "$5\\cos t$",
+      "$3\\cos(t - 0.927)$",
+      "$3\\cos(t - 0.644)$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$p(i) = -1 + 4i + 4 = 3 + 4i$, with modulus 5 and angle $\\arctan\\tfrac43 \\approx 0.927$. So $R = 15/5 = 3$ and the response lags by 0.927. $\\cos(t + 0.927)$ is a lead, not a lag; $5\\cos t$ ignores the damping term ($15/3$); $0.644 = \\arctan\\tfrac34$ inverts the ratio."
+    },
+    {
+     "id": "de-q-cg08",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "To find a particular solution of $p(D)y = e^{-2t}\\sin 3t$ by complex replacement, you solve $p(D)z = e^{rt}$ and then take",
+     "choices": [
+      "$r = -2 + 3i$, the imaginary part",
+      "$r = -2 + 3i$, the real part",
+      "$r = 3 - 2i$, the imaginary part",
+      "$r = 3i$, the imaginary part, then multiply by $e^{-2t}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$e^{(-2 + 3i)t} = e^{-2t}(\\cos 3t + i\\sin 3t)$, whose imaginary part is the input, so $z_p = e^{(-2 + 3i)t}/p(-2 + 3i)$ and $y_p = \\operatorname{Im}z_p$. The real part answers $e^{-2t}\\cos 3t$; $3 - 2i$ swaps the roles of growth rate and frequency; multiplying a $3i$ response by $e^{-2t}$ afterward does not solve the equation, because $p$ must be evaluated at $-2 + 3i$."
+    },
+    {
+     "id": "de-q-cg09",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "For $x'' + 9x = 4\\cos 3t$, $p(3i) = 0$. Using $z_p = \\dfrac{F_0te^{i\\omega t}}{p'(i\\omega)}$, what is $x_p$?",
+     "choices": [
+      "$\\tfrac23t\\sin 3t$",
+      "$\\tfrac23t\\cos 3t$",
+      "$-\\tfrac23t\\sin 3t$",
+      "$\\tfrac49\\cos 3t$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$p'(r) = 2r$, so $p'(3i) = 6i$ and $z_p = \\dfrac{4t}{6i}e^{3it} = -\\tfrac23it(\\cos 3t + i\\sin 3t)$. The real part is $\\tfrac23t\\sin 3t$. Treating $\\frac1i$ as $i$ gives the minus sign; $\\tfrac23t\\cos 3t$ forgets that dividing by $i$ turns cosine into sine; $\\tfrac49\\cos 3t$ divides by $k = 9$ as if there were no resonance."
+    },
+    {
+     "id": "de-q-cg10",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "What is the complex gain $1/p(i\\omega)$ of $x' + 3x = F_0\\cos 4t$?",
+     "choices": [
+      "$\\dfrac{3 + 4i}{25}$",
+      "$\\dfrac17$",
+      "$\\dfrac{3 - 4i}{25}$",
+      "$\\dfrac{3 - 4i}{5}$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$p(4i) = 3 + 4i$, and $\\dfrac{1}{3 + 4i} = \\dfrac{3 - 4i}{(3 + 4i)(3 - 4i)} = \\dfrac{3 - 4i}{25}$. Keeping $3 + 4i$ on top forgets the conjugate; $\\tfrac17$ evaluates $p(4)$; dividing by 5 instead of 25 uses $|p|$ rather than $|p|^2$."
+    },
+    {
+     "id": "de-q-cg11",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "Very slow forcing ($\\omega$ near 0) of $mx'' + \\gamma x' + kx = F_0\\cos\\omega t$ gives a steady state close to",
+     "choices": [
+      "$\\dfrac{F_0}{\\gamma\\omega}\\sin\\omega t$, a quarter cycle behind",
+      "$\\dfrac{F_0}{k}\\cos\\omega t$, nearly in phase with the force",
+      "almost no motion, half a cycle behind",
+      "$\\dfrac{F_0}{m}\\cos\\omega t$, nearly in phase"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "As $\\omega \\to 0$, $p(i\\omega) = (k - m\\omega^2) + i\\gamma\\omega \\to k$, so the gain approaches $1/k$ and the lag approaches 0: the spring just follows the slowly changing force. The quarter-cycle lag happens at $\\omega_0$; almost no motion half a cycle behind is the fast-forcing limit; $F_0/m$ uses the wrong coefficient of $p$."
+    },
+    {
+     "id": "de-q-cg12",
+     "section": "de-m6",
+     "topic": "Complex gain",
+     "stem": "For $x' + 2x = \\cos(2\\sqrt3\\,t)$, by how much time does the response lag behind the input?",
+     "choices": [
+      "$\\dfrac\\pi3 \\approx 1.047$",
+      "$\\dfrac{\\pi}{12\\sqrt3} \\approx 0.151$",
+      "$\\dfrac{2\\pi}{\\sqrt3} \\approx 3.628$",
+      "$\\dfrac{\\pi}{6\\sqrt3} \\approx 0.302$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$p(2\\sqrt3\\,i) = 2 + 2\\sqrt3\\,i$ has angle $\\arctan\\sqrt3 = \\tfrac\\pi3$, so the time lag is $\\phi/\\omega = \\dfrac{\\pi/3}{2\\sqrt3} = \\dfrac{\\pi}{6\\sqrt3}$. $\\tfrac\\pi3$ is the phase lag in radians, not time; $0.151$ uses $\\arctan\\tfrac{1}{\\sqrt3} = \\tfrac\\pi6$ (ratio inverted); $3.628$ multiplies by $\\omega$ instead of dividing."
+    },
+    {
      "id": "de-q-2601",
      "section": "de-m6",
      "topic": "Higher-order equations",
@@ -7452,6 +7823,198 @@
      "explanation": "Solutions involve $\\cos\\beta t$ and $\\sin\\beta t$, which repeat every $2\\pi/\\beta$."
     },
     {
+     "id": "de-q-ns01",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "Find the constant particular solution of $\\mathbf{x}' = \\begin{bmatrix} 2 & 1 \\\\ 1 & 1 \\end{bmatrix}\\mathbf{x} + \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}$.",
+     "choices": [
+      "$\\begin{bmatrix} 1 \\\\ -1 \\end{bmatrix}$",
+      "$\\begin{bmatrix} -1 \\\\ 1 \\end{bmatrix}$",
+      "$\\begin{bmatrix} -2 \\\\ -1 \\end{bmatrix}$",
+      "$\\begin{bmatrix} -\\frac12 \\\\ 0 \\end{bmatrix}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A constant $\\mathbf{a}$ needs $A\\mathbf{a} + \\mathbf{b} = \\mathbf{0}$, so $\\mathbf{a} = -A^{-1}\\mathbf{b}$. Here $\\det A = 1$ and $A^{-1} = \\begin{bmatrix} 1 & -1 \\\\ -1 & 2 \\end{bmatrix}$, so $\\mathbf{a} = -(1, -1) = (-1, 1)$. Check: $A\\mathbf{a} = (-1, 0) = -\\mathbf{b}$. $(1, -1)$ is $A^{-1}\\mathbf{b}$ (sign dropped); $(-2, -1)$ is $-A\\mathbf{b}$ (multiplied instead of inverting); $(-\\tfrac12, 0)$ divides by the diagonal entry as if $A$ were diagonal."
+    },
+    {
+     "id": "de-q-ns02",
+     "section": "de-m8",
+     "topic": "Matrix exponential",
+     "stem": "What is $e^{At}$ for $A = \\begin{bmatrix} -1 & 0 \\\\ 0 & 3 \\end{bmatrix}$?",
+     "choices": [
+      "$\\begin{bmatrix} e^{-t} & 1 \\\\ 1 & e^{3t} \\end{bmatrix}$",
+      "$\\begin{bmatrix} -e^{-t} & 0 \\\\ 0 & 3e^{3t} \\end{bmatrix}$",
+      "$\\begin{bmatrix} 1 - t & 0 \\\\ 0 & 1 + 3t \\end{bmatrix}$",
+      "$\\begin{bmatrix} e^{-t} & 0 \\\\ 0 & e^{3t} \\end{bmatrix}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Powers of a diagonal matrix are diagonal with the entries raised to that power, so the series exponentiates each diagonal entry and leaves zeros off the diagonal. The matrix with 1s off the diagonal exponentiates every entry ($e^{0} = 1$); the one with $-e^{-t}$ and $3e^{3t}$ is the derivative $Ae^{At}$; $I + At$ keeps only two terms of the series."
+    },
+    {
+     "id": "de-q-ns03",
+     "section": "de-m8",
+     "topic": "Matrix exponential",
+     "stem": "What is $e^{At}$ for $A = \\begin{bmatrix} 3 & 1 \\\\ 0 & 3 \\end{bmatrix}$?",
+     "choices": [
+      "$e^{3t}\\begin{bmatrix} 1 & t \\\\ 0 & 1 \\end{bmatrix}$",
+      "$\\begin{bmatrix} e^{3t} & e^{t} \\\\ 1 & e^{3t} \\end{bmatrix}$",
+      "$e^{3t}\\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix}$",
+      "$e^{3t}\\begin{bmatrix} 1 & t \\\\ t & 1 \\end{bmatrix}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$A = 3I + N$ with $N = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$ and $N^2 = 0$, so $e^{At} = e^{3t}(I + Nt)$. Exponentiating each entry is the scalar-thinking mistake; $e^{3t}\\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix}$ forgets the factor $t$ on $N$; the version with $t$ in both corners puts $N$'s entry where $N$ has a zero."
+    },
+    {
+     "id": "de-q-ns04",
+     "section": "de-m8",
+     "topic": "Matrix exponential",
+     "stem": "Which two properties determine the matrix function $X(t) = e^{At}$?",
+     "choices": [
+      "$X' = X$ and $X(0) = A$",
+      "$X' = AX$ and $X(0) = A$",
+      "$X' = AX$ and $X(0) = I$",
+      "Each entry is $e^{a_{ij}t}$ and $X(0) = I$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Differentiating the series gives $\\tfrac{d}{dt}e^{At} = Ae^{At}$, and at $t = 0$ only $I$ survives; that matrix IVP has exactly one solution. $X' = X$ describes $e^tI$ times a constant, not $e^{At}$; starting at $A$ instead of $I$ is wrong because $e^{A\\cdot 0} = I$; entrywise exponentials agree with $e^{At}$ only for diagonal $A$."
+    },
+    {
+     "id": "de-q-ns05",
+     "section": "de-m8",
+     "topic": "Matrix exponential",
+     "stem": "If $\\Psi(t)$ is any fundamental matrix of $\\mathbf{x}' = A\\mathbf{x}$, then $e^{At}$ equals",
+     "choices": [
+      "$\\Psi(0)^{-1}\\Psi(t)$",
+      "$\\Psi(t)\\Psi(0)$",
+      "$\\Psi(t)^{-1}$",
+      "$\\Psi(t)\\Psi(0)^{-1}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$\\Psi(t)\\Psi(0)^{-1}$ has columns that are combinations of solutions, so it solves $X' = AX$, and it equals $I$ at $t = 0$. Putting $\\Psi(0)^{-1}$ on the left generally gives something that no longer solves $X' = AX$ (matrix products don't commute); $\\Psi(t)\\Psi(0)$ is not $I$ at $t = 0$; $\\Psi(t)^{-1}$ isn't a solution matrix at all."
+    },
+    {
+     "id": "de-q-ns06",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "Find a particular solution of $\\mathbf{x}' = \\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}\\mathbf{x} + e^{2t}\\begin{bmatrix} 3 \\\\ 0 \\end{bmatrix}$. (The eigenvalues are 3 and $-1$.)",
+     "choices": [
+      "$e^{2t}\\begin{bmatrix} 1 \\\\ 4 \\end{bmatrix}$",
+      "$e^{2t}\\begin{bmatrix} -1 \\\\ -4 \\end{bmatrix}$",
+      "$te^{2t}\\begin{bmatrix} -1 \\\\ -4 \\end{bmatrix}$",
+      "$e^{2t}\\begin{bmatrix} \\frac32 \\\\ 0 \\end{bmatrix}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "2 is not an eigenvalue, so try $e^{2t}\\mathbf{a}$ with $(2I - A)\\mathbf{a} = \\mathbf{b}$: $a_1 - a_2 = 3$ and $-4a_1 + a_2 = 0$, giving $\\mathbf{a} = (-1, -4)$. Check: $2\\mathbf{a} = (-2, -8) = A\\mathbf{a} + \\mathbf{b}$. Solving with $A - 2I$ flips the sign; the factor $t$ is only needed when 2 is an eigenvalue; $(\\tfrac32, 0)$ divides $\\mathbf{b}$ by $r$ and ignores $A$."
+    },
+    {
+     "id": "de-q-ns07",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "For $\\mathbf{x}' = A\\mathbf{x} + e^{rt}\\mathbf{b}$, the guess $\\mathbf{x}_p = e^{rt}\\mathbf{a}$ fails when",
+     "choices": [
+      "$\\det A = 0$",
+      "$r < 0$",
+      "$r$ is an eigenvalue of $A$",
+      "$\\mathbf{b}$ is an eigenvector of $A$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The guess needs $(rI - A)\\mathbf{a} = \\mathbf{b}$, which has a unique solution exactly when $rI - A$ is invertible, that is, when $r$ is not an eigenvalue. $\\det A = 0$ only matters for constant forcing ($r = 0$); the sign of $r$ is irrelevant; $\\mathbf{b}$ being an eigenvector does not make $rI - A$ singular."
+    },
+    {
+     "id": "de-q-ns08",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "Variation of parameters for $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t)$ with fundamental matrix $\\Psi$ gives",
+     "choices": [
+      "$\\mathbf{x}_p = \\Psi(t)\\displaystyle\\int\\Psi(t)^{-1}\\mathbf{g}(t)\\,dt$",
+      "$\\mathbf{x}_p = \\Psi(t)^{-1}\\displaystyle\\int\\Psi(t)\\mathbf{g}(t)\\,dt$",
+      "$\\mathbf{x}_p = \\displaystyle\\int\\Psi(t)^{-1}\\mathbf{g}(t)\\,dt$",
+      "$\\mathbf{x}_p = \\Psi(t)\\displaystyle\\int\\mathbf{g}(t)\\,dt$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Substituting $\\mathbf{x} = \\Psi\\mathbf{u}$ leaves $\\Psi\\mathbf{u}' = \\mathbf{g}$, so $\\mathbf{u} = \\int\\Psi^{-1}\\mathbf{g}\\,dt$ and $\\mathbf{x}_p = \\Psi\\mathbf{u}$. Swapping $\\Psi$ and $\\Psi^{-1}$ reverses the derivation; stopping at $\\int\\Psi^{-1}\\mathbf{g}$ forgets to multiply back by $\\Psi$; dropping $\\Psi^{-1}$ inside the integral treats $\\Psi$ as constant."
+    },
+    {
+     "id": "de-q-ns09",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "Every solution of $\\mathbf{x}' = \\begin{bmatrix} -2 & 1 \\\\ 1 & -2 \\end{bmatrix}\\mathbf{x} + \\begin{bmatrix} 3 \\\\ 0 \\end{bmatrix}$ approaches what as $t \\to \\infty$? (The eigenvalues are $-1$ and $-3$.)",
+     "choices": [
+      "$(2, 1)$",
+      "$(-2, -1)$",
+      "$(0, 0)$",
+      "Nothing: solutions grow without bound"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Both eigenvalues are negative, so $\\mathbf{x}_c \\to \\mathbf{0}$ and $\\mathbf{x} \\to \\mathbf{a} = -A^{-1}\\mathbf{b}$. Solving $-2a_1 + a_2 = -3$, $a_1 - 2a_2 = 0$ gives $\\mathbf{a} = (2, 1)$. $(-2, -1)$ is $A^{-1}\\mathbf{b}$ (sign error); $(0, 0)$ is the limit only without forcing; growth would need a positive eigenvalue."
+    },
+    {
+     "id": "de-q-ns10",
+     "section": "de-m8",
+     "topic": "Matrix exponential",
+     "stem": "Which formula solves $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t)$, $\\mathbf{x}(0) = \\mathbf{x}_0$, for constant $A$?",
+     "choices": [
+      "$e^{At}\\mathbf{x}_0 + \\displaystyle\\int_0^te^{As}\\mathbf{g}(s)\\,ds$",
+      "$e^{At}\\Big(\\mathbf{x}_0 + \\displaystyle\\int_0^t\\mathbf{g}(s)\\,ds\\Big)$",
+      "$e^{At}\\mathbf{x}_0 + \\displaystyle\\int_0^te^{A(t - s)}\\mathbf{g}(s)\\,ds$",
+      "$e^{-At}\\mathbf{x}_0 + \\displaystyle\\int_0^te^{A(t - s)}\\mathbf{g}(s)\\,ds$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "This is variation of parameters with $\\Psi = e^{At}$: each input $\\mathbf{g}(s)$ is carried forward by $e^{A(t - s)}$ for the time $t - s$ since it arrived. Using $e^{As}$ evolves the input for the wrong length of time; $e^{At}\\int\\mathbf{g}$ omits the $e^{-As}$ inside the integral; $e^{-At}\\mathbf{x}_0$ runs the initial state backward."
+    },
+    {
+     "id": "de-q-ns11",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "Solve $x_1' = 2x_1$, $x_2' = -x_2 + 3$ with $\\mathbf{x}(0) = (1, 0)$. What is $x_2(t)$?",
+     "choices": [
+      "$3$",
+      "$3 - 3e^{-t}$",
+      "$-3 + 3e^{-t}$",
+      "$3e^{-t}$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The constant particular solution is $x_2 = 3$ (from $0 = -a_2 + 3$), so $x_2 = 3 + ce^{-t}$, and $x_2(0) = 0$ gives $c = -3$. Fitting the initial condition to $ce^{-t}$ alone gives $c = 0$ and the answer 3; $-3 + 3e^{-t}$ uses the wrong-signed constant $A^{-1}\\mathbf{b}$; $3e^{-t}$ doesn't satisfy $x_2(0) = 0$ or approach the equilibrium. ($x_1 = e^{2t}$.)"
+    },
+    {
+     "id": "de-q-ns12",
+     "section": "de-m8",
+     "topic": "Nonhomogeneous systems",
+     "stem": "For $\\mathbf{x}' = \\begin{bmatrix} 1 & 0 \\\\ 0 & 2 \\end{bmatrix}\\mathbf{x} + \\begin{bmatrix} e^t \\\\ e^{2t} \\end{bmatrix}$, use $\\Psi = \\begin{bmatrix} e^t & 0 \\\\ 0 & e^{2t} \\end{bmatrix}$ and variation of parameters. A particular solution is",
+     "choices": [
+      "$\\begin{bmatrix} e^t \\\\ e^{2t} \\end{bmatrix}$",
+      "$\\begin{bmatrix} t \\\\ t \\end{bmatrix}$",
+      "$\\begin{bmatrix} te^{-t} \\\\ te^{-2t} \\end{bmatrix}$",
+      "$\\begin{bmatrix} te^t \\\\ te^{2t} \\end{bmatrix}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$\\Psi^{-1}\\mathbf{g} = (e^{-t}e^t, e^{-2t}e^{2t}) = (1, 1)$, so $\\mathbf{u} = (t, t)$ and $\\mathbf{x}_p = \\Psi\\mathbf{u} = (te^t, te^{2t})$. $(e^t, e^{2t})$ is the failed undetermined-coefficients guess (the forcing rates are eigenvalues); $(t, t)$ is $\\mathbf{u}$ without multiplying by $\\Psi$; $(te^{-t}, te^{-2t})$ multiplies by $\\Psi^{-1}$ instead of $\\Psi$."
+    },
+    {
      "id": "de-q-3501",
      "section": "de-m8",
      "topic": "Nonlinear systems",
@@ -8154,6 +8717,198 @@
       0
      ],
      "explanation": "For $\\lambda = 0$, $X = c_1 + c_2x$; for $\\lambda < 0$, combinations of $e^{\\pm\\sqrt{-\\lambda}x}$. Neither can vanish at both ends unless identically zero. (For $\\lambda < 0$ the time factor would also grow, but that is not why it is rejected: there is no nonzero $X$ at all.)"
+    },
+    {
+     "id": "de-q-hb01",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "The right end $x = L$ of a rod is insulated. Which boundary condition expresses this?",
+     "choices": [
+      "$u(L, t) = 0$",
+      "$u_x(L, t) = 0$",
+      "$u_t(L, t) = 0$",
+      "$u_{xx}(L, t) = 0$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Heat flux is proportional to $-u_x$ (Fourier's law), and an insulated end lets no heat through, so $u_x = 0$ there (a Neumann condition). $u = 0$ holds the end at zero temperature (Dirichlet), which is a different physical setup; $u_t = 0$ would freeze the end's temperature; $u_{xx} = 0$ is not a flux condition."
+    },
+    {
+     "id": "de-q-hb02",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "For $u_t = \\alpha^2u_{xx}$ with both ends insulated, the separated solutions use which eigenfunctions?",
+     "choices": [
+      "$\\sin\\frac{n\\pi x}{L}$, $n = 1, 2, \\dots$",
+      "$\\cos\\frac{n\\pi x}{L}$, $n = 1, 2, \\dots$ only",
+      "$\\sin\\frac{(2n - 1)\\pi x}{2L}$, $n = 1, 2, \\dots$",
+      "$1$ and $\\cos\\frac{n\\pi x}{L}$, $n = 1, 2, \\dots$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$X'(0) = X'(L) = 0$ allows $\\lambda = 0$ with $X = 1$, and $\\lambda = (n\\pi/L)^2$ with $X = \\cos\\frac{n\\pi x}{L}$. Sines belong to zero-temperature ends; dropping the constant loses the long-run temperature; quarter-wave sines belong to one end at zero and the other insulated."
+    },
+    {
+     "id": "de-q-hb03",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod with $L = 3$, insulated at both ends, starts at $u(x, 0) = 10 + x^2$. What temperature does it approach as $t \\to \\infty$?",
+     "choices": [
+      "13",
+      "0",
+      "19",
+      "14.5"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The limit is the average $\\frac1L\\int_0^Lf\\,dx = \\frac13\\int_0^3(10 + x^2)\\,dx = \\frac13(30 + 9) = 13$; no heat escapes, it only spreads out. 0 is the zero-end answer; 19 is the hottest initial temperature, $f(3)$; 14.5 averages only the two end values, not the whole profile."
+    },
+    {
+     "id": "de-q-hb04",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod with $L = \\pi$, $\\alpha^2 = 1$ and insulated ends starts at $u(x, 0) = 5 + 2\\cos 2x$. Find $u(0, 0.5)$.",
+     "choices": [
+      "$5 + 2e^{-1} \\approx 5.74$",
+      "$2e^{-2} \\approx 0.27$",
+      "$5 + 2e^{-2} \\approx 5.27$",
+      "7"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$\\cos 2x = \\cos\\frac{2\\pi x}{\\pi}$ is the $n = 2$ mode, decaying like $e^{-\\alpha^2(2\\pi/L)^2t} = e^{-4t}$, so $u(0, 0.5) = 5 + 2e^{-2}$. Using $e^{-2t}$ forgets to square $n$; dropping the 5 discards the constant mode; 7 is the initial value with no decay."
+    },
+    {
+     "id": "de-q-hb05",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "Why does $\\lambda = 0$ give a nonzero eigenfunction when both ends are insulated, but not when both ends are held at 0?",
+     "choices": [
+      "With insulated ends $\\lambda$ must be negative",
+      "The heat equation changes when the ends are insulated",
+      "Constants solve $X'' + \\lambda X = 0$ for every $\\lambda$",
+      "$X = c_1 + c_2x$ with $X' = 0$ at the ends allows any constant, while $X = 0$ at both ends forces $X \\equiv 0$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "For $\\lambda = 0$, $X'' = 0$ gives a line. Zero slope at the ends only forces $c_2 = 0$, so constants survive; zero values at both ends force the line to be 0. Negative $\\lambda$ gives nothing in either case; the PDE itself is unchanged, only the boundary conditions differ; a nonzero constant solves $X'' + \\lambda X = 0$ only when $\\lambda = 0$."
+    },
+    {
+     "id": "de-q-hb06",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod of length $L = 4$ has $u(0, t) = 10$ and $u(4, t) = 30$. What is its equilibrium temperature at $x = 1$?",
+     "choices": [
+      "20",
+      "15",
+      "7.5",
+      "17.5"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The equilibrium solves $v'' = 0$: $v = 10 + (30 - 10)\\frac{x}{4} = 10 + 5x$, so $v(1) = 15$. 20 is the average of the end temperatures (true only at the midpoint); 7.5 is $30 \\cdot \\frac14$, forgetting $T_1$; 17.5 uses $T_2$ instead of $T_2 - T_1$ for the rise."
+    },
+    {
+     "id": "de-q-hb07",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod with $L = 1$ starts at $u(x, 0) = 0$; then its ends are held at $u(0, t) = 0$ and $u(1, t) = 100$. Writing $u = v + w$ with $v$ the equilibrium, what is $w(x, 0)$?",
+     "choices": [
+      "$100x$",
+      "$0$",
+      "$-100x$",
+      "$100 - 100x$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$v(x) = 100x$, so $w(x, 0) = f(x) - v(x) = 0 - 100x$. $100x$ is $v - f$ (subtracted the wrong way); 0 expands $f$ instead of $f - v$; $100 - 100x$ uses an equilibrium line running the wrong way (100 at the left end)."
+    },
+    {
+     "id": "de-q-hb08",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "With end temperatures $u(0, t) = T_1 \\ne 0$, $u(L, t) = T_2$, why can't you apply separation of variables directly?",
+     "choices": [
+      "The boundary conditions are not homogeneous, so sums of separated solutions don't keep the required end values",
+      "The heat equation becomes nonlinear",
+      "Separation only works for the wave equation",
+      "The initial temperature has no Fourier series"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Separation plus superposition needs boundary conditions that sums of solutions still satisfy, such as $u = 0$ or $u_x = 0$. A nonzero end value isn't preserved by adding solutions, and each separated term decays in time. Subtracting the equilibrium makes the ends zero. The PDE stays linear, separation works for the heat equation, and the initial data does have a series."
+    },
+    {
+     "id": "de-q-hb09",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod has $u(0, t) = 0$ and an insulated end at $x = L$. Which eigenfunctions appear?",
+     "choices": [
+      "$\\sin\\frac{(2n - 1)\\pi x}{2L}$",
+      "$\\cos\\frac{(2n - 1)\\pi x}{2L}$",
+      "$\\sin\\frac{n\\pi x}{L}$",
+      "$\\cos\\frac{n\\pi x}{L}$"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$X(0) = 0$ leaves $\\sin\\sqrt\\lambda x$, and $X'(L) = 0$ needs $\\cos\\sqrt\\lambda L = 0$, so $\\sqrt\\lambda L = \\frac{(2n - 1)\\pi}{2}$. The quarter-wave cosines fit an insulated left end with the right end at 0; $\\sin\\frac{n\\pi x}{L}$ fits two zero ends; $\\cos\\frac{n\\pi x}{L}$ fits two insulated ends."
+    },
+    {
+     "id": "de-q-hb10",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "An insulated rod with $L = 1$ starts at $f(x) = 1$ for $0 < x < \\frac12$ and $f(x) = 0$ for $\\frac12 < x < 1$. Find the cosine coefficient $a_1$.",
+     "choices": [
+      "$\\dfrac1\\pi$",
+      "$0$",
+      "$\\dfrac2\\pi$",
+      "$\\dfrac4\\pi$"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$a_1 = \\frac21\\int_0^{1/2}\\cos\\pi x\\,dx = \\frac2\\pi\\sin\\frac\\pi2 = \\frac2\\pi$. $\\frac1\\pi$ forgets the factor $\\frac2L$; 0 assumes symmetry that this step profile doesn't have on $(0, 1)$; $\\frac4\\pi$ is the habit from the square-wave sine series."
+    },
+    {
+     "id": "de-q-hb11",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod with ends held at $T_1$ and $T_2$ (and insulated sides) eventually has which temperature profile?",
+     "choices": [
+      "The average of the initial temperature",
+      "The straight line from $T_1$ at $x = 0$ to $T_2$ at $x = L$",
+      "The constant $\\frac{T_1 + T_2}{2}$",
+      "Zero everywhere"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Every term of $w$ decays, leaving the equilibrium $v(x) = T_1 + (T_2 - T_1)x/L$, the solution of $v'' = 0$ with those end values. The average of $f$ is the limit for insulated ends; the constant $\\frac{T_1 + T_2}{2}$ matches neither end unless $T_1 = T_2$; zero is the limit only for zero ends."
+    },
+    {
+     "id": "de-q-hb12",
+     "section": "de-m9",
+     "topic": "Heat boundary conditions",
+     "stem": "A rod with $L = 1$, $\\alpha^2 = 1$ starts at 0°; its ends are then held at $u(0, t) = 0$ and $u(1, t) = 10$. Then $u = 10x + \\sum\\frac{20(-1)^n}{n\\pi}e^{-n^2\\pi^2t}\\sin n\\pi x$. Estimate $u(0.5, 0.1)$.",
+     "choices": [
+      "7.37",
+      "5.00",
+      "0.35",
+      "2.63"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "At $x = 0.5$ even terms vanish. The $n = 1$ term is $-\\frac{20}{\\pi}e^{-0.1\\pi^2} \\approx -6.366 \\times 0.3727 \\approx -2.37$, and $n = 3$ adds under 0.001, so $u \\approx 5 - 2.37 = 2.63$. 7.37 adds the term with the wrong sign (the rod is still colder than its equilibrium); 5.00 is the equilibrium alone; 0.35 uses $e^{-0.1\\pi}$, forgetting to square $\\pi$."
     }
    ]
   }
@@ -9242,6 +9997,96 @@
      "front": "Separation of variables idea",
      "back": "Try $u = X(x)T(t)$; a function of $t$ equal to a function of $x$ must be a constant, giving two ODEs.",
      "topic": "Heat and wave equations"
+    },
+    {
+     "id": "c181",
+     "front": "Frequency of the practical-resonance peak of $mu'' + \\gamma u' + ku = F_0\\cos\\omega t$",
+     "back": "$\\omega_{\\max}^2 = \\omega_0^2 - \\dfrac{\\gamma^2}{2m^2}$, slightly below $\\omega_0$; there is no peak if $\\gamma^2 \\ge 2mk$.",
+     "topic": "Forced vibrations"
+    },
+    {
+     "id": "c182",
+     "front": "Exponential response formula",
+     "back": "$p(D)x = Fe^{rt}$ has $x_p = \\dfrac{Fe^{rt}}{p(r)}$ when $p(r) \\ne 0$; for a simple root, $x_p = \\dfrac{Fte^{rt}}{p'(r)}$.",
+     "topic": "Complex gain"
+    },
+    {
+     "id": "c183",
+     "front": "Complex replacement for $p(D)x = F_0\\cos\\omega t$",
+     "back": "Solve $p(D)z = F_0e^{i\\omega t}$: $z_p = \\dfrac{F_0e^{i\\omega t}}{p(i\\omega)}$, then $x_p = \\operatorname{Re}z_p$ (use $\\operatorname{Im}$ for a sine input).",
+     "topic": "Complex gain"
+    },
+    {
+     "id": "c184",
+     "front": "Gain and phase lag of $p(D)x = F_0\\cos\\omega t$",
+     "back": "$g = 1/|p(i\\omega)|$, $\\phi = \\arg p(i\\omega)$; steady state $gF_0\\cos(\\omega t - \\phi)$.",
+     "topic": "Complex gain"
+    },
+    {
+     "id": "c185",
+     "front": "Phase lag of a damped spring driven at $\\omega$",
+     "back": "$\\tan\\phi = \\dfrac{\\gamma\\omega}{k - m\\omega^2}$ with $0 < \\phi < \\pi$: near 0 for slow forcing, $\\pi/2$ at $\\omega_0$, near $\\pi$ for fast forcing.",
+     "topic": "Complex gain"
+    },
+    {
+     "id": "c186",
+     "front": "General solution of $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t)$",
+     "back": "$\\mathbf{x} = \\mathbf{x}_c + \\mathbf{x}_p$: the homogeneous general solution $\\Psi(t)\\mathbf{c}$ plus any one particular solution.",
+     "topic": "Nonhomogeneous systems"
+    },
+    {
+     "id": "c187",
+     "front": "Particular solution for constant forcing $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{b}$",
+     "back": "The equilibrium $\\mathbf{a} = -A^{-1}\\mathbf{b}$ (needs $\\det A \\ne 0$).",
+     "topic": "Nonhomogeneous systems"
+    },
+    {
+     "id": "c188",
+     "front": "Particular solution for $\\mathbf{x}' = A\\mathbf{x} + e^{rt}\\mathbf{b}$",
+     "back": "$\\mathbf{x}_p = e^{rt}\\mathbf{a}$ with $(rI - A)\\mathbf{a} = \\mathbf{b}$, if $r$ is not an eigenvalue of $A$.",
+     "topic": "Nonhomogeneous systems"
+    },
+    {
+     "id": "c189",
+     "front": "Variation of parameters for systems",
+     "back": "$\\mathbf{x}_p = \\Psi(t)\\displaystyle\\int\\Psi(t)^{-1}\\mathbf{g}(t)\\,dt$, from $\\mathbf{x} = \\Psi\\mathbf{u}$ and $\\Psi\\mathbf{u}' = \\mathbf{g}$.",
+     "topic": "Nonhomogeneous systems"
+    },
+    {
+     "id": "c190",
+     "front": "Matrix exponential $e^{At}$",
+     "back": "$I + At + \\frac{A^2t^2}{2!} + \\cdots$; equals $\\Psi(t)\\Psi(0)^{-1}$ for any fundamental matrix; $\\mathbf{x} = e^{At}\\mathbf{x}_0$ solves the IVP.",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c191",
+     "front": "$e^{At}$ when $A = \\lambda I + N$ with $N^2 = 0$",
+     "back": "$e^{At} = e^{\\lambda t}(I + Nt)$; e.g. $\\begin{bmatrix} 2 & 1 \\\\ 0 & 2 \\end{bmatrix}$ gives $e^{2t}\\begin{bmatrix} 1 & t \\\\ 0 & 1 \\end{bmatrix}$.",
+     "topic": "Matrix exponential"
+    },
+    {
+     "id": "c192",
+     "front": "Insulated end of a rod",
+     "back": "No heat flux: $u_x = 0$ there (a Neumann condition). A fixed temperature $u = T$ is a Dirichlet condition.",
+     "topic": "Heat boundary conditions"
+    },
+    {
+     "id": "c193",
+     "front": "Heat equation with both ends insulated",
+     "back": "$u = \\frac{a_0}{2} + \\sum a_ne^{-\\alpha^2(n\\pi/L)^2t}\\cos\\frac{n\\pi x}{L}$, $a_n$ from the cosine series of $u(x, 0)$; $u \\to$ the average of $u(x, 0)$.",
+     "topic": "Heat boundary conditions"
+    },
+    {
+     "id": "c194",
+     "front": "Heat equation with ends held at $T_1$ and $T_2$",
+     "back": "Write $u = v + w$ with $v = T_1 + (T_2 - T_1)x/L$; $w$ has zero ends and $w(x, 0) = f - v$ (sine series). $u \\to v$.",
+     "topic": "Heat boundary conditions"
+    },
+    {
+     "id": "c195",
+     "front": "Eigenfunctions for $u(0) = 0$ and an insulated end at $L$",
+     "back": "$\\sin\\dfrac{(2n - 1)\\pi x}{2L}$, $n = 1, 2, \\dots$",
+     "topic": "Heat boundary conditions"
     }
    ]
   }
@@ -10393,6 +11238,97 @@
    "term": "Airy's equation",
    "definition": "The equation $y'' - xy = 0$, whose solutions are found as power series.",
    "topic": "Series solutions"
+  },
+  {
+   "term": "complexified equation",
+   "definition": "The equation $p(D)z = F_0e^{i\\omega t}$ obtained by replacing a real input $F_0\\cos\\omega t$ (or $F_0\\sin\\omega t$) with a complex exponential.",
+   "topic": "Complex gain"
+  },
+  {
+   "term": "exponential response formula",
+   "aliases": [
+    "ERF"
+   ],
+   "definition": "For $p(D)x = Fe^{rt}$ with $p(r) \\ne 0$, a particular solution is $x_p = \\dfrac{Fe^{rt}}{p(r)}$; if $r$ is a simple root, $x_p = \\dfrac{Fte^{rt}}{p'(r)}$.",
+   "topic": "Complex gain"
+  },
+  {
+   "term": "complex replacement",
+   "definition": "Solving a real equation with a sinusoidal input by solving the complexified equation and taking the real part (cosine input) or imaginary part (sine input) of its solution.",
+   "topic": "Complex gain"
+  },
+  {
+   "term": "gain",
+   "definition": "For $p(D)x = F_0\\cos\\omega t$, the ratio of output amplitude to input amplitude: $g(\\omega) = 1/|p(i\\omega)|$.",
+   "topic": "Complex gain"
+  },
+  {
+   "term": "phase lag",
+   "definition": "The angle $\\phi = \\arg p(i\\omega)$ by which the steady-state response $gF_0\\cos(\\omega t - \\phi)$ trails the input $F_0\\cos\\omega t$; the time lag is $\\phi/\\omega$.",
+   "topic": "Complex gain"
+  },
+  {
+   "term": "complex gain",
+   "definition": "The complex number $1/p(i\\omega) = ge^{-i\\phi}$, whose modulus is the gain and whose angle is minus the phase lag.",
+   "topic": "Complex gain"
+  },
+  {
+   "term": "forcing vector",
+   "definition": "The term $\\mathbf{g}(t)$ in a nonhomogeneous linear system $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}(t)$.",
+   "topic": "Nonhomogeneous systems"
+  },
+  {
+   "term": "fundamental matrix",
+   "aliases": [
+    "fundamental matrices"
+   ],
+   "definition": "A matrix $\\Psi(t)$ whose columns are independent solutions of $\\mathbf{x}' = A\\mathbf{x}$; it satisfies $\\Psi' = A\\Psi$, and the general solution is $\\Psi(t)\\mathbf{c}$.",
+   "topic": "Matrix exponential"
+  },
+  {
+   "term": "matrix exponential",
+   "definition": "The matrix $e^{At} = I + At + \\frac{A^2t^2}{2!} + \\cdots$; it is the fundamental matrix equal to $I$ at $t = 0$, so $\\mathbf{x} = e^{At}\\mathbf{x}_0$ solves $\\mathbf{x}' = A\\mathbf{x}$, $\\mathbf{x}(0) = \\mathbf{x}_0$.",
+   "topic": "Matrix exponential"
+  },
+  {
+   "term": "variation of constants formula",
+   "definition": "The solution $\\mathbf{x}(t) = e^{At}\\mathbf{x}_0 + \\int_0^te^{A(t - s)}\\mathbf{g}(s)\\,ds$ of $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}$, $\\mathbf{x}(0) = \\mathbf{x}_0$.",
+   "topic": "Matrix exponential"
+  },
+  {
+   "term": "Dirichlet boundary condition",
+   "aliases": [
+    "Dirichlet boundary conditions",
+    "Dirichlet condition"
+   ],
+   "definition": "A boundary condition that prescribes the value of the solution at the boundary, such as $u(0, t) = T_1$.",
+   "topic": "Heat boundary conditions"
+  },
+  {
+   "term": "Neumann boundary condition",
+   "aliases": [
+    "Neumann boundary conditions",
+    "Neumann condition"
+   ],
+   "definition": "A boundary condition that prescribes the derivative (the flux) at the boundary, such as $u_x(L, t) = 0$ for an insulated end.",
+   "topic": "Heat boundary conditions"
+  },
+  {
+   "term": "insulated end",
+   "aliases": [
+    "insulated ends"
+   ],
+   "definition": "An end of a rod through which no heat flows; since the flux is proportional to $-u_x$, the condition is $u_x = 0$ there.",
+   "topic": "Heat boundary conditions"
+  },
+  {
+   "term": "equilibrium temperature",
+   "aliases": [
+    "equilibrium temperature distribution",
+    "steady-state temperature"
+   ],
+   "definition": "A time-independent solution $v(x)$ of the heat equation with the given boundary conditions; with ends held at $T_1$ and $T_2$ it is the line $v = T_1 + (T_2 - T_1)x/L$.",
+   "topic": "Heat boundary conditions"
   }
  ],
  "references": [
@@ -10404,7 +11340,7 @@
   {
    "id": "de-ref-methods",
    "title": "Method chooser",
-   "body": "## First-order equations $y' = f(t, y)$\n\n| If the equation… | Method | Key step |\n|---|---|---|\n| is $y' = f(t)$ | Integrate | $y = \\int f\\,dt + C$ |\n| factors as $y' = g(t)h(y)$ | Separation of variables | $\\int \\frac{dy}{h(y)} = \\int g\\,dt$; check $h(y) = 0$ |\n| is linear: $y' + p(t)y = g(t)$ | Integrating factor | $\\mu = e^{\\int p\\,dt}$, $(\\mu y)' = \\mu g$ |\n| is $M\\,dx + N\\,dy = 0$ with $M_y = N_x$ | Exact | $F_x = M$, $F_y = N$; $F(x, y) = C$ |\n| is $M\\,dx + N\\,dy = 0$, not exact | Integrating factor $\\mu(x)$ or $\\mu(y)$ | $\\frac{M_y - N_x}{N}$ in $x$ only, or $\\frac{N_x - M_y}{M}$ in $y$ only |\n| is $y' + py = qy^n$ | Bernoulli | $v = y^{1-n}$: $v' + (1-n)pv = (1-n)q$ |\n| is $y' = F(y/x)$ | Homogeneous substitution | $y = vx$, $y' = v + xv'$ |\n| is $y' = f(ax + by + c)$ | Linear substitution | $u = ax + by + c$ |\n| is $y' = f(y)$ and you want behaviour | Phase line | sign of $f$; $f'(y^*)$ for stability |\n| has no formula solution | Numerical | Euler, improved Euler, RK4 |\n\n## Linear equations of order 2 and higher\n\n| Situation | Method |\n|---|---|\n| Constant coefficients, homogeneous | Characteristic equation $ar^2 + br + c = 0$ |\n| $at^2y'' + bty' + cy = 0$ | Cauchy–Euler: try $t^m$, $am(m-1) + bm + c = 0$ |\n| One solution $y_1$ known | Reduction of order: $y_2 = y_1\\int \\frac{e^{-\\int p}}{y_1^2}$ |\n| Constant coefficients, $g$ = polynomial, $e^{\\alpha t}$, $\\sin$, $\\cos$ (products, sums) | Undetermined coefficients (+ modification rule) |\n| Any continuous $g$, or variable coefficients with $y_1, y_2$ known | Variation of parameters |\n| Piecewise or impulsive forcing; IVP in one pass | Laplace transform |\n| Variable coefficients, no closed form | Power series near an ordinary point |\n\n## Systems\n\n| Situation | Method |\n|---|---|\n| $\\mathbf{x}' = A\\mathbf{x}$, constant $A$ | Eigenvalues and eigenvectors |\n| Classify the origin quickly | Trace $T$ and determinant $D$ |\n| Nonlinear $x' = F$, $y' = G$ | Equilibria + Jacobian linearization |\n| Linear system with forcing or steps | Laplace transform of each equation |\n\n## Checks that catch most errors\n\n- Substitute the answer back into the equation and the initial conditions.\n- Linear first-order: did you divide by the coefficient of $y'$ first?\n- Second order: did you fit constants to $y_c + Y$, not $y_c$ alone?\n- Laplace: did you transform the right side and include $sy(0) + y'(0)$?\n"
+   "body": "## First-order equations $y' = f(t, y)$\n\n| If the equation… | Method | Key step |\n|---|---|---|\n| is $y' = f(t)$ | Integrate | $y = \\int f\\,dt + C$ |\n| factors as $y' = g(t)h(y)$ | Separation of variables | $\\int \\frac{dy}{h(y)} = \\int g\\,dt$; check $h(y) = 0$ |\n| is linear: $y' + p(t)y = g(t)$ | Integrating factor | $\\mu = e^{\\int p\\,dt}$, $(\\mu y)' = \\mu g$ |\n| is $M\\,dx + N\\,dy = 0$ with $M_y = N_x$ | Exact | $F_x = M$, $F_y = N$; $F(x, y) = C$ |\n| is $M\\,dx + N\\,dy = 0$, not exact | Integrating factor $\\mu(x)$ or $\\mu(y)$ | $\\frac{M_y - N_x}{N}$ in $x$ only, or $\\frac{N_x - M_y}{M}$ in $y$ only |\n| is $y' + py = qy^n$ | Bernoulli | $v = y^{1-n}$: $v' + (1-n)pv = (1-n)q$ |\n| is $y' = F(y/x)$ | Homogeneous substitution | $y = vx$, $y' = v + xv'$ |\n| is $y' = f(ax + by + c)$ | Linear substitution | $u = ax + by + c$ |\n| is $y' = f(y)$ and you want behaviour | Phase line | sign of $f$; $f'(y^*)$ for stability |\n| has no formula solution | Numerical | Euler, improved Euler, RK4 |\n\n## Linear equations of order 2 and higher\n\n| Situation | Method |\n|---|---|\n| Constant coefficients, homogeneous | Characteristic equation $ar^2 + br + c = 0$ |\n| $at^2y'' + bty' + cy = 0$ | Cauchy–Euler: try $t^m$, $am(m-1) + bm + c = 0$ |\n| One solution $y_1$ known | Reduction of order: $y_2 = y_1\\int \\frac{e^{-\\int p}}{y_1^2}$ |\n| Constant coefficients, $g$ = polynomial, $e^{\\alpha t}$, $\\sin$, $\\cos$ (products, sums) | Undetermined coefficients (+ modification rule) |\n| Any continuous $g$, or variable coefficients with $y_1, y_2$ known | Variation of parameters |\n| Constant coefficients, sinusoidal forcing; want amplitude and phase | Complex replacement: $F_0e^{i\\omega t}/p(i\\omega)$ |\n| Piecewise or impulsive forcing; IVP in one pass | Laplace transform |\n| Variable coefficients, no closed form | Power series near an ordinary point |\n\n## Systems\n\n| Situation | Method |\n|---|---|\n| $\\mathbf{x}' = A\\mathbf{x}$, constant $A$ | Eigenvalues and eigenvectors |\n| Classify the origin quickly | Trace $T$ and determinant $D$ |\n| Nonlinear $x' = F$, $y' = G$ | Equilibria + Jacobian linearization |\n| $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}$, $\\mathbf{g}$ constant, exponential, polynomial, sinusoidal | Undetermined coefficients with vector unknowns |\n| $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}$, any continuous $\\mathbf{g}$ | Variation of parameters: $\\mathbf{x}_p = \\Psi\\int\\Psi^{-1}\\mathbf{g}\\,dt$ |\n| Linear system with forcing or steps | Laplace transform of each equation |\n\n## Checks that catch most errors\n\n- Substitute the answer back into the equation and the initial conditions.\n- Linear first-order: did you divide by the coefficient of $y'$ first?\n- Second order: did you fit constants to $y_c + Y$, not $y_c$ alone?\n- Laplace: did you transform the right side and include $sy(0) + y'(0)$?\n"
   },
   {
    "id": "de-ref-models",
@@ -10414,7 +11350,7 @@
   {
    "id": "de-ref-solutions",
    "title": "Solution forms",
-   "body": "## Second-order constant coefficients: $ay'' + by' + cy = 0$\n\n| Roots of $ar^2 + br + c = 0$ | General solution |\n|---|---|\n| real $r_1 \\ne r_2$ | $c_1e^{r_1t} + c_2e^{r_2t}$ |\n| repeated $r$ | $(c_1 + c_2t)e^{rt}$ |\n| complex $\\lambda \\pm i\\mu$ | $e^{\\lambda t}(c_1\\cos\\mu t + c_2\\sin\\mu t)$ |\n\nAmplitude–phase: $c_1\\cos\\mu t + c_2\\sin\\mu t = R\\cos(\\mu t - \\delta)$, $R = \\sqrt{c_1^2 + c_2^2}$.\n\n## Cauchy–Euler: $at^2y'' + bty' + cy = 0$, $t > 0$\n\n| Roots of $am(m-1) + bm + c = 0$ | General solution |\n|---|---|\n| real $m_1 \\ne m_2$ | $c_1t^{m_1} + c_2t^{m_2}$ |\n| repeated $m$ | $t^m(c_1 + c_2\\ln t)$ |\n| complex $\\alpha \\pm i\\beta$ | $t^\\alpha\\big(c_1\\cos(\\beta\\ln t) + c_2\\sin(\\beta\\ln t)\\big)$ |\n\n## Particular solutions (undetermined coefficients)\n\n| $g(t)$ | Trial $Y(t)$ (multiply by $t^s$ if it overlaps $y_c$) |\n|---|---|\n| $P_n(t)$ | $A_nt^n + \\cdots + A_0$ |\n| $Ce^{\\alpha t}$ | $Ae^{\\alpha t}$ |\n| $C\\cos\\beta t$, $C\\sin\\beta t$ | $A\\cos\\beta t + B\\sin\\beta t$ |\n| $P_n(t)e^{\\alpha t}$ | $(A_nt^n + \\cdots + A_0)e^{\\alpha t}$ |\n| $e^{\\alpha t}\\cos\\beta t$, $e^{\\alpha t}\\sin\\beta t$ | $e^{\\alpha t}(A\\cos\\beta t + B\\sin\\beta t)$ |\n\nVariation of parameters: $Y = -y_1\\int\\frac{y_2g}{W}dt + y_2\\int\\frac{y_1g}{W}dt$, $W = y_1y_2' - y_1'y_2$.\n\n## Vibrations: $mu'' + \\gamma u' + ku = F_0\\cos\\omega t$\n\n| Quantity | Formula |\n|---|---|\n| Natural frequency | $\\omega_0 = \\sqrt{k/m}$ |\n| Critical damping | $\\gamma_c = 2\\sqrt{km}$ |\n| Quasi-frequency | $\\mu = \\sqrt{4km - \\gamma^2}/(2m)$ |\n| Steady-state amplitude | $F_0/\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}$ |\n| Resonance ($\\gamma = 0$, $\\omega = \\omega_0$) | $\\frac{F_0}{2m\\omega_0}t\\sin\\omega_0t$ |\n| RLC analogy | $m \\to L$, $\\gamma \\to R$, $k \\to 1/C$ |\n\n## Linear systems $\\mathbf{x}' = A\\mathbf{x}$ ($2 \\times 2$)\n\nEigenvalues from $\\lambda^2 - T\\lambda + D = 0$, $T = \\operatorname{tr}A$, $D = \\det A$.\n\n| Eigenvalues | Solution | Origin |\n|---|---|---|\n| real, opposite signs ($D < 0$) | $c_1e^{\\lambda_1t}\\mathbf{v}_1 + c_2e^{\\lambda_2t}\\mathbf{v}_2$ | saddle (unstable) |\n| real, both negative | same | nodal sink |\n| real, both positive | same | nodal source |\n| $\\alpha \\pm i\\beta$, $\\mathbf{v} = \\mathbf{a} + i\\mathbf{b}$ | $e^{\\alpha t}\\big[c_1(\\mathbf{a}\\cos\\beta t - \\mathbf{b}\\sin\\beta t) + c_2(\\mathbf{a}\\sin\\beta t + \\mathbf{b}\\cos\\beta t)\\big]$ | spiral sink ($\\alpha < 0$), source ($\\alpha > 0$), center ($\\alpha = 0$) |\n| repeated $\\lambda$, one eigenvector | $c_1e^{\\lambda t}\\mathbf{v} + c_2e^{\\lambda t}(t\\mathbf{v} + \\mathbf{w})$, $(A - \\lambda I)\\mathbf{w} = \\mathbf{v}$ | improper node |\n\nAsymptotically stable exactly when $T < 0$ and $D > 0$. Nonlinear: use $J = \\begin{bmatrix} F_x & F_y \\\\ G_x & G_y \\end{bmatrix}$ at each equilibrium.\n\n## Series, Fourier and PDEs\n\n| Topic | Formula |\n|---|---|\n| Series near ordinary point | $y = \\sum a_nx^n$, $a_0 = y(0)$, $a_1 = y'(0)$, recurrence from matching powers |\n| Fourier coefficients (period $2L$) | $a_n = \\frac1L\\int_{-L}^Lf\\cos\\frac{n\\pi x}{L}$, $b_n = \\frac1L\\int_{-L}^Lf\\sin\\frac{n\\pi x}{L}$ |\n| Half-range sine series | $b_n = \\frac2L\\int_0^Lf\\sin\\frac{n\\pi x}{L}\\,dx$ |\n| Heat $u_t = \\alpha^2u_{xx}$, zero ends | $u = \\sum b_ne^{-\\alpha^2(n\\pi/L)^2t}\\sin\\frac{n\\pi x}{L}$ |\n| Wave $u_{tt} = a^2u_{xx}$, fixed ends | $u = \\sum\\big(b_n\\cos\\frac{n\\pi at}{L} + c_n\\sin\\frac{n\\pi at}{L}\\big)\\sin\\frac{n\\pi x}{L}$ |\n"
+   "body": "## Second-order constant coefficients: $ay'' + by' + cy = 0$\n\n| Roots of $ar^2 + br + c = 0$ | General solution |\n|---|---|\n| real $r_1 \\ne r_2$ | $c_1e^{r_1t} + c_2e^{r_2t}$ |\n| repeated $r$ | $(c_1 + c_2t)e^{rt}$ |\n| complex $\\lambda \\pm i\\mu$ | $e^{\\lambda t}(c_1\\cos\\mu t + c_2\\sin\\mu t)$ |\n\nAmplitude–phase: $c_1\\cos\\mu t + c_2\\sin\\mu t = R\\cos(\\mu t - \\delta)$, $R = \\sqrt{c_1^2 + c_2^2}$.\n\n## Cauchy–Euler: $at^2y'' + bty' + cy = 0$, $t > 0$\n\n| Roots of $am(m-1) + bm + c = 0$ | General solution |\n|---|---|\n| real $m_1 \\ne m_2$ | $c_1t^{m_1} + c_2t^{m_2}$ |\n| repeated $m$ | $t^m(c_1 + c_2\\ln t)$ |\n| complex $\\alpha \\pm i\\beta$ | $t^\\alpha\\big(c_1\\cos(\\beta\\ln t) + c_2\\sin(\\beta\\ln t)\\big)$ |\n\n## Particular solutions (undetermined coefficients)\n\n| $g(t)$ | Trial $Y(t)$ (multiply by $t^s$ if it overlaps $y_c$) |\n|---|---|\n| $P_n(t)$ | $A_nt^n + \\cdots + A_0$ |\n| $Ce^{\\alpha t}$ | $Ae^{\\alpha t}$ |\n| $C\\cos\\beta t$, $C\\sin\\beta t$ | $A\\cos\\beta t + B\\sin\\beta t$ |\n| $P_n(t)e^{\\alpha t}$ | $(A_nt^n + \\cdots + A_0)e^{\\alpha t}$ |\n| $e^{\\alpha t}\\cos\\beta t$, $e^{\\alpha t}\\sin\\beta t$ | $e^{\\alpha t}(A\\cos\\beta t + B\\sin\\beta t)$ |\n\nVariation of parameters: $Y = -y_1\\int\\frac{y_2g}{W}dt + y_2\\int\\frac{y_1g}{W}dt$, $W = y_1y_2' - y_1'y_2$.\n\n## Vibrations: $mu'' + \\gamma u' + ku = F_0\\cos\\omega t$\n\n| Quantity | Formula |\n|---|---|\n| Natural frequency | $\\omega_0 = \\sqrt{k/m}$ |\n| Critical damping | $\\gamma_c = 2\\sqrt{km}$ |\n| Quasi-frequency | $\\mu = \\sqrt{4km - \\gamma^2}/(2m)$ |\n| Steady-state amplitude | $F_0/\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}$ |\n| Practical-resonance peak ($\\gamma^2 < 2mk$) | $\\omega_{\\max}^2 = \\omega_0^2 - \\gamma^2/(2m^2)$ |\n| Resonance ($\\gamma = 0$, $\\omega = \\omega_0$) | $\\frac{F_0}{2m\\omega_0}t\\sin\\omega_0t$ |\n| RLC analogy | $m \\to L$, $\\gamma \\to R$, $k \\to 1/C$ |\n\n## Sinusoidal response with complex exponentials: $p(D)x = F_0\\cos\\omega t$\n\n| Quantity | Formula |\n|---|---|\n| Exponential response | $z_p = F_0e^{i\\omega t}/p(i\\omega)$, $x_p = \\operatorname{Re}z_p$ ($\\operatorname{Im}$ for $\\sin$) |\n| Resonant case $p(i\\omega) = 0$ | $z_p = F_0te^{i\\omega t}/p'(i\\omega)$ |\n| Gain, phase lag | $g = 1/\\lvert p(i\\omega)\\rvert$, $\\phi = \\arg p(i\\omega)$; $x_p = gF_0\\cos(\\omega t - \\phi)$ |\n| Spring | $\\tan\\phi = \\gamma\\omega/(k - m\\omega^2)$, $0 < \\phi < \\pi$ |\n\n## Linear systems $\\mathbf{x}' = A\\mathbf{x}$ ($2 \\times 2$)\n\nEigenvalues from $\\lambda^2 - T\\lambda + D = 0$, $T = \\operatorname{tr}A$, $D = \\det A$.\n\n| Eigenvalues | Solution | Origin |\n|---|---|---|\n| real, opposite signs ($D < 0$) | $c_1e^{\\lambda_1t}\\mathbf{v}_1 + c_2e^{\\lambda_2t}\\mathbf{v}_2$ | saddle (unstable) |\n| real, both negative | same | nodal sink |\n| real, both positive | same | nodal source |\n| $\\alpha \\pm i\\beta$, $\\mathbf{v} = \\mathbf{a} + i\\mathbf{b}$ | $e^{\\alpha t}\\big[c_1(\\mathbf{a}\\cos\\beta t - \\mathbf{b}\\sin\\beta t) + c_2(\\mathbf{a}\\sin\\beta t + \\mathbf{b}\\cos\\beta t)\\big]$ | spiral sink ($\\alpha < 0$), source ($\\alpha > 0$), center ($\\alpha = 0$) |\n| repeated $\\lambda$, one eigenvector | $c_1e^{\\lambda t}\\mathbf{v} + c_2e^{\\lambda t}(t\\mathbf{v} + \\mathbf{w})$, $(A - \\lambda I)\\mathbf{w} = \\mathbf{v}$ | improper node |\n\nForced systems $\\mathbf{x}' = A\\mathbf{x} + \\mathbf{g}$: $\\mathbf{x} = \\Psi(t)\\mathbf{c} + \\mathbf{x}_p$. Constant $\\mathbf{g} = \\mathbf{b}$: $\\mathbf{x}_p = -A^{-1}\\mathbf{b}$. $\\mathbf{g} = e^{rt}\\mathbf{b}$ ($r$ not an eigenvalue): $\\mathbf{x}_p = e^{rt}\\mathbf{a}$, $(rI - A)\\mathbf{a} = \\mathbf{b}$. Variation of parameters: $\\mathbf{x}_p = \\Psi\\int\\Psi^{-1}\\mathbf{g}\\,dt$. Matrix exponential: $e^{At} = \\Psi(t)\\Psi(0)^{-1}$, $\\mathbf{x} = e^{At}\\mathbf{x}_0 + \\int_0^te^{A(t - s)}\\mathbf{g}(s)\\,ds$.\n\nAsymptotically stable exactly when $T < 0$ and $D > 0$. Nonlinear: use $J = \\begin{bmatrix} F_x & F_y \\\\ G_x & G_y \\end{bmatrix}$ at each equilibrium.\n\n## Series, Fourier and PDEs\n\n| Topic | Formula |\n|---|---|\n| Series near ordinary point | $y = \\sum a_nx^n$, $a_0 = y(0)$, $a_1 = y'(0)$, recurrence from matching powers |\n| Fourier coefficients (period $2L$) | $a_n = \\frac1L\\int_{-L}^Lf\\cos\\frac{n\\pi x}{L}$, $b_n = \\frac1L\\int_{-L}^Lf\\sin\\frac{n\\pi x}{L}$ |\n| Half-range sine series | $b_n = \\frac2L\\int_0^Lf\\sin\\frac{n\\pi x}{L}\\,dx$ |\n| Heat $u_t = \\alpha^2u_{xx}$, zero ends | $u = \\sum b_ne^{-\\alpha^2(n\\pi/L)^2t}\\sin\\frac{n\\pi x}{L}$ |\n| Heat, insulated ends ($u_x = 0$) | $u = \\frac{a_0}{2} + \\sum a_ne^{-\\alpha^2(n\\pi/L)^2t}\\cos\\frac{n\\pi x}{L}$; $u \\to$ average of $u(x, 0)$ |\n| Heat, ends at $T_1$, $T_2$ | $u = T_1 + (T_2 - T_1)\\frac xL + w$, $w$ = zero-end solution from $u(x, 0) - v(x)$ |\n| Heat, $u(0) = 0$, insulated at $L$ | eigenfunctions $\\sin\\frac{(2n - 1)\\pi x}{2L}$ |\n| Wave $u_{tt} = a^2u_{xx}$, fixed ends | $u = \\sum\\big(b_n\\cos\\frac{n\\pi at}{L} + c_n\\sin\\frac{n\\pi at}{L}\\big)\\sin\\frac{n\\pi x}{L}$ |\n"
   }
  ],
  "drills": [
@@ -13052,6 +13988,184 @@
    "format": "number"
   },
   {
+   "id": "de-peak-frequency",
+   "title": "Practical-resonance peak frequency",
+   "topic": "Forced vibrations",
+   "vars": {
+    "m": {
+     "choices": [
+      1,
+      2
+     ]
+    },
+    "gam": {
+     "choices": [
+      0.5,
+      1,
+      1.5,
+      2,
+      3
+     ]
+    },
+    "k": {
+     "min": 4,
+     "max": 20
+    },
+    "F0": {
+     "min": 1,
+     "max": 10
+    }
+   },
+   "where": [
+    "gam^2 < 2*m*k"
+   ],
+   "calc": {
+    "g2": "gam^2",
+    "tmk": "2*m*k",
+    "w02": "k/m",
+    "wmax2": "k/m - gam^2/(2*m^2)",
+    "wmax": "sqrt(wmax2)",
+    "kd": "gam^2/(2*m)",
+    "Rmax": "F0/(gam*sqrt(k/m - gam^2/(4*m^2)))",
+    "R0": "F0/(gam*sqrt(k/m))"
+   },
+   "prompt": "For ${m:coef}u'' {gam:signedcoef}u' + {k}u = {F0:coef}\\cos\\omega t$, find the forcing frequency $\\omega_{\\max}$ that gives the largest steady-state amplitude, and that largest amplitude $R_{\\max}$. (3 decimal places)",
+   "answers": [
+    {
+     "name": "wmax",
+     "label": "$\\omega_{\\max} \\approx$",
+     "tolerance": 0.0006,
+     "format": "dp3"
+    },
+    {
+     "name": "Rmax",
+     "label": "$R_{\\max} \\approx$",
+     "tolerance": 0.0006,
+     "format": "dp3"
+    }
+   ],
+   "solution": "$\\omega_0^2 = k/m = {w02:sig6}$. Since $\\gamma^2 = {g2} < 2mk = {tmk}$, the amplitude has a peak at $\\omega_{\\max}^2 = \\omega_0^2 - \\dfrac{\\gamma^2}{2m^2} = {wmax2:sig6}$, so $\\omega_{\\max} \\approx$ **{wmax:dp3}**, a little below $\\omega_0$. There $k - m\\omega^2 = \\dfrac{\\gamma^2}{2m} = {kd:sig6}$, and $R = \\dfrac{F_0}{\\sqrt{(k - m\\omega^2)^2 + \\gamma^2\\omega^2}}$ simplifies to $R_{\\max} = \\dfrac{F_0}{\\gamma\\sqrt{\\omega_0^2 - \\gamma^2/(4m^2)}} \\approx$ **{Rmax:dp3}** (slightly more than the value $F_0/(\\gamma\\omega_0) \\approx {R0:dp3}$ at $\\omega_0$).",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "de-gain-phase",
+   "title": "Gain and phase lag",
+   "topic": "Complex gain",
+   "vars": {
+    "m": {
+     "choices": [
+      1,
+      2
+     ]
+    },
+    "gam": {
+     "choices": [
+      0.5,
+      1,
+      2,
+      3
+     ]
+    },
+    "k": {
+     "min": 1,
+     "max": 12
+    },
+    "w": {
+     "choices": [
+      0.5,
+      1,
+      1.5,
+      2,
+      3
+     ]
+    }
+   },
+   "calc": {
+    "re": "k - m*w^2",
+    "im": "gam*w",
+    "mod": "sqrt(re^2 + im^2)",
+    "gain": "1/mod",
+    "phi": "atan2(im, re)"
+   },
+   "prompt": "For ${m:coef}x'' {gam:signedcoef}x' + {k:coef}x = F_0\\cos({w:coef}t)$, find the gain $g = 1/|p(i\\omega)|$ and the phase lag $\\phi$ (radians, between 0 and $\\pi$) of the steady-state response. (4 decimal places for $g$, 3 for $\\phi$)",
+   "answers": [
+    {
+     "name": "gain",
+     "label": "$g \\approx$",
+     "relTolerance": 0.0005,
+     "format": "num4"
+    },
+    {
+     "name": "phi",
+     "label": "$\\phi \\approx$",
+     "tolerance": 0.0006,
+     "format": "dp3"
+    }
+   ],
+   "solution": "$p(i\\omega) = (k - m\\omega^2) + i\\gamma\\omega = {re:sig6} + {im:coef}i$. Its modulus is $\\sqrt{({re:sig6})^2 + ({im:sig6})^2} \\approx {mod:num4}$, so $g = 1/{mod:num4} \\approx$ **{gain:num4}**. Its angle (in the upper half-plane, so check the sign of the real part ${re:sig6}$ for the quadrant) is $\\phi \\approx$ **{phi:dp3}** rad. The steady state is $gF_0\\cos({w:coef}t - \\phi)$.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "de-complex-replace",
+   "title": "Steady state by complex replacement",
+   "topic": "Complex gain",
+   "vars": {
+    "bb": {
+     "min": 1,
+     "max": 4
+    },
+    "cc": {
+     "min": 1,
+     "max": 10
+    },
+    "w": {
+     "min": 1,
+     "max": 3
+    },
+    "F": {
+     "choices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      10,
+      12
+     ]
+    }
+   },
+   "calc": {
+    "P": "cc - w^2",
+    "Q": "bb*w",
+    "D": "P^2 + Q^2",
+    "A": "F*P/D",
+    "B": "F*Q/D"
+   },
+   "where": [
+    "P != 0"
+   ],
+   "prompt": "Use complex replacement to find the steady-state solution $x_p = A\\cos {w:coef}t + B\\sin {w:coef}t$ of $x'' {bb:signedcoef}x' + {cc:coef}x = {F}\\cos {w:coef}t$. Give $A$ and $B$ as exact fractions.",
+   "answers": [
+    {
+     "name": "A",
+     "label": "$A =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    },
+    {
+     "name": "B",
+     "label": "$B =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    }
+   ],
+   "solution": "$p(r) = r^2 {bb:signedcoef}r + {cc}$, so $p({w:coef}i) = {P} + {Q:coef}i$. Then $z_p = \\dfrac{{F}}{{P} + {Q:coef}i}e^{{w:coef}it} = \\dfrac{{F}({P} - {Q:coef}i)}{{D}}\\big(\\cos {w:coef}t + i\\sin {w:coef}t\\big)$. The real part is $\\dfrac{{F}\\cdot({P})}{{D}}\\cos {w:coef}t + \\dfrac{{F}\\cdot{Q}}{{D}}\\sin {w:coef}t$, so $A =$ **{A:frac}** and $B =$ **{B:frac}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "de-laplace-eval",
    "title": "Evaluate a Laplace transform",
    "topic": "Laplace transform",
@@ -13907,6 +15021,220 @@
    "format": "number"
   },
   {
+   "id": "de-sys-const-forcing",
+   "title": "Equilibrium of a forced system",
+   "topic": "Nonhomogeneous systems",
+   "vars": {
+    "aa": {
+     "min": -4,
+     "max": 4
+    },
+    "bb": {
+     "min": -4,
+     "max": 4
+    },
+    "cc": {
+     "min": -4,
+     "max": 4
+    },
+    "dd": {
+     "min": -4,
+     "max": 4
+    },
+    "p": {
+     "min": -6,
+     "max": 6
+    },
+    "q": {
+     "min": -6,
+     "max": 6
+    }
+   },
+   "where": [
+    "aa*dd - bb*cc != 0",
+    "aa != 0",
+    "bb != 0",
+    "cc != 0",
+    "dd != 0",
+    "p != 0",
+    "q != 0"
+   ],
+   "calc": {
+    "det": "aa*dd - bb*cc",
+    "x1": "-(dd*p - bb*q)/det",
+    "x2": "-(aa*q - cc*p)/det"
+   },
+   "prompt": "Find the constant particular solution $\\mathbf{x}_p = (a_1, a_2)$ of $\\mathbf{x}' = \\begin{bmatrix} {aa} & {bb} \\\\ {cc} & {dd} \\end{bmatrix}\\mathbf{x} + \\begin{bmatrix} {p} \\\\ {q} \\end{bmatrix}$. Exact fractions.",
+   "answers": [
+    {
+     "name": "x1",
+     "label": "$a_1 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    },
+    {
+     "name": "x2",
+     "label": "$a_2 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    }
+   ],
+   "solution": "A constant solution has $\\mathbf{x}' = \\mathbf{0}$, so $A\\mathbf{a} = -\\mathbf{b}$: ${aa:coef}a_1 {bb:signedcoef}a_2 = -({p})$ and ${cc:coef}a_1 {dd:signedcoef}a_2 = -({q})$. With $\\det A = {det}$, Cramer's rule (or $\\mathbf{a} = -A^{-1}\\mathbf{b}$) gives $a_1 = -\\dfrac{({dd})({p}) - ({bb})({q})}{{det}} =$ **{x1:frac}** and $a_2 = -\\dfrac{({aa})({q}) - ({cc})({p})}{{det}} =$ **{x2:frac}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "de-sys-exp-forcing",
+   "title": "Exponential forcing of a system",
+   "topic": "Nonhomogeneous systems",
+   "vars": {
+    "aa": {
+     "min": -3,
+     "max": 3
+    },
+    "bb": {
+     "min": -3,
+     "max": 3
+    },
+    "cc": {
+     "min": -3,
+     "max": 3
+    },
+    "dd": {
+     "min": -3,
+     "max": 3
+    },
+    "r": {
+     "choices": [
+      -2,
+      -1,
+      1,
+      2,
+      3
+     ]
+    },
+    "p": {
+     "min": -4,
+     "max": 4
+    },
+    "q": {
+     "min": -4,
+     "max": 4
+    }
+   },
+   "where": [
+    "(r - aa)*(r - dd) - bb*cc != 0",
+    "bb != 0",
+    "cc != 0",
+    "p != 0 or q != 0"
+   ],
+   "calc": {
+    "m11": "r - aa",
+    "m22": "r - dd",
+    "nb": "-bb",
+    "nc": "-cc",
+    "det": "(r - aa)*(r - dd) - bb*cc",
+    "x1": "((r - dd)*p + bb*q)/det",
+    "x2": "(cc*p + (r - aa)*q)/det"
+   },
+   "prompt": "Find the particular solution $\\mathbf{x}_p = e^{{r:coef}t}(a_1, a_2)$ of $\\mathbf{x}' = \\begin{bmatrix} {aa} & {bb} \\\\ {cc} & {dd} \\end{bmatrix}\\mathbf{x} + e^{{r:coef}t}\\begin{bmatrix} {p} \\\\ {q} \\end{bmatrix}$. (The rate $r = {r}$ is not an eigenvalue of the matrix.) Exact fractions.",
+   "answers": [
+    {
+     "name": "x1",
+     "label": "$a_1 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    },
+    {
+     "name": "x2",
+     "label": "$a_2 =$",
+     "kind": "fraction",
+     "lowestTerms": true
+    }
+   ],
+   "solution": "Substituting $e^{rt}\\mathbf{a}$ gives $(rI - A)\\mathbf{a} = \\mathbf{b}$ with $rI - A = \\begin{bmatrix} {m11} & {nb} \\\\ {nc} & {m22} \\end{bmatrix}$, whose determinant is ${det}$. Cramer's rule: $a_1 = \\dfrac{({m22})({p}) - ({nb})({q})}{{det}} =$ **{x1:frac}** and $a_2 = \\dfrac{({m11})({q}) - ({nc})({p})}{{det}} =$ **{x2:frac}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "de-matrix-exp",
+   "title": "Matrix exponential from eigenvalues",
+   "topic": "Matrix exponential",
+   "vars": {
+    "l1": {
+     "min": -3,
+     "max": 3
+    },
+    "l2": {
+     "min": -3,
+     "max": 3
+    },
+    "p": {
+     "min": -2,
+     "max": 1
+    }
+   },
+   "where": [
+    "l1 < l2",
+    "l1 != 0",
+    "l2 != 0",
+    "p != 0",
+    "p != -1"
+   ],
+   "calc": {
+    "q": "p + 1",
+    "np": "-p",
+    "pq": "p*q",
+    "npq": "-p*q",
+    "a11": "l1*q - l2*p",
+    "a12": "l2 - l1",
+    "a21": "p*q*(l1 - l2)",
+    "a22": "q*l2 - p*l1"
+   },
+   "prompt": "The matrix $A = \\begin{bmatrix} {a11} & {a12} \\\\ {a21} & {a22} \\end{bmatrix}$ has eigenvalues ${l1}$ with eigenvector $(1, {p})$ and ${l2}$ with eigenvector $(1, {q})$. Find the four entries of $e^{At}$. (Type products with a star, like 2*e^(3t).)",
+   "answers": [
+    {
+     "kind": "expression",
+     "expression": "q*exp(l1*t) - p*exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "Row 1, column 1:",
+     "show": "${q:coef}e^{{l1:coef}t} {np:signedcoef}e^{{l2:coef}t}$"
+    },
+    {
+     "kind": "expression",
+     "expression": "-exp(l1*t) + exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "Row 1, column 2:",
+     "show": "$-e^{{l1:coef}t} + e^{{l2:coef}t}$"
+    },
+    {
+     "kind": "expression",
+     "expression": "p*q*exp(l1*t) - p*q*exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "Row 2, column 1:",
+     "show": "${pq:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t}$"
+    },
+    {
+     "kind": "expression",
+     "expression": "-p*exp(l1*t) + q*exp(l2*t)",
+     "variables": [
+      "t"
+     ],
+     "label": "Row 2, column 2:",
+     "show": "${np:coef}e^{{l1:coef}t} {q:signedcoef}e^{{l2:coef}t}$"
+    }
+   ],
+   "solution": "Take $\\Psi(t) = \\begin{bmatrix} e^{{l1:coef}t} & e^{{l2:coef}t} \\\\ {p:coef}e^{{l1:coef}t} & {q:coef}e^{{l2:coef}t} \\end{bmatrix}$. Then $\\Psi(0) = \\begin{bmatrix} 1 & 1 \\\\ {p} & {q} \\end{bmatrix}$ has determinant ${q} - ({p}) = 1$, so $\\Psi(0)^{-1} = \\begin{bmatrix} {q} & -1 \\\\ {np} & 1 \\end{bmatrix}$. Multiplying, $e^{At} = \\Psi(t)\\Psi(0)^{-1} = \\begin{bmatrix} {q:coef}e^{{l1:coef}t} {np:signedcoef}e^{{l2:coef}t} & -e^{{l1:coef}t} + e^{{l2:coef}t} \\\\ {pq:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t} & {np:coef}e^{{l1:coef}t} {q:signedcoef}e^{{l2:coef}t} \\end{bmatrix}$. Check: at $t = 0$ it is $I$. So the entries are **${q:coef}e^{{l1:coef}t} {np:signedcoef}e^{{l2:coef}t}$**, **$-e^{{l1:coef}t} + e^{{l2:coef}t}$**, **${pq:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t}$**, **${np:coef}e^{{l1:coef}t} {q:signedcoef}e^{{l2:coef}t}$**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "de-recurrence",
    "title": "Coefficients of an Airy-type series",
    "topic": "Series solutions",
@@ -14201,6 +15529,149 @@
     }
    ],
    "solution": "Mode $n$ oscillates as $\\cos\\dfrac{n\\pi at}{L}$, with angular frequency $\\dfrac{n\\pi a}{L}$, so its frequency is $\\dfrac{na}{2L}$ Hz. Fundamental: $\\dfrac{{a}}{2({len})} \\approx$ **{f1:num1} Hz**; mode {n}: $\\dfrac{{n}\\cdot{a}}{2({len})} \\approx$ **{fn:num1} Hz**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "de-heat-insulated",
+   "title": "Heat flow in an insulated rod",
+   "topic": "Heat boundary conditions",
+   "vars": {
+    "L": {
+     "choices": [
+      2,
+      3,
+      4
+     ]
+    },
+    "al2": {
+     "choices": [
+      0.05,
+      0.1,
+      0.2,
+      0.5
+     ]
+    },
+    "A0": {
+     "min": 10,
+     "max": 60,
+     "step": 5
+    },
+    "n": {
+     "min": 1,
+     "max": 4
+    },
+    "an": {
+     "min": -12,
+     "max": 12
+    },
+    "x0f": {
+     "choices": [
+      0,
+      0.25,
+      0.5
+     ]
+    },
+    "t0": {
+     "choices": [
+      0.2,
+      0.5,
+      1,
+      2
+     ]
+    }
+   },
+   "where": [
+    "an != 0",
+    "rate*t0 < 4"
+   ],
+   "calc": {
+    "rate": "al2*(n*pi/L)^2",
+    "x0": "x0f*L",
+    "dec": "exp(-rate*t0)",
+    "cs": "cos(n*pi*x0/L)",
+    "u": "A0 + an*dec*cs"
+   },
+   "prompt": "A rod of length $L = {L}$ with $\\alpha^2 = {al2}$ is insulated at both ends and starts at $u(x, 0) = {A0} {an:signedcoef}\\cos\\dfrac{{n:coef}\\pi x}{{L}}$. Find $u({x0}, {t0})$ (4 decimal places) and the temperature the rod approaches as $t \\to \\infty$.",
+   "answers": [
+    {
+     "name": "u",
+     "label": "$u({x0}, {t0}) \\approx$",
+     "tolerance": 6e-05,
+     "format": "num4"
+    },
+    {
+     "name": "A0",
+     "label": "Long-run temperature"
+    }
+   ],
+   "solution": "The data is already a cosine series: constant term ${A0}$ and the $n = {n}$ mode with coefficient ${an}$. That mode decays at rate $\\alpha^2\\left(\\dfrac{{n:coef}\\pi}{{L}}\\right)^2 \\approx {rate:num4}$, so $u = {A0} {an:signedcoef}e^{-{rate:num4}t}\\cos\\dfrac{{n:coef}\\pi x}{{L}}$. At $x = {x0}$, $t = {t0}$: $\\cos = {cs:num4}$ and $e^{-{rate:num4}\\cdot{t0}} \\approx {dec:num4}$, so $u \\approx$ **{u:num4}**. The cosine mode dies away, leaving the average temperature **{A0}**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "de-heat-steady",
+   "title": "Rod with fixed nonzero end temperatures",
+   "topic": "Heat boundary conditions",
+   "vars": {
+    "len": {
+     "choices": [
+      2,
+      4,
+      5,
+      10
+     ]
+    },
+    "T1": {
+     "min": 0,
+     "max": 40,
+     "step": 10
+    },
+    "T2": {
+     "min": 50,
+     "max": 100,
+     "step": 10
+    },
+    "c0": {
+     "min": 0,
+     "max": 40,
+     "step": 5
+    },
+    "x0f": {
+     "choices": [
+      0.25,
+      0.5,
+      0.75
+     ]
+    }
+   },
+   "where": [
+    "4*(c0 - T1) - 2*(T2 - T1) != 0",
+    "c0 != T1"
+   ],
+   "calc": {
+    "x0": "x0f*len",
+    "rise": "T2 - T1",
+    "v": "T1 + (T2 - T1)*x0/len",
+    "d1": "c0 - T1",
+    "b1": "(4*(c0 - T1) - 2*(T2 - T1))/pi"
+   },
+   "prompt": "A rod of length $L = {len}$ starts at a uniform {c0}°. Its ends are then held at $u(0, t) = {T1}$ and $u({len}, t) = {T2}$. Find the equilibrium temperature $v({x0})$ and the first sine coefficient $b_1$ of $w(x, 0) = u(x, 0) - v(x)$. (2 decimal places)",
+   "answers": [
+    {
+     "name": "v",
+     "label": "$v({x0}) =$",
+     "tolerance": 0.006,
+     "format": "num2"
+    },
+    {
+     "name": "b1",
+     "label": "$b_1 \\approx$",
+     "tolerance": 0.006,
+     "format": "num2"
+    }
+   ],
+   "solution": "The equilibrium is the line through the end temperatures: $v(x) = {T1} + \\dfrac{{rise}x}{{len}}$, so $v({x0}) =$ **{v:num2}**. Then $w(x, 0) = {c0} - v(x) = {d1} - \\dfrac{{rise}x}{{len}}$. Using $\\displaystyle\\int_0^L\\sin\\frac{\\pi x}{L}\\,dx = \\frac{2L}{\\pi}$ and $\\displaystyle\\int_0^Lx\\sin\\frac{\\pi x}{L}\\,dx = \\frac{L^2}{\\pi}$: $b_1 = \\dfrac2L\\left[({d1})\\dfrac{2L}{\\pi} - \\dfrac{{rise}}{L}\\cdot\\dfrac{L^2}{\\pi}\\right] = \\dfrac{4({d1}) - 2({rise})}{\\pi} \\approx$ **{b1:num2}**.",
    "answer": "",
    "format": "number"
   }

@@ -197,3 +197,32 @@ rejected), shown answers accepted. Build + check-course: OK.
 ## Not changed / notes
 - de-eigenvalues-2x2 solution shows substitution like "λ² − (0)λ + (−9)"; parenthesized, left as is.
 - References (4 sheets) and remaining glossary entries checked: no errors found.
+
+## Gap lessons (2026-10-17)
+
+Filled the coverage gaps from VERIFY.md. Lesson files from old 26 onward were renumbered to keep teaching order (ids unchanged): old 26–34 are now 27–35, old 35–38 are now 37–40. In-text "Lesson N" references (L28 → Lesson 31, L34 → Lesson 33, L40 → Lesson 39) and the `# Lesson N` comments in questions/m6–m9 were updated.
+
+New lessons
+- 26 `de-complex-gain` — Sinusoidal response with complex exponentials (de-m6), lessons/26-complex-gain.md. Topic: Complex gain. Drills: de-gain-phase, de-complex-replace.
+- 36 `de-nonhomog-systems` — Nonhomogeneous systems and the matrix exponential (de-m8), lessons/36-nonhomogeneous-systems.md. Topics: Nonhomogeneous systems, Matrix exponential. Drills: de-sys-const-forcing, de-sys-exp-forcing, de-matrix-exp.
+- 41 `de-heat-boundary` — Heat flow with insulated ends and nonzero end temperatures (de-m9), lessons/41-heat-boundary.md. Topic: Heat boundary conditions. Drills: de-heat-insulated, de-heat-steady.
+
+New questions (40; correct answers 10 at each position)
+- de-q-cg01 … de-q-cg12 (Lesson 26; module quiz: cg01, cg02, cg04, cg09)
+- de-q-ns01 … de-q-ns12 (Lesson 36; module quiz: ns01, ns02, ns06, ns09)
+- de-q-hb01 … de-q-hb12 (Lesson 41; module quiz: hb01, hb02, hb03, hb06)
+- de-q-2512 … de-q-2515 (Lesson 25, practical-resonance peak; module quiz: 2512, 2515)
+
+New drills (8): de-peak-frequency (linked from Lesson 25), de-gain-phase, de-complex-replace, de-sys-const-forcing, de-sys-exp-forcing, de-matrix-exp, de-heat-insulated, de-heat-steady.
+
+Also: 14 glossary terms (complexified equation, exponential response formula, complex replacement, gain, phase lag, complex gain, forcing vector, fundamental matrix, matrix exponential, variation of constants formula, Dirichlet/Neumann boundary condition, insulated end, equilibrium temperature); 15 cards; rows added to de-ref-solutions (peak frequency, complex-exponential response, forced systems, heat with other ends) and de-ref-methods. Cross-references: L25 points to the next lesson, L33 to Lesson 36, L37 now says "Lessons 33–35", L40 points to Lesson 41 ("The course ends" → "closes").
+
+Totals now: 41 lessons, 463 questions, 86 drills, 195 cards, 191 glossary terms. Build and check-course: zero problems.
+
+Verification: every new question solved in sympy/scipy (keys and that distractors are wrong); lesson examples checked against their ODEs/PDE series (tank figure against solve_ivp); each new drill generated 400 times — answers recomputed independently from the prompt text (numerical optimization for the peak, complex arithmetic, numpy solves, scipy expm, quadrature for Fourier coefficients), shown answers accepted by checkAll (matrix-exp also in its shown form without stars), perturbed answers rejected. Figures rendered and inspected.
+
+For a reviewer
+- Gain is defined relative to the input $F_0\cos\omega t$ (g = 1/|p(iω)|); the lesson notes that some books scale the input by k.
+- Gain/phase figures identify curves by caption (curves are nested) rather than labels, to avoid label overlap.
+- de-heat-insulated may show an unreduced cosine argument such as 4πx/2 (same style as de-heat-term).
+- de-matrix-exp uses the same constructed matrices as de-system-ivp (p ∈ {−2, 1}), so variety comes mostly from the eigenvalues.

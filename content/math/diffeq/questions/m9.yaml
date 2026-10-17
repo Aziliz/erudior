@@ -90,7 +90,7 @@
   answer: 1
   explanation: |-
     The recurrence links indices 3 apart and $a_2 = 0$, so the whole chain $a_2, a_5, a_8, \dots$ vanishes.
-# Lesson 37
+# Lesson 39
 - id: de-q-3701
   lesson: de-fourier
   module_quiz: true
@@ -182,7 +182,7 @@
   answer: 2
   explanation: |-
     $\cos 0 = 1$, $\cos\pi = -1$, $\cos 2\pi = 1$, … alternating. Treating it as 1 is a common slip.
-# Lesson 38
+# Lesson 40
 - id: de-q-3801
   lesson: de-heat-wave
   module_quiz: true
@@ -274,3 +274,104 @@
   answer: 0
   explanation: |-
     For $\lambda = 0$, $X = c_1 + c_2x$; for $\lambda < 0$, combinations of $e^{\pm\sqrt{-\lambda}x}$. Neither can vanish at both ends unless identically zero. (For $\lambda < 0$ the time factor would also grow, but that is not why it is rejected: there is no nonzero $X$ at all.)
+# Lesson 41
+- id: de-q-hb01
+  lesson: de-heat-boundary
+  module_quiz: true
+  topic: Heat boundary conditions
+  stem: 'The right end $x = L$ of a rod is insulated. Which boundary condition expresses this?'
+  choices: ['$u(L, t) = 0$', '$u_x(L, t) = 0$', '$u_t(L, t) = 0$', '$u_{xx}(L, t) = 0$']
+  answer: 1
+  explanation: |-
+    Heat flux is proportional to $-u_x$ (Fourier's law), and an insulated end lets no heat through, so $u_x = 0$ there (a Neumann condition). $u = 0$ holds the end at zero temperature (Dirichlet), which is a different physical setup; $u_t = 0$ would freeze the end's temperature; $u_{xx} = 0$ is not a flux condition.
+- id: de-q-hb02
+  lesson: de-heat-boundary
+  module_quiz: true
+  topic: Heat boundary conditions
+  stem: 'For $u_t = \alpha^2u_{xx}$ with both ends insulated, the separated solutions use which eigenfunctions?'
+  choices: ['$\sin\frac{n\pi x}{L}$, $n = 1, 2, \dots$', '$\cos\frac{n\pi x}{L}$, $n = 1, 2, \dots$ only', '$\sin\frac{(2n - 1)\pi x}{2L}$, $n = 1, 2, \dots$', '$1$ and $\cos\frac{n\pi x}{L}$, $n = 1, 2, \dots$']
+  answer: 3
+  explanation: |-
+    $X'(0) = X'(L) = 0$ allows $\lambda = 0$ with $X = 1$, and $\lambda = (n\pi/L)^2$ with $X = \cos\frac{n\pi x}{L}$. Sines belong to zero-temperature ends; dropping the constant loses the long-run temperature; quarter-wave sines belong to one end at zero and the other insulated.
+- id: de-q-hb03
+  lesson: de-heat-boundary
+  module_quiz: true
+  topic: Heat boundary conditions
+  stem: 'A rod with $L = 3$, insulated at both ends, starts at $u(x, 0) = 10 + x^2$. What temperature does it approach as $t \to \infty$?'
+  choices: ['13', '0', '19', '14.5']
+  answer: 0
+  explanation: |-
+    The limit is the average $\frac1L\int_0^Lf\,dx = \frac13\int_0^3(10 + x^2)\,dx = \frac13(30 + 9) = 13$; no heat escapes, it only spreads out. 0 is the zero-end answer; 19 is the hottest initial temperature, $f(3)$; 14.5 averages only the two end values, not the whole profile.
+- id: de-q-hb04
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'A rod with $L = \pi$, $\alpha^2 = 1$ and insulated ends starts at $u(x, 0) = 5 + 2\cos 2x$. Find $u(0, 0.5)$.'
+  choices: ['$5 + 2e^{-1} \approx 5.74$', '$2e^{-2} \approx 0.27$', '$5 + 2e^{-2} \approx 5.27$', '7']
+  answer: 2
+  explanation: |-
+    $\cos 2x = \cos\frac{2\pi x}{\pi}$ is the $n = 2$ mode, decaying like $e^{-\alpha^2(2\pi/L)^2t} = e^{-4t}$, so $u(0, 0.5) = 5 + 2e^{-2}$. Using $e^{-2t}$ forgets to square $n$; dropping the 5 discards the constant mode; 7 is the initial value with no decay.
+- id: de-q-hb05
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'Why does $\lambda = 0$ give a nonzero eigenfunction when both ends are insulated, but not when both ends are held at 0?'
+  choices: ['With insulated ends $\lambda$ must be negative', 'The heat equation changes when the ends are insulated', 'Constants solve $X'''' + \lambda X = 0$ for every $\lambda$', '$X = c_1 + c_2x$ with $X'' = 0$ at the ends allows any constant, while $X = 0$ at both ends forces $X \equiv 0$']
+  answer: 3
+  explanation: |-
+    For $\lambda = 0$, $X'' = 0$ gives a line. Zero slope at the ends only forces $c_2 = 0$, so constants survive; zero values at both ends force the line to be 0. Negative $\lambda$ gives nothing in either case; the PDE itself is unchanged, only the boundary conditions differ; a nonzero constant solves $X'' + \lambda X = 0$ only when $\lambda = 0$.
+- id: de-q-hb06
+  lesson: de-heat-boundary
+  module_quiz: true
+  topic: Heat boundary conditions
+  stem: 'A rod of length $L = 4$ has $u(0, t) = 10$ and $u(4, t) = 30$. What is its equilibrium temperature at $x = 1$?'
+  choices: ['20', '15', '7.5', '17.5']
+  answer: 1
+  explanation: |-
+    The equilibrium solves $v'' = 0$: $v = 10 + (30 - 10)\frac{x}{4} = 10 + 5x$, so $v(1) = 15$. 20 is the average of the end temperatures (true only at the midpoint); 7.5 is $30 \cdot \frac14$, forgetting $T_1$; 17.5 uses $T_2$ instead of $T_2 - T_1$ for the rise.
+- id: de-q-hb07
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'A rod with $L = 1$ starts at $u(x, 0) = 0$; then its ends are held at $u(0, t) = 0$ and $u(1, t) = 100$. Writing $u = v + w$ with $v$ the equilibrium, what is $w(x, 0)$?'
+  choices: ['$100x$', '$0$', '$-100x$', '$100 - 100x$']
+  answer: 2
+  explanation: |-
+    $v(x) = 100x$, so $w(x, 0) = f(x) - v(x) = 0 - 100x$. $100x$ is $v - f$ (subtracted the wrong way); 0 expands $f$ instead of $f - v$; $100 - 100x$ uses an equilibrium line running the wrong way (100 at the left end).
+- id: de-q-hb08
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'With end temperatures $u(0, t) = T_1 \ne 0$, $u(L, t) = T_2$, why can''t you apply separation of variables directly?'
+  choices: ['The boundary conditions are not homogeneous, so sums of separated solutions don''t keep the required end values', 'The heat equation becomes nonlinear', 'Separation only works for the wave equation', 'The initial temperature has no Fourier series']
+  answer: 0
+  explanation: |-
+    Separation plus superposition needs boundary conditions that sums of solutions still satisfy, such as $u = 0$ or $u_x = 0$. A nonzero end value isn't preserved by adding solutions, and each separated term decays in time. Subtracting the equilibrium makes the ends zero. The PDE stays linear, separation works for the heat equation, and the initial data does have a series.
+- id: de-q-hb09
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'A rod has $u(0, t) = 0$ and an insulated end at $x = L$. Which eigenfunctions appear?'
+  choices: ['$\sin\frac{(2n - 1)\pi x}{2L}$', '$\cos\frac{(2n - 1)\pi x}{2L}$', '$\sin\frac{n\pi x}{L}$', '$\cos\frac{n\pi x}{L}$']
+  answer: 0
+  explanation: |-
+    $X(0) = 0$ leaves $\sin\sqrt\lambda x$, and $X'(L) = 0$ needs $\cos\sqrt\lambda L = 0$, so $\sqrt\lambda L = \frac{(2n - 1)\pi}{2}$. The quarter-wave cosines fit an insulated left end with the right end at 0; $\sin\frac{n\pi x}{L}$ fits two zero ends; $\cos\frac{n\pi x}{L}$ fits two insulated ends.
+- id: de-q-hb10
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'An insulated rod with $L = 1$ starts at $f(x) = 1$ for $0 < x < \frac12$ and $f(x) = 0$ for $\frac12 < x < 1$. Find the cosine coefficient $a_1$.'
+  choices: ['$\dfrac1\pi$', '$0$', '$\dfrac2\pi$', '$\dfrac4\pi$']
+  answer: 2
+  explanation: |-
+    $a_1 = \frac21\int_0^{1/2}\cos\pi x\,dx = \frac2\pi\sin\frac\pi2 = \frac2\pi$. $\frac1\pi$ forgets the factor $\frac2L$; 0 assumes symmetry that this step profile doesn't have on $(0, 1)$; $\frac4\pi$ is the habit from the square-wave sine series.
+- id: de-q-hb11
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'A rod with ends held at $T_1$ and $T_2$ (and insulated sides) eventually has which temperature profile?'
+  choices: ['The average of the initial temperature', 'The straight line from $T_1$ at $x = 0$ to $T_2$ at $x = L$', 'The constant $\frac{T_1 + T_2}{2}$', 'Zero everywhere']
+  answer: 1
+  explanation: |-
+    Every term of $w$ decays, leaving the equilibrium $v(x) = T_1 + (T_2 - T_1)x/L$, the solution of $v'' = 0$ with those end values. The average of $f$ is the limit for insulated ends; the constant $\frac{T_1 + T_2}{2}$ matches neither end unless $T_1 = T_2$; zero is the limit only for zero ends.
+- id: de-q-hb12
+  lesson: de-heat-boundary
+  topic: Heat boundary conditions
+  stem: 'A rod with $L = 1$, $\alpha^2 = 1$ starts at 0°; its ends are then held at $u(0, t) = 0$ and $u(1, t) = 10$. Then $u = 10x + \sum\frac{20(-1)^n}{n\pi}e^{-n^2\pi^2t}\sin n\pi x$. Estimate $u(0.5, 0.1)$.'
+  choices: ['7.37', '5.00', '0.35', '2.63']
+  answer: 3
+  explanation: |-
+    At $x = 0.5$ even terms vanish. The $n = 1$ term is $-\frac{20}{\pi}e^{-0.1\pi^2} \approx -6.366 \times 0.3727 \approx -2.37$, and $n = 3$ adds under 0.001, so $u \approx 5 - 2.37 = 2.63$. 7.37 adds the term with the wrong sign (the rod is still colder than its equilibrium); 5.00 is the equilibrium alone; 0.35 uses $e^{-0.1\pi}$, forgetting to square $\pi$.

@@ -45,7 +45,7 @@ is written compactly as
 $$\mathbf{x}' = A\mathbf{x}, \qquad \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}, \quad A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}.$$
 
 For Example 1, $A = \begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix}$. A nonhomogeneous system
-adds a forcing vector: $\mathbf{x}' = A\mathbf{x} + \mathbf{g}(t)$.
+adds a forcing vector: $\mathbf{x}' = A\mathbf{x} + \mathbf{g}(t)$; Lesson 36 shows how to solve those.
 
 ### Example 2: two tanks
 

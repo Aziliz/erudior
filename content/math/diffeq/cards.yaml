@@ -203,3 +203,22 @@
 - {front: 'Eigenvalues of $X'''' + \lambda X = 0$, $X(0) = X(L) = 0$', back: '$\lambda_n = (n\pi/L)^2$, $X_n = \sin\frac{n\pi x}{L}$, $n = 1, 2, \dots$', topic: Heat and wave equations}
 - {front: 'Frequencies of a vibrating string', back: '$\dfrac{na}{2L}$ Hz; fundamental $\dfrac{a}{2L}$, harmonics are whole multiples.', topic: Heat and wave equations}
 - {front: 'Separation of variables idea', back: 'Try $u = X(x)T(t)$; a function of $t$ equal to a function of $x$ must be a constant, giving two ODEs.', topic: Heat and wave equations}
+# Practical resonance
+- {front: 'Frequency of the practical-resonance peak of $mu'''' + \gamma u'' + ku = F_0\cos\omega t$', back: '$\omega_{\max}^2 = \omega_0^2 - \dfrac{\gamma^2}{2m^2}$, slightly below $\omega_0$; there is no peak if $\gamma^2 \ge 2mk$.', topic: Forced vibrations}
+# Complex gain
+- {front: 'Exponential response formula', back: '$p(D)x = Fe^{rt}$ has $x_p = \dfrac{Fe^{rt}}{p(r)}$ when $p(r) \ne 0$; for a simple root, $x_p = \dfrac{Fte^{rt}}{p''(r)}$.', topic: Complex gain}
+- {front: 'Complex replacement for $p(D)x = F_0\cos\omega t$', back: 'Solve $p(D)z = F_0e^{i\omega t}$: $z_p = \dfrac{F_0e^{i\omega t}}{p(i\omega)}$, then $x_p = \operatorname{Re}z_p$ (use $\operatorname{Im}$ for a sine input).', topic: Complex gain}
+- {front: 'Gain and phase lag of $p(D)x = F_0\cos\omega t$', back: '$g = 1/|p(i\omega)|$, $\phi = \arg p(i\omega)$; steady state $gF_0\cos(\omega t - \phi)$.', topic: Complex gain}
+- {front: 'Phase lag of a damped spring driven at $\omega$', back: '$\tan\phi = \dfrac{\gamma\omega}{k - m\omega^2}$ with $0 < \phi < \pi$: near 0 for slow forcing, $\pi/2$ at $\omega_0$, near $\pi$ for fast forcing.', topic: Complex gain}
+# Nonhomogeneous systems and the matrix exponential
+- {front: 'General solution of $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}(t)$', back: '$\mathbf{x} = \mathbf{x}_c + \mathbf{x}_p$: the homogeneous general solution $\Psi(t)\mathbf{c}$ plus any one particular solution.', topic: Nonhomogeneous systems}
+- {front: 'Particular solution for constant forcing $\mathbf{x}'' = A\mathbf{x} + \mathbf{b}$', back: 'The equilibrium $\mathbf{a} = -A^{-1}\mathbf{b}$ (needs $\det A \ne 0$).', topic: Nonhomogeneous systems}
+- {front: 'Particular solution for $\mathbf{x}'' = A\mathbf{x} + e^{rt}\mathbf{b}$', back: '$\mathbf{x}_p = e^{rt}\mathbf{a}$ with $(rI - A)\mathbf{a} = \mathbf{b}$, if $r$ is not an eigenvalue of $A$.', topic: Nonhomogeneous systems}
+- {front: 'Variation of parameters for systems', back: '$\mathbf{x}_p = \Psi(t)\displaystyle\int\Psi(t)^{-1}\mathbf{g}(t)\,dt$, from $\mathbf{x} = \Psi\mathbf{u}$ and $\Psi\mathbf{u}'' = \mathbf{g}$.', topic: Nonhomogeneous systems}
+- {front: 'Matrix exponential $e^{At}$', back: '$I + At + \frac{A^2t^2}{2!} + \cdots$; equals $\Psi(t)\Psi(0)^{-1}$ for any fundamental matrix; $\mathbf{x} = e^{At}\mathbf{x}_0$ solves the IVP.', topic: Matrix exponential}
+- {front: '$e^{At}$ when $A = \lambda I + N$ with $N^2 = 0$', back: '$e^{At} = e^{\lambda t}(I + Nt)$; e.g. $\begin{bmatrix} 2 & 1 \\ 0 & 2 \end{bmatrix}$ gives $e^{2t}\begin{bmatrix} 1 & t \\ 0 & 1 \end{bmatrix}$.', topic: Matrix exponential}
+# Heat boundary conditions
+- {front: 'Insulated end of a rod', back: 'No heat flux: $u_x = 0$ there (a Neumann condition). A fixed temperature $u = T$ is a Dirichlet condition.', topic: Heat boundary conditions}
+- {front: 'Heat equation with both ends insulated', back: '$u = \frac{a_0}{2} + \sum a_ne^{-\alpha^2(n\pi/L)^2t}\cos\frac{n\pi x}{L}$, $a_n$ from the cosine series of $u(x, 0)$; $u \to$ the average of $u(x, 0)$.', topic: Heat boundary conditions}
+- {front: 'Heat equation with ends held at $T_1$ and $T_2$', back: 'Write $u = v + w$ with $v = T_1 + (T_2 - T_1)x/L$; $w$ has zero ends and $w(x, 0) = f - v$ (sine series). $u \to v$.', topic: Heat boundary conditions}
+- {front: 'Eigenfunctions for $u(0) = 0$ and an insulated end at $L$', back: '$\sin\dfrac{(2n - 1)\pi x}{2L}$, $n = 1, 2, \dots$', topic: Heat boundary conditions}

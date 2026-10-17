@@ -604,3 +604,51 @@
 - term: Airy's equation
   definition: 'The equation $y'''' - xy = 0$, whose solutions are found as power series.'
   topic: Series solutions
+- term: complexified equation
+  definition: 'The equation $p(D)z = F_0e^{i\omega t}$ obtained by replacing a real input $F_0\cos\omega t$ (or $F_0\sin\omega t$) with a complex exponential.'
+  topic: Complex gain
+- term: exponential response formula
+  aliases: [ERF]
+  definition: 'For $p(D)x = Fe^{rt}$ with $p(r) \ne 0$, a particular solution is $x_p = \dfrac{Fe^{rt}}{p(r)}$; if $r$ is a simple root, $x_p = \dfrac{Fte^{rt}}{p''(r)}$.'
+  topic: Complex gain
+- term: complex replacement
+  definition: 'Solving a real equation with a sinusoidal input by solving the complexified equation and taking the real part (cosine input) or imaginary part (sine input) of its solution.'
+  topic: Complex gain
+- term: gain
+  definition: 'For $p(D)x = F_0\cos\omega t$, the ratio of output amplitude to input amplitude: $g(\omega) = 1/|p(i\omega)|$.'
+  topic: Complex gain
+- term: phase lag
+  definition: 'The angle $\phi = \arg p(i\omega)$ by which the steady-state response $gF_0\cos(\omega t - \phi)$ trails the input $F_0\cos\omega t$; the time lag is $\phi/\omega$.'
+  topic: Complex gain
+- term: complex gain
+  definition: 'The complex number $1/p(i\omega) = ge^{-i\phi}$, whose modulus is the gain and whose angle is minus the phase lag.'
+  topic: Complex gain
+- term: forcing vector
+  definition: 'The term $\mathbf{g}(t)$ in a nonhomogeneous linear system $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}(t)$.'
+  topic: Nonhomogeneous systems
+- term: fundamental matrix
+  aliases: [fundamental matrices]
+  definition: 'A matrix $\Psi(t)$ whose columns are independent solutions of $\mathbf{x}'' = A\mathbf{x}$; it satisfies $\Psi'' = A\Psi$, and the general solution is $\Psi(t)\mathbf{c}$.'
+  topic: Matrix exponential
+- term: matrix exponential
+  definition: 'The matrix $e^{At} = I + At + \frac{A^2t^2}{2!} + \cdots$; it is the fundamental matrix equal to $I$ at $t = 0$, so $\mathbf{x} = e^{At}\mathbf{x}_0$ solves $\mathbf{x}'' = A\mathbf{x}$, $\mathbf{x}(0) = \mathbf{x}_0$.'
+  topic: Matrix exponential
+- term: variation of constants formula
+  definition: 'The solution $\mathbf{x}(t) = e^{At}\mathbf{x}_0 + \int_0^te^{A(t - s)}\mathbf{g}(s)\,ds$ of $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}$, $\mathbf{x}(0) = \mathbf{x}_0$.'
+  topic: Matrix exponential
+- term: Dirichlet boundary condition
+  aliases: [Dirichlet boundary conditions, Dirichlet condition]
+  definition: 'A boundary condition that prescribes the value of the solution at the boundary, such as $u(0, t) = T_1$.'
+  topic: Heat boundary conditions
+- term: Neumann boundary condition
+  aliases: [Neumann boundary conditions, Neumann condition]
+  definition: 'A boundary condition that prescribes the derivative (the flux) at the boundary, such as $u_x(L, t) = 0$ for an insulated end.'
+  topic: Heat boundary conditions
+- term: insulated end
+  aliases: [insulated ends]
+  definition: 'An end of a rod through which no heat flows; since the flux is proportional to $-u_x$, the condition is $u_x = 0$ there.'
+  topic: Heat boundary conditions
+- term: equilibrium temperature
+  aliases: [equilibrium temperature distribution, steady-state temperature]
+  definition: 'A time-independent solution $v(x)$ of the heat equation with the given boundary conditions; with ends held at $T_1$ and $T_2$ it is the line $v = T_1 + (T_2 - T_1)x/L$.'
+  topic: Heat boundary conditions

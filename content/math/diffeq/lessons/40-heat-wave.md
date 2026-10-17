@@ -9,7 +9,7 @@ refs: [de-ref-solutions]
 ---
 ## From ODEs to PDEs
 
-The course ends where Fourier began: with **partial differential equations** for
+The course closes where Fourier began: with **partial differential equations** for
 temperature in a rod and vibrations of a string. The technique, **separation of variables**,
 reduces each PDE to ODEs you already know how to solve, and Fourier series stitch the pieces
 together to match the initial data. Everything in this course meets here: linear equations,
@@ -82,7 +82,7 @@ A rod of length $L = 1$ with $\alpha^2 = 0.1$ starts at $u(x, 0) = 3\sin\pi x - 
 
 ### Example 2
 
-Same rod, initial temperature $u(x, 0) = 50$ (uniform). From Lesson 37, Example 3, the sine
+Same rod, initial temperature $u(x, 0) = 50$ (uniform). From Lesson 39, Example 3, the sine
 series of a constant is $\dfrac{4\cdot50}{\pi}\displaystyle\sum_{n\text{ odd}}\frac1n\sin n\pi x$. So
 
 $$u(x, t) = \frac{200}{\pi}\sum_{n\text{ odd}}\frac1ne^{-0.1n^2\pi^2t}\sin n\pi x.$$
@@ -134,7 +134,7 @@ A string with $L = 2$, $a = 3$ is released from rest ($g = 0$) with $f(x) = 0.1\
 |---|---|---|
 | time factor | $e^{-\alpha^2(n\pi/L)^2t}$ (decays) | $\cos$, $\sin$ of $\frac{n\pi at}{L}$ (oscillates) |
 | initial data | $u(x, 0)$ | $u(x, 0)$ and $u_t(x, 0)$ |
-| long run | $u \to 0$ (with zero-temperature ends) | vibrates forever (no damping) |
+| long run | $u \to 0$ (with zero-temperature ends; Lesson 41 changes the ends) | vibrates forever (no damping) |
 | high modes | die fastest; smooths | persist; corners stay sharp |
 
 ## Common mistakes
@@ -151,3 +151,5 @@ A string with $L = 2$, $a = 3$ is released from rest ($g = 0$) with $f(x) = 0.1\
 - Heat: $u = \sum b_ne^{-\alpha^2(n\pi/L)^2t}\sin\frac{n\pi x}{L}$, $b_n$ = sine coefficients of $u(x, 0)$.
 - Wave: $u = \sum\big(b_n\cos\frac{n\pi at}{L} + c_n\sin\frac{n\pi at}{L}\big)\sin\frac{n\pi x}{L}$; normal
   modes with frequencies $\frac{na}{2L}$.
+- Other ends (insulated, or held at nonzero temperatures) change the eigenfunctions; that is
+  the next lesson.

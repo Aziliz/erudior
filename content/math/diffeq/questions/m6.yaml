@@ -374,7 +374,142 @@
   answer: 0
   explanation: |-
     Only the steady-state particular solution survives, and it oscillates like the forcing $\cos\omega t$.
+- id: de-q-2512
+  lesson: de-forced-vibrations
+  module_quiz: true
+  topic: Forced vibrations
+  stem: 'For $u'''' + 2u'' + 10u = F_0\cos\omega t$, at what forcing frequency is the steady-state amplitude largest?'
+  choices: ['$\omega = \sqrt{10} \approx 3.16$', '$\omega = 2\sqrt2 \approx 2.83$', '$\omega = \sqrt6 \approx 2.45$', '$\omega = 3$']
+  answer: 1
+  explanation: |-
+    $\omega_{\max}^2 = \omega_0^2 - \dfrac{\gamma^2}{2m^2} = 10 - \dfrac42 = 8$, so $\omega_{\max} = 2\sqrt2$. $\sqrt{10}$ is the natural frequency $\omega_0$, where the peak would sit without damping; $\sqrt6$ subtracts $\gamma^2/m^2$ (missing the factor 2); 3 is the quasi-frequency $\sqrt{\omega_0^2 - \gamma^2/(4m^2)}$ of the free damped motion, not the peak of the forced response.
+- id: de-q-2513
+  lesson: de-forced-vibrations
+  topic: Forced vibrations
+  stem: 'A forced oscillator has $m = 2$ and $k = 9$. Which damping constant gives an amplitude curve with no practical-resonance peak at all?'
+  choices: ['$\gamma = 5$', '$\gamma = 3$', '$\gamma = 1$', '$\gamma = 7$']
+  answer: 3
+  explanation: |-
+    A peak exists only when $\gamma^2 < 2mk = 36$, that is $\gamma < 6$. With $\gamma = 7$ the amplitude just decreases as $\omega$ grows, even though the system is still underdamped ($\gamma < 2\sqrt{km} \approx 8.49$). The values 5, 3 and 1 all satisfy $\gamma^2 < 36$ and do have a peak; picking one of them confuses the no-peak threshold with the onset of heavy damping in general.
+- id: de-q-2514
+  lesson: de-forced-vibrations
+  topic: Forced vibrations
+  stem: 'As the damping $\gamma$ increases (with $\gamma^2 < 2mk$ throughout), the practical-resonance peak'
+  choices: ['moves to lower frequencies and gets lower', 'stays at $\omega_0$ and gets lower', 'moves to higher frequencies and gets lower', 'moves to lower frequencies and gets taller']
+  answer: 0
+  explanation: |-
+    $\omega_{\max}^2 = \omega_0^2 - \gamma^2/(2m^2)$ shrinks as $\gamma$ grows, and the peak height $F_0/\big(\gamma\sqrt{\omega_0^2 - \gamma^2/(4m^2)}\big)$ falls. The peak sits exactly at $\omega_0$ only in the undamped limit; it never moves above $\omega_0$; more damping always lowers the amplitude rather than raising it.
+- id: de-q-2515
+  lesson: de-forced-vibrations
+  module_quiz: true
+  topic: Forced vibrations
+  stem: 'For $u'''' + 2u'' + 10u = 20\cos\omega t$, what is the largest possible steady-state amplitude (over all $\omega$)?'
+  choices: ['$\sqrt{10} \approx 3.16$', '2', '$\tfrac{10}{3}$', '$\tfrac{5}{\sqrt2} \approx 3.54$']
+  answer: 2
+  explanation: |-
+    At $\omega_{\max}^2 = 10 - 2 = 8$: $k - m\omega^2 = 2$ and $\gamma^2\omega^2 = 32$, so $R = \dfrac{20}{\sqrt{4 + 32}} = \dfrac{20}{6} = \dfrac{10}{3}$. $\sqrt{10} = F_0/(\gamma\omega_0)$ is the amplitude at $\omega_0$, just below the true peak; 2 is the static response $F_0/k$ at $\omega = 0$; $\tfrac{5}{\sqrt2} = F_0/(\gamma\omega_{\max})$ drops the $(k - m\omega^2)^2$ term.
 # Lesson 26
+- id: de-q-cg01
+  lesson: de-complex-gain
+  module_quiz: true
+  topic: Complex gain
+  stem: 'For $p(D)x = x'''' + 3x'' + 2x$, what is $p(D)e^{2t}$?'
+  choices: ['$9e^{2t}$', '$12e^{2t}$', '$6e^{2t}$', '$4e^{2t}$']
+  answer: 1
+  explanation: |-
+    $p(D)e^{rt} = p(r)e^{rt}$ with $p(r) = r^2 + 3r + 2$, and $p(2) = 4 + 6 + 2 = 12$. Writing 3 instead of $3r$ for the $x'$ term gives 9; dropping the $x'$ term gives 6; keeping only $r^2$ gives 4.
+- id: de-q-cg02
+  lesson: de-complex-gain
+  module_quiz: true
+  topic: Complex gain
+  stem: 'Use complex replacement to find the steady-state solution of $x'''' + 4x'' + 3x = 10\cos t$.'
+  choices: ['$\cos t - 2\sin t$', '$\cos t$', '$2\cos t + \sin t$', '$\cos t + 2\sin t$']
+  answer: 3
+  explanation: |-
+    $p(i) = -1 + 4i + 3 = 2 + 4i$, so $z_p = \dfrac{10}{2 + 4i}e^{it} = \dfrac{10(2 - 4i)}{20}e^{it} = (1 - 2i)(\cos t + i\sin t)$, whose real part is $\cos t + 2\sin t$. Writing $2 + 4i$ instead of its conjugate $2 - 4i$ in the numerator gives $1 + 2i$ and the minus sign; taking the real part of $\tfrac{10}{2 + 4i}$ before multiplying by $e^{it}$ gives $\cos t$ alone; $2\cos t + \sin t$ swaps the coefficients.
+- id: de-q-cg03
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'For $x'''' + x'' + 4x = F_0\cos\omega t$, find the gain $g$ and phase lag $\phi$ at $\omega = 2$.'
+  choices: ['$g = \tfrac12$, $\phi = \tfrac\pi2$', '$g = \tfrac12$, $\phi = -\tfrac\pi2$', '$g = 2$, $\phi = \tfrac\pi2$', '$g = \tfrac{1}{10}$, $\phi = 0$']
+  answer: 0
+  explanation: |-
+    $p(2i) = -4 + 2i + 4 = 2i$, so $|p(2i)| = 2$ and $\arg p(2i) = \tfrac\pi2$. The gain is $1/|p(2i)| = \tfrac12$ and the lag is $\tfrac\pi2$ (here $\omega = \omega_0$). A lag of $-\tfrac\pi2$ is the angle of the complex gain $1/p$, not of $p$; $g = 2$ is $|p|$ instead of $1/|p|$; $\tfrac1{10}$ comes from evaluating $p(2)$ instead of $p(2i)$.
+- id: de-q-cg04
+  lesson: de-complex-gain
+  module_quiz: true
+  topic: Complex gain
+  stem: 'For $x'''' + x'' + x = \cos 2t$, what is the phase lag $\phi$ of the steady-state response (in radians)?'
+  choices: ['$-\arctan\tfrac23 \approx -0.59$', '$\arctan\tfrac23 \approx 0.59$', '$\pi - \arctan\tfrac23 \approx 2.55$', '$\tfrac\pi2 \approx 1.57$']
+  answer: 2
+  explanation: |-
+    $p(2i) = -4 + 2i + 1 = -3 + 2i$ lies in the second quadrant, so $\phi = \pi - \arctan\tfrac23 \approx 2.55$: forcing above $\omega_0 = 1$ gives a lag beyond $\tfrac\pi2$. A calculator's $\arctan(2/(-3))$ gives $-0.59$ (wrong quadrant); $0.59$ ignores the negative real part; $\tfrac\pi2$ is the lag only at $\omega = \omega_0$.
+- id: de-q-cg05
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'Why is $\operatorname{Re}z$ a solution of $p(D)x = F_0\cos\omega t$ when $z$ solves $p(D)z = F_0e^{i\omega t}$?'
+  choices: ['$p(i\omega)$ is always a real number', 'The imaginary part of $z$ is always zero', '$e^{i\omega t}$ is real for every $t$', '$p$ has real coefficients, so $p(D)(\operatorname{Re}z) = \operatorname{Re}\big(p(D)z\big)$']
+  answer: 3
+  explanation: |-
+    Differentiation and multiplication by real constants act separately on real and imaginary parts, so $p(D)(\operatorname{Re}z) = \operatorname{Re}(F_0e^{i\omega t}) = F_0\cos\omega t$. $p(i\omega)$ is generally complex (that is where the phase comes from), $z$ usually has a nonzero imaginary part, and $e^{i\omega t}$ is not real except at special times.
+- id: de-q-cg06
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'Find the steady-state solution of $x'' + x = \sin t$.'
+  choices: ['$\tfrac12(\sin t + \cos t)$', '$\tfrac12(\sin t - \cos t)$', '$\tfrac12(\cos t - \sin t)$', '$\tfrac12\sin t$']
+  answer: 1
+  explanation: |-
+    $\sin t = \operatorname{Im}e^{it}$ and $p(i) = 1 + i$, so $z_p = \dfrac{1 - i}{2}(\cos t + i\sin t)$, whose imaginary part is $\tfrac12(\sin t - \cos t)$. The real part, $\tfrac12(\sin t + \cos t)$, answers a cosine input; $\tfrac12(\cos t - \sin t)$ has the sign flipped; $\tfrac12\sin t$ ignores the phase lag.
+- id: de-q-cg07
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'Write the steady-state solution of $x'''' + 4x'' + 4x = 15\cos t$ as $R\cos(t - \phi)$.'
+  choices: ['$3\cos(t + 0.927)$', '$5\cos t$', '$3\cos(t - 0.927)$', '$3\cos(t - 0.644)$']
+  answer: 2
+  explanation: |-
+    $p(i) = -1 + 4i + 4 = 3 + 4i$, with modulus 5 and angle $\arctan\tfrac43 \approx 0.927$. So $R = 15/5 = 3$ and the response lags by 0.927. $\cos(t + 0.927)$ is a lead, not a lag; $5\cos t$ ignores the damping term ($15/3$); $0.644 = \arctan\tfrac34$ inverts the ratio.
+- id: de-q-cg08
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'To find a particular solution of $p(D)y = e^{-2t}\sin 3t$ by complex replacement, you solve $p(D)z = e^{rt}$ and then take'
+  choices: ['$r = -2 + 3i$, the imaginary part', '$r = -2 + 3i$, the real part', '$r = 3 - 2i$, the imaginary part', '$r = 3i$, the imaginary part, then multiply by $e^{-2t}$']
+  answer: 0
+  explanation: |-
+    $e^{(-2 + 3i)t} = e^{-2t}(\cos 3t + i\sin 3t)$, whose imaginary part is the input, so $z_p = e^{(-2 + 3i)t}/p(-2 + 3i)$ and $y_p = \operatorname{Im}z_p$. The real part answers $e^{-2t}\cos 3t$; $3 - 2i$ swaps the roles of growth rate and frequency; multiplying a $3i$ response by $e^{-2t}$ afterward does not solve the equation, because $p$ must be evaluated at $-2 + 3i$.
+- id: de-q-cg09
+  lesson: de-complex-gain
+  module_quiz: true
+  topic: Complex gain
+  stem: 'For $x'''' + 9x = 4\cos 3t$, $p(3i) = 0$. Using $z_p = \dfrac{F_0te^{i\omega t}}{p''(i\omega)}$, what is $x_p$?'
+  choices: ['$\tfrac23t\sin 3t$', '$\tfrac23t\cos 3t$', '$-\tfrac23t\sin 3t$', '$\tfrac49\cos 3t$']
+  answer: 0
+  explanation: |-
+    $p'(r) = 2r$, so $p'(3i) = 6i$ and $z_p = \dfrac{4t}{6i}e^{3it} = -\tfrac23it(\cos 3t + i\sin 3t)$. The real part is $\tfrac23t\sin 3t$. Treating $\frac1i$ as $i$ gives the minus sign; $\tfrac23t\cos 3t$ forgets that dividing by $i$ turns cosine into sine; $\tfrac49\cos 3t$ divides by $k = 9$ as if there were no resonance.
+- id: de-q-cg10
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'What is the complex gain $1/p(i\omega)$ of $x'' + 3x = F_0\cos 4t$?'
+  choices: ['$\dfrac{3 + 4i}{25}$', '$\dfrac17$', '$\dfrac{3 - 4i}{25}$', '$\dfrac{3 - 4i}{5}$']
+  answer: 2
+  explanation: |-
+    $p(4i) = 3 + 4i$, and $\dfrac{1}{3 + 4i} = \dfrac{3 - 4i}{(3 + 4i)(3 - 4i)} = \dfrac{3 - 4i}{25}$. Keeping $3 + 4i$ on top forgets the conjugate; $\tfrac17$ evaluates $p(4)$; dividing by 5 instead of 25 uses $|p|$ rather than $|p|^2$.
+- id: de-q-cg11
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'Very slow forcing ($\omega$ near 0) of $mx'''' + \gamma x'' + kx = F_0\cos\omega t$ gives a steady state close to'
+  choices: ['$\dfrac{F_0}{\gamma\omega}\sin\omega t$, a quarter cycle behind', '$\dfrac{F_0}{k}\cos\omega t$, nearly in phase with the force', 'almost no motion, half a cycle behind', '$\dfrac{F_0}{m}\cos\omega t$, nearly in phase']
+  answer: 1
+  explanation: |-
+    As $\omega \to 0$, $p(i\omega) = (k - m\omega^2) + i\gamma\omega \to k$, so the gain approaches $1/k$ and the lag approaches 0: the spring just follows the slowly changing force. The quarter-cycle lag happens at $\omega_0$; almost no motion half a cycle behind is the fast-forcing limit; $F_0/m$ uses the wrong coefficient of $p$.
+- id: de-q-cg12
+  lesson: de-complex-gain
+  topic: Complex gain
+  stem: 'For $x'' + 2x = \cos(2\sqrt3\,t)$, by how much time does the response lag behind the input?'
+  choices: ['$\dfrac\pi3 \approx 1.047$', '$\dfrac{\pi}{12\sqrt3} \approx 0.151$', '$\dfrac{2\pi}{\sqrt3} \approx 3.628$', '$\dfrac{\pi}{6\sqrt3} \approx 0.302$']
+  answer: 3
+  explanation: |-
+    $p(2\sqrt3\,i) = 2 + 2\sqrt3\,i$ has angle $\arctan\sqrt3 = \tfrac\pi3$, so the time lag is $\phi/\omega = \dfrac{\pi/3}{2\sqrt3} = \dfrac{\pi}{6\sqrt3}$. $\tfrac\pi3$ is the phase lag in radians, not time; $0.151$ uses $\arctan\tfrac{1}{\sqrt3} = \tfrac\pi6$ (ratio inverted); $3.628$ multiplies by $\omega$ instead of dividing.
+# Lesson 27
 - id: de-q-2601
   lesson: de-higher-order
   module_quiz: true

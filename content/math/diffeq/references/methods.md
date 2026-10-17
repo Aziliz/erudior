@@ -26,6 +26,7 @@ title: Method chooser
 | One solution $y_1$ known | Reduction of order: $y_2 = y_1\int \frac{e^{-\int p}}{y_1^2}$ |
 | Constant coefficients, $g$ = polynomial, $e^{\alpha t}$, $\sin$, $\cos$ (products, sums) | Undetermined coefficients (+ modification rule) |
 | Any continuous $g$, or variable coefficients with $y_1, y_2$ known | Variation of parameters |
+| Constant coefficients, sinusoidal forcing; want amplitude and phase | Complex replacement: $F_0e^{i\omega t}/p(i\omega)$ |
 | Piecewise or impulsive forcing; IVP in one pass | Laplace transform |
 | Variable coefficients, no closed form | Power series near an ordinary point |
 
@@ -36,6 +37,8 @@ title: Method chooser
 | $\mathbf{x}' = A\mathbf{x}$, constant $A$ | Eigenvalues and eigenvectors |
 | Classify the origin quickly | Trace $T$ and determinant $D$ |
 | Nonlinear $x' = F$, $y' = G$ | Equilibria + Jacobian linearization |
+| $\mathbf{x}' = A\mathbf{x} + \mathbf{g}$, $\mathbf{g}$ constant, exponential, polynomial, sinusoidal | Undetermined coefficients with vector unknowns |
+| $\mathbf{x}' = A\mathbf{x} + \mathbf{g}$, any continuous $\mathbf{g}$ | Variation of parameters: $\mathbf{x}_p = \Psi\int\Psi^{-1}\mathbf{g}\,dt$ |
 | Linear system with forcing or steps | Laplace transform of each equation |
 
 ## Checks that catch most errors

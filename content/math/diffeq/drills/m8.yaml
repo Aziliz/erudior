@@ -151,3 +151,75 @@
     - {name: per, label: 'Period', tolerance: 0.006}
   solution: |-
     $x' = x({a} - {al}y) = 0$ with $x \ne 0$ gives $y^* = {a}/{al} =$ **{ys:num2}**; $y' = y(-{c} + {ga:sig3}x) = 0$ gives $x^* = {c}/{ga:sig3} =$ **{xs:num2}**. The linearization there has eigenvalues $\pm i\sqrt{ac} = \pm i\sqrt{{a}\cdot{c}}$, so the period is $2\pi/\sqrt{ac} \approx$ **{per:num2}**.
+- id: de-sys-const-forcing
+  title: Equilibrium of a forced system
+  topic: Nonhomogeneous systems
+  vars:
+    aa: {min: -4, max: 4}
+    bb: {min: -4, max: 4}
+    cc: {min: -4, max: 4}
+    dd: {min: -4, max: 4}
+    p: {min: -6, max: 6}
+    q: {min: -6, max: 6}
+  where: ['aa*dd - bb*cc != 0', 'aa != 0', 'bb != 0', 'cc != 0', 'dd != 0', 'p != 0', 'q != 0']
+  calc:
+    det: aa*dd - bb*cc
+    x1: -(dd*p - bb*q)/det
+    x2: -(aa*q - cc*p)/det
+  prompt: 'Find the constant particular solution $\mathbf{x}_p = (a_1, a_2)$ of $\mathbf{x}'' = \begin{bmatrix} {aa} & {bb} \\ {cc} & {dd} \end{bmatrix}\mathbf{x} + \begin{bmatrix} {p} \\ {q} \end{bmatrix}$. Exact fractions.'
+  answers:
+    - {name: x1, label: '$a_1 =$', kind: fraction, lowestTerms: true}
+    - {name: x2, label: '$a_2 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    A constant solution has $\mathbf{x}' = \mathbf{0}$, so $A\mathbf{a} = -\mathbf{b}$: ${aa:coef}a_1 {bb:signedcoef}a_2 = -({p})$ and ${cc:coef}a_1 {dd:signedcoef}a_2 = -({q})$. With $\det A = {det}$, Cramer's rule (or $\mathbf{a} = -A^{-1}\mathbf{b}$) gives $a_1 = -\dfrac{({dd})({p}) - ({bb})({q})}{{det}} =$ **{x1:frac}** and $a_2 = -\dfrac{({aa})({q}) - ({cc})({p})}{{det}} =$ **{x2:frac}**.
+- id: de-sys-exp-forcing
+  title: Exponential forcing of a system
+  topic: Nonhomogeneous systems
+  vars:
+    aa: {min: -3, max: 3}
+    bb: {min: -3, max: 3}
+    cc: {min: -3, max: 3}
+    dd: {min: -3, max: 3}
+    r: {choices: [-2, -1, 1, 2, 3]}
+    p: {min: -4, max: 4}
+    q: {min: -4, max: 4}
+  where: ['(r - aa)*(r - dd) - bb*cc != 0', 'bb != 0', 'cc != 0', 'p != 0 or q != 0']
+  calc:
+    m11: r - aa
+    m22: r - dd
+    nb: -bb
+    nc: -cc
+    det: (r - aa)*(r - dd) - bb*cc
+    x1: ((r - dd)*p + bb*q)/det
+    x2: (cc*p + (r - aa)*q)/det
+  prompt: 'Find the particular solution $\mathbf{x}_p = e^{{r:coef}t}(a_1, a_2)$ of $\mathbf{x}'' = \begin{bmatrix} {aa} & {bb} \\ {cc} & {dd} \end{bmatrix}\mathbf{x} + e^{{r:coef}t}\begin{bmatrix} {p} \\ {q} \end{bmatrix}$. (The rate $r = {r}$ is not an eigenvalue of the matrix.) Exact fractions.'
+  answers:
+    - {name: x1, label: '$a_1 =$', kind: fraction, lowestTerms: true}
+    - {name: x2, label: '$a_2 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Substituting $e^{rt}\mathbf{a}$ gives $(rI - A)\mathbf{a} = \mathbf{b}$ with $rI - A = \begin{bmatrix} {m11} & {nb} \\ {nc} & {m22} \end{bmatrix}$, whose determinant is ${det}$. Cramer's rule: $a_1 = \dfrac{({m22})({p}) - ({nb})({q})}{{det}} =$ **{x1:frac}** and $a_2 = \dfrac{({m11})({q}) - ({nc})({p})}{{det}} =$ **{x2:frac}**.
+- id: de-matrix-exp
+  title: Matrix exponential from eigenvalues
+  topic: Matrix exponential
+  vars:
+    l1: {min: -3, max: 3}
+    l2: {min: -3, max: 3}
+    p: {min: -2, max: 1}
+  where: ['l1 < l2', 'l1 != 0', 'l2 != 0', 'p != 0', 'p != -1']
+  calc:
+    q: p + 1
+    np: -p
+    pq: p*q
+    npq: -p*q
+    a11: l1*q - l2*p
+    a12: l2 - l1
+    a21: p*q*(l1 - l2)
+    a22: q*l2 - p*l1
+  prompt: 'The matrix $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22} \end{bmatrix}$ has eigenvalues ${l1}$ with eigenvector $(1, {p})$ and ${l2}$ with eigenvector $(1, {q})$. Find the four entries of $e^{At}$. (Type products with a star, like 2*e^(3t).)'
+  answers:
+    - {kind: expression, expression: 'q*exp(l1*t) - p*exp(l2*t)', variables: [t], label: 'Row 1, column 1:', show: '${q:coef}e^{{l1:coef}t} {np:signedcoef}e^{{l2:coef}t}$'}
+    - {kind: expression, expression: '-exp(l1*t) + exp(l2*t)', variables: [t], label: 'Row 1, column 2:', show: '$-e^{{l1:coef}t} + e^{{l2:coef}t}$'}
+    - {kind: expression, expression: 'p*q*exp(l1*t) - p*q*exp(l2*t)', variables: [t], label: 'Row 2, column 1:', show: '${pq:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t}$'}
+    - {kind: expression, expression: '-p*exp(l1*t) + q*exp(l2*t)', variables: [t], label: 'Row 2, column 2:', show: '${np:coef}e^{{l1:coef}t} {q:signedcoef}e^{{l2:coef}t}$'}
+  solution: |-
+    Take $\Psi(t) = \begin{bmatrix} e^{{l1:coef}t} & e^{{l2:coef}t} \\ {p:coef}e^{{l1:coef}t} & {q:coef}e^{{l2:coef}t} \end{bmatrix}$. Then $\Psi(0) = \begin{bmatrix} 1 & 1 \\ {p} & {q} \end{bmatrix}$ has determinant ${q} - ({p}) = 1$, so $\Psi(0)^{-1} = \begin{bmatrix} {q} & -1 \\ {np} & 1 \end{bmatrix}$. Multiplying, $e^{At} = \Psi(t)\Psi(0)^{-1} = \begin{bmatrix} {q:coef}e^{{l1:coef}t} {np:signedcoef}e^{{l2:coef}t} & -e^{{l1:coef}t} + e^{{l2:coef}t} \\ {pq:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t} & {np:coef}e^{{l1:coef}t} {q:signedcoef}e^{{l2:coef}t} \end{bmatrix}$. Check: at $t = 0$ it is $I$. So the entries are **${q:coef}e^{{l1:coef}t} {np:signedcoef}e^{{l2:coef}t}$**, **$-e^{{l1:coef}t} + e^{{l2:coef}t}$**, **${pq:coef}e^{{l1:coef}t} {npq:signedcoef}e^{{l2:coef}t}$**, **${np:coef}e^{{l1:coef}t} {q:signedcoef}e^{{l2:coef}t}$**.

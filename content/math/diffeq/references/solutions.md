@@ -40,8 +40,18 @@ Variation of parameters: $Y = -y_1\int\frac{y_2g}{W}dt + y_2\int\frac{y_1g}{W}dt
 | Critical damping | $\gamma_c = 2\sqrt{km}$ |
 | Quasi-frequency | $\mu = \sqrt{4km - \gamma^2}/(2m)$ |
 | Steady-state amplitude | $F_0/\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}$ |
+| Practical-resonance peak ($\gamma^2 < 2mk$) | $\omega_{\max}^2 = \omega_0^2 - \gamma^2/(2m^2)$ |
 | Resonance ($\gamma = 0$, $\omega = \omega_0$) | $\frac{F_0}{2m\omega_0}t\sin\omega_0t$ |
 | RLC analogy | $m \to L$, $\gamma \to R$, $k \to 1/C$ |
+
+## Sinusoidal response with complex exponentials: $p(D)x = F_0\cos\omega t$
+
+| Quantity | Formula |
+|---|---|
+| Exponential response | $z_p = F_0e^{i\omega t}/p(i\omega)$, $x_p = \operatorname{Re}z_p$ ($\operatorname{Im}$ for $\sin$) |
+| Resonant case $p(i\omega) = 0$ | $z_p = F_0te^{i\omega t}/p'(i\omega)$ |
+| Gain, phase lag | $g = 1/\lvert p(i\omega)\rvert$, $\phi = \arg p(i\omega)$; $x_p = gF_0\cos(\omega t - \phi)$ |
+| Spring | $\tan\phi = \gamma\omega/(k - m\omega^2)$, $0 < \phi < \pi$ |
 
 ## Linear systems $\mathbf{x}' = A\mathbf{x}$ ($2 \times 2$)
 
@@ -55,6 +65,8 @@ Eigenvalues from $\lambda^2 - T\lambda + D = 0$, $T = \operatorname{tr}A$, $D = 
 | $\alpha \pm i\beta$, $\mathbf{v} = \mathbf{a} + i\mathbf{b}$ | $e^{\alpha t}\big[c_1(\mathbf{a}\cos\beta t - \mathbf{b}\sin\beta t) + c_2(\mathbf{a}\sin\beta t + \mathbf{b}\cos\beta t)\big]$ | spiral sink ($\alpha < 0$), source ($\alpha > 0$), center ($\alpha = 0$) |
 | repeated $\lambda$, one eigenvector | $c_1e^{\lambda t}\mathbf{v} + c_2e^{\lambda t}(t\mathbf{v} + \mathbf{w})$, $(A - \lambda I)\mathbf{w} = \mathbf{v}$ | improper node |
 
+Forced systems $\mathbf{x}' = A\mathbf{x} + \mathbf{g}$: $\mathbf{x} = \Psi(t)\mathbf{c} + \mathbf{x}_p$. Constant $\mathbf{g} = \mathbf{b}$: $\mathbf{x}_p = -A^{-1}\mathbf{b}$. $\mathbf{g} = e^{rt}\mathbf{b}$ ($r$ not an eigenvalue): $\mathbf{x}_p = e^{rt}\mathbf{a}$, $(rI - A)\mathbf{a} = \mathbf{b}$. Variation of parameters: $\mathbf{x}_p = \Psi\int\Psi^{-1}\mathbf{g}\,dt$. Matrix exponential: $e^{At} = \Psi(t)\Psi(0)^{-1}$, $\mathbf{x} = e^{At}\mathbf{x}_0 + \int_0^te^{A(t - s)}\mathbf{g}(s)\,ds$.
+
 Asymptotically stable exactly when $T < 0$ and $D > 0$. Nonlinear: use $J = \begin{bmatrix} F_x & F_y \\ G_x & G_y \end{bmatrix}$ at each equilibrium.
 
 ## Series, Fourier and PDEs
@@ -65,4 +77,7 @@ Asymptotically stable exactly when $T < 0$ and $D > 0$. Nonlinear: use $J = \beg
 | Fourier coefficients (period $2L$) | $a_n = \frac1L\int_{-L}^Lf\cos\frac{n\pi x}{L}$, $b_n = \frac1L\int_{-L}^Lf\sin\frac{n\pi x}{L}$ |
 | Half-range sine series | $b_n = \frac2L\int_0^Lf\sin\frac{n\pi x}{L}\,dx$ |
 | Heat $u_t = \alpha^2u_{xx}$, zero ends | $u = \sum b_ne^{-\alpha^2(n\pi/L)^2t}\sin\frac{n\pi x}{L}$ |
+| Heat, insulated ends ($u_x = 0$) | $u = \frac{a_0}{2} + \sum a_ne^{-\alpha^2(n\pi/L)^2t}\cos\frac{n\pi x}{L}$; $u \to$ average of $u(x, 0)$ |
+| Heat, ends at $T_1$, $T_2$ | $u = T_1 + (T_2 - T_1)\frac xL + w$, $w$ = zero-end solution from $u(x, 0) - v(x)$ |
+| Heat, $u(0) = 0$, insulated at $L$ | eigenfunctions $\sin\frac{(2n - 1)\pi x}{2L}$ |
 | Wave $u_{tt} = a^2u_{xx}$, fixed ends | $u = \sum\big(b_n\cos\frac{n\pi at}{L} + c_n\sin\frac{n\pi at}{L}\big)\sin\frac{n\pi x}{L}$ |

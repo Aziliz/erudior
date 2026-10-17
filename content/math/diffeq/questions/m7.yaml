@@ -90,7 +90,7 @@
   answer: 1
   explanation: |-
     The factor $e^{-st}$ crushes the integral as $s$ grows. So something like $F(s) = s^2$ can't be the transform of an ordinary function.
-# Lesson 28
+# Lesson 29
 - id: de-q-2801
   lesson: de-laplace-inverse
   module_quiz: true
@@ -182,7 +182,7 @@
   answer: 2
   explanation: |-
     $sF(s) = \dfrac{3s^2 + 2s}{s^2 + 1} \to 3$. Indeed $f = 3\cos t + 2\sin t$ has $f(0) = 3$.
-# Lesson 29
+# Lesson 30
 - id: de-q-2901
   lesson: de-laplace-ivp
   module_quiz: true
@@ -274,7 +274,7 @@
   answer: 0
   explanation: |-
     With $u = e^{-st}$, $dv = f'\,dt$: $[e^{-st}f]_0^\infty + s\int e^{-st}f\,dt = -f(0) + sF(s)$.
-# Lesson 30
+# Lesson 31
 - id: de-q-3001
   lesson: de-laplace-step
   module_quiz: true
@@ -366,7 +366,7 @@
   answer: 0
   explanation: |-
     By linearity, $\dfrac{e^{-s}}{s} - \dfrac{e^{-4s}}{s}$.
-# Lesson 31
+# Lesson 32
 - id: de-q-3101
   lesson: de-laplace-impulse
   module_quiz: true
