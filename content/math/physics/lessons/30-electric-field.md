@@ -71,7 +71,7 @@ Two large parallel plates with equal and opposite charges produce a nearly **uni
 
 $$a = \frac{qE}{m}.$$
 
-All the constant-acceleration kinematics from earlier applies. An electron fired sideways between deflection plates follows a parabola, exactly like a projectile, which is how old cathode-ray tubes steered their beams. (Gravity on an electron is negligible by a factor of about $10^{13}$ in typical fields.)
+All the constant-acceleration kinematics from earlier applies. An electron fired sideways between deflection plates follows a parabola, exactly like a projectile, which is how old cathode-ray tubes steered their beams. (Gravity on an electron is negligible: even in a weak field of 100 N/C the electric force is about $2\times10^{12}$ times the electron's weight.)
 
 ### Example 3
 
@@ -92,23 +92,23 @@ When charges in a conductor have stopped moving (**electrostatic equilibrium**):
 
 A hollow metal box shields its interior from outside fields: a **Faraday cage**. That's why you're safe in a car during a lightning storm and why your phone loses signal in an elevator.
 
-## With calculus: continuous distributions
+## Deflecting a moving charge
 
-For a continuous charge distribution, add up the fields of tiny elements $dq$:
+When a charged particle enters a uniform field moving perpendicular to it, treat the motion exactly like a horizontally launched projectile: constant velocity along the plates, constant acceleration $a = qE/m$ across them.
 
-$$\vec E = \int k\frac{dq}{r^2}\,\hat r.$$
+### Example 4
 
-Use symmetry to see which components cancel before integrating.
+An electron enters the region between two horizontal plates moving horizontally at $2.0\times10^7$ m/s. The plates are 4.0 cm long and the field between them is $1.0\times10^4$ N/C, pointing up. How far, and in which direction, is the electron deflected by the time it leaves the plates?
 
-*Field on the axis of a ring.* A ring of radius $a$ carries charge $Q$. At distance $x$ along its axis, each element is at distance $\sqrt{x^2 + a^2}$. Perpendicular components cancel by symmetry; the axial component of each element's field is $dE\cos\theta$, with $\cos\theta = x/\sqrt{x^2 + a^2}$. Every element has the same geometry, so
+Time between the plates (horizontal velocity is constant): $t = \dfrac{0.040}{2.0\times10^7} = 2.0\times10^{-9}$ s.
 
-$$E_x = \frac{kQx}{(x^2 + a^2)^{3/2}}.$$
+Acceleration: $a = \dfrac{eE}{m_e} = \dfrac{(1.602\times10^{-19})(1.0\times10^4)}{9.11\times10^{-31}} = 1.76\times10^{15}$ m/s², directed *down*, because the electron is negative and the field points up.
 
-At the center ($x = 0$) it's zero; far away ($x \gg a$) it becomes $kQ/x^2$, a point charge.
+Deflection: $y = \tfrac12at^2 = \tfrac12(1.76\times10^{15})(2.0\times10^{-9})^2 = 3.5\times10^{-3}$ m, about 3.5 mm downward.
 
-*Infinite line charge.* With linear density $\lambda$, the field at perpendicular distance $r$ is $E = \dfrac{2k\lambda}{r} = \dfrac{\lambda}{2\pi\varepsilon_0r}$, falling as $1/r$ rather than $1/r^2$. (Gauss's law in the next lesson gets this in one line.)
+Proportional reasoning helps here: the deflection is proportional to $E$ and to $t^2$, so doubling the electron's speed (halving its time between the plates) cuts the deflection to a quarter.
 
-*Infinite sheet.* With surface density $\sigma$, $E = \dfrac{\sigma}{2\varepsilon_0}$, independent of distance: that's why parallel plates give a uniform field. Between oppositely charged plates the two sheets' fields add, giving $E = \sigma/\varepsilon_0$; outside they cancel.
+Where does the uniform field between plates come from? Far from its edges, a large flat sheet of charge makes a field whose field lines are straight and parallel, so they don't spread out, and the field doesn't weaken with distance. Two oppositely charged plates add their fields between them and cancel outside. The next lesson finds the field's size with Gauss's law: $E = \sigma/\varepsilon_0$ between the plates, where $\sigma$ is the charge per unit area on each plate.
 
 ## Common mistakes
 
@@ -122,5 +122,5 @@ At the center ($x = 0$) it's zero; far away ($x \gg a$) it becomes $kQ/x^2$, a p
 - $\vec E = \vec F/q_0$; $\vec F = q\vec E$. Units N/C = V/m.
 - Point charge: $E = k|q|/r^2$, away from $+$, toward $-$.
 - Superpose fields as vectors; field lines run from $+$ to $-$ and never cross.
-- Uniform field: constant acceleration $a = qE/m$.
-- $\vec E = \int k\,dq\,\hat r/r^2$; ring axis $kQx/(x^2 + a^2)^{3/2}$; line $2k\lambda/r$; sheet $\sigma/(2\varepsilon_0)$.
+- Uniform field: constant acceleration $a = qE/m$; a particle entering sideways follows a parabola, like a projectile.
+- Conductors in equilibrium: zero field inside, excess charge on the surface.

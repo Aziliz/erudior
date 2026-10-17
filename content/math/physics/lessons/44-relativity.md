@@ -38,11 +38,11 @@ The factor $\gamma$ (the **Lorentz factor**) is always at least 1. $\Delta t_0$ 
 
 ### Example 1
 
-Muons created in the upper atmosphere have a half-life of 1.56 μs in their own rest frame. They travel at $0.995c$. How long is their half-life as measured from the ground, and how far do they travel in that time?
+Muons created in the upper atmosphere have a half-life of 1.52 μs in their own rest frame. They travel at $0.995c$. How long is their half-life as measured from the ground, and how far do they travel in that time?
 
 $\gamma = 1/\sqrt{1 - 0.995^2} = 1/\sqrt{0.009975} = 10.0$.
 
-Ground half-life: $\Delta t = 10.0(1.56)$ μs $= 15.6$ μs. Distance: $(0.995)(3.00\times10^8)(15.6\times10^{-6}) = 4.66$ km. Without time dilation they'd go only 466 m per half-life and few would reach the ground; in fact many do, a direct confirmation.
+Ground half-life: $\Delta t = 10.0(1.52)$ μs $= 15.2$ μs. Distance: $(0.995)(3.00\times10^8)(15.2\times10^{-6}) = 4.54$ km. Without time dilation they'd go only 454 m per half-life and few would reach the ground; in fact many do, a direct confirmation.
 
 ## Length contraction
 
@@ -50,7 +50,7 @@ An object's length is longest in its own rest frame (its **proper length** $L_0$
 
 $$L = \frac{L_0}{\gamma} = L_0\sqrt{1 - v^2/c^2}.$$
 
-Only lengths along the direction of motion contract; perpendicular dimensions don't change. **Length contraction** and time dilation are two views of the same thing: in the muon's frame, its half-life is the normal 1.56 μs, but the atmosphere rushing toward it is contracted to a tenth of its height.
+Only lengths along the direction of motion contract; perpendicular dimensions don't change. **Length contraction** and time dilation are two views of the same thing: in the muon's frame, its half-life is the normal 1.52 μs, but the atmosphere rushing toward it is contracted to a tenth of its height.
 
 ### Example 2
 
@@ -96,19 +96,26 @@ $\gamma = 2.294$. $E = 2.294(0.511) = 1.172$ MeV. $K = 1.172 - 0.511 = 0.661$ Me
 
 $pc = \gamma mc^2(v/c) = 1.172(0.90) = 1.055$ MeV, so $p = 1.055$ MeV/$c$. Check: $\sqrt{1.055^2 + 0.511^2} = 1.172$ ✓. (The classical $\tfrac12mv^2 = 0.207$ MeV would badly underestimate $K$.)
 
-## With calculus
+### Example 4
 
-The **Lorentz transformation** replaces the classical $x' = x - vt$, $t' = t$:
+How fast must a particle move for its kinetic energy to equal its rest energy? How does that compare with what $\tfrac12mv^2$ would predict?
 
-$$x' = \gamma(x - vt), \qquad t' = \gamma\left(t - \frac{vx}{c^2}\right).$$
+$K = (\gamma - 1)mc^2 = mc^2$ requires $\gamma = 2$. Then $1 - v^2/c^2 = \dfrac{1}{\gamma^2} = \dfrac14$, so $v^2/c^2 = \dfrac34$ and $v = \sqrt{0.75}\,c = 0.866c$.
 
-Time dilation, length contraction and simultaneity all follow from it. Differentiating gives the velocity-addition rule: $u' = \dfrac{dx'}{dt'} = \dfrac{u - v}{1 - uv/c^2}$.
+Newtonian physics would set $\tfrac12mv^2 = mc^2$, giving $v = \sqrt2\,c = 1.41c$: faster than light, which is impossible. At high speeds the classical formula fails badly; each extra joule buys less and less speed as $v$ approaches $c$.
 
-The kinetic energy formula follows from the work–energy theorem with $F = dp/dt$:
+## When does relativity matter?
 
-$$K = \int F\,dx = \int\frac{d(\gamma mv)}{dt}v\,dt = \int_0^v v\,d(\gamma mv) = (\gamma - 1)mc^2,$$
+A useful way to judge: compute $\gamma - 1$, the fractional size of the effects. For small $v/c$, $\gamma \approx 1 + \tfrac12(v/c)^2$ (try $v/c = 0.1$: the exact $\gamma$ is 1.00504, the approximation 1.00500).
 
-where the last step uses integration by parts. Expanding $\gamma = (1 - v^2/c^2)^{-1/2}$ in a Taylor series, $(\gamma - 1)mc^2 = \tfrac12mv^2 + \tfrac38mv^4/c^2 + \cdots$, shows Newtonian kinetic energy is the first term.
+| Situation | $v/c$ | $\gamma - 1$ |
+|---|---|---|
+| Car on a highway | $10^{-7}$ | $5\times10^{-15}$ |
+| GPS satellite | $1.3\times10^{-5}$ | $8\times10^{-11}$ |
+| Electron in an old TV tube | 0.2 | 0.02 |
+| LHC proton | 0.999999991 | about 7000 |
+
+Even the GPS effect matters: $8\times10^{-11}$ of a day is about 7 μs, and light travels about 2 km in that time, so uncorrected clocks would put your position off by kilometers within a day. (Gravity also changes clock rates, by an even larger amount in the other direction; GPS corrects for both.)
 
 ## Common mistakes
 

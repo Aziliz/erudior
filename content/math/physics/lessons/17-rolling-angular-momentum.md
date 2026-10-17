@@ -81,21 +81,15 @@ A 2.0 kg disk spins at 30 rad/s on a frictionless axle; $I_1 = 0.040$ kg·m². A
 
 No external torque about the axle: $I_1\omega_1 = (I_1 + I_2)\omega_f$, so $\omega_f = \dfrac{0.040(30)}{0.100} = 12$ rad/s. Like a perfectly inelastic collision, kinetic energy drops (from 18 J to 7.2 J), lost to friction between the disks.
 
-## With calculus: angular momentum as a vector
+## Angular momentum as a vector
 
-In general, angular momentum about a point is the cross product
+Like torque, angular momentum has a direction along the rotation axis, given by the right-hand rule: curl your fingers with the rotation and your thumb points along $\vec L$. A wheel spinning counterclockwise as seen from above has $\vec L$ pointing up.
 
-$$\vec L = \vec r\times\vec p,$$
+Torque changes angular momentum the way force changes momentum: over a short time, $\Delta\vec L = \vec\tau\,\Delta t$. A torque along $\vec L$ speeds the spin up; a torque opposite to it slows the spin. A torque *perpendicular* to $\vec L$ changes its direction rather than its size, just as a force perpendicular to the velocity (in circular motion) changes the direction of motion but not the speed.
 
-and differentiating, $\dfrac{d\vec L}{dt} = \dfrac{d\vec r}{dt}\times\vec p + \vec r\times\dfrac{d\vec p}{dt} = \vec v\times m\vec v + \vec r\times\vec F = \vec\tau$, since $\vec v\times\vec v = 0$. So
+That explains the **gyroscope**. A spinning top tilted from vertical has $\vec L$ along its axis. Gravity's torque about the pivot is horizontal, perpendicular to $\vec L$. So instead of falling over, the axis slowly swings around the vertical, a motion called **precession**. The faster the spin (the larger $L$), the smaller the fractional change each torque makes, and the slower the precession.
 
-$$\vec\tau_{\text{net}} = \frac{d\vec L}{dt}.$$
-
-For a rigid body spinning about a symmetry axis, $\vec L = I\vec\omega$, with $\vec\omega$ along the axis by the right-hand rule.
-
-The vector form explains a **gyroscope**'s **precession**. A spinning top tilted from vertical has $\vec L$ along its axis. Gravity's torque about the pivot is horizontal, perpendicular to $\vec L$. A torque perpendicular to $\vec L$ changes its direction, not its size, so instead of falling over, the axis swings slowly around the vertical. The precession rate is $\Omega = \dfrac{\tau}{L} = \dfrac{Mgr}{I\omega}$: the faster the spin, the slower the precession.
-
-Kepler's second law (equal areas in equal times) is also angular momentum conservation: gravity points toward the Sun, so its torque about the Sun is zero, $\vec L$ of the planet is constant, and the area swept per unit time, $\dfrac{L}{2m}$, is constant.
+Kepler's second law (equal areas in equal times, coming up in the gravitation lesson) is also angular momentum conservation: gravity points toward the Sun, so its torque about the Sun is zero and the planet's angular momentum $mvr_\perp$ stays constant. Close to the Sun, $r_\perp$ is small, so $v$ must be large.
 
 ## Common mistakes
 
@@ -108,5 +102,5 @@ Kepler's second law (equal areas in equal times) is also angular momentum conser
 
 - Rolling without slipping: $v = R\omega$; $K = \tfrac12Mv^2 + \tfrac12I\omega^2 = \tfrac12(1 + c)Mv^2$.
 - Down an incline from rest: $v = \sqrt{2gh/(1 + c)}$; smaller $c$ wins.
-- $L = I\omega$ (or $\vec r\times\vec p$); $\vec\tau = d\vec L/dt$.
+- $L = I\omega$ (or $mvr_\perp$ for a particle); $\sum\tau = \Delta L/\Delta t$, direction by the right-hand rule.
 - No external torque: $I_i\omega_i = I_f\omega_f$.

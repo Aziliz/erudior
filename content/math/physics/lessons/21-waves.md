@@ -4,7 +4,7 @@ module: phys-m6
 title: Waves and superposition
 minutes: 40
 topics: [Wave properties, Standing waves]
-drills: [phys-wave-speed, phys-string-wave]
+drills: [phys-wave-speed, phys-string-wave, phys-beats]
 refs: [phys-ref-waves-thermo]
 ---
 ## Energy on the move
@@ -63,6 +63,14 @@ When two waves overlap, the displacement at each point is the sum of the individ
 
 For two waves from sources in step, the result at a point depends on the **path difference** $\Delta r$ from the two sources: constructive if $\Delta r = m\lambda$ ($m = 0, 1, 2, \ldots$), destructive if $\Delta r = (m + \tfrac12)\lambda$. Noise-canceling headphones use destructive interference, producing a sound wave inverted relative to the incoming noise.
 
+### Beats
+
+Two waves of slightly different frequencies $f_1$ and $f_2$ drift in and out of step: for a moment crests line up (loud), a little later crest meets trough (quiet), and so on. The loudness throbs at the **beat frequency**
+
+$$f_{\text{beat}} = |f_1 - f_2|,$$
+
+while the tone you hear has the average frequency, $\tfrac12(f_1 + f_2)$. Musicians tune by listening for beats against a reference: as the frequencies approach each other, the beats slow and vanish. A 440 Hz tuning fork and a string at 443 Hz produce 3 beats per second, throbbing on a 441.5 Hz tone.
+
 ## Reflection and standing waves
 
 A pulse reaching the fixed end of a string reflects upside down; at a free end, it reflects right side up. A continuous wave on a string fixed at both ends reflects back and forth, and the incoming and reflected waves superpose. At certain frequencies the result is a **standing wave**: a pattern that oscillates in place without traveling. Points that never move are **nodes**; points of maximum oscillation are **antinodes**. Adjacent nodes are half a wavelength apart.
@@ -74,7 +82,7 @@ $$L = n\frac{\lambda_n}{2} \quad\Rightarrow\quad \lambda_n = \frac{2L}{n}, \qqua
 These are the string's **harmonics**. The lowest, $f_1 = v/(2L)$, is the **fundamental frequency**; the others are integer multiples. A plucked string vibrates in a mix of harmonics, and the mix gives each instrument its tone quality (timbre).
 
 ```plot
-{"x": [0, 3], "y": [-1.4, 1.4], "xLabel": "position along string", "yLabel": "displacement", "functions": [{"f": "sin(pi*x)", "label": "n = 3"}, {"f": "-sin(pi*x)", "dashed": true}], "points": [{"at": [0, 0], "label": "N"}, {"at": [1, 0], "label": "N"}, {"at": [2, 0], "label": "N"}, {"at": [3, 0], "label": "N"}, {"at": [0.5, 1], "label": "A"}], "caption": "Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2"}
+{"x": [0, 3], "y": [-1.4, 1.4], "xLabel": "position along string", "yLabel": "displacement", "functions": [{"f": "sin(pi*x)"}, {"f": "-sin(pi*x)", "dashed": true}], "points": [{"at": [0, 0], "label": "N"}, {"at": [1, 0], "label": "N"}, {"at": [2, 0], "label": "N"}, {"at": [3, 0], "label": "N"}, {"at": [0.5, 1], "label": "A"}], "caption": "Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2"}
 ```
 
 ### Example 2
@@ -95,25 +103,21 @@ $$I = \frac{P}{4\pi r^2}.$$
 
 That's another inverse-square law, which we'll use for sound.
 
-## With calculus: the wave equation
+## The wave function
 
-A sinusoidal wave moving in the $+x$ direction is
+A sinusoidal wave moving in the $+x$ direction can be written
 
 $$y(x, t) = A\sin(kx - \omega t),$$
 
-where $k = 2\pi/\lambda$ is the **wave number** and $\omega = 2\pi f$. A point of constant phase moves so that $kx - \omega t$ is constant, i.e. at speed $v = \omega/k = f\lambda$. ($kx + \omega t$ moves in the $-x$ direction.)
+where $k = 2\pi/\lambda$ is the **wave number** (rad/m) and $\omega = 2\pi f$ (rad/s). Freeze time and you see a sine curve in space that repeats every $\lambda$; watch one point and you see SHM in time that repeats every $T$. A crest sits where $kx - \omega t$ has a fixed value, so as $t$ grows the crest's $x$ grows at speed $v = \omega/k = f\lambda$. Writing $kx + \omega t$ instead gives a wave moving in the $-x$ direction.
 
-Applying Newton's second law to a small piece of string gives the **wave equation**
+Each point of the string moves in SHM with amplitude $A$ and angular frequency $\omega$, so its maximum transverse speed is $A\omega$ (from the last lesson). That is not the wave speed $v$: one is how fast the string moves up and down, the other how fast the pattern moves along.
 
-$$\frac{\partial^2y}{\partial x^2} = \frac{1}{v^2}\frac{\partial^2y}{\partial t^2}, \qquad v = \sqrt{F_T/\mu}.$$
-
-Any function $f(x - vt)$ satisfies it, which is why any pulse shape travels undistorted. The transverse velocity of a point on the string is $\partial y/\partial t = -A\omega\cos(kx - \omega t)$, with maximum $A\omega$, which is not the wave speed $v$.
-
-Adding a right-moving and a left-moving wave of the same amplitude:
+Adding a right-moving and a left-moving wave of the same amplitude, a trig identity gives
 
 $$A\sin(kx - \omega t) + A\sin(kx + \omega t) = 2A\sin(kx)\cos(\omega t),$$
 
-a standing wave: a fixed spatial shape $\sin(kx)$ whose size oscillates in time. Nodes are where $\sin kx = 0$, at $x = 0, \lambda/2, \lambda, \ldots$
+a standing wave: a fixed shape $\sin(kx)$ whose size oscillates in time. Nodes are where $\sin kx = 0$, at $x = 0, \lambda/2, \lambda, \ldots$
 
 ## Common mistakes
 
@@ -128,5 +132,6 @@ a standing wave: a fixed spatial shape $\sin(kx)$ whose size oscillates in time.
 - $v = f\lambda$; speed set by the medium, frequency by the source.
 - String: $v = \sqrt{F_T/\mu}$.
 - Superposition: displacements add; path difference $m\lambda$ constructive, $(m + \tfrac12)\lambda$ destructive.
+- Beats: $f_{\text{beat}} = |f_1 - f_2|$.
 - Fixed–fixed string: $\lambda_n = 2L/n$, $f_n = nv/(2L)$.
 - $y = A\sin(kx - \omega t)$ with $k = 2\pi/\lambda$, $\omega = 2\pi f$.

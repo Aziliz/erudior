@@ -71,6 +71,8 @@ $$\mathcal{E} = NBA\omega\sin(\omega t),$$
 
 an alternating voltage with peak value $NBA\omega$. This is an AC **generator**. Turbines spun by steam, water or wind turn the coils in every power plant. (A motor is the same device run backward: current in, rotation out.)
 
+*Where the peak value comes from.* Think of a rectangular coil of length $\ell$ and width $w$ spinning about an axis through its center, parallel to its long sides and perpendicular to the field. Each long side moves in a circle of radius $w/2$ at speed $v = \omega w/2$. When the coil's plane lies along the field, the long sides cut straight across the field lines, and each acts as a moving rod with motional emf $B\ell v$ (the formula $\mathcal{E} = BLv$ from the previous section). The two sides add, giving $2B\ell(\omega w/2) = B(\ell w)\omega = BA\omega$ per turn, or $NBA\omega$ for $N$ turns. A quarter turn later the sides move parallel to the field, cut no field lines, and the emf is zero. In between, only the part of the velocity across the field counts, which is where the $\sin(\omega t)$ comes from.
+
 ## Eddy currents and transformers
 
 Changing flux through a solid piece of metal induces swirling **eddy currents** inside it. They heat the metal (induction stoves heat the pan directly) and, by Lenz's law, they resist motion, which is how magnetic brakes on trains and roller coasters work. Transformer and motor cores are made of thin insulated layers to block eddy currents and their energy loss.
@@ -81,21 +83,31 @@ $$\frac{V_s}{V_p} = \frac{N_s}{N_p}.$$
 
 An ideal transformer conserves power, $V_pI_p = V_sI_s$, so stepping voltage up steps current down. That's why grids transmit power at hundreds of kilovolts and step it down near homes. Transformers need AC; a steady DC current makes no changing flux.
 
-## With calculus
+## Reading a flux graph
 
-Faraday's law in its general form uses the flux integral and its time derivative:
+Faraday's law says the emf depends on the *rate* at which flux changes: $\Delta\Phi_B/\Delta t$ is the slope of a graph of flux against time. So:
 
-$$\mathcal{E} = \oint\vec E\cdot d\vec\ell = -\frac{d\Phi_B}{dt}, \qquad \Phi_B = \int\vec B\cdot d\vec A.$$
+- where the flux graph is steep, the emf is large;
+- where the flux graph is flat (even if the flux is large), the emf is zero;
+- where the slope changes sign, the emf (and induced current) reverses direction.
 
-The left side says something profound: a changing magnetic field creates an electric field that circulates in closed loops, even in empty space with no wires. This induced field is not conservative, which is why it can drive current around a loop.
+A rotating coil shows all three. Its flux follows a cosine curve. The flux is largest when the coil faces the field, but there the graph is momentarily flat, so the emf is zero. The flux passes through zero when the coil is edge-on to the field, and there the graph is steepest, so the emf is largest. The emf graph is therefore shifted a quarter cycle from the flux graph: a sine where the flux is a cosine.
+
+```plot
+{"x": [0, 8], "y": [-1, 5], "xLabel": "time (s)", "yLabel": "flux per turn (mWb)", "segments": [{"from": [0, 0], "to": [2, 4]}, {"from": [2, 4], "to": [5, 4]}, {"from": [5, 4], "to": [6, 0]}, {"from": [6, 0], "to": [8, 0]}], "points": [{"at": [2, 4]}, {"at": [5, 4]}, {"at": [6, 0]}], "caption": "Flux through a coil: rising for 2 s, steady for 3 s, then falling to zero in 1 s"}
+```
 
 ### Example 3
 
-A single circular loop of radius 0.10 m lies perpendicular to a field $B(t) = 0.20 + 0.30t^2$ T. Find the emf at $t = 2.0$ s.
+The graph shows the flux through each turn of a 50-turn coil. Find the size of the emf during each stage and compare the directions.
 
-$\Phi_B = \pi(0.10)^2(0.20 + 0.30t^2)$, so $\mathcal{E} = -\dfrac{d\Phi_B}{dt} = -\pi(0.010)(0.60t)$. At $t = 2.0$ s, $|\mathcal{E}| = \pi(0.010)(1.2) = 0.038$ V.
+*0 to 2 s:* slope $= \dfrac{4.0\times10^{-3}\text{ Wb}}{2.0\text{ s}} = 2.0\times10^{-3}$ Wb/s, so $|\mathcal{E}| = 50(2.0\times10^{-3}) = 0.10$ V.
 
-For the generator, differentiating $\Phi_B = NBA\cos\omega t$ gives $\mathcal{E} = NBA\omega\sin\omega t$ directly.
+*2 to 5 s:* the flux is large but constant, so the slope is zero and $\mathcal{E} = 0$.
+
+*5 to 6 s:* slope $= \dfrac{-4.0\times10^{-3}\text{ Wb}}{1.0\text{ s}}$, so $|\mathcal{E}| = 50(4.0\times10^{-3}) = 0.20$ V, twice as large because the same change happens in half the time. The flux is now decreasing instead of increasing, so by Lenz's law the induced current flows the opposite way to the first stage.
+
+*After 6 s:* no flux, no change, no emf.
 
 ## Common mistakes
 
@@ -107,7 +119,7 @@ For the generator, differentiating $\Phi_B = NBA\cos\omega t$ gives $\mathcal{E}
 ## Key points
 
 - $\Phi_B = BA\cos\theta$ (webers).
-- Faraday: $\mathcal{E} = -N\,\Delta\Phi_B/\Delta t$ (or $-N\,d\Phi_B/dt$).
+- Faraday: $\mathcal{E} = -N\,\Delta\Phi_B/\Delta t$; the emf is $N$ times the slope of the flux–time graph.
 - Lenz: induced current opposes the change in flux (energy conservation).
 - Motional emf $\mathcal{E} = BLv$; generator peak emf $NBA\omega$.
 - Transformer: $V_s/V_p = N_s/N_p$, with $V_pI_p = V_sI_s$.

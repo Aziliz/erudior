@@ -71,7 +71,7 @@ Masses of 2.0 kg at $(0, 0)$, 3.0 kg at $(4, 0)$ and 5.0 kg at $(0, 2)$ (meters)
 
 $M = 10$ kg. $x_{\text{cm}} = \dfrac{2(0) + 3(4) + 5(0)}{10} = 1.2$ m; $y_{\text{cm}} = \dfrac{2(0) + 3(0) + 5(2)}{10} = 1.0$ m. The CM is at $(1.2, 1.0)$ m, pulled toward the heavier masses.
 
-*Motion of the center of mass.* Differentiating the definition gives $M\vec v_{\text{cm}} = \sum m_i\vec v_i = \vec p_{\text{total}}$, and differentiating again,
+*Motion of the center of mass.* Over a short time $\Delta t$, each mass moves by $\Delta x_i = v_i\Delta t$, so the CM moves by $\sum m_i v_i\Delta t/M$. Dividing by $\Delta t$ gives $M\vec v_{\text{cm}} = \sum m_i\vec v_i = \vec p_{\text{total}}$: the total momentum is the total mass times the CM velocity. Since only external forces change the total momentum,
 
 $$\vec F_{\text{net, ext}} = M\vec a_{\text{cm}}.$$
 
@@ -83,27 +83,31 @@ A 60 kg person stands at one end of a 120 kg, 4.0 m raft at rest on still water 
 
 No external horizontal forces, and the system starts at rest, so the CM stays put. If she moves 4.0 m relative to the raft and the raft moves $d$ backward, her ground displacement is $4.0 - d$. Setting the CM displacement to zero: $60(4.0 - d) - 120d = 0$, so $d = 240/180 = 1.33$ m.
 
-## With calculus
+## Force–time graphs
 
-The general second law is $\vec F_{\text{net}} = d\vec p/dt$, and the impulse of a time-varying force is an integral:
+Real collision forces are not constant: a bat's force on a ball rises from zero, peaks and falls back to zero in about a millisecond. The impulse is still easy to find from a graph of force against time: just as displacement is the area under a $v$–$t$ graph, *impulse is the area under the $F$–$t$ graph*. The average force is the constant force that would give the same area over the same time, $F_{\text{avg}} = J/\Delta t$.
 
-$$\vec J = \int_{t_1}^{t_2}\vec F(t)\,dt = \Delta\vec p,$$
-
-the area under the force–time curve. The average force is the constant force with the same area over the same time.
-
-For a continuous object, the CM sums become integrals over mass elements $dm$:
-
-$$x_{\text{cm}} = \frac{1}{M}\int x\,dm.$$
-
-For a rod of length $L$ along $x$ with linear density $\lambda(x)$ (kg/m), $dm = \lambda\,dx$. A uniform rod gives $x_{\text{cm}} = L/2$, as expected. A rod with $\lambda = cx$ (denser toward one end) gives $M = \int_0^L cx\,dx = cL^2/2$ and $\int_0^L x\,cx\,dx = cL^3/3$, so $x_{\text{cm}} = \dfrac{2L}{3}$: shifted toward the heavy end.
+```plot
+{"x": [0, 12], "y": [0, 1200], "xLabel": "time t (ms)", "yLabel": "force F (N)", "functions": [{"f": "200*x", "from": 0, "to": 5}, {"f": "2000 - 200*x", "from": 5, "to": 10}, {"f": "500", "from": 0, "to": 10, "dashed": true, "label": "average"}], "shade": [{"f": "200*x", "from": 0, "to": 5}, {"f": "2000 - 200*x", "from": 5, "to": 10}], "caption": "A kick: force rising to 1000 N and back to zero in 10 ms. The triangle's area is the impulse."}
+```
 
 ### Example 5
 
-A kick delivers a force $F(t) = (4.0\times10^{7})\,t\,(0.010 - t)$ N to a 0.45 kg ball at rest, for $0 \le t \le 0.010$ s. Find the impulse, the ball's speed, and the peak and average forces.
+A kick delivers the triangular force pulse in the graph to a 0.45 kg ball at rest: the force rises steadily from 0 to 1000 N in 5.0 ms and falls back to 0 over the next 5.0 ms. Find the impulse, the ball's speed and the average force.
 
-$$J = \int_0^{0.010} (4.0\times10^{7})(0.010\,t - t^2)\,dt = (4.0\times10^{7})\left[\frac{0.010\,t^2}{2} - \frac{t^3}{3}\right]_0^{0.010} = (4.0\times10^{7})(1.667\times10^{-7}) = 6.67\text{ N·s}.$$
+Impulse = triangle area $= \tfrac12(\text{base})(\text{height}) = \tfrac12(0.010\text{ s})(1000\text{ N}) = 5.0$ N·s.
 
-The ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midpoint, $t = 0.005$ s: $F_{\max} = (4.0\times10^{7})(0.005)(0.005) = 1000$ N. The average force is $J/\Delta t = 667$ N, two-thirds of the peak, as expected for a parabolic pulse.
+Speed: $v = J/m = 5.0/0.45 = 11.1$ m/s.
+
+Average force: $F_{\text{avg}} = J/\Delta t = 5.0/0.010 = 500$ N, half the peak, as expected for a triangle. Using the peak force for the whole 10 ms would double the impulse.
+
+### Example 6: a composite object
+
+A 2.0 m uniform rod of mass 4.0 kg lies along the $x$ axis from $x = 0$ to $x = 2.0$ m, with a 1.0 kg ball fixed at $x = 2.0$ m. Where is the system's center of mass?
+
+Treat each piece as a point mass at its own center of mass: the rod's 4.0 kg at its midpoint, $x = 1.0$ m, and the ball at 2.0 m.
+
+$x_{\text{cm}} = \dfrac{4.0(1.0) + 1.0(2.0)}{5.0} = 1.2$ m, shifted from the rod's center toward the ball.
 
 ## Common mistakes
 
@@ -114,7 +118,7 @@ The ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midp
 
 ## Key points
 
-- $\vec p = m\vec v$; impulse $\vec J = \vec F_{\text{avg}}\Delta t = \Delta\vec p$ (in general $\int\vec F\,dt$).
+- $\vec p = m\vec v$; impulse $\vec J = \vec F_{\text{avg}}\Delta t = \Delta\vec p$ = area under the $F$–$t$ graph.
 - With no net external force, total momentum is conserved, component by component.
-- $x_{\text{cm}} = \sum m_ix_i/M$ (or $\tfrac1M\int x\,dm$); $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$.
+- $x_{\text{cm}} = \sum m_ix_i/M$ (treat each piece of a composite object as a point at its own CM); $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$.
 - Longer stopping time means smaller average force for the same $\Delta p$.

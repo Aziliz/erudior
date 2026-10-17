@@ -65,35 +65,35 @@ $2\vec A = 6\hat\imath - 8\hat\jmath$; subtracting $\vec B$ gives $\vec C = 7\ha
 
 Axes are your choice; physics doesn't care. Pick them to make the work easy. For a block on a ramp, tilt the axes so $x$ runs along the ramp: then the motion is along one axis and only gravity needs splitting. You will see this trick again in the friction lesson.
 
-## With calculus: the dot and cross products
+## Multiplying two vectors
 
-University physics uses two ways to multiply vectors.
+Later lessons combine two vectors into a product in two different ways. You only need the ideas here; each gets real use when it appears (work, torque, magnetic force).
 
 The **dot product** (scalar product) gives a number:
 
 $$\vec A \cdot \vec B = AB\cos\phi = A_xB_x + A_yB_y + A_zB_z,$$
 
-where $\phi$ is the angle between the vectors when placed tail to tail. It measures how much two vectors point the same way: it's positive for $\phi < 90^\circ$, zero for perpendicular vectors, negative for $\phi > 90^\circ$. The component form follows because $\hat\imath\cdot\hat\imath = 1$ and $\hat\imath\cdot\hat\jmath = 0$. Work, $W = \vec F \cdot \vec d$, is a dot product.
+where $\phi$ is the angle between the vectors when placed tail to tail ($A_z$ and $B_z$ are the components along a third axis, $z$, when there is one). It measures how much two vectors point the same way: it's positive for $\phi < 90^\circ$, zero for perpendicular vectors, negative for $\phi > 90^\circ$. Another way to read $AB\cos\phi$: it is $A$ times the component of $\vec B$ along $\vec A$. Work, $W = Fd\cos\phi$, is a dot product: only the part of the force along the motion counts.
 
-The **cross product** (vector product) gives a vector perpendicular to both:
+The **cross product** (vector product) gives a vector perpendicular to both, with magnitude
 
 $$|\vec A \times \vec B| = AB\sin\phi,$$
 
-with direction set by the **right-hand rule**: point your fingers along $\vec A$, curl them toward $\vec B$, and your thumb points along $\vec A \times \vec B$. The cross product is anticommutative, $\vec B\times\vec A = -\vec A\times\vec B$. In components,
-
-$$\vec A \times \vec B = \begin{vmatrix} \hat\imath & \hat\jmath & \hat k \\ A_x & A_y & A_z \\ B_x & B_y & B_z \end{vmatrix} = (A_yB_z - A_zB_y)\hat\imath + (A_zB_x - A_xB_z)\hat\jmath + (A_xB_y - A_yB_x)\hat k.$$
-
-Torque $\vec\tau = \vec r \times \vec F$ and the magnetic force $q\vec v \times \vec B$ are cross products.
+and direction set by the **right-hand rule**: point your fingers along $\vec A$, curl them toward $\vec B$, and your thumb points along $\vec A \times \vec B$. Reversing the order reverses the direction: $\vec B\times\vec A = -\vec A\times\vec B$. Parallel vectors ($\phi = 0$) have a zero cross product; perpendicular ones give the largest, $AB$. Torque and the magnetic force on a moving charge are cross products, which is why both use $\sin\phi$ and a right-hand rule.
 
 ### Example 3
 
-Find the angle between $\vec A = 2\hat\imath + 1\hat\jmath + 2\hat k$ and $\vec B = 1\hat\imath + 4\hat\jmath - 1\hat k$, and compute $\vec A \times \vec B$.
+Find the angle between $\vec A = 2\hat\imath + 1\hat\jmath + 2\hat k$ and $\vec B = 1\hat\imath + 4\hat\jmath - 1\hat k$, and the magnitude of $\vec A \times \vec B$.
 
 Dot product: $2(1) + 1(4) + 2(-1) = 4$. Magnitudes: $A = \sqrt{4+1+4} = 3$ and $B = \sqrt{1+16+1} = \sqrt{18} = 4.243$. So $\cos\phi = \dfrac{4}{3(4.243)} = 0.314$ and $\phi = 71.7^\circ$.
 
-Cross product: $\hat\imath$ component $1(-1) - 2(4) = -9$; $\hat\jmath$ component $2(1) - 2(-1) = 4$; $\hat k$ component $2(4) - 1(1) = 7$. So $\vec A\times\vec B = -9\hat\imath + 4\hat\jmath + 7\hat k$. Check: its dot product with $\vec A$ is $-18 + 4 + 14 = 0$, so it is perpendicular to $\vec A$, as it must be.
+Cross-product magnitude: $AB\sin\phi = 3(4.243)\sin 71.7^\circ = 12.1$.
 
-Vectors can also be functions of time. Differentiating $\vec r(t) = x(t)\hat\imath + y(t)\hat\jmath$ component by component gives velocity, which is how 2D kinematics will work.
+### Example 4
+
+A vector $\vec A$ points east and $\vec B$ points north, both in a horizontal plane. Which way does $\vec A \times \vec B$ point, and which way does $\vec B \times \vec A$ point?
+
+Fingers east, curl them toward north (counterclockwise seen from above): the thumb points straight up. So $\vec A\times\vec B$ points up, out of the ground, and $\vec B\times\vec A$ points straight down. In unit-vector language, with $x$ east, $y$ north and $z$ up, $\hat\imath\times\hat\jmath = \hat k$.
 
 ## Common mistakes
 

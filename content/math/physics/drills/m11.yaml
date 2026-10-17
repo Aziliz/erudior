@@ -7,7 +7,7 @@
   calc:
     f: fm*10^fe
     lam: 3e8/f
-  prompt: 'An electromagnetic wave in vacuum has frequency ${fm}\times10^{{fe}}$ Hz. What is its wavelength? ($c = 3.00\times10^8$ m/s)'
+  prompt: 'An electromagnetic wave in vacuum has frequency ${fm}\times10^{{fe}}$ Hz. What is its wavelength in meters, to 3 significant figures? ($c = 3.00\times10^8$ m/s)'
   answers:
     - {name: lam, label: 'Wavelength', format: sci, relTolerance: 0.01, units: {m: 1, cm: 0.01, mm: 0.001, nm: 1e-9}}
   solution: |-
@@ -22,7 +22,7 @@
   calc:
     t2: asind(m1*sind(t1)/m2)
     v: 3e8/m2
-  prompt: 'Light in {m1} (n = {m1:num2}) strikes {m2} at {t1}° from the normal. Find the angle of refraction and the speed of light in the second material. ($c = 3.00\times10^8$ m/s)'
+  prompt: 'Light in {m1} (n = {m1:num2}) strikes {m2} at {t1}° from the normal. Find the angle of refraction (to the nearest 0.1°) and the speed of light in the second material (m/s, 3 significant figures). ($c = 3.00\times10^8$ m/s)'
   answers:
     - {format: sig4, name: t2, label: 'Refraction angle', tolerance: 0.2, units: {'°': 1, deg: 1}}
     - {name: v, label: 'Speed', format: sci, relTolerance: 0.01, units: {'m/s': 1}}
@@ -39,7 +39,7 @@
   where: ['n1 > out + 0.05']
   calc:
     tc: asind(out/n1)
-  prompt: 'Light travels inside a material with $n = {n1}$ toward a boundary with {out}. What is the critical angle for total internal reflection?'
+  prompt: 'Light travels inside a material with $n = {n1}$ toward a boundary with {out}. What is the critical angle for total internal reflection, to the nearest 0.1°?'
   answers:
     - {format: sig4, name: tc, label: 'Critical angle', tolerance: 0.2, units: {'°': 1, deg: 1}}
   solution: |-
@@ -53,7 +53,7 @@
   calc:
     I1: I0/2
     I2: I1*cosd(th)^2
-  prompt: 'Unpolarized light of intensity {I0:dp0} W/m² passes through a polarizer, then a second polarizer whose axis is at {th}° to the first. Find the intensity after each polarizer.'
+  prompt: 'Unpolarized light of intensity {I0:dp0} W/m² passes through a polarizer, then a second polarizer whose axis is at {th}° to the first. Find the intensity after each polarizer, in W/m² to 3 significant figures.'
   answers:
     - {format: sig4, name: I1, label: 'After first', relTolerance: 0.01, units: {'W/m²': 1, 'W/m^2': 1}}
     - {format: sig4, name: I2, label: 'After second', relTolerance: 0.01, units: {'W/m²': 1, 'W/m^2': 1}}
@@ -73,7 +73,7 @@
     di: 1/(1/f - 1/dob)
     m: -di/dob
     hi: m*ho
-  prompt: 'A {ho} cm tall object stands {dob} cm from a thin lens of focal length {f} cm (negative = diverging). Find the image distance (negative = virtual, same side as the object) and the magnification.'
+  prompt: 'A {ho} cm tall object stands {dob} cm from a thin lens of focal length {f} cm (negative = diverging). Find the image distance in cm (negative = virtual, same side as the object) and the magnification, each to 3 significant figures.'
   answers:
     - {format: sig4, name: di, label: '$d_i =$', relTolerance: 0.01, units: {cm: 1, m: 100}}
     - {format: sig4, name: m, label: '$m =$', relTolerance: 0.01}
@@ -93,7 +93,7 @@
     di: 1/(1/f - 1/dob)
     m: -di/dob
   where: ['abs(dob - kind*R/2) > 1.5', 'abs(1/(1/(kind*R/2) - 1/dob) + 15.54) > 0.5']
-  prompt: 'An object is {dob} cm in front of a {kind} mirror with radius of curvature {R} cm. Find the image distance (negative = behind the mirror, virtual) and the magnification.'
+  prompt: 'An object is {dob} cm in front of a {kind} mirror with radius of curvature {R} cm. Find the image distance in cm (negative = behind the mirror, virtual) and the magnification, each to 3 significant figures.'
   answers:
     - {format: sig4, name: di, label: '$d_i =$', relTolerance: 0.01, units: {cm: 1}}
     - {format: sig4, name: m, label: '$m =$', relTolerance: 0.01}
@@ -116,7 +116,7 @@
     img2: 1/(1/f2 - 1/obj2)
     m: (-img1/d1)*(-img2/obj2)
   where: ['d1 > f1 + 2', 'obj2 > f2 + 2', 'abs(m) > 0.05', 'abs(m + 15.54) > 0.5']
-  prompt: 'An object is {d1} cm in front of a converging lens ($f_1 = {f1}$ cm). A second converging lens ($f_2 = {f2}$ cm) is {sep} cm beyond the first. Find the final image distance from the second lens and the overall magnification.'
+  prompt: 'An object is {d1} cm in front of a converging lens ($f_1 = {f1}$ cm). A second converging lens ($f_2 = {f2}$ cm) is {sep} cm beyond the first. Find the final image distance from the second lens (cm) and the overall magnification, each to 3 significant figures.'
   answers:
     - {format: sig4, name: img2, label: 'Final $d_i$', relTolerance: 0.01, units: {cm: 1}}
     - {format: sig4, name: m, label: 'Total $m$', relTolerance: 0.01}
@@ -139,7 +139,7 @@
   calc:
     dy: lam*1e-9*L/(dmm/1000)*1000
     ang: asind(mo*lam*1e-9/(dmm/1000))
-  prompt: 'Light of wavelength {lam:dp0} nm falls on two slits {dmm} mm apart; the screen is {L} m away. Find the fringe spacing in mm and the angle of the order-{mo} bright fringe.'
+  prompt: 'Light of wavelength {lam:dp0} nm falls on two slits {dmm} mm apart; the screen is {L} m away. Find the fringe spacing in mm and the angle of the order-{mo} bright fringe in degrees, each to 3 significant figures.'
   answers:
     - {format: sig4, name: dy, label: 'Fringe spacing', relTolerance: 0.01, units: {mm: 1, cm: 10, m: 1000}}
     - {format: sig4, name: ang, label: 'Angle', relTolerance: 0.01, units: {'°': 1, deg: 1}}
@@ -156,16 +156,17 @@
   calc:
     d: 1/(N*1000)
     t1: asind(lam*1e-9/d)
-    mmax: floor(d/(lam*1e-9))
+    ratio: 1000000/(N*lam)
+    mmax: ceil(ratio - 1e-9) - 1
   where: ['lam*1e-9/d < 0.97']
-  prompt: 'A grating has {N:dp0} lines per mm and is lit with {lam:dp0} nm light. Find the angle of the first-order maximum and the highest order that appears.'
+  prompt: 'A grating has {N:dp0} lines per mm and is lit with {lam:dp0} nm light. Find the angle of the first-order maximum (to the nearest 0.1°) and the highest order that appears on a screen in front of the grating.'
   answers:
     - {format: sig4, name: t1, label: 'First-order angle', tolerance: 0.2, units: {'°': 1, deg: 1}}
     - {name: mmax, label: 'Highest order', format: integer}
   solution: |-
     $d = \dfrac{1}{{N:dp0}\text{ mm}^{-1}} = {d:texsci}$ m. $\sin\theta_1 = \lambda/d$, so $\theta_1 =$ **{t1:num1}°**.
 
-    $\sin\theta \le 1$ requires $m \le d/\lambda$, so the highest order is **{mmax}**.
+    A maximum needs $\sin\theta = m\lambda/d < 1$ (an order with $\sin\theta = 1$ would travel along the grating's surface, never reaching the screen), so $m < d/\lambda = {ratio:num4}$. The highest order is **{mmax}**.
 - id: phys-thin-film
   title: Thin film color
   topic: Interference
@@ -175,7 +176,7 @@
     mm: {min: 0, max: 2}
   calc:
     t: (mm + 0.5)*lam/(2*n)
-  prompt: 'A thin film with $n = {n}$ surrounded by air strongly reflects {lam:dp0} nm light. Find the film thickness in nm for constructive order $m = {mm}$ (where $m = 0$ is the thinnest such film).'
+  prompt: 'A thin film with $n = {n}$ surrounded by air strongly reflects {lam:dp0} nm light. Find the film thickness in nm, to 3 significant figures, for constructive order $m = {mm}$ (where $m = 0$ is the thinnest such film).'
   answers:
     - {format: sig4, name: t, label: 'Thickness', relTolerance: 0.01, units: {nm: 1}}
   solution: |-

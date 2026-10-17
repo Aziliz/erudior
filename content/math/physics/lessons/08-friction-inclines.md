@@ -86,17 +86,31 @@ A skier on a $20^\circ$ slope with $\mu_s = 0.10$: will she slide from rest?
 
 $\tan 20^\circ = 0.364 > 0.10$, so static friction can't hold her and she starts sliding. A slope gentle enough to stand still on would need $\theta \le \tan^{-1}(0.10) = 5.7^\circ$.
 
-## With calculus: drag
+## Air resistance and terminal velocity
 
-Friction between solid surfaces is roughly constant, but fluid resistance (drag) grows with speed. For slow motion through a viscous fluid, the drag is roughly proportional to speed, $F_D = bv$. A falling object then obeys
+Friction between solid surfaces is roughly constant, but fluid resistance (drag) grows with speed. Follow a skydiver who steps out of a plane:
 
-$$m\frac{dv}{dt} = mg - bv.$$
+1. At first her speed is zero, so drag is zero: the net force is $mg$ and she accelerates at $g$.
+2. As she speeds up, drag grows, the net force $mg - F_D$ shrinks, and her acceleration drops below $g$. She is still speeding up, just more slowly.
+3. Eventually drag equals her weight. The net force is zero, so her acceleration is zero and her speed stays constant: this is the terminal velocity.
 
-Separating variables and integrating from rest gives
+```plot
+{"x": [0, 25], "y": [0, 60], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "50*(1 - exp(-9.8*x/50))", "from": 0, "to": 25, "label": "v(t)"}, {"f": "50", "from": 0, "to": 25, "dashed": true}], "labels": [{"at": [15, 54], "text": "terminal velocity"}], "caption": "Falling with air resistance: the v–t graph starts with slope g and levels off at the terminal velocity"}
+```
 
-$$v(t) = \frac{mg}{b}\left(1 - e^{-bt/m}\right).$$
+On the $v$–$t$ graph the slope (acceleration) starts at $g$ and decreases to zero as the curve levels off. Setting drag equal to weight gives the terminal speed. For slow motion through a thick fluid, drag is roughly proportional to speed, $F_D = bv$, so $bv_T = mg$ and $v_T = mg/b$. For fast objects in air, drag is closer to $F_D = \tfrac12 C\rho Av^2$ ($C$ a shape factor near 1, $\rho$ the air density, $A$ the cross-sectional area), so
 
-As $t\to\infty$ the velocity approaches the terminal velocity $v_T = mg/b$, where drag balances weight and the net force is zero. The time constant $m/b$ sets how quickly it gets there: after one time constant it has reached $1 - e^{-1} = 63\%$ of $v_T$. For fast objects in air the drag is closer to $\tfrac12 C\rho Av^2$, giving $v_T = \sqrt{2mg/(C\rho A)}$; a skydiver's terminal speed is about 55 m/s belly-down.
+$$v_T = \sqrt{\frac{2mg}{C\rho A}}.$$
+
+A heavier object with the same shape needs more drag to balance its weight, so it falls faster: this is why, in air, a bowling ball beats a beach ball of the same size.
+
+### Example 4
+
+An 80 kg skydiver falls belly-down with $C = 1.0$ and cross-sectional area $A = 0.70$ m², in air of density 1.2 kg/m³. (a) Find her terminal speed. (b) What is her acceleration when she is moving at half that speed?
+
+(a) $v_T = \sqrt{\dfrac{2(80)(9.8)}{(1.0)(1.2)(0.70)}} = \sqrt{\dfrac{1568}{0.84}} = \sqrt{1867} = 43$ m/s.
+
+(b) Drag grows as $v^2$, so at half the terminal speed it is $\left(\tfrac12\right)^2 = \tfrac14$ of its terminal value, which is her weight. Net force: $mg - \tfrac14mg = \tfrac34mg$, so $a = \tfrac34(9.8) = 7.4$ m/s² downward.
 
 ## Common mistakes
 
@@ -112,4 +126,4 @@ As $t\to\infty$ the velocity approaches the terminal velocity $v_T = mg/b$, wher
 - On an incline: $mg\sin\theta$ along the slope, $mg\cos\theta$ into it; $n = mg\cos\theta$.
 - Frictionless: $a = g\sin\theta$. Sliding down with friction: $a = g(\sin\theta - \mu_k\cos\theta)$.
 - Verge of slipping: $\tan\theta = \mu_s$.
-- Linear drag: $v(t) = v_T(1 - e^{-bt/m})$, $v_T = mg/b$.
+- Terminal velocity: drag equals weight, so the net force and acceleration are zero ($v_T = mg/b$ for drag $bv$).

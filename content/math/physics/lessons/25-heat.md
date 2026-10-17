@@ -102,11 +102,17 @@ Heat moves in three ways:
 - **Convection**, by bulk motion of a fluid: warm air rising, ocean currents.
 - **Radiation**, by electromagnetic waves, needing no medium (sunlight). A surface at absolute temperature $T$ radiates power $P = e\sigma AT^4$ (the Stefan–Boltzmann law, $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴), emissivity $0 \le e \le 1$).
 
-## With calculus
+The conduction formula is full of proportional reasoning: double the area or the temperature difference and the heat flow doubles; double the thickness and it halves. Because the rate depends on the temperature *difference*, a hot object cools fastest when it is much hotter than its surroundings and more and more slowly as it approaches room temperature.
 
-When the specific heat varies with temperature, the heat needed is an integral: $Q = m\int_{T_1}^{T_2}c(T)\,dT$. At low temperatures many solids follow $c \propto T^3$, for instance.
+### Example 4
 
-Conduction in differential form is Fourier's law, $\dfrac{dQ}{dt} = -kA\dfrac{dT}{dx}$: heat flows down the temperature gradient. And an object cooling by contact with surroundings at $T_s$ often follows **Newton's law of cooling**, $\dfrac{dT}{dt} = -\kappa(T - T_s)$, whose solution $T(t) = T_s + (T_0 - T_s)e^{-\kappa t}$ is the same exponential approach seen in drag and RC circuits. A cup of coffee at 90°C in a 20°C room with $\kappa = 0.05$ min⁻¹ is at $20 + 70e^{-0.5} = 62$°C after 10 minutes.
+A window is 1.5 m × 1.2 m and made of glass ($k = 0.80$ W/(m·K)) 4.0 mm thick. Inside is 20°C and outside −5°C. At what rate does heat conduct through the glass, and how much energy is lost in one hour?
+
+Area: $A = (1.5)(1.2) = 1.8$ m². Temperature difference: $\Delta T = 20 - (-5) = 25$ K.
+
+$\dfrac{Q}{t} = \dfrac{kA\,\Delta T}{L} = \dfrac{(0.80)(1.8)(25)}{0.0040} = 9000$ W.
+
+In an hour: $(9000)(3600) = 3.2\times10^7$ J. This overestimates real losses, because thin layers of still air on each side of the glass insulate it, but it shows why double glazing (two panes with a gap of gas between them) saves so much heat.
 
 ## Common mistakes
 

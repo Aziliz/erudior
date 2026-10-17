@@ -29,6 +29,8 @@ An iron core multiplies it greatly.
 
 $$U_L = \tfrac12LI^2.$$
 
+To see where the $\tfrac12$ comes from, raise the current steadily from 0 to $I$ over a time $t$. The back emf is constant, $L I/t$, while the current grows from 0 to $I$, averaging $I/2$. The energy delivered is power times time: $(LI/t)(I/2)(t) = \tfrac12LI^2$. (It's the same reasoning that gives a capacitor $\tfrac12QV$, and the same $\tfrac12$ as in $\tfrac12mv^2$.)
+
 The magnetic energy density is $u_B = \dfrac{B^2}{2\mu_0}$, the counterpart of $\tfrac12\varepsilon_0E^2$.
 
 ### Example 1
@@ -47,7 +49,7 @@ Connect an inductor $L$ in series with a resistor $R$ and a battery $\mathcal{E}
 
 $$I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau}\right), \qquad \tau = \frac LR.$$
 
-The time constant $L/R$ plays the same role as $RC$. If the battery is then removed (with a path left for the current), the current decays as $I = I_0e^{-t/\tau}$. An inductor acts like an open circuit at the instant of switching on and like a plain wire once the current is steady, the opposite of a capacitor.
+The time constant $L/R$ plays the same role as $RC$: after one time constant the current has reached $1 - e^{-1} = 63\%$ of its final value, after two 86%, after five over 99%. The curve has the same shape as a charging capacitor's charge, and for the same reason: the closer the current gets to $\mathcal{E}/R$, the less voltage is left across the inductor, so the current grows more and more slowly. If the battery is then removed (with a path left for the current), the current decays as $I = I_0e^{-t/\tau}$. An inductor acts like an open circuit at the instant of switching on and like a plain wire once the current is steady, the opposite of a capacitor.
 
 Breaking an inductive circuit abruptly forces $\Delta I/\Delta t$ to be huge, inducing a large voltage that can spark across the switch. Car ignition coils use this deliberately to make the tens of kilovolts that fire a spark plug.
 
@@ -89,17 +91,23 @@ $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{
 
 The current is largest when $X_L = X_C$, at the resonant frequency $\omega_0 = 1/\sqrt{LC}$: the same frequency at which the LC circuit oscillates on its own.
 
-## With calculus
+## Where the rms factor comes from
 
-Apply the loop rule to the RL circuit, with the inductor contributing $-L\,dI/dt$:
+Power in a resistor is $V^2/R$, so what matters is the average of $V^2 = V_0^2\sin^2(\omega t)$. Over a full cycle, $\sin^2$ and $\cos^2$ trace out identical shapes (one is just the other shifted a quarter cycle), so they have the same average. Since $\sin^2 + \cos^2 = 1$ at every instant, each must average $\tfrac12$. The average power is therefore $\dfrac{V_0^2}{2R}$, the same as a steady voltage $V_0/\sqrt2$ would deliver. That steady equivalent is the rms value.
 
-$$\mathcal{E} - IR - L\frac{dI}{dt} = 0.$$
+```plot
+{"x": [0, 6.283], "y": [-1.2, 1.2], "xLabel": "phase (rad)", "yLabel": "value / peak", "functions": [{"f": "sin(x)", "dashed": true}, {"f": "sin(x)^2"}, {"f": "0.5", "dashed": true}], "labels": [{"at": [5.0, -0.75], "text": "V/V₀ (dashed)"}, {"at": [4.71, 1.12], "text": "V²/V₀²"}, {"at": [1.75, -0.3], "text": "green line: average = 1/2"}], "caption": "Over a cycle, sin² averages exactly one half"}
+```
 
-Separating variables, $\dfrac{dI}{\mathcal{E}/R - I} = \dfrac RL\,dt$, integrates to $I = \dfrac{\mathcal{E}}{R}(1 - e^{-Rt/L})$. The energy stored follows from $P = LI\,\dfrac{dI}{dt}$: $U = \int_0^IL I'\,dI' = \tfrac12LI^2$.
+### Example 4
 
-For the LC circuit, the loop rule gives $L\dfrac{d^2q}{dt^2} + \dfrac qC = 0$, the simple harmonic oscillator equation $\ddot q = -\dfrac{1}{LC}q$, so $q = Q_0\cos(\omega t)$ with $\omega = 1/\sqrt{LC}$. Adding a resistor gives $L\ddot q + R\dot q + q/C = 0$, the damped oscillator.
+A series circuit has $R = 30\ \Omega$, $L = 0.10$ H and $C = 50\ \mu$F, driven by a 120 V (rms), 60 Hz source. Find the reactances, the impedance, the rms current, and the resonant frequency.
 
-The rms value comes from averaging $\sin^2$ over a cycle: $\dfrac1T\int_0^T V_0^2\sin^2(\omega t)\,dt = \dfrac{V_0^2}{2}$, so $V_{\text{rms}} = V_0/\sqrt2$.
+$\omega = 2\pi(60) = 377$ rad/s. $X_L = \omega L = 377(0.10) = 37.7\ \Omega$. $X_C = \dfrac{1}{\omega C} = \dfrac{1}{377(50\times10^{-6})} = 53.1\ \Omega$.
+
+$Z = \sqrt{30^2 + (37.7 - 53.1)^2} = \sqrt{900 + 237} = 33.7\ \Omega$, so $I_{\text{rms}} = 120/33.7 = 3.56$ A.
+
+Resonance: $f_0 = \dfrac{1}{2\pi\sqrt{LC}} = \dfrac{1}{2\pi\sqrt{(0.10)(50\times10^{-6})}} = 71$ Hz. At 71 Hz the reactances cancel, $Z = R = 30\ \Omega$, and the current would rise to $120/30 = 4.0$ A.
 
 ## Common mistakes
 
@@ -110,7 +118,7 @@ The rms value comes from averaging $\sin^2$ over a cycle: $\dfrac1T\int_0^T V_0^
 
 ## Key points
 
-- $\mathcal{E}_L = -L\,dI/dt$; solenoid $L = \mu_0N^2A/\ell$; energy $\tfrac12LI^2$.
+- $\mathcal{E}_L = -L\,\Delta I/\Delta t$; solenoid $L = \mu_0N^2A/\ell$; energy $\tfrac12LI^2$.
 - RL: $\tau = L/R$; $I = (\mathcal{E}/R)(1 - e^{-t/\tau})$.
 - LC: $f = \dfrac{1}{2\pi\sqrt{LC}}$, energy oscillates like a mass on a spring.
 - AC: $V_{\text{rms}} = V_0/\sqrt2$; $X_C = 1/(\omega C)$, $X_L = \omega L$, $Z = \sqrt{R^2 + (X_L - X_C)^2}$.

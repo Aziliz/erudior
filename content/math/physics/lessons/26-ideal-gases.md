@@ -84,16 +84,27 @@ $$E_{\text{int}} = \tfrac32Nk_BT = \tfrac32nRT.$$
 
 Diatomic molecules (N₂, O₂) can also rotate, adding two more ways to store energy, so near room temperature $E_{\text{int}} = \tfrac52nRT$. This is the **equipartition theorem**: each independent quadratic "degree of freedom" holds $\tfrac12k_BT$ on average. Either way, the internal energy of an ideal gas depends only on temperature, a fact the next lesson relies on.
 
-## With calculus
+### Example 4
 
-The molecules in a gas don't all share one speed. Their speeds follow the **Maxwell–Boltzmann distribution**,
+A sealed container holds 0.50 mol of helium at 300 K. How much internal energy does the gas have, and how much heat must be added (at constant volume, so no work is done) to raise its temperature to 400 K?
 
-$$f(v) = 4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)},$$
+$E_{\text{int}} = \tfrac32nRT = 1.5(0.50)(8.314)(300) = 1870$ J.
 
-where $f(v)\,dv$ is the fraction of molecules with speeds between $v$ and $v + dv$. Averages are integrals: $\overline{v^2} = \int_0^\infty v^2f(v)\,dv = 3k_BT/m$, recovering $v_{\text{rms}}$. Setting $df/dv = 0$ gives the most probable speed, $v_p = \sqrt{2k_BT/m}$, and the mean speed is $\bar v = \sqrt{8k_BT/(\pi m)}$; they're in the ratio $v_p : \bar v : v_{\text{rms}} = 1 : 1.128 : 1.225$. The distribution's long high-speed tail explains evaporation: the fastest molecules escape a liquid's surface, leaving the rest cooler.
+At 400 K the internal energy is $1.5(0.50)(8.314)(400) = 2494$ J, so the heat needed is the difference, $\tfrac32nR\,\Delta T = 1.5(0.50)(8.314)(100) = 624$ J. Because $E_{\text{int}}$ is proportional to $T$ in kelvins, raising the temperature from 300 K to 400 K raises the internal energy by a third.
+
+## A spread of speeds
+
+The molecules in a gas don't all share one speed. Collisions constantly speed some up and slow others down, so at any moment there is a spread of speeds, described by the **Maxwell–Boltzmann distribution**. Its graph (below) rises from zero, peaks at the most probable speed, and has a long tail toward high speeds. Because of that tail, the rms speed lies a little above the peak: a few very fast molecules raise the average of $v^2$ a lot.
+
+How the graph changes is worth knowing:
+
+- *Higher temperature*: the peak moves to higher speed and the curve spreads out and flattens. The area under the curve, which represents all the molecules, stays the same.
+- *Heavier molecules at the same temperature*: the peak sits at a lower speed and the curve is narrower.
+
+The high-speed tail explains evaporation: only the fastest molecules can escape a liquid's surface, and losing them lowers the average kinetic energy of those left behind, so the liquid cools.
 
 ```plot
-{"x": [0, 1500], "y": [0, 0.0023], "xLabel": "speed v (m/s)", "yLabel": "f(v) (s/m)", "functions": [{"f": "4*pi*(0.028/(2*pi*8.314*300))^1.5*x^2*exp(-0.028*x^2/(2*8.314*300))", "label": "N₂ at 300 K"}], "points": [{"at": [422, 0.00197], "label": "most probable"}], "caption": "Maxwell–Boltzmann speed distribution for nitrogen at 300 K"}
+{"x": [0, 1500], "y": [0, 2.3], "xLabel": "speed v (m/s)", "yLabel": "fraction of molecules per km/s", "functions": [{"f": "1000*4*pi*(0.028/(2*pi*8.314*300))^1.5*x^2*exp(-0.028*x^2/(2*8.314*300))"}, {"f": "1000*4*pi*(0.028/(2*pi*8.314*900))^1.5*x^2*exp(-0.028*x^2/(2*8.314*900))", "dashed": true}], "points": [{"at": [422, 1.97], "label": "most probable"}], "labels": [{"at": [760, 1.75], "text": "N₂ at 300 K"}, {"at": [1200, 1.2], "text": "N₂ at 900 K (dashed)"}], "caption": "Speed distributions for nitrogen: at higher temperature the peak shifts right and the curve flattens"}
 ```
 
 ## Common mistakes

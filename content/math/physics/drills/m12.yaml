@@ -7,12 +7,12 @@
   calc:
     gam: 1/sqrt(1 - b^2)
     t: gam*t0
-  prompt: 'A spacecraft moves at ${b}c$ relative to Earth. A clock on board measures {t0} μs between two ticks. Find the Lorentz factor and the time between those ticks measured from Earth.'
+  prompt: 'A spacecraft moves at ${b:dp3}c$ relative to Earth. A clock on board measures {t0} μs between two ticks. Find the Lorentz factor (4 significant figures) and the time between those ticks measured from Earth (μs, 3 significant figures).'
   answers:
     - {format: sig4, name: gam, label: '$\gamma =$', relTolerance: 0.005}
     - {format: sig4, name: t, label: 'Earth time', relTolerance: 0.01, units: {'μs': 1, us: 1}}
   solution: |-
-    $\gamma = \dfrac{1}{\sqrt{1 - ({b})^2}} =$ **{gam:num4}**.
+    $\gamma = \dfrac{1}{\sqrt{1 - ({b:dp3})^2}} =$ **{gam:num4}**.
 
     The ship's clock measures proper time, so $\Delta t = \gamma\Delta t_0 = {gam:num4}({t0}) =$ **{t:num2} μs**.
 - id: phys-length-contraction
@@ -23,7 +23,7 @@
     L0: {min: 10, max: 500, step: 10}
   calc:
     L: L0*sqrt(1 - b^2)
-  prompt: 'A spaceship has a proper length of {L0} m. What length do observers measure as it passes at ${b}c$?'
+  prompt: 'A spaceship has a proper length of {L0} m. What length do observers measure as it passes at ${b}c$? Give meters to 3 significant figures.'
   answers:
     - {format: sig4, name: L, label: 'Length', relTolerance: 0.01, units: {m: 1}}
   solution: |-
@@ -32,14 +32,14 @@
   title: Relativistic energy and momentum
   topic: Special relativity
   vars:
-    part: {choices: [{label: 'an electron', value: 0.511}, {label: 'a proton', value: 938.3}]}
+    part: {choices: [{label: 'an electron ($mc^2 = 0.511$ MeV)', value: 0.511}, {label: 'a proton ($mc^2 = 938.3$ MeV)', value: 938.3}]}
     b: {min: 0.10, max: 0.99, step: 0.01}
   calc:
     gam: 1/sqrt(1 - b^2)
     E: gam*part
     K: (gam - 1)*part
     pc: gam*part*b
-  prompt: 'Consider {part} ($mc^2 = {part:num4}$ MeV) moving at ${b}c$. Find its total energy, kinetic energy and momentum (in MeV/$c$).'
+  prompt: 'Consider {part} moving at ${b}c$. Find its total energy (MeV), kinetic energy (MeV) and momentum (in MeV/$c$), each to 3 significant figures.'
   answers:
     - {format: sig4, name: E, label: 'Total energy', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
     - {format: sig4, name: K, label: 'Kinetic energy', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
@@ -58,7 +58,7 @@
     EeV: 1240/lam
     EJ: EeV*1.602e-19
     N: PmW*1e-3/EJ
-  prompt: 'A {PmW} mW light source emits {lam:dp0} nm light. Find the energy of each photon in eV and the number of photons emitted per second. ($hc = 1240$ eV·nm, $1\text{ eV} = 1.602\times10^{-19}$ J)'
+  prompt: 'A {PmW} mW light source emits {lam:dp0} nm light. Find the energy of each photon in eV and the number of photons emitted per second, each to 3 significant figures. ($hc = 1240$ eV·nm, $1\text{ eV} = 1.602\times10^{-19}$ J)'
   answers:
     - {format: sig4, name: EeV, label: 'Photon energy', relTolerance: 0.01, units: {eV: 1}}
     - {name: N, label: 'Photons per second', format: sci, relTolerance: 0.01, units: {'/s': 1}}
@@ -77,7 +77,7 @@
     K: E - metal
     l0: 1240/metal
   where: ['K > 0.1']
-  prompt: 'Light of wavelength {lam:dp0} nm shines on {metal}. Find the maximum kinetic energy of the ejected electrons (eV) and the metal''s threshold wavelength. ($hc = 1240$ eV·nm)'
+  prompt: 'Light of wavelength {lam:dp0} nm shines on {metal}. Find the maximum kinetic energy of the ejected electrons (eV) and the metal''s threshold wavelength (nm), each to 3 significant figures. ($hc = 1240$ eV·nm)'
   answers:
     - {format: sig4, name: K, label: '$K_{\max}$', relTolerance: 0.01, units: {eV: 1}}
     - {format: sig4, name: l0, label: 'Threshold wavelength', relTolerance: 0.01, units: {nm: 1}}
@@ -95,7 +95,7 @@
   calc:
     dE: 13.6*(1/nf^2 - 1/ni^2)
     lam: 1240/dE
-  prompt: 'A hydrogen atom''s electron drops from $n = {ni}$ to $n = {nf}$. Find the energy and wavelength of the emitted photon. ($E_n = -13.6\text{ eV}/n^2$, $hc = 1240$ eV·nm)'
+  prompt: 'A hydrogen atom''s electron drops from $n = {ni}$ to $n = {nf}$. Find the energy (eV) and wavelength (nm) of the emitted photon, each to 4 significant figures. ($E_n = -13.6\text{ eV}/n^2$, $hc = 1240$ eV·nm)'
   answers:
     - {format: sig4, name: dE, label: 'Photon energy', relTolerance: 0.005, units: {eV: 1}}
     - {format: sig4, name: lam, label: 'Wavelength', relTolerance: 0.005, units: {nm: 1}}
@@ -113,7 +113,7 @@
     p: sqrt(2*part*1.602e-19*V)
     lam: 6.63e-34/p
     lnm: lam*1e9
-  prompt: 'Starting from rest, {part} is accelerated through {V:dp0} V. Find its de Broglie wavelength in nm. ($h = 6.63\times10^{-34}$ J·s, $e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg, $m_p = 1.673\times10^{-27}$ kg)'
+  prompt: 'Starting from rest, {part} is accelerated through {V:dp0} V. Find its de Broglie wavelength in nm, to 3 significant figures (ignore relativistic effects). ($h = 6.63\times10^{-34}$ J·s, $e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg, $m_p = 1.673\times10^{-27}$ kg)'
   answers:
     - {name: lnm, label: 'Wavelength', format: sci, relTolerance: 0.01, units: {nm: 1, m: 1e9, pm: 0.001}}
   solution: |-
@@ -131,7 +131,7 @@
     A: A0*0.5^(t/T)
     lam: ln(2)/T
   where: ['A > 0.5']
-  prompt: 'A radioactive isotope has a half-life of {T} days. A sample starts with activity {A0:dp0} MBq. Find the decay constant (per day) and the activity after {t} days.'
+  prompt: 'A radioactive isotope has a half-life of {T} days. A sample starts with activity {A0:dp0} MBq. Find the decay constant (per day) and the activity after {t} days (MBq), each to 3 significant figures.'
   answers:
     - {format: sig4, name: lam, label: '$\lambda$', relTolerance: 0.01, units: {'/day': 1, 'per day': 1}}
     - {format: sig4, name: A, label: 'Activity', relTolerance: 0.01, units: {MBq: 1, kBq: 0.001}}
@@ -152,7 +152,7 @@
     dm: Z*1.007825 + (A - Z)*1.008665 - nuc
     EB: dm*931.5
     per: EB/A
-  prompt: 'Find the mass defect, binding energy and binding energy per nucleon of {nuc}. Use hydrogen-atom mass 1.007825 u, neutron mass 1.008665 u, and 1 u = 931.5 MeV/$c^2$.'
+  prompt: 'Find the mass defect (u), binding energy (MeV) and binding energy per nucleon (MeV) of {nuc}, each to 4 significant figures. Use hydrogen-atom mass 1.007825 u, neutron mass 1.008665 u, and 1 u = 931.5 MeV/$c^2$.'
   answers:
     - {format: sig4, name: dm, label: 'Mass defect', relTolerance: 0.005, units: {u: 1}}
     - {format: sig4, name: EB, label: 'Binding energy', relTolerance: 0.005, units: {MeV: 1}}
@@ -170,7 +170,7 @@
     pct: {min: 5, max: 95}
   calc:
     t: 5730*ln(pct/100)/ln(0.5)
-  prompt: 'A sample of ancient charcoal has {pct}% of the carbon-14 activity of living wood. Using a half-life of 5730 years, how old is it?'
+  prompt: 'A sample of ancient charcoal has {pct}% of the carbon-14 activity of living wood. Using a half-life of 5730 years, how old is it, in years to 3 significant figures?'
   answers:
     - {format: sig4, name: t, label: 'Age', relTolerance: 0.01, units: {years: 1, yr: 1, y: 1}}
   solution: |-

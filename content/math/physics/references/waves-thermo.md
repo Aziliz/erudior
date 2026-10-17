@@ -6,7 +6,7 @@ title: Oscillations, waves, fluids, and thermodynamics
 
 | | |
 |---|---|
-| SHM | $x = A\cos(\omega t + \phi)$; $\ddot x = -\omega^2x$ |
+| SHM | $x = A\cos(\omega t + \phi)$; $a = -\omega^2x$ |
 | Spring | $\omega = \sqrt{k/m}$, $T = 2\pi\sqrt{m/k}$ |
 | Simple pendulum | $T = 2\pi\sqrt{L/g}$ |
 | Physical pendulum | $T = 2\pi\sqrt{I/(mgd)}$ |
@@ -29,7 +29,7 @@ title: Oscillations, waves, fluids, and thermodynamics
 | | |
 |---|---|
 | Density, pressure | $\rho = m/V$, $P = F/A$ |
-| Depth | $P = P_0 + \rho gh$; $dP/dy = -\rho g$ |
+| Depth | $P = P_0 + \rho gh$ |
 | Pascal | $F_1/A_1 = F_2/A_2$ |
 | Buoyancy | $F_B = \rho_{\text{fluid}}V_{\text{disp}}g$ |
 | Continuity | $A_1v_1 = A_2v_2$ |
@@ -52,8 +52,8 @@ title: Oscillations, waves, fluids, and thermodynamics
 | | |
 |---|---|
 | First law | $\Delta E_{\text{int}} = Q - W$ ($W$ by the gas) |
-| Work by gas | $W = \int P\,dV$; isobaric $P\Delta V$; isothermal $nRT\ln(V_f/V_i)$ |
+| Work by gas | area under the $PV$ curve; isobaric $P\Delta V$; isothermal $nRT\ln(V_f/V_i)$ |
 | Adiabatic | $PV^\gamma$ = const, $TV^{\gamma - 1}$ = const |
 | Engine | $e = \dfrac{W}{Q_H} = 1 - \dfrac{Q_C}{Q_H}$; Carnot $e = 1 - \dfrac{T_C}{T_H}$ |
 | Refrigerator | $K = Q_C/W$; Carnot $\dfrac{T_C}{T_H - T_C}$ |
-| Entropy | $\Delta S = \int\dfrac{dQ_{\text{rev}}}{T}$; $Q/T$ at constant $T$; $mc\ln(T_2/T_1)$ |
+| Entropy | $\Delta S = Q/T$ for heat $Q$ transferred at constant $T$ (e.g. melting, boiling, a large reservoir); Carnot engine $Q_H/T_H = Q_C/T_C$ |

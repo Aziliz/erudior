@@ -4,12 +4,12 @@ module: phys-m6
 title: Sound
 minutes: 40
 topics: [Sound, Doppler effect]
-drills: [phys-decibels, phys-doppler, phys-pipe-harmonics, phys-beats]
+drills: [phys-decibels, phys-doppler, phys-pipe-harmonics]
 refs: [phys-ref-waves-thermo]
 ---
 ## Waves you can hear
 
-Sound is a longitudinal pressure wave: a vibrating object pushes on neighboring air, creating alternating compressions (slightly higher pressure) and rarefactions (slightly lower), which travel outward. Everything from the last lesson applies, $v = f\lambda$, superposition and standing waves, plus three new ideas specific to how we hear: loudness on the decibel scale, resonance in air columns (how wind instruments work), and the Doppler effect.
+Sound is a longitudinal pressure wave: a vibrating object pushes on neighboring air, creating alternating compressions (slightly higher pressure) and rarefactions (slightly lower), which travel outward. Everything from the last lesson applies, $v = f\lambda$, superposition, beats and standing waves, plus three new ideas specific to how we hear: loudness on the decibel scale, resonance in air columns (how wind instruments work), and the Doppler effect.
 
 ## Speed and pitch
 
@@ -59,14 +59,6 @@ Closed: $f_1 = \dfrac{343}{4(0.85)} = 100.9$ Hz; then $f_3 = 303$ Hz and $f_5 = 
 
 Open: $f_1 = \dfrac{343}{2(0.85)} = 202$ Hz, an octave higher.
 
-## Beats
-
-Two tones of slightly different frequencies $f_1$ and $f_2$ interfere alternately constructively and destructively, so the loudness throbs. The throbbing rate, the **beat frequency**, is
-
-$$f_{\text{beat}} = |f_1 - f_2|.$$
-
-Musicians tune by listening for beats against a reference: as the frequencies approach each other, the beats slow and vanish. A 440 Hz tuning fork and a string at 443 Hz produce 3 beats per second.
-
 ## The Doppler effect
 
 The pitch of an ambulance siren rises as it approaches and drops as it recedes. This is the **Doppler effect**: relative motion between source and observer changes the observed frequency.
@@ -94,11 +86,17 @@ When a source moves faster than sound, the wavefronts pile up into a cone, a **s
 
 Doppler shifts are used in radar speed guns, Doppler ultrasound of blood flow, and (for light) measuring how fast galaxies recede.
 
-## With calculus
+## Pressure and displacement
 
-A sound wave can be described by the air's displacement $s(x,t) = s_{\max}\cos(kx - \omega t)$ or, equivalently, by the pressure variation $\Delta P = -B\,\dfrac{\partial s}{\partial x} = \Delta P_{\max}\sin(kx - \omega t)$, where $B$ is the air's bulk modulus. The pressure wave is a quarter-cycle out of step with the displacement wave: pressure nodes sit at displacement antinodes, which is why the closed end of a pipe (displacement node) is a pressure antinode. The speed is $v = \sqrt{B/\rho}$, the fluid analog of $\sqrt{F_T/\mu}$: stiffness over inertia.
+A sound wave can be described in two ways: by how far the air molecules are displaced from their usual positions, or by how much the pressure rises and falls. The two patterns are a quarter wavelength out of step. Where neighboring air moves toward a point from both sides, the air bunches up and the pressure swings are largest, yet the air right at that point barely moves. So a displacement node is a pressure antinode, and vice versa. That's why the closed end of a pipe, where the air can't move (displacement node), is where the pressure swings most (pressure antinode), and the open end, held near atmospheric pressure, is a pressure node.
 
-Intensity is $I = \dfrac{(\Delta P_{\max})^2}{2\rho v}$, again proportional to amplitude squared. Differentiating $\beta = 10\log_{10}(I/I_0)$ shows why decibels track perception: $d\beta \propto dI/I$, so equal *fractional* changes in intensity give equal steps in level.
+The speed of sound in a fluid is $v = \sqrt{B/\rho}$, where $B$ is the bulk modulus (how hard the fluid is to compress) and $\rho$ its density: the same "stiffness over inertia" pattern as $\sqrt{F_T/\mu}$ for a string. Water is much denser than air but far harder to compress, so sound travels over four times faster in it.
+
+### Example 4
+
+A pipe closed at one end resonates at 255 Hz and next at 425 Hz, with nothing in between. Is that consistent with a closed pipe, and how long is it? Use $v = 343$ m/s.
+
+A closed pipe's resonances are odd multiples of $f_1$, so neighboring ones differ by $2f_1$: $2f_1 = 425 - 255 = 170$ Hz, giving $f_1 = 85$ Hz. Then $255 = 3(85)$ and $425 = 5(85)$, both odd multiples ✓. Length: $L = \dfrac{v}{4f_1} = \dfrac{343}{4(85)} = 1.01$ m.
 
 ## Common mistakes
 
@@ -112,5 +110,4 @@ Intensity is $I = \dfrac{(\Delta P_{\max})^2}{2\rho v}$, again proportional to a
 - Sound is a longitudinal pressure wave; $v \approx 343$ m/s in air at 20°C.
 - $\beta = 10\log(I/I_0)$, $I_0 = 10^{-12}$ W/m²; ×10 in $I$ adds 10 dB; ×2 adds 3 dB.
 - Open–open: $f_n = nv/(2L)$, all $n$. Closed–open: $f_n = nv/(4L)$, odd $n$.
-- Beats: $f_{\text{beat}} = |f_1 - f_2|$.
 - Doppler: $f' = f\dfrac{v \pm v_o}{v \mp v_s}$, upper signs for approaching.

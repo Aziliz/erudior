@@ -84,11 +84,25 @@ From $m_2$: $T = m_2(g - a) = 2.0(9.8 - 0.98) = 17.64$ N. Check with $m_1$: $17.
 
 A movable pulley supported by two rope segments lets you lift a load with half the force: if the load $W$ hangs from a pulley held up by two strands of the same rope, $2T = W$ in equilibrium, so $T = W/2$. The price is distance: to raise the load 1 m, you pull 2 m of rope. Block-and-tackle systems multiply this further. (In energy terms, the work you do is the same; you'll see why in the work lesson.)
 
-## With calculus
+## Why connected objects share an acceleration
 
-Constraints between connected objects are really statements about derivatives. If a rope of fixed length $L$ connects blocks at positions $x_1$ and $x_2$ measured along the rope, then $x_1 + x_2 = L$ (plus constants), and differentiating twice gives $\ddot x_1 = -\ddot x_2$: equal and opposite accelerations in those coordinates. For a movable pulley, the constraint is $2y_{\text{load}} + y_{\text{end}} = \text{const}$, so the load's acceleration is half the rope end's. Writing the length constraint and differentiating is the safe way to handle complicated pulley systems.
+The "same acceleration" rule comes from the rope's fixed length. If block A moves 1 cm toward the pulley, exactly 1 cm of rope passes over it, so block B moves 1 cm too. Equal distances in every time interval mean equal speeds at every moment, and equal changes in speed mean equal accelerations (in magnitude, each along its own direction of motion).
 
-A rope with mass is different: tension varies along it. A uniform rope of mass $M$ and length $L$ hanging vertically has tension $T(y) = \dfrac{M}{L}\,g\,y$ at a height $y$ above its bottom end, since that point supports the weight of the rope below it.
+The same counting handles a movable pulley. When the load hangs from two strands and you pull the free end 2 cm, each strand shortens by only 1 cm, so the load rises 1 cm. The load moves half as far as the rope end in every interval, so its speed and acceleration are half the rope end's. Counting rope this way is the safe method for any pulley system.
+
+## Ropes with mass
+
+A real rope has weight, and then its tension is not the same everywhere. Any point of a hanging rope holds up everything below it: the rope beneath that point plus whatever hangs from the end. So a hanging rope's tension is largest at the top. For a uniform rope of mass $M$ and length $L$, the rope below a point a distance $y$ above the bottom end has mass $\tfrac{M}{L}y$.
+
+### Example 4
+
+A 2.0 kg rope 4.0 m long hangs from a ceiling and holds a 10 kg bucket at rest at its lower end. Find the tension at the bottom, at the midpoint and at the top of the rope.
+
+Bottom: only the bucket hangs below, so $T = 10(9.8) = 98$ N.
+
+Midpoint: the bucket plus the lower half of the rope (1.0 kg) hang below, so $T = 11(9.8) = 107.8$ N.
+
+Top: the bucket plus the whole rope, $T = 12(9.8) = 117.6$ N, which is also the force the ceiling must supply. If the rope's mass is small compared with the load, these values are nearly equal, which is why the massless-rope idealization usually works.
 
 ## Common mistakes
 

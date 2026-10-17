@@ -4,7 +4,7 @@ module: phys-m2
 title: Motion in two dimensions and relative motion
 minutes: 30
 topics: [Two-dimensional motion, Relative motion]
-drills: [phys-river-crossing, phys-plane-wind, phys-vector-kinematics]
+drills: [phys-river-crossing, phys-plane-wind, phys-avg-2d]
 refs: [phys-ref-mechanics]
 ---
 ## Beyond the straight line
@@ -44,7 +44,7 @@ $$\vec v_{AC} = \vec v_{AB} + \vec v_{BC}.$$
 
 The inner subscripts match and "cancel," like conversion factors. Also $\vec v_{BA} = -\vec v_{AB}$: if you see a car approaching you at 20 m/s, its driver sees you approaching at 20 m/s in the opposite direction. This is **relative velocity**, and it is just vector addition.
 
-The rule works because positions add: if A is at $\vec r_{AB}$ relative to B and B at $\vec r_{BC}$ relative to C, then $\vec r_{AC} = \vec r_{AB} + \vec r_{BC}$; differentiate with respect to time and the velocities add the same way. (Einstein showed this fails at speeds near light; see the relativity lesson.)
+The rule works because positions add: if A is at $\vec r_{AB}$ relative to B and B at $\vec r_{BC}$ relative to C, then $\vec r_{AC} = \vec r_{AB} + \vec r_{BC}$. Over a time interval the changes in position add the same way, and dividing each change by $\Delta t$ shows that the velocities add too. (Einstein showed this fails at speeds near light; see the relativity lesson.)
 
 ### Example 2: crossing a river
 
@@ -68,25 +68,19 @@ A plane flies with airspeed 220 km/h and must travel due north. A wind blows fro
 
 $\vec v_{PG} = \vec v_{PA} + \vec v_{AG}$, with $\vec v_{AG} = (50, 0)$. For $\vec v_{PG}$ to point north, $220\sin\alpha = 50$, so $\alpha = 13.1^\circ$ west of north. Ground speed: $220\cos 13.1^\circ = \sqrt{220^2 - 50^2} = 214$ km/h.
 
-## With calculus
+## Moving frames agree on acceleration
 
-For any motion in two or three dimensions,
-
-$$\vec v = \frac{d\vec r}{dt} = \frac{dx}{dt}\hat\imath + \frac{dy}{dt}\hat\jmath, \qquad \vec a = \frac{d\vec v}{dt},$$
-
-differentiating each component separately (the unit vectors are constant). Integration goes the other way, one component at a time, using the initial position and velocity.
+Suppose frame B moves at constant velocity relative to frame C. Then $\vec v_{AC} = \vec v_{AB} + \vec v_{BC}$ at every moment, with $\vec v_{BC}$ never changing. Over any time interval, the change in $\vec v_{AC}$ therefore equals the change in $\vec v_{AB}$: the constant term contributes nothing to $\Delta\vec v$. Dividing by $\Delta t$, both observers measure the same acceleration. Observers moving uniformly relative to each other disagree about velocities but agree about accelerations, and so about forces; that is why Newton's laws hold equally in all such **inertial frames**.
 
 ### Example 4
 
-A particle has $\vec r(t) = (3t^2)\,\hat\imath + (8t - t^3)\,\hat\jmath$ m. Find its velocity, speed and acceleration at $t = 2$ s.
+A train moves east at a steady 20 m/s. A passenger tosses a ball straight up at 4.9 m/s relative to the train and catches it at the same height. Describe the ball's motion as seen by the passenger and by someone on the ground. ($g = 9.8$ m/s²)
 
-$\vec v = 6t\,\hat\imath + (8 - 3t^2)\,\hat\jmath$, so $\vec v(2) = 12\hat\imath - 4\hat\jmath$ m/s and the speed is $\sqrt{144 + 16} = 12.6$ m/s.
+Passenger's frame: the ball goes straight up and down. Its time in the air is $2(4.9)/9.8 = 1.0$ s, and it lands back in her hand.
 
-$\vec a = 6\,\hat\imath - 6t\,\hat\jmath$, so $\vec a(2) = 6\hat\imath - 12\hat\jmath$ m/s².
+Ground frame: the ball starts with velocity $\vec v_{\text{ball,G}} = \vec v_{\text{ball,T}} + \vec v_{\text{T,G}} = (20, 4.9)$ m/s. It is a projectile: it moves $20 \times 1.0 = 20$ m east during the flight, along a parabola. The hand also moves 20 m east in that second, so the catch works in this frame too.
 
-The tangential part of the acceleration is the component along $\vec v$: $\dfrac{\vec a\cdot\vec v}{|\vec v|} = \dfrac{72 + 48}{12.65} = 9.49$ m/s². The particle is speeding up at that rate; the rest of $\vec a$ is turning it.
-
-Relative motion in calculus form: if frame B moves at constant velocity relative to frame C, then $\vec a_{AC} = \vec a_{AB}$. Observers in frames moving uniformly relative to each other measure the same accelerations, which is why Newton's laws hold equally in all such **inertial frames**.
+Both observers measure the same acceleration, 9.8 m/s² downward, and the same flight time. Only the velocities and the shape of the path differ.
 
 ## Common mistakes
 
@@ -100,4 +94,4 @@ Relative motion in calculus form: if frame B moves at constant velocity relative
 - $\vec v_{\text{avg}} = \Delta\vec r/\Delta t$, $\vec a_{\text{avg}} = \Delta\vec v/\Delta t$, computed by components.
 - Acceleration includes changes of direction; tangential changes speed, radial changes direction.
 - Relative velocity: $\vec v_{AC} = \vec v_{AB} + \vec v_{BC}$ and $\vec v_{BA} = -\vec v_{AB}$.
-- $\vec v = d\vec r/dt$, $\vec a = d\vec v/dt$ component by component.
+- Observers moving at constant velocity relative to each other measure different velocities but the same acceleration.

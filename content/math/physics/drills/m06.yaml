@@ -8,14 +8,14 @@
     w: sqrt(k/m)
     T: 2*pi*sqrt(m/k)
     f: 1/T
-  prompt: 'A {m} kg block on a frictionless surface is attached to a spring with $k = {k:dp0}$ N/m. Find the period and the frequency of its oscillation.'
+  prompt: 'A {m} kg block on a frictionless surface is attached to a spring with $k = {k:dp0}$ N/m. Find the period (s) and the frequency (Hz) of its oscillation, to 3 significant figures.'
   answers:
     - {format: sig4, name: T, label: 'Period', relTolerance: 0.01, units: {s: 1, ms: 0.001}}
     - {format: sig4, name: f, label: 'Frequency', relTolerance: 0.01, units: {Hz: 1}}
   solution: |-
     $\omega = \sqrt{k/m} = \sqrt{{k:dp0}/{m}} = {w:num2}$ rad/s.
 
-    $T = 2\pi/\omega = 2\pi\sqrt{m/k} =$ **{T:num4} s**, and $f = 1/T =$ **{f:num2} Hz**.
+    $T = 2\pi/\omega = 2\pi\sqrt{m/k} =$ **{T:sig3} s**, and $f = 1/T =$ **{f:sig3} Hz**.
 - id: phys-pendulum-period
   title: Simple pendulum
   topic: Pendulums
@@ -24,11 +24,11 @@
     planet: {choices: [{label: Earth, value: 9.8}, {label: 'the Moon', value: 1.62}, {label: Mars, value: 3.71}]}
   calc:
     T: 2*pi*sqrt(L/planet)
-  prompt: 'A simple pendulum {L} m long swings with small amplitude on {planet}. Find its period. (Use $g = 9.8$ m/s² on Earth, 1.62 m/s² on the Moon, 3.71 m/s² on Mars.)'
+  prompt: 'A simple pendulum {L} m long swings with small amplitude on {planet}. Find its period in seconds, to 3 significant figures. (Use $g = 9.8$ m/s² on Earth, 1.62 m/s² on the Moon, 3.71 m/s² on Mars.)'
   answers:
     - {format: sig4, name: T, label: 'Period', relTolerance: 0.01, units: {s: 1}}
   solution: |-
-    $T = 2\pi\sqrt{L/g} = 2\pi\sqrt{{L}/{planet:num2}} =$ **{T:num2} s**. The bob's mass doesn't matter.
+    $T = 2\pi\sqrt{L/g} = 2\pi\sqrt{{L}/{planet:num2}} =$ **{T:sig3} s**. The bob's mass doesn't matter.
 - id: phys-shm-max
   title: Maximum speed and acceleration in SHM
   topic: Simple harmonic motion
@@ -44,7 +44,7 @@
     amax: A*w^2
     x: xf*A
     vx: w*sqrt(A^2 - x^2)
-  prompt: 'A {m} kg mass on a spring ($k = {k:dp0}$ N/m) oscillates with amplitude {Acm} cm. Find its maximum speed, its maximum acceleration, and its speed when it is {x:num4} m from equilibrium.'
+  prompt: 'A {m} kg mass on a spring ($k = {k:dp0}$ N/m) oscillates with amplitude {Acm} cm. Find its maximum speed, its maximum acceleration, and its speed when it is {x:num4} m from equilibrium. Use m/s and m/s², to 3 significant figures.'
   answers:
     - {format: sig4, name: vmax, label: 'Max speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: amax, label: 'Max acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
@@ -52,9 +52,9 @@
   solution: |-
     $\omega = \sqrt{k/m} = {w:num4}$ rad/s.
 
-    $v_{\max} = A\omega = ({A})({w:num4}) =$ **{vmax:num4} m/s**; $a_{\max} = A\omega^2 =$ **{amax:num2} m/s²**.
+    $v_{\max} = A\omega = ({A})({w:num4}) =$ **{vmax:sig3} m/s**; $a_{\max} = A\omega^2 =$ **{amax:sig3} m/s²**.
 
-    From energy, $v = \omega\sqrt{A^2 - x^2} = {w:num4}\sqrt{{A}^2 - {x:num4}^2} =$ **{vx:num4} m/s**.
+    From energy, $v = \omega\sqrt{A^2 - x^2} = {w:num4}\sqrt{{A}^2 - {x:num4}^2} =$ **{vx:sig3} m/s**.
 - id: phys-wave-speed
   title: Wave speed, frequency and wavelength
   topic: Wave properties
@@ -64,12 +64,12 @@
   calc:
     lam: kind/f
     T: 1/f
-  prompt: 'A {f} Hz tone travels as {kind} (speed {kind:int} m/s). Find its wavelength and its period.'
+  prompt: 'A {f} Hz tone travels as {kind} (speed {kind:int} m/s). Find its wavelength (m) and its period (s), to 3 significant figures.'
   answers:
     - {name: lam, label: 'Wavelength', format: sig3, relTolerance: 0.01, units: {m: 1, cm: 0.01}}
     - {name: T, label: 'Period', format: sci, relTolerance: 0.01, units: {s: 1, ms: 0.001}}
   solution: |-
-    $\lambda = v/f = {kind:dp0}/{f:dp0} =$ **{lam:num4} m**.
+    $\lambda = v/f = {kind:dp0}/{f:dp0} =$ **{lam:sig3} m**.
 
     $T = 1/f = 1/{f:dp0} = \mathbf{{T:texsci}}$ s.
 - id: phys-string-wave
@@ -85,15 +85,15 @@
     v: sqrt(F/mu)
     f1: v/(2*L)
     fn: n*f1
-  prompt: 'A string {L} m long with mass {mg} g is fixed at both ends under {F} N of tension. Find the wave speed, the fundamental frequency and the frequency of harmonic $n = {n}$.'
+  prompt: 'A string {L} m long with mass {mg} g is fixed at both ends under {F} N of tension. Find the wave speed, the fundamental frequency and the frequency of harmonic $n = {n}$, to 3 significant figures (m/s and Hz).'
   answers:
     - {format: sig4, name: v, label: 'Wave speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: f1, label: 'Fundamental', relTolerance: 0.01, units: {Hz: 1}}
     - {format: sig4, name: fn, label: 'Harmonic n', relTolerance: 0.01, units: {Hz: 1}}
   solution: |-
-    $\mu = m/L = {mg}\times10^{-3}/{L} = {mu:num4}$ kg/m; $v = \sqrt{F_T/\mu} =$ **{v:num1} m/s**.
+    $\mu = m/L = {mg}\times10^{-3}/{L} = {mu:num4}$ kg/m; $v = \sqrt{F_T/\mu} =$ **{v:sig3} m/s**.
 
-    $f_1 = \dfrac{\,v}{2L} =$ **{f1:num1} Hz**; $f_{{n}} = {n}f_1 =$ **{fn:num1} Hz**.
+    $f_1 = \dfrac{\,v}{2L} =$ **{f1:sig3} Hz**; $f_{{n}} = {n}f_1 =$ **{fn:sig3} Hz**.
 - id: phys-decibels
   title: Intensity and decibels
   topic: Sound
@@ -103,7 +103,7 @@
   calc:
     I: P/(4*pi*r^2)
     B: 10*log10(I/1e-12)
-  prompt: 'A small speaker radiates {P} W of sound equally in all directions. At {r} m away, find the intensity and the sound intensity level ($I_0 = 10^{-12}$ W/m²).'
+  prompt: 'A small speaker radiates {P} W of sound equally in all directions. At {r} m away, find the intensity (W/m², to 3 significant figures) and the sound intensity level (dB, to 1 decimal place). Use $I_0 = 10^{-12}$ W/m².'
   answers:
     - {name: I, label: 'Intensity', format: sci, relTolerance: 0.01, units: {'W/m²': 1, 'W/m^2': 1}}
     - {format: sig4, name: B, label: 'Level', tolerance: 0.2, units: {dB: 1}}
@@ -120,14 +120,14 @@
   calc:
     fa: f*343/(343 - vs)
     fr: f*343/(343 + vs)
-  prompt: 'A siren emits {f} Hz and moves at {vs} m/s past a stationary listener. Using $v = 343$ m/s, find the frequency heard as it approaches and as it recedes.'
+  prompt: 'A siren emits {f} Hz and moves at {vs} m/s past a stationary listener. Using $v = 343$ m/s, find the frequency heard as it approaches and as it recedes, in Hz to 4 significant figures.'
   answers:
     - {format: sig4, name: fa, label: 'Approaching', relTolerance: 0.002, units: {Hz: 1}}
     - {format: sig4, name: fr, label: 'Receding', relTolerance: 0.002, units: {Hz: 1}}
   solution: |-
-    Approaching source: $f' = f\dfrac{v}{v - v_s} = {f:dp0}\cdot\dfrac{343}{343 - {vs}} =$ **{fa:num1} Hz**.
+    Approaching source: $f' = f\dfrac{v}{v - v_s} = {f:dp0}\cdot\dfrac{343}{343 - {vs}} =$ **{fa:sig4} Hz**.
 
-    Receding: $f' = {f:dp0}\cdot\dfrac{343}{343 + {vs}} =$ **{fr:num1} Hz**.
+    Receding: $f' = {f:dp0}\cdot\dfrac{343}{343 + {vs}} =$ **{fr:sig4} Hz**.
 - id: phys-pipe-harmonics
   title: Resonances of an air column
   topic: Sound
@@ -137,17 +137,17 @@
   calc:
     f1: 343/(pipe*L)
     f2: if(pipe == 2, 2*f1, 3*f1)
-  prompt: 'A pipe {L} m long is {pipe}. Using $v = 343$ m/s, find its fundamental frequency and the next higher resonant frequency.'
+  prompt: 'A pipe {L} m long is {pipe}. Using $v = 343$ m/s, find its fundamental frequency and the next higher resonant frequency, in Hz to 3 significant figures.'
   answers:
     - {format: sig4, name: f1, label: 'Fundamental', relTolerance: 0.01, units: {Hz: 1}}
     - {format: sig4, name: f2, label: 'Next resonance', relTolerance: 0.01, units: {Hz: 1}}
   solution: |-
     Open at both ends: $f_n = nv/(2L)$, all $n$. Closed at one end: $f_n = nv/(4L)$, odd $n$ only. This pipe is {pipe}.
 
-    $f_1 =$ **{f1:num1} Hz**, and the next resonance is **{f2:num1} Hz** ($2f_1$ for an open pipe, $3f_1$ for a closed one).
+    $f_1 =$ **{f1:sig3} Hz**, and the next resonance is **{f2:sig3} Hz** ($2f_1$ for an open pipe, $3f_1$ for a closed one).
 - id: phys-beats
   title: Beats
-  topic: Sound
+  topic: Wave properties
   vars:
     f1: {min: 200, max: 800}
     d: {min: 1, max: 9}
@@ -156,7 +156,7 @@
     f2: f1 + s*d
     fb: d
     favg: (f1 + f2)/2
-  prompt: 'Two tuning forks of {f1} Hz and {f2} Hz are struck together. Find the beat frequency and the frequency of the tone you hear throbbing.'
+  prompt: 'Two tuning forks of {f1} Hz and {f2} Hz are struck together. Find the beat frequency and the frequency of the tone you hear throbbing, in Hz (the tone to 1 decimal place).'
   answers:
     - {format: sig4, name: fb, label: 'Beat frequency', tolerance: 0.01, units: {Hz: 1}}
     - {format: sig4, name: favg, label: 'Tone', tolerance: 0.1, units: {Hz: 1}}

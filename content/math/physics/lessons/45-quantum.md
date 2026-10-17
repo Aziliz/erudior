@@ -93,11 +93,25 @@ $K = 100$ eV $= 1.602\times10^{-17}$ J. $p = \sqrt{2mK} = \sqrt{2(9.11\times10^{
 
 $\lambda = \dfrac{6.63\times10^{-34}}{5.40\times10^{-24}} = 1.23\times10^{-10}$ m $= 0.123$ nm, about the spacing of atoms in a crystal, which is why such electrons diffract from crystals.
 
-## With calculus
+## Quantization from standing waves
 
-The Bohr energies come from combining the Coulomb force with quantized angular momentum, $L = mvr = n\hbar$ ($\hbar = h/2\pi$): the allowed radii are $r_n = n^2a_0$ with $a_0 = 0.0529$ nm, and the energy $E = \tfrac12mv^2 - ke^2/r$ works out to $-13.6\text{ eV}/n^2$.
+Matter waves explain *why* energies are quantized. A wave confined to a region can only form standing waves that fit, like a guitar string fixed at both ends (the waves lesson).
 
-In full quantum mechanics a particle is described by a wave function $\psi(x)$ obeying the Schrödinger equation, $-\dfrac{\hbar^2}{2m}\dfrac{d^2\psi}{dx^2} + U\psi = E\psi$; $|\psi|^2$ is the probability density. For a particle in a box of width $L$ (with $U = 0$ inside), the solutions are $\psi = \sin(n\pi x/L)$, standing waves exactly like a string fixed at both ends, giving quantized energies $E_n = \dfrac{n^2h^2}{8mL^2}$. Quantization is what happens when waves are confined.
+*Particle in a box.* Trap a particle between two walls a distance $L$ apart. Its wave must have nodes at both walls, so, exactly as for a string, a whole number of half-wavelengths must fit: $L = n\dfrac{\lambda}{2}$, or $\lambda_n = \dfrac{2L}{n}$. De Broglie's relation gives the momentum, $p = h/\lambda = \dfrac{nh}{2L}$, and the kinetic energy is
+
+$$E_n = \frac{p^2}{2m} = \frac{n^2h^2}{8mL^2}, \qquad n = 1, 2, 3, \ldots$$
+
+Only these energies are allowed, and the lowest is not zero: a confined particle can never be completely at rest. A smaller box means shorter wavelengths and higher energies ($E \propto 1/L^2$), which is why electrons squeezed into tiny "quantum dots" emit bluer light as the dots get smaller.
+
+*The Bohr atom.* De Broglie's idea also explains Bohr's orbits: an orbit is allowed only if a whole number of electron wavelengths fits around its circumference, $2\pi r = n\lambda$. Combining that condition with the Coulomb attraction providing the centripetal force gives allowed radii $r_n = n^2(0.0529\text{ nm})$ and exactly the energies $-13.6\text{ eV}/n^2$. The modern theory (quantum mechanics) replaces orbits with standing-wave "clouds", but the idea that quantization comes from fitting waves survives.
+
+### Example 5
+
+An electron is confined to a region 0.50 nm wide. Find its two lowest energies and the wavelength of the photon emitted when it drops from $n = 2$ to $n = 1$.
+
+$E_1 = \dfrac{h^2}{8mL^2} = \dfrac{(6.63\times10^{-34})^2}{8(9.11\times10^{-31})(0.50\times10^{-9})^2} = 2.41\times10^{-19}$ J $= 1.51$ eV.
+
+$E_2 = 2^2E_1 = 6.02$ eV, so the photon carries $E_2 - E_1 = 3E_1 = 4.52$ eV and has $\lambda = 1240/4.52 = 274$ nm (ultraviolet).
 
 ## Common mistakes
 

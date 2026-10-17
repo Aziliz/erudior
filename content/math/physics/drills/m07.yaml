@@ -7,15 +7,15 @@
   calc:
     Pg: fluid*9.8*h
     Pabs: 1.013e5 + Pg
-    atm: Pabs/1.013e5
-  prompt: 'Find the gauge pressure and the absolute pressure {h} m below the surface of {fluid}. Use $g = 9.8$ m/s² and $P_{\text{atm}} = 1.013\times10^5$ Pa.'
+    natm: Pabs/1.013e5
+  prompt: 'Find the gauge pressure and the absolute pressure {h} m below the surface of {fluid}. Use $g = 9.8$ m/s² and $P_{\text{atm}} = 1.013\times10^5$ Pa, and give both in pascals to 3 significant figures.'
   answers:
     - {name: Pg, label: 'Gauge', format: sci, relTolerance: 0.01, units: {Pa: 1, kPa: 1000, atm: 101300}}
     - {name: Pabs, label: 'Absolute', format: sci, relTolerance: 0.01, units: {Pa: 1, kPa: 1000, atm: 101300}}
   solution: |-
-    Gauge: $\rho gh = ({fluid:dp0})(9.8)({h}) = {Pg:texsci}$ Pa.
+    Gauge: $\rho gh = ({fluid:dp0})(9.8)({h}) = \mathbf{{Pg:texsci}}$ Pa.
 
-    Absolute: $P_{\text{atm}} + \rho gh = {Pabs:texsci}$ Pa, about **{atm:num2} atm**.
+    Absolute: $P_{\text{atm}} + \rho gh = \mathbf{{Pabs:texsci}}$ Pa, about {natm:num2} atm.
 - id: phys-buoyancy
   title: Apparent weight and floating fraction
   topic: Buoyancy
@@ -28,7 +28,7 @@
     W: rho*V*9.8
     FB: 1000*V*9.8
     app: W - FB
-  prompt: 'An object of density {rho:dp0} kg/m³ and volume {Vc:dp0} cm³ is held completely under water (density 1000 kg/m³). Using $g = 9.8$ m/s², find the buoyant force and its apparent weight (weight minus buoyant force; a negative value means it would float up if released).'
+  prompt: 'An object of density {rho:dp0} kg/m³ and volume {Vc:dp0} cm³ is held completely under water (density 1000 kg/m³). Using $g = 9.8$ m/s², find the buoyant force and its apparent weight (weight minus buoyant force; a negative value means it would float up if released), both in newtons to 3 significant figures.'
   answers:
     - {format: sig4, name: FB, label: 'Buoyant force', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: app, label: 'Apparent weight', relTolerance: 0.01, units: {N: 1}}
@@ -48,7 +48,7 @@
     ratio: (d2/d1)^2
     F1: m*9.8/ratio
     s1: h*ratio
-  prompt: 'A hydraulic lift has pistons of diameter {d1} cm and {d2} cm. Using $g = 9.8$ m/s², what force on the small piston supports a {m} kg car on the large one, and how far must the small piston move in total to raise the car {h} m?'
+  prompt: 'A hydraulic lift has pistons of diameter {d1} cm and {d2} cm. Using $g = 9.8$ m/s², what force on the small piston supports a {m} kg car on the large one, and how far must the small piston move in total to raise the car {h} m? Give the force in newtons and the distance in meters, to 3 significant figures.'
   answers:
     - {format: sig4, name: F1, label: 'Force', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: s1, label: 'Distance', relTolerance: 0.01, units: {m: 1}}
@@ -69,7 +69,7 @@
   calc:
     v2: v1*(D1/D2)^2
     Q: pi*(D1/200)^2*v1*1000
-  prompt: 'Water flows at {v1} m/s through a pipe of diameter {D1} cm that narrows to {D2} cm. Find the speed in the narrow section and the flow rate in liters per second.'
+  prompt: 'Water flows at {v1} m/s through a pipe of diameter {D1} cm that narrows to {D2} cm. Find the speed in the narrow section (m/s) and the flow rate in liters per second, to 3 significant figures.'
   answers:
     - {format: sig4, name: v2, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: Q, label: 'Flow rate', relTolerance: 0.01, units: {'L/s': 1}}
@@ -87,14 +87,15 @@
   calc:
     v2: v1*k
     P2: P1k*1000 + 0.5*1000*(v1^2 - v2^2)
+    P2k: P2/1000
   where: ['P2 > 30000']
-  prompt: 'Water flows through a horizontal pipe. Where the pressure is {P1k} kPa the speed is {v1} m/s. At a narrower section the speed is {v2} m/s. What is the pressure there? (Water density 1000 kg/m³.)'
+  prompt: 'Water flows through a horizontal pipe. Where the pressure is {P1k} kPa the speed is {v1} m/s. At a narrower section the speed is {v2} m/s. What is the pressure there, in kPa to 3 significant figures? (Water density 1000 kg/m³.)'
   answers:
-    - {format: sig4, name: P2, label: 'Pressure', relTolerance: 0.005, units: {Pa: 1, kPa: 1000}}
+    - {format: sig4, name: P2k, label: 'Pressure', relTolerance: 0.01, units: {kPa: 1, Pa: 0.001}}
   solution: |-
     Same height, so $P_1 + \tfrac12\rho v_1^2 = P_2 + \tfrac12\rho v_2^2$:
 
-    $P_2 = {P1k}\times10^3 + \tfrac12(1000)({v1}^2 - {v2}^2) =$ **{P2:int} Pa**. Faster flow, lower pressure.
+    $P_2 = {P1k}\times10^3 + \tfrac12(1000)({v1}^2 - {v2}^2) = {P2:int}$ Pa $=$ **{P2k:num2} kPa**. Faster flow, lower pressure.
 - id: phys-torricelli
   title: Draining tank (Torricelli)
   topic: Fluid dynamics
@@ -104,7 +105,7 @@
   calc:
     v: sqrt(2*9.8*h)
     Q: a*1e-4*v*1000
-  prompt: 'A large open tank has a hole of area {a} cm² located {h} m below the water surface. Using $g = 9.8$ m/s², find the speed of the emerging water and the initial flow rate in L/s.'
+  prompt: 'A large open tank has a hole of area {a} cm² located {h} m below the water surface. Using $g = 9.8$ m/s², find the speed of the emerging water (m/s) and the initial flow rate in L/s, to 3 significant figures.'
   answers:
     - {format: sig4, name: v, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: Q, label: 'Flow rate', relTolerance: 0.01, units: {'L/s': 1}}
@@ -124,7 +125,7 @@
   calc:
     Tf: (m1*metal*T1 + m2*4186*T2)/(m1*metal + m2*4186)
   where: ['Tf < 99']
-  prompt: 'A {m1} kg block of {metal} ($c = {metal:dp0}$ J/(kg·K)) at {T1}°C is dropped into {m2} kg of water ($c = 4186$ J/(kg·K)) at {T2}°C in an insulated cup. Ignoring the cup, find the final temperature in °C.'
+  prompt: 'A {m1} kg block of {metal} ($c = {metal:dp0}$ J/(kg·K)) at {T1}°C is dropped into {m2} kg of water ($c = 4186$ J/(kg·K)) at {T2}°C in an insulated cup. Ignoring the cup, find the final temperature in °C, to the nearest 0.1°C.'
   answers:
     - {format: sig4, name: Tf, label: 'Final temperature', tolerance: 0.2, units: {'°C': 1, C: 1}}
   solution: |-
@@ -143,7 +144,7 @@
     Q2: m*3.34e5
     Q3: m*4186*Tf
     Q: Q1 + Q2 + Q3
-  prompt: 'How much heat is needed to turn {m} kg of ice at {Ti}°C into water at {Tf}°C? Use $c_{\text{ice}} = 2100$ J/(kg·K), $L_f = 3.34\times10^5$ J/kg and $c_{\text{water}} = 4186$ J/(kg·K).'
+  prompt: 'How much heat is needed to turn {m} kg of ice at {Ti}°C into water at {Tf}°C? Use $c_{\text{ice}} = 2100$ J/(kg·K), $L_f = 3.34\times10^5$ J/kg and $c_{\text{water}} = 4186$ J/(kg·K), and give the answer in joules to 3 significant figures.'
   answers:
     - {name: Q, label: 'Heat', format: sci, relTolerance: 0.01, units: {J: 1, kJ: 1000, MJ: 1000000}}
   solution: |-
@@ -164,7 +165,7 @@
     T2: {min: 20, max: 60}
   calc:
     dL: mat*1e-6*L*(T2 - T1)*1000
-  prompt: 'A {L} m long piece of {mat} warms from {T1}°C to {T2}°C. By how many millimeters does it lengthen?'
+  prompt: 'A {L} m long piece of {mat} warms from {T1}°C to {T2}°C. By how many millimeters does it lengthen? Give 3 significant figures.'
   answers:
     - {format: sig4, name: dL, label: 'Change in length', relTolerance: 0.01, units: {mm: 1, cm: 10, m: 1000}}
   solution: |-
@@ -180,7 +181,7 @@
   calc:
     P: k*A*dT/(Lcm/100)
     E: P*3600/1000
-  prompt: 'A {A} m² panel of {k} is {Lcm} cm thick. The temperature difference across it is {dT} K. Find the rate of heat conduction (W) and the heat lost in one hour (kJ).'
+  prompt: 'A {A} m² panel of {k} is {Lcm} cm thick. The temperature difference across it is {dT} K. Find the rate of heat conduction (W) and the heat lost in one hour (kJ), to 3 significant figures.'
   answers:
     - {format: sig4, name: P, label: 'Rate', relTolerance: 0.01, units: {W: 1, kW: 1000}}
     - {format: sig4, name: E, label: 'Heat in 1 h', relTolerance: 0.01, units: {kJ: 1, J: 0.001, MJ: 1000}}
@@ -198,7 +199,7 @@
   calc:
     T: TC + 273.15
     P: n*8.314*T/(VL/1000)
-  prompt: '{n} mol of an ideal gas at {TC}°C occupies {VL} L. What is its pressure? ($R = 8.314$ J/(mol·K))'
+  prompt: '{n} mol of an ideal gas at {TC}°C occupies {VL} L. What is its pressure, in pascals to 3 significant figures? ($R = 8.314$ J/(mol·K))'
   answers:
     - {name: P, label: 'Pressure', format: sci, relTolerance: 0.01, units: {Pa: 1, kPa: 1000, atm: 101300}}
   solution: |-
@@ -216,7 +217,7 @@
     T2: {min: 250, max: 600, step: 5}
   calc:
     V2: V1*(P1/P2)*(T2/T1)
-  prompt: 'A gas occupies {V1} L at {P1} atm and {T1} K. What volume does it occupy at {P2} atm and {T2} K?'
+  prompt: 'A gas occupies {V1} L at {P1} atm and {T1} K. What volume does it occupy at {P2} atm and {T2} K? Give liters to 3 significant figures.'
   answers:
     - {format: sig4, name: V2, label: 'Volume', relTolerance: 0.01, units: {L: 1, mL: 0.001}}
   solution: |-
@@ -230,7 +231,7 @@
   calc:
     v: sqrt(3*8.314*T/gas)
     K: 1.5*1.38e-23*T
-  prompt: 'Find the rms speed of {gas} molecules at {T} K and their average translational kinetic energy. ($R = 8.314$ J/(mol·K), $k_B = 1.38\times10^{-23}$ J/K)'
+  prompt: 'Find the rms speed of {gas} molecules at {T} K (m/s) and their average translational kinetic energy (J), to 3 significant figures. ($R = 8.314$ J/(mol·K), $k_B = 1.38\times10^{-23}$ J/K)'
   answers:
     - {format: sig4, name: v, label: '$v_{\text{rms}}$', relTolerance: 0.01, units: {'m/s': 1}}
     - {name: K, label: 'Average KE', format: sci, relTolerance: 0.01, units: {J: 1}}
@@ -247,7 +248,7 @@
   where: ['Q != 0', 'W != 0', 'Q != W', 'abs(Q - W + 15.54) > 1']
   calc:
     dU: Q - W
-  prompt: 'During a process a gas absorbs {Q} J of heat (negative means it releases heat) and does {W} J of work on its surroundings (negative means work is done on it). Find the change in its internal energy.'
+  prompt: 'During a process a gas absorbs {Q} J of heat (negative means it releases heat) and does {W} J of work on its surroundings (negative means work is done on it). Find the change in its internal energy, in joules.'
   answers:
     - {format: sig4, name: dU, label: '$\Delta E_{\text{int}} =$', tolerance: 0.5, units: {J: 1}}
   solution: |-
@@ -262,7 +263,7 @@
     W: n*8.314*dT
     dU: 1.5*n*8.314*dT
     Q: 2.5*n*8.314*dT
-  prompt: '{n} mol of a monatomic ideal gas is heated at constant pressure, raising its temperature by {dT} K. Find the work done by the gas, the change in internal energy, and the heat added. ($R = 8.314$ J/(mol·K))'
+  prompt: '{n} mol of a monatomic ideal gas is heated at constant pressure, raising its temperature by {dT} K. Find the work done by the gas, the change in internal energy, and the heat added, in joules to 3 significant figures. ($R = 8.314$ J/(mol·K))'
   answers:
     - {format: sig4, name: W, label: '$W$', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
     - {format: sig4, name: dU, label: '$\Delta E_{\text{int}}$', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
@@ -282,12 +283,12 @@
     r: {min: 1.5, max: 6, step: 0.5}
   calc:
     W: n*8.314*T*ln(r)
-  prompt: '{n} mol of an ideal gas expands isothermally at {T} K until its volume is {r} times larger. How much work does it do, and how much heat does it absorb? ($R = 8.314$ J/(mol·K))'
+  prompt: '{n} mol of an ideal gas expands isothermally at {T} K until its volume is {r} times larger. How much work does it do, and how much heat does it absorb? Give joules to 3 significant figures. ($R = 8.314$ J/(mol·K), and the work in an isothermal process is $nRT\ln(V_f/V_i)$.)'
   answers:
     - {format: sig4, name: W, label: 'Work', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
     - {format: sig4, name: W, label: 'Heat', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
   solution: |-
-    $W = \displaystyle\int P\,dV = nRT\ln\frac{V_f}{V_i} = ({n})(8.314)({T})\ln {r} =$ **{W:num1} J**.
+    The work is the area under the isotherm on a PV diagram, $W = nRT\ln\dfrac{V_f}{V_i} = ({n})(8.314)({T})\ln {r} =$ **{W:num1} J**.
 
     Isothermal: $\Delta E_{\text{int}} = 0$, so $Q = W =$ **{W:num1} J**.
 - id: phys-carnot
@@ -301,7 +302,7 @@
     e: 1 - (TC + 273)/(TH + 273)
     W: e*QH
     QC: QH - W
-  prompt: 'An ideal (Carnot) engine runs between a hot reservoir at {TH}°C and a cold one at {TC}°C. Find its efficiency (as a decimal) and, if it absorbs {QH} J per cycle, the work output and the heat rejected per cycle. (Use $T = T_C + 273$.)'
+  prompt: 'An ideal (Carnot) engine runs between a hot reservoir at {TH}°C and a cold one at {TC}°C. Find its efficiency (as a decimal) and, if it absorbs {QH} J per cycle, the work output and the heat rejected per cycle, in joules. Give all three to 3 significant figures, and convert with $T = T_C + 273$.'
   answers:
     - {format: sig4, name: e, label: 'Efficiency', relTolerance: 0.01}
     - {format: sig4, name: W, label: 'Work', relTolerance: 0.01, units: {J: 1}}
@@ -311,7 +312,7 @@
 
     $W = eQ_H =$ **{W:num1} J**; $Q_C = Q_H - W =$ **{QC:num1} J**.
 - id: phys-engine-efficiency
-  title: Real engine vs Carnot limit
+  title: Engine efficiency from work and exhaust heat
   topic: Heat engines
   vars:
     W: {min: 100, max: 2000, step: 50}
@@ -319,7 +320,7 @@
   calc:
     QH: W + QC
     e: W/QH
-  prompt: 'An engine does {W} J of work per cycle and exhausts {QC} J of heat. How much heat does it absorb per cycle, and what is its efficiency (as a decimal)?'
+  prompt: 'An engine does {W} J of work per cycle and exhausts {QC} J of heat. How much heat does it absorb per cycle (J), and what is its efficiency (as a decimal to 3 significant figures)?'
   answers:
     - {format: sig4, name: QH, label: 'Heat absorbed', tolerance: 0.5, units: {J: 1}}
     - {format: sig4, name: e, label: 'Efficiency', relTolerance: 0.01}
@@ -328,19 +329,27 @@
 
     $e = W/Q_H =$ **{e:num4}**.
 - id: phys-entropy-melt
-  title: Entropy change of melting and of heating
+  title: Entropy change when ice melts in a warm room
   topic: Entropy
   vars:
     m: {min: 0.1, max: 5, step: 0.1}
-    T2: {min: 10, max: 90, step: 5}
+    Tr: {min: 5, max: 40}
   calc:
-    S1: m*3.34e5/273.15
-    S2: m*4186*ln((T2 + 273.15)/273.15)
-  prompt: '{m} kg of ice at 0°C melts, and the water is then warmed to {T2}°C. Find the entropy change for (a) the melting and (b) the warming. ($L_f = 3.34\times10^5$ J/kg, $c = 4186$ J/(kg·K), 0°C = 273.15 K)'
+    Qh: m*3.34e5
+    S1: Qh/273.15
+    Troom: Tr + 273.15
+    S2: -Qh/Troom
+    Stot: S1 + S2
+  prompt: '{m} kg of ice at 0°C melts, taking all its heat from a large room at {Tr}°C. Find the entropy change of (a) the ice and (b) the room, and (c) the total, in J/K to 3 significant figures (keep at least 4 significant figures in intermediate steps). ($L_f = 3.34\times10^5$ J/kg; use $T = T_C + 273.15$.)'
   answers:
-    - {format: sig4, name: S1, label: '(a) Melting', relTolerance: 0.01, units: {'J/K': 1}}
-    - {format: sig4, name: S2, label: '(b) Warming', relTolerance: 0.01, units: {'J/K': 1}}
+    - {format: sig4, name: S1, label: '(a) Ice', relTolerance: 0.01, units: {'J/K': 1}}
+    - {format: sig4, name: S2, label: '(b) Room', relTolerance: 0.01, units: {'J/K': 1}}
+    - {format: sig4, name: Stot, label: '(c) Total', relTolerance: 0.01, units: {'J/K': 1}}
   solution: |-
-    (a) Constant temperature: $\Delta S = \dfrac{mL_f}{T} = \dfrac{{m}(3.34\times10^5)}{273.15} =$ **{S1:num1} J/K**.
+    Heat: $Q = mL_f = {m}(3.34\times10^5) = {Qh:dp0}$ J.
 
-    (b) $\Delta S = \displaystyle\int\frac{mc\,dT}{T} = mc\ln\frac{T_2}{T_1} = {m}(4186)\ln\frac{{T2} + 273.15}{273.15} =$ **{S2:num1} J/K**.
+    (a) The ice absorbs it at 273.15 K: $\Delta S = \dfrac{Q}{T} = \dfrac{{Qh:dp0}}{273.15} =$ **{S1:num1} J/K**.
+
+    (b) The room gives up the same heat at ${Troom:num2}$ K: $\Delta S = -\dfrac{{Qh:dp0}}{{Troom:num2}} =$ **{S2:num1} J/K**.
+
+    (c) Total: **{Stot:num2} J/K**, positive because heat flowed from hot to cold.

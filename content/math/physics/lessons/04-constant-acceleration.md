@@ -25,7 +25,7 @@ Because $v$ changes linearly, the average velocity is the average of the end val
 
 $$x - x_0 = \tfrac12(v_0 + v)\,t. \tag{3}$$
 
-Eliminating $t$ between (1) and (2) gives a time-free equation:
+Eliminating $t$ between (1) and (3) gives a time-free equation (the algebra is shown later in the lesson):
 
 $$v^2 = v_0^2 + 2a(x - x_0). \tag{4}$$
 
@@ -85,15 +85,29 @@ With constant $a$: the $a$–$t$ graph is a horizontal line, the $v$–$t$ graph
 {"x": [0, 3.2], "y": [-18, 18], "xLabel": "t (s)", "yLabel": "y (m), v (m/s)", "functions": [{"f": "14.7*x - 4.9*x^2", "from": 0, "to": 3}, {"f": "14.7 - 9.8*x", "from": 0, "to": 3, "dashed": true}], "points": [{"at": [1.5, 11.025], "label": "top: v = 0"}], "labels": [{"at": [2.75, 7], "text": "y(t)"}, {"at": [2.35, -12], "text": "v(t)"}], "caption": "Thrown up at 14.7 m/s: position is a parabola, velocity a straight line of slope −9.8 m/s²"}
 ```
 
-## With calculus
+## Where equation (4) comes from
 
-Constant acceleration is the simplest case of integrating $a(t)$. With $a$ constant,
+The time-free equation takes two lines of algebra. From (1), $t = \dfrac{v - v_0}{a}$. Put that into (3):
 
-$$v(t) = v_0 + \int_0^t a\,dt' = v_0 + at, \qquad x(t) = x_0 + \int_0^t (v_0 + at')\,dt' = x_0 + v_0t + \tfrac12at^2.$$
+$$x - x_0 = \tfrac12(v_0 + v)\cdot\frac{v - v_0}{a} = \frac{v^2 - v_0^2}{2a},$$
 
-Equation (4) also falls out of calculus using the chain rule: $a = \dfrac{dv}{dt} = \dfrac{dv}{dx}\dfrac{dx}{dt} = v\dfrac{dv}{dx}$, so $a\,dx = v\,dv$. Integrating both sides from start to finish gives $a(x - x_0) = \tfrac12(v^2 - v_0^2)$. The identity $a = v\,dv/dx$ is worth remembering: it solves problems where acceleration depends on position rather than time.
+and multiplying both sides by $2a$ gives (4). Every one of the four equations comes from the straight-line $v$–$t$ graph: its slope is $a$ and the area under it is $\Delta x$.
 
-When air resistance matters, acceleration is no longer constant: a falling object approaches a **terminal velocity** at which drag balances its weight. We'll set up that differential equation after Newton's laws.
+## Problems with two phases
+
+When the acceleration changes partway through (a car speeds up, then brakes), split the motion at the change. Each phase has constant acceleration, so the equations apply inside each one, and the velocity at the end of one phase is the starting velocity of the next.
+
+### Example 4
+
+A car starts from rest, accelerates at 2.0 m/s² for 8.0 s, then brakes at a constant 4.0 m/s² until it stops. Find the total distance and total time.
+
+Phase 1: $v = 0 + 2.0(8.0) = 16$ m/s, and $\Delta x_1 = \tfrac12(2.0)(8.0)^2 = 64$ m.
+
+Phase 2: starts at 16 m/s with $a = -4.0$ m/s². Distance: $0 = 16^2 - 2(4.0)\Delta x_2$, so $\Delta x_2 = 256/8.0 = 32$ m. Time: $0 = 16 - 4.0t$, so $t = 4.0$ s.
+
+Totals: 96 m in 12 s. A single equation with one "average" acceleration would be wrong, since no single constant acceleration describes both phases.
+
+When air resistance matters, the acceleration isn't constant at all: a falling object approaches a **terminal velocity** at which drag balances its weight. The friction lesson explains why, using Newton's laws.
 
 ## Common mistakes
 

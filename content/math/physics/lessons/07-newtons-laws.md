@@ -86,21 +86,29 @@ The scale reads the normal force $n$ it exerts. Take up as positive: $n - mg = m
 
 (c) $a = -2.0$: $n = 60(7.8) = 468$ N. If the cable snapped ($a = -g$), the scale would read zero: she would feel weightless, though gravity still acts on her fully. This **apparent weight** is what your body senses.
 
-## With calculus
+## Reasoning with proportions
 
-Newton actually wrote the second law in terms of momentum $\vec p = m\vec v$:
-
-$$\vec F_{\text{net}} = \frac{d\vec p}{dt}.$$
-
-For constant mass this is $m\,d\vec v/dt = m\vec a$; the momentum form also handles rockets and conveyor belts where mass changes. Writing $a = dv/dt$ turns the second law into a differential equation for the motion, which we can solve when forces depend on time or velocity.
+Many questions about the second law need no numbers at all. Since $a = F_{\text{net}}/m$, acceleration is proportional to the net force and inversely proportional to the mass. Double the net force on the same object and the acceleration doubles; put the same net force on twice the mass and the acceleration halves.
 
 ### Example 3
 
-A 2.0 kg object starts from rest and feels a force $F(t) = 6t^2$ N along $x$. Find its velocity at $t = 3$ s.
+A net force gives a cart an acceleration of 2.0 m/s². The net force is tripled and the cart is loaded so that its mass doubles. What is the new acceleration?
 
-$m\dfrac{dv}{dt} = 6t^2$, so $dv = 3t^2\,dt$. Integrating from 0: $v(t) = t^3$, and $v(3) = 27$ m/s. Using $F(3)/m = 27$ m/s² as if it were constant would badly overestimate.
+$a_{\text{new}} = \dfrac{3F}{2m} = \tfrac32\cdot\dfrac{F}{m} = 1.5 \times 2.0 = 3.0$ m/s². No individual values of $F$ or $m$ were needed, only the ratios.
 
-For velocity-dependent drag $F = -bv$, the equation $m\,dv/dt = -bv$ gives $v = v_0e^{-bt/m}$: exponential decay, which the next lesson extends to falling objects and terminal velocity.
+## Systems of objects
+
+When objects move together, you can apply the second law to the whole group or to any one member. For the whole group, forces the members exert on each other come in third-law pairs inside the system and cancel, so only outside forces count.
+
+### Example 4
+
+Boxes A (4.0 kg) and B (2.0 kg) sit side by side on a frictionless floor. A 30 N horizontal push on A moves both. Find their acceleration and the force A exerts on B.
+
+Whole system (6.0 kg): the only horizontal outside force is the 30 N push, so $a = 30/6.0 = 5.0$ m/s².
+
+Box B alone: the only horizontal force on it is the push from A, so $F_{\text{A on B}} = m_B a = 2.0(5.0) = 10$ N. By the third law B pushes back on A with 10 N, so the net force on A is $30 - 10 = 20$ N $= 4.0(5.0)$ ✓. The push from A on B is not 30 N: part of the 30 N goes into accelerating A itself.
+
+Newton himself stated the second law in terms of momentum, $\vec F_{\text{net}} = \Delta\vec p/\Delta t$ with $\vec p = m\vec v$; for constant mass this is the same as $m\vec a$. You'll use that form in the momentum lesson.
 
 ## Common mistakes
 
@@ -115,4 +123,5 @@ For velocity-dependent drag $F = -bv$, the equation $m\,dv/dt = -bv$ gives $v = 
 - First law: no net force, no change in velocity. Second law: $\sum\vec F = m\vec a$, one equation per axis. Third law: forces come in equal and opposite pairs on different objects.
 - Weight $= mg$ downward; the normal force is perpendicular to the surface and found from the equations.
 - Always draw a free-body diagram before writing equations.
-- $\vec F = d\vec p/dt$ is the general form; it becomes a differential equation for variable forces.
+- $a \propto F_{\text{net}}$ and $a \propto 1/m$: use ratios for "what if" questions.
+- For objects moving together, internal forces cancel: $a = F_{\text{ext}}/m_{\text{total}}$.

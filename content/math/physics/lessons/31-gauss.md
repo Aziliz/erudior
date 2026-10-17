@@ -9,7 +9,7 @@ refs: [phys-ref-em-modern]
 ---
 ## A shortcut built on symmetry
 
-Integrating Coulomb's law over a charge distribution works, but it's laborious. For distributions with high symmetry (spheres, long cylinders, flat sheets) there's a far quicker route: Gauss's law, which relates the field crossing a closed surface to the charge inside. It's also one of Maxwell's four equations, the complete laws of electromagnetism. This lesson is mostly at the University Physics level, but the key results (fields of spheres, lines and sheets) are used at every level.
+Adding up the fields of many point charges works, but for a charged sphere, a long wire or a big flat plate it would mean adding the fields of countless tiny pieces. For distributions with high symmetry (spheres, long cylinders, flat sheets) there's a far quicker route: Gauss's law, which relates the field crossing a closed surface to the charge inside. It's also one of Maxwell's four equations, the complete laws of electromagnetism. The idea needs only flux, which is field times area, and some careful thinking about symmetry.
 
 ## Electric flux
 
@@ -25,7 +25,9 @@ For a closed surface, the area vector points outward by convention, so field lin
 
 **Gauss's law** says that the total electric flux out of any closed surface equals the enclosed charge divided by $\varepsilon_0$:
 
-$$\Phi_E = \oint\vec E\cdot d\vec A = \frac{Q_{\text{enc}}}{\varepsilon_0}.$$
+$$\Phi_E = \frac{Q_{\text{enc}}}{\varepsilon_0}.$$
+
+To find the total flux, imagine dividing the closed surface into small flat patches, find $EA\cos\theta$ for each, and add them all up.
 
 The closed surface, called a **Gaussian surface**, is imaginary: you choose it. Charges outside it contribute zero net flux (every field line from them that enters also leaves), though they do affect the field at individual points.
 
@@ -39,7 +41,7 @@ Only the enclosed charge counts: $\Phi_E = \dfrac{3.0\times10^{-6}}{8.85\times10
 
 ## Using Gauss's law to find fields
 
-Gauss's law always holds, but it gives $E$ directly only when you can choose a surface on which $E$ is constant in magnitude and either perpendicular or parallel to the surface. Then the integral collapses to $E \times (\text{area})$. Three symmetries make this possible.
+Gauss's law always holds, but it gives $E$ directly only when you can choose a surface on which $E$ is constant in magnitude and either perpendicular or parallel to the surface. Then the total flux is simply $E \times (\text{area})$. Three symmetries make this possible.
 
 *Spherical symmetry.* For a charge $Q$ spread with spherical symmetry (a point charge, a charged shell, a uniform ball), use a concentric sphere of radius $r$. Outside the charge:
 
@@ -87,15 +89,19 @@ twice the isolated-sheet value, because no field lines leave through the inner c
 
 And if a conductor has a cavity with a charge $q$ inside it, the cavity's wall must carry $-q$ (so that a surface within the metal encloses zero), and the outer surface carries the rest.
 
-## With calculus: the full statement
+## Using symmetry to share out flux
 
-In general, the flux integral is $\oint\vec E\cdot d\vec A$ over a closed surface, which can be hard to evaluate; Gauss's law is a tool for *finding* $E$ only with symmetry. For a nonuniform charge density, the enclosed charge itself is an integral. For example, a sphere with $\rho(r) = \rho_0 r/R$ encloses
+Gauss's law gives the *total* flux, and symmetry can then tell you how it divides among parts of a surface.
 
-$$Q_{\text{enc}}(r) = \int_0^r\rho_0\frac{r'}{R}4\pi r'^2\,dr' = \frac{\pi\rho_0r^4}{R},$$
+### Example 4
 
-so inside, $E = \dfrac{Q_{\text{enc}}}{4\pi\varepsilon_0r^2} = \dfrac{\rho_0r^2}{4\varepsilon_0R}$.
+A $+6.0$ nC point charge sits at the exact center of a closed cube. What is the flux through one face of the cube? What would change if the cube were twice as large?
 
-The differential form, $\nabla\cdot\vec E = \rho/\varepsilon_0$, says field lines diverge from positive charge density; it follows from the integral form via the divergence theorem.
+Total flux: $\Phi_E = \dfrac{6.0\times10^{-9}}{8.85\times10^{-12}} = 678$ N·m²/C. The charge is at the center, so all six faces are identical as seen from it, and each gets one-sixth: $678/6 = 113$ N·m²/C.
+
+A larger cube changes nothing. Each face is farther from the charge (weaker field) but bigger, and the two effects cancel exactly; the flux depends only on the enclosed charge.
+
+Symmetry arguments like this are also what tell us the field of a charged sphere points radially and depends only on the distance from its center: any other direction would pick out a preferred direction that the sphere doesn't have.
 
 ## Common mistakes
 
@@ -106,7 +112,7 @@ The differential form, $\nabla\cdot\vec E = \rho/\varepsilon_0$, says field line
 
 ## Key points
 
-- Flux $\Phi_E = \oint\vec E\cdot d\vec A$; through a flat area in a uniform field, $EA\cos\theta$.
+- Flux through a flat area in a uniform field: $\Phi_E = EA\cos\theta$; for a closed surface, add the flux through every patch (outward positive).
 - Gauss's law: $\Phi_E = Q_{\text{enc}}/\varepsilon_0$, for any closed surface.
 - Sphere (outside): $kQ/r^2$; thin shell (inside): 0; uniform ball (inside): $kQr/R^3$.
 - Line: $2k\lambda/r$. Sheet: $\sigma/(2\varepsilon_0)$. Just outside a conductor: $\sigma/\varepsilon_0$.

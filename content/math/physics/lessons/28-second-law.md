@@ -74,23 +74,31 @@ $$\Delta S = \frac{Q}{T}$$
 
 1.0 kg of ice melts at 0°C. What is its entropy change? If the heat came from a large room at 25°C, what is the total entropy change?
 
-Ice: $Q = mL_f = 3.34\times10^5$ J at $T = 273$ K, so $\Delta S_{\text{ice}} = +1223.4$ J/K.
+Ice: $Q = mL_f = 3.34\times10^5$ J at $T = 273$ K, so $\Delta S_{\text{ice}} = +1223$ J/K.
 
-Room: loses the same heat at 298 K, $\Delta S_{\text{room}} = -1120.8$ J/K.
+Room: loses the same heat at 298 K, $\Delta S_{\text{room}} = -1121$ J/K.
 
-Total: $+102.6$ J/K. Positive, as the second law requires for heat flowing from hot to cold. Reversed (water freezing by giving heat to a warmer room), the total would be negative, which is why it doesn't happen.
+Total: $+103$ J/K (extra digits were kept above because we subtract two nearly equal numbers). Positive, as the second law requires for heat flowing from hot to cold. Reversed (water freezing by giving heat to a warmer room), the total would be negative, which is why it doesn't happen.
 
-## With calculus
+## Entropy and the Carnot limit
 
-When temperature changes during heat transfer, add up $dQ/T$ along a reversible path:
+Entropy explains where the Carnot formula comes from. In one cycle a reversible engine takes entropy $Q_H/T_H$ from the hot reservoir and gives entropy $Q_C/T_C$ to the cold one. The working gas returns to its starting state, so its own entropy is unchanged, and a reversible process creates no new entropy. The two amounts must therefore be equal:
 
-$$\Delta S = \int\frac{dQ_{\text{rev}}}{T}.$$
+$$\frac{Q_H}{T_H} = \frac{Q_C}{T_C} \quad\Rightarrow\quad \frac{Q_C}{Q_H} = \frac{T_C}{T_H},$$
 
-*Heating at constant specific heat:* $dQ = mc\,dT$, so $\Delta S = mc\int_{T_1}^{T_2}\dfrac{dT}{T} = mc\ln\dfrac{T_2}{T_1}$. Warming 1.0 kg of water from 20°C to 80°C: $\Delta S = 4186\ln(353/293) = 780$ J/K.
+and substituting into $e = 1 - Q_C/Q_H$ gives $e_{\text{Carnot}} = 1 - T_C/T_H$. A real engine creates extra entropy (friction, heat leaking across finite temperature differences), so it must dump *more* heat to the cold side and its efficiency is lower.
 
-*Ideal gas between two states:* $\Delta S = nC_V\ln\dfrac{T_2}{T_1} + nR\ln\dfrac{V_2}{V_1}$. Because $S$ is a state variable, this holds even for an irreversible process between those states; for instance, a free expansion into vacuum (no work, no heat, constant $T$) doubling the volume still has $\Delta S = nR\ln 2 > 0$.
+### Example 4
 
-Over a Carnot cycle the reservoirs' entropy changes cancel, $\dfrac{Q_H}{T_H} = \dfrac{Q_C}{T_C}$, which is exactly what gives $e = 1 - T_C/T_H$. Statistically, Boltzmann's formula $S = k_B\ln\Omega$ links entropy to the number of microstates $\Omega$.
+A Carnot engine absorbs 1200 J per cycle from a reservoir at 600 K and rejects heat at 300 K. How much heat does it reject, and how much work does it do? What is the total entropy change of the two reservoirs?
+
+$Q_C = Q_H\dfrac{T_C}{T_H} = 1200\left(\dfrac{300}{600}\right) = 600$ J, so $W = 1200 - 600 = 600$ J ($e = 50\%$).
+
+Entropy: the hot reservoir loses $1200/600 = 2.0$ J/K and the cold one gains $600/300 = 2.0$ J/K. Total: zero, as it must be for a reversible engine.
+
+## Entropy and probability
+
+Why should entropy always increase? Entropy counts arrangements. Gas released into the corner of an empty room spreads out because there are vastly more ways for the molecules to be spread through the whole room than to be bunched in a corner. A free expansion, where a gas rushes into a vacuum, does no work and absorbs no heat, yet it increases entropy, because the gas ends up in a far more probable state. Nothing forbids every molecule returning to the corner, but with $10^{23}$ molecules it is so improbable that it never happens. The second law is a statistical law that is, in practice, never broken.
 
 ## Common mistakes
 
@@ -104,4 +112,5 @@ Over a Carnot cycle the reservoirs' entropy changes cancel, $\dfrac{Q_H}{T_H} = 
 - Engine: $W = Q_H - Q_C$, $e = W/Q_H = 1 - Q_C/Q_H$.
 - Carnot limit: $e = 1 - T_C/T_H$ (kelvins); refrigerator $K = Q_C/W \le T_C/(T_H - T_C)$.
 - Second law: no perfect engines; heat doesn't flow cold to hot by itself; total entropy never decreases.
-- $\Delta S = Q/T$ at constant $T$; $\Delta S = \int dQ_{\text{rev}}/T$ in general.
+- $\Delta S = Q/T$ for heat $Q$ transferred at constant absolute temperature $T$.
+- Carnot engine: $Q_H/T_H = Q_C/T_C$ (no net entropy change).

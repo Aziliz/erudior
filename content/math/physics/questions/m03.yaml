@@ -68,11 +68,11 @@
 - id: phys-q-0709
   lesson: phys-newton
   topic: Newton's laws
-  stem: 'A 2.0 kg object starts from rest and feels a force $F(t) = 4t$ N along $x$. What is its speed at $t = 3$ s?'
-  choices: ['6 m/s', '12 m/s', '18 m/s', '9 m/s']
+  stem: 'A net force $F$ gives an object of mass $m$ an acceleration $a$. If the net force is tripled and the mass is doubled, the new acceleration is'
+  choices: ['$6a$', '$\tfrac23 a$', '$a$', '$\tfrac32 a$']
   answer: 3
   explanation: |-
-    $m\,dv/dt = 4t \Rightarrow dv/dt = 2t \Rightarrow v = t^2$. At 3 s, $v = 9$ m/s. Treating $F(3)/m = 6$ m/s² as constant over 3 s would give 18 m/s.
+    $a_{\text{new}} = \dfrac{3F}{2m} = \tfrac32\cdot\dfrac{F}{m} = \tfrac32 a$. Multiplying the two factors gives $6a$, but a larger mass reduces the acceleration; $\tfrac23 a$ inverts the ratio.
 - id: phys-q-0710
   lesson: phys-newton
   topic: Newton's laws
@@ -84,11 +84,11 @@
 - id: phys-q-0711
   lesson: phys-newton
   topic: Newton's laws
-  stem: 'Newton''s second law in its most general form is'
-  choices: ['$\vec F = m\vec v$', '$\vec F = d\vec p/dt$', '$\vec F = m\,d\vec x/dt$', '$\vec F = \vec p\,t$']
+  stem: 'A 1200 kg car speeds up uniformly from 10 m/s to 25 m/s in 5.0 s. What net force acts on it?'
+  choices: ['6000 N', '3600 N', '2400 N', '8400 N']
   answer: 1
   explanation: |-
-    $\vec F_{\text{net}} = d\vec p/dt$ with $\vec p = m\vec v$. For constant mass it reduces to $m\vec a$; it also covers systems whose mass changes.
+    $a = \Delta v/\Delta t = (25 - 10)/5.0 = 3.0$ m/s², so $F_{\text{net}} = ma = 1200(3.0) = 3600$ N. Using the final speed alone ($25/5.0$) gives 6000 N, the initial speed alone gives 2400 N, and adding the speeds gives 8400 N.
 - id: phys-q-0801
   lesson: phys-friction
   module_quiz: true
@@ -167,19 +167,20 @@
 - id: phys-q-0810
   lesson: phys-friction
   topic: Friction
-  stem: 'An object falling with linear drag obeys $m\,dv/dt = mg - bv$. Its terminal velocity is'
-  choices: ['$mg/b$', '$b/(mg)$', '$\sqrt{mg/b}$', '$g\,m/b^2$']
-  answer: 0
+  stem: 'An object of mass $m$ falls through a fluid that exerts a drag force $bv$ proportional to its speed. Its terminal speed is'
+  choices: ['$b/(mg)$', '$mg/b$', '$\sqrt{mg/b}$', '$g\,m/b^2$']
+  answer: 1
   explanation: |-
-    At terminal velocity $dv/dt = 0$, so $mg = bv_T$ and $v_T = mg/b$. The solution approaches it as $v = v_T(1 - e^{-bt/m})$.
+    At terminal speed the acceleration is zero, so drag balances weight: $bv_T = mg$ and $v_T = mg/b$. The square root belongs to drag proportional to $v^2$, not $v$; $b/(mg)$ inverts the ratio.
 - id: phys-q-0811
   lesson: phys-friction
+  module_quiz: true
   topic: Friction
-  stem: 'With linear drag, a falling object starting from rest reaches what fraction of its terminal velocity after one time constant $m/b$?'
-  choices: ['37%', '50%', '63%', '100%']
+  stem: 'A skydiver is falling straight down at her terminal velocity. Which statement is true?'
+  choices: ['Her acceleration is $g$ downward', 'Drag is smaller than her weight, so she is still speeding up', 'The net force on her and her acceleration are both zero', 'Drag is larger than her weight, so she is slowing down']
   answer: 2
   explanation: |-
-    $v = v_T(1 - e^{-bt/m})$; at $t = m/b$, $v = v_T(1 - e^{-1}) = 0.632\,v_T$.
+    Terminal velocity is the constant speed reached when drag has grown to equal her weight. The forces balance, so the net force is zero and, by the second law, so is her acceleration. She accelerates at $g$ only at the instant she starts falling, when drag is zero.
 - id: phys-q-0901
   lesson: phys-tension
   module_quiz: true
@@ -255,6 +256,15 @@
   answer: 3
   explanation: |-
     The midpoint supports the rope below it: half the rope, 1.0 kg, weighing 9.8 N. Tension in a massive rope grows toward the top (19.6 N at the ceiling, 0 at the bottom).
+
+- id: phys-q-0911
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'A load hangs from a movable pulley supported by two strands of rope. You pull the free end of the rope upward at a steady 0.60 m/s. How fast does the load rise?'
+  choices: ['1.2 m/s', '0.60 m/s', '0.15 m/s', '0.30 m/s']
+  answer: 3
+  explanation: |-
+    Pulling 0.60 m of rope shortens each of the two supporting strands by 0.30 m, so the load rises half as far in the same time: 0.30 m/s. Half the force needed comes at the cost of twice the rope pulled, not twice the speed of the load.
 - id: phys-q-0910
   lesson: phys-tension
   topic: Tension and pulleys
@@ -341,11 +351,11 @@
 - id: phys-q-1010
   lesson: phys-circular
   topic: Circular motion
-  stem: 'For $\vec r(t) = R\cos(\omega t)\,\hat\imath + R\sin(\omega t)\,\hat\jmath$, the acceleration is'
-  choices: ['$\omega\vec r$', '$-\omega^2\vec r$', '$\omega^2\vec r$', '$-\omega\vec r$']
+  stem: 'A wheel of radius 0.30 m spins at 600 rpm. What is the speed of a point on its rim?'
+  choices: ['1130 m/s', '18.8 m/s', '3.0 m/s', '6.0 m/s']
   answer: 1
   explanation: |-
-    Differentiating twice brings down $(-\omega^2)$ on each component: $\vec a = -\omega^2\vec r$, pointing toward the center with magnitude $R\omega^2 = v^2/R$.
+    $f = 600/60 = 10$ rev/s, so $v = 2\pi rf = 2\pi(0.30)(10) = 18.8$ m/s. Using 600 rev/s (forgetting to divide by 60) gives 1130 m/s; leaving out $2\pi$ gives 3.0 m/s, and leaving out only $\pi$ gives 6.0 m/s.
 - id: phys-q-1011
   lesson: phys-circular
   topic: Circular motion

@@ -19,7 +19,7 @@ $$F = \frac{Gm_1m_2}{r^2},$$
 
 where $r$ is the distance between their centers and $G = 6.67\times10^{-11}$ N·m²/kg² is the **gravitational constant**. This is **Newton's law of gravitation**. Each mass feels the same magnitude of force (third law). The force is an **inverse-square law**: double the distance and the force drops to a quarter.
 
-$G$ is tiny, so gravity between everyday objects is negligible: two 70 kg people 1 m apart attract with about $3\times10^{-7}$ N. It dominates astronomy only because planets and stars are enormous. For spherical bodies, the force acts as if all the mass were at the center (a result Newton proved with calculus).
+$G$ is tiny, so gravity between everyday objects is negligible: two 70 kg people 1 m apart attract with about $3\times10^{-7}$ N. It dominates astronomy only because planets and stars are enormous. For spherical bodies, the force acts as if all the mass were at the center (Newton proved this; see the end of the lesson).
 
 ## Surface gravity
 
@@ -91,13 +91,21 @@ $$v_{\text{esc}} = \sqrt{\frac{2GM}{R}}.$$
 
 For Earth, $v_{\text{esc}} = 11.2$ km/s, exactly $\sqrt2$ times the speed of a low circular orbit. In a circular orbit the total energy is $E = K + U = \tfrac12\dfrac{GMm}{r} - \dfrac{GMm}{r} = -\dfrac{GMm}{2r}$: negative, meaning bound.
 
-## With calculus
+## Where the formulas come from
 
-Gravitational potential energy comes from integrating the force. The work needed to move $m$ from $r$ out to infinity against $F = GMm/r^2$ is
+Two results in this lesson were stated rather than derived, because their proofs need more advanced math than this course uses.
 
-$$\int_r^\infty\frac{GMm}{r'^2}\,dr' = \frac{GMm}{r},$$
+*Spheres act like points.* A uniform spherical shell attracts any mass outside it as if all the shell's mass sat at its center (Newton's shell theorem). A planet is a set of nested shells, so outside it the planet acts like a point mass at its center. That's why $r$ in $F = GMm/r^2$ is measured from the center.
 
-so $U(r) = -GMm/r$, and conversely $F = -\dfrac{dU}{dr} = -\dfrac{GMm}{r^2}$ (attractive). Integration also proves the shell theorem: a uniform spherical shell attracts outside masses as if its mass were at its center and exerts no net force on a mass inside it. Consequently, inside a uniform solid planet only the mass closer to the center counts, and $g(r) = \dfrac{GM}{R^3}r$ grows linearly from zero at the center.
+*Why $U = -GMm/r$.* The work to pull a mass from $r$ out to infinity is the area under the $F$–$r$ graph from $r$ outward. Because the force falls off as $1/r^2$, that area is finite and equals $GMm/r$. With $U = 0$ at infinity, $U$ at distance $r$ must be $GMm/r$ lower: $-GMm/r$. Near the surface, a small height change $\Delta y$ changes $r$ only slightly, and this formula reduces to $\Delta U \approx mg\Delta y$.
+
+### Example 4
+
+How much energy does it take to lift a 1000 kg payload from Earth's surface to a height of one Earth radius (ignoring its speed)? Compare with $mgh$.
+
+$\Delta U = -\dfrac{GMm}{2R} - \left(-\dfrac{GMm}{R}\right) = \dfrac{GMm}{2R}$. With $GM/R = gR = 9.8(6.37\times10^6) = 6.24\times10^7$ J/kg, $\Delta U = \tfrac12(1000)(6.24\times10^7) = 3.1\times10^{10}$ J.
+
+Using $mgh$ with $h = R$ gives $6.2\times10^{10}$ J, twice too much, because $g$ weakens with height. For heights much smaller than $R$ the two agree.
 
 ## Common mistakes
 

@@ -1,12 +1,13 @@
 id: science-physics
 title: Physics
 description: >-
-  Physics from the high school / AP Physics 1–2 level through calculus-based
-  University Physics I–II. Each topic is taught first with algebra and then with
-  calculus: measurement and vectors, kinematics, Newton's laws, energy and momentum,
-  rotation and gravitation, oscillations, waves and sound, fluids and thermodynamics,
-  electrostatics, circuits, magnetism and induction, optics, and modern physics.
+  Algebra-based physics at the high school / AP Physics 1 and 2 level (no calculus):
+  measurement and vectors, kinematics, Newton's laws, energy and momentum, rotation and
+  gravitation, oscillations, waves and sound, fluids and thermodynamics, electrostatics,
+  circuits, magnetism and induction, optics, and modern physics. For the calculus-based
+  versions, see University Physics I and II.
 revision: 1
+released: true
 order: 13
 modules:
   - id: phys-m1

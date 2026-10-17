@@ -69,27 +69,29 @@ An **equipotential surface** is a surface on which $V$ is constant. No work is d
 {"x": [-2.5, 2.5], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "0.5cos(t)", "y": "0.5sin(t)", "t": [0, "2pi"], "dashed": true}, {"x": "1cos(t)", "y": "1sin(t)", "t": [0, "2pi"], "dashed": true}, {"x": "2cos(t)", "y": "2sin(t)", "t": [0, "2pi"], "dashed": true}], "segments": [{"from": [0.2, 0], "to": [2.4, 0], "arrow": true}, {"from": [-0.2, 0], "to": [-2.4, 0], "arrow": true}, {"from": [0, 0.2], "to": [0, 2.4], "arrow": true}, {"from": [0, -0.2], "to": [0, -2.4], "arrow": true}, {"from": [0.14, 0.14], "to": [1.7, 1.7], "arrow": true}, {"from": [-0.14, -0.14], "to": [-1.7, -1.7], "arrow": true}], "points": [{"at": [0, 0], "label": "+q"}], "caption": "Equipotentials (dashed circles) are perpendicular to the field lines of a point charge"}
 ```
 
-## With calculus
+## Field from potential: reading slopes
 
-Potential difference is the line integral of the field:
+The relation $E = \Delta V/d$ works in reverse as a way to find the field from a graph of potential. Along the $x$ direction,
 
-$$\Delta V = V_B - V_A = -\int_A^B\vec E\cdot d\vec\ell,$$
+$$E_x = -\frac{\Delta V}{\Delta x}:$$
 
-and because the electric force is conservative the result doesn't depend on the path. For a point charge, integrating $E = kq/r^2$ inward from infinity gives $V = kq/r$.
-
-Going the other way, the field is the negative gradient of the potential:
-
-$$E_x = -\frac{\partial V}{\partial x}, \quad E_y = -\frac{\partial V}{\partial y}, \quad E_z = -\frac{\partial V}{\partial z}; \qquad \vec E = -\nabla V.$$
-
-The field points in the direction of steepest decrease of $V$. Because $V$ is a scalar, finding $V$ by integration and then differentiating is often easier than computing $\vec E$ directly.
+the field is the *negative of the slope* of the $V$-versus-$x$ graph. A steep graph means a strong field; a flat graph means zero field; and the field points in the direction in which $V$ decreases. Note that zero *field* doesn't mean zero *potential*: a flat graph at 40 V has no field.
 
 ### Example 3
 
-The potential in a region is $V(x, y) = 3x^2y - 2y^3$ volts ($x, y$ in meters). Find the electric field at $(1, 2)$.
+The graph shows the potential along the $x$ axis in some region. Find the electric field in each of the three straight sections, and the force on a proton at $x = 0.10$ m.
 
-$E_x = -\dfrac{\partial V}{\partial x} = -6xy = -12$ V/m. $E_y = -\dfrac{\partial V}{\partial y} = -(3x^2 - 6y^2) = -(3 - 24) = 21$ V/m. So $\vec E = (-12\hat\imath + 21\hat\jmath)$ V/m, magnitude 24.2 V/m.
+```plot
+{"x": [0, 0.7], "y": [0, 50], "xLabel": "x (m)", "yLabel": "V (volts)", "functions": [{"f": "200*x", "from": 0, "to": 0.2}, {"f": "40", "from": 0.2, "to": 0.5}, {"f": "40 - 400*(x - 0.5)", "from": 0.5, "to": 0.6}], "points": [{"at": [0.2, 40], "label": "(0.20, 40)"}, {"at": [0.5, 40], "label": "(0.50, 40)"}, {"at": [0.6, 0]}], "labels": [{"at": [0.6, 6], "text": "(0.60, 0)"}], "caption": "Potential along the x axis"}
+```
 
-*Ring on its axis.* Every element of a ring of charge $Q$ and radius $a$ is the same distance $\sqrt{x^2 + a^2}$ from an axial point, so $V = \dfrac{kQ}{\sqrt{x^2 + a^2}}$ immediately (no vector components needed). Then $E_x = -\dfrac{dV}{dx} = \dfrac{kQx}{(x^2 + a^2)^{3/2}}$, matching the field we found by direct integration two lessons ago, with far less work.
+From 0 to 0.20 m: slope $= 40/0.20 = 200$ V/m, so $E_x = -200$ V/m (200 V/m pointing in $-x$, toward lower potential).
+
+From 0.20 to 0.50 m: the graph is flat, so $E = 0$.
+
+From 0.50 to 0.60 m: slope $= -40/0.10 = -400$ V/m, so $E_x = +400$ V/m: the strongest field, where the graph is steepest.
+
+Force on a proton at $x = 0.10$ m: $F = eE = (1.602\times10^{-19})(200) = 3.2\times10^{-17}$ N in the $-x$ direction, pushing it "downhill" toward lower potential.
 
 ## Common mistakes
 
@@ -105,4 +107,4 @@ $E_x = -\dfrac{\partial V}{\partial x} = -6xy = -12$ V/m. $E_y = -\dfrac{\partia
 - $\Delta U = q\Delta V$; energy gained from rest $= |q\Delta V|$; 1 eV $= 1.602\times10^{-19}$ J.
 - Uniform field: $\Delta V = Ed$; 1 V/m = 1 N/C.
 - Equipotentials are perpendicular to field lines.
-- $\Delta V = -\int\vec E\cdot d\vec\ell$; $\vec E = -\nabla V$.
+- $E_x = -\Delta V/\Delta x$: the field is the negative slope of a $V$-versus-$x$ graph and points toward lower potential.

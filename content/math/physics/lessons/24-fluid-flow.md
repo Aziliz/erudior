@@ -81,15 +81,27 @@ $v = \sqrt{2(9.8)(25)} = 22.1$ m/s. With the faucet closed, $v = 0$ and the full
 
 Real fluids have **viscosity**, internal friction between layers. In a pipe, viscous fluid moves fastest at the center and is still at the walls. For smooth (laminar) flow, the flow rate through a pipe of radius $R$ and length $L$ under pressure difference $\Delta P$ is $Q = \dfrac{\pi R^4\Delta P}{8\eta L}$ (Poiseuille's law), where $\eta$ is the viscosity. The $R^4$ is dramatic: narrowing an artery by 20% cuts the flow by 59% at the same pressure. At high speeds flow becomes turbulent, and Bernoulli's equation only roughly applies.
 
-## With calculus
+## Pipes that change height
 
-Bernoulli's equation can also be derived from Newton's second law along a streamline. For a fluid element moving along a streamline with coordinate $s$, the net pressure force per volume is $-\dfrac{dP}{ds}$, gravity contributes $-\rho g\dfrac{dy}{ds}$, and the acceleration is $v\dfrac{dv}{ds}$ (the chain-rule identity again). So
+When a pipe climbs, the fluid gains gravitational energy, and that also has to be paid for out of pressure. All three terms of Bernoulli's equation then come into play. A good routine: use continuity to get any unknown speed first, then Bernoulli for the pressure.
 
-$$-\frac{dP}{ds} - \rho g\frac{dy}{ds} = \rho v\frac{dv}{ds},$$
+### Example 4
 
-and integrating along $s$ gives $P + \rho gy + \tfrac12\rho v^2 = \text{constant}$.
+Water enters a building's basement at a speed of 2.0 m/s and a pressure of $3.0\times10^5$ Pa through a pipe of diameter 4.0 cm. A pipe of diameter 2.0 cm carries it to a bathroom 6.0 m higher. Find the speed and pressure there.
 
-Calculus also handles a draining tank. For a tank of cross-section $A$ with a hole of area $a$, $A\dfrac{dh}{dt} = -a\sqrt{2gh}$. Separating variables: $\dfrac{dh}{\sqrt h} = -\dfrac aA\sqrt{2g}\,dt$, so $2\sqrt h$ decreases linearly in time, and the tank empties in $t = \dfrac Aa\sqrt{\dfrac{2h_0}{g}}$. The level drops quickly at first and slowly at the end.
+Continuity: the diameter halves, so the area is quartered and the speed quadruples, $v_2 = 4(2.0) = 8.0$ m/s.
+
+Bernoulli, with $y_1 = 0$ and $y_2 = 6.0$ m:
+
+$P_2 = P_1 + \tfrac12\rho(v_1^2 - v_2^2) - \rho g(y_2 - y_1)$
+
+$= 3.0\times10^5 + 500(4.0 - 64) - 1000(9.8)(6.0)$
+
+$= 3.0\times10^5 - 3.0\times10^4 - 5.88\times10^4 = 2.11\times10^5$ Pa.
+
+About a third of the pressure drop comes from the speed increase and two-thirds from the climb. Upper floors of tall buildings get low water pressure for this reason, so tall buildings pump water to rooftop tanks.
+
+A draining tank is a related case. By Torricelli's theorem the outflow speed depends on $\sqrt h$, so as the level falls the water comes out more slowly. A tank therefore empties quickly at first and slowly at the end; halving the depth only cuts the outflow speed to $1/\sqrt2 \approx 71\%$ of its starting value.
 
 ## Common mistakes
 

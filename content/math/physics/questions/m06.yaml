@@ -31,7 +31,7 @@
   choices: ['2.0 s', '0.32 s', '6.3 s', '1.0 s']
   answer: 0
   explanation: |-
-    $T = 2\pi\sqrt{L/g} = 2\pi\sqrt{1.0/9.8} = 2.0$ s.
+    $T = 2\pi\sqrt{L/g} = 2\pi\sqrt{1.0/9.8} = 2.0$ s. 0.32 s leaves out the $2\pi$; 6.3 s leaves out $g$.
 - id: phys-q-2005
   lesson: phys-shm
   topic: Pendulums
@@ -55,7 +55,7 @@
   choices: ['20 J', '4.0 J', '10 J', '2.0 J']
   answer: 3
   explanation: |-
-    $E = \tfrac12kA^2 = \tfrac12(100)(0.20)^2 = 2.0$ J. It's all spring energy at the turning points and all kinetic at equilibrium.
+    $E = \tfrac12kA^2 = \tfrac12(100)(0.20)^2 = 2.0$ J. It's all spring energy at the turning points and all kinetic at equilibrium. 20 is $kA$, a force in N; 4.0 J forgets the $\tfrac12$; 10 J uses $\tfrac12kA$ without squaring.
 - id: phys-q-2008
   lesson: phys-shm
   module_quiz: true
@@ -68,11 +68,11 @@
 - id: phys-q-2009
   lesson: phys-shm
   topic: Simple harmonic motion
-  stem: 'The equation of motion of an oscillator is $\ddot x = -36x$ (SI units). What is its period?'
+  stem: 'An oscillator''s acceleration is related to its displacement by $a = -36x$ (SI units). What is its period?'
   choices: ['1.05 s', '6.0 s', '0.17 s', '36 s']
   answer: 0
   explanation: |-
-    Matching $\ddot x = -\omega^2x$ gives $\omega = 6.0$ rad/s, so $T = 2\pi/6.0 = 1.05$ s. 6.0 is $\omega$, not the period.
+    Matching $a = -\omega^2x$ gives $\omega^2 = 36$, so $\omega = 6.0$ rad/s and $T = 2\pi/6.0 = 1.05$ s. 6.0 is $\omega$, not the period; 0.17 s is $1/6.0$, forgetting the $2\pi$.
 - id: phys-q-2010
   lesson: phys-shm
   topic: Pendulums
@@ -88,7 +88,7 @@
   choices: ['1.2 m/s²', '0.30 m/s²', '4.8 m/s²', '0.075 m/s²']
   answer: 2
   explanation: |-
-    $a = \ddot x = -0.30(16)\cos(4t)$, so $a_{\max} = A\omega^2 = 4.8$ m/s². 1.2 m/s is the maximum speed $A\omega$.
+    Here $A = 0.30$ m and $\omega = 4$ rad/s, so $a_{\max} = A\omega^2 = 0.30(16) = 4.8$ m/s². 1.2 is $A\omega$, the maximum speed in m/s; 0.075 divides by $\omega$ instead of multiplying.
 - id: phys-q-2101
   lesson: phys-waves
   module_quiz: true
@@ -122,7 +122,7 @@
   choices: ['10 m/s', '10 000 m/s', '100 m/s', '1.0 m/s']
   answer: 2
   explanation: |-
-    $v = \sqrt{F_T/\mu} = \sqrt{100/0.010} = \sqrt{10\,000} = 100$ m/s.
+    $v = \sqrt{F_T/\mu} = \sqrt{100/0.010} = \sqrt{10\,000} = 100$ m/s. 10 000 m/s forgets the square root; 1.0 m/s multiplies $F_T\mu$.
 - id: phys-q-2105
   lesson: phys-waves
   topic: Wave properties
@@ -204,7 +204,7 @@
   choices: ['80 dB', '30 dB', '60 dB', '87 dB']
   answer: 0
   explanation: |-
-    Intensity falls as $1/r^2$: one-ninth. The level drops by $10\log 9 = 9.5$ dB, to about 80 dB.
+    Intensity falls as $1/r^2$: one-ninth. The level drops by $10\log 9 = 9.5$ dB, to about 80 dB. 87 dB subtracts only 3 dB; 30 dB divides the decibel level by 3, but decibels aren't proportional to intensity.
 - id: phys-q-2204
   lesson: phys-sound
   module_quiz: true
@@ -213,7 +213,7 @@
   choices: ['343 Hz', '686 Hz', '171.5 Hz', '85.8 Hz']
   answer: 2
   explanation: |-
-    Closed at one end: $f_1 = v/(4L) = 343/2.0 = 171.5$ Hz. 343 Hz would be the fundamental if both ends were open.
+    Closed at one end: $f_1 = v/(4L) = 343/2.0 = 171.5$ Hz. 343 Hz would be the fundamental if both ends were open. 686 Hz is $v/L$; 85.8 Hz is $v/(8L)$.
 - id: phys-q-2205
   lesson: phys-sound
   topic: Sound
@@ -240,8 +240,8 @@
   explanation: |-
     Approaching sources sound higher, receding ones lower. At constant speed each pitch is steady, with a quick drop as it passes.
 - id: phys-q-2208
-  lesson: phys-sound
-  topic: Sound
+  lesson: phys-waves
+  topic: Wave properties
   stem: 'A guitar string and a 440 Hz tuning fork sound together and produce 4 beats per second. The string''s frequency is'
   choices: ['exactly 444 Hz', 'exactly 436 Hz', '4 Hz', 'either 436 Hz or 444 Hz']
   answer: 3
@@ -262,7 +262,7 @@
   choices: ['$60^\circ$', '$45^\circ$', '$30^\circ$', '$90^\circ$']
   answer: 2
   explanation: |-
-    $\sin\theta = v/v_s = 1/2$, so $\theta = 30^\circ$.
+    $\sin\theta = v/v_s = 1/2$, so $\theta = 30^\circ$. $60^\circ$ uses cosine instead of sine.
 - id: phys-q-2211
   lesson: phys-sound
   topic: Sound

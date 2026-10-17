@@ -83,15 +83,19 @@ $$\tau = NIAB\sin\phi,$$
 
 where $\phi$ is the angle between the field and the loop's normal. The quantity $\mu = NIA$ is the loop's **magnetic dipole moment**. The torque tries to align the loop's normal with the field, just as a compass needle aligns. An electric **motor** keeps the loop turning by reversing the current every half turn (with a commutator), so the torque always pushes the same rotational way. Analog meters and loudspeakers work on the same force.
 
-## With calculus
+## Why a loop feels torque but no net force
 
-The general force on a current element is $d\vec F = I\,d\vec\ell\times\vec B$, so for a curved wire or nonuniform field,
+Look at a rectangular loop in a uniform field, with its plane parallel to the field. The two sides parallel to $\vec B$ feel no force ($\sin 0^\circ = 0$). The other two sides carry current in opposite directions, so by $F = ILB$ they feel equal forces in opposite directions: one pushed out of the page, one into it. Equal and opposite forces add to zero, so the loop's center of mass doesn't accelerate. But the two forces act along different lines, a distance $w$ apart (the loop's width), so together they make a torque $F\cdot w = (ILB)w = IAB$ for one turn, since $Lw = A$. That is the maximum value of $\tau = NIAB\sin\phi$ with $N = 1$. As the loop turns toward alignment, the lever arm shrinks as $\sin\phi$, and the torque falls to zero when the loop's normal points along the field.
 
-$$\vec F = I\int d\vec\ell\times\vec B.$$
+The same argument works for any closed loop in a *uniform* field: forces on opposite stretches of wire cancel, leaving at most a torque. A net force on a loop needs a field that is stronger on one side than the other, which is why a bar magnet (with its nonuniform field) can pull a current loop toward it.
 
-In a uniform field this integral depends only on the endpoints: any wire shape from point $a$ to point $b$ feels the same force as a straight wire from $a$ to $b$. A closed loop in a uniform field therefore feels zero net force (only a torque).
+### Example 4: velocity selector
 
-The full Lorentz force on a charge combines both fields: $\vec F = q(\vec E + \vec v\times\vec B)$. Writing Newton's second law, $m\dfrac{d\vec v}{dt} = q\vec v\times\vec B$ for a field along $z$ gives coupled equations $\dot v_x = \omega v_y$, $\dot v_y = -\omega v_x$ with $\omega = qB/m$, whose solution is circular motion at the cyclotron frequency, confirming the result above.
+A beam of ions passes between plates that make a 3000 V/m electric field pointing down, with a 0.020 T magnetic field perpendicular to both the beam and $\vec E$. What speed passes straight through? What happens to a faster ion?
+
+Balance: $qE = qvB$, so $v = E/B = 3000/0.020 = 1.5\times10^5$ m/s.
+
+A faster ion feels a larger magnetic force ($qvB$ grows with $v$) but the same electric force ($qE$ doesn't depend on speed), so the magnetic force wins and the ion is deflected in the magnetic force's direction. A slower ion is deflected the other way, by the electric force. Notice that the charge cancels in the balance, so the selected speed is the same for any charge, positive or negative.
 
 ## Common mistakes
 

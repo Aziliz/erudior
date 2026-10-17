@@ -6,7 +6,7 @@
   choices: ['400 J', '346 J', '200 J', '0 J']
   answer: 2
   explanation: |-
-    $W = Fd\cos\theta = 40(10)\cos 60^\circ = 200$ J. Only the horizontal component (20 N) acts along the displacement. 346 J uses $\sin 60^\circ$.
+    $W = Fd\cos\theta = 40(10)\cos 60^\circ = 200$ J. Only the horizontal component (20 N) acts along the displacement. 346 J uses $\sin 60^\circ$. 400 J ignores the angle.
 - id: phys-q-1102
   lesson: phys-work
   topic: Work and kinetic energy
@@ -31,7 +31,7 @@
   choices: ['10 m/s', '50 m/s', '7.1 m/s', '100 m/s']
   answer: 0
   explanation: |-
-    $W_{\text{net}} = \tfrac12mv^2$: $100 = \tfrac12(2.0)v^2$, so $v^2 = 100$ and $v = 10$ m/s. 7.1 m/s forgets the $\tfrac12$.
+    $W_{\text{net}} = \tfrac12mv^2$: $100 = \tfrac12(2.0)v^2$, so $v^2 = 100$ and $v = 10$ m/s. 7.1 m/s forgets the $\tfrac12$. 100 m/s forgets the square root; 50 m/s is $W/m$.
 - id: phys-q-1105
   lesson: phys-work
   topic: Work and kinetic energy
@@ -60,11 +60,11 @@
   lesson: phys-work
   module_quiz: true
   topic: Work and kinetic energy
-  stem: 'A force $F(x) = 4x^3$ N acts along $x$. How much work does it do from $x = 0$ to $x = 2$ m?'
-  choices: ['32 J', '16 J', '64 J', '8 J']
+  stem: 'The force on a cart, along its motion, rises steadily from 0 at $x = 0$ to 30 N at $x = 4.0$ m. How much work does the force do over those 4.0 m?'
+  choices: ['15 J', '60 J', '120 J', '7.5 J']
   answer: 1
   explanation: |-
-    $W = \int_0^2 4x^3\,dx = [x^4]_0^2 = 16$ J. Multiplying $F(2) = 32$ N by 2 m gives 64 J, wrongly treating the force as constant.
+    The work is the area under the $F$–$x$ graph, here a triangle: $\tfrac12(4.0)(30) = 60$ J. 120 J uses the final force for the whole distance; 7.5 N/m is the slope of the graph, not an area; 15 J is the average force (15 N) without multiplying by the distance.
 - id: phys-q-1109
   lesson: phys-work
   topic: Work and kinetic energy
@@ -72,7 +72,7 @@
   choices: ['the slope of the graph', 'the force at the final position times the distance', 'the area under the graph between them', 'the average of the two forces']
   answer: 2
   explanation: |-
-    $W = \int F\,dx$ is the area under the $F$–$x$ curve. For a constant force it's a rectangle, $Fd$; for a spring it's a triangle, $\tfrac12kx^2$.
+    Work is force times distance, which on an $F$–$x$ graph is an area. For a constant force it's a rectangle, $Fd$; for a spring it's a triangle, $\tfrac12kx^2$. The slope has units of N/m, not joules.
 - id: phys-q-1110
   lesson: phys-work
   topic: Work and kinetic energy
@@ -81,6 +81,22 @@
   answer: 0
   explanation: |-
     Work requires a displacement. The barbell doesn't move, so $W = 0$ even though she exerts 980 N and her muscles use chemical energy.
+- id: phys-q-1111
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A car brakes to a stop with a constant friction force. If it had been going twice as fast, with the same braking force, its stopping distance would'
+  choices: ['double', 'quadruple', 'stay the same', 'increase by a factor of $\sqrt2$']
+  answer: 1
+  explanation: |-
+    Work–energy theorem: $-fd = 0 - \tfrac12mv^2$, so $d = \dfrac{mv^2}{2f} \propto v^2$. Doubling $v$ multiplies $d$ by $2^2 = 4$. Doubling would be true only if $d$ were proportional to $v$.
+- id: phys-q-1112
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A spring with $k = 300$ N/m is already stretched 0.10 m. How much work is needed to stretch it further, to 0.20 m?'
+  choices: ['1.5 J', '6.0 J', '30 J', '4.5 J']
+  answer: 3
+  explanation: |-
+    $W = \tfrac12kx_2^2 - \tfrac12kx_1^2 = 150(0.040 - 0.010) = 4.5$ J, the trapezoid area under the $F$–$x$ line. 1.5 J uses $\tfrac12k(\Delta x)^2$, as if the spring started unstretched; 6.0 J is the work from 0 to 0.20 m; 30 N is the extra force, $k\Delta x$, not a work.
 - id: phys-q-1201
   lesson: phys-energy
   module_quiz: true
@@ -89,7 +105,7 @@
   choices: ['49 m/s', '7.0 m/s', '98 m/s', '9.9 m/s']
   answer: 3
   explanation: |-
-    $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{98} = 9.9$ m/s. 7.0 m/s is $\sqrt{gh}$, missing the 2. The mass and the hill's shape don't matter.
+    $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{98} = 9.9$ m/s. 7.0 m/s is $\sqrt{gh}$, missing the 2. The mass and the hill's shape don't matter. 98 is $2gh$ before taking the square root, and 49 is $gh$.
 - id: phys-q-1202
   lesson: phys-energy
   topic: Conservation of energy
@@ -105,7 +121,7 @@
   choices: ['4.0 m/s', '2.8 m/s', '7.8 m/s', '15.7 m/s']
   answer: 0
   explanation: |-
-    The string tension is perpendicular to the motion and does no work, so $v = \sqrt{2gh} = \sqrt{2(9.8)(0.80)} = 3.96$ m/s.
+    The string tension is perpendicular to the motion and does no work, so $v = \sqrt{2gh} = \sqrt{2(9.8)(0.80)} = 3.96$ m/s. 2.8 m/s is $\sqrt{gh}$ (missing the 2); 15.7 is $2gh$, which is $v^2$, not $v$.
 - id: phys-q-1204
   lesson: phys-energy
   module_quiz: true
@@ -114,7 +130,7 @@
   choices: ['−37.5 J', '−58.8 J', '−21.3 J', '+21.3 J']
   answer: 2
   explanation: |-
-    $U_i = 3.0(9.8)(2.0) = 58.8$ J and $K_f = \tfrac12(3.0)(25) = 37.5$ J. $W_{\text{nc}} = K_f - U_i = -21.3$ J. Friction removes mechanical energy, so its work is negative.
+    $U_i = 3.0(9.8)(2.0) = 58.8$ J and $K_f = \tfrac12(3.0)(25) = 37.5$ J. $W_{\text{nc}} = K_f - U_i = -21.3$ J. Friction removes mechanical energy, so its work is negative. −37.5 J is just $K_f$ and −58.8 J just $U_i$; +21.3 J has the wrong sign.
 - id: phys-q-1205
   lesson: phys-energy
   topic: Conservation of energy
@@ -130,15 +146,15 @@
   choices: ['30 W', '294 W', '2940 W', '588 W']
   answer: 1
   explanation: |-
-    $P = \dfrac{mgh}{t} = \dfrac{60(9.8)(5.0)}{10} = 294$ W, about 0.4 hp.
+    $P = \dfrac{mgh}{t} = \dfrac{60(9.8)(5.0)}{10} = 294$ W, about 0.4 hp. 30 W leaves out $g$; 2940 J is the work, not divided by the time; 588 N is her weight.
 - id: phys-q-1207
   lesson: phys-energy
   topic: Power
   stem: 'A car''s engine delivers 15 kW while the car moves at a steady 30 m/s. What is the total resistive force on the car?'
-  choices: ['500 N', '450 kN', '2000 N', '50 N']
+  choices: ['500 N', '450 kN', '0.50 N', '2.0 N']
   answer: 0
   explanation: |-
-    At constant speed the driving force equals the resistive force, and $P = Fv$: $F = 15\,000/30 = 500$ N.
+    At constant speed the driving force equals the resistive force, and $P = Fv$: $F = 15\,000/30 = 500$ N. 450 kN multiplies instead of dividing; 0.50 N forgets to convert kW to W; 2.0 N divides the speed by the power in kW.
 - id: phys-q-1208
   lesson: phys-energy
   topic: Power
@@ -151,27 +167,44 @@
   lesson: phys-energy
   module_quiz: true
   topic: Conservation of energy
-  stem: 'A potential energy function is $U(x) = 2x^2 - 8x$ (J, m). What is the force at $x = 1$ m, and where is the equilibrium point?'
-  choices: ['$F = -4$ N; $x = 2$ m', '$F = 4$ N; $x = 4$ m', '$F = -6$ N; $x = 0$', '$F = 4$ N; $x = 2$ m']
-  answer: 3
+  stem: 'On a particle''s potential energy graph, $U$ rises steadily from 2.0 J at $x = 0$ to 8.0 J at $x = 3.0$ m. What force acts on the particle in that region?'
+  choices: ['2.0 N in the $+x$ direction', '2.0 N in the $-x$ direction', '6.0 N in the $-x$ direction', '8.0 N in the $+x$ direction']
+  answer: 1
   explanation: |-
-    $F = -dU/dx = -(4x - 8)$, so $F(1) = 4$ N. Equilibrium where $dU/dx = 0$: $x = 2$ m (a minimum, so stable). Forgetting the minus sign gives $-4$ N.
+    The force is the negative of the graph's slope. Slope $= (8.0 - 2.0)/3.0 = 2.0$ J/m $= 2.0$ N, so $F = -2.0$ N: 2.0 N toward $-x$, downhill on the graph. The $+x$ answer forgets the minus sign; 6.0 N is the change in $U$ without dividing by the distance.
 - id: phys-q-1210
   lesson: phys-energy
   topic: Conservation of energy
   stem: 'A 0.50 kg ball is launched straight up by a spring ($k = 400$ N/m) compressed 0.20 m. How high above the release point does it rise? ($g = 9.8$ m/s²)'
-  choices: ['1.6 m', '16 m', '3.3 m', '8.2 m']
+  choices: ['1.6 m', '16 m', '3.3 m', '0.82 m']
   answer: 0
   explanation: |-
-    $\tfrac12kx^2 = \tfrac12(400)(0.04) = 8.0$ J $= mgh$, so $h = 8.0/(0.50 \times 9.8) = 1.63$ m. 3.3 m drops the $\tfrac12$ in the spring energy.
+    $\tfrac12kx^2 = \tfrac12(400)(0.04) = 8.0$ J $= mgh$, so $h = 8.0/(0.50 \times 9.8) = 1.63$ m. 3.3 m drops the $\tfrac12$ in the spring energy; 16 m leaves out $g$; 0.82 m leaves out the mass.
 - id: phys-q-1211
   lesson: phys-energy
   topic: Conservation of energy
   stem: 'On a potential energy diagram, a particle with total energy $E$ has a turning point where'
-  choices: ['$U(x)$ has a minimum', '$U(x) = 0$', '$U(x) = E$', '$dU/dx = 0$']
+  choices: ['$U(x)$ has a minimum', '$U(x) = 0$', '$U(x) = E$', 'the graph of $U(x)$ is flat']
   answer: 2
   explanation: |-
-    Kinetic energy is $E - U(x)$; at a turning point the particle stops, so $K = 0$ and $U = E$. Minima of $U$ are stable equilibria, not turning points.
+    Kinetic energy is $E - U(x)$; at a turning point the particle stops, so $K = 0$ and $U = E$. Minima of $U$ (and other flat spots on the graph) are equilibrium points, where the force is zero, not turning points.
+- id: phys-q-1212
+  lesson: phys-energy
+  module_quiz: true
+  topic: Power
+  stem: 'Motor A lifts a crate to a shelf in 10 s. Motor B lifts an identical crate to the same shelf in 5.0 s, at constant speed in both cases. Compared with motor A, motor B does'
+  choices: ['the same work at twice the power', 'twice the work at the same power', 'twice the work at twice the power', 'the same work at half the power']
+  answer: 0
+  explanation: |-
+    The work against gravity, $mgh$, is the same for both. Power is work divided by time, $P = W/\Delta t$, so doing it in half the time takes twice the power. Confusing power with energy leads to the "twice the work" choices.
+- id: phys-q-1213
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'A spring launcher fires a ball straight up. If the spring is compressed twice as far, how high does the ball rise compared with before? (Ignore air resistance and the small height change during launch.)'
+  choices: ['Twice as high', '$\sqrt2$ times as high', 'Four times as high', 'The same height']
+  answer: 2
+  explanation: |-
+    All the spring energy $\tfrac12kx^2$ becomes $mgh$, so $h \propto x^2$. Doubling $x$ gives $2^2 = 4$ times the height. "Twice as high" treats the stored energy as proportional to $x$, like the force.
 - id: phys-q-1301
   lesson: phys-momentum
   module_quiz: true
@@ -193,10 +226,10 @@
   lesson: phys-momentum
   topic: Momentum and impulse
   stem: 'A 4.0 kg rifle fires a 20 g bullet at 400 m/s. What is the rifle''s recoil speed?'
-  choices: ['2.0 m/s', '0.2 m/s', '20 m/s', '8.0 m/s']
+  choices: ['2.0 m/s', '0.20 m/s', '20 m/s', '8.0 m/s']
   answer: 0
   explanation: |-
-    Total momentum stays zero: $0.020(400) = 4.0\,v$, so $v = 2.0$ m/s backward.
+    Total momentum stays zero: $0.020(400) = 4.0\,v$, so $v = 2.0$ m/s backward. 20 m/s and 0.20 m/s come from converting 20 g to kilograms wrongly; 8.0 is the bullet's momentum in kg·m/s, not a speed.
 - id: phys-q-1304
   lesson: phys-momentum
   module_quiz: true
@@ -233,28 +266,28 @@
 - id: phys-q-1308
   lesson: phys-momentum
   topic: Momentum and impulse
-  stem: 'A force $F(t) = 30t^2$ N acts on an object from $t = 0$ to $t = 2$ s. What impulse does it deliver?'
-  choices: ['120 N·s', '240 N·s', '60 N·s', '80 N·s']
+  stem: 'During a kick, the force on a ball rises steadily from 0 to 800 N in 2.0 ms, then falls steadily back to 0 in another 2.0 ms. What impulse does the ball receive?'
+  choices: ['3.2 N·s', '0.80 N·s', '1600 N·s', '1.6 N·s']
   answer: 3
   explanation: |-
-    $J = \int_0^2 30t^2\,dt = [10t^3]_0^2 = 80$ N·s. $F(2) \times 2$ s $= 240$ N·s wrongly treats the force as constant.
+    Impulse is the area under the $F$–$t$ graph, a triangle: $\tfrac12(4.0\times10^{-3}\text{ s})(800\text{ N}) = 1.6$ N·s. 3.2 N·s uses the peak force for the whole 4.0 ms; 0.80 N·s counts only the rising half; 1600 N·s leaves the time in milliseconds.
 - id: phys-q-1309
   lesson: phys-momentum
   module_quiz: true
   topic: Momentum and impulse
   stem: 'A 0.15 kg ball is caught: it goes from 30 m/s to rest in 0.050 s. What is the average force on the catcher''s glove?'
-  choices: ['90 N', '4.5 N', '225 N', '600 N']
+  choices: ['90 N', '4.5 N', '1350 N', '600 N']
   answer: 0
   explanation: |-
-    $F_{\text{avg}} = \Delta p/\Delta t = 0.15(30)/0.050 = 90$ N. (4.5 kg·m/s is the momentum change, not the force.)
+    $F_{\text{avg}} = \Delta p/\Delta t = 0.15(30)/0.050 = 90$ N. (4.5 kg·m/s is the momentum change, not the force.) 600 N ignores the mass ($v/\Delta t$); 1350 N divides the kinetic energy by the time.
 - id: phys-q-1310
   lesson: phys-momentum
   topic: Center of mass
-  stem: 'A thin rod of length $L$ has linear density $\lambda(x) = cx$, increasing from one end. Where is its center of mass?'
-  choices: ['$L/2$', '$2L/3$', '$L/3$', '$3L/4$']
+  stem: 'A uniform 2.0 m rod of mass 3.0 kg has a small 1.0 kg ball fixed to one end. How far from the other (bare) end is the center of mass of the rod and ball?'
+  choices: ['1.0 m', '1.25 m', '1.5 m', '0.75 m']
   answer: 1
   explanation: |-
-    $M = \int_0^L cx\,dx = cL^2/2$ and $\int_0^L x\cdot cx\,dx = cL^3/3$, so $x_{\text{cm}} = \dfrac{cL^3/3}{cL^2/2} = 2L/3$, toward the denser end.
+    Treat the rod as 3.0 kg at its midpoint (1.0 m from the bare end) and the ball as 1.0 kg at 2.0 m: $x_{\text{cm}} = \dfrac{3.0(1.0) + 1.0(2.0)}{4.0} = 1.25$ m. 1.0 m ignores the ball; 1.5 m averages the two positions without weighting by mass; 0.75 m is the distance from the ball's end.
 - id: phys-q-1401
   lesson: phys-collisions
   module_quiz: true
@@ -263,7 +296,7 @@
   choices: ['3.0 m/s', '1.5 m/s', '1.0 m/s', '2.0 m/s']
   answer: 3
   explanation: |-
-    $2.0(3.0) = 3.0\,v_f$, so $v_f = 2.0$ m/s. Momentum is conserved in every collision.
+    $2.0(3.0) = 3.0\,v_f$, so $v_f = 2.0$ m/s. Momentum is conserved in every collision. 3.0 m/s ignores the second cart; 1.0 m/s divides by the wrong mass.
 - id: phys-q-1402
   lesson: phys-collisions
   topic: Collisions
@@ -271,7 +304,7 @@
   choices: ['3.0 J', '9.0 J', '6.0 J', '0 J']
   answer: 0
   explanation: |-
-    $K_i = \tfrac12(2.0)(9.0) = 9.0$ J; $K_f = \tfrac12(3.0)(4.0) = 6.0$ J. Lost: 3.0 J, turned into heat and deformation.
+    $K_i = \tfrac12(2.0)(9.0) = 9.0$ J; $K_f = \tfrac12(3.0)(4.0) = 6.0$ J. Lost: 3.0 J, turned into heat and deformation. 9.0 J and 6.0 J are the kinetic energies before and after, not the loss.
 - id: phys-q-1403
   lesson: phys-collisions
   topic: Collisions
@@ -310,10 +343,10 @@
   module_quiz: true
   topic: Collisions
   stem: 'An 8.0 g bullet embeds in a 1.992 kg block hanging as a pendulum, which then rises 5.0 cm. What was the bullet''s speed? ($g = 9.8$ m/s²)'
-  choices: ['0.99 m/s', '35 m/s', '248 m/s', '500 m/s']
+  choices: ['0.99 m/s', '15.7 m/s', '248 m/s', '500 m/s']
   answer: 2
   explanation: |-
-    Swing: $V = \sqrt{2gh} = \sqrt{2(9.8)(0.050)} = 0.990$ m/s. Collision: $v = \dfrac{m + M}{m}V = \dfrac{2.000}{0.008}(0.990) = 248$ m/s.
+    Swing: $V = \sqrt{2gh} = \sqrt{2(9.8)(0.050)} = 0.990$ m/s. Collision: $v = \dfrac{m + M}{m}V = \dfrac{2.000}{0.008}(0.990) = 248$ m/s. 0.99 m/s is the block's speed, not the bullet's; 15.7 m/s wrongly applies energy conservation through the collision, $\tfrac12mv^2 = (m + M)gh$.
 - id: phys-q-1408
   lesson: phys-collisions
   topic: Collisions

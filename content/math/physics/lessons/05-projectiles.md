@@ -82,13 +82,19 @@ Quadratic formula: $t = \dfrac{7.50 + \sqrt{56.25 + 490}}{9.8} = \dfrac{7.50 + 2
 
 Horizontal distance: $x = 13.0 \times 3.15 = 40.9$ m.
 
-## With calculus
+## Scaling: what changes when the launch speed changes
 
-In vector form, the projectile has constant acceleration $\vec a = -g\,\hat\jmath$. Integrating once and twice,
+The level-ground formulas make proportional reasoning quick. Time of flight is proportional to $v_0$, while maximum height and range are proportional to $v_0^2$. Mass appears nowhere: without air resistance, a heavy and a light ball launched the same way follow the same path.
 
-$$\vec v(t) = \vec v_0 - gt\,\hat\jmath, \qquad \vec r(t) = \vec r_0 + \vec v_0t - \tfrac12gt^2\,\hat\jmath,$$
+### Example 4
 
-which is the component equations in one line. Calculus also confirms the optimal angle: $\dfrac{dR}{d\theta} = \dfrac{2v_0^2\cos 2\theta}{g} = 0$ gives $\theta = 45^\circ$. With air drag proportional to velocity, $\vec a = -g\hat\jmath - (b/m)\vec v$, the equations become differential equations whose solutions decay exponentially toward a terminal velocity; the path is no longer a parabola, it falls more steeply on the way down, and the best angle drops below $45^\circ$.
+A ball launched from level ground at some angle has a range of 20 m and a flight time of 1.6 s. It is relaunched at the same angle with twice the speed. Predict the new range, maximum height (compared with the old) and flight time.
+
+Both $v_{0x}$ and $v_{0y}$ double. The flight time $2v_{0y}/g$ doubles, to 3.2 s. The range $v_{0x}T$ is (twice the horizontal speed) times (twice the time), so it quadruples, to 80 m. The height $v_{0y}^2/(2g)$ also quadruples. On the Moon, with $g$ six times smaller, the original launch would stay up six times longer and go six times as far.
+
+## Air resistance
+
+Real projectiles feel air drag, which points opposite the velocity and grows with speed. It slows the horizontal motion as well as the vertical, so the path is no longer a parabola: it is shorter, and it falls more steeply on the way down than it rose. With drag the best angle for range drops below $45^\circ$. For a dense, slow object (a shot put, a tossed coin) drag is small and the parabola is an excellent model; for a ping-pong ball or a long-distance golf drive it is not.
 
 ## Common mistakes
 
@@ -103,3 +109,4 @@ which is the component equations in one line. Calculus also confirms the optimal
 - Horizontal: constant velocity $v_0\cos\theta$. Vertical: free fall with $v_{0y} = v_0\sin\theta$. Time links them.
 - Level ground: $T = \dfrac{2v_0\sin\theta}{g}$, $H = \dfrac{v_0^2\sin^2\theta}{2g}$, $R = \dfrac{v_0^2\sin 2\theta}{g}$ (max at $45^\circ$).
 - Other launch and landing heights: solve the $y$ equation for $t$, then use it in $x$.
+- On level ground, flight time scales with $v_0$; range and height scale with $v_0^2$.

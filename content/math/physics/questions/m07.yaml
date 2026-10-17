@@ -68,11 +68,11 @@
 - id: phys-q-2309
   lesson: phys-fluid-statics
   topic: Pressure
-  stem: 'Integrating $dP/dy = -\rho g$ for an isothermal atmosphere (where $\rho \propto P$) shows that air pressure'
-  choices: ['decreases linearly with altitude', 'is constant up to the top of the atmosphere', 'decreases exponentially with altitude', 'increases with altitude']
+  stem: 'The gauge pressure at the bottom of a tank of water is 30 kPa. Water is added until the depth is doubled. What is the absolute pressure at the bottom now? (Take $P_{\text{atm}} = 101$ kPa.)'
+  choices: ['131 kPa', '262 kPa', '161 kPa', '60 kPa']
   answer: 2
   explanation: |-
-    $dP/dy = -(\rho_0g/P_0)P$ has solution $P = P_0e^{-y/H}$ with $H \approx 8.6$ km. Only an incompressible fluid gives a linear change.
+    Gauge pressure is $\rho gh$, proportional to depth, so doubling the depth doubles it to 60 kPa. Absolute pressure adds the atmosphere: $101 + 60 = 161$ kPa. 60 kPa is the new gauge pressure alone; 262 kPa doubles the atmospheric part too, though the air above hasn't changed; 131 kPa is the absolute pressure before the water was added.
 - id: phys-q-2310
   lesson: phys-fluid-statics
   topic: Buoyancy
@@ -81,6 +81,14 @@
   answer: 1
   explanation: |-
     What matters is the average density of everything inside the hull's outline. A hull encloses a large volume of air, so it can displace its own weight of water before sinking too deep.
+- id: phys-q-2311
+  lesson: phys-fluid-statics
+  topic: Pressure
+  stem: 'A pool''s end wall is 4.0 m wide and the water against it is 2.5 m deep. What is the total force of the water on the wall, counting gauge pressure only? ($g = 9.8$ m/s²)'
+  choices: ['$2.5\times10^5$ N', '$4.9\times10^4$ N', '$1.1\times10^6$ N', '$1.2\times10^5$ N']
+  answer: 3
+  explanation: |-
+    Gauge pressure rises steadily from 0 at the surface to $\rho gD = 1000(9.8)(2.5) = 24\,500$ Pa at the bottom, so the average is 12 250 Pa. Force $=$ average pressure $\times$ area $= 12\,250(4.0)(2.5) = 1.2\times10^5$ N. Using the bottom pressure over the whole wall gives $2.5\times10^5$ N; multiplying by the width alone instead of the area gives $4.9\times10^4$ N; adding atmospheric pressure (which pushes equally on the other side) gives about $1.1\times10^6$ N.
 - id: phys-q-2401
   lesson: phys-fluid-flow
   module_quiz: true
@@ -164,6 +172,14 @@
   answer: 2
   explanation: |-
     Absolute pressure can't go below zero in a liquid. Before that, the liquid boils into vapor (cavitation), so the assumed steady flow can't occur.
+- id: phys-q-2411
+  lesson: phys-fluid-flow
+  topic: Fluid dynamics
+  stem: 'Water flows steadily up a pipe of constant diameter, rising 5.0 m. The pressure at the bottom is $2.0\times10^5$ Pa. What is the pressure at the top? ($g = 9.8$ m/s²)'
+  choices: ['$2.5\times10^5$ Pa', '$2.0\times10^5$ Pa', '$4.9\times10^4$ Pa', '$1.5\times10^5$ Pa']
+  answer: 3
+  explanation: |-
+    Constant diameter means constant speed (continuity), so the $\tfrac12\rho v^2$ terms cancel and only height matters: $P_2 = P_1 - \rho g\Delta y = 2.0\times10^5 - 1000(9.8)(5.0) = 1.51\times10^5$ Pa. Adding the $\rho gh$ term gives $2.5\times10^5$ Pa; ignoring the climb gives $2.0\times10^5$ Pa; $4.9\times10^4$ Pa is just the pressure change itself.
 - id: phys-q-2501
   lesson: phys-heat
   module_quiz: true
@@ -200,6 +216,7 @@
     $0.10(385)(T - 100) + 0.40(4186)(T - 20) = 0 \Rightarrow 38.5T - 3850 + 1674.4T - 33\,488 = 0$, so $T = 37\,338/1712.9 = 21.8$°C. Averaging the temperatures (60°C) ignores the very different heat capacities.
 - id: phys-q-2505
   lesson: phys-heat
+  module_quiz: true
   topic: Temperature and expansion
   stem: 'A 2.0 m aluminum rod ($\alpha = 23\times10^{-6}$ K⁻¹) is heated by 50 K. How much longer does it get?'
   choices: ['2.3 mm', '23 mm', '0.23 mm', '4.6 mm']
@@ -242,11 +259,19 @@
 - id: phys-q-2510
   lesson: phys-heat
   topic: Heat and calorimetry
-  stem: 'A hot object cools by Newton''s law of cooling, $dT/dt = -\kappa(T - T_s)$. Its temperature'
-  choices: ['falls linearly to $T_s$', 'approaches $T_s$ exponentially', 'oscillates around $T_s$', 'drops to absolute zero']
-  answer: 1
+  stem: 'Heat conducts through a wall at 400 W. If the wall is replaced by one of the same material that is twice as thick, and the temperature difference across it is also doubled, the rate of heat flow becomes'
+  choices: ['200 W', '800 W', '1600 W', '400 W']
+  answer: 3
   explanation: |-
-    The solution is $T = T_s + (T_0 - T_s)e^{-\kappa t}$: the gap to the surroundings shrinks by the same fraction in each equal time interval.
+    $Q/t = kA\Delta T/L$. Doubling $\Delta T$ doubles the rate and doubling $L$ halves it, so the two changes cancel: still 400 W. 800 W counts only the temperature change; 200 W only the thickness change.
+- id: phys-q-2511
+  lesson: phys-heat
+  topic: Heat and calorimetry
+  stem: 'A mug of coffee at 70°C sits in a 20°C room and is losing heat at 10 W. Assuming the rate of heat loss is proportional to the temperature difference with the room, about how fast is it losing heat when it has cooled to 45°C?'
+  choices: ['5.0 W', '6.4 W', '10 W', '2.5 W']
+  answer: 0
+  explanation: |-
+    The temperature difference falls from $70 - 20 = 50$ K to $45 - 20 = 25$ K, half as much, so the rate halves to 5.0 W. 6.4 W comes from the ratio of the temperatures $45/70$ instead of the differences; the rate doesn't stay at 10 W because the driving difference has shrunk.
 - id: phys-q-2601
   lesson: phys-gases
   module_quiz: true
@@ -316,11 +341,11 @@
 - id: phys-q-2609
   lesson: phys-gases
   topic: Kinetic theory
-  stem: 'In the Maxwell–Boltzmann distribution, how do the most probable speed $v_p$, mean speed $\bar v$ and rms speed compare?'
-  choices: ['$v_p < \bar v < v_{\text{rms}}$', '$v_p = \bar v = v_{\text{rms}}$', '$v_{\text{rms}} < \bar v < v_p$', '$\bar v < v_p < v_{\text{rms}}$']
+  stem: 'A gas is heated from 300 K to 900 K. How does the graph of its molecular speed distribution change?'
+  choices: ['The peak moves to higher speed and the curve becomes lower and broader', 'The peak moves to higher speed and the curve becomes taller and narrower', 'The peak stays at the same speed but the curve grows taller', 'The peak moves to lower speed and the curve becomes broader']
   answer: 0
   explanation: |-
-    $v_p = \sqrt{2k_BT/m}$, $\bar v = \sqrt{8k_BT/\pi m}$, $v_{\text{rms}} = \sqrt{3k_BT/m}$: ratios $1 : 1.128 : 1.225$. The high-speed tail pulls the averages above the peak.
+    Hotter molecules move faster on average, so the peak shifts to higher speed, and the speeds spread over a wider range. The area under the curve represents all the molecules and can't change, so a wider curve must also be lower. A taller, narrower curve would describe a colder gas (or heavier molecules).
 - id: phys-q-2610
   lesson: phys-gases
   module_quiz: true
@@ -330,6 +355,14 @@
   answer: 0
   explanation: |-
     $\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$: $V_2 = 3.0\cdot\dfrac{1.0}{0.50}\cdot\dfrac{250}{300} = 5.0$ L. Inverting the temperature ratio gives 7.2 L; inverting the pressure ratio gives 1.25 L.
+- id: phys-q-2611
+  lesson: phys-gases
+  topic: Kinetic theory
+  stem: 'The absolute temperature of a sample of monatomic ideal gas rises from 300 K to 450 K. By what factor does its internal energy change?'
+  choices: ['2.25', '1.22', '1.5', 'It depends on whether the volume or the pressure is held fixed']
+  answer: 2
+  explanation: |-
+    $E_{\text{int}} = \tfrac32nRT$ is proportional to $T$ in kelvins, so it changes by $450/300 = 1.5$, whatever the process. 1.22 is $\sqrt{1.5}$, the factor for the rms speed; 2.25 squares the temperature ratio.
 - id: phys-q-2701
   lesson: phys-first-law
   module_quiz: true
@@ -338,7 +371,7 @@
   choices: ['increases by 1100 J', 'decreases by 500 J', 'increases by 500 J', 'is unchanged']
   answer: 2
   explanation: |-
-    $\Delta E_{\text{int}} = Q - W = 800 - 300 = +500$ J. Adding gives 1100 J, which would be the case if 300 J of work were done *on* the gas.
+    $\Delta E_{\text{int}} = Q - W = 800 - 300 = +500$ J. Adding gives 1100 J, which would be the case if 300 J of work were done on the gas instead of by it.
 - id: phys-q-2702
   lesson: phys-first-law
   topic: First law of thermodynamics
@@ -371,7 +404,7 @@
   choices: ['the slope of the curve', 'the area under the curve', 'the product of the final $P$ and $V$', 'the change in $PV$']
   answer: 1
   explanation: |-
-    $W = \int P\,dV$, the area under the path. Different paths between the same two states enclose different areas, so work is path-dependent.
+    At constant pressure $W = P\Delta V$, the area of the rectangle under the path; for a changing pressure, add the areas of many thin strips. The slope of the curve is not work. Different paths between the same two states enclose different areas, so work is path-dependent.
 - id: phys-q-2706
   lesson: phys-first-law
   topic: First law of thermodynamics
@@ -413,6 +446,14 @@
   answer: 0
   explanation: |-
     $TV^{\gamma - 1}$ is constant, so $T_f = T_i(8)^{2/3} = 4T_i$. Adiabatic compression heats a gas strongly (diesel ignition).
+- id: phys-q-2711
+  lesson: phys-first-law
+  topic: First law of thermodynamics
+  stem: 'A gas expands along a straight line on a PV diagram from 2.0 L at 400 kPa to 6.0 L at 200 kPa. How much work does the gas do?'
+  choices: ['800 J', '1600 J', '1200 J', '$1.2\times10^6$ J']
+  answer: 2
+  explanation: |-
+    The area under the line is a trapezoid: average pressure $300$ kPa times $\Delta V = 4.0\times10^{-3}$ m³ gives $1200$ J. Using only the final pressure gives 800 J and only the initial pressure 1600 J; forgetting to convert liters to m³ gives $1.2\times10^6$ J.
 - id: phys-q-2801
   lesson: phys-second-law
   module_quiz: true
@@ -491,8 +532,16 @@
 - id: phys-q-2810
   lesson: phys-second-law
   topic: Entropy
-  stem: 'Using $\Delta S = \int dQ/T$, the entropy change when mass $m$ of water (specific heat $c$) is heated from $T_1$ to $T_2$ is'
-  choices: ['$mc(T_2 - T_1)$', '$mc(T_2 - T_1)/T_2$', '$mc\ln(T_2/T_1)$', '$mc/T_1$']
+  stem: '1.0 kg of ice melts at 0°C (273 K), taking its heat from a room at 20°C (293 K). What is the total entropy change of the ice and the room? ($L_f = 3.34\times10^5$ J/kg)'
+  choices: ['$-84$ J/K', 'Zero, because the heat lost equals the heat gained', '$+84$ J/K', '$+2363$ J/K']
   answer: 2
   explanation: |-
-    $dQ = mc\,dT$, so $\Delta S = mc\int_{T_1}^{T_2}dT/T = mc\ln(T_2/T_1)$ (temperatures in kelvins).
+    Ice: $+3.34\times10^5/273 = +1223.4$ J/K. Room: $-3.34\times10^5/293 = -1139.9$ J/K. Total: $+83.5 \approx +84$ J/K (keep extra digits when subtracting nearly equal numbers). The heat amounts are equal, but the room gives it up at a higher temperature, so its entropy loss is smaller than the ice's gain. Adding the two magnitudes gives 2363 J/K; reversing the signs gives $-84$ J/K.
+- id: phys-q-2811
+  lesson: phys-second-law
+  topic: Heat engines
+  stem: 'A Carnot engine absorbs 900 J per cycle from a reservoir at 450 K and rejects heat to a reservoir at 300 K. How much heat does it reject per cycle?'
+  choices: ['300 J', '1350 J', 'Zero', '600 J']
+  answer: 3
+  explanation: |-
+    For a reversible engine $Q_H/T_H = Q_C/T_C$, so $Q_C = 900(300/450) = 600$ J, and the work is $900 - 600 = 300$ J (efficiency $1/3$). 300 J is the work, not the rejected heat; 1350 J inverts the temperature ratio; zero would be a perfect engine, which the second law forbids.

@@ -4,7 +4,7 @@ module: phys-m2
 title: Describing motion in one dimension
 minutes: 35
 topics: [Velocity and acceleration, Motion graphs]
-drills: [phys-avg-velocity, phys-calc-velocity]
+drills: [phys-avg-velocity, phys-vt-graph]
 refs: [phys-ref-mechanics]
 ---
 ## What kinematics is for
@@ -80,37 +80,46 @@ Use the $v$–$t$ graph above. (a) What is the acceleration from 0 to 4 s? (b) W
 
 (c) It turns around where $v$ changes sign. After 7 s, $v = 6 - 4(t - 7)$, which is zero at $t = 8.5$ s. Before 8.5 s it moves in $+x$, after it in $-x$. Note that $a = -4$ m/s² throughout the last segment, including the instant $v = 0$: the object is momentarily at rest but still accelerating.
 
-## With calculus
+## Instantaneous velocity from a curved graph
 
-Instantaneous quantities are derivatives. Velocity is the derivative of position and acceleration the derivative of velocity:
+When an $x$–$t$ graph curves, the velocity at one instant is the slope of the *tangent line* there: the straight line that just touches the curve at that point and runs in the same direction as the curve. To find it, draw (or read) the tangent, pick two points on it that are far apart, and compute rise over run. The farther apart the two points, the smaller the effect of reading errors.
 
-$$v(t) = \frac{dx}{dt}, \qquad a(t) = \frac{dv}{dt} = \frac{d^2x}{dt^2}.$$
-
-These are the "slope of the graph" statements made exact. Going the other way, the "area under the graph" statements are integrals:
-
-$$x(t) = x_0 + \int_0^t v(t')\,dt', \qquad v(t) = v_0 + \int_0^t a(t')\,dt'.$$
-
-The initial values $x_0$ and $v_0$ are the constants of integration: knowing the acceleration alone doesn't tell you where the object started or how fast it was going.
+Why the tangent? The slope of a chord between two times is the average velocity over that interval. As the second time moves closer to the first, the chord swings around until it lies along the tangent, so the tangent's slope is the average velocity over a vanishingly short interval, which is exactly what instantaneous velocity means.
 
 ### Example 3
 
-A particle moves along $x$ with $x(t) = 2t^3 - 9t^2 + 12t$ (meters, seconds). Find its velocity and acceleration at $t = 3$ s, and the times when it is momentarily at rest.
+The first graph above is $x = 0.5t^2 - 0.5t$ (meters, seconds), with its tangent drawn at $t = 3$ s. The tangent passes through $(2\text{ s}, 0.5\text{ m})$ and $(5\text{ s}, 8.0\text{ m})$. Find the instantaneous velocity at 3 s and compare it with the average velocity from 0 to 3 s.
 
-Differentiate: $v(t) = 6t^2 - 18t + 12$ and $a(t) = 12t - 18$.
+Instantaneous: slope of the tangent $= \dfrac{8.0 - 0.5}{5 - 2} = \dfrac{7.5}{3} = 2.5$ m/s.
 
-At $t = 3$: $v = 54 - 54 + 12 = 12$ m/s and $a = 36 - 18 = 18$ m/s².
+Average: $x(0) = 0$ and $x(3) = 4.5 - 1.5 = 3.0$ m, so $v_{\text{avg}} = 3.0/3 = 1.0$ m/s.
 
-At rest when $v = 0$: $6(t^2 - 3t + 2) = 6(t - 1)(t - 2) = 0$, so $t = 1$ s and $t = 2$ s. Between them $v < 0$ (try $t = 1.5$: $v = -1.5$ m/s), so the particle moves forward, backs up between 1 and 2 s, then moves forward again.
+The object is speeding up, so its velocity at the end of the interval is larger than its average over the interval. The chord from $t = 0$ to $t = 3$ s is visibly less steep than the tangent at 3 s.
+
+## Reading one graph from another
+
+The three graphs are linked: each one's slope is the next one's height, and each one's area gives the change in the previous one.
+
+| If the $v$–$t$ graph is… | then the $x$–$t$ graph is… | and the $a$–$t$ graph is… |
+|---|---|---|
+| zero | flat (object at rest) | zero |
+| a positive constant | a straight line sloping up | zero |
+| a line sloping up | curving upward, getting steeper | a positive constant |
+| a line sloping down through zero | rising, peaking where $v = 0$, then falling | a negative constant |
+
+Areas run the other way: the area under an $a$–$t$ graph gives $\Delta v$, and the area under a $v$–$t$ graph gives $\Delta x$. An area tells you only the *change*; to get the actual velocity or position you also need its starting value.
 
 ### Example 4
 
-A drag racer's acceleration is $a(t) = 12 - 2t$ m/s² for $0 \le t \le 6$ s, starting from rest at $x = 0$. Find its velocity and position at $t = 6$ s.
+A cart moving at 1.0 m/s has the acceleration shown: 2.0 m/s² from 0 to 3.0 s, then $-1.0$ m/s² from 3.0 to 7.0 s. Find its velocity at 3.0 s and at 7.0 s, and its displacement over the 7.0 s.
 
-$v(t) = \int_0^t (12 - 2t')\,dt' = 12t - t^2$, so $v(6) = 72 - 36 = 36$ m/s.
+```plot
+{"x": [0, 8], "y": [-2, 3], "xLabel": "t (s)", "yLabel": "a (m/s²)", "functions": [{"f": "2", "from": 0, "to": 3}, {"f": "-1", "from": 3, "to": 7}], "shade": [{"f": "2", "from": 0, "to": 3}, {"f": "-1", "from": 3, "to": 7}], "caption": "Acceleration–time graph: the shaded areas are the changes in velocity"}
+```
 
-$x(t) = \int_0^t (12t' - t'^2)\,dt' = 6t^2 - \tfrac13 t^3$, so $x(6) = 216 - 72 = 144$ m.
+Velocities from areas under the $a$–$t$ graph: from 0 to 3.0 s, $\Delta v = 2.0 \times 3.0 = 6.0$ m/s, so $v(3) = 1.0 + 6.0 = 7.0$ m/s. From 3.0 to 7.0 s, $\Delta v = -1.0 \times 4.0 = -4.0$ m/s, so $v(7) = 7.0 - 4.0 = 3.0$ m/s.
 
-The constant-acceleration formulas of the next lesson would be wrong here, because $a$ changes with time.
+Displacement from areas under the $v$–$t$ graph, which is a straight line in each phase (so each area is a trapezoid): $\tfrac12(1.0 + 7.0)(3.0) = 12$ m, plus $\tfrac12(7.0 + 3.0)(4.0) = 20$ m, for 32 m in all. The velocity stayed positive throughout, so the cart never turned around.
 
 ## Common mistakes
 
@@ -125,4 +134,5 @@ The constant-acceleration formulas of the next lesson would be wrong here, becau
 - Displacement $\Delta x = x_f - x_i$ is signed; distance is not.
 - $v_{\text{avg}} = \Delta x/\Delta t$; $a_{\text{avg}} = \Delta v/\Delta t$.
 - Slope of $x$–$t$ is $v$; slope of $v$–$t$ is $a$; area under $v$–$t$ is $\Delta x$; area under $a$–$t$ is $\Delta v$.
-- $v = dx/dt$, $a = dv/dt$; integrate (with initial conditions) to go back.
+- Instantaneous velocity is the slope of the tangent line to the $x$–$t$ graph.
+- Areas give changes only; add the starting value to get the actual velocity or position.

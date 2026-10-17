@@ -83,13 +83,25 @@ $I = 60/120 = 0.50$ A; $R = 120/0.50 = 240$ Ω.
 
 Energy: $(0.060\text{ kW})(5 \times 30\text{ h}) = 9.0$ kWh. Cost: $9.0 \times 0.15 =$ \$1.35. (A 9 W LED giving the same light would cost about 20 cents.)
 
-## With calculus
+## Charge from a current–time graph
 
-Current is the derivative of charge: $I = \dfrac{dQ}{dt}$, and the charge that flows in a time interval is $Q = \int I\,dt$. If the current in a wire is $I(t) = 4.0e^{-t/2}$ A, the total charge that ever passes is $\int_0^\infty 4.0e^{-t/2}\,dt = 8.0$ C.
+Since $\Delta Q = I\Delta t$ for a steady current, the charge that flows is the area of a rectangle on a graph of current against time. When the current changes, the charge is still the area under the $I$–$t$ graph, found from rectangles and triangles. (Compare: displacement is the area under a velocity–time graph.)
 
-On the microscopic level, the **current density** $\vec J = nq\vec v_d$ (A/m²) is related to the field in the material by $\vec J = \vec E/\rho$, which is Ohm's law in local form. Integrating over a uniform wire, $I = JA$ and $V = EL$, gives back $V = I\rho L/A = IR$.
+### Example 3
 
-For a conductor with a cross-section that varies along its length, add resistances of thin slices: $R = \int\dfrac{\rho\,dx}{A(x)}$. For a cone-shaped resistor tapering from radius $a$ to $b$ over length $L$, this gives $R = \dfrac{\rho L}{\pi ab}$.
+The current in a circuit rises steadily from 0 to 4.0 A over the first 2.0 s, stays at 4.0 A for the next 3.0 s, then is switched off. How much charge flows in total? How many electrons is that?
+
+Triangle (0 to 2.0 s): $\tfrac12(2.0)(4.0) = 4.0$ C. Rectangle (2.0 to 5.0 s): $(3.0)(4.0) = 12$ C. Total: $16$ C.
+
+Electrons: $\dfrac{16}{1.602\times10^{-19}} = 1.0\times10^{20}$.
+
+### Example 4
+
+A heating element is made from a nichrome wire. A replacement wire of the same material is twice as long and has twice the diameter. Connected to the same 120 V outlet, how does its power compare with the original?
+
+Resistance: $R = \rho L/A$. Twice the length doubles $R$; twice the diameter makes the area four times larger, dividing $R$ by 4. New $R$ is $2/4 = \tfrac12$ the original.
+
+Power at fixed voltage: $P = V^2/R$, so halving $R$ doubles the power. (Using $P = I^2R$ here and keeping $I$ fixed would give the wrong answer: the current doesn't stay the same, because the voltage is what's fixed.)
 
 ## Common mistakes
 

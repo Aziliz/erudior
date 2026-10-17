@@ -79,11 +79,16 @@ Horizontal: hinge pushes outward, $H = T\cos 30^\circ = 891$ N. Vertical: $V + T
 
 A ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\circ$).
 
-## With calculus
+## Spread-out loads and stability
 
-Torque balance for continuous loads uses integrals. A beam carrying a distributed load $w(x)$ (newtons per meter) experiences a total load $W = \int w(x)\,dx$, acting at $\bar x = \dfrac{\int x\,w(x)\,dx}{\int w(x)\,dx}$, the load's "center of mass." For a load increasing linearly from 0 to $w_0$ along a beam of length $L$, $W = \tfrac12w_0L$ and $\bar x = \tfrac23L$: replace it by a single force there and proceed as before.
+Not every load sits at one point: sand piled along a beam, or snow on a roof. A spread-out load is described by how many newtons it puts on each meter of beam, and drawn as a graph of load per meter against position. The total load is the area under that graph, and for torque purposes it acts at the center of that area (the "center of gravity" of the load).
 
-Equilibrium can also be stable or unstable, which ties back to potential energy: an object resting where its gravitational $U = Mgy_{\text{cg}}$ is at a minimum (any small tilt raises its center of gravity) is stable; at a maximum, unstable.
+- A *uniform* load of $w$ N/m over length $L$ is a rectangle: total $wL$, acting at the middle.
+- A load that *increases steadily* from 0 to $w_0$ N/m is a triangle: total $\tfrac12w_0L$, acting at the triangle's centroid, two-thirds of the way from the zero end toward the heavy end.
+
+Replace the spread-out load by that single force and proceed as before.
+
+Equilibrium can also be stable or unstable, which ties back to potential energy: an object resting where its gravitational $U = Mgy_{\text{cg}}$ is at a minimum (any small tilt raises its center of gravity) is stable; at a maximum, unstable. A box sitting flat is stable; the same box balanced on one edge is unstable.
 
 ## Common mistakes
 

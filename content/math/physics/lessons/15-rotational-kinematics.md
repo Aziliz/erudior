@@ -68,7 +68,7 @@ $$I = \sum m_ir_i^2$$
 
 is the **moment of inertia** about the chosen axis (kg·m²). It plays the role of mass for rotation: it measures how hard it is to change an object's rotation. Crucially, it depends not just on the mass but on *how far the mass is from the axis*, and so on which axis you choose.
 
-Standard results for uniform objects of mass $M$:
+Standard results for uniform objects of mass $M$ (the round and solid shapes take advanced math to add up; use these as given):
 
 | Object | Axis | $I$ |
 |---|---|---|
@@ -102,21 +102,27 @@ A 2.0 kg solid disk of radius 0.25 m spins at 300 rpm. What is its rotational ki
 
 $I = \tfrac12(2.0)(0.25)^2 = 0.0625$ kg·m². $\omega = 300(0.1047) = 31.4$ rad/s. $K = \tfrac12(0.0625)(31.4)^2 = 30.8$ J.
 
-## With calculus
+## Graphs of rotational motion
 
-Angular velocity and acceleration are derivatives: $\omega = d\theta/dt$, $\alpha = d\omega/dt$, exactly paralleling $v$ and $a$, and non-constant $\alpha$ is handled by integration.
+The graph rules from linear kinematics carry over too:
 
-For a continuous body, the sum becomes an integral over mass elements:
+- the slope of a $\theta$–$t$ graph is the angular velocity $\omega$;
+- the slope of an $\omega$–$t$ graph is the angular acceleration $\alpha$;
+- the area under an $\omega$–$t$ graph is the angular displacement $\Delta\theta$.
 
-$$I = \int r^2\,dm.$$
+These work even when $\alpha$ is not constant, which the equations in the table can't handle.
 
-*Thin uniform rod about its center.* Linear density $\lambda = M/L$, $dm = \lambda\,dx$, $x$ from $-L/2$ to $L/2$:
+```plot
+{"x": [0, 11], "y": [0, 14], "xLabel": "time t (s)", "yLabel": "ω (rad/s)", "functions": [{"f": "3*x", "from": 0, "to": 4}, {"f": "12", "from": 4, "to": 10}], "shade": [{"f": "3*x", "from": 0, "to": 4}, {"f": "12", "from": 4, "to": 10}], "caption": "A motor spins up for 4 s, then runs at a steady 12 rad/s; the shaded area is the angle turned"}
+```
 
-$$I = \int_{-L/2}^{L/2}\frac{M}{L}x^2\,dx = \frac{M}{L}\cdot\frac{x^3}{3}\Big|_{-L/2}^{L/2} = \frac{M}{L}\cdot\frac{L^3}{12} = \frac1{12}ML^2.$$
+### Example 5
 
-*Uniform disk about its axis.* Split it into thin rings of radius $r$ and width $dr$, area $2\pi r\,dr$, mass $dm = \dfrac{M}{\pi R^2}2\pi r\,dr$:
+A motor shaft starts from rest, speeds up steadily to 12 rad/s in 4.0 s, then turns at a constant 12 rad/s for 6.0 s more (the graph above). Find the angular acceleration during the first 4.0 s and the total number of revolutions.
 
-$$I = \int_0^R r^2\frac{2M}{R^2}r\,dr = \frac{2M}{R^2}\cdot\frac{R^4}{4} = \frac12MR^2.$$
+Slope of the first segment: $\alpha = 12/4.0 = 3.0$ rad/s².
+
+Area: triangle $\tfrac12(4.0)(12) = 24$ rad plus rectangle $(6.0)(12) = 72$ rad, so $\Delta\theta = 96$ rad $= 96/2\pi = 15.3$ rev.
 
 ## Common mistakes
 
@@ -127,7 +133,8 @@ $$I = \int_0^R r^2\frac{2M}{R^2}r\,dr = \frac{2M}{R^2}\cdot\frac{R^4}{4} = \frac
 
 ## Key points
 
-- $\theta$ in radians; $\omega = d\theta/dt$, $\alpha = d\omega/dt$; constant-$\alpha$ equations mirror linear ones.
+- $\theta$ in radians; $\omega = \Delta\theta/\Delta t$, $\alpha = \Delta\omega/\Delta t$; constant-$\alpha$ equations mirror linear ones.
+- Slope of $\theta$–$t$ is $\omega$, slope of $\omega$–$t$ is $\alpha$, area under $\omega$–$t$ is $\Delta\theta$.
 - $v = r\omega$, $a_t = r\alpha$, $a_c = r\omega^2$.
-- $I = \sum m_ir_i^2 = \int r^2\,dm$; rotational KE $= \tfrac12I\omega^2$.
+- $I = \sum m_ir_i^2$ (table values for standard shapes); rotational KE $= \tfrac12I\omega^2$.
 - Parallel-axis theorem: $I = I_{\text{cm}} + Md^2$.

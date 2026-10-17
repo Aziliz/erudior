@@ -81,15 +81,21 @@ Living things maintain a constant ratio of carbon-14 to carbon-12 while alive; a
 
 $0.35 = (\tfrac12)^{t/5730}$, so $t = 5730\dfrac{\ln 0.35}{\ln 0.5} = 5730(1.515) = 8680$ years.
 
-## With calculus
+## Why the decay is exponential
 
-The decay law is the differential equation
+Each nucleus has the same small chance of decaying in any given second, regardless of its age, so in each second the sample loses the same *fraction* of whatever is left. A quantity that loses a fixed fraction per unit time decays exponentially, just like the charge on a discharging capacitor. On the graph above, the slope (the decay rate) is steep at first, when there are many nuclei, and flattens as fewer remain: the activity $R = \lambda N$ is proportional to the number left.
 
-$$\frac{dN}{dt} = -\lambda N,$$
+The two forms of the decay law are the same curve. Setting $N = N_0/2$ at $t = T_{1/2}$ in $N = N_0e^{-\lambda t}$ gives $e^{-\lambda T_{1/2}} = \tfrac12$; taking the natural log of both sides, $\lambda T_{1/2} = \ln 2$, which is the half-life formula. To solve for a time, take logs as in Example 3; to find an amount, plug in directly.
 
-the same first-order equation as RC discharge and Newton's cooling. Separating variables, $\int_{N_0}^N\dfrac{dN'}{N'} = -\lambda\int_0^tdt'$, gives $N = N_0e^{-\lambda t}$. Setting $N = N_0/2$ gives $T_{1/2} = \ln 2/\lambda$.
+### Example 4
 
-The **mean lifetime** of a nucleus is the average of $t$ over the decay distribution: $\tau = \dfrac{\int_0^\infty t\,\lambda e^{-\lambda t}\,dt}{1} = \dfrac1\lambda$, so $T_{1/2} = \tau\ln 2$. For a chain where A decays to B which also decays, $\dfrac{dN_B}{dt} = \lambda_AN_A - \lambda_BN_B$; when B's half-life is much shorter, it settles into secular equilibrium with $\lambda_AN_A = \lambda_BN_B$, equal activities.
+A medical sample contains 1.0 μg of iodine-131 (molar mass 131 g/mol, half-life 8.0 days). What is its activity?
+
+Number of nuclei: $N = \dfrac{1.0\times10^{-6}\text{ g}}{131\text{ g/mol}}(6.022\times10^{23}\text{ mol}^{-1}) = 4.6\times10^{15}$.
+
+Decay constant in s⁻¹ (activity is decays per *second*): $T_{1/2} = 8.0(86\,400) = 6.91\times10^5$ s, so $\lambda = \dfrac{0.693}{6.91\times10^5} = 1.0\times10^{-6}$ s⁻¹.
+
+$R = \lambda N = (1.0\times10^{-6})(4.6\times10^{15}) = 4.6\times10^9$ Bq. A millionth of a gram gives billions of decays per second, which is why tiny doses are enough for imaging and treatment.
 
 ## Common mistakes
 

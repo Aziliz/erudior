@@ -30,7 +30,7 @@ $$x(t) = A\cos(\omega t + \phi).$$
 - **Phase constant** $\phi$: sets where in the cycle the motion starts. Released from rest at $x = A$, $\phi = 0$.
 
 ```plot
-{"x": [0, 4.2], "y": [-1.5, 1.5], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "1.2*cos(2*pi*x/2)"}], "labels": [{"at": [3.1, 1.33], "text": "x(t) = A cos(ωt)"}], "points": [{"at": [2, 1.2], "label": "one period T = 2 s"}], "segments": [{"from": [0, 0], "to": [0, 1.2], "arrow": true, "label": "A"}], "caption": "SHM with amplitude 1.2 m and period 2.0 s"}
+{"x": [0, 4.2], "y": [-1.5, 1.5], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "1.2*cos(2*pi*x/2)"}], "labels": [{"at": [1.0, 1.33], "text": "x(t) = A cos(ωt)"}], "points": [{"at": [2, 1.2], "label": "one period T = 2 s"}], "segments": [{"from": [0, 0], "to": [0, 1.2], "arrow": true, "label": "A"}], "caption": "SHM with amplitude 1.2 m and period 2.0 s"}
 ```
 
 For a mass on a spring,
@@ -85,21 +85,26 @@ A **physical pendulum**, any rigid object swinging about a pivot a distance $d$ 
 
 ## Damping and resonance
 
-Real oscillators lose energy to friction and air drag. With **damping**, the amplitude decays over time, often exponentially: $A(t) = A_0e^{-bt/2m}$ for a drag force $-bv$. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned to return the car to equilibrium quickly without bouncing, which is called critical damping).
+Real oscillators lose energy to friction and air drag. With **damping**, the amplitude shrinks a little with each cycle as mechanical energy turns into thermal energy. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned to return the car to equilibrium quickly without bouncing, which is called critical damping).
 
 A periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\omega_0 = \sqrt{k/m}$, the amplitude grows large: **resonance**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency.
 
-## With calculus
+## SHM and circular motion
 
-Newton's second law for a spring is the differential equation
+Why does a cosine describe SHM, and where do $v_{\max} = A\omega$ and $a_{\max} = A\omega^2$ come from? Picture a peg moving at constant angular speed $\omega$ around a circle of radius $A$, and look at its shadow on the $x$ axis (light shining from above, or the peg seen edge-on). The peg's angle is $\omega t$, so the shadow is at $x = A\cos(\omega t)$.
 
-$$m\frac{d^2x}{dt^2} = -kx \quad\Rightarrow\quad \frac{d^2x}{dt^2} = -\omega^2x, \qquad \omega^2 = \frac km.$$
+- The peg's speed is $A\omega$. The shadow moves with just the $x$ part of that velocity, which is largest (the full $A\omega$) as the shadow passes the center: $v_{\max} = A\omega$.
+- The peg's centripetal acceleration, $A\omega^2$, points toward the center of the circle. Its $x$ part is $-\omega^2 x$: always toward equilibrium, proportional to the displacement, and largest ($A\omega^2$) at the ends.
 
-Try $x = A\cos(\omega t + \phi)$: then $\dfrac{dx}{dt} = -A\omega\sin(\omega t + \phi)$ and $\dfrac{d^2x}{dt^2} = -A\omega^2\cos(\omega t + \phi) = -\omega^2x$ ✓. Any system whose equation of motion has this form oscillates at angular frequency $\omega$, which is how to find the period of a new oscillator: get its equation into the form $\ddot x = -(\text{something})\,x$, and $\omega^2$ is the something. For the pendulum, torque about the pivot gives $mL^2\ddot\theta = -mgL\sin\theta \approx -mgL\theta$, so $\omega^2 = g/L$.
+So the shadow's acceleration obeys $a = -\omega^2x$, exactly the SHM rule $a = -\tfrac km x$ with $\omega^2 = k/m$. Any system whose acceleration is $a = -(\text{constant})\,x$ oscillates in SHM with $\omega^2$ equal to that constant, which is a quick way to find the period of a new oscillator. For the pendulum, $a = -\tfrac gL s$, so $\omega^2 = g/L$.
 
-The velocity and acceleration are $v = -A\omega\sin(\omega t + \phi)$ and $a = -A\omega^2\cos(\omega t + \phi)$, so $v_{\max} = A\omega$ and $a_{\max} = A\omega^2$. Velocity is a quarter cycle out of step with position: it's largest when $x = 0$.
+### Example 4
 
-With damping, $m\ddot x + b\dot x + kx = 0$, whose underdamped solution is $x = A_0e^{-bt/2m}\cos(\omega' t)$ with $\omega' = \sqrt{\omega_0^2 - (b/2m)^2}$.
+An oscillator's acceleration is $a = -49x$ (SI units) and its amplitude is 0.040 m. Find its period, maximum speed and maximum acceleration.
+
+$\omega^2 = 49$, so $\omega = 7.0$ rad/s and $T = 2\pi/7.0 = 0.898$ s.
+
+$v_{\max} = A\omega = 0.040(7.0) = 0.28$ m/s; $a_{\max} = A\omega^2 = 0.040(49) = 1.96$ m/s².
 
 ## Common mistakes
 
@@ -115,4 +120,4 @@ With damping, $m\ddot x + b\dot x + kx = 0$, whose underdamped solution is $x = 
 - Spring: $T = 2\pi\sqrt{m/k}$. Pendulum (small angles): $T = 2\pi\sqrt{L/g}$. Period is independent of amplitude.
 - $v_{\max} = A\omega$, $a_{\max} = A\omega^2$, $E = \tfrac12kA^2$.
 - Damping makes amplitude decay; driving at the natural frequency causes resonance.
-- $\ddot x = -\omega^2x$ is the SHM equation.
+- In SHM, $a = -\omega^2x$; $x = A\cos(\omega t)$ is the shadow of uniform circular motion.

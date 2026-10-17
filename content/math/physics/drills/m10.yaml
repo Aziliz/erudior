@@ -10,15 +10,17 @@
     v: vm*10^ve
     F: 1.602e-19*v*B
     r: part*v/(1.602e-19*B)
+    mexp: floor(log10(part))
+    mcoef: part/10^mexp
   where: ['r > 1e-5', 'r < 100']
-  prompt: 'Consider {part} moving at ${vm}\times10^{{ve}}$ m/s perpendicular to a {B} T magnetic field. Find the magnetic force on it and the radius of its circular path. ($e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg, $m_p = 1.673\times10^{-27}$ kg)'
+  prompt: 'Consider {part} moving at ${vm}\times10^{{ve}}$ m/s perpendicular to a {B} T magnetic field. Find the magnetic force on it and the radius of its circular path, each to 3 significant figures. ($e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg, $m_p = 1.673\times10^{-27}$ kg)'
   answers:
     - {name: F, label: 'Force', format: sci, relTolerance: 0.01, units: {N: 1}}
     - {name: r, label: 'Radius', format: sci, relTolerance: 0.01, units: {m: 1, cm: 0.01, mm: 0.001}}
   solution: |-
     $F = |q|vB = (1.602\times10^{-19})({vm}\times10^{{ve}})({B}) = \mathbf{{F:texsci}}$ N.
 
-    $r = \dfrac{mv}{|q|B} = \dfrac{({part:texsci})({vm}\times10^{{ve}})}{(1.602\times10^{-19})({B})} = \mathbf{{r:texsci}}$ m.
+    $r = \dfrac{mv}{|q|B} = \dfrac{({mcoef:sig4}\times10^{{mexp}})({vm}\times10^{{ve}})}{(1.602\times10^{-19})({B})} = \mathbf{{r:texsci}}$ m.
 - id: phys-wire-force
   title: Force on a current-carrying wire
   topic: Magnetic force
@@ -29,7 +31,7 @@
     th: {min: 15, max: 90, step: 5}
   calc:
     F: I*L*B*sind(th)
-  prompt: 'A straight wire {L} m long carries {I} A in a uniform {B} T magnetic field. The wire makes an angle of {th}° with the field. What is the magnitude of the magnetic force on it?'
+  prompt: 'A straight wire {L} m long carries {I} A in a uniform {B} T magnetic field. The wire makes an angle of {th}° with the field. What is the magnitude of the magnetic force on it, in newtons to 3 significant figures?'
   answers:
     - {format: sig4, name: F, label: 'Force', relTolerance: 0.01, units: {N: 1, mN: 0.001}}
   solution: |-
@@ -47,7 +49,7 @@
     r: m*v/(1.602e-19*B)
     rcm: r*100
   where: ['rcm > 0.5', 'rcm < 300']
-  prompt: 'A singly charged ion of mass {A} u ($1\text{ u} = 1.661\times10^{-27}$ kg) is accelerated from rest through {V:dp0} V and enters a {B} T magnetic field perpendicular to its velocity. Find its speed and the radius of its path in cm. ($e = 1.602\times10^{-19}$ C)'
+  prompt: 'A singly charged ion of mass {A} u ($1\text{ u} = 1.661\times10^{-27}$ kg) is accelerated from rest through {V:dp0} V and enters a {B} T magnetic field perpendicular to its velocity. Find its speed (m/s) and the radius of its path (cm), each to 3 significant figures. ($e = 1.602\times10^{-19}$ C)'
   answers:
     - {name: v, label: 'Speed', format: sci, relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: rcm, label: 'Radius', relTolerance: 0.01, units: {cm: 1, m: 100, mm: 0.1}}
@@ -64,33 +66,29 @@
   calc:
     B: 2e-7*I/(rcm/100)
     BuT: B*1e6
-  prompt: 'A long straight wire carries {I:dp0} A. Find the magnetic field {rcm} cm from it, in microtesla. ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  prompt: 'A long straight wire carries {I:dp0} A. Find the magnetic field {rcm} cm from it, in microtesla to 3 significant figures. ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
   answers:
     - {format: sig4, name: BuT, label: 'Field', relTolerance: 0.01, units: {'μT': 1, uT: 1, T: 1000000, mT: 1000}}
   solution: |-
     $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})({I:dp0})}{2\pi({rcm}/100)} = {B:texsci}$ T $=$ **{BuT:sig3} μT**.
 - id: phys-solenoid
-  title: Field and inductance of a solenoid
+  title: Field inside a solenoid
   topic: Sources of magnetic field
   vars:
     N: {min: 100, max: 5000, step: 100}
     lcm: {min: 5, max: 100, step: 5}
     I: {min: 0.1, max: 10, step: 0.1}
-    dcm: {min: 0.5, max: 10, step: 0.5}
   calc:
     n: N/(lcm/100)
     BmT: 4*pi*1e-7*n*I*1000
-    A: pi*(dcm/200)^2
-    LmH: 4*pi*1e-7*N^2*A/(lcm/100)*1000
-  where: ['lcm > 3*dcm']
-  prompt: 'A solenoid {lcm} cm long and {dcm} cm in diameter has {N:dp0} turns and carries {I} A. Find the field inside (in mT) and its inductance (in mH). ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  prompt: 'A long solenoid {lcm} cm long has {N:dp0} turns and carries {I} A. Find the number of turns per meter and the magnetic field inside (in mT), each to 3 significant figures. ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
   answers:
+    - {format: sig4, name: n, label: 'Turns per meter', relTolerance: 0.01, units: {'turns/m': 1, '/m': 1}}
     - {format: sig4, name: BmT, label: 'Field', relTolerance: 0.01, units: {mT: 1, T: 1000}}
-    - {format: sig4, name: LmH, label: 'Inductance', relTolerance: 0.01, units: {mH: 1, H: 1000}}
   solution: |-
-    $n = N/\ell = {N:dp0}/({lcm}/100) = {n:dp0}$ turns/m; $B = \mu_0nI =$ **{BmT:sig3} mT**.
+    Turns per meter: $n = \dfrac{\,N}{\ell} = \dfrac{{N:dp0}}{{lcm}/100\text{ m}} =$ **{n:sig4} turns/m**.
 
-    $A = \pi({dcm}/200)^2 = {A:texsci}$ m²; $L = \dfrac{\mu_0N^2A}{\ell} =$ **{LmH:sig3} mH**.
+    $B = \mu_0nI = (4\pi\times10^{-7})({n:sig4})({I}) =$ **{BmT:sig3} mT**. Use turns per meter, not the total number of turns.
 - id: phys-parallel-wires
   title: Force between parallel wires
   topic: Sources of magnetic field
@@ -101,7 +99,7 @@
   calc:
     F: 2e-7*I1*I2/(dcm/100)
     FmN: F*1000
-  prompt: 'Two long parallel wires {dcm} cm apart carry {I1} A and {I2} A in the same direction. Find the force per meter between them in mN/m. Is it attractive or repulsive?'
+  prompt: 'Two long parallel wires {dcm} cm apart carry {I1} A and {I2} A in the same direction. Find the force per meter between them in mN/m, to 3 significant figures. (Then decide: is it attractive or repulsive?)'
   answers:
     - {format: sig4, name: FmN, label: 'Force per meter', relTolerance: 0.01, units: {'mN/m': 1, 'N/m': 1000}}
   solution: |-
@@ -120,12 +118,12 @@
   calc:
     emf: N*abs(B2 - B1)*A/t
     I: emf/R
-  prompt: 'A {N:dp0}-turn coil of area {A} m² lies perpendicular to a magnetic field that changes steadily from {B1} T to {B2} T in {t} s. Find the magnitude of the induced emf and, if the coil''s resistance is {R} Ω, the induced current.'
+  prompt: 'A {N:dp0}-turn coil of area {A:dp3} m² lies perpendicular to a magnetic field that changes steadily from {B1} T to {B2} T in {t} s. Find the magnitude of the induced emf (V) and, if the coil''s resistance is {R} Ω, the induced current (A), each to 3 significant figures.'
   answers:
     - {format: sig4, name: emf, label: 'emf', relTolerance: 0.01, units: {V: 1, mV: 0.001}}
     - {format: sig4, name: I, label: 'Current', relTolerance: 0.01, units: {A: 1, mA: 0.001}}
   solution: |-
-    $|\Delta\Phi_B| = |{B2} - {B1}|({A})$ Wb per turn.
+    $|\Delta\Phi_B| = |{B2} - {B1}|({A:dp3})$ Wb per turn.
 
     $|\mathcal{E}| = N\dfrac{|\Delta\Phi_B|}{\Delta t} =$ **{emf:sig3} V**; $I = \mathcal{E}/R =$ **{I:sig3} A**, directed to oppose the change in flux.
 - id: phys-motional-emf
@@ -140,7 +138,7 @@
     emf: B*L*v
     I: emf/R
     F: I*L*B
-  prompt: 'A rod {L} m long slides at {v} m/s along conducting rails in a {B} T field perpendicular to the rails. The rails are joined by a {R} Ω resistor. Find the emf, the current, and the force needed to keep the rod moving at constant speed.'
+  prompt: 'A rod {L} m long slides at {v} m/s along conducting rails in a {B} T field perpendicular to the rails. The rails are joined by a {R} Ω resistor. Find the emf (V), the current (A), and the force (N) needed to keep the rod moving at constant speed, each to 3 significant figures.'
   answers:
     - {format: sig4, name: emf, label: 'emf', relTolerance: 0.01, units: {V: 1}}
     - {format: sig4, name: I, label: 'Current', relTolerance: 0.01, units: {A: 1}}
@@ -161,7 +159,7 @@
   calc:
     Vs: Vp*Ns/Np
     Ip: Vs*Is/Vp
-  prompt: 'An ideal transformer has {Np:dp0} primary turns and {Ns:dp0} secondary turns, with {Vp:dp0} V (rms) on the primary. Find the secondary voltage and, if the secondary delivers {Is} A, the primary current.'
+  prompt: 'An ideal transformer has {Np:dp0} primary turns and {Ns:dp0} secondary turns, with {Vp:dp0} V (rms) on the primary. Find the secondary voltage (V) and, if the secondary delivers {Is} A, the primary current (A), each to 3 significant figures.'
   answers:
     - {format: sig4, name: Vs, label: 'Secondary voltage', relTolerance: 0.01, units: {V: 1, kV: 1000}}
     - {format: sig4, name: Ip, label: 'Primary current', relTolerance: 0.01, units: {A: 1, mA: 0.001}}
@@ -180,17 +178,19 @@
   calc:
     taums: L/R*1000
     Imax: Ev/R
-    I: Imax*(1 - exp(-n))
-    tms: n*taums
-  prompt: 'A {L} H inductor and a {R} Ω resistor are connected in series to a {Ev} V battery at $t = 0$. Find the time constant (ms), the final current, and the current at $t = {tms:sig3}$ ms.'
+    tms0: n*taums
+    tms: round(tms0, 2 - floor(log10(tms0)))
+    ratio: tms/taums
+    I: Imax*(1 - exp(-ratio))
+  prompt: 'A {L} H inductor and a {R} Ω resistor are connected in series to a {Ev} V battery at $t = 0$. Find the time constant (ms), the final current (A), and the current (A) at $t = {tms:sig3}$ ms, each to 3 significant figures.'
   answers:
     - {format: sig4, name: taums, label: 'Time constant', relTolerance: 0.01, units: {ms: 1, s: 1000}}
     - {format: sig4, name: Imax, label: 'Final current', relTolerance: 0.01, units: {A: 1, mA: 0.001}}
     - {format: sig4, name: I, label: 'Current at t', relTolerance: 0.01, units: {A: 1, mA: 0.001}}
   solution: |-
-    $\tau = L/R = {L}/{R} =$ **{taums:sig3} ms**. Final current $\mathcal{E}/R =$ **{Imax:sig3} A**.
+    $\tau = L/R = {L}/{R}$ s $=$ **{taums:sig3} ms**. Final current $\mathcal{E}/R = {Ev}/{R} =$ **{Imax:sig3} A**.
 
-    $t/\tau = {n}$, so $I = \dfrac{\mathcal{E}}{\,R}(1 - e^{-{n}}) =$ **{I:sig3} A**.
+    $t/\tau = {tms:sig3}/{taums:sig4} = {ratio:num4}$, so $I = \dfrac{\mathcal{E}}{\,R}(1 - e^{-t/\tau}) = {Imax:sig4}(1 - e^{-{ratio:num4}}) =$ **{I:sig3} A**.
 - id: phys-lc-frequency
   title: LC resonant frequency
   topic: Inductance
@@ -200,7 +200,7 @@
   calc:
     f: 1/(2*pi*sqrt(L*1e-3*C*1e-9))
     fk: f/1000
-  prompt: 'An LC circuit has a {L} mH inductor and a {C:dp0} nF capacitor. Find its resonant frequency in kHz.'
+  prompt: 'An LC circuit has a {L} mH inductor and a {C:dp0} nF capacitor. Find its resonant frequency in kHz, to 3 significant figures.'
   answers:
     - {format: sig4, name: fk, label: 'Frequency', relTolerance: 0.01, units: {kHz: 1, Hz: 0.001, MHz: 1000}}
   solution: |-
@@ -217,7 +217,7 @@
     Vr: V0/sqrt(2)
     P: Vr^2/R
     XC: 1/(2*pi*f*C*1e-6)
-  prompt: 'An AC source has peak voltage {V0} V and frequency {f} Hz. Find (a) its rms voltage, (b) the average power it delivers to a {R} Ω resistor, and (c) the reactance of a {C} μF capacitor at this frequency.'
+  prompt: 'An AC source has peak voltage {V0} V and frequency {f} Hz. Find (a) its rms voltage, (b) the average power it delivers to a {R} Ω resistor, and (c) the reactance of a {C} μF capacitor at this frequency. Give each to 3 significant figures.'
   answers:
     - {format: sig4, name: Vr, label: '(a) rms voltage', relTolerance: 0.01, units: {V: 1}}
     - {format: sig4, name: P, label: '(b) Power', relTolerance: 0.01, units: {W: 1}}

@@ -83,18 +83,29 @@ A defibrillator's 150 μF capacitor is charged to 2000 V. How much energy does i
 
 $U = \tfrac12(150\times10^{-6})(2000)^2 = 300$ J. Average power $= 300/0.0040 = 75$ kW, far more than the charger could supply directly, which is the point of storing it.
 
-## With calculus
+## Energy as the area under a graph
 
-The stored energy comes from integrating the work to move each increment of charge $dq$ against the current voltage $v = q/C$:
+A graph of the capacitor's voltage against the charge on it is a straight line through the origin with slope $1/C$. Moving a small charge $\Delta q$ onto the plates when the voltage is $V$ takes work $V\Delta q$, the area of a thin strip under the line. Adding all the strips from zero to $Q$ gives the area of a triangle with base $Q$ and height $V$:
 
-$$U = \int_0^Q\frac{q}{C}\,dq = \frac{Q^2}{2C}.$$
+$$U = \tfrac12QV.$$
 
-Capacitance of other geometries follows from $C = Q/V$ with $V = \int E\,dr$ from Gauss's law:
+That's the graphical reason for the $\tfrac12$: the charge was not all moved against the final voltage.
 
-- *Cylindrical capacitor* (coaxial cable), inner radius $a$, outer $b$, length $L$: $E = \dfrac{\lambda}{2\pi\varepsilon_0r}$, so $V = \dfrac{\lambda}{2\pi\varepsilon_0}\ln\dfrac ba$ and $C = \dfrac{2\pi\varepsilon_0L}{\ln(b/a)}$.
-- *Spherical capacitor*, radii $a < b$: $V = kQ\left(\dfrac1a - \dfrac1b\right)$, so $C = \dfrac{4\pi\varepsilon_0ab}{b - a}$. Letting $b\to\infty$ gives an isolated sphere, $C = 4\pi\varepsilon_0a$ (Earth's is only about 0.7 mF).
+## Battery connected or disconnected?
 
-The energy density can also be integrated: the energy in the field of a charged conducting sphere of radius $R$ is $\int_R^\infty\tfrac12\varepsilon_0E^2\,4\pi r^2\,dr = \dfrac{kQ^2}{2R}$, which matches $Q^2/(2C)$.
+Many capacitor questions turn on one distinction. If the capacitor *stays connected* to a battery, the battery holds $V$ fixed, and $Q = CV$ and $U = \tfrac12CV^2$ follow $C$. If it is *charged and then disconnected*, no charge can enter or leave, so $Q$ is fixed, and $V = Q/C$ and $U = Q^2/(2C)$ follow $C$ instead.
+
+### Example 4
+
+A 10 μF air capacitor is charged to 12 V and then disconnected from the battery. A dielectric with $\kappa = 4.0$ is slid between the plates. Find the new capacitance, charge, voltage and stored energy.
+
+Before: $Q = CV = (10)(12) = 120$ μC and $U = \tfrac12(10\times10^{-6})(12)^2 = 7.2\times10^{-4}$ J.
+
+After: $C = 4.0(10) = 40$ μF. Disconnected, so $Q$ stays 120 μC. Then $V = Q/C = 120/40 = 3.0$ V, and $U = \dfrac{Q^2}{2C} = \dfrac{(120\times10^{-6})^2}{2(40\times10^{-6})} = 1.8\times10^{-4}$ J.
+
+The stored energy dropped to a quarter: the field pulled the dielectric into the gap, doing work on it. Had the battery stayed connected, $V$ would stay 12 V and $Q$ and $U$ would both have quadrupled instead.
+
+One more geometry is easy to handle: an isolated conducting sphere of radius $R$ holding charge $Q$ has potential $V = kQ/R$, so its capacitance is $C = Q/V = R/k = 4\pi\varepsilon_0R$. Even a sphere as large as Earth has only about 0.7 mF.
 
 ## Common mistakes
 

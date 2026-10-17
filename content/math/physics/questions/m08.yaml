@@ -76,11 +76,19 @@
 - id: phys-q-2910
   lesson: phys-coulomb
   topic: Coulomb's law
-  stem: 'A uniformly charged rod of total charge $Q$ and length $L$ lies on the $x$ axis from 0 to $L$. Far away ($a \gg L$ beyond its end), the force it exerts on a point charge $q$ approaches'
-  choices: ['$kqQ/a^2$', '$kqQ/(aL)$', '$kqQ/a$', 'zero']
+  stem: 'Two point charges exert a force $F$ on each other. Both charges are doubled, and the distance between them is also doubled. The force becomes'
+  choices: ['$F$', '$2F$', '$4F$', '$F/2$']
   answer: 0
   explanation: |-
-    Integrating gives $F = \dfrac{kqQ}{a(L + a)}$, which tends to $kqQ/a^2$ when $a \gg L$: from far away, any finite charge distribution looks like a point charge.
+    $F \propto q_1q_2/r^2$. Doubling both charges multiplies $F$ by 4; doubling $r$ divides it by $2^2 = 4$. Net factor: $4/4 = 1$. $4F$ forgets the distance change; $2F$ treats the distance as $1/r$ instead of $1/r^2$.
+- id: phys-q-2911
+  lesson: phys-coulomb
+  topic: Coulomb's law
+  stem: 'A $+9.0$ μC charge is at $x = 0$ and a $+1.0$ μC charge is at $x = 0.40$ m. At what point between them is the net electric force on a third charge zero?'
+  choices: ['$x = 0.20$ m', '$x = 0.36$ m', '$x = 0.10$ m', '$x = 0.30$ m']
+  answer: 3
+  explanation: |-
+    The forces balance when $9.0/x^2 = 1.0/(0.40 - x)^2$. Taking square roots, $3/x = 1/(0.40 - x)$, so $1.20 - 3x = x$ and $x = 0.30$ m, closer to the smaller charge. The midpoint (0.20 m) would only work for equal charges; 0.36 m divides the distance in the ratio 9 : 1, forgetting that force depends on $1/r^2$; 0.10 m is on the wrong side, near the larger charge.
 - id: phys-q-3001
   lesson: phys-efield
   module_quiz: true
@@ -151,11 +159,11 @@
 - id: phys-q-3009
   lesson: phys-efield
   topic: Electric field
-  stem: 'The field on the axis of a charged ring is $E = \dfrac{kQx}{(x^2 + a^2)^{3/2}}$. At the center of the ring ($x = 0$) the field is'
-  choices: ['zero', '$kQ/a^2$', 'infinite', '$kQ/a$']
+  stem: 'An electron and a proton are released from rest in the same uniform electric field. Compared with the proton, the electron experiences'
+  choices: ['a force of the same size in the opposite direction, and a much larger acceleration', 'a larger force in the same direction', 'the same force and the same acceleration', 'a smaller force and a smaller acceleration']
   answer: 0
   explanation: |-
-    At the center every element's field is canceled by the element directly opposite, matching $E(0) = 0$ from the formula.
+    Both have charge of size $e$, so $F = eE$ is the same size, but the electron's negative charge pushes it opposite to $\vec E$. With about 1/1800 of the proton's mass, the electron accelerates about 1800 times more ($a = F/m$).
 - id: phys-q-3010
   lesson: phys-efield
   topic: Electric field
@@ -164,6 +172,14 @@
   answer: 1
   explanation: |-
     Charge on a conductor resides on its outer surface and the field inside a closed conducting shell is shielded. The tires have nothing to do with it; lightning easily jumps a few centimeters of rubber.
+- id: phys-q-3011
+  lesson: phys-efield
+  topic: Electric field
+  stem: 'An electron enters the uniform field between two deflection plates moving parallel to them, and it is deflected 4.0 mm by the time it leaves. If it enters at twice the speed (same field), its deflection is'
+  choices: ['2.0 mm', '8.0 mm', '1.0 mm', '16 mm']
+  answer: 2
+  explanation: |-
+    The deflection is $\tfrac12at^2$ with the same acceleration. At twice the speed it spends half as long between the plates, and $(1/2)^2 = 1/4$, so the deflection is 1.0 mm. 2.0 mm forgets to square the time.
 - id: phys-q-3101
   lesson: phys-gauss
   module_quiz: true
@@ -230,7 +246,7 @@
   choices: ['the charge is positive', 'symmetry makes $E$ constant and perpendicular (or parallel) over a chosen surface', 'the surface is a cube', 'there are no conductors present']
   answer: 1
   explanation: |-
-    The flux integral collapses to $E\times$(area) only with spherical, cylindrical or planar symmetry. Otherwise Gauss's law still holds but doesn't isolate $E$.
+    The total flux reduces to $E$ times an area only with spherical, cylindrical or planar symmetry. Otherwise Gauss's law still holds but doesn't isolate $E$.
 - id: phys-q-3109
   lesson: phys-gauss
   topic: Gauss's law
@@ -247,6 +263,14 @@
   answer: 1
   explanation: |-
     A pillbox straddling the surface has flux only through its outer cap (the field inside the metal is zero): $EA = \sigma A/\varepsilon_0$.
+- id: phys-q-3111
+  lesson: phys-gauss
+  topic: Gauss's law
+  stem: 'A $+4.0$ nC point charge sits at the center of a closed cube. What is the electric flux through one face of the cube? ($\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²))'
+  choices: ['452 N·m²/C', '113 N·m²/C', '75 N·m²/C', '$2.7\times10^3$ N·m²/C']
+  answer: 2
+  explanation: |-
+    Total flux: $Q/\varepsilon_0 = (4.0\times10^{-9})/(8.85\times10^{-12}) = 452$ N·m²/C. By symmetry the six faces share it equally: $452/6 = 75$ N·m²/C. 452 is the total through all faces; 113 divides by 4 instead of 6; $2.7\times10^3$ multiplies by 6.
 - id: phys-q-3201
   lesson: phys-potential
   module_quiz: true
@@ -309,11 +333,11 @@
   lesson: phys-potential
   module_quiz: true
   topic: Electric potential
-  stem: 'The potential in a region is $V(x) = 5x^2$ volts ($x$ in m). What is the electric field at $x = 2$ m?'
-  choices: ['$-20$ V/m (pointing in $-x$)', '$+20$ V/m', '$-10$ V/m', '$+40$ V/m']
+  stem: 'Along the $x$ axis, the potential falls steadily from 60 V at $x = 0$ to 0 V at $x = 0.30$ m. What is the electric field in this region?'
+  choices: ['200 V/m in the $+x$ direction', '200 V/m in the $-x$ direction', '18 V/m in the $+x$ direction', 'Zero, because $V = 0$ at $x = 0.30$ m']
   answer: 0
   explanation: |-
-    $E_x = -dV/dx = -10x = -20$ V/m at $x = 2$: the field points in $-x$, toward lower potential. Forgetting the minus sign gives $+20$.
+    $E_x = -\Delta V/\Delta x = -(0 - 60)/0.30 = +200$ V/m. The field points toward lower potential, in $+x$. Pointing it toward higher potential gives $-x$; 18 V/m multiplies $V$ by distance instead of dividing; the value of $V$ at a point says nothing about the field there, only its rate of change does.
 - id: phys-q-3209
   lesson: phys-potential
   topic: Electric potential
@@ -330,6 +354,14 @@
   answer: 1
   explanation: |-
     No work is done moving along an equipotential, so the field has no component along it: field lines cross equipotentials at right angles, pointing toward lower potential.
+- id: phys-q-3211
+  lesson: phys-potential
+  topic: Electric potential
+  stem: 'On a graph of potential versus position, one region is a horizontal line at $V = 25$ V. In that region the electric field is'
+  choices: ['25 V/m, pointing toward lower $x$', '25 V/m, pointing toward higher $x$', 'impossible to find without the charges', 'zero']
+  answer: 3
+  explanation: |-
+    The field is the negative slope of the $V$-versus-$x$ graph. A horizontal line has zero slope, so $E = 0$ there, even though $V$ is 25 V. A constant nonzero potential is like a flat plateau: high up, but with no downhill direction.
 - id: phys-q-3301
   lesson: phys-capacitance
   module_quiz: true
@@ -387,7 +419,7 @@
   choices: ['in the battery that charged it', 'in the electric field between the plates', 'in the metal of the plates', 'in the wires']
   answer: 1
   explanation: |-
-    The energy is stored in the field, with density $u = \tfrac12\varepsilon_0E^2$; integrating over the volume between the plates gives $\tfrac12CV^2$.
+    The energy is stored in the field, with density $u = \tfrac12\varepsilon_0E^2$; multiplying by the volume $Ad$ between the plates gives back $\tfrac12CV^2$.
 - id: phys-q-3308
   lesson: phys-capacitance
   module_quiz: true
@@ -400,11 +432,11 @@
 - id: phys-q-3309
   lesson: phys-capacitance
   topic: Capacitance
-  stem: 'Integrating $dU = (q/C)\,dq$ from 0 to $Q$ gives the stored energy'
-  choices: ['$Q^2/C$', '$QC/2$', '$Q/(2C)$', '$Q^2/(2C)$']
+  stem: 'A capacitor is charged from zero to charge $Q$ and voltage $V$. On a graph of its voltage against its charge, the stored energy equals'
+  choices: ['the slope of the line, $1/C$', 'the rectangle $QV$', 'the voltage-axis intercept', 'the triangular area under the line, $\tfrac12QV$']
   answer: 3
   explanation: |-
-    $\int_0^Q q\,dq/C = Q^2/(2C)$, equal to $\tfrac12CV^2$ and $\tfrac12QV$.
+    Adding a small charge $\Delta q$ at voltage $V$ takes work $V\Delta q$, a thin strip under the line. The strips fill a triangle of base $Q$ and height $V$, area $\tfrac12QV$. The rectangle $QV$ would be right only if every bit of charge were moved against the final voltage.
 - id: phys-q-3310
   lesson: phys-capacitance
   topic: Capacitance
@@ -413,3 +445,11 @@
   answer: 0
   explanation: |-
     $V = kQ/R$, so $C = Q/V = R/k = 4\pi\varepsilon_0R$. Larger spheres hold more charge per volt.
+- id: phys-q-3311
+  lesson: phys-capacitance
+  topic: Capacitance
+  stem: 'A capacitor is charged to 20 V and then disconnected from the battery. A dielectric with $\kappa = 2.0$ is slid between its plates. The voltage across the capacitor becomes'
+  choices: ['40 V', '20 V', '5.0 V', '10 V']
+  answer: 3
+  explanation: |-
+    Disconnected, the charge $Q$ can't change. The dielectric doubles $C$, so $V = Q/C$ halves to 10 V. 20 V would be right only if the battery were still connected; 40 V multiplies by $\kappa$ instead of dividing.

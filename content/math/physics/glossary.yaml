@@ -86,10 +86,10 @@
   topic: Velocity and acceleration
 - term: instantaneous velocity
   aliases: [velocity]
-  definition: 'The velocity at one instant, $v = dx/dt$: the slope of the position–time graph.'
+  definition: 'The velocity at one instant: the slope of the tangent line to the position–time graph at that time.'
   topic: Velocity and acceleration
 - term: acceleration
-  definition: 'Rate of change of velocity, $a = dv/dt$, in m/s². It is a vector; its sign shows the direction of the change in velocity.'
+  definition: 'Rate of change of velocity, $a = \Delta v/\Delta t$ (the slope of the velocity–time graph), in m/s². It is a vector; its sign shows the direction of the change in velocity.'
   topic: Velocity and acceleration
 - term: acceleration due to gravity
 
@@ -148,7 +148,7 @@
   topic: Newton's laws
 - term: Newton's second law
   aliases: [second law of motion]
-  definition: '$\sum\vec F = m\vec a$, or generally $\vec F_{\text{net}} = d\vec p/dt$.'
+  definition: '$\sum\vec F = m\vec a$; equivalently, the net force equals the rate of change of momentum, $\vec F_{\text{net}} = \Delta\vec p/\Delta t$.'
   topic: Newton's laws
 - term: mass
   definition: 'The measure of an object''s inertia (resistance to acceleration), in kilograms; the same everywhere.'
@@ -222,7 +222,7 @@
   topic: Circular motion
 # ---- m4 Energy and momentum
 - term: work
-  definition: 'Energy transferred by a force acting through a displacement: $W = Fd\cos\theta$, or $\int\vec F\cdot d\vec\ell$. A scalar, in joules.'
+  definition: 'Energy transferred by a force acting through a displacement: $W = Fd\cos\theta$; for a varying force, the area under the force–position graph. A scalar, in joules.'
   topic: Work and kinetic energy
 - term: joule
   aliases: [joules, J]
@@ -289,7 +289,7 @@
   definition: 'The product of mass and velocity, $\vec p = m\vec v$ (kg·m/s), a vector.'
   topic: Momentum and impulse
 - term: impulse
-  definition: 'Force times the time it acts, $\vec J = \vec F_{\text{avg}}\Delta t = \int\vec F\,dt$, in N·s.'
+  definition: 'Force times the time it acts, $\vec J = \vec F_{\text{avg}}\Delta t$ (the area under the force–time graph), in N·s.'
   topic: Momentum and impulse
 - term: impulse–momentum theorem
   aliases: [impulse-momentum theorem]
@@ -325,18 +325,18 @@
   topic: Rotational kinematics
 - term: angular velocity
   aliases: [angular speed, ω]
-  definition: 'Rate of change of angle, $\omega = d\theta/dt$, in rad/s; $\omega = 2\pi f$.'
+  definition: 'Rate of change of angle, $\omega = \Delta\theta/\Delta t$, in rad/s; $\omega = 2\pi f$.'
   topic: Rotational kinematics
 - term: angular acceleration
   aliases: [α]
-  definition: 'Rate of change of angular velocity, $\alpha = d\omega/dt$, in rad/s².'
+  definition: 'Rate of change of angular velocity, $\alpha = \Delta\omega/\Delta t$, in rad/s².'
   topic: Rotational kinematics
 - term: rpm
   definition: 'Revolutions per minute; $1\text{ rpm} = 2\pi/60 \approx 0.1047$ rad/s.'
   topic: Rotational kinematics
 - term: moment of inertia
   aliases: [rotational inertia]
-  definition: 'Resistance to angular acceleration about an axis: $I = \sum m_ir_i^2 = \int r^2\,dm$ (kg·m²).'
+  definition: 'Resistance to angular acceleration about an axis: $I = \sum m_ir_i^2$ (kg·m²); mass farther from the axis counts more.'
   topic: Moment of inertia
 - term: parallel-axis theorem
   definition: '$I = I_{\text{cm}} + Md^2$ for an axis parallel to one through the center of mass, a distance $d$ away.'
@@ -356,7 +356,7 @@
   definition: 'Rolling in which the contact point is momentarily at rest, so $v_{\text{cm}} = R\omega$.'
   topic: Rolling motion
 - term: angular momentum
-  definition: '$L = I\omega$ for a rigid body about a fixed axis; in general $\vec L = \vec r\times\vec p$. Changed only by torque: $\vec\tau = d\vec L/dt$.'
+  definition: '$L = I\omega$ for a rigid body about a fixed axis; in general $\vec L = \vec r\times\vec p$. Changed only by torque: $\tau = \Delta L/\Delta t$.'
   topic: Angular momentum
 - term: conservation of angular momentum
   definition: 'With zero net external torque, $L$ is constant: $I_i\omega_i = I_f\omega_f$.'
@@ -486,9 +486,6 @@
   topic: Sound
 - term: wave number
   definition: '$k = 2\pi/\lambda$ (rad/m), the spatial analog of angular frequency.'
-  topic: Wave properties
-- term: wave equation
-  definition: '$\partial^2y/\partial x^2 = (1/v^2)\,\partial^2y/\partial t^2$, satisfied by any wave traveling at speed $v$.'
   topic: Wave properties
 - term: pitch
   definition: 'The perceived highness or lowness of a sound, determined by its frequency.'
@@ -634,7 +631,7 @@
   definition: 'Heat transfer by electromagnetic waves; power $P = e\sigma AT^4$ (Stefan–Boltzmann law).'
   topic: Heat and calorimetry
 - term: Newton's law of cooling
-  definition: '$dT/dt = -\kappa(T - T_s)$: an object approaches the surrounding temperature exponentially.'
+  definition: 'An object loses heat at a rate proportional to its temperature difference from the surroundings, so that difference shrinks exponentially with time.'
   topic: Heat and calorimetry
 - term: mole
   aliases: [mol, moles]
@@ -735,7 +732,7 @@
   definition: 'A refrigerator used to deliver heat $Q_H$ to a warm space.'
   topic: Heat engines
 - term: entropy
-  definition: 'A state variable measuring disorder; $\Delta S = \int dQ_{\text{rev}}/T$, and $S = k_B\ln\Omega$.'
+  definition: 'A state variable measuring disorder; $\Delta S = Q/T$ for heat $Q$ added reversibly at constant temperature $T$ (in J/K), and $S = k_B\ln\Omega$.'
   topic: Entropy
 # ---- m8 Electrostatics
 - term: electric charge
@@ -805,13 +802,13 @@
   topic: Electric field
 - term: electric flux
   aliases: [flux]
-  definition: 'The amount of field passing through a surface, $\Phi_E = \int\vec E\cdot d\vec A$; $EA\cos\theta$ for a flat area in a uniform field.'
+  definition: 'The amount of field passing through a surface: $\Phi_E = EA\cos\theta$ for a flat area in a uniform field, with $\theta$ measured from the area''s normal.'
   topic: Gauss's law
 - term: area vector
   definition: 'A vector perpendicular to a surface with magnitude equal to its area; outward for closed surfaces.'
   topic: Gauss's law
 - term: Gauss's law
-  definition: '$\oint\vec E\cdot d\vec A = Q_{\text{enc}}/\varepsilon_0$: total flux out of a closed surface is proportional to the charge inside.'
+  definition: 'The total electric flux out of a closed surface equals $Q_{\text{enc}}/\varepsilon_0$. On a symmetric surface where $E$ is constant and perpendicular, $EA = Q_{\text{enc}}/\varepsilon_0$.'
   topic: Gauss's law
 - term: Gaussian surface
   definition: 'An imaginary closed surface chosen to apply Gauss''s law, ideally matching the symmetry of the charge.'
@@ -862,7 +859,7 @@
 # ---- m9 Circuits
 - term: electric current
   aliases: [current]
-  definition: 'Rate of charge flow, $I = dQ/dt$, in amperes; conventional current is the direction positive charge would move.'
+  definition: 'Rate of charge flow, $I = \Delta Q/\Delta t$, in amperes; conventional current is the direction positive charge would move.'
   topic: Current and resistance
 - term: ampere
   aliases: [amperes, A, amp]
@@ -970,22 +967,18 @@
   aliases: [ferromagnetism]
   definition: 'Describes materials (iron, nickel, cobalt) whose atomic magnetic moments align in domains, producing strong magnetization.'
   topic: Sources of magnetic field
-- term: Biot–Savart law
-  aliases: [Biot-Savart law]
-  definition: '$d\vec B = \dfrac{\mu_0}{4\pi}\dfrac{I\,d\vec\ell\times\hat r}{r^2}$: the field contribution of a current element.'
-  topic: Sources of magnetic field
 - term: Ampère's law
-  definition: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$; used with symmetry to find magnetic fields.'
+  definition: 'For a closed path along which the field is constant and points along the path, $B\times(\text{path length}) = \mu_0I_{\text{enc}}$; used with symmetry to find the fields of wires and solenoids.'
   topic: Sources of magnetic field
 - term: magnetic flux
-  definition: '$\Phi_B = \int\vec B\cdot d\vec A$; $BA\cos\theta$ for a flat loop in a uniform field, in webers.'
+  definition: 'The amount of magnetic field through a loop: $\Phi_B = BA\cos\theta$ for a flat loop in a uniform field ($\theta$ from the loop''s normal), in webers.'
   topic: Electromagnetic induction
 - term: weber
   aliases: [Wb]
   definition: 'SI unit of magnetic flux, $1\text{ Wb} = 1\text{ T·m}^2$.'
   topic: Electromagnetic induction
 - term: Faraday's law
-  definition: 'A changing magnetic flux induces an emf: $\mathcal{E} = -N\,d\Phi_B/dt$.'
+  definition: 'A changing magnetic flux induces an emf: $\mathcal{E} = -N\,\Delta\Phi_B/\Delta t$, $N$ times the slope of the flux–time graph.'
   topic: Electromagnetic induction
 - term: Lenz's law
   definition: 'An induced current flows in the direction that opposes the change in flux that produced it.'
@@ -994,7 +987,7 @@
   definition: 'The emf $BLv$ across a conductor of length $L$ moving at speed $v$ perpendicular to a field $B$.'
   topic: Electromagnetic induction
 - term: generator
-  definition: 'A device that rotates coils in a magnetic field to produce an emf $NBA\omega\sin\omega t$.'
+  definition: 'A device that rotates coils in a magnetic field to produce an alternating emf $NBA\omega\sin\omega t$, with peak value $NBA\omega$.'
   topic: Electromagnetic induction
 - term: eddy currents
   aliases: [eddy current]
@@ -1005,7 +998,7 @@
   topic: Electromagnetic induction
 - term: inductance
   aliases: [self-inductance]
-  definition: '$L$ in $\mathcal{E} = -L\,dI/dt$, in henries; for a solenoid $L = \mu_0N^2A/\ell$.'
+  definition: '$L$ in $\mathcal{E} = -L\,\Delta I/\Delta t$, in henries; for a solenoid $L = \mu_0N^2A/\ell$.'
   topic: Inductance
 - term: henry
   aliases: [henries, H]

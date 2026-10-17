@@ -97,9 +97,18 @@ Arguments of functions like $\sin$, $e^x$ and $\ln$ must be dimensionless, which
 
 Physicists often estimate before calculating. An **order of magnitude** is the power of ten nearest a value: a person's mass (70 kg) is order $10^2$ kg. Rough estimates ("how many heartbeats in a lifetime?" about $70\text{ beats/min} \times 5\times10^5\text{ min/yr} \times 80\text{ yr} \approx 3\times10^9$) tell you whether a precise answer is reasonable.
 
-## With calculus
+## Units of slopes and areas on graphs
 
-Units follow calculus operations naturally. A derivative $\dfrac{dx}{dt}$ is a ratio of small changes, so its unit is (unit of $x$)/(unit of $t$): position in m gives velocity in m/s. An integral $\int f\,dt$ is a sum of products $f\,\Delta t$, so its unit is (unit of $f$)·(unit of $t$): integrating velocity (m/s) over time (s) gives meters. Keep this in mind when checking calculus-based formulas: $\int F\,dx$ has units N·m = J, which is why it can be an energy.
+Much of this course reads physics off graphs, and units tell you what a graph's slope and area mean before you calculate anything.
+
+- The *slope* of a graph is rise over run, so its unit is (unit on the vertical axis)/(unit on the horizontal axis). On a graph of position (m) against time (s), the slope is in m/s: it is a velocity.
+- The *area* between a graph and the horizontal axis is height times width, so its unit is (vertical unit)·(horizontal unit). On a graph of velocity (m/s) against time (s), a rectangle of area has units (m/s)·s = m: it is a displacement. On a graph of force (N) against distance (m), area has units N·m = J, an energy.
+
+### Example 5
+
+A graph shows the force on a cart (N, vertical axis) against time (s, horizontal axis). What do its slope and the area under it represent, in SI units?
+
+Slope: N/s, the rate at which the force changes. Area: N·s $= \text{kg·m/s}^2 \cdot \text{s} = \text{kg·m/s}$, which is the unit of momentum (mass times velocity). You'll meet this area again as impulse in the momentum lesson; the units already hint that it changes an object's momentum.
 
 ## Common mistakes
 
@@ -115,4 +124,4 @@ Units follow calculus operations naturally. A derivative $\dfrac{dx}{dt}$ is a r
 - Convert by multiplying by factors equal to 1; square or cube them for areas and volumes.
 - Multiply/divide: fewest sig figs. Add/subtract: fewest decimal places. Exact numbers don't count.
 - Equations must be dimensionally consistent; function arguments must be dimensionless.
-- Derivatives divide units; integrals multiply them.
+- A graph's slope has units of (vertical)/(horizontal); the area under it has units of (vertical)·(horizontal).

@@ -13,11 +13,11 @@ A gas in a cylinder can be heated, and it can push a piston. Heat flows in, work
 
 ## Work done by a gas
 
-When a gas at pressure $P$ pushes a piston of area $A$ out a distance $dx$, it does work $F\,dx = PA\,dx = P\,dV$. Over a finite change at constant pressure,
+When a gas at constant pressure $P$ pushes a piston of area $A$ out a distance $\Delta x$, it exerts force $F = PA$ through that distance, doing work $F\Delta x = PA\,\Delta x$. Since $A\,\Delta x$ is the change in volume,
 
 $$W = P\,\Delta V.$$
 
-When the pressure changes during the process, the work is the area under the curve on a **PV diagram** (pressure vs volume). Expanding gas does positive work on its surroundings; compressed gas has negative work done by it (positive work done on it). The work depends on the path between two states, not just the endpoints: going from state A to state B by different routes encloses different areas.
+On a **PV diagram** (pressure vs volume), a constant-pressure process is a horizontal line, and $P\,\Delta V$ is the area of the rectangle under it. When the pressure changes during the process, the work is still the area under the curve: split the process into many small steps, each nearly at constant pressure, and add up the thin rectangles. Expanding gas does positive work on its surroundings; compressed gas has negative work done by it (positive work done on it). The work depends on the path between two states, not just the endpoints: going from state A to state B by different routes encloses different areas.
 
 ## The first law
 
@@ -70,25 +70,37 @@ $Q = \Delta E_{\text{int}} + W = 4157$ J (check: $nC_P\Delta T = 2(\tfrac52)(8.3
 
 In a **cyclic process** the gas returns to its starting state, so $\Delta E_{\text{int}} = 0$ over the cycle and the net heat absorbed equals the net work done: $Q_{\text{net}} = W_{\text{net}}$. On a PV diagram the net work is the area enclosed by the loop, positive if the loop runs clockwise. Engines run clockwise cycles, turning heat into work; that's the subject of the next lesson.
 
-## With calculus
+## Work as area on a PV diagram
 
-In general the work done by a gas is
-
-$$W = \int_{V_i}^{V_f}P\,dV.$$
-
-*Isothermal ideal gas.* With $P = nRT/V$ and $T$ constant,
-
-$$W = nRT\int_{V_i}^{V_f}\frac{dV}{V} = nRT\ln\frac{V_f}{V_i}.$$
-
-*Adiabatic ideal gas.* With $dQ = 0$, the first law gives $nC_V\,dT = -P\,dV$. Using $PV = nRT$ to eliminate $dT$ and separating variables leads to $\dfrac{dP}{P} = -\gamma\dfrac{dV}{V}$, so $PV^\gamma = \text{constant}$ (equivalently, $TV^{\gamma - 1}$ is constant). The work is $W = \dfrac{P_iV_i - P_fV_f}{\gamma - 1}$.
+Whenever a process is drawn on a PV diagram, find the work by finding the area under its path, using rectangles, triangles and trapezoids where the path is made of straight lines. Expansion (moving right) gives positive work by the gas; compression (moving left) gives negative work. A vertical line (constant volume) has no area under it, so no work.
 
 ### Example 3
+
+A gas goes from state A (1.0 L, 300 kPa) to state B (4.0 L, 100 kPa) along a straight line on a PV diagram. How much work does it do?
+
+The region under the line is a trapezoid. Its width is $\Delta V = 3.0\text{ L} = 3.0\times10^{-3}$ m³ and its average height is $\tfrac12(300 + 100) = 200$ kPa. So
+
+$W = (2.0\times10^5)(3.0\times10^{-3}) = 600$ J.
+
+Had the gas instead first been cooled at constant volume from 300 kPa down to 100 kPa and then expanded at 100 kPa, the area (and work) would be only $(1.0\times10^5)(3.0\times10^{-3}) = 300$ J: the same two endpoints, a different path, different work.
+
+```plot
+{"x": [0, 5], "y": [0, 350], "xLabel": "V (L)", "yLabel": "P (kPa)", "functions": [{"f": "300 - (200/3)*(x - 1)", "from": 1, "to": 4}], "shade": [{"f": "300 - (200/3)*(x - 1)", "from": 1, "to": 4}], "points": [{"at": [1, 300], "label": "A"}, {"at": [4, 100], "label": "B"}], "caption": "The work done from A to B is the shaded trapezoid under the path"}
+```
+
+For the curved isothermal and adiabatic paths, adding up the area takes more advanced math, but the results are worth knowing. For an ideal gas expanding isothermally (constant temperature) from $V_i$ to $V_f$, the area under the curve $P = nRT/V$ is
+
+$$W = nRT\ln\frac{V_f}{V_i},$$
+
+where $\ln$ is the natural logarithm. For an adiabatic process, $PV^\gamma$ stays constant (equivalently, $TV^{\gamma - 1}$ stays constant). The adiabat is steeper than the isotherm through the same point because the gas also cools as it expands, so its pressure falls for two reasons at once.
+
+### Example 4
 
 One mole of an ideal gas expands isothermally at 300 K from 10 L to 30 L. How much work does it do, and how much heat does it absorb?
 
 $W = (1)(8.314)(300)\ln 3 = 2494(1.0986) = 2740$ J. Isothermal means $\Delta E_{\text{int}} = 0$, so $Q = W = 2740$ J: all the heat absorbed is converted to work during this one stroke.
 
-### Example 4
+### Example 5
 
 A monatomic gas at 1.0 atm and 300 K is compressed adiabatically to one-eighth of its volume. What are its final pressure and temperature?
 
@@ -104,7 +116,7 @@ $P_f = P_i(V_i/V_f)^\gamma = 1.0(8)^{5/3} = 32$ atm. $T_f = T_i(V_i/V_f)^{\gamma
 ## Key points
 
 - $\Delta E_{\text{int}} = Q - W$ ($Q$ into the system, $W$ by the system).
-- Work by a gas = area under the PV curve $= \int P\,dV$; path-dependent.
+- Work by a gas = area under the PV curve; path-dependent.
 - Isobaric $W = P\Delta V$; isochoric $W = 0$; isothermal $\Delta E_{\text{int}} = 0$, $W = nRT\ln(V_f/V_i)$; adiabatic $Q = 0$, $PV^\gamma$ const.
 - Monatomic ideal gas: $C_V = \tfrac32R$, $C_P = \tfrac52R$, $\gamma = \tfrac53$.
 - Cycle: $\Delta E_{\text{int}} = 0$, net work = enclosed area.

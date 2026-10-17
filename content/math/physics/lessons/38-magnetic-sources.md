@@ -69,23 +69,34 @@ $\dfrac FL = \dfrac{(4\pi\times10^{-7})(10)(15)}{2\pi(0.050)} = 6.0\times10^{-4}
 
 Electrons spin and orbit, so atoms can be tiny magnets. In most materials these cancel or point randomly. In **ferromagnetic** materials (iron, nickel, cobalt), neighboring atoms' magnets align in regions called domains; an external field grows the domains that point with it, producing strong magnetization. Some ferromagnets keep their alignment when the field is removed: permanent magnets. Heating past the Curie temperature (770°C for iron) destroys ferromagnetism.
 
-## With calculus
+## Combining fields
 
-The **Biot–Savart law** gives the field of any current distribution. A short element $d\vec\ell$ of wire carrying current $I$ contributes, at a point displaced $\vec r$ from it,
+Magnetic fields obey superposition, just like electric fields: the field at a point is the vector sum of the fields from every current. With straight wires, find each wire's field (size from $\mu_0I/(2\pi r)$, direction from the grip rule), then add them as vectors.
 
-$$d\vec B = \frac{\mu_0}{4\pi}\frac{I\,d\vec\ell\times\hat r}{r^2},$$
+### Example 4
 
-and the total field is the integral over the wire. It's the magnetic analog of Coulomb's law: inverse square, but with a cross product.
+Two long parallel wires are 10 cm apart. Each carries 20 A, both out of the page. Find the field at the point midway between them, and at the midpoint if one current is reversed.
 
-*Loop center.* Every element is at distance $R$ and perpendicular to $\hat r$, so $dB = \dfrac{\mu_0I\,d\ell}{4\pi R^2}$, all in the same direction. Integrating around the circumference $2\pi R$ gives $B = \dfrac{\mu_0I}{2R}$.
+Each wire alone gives, at 5.0 cm, $B = \dfrac{(4\pi\times10^{-7})(20)}{2\pi(0.050)} = 8.0\times10^{-5}$ T.
 
-*Straight wire.* For an element at position $x$ along an infinite wire, a point at perpendicular distance $a$ gets $dB = \dfrac{\mu_0I}{4\pi}\dfrac{a\,dx}{(x^2 + a^2)^{3/2}}$; integrating over all $x$ gives $\dfrac{\mu_0I}{2\pi a}$.
+Same directions: put wire 1 on the left and wire 2 on the right. Current out of the page circles counterclockwise, so wire 1's field at the midpoint (to its right) points up the page, and wire 2's field at the midpoint (to its left) points down. They cancel: $B = 0$ midway.
 
-**Ampère's law** is the magnetic counterpart of Gauss's law, a shortcut for symmetric situations. Around any closed path,
+Opposite directions: reversing wire 2 reverses its field, so now both point up and add: $B = 1.6\times10^{-4}$ T.
 
-$$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}},$$
+This is why the two wires of a power cord, carrying equal currents in opposite directions, are kept close together: away from the cord their fields nearly cancel.
 
-where $I_{\text{enc}}$ is the current passing through the path. For a straight wire, choose a circle of radius $r$: $B(2\pi r) = \mu_0I$, the result above in one line. For a solenoid, a rectangular path with one side inside (length $L$) gives $BL = \mu_0nLI$. Inside a thick wire of radius $R$ carrying uniform current, a circle of radius $r < R$ encloses $I(r/R)^2$, so $B = \dfrac{\mu_0Ir}{2\pi R^2}$, growing linearly from zero at the center.
+## Where the formulas come from: Ampère's law
+
+The straight-wire and solenoid formulas both follow from a rule called **Ampère's law**, the magnetic counterpart of Gauss's law. In the symmetric situations we need, it says: if you walk around a closed path along which the field has a constant size $B$ and runs along the path, then
+
+$$B \times (\text{length of path}) = \mu_0 I_{\text{enc}},$$
+
+where $I_{\text{enc}}$ is the total current passing through the path.
+
+- *Straight wire.* Take a circle of radius $r$ around the wire. By symmetry the field has the same size all the way around and points along the circle, so $B(2\pi r) = \mu_0I$ and $B = \dfrac{\mu_0I}{2\pi r}$.
+- *Solenoid.* Take a rectangle with one side of length $\ell$ inside the coil, along the axis, and the opposite side outside. Only the inside side contributes (the field outside is nearly zero, and the short sides cross the field at right angles). The rectangle encloses $n\ell$ turns, each carrying $I$, so $B\ell = \mu_0n\ell I$ and $B = \mu_0nI$, with no dependence on where the inside side sits.
+
+The loop-center formula $\mu_0I/(2R)$ isn't symmetric enough for this shortcut; it comes from adding up the contributions of every small piece of the loop, which all point the same way at the center.
 
 ## Common mistakes
 
@@ -100,4 +111,4 @@ where $I_{\text{enc}}$ is the current passing through the path. For a straight w
 - Loop center: $B = \mu_0I/(2R)$ per turn. Solenoid: $B = \mu_0nI$, uniform inside.
 - Parallel wires: $F/L = \mu_0I_1I_2/(2\pi d)$; same direction attract.
 - $\mu_0 = 4\pi\times10^{-7}$ T·m/A.
-- Biot–Savart: $d\vec B = \dfrac{\mu_0}{4\pi}\dfrac{I\,d\vec\ell\times\hat r}{r^2}$. Ampère: $\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$.
+- Fields add as vectors (superposition). Ampère's law for symmetric cases: $B \times (\text{path length}) = \mu_0I_{\text{enc}}$.

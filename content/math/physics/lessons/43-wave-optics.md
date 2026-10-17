@@ -90,17 +90,29 @@ A soap film ($n = 1.33$) in air looks green ($\lambda = 532$ nm) in reflection. 
 
 One phase flip, so constructive reflection needs $2nt = \tfrac12\lambda$ for the thinnest film: $t = \dfrac{532}{4(1.33)} = 100$ nm.
 
-## With calculus
+### Example 4: single-slit pattern width
 
-The full double-slit intensity comes from adding two waves with phase difference $\phi = \dfrac{2\pi}{\lambda}d\sin\theta$:
+Light of 600 nm passes through a slit 0.050 mm wide onto a screen 1.5 m away. How wide is the central bright band? What if the slit is made half as wide?
 
-$$I = I_{\max}\cos^2\left(\frac{\pi d\sin\theta}{\lambda}\right).$$
+First dark fringe: $\sin\theta_1 = \dfrac{\lambda}{a} = \dfrac{600\times10^{-9}}{0.050\times10^{-3}} = 0.012$, a small angle, so $y_1 = L\tan\theta_1 \approx L\sin\theta_1 = 1.5(0.012) = 0.018$ m $= 1.8$ cm.
 
-For a single slit, integrating the contributions of every point across the slit (each an infinitesimal source) gives
+The central band runs from $-y_1$ to $+y_1$: $3.6$ cm wide.
 
-$$I = I_0\left(\frac{\sin\beta}{\beta}\right)^2, \qquad \beta = \frac{\pi a\sin\theta}{\lambda},$$
+Halving $a$ doubles $\sin\theta_1$ (still small), so the band doubles to $7.2$ cm. Proportional reasoning gets this without recalculating: the width is proportional to $\lambda L/a$.
 
-which is zero when $\beta = m\pi$, i.e. $a\sin\theta = m\lambda$, matching the dark-fringe condition. A real double-slit pattern is the product: $\cos^2$ fringes inside a $(\sin\beta/\beta)^2$ envelope. For $N$ slits, summing $N$ phasors gives $I \propto \left(\dfrac{\sin(N\phi/2)}{\sin(\phi/2)}\right)^2$, whose principal maxima grow as $N^2$ and narrow as $1/N$, explaining why gratings make such sharp lines.
+### Example 5: anti-reflection coating
+
+Camera lenses ($n = 1.52$) are coated with magnesium fluoride ($n = 1.38$). What is the thinnest coating that cancels reflected 550 nm light (the middle of the visible spectrum)?
+
+Now *both* reflections flip phase: at the top surface (air to 1.38) and at the bottom (1.38 to 1.52), each going to a higher index. The flips cancel each other, so only the extra path matters. For destructive interference the extra path must be half a wavelength in the film: $2t = \dfrac12\cdot\dfrac{\lambda}{n}$, i.e. $2nt = \tfrac12\lambda$.
+
+$t = \dfrac{550}{4(1.38)} = 99.6$ nm, about 100 nm. The rule changes with the number of flips, so always count them before choosing the condition.
+
+## How bright are the fringes?
+
+Between the bright and dark fringes the brightness changes smoothly. For two slits, the waves arriving at a point add with a phase difference set by the path difference, and the result is an intensity that rises and falls like $\cos^2$ across the screen, as in the figure above: full brightness where the path difference is $0, \lambda, 2\lambda, \ldots$, zero where it's $\tfrac12\lambda, \tfrac32\lambda, \ldots$. In a real experiment the slits have some width too, so the double-slit fringes are dimmed toward the sides by the broad single-slit pattern of each slit.
+
+With many slits (a grating), the waves from all the slits line up only at the exact angles $d\sin\theta = m\lambda$; slightly off those angles, the slits' contributions fall out of step with one another and cancel. The more slits, the smaller the error that's enough to cancel, so the bright lines get narrower and brighter as the number of slits grows. That sharpness is what lets a spectrometer separate two colors only a fraction of a nanometer apart.
 
 ## Common mistakes
 
@@ -115,4 +127,4 @@ which is zero when $\beta = m\pi$, i.e. $a\sin\theta = m\lambda$, matching the d
 - Double slit / grating: $d\sin\theta = m\lambda$; fringe spacing $\lambda L/d$ for small angles.
 - Single slit dark fringes: $a\sin\theta = m\lambda$ ($m \ne 0$).
 - Rayleigh limit: $\theta_{\min} = 1.22\lambda/D$.
-- Thin film in air: bright reflection when $2nt = (m + \tfrac12)\lambda$.
+- Thin film in air (one flip): bright reflection when $2nt = (m + \tfrac12)\lambda$. Coating on glass (two flips): dark reflection when $2nt = (m + \tfrac12)\lambda$.

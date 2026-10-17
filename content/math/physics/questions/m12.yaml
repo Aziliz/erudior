@@ -11,8 +11,8 @@
   lesson: phys-relativity
   topic: Special relativity
   stem: 'Which statement is one of Einstein''s postulates of special relativity?'
-  choices: ['Mass is always conserved', 'Time passes at the same rate for all observers', 'Nothing can move faster than sound', 'The speed of light in vacuum is the same in all inertial frames']
-  answer: 3
+  choices: ['The speed of light in vacuum is the same in all inertial frames', 'Mass is always conserved', 'Time passes at the same rate for all observers', 'Nothing can move faster than sound']
+  answer: 0
   explanation: |-
     The two postulates are the principle of relativity and the constancy of $c$. Absolute time is exactly what relativity abandons.
 - id: phys-q-4403
@@ -84,11 +84,11 @@
 - id: phys-q-4411
   lesson: phys-relativity
   topic: Special relativity
-  stem: 'In the Lorentz transformation, $t'' = \gamma(t - vx/c^2)$. The term $vx/c^2$ is responsible for'
-  choices: ['length contraction', 'the relativity of simultaneity', 'mass–energy equivalence', 'the constancy of $c$']
-  answer: 1
+  stem: 'At what speed is a particle''s kinetic energy equal to its rest energy?'
+  choices: ['$0.50c$', '$0.707c$', '$0.866c$', '$1.41c$']
+  answer: 2
   explanation: |-
-    Events at the same $t$ but different $x$ get different $t'$ values because of $vx/c^2$: simultaneity depends on the frame.
+    $K = (\gamma - 1)mc^2 = mc^2$ requires $\gamma = 2$, so $1 - v^2/c^2 = \tfrac14$ and $v = \sqrt{0.75}\,c = 0.866c$. Setting $\tfrac12mv^2 = mc^2$ gives $1.41c$, which is impossible; $0.707c$ comes from $\gamma^2 = 2$ instead of $\gamma = 2$.
 - id: phys-q-4501
   lesson: phys-quantum
   module_quiz: true
@@ -185,8 +185,8 @@
   module_quiz: true
   topic: Radioactive decay
   stem: 'A radioactive sample has a half-life of 3.0 hours. What fraction remains after 12 hours?'
-  choices: ['1/4', '1/12', '1/8', '1/16']
-  answer: 3
+  choices: ['1/16', '1/4', '1/12', '1/8']
+  answer: 0
   explanation: |-
     12 hours is 4 half-lives: $(\tfrac12)^4 = 1/16$. Dividing 12 by 3 and calling it 1/4 confuses the number of half-lives with the fraction.
 - id: phys-q-4602
@@ -216,6 +216,7 @@
     β⁻: $n \to p + e^- + \bar\nu$, so $Z$ rises by 1 and $A$ is unchanged (e.g. carbon-14 → nitrogen-14).
 - id: phys-q-4605
   lesson: phys-nuclear
+  module_quiz: true
   topic: Nuclear structure
   stem: 'A nucleus has a mass defect of 0.100 u. What is its binding energy? (1 u = 931.5 MeV/$c^2$)'
   choices: ['93.2 MeV', '0.100 MeV', '931.5 MeV', '9.32 MeV']
@@ -246,7 +247,7 @@
   choices: ['43 days', '30 days', '0.016 days', '0.0231 days']
   answer: 1
   explanation: |-
-    $T_{1/2} = \ln 2/\lambda = 0.693/0.0231 = 30$ days. 43 days is the mean lifetime $1/\lambda$.
+    $T_{1/2} = \ln 2/\lambda = 0.693/0.0231 = 30$ days. 43 days is $1/\lambda$, which leaves out the factor $\ln 2$.
 - id: phys-q-4609
   lesson: phys-nuclear
   topic: Nuclear structure
@@ -259,8 +260,8 @@
   lesson: phys-nuclear
   topic: Radioactive decay
   stem: 'Which type of radiation is the most penetrating?'
-  choices: ['Alpha', 'Beta', 'They penetrate equally', 'Gamma']
-  answer: 3
+  choices: ['Gamma', 'Alpha', 'Beta', 'They penetrate equally']
+  answer: 0
   explanation: |-
     Gamma rays (photons) need thick lead or concrete to stop; beta particles are stopped by millimeters of aluminum; alpha particles by paper or skin.
 - id: phys-q-4611
@@ -271,3 +272,11 @@
   answer: 3
   explanation: |-
     25% is $(\tfrac12)^2$: two half-lives, $2(5730) = 11\,460$ years.
+- id: phys-q-4612
+  lesson: phys-nuclear
+  topic: Radioactive decay
+  stem: 'Sample A contains twice as many radioactive nuclei as sample B, but A''s isotope has a half-life twice as long as B''s. How do their activities compare right now?'
+  choices: ['The activities are equal', 'A''s activity is twice B''s', 'A''s activity is half B''s', 'A''s activity is 4 times B''s']
+  answer: 0
+  explanation: |-
+    Activity is $R = \lambda N = \dfrac{0.693\,N}{T_{1/2}}$. A has twice the $N$ but half the $\lambda$ (twice the half-life), so $R_A = \dfrac{0.693(2N)}{2T} = R_B$. Twice B's comes from counting nuclei only; a longer half-life means each nucleus decays less often.

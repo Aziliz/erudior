@@ -70,28 +70,34 @@ Two identical small spheres each carry $+3.0$ μC, sitting at two corners of an 
 
 Each force has magnitude $F = (8.99\times10^9)\dfrac{(3.0\times10^{-6})(1.0\times10^{-6})}{0.25} = 0.108$ N, directed away from its source. Put the two sources on the $x$ axis; then the horizontal components cancel by symmetry and the vertical components add. Each force makes $30^\circ$ with the vertical: $F_{\text{net}} = 2(0.108)\cos 30^\circ = 0.187$ N, straight away from the midpoint of the other two.
 
-## With calculus
+## Reasoning with proportions
 
-Coulomb's law in vector form: the force on $q_2$ due to $q_1$ is
+Many questions about Coulomb's law need no calculator, only the way $F$ scales with each quantity:
 
-$$\vec F_{12} = \frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\,\hat r_{12},$$
+- Double one charge: $F$ doubles. Double both: $F$ quadruples.
+- Double the distance: $F$ drops to $\tfrac14$. Triple it: $\tfrac19$. Halve it: $4\times$.
+- Change several things at once by multiplying the factors. Doubling both charges *and* doubling the distance leaves $F$ unchanged: $\dfrac{2\times2}{2^2} = 1$.
 
-where $\hat r_{12}$ is the unit vector pointing from $q_1$ to $q_2$. The signs of the charges now handle direction automatically: a positive product pushes along $\hat r_{12}$ (repulsion), a negative one pulls back (attraction).
+Newton's third law also holds whatever the charges are. A $+5$ μC charge and a $+1$ μC charge push on each other with forces of equal size; the smaller charge doesn't feel a bigger or smaller force, though if it has less mass it will accelerate more.
 
-For a continuous charge distribution, superposition becomes an integral. Divide the charge into elements $dq$, each acting like a point charge: $d\vec F = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q\,dq}{r^2}\hat r$, then $\vec F = \int d\vec F$. Charge elements are written with a density: $dq = \lambda\,dx$ (line), $\sigma\,dA$ (surface) or $\rho\,dV$ (volume). The next lesson does this systematically through the electric field.
+### Example 4
 
-For example, a charge $Q$ spread uniformly along a rod from $x = 0$ to $x = L$ ($\lambda = Q/L$) pushes on a point charge $q$ at $x = L + a$ with
+A $+4.0$ μC charge sits at $x = 0$ and a $+1.0$ μC charge at $x = 0.30$ m. Where between them could a third charge sit with zero net electric force on it?
 
-$$F = kq\lambda\int_0^L\frac{dx}{(L + a - x)^2} = kq\lambda\left[\frac{1}{L + a - x}\right]_0^L = kq\lambda\left(\frac1a - \frac{1}{L + a}\right) = \frac{kqQ}{a(L + a)}.$$
+Between two like charges, the two forces on the third charge point in opposite directions, so they can cancel. Call the position $x$. Equal magnitudes require
 
-When $a \gg L$ this becomes $kqQ/a^2$: from far away, the rod looks like a point charge.
+$$\frac{k(4.0)q}{x^2} = \frac{k(1.0)q}{(0.30 - x)^2}.$$
+
+The $k$, $q$ and the μC units cancel. Taking square roots of both sides (all distances positive): $\dfrac{2}{x} = \dfrac{1}{0.30 - x}$, so $0.60 - 2x = x$ and $x = 0.20$ m.
+
+The balance point is closer to the *smaller* charge, which makes sense: being nearer makes up for its weaker pull. The answer doesn't depend on the third charge's size or sign, since both forces scale with it equally.
 
 ## Common mistakes
 
 - Forgetting to convert μC or nC to coulombs, or cm to m.
 - Forgetting to square $r$.
 - Adding force magnitudes instead of vector components.
-- Getting directions from the sign of $q_1q_2$ but then also flipping them by hand (double counting).
+- Plugging signed charges into $F = k|q_1q_2|/r^2$ and then also flipping directions by hand (use magnitudes for the size; decide direction from attract or repel).
 - Thinking a neutral object can't be attracted (polarization).
 
 ## Key points

@@ -21,7 +21,7 @@
 - {front: 'When does an object speed up?', back: 'When $v$ and $a$ have the same sign. Opposite signs: it slows down.', topic: Velocity and acceleration}
 - {front: 'Slope of an x–t graph', back: 'Velocity.', topic: Motion graphs}
 - {front: 'Slope of a v–t graph; area under a v–t graph', back: 'Slope = acceleration; signed area = displacement.', topic: Motion graphs}
-- {front: 'v(t) and a(t) from x(t)', back: '$v = dx/dt$, $a = dv/dt = d^2x/dt^2$.', topic: Velocity and acceleration}
+- {front: 'Instantaneous velocity from a curved x–t graph', back: 'The slope of the tangent line at that instant (rise over run between two points on the tangent).', topic: Motion graphs}
 - {front: 'Constant-acceleration equation with no Δx', back: '$v = v_0 + at$', topic: Constant acceleration}
 - {front: 'Constant-acceleration equation with no final v', back: '$\Delta x = v_0t + \tfrac12at^2$', topic: Constant acceleration}
 - {front: 'Constant-acceleration equation with no t', back: '$v^2 = v_0^2 + 2a\Delta x$', topic: Constant acceleration}
@@ -46,7 +46,7 @@
 - {front: 'Acceleration down a frictionless incline', back: '$a = g\sin\theta$', topic: Inclined planes}
 - {front: 'Acceleration sliding down an incline with friction', back: '$a = g(\sin\theta - \mu_k\cos\theta)$', topic: Inclined planes}
 - {front: 'Angle at which an object just starts to slide', back: '$\tan\theta = \mu_s$', topic: Inclined planes}
-- {front: 'Terminal velocity with linear drag $bv$', back: '$v_T = mg/b$; $v(t) = v_T(1 - e^{-bt/m})$.', topic: Friction}
+- {front: 'Terminal velocity', back: 'Drag has grown to equal the weight, so the net force and acceleration are zero. Drag $bv$: $v_T = mg/b$. Drag $\tfrac12C\rho Av^2$: $v_T = \sqrt{2mg/(C\rho A)}$.', topic: Friction}
 - {front: 'Atwood machine acceleration and tension', back: '$a = \dfrac{m_1 - m_2}{m_1 + m_2}g$, $T = \dfrac{2m_1m_2}{m_1 + m_2}g$', topic: Tension and pulleys}
 - {front: 'Block on table (μk) pulled by hanging mass $m_2$', back: '$a = \dfrac{m_2 - \mu_k m_1}{m_1 + m_2}g$', topic: Tension and pulleys}
 - {front: 'Centripetal acceleration', back: '$a_c = \dfrac{v^2}{r} = \dfrac{4\pi^2 r}{T^2} = \omega^2 r$, toward the center.', topic: Circular motion}
@@ -58,18 +58,18 @@
 - {front: 'Work by a constant force', back: '$W = Fd\cos\theta$ (θ between $\vec F$ and $\vec d$); zero if perpendicular, negative if opposing.', topic: Work and kinetic energy}
 - {front: 'Work–energy theorem', back: '$W_{\text{net}} = \Delta K = \tfrac12mv_f^2 - \tfrac12mv_i^2$', topic: Work and kinetic energy}
 - {front: 'Hooke''s law and spring energy', back: '$F = -kx$; $U = \tfrac12kx^2$ (= work to stretch by $x$).', topic: Work and kinetic energy}
-- {front: 'Work by a variable force', back: '$W = \int_{x_1}^{x_2}F(x)\,dx$ = area under the $F$–$x$ graph.', topic: Work and kinetic energy}
+- {front: 'Work by a variable force', back: 'The area under the $F$–$x$ graph (area below the axis counts as negative work).', topic: Work and kinetic energy}
 - {front: 'Gravitational PE near Earth', back: '$U_g = mgy$ (zero level is your choice).', topic: Conservation of energy}
 - {front: 'Conservation of mechanical energy', back: '$K_i + U_i = K_f + U_f$ when only conservative forces do work.', topic: Conservation of energy}
 - {front: 'Energy equation with friction', back: '$K_i + U_i + W_{\text{nc}} = K_f + U_f$, with $W_{\text{friction}} = -f_kd$.', topic: Conservation of energy}
 - {front: 'Speed after falling height h (any frictionless path)', back: '$v = \sqrt{2gh}$', topic: Conservation of energy}
-- {front: 'Force from potential energy', back: '$F = -\dfrac{dU}{dx}$; equilibrium where $dU/dx = 0$, stable if $U$ is a minimum.', topic: Conservation of energy}
+- {front: 'Force from a potential-energy graph', back: 'The force is the negative of the slope of the $U$–$x$ graph; equilibrium where the slope is zero, stable at a minimum of $U$.', topic: Conservation of energy}
 - {front: 'Power', back: '$P = W/\Delta t = Fv$; 1 W = 1 J/s; 1 hp = 746 W.', topic: Power}
 - {front: 'Momentum', back: '$\vec p = m\vec v$; $K = p^2/(2m)$.', topic: Momentum and impulse}
-- {front: 'Impulse–momentum theorem', back: '$\vec J = \vec F_{\text{avg}}\Delta t = \Delta\vec p$ (generally $\int\vec F\,dt$).', topic: Momentum and impulse}
+- {front: 'Impulse–momentum theorem', back: '$\vec J = \vec F_{\text{avg}}\Delta t = \Delta\vec p$; also the area under the $F$–$t$ graph.', topic: Momentum and impulse}
 - {front: 'Why do air bags and crumple zones help?', back: 'They lengthen the stopping time, so the same $\Delta p$ needs a smaller average force.', topic: Momentum and impulse}
 - {front: 'When is momentum conserved?', back: 'When the net external force on the system is zero (component by component).', topic: Momentum and impulse}
-- {front: 'Center of mass', back: '$x_{\text{cm}} = \dfrac{\sum m_ix_i}{M}$, or $\dfrac1M\int x\,dm$; $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$.', topic: Center of mass}
+- {front: 'Center of mass', back: '$x_{\text{cm}} = \dfrac{\sum m_ix_i}{M}$; $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$.', topic: Center of mass}
 - {front: 'Elastic vs inelastic vs perfectly inelastic', back: 'All conserve momentum. Elastic also conserves KE; perfectly inelastic objects stick and lose the most KE.', topic: Collisions}
 - {front: 'Perfectly inelastic final velocity', back: '$v_f = \dfrac{m_1v_{1i} + m_2v_{2i}}{m_1 + m_2}$', topic: Collisions}
 - {front: 'Elastic collision, target at rest', back: '$v_{1f} = \dfrac{m_1 - m_2}{m_1 + m_2}v_{1i}$, $v_{2f} = \dfrac{2m_1}{m_1 + m_2}v_{1i}$', topic: Collisions}
@@ -79,7 +79,7 @@
 - {front: 'rpm to rad/s', back: 'Multiply by $2\pi/60 \approx 0.1047$.', topic: Rotational kinematics}
 - {front: 'Linear–angular links', back: '$s = r\theta$, $v = r\omega$, $a_t = r\alpha$, $a_c = r\omega^2$ (θ in radians).', topic: Rotational kinematics}
 - {front: 'Constant angular acceleration equations', back: '$\omega = \omega_0 + \alpha t$; $\Delta\theta = \omega_0t + \tfrac12\alpha t^2$; $\omega^2 = \omega_0^2 + 2\alpha\Delta\theta$', topic: Rotational kinematics}
-- {front: 'Moment of inertia (discrete and continuous)', back: '$I = \sum m_ir_i^2 = \int r^2\,dm$', topic: Moment of inertia}
+- {front: 'Moment of inertia of point masses', back: '$I = \sum m_ir_i^2$ ($r_i$ = distance from the axis)', topic: Moment of inertia}
 - {front: 'I for hoop, solid disk, solid sphere, hollow sphere (central axis)', back: '$MR^2$, $\tfrac12MR^2$, $\tfrac25MR^2$, $\tfrac23MR^2$', topic: Moment of inertia}
 - {front: 'Parallel-axis theorem', back: '$I = I_{\text{cm}} + Md^2$', topic: Moment of inertia}
 - {front: 'Rotational kinetic energy', back: '$K = \tfrac12I\omega^2$', topic: Moment of inertia}
@@ -90,7 +90,7 @@
 - {front: 'Speed at the bottom of a ramp for a rolling object with $I = cMR^2$', back: '$v = \sqrt{\dfrac{2gh}{1 + c}}$', topic: Rolling motion}
 - {front: 'Rolling race order', back: 'Solid sphere, solid cylinder, hollow sphere, hoop (smallest $c$ first).', topic: Rolling motion}
 - {front: 'Angular momentum', back: '$L = I\omega$; particle: $L = mvr_\perp$; vector: $\vec L = \vec r\times\vec p$.', topic: Angular momentum}
-- {front: 'Torque and angular momentum', back: '$\vec\tau_{\text{net}} = d\vec L/dt$', topic: Angular momentum}
+- {front: 'Torque and angular momentum', back: '$\tau_{\text{net}} = \Delta L/\Delta t$ (angular impulse $\tau\Delta t = \Delta L$)', topic: Angular momentum}
 - {front: 'Conservation of angular momentum', back: 'No external torque: $I_i\omega_i = I_f\omega_f$ (KE need not be conserved).', topic: Angular momentum}
 - {front: 'Conditions for static equilibrium', back: '$\sum\vec F = 0$ and $\sum\tau = 0$ about any point.', topic: Static equilibrium}
 - {front: 'Best pivot for an equilibrium torque equation', back: 'A point where an unknown force acts, so it drops out.', topic: Static equilibrium}
@@ -107,7 +107,7 @@
 - {front: 'SHM position, max speed, max acceleration', back: '$x = A\cos(\omega t + \phi)$; $v_{\max} = A\omega$; $a_{\max} = A\omega^2$', topic: Simple harmonic motion}
 - {front: 'Energy in SHM', back: '$E = \tfrac12kA^2 = \tfrac12mv^2 + \tfrac12kx^2$; $v = \omega\sqrt{A^2 - x^2}$', topic: Simple harmonic motion}
 - {front: 'Does SHM period depend on amplitude?', back: 'No (for ideal springs and small-angle pendulums).', topic: Simple harmonic motion}
-- {front: 'SHM differential equation', back: '$\ddot x = -\omega^2x$; whatever multiplies $-x$ is $\omega^2$.', topic: Simple harmonic motion}
+- {front: 'Condition for simple harmonic motion', back: 'A restoring force proportional to displacement, $F = -kx$, so $a = -\omega^2x$ with $\omega^2 = k/m$.', topic: Simple harmonic motion}
 - {front: 'Resonance', back: 'Driving an oscillator at its natural frequency produces a large amplitude.', topic: Simple harmonic motion}
 - {front: 'Wave speed equation', back: '$v = f\lambda = \lambda/T$', topic: Wave properties}
 - {front: 'What changes when a wave enters a new medium?', back: 'Speed and wavelength change; frequency stays the same.', topic: Wave properties}
@@ -144,7 +144,7 @@
 - {front: 'rms speed', back: '$v_{\text{rms}} = \sqrt{3RT/M}$ ($M$ in kg/mol)', topic: Kinetic theory}
 - {front: 'Internal energy of a monatomic ideal gas', back: '$E_{\text{int}} = \tfrac32nRT$', topic: Kinetic theory}
 - {front: 'First law of thermodynamics', back: '$\Delta E_{\text{int}} = Q - W$ ($Q$ in, $W$ by the gas)', topic: First law of thermodynamics}
-- {front: 'Work done by a gas', back: '$W = \int P\,dV$ = area under the PV curve; $P\Delta V$ at constant pressure.', topic: First law of thermodynamics}
+- {front: 'Work done by a gas', back: 'The area under the path on a PV diagram; $W = P\Delta V$ at constant pressure.', topic: First law of thermodynamics}
 - {front: 'Isothermal work (ideal gas)', back: '$W = nRT\ln(V_f/V_i)$, and $Q = W$', topic: First law of thermodynamics}
 - {front: 'Adiabatic ideal gas', back: '$Q = 0$; $PV^\gamma$ = const; $TV^{\gamma-1}$ = const; $\gamma = 5/3$ monatomic', topic: First law of thermodynamics}
 - {front: 'Monatomic ideal gas molar specific heats', back: '$C_V = \tfrac32R$, $C_P = \tfrac52R$, $C_P - C_V = R$', topic: First law of thermodynamics}
@@ -152,7 +152,7 @@
 - {front: 'Carnot efficiency', back: '$e_C = 1 - T_C/T_H$ (kelvins); the maximum possible.', topic: Heat engines}
 - {front: 'Refrigerator COP', back: '$K = Q_C/W$; Carnot limit $T_C/(T_H - T_C)$', topic: Heat engines}
 - {front: 'Entropy change at constant temperature', back: '$\Delta S = Q/T$', topic: Entropy}
-- {front: 'Entropy change heating from $T_1$ to $T_2$', back: '$\Delta S = mc\ln(T_2/T_1)$', topic: Entropy}
+- {front: 'Total entropy change when heat $Q$ flows from a hot reservoir $T_H$ to a cold one $T_C$', back: '$\Delta S = Q/T_C - Q/T_H > 0$ (temperatures in kelvins)', topic: Entropy}
 - {front: 'Second law in entropy form', back: 'The total entropy of an isolated system never decreases.', topic: Entropy}
 # ---- m8
 - {front: 'Elementary charge', back: '$e = 1.602\times10^{-19}$ C; charge is quantized ($q = ne$) and conserved.', topic: Electric charge}
@@ -163,8 +163,8 @@
 - {front: 'Field-line rules', back: 'Start on +, end on −; density ∝ strength; never cross.', topic: Electric field}
 - {front: 'Acceleration of a charge in a uniform field', back: '$a = qE/m$ (projectile-like paths)', topic: Electric field}
 - {front: 'Conductor in electrostatic equilibrium', back: '$E = 0$ inside; excess charge on surface; $E$ ⊥ surface, $E = \sigma/\varepsilon_0$ just outside.', topic: Electric field}
-- {front: 'Electric flux', back: '$\Phi_E = \oint\vec E\cdot d\vec A$; flat area: $EA\cos\theta$', topic: Gauss's law}
-- {front: 'Gauss''s law', back: '$\oint\vec E\cdot d\vec A = Q_{\text{enc}}/\varepsilon_0$', topic: Gauss's law}
+- {front: 'Electric flux', back: '$\Phi_E = EA\cos\theta$ for a uniform field through a flat area ($\theta$ between $\vec E$ and the normal)', topic: Gauss's law}
+- {front: 'Gauss''s law', back: 'Net electric flux out of any closed surface $= Q_{\text{enc}}/\varepsilon_0$', topic: Gauss's law}
 - {front: 'Field of a long line charge', back: '$E = \dfrac{\lambda}{2\pi\varepsilon_0 r} = \dfrac{2k\lambda}{r}$', topic: Gauss's law}
 - {front: 'Field of an infinite sheet', back: '$E = \sigma/(2\varepsilon_0)$, independent of distance', topic: Gauss's law}
 - {front: 'Field inside a uniformly charged solid sphere', back: '$E = kQr/R^3$ (grows linearly); outside $kQ/r^2$', topic: Gauss's law}
@@ -173,7 +173,7 @@
 - {front: 'Potential energy of two point charges', back: '$U = kq_1q_2/r$', topic: Electric potential}
 - {front: 'Energy change crossing a potential difference', back: '$\Delta U = q\Delta V$; from rest, $K = |q\Delta V|$.', topic: Electric potential}
 - {front: 'Uniform field and potential difference', back: '$\Delta V = Ed$, so $E = \Delta V/d$ (1 V/m = 1 N/C)', topic: Electric potential}
-- {front: 'Field from potential', back: '$\vec E = -\nabla V$; $E_x = -\partial V/\partial x$', topic: Electric potential}
+- {front: 'Field from potential', back: '$E = -\Delta V/\Delta x$: the field points toward decreasing potential, strongest where equipotentials are closest.', topic: Electric potential}
 - {front: 'Electron volt', back: '$1\text{ eV} = 1.602\times10^{-19}$ J', topic: Electric potential}
 - {front: 'Capacitance definition', back: '$C = Q/V$ (farads)', topic: Capacitance}
 - {front: 'Parallel-plate capacitance', back: '$C = \kappa\varepsilon_0A/d$', topic: Capacitance}
@@ -181,7 +181,7 @@
 - {front: 'Capacitors in series', back: '$1/C_{\text{eq}} = 1/C_1 + 1/C_2 + \cdots$ (same charge)', topic: Capacitance}
 - {front: 'Energy stored in a capacitor', back: '$U = \tfrac12CV^2 = \tfrac12QV = Q^2/(2C)$', topic: Capacitance}
 # ---- m9
-- {front: 'Current', back: '$I = \Delta Q/\Delta t$ (or $dQ/dt$); 1 A = 1 C/s', topic: Current and resistance}
+- {front: 'Current', back: '$I = \Delta Q/\Delta t$; 1 A = 1 C/s', topic: Current and resistance}
 - {front: 'Ohm''s law', back: '$V = IR$', topic: Current and resistance}
 - {front: 'Resistance of a wire', back: '$R = \rho L/A$', topic: Current and resistance}
 - {front: 'Electric power (three forms)', back: '$P = IV = I^2R = V^2/R$', topic: Electric power}
@@ -207,14 +207,14 @@
 - {front: 'Field at the center of a loop', back: '$B = \dfrac{\mu_0I}{2R}$ (times $N$ for $N$ turns)', topic: Sources of magnetic field}
 - {front: 'Field inside a solenoid', back: '$B = \mu_0nI$, $n$ = turns per meter', topic: Sources of magnetic field}
 - {front: 'Force between parallel wires', back: '$F/L = \dfrac{\mu_0I_1I_2}{2\pi d}$; same direction attract', topic: Sources of magnetic field}
-- {front: 'Ampère''s law', back: '$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}}$', topic: Sources of magnetic field}
+- {front: 'Ampère''s law', back: 'Around a closed loop, $\sum B_\parallel\Delta\ell = \mu_0I_{\text{enc}}$', topic: Sources of magnetic field}
 - {front: 'Magnetic flux', back: '$\Phi_B = BA\cos\theta$ (Wb)', topic: Electromagnetic induction}
-- {front: 'Faraday''s law', back: '$\mathcal{E} = -N\dfrac{d\Phi_B}{dt}$', topic: Electromagnetic induction}
+- {front: 'Faraday''s law', back: '$\mathcal{E} = -N\dfrac{\Delta\Phi_B}{\Delta t}$', topic: Electromagnetic induction}
 - {front: 'Lenz''s law', back: 'The induced current opposes the change in flux.', topic: Electromagnetic induction}
 - {front: 'Motional emf', back: '$\mathcal{E} = BLv$', topic: Electromagnetic induction}
 - {front: 'Generator emf', back: '$\mathcal{E} = NBA\omega\sin\omega t$; peak $NBA\omega$', topic: Electromagnetic induction}
 - {front: 'Transformer equations', back: '$V_s/V_p = N_s/N_p$; $V_pI_p = V_sI_s$ (ideal)', topic: Electromagnetic induction}
-- {front: 'Self-induced emf and inductor energy', back: '$\mathcal{E} = -L\,dI/dt$; $U = \tfrac12LI^2$', topic: Inductance}
+- {front: 'Self-induced emf and inductor energy', back: '$\mathcal{E} = -L\,\Delta I/\Delta t$; $U = \tfrac12LI^2$', topic: Inductance}
 - {front: 'RL time constant and current growth', back: '$\tau = L/R$; $I = (\mathcal{E}/R)(1 - e^{-t/\tau})$', topic: Inductance}
 - {front: 'LC oscillation frequency', back: '$f = \dfrac{1}{2\pi\sqrt{LC}}$', topic: Inductance}
 - {front: 'rms values for sinusoidal AC', back: '$V_{\text{rms}} = V_0/\sqrt2$, $I_{\text{rms}} = I_0/\sqrt2$', topic: AC circuits}

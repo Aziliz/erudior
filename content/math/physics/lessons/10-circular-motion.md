@@ -79,15 +79,21 @@ A 0.20 kg ball on a 1.0 m string swings in a horizontal circle with the string a
 
 Radius: $r = L\sin 30^\circ = 0.50$ m. Vertical: $T\cos 30^\circ = mg$. Inward: $T\sin 30^\circ = mv^2/r$. Dividing, $\tan 30^\circ = \dfrac{v^2}{rg}$, so $v = \sqrt{rg\tan 30^\circ} = \sqrt{0.50(9.8)(0.577)} = 1.68$ m/s. Period: $T_{\text{period}} = 2\pi r/v = 1.87$ s.
 
-## With calculus
+## Angular speed and rpm
 
-Parametrize the motion: $\vec r(t) = r\cos(\omega t)\,\hat\imath + r\sin(\omega t)\,\hat\jmath$, where $\omega = 2\pi/T$ is the angular speed (radians per second). Differentiating,
+Rotating machines are rated by how fast they turn, not by the speed of a point on them. The angular speed $\omega$ is the angle swept per second, in radians per second: one revolution is $2\pi$ rad, so $\omega = 2\pi/T = 2\pi f$. A point at radius $r$ covers $2\pi r$ per revolution, so $v = r\omega$, and the centripetal acceleration becomes
 
-$$\vec v = -r\omega\sin(\omega t)\,\hat\imath + r\omega\cos(\omega t)\,\hat\jmath, \qquad \vec a = -r\omega^2\cos(\omega t)\,\hat\imath - r\omega^2\sin(\omega t)\,\hat\jmath = -\omega^2\vec r.$$
+$$a_c = \frac{v^2}{r} = \frac{(r\omega)^2}{r} = \omega^2 r.$$
 
-So $|\vec v| = r\omega$, $\vec v\cdot\vec r = 0$ (tangent), and $\vec a$ points opposite to $\vec r$, toward the center, with magnitude $r\omega^2 = v^2/r$. This confirms the geometric argument exactly.
+Motors and wheels are often rated in revolutions per minute (rpm). To convert, divide by 60 to get revolutions per second ($f$), then use $v = 2\pi r f$.
 
-When the speed changes (nonuniform circular motion), the acceleration has a tangential part $a_t = dv/dt$ as well as the radial part $v^2/r$, and the total is $a = \sqrt{a_t^2 + (v^2/r)^2}$.
+### Example 4
+
+A washing machine drum of radius 0.25 m spins at 1200 rpm. Find the speed of the drum wall and the centripetal acceleration, as a multiple of $g$.
+
+$f = 1200/60 = 20$ rev/s, so $v = 2\pi(0.25)(20) = 31.4$ m/s. Then $a_c = v^2/r = 31.4^2/0.25 = 3950$ m/s², about $400g$. Water in the clothes can't get that much inward force from the fabric, so it escapes through the holes in the drum along tangent lines.
+
+When the speed is also changing (a car speeding up around a curve), the acceleration has a tangential part, $a_t = \Delta v/\Delta t$, along the velocity, as well as the centripetal part $v^2/r$ toward the center. They are perpendicular, so the total is $a = \sqrt{a_t^2 + (v^2/r)^2}$.
 
 ## Common mistakes
 
@@ -102,4 +108,4 @@ When the speed changes (nonuniform circular motion), the acceleration has a tang
 - Real forces supply the inward net force: $\sum F_{\text{in}} = mv^2/r$.
 - Flat curve: $v_{\max} = \sqrt{\mu_s g r}$. Banked, frictionless: $\tan\theta = v^2/(rg)$.
 - Top of a vertical loop: $v_{\min} = \sqrt{gr}$. Bottom: $n = mg + mv^2/r$.
-- With calculus: $\vec a = -\omega^2\vec r$.
+- Angular speed $\omega = 2\pi/T$ (rad/s), $v = r\omega$, $a_c = \omega^2 r$; rpm ÷ 60 gives revolutions per second.

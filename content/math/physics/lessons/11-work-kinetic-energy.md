@@ -9,7 +9,7 @@ refs: [phys-ref-mechanics]
 ---
 ## A second way to solve mechanics problems
 
-Newton's laws connect force to acceleration at each instant. That's powerful but sometimes clumsy: if a force changes along the path, or the path curves, tracking the acceleration moment by moment gets hard. Energy methods sidestep that. They relate forces acting over a *distance* to changes in *speed*, using scalars instead of vectors. This lesson defines work and kinetic energy and proves the theorem linking them; the next adds potential energy and conservation.
+Newton's laws connect force to acceleration at each instant. That's powerful but sometimes clumsy: if a force changes along the path, or the path curves, tracking the acceleration moment by moment gets hard. Energy methods sidestep that. They relate forces acting over a *distance* to changes in *speed*, using scalars instead of vectors. This lesson defines work and kinetic energy and shows why the theorem linking them is true; the next adds potential energy and conservation.
 
 ## Work done by a constant force
 
@@ -87,25 +87,25 @@ $$W = \tfrac12 kx^2.$$
 {"x": [0, 0.25], "y": [0, 110], "xLabel": "stretch x (m)", "yLabel": "applied force F (N)", "functions": [{"f": "400*x", "from": 0, "to": 0.2, "label": "F = kx"}], "shade": [{"f": "400*x", "from": 0, "to": 0.2}], "caption": "Work to stretch a spring (k = 400 N/m) by 0.20 m is the triangle area: ½(0.20)(80) = 8.0 J"}
 ```
 
-## With calculus
+## Reading work from a force–position graph
 
-For a force that varies along a path, divide the path into tiny steps $d\vec\ell$; each contributes $\vec F\cdot d\vec\ell$. Adding them is a line integral:
+The area rule works for any force graph made of straight pieces: split the area into rectangles and triangles and add them. Area below the axis (a negative force) counts as negative work.
 
-$$W = \int_{\text{path}} \vec F\cdot d\vec\ell, \qquad \text{in one dimension: } W = \int_{x_1}^{x_2} F(x)\,dx.$$
+The spring's own force points opposite to the stretch, so as a spring is stretched from $x_1$ to $x_2$ the spring does negative work equal to minus the trapezoid area, $W_s = -\left(\tfrac12kx_2^2 - \tfrac12kx_1^2\right)$. When it relaxes, the spring does positive work and gives that energy back.
 
-For the spring, the work done *by the spring* as it goes from $x_1$ to $x_2$ is
+The work–energy theorem was shown above for a constant force, but it holds for any force: break the motion into many short steps, each with a nearly constant force, and add up $\Delta K$ for each step. So once you have the net work from a graph's area, $W_{\text{net}} = \Delta K$ still gives the speed.
 
-$$W_s = \int_{x_1}^{x_2}(-kx)\,dx = -\left(\tfrac12kx_2^2 - \tfrac12kx_1^2\right).$$
-
-The work–energy theorem holds for any force, by the chain-rule identity $a = v\,dv/dx$:
-
-$$W_{\text{net}} = \int F_{\text{net}}\,dx = \int m v\frac{dv}{dx}\,dx = \int_{v_i}^{v_f} mv\,dv = \tfrac12mv_f^2 - \tfrac12mv_i^2.$$
+```plot
+{"x": [0, 6], "y": [0, 25], "xLabel": "position x (m)", "yLabel": "force F (N)", "functions": [{"f": "10*x", "from": 0, "to": 2}, {"f": "20", "from": 2, "to": 5}], "shade": [{"f": "10*x", "from": 0, "to": 2}, {"f": "20", "from": 2, "to": 5}], "segments": [{"from": [5, 20], "to": [5, 0], "dashed": true}], "caption": "Force rising from 0 to 20 N over 2 m, then constant to 5 m: the work is the shaded area, 20 J + 60 J = 80 J"}
+```
 
 ### Example 4
 
-A force $F(x) = 3x^2 - 2x$ N acts on a particle along the $x$ axis. How much work does it do as the particle moves from $x = 1$ m to $x = 3$ m?
+A 4.0 kg cart starts from rest on a frictionless track. The net force on it, along its motion, rises steadily from 0 to 20 N over the first 2.0 m, then stays at 20 N until $x = 5.0$ m (the graph above). Find the work done and the cart's speed at 5.0 m.
 
-$$W = \int_1^3 (3x^2 - 2x)\,dx = \left[x^3 - x^2\right]_1^3 = (27 - 9) - (1 - 1) = 18\text{ J}.$$
+Triangle from 0 to 2.0 m: $\tfrac12(2.0)(20) = 20$ J. Rectangle from 2.0 to 5.0 m: $(3.0)(20) = 60$ J. Total $W_{\text{net}} = 80$ J.
+
+Work–energy theorem: $80 = \tfrac12(4.0)v^2$, so $v = \sqrt{40} = 6.32$ m/s. Using the final force for the whole distance, $20(5.0) = 100$ J, would overestimate the work.
 
 ## Common mistakes
 
@@ -120,4 +120,4 @@ $$W = \int_1^3 (3x^2 - 2x)\,dx = \left[x^3 - x^2\right]_1^3 = (27 - 9) - (1 - 1)
 - $W = Fd\cos\theta$ for a constant force; perpendicular forces do no work.
 - $K = \tfrac12mv^2$; work–energy theorem: $W_{\text{net}} = \Delta K$.
 - Hooke's law $F = -kx$; work to stretch a spring by $x$ is $\tfrac12kx^2$.
-- In general $W = \int\vec F\cdot d\vec\ell$, the area under the $F$–$x$ graph.
+- For a force that varies, the work is the area under the $F$–$x$ graph.

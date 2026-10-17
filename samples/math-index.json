@@ -58,5 +58,10 @@
   "id": "math-probstats",
   "title": "Probability and Statistics",
   "revision": 1
+ },
+ {
+  "id": "science-physics",
+  "title": "Physics",
+  "revision": 1
  }
 ]

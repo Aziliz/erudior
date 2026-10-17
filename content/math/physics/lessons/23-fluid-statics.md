@@ -93,21 +93,21 @@ A wooden raft of density 600 kg/m³ is 3.0 m × 2.0 m × 0.20 m. How much additi
 
 Fully submerged, it displaces $1.2$ m³ of water: $F_B = 1000(1.2)(9.8) = 11\,760$ N. The raft weighs $600(1.2)(9.8) = 7056$ N. The difference, 4704 N, supports a load of $4704/9.8 = 480$ kg.
 
-## With calculus
+## Pressure on a wall, and pressure in the air
 
-The depth relation is really a differential equation. For a thin horizontal slab of fluid of thickness $dy$ (with $y$ up), balancing forces gives
+On a vertical wall the pressure isn't the same everywhere: the gauge pressure is zero at the water's surface and $\rho gD$ at the bottom, rising in proportion to depth. A graph of gauge pressure against depth is a straight line, so the *average* gauge pressure over the wall is just halfway between the two ends, $\tfrac12\rho gD$. The total force on a wall of width $w$ is that average times the wetted area $wD$:
 
-$$\frac{dP}{dy} = -\rho g.$$
+$$F = \tfrac12\rho gD\cdot wD = \tfrac12\rho gwD^2.$$
 
-For a liquid, $\rho$ is constant and integrating gives $P = P_0 + \rho gh$. For the atmosphere, density is proportional to pressure (ideal gas, constant temperature): $\rho = \rho_0P/P_0$. Then $\dfrac{dP}{dy} = -\dfrac{\rho_0g}{P_0}P$, so pressure decays exponentially with altitude:
+The force grows with the *square* of the depth, which is why dams are much thicker at the base than at the top.
 
-$$P(y) = P_0e^{-y/H}, \qquad H = \frac{P_0}{\rho_0g} \approx 8.6\text{ km}.$$
+### Example 5
 
-The total force on a dam also needs an integral, since pressure varies over its face. On a vertical wall of width $w$ holding water of depth $D$ (gauge pressure $\rho g(D - y)$ at height $y$):
+A swimming pool is 2.0 m deep. What is the total force of the water on one end wall that is 5.0 m wide?
 
-$$F = \int_0^D\rho g(D - y)\,w\,dy = \tfrac12\rho gwD^2,$$
+Average gauge pressure: $\tfrac12(1000)(9.8)(2.0) = 9800$ Pa. Area: $(5.0)(2.0) = 10$ m². Force: $(9800)(10) = 9.8\times10^4$ N, roughly the weight of 10 tonnes. (The air pushes on both sides of the wall equally, so only gauge pressure counts.)
 
-which equals the average gauge pressure, $\tfrac12\rho gD$, times the area.
+The rule $P = P_0 + \rho gh$ assumes the density is the same at every depth, which is true for liquids. Air is compressible: the air near the ground is squeezed by everything above it, so it's denser than the air higher up. As a result, atmospheric pressure falls quickly at first and then more and more gradually as you climb. It drops to about half its sea-level value near 5.5 km, roughly the height of the highest permanent settlements.
 
 ## Common mistakes
 
@@ -123,4 +123,4 @@ which equals the average gauge pressure, $\tfrac12\rho gD$, times the area.
 - $P = P_0 + \rho gh$; gauge = absolute − atmospheric.
 - Pascal: $F_1/A_1 = F_2/A_2$.
 - Archimedes: $F_B = \rho_{\text{fluid}}V_{\text{disp}}g$; floating fraction $= \rho_{\text{obj}}/\rho_{\text{fluid}}$.
-- $dP/dy = -\rho g$.
+- Force on a vertical wall: average gauge pressure $\tfrac12\rho gD$ times the area.

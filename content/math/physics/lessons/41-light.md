@@ -91,15 +91,25 @@ Into air: $\sin\theta_c = 1/1.52 = 0.658$, so $\theta_c = 41.1^\circ$.
 
 Into water: $\sin\theta_c = 1.33/1.52 = 0.875$, so $\theta_c = 61.0^\circ$. The smaller the index difference, the larger the critical angle.
 
-## With calculus
+## Why Snell's law has sines in it
 
-Maxwell's equations in empty space combine to give, for the electric field, the wave equation
+The marching-band picture can be made exact. Picture straight wavefronts (crests) of light, one wavelength apart, arriving at the boundary at angle $\theta_1$. Consider a stretch of boundary of length $x$ that exactly one wavelength of the incoming wave spans. Since the wavefronts tilt at $\theta_1$ to the boundary, simple trigonometry gives $\lambda_1 = x\sin\theta_1$. On the other side the same crests must meet the same stretch of boundary (they can't appear or vanish at the surface), but they are now $\lambda_2$ apart and tilted at $\theta_2$, so $\lambda_2 = x\sin\theta_2$. Dividing,
 
-$$\frac{\partial^2E}{\partial x^2} = \mu_0\varepsilon_0\frac{\partial^2E}{\partial t^2},$$
+$$\frac{\sin\theta_1}{\sin\theta_2} = \frac{\lambda_1}{\lambda_2} = \frac{v_1}{v_2} = \frac{n_2}{n_1},$$
 
-whose solutions travel at $1/\sqrt{\mu_0\varepsilon_0}$. A plane wave $E = E_0\sin(kx - \omega t)$, $B = B_0\sin(kx - \omega t)$ satisfies Faraday's law only if $E_0 = cB_0$. The energy density $u = \tfrac12\varepsilon_0E^2 + \tfrac{1}{2\mu_0}B^2$ splits equally between the fields, and averaging $\sin^2$ over a cycle gives $I = \tfrac12c\varepsilon_0E_0^2$.
+using $\lambda = v/f$ with the same frequency on both sides and $v = c/n$. Cross-multiplying gives Snell's law. The bending is a direct consequence of the wave slowing down.
 
-Snell's law also follows from **Fermat's principle**: light takes the path of least time. For a ray from a point in medium 1 to a point in medium 2, crossing the boundary at position $x$, the travel time is $t(x) = \dfrac{\sqrt{a^2 + x^2}}{v_1} + \dfrac{\sqrt{b^2 + (d - x)^2}}{v_2}$. Setting $dt/dx = 0$ gives $\dfrac{\sin\theta_1}{v_1} = \dfrac{\sin\theta_2}{v_2}$, which is Snell's law since $v = c/n$.
+### Example 3: three polarizers
+
+Unpolarized light of intensity 400 W/m² passes through three polarizers. The second is at $30^\circ$ to the first, and the third at $90^\circ$ to the first (so $60^\circ$ to the second). What comes out?
+
+After the first: half of unpolarized light, $200$ W/m², polarized along the first axis.
+
+After the second: $200\cos^2 30^\circ = 200(0.75) = 150$ W/m², now polarized along the second axis.
+
+After the third: $150\cos^2 60^\circ = 150(0.25) = 37.5$ W/m².
+
+Without the middle polarizer, the first and third are crossed and block everything. Adding a polarizer *between* them lets light through, because each polarizer re-polarizes the light along its own axis. The angle that matters at each step is the one between neighboring polarizers.
 
 ## Common mistakes
 

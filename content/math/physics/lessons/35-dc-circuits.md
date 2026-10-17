@@ -89,15 +89,25 @@ The negative $I_2$ means current flows *down* through the 6.0 V battery: the str
 
 An **ammeter** measures current and is placed in series with the branch; it must have very small resistance so it doesn't change the current. A **voltmeter** measures potential difference and is connected in parallel across the component; it must have very large resistance so it draws almost no current. Connecting an ammeter in parallel short-circuits the component and can damage the meter.
 
-## With calculus
+## Maximum power transfer
 
-Kirchhoff's rules give a system of linear equations, naturally written as a matrix equation $\mathbf{R}\,\vec I = \vec{\mathcal{E}}$ and solved by elimination or Cramer's rule; circuit simulation software does exactly this for thousands of unknowns. For Example 3, substituting the junction rule gives
+What load resistance $R$ draws the most power from a source with emf $\mathcal{E}$ and internal resistance $r$? The load power is $P = I^2R = \dfrac{\mathcal{E}^2R}{(R + r)^2}$. A tiny $R$ draws a big current but has almost no voltage across it; a huge $R$ has nearly the full emf across it but almost no current. Somewhere in between is a best value. A table for $\mathcal{E} = 12$ V and $r = 2.0$ Ω shows where:
 
-$$\begin{bmatrix} 8 & 6 \\ 6 & 9 \end{bmatrix}\begin{bmatrix} I_1 \\ I_2 \end{bmatrix} = \begin{bmatrix} 12 \\ 6 \end{bmatrix},$$
+| $R$ (Ω) | 0.5 | 1.0 | 2.0 | 4.0 | 8.0 |
+|---|---|---|---|---|---|
+| $P$ (W) | 11.5 | 16.0 | 18.0 | 16.0 | 11.5 |
 
-with determinant $72 - 36 = 36$, so $I_1 = \dfrac{12(9) - 6(6)}{36} = 2.0$ A and $I_2 = \dfrac{8(6) - 6(12)}{36} = -0.67$ A, as before.
+The power peaks when the load matches the internal resistance, $R = r$, a result called **impedance matching** (used in audio amplifiers and antennas). At that point the source wastes as much power inside itself as it delivers, so the efficiency is only 50%.
 
-Calculus answers a design question: what load resistance draws the most power from a source with internal resistance $r$? $P(R) = \dfrac{\mathcal{E}^2R}{(R + r)^2}$; setting $dP/dR = 0$ gives $R = r$. This is **impedance matching**, used in audio amplifiers and antennas, at the cost of 50% efficiency.
+### Example 4
+
+Three identical light bulbs are connected to an ideal battery: bulb A is in series with a parallel pair, B and C. (a) Rank the bulbs by brightness. (b) Bulb C is unscrewed. What happens to A and B?
+
+Treat each bulb as a resistor $R$; brightness follows power, $I^2R$.
+
+(a) The full battery current $I$ passes through A, and then splits equally between B and C, $I/2$ each. B and C each get $(I/2)^2R = \tfrac14I^2R$, a quarter of A's power. A is brightest; B and C are equal and dimmer.
+
+(b) With C removed, A and B are simply in series: total resistance rises from $1.5R$ to $2R$, so the battery current drops from $\mathcal{E}/(1.5R)$ to $\mathcal{E}/(2R)$. A gets less current and dims. B now carries the whole current, $\mathcal{E}/(2R)$, more than its previous share of $\mathcal{E}/(3R)$, so B gets *brighter*. Reasoning about current and voltage, not memorized rules, gets these questions right.
 
 ## Common mistakes
 

@@ -80,23 +80,27 @@ Because $\tau = RC$ can be set anywhere from nanoseconds to minutes by choosing 
 
 RC circuits also act as filters. A capacitor needs time to respond, so it can't follow voltage changes much faster than $1/\tau$. Take the output across the capacitor and rapid fluctuations are smoothed away while slow changes pass through: a **low-pass filter**, used to remove hiss from audio and to smooth the ripple from a power supply. Take the output across the resistor instead and only the rapid changes get through, a high-pass filter. The crossover frequency is about $f = \dfrac{1}{2\pi RC}$. A 10 kΩ resistor with a 16 nF capacitor gives roughly 1 kHz.
 
-## With calculus
+## The loop rule at any instant
 
-Apply the loop rule to the charging circuit, with $I = dq/dt$:
+Why does the current die away gradually instead of stopping suddenly? Apply the loop rule to the charging circuit at any moment, when the capacitor holds charge $q$:
 
-$$\mathcal{E} - IR - \frac qC = 0 \quad\Rightarrow\quad R\frac{dq}{dt} = \mathcal{E} - \frac qC.$$
+$$\mathcal{E} - IR - \frac qC = 0 \quad\Rightarrow\quad I = \frac{\mathcal{E} - q/C}{R}.$$
 
-Separate variables:
+The current is driven by whatever voltage the capacitor hasn't yet "used up". As $q$ grows, that leftover voltage shrinks, so the current shrinks, so the charge grows more slowly, and so on. The capacitor approaches full charge more and more slowly, without ever quite reaching it. Any quantity whose rate of change is proportional to how far it still has to go behaves this way, which is why the same exponential shapes describe radioactive decay and a hot drink cooling toward room temperature.
 
-$$\int_0^q\frac{dq'}{C\mathcal{E} - q'} = \int_0^t\frac{dt'}{RC} \quad\Rightarrow\quad -\ln\frac{C\mathcal{E} - q}{C\mathcal{E}} = \frac{t}{RC},$$
+The same reasoning handles the energy claim above. The battery pushes all the charge $Q = C\mathcal{E}$ through its full emf, supplying $Q\mathcal{E}$. The capacitor's voltage rose from 0 to $\mathcal{E}$, so on average each bit of charge was stored at only half the emf, giving $\tfrac12Q\mathcal{E}$. The other half became heat in the resistor.
 
-which rearranges to $q = C\mathcal{E}(1 - e^{-t/RC})$. Differentiating gives $I = \dfrac{dq}{dt} = \dfrac{\mathcal{E}}{R}e^{-t/RC}$.
+For circuits with several resistors, two snapshots answer most questions without any exponentials: *just after* the switch closes, treat an uncharged capacitor as a plain wire; *long after*, treat it as a break.
 
-For discharging, $R\dfrac{dq}{dt} + \dfrac qC = 0$, a first-order equation whose solution is $q = Q_0e^{-t/RC}$. This is the same differential equation as radioactive decay, Newton's law of cooling, and linear drag: anywhere a rate of change is proportional to the amount present.
+### Example 3
 
-The energy claim is a quick integral: heat in the resistor while charging is
+A 12 V battery, a 2.0 kΩ resistor $R_1$ and a switch are in series with a parallel pair: a 4.0 kΩ resistor $R_2$ and an uncharged 5.0 μF capacitor connected across it. Find the battery current (a) just after the switch closes and (b) long after, and (c) the final charge on the capacitor.
 
-$$\int_0^\infty I^2R\,dt = \frac{\mathcal{E}^2}{R}\int_0^\infty e^{-2t/RC}\,dt = \frac{\mathcal{E}^2}{R}\cdot\frac{RC}{2} = \tfrac12C\mathcal{E}^2.$$
+(a) The uncharged capacitor acts as a wire, shorting out $R_2$, so only $R_1$ limits the current: $I = 12/2000 = 6.0$ mA, all of it flowing into the capacitor.
+
+(b) Fully charged, the capacitor is a break; current flows through $R_1$ and $R_2$ in series: $I = 12/6000 = 2.0$ mA.
+
+(c) The capacitor has the same voltage as $R_2$, which is (2.0 mA)(4.0 kΩ) = 8.0 V. So $Q = CV$ = (5.0 μF)(8.0 V) = 40 μC. Note it does *not* charge to the full 12 V.
 
 ## Common mistakes
 

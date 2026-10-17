@@ -76,11 +76,19 @@
 - id: phys-q-3410
   lesson: phys-current
   topic: Current and resistance
-  stem: 'The charge through a wire is $q(t) = 3t^2 + 2t$ coulombs. What is the current at $t = 2$ s?'
-  choices: ['16 A', '12 A', '8 A', '14 A']
+  stem: 'The current in a wire rises steadily from 0 to 6.0 A over 4.0 s. How much charge passes through the wire during those 4.0 s?'
+  choices: ['24 C', '1.5 C', '6.0 C', '12 C']
   answer: 3
   explanation: |-
-    $I = dq/dt = 6t + 2 = 14$ A at $t = 2$ s. 16 is the charge $q(2)$.
+    Charge is the area under the current–time graph, here a triangle: $\tfrac12(4.0\text{ s})(6.0\text{ A}) = 12$ C. 24 C uses the final current for the whole time; 1.5 C divides current by time.
+- id: phys-q-3411
+  lesson: phys-current
+  topic: Electric power
+  stem: 'An ohmic resistor dissipates 40 W when connected to 10 V. What power does it dissipate when connected to 20 V?'
+  choices: ['80 W', '40 W', '160 W', '20 W']
+  answer: 2
+  explanation: |-
+    With $R$ fixed, $P = V^2/R \propto V^2$: doubling the voltage quadruples the power, to 160 W. 80 W forgets that the current doubles too.
 - id: phys-q-3501
   lesson: phys-dc-circuits
   module_quiz: true
@@ -167,11 +175,19 @@
 - id: phys-q-3511
   lesson: phys-dc-circuits
   topic: Series and parallel circuits
-  stem: 'A source has emf $\mathcal{E}$ and internal resistance $r$. Maximizing $P = \mathcal{E}^2R/(R + r)^2$ shows the load gets the most power when'
-  choices: ['$R = 0$', '$R = r$', '$R = 2r$', '$R \to \infty$']
-  answer: 1
+  stem: 'A source has emf 10 V and internal resistance 5.0 Ω. Which of these load resistances receives the most power?'
+  choices: ['2.5 Ω', '10 Ω', '5.0 Ω', '20 Ω']
+  answer: 2
   explanation: |-
-    $dP/dR = \mathcal{E}^2\dfrac{(R + r) - 2R}{(R + r)^3} = 0$ gives $R = r$ (impedance matching).
+    $P = I^2R = \mathcal{E}^2R/(R + r)^2$ gives 4.4 W for 2.5 Ω, 5.0 W for 5.0 Ω, 4.4 W for 10 Ω and 3.2 W for 20 Ω. The maximum is at $R = r = 5.0$ Ω (impedance matching): smaller loads have little voltage across them, larger ones draw little current.
+- id: phys-q-3512
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'Three identical bulbs are connected to an ideal battery: bulb A is in series with a parallel pair, B and C. A wire is then connected directly across bulb B. What happens to bulbs A and C?'
+  choices: ['A gets dimmer and C gets brighter', 'Both get brighter', 'A stays the same and C goes out', 'A gets brighter and C goes out']
+  answer: 3
+  explanation: |-
+    The wire has almost no resistance, so it carries all the current that used to split between B and C: both B and C go out (C is in parallel with the wire too). Only A's resistance is left, so the battery current rises from $\mathcal{E}/(1.5R)$ to $\mathcal{E}/R$ and A gets brighter.
 - id: phys-q-3601
   lesson: phys-rc
   module_quiz: true
@@ -242,11 +258,11 @@
 - id: phys-q-3609
   lesson: phys-rc
   topic: RC circuits
-  stem: 'The loop rule for a discharging RC circuit gives $R\,dq/dt + q/C = 0$. Its solution is'
-  choices: ['$q = Q_0e^{-t/RC}$', '$q = Q_0(1 - e^{-t/RC})$', '$q = Q_0\cos(t/RC)$', '$q = Q_0 - t/RC$']
+  stem: 'A capacitor is charging through a resistor from a battery. At the instant the capacitor''s voltage is 75% of the battery''s emf, the current is'
+  choices: ['25% of its initial value', '75% of its initial value', '50% of its initial value', 'zero']
   answer: 0
   explanation: |-
-    $dq/q = -dt/(RC)$, so $\ln(q/Q_0) = -t/RC$ and $q = Q_0e^{-t/RC}$: exponential decay.
+    Loop rule: $I = (\mathcal{E} - V_C)/R$. The resistor gets only the 25% of the emf the capacitor hasn't taken, so the current is 25% of its starting value $\mathcal{E}/R$. The current reaches zero only when the capacitor is fully charged.
 - id: phys-q-3610
   lesson: phys-rc
   topic: RC circuits
@@ -255,3 +271,11 @@
   answer: 0
   explanation: |-
     $\Omega\cdot F = \dfrac{V}{A}\cdot\dfrac{C}{V} = \dfrac{C}{A} = \dfrac{C}{C/s} = s$. That's why $RC$ is called the time constant.
+- id: phys-q-3611
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'A 12 V battery and a 3.0 kΩ resistor are in series with a parallel pair: a 6.0 kΩ resistor and an uncharged capacitor. Long after the switch is closed, what is the voltage across the capacitor?'
+  choices: ['12 V', '4.0 V', '8.0 V', '0 V']
+  answer: 2
+  explanation: |-
+    Fully charged, the capacitor carries no current, so the two resistors are in series: $I = 12$ V / 9.0 kΩ = 1.33 mA. The capacitor shares the 6.0 kΩ resistor's voltage, $IR = 8.0$ V. 12 V ignores the drop across the 3.0 kΩ resistor; 4.0 V is that drop; 0 V is the value just after the switch closes.

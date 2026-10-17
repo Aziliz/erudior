@@ -92,15 +92,25 @@ $f = -R/2 = -0.60$ m. $\dfrac{1}{d_i} = -\dfrac{1}{0.60} - \dfrac{1}{3.0} = -2.0
 
 **Lens power** is $P = 1/f$ in diopters (m⁻¹); optometrists prescribe lenses this way. A nearsighted eye focuses distant objects in front of the retina and needs a diverging (negative-power) lens; a farsighted eye needs a converging one. In multi-lens systems, the image from the first lens acts as the object for the second, and the total magnification is the product $m_1m_2$. A compound microscope uses a short-focal-length objective to make a magnified real image, which the eyepiece then magnifies again.
 
-## With calculus
+### Example 4: two lenses
 
-The **lensmaker's equation** gives a thin lens's focal length from its shape:
+An object is 15 cm in front of a converging lens with $f_1 = 10$ cm. A second converging lens, $f_2 = 20$ cm, sits 60 cm beyond the first. Find the final image and the overall magnification.
+
+Lens 1: $\dfrac{1}{d_{i1}} = \dfrac{1}{10} - \dfrac{1}{15} = \dfrac{1}{30}$, so $d_{i1} = 30$ cm and $m_1 = -30/15 = -2.0$.
+
+That image is a real object for lens 2, at $d_{o2} = 60 - 30 = 30$ cm in front of it. Lens 2: $\dfrac{1}{d_{i2}} = \dfrac{1}{20} - \dfrac{1}{30} = \dfrac{1}{60}$, so $d_{i2} = 60$ cm beyond lens 2, with $m_2 = -60/30 = -2.0$.
+
+Overall: $m = m_1m_2 = (-2.0)(-2.0) = +4.0$. The final image is real, upright (inverted twice) and four times the object's size.
+
+If lens 2 were only 50 cm from lens 1, the intermediate image would sit exactly at its focal point, 20 cm in front of it, and the rays would leave lens 2 parallel: a final image at infinity. That is what a microscope or telescope eyepiece is designed to do, so a relaxed eye can view the image.
+
+## The lensmaker's equation
+
+What sets a lens's focal length? Applying Snell's law at each curved surface (using the small-angle approximation, in which $\sin\theta \approx \theta$ for angles in radians) gives the **lensmaker's equation**:
 
 $$\frac1f = (n - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right),$$
 
-where $R_1$ and $R_2$ are the radii of the two surfaces (positive if the center of curvature is on the outgoing side). It comes from applying Snell's law at each surface in the small-angle approximation, $\sin\theta \approx \tan\theta \approx \theta$, the same approximation that makes all rays from a point meet at a single image point.
-
-Differentiating the lens equation shows how images move: holding $f$ fixed, $-\dfrac{1}{d_o^2}\,dd_o - \dfrac{1}{d_i^2}\,dd_i = 0$, so $\dfrac{dd_i}{dd_o} = -\dfrac{d_i^2}{d_o^2} = -m^2$. The *longitudinal magnification* is $m^2$ in size: that's why a camera focused on a distant scene barely has to move its lens, while a macro lens focused close up is very sensitive. If an object approaches a converging lens (focal length 10 cm) at 2.0 cm/s from 30 cm away, its image moves away from the lens at $(0.50)^2(2.0) = 0.50$ cm/s.
+where $R_1$ and $R_2$ are the radii of the front and back surfaces (positive if the surface's center of curvature is on the outgoing side of the lens). You don't need the derivation to use its proportional reasoning: a lens bends light more, giving a shorter focal length, if its surfaces are more strongly curved (smaller $R$) or its material has a higher index. A lens that does nothing has $n = 1$ (it's made of air). In water the relevant index is $n_{\text{lens}}/n_{\text{water}}$, closer to 1, so a glass lens is much weaker underwater. The same thing happens to the curved front surface of your eye (the cornea), which does most of the eye's focusing in air; that's why your vision blurs when you open your eyes in a pool.
 
 ## Common mistakes
 

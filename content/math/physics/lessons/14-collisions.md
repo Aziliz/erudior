@@ -100,7 +100,7 @@ Speed $= \sqrt{6.0^2 + 7.2^2} = 9.37$ m/s, at $\tan^{-1}(7.2/6.0) = 50.2^\circ$ 
 
 A neat result: when equal masses collide elastically with one initially at rest, they move off at right angles to each other (unless the collision is head-on). Energy conservation $v_1^2 = v_{1f}^2 + v_{2f}^2$ plus momentum $\vec v_1 = \vec v_{1f} + \vec v_{2f}$ is the Pythagorean theorem, so the two final velocities must be perpendicular.
 
-## With calculus: the center-of-mass frame
+## Going further: the center-of-mass frame
 
 In the frame moving with the center of mass, the total momentum is zero: before a collision the objects approach each other with opposite momenta, and afterward they recede with opposite momenta. An elastic collision in this frame just reverses each velocity (in 1D) or rotates the pair of momenta (in 2D). The kinetic energy can be split as $K = \tfrac12Mv_{\text{cm}}^2 + K_{\text{rel}}$, and only the relative part $K_{\text{rel}}$ can be lost; the CM part must remain because $v_{\text{cm}}$ can't change. That explains why a perfectly inelastic collision loses exactly $K_{\text{rel}} = \tfrac12\dfrac{m_1m_2}{m_1 + m_2}(v_{1i} - v_{2i})^2$, the maximum allowed. For Example 1: $\tfrac12(600)(10)^2 = 30\,000$ J, matching.
 

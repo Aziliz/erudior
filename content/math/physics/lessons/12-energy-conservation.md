@@ -9,7 +9,7 @@ refs: [phys-ref-mechanics]
 ---
 ## Stored energy
 
-Lift a book and the work you do isn't lost: let go and gravity gives it back as kinetic energy. Compress a spring and it pushes your hand back when released. This stored energy of position is **potential energy**, and together with kinetic energy it gives us one of the most useful principles in physics: conservation of energy. Problems that would need calculus with Newton's laws, like the speed at the bottom of a curved slide, become a line of algebra.
+Lift a book and the work you do isn't lost: let go and gravity gives it back as kinetic energy. Compress a spring and it pushes your hand back when released. This stored energy of position is **potential energy**, and together with kinetic energy it gives us one of the most useful principles in physics: conservation of energy. Problems that are very hard with Newton's laws, like the speed at the bottom of a curved slide, become a line of algebra.
 
 ## Conservative forces and potential energy
 
@@ -85,7 +85,7 @@ A kilowatt-hour (kWh) is an energy unit, not a power: $1\text{ kWh} = (1000\text
 
 An elevator motor lifts a 900 kg car at a steady 2.0 m/s. What power does it deliver? If the motor is 80% efficient, what electrical power does it draw?
 
-At constant speed the tension equals the weight: $T = 900(9.8) = 8820$ N. $P = Tv = 8820(2.0) = 17\,640$ W $\approx 17.6$ kW. Input: $17.6/0.80 = 22.1$ kW.
+At constant speed the tension equals the weight: $T = 900(9.8) = 8820$ N. $P = Tv = 8820(2.0) = 17\,640$ W $\approx 17.6$ kW. Input: $17.64/0.80 = 22.05 \approx 22$ kW.
 
 ## Energy diagrams
 
@@ -95,23 +95,23 @@ Plotting $U(x)$ shows the motion at a glance. With total energy $E$ drawn as a h
 {"x": [-2.2, 2.2], "y": [-1.5, 3], "xLabel": "x", "yLabel": "energy", "functions": [{"f": "x^4 - 2*x^2", "label": "U(x)"}, {"f": "1.5", "dashed": true}], "points": [{"at": [-1, -1], "label": "stable"}, {"at": [0, 0], "label": "unstable"}, {"at": [-1.607, 1.5]}, {"at": [1.607, 1.5]}], "labels": [{"at": [-0.75, 1.7], "text": "E"}, {"at": [0.8, 1.75], "text": "turning points"}], "caption": "A double-well potential: with energy E the particle moves between the outer turning points"}
 ```
 
-## With calculus
+## Force from a potential energy graph
 
-Because $dW = F\,dx = -dU$, a conservative force is the negative slope of its potential energy:
+The definition $W_{\text{cons}} = -\Delta U$ also works backward. Over a small step $\Delta x$ the force does work $F\Delta x = -\Delta U$, so
 
-$$F(x) = -\frac{dU}{dx}, \qquad \text{in 3D: } \vec F = -\nabla U.$$
+$$F = -\frac{\Delta U}{\Delta x}:$$
 
-Check: $U = \tfrac12kx^2$ gives $F = -kx$; $U = mgy$ gives $F_y = -mg$. Equilibrium points are where $dU/dx = 0$; stable if $d^2U/dx^2 > 0$.
+the force is the negative of the slope of the $U$–$x$ graph. Where $U$ slopes downhill to the right, the force points right (toward lower $U$); where it slopes uphill, the force points left. Objects are pushed toward lower potential energy, like a ball rolling downhill on a graph shaped like a landscape.
 
-Power in calculus form: $P = \dfrac{dW}{dt} = \vec F\cdot\vec v$, and the work over a time interval is $W = \int P\,dt$.
+This explains the equilibrium points on an energy diagram. Where the graph is flat (slope zero), the force is zero. At a minimum, moving either way makes the slope push the object back: stable. At a maximum, a small nudge leads to a force pushing it farther away: unstable.
+
+Check with a spring: the graph of $U = \tfrac12kx^2$ is a parabola whose slope at $x$ is $kx$, so $F = -kx$, Hooke's law. For gravity, $U = mgy$ is a straight line of slope $mg$, so $F_y = -mg$: a constant downward force.
 
 ### Example 5
 
-A particle has $U(x) = x^3 - 6x^2 + 9x$ J ($x$ in m). Find the force at $x = 2$ m and the equilibrium points, classifying each.
+A particle's potential energy falls steadily from 12 J at $x = 1.0$ m to 4.0 J at $x = 3.0$ m, then stays at 4.0 J out to $x = 5.0$ m. Find the force on it at $x = 2.0$ m and at $x = 4.0$ m.
 
-$F = -\dfrac{dU}{dx} = -(3x^2 - 12x + 9)$. At $x = 2$: $F = -(12 - 24 + 9) = 3$ N.
-
-Equilibrium: $3x^2 - 12x + 9 = 3(x - 1)(x - 3) = 0$, so $x = 1$ and $x = 3$. $U'' = 6x - 12$: at $x = 1$ it's $-6$ (maximum, unstable); at $x = 3$ it's $+6$ (minimum, stable).
+Between 1.0 and 3.0 m the slope is $\dfrac{4.0 - 12}{3.0 - 1.0} = -4.0$ J/m, so $F = -(-4.0) = +4.0$ N: 4.0 N in the $+x$ direction, downhill on the graph. Between 3.0 and 5.0 m the graph is flat, so $F = 0$. (Note: 1 J/m = 1 N.)
 
 ## Common mistakes
 
@@ -127,4 +127,4 @@ Equilibrium: $3x^2 - 12x + 9 = 3(x - 1)(x - 3) = 0$, so $x = 1$ and $x = 3$. $U'
 - Only conservative forces working: $K_i + U_i = K_f + U_f$.
 - With friction or other forces: $K_i + U_i + W_{\text{nc}} = K_f + U_f$.
 - $P = W/\Delta t = Fv$; 1 W = 1 J/s; 1 kWh = $3.6\times10^6$ J.
-- $F = -dU/dx$; equilibria where $dU/dx = 0$.
+- $F = -$(slope of the $U$–$x$ graph); equilibria where the graph is flat, stable at minima.

@@ -61,8 +61,8 @@
   lesson: phys-light
   topic: Electromagnetic waves
   stem: 'Unpolarized light of intensity $I_0$ passes through two polarizers whose axes are $60^\circ$ apart. The transmitted intensity is'
-  choices: ['$0.25I_0$', '$0.50I_0$', '$0.75I_0$', '$0.125I_0$']
-  answer: 3
+  choices: ['$0.125I_0$', '$0.25I_0$', '$0.50I_0$', '$0.75I_0$']
+  answer: 0
   explanation: |-
     The first polarizer halves it: $0.5I_0$. Malus's law at the second: $0.5I_0\cos^2 60^\circ = 0.5I_0(0.25) = 0.125I_0$. Forgetting the first halving gives $0.25I_0$.
 - id: phys-q-4109
@@ -76,11 +76,11 @@
 - id: phys-q-4110
   lesson: phys-light
   topic: Reflection and refraction
-  stem: 'Snell''s law can be derived by requiring that light take the path that'
-  choices: ['is shortest in distance', 'takes the least time', 'has the most reflections', 'stays in one medium']
-  answer: 1
+  stem: 'Light with a vacuum wavelength of 600 nm enters glass with $n = 1.50$. What are its wavelength and frequency inside the glass? ($c = 3.00\times10^8$ m/s)'
+  choices: ['400 nm and $5.0\times10^{14}$ Hz', '900 nm and $5.0\times10^{14}$ Hz', '400 nm and $3.3\times10^{14}$ Hz', '600 nm and $3.3\times10^{14}$ Hz']
+  answer: 0
   explanation: |-
-    Fermat's principle: minimizing travel time $t(x)$ over the crossing point and setting $dt/dx = 0$ gives $\sin\theta_1/v_1 = \sin\theta_2/v_2$, which is Snell's law.
+    The frequency is fixed by the source: $f = c/\lambda = (3.00\times10^8)/(600\times10^{-9}) = 5.0\times10^{14}$ Hz, in air or glass. The speed drops to $c/n$, so the wavelength shrinks to $600/1.50 = 400$ nm. Multiplying by $n$ gives 900 nm; $3.3\times10^{14}$ Hz wrongly lets the frequency change with the speed.
 - id: phys-q-4111
   lesson: phys-light
   topic: Electromagnetic waves
@@ -89,6 +89,14 @@
   answer: 1
   explanation: |-
     The constants from electricity and magnetism gave $3.00\times10^8$ m/s, the speed of light, uniting optics with electromagnetism.
+- id: phys-q-4112
+  lesson: phys-light
+  topic: Electromagnetic waves
+  stem: 'Unpolarized light of intensity $I_0$ meets two crossed polarizers (axes at $90^\circ$), so nothing gets through. A third polarizer is then slipped between them at $45^\circ$ to each. Now the transmitted intensity is'
+  choices: ['still zero', '$0.50I_0$', '$0.125I_0$', '$0.25I_0$']
+  answer: 2
+  explanation: |-
+    First polarizer: $0.50I_0$. Middle one at $45^\circ$: $0.50I_0\cos^2 45^\circ = 0.25I_0$. Last one, at $45^\circ$ to the middle: $0.25I_0\cos^2 45^\circ = 0.125I_0$. Each polarizer re-polarizes the light along its own axis, so only the angle between neighbors matters. $0.25I_0$ stops after the middle polarizer.
 - id: phys-q-4201
   lesson: phys-mirrors-lenses
   module_quiz: true
@@ -127,8 +135,8 @@
   lesson: phys-mirrors-lenses
   topic: Thin lenses
   stem: 'An image has magnification $m = -2.0$. It is'
-  choices: ['upright and twice as large', 'inverted and half as large', 'upright and half as large', 'inverted and twice as large']
-  answer: 3
+  choices: ['inverted and twice as large', 'upright and twice as large', 'inverted and half as large', 'upright and half as large']
+  answer: 0
   explanation: |-
     A negative $m$ means inverted; $|m| = 2$ means twice the object's size.
 - id: phys-q-4206
@@ -180,6 +188,14 @@
   answer: 2
   explanation: |-
     In water, the relevant index is $n_{\text{lens}}/n_{\text{water}}$, closer to 1, so $(n - 1)$ shrinks and $f$ grows: the lens bends light less. That's why your vision is blurry underwater.
+- id: phys-q-4212
+  lesson: phys-mirrors-lenses
+  topic: Thin lenses
+  stem: 'An object starts far from a converging lens and moves toward it, stopping just outside the focal point. During this motion the real image'
+  choices: ['moves toward the lens and shrinks', 'stays at the focal point', 'moves away from the lens and grows larger', 'becomes virtual and upright']
+  answer: 2
+  explanation: |-
+    From $\dfrac{1}{d_i} = \dfrac1f - \dfrac{1}{d_o}$: as $d_o$ shrinks toward $f$, $\dfrac{1}{d_o}$ grows toward $\dfrac1f$, so $\dfrac{1}{d_i}$ shrinks toward zero and $d_i$ grows without limit. With $|m| = d_i/d_o$, the image also grows. It stays real while the object is outside $f$; only inside $f$ does it become virtual. The image is near the focal point only when the object is very far away.
 - id: phys-q-4301
   lesson: phys-wave-optics
   module_quiz: true
@@ -266,8 +282,16 @@
 - id: phys-q-4311
   lesson: phys-wave-optics
   topic: Interference
-  stem: 'In the double-slit intensity formula $I = I_{\max}\cos^2(\pi d\sin\theta/\lambda)$, the first minimum occurs where'
-  choices: ['$d\sin\theta = \lambda$', '$d\sin\theta = 0$', '$d\sin\theta = 2\lambda$', '$d\sin\theta = \lambda/2$']
+  stem: 'In a double-slit pattern, the first dark fringe on either side of the central bright fringe is where the path difference $d\sin\theta$ from the two slits equals'
+  choices: ['$\lambda$', '0', '$2\lambda$', '$\lambda/2$']
   answer: 3
   explanation: |-
-    $\cos^2$ first vanishes when its argument is $\pi/2$: $\pi d\sin\theta/\lambda = \pi/2$, so the path difference is half a wavelength.
+    Dark fringes need the two waves to arrive exactly out of step: a path difference of $(m + \tfrac12)\lambda$, the smallest being $\lambda/2$. A path difference of $\lambda$ gives the first-order bright fringe, and 0 is the central bright fringe.
+- id: phys-q-4312
+  lesson: phys-wave-optics
+  topic: Interference
+  stem: 'A lens ($n = 1.52$) is coated with a film of $n = 1.38$ to cancel reflected 550 nm light. What is the minimum film thickness?'
+  choices: ['199 nm', '100 nm', '138 nm', '50 nm']
+  answer: 1
+  explanation: |-
+    Both reflections (air to film, film to glass) go to a higher index, so both flip and the flips cancel. Destructive interference then needs $2nt = \tfrac12\lambda$: $t = \dfrac{550}{4(1.38)} = 100$ nm. Using the one-flip soap-film condition, $2nt = \lambda$, gives 199 nm; 138 nm forgets that the wavelength in the film is $\lambda/n$.

@@ -86,17 +86,15 @@ $$mgh = \tfrac12mv^2 + \tfrac12\left(\tfrac12MR^2\right)\left(\frac{v}{R}\right)
 
 $2.0(9.8)(1.5) = 29.4 = \tfrac12(3.5)v^2$, so $v = 4.10$ m/s. Check with kinematics: $v = \sqrt{2(5.6)(1.5)} = 4.10$ m/s ✓.
 
-## With calculus: torque as a vector
+## Torque direction and the right-hand rule
 
-In three dimensions torque is a cross product:
+Torque has a direction as well as a size. For rotation about a fixed axis, the sign convention (counterclockwise positive) is all you need. When it helps to think in three dimensions, torque is drawn as an arrow along the rotation axis, found with the **right-hand rule**: curl the fingers of your right hand in the sense of the rotation the torque tends to cause, and your thumb points along the torque. Counterclockwise rotation in a horizontal plane, seen from above, gives a torque pointing up; clockwise gives one pointing down.
 
-$$\vec\tau = \vec r\times\vec F,$$
+When a force and its point of application are given as components in the $xy$ plane, the torque about the origin is
 
-with magnitude $rF\sin\theta$ and direction along the rotation axis by the right-hand rule (curl your fingers in the sense of rotation; your thumb gives $\vec\tau$). Counterclockwise rotation in the $xy$ plane corresponds to $\vec\tau$ along $+\hat k$, which is where the "counterclockwise is positive" convention comes from. In components, $\tau_z = xF_y - yF_x$.
+$$\tau_z = xF_y - yF_x,$$
 
-For a rigid body rotating about a fixed axis, $\tau = I\,\dfrac{d\omega}{dt}$, and if the torque varies with time, $\omega(t) = \omega_0 + \dfrac1I\int\tau\,dt$. Work by a variable torque is $W = \int\tau\,d\theta$.
-
-For instance, a force $\vec F = (3\hat\imath + 4\hat\jmath)$ N applied at $\vec r = (2\hat\imath + 1\hat\jmath)$ m gives $\tau_z = 2(4) - 1(3) = 5$ N·m, counterclockwise.
+which is just the lever-arm rule applied to each force component: $F_y$ acts with lever arm $x$ (counterclockwise when both are positive), and $F_x$ acts with lever arm $y$ (clockwise when both are positive). For instance, a force $(3\hat\imath + 4\hat\jmath)$ N applied at $(2\hat\imath + 1\hat\jmath)$ m gives $\tau_z = 2(4) - 1(3) = 5$ N·m, counterclockwise.
 
 ## Common mistakes
 
@@ -107,7 +105,7 @@ For instance, a force $\vec F = (3\hat\imath + 4\hat\jmath)$ N applied at $\vec 
 
 ## Key points
 
-- $\tau = rF\sin\theta = rF_\perp = \ell F$; counterclockwise positive; $\vec\tau = \vec r\times\vec F$.
+- $\tau = rF\sin\theta = rF_\perp = \ell F$; counterclockwise positive; direction by the right-hand rule.
 - $\sum\tau = I\alpha$ (rotational second law).
 - Massive pulley: combine $\sum F = ma$, $\sum\tau = I\alpha$ and $a = R\alpha$.
 - $W = \tau\Delta\theta$, $P = \tau\omega$; include $\tfrac12I\omega^2$ in energy conservation.
