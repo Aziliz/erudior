@@ -393,3 +393,50 @@
   answer: 3
   explanation: |-
     $m = \iint y\,dA = 2\cdot\tfrac12 = 1$, and $M_x = \iint y\cdot y\,dA = 2\cdot\tfrac13 = \tfrac23$. So $\bar y = \tfrac23$: the mass is concentrated toward the top edge.
+- id: mv-q-2313
+  lesson: mv-double-apps
+  topic: Joint densities
+  stem: 'For which constant $k$ is $f(x, y) = kxy$ on the rectangle $0 \le x \le 1$, $0 \le y \le 3$ (and $0$ elsewhere) a joint density function?'
+  choices: ['$k = \tfrac13$', '$k = \tfrac49$', '$k = \tfrac94$', '$k = \tfrac29$']
+  answer: 1
+  explanation: |-
+    The total probability must be 1: $\int_0^1\int_0^3 kxy\,dy\,dx = k\cdot\tfrac12\cdot\tfrac92 = \tfrac94k = 1$, so $k = \tfrac49$.
+    $\tfrac13$ treats the density as constant over a rectangle of area 3. $\tfrac94$ is the value of the integral itself, not its reciprocal. $\tfrac29$ drops the $\tfrac12$ from $\int_0^1 x\,dx$.
+- id: mv-q-2314
+  lesson: mv-double-apps
+  module_quiz: true
+  topic: Joint densities
+  stem: 'Which pair of conditions makes $f(x, y)$ a joint density function?'
+  choices: ['$0 \le f(x, y) \le 1$ everywhere', '$f(x, y)$ equals the probability that $X = x$ and $Y = y$', '$\iint_D f\,dA = 1$ for every region $D$', '$f \ge 0$ everywhere and $\iint_{\mathbb R^2} f\,dA = 1$']
+  answer: 3
+  explanation: |-
+    A joint density is never negative and has total integral 1; probabilities come from integrating it over regions.
+    A density can exceed 1 (for example $4xy$ near $(1, 1)$), because it is probability per unit area, not a probability. For continuous variables the probability of one exact point is 0, so $f(x, y)$ is not that probability. Only the whole plane (or the region where $f$ lives) must give 1; a small region gives less.
+- id: mv-q-2315
+  lesson: mv-double-apps
+  topic: Joint densities
+  stem: '$X$ and $Y$ have joint density $f(x, y) = 4xy$ on the unit square $0 \le x \le 1$, $0 \le y \le 1$. Find $P\left(X \le \tfrac12,\ Y \le \tfrac12\right)$.'
+  choices: ['$\tfrac14$', '$\tfrac{1}{64}$', '$\tfrac{1}{16}$', '$\tfrac18$']
+  answer: 2
+  explanation: |-
+    $\int_0^{1/2}\int_0^{1/2}4xy\,dy\,dx = 4\cdot\tfrac18\cdot\tfrac18 = \tfrac{1}{16}$, since $\int_0^{1/2}x\,dx = \tfrac18$.
+    $\tfrac14$ is the area of the small square, which would be right only for a uniform density. $\tfrac{1}{64}$ drops the constant 4. $\tfrac18$ evaluates $\int_0^{1/2}y\,dy$ as $\left(\tfrac12\right)^2$, forgetting to divide by 2.
+- id: mv-q-2316
+  lesson: mv-double-apps
+  topic: Joint densities
+  stem: '$X$ and $Y$ have joint density $f(x, y) = 4xy$ on the unit square (and $0$ elsewhere). Find the mean $E(X)$.'
+  choices: ['$\tfrac12$', '$\tfrac16$', '$\tfrac43$', '$\tfrac23$']
+  answer: 3
+  explanation: |-
+    $E(X) = \iint x\,f\,dA = \int_0^1\int_0^1 4x^2y\,dy\,dx = 4\cdot\tfrac13\cdot\tfrac12 = \tfrac23$. The density is heavier near $x = 1$, so the mean is pulled past the middle.
+    $\tfrac12$ is the center of the square, the mean only for a uniform density. $\tfrac16$ drops the constant 4. $\tfrac43$ forgets the factor $\int_0^1 y\,dy = \tfrac12$.
+- id: mv-q-2317
+  lesson: mv-double-apps
+  module_quiz: true
+  topic: Joint densities
+  stem: '$X$ and $Y$ have joint density $f(x, y) = x + y$ on the unit square (and $0$ elsewhere). Find $P\left(X \le \tfrac12\right)$.'
+  choices: ['$\tfrac12$', '$\tfrac38$', '$\tfrac18$', '$\tfrac58$']
+  answer: 1
+  explanation: |-
+    The event is the strip $0 \le x \le \tfrac12$, $0 \le y \le 1$: $\int_0^{1/2}\int_0^1(x + y)\,dy\,dx = \int_0^{1/2}\left(x + \tfrac12\right)dx = \tfrac18 + \tfrac14 = \tfrac38$.
+    $\tfrac12$ is the strip's share of the area, as if the density were uniform. $\tfrac18$ keeps only the $x$ term of the integrand. $\tfrac58$ is $P\left(X \ge \tfrac12\right)$, the complement.

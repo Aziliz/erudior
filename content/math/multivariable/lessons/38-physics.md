@@ -20,7 +20,7 @@ four settings.
 ## 1. Gravity and potential energy
 
 The gravitational field of a point mass is conservative, with potential
-$f = \dfrac{GMm}{|\mathbf x|}$ (Lesson 28). By the fundamental theorem for line integrals, the work
+$f = \dfrac{GMm}{|\mathbf x|}$ (Lesson 29). By the fundamental theorem for line integrals, the work
 gravity does as a mass moves from distance $r_1$ to $r_2$ from the center is
 $GMm\left(\dfrac{1}{r_2} - \dfrac{1}{r_1}\right)$, independent of the route. Escape velocity,
 orbital energy and the "potential wells" of astronomy all rest on this one fact.
@@ -108,7 +108,7 @@ For an incompressible fluid (constant $\rho$) it reduces to $\nabla\cdot\mathbf 
 the heat flux is $\mathbf q = -k\nabla T$ (Fourier's law; $k$ is the thermal conductivity).
 Conservation of energy, run through the same argument, gives the **heat equation**
 $\dfrac{\partial T}{\partial t} = \alpha\nabla^2T$ (here $\alpha = k/(\rho c)$ is the thermal
-diffusivity, with $\rho$ the material's density and $c$ its specific heat), which is where the Laplacian of Lesson 32 earns
+diffusivity, with $\rho$ the material's density and $c$ its specific heat), which is where the Laplacian of Lesson 33 earns
 its keep. In steady state, $\nabla^2T = 0$: the temperature is harmonic.
 
 ### Example 3: heat leaving a ball

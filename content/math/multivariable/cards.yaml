@@ -115,6 +115,13 @@
 - {front: 'Why Lagrange works', back: 'At a constrained extremum, the level curve of $f$ is tangent to the constraint, so the gradients are parallel.', topic: Lagrange multipliers}
 - {front: 'Meaning of $\lambda$', back: 'The rate of change of the optimal value with respect to the constraint level $k$.', topic: Lagrange multipliers}
 - {front: 'Lagrange with two constraints', back: '$\nabla f = \lambda\nabla g + \mu\nabla h$, $g = k$, $h = c$ (with $\nabla g$, $\nabla h$ nonzero and not parallel)', topic: Lagrange multipliers}
+- {front: 'Residual', back: 'Observed minus predicted: $e_i = y_i - (mx_i + b)$, the vertical gap from the point to the line.', topic: Least squares}
+- {front: 'What least squares minimizes', back: '$S(m, b) = \sum(y_i - mx_i - b)^2$, the sum of squared residuals.', topic: Least squares}
+- {front: 'Normal equations for a line', back: '$m\sum x_i^2 + b\sum x_i = \sum x_iy_i$ and $m\sum x_i + nb = \sum y_i$ (from $S_m = 0$, $S_b = 0$)', topic: Least squares}
+- {front: 'Least squares slope and intercept', back: '$m = \dfrac{n\sum x_iy_i - \sum x_i\sum y_i}{n\sum x_i^2 - (\sum x_i)^2}$, $b = \bar y - m\bar x$', topic: Least squares}
+- {front: 'Point on every least squares line', back: 'The point of means $(\bar x, \bar y)$; the residuals sum to zero.', topic: Least squares}
+- {front: 'Why the least squares critical point is a minimum', back: '$D = 4n\sum(x_i - \bar x)^2 > 0$ and $S_{mm} = 2\sum x_i^2 > 0$ (unless all $x_i$ are equal); $S$ is quadratic, so the minimum is absolute.', topic: Least squares}
+- {front: 'Least squares line through the origin', back: 'For $y = kx$: $k = \dfrac{\sum x_iy_i}{\sum x_i^2}$', topic: Least squares}
 # Module 5: double integrals
 - {front: 'Fubini''s theorem (rectangle)', back: 'For continuous $f$: $\iint_R f\,dA = \int_a^b\int_c^d f\,dy\,dx = \int_c^d\int_a^b f\,dx\,dy$', topic: Iterated integrals}
 - {front: 'Product integrand over a rectangle', back: '$\iint_R g(x)h(y)\,dA = \int_a^b g\,dx\cdot\int_c^d h\,dy$', topic: Double integrals}
@@ -133,6 +140,8 @@
 - {front: 'Centroid of a half-disk of radius $a$', back: '$\left(0, \dfrac{4a}{3\pi}\right)$', topic: Mass and center of mass}
 - {front: 'Moment of inertia about the origin', back: '$I_0 = \iint_D(x^2 + y^2)\rho\,dA$; uniform disk: $\tfrac12ma^2$', topic: Mass and center of mass}
 - {front: 'Surface area of $z = f(x, y)$', back: '$A = \iint_D\sqrt{1 + f_x^2 + f_y^2}\,dA$', topic: Surface area}
+- {front: 'Joint density function', back: '$f \ge 0$ with $\iint_{\mathbb R^2}f\,dA = 1$; then $P\big((X, Y)\in D\big) = \iint_D f\,dA$.', topic: Joint densities}
+- {front: 'Mean of $X$ from a joint density', back: '$E(X) = \iint_{\mathbb R^2}x\,f(x, y)\,dA$ (likewise $E(Y)$ with $y$)', topic: Joint densities}
 # Module 6: triple integrals
 - {front: 'Type 1 solid triple integral', back: '$\iiint_E f\,dV = \iint_D\int_{u_1(x,y)}^{u_2(x,y)}f\,dz\,dA$', topic: Triple integrals}
 - {front: 'Volume of a solid $E$', back: '$V = \iiint_E 1\,dV$', topic: Triple integrals}

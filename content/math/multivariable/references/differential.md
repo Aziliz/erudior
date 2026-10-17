@@ -46,3 +46,5 @@ title: Differential calculus formulas
 | Second-derivative test | At a critical point with continuous second partials, $D = f_{xx}f_{yy} - f_{xy}^2$: $D>0, f_{xx}>0$ min; $D>0, f_{xx}<0$ max; $D<0$ saddle; $D=0$ inconclusive |
 | Closed region | Compare interior critical values with boundary extremes (include corners) |
 | Lagrange | $\nabla f = \lambda\nabla g$, $g = k$ (needs $\nabla g \ne \mathbf 0$); two constraints: $\nabla f = \lambda\nabla g + \mu\nabla h$ ($\nabla g$, $\nabla h$ not parallel) |
+| Least squares line | Minimize $S(m,b) = \sum(y_i - mx_i - b)^2$; normal equations $m\sum x_i^2 + b\sum x_i = \sum x_iy_i$, $m\sum x_i + nb = \sum y_i$ |
+| Least squares formulas | $m = \dfrac{n\sum x_iy_i - \sum x_i\sum y_i}{n\sum x_i^2 - (\sum x_i)^2}$, $b = \bar y - m\bar x$; through the origin: $k = \sum x_iy_i/\sum x_i^2$ |

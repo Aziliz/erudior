@@ -102,7 +102,7 @@ $$\frac{\partial(x, y, z)}{\partial(u, v, w)} = \begin{vmatrix} x_u & x_v & x_w\
 and $dV = \left|\dfrac{\partial(x,y,z)}{\partial(u,v,w)}\right|du\,dv\,dw$. Computing it for
 spherical coordinates gives $-\rho^2\sin\phi$ in the order $(\rho, \theta, \phi)$ (the sign
 depends on the order of the variables); its absolute value $\rho^2\sin\phi$ is the factor
-from Lesson 26. The geometric meaning is the one from Lesson 4: the absolute value of a
+from Lesson 27. The geometric meaning is the one from Lesson 4: the absolute value of a
 $3\times3$ determinant is the volume of a parallelepiped.
 
 ## Common mistakes

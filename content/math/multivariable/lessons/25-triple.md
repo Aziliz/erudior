@@ -53,7 +53,7 @@ The recipe:
    through the solid enters at the bottom and leaves at the top.)
 2. Find $D$, the **projection** (shadow) of $E$ on the $xy$-plane, often by setting the top
    and bottom equal or by setting $z = 0$.
-3. Describe $D$ as a Type I or Type II plane region (Lesson 21), giving the remaining limits.
+3. Describe $D$ as a Type I or Type II plane region (Lesson 22), giving the remaining limits.
 
 Solids can equally be projected onto the $yz$- or $xz$-plane, with $x$ or $y$ as the inner
 variable; choose whichever makes the description simplest.
@@ -89,7 +89,7 @@ $z = 0$ and $y + z = 1$.
 
 ## Applications
 
-Everything from Lesson 23 carries over with $dV$ in place of $dA$. For a solid with density
+Everything from Lesson 24 carries over with $dV$ in place of $dA$. For a solid with density
 $\rho(x, y, z)$:
 
 - mass $m = \iiint_E\rho\,dV$;

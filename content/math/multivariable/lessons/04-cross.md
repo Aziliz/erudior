@@ -13,7 +13,7 @@ The dot product measures how much two vectors agree. The cross product answers a
 different question: given two directions in space, which direction is perpendicular to
 both, and how much area do they span? We need this constantly: to find the normal to a
 plane (Lesson 5), the binormal of a curve (Lesson 9), torque, and the normal vector of a
-parametric surface (Lesson 33). Unlike the dot product, the cross product exists only in
+parametric surface (Lesson 34). Unlike the dot product, the cross product exists only in
 three dimensions and produces a vector.
 
 ## Definition

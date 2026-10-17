@@ -130,3 +130,93 @@
     $\nabla V = \lambda\nabla g$: $yz = {a:coef}\lambda$, $xz = {b:coef}\lambda$, $xy = {c:coef}\lambda$.
     Multiply by $x$, $y$, $z$ respectively: $xyz = {a:coef}\lambda x = {b:coef}\lambda y = {c:coef}\lambda z$, so ${a:coef}x = {b:coef}y = {c:coef}z$. Each term is one third of {k}.
     So ${a:coef}x = {b:coef}y = {c:coef}z = \tfrac{{k}}{3}$: **$x = {X}$, $y = {Y}$, $z = {Z}$**, and $V =$ **{V}**.
+- id: mv-d-ls-points
+  title: Least squares line through four points
+  topic: Least squares
+  vars:
+    x0: {min: 0, max: 2}
+    y1: {min: 0, max: 12}
+    y2: {min: 0, max: 12}
+    y3: {min: 0, max: 12}
+    y4: {min: 0, max: 12}
+  where: ["numm != 0"]
+  calc:
+    xa: x0
+    xb: x0 + 1
+    xc: x0 + 2
+    xd: x0 + 3
+    sx: xa + xb + xc + xd
+    sy: y1 + y2 + y3 + y4
+    sxx: xa^2 + xb^2 + xc^2 + xd^2
+    sxy: xa*y1 + xb*y2 + xc*y3 + xd*y4
+    numm: 4*sxy - sx*sy
+    den: 4*sxx - sx^2
+    m: numm/den
+    b: (sy - m*sx)/4
+  prompt: 'Find the least squares line $y = mx + b$ for the points $({xa}, {y1})$, $({xb}, {y2})$, $({xc}, {y3})$, $({xd}, {y4})$. (Exact fractions, or decimals to 2 places.)'
+  figure:
+    type: plot
+    x: [-1, 5.5]
+    y: [-1, 13]
+    points:
+      - [xa, y1]
+      - [xb, y2]
+      - [xc, y3]
+      - [xd, y4]
+    caption: 'The four data points'
+  answers:
+    - {name: m, label: '$m =$', format: num4}
+    - {name: b, label: '$b =$', format: num4}
+  solution: |-
+    Sums: $n = 4$, $\sum x_i = {sx}$, $\sum y_i = {sy}$, $\sum x_i^2 = {sxx}$, $\sum x_iy_i = {sxy}$.
+    Normal equations: ${sxx}m + {sx}b = {sxy}$ and ${sx}m + 4b = {sy}$.
+    Solving: $m = \dfrac{4({sxy}) - ({sx})({sy})}{4({sxx}) - {sx}^2} = \dfrac{{numm}}{{den}} =$ **{m:num4}**.
+    Then $b = \dfrac{\sum y_i - m\sum x_i}{4} = \dfrac{{sy} - ({m:num4})({sx})}{4} =$ **{b:num4}**.
+- id: mv-d-ls-sums
+  title: Solve the normal equations from data sums
+  topic: Least squares
+  vars:
+    n: {min: 5, max: 10}
+    sx: {min: 5, max: 40}
+    e: {min: 1, max: 30}
+    m: {min: -4, max: 4}
+    b: {min: -6, max: 6}
+  where: ["m != 0", "b != 0", "abs(numm) < 1000", "abs(sxy) < 1000"]
+  calc:
+    sxx: ceil(sx^2/n) + e
+    sy: m*sx + n*b
+    sxy: m*sxx + b*sx
+    numm: n*sxy - sx*sy
+    den: n*sxx - sx^2
+  prompt: 'A data set of $n = {n}$ points has $\sum x_i = {sx}$, $\sum y_i = {sy}$, $\sum x_i^2 = {sxx}$ and $\sum x_iy_i = {sxy}$. Find the slope $m$ and intercept $b$ of the least squares line $y = mx + b$.'
+  answers:
+    - {name: m, label: '$m =$'}
+    - {name: b, label: '$b =$'}
+  solution: |-
+    The normal equations are $m\sum x_i^2 + b\sum x_i = \sum x_iy_i$ and $m\sum x_i + nb = \sum y_i$:
+    $${sxx}m + {sx}b = {sxy},\qquad {sx}m + {n}b = {sy}.$$
+    Eliminate $b$: $m = \dfrac{n\sum x_iy_i - \sum x_i\sum y_i}{n\sum x_i^2 - (\sum x_i)^2} = \dfrac{{n}({sxy}) - ({sx})({sy})}{{n}({sxx}) - {sx}^2} = \dfrac{{numm}}{{den}} =$ **{m}**.
+    Then $b = \left(\sum y_i - m\sum x_i\right)/n = \dfrac{{sy} - ({m})({sx})}{{n}} =$ **{b}**.
+- id: mv-d-ls-origin
+  title: Best line through the origin
+  topic: Least squares
+  vars:
+    x1: {min: 1, max: 2}
+    d2: {min: 1, max: 2}
+    d3: {min: 1, max: 3}
+    y1: {min: 1, max: 15}
+    y2: {min: 1, max: 15}
+    y3: {min: 1, max: 15}
+  calc:
+    x2: x1 + d2
+    x3: x2 + d3
+    sxy: x1*y1 + x2*y2 + x3*y3
+    sxx: x1^2 + x2^2 + x3^2
+    k: sxy/sxx
+  prompt: 'Fit the model $y = kx$, a line through the origin, to the points $({x1}, {y1})$, $({x2}, {y2})$, $({x3}, {y3})$ by least squares. (Exact fraction, or 3 decimal places.)'
+  answers:
+    - {name: k, label: '$k =$', format: dp3, tolerance: 0.001}
+  solution: |-
+    Minimize $S(k) = \sum(y_i - kx_i)^2$. Setting $S'(k) = -2\sum x_i(y_i - kx_i) = 0$ gives $k = \dfrac{\sum x_iy_i}{\sum x_i^2}$.
+    $\sum x_iy_i = {x1}({y1}) + {x2}({y2}) + {x3}({y3}) = {sxy}$ and $\sum x_i^2 = {x1}^2 + {x2}^2 + {x3}^2 = {sxx}$.
+    So $k = \dfrac{{sxy}}{{sxx}} \approx$ **{k:dp3}**. ($S''(k) = 2\sum x_i^2 > 0$, so this is the minimum.)

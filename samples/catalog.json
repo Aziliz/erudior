@@ -61,7 +61,7 @@
   "file": "math/math-algebra2.json",
   "order": 3,
   "title": "Algebra 2",
-  "description": "High school Algebra 2: function transformations, composition and inverses, complex numbers, systems in three variables, polynomial functions, radicals and rational exponents, rational expressions and functions, exponentials and logarithms, sequences and series, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
+  "description": "High school Algebra 2: function transformations, composition and inverses, complex numbers, nonlinear systems, systems in three variables and matrices, polynomial functions, radicals and rational exponents, rational expressions and functions, polynomial and rational inequalities, exponentials and logarithms, sequences and series, counting and the binomial theorem, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
   "revision": 2,
   "subject": "Math",
   "level": [
@@ -129,10 +129,10 @@
   "type": [
    "Course"
   ],
-  "lessons": 40,
-  "questions": 481,
-  "cards": 204,
-  "drills": 95
+  "lessons": 43,
+  "questions": 527,
+  "cards": 225,
+  "drills": 105
  },
  {
   "id": "math-calculus",
@@ -150,18 +150,18 @@
    "Course",
    "Exam prep"
   ],
-  "lessons": 44,
-  "questions": 480,
-  "cards": 282,
-  "drills": 90
+  "lessons": 46,
+  "questions": 518,
+  "cards": 302,
+  "drills": 99
  },
  {
   "id": "math-multivariable",
   "file": "math/math-multivariable.json",
   "order": 8,
   "title": "Multivariable Calculus",
-  "description": "A complete college Calculus III course. It opens with a bridge from single-variable calculus, then builds vectors and the geometry of space, vector functions and motion, partial derivatives and the gradient, optimization with Lagrange multipliers, double and triple integrals in every coordinate system, change of variables, and finishes with vector fields, line and surface integrals, and the theorems of Green, Stokes and Gauss with their uses in physics.",
-  "revision": 2,
+  "description": "A complete college Calculus III course. It opens with a bridge from single-variable calculus, then builds vectors and the geometry of space, vector functions and motion, partial derivatives and the gradient, optimization with Lagrange multipliers and least squares fitting, double and triple integrals in every coordinate system, change of variables, and finishes with vector fields, line and surface integrals, and the theorems of Green, Stokes and Gauss with their uses in physics.",
+  "revision": 3,
   "subject": "Math",
   "level": [
    "College"
@@ -169,10 +169,10 @@
   "type": [
    "Course"
   ],
-  "lessons": 37,
-  "questions": 425,
-  "cards": 187,
-  "drills": 72
+  "lessons": 38,
+  "questions": 443,
+  "cards": 196,
+  "drills": 76
  },
  {
   "id": "math-diffeq",

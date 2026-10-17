@@ -48,7 +48,7 @@ $f(x, y) = \int_{(a,b)}^{(x,y)}\mathbf F\cdot d\mathbf r$ along any path; its gr
 out to be $\mathbf F$.)
 
 So for fields on such a region: *conservative ⇔ path independent ⇔ zero around every closed
-loop*. The field $\langle x^2, xy\rangle$ of Lesson 29 gave $\tfrac{11}{15}$ and $\tfrac23$ on
+loop*. The field $\langle x^2, xy\rangle$ of Lesson 30 gave $\tfrac{11}{15}$ and $\tfrac23$ on
 two paths, so it is not conservative.
 
 ## Testing whether a field is conservative
@@ -74,7 +74,7 @@ circle its line integral is $\int_0^{2\pi}(\sin^2t + \cos^2t)\,dt = 2\pi \ne 0$.
 plane minus a point) is not simply connected, so the test does not apply.
 
 In three dimensions the condition becomes $\operatorname{curl}\mathbf F = \mathbf 0$, which we
-meet in Lesson 32: $R_y = Q_z$, $P_z = R_x$, $Q_x = P_y$.
+meet in Lesson 33: $R_y = Q_z$, $P_z = R_x$, $Q_x = P_y$.
 
 ## Finding a potential function
 

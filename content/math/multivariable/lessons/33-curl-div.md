@@ -60,7 +60,7 @@ speed.
 
 ## Curl and conservative fields
 
-Two facts link curl to Lesson 30.
+Two facts link curl to Lesson 31.
 
 1. **Gradients have zero curl:** $\operatorname{curl}(\nabla f) = \mathbf 0$ for any $f$ with
    continuous second partials. (Each component is a difference of mixed partials, like

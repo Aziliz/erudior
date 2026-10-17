@@ -35,7 +35,7 @@ $$\oint_C P\,dx + Q\,dy = \iint_D\left(\frac{\partial Q}{\partial x} - \frac{\pa
 
 In vector form, with $\mathbf F = \langle P, Q\rangle$, the left side is the **circulation**
 $\oint_C\mathbf F\cdot d\mathbf r$, and the integrand $Q_x - P_y$ measures the local rotation
-of the field (the "scalar curl"; Lesson 32).
+of the field (the "scalar curl"; Lesson 33).
 
 **Why it is true (a sketch).** Check it for a tiny rectangle $[x, x + \Delta x]\times[y, y + \Delta y]$.
 The two vertical sides contribute $Q(x + \Delta x, y)\Delta y - Q(x, y)\Delta y \approx Q_x\,\Delta x\,\Delta y$,
@@ -76,7 +76,7 @@ $$A = \oint_C x\,dy = -\oint_C y\,dx = \frac12\oint_C x\,dy - y\,dx.$$
 
 For $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, take $x = a\cos t$, $y = b\sin t$. Then
 $x\,dy - y\,dx = (ab\cos^2t + ab\sin^2t)\,dt = ab\,dt$, so
-$A = \tfrac12\int_0^{2\pi}ab\,dt = \pi ab$, matching Lesson 27.
+$A = \tfrac12\int_0^{2\pi}ab\,dt = \pi ab$, matching Lesson 28.
 
 This principle is how a **planimeter** works: a mechanical arm traced around the boundary of
 a shape on a map reads off its area.
@@ -85,7 +85,7 @@ a shape on a map reads off its area.
 
 - **Conservative fields again.** If $P_y = Q_x$ on a simply connected $D$, Green's theorem
   gives $\oint_C\mathbf F\cdot d\mathbf r = 0$ around every closed curve in $D$. That is why the
-  test in Lesson 30 works.
+  test in Lesson 31 works.
 - **Regions with holes.** If $D$ has holes, its boundary has several pieces. Orient the outer
   curve counterclockwise and each inner curve clockwise (so $D$ is still on the left), and
   Green's theorem holds with the sum of all of them. This explains the field
@@ -94,7 +94,7 @@ a shape on a map reads off its area.
   enclosing the origin.
 - **Flux form.** Green's theorem also says the outward **flux** of $\mathbf F$ across $C$,
   $\oint_C\mathbf F\cdot\mathbf n\,ds = \oint_C P\,dy - Q\,dx$, equals
-  $\iint_D(P_x + Q_y)\,dA$. This is the two-dimensional Divergence theorem (Lesson 36).
+  $\iint_D(P_x + Q_y)\,dA$. This is the two-dimensional Divergence theorem (Lesson 37).
 
 ## Common mistakes
 

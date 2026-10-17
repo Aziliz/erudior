@@ -14,7 +14,8 @@ checking the sign of $f''$. The same plan works for $f(x, y)$, with two differen
 "derivative equals zero" condition becomes a *system* of equations, and a new kind of
 critical point appears, the saddle, which is a maximum in one direction and a minimum in
 another. This lesson develops the test that tells them apart. Optimization is where
-multivariable calculus pays its way in economics, engineering and data fitting.
+multivariable calculus pays its way in economics, engineering and data fitting (Lesson 20 fits lines to data with exactly
+this test).
 
 ## Local extrema and critical points
 

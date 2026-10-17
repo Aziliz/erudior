@@ -99,6 +99,9 @@ spanned by the two constraint normals. This needs the same kind of proviso as
 $\nabla g \ne \mathbf 0$ in the one-constraint case: at the point, $\nabla g$ and $\nabla h$
 must be nonzero and not parallel, so that they really do span a plane.
 
+The next lesson returns to optimization without constraints, for one of its most common
+uses: choosing the line that best fits a set of data points.
+
 ## Common mistakes
 
 - Forgetting to include the constraint equation itself in the system.

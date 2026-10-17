@@ -203,3 +203,27 @@
   solution: |-
     $f_x = {p}$ and $f_y = {q}$, so the stretch factor is $\sqrt{1 + ({p})^2 + ({q})^2} \approx {fac:num4}$, constant.
     Area $= \displaystyle\iint_R\sqrt{1 + f_x^2 + f_y^2}\,dA = {A}\cdot{B}\cdot{fac:num4} \approx$ **{S:num2}**.
+- id: mv-d-joint-density
+  title: A joint density on a rectangle
+  topic: Joint densities
+  vars:
+    a: {min: 2, max: 4}
+    bb: {min: 2, max: 4}
+    s: {min: 1, max: 3}
+    t: {min: 1, max: 3}
+  where: ["s < a", "t < bb"]
+  calc:
+    cc: 4/(a^2*bb^2)
+    a2: a^2
+    b2: bb^2
+    prob: s^2*t^2/(a^2*bb^2)
+    ex: 2*a/3
+  prompt: 'The random variables $X$ and $Y$ have joint density $f(x, y) = Cxy$ on the rectangle $0 \le x \le {a}$, $0 \le y \le {bb}$, and $0$ elsewhere. Find the constant $C$, the probability $P(X \le {s},\ Y \le {t})$, and the mean $E(X)$. (Exact fractions.)'
+  answers:
+    - {name: cc, kind: fraction, label: '$C =$'}
+    - {name: prob, kind: fraction, label: '$P =$'}
+    - {name: ex, kind: fraction, label: '$E(X) =$'}
+  solution: |-
+    Total probability 1: $\displaystyle\int_0^{{a}}\int_0^{{bb}}Cxy\,dy\,dx = C\cdot\frac{{a2}}{2}\cdot\frac{{b2}}{2} = 1$, so $C =$ **${cc:texfrac}$**.
+    $P = \displaystyle\int_0^{{s}}\int_0^{{t}}Cxy\,dy\,dx = C\cdot\frac{{s}^2}{2}\cdot\frac{{t}^2}{2} =$ **${prob:texfrac}$**.
+    $E(X) = \displaystyle\int_0^{{a}}\int_0^{{bb}}x\cdot Cxy\,dy\,dx = C\cdot\frac{{a}^3}{3}\cdot\frac{{b2}}{2} =$ **${ex:texfrac}$**.

@@ -39,6 +39,7 @@ Jacobian: $\dfrac{\partial(x,y)}{\partial(u,v)} = x_uy_v - x_vy_u = 1\Big/\dfrac
 | Average value | $\frac{1}{A}\iint f\,dA$ | $\frac1V\iiint f\,dV$ |
 | Moment of inertia | $I_0 = \iint(x^2+y^2)\rho\,dA$ | $I_z = \iiint(x^2+y^2)\rho\,dV$ |
 | Surface area of $z = f(x,y)$ | $\iint_D\sqrt{1 + f_x^2 + f_y^2}\,dA$ | |
+| Probability (joint density $f$) | $P\big((X,Y)\in D\big) = \iint_D f\,dA$, $E(X) = \iint x f\,dA$ | |
 
 ## Useful values
 

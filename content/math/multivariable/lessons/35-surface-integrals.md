@@ -20,7 +20,7 @@ theorem, the Divergence theorem, and Maxwell's equations.
 
 Let $S$ be given by $\mathbf r(u, v)$, $(u, v)\in D$. Chop $S$ into small patches of area
 $\Delta S$, multiply by values of $f$, and add. Since $dS = |\mathbf r_u\times\mathbf r_v|\,du\,dv$
-(Lesson 33):
+(Lesson 34):
 
 $$\iint_S f(x, y, z)\,dS = \iint_D f(\mathbf r(u, v))\,|\mathbf r_u\times\mathbf r_v|\,dA.$$
 

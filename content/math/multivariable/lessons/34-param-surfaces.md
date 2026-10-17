@@ -76,7 +76,7 @@ $dS = |\mathbf r_u\times\mathbf r_v|\,du\,dv$ for the **surface area element**.
 
 For a graph $\mathbf r = \langle x, y, f(x, y)\rangle$: $\mathbf r_x = \langle 1, 0, f_x\rangle$,
 $\mathbf r_y = \langle 0, 1, f_y\rangle$, and $\mathbf r_x\times\mathbf r_y = \langle -f_x, -f_y, 1\rangle$,
-recovering the formula $\iint\sqrt{1 + f_x^2 + f_y^2}\,dA$ from Lesson 23.
+recovering the formula $\iint\sqrt{1 + f_x^2 + f_y^2}\,dA$ from Lesson 24.
 
 ### Example 2: the sphere
 

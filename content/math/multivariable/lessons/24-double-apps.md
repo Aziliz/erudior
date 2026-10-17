@@ -3,8 +3,8 @@ id: mv-double-apps
 module: mv-m5
 title: 'Applications: mass, centers of mass, surface area'
 minutes: 40
-topics: [Mass and center of mass, Surface area]
-drills: [mv-d-mass-lamina, mv-d-centroid, mv-d-surf-area-graph]
+topics: [Mass and center of mass, Surface area, Joint densities]
+drills: [mv-d-mass-lamina, mv-d-centroid, mv-d-surf-area-graph, mv-d-joint-density]
 refs: [mv-ref-integrals]
 ---
 ## What double integrals measure

@@ -105,7 +105,7 @@ $$W = |\mathbf F|\cos\theta\;|\mathbf D| = \mathbf F\cdot\mathbf D.$$
 A sled is pulled 50 m along level ground by a rope at $30^\circ$ above horizontal with
 tension 80 N. The work is $W = 80\cdot 50\cdot\cos 30^\circ = 4000\cdot\tfrac{\sqrt3}{2} \approx 3464$ J.
 The vertical part of the pull does no work, since the sled does not move vertically. In
-Lesson 29 we let the force vary and the path curve, and this dot product becomes a line integral.
+Lesson 30 we let the force vary and the path curve, and this dot product becomes a line integral.
 
 ## Common mistakes
 

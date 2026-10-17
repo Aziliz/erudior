@@ -75,7 +75,7 @@ function: $\mathbf F = \nabla f$. Then $f$ is called a **potential function** fo
 $\mathbf F$. The gravitational field is conservative: it is the gradient of
 $f(\mathbf x) = \dfrac{mMG}{|\mathbf x|}$ (check one component:
 $\partial_x\left(mMG(x^2 + y^2 + z^2)^{-1/2}\right) = -\dfrac{mMGx}{|\mathbf x|^3}$). The rotation
-field $\langle -y, x\rangle$ is not conservative, as we will see in Lesson 30. Conservative
+field $\langle -y, x\rangle$ is not conservative, as we will see in Lesson 31. Conservative
 fields have remarkable properties, and much of the next three lessons is about recognizing
 them.
 
@@ -84,7 +84,7 @@ them.
 Is $\mathbf F = \langle 2x + y,\; x + 2y\rangle$ a gradient field? Try to find $f$ with
 $f_x = 2x + y$: integrating in $x$ gives $f = x^2 + xy + g(y)$. Then
 $f_y = x + g'(y)$ must equal $x + 2y$, so $g'(y) = 2y$ and $g = y^2$. So
-$f(x, y) = x^2 + xy + y^2$ works, and $\mathbf F$ is conservative. Lesson 30 makes this
+$f(x, y) = x^2 + xy + y^2$ works, and $\mathbf F$ is conservative. Lesson 31 makes this
 procedure systematic.
 
 ## Flow lines

@@ -95,10 +95,10 @@ $\operatorname{curl}\mathbf F\cdot\mathbf k = 1 - (-1) = 2$, so $2\pi$ again. ‚ú
 
 - If $\operatorname{curl}\mathbf F = \mathbf 0$ on a simply connected region, then
   $\oint_C\mathbf F\cdot d\mathbf r = 0$ for every closed curve there (span any surface across $C$):
-  $\mathbf F$ is conservative. This proves the 3D test from Lesson 32.
+  $\mathbf F$ is conservative. This proves the 3D test from Lesson 33.
 - For a closed surface (no boundary), $\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S = 0$.
 - In electromagnetism, Stokes' theorem converts Faraday's law and Amp√®re's law between their
-  integral and differential forms (Lesson 37).
+  integral and differential forms (Lesson 38).
 
 ## Common mistakes
 

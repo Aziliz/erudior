@@ -257,7 +257,7 @@
 - term: joint density function
   aliases: [joint density]
   definition: 'A function $f(x, y) \ge 0$ with $\iint_{\mathbb R^2}f\,dA = 1$ describing two continuous random variables; $P\big((X, Y)\in D\big) = \iint_D f\,dA$.'
-  topic: Mass and center of mass
+  topic: Joint densities
 - term: kinetic energy
   definition: 'The energy of motion $K = \tfrac12m|\mathbf v|^2$.'
   topic: Fundamental theorem for line integrals
@@ -271,6 +271,10 @@
 - term: Laplacian
   definition: '$\nabla^2 f = \operatorname{div}(\nabla f) = f_{xx} + f_{yy} + f_{zz}$.'
   topic: Divergence
+- term: least squares line
+  aliases: [least-squares line, regression line, line of best fit]
+  definition: 'The line $y = mx + b$ whose slope and intercept minimize the sum of squared residuals $\sum(y_i - mx_i - b)^2$ for data $(x_i, y_i)$; it passes through $(\bar x, \bar y)$.'
+  topic: Least squares
 - term: level curve
   aliases: [level curves]
   definition: 'The set of points where $f(x, y) = c$ for a constant $c$.'
@@ -305,6 +309,10 @@
 - term: maximum height
   definition: 'For a projectile launched at speed $v_0$ and angle $\alpha$, $H = \dfrac{(v_0\sin\alpha)^2}{2g}$.'
   topic: Projectile motion
+- term: method of least squares
+  aliases: [least squares]
+  definition: 'Fitting a model to data by choosing its coefficients to minimize the sum of the squared residuals, found by setting the partial derivatives of that sum to zero.'
+  topic: Least squares
 - term: moment
   aliases: [moments]
   definition: 'Mass weighted by distance from an axis (or plane), e.g. $M_y = \iint x\rho\,dA$; used to locate the center of mass.'
@@ -318,6 +326,9 @@
 - term: normal component
   definition: 'For acceleration, $a_N = \kappa v^2 = |\mathbf r''\times\mathbf r''''|/|\mathbf r''|$, the part that changes direction. For a field on a surface, $\mathbf F\cdot\mathbf n$.'
   topic: Tangential and normal acceleration
+- term: normal equations
+  definition: 'The linear equations for the least squares line, from $S_m = 0$ and $S_b = 0$: $m\sum x_i^2 + b\sum x_i = \sum x_iy_i$ and $m\sum x_i + nb = \sum y_i$.'
+  topic: Least squares
 - term: normal line
   definition: 'The line through a point of a surface in the direction of the normal vector, e.g. $\mathbf r_0 + t\nabla F(P)$.'
   topic: The gradient
@@ -404,6 +415,10 @@
 - term: range
   definition: 'The set of output values of a function. (For a projectile, "range" also means the horizontal distance traveled, $v_0^2\sin2\alpha/g$ on level ground.)'
   topic: Domain and range
+- term: residual
+  aliases: [residuals]
+  definition: 'Observed minus predicted value for a data point, $e_i = y_i - (mx_i + b)$: the vertical gap between the point and a fitted line.'
+  topic: Least squares
 - term: resultant
   definition: 'The sum of several forces (or other vectors) acting together.'
   topic: Vector algebra
@@ -476,6 +491,10 @@
   aliases: [u-substitution]
   definition: 'The chain rule backwards: with $u = g(x)$, $\int f(g(x))g''(x)\,dx = \int f(u)\,du$ (change the limits too).'
   topic: Integral review
+- term: sum of squared errors
+  aliases: [SSE, sum of squared residuals]
+  definition: 'The total misfit of a model to data, $S = \sum e_i^2$, the sum of the squared residuals; least squares minimizes it.'
+  topic: Least squares
 - term: surface area element
   definition: '$dS = |\mathbf r_u\times\mathbf r_v|\,du\,dv$, the area of a small patch of a parametric surface.'
   topic: Surface area

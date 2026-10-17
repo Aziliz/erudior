@@ -210,3 +210,44 @@ Build + check-course: OK, zero problems.
 ## Source verification (2026-10-17)
 
 Checked against Paul's Online Notes Calc III (Lamar), OpenStax Calculus Vol 3 / LibreTexts, MIT OCW 18.02SC and NIST CODATA 2022. Edits: hypotheses added (two-constraint Lagrange, Clairaut and Lagrange on the reference sheet, continuity for the conservative-field equivalences, Fubini card), cone traces (L06 and glossary), glossary wording (differentiable, Ampère), spherical-coordinate convention note (L26), constants and thermal diffusivity (L37), mu_0 "approximately" in mv-q-3704, and a new probability paragraph with glossary term "joint density function" (L23).
+
+## Gap lessons (2026-10-17)
+
+Fills the "least squares" coverage gap from VERIFY.md and makes the lesson-23 (now file 24) probability paragraph quizzable.
+Totals now: 38 lessons, 443 questions, 76 drills, 196 cards, 188 glossary terms, 4 reference sheets. Build and check-course: zero problems.
+
+### New lesson
+| File | id | Module | Title |
+|---|---|---|---|
+| lessons/20-least-squares.md | mv-least-squares | mv-m4 | Least squares fitting (residuals, SSE, normal equations, second-derivative check, line through the origin, other linear models) |
+
+Placed last in mv-m4, after Lagrange (it is unconstrained optimization; Lesson 17's test is what it uses).
+Renumbered files (ids unchanged): old 20–37 are now 21–38. Every in-text "Lesson N" with N ≥ 20 was bumped by one (28 references across lessons 01, 03, 04 and 24–38).
+New cross-references: lesson 01 tool table, lesson 17 intro, and lesson 19 end ("the next lesson") point to Lesson 20.
+course.yaml: description mentions least squares; no module changes; id/revision/released/order untouched.
+
+### New questions (18)
+- mv-least-squares: mv-q-1951 – mv-q-1963 (13; module quiz 1951, 1954, 1957, 1963)
+- Task B, mv-double-apps (joint densities): mv-q-2313 – mv-q-2317 (5; module quiz 2314, 2317). New topic "Joint densities" added to that lesson's topics (glossary term "joint density function" moved to this topic).
+- Correct positions across the 18: 0×4, 1×5, 2×4, 3×5.
+
+### New drills (4)
+- m4: mv-d-ls-points (line through 4 points, number answers, figure), mv-d-ls-sums (normal equations from given sums, integer answers), mv-d-ls-origin (y = kx, 3 decimals)
+- m5: mv-d-joint-density (C, P(X ≤ s, Y ≤ t), E(X) for Cxy on a rectangle; exact fractions), linked from lesson 24
+
+### Also added
+- Glossary (5): least squares line, method of least squares, normal equations, residual, sum of squared errors (alias SSE).
+- Cards (9): 7 least squares, 2 joint densities.
+- References: differential.md Optimization table gets two least-squares rows; integrals.md Applications table gets a joint-density row.
+
+### Verification
+- Every new question solved in Python (scratch keycheck.py, sympy/fractions) before fixing keys; all match; distractors checked to be wrong.
+- Lesson examples checked with numpy/sympy (fits, S(m, b) expansion, ellipse contours from the eigen-decomposition).
+- Each new drill generated 500–600 times (scratch drills.mts): targets match an independent solver reading the prompt (Cramer's rule; numerical double integration for the density); shown answer, a 2/3-decimal answer and an exact fraction accepted; a wrong answer rejected; no "+ -", "+ 0", "1x" or comma-grouped numbers.
+- Lesson and drill figures rendered and screenshotted.
+
+### Notes for a reviewer
+- course.yaml revision not bumped (not allowed in this task); whoever releases should bump it and mention the new lesson.
+- Lesson 24 (mv-double-apps) now links 4 drills (AUTHORING suggests 1–3).
+- mv-d-ls-sums placeholder trap fixed during writing (a lone {n} in TeX was being filled); b is now shown as (Σy − mΣx)/n.
+- Lesson 20 mentions the matrix form AᵀAc = Aᵀy only as an aside (no linear algebra prerequisite assumed).

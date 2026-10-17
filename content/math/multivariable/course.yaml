@@ -3,13 +3,13 @@ title: Multivariable Calculus
 description: >-
   A complete college Calculus III course. It opens with a bridge from single-variable
   calculus, then builds vectors and the geometry of space, vector functions and motion,
-  partial derivatives and the gradient, optimization with Lagrange multipliers, double
+  partial derivatives and the gradient, optimization with Lagrange multipliers and least squares fitting, double
   and triple integrals in every coordinate system, change of variables, and finishes
   with vector fields, line and surface integrals, and the theorems of Green, Stokes and
   Gauss with their uses in physics.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.
+changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections; new lesson on least squares.
 order: 8
 subject: Math
 level: [College]

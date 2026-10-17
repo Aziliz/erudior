@@ -114,7 +114,7 @@ $$x = r\cos\theta,\qquad y = r\sin\theta,\qquad r^2 = x^2+y^2,\qquad \tan\theta 
 
 The area enclosed by a polar curve $r = f(\theta)$ for $\alpha\le\theta\le\beta$ is
 $\tfrac12\int_\alpha^\beta f(\theta)^2\,d\theta$, because a thin wedge of angle $d\theta$
-is nearly a triangle of area $\tfrac12 r^2\,d\theta$. That wedge reappears in Lesson 22 as
+is nearly a triangle of area $\tfrac12 r^2\,d\theta$. That wedge reappears in Lesson 23 as
 the area element $dA = r\,dr\,d\theta$.
 
 ```plot
@@ -127,11 +127,11 @@ the area element $dA = r\,dr\,d\theta$.
 |---|---|
 | Derivative as best linear fit | Tangent planes, linear approximation (Lesson 14) |
 | Chain rule | Multivariable chain rule, implicit differentiation (Lesson 15) |
-| Critical points, second-derivative test | Extrema of $f(x,y)$ (Lesson 17) |
+| Critical points, second-derivative test | Extrema of $f(x,y)$ (Lesson 17), least squares fitting (Lesson 20) |
 | FTC | Fundamental theorem for line integrals, Green, Stokes, Divergence |
-| Substitution | Change of variables with Jacobians (Lesson 27) |
+| Substitution | Change of variables with Jacobians (Lesson 28) |
 | Parametric arc length | Arc length of space curves (Lesson 8) |
-| Polar area | Double integrals in polar coordinates (Lesson 22) |
+| Polar area | Double integrals in polar coordinates (Lesson 23) |
 
 ## Common mistakes
 

@@ -26,7 +26,7 @@ $$\iint_S\mathbf F\cdot d\mathbf S = \iiint_E\operatorname{div}\mathbf F\,dV.$$
 (The double integral sign with a circle, $\displaystyle\oiint$, is sometimes used for flux
 through a closed surface; we write $\iint_S$ and say "closed.")
 
-*Why it is true (the idea).* Divergence was defined as outflow per unit volume (Lesson 32).
+*Why it is true (the idea).* Divergence was defined as outflow per unit volume (Lesson 33).
 Cut $E$ into tiny boxes. For each box, outward flux $\approx\operatorname{div}\mathbf F\,\Delta V$
 (one can check this face by face, just as for Green's theorem). Add over all boxes: wherever two
 boxes share a face, the flux out of one is the flux into the other, and they cancel. Only the
@@ -44,7 +44,7 @@ The pattern of all four fundamental theorems is now complete:
 ### Example 1: radial field, revisited
 
 For $\mathbf F = \langle x, y, z\rangle$ and the ball of radius $a$: $\operatorname{div}\mathbf F = 3$, so
-the flux is $3\cdot\tfrac43\pi a^3 = 4\pi a^3$. This matches the direct computation in Lesson 34.
+the flux is $3\cdot\tfrac43\pi a^3 = 4\pi a^3$. This matches the direct computation in Lesson 35.
 
 ### Example 2
 
@@ -73,7 +73,7 @@ The theorem needs a *closed* surface. To find the flux through an open surface, 
 Find the upward flux of $\mathbf F = \langle x, y, z\rangle$ through the paraboloid $z = 4 - x^2 - y^2$, $z \ge 0$.
 
 1. Close the solid with the disk $D$: $x^2 + y^2 \le 4$, $z = 0$, oriented downward (outward from the solid).
-2. Total outward flux $= \iiint_E 3\,dV = 3\cdot V(E)$. The volume under the paraboloid is $8\pi$ (Lesson 22), so the total is $24\pi$.
+2. Total outward flux $= \iiint_E 3\,dV = 3\cdot V(E)$. The volume under the paraboloid is $8\pi$ (Lesson 23), so the total is $24\pi$.
 3. Flux through the lid: $\mathbf n = -\mathbf k$ and $\mathbf F\cdot\mathbf n = -z = 0$ on $z = 0$. So the lid contributes nothing.
 4. Flux through the paraboloid $= 24\pi - 0 = 24\pi$.
 

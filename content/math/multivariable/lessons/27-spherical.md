@@ -105,7 +105,7 @@ Find the height $\bar z$ of the centroid of the solid hemisphere $x^2 + y^2 + z^
 2. $\displaystyle\iiint z\,dV = \int_0^{\pi/2}\int_0^{2\pi}\int_0^a(\rho\cos\phi)\,\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \frac{a^4}{4}\cdot2\pi\cdot\frac12 = \frac{\pi a^4}{4}.$
 3. $\bar z = \dfrac{\pi a^4/4}{2\pi a^3/3} = \dfrac{3a}{8}$.
 
-By symmetry $\bar x = \bar y = 0$. The balance point of a solid half-ball sits $\tfrac38$ of the way up, lower than the $\tfrac{4a}{3\pi} \approx 0.42a$ of the flat half-disk in Lesson 23.
+By symmetry $\bar x = \bar y = 0$. The balance point of a solid half-ball sits $\tfrac38$ of the way up, lower than the $\tfrac{4a}{3\pi} \approx 0.42a$ of the flat half-disk in Lesson 24.
 
 ## Common mistakes
 
