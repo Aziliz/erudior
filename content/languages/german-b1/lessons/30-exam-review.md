@@ -7,7 +7,7 @@ topics: [B1 exam, Exam strategies, Course review]
 ---
 ## What this lesson is for
 
-This is the last lesson of German B1. As at the end of A1 and A2, it does three things: it explains what B1 means, describes the best-known exam at this level, the Goethe-Zertifikat B1, with strategies for each part, and reviews the grammar of the whole course with pointers back to the lessons. The questions at the end of the lesson cover the whole course. You don't need to take the exam, but B1 is the level many people need for work, study or residence, so it's worth knowing how it works. Check the current requirements with the office or employer that asks for it.
+This is the last lesson of German B1. It explains what B1 means, describes the best-known exam at this level, the Goethe-Zertifikat B1, with strategies for each part, and reviews the grammar of the whole course. Its questions cover the whole course. You don't need to take the exam, but B1 is the level many people need for work, study or residence, so it's worth knowing how it works. Check the current requirements with the office or employer that asks for it.
 
 ## What B1 means
 
@@ -18,7 +18,7 @@ B1 is the third of the six levels of the **CEFR** (Common European Framework of 
 - can write simple, connected texts on topics they know or care about;
 - can describe experiences, events, hopes and plans, and give short reasons and explanations for opinions.
 
-The step from A2 is real. At A2 you got by in routine situations; at B1 you can tell a story in the past with *nachdem* and the Präteritum (lessons 1–3), argue with *obwohl, damit, je … desto* (lessons 6–10), describe things precisely with relative clauses and the genitive (lessons 11–15), follow the news with the passive (lessons 16–20), talk about what could have been with the Konjunktiv II (lessons 21–23), and handle offices, doctors, landlords and formal letters (this module). What's still hard is fast speech, dialects, and abstract topics you don't know, and that is the job of B2.
+At A2 you got by in routine situations; at B1 you can tell stories, argue, describe precisely, follow the news on familiar topics and handle offices, doctors, landlords and formal letters. Fast speech, dialects and unfamiliar abstract topics are still hard; that is the job of B2.
 
 ## The Goethe-Zertifikat B1
 
@@ -59,14 +59,12 @@ Other B1 exams, such as telc Deutsch B1 and the ÖSD Zertifikat B1, and the *Deu
 - In true/false tasks, look for the sentence in the text that matches the *Aussage* (statement), then compare carefully. Small words decide: *nur, noch nicht, kaum, nicht mehr, alle, manche*.
 - In matching tasks, you *zuordnen* (match) situations to ads. Underline the key need of each person, and remember that one situation may have no matching ad. Check whether an ad really *zutrifft* (applies) to all of the need, not only one word.
 - In the readers' opinions part, decide for each person whether they are for or against something. Watch for *zwar … aber*, *einerseits … andererseits* and *obwohl*: the main opinion often comes after them.
-- Use your time: 65 minutes for five parts. Don't spend 20 minutes on one difficult question.
 
 ### Hören
 
 - Read the questions before each recording and *markieren* (mark) or *unterstreichen* (underline) the key words.
 - In announcements, the last information counts: *Der Zug fährt heute nicht von Gleis 3, sondern von Gleis 5.*
 - In conversations and discussions, keep track of who says what: each *Sprecher* or *Sprecherin* has a position. Note a word for each person as you listen.
-- Listen for the main point, not every word. If you miss something, keep going; the next question is more important.
 
 ### Schreiben
 
@@ -142,7 +140,7 @@ Translation:
 >
 > Lukas: Agreed. So: Friday, the park or the ground floor, food from everyone, and a book with dedications.
 
-What makes this a good B1 conversation: both speakers make suggestions (*Wie wäre es mit …? Was hältst du davon, wenn …? Ich schlage vor, dass …*), react to each other, disagree politely with a reason (*Hm, ich bin nicht sicher. Das ist ziemlich teuer*), solve a problem (*was machen wir, wenn es regnet?*), share the jobs, and sum up at the end. *die Widmung* is a dedication; *übernehmen* is to take on, take care of.
+Both speakers make suggestions (*Wie wäre es mit …? Was hältst du davon, wenn …? Ich schlage vor, dass …*), disagree politely with a reason, solve a problem, share the jobs and sum up: that is what examiners want to hear. *die Widmung* is a dedication; *übernehmen* is to take on, take care of.
 
 ## Review of the course
 
@@ -203,7 +201,6 @@ These words come up in instructions, in feedback and in your own planning:
 
 - In Lesen, choosing an ad because one word matches. It has to fit the whole situation.
 - In Schreiben, writing 150 words for an 80-word task. Longer isn't better; it only gives you more room for mistakes and less time to check.
-- In Sprechen, giving a monologue in the planning task. React to your partner.
 - Learning set phrases for the presentation but not practising them aloud. Say your introduction and conclusion until they feel automatic.
 - *die Prüfung bestehen* (pass) vs *die Prüfung machen / ablegen* (take): ~~Ich habe die Prüfung gemacht~~ doesn't tell anyone whether you passed.
 
