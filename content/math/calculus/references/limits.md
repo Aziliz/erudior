@@ -12,7 +12,7 @@ If $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} g(x) = M$:
 | Constant multiple | $cL$ |
 | Product | $LM$ |
 | Quotient | $L/M$ (need $M \ne 0$) |
-| Power, root | $L^n$, $\sqrt[n]{L}$ ($L > 0$ for even $n$) |
+| Power, root | $L^n$, $\sqrt[n]{L}$ (even $n$: $L \ge 0$, $f \ge 0$ near $a$) |
 
 ## What to do after substituting
 
@@ -55,4 +55,4 @@ Growth for large $x$: $\ln x \ll x^p \ll e^x \ll x!$-type growth ($p > 0$).
 - **Squeeze:** $g \le f \le h$ near $a$, $g, h \to L$ ⇒ $f \to L$.
 - **Continuous at $a$:** $f(a)$ defined, limit exists, $\lim_{x\to a} f(x) = f(a)$.
 - **Discontinuities:** removable (hole), jump, infinite (vertical asymptote), oscillating.
-- **IVT:** $f$ continuous on $[a, b]$, $N$ between $f(a)$ and $f(b)$ ⇒ some $c \in (a, b)$ has $f(c) = N$.
+- **IVT:** $f$ continuous on $[a, b]$, $N$ strictly between $f(a)$ and $f(b)$ ⇒ some $c \in (a, b)$ has $f(c) = N$.

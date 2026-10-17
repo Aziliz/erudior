@@ -61,8 +61,9 @@ title: Functions, graphs and polynomials
 | Multiplicity | odd: graph crosses; even: graph touches and turns |
 | Remainder theorem | $f(x) \div (x - c)$ leaves remainder $f(c)$ |
 | Factor theorem | $(x - c)$ is a factor $\iff f(c) = 0$ |
-| Rational zeros | $\pm\dfrac{\text{factor of } a_0}{\text{factor of } a_n}$ |
-| Fundamental theorem | degree $n$ has exactly $n$ complex zeros (with multiplicity) |
+| Rational zeros | integer coefficients: $\pm\dfrac{\text{factor of } a_0}{\text{factor of } a_n}$ |
+| Fundamental theorem | degree $n \ge 1$ has exactly $n$ complex zeros (with multiplicity) |
+| Descartes' rule | real coefficients: positive zeros = sign changes of $f(x)$, or fewer by an even number |
 | Conjugates | real coefficients: $a + bi$ zero $\Rightarrow$ $a - bi$ zero |
 
 ## Rational functions $R(x) = \dfrac{p(x)}{q(x)}$ (reduced)
@@ -72,6 +73,7 @@ title: Functions, graphs and polynomials
 | $\deg p < \deg q$ | $y = 0$ |
 | $\deg p = \deg q$ | $y = \dfrac{\text{leading coeff of } p}{\text{leading coeff of } q}$ |
 | $\deg p = \deg q + 1$ | none; slant asymptote = quotient of $p \div q$ |
+| $\deg p \ge \deg q + 2$ | none, and no slant asymptote |
 
 - Common factor cancels: hole. Remaining zero of the denominator: vertical asymptote.
 - Inequalities: move everything to one side, find zeros and undefined points, test each interval (sign chart).

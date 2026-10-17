@@ -31,7 +31,10 @@ A point charge $q$ at the origin produces the electric field
 
 $$\mathbf E = \frac{q}{4\pi\varepsilon_0}\frac{\mathbf x}{|\mathbf x|^3},$$
 
-where $\varepsilon_0$ is the permittivity of free space.
+where $\varepsilon_0$ is the permittivity of free space, about $8.854\times10^{-12}\text{ F/m}$ (CODATA
+2022). Its magnetic partner, the permeability $\mu_0$ used below, is about
+$1.2566\times10^{-6}\text{ N/A}^2$. That is $4\pi\times10^{-7}$ to many digits; it was exactly this
+value before the 2019 redefinition of the SI units.
 
 ### Example 1: flux through a sphere
 
@@ -104,7 +107,8 @@ For an incompressible fluid (constant $\rho$) it reduces to $\nabla\cdot\mathbf 
 **Heat flow.** Heat flows from hot to cold at a rate proportional to the temperature gradient:
 the heat flux is $\mathbf q = -k\nabla T$ (Fourier's law; $k$ is the thermal conductivity).
 Conservation of energy, run through the same argument, gives the **heat equation**
-$\dfrac{\partial T}{\partial t} = \alpha\nabla^2T$, which is where the Laplacian of Lesson 32 earns
+$\dfrac{\partial T}{\partial t} = \alpha\nabla^2T$ (here $\alpha = k/(\rho c)$ is the thermal
+diffusivity, with $\rho$ the material's density and $c$ its specific heat), which is where the Laplacian of Lesson 32 earns
 its keep. In steady state, $\nabla^2T = 0$: the temperature is harmonic.
 
 ### Example 3: heat leaving a ball

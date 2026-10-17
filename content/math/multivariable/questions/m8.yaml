@@ -471,11 +471,12 @@
   lesson: mv-physics
   module_quiz: true
   topic: Applications to physics
-  stem: 'Using $\mu_0 = 4\pi\times10^{-7}\text{ T·m/A}$, find the field 0.1 m from a wire carrying 5 A.'
+  stem: 'Using $\mu_0 \approx 4\pi\times10^{-7}\text{ T·m/A}$, find the field 0.1 m from a wire carrying 5 A.'
   choices: ['$2\times10^{-5}$ T', '$5\times10^{-6}$ T', '$1\times10^{-4}$ T', '$1\times10^{-5}$ T']
   answer: 3
   explanation: |-
     $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})(5)}{2\pi(0.1)} = \dfrac{20\pi\times10^{-7}}{0.2\pi} = 1\times10^{-5}$ T.
+    (Since the 2019 SI redefinition $4\pi\times10^{-7}$ is no longer exact, but it matches the CODATA value $1.25663706\ldots\times10^{-6}$ to about ten digits.)
 - id: mv-q-3705
   lesson: mv-physics
   topic: Applications to physics

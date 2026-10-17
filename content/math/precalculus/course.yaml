@@ -7,8 +7,9 @@ description: >-
   matrices, conic sections, parametric and polar equations, vectors, sequences and series,
   induction, the binomial theorem, counting and probability, and a first look at limits and
   the derivative.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.
 order: 6
 subject: Math
 level: [High school, College]

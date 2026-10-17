@@ -44,7 +44,7 @@ General form $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$: $B^2 - 4AC < 0$ ellipse, $= 
 | $r = a$ | circle about the pole |
 | $r = 2a\cos\theta$ | circle through the pole |
 | $r = a + b\cos\theta$ | limaçon (cardioid if $\lvert a\rvert = \lvert b\rvert$) |
-| $r = a\cos n\theta$ | rose: $n$ petals ($n$ odd), $2n$ petals ($n$ even) |
+| $r = a\cos n\theta$, integer $n \ge 2$ | rose: $n$ petals ($n$ odd), $2n$ petals ($n$ even) |
 | $r = \dfrac{ed}{1 \pm e\cos\theta}$, $\dfrac{ed}{1 \pm e\sin\theta}$ | conic with focus at the pole |
 
 ## Vectors

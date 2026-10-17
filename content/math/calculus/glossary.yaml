@@ -115,7 +115,7 @@
 - term: Intermediate Value Theorem
   aliases:
   - IVT
-  definition: If $f$ is continuous on $[a, b]$ and $N$ is between $f(a)$ and $f(b)$, then $f(c) = N$ for at least one $c$ in $(a, b)$.
+  definition: If $f$ is continuous on $[a, b]$ and $N$ is strictly between $f(a)$ and $f(b)$, then $f(c) = N$ for at least one $c$ in $(a, b)$.
   topic: Intermediate Value Theorem
 - term: bisection method
   definition: 'A root-finding method: repeatedly halve an interval on which a continuous function changes sign, keeping the half where the sign still changes.'
@@ -410,6 +410,11 @@
   aliases:
   - midpoint rule
   definition: A Riemann sum using each subinterval's midpoint for the height ($M_n$); also called the midpoint rule.
+  topic: Riemann sums
+- term: trapezoidal sum
+  aliases:
+  - trapezoidal sums
+  definition: An approximation of $\int_a^b f(x)\,dx$ by trapezoids, each with area $\frac12[f(x_{i-1}) + f(x_i)]\Delta x_i$; the subintervals may have different widths. With equal widths it is the trapezoidal rule.
   topic: Riemann sums
 - term: definite integral
   aliases:
@@ -805,6 +810,11 @@
   - parametric curve
   - parametric
   definition: Equations $x = x(t)$, $y = y(t)$ giving a curve's points in terms of a parameter $t$.
+  topic: Parametric equations
+- term: vector-valued function
+  aliases:
+  - vector-valued functions
+  definition: 'A function whose output is a vector, such as $\mathbf r(t) = \langle x(t), y(t)\rangle$; it is differentiated and integrated one component at a time.'
   topic: Parametric equations
 - term: parameter
   definition: The independent variable (often $t$, for time) in parametric equations.

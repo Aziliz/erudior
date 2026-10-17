@@ -48,7 +48,7 @@ To find the absolute max and min of a continuous $f$ on $[a, b]$:
 2. Evaluate $f$ at each critical number and at the endpoints $a$ and $b$.
 3. The largest value is the absolute max; the smallest is the absolute min.
 
-No tests for max vs min are needed; you're just comparing a short list of numbers.
+No tests for max vs min are needed; you're just comparing a short list of numbers. (The AP course calls this the Candidates Test.)
 
 ### Example 1
 

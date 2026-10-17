@@ -100,6 +100,10 @@ Find the parabola $y = ax^2 + bx + c$ through $(1, 4)$, $(2, 9)$ and $(-1, 6)$.
 
 Each point gives a linear equation in $a, b, c$: $a + b + c = 4$, $4a + 2b + c = 9$, $a - b + c = 6$. Subtracting the first from the third: $-2b = 2$, so $b = -1$. Then $a + c = 5$ and $4a + c = 11$, so $3a = 6$, $a = 2$, $c = 3$. The parabola is $y = 2x^2 - x + 3$.
 
+## A note on nonlinear systems
+
+Row reduction only works when every equation is linear. When an equation contains $x^2$, $xy$ or similar terms, go back to substitution (or to eliminating a whole squared term). For example, to intersect the circle $x^2 + y^2 = 25$ with the line $y = x + 1$, substitute: $x^2 + (x + 1)^2 = 25$ gives $2x^2 + 2x - 24 = 0$, so $x^2 + x - 12 = (x + 4)(x - 3) = 0$. The intersection points are $(3, 4)$ and $(-4, -3)$. Unlike a linear system, a nonlinear system can have exactly two solutions, or three, or four: a line meets a circle 0, 1 or 2 times, and two different conics can meet up to 4 times.
+
 ## Common mistakes
 
 - *Arithmetic in the constants column.* Every row operation applies to the whole row, including the last column.

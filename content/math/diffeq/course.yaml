@@ -7,8 +7,9 @@ description: >-
   numerical methods, second-order and higher-order linear equations, vibrations and
   circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series
   solutions, and an introduction to Fourier series and the heat and wave equations.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.
 order: 9
 subject: Math
 level: [College]

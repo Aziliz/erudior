@@ -35,7 +35,7 @@ Because $\det A^T = \det A$, the same rules hold for columns.
 | Scalar | $\det(cA) = c^n\det A$ |
 | Power | $\det(A^k) = (\det A)^k$ |
 | Similar matrices | $\det(P^{-1}AP) = \det A$ |
-| Eigenvalues | $\det A = \lambda_1\lambda_2\cdots\lambda_n$ (with multiplicity) |
+| Eigenvalues | $\det A = \lambda_1\lambda_2\cdots\lambda_n$ (with multiplicity, complex ones included) |
 | Sum | no rule: $\det(A + B) \neq \det A + \det B$ in general |
 | Invertibility | $A$ invertible ⟺ $\det A \neq 0$ |
 

@@ -156,12 +156,12 @@
 - {front: 'If $A\mathbf{x} = \lambda\mathbf{x}$, then $A^k\mathbf{x} =$', back: '$\lambda^k\mathbf{x}$', topic: Eigenvalues and eigenvectors}
 - {front: 'Characteristic equation', back: '$\det(A - \lambda I) = 0$', topic: Characteristic equation}
 - {front: 'Characteristic polynomial of a $2 \times 2$ matrix', back: '$\lambda^2 - (\operatorname{tr} A)\lambda + \det A$', topic: Characteristic equation}
-- {front: 'Sum and product of the eigenvalues', back: 'Sum = trace; product = determinant (with multiplicity)', topic: Characteristic equation}
+- {front: 'Sum and product of the eigenvalues', back: 'Sum = trace; product = determinant (with multiplicity, complex eigenvalues included)', topic: Characteristic equation}
 - {front: 'Similar matrices share…', back: 'The characteristic polynomial, eigenvalues and multiplicities (not necessarily eigenvectors)', topic: Characteristic equation}
 - {front: 'Diagonalization theorem', back: '$A = PDP^{-1}$ ⟺ $A$ has $n$ independent eigenvectors (columns of $P$), eigenvalues on $D$', topic: Diagonalization}
 - {front: '$A^k$ for diagonalizable $A$', back: '$PD^kP^{-1}$', topic: Diagonalization}
-- {front: 'Sufficient condition for diagonalizable', back: '$n$ distinct eigenvalues', topic: Diagonalization}
-- {front: 'Diagonalizable with repeated eigenvalues ⟺', back: 'Each eigenspace dimension (geometric multiplicity) equals the algebraic multiplicity', topic: Diagonalization}
+- {front: 'Sufficient condition for diagonalizable', back: '$n$ distinct real eigenvalues', topic: Diagonalization}
+- {front: 'Diagonalizable with repeated eigenvalues ⟺', back: 'All eigenvalues are real and each eigenspace dimension (geometric multiplicity) equals the algebraic multiplicity', topic: Diagonalization}
 - {front: 'Classic non-diagonalizable matrix', back: '$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$: eigenvalue 2 twice, only a 1-dimensional eigenspace', topic: Diagonalization}
 - {front: 'Eigenvalues of $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$', back: '$a \pm bi$; it rotates by the angle of $(a, b)$ and scales by $\sqrt{a^2 + b^2}$', topic: Complex eigenvalues}
 - {front: 'Complex eigenvalues of a real matrix', back: 'Come in conjugate pairs, with conjugate eigenvectors', topic: Complex eigenvalues}
@@ -199,7 +199,7 @@
 - {front: 'Spectral decomposition', back: '$A = \sum \lambda_j\mathbf{u}_j\mathbf{u}_j^T$', topic: Symmetric matrices}
 - {front: 'Matrix of $ax_1^2 + bx_1x_2 + cx_2^2$', back: '$\begin{bmatrix} a & b/2 \\ b/2 & c\end{bmatrix}$', topic: Quadratic forms}
 - {front: 'Principal axes theorem', back: '$\mathbf{x} = P\mathbf{y}$ (orthonormal eigenvectors) gives $\mathbf{x}^TA\mathbf{x} = \sum\lambda_iy_i^2$', topic: Quadratic forms}
-- {front: 'Classify a quadratic form by eigenvalues', back: 'All $> 0$: positive definite; all $< 0$: negative definite; mixed signs: indefinite; all $\ge 0$: positive semidefinite', topic: Quadratic forms}
+- {front: 'Classify a quadratic form by eigenvalues', back: 'All $> 0$: positive definite; all $< 0$: negative definite; mixed signs: indefinite; all $\ge 0$: positive semidefinite; all $\le 0$: negative semidefinite', topic: Quadratic forms}
 - {front: 'Max and min of $\mathbf{x}^TA\mathbf{x}$ on $\|\mathbf{x}\| = 1$', back: 'Largest and smallest eigenvalues of $A$ (at unit eigenvectors)', topic: Quadratic forms}
 - {front: '$2 \times 2$ determinant test for quadratic forms', back: '$\det < 0$: indefinite; $\det > 0$ and $a > 0$: positive definite; $\det > 0$ and $a < 0$: negative definite', topic: Quadratic forms}
 - {front: 'Singular values of $A$', back: '$\sigma_i = \sqrt{\lambda_i(A^TA)}$, decreasing; $\sigma_i = \|A\mathbf{v}_i\|$', topic: Singular value decomposition}

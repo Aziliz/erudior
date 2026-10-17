@@ -81,6 +81,15 @@ Damping keeps $R$ finite even at $\omega = \omega_0$, where $R = F_0/(\gamma\ome
 damping that's still large, which is why damped systems show a sharp peak in response near
 $\omega_0$: **practical resonance**.
 
+The peak is not exactly at $\omega_0$. Minimizing the expression under the square root
+(it is a quadratic in $\omega^2$) puts the maximum amplitude at
+
+$$\omega_{\max}^2 = \omega_0^2 - \frac{\gamma^2}{2m^2},$$
+
+slightly below $\omega_0$, provided $\gamma^2 < 2mk$. With heavier damping
+($\gamma^2 \ge 2mk$) there is no peak at all: the amplitude simply falls as $\omega$
+increases from 0.
+
 ### Example 2
 
 Find the steady-state response of $u'' + 2u' + 5u = 10\cos t$ and its amplitude.

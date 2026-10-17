@@ -59,6 +59,12 @@ The exact area turns out to be $\frac83 \approx 2.667$. The left sum underestima
 
 *Over or under?* For an increasing function, left sums underestimate and right sums overestimate; for a decreasing function it's the reverse. (Concavity governs midpoint and trapezoid errors; see Lesson 34.)
 
+## Trapezoidal sums and uneven data
+
+A fourth approximation replaces each rectangle with a trapezoid whose slanted top joins the curve's values at the two ends of the subinterval. One trapezoid has area $\frac12\left[f(x_{i-1}) + f(x_i)\right]\Delta x_i$, the average of the left and right rectangles. Adding them gives a **trapezoidal sum**. For Example 1 it's $\frac{L_4 + R_4}{2} = \frac{1.75 + 3.75}{2} = 2.75$.
+
+Nothing here requires equal widths. Data from a table often come at uneven times, and then each piece uses its own width $\Delta x_i$. If $r(0) = 4$, $r(1) = 6$, $r(4) = 9$ (liters per hour), a trapezoidal sum for $\int_0^4 r(t)\,dt$ is $\frac{4 + 6}{2}(1) + \frac{6 + 9}{2}(3) = 5 + 22.5 = 27.5$ liters, and a left sum is $4(1) + 6(3) = 22$ liters. AP problems use exactly this kind of table.
+
 ## The definite integral
 
 As $n \to \infty$ the rectangles get thinner and the sums close in on the true area. For continuous $f$, the limit exists and doesn't depend on which sample points you use. It is the **definite integral**:

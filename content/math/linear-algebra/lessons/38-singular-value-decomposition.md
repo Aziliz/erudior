@@ -48,7 +48,8 @@ $A = U\Sigma V^T$. (If $r < m$, extend $\mathbf{u}_1, \dots, \mathbf{u}_r$ to an
 $\mathbb{R}^m$ to fill out $U$.)
 
 Reading the SVD: $V^T$ rotates the input into the $\mathbf{v}$-coordinates, $\Sigma$ stretches
-each axis by $\sigma_i$, and $U$ rotates into the output coordinates.
+each axis by $\sigma_i$, and $U$ rotates into the output coordinates. (An orthogonal matrix
+can also include a reflection, so "rotate" here means "rotate, possibly with a flip".)
 
 ### Example 1
 

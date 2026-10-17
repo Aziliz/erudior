@@ -71,6 +71,10 @@ Find $\displaystyle\int\frac{dx}{9 + x^2}$.
 
 Factor out 9: $\frac{1}{9}\int\frac{dx}{1 + (x/3)^2}$. Let $u = x/3$, $dx = 3\,du$: $\frac19\cdot3\int\frac{du}{1 + u^2} = \frac13\arctan\frac x3 + C$.
 
+*Completing the square.* A quadratic denominator with no real roots and an $x$ term, like $x^2 + 4x + 13$, can be pushed into the arctan pattern by completing the square: $x^2 + 4x + 13 = (x + 2)^2 + 9$. With $u = x + 2$ ($du = dx$),
+$$\int\frac{dx}{x^2 + 4x + 13} = \int\frac{du}{u^2 + 9} = \frac13\arctan\frac{x + 2}{3} + C.$$
+The same move turns $\sqrt{a^2 - (x - h)^2}$ shapes into the arcsin pattern.
+
 ## Substitution in definite integrals
 
 Two equally valid ways:

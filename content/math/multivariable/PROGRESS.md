@@ -206,3 +206,7 @@ Glossary: no errors found.
 - No errors noticed outside my area.
 
 Build + check-course: OK, zero problems.
+
+## Source verification (2026-10-17)
+
+Checked against Paul's Online Notes Calc III (Lamar), OpenStax Calculus Vol 3 / LibreTexts, MIT OCW 18.02SC and NIST CODATA 2022. Edits: hypotheses added (two-constraint Lagrange, Clairaut and Lagrange on the reference sheet, continuity for the conservative-field equivalences, Fubini card), cone traces (L06 and glossary), glossary wording (differentiable, Ampère), spherical-coordinate convention note (L26), constants and thermal diffusivity (L37), mu_0 "approximately" in mv-q-3704, and a new probability paragraph with glossary term "joint density function" (L23).

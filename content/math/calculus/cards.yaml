@@ -98,7 +98,7 @@
   back: Set the left piece's value at $c$ equal to the right piece's value at $c$.
   topic: Continuity
 - front: Intermediate Value Theorem
-  back: If $f$ is continuous on $[a, b]$ and $N$ is between $f(a)$ and $f(b)$, then $f(c) = N$ for some $c$ in $(a, b)$.
+  back: If $f$ is continuous on $[a, b]$ and $N$ is strictly between $f(a)$ and $f(b)$, then $f(c) = N$ for some $c$ in $(a, b)$.
   topic: Intermediate Value Theorem
 - front: Using the IVT to locate a root
   back: Show $f$ is continuous on $[a, b]$ and $f(a)$, $f(b)$ have opposite signs.

@@ -27,6 +27,11 @@ A point $P$ has spherical coordinates $(\rho, \theta, \phi)$:
   $0 \le \phi \le \pi$. ($\phi = 0$ is the north pole, $\phi = \tfrac\pi2$ the equator,
   $\phi = \pi$ the south pole.)
 
+This is the convention of most calculus textbooks. Physics and engineering texts (and the
+ISO standard) usually swap the letters: $\theta$ for the angle from the $z$-axis and $\phi$
+for the angle in the $xy$-plane, sometimes with $r$ in place of $\rho$. The geometry is the
+same, so always check which letter a formula uses for which angle.
+
 ```plot
 {"x": [-0.3, 2.5], "y": [-0.5, 2.5], "equal": true, "segments": [{"from": [0, 0], "to": [0, 2.3], "arrow": true, "label": "z"}, {"from": [0, 0], "to": [1.414, 1.414], "arrow": true, "label": "ρ"}, {"from": [1.414, 1.414], "to": [1.414, 0], "dashed": true, "label": "z = ρ cos φ"}, {"from": [0, 0], "to": [1.414, 0], "dashed": true, "label": "r = ρ sin φ"}], "curves": [{"x": "0.6*sin(t)", "y": "0.6*cos(t)", "t": [0, 0.785]}], "labels": [{"at": [0.3, 0.9], "text": "φ"}], "caption": "In the vertical half-plane through P: r = ρ sin φ and z = ρ cos φ"}
 ```

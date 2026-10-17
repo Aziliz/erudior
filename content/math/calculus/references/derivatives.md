@@ -49,6 +49,8 @@ Tangent line at $a$: $y = f(a) + f'(a)(x - a)$. Normal line slope: $-1/f'(a)$.
 | $\arctan x$ | $\dfrac{1}{1 + x^2}$ | $\text{arccot}\, x$ | $-\dfrac{1}{1 + x^2}$ |
 | $\text{arcsec}\, x$ | $\dfrac{1}{\lvert x\rvert\sqrt{x^2 - 1}}$ | $\text{arccsc}\, x$ | $-\dfrac{1}{\lvert x\rvert\sqrt{x^2 - 1}}$ |
 
+The $\text{arcsec}$ formula assumes the range $[0, \pi]$ without $\frac\pi2$ (so $\text{arcsec}\,x = \arccos\frac1x$); books using $[0, \frac\pi2) \cup [\pi, \frac{3\pi}{2})$ get $\frac{1}{x\sqrt{x^2 - 1}}$.
+
 ## Techniques
 
 - **Implicit:** differentiate both sides in $x$; each $y$ term gets a factor $\frac{dy}{dx}$; solve for $\frac{dy}{dx}$.

@@ -190,7 +190,7 @@
   definition: 'If $\frac pq$ (lowest terms) is a zero of an integer-coefficient polynomial, then $p$ divides the constant term and $q$ divides the leading coefficient.'
   topic: Zeros of polynomials
 - term: "Descartes' rule of signs"
-  definition: 'The number of positive real zeros equals the number of sign changes in the coefficients, or is less than it by an even number.'
+  definition: 'For a polynomial with real coefficients, the number of positive real zeros (counted with multiplicity) equals the number of sign changes in its coefficients, or is less than it by an even number; apply it to $f(-x)$ for negative zeros.'
   topic: Zeros of polynomials
 - term: fundamental theorem of algebra
   aliases: [FTA]
@@ -543,7 +543,7 @@
   topic: Polar coordinates
 - term: rose curve
   aliases: [rose]
-  definition: 'A polar curve $r = a\cos n\theta$ or $a\sin n\theta$: $n$ petals if $n$ is odd, $2n$ if $n$ is even.'
+  definition: 'A polar curve $r = a\cos n\theta$ or $a\sin n\theta$ with integer $n \ge 2$: $n$ petals if $n$ is odd, $2n$ if $n$ is even.'
   topic: Polar coordinates
 - term: vector
   aliases: [vectors]
@@ -587,7 +587,7 @@
   topic: Vectors in 3D
 - term: sequence
   aliases: [sequences]
-  definition: 'A function on the positive integers, written $a_1, a_2, a_3, \dots$'
+  definition: 'A function whose domain is the positive integers (or another run of consecutive integers, such as $0, 1, 2, \dots$), written $a_1, a_2, a_3, \dots$'
   topic: Sequences and series
 - term: term
   aliases: [terms]
@@ -770,3 +770,10 @@
   aliases: [asymptotes]
   definition: 'A line that a graph approaches more and more closely.'
   topic: Rational functions
+- term: polar form of a complex number
+  aliases: [trigonometric form]
+  definition: '$z = r(\cos\theta + i\sin\theta)$, where the modulus $r = |z|$ is the distance from 0 to $z$ in the complex plane and the argument $\theta$ is its direction angle.'
+  topic: Polar coordinates
+- term: "De Moivre's theorem"
+  definition: 'If $z = r(\cos\theta + i\sin\theta)$ and $n$ is a positive integer, then $z^n = r^n(\cos n\theta + i\sin n\theta)$.'
+  topic: Polar coordinates

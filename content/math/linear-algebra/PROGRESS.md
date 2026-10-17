@@ -209,3 +209,7 @@ Build: `python3 content/math/build.py linear-algebra` and `npx tsx tests/check-c
 - None in scope. Glossary: no errors found.
 - Remaining cosmetic issues, left as they are: la-eig-tri can show "(0 − λ)"; the angle drill's solution shows "132°" for 131.96 (num1 drops the trailing .0).
 - Build and check-course both report OK.
+
+## Source verification (2026-10-17)
+
+Checked against Interactive Linear Algebra (Georgia Tech), MIT OCW 18.06, GT Math 1554 lecture schedule and Northeastern quadratic-form notes. Fixes: diagonalizability criterion now requires real eigenvalues (lesson 29, cards, factor sheet); trace/determinant = sum/product of eigenvalues now says complex eigenvalues are included (lesson 28, glossary, cards, det/factor sheets); negative semidefinite and the det = 0 case added to lesson 37 (and a card); SVD "rotate" wording notes reflections (lesson 38). Short gap-closing paragraphs: partitioned matrices (lesson 15), the B-matrix of x -> Ax (lesson 29). Full report was delivered in the verification hand-off.

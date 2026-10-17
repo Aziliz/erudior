@@ -88,6 +88,18 @@ which fits, while $A^TB^T$ is $(2 \times 2)(3 \times 2)$, which doesn't even exi
 matrices of Example 1, $(AB)^T = \begin{bmatrix} 0 & 6 \\ -7 & 3 \\ 2 & 0\end{bmatrix}$, and
 multiplying $B^TA^T$ out gives the same thing.
 
+## Partitioned matrices
+
+Large matrices are often cut by horizontal and vertical lines into smaller *blocks*, for
+example $A = \begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22}\end{bmatrix}$. If $B$ is cut
+compatibly (the way the columns of $A$ are split matches the way the rows of $B$ are split),
+then $AB$ can be computed block by block with the row–column rule, treating each block like
+an entry but keeping the order of every product:
+$$\begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22}\end{bmatrix}\begin{bmatrix} B_1 \\ B_2\end{bmatrix} = \begin{bmatrix} A_{11}B_1 + A_{12}B_2 \\ A_{21}B_1 + A_{22}B_2\end{bmatrix}.$$
+The column rule $AB = [\,A\mathbf{b}_1 \;\cdots\; A\mathbf{b}_p\,]$ is the simplest case
+(cut $B$ into single columns), and the homogeneous-coordinate matrices below are built from
+blocks too.
+
 ## Computer graphics and homogeneous coordinates
 
 Graphics software stores a picture as a list of points and moves it by multiplying by

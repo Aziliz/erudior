@@ -18,9 +18,11 @@ a time. This is how many of the "special functions" of physics were first define
 
 ## Ordinary points
 
-Write the equation as $P(x)y'' + Q(x)y' + R(x)y = 0$ with polynomial coefficients. A point
-$x_0$ is an **ordinary point** if $P(x_0) \ne 0$; otherwise it's a **singular point**. Near an
-ordinary point:
+Write the equation as $P(x)y'' + Q(x)y' + R(x)y = 0$ with polynomial coefficients that have
+no common factor (cancel any first). A point $x_0$ is an **ordinary point** if
+$P(x_0) \ne 0$; otherwise it's a **singular point**. (For non-polynomial coefficients the
+general definition is that $Q/P$ and $R/P$ are analytic at $x_0$, meaning they have
+convergent Taylor series there.) Near an ordinary point:
 
 **Theorem.** If $x_0$ is an ordinary point, the general solution is a power series
 $y = \sum_{n=0}^\infty a_n(x - x_0)^n = a_0y_1(x) + a_1y_2(x)$, where $a_0$ and $a_1$ are arbitrary

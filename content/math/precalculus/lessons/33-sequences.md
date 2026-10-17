@@ -13,7 +13,7 @@ A savings plan adds a fixed deposit each month; a ball bounces to 60% of its pre
 
 ## Sequences
 
-A **sequence** is a function whose domain is the positive integers. Instead of $f(n)$ we write $a_n$, the $n$th **term**: $a_1, a_2, a_3, \dots$. A sequence can be given two ways.
+A **sequence** is a function whose domain is the positive integers (or another set of consecutive integers, such as $0, 1, 2, \dots$ when the counting starts at 0). Instead of $f(n)$ we write $a_n$, the $n$th **term**: $a_1, a_2, a_3, \dots$. A sequence can be given two ways.
 
 - An **explicit formula** gives $a_n$ directly from $n$. Example: $a_n = \dfrac{(-1)^n}{n + 1}$ gives $-\frac12, \frac13, -\frac14, \frac15, \dots$. The factor $(-1)^n$ makes the signs alternate.
 - A **recursive formula** gives a starting term and a rule for getting each term from earlier ones. Example: $a_1 = 3$, $a_{n+1} = 2a_n - 1$ gives $3, 5, 9, 17, 33, \dots$. The famous **Fibonacci sequence** is $F_1 = F_2 = 1$, $F_{n} = F_{n-1} + F_{n-2}$: $1, 1, 2, 3, 5, 8, 13, \dots$

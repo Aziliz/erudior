@@ -69,7 +69,7 @@ Factor: $g(x) = \dfrac{(x - 2)(x + 2)}{(x - 2)(x - 3)}$. The function is undefin
 
 ## The Intermediate Value Theorem
 
-**Intermediate Value Theorem** (IVT): if $f$ is continuous on the closed interval $[a, b]$ and $N$ is any number between $f(a)$ and $f(b)$, then there is at least one $c$ in $(a, b)$ with $f(c) = N$.
+**Intermediate Value Theorem** (IVT): if $f$ is continuous on the closed interval $[a, b]$ and $N$ is any number strictly between $f(a)$ and $f(b)$, then there is at least one $c$ in $(a, b)$ with $f(c) = N$. (Some books allow $N$ to equal $f(a)$ or $f(b)$ and then say $c$ is in $[a, b]$; that's the same theorem with the endpoints included.)
 
 The picture: a continuous graph that starts at height $f(a)$ and ends at height $f(b)$ must cross every height in between. Without continuity it could jump over $N$.
 

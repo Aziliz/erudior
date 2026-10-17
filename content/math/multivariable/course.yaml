@@ -7,8 +7,9 @@ description: >-
   and triple integrals in every coordinate system, change of variables, and finishes
   with vector fields, line and surface integrals, and the theorems of Green, Stokes and
   Gauss with their uses in physics.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections.
 order: 8
 subject: Math
 level: [College]

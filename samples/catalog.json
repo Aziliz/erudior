@@ -120,7 +120,7 @@
   "order": 6,
   "title": "Precalculus",
   "description": "Precalculus from the high school course through college precalculus, assuming Algebra 2: functions in depth, transformations, composition and inverses, polynomial and rational functions, exponential and logarithmic models, a compact trigonometry review, systems and matrices, conic sections, parametric and polar equations, vectors, sequences and series, induction, the binomial theorem, counting and probability, and a first look at limits and the derivative.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school",
@@ -140,7 +140,7 @@
   "order": 7,
   "title": "Calculus",
   "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, introductory differential equations, sequences and series, Taylor series, and calculus with parametric and polar curves.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school",
@@ -161,7 +161,7 @@
   "order": 8,
   "title": "Multivariable Calculus",
   "description": "A complete college Calculus III course. It opens with a bridge from single-variable calculus, then builds vectors and the geometry of space, vector functions and motion, partial derivatives and the gradient, optimization with Lagrange multipliers, double and triple integrals in every coordinate system, change of variables, and finishes with vector fields, line and surface integrals, and the theorems of Green, Stokes and Gauss with their uses in physics.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "College"
@@ -180,7 +180,7 @@
   "order": 9,
   "title": "Differential Equations",
   "description": "Ordinary differential equations from the AP-calculus bridge (slope fields, separable equations, exponential and logistic growth, Euler's method) through a full sophomore college course: first-order methods and models, autonomous equations and bifurcations, numerical methods, second-order and higher-order linear equations, vibrations and circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series solutions, and an introduction to Fourier series and the heat and wave equations.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "College"
@@ -199,7 +199,7 @@
   "order": 10,
   "title": "Linear Algebra",
   "description": "A first course in linear algebra, starting from high school vectors, elimination and matrix arithmetic and building through row reduction, span and independence, linear transformations, matrix algebra and factorizations, determinants, vector spaces, eigenvalues, orthogonality and least squares, symmetric matrices, quadratic forms and the singular value decomposition, with applications to networks, chemistry, graphics, Markov chains and regression.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "College"

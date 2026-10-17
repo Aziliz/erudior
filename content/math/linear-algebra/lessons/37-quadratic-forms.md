@@ -64,10 +64,15 @@ matrix) is:
 | **negative definite** | $Q(\mathbf{x}) < 0$ for all $\mathbf{x} \ne \mathbf{0}$ | all negative |
 | **indefinite** | takes both positive and negative values | some positive, some negative |
 | **positive semidefinite** | $Q(\mathbf{x}) \ge 0$ for all $\mathbf{x}$ | all $\ge 0$ |
+| negative semidefinite | $Q(\mathbf{x}) \le 0$ for all $\mathbf{x}$ | all $\le 0$ |
+
+Every positive definite form is also positive semidefinite (and likewise for negative), so
+"semidefinite but not definite" means some eigenvalue is 0.
 
 The form in Example 1 has eigenvalues 6 and 1, so it's positive definite: its level curves
 are ellipses. For $2 \times 2$ forms there's a shortcut: $\det A = \lambda_1\lambda_2$, so
-$\det A < 0$ means indefinite, and $\det A > 0$ means definite, positive if $a > 0$.
+$\det A < 0$ means indefinite, $\det A > 0$ means definite (positive if $a > 0$, negative if
+$a < 0$), and $\det A = 0$ means one eigenvalue is 0, so the form is only semidefinite.
 
 ### Example 2
 

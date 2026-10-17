@@ -22,7 +22,7 @@ Suppose $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} g(x) = M$ both exist, and $c
 | Product | $\lim fg = LM$ |
 | Quotient | $\lim \dfrac{f}{g} = \dfrac{L}{M}$, provided $M \ne 0$ |
 | Power | $\lim f^n = L^n$ |
-| Root | $\lim \sqrt[n]{f} = \sqrt[n]{L}$ (for even $n$, need $L > 0$) |
+| Root | $\lim \sqrt[n]{f} = \sqrt[n]{L}$ (for even $n$, need $L \ge 0$ and $f(x) \ge 0$ near $a$) |
 
 These are what you'd expect: if $f$ is near $L$ and $g$ is near $M$, then $f + g$ is near $L + M$. (The proofs use the ε-δ definition from Lesson 4.) The fine print matters: each law needs the individual limits to *exist*, and the quotient law needs a nonzero denominator limit.
 

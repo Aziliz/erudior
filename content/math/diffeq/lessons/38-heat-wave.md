@@ -101,7 +101,8 @@ obeys the **wave equation**
 
 $$u_{tt} = a^2u_{xx},$$
 
-where $a = \sqrt{\text{tension}/\text{density}}$ is the wave speed. Being second order in $t$,
+where $a = \sqrt{\tau/\rho}$ is the wave speed, with $\tau$ the tension and $\rho$ the string's
+linear density (mass per unit length). Being second order in $t$,
 it needs two initial conditions: position $u(x, 0) = f(x)$ and velocity $u_t(x, 0) = g(x)$.
 
 Separating $u = X(x)T(t)$ gives the same $X$ problem, so $X_n = \sin\dfrac{n\pi x}{L}$, and now

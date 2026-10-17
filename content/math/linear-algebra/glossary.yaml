@@ -567,7 +567,7 @@
   topic: Characteristic equation
 - term: trace
   aliases: [tr A]
-  definition: 'The sum of the diagonal entries of a square matrix; it equals the sum of the eigenvalues.'
+  definition: 'The sum of the diagonal entries of a square matrix; it equals the sum of the eigenvalues (counted with multiplicity, complex ones included).'
   topic: Characteristic equation
 - term: algebraic multiplicity
   definition: 'The multiplicity of an eigenvalue as a root of the characteristic polynomial.'

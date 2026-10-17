@@ -34,6 +34,8 @@ $$y = A\sin\big(B(x - C)\big) + D \quad \text{or} \quad y = A\cos\big(B(x - C)\b
 | **Phase shift** | $C$ (right if $C > 0$) | horizontal shift |
 | **Midline** | $y = D$ | vertical shift |
 
+A note on conventions: this course always factors $B$ out first, so the phase shift is the number $C$ inside $B(x - C)$. Many textbooks instead write $y = A\sin(Bx - C) + D$ without factoring; in that form the phase shift is $\frac{C}{B}$. Both describe the same shift, so if a source's numbers look different, check which form it uses.
+
 The period formula is the transformation rule in disguise: one full cycle needs the inside $B(x - C)$ to run through an interval of length $2\pi$, which takes $x$-length $\frac{2\pi}{B}$. The maximum is $D + |A|$ and the minimum is $D - |A|$.
 
 ### Example 1

@@ -13,7 +13,7 @@ title: Series tests, Taylor series, parametric and polar
 | Integral | $a_n = f(n)$, $f$ positive, continuous, decreasing | same as $\int_1^\infty f(x)\,dx$ |
 | Direct comparison | $0 \le a_n \le b_n$ | $\sum b_n$ conv ⇒ $\sum a_n$ conv; $\sum a_n$ div ⇒ $\sum b_n$ div |
 | Limit comparison | $a_n, b_n > 0$, $\lim\frac{a_n}{b_n} = c \in (0, \infty)$ | both converge or both diverge |
-| Alternating series | $\sum(-1)^nb_n$, $b_n$ decreasing, $b_n \to 0$ | converges; $\lvert S - S_N\rvert \le b_{N+1}$ |
+| Alternating series | $\sum(-1)^nb_n$, $b_n > 0$ decreasing, $b_n \to 0$ | converges; $\lvert S - S_N\rvert \le b_{N+1}$ |
 | Ratio | $L = \lim\left\lvert\frac{a_{n+1}}{a_n}\right\rvert$ | $L < 1$ abs. conv; $L > 1$ div; $L = 1$ inconclusive |
 | Root | $L = \lim\sqrt[n]{\lvert a_n\rvert}$ | same as ratio test |
 
@@ -37,7 +37,7 @@ $$f(x) = \sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x - a)^n \qquad \text{Lagrange: 
 | $\cos x$ | $\sum\dfrac{(-1)^nx^{2n}}{(2n)!} = 1 - \dfrac{x^2}{2} + \dfrac{x^4}{24} - \cdots$ | all $x$ |
 | $\ln(1 + x)$ | $\sum_{n\ge1}\dfrac{(-1)^{n+1}x^n}{n} = x - \dfrac{x^2}{2} + \dfrac{x^3}{3} - \cdots$ | $(-1, 1]$ |
 | $\arctan x$ | $\sum\dfrac{(-1)^nx^{2n+1}}{2n + 1} = x - \dfrac{x^3}{3} + \dfrac{x^5}{5} - \cdots$ | $[-1, 1]$ |
-| $(1 + x)^k$ | $1 + kx + \dfrac{k(k - 1)}{2!}x^2 + \dfrac{k(k - 1)(k - 2)}{3!}x^3 + \cdots$ | $(-1, 1)$ |
+| $(1 + x)^k$ | $1 + kx + \dfrac{k(k - 1)}{2!}x^2 + \dfrac{k(k - 1)(k - 2)}{3!}x^3 + \cdots$ | $(-1, 1)$; endpoints depend on $k$ |
 
 ## Parametric curves $x = x(t)$, $y = y(t)$
 

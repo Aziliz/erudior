@@ -36,13 +36,13 @@ title: Differential calculus formulas
 | Gradient | $\nabla f = \langle f_x, f_y, f_z\rangle$ |
 | Directional derivative | $D_{\mathbf u}f = \nabla f\cdot\mathbf u$ ($\lvert\mathbf u\rvert = 1$); max $\lvert\nabla f\rvert$ |
 | Level surface tangent plane | $\nabla F(P)\cdot\langle x-x_0, y-y_0, z-z_0\rangle = 0$ |
-| Clairaut | $f_{xy} = f_{yx}$ |
+| Clairaut | $f_{xy} = f_{yx}$ when both are continuous near the point |
 
 ## Optimization
 
 | Tool | Statement |
 |---|---|
 | Critical point | $\nabla f = \mathbf 0$ or undefined |
-| Second-derivative test | $D = f_{xx}f_{yy} - f_{xy}^2$: $D>0, f_{xx}>0$ min; $D>0, f_{xx}<0$ max; $D<0$ saddle; $D=0$ ? |
+| Second-derivative test | At a critical point with continuous second partials, $D = f_{xx}f_{yy} - f_{xy}^2$: $D>0, f_{xx}>0$ min; $D>0, f_{xx}<0$ max; $D<0$ saddle; $D=0$ inconclusive |
 | Closed region | Compare interior critical values with boundary extremes (include corners) |
-| Lagrange | $\nabla f = \lambda\nabla g$, $g = k$; two constraints: $\nabla f = \lambda\nabla g + \mu\nabla h$ |
+| Lagrange | $\nabla f = \lambda\nabla g$, $g = k$ (needs $\nabla g \ne \mathbf 0$); two constraints: $\nabla f = \lambda\nabla g + \mu\nabla h$ ($\nabla g$, $\nabla h$ not parallel) |

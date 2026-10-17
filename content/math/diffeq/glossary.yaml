@@ -348,7 +348,7 @@
   topic: Mechanical vibrations
 - term: critical damping
   aliases: [critically damped]
-  definition: 'Damping with $\gamma^2 = 4km$ (repeated root); the system returns to equilibrium fastest without oscillating.'
+  definition: 'Damping with $\gamma^2 = 4km$ (repeated root), $\gamma_c = 2\sqrt{km}$; the borderline between oscillating and not, giving the fastest typical decay without oscillation.'
   topic: Mechanical vibrations
 - term: underdamped
   definition: 'Damping with $\gamma^2 < 4km$: complex roots, oscillations that decay.'
@@ -390,7 +390,7 @@
   definition: 'Continuous except for finitely many jump discontinuities on each bounded interval.'
   topic: Laplace transform
 - term: exponential order
-  definition: 'Describes $f$ with $|f(t)| \le Me^{ct}$ for large $t$; such functions have Laplace transforms.'
+  definition: 'Describes $f$ with $|f(t)| \le Me^{ct}$ for large $t$; a piecewise continuous function of exponential order has a Laplace transform for $s > c$.'
   topic: Laplace transform
 - term: first shifting theorem
   definition: '$\mathcal{L}\{e^{at}f(t)\} = F(s - a)$.'
@@ -511,11 +511,11 @@
   topic: Series solutions
 - term: ordinary point
   aliases: [ordinary points]
-  definition: 'A point $x_0$ where the leading coefficient $P(x_0) \ne 0$; there, two independent power-series solutions exist.'
+  definition: 'A point $x_0$ where $Q/P$ and $R/P$ are analytic; for polynomial coefficients with no common factor, simply $P(x_0) \ne 0$. There, two independent power-series solutions exist.'
   topic: Series solutions
 - term: singular point
   aliases: [singular points]
-  definition: 'A point where the leading coefficient $P(x)$ of $Py'''' + Qy'' + Ry = 0$ vanishes.'
+  definition: 'A point that is not ordinary; for polynomial coefficients with no common factor, a point where the leading coefficient $P(x)$ of $Py'''' + Qy'' + Ry = 0$ vanishes.'
   topic: Series solutions
 - term: regular singular point
   definition: 'A mild singular point (like $x = 0$ in Bessel''s equation) where a Frobenius series $x^r\sum a_nx^n$ works.'

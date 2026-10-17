@@ -74,7 +74,7 @@ switches is the **critical damping** coefficient.
 | Case | Condition | Roots | Motion |
 |---|---|---|---|
 | **Underdamped** | $\gamma^2 < 4km$ | complex $\lambda \pm i\mu$ | decaying oscillation |
-| **Critically damped** | $\gamma^2 = 4km$ | repeated real | returns fastest, no oscillation |
+| **Critically damped** | $\gamma^2 = 4km$ | repeated real | fastest decay without oscillation |
 | **Overdamped** | $\gamma^2 > 4km$ | two negative reals | slow return, no oscillation |
 
 In every damped case all roots have negative real part ($\lambda = -\gamma/(2m)$ in the
@@ -117,6 +117,13 @@ With $\gamma = 10$ (overdamped), $r^2 + 10r + 10 = 0$ gives $r = -5 \pm \sqrt{15
 $-1.127$ and $-8.873$. The slow root $-1.127$ dominates, so the mass creeps back to
 equilibrium more slowly than in the critical case, as the figure shows. That's why car
 shock absorbers are designed near critical damping: fast return without bouncing.
+
+Strictly, "critical damping returns fastest" is a statement about the typical long-run
+decay rate: an overdamped solution is eventually dominated by its slow root, which always
+lies between $-\sqrt{k/m}$ and 0, so it dies out more slowly than the critical solution.
+For special starting conditions (for example, a hard push toward equilibrium) an
+overdamped mass can reach $u = 0$ sooner, so the claim compares decay rates, not every
+possible trajectory.
 
 ## Energy
 

@@ -75,7 +75,7 @@ Check a point: $f(-1) = -(-1)(9)(2) = 18 > 0$. ✓ The graph has 3 turning point
 
 ## The intermediate value theorem
 
-Because a polynomial's graph has no breaks, it cannot get from below the axis to above it without crossing. The **intermediate value theorem** (IVT) states: if $f$ is a polynomial (or any continuous function) and $f(a)$ and $f(b)$ have opposite signs, then $f$ has at least one zero between $a$ and $b$.
+Because a polynomial's graph has no breaks, it cannot get from below the axis to above it without crossing. The **intermediate value theorem** (IVT) states: if $f$ is a polynomial (or any function continuous on the closed interval $[a, b]$) and $f(a)$ and $f(b)$ have opposite signs, then $f$ has at least one zero between $a$ and $b$.
 
 ### Example 2
 

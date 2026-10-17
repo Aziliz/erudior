@@ -40,7 +40,7 @@ A sign change seen while testing helps too: $f(1) < 0 < f(-1)$ told us (by the I
 
 ## Descartes' rule of signs (a quick filter)
 
-Count the sign changes in the coefficients of $f(x)$, skipping zeros. **Descartes' rule of signs** says the number of positive real zeros equals that count or is less than it by an even number. Do the same for $f(-x)$ to bound the negative zeros. For $2x^3 - 3x^2 - 11x + 6$ the signs are $+ - - +$: two changes, so 2 or 0 positive zeros. (We found two: $3$ and $\tfrac12$.)
+For a polynomial with real coefficients, write the terms in descending order of degree and count the sign changes between consecutive nonzero coefficients (skip any zero coefficients). **Descartes' rule of signs** says the number of positive real zeros, counted with multiplicity, equals that count or is less than it by an even number. Do the same for $f(-x)$ to bound the negative zeros. For $2x^3 - 3x^2 - 11x + 6$ the signs are $+ - - +$: two changes, so 2 or 0 positive zeros. (We found two: $3$ and $\tfrac12$.)
 
 ## The fundamental theorem of algebra
 

@@ -111,12 +111,12 @@
 - {front: 'Saddle point', back: 'A critical point that is neither a max nor a min (e.g. origin of $y^2 - x^2$).', topic: Second-derivative test}
 - {front: 'Extreme Value Theorem (two variables)', back: 'Continuous $f$ on a closed, bounded set attains an absolute max and min.', topic: Absolute extrema}
 - {front: 'Closed-region method', back: 'Evaluate $f$ at interior critical points and at the extremes on each boundary piece (including corners); compare.', topic: Absolute extrema}
-- {front: 'Lagrange condition', back: '$\nabla f = \lambda\nabla g$ together with $g = k$', topic: Lagrange multipliers}
+- {front: 'Lagrange condition', back: '$\nabla f = \lambda\nabla g$ together with $g = k$ (at points where $\nabla g \ne \mathbf 0$)', topic: Lagrange multipliers}
 - {front: 'Why Lagrange works', back: 'At a constrained extremum, the level curve of $f$ is tangent to the constraint, so the gradients are parallel.', topic: Lagrange multipliers}
 - {front: 'Meaning of $\lambda$', back: 'The rate of change of the optimal value with respect to the constraint level $k$.', topic: Lagrange multipliers}
-- {front: 'Lagrange with two constraints', back: '$\nabla f = \lambda\nabla g + \mu\nabla h$, $g = k$, $h = c$', topic: Lagrange multipliers}
+- {front: 'Lagrange with two constraints', back: '$\nabla f = \lambda\nabla g + \mu\nabla h$, $g = k$, $h = c$ (with $\nabla g$, $\nabla h$ nonzero and not parallel)', topic: Lagrange multipliers}
 # Module 5: double integrals
-- {front: 'Fubini''s theorem (rectangle)', back: '$\iint_R f\,dA = \int_a^b\int_c^d f\,dy\,dx = \int_c^d\int_a^b f\,dx\,dy$', topic: Iterated integrals}
+- {front: 'Fubini''s theorem (rectangle)', back: 'For continuous $f$: $\iint_R f\,dA = \int_a^b\int_c^d f\,dy\,dx = \int_c^d\int_a^b f\,dx\,dy$', topic: Iterated integrals}
 - {front: 'Product integrand over a rectangle', back: '$\iint_R g(x)h(y)\,dA = \int_a^b g\,dx\cdot\int_c^d h\,dy$', topic: Double integrals}
 - {front: 'Average value over a region', back: '$f_{\text{avg}} = \dfrac{1}{A(R)}\iint_R f\,dA$', topic: Double integrals}
 - {front: 'Type I region integral', back: '$\int_a^b\int_{g_1(x)}^{g_2(x)}f\,dy\,dx$ (vertical slices)', topic: General regions}

@@ -105,6 +105,17 @@ Find the area of the part of $z = x^2 + y^2$ below the plane $z = 4$.
 1. The shadow is the disk $x^2 + y^2 \le 4$. $f_x = 2x$, $f_y = 2y$, so the factor is $\sqrt{1 + 4x^2 + 4y^2} = \sqrt{1 + 4r^2}$.
 2. $A = \displaystyle\int_0^{2\pi}\int_0^2\sqrt{1 + 4r^2}\,r\,dr\,d\theta = 2\pi\cdot\frac{1}{12}\left[(1 + 4r^2)^{3/2}\right]_0^2 = \frac{\pi}{6}\left(17\sqrt{17} - 1\right) \approx 36.18.$
 
+## Probability
+
+"Amount per unit area" can also be probability per unit area. If $X$ and $Y$ are continuous
+random variables, their **joint density function** $f(x, y)$ satisfies $f \ge 0$ and
+$\iint_{\mathbb R^2} f\,dA = 1$. The probability that the point $(X, Y)$ lands in a region $D$ is
+$P\big((X, Y)\in D\big) = \iint_D f(x, y)\,dA$. The mean of $X$ is the "center of mass" of this
+probability, $E(X) = \iint_{\mathbb R^2} x\,f(x, y)\,dA$, and $E(Y)$ is defined the same way.
+When $X$ and $Y$ are independent, $f(x, y) = f_1(x)f_2(y)$ is a product. For example,
+$f = 4xy$ on the unit square (and 0 elsewhere) integrates to $(2\cdot\tfrac12)(2\cdot\tfrac12) = 1$,
+and $P(X + Y \le 1) = \int_0^1\int_0^{1 - x}4xy\,dy\,dx = \int_0^1 2x(1 - x)^2\,dx = \tfrac16$.
+
 ## Common mistakes
 
 - Swapping $M_x$ and $M_y$: $M_x$ uses $y$ (distance from the $x$-axis).

@@ -30,6 +30,16 @@ right by $P^{-1}$.
 A matrix with an eigenvector basis for $\mathbb{R}^n$ (an **eigenvector basis**) is exactly a
 diagonalizable matrix.
 
+*Diagonalization as a change of coordinates.* Let $\mathcal{B}$ be the basis formed by the
+columns of $P$, so $[\mathbf{x}]_{\mathcal{B}} = P^{-1}\mathbf{x}$. The $\mathcal{B}$-coordinates of
+$A\mathbf{x}$ are $P^{-1}A\mathbf{x} = (P^{-1}AP)\,P^{-1}\mathbf{x} = D\,[\mathbf{x}]_{\mathcal{B}}$.
+So $D$ is the *matrix of the transformation* $\mathbf{x} \mapsto A\mathbf{x}$ *relative to the basis*
+$\mathcal{B}$ (often called the $\mathcal{B}$-matrix): in eigenvector coordinates the map just
+multiplies coordinate $i$ by $\lambda_i$. The same calculation works for any basis of
+$\mathbb{R}^n$: $P^{-1}AP$ is always the matrix of $\mathbf{x} \mapsto A\mathbf{x}$ in the coordinates
+given by the columns of $P$. That is the precise sense in which similar matrices describe the
+same transformation.
+
 ## Powers
 
 If $A = PDP^{-1}$, the inner factors cancel in products:
@@ -54,14 +64,16 @@ another valid diagonalization.
 
 ## When is a matrix diagonalizable?
 
-> *Theorem.* An $n \times n$ matrix with $n$ distinct eigenvalues is diagonalizable.
+> *Theorem.* An $n \times n$ matrix with $n$ distinct real eigenvalues is diagonalizable.
 
 That follows because eigenvectors for distinct eigenvalues are independent. Distinct
 eigenvalues are sufficient but not necessary. With repeated eigenvalues, count eigenvectors:
 the **geometric multiplicity** of $\lambda$ is $\dim\operatorname{Nul}(A - \lambda I)$, the number of
 independent eigenvectors for $\lambda$. It's always between 1 and the algebraic multiplicity.
 
-> $A$ is diagonalizable exactly when, for every eigenvalue, the geometric multiplicity equals the algebraic multiplicity (equivalently, the eigenspace dimensions add up to $n$).
+> $A$ is diagonalizable exactly when its eigenvalues are all real (counted with multiplicity, there are $n$ of them) and, for every eigenvalue, the geometric multiplicity equals the algebraic multiplicity. Equivalently, the eigenspace dimensions add up to $n$.
+
+The "all real" part matters because we are building $P$ and $D$ from real numbers. A $3 \times 3$ matrix with eigenvalues $1$ and $\pm i$ has a 1-dimensional eigenspace for $1$ that matches its multiplicity, but only one real eigenvector, so it is not diagonalizable with real matrices. (Complex eigenvalues are the subject of the next lesson.)
 
 ### Example 2
 
@@ -96,6 +108,6 @@ column. It catches mismatched orders and arithmetic slips at once.
 ## Key points
 
 - $A = PDP^{-1}$ with eigenvectors as the columns of $P$ and eigenvalues on the diagonal of $D$.
-- $A$ is diagonalizable ⟺ it has $n$ independent eigenvectors; $n$ distinct eigenvalues guarantee it.
-- With repeated eigenvalues, diagonalizable ⟺ each eigenspace's dimension equals the eigenvalue's algebraic multiplicity.
+- $A$ is diagonalizable ⟺ it has $n$ independent eigenvectors; $n$ distinct real eigenvalues guarantee it.
+- With repeated eigenvalues, diagonalizable ⟺ all eigenvalues are real and each eigenspace's dimension equals the eigenvalue's algebraic multiplicity.
 - $A^k = PD^kP^{-1}$, where $D^k$ just raises each eigenvalue to the $k$th power.

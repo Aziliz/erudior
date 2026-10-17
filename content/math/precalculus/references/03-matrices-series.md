@@ -26,6 +26,7 @@ title: Matrices, sequences, counting and limits
 | $(x - a)$ | $\dfrac{A}{x - a}$ |
 | $(x - a)^k$ | $\dfrac{A_1}{x - a} + \dots + \dfrac{A_k}{(x - a)^k}$ |
 | irreducible $x^2 + bx + c$ | $\dfrac{Bx + C}{x^2 + bx + c}$ |
+| $(x^2 + bx + c)^k$, irreducible | $\dfrac{B_1x + C_1}{x^2 + bx + c} + \dots + \dfrac{B_kx + C_k}{(x^2 + bx + c)^k}$ |
 
 ## Sequences and series
 

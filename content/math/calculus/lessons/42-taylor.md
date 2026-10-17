@@ -70,7 +70,7 @@ $P_3(x) = (x - 1) - \frac12(x - 1)^2 + \frac13(x - 1)^3$. (Compare $\ln(1 + u) =
 | $\arctan x$ | $x - \dfrac{x^3}{3} + \dfrac{x^5}{5} - \cdots$ | $[-1, 1]$ |
 | $(1 + x)^k$ | $1 + kx + \dfrac{k(k - 1)}{2!}x^2 + \cdots$ | $(-1, 1)$ |
 
-The last is the **binomial series**; for whole-number $k$ it stops and becomes the binomial theorem.
+The last is the **binomial series**; for whole-number $k$ it stops and becomes the binomial theorem. (For other $k$ it converges on $(-1, 1)$; whether the endpoints $\pm1$ are included depends on $k$.)
 
 New series come from these by substitution and multiplication, which is usually much faster than computing derivatives.
 

@@ -8,7 +8,7 @@ title: Matrix factorizations and key formulas
 |---|---|---|---|---|
 | Inverse ($2 \times 2$) | $A^{-1} = \frac{1}{ad - bc}\begin{bmatrix} d & -b \\ -c & a\end{bmatrix}$ | $ad - bc \neq 0$ | swap, negate, divide | small systems |
 | LU | $A = LU$ | no row swaps needed (else $PA = LU$) | $L$: multipliers $\ell_{ij}$; $U$: echelon form | many right-hand sides: $L\mathbf{y} = \mathbf{b}$, $U\mathbf{x} = \mathbf{y}$ |
-| Diagonalization | $A = PDP^{-1}$ | $n$ independent eigenvectors | $P$: eigenvectors; $D$: eigenvalues (same order) | powers $A^k = PD^kP^{-1}$, dynamics |
+| Diagonalization | $A = PDP^{-1}$ | $n$ independent (real) eigenvectors | $P$: eigenvectors; $D$: eigenvalues (same order) | powers $A^k = PD^kP^{-1}$, dynamics |
 | Rotation–scaling | $A = PCP^{-1}$, $C = \begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ | real $2 \times 2$, eigenvalue $a - bi$ | $P = [\,\operatorname{Re}\mathbf{v} \;\; \operatorname{Im}\mathbf{v}\,]$ | spirals, rotations |
 | QR | $A = QR$ | independent columns | $Q$: Gram–Schmidt, normalized; $R = Q^TA$ | least squares: $R\hat{\mathbf{x}} = Q^T\mathbf{b}$ |
 | Orthogonal diagonalization | $A = PDP^T$ | $A$ symmetric | orthonormal eigenvectors | quadratic forms, spectral decomposition |
@@ -21,7 +21,7 @@ title: Matrix factorizations and key formulas
 | Eigen-equation | $A\mathbf{x} = \lambda\mathbf{x}$, $\mathbf{x} \neq \mathbf{0}$ |
 | Eigenspace | $\operatorname{Nul}(A - \lambda I)$ |
 | $2 \times 2$ characteristic polynomial | $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$ |
-| Sum / product | $\sum\lambda_i = \operatorname{tr} A$, $\prod\lambda_i = \det A$ |
+| Sum / product | $\sum\lambda_i = \operatorname{tr} A$, $\prod\lambda_i = \det A$ (with multiplicity, complex ones included) |
 | Rotation–scaling | $\lambda = a \pm bi$, $r = \lvert\lambda\rvert = \sqrt{a^2 + b^2}$, angle of $(a, b)$ |
 | Dynamical system | $\mathbf{x}_k = c_1\lambda_1^k\mathbf{v}_1 + \cdots + c_n\lambda_n^k\mathbf{v}_n$ |
 | Markov steady state | $P\mathbf{q} = \mathbf{q}$, entries of $\mathbf{q}$ sum to 1 |

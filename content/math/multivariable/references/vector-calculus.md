@@ -30,7 +30,7 @@ with factor $a$; cone $\langle r\cos\theta, r\sin\theta, r\rangle$ with factor $
 
 ## Conservative fields
 
-On an open, simply connected region the following are equivalent:
+For $\mathbf F$ with continuous first partials on an open, simply connected region, the following are equivalent:
 $\mathbf F = \nabla f$; $\int_C\mathbf F\cdot d\mathbf r$ is path independent; $\oint_C\mathbf F\cdot d\mathbf r = 0$
 for every closed $C$; $P_y = Q_x$ (2D) or $\nabla\times\mathbf F = \mathbf 0$ (3D).
 

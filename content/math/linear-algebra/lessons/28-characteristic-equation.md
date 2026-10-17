@@ -29,7 +29,9 @@ $$\det\begin{bmatrix} a - \lambda & b \\ c & d - \lambda\end{bmatrix} = (a - \la
 The coefficient $a + d$ is the **trace** of $A$ (the sum of the diagonal entries), written
 $\operatorname{tr} A$. So for $2 \times 2$ matrices the characteristic polynomial is
 $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$. Two consequences that hold for all $n$: the
-eigenvalues (counted with multiplicity) add up to the trace and multiply to the determinant.
+eigenvalues (counted with multiplicity, and including any complex ones) add up to the trace and
+multiply to the determinant. For example, the $90^\circ$ rotation matrix has eigenvalues $\pm i$:
+their sum $0$ is its trace and their product $1$ is its determinant.
 
 ### Example 1
 

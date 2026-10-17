@@ -70,7 +70,7 @@ A polar graph $r = f(\theta)$ is plotted by sweeping $\theta$ around and marking
 | $\theta = \alpha$ | line through the pole |
 | $r = 2a\cos\theta$, $r = 2a\sin\theta$ | circles through the pole |
 | $r = a + b\cos\theta$ (or $\sin\theta$) | **limaçon**; a **cardioid** when $\lvert a \rvert = \lvert b \rvert$ |
-| $r = a\cos(n\theta)$ or $a\sin(n\theta)$ | **rose curve**: $n$ petals if $n$ is odd, $2n$ if $n$ is even |
+| $r = a\cos(n\theta)$ or $a\sin(n\theta)$, integer $n \ge 2$ | **rose curve**: $n$ petals if $n$ is odd, $2n$ if $n$ is even |
 | $r = a\theta$ | spiral |
 
 Symmetry tests: replacing $\theta$ by $-\theta$ without changing the equation means symmetry about the polar axis (true for any function of $\cos\theta$).
@@ -105,6 +105,20 @@ $$x^2 + y^2 = 4 + 4x + x^2 \implies y^2 = 4x + 4 = 4(x + 1).$$
 
 That is a parabola opening right with vertex $(-1, 0)$ and $p = 1$, so its focus is at the origin, the pole. Squaring can introduce extra points, so it's worth checking: every point of $y^2 = 4(x + 1)$ has $x \ge -1$, so $2 + x > 0$ and $r = 2 + x$ is a legitimate distance. This "conic with a focus at the pole" is exactly the pattern the next lesson develops.
 
+## Complex numbers in polar form, briefly
+
+Plot the complex number $z = x + yi$ as the point $(x, y)$. Its polar coordinates give the **polar form of a complex number**:
+
+$$z = r(\cos\theta + i\sin\theta), \qquad r = |z| = \sqrt{x^2 + y^2},$$
+
+where $r$ is called the modulus and $\theta$ the argument. The payoff is multiplication: using the sum identities for sine and cosine, multiplying two complex numbers in polar form *multiplies their moduli and adds their arguments*. Repeating that gives **De Moivre's theorem**, $z^n = r^n(\cos n\theta + i\sin n\theta)$ for positive integers $n$.
+
+### Example 7
+
+Find $(1 + i)^8$.
+
+$1 + i$ is the point $(1, 1)$: $r = \sqrt2$ and $\theta = \frac{\pi}{4}$. By De Moivre's theorem, $(1 + i)^8 = (\sqrt2)^8\left(\cos 2\pi + i\sin 2\pi\right) = 16(1 + 0i) = 16$. Expanding $(1 + i)^8$ with the binomial theorem gives the same answer, much more slowly.
+
 ## Common mistakes
 
 - *Wrong quadrant from $\tan^{-1}$.* Check where $(x, y)$ lies and adjust by $\pi$.
@@ -120,3 +134,4 @@ That is a parabola opening right with vertex $(-1, 0)$ and $p = 1$, so its focus
 - Convert equations by substituting, often after multiplying by $r$.
 - Recognize circles, lines, limaçons, cardioids, roses and spirals.
 - Plot with a table over $0 \le \theta \le 2\pi$ and use symmetry.
+- A complex number in polar form is $r(\cos\theta + i\sin\theta)$; De Moivre: $z^n = r^n(\cos n\theta + i\sin n\theta)$.

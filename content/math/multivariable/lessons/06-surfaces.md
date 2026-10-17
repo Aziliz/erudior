@@ -40,7 +40,7 @@ traces (constants $a, b, c > 0$):
 | **Ellipsoid** | $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2} = 1$ | all ellipses |
 | **Elliptic paraboloid** | $\dfrac{z}{c} = \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}$ | horizontal: ellipses; vertical: parabolas |
 | **Hyperbolic paraboloid** | $\dfrac{z}{c} = \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}$ | horizontal: hyperbolas; vertical: parabolas (a saddle) |
-| **Cone** | $\dfrac{z^2}{c^2} = \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}$ | horizontal: ellipses; vertical through axis: line pairs |
+| **Cone** | $\dfrac{z^2}{c^2} = \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}$ | horizontal: ellipses; vertical: hyperbolas (a pair of crossing lines in planes through the axis) |
 | **Hyperboloid of one sheet** | $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2} = 1$ | horizontal: ellipses; vertical: hyperbolas |
 | **Hyperboloid of two sheets** | $-\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2} = 1$ | horizontal ($\lvert z\rvert>c$): ellipses; vertical: hyperbolas |
 

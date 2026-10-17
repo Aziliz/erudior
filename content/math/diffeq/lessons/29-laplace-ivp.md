@@ -14,7 +14,9 @@ derivatives. Integrate by parts with $u = e^{-st}$, $dv = f'(t)\,dt$:
 
 $$\mathcal{L}\{f'\} = \int_0^\infty e^{-st}f'(t)\,dt = \Big[e^{-st}f(t)\Big]_0^\infty + s\int_0^\infty e^{-st}f(t)\,dt = sF(s) - f(0).$$
 
-(The boundary term at infinity vanishes for functions of exponential order when $s$ is large.)
+(The boundary term at infinity vanishes for functions of exponential order when $s$ is large.
+The rule holds when $f$ is continuous and of exponential order and $f'$ is piecewise
+continuous; for $\mathcal{L}\{f''\}$, the same is needed of $f'$ and $f''$.)
 Applying the rule twice:
 
 $$\mathcal{L}\{f''\} = s\mathcal{L}\{f'\} - f'(0) = s^2F(s) - sf(0) - f'(0).$$

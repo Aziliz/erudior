@@ -50,6 +50,7 @@ Sums: $\sum_{i=1}^n i = \frac{n(n+1)}{2}$, $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1
 | Trig powers | $\sin^m\cos^n$, $\tan^m\sec^n$ | save one factor, convert the rest |
 | Trig substitution | $\sqrt{a^2 - x^2}$, $\sqrt{a^2 + x^2}$, $\sqrt{x^2 - a^2}$ | $x = a\sin\theta$, $a\tan\theta$, $a\sec\theta$ |
 | Partial fractions | rational functions | factor the denominator, split |
+| Completing the square | irreducible $x^2 + bx + c$ (alone or under a root) | rewrite as $(x + h)^2 + k^2$, then arctan, arcsin or trig substitution |
 
 ## Improper integrals
 

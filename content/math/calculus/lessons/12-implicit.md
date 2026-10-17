@@ -90,6 +90,8 @@ The same approach for $\tan y = x$: $\sec^2 y\,y' = 1$, and $\sec^2 y = 1 + \tan
 
 The co- versions are negatives because, for example, $\arccos x = \frac\pi2 - \arcsin x$.
 
+A note on $\operatorname{arcsec}$: the $\lvert x\rvert$ in its derivative goes with the usual range $[0, \frac\pi2) \cup (\frac\pi2, \pi]$ (the one this course uses, since $\operatorname{arcsec} x = \arccos\frac1x$). A few textbooks pick the range $[0, \frac\pi2) \cup [\pi, \frac{3\pi}{2})$ instead, which makes the derivative $\frac{1}{x\sqrt{x^2 - 1}}$ with no absolute value. Check which convention your book uses.
+
 Notice that the derivatives are algebraic, with no trig left in them. That's why $\arctan$ and $\arcsin$ show up as antiderivatives of ordinary-looking functions in integration (Lesson 24).
 
 ### Example 4

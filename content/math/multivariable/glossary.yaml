@@ -6,7 +6,7 @@
   definition: 'The derivative of velocity, $\mathbf a(t) = \mathbf v''(t) = \mathbf r''''(t)$; a vector.'
   topic: Velocity and acceleration
 - term: Ampère's law
-  definition: 'The circulation of a magnetic field around a closed loop equals $\mu_0$ times the current through it: $\oint_C\mathbf B\cdot d\mathbf r = \mu_0I_{\text{enc}}$.'
+  definition: 'For steady currents, the circulation of a magnetic field around a closed loop equals $\mu_0$ times the current through it: $\oint_C\mathbf B\cdot d\mathbf r = \mu_0I_{\text{enc}}$. Maxwell''s extra term handles changing electric fields.'
   topic: Applications to physics
 - term: arc length
   definition: 'The length of a curve, $L = \int_a^b|\mathbf r''(t)|\,dt$.'
@@ -64,7 +64,7 @@
   definition: 'The entries $v_1, v_2, v_3$ of a vector $\langle v_1, v_2, v_3\rangle$.'
   topic: Vector algebra
 - term: cone
-  definition: 'The quadric surface $\dfrac{z^2}{c^2} = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$; vertical traces through the axis are pairs of lines.'
+  definition: 'The quadric surface $\dfrac{z^2}{c^2} = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$; horizontal traces are ellipses, vertical traces are hyperbolas, except in planes through the axis, where they are pairs of crossing lines.'
   topic: Quadric surfaces
 - term: conservative
   aliases: [conservative field, conservative vector field]
@@ -117,7 +117,7 @@
   definition: 'The instantaneous rate of change $f''(x) = \lim_{h\to0}\frac{f(x+h) - f(x)}{h}$, the slope of the graph.'
   topic: Derivative review
 - term: differentiable
-  definition: '$f(x, y)$ is differentiable at a point if its linear approximation is accurate in every direction (error smaller than the distance). Continuous partial derivatives guarantee it.'
+  definition: '$f(x, y)$ is differentiable at a point if its linear approximation is accurate in every direction: the error goes to zero faster than the distance to the point. Continuous partial derivatives guarantee it.'
   topic: Tangent planes
 - term: differential
   definition: 'The quantity $dz = f_x\,dx + f_y\,dy$, the change along the tangent plane; it approximates the actual change $\Delta z$.'
@@ -254,6 +254,10 @@
 - term: Jacobian
   definition: 'The determinant $\dfrac{\partial(x, y)}{\partial(u, v)} = x_uy_v - x_vy_u$; its absolute value is the area scaling factor of a transformation.'
   topic: Jacobians
+- term: joint density function
+  aliases: [joint density]
+  definition: 'A function $f(x, y) \ge 0$ with $\iint_{\mathbb R^2}f\,dA = 1$ describing two continuous random variables; $P\big((X, Y)\in D\big) = \iint_D f\,dA$.'
+  topic: Mass and center of mass
 - term: kinetic energy
   definition: 'The energy of motion $K = \tfrac12m|\mathbf v|^2$.'
   topic: Fundamental theorem for line integrals

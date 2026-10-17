@@ -25,6 +25,7 @@ Start with a rational expression $\dfrac{P(x)}{Q(x)}$ in lowest terms.
 | $(x - a)$ | $\dfrac{A}{x - a}$ |
 | $(x - a)^k$ | $\dfrac{A_1}{x - a} + \dfrac{A_2}{(x - a)^2} + \dots + \dfrac{A_k}{(x - a)^k}$ |
 | $(x^2 + bx + c)$, irreducible | $\dfrac{Bx + C}{x^2 + bx + c}$ |
+| $(x^2 + bx + c)^k$, irreducible | $\dfrac{B_1x + C_1}{x^2 + bx + c} + \dots + \dfrac{B_kx + C_k}{(x^2 + bx + c)^k}$ |
 
 Why a linear numerator over a quadratic? The numerator of each term must be allowed one degree less than its denominator, otherwise there aren't enough unknowns to match every possible numerator. A repeated factor needs every power because, for instance, $\frac{x}{(x - 1)^2} = \frac{1}{x - 1} + \frac{1}{(x - 1)^2}$ can't be written with the squared denominator alone and a constant on top.
 
@@ -105,7 +106,7 @@ Partial fractions explain a neat sum: $\dfrac{1}{k(k + 1)} = \dfrac1k - \dfrac{1
 ## Key points
 
 - Divide first if the fraction is improper.
-- Each $(x - a)^k$ contributes $k$ terms; each irreducible quadratic contributes $\frac{Bx + C}{\text{quadratic}}$.
+- Each $(x - a)^k$ contributes $k$ terms; each irreducible quadratic contributes $\frac{Bx + C}{\text{quadratic}}$, and a repeated one contributes one such term for each power.
 - Clear denominators, then substitute zeros of linear factors and/or match coefficients.
 - The coefficient matching is a linear system, solvable with the methods of this module.
 - Check by recombining or by plugging in a test value.

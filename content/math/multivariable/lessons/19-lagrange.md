@@ -95,7 +95,9 @@ shadow price: what one more unit of budget is worth.
 To optimize $f(x, y, z)$ subject to $g = k$ and $h = c$ (the intersection is usually a
 curve), solve $\nabla f = \lambda\nabla g + \mu\nabla h$ together with both constraints:
 five equations in $x, y, z, \lambda, \mu$. The gradient of $f$ must lie in the plane
-spanned by the two constraint normals.
+spanned by the two constraint normals. This needs the same kind of proviso as
+$\nabla g \ne \mathbf 0$ in the one-constraint case: at the point, $\nabla g$ and $\nabla h$
+must be nonzero and not parallel, so that they really do span a plane.
 
 ## Common mistakes
 

@@ -87,9 +87,9 @@ At $x = 2$: the point is $\left(2, \frac12\right)$ and the slope is $-\frac14$, 
 
 | Sign of $f'(x)$ | Graph of $f$ |
 |---|---|
-| positive | increasing |
-| negative | decreasing |
-| zero | horizontal tangent (possible max or min) |
+| positive on an interval | increasing on that interval |
+| negative on an interval | decreasing on that interval |
+| zero at a point | horizontal tangent there (possible max or min) |
 
 So the "increasing and decreasing" of Module 1 becomes a computation. A derivative may fail to exist where the graph has a corner (like $|x|$ at 0), a jump, or a vertical tangent. Calculus develops shortcut rules (the power rule turns out to give $\frac{d}{dx}x^n = nx^{n-1}$, consistent with $2x$ for $x^2$ and $-\frac{1}{x^2}$ for $x^{-1}$), but every one of them comes from this limit.
 

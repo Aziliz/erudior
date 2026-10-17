@@ -93,6 +93,16 @@ A particle moves with $x'(t) = 2t$ and $y'(t) = \cos(\pi t)$, starting at $(1, 0
 - Speed at $t = 1$: $\sqrt{2^2 + \cos^2\pi} = \sqrt{4 + 1} = \sqrt5$.
 - Position: $x(2) = 1 + \int_0^2 2t\,dt = 1 + 4 = 5$; $y(2) = 0 + \int_0^2\cos(\pi t)\,dt = \left[\frac{\sin \pi t}{\pi}\right]_0^2 = 0$. So $(5, 0)$.
 
+## Vector-valued functions
+
+AP Calculus BC states the same ideas with vectors. A **vector-valued function** $\mathbf r(t) = \langle x(t), y(t)\rangle$ gives the position of a moving point. Calculus on it works one component at a time:
+
+- velocity $\mathbf v(t) = \mathbf r'(t) = \langle x'(t), y'(t)\rangle$, and acceleration $\mathbf a(t) = \mathbf v'(t) = \langle x''(t), y''(t)\rangle$;
+- speed $= \lvert\mathbf v(t)\rvert = \sqrt{x'(t)^2 + y'(t)^2}$;
+- integrals are taken componentwise, so $\mathbf r(b) = \mathbf r(a) + \int_a^b\mathbf v(t)\,dt$ (the displacement is $\int_a^b\mathbf v\,dt$), while distance traveled is $\int_a^b\lvert\mathbf v(t)\rvert\,dt$.
+
+Example 5 in this language: $\mathbf v(t) = \langle 2t, \cos\pi t\rangle$, $\mathbf a(t) = \langle 2, -\pi\sin\pi t\rangle$, and $\mathbf r(2) = \langle 1, 0\rangle + \int_0^2\mathbf v\,dt = \langle 5, 0\rangle$.
+
 ## Area under a parametric curve
 
 The area under a curve $y \ge 0$ is $\int y\,dx$. With $x = x(t)$, $dx = x'(t)\,dt$, so
@@ -121,3 +131,4 @@ $x' = 3$ and $y' = -4$, so the speed is $\sqrt{9 + 16} = 5$ and $L = \int_0^2 5\
 - $\frac{d^2y}{dx^2} = \frac{d}{dt}\left(\frac{dy}{dx}\right)\Big/\frac{dx}{dt}$.
 - Arc length and distance traveled: $\int\sqrt{(x')^2 + (y')^2}\,dt$; speed is the integrand.
 - Area: $\int y(t)\,x'(t)\,dt$.
+- Vector form: $\mathbf v = \mathbf r'$, speed $\lvert\mathbf v\rvert$, $\mathbf r(b) = \mathbf r(a) + \int_a^b\mathbf v\,dt$.
