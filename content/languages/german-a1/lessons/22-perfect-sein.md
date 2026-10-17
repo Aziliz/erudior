@@ -140,12 +140,14 @@ Some words for travel stories:
 - *im Ausland* means "abroad": *Letztes Jahr war ich im Ausland.* — Last year I was abroad.
 - *in der Natur* means "out in nature, outdoors".
 
-To ask about a destination, use *wohin* (where to). *Wo* asks about a position:
+Remember *wohin* (where to) from lesson 18 for asking about a destination. *Wo* asks about
+a position:
 
 - *Wohin seid ihr gefahren?* — Where did you go?
 - *Wo wart ihr?* — Where were you?
 
-*Nach Hause* means "(to) home", with movement; *zu Hause* means "at home", without it:
+And as in lessons 18 and 19, *nach Hause* means "(to) home", with movement; *zu Hause*
+means "at home", without it:
 *Ich bin nach Hause gegangen*, but *Ich bin zu Hause geblieben*.
 
 ## Telling a story

@@ -38,7 +38,7 @@ German also builds long food words by sticking nouns together. The last part dec
 
 In "The woman drinks the coffee", the woman does the drinking: she is the subject. The coffee is what gets drunk: it is the **direct object**, the thing the action is done to. English shows this by word order alone. German also marks it on the article, and the form it uses for a direct object is the accusative.
 
-In lesson 06 you met the nominative, the case of the subject (and of anything after *sein*). The accusative is the second of German's four cases; from lesson 18 you'll add a third, the dative.
+In lesson 6 you met the nominative, the case of the subject (and of anything after *sein*). The accusative is the second of German's four cases; from lesson 18 you'll add a third, the dative.
 
 ### Only the masculine changes
 

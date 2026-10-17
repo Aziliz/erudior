@@ -1,0 +1,476 @@
+# German A1, module 5 questions (lessons 17–20)
+- id: de1-q-1701
+  lesson: de1-city-imperative
+  module_quiz: true
+  topic: Imperative
+  stem: 'A woman gives you directions. Which verb form fits? "___ Sie bitte geradeaus!"'
+  choices: ['Gehen', 'Geht', 'Gehst', 'Geh']
+  answer: 0
+  explanation: |-
+    The polite imperative is the Sie form of the verb, then Sie: Gehen Sie geradeaus! Geht is the
+    ihr imperative and Geh the du imperative, and neither can be used with Sie. Gehst is a present-
+    tense du form, not an imperative.
+- id: de1-q-1702
+  lesson: de1-city-imperative
+  module_quiz: true
+  topic: Imperative
+  stem: 'You tell a friend how to get to your flat. Complete: "___ den Bus Nummer 5!"'
+  choices: ['Nehm', 'Nimmst', 'Nimm', 'Nehmen']
+  answer: 2
+  explanation: |-
+    For the du imperative, start from the du form (du nimmst) and drop the ending -st: Nimm! The e
+    to i change stays. Nehm is a very common mistake: it ignores the stem change. Nimmst still has
+    its ending, and Nehmen without Sie is not a polite imperative.
+- id: de1-q-1703
+  lesson: de1-city-imperative
+  topic: Imperative
+  stem: 'Which is the correct du imperative of "fahren"?'
+  choices: ['Fähr langsam!', 'Fährst langsam!', 'Fahrst langsam!', 'Fahr langsam!']
+  answer: 3
+  explanation: |-
+    Verbs with the a to ä change (du fährst) lose the umlaut in the imperative: Fahr langsam! Fähr
+    keeps an umlaut that belongs only to the du and er forms, and Fährst or Fahrst keep the -st
+    ending.
+- id: de1-q-1704
+  lesson: de1-city-imperative
+  topic: Imperative
+  stem: 'You ask two noisy children to be quiet. Which is correct?'
+  choices: ['Sei leise!', 'Seid leise!', 'Seien leise!', 'Seit leise!']
+  answer: 1
+  explanation: |-
+    Two children means ihr, and the ihr imperative of sein is Seid! Sei is for one person (du),
+    Seien goes with Sie, and seit (with t) is the preposition "since", not a form of sein.
+- id: de1-q-1705
+  lesson: de1-city-imperative
+  module_quiz: true
+  topic: Imperative
+  stem: 'Which sentence is correct?'
+  choices: ['Abbiegen Sie an der Ampel links!', 'Biegen Sie an der Ampel links ab!', 'Sie biegen ab an der Ampel links!', 'Biegen ab Sie an der Ampel links!']
+  answer: 1
+  explanation: |-
+    Abbiegen is separable. In the imperative the verb part comes first, then Sie, and the prefix ab
+    goes to the very end: Biegen Sie an der Ampel links ab! The other choices keep the prefix
+    attached or put it in the middle.
+- id: de1-q-1706
+  lesson: de1-city-imperative
+  topic: Directions
+  stem: 'What does "geradeaus" mean?'
+  choices: ['straight ahead', 'straight away', 'on the right', 'round the corner']
+  answer: 0
+  explanation: |-
+    Geradeaus means straight ahead, straight on: Gehen Sie geradeaus. It has nothing to do with
+    time, so it does not mean "straight away". On the right is rechts.
+- id: de1-q-1707
+  lesson: de1-city-imperative
+  topic: Directions
+  stem: 'Complete the question: "Entschuldigung, wie komme ich ___ Post?"'
+  choices: ['zum', 'zu', 'zur', 'zu die']
+  answer: 2
+  explanation: |-
+    Post is feminine (die Post), so you say zur Post. Zum is for masculine and neuter places (zum
+    Bahnhof, zum Museum). Zu die is never correct: after zu the article changes, and zu der is
+    shortened to zur.
+- id: de1-q-1708
+  lesson: de1-city-imperative
+  module_quiz: true
+  topic: Directions
+  stem: 'Read the message: "Hallo Mia! Geh vom Bahnhof geradeaus bis zum Marktplatz. Nimm dort die zweite Straße rechts. Unser Café ist an der Ecke, gegenüber der Kirche." Where is the café?'
+  choices: ['on the market square', 'on the corner, opposite the church', 'on the second street on the left', 'next to the station']
+  answer: 1
+  explanation: |-
+    The last sentence says the café is an der Ecke (on the corner), gegenüber der Kirche (opposite
+    the church). The market square is only where Mia turns, and she turns rechts (right), not left.
+- id: de1-q-1709
+  lesson: de1-city-imperative
+  topic: Directions
+  stem: 'You ask: "Entschuldigung, ist das Museum weit?" Which answer fits?'
+  choices: ['Ja, ich bin Tourist.', 'Nein, das Museum ist alt.', 'Ja, das Museum hat ein Café.', 'Nein, nur fünf Minuten zu Fuß.']
+  answer: 3
+  explanation: |-
+    Weit means far, so a good answer is about distance: Nein, nur fünf Minuten zu Fuß (No, only five
+    minutes on foot). The other answers say yes or no but talk about something else.
+- id: de1-q-1710
+  lesson: de1-city-imperative
+  topic: Imperative
+  stem: 'Which sentence has a mistake?'
+  choices: ['Nehm den Stadtplan!', 'Lies den Text!', 'Sprich langsam!', 'Warte hier!']
+  answer: 0
+  explanation: |-
+    Nehmen changes e to i in the du form (du nimmst), and the du imperative keeps that change: Nimm
+    den Stadtplan! Lies, Sprich and Warte are all correct du imperatives.
+- id: de1-q-1711
+  lesson: de1-city-imperative
+  topic: Directions
+  stem: 'Your friend says: "Die Bank ist rechts." What does she mean?'
+  choices: ['The bank is correct.', 'The bank is straight ahead.', 'The bank is far away.', 'The bank is on the right.']
+  answer: 3
+  explanation: |-
+    Rechts is the direction right. Correct is richtig, a different word that English speakers often
+    mix up with rechts. Straight ahead is geradeaus and far is weit.
+- id: de1-q-1712
+  lesson: de1-city-imperative
+  module_quiz: true
+  topic: Imperative
+  stem: 'You ask a stranger in the street for help. Which request is polite and correct?'
+  choices: ['Zeig mir bitte den Weg.', 'Zeigt mir bitte den Weg.', 'Zeigen Sie mir bitte den Weg.', 'Zeigen mir bitte den Weg.']
+  answer: 2
+  explanation: |-
+    With a stranger you use Sie, and the Sie imperative needs Sie after the verb: Zeigen Sie mir
+    bitte den Weg. Zeig (du) and Zeigt (ihr) are for friends, and Zeigen without Sie is incomplete.
+- id: de1-q-1801
+  lesson: de1-travel-dative
+  module_quiz: true
+  topic: Dative
+  stem: 'Complete: "Ich fahre mit ___ Bus zur Arbeit."'
+  choices: ['dem', 'den', 'der', 'das']
+  answer: 0
+  explanation: |-
+    Mit always takes the dative, and Bus is masculine (der Bus), so the dative article is dem: mit
+    dem Bus. Den is the accusative, which English speakers often choose because English has no
+    difference here.
+- id: de1-q-1802
+  lesson: de1-travel-dative
+  topic: Dative
+  stem: 'Complete: "Wir fahren mit ___ U-Bahn."'
+  choices: ['die', 'der', 'dem', 'den']
+  answer: 1
+  explanation: |-
+    U-Bahn is feminine (die U-Bahn). After mit you need the dative, and the feminine dative article
+    is der: mit der U-Bahn. Die is the nominative and accusative, and dem is for masculine and
+    neuter nouns.
+- id: de1-q-1803
+  lesson: de1-travel-dative
+  topic: Prepositions
+  stem: 'Complete: "Ich gehe heute ___ Arzt."'
+  choices: ['zur', 'zu der', 'zum', 'nach']
+  answer: 2
+  explanation: |-
+    Going to a person or place with an article uses zu, and zu dem is shortened to zum: zum Arzt.
+    Zur and zu der are feminine, but Arzt is masculine. Nach is for cities and countries.
+- id: de1-q-1804
+  lesson: de1-travel-dative
+  module_quiz: true
+  topic: Prepositions
+  stem: 'Complete: "Im Sommer fliegen wir ___ Spanien."'
+  choices: ['zu', 'in', 'bei', 'nach']
+  answer: 3
+  explanation: |-
+    Countries and cities without an article take nach: nach Spanien, nach Berlin. Zu is for people
+    and places with an article, and bei means at someone's place.
+- id: de1-q-1805
+  lesson: de1-travel-dative
+  module_quiz: true
+  topic: Dative
+  stem: 'How do you say "I''ve been living in Hamburg for two years"?'
+  choices: ['Ich wohne seit zwei Jahren in Hamburg.', 'Ich wohne für zwei Jahre in Hamburg.', 'Ich wohne seit zwei Jahre in Hamburg.', 'Ich wohne zwei Jahre seit in Hamburg.']
+  answer: 0
+  explanation: |-
+    For something that started in the past and is still going on, German uses seit with the present
+    tense. Seit takes the dative, so the plural noun adds -n: seit zwei Jahren. Für zwei Jahre is a
+    word-for-word translation of the English.
+- id: de1-q-1806
+  lesson: de1-travel-dative
+  topic: Dative
+  stem: 'Complete: "Am Wochenende bin ich bei meinen ___."'
+  choices: ['Freund', 'Freunde', 'Freunden', 'Freundes']
+  answer: 2
+  explanation: |-
+    Bei takes the dative. In the dative plural the article is den (here meinen), and the noun adds
+    -n unless it already ends in -n or -s: die Freunde becomes meinen Freunden.
+- id: de1-q-1807
+  lesson: de1-travel-dative
+  topic: Prepositions
+  stem: 'It''s late. Which sentence means "I''m going home now"?'
+  choices: ['Ich gehe jetzt zu Hause.', 'Ich gehe jetzt nach Hause.', 'Ich bin jetzt zu Hause.', 'Ich gehe jetzt zum Haus.']
+  answer: 1
+  explanation: |-
+    Going home is nach Hause; being at home is zu Hause. Ich bin jetzt zu Hause means "I'm at home
+    now". Zum Haus means "to the house", not home.
+- id: de1-q-1808
+  lesson: de1-travel-dative
+  module_quiz: true
+  topic: Transport
+  stem: 'Read the announcement: "Achtung an Gleis 5: Der Zug nach München, Abfahrt 14:12 Uhr, hat heute circa 20 Minuten Verspätung." When will the train probably leave?'
+  choices: ['at 14:12', 'at about 13:52', 'at 14:20', 'at about 14:32']
+  answer: 3
+  explanation: |-
+    The train normally leaves (Abfahrt) at 14:12, but it has about 20 minutes of Verspätung (delay),
+    so it will leave at about 14:32.
+- id: de1-q-1809
+  lesson: de1-travel-dative
+  topic: Prepositions
+  stem: '"Woher kommst du jetzt?" — "Ich komme ___ der Arbeit."'
+  choices: ['von', 'aus', 'zu', 'nach']
+  answer: 0
+  explanation: |-
+    Von is for the place you have just left: von der Arbeit, vom Bahnhof. Aus is for where you come
+    from originally (aus Kanada) or for coming out of something. Zu and nach mean "to".
+- id: de1-q-1810
+  lesson: de1-travel-dative
+  topic: Transport
+  stem: 'Which sentence is correct?'
+  choices: ['Wir umsteigen in Köln.', 'Wir steigen in Köln um.', 'In Köln wir steigen um.', 'Wir in Köln umsteigen.']
+  answer: 1
+  explanation: |-
+    Umsteigen is separable: the verb part steigen is in position 2 and um goes to the end: Wir
+    steigen in Köln um. In Köln wir steigen um breaks the verb-second rule; after In Köln it must be
+    steigen wir.
+- id: de1-q-1811
+  lesson: de1-travel-dative
+  topic: Transport
+  stem: 'At the ticket counter the clerk asks: "Einfach oder hin und zurück?" Which answer fits?'
+  choices: ['Mit dem Zug, bitte.', 'Von Gleis 7.', 'Hin und zurück, bitte.', 'Ja, ich steige um.']
+  answer: 2
+  explanation: |-
+    The question is "single or return?", so you answer with one of the two: Hin und zurück, bitte (a
+    return, please). The other answers talk about transport, platforms or changing trains.
+- id: de1-q-1812
+  lesson: de1-travel-dative
+  module_quiz: true
+  topic: Dative
+  stem: 'Which sentence has a mistake?'
+  choices: ['Ich wohne bei meiner Schwester.', 'Er kommt aus dem Bahnhof.', 'Wir gehen zur Haltestelle.', 'Sie fährt mit ihr Auto.']
+  answer: 3
+  explanation: |-
+    Mit takes the dative, and possessives take dative endings too. Auto is neuter, so it must be mit
+    ihrem Auto. The other sentences correctly use meiner (feminine), dem (masculine) and zur (zu
+    der).
+- id: de1-q-1901
+  lesson: de1-home
+  module_quiz: true
+  topic: Two-way prepositions
+  stem: 'Complete: "Das Buch ist auf ___ Tisch."'
+  choices: ['den', 'der', 'dem', 'das']
+  answer: 2
+  explanation: |-
+    The question is Wo? (where is it?), so auf takes the dative. Tisch is masculine, so the article
+    is dem: auf dem Tisch. Den would be the accusative, used for movement onto the table.
+- id: de1-q-1902
+  lesson: de1-home
+  topic: Two-way prepositions
+  stem: 'Complete: "Die Milch ist ___ Kühlschrank."'
+  choices: ['im', 'in', 'am', 'ins']
+  answer: 0
+  explanation: |-
+    Kühlschrank is masculine; in + dem becomes im: im Kühlschrank. In alone is missing the article,
+    am means at or on, and ins (in das) is for movement into a place.
+- id: de1-q-1903
+  lesson: de1-home
+  module_quiz: true
+  topic: Two-way prepositions
+  stem: 'The photo is on the wall. Complete: "Das Foto ist ___ der Wand."'
+  choices: ['auf', 'an', 'in', 'über']
+  answer: 1
+  explanation: |-
+    Things on a vertical surface like a wall are an: an der Wand. Auf is for horizontal surfaces
+    such as a table or the floor; English "on" covers both.
+- id: de1-q-1904
+  lesson: de1-home
+  module_quiz: true
+  topic: Pronouns for things
+  stem: '"Wie findest du den Schrank?" — "Ich finde ___ schön."'
+  choices: ['er', 'es', 'sie', 'ihn']
+  answer: 3
+  explanation: |-
+    Schrank is masculine (der Schrank), and here it is the object of finden, so you need the
+    accusative pronoun ihn. Er is the subject form, and es would be for a neuter noun. English "it"
+    covers all three.
+- id: de1-q-1905
+  lesson: de1-home
+  topic: Pronouns for things
+  stem: '"Wo ist die Lampe?" — "___ ist im Wohnzimmer."'
+  choices: ['Sie', 'Es', 'Er', 'Ihn']
+  answer: 0
+  explanation: |-
+    Lampe is feminine (die Lampe), so the pronoun is sie, even though English says "it". Using es
+    for every thing is a common mistake.
+- id: de1-q-1906
+  lesson: de1-home
+  topic: Two-way prepositions
+  stem: 'Complete: "Der Kühlschrank ist in ___ Küche."'
+  choices: ['die', 'der', 'dem', 'den']
+  answer: 1
+  explanation: |-
+    Küche is feminine (die Küche). For location (Wo?) in takes the dative, and the feminine dative
+    article is der: in der Küche. There is no contraction for feminine nouns.
+- id: de1-q-1907
+  lesson: de1-home
+  module_quiz: true
+  topic: Home
+  stem: 'Read the advert: "Schöne 2-Zimmer-Wohnung im 3. Stock, helle Küche, Bad mit Fenster, Balkon. Miete: 750 Euro warm. Kein Aufzug." Which statement is true?'
+  choices: ['The rent does not include heating.', 'There is a lift.', 'The flat is on the ground floor.', 'The flat has two rooms plus a kitchen and a bathroom.']
+  answer: 3
+  explanation: |-
+    In German adverts the kitchen and bathroom are not counted, so a 2-Zimmer-Wohnung has two rooms
+    plus kitchen and bathroom. Warm means heating is included, kein Aufzug means there is no lift,
+    and the flat is on the third floor.
+- id: de1-q-1908
+  lesson: de1-home
+  topic: Two-way prepositions
+  stem: 'Which sentence means "The chair is between the sofa and the window"?'
+  choices: ['Der Stuhl ist zwischen das Sofa und das Fenster.', 'Der Stuhl ist neben dem Sofa und dem Fenster.', 'Der Stuhl ist zwischen dem Sofa und dem Fenster.', 'Der Stuhl ist zwischen der Sofa und der Fenster.']
+  answer: 2
+  explanation: |-
+    Zwischen means between. For location it takes the dative, and Sofa and Fenster are both neuter,
+    so both become dem. Das is the nominative or accusative, der is the wrong gender, and neben
+    means next to.
+- id: de1-q-1909
+  lesson: de1-home
+  topic: Two-way prepositions
+  stem: '"Wo ist die Katze?" Which answer is correct?'
+  choices: ['Unter dem Bett.', 'Unter das Bett.', 'Unter den Bett.', 'Unter der Bett.']
+  answer: 0
+  explanation: |-
+    Wo? asks about location, so unter takes the dative. Bett is neuter (das Bett), so the dative is
+    dem: unter dem Bett.
+- id: de1-q-1910
+  lesson: de1-home
+  topic: Home
+  stem: 'Your friend says: "Dein Wohnzimmer ist sehr gemütlich!" What does she mean?'
+  choices: ['Your living room is very dark.', 'Your living room is very modern.', 'Your living room is very expensive.', 'Your living room is very cosy.']
+  answer: 3
+  explanation: |-
+    Gemütlich means cosy, comfortable and pleasant to be in. Dark is dunkel, modern is modern, and
+    expensive is teuer.
+- id: de1-q-1911
+  lesson: de1-home
+  topic: Home
+  stem: 'Someone says: "Ich wohne im ersten Stock." Where does this person live?'
+  choices: ['on the ground floor', 'one floor above the ground floor', 'in the first house on the street', 'in the first room on the left']
+  answer: 1
+  explanation: |-
+    German floors are counted from the ground floor (das Erdgeschoss), so im ersten Stock is one
+    floor up: the first floor in British English, the second floor in American English.
+- id: de1-q-1912
+  lesson: de1-home
+  module_quiz: true
+  topic: Two-way prepositions
+  stem: 'Which sentence has a mistake?'
+  choices: ['Die Lampe ist über dem Tisch.', 'Der Garten ist hinter dem Haus.', 'Das Regal ist neben der Schrank.', 'Die Tasche ist auf dem Boden.']
+  answer: 2
+  explanation: |-
+    Schrank is masculine, so the dative after neben is dem: neben dem Schrank. Der Schrank is the
+    nominative; der before a noun is only dative for feminine nouns.
+- id: de1-q-2001
+  lesson: de1-body-health
+  module_quiz: true
+  topic: Health
+  stem: 'How do you say "I have a headache"?'
+  choices: ['Ich habe Kopfschmerzen.', 'Ich bin Kopfschmerzen.', 'Mein Kopf hat weh.', 'Ich habe einen Kopf weh.']
+  answer: 0
+  explanation: |-
+    German uses haben with the plural Schmerzen: Ich habe Kopfschmerzen. Or with wehtun: Mein Kopf
+    tut weh (not hat weh).
+- id: de1-q-2002
+  lesson: de1-body-health
+  module_quiz: true
+  topic: Health
+  stem: 'Complete: "Meine Füße ___ weh."'
+  choices: ['tut', 'tun', 'tust', 'wehtun']
+  answer: 1
+  explanation: |-
+    Wehtun is separable: tun is the verb in position 2 and weh goes to the end. Füße is plural, so
+    the verb is tun. Tut is for one body part: Mein Fuß tut weh.
+- id: de1-q-2003
+  lesson: de1-body-health
+  module_quiz: true
+  topic: Pronouns
+  stem: '"Wie geht es dir?" — "___ geht es nicht gut."'
+  choices: ['Ich', 'Mich', 'Mir', 'Mein']
+  answer: 2
+  explanation: |-
+    The answer copies the pattern of the question: es geht + dative. Dir becomes mir: Mir geht es
+    nicht gut. Ich is the nominative and mich the accusative.
+- id: de1-q-2004
+  lesson: de1-body-health
+  topic: Pronouns
+  stem: 'Complete: "Kannst du ___ helfen?"'
+  choices: ['mich', 'ich', 'mein', 'mir']
+  answer: 3
+  explanation: |-
+    Helfen always takes the dative, so you need mir: Kannst du mir helfen? Mich is the accusative, a
+    very common mistake because English uses "me" for both.
+- id: de1-q-2005
+  lesson: de1-body-health
+  topic: Pronouns
+  stem: 'You say to a friend: "I''ll call you tomorrow." Complete: "Ich rufe ___ morgen an."'
+  choices: ['dich', 'dir', 'du', 'dein']
+  answer: 0
+  explanation: |-
+    Anrufen takes a direct object, so the accusative pronoun is needed: dich. Dir is the dative (Wie
+    geht es dir?), du is the subject form, and dein means your.
+- id: de1-q-2006
+  lesson: de1-body-health
+  topic: Health
+  stem: 'How do you say "I''m cold"?'
+  choices: ['Ich bin kalt.', 'Mich ist kalt.', 'Ich habe kalt.', 'Mir ist kalt.']
+  answer: 3
+  explanation: |-
+    Feeling cold uses the dative: Mir ist kalt. Ich bin kalt describes your character (a cold
+    person). Ich habe kalt is a word-for-word translation from French or Spanish.
+- id: de1-q-2007
+  lesson: de1-body-health
+  module_quiz: true
+  topic: Health
+  stem: 'Read the sign: "Praxis Dr. Sommer. Sprechzeiten: Mo, Di, Do 8–12 und 15–18 Uhr; Mi, Fr 8–12 Uhr." (Sprechzeiten = opening hours) Can you see the doctor on Wednesday afternoon?'
+  choices: ['Yes, from 15 to 18.', 'No, on Wednesday the practice is only open in the morning.', 'Yes, but only from 8 to 12.', 'No, the practice is closed all day on Wednesday.']
+  answer: 1
+  explanation: |-
+    Mi (Mittwoch) is listed with Fr: only 8 to 12. The afternoon hours, 15 to 18, are only on
+    Monday, Tuesday and Thursday.
+- id: de1-q-2008
+  lesson: de1-body-health
+  topic: Health
+  stem: 'A colleague says: "Ich bin krank, ich habe Fieber." What do you say?'
+  choices: ['Herzlichen Glückwunsch!', 'Guten Appetit!', 'Gute Besserung!', 'Gute Reise!']
+  answer: 2
+  explanation: |-
+    Gute Besserung! means Get well soon! Herzlichen Glückwunsch is for birthdays, Guten Appetit
+    before a meal and Gute Reise for someone setting off on a trip.
+- id: de1-q-2009
+  lesson: de1-body-health
+  topic: Body
+  stem: 'What is the plural of "die Hand"?'
+  choices: ['die Hände', 'die Hands', 'die Handen', 'die Hand']
+  answer: 0
+  explanation: |-
+    Hand takes an umlaut and -e in the plural: zwei Hände. The same pattern: der Fuß, die Füße; der
+    Zahn, die Zähne.
+- id: de1-q-2010
+  lesson: de1-body-health
+  topic: Pronouns
+  stem: 'Complete: "Mein Bruder ist krank. Wie geht es ___?"'
+  choices: ['er', 'ihn', 'ihm', 'sein']
+  answer: 2
+  explanation: |-
+    Es geht + dative: Wie geht es dir / Ihnen / ihm? The dative of er is ihm. Ihn is the accusative,
+    er the nominative, and sein means his.
+- id: de1-q-2011
+  lesson: de1-body-health
+  topic: Pronouns
+  stem: 'Your friend is picking you and your sister up. Complete: "Holst du ___ am Bahnhof ab?"'
+  choices: ['wir', 'uns', 'unser', 'euch']
+  answer: 1
+  explanation: |-
+    You need the object form of wir, which is uns (the same in the accusative and dative). Unser
+    means our, and euch means you (plural).
+- id: de1-q-2012
+  lesson: de1-body-health
+  module_quiz: true
+  topic: Pronouns
+  stem: 'Which sentence has a mistake?'
+  choices: ['Mir ist schlecht.', 'Mein Bauch tut weh.', 'Ich verstehe dich nicht.', 'Kannst du mich helfen?']
+  answer: 3
+  explanation: |-
+    Helfen takes the dative: Kannst du mir helfen? The other sentences are correct: Mir ist schlecht
+    (I feel sick), Mein Bauch tut weh (my stomach hurts), Ich verstehe dich nicht (I don't
+    understand you).
+- id: de1-q-2013
+  lesson: de1-body-health
+  topic: Body
+  stem: 'Leon says: "Mein Hals tut weh." Where is the pain?'
+  choices: ['in his throat', 'in his ear', 'in his back', 'in his stomach']
+  answer: 0
+  explanation: |-
+    Der Hals is the neck and throat; Halsschmerzen is a sore throat. Ear is das Ohr, back is der
+    Rücken, and stomach is der Bauch.

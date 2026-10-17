@@ -7,7 +7,7 @@ topics: [Time, Prepositions, Word order]
 ---
 ## What this lesson is for
 
-You can count, order food and pay. Now you need to say when things happen: what time it is, when the shop opens, on which day you work, and how often you do something. This lesson teaches the clock (the official 24-hour way and the everyday way), the days of the week and the parts of the day, the little prepositions *um*, *am*, *von … bis* that go with them, and a few words for how often. The numbers you need are 0 to 59, which you know from lesson 03.
+You can count, order food and pay. Now you need to say when things happen: what time it is, when the shop opens, on which day you work, and how often you do something. This lesson teaches the clock (the official 24-hour way and the everyday way), the days of the week and the parts of the day, the little prepositions *um*, *am*, *von … bis* that go with them, and a few words for how often. The numbers you need are 0 to 59, which you know from lesson 3.
 
 ## What time is it?
 
@@ -18,7 +18,7 @@ There are two ways to ask, and both are everyday German:
 
 The answer always starts with *Es ist …*: *Es ist acht Uhr.* — It's eight o'clock.
 
-*die Uhr* is the clock or watch from lesson 05. In times it means "o'clock", and it never takes a plural: *Es ist zehn Uhr*, not *zehn Uhren*.
+*die Uhr* is the clock or watch from lesson 5. In times it means "o'clock", and it never takes a plural: *Es ist zehn Uhr*, not *zehn Uhren*.
 
 ## The official time
 
@@ -107,7 +107,7 @@ The parts of the day are masculine too, except the night:
 
 ### Today, tomorrow, yesterday
 
-*heute* (today, lesson 04), *morgen* (tomorrow) and *gestern* (yesterday) combine with the parts of the day: *heute Abend* (this evening), *gestern Abend* (last night, yesterday evening), *morgen Nachmittag* (tomorrow afternoon). Careful: *morgen* in small letters is tomorrow, *der Morgen* with a capital is the morning. Tomorrow morning is *morgen früh*, not *morgen Morgen* (*früh* = early).
+*heute* (today, lesson 4), *morgen* (tomorrow) and *gestern* (yesterday) combine with the parts of the day: *heute Abend* (this evening), *gestern Abend* (last night, yesterday evening), *morgen Nachmittag* (tomorrow afternoon). Careful: *morgen* in small letters is tomorrow, *der Morgen* with a capital is the morning. Tomorrow morning is *morgen früh*, not *morgen Morgen* (*früh* = early).
 
 ## When? um, am, von … bis
 
@@ -127,11 +127,11 @@ The parts of the day are masculine too, except the night:
 - *Ich arbeite bis fünf.* — I work until five.
 - *Wann kommst du? — Um sieben.* — When are you coming? — At seven.
 
-When a time phrase comes first, the verb stays in second place and the subject moves after it: *Am Freitag arbeite ich nicht.* You met verb-second word order in lesson 04; lesson 12 practises it in detail.
+When a time phrase comes first, the verb stays in second place and the subject moves after it: *Am Freitag arbeite ich nicht.* You met verb-second word order in lesson 4; lesson 12 practises it in detail.
 
 ## How often?
 
-A **frequency adverb** says how often something happens. You know *immer* (always) and *oft* (often) from lesson 04; add *manchmal* (sometimes) and *nie* (never).
+A **frequency adverb** says how often something happens. You know *immer* (always) and *oft* (often) from lesson 4; add *manchmal* (sometimes) and *nie* (never).
 
 | immer | oft | manchmal | nie |
 |---|---|---|---|
@@ -146,7 +146,7 @@ They usually come straight after the verb, or after the subject when the subject
 
 *nie* is already negative, so never add *nicht* to it. *früh* (early) and *spät* (late) are the opposites you need here: *Es ist schon spät.* — It's already late.
 
-For "every day" German uses the accusative from lesson 09: *jeden Tag* (der Tag → jeden), *jede Woche*, *jedes Wochenende*.
+For "every day" German uses the accusative from lesson 9: *jeden Tag* (der Tag → jeden), *jede Woche*, *jedes Wochenende*.
 
 ## Dialogue: Do you have time on Saturday?
 
@@ -178,7 +178,7 @@ In English:
 
 - *Viertel*: the *v* is an *f* and the *ie* is short here: FIR-tel.
 - *Uhr* sounds like "oor" with a long *u*.
-- *Abend* and *Tag* end in a *t* and a *k* sound: AH-bent, tahk. That's the final devoicing from lesson 01.
+- *Abend* and *Tag* end in a *t* and a *k* sound: AH-bent, tahk. That's the final devoicing from lesson 1.
 - *Mittwoch* is stressed on the first syllable: MIT-voch, with the *ch* of *Bach*. So is *Nacht*.
 - *Dienstag*: long *ie*, DEENS-tahk. Don't confuse it with *Donnerstag*, DON-ners-tahk.
 - *gestern*: GES-tern, with a hard *g*.

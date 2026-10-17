@@ -7,11 +7,11 @@ topics: [Numbers, Prices, Accusative, Shopping]
 ---
 ## What this lesson is for
 
-In lesson 09 you learned to order food and drink with the accusative: *Ich nehme einen Kaffee.* Now you go shopping. You will learn the big numbers (from 100 up to a million), how Germans write and say prices, how to ask what something costs, how to ask for a kilo, a litre or a bottle of something, and how to point at things with *dieser* (this) and ask about them with *welcher* (which). You will also meet *es gibt* (there is, there are), one of the most useful phrases in the language.
+In lesson 9 you learned to order food and drink with the accusative: *Ich nehme einen Kaffee.* Now you go shopping. You will learn the big numbers (from 100 up to a million), how Germans write and say prices, how to ask what something costs, how to ask for a kilo, a litre or a bottle of something, and how to point at things with *dieser* (this) and ask about them with *welcher* (which). You will also meet *es gibt* (there is, there are), one of the most useful phrases in the language.
 
 ## Numbers from 100 up
 
-You already know 0 to 100 (lesson 03). Bigger numbers follow the same logic and are written as one word, however long.
+You already know 0 to 100 (lesson 3). Bigger numbers follow the same logic and are written as one word, however long.
 
 | Number | German |
 |---|---|
@@ -160,7 +160,7 @@ In English:
 > Lena: Here's ten euros.\
 > Saleswoman: And two euros back. Thank you and have a nice day!
 
-Check the maths: 2,40 + 2,40 + 3,20 = 8,00 €. *Verkäuferin* is a female shop assistant (lesson 07 had *der Verkäufer*). *im Angebot* means "on special offer"; take it as a fixed phrase. *zurück* = back; *einen schönen Tag noch* = have a nice day.
+Check the maths: 2,40 + 2,40 + 3,20 = 8,00 €. *Verkäuferin* is a female shop assistant (lesson 7 had *der Verkäufer*). *im Angebot* means "on special offer"; take it as a fixed phrase. *zurück* = back; *einen schönen Tag noch* = have a nice day.
 
 ## Places to shop
 

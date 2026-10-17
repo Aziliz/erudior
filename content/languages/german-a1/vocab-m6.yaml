@@ -254,13 +254,6 @@
   example: Wann kommst du zurück?
   exampleEn: When are you coming back?
   note: 'Separable: ich komme zurück. Perfect: ist zurückgekommen.'
-- id: wohin
-  lesson: de1-perfect-sein
-  term: wohin
-  pos: question word
-  meanings: ["where to", "where"]
-  example: Wohin fährst du im Sommer?
-  exampleEn: Where are you going in the summer?
 - id: ferien
   lesson: de1-perfect-sein
   term: die Ferien
@@ -403,15 +396,6 @@
   meanings: ["back (returning)", "back"]
   example: Ich bin um acht Uhr zurück.
   exampleEn: I'll be back at eight o'clock.
-- id: nach-hause
-  lesson: de1-perfect-sein
-  kind: phrase
-  term: nach Hause
-  pos: phrase
-  meanings: ["home (going there)", "home", "to home", "homeward"]
-  example: Wann gehst du nach Hause?
-  exampleEn: When are you going home?
-  note: 'nach Hause = (going) home; zu Hause = at home.'
 
 # --- Lesson 23: linking sentences and writing messages ---------------------------
 - id: oder
@@ -554,7 +538,7 @@
   term: männlich
   pos: adjective
   meanings: ["male", "masculine"]
-  example: Bitte kreuzen Sie an, männlich oder weiblich.
+  example: 'Bitte kreuzen Sie an: männlich oder weiblich.'
   exampleEn: Please tick male or female.
 - id: weiblich
   lesson: de1-writing

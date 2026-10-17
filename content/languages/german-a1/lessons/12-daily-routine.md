@@ -67,7 +67,7 @@ Only these little prefixes split off. Ordinary verbs stay whole, even when they 
 
 ## Word order: time first, verb second
 
-You learned the verb-second rule in lesson 04: in a statement the verb is the second element, and the first place does not have to be the subject. When a time phrase comes first, the subject moves behind the verb. This swap is called **inversion**, and it is how Germans tell a day in order:
+You learned the verb-second rule in lesson 4: in a statement the verb is the second element, and the first place does not have to be the subject. When a time phrase comes first, the subject moves behind the verb. This swap is called **inversion**, and it is how Germans tell a day in order:
 
 | Position 1 | Position 2 (verb) | Subject | Rest | End |
 |---|---|---|---|---|
