@@ -503,6 +503,40 @@
   explanation: |-
     $(-1, 1)$ is in Quadrant II, but $\tan^{-1}$ returned a Quadrant IV angle. Add $\pi$: $-\frac{\pi}{4} + \pi = \frac{3\pi}{4}$. $\frac{7\pi}{4}$ is the student's point, $(1, -1)$.
 
+- id: pc-q-2913
+  lesson: pc-polar
+  module_quiz: true
+  topic: Polar form of complex numbers
+  stem: 'Write $z = 1 + \sqrt3\,i$ in polar form $r(\cos\theta + i\sin\theta)$ with $r > 0$ and $0 \le \theta < 2\pi$.'
+  choices: ['$4\left(\cos\tfrac{\pi}{3} + i\sin\tfrac{\pi}{3}\right)$', '$2\left(\cos\tfrac{\pi}{6} + i\sin\tfrac{\pi}{6}\right)$', '$2\left(\cos\tfrac{2\pi}{3} + i\sin\tfrac{2\pi}{3}\right)$', '$2\left(\cos\tfrac{\pi}{3} + i\sin\tfrac{\pi}{3}\right)$']
+  answer: 3
+  explanation: |-
+    $r = \sqrt{1^2 + (\sqrt3)^2} = 2$. The point $(1, \sqrt3)$ is in Quadrant I with $\tan\theta = \sqrt3$, so $\theta = \frac{\pi}{3}$. A modulus of 4 forgets the square root; $\frac{\pi}{6}$ comes from using $\frac xy$ instead of $\frac yx$; $\frac{2\pi}{3}$ puts the point in Quadrant II.
+- id: pc-q-2914
+  lesson: pc-polar
+  topic: Polar form of complex numbers
+  stem: 'Multiply $3\left(\cos\tfrac{\pi}{6} + i\sin\tfrac{\pi}{6}\right)$ by $2\left(\cos\tfrac{\pi}{3} + i\sin\tfrac{\pi}{3}\right)$.'
+  choices: ['$6i$', '$5i$', '$3\sqrt3 + 3i$', '$6\left(\cos\tfrac{\pi^2}{18} + i\sin\tfrac{\pi^2}{18}\right)$']
+  answer: 0
+  explanation: |-
+    Multiply the moduli and add the arguments: $6\left(\cos\frac{\pi}{2} + i\sin\frac{\pi}{2}\right) = 6(0 + i) = 6i$. $5i$ adds the moduli; $3\sqrt3 + 3i$ is $6\left(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6}\right)$, from subtracting the arguments; $\frac{\pi^2}{18}$ multiplies the arguments.
+- id: pc-q-2915
+  lesson: pc-polar
+  module_quiz: true
+  topic: Polar form of complex numbers
+  stem: 'Use De Moivre''s theorem to find $(\sqrt3 + i)^6$.'
+  choices: ['$64$', '$-64$', '$64i$', '$-12$']
+  answer: 1
+  explanation: |-
+    $\sqrt3 + i$ has $r = \sqrt{3 + 1} = 2$ and $\theta = \frac{\pi}{6}$. So $(\sqrt3 + i)^6 = 2^6\left(\cos\pi + i\sin\pi\right) = 64(-1 + 0i) = -64$. $64$ comes from using $\theta = \frac{\pi}{3}$ (so $6\theta = 2\pi$); $64i$ comes from $\theta = \frac{\pi}{12}$; $-12$ multiplies the modulus by 6 instead of raising it to the 6th power.
+- id: pc-q-2916
+  lesson: pc-polar
+  topic: Polar form of complex numbers
+  stem: 'A complex number $z$ has modulus 3 and argument $\theta$. What are the modulus and argument of $z^4$?'
+  choices: ['Modulus $81$, argument $4\theta$', 'Modulus $12$, argument $4\theta$', 'Modulus $81$, argument $\theta + 4$', 'Modulus $81$, argument $\theta^4$']
+  answer: 0
+  explanation: |-
+    By De Moivre's theorem, $z^4 = 3^4(\cos 4\theta + i\sin 4\theta)$: the modulus is raised to the 4th power ($81$) and the argument is multiplied by 4. Modulus 12 multiplies by 4 instead of raising to the 4th power; $\theta + 4$ and $\theta^4$ treat the argument wrongly, since multiplying adds arguments, so four equal factors give $4\theta$.
 - id: pc-q-3001
   lesson: pc-polar-conics
   module_quiz: true

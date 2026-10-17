@@ -401,3 +401,112 @@
   answer: 0
   explanation: |-
     pH 3 means $[\text{H}^+] = 10^{-3}$; pH 5 means $10^{-5}$. The ratio is $\frac{10^{-3}}{10^{-5}} = 10^2 = 100$.
+
+- id: pc-q-md01
+  lesson: pc-modeling-data
+  module_quiz: true
+  topic: Fitting models to data
+  stem: 'A regression model is $\hat y = 2.5x + 4$. What is the residual for the data point $(6, 17)$?'
+  choices: ['$2$', '$-2$', '$19$', '$36$']
+  answer: 1
+  explanation: |-
+    The prediction is $\hat y = 2.5(6) + 4 = 19$, and residual $=$ observed $-$ predicted $= 17 - 19 = -2$: the point lies below the line. $2$ subtracts in the wrong order, $19$ is the predicted value itself, and $36$ adds observed and predicted.
+- id: pc-q-md02
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'At $x = 0, 1, 2, 3, 4$ the data are $y = 3, 6, 12, 24, 48$. Which type of model fits?'
+  choices: ['Linear, because $y$ increases each step', 'Quadratic, because the first differences increase', 'Exponential, because each $y$ is 2 times the previous one', 'Logarithmic, because the data grow quickly']
+  answer: 2
+  explanation: |-
+    The ratios $\frac63 = \frac{12}{6} = \frac{24}{12} = \frac{48}{24} = 2$ are constant, so $y = 3 \cdot 2^x$. Merely increasing is not linear (the differences $3, 6, 12, 24$ aren't constant); the second differences $3, 6, 12$ aren't constant either, so it isn't quadratic; and logarithmic growth slows down rather than speeding up.
+- id: pc-q-md03
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'At $x = 1, 2, 3, 4, 5$ the data are $y = 2, 5, 10, 17, 26$. Which type of model fits exactly?'
+  choices: ['Linear', 'Exponential', 'Logarithmic', 'Quadratic']
+  answer: 3
+  explanation: |-
+    First differences: $3, 5, 7, 9$. Second differences: $2, 2, 2$, constant, so the data are quadratic (in fact $y = x^2 + 1$). The first differences are not constant, so not linear; the ratios $2.5, 2, 1.7, 1.53$ are not constant, so not exponential; and the growth speeds up, unlike a logarithm.
+- id: pc-q-md04
+  lesson: pc-modeling-data
+  module_quiz: true
+  topic: Fitting models to data
+  stem: 'For a data set, $\bar x = 4$, $\bar y = 10$ and the least-squares slope is $m = 1.5$. What is the intercept $b$?'
+  choices: ['$4$', '$16$', '$8.5$', '$2.5$']
+  answer: 0
+  explanation: |-
+    The line passes through $(\bar x, \bar y)$, so $b = \bar y - m\bar x = 10 - 1.5(4) = 4$, giving $\hat y = 1.5x + 4$. $16$ adds $m\bar x$ instead of subtracting it, $8.5$ subtracts $m$ without multiplying by $\bar x$, and $2.5$ is $\bar y \div \bar x$.
+- id: pc-q-md05
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'After fitting a line, the residual plot shows a clear U shape (positive at both ends, negative in the middle). What does this suggest?'
+  choices: ['The line fits well because the residuals add to 0', 'The data curve, so a nonlinear model such as a quadratic would fit better', 'One of the points must be a data-entry error', 'The correlation coefficient must be negative']
+  answer: 1
+  explanation: |-
+    A pattern in the residuals means the model missed part of the trend; a U shape means the data bend upward relative to the line. Least-squares residuals always add to 0, so that says nothing about fit. A single error would show as one stray residual, not a smooth U, and the shape of the residuals says nothing about the sign of $r$.
+- id: pc-q-md06
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'What does the least-squares regression line make as small as possible?'
+  choices: ['The sum of the residuals', 'The largest single residual', 'The sum of the squared residuals', 'The number of points not on the line']
+  answer: 2
+  explanation: |-
+    Least squares minimizes $\sum (y - \hat y)^2$. The plain sum of residuals is 0 for many different lines (any line through $(\bar x, \bar y)$), so it can't pick a best line. Minimizing the largest residual or counting misses are different criteria.
+- id: pc-q-md07
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'An exponential model $y = ab^x$ passes through $(0, 5)$ and $(3, 40)$. Find it.'
+  choices: ['$y = 5\left(\tfrac{8}{3}\right)^x$', '$y = 5 + \tfrac{35}{3}x$', '$y = 5 \cdot 8^x$', '$y = 5 \cdot 2^x$']
+  answer: 3
+  explanation: |-
+    At $x = 0$, $y = a = 5$. Then $5b^3 = 40$, so $b^3 = 8$ and $b = 2$: $y = 5 \cdot 2^x$. $b = \frac83$ divides the ratio 8 by 3 instead of taking a cube root; $b = 8$ ignores the 3 steps; $5 + \frac{35}{3}x$ is the line through the points, not an exponential.
+- id: pc-q-md08
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'Plotting $\ln y$ against $x$ gives a straight line with slope $0.4$ and intercept $1.2$. Which model for $y$ does this give?'
+  choices: ['$y = e^{1.2}e^{0.4x} \approx 3.32e^{0.4x}$', '$y = 1.2e^{0.4x}$', '$y = 0.4x + 1.2$', '$y = 1.2 + 0.4\ln x$']
+  answer: 0
+  explanation: |-
+    $\ln y = 1.2 + 0.4x$, so $y = e^{1.2 + 0.4x} = e^{1.2}e^{0.4x}$, an exponential model. Using $1.2$ as the coefficient forgets to exponentiate the intercept; $0.4x + 1.2$ is the line for $\ln y$, not $y$; and $1.2 + 0.4\ln x$ is what a straight line of $y$ against $\ln x$ would give.
+- id: pc-q-md09
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'A model is fitted to a city''s population for the years 2010 to 2020. Using it to predict the population in 2040 is an example of what?'
+  choices: ['Interpolation, which is usually reliable', 'Extrapolation, which assumes the trend continues and is less reliable', 'A residual, the difference between observed and predicted', 'Linearizing the data']
+  answer: 1
+  explanation: |-
+    2040 lies outside the range of the data, so this is extrapolation: it only works if the pattern of 2010 to 2020 keeps going. Interpolation predicts inside the data range. A residual compares an observed value with a prediction, and linearizing transforms data before fitting.
+- id: pc-q-md10
+  lesson: pc-modeling-data
+  module_quiz: true
+  topic: Fitting models to data
+  stem: 'A rectangle has perimeter 40 cm and width $w$. Which function gives its area, with a sensible domain?'
+  choices: ['$A(w) = w(40 - w)$, $0 < w < 40$', '$A(w) = w(20 - w)$, $0 < w < 40$', '$A(w) = w(20 - w)$, $0 < w < 20$', '$A(w) = 2w + 2(20 - w)$, $0 < w < 20$']
+  answer: 2
+  explanation: |-
+    $2w + 2L = 40$ gives $L = 20 - w$, so $A = w(20 - w)$. Both sides must be positive, so $0 < w < 20$. Using $40 - w$ forgets to halve the perimeter; allowing $w$ up to 40 makes the length negative; $2w + 2(20 - w)$ is the perimeter, which is always 40.
+- id: pc-q-md11
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'At $x = 1, 10, 100, 1000$ the data are $y = 2, 5, 8, 11$. Which model fits all four points exactly? ($\log$ means base 10.)'
+  choices: ['$y = 2 + 3\ln x$', '$y = 3 + 2\log x$', '$y = 2 + 0.003x$', '$y = 2 + 3\log x$']
+  answer: 3
+  explanation: |-
+    Each tenfold increase in $x$ adds 3 to $y$, the signature of a logarithm: $y = 2 + 3\log x$ gives $2, 5, 8, 11$. With $\ln$ instead of $\log$, $x = 10$ gives about $8.9$. $3 + 2\log x$ swaps the constants ($x = 1$ gives 3). The line $2 + 0.003x$ gives about $2.03$ at $x = 10$ and only $5$ at $x = 1000$, so it misses the steady +3 per tenfold step.
+- id: pc-q-md12
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'A scatter plot has correlation coefficient $r = -0.95$. What does this tell you?'
+  choices: ['There is a strong negative linear relationship', 'There is a weak relationship because $r$ is negative', '95% of the points lie exactly on the line', 'The slope of the regression line is $-0.95$']
+  answer: 0
+  explanation: |-
+    The sign of $r$ gives the direction (here, $y$ tends to fall as $x$ rises) and $|r| = 0.95$, close to 1, means the points hug a line tightly. A negative $r$ is not weak; $r$ is not a percentage of points; and $r$ is not the slope, which depends on the units.
+- id: pc-q-md13
+  lesson: pc-modeling-data
+  module_quiz: true
+  topic: Fitting models to data
+  stem: 'Find the least-squares line for the points $(1, 2)$, $(2, 3)$, $(3, 7)$.'
+  choices: ['$\hat y = 2.5x - 1$', '$\hat y = 2.5x + 4$', '$\hat y = 5x - 6$', '$\hat y = 2.5x + 1$']
+  answer: 0
+  explanation: |-
+    $\bar x = 2$, $\bar y = 4$. The deviations are $-1, 0, 1$ and $-2, -1, 3$, so $\sum(x - \bar x)(y - \bar y) = 2 + 0 + 3 = 5$ and $\sum(x - \bar x)^2 = 2$. Then $m = 2.5$ and $b = 4 - 2.5(2) = -1$. $2.5x + 4$ uses $\bar y$ as the intercept; $5x - 6$ forgets to divide by $\sum(x - \bar x)^2$; $2.5x + 1$ computes $m\bar x - \bar y$ instead of $\bar y - m\bar x$.

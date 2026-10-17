@@ -47,6 +47,12 @@ General form $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$: $B^2 - 4AC < 0$ ellipse, $= 
 | $r = a\cos n\theta$, integer $n \ge 2$ | rose: $n$ petals ($n$ odd), $2n$ petals ($n$ even) |
 | $r = \dfrac{ed}{1 \pm e\cos\theta}$, $\dfrac{ed}{1 \pm e\sin\theta}$ | conic with focus at the pole |
 
+| Complex numbers | Rule |
+|---|---|
+| Polar form | $z = r(\cos\theta + i\sin\theta)$, $r = \lvert z\rvert$ |
+| Product | multiply moduli, add arguments |
+| De Moivre | $z^n = r^n(\cos n\theta + i\sin n\theta)$ |
+
 ## Vectors
 
 | Idea | Formula |

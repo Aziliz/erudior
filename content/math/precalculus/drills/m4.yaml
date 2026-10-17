@@ -214,3 +214,74 @@
     - {name: T2, label: 'Temperature', tolerance: 0.1, format: num1, units: {'°C': 1, C: 1}}
   solution: |-
     $T(t) = {Ts} + {D0}e^{-kt}$. From $T({t1}) = {T1}$: $k = \dfrac{1}{ {t1} }\ln\dfrac{ {D0} }{ {T1} - {Ts} } \approx {k:num4}$. Then $T({t2}) = {Ts} + {D0}e^{-{k:num4}\cdot{t2}} \approx$ **{T2:num1}°C**.
+
+- id: pc-linreg
+  title: Least-squares line by hand
+  topic: Fitting models to data
+  vars:
+    m0: {min: -3, max: 4}
+    b0: {min: 8, max: 14}
+    e1: {min: -2, max: 2}
+    e2: {min: -2, max: 2}
+    e3: {min: -2, max: 2}
+    e4: {min: -2, max: 2}
+    e5: {min: -2, max: 2}
+  where: ["m0 != 0", "min(y1, y2, y3, y4, y5) >= 1", "m != 0", "b != 0"]
+  calc:
+    y1: b0 + m0 + e1
+    y2: b0 + 2*m0 + e2
+    y3: b0 + 3*m0 + e3
+    y4: b0 + 4*m0 + e4
+    y5: b0 + 5*m0 + e5
+    ybar: (y1 + y2 + y3 + y4 + y5)/5
+    sxy: -2*y1 - y2 + y4 + 2*y5
+    m: sxy/10
+    b: round(ybar - 3*m, 6)
+  prompt: 'Find the least-squares regression line $\hat y = mx + b$ for the data $\begin{array}{c|ccccc} x & 1 & 2 & 3 & 4 & 5 \\ \hline y & {y1} & {y2} & {y3} & {y4} & {y5} \end{array}$ (exact or 2 decimals).'
+  answers:
+    - {name: m, label: '$m =$', tolerance: 0.01}
+    - {name: b, label: '$b =$', tolerance: 0.01}
+  solution: |-
+    $\bar x = 3$ and $\bar y = {ybar}$. The deviations $x - \bar x$ are $-2, -1, 0, 1, 2$, so $\sum (x - \bar x)^2 = 10$, and because those deviations add to 0 the $\bar y$ terms cancel: $\sum (x - \bar x)(y - \bar y) = -2({y1}) - ({y2}) + ({y4}) + 2({y5}) = {sxy}$. So $m = \dfrac{ {sxy} }{10} =$ **{m}** and $b = \bar y - m\bar x = {ybar} - 3({m}) =$ **{b}**.
+
+- id: pc-exp-fit
+  title: Exponential model through two points
+  topic: Fitting models to data
+  vars:
+    a: {min: 2, max: 12}
+    b: {choices: [0.5, 1.5, 2, 3, 4]}
+    x1: {min: 1, max: 2}
+    k: {min: 1, max: 3}
+  where: ["y1 == round(y1, 2)", "y2 == round(y2, 2)", "y1 < 1000", "y2 < 1000"]
+  calc:
+    x2: x1 + k
+    y1: a*b^x1
+    y2: a*b^x2
+    ratio: y2/y1
+    bx: b^x1
+  prompt: 'An exponential model $y = ab^x$ passes through $({x1}, {y1})$ and $({x2}, {y2})$. Find $a$ and $b$.'
+  answers:
+    - {name: a, label: '$a =$', tolerance: 0.01}
+    - {name: b, label: '$b =$', tolerance: 0.01}
+  solution: |-
+    Divide the two equations: $\dfrac{ab^{ {x2} }}{ab^{ {x1} }} = b^{ {k} } = \dfrac{ {y2} }{ {y1} } = {ratio:num4}$, so $b = {ratio:num4}^{1/{k}} =$ **{b}**. Then $a = \dfrac{ {y1} }{ {b}^{ {x1} } } = \dfrac{ {y1} }{ {bx:num4} } =$ **{a}**.
+
+- id: pc-residual
+  title: Predicted value and residual
+  topic: Fitting models to data
+  vars:
+    m: {min: -3, max: 3, step: 0.5}
+    c: {min: 2, max: 20, step: 0.5}
+    x: {min: 1, max: 20}
+    e: {min: -5, max: 5, step: 0.5}
+  where: ["m != 0", "e != 0", "yhat > 0"]
+  calc:
+    yhat: m*x + c
+    yobs: yhat + e
+    res: e
+  prompt: 'A regression model is $\hat y = {m:coef}x {c:signed}$. For the data point $({x}, {yobs})$, find the predicted value $\hat y$ and the residual.'
+  answers:
+    - {name: yhat, label: 'Predicted $\hat y =$', tolerance: 0.01}
+    - {name: res, label: 'Residual', tolerance: 0.01}
+  solution: |-
+    Predicted: $\hat y = {m} \cdot {x} {c:signed} =$ **{yhat}**. Residual $=$ observed $-$ predicted $= {yobs} - {yhat} =$ **{res}**. (A positive residual means the point lies above the line; a negative one, below it.)

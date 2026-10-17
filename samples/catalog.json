@@ -120,7 +120,7 @@
   "order": 6,
   "title": "Precalculus",
   "description": "Precalculus from the high school course through college precalculus, assuming Algebra 2: functions in depth, transformations, composition and inverses, polynomial and rational functions, exponential and logarithmic models, a compact trigonometry review, systems and matrices, conic sections, parametric and polar equations, vectors, sequences and series, induction, the binomial theorem, counting and probability, and a first look at limits and the derivative.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Math",
   "level": [
    "High school",
@@ -139,7 +139,7 @@
   "file": "math/math-calculus.json",
   "order": 7,
   "title": "Calculus",
-  "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, introductory differential equations, sequences and series, Taylor series, and calculus with parametric and polar curves.",
+  "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, hyperbolic functions, introductory differential equations (separable and first-order linear), sequences and series, Taylor series, and calculus with parametric and polar curves.",
   "revision": 2,
   "subject": "Math",
   "level": [
@@ -190,7 +190,7 @@
   ],
   "lessons": 41,
   "questions": 463,
-  "cards": 180,
+  "cards": 195,
   "drills": 86
  },
  {

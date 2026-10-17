@@ -9,7 +9,7 @@ refs: [pc-ref-matrices-series]
 ---
 ## Expanding powers without multiplying
 
-$(a + b)^2 = a^2 + 2ab + b^2$ is easy. $(a + b)^3$ takes a minute. $(2x - 3)^{10}$ by repeated multiplication would take an afternoon. The binomial theorem gives every term directly, using numbers from Pascal's triangle. It ties together the sigma notation of Lesson 33, the induction of Lesson 35, and the counting of the next lesson, and it's the starting point for the power series of calculus.
+$(a + b)^2 = a^2 + 2ab + b^2$ is easy. $(a + b)^3$ takes a minute. $(2x - 3)^{10}$ by repeated multiplication would take an afternoon. The binomial theorem gives every term directly, using numbers from Pascal's triangle. It ties together the sigma notation of Lesson 36, the induction of Lesson 38, and the counting of the next lesson, and it's the starting point for the power series of calculus.
 
 ## Looking for the pattern
 

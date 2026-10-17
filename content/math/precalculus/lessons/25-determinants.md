@@ -71,7 +71,7 @@ So $x = \frac{-28}{-14} = 2$ and $y = \frac{-14}{-14} = 1$. Check: $4(2) - 1 = 7
 
 ### Example 3
 
-For the system $x + y + z = 6$, $2x - y + z = 3$, $x + 2y - z = 2$ (Lesson 20), find $z$ alone.
+For the system $x + y + z = 6$, $2x - y + z = 3$, $x + 2y - z = 2$ (Lesson 22), find $z$ alone.
 
 $D = \begin{vmatrix} 1 & 1 & 1 \\ 2 & -1 & 1 \\ 1 & 2 & -1 \end{vmatrix} = 1(1 - 2) - 1(-2 - 1) + 1(4 + 1) = -1 + 3 + 5 = 7.$
 
@@ -79,7 +79,7 @@ Replace the third column with the constants:
 
 $D_z = \begin{vmatrix} 1 & 1 & 6 \\ 2 & -1 & 3 \\ 1 & 2 & 2 \end{vmatrix} = 1(-2 - 6) - 1(4 - 3) + 6(4 + 1) = -8 - 1 + 30 = 21.$
 
-$z = \frac{21}{7} = 3$, matching Lesson 20. Cramer's rule shines when you need one variable, or when the coefficients contain parameters; for full solutions of large systems, elimination is faster.
+$z = \frac{21}{7} = 3$, matching Lesson 22. Cramer's rule shines when you need one variable, or when the coefficients contain parameters; for full solutions of large systems, elimination is faster.
 
 If $D = 0$, Cramer's rule doesn't apply: the system has no solution or infinitely many, and elimination tells which.
 

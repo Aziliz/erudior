@@ -52,6 +52,18 @@ title: Functions, graphs and polynomials
 - $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$; graphs mirror across $y = x$.
 - To find $f^{-1}$: write $y = f(x)$, swap $x$ and $y$, solve for $y$.
 
+## Complex numbers
+
+| Fact | Rule |
+|---|---|
+| Imaginary unit | $i^2 = -1$; $\sqrt{-b} = i\sqrt b$ for $b > 0$ |
+| Powers of $i$ | $i, -1, -i, 1$ repeat every 4 (use the remainder of $n \div 4$) |
+| Standard form | $a + bi$: real part $a$, imaginary part $b$ |
+| Product | $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$ |
+| Conjugate | $\overline{a + bi} = a - bi$; $(a + bi)(a - bi) = a^2 + b^2$ |
+| Quotient | multiply top and bottom by the conjugate of the denominator |
+| Modulus | $\lvert a + bi\rvert = \sqrt{a^2 + b^2}$; $a + bi$ plots at $(a, b)$ |
+
 ## Polynomials
 
 | Fact | Statement |

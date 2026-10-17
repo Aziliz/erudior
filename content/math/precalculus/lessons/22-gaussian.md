@@ -3,13 +3,13 @@ id: pc-gaussian
 module: pc-m6
 title: Linear systems and Gaussian elimination
 minutes: 35
-topics: [Systems and Gaussian elimination]
-drills: [pc-system3, pc-row-op]
+topics: [Systems and Gaussian elimination, Nonlinear systems]
+drills: [pc-system3, pc-row-op, pc-nonlinear-system]
 refs: [pc-ref-matrices-series]
 ---
 ## Beyond two equations
 
-Algebra 2 solved systems of two linear equations by substitution or elimination. Real problems often have more unknowns: mixing three ingredients to hit three nutritional targets, fitting a parabola through three points, balancing currents in a circuit. This module develops the matrix tools that scale to any size. This first lesson turns elimination into a systematic procedure, Gaussian elimination, that a person or a computer can follow on any linear system.
+Algebra 2 solved systems of two linear equations by substitution or elimination. Real problems often have more unknowns: mixing three ingredients to hit three nutritional targets, fitting a parabola through three points, balancing currents in a circuit. This module develops the matrix tools that scale to any size. This first lesson turns elimination into a systematic procedure, Gaussian elimination, that a person or a computer can follow on any linear system. The module ends by trading equations for inequalities, in linear programming.
 
 ## Linear systems in three variables
 

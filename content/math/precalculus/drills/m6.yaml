@@ -289,3 +289,88 @@
     - {name: C, label: '$C =$'}
   solution: |-
     Clear denominators: ${c2:coef}x^2 {c1:signedcoef}x {c0:signed} = A(x {np:signed})(x {nq:signed}) + B(x {nq:signed}) + C(x {np:signed})^2$. At $x = {p}$ only the $B$ term survives, giving $B =$ **{B}**. At $x = {q}$ only the $C$ term survives, giving $C =$ **{C}**. Matching $x^2$ coefficients: $A + C = {c2}$, so $A =$ **{A}**.
+
+- id: pc-nonlinear-system
+  title: Line meets parabola
+  topic: Nonlinear systems
+  vars:
+    x1: {min: -5, max: 4}
+    x2: {min: -4, max: 5}
+    b: {min: -4, max: 4}
+    c: {min: -6, max: 6}
+  where: ["x1 < x2", "x1 != 0", "x2 != 0", "x1 + x2 != 0", "b != 0", "c != 0", "m != 0", "k != 0"]
+  calc:
+    m: x1 + x2 + b
+    k: c - x1*x2
+    s: -(x1 + x2)
+    pr: x1*x2
+    n1: -x1
+    n2: -x2
+    y1: m*x1 + k
+    y2: m*x2 + k
+  prompt: 'Solve the system $y = x^2 {b:signedcoef}x {c:signed}$ and $y = {m:coef}x {k:signed}$. Enter both solutions, the one with the smaller $x$ first.'
+  answers:
+    - {name: x1, label: '$x_1 =$'}
+    - {name: y1, label: '$y_1 =$'}
+    - {name: x2, label: '$x_2 =$'}
+    - {name: y2, label: '$y_2 =$'}
+  solution: |-
+    Substitute the line into the parabola: $x^2 {b:signedcoef}x {c:signed} = {m:coef}x {k:signed}$. Collect terms: $x^2 {s:signedcoef}x {pr:signed} = 0$, which factors as $(x {n1:signed})(x {n2:signed}) = 0$, so $x = {x1}$ or $x = {x2}$. Substitute each into the line: the solutions are **$({x1}, {y1})$** and **$({x2}, {y2})$**.
+
+- id: pc-lp-max
+  title: Maximize over a feasible region
+  topic: Linear programming
+  vars:
+    u: {min: 1, max: 6}
+    v: {min: 1, max: 8}
+    a1: {min: 2, max: 4}
+    b2: {min: 2, max: 4}
+    p: {min: 1, max: 9}
+    q: {min: 1, max: 9}
+  where: ["mod(v, a1) == 0", "mod(u, b2) == 0", "(PX == best) + (PV == best) + (PY == best) == 1"]
+  calc:
+    C1: a1*u + v
+    C2: u + b2*v
+    X: C1/a1
+    Y: C2/b2
+    PX: p*X
+    PV: p*u + q*v
+    PY: q*Y
+    best: max(PX, PV, PY)
+    xs: if(PX == best, X, if(PV == best, u, 0))
+    ys: if(PY == best, Y, if(PV == best, v, 0))
+  prompt: 'Maximize $P = {p:coef}x {q:signedcoef}y$ subject to $x \ge 0$, $y \ge 0$, ${a1}x + y \le {C1}$ and $x + {b2}y \le {C2}$. Enter the maximum value and the point where it occurs.'
+  answers:
+    - {name: best, label: 'Maximum $P =$'}
+    - {name: xs, label: '$x =$'}
+    - {name: ys, label: '$y =$'}
+  solution: |-
+    Corner points: $(0, 0)$; on the $x$-axis the tighter constraint is ${a1}x + y \le {C1}$, giving $({X}, 0)$; on the $y$-axis it is $x + {b2}y \le {C2}$, giving $(0, {Y})$; and the two boundary lines cross at $({u}, {v})$. Evaluate $P$ at each: $P(0, 0) = 0$, $P({X}, 0) = {PX}$, $P({u}, {v}) = {PV}$, $P(0, {Y}) = {PY}$. The maximum is **{best}** at **$({xs}, {ys})$**.
+
+- id: pc-lp-min
+  title: Minimize cost over an unbounded region
+  topic: Linear programming
+  vars:
+    u: {min: 1, max: 6}
+    v: {min: 1, max: 6}
+    a1: {min: 2, max: 4}
+    b2: {min: 2, max: 4}
+    p: {min: 1, max: 9}
+    q: {min: 1, max: 9}
+  where: ["(CX == low) + (CV == low) + (CY == low) == 1"]
+  calc:
+    C1: a1*u + v
+    C2: u + b2*v
+    CY: q*C1
+    CV: p*u + q*v
+    CX: p*C2
+    low: min(CX, CV, CY)
+    xs: if(CX == low, C2, if(CV == low, u, 0))
+    ys: if(CY == low, C1, if(CV == low, v, 0))
+  prompt: 'Minimize $C = {p:coef}x {q:signedcoef}y$ subject to $x \ge 0$, $y \ge 0$, ${a1}x + y \ge {C1}$ and $x + {b2}y \ge {C2}$. Enter the minimum value and the point where it occurs.'
+  answers:
+    - {name: low, label: 'Minimum $C =$'}
+    - {name: xs, label: '$x =$'}
+    - {name: ys, label: '$y =$'}
+  solution: |-
+    The region lies above both lines and is unbounded. Corner points: on the $y$-axis the higher requirement is ${a1}x + y \ge {C1}$, giving $(0, {C1})$; on the $x$-axis it is $x + {b2}y \ge {C2}$, giving $({C2}, 0)$; and the two boundary lines cross at $({u}, {v})$. Evaluate $C$: $C(0, {C1}) = {CY}$, $C({u}, {v}) = {CV}$, $C({C2}, 0) = {CX}$. The minimum is **{low}** at **$({xs}, {ys})$**.

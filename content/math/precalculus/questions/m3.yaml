@@ -200,6 +200,115 @@
   explanation: |-
     Remainder $= f(-1) = (-1)^{100} - 1 = 1 - 1 = 0$. An even power of $-1$ is 1. (So $x + 1$ is a factor.)
 
+- id: pc-q-cn01
+  lesson: pc-complex-numbers
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Write $(3 - 2i)(1 + 4i)$ in standard form.'
+  choices: ['$11 + 10i$', '$-5 + 10i$', '$3 - 8i$', '$11 + 14i$']
+  answer: 0
+  explanation: |-
+    Distribute: $3 + 12i - 2i - 8i^2 = 3 + 10i + 8 = 11 + 10i$. Getting $-5 + 10i$ means $i^2$ was treated as $+1$; $3 - 8i$ multiplies only real by real and imaginary by imaginary; $11 + 14i$ adds $-2i$ as $+2i$.
+- id: pc-q-cn02
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'Simplify $i^{27}$.'
+  choices: ['$i$', '$-1$', '$1$', '$-i$']
+  answer: 3
+  explanation: |-
+    $27 = 4 \cdot 6 + 3$, so $i^{27} = (i^4)^6 \cdot i^3 = 1 \cdot (-i) = -i$. The answer $i$ uses remainder 1, $-1$ uses remainder 2, and $1$ would need 27 to be a multiple of 4.
+- id: pc-q-cn03
+  lesson: pc-complex-numbers
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Write $\dfrac{4 + 2i}{1 - i}$ in standard form.'
+  choices: ['$3 - i$', '$2 + 6i$', '$1 + 3i$', '$3 + 3i$']
+  answer: 2
+  explanation: |-
+    Multiply top and bottom by the conjugate $1 + i$: the numerator is $(4 + 2i)(1 + i) = 4 + 4i + 2i + 2i^2 = 2 + 6i$ and the denominator is $1^2 + 1^2 = 2$. So the quotient is $1 + 3i$. Stopping at $2 + 6i$ forgets to divide by 2; $3 + 3i$ comes from using $i^2 = 1$ in the numerator; $3 - i$ comes from multiplying the numerator by $1 - i$ instead of the conjugate.
+- id: pc-q-cn04
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'Find the modulus $|-5 + 12i|$.'
+  choices: ['$7$', '$13$', '$17$', '$\sqrt{119}$']
+  answer: 1
+  explanation: |-
+    $|a + bi| = \sqrt{a^2 + b^2} = \sqrt{25 + 144} = \sqrt{169} = 13$. Adding the parts gives 7 (or 17 if the sign is dropped), and $\sqrt{119}$ subtracts the squares.
+- id: pc-q-cn05
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'What is the complex conjugate of $-3 + 7i$?'
+  choices: ['$-3 - 7i$', '$3 - 7i$', '$3 + 7i$', '$7 - 3i$']
+  answer: 0
+  explanation: |-
+    The conjugate keeps the real part and flips the sign of the imaginary part: $-3 - 7i$. $3 - 7i$ is the negative of the number, $3 + 7i$ flips only the real part, and $7 - 3i$ swaps the parts.
+- id: pc-q-cn06
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'Simplify $(6 - 5i)(6 + 5i)$.'
+  choices: ['$11$', '$11 - 60i$', '$36 - 25i$', '$61$']
+  answer: 3
+  explanation: |-
+    A number times its conjugate is $a^2 + b^2 = 36 + 25 = 61$, because the middle terms cancel and $-25i^2 = +25$. $11$ treats $i^2$ as $+1$; $11 - 60i$ is $(6 - 5i)^2$, squaring instead of multiplying by the conjugate; $36 - 25i$ multiplies only matching parts.
+- id: pc-q-cn07
+  lesson: pc-complex-numbers
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Solve $x^2 + 6x + 13 = 0$.'
+  choices: ['$x = 3 \pm 2i$', '$x = -3 \pm 2i$', '$x = -3 \pm 4i$', '$x = -1$ or $x = -5$']
+  answer: 1
+  explanation: |-
+    $b^2 - 4ac = 36 - 52 = -16$ and $\sqrt{-16} = 4i$, so $x = \frac{-6 \pm 4i}{2} = -3 \pm 2i$. $3 \pm 2i$ forgets the minus in $-b$; $-3 \pm 4i$ divides only the $-6$ by 2; $-1$ and $-5$ treat $\sqrt{-16}$ as 4.
+- id: pc-q-cn08
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'Simplify $\sqrt{-9}\cdot\sqrt{-16}$.'
+  choices: ['$12$', '$12i$', '$-12$', '$-12i$']
+  answer: 2
+  explanation: |-
+    Rewrite first: $\sqrt{-9} = 3i$ and $\sqrt{-16} = 4i$, so the product is $12i^2 = -12$. Writing $\sqrt{(-9)(-16)} = \sqrt{144} = 12$ uses $\sqrt a\sqrt b = \sqrt{ab}$, which fails when both numbers are negative. $12i$ and $-12i$ keep a single factor of $i$ instead of $i^2$.
+- id: pc-q-cn09
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'In the complex plane, which point represents $2 - 5i$?'
+  choices: ['$(-5, 2)$', '$(2, 5)$', '$(-2, 5)$', '$(2, -5)$']
+  answer: 3
+  explanation: |-
+    $a + bi$ is plotted at $(a, b)$: real part across, imaginary part up. So $2 - 5i$ is $(2, -5)$, in the fourth quadrant. $(-5, 2)$ swaps the parts, $(2, 5)$ is the conjugate, and $(-2, 5)$ is the negative of the number.
+- id: pc-q-cn10
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'What are the real and imaginary parts of $4 - 9i$?'
+  choices: ['Real part $4$, imaginary part $-9$', 'Real part $4$, imaginary part $-9i$', 'Real part $4$, imaginary part $9$', 'Real part $-9$, imaginary part $4$']
+  answer: 0
+  explanation: |-
+    For $a + bi$, the real part is $a$ and the imaginary part is the real number $b$, sign included: $4$ and $-9$. The imaginary part is not $-9i$ (that's the imaginary term), and dropping the sign gives 9.
+- id: pc-q-cn11
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'A student squares $2 + 3i$. Step 1: $4 + 12i + 9i^2$. Step 2: $4 + 12i + 9$. Step 3: $13 + 12i$. Which step contains the error?'
+  choices: ['Step 1: the square should be $4 + 9i^2$', 'Step 2: $9i^2$ should become $-9$', 'Step 3: the sum should be $13 + 12i^2$', 'Step 1: the middle term should be $6i$']
+  answer: 1
+  explanation: |-
+    Step 1 is a correct expansion, $(2 + 3i)^2 = 4 + 2(2)(3i) + 9i^2$, so the middle term is $12i$, not $6i$, and the square is not just $4 + 9i^2$. The mistake is in Step 2: $9i^2 = -9$. The correct answer is $-5 + 12i$.
+- id: pc-q-cn12
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'Simplify $(5 - 2i) - (-3 + 4i)$.'
+  choices: ['$2 + 2i$', '$8 + 2i$', '$8 - 6i$', '$2 - 6i$']
+  answer: 2
+  explanation: |-
+    Distribute the minus sign: $5 - 2i + 3 - 4i = 8 - 6i$. $2 + 2i$ adds the numbers instead; $8 + 2i$ subtracts only the real part; $2 - 6i$ subtracts only the imaginary part.
+- id: pc-q-cn13
+  lesson: pc-complex-numbers
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Find the complex number $z$ with $z(1 + 2i) = 7 + 4i$.'
+  choices: ['$7 + 2i$', '$3 + 2i$', '$-\tfrac15 + \tfrac{18}{5}i$', '$3 - 2i$']
+  answer: 3
+  explanation: |-
+    $z = \frac{7 + 4i}{1 + 2i} = \frac{(7 + 4i)(1 - 2i)}{1^2 + 2^2} = \frac{7 - 14i + 4i - 8i^2}{5} = \frac{15 - 10i}{5} = 3 - 2i$. Check: $(3 - 2i)(1 + 2i) = 3 + 6i - 2i - 4i^2 = 7 + 4i$. $7 + 2i$ divides part by part; $-\frac15 + \frac{18}{5}i$ multiplies by $1 + 2i$ instead of its conjugate; $3 + 2i$ is a sign slip.
+
 - id: pc-q-1001
   lesson: pc-poly-zeros
   module_quiz: true

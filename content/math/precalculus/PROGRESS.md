@@ -206,3 +206,42 @@ Method: solved all 192 questions in m7-m10 independently before comparing keys; 
 - No errors seen.
 
 Build and check-course: 0 problems.
+
+## Gap lessons (2026-10-17)
+
+Fills the coverage gaps listed in VERIFY.md. Now 43 lessons, 527 questions, 105 drills, 225 cards, 256 glossary terms.
+
+### New lessons
+- `pc-complex-numbers` — Complex numbers (pc-m3) — `lessons/10-complex-numbers.md`. Drills: pc-complex-mult, pc-complex-div, pc-complex-quadratic. Ref: pc-ref-functions.
+- `pc-modeling-data` — Modeling with functions and fitting data (pc-m4) — `lessons/19-modeling-data.md`. Drills: pc-linreg, pc-exp-fit, pc-residual. Ref: pc-ref-exp-log.
+- `pc-linear-programming` — Systems of inequalities and linear programming (pc-m6, last lesson of the module) — `lessons/27-linear-programming.md`. Drills: pc-lp-max, pc-lp-min. Ref: pc-ref-matrices-series.
+
+Lesson files renumbered to make room (ids unchanged): old 10–17 are now 11–18, old 18–24 are 20–26, old 25–40 are 28–43. "Lesson N" cross-references updated in 15, 25, 33, 36, 39 and 42; 11-poly-zeros now points back to the complex-numbers lesson, 32-polar points to the complex plane in Lesson 10, and 22-gaussian's intro mentions the new last lesson of the module.
+
+### New questions
+- pc-complex-numbers: pc-q-cn01 to pc-q-cn13 (module quiz: cn01, cn03, cn07, cn13) in questions/m3.yaml.
+- pc-modeling-data: pc-q-md01 to pc-q-md13 (module quiz: md01, md04, md10, md13) in questions/m4.yaml.
+- pc-linear-programming: pc-q-lp01 to pc-q-lp12 (module quiz: lp01, lp03, lp08, lp12) in questions/m6.yaml.
+- Task B, lesson pc-gaussian (nonlinear systems): pc-q-2013 to pc-q-2016 (module quiz: 2013); topic "Nonlinear systems" added to the lesson.
+- Task B, lesson pc-polar (polar form, De Moivre): pc-q-2913 to pc-q-2916 (module quiz: 2913, 2915); topic "Polar form of complex numbers" added to the lesson.
+- Correct-answer positions of the 46 new questions: 12/11/11/12.
+
+### New drills
+pc-complex-mult, pc-complex-div, pc-complex-quadratic (drills/m3.yaml); pc-linreg, pc-exp-fit, pc-residual (drills/m4.yaml); pc-nonlinear-system, pc-lp-max, pc-lp-min (drills/m6.yaml); pc-de-moivre (drills/m7.yaml). pc-nonlinear-system is linked from pc-gaussian and pc-de-moivre from pc-polar.
+
+### Cards, glossary, references
+- 21 cards (topics Complex numbers, Fitting models to data, Systems of inequalities, Linear programming, Nonlinear systems, Polar form of complex numbers).
+- 27 glossary terms: imaginary unit, complex number, real part, imaginary part, pure imaginary, complex plane, modulus; scatter plot, regression, residual, least-squares regression line, correlation coefficient, interpolation, extrapolation, linearizing, residual plot; linear programming, half-plane, boundary line, test point, system of linear inequalities, feasible region, corner point, bounded, objective function, constraint, corner point principle.
+- Reference rows: "Complex numbers" table (pc-ref-functions), "Fitting models to data" tables (pc-ref-exp-log), a nonlinear-systems row and an "Inequalities and linear programming" table (pc-ref-matrices-series), and a polar-form/De Moivre table (pc-ref-conics-polar).
+
+### Verification
+- All 46 new questions solved in Python (sympy, numpy, scipy linprog) before fixing keys; distractors checked wrong. Lesson worked examples were checked the same way.
+- Each new drill was generated 400 to 500 times with generate()/checkAll() on the built JSON (script /tmp/claude-0/gaps/precalculus/work/drills.mts). An independent solver reads each prompt as shown, and its answers matched every target. The shown answer, typed back in, was accepted every time, and a wrong answer was rejected. No "+ -", "1i", "1x" or "+ 0" output.
+- New lesson figures were rendered with renderFigure and the app CSS and screenshotted. Labels on the two linear-programming figures were placed by hand.
+- `build.py precalculus` and `check-course.mts`: 0 problems.
+
+### Notes for a reviewer
+- pc-de-moivre shows angles in degrees in its solution (like pc-rect-to-polar), and its decimal answers (e.g. 13.86 for 8√3) are shown to 2 decimals; exact forms such as 8sqrt(3) are accepted.
+- pc-linreg uses x = 1..5 so the least-squares sums can be done by hand. The lesson also names the calculator commands (LinReg, QuadReg, ExpReg, LnReg) but doesn't depend on them.
+- The modeling lesson introduces r only qualitatively (no formula).
+- pc-lp-max/min choose the region so the optimum is unique (no ties); in about 2/3 of instances the optimum is at the crossing corner.

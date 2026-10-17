@@ -278,3 +278,23 @@
     - {name: rp, label: '$r(\pi) =$', kind: fraction, lowestTerms: true}
   solution: |-
     $\cos 0 = 1$: $r = \dfrac{ {k} }{ {m} + {n} } =$ **${r0:texfrac}$**. $\cos\pi = -1$: $r = \dfrac{ {k} }{ {m} - {n} } =$ **${rp:texfrac}$**.
+
+- id: pc-de-moivre
+  title: Powers with De Moivre's theorem
+  topic: Polar form of complex numbers
+  vars:
+    z: {choices: [{label: '\sqrt{3} + i', value: 30}, {label: '1 + \sqrt{3}i', value: 60}, {label: '-1 + \sqrt{3}i', value: 120}, {label: '-\sqrt{3} + i', value: 150}, {label: '-\sqrt{3} - i', value: 210}, {label: '-1 - \sqrt{3}i', value: 240}, {label: '1 - \sqrt{3}i', value: 300}, {label: '\sqrt{3} - i', value: 330}]}
+    n: {min: 2, max: 8}
+  calc:
+    ang: z
+    rn: 2^n
+    nang: n*z
+    ang2: mod(n*z, 360)
+    re: round(rn*cosd(ang2), 9) + 0
+    im: round(rn*sind(ang2), 9) + 0
+  prompt: 'Use De Moivre''s theorem to write $\left({z}\right)^{ {n} }$ in standard form $a + bi$. Exact answers like 8sqrt(3) are fine, or 2 decimals.'
+  answers:
+    - {name: re, label: 'Real part', tolerance: 0.01}
+    - {name: im, label: 'Imaginary part', tolerance: 0.01}
+  solution: |-
+    $z = {z}$ has modulus $r = 2$ and argument $\theta = {ang}^\circ$ (its quadrant fixes the angle). By De Moivre's theorem, $z^{ {n} } = 2^{ {n} }\left(\cos {nang}^\circ + i\sin {nang}^\circ\right) = {rn}\left(\cos {ang2}^\circ + i\sin {ang2}^\circ\right)$. Real part: ${rn}\cos {ang2}^\circ \approx$ **{re}**. Imaginary part: ${rn}\sin {ang2}^\circ \approx$ **{im}**.

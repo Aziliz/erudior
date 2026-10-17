@@ -71,7 +71,7 @@ $\lim_{x\to\infty} f(x) = L$ means $f(x)$ gets close to $L$ as $x$ grows without
 
 $$\lim_{x\to\pm\infty}\frac{1}{x^n} = 0 \quad (n > 0).$$
 
-For a rational function, divide the numerator and denominator by the highest power of $x$ in the denominator. This reproduces the horizontal-asymptote rules of Lesson 11:
+For a rational function, divide the numerator and denominator by the highest power of $x$ in the denominator. This reproduces the horizontal-asymptote rules of Lesson 12:
 
 | Degrees | $\lim_{x\to\pm\infty}\frac{p(x)}{q(x)}$ |
 |---|---|

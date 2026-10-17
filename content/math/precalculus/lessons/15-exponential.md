@@ -104,7 +104,7 @@ Any quantity that changes by the same *percentage* per unit time has the form
 
 $$Q(t) = Q_0\,b^t \quad \text{or equivalently} \quad Q(t) = Q_0\,e^{kt},$$
 
-where $Q_0$ is the initial amount. If a population grows 3% per year, then $b = 1.03$. If a drug's concentration drops 20% per hour, then $b = 0.80$. Lesson 17 builds these models from data.
+where $Q_0$ is the initial amount. If a population grows 3% per year, then $b = 1.03$. If a drug's concentration drops 20% per hour, then $b = 0.80$. Lesson 18 builds these models from data.
 
 ## Common mistakes
 

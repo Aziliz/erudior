@@ -9,7 +9,7 @@ refs: [pc-ref-conics-polar]
 ---
 ## One equation for all three
 
-In rectangular coordinates, parabolas, ellipses and hyperbolas each have their own standard form. In polar coordinates, with a focus at the pole, all three share a single equation, and one number, the eccentricity, decides which conic you get. This is the form astronomers use for orbits, because the sun sits at a focus. The lesson combines the conics of Lessons 25 to 27 with the polar coordinates of Lesson 29.
+In rectangular coordinates, parabolas, ellipses and hyperbolas each have their own standard form. In polar coordinates, with a focus at the pole, all three share a single equation, and one number, the eccentricity, decides which conic you get. This is the form astronomers use for orbits, because the sun sits at a focus. The lesson combines the conics of Lessons 28 to 30 with the polar coordinates of Lesson 32.
 
 ## The focus-directrix definition
 
@@ -25,7 +25,7 @@ is a conic:
 | $e = 1$ | parabola |
 | $e > 1$ | hyperbola |
 
-For $e = 1$ this is exactly the parabola definition from Lesson 25. For ellipses and hyperbolas it is a different-looking but equivalent definition, and the $e$ here matches $e = \frac ca$ from before.
+For $e = 1$ this is exactly the parabola definition from Lesson 28. For ellipses and hyperbolas it is a different-looking but equivalent definition, and the $e$ here matches $e = \frac ca$ from before.
 
 ## Deriving the polar equation
 

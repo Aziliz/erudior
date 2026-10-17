@@ -270,3 +270,73 @@
     - {name: top, label: '$q =$'}
   solution: |-
     Subtract 2 and combine: $\dfrac{x {m:signed} - 2(x {nn:signed})}{x {nn:signed}} = \dfrac{-x {top:signed}}{x {nn:signed}} \ge 0$. Critical values: {n} (denominator, excluded) and {top} (numerator, included). Testing shows the fraction is nonnegative only between them, so **{n}** $< x \le$ **{top}**.
+
+- id: pc-complex-mult
+  title: Multiply complex numbers
+  topic: Complex numbers
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+    d: {min: -6, max: 6}
+  where: ["a != 0", "b != 0", "c != 0", "d != 0", "re != 0", "im != 0"]
+  calc:
+    ac: a*c
+    ad: a*d
+    bc: b*c
+    bd: b*d
+    nbd: -b*d
+    re: a*c - b*d
+    im: a*d + b*c
+  prompt: 'Write $({a} {b:signedcoef}i)({c} {d:signedcoef}i)$ in standard form $a + bi$. Enter the real part and the imaginary part.'
+  answers:
+    - {name: re, label: 'Real part'}
+    - {name: im, label: 'Imaginary part'}
+  solution: |-
+    Distribute every term over every term: $({a})({c}) = {ac}$, $({a})({d:coef}i) = {ad:coef}i$, $({b:coef}i)({c}) = {bc:coef}i$ and $({b:coef}i)({d:coef}i) = {bd:coef}i^2 = {nbd}$, since $i^2 = -1$. Real part: ${ac} {nbd:signed} = {re}$. Imaginary part: ${ad} {bc:signed} = {im}$. The product is **${re} {im:signedcoef}i$**.
+
+- id: pc-complex-div
+  title: Divide complex numbers
+  topic: Complex numbers
+  vars:
+    a: {min: -9, max: 9}
+    b: {min: -9, max: 9}
+    c: {min: -5, max: 5}
+    d: {min: -5, max: 5}
+  where: ["a != 0", "b != 0", "c != 0", "d != 0", "nr != 0", "ni != 0"]
+  calc:
+    nd: -d
+    nr: a*c + b*d
+    ni: b*c - a*d
+    c2: c^2
+    d2: d^2
+    den: c^2 + d^2
+    re: nr/den
+    im: ni/den
+  prompt: 'Write $\dfrac{ {a} {b:signedcoef}i }{ {c} {d:signedcoef}i }$ in standard form $a + bi$. Enter the real and imaginary parts as fractions in lowest terms (or integers).'
+  answers:
+    - {name: re, label: 'Real part', kind: fraction, lowestTerms: true}
+    - {name: im, label: 'Imaginary part', kind: fraction, lowestTerms: true}
+  solution: |-
+    Multiply top and bottom by the conjugate of the denominator, ${c} {nd:signedcoef}i$. Numerator: $({a} {b:signedcoef}i)({c} {nd:signedcoef}i) = {nr} {ni:signedcoef}i$ (using $i^2 = -1$). Denominator: $({c} {d:signedcoef}i)({c} {nd:signedcoef}i) = {c2} + {d2} = {den}$. Real part: $\dfrac{ {nr} }{ {den} } =$ **${re:texfrac}$**. Imaginary part: $\dfrac{ {ni} }{ {den} } =$ **${im:texfrac}$**.
+
+- id: pc-complex-quadratic
+  title: Quadratic with complex solutions
+  topic: Complex numbers
+  vars:
+    p: {min: -5, max: 5}
+    q: {min: 1, max: 6}
+  where: ["p != 0"]
+  calc:
+    b: -2*p
+    c: p^2 + q^2
+    b2: b^2
+    disc: b^2 - 4*c
+    q2: 2*q
+    nb: -b
+  prompt: 'Solve $x^2 {b:signedcoef}x {c:signed} = 0$. The solutions are $p \pm qi$ with $q > 0$; enter $p$ and $q$.'
+  answers:
+    - {name: p, label: '$p =$'}
+    - {name: q, label: '$q =$'}
+  solution: |-
+    The discriminant is ${b2} - 4({c}) = {disc}$, which is negative, so $\sqrt{ {disc} } = {q2}i$. Then $x = \dfrac{ {nb} \pm {q2}i }{2} = {p} \pm {q:coef}i$, so $p =$ **{p}** and $q =$ **{q}**.

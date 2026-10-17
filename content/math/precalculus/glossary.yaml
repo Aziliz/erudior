@@ -777,3 +777,97 @@
 - term: "De Moivre's theorem"
   definition: 'If $z = r(\cos\theta + i\sin\theta)$ and $n$ is a positive integer, then $z^n = r^n(\cos n\theta + i\sin n\theta)$.'
   topic: Polar coordinates
+- term: imaginary unit
+  definition: 'The number $i$ with $i^2 = -1$, so that $\sqrt{-b} = i\sqrt b$ for $b > 0$.'
+  topic: Complex numbers
+- term: complex number
+  aliases: [complex numbers]
+  definition: 'A number $a + bi$ with $a$ and $b$ real (standard form); the real numbers are the case $b = 0$.'
+  topic: Complex numbers
+- term: real part
+  definition: 'For $a + bi$, the real number $a$.'
+  topic: Complex numbers
+- term: imaginary part
+  definition: 'For $a + bi$, the real number $b$ (not $bi$).'
+  topic: Complex numbers
+- term: pure imaginary
+  aliases: [pure imaginary number]
+  definition: 'A complex number $bi$ with real part 0 and $b \ne 0$.'
+  topic: Complex numbers
+- term: complex plane
+  definition: 'The plane in which $a + bi$ is plotted at $(a, b)$: real axis horizontal, imaginary axis vertical.'
+  topic: Complex numbers
+- term: modulus
+  aliases: [absolute value of a complex number]
+  definition: 'The distance from 0 to $a + bi$ in the complex plane: $\lvert a + bi\rvert = \sqrt{a^2 + b^2}$.'
+  topic: Complex numbers
+- term: scatter plot
+  aliases: [scatter plots]
+  definition: 'A graph of paired data as individual points $(x, y)$, used to see a trend.'
+  topic: Fitting models to data
+- term: regression
+  definition: 'Finding the function of a chosen type (linear, quadratic, exponential, …) that best fits a set of data points.'
+  topic: Fitting models to data
+- term: residual
+  aliases: [residuals]
+  definition: 'Observed minus predicted: $y - \hat y$. Positive when the point lies above the model''s graph.'
+  topic: Fitting models to data
+- term: least-squares regression line
+  aliases: [least-squares line, regression line]
+  definition: 'The line $\hat y = mx + b$ that minimizes the sum of squared residuals; $m = \frac{\sum(x - \bar x)(y - \bar y)}{\sum(x - \bar x)^2}$, $b = \bar y - m\bar x$.'
+  topic: Fitting models to data
+- term: correlation coefficient
+  definition: 'A number $r$ from $-1$ to $1$ measuring the direction and strength of a linear relationship; $\lvert r\rvert$ near 1 means the points lie close to a line.'
+  topic: Fitting models to data
+- term: interpolation
+  definition: 'Using a model to predict inside the range of the data.'
+  topic: Fitting models to data
+- term: extrapolation
+  definition: 'Using a model to predict outside the range of the data; it assumes the trend continues and is less reliable.'
+  topic: Fitting models to data
+- term: linearizing
+  aliases: [linearize]
+  definition: 'Transforming data so a curved model becomes a line: $\ln y$ vs. $x$ for exponential data, $y$ vs. $\ln x$ for logarithmic data.'
+  topic: Fitting models to data
+- term: residual plot
+  definition: 'A graph of residuals against $x$; a patternless scatter around 0 means the model fits, a curve means the wrong type of model.'
+  topic: Fitting models to data
+- term: linear programming
+  definition: 'Finding the maximum or minimum of a linear objective function subject to linear inequality constraints.'
+  topic: Linear programming
+- term: half-plane
+  aliases: [half-planes]
+  definition: 'The part of the plane on one side of a line (with or without the line); the solution set of a linear inequality in two variables.'
+  topic: Systems of inequalities
+- term: boundary line
+  definition: 'The line obtained by replacing an inequality sign with $=$; drawn solid for $\le$ or $\ge$ and dashed for $<$ or $>$.'
+  topic: Systems of inequalities
+- term: test point
+  definition: 'A point not on the boundary line, substituted into an inequality to decide which side to shade.'
+  topic: Systems of inequalities
+- term: system of linear inequalities
+  aliases: [system of inequalities, systems of inequalities]
+  definition: 'Several linear inequalities that must all hold at once; its solution set is the overlap of their half-planes.'
+  topic: Systems of inequalities
+- term: feasible region
+  definition: 'The set of points satisfying every constraint of a system of inequalities.'
+  topic: Systems of inequalities
+- term: corner point
+  aliases: [corner points]
+  definition: 'A vertex of a feasible region, where two boundary lines meet.'
+  topic: Systems of inequalities
+- term: bounded
+  aliases: [bounded region]
+  definition: 'A region that can be enclosed in a circle; a region that extends forever is unbounded.'
+  topic: Systems of inequalities
+- term: objective function
+  definition: 'The linear expression, such as $P = 30x + 20y$, to be maximized or minimized in linear programming.'
+  topic: Linear programming
+- term: constraint
+  aliases: [constraints]
+  definition: 'A condition, written as an inequality, that a solution of a linear programming problem must satisfy.'
+  topic: Linear programming
+- term: corner point principle
+  aliases: [fundamental theorem of linear programming]
+  definition: 'If a linear objective function has a maximum or minimum on a feasible region, it occurs at a corner point.'
+  topic: Linear programming

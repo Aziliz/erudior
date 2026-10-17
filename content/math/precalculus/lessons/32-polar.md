@@ -3,8 +3,8 @@ id: pc-polar
 module: pc-m7
 title: Polar coordinates and polar graphs
 minutes: 35
-topics: [Polar coordinates]
-drills: [pc-polar-to-rect, pc-rect-to-polar]
+topics: [Polar coordinates, Polar form of complex numbers]
+drills: [pc-polar-to-rect, pc-rect-to-polar, pc-de-moivre]
 refs: [pc-ref-conics-polar]
 ---
 ## A different way to locate points
@@ -107,7 +107,7 @@ That is a parabola opening right with vertex $(-1, 0)$ and $p = 1$, so its focus
 
 ## Complex numbers in polar form, briefly
 
-Plot the complex number $z = x + yi$ as the point $(x, y)$. Its polar coordinates give the **polar form of a complex number**:
+Plot the complex number $z = x + yi$ as the point $(x, y)$ in the complex plane, as in Lesson 10. Its polar coordinates give the **polar form of a complex number**:
 
 $$z = r(\cos\theta + i\sin\theta), \qquad r = |z| = \sqrt{x^2 + y^2},$$
 

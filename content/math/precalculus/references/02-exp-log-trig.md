@@ -44,6 +44,21 @@ title: Exponentials, logarithms and trig review
 | Newton's cooling | $T = T_s + (T_0 - T_s)e^{-kt}$ |
 | Logistic | $P = \dfrac{C}{1 + Ae^{-kt}}$, $A = \dfrac{C}{P_0} - 1$, half capacity at $t = \dfrac{\ln A}{k}$ |
 
+## Fitting models to data
+
+| Pattern (equally spaced $x$) | Model |
+|---|---|
+| constant first differences | linear $y = mx + b$ |
+| constant second differences | quadratic $y = ax^2 + bx + c$ |
+| constant ratios | exponential $y = ab^x$ ($\ln y$ vs. $x$ is linear) |
+| equal steps each time $x$ doubles | logarithmic $y = a + b\ln x$ ($y$ vs. $\ln x$ is linear) |
+
+| Idea | Rule |
+|---|---|
+| Residual | $y - \hat y$ (observed $-$ predicted) |
+| Least-squares line | $m = \dfrac{\sum(x - \bar x)(y - \bar y)}{\sum(x - \bar x)^2}$, $b = \bar y - m\bar x$ |
+| Good fit | residual plot shows no pattern |
+
 ## Trigonometry review
 
 | Angle | $0$ | $\frac{\pi}{6}$ | $\frac{\pi}{4}$ | $\frac{\pi}{3}$ | $\frac{\pi}{2}$ |

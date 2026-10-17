@@ -18,6 +18,17 @@ title: Matrices, sequences, counting and limits
 | Solve $AX = B$ | $X = A^{-1}B$ |
 | Cramer's rule | $x_i = \dfrac{D_i}{D}$ ($D_i$: column $i$ replaced by constants) |
 | Triangle area | $\tfrac12\left\lvert\det\begin{bmatrix} x_1 & y_1 & 1 \\ x_2 & y_2 & 1 \\ x_3 & y_3 & 1\end{bmatrix}\right\rvert$ |
+| Nonlinear system | substitute, or eliminate a whole squared term; a line meets a conic at most 2 times, two different conics at most 4 |
+
+## Inequalities and linear programming
+
+| Step | Rule |
+|---|---|
+| Boundary line | solid for $\le$, $\ge$; dashed for $<$, $>$ |
+| Which side | shade the side whose test point (often $(0, 0)$) satisfies the inequality |
+| Corner points | solve pairs of boundary equations; keep points that satisfy every constraint |
+| Corner point principle | a linear objective's max or min (if it exists) is at a corner point |
+| Unbounded region | a max or min may not exist |
 
 ## Partial fractions
 

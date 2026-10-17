@@ -9,7 +9,7 @@ refs: [pc-ref-functions]
 ---
 ## The search problem
 
-The factor theorem says that every zero gives a factor, and dividing out a factor lowers the degree. What's missing is a way to find that first zero. This lesson supplies a short list of candidates (the rational zero theorem), explains how many zeros to expect (the fundamental theorem of algebra), and shows how complex zeros come in pairs. Together with synthetic division from the last lesson, these let you factor most polynomials you'll meet by hand.
+The factor theorem says that every zero gives a factor, and dividing out a factor lowers the degree. What's missing is a way to find that first zero. This lesson supplies a short list of candidates (the rational zero theorem), explains how many zeros to expect (the fundamental theorem of algebra), and shows how complex zeros come in pairs, using the complex-number arithmetic from the last lesson. Together with synthetic division from Lesson 9, these let you factor most polynomials you'll meet by hand.
 
 ## The rational zero theorem
 
