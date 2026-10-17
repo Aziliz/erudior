@@ -1,0 +1,117 @@
+# Notecards, part B — joint distributions, limit theorems, estimation (lessons 15–27)
+# Joint distributions
+- {front: 'Joint pmf: definition and rules', back: '$p(x, y) = P(X = x, Y = y)$, with $p \ge 0$ and $\sum_x\sum_y p(x, y) = 1$. Probabilities of events are sums over cells.', topic: 'Joint distributions'}
+- {front: 'Joint pdf: how to get probabilities', back: '$P((X, Y) \in A) = \iint_A f(x, y)\,dA$. Sketch the support and the event; their intersection sets the limits.', topic: 'Joint distributions'}
+- {front: 'Marginal density of $X$ from a joint density', back: '$f_X(x) = \int_{-\infty}^{\infty} f(x, y)\,dy$ (integrate out $y$; limits may depend on $x$).', topic: 'Joint distributions'}
+- {front: 'Marginal pmf of $Y$ from a joint table', back: '$p_Y(y) = \sum_x p(x, y)$: the column total.', topic: 'Joint distributions'}
+- {front: 'Joint cdf and joint pdf', back: '$F(x, y) = P(X \le x, Y \le y)$ and $f(x, y) = \dfrac{\partial^2 F}{\partial x\,\partial y}$.', topic: 'Joint distributions'}
+- {front: 'Uniform distribution on a region $R$', back: 'Density $1/\text{area}(R)$ on $R$; $P(A) = \text{area}(A \cap R)/\text{area}(R)$.', topic: 'Joint distributions'}
+- {front: 'Do the marginals determine the joint distribution?', back: 'No. Different joint distributions can share the same marginals; only under independence is the joint the product of the marginals.', topic: 'Joint distributions'}
+# Conditional distributions and independence
+- {front: 'Conditional pmf of $Y$ given $X = x$', back: '$p_{Y \mid X}(y \mid x) = \dfrac{p(x, y)}{p_X(x)}$: take the row for $x$ and divide by its total.', topic: 'Conditional distributions'}
+- {front: 'Conditional pdf of $Y$ given $X = x$', back: '$f_{Y \mid X}(y \mid x) = \dfrac{f(x, y)}{f_X(x)}$ for $f_X(x) > 0$; keep the range of $y$ allowed by the support.', topic: 'Conditional distributions'}
+- {front: 'Multiplication rule for densities', back: '$f(x, y) = f_X(x)\,f_{Y \mid X}(y \mid x)$; used to build joint models in stages.', topic: 'Conditional distributions'}
+- {front: 'Independence of random variables', back: '$f(x, y) = f_X(x)f_Y(y)$ (or $p = p_Xp_Y$) for all $x, y$; equivalently $f_{Y \mid X} = f_Y$.', topic: 'Independence of random variables'}
+- {front: 'Factorization criterion and its trap', back: 'If $f(x, y) = g(x)h(y)$ on a rectangular support, $X$ and $Y$ are independent. A non-rectangular support (like $0 < y < x < 1$) always means dependence.', topic: 'Independence of random variables'}
+- {front: 'Race of independent exponentials (rates $a$, $b$)', back: '$P(X < Y) = \dfrac{a}{a + b}$.', topic: 'Independence of random variables'}
+- {front: 'Joint density of an iid sample', back: '$f(x_1, \dots, x_n) = \prod_{i=1}^n f(x_i)$.', topic: 'Independence of random variables'}
+# Covariance and correlation
+- {front: '$E[g(X, Y)]$', back: '$\iint g(x, y) f(x, y)\,dA$ or $\sum\sum g(x, y)p(x, y)$; no need for the distribution of $g(X, Y)$.', topic: 'Covariance and correlation'}
+- {front: 'Covariance shortcut', back: '$\operatorname{Cov}(X, Y) = E[XY] - E[X]E[Y]$.', topic: 'Covariance and correlation'}
+- {front: 'Covariance of linear functions', back: '$\operatorname{Cov}(aX + b, cY + d) = ac\operatorname{Cov}(X, Y)$.', topic: 'Covariance and correlation'}
+- {front: 'Variance of $aX + bY$', back: '$a^2\operatorname{Var}X + b^2\operatorname{Var}Y + 2ab\operatorname{Cov}(X, Y)$.', topic: 'Covariance and correlation'}
+- {front: 'Variance of a sample mean (iid)', back: '$\operatorname{Var}(\bar X) = \sigma^2/n$; SD $\sigma/\sqrt n$.', topic: 'Covariance and correlation'}
+- {front: 'Correlation coefficient', back: '$\rho = \dfrac{\operatorname{Cov}(X, Y)}{\sigma_X\sigma_Y} \in [-1, 1]$; $|\rho| = 1$ iff $Y = a + bX$.', topic: 'Covariance and correlation'}
+- {front: 'Why $|\rho| \le 1$', back: 'With standardized $U, V$: $0 \le \operatorname{Var}(U \pm V) = 2 \pm 2\rho$.', topic: 'Covariance and correlation'}
+- {front: 'Independent vs uncorrelated', back: 'Independent ⟹ $\operatorname{Cov} = 0$, not conversely. Example: $X$ uniform on $\{-1, 0, 1\}$ and $Y = X^2$.', topic: 'Covariance and correlation'}
+- {front: 'When does $E[XY] = E[X]E[Y]$?', back: 'Exactly when $\operatorname{Cov}(X, Y) = 0$; in particular for independent variables.', topic: 'Covariance and correlation'}
+# Sums of random variables
+- {front: 'Discrete convolution', back: '$P(X + Y = z) = \sum_k p_X(k)\,p_Y(z - k)$ for independent integer-valued $X, Y$.', topic: 'Sums of random variables'}
+- {front: 'Continuous convolution', back: '$f_{X+Y}(z) = \int f_X(x)\,f_Y(z - x)\,dx$; need both $x$ and $z - x$ in their supports.', topic: 'Sums of random variables'}
+- {front: 'MGF of a sum of independent variables', back: '$M_{X+Y}(t) = M_X(t)M_Y(t)$; identify the product as a known MGF.', topic: 'Sums of random variables'}
+- {front: 'Sum of independent Poissons', back: 'Poisson$(\lambda_1) +$ Poisson$(\lambda_2) =$ Poisson$(\lambda_1 + \lambda_2)$.', topic: 'Sums of random variables'}
+- {front: 'Linear combination of independent normals', back: '$aX + bY \sim N(a\mu_1 + b\mu_2,\; a^2\sigma_1^2 + b^2\sigma_2^2)$.', topic: 'Sums of random variables'}
+- {front: 'Sum of $n$ iid exponentials (rate $\lambda$)', back: 'Gamma with shape $n$ and scale $1/\lambda$; for $n = 2$, $f(z) = \lambda^2 ze^{-\lambda z}$.', topic: 'Sums of random variables'}
+- {front: 'Sum of two independent Uniform(0, 1)', back: 'Triangular density: $z$ on $(0, 1]$, $2 - z$ on $(1, 2)$.', topic: 'Sums of random variables'}
+- {front: '$\operatorname{Var}(X_1 + X_2)$ vs $\operatorname{Var}(2X_1)$ (iid)', back: '$2\sigma^2$ versus $4\sigma^2$: independent errors partly cancel.', topic: 'Sums of random variables'}
+# Conditional expectation
+- {front: 'Conditional expectation', back: '$E[Y \mid X = x] = \int y\,f_{Y \mid X}(y \mid x)\,dy$; $E[Y \mid X]$ is a random variable (a function of $X$).', topic: 'Conditional expectation'}
+- {front: 'Law of total expectation', back: '$E[Y] = E\big[E[Y \mid X]\big]$.', topic: 'Conditional expectation'}
+- {front: 'Law of total variance', back: '$\operatorname{Var}(Y) = E[\operatorname{Var}(Y \mid X)] + \operatorname{Var}(E[Y \mid X])$ (within + between).', topic: 'Conditional expectation'}
+- {front: 'Random sum $T = X_1 + \cdots + X_N$', back: '$E[T] = \mu E[N]$, $\operatorname{Var}(T) = \sigma^2E[N] + \mu^2\operatorname{Var}(N)$ ($N$ independent of the iid $X_i$).', topic: 'Conditional expectation'}
+- {front: 'Best predictor of $Y$ from $X$', back: '$E[Y \mid X]$ minimizes $E[(Y - h(X))^2]$ over all functions $h$.', topic: 'Conditional expectation'}
+- {front: 'Mixture of groups: mean and variance', back: 'Mean $\sum p_i\mu_i$; variance $\sum p_i\sigma_i^2 + \sum p_i(\mu_i - \mu)^2$.', topic: 'Conditional expectation'}
+# Bivariate normal
+- {front: 'Bivariate normal: conditional distribution of $Y$ given $X = x$', back: '$N\!\left(\mu_Y + \rho\dfrac{\sigma_Y}{\sigma_X}(x - \mu_X),\; \sigma_Y^2(1 - \rho^2)\right)$.', topic: 'Bivariate normal'}
+- {front: 'Bivariate normal: construction', back: '$X = \mu_X + \sigma_X Z_1$, $Y = \mu_Y + \sigma_Y(\rho Z_1 + \sqrt{1 - \rho^2}Z_2)$ with $Z_1, Z_2$ iid $N(0, 1)$.', topic: 'Bivariate normal'}
+- {front: 'Bivariate normal with $\rho = 0$', back: '$X$ and $Y$ are independent (special to joint normality).', topic: 'Bivariate normal'}
+- {front: 'Do normal marginals imply a bivariate normal?', back: 'No. Example: $Y = SX$ with a random sign $S$; $X + Y = 0$ half the time.', topic: 'Bivariate normal'}
+- {front: 'Regression to the mean', back: 'In standard units, $E[Z_Y \mid Z_X = z] = \rho z$: predictions are pulled toward the mean.', topic: 'Bivariate normal'}
+# Order statistics
+- {front: 'cdf and pdf of the maximum of $n$ iid', back: '$F_{\max}(x) = F(x)^n$, $f_{\max}(x) = nF(x)^{n-1}f(x)$.', topic: 'Order statistics'}
+- {front: 'cdf of the minimum of $n$ iid', back: '$P(X_{(1)} > x) = (1 - F(x))^n$, so $F_{\min}(x) = 1 - (1 - F(x))^n$.', topic: 'Order statistics'}
+- {front: 'Minimum of independent exponentials', back: 'Exponential with rate equal to the sum of the rates.', topic: 'Order statistics'}
+- {front: 'Density of the $k$th order statistic', back: '$\dfrac{n!}{(k-1)!(n-k)!}F(x)^{k-1}(1 - F(x))^{n-k}f(x)$.', topic: 'Order statistics'}
+- {front: 'Uniform(0, 1) order statistics', back: '$X_{(k)} \sim$ Beta$(k, n - k + 1)$, mean $k/(n + 1)$.', topic: 'Order statistics'}
+- {front: 'Expected maximum of $n$ Uniform$(0, \theta)$', back: '$E[X_{(n)}] = \dfrac{n}{n+1}\theta$.', topic: 'Order statistics'}
+# Probability inequalities and LLN
+- {front: 'Markov''s inequality', back: '$X \ge 0$: $P(X \ge a) \le E[X]/a$.', topic: 'Probability inequalities'}
+- {front: 'Chebyshev''s inequality', back: '$P(|X - \mu| \ge k\sigma) \le 1/k^2$, or $P(|X - \mu| \ge \varepsilon) \le \sigma^2/\varepsilon^2$.', topic: 'Probability inequalities'}
+- {front: 'Chebyshev: guaranteed fraction within $k$ SDs', back: 'At least $1 - 1/k^2$: 75% within 2 SDs, 88.9% within 3 SDs, for any distribution.', topic: 'Probability inequalities'}
+- {front: 'Proof idea of Chebyshev', back: 'Apply Markov to $(X - \mu)^2$ with $a = \varepsilon^2$.', topic: 'Probability inequalities'}
+- {front: 'Convergence in probability', back: '$Y_n \xrightarrow{P} c$: $P(|Y_n - c| \ge \varepsilon) \to 0$ for every $\varepsilon > 0$.', topic: 'Law of large numbers'}
+- {front: 'Weak law of large numbers', back: 'iid with mean $\mu$: $\bar X_n \xrightarrow{P} \mu$. Proof: $P(|\bar X_n - \mu| \ge \varepsilon) \le \sigma^2/(n\varepsilon^2)$.', topic: 'Law of large numbers'}
+- {front: 'Chebyshev sample size for $\bar X$', back: '$n \ge \dfrac{\sigma^2}{\varepsilon^2\delta}$ guarantees $P(|\bar X - \mu| \ge \varepsilon) \le \delta$.', topic: 'Law of large numbers'}
+- {front: 'LLN and the gambler''s fallacy', back: 'Averages converge by dilution, not compensation: future trials are independent of past runs.', topic: 'Law of large numbers'}
+# CLT
+- {front: 'Central Limit Theorem', back: 'iid, mean $\mu$, finite variance $\sigma^2$: $\dfrac{\bar X_n - \mu}{\sigma/\sqrt n} \xrightarrow{d} N(0, 1)$.', topic: 'Central Limit Theorem'}
+- {front: 'CLT for sums and means', back: '$S_n \approx N(n\mu, n\sigma^2)$ and $\bar X \approx N(\mu, \sigma^2/n)$ for large $n$.', topic: 'Central Limit Theorem'}
+- {front: 'MGF proof of the CLT in one line', back: '$M_{Z_n}(t) = [M_Y(t/\sqrt n)]^n = [1 + t^2/(2n) + o(1/n)]^n \to e^{t^2/2}$.', topic: 'Central Limit Theorem'}
+- {front: 'Normal approximation to Bin$(n, p)$', back: '$N(np, np(1-p))$ with continuity correction: $P(X \le k) \approx \Phi\big((k + 0.5 - np)/\sqrt{np(1-p)}\big)$.', topic: 'Central Limit Theorem'}
+- {front: 'Convergence in distribution', back: '$F_n(y) \to F(y)$ at every continuity point of the limiting cdf $F$.', topic: 'Central Limit Theorem'}
+- {front: 'When the CLT fails', back: 'Infinite variance (e.g. Cauchy); also poor accuracy for small $n$ from skewed or heavy-tailed populations.', topic: 'Central Limit Theorem'}
+# Sampling distributions
+- {front: 'Chi-square with $\nu$ df', back: 'Sum of $\nu$ squared iid standard normals = Gamma(shape $\nu/2$, scale 2); mean $\nu$, variance $2\nu$.', topic: 'Sampling distributions'}
+- {front: 'Distribution of $S^2$ (normal sample)', back: '$\dfrac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$, independent of $\bar X$.', topic: 'Sampling distributions'}
+- {front: 't distribution: definition', back: '$T = \dfrac{Z}{\sqrt{V/\nu}}$ with $Z \sim N(0, 1)$, $V \sim \chi^2_\nu$ independent.', topic: 'Sampling distributions'}
+- {front: 'Studentized mean (normal sample)', back: '$\dfrac{\bar X - \mu}{S/\sqrt n} \sim t_{n-1}$.', topic: 'Sampling distributions'}
+- {front: 'F distribution: definition and use', back: '$F = \dfrac{U/\nu_1}{V/\nu_2}$; $\dfrac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1,\,n_2-1}$.', topic: 'Sampling distributions'}
+- {front: 'Facts linking $t$ and $F$', back: '$T^2 \sim F_{1,\nu}$ if $T \sim t_\nu$; $1/F \sim F_{\nu_2,\nu_1}$ if $F \sim F_{\nu_1,\nu_2}$.', topic: 'Sampling distributions'}
+- {front: 'Mean and variance of $S^2$ (normal sample)', back: '$E[S^2] = \sigma^2$, $\operatorname{Var}(S^2) = \dfrac{2\sigma^4}{n - 1}$.', topic: 'Sampling distributions'}
+# Properties of estimators
+- {front: 'Bias of an estimator', back: '$\operatorname{Bias}(\hat\theta) = E[\hat\theta] - \theta$; unbiased if 0 for every $\theta$.', topic: 'Properties of estimators'}
+- {front: 'MSE decomposition', back: '$\operatorname{MSE}(\hat\theta) = \operatorname{Var}(\hat\theta) + \operatorname{Bias}(\hat\theta)^2$.', topic: 'Properties of estimators'}
+- {front: 'Bias of $\hat\sigma^2 = \tfrac1n\sum(X_i - \bar X)^2$', back: '$E[\hat\sigma^2] = \tfrac{n-1}{n}\sigma^2$, bias $-\sigma^2/n$; $S^2$ (divide by $n - 1$) is unbiased.', topic: 'Properties of estimators'}
+- {front: 'Is $S$ unbiased for $\sigma$?', back: 'No: $E[S] < \sigma$, because $\operatorname{Var}(S) = \sigma^2 - (E[S])^2 > 0$.', topic: 'Properties of estimators'}
+- {front: 'Consistency', back: '$\hat\theta_n \xrightarrow{P} \theta$. Sufficient: bias $\to 0$ and variance $\to 0$ (MSE $\to 0$).', topic: 'Properties of estimators'}
+- {front: 'Relative efficiency', back: 'For unbiased estimators: $\operatorname{Var}(\hat\theta_2)/\operatorname{Var}(\hat\theta_1)$.', topic: 'Properties of estimators'}
+- {front: 'Uniform$(0, \theta)$: $2\bar X$ vs $\tfrac{n+1}{n}X_{(n)}$', back: 'Variances $\theta^2/(3n)$ and $\theta^2/(n(n+2))$; relative efficiency $(n+2)/3$.', topic: 'Properties of estimators'}
+- {front: 'Fisher information', back: '$I(\theta) = E[(\partial_\theta\ln f)^2] = -E[\partial_\theta^2\ln f]$. Bernoulli $1/(p(1-p))$; Poisson $1/\lambda$; normal mean $1/\sigma^2$.', topic: 'Properties of estimators'}
+- {front: 'Cramér–Rao lower bound', back: 'Unbiased $\hat\theta$, regular family: $\operatorname{Var}(\hat\theta) \ge \dfrac{1}{nI(\theta)}$. Attained ⟹ efficient.', topic: 'Properties of estimators'}
+# Method of moments and MLE
+- {front: 'Method of moments', back: 'Solve $E[X^k] = \tfrac1n\sum x_i^k$ for $k = 1, \dots, p$.', topic: 'Method of moments'}
+- {front: 'MoM estimates: exponential, uniform, normal', back: 'Exponential $1/\bar x$; Uniform$(0, \theta)$: $2\bar x$; normal: $\bar x$ and $\tfrac1n\sum(x_i - \bar x)^2$.', topic: 'Method of moments'}
+- {front: 'Likelihood and log-likelihood', back: '$L(\theta) = \prod f(x_i; \theta)$, $\ell(\theta) = \sum\ln f(x_i; \theta)$; maximize over $\theta$ with the data fixed.', topic: 'Maximum likelihood'}
+- {front: 'MLEs: Bernoulli, Poisson, exponential', back: '$\hat p = \bar x$; $\hat\lambda = \bar x$; exponential rate $\hat\lambda = 1/\bar x$.', topic: 'Maximum likelihood'}
+- {front: 'MLEs for $N(\mu, \sigma^2)$', back: '$\hat\mu = \bar x$, $\hat\sigma^2 = \tfrac1n\sum(x_i - \bar x)^2$ (divide by $n$).', topic: 'Maximum likelihood'}
+- {front: 'MLE for Uniform$(0, \theta)$', back: '$\hat\theta = \max x_i$, at the boundary where $L$ jumps; $L''(\theta) = 0$ has no solution.', topic: 'Maximum likelihood'}
+- {front: 'Invariance of the MLE', back: 'The MLE of $g(\theta)$ is $g(\hat\theta)$ (but unbiasedness is not preserved).', topic: 'Maximum likelihood'}
+- {front: 'Large-sample distribution of the MLE', back: '$\hat\theta \approx N\big(\theta, 1/(nI(\theta))\big)$; SE $\approx 1/\sqrt{nI(\hat\theta)}$.', topic: 'Maximum likelihood'}
+# Confidence intervals
+- {front: 'Pivotal quantity', back: 'A function of data and $\theta$ with a fully known distribution; invert $P(a \le Q \le b) = 1 - \alpha$.', topic: 'Confidence intervals'}
+- {front: 'CI for $\mu$, $\sigma$ known', back: '$\bar x \pm z_{\alpha/2}\,\sigma/\sqrt n$.', topic: 'Confidence intervals'}
+- {front: 'CI for $\mu$, $\sigma$ unknown (normal data)', back: '$\bar x \pm t_{\alpha/2,\,n-1}\,s/\sqrt n$.', topic: 'Confidence intervals'}
+- {front: 'CI for $\sigma^2$ (normal data)', back: '$\left[\dfrac{(n-1)s^2}{\chi^2_U},\ \dfrac{(n-1)s^2}{\chi^2_L}\right]$ with $\chi^2_L, \chi^2_U$ the $\alpha/2$ and $1 - \alpha/2$ quantiles of $\chi^2_{n-1}$.', topic: 'Confidence intervals'}
+- {front: 'Large-sample CI for a proportion', back: '$\hat p \pm z_{\alpha/2}\sqrt{\hat p(1 - \hat p)/n}$; needs $n\hat p, n(1 - \hat p) \ge 10$.', topic: 'Confidence intervals'}
+- {front: 'Pooled two-sample $t$ interval', back: '$(\bar x_1 - \bar x_2) \pm t_{\alpha/2,\,n_1+n_2-2}\,s_p\sqrt{1/n_1 + 1/n_2}$, $s_p^2 = \dfrac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}$.', topic: 'Confidence intervals'}
+- {front: 'Sample size for a mean', back: '$n = \left(\dfrac{z_{\alpha/2}\sigma}{E}\right)^2$, rounded up.', topic: 'Confidence intervals'}
+- {front: 'Exact CI for an exponential rate', back: '$2\lambda\sum X_i \sim \chi^2_{2n}$, so $\lambda \in \left[\dfrac{\chi^2_L}{2\sum x_i},\ \dfrac{\chi^2_U}{2\sum x_i}\right]$.', topic: 'Confidence intervals'}
+- {front: 'Meaning of 95% confidence', back: 'The procedure covers the fixed parameter in 95% of repeated samples; a given interval either does or does not.', topic: 'Confidence intervals'}
+# Bayesian inference
+- {front: 'Bayes'' rule for parameters', back: 'Posterior ∝ likelihood × prior: $\pi(\theta \mid x) \propto f(x \mid \theta)\pi(\theta)$.', topic: 'Bayesian inference'}
+- {front: 'Beta–binomial update', back: 'Beta$(a, b)$ prior, $x$ successes in $n$: posterior Beta$(a + x, b + n - x)$.', topic: 'Bayesian inference'}
+- {front: 'Beta–binomial posterior mean', back: '$\dfrac{a + x}{a + b + n}$: weights $\dfrac{a + b}{a + b + n}$ on the prior mean and $\dfrac{n}{a + b + n}$ on $x/n$.', topic: 'Bayesian inference'}
+- {front: 'Normal–normal update ($\sigma$ known)', back: '$\dfrac{1}{\tau_n^2} = \dfrac{1}{\tau_0^2} + \dfrac{n}{\sigma^2}$, $\mu_n = \tau_n^2\left(\dfrac{\mu_0}{\tau_0^2} + \dfrac{n\bar x}{\sigma^2}\right)$.', topic: 'Bayesian inference'}
+- {front: 'Gamma–Poisson update', back: 'Gamma$(\alpha, \beta)$ prior (shape $\alpha$, rate $\beta$), Poisson counts: posterior Gamma$(\alpha + \sum x_i,\ \beta + n)$.', topic: 'Bayesian inference'}
+- {front: 'Mode of Beta$(\alpha, \beta)$ (MAP)', back: '$\dfrac{\alpha - 1}{\alpha + \beta - 2}$ for $\alpha, \beta > 1$.', topic: 'Bayesian inference'}
+- {front: 'Credible vs confidence interval', back: 'Credible: $P(\theta \in I \mid \text{data}) = 0.95$. Confidence: the procedure covers fixed $\theta$ 95% of the time.', topic: 'Bayesian inference'}

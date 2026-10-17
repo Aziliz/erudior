@@ -1,0 +1,115 @@
+# Notecards for modules ps-m1 (probability foundations), ps-m2 (discrete random variables)
+# and ps-m3 (continuous random variables).
+# Sample spaces, events, axioms
+- {front: 'Sample space and event', back: 'The sample space $S$ is the set of all outcomes; an event is a subset of $S$. Event $A$ occurs when the outcome lies in $A$.', topic: Sample spaces and events}
+- {front: 'The three axioms of probability', back: '(1) $P(A) \ge 0$. (2) $P(S) = 1$. (3) For pairwise disjoint $A_1, A_2, \ldots$: $P(\bigcup A_i) = \sum P(A_i)$.', topic: Probability axioms}
+- {front: 'De Morgan''s laws', back: '$(A \cup B)^c = A^c \cap B^c$ and $(A \cap B)^c = A^c \cup B^c$.', topic: Sample spaces and events}
+- {front: 'Complement rule and why it holds', back: '$P(A^c) = 1 - P(A)$, because $A$ and $A^c$ are disjoint and their union is $S$.', topic: Probability axioms}
+- {front: 'Monotonicity', back: 'If $A \subseteq B$ then $P(A) \le P(B)$, since $B = A \cup (B \cap A^c)$ is a disjoint union.', topic: Probability axioms}
+- {front: 'Addition rule for two events', back: '$P(A \cup B) = P(A) + P(B) - P(A \cap B)$', topic: Probability axioms}
+- {front: 'Inclusion–exclusion for three events', back: '$P(A \cup B \cup C) = \sum P(\text{singles}) - \sum P(\text{pairs}) + P(A \cap B \cap C)$', topic: Probability axioms}
+- {front: 'Union bound (Boole''s inequality)', back: '$P(\bigcup A_i) \le \sum P(A_i)$ for any events, with no assumption about overlaps.', topic: Probability axioms}
+- {front: 'Bonferroni lower bound', back: '$P(A \cap B) \ge P(A) + P(B) - 1$', topic: Probability axioms}
+- {front: 'Probability with equally likely outcomes', back: '$P(A) = |A|/|S|$, valid only when every outcome in a finite $S$ has the same probability.', topic: Sample spaces and events}
+# Counting
+- {front: 'Multiplication principle', back: 'Stages with $n_1, n_2, \ldots, n_k$ choices give $n_1 n_2 \cdots n_k$ outcomes.', topic: Counting methods}
+- {front: 'Ordered selections of $r$ from $n$', back: 'Without replacement: $\dfrac{n!}{(n-r)!}$. With replacement: $n^r$.', topic: Counting methods}
+- {front: 'Binomial coefficient and its derivation', back: '$\binom{n}{r} = \dfrac{n!}{r!(n-r)!}$: each unordered subset corresponds to $r!$ ordered selections.', topic: Counting methods}
+- {front: 'Pascal''s rule', back: '$\binom{n}{r} = \binom{n-1}{r-1} + \binom{n-1}{r}$ (committees with or without a particular person).', topic: Counting methods}
+- {front: 'Multinomial coefficient', back: '$\dfrac{n!}{n_1!\,n_2!\cdots n_k!}$: ways to split $n$ objects into labeled groups of the given sizes, or to arrange objects with repeats.', topic: Counting methods}
+- {front: 'Probability of exactly $k$ from group A when choosing $r$ from $m$ (A) and $w$ (B)', back: '$\dfrac{\binom{m}{k}\binom{w}{r-k}}{\binom{m+w}{r}}$', topic: Counting methods}
+- {front: 'Birthday problem formula', back: '$P(\text{no shared birthday among } n) = \prod_{i=0}^{n-1}\left(1 - \dfrac{i}{365}\right)$; a match is more likely than not at $n = 23$.', topic: Birthday and matching problems}
+- {front: 'Matching problem', back: '$P(\text{at least one match}) = \sum_{k=1}^{n}\dfrac{(-1)^{k+1}}{k!} \to 1 - e^{-1} \approx 0.632$', topic: Birthday and matching problems}
+- {front: 'Counting checklist', back: 'Does order matter? Can items repeat? Count numerator and denominator the same way (both ordered or both unordered).', topic: Counting methods}
+# Conditional probability and Bayes
+- {front: 'Definition of conditional probability', back: '$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$, $P(B) > 0$. Conditioning restricts the sample space to $B$.', topic: Conditional probability}
+- {front: 'Multiplication rule', back: '$P(A \cap B) = P(B)P(A \mid B) = P(A)P(B \mid A)$', topic: Conditional probability}
+- {front: 'Chain rule for three events', back: '$P(A \cap B \cap C) = P(A)P(B \mid A)P(C \mid A \cap B)$', topic: Conditional probability}
+- {front: 'Law of total probability', back: 'For a partition $B_1, \ldots, B_k$: $P(A) = \sum_i P(B_i)P(A \mid B_i)$.', topic: Conditional probability}
+- {front: 'Bayes'' theorem', back: '$P(B_j \mid A) = \dfrac{P(B_j)P(A \mid B_j)}{\sum_i P(B_i)P(A \mid B_i)}$: one path over all paths that end in $A$.', topic: Bayes' theorem}
+- {front: 'Odds form of Bayes'' theorem', back: 'Posterior odds = prior odds × likelihood ratio, where the likelihood ratio is $P(A \mid B)/P(A \mid B^c)$.', topic: Bayes' theorem}
+- {front: 'Why rare conditions give many false positives', back: 'A small false-positive rate applied to the large healthy group can outnumber the true positives from the small affected group (the base rate matters).', topic: Bayes' theorem}
+- {front: 'Draws without replacement: $P(\text{draw } k \text{ is a success})$', back: 'Unconditionally it equals the original proportion $K/N$ for every $k$, by symmetry.', topic: Conditional probability}
+# Independence
+- {front: 'Definition of independent events', back: '$P(A \cap B) = P(A)P(B)$; equivalently $P(A \mid B) = P(A)$ when $P(B) > 0$.', topic: Independence}
+- {front: 'Disjoint vs independent', back: 'Disjoint events with positive probabilities are never independent: $P(A \cap B) = 0 \ne P(A)P(B)$.', topic: Independence}
+- {front: 'Mutual vs pairwise independence', back: 'Mutual: the product rule holds for every subcollection. Pairwise: only for pairs. Pairwise does not imply mutual (two coins, "first heads", "second heads", "they differ").', topic: Independence}
+- {front: 'At least one success in $n$ independent trials', back: '$1 - (1 - p)^n$. For a target $q$: $n \ge \ln(1 - q)/\ln(1 - p)$.', topic: Independence}
+- {front: 'Series and parallel reliability', back: 'Series: $\prod p_i$. Parallel: $1 - \prod(1 - p_i)$ (independent components).', topic: Independence}
+- {front: 'Conditional independence', back: '$P(A \cap B \mid C) = P(A \mid C)P(B \mid C)$. It neither implies nor is implied by unconditional independence.', topic: Independence}
+# Random variables, expectation, variance
+- {front: 'Valid pmf', back: '$p(x) \ge 0$ for all $x$ and $\sum_x p(x) = 1$.', topic: Random variables and pmfs}
+- {front: 'Properties of a cdf', back: 'Nondecreasing, right-continuous, $F(-\infty) = 0$, $F(\infty) = 1$; $P(a < X \le b) = F(b) - F(a)$.', topic: Random variables and pmfs}
+- {front: 'Integer-valued $X$: $P(X < k)$ and $P(X \ge k)$ from the cdf', back: '$P(X < k) = F(k - 1)$ and $P(X \ge k) = 1 - F(k - 1)$.', topic: Random variables and pmfs}
+- {front: 'Expected value (discrete)', back: '$E(X) = \sum_x x\,p(x)$, if $\sum |x|p(x) < \infty$.', topic: Expectation and variance}
+- {front: 'LOTUS', back: '$E[g(X)] = \sum g(x)p(x)$ (discrete) or $\int g(x)f(x)\,dx$ (continuous).', topic: Expectation and variance}
+- {front: 'Expected value of an indicator', back: '$E(I_A) = P(A)$', topic: Random variables and pmfs}
+- {front: 'Variance: definition and computing formula', back: '$\operatorname{Var}(X) = E[(X - \mu)^2] = E(X^2) - \mu^2$', topic: Expectation and variance}
+- {front: 'Mean and variance of $aX + b$', back: '$E(aX + b) = aE(X) + b$; $\operatorname{Var}(aX + b) = a^2\operatorname{Var}(X)$; $\operatorname{SD}(aX + b) = |a|\sigma$.', topic: Expectation and variance}
+- {front: 'Is $E[g(X)] = g(E(X))$?', back: 'Only for linear $g$. In general $E(X^2) \ge [E(X)]^2$ and $E(1/X) \ne 1/E(X)$.', topic: Expectation and variance}
+# Named discrete distributions
+- {front: 'Bernoulli$(p)$', back: '$p(1) = p$, $p(0) = 1 - p$; mean $p$, variance $p(1-p)$, MGF $1 - p + pe^t$.', topic: Binomial distribution}
+- {front: 'Binomial$(n, p)$ pmf', back: '$P(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$, $k = 0, \ldots, n$.', topic: Binomial distribution}
+- {front: 'Binomial mean and variance', back: '$E(X) = np$, $\operatorname{Var}(X) = np(1 - p)$', topic: Binomial distribution}
+- {front: 'Binomial conditions', back: 'Fixed number $n$ of trials, two outcomes, independent trials, the same success probability $p$ each time.', topic: Binomial distribution}
+- {front: 'Hypergeometric pmf', back: '$P(X = k) = \dfrac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}$ (sample $n$ without replacement from $N$ with $K$ successes).', topic: Hypergeometric distribution}
+- {front: 'Hypergeometric mean and variance', back: '$E(X) = n\frac{K}{N}$; $\operatorname{Var}(X) = n\frac{K}{N}\left(1 - \frac{K}{N}\right)\frac{N - n}{N - 1}$.', topic: Hypergeometric distribution}
+- {front: 'When is the hypergeometric close to the binomial?', back: 'When the sample is a small fraction of the population, so $(N - n)/(N - 1) \approx 1$.', topic: Hypergeometric distribution}
+- {front: 'Geometric$(p)$ (trials to first success)', back: '$P(X = k) = (1-p)^{k-1}p$, $P(X > k) = (1-p)^k$; mean $1/p$, variance $(1-p)/p^2$.', topic: Geometric distribution}
+- {front: 'Memoryless property (discrete)', back: '$P(X > m + n \mid X > m) = P(X > n)$; the geometric is the only such distribution on $\{1, 2, \ldots\}$.', topic: Geometric distribution}
+- {front: 'Negative binomial$(r, p)$', back: '$P(X = k) = \binom{k-1}{r-1}p^r(1-p)^{k-r}$, $k \ge r$; mean $r/p$, variance $r(1-p)/p^2$.', topic: Negative binomial distribution}
+- {front: 'Negative binomial and binomial link', back: '$P(\text{more than } n \text{ trials for } r \text{ successes}) = P(\text{Bin}(n, p) \le r - 1)$', topic: Negative binomial distribution}
+- {front: 'Tail-sum formula', back: '$X \in \{0, 1, 2, \ldots\}$: $E(X) = \sum_{k \ge 0}P(X > k)$. $X \ge 0$ continuous: $E(X) = \int_0^\infty P(X > x)\,dx$.', topic: Geometric distribution}
+- {front: 'Poisson$(\lambda)$ pmf', back: '$P(X = k) = e^{-\lambda}\dfrac{\lambda^k}{k!}$, $k = 0, 1, 2, \ldots$', topic: Poisson distribution}
+- {front: 'Poisson mean and variance', back: 'Both equal $\lambda$.', topic: Poisson distribution}
+- {front: 'Poisson approximation to the binomial', back: '$\text{Bin}(n, p) \approx \text{Poisson}(np)$ for large $n$ and small $p$ (e.g. $n \ge 20$, $p \le 0.05$).', topic: Poisson distribution}
+- {front: 'Poisson recursion', back: '$p(k) = \dfrac{\lambda}{k}\,p(k-1)$; the mode is $\lfloor\lambda\rfloor$.', topic: Poisson distribution}
+- {front: 'Poisson process with rate $\lambda$', back: 'Counts in disjoint intervals are independent; the count in an interval of length $t$ is Poisson$(\lambda t)$; gaps are Exponential$(\lambda)$.', topic: Poisson process}
+- {front: 'Sum of independent Poissons', back: 'Poisson$(\lambda_1)$ + Poisson$(\lambda_2)$ = Poisson$(\lambda_1 + \lambda_2)$.', topic: Poisson process}
+# MGFs
+- {front: 'Definition of the MGF', back: '$M_X(t) = E(e^{tX})$, required to be finite on an interval around 0.', topic: Moment generating functions}
+- {front: 'Moments from an MGF', back: '$E(X^k) = M_X^{(k)}(0)$; $\sigma^2 = M''''(0) - M''(0)^2$.', topic: Moment generating functions}
+- {front: 'Log-MGF shortcut', back: 'With $R(t) = \ln M_X(t)$: $R''(0) = \mu$ and $R''''(0) = \sigma^2$.', topic: Moment generating functions}
+- {front: 'MGF of $aX + b$', back: '$M_{aX+b}(t) = e^{bt}M_X(at)$', topic: Moment generating functions}
+- {front: 'MGF of a sum of independent variables', back: '$M_{X+Y}(t) = M_X(t)M_Y(t)$', topic: Moment generating functions}
+- {front: 'Uniqueness of MGFs', back: 'MGFs that agree on an open interval around 0 belong to the same distribution.', topic: Moment generating functions}
+- {front: 'MGFs: binomial, Poisson, geometric', back: 'Binomial $(1 - p + pe^t)^n$; Poisson $e^{\lambda(e^t - 1)}$; geometric $\dfrac{pe^t}{1 - (1-p)e^t}$.', topic: Moment generating functions}
+- {front: 'MGFs: exponential, gamma, normal', back: 'Exponential $\dfrac{\lambda}{\lambda - t}$; gamma $(1 - \beta t)^{-\alpha}$; normal $e^{\mu t + \sigma^2t^2/2}$.', topic: Moment generating functions}
+# Continuous random variables
+- {front: 'Valid pdf', back: '$f(x) \ge 0$ and $\int_{-\infty}^{\infty} f(x)\,dx = 1$. $f$ may exceed 1.', topic: Densities and cdfs}
+- {front: '$P(X = a)$ for a continuous variable', back: '0, so $<$ and $\le$ give the same probabilities.', topic: Densities and cdfs}
+- {front: 'pdf and cdf relationship', back: '$F(x) = \int_{-\infty}^{x} f(t)\,dt$ and $F''(x) = f(x)$ where $f$ is continuous.', topic: Densities and cdfs}
+- {front: 'Quantile / median of a continuous distribution', back: 'Solve $F(x_p) = p$; the median solves $F(m) = \tfrac12$.', topic: Densities and cdfs}
+- {front: 'Mean and variance (continuous)', back: '$E(X) = \int x f(x)\,dx$; $\operatorname{Var}(X) = \int x^2 f(x)\,dx - \mu^2$.', topic: Continuous expectation}
+- {front: 'When does a mean fail to exist?', back: 'When $\int |x| f(x)\,dx = \infty$, as for the Cauchy density $1/[\pi(1 + x^2)]$.', topic: Continuous expectation}
+- {front: 'Uniform$(a, b)$', back: '$f = \dfrac{1}{b - a}$; mean $\dfrac{a + b}{2}$; variance $\dfrac{(b - a)^2}{12}$.', topic: Uniform distribution}
+- {front: 'Exponential$(\lambda)$', back: '$f = \lambda e^{-\lambda x}$, $P(X > x) = e^{-\lambda x}$; mean $1/\lambda$, variance $1/\lambda^2$, median $\ln 2/\lambda$.', topic: Exponential distribution}
+- {front: 'Exponential memoryless property', back: '$P(X > s + t \mid X > s) = P(X > t)$; equivalently, a constant hazard rate $\lambda$.', topic: Exponential distribution}
+- {front: 'Exponential gaps and Poisson counts', back: 'Time to the first event of a rate-$\lambda$ Poisson process: $P(T > t) = P(N(t) = 0) = e^{-\lambda t}$.', topic: Exponential distribution}
+- {front: 'Hazard rate', back: '$h(x) = f(x)/P(X > x)$: constant for exponential lifetimes, increasing for parts that wear out.', topic: Exponential distribution}
+- {front: 'Normal density', back: '$f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}\exp\left(-\dfrac{(x - \mu)^2}{2\sigma^2}\right)$', topic: Normal distribution}
+- {front: 'Why $\int e^{-z^2/2}dz = \sqrt{2\pi}$', back: 'Square the integral, switch to polar coordinates: $I^2 = \int_0^{2\pi}\int_0^\infty e^{-r^2/2}r\,dr\,d\theta = 2\pi$.', topic: Normal distribution}
+- {front: 'Standardizing a normal variable', back: '$Z = (X - \mu)/\sigma \sim \text{N}(0, 1)$; $P(a < X < b) = \Phi\left(\frac{b - \mu}{\sigma}\right) - \Phi\left(\frac{a - \mu}{\sigma}\right)$.', topic: Normal distribution}
+- {front: 'Normal quantile', back: '$x_p = \mu + \sigma z_p$; $z_{0.90} = 1.2816$, $z_{0.95} = 1.6449$, $z_{0.975} = 1.96$, $z_{0.99} = 2.3263$.', topic: Normal distribution}
+- {front: '68–95–99.7 rule', back: 'About 68%, 95% and 99.7% of a normal distribution lies within 1, 2 and 3 SDs of the mean.', topic: Normal distribution}
+- {front: 'Linear functions and sums of normals', back: '$aX + b \sim \text{N}(a\mu + b, a^2\sigma^2)$; independent normals add to a normal with summed means and variances.', topic: Normal distribution}
+- {front: 'Normal approximation to the binomial', back: '$\text{Bin}(n, p) \approx \text{N}(np, np(1-p))$ when $np \ge 10$ and $n(1-p) \ge 10$.', topic: Normal approximation}
+- {front: 'Continuity correction', back: '$P(X \le k) \approx \Phi\left(\frac{k + 0.5 - np}{\sigma}\right)$; $P(X \ge k) \approx 1 - \Phi\left(\frac{k - 0.5 - np}{\sigma}\right)$.', topic: Normal approximation}
+- {front: 'Gamma function facts', back: '$\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n - 1)!$, $\Gamma(\tfrac12) = \sqrt\pi$.', topic: Gamma distribution}
+- {front: 'Key gamma integral', back: '$\int_0^\infty x^{\alpha - 1}e^{-x/\beta}\,dx = \Gamma(\alpha)\beta^\alpha$', topic: Gamma distribution}
+- {front: 'Gamma$(\alpha, \beta)$ (scale $\beta$)', back: 'Density $\dfrac{x^{\alpha - 1}e^{-x/\beta}}{\Gamma(\alpha)\beta^\alpha}$; mean $\alpha\beta$, variance $\alpha\beta^2$.', topic: Gamma distribution}
+- {front: 'Sum of independent gammas', back: 'Same scale $\beta$: shapes add. Sum of $k$ independent Exponential$(\lambda)$ is Gamma$(k, 1/\lambda)$.', topic: Gamma distribution}
+- {front: 'Time of the $k$-th Poisson event', back: '$T_k \sim \text{Gamma}(k, 1/\lambda)$ and $P(T_k > t) = \sum_{j=0}^{k-1}e^{-\lambda t}\dfrac{(\lambda t)^j}{j!}$.', topic: Gamma distribution}
+- {front: 'Chi-square distribution', back: '$\chi^2(\nu) = \text{Gamma}(\nu/2, 2)$; mean $\nu$, variance $2\nu$; $Z^2 \sim \chi^2(1)$.', topic: Gamma distribution}
+- {front: 'Beta$(a, b)$', back: 'Density $\dfrac{x^{a-1}(1 - x)^{b-1}}{B(a, b)}$ on $(0, 1)$, $B(a, b) = \dfrac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$; mean $\dfrac{a}{a + b}$.', topic: Beta distribution}
+- {front: 'Beta variance', back: '$\dfrac{ab}{(a + b)^2(a + b + 1)}$', topic: Beta distribution}
+- {front: 'Which beta is uniform?', back: '$\text{Beta}(1, 1) = \text{U}(0, 1)$', topic: Beta distribution}
+# Functions of a random variable
+- {front: 'pmf of $Y = g(X)$ (discrete)', back: '$p_Y(y) = \sum_{x : g(x) = y} p_X(x)$', topic: Functions of a random variable}
+- {front: 'cdf method', back: 'Write $F_Y(y) = P(g(X) \le y)$ as an event about $X$, compute it, differentiate, and state the range of $y$.', topic: Functions of a random variable}
+- {front: 'Change-of-variables formula', back: 'For strictly monotone $g$: $f_Y(y) = f_X(g^{-1}(y))\left|\dfrac{d}{dy}g^{-1}(y)\right|$.', topic: Functions of a random variable}
+- {front: 'Density of $aX + b$', back: '$f_Y(y) = \dfrac{1}{|a|}f_X\left(\dfrac{y - b}{a}\right)$', topic: Functions of a random variable}
+- {front: 'Distribution of $Z^2$', back: '$\chi^2(1)$, with density $\dfrac{1}{\sqrt{2\pi}}y^{-1/2}e^{-y/2}$ for $y > 0$ (by the cdf method).', topic: Functions of a random variable}
+- {front: 'Lognormal', back: 'If $X \sim \text{N}(\mu, \sigma^2)$ then $Y = e^X$ is lognormal: median $e^\mu$, mean $e^{\mu + \sigma^2/2}$.', topic: Functions of a random variable}
+- {front: 'Probability integral transform', back: 'If $X$ is continuous with cdf $F$, then $F(X) \sim \text{U}(0, 1)$.', topic: Functions of a random variable}
+- {front: 'Inverse transform sampling', back: 'If $U \sim \text{U}(0, 1)$ then $F^{-1}(U)$ has cdf $F$; e.g. $-\ln(1 - U)/\lambda$ is Exponential$(\lambda)$.', topic: Functions of a random variable}

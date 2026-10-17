@@ -1,0 +1,620 @@
+# Module 6 — Estimation (lessons 23–27)
+# ---- Lesson 23: sampling distributions from normal populations
+- id: ps-q-2301
+  lesson: ps-sampling-normal
+  module_quiz: true
+  topic: Sampling distributions
+  stem: 'A random sample of size 15 comes from $N(\mu, \sigma^2)$. What is the distribution of $14S^2/\sigma^2$?'
+  choices: ['Chi-square with 15 df', 'Chi-square with 14 df', '$t$ with 14 df', 'Normal with mean 14']
+  answer: 1
+  explanation: |-
+    $(n-1)S^2/\sigma^2 \sim \chi^2_{n-1}$ for a normal sample, and $n - 1 = 14$. One degree of freedom is used up because
+    the deviations $X_i - \bar X$ must sum to zero.
+
+- id: ps-q-2302
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'What are the mean and variance of a chi-square random variable with 8 degrees of freedom?'
+  choices: ['Mean 8, variance 8', 'Mean 4, variance 8', 'Mean 8, variance 16', 'Mean 8, variance 64']
+  answer: 2
+  explanation: |-
+    $\chi^2_\nu$ is gamma with shape $\nu/2$ and scale 2, so its mean is $\nu = 8$ and its variance $2\nu = 16$. (Each $Z_i^2$
+    has mean 1 and variance 2, and they add.)
+
+- id: ps-q-2303
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'A sample of 16 is taken from a normal population with $\sigma^2 = 9$. Find $P(S^2 > 15)$.'
+  choices: ['$0.4514$', '$0.0698$', '$0.0500$', '$0.1000$']
+  answer: 2
+  explanation: |-
+    Convert: $15S^2/9 \sim \chi^2_{15}$, and $S^2 > 15$ means $15(15)/9 = 25$. $P(\chi^2_{15} > 25) \approx 0.0500$. 0.0698 uses 16 df,
+    and 0.4514 compares 15 itself with the $\chi^2_{15}$ distribution without converting.
+
+- id: ps-q-2304
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'For which populations are $\bar X$ and $S^2$ independent?'
+  choices: ['Only for normal populations', 'For every population with a finite variance', 'For symmetric populations', 'Only when $n \ge 30$']
+  answer: 0
+  explanation: |-
+    The independence of $\bar X$ and $S^2$ characterizes the normal distribution. For a skewed population, for
+    example, samples with large means tend to have large variances too.
+
+- id: ps-q-2305
+  lesson: ps-sampling-normal
+  module_quiz: true
+  topic: Sampling distributions
+  stem: 'For a random sample of size 10 from a normal population, what is the distribution of $\dfrac{\bar X - \mu}{S/\sqrt{10}}$?'
+  choices: ['Standard normal', '$t$ with 10 df', 'Chi-square with 9 df', '$t$ with 9 df']
+  answer: 3
+  explanation: |-
+    Dividing the standard normal $(\bar X - \mu)/(\sigma/\sqrt n)$ by the independent $\sqrt{\chi^2_{n-1}/(n-1)} = S/\sigma$ gives $t_{n-1} = t_9$.
+    It would be standard normal only if $\sigma$ were known.
+
+- id: ps-q-2306
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'For a normal sample of size 9, find $P(\bar X - \mu > 0.5S)$.'
+  choices: ['$0.0668$', '$0.0860$', '$0.3085$', '$0.1720$']
+  answer: 1
+  explanation: |-
+    $\bar X - \mu > 0.5S$ is the same as $T = \dfrac{\bar X - \mu}{S/3} > 1.5$, and $T \sim t_8$, so the probability is
+    $P(t_8 > 1.5) \approx 0.0860$. 0.0668 uses the normal distribution, and 0.1720 is the two-tailed value.
+
+- id: ps-q-2307
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: '$Z \sim N(0, 1)$ and $V \sim \chi^2_\nu$ are independent. Which ratio has a $t$ distribution with $\nu$ degrees of freedom?'
+  choices: ['$Z/\sqrt{V/\nu}$', '$Z/V$', '$Z^2/(V/\nu)$', '$\sqrt{Z}/V$']
+  answer: 0
+  explanation: |-
+    By definition $T = Z/\sqrt{V/\nu}$. Squaring it gives $Z^2/(V/\nu)$, which is $F_{1, \nu}$.
+
+- id: ps-q-2308
+  lesson: ps-sampling-normal
+  module_quiz: true
+  topic: Sampling distributions
+  stem: 'Independent normal samples of sizes 8 and 13 come from populations with equal variances. What is the distribution of $S_1^2/S_2^2$?'
+  choices: ['$F$ with 8 and 13 df', '$F$ with 12 and 7 df', '$F$ with 7 and 12 df', 'Chi-square with 19 df']
+  answer: 2
+  explanation: |-
+    $(S_1^2/\sigma_1^2)/(S_2^2/\sigma_2^2) \sim F_{n_1 - 1, n_2 - 1}$, and with equal variances the $\sigma$'s cancel: $F_{7, 12}$. The order matters;
+    $F_{12, 7}$ is the distribution of the reciprocal.
+
+- id: ps-q-2309
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'If $T \sim t_{12}$, what is the distribution of $T^2$?'
+  choices: ['$F_{12, 1}$', 'Chi-square with 12 df', '$t_{144}$', '$F_{1, 12}$']
+  answer: 3
+  explanation: |-
+    $T^2 = \dfrac{Z^2/1}{V/12}$ with $Z^2 \sim \chi^2_1$ in the numerator, so $T^2 \sim F_{1, 12}$ (numerator df first).
+
+- id: ps-q-2310
+  lesson: ps-sampling-normal
+  module_quiz: true
+  topic: Sampling distributions
+  stem: 'For a normal sample of size 11 with $\sigma^2 = 5$, find $\operatorname{Var}(S^2)$.'
+  choices: ['$50$', '$4.55$', '$2.5$', '$5$']
+  answer: 3
+  explanation: |-
+    $\operatorname{Var}(S^2) = \dfrac{2\sigma^4}{n - 1} = \dfrac{2(25)}{10} = 5$. 4.55 divides by $n$ instead of $n - 1$, and 50 forgets to divide.
+
+- id: ps-q-2311
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'If $F \sim F_{5, 10}$, what is the distribution of $1/F$?'
+  choices: ['$F_{5, 10}$', '$F_{10, 5}$', 'Chi-square with 15 df', '$t_{10}$']
+  answer: 1
+  explanation: |-
+    $1/F = \dfrac{V/10}{U/5}$ swaps numerator and denominator, giving $F_{10, 5}$. This is how lower $F$ quantiles are found from
+    upper ones.
+
+- id: ps-q-2312
+  lesson: ps-sampling-normal
+  topic: Sampling distributions
+  stem: 'Why does $S^2$ have $n - 1$ rather than $n$ degrees of freedom?'
+  choices: ['Because the deviations $X_i - \bar X$ must sum to zero, so only $n - 1$ of them are free', 'Because one observation is always discarded', 'Because the population variance is unknown', 'Because the chi-square distribution is skewed']
+  answer: 0
+  explanation: |-
+    Estimating $\mu$ by $\bar X$ imposes the constraint $\sum(X_i - \bar X) = 0$. Algebraically, $\chi^2_n$ splits into $(n-1)S^2/\sigma^2$
+    plus an independent $\chi^2_1$ piece for $\bar X$.
+
+# ---- Lesson 24: point estimators
+- id: ps-q-2401
+  lesson: ps-point-estimators
+  module_quiz: true
+  topic: Properties of estimators
+  stem: 'An estimator $\hat\theta$ is unbiased for $\theta$ when'
+  choices: ['$\hat\theta = \theta$ for every sample', '$\operatorname{Var}(\hat\theta) \to 0$ as $n \to \infty$', '$E[\hat\theta] = \theta$ for every value of $\theta$', '$\hat\theta$ has the smallest variance possible']
+  answer: 2
+  explanation: |-
+    Unbiased means correct on average over repeated samples, whatever the true $\theta$. A shrinking variance is
+    part of consistency, and smallest variance is efficiency.
+
+- id: ps-q-2402
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'An estimator has variance 4 and bias $-1$. What is its mean squared error?'
+  choices: ['$3$', '$5$', '$4$', '$2$']
+  answer: 1
+  explanation: |-
+    $\operatorname{MSE} = \operatorname{Var} + \operatorname{Bias}^2 = 4 + (-1)^2 = 5$. 3 adds the bias without squaring it.
+
+- id: ps-q-2403
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'For a sample of size 10 from a population with $\sigma^2 = 20$, what is the bias of $\hat\sigma^2 = \tfrac1n\sum(X_i - \bar X)^2$?'
+  choices: ['$-2$', '$0$', '$2$', '$-\tfrac{20}{9}$']
+  answer: 0
+  explanation: |-
+    $E[\hat\sigma^2] = \tfrac{n-1}{n}\sigma^2 = 0.9 \times 20 = 18$, so the bias is $18 - 20 = -2$ (in general $-\sigma^2/n$). $S^2$, which divides
+    by $n - 1$, is the unbiased version.
+
+- id: ps-q-2404
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: '$S^2$ is unbiased for $\sigma^2$. What can be said about $S$ as an estimator of $\sigma$?'
+  choices: ['$S$ is also unbiased', '$S$ overestimates $\sigma$ on average', '$S$ is unbiased only for normal data', '$S$ underestimates $\sigma$ on average, since $E[S]^2 < E[S^2] = \sigma^2$']
+  answer: 3
+  explanation: |-
+    $\operatorname{Var}(S) = E[S^2] - (E[S])^2 > 0$ forces $(E[S])^2 < \sigma^2$, so $E[S] < \sigma$. Unbiasedness does not survive the
+    square root.
+
+- id: ps-q-2405
+  lesson: ps-point-estimators
+  module_quiz: true
+  topic: Properties of estimators
+  stem: 'Which estimator of a population mean $\mu$ is unbiased but not consistent?'
+  choices: ['$\bar X_n$', '$X_1$, the first observation alone', '$\frac{n}{n+1}\bar X_n$', '$\frac{1}{n-1}\sum_{i=1}^n X_i$']
+  answer: 1
+  explanation: |-
+    $E[X_1] = \mu$, but its variance stays $\sigma^2$ however large $n$ is, so it never concentrates at $\mu$.
+    $\bar X_n$ is unbiased and consistent. $\frac{n}{n+1}\bar X_n$ and $\frac{1}{n-1}\sum X_i$ are biased, but their bias and variance both
+    tend to 0, so they are consistent.
+
+- id: ps-q-2406
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'Two unbiased estimators have variances $4/n$ and $6/n$. What is the efficiency of the first relative to the second?'
+  choices: ['$\tfrac23$', '$2$', '$1.5$', '$24$']
+  answer: 2
+  explanation: |-
+    Relative efficiency $= \operatorname{Var}(\hat\theta_2)/\operatorname{Var}(\hat\theta_1) = 6/4 = 1.5$: the first estimator does with $n$ observations what the
+    second needs about $1.5n$ for. $\tfrac23$ is the ratio upside down.
+
+- id: ps-q-2407
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'Four observations come from Uniform$(0, \theta)$ with $\theta = 12$. What is the variance of the estimator $2\bar X$?'
+  choices: ['$12$', '$3$', '$48$', '$36$']
+  answer: 0
+  explanation: |-
+    $\operatorname{Var}(X) = \theta^2/12 = 12$, so $\operatorname{Var}(2\bar X) = 4 \cdot 12/4 = 12$, which is $\theta^2/(3n)$. 3 forgets the factor 4 from doubling, and 48 forgets to
+    divide by $n$.
+
+- id: ps-q-2408
+  lesson: ps-point-estimators
+  module_quiz: true
+  topic: Properties of estimators
+  stem: 'For an iid Poisson($\lambda$) sample, the Fisher information per observation is $1/\lambda$. With $\lambda = 4$ and $n = 50$, what is the Cramér–Rao lower bound for an unbiased estimator of $\lambda$?'
+  choices: ['$0.005$', '$12.5$', '$0.25$', '$0.08$']
+  answer: 3
+  explanation: |-
+    $\text{CRLB} = \dfrac{1}{nI(\lambda)} = \dfrac{\lambda}{n} = \dfrac{4}{50} = 0.08$, which $\operatorname{Var}(\bar X)$ attains. 0.25 is $1/\lambda$ without $n$, and
+    0.005 is $1/(n\lambda)$.
+
+- id: ps-q-2409
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'The estimator $\tfrac{n+1}{n}X_{(n)}$ of a Uniform$(0, \theta)$ limit has variance $\theta^2/(n(n+2))$, smaller than $1/(nI(\theta))$ for large $n$. Why doesn''t this violate the Cramér–Rao bound?'
+  choices: ['The estimator is biased', 'The bound applies only to discrete distributions', 'The support $(0, \theta)$ depends on $\theta$, so the regularity conditions for the bound fail', 'The bound applies only for $n < 30$']
+  answer: 2
+  explanation: |-
+    The Cramér–Rao bound needs regularity conditions, chiefly a support that doesn't move with $\theta$. The
+    uniform family breaks this, which is why its best estimator has variance of order $1/n^2$. The estimator
+    is unbiased.
+
+- id: ps-q-2410
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'Estimator A is unbiased with variance 9. Estimator B has bias 2 and variance 4. Which has the smaller mean squared error?'
+  choices: ['A, because it is unbiased', 'B, with MSE 8 versus 9', 'Neither: MSE cannot compare a biased and an unbiased estimator', 'They are equal']
+  answer: 1
+  explanation: |-
+    $\operatorname{MSE}_A = 9$ and $\operatorname{MSE}_B = 4 + 2^2 = 8$. A little bias bought a large drop in variance. MSE is designed exactly
+    for comparing estimators with different biases.
+
+- id: ps-q-2411
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'A sample of 9 comes from a population with $\sigma = 6$. What is the standard error of $\bar X$?'
+  choices: ['$4$', '$\tfrac23$', '$6$', '$2$']
+  answer: 3
+  explanation: |-
+    The standard error is the SD of the estimator's sampling distribution: $\sigma/\sqrt n = 6/3 = 2$. 4 is its variance
+    ($36/9$), and $\tfrac23$ divides by $n$.
+
+- id: ps-q-2412
+  lesson: ps-point-estimators
+  topic: Properties of estimators
+  stem: 'For a Bernoulli($p$) observation, $I(p) = 1/(p(1-p))$. What is the Fisher information per observation when $p = 0.2$?'
+  choices: ['$6.25$', '$5$', '$0.16$', '$1.25$']
+  answer: 0
+  explanation: |-
+    $I(0.2) = 1/(0.2 \times 0.8) = 1/0.16 = 6.25$. 0.16 is $p(1 - p)$ itself, the variance of one observation; 5 and 1.25 keep only
+    one of the two terms in $1/p + 1/(1 - p)$.
+
+# ---- Lesson 25: method of moments and maximum likelihood
+- id: ps-q-2501
+  lesson: ps-mle
+  module_quiz: true
+  topic: Maximum likelihood
+  stem: 'Daily fault counts, modeled as iid Poisson($\lambda$), are $3, 1, 4, 0, 2$. What is the maximum likelihood estimate of $\lambda$?'
+  choices: ['$2.5$', '$10$', '$2$', '$\tfrac12$']
+  answer: 2
+  explanation: |-
+    $\ell(\lambda) = (\sum x_i)\ln\lambda - n\lambda + \text{const}$, so $\ell'(\lambda) = \sum x_i/\lambda - n = 0$ gives $\hat\lambda = \bar x = 10/5 = 2$. 2.5 divides by
+    $n - 1$, and 10 is the total.
+
+- id: ps-q-2502
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'Lifetimes modeled as exponential with rate $\lambda$ have sample mean $\bar x = 5$ hours. What is the MLE of $\lambda$?'
+  choices: ['$5$ per hour', '$0.2$ per hour', '$25$ per hour', '$0.04$ per hour']
+  answer: 1
+  explanation: |-
+    $\ell(\lambda) = n\ln\lambda - \lambda\sum x_i$, so $\hat\lambda = n/\sum x_i = 1/\bar x = 0.2$. 5 is the MLE of the mean $1/\lambda$, not of the rate.
+
+- id: ps-q-2503
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'For the same exponential model with $\bar x = 5$, what is the MLE of the reliability $P(X > 10) = e^{-10\lambda}$?'
+  choices: ['$e^{-50}$', '$0.5$', '$e^{-0.5}$', '$e^{-2}$']
+  answer: 3
+  explanation: |-
+    By invariance, plug in $\hat\lambda = 0.2$: $e^{-10(0.2)} = e^{-2} \approx 0.135$. $e^{-50}$ uses $\bar x$ as the rate, and $e^{-0.5}$ uses
+    $10\lambda$ with $\lambda = 1/20$.
+
+- id: ps-q-2504
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'Readings $2.1, 7.3, 4.4, 6.0$ are modeled as iid Uniform$(0, \theta)$. What is the maximum likelihood estimate of $\theta$?'
+  choices: ['$7.3$', '$9.9$', '$9.125$', '$4.95$']
+  answer: 0
+  explanation: |-
+    $L(\theta) = \theta^{-4}$ for $\theta \ge \max x_i = 7.3$ and 0 otherwise; it decreases on $[7.3, \infty)$, so the MLE is the sample maximum,
+    7.3. 9.9 is the method-of-moments estimate $2\bar x$, and 9.125 is the unbiased $\tfrac{n+1}{n}\max$.
+
+- id: ps-q-2505
+  lesson: ps-mle
+  module_quiz: true
+  topic: Method of moments
+  stem: 'Data $-1, 2, -3, 2$ are modeled as Uniform$(-\theta, \theta)$, for which $E[X] = 0$ and $E[X^2] = \theta^2/3$. What is the method-of-moments estimate of $\theta$?'
+  choices: ['$0$', '$3.674$', '$2.121$', '$4.5$']
+  answer: 1
+  explanation: |-
+    The first moment gives no information ($E[X] = 0$ for every $\theta$), so match the second:
+    $m_2 = (1 + 4 + 9 + 4)/4 = 4.5 = \theta^2/3$, so $\tilde\theta = \sqrt{13.5} \approx 3.674$. 2.121 is $\sqrt{m_2}$, forgetting the 3.
+
+- id: ps-q-2506
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'Data $4, 6, 8, 10$ come from $N(\mu, \sigma^2)$ with both parameters unknown. What is the MLE of $\sigma^2$?'
+  choices: ['$6.667$', '$2.236$', '$20$', '$5$']
+  answer: 3
+  explanation: |-
+    $\hat\mu = 7$ and $\hat\sigma^2 = \tfrac1n\sum(x_i - \bar x)^2 = (9 + 1 + 1 + 9)/4 = 5$. 6.667 divides by $n - 1$ (that is $s^2$), 2.236 is
+    $\hat\sigma$, and 20 is the sum of squares.
+
+- id: ps-q-2507
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'For $n$ Bernoulli($p$) observations with $s$ successes, what is the log-likelihood?'
+  choices: ['$s\ln p + (n - s)\ln(1 - p)$', '$p^s(1 - p)^{n - s}$', '$s\ln p - n\ln(1 - p)$', '$\ln\binom{n}{s} + p$']
+  answer: 0
+  explanation: |-
+    $L(p) = p^s(1-p)^{n-s}$; taking logs turns the product into $s\ln p + (n - s)\ln(1 - p)$. The second choice is $L$
+    itself, not its log.
+
+- id: ps-q-2508
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'Which description of the likelihood function $L(\theta) = \prod f(x_i; \theta)$ is correct?'
+  choices: ['It is a probability density for $\theta$ that integrates to 1', 'It is the probability that $\theta$ is the true value', 'It is the joint density of the data viewed as a function of $\theta$, with the observed data held fixed', 'It is a function of the data with $\theta$ held fixed at its MLE']
+  answer: 2
+  explanation: |-
+    The likelihood reuses the joint density but swaps roles: data fixed, parameter varying. It need not
+    integrate to 1 over $\theta$ and is not a probability for $\theta$ (that needs a prior, as in Bayesian inference).
+
+- id: ps-q-2509
+  lesson: ps-mle
+  module_quiz: true
+  topic: Maximum likelihood
+  stem: 'In 100 Bernoulli trials the MLE is $\hat p = 0.3$. Using the large-sample result $\hat p \approx N(p, 1/(nI(p)))$ with $I(p) = 1/(p(1 - p))$, what is the approximate standard error of $\hat p$?'
+  choices: ['$0.0021$', '$0.0458$', '$0.21$', '$0.4583$']
+  answer: 1
+  explanation: |-
+    $1/(nI(\hat p)) = \hat p(1 - \hat p)/n = 0.21/100 = 0.0021$, so the SE is $\sqrt{0.0021} \approx 0.0458$. 0.0021 is the variance, and
+    0.4583 is $\sqrt{0.21}$ without dividing by $n$.
+
+- id: ps-q-2510
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'Observations from a geometric distribution $f(x; p) = p(1 - p)^{x - 1}$, $x = 1, 2, \dots$, have sample mean $\bar x = 4$. What is the MLE of $p$?'
+  choices: ['$4$', '$0.75$', '$0.2$', '$0.25$']
+  answer: 3
+  explanation: |-
+    $\ell(p) = n\ln p + (\sum x_i - n)\ln(1 - p)$. Setting $\ell'(p) = n/p - (\sum x_i - n)/(1 - p) = 0$ gives $\hat p = n/\sum x_i = 1/\bar x = 0.25$.
+    0.75 is $1 - \hat p$, and 0.2 is $1/(\bar x + 1)$.
+
+- id: ps-q-2511
+  lesson: ps-mle
+  topic: Method of moments
+  stem: 'For a normal sample, $\bar x = 3$ and the second sample moment is $m_2 = \tfrac1n\sum x_i^2 = 13$. What are the method-of-moments estimates of $\mu$ and $\sigma^2$?'
+  choices: ['$\tilde\mu = 3$, $\tilde\sigma^2 = 4$', '$\tilde\mu = 3$, $\tilde\sigma^2 = 13$', '$\tilde\mu = 3$, $\tilde\sigma^2 = 10$', '$\tilde\mu = 3$, $\tilde\sigma^2 = 2$']
+  answer: 0
+  explanation: |-
+    Match $E[X] = \mu$ to $\bar x$ and $E[X^2] = \sigma^2 + \mu^2$ to $m_2$: $\tilde\sigma^2 = 13 - 9 = 4$. 13 forgets to subtract $\bar x^2$, and 10
+    subtracts $\bar x$ instead of $\bar x^2$.
+
+- id: ps-q-2512
+  lesson: ps-mle
+  topic: Maximum likelihood
+  stem: 'Why does solving $L''(\theta) = 0$ fail to find the MLE for Uniform$(0, \theta)$?'
+  choices: ['Because $L$ is constant in $\theta$', 'Because the MLE does not exist', 'Because $L(\theta) = \theta^{-n}$ is decreasing on $[\max x_i, \infty)$ and 0 below it, so the maximum is at the boundary $\max x_i$', 'Because the log-likelihood must be used instead']
+  answer: 2
+  explanation: |-
+    The likelihood has no interior critical point; it jumps up at $\theta = \max x_i$ and decreases afterwards. Taking
+    logs doesn't help, since $-n\ln\theta$ is also decreasing there.
+
+# ---- Lesson 26: confidence intervals
+- id: ps-q-2601
+  lesson: ps-confidence-intervals
+  module_quiz: true
+  topic: Confidence intervals
+  stem: 'What makes $Q = \dfrac{\bar X - \mu}{S/\sqrt n}$ a pivotal quantity for $\mu$ (normal data)?'
+  choices: ['It involves $\mu$, and its distribution ($t_{n-1}$) does not depend on any unknown parameter', 'It does not involve $\mu$', 'Its value is always between $-2$ and 2', 'It is an unbiased estimator of $\mu$']
+  answer: 0
+  explanation: |-
+    A pivot involves the parameter and the data, yet has a completely known distribution, so probability
+    statements about it can be inverted into an interval for the parameter.
+
+- id: ps-q-2602
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'A normal sample of 16 has $\bar x = 72$, and $\sigma = 8$ is known. What is the 95% confidence interval for $\mu$?'
+  choices: ['$(71.02,\ 72.98)$', '$(68.08,\ 75.92)$', '$(56.32,\ 87.68)$', '$(67.74,\ 76.26)$']
+  answer: 1
+  explanation: |-
+    $72 \pm 1.96 \times 8/\sqrt{16} = 72 \pm 3.92$. Dividing by $n$ instead of $\sqrt n$ gives the narrow interval, omitting $\sqrt n$
+    gives the wide one, and $(67.74, 76.26)$ uses $t_{15} = 2.131$, which is unnecessary when $\sigma$ is known.
+
+- id: ps-q-2603
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'A normal sample of 9 has $\bar x = 30$ and $s = 6$. With $t_{0.025,\,8} = 2.306$, what is the 95% interval for $\mu$?'
+  choices: ['$(26.08,\ 33.92)$', '$(16.16,\ 43.84)$', '$(25.39,\ 34.61)$', '$(25.48,\ 34.52)$']
+  answer: 2
+  explanation: |-
+    $30 \pm 2.306 \times 6/3 = 30 \pm 4.61$. Using $z = 1.96$ gives $(26.08, 33.92)$, too narrow for an estimated $\sigma$; using 9 df
+    ($t = 2.262$) gives $(25.48, 34.52)$; forgetting $\sqrt n$ gives the wide interval.
+
+- id: ps-q-2604
+  lesson: ps-confidence-intervals
+  module_quiz: true
+  topic: Confidence intervals
+  stem: 'A 95% confidence interval for $\mu$ is $(45.7,\ 50.9)$. Which interpretation is correct?'
+  choices: ['There is a 95% probability that $\mu$ lies between 45.7 and 50.9', '95% of the data lie between 45.7 and 50.9', 'If the study were repeated, 95% of sample means would fall in $(45.7, 50.9)$', 'The method produces intervals that contain $\mu$ in 95% of repeated samples; this interval either does or does not']
+  answer: 3
+  explanation: |-
+    The parameter is fixed; the randomness is in the interval. Confidence refers to the long-run coverage
+    of the procedure. Statements about the data or about future sample means describe different
+    things.
+
+- id: ps-q-2605
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'A normal sample of 10 gives $s^2 = 4$. The 0.025 and 0.975 quantiles of $\chi^2_9$ are 2.700 and 19.023. What is the 95% interval for $\sigma^2$?'
+  choices: ['$(1.89,\ 13.33)$', '$(0.075,\ 0.528)$', '$(2.10,\ 14.81)$', '$(0.30,\ 7.70)$']
+  answer: 0
+  explanation: |-
+    $(n-1)s^2 = 36$; the interval is $(36/19.023,\ 36/2.700) = (1.89, 13.33)$. Using $n s^2 = 40$ gives $(2.10, 14.81)$; dividing
+    the quantiles by 36 inverts the pivot the wrong way; and $(0.30, 7.70)$ is a symmetric normal-style interval
+    $4 \pm 1.96\sqrt{2(16)/9}$, which ignores the skewness of the chi-square distribution.
+
+- id: ps-q-2606
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'In the interval $\big[(n-1)S^2/\chi^2_U,\ (n-1)S^2/\chi^2_L\big]$ for $\sigma^2$, why does the upper chi-square quantile give the lower endpoint?'
+  choices: ['Because the chi-square distribution is symmetric', 'Because $\sigma^2$ is in the denominator of the pivot, so solving $\chi^2_L \le (n-1)S^2/\sigma^2 \le \chi^2_U$ for $\sigma^2$ reverses the inequalities', 'Because the interval must be centred at $S^2$', 'It is a convention; either order works']
+  answer: 1
+  explanation: |-
+    Taking reciprocals of positive quantities flips inequalities. The resulting interval is not symmetric
+    about $s^2$, because the chi-square distribution is skewed.
+
+- id: ps-q-2607
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'With $\sigma = 12$ known, how many observations give a 95% interval for $\mu$ with margin of error at most 3?'
+  choices: ['$8$', '$16$', '$62$', '$61$']
+  answer: 2
+  explanation: |-
+    $n = (z_{0.025}\sigma/E)^2 = (1.96 \times 12/3)^2 = 61.47$, rounded up to 62. Rounding down to 61 gives a margin just above 3, and
+    8 forgets to square.
+
+- id: ps-q-2608
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'In a sample of 400 riders, 180 are satisfied. What is the large-sample 95% confidence interval for the population proportion?'
+  choices: ['$(0.401,\ 0.499)$', '$(0.426,\ 0.474)$', '$(0.352,\ 0.548)$', '$(0.449,\ 0.451)$']
+  answer: 0
+  explanation: |-
+    $\hat p = 0.45$ and $SE = \sqrt{0.45 \times 0.55/400} \approx 0.0249$, so $0.45 \pm 1.96(0.0249) = 0.45 \pm 0.049$. Halving or doubling that
+    margin, or forgetting the square root in the SE, gives the other intervals.
+
+- id: ps-q-2609
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'A pooled two-sample $t$ interval uses samples of sizes 8 and 11. How many degrees of freedom does it use?'
+  choices: ['$7$', '$18$', '$19$', '$17$']
+  answer: 3
+  explanation: |-
+    The pooled variance estimates one common $\sigma^2$ from both samples, losing one df for each sample mean:
+    $n_1 + n_2 - 2 = 17$. 7 is the conservative $\min(n_1, n_2) - 1$ used for unpooled intervals.
+
+- id: ps-q-2610
+  lesson: ps-confidence-intervals
+  module_quiz: true
+  topic: Confidence intervals
+  stem: 'For 5 iid exponential lifetimes with rate $\lambda$, what is the distribution of the pivot $2\lambda\sum X_i$?'
+  choices: ['Chi-square with 5 df', 'Exponential with mean 10', 'Chi-square with 10 df', 'Normal with mean 10']
+  answer: 2
+  explanation: |-
+    Each $2\lambda X_i$ is exponential with mean 2, which is $\chi^2_2$; independent chi-squares add, giving $\chi^2_{2n} = \chi^2_{10}$.
+    Its distribution is free of $\lambda$, so it is a pivot.
+
+- id: ps-q-2611
+  lesson: ps-confidence-intervals
+  topic: Confidence intervals
+  stem: 'Which change makes a 95% $t$ interval for $\mu$ narrower, on average?'
+  choices: ['Raising the confidence level to 99%', 'Increasing the sample size', 'Using $n$ instead of $n - 1$ degrees of freedom', 'Replacing $t$ with a chi-square quantile']
+  answer: 1
+  explanation: |-
+    The half-width $t_{\alpha/2, n-1}S/\sqrt n$ shrinks as $n$ grows (smaller $1/\sqrt n$ and a smaller $t$ quantile). Higher confidence widens
+    the interval; changing df or the distribution arbitrarily breaks the coverage guarantee.
+
+- id: ps-q-2612
+  lesson: ps-confidence-intervals
+  module_quiz: true
+  topic: Confidence intervals
+  stem: 'Independent samples of 25 come from normal populations with known $\sigma_1 = 4$ and $\sigma_2 = 3$; $\bar x_1 - \bar x_2 = 2$. What is the 95% interval for $\mu_1 - \mu_2$?'
+  choices: ['$(1.61,\ 2.39)$', '$(0.61,\ 3.39)$', '$(-0.74,\ 4.74)$', '$(0.04,\ 3.96)$']
+  answer: 3
+  explanation: |-
+    $SE = \sqrt{16/25 + 9/25} = 1$, so $2 \pm 1.96$. Adding the SDs, $(4 + 3)/5 = 1.4$, gives the widest interval; dividing the summed
+    variances by $n_1 + n_2 = 50$ gives $(0.61, 3.39)$; and $(1.61, 2.39)$ uses $5/25 = 0.2$ as the SE.
+
+# ---- Lesson 27: Bayesian inference
+- id: ps-q-2701
+  lesson: ps-bayes-inference
+  module_quiz: true
+  topic: Bayesian inference
+  stem: 'In Bayesian inference, how is the posterior density of $\theta$ related to the prior and the likelihood?'
+  choices: ['Posterior = prior + likelihood', 'Posterior ∝ likelihood × prior', 'Posterior = likelihood ÷ prior', 'Posterior ∝ prior only, after the data are averaged']
+  answer: 1
+  explanation: |-
+    Bayes' theorem gives $\pi(\theta \mid x) = f(x \mid \theta)\pi(\theta)/m(x)$, where $m(x)$ does not depend on $\theta$. So the posterior is
+    proportional to likelihood times prior.
+
+- id: ps-q-2702
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'A Beta(3, 7) prior is placed on a success probability, and 4 successes are observed in 10 trials. What is the posterior?'
+  choices: ['Beta(7, 17)', 'Beta(4, 6)', 'Beta(7, 13)', 'Beta(13, 7)']
+  answer: 2
+  explanation: |-
+    Add successes to the first parameter and failures to the second: Beta$(3 + 4,\ 7 + 6)$ = Beta(7, 13). Beta(7, 17) adds the
+    number of trials instead of failures.
+
+- id: ps-q-2703
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'What is the mean of the posterior Beta(7, 13)?'
+  choices: ['$0.35$', '$0.40$', '$0.30$', '$0.54$']
+  answer: 0
+  explanation: |-
+    The mean of Beta$(a, b)$ is $a/(a + b) = 7/20 = 0.35$. It lies between the prior mean 0.30 and the sample proportion 0.40. 0.54 is
+    $7/13$.
+
+- id: ps-q-2704
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'A Beta$(a, b)$ prior with $a + b = 10$ is updated with $n = 30$ trials. What weight does the sample proportion get in the posterior mean?'
+  choices: ['$0.25$', '$\tfrac13$', '$0.75$', '$0.5$']
+  answer: 2
+  explanation: |-
+    The posterior mean is $\dfrac{a + b}{a + b + n}\cdot\text{prior mean} + \dfrac{n}{a + b + n}\cdot\dfrac{x}{n}$, so the data weight is $30/40 = 0.75$. 0.25 is the
+    prior's weight.
+
+- id: ps-q-2705
+  lesson: ps-bayes-inference
+  module_quiz: true
+  topic: Bayesian inference
+  stem: 'The prior is $\theta \sim N(50, 10^2)$, and 4 observations from $N(\theta, 10^2)$ average $\bar x = 60$. What is the posterior mean?'
+  choices: ['$55$', '$60$', '$52$', '$58$']
+  answer: 3
+  explanation: |-
+    Precisions: prior $1/100 = 0.01$, data $4/100 = 0.04$. Posterior mean $(0.01 \times 50 + 0.04 \times 60)/0.05 = 58$. 55 weights prior and
+    data equally, and 52 swaps the weights.
+
+- id: ps-q-2706
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'In the previous setting (prior variance 100, data precision $4/100$), what is the posterior standard deviation?'
+  choices: ['$4.47$', '$5$', '$10$', '$20$']
+  answer: 0
+  explanation: |-
+    Precisions add: $0.01 + 0.04 = 0.05$, so the posterior variance is $20$ and the SD $\sqrt{20} \approx 4.47$. 20 is the variance, and 5 is $\sigma/\sqrt n$
+    (the data alone); the posterior is a little narrower than that.
+
+- id: ps-q-2707
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'A 95% credible interval for $\theta$ is $(99.1,\ 106.1)$. Which interpretation is correct?'
+  choices: ['95% of repeated intervals built this way would contain the fixed $\theta$', 'Given the data and the prior, the probability that $\theta$ lies in $(99.1, 106.1)$ is 0.95', '95% of the observations lie in $(99.1, 106.1)$', 'The MLE lies in the interval with probability 0.95']
+  answer: 1
+  explanation: |-
+    A credible interval is a direct probability statement about $\theta$ under the posterior. The repeated-sampling
+    statement is the interpretation of a confidence interval.
+
+- id: ps-q-2708
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'A Poisson rate has a gamma prior with shape 2 and rate 1 (scale 1). Counts $3, 5, 4$ are observed. What is the posterior mean of the rate?'
+  choices: ['$4$', '$3.5$', '$14$', '$4.67$']
+  answer: 1
+  explanation: |-
+    Gamma$(\alpha, \beta)$ prior plus counts gives Gamma$(\alpha + \sum x_i,\ \beta + n)$ = Gamma(14, 4), with mean $14/4 = 3.5$. 4 is the sample mean (the MLE), and
+    4.67 divides by $n$ instead of $\beta + n$.
+
+- id: ps-q-2709
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'What is the MAP estimate (posterior mode) for a Beta(5, 25) posterior?'
+  choices: ['$\tfrac16$', '$\tfrac15$', '$\tfrac17$', '$\tfrac{5}{28}$']
+  answer: 2
+  explanation: |-
+    For Beta$(\alpha, \beta)$ with $\alpha, \beta > 1$ the mode is $(\alpha - 1)/(\alpha + \beta - 2) = 4/28 = \tfrac17$. $\tfrac16 = 5/30$ is the posterior mean.
+
+- id: ps-q-2710
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'With a uniform prior, Beta(1, 1), and 0 successes in 10 trials, what is the posterior mean of the success probability?'
+  choices: ['$0$', '$\tfrac1{10}$', '$\tfrac1{11}$', '$\tfrac1{12}$']
+  answer: 3
+  explanation: |-
+    The posterior is Beta(1, 11), with mean $1/12$. Unlike the MLE ($0$), it does not declare success impossible
+    after a short run of failures.
+
+- id: ps-q-2711
+  lesson: ps-bayes-inference
+  topic: Bayesian inference
+  stem: 'What does it mean for a prior family to be conjugate to a model?'
+  choices: ['The posterior is in the same family as the prior, so updating only changes its parameters', 'The prior is uniform', 'The prior and likelihood have the same mean', 'The prior does not affect the posterior']
+  answer: 0
+  explanation: |-
+    Conjugacy is closure under updating: beta priors stay beta under binomial data, normal stays normal
+    under normal data with known variance, gamma stays gamma under Poisson data.
+
+- id: ps-q-2712
+  lesson: ps-bayes-inference
+  module_quiz: true
+  topic: Bayesian inference
+  stem: 'With a fixed Beta$(a, b)$ prior, what happens to the posterior mean as the number of trials $n$ grows?'
+  choices: ['It stays at the prior mean $a/(a + b)$', 'It becomes undefined', 'It approaches $\tfrac12$', 'It approaches the sample proportion, because the data weight $n/(a + b + n)$ tends to 1']
+  answer: 3
+  explanation: |-
+    The posterior mean is a weighted average whose data weight tends to 1, so it approaches $x/n$ (the MLE); the
+    prior washes out with enough data.

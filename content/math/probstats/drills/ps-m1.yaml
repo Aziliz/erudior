@@ -1,0 +1,282 @@
+# Module 1 drills — probability foundations
+- id: ps-d-union-two
+  title: Addition rule and Venn regions
+  topic: Probability axioms
+  vars:
+    pa: {min: 0.20, max: 0.70, step: 0.05}
+    pb: {min: 0.15, max: 0.60, step: 0.05}
+    pab: {min: 0.05, max: 0.40, step: 0.05}
+  where: ['pab <= min(pa, pb) - 0.05', 'pa + pb - pab <= 0.95']
+  calc:
+    uni: round(pa + pb - pab, 2)
+    aonly: round(pa - pab, 2)
+    nei: round(1 - uni, 2)
+  prompt: |-
+    For events $A$ and $B$, $P(A) = {pa}$, $P(B) = {pb}$ and $P(A \cap B) = {pab}$. Find
+    $P(A \cup B)$, $P(A \cap B^c)$ (A but not B), and the probability that neither occurs.
+  answers:
+    - {name: uni, label: '$P(A \cup B) =$', tolerance: 0.0001, format: num2}
+    - {name: aonly, label: '$P(A \cap B^c) =$', tolerance: 0.0001, format: num2}
+    - {name: nei, label: '$P(A^c \cap B^c) =$', tolerance: 0.0001, format: num2}
+  solution: |-
+    Addition rule: $P(A \cup B) = {pa} + {pb} - {pab} =$ **{uni:num2}**.
+    $A$ splits into $A \cap B$ and $A \cap B^c$, so $P(A \cap B^c) = {pa} - {pab} =$ **{aonly:num2}**.
+    By De Morgan, neither $= (A \cup B)^c$: $1 - {uni:num2} =$ **{nei:num2}**.
+
+- id: ps-d-incl-excl-three
+  title: Inclusion–exclusion with divisibility
+  topic: Probability axioms
+  vars:
+    nn: {choices: [100, 120, 150, 200, 250, 300, 360, 500, 1000]}
+    a: {choices: [2, 3, 4]}
+    b: {choices: [5, 7]}
+    c: {choices: [11, 13]}
+  calc:
+    ab: a*b
+    ac: a*c
+    bc: b*c
+    abc: a*b*c
+    na: floor(nn/a)
+    nb: floor(nn/b)
+    nc: floor(nn/c)
+    nab: floor(nn/ab)
+    nac: floor(nn/ac)
+    nbc: floor(nn/bc)
+    nabc: floor(nn/abc)
+    singles: na + nb + nc
+    pairs: nab + nac + nbc
+    cnt: singles - pairs + nabc
+    pr: cnt/nn
+  prompt: |-
+    An integer is chosen uniformly at random from $1, 2, \ldots, {nn:dp0}$. How many of these integers
+    are divisible by at least one of {a}, {b} and {c}, and what is the probability that the
+    chosen integer is (4 decimals)?
+  answers:
+    - {name: cnt, label: 'Count', format: integer}
+    - {name: pr, label: 'Probability', tolerance: 0.0001, format: num4}
+  solution: |-
+    The three numbers are pairwise relatively prime, so "divisible by both {a} and {b}" means
+    divisible by {ab}, and so on. Count multiples with $\lfloor {nn:dp0}/d \rfloor$:
+
+    - singles: ${na:dp0} + {nb:dp0} + {nc:dp0} = {singles:dp0}$;
+    - pairs (multiples of {ab}, {ac}, {bc}): ${nab} + {nac} + {nbc} = {pairs:dp0}$;
+    - triple (multiples of {abc}): ${nabc}$.
+
+    Inclusion–exclusion: ${singles:dp0} - {pairs:dp0} + {nabc} =$ **{cnt:dp0}**, so the probability is
+    ${cnt:dp0}/{nn:dp0} =$ **{pr:num4}**.
+
+- id: ps-d-committee
+  title: Probability of a committee's makeup
+  topic: Counting methods
+  vars:
+    m: {min: 5, max: 10}
+    w: {min: 4, max: 9}
+    r: {min: 3, max: 6}
+    k: {min: 1, max: 5}
+  where: ['k <= m', 'k < r', 'r - k <= w']
+  calc:
+    tot: m + w
+    rk: r - k
+    c1: nCr(m, k)
+    c2: nCr(w, r - k)
+    cs: nCr(m + w, r)
+    fav: c1*c2
+    pr: fav/cs
+  prompt: |-
+    A team of {r} is chosen at random from {m} engineers and {w} analysts. What is the
+    probability that the team contains exactly {k} engineers? (4 decimals, or an exact fraction)
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.0001, format: num4}
+  solution: |-
+    All $\binom{{tot}}{{r}} = {cs:dp0}$ teams are equally likely. Favorable teams choose {k} of the
+    {m} engineers and {rk} of the {w} analysts: $\binom{{m}}{{k}}\binom{{w}}{{rk}} = {c1:dp0} \times {c2:dp0} = {fav:dp0}$.
+    So $P = {fav:dp0}/{cs:dp0} \approx$ **{pr:num4}**.
+
+- id: ps-d-multinomial
+  title: Arrangements with identical objects
+  topic: Counting methods
+  vars:
+    r: {min: 2, max: 4}
+    bl: {min: 1, max: 4}
+    gr: {min: 1, max: 3}
+  calc:
+    n: r + bl + gr
+    tot: fact(n)/(fact(r)*fact(bl)*fact(gr))
+    m: bl + gr + 1
+    adj: fact(m)/(fact(bl)*fact(gr))
+    pr: adj/tot
+  where: ['n <= 10']
+  prompt: |-
+    A row of {n} flags is made from {r} red, {bl} blue and {gr} green flags (identical within each
+    color), arranged in random order. How many distinct displays are there, and what is the
+    probability that all {r} red flags are next to each other? (Exact fraction.)
+  answers:
+    - {name: tot, label: 'Displays', format: integer}
+    - {name: pr, label: 'Probability', kind: fraction, tolerance: 0.0000001}
+  solution: |-
+    Displays: $\dfrac{{n}!}{{r}!\,{bl}!\,{gr}!} =$ **{tot:dp0}**.
+    Glue the reds into one block; now arrange {m} items (the block, {bl} blue, {gr} green):
+    $\dfrac{{m}!}{{bl}!\,{gr}!} = {adj:dp0}$. So $P = \dfrac{{adj:dp0}}{{tot:dp0}} =$ **{pr:frac}**.
+
+- id: ps-d-birthday
+  title: The birthday problem
+  topic: Birthday and matching problems
+  vars:
+    d: {choices: [12, 30, 52, 100, 365]}
+    n: {min: 3, max: 40}
+  where: ['n < d', 'pm > 0.05', 'pm < 0.98']
+  funcs:
+    t(i): 1 - i/d
+  calc:
+    p0: prod(t, 0, n - 1)
+    pm: 1 - p0
+    nm: n - 1
+    dm1: d - 1
+    last: d - n + 1
+  prompt: |-
+    Each of {n} people independently picks one of {d} equally likely codes. What is the
+    probability that at least two people pick the same code? (4 decimals)
+  answers:
+    - {name: pm, label: 'Probability', tolerance: 0.0002, format: num4}
+  solution: |-
+    Complement: all codes different. Ordered choices with no repeat over all ordered choices:
+    $$P(\text{no match}) = \frac{{d} \cdot {dm1} \cdots {last}}{{d}^{{n}}} = \prod_{i=0}^{{nm}}\left(1 - \frac{i}{{d}}\right) \approx {p0:num4}.$$
+    So $P(\text{at least one match}) \approx$ **{pm:num4}**.
+
+- id: ps-d-chain-draws
+  title: Draws without replacement
+  topic: Conditional probability
+  vars:
+    nn: {min: 10, max: 25}
+    dd: {min: 3, max: 10}
+  where: ['dd <= nn/2']
+  calc:
+    pall: dd*(dd-1)*(dd-2)/(nn*(nn-1)*(nn-2))
+    p2: dd/nn
+    d1: dd - 1
+    d2: dd - 2
+    n1: nn - 1
+    n2: nn - 2
+    g: nn - dd
+  prompt: |-
+    A bin has {nn} parts, of which {dd} are defective. Parts are drawn one at a time without
+    replacement. Find (a) the probability that the first 3 parts drawn are all defective and
+    (b) the probability that the second part drawn is defective. Give 4 significant figures or
+    exact fractions.
+  answers:
+    - {name: pall, label: '(a)', relTolerance: 0.001, format: sig4}
+    - {name: p2, label: '(b)', relTolerance: 0.001, format: sig4}
+  solution: |-
+    (a) Chain rule: multiply the chance of a defective at each draw given the earlier ones,
+    $\dfrac{{dd}}{{nn}}\cdot\dfrac{{d1}}{{n1}}\cdot\dfrac{{d2}}{{n2}} \approx$ **{pall:sig4}**.
+
+    (b) Total probability over the first draw:
+    $\dfrac{{dd}}{{nn}}\cdot\dfrac{{d1}}{{n1}} + \dfrac{{g}}{{nn}}\cdot\dfrac{{dd}}{{n1}} = \dfrac{{dd}({d1} + {g})}{{nn}\cdot{n1}} = \dfrac{{dd}}{{nn}} \approx$ **{p2:sig4}**.
+    Unconditionally, every draw has the original proportion of defectives.
+
+- id: ps-d-total-bayes
+  title: Total probability and Bayes with three sources
+  topic: Bayes' theorem
+  vars:
+    s1: {min: 20, max: 60, step: 5}
+    s2: {min: 15, max: 50, step: 5}
+    r1: {min: 1, max: 6}
+    r2: {min: 1, max: 8}
+    r3: {min: 2, max: 10}
+    j: {choices: [{label: A, value: 1}, {label: B, value: 2}, {label: C, value: 3}]}
+  where: ['s1 + s2 <= 85']
+  calc:
+    s3: 100 - s1 - s2
+    t1: s1*r1/10000
+    t2: s2*r2/10000
+    t3: s3*r3/10000
+    pd: t1 + t2 + t3
+    tj: if(j == 1, t1, if(j == 2, t2, t3))
+    post: tj/pd
+  prompt: |-
+    Suppliers A, B and C provide {s1}%, {s2}% and {s3}% of a depot's brake pads. Their defect
+    rates are {r1}%, {r2}% and {r3}%. Find the probability that a randomly chosen pad is defective
+    (5 decimals), and the probability that a defective pad came from supplier {j} (4 decimals).
+  answers:
+    - {name: pd, label: '$P(\text{defective}) =$', tolerance: 0.00001, format: dp5}
+    - {name: post, label: '$P(\text{{j}} \mid \text{defective}) =$', tolerance: 0.0002, format: num4}
+  solution: |-
+    Paths ending in "defective": A: ${t1:dp5}$, B: ${t2:dp5}$, C: ${t3:dp5}$
+    (share times defect rate). Total probability: $P(\text{defective}) =$ **{pd:dp5}**.
+    Bayes: the path through {j} over the total, ${tj:dp5}/{pd:dp5} \approx$ **{post:num4}**.
+
+- id: ps-d-diagnostic
+  title: Positive predictive value of a test
+  topic: Bayes' theorem
+  vars:
+    prev: {choices: [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1]}
+    sens: {choices: [0.85, 0.9, 0.95, 0.98, 0.99]}
+    spec: {choices: [0.8, 0.9, 0.95, 0.97, 0.99, 0.995]}
+  calc:
+    fp: round(1 - spec, 3)
+    tp: prev*sens
+    fpp: (1 - prev)*fp
+    pos: tp + fpp
+    ppv: tp/pos
+    q: 1 - prev
+  prompt: |-
+    A condition has prevalence {prev}. A test has sensitivity {sens} and specificity {spec}.
+    Find the probability of a positive result (5 decimals) and the probability that a person
+    who tests positive has the condition (4 decimals).
+  answers:
+    - {name: pos, label: '$P(+) =$', tolerance: 0.00001, format: dp5}
+    - {name: ppv, label: '$P(D \mid +) =$', tolerance: 0.0002, format: num4}
+  solution: |-
+    False-positive rate $= 1 - {spec} = {fp}$.
+    $P(+) = P(D)P(+ \mid D) + P(D^c)P(+ \mid D^c) = {prev}({sens}) + {q}({fp}) =$ **{pos:dp5}**.
+    Bayes: $P(D \mid +) = \dfrac{{tp:dp5}}{{pos:dp5}} \approx$ **{ppv:num4}**.
+
+- id: ps-d-reliability
+  title: Reliability of a series–parallel system
+  topic: Independence
+  vars:
+    pa: {choices: [0.9, 0.92, 0.95, 0.97, 0.99]}
+    pb: {min: 0.6, max: 0.95, step: 0.05}
+    pc: {min: 0.6, max: 0.95, step: 0.05}
+    pd: {choices: [0.9, 0.95, 0.98, 0.99]}
+  calc:
+    qb: round(1 - pb, 2)
+    qc: round(1 - pc, 2)
+    rbc: 1 - qb*qc
+    rel: pa*rbc*pd
+  prompt: |-
+    A signal passes through component $A$ (reliability {pa}), then through either of two
+    redundant units $B$ ({pb}) or $C$ ({pc}) in parallel, then through $D$ ({pd}). Components
+    fail independently. Find the system reliability (4 decimals).
+  answers:
+    - {name: rel, label: 'Reliability', tolerance: 0.0001, format: num4}
+  solution: |-
+    The parallel block fails only if both units fail: $R_{BC} = 1 - ({qb})({qc}) = {rbc:num4}$.
+    The system is $A$, the block and $D$ in series: $R = {pa} \times {rbc:num4} \times {pd} \approx$ **{rel:num4}**.
+
+- id: ps-d-at-least-one
+  title: At least one success in independent trials
+  topic: Independence
+  vars:
+    p: {choices: [0.01, 0.02, 0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.25]}
+    n: {min: 3, max: 30}
+    q: {choices: [0.9, 0.95, 0.99]}
+  calc:
+    pr: 1 - (1 - p)^n
+    raw: ln(1 - q)/ln(1 - p)
+    nmin: ceil(raw)
+    qq: 1 - q
+    p1: 1 - p
+  where: ['abs(raw - round(raw)) > 0.001']
+  prompt: |-
+    Each independent attempt succeeds with probability {p}. (a) Find the probability of at least
+    one success in {n} attempts (4 decimals). (b) What is the smallest number of attempts that
+    makes the probability of at least one success at least {q}?
+  answers:
+    - {name: pr, label: '(a)', tolerance: 0.0001, format: num4}
+    - {name: nmin, label: '(b) $n =$', format: integer}
+  solution: |-
+    (a) All fail with probability $({p1})^{{n}}$, so $P = 1 - ({p1})^{{n}} \approx$ **{pr:num4}**.
+
+    (b) Need $({p1})^n \le {qq}$. Taking logs (and flipping the inequality, since
+    $\ln {p1} < 0$): $n \ge \dfrac{\ln {qq}}{\ln {p1}} \approx {raw:num2}$, so $n =$ **{nmin}**.

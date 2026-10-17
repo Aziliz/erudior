@@ -1,0 +1,136 @@
+# Module 5 drills — limit theorems
+- id: ps-d-chebyshev
+  title: Markov and Chebyshev bounds
+  topic: Probability inequalities
+  vars:
+    mu: {min: 10, max: 60, step: 2}
+    sig: {min: 2, max: 12}
+    kk: {choices: [1.5, 2, 2.5, 3, 4]}
+    mult: {choices: [2, 3, 4, 5, 8]}
+  where: ['mu - kk*sig >= 0']
+  calc:
+    lo: mu - kk*sig
+    hi: mu + kk*sig
+    cheb: 1 - 1/kk^2
+    cc: mult*mu
+    markov: mu/cc
+  prompt: |-
+    A nonnegative repair time $X$ has mean {mu} minutes and standard deviation {sig} minutes; its
+    distribution is otherwise unknown. Find (a) the Chebyshev lower bound for $P({lo:num1} < X < {hi:num1})$
+    and (b) the Markov upper bound for $P(X \ge {cc:int})$. Give 4 decimals.
+  answers:
+    - {name: cheb, label: '(a) $P \ge$', tolerance: 0.0005, format: num4}
+    - {name: markov, label: '(b) $P \le$', tolerance: 0.0005, format: num4}
+  solution: |-
+    (a) The interval is $\mu \pm k\sigma$ with $k = ({hi:num1} - {mu})/{sig} = {kk}$. Chebyshev:
+    $P(|X - \mu| \ge k\sigma) \le 1/k^2$, so $P({lo:num1} < X < {hi:num1}) \ge 1 - 1/{kk}^2 =$ **{cheb:num4}**.
+
+    (b) $X \ge 0$, so Markov applies: $P(X \ge {cc:int}) \le \dfrac{E[X]}{{cc:int}} = \dfrac{{mu}}{{cc:int}} =$ **{markov:num4}**.
+
+- id: ps-d-lln-n
+  title: Sample size from Chebyshev and from the CLT
+  topic: Law of large numbers
+  vars:
+    sig: {min: 2, max: 20}
+    eps: {choices: [0.5, 1, 1.5, 2, 2.5]}
+    dl: {choices: [{label: '0.10', value: 0.1}, {label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}]}
+  where: ['ncheb <= 100000']
+  calc:
+    ncheb: ceil(sig^2/(eps^2*dl) - 1e-9)
+    zz: invnorm(1 - dl/2)
+    nclt: ceil((zz*sig/eps)^2 - 1e-9)
+  prompt: |-
+    Measurements have standard deviation $\sigma = {sig}$. You want the sample mean to be within {eps} of
+    $\mu$ except with probability at most {dl}. Find the smallest $n$ that *guarantees* this by
+    Chebyshev's inequality, and the smallest $n$ that achieves it approximately by the CLT normal
+    approximation.
+  answers:
+    - {name: ncheb, label: 'Chebyshev $n =$', format: integer}
+    - {name: nclt, label: 'CLT $n =$', format: integer}
+  solution: |-
+    Chebyshev: $P(|\bar X - \mu| \ge {eps}) \le \dfrac{\sigma^2}{n({eps})^2}$. Setting this $\le {dl}$ gives
+    $n \ge \dfrac{{sig}^2}{({eps})^2({dl})}$, so $n =$ **{ncheb:int}**.
+
+    CLT: $P(|\bar X - \mu| \ge {eps}) \approx 2P\Big(Z \ge \dfrac{{eps}\sqrt n}{{sig}}\Big)$. Setting $\dfrac{{eps}\sqrt n}{{sig}} = z = {zz:num4}$ gives
+    $n = \left(\dfrac{{zz:num4} \times {sig}}{{eps}}\right)^2$, rounded up: **{nclt:int}**. The guarantee costs many more observations
+    than the approximation.
+
+- id: ps-d-clt-sum
+  title: CLT for a total of uniform amounts
+  topic: Central Limit Theorem
+  vars:
+    aa: {min: 0, max: 10}
+    wd: {min: 2, max: 12}
+    nn: {choices: [30, 36, 40, 48, 50, 60, 75, 100]}
+    kk: {min: -2, max: 2, step: 0.1}
+  where: ['abs(kk) >= 0.2']
+  calc:
+    bb: aa + wd
+    mu: (aa + bb)/2
+    var1: wd^2/12
+    mt: nn*mu
+    sdt: sqrt(nn*var1)
+    cut: round(mt + kk*sdt)
+    zz: (cut - mt)/sdt
+    pr: 1 - normcdf(zz)
+  prompt: |-
+    A machine cuts {nn} lengths of cable, each independently uniform between {aa} and {bb:int} metres. Use the
+    Central Limit Theorem to approximate the probability that the total length exceeds {cut:int} metres. Give 4
+    decimals.
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+  solution: |-
+    Each length has mean $\dfrac{{aa} + {bb:int}}{2} = {mu:num2}$ and variance $\dfrac{({bb:int} - {aa})^2}{12} = {var1:num4}$.
+    The total of {nn} has mean ${nn} \times {mu:num2} = {mt:num2}$ and SD $\sqrt{{nn} \times {var1:num4}} = {sdt:num4}$, and is approximately normal.
+    $z = \dfrac{{cut:int} - {mt:num2}}{{sdt:num4}} = {zz:num2}$, so $P \approx$ **{pr:num4}**.
+
+- id: ps-d-clt-binom
+  title: Normal approximation to the binomial
+  topic: Central Limit Theorem
+  vars:
+    nn: {min: 60, max: 600, step: 20}
+    pp: {min: 0.1, max: 0.9, step: 0.05}
+    kk: {min: -2, max: 2, step: 0.25}
+    side: {choices: [{label: 'at most', value: 0}, {label: 'at least', value: 1}]}
+  where: ['nn*pp >= 10', 'nn*(1 - pp) >= 10', 'abs(kk) >= 0.25']
+  calc:
+    mu: nn*pp
+    sd: sqrt(nn*pp*(1 - pp))
+    kc: round(mu + kk*sd)
+    edge: if(side == 0, kc + 0.5, kc - 0.5)
+    zz: (edge - mu)/sd
+    pr: if(side == 0, normcdf(zz), 1 - normcdf(zz))
+    exact: if(side == 0, binomcdf(nn, pp, kc), 1 - binomcdf(nn, pp, kc - 1))
+  prompt: |-
+    Each of {nn} passengers independently buys a reserved seat with probability {pp}. Use the normal
+    approximation with a continuity correction to estimate the probability that **{side} {kc:int}** buy one.
+    Give 4 decimals.
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+  solution: |-
+    $X \sim \text{Bin}({nn}, {pp})$ has mean $np = {mu:num2}$ and SD $\sqrt{np(1-p)} = {sd:num4}$.
+    The continuity correction treats {kc:int} as the interval from {kc:int} − 0.5 to {kc:int} + 0.5, so "{side} {kc:int}" starts at
+    ${edge:num1}$. $z = \dfrac{{edge:num1} - {mu:num2}}{{sd:num4}} = {zz:num2}$, giving **{pr:num4}**. (The exact binomial value is {exact:num4}.)
+
+- id: ps-d-clt-poisson-mean
+  title: CLT for a mean of Poisson counts
+  topic: Central Limit Theorem
+  vars:
+    lam: {min: 1, max: 12, step: 0.5}
+    nn: {choices: [30, 40, 50, 60, 80, 100, 150]}
+    kk: {min: 0.3, max: 2.5, step: 0.1}
+  calc:
+    se: sqrt(lam/nn)
+    cut: round(lam + kk*se, 2)
+    zz: (cut - lam)/se
+    pr: 1 - normcdf(zz)
+  prompt: |-
+    The number of faults per kilometre of track is Poisson with mean {lam}. Inspectors survey {nn} randomly chosen
+    kilometres. Approximate the probability that the average number of faults per kilometre exceeds {cut}.
+    Give 4 decimals.
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+  solution: |-
+    A Poisson count has mean and variance both equal to {lam}, so $\bar X$ has mean {lam} and SD
+    $\sqrt{{lam}/{nn}} = {se:num4}$. By the CLT, $\bar X$ is approximately normal:
+    $z = \dfrac{{cut} - {lam}}{{se:num4}} = {zz:num2}$, so $P(\bar X > {cut}) \approx$ **{pr:num4}**.

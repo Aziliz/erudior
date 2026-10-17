@@ -1,0 +1,443 @@
+# Module 6 drills — estimation
+- id: ps-d-chi2-s2
+  title: Probabilities for the sample variance
+  topic: Sampling distributions
+  vars:
+    nn: {min: 5, max: 30}
+    vv: {choices: [1, 2, 4, 5, 9, 10, 16, 25]}
+    rr: {min: 0.4, max: 2.2, step: 0.05}
+    side: {choices: [{label: 'greater than', value: 1}, {label: 'less than', value: 0}]}
+  where: ['pr >= 0.005', 'pr <= 0.995', 'abs(rr - 1) >= 0.1']
+  calc:
+    df: nn - 1
+    cut: round(rr*vv, 2)
+    chi: df*cut/vv
+    pr: if(side == 1, 1 - chi2cdf(chi, df), chi2cdf(chi, df))
+  prompt: |-
+    A random sample of {nn} measurements is taken from a normal population with variance $\sigma^2 = {vv}$.
+    Find the probability that the sample variance $S^2$ is {side} {cut}. Give 4 decimals.
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+  solution: |-
+    For a normal sample, $\dfrac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1} = \chi^2_{{df}}$.
+    Convert the cutoff: $\dfrac{{df} \times {cut}}{{vv}} = {chi:num4}$. The probability that a $\chi^2_{{df}}$ variable is {side}
+    ${chi:num4}$ is **{pr:num4}**.
+
+- id: ps-d-t-prob
+  title: A probability from the t distribution
+  topic: Sampling distributions
+  vars:
+    nn: {min: 4, max: 25}
+    kk: {choices: [0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.75, 1]}
+  where: ['pr >= 0.005']
+  calc:
+    df: nn - 1
+    tt: kk*sqrt(nn)
+    pr: 1 - tcdf(tt, df)
+    pz: 1 - normcdf(tt)
+  prompt: |-
+    A random sample of size {nn} is taken from a normal population with unknown mean and variance. Find
+    the probability that the sample mean exceeds the population mean by more than {kk} sample
+    standard deviations: $P(\bar X - \mu > {kk}S)$. Give 4 decimals.
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+  solution: |-
+    Divide both sides by $S/\sqrt n$: $\bar X - \mu > {kk}S \iff T = \dfrac{\bar X - \mu}{S/\sqrt{{nn}}} > {kk}\sqrt{{nn}} = {tt:num4}$.
+    For a normal sample $T \sim t_{{df}}$, so the probability is $P(t_{{df}} > {tt:num4}) =$ **{pr:num4}**.
+    (If $\sigma$ were known, the normal tail would give {pz:num4}; the $t$ tail is heavier.)
+
+- id: ps-d-f-ratio
+  title: Ratio of two sample variances
+  topic: Sampling distributions
+  vars:
+    n1: {min: 5, max: 25}
+    n2: {min: 5, max: 25}
+    cc: {choices: [1.5, 2, 2.5, 3, 3.5, 4]}
+  calc:
+    d1: n1 - 1
+    d2: n2 - 1
+    pr: 1 - fcdf(cc, d1, d2)
+  prompt: |-
+    Independent random samples of sizes {n1} and {n2} are drawn from two normal populations with equal
+    variances. Find the probability that the first sample variance is more than {cc} times the
+    second: $P(S_1^2/S_2^2 > {cc})$. Give 4 decimals.
+  answers:
+    - {name: pr, label: 'Probability', tolerance: 0.001, format: num4}
+  solution: |-
+    $\dfrac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1 - 1,\, n_2 - 1}$, and with $\sigma_1 = \sigma_2$ the ratio $S_1^2/S_2^2$ itself is
+    $F_{{d1},\,{d2}}$ (numerator df first). So $P(F_{{d1},{d2}} > {cc}) =$ **{pr:num4}**.
+
+- id: ps-d-mse
+  title: Bias, variance and MSE of a shrinkage estimator
+  topic: Properties of estimators
+  vars:
+    mu: {min: 40, max: 60}
+    m0: {min: 40, max: 60}
+    sig: {min: 4, max: 20}
+    nn: {min: 4, max: 25}
+    ww: {choices: [0.5, 0.6, 0.7, 0.75, 0.8, 0.9]}
+  where: ['mu != m0']
+  calc:
+    bias: (1 - ww)*(m0 - mu)
+    var: ww^2*sig^2/nn
+    mse: var + bias^2
+    msex: sig^2/nn
+    w1: 1 - ww
+  prompt: |-
+    To estimate a mean $\mu$, an engineer combines the sample mean of $n = {nn}$ observations (population
+    SD $\sigma = {sig}$) with a prior guess of {m0}: $T = {ww}\bar X + {w1:num2}({m0})$. If the true mean is
+    $\mu = {mu}$, find the bias of $T$, its mean squared error, and the MSE of $\bar X$ for comparison.
+    Give 2 decimals.
+  answers:
+    - {name: bias, label: 'Bias of $T$', tolerance: 0.01, format: num2}
+    - {name: mse, label: '$\operatorname{MSE}(T) =$', tolerance: 0.01, format: num2}
+    - {name: msex, label: '$\operatorname{MSE}(\bar X) =$', tolerance: 0.01, format: num2}
+  solution: |-
+    $E[T] = {ww}\mu + {w1:num2}({m0})$, so the bias is $E[T] - \mu = {w1:num2}({m0} - \mu) = {w1:num2}({m0} - {mu}) =$ **{bias:num2}**.
+    $\operatorname{Var}(T) = {ww}^2\,\dfrac{\sigma^2}{n} = {ww}^2 \times \dfrac{{sig}^2}{{nn}} = {var:num4}$.
+    $\operatorname{MSE}(T) = \operatorname{Var} + \operatorname{Bias}^2 = {var:num4} + ({bias:num2})^2 =$ **{mse:num2}**.
+
+    $\bar X$ is unbiased, so $\operatorname{MSE}(\bar X) = \sigma^2/n = {sig}^2/{nn} =$ **{msex:num2}**. Shrinking helps when the guess is close to
+    $\mu$ and hurts when it is far off.
+
+- id: ps-d-uniform-estimators
+  title: Comparing estimators of a uniform limit
+  topic: Properties of estimators
+  vars:
+    nn: {min: 3, max: 20}
+    th: {min: 4, max: 30}
+  calc:
+    v1: th^2/(3*nn)
+    v2: th^2/(nn*(nn + 2))
+    eff: (nn + 2)/3
+  prompt: |-
+    A sample of $n = {nn}$ comes from Uniform$(0, \theta)$ with $\theta = {th}$. Two unbiased estimators are
+    $\hat\theta_1 = 2\bar X$ and $\hat\theta_2 = \tfrac{n+1}{n}X_{(n)}$. Find both variances and the efficiency of $\hat\theta_2$
+    relative to $\hat\theta_1$. Give 4 significant figures.
+  answers:
+    - {name: v1, label: '$\operatorname{Var}(\hat\theta_1) =$', relTolerance: 0.001, format: sig4}
+    - {name: v2, label: '$\operatorname{Var}(\hat\theta_2) =$', relTolerance: 0.001, format: sig4}
+    - {name: eff, label: 'Relative efficiency', relTolerance: 0.001, format: sig4}
+  solution: |-
+    $\operatorname{Var}(X) = \theta^2/12$, so $\operatorname{Var}(2\bar X) = 4 \cdot \dfrac{\theta^2}{12n} = \dfrac{\theta^2}{3n} = \dfrac{{th}^2}{3 \times {nn}} =$ **{v1:sig4}**.
+
+    From the density $nx^{n-1}/\theta^n$ of the maximum, $\operatorname{Var}(X_{(n)}) = \dfrac{n\theta^2}{(n+1)^2(n+2)}$, so
+    $\operatorname{Var}(\hat\theta_2) = \dfrac{(n+1)^2}{n^2}\operatorname{Var}(X_{(n)}) = \dfrac{\theta^2}{n(n+2)} = \dfrac{{th}^2}{{nn}({nn} + 2)} =$ **{v2:sig4}**.
+
+    Relative efficiency $= \dfrac{\operatorname{Var}(\hat\theta_1)}{\operatorname{Var}(\hat\theta_2)} = \dfrac{n + 2}{3} =$ **{eff:sig4}**.
+
+- id: ps-d-crlb
+  title: Fisher information and the Cramér–Rao bound
+  topic: Properties of estimators
+  vars:
+    fam: {choices: [{label: 'Bernoulli', value: 1}, {label: 'Poisson', value: 2}]}
+    par: {min: 0.1, max: 0.9, step: 0.05}
+    nn: {choices: [20, 25, 40, 50, 80, 100, 200]}
+  calc:
+    info: if(fam == 1, 1/(par*(1 - par)), 1/par)
+    crlb: 1/(nn*info)
+  prompt: |-
+    An iid sample of size {nn} comes from a **{fam}** distribution whose parameter (the success probability
+    for Bernoulli, the mean for Poisson) equals {par}. Find the Fisher information in one observation and
+    the Cramér–Rao lower bound for the variance of an unbiased estimator of the parameter. Give 4
+    significant figures.
+  answers:
+    - {name: info, label: '$I =$', relTolerance: 0.001, format: sig4}
+    - {name: crlb, label: 'CRLB', relTolerance: 0.001, format: sig4}
+  solution: |-
+    Use $I(\theta) = -E\big[\partial^2 \ln f(X; \theta)/\partial\theta^2\big]$.
+
+    - Bernoulli: $\ln f = x\ln p + (1 - x)\ln(1 - p)$, second derivative $-x/p^2 - (1-x)/(1-p)^2$, so $I(p) = \dfrac{1}{p(1-p)}$.
+    - Poisson: $\ln f = x\ln\lambda - \lambda - \ln x!$, second derivative $-x/\lambda^2$, so $I(\lambda) = \dfrac{1}{\lambda}$.
+
+    For this {fam} sample with parameter {par}: $I =$ **{info:sig4}**, and
+    $\text{CRLB} = \dfrac{1}{nI} = \dfrac{1}{{nn} \times {info:sig4}} =$ **{crlb:sig4}**. The sample mean attains it in both families.
+
+- id: ps-d-mle-exp
+  title: Exponential MLE and invariance
+  topic: Maximum likelihood
+  vars:
+    x1: {min: 20, max: 400, step: 5}
+    x2: {min: 20, max: 400, step: 5}
+    x3: {min: 20, max: 400, step: 5}
+    x4: {min: 20, max: 400, step: 5}
+    x5: {min: 20, max: 400, step: 5}
+    x6: {min: 20, max: 400, step: 5}
+    tt: {choices: [50, 100, 150, 200, 250, 300]}
+  calc:
+    tot: x1 + x2 + x3 + x4 + x5 + x6
+    xbar: tot/6
+    lam: 6/tot
+    rel: exp(-lam*tt)
+  prompt: |-
+    Six component lifetimes (hours) are {x1}, {x2}, {x3}, {x4}, {x5}, {x6}. Model them as iid exponential with
+    rate $\lambda$. Find the maximum likelihood estimate $\hat\lambda$ (4 significant figures) and the MLE of the
+    reliability $P(X > {tt})$ (4 decimals).
+  answers:
+    - {name: lam, label: '$\hat\lambda =$', relTolerance: 0.002, format: sig4}
+    - {name: rel, label: '$\widehat{P}(X > {tt}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    $\ell(\lambda) = n\ln\lambda - \lambda\sum x_i$, and $\ell'(\lambda) = n/\lambda - \sum x_i = 0$ gives $\hat\lambda = n/\sum x_i = 1/\bar x$
+    ($\ell''(\lambda) = -n/\lambda^2 < 0$, so it is a maximum). Here $\sum x_i = {tot:int}$, $\bar x = {xbar:num2}$, so
+    $\hat\lambda = 6/{tot:int} =$ **{lam:sig4}** per hour.
+
+    By invariance, the MLE of $P(X > {tt}) = e^{-{tt}\lambda}$ is $e^{-{tt}\hat\lambda} = e^{-{tt}/{xbar:num2}} =$ **{rel:num4}**.
+
+- id: ps-d-mle-normal
+  title: Normal MLEs from data
+  topic: Maximum likelihood
+  vars:
+    mu: {min: 10, max: 50}
+    d1: {min: -3, max: 3, step: 0.1}
+    d2: {min: -3, max: 3, step: 0.1}
+    d3: {min: -3, max: 3, step: 0.1}
+    d4: {min: -3, max: 3, step: 0.1}
+    d5: {min: -3, max: 3, step: 0.1}
+    d6: {min: -3, max: 3, step: 0.1}
+  calc:
+    x1: mu + d1
+    x2: mu + d2
+    x3: mu + d3
+    x4: mu + d4
+    x5: mu + d5
+    x6: mu + d6
+    mhat: mean(x1, x2, x3, x4, x5, x6)
+    vhat: pvariance(x1, x2, x3, x4, x5, x6)
+    shat: sqrt(vhat)
+    s2: variance(x1, x2, x3, x4, x5, x6)
+    ss6: 6*vhat
+  where: ['vhat >= 0.2']
+  prompt: |-
+    Gauge readings {x1:num1}, {x2:num1}, {x3:num1}, {x4:num1}, {x5:num1}, {x6:num1} are modeled as iid $N(\mu, \sigma^2)$ with both
+    parameters unknown. Find the maximum likelihood estimates $\hat\mu$ and $\hat\sigma$. Give 4 decimals.
+  answers:
+    - {name: mhat, label: '$\hat\mu =$', tolerance: 0.0005, format: num4}
+    - {name: shat, label: '$\hat\sigma =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Setting the partial derivatives of $\ell(\mu, \sigma^2)$ to zero gives $\hat\mu = \bar x$ and $\hat\sigma^2 = \tfrac1n\sum(x_i - \bar x)^2$ (divide by $n$).
+
+    $\hat\mu = \bar x =$ **{mhat:num4}**. The squared deviations from $\bar x$ sum to ${ss6:num4}$, so
+    $\hat\sigma^2 = {vhat:num4}$ and, by invariance, $\hat\sigma = \sqrt{{vhat:num4}} =$ **{shat:num4}**.
+    (The unbiased $s^2 = {s2:num4}$ divides by $n - 1 = 5$ instead.)
+
+- id: ps-d-mom-uniform
+  title: Method of moments versus MLE for a uniform limit
+  topic: Method of moments
+  vars:
+    th: {min: 5, max: 20}
+    u1: {min: 0.02, max: 0.98, step: 0.01}
+    u2: {min: 0.02, max: 0.98, step: 0.01}
+    u3: {min: 0.02, max: 0.98, step: 0.01}
+    u4: {min: 0.02, max: 0.98, step: 0.01}
+    u5: {min: 0.02, max: 0.98, step: 0.01}
+  calc:
+    x1: round(th*u1, 1)
+    x2: round(th*u2, 1)
+    x3: round(th*u3, 1)
+    x4: round(th*u4, 1)
+    x5: round(th*u5, 1)
+    xbar: mean(x1, x2, x3, x4, x5)
+    mom: 2*xbar
+    mle: max(x1, x2, x3, x4, x5)
+    unb: 6*mle/5
+  prompt: |-
+    Five readings {x1:num1}, {x2:num1}, {x3:num1}, {x4:num1}, {x5:num1} are modeled as iid Uniform$(0, \theta)$. Find the
+    method-of-moments estimate and the maximum likelihood estimate of $\theta$. Give 2 decimals.
+  answers:
+    - {name: mom, label: 'MoM $\tilde\theta =$', tolerance: 0.005, format: num2}
+    - {name: mle, label: 'MLE $\hat\theta =$', tolerance: 0.005, format: num2}
+  solution: |-
+    Method of moments: $E[X] = \theta/2$; set it equal to $\bar x = {xbar:num4}$, so $\tilde\theta = 2\bar x =$ **{mom:num2}**.
+
+    Maximum likelihood: $L(\theta) = \theta^{-5}$ when $\theta \ge \max x_i$ and 0 otherwise. It decreases for $\theta \ge \max x_i$, so
+    $\hat\theta = \max x_i =$ **{mle:num2}**. (If the MoM value is below the maximum it is impossible as a value of $\theta$; the
+    bias-corrected $\tfrac{6}{5}\max x_i = {unb:num2}$ is the efficient unbiased choice.)
+
+- id: ps-d-ci-t
+  title: t confidence interval for a mean
+  topic: Confidence intervals
+  vars:
+    nn: {min: 5, max: 30}
+    xbar: {min: 20, max: 80, step: 0.1}
+    ss: {min: 1.5, max: 12, step: 0.1}
+    lev: {choices: [{label: '90%', value: 0.9}, {label: '95%', value: 0.95}, {label: '99%', value: 0.99}]}
+  calc:
+    df: nn - 1
+    tc: invt(1 - (1 - lev)/2, df)
+    se: ss/sqrt(nn)
+    me: tc*se
+    lo: xbar - me
+    hi: xbar + me
+  prompt: |-
+    A random sample of {nn} brake-pad tests from a normal population gives $\bar x = {xbar:num1}$ mm and
+    $s = {ss:num1}$ mm. Construct a {lev} confidence interval for the mean wear $\mu$. Give the endpoints to 2
+    decimals.
+  answers:
+    - {name: lo, label: 'Lower', tolerance: 0.02, format: num2}
+    - {name: hi, label: 'Upper', tolerance: 0.02, format: num2}
+  solution: |-
+    The pivot $\dfrac{\bar X - \mu}{S/\sqrt n} \sim t_{{df}}$ gives $\bar x \pm t^*\,s/\sqrt n$ with $t^* = {tc:num4}$ ({lev}, {df} df).
+    $SE = {ss:num1}/\sqrt{{nn}} = {se:num4}$, margin $= {tc:num4} \times {se:num4} = {me:num4}$.
+    Interval: from **{lo:num2}** to **{hi:num2}**.
+
+- id: ps-d-ci-var
+  title: Chi-square confidence interval for a variance
+  topic: Confidence intervals
+  vars:
+    nn: {min: 6, max: 30}
+    ss: {min: 1, max: 9, step: 0.1}
+    lev: {choices: [{label: '90%', value: 0.9}, {label: '95%', value: 0.95}, {label: '99%', value: 0.99}]}
+  calc:
+    df: nn - 1
+    s2: ss^2
+    qlo: invchi2((1 - lev)/2, df)
+    qhi: invchi2(1 - (1 - lev)/2, df)
+    num: df*s2
+    lo: num/qhi
+    hi: num/qlo
+    slo: sqrt(lo)
+    shi: sqrt(hi)
+  prompt: |-
+    A sample of {nn} rail-gauge measurements from a normal population has standard deviation $s = {ss:num1}$ mm.
+    Construct a {lev} confidence interval for the population variance $\sigma^2$. Give the endpoints to 2 decimals.
+  answers:
+    - {name: lo, label: 'Lower', relTolerance: 0.003, format: num2}
+    - {name: hi, label: 'Upper', relTolerance: 0.003, format: num2}
+  solution: |-
+    Pivot: $(n-1)S^2/\sigma^2 \sim \chi^2_{{df}}$. For {lev} confidence, the lower and upper quantiles are
+    $\chi^2_L = {qlo:num4}$ and $\chi^2_U = {qhi:num4}$. With $(n-1)s^2 = {df} \times {s2:num4} = {num:num4}$:
+    $$\frac{{num:num4}}{{qhi:num4}} \le \sigma^2 \le \frac{{num:num4}}{{qlo:num4}},$$
+    so the interval is from **{lo:num2}** to **{hi:num2}** mm². (For $\sigma$: {slo:num2} to {shi:num2} mm.)
+
+- id: ps-d-ci-pooled
+  title: Pooled two-sample t interval
+  topic: Confidence intervals
+  vars:
+    n1: {min: 6, max: 20}
+    n2: {min: 6, max: 20}
+    m1: {min: 70, max: 90, step: 0.1}
+    m2: {min: 65, max: 90, step: 0.1}
+    s1: {min: 3, max: 9, step: 0.1}
+    s2: {min: 3, max: 9, step: 0.1}
+  where: ['max(s1, s2)/min(s1, s2) <= 1.6']
+  calc:
+    df: n1 + n2 - 2
+    sp2: ((n1 - 1)*s1^2 + (n2 - 1)*s2^2)/df
+    sp: sqrt(sp2)
+    se: sp*sqrt(1/n1 + 1/n2)
+    tc: invt(0.975, df)
+    dd: m1 - m2
+    lo: dd - tc*se
+    hi: dd + tc*se
+  prompt: |-
+    Brake pads from supplier A ($n_1 = {n1}$) last on average {m1:num1} thousand km with SD {s1:num1}; pads from
+    supplier B ($n_2 = {n2}$) average {m2:num1} with SD {s2:num1}. Assuming normal populations with equal
+    variances, construct a 95% confidence interval for $\mu_A - \mu_B$. Give the endpoints to 2 decimals.
+  answers:
+    - {name: lo, label: 'Lower', tolerance: 0.02, format: num2}
+    - {name: hi, label: 'Upper', tolerance: 0.02, format: num2}
+  solution: |-
+    Pooled variance: $s_p^2 = \dfrac{({n1} - 1)({s1:num1})^2 + ({n2} - 1)({s2:num1})^2}{{df}} = {sp2:num4}$, so $s_p = {sp:num4}$.
+    $SE = s_p\sqrt{1/{n1} + 1/{n2}} = {se:num4}$, and $t_{0.025,\,{df}} = {tc:num4}$.
+    Interval: $({m1:num1} - {m2:num1}) \pm {tc:num4} \times {se:num4}$, from **{lo:num2}** to **{hi:num2}**.
+
+- id: ps-d-beta-binomial
+  title: Beta–binomial updating
+  topic: Bayesian inference
+  vars:
+    aa: {min: 1, max: 10}
+    bb: {min: 1, max: 20}
+    nn: {min: 5, max: 60}
+    fr: {min: 0.05, max: 0.95, step: 0.05}
+  calc:
+    xx: round(fr*nn)
+    a2: aa + xx
+    b2: bb + nn - xx
+    pm: a2/(a2 + b2)
+    pmean: aa/(aa + bb)
+    wt: nn/(aa + bb + nn)
+    ph: xx/nn
+    fail: nn - xx
+  prompt: |-
+    A new coupling passes a stress test with unknown probability $\theta$, which is given a Beta({aa}, {bb}) prior.
+    In {nn} independent tests, {xx:int} couplings pass. Find the parameters of the posterior beta distribution
+    and the posterior mean (4 decimals).
+  answers:
+    - {name: a2, label: 'Posterior $a =$', format: integer}
+    - {name: b2, label: 'Posterior $b =$', format: integer}
+    - {name: pm, label: 'Posterior mean', tolerance: 0.0005, format: num4}
+  solution: |-
+    Posterior ∝ likelihood × prior $= \theta^{{xx:int}}(1-\theta)^{{fail:int}} \cdot \theta^{{aa} - 1}(1-\theta)^{{bb} - 1}$, which is Beta$({aa} + {xx:int},\ {bb} + {fail:int})$:
+    $a =$ **{a2:int}**, $b =$ **{b2:int}**.
+
+    Posterior mean $= \dfrac{a}{a + b} = \dfrac{{a2:int}}{{a2:int} + {b2:int}} =$ **{pm:num4}**, a weighted average of the prior mean {pmean:num4}
+    and the sample proportion {ph:num4} with data weight $\dfrac{{nn}}{{aa} + {bb} + {nn}} = {wt:num4}$.
+
+- id: ps-d-normal-normal
+  title: Normal–normal posterior and credible interval
+  topic: Bayesian inference
+  vars:
+    m0: {min: 90, max: 110}
+    t0: {min: 2, max: 10}
+    sig: {min: 3, max: 15}
+    nn: {min: 4, max: 25}
+    dx: {min: -8, max: 8, step: 0.1}
+  calc:
+    xbar: m0 + dx
+    p0: 1/t0^2
+    pd: nn/sig^2
+    pt: p0 + pd
+    vn: 1/pt
+    sdn: sqrt(vn)
+    mn: (p0*m0 + pd*xbar)/pt
+    lo: mn - 1.96*sdn
+    hi: mn + 1.96*sdn
+  prompt: |-
+    A sensor offset $\theta$ has prior $N({m0}, {t0}^2)$. Readings are $N(\theta, {sig}^2)$ with known SD {sig}, and $n = {nn}$
+    readings average $\bar x = {xbar:num1}$. Find the posterior mean, the posterior SD and a 95% credible
+    interval (use 1.96). Give 2 decimals.
+  answers:
+    - {name: mn, label: 'Posterior mean', tolerance: 0.01, format: num2}
+    - {name: sdn, label: 'Posterior SD', tolerance: 0.01, format: num2}
+    - {name: lo, label: 'Lower', tolerance: 0.02, format: num2}
+    - {name: hi, label: 'Upper', tolerance: 0.02, format: num2}
+  solution: |-
+    Precisions add: prior $1/{t0}^2 = {p0:num4}$, data $n/\sigma^2 = {nn}/{sig}^2 = {pd:num4}$, total ${pt:num4}$. So the posterior
+    variance is $1/{pt:num4} = {vn:num4}$ and the posterior SD is **{sdn:num2}**.
+
+    Posterior mean $= \dfrac{{p0:num4}({m0}) + {pd:num4}({xbar:num1})}{{pt:num4}} =$ **{mn:num2}**.
+
+    95% credible interval: ${mn:num2} \pm 1.96 \times {sdn:num2}$, from **{lo:num2}** to **{hi:num2}**.
+
+- id: ps-d-gamma-poisson
+  title: Gamma–Poisson updating
+  topic: Bayesian inference
+  vars:
+    al: {min: 1, max: 10}
+    be: {min: 1, max: 5}
+    c1: {min: 0, max: 9}
+    c2: {min: 0, max: 9}
+    c3: {min: 0, max: 9}
+    c4: {min: 0, max: 9}
+    c5: {min: 0, max: 9}
+  calc:
+    tot: c1 + c2 + c3 + c4 + c5
+    a2: al + tot
+    b2: be + 5
+    pm: a2/b2
+    psd: sqrt(a2)/b2
+    xbar: tot/5
+  prompt: |-
+    A fault rate $\lambda$ (faults per day) has a gamma prior with shape {al} and rate {be} (scale $1/{be}$). Daily fault counts,
+    modeled as iid Poisson($\lambda$), are {c1}, {c2}, {c3}, {c4}, {c5}. Find the posterior shape and rate, and the
+    posterior mean (4 decimals).
+  answers:
+    - {name: a2, label: 'Posterior shape', format: integer}
+    - {name: b2, label: 'Posterior rate', format: integer}
+    - {name: pm, label: 'Posterior mean', tolerance: 0.0005, format: num4}
+  solution: |-
+    Likelihood ∝ $\lambda^{\sum x_i}e^{-n\lambda} = \lambda^{{tot:int}}e^{-5\lambda}$; prior ∝ $\lambda^{{al} - 1}e^{-{be}\lambda}$. The product is
+    $\lambda^{{al} + {tot:int} - 1}e^{-({be} + 5)\lambda}$, a gamma with shape **{a2:int}** and rate **{b2:int}**.
+
+    Posterior mean $= {a2:int}/{b2:int} =$ **{pm:num4}** (posterior SD $\sqrt{{a2:int}}/{b2:int} = {psd:num4}$), between the prior mean
+    ${al}/{be}$ and the sample mean {xbar:num2}.

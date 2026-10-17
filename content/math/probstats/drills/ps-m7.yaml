@@ -1,0 +1,394 @@
+- id: ps-d-binom-size-power
+  title: Size and power of a binomial test
+  topic: Power
+  vars:
+    nn: {min: 10, max: 25}
+    p0: {choices: [0.1, 0.15, 0.2, 0.25, 0.3]}
+    dp: {choices: [0.1, 0.15, 0.2, 0.25, 0.3]}
+    cc: {min: 2, max: 14}
+  calc:
+    p1: round(p0 + dp, 2)
+    cm1: cc - 1
+    size: 1 - binomcdf(nn, p0, cc - 1)
+    pw: 1 - binomcdf(nn, p1, cc - 1)
+    beta: 1 - pw
+  where: ['cc <= nn', 'size >= 0.005', 'size <= 0.12']
+  prompt: |-
+    $X \sim \text{Bin}({nn}, p)$. To test $H_0: p \le {p0}$ against $H_1: p > {p0}$, you reject $H_0$
+    when $X \ge {cc}$. Find the size of the test and its power at $p = {p1}$ (4 decimals each).
+  answers:
+    - {name: size, label: 'Size', tolerance: 0.0005, format: num4}
+    - {name: pw, label: 'Power at $p = {p1}$', tolerance: 0.0005, format: num4}
+  solution: |-
+    The power function $\pi(p) = P_p(X \ge {cc})$ increases in $p$, so the size is its value at the
+    boundary $p = {p0}$: $1 - P(X \le {cm1} \mid p = {p0}) =$ **{size:num4}**.
+
+    At $p = {p1}$: $\pi({p1}) = 1 - P(X \le {cm1} \mid p = {p1}) =$ **{pw:num4}** (so $\beta = {beta:num4}$).
+
+- id: ps-d-z-power
+  title: Power of a two-sided z test
+  topic: Power
+  vars:
+    mu0: {min: 20, max: 120, step: 5}
+    sig: {min: 4, max: 20}
+    nn: {choices: [9, 16, 25, 36, 49, 64, 100]}
+    shift: {choices: [-3, -2.5, -2, -1.5, -1, 1, 1.5, 2, 2.5, 3]}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}, {label: '0.10', value: 0.1}]}
+  calc:
+    se: sig/sqrt(nn)
+    mua: round(mu0 + shift*se, 1)
+    zs: invnorm(1 - al/2)
+    lo: mu0 - zs*se
+    hi: mu0 + zs*se
+    zlo: (lo - mua)/se
+    zhi: (hi - mua)/se
+    pw: normcdf(zlo) + 1 - normcdf(zhi)
+  where: ['mua != mu0']
+  prompt: |-
+    $X_1, \dots, X_{{nn}}$ are $N(\mu, {sig}^2)$. A two-sided test of $H_0: \mu = {mu0}$ at
+    $\alpha = {al}$ rejects when $\bar X$ falls outside an interval $(c_1, c_2)$ centered at {mu0}.
+    Find $c_1$ and $c_2$ (2 decimals) and the power when $\mu = {mua:num1}$ (4 decimals).
+  answers:
+    - {name: lo, label: '$c_1 =$', tolerance: 0.01, format: num2}
+    - {name: hi, label: '$c_2 =$', tolerance: 0.01, format: num2}
+    - {name: pw, label: 'Power', tolerance: 0.002, format: num4}
+  solution: |-
+    $\sigma/\sqrt n = {sig}/\sqrt{{nn}} = {se:num4}$ and $z_{\alpha/2} = {zs:dp3}$, so
+    $c_1 = {mu0} - {zs:dp3}({se:num4}) =$ **{lo:num2}** and $c_2 =$ **{hi:num2}**.
+
+    If $\mu = {mua:num1}$, then $\bar X \sim N({mua:num1}, {se:num4}^2)$ and the power is
+    $P(\bar X \le c_1) + P(\bar X \ge c_2) = \Phi({zlo:num2}) + 1 - \Phi({zhi:num2}) \approx$ **{pw:num4}**.
+
+- id: ps-d-z-sample-size
+  title: Sample size for a one-sided z test
+  topic: Power
+  vars:
+    sig: {min: 5, max: 30}
+    delta: {min: 2, max: 10}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}, {label: '0.025', value: 0.025}]}
+    pwr: {choices: [{label: '0.80', value: 0.8}, {label: '0.90', value: 0.9}, {label: '0.95', value: 0.95}]}
+  calc:
+    za: invnorm(1 - al)
+    zb: invnorm(pwr)
+    nraw: ((za + zb)*sig/delta)^2
+    nreq: ceil(nraw)
+  where: ['nraw >= 8', 'nraw <= 150', 'nraw - floor(nraw) >= 0.15', 'nraw - floor(nraw) <= 0.85']
+  prompt: |-
+    Measurements are normal with $\sigma = {sig}$. You will test $H_0: \mu = \mu_0$ against
+    $H_1: \mu > \mu_0$ at $\alpha = {al}$ and want power {pwr} when $\mu = \mu_0 + {delta}$.
+    What is the smallest sample size $n$ that achieves this?
+  answers:
+    - {name: nreq, label: '$n =$', format: integer}
+  solution: |-
+    Power $1 - \beta$ at $\mu_0 + \delta$ needs $n \ge \left(\dfrac{(z_\alpha + z_\beta)\sigma}{\delta}\right)^2$ with
+    $z_\alpha = {za:dp3}$ and $z_\beta = {zb:dp3}$:
+    $\left(\dfrac{({za:dp3} + {zb:dp3})({sig})}{{delta}}\right)^2 = {nraw:num2}$. Round up: $n =$ **{nreq}**.
+
+- id: ps-d-paired-t
+  title: Paired t test from data
+  topic: Tests for normal means
+  vars:
+    a1: {min: 20, max: 40, step: 0.1}
+    a2: {min: 20, max: 40, step: 0.1}
+    a3: {min: 20, max: 40, step: 0.1}
+    a4: {min: 20, max: 40, step: 0.1}
+    a5: {min: 20, max: 40, step: 0.1}
+    a6: {min: 20, max: 40, step: 0.1}
+    e1: {min: -1.5, max: 3, step: 0.1}
+    e2: {min: -1.5, max: 3, step: 0.1}
+    e3: {min: -1.5, max: 3, step: 0.1}
+    e4: {min: -1.5, max: 3, step: 0.1}
+    e5: {min: -1.5, max: 3, step: 0.1}
+    e6: {min: -1.5, max: 3, step: 0.1}
+  calc:
+    b1: round(a1 - e1, 1)
+    b2: round(a2 - e2, 1)
+    b3: round(a3 - e3, 1)
+    b4: round(a4 - e4, 1)
+    b5: round(a5 - e5, 1)
+    b6: round(a6 - e6, 1)
+    d1: round(a1 - b1, 1)
+    d2: round(a2 - b2, 1)
+    d3: round(a3 - b3, 1)
+    d4: round(a4 - b4, 1)
+    d5: round(a5 - b5, 1)
+    d6: round(a6 - b6, 1)
+    dbar: mean(d1, d2, d3, d4, d5, d6)
+    sd: stdev(d1, d2, d3, d4, d5, d6)
+    tt: dbar/(sd/sqrt(6))
+    pv: 1 - tcdf(tt, 5)
+  where: ['tt >= 0.8', 'tt <= 6']
+  prompt: |-
+    Six units are each measured under treatment A and treatment B.
+
+    $$\begin{array}{c|cccccc} \text{unit} & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline A & {a1:num1} & {a2:num1} & {a3:num1} & {a4:num1} & {a5:num1} & {a6:num1} \\ B & {b1:num1} & {b2:num1} & {b3:num1} & {b4:num1} & {b5:num1} & {b6:num1} \end{array}$$
+
+    Test $H_0: \mu_D = 0$ against $H_1: \mu_D > 0$, where $D = A - B$. Find $\bar d$ (4 decimals),
+    the $t$ statistic (3 decimals) and the p-value (4 decimals).
+  answers:
+    - {name: dbar, label: '$\bar d =$', tolerance: 0.0006, format: num4}
+    - {name: tt, label: '$t =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
+  solution: |-
+    Differences $A - B$: {d1:num1}, {d2:num1}, {d3:num1}, {d4:num1}, {d5:num1}, {d6:num1}.
+    Their mean is $\bar d =$ **{dbar:num4}** and their s.d. is $s_d = {sd:num4}$.
+
+    $t = \dfrac{\bar d}{s_d/\sqrt 6} = \dfrac{{dbar:num4}}{{sd:num4}/\sqrt 6} =$ **{tt:dp3}** on 5 df, and the
+    p-value is $P(t_5 \ge {tt:dp3}) \approx$ **{pv:num4}**.
+
+- id: ps-d-two-sample-t
+  title: Welch two-sample t test
+  topic: Tests for normal means
+  vars:
+    m1: {min: 40, max: 60, step: 0.1}
+    dm: {min: -6, max: 6, step: 0.1}
+    s1: {min: 2, max: 9, step: 0.1}
+    s2: {min: 2, max: 9, step: 0.1}
+    n1: {min: 6, max: 30}
+    n2: {min: 6, max: 30}
+  calc:
+    m2: round(m1 - dm, 1)
+    v1: s1^2/n1
+    v2: s2^2/n2
+    se: sqrt(v1 + v2)
+    tt: (m1 - m2)/se
+    nu: (v1 + v2)^2/(v1^2/(n1 - 1) + v2^2/(n2 - 1))
+    pv: 2*(1 - tcdf(abs(tt), nu))
+  where: ['abs(tt) >= 0.5', 'abs(tt) <= 4.5']
+  prompt: |-
+    Two independent normal samples give $\bar x_1 = {m1:num1}$, $s_1 = {s1:num1}$, $n_1 = {n1}$ and
+    $\bar x_2 = {m2:num1}$, $s_2 = {s2:num1}$, $n_2 = {n2}$. Using Welch's test of $H_0: \mu_1 = \mu_2$
+    against $H_1: \mu_1 \ne \mu_2$, find $t$ (3 decimals), the Satterthwaite degrees of freedom
+    (2 decimals) and the p-value (4 decimals).
+  answers:
+    - {name: tt, label: '$t =$', tolerance: 0.005, format: dp3}
+    - {name: nu, label: 'df $\nu =$', tolerance: 0.05, format: num2}
+    - {name: pv, label: 'p-value', tolerance: 0.002, format: num4}
+  solution: |-
+    $s_1^2/n_1 = {v1:num4}$ and $s_2^2/n_2 = {v2:num4}$, so the standard error is
+    $\sqrt{{v1:num4} + {v2:num4}} = {se:num4}$ and $t = ({m1:num1} - {m2:num1})/{se:num4} =$ **{tt:dp3}**.
+
+    $\nu = \dfrac{({v1:num4} + {v2:num4})^2}{{v1:num4}^2/({n1} - 1) + {v2:num4}^2/({n2} - 1)} =$ **{nu:num2}**,
+    and the two-sided p-value is $2P(t_\nu \ge |t|) \approx$ **{pv:num4}**.
+
+- id: ps-d-chisq-variance
+  title: Chi-square test for a variance
+  topic: Tests for variances
+  vars:
+    nn: {min: 8, max: 30}
+    sig0: {min: 0.5, max: 5, step: 0.5}
+    ratio: {min: 0.6, max: 1.6, step: 0.01}
+    side: {choices: [{label: '>', value: 1}, {label: '<', value: -1}]}
+  calc:
+    ss: round(sig0*ratio, 2)
+    dfree: nn - 1
+    chi: (nn - 1)*ss^2/sig0^2
+    pv: if(side > 0, 1 - chi2cdf(chi, dfree), chi2cdf(chi, dfree))
+  where: ['(side > 0 and ratio > 1.05) or (side < 0 and ratio < 0.95)', 'pv >= 0.0005']
+  prompt: |-
+    A normal sample of $n = {nn}$ has $s = {ss:num2}$. Test $H_0: \sigma = {sig0}$ against
+    $H_1: \sigma {side} {sig0}$. Find the test statistic (3 decimals) and the p-value (4 decimals).
+  answers:
+    - {name: chi, label: '$\chi^2 =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.0006, format: num4}
+  solution: |-
+    $\chi^2 = \dfrac{(n-1)s^2}{\sigma_0^2} = \dfrac{{dfree}({ss:num2})^2}{{sig0}^2} =$ **{chi:dp3}**, which has a
+    $\chi^2_{{dfree}}$ distribution under $H_0$. The alternative points to the tail where
+    $\sigma {side} {sig0}$, so the p-value is that tail area of $\chi^2_{{dfree}}$ beyond {chi:dp3}: **{pv:num4}**.
+
+- id: ps-d-mp-exponential
+  title: Most powerful test for an exponential rate
+  topic: Neyman–Pearson lemma
+  vars:
+    nn: {min: 4, max: 15}
+    l0: {choices: [2, 3, 4, 5]}
+    l1: {choices: [0.5, 1, 1.5, 2, 2.5]}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}, {label: '0.10', value: 0.1}]}
+  calc:
+    df2: 2*nn
+    q: invchi2(1 - al, 2*nn)
+    cc: q/(2*l0)
+    arg: 2*l1*cc
+    pw: 1 - chi2cdf(arg, 2*nn)
+  where: ['l1 < l0', 'pw >= 0.05', 'pw <= 0.995']
+  prompt: |-
+    $X_1, \dots, X_{{nn}}$ are exponential with rate $\lambda$ (density $\lambda e^{-\lambda x}$). The most
+    powerful level-{al} test of $H_0: \lambda = {l0}$ against $H_1: \lambda = {l1}$ rejects when
+    $\sum X_i \ge c$. Using $2\lambda\sum X_i \sim \chi^2_{2n}$, find $c$ (3 decimals) and the power of the
+    test (4 decimals).
+  answers:
+    - {name: cc, label: '$c =$', tolerance: 0.005, format: dp3}
+    - {name: pw, label: 'Power', tolerance: 0.002, format: num4}
+  solution: |-
+    The ratio $L({l0})/L({l1}) = ({l0}/{l1})^{{nn}}e^{-({l0} - {l1})\sum x_i}$ decreases in $\sum x_i$, so reject for large $\sum x_i$.
+    Under $H_0$, $2({l0})\sum X_i \sim \chi^2_{{df2}}$, whose upper-{al} point is {q:dp3}. So
+    $c = {q:dp3}/(2 \cdot {l0}) =$ **{cc:dp3}**.
+
+    Under $H_1$, $2({l1})\sum X_i \sim \chi^2_{{df2}}$, so power $= P(\chi^2_{{df2}} \ge 2({l1})({cc:dp3})) = P(\chi^2_{{df2}} \ge {arg:dp3}) \approx$ **{pw:num4}**.
+
+- id: ps-d-lrt-poisson
+  title: Likelihood ratio test for a Poisson mean
+  topic: Likelihood ratio tests
+  vars:
+    nn: {min: 20, max: 80}
+    lam0: {choices: [1, 1.5, 2, 2.5, 3, 4, 5]}
+    rel: {min: 0.75, max: 1.3, step: 0.01}
+  calc:
+    tot: round(nn*lam0*rel)
+    xbar: tot/nn
+    g2: 2*(tot*ln(tot/(nn*lam0)) - (tot - nn*lam0))
+    pv: 1 - chi2cdf(g2, 1)
+  where: ['g2 >= 0.3', 'g2 <= 12']
+  prompt: |-
+    Counts $X_1, \dots, X_{{nn}}$ are Poisson($\lambda$) with total $\sum x_i = {tot}$. Compute
+    $-2\ln\Lambda$ for the likelihood ratio test of $H_0: \lambda = {lam0}$ against $H_1: \lambda \ne {lam0}$
+    (3 decimals), and its approximate p-value from Wilks' theorem (4 decimals).
+  answers:
+    - {name: g2, label: '$-2\ln\Lambda =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
+  solution: |-
+    The MLE is $\hat\lambda = \bar x = {tot}/{nn} = {xbar:num4}$, and
+    $-2\ln\Lambda = 2\left[\sum x_i\ln\dfrac{\bar x}{\lambda_0} - n(\bar x - \lambda_0)\right] = 2\left[{tot}\ln\dfrac{{xbar:num4}}{{lam0}} - ({tot} - {nn} \cdot {lam0})\right] =$ **{g2:dp3}**.
+
+    $H_0$ fixes one parameter, so compare with $\chi^2_1$: p-value $= P(\chi^2_1 \ge {g2:dp3}) \approx$ **{pv:num4}**.
+
+- id: ps-d-lrt-binomial
+  title: Likelihood ratio test for a proportion
+  topic: Likelihood ratio tests
+  vars:
+    nn: {min: 40, max: 300, step: 10}
+    p0: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6]}
+    rel: {min: 0.7, max: 1.35, step: 0.01}
+  calc:
+    xx: round(nn*p0*rel)
+    phat: xx/nn
+    g2: 2*(xx*ln(xx/(nn*p0)) + (nn - xx)*ln((nn - xx)/(nn*(1 - p0))))
+    pv: 1 - chi2cdf(g2, 1)
+    e1: nn*p0
+    e2: nn*(1 - p0)
+    nmx: nn - xx
+  where: ['xx > 0', 'xx < nn', 'g2 >= 0.3', 'g2 <= 12']
+  prompt: |-
+    In {nn} independent trials there are {xx} successes. Compute $-2\ln\Lambda$ for the likelihood ratio
+    test of $H_0: p = {p0}$ against $H_1: p \ne {p0}$ (3 decimals) and its approximate p-value (4 decimals).
+  answers:
+    - {name: g2, label: '$-2\ln\Lambda =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
+  solution: |-
+    $\hat p = {phat:num4}$. With observed counts {xx} and {nmx} and null expected counts {e1:num2} and {e2:num2},
+    $-2\ln\Lambda = 2\left[{xx}\ln\dfrac{{xx}}{{e1:num2}} + {nmx}\ln\dfrac{{nmx}}{{e2:num2}}\right] =$ **{g2:dp3}**.
+
+    With 1 df: p-value $= P(\chi^2_1 \ge {g2:dp3}) \approx$ **{pv:num4}**.
+
+- id: ps-d-two-prop-z
+  title: Two-proportion z test
+  topic: Tests for proportions
+  vars:
+    n1: {min: 80, max: 400, step: 10}
+    n2: {min: 80, max: 400, step: 10}
+    pa: {min: 0.1, max: 0.6, step: 0.01}
+    dd: {min: -0.12, max: 0.12, step: 0.01}
+  calc:
+    x1: round(n1*pa)
+    x2: round(n2*(pa - dd))
+    ph1: x1/n1
+    ph2: x2/n2
+    pp: (x1 + x2)/(n1 + n2)
+    se: sqrt(pp*(1 - pp)*(1/n1 + 1/n2))
+    zz: (ph1 - ph2)/se
+    pv: 2*(1 - normcdf(abs(zz)))
+  where: ['x2 >= 5', 'n2 - x2 >= 5', 'abs(zz) >= 0.3', 'abs(zz) <= 3.6']
+  prompt: |-
+    Sample 1 has {x1} successes in {n1} trials; sample 2 has {x2} in {n2}. Test $H_0: p_1 = p_2$
+    against $H_1: p_1 \ne p_2$ with the pooled $z$ test. Find $z$ (3 decimals) and the p-value (4 decimals).
+  answers:
+    - {name: zz, label: '$z =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
+  solution: |-
+    $\hat p_1 = {ph1:num4}$, $\hat p_2 = {ph2:num4}$, pooled $\hat p = ({x1} + {x2})/({n1} + {n2}) = {pp:num4}$.
+    Standard error $\sqrt{\hat p(1 - \hat p)(1/{n1} + 1/{n2})} = {se:num4}$, so $z =$ **{zz:dp3}** and the
+    two-sided p-value is $2P(Z \ge |z|) \approx$ **{pv:num4}**.
+
+- id: ps-d-gof
+  title: Chi-square goodness of fit
+  topic: Chi-square tests
+  vars:
+    pset: {choices: [1, 2, 3]}
+    nn: {min: 100, max: 400, step: 20}
+    u1: {min: -14, max: 14}
+    u2: {min: -14, max: 14}
+    u3: {min: -14, max: 14}
+  calc:
+    q1: if(pset == 1, 0.4, if(pset == 2, 0.25, 0.5))
+    q2: if(pset == 1, 0.3, if(pset == 2, 0.25, 0.2))
+    q3: if(pset == 1, 0.2, if(pset == 2, 0.25, 0.2))
+    q4: if(pset == 1, 0.1, if(pset == 2, 0.25, 0.1))
+    o1: round(nn*q1) + u1
+    o2: round(nn*q2) + u2
+    o3: round(nn*q3) + u3
+    o4: nn - o1 - o2 - o3
+    ex1: nn*q1
+    ex2: nn*q2
+    ex3: nn*q3
+    ex4: nn*q4
+    c1: (o1 - ex1)^2/ex1
+    c2: (o2 - ex2)^2/ex2
+    c3: (o3 - ex3)^2/ex3
+    c4: (o4 - ex4)^2/ex4
+    x2: c1 + c2 + c3 + c4
+    pv: 1 - chi2cdf(x2, 3)
+  where: ['o4 >= 0', 'x2 >= 0.5', 'x2 <= 16']
+  prompt: |-
+    {nn} items fall into four categories with counts {o1}, {o2}, {o3}, {o4}. Test whether the category
+    probabilities are {q1}, {q2}, {q3}, {q4}. Find Pearson's $X^2$ (3 decimals) and the p-value (4 decimals).
+  answers:
+    - {name: x2, label: '$X^2 =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
+  solution: |-
+    Expected counts: {ex1:num2}, {ex2:num2}, {ex3:num2}, {ex4:num2}. Contributions $(O - E)^2/E$:
+    {c1:num4}, {c2:num4}, {c3:num4}, {c4:num4}. Total $X^2 =$ **{x2:dp3}** on $4 - 1 = 3$ df, so the
+    p-value is $P(\chi^2_3 \ge {x2:dp3}) \approx$ **{pv:num4}**.
+
+- id: ps-d-independence
+  title: Chi-square test of independence
+  topic: Chi-square tests
+  vars:
+    a1: {min: 10, max: 60}
+    a2: {min: 10, max: 60}
+    a3: {min: 10, max: 60}
+    b1: {min: 10, max: 60}
+    b2: {min: 10, max: 60}
+    b3: {min: 10, max: 60}
+  calc:
+    ra: a1 + a2 + a3
+    rb: b1 + b2 + b3
+    k1: a1 + b1
+    k2: a2 + b2
+    k3: a3 + b3
+    nt: ra + rb
+    ea1: ra*k1/nt
+    ea2: ra*k2/nt
+    ea3: ra*k3/nt
+    eb1: rb*k1/nt
+    eb2: rb*k2/nt
+    eb3: rb*k3/nt
+    x2: (a1 - ea1)^2/ea1 + (a2 - ea2)^2/ea2 + (a3 - ea3)^2/ea3 + (b1 - eb1)^2/eb1 + (b2 - eb2)^2/eb2 + (b3 - eb3)^2/eb3
+    pv: 1 - chi2cdf(x2, 2)
+  where: ['x2 >= 0.5', 'x2 <= 18']
+  prompt: |-
+    Test whether the row and column variables are independent in this table of counts:
+
+    $$\begin{array}{c|ccc} & \text{C1} & \text{C2} & \text{C3} \\ \hline \text{R1} & {a1} & {a2} & {a3} \\ \text{R2} & {b1} & {b2} & {b3} \end{array}$$
+
+    Find the expected count for row R1, column C1 (2 decimals), $X^2$ (3 decimals) and the p-value (4 decimals).
+  answers:
+    - {name: ea1, label: '$E_{11} =$', tolerance: 0.01, format: num2}
+    - {name: x2, label: '$X^2 =$', tolerance: 0.005, format: dp3}
+    - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
+  solution: |-
+    Row totals {ra} and {rb}, column totals {k1}, {k2}, {k3}, grand total {nt}.
+    $E_{11} = {ra} \cdot {k1}/{nt} =$ **{ea1:num2}**; the other expected counts are {ea2:num2}, {ea3:num2} (row R1)
+    and {eb1:num2}, {eb2:num2}, {eb3:num2} (row R2).
+
+    Summing $(O - E)^2/E$ over the six cells gives $X^2 =$ **{x2:dp3}** on $(2-1)(3-1) = 2$ df, so the
+    p-value is $P(\chi^2_2 \ge {x2:dp3}) \approx$ **{pv:num4}**.

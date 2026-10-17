@@ -1,0 +1,375 @@
+# Module 2 drills — discrete random variables
+- id: ps-d-pmf-moments
+  title: Mean, variance and cdf from a pmf table
+  topic: Expectation and variance
+  vars:
+    v1: {min: -2, max: 2}
+    g2: {min: 1, max: 3}
+    g3: {min: 1, max: 3}
+    g4: {min: 1, max: 4}
+    p1: {min: 0.05, max: 0.5, step: 0.05}
+    p2: {min: 0.05, max: 0.5, step: 0.05}
+    p3: {min: 0.05, max: 0.5, step: 0.05}
+  calc:
+    v2: v1 + g2
+    v3: v2 + g3
+    v4: v3 + g4
+    p4: round(1 - p1 - p2 - p3, 2)
+    mu: v1*p1 + v2*p2 + v3*p3 + v4*p4
+    ex2: v1^2*p1 + v2^2*p2 + v3^2*p3 + v4^2*p4
+    var: ex2 - mu^2
+    cdf: round(p1 + p2, 2)
+  where: ['p4 >= 0.05']
+  prompt: |-
+    A random variable $X$ has this pmf:
+
+    | $x$ | {v1} | {v2} | {v3} | {v4} |
+    |---|---|---|---|---|
+    | $p(x)$ | {p1} | {p2} | {p3} | {p4} |
+
+    Find $E(X)$, $\operatorname{Var}(X)$ and the cdf value $F({v2})$. (4 decimals where needed.)
+  answers:
+    - {name: mu, label: '$E(X) =$', tolerance: 0.0001, format: num4}
+    - {name: var, label: '$\operatorname{Var}(X) =$', tolerance: 0.0001, format: num4}
+    - {name: cdf, label: '$F({v2}) =$', tolerance: 0.0001, format: num2}
+  solution: |-
+    $E(X) = \sum x\,p(x) = ({v1})({p1}) + ({v2})({p2}) + ({v3})({p3}) + ({v4})({p4}) =$ **{mu:num4}**.
+
+    $E(X^2) = \sum x^2 p(x) = {ex2:num4}$, so $\operatorname{Var}(X) = E(X^2) - \mu^2 = {ex2:num4} - ({mu:num4})^2 =$ **{var:num4}**.
+
+    $F({v2}) = P(X \le {v2}) = {p1} + {p2} =$ **{cdf:num2}**.
+
+- id: ps-d-linear-rv
+  title: Variance and linear functions of a random variable
+  topic: Expectation and variance
+  vars:
+    mu: {min: -5, max: 12}
+    sd: {min: 1, max: 6}
+    a: {choices: [-4, -3, -2, 2, 3, 5, 10]}
+    b: {min: -20, max: 50}
+  calc:
+    ex2: sd^2 + mu^2
+    var: sd^2
+    my: a*mu + b
+    sy: abs(a)*sd
+    vy: a^2*sd^2
+  prompt: |-
+    A random variable $X$ has $E(X) = {mu}$ and $E(X^2) = {ex2}$. Let $Y = {a}X {b:signed}$.
+    Find $\operatorname{Var}(X)$, $E(Y)$ and the standard deviation of $Y$.
+  answers:
+    - {name: var, label: '$\operatorname{Var}(X) =$', tolerance: 0.001}
+    - {name: my, label: '$E(Y) =$', tolerance: 0.001}
+    - {name: sy, label: '$\operatorname{SD}(Y) =$', tolerance: 0.001}
+  solution: |-
+    Computing formula: $\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = {ex2} - ({mu})^2 =$ **{var}**, so $\sigma_X = {sd}$.
+
+    Linearity: $E(Y) = {a}({mu}) {b:signed} =$ **{my}**.
+
+    The shift does not affect spread and the scale multiplies it by $|{a}|$:
+    $\operatorname{Var}(Y) = ({a})^2({var}) = {vy}$, so $\operatorname{SD}(Y) =$ **{sy}**.
+
+- id: ps-d-lotus
+  title: Normalizing a pmf and using LOTUS
+  topic: Random variables and pmfs
+  vars:
+    n: {min: 3, max: 7}
+  calc:
+    s: n*(n + 1)/2
+    s2: n*(n + 1)*(2*n + 1)/6
+    c: 1/s
+    mu: s2/s
+    einv: n/s
+  prompt: |-
+    $X$ has pmf $p(x) = c\,x$ for $x = 1, 2, \ldots, {n}$. Find $c$, $E(X)$ and $E(1/X)$ as exact fractions.
+  answers:
+    - {name: c, label: '$c =$', kind: fraction, tolerance: 0.0000001}
+    - {name: mu, label: '$E(X) =$', kind: fraction, tolerance: 0.0000001}
+    - {name: einv, label: '$E(1/X) =$', kind: fraction, tolerance: 0.0000001}
+  solution: |-
+    The probabilities sum to 1: $c(1 + 2 + \cdots + {n}) = {s}c = 1$, so $c =$ **{c:frac}**.
+
+    $E(X) = \sum x \cdot c\,x = c\sum x^2 = \dfrac{{s2}}{{s}} =$ **{mu:frac}**.
+
+    LOTUS with $g(x) = 1/x$: $E(1/X) = \sum \dfrac{1}{x}\cdot c\,x = {n}c = \dfrac{{n}}{{s}} =$ **{einv:frac}**.
+    Note that this is not $1/E(X)$.
+
+- id: ps-d-binom-prob
+  title: Binomial probabilities and moments
+  topic: Binomial distribution
+  vars:
+    n: {min: 6, max: 20}
+    p: {choices: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.7, 0.8]}
+    k: {min: 1, max: 12}
+  where: ['k < n', 'pk > 0.01', 'pge > 0.01', 'pge < 0.99']
+  calc:
+    pk: binompdf(n, p, k)
+    pge: 1 - binomcdf(n, p, k - 1)
+    km: k - 1
+    cnk: nCr(n, k)
+    nk: n - k
+    q: round(1 - p, 2)
+    mu: n*p
+    sd: sqrt(n*p*(1 - p))
+  prompt: |-
+    $X \sim \text{Bin}({n}, {p})$. Find $P(X = {k})$, $P(X \ge {k})$ (4 decimals) and the standard
+    deviation of $X$ (3 decimals).
+  answers:
+    - {name: pk, label: '$P(X = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: pge, label: '$P(X \ge {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: sd, label: '$\sigma =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    $P(X = {k}) = \binom{{n}}{{k}}({p})^{{k}}({q})^{{nk}} = {cnk:dp0}({p})^{{k}}({q})^{{nk}} \approx$ **{pk:num4}**.
+
+    "At least {k}" is the complement of "at most {km}": $P(X \ge {k}) = 1 - P(X \le {km}) \approx$ **{pge:num4}**.
+
+    $\sigma = \sqrt{np(1-p)} = \sqrt{{n}({p})({q})} \approx$ **{sd:dp3}** (the mean is $np = {mu:num2}$).
+
+- id: ps-d-hypergeom
+  title: Hypergeometric probabilities and moments
+  topic: Hypergeometric distribution
+  vars:
+    nn: {min: 15, max: 60}
+    kk: {min: 3, max: 15}
+    n: {min: 3, max: 10}
+    k: {min: 0, max: 4}
+  where: ['kk < nn/2', 'n < nn/2', 'k <= kk', 'k <= n', 'n - k <= nn - kk', 'pk > 0.02']
+  calc:
+    c1: nCr(kk, k)
+    c2: nCr(nn - kk, n - k)
+    cs: nCr(nn, n)
+    pk: c1*c2/cs
+    mu: n*kk/nn
+    var: n*(kk/nn)*(1 - kk/nn)*(nn - n)/(nn - 1)
+    nk: n - k
+    ng: nn - kk
+    fpc: (nn - n)/(nn - 1)
+  prompt: |-
+    A lot of {nn} items contains {kk} defective ones. A sample of {n} is drawn without replacement.
+    Let $X$ be the number of defectives in the sample. Find $P(X = {k})$, $E(X)$ and $\operatorname{Var}(X)$
+    (4 decimals).
+  answers:
+    - {name: pk, label: '$P(X = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: mu, label: '$E(X) =$', tolerance: 0.0001, format: num4}
+    - {name: var, label: '$\operatorname{Var}(X) =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    $P(X = {k}) = \dfrac{\binom{{kk}}{{k}}\binom{{ng}}{{nk}}}{\binom{{nn}}{{n}}} \approx$ **{pk:num4}**.
+
+    $E(X) = n\dfrac{K}{N} = {n} \cdot \dfrac{{kk}}{{nn}} \approx$ **{mu:num4}**.
+
+    $\operatorname{Var}(X) = n\dfrac{K}{N}\left(1 - \dfrac{K}{N}\right)\dfrac{N - n}{N - 1}$, with correction factor $\dfrac{{nn} - {n}}{{nn} - 1} \approx {fpc:num4}$: $\operatorname{Var}(X) \approx$ **{var:num4}**.
+
+- id: ps-d-geom
+  title: Geometric waiting times
+  topic: Geometric distribution
+  vars:
+    p: {choices: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5]}
+    k: {min: 2, max: 8}
+    m: {min: 3, max: 15}
+  calc:
+    q: round(1 - p, 2)
+    pk: q^(k - 1)*p
+    pm: q^m
+    mu: 1/p
+    sd: sqrt(q)/p
+    k1: k - 1
+  where: ['pm > 0.005']
+  prompt: |-
+    Independent trials each succeed with probability {p}. Let $X$ be the number of trials until
+    the first success. Find $P(X = {k})$ and $P(X > {m})$ (4 decimals), and $E(X)$ and $\operatorname{SD}(X)$ (3 decimals).
+  answers:
+    - {name: pk, label: '$P(X = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: pm, label: '$P(X > {m}) =$', tolerance: 0.0001, format: num4}
+    - {name: mu, label: '$E(X) =$', tolerance: 0.001, format: dp3}
+    - {name: sd, label: '$\operatorname{SD}(X) =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    First {k1} failures, then a success: $P(X = {k}) = ({q})^{{k1}}({p}) \approx$ **{pk:num4}**.
+
+    More than {m} trials means the first {m} all fail: $P(X > {m}) = ({q})^{{m}} \approx$ **{pm:num4}**.
+
+    $E(X) = 1/p =$ **{mu:dp3}** and $\operatorname{SD}(X) = \sqrt{q}/p = \sqrt{{q}}/{p} \approx$ **{sd:dp3}**.
+
+- id: ps-d-negbin
+  title: Negative binomial probabilities
+  topic: Negative binomial distribution
+  vars:
+    r: {min: 2, max: 5}
+    p: {choices: [0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]}
+    k: {min: 3, max: 14}
+  where: ['k > r', 'pk > 0.01']
+  calc:
+    q: round(1 - p, 2)
+    k1: k - 1
+    r1: r - 1
+    kr: k - r
+    cc: nCr(k - 1, r - 1)
+    pk: cc*p^r*q^(k - r)
+    mu: r/p
+    var: r*q/p^2
+  prompt: |-
+    Each tested part passes with probability {p}, independently. Parts are tested until {r} have
+    passed; let $X$ be the number tested. Find $P(X = {k})$ (4 decimals), $E(X)$ and $\operatorname{Var}(X)$ (3 decimals).
+  answers:
+    - {name: pk, label: '$P(X = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: mu, label: '$E(X) =$', tolerance: 0.001, format: dp3}
+    - {name: var, label: '$\operatorname{Var}(X) =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    Part {k} must pass, and exactly {r1} of the first {k1} must pass:
+    $P(X = {k}) = \binom{{k1}}{{r1}}({p})^{{r}}({q})^{{kr}} = {cc:dp0}({p})^{{r}}({q})^{{kr}} \approx$ **{pk:num4}**.
+
+    $X$ is a sum of {r} independent geometric waits: $E(X) = r/p =$ **{mu:dp3}** and
+    $\operatorname{Var}(X) = rq/p^2 = {r}({q})/({p})^2 =$ **{var:dp3}**.
+
+- id: ps-d-poisson-prob
+  title: Poisson probabilities
+  topic: Poisson distribution
+  vars:
+    lam: {choices: [0.5, 0.8, 1, 1.5, 2, 2.4, 3, 3.5, 4, 5, 6, 7.5]}
+    k: {min: 1, max: 9}
+  where: ['pk > 0.01', 'pge > 0.01']
+  calc:
+    pk: poissonpdf(lam, k)
+    pge: 1 - poissoncdf(lam, k - 1)
+    km: k - 1
+    sd: sqrt(lam)
+  prompt: |-
+    $X \sim \text{Poisson}({lam})$. Find $P(X = {k})$ and $P(X \ge {k})$ (4 decimals), and the standard
+    deviation of $X$ (3 decimals).
+  answers:
+    - {name: pk, label: '$P(X = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: pge, label: '$P(X \ge {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: sd, label: '$\sigma =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    $P(X = {k}) = e^{-{lam}}\dfrac{{lam}^{{k}}}{{k}!} \approx$ **{pk:num4}**.
+
+    $P(X \ge {k}) = 1 - P(X \le {km}) = 1 - \sum_{j=0}^{{km}} e^{-{lam}}\dfrac{{lam}^j}{j!} \approx$ **{pge:num4}**.
+
+    The variance equals the mean, {lam}, so $\sigma = \sqrt{{lam}} \approx$ **{sd:dp3}**.
+
+- id: ps-d-poisson-approx
+  title: Poisson approximation to the binomial
+  topic: Poisson distribution
+  vars:
+    n: {choices: [200, 250, 400, 500, 800, 1000, 2000]}
+    p: {choices: [0.001, 0.002, 0.003, 0.004, 0.005, 0.008, 0.01]}
+    k: {min: 0, max: 4}
+  where: ['n*p >= 0.5', 'n*p <= 8']
+  calc:
+    lam: n*p
+    exact: binomcdf(n, p, k)
+    approx: poissoncdf(lam, k)
+  prompt: |-
+    $X \sim \text{Bin}({n:dp0}, {p})$. Find $P(X \le {k})$ exactly, and then using the Poisson approximation
+    (4 decimals each).
+  answers:
+    - {name: exact, label: 'Exact', tolerance: 0.0001, format: num4}
+    - {name: approx, label: 'Poisson', tolerance: 0.0001, format: num4}
+  solution: |-
+    Exact: $P(X \le {k}) = \sum_{j=0}^{{k}}\binom{{n:dp0}}{j}({p})^j(1 - {p})^{{n:dp0} - j} \approx$ **{exact:num4}**.
+
+    Approximation: $\lambda = np = {lam:num2}$, and
+    $P(X \le {k}) \approx \sum_{j=0}^{{k}} e^{-\lambda}\dfrac{\lambda^j}{j!} \approx$ **{approx:num4}**.
+    With $n$ large and $p$ small, the two agree closely.
+
+- id: ps-d-poisson-process
+  title: Counts in a Poisson process
+  topic: Poisson process
+  vars:
+    rate: {choices: [2, 3, 4, 5, 6, 8, 9, 12]}
+    mins: {choices: [10, 15, 20, 30, 40, 45, 90]}
+    k: {min: 0, max: 5}
+  where: ['pk > 0.01']
+  calc:
+    lam: rate*mins/60
+    pk: poissonpdf(lam, k)
+    p1: 1 - exp(-lam)
+  prompt: |-
+    Requests reach a server as a Poisson process with rate {rate} per hour. For a period of {mins}
+    minutes, find the probability of exactly {k} requests and the probability of at least one request (4 decimals).
+  answers:
+    - {name: pk, label: '$P(N = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: p1, label: '$P(N \ge 1) =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    The count in {mins} minutes is Poisson with mean $\lambda t = {rate} \times \tfrac{{mins}}{60} = {lam:num4}$.
+
+    $P(N = {k}) = e^{-{lam:num4}}\dfrac{({lam:num4})^{{k}}}{{k}!} \approx$ **{pk:num4}**.
+
+    $P(N \ge 1) = 1 - e^{-{lam:num4}} \approx$ **{p1:num4}**.
+
+- id: ps-d-mgf-write
+  title: Write an MGF and read off moments
+  topic: Moment generating functions
+  vars:
+    a: {min: 1, max: 3}
+    b: {min: 4, max: 6}
+    p0: {min: 0.1, max: 0.5, step: 0.1}
+    p1: {min: 0.1, max: 0.5, step: 0.1}
+  calc:
+    p2: round(1 - p0 - p1, 1)
+    mu: a*p1 + b*p2
+    ex2: a^2*p1 + b^2*p2
+    var: ex2 - mu^2
+  where: ['p2 >= 0.1']
+  prompt: |-
+    $X$ takes the values 0, {a} and {b} with probabilities {p0}, {p1} and {p2}. Write the moment
+    generating function $M(t)$, and use it to find $E(X)$ and $\operatorname{Var}(X)$.
+  answers:
+    - {kind: expression, expression: 'p0 + p1*e^(a*t) + p2*e^(b*t)', variables: [t], label: '$M(t) =$', show: '${p0} + {p1}e^{{a}t} + {p2}e^{{b}t}$'}
+    - {name: mu, label: '$E(X) =$', tolerance: 0.0001}
+    - {name: var, label: '$\operatorname{Var}(X) =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    $M(t) = E(e^{tX}) = {p0}e^{0} + {p1}e^{{a}t} + {p2}e^{{b}t}$, so **$M(t) = {p0} + {p1}e^{{a}t} + {p2}e^{{b}t}$**.
+
+    $M'(t) = {a}({p1})e^{{a}t} + {b}({p2})e^{{b}t}$, so $E(X) = M'(0) =$ **{mu:num4}**.
+
+    $M''(t) = {a}^2({p1})e^{{a}t} + {b}^2({p2})e^{{b}t}$, so $E(X^2) = M''(0) = {ex2:num4}$ and
+    $\operatorname{Var}(X) = {ex2:num4} - ({mu:num4})^2 =$ **{var:num4}**.
+
+- id: ps-d-mgf-identify
+  title: Identify a distribution from its MGF
+  topic: Moment generating functions
+  vars:
+    n: {min: 3, max: 12}
+    p: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9]}
+    a: {choices: [2, 3, 4, 5]}
+    b: {min: -10, max: 10}
+  where: ['b != 0']
+  calc:
+    q: round(1 - p, 2)
+    mx: n*p
+    vx: n*p*q
+    my: a*n*p + b
+    vy: a^2*n*p*q
+  prompt: |-
+    A random variable $Y$ has moment generating function
+    $$M_Y(t) = e^{{b}t}\left({q} + {p}e^{{a}t}\right)^{{n}}.$$
+    Recognize it as the MGF of $aX + b$ for a familiar $X$, and find $E(Y)$ and $\operatorname{Var}(Y)$.
+  answers:
+    - {name: my, label: '$E(Y) =$', tolerance: 0.001}
+    - {name: vy, label: '$\operatorname{Var}(Y) =$', tolerance: 0.001}
+  solution: |-
+    $M_{aX+b}(t) = e^{bt}M_X(at)$, and $({q} + {p}e^{t})^{{n}}$ is the MGF of $X \sim \text{Bin}({n}, {p})$.
+    So $Y = {a}X {b:signed}$ with $E(X) = {mx:num4}$ and $\operatorname{Var}(X) = {vx:num4}$.
+
+    $E(Y) = {a}({mx:num4}) {b:signed} =$ **{my:num4}** and $\operatorname{Var}(Y) = {a}^2({vx:num4}) =$ **{vy:num4}**.
+
+- id: ps-d-mgf-sum
+  title: Sum of independent Poisson counts
+  topic: Moment generating functions
+  vars:
+    l1: {choices: [0.5, 1, 1.2, 1.5, 2, 2.5, 3]}
+    l2: {choices: [0.8, 1, 1.5, 2, 3, 3.5, 4]}
+    k: {min: 0, max: 6}
+  where: ['pk > 0.01']
+  calc:
+    lam: l1 + l2
+    pk: poissonpdf(lam, k)
+  prompt: |-
+    Breakdowns on line A are Poisson({l1}) per week and on line B Poisson({l2}) per week, independently.
+    Find the probability of exactly {k} breakdowns in total in a week (4 decimals), and the variance of the total.
+  answers:
+    - {name: pk, label: '$P(T = {k}) =$', tolerance: 0.0001, format: num4}
+    - {name: lam, label: '$\operatorname{Var}(T) =$', tolerance: 0.0001}
+  solution: |-
+    $M_T(t) = e^{{l1}(e^t - 1)}e^{{l2}(e^t - 1)} = e^{{lam}(e^t - 1)}$, the MGF of Poisson({lam}).
+    By uniqueness $T \sim \text{Poisson}({lam})$, so
+    $P(T = {k}) = e^{-{lam}}\dfrac{{lam}^{{k}}}{{k}!} \approx$ **{pk:num4}**, and $\operatorname{Var}(T) =$ **{lam}**.

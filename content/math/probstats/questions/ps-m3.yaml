@@ -1,0 +1,645 @@
+# Module 3 — Continuous random variables
+# ---- Lesson 10: densities, cdfs, expectation
+- id: ps-q-1001
+  lesson: ps-continuous-rv
+  module_quiz: true
+  topic: Densities and cdfs
+  stem: 'The pdf of $X$ is $f(x) = kx$ for $0 \le x \le 2$ and 0 elsewhere. What is $k$?'
+  choices: ['2', '1', '0.25', '0.5']
+  answer: 3
+  explanation: |-
+    The total area must be 1: $\int_0^2 kx\,dx = k \cdot \dfrac{4}{2} = 2k = 1$, so $k = 0.5$.
+
+- id: ps-q-1002
+  lesson: ps-continuous-rv
+  topic: Densities and cdfs
+  stem: 'With $f(x) = 0.5x$ on $[0, 2]$, find $P(X < 1)$.'
+  choices: ['0.5', '0.25', '0.75', '0.125']
+  answer: 1
+  explanation: |-
+    $\int_0^1 0.5x\,dx = 0.25x^2\big|_0^1 = 0.25$. The density increases with $x$, so less than half
+    of the area lies below the midpoint of the interval.
+
+- id: ps-q-1003
+  lesson: ps-continuous-rv
+  topic: Continuous expectation
+  stem: 'With $f(x) = 0.5x$ on $[0, 2]$, find $E(X)$.'
+  choices: ['1', '$\tfrac23$', '$\tfrac43$', '$\tfrac32$']
+  answer: 2
+  explanation: |-
+    $E(X) = \int_0^2 x \cdot 0.5x\,dx = 0.5 \cdot \dfrac{8}{3} = \dfrac43$. The midpoint 1 would be the mean
+    only for a symmetric density.
+
+- id: ps-q-1004
+  lesson: ps-continuous-rv
+  module_quiz: true
+  topic: Continuous expectation
+  stem: '$X$ has pdf $f(x) = 3x^2$ on $[0, 1]$. Find $\operatorname{Var}(X)$.'
+  choices: ['$\tfrac{3}{80}$', '$\tfrac35$', '$\tfrac{9}{16}$', '$\tfrac34$']
+  answer: 0
+  explanation: |-
+    $E(X) = \int_0^1 3x^3\,dx = \tfrac34$ and $E(X^2) = \int_0^1 3x^4\,dx = \tfrac35$, so
+    $\operatorname{Var}(X) = \tfrac35 - \tfrac{9}{16} = \tfrac{48 - 45}{80} = \tfrac{3}{80}$. The value $\tfrac35$ is $E(X^2)$.
+
+- id: ps-q-1005
+  lesson: ps-continuous-rv
+  topic: Densities and cdfs
+  stem: 'A continuous random variable has cdf $F(x) = x^3$ for $0 \le x \le 1$. What is its pdf on $[0, 1]$?'
+  choices: ['$3x^2$', '$x^4/4$', '$x^3$', '$1 - x^3$']
+  answer: 0
+  explanation: |-
+    By the Fundamental Theorem of Calculus, $f(x) = F'(x) = 3x^2$. Integrating $F$ instead of
+    differentiating gives $x^4/4$.
+
+- id: ps-q-1006
+  lesson: ps-continuous-rv
+  topic: Densities and cdfs
+  stem: 'For a continuous random variable $X$ with pdf $f$, which statement is true?'
+  choices: ['$P(X = a) = f(a)$', '$f(x)$ can never exceed 1', 'The cdf can decrease on some intervals', '$P(X = a) = 0$ for every $a$']
+  answer: 3
+  explanation: |-
+    A single point has no width, so it carries zero probability. $f(a)$ is a density and may exceed 1
+    (uniform on $[0, 0.5]$ has height 2), and a cdf never decreases.
+
+- id: ps-q-1007
+  lesson: ps-continuous-rv
+  topic: Densities and cdfs
+  stem: '$X$ has cdf $F(x) = x^2/16$ for $0 \le x \le 4$. Find the median of $X$.'
+  choices: ['2', '$2\sqrt2 \approx 2.83$', '$\tfrac83 \approx 2.67$', '3']
+  answer: 1
+  explanation: |-
+    Solve $m^2/16 = \tfrac12$: $m^2 = 8$, $m = 2\sqrt2 \approx 2.83$. The midpoint 2 has $F(2) = \tfrac14$, and
+    $\tfrac83$ is the mean.
+
+- id: ps-q-1008
+  lesson: ps-continuous-rv
+  module_quiz: true
+  topic: Continuous expectation
+  stem: 'A nonnegative random variable has $P(X > x) = \dfrac{1}{(1 + x)^2}$ for $x \ge 0$. Use the tail formula to find $E(X)$.'
+  choices: ['1', '2', '0.5', 'It is infinite']
+  answer: 0
+  explanation: |-
+    $E(X) = \int_0^\infty P(X > x)\,dx = \int_0^\infty (1 + x)^{-2}\,dx = \left[-(1 + x)^{-1}\right]_0^\infty = 1$.
+
+- id: ps-q-1009
+  lesson: ps-continuous-rv
+  topic: Continuous expectation
+  stem: '$X$ has cdf $F(x) = 1 - x^{-3}$ for $x \ge 1$. Find $E(X)$.'
+  choices: ['1.5', '3', '0.75', 'It is infinite']
+  answer: 0
+  explanation: |-
+    The pdf is $f(x) = 3x^{-4}$ for $x \ge 1$, so $E(X) = \int_1^\infty 3x^{-3}\,dx = \tfrac32$. (Here the variance is
+    also finite: $E(X^2) = 3$, $\operatorname{Var}(X) = 0.75$.)
+
+- id: ps-q-1010
+  lesson: ps-continuous-rv
+  topic: Continuous expectation
+  stem: 'Which expression gives the variance of a continuous random variable with pdf $f$ and mean $\mu$?'
+  choices: ['$\int x f(x)\,dx$', '$\int x^2 f(x)\,dx$', '$\left(\int x f(x)\,dx\right)^2$', '$\int x^2 f(x)\,dx - \mu^2$']
+  answer: 3
+  explanation: |-
+    $\sigma^2 = E(X^2) - \mu^2 = \int x^2 f(x)\,dx - \mu^2$. Stopping at $\int x^2 f(x)\,dx$ gives $E(X^2)$,
+    not the variance.
+
+- id: ps-q-1011
+  lesson: ps-continuous-rv
+  module_quiz: true
+  topic: Densities and cdfs
+  stem: 'Which function is a valid probability density function?'
+  choices: ['$f(x) = x$ for $0 \le x \le 1$', '$f(x) = 2x - 1$ for $0 \le x \le 1$', '$f(x) = 4$ for $0 \le x \le 0.25$', '$f(x) = 0.5$ for $0 \le x \le 1$']
+  answer: 2
+  explanation: |-
+    A pdf must be nonnegative with total area 1. The constant 4 on an interval of length 0.25 has
+    area 1, even though the density exceeds 1. $x$ on $[0, 1]$ and $0.5$ on $[0, 1]$ have area
+    $\tfrac12$, and $2x - 1$ is negative for $x < \tfrac12$.
+
+- id: ps-q-1012
+  lesson: ps-continuous-rv
+  topic: Densities and cdfs
+  stem: '$X$ has the triangular density $f(x) = x$ on $[0, 1]$ and $f(x) = 2 - x$ on $[1, 2]$. Find $P(0.5 \le X \le 1.5)$.'
+  choices: ['0.75', '0.50', '0.875', '0.625']
+  answer: 0
+  explanation: |-
+    Each excluded corner is a triangle of area $\tfrac12(0.5)(0.5) = 0.125$, so the probability is
+    $1 - 2(0.125) = 0.75$. Using the length of the interval as if the density were uniform gives 0.50.
+
+- id: ps-q-1013
+  lesson: ps-continuous-rv
+  topic: Continuous expectation
+  stem: '$X$ has density $f(x) = \dfrac{1}{\pi(1 + x^2)}$ on the whole real line. Which statement about $E(X)$ is correct?'
+  choices: ['$E(X) = 0$ by symmetry', '$E(X)$ does not exist, because $\int |x| f(x)\,dx$ diverges', '$E(X) = 1/\pi$', '$E(X) = \infty$']
+  answer: 1
+  explanation: |-
+    $|x| f(x)$ behaves like $\tfrac{1}{\pi |x|}$ for large $|x|$, whose integral diverges. A mean requires
+    absolute convergence, so symmetry does not rescue it: the Cauchy distribution has no mean.
+
+# ---- Lesson 11: uniform and exponential
+- id: ps-q-1101
+  lesson: ps-uniform-exponential
+  module_quiz: true
+  topic: Uniform distribution
+  stem: '$X \sim \text{U}(0, 10)$. Find $P(2 < X < 7)$ and the standard deviation of $X$.'
+  choices: ['0.5 and 8.33', '0.7 and 2.89', '0.5 and 5', '0.5 and 2.89']
+  answer: 3
+  explanation: |-
+    $P = (7 - 2)/10 = 0.5$. $\sigma = 10/\sqrt{12} \approx 2.89$; 8.33 is the variance $100/12$.
+
+- id: ps-q-1102
+  lesson: ps-uniform-exponential
+  topic: Uniform distribution
+  stem: 'A uniform distribution on $[a, b]$ has mean 5 and variance 3. What is the interval?'
+  choices: ['$[3, 7]$', '$[2, 8]$', '$[-1, 11]$', '$[4.5, 5.5]$']
+  answer: 1
+  explanation: |-
+    $(b - a)^2/12 = 3$ gives $b - a = 6$, and the midpoint is 5, so $[2, 8]$. The interval $[-1, 11]$ has
+    variance $144/12 = 12$, and $[3, 7]$ has variance $16/12 \approx 1.33$.
+
+- id: ps-q-1103
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'Times between arrivals are exponential with mean 2 minutes. What is the probability that the next arrival takes more than 3 minutes?'
+  choices: ['$e^{-6}$', '$e^{-2/3}$', '$1 - e^{-1.5}$', '$e^{-1.5}$']
+  answer: 3
+  explanation: |-
+    The rate is $\lambda = 1/2$, so $P(X > 3) = e^{-3/2} \approx 0.223$. Using the mean as the rate gives
+    $e^{-6}$, and $1 - e^{-1.5}$ is $P(X \le 3)$.
+
+- id: ps-q-1104
+  lesson: ps-uniform-exponential
+  module_quiz: true
+  topic: Exponential distribution
+  stem: 'Bus arrivals follow a Poisson process, so the wait is exponential with mean 8 minutes. You have waited 10 minutes already. What is the probability of waiting more than 5 additional minutes?'
+  choices: ['$e^{-15/8}$', '$1 - e^{-5/8}$', '$e^{-5/8}$', '$e^{-10/8}$']
+  answer: 2
+  explanation: |-
+    The exponential is memoryless: $P(X > 15 \mid X > 10) = P(X > 5) = e^{-5/8} \approx 0.535$. The value
+    $e^{-15/8}$ is the unconditional chance of waiting more than 15 minutes.
+
+- id: ps-q-1105
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'Find the median of an exponential distribution with rate $\lambda = 0.25$.'
+  choices: ['$4\ln 2 \approx 2.77$', '4', '2', '$\ln 4 \approx 1.39$']
+  answer: 0
+  explanation: |-
+    Solve $1 - e^{-0.25m} = 0.5$: $m = \ln 2/0.25 = 4\ln 2 \approx 2.77$. The mean is 4; the median is smaller
+    because of the long right tail.
+
+- id: ps-q-1106
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'Breakdowns follow a Poisson process with rate 0.5 per day. What is the probability that the time until the next breakdown exceeds 2 days?'
+  choices: ['$e^{-4}$', '$1 - e^{-1}$', '$0.5^2$', '$e^{-1}$']
+  answer: 3
+  explanation: |-
+    The waiting time is exponential with $\lambda = 0.5$: $P(T > 2) = e^{-0.5 \times 2} = e^{-1} \approx 0.368$.
+    Equivalently, the Poisson count in 2 days has mean 1 and equals 0 with probability $e^{-1}$.
+
+- id: ps-q-1107
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'A lifetime is exponential with mean 3 years. What is its variance?'
+  choices: ['3', '9', '$\tfrac19$', '$\tfrac13$']
+  answer: 1
+  explanation: |-
+    With mean $1/\lambda = 3$, the variance is $1/\lambda^2 = 9$ (the standard deviation equals the mean, 3).
+
+- id: ps-q-1108
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'What is the hazard rate $h(x) = f(x)/P(X > x)$ of an exponential distribution with rate $\lambda$?'
+  choices: ['$\lambda e^{-\lambda x}$, decreasing with age', '$\lambda x$, increasing with age', 'The constant $\lambda$', '$1/\lambda$']
+  answer: 2
+  explanation: |-
+    $h(x) = \lambda e^{-\lambda x}/e^{-\lambda x} = \lambda$. A constant failure rate is another way of saying
+    the lifetime is memoryless: an old unit is as likely to fail in the next instant as a new one.
+
+- id: ps-q-1109
+  lesson: ps-uniform-exponential
+  module_quiz: true
+  topic: Exponential distribution
+  stem: 'A repair time $T$ is exponential with rate 0.1 per hour. Find $P(1 < T \le 3)$.'
+  choices: ['0.1640', '0.2592', '0.0952', '0.2000']
+  answer: 0
+  explanation: |-
+    $P(1 < T \le 3) = P(T > 1) - P(T > 3) = e^{-0.1} - e^{-0.3} \approx 0.9048 - 0.7408 = 0.1640$. The value 0.2592
+    is $P(T \le 3)$, and 0.0952 is $P(T \le 1)$.
+
+- id: ps-q-1110
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: '$X$ has pdf $f(x) = \tfrac15 e^{-x/5}$ for $x \ge 0$. Find $P(X \le 5)$.'
+  choices: ['$e^{-1}$', '$1 - e^{-25}$', '0.5', '$1 - e^{-1}$']
+  answer: 3
+  explanation: |-
+    This is the exponential with mean 5 (rate 0.2), so $P(X \le 5) = 1 - e^{-0.2 \times 5} = 1 - e^{-1} \approx 0.632$.
+    More than half of the probability lies below the mean, because the median $5\ln 2 \approx 3.47$ is less than 5.
+
+- id: ps-q-1111
+  lesson: ps-uniform-exponential
+  topic: Uniform distribution
+  stem: 'Readings are rounded to the nearest whole unit, and the rounding error is modeled as $\text{U}(-0.5, 0.5)$. What is the standard deviation of the rounding error?'
+  choices: ['0.0833', '0.2887', '0.5', '0.25']
+  answer: 1
+  explanation: |-
+    $\sigma = \dfrac{b - a}{\sqrt{12}} = \dfrac{1}{\sqrt{12}} \approx 0.2887$. The variance is $\tfrac{1}{12} \approx 0.0833$.
+
+- id: ps-q-1112
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'Which is the MGF of the exponential distribution with rate 4?'
+  choices: ['$\dfrac{4}{4 - t}$ for $t < 4$', '$\dfrac{1}{1 - 4t}$ for $t < \tfrac14$', '$e^{4(e^t - 1)}$', '$\dfrac{4e^t}{1 - 4e^t}$']
+  answer: 0
+  explanation: |-
+    $M(t) = \int_0^\infty e^{tx}4e^{-4x}\,dx = \dfrac{4}{4 - t}$ for $t < 4$. The form $1/(1 - 4t)$ belongs to the
+    exponential with mean 4 (rate $\tfrac14$), and $e^{4(e^t - 1)}$ is the Poisson(4) MGF.
+
+- id: ps-q-1113
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: 'A waiting time is exponential with mean 10 minutes. Which time is exceeded only 10% of the time?'
+  choices: ['1.05 min', '10 min', '23.0 min', '6.93 min']
+  answer: 2
+  explanation: |-
+    Solve $e^{-t/10} = 0.10$: $t = -10\ln(0.10) = 10\ln 10 \approx 23.0$ minutes. The value 1.05 is the 10th
+    percentile ($t$ with $P(X \le t) = 0.10$), and 6.93 is the median.
+
+# ---- Lesson 12: normal distribution
+- id: ps-q-1201
+  lesson: ps-normal
+  module_quiz: true
+  topic: Normal distribution
+  stem: '$X \sim \text{N}(100, 15^2)$. Find $P(X > 130)$.'
+  choices: ['0.0228', '0.9772', '0.0455', '0.0013']
+  answer: 0
+  explanation: |-
+    $z = (130 - 100)/15 = 2$, so $P(X > 130) = 1 - \Phi(2) \approx 0.0228$. The value 0.0455 is the two-sided
+    probability $P(|Z| > 2)$.
+
+- id: ps-q-1202
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: '$X \sim \text{N}(50, 4^2)$. Find $P(46 < X < 58)$.'
+  choices: ['0.6826', '0.8186', '0.9545', '0.8413']
+  answer: 1
+  explanation: |-
+    Standardize: $z = -1$ and $z = 2$. $P = \Phi(2) - \Phi(-1) = 0.9772 - 0.1587 = 0.8186$.
+
+- id: ps-q-1203
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: '$X \sim \text{N}(20, 9)$, where 9 is the variance. Find $P(X < 23)$.'
+  choices: ['0.6306', '0.9987', '0.8413', '0.5000']
+  answer: 2
+  explanation: |-
+    The standard deviation is $\sqrt9 = 3$, so $z = (23 - 20)/3 = 1$ and $\Phi(1) \approx 0.8413$. Dividing by the
+    variance gives $z = \tfrac13$ and 0.6306.
+
+- id: ps-q-1204
+  lesson: ps-normal
+  module_quiz: true
+  topic: Normal distribution
+  stem: 'Find the 90th percentile of $\text{N}(70, 8^2)$.'
+  choices: ['83.16', '80.25', '77.20', '72.56']
+  answer: 1
+  explanation: |-
+    $x_{0.90} = \mu + z_{0.90}\sigma = 70 + 1.2816(8) \approx 80.25$. Using $z = 1.645$ (the 95th percentile)
+    gives 83.16.
+
+- id: ps-q-1205
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: '$X$ has MGF $M(t) = e^{3t + 8t^2}$. What are the mean and variance of $X$?'
+  choices: ['Mean 3, variance 16', 'Mean 3, variance 8', 'Mean 3, variance 4', 'Mean 8, variance 3']
+  answer: 0
+  explanation: |-
+    Match $e^{\mu t + \sigma^2t^2/2}$: $\mu = 3$ and $\sigma^2/2 = 8$, so $\sigma^2 = 16$. Reading the coefficient
+    of $t^2$ as the variance forgets the factor $\tfrac12$.
+
+- id: ps-q-1206
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: '$X \sim \text{N}(10, 9)$ and $Y \sim \text{N}(6, 16)$ are independent (second parameters are variances). Find $P(X < Y)$.'
+  choices: ['0.2119', '0.1587', '0.3446', '0.7881']
+  answer: 0
+  explanation: |-
+    $D = X - Y \sim \text{N}(4, 9 + 16) = \text{N}(4, 25)$: variances add even for a difference. Then
+    $P(D < 0) = \Phi((0 - 4)/5) = \Phi(-0.8) \approx 0.2119$.
+
+- id: ps-q-1207
+  lesson: ps-normal
+  module_quiz: true
+  topic: Normal approximation
+  stem: '$X \sim \text{Bin}(100, 0.5)$. Use the normal approximation with continuity correction to estimate $P(X \ge 60)$.'
+  choices: ['0.0228', '0.0179', '0.0446', '0.0287']
+  answer: 3
+  explanation: |-
+    $\mu = 50$ and $\sigma = 5$. For $X \ge 60$, start at the left edge of the bar at 60:
+    $P \approx 1 - \Phi\left(\tfrac{59.5 - 50}{5}\right) = 1 - \Phi(1.9) \approx 0.0287$ (exact: 0.0284). Without the
+    correction you get 0.0228; correcting the wrong way, with 60.5, gives 0.0179.
+
+- id: ps-q-1208
+  lesson: ps-normal
+  topic: Normal approximation
+  stem: '$X$ is binomial and approximated by a normal variable $Y$. Which normal probability approximates $P(X < 40)$?'
+  choices: ['$P(Y < 40.5)$', '$P(Y < 39.5)$', '$P(Y < 40)$', '$P(Y < 39)$']
+  answer: 1
+  explanation: |-
+    $X < 40$ means $X \le 39$, and the bar for 39 ends at 39.5, so use $P(Y < 39.5)$. Using 40.5 would
+    include the bar at 40.
+
+- id: ps-q-1209
+  lesson: ps-normal
+  topic: Normal approximation
+  stem: 'For which binomial distribution is the normal approximation appropriate by the guideline $np \ge 10$ and $n(1 - p) \ge 10$?'
+  choices: ['$n = 50$, $p = 0.05$', '$n = 30$, $p = 0.9$', '$n = 200$, $p = 0.1$', '$n = 40$, $p = 0.1$']
+  answer: 2
+  explanation: |-
+    $200(0.1) = 20$ and $200(0.9) = 180$ both exceed 10. The others have an expected count below 10
+    ($2.5$, $3$ failures, and $4$), so their distributions are too skewed.
+
+- id: ps-q-1210
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: 'Where are the inflection points of the $\text{N}(\mu, \sigma^2)$ density?'
+  choices: ['At $\mu \pm \sigma$', 'At $\mu \pm 2\sigma$', 'At $\mu \pm \sigma^2$', 'At $\mu$ only']
+  answer: 0
+  explanation: |-
+    For $\phi(z)$, $\phi''(z) = (z^2 - 1)\phi(z)$, which changes sign at $z = \pm 1$, that is at $x = \mu \pm \sigma$.
+    The peak (not an inflection point) is at $\mu$.
+
+- id: ps-q-1211
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: '$X \sim \text{N}(20, 4)$ (variance 4). What is the distribution of $Y = 3X - 5$?'
+  choices: ['$\text{N}(55, 12)$', '$\text{N}(60, 36)$', '$\text{N}(55, 36)$', '$\text{N}(55, 31)$']
+  answer: 2
+  explanation: |-
+    A linear function of a normal variable is normal with mean $3(20) - 5 = 55$ and variance
+    $3^2 \times 4 = 36$. Multiplying the variance by 3 instead of 9 gives 12.
+
+- id: ps-q-1212
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: 'Given $\Phi(1.3) = 0.9032$, find $P(-1.3 < Z < 1.3)$.'
+  choices: ['0.9032', '0.0968', '0.4032', '0.8064']
+  answer: 3
+  explanation: |-
+    By symmetry $\Phi(-1.3) = 1 - 0.9032 = 0.0968$, so $P = 0.9032 - 0.0968 = 2(0.9032) - 1 = 0.8064$.
+
+- id: ps-q-1213
+  lesson: ps-normal
+  topic: Normal distribution
+  stem: 'For any normal distribution, approximately what is the probability of a value more than 2 standard deviations from the mean?'
+  choices: ['0.0228', '0.0455', '0.0500', '0.3173']
+  answer: 1
+  explanation: |-
+    $P(|Z| > 2) = 2(1 - \Phi(2)) \approx 2(0.02275) = 0.0455$. The value 0.0228 counts one tail only, and
+    0.3173 is the probability of being more than 1 SD away.
+
+# ---- Lesson 13: gamma and beta
+- id: ps-q-1301
+  lesson: ps-gamma-beta
+  module_quiz: true
+  topic: Gamma distribution
+  stem: 'What is $\Gamma(5)$?'
+  choices: ['120', '5', '24', '4']
+  answer: 2
+  explanation: |-
+    $\Gamma(n) = (n - 1)!$, so $\Gamma(5) = 4! = 24$. The value 120 is $5! = \Gamma(6)$.
+
+- id: ps-q-1302
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: 'Using $\Gamma(\tfrac12) = \sqrt\pi$, find $\Gamma(\tfrac72)$.'
+  choices: ['$\tfrac{15}{8}\sqrt\pi$', '$\tfrac34\sqrt\pi$', '$\tfrac52\sqrt\pi$', '6']
+  answer: 0
+  explanation: |-
+    $\Gamma(\tfrac72) = \tfrac52\,\Gamma(\tfrac52) = \tfrac52 \cdot \tfrac32\,\Gamma(\tfrac32) = \tfrac52 \cdot \tfrac32 \cdot \tfrac12\sqrt\pi = \tfrac{15}{8}\sqrt\pi \approx 3.323$.
+    $\tfrac34\sqrt\pi$ is $\Gamma(\tfrac52)$.
+
+- id: ps-q-1303
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: 'Evaluate $\displaystyle\int_0^\infty x^4 e^{-x/2}\,dx$.'
+  choices: ['24', '384', '1536', '768']
+  answer: 3
+  explanation: |-
+    Use $\int_0^\infty x^{\alpha - 1}e^{-x/\beta}\,dx = \Gamma(\alpha)\beta^\alpha$ with $\alpha = 5$, $\beta = 2$:
+    $\Gamma(5) \cdot 2^5 = 24 \times 32 = 768$. The values 384 and 1536 pair $\Gamma(5)$ with the wrong power of 2
+    ($2^4$ and $2^6$); 24 forgets the factor $\beta^\alpha$.
+
+- id: ps-q-1304
+  lesson: ps-gamma-beta
+  module_quiz: true
+  topic: Gamma distribution
+  stem: '$X$ has a gamma distribution with shape $\alpha = 3$ and scale $\beta = 2$. Find its mean and variance.'
+  choices: ['6 and 24', '1.5 and 0.75', '6 and 12', '6 and 18']
+  answer: 2
+  explanation: |-
+    Mean $\alpha\beta = 6$ and variance $\alpha\beta^2 = 12$. Treating 2 as a rate instead of a scale gives
+    1.5 and 0.75.
+
+- id: ps-q-1305
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: '$X_1, \ldots, X_4$ are independent exponential variables with rate 2. What is the distribution of their sum?'
+  choices: ['Exponential with rate 8', 'Gamma with shape 4 and scale $\tfrac12$', 'Gamma with shape 4 and scale 2', 'Poisson with mean 8']
+  answer: 1
+  explanation: |-
+    Each is $\text{Gamma}(1, \tfrac12)$, and same-scale gammas add their shapes: the MGF is $(1 - t/2)^{-4}$,
+    the $\text{Gamma}(4, \tfrac12)$ MGF. The sum has mean $4 \times \tfrac12 = 2$.
+
+- id: ps-q-1306
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: 'Events form a Poisson process with rate 3 per hour. What is the probability that the second event happens after the first hour?'
+  choices: ['0.0498', '0.1494', '0.1991', '0.8009']
+  answer: 2
+  explanation: |-
+    The second event is after time 1 exactly when at most one event occurs in the first hour. With
+    $N(1) \sim \text{Poisson}(3)$: $e^{-3}(1 + 3) \approx 0.1991$. The value 0.1494 counts only exactly one event.
+
+- id: ps-q-1307
+  lesson: ps-gamma-beta
+  module_quiz: true
+  topic: Gamma distribution
+  stem: 'What are the mean and variance of the $\chi^2(6)$ distribution?'
+  choices: ['6 and 6', '3 and 6', '6 and 12', '12 and 6']
+  answer: 2
+  explanation: |-
+    $\chi^2(\nu) = \text{Gamma}(\nu/2, 2)$, so the mean is $\tfrac{\nu}{2} \cdot 2 = \nu = 6$ and the variance is
+    $\tfrac{\nu}{2} \cdot 4 = 2\nu = 12$.
+
+- id: ps-q-1308
+  lesson: ps-gamma-beta
+  module_quiz: true
+  topic: Beta distribution
+  stem: 'Find the mean and variance of the $\text{Beta}(3, 2)$ distribution.'
+  choices: ['0.6 and 0.04', '0.4 and 0.04', '0.6 and 0.24', '0.6 and 0.2']
+  answer: 0
+  explanation: |-
+    Mean $\dfrac{a}{a + b} = \dfrac35 = 0.6$. Variance $\dfrac{ab}{(a + b)^2(a + b + 1)} = \dfrac{6}{25 \times 6} = 0.04$.
+    The value 0.24 is $0.6 \times 0.4$, the Bernoulli variance.
+
+- id: ps-q-1309
+  lesson: ps-gamma-beta
+  topic: Beta distribution
+  stem: 'Which beta distribution is the same as the uniform distribution on $(0, 1)$?'
+  choices: ['$\text{Beta}(0, 0)$', '$\text{Beta}(1, 1)$', '$\text{Beta}(2, 2)$', '$\text{Beta}(\tfrac12, \tfrac12)$']
+  answer: 1
+  explanation: |-
+    With $a = b = 1$ the density is $x^0(1 - x)^0/B(1, 1) = 1$ on $(0, 1)$. $\text{Beta}(2, 2)$ is a symmetric hump,
+    and the parameters must be positive.
+
+- id: ps-q-1310
+  lesson: ps-gamma-beta
+  topic: Beta distribution
+  stem: 'The $\text{Beta}(2, 3)$ density is $c\,x(1 - x)^2$ on $(0, 1)$. What is $c$?'
+  choices: ['6', '$\tfrac{1}{12}$', '24', '12']
+  answer: 3
+  explanation: |-
+    $c = \dfrac{1}{B(2, 3)} = \dfrac{\Gamma(5)}{\Gamma(2)\Gamma(3)} = \dfrac{24}{1 \cdot 2} = 12$. The value $\tfrac{1}{12}$ is
+    $B(2, 3)$ itself.
+
+- id: ps-q-1311
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: 'Which gamma distribution is the chi-square distribution with $\nu$ degrees of freedom?'
+  choices: ['Shape $\nu$, scale 2', 'Shape $\nu/2$, scale $\tfrac12$', 'Shape 2, scale $\nu/2$', 'Shape $\nu/2$, scale 2']
+  answer: 3
+  explanation: |-
+    $\chi^2(\nu) = \text{Gamma}(\nu/2, 2)$, with density proportional to $x^{\nu/2 - 1}e^{-x/2}$ and mean
+    $\nu$.
+
+- id: ps-q-1312
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: 'Given $\Gamma(1.5) \approx 0.8862$, find $\Gamma(2.5)$.'
+  choices: ['1.8862', '0.5908', '2.2155', '1.3293']
+  answer: 3
+  explanation: |-
+    $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$ with $\alpha = 1.5$: $\Gamma(2.5) = 1.5 \times 0.8862 \approx 1.3293$. Multiplying by
+    2.5 instead gives 2.2155, which is $\Gamma(3.5)/1.5$.
+
+# ---- Lesson 14: functions of a random variable
+- id: ps-q-1401
+  lesson: ps-transformations
+  module_quiz: true
+  topic: Functions of a random variable
+  stem: '$X \sim \text{U}(0, 1)$ and $Y = X^2$. What is the pdf of $Y$ on $(0, 1)$?'
+  choices: ['$2y$', '$\dfrac{1}{2\sqrt y}$', '$\sqrt y$', '$y^2$']
+  answer: 1
+  explanation: |-
+    $F_Y(y) = P(X^2 \le y) = P(X \le \sqrt y) = \sqrt y$, so $f_Y(y) = \dfrac{1}{2\sqrt y}$. Small values of $Y$ are
+    more likely, because squaring crowds the interval near 0.
+
+- id: ps-q-1402
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X \sim \text{U}(0, 1)$ and $Y = X^2$. Find $P(Y \le 0.25)$.'
+  choices: ['0.25', '0.0625', '0.5', '0.75']
+  answer: 2
+  explanation: |-
+    $P(X^2 \le 0.25) = P(X \le 0.5) = 0.5$. Rewriting the event in terms of $X$ is the first step of the
+    cdf method.
+
+- id: ps-q-1403
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X$ has pdf $f_X$, and $Y = 3X + 2$. Which is the pdf of $Y$?'
+  choices: ['$3f_X(3y + 2)$', '$f_X\left(\dfrac{y - 2}{3}\right)$', '$\tfrac13 f_X\left(\dfrac{y - 2}{3}\right)$', '$\tfrac13 f_X(y) + 2$']
+  answer: 2
+  explanation: |-
+    $g^{-1}(y) = (y - 2)/3$ with derivative $\tfrac13$, so $f_Y(y) = \tfrac13 f_X\left(\tfrac{y - 2}{3}\right)$. Without the
+    factor $\tfrac13$ the density would integrate to 3.
+
+- id: ps-q-1404
+  lesson: ps-transformations
+  module_quiz: true
+  topic: Functions of a random variable
+  stem: '$Z \sim \text{N}(0, 1)$. What is $P(Z^2 \le 3.84)$?'
+  choices: ['About 0.95', 'About 0.975', 'About 0.84', 'About 0.05']
+  answer: 0
+  explanation: |-
+    $P(Z^2 \le 3.84) = P(|Z| \le 1.96) \approx 0.95$. Equivalently, 3.84 is the 95th percentile of
+    $\chi^2(1)$, the distribution of $Z^2$.
+
+- id: ps-q-1405
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$U \sim \text{U}(0, 1)$. Which transformation produces an exponential random variable with rate 2?'
+  choices: ['$X = 2U$', '$X = -2\ln(1 - U)$', '$X = e^{-2U}$', '$X = -\tfrac12\ln(1 - U)$']
+  answer: 3
+  explanation: |-
+    Inverse transform: solve $u = 1 - e^{-2x}$ to get $x = -\tfrac12\ln(1 - u)$. The choice $-2\ln(1 - U)$ is
+    exponential with mean 2, that is rate $\tfrac12$.
+
+- id: ps-q-1406
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X$ is continuous with strictly increasing cdf $F$. What is the distribution of $F(X)$?'
+  choices: ['The same as $X$', 'Standard normal', 'Uniform on $(0, 1)$', 'Exponential with rate 1']
+  answer: 2
+  explanation: |-
+    $P(F(X) \le u) = P(X \le F^{-1}(u)) = F(F^{-1}(u)) = u$ for $0 < u < 1$: the probability integral transform.
+
+- id: ps-q-1407
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X$ is exponential with rate 1, and $Y = 2X$. What is the pdf of $Y$ for $y > 0$?'
+  choices: ['$2e^{-2y}$', '$e^{-y/2}$', '$\tfrac12 e^{-y/2}$', '$2e^{-y/2}$']
+  answer: 2
+  explanation: |-
+    $f_Y(y) = \tfrac12 f_X(y/2) = \tfrac12 e^{-y/2}$: exponential with mean 2. Doubling a waiting time halves the
+    rate. $2e^{-2y}$ would make $Y$ shorter, not longer.
+
+- id: ps-q-1408
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X \sim \text{N}(2, 0.5^2)$ and $Y = e^X$. What is the median of $Y$?'
+  choices: ['$e^{2.125} \approx 8.37$', '2', '$e^{2.5} \approx 12.18$', '$e^2 \approx 7.39$']
+  answer: 3
+  explanation: |-
+    $e^x$ is increasing, so it maps the median of $X$ (which is 2) to the median of $Y$: $e^2$. The
+    value $e^{2 + 0.25/2} = e^{2.125}$ is the mean of the lognormal, which is larger.
+
+- id: ps-q-1409
+  lesson: ps-transformations
+  module_quiz: true
+  topic: Functions of a random variable
+  stem: '$X$ has pdf $f(x) = 2x$ on $(0, 1)$, and $Y = 1 - X$. What is the pdf of $Y$ on $(0, 1)$?'
+  choices: ['$2(1 - y)$', '$-2(1 - y)$', '$2y$', '$1 - 2y$']
+  answer: 0
+  explanation: |-
+    $g^{-1}(y) = 1 - y$ has derivative $-1$, so $f_Y(y) = f_X(1 - y)\cdot|-1| = 2(1 - y)$. Dropping the absolute
+    value gives a negative "density."
+
+- id: ps-q-1410
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X \sim \text{U}(-1, 1)$ and $Y = X^2$. What is the pdf of $Y$ on $(0, 1)$?'
+  choices: ['$\dfrac{1}{4\sqrt y}$', '$\dfrac{1}{\sqrt y}$', '$\dfrac{1}{2\sqrt y}$', '$\tfrac12$']
+  answer: 2
+  explanation: |-
+    $F_Y(y) = P(-\sqrt y \le X \le \sqrt y) = \dfrac{2\sqrt y}{2} = \sqrt y$, so $f_Y(y) = \dfrac{1}{2\sqrt y}$. Using only one
+    branch, $X = \sqrt y$, gives half of this.
+
+- id: ps-q-1411
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$U \sim \text{U}(0, 1)$ and $Y = -\ln U$. Find $P(Y > 2)$.'
+  choices: ['$1 - e^{-2}$', '$e^{-2}$', '$\ln 2$', '$\tfrac12$']
+  answer: 1
+  explanation: |-
+    $Y > 2$ exactly when $U < e^{-2}$, which has probability $e^{-2} \approx 0.135$. In fact $Y$ is exponential
+    with rate 1.
+
+- id: ps-q-1412
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  stem: '$X$ is equally likely to be $-1$, 0, 1 or 2. Find $P(X^2 = 1)$.'
+  choices: ['$\tfrac14$', '$\tfrac34$', '$\tfrac13$', '$\tfrac12$']
+  answer: 3
+  explanation: |-
+    Both $x = -1$ and $x = 1$ map to 1, so add their probabilities: $\tfrac14 + \tfrac14 = \tfrac12$.

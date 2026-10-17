@@ -1,0 +1,528 @@
+# Module 4 drills — joint distributions
+- id: ps-d-joint-table
+  title: Probabilities from a joint pmf table
+  topic: Joint distributions
+  vars:
+    w1: {min: 1, max: 5}
+    w2: {min: 1, max: 5}
+    w3: {min: 1, max: 5}
+    w4: {min: 1, max: 5}
+    w5: {min: 1, max: 5}
+  where: ['w6 >= 1', 'w6 <= 6']
+  calc:
+    w6: 20 - w1 - w2 - w3 - w4 - w5
+    p00: w1/20
+    p01: w2/20
+    p10: w3/20
+    p11: w4/20
+    p20: w5/20
+    p21: w6/20
+    py1: p01 + p11 + p21
+    pgt: p10 + p20 + p21
+  prompt: |-
+    An inspector records $X$, the number of worn brake pads on a bogie, and $Y$, an indicator of a
+    wheel flat. Their joint pmf is
+
+    $$\begin{array}{c|cc} & y = 0 & y = 1 \\ \hline x = 0 & {p00:num2} & {p01:num2} \\ x = 1 & {p10:num2} & {p11:num2} \\ x = 2 & {p20:num2} & {p21:num2} \end{array}$$
+
+    Find $P(Y = 1)$ and $P(X > Y)$.
+  answers:
+    - {name: py1, label: '$P(Y = 1) =$', tolerance: 0.001, format: num2}
+    - {name: pgt, label: '$P(X > Y) =$', tolerance: 0.001, format: num2}
+  solution: |-
+    $P(Y = 1)$ is the marginal total of the $y = 1$ column: ${p01:num2} + {p11:num2} + {p21:num2} =$ **{py1:num2}**.
+
+    $X > Y$ holds in the cells $(1, 0)$, $(2, 0)$ and $(2, 1)$: ${p10:num2} + {p20:num2} + {p21:num2} =$ **{pgt:num2}**.
+
+- id: ps-d-joint-triangle
+  title: Normalizing a joint density on a triangle
+  topic: Joint distributions
+  vars:
+    pa: {choices: [{label: 'x', value: 1}, {label: 'x^2', value: 2}, {label: 'x^3', value: 3}]}
+    pb: {choices: [{label: 'y', value: 1}, {label: 'y^2', value: 2}, {label: 'y^3', value: 3}]}
+    hh: {min: 0.5, max: 0.95, step: 0.05}
+  where: ['pr >= 0.02', 'pr <= 0.95']
+  calc:
+    cc: (pb + 1)*(pa + pb + 2)
+    s1: pa + pb + 1
+    s2: pa + pb + 2
+    pr: hh^s2
+  prompt: |-
+    $(X, Y)$ has joint density $f(x, y) = c\,{pa}{pb}$ on the triangle $0 < y < x < 1$ (and 0 elsewhere).
+    Find the constant $c$, then find $P(X \le {hh})$ to 4 decimals.
+  answers:
+    - {name: cc, label: '$c =$', format: integer}
+    - {name: pr, label: '$P(X \le {hh}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    For fixed $x \in (0, 1)$, $y$ runs from 0 to $x$:
+    $\int_0^x x^{{pa:int}}y^{{pb:int}}\,dy = \dfrac{x^{{s1:int}}}{{pb:int} + 1}$.
+    Then $\int_0^1 \dfrac{x^{{s1:int}}}{{pb:int} + 1}\,dx = \dfrac{1}{({pb:int} + 1)({s2:int})}$, so $c = ({pb:int} + 1)({s2:int}) =$ **{cc:int}**.
+
+    The marginal of $X$ is $f_X(x) = c\,\dfrac{x^{{s1:int}}}{{pb:int} + 1} = {s2:int}\,x^{{s1:int}}$ on $(0, 1)$, so
+    $P(X \le {hh}) = {hh}^{{s2:int}} =$ **{pr:num4}**.
+
+- id: ps-d-cond-table
+  title: Conditional probabilities from a joint pmf
+  topic: Conditional distributions
+  vars:
+    w1: {min: 1, max: 5}
+    w2: {min: 1, max: 5}
+    w3: {min: 1, max: 5}
+    w4: {min: 1, max: 5}
+    w5: {min: 1, max: 5}
+    kx: {choices: [0, 1, 2]}
+  where: ['w6 >= 1', 'w6 <= 6']
+  calc:
+    w6: 20 - w1 - w2 - w3 - w4 - w5
+    p00: w1/20
+    p01: w2/20
+    p10: w3/20
+    p11: w4/20
+    p20: w5/20
+    p21: w6/20
+    rowk: if(kx == 0, p00 + p01, if(kx == 1, p10 + p11, p20 + p21))
+    cellk: if(kx == 0, p01, if(kx == 1, p11, p21))
+    cy1: cellk/rowk
+    col0: p00 + p10 + p20
+    cx2: p20/col0
+  prompt: |-
+    The joint pmf of $X$ and $Y$ is
+
+    $$\begin{array}{c|cc} & y = 0 & y = 1 \\ \hline x = 0 & {p00:num2} & {p01:num2} \\ x = 1 & {p10:num2} & {p11:num2} \\ x = 2 & {p20:num2} & {p21:num2} \end{array}$$
+
+    Find $P(Y = 1 \mid X = {kx})$ and $P(X = 2 \mid Y = 0)$, each to 4 decimals.
+  answers:
+    - {name: cy1, label: '$P(Y = 1 \mid X = {kx}) =$', tolerance: 0.0005, format: num4}
+    - {name: cx2, label: '$P(X = 2 \mid Y = 0) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Condition on the row $x = {kx}$, whose total is $P(X = {kx}) = {rowk:num2}$:
+    $P(Y = 1 \mid X = {kx}) = \dfrac{{cellk:num2}}{{rowk:num2}} =$ **{cy1:num4}**.
+
+    Condition on the column $y = 0$, whose total is $P(Y = 0) = {col0:num2}$:
+    $P(X = 2 \mid Y = 0) = \dfrac{{p20:num2}}{{col0:num2}} =$ **{cx2:num4}**.
+
+- id: ps-d-cond-density
+  title: A conditional density on a triangle
+  topic: Conditional distributions
+  vars:
+    pa: {choices: [{label: 'x', value: 1}, {label: 'x^2', value: 2}, {label: 'x^3', value: 3}]}
+    pb: {choices: [{label: 'y', value: 1}, {label: 'y^2', value: 2}, {label: 'y^3', value: 3}]}
+    x0: {min: 0.5, max: 0.9, step: 0.1}
+    y0: {min: 0.1, max: 0.8, step: 0.1}
+  where: ['y0 < x0']
+  calc:
+    cc: (pb + 1)*(pa + pb + 2)
+    b1: pb + 1
+    s1: pa + pb + 1
+    s2: pa + pb + 2
+    fx0: s2*x0^s1
+    dens: b1*y0^pb/x0^b1
+    pr: (y0/x0)^b1
+  prompt: |-
+    $(X, Y)$ has joint density $f(x, y) = {cc:int}\,{pa}{pb}$ on $0 < y < x < 1$; its marginal is
+    $f_X(x) = {s2:int}x^{{s1:int}}$ on $(0, 1)$. Find the conditional density $f_{Y \mid X}(y \mid x)$ evaluated at
+    $y = {y0}$, $x = {x0}$, and find $P(Y \le {y0} \mid X = {x0})$. Give 4 decimals.
+  answers:
+    - {name: dens, label: '$f_{Y \mid X}({y0} \mid {x0}) =$', tolerance: 0.0005, format: num4}
+    - {name: pr, label: '$P(Y \le {y0} \mid X = {x0}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Divide the joint density by the marginal:
+    $f_{Y \mid X}(y \mid x) = \dfrac{{cc:int}\,x^{{pa:int}}y^{{pb:int}}}{{s2:int}\,x^{{s1:int}}} = \dfrac{{b1:int}\,y^{{pb:int}}}{x^{{b1:int}}}$ for $0 < y < x$.
+    At $y = {y0}$, $x = {x0}$ this is **{dens:num4}**.
+
+    Integrate over $0 < y \le {y0}$:
+    $P(Y \le {y0} \mid X = {x0}) = \dfrac{{y0}^{{b1:int}}}{{x0}^{{b1:int}}} = \left(\dfrac{{y0}}{{x0}}\right)^{{b1:int}} =$ **{pr:num4}**.
+
+- id: ps-d-exp-race
+  title: Racing independent exponentials
+  topic: Independence of random variables
+  vars:
+    m1: {choices: [2, 3, 4, 5, 6, 8, 10, 12]}
+    m2: {choices: [2, 3, 4, 5, 6, 8, 10, 12, 15, 20]}
+    ss: {min: 1, max: 6}
+    tt: {min: 1, max: 8}
+  where: ['m1 != m2']
+  calc:
+    ra: 1/m1
+    rb: 1/m2
+    pfirst: ra/(ra + rb)
+    pboth: exp(-ss/m1 - tt/m2)
+  prompt: |-
+    A pump's seal fails after an exponential time $X$ with mean {m1} years, and its bearing fails after
+    an independent exponential time $Y$ with mean {m2} years. Find $P(X < Y)$, the probability the seal
+    fails first, and $P(X > {ss},\ Y > {tt})$. Give 4 decimals.
+  answers:
+    - {name: pfirst, label: '$P(X < Y) =$', tolerance: 0.0005, format: num4}
+    - {name: pboth, label: '$P(X > {ss},\ Y > {tt}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    The rates are $a = 1/{m1}$ and $b = 1/{m2}$ per year. Integrating the product density over $x < y$ gives
+    $P(X < Y) = \dfrac{a}{a + b} = \dfrac{1/{m1}}{1/{m1} + 1/{m2}} =$ **{pfirst:num4}**.
+
+    By independence, $P(X > {ss},\ Y > {tt}) = P(X > {ss})\,P(Y > {tt}) = e^{-{ss}/{m1}}\,e^{-{tt}/{m2}} =$ **{pboth:num4}**.
+
+- id: ps-d-cov-table
+  title: Covariance and correlation from a table
+  topic: Covariance and correlation
+  vars:
+    w1: {min: 1, max: 5}
+    w2: {min: 1, max: 5}
+    w3: {min: 1, max: 5}
+    w4: {min: 1, max: 5}
+    w5: {min: 1, max: 5}
+  where: ['w6 >= 1', 'w6 <= 6', 'abs(cov) >= 0.005']
+  calc:
+    w6: 20 - w1 - w2 - w3 - w4 - w5
+    p00: w1/20
+    p01: w2/20
+    p10: w3/20
+    p11: w4/20
+    p20: w5/20
+    p21: w6/20
+    px1: p10 + p11
+    px2: p20 + p21
+    ex: px1 + 2*px2
+    ey: p01 + p11 + p21
+    exy: p11 + 2*p21
+    cov: exy - ex*ey
+    ex2: px1 + 4*px2
+    vx: ex2 - ex^2
+    vy: ey*(1 - ey)
+    rho: cov/sqrt(vx*vy)
+  prompt: |-
+    The joint pmf of $X$ and $Y$ is
+
+    $$\begin{array}{c|cc} & y = 0 & y = 1 \\ \hline x = 0 & {p00:num2} & {p01:num2} \\ x = 1 & {p10:num2} & {p11:num2} \\ x = 2 & {p20:num2} & {p21:num2} \end{array}$$
+
+    Find $\operatorname{Cov}(X, Y)$ (4 decimals) and the correlation $\rho$ (3 decimals).
+  answers:
+    - {name: cov, label: '$\operatorname{Cov}(X, Y) =$', tolerance: 0.0002, format: num4}
+    - {name: rho, label: '$\rho =$', tolerance: 0.002, format: dp3}
+  solution: |-
+    Marginals: $P(X = 1) = {px1:num2}$, $P(X = 2) = {px2:num2}$, $P(Y = 1) = {ey:num2}$.
+    $E[X] = {px1:num2} + 2({px2:num2}) = {ex:num4}$ and $E[Y] = {ey:num2}$.
+    $E[XY] = 1 \cdot {p11:num2} + 2 \cdot {p21:num2} = {exy:num4}$ (only cells with $x, y \ne 0$ count).
+    $\operatorname{Cov}(X, Y) = {exy:num4} - ({ex:num4})({ey:num2}) =$ **{cov:num4}**.
+
+    $E[X^2] = {px1:num2} + 4({px2:num2}) = {ex2:num4}$, so $\operatorname{Var}(X) = {ex2:num4} - {ex:num4}^2 = {vx:num4}$; $\operatorname{Var}(Y) = {ey:num2}(1 - {ey:num2}) = {vy:num4}$.
+    $\rho = \dfrac{{cov:num4}}{\sqrt{{vx:num4} \times {vy:num4}}} =$ **{rho:dp3}**.
+
+- id: ps-d-cov-triangle
+  title: Covariance from a joint density
+  topic: Covariance and correlation
+  vars:
+    pa: {choices: [{label: 'x', value: 1}, {label: 'x^2', value: 2}]}
+    pb: {choices: [{label: 'y', value: 1}, {label: 'y^2', value: 2}]}
+  calc:
+    cc: (pb + 1)*(pa + pb + 2)
+    s2: pa + pb + 2
+    ex: cc/((pb + 1)*(pa + pb + 3))
+    ey: cc/((pb + 2)*(pa + pb + 3))
+    exy: cc/((pb + 2)*(pa + pb + 4))
+    cov: exy - ex*ey
+    b1: pb + 1
+    b2: pb + 2
+    a3: pa + pb + 3
+    a4: pa + pb + 4
+  prompt: |-
+    $(X, Y)$ has joint density $f(x, y) = {cc:int}\,{pa}{pb}$ on the triangle $0 < y < x < 1$. Find $E[X]$, $E[Y]$
+    and $\operatorname{Cov}(X, Y)$. Fractions are fine; decimals need 4 significant figures.
+  answers:
+    - {name: ex, label: '$E[X] =$', relTolerance: 0.001, format: sig4}
+    - {name: ey, label: '$E[Y] =$', relTolerance: 0.001, format: sig4}
+    - {name: cov, label: '$\operatorname{Cov}(X, Y) =$', relTolerance: 0.002, format: sig4}
+  solution: |-
+    For any powers, integrate $y$ from 0 to $x$, then $x$ from 0 to 1:
+    $E[X^pY^q] = {cc:int}\displaystyle\int_0^1\!\!\int_0^x x^{{pa:int} + p}y^{{pb:int} + q}\,dy\,dx = \dfrac{{cc:int}}{({pb:int} + q + 1)({s2:int} + p + q)}.$
+
+    - $E[X]$ ($p = 1, q = 0$): $\dfrac{{cc:int}}{{b1:int} \cdot {a3:int}} =$ **{ex:sig4}**.
+    - $E[Y]$ ($p = 0, q = 1$): $\dfrac{{cc:int}}{{b2:int} \cdot {a3:int}} =$ **{ey:sig4}**.
+    - $E[XY]$ ($p = q = 1$): $\dfrac{{cc:int}}{{b2:int} \cdot {a4:int}} = {exy:sig4}$.
+
+    $\operatorname{Cov}(X, Y) = E[XY] - E[X]E[Y] = {exy:sig4} - ({ex:sig4})({ey:sig4}) =$ **{cov:sig4}**.
+
+- id: ps-d-var-lincomb
+  title: Variance of a linear combination
+  topic: Covariance and correlation
+  vars:
+    sx: {min: 2, max: 9}
+    sy: {min: 2, max: 9}
+    rho: {choices: [-0.8, -0.6, -0.5, -0.4, -0.3, -0.2, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8]}
+    aa: {choices: [1, 2, 3, -1, -2]}
+    bb: {choices: [1, 2, 3, -1, -2, -3]}
+  calc:
+    cov: rho*sx*sy
+    vv: aa^2*sx^2 + bb^2*sy^2 + 2*aa*bb*cov
+    sd: sqrt(vv)
+    ab2: 2*aa*bb
+  prompt: |-
+    $X$ and $Y$ have standard deviations $\sigma_X = {sx}$ and $\sigma_Y = {sy}$ and correlation $\rho = {rho}$. Find
+    the variance and the standard deviation of $W = {aa:coef}X {bb:signedcoef}Y$. Give 2 decimals.
+  answers:
+    - {name: vv, label: '$\operatorname{Var}(W) =$', tolerance: 0.01, format: num2}
+    - {name: sd, label: '$\operatorname{SD}(W) =$', tolerance: 0.01, format: num2}
+  solution: |-
+    $\operatorname{Cov}(X, Y) = \rho\sigma_X\sigma_Y = ({rho})({sx})({sy}) = {cov:num2}$. With $a = {aa}$, $b = {bb}$:
+    $\operatorname{Var}(W) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\operatorname{Cov}(X, Y) = ({aa})^2({sx})^2 + ({bb})^2({sy})^2 + ({ab2})({cov:num2}) =$ **{vv:num2}**,
+    so $\operatorname{SD}(W) = \sqrt{{vv:num2}} =$ **{sd:num2}**.
+
+- id: ps-d-sum-normal
+  title: Sums and differences of independent normals
+  topic: Sums of random variables
+  vars:
+    m1: {min: 30, max: 60}
+    s1: {min: 2, max: 6}
+    m2: {min: 20, max: 50}
+    s2: {min: 2, max: 8}
+    kk: {min: -1.8, max: 2.2, step: 0.1}
+    dd: {min: 0, max: 20}
+  where: ['abs(dd - (m1 - m2)) <= 2*sdt', 'dd != m1 - m2']
+  calc:
+    mt: m1 + m2
+    vt: s1^2 + s2^2
+    sdt: sqrt(vt)
+    cut: round(mt + kk*sdt)
+    z1: (cut - mt)/sdt
+    p1: 1 - normcdf(z1)
+    md: m1 - m2
+    z2: (dd - md)/sdt
+    p2: 1 - normcdf(z2)
+  prompt: |-
+    A freight run has two legs with independent normal times: leg 1 has mean {m1} min and SD {s1} min,
+    leg 2 has mean {m2} min and SD {s2} min. Find the probability that the total time exceeds {cut:int}
+    minutes, and the probability that leg 1 takes more than {dd} minutes longer than leg 2. Give 4
+    decimals.
+  answers:
+    - {name: p1, label: '$P(X_1 + X_2 > {cut:int}) =$', tolerance: 0.001, format: num4}
+    - {name: p2, label: '$P(X_1 - X_2 > {dd}) =$', tolerance: 0.001, format: num4}
+  solution: |-
+    Both $X_1 + X_2$ and $X_1 - X_2$ are normal, and in both cases the variances add:
+    $\operatorname{Var} = {s1}^2 + {s2}^2 = {vt:int}$, SD $= {sdt:num4}$.
+
+    Total: mean ${m1} + {m2} = {mt:int}$, $z = \dfrac{{cut:int} - {mt:int}}{{sdt:num4}} = {z1:num2}$, so $P =$ **{p1:num4}**.
+
+    Difference: mean ${m1} - {m2} = {md:int}$, $z = \dfrac{{dd} - ({md:int})}{{sdt:num4}} = {z2:num2}$, so $P =$ **{p2:num4}**.
+
+- id: ps-d-sum-poisson
+  title: Sum of independent Poisson counts
+  topic: Sums of random variables
+  vars:
+    l1: {min: 0.5, max: 3, step: 0.5}
+    l2: {min: 0.5, max: 4, step: 0.5}
+    kk: {min: 1, max: 8}
+  where: ['kk <= lt + 3']
+  calc:
+    lt: l1 + l2
+    pe: poissonpdf(lt, kk)
+    pc: poissoncdf(lt, kk)
+  prompt: |-
+    Line A has a Poisson number of signal faults per day with mean {l1}, and line B, independently, a
+    Poisson number with mean {l2}. Find the probability of exactly {kk} faults in total on a given day,
+    and of at most {kk}. Give 4 decimals.
+  answers:
+    - {name: pe, label: '$P(T = {kk}) =$', tolerance: 0.0005, format: num4}
+    - {name: pc, label: '$P(T \le {kk}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Independent Poisson counts add: $T \sim \text{Poisson}({l1} + {l2}) = \text{Poisson}({lt})$ (multiply the MGFs
+    $e^{\lambda(e^t - 1)}$).
+
+    $P(T = {kk}) = \dfrac{e^{-{lt}}\,{lt}^{{kk}}}{{kk}!} =$ **{pe:num4}**, and $P(T \le {kk}) = \sum_{j=0}^{{kk}} \dfrac{e^{-{lt}}{lt}^j}{j!} =$ **{pc:num4}**.
+
+- id: ps-d-sum-exp
+  title: Sum of two exponential stages
+  topic: Sums of random variables
+  vars:
+    mm: {choices: [0.5, 1, 1.5, 2, 2.5, 3, 4]}
+    kk: {min: 0.5, max: 4, step: 0.5}
+  calc:
+    lam: 1/mm
+    tt: kk*mm
+    lt: lam*tt
+    pr: exp(-lt)*(1 + lt)
+    mean: 2*mm
+  prompt: |-
+    A repair has two independent stages, each taking an exponential time with mean {mm} hours. Find the
+    probability that the whole repair takes more than {tt} hours. Give 4 decimals.
+  answers:
+    - {name: pr, label: '$P(T > {tt}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    Each stage has rate $\lambda = 1/{mm}$. By convolution, $T = X_1 + X_2$ has the gamma density (shape 2, scale {mm})
+    $f_T(z) = \lambda^2 z e^{-\lambda z}$ for $z > 0$. Integrating by parts,
+    $P(T > t) = \displaystyle\int_t^\infty \lambda^2 z e^{-\lambda z}\,dz = e^{-\lambda t}(1 + \lambda t).$
+    Here $\lambda t = {tt}/{mm} = {lt:num4}$, so $P(T > {tt}) = e^{-{lt:num4}}(1 + {lt:num4}) =$ **{pr:num4}**.
+    (The mean total is ${mean}$ hours.)
+
+- id: ps-d-mixture
+  title: Mean and SD of a mixture
+  topic: Conditional expectation
+  vars:
+    pa: {min: 0.2, max: 0.8, step: 0.05}
+    ma: {min: 40, max: 60}
+    sa: {min: 2, max: 8}
+    mb: {min: 45, max: 75}
+    sb: {min: 2, max: 10}
+  where: ['abs(ma - mb) >= 3']
+  calc:
+    pb: 1 - pa
+    ey: pa*ma + pb*mb
+    within: pa*sa^2 + pb*sb^2
+    between: pa*(ma - ey)^2 + pb*(mb - ey)^2
+    vy: within + between
+    sd: sqrt(vy)
+  prompt: |-
+    Brake blocks come from supplier A with probability {pa} (wear life mean {ma}, SD {sa}, in thousands of
+    km) or supplier B otherwise (mean {mb}, SD {sb}). A block is chosen at random. Find the mean and the
+    standard deviation of its wear life. Give 2 decimals.
+  answers:
+    - {name: ey, label: '$E[Y] =$', tolerance: 0.01, format: num2}
+    - {name: sd, label: '$\operatorname{SD}(Y) =$', tolerance: 0.01, format: num2}
+  solution: |-
+    Law of total expectation: $E[Y] = {pa}({ma}) + {pb:num2}({mb}) =$ **{ey:num2}**.
+
+    Law of total variance:
+    within part $E[\operatorname{Var}(Y \mid X)] = {pa}({sa}^2) + {pb:num2}({sb}^2) = {within:num2}$;
+    between part $\operatorname{Var}(E[Y \mid X]) = {pa}({ma} - {ey:num2})^2 + {pb:num2}({mb} - {ey:num2})^2 = {between:num2}$.
+    $\operatorname{Var}(Y) = {vy:num2}$, so $\operatorname{SD}(Y) =$ **{sd:num2}**.
+
+- id: ps-d-random-sum
+  title: Mean and SD of a random sum
+  topic: Conditional expectation
+  vars:
+    lam: {min: 4, max: 20}
+    mu: {min: 50, max: 300, step: 10}
+    sig: {min: 10, max: 80, step: 5}
+  calc:
+    et: lam*mu
+    vt: lam*sig^2 + mu^2*lam
+    sd: sqrt(vt)
+  prompt: |-
+    The number of trains $N$ through a junction in an hour is Poisson with mean {lam}. Train loads are iid
+    with mean {mu} passengers and SD {sig}, independent of $N$. Find the mean and the standard deviation
+    of the total number of passengers $T$ in the hour (SD to 1 decimal).
+  answers:
+    - {name: et, label: '$E[T] =$', tolerance: 0.5, format: int}
+    - {name: sd, label: '$\operatorname{SD}(T) =$', tolerance: 0.1, format: num1}
+  solution: |-
+    Condition on $N$: $E[T \mid N] = {mu}N$ and $\operatorname{Var}(T \mid N) = {sig}^2N$.
+
+    $E[T] = {mu}\,E[N] = {mu} \times {lam} =$ **{et:int}**.
+
+    $\operatorname{Var}(T) = \sigma^2E[N] + \mu^2\operatorname{Var}(N) = {sig}^2({lam}) + {mu}^2({lam}) = {vt:dp0}$ (a Poisson has $\operatorname{Var}N = E N$),
+    so $\operatorname{SD}(T) =$ **{sd:num1}**.
+
+- id: ps-d-poisson-mix
+  title: A Poisson count with a random mean
+  topic: Conditional expectation
+  vars:
+    lo: {min: 0, max: 6}
+    wd: {min: 2, max: 12}
+  calc:
+    hi: lo + wd
+    ey: (lo + hi)/2
+    vx: wd^2/12
+    vy: ey + vx
+  prompt: |-
+    The daily demand rate $X$ for a spare part is uniform between {lo} and {hi:int}, and given $X$, the number
+    of parts requested $Y$ is Poisson with mean $X$. Find $E[Y]$ and $\operatorname{Var}(Y)$. Fractions are fine;
+    decimals need 2 places.
+  answers:
+    - {name: ey, label: '$E[Y] =$', tolerance: 0.01, format: num2}
+    - {name: vy, label: '$\operatorname{Var}(Y) =$', tolerance: 0.01, format: num2}
+  solution: |-
+    Given $X$, $E[Y \mid X] = X$ and $\operatorname{Var}(Y \mid X) = X$ (Poisson).
+
+    $E[Y] = E[X] = \dfrac{{lo} + {hi:int}}{2} =$ **{ey:num2}**.
+
+    $\operatorname{Var}(Y) = E[\operatorname{Var}(Y \mid X)] + \operatorname{Var}(E[Y \mid X]) = E[X] + \operatorname{Var}(X) = {ey:num2} + \dfrac{{wd}^2}{12} = {ey:num2} + {vx:num4} =$ **{vy:num2}**.
+
+- id: ps-d-bvn-cond
+  title: Conditional distribution in a bivariate normal
+  topic: Bivariate normal
+  vars:
+    mx: {min: 60, max: 75}
+    sx: {min: 6, max: 12}
+    my: {min: 60, max: 80}
+    sy: {min: 6, max: 14}
+    rho: {choices: [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, -0.4, -0.5]}
+    zx: {min: -2, max: 2, step: 0.5}
+    kc: {min: -1.5, max: 1.5, step: 0.5}
+  where: ['zx != 0']
+  calc:
+    xx: mx + zx*sx
+    cm: my + rho*sy/sx*(xx - mx)
+    csd: sy*sqrt(1 - rho^2)
+    cut: round(cm + kc*csd)
+    zz: (cut - cm)/csd
+    pr: 1 - normcdf(zz)
+    slope: rho*sy/sx
+  prompt: |-
+    Midterm ($X$) and final ($Y$) scores are bivariate normal with $\mu_X = {mx}$, $\sigma_X = {sx}$, $\mu_Y = {my}$,
+    $\sigma_Y = {sy}$ and $\rho = {rho}$. A student scored $X = {xx:num1}$ on the midterm. Find the conditional mean
+    and SD of her final score, and $P(Y > {cut:int} \mid X = {xx:num1})$. Give 2 decimals for the mean and
+    SD and 4 for the probability.
+  answers:
+    - {name: cm, label: '$E[Y \mid X] =$', tolerance: 0.01, format: num2}
+    - {name: csd, label: '$\operatorname{SD}(Y \mid X) =$', tolerance: 0.01, format: num2}
+    - {name: pr, label: 'Probability', tolerance: 0.002, format: num4}
+  solution: |-
+    $E[Y \mid X = x] = \mu_Y + \rho\dfrac{\sigma_Y}{\sigma_X}(x - \mu_X) = {my} + ({slope:num4})({xx:num1} - {mx}) =$ **{cm:num2}**.
+
+    $\operatorname{SD}(Y \mid X = x) = \sigma_Y\sqrt{1 - \rho^2} = {sy}\sqrt{1 - ({rho})^2} =$ **{csd:num2}**.
+
+    $z = \dfrac{{cut:int} - {cm:num2}}{{csd:num2}} = {zz:num2}$, so $P(Y > {cut:int} \mid X = {xx:num1}) =$ **{pr:num4}**.
+
+- id: ps-d-bvn-sum
+  title: A sum of correlated normals
+  topic: Bivariate normal
+  vars:
+    mx: {min: 20, max: 50}
+    sx: {min: 2, max: 8}
+    my: {min: 20, max: 50}
+    sy: {min: 2, max: 8}
+    rho: {choices: [-0.6, -0.4, -0.2, 0.2, 0.4, 0.6, 0.8]}
+    kk: {min: -1.5, max: 2, step: 0.1}
+  calc:
+    mt: mx + my
+    vt: sx^2 + sy^2 + 2*rho*sx*sy
+    sdt: sqrt(vt)
+    cut: round(mt + kk*sdt)
+    zz: (cut - mt)/sdt
+    pr: 1 - normcdf(zz)
+    cv: 2*rho*sx*sy
+  prompt: |-
+    Delays (minutes) on two consecutive sections, $X$ and $Y$, are bivariate normal with means {mx} and {my},
+    SDs {sx} and {sy}, and correlation {rho}. Find the SD of the total delay $X + Y$ (2 decimals) and
+    $P(X + Y > {cut:int})$ (4 decimals).
+  answers:
+    - {name: sdt, label: '$\operatorname{SD}(X + Y) =$', tolerance: 0.01, format: num2}
+    - {name: pr, label: '$P(X + Y > {cut:int}) =$', tolerance: 0.002, format: num4}
+  solution: |-
+    A linear combination of bivariate normal variables is normal. Its variance includes the covariance
+    term: $\operatorname{Var}(X + Y) = {sx}^2 + {sy}^2 + 2({rho})({sx})({sy}) = {vt:num2}$, so the SD is **{sdt:num2}**.
+    The mean is ${mx} + {my} = {mt:int}$.
+
+    $z = \dfrac{{cut:int} - {mt:int}}{{sdt:num2}} = {zz:num2}$, so $P(X + Y > {cut:int}) =$ **{pr:num4}**.
+
+- id: ps-d-order-exp
+  title: Series and parallel lifetimes
+  topic: Order statistics
+  vars:
+    nn: {min: 2, max: 6}
+    mm: {choices: [100, 200, 250, 400, 500, 800, 1000]}
+    kk: {min: 0.5, max: 2.5, step: 0.25}
+  calc:
+    emin: mm/nn
+    tt: kk*mm
+    pmax: (1 - exp(-tt/mm))^nn
+  prompt: |-
+    A system has {nn} components with iid exponential lifetimes, each with mean {mm} hours. Find the mean
+    time to the *first* failure, and the probability that *all* components have failed by {tt} hours
+    (4 decimals).
+  answers:
+    - {name: emin, label: 'Mean time to first failure', tolerance: 0.01, format: num2}
+    - {name: pmax, label: '$P(X_{(n)} \le {tt}) =$', tolerance: 0.0005, format: num4}
+  solution: |-
+    The first failure is the minimum: $P(X_{(1)} > x) = (e^{-x/{mm}})^{{nn}} = e^{-{nn}x/{mm}}$, an exponential with rate
+    ${nn}/{mm}$, so its mean is ${mm}/{nn} =$ **{emin:num2}** hours.
+
+    All have failed by {tt} hours when the maximum is at most {tt}:
+    $P(X_{(n)} \le {tt}) = F({tt})^{{nn}} = \big(1 - e^{-{tt}/{mm}}\big)^{{nn}} =$ **{pmax:num4}**.

@@ -1,0 +1,689 @@
+- id: ps-q-2801
+  lesson: ps-test-framework
+  module_quiz: true
+  topic: Hypothesis testing framework
+  stem: 'A test of $H_0: \theta \in \Omega_0$ has power function $\pi(\theta)$. What is the size of the test?'
+  choices:
+    - 'The smallest value of $\pi(\theta)$ over $\theta$ in the alternative'
+    - 'The largest value of $\pi(\theta)$ over $\theta \in \Omega_0$'
+    - 'The value of $\pi(\theta)$ at the maximum likelihood estimate'
+    - 'The value of $1 - \pi(\theta)$ at the boundary of $\Omega_0$'
+  answer: 1
+  explanation: |-
+    The size is the worst-case Type I error probability, $\alpha = \sup_{\theta \in \Omega_0}\pi(\theta)$. Values of $\pi$ in the alternative are powers, and $1 - \pi$ there is the Type II error probability $\beta$.
+
+- id: ps-q-2802
+  lesson: ps-test-framework
+  module_quiz: true
+  topic: Hypothesis testing framework
+  stem: 'A Type II error occurs when the test'
+  choices:
+    - 'rejects $H_0$ when $H_1$ is true'
+    - 'rejects $H_0$ although $H_0$ is true'
+    - 'fails to reject $H_0$ when $H_0$ is true'
+    - 'fails to reject $H_0$ although $H_1$ is true'
+  answer: 3
+  explanation: |-
+    Type II is the missed detection: $H_1$ holds but the data don't land in the rejection region. Rejecting a true $H_0$ is a Type I error; the other two are correct decisions.
+
+- id: ps-q-2803
+  lesson: ps-test-framework
+  topic: Hypothesis testing framework
+  stem: '$X \sim \text{Bin}(15, p)$. To test $H_0: p \le 0.2$ against $H_1: p > 0.2$ you reject when $X \ge 6$. What is the size of the test?'
+  choices:
+    - '$0.0181$'
+    - '$0.0430$'
+    - '$0.9389$'
+    - '$0.0611$'
+  answer: 3
+  explanation: |-
+    The power function $P_p(X \ge 6)$ increases in $p$, so the size is its value at $p = 0.2$: $1 - P(X \le 5) = 1 - 0.9389 = 0.0611$. 0.0430 is only $P(X = 6)$, 0.0181 is $P(X \ge 7)$, and 0.9389 is the probability of not rejecting.
+
+- id: ps-q-2804
+  lesson: ps-test-framework
+  topic: Power
+  stem: 'For the test "reject $H_0: p \le 0.2$ when $X \ge 6$" with $X \sim \text{Bin}(15, p)$, what is the power at $p = 0.4$?'
+  choices:
+    - '$0.403$'
+    - '$0.061$'
+    - '$0.597$'
+    - '$0.390$'
+  answer: 2
+  explanation: |-
+    $\pi(0.4) = P(X \ge 6 \mid p = 0.4) = 1 - P(X \le 5 \mid p = 0.4) = 1 - 0.403 = 0.597$. 0.403 is $\beta(0.4)$, 0.390 is $P(X \ge 7)$, and 0.061 is the size.
+
+- id: ps-q-2805
+  lesson: ps-test-framework
+  topic: Hypothesis testing framework
+  stem: '$X_1, \dots, X_{25}$ are $N(\mu, 10^2)$. For $H_0: \mu = 100$ versus $H_1: \mu > 100$ at $\alpha = 0.01$, the test rejects when $\bar X \ge c$. What is $c$?'
+  choices:
+    - '$104.65$'
+    - '$103.29$'
+    - '$105.15$'
+    - '$103.92$'
+  answer: 0
+  explanation: |-
+    $\sigma/\sqrt n = 10/5 = 2$ and $z_{0.01} = 2.326$, so $c = 100 + 2.326(2) = 104.65$. 103.29 uses $z_{0.05}$, 103.92 uses 1.96 (a two-sided 5% value), and 105.15 uses 2.576 (two-sided 1%).
+
+- id: ps-q-2806
+  lesson: ps-test-framework
+  module_quiz: true
+  topic: Power
+  stem: 'For the test that rejects $H_0: \mu = 100$ when $\bar X \ge 104.65$, with $\bar X \sim N(\mu, 2^2)$, what is the power when $\mu = 106$?'
+  choices:
+    - '$0.250$'
+    - '$0.674$'
+    - '$0.912$'
+    - '$0.750$'
+  answer: 3
+  explanation: |-
+    $\pi(106) = P(\bar X \ge 104.65 \mid \mu = 106) = P\big(Z \ge (104.65 - 106)/2\big) = P(Z \ge -0.674) = 0.750$. 0.250 is $\beta$, 0.674 is the $z$-value itself, and 0.912 would be the power of the 5% test (cutoff 103.29).
+
+- id: ps-q-2807
+  lesson: ps-test-framework
+  topic: Hypothesis testing framework
+  stem: 'A test statistic $T$ has a continuous distribution under a simple $H_0$, and $p$ is its p-value. If $H_0$ is true, what is $P(p \le 0.03)$?'
+  choices:
+    - '$0.03$'
+    - '$0.97$'
+    - 'It depends on the sample size'
+    - '$0.05$'
+  answer: 0
+  explanation: |-
+    With a continuous null distribution, the p-value is $\text{Uniform}(0,1)$ under $H_0$ (probability integral transform), so $P(p \le u) = u$ for every $u$, regardless of $n$.
+
+- id: ps-q-2808
+  lesson: ps-test-framework
+  module_quiz: true
+  topic: Hypothesis testing framework
+  stem: 'A study reports $p = 0.04$ for $H_0: \mu = 0$. Which statement is correct?'
+  choices:
+    - 'The probability that $H_1$ is true, given the data, is 0.96'
+    - 'The study made a Type I error with probability 0.04'
+    - 'The probability that $H_0$ is true, given the data, is 0.04'
+    - 'If $H_0$ were true, a test statistic at least as extreme as the observed one would occur with probability 0.04'
+  answer: 3
+  explanation: |-
+    A p-value is a tail probability computed assuming $H_0$. It is not a probability that either hypothesis is true (that would need a prior), and whether an error occurred depends on the unknown truth.
+
+- id: ps-q-2809
+  lesson: ps-test-framework
+  topic: Power
+  stem: 'A one-sided $z$ test of $H_0: \mu = \mu_0$ at $\alpha = 0.05$ ($\sigma = 12$) should have power 0.90 when $\mu = \mu_0 + 4$. What is the smallest sample size?'
+  choices:
+    - '$95$'
+    - '$77$'
+    - '$78$'
+    - '$56$'
+  answer: 2
+  explanation: |-
+    $n \ge \big((z_{0.05} + z_{0.10})\sigma/\delta\big)^2 = \big((1.645 + 1.282)(12)/4\big)^2 = 77.08$, so round up to 78. 77 rounds down (power falls just short), 95 uses $z_{0.025} = 1.96$, and 56 targets power 0.80.
+
+- id: ps-q-2810
+  lesson: ps-test-framework
+  topic: Power
+  stem: 'With the sample size fixed, a researcher lowers the significance level of a one-sided $z$ test from 0.05 to 0.01. What happens to the power function on the alternative?'
+  choices:
+    - 'Power decreases near $\mu_0$ but increases far from it'
+    - 'Power is unchanged, since only the Type I error rate changes'
+    - 'Power decreases at every alternative value'
+    - 'Power increases at every alternative value'
+  answer: 2
+  explanation: |-
+    A smaller $\alpha$ moves the critical value farther from $\mu_0$, so the rejection region shrinks and $\pi(\mu) = P_\mu(\bar X \ge c)$ falls for every $\mu$. Fewer false alarms cost more missed detections.
+
+- id: ps-q-2811
+  lesson: ps-test-framework
+  topic: Hypothesis testing framework
+  stem: 'A two-sided $z$ test of $H_0: \mu = \mu_0$ gives $z = -2.4$. What is the p-value?'
+  choices:
+    - '$0.0164$'
+    - '$0.0082$'
+    - '$0.9918$'
+    - '$0.9836$'
+  answer: 0
+  explanation: |-
+    Two-sided: $p = 2P(Z \ge \lvert z\rvert) = 2(0.0082) = 0.0164$. 0.0082 is the one-sided tail, and the values near 1 come from taking the wrong tail.
+
+- id: ps-q-2812
+  lesson: ps-test-framework
+  topic: Hypothesis testing framework
+  stem: 'A 95% $t$ confidence interval for $\mu$ is $(12.1, 15.8)$. Which conclusion follows from it alone?'
+  choices:
+    - 'Reject $H_0: \mu = 16$ against $\mu \ne 16$ at the 5% level'
+    - 'Fail to reject $H_0: \mu = 16$ against $\mu \ne 16$ at the 5% level'
+    - 'Reject $H_0: \mu = 16$ against $\mu \ne 16$ at the 1% level'
+    - 'Reject $H_0: \mu = 14$ against $\mu \ne 14$ at the 5% level'
+  answer: 0
+  explanation: |-
+    The two-sided 5% $t$ test rejects exactly the null values outside the 95% interval: 16 is outside, 14 is inside. At the 1% level the interval would be wider, possibly containing 16, so that conclusion does not follow.
+
+- id: ps-q-2813
+  lesson: ps-test-framework
+  topic: Power
+  stem: 'A test rejects $H_0: \mu \le 50$ when $\bar X \ge c$, where $\bar X \sim N(\mu, 1)$. Why is its size equal to $\pi(50)$?'
+  choices:
+    - '$\pi(\mu)$ decreases in $\mu$, so its maximum over $\mu \le 50$ is at $\mu = 50$'
+    - '$\pi(\mu)$ is the same for every $\mu \le 50$'
+    - '$\pi(\mu) = \Phi(\mu - c)$ increases in $\mu$, so its maximum over $\mu \le 50$ is at $\mu = 50$'
+    - 'The size is always computed at the sample mean'
+  answer: 2
+  explanation: |-
+    Size is $\sup_{\mu \le 50}\pi(\mu)$. Since $\pi(\mu) = P_\mu(\bar X \ge c) = \Phi(\mu - c)$ is increasing, the supremum over $\mu \le 50$ is reached at the boundary $\mu = 50$.
+
+- id: ps-q-2901
+  lesson: ps-normal-tests
+  module_quiz: true
+  topic: Tests for normal means
+  stem: 'Sixteen measurements give $\bar x = 52.3$ and $s = 4.8$. Test $H_0: \mu = 50$ against $H_1: \mu > 50$ at $\alpha = 0.05$ (normal population).'
+  choices:
+    - '$t = 1.92$; reject $H_0$'
+    - '$t = 7.67$; reject $H_0$'
+    - '$t = 0.48$; fail to reject $H_0$'
+    - '$t = 1.92$; fail to reject $H_0$'
+  answer: 0
+  explanation: |-
+    $t = (52.3 - 50)/(4.8/\sqrt{16}) = 2.3/1.2 = 1.92$ on 15 df; $t_{0.05,15} = 1.753 < 1.92$, so reject (p about 0.037). 0.48 forgets the $\sqrt n$; 7.67 divides $s$ by $n$ instead of $\sqrt n$.
+
+- id: ps-q-2902
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'A pooled two-sample $t$ test compares samples of sizes $m = 9$ and $n = 12$. How many degrees of freedom does the $t$ statistic have?'
+  choices:
+    - '$21$'
+    - '$19$'
+    - '$8$'
+    - '$20$'
+  answer: 1
+  explanation: |-
+    $(m + n - 2)S_p^2/\sigma^2 \sim \chi^2_{m+n-2}$, so df $= 9 + 12 - 2 = 19$. Two degrees of freedom are used by the two sample means.
+
+- id: ps-q-2903
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'Two normal samples have $m = 6$, $s_1 = 3$ and $n = 11$, $s_2 = 5$. What is the pooled variance $s_p^2$?'
+  choices:
+    - '$19.35$'
+    - '$19.67$'
+    - '$16.00$'
+    - '$17.00$'
+  answer: 1
+  explanation: |-
+    $s_p^2 = \dfrac{(m-1)s_1^2 + (n-1)s_2^2}{m + n - 2} = \dfrac{5(9) + 10(25)}{15} = 19.67$. 17 averages the variances without weights, 16 squares the average s.d., and 19.35 weights by $m$ and $n$ instead of degrees of freedom.
+
+- id: ps-q-2904
+  lesson: ps-normal-tests
+  module_quiz: true
+  topic: Tests for normal means
+  stem: 'Twenty rail segments are measured for roughness before and after grinding. Which analysis fits the design?'
+  choices:
+    - 'A one-sample $t$ test on the 20 differences, with 19 df'
+    - 'An $F$ test comparing the before and after variances'
+    - 'A pooled two-sample $t$ test with 38 df'
+    - 'Welch''s two-sample $t$ test'
+  answer: 0
+  explanation: |-
+    Each segment gives a before-and-after pair, so the samples are dependent. Taking differences removes segment-to-segment variation and leaves one sample of 20 differences: the paired $t$ test, df $= 19$.
+
+- id: ps-q-2905
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'Paired differences are $3, -1, 4, 2, 5, 1$. Find the paired $t$ statistic for $H_0: \mu_D = 0$.'
+  choices:
+    - '$t = 1.08$ on 5 df'
+    - '$t = 2.65$ on 5 df'
+    - '$t = 2.65$ on 10 df'
+    - '$t = 6.48$ on 5 df'
+  answer: 1
+  explanation: |-
+    $\bar d = 14/6 = 2.333$ and $s_d = 2.160$, so $t = 2.333/(2.160/\sqrt 6) = 2.65$ with $n - 1 = 5$ df. 1.08 omits the $\sqrt n$; 6.48 divides by $s_d/n$; 10 df treats the pairs as two independent samples.
+
+- id: ps-q-2906
+  lesson: ps-normal-tests
+  topic: Tests for variances
+  stem: 'A normal sample of $n = 20$ has $s^2 = 2.9$. For $H_0: \sigma^2 = 2$, what is the test statistic and its null distribution?'
+  choices:
+    - '$\chi^2 = 29.00$ with 20 df'
+    - '$\chi^2 = 13.10$ with 19 df'
+    - '$\chi^2 = 27.55$ with 19 df'
+    - '$\chi^2 = 27.55$ with 20 df'
+  answer: 2
+  explanation: |-
+    $\chi^2 = (n-1)s^2/\sigma_0^2 = 19(2.9)/2 = 27.55$, which is $\chi^2_{n-1} = \chi^2_{19}$ under $H_0$. 29.00 uses $n$, and 13.10 inverts the variance ratio.
+
+- id: ps-q-2907
+  lesson: ps-normal-tests
+  topic: Tests for variances
+  stem: 'For a two-sided 5% test of $H_0: \sigma^2 = \sigma_0^2$ with $n = 10$, reject when $(n-1)S^2/\sigma_0^2$ falls outside which interval?'
+  choices:
+    - '$(2.700,\ 19.023)$'
+    - '$(3.325,\ 16.919)$'
+    - '$(1.735,\ 23.589)$'
+    - '$(-19.023,\ 19.023)$'
+  answer: 0
+  explanation: |-
+    With 9 df, the lower and upper 2.5% points of $\chi^2_9$ are 2.700 and 19.023. The interval with 3.325 and 16.919 puts 5% in each tail (a 10% test), the one with 1.735 and 23.589 is the 1% test, and a chi-square statistic is never negative.
+
+- id: ps-q-2908
+  lesson: ps-normal-tests
+  module_quiz: true
+  topic: Tests for variances
+  stem: 'Independent normal samples give $s_1 = 6.2$ ($m = 11$) and $s_2 = 3.9$ ($n = 16$). For $H_0: \sigma_1^2 = \sigma_2^2$, what are the $F$ statistic and its degrees of freedom?'
+  choices:
+    - '$F = 1.59$ on $(10, 15)$ df'
+    - '$F = 2.53$ on $(10, 15)$ df'
+    - '$F = 2.53$ on $(11, 16)$ df'
+    - '$F = 2.53$ on $(15, 10)$ df'
+  answer: 1
+  explanation: |-
+    $F = s_1^2/s_2^2 = 38.44/15.21 = 2.53$, with numerator df $m - 1 = 10$ and denominator df $n - 1 = 15$. 1.59 is the ratio of standard deviations, not variances.
+
+- id: ps-q-2909
+  lesson: ps-normal-tests
+  topic: Tests for variances
+  stem: 'Given $F_{0.025,\,8,\,12} = 3.51$ (the upper 2.5% point), what is the lower 2.5% point of the $F_{12,\,8}$ distribution?'
+  choices:
+    - '$3.51$'
+    - '$0.238$'
+    - '$-3.51$'
+    - '$0.285$'
+  answer: 3
+  explanation: |-
+    If $F \sim F_{12,8}$ then $1/F \sim F_{8,12}$, so $P(F \le c) = P(1/F \ge 1/c) = 0.025$ gives $1/c = 3.51$ and $c = 0.285$. 0.238 is the reciprocal of $F_{0.025,12,8} = 4.20$, which has the degrees of freedom in the wrong order.
+
+- id: ps-q-2910
+  lesson: ps-normal-tests
+  topic: Tests for variances
+  stem: 'Which of these tests is least robust to heavy-tailed, non-normal data, even in large samples?'
+  choices:
+    - 'The paired $t$ test'
+    - 'Welch''s two-sample $t$ test'
+    - 'The chi-square test for a single variance'
+    - 'The one-sample $t$ test'
+  answer: 2
+  explanation: |-
+    The $t$ tests rely on $\bar X$, which the CLT makes nearly normal for moderate $n$. The null distribution of $(n-1)S^2/\sigma_0^2$ depends on the population's fourth moment, so with heavy tails its true size can be far from $\alpha$ no matter how large $n$ is.
+
+- id: ps-q-2911
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'Welch''s test with $s_1 = 4$, $m = 10$ and $s_2 = 8$, $n = 12$: what are the approximate (Satterthwaite) degrees of freedom?'
+  choices:
+    - '$16.7$'
+    - '$20$'
+    - '$21.0$'
+    - '$9$'
+  answer: 0
+  explanation: |-
+    $s_1^2/m = 1.6$, $s_2^2/n = 5.333$; $\nu = \dfrac{(1.6 + 5.333)^2}{1.6^2/9 + 5.333^2/11} = \dfrac{48.07}{2.870} = 16.7$. 20 is the pooled df $m + n - 2$; 9 is the conservative $\min(m, n) - 1$.
+
+- id: ps-q-2912
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'For a normal sample, $T = (\bar X - \mu)/(S/\sqrt n)$ has exactly a $t_{n-1}$ distribution. Which fact is essential to that result?'
+  choices:
+    - '$\bar X$ is approximately normal by the CLT'
+    - '$\bar X$ and $S^2$ are independent'
+    - '$S$ is an unbiased estimator of $\sigma$'
+    - '$S^2/\sigma^2$ has a $\chi^2_{n-1}$ distribution'
+  answer: 1
+  explanation: |-
+    $T = Z/\sqrt{V/(n-1)}$ with $Z = (\bar X - \mu)/(\sigma/\sqrt n)$ and $V = (n-1)S^2/\sigma^2 \sim \chi^2_{n-1}$; the $t$ distribution requires $Z$ and $V$ independent, which holds because $\bar X$ and $S^2$ are independent for normal data. $S$ is in fact biased for $\sigma$, and the chi-square fact needs the factor $n - 1$.
+
+- id: ps-q-2913
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'In the locomotive brake example, why did the paired $t$ test give a far smaller p-value than a two-sample $t$ test on the same numbers?'
+  choices:
+    - 'The paired test uses a one-sided alternative and the two-sample test cannot'
+    - 'The paired test assumes equal variances and the two-sample test does not'
+    - 'The paired test has more degrees of freedom'
+    - 'Pairing removes the large locomotive-to-locomotive variation, shrinking the standard error'
+  answer: 3
+  explanation: |-
+    $\operatorname{Var}(X - Y) = \sigma_1^2 + \sigma_2^2 - 2\rho\sigma_1\sigma_2$: with strong positive correlation within pairs the differences vary much less than the raw values. The paired test actually has fewer df ($n - 1$ versus $2n - 2$).
+
+- id: ps-q-3001
+  lesson: ps-neyman-pearson
+  module_quiz: true
+  topic: Neyman–Pearson lemma
+  stem: 'By the Neyman–Pearson lemma, the most powerful size-$\alpha$ test of $H_0: \theta = \theta_0$ versus $H_1: \theta = \theta_1$ rejects when'
+  choices:
+    - '$L(\theta_0)/L(\theta_1) \ge k$, with $k$ chosen so the size is $\alpha$'
+    - '$L(\theta_1) \ge \alpha$'
+    - 'the MLE $\hat\theta$ is closer to $\theta_1$ than to $\theta_0$'
+    - '$L(\theta_0)/L(\theta_1) \le k$, with $k$ chosen so the size is $\alpha$'
+  answer: 3
+  explanation: |-
+    Reject when the data are much more likely under $H_1$ than under $H_0$, that is, when $L(\theta_0)/L(\theta_1)$ is small; $k$ is set by $P_{\theta_0}(L(\theta_0)/L(\theta_1) \le k) = \alpha$.
+
+- id: ps-q-3002
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  stem: '$X_1, \dots, X_{10}$ are Bernoulli($p$). The most powerful test of $p = 0.5$ versus $p = 0.8$ rejects when $\sum X_i \ge c$. Without randomization, which $c$ gives the largest size not exceeding 0.05?'
+  choices:
+    - '$c = 9$, size $0.0107$'
+    - '$c = 8$, size $0.0547$'
+    - '$c = 10$, size $0.0010$'
+    - '$c = 7$, size $0.1719$'
+  answer: 0
+  explanation: |-
+    Under $H_0$, $\sum X_i \sim \text{Bin}(10, 0.5)$: $P(\ge 8) = 56/1024 = 0.0547$ is too big, $P(\ge 9) = 11/1024 = 0.0107$ is allowed. $c = 10$ is also allowed but has smaller size and less power.
+
+- id: ps-q-3003
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  stem: 'For the test that rejects $p = 0.5$ in favor of $p = 0.8$ when $\sum_{i=1}^{10} X_i \ge 9$ (Bernoulli data), what is the power?'
+  choices:
+    - '$0.678$'
+    - '$0.107$'
+    - '$0.376$'
+    - '$0.624$'
+  answer: 2
+  explanation: |-
+    Under $p = 0.8$: $P(X \ge 9) = \binom{10}{9}0.8^9(0.2) + 0.8^{10} = 0.268 + 0.107 = 0.376$. 0.678 is the power of the rule $X \ge 8$, 0.107 is only $P(X = 10)$, and 0.624 is $\beta$.
+
+- id: ps-q-3004
+  lesson: ps-neyman-pearson
+  module_quiz: true
+  topic: Neyman–Pearson lemma
+  stem: 'For $N(\mu, \sigma^2)$ data with $\sigma$ known, why is there no uniformly most powerful test of $H_0: \mu = \mu_0$ against $H_1: \mu \ne \mu_0$?'
+  choices:
+    - 'No test of a two-sided alternative can have size $\alpha$'
+    - 'The Neyman–Pearson lemma applies only to discrete distributions'
+    - 'The likelihood ratio does not depend on the data'
+    - 'The most powerful region is the upper tail of $\bar X$ against $\mu_1 > \mu_0$ but the lower tail against $\mu_1 < \mu_0$'
+  answer: 3
+  explanation: |-
+    A UMP test needs one region that is most powerful against every alternative. By Neyman–Pearson, the best region depends on the side $\mu_1$ is on, so no single region works for both sides. The two-sided $z$ test has size $\alpha$ but is not UMP.
+
+- id: ps-q-3005
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  stem: 'Lifetimes are exponential with rate $\lambda$, $f(x) = \lambda e^{-\lambda x}$. For $H_0: \lambda = \lambda_0$ versus $H_1: \lambda = \lambda_1$ with $\lambda_1 > \lambda_0$, the most powerful test rejects when'
+  choices:
+    - '$\lvert\sum x_i - n/\lambda_0\rvert \ge c$'
+    - '$\sum x_i \le c$'
+    - '$\sum x_i \ge c$'
+    - '$\max x_i \ge c$'
+  answer: 1
+  explanation: |-
+    $L(\lambda_0)/L(\lambda_1) = (\lambda_0/\lambda_1)^n e^{(\lambda_1 - \lambda_0)\sum x_i}$, which increases in $\sum x_i$ when $\lambda_1 > \lambda_0$. So "ratio $\le k$" means $\sum x_i \le c$: a larger rate means shorter lifetimes.
+
+- id: ps-q-3006
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  stem: '$X_1, \dots, X_5$ are Poisson($\lambda$). The most powerful test of $\lambda = 2$ versus $\lambda = 3$ rejects when $\sum X_i \ge c$. What is the smallest $c$ giving size at most 0.05?'
+  choices:
+    - '$c = 16$'
+    - '$c = 14$'
+    - '$c = 15$'
+    - '$c = 17$'
+  answer: 0
+  explanation: |-
+    Under $H_0$, $\sum X_i \sim \text{Poisson}(10)$. $P(\ge 15) = 0.083$ is too large, $P(\ge 16) = 0.049$ is acceptable. $c = 17$ also has size below 0.05 but is not the smallest, so it has less power.
+
+- id: ps-q-3007
+  lesson: ps-neyman-pearson
+  topic: Likelihood ratio tests
+  stem: 'The generalized likelihood ratio is $\Lambda = \sup_{\Omega_0}L(\theta)/\sup_{\Omega}L(\theta)$. Which statement is true?'
+  choices:
+    - '$0 < \Lambda \le 1$, and values near 1 are evidence against $H_0$'
+    - '$\Lambda \ge 1$, and large values are evidence against $H_0$'
+    - '$0 < \Lambda \le 1$, and small values of $\Lambda$ are evidence against $H_0$'
+    - '$\Lambda$ can take any positive value, and $H_0$ is rejected when $\Lambda > 1$'
+  answer: 2
+  explanation: |-
+    Since $\Omega_0 \subset \Omega$, the restricted maximum can't exceed the overall maximum, so $\Lambda \le 1$. $\Lambda$ near 1 means $H_0$ fits nearly as well as the best model; small $\Lambda$ means it fits poorly.
+
+- id: ps-q-3008
+  lesson: ps-neyman-pearson
+  module_quiz: true
+  topic: Likelihood ratio tests
+  stem: 'Four independent binomial samples are used to test $H_0: p_1 = p_2 = p_3 = p_4$ by a likelihood ratio test. Under $H_0$, $-2\ln\Lambda$ is approximately chi-square with how many df?'
+  choices:
+    - '$n - 4$'
+    - '$1$'
+    - '$4$'
+    - '$3$'
+  answer: 3
+  explanation: |-
+    Wilks: df $= \dim\Omega - \dim\Omega_0$. The full model has 4 free probabilities and $H_0$ has 1 (the common value), so df $= 4 - 1 = 3$.
+
+- id: ps-q-3009
+  lesson: ps-neyman-pearson
+  topic: Likelihood ratio tests
+  stem: 'Fifty Poisson counts have $\bar x = 2.4$. For $H_0: \lambda = 2$, compute $-2\ln\Lambda = 2n[\bar x\ln(\bar x/\lambda_0) - (\bar x - \lambda_0)]$ and its approximate p-value.'
+  choices:
+    - '$1.88$; $p \approx 0.170$'
+    - '$3.76$; $p \approx 0.026$'
+    - '$3.76$; $p \approx 0.053$'
+    - '$4.00$; $p \approx 0.046$'
+  answer: 2
+  explanation: |-
+    $100[2.4\ln 1.2 - 0.4] = 100(0.0376) = 3.76$, and $P(\chi^2_1 \ge 3.76) \approx 0.053$. 4.00 is the squared Wald $z$, $(0.4/\sqrt{2/50})^2$; 1.88 drops the factor 2; 0.026 halves the chi-square tail.
+
+- id: ps-q-3010
+  lesson: ps-neyman-pearson
+  topic: Likelihood ratio tests
+  stem: 'For the normal-mean LRT with $\sigma$ unknown, $\Lambda = (1 + t^2/(n-1))^{-n/2}$. If $n = 10$ and $t = 2.5$, what is $-2\ln\Lambda$?'
+  choices:
+    - '$6.25$'
+    - '$0.072$'
+    - '$5.27$'
+    - '$2.64$'
+  answer: 2
+  explanation: |-
+    $-2\ln\Lambda = n\ln(1 + t^2/(n-1)) = 10\ln(1 + 6.25/9) = 10\ln(1.694) = 5.27$. 6.25 is $t^2$ (the two agree only for large $n$), 2.64 omits the factor 2, and 0.072 is $\Lambda$ itself.
+
+- id: ps-q-3011
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  stem: 'Exponential data, $n = 5$: the most powerful 5% test of $\lambda = 1$ versus $\lambda = 0.5$ rejects when $\sum x_i \ge c$. Using $2\lambda\sum X_i \sim \chi^2_{2n}$ and $\chi^2_{0.05,10} = 18.31$, find $c$.'
+  choices:
+    - '$1.97$'
+    - '$18.31$'
+    - '$4.58$'
+    - '$9.15$'
+  answer: 3
+  explanation: |-
+    Under $H_0$ ($\lambda = 1$), $2\sum X_i \sim \chi^2_{10}$, so $P(\sum X_i \ge c) = 0.05$ when $2c = 18.31$, i.e. $c = 9.15$. 18.31 forgets the factor 2, 4.58 divides by 4, and 1.97 uses the lower 5% point.
+
+- id: ps-q-3012
+  lesson: ps-neyman-pearson
+  module_quiz: true
+  topic: Likelihood ratio tests
+  stem: 'In Wilks'' theorem, $-2\ln\Lambda \to \chi^2_r$ under $H_0$. What is $r$?'
+  choices:
+    - 'The number of observations falling in the rejection region'
+    - 'The number of free parameters fixed by $H_0$, $\dim\Omega - \dim\Omega_0$'
+    - 'The number of parameters in the full model'
+    - 'The sample size minus one'
+  answer: 1
+  explanation: |-
+    $r$ counts the restrictions $H_0$ imposes. For example, $H_0: \mu = \mu_0$ in a normal model with unknown $\sigma$ fixes one parameter, so $r = 1$ regardless of $n$.
+
+- id: ps-q-3013
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  stem: 'In the Neyman–Pearson lemma, how is the constant $k$ in "reject when $L(\theta_0)/L(\theta_1) \le k$" determined?'
+  choices:
+    - 'By requiring $P_{\theta_1}\big(L(\theta_0)/L(\theta_1) \le k\big) = \alpha$'
+    - 'By maximizing the power over all $k$'
+    - 'By requiring $P_{\theta_0}\big(L(\theta_0)/L(\theta_1) \le k\big) = \alpha$'
+    - 'It is always $k = 1$'
+  answer: 2
+  explanation: |-
+    $k$ sets the size, which is computed under $H_0$. Making $k$ larger always raises power, but also the size; the lemma fixes the size at $\alpha$. $k = 1$ would just pick the more likely hypothesis, with no control of $\alpha$.
+
+- id: ps-q-3101
+  lesson: ps-proportions-chisq
+  module_quiz: true
+  topic: Tests for proportions
+  stem: 'In 250 trials there are 95 successes. Find the one-proportion $z$ statistic for $H_0: p = 0.32$.'
+  choices:
+    - '$z = 0.06$'
+    - '$z = 2.03$'
+    - '$z = 0.13$'
+    - '$z = 1.95$'
+  answer: 1
+  explanation: |-
+    $\hat p = 0.38$; the null standard error is $\sqrt{0.32(0.68)/250} = 0.0295$, so $z = 0.06/0.0295 = 2.03$. 1.95 uses $\hat p$ in the standard error, 0.13 forgets to divide by $n$, and 0.06 is just $\hat p - p_0$.
+
+- id: ps-q-3102
+  lesson: ps-proportions-chisq
+  topic: Tests for proportions
+  stem: 'Samples give 45 successes in 150 and 30 in 120. Test $H_0: p_1 = p_2$ with the pooled two-proportion $z$ test.'
+  choices:
+    - '$z = 0.91$; not significant at 5%'
+    - '$z = 0.91$; significant at 5%'
+    - '$z = 0.36$; not significant at 5%'
+    - '$z = 0.05$; not significant at 5%'
+  answer: 0
+  explanation: |-
+    $\hat p_1 = 0.30$, $\hat p_2 = 0.25$, pooled $\hat p = 75/270 = 0.278$; SE $= \sqrt{0.278(0.722)(1/150 + 1/120)} = 0.0549$, so $z = 0.05/0.0549 = 0.91$ and the two-sided p-value is 0.36. 0.36 is the p-value, not $z$; 0.05 is the raw difference.
+
+- id: ps-q-3103
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'Counts in 6 categories are tested for fit to a Poisson model whose mean is estimated from the same data. How many degrees of freedom does $X^2$ have?'
+  choices:
+    - '$5$'
+    - '$6$'
+    - '$3$'
+    - '$4$'
+  answer: 3
+  explanation: |-
+    df $= k - 1 - m = 6 - 1 - 1 = 4$: one df for the fixed total and one for the estimated mean.
+
+- id: ps-q-3104
+  lesson: ps-proportions-chisq
+  module_quiz: true
+  topic: Chi-square tests
+  stem: 'A die is rolled 120 times; the faces 1–6 appear 25, 17, 15, 23, 24, 16 times. Test fairness at 5%.'
+  choices:
+    - '$X^2 = 5.0$ on 6 df; do not reject'
+    - '$X^2 = 5.0$ on 5 df; do not reject'
+    - '$X^2 = 5.0$ on 5 df; reject'
+    - '$X^2 = 100$ on 5 df; reject'
+  answer: 1
+  explanation: |-
+    Each expected count is 20. $\sum(O - E)^2/E = (25 + 9 + 25 + 9 + 16 + 16)/20 = 5.0$, df $= 6 - 1 = 5$, and $\chi^2_{0.05,5} = 11.07$, so do not reject (p about 0.42). 100 forgets to divide by $E$.
+
+- id: ps-q-3105
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'In a two-way table of 200 items, a cell''s row total is 80 and its column total is 45. What is its expected count under independence?'
+  choices:
+    - '$62.5$'
+    - '$9$'
+    - '$36$'
+    - '$18$'
+  answer: 3
+  explanation: |-
+    $E = (\text{row total})(\text{column total})/n = 80(45)/200 = 18$.
+
+- id: ps-q-3106
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'A chi-square test of independence is run on a table with 3 rows and 4 columns. How many degrees of freedom?'
+  choices:
+    - '$11$'
+    - '$5$'
+    - '$6$'
+    - '$12$'
+  answer: 2
+  explanation: |-
+    $(r-1)(c-1) = 2 \cdot 3 = 6$. Equivalently, $(rc - 1) - [(r-1) + (c-1)] = 11 - 5 = 6$ free parameters lost to independence.
+
+- id: ps-q-3107
+  lesson: ps-proportions-chisq
+  module_quiz: true
+  topic: Chi-square tests
+  stem: 'With only two categories, Pearson''s $X^2$ for $H_0: p = p_0$ equals'
+  choices:
+    - 'twice the one-proportion $z$ statistic'
+    - 'the square root of the one-proportion $z$ statistic'
+    - 'the square of the one-proportion $z$ statistic'
+    - 'the one-proportion $z$ statistic'
+  answer: 2
+  explanation: |-
+    Both cells have numerator $(X - np_0)^2$, and $\frac{1}{np_0} + \frac{1}{n(1-p_0)} = \frac{1}{np_0(1-p_0)}$, so $X^2 = (X - np_0)^2/(np_0(1 - p_0)) = z^2$. That is why it is approximately $\chi^2_1$.
+
+- id: ps-q-3108
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'A $2 \times 2$ table has counts $\begin{array}{cc} 30 & 20 \\ 20 & 30 \end{array}$. What is the p-value of the chi-square test of independence (no continuity correction)?'
+  choices:
+    - '$0.046$'
+    - '$0.135$'
+    - '$0.023$'
+    - '$0.005$'
+  answer: 0
+  explanation: |-
+    All expected counts are 25, each cell contributes $5^2/25 = 1$, so $X^2 = 4$ on 1 df; $P(\chi^2_1 \ge 4) = 0.046$. 0.023 is half that tail, 0.135 uses 2 df instead of $(2-1)(2-1) = 1$, and 0.005 comes from $X^2 = 8$ (dividing by 12.5 instead of 25).
+
+- id: ps-q-3109
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'Which statistic is exactly $-2\ln\Lambda$ for the multinomial goodness-of-fit likelihood ratio test?'
+  choices:
+    - '$2\sum E_i\ln(E_i/O_i)$'
+    - '$\sum(O_i - E_i)^2/O_i$'
+    - '$X^2 = \sum(O_i - E_i)^2/E_i$'
+    - '$G^2 = 2\sum O_i\ln(O_i/E_i)$'
+  answer: 3
+  explanation: |-
+    The LRT compares the fitted multinomial ($\hat p_i = O_i/n$) with the null ($p_{i0} = E_i/n$), giving $2\sum O_i\ln(O_i/E_i)$. Pearson's $X^2$ is its second-order approximation, so the two are usually close.
+
+- id: ps-q-3110
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'The usual rule for trusting the chi-square approximation in these tests is a condition on'
+  choices:
+    - 'the total sample size: at least 30'
+    - 'the expected counts: each at least about 5'
+    - 'the observed counts: each at least about 5'
+    - 'the number of categories: at most 10'
+  answer: 1
+  explanation: |-
+    The approximation comes from treating counts as roughly normal around their expected values, which needs the expected counts (computed under $H_0$) not too small. Observed counts can be 0 without harm.
+
+- id: ps-q-3111
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'Separate random samples of 100 day-shift and 100 night-shift defects are classified by severity. What is being tested, and how are the expected counts found?'
+  choices:
+    - 'Independence of shift and severity; $E_{ij} = n/(rc)$'
+    - 'Homogeneity of the severity distribution across shifts; $E_{ij} = R_iC_j/n$, as for independence'
+    - 'Homogeneity; $E_{ij} = R_iC_j/n^2$'
+    - 'Goodness of fit to equal severity proportions; $E_{ij} = R_i/c$'
+  answer: 1
+  explanation: |-
+    With row totals fixed by design, the question is whether every row has the same column distribution (homogeneity). The arithmetic, $E_{ij} = R_iC_j/n$ and $(r-1)(c-1)$ df, is the same as for independence.
+
+- id: ps-q-3112
+  lesson: ps-proportions-chisq
+  topic: Tests for proportions
+  stem: 'Why does the one-proportion $z$ test use $\sqrt{p_0(1-p_0)/n}$ rather than $\sqrt{\hat p(1-\hat p)/n}$?'
+  choices:
+    - 'Because $p_0(1 - p_0)$ is always larger, which makes the test conservative'
+    - 'The null distribution is computed assuming $H_0$, under which the variance of $\hat p$ is known exactly'
+    - 'Because $\hat p$ is unknown until after the test'
+    - 'Because $\hat p$ is a biased estimator of $p$'
+  answer: 1
+  explanation: |-
+    Under $H_0: p = p_0$, $\operatorname{Var}(\hat p) = p_0(1-p_0)/n$ with no estimation needed. Confidence intervals use $\hat p$ because no hypothesized value is available.
+
+- id: ps-q-3113
+  lesson: ps-proportions-chisq
+  topic: Tests for proportions
+  stem: 'In 20 independent trials there are 15 successes. What is the exact one-sided binomial p-value for $H_0: p = 0.5$ versus $H_1: p > 0.5$?'
+  choices:
+    - '$0.0207$'
+    - '$0.0127$'
+    - '$0.0414$'
+    - '$0.0148$'
+  answer: 0
+  explanation: |-
+    $P(X \ge 15) = \sum_{x=15}^{20}\binom{20}{x}/2^{20} = 21700/1048576 = 0.0207$. 0.0127 is the normal approximation without continuity correction, 0.0148 is only $P(X = 15)$, and 0.0414 is the two-sided value.
