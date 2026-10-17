@@ -1,0 +1,356 @@
+# Module 4 — Collecting data
+# ---- Lesson 16: sampling and bias
+- id: stat-q-1601
+  lesson: stat-sampling
+  module_quiz: true
+  topic: Sampling and bias
+  stem: 'A radio host asks listeners to call in and say whether they support a new toll road. Of 2,400 callers, 81% oppose it. Why is this result unreliable?'
+  choices: ['The sample is too small', 'It is a voluntary response sample; people with strong opinions (often opposed) are most likely to call', 'It is a stratified sample', 'The margin of error is too large to compute']
+  answer: 1
+  explanation: |-
+    Callers choose themselves, and people who feel strongly — usually against — respond
+    most. The bias doesn't shrink with sample size; 2,400 biased responses are still biased.
+
+- id: stat-q-1602
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A school divides students by grade (9–12) and takes an SRS of 25 students from each grade. This is a'
+  choices: ['cluster sample', 'systematic sample', 'stratified random sample', 'convenience sample']
+  answer: 2
+  explanation: |-
+    Grades are strata (groups of similar students), and a separate SRS is taken from
+    every stratum. A cluster sample would select whole groups and survey everyone in them.
+
+- id: stat-q-1603
+  lesson: stat-sampling
+  module_quiz: true
+  topic: Sampling and bias
+  stem: 'A city randomly selects 8 of its 150 city blocks and surveys every household on those blocks. What type of sample is this?'
+  choices: ['Simple random sample', 'Stratified random sample', 'Systematic sample', 'Cluster sample']
+  answer: 3
+  explanation: |-
+    Blocks are clusters: a few are chosen at random and every household in them is
+    included. This saves travel cost compared with an SRS of scattered households.
+
+- id: stat-q-1604
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'Which describes a simple random sample of size $n$?'
+  choices: ['Every individual has the same chance of being chosen, and every possible group of $n$ individuals has the same chance of being the sample', 'Individuals are chosen by the interviewer to be typical', 'Every $k$th individual on a list is chosen', 'Equal numbers are chosen from each subgroup']
+  answer: 0
+  explanation: |-
+    An SRS gives every set of $n$ individuals an equal chance. Proportionally stratified and systematic
+    samples can give each individual an equal chance but not every set (for example, two
+    adjacent people on a list can't both be in a systematic sample).
+
+- id: stat-q-1605
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A firm has 600 engineers, 300 technicians and 100 managers. With proportional allocation, how many technicians belong in a stratified sample of 80?'
+  choices: ['30', '27', '24', '8']
+  answer: 2
+  explanation: |-
+    Technicians are $300/1000 = 30\%$ of employees, and $0.30 \times 80 = 24$. (8 is the
+    managers' share; 27 is $80/3$, equal allocation across strata.)
+
+- id: stat-q-1606
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A phone survey randomly dials landline numbers. Which bias is most likely?'
+  choices: ['Undercoverage of people without landlines, who tend to be younger', 'Voluntary response bias', 'Response bias from loaded wording', 'No bias, because the numbers are random']
+  answer: 0
+  explanation: |-
+    The sampling frame (landline numbers) leaves out people without landlines — a group
+    that differs from landline owners (younger, more mobile). Random dialing within a bad
+    frame can't fix undercoverage.
+
+- id: stat-q-1607
+  lesson: stat-sampling
+  module_quiz: true
+  topic: Sampling and bias
+  stem: 'A survey question asks, "Don''t you agree that the outdated, crowded rail station should be replaced?" This is an example of'
+  choices: ['nonresponse bias', 'undercoverage', 'biased question wording', 'sampling variability']
+  answer: 2
+  explanation: |-
+    Loaded words ("outdated, crowded") and a leading form ("Don't you agree") push
+    respondents toward "yes" — response bias from wording.
+
+- id: stat-q-1608
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A random sample of 1,500 households is selected, but only 420 return the survey. The main concern is'
+  choices: ['undercoverage', 'the sample is too large', 'voluntary response because the sample was random', 'nonresponse bias: those who responded may differ from those who did not']
+  answer: 3
+  explanation: |-
+    The original sample was random, but a 28% response rate means the respondents chose
+    themselves in effect. If responders differ systematically (more free time, stronger
+    views), the results are biased.
+
+- id: stat-q-1609
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'Two different SRSs of 100 voters give 46% and 51% support for a measure. The difference is best explained by'
+  choices: ['bias in one of the samples', 'a calculation error', 'sampling variability', 'undercoverage']
+  answer: 2
+  explanation: |-
+    Different random samples give different results by chance. That is sampling
+    variability, not bias. Larger samples reduce it.
+
+- id: stat-q-1610
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A list of 2,000 employees is used for a 1-in-$k$ systematic sample of 40. What is $k$, and how is the first employee chosen?'
+  choices: ['$k = 40$; start with employee 1', '$k = 50$; start with employee 1', '$k = 40$; random start from 1 to 40', '$k = 50$; random start from 1 to 50']
+  answer: 3
+  explanation: |-
+    $k = N/n = 2000/40 = 50$. The starting point is chosen at random from the first $k$
+    individuals; starting at 1 would make the sample nonrandom.
+
+- id: stat-q-1611
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'When is stratified sampling more precise than an SRS of the same size?'
+  choices: ['When individuals within each stratum are similar but strata differ from each other', 'When the strata are all the same', 'When the population is small', 'When each stratum is a mini-version of the population']
+  answer: 0
+  explanation: |-
+    Stratifying removes the between-strata variation from the sampling error. It helps most
+    when strata are internally homogeneous and differ from each other. Mini-versions of the
+    population describe ideal clusters.
+
+- id: stat-q-1612
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A website reports that 92% of 50,000 users who rated a product gave it 5 stars. Why might this overstate satisfaction?'
+  choices: ['50,000 is too few ratings', 'The ratings are a stratified sample', 'Customers who rate are self-selected, and those very pleased (or offered incentives) may respond more', 'Ratings are quantitative data']
+  answer: 2
+  explanation: |-
+    Online ratings are a voluntary response sample. Who chooses to rate is not random, and
+    a huge sample size doesn't remove that bias.
+
+# ---- Lesson 17: experiments
+- id: stat-q-1701
+  lesson: stat-experiments
+  module_quiz: true
+  topic: Experimental design
+  stem: 'An experiment tests 3 doses of a drug (0, 10, 20 mg) combined with 2 diets (low-salt, regular). How many treatments are there?'
+  choices: ['5', '6', '3', '2']
+  answer: 1
+  explanation: |-
+    Treatments are combinations of factor levels: $3 \times 2 = 6$. Adding the levels
+    ($3 + 2 = 5$) counts levels, not treatments.
+
+- id: stat-q-1702
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'What is the main purpose of random assignment in an experiment?'
+  choices: ['To make the sample representative of the population', 'To create treatment groups that are similar in all respects, so differences in response can be attributed to the treatments', 'To make the experiment double-blind', 'To increase the sample size']
+  answer: 1
+  explanation: |-
+    Random assignment balances both known and unknown variables across groups, on average,
+    allowing cause-and-effect conclusions. Representativeness comes from random
+    sampling, a different idea.
+
+- id: stat-q-1703
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'In a double-blind experiment,'
+  choices: ['neither the subjects nor those measuring the response know which treatment each subject received', 'the subjects are assigned twice', 'two placebos are used', 'the researchers don''t know the results until the end']
+  answer: 0
+  explanation: |-
+    Double-blind means both the subjects and the people who interact with them or evaluate
+    the response are unaware of treatment assignments, so any placebo effect is the same in every group and the
+    measurements are not biased.
+
+- id: stat-q-1704
+  lesson: stat-experiments
+  module_quiz: true
+  topic: Experimental design
+  stem: 'A study compares two tire designs. Each of 20 cars gets one tire of each design on its rear wheels, with the side (left or right) decided by a coin flip. This is a'
+  choices: ['completely randomized design', 'cluster sample', 'matched pairs design', 'observational study']
+  answer: 2
+  explanation: |-
+    Each car is a block of two tire positions receiving both treatments, with the
+    arrangement randomized — a matched pairs design. Comparing the two tires on the same car
+    removes car-to-car variation (driver, mileage, roads).
+
+- id: stat-q-1705
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'Why might a researcher block by age when testing a new exercise program?'
+  choices: ['To make the study double-blind', 'Because blocking replaces random assignment', 'To increase the number of treatments', 'Because age likely affects the response, and comparing treatments within age groups reduces variability']
+  answer: 3
+  explanation: |-
+    Blocks group similar units so that the treatment comparison isn't blurred by a
+    variable known to affect the response. Randomization still occurs within each block.
+
+- id: stat-q-1706
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'Patients given a sugar pill report less pain than before treatment. This illustrates'
+  choices: ['the placebo effect', 'confounding', 'nonresponse', 'regression to the mean, and nothing else']
+  answer: 0
+  explanation: |-
+    Improvement from an inactive treatment because people expect to improve is the placebo
+    effect. That's why control groups often receive a placebo.
+
+- id: stat-q-1707
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'Which is NOT one of the basic principles of experimental design?'
+  choices: ['Comparison of treatments', 'Random assignment', 'Replication', 'Random sampling from a population']
+  answer: 3
+  explanation: |-
+    The principles are comparison, random assignment, replication and control. Random
+    sampling is desirable for generalizing, but most experiments use volunteers.
+
+- id: stat-q-1708
+  lesson: stat-experiments
+  module_quiz: true
+  topic: Experimental design
+  stem: 'In an experiment, the treatment group''s mean improvement was larger than the control group''s, and the difference was "statistically significant." This means'
+  choices: ['the difference is large in practical terms', 'the difference is too large to be plausibly explained by chance variation in random assignment alone', 'every subject in the treatment group improved', 'the experiment was double-blind']
+  answer: 1
+  explanation: |-
+    Statistical significance concerns chance: a difference this big would rarely occur if
+    the treatment had no effect. It says nothing about practical importance or individual
+    outcomes.
+
+- id: stat-q-1709
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'A teacher tries a new homework app with her first-period class and compares their final scores with her third-period class, which doesn''t use it. What is the biggest weakness?'
+  choices: ['No placebo was used', 'The sample is too large', 'Classes were not randomly assigned; differences between periods (time of day, students) are confounded with the app', 'There is no response variable']
+  answer: 2
+  explanation: |-
+    Without random assignment, any difference between the classes — time of day, student
+    mix — is mixed up with the app's effect. One class per treatment also gives no real
+    replication.
+
+- id: stat-q-1710
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'In an experiment on 50 laboratory rats testing two diets, what are the experimental units?'
+  choices: ['The two diets', 'The laboratory', 'The weights of the rats', 'The 50 rats']
+  answer: 3
+  explanation: |-
+    Experimental units are what treatments are applied to — the rats. The diets are
+    treatments; weight would be a response variable.
+
+- id: stat-q-1711
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'In a matched pairs design where each subject receives both treatments, why is the order of treatments randomized?'
+  choices: ['To prevent learning, fatigue or carry-over effects from being confused with treatment effects', 'To make the study blind', 'To increase the sample size', 'Because the response must be categorical']
+  answer: 0
+  explanation: |-
+    If everyone got treatment A first, any improvement from practice (or decline from
+    fatigue) would be confounded with the treatment. Randomizing order balances these
+    effects.
+
+# ---- Lesson 18: scope of inference
+- id: stat-q-1801
+  lesson: stat-study-conclusions
+  module_quiz: true
+  topic: Scope of inference
+  stem: 'A random sample of adults is surveyed; those who sleep 8+ hours report higher job satisfaction. What conclusion is justified?'
+  choices: ['Sleeping more causes higher job satisfaction for all adults', 'In the population, sleep and job satisfaction are associated; causation cannot be concluded', 'Nothing can be concluded about the population', 'Sleep causes satisfaction, but only for those surveyed']
+  answer: 1
+  explanation: |-
+    Random sampling allows generalizing to the population, but without random assignment,
+    only an association can be claimed — confounders (stress, job type) may explain it.
+
+- id: stat-q-1802
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Forty volunteers are randomly assigned to two memory-training programs, and Program A produces significantly higher scores. What can be concluded?'
+  choices: ['Program A causes higher scores, for people similar to these volunteers', 'Program A causes higher scores in the whole population', 'Only an association exists', 'Nothing, since the subjects were volunteers']
+  answer: 0
+  explanation: |-
+    Random assignment supports a cause-and-effect conclusion. Because the subjects weren't
+    randomly sampled, the conclusion applies to people like the volunteers, not
+    automatically to everyone.
+
+- id: stat-q-1803
+  lesson: stat-study-conclusions
+  module_quiz: true
+  topic: Scope of inference
+  stem: 'Children who eat breakfast have higher test scores. Family income is suggested as a confounding variable. For income to be a confounder, it must'
+  choices: ['be measured in dollars', 'be associated with eating breakfast and also affect test scores', 'be unrelated to breakfast', 'affect only test scores']
+  answer: 1
+  explanation: |-
+    A confounder is linked to both the explanatory variable (breakfast) and the response
+    (scores), offering an alternative explanation for the association.
+
+- id: stat-q-1804
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Researchers compare 200 patients with a rare cancer to 400 similar people without it, asking both groups about past chemical exposure. This is a'
+  choices: ['randomized experiment', 'prospective study', 'case-control (retrospective) study', 'matched pairs experiment']
+  answer: 2
+  explanation: |-
+    Starting from the outcome (cases vs. controls) and looking back at exposures defines a
+    case-control study, an observational design efficient for rare diseases.
+
+- id: stat-q-1805
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Why can''t a large observational study prove that a diet causes longer life?'
+  choices: ['Large samples are always biased', 'Observational studies cannot measure lifespan', 'Diet is categorical', 'People choose their diets, so confounding variables (exercise, income, health) may explain the difference']
+  answer: 3
+  explanation: |-
+    Without random assignment, groups that choose different diets differ in other ways too.
+    Sample size reduces chance error, not confounding.
+
+- id: stat-q-1806
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Which study design allows both a cause-and-effect conclusion and generalization to a population?'
+  choices: ['A random sample from the population, randomly assigned to treatments', 'A volunteer sample randomly assigned to treatments', 'A random sample surveyed about their habits', 'A large convenience sample']
+  answer: 0
+  explanation: |-
+    Random sampling justifies generalization; random assignment justifies causation. Only a
+    design with both supports both conclusions.
+
+- id: stat-q-1807
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Informed consent in a study means'
+  choices: ['the researchers are informed of the results', 'subjects are told about the study''s nature and risks in advance and agree to participate', 'subjects must complete the study once they start', 'the data are published with names']
+  answer: 1
+  explanation: |-
+    Subjects must understand what they're agreeing to, including risks, and may withdraw.
+    Confidentiality (not publishing names) is a separate requirement.
+
+- id: stat-q-1808
+  lesson: stat-study-conclusions
+  module_quiz: true
+  topic: Scope of inference
+  stem: 'A study follows 5,000 rail workers for 20 years, recording noise exposure and later hearing loss. This is'
+  choices: ['an experiment, because it lasts a long time', 'a randomized block design', 'a retrospective observational study', 'a prospective observational study']
+  answer: 3
+  explanation: |-
+    Researchers record exposures and follow subjects forward in time without assigning
+    exposure — a prospective observational study. Length doesn't make a study an
+    experiment; imposing treatments does.
+
+- id: stat-q-1809
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Cities with more police officers have more crimes. Which is the most plausible explanation?'
+  choices: ['Police officers cause crime', 'The data must be wrong', 'City population is a confounding variable: larger cities have both more officers and more crimes', 'Crime and police are unrelated']
+  answer: 2
+  explanation: |-
+    Population size drives both counts. (Reverse causation — high crime leading cities to
+    hire more police — is another possibility.) The association alone shows neither causes
+    the other.
+
+- id: stat-q-1810
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Why is random assignment considered the only reliable way to control for unmeasured confounders?'
+  choices: ['It makes the sample larger', 'It removes the need for a control group', 'It ensures every subject benefits', 'Chance balances all variables, measured or not, across groups on average']
+  answer: 3
+  explanation: |-
+    Statistical adjustment can only account for variables that were recorded. Random
+    assignment tends to balance every variable — including ones no one thought to
+    measure — across treatment groups.

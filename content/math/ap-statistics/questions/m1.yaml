@@ -1,0 +1,678 @@
+# Module 1 — Exploring one-variable data
+# ---- Lesson 1: data types
+- id: stat-q-0101
+  lesson: stat-data-types
+  module_quiz: true
+  topic: Types of data
+  stem: 'Which variable is categorical?'
+  choices: ['Weight of a shipping container', 'Number of passengers on a train', 'Zip code of a customer''s home', 'Time to complete a race']
+  answer: 2
+  explanation: |-
+    A zip code is written with digits, but averaging zip codes is meaningless — it only
+    identifies a group (a postal area). The other three are measured or counted amounts,
+    so they are quantitative.
+
+- id: stat-q-0102
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'Which quantitative variable is discrete?'
+  choices: ['Number of cracked ties in a mile of track', 'Length of a rail segment', 'Temperature of the rail at noon', 'Time between two trains']
+  answer: 0
+  explanation: |-
+    A count of cracked ties can only be 0, 1, 2, …, so it is discrete. Length,
+    temperature and time are measured on a continuous scale, even if they are rounded
+    when recorded.
+
+- id: stat-q-0103
+  lesson: stat-data-types
+  module_quiz: true
+  topic: Types of data
+  stem: 'A survey of 500 randomly chosen voters in a city finds that 58% favor a new bike lane. The number 58% is'
+  choices: ['a parameter, because it describes the city', 'a statistic, because it is a population proportion', 'a parameter, because it is a percentage', 'a statistic, because it comes from a sample']
+  answer: 3
+  explanation: |-
+    The 58% was computed from the 500 people surveyed, a sample, so it is a statistic
+    ($\hat{p} = 0.58$). The parameter is the unknown proportion $p$ of all voters in the city
+    who favor the lane.
+
+- id: stat-q-0104
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'A customer satisfaction survey asks people to rate service as "poor," "fair," "good" or "excellent." What level of measurement is this?'
+  choices: ['Nominal', 'Interval', 'Ratio', 'Ordinal']
+  answer: 3
+  explanation: |-
+    The categories have a natural order (poor < fair < good < excellent), but the gaps
+    between them aren't measured amounts, so the data are ordinal. Nominal categories have
+    no order; interval and ratio data are numerical.
+
+- id: stat-q-0105
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'Researchers record the height, age and species of 80 trees in a park. What are the individuals in this data set?'
+  choices: ['The 80 trees', 'Height, age and species', 'The park', 'The researchers']
+  answer: 0
+  explanation: |-
+    The individuals are the objects described by the data — here the trees. Height, age and
+    species are the variables recorded for each tree.
+
+- id: stat-q-0106
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'Which notation pairs a population parameter with its matching sample statistic correctly?'
+  choices: ['$\bar{x}$ estimates $\hat{p}$', '$s$ estimates $\mu$', '$\hat{p}$ estimates $p$', '$\sigma$ estimates $s$']
+  answer: 2
+  explanation: |-
+    Sample statistics estimate population parameters: $\bar{x}$ estimates $\mu$, $s$ estimates
+    $\sigma$ and $\hat{p}$ estimates $p$. "$\sigma$ estimates $s$" has the direction backward —
+    the parameter is the unknown target.
+
+- id: stat-q-0107
+  lesson: stat-data-types
+  module_quiz: true
+  topic: Types of data
+  stem: 'Temperature in degrees Fahrenheit is interval data rather than ratio data because'
+  choices: ['it can be negative, so it is not numerical', 'it is continuous rather than discrete', 'it is usually rounded to whole degrees', '0 °F does not mean "no temperature," so ratios such as "twice as hot" are meaningless']
+  answer: 3
+  explanation: |-
+    Ratio data need a true zero meaning "none of the quantity." 0 °F is an arbitrary
+    point on the scale, so differences are meaningful but ratios are not. Continuity and
+    rounding have nothing to do with the interval/ratio distinction.
+
+- id: stat-q-0108
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'A factory tests every one of the 1,200 bearings it produced this week and finds that 1.5% are defective. Which statement is correct?'
+  choices: ['This is a census, so 1.5% is a parameter for this week''s production', 'This is a sample, so 1.5% is a statistic', '1.5% is an estimate that needs a margin of error', 'The individuals are the defects']
+  answer: 0
+  explanation: |-
+    Every bearing in the population (this week's production) was measured, so this is a
+    census and 1.5% is the parameter itself, not an estimate. The individuals are the
+    bearings; "defective or not" is the variable.
+
+- id: stat-q-0109
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'In a sample of 40 households, 14 own a dog. What is the relative frequency of dog owners?'
+  choices: ['0.14', '0.35', '0.26', '0.40']
+  answer: 1
+  explanation: |-
+    Relative frequency = count ÷ total = $14/40 = 0.35$. (0.14 just moves the decimal in the
+    count; 0.40 treats the sample size 40 as if it were the proportion; 0.26 is $0.40 - 0.14$.)
+
+- id: stat-q-0110
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'Which question can only be answered with inferential statistics?'
+  choices: ['What was the median age of the 50 people we surveyed?', 'Is the average commute of all city workers longer than 30 minutes, based on a sample of 200?', 'What percent of our sample owns a car?', 'What does the histogram of our sample''s incomes look like?']
+  answer: 1
+  explanation: |-
+    Inference uses a sample to draw a conclusion about a larger population (all city
+    workers) with a measure of uncertainty. The other three questions only describe the
+    data in hand, which is descriptive statistics.
+
+# ---- Lesson 2: categorical displays
+- id: stat-q-0201
+  lesson: stat-cat-displays
+  module_quiz: true
+  topic: Categorical displays
+  stem: 'In a survey of 240 students, 60 chose soccer as their favorite sport. What angle should the soccer slice have in a pie chart?'
+  choices: ['$60^\circ$', '$25^\circ$', '$90^\circ$', '$144^\circ$']
+  answer: 2
+  explanation: |-
+    The share is $60/240 = 0.25$, and $0.25 \times 360^\circ = 90^\circ$. Using the count 60 as
+    the angle ignores the total; $25^\circ$ uses the percent as degrees.
+
+- id: stat-q-0202
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'A survey asks "Which streaming services do you use? (Choose all that apply)." The percentages add to 170%. Which display is appropriate?'
+  choices: ['A pie chart', 'A histogram', 'A stemplot', 'A bar chart']
+  answer: 3
+  explanation: |-
+    Respondents can be in several categories, so the parts don't form one whole and a pie
+    chart would be wrong. A bar chart can still show the percent choosing each service.
+    Histograms and stemplots are for quantitative data.
+
+- id: stat-q-0203
+  lesson: stat-cat-displays
+  module_quiz: true
+  topic: Categorical displays
+  stem: 'A bar chart compares 64% and 60% support for two candidates, with the vertical axis starting at 58%. How many times taller does the 64% bar appear than the 60% bar?'
+  choices: ['About 1.07 times', '3 times', '2 times', '4 times']
+  answer: 1
+  explanation: |-
+    Visible heights are $64 - 58 = 6$ and $60 - 58 = 2$, so the first bar looks
+    $6/2 = 3$ times as tall even though $64/60 \approx 1.07$. Truncated axes exaggerate
+    differences; bar charts should start at zero.
+
+- id: stat-q-0204
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'A pie chart of 500 survey responses has a $54^\circ$ slice for "no opinion." How many people had no opinion?'
+  choices: ['54', '15', '108', '75']
+  answer: 3
+  explanation: |-
+    The slice is $54/360 = 0.15$ of the circle, so $0.15 \times 500 = 75$ people. (15 is the
+    percent, not the count; 108 doubles the angle.)
+
+- id: stat-q-0205
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'Why is it misleading to describe a bar chart of favorite colors as "skewed right"?'
+  choices: ['Color is nominal, so the order of the bars is arbitrary and shape has no meaning', 'Bar charts can only be symmetric', 'Skew only applies to pie charts', 'The bars of a bar chart must touch']
+  answer: 0
+  explanation: |-
+    The bars of a nominal variable can be arranged in any order, which changes the
+    apparent "shape." Skew describes the distribution of a quantitative variable along a
+    number line.
+
+- id: stat-q-0206
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'A Pareto chart is a bar chart in which'
+  choices: ['the bars are stacked to 100%', 'each bar is a different group of individuals', 'the bars touch each other', 'the bars are sorted from tallest to shortest']
+  answer: 3
+  explanation: |-
+    A Pareto chart orders the categories by frequency, largest first, so the most common
+    categories (e.g., most frequent defect types) stand out.
+
+- id: stat-q-0207
+  lesson: stat-cat-displays
+  module_quiz: true
+  topic: Categorical displays
+  stem: 'School A has 400 students, 120 of whom bike to school. School B has 150 students, 60 of whom bike. Which comparison is correct?'
+  choices: ['School A has the higher biking rate because 120 > 60', 'The rates are equal', 'School B has the higher biking rate: 40% versus 30%', 'The schools can''t be compared because their sizes differ']
+  answer: 2
+  explanation: |-
+    Compare relative frequencies, not counts: $120/400 = 30\%$ and $60/150 = 40\%$. School B
+    has the higher rate even though fewer students bike there.
+
+- id: stat-q-0208
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'An infographic shows a car icon for 2010 sales and a car icon twice as tall and twice as wide for 2020 sales, which doubled. What impression does the picture give?'
+  choices: ['Accurate: the picture doubled', 'Sales appear to have halved', 'Sales appear to have doubled only if the reader looks at height', 'Sales appear to have quadrupled, because the icon''s area is four times larger']
+  answer: 3
+  explanation: |-
+    Scaling both dimensions by 2 multiplies the area by $2 \times 2 = 4$, and readers judge
+    pictures by area. Only one dimension should be scaled (or use bars).
+
+- id: stat-q-0209
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'A frequency table shows four categories with relative frequencies 0.32, 0.25, 0.18 and an unknown value. What is the missing relative frequency?'
+  choices: ['0.25', '0.75', '0.18', '0.32']
+  answer: 0
+  explanation: |-
+    Relative frequencies sum to 1: $1 - (0.32 + 0.25 + 0.18) = 1 - 0.75 = 0.25$. (0.75 is the
+    sum of the known ones, not the remainder.)
+
+- id: stat-q-0210
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'Which display is best for comparing the distribution of "preferred phone brand" between teenagers and adults when the groups have different sizes?'
+  choices: ['Two separate histograms', 'A segmented bar chart with each group''s bar scaled to 100%', 'A single pie chart of all respondents', 'A dotplot of the counts']
+  answer: 1
+  explanation: |-
+    Scaling each group's bar to 100% shows the conditional distribution of brand within
+    each group, so groups of different sizes can be compared. A single pie chart merges
+    the groups; histograms are for quantitative data.
+
+# ---- Lesson 3: quantitative displays
+- id: stat-q-0301
+  lesson: stat-quant-displays
+  module_quiz: true
+  topic: Quantitative displays
+  stem: 'A histogram of household incomes has a tall peak at the low end and a long tail extending toward high incomes. Its shape is'
+  choices: ['skewed left', 'symmetric', 'skewed right', 'uniform']
+  answer: 2
+  explanation: |-
+    Skew is named for the direction of the long tail. A tail toward large values is
+    right (positive) skew, even though the peak is on the left.
+
+- id: stat-q-0302
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'In a stemplot with key 4 | 7 = 47, the row "6 | 0 3 3 8" represents which values?'
+  choices: ['6, 0, 3, 3, 8', '60, 63, 63, 68', '6.0, 6.3, 6.3, 6.8', '603, 638']
+  answer: 1
+  explanation: |-
+    Each leaf combines with the stem: 6 | 0 is 60, 6 | 3 is 63 (twice), 6 | 8 is 68. The key
+    tells you the place value.
+
+- id: stat-q-0303
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'Which statement distinguishes a histogram from a bar chart?'
+  choices: ['A histogram''s bars touch because its horizontal axis is a number line for a quantitative variable', 'A histogram always uses relative frequencies', 'A bar chart cannot show counts', 'A histogram''s bars must all have different widths']
+  answer: 0
+  explanation: |-
+    Histograms group a quantitative variable into adjacent intervals, so the bars touch.
+    Bar charts show separate categories with gaps. Either can use counts or relative
+    frequencies, and histogram bins are normally equal in width.
+
+- id: stat-q-0304
+  lesson: stat-quant-displays
+  module_quiz: true
+  topic: Quantitative displays
+  stem: 'A histogram of 50 test scores uses bins 50–<60, 60–<70, 70–<80, 80–<90, 90–<100 with counts 4, 9, 17, 14, 6. What percent of students scored at least 80?'
+  choices: ['28%', '12%', '40%', '68%']
+  answer: 2
+  explanation: |-
+    At least 80 means the bins 80–<90 and 90–<100: $14 + 6 = 20$ students, and
+    $20/50 = 40\%$. (28% counts only the 80s bin; 12% counts only the 90s bin.)
+
+- id: stat-q-0305
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'For the same scores (counts 4, 9, 17, 14, 6 in bins starting at 50, 60, 70, 80, 90), what is the cumulative relative frequency at 80?'
+  choices: ['0.34', '0.60', '0.30', '0.88']
+  answer: 1
+  explanation: |-
+    Values below 80: $4 + 9 + 17 = 30$, and $30/50 = 0.60$. 0.34 is the 70s bin alone;
+    0.88 is the cumulative value at 90.
+
+- id: stat-q-0306
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'Heights of all adults at a large company are plotted in one histogram, which shows two distinct peaks. The most likely explanation is'
+  choices: ['the bins are too wide', 'the data contain an outlier', 'the distribution is skewed left', 'two groups (for example, men and women) with different typical heights are mixed together']
+  answer: 3
+  explanation: |-
+    A bimodal distribution often signals two subgroups with different centers. Wide bins
+    tend to hide peaks rather than create them, and a single outlier makes a small bump,
+    not a second peak of similar size.
+
+- id: stat-q-0307
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'Which display lets you recover every original data value?'
+  choices: ['A histogram', 'An ogive', 'A boxplot', 'A stemplot']
+  answer: 3
+  explanation: |-
+    Each leaf in a stemplot is one data value, so the full data set can be read back.
+    Histograms and ogives group values into bins; boxplots show only five summary numbers
+    (plus outliers).
+
+- id: stat-q-0308
+  lesson: stat-quant-displays
+  module_quiz: true
+  topic: Quantitative displays
+  stem: 'An ogive (cumulative relative frequency graph) of delivery times passes through (30, 0.50) and (45, 0.80). Which conclusion is correct?'
+  choices: ['About 30% of deliveries took between 30 and 45 minutes', 'About 80% of deliveries took longer than 45 minutes', 'The mean delivery time is 30 minutes', 'Half of the deliveries took exactly 30 minutes']
+  answer: 0
+  explanation: |-
+    Cumulative values give the proportion at or below each time: 50% at or below 30 and
+    80% at or below 45, so $0.80 - 0.50 = 0.30$ are in between. The point (30, 0.50) estimates
+    the median, not the mean; 80% took at most 45 minutes.
+
+- id: stat-q-0309
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'A complete description of a quantitative distribution should address'
+  choices: ['the mean only', 'the tallest bar and the number of bins', 'shape, center, spread and unusual values, in context', 'the minimum and maximum only']
+  answer: 2
+  explanation: |-
+    Shape (symmetric/skewed, peaks), center, spread and outliers or gaps — all tied to the
+    context of the variable — make a complete description.
+
+- id: stat-q-0310
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'Scores on an easy quiz pile up near the maximum of 10, with a few students scoring 3 or 4. The distribution is'
+  choices: ['skewed right', 'uniform', 'bimodal', 'skewed left']
+  answer: 3
+  explanation: |-
+    Most values are high, and the tail stretches toward low values, so the distribution is
+    skewed left (negatively skewed).
+
+- id: stat-q-0311
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'A histogram uses bins 0–<5, 5–<10, 10–<15. Into which bin does a value of exactly 10 go?'
+  choices: ['10–<15', '5–<10', 'Either bin, by choice', 'It is excluded']
+  answer: 0
+  explanation: |-
+    The notation 5–<10 means 5 up to but not including 10, so a value of exactly 10 starts
+    the next bin, 10–<15. Each value must belong to exactly one bin.
+
+# ---- Lesson 4: measures of center
+- id: stat-q-0401
+  lesson: stat-center
+  module_quiz: true
+  topic: Measures of center
+  stem: 'Find the mean of 12, 7, 9, 15, 10, 8, 11.'
+  choices: ['10', '10.29', '11', '9.86']
+  answer: 1
+  explanation: |-
+    Sum $= 72$, and $72/7 \approx 10.29$. (10 is the median; dividing by 6 or adding wrongly
+    gives the other values.)
+
+- id: stat-q-0402
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'Find the median of 21, 25, 28, 30, 34, 36, 40, 61.'
+  choices: ['30', '34', '32', '34.375']
+  answer: 2
+  explanation: |-
+    With $n = 8$ the median is the average of the 4th and 5th values: $(30 + 34)/2 = 32$.
+    34.375 is the mean, pulled up by 61.
+
+- id: stat-q-0403
+  lesson: stat-center
+  module_quiz: true
+  topic: Measures of center
+  stem: 'A distribution of house prices is strongly skewed right. Which is most likely true?'
+  choices: ['The mean is greater than the median', 'The mean is less than the median', 'The mean equals the median', 'The mode is greater than the mean']
+  answer: 0
+  explanation: |-
+    A few very expensive houses pull the mean toward the right tail, while the median
+    resists them. In right-skewed data the mean exceeds the median (and the mode is
+    usually smallest).
+
+- id: stat-q-0404
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'Seven employees earn a mean salary of $52,000. A new hire earning $108,000 joins. What is the new mean?'
+  choices: ['$80,000', '$52,000', '$60,000', '$59,000']
+  answer: 3
+  explanation: |-
+    Old total $= 7 \times 52{,}000 = 364{,}000$. New total $= 472{,}000$, divided by 8 people
+    gives $59{,}000$. Averaging the two means, $(52{,}000 + 108{,}000)/2 = 80{,}000$, wrongly
+    gives the newcomer as much weight as all seven others.
+
+- id: stat-q-0405
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'Which measure of center can be used for a categorical variable such as blood type?'
+  choices: ['Mean', 'Median', 'Mode', 'Trimmed mean']
+  answer: 2
+  explanation: |-
+    Only the mode (the most common category) makes sense for nominal data; there is
+    nothing to add or order.
+
+- id: stat-q-0406
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'Six scores have a mean of 75. Five of them are 70, 82, 68, 79 and 74. What is the sixth?'
+  choices: ['75', '76', '74.6', '77']
+  answer: 3
+  explanation: |-
+    Total $= 6 \times 75 = 450$; the five known scores sum to 373, so the sixth is
+    $450 - 373 = 77$.
+
+- id: stat-q-0407
+  lesson: stat-center
+  module_quiz: true
+  topic: Measures of center
+  stem: 'Grades: 4 credits at 3.0, 3 credits at 4.0, 2 credits at 2.0. What is the GPA?'
+  choices: ['3.11', '3.00', '3.33', '2.89']
+  answer: 0
+  explanation: |-
+    $\dfrac{4(3.0) + 3(4.0) + 2(2.0)}{4 + 3 + 2} = \dfrac{12 + 12 + 4}{9} = \dfrac{28}{9} \approx 3.11$.
+    The unweighted mean of the three grades is 3.00.
+
+- id: stat-q-0408
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'The largest value in a data set of 25 numbers is increased by 100. Which statement is true?'
+  choices: ['The median increases by 4', 'The mean increases by 4 and the median is unchanged', 'Both the mean and median increase by 4', 'Neither changes']
+  answer: 1
+  explanation: |-
+    The total rises by 100, so the mean rises by $100/25 = 4$. The middle (13th) value is
+    unaffected because the largest value stays largest — the median is resistant.
+
+- id: stat-q-0409
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'A grouped table of trip lengths has bins 0–<10 (7 trips), 10–<20 (12 trips), 20–<30 (9 trips) and 30–<40 (2 trips). Estimate the mean trip length.'
+  choices: ['15', '17', '20', '18.5']
+  answer: 1
+  explanation: |-
+    Use midpoints 5, 15, 25, 35:
+    $\dfrac{7(5) + 12(15) + 9(25) + 2(35)}{30} = \dfrac{35 + 180 + 225 + 70}{30} = \dfrac{510}{30} = 17$.
+
+- id: stat-q-0410
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'For a data set with $n = 31$ values, where is the median?'
+  choices: ['The average of the 15th and 16th values', 'The 15.5th value', 'The 31st value divided by 2', 'The 16th value in sorted order']
+  answer: 3
+  explanation: |-
+    For odd $n$, the median is the value in position $(n + 1)/2 = 16$ of the sorted data.
+
+- id: stat-q-0411
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'Why do the deviations $x_i - \bar{x}$ always add to zero?'
+  choices: ['Because $\sum x_i = n\bar{x}$, so $\sum (x_i - \bar{x}) = n\bar{x} - n\bar{x}$', 'Because the data are symmetric', 'Because half the values are above the median', 'Because deviations are squared']
+  answer: 0
+  explanation: |-
+    By definition $\bar{x} = \sum x_i / n$, so $\sum (x_i - \bar{x}) = \sum x_i - n\bar{x} = 0$
+    for every data set, symmetric or not. This is why the mean is the balance point.
+
+# ---- Lesson 5: measures of spread
+- id: stat-q-0501
+  lesson: stat-spread
+  module_quiz: true
+  topic: Measures of spread
+  stem: 'Find the sample standard deviation of 3, 8, 8, 10, 11.'
+  choices: ['2.76', '9.5', '3.08', '2.38']
+  answer: 2
+  explanation: |-
+    Mean $= 40/5 = 8$. Squared deviations: $25, 0, 0, 4, 9$, sum $38$. $s^2 = 38/4 = 9.5$ and
+    $s = \sqrt{9.5} \approx 3.08$. (2.76 divides by 5 — the population formula; 9.5 is the
+    variance, not the standard deviation.)
+
+- id: stat-q-0502
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'Which measure of spread is resistant to outliers?'
+  choices: ['Range', 'Standard deviation', 'Variance', 'Interquartile range']
+  answer: 3
+  explanation: |-
+    The IQR uses only the quartiles, which ignore the top and bottom 25% of the data. The
+    range uses the extremes directly, and the SD and variance square deviations, so far
+    values dominate.
+
+- id: stat-q-0503
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'Find the IQR of 5, 9, 12, 13, 15, 18, 21, 24, 40.'
+  choices: ['12', '35', '9', '11']
+  answer: 0
+  explanation: |-
+    The median is the 5th value, 15. Lower half 5, 9, 12, 13 gives $Q_1 = 10.5$; upper half
+    18, 21, 24, 40 gives $Q_3 = 22.5$. IQR $= 22.5 - 10.5 = 12$. (35 is the range.)
+
+- id: stat-q-0504
+  lesson: stat-spread
+  module_quiz: true
+  topic: Measures of spread
+  stem: 'Why does the sample variance divide by $n - 1$ rather than $n$?'
+  choices: ['To make the standard deviation resistant', 'Because one data value is always an outlier', 'Because deviations from $\bar{x}$ are on average smaller than deviations from $\mu$, and dividing by $n-1$ corrects the underestimate', 'To convert variance into the original units']
+  answer: 2
+  explanation: |-
+    $\bar{x}$ is fitted to the sample, so squared deviations from it run a bit small.
+    Dividing by $n - 1$ (the degrees of freedom) makes $s^2$ an unbiased estimator of
+    $\sigma^2$. Taking the square root, not the divisor, restores the units.
+
+- id: stat-q-0505
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'Data set A is 10, 10, 10, 10. Data set B is 1, 10, 10, 19. Which statement is true?'
+  choices: ['Both have the same standard deviation', 'A has the larger standard deviation', 'A has standard deviation 0 and B has a positive standard deviation', 'Both have mean 10 and standard deviation 0']
+  answer: 2
+  explanation: |-
+    All values in A equal the mean, so every deviation is 0 and $s = 0$. B also has mean 10,
+    but its values spread out, giving $s > 0$ ($s = \sqrt{162/3} \approx 7.35$).
+
+- id: stat-q-0506
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'A population consists of the values 2, 4, 4, 4, 5, 5, 7, 9. What is the population standard deviation $\sigma$?'
+  choices: ['2', '2.14', '4', '5']
+  answer: 0
+  explanation: |-
+    $\mu = 40/8 = 5$. Squared deviations: $9, 1, 1, 1, 0, 0, 4, 16$, sum $32$.
+    $\sigma^2 = 32/8 = 4$, so $\sigma = 2$. Dividing by 7 instead (the sample formula) gives 2.14.
+
+- id: stat-q-0507
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'Commute times are measured in minutes. In what units is the variance?'
+  choices: ['Minutes', 'Square minutes', 'No units', 'Minutes per person']
+  answer: 1
+  explanation: |-
+    Variance averages squared deviations, so its units are squared (minutes²). The
+    standard deviation, its square root, is back in minutes — one reason SD is easier to
+    interpret.
+
+- id: stat-q-0508
+  lesson: stat-spread
+  module_quiz: true
+  topic: Measures of spread
+  stem: 'For a strongly right-skewed distribution with an outlier, which pair of summaries is most appropriate?'
+  choices: ['Mean and standard deviation', 'Mean and range', 'Median and IQR', 'Mode and variance']
+  answer: 2
+  explanation: |-
+    Both the median and IQR are resistant, so they describe the bulk of skewed data
+    without being dragged by the tail. Mean and SD suit roughly symmetric data without
+    outliers.
+
+- id: stat-q-0509
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'A sample of $n = 10$ values has $\sum x_i = 50$ and $\sum x_i^2 = 340$. What is the sample variance?'
+  choices: ['9.0', '34.0', '10.0', '29.0']
+  answer: 2
+  explanation: |-
+    $\bar{x} = 50/10 = 5$. Using $s^2 = \dfrac{\sum x_i^2 - n\bar{x}^2}{n-1} = \dfrac{340 - 10(25)}{9} = \dfrac{90}{9} = 10$.
+    Dividing 90 by $n = 10$ gives 9.0, the population formula; 34.0 is just $\sum x_i^2 / n$.
+
+- id: stat-q-0510
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'Which statement about the standard deviation is FALSE?'
+  choices: ['It is never negative', 'It has the same units as the data', 'It equals 0 only when all values are identical', 'It is unaffected by an extreme outlier']
+  answer: 3
+  explanation: |-
+    The SD is computed from squared deviations from the mean, so an extreme value increases
+    it a lot — it is not resistant. The other three statements are true.
+
+- id: stat-q-0511
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'For the data 2, 6, 7, 9, 14, 15, 21, which values are $Q_1$ and $Q_3$ (median-of-halves method)?'
+  choices: ['$Q_1 = 6.5$, $Q_3 = 14.5$', '$Q_1 = 6$, $Q_3 = 15$', '$Q_1 = 7$, $Q_3 = 14$', '$Q_1 = 4$, $Q_3 = 18$']
+  answer: 1
+  explanation: |-
+    $n = 7$, so the median is the 4th value, 9, which is left out of both halves. Lower half
+    2, 6, 7 has median 6; upper half 14, 15, 21 has median 15. Including the median in the
+    halves gives 6.5 and 14.5.
+
+# ---- Lesson 6: boxplots and outliers
+- id: stat-q-0601
+  lesson: stat-boxplots
+  module_quiz: true
+  topic: Boxplots and outliers
+  stem: 'A data set has $Q_1 = 30$ and $Q_3 = 46$. Using the $1.5 \times \text{IQR}$ rule, which value is an outlier?'
+  choices: ['4', '10', '62', '68']
+  answer: 0
+  explanation: |-
+    IQR $= 46 - 30 = 16$ and $1.5 \times 16 = 24$. Fences: $30 - 24 = 6$ and $46 + 24 = 70$.
+    Only 4 lies outside $[6, 70]$. (Using $1 \times$ IQR would also flag 10 and 68.)
+
+- id: stat-q-0602
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'In a boxplot, the left whisker is much longer than the right whisker, and the median is close to $Q_3$. The distribution is most likely'
+  choices: ['skewed right', 'symmetric', 'skewed left', 'uniform']
+  answer: 2
+  explanation: |-
+    The lower quarter of the data is spread over a long range and the lower half of the box
+    is wider: the long tail is on the left, so the distribution is skewed left.
+
+- id: stat-q-0603
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'A boxplot shows the right half of the box (median to $Q_3$) twice as long as the left half. Which statement is correct?'
+  choices: ['The right half of the box contains twice as many values', 'Both halves of the box contain about 25% of the values; the right half''s values are more spread out', 'The mean must equal the median', 'The data have an outlier']
+  answer: 1
+  explanation: |-
+    Each section of a boxplot holds about a quarter of the data no matter its length. A
+    longer section means those values are spread over a wider range.
+
+- id: stat-q-0604
+  lesson: stat-boxplots
+  module_quiz: true
+  topic: Boxplots and outliers
+  stem: 'Data: 38, 39, 41, 43, 44, 45, 47, 50, 62 ($Q_1 = 40$, $Q_3 = 48.5$). In a modified boxplot, where does the upper whisker end?'
+  choices: ['61.25', '62', '48.5', '50']
+  answer: 3
+  explanation: |-
+    The upper fence is $48.5 + 1.5(8.5) = 61.25$. 62 is beyond it, so it is plotted as an
+    outlier and the whisker stops at the largest value inside the fence, 50. Whiskers end
+    at data values, never at the fence itself.
+
+- id: stat-q-0605
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'Which feature of a distribution can a boxplot NOT show?'
+  choices: ['Whether the distribution has two peaks', 'The median', 'The IQR', 'Outliers']
+  answer: 0
+  explanation: |-
+    A boxplot is built from five numbers plus outliers. A bimodal and a unimodal
+    distribution can share the same five-number summary, so peaks are invisible.
+
+- id: stat-q-0606
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'Two boxplots on the same scale compare reaction times. Group X has median 410 ms and IQR 60 ms; Group Y has median 380 ms and IQR 120 ms. Which comparison is correct?'
+  choices: ['Group X is faster and more variable', 'Group X has a lower typical time and less variability', 'The groups have the same spread', 'Group Y has a lower typical time but more variability']
+  answer: 3
+  explanation: |-
+    Compare centers: Y's median (380) is lower, so Y is typically faster. Compare spreads:
+    Y's IQR (120) is twice X's (60), so Y is more variable.
+
+- id: stat-q-0607
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'A boxplot of 80 battery lifetimes shows $Q_1 = 21$ hours and $Q_3 = 29$ hours. About how many batteries lasted between 21 and 29 hours?'
+  choices: ['20', '60', '40', '8']
+  answer: 2
+  explanation: |-
+    The box contains the middle 50% of the data: $0.5 \times 80 = 40$ batteries.
+
+- id: stat-q-0608
+  lesson: stat-boxplots
+  module_quiz: true
+  topic: Boxplots and outliers
+  stem: 'A data set has $Q_1 = 10.5$, $Q_3 = 22.5$ and maximum 40. Is 40 an outlier by the $1.5 \times \text{IQR}$ rule?'
+  choices: ['Yes, because it is far from the median', 'Yes, because it is more than 2 IQRs above $Q_1$', 'No, because the range is less than 40', 'No, because the upper fence is 40.5']
+  answer: 3
+  explanation: |-
+    IQR $= 12$, so the upper fence is $22.5 + 18 = 40.5$. Since $40 < 40.5$, it is not an
+    outlier — though it is close. Always compute the fence rather than judging by eye.
+
+- id: stat-q-0609
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'Which is the correct five-number summary of 7, 3, 9, 12, 5, 15, 10?'
+  choices: ['3, 5, 9, 12, 15', '3, 4, 9, 13.5, 15', '3, 5, 10, 12, 15', '3, 6, 9, 11, 15']
+  answer: 0
+  explanation: |-
+    Sort: 3, 5, 7, 9, 10, 12, 15. Median = 4th value = 9. Lower half 3, 5, 7 → $Q_1 = 5$.
+    Upper half 10, 12, 15 → $Q_3 = 12$. Summary: 3, 5, 9, 12, 15.
+
+- id: stat-q-0610
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'A value is flagged as an outlier. What should you do first?'
+  choices: ['Delete it so the mean is accurate', 'Replace it with the median', 'Investigate it: check for a recording error or a different group, and report results with and without it if it matters', 'Ignore it, since outliers never affect conclusions']
+  answer: 2
+  explanation: |-
+    Outliers may be errors or important real cases. Investigate before acting; never
+    delete data just because it is inconvenient. If a value is a clear error, correct or
+    remove it and say so.

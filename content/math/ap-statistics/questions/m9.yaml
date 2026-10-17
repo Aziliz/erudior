@@ -1,0 +1,310 @@
+# Module 9 — Chi-square and regression inference
+# ---- Lesson 36: chi-square GOF
+- id: stat-q-3701
+  lesson: stat-chi-gof
+  module_quiz: true
+  topic: Chi-square goodness of fit
+  stem: 'A spinner should land on red, blue and green equally often. In 120 spins: red 50, blue 30, green 40. What is $\chi^2$?'
+  choices: ['20', '0.5', '10', '5']
+  answer: 3
+  explanation: |-
+    Expected 40 each. $\chi^2 = \dfrac{10^2}{40} + \dfrac{(-10)^2}{40} + \dfrac{0^2}{40} = 2.5 + 2.5 + 0 = 5$.
+    Forgetting to divide by the expected counts gives 200; dividing the total by 20 is not the formula.
+
+- id: stat-q-3702
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'For the spinner ($\chi^2 = 5$, 3 categories), what are the df and the approximate p-value?'
+  choices: ['df = 2, p ≈ 0.082', 'df = 3, p ≈ 0.172', 'df = 119, p ≈ 1', 'df = 2, p ≈ 0.041']
+  answer: 0
+  explanation: |-
+    df $= 3 - 1 = 2$; $P(\chi^2_2 \ge 5) \approx 0.082$. Chi-square p-values are upper-tail only — no
+    halving or doubling.
+
+- id: stat-q-3703
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'Which condition must be checked for a chi-square goodness-of-fit test?'
+  choices: ['All observed counts are at least 5', 'The sample size is at least 30', 'The data are normally distributed', 'All expected counts are at least 5']
+  answer: 3
+  explanation: |-
+    The chi-square approximation needs large expected counts. Observed counts may be small or
+    even zero.
+
+- id: stat-q-3704
+  lesson: stat-chi-gof
+  module_quiz: true
+  topic: Chi-square goodness of fit
+  stem: 'A chi-square GOF test has 6 categories. How many degrees of freedom?'
+  choices: ['6', '5', '4', 'Depends on the sample size']
+  answer: 1
+  explanation: |-
+    df = number of categories − 1 = 5. Once five counts are known, the sixth is fixed by the
+    total.
+
+- id: stat-q-3705
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'Which statement about chi-square distributions is true?'
+  choices: ['They are symmetric about 0', 'They can take negative values', 'They are right-skewed, take only nonnegative values, and have mean equal to their df', 'They are identical to the t distributions']
+  answer: 2
+  explanation: |-
+    A sum of squared terms can't be negative. Chi-square distributions are right-skewed (less so
+    for large df) with mean equal to df.
+
+- id: stat-q-3706
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'A company claims its candy colors are 30% red, 20% yellow, 50% brown. A bag of 60 candies is tested. What is the expected count of yellow?'
+  choices: ['12', '20', '6', '30']
+  answer: 0
+  explanation: |-
+    Expected $= np = 60(0.20) = 12$.
+
+- id: stat-q-3707
+  lesson: stat-chi-gof
+  module_quiz: true
+  topic: Chi-square goodness of fit
+  stem: 'A chi-square GOF test gives p = 0.31. Which conclusion is correct?'
+  choices: ['The hypothesized distribution has been proven correct', 'The data show convincing evidence that the distribution differs from the claim', '31% of the categories differ from the claim', 'The data do not give convincing evidence that the distribution differs from the claim']
+  answer: 3
+  explanation: |-
+    A large p-value means the observed counts are consistent with $H_0$. That's a failure to find
+    evidence, not proof the claim is right.
+
+- id: stat-q-3708
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'After rejecting $H_0$ in a GOF test, how do you identify which categories differ most from the claim?'
+  choices: ['Look for the categories with the largest $(O - E)^2/E$ contributions', 'Look at the smallest observed counts', 'Recompute with fewer categories', 'Compare the p-value to each category''s proportion']
+  answer: 0
+  explanation: |-
+    The components $(O - E)^2/E$ show which categories contribute most to $\chi^2$; the sign of
+    $O - E$ tells the direction.
+
+- id: stat-q-3709
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'A student computes $\chi^2$ using percentages (observed 45% vs. expected 40%, etc.) instead of counts. What is the problem?'
+  choices: ['Nothing; percentages and counts give the same $\chi^2$', 'Percentages make the df wrong', 'The statistic depends on the counts; using percentages gives the wrong value (it ignores the sample size)', 'Percentages can''t be squared']
+  answer: 2
+  explanation: |-
+    $\chi^2$ grows with sample size for the same percentages — more data, more evidence. Using
+    percentages acts as if $n = 100$ regardless of the actual sample size.
+
+- id: stat-q-3710
+  lesson: stat-chi-gof
+  topic: Chi-square goodness of fit
+  stem: 'At df = 3, the critical value for $\alpha = 0.05$ is 7.815. A test gives $\chi^2 = 6.9$. Then'
+  choices: ['p < 0.05, reject $H_0$', 'p > 0.05, fail to reject $H_0$', 'p = 0.05 exactly', 'the test is invalid']
+  answer: 1
+  explanation: |-
+    6.9 is below the critical value 7.815, so the upper-tail area is more than 0.05. Fail to
+    reject $H_0$.
+
+# ---- Lesson 37: chi-square two-way
+- id: stat-q-3801
+  lesson: stat-chi-two-way
+  module_quiz: true
+  topic: Chi-square two-way tables
+  stem: 'In a two-way table with 300 people, a row total is 120 and a column total is 80. What is the expected count in that cell under $H_0$?'
+  choices: ['40', '96', '200', '32']
+  answer: 3
+  explanation: |-
+    Expected $= (120)(80)/300 = 32$.
+
+- id: stat-q-3802
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'A two-way table has 3 rows and 4 columns (not counting totals). How many degrees of freedom does the chi-square test have?'
+  choices: ['12', '11', '7', '6']
+  answer: 3
+  explanation: |-
+    df $= (r - 1)(c - 1) = 2 \times 3 = 6$.
+
+- id: stat-q-3803
+  lesson: stat-chi-two-way
+  module_quiz: true
+  topic: Chi-square two-way tables
+  stem: 'Researchers take separate random samples of 100 engineers, 100 technicians and 100 managers and ask each person''s preferred work schedule (3 options). Which test fits?'
+  choices: ['Chi-square test of homogeneity', 'Chi-square test of independence', 'Chi-square goodness-of-fit test', 'Two-proportion z test']
+  answer: 0
+  explanation: |-
+    Several independent samples (one per job group), one categorical variable: homogeneity.
+    Independence would use one sample with two variables recorded on each person.
+    A two-proportion z test handles only two groups and a two-outcome variable.
+
+- id: stat-q-3804
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'For a test of independence, which pair of hypotheses is correct?'
+  choices: ['$H_0$: the variables are associated; $H_a$: they are independent', '$H_0$: the two variables are independent in the population; $H_a$: they are associated', '$H_0$: all cell counts are equal; $H_a$: they are not', '$H_0$: $\chi^2 = 0$; $H_a$: $\chi^2 > 0$']
+  answer: 1
+  explanation: |-
+    The null is "no association" (independence). Equal cell counts are not implied, and
+    hypotheses concern the population, not the statistic.
+
+- id: stat-q-3805
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'A chi-square test for a 2×2 table gives $\chi^2 = 6.25$. What is the corresponding two-proportion (pooled) z statistic in absolute value?'
+  choices: ['6.25', '3.125', '2.5', '39.06']
+  answer: 2
+  explanation: |-
+    For 2×2 tables $\chi^2 = z^2$, so $|z| = \sqrt{6.25} = 2.5$, and the two tests give the same
+    two-sided p-value.
+
+- id: stat-q-3806
+  lesson: stat-chi-two-way
+  module_quiz: true
+  topic: Chi-square two-way tables
+  stem: 'A chi-square test of independence on observational survey data gives p < 0.001. Which conclusion is justified?'
+  choices: ['One variable causes the other', 'The variables are associated in the population', 'The variables are independent', 'Every cell differs from its expected count']
+  answer: 1
+  explanation: |-
+    A small p-value is convincing evidence of association. Without random assignment, it doesn't
+    establish causation, and not every cell need differ.
+
+- id: stat-q-3807
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'Why are expected counts computed as (row total)(column total)/(grand total)?'
+  choices: ['Because that is what independence implies: each row has the same distribution as the overall column percentages', 'Because it makes all expected counts equal', 'Because it is the average of the row and column totals', 'Because it maximizes $\chi^2$']
+  answer: 0
+  explanation: |-
+    Under independence, the proportion in a column is the same in every row: row total ×
+    (column total / grand total).
+
+- id: stat-q-3808
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'A test of independence has a cell with expected count 2.4. What should you do?'
+  choices: ['Proceed; only observed counts matter', 'Use a t test instead', 'Note that the large-counts condition fails; combine sparse categories (if sensible) before testing', 'Double the sample size in the formula']
+  answer: 2
+  explanation: |-
+    All expected counts should be at least 5. Merging sparse categories (if sensible) fixes the problem;
+    otherwise the chi-square p-value can't be trusted.
+
+- id: stat-q-3809
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'In the transit survey, the largest contribution to $\chi^2$ came from under-30 car commuters (observed 10, expected 25.5). What does that tell you?'
+  choices: ['Under-30 commuters drive much less than independence would predict', 'Under-30 commuters drive more than expected', 'The test is invalid', 'Age has no effect on driving']
+  answer: 0
+  explanation: |-
+    The observed count is far below the expected count, so driving is much less common among
+    under-30s than it would be if age and mode were independent.
+
+- id: stat-q-3810
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'A test of independence with df = 4 gives $\chi^2 = 12.5$. The p-value is about'
+  choices: ['0.0014', '0.14', '0.014', '0.41']
+  answer: 2
+  explanation: |-
+    $P(\chi^2_4 \ge 12.5) \approx 0.014$ (the 0.05 critical value is 9.488 and the 0.01 value is
+    13.277, so $0.01 < p < 0.05$).
+
+# ---- Lesson 38: regression inference
+- id: stat-q-3901
+  lesson: stat-reg-inference
+  module_quiz: true
+  topic: Regression inference
+  stem: 'Computer output for a regression on $n = 25$ points shows slope 4.1 with SE 1.25. What is the t statistic and its df?'
+  choices: ['$t = 3.28$, df = 23', '$t = 3.28$, df = 24', '$t = 5.13$, df = 23', '$t = 0.30$, df = 23']
+  answer: 0
+  explanation: |-
+    $t = b/SE_b = 4.1/1.25 = 3.28$; df $= n - 2 = 23$.
+
+- id: stat-q-3902
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'What null hypothesis is usually tested in inference for regression?'
+  choices: ['$H_0: b = 0$', '$H_0: r = 1$', '$H_0: \beta_0 = 0$', '$H_0: \beta_1 = 0$ (no linear relationship)']
+  answer: 3
+  explanation: |-
+    The test asks whether the population slope is 0, i.e. whether $x$ is useful for predicting $y$
+    linearly. Hypotheses are about the parameter $\beta_1$, not the statistic $b$.
+
+- id: stat-q-3903
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'Which residual plot pattern most directly violates the "Equal SD" condition for regression inference?'
+  choices: ['A curved pattern', 'Random scatter in a horizontal band', 'A fan shape, with spread increasing as $x$ increases', 'One point slightly above the rest']
+  answer: 2
+  explanation: |-
+    A fan shape means the variability of $y$ about the line changes with $x$. A curved pattern
+    violates linearity instead.
+
+- id: stat-q-3904
+  lesson: stat-reg-inference
+  module_quiz: true
+  topic: Regression inference
+  stem: 'A regression has $s = 0.5$, $s_x = 2$ and $n = 30$. What is $SE_b$?'
+  choices: ['0.0464', '0.25', '0.0456', '0.0083']
+  answer: 0
+  explanation: |-
+    $SE_b = s/(s_x\sqrt{n - 1}) = 0.5/(2\sqrt{29}) \approx 0.5/10.77 \approx 0.0464$. Using $\sqrt{n}$ gives
+    0.0456.
+
+- id: stat-q-3905
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'Software reports a two-sided p-value of 0.036 for the slope, and $b > 0$. What is the p-value for $H_a: \beta_1 > 0$?'
+  choices: ['0.072', '0.964', '0.036', '0.018']
+  answer: 3
+  explanation: |-
+    Software reports two-sided p-values. When the slope's sign matches the one-sided
+    alternative, halve it: 0.018.
+
+- id: stat-q-3906
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'Which change makes the estimated slope more precise (smaller $SE_b$)?'
+  choices: ['Choosing $x$ values that are spread out more widely', 'Using a smaller sample', 'More scatter around the line', 'Choosing all $x$ values close together']
+  answer: 0
+  explanation: |-
+    $SE_b = s/(s_x\sqrt{n-1})$: a larger $s_x$ (spread-out $x$ values), larger $n$, and smaller $s$ all
+    reduce it.
+
+- id: stat-q-3907
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'A 95% CI for the slope of fuel cost on distance is (0.08, 0.14) dollars per mile. Which interpretation is correct?'
+  choices: ['95% of trips cost between \$0.08 and \$0.14 per mile', 'We are 95% confident that each additional mile is associated with an average increase in cost of between \$0.08 and \$0.14', 'The correlation is between 0.08 and 0.14', 'There is no relationship']
+  answer: 1
+  explanation: |-
+    The interval estimates the population slope — the change in mean response per unit of $x$.
+    It excludes 0, so it also indicates a real positive relationship.
+
+- id: stat-q-3908
+  lesson: stat-reg-inference
+  module_quiz: true
+  topic: Regression inference
+  stem: 'Why does regression inference use $n - 2$ degrees of freedom?'
+  choices: ['Because the residuals sum to 2', 'Because two parameters, the slope and intercept, are estimated before computing the residual SD', 'Because there are two variables', 'Because the test is two-sided']
+  answer: 1
+  explanation: |-
+    Estimating $a$ and $b$ uses up two degrees of freedom, so $s = \sqrt{\text{SSE}/(n-2)}$ and t
+    procedures use df $= n - 2$.
+
+- id: stat-q-3909
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'A sample of 5 points has $r = 0.8$, and the slope test gives p ≈ 0.10. What is the best explanation?'
+  choices: ['The correlation must be wrong', 'With only 5 points, a fairly strong sample correlation can easily occur by chance', 'The relationship must be curved', 'The test should use df = 5']
+  answer: 1
+  explanation: |-
+    Small samples produce large chance correlations. With df = 3, $t = 2.31$ isn't extreme
+    enough for significance at 0.05.
+
+- id: stat-q-3910
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'In computer output, the row labeled "Constant" refers to'
+  choices: ['the slope', 'the residual standard deviation', 'the correlation', 'the intercept']
+  answer: 3
+  explanation: |-
+    "Constant" is the intercept $a$; the row named after the explanatory variable gives the slope,
+    its SE, $t$ and p-value.
+

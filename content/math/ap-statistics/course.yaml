@@ -1,0 +1,31 @@
+id: math-ap-statistics
+title: AP Statistics
+description: >-
+  AP Statistics: exploring one- and two-variable data, z-scores and the normal model,
+  correlation and regression, sampling and experimental design, probability, random
+  variables (binomial and geometric), sampling distributions and the Central Limit
+  Theorem, confidence intervals and significance tests for proportions and means,
+  chi-square tests and inference for the regression slope, with AP-style four-step
+  inference throughout.
+revision: 1
+released: true
+order: 11
+modules:
+  - id: stat-m1
+    title: Exploring one-variable data
+  - id: stat-m2
+    title: Position and the normal model
+  - id: stat-m3
+    title: Two-variable data
+  - id: stat-m4
+    title: Collecting data
+  - id: stat-m5
+    title: Probability
+  - id: stat-m6
+    title: Random variables
+  - id: stat-m7
+    title: Sampling distributions and confidence intervals
+  - id: stat-m8
+    title: Significance tests
+  - id: stat-m9
+    title: Chi-square and regression inference

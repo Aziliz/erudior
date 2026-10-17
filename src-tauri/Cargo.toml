@@ -1,6 +1,6 @@
 [package]
 name = "examiner"
-version = "0.7.9"
+version = "0.7.10"
 description = "Study app for licensing exams"
 authors = ["Jon"]
 edition = "2021"
