@@ -1,11 +1,12 @@
 // Storage layer. Inside the desktop app everything goes through Rust commands
-// (files in the per-user app data dir). In a plain browser (`npm run dev`
-// without Tauri) it falls back to localStorage so the UI can be worked on.
+// (files in the per-user app data dir). In a plain browser (the web version, or
+// `npm run dev` without Tauri) it uses IndexedDB (see webstore.ts).
 
 import { invoke, isTauri } from "@tauri-apps/api/core";
 import type { Bank, Course, Progress } from "./types";
 import { parseBank, serializeBank } from "./validate";
 import { normalizeCourse, serializeCourse } from "./course";
+import { webDelete, webGet, webList, webSet } from "./webstore";
 
 export const inApp = isTauri();
 
@@ -29,10 +30,7 @@ export function emptyProgress(): Progress {
 
 async function listRaw(kind: "banks" | "courses"): Promise<string[]> {
   if (inApp) return invoke<string[]>("list_items", { kind });
-  const prefix = kind === "banks" ? LS_BANK : LS_COURSE;
-  return Object.keys(localStorage)
-    .filter((k) => k.startsWith(prefix))
-    .map((k) => localStorage.getItem(k) ?? "");
+  return webList(kind === "banks" ? LS_BANK : LS_COURSE);
 }
 
 export async function listCourses(): Promise<{ courses: Course[]; broken: string[] }> {
@@ -52,12 +50,12 @@ export async function listCourses(): Promise<{ courses: Course[]; broken: string
 export async function saveCourse(course: Course): Promise<void> {
   const content = serializeCourse(course);
   if (inApp) await invoke("save_item", { kind: "courses", id: course.id, content });
-  else localStorage.setItem(LS_COURSE + course.id, content);
+  else await webSet(LS_COURSE + course.id, content);
 }
 
 export async function deleteCourse(id: string): Promise<void> {
   if (inApp) await invoke("delete_item", { kind: "courses", id });
-  else localStorage.removeItem(LS_COURSE + id);
+  else await webDelete(LS_COURSE + id);
 }
 
 export async function exportCourseFile(course: Course): Promise<boolean> {
@@ -82,16 +80,16 @@ export async function listBanks(): Promise<{ banks: Bank[]; broken: string[] }> 
 export async function saveBank(bank: Bank): Promise<void> {
   const content = serializeBank(bank);
   if (inApp) await invoke("save_item", { kind: "banks", id: bank.id, content });
-  else localStorage.setItem(LS_BANK + bank.id, content);
+  else await webSet(LS_BANK + bank.id, content);
 }
 
 export async function deleteBank(id: string): Promise<void> {
   if (inApp) await invoke("delete_item", { kind: "banks", id });
-  else localStorage.removeItem(LS_BANK + id);
+  else await webDelete(LS_BANK + id);
 }
 
 export async function loadProgress(): Promise<Progress> {
-  const text = inApp ? await invoke<string | null>("load_progress") : localStorage.getItem(LS_PROGRESS);
+  const text = inApp ? await invoke<string | null>("load_progress") : await webGet(LS_PROGRESS);
   if (!text) return emptyProgress();
   try {
     const p = JSON.parse(text) as Progress;
@@ -104,7 +102,7 @@ export async function loadProgress(): Promise<Progress> {
 export async function saveProgress(p: Progress): Promise<void> {
   const content = JSON.stringify(p);
   if (inApp) await invoke("save_progress", { content });
-  else localStorage.setItem(LS_PROGRESS, content);
+  else await webSet(LS_PROGRESS, content);
 }
 
 /** Ask the user for a bank or course file. Returns its text, or null if cancelled. */
@@ -197,13 +195,13 @@ export async function restoreBackup(
 /** The in-progress session (exam or practice), or null. */
 export async function loadSessionState(): Promise<string | null> {
   if (inApp) return invoke<string | null>("load_state", { name: "session" });
-  return localStorage.getItem("examiner.session");
+  return webGet("examiner.session");
 }
 
 export async function saveSessionState(content: string | null): Promise<void> {
   if (inApp) return invoke("save_state", { name: "session", content });
-  if (content === null) localStorage.removeItem("examiner.session");
-  else localStorage.setItem("examiner.session", content);
+  if (content === null) await webDelete("examiner.session");
+  else await webSet("examiner.session", content);
 }
 
 export async function confirmAction(message: string, title = "Examiner"): Promise<boolean> {
@@ -215,5 +213,5 @@ export async function confirmAction(message: string, title = "Examiner"): Promis
 }
 
 export async function dataLocation(): Promise<string> {
-  return inApp ? invoke<string>("data_location") : "this browser's local storage (web version; not synced with the desktop app)";
+  return inApp ? invoke<string>("data_location") : "this browser's storage (web version; not synced with the desktop app)";
 }
