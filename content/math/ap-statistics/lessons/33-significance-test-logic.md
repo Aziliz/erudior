@@ -13,7 +13,7 @@ Confidence intervals answer "what is the value of the parameter?" Significance t
 answer a yes/no question: "do the data give convincing evidence against a claim?" Is a
 new braking system *really* better, or could the observed improvement be chance? Did the
 on-time rate *really* fall, or is this sample just unlucky? This lesson lays out the
-reasoning; lesson 33 looks at the errors a test can make, and lessons 34 and 35 apply it to proportions and means.
+reasoning; lesson 34 looks at the errors a test can make, and lessons 35 and 36 apply it to proportions and means.
 
 ## The reasoning in one paragraph
 
@@ -23,7 +23,8 @@ observed. If that probability is very small, the result is hard to explain by ch
 alone, and we have evidence against the assumption. If it isn't small, chance is a
 plausible explanation, and the data don't give convincing evidence. This is proof by
 "near-contradiction": an outcome that would rarely happen if the claim were true counts
-against the claim.
+against the claim. It is the same reasoning as the simulation-based inference of lesson 20; this lesson
+replaces the simulated distribution with a sampling distribution worked out from a probability model.
 
 ## Hypotheses
 

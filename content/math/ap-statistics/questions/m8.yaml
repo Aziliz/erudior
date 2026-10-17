@@ -1,5 +1,5 @@
 # Module 8 — Significance tests
-# ---- Lesson 32: logic of tests
+# ---- Lesson 33: logic of tests
 - id: stat-q-3301
   lesson: stat-test-logic
   module_quiz: true
@@ -111,7 +111,7 @@
     $P(t_9 \ge 2.5) \approx 0.017$; doubling for two sides gives about 0.034. (Using the normal
     table instead would give 0.012.)
 
-# ---- Lesson 33: errors and power
+# ---- Lesson 34: errors and power
 - id: stat-q-3401
   lesson: stat-errors-power
   module_quiz: true
@@ -225,7 +225,7 @@
     increasing power. Raising $\alpha$ also increases power, but by accepting more Type I errors,
     not by reducing variability.
 
-# ---- Lesson 34: tests for proportions
+# ---- Lesson 35: tests for proportions
 - id: stat-q-3501
   lesson: stat-test-prop
   module_quiz: true
@@ -339,7 +339,7 @@
     Each group needs at least about 10 successes and 10 failures; using the pooled proportion
     ($n_1\hat{p}_c$, $n_1(1 - \hat{p}_c)$, …) is the most consistent with $H_0$.
 
-# ---- Lesson 35: tests for means
+# ---- Lesson 36: tests for means
 - id: stat-q-3601
   lesson: stat-test-mean
   module_quiz: true

@@ -111,12 +111,13 @@ process with random numbers, repeat it many times, and use the proportion of rep
 which the event occurs. For example, to estimate the chance that a family of four children
 has at least three girls, use random digits (even = girl, odd = boy), read four digits per
 family, repeat 1,000 times, and count. The law of large numbers guarantees the estimate
-improves with more repetitions.
+improves with more repetitions. The next lesson shows how to design and run simulations
+step by step, and how to use them to judge whether a result is surprising.
 
 ## Common mistakes
 
 - Adding probabilities of events that overlap without subtracting the intersection.
-- Confusing "mutually exclusive" with "independent" (next lesson): mutually exclusive
+- Confusing "mutually exclusive" with "independent" (lesson 21): mutually exclusive
   events with positive probabilities are never independent.
 - The gambler's fallacy: expecting short-run results to even out.
 - Forgetting to check that a probability model sums to 1.

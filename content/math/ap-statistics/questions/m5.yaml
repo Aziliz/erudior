@@ -114,7 +114,158 @@
     $P = \tfrac{13}{52} + \tfrac{12}{52} - \tfrac{3}{52} = \tfrac{22}{52}$. Forgetting to subtract
     the 3 heart face cards counts them twice ($\tfrac{25}{52}$).
 
-# ---- Lesson 20: conditional probability and independence
+# ---- Lesson 20: simulation
+- id: stat-q-sim-01
+  lesson: stat-simulation
+  module_quiz: true
+  topic: Simulation
+  stem: 'A free-throw shooter makes 40% of her shots. Which assignment of single random digits correctly simulates one shot?'
+  choices: ['0–3 = make, 4–9 = miss', '0–4 = make, 5–9 = miss', '1–4 = make, 5–9 = miss, ignore 0', '0–3 = make, 4–9 = miss, skipping any digit that repeats within a trial']
+  answer: 0
+  explanation: |-
+    Four of the ten equally likely digits (0, 1, 2, 3) give probability $4/10 = 0.4$. Using 0–4 is
+    an off-by-one slip that gives 5 digits, probability 0.5. Ignoring 0 leaves 9 usable digits, so
+    1–4 gives $4/9 \approx 0.44$. Skipping repeats is only for sampling without replacement;
+    shots are independent, so a digit may appear again.
+
+- id: stat-q-sim-02
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'About 23% of rail ties in a yard need replacing. Using pairs of random digits 00–99, which assignment simulates one tie?'
+  choices: ['00–23 = needs replacing, 24–99 = fine', '00–22 = needs replacing, 23–99 = fine', '01–23 = needs replacing, 24–99 = fine, ignore 00', '0–2 = needs replacing, 3–9 = fine, using one digit']
+  answer: 1
+  explanation: |-
+    The labels 00–22 are 23 of the 100 equally likely pairs, so the probability is 0.23. The range
+    00–23 contains 24 labels (probability 0.24), a counting slip. Ignoring 00 leaves 99 labels, so
+    01–23 gives $23/99 \approx 0.232$. One digit can only make tenths: 0–2 is probability 0.3.
+
+- id: stat-q-sim-03
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'Which plan correctly simulates rolls of a fair six-sided die with random digits?'
+  choices: ['Let digits 0–5 stand for faces 1–6 and let 6–9 stand for face 6', 'Let digits 1–6 stand for faces 1–6 and count 0, 7, 8 and 9 as a 1', 'Let digits 1–6 stand for faces 1–6 and ignore 0, 7, 8 and 9', 'Let digits 0–5 stand for faces 1–6 and skip any digit equal to the one before it']
+  answer: 2
+  explanation: |-
+    Using only the digits 1–6 and skipping the rest keeps the six faces equally likely, $1/6$ each.
+    Sending the extra digits to one face (6 or 1) makes that face far too likely ($5/10$). Skipping a
+    digit equal to the previous one wrongly treats the rolls as dependent, since a real die can show
+    the same face twice in a row.
+
+- id: stat-q-sim-04
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'Eight runners are labeled 1–8, and 3 are chosen at random for a drug test. Using single random digits, ignoring 0 and 9 and skipping repeats, which runners does the digit string 5 5 2 9 7 1 select?'
+  choices: ['5, 5, 2', '5, 2, 9', '2, 7, 1', '5, 2, 7']
+  answer: 3
+  explanation: |-
+    Read 5 (chosen), 5 (repeat, skip), 2 (chosen), 9 (not a label, skip), 7 (chosen): the
+    runners are 5, 2 and 7. Choosing 5 twice forgets that sampling is without replacement.
+    Taking 9 forgets that only 1–8 are labels. Dropping both 5s throws away a valid first pick.
+
+- id: stat-q-sim-05
+  lesson: stat-simulation
+  topic: Simulation
+  stem: |-
+    A train is on time with probability 0.8 each day, independently. To estimate the chance it is on
+    time all 3 days of a trip, digits 0–7 = on time and 8–9 = late, and each trial is 3 digits. The
+    8 trials are 214, 893, 570, 662, 908, 135, 487, 729. What is the simulation's estimate?
+  choices: ['0.5', '0.625', '0.512', '0.8']
+  answer: 0
+  explanation: |-
+    A trial succeeds only if all 3 digits are 0–7: 214, 570, 662 and 135 succeed; 893, 908, 487
+    and 729 each contain an 8 or 9. The estimate is $4/8 = 0.5$. Getting 0.625 comes from treating
+    8 as on time. 0.512 is the exact probability $0.8^3$, not what this simulation estimates, and
+    0.8 is the probability for a single day.
+
+- id: stat-q-sim-06
+  lesson: stat-simulation
+  module_quiz: true
+  topic: Simulation
+  stem: 'A simulation with a correct model gives an estimate from 50 trials. Which change makes the estimate more reliable?'
+  choices: ['Use two digits per outcome instead of one', 'Run many more trials, such as 1,000', 'Discard trials whose results look unusual', 'Adjust the digit assignment until the estimate matches what you expected']
+  answer: 1
+  explanation: |-
+    By the law of large numbers, the proportion settles toward the true probability as trials
+    increase. Using two digits for a probability already in tenths changes nothing. Discarding
+    unusual trials biases the estimate, and tuning the model to match an expectation replaces
+    the real process with a wrong model.
+
+- id: stat-q-sim-07
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'Ana runs 20 trials of a correct simulation and estimates 0.35. Ben runs 1,000 trials of the same simulation and estimates 0.41. Which statement is best?'
+  choices: ['The true probability must be 0.38, the average of the two estimates', 'One of them made an error, because a correct simulation gives one answer', 'Ben''s estimate is more trustworthy, though neither is exact', 'The two estimates are equally good because they use the same model']
+  answer: 2
+  explanation: |-
+    Simulation estimates vary from run to run, and more trials give less variable estimates, so
+    1,000 trials beat 20, though both are estimates. Averaging gives equal weight to a far less
+    precise estimate. Different answers don't signal an error; that is ordinary chance variation.
+    The same model does not make a 20-trial estimate as precise.
+
+- id: stat-q-sim-08
+  lesson: stat-simulation
+  module_quiz: true
+  topic: Simulation
+  stem: |-
+    A supplier claims 10% of its parts are defective. A buyer finds 11 defective parts in a random
+    sample of 50. In 500 simulated samples of 50 parts with a 10% defect rate, 4 samples had 11 or
+    more defective parts. What is the estimated p-value, and what should the buyer conclude?
+  choices: ['About 0.992; no evidence the rate is above 10%', 'About 0.22; weak evidence the rate is above 10%', 'About 0.008; convincing evidence the rate is exactly 10%', 'About 0.008; convincing evidence the rate is above 10%']
+  answer: 3
+  explanation: |-
+    The estimate is $4/500 = 0.008$: if the rate really were 10%, 11 or more defectives would be
+    rare, so the sample is convincing evidence that the rate is higher. 0.992 is the proportion
+    of simulated samples that were less extreme, the wrong tail. 0.22 is the sample proportion
+    $11/50$, not a p-value. A small p-value counts against the 10% claim; it can't support it.
+
+- id: stat-q-sim-09
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'In 100 simulated samples under a null model, the counts of the statistic at its largest values were: 6 occurred 9 times, 7 occurred 3 times, 8 occurred once, and no sample went higher. The observed statistic was 6, and large values count against the model. Estimate the p-value.'
+  choices: ['0.13', '0.09', '0.04', '0.87']
+  answer: 0
+  explanation: |-
+    "At least as extreme" means 6 or more: $(9 + 3 + 1)/100 = 0.13$. Counting only samples equal to
+    6 gives 0.09, and counting only values above 6 gives 0.04; both leave out part of the tail. 0.87
+    is the proportion less extreme than the observed value.
+
+- id: stat-q-sim-10
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'In a simulation under a null model, 31% of the simulated results were at least as extreme as the observed result. What is the best conclusion?'
+  choices: ['The simulation proves the null model is true', 'Chance alone is a plausible explanation, so there is not convincing evidence against the null model', 'There is convincing evidence against the null model', 'The simulation should be rerun until the proportion falls below 5%']
+  answer: 1
+  explanation: |-
+    Results like the observed one happen about 31% of the time by chance under the model, so
+    they are not surprising. That does not prove the model true; the data are just consistent
+    with it. Calling 31% convincing evidence reverses the logic, and rerunning until you get a
+    desired answer is cherry-picking.
+
+- id: stat-q-sim-11
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'In a randomization test for a two-group experiment, the responses are reshuffled into two groups many times. What does each reshuffle assume?'
+  choices: ['That the treatment works, so the treatment group''s responses are raised', 'That the subjects were randomly sampled from a population', 'That the treatment has no effect, so each subject''s response would be the same in either group', 'That the responses follow a normal distribution']
+  answer: 2
+  explanation: |-
+    The reshuffles show what differences random assignment alone produces when the treatment does
+    nothing, the null model. Assuming the treatment works builds in the conclusion. Random sampling
+    is a different idea (it supports generalizing to a population), and the method needs no
+    normality assumption.
+
+- id: stat-q-sim-12
+  lesson: stat-simulation
+  module_quiz: true
+  topic: Simulation
+  stem: 'To estimate the probability that a family with 3 children has at least 2 girls (each child a girl with probability 0.5, independently), digits 0–4 = girl and 5–9 = boy. What is one trial?'
+  choices: ['Read one digit and record whether it is a girl or a boy', 'Read 3 digits and record the sum of the digits', 'Read digits until the first girl appears and record how many digits were read', 'Read 3 digits and record whether at least 2 of them are 0–4']
+  answer: 3
+  explanation: |-
+    One trial must imitate one whole family (3 children) and record the event of interest, at
+    least 2 girls. One digit is one child, not a family. The sum of the digits has nothing to
+    do with the number of girls, and reading until the first girl models a different process.
+
+# ---- Lesson 21: conditional probability and independence
 - id: stat-q-2001
   lesson: stat-conditional
   module_quiz: true
@@ -229,7 +380,7 @@
     Both fail with probability $0.08^2 = 0.0064$, so power is available with probability
     $1 - 0.0064 = 0.9936$. $0.92^2 = 0.8464$ is the chance both work.
 
-# ---- Lesson 21: trees and Bayes
+# ---- Lesson 22: trees and Bayes
 - id: stat-q-2101
   lesson: stat-trees-bayes
   module_quiz: true
@@ -343,7 +494,7 @@
     The prior (e.g. prevalence) is updated by the evidence (a test result) to give the
     posterior, such as $P(D \mid +)$.
 
-# ---- Lesson 22: counting
+# ---- Lesson 23: counting
 - id: stat-q-2201
   lesson: stat-counting
   module_quiz: true

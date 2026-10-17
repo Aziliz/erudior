@@ -1,5 +1,5 @@
 # Module 7 — Sampling distributions and confidence intervals
-# ---- Lesson 27: sampling distributions
+# ---- Lesson 28: sampling distributions
 - id: stat-q-2801
   lesson: stat-sampling-dist
   module_quiz: true
@@ -114,7 +114,7 @@
     A result this extreme would happen in nearly 10% of samples even if $p = 0.30$, so it is
     consistent with the claim. This reasoning previews significance tests.
 
-# ---- Lesson 28: CLT
+# ---- Lesson 29: CLT
 - id: stat-q-2901
   lesson: stat-clt
   module_quiz: true
@@ -227,7 +227,7 @@
     $\sigma_{\bar{x}} = 12/6 = 2$, so 48 and 52 are $\pm 1$ standard deviation, and by the CLT
     $\bar{x}$ is approximately normal: about 68%. Using $\sigma = 12$ gives about 13%.
 
-# ---- Lesson 29: CI for a proportion
+# ---- Lesson 30: CI for a proportion
 - id: stat-q-3001
   lesson: stat-ci-prop
   module_quiz: true
@@ -341,7 +341,7 @@
     $\sigma_{\hat{p}} = \sqrt{p(1-p)/n}$ needs the unknown $p$; the standard error
     $\sqrt{\hat{p}(1-\hat{p})/n}$ estimates it from the data.
 
-# ---- Lesson 30: CI for a mean
+# ---- Lesson 31: CI for a mean
 - id: stat-q-3101
   lesson: stat-ci-mean
   module_quiz: true
@@ -454,7 +454,7 @@
     90% leaves 5% in each tail: $t^* = \text{invT}(0.95, 14) \approx 1.761$. 2.145 is the 95% value;
     1.645 is the normal value.
 
-# ---- Lesson 31: two-sample intervals
+# ---- Lesson 32: two-sample intervals
 - id: stat-q-3201
   lesson: stat-ci-two
   module_quiz: true

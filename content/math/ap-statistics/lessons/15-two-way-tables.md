@@ -4,7 +4,7 @@ module: stat-m3
 title: Two-way tables and conditional distributions
 minutes: 25
 topics: [Two-way tables]
-drills: [stat-two-way-cond, stat-two-way-joint]
+drills: [stat-two-way-cond, stat-two-way-joint, stat-mosaic-count]
 refs: [stat-ref-descriptive]
 ---
 ## Relationships between categorical variables
@@ -71,6 +71,10 @@ group, and the area of each rectangle is proportional to its cell count.
 
 ```plot
 {"x": [0.4, 3.9], "y": [-0.12, 1.05], "grid": false, "polygons": [{"points": [[0.7, 0], [1.3, 0], [1.3, 0.5], [0.7, 0.5]], "fill": true, "color": "#2c5e8f"}, {"points": [[0.7, 0.5], [1.3, 0.5], [1.3, 0.8333], [0.7, 0.8333]], "fill": true, "color": "#c2570c"}, {"points": [[0.7, 0.8333], [1.3, 0.8333], [1.3, 1], [0.7, 1]], "fill": true, "color": "#2f855a"}, {"points": [[1.7, 0], [2.3, 0], [2.3, 0.3125], [1.7, 0.3125]], "fill": true, "color": "#2c5e8f"}, {"points": [[1.7, 0.3125], [2.3, 0.3125], [2.3, 0.5], [1.7, 0.5]], "fill": true, "color": "#c2570c"}, {"points": [[1.7, 0.5], [2.3, 0.5], [2.3, 1], [1.7, 1]], "fill": true, "color": "#2f855a"}, {"points": [[2.7, 0], [3.3, 0], [3.3, 0.25], [2.7, 0.25]], "fill": true, "color": "#2c5e8f"}, {"points": [[2.7, 0.25], [3.3, 0.25], [3.3, 0.4167], [2.7, 0.4167]], "fill": true, "color": "#c2570c"}, {"points": [[2.7, 0.4167], [3.3, 0.4167], [3.3, 1], [2.7, 1]], "fill": true, "color": "#2f855a"}], "segments": [{"from": [0.5, 0], "to": [3.5, 0]}], "labels": [{"at": [1, -0.06], "text": "Under 30"}, {"at": [2, -0.06], "text": "30–50"}, {"at": [3, -0.06], "text": "Over 50"}, {"at": [3.62, 0.12], "text": "train"}, {"at": [3.6, 0.33], "text": "bus"}, {"at": [3.6, 0.7], "text": "car"}], "caption": "Segmented bar chart: the car share (top segment) grows with age"}
+```
+
+```plot
+{"x": [-0.1, 2.4], "y": [-0.12, 1.05], "grid": false, "polygons": [{"points": [[0.0, 0], [0.6, 0], [0.6, 0.5], [0.0, 0.5]], "fill": true, "color": "#2c5e8f"}, {"points": [[0.0, 0.5], [0.6, 0.5], [0.6, 0.8333], [0.0, 0.8333]], "fill": true, "color": "#c2570c"}, {"points": [[0.0, 0.8333], [0.6, 0.8333], [0.6, 1.0], [0.0, 1.0]], "fill": true, "color": "#2f855a"}, {"points": [[0.64, 0], [1.44, 0], [1.44, 0.3125], [0.64, 0.3125]], "fill": true, "color": "#2c5e8f"}, {"points": [[0.64, 0.3125], [1.44, 0.3125], [1.44, 0.5], [0.64, 0.5]], "fill": true, "color": "#c2570c"}, {"points": [[0.64, 0.5], [1.44, 0.5], [1.44, 1.0], [0.64, 1.0]], "fill": true, "color": "#2f855a"}, {"points": [[1.48, 0], [2.08, 0], [2.08, 0.25], [1.48, 0.25]], "fill": true, "color": "#2c5e8f"}, {"points": [[1.48, 0.25], [2.08, 0.25], [2.08, 0.4167], [1.48, 0.4167]], "fill": true, "color": "#c2570c"}, {"points": [[1.48, 0.4167], [2.08, 0.4167], [2.08, 1.0], [1.48, 1.0]], "fill": true, "color": "#2f855a"}], "segments": [{"from": [-0.02, 0], "to": [2.1, 0]}], "labels": [{"at": [0.3, -0.06], "text": "Under 30"}, {"at": [1.04, -0.06], "text": "30–50"}, {"at": [1.78, -0.06], "text": "Over 50"}, {"at": [2.25, 0.12], "text": "train"}, {"at": [2.25, 0.33], "text": "bus"}, {"at": [2.25, 0.7], "text": "car"}], "caption": "Mosaic plot: bar widths 60 : 80 : 60 show the age-group sizes; segment heights show each group's mode split"}
 ```
 
 ### Example 1

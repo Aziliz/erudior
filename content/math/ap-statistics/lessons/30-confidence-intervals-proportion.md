@@ -13,11 +13,11 @@ A poll finds 45% support for a ballot measure. The true population proportion is
 certainly *not* exactly 45% — but how far off could it be? A confidence interval answers
 with a range of plausible values and a measure of how reliable the method is. This lesson
 builds the interval for a proportion from the sampling distribution of $\hat{p}$ in
-lesson 27.
+lesson 28.
 
 ## The idea
 
-From lesson 27, $\hat{p}$ is approximately normal with mean $p$ and standard deviation
+From lesson 28, $\hat{p}$ is approximately normal with mean $p$ and standard deviation
 $\sqrt{p(1-p)/n}$. So in about 95% of samples, $\hat{p}$ lands within $1.96$ standard
 deviations of $p$. Turn that around: in 95% of samples, $p$ is within $1.96$ standard
 deviations of $\hat{p}$. The interval

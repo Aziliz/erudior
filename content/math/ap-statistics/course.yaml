@@ -8,9 +8,9 @@ description: >-
   four-step inference. Also covers topics the 2026–27 AP framework dropped but college
   intro courses still teach (geometric distribution, combining random variables,
   transformations, goodness of fit, slope inference), each marked with an AP scope note.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections.
+changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lesson on simulation.
 order: 11
 subject: Math
 level: [High school]

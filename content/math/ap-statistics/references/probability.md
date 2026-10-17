@@ -16,6 +16,17 @@ title: Probability and distributions
 | Total probability | $P(A) = \sum P(B_i)\,P(A \mid B_i)$ |
 | Bayes | $P(B_j \mid A) = \dfrac{P(B_j)\,P(A \mid B_j)}{\sum P(B_i)\,P(A \mid B_i)}$ |
 
+## Simulation
+
+| Step | What to write |
+|---|---|
+| State | The chance process and the event whose probability you want |
+| Plan | Which random numbers stand for which outcomes (one digit for tenths, two for hundredths; ignore unused labels; skip repeats when sampling without replacement), what one trial is, what you record |
+| Do | Many trials (hundreds or thousands with technology) |
+| Conclude | Estimate = (trials where the event happened) ÷ (number of trials), in context |
+
+Simulation-based inference: simulate under a null model; the proportion of simulated results at least as extreme as the observed one estimates the p-value. Under about 5% counts as convincing evidence against the model.
+
 ## Counting
 
 | Count | Formula |
@@ -57,3 +68,4 @@ Extra facts: geometric $P(X > k) = (1-p)^k$; binomial ≈ normal when $np \ge 10
 | Geometric | geometpdf(p, k), geometcdf(p, k) |
 | Normal area | normalcdf(lower, upper, μ, σ) |
 | Normal cutoff | invNorm(area to the left, μ, σ) |
+| Random integers for a simulation | randInt(low, high, how many) |

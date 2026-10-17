@@ -53,6 +53,173 @@
     Rearrange the addition rule: $P(A \cap B) = P(A) + P(B) - P(A \cup B) = {pa} + {pb} - {pu} =$
     **{pab}**. A only $= P(A) - P(A \cap B) = {pa} - {pab} =$ **{aonly}**.
 
+- id: stat-sim-digits
+  title: Run a simulation from random digits
+  topic: Simulation
+  vars:
+    pp: {choices: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]}
+    d1: {min: 0, max: 9}
+    d2: {min: 0, max: 9}
+    d3: {min: 0, max: 9}
+    d4: {min: 0, max: 9}
+    d5: {min: 0, max: 9}
+    d6: {min: 0, max: 9}
+    d7: {min: 0, max: 9}
+    d8: {min: 0, max: 9}
+    d9: {min: 0, max: 9}
+    d10: {min: 0, max: 9}
+    d11: {min: 0, max: 9}
+    d12: {min: 0, max: 9}
+    d13: {min: 0, max: 9}
+    d14: {min: 0, max: 9}
+    d15: {min: 0, max: 9}
+    d16: {min: 0, max: 9}
+    d17: {min: 0, max: 9}
+    d18: {min: 0, max: 9}
+    d19: {min: 0, max: 9}
+    d20: {min: 0, max: 9}
+  calc:
+    km: round(10*pp - 1)
+    kk: round(10*pp)
+    ns: (d1 <= km) + (d2 <= km) + (d3 <= km) + (d4 <= km) + (d5 <= km) + (d6 <= km) + (d7 <= km) + (d8 <= km) + (d9 <= km) + (d10 <= km) + (d11 <= km) + (d12 <= km) + (d13 <= km) + (d14 <= km) + (d15 <= km) + (d16 <= km) + (d17 <= km) + (d18 <= km) + (d19 <= km) + (d20 <= km)
+    est: ns/20
+  prompt: |-
+    A rail inspector's sensor flags a faulty joint correctly with probability {pp}. To simulate 20
+    independent inspections, let the digits 0–{km} stand for a correct flag and {kk}–9 for a miss,
+    one digit per inspection. The random digits are
+
+    $$\texttt{{d1}{d2}{d3}{d4}{d5} \; {d6}{d7}{d8}{d9}{d10} \; {d11}{d12}{d13}{d14}{d15} \; {d16}{d17}{d18}{d19}{d20}}$$
+
+    How many of the 20 simulated inspections flag the joint correctly, and what is the simulation's
+    estimate of the probability?
+  answers:
+    - {name: ns, label: 'Correct flags', format: integer}
+    - {name: est, label: 'Estimate', tolerance: 0.001, format: num2}
+  solution: |-
+    Count the digits from 0 to {km} ({kk} of the 10 digits, so each has probability {pp}). There are
+    **{ns}** of them, so the estimate is ${ns}/20 =$ **{est:num2}**. (The true value is {pp}; with only 20
+    trials the estimate can easily miss by 0.1 or more.)
+
+- id: stat-sim-trials
+  title: Estimate a probability from simulated trials
+  topic: Simulation
+  vars:
+    pp: {choices: [0.3, 0.4, 0.5, 0.6]}
+    mm: {choices: [2, 3]}
+    d1: {min: 0, max: 9}
+    d2: {min: 0, max: 9}
+    d3: {min: 0, max: 9}
+    d4: {min: 0, max: 9}
+    d5: {min: 0, max: 9}
+    d6: {min: 0, max: 9}
+    d7: {min: 0, max: 9}
+    d8: {min: 0, max: 9}
+    d9: {min: 0, max: 9}
+    d10: {min: 0, max: 9}
+    d11: {min: 0, max: 9}
+    d12: {min: 0, max: 9}
+    d13: {min: 0, max: 9}
+    d14: {min: 0, max: 9}
+    d15: {min: 0, max: 9}
+    d16: {min: 0, max: 9}
+    d17: {min: 0, max: 9}
+    d18: {min: 0, max: 9}
+    d19: {min: 0, max: 9}
+    d20: {min: 0, max: 9}
+    d21: {min: 0, max: 9}
+    d22: {min: 0, max: 9}
+    d23: {min: 0, max: 9}
+    d24: {min: 0, max: 9}
+    d25: {min: 0, max: 9}
+    d26: {min: 0, max: 9}
+    d27: {min: 0, max: 9}
+    d28: {min: 0, max: 9}
+    d29: {min: 0, max: 9}
+    d30: {min: 0, max: 9}
+    d31: {min: 0, max: 9}
+    d32: {min: 0, max: 9}
+    d33: {min: 0, max: 9}
+    d34: {min: 0, max: 9}
+    d35: {min: 0, max: 9}
+    d36: {min: 0, max: 9}
+    d37: {min: 0, max: 9}
+    d38: {min: 0, max: 9}
+    d39: {min: 0, max: 9}
+    d40: {min: 0, max: 9}
+  calc:
+    km: round(10*pp - 1)
+    kk: round(10*pp)
+    s1: (d1 <= km) + (d2 <= km) + (d3 <= km) + (d4 <= km)
+    s2: (d5 <= km) + (d6 <= km) + (d7 <= km) + (d8 <= km)
+    s3: (d9 <= km) + (d10 <= km) + (d11 <= km) + (d12 <= km)
+    s4: (d13 <= km) + (d14 <= km) + (d15 <= km) + (d16 <= km)
+    s5: (d17 <= km) + (d18 <= km) + (d19 <= km) + (d20 <= km)
+    s6: (d21 <= km) + (d22 <= km) + (d23 <= km) + (d24 <= km)
+    s7: (d25 <= km) + (d26 <= km) + (d27 <= km) + (d28 <= km)
+    s8: (d29 <= km) + (d30 <= km) + (d31 <= km) + (d32 <= km)
+    s9: (d33 <= km) + (d34 <= km) + (d35 <= km) + (d36 <= km)
+    s10: (d37 <= km) + (d38 <= km) + (d39 <= km) + (d40 <= km)
+    nt: (s1 >= mm) + (s2 >= mm) + (s3 >= mm) + (s4 >= mm) + (s5 >= mm) + (s6 >= mm) + (s7 >= mm) + (s8 >= mm) + (s9 >= mm) + (s10 >= mm)
+    est: nt/10
+  prompt: |-
+    Each of 4 independent signals on a line is green with probability {pp}. To estimate the probability
+    that **at least {mm}** of the 4 signals are green, let the digits 0–{km} mean green and {kk}–9 mean
+    red. One trial is a group of 4 digits. The 10 trials are
+
+    $$\texttt{{d1}{d2}{d3}{d4} \; {d5}{d6}{d7}{d8} \; {d9}{d10}{d11}{d12} \; {d13}{d14}{d15}{d16} \; {d17}{d18}{d19}{d20} \; {d21}{d22}{d23}{d24} \; {d25}{d26}{d27}{d28} \; {d29}{d30}{d31}{d32} \; {d33}{d34}{d35}{d36} \; {d37}{d38}{d39}{d40}}$$
+
+    In how many trials were at least {mm} signals green, and what is the estimated probability?
+  answers:
+    - {name: nt, label: 'Trials', format: integer}
+    - {name: est, label: 'Estimate', tolerance: 0.001, format: num1}
+  solution: |-
+    Green counts (digits 0–{km}) in the 10 trials: {s1}, {s2}, {s3}, {s4}, {s5}, {s6}, {s7}, {s8}, {s9}, {s10}.
+    **{nt}** trials have at least {mm} green, so the estimate is ${nt}/10 =$ **{est:num1}**.
+
+- id: stat-sim-pvalue
+  title: Estimated p-value from a simulation
+  topic: Simulation
+  vars:
+    rr: {choices: [200, 500, 1000]}
+    obs: {min: 13, max: 16}
+    e12: {min: -3, max: 3}
+    e13: {min: -3, max: 3}
+    e14: {min: -3, max: 3}
+    e15: {min: -1, max: 1}
+    e16: {min: -1, max: 1}
+  where: ['ext >= 1']
+  calc:
+    c12: max(0, round(rr*binompdf(20, 0.5, 12)) + e12)
+    c13: max(0, round(rr*binompdf(20, 0.5, 13)) + e13)
+    c14: max(0, round(rr*binompdf(20, 0.5, 14)) + e14)
+    c15: max(0, round(rr*binompdf(20, 0.5, 15)) + e15)
+    c16: max(0, round(rr*binompdf(20, 0.5, 16)) + e16)
+    c17: max(0, round(rr*binompdf(20, 0.5, 17)))
+    c18: max(0, round(rr*binompdf(20, 0.5, 18)))
+    c19: max(0, round(rr*binompdf(20, 0.5, 19)))
+    c20: max(0, round(rr*binompdf(20, 0.5, 20)))
+    ext: ((12) >= obs)*c12 + ((13) >= obs)*c13 + ((14) >= obs)*c14 + ((15) >= obs)*c15 + ((16) >= obs)*c16 + ((17) >= obs)*c17 + ((18) >= obs)*c18 + ((19) >= obs)*c19 + ((20) >= obs)*c20
+    pv: ext/rr
+  prompt: |-
+    A store claims shoppers are evenly split between two checkout designs. In a random sample of 20
+    shoppers, {obs} prefer the new design. To judge this, a computer simulated {rr} samples of 20
+    shoppers who each prefer the new design with probability 0.5. The largest simulated counts were:
+
+    | Number preferring new design | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
+    |---|---|---|---|---|---|---|---|---|---|
+    | Simulated samples | {c12} | {c13} | {c14} | {c15} | {c16} | {c17} | {c18} | {c19} | {c20} |
+
+    (The other simulated samples had 11 or fewer.) How many simulated samples are at least as extreme
+    as the observed result, in the direction of more shoppers preferring the new design? Estimate the
+    p-value to 3 decimal places.
+  answers:
+    - {name: ext, label: 'Samples', format: integer}
+    - {name: pv, label: 'Estimated p-value', tolerance: 0.0005, format: dp3}
+  solution: |-
+    At least as extreme means {obs} **or more**. Add the counts from {obs} up: **{ext}** samples.
+    Estimated p-value $= {ext}/{rr:dp0} =$ **{pv:dp3}**. Below about 0.05 would be convincing evidence that
+    more than half of shoppers prefer the new design; above it, chance is a plausible explanation.
+
 - id: stat-cond-table
   title: Conditional probability from a table
   topic: Conditional probability

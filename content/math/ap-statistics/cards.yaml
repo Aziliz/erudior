@@ -7,6 +7,7 @@
 - {front: 'Census', back: 'Data from every individual in the population; its summaries are parameters.', topic: 'Types of data'}
 - {front: 'Descriptive vs. inferential statistics', back: 'Descriptive summarizes the data in hand; inferential draws conclusions about a population from a sample, with a measure of uncertainty.', topic: 'Types of data'}
 - {front: 'Relative frequency', back: '$\text{count} / \text{total}$; relative frequencies of all categories sum to 1.', topic: 'Types of data'}
+- {front: 'Investigative question', back: 'The question a study is designed to answer, set before collecting data. It names the population, the variables, and the kind of answer wanted (estimate a parameter, compare, or check an association).', topic: 'Types of data'}
 # Categorical displays
 - {front: 'Pie chart angle', back: '$\text{angle} = \text{relative frequency} \times 360^\circ$.', topic: 'Categorical displays'}
 - {front: 'When is a pie chart appropriate?', back: 'Only when the categories are parts of one whole: every individual in exactly one category, totals 100%.', topic: 'Categorical displays'}
@@ -100,6 +101,7 @@
 - {front: 'Marginal, joint, conditional', back: 'Marginal: total ÷ grand total. Joint: cell ÷ grand total. Conditional: cell ÷ the given row/column total.', topic: 'Two-way tables'}
 - {front: 'Association in a two-way table', back: 'Conditional distributions differ across the categories of the other variable.', topic: 'Two-way tables'}
 - {front: 'Simpson''s paradox', back: 'An association reverses when groups are combined, because of a lurking variable.', topic: 'Two-way tables'}
+- {front: 'Mosaic plot', back: 'A segmented bar chart whose bar widths are proportional to group sizes: heights show conditional distributions, widths show the marginal distribution, and each rectangle''s area is proportional to its cell count.', topic: 'Two-way tables'}
 # Sampling
 - {front: 'Convenience and voluntary response samples', back: 'Both are biased; a larger sample does not remove bias.', topic: 'Sampling and bias'}
 - {front: 'Simple random sample', back: 'Every set of $n$ individuals is equally likely to be chosen.', topic: 'Sampling and bias'}
@@ -130,6 +132,13 @@
 - {front: 'Equally likely outcomes', back: '$P(A) = \dfrac{\text{outcomes in } A}{\text{total outcomes}}$.', topic: 'Probability rules'}
 - {front: 'Valid probability model', back: 'Every probability between 0 and 1; all probabilities sum to 1.', topic: 'Probability rules'}
 - {front: 'Gambler''s fallacy', back: 'Believing a streak makes the other outcome "due"; independent trials have no memory.', topic: 'Probability rules'}
+# Simulation
+- {front: 'Four steps of a simulation', back: 'State the question; Plan the model (assign random numbers to outcomes, define one trial and what to record); Do many trials; Conclude with the proportion of trials where the event happened.', topic: 'Simulation'}
+- {front: 'Assigning random digits', back: 'One digit for probabilities in tenths (0.7: digits 0–6), two digits for hundredths (0.13: 00–12). Ignore labels you don''t use.', topic: 'Simulation'}
+- {front: 'Simulating sampling without replacement', back: 'Skip any label that already appeared in the current trial, since the same individual can''t be chosen twice.', topic: 'Simulation'}
+- {front: 'How many simulation trials?', back: 'As many as practical: the estimate settles toward the true probability (law of large numbers). 1,000 trials typically land within about 0.03. More trials can''t fix a wrong model.', topic: 'Simulation'}
+- {front: 'Simulation-based inference', back: 'Simulate many data sets under a null model; the proportion of simulated results at least as extreme as the observed one estimates the p-value. Rare (under about 5%) means convincing evidence against the model.', topic: 'Simulation'}
+- {front: 'Randomization test', back: 'For an experiment: reshuffle the responses into groups many times assuming no treatment effect; see how often a difference as large as the observed one happens.', topic: 'Simulation'}
 # Conditional probability
 - {front: 'Conditional probability', back: '$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$.', topic: 'Conditional probability'}
 - {front: 'General multiplication rule', back: '$P(A \cap B) = P(A)\,P(B \mid A)$.', topic: 'Conditional probability'}

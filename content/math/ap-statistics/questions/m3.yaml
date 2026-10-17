@@ -565,3 +565,53 @@
   explanation: |-
     Marginal distributions come from the row or column totals divided by the grand total —
     the other variable is ignored. Within one category is a conditional distribution.
+
+- id: stat-q-1511
+  lesson: stat-two-way
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'In a mosaic plot of commuters by age group (one bar per age group) and transit mode (segments), what does the width of each bar show?'
+  choices: ['The percent of that age group who take the train', 'The proportion of all commuters who are in that age group', 'The number of transit modes used by that age group', 'The conditional distribution of age group among train riders']
+  answer: 1
+  explanation: |-
+    Bar widths are proportional to group sizes, so they show the marginal distribution of age
+    group. The percent of an age group taking the train is a segment height (a conditional
+    distribution), not a width. The number of modes is the number of segments, and age group
+    among train riders conditions the other way round.
+
+- id: stat-q-1512
+  lesson: stat-two-way
+  topic: Two-way tables
+  stem: 'A mosaic plot shows 400 rail passengers by ticket type and trip purpose. The weekend-ticket bar takes up 30% of the total width, and its leisure segment fills 70% of that bar''s height. How many passengers bought weekend tickets for leisure trips?'
+  choices: ['280', '120', '84', '21']
+  answer: 2
+  explanation: |-
+    The width gives the group: $0.30 \times 400 = 120$ weekend-ticket passengers. The height gives
+    the share of that group: $0.70 \times 120 = 84$. Using only the height ($0.70 \times 400 = 280$)
+    ignores the width, and stopping at 120 ignores the height. 21 is $0.30 \times 0.70 = 0.21$
+    read as a count instead of multiplied by 400.
+
+- id: stat-q-1513
+  lesson: stat-two-way
+  topic: Two-way tables
+  stem: 'What does a mosaic plot show that a segmented bar chart of the same two-way table does not?'
+  choices: ['The sizes of the groups, because bar widths are proportional to group totals and so rectangle areas are proportional to cell counts', 'Raw counts instead of percents, because its bars are not scaled to 100%', 'Each category as a separate bar side by side instead of stacked segments', 'The whole data set as one bar instead of one bar per group']
+  answer: 0
+  explanation: |-
+    Both charts scale each bar to 100% and stack the conditional distribution; the mosaic plot
+    adds varying bar widths, so each rectangle's area is proportional to its count. Saying its
+    bars aren't scaled to 100% is false. Separate bars side by side describe a side-by-side bar
+    chart, and a single bar for all the data would show only one distribution.
+
+- id: stat-q-1514
+  lesson: stat-two-way
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'A survey of 250 students has 100 juniors and 150 seniors; 40 juniors and 105 seniors drive to school. In a mosaic plot with one bar per class year, what fraction of the total width is the seniors'' bar, and what fraction of that bar''s height is the "drive" segment?'
+  choices: ['Width 0.6; drive segment $105/250 = 0.42$', 'Width 0.5; drive segment 0.7', 'Width 0.6; drive segment $105/145 \approx 0.72$', 'Width 0.6; drive segment 0.7']
+  answer: 3
+  explanation: |-
+    Width: $150/250 = 0.6$ of the students are seniors. Height: $105/150 = 0.7$ of seniors drive.
+    Dividing 105 by the grand total gives the joint proportion 0.42, not the conditional one.
+    Equal widths of 0.5 describe a segmented bar chart, not a mosaic plot. $105/145$ is the
+    share of drivers who are seniors, which conditions on the wrong variable.

@@ -218,7 +218,7 @@
   "order": 11,
   "title": "AP Statistics",
   "description": "AP Statistics: exploring one- and two-variable data, z-scores and the normal model, correlation and regression, sampling and experimental design, probability, random variables, sampling distributions and the Central Limit Theorem, confidence intervals and significance tests for proportions and means, and chi-square tests, with AP-style four-step inference. Also covers topics the 2026–27 AP framework dropped but college intro courses still teach (geometric distribution, combining random variables, transformations, goodness of fit, slope inference), each marked with an AP scope note.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Math",
   "level": [
    "High school"
@@ -237,7 +237,7 @@
   "file": "math/math-probstats.json",
   "order": 12,
   "title": "Probability and Statistics",
-  "description": "Calculus-based probability and mathematical statistics at the college level: probability axioms, counting and Bayes' theorem, discrete and continuous random variables, moment generating functions, joint distributions, covariance and conditional expectation, the law of large numbers and the Central Limit Theorem, sampling distributions, point estimation and maximum likelihood, confidence intervals, hypothesis testing and likelihood ratio tests, regression, ANOVA and nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used for joint densities.",
+  "description": "Calculus-based probability and mathematical statistics at the college level: probability axioms, counting and Bayes' theorem, discrete and continuous random variables, moment generating functions, joint distributions, covariance and conditional expectation, the law of large numbers and the Central Limit Theorem, sampling distributions, point estimation, maximum likelihood and minimum-variance unbiased estimators, confidence intervals and the bootstrap, hypothesis testing and likelihood ratio tests, regression, ANOVA and nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used for joint densities.",
   "revision": 2,
   "subject": "Math",
   "level": [
@@ -246,10 +246,10 @@
   "type": [
    "Course"
   ],
-  "lessons": 34,
-  "questions": 422,
-  "cards": 274,
-  "drills": 96
+  "lessons": 36,
+  "questions": 459,
+  "cards": 289,
+  "drills": 105
  },
  {
   "id": "science-physics",
@@ -285,10 +285,10 @@
   "type": [
    "Course"
   ],
-  "lessons": 28,
-  "questions": 294,
-  "cards": 149,
-  "drills": 80
+  "lessons": 29,
+  "questions": 319,
+  "cards": 162,
+  "drills": 86
  },
  {
   "id": "science-uphys2",
@@ -304,9 +304,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 18,
-  "questions": 187,
+  "lessons": 20,
+  "questions": 212,
   "cards": 101,
-  "drills": 53
+  "drills": 57
  }
 ]

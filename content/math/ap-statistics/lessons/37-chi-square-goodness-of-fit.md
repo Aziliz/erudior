@@ -118,7 +118,7 @@ and Saturday — weekends, perhaps because of different staffing.
 ## Two categories: chi-square meets z
 
 With only two categories, the goodness-of-fit test is the same as a two-sided one-proportion z
-test. For the coin machine of lesson 34 (530 heads in 1,000 flips, $p_0 = 0.5$):
+test. For the coin machine of lesson 35 (530 heads in 1,000 flips, $p_0 = 0.5$):
 $\chi^2 = \dfrac{30^2}{500} + \dfrac{30^2}{500} = 3.6$, and $z = 1.897$ with $z^2 = 3.6$. Both give a
 p-value of about 0.058. Chi-square generalizes the z test to any number of categories.
 

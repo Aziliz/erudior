@@ -1,5 +1,5 @@
 # Module 9 — Chi-square and regression inference
-# ---- Lesson 36: chi-square GOF
+# ---- Lesson 37: chi-square GOF
 - id: stat-q-3701
   lesson: stat-chi-gof
   module_quiz: true
@@ -102,7 +102,7 @@
     6.9 is below the critical value 7.815, so the upper-tail area is more than 0.05. Fail to
     reject $H_0$.
 
-# ---- Lesson 37: chi-square two-way
+# ---- Lesson 38: chi-square two-way
 - id: stat-q-3801
   lesson: stat-chi-two-way
   module_quiz: true
@@ -205,7 +205,7 @@
     $P(\chi^2_4 \ge 12.5) \approx 0.014$ (the 0.05 critical value is 9.488 and the 0.01 value is
     13.277, so $0.01 < p < 0.05$).
 
-# ---- Lesson 38: regression inference
+# ---- Lesson 39: regression inference
 - id: stat-q-3901
   lesson: stat-reg-inference
   module_quiz: true

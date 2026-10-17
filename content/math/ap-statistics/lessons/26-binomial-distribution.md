@@ -115,7 +115,7 @@ Decide whether each count is binomial.
 2. *Number of rolls until the first six.* No fixed $n$: not binomial (geometric, next lesson).
 3. *Number of defective items when 5 are drawn from a box of 12 containing 3 defectives.* The
    sample is 42% of the box, so draws without replacement are far from independent: not
-   binomial (use the hypergeometric count from lesson 22).
+   binomial (use the hypergeometric count from lesson 23).
 4. *Number of 50 randomly selected voters (from a city of 400,000) who favor a measure.* The
    10% condition holds, so it is approximately binomial.
 

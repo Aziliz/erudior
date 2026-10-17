@@ -11,7 +11,7 @@ refs: [stat-ref-inference, stat-ref-which-test]
 
 Is the mean fill of cereal boxes below the labeled 12 oz? Does a training course improve
 productivity? Do two production lines differ in average output? These are questions about
-means, and they use the t distributions from lesson 30 with the test logic of lesson 32.
+means, and they use the t distributions from lesson 31 with the test logic of lesson 33.
 Three versions cover nearly every case: one-sample, paired, and two-sample.
 
 ## One-sample t test

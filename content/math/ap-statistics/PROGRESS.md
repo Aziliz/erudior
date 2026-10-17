@@ -245,3 +245,35 @@ All 26 drills were generated about 500 times each and checked against independen
 - Nothing else outstanding found. Lesson 26 has already been renamed to 26-geometric.md by another reviewer. Its lesson id is still stat-geom-poisson, which is fine because ids must stay stable.
 
 Build and check-course: OK, zero problems.
+
+## Gap lessons (2026-10-17)
+
+Filled the coverage gaps listed in VERIFY.md (simulation, investigative questions, mosaic plots).
+
+### New lesson
+- `stat-simulation`, "Simulation", `lessons/20-simulation.md`, module stat-m5, between probability rules and conditional probability (CED 2.3). It covers State/Plan/Do/Conclude, assigning one or two random digits, ignoring unused labels, skipping repeats without replacement, how the number of trials affects precision, simulation-based inference (null model, estimated p-value) and randomization tests. It has 3 worked examples (Examples 1 and 2 by hand from random digits, Example 3 a 200-sample simulation) and 2 figures (a running-proportion plot and a simulated distribution), plus Common mistakes and Key points.
+- Renumbering: old lessons 20–38 are now files 21–39, and every id is unchanged. Textual "lesson N" references for N ≥ 20 in lesson bodies and question-file comments were shifted by +1 (lessons 26, 29, 30, 33, 36, 37; m5–m9 comments).
+- Cross-references: lesson 19's Simulation section now points to the next lesson, and its "(next lesson)" for independence now says lesson 21. Lesson 33 ties its test logic back to the simulation-based inference of lesson 20.
+- The `references/probability.md` (stat-ref-probability) sheet has a new Simulation section and a randInt row. The lesson links stat-ref-probability and stat-ref-inference.
+- Glossary: "simulation" was updated (topic now Simulation). Added simulation trial, table of random digits, random number generator, null model, simulation-based inference and randomization test.
+- Cards: 6 Simulation cards, plus 1 card for investigative questions (Types of data) and 1 for mosaic plots (Two-way tables).
+
+### New questions (20; answer positions 5/5/5/5)
+- Lesson 20: stat-q-sim-01 … stat-q-sim-12. The module-quiz questions are sim-01, sim-06, sim-08 and sim-12.
+- Lesson 01 (investigative questions): stat-q-0111–0114. 0111 and 0113 are in the module quiz.
+- Lesson 15 (mosaic plots): stat-q-1511–1514. 1511 and 1514 are in the module quiz.
+
+### New drills (4)
+- stat-sim-digits: count successes in 20 random digits and estimate.
+- stat-sim-trials: 10 four-digit trials, "at least m of 4", and estimate.
+- stat-sim-pvalue: a tail table from a simulated null distribution; count at least as extreme and estimate the p-value. `where ext >= 1`.
+- stat-mosaic-count: from bar width % and segment height %, find the group size and cell count. Linked from lesson 15.
+- No drill for investigative questions, since there is no computation to drill.
+- Lesson 15 also has a new mosaic-plot figure (widths 60:80:60) under the segmented bar chart.
+
+### Notes for reviewers
+- Numbers in the simulations are genuine seeded runs. In Example 1, the 50 digits give 4/10 against the exact 0.528. In Example 2 the result is 2/4, and a 1,000-trial run gave 0.328 against the exact 1/3. In Example 3, 3 of 200 samples are at 27 or more (exact P = 0.019).
+- Verification: every new question was solved in Python. Each new drill was generated 500 times, and the answers were recomputed from the digits and table shown in the prompt: 0 mismatches. Every shown answer is accepted when typed, and target+1 is rejected.
+- The randomization-test paragraph uses illustrative numbers ("say, only 12 of 1,000 shuffles") and has no data set.
+- Earlier sections of this file and VERIFY.md use the old lesson numbers (before the renumbering).
+- Build and check-course: OK, zero problems. Totals are 39 lessons, 430 questions, 83 drills, 214 cards and 243 glossary terms.

@@ -621,8 +621,30 @@
   topic: Probability rules
 - term: simulation
   aliases: [simulations]
-  definition: 'Imitating a random process with random numbers many times to estimate a probability.'
-  topic: Probability rules
+  definition: 'Imitating a random process with random numbers many times to estimate a probability: the estimate is the proportion of trials in which the event happened.'
+  topic: Simulation
+- term: simulation trial
+  aliases: [simulation trials]
+  definition: 'One complete run of the simulated random process (for example, 5 random digits for one simulated week), from which one result is recorded.'
+  topic: Simulation
+- term: table of random digits
+  aliases: [random digit table, random digits]
+  definition: 'A list of the digits 0–9 in which each position is equally likely to be any digit, independently of the others; used to carry out simulations and random selection by hand.'
+  topic: Simulation
+- term: random number generator
+  aliases: [random number generators]
+  definition: 'A calculator or software tool (such as randInt) that produces random numbers for simulations and random selection.'
+  topic: Simulation
+- term: null model
+  definition: 'The chance model assumed in simulation-based inference, usually "nothing special is going on"; simulated data sets are drawn from it to see what results chance alone produces.'
+  topic: Simulation
+- term: simulation-based inference
+  definition: 'Judging whether an observed result is surprising by simulating many data sets under a null model and finding the proportion of simulated results at least as extreme as the observed one (an estimated p-value).'
+  topic: Simulation
+- term: randomization test
+  aliases: [randomization tests]
+  definition: 'A simulation-based test for an experiment: the responses are reshuffled into treatment groups many times, assuming the treatment has no effect, to see how often a difference as large as the observed one arises by chance.'
+  topic: Simulation
 - term: conditional probability
   definition: 'The probability of $A$ given that $B$ occurred: $P(A \mid B) = P(A \cap B)/P(B)$.'
   topic: Conditional probability

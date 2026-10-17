@@ -1,5 +1,5 @@
 # Module 6 — Random variables
-# ---- Lesson 23: discrete random variables
+# ---- Lesson 24: discrete random variables
 - id: stat-q-2301
   lesson: stat-discrete-rv
   module_quiz: true
@@ -110,7 +110,7 @@
     The $n - 1$ corrects for estimating the mean from a sample. A probability distribution
     gives the true long-run mean, so the variance uses the probabilities directly.
 
-# ---- Lesson 24: combining random variables
+# ---- Lesson 25: combining random variables
 - id: stat-q-2401
   lesson: stat-combining-rv
   module_quiz: true
@@ -224,7 +224,7 @@
     Adding $n$ equal variances gives $n\sigma^2$; the SD is $\sqrt{n}\,\sigma$. Errors partly offset
     on average, though they don't cancel exactly.
 
-# ---- Lesson 25: binomial
+# ---- Lesson 26: binomial
 - id: stat-q-2501
   lesson: stat-binomial
   module_quiz: true
@@ -338,7 +338,7 @@
     $p(1-p)$ is a downward parabola with its maximum at $p = 0.5$ (value 0.25). Outcomes are
     most uncertain when success and failure are equally likely; at $p = 1$ the variance is 0.
 
-# ---- Lesson 26: geometric distribution
+# ---- Lesson 27: geometric distribution
 - id: stat-q-2601
   lesson: stat-geom-poisson
   module_quiz: true

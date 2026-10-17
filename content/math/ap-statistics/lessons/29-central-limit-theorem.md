@@ -32,7 +32,7 @@ without replacement, check the 10% condition.)
 
 The quantity $\sigma/\sqrt{n}$ is sometimes called the **standard error of the mean**,
 although "standard error" is more precisely used when $\sigma$ is replaced by the sample's
-$s$ (lesson 30).
+$s$ (lesson 31).
 
 ## Shape: two cases
 
@@ -102,7 +102,7 @@ shape of the population matters most when $n$ is small.
 A sample proportion is secretly a sample mean: code each success as 1 and each failure as 0,
 and $\hat{p}$ is the average of those 0s and 1s. The population of 0s and 1s has mean $p$ and
 standard deviation $\sqrt{p(1-p)}$, so the CLT says $\hat{p}$ is approximately normal with mean
-$p$ and SD $\sqrt{p(1-p)}/\sqrt{n}$ — exactly the result of lesson 27. The large counts condition is
+$p$ and SD $\sqrt{p(1-p)}/\sqrt{n}$ — exactly the result of lesson 28. The large counts condition is
 the "large enough $n$" requirement for this very skewed 0/1 population.
 
 ## Common mistakes

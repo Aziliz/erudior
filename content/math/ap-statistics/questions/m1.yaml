@@ -111,6 +111,58 @@
     workers) with a measure of uncertainty. The other three questions only describe the
     data in hand, which is descriptive statistics.
 
+- id: stat-q-0111
+  lesson: stat-data-types
+  module_quiz: true
+  topic: Types of data
+  stem: 'A trucking company wants to study fuel use. Which is the best investigative question?'
+  choices: ['Is fuel economy important?', 'What is your truck''s fuel economy?', 'What is the mean fuel economy, in miles per gallon, of the trucks in our company''s fleet?', 'Will trucks get better fuel economy someday?']
+  answer: 2
+  explanation: |-
+    A good investigative question names the population (the company's trucks), the variable (fuel
+    economy in mpg) and the answer wanted (a mean). "Is fuel economy important?" names no variable
+    to measure. "What is your truck's fuel economy?" is a survey question asked of one individual,
+    a data-collection tool rather than the question the study answers. The "someday" question
+    has no population or variable that today's data could measure.
+
+- id: stat-q-0112
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'Investigative question: "Do night-shift employees at our plant take more sick days per year, on average, than day-shift employees at our plant?" What are the population and the variables?'
+  choices: ['Population: employees at this plant; variables: shift (categorical) and sick days per year (quantitative)', 'Population: all factory workers in the country; variables: shift and sick days per year', 'Population: employees at this plant; variable: sick days per year only', 'Population: night-shift employees at this plant; variables: average sick days and the plant']
+  answer: 0
+  explanation: |-
+    The question is about employees at this plant, and it compares sick days (a count, so
+    quantitative) between two shifts (a categorical grouping). Widening the population to the whole
+    country claims more than the question asks. Leaving out shift ignores the comparison that
+    defines the question, and limiting the population to night-shift workers removes the
+    comparison group; an average is a summary, not a variable.
+
+- id: stat-q-0113
+  lesson: stat-data-types
+  module_quiz: true
+  topic: Types of data
+  stem: 'Investigative question: "What proportion of riders on our city''s buses pay with a phone app?" What kind of answer does it call for?'
+  choices: ['A comparison of two group means', 'A check for an association between two variables', 'A description of the surveyed riders only, with no conclusion about other riders', 'An estimate of a single population parameter, a proportion']
+  answer: 3
+  explanation: |-
+    The question asks for one number about all city bus riders: the proportion $p$ who pay with
+    an app. There is one categorical variable and no groups, so it is not a comparison of means or
+    a question about association. It is about all riders on the city's buses, so stopping at
+    the surveyed riders would not answer it.
+
+- id: stat-q-0114
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'An analyst downloads a large data set, looks for the strongest pattern, and then writes an investigative question that matches it. What is the main problem?'
+  choices: ['Nothing; investigative questions are normally written after the analysis', 'The question should be set before seeing the data; choosing it afterward lets chance patterns look like real findings', 'Investigative questions must be asked word for word on a survey', 'It is fine as long as the data set is large']
+  answer: 1
+  explanation: |-
+    An investigative question is decided before data are gathered and isn't rewritten after
+    seeing results. Searching many patterns and then asking about the strongest one almost
+    guarantees a "finding" that is partly luck. The question is not a survey item, and a large
+    data set does not fix the problem; it only offers more patterns to choose from.
+
 # ---- Lesson 2: categorical displays
 - id: stat-q-0201
   lesson: stat-cat-displays

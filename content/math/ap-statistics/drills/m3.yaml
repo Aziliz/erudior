@@ -266,3 +266,27 @@
     Grand total $= {tot}$. (a) Shot column total $= {aa} + {ba} = {ca}$, so
     $\dfrac{{ca}}{{tot}} =$ **{marg:dp1}%**. (b) The single cell "no shot, flu" is {bb}:
     $\dfrac{{bb}}{{tot}} =$ **{joint:dp1}%**.
+
+- id: stat-mosaic-count
+  title: Read counts from a mosaic plot
+  topic: Two-way tables
+  vars:
+    nn: {choices: [200, 400, 500, 600, 800, 1000]}
+    ww: {min: 20, max: 70, step: 5}
+    hh: {min: 10, max: 90, step: 5}
+  calc:
+    grp: nn*ww/100
+    cell: grp*hh/100
+  where: ['cell == round(cell)']
+  prompt: |-
+    A mosaic plot shows {nn} rail passengers, with one bar per ticket type and segments for trip
+    purpose. The single-ride bar takes up {ww}% of the plot's total width, and its commuting segment
+    fills {hh}% of that bar's height. How many passengers bought single-ride tickets, and how many
+    bought single-ride tickets **and** were commuting?
+  answers:
+    - {name: grp, label: 'Single-ride', format: integer}
+    - {name: cell, label: 'Single-ride and commuting', format: integer}
+  solution: |-
+    Bar width is the group's share of everyone: ${ww}\% \times {nn:dp0} =$ **{grp}** single-ride passengers.
+    Segment height is the share *within* that group: ${hh}\% \times {grp} =$ **{cell}**. (Equivalently,
+    the rectangle's area is ${ww}\% \times {hh}\%$ of the whole plot.)
