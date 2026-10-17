@@ -47,7 +47,7 @@
   choices: ['1.0 m/s', '20 m/s', '0.25 m/s', '2.0 m/s']
   answer: 0
   explanation: |-
-    $\omega = \sqrt{800/2.0} = 20$ rad/s, so $v_{\max} = A\omega = 0.050(20) = 1.0$ m/s. 20 m/s² is the maximum acceleration $A\omega^2$, not the speed.
+    $\omega = \sqrt{800/2.0} = 20$ rad/s, so $v_{\max} = A\omega = 0.050(20) = 1.0$ m/s. 20 m/s is just the value of $\omega$ (it also matches the maximum acceleration, $A\omega^2 = 20$ m/s²), not a speed.
 - id: phys-q-2007
   lesson: phys-shm
   topic: Simple harmonic motion

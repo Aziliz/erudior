@@ -63,5 +63,10 @@
   "id": "science-physics",
   "title": "Physics",
   "revision": 1
+ },
+ {
+  "id": "science-uphys1",
+  "title": "University Physics I",
+  "revision": 1
  }
 ]

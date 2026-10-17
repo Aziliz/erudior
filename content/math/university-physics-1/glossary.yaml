@@ -737,4 +737,3 @@
 - term: entropy
   definition: 'A state variable measuring disorder; $\Delta S = \int dQ_{\text{rev}}/T$, and $S = k_B\ln\Omega$.'
   topic: Entropy
-# ---- m8 Electrostatics

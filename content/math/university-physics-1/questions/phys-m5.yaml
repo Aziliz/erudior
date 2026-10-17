@@ -14,7 +14,7 @@
   choices: ['50 rev', '4.0 rev', '8.0 rev', '16 rev']
   answer: 2
   explanation: |-
-    $\Delta\theta = \tfrac12(\omega_0 + \omega)t = \tfrac12(0 + 20)(5.0) = 50$ rad $= 50/2\pi = 7.96 \approx 8.0$ rev. 50 is the answer in radians, not revolutions.
+    $\Delta\theta = \tfrac12(\omega_0 + \omega)t = \tfrac12(0 + 20)(5.0) = 50$ rad $= 50/2\pi = 7.96 \approx 8.0$ rev. 50 is the answer in radians, not revolutions; 4.0 is the angular acceleration in rad/s²; 16 divides by $\pi$ instead of $2\pi$.
 - id: phys-q-1503
   lesson: phys-rot-kin
   topic: Rotational kinematics
@@ -22,7 +22,7 @@
   choices: ['4.0 m/s and 40 m/s²', '25 m/s and 250 m/s²', '4.0 m/s and 4.0 m/s²', '40 m/s and 4.0 m/s²']
   answer: 0
   explanation: |-
-    $v = r\omega = 0.40(10) = 4.0$ m/s; $a_c = r\omega^2 = 0.40(100) = 40$ m/s² (equivalently $v^2/r$).
+    $v = r\omega = 0.40(10) = 4.0$ m/s; $a_c = r\omega^2 = 0.40(100) = 40$ m/s² (equivalently $v^2/r$). 25 m/s divides by $r$ instead of multiplying; 40 m/s and 4.0 m/s² swaps the two values; 4.0 m/s² uses $r\omega$ again for the acceleration.
 - id: phys-q-1504
   lesson: phys-rot-kin
   module_quiz: true
@@ -39,7 +39,7 @@
   choices: ['1.0 kg·m²', '4.0 kg·m²', '3.0 kg·m²', '12 kg·m²']
   answer: 1
   explanation: |-
-    $I_{\text{cm}} = \tfrac1{12}ML^2 = 1.0$ kg·m². Shifting by $d = 1.0$ m: $I = 1.0 + 3.0(1.0)^2 = 4.0$ kg·m², matching $\tfrac13ML^2$.
+    $I_{\text{cm}} = \tfrac1{12}ML^2 = 1.0$ kg·m². Shifting by $d = 1.0$ m: $I = 1.0 + 3.0(1.0)^2 = 4.0$ kg·m², matching $\tfrac13ML^2$. 1.0 kg·m² is $I_{\text{cm}}$ without the shift; 3.0 kg·m² is only the $Md^2$ term; 12 kg·m² treats all the mass as sitting at the far end.
 - id: phys-q-1506
   lesson: phys-rot-kin
   topic: Moment of inertia
@@ -105,7 +105,7 @@
   choices: ['10 rad/s²', '5.0 rad/s²', '20 rad/s²', '40 rad/s²']
   answer: 2
   explanation: |-
-    $\tau = 0.50(10) = 5.0$ N·m; $I = \tfrac12(2.0)(0.50)^2 = 0.25$ kg·m²; $\alpha = \tau/I = 20$ rad/s². Using $I = MR^2$ gives 10 rad/s².
+    $\tau = 0.50(10) = 5.0$ N·m; $I = \tfrac12(2.0)(0.50)^2 = 0.25$ kg·m²; $\alpha = \tau/I = 20$ rad/s². Using $I = MR^2$ gives 10 rad/s². 5.0 is the torque in N·m, not $\alpha$; 40 rad/s² divides the force by $I$, forgetting to multiply by $R$ to get the torque.
 - id: phys-q-1604
   lesson: phys-torque
   module_quiz: true
@@ -114,7 +114,7 @@
   choices: ['9.8 m/s²', '3.3 m/s²', '6.5 m/s²', '4.9 m/s²']
   answer: 3
   explanation: |-
-    $a = \dfrac{mg}{m + \tfrac12M} = \dfrac{9.8}{1.0 + 1.0} = 4.9$ m/s². 3.3 m/s² uses $m + M$, which would be right only for a hoop ($I = MR^2$), not a solid cylinder.
+    $a = \dfrac{mg}{m + \tfrac12M} = \dfrac{9.8}{1.0 + 1.0} = 4.9$ m/s². 3.3 m/s² uses $m + M$, which would be right only for a hoop ($I = MR^2$), not a solid cylinder. 9.8 m/s² ignores the cylinder's inertia altogether; 6.5 m/s² is $\tfrac23g$, the acceleration of a yo-yo (a cylinder unrolling as it falls), not of a bucket on a fixed cylinder.
 - id: phys-q-1605
   lesson: phys-torque
   topic: Rotational dynamics
@@ -130,7 +130,7 @@
   choices: ['750 kW', '12.5 kW', '78.5 kW', '7.85 kW']
   answer: 2
   explanation: |-
-    $\omega = 3000(2\pi/60) = 314$ rad/s; $P = \tau\omega = 250(314) = 78.5$ kW. Using rpm directly gives 750 kW.
+    $\omega = 3000(2\pi/60) = 314$ rad/s; $P = \tau\omega = 250(314) = 78.5$ kW. Using rpm directly gives 750 kW; 12.5 kW converts rpm to rev/s (50) but forgets the $2\pi$; 7.85 kW is off by a factor of 10.
 - id: phys-q-1607
   lesson: phys-torque
   topic: Torque
@@ -138,7 +138,7 @@
   choices: ['17 N·m', '13 N·m', '11 N·m', '-13 N·m']
   answer: 1
   explanation: |-
-    $\tau_z = xF_y - yF_x = 3(5) - 1(2) = 13$ N·m (counterclockwise). 17 adds the terms instead of subtracting.
+    $\tau_z = xF_y - yF_x = 3(5) - 1(2) = 13$ N·m (counterclockwise). 17 adds the terms instead of subtracting; $-13$ has the order reversed ($yF_x - xF_y$); 11 is the dot product $xF_x + yF_y$.
 - id: phys-q-1608
   lesson: phys-torque
   module_quiz: true
@@ -155,11 +155,11 @@
   choices: ['100 J', '6.25 J', '50 J', '200 J']
   answer: 0
   explanation: |-
-    $W = \tau\Delta\theta = 4.0(25) = 100$ J, and by the rotational work–energy theorem that all becomes $\tfrac12I\omega^2$.
+    $W = \tau\Delta\theta = 4.0(25) = 100$ J, and by the rotational work–energy theorem that all becomes $\tfrac12I\omega^2$. 50 J adds a stray $\tfrac12$; 200 J doubles it; 6.25 divides the angle by the torque.
 - id: phys-q-1610
   lesson: phys-torque
   topic: Torque
-  stem: 'By the right-hand rule, a wheel spinning counterclockwise when viewed from above has a torque or angular velocity vector pointing'
+  stem: 'By the right-hand rule, a wheel spinning counterclockwise when viewed from above has an angular velocity vector pointing'
   choices: ['down', 'up', 'tangent to the rim', 'toward the center']
   answer: 1
   explanation: |-
@@ -177,10 +177,10 @@
   lesson: phys-rolling
   topic: Rolling motion
   stem: 'A solid cylinder rolls without slipping from rest down a ramp 2.0 m high. What is its speed at the bottom? ($g = 9.8$ m/s²)'
-  choices: ['6.3 m/s', '4.4 m/s', '5.6 m/s', '5.1 m/s']
+  choices: ['6.3 m/s', '4.4 m/s', '5.3 m/s', '5.1 m/s']
   answer: 3
   explanation: |-
-    $Mgh = \tfrac12(1 + \tfrac12)Mv^2$, so $v = \sqrt{\dfrac{2gh}{1.5}} = \sqrt{26.1} = 5.1$ m/s. 6.3 m/s ignores rotation.
+    $Mgh = \tfrac12(1 + \tfrac12)Mv^2$, so $v = \sqrt{\dfrac{2gh}{1.5}} = \sqrt{26.1} = 5.1$ m/s. 6.3 m/s ignores rotation; 4.4 m/s uses the hoop's $c = 1$; 5.3 m/s uses the solid sphere's $c = 0.4$.
 - id: phys-q-1703
   lesson: phys-rolling
   topic: Rolling motion
@@ -209,11 +209,11 @@
 - id: phys-q-1706
   lesson: phys-rolling
   topic: Angular momentum
-  stem: 'When the skater above pulls her arms in, her rotational kinetic energy'
+  stem: 'A skater spinning on frictionless ice pulls her arms in, reducing her moment of inertia. Her rotational kinetic energy'
   choices: ['stays the same, because angular momentum is conserved', 'decreases', 'increases, because her muscles do work', 'becomes zero']
   answer: 2
   explanation: |-
-    $K = L^2/(2I)$. With $L$ fixed and $I$ smaller, $K$ increases (here by a factor of 3.3). The energy comes from the work her arms do pulling mass inward.
+    $K = L^2/(2I)$. With $L$ fixed and $I$ smaller, $K$ increases by the factor $I_i/I_f$ (for example, by 3.3 if $I$ drops from 5.0 to 1.5 kg·m²). The energy comes from the work her arms do pulling mass inward.
 - id: phys-q-1707
   lesson: phys-rolling
   topic: Angular momentum
@@ -237,7 +237,7 @@
   choices: ['is zero for a spinning object', 'is balanced by a centrifugal force', 'is perpendicular to $\vec L$, so it changes the direction of $\vec L$ rather than its size', 'increases the spin rate']
   answer: 2
   explanation: |-
-    $\vec\tau = d\vec L/dt$. A torque perpendicular to $\vec L$ rotates $\vec L$ (precession) at rate $\Omega = \tau/L$.
+    $\vec\tau = d\vec L/dt$. A torque perpendicular to $\vec L$ rotates $\vec L$ (precession) at rate $\Omega = \tau/L$ instead of tipping the axle down. There is no centrifugal force to balance it, the torque is not zero, and it doesn't change the spin rate.
 - id: phys-q-1710
   lesson: phys-rolling
   module_quiz: true
@@ -246,7 +246,7 @@
   choices: ['2/5', '1/2', '2/7', '5/7']
   answer: 2
   explanation: |-
-    $K_{\text{rot}} = \tfrac12\cdot\tfrac25MR^2\omega^2 = \tfrac15Mv^2$ and $K_{\text{total}} = \tfrac12(1.4)Mv^2 = 0.7Mv^2$. Ratio: $0.2/0.7 = 2/7$.
+    $K_{\text{rot}} = \tfrac12\cdot\tfrac25MR^2\omega^2 = \tfrac15Mv^2$ and $K_{\text{total}} = \tfrac12(1.4)Mv^2 = 0.7Mv^2$. Ratio: $0.2/0.7 = 2/7$. 2/5 is the ratio $I/(MR^2)$, not an energy fraction; 5/7 is the translational fraction; 1/2 is the hoop's.
 - id: phys-q-1801
   lesson: phys-equilibrium
   module_quiz: true
@@ -255,7 +255,7 @@
   choices: ['1.25 m from the pivot', '3.2 m from the pivot', '2.0 m from the pivot', '0.8 m from the pivot']
   answer: 0
   explanation: |-
-    Equal torques: $25g(2.0) = 40g\,x$, so $x = 1.25$ m. The heavier child sits closer.
+    Equal torques: $25g(2.0) = 40g\,x$, so $x = 1.25$ m. The heavier child sits closer. 3.2 m inverts the mass ratio; 2.0 m balances weights instead of torques.
 - id: phys-q-1802
   lesson: phys-equilibrium
   topic: Static equilibrium
@@ -271,7 +271,7 @@
   choices: ['350 N', '500 N', '150 N', '200 N']
   answer: 3
   explanation: |-
-    Torques about the left end: $F_R(4.0) = 100(2.0) + 600(1.0)$, so $F_R = 200$ N. Then $F_L = 700 - 200 = 500$ N. The support nearer the load carries more.
+    Torques about the left end: $F_R(4.0) = 100(2.0) + 600(1.0)$, so $F_R = 200$ N. Then $F_L = 700 - 200 = 500$ N. The support nearer the load carries more. 350 N splits the total load evenly, ignoring where the load sits; 500 N is the left support's force; 150 N leaves out the beam's weight.
 - id: phys-q-1804
   lesson: phys-equilibrium
   module_quiz: true
@@ -345,7 +345,7 @@
   choices: ['4.9 m/s²', '9.8 m/s²', '2.45 m/s²', '1.1 m/s²']
   answer: 2
   explanation: |-
-    The distance from Earth's center doubles ($R \to 2R$), so $g$ falls by $2^2$: $9.8/4 = 2.45$ m/s². Using the height (instead of distance from the center) leads to errors like 4.9.
+    The distance from Earth's center doubles ($R \to 2R$), so $g$ falls by $2^2$: $9.8/4 = 2.45$ m/s². 4.9 m/s² divides by 2 instead of $2^2$, as if gravity fell off as $1/r$; 1.1 m/s² divides by $3^2$, as if the distance from the center had tripled.
 - id: phys-q-1903
   lesson: phys-gravitation
   topic: Gravitation
@@ -370,7 +370,7 @@
   choices: ['$T_B = 4T_A$', '$T_B = 16T_A$', '$T_B = 2T_A$', '$T_B = 8T_A$']
   answer: 3
   explanation: |-
-    Kepler's third law: $T^2 \propto r^3$, so $T_B/T_A = 4^{3/2} = 8$.
+    Kepler's third law: $T^2 \propto r^3$, so $T_B/T_A = 4^{3/2} = 8$. $T_B = 16T_A$ uses $T \propto r^2$; $T_B = 4T_A$ uses $T \propto r$; $T_B = 2T_A$ uses $T \propto \sqrt r$.
 - id: phys-q-1906
   lesson: phys-gravitation
   topic: Orbits
@@ -403,7 +403,7 @@
   choices: ['gravity is a weak force', 'mass can be negative', 'the zero is chosen at infinite separation, and work must be done to separate the masses', 'it is measured below the surface']
   answer: 2
   explanation: |-
-    With $U(\infty) = 0$, bringing masses together releases energy, so $U$ is lower (negative) at finite separation. $F = -dU/dr = -GMm/r^2$ (attractive).
+    With $U(\infty) = 0$, bringing masses together releases energy, so $U$ is lower (negative) at finite separation. $F = -dU/dr = -GMm/r^2$ (attractive). The weakness of gravity has nothing to do with the sign.
 - id: phys-q-1910
   lesson: phys-gravitation
   topic: Orbits

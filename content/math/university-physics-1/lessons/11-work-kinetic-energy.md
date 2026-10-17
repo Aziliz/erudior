@@ -87,7 +87,7 @@ $$W = \tfrac12 kx^2.$$
 {"x": [0, 0.25], "y": [0, 110], "xLabel": "stretch x (m)", "yLabel": "applied force F (N)", "functions": [{"f": "400*x", "from": 0, "to": 0.2, "label": "F = kx"}], "shade": [{"f": "400*x", "from": 0, "to": 0.2}], "caption": "Work to stretch a spring (k = 400 N/m) by 0.20 m is the triangle area: ½(0.20)(80) = 8.0 J"}
 ```
 
-## With calculus
+## Work as an integral
 
 For a force that varies along a path, divide the path into tiny steps $d\vec\ell$; each contributes $\vec F\cdot d\vec\ell$. Adding them is a line integral:
 

@@ -86,7 +86,7 @@ A skier on a $20^\circ$ slope with $\mu_s = 0.10$: will she slide from rest?
 
 $\tan 20^\circ = 0.364 > 0.10$, so static friction can't hold her and she starts sliding. A slope gentle enough to stand still on would need $\theta \le \tan^{-1}(0.10) = 5.7^\circ$.
 
-## With calculus: drag
+## Drag and terminal velocity
 
 Friction between solid surfaces is roughly constant, but fluid resistance (drag) grows with speed. For slow motion through a viscous fluid, the drag is roughly proportional to speed, $F_D = bv$. A falling object then obeys
 

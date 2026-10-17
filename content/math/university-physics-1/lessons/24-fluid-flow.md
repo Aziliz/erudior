@@ -81,7 +81,7 @@ $v = \sqrt{2(9.8)(25)} = 22.1$ m/s. With the faucet closed, $v = 0$ and the full
 
 Real fluids have **viscosity**, internal friction between layers. In a pipe, viscous fluid moves fastest at the center and is still at the walls. For smooth (laminar) flow, the flow rate through a pipe of radius $R$ and length $L$ under pressure difference $\Delta P$ is $Q = \dfrac{\pi R^4\Delta P}{8\eta L}$ (Poiseuille's law), where $\eta$ is the viscosity. The $R^4$ is dramatic: narrowing an artery by 20% cuts the flow by 59% at the same pressure. At high speeds flow becomes turbulent, and Bernoulli's equation only roughly applies.
 
-## With calculus
+## Bernoulli from Newton's second law
 
 Bernoulli's equation can also be derived from Newton's second law along a streamline. For a fluid element moving along a streamline with coordinate $s$, the net pressure force per volume is $-\dfrac{dP}{ds}$, gravity contributes $-\rho g\dfrac{dy}{ds}$, and the acceleration is $v\dfrac{dv}{ds}$ (the chain-rule identity again). So
 
@@ -89,7 +89,7 @@ $$-\frac{dP}{ds} - \rho g\frac{dy}{ds} = \rho v\frac{dv}{ds},$$
 
 and integrating along $s$ gives $P + \rho gy + \tfrac12\rho v^2 = \text{constant}$.
 
-Calculus also handles a draining tank. For a tank of cross-section $A$ with a hole of area $a$, $A\dfrac{dh}{dt} = -a\sqrt{2gh}$. Separating variables: $\dfrac{dh}{\sqrt h} = -\dfrac aA\sqrt{2g}\,dt$, so $2\sqrt h$ decreases linearly in time, and the tank empties in $t = \dfrac Aa\sqrt{\dfrac{2h_0}{g}}$. The level drops quickly at first and slowly at the end.
+A draining tank leads to a differential equation for the water level. For a tank of cross-section $A$ with a hole of area $a$, $A\dfrac{dh}{dt} = -a\sqrt{2gh}$. Separating variables: $\dfrac{dh}{\sqrt h} = -\dfrac aA\sqrt{2g}\,dt$, so $2\sqrt h$ decreases linearly in time, and the tank empties in $t = \dfrac Aa\sqrt{\dfrac{2h_0}{g}}$. The level drops quickly at first and slowly at the end.
 
 ## Common mistakes
 

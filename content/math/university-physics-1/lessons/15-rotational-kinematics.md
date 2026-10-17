@@ -102,7 +102,7 @@ A 2.0 kg solid disk of radius 0.25 m spins at 300 rpm. What is its rotational ki
 
 $I = \tfrac12(2.0)(0.25)^2 = 0.0625$ kg·m². $\omega = 300(0.1047) = 31.4$ rad/s. $K = \tfrac12(0.0625)(31.4)^2 = 30.8$ J.
 
-## With calculus
+## Derivatives and integrals in rotation
 
 Angular velocity and acceleration are derivatives: $\omega = d\theta/dt$, $\alpha = d\omega/dt$, exactly paralleling $v$ and $a$, and non-constant $\alpha$ is handled by integration.
 

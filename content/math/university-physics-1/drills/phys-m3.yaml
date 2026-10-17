@@ -9,7 +9,7 @@
     a: F*cosd(th)/m
     n: m*9.8 - F*sind(th)
   where: ['n > 0']
-  prompt: 'A {m} kg sled on frictionless ice is pulled by a rope with tension {F} N at {th}° above horizontal. Using $g = 9.8$ m/s², find the sled''s acceleration and the normal force on it.'
+  prompt: 'A {m} kg sled on frictionless ice is pulled by a rope with tension {F} N at {th}° above horizontal. Using $g = 9.8$ m/s², find the sled''s acceleration and the normal force on it. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: n, label: 'Normal force', relTolerance: 0.01, units: {N: 1}}
@@ -23,9 +23,9 @@
     labels:
       - {at: [1.6, 0.15], text: '{th}°'}
   solution: |-
-    Horizontal: ${F}\cos {th}^\circ = {m}a$, so $a =$ **{a:num2} m/s²**.
+    Horizontal: ${F}\cos {th}^\circ = {m}a$, so $a =$ **{a:sig3} m/s²**.
 
-    Vertical ($a_y = 0$): $n + {F}\sin {th}^\circ - {m}(9.8) = 0$, so $n =$ **{n:num1} N**.
+    Vertical ($a_y = 0$): $n + {F}\sin {th}^\circ - {m}(9.8) = 0$, so $n =$ **{n:sig3} N**.
 - id: phys-elevator
   title: Apparent weight in an elevator
   topic: Free-body diagrams
@@ -36,13 +36,13 @@
   calc:
     sa: dir*acc
     n: m*(9.8 + dir*acc)
-  prompt: 'A {m} kg person stands on a scale in an elevator accelerating {dir} at {acc} m/s². What does the scale read? Use $g = 9.8$ m/s².'
+  prompt: 'A {m} kg person stands on a scale in an elevator accelerating {dir} at {acc} m/s². What does the scale read? Use $g = 9.8$ m/s². Give the answer to 3 significant figures.'
   answers:
     - {format: sig4, name: n, label: 'Scale reading', relTolerance: 0.005, units: {N: 1}}
   solution: |-
     The scale reads the normal force. With up positive, $n - mg = ma$, where $a = +{acc}$ m/s² if the acceleration is upward and $-{acc}$ m/s² if downward.
 
-    Acceleration is {dir}, so $a = {sa}$ m/s² and $n = m(g + a) = {m}(9.8 + ({sa})) =$ **{n:num1} N**.
+    Acceleration is {dir}, so $a = {sa}$ m/s² and $n = m(g + a) = {m}(9.8 + ({sa})) =$ **{n:sig3} N**.
 - id: phys-two-forces
   title: Net force from two perpendicular forces
   topic: Newton's laws
@@ -54,7 +54,7 @@
     Fn: hypot(F1, F2)
     a: Fn/m
     ang: atand(F2/F1)
-  prompt: 'Two horizontal forces act on a {m} kg puck on frictionless ice: {F1} N east and {F2} N north. Find the magnitude of its acceleration and its direction in degrees north of east.'
+  prompt: 'Two horizontal forces act on a {m} kg puck on frictionless ice: {F1} N east and {F2} N north. Find the magnitude of its acceleration and its direction in degrees north of east. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: ang, label: 'Direction', tolerance: 0.3, units: {'°': 1, deg: 1}}
@@ -65,9 +65,9 @@
       - {from: [0, 0], to: [0, 'F2/max(F1,F2)*2'], arrow: true, label: '{F2} N'}
       - {from: [0, 0], to: ['F1/max(F1,F2)*2', 'F2/max(F1,F2)*2'], arrow: true, dashed: true, label: 'F net'}
   solution: |-
-    $F_{\text{net}} = \sqrt{{F1}^2 + {F2}^2} = {Fn:num2}$ N, so $a = F_{\text{net}}/m = {Fn:num2}/{m} =$ **{a:num2} m/s²**.
+    $F_{\text{net}} = \sqrt{{F1}^2 + {F2}^2} = {Fn:num2}$ N, so $a = F_{\text{net}}/m = {Fn:num2}/{m} =$ **{a:sig3} m/s²**.
 
-    Direction: $\tan^{-1}({F2}/{F1}) =$ **{ang:num1}°** north of east (the acceleration points along the net force).
+    Direction: $\tan^{-1}({F2}/{F1}) =$ **{ang:sig3}°** north of east (the acceleration points along the net force).
 - id: phys-incline-frictionless
   title: Block on a frictionless incline
   topic: Inclined planes
@@ -77,7 +77,7 @@
   calc:
     a: 9.8*sind(th)
     v: sqrt(2*a*L)
-  prompt: 'A block is released from rest on a frictionless ramp inclined at {th}°. Using $g = 9.8$ m/s², find its acceleration and its speed after sliding {L} m along the ramp.'
+  prompt: 'A block is released from rest on a frictionless ramp inclined at {th}°. Using $g = 9.8$ m/s², find its acceleration and its speed after sliding {L} m along the ramp. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: v, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
@@ -88,9 +88,9 @@
     labels:
       - {at: [0.9, 0.12], text: '{th}°'}
   solution: |-
-    Along the slope only $mg\sin\theta$ acts: $a = g\sin\theta = 9.8\sin {th}^\circ =$ **{a:num2} m/s²**.
+    Along the slope only $mg\sin\theta$ acts: $a = g\sin\theta = 9.8\sin {th}^\circ =$ **{a:sig3} m/s²**.
 
-    $v^2 = 2aL$, so $v = \sqrt{2({a:num2})({L})} =$ **{v:num2} m/s**.
+    $v^2 = 2aL$, so $v = \sqrt{2({a:num2})({L})} =$ **{v:sig3} m/s**.
 - id: phys-incline-friction
   title: Sliding down an incline with friction
   topic: Inclined planes
@@ -102,7 +102,7 @@
   calc:
     a: 9.8*(sind(th) - mu*cosd(th))
     f: mu*m*9.8*cosd(th)
-  prompt: 'A {m} kg block slides down a {th}° incline. The coefficient of kinetic friction is {mu}. Using $g = 9.8$ m/s², find the friction force and the block''s acceleration.'
+  prompt: 'A {m} kg block slides down a {th}° incline. The coefficient of kinetic friction is {mu}. Using $g = 9.8$ m/s², find the friction force and the block''s acceleration. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: f, label: 'Friction force', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
@@ -113,9 +113,9 @@
     labels:
       - {at: [0.9, 0.12], text: '{th}°'}
   solution: |-
-    $n = mg\cos\theta = {m}(9.8)\cos {th}^\circ$, so $f_k = \mu_k n =$ **{f:num2} N** (up the slope).
+    $n = mg\cos\theta = {m}(9.8)\cos {th}^\circ$, so $f_k = \mu_k n =$ **{f:sig3} N** (up the slope).
 
-    $a = g(\sin\theta - \mu_k\cos\theta) = 9.8(\sin {th}^\circ - {mu}\cos {th}^\circ) =$ **{a:num2} m/s²** down the slope.
+    $a = g(\sin\theta - \mu_k\cos\theta) = 9.8(\sin {th}^\circ - {mu}\cos {th}^\circ) =$ **{a:sig3} m/s²** down the slope.
 - id: phys-static-friction
   title: Force needed to start a box moving
   topic: Friction
@@ -127,14 +127,14 @@
     mk: ms - dk
     Fs: ms*m*9.8
     a: (Fs - mk*m*9.8)/m
-  prompt: 'A {m} kg box rests on a level floor with $\mu_s = {ms}$ and $\mu_k = {mk}$. Using $g = 9.8$ m/s², find the smallest horizontal force that starts it moving, and its acceleration if that same force keeps pushing once it slides.'
+  prompt: 'A {m} kg box rests on a level floor with $\mu_s = {ms}$ and $\mu_k = {mk}$. Using $g = 9.8$ m/s², find the smallest horizontal force that starts it moving, and its acceleration if that same force keeps pushing once it slides. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: Fs, label: 'Force to start', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
   solution: |-
-    $n = mg = {m}(9.8)$ N. Maximum static friction: $\mu_s n =$ **{Fs:num1} N**, the force needed to start it.
+    $n = mg = {m}(9.8)$ N. Maximum static friction: $\mu_s n =$ **{Fs:sig3} N**, the force needed to start it.
 
-    Sliding: $f_k = \mu_k n$, so $a = \dfrac{\mu_s n - \mu_k n}{\,m} = (\mu_s - \mu_k)g =$ **{a:num2} m/s²**.
+    Sliding: $f_k = \mu_k n$, so $a = \dfrac{\mu_s n - \mu_k n}{\,m} = (\mu_s - \mu_k)g =$ **{a:sig3} m/s²**.
 - id: phys-atwood
   title: Atwood machine
   topic: Tension and pulleys
@@ -145,16 +145,16 @@
   calc:
     a: (m1 - m2)/(m1 + m2)*9.8
     T: 2*m1*m2/(m1 + m2)*9.8
-  prompt: 'Masses of {m1} kg and {m2} kg hang on either side of an ideal pulley. Using $g = 9.8$ m/s², find the magnitude of their acceleration and the tension in the rope.'
+  prompt: 'Masses of {m1} kg and {m2} kg hang on either side of an ideal pulley. Using $g = 9.8$ m/s², find the magnitude of their acceleration and the tension in the rope. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: T, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
   solution: |-
     Heavier side down: ${m1}g - T = {m1}a$ and $T - {m2}g = {m2}a$. Adding:
 
-    $a = \dfrac{{m1} - {m2}}{{m1} + {m2}}(9.8) =$ **{a:num2} m/s²**.
+    $a = \dfrac{{m1} - {m2}}{{m1} + {m2}}(9.8) =$ **{a:sig3} m/s²**.
 
-    $T = {m2}(g + a) = \dfrac{2m_1m_2}{m_1 + m_2}g =$ **{T:num2} N**.
+    $T = {m2}(g + a) = \dfrac{2m_1m_2}{m_1 + m_2}g =$ **{T:sig3} N**.
 - id: phys-table-pulley
   title: Block on a table pulled by a hanging mass
   topic: Tension and pulleys
@@ -166,16 +166,16 @@
   calc:
     a: (m2 - mu*m1)/(m1 + m2)*9.8
     T: m2*(9.8 - a)
-  prompt: 'A {m1} kg block on a horizontal table ($\mu_k = {mu}$) is tied by a rope over an ideal pulley to a hanging {m2} kg mass. Using $g = 9.8$ m/s², find the acceleration and the tension.'
+  prompt: 'A {m1} kg block on a horizontal table ($\mu_k = {mu}$) is tied by a rope over an ideal pulley to a hanging {m2} kg mass. Using $g = 9.8$ m/s², find the acceleration and the tension. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: T, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
   solution: |-
     Table block: $T - \mu_k m_1 g = m_1 a$. Hanging mass: $m_2 g - T = m_2 a$. Adding:
 
-    $a = \dfrac{m_2 - \mu_k m_1}{m_1 + m_2}g = \dfrac{{m2} - ({mu})({m1})}{{m1} + {m2}}(9.8) =$ **{a:num2} m/s²**.
+    $a = \dfrac{m_2 - \mu_k m_1}{m_1 + m_2}g = \dfrac{{m2} - ({mu})({m1})}{{m1} + {m2}}(9.8) =$ **{a:sig3} m/s²**.
 
-    $T = m_2(g - a) =$ **{T:num2} N**.
+    $T = m_2(g - a) =$ **{T:sig3} N**.
 - id: phys-hanging-sign
   title: Tension in two symmetric cables
   topic: Tension and pulleys
@@ -184,7 +184,7 @@
     th: {min: 15, max: 75, step: 5}
   calc:
     T: m*9.8/(2*sind(th))
-  prompt: 'A {m} kg sign hangs at rest from two cables, each making {th}° with the horizontal. Using $g = 9.8$ m/s², find the tension in each cable.'
+  prompt: 'A {m} kg sign hangs at rest from two cables, each making {th}° with the horizontal. Using $g = 9.8$ m/s², find the tension in each cable. Give the answer to 3 significant figures.'
   answers:
     - {format: sig4, name: T, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
   figure:
@@ -200,7 +200,7 @@
   solution: |-
     Horizontal components cancel by symmetry. Vertically, $2T\sin\theta = mg$:
 
-    $T = \dfrac{{m}(9.8)}{2\sin {th}^\circ} =$ **{T:num1} N**.
+    $T = \dfrac{{m}(9.8)}{2\sin {th}^\circ} =$ **{T:sig3} N**.
 - id: phys-centripetal
   title: Centripetal acceleration and force
   topic: Circular motion
@@ -212,17 +212,17 @@
     v: 2*pi*r/T
     ac: v^2/r
     F: m*ac
-  prompt: 'A {m} kg ball on a string moves in a horizontal circle of radius {r} m on a frictionless table, completing one revolution every {T} s. Find its speed, its centripetal acceleration and the string tension.'
+  prompt: 'A {m} kg ball on a string moves in a horizontal circle of radius {r} m on a frictionless table, completing one revolution every {T} s. Find its speed, its centripetal acceleration and the string tension. Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: v, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: ac, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: F, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
   solution: |-
-    $v = 2\pi r/T = 2\pi({r})/{T} =$ **{v:num2} m/s**.
+    $v = 2\pi r/T = 2\pi({r})/{T} =$ **{v:sig3} m/s**.
 
-    $a_c = v^2/r =$ **{ac:num2} m/s²**, toward the center.
+    $a_c = v^2/r =$ **{ac:sig3} m/s²**, toward the center.
 
-    The string supplies the inward force: $T_{\text{string}} = ma_c =$ **{F:num2} N**.
+    The string supplies the inward force: $T_{\text{string}} = ma_c =$ **{F:sig3} N**.
 - id: phys-flat-curve
   title: Maximum speed on a flat curve
   topic: Circular motion
@@ -232,13 +232,13 @@
   calc:
     v: sqrt(mu*9.8*r)
     kmh: v*3.6
-  prompt: 'What is the maximum speed at which a car can round a flat curve of radius {r} m if the coefficient of static friction between tires and road is {mu}? Use $g = 9.8$ m/s² and answer in m/s.'
+  prompt: 'What is the maximum speed at which a car can round a flat curve of radius {r} m if the coefficient of static friction between tires and road is {mu}? Use $g = 9.8$ m/s² and answer in m/s to 3 significant figures.'
   answers:
     - {format: sig4, name: v, label: 'Max speed', relTolerance: 0.01, units: {'m/s': 1, 'km/h': 0.277777778}}
   solution: |-
     Static friction supplies the inward force: $\mu_s mg = \dfrac{mv^2}{\,r}$, so
 
-    $v = \sqrt{\mu_s g r} = \sqrt{({mu})(9.8)({r})} =$ **{v:num2} m/s** (about {kmh:num1} km/h). The mass cancels.
+    $v = \sqrt{\mu_s g r} = \sqrt{({mu})(9.8)({r})} =$ **{v:sig3} m/s** (about {kmh:num1} km/h). The mass cancels.
 - id: phys-vertical-loop
   title: Vertical loop
   topic: Circular motion
@@ -250,11 +250,11 @@
     vmin: sqrt(9.8*r)
     vb: round(k*vmin, 1)
     n: m*9.8 + m*vb^2/r
-  prompt: 'A roller coaster loop has radius {r} m. (a) What minimum speed must a car have at the top to stay on the track? (b) A {m} kg rider passes the bottom at {vb} m/s; what normal force does the seat exert on her there? Use $g = 9.8$ m/s².'
+  prompt: 'A roller coaster loop has radius {r} m. (a) What minimum speed must a car have at the top to stay on the track? (b) A {m} kg rider passes the bottom at {vb} m/s; what normal force does the seat exert on her there? Use $g = 9.8$ m/s². Give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: vmin, label: '(a) Minimum speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: n, label: '(b) Normal force', relTolerance: 0.01, units: {N: 1}}
   solution: |-
-    (a) At the limit $n = 0$ and gravity alone gives the inward force: $mg = mv^2/r$, so $v_{\min} = \sqrt{gr} =$ **{vmin:num2} m/s**.
+    (a) At the limit $n = 0$ and gravity alone gives the inward force: $mg = mv^2/r$, so $v_{\min} = \sqrt{gr} =$ **{vmin:sig3} m/s**.
 
-    (b) At the bottom the net force is upward: $n - mg = mv^2/r$, so $n = {m}(9.8) + \dfrac{{m}({vb})^2}{{r}} =$ **{n:int} N**.
+    (b) At the bottom the net force is upward: $n - mg = mv^2/r$, so $n = {m}(9.8) + \dfrac{{m}({vb})^2}{{r}} =$ **{n:sig3} N**.

@@ -79,7 +79,7 @@ A 0.20 kg ball on a 1.0 m string swings in a horizontal circle with the string a
 
 Radius: $r = L\sin 30^\circ = 0.50$ m. Vertical: $T\cos 30^\circ = mg$. Inward: $T\sin 30^\circ = mv^2/r$. Dividing, $\tan 30^\circ = \dfrac{v^2}{rg}$, so $v = \sqrt{rg\tan 30^\circ} = \sqrt{0.50(9.8)(0.577)} = 1.68$ m/s. Period: $T_{\text{period}} = 2\pi r/v = 1.87$ s.
 
-## With calculus
+## Circular motion as a vector function
 
 Parametrize the motion: $\vec r(t) = r\cos(\omega t)\,\hat\imath + r\sin(\omega t)\,\hat\jmath$, where $\omega = 2\pi/T$ is the angular speed (radians per second). Differentiating,
 
@@ -102,4 +102,4 @@ When the speed changes (nonuniform circular motion), the acceleration has a tang
 - Real forces supply the inward net force: $\sum F_{\text{in}} = mv^2/r$.
 - Flat curve: $v_{\max} = \sqrt{\mu_s g r}$. Banked, frictionless: $\tan\theta = v^2/(rg)$.
 - Top of a vertical loop: $v_{\min} = \sqrt{gr}$. Bottom: $n = mg + mv^2/r$.
-- With calculus: $\vec a = -\omega^2\vec r$.
+- In vector form, $\vec r(t)$ differentiated twice gives $\vec a = -\omega^2\vec r$.

@@ -56,4 +56,4 @@ title: Oscillations, waves, fluids, and thermodynamics
 | Adiabatic | $PV^\gamma$ = const, $TV^{\gamma - 1}$ = const |
 | Engine | $e = \dfrac{W}{Q_H} = 1 - \dfrac{Q_C}{Q_H}$; Carnot $e = 1 - \dfrac{T_C}{T_H}$ |
 | Refrigerator | $K = Q_C/W$; Carnot $\dfrac{T_C}{T_H - T_C}$ |
-| Entropy | $\Delta S = \int\dfrac{dQ_{\text{rev}}}{T}$; $Q/T$ at constant $T$; $mc\ln(T_2/T_1)$ |
+| Entropy | $\Delta S = \int\dfrac{dQ_{\text{rev}}}{T}$; $Q/T$ at constant $T$; heating at constant $c$: $mc\ln(T_2/T_1)$ |

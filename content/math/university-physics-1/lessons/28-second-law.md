@@ -64,7 +64,7 @@ $K_{\text{Carnot}} = \dfrac{255}{295 - 255} = 6.4$. Actual: $W = Q_C/K = 1.0/2.5
 
 ## Entropy
 
-**Entropy** $S$ is a state variable that measures disorder, or more precisely the number of microscopic arrangements consistent with a system's macroscopic state. For heat $Q$ transferred reversibly at constant absolute temperature $T$, the entropy change is
+**Entropy** $S$ is a state variable that measures disorder; more precisely, it grows with the number of microscopic arrangements consistent with a system's macroscopic state (as $S = k_B\ln\Omega$, below). For heat $Q$ transferred reversibly at constant absolute temperature $T$, the entropy change is
 
 $$\Delta S = \frac{Q}{T}$$
 
@@ -80,7 +80,7 @@ Room: loses the same heat at 298 K, $\Delta S_{\text{room}} = -1120.8$ J/K.
 
 Total: $+102.6$ J/K. Positive, as the second law requires for heat flowing from hot to cold. Reversed (water freezing by giving heat to a warmer room), the total would be negative, which is why it doesn't happen.
 
-## With calculus
+## Entropy changes as integrals
 
 When temperature changes during heat transfer, add up $dQ/T$ along a reversible path:
 

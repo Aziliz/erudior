@@ -85,7 +85,7 @@ With constant $a$: the $a$–$t$ graph is a horizontal line, the $v$–$t$ graph
 {"x": [0, 3.2], "y": [-18, 18], "xLabel": "t (s)", "yLabel": "y (m), v (m/s)", "functions": [{"f": "14.7*x - 4.9*x^2", "from": 0, "to": 3}, {"f": "14.7 - 9.8*x", "from": 0, "to": 3, "dashed": true}], "points": [{"at": [1.5, 11.025], "label": "top: v = 0"}], "labels": [{"at": [2.75, 7], "text": "y(t)"}, {"at": [2.35, -12], "text": "v(t)"}], "caption": "Thrown up at 14.7 m/s: position is a parabola, velocity a straight line of slope −9.8 m/s²"}
 ```
 
-## With calculus
+## The equations from integration
 
 Constant acceleration is the simplest case of integrating $a(t)$. With $a$ constant,
 
@@ -93,7 +93,7 @@ $$v(t) = v_0 + \int_0^t a\,dt' = v_0 + at, \qquad x(t) = x_0 + \int_0^t (v_0 + a
 
 Equation (4) also falls out of calculus using the chain rule: $a = \dfrac{dv}{dt} = \dfrac{dv}{dx}\dfrac{dx}{dt} = v\dfrac{dv}{dx}$, so $a\,dx = v\,dv$. Integrating both sides from start to finish gives $a(x - x_0) = \tfrac12(v^2 - v_0^2)$. The identity $a = v\,dv/dx$ is worth remembering: it solves problems where acceleration depends on position rather than time.
 
-When air resistance matters, acceleration is no longer constant: a falling object approaches a **terminal velocity** at which drag balances its weight. We'll set up that differential equation after Newton's laws.
+When air resistance matters, acceleration is no longer constant: a falling object approaches a **terminal velocity** at which drag balances its weight. We'll set up and solve that differential equation in the friction lesson, once we have Newton's laws.
 
 ## Common mistakes
 

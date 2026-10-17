@@ -91,7 +91,7 @@ $$v_{\text{esc}} = \sqrt{\frac{2GM}{R}}.$$
 
 For Earth, $v_{\text{esc}} = 11.2$ km/s, exactly $\sqrt2$ times the speed of a low circular orbit. In a circular orbit the total energy is $E = K + U = \tfrac12\dfrac{GMm}{r} - \dfrac{GMm}{r} = -\dfrac{GMm}{2r}$: negative, meaning bound.
 
-## With calculus
+## Potential energy from the force law
 
 Gravitational potential energy comes from integrating the force. The work needed to move $m$ from $r$ out to infinity against $F = GMm/r^2$ is
 

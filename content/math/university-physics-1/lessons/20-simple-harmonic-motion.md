@@ -30,7 +30,7 @@ $$x(t) = A\cos(\omega t + \phi).$$
 - **Phase constant** $\phi$: sets where in the cycle the motion starts. Released from rest at $x = A$, $\phi = 0$.
 
 ```plot
-{"x": [0, 4.2], "y": [-1.5, 1.5], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "1.2*cos(2*pi*x/2)"}], "labels": [{"at": [3.1, 1.33], "text": "x(t) = A cos(ωt)"}], "points": [{"at": [2, 1.2], "label": "one period T = 2 s"}], "segments": [{"from": [0, 0], "to": [0, 1.2], "arrow": true, "label": "A"}], "caption": "SHM with amplitude 1.2 m and period 2.0 s"}
+{"x": [0, 4.2], "y": [-1.5, 1.5], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "1.2*cos(2*pi*x/2)"}], "labels": [{"at": [1.0, 1.33], "text": "x(t) = A cos(ωt)"}], "points": [{"at": [2, 1.2], "label": "one period T = 2 s"}], "segments": [{"from": [0, 0], "to": [0, 1.2], "arrow": true, "label": "A"}], "caption": "SHM with amplitude 1.2 m and period 2.0 s"}
 ```
 
 For a mass on a spring,
@@ -89,7 +89,7 @@ Real oscillators lose energy to friction and air drag. With **damping**, the amp
 
 A periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\omega_0 = \sqrt{k/m}$, the amplitude grows large: **resonance**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency.
 
-## With calculus
+## The equation of motion
 
 Newton's second law for a spring is the differential equation
 

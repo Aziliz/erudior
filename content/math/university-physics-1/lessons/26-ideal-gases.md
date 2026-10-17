@@ -84,7 +84,7 @@ $$E_{\text{int}} = \tfrac32Nk_BT = \tfrac32nRT.$$
 
 Diatomic molecules (N₂, O₂) can also rotate, adding two more ways to store energy, so near room temperature $E_{\text{int}} = \tfrac52nRT$. This is the **equipartition theorem**: each independent quadratic "degree of freedom" holds $\tfrac12k_BT$ on average. Either way, the internal energy of an ideal gas depends only on temperature, a fact the next lesson relies on.
 
-## With calculus
+## The Maxwell–Boltzmann distribution
 
 The molecules in a gas don't all share one speed. Their speeds follow the **Maxwell–Boltzmann distribution**,
 
@@ -93,7 +93,7 @@ $$f(v) = 4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)},$$
 where $f(v)\,dv$ is the fraction of molecules with speeds between $v$ and $v + dv$. Averages are integrals: $\overline{v^2} = \int_0^\infty v^2f(v)\,dv = 3k_BT/m$, recovering $v_{\text{rms}}$. Setting $df/dv = 0$ gives the most probable speed, $v_p = \sqrt{2k_BT/m}$, and the mean speed is $\bar v = \sqrt{8k_BT/(\pi m)}$; they're in the ratio $v_p : \bar v : v_{\text{rms}} = 1 : 1.128 : 1.225$. The distribution's long high-speed tail explains evaporation: the fastest molecules escape a liquid's surface, leaving the rest cooler.
 
 ```plot
-{"x": [0, 1500], "y": [0, 0.0023], "xLabel": "speed v (m/s)", "yLabel": "f(v) (s/m)", "functions": [{"f": "4*pi*(0.028/(2*pi*8.314*300))^1.5*x^2*exp(-0.028*x^2/(2*8.314*300))", "label": "N₂ at 300 K"}], "points": [{"at": [422, 0.00197], "label": "most probable"}], "caption": "Maxwell–Boltzmann speed distribution for nitrogen at 300 K"}
+{"x": [0, 1500], "y": [0, 2.3], "xLabel": "speed v (m/s)", "yLabel": "f(v) (10⁻³ s/m)", "functions": [{"f": "1000*4*pi*(0.028/(2*pi*8.314*300))^1.5*x^2*exp(-0.028*x^2/(2*8.314*300))"}], "points": [{"at": [422, 1.97], "label": "most probable"}], "labels": [{"at": [800, 1.6], "text": "N₂ at 300 K"}], "caption": "Maxwell–Boltzmann speed distribution for nitrogen at 300 K"}
 ```
 
 ## Common mistakes

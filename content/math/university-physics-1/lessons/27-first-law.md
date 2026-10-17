@@ -51,7 +51,7 @@ For an ideal gas (monatomic, $E_{\text{int}} = \tfrac32nRT$), four idealized pro
 The **molar specific heats** of an ideal monatomic gas are $C_V = \tfrac32R$ at constant volume and $C_P = C_V + R = \tfrac52R$ at constant pressure. Heating at constant pressure takes more heat for the same temperature rise because some of the energy goes into work as the gas expands. The ratio $\gamma = C_P/C_V$ is $\tfrac53$ for monatomic and about $\tfrac75$ for diatomic gases.
 
 ```plot
-{"x": [0, 5], "y": [0, 5], "xLabel": "V", "yLabel": "P", "functions": [{"f": "4", "from": 1, "to": 4, "label": "isobaric"}, {"f": "4/x", "from": 1, "to": 4.5, "label": "isothermal", "dashed": true}, {"f": "4/x^(5/3)", "from": 1, "to": 4.5, "label": "adiabatic"}], "segments": [{"from": [1, 0.3], "to": [1, 4]}], "labels": [{"at": [1.4, 2.2], "text": "isochoric (vertical)"}], "caption": "Processes starting from the same state on a PV diagram; the adiabat falls more steeply than the isotherm"}
+{"x": [0, 5], "y": [0, 5], "xLabel": "V", "yLabel": "P", "functions": [{"f": "4", "from": 1, "to": 4, "label": "isobaric"}, {"f": "4/x", "from": 1, "to": 4.5, "label": "isothermal", "dashed": true}, {"f": "4/x^(5/3)", "from": 1, "to": 4.5, "label": "adiabatic"}], "segments": [{"from": [1, 0.3], "to": [1, 4]}], "labels": [{"at": [0.55, 2.2], "text": "isochoric"}], "caption": "Processes starting from the same state on a PV diagram; the adiabat falls more steeply than the isotherm"}
 ```
 
 In an adiabatic expansion the gas does work using its own internal energy, so it cools. That's why air rising in the atmosphere cools and clouds form, and why a spray can gets cold. Adiabatic compression heats a gas: diesel engines ignite fuel this way without spark plugs.
@@ -70,7 +70,7 @@ $Q = \Delta E_{\text{int}} + W = 4157$ J (check: $nC_P\Delta T = 2(\tfrac52)(8.3
 
 In a **cyclic process** the gas returns to its starting state, so $\Delta E_{\text{int}} = 0$ over the cycle and the net heat absorbed equals the net work done: $Q_{\text{net}} = W_{\text{net}}$. On a PV diagram the net work is the area enclosed by the loop, positive if the loop runs clockwise. Engines run clockwise cycles, turning heat into work; that's the subject of the next lesson.
 
-## With calculus
+## Work as an integral
 
 In general the work done by a gas is
 

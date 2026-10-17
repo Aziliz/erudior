@@ -32,7 +32,7 @@ A boat at the origin moves to $(120\text{ m}, 50\text{ m})$ in 20 s. Its velocit
 
 $\vec v_{\text{avg}} = \dfrac{(120, 50)}{20} = (6.0, 2.5)$ m/s, magnitude $\sqrt{36 + 6.25} = 6.5$ m/s.
 
-$\vec a_{\text{avg}} = \dfrac{(5.0 - 4.0,\ 4.0 - 0)}{20} = (0.050, 0.20)$ m/s², magnitude $0.206$ m/s². Most of the acceleration is sideways: the boat is mainly turning, not speeding up.
+$\vec a_{\text{avg}} = \dfrac{(5.0 - 4.0,\ 4.0 - 0)}{20} = (0.050, 0.20)$ m/s², magnitude $0.206$ m/s². The average acceleration points mostly sideways to the boat's original heading: over these 20 s the boat turns through $39^\circ$ as well as speeding up from 4.0 to 6.4 m/s.
 
 ## Relative motion
 
@@ -44,7 +44,7 @@ $$\vec v_{AC} = \vec v_{AB} + \vec v_{BC}.$$
 
 The inner subscripts match and "cancel," like conversion factors. Also $\vec v_{BA} = -\vec v_{AB}$: if you see a car approaching you at 20 m/s, its driver sees you approaching at 20 m/s in the opposite direction. This is **relative velocity**, and it is just vector addition.
 
-The rule works because positions add: if A is at $\vec r_{AB}$ relative to B and B at $\vec r_{BC}$ relative to C, then $\vec r_{AC} = \vec r_{AB} + \vec r_{BC}$; differentiate with respect to time and the velocities add the same way. (Einstein showed this fails at speeds near light; see the relativity lesson.)
+The rule works because positions add: if A is at $\vec r_{AB}$ relative to B and B at $\vec r_{BC}$ relative to C, then $\vec r_{AC} = \vec r_{AB} + \vec r_{BC}$; differentiate with respect to time and the velocities add the same way. (Einstein showed this fails at speeds near light; special relativity is covered in University Physics II.)
 
 ### Example 2: crossing a river
 
@@ -68,7 +68,7 @@ A plane flies with airspeed 220 km/h and must travel due north. A wind blows fro
 
 $\vec v_{PG} = \vec v_{PA} + \vec v_{AG}$, with $\vec v_{AG} = (50, 0)$. For $\vec v_{PG}$ to point north, $220\sin\alpha = 50$, so $\alpha = 13.1^\circ$ west of north. Ground speed: $220\cos 13.1^\circ = \sqrt{220^2 - 50^2} = 214$ km/h.
 
-## With calculus
+## Velocity and acceleration as derivatives
 
 For any motion in two or three dimensions,
 
@@ -86,7 +86,7 @@ $\vec a = 6\,\hat\imath - 6t\,\hat\jmath$, so $\vec a(2) = 6\hat\imath - 12\hat\
 
 The tangential part of the acceleration is the component along $\vec v$: $\dfrac{\vec a\cdot\vec v}{|\vec v|} = \dfrac{72 + 48}{12.65} = 9.49$ m/s². The particle is speeding up at that rate; the rest of $\vec a$ is turning it.
 
-Relative motion in calculus form: if frame B moves at constant velocity relative to frame C, then $\vec a_{AC} = \vec a_{AB}$. Observers in frames moving uniformly relative to each other measure the same accelerations, which is why Newton's laws hold equally in all such **inertial frames**.
+Differentiating the velocity-addition rule $\vec v_{AC} = \vec v_{AB} + \vec v_{BC}$ gives a result about accelerations: if frame B moves at constant velocity relative to frame C, then $\vec a_{AC} = \vec a_{AB}$. Observers in frames moving uniformly relative to each other measure the same accelerations, which is why Newton's laws hold equally in all such **inertial frames**.
 
 ## Common mistakes
 

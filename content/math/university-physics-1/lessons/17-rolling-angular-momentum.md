@@ -81,7 +81,7 @@ A 2.0 kg disk spins at 30 rad/s on a frictionless axle; $I_1 = 0.040$ kg·m². A
 
 No external torque about the axle: $I_1\omega_1 = (I_1 + I_2)\omega_f$, so $\omega_f = \dfrac{0.040(30)}{0.100} = 12$ rad/s. Like a perfectly inelastic collision, kinetic energy drops (from 18 J to 7.2 J), lost to friction between the disks.
 
-## With calculus: angular momentum as a vector
+## Angular momentum as a vector
 
 In general, angular momentum about a point is the cross product
 

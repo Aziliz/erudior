@@ -86,7 +86,7 @@ $$mgh = \tfrac12mv^2 + \tfrac12\left(\tfrac12MR^2\right)\left(\frac{v}{R}\right)
 
 $2.0(9.8)(1.5) = 29.4 = \tfrac12(3.5)v^2$, so $v = 4.10$ m/s. Check with kinematics: $v = \sqrt{2(5.6)(1.5)} = 4.10$ m/s ✓.
 
-## With calculus: torque as a vector
+## Torque as a vector
 
 In three dimensions torque is a cross product:
 

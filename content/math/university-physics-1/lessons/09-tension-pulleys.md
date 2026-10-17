@@ -84,7 +84,7 @@ From $m_2$: $T = m_2(g - a) = 2.0(9.8 - 0.98) = 17.64$ N. Check with $m_1$: $17.
 
 A movable pulley supported by two rope segments lets you lift a load with half the force: if the load $W$ hangs from a pulley held up by two strands of the same rope, $2T = W$ in equilibrium, so $T = W/2$. The price is distance: to raise the load 1 m, you pull 2 m of rope. Block-and-tackle systems multiply this further. (In energy terms, the work you do is the same; you'll see why in the work lesson.)
 
-## With calculus
+## Constraints and ropes with mass
 
 Constraints between connected objects are really statements about derivatives. If a rope of fixed length $L$ connects blocks at positions $x_1$ and $x_2$ measured along the rope, then $x_1 + x_2 = L$ (plus constants), and differentiating twice gives $\ddot x_1 = -\ddot x_2$: equal and opposite accelerations in those coordinates. For a movable pulley, the constraint is $2y_{\text{load}} + y_{\text{end}} = \text{const}$, so the load's acceleration is half the rope end's. Writing the length constraint and differentiating is the safe way to handle complicated pulley systems.
 

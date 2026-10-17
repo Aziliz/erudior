@@ -56,7 +56,7 @@
   choices: ['5 m/s²', '3 m/s²', '8 m/s²', '2 m/s²']
   answer: 3
   explanation: |-
-    $v = dx/dt = 8t - 3t^2$, $a = dv/dt = 8 - 6t$. At $t = 1$: $a = 2$ m/s². (5 m/s² is the velocity at $t = 1$; 3 m is the position.)
+    $v = dx/dt = 8t - 3t^2$, $a = dv/dt = 8 - 6t$. At $t = 1$: $a = 2$ m/s². The other numbers answer different questions: 5 is the velocity at $t = 1$ (in m/s), 3 is the position at $t = 1$ (in m), and 8 m/s² is the acceleration at $t = 0$.
 - id: phys-q-0308
   lesson: phys-motion-1d
   topic: Velocity and acceleration
@@ -64,7 +64,7 @@
   choices: ['8 m', '12 m', '24 m', '6 m']
   answer: 0
   explanation: |-
-    $v = \int_0^t 6t'\,dt' = 3t^2$; $x = \int_0^t 3t'^2\,dt' = t^3$. At $t = 2$ s, $x = 8$ m. Using $\tfrac12at^2$ with $a(2) = 12$ gives 24 m, which wrongly treats a changing acceleration as constant.
+    $v = \int_0^t 6t'\,dt' = 3t^2$; $x = \int_0^t 3t'^2\,dt' = t^3$. At $t = 2$ s, $x = 8$ m. Using $\tfrac12at^2$ with $a(2) = 12$ gives 24 m, which wrongly treats a changing acceleration as constant; 12 is the velocity at 2 s (in m/s), not the position.
 - id: phys-q-0309
   lesson: phys-motion-1d
   topic: Motion graphs
@@ -77,10 +77,10 @@
   lesson: phys-motion-1d
   topic: Velocity and acceleration
   stem: 'Which statement about a ball at the very top of its vertical flight is true?'
-  choices: ['Its velocity and acceleration are both zero', 'Its velocity is zero and its acceleration is zero', 'Its velocity is zero and its acceleration is 9.8 m/s² downward', 'Its velocity is 9.8 m/s and its acceleration is zero']
+  choices: ['Its velocity and acceleration are both zero', 'Its velocity is zero and its acceleration is less than 9.8 m/s²', 'Its velocity is zero and its acceleration is 9.8 m/s² downward', 'Its velocity is 9.8 m/s and its acceleration is zero']
   answer: 2
   explanation: |-
-    Momentarily $v = 0$, but gravity still acts, so $a = 9.8$ m/s² downward. If the acceleration were zero, the ball would stay at the top forever.
+    Momentarily $v = 0$, but gravity still acts with full strength, so $a = 9.8$ m/s² downward, the same as at every other point of the flight. If the acceleration were zero, the ball would stay at the top forever.
 - id: phys-q-0401
   lesson: phys-const-accel
   module_quiz: true
@@ -114,7 +114,7 @@
   choices: ['3.0 s', '4.6 s', '9.2 s', '2.1 s']
   answer: 0
   explanation: |-
-    $45 = \tfrac12(9.8)t^2 \Rightarrow t^2 = 9.18$, $t = 3.0$ s. 4.6 s comes from $t = 45/9.8$ (forgetting the square).
+    $45 = \tfrac12(9.8)t^2 \Rightarrow t^2 = 9.18$, $t = 3.0$ s. 4.6 s comes from $t = 45/9.8$ (forgetting the square), 9.2 s from $2(45)/9.8$ without the square root, and 2.1 s from $\sqrt{45/9.8}$ (dropping the 2).
 - id: phys-q-0405
   lesson: phys-const-accel
   topic: Free fall
@@ -221,7 +221,7 @@
   choices: ['12 m', '48 m', '235 m', '24 m']
   answer: 3
   explanation: |-
-    Fall time: $19.6 = 4.9t^2$, so $t = 2.0$ s. Horizontal distance $= 12 \times 2.0 = 24$ m.
+    Fall time: $19.6 = 4.9t^2$, so $t = 2.0$ s. Horizontal distance $= 12 \times 2.0 = 24$ m. Using $t^2 = 4.0$ in place of $t$ gives 48 m, and multiplying the speed by the height gives 235 m.
 - id: phys-q-0507
   lesson: phys-projectiles
   topic: Projectile motion
@@ -312,7 +312,7 @@
   choices: ['$6\hat\imath + 5\hat\jmath$ m/s²', '$12\hat\imath + 5\hat\jmath$ m/s²', '$12\hat\imath$ m/s²', '$6\hat\imath$ m/s²']
   answer: 2
   explanation: |-
-    $\vec v = 6t^2\hat\imath + 5\hat\jmath$ and $\vec a = 12t\,\hat\imath$, so $\vec a(1) = 12\hat\imath$ m/s². The $\hat\jmath$ velocity is constant, so it contributes no acceleration.
+    $\vec v = 6t^2\hat\imath + 5\hat\jmath$ and $\vec a = 12t\,\hat\imath$, so $\vec a(1) = 12\hat\imath$ m/s². The $\hat\jmath$ velocity is constant, so it contributes no acceleration. $6\hat\imath + 5\hat\jmath$ is the velocity at 1 s, not the acceleration, and keeping the constant $5\hat\jmath$ in $\vec a$ is the same slip.
 - id: phys-q-0608
   lesson: phys-motion-2d
   topic: Relative motion

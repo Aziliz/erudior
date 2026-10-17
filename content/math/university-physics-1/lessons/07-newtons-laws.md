@@ -86,7 +86,7 @@ The scale reads the normal force $n$ it exerts. Take up as positive: $n - mg = m
 
 (c) $a = -2.0$: $n = 60(7.8) = 468$ N. If the cable snapped ($a = -g$), the scale would read zero: she would feel weightless, though gravity still acts on her fully. This **apparent weight** is what your body senses.
 
-## With calculus
+## The momentum form of the second law
 
 Newton actually wrote the second law in terms of momentum $\vec p = m\vec v$:
 

@@ -60,7 +60,7 @@ Vertical forces: $F_A + F_B = 196 + 588 = 784$ N, so $F_A = 539$ N.
 Check with torques about B: $-F_A(6.0) + 196(3.0) + 588(4.5) = -3234 + 588 + 2646 = 0$ ✓. The support nearer the painter carries more of the load.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [6, 0.2], [0, 0.2]]}, {"points": [[-0.2, -0.6], [0.2, -0.6], [0, 0]]}, {"points": [[5.8, -0.6], [6.2, -0.6], [6, 0]]}], "segments": [{"from": [0, -1.6], "to": [0, -0.7], "arrow": true, "label": "F_A"}, {"from": [6, -1.6], "to": [6, -0.7], "arrow": true, "label": "F_B"}, {"from": [3, 0.1], "to": [3, -0.9], "arrow": true, "label": "196 N"}, {"from": [1.5, 1.4], "to": [1.5, 0.25], "arrow": true, "label": "588 N"}], "caption": "Plank on two supports with a painter 1.5 m from the left end"}
+{"polygons": [{"points": [[0, 0], [6, 0], [6, 0.2], [0, 0.2]]}, {"points": [[-0.2, -0.6], [0.2, -0.6], [0, 0]]}, {"points": [[5.8, -0.6], [6.2, -0.6], [6, 0]]}], "segments": [{"from": [0, -1.6], "to": [0, -0.7], "arrow": true}, {"from": [6, -1.6], "to": [6, -0.7], "arrow": true}, {"from": [3, 0.1], "to": [3, -0.9], "arrow": true}, {"from": [1.5, 1.4], "to": [1.5, 0.25], "arrow": true}], "labels": [{"at": [0.45, -1.3], "text": "F_A"}, {"at": [5.55, -1.3], "text": "F_B"}, {"at": [3.6, -0.6], "text": "196 N"}, {"at": [2.1, 0.9], "text": "588 N"}], "caption": "Plank on two supports with a painter 1.5 m from the left end"}
 ```
 
 ### Example 3: a hinged beam held by a cable
@@ -79,7 +79,7 @@ Horizontal: hinge pushes outward, $H = T\cos 30^\circ = 891$ N. Vertical: $V + T
 
 A ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\circ$).
 
-## With calculus
+## Distributed loads and stability
 
 Torque balance for continuous loads uses integrals. A beam carrying a distributed load $w(x)$ (newtons per meter) experiences a total load $W = \int w(x)\,dx$, acting at $\bar x = \dfrac{\int x\,w(x)\,dx}{\int w(x)\,dx}$, the load's "center of mass." For a load increasing linearly from 0 to $w_0$ along a beam of length $L$, $W = \tfrac12w_0L$ and $\bar x = \tfrac23L$: replace it by a single force there and proceed as before.
 

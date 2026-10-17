@@ -65,9 +65,9 @@ $2\vec A = 6\hat\imath - 8\hat\jmath$; subtracting $\vec B$ gives $\vec C = 7\ha
 
 Axes are your choice; physics doesn't care. Pick them to make the work easy. For a block on a ramp, tilt the axes so $x$ runs along the ramp: then the motion is along one axis and only gravity needs splitting. You will see this trick again in the friction lesson.
 
-## With calculus: the dot and cross products
+## Multiplying vectors: dot and cross products
 
-University physics uses two ways to multiply vectors.
+There are two ways to multiply two vectors.
 
 The **dot product** (scalar product) gives a number:
 
@@ -83,7 +83,7 @@ with direction set by the **right-hand rule**: point your fingers along $\vec A$
 
 $$\vec A \times \vec B = \begin{vmatrix} \hat\imath & \hat\jmath & \hat k \\ A_x & A_y & A_z \\ B_x & B_y & B_z \end{vmatrix} = (A_yB_z - A_zB_y)\hat\imath + (A_zB_x - A_xB_z)\hat\jmath + (A_xB_y - A_yB_x)\hat k.$$
 
-Torque $\vec\tau = \vec r \times \vec F$ and the magnetic force $q\vec v \times \vec B$ are cross products.
+Torque $\vec\tau = \vec r \times \vec F$ and the magnetic force $q\vec v \times \vec B$ (University Physics II) are cross products.
 
 ### Example 3
 

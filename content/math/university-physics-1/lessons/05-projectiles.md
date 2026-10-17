@@ -82,7 +82,7 @@ Quadratic formula: $t = \dfrac{7.50 + \sqrt{56.25 + 490}}{9.8} = \dfrac{7.50 + 2
 
 Horizontal distance: $x = 13.0 \times 3.15 = 40.9$ m.
 
-## With calculus
+## Vector form and air resistance
 
 In vector form, the projectile has constant acceleration $\vec a = -g\,\hat\jmath$. Integrating once and twice,
 

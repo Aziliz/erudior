@@ -10,16 +10,16 @@
     th: 0.5*w0*t
     rev: th/(2*pi)
   where: ['abs(alpha + 15.54) > 0.5']
-  prompt: 'A wheel spinning at {rpm} rpm slows uniformly to rest in {t} s. Find its angular acceleration (rad/s², with sign) and the number of revolutions it makes while stopping.'
+  prompt: 'A wheel spinning at {rpm} rpm slows uniformly to rest in {t} s. Find its angular acceleration (rad/s², with sign) and the number of revolutions it makes while stopping, to 3 significant figures.'
   answers:
     - {format: sig4, name: alpha, label: '$\alpha =$', relTolerance: 0.01, units: {'rad/s²': 1, 'rad/s^2': 1}}
     - {format: sig4, name: rev, label: 'Revolutions', relTolerance: 0.01, units: {rev: 1}}
   solution: |-
     $\omega_0 = {rpm:dp0}\times\dfrac{2\pi}{60} = {w0:num2}$ rad/s.
 
-    $\alpha = \dfrac{0 - \omega_0}{\,t} =$ **{alpha:num2} rad/s²**.
+    $\alpha = \dfrac{0 - \omega_0}{\,t} =$ **{alpha:sig3} rad/s²**.
 
-    $\Delta\theta = \tfrac12(\omega_0 + 0)t = {th:dp1}$ rad $=$ **{rev:num1} rev**.
+    $\Delta\theta = \tfrac12(\omega_0 + 0)t = {th:dp1}$ rad $=$ **{rev:sig3} rev**.
 - id: phys-moment-inertia
   title: Moment of inertia of masses on a rod
   topic: Moment of inertia
@@ -31,14 +31,14 @@
   calc:
     Ic: M*L^2/12 + (m1 + m2)*(L/2)^2
     Ie: M*L^2/3 + m2*L^2
-  prompt: 'A uniform rod of mass {M} kg and length {L} m has a small {m1} kg mass at its left end and a {m2} kg mass at its right end. Find the moment of inertia about (a) a perpendicular axis through the rod''s center and (b) a perpendicular axis through the left end.'
+  prompt: 'A uniform rod of mass {M} kg and length {L} m has a small {m1} kg mass at its left end and a {m2} kg mass at its right end. Find the moment of inertia about (a) a perpendicular axis through the rod''s center and (b) a perpendicular axis through the left end. Give kg·m² to 3 significant figures.'
   answers:
     - {format: sig4, name: Ic, label: '(a) Center', relTolerance: 0.01, units: {'kg·m²': 1, 'kg*m^2': 1, 'kg m^2': 1}}
     - {format: sig4, name: Ie, label: '(b) Left end', relTolerance: 0.01, units: {'kg·m²': 1, 'kg*m^2': 1, 'kg m^2': 1}}
   solution: |-
-    (a) Rod: $\tfrac1{12}ML^2$; each end mass is $L/2$ away: $I = \tfrac1{12}({M})({L})^2 + ({m1} + {m2})({L}/2)^2 =$ **{Ic:num4} kg·m²**.
+    (a) Rod: $\tfrac1{12}ML^2$; each end mass is $L/2$ away: $I = \tfrac1{12}({M})({L})^2 + ({m1} + {m2})({L}/2)^2 =$ **{Ic:sig3} kg·m²**.
 
-    (b) Rod about an end: $\tfrac13ML^2$; the left mass is on the axis, the right mass is $L$ away: $I = \tfrac13({M})({L})^2 + {m2}({L})^2 =$ **{Ie:num4} kg·m²**.
+    (b) Rod about an end: $\tfrac13ML^2$; the left mass is on the axis, the right mass is $L$ away: $I = \tfrac13({M})({L})^2 + {m2}({L})^2 =$ **{Ie:sig3} kg·m²**.
 - id: phys-rot-ke
   title: Rotational kinetic energy of a disk
   topic: Moment of inertia
@@ -51,14 +51,14 @@
     I: shape*M*R^2
     w: rpm*2*pi/60
     K: 0.5*I*w^2
-  prompt: 'A {M} kg {shape} of radius {R} m spins about its central axis at {rpm} rpm. Find its moment of inertia and its rotational kinetic energy.'
+  prompt: 'A {M} kg {shape} of radius {R} m spins about its central axis at {rpm} rpm. Find its moment of inertia (kg·m²) and its rotational kinetic energy (J), to 3 significant figures.'
   answers:
     - {format: sig4, name: I, label: '$I =$', relTolerance: 0.01, units: {'kg·m²': 1, 'kg*m^2': 1, 'kg m^2': 1}}
     - {format: sig4, name: K, label: 'KE', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
   solution: |-
-    For a {shape}, $I = cMR^2$ with $c = {shape:num1}$, so $I =$ **{I:num4} kg·m²**.
+    For a {shape}, $I = cMR^2$ with $c = {shape:num1}$, so $I =$ **{I:sig3} kg·m²**.
 
-    $\omega = {rpm:dp0}\times\dfrac{2\pi}{60} = {w:num2}$ rad/s, so $K = \tfrac12I\omega^2 =$ **{K:num1} J**.
+    $\omega = {rpm:dp0}\times\dfrac{2\pi}{60} = {w:num2}$ rad/s, so $K = \tfrac12I\omega^2 =$ **{K:sig3} J**.
 - id: phys-torque
   title: Torque from an angled force
   topic: Torque
@@ -70,7 +70,7 @@
   calc:
     tau: r*F*sind(th)
     tmax: r*F
-  prompt: 'A force of {F} N is applied at the end of a {r} m wrench, making an angle of {th}° with the handle. Find the torque about the bolt, and the maximum torque that force could produce.'
+  prompt: 'A force of {F} N is applied at the end of a {r} m wrench, making an angle of {th}° with the handle. Find the torque about the bolt, and the maximum torque that force could produce, in N·m to 3 significant figures.'
   answers:
     - {format: sig4, name: tau, label: 'Torque', relTolerance: 0.01, units: {'N·m': 1, 'N*m': 1, 'Nm': 1, 'N m': 1}}
     - {format: sig4, name: tmax, label: 'Maximum', relTolerance: 0.01, units: {'N·m': 1, 'N*m': 1, 'Nm': 1, 'N m': 1}}
@@ -83,9 +83,9 @@
     points:
       - {at: [0, 0], label: 'bolt'}
   solution: |-
-    $\tau = rF\sin\theta = ({r})({F})\sin {th}^\circ =$ **{tau:num2} N·m**.
+    $\tau = rF\sin\theta = ({r})({F})\sin {th}^\circ =$ **{tau:sig3} N·m**.
 
-    The maximum occurs for a perpendicular push: $rF =$ **{tmax:num2} N·m**.
+    The maximum occurs for a perpendicular push: $rF =$ **{tmax:sig3} N·m**.
 - id: phys-pulley-disk
   title: Mass hanging from a heavy pulley
   topic: Rotational dynamics
@@ -97,7 +97,7 @@
     a: m*9.8/(m + 0.5*M)
     T: 0.5*M*a
     alpha: a/R
-  prompt: 'A {m} kg block hangs from a light rope wrapped around a {M} kg solid cylinder of radius {R} m that turns freely on a frictionless axle. The block is released. Using $g = 9.8$ m/s², find the block''s acceleration, the rope tension and the cylinder''s angular acceleration.'
+  prompt: 'A {m} kg block hangs from a light rope wrapped around a {M} kg solid cylinder of radius {R} m that turns freely on a frictionless axle. The block is released. Using $g = 9.8$ m/s², find the block''s acceleration (m/s²), the rope tension (N) and the cylinder''s angular acceleration (rad/s²), to 3 significant figures.'
   answers:
     - {format: sig4, name: a, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: T, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
@@ -105,9 +105,9 @@
   solution: |-
     Block: $mg - T = ma$. Cylinder: $TR = \tfrac12MR^2\alpha$ with $\alpha = a/R$, so $T = \tfrac12Ma$.
 
-    $a = \dfrac{mg}{m + \tfrac12M} = \dfrac{{m}(9.8)}{{m} + {M}/2} =$ **{a:num2} m/s²**.
+    $a = \dfrac{mg}{m + \tfrac12M} = \dfrac{{m}(9.8)}{{m} + {M}/2} =$ **{a:sig3} m/s²**.
 
-    $T = \tfrac12({M})({a:num2}) =$ **{T:num2} N**; $\alpha = a/R =$ **{alpha:num1} rad/s²**.
+    $T = \tfrac12({M})({a:sig3}) =$ **{T:sig3} N**; $\alpha = a/R =$ **{alpha:sig3} rad/s²**.
 - id: phys-rolling-incline
   title: Rolling down a ramp
   topic: Rolling motion
@@ -117,13 +117,13 @@
   calc:
     v: sqrt(2*9.8*h/(1 + shape))
     vs: sqrt(2*9.8*h)
-  prompt: 'A {shape} rolls without slipping from rest down a ramp, dropping a height of {h} m. Using $g = 9.8$ m/s², find its speed at the bottom. (For comparison, a frictionless sliding block would reach {vs:num2} m/s.)'
+  prompt: 'A {shape} rolls without slipping from rest down a ramp, dropping a height of {h} m. Using $g = 9.8$ m/s², find its speed at the bottom in m/s, to 3 significant figures. (For comparison, a frictionless sliding block would reach {vs:num2} m/s.)'
   answers:
     - {format: sig4, name: v, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
   solution: |-
     With $I = cMR^2$ and $\omega = v/R$: $Mgh = \tfrac12Mv^2 + \tfrac12cMv^2 = \tfrac12(1 + c)Mv^2$, and for a {shape} $c = {shape:num4}$.
 
-    $v = \sqrt{\dfrac{2gh}{1 + c}} = \sqrt{\dfrac{2(9.8)({h})}{1 + {shape:num4}}} =$ **{v:num2} m/s**.
+    $v = \sqrt{\dfrac{2gh}{1 + c}} = \sqrt{\dfrac{2(9.8)({h})}{1 + {shape:num4}}} =$ **{v:sig3} m/s**.
 - id: phys-angmom-skater
   title: Conservation of angular momentum
   topic: Angular momentum
@@ -136,14 +136,14 @@
     f2: I1*f/I2
     K1: 0.5*I1*(2*pi*f)^2
     K2: 0.5*I2*(2*pi*f2)^2
-  prompt: 'A skater spins at {f} rev/s with moment of inertia {I1} kg·m². She pulls in her arms, reducing her moment of inertia to {pct}% of its original value. Find her new spin rate (rev/s) and her new rotational kinetic energy.'
+  prompt: 'A skater spins at {f} rev/s with moment of inertia {I1} kg·m². She pulls in her arms, reducing her moment of inertia to {pct}% of its original value. Find her new spin rate (rev/s) and her new rotational kinetic energy (J), to 3 significant figures.'
   answers:
     - {format: sig4, name: f2, label: 'Spin rate', relTolerance: 0.01, units: {'rev/s': 1}}
     - {format: sig4, name: K2, label: 'KE', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
   solution: |-
-    No external torque: $I_1\omega_1 = I_2\omega_2$, so $f_2 = f_1\dfrac{I_1}{I_2} = \dfrac{{f}}{{pct}/100} =$ **{f2:num2} rev/s**.
+    No external torque: $I_1\omega_1 = I_2\omega_2$, so $f_2 = f_1\dfrac{I_1}{I_2} = \dfrac{{f}}{{pct}/100} =$ **{f2:sig3} rev/s**.
 
-    New $I_2 = {I2:num2}$ kg·m² and $\omega_2 = 2\pi f_2$; $K_2 = \tfrac12I_2\omega_2^2 =$ **{K2:num1} J** (up from {K1:num1} J; her muscles did the work).
+    New $I_2 = {I2:dp3}$ kg·m² and $\omega_2 = 2\pi f_2$; $K_2 = \tfrac12I_2\omega_2^2 =$ **{K2:sig3} J** (up from {K1:num1} J; her muscles did the work).
 - id: phys-seesaw
   title: Balancing a seesaw
   topic: Static equilibrium
@@ -154,13 +154,13 @@
   where: ['m1*d1/m2 < 3', 'm1 != m2']
   calc:
     d2: m1*d1/m2
-  prompt: 'A uniform seesaw is pivoted at its center. A {m1} kg person sits {d1} m from the pivot. How far from the pivot, on the other side, must a {m2} kg person sit to balance it?'
+  prompt: 'A uniform seesaw is pivoted at its center. A {m1} kg person sits {d1} m from the pivot. How far from the pivot, on the other side, must a {m2} kg person sit to balance it? Give meters to 3 significant figures.'
   answers:
     - {format: sig4, name: d2, label: 'Distance', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
   solution: |-
     Torques about the pivot must cancel (the seesaw's weight and the pivot force act at the pivot): ${m1}g({d1}) = {m2}g\,x$.
 
-    $x = \dfrac{{m1}({d1})}{{m2}} =$ **{d2:num2} m**.
+    $x = \dfrac{{m1}({d1})}{{m2}} =$ **{d2:sig3} m**.
 - id: phys-beam-supports
   title: Beam on two supports
   topic: Static equilibrium
@@ -173,14 +173,14 @@
     x: fr*L
     FB: (mb*9.8*L/2 + m*9.8*x)/L
     FA: (mb + m)*9.8 - FB
-  prompt: 'A uniform {L} m beam of mass {mb} kg rests on supports at its ends A and B. A {m} kg crate sits {x:num2} m from end A. Using $g = 9.8$ m/s², find the upward force from each support.'
+  prompt: 'A uniform {L} m beam of mass {mb} kg rests on supports at its ends A and B. A {m} kg crate sits {x:num2} m from end A. Using $g = 9.8$ m/s², find the upward force from each support, in newtons to 3 significant figures.'
   answers:
     - {format: sig4, name: FA, label: 'Support A', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: FB, label: 'Support B', relTolerance: 0.01, units: {N: 1}}
   solution: |-
-    Torques about A: $F_B({L}) = {mb}(9.8)({L}/2) + {m}(9.8)({x:num2})$, so $F_B =$ **{FB:num1} N**.
+    Torques about A: $F_B({L}) = {mb}(9.8)({L}/2) + {m}(9.8)({x:num2})$, so $F_B =$ **{FB:sig3} N**.
 
-    Vertical forces: $F_A = ({mb} + {m})(9.8) - F_B =$ **{FA:num1} N**.
+    Vertical forces: $F_A = ({mb} + {m})(9.8) - F_B =$ **{FA:sig3} N**.
 - id: phys-grav-force
   title: Gravitational force and surface gravity
   topic: Gravitation
@@ -195,14 +195,14 @@
     gs: 6.67e-11*M/R^2
     F: m*gs
   where: ['gs > 0.5', 'gs < 40']
-  prompt: 'A planet has mass ${Mm}\times10^{{Me}}$ kg and radius ${Rm}\times10^{6}$ m. Using $G = 6.67\times10^{-11}$ N·m²/kg², find the acceleration due to gravity at its surface and the weight there of a {m} kg probe.'
+  prompt: 'A planet has mass ${Mm}\times10^{{Me}}$ kg and radius ${Rm}\times10^{6}$ m. Using $G = 6.67\times10^{-11}$ N·m²/kg², find the acceleration due to gravity at its surface (m/s²) and the weight there of a {m} kg probe (N), to 3 significant figures.'
   answers:
     - {format: sig4, name: gs, label: '$g =$', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: F, label: 'Weight', relTolerance: 0.01, units: {N: 1, kN: 1000}}
   solution: |-
-    $g = \dfrac{GM}{R^2} = \dfrac{(6.67\times10^{-11})({Mm}\times10^{{Me}})}{({Rm}\times10^{6})^2} =$ **{gs:num2} m/s²**.
+    $g = \dfrac{GM}{R^2} = \dfrac{(6.67\times10^{-11})({Mm}\times10^{{Me}})}{({Rm}\times10^{6})^2} =$ **{gs:sig3} m/s²**.
 
-    Weight $= mg = {m}({gs:num2}) =$ **{F:int} N**.
+    Weight $= mg = {m}({gs:sig3}) =$ **{F:sig3} N**.
 - id: phys-orbit-speed
   title: Circular orbit speed and period
   topic: Orbits
@@ -212,16 +212,16 @@
     r: 6.37e6 + h*1000
     v: sqrt(6.67e-11*5.97e24/r)
     T: 2*pi*r/v/60
-  prompt: 'A satellite is in a circular orbit {h} km above Earth''s surface. Using $G = 6.67\times10^{-11}$ N·m²/kg², $M_E = 5.97\times10^{24}$ kg and $R_E = 6.37\times10^{6}$ m, find its orbital speed (m/s) and period (minutes).'
+  prompt: 'A satellite is in a circular orbit {h} km above Earth''s surface. Using $G = 6.67\times10^{-11}$ N·m²/kg², $M_E = 5.97\times10^{24}$ kg and $R_E = 6.37\times10^{6}$ m, find its orbital speed (m/s) and period (minutes), to 3 significant figures.'
   answers:
     - {format: sig4, name: v, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1, 'km/s': 1000}}
     - {format: sig4, name: T, label: 'Period', relTolerance: 0.01, units: {min: 1, h: 60}}
   solution: |-
     Orbit radius from Earth's center: $r = R_E + h = {r:texsci}$ m.
 
-    $v = \sqrt{\dfrac{GM_E}{\,r}} =$ **{v:int} m/s**.
+    $v = \sqrt{\dfrac{GM_E}{\,r}} =$ **{v:sig3} m/s**.
 
-    $T = \dfrac{2\pi r}{\,v} =$ **{T:num1} min**.
+    $T = \dfrac{2\pi r}{\,v} =$ **{T:sig3} min**.
 - id: phys-escape-speed
   title: Escape speed
   topic: Orbits
@@ -235,11 +235,11 @@
     ve: sqrt(2*6.67e-11*M/R)/1000
     vo: ve/sqrt(2)
   where: ['ve > 0.5', 've < 60']
-  prompt: 'Find the escape speed (km/s) from the surface of a planet with mass ${Mm}\times10^{{Me}}$ kg and radius ${Rm}\times10^{6}$ m, and the speed of a circular orbit just above its surface. Use $G = 6.67\times10^{-11}$ N·m²/kg².'
+  prompt: 'Find the escape speed (km/s) from the surface of a planet with mass ${Mm}\times10^{{Me}}$ kg and radius ${Rm}\times10^{6}$ m, and the speed of a circular orbit just above its surface. Use $G = 6.67\times10^{-11}$ N·m²/kg² and give both speeds in km/s to 3 significant figures.'
   answers:
     - {format: sig4, name: ve, label: 'Escape speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
     - {format: sig4, name: vo, label: 'Orbit speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
   solution: |-
-    Total energy zero: $\tfrac12mv^2 = \dfrac{GMm}{\,R}$, so $v_{\text{esc}} = \sqrt{\dfrac{2GM}{\,R}} =$ **{ve:num2} km/s**.
+    Total energy zero: $\tfrac12mv^2 = \dfrac{GMm}{\,R}$, so $v_{\text{esc}} = \sqrt{\dfrac{2GM}{\,R}} =$ **{ve:sig3} km/s**.
 
-    Low orbit: $v = \sqrt{GM/R} = v_{\text{esc}}/\sqrt2 =$ **{vo:num2} km/s**.
+    Low orbit: $v = \sqrt{GM/R} = v_{\text{esc}}/\sqrt2 =$ **{vo:sig3} km/s**.

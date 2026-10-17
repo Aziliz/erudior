@@ -93,7 +93,7 @@ A wooden raft of density 600 kg/m³ is 3.0 m × 2.0 m × 0.20 m. How much additi
 
 Fully submerged, it displaces $1.2$ m³ of water: $F_B = 1000(1.2)(9.8) = 11\,760$ N. The raft weighs $600(1.2)(9.8) = 7056$ N. The difference, 4704 N, supports a load of $4704/9.8 = 480$ kg.
 
-## With calculus
+## Pressure as a differential equation
 
 The depth relation is really a differential equation. For a thin horizontal slab of fluid of thickness $dy$ (with $y$ up), balancing forces gives
 

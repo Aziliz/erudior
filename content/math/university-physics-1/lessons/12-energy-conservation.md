@@ -85,7 +85,7 @@ A kilowatt-hour (kWh) is an energy unit, not a power: $1\text{ kWh} = (1000\text
 
 An elevator motor lifts a 900 kg car at a steady 2.0 m/s. What power does it deliver? If the motor is 80% efficient, what electrical power does it draw?
 
-At constant speed the tension equals the weight: $T = 900(9.8) = 8820$ N. $P = Tv = 8820(2.0) = 17\,640$ W $\approx 17.6$ kW. Input: $17.6/0.80 = 22.1$ kW.
+At constant speed the tension equals the weight: $T = 900(9.8) = 8820$ N. $P = Tv = 8820(2.0) = 17\,640$ W $\approx 17.6$ kW. Input: $17.64/0.80 = 22.05$ kW $\approx 22$ kW.
 
 ## Energy diagrams
 
@@ -95,7 +95,7 @@ Plotting $U(x)$ shows the motion at a glance. With total energy $E$ drawn as a h
 {"x": [-2.2, 2.2], "y": [-1.5, 3], "xLabel": "x", "yLabel": "energy", "functions": [{"f": "x^4 - 2*x^2", "label": "U(x)"}, {"f": "1.5", "dashed": true}], "points": [{"at": [-1, -1], "label": "stable"}, {"at": [0, 0], "label": "unstable"}, {"at": [-1.607, 1.5]}, {"at": [1.607, 1.5]}], "labels": [{"at": [-0.75, 1.7], "text": "E"}, {"at": [0.8, 1.75], "text": "turning points"}], "caption": "A double-well potential: with energy E the particle moves between the outer turning points"}
 ```
 
-## With calculus
+## Force from potential energy
 
 Because $dW = F\,dx = -dU$, a conservative force is the negative slope of its potential energy:
 

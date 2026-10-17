@@ -83,7 +83,7 @@ A 60 kg person stands at one end of a 120 kg, 4.0 m raft at rest on still water 
 
 No external horizontal forces, and the system starts at rest, so the CM stays put. If she moves 4.0 m relative to the raft and the raft moves $d$ backward, her ground displacement is $4.0 - d$. Setting the CM displacement to zero: $60(4.0 - d) - 120d = 0$, so $d = 240/180 = 1.33$ m.
 
-## With calculus
+## Time-varying forces and continuous objects
 
 The general second law is $\vec F_{\text{net}} = d\vec p/dt$, and the impulse of a time-varying force is an integral:
 

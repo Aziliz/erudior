@@ -97,7 +97,7 @@ Arguments of functions like $\sin$, $e^x$ and $\ln$ must be dimensionless, which
 
 Physicists often estimate before calculating. An **order of magnitude** is the power of ten nearest a value: a person's mass (70 kg) is order $10^2$ kg. Rough estimates ("how many heartbeats in a lifetime?" about $70\text{ beats/min} \times 5\times10^5\text{ min/yr} \times 80\text{ yr} \approx 3\times10^9$) tell you whether a precise answer is reasonable.
 
-## With calculus
+## Units of derivatives and integrals
 
 Units follow calculus operations naturally. A derivative $\dfrac{dx}{dt}$ is a ratio of small changes, so its unit is (unit of $x$)/(unit of $t$): position in m gives velocity in m/s. An integral $\int f\,dt$ is a sum of products $f\,\Delta t$, so its unit is (unit of $f$)·(unit of $t$): integrating velocity (m/s) over time (s) gives meters. Keep this in mind when checking calculus-based formulas: $\int F\,dx$ has units N·m = J, which is why it can be an energy.
 

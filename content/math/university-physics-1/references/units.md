@@ -21,13 +21,6 @@ title: Units and conversions
 | Power | watt (W) | J/s |
 | Pressure | pascal (Pa) | N/m² |
 | Frequency | hertz (Hz) | s⁻¹ |
-| Charge | coulomb (C) | A·s |
-| Potential | volt (V) | J/C |
-| Resistance | ohm (Ω) | V/A |
-| Capacitance | farad (F) | C/V |
-| Magnetic field | tesla (T) | N/(A·m) |
-| Magnetic flux | weber (Wb) | T·m² |
-| Inductance | henry (H) | V·s/A |
 
 ## Common conversions
 
@@ -39,13 +32,12 @@ title: Units and conversions
 | 1 cm³ (1 mL) | $10^{-6}$ m³ |
 | 1 L | $10^{-3}$ m³ |
 | 1 atm | $1.013\times10^5$ Pa = 760 mm Hg = 14.7 lb/in² |
-| 1 eV | $1.602\times10^{-19}$ J |
 | 1 kWh | $3.6\times10^6$ J |
 | 1 cal | 4.186 J (1 food Calorie = 1000 cal) |
 | 1 hp | 746 W |
 | 1 rev | $2\pi$ rad = 360° |
 | 1 rpm | $2\pi/60 = 0.1047$ rad/s |
-| 1 u | $1.6605\times10^{-27}$ kg ↔ 931.5 MeV |
+| 1 u | $1.6605\times10^{-27}$ kg |
 | 1 year | $3.16\times10^7$ s |
 
 ## Temperature

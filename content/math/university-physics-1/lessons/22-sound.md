@@ -94,7 +94,7 @@ When a source moves faster than sound, the wavefronts pile up into a cone, a **s
 
 Doppler shifts are used in radar speed guns, Doppler ultrasound of blood flow, and (for light) measuring how fast galaxies recede.
 
-## With calculus
+## Displacement and pressure waves
 
 A sound wave can be described by the air's displacement $s(x,t) = s_{\max}\cos(kx - \omega t)$ or, equivalently, by the pressure variation $\Delta P = -B\,\dfrac{\partial s}{\partial x} = \Delta P_{\max}\sin(kx - \omega t)$, where $B$ is the air's bulk modulus. The pressure wave is a quarter-cycle out of step with the displacement wave: pressure nodes sit at displacement antinodes, which is why the closed end of a pipe (displacement node) is a pressure antinode. The speed is $v = \sqrt{B/\rho}$, the fluid analog of $\sqrt{F_T/\mu}$: stiffness over inertia.
 

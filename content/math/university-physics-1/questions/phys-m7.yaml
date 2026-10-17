@@ -200,6 +200,7 @@
     $0.10(385)(T - 100) + 0.40(4186)(T - 20) = 0 \Rightarrow 38.5T - 3850 + 1674.4T - 33\,488 = 0$, so $T = 37\,338/1712.9 = 21.8$°C. Averaging the temperatures (60°C) ignores the very different heat capacities.
 - id: phys-q-2505
   lesson: phys-heat
+  module_quiz: true
   topic: Temperature and expansion
   stem: 'A 2.0 m aluminum rod ($\alpha = 23\times10^{-6}$ K⁻¹) is heated by 50 K. How much longer does it get?'
   choices: ['2.3 mm', '23 mm', '0.23 mm', '4.6 mm']
@@ -338,7 +339,7 @@
   choices: ['increases by 1100 J', 'decreases by 500 J', 'increases by 500 J', 'is unchanged']
   answer: 2
   explanation: |-
-    $\Delta E_{\text{int}} = Q - W = 800 - 300 = +500$ J. Adding gives 1100 J, which would be the case if 300 J of work were done *on* the gas.
+    $\Delta E_{\text{int}} = Q - W = 800 - 300 = +500$ J. Adding gives 1100 J, which would be the case if the 300 J of work were done on the gas instead of by it.
 - id: phys-q-2702
   lesson: phys-first-law
   topic: First law of thermodynamics

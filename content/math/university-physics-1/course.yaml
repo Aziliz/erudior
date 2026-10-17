@@ -3,6 +3,7 @@ title: University Physics I
 description: >-
   Calculus-based University Physics I: measurement and vectors, kinematics, Newton's laws, work and energy, momentum and collisions, rotation, gravitation, oscillations, waves and sound, fluids, and thermodynamics. Assumes Calculus I (derivatives and integrals are used throughout).
 revision: 1
+released: true
 order: 14
 modules:
   - id: phys-m1

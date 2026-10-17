@@ -9,7 +9,7 @@ refs: [phys-ref-mechanics]
 ---
 ## What kinematics is for
 
-**Kinematics** describes motion, where things are and how fast that changes, without yet asking what causes it (that's Newton's laws, two lessons from now). We start with motion along a straight line, because everything in two and three dimensions is built from it one axis at a time. The vector ideas from the last lesson apply directly: in one dimension a vector is just a signed number, with the sign giving the direction.
+**Kinematics** describes motion, where things are and how fast that changes, without yet asking what causes it (that's Newton's laws, in the next module). We start with motion along a straight line, because everything in two and three dimensions is built from it one axis at a time. The vector ideas from the last lesson apply directly: in one dimension a vector is just a signed number, with the sign giving the direction.
 
 ## Position, displacement, and distance
 
@@ -80,7 +80,7 @@ Use the $v$–$t$ graph above. (a) What is the acceleration from 0 to 4 s? (b) W
 
 (c) It turns around where $v$ changes sign. After 7 s, $v = 6 - 4(t - 7)$, which is zero at $t = 8.5$ s. Before 8.5 s it moves in $+x$, after it in $-x$. Note that $a = -4$ m/s² throughout the last segment, including the instant $v = 0$: the object is momentarily at rest but still accelerating.
 
-## With calculus
+## Velocity and acceleration as derivatives
 
 Instantaneous quantities are derivatives. Velocity is the derivative of position and acceleration the derivative of velocity:
 

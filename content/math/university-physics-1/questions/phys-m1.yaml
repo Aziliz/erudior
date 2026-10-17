@@ -6,7 +6,7 @@
   choices: ['$20\text{ m/s}$', '$259\text{ m/s}$', '$2.0\text{ m/s}$', '$1.2\text{ m/s}$']
   answer: 0
   explanation: |-
-    $72\,\tfrac{\text{km}}{\text{h}} \times \tfrac{1000\text{ m}}{1\text{ km}} \times \tfrac{1\text{ h}}{3600\text{ s}} = 20\text{ m/s}$ (equivalently, divide by 3.6). Multiplying by 3.6 instead gives 259; using 60 s per hour gives 1.2.
+    $72\,\tfrac{\text{km}}{\text{h}} \times \tfrac{1000\text{ m}}{1\text{ km}} \times \tfrac{1\text{ h}}{3600\text{ s}} = 20\text{ m/s}$ (equivalently, divide by 3.6). Multiplying by 3.6 instead of dividing gives 259. Dividing by 60 alone gives 1.2 (that is km per minute, not m/s), and dividing by 36 instead of 3.6 slips a decimal place to give 2.0.
 - id: phys-q-0102
   lesson: phys-measurement
   topic: Units and conversions
@@ -69,10 +69,10 @@
   lesson: phys-measurement
   topic: Units and conversions
   stem: 'A tank holds $2.5\text{ m}^3$ of water. How many liters is that? ($1\text{ L} = 1000\text{ cm}^3$)'
-  choices: ['2500 L', '25 L', '250 000 L', '2.5 L']
+  choices: ['2500 L', '25 L', '2 500 000 L', '2.5 L']
   answer: 0
   explanation: |-
-    $1\text{ m}^3 = (100\text{ cm})^3 = 10^6\text{ cm}^3 = 1000\text{ L}$. So $2.5\text{ m}^3 = 2500$ L. Using 100 cm per m without cubing, or slipping a factor of 1000 between m³ and L, leads to the wrong choices.
+    $1\text{ m}^3 = (100\text{ cm})^3 = 10^6\text{ cm}^3 = 1000\text{ L}$. So $2.5\text{ m}^3 = 2500$ L. Squaring instead of cubing ($10^4\text{ cm}^3$ per m³) gives 25 L; stopping at $2.5 \times 10^6\text{ cm}^3$ and calling it liters gives 2 500 000 L; treating 1 m³ as 1 L gives 2.5 L.
 - id: phys-q-0110
   lesson: phys-measurement
   topic: Significant figures
@@ -86,7 +86,7 @@
   module_quiz: true
   topic: Dimensional analysis
   stem: 'A student derives $v = \sqrt{2 g h^2}$ for the speed of an object dropped from height $h$. What does dimensional analysis say?'
-  choices: ['It is correct', 'It is wrong only by a numerical factor', 'It is wrong: the units come out m^(3/2)/s', 'It cannot be checked dimensionally']
+  choices: ['It is correct', 'It is wrong only by a numerical factor', 'It is wrong: the units come out $\text{m}^{3/2}/\text{s}$', 'It cannot be checked dimensionally']
   answer: 2
   explanation: |-
     $[g h^2] = \tfrac{L}{T^2}L^2 = L^3/T^2$, whose square root is $L^{3/2}/T$, not a speed. The correct result is $v = \sqrt{2gh}$, where $[gh] = L^2/T^2$.
@@ -106,7 +106,7 @@
   choices: ['$A_x = 5.0\text{ m},\ A_y = 8.7\text{ m}$', '$A_x = 8.7\text{ m},\ A_y = 5.0\text{ m}$', '$A_x = 5.0\text{ m},\ A_y = 5.0\text{ m}$', '$A_x = 10\text{ m},\ A_y = 6.0\text{ m}$']
   answer: 0
   explanation: |-
-    $A_x = 10\cos 60^\circ = 5.0$ m and $A_y = 10\sin 60^\circ = 8.66$ m. Swapping sine and cosine gives the second choice.
+    $A_x = 10\cos 60^\circ = 5.0$ m and $A_y = 10\sin 60^\circ = 8.66$ m. Swapping sine and cosine gives $A_x = 8.7$ m, $A_y = 5.0$ m.
 - id: phys-q-0202
   lesson: phys-vectors
   topic: Vectors
@@ -153,10 +153,10 @@
   module_quiz: true
   topic: Vector products
   stem: 'Compute $\vec A \cdot \vec B$ for $\vec A = 3\hat\imath - 2\hat\jmath + \hat k$ and $\vec B = 4\hat\imath + 5\hat\jmath - 2\hat k$.'
-  choices: ['0', '24', '-4', '12']
+  choices: ['0', '24', '4', '12']
   answer: 0
   explanation: |-
-    $3(4) + (-2)(5) + 1(-2) = 12 - 10 - 2 = 0$. A zero dot product means the vectors are perpendicular.
+    $3(4) + (-2)(5) + 1(-2) = 12 - 10 - 2 = 0$. A zero dot product means the vectors are perpendicular. Dropping every minus sign gives 24, dropping only the sign of the last product gives 4, and using only the $x$ components gives 12.
 - id: phys-q-0208
   lesson: phys-vectors
   topic: Vector products

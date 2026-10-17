@@ -11,17 +11,17 @@
     WF: F*d*cosd(th)
     Wf: -f*d
     Wnet: WF + Wf
-  prompt: 'A crate is dragged {d} m across a level floor by a rope with tension {F} N at {th}° above horizontal. Kinetic friction on the crate is {f} N. Find the work done by the rope, the work done by friction (with its sign), and the net work.'
+  prompt: 'A crate is dragged {d} m across a level floor by a rope with tension {F} N at {th}° above horizontal. Kinetic friction on the crate is {f} N. Find the work done by the rope, the work done by friction (with its sign), and the net work, in joules to 3 significant figures.'
   answers:
     - {format: sig4, name: WF, label: 'Rope', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
     - {format: sig4, name: Wf, label: 'Friction', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
     - {format: sig4, name: Wnet, label: 'Net', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
   solution: |-
-    Rope: $W = Fd\cos\theta = {F}({d})\cos {th}^\circ =$ **{WF:num1} J**.
+    Rope: $W = Fd\cos\theta = {F}({d})\cos {th}^\circ =$ **{WF:sig3} J**.
 
     Friction opposes the motion ($\theta = 180^\circ$): $W = -{f}({d}) =$ **{Wf} J**.
 
-    Gravity and the normal force are perpendicular to the motion and do no work, so $W_{\text{net}} =$ **{Wnet:num1} J**.
+    Gravity and the normal force are perpendicular to the motion and do no work, so $W_{\text{net}} =$ **{Wnet:sig3} J**.
 - id: phys-work-ke
   title: Work–energy theorem
   topic: Work and kinetic energy
@@ -33,13 +33,13 @@
   calc:
     W: F*d
     v: sqrt(v0^2 + 2*W/m)
-  prompt: 'A {m} kg cart moving at {v0} m/s is pushed {d} m by a constant net force of {F} N in its direction of motion. Use the work–energy theorem to find its final speed.'
+  prompt: 'A {m} kg cart moving at {v0} m/s is pushed {d} m by a constant net force of {F} N in its direction of motion. Use the work–energy theorem to find its final speed in m/s, to 3 significant figures.'
   answers:
     - {format: sig4, name: v, label: 'Final speed', relTolerance: 0.01, units: {'m/s': 1}}
   solution: |-
     $W_{\text{net}} = Fd = {F}({d}) = {W:dp0}$ J $= \tfrac12mv_f^2 - \tfrac12mv_i^2$.
 
-    $v_f = \sqrt{v_i^2 + 2W/m} = \sqrt{{v0}^2 + 2({W:dp0})/{m}} =$ **{v:num2} m/s**.
+    $v_f = \sqrt{v_i^2 + 2W/m} = \sqrt{{v0}^2 + 2({W:dp0})/{m}} =$ **{v:sig3} m/s**.
 - id: phys-spring-work
   title: Spring force and stored energy
   topic: Work and kinetic energy
@@ -50,7 +50,7 @@
     x: xcm/100
     F: k*x
     U: 0.5*k*x^2
-  prompt: 'A spring with spring constant {k} N/m is stretched {xcm} cm from its natural length. What force does it exert, and how much work was needed to stretch it?'
+  prompt: 'A spring with spring constant {k} N/m is stretched {xcm} cm from its natural length. What force does it exert (N), and how much work (J) was needed to stretch it? Give 3 significant figures.'
   answers:
     - {format: sig4, name: F, label: 'Force', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: U, label: 'Work', relTolerance: 0.01, units: {J: 1, mJ: 0.001}}
@@ -65,9 +65,9 @@
     shade:
       - {f: 'k*x', from: 0, to: 'x'}
   solution: |-
-    Hooke's law: $|F| = kx = {k:dp0}({x}) =$ **{F:num2} N** (pulling back toward equilibrium).
+    Hooke's law: $|F| = kx = {k:dp0}({x}) =$ **{F:sig3} N** (pulling back toward equilibrium).
 
-    Work = area under the $F$–$x$ line $= \tfrac12kx^2 = \tfrac12({k:dp0})({x})^2 =$ **{U:num4} J**.
+    Work = area under the $F$–$x$ line $= \tfrac12kx^2 = \tfrac12({k:dp0})({x})^2 =$ **{U:sig3} J**.
 - id: phys-energy-ramp
   title: Speed at the bottom of a ramp (with and without friction)
   topic: Conservation of energy
@@ -79,14 +79,14 @@
     v0: sqrt(2*9.8*h)
     Wf: pct/100*m*9.8*h
     v1: sqrt(2*(m*9.8*h - Wf)/m)
-  prompt: 'A {m} kg box starts from rest at the top of a ramp {h} m high. Using $g = 9.8$ m/s², find (a) its speed at the bottom if the ramp is frictionless, and (b) its speed if friction removes {pct}% of its initial potential energy.'
+  prompt: 'A {m} kg box starts from rest at the top of a ramp {h} m high. Using $g = 9.8$ m/s², find (a) its speed at the bottom if the ramp is frictionless, and (b) its speed if friction removes {pct}% of its initial potential energy. Give speeds in m/s to 3 significant figures.'
   answers:
     - {format: sig4, name: v0, label: '(a) Frictionless', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: v1, label: '(b) With friction', relTolerance: 0.01, units: {'m/s': 1}}
   solution: |-
-    (a) $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{2(9.8)({h})} =$ **{v0:num2} m/s**.
+    (a) $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{2(9.8)({h})} =$ **{v0:sig3} m/s**.
 
-    (b) Friction removes {pct}% of $mgh$, so $\tfrac12mv^2 = (1 - {pct}/100)\,mgh$ and $v =$ **{v1:num2} m/s**.
+    (b) Friction removes {pct}% of $mgh$, so $\tfrac12mv^2 = (1 - {pct}/100)\,mgh$ and $v =$ **{v1:sig3} m/s**.
 - id: phys-spring-launch
   title: Spring launcher
   topic: Conservation of energy
@@ -101,16 +101,16 @@
     h: U/(m*9.8)
     v: sqrt(2*U/m)
   where: ['h < 60']
-  prompt: 'A spring with $k = {k:dp0}$ N/m is compressed {xcm} cm and launches a {mg} g ball straight up. Ignoring air resistance and using $g = 9.8$ m/s², find the ball''s speed as it leaves the spring (neglect the small height change during launch) and the maximum height it reaches above the release point.'
+  prompt: 'A spring with $k = {k:dp0}$ N/m is compressed {xcm} cm and launches a {mg} g ball straight up. Ignoring air resistance and using $g = 9.8$ m/s², find the ball''s speed as it leaves the spring (neglect the small height change during launch) and the maximum height it reaches above the release point. Give the speed in m/s and the height in m, to 3 significant figures.'
   answers:
     - {format: sig4, name: v, label: 'Launch speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: h, label: 'Max height', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
   solution: |-
     Stored energy: $\tfrac12kx^2 = \tfrac12({k:dp0})({x})^2 = {U:num4}$ J.
 
-    Launch speed: $\tfrac12mv^2 = {U:num4}$ J with $m = {m}$ kg, so $v =$ **{v:num2} m/s**.
+    Launch speed: $\tfrac12mv^2 = {U:num4}$ J with $m = {m}$ kg, so $v =$ **{v:sig3} m/s**.
 
-    Max height: $mgh = {U:num4}$ J, so $h = \dfrac{{U:num4}}{({m})(9.8)} =$ **{h:num2} m**.
+    Max height: $mgh = {U:num4}$ J, so $h = \dfrac{{U:num4}}{({m})(9.8)} =$ **{h:sig3} m**.
 - id: phys-power
   title: Power to lift a load
   topic: Power
@@ -122,14 +122,14 @@
   calc:
     P: m*9.8*h/t
     Pin: P/(eff/100)
-  prompt: 'A motor lifts a {m} kg load {h} m at constant speed in {t} s. Using $g = 9.8$ m/s², find the power delivered to the load and, if the motor is {eff}% efficient, the electrical power it draws.'
+  prompt: 'A motor lifts a {m} kg load {h} m at constant speed in {t} s. Using $g = 9.8$ m/s², find the power delivered to the load and, if the motor is {eff}% efficient, the electrical power it draws, in watts to 3 significant figures.'
   answers:
     - {format: sig4, name: P, label: 'Output power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
     - {format: sig4, name: Pin, label: 'Input power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
   solution: |-
-    Work against gravity: $mgh = {m:dp0}(9.8)({h})$ J. $P = \dfrac{mgh}{t} =$ **{P:num1} W**.
+    Work against gravity: $mgh = {m:dp0}(9.8)({h})$ J. $P = \dfrac{mgh}{\,t} =$ **{P:sig3} W**.
 
-    Input: $P_{\text{in}} = P/\eta = P/{eff}\% =$ **{Pin:num1} W**.
+    Input: $P_{\text{in}} = P/\eta = P/{eff}\% =$ **{Pin:sig3} W**.
 - id: phys-impulse
   title: Impulse and average force in a rebound
   topic: Momentum and impulse
@@ -142,14 +142,14 @@
     m: mg/1000
     J: m*(v1 + v2)
     F: J/(tms/1000)
-  prompt: 'A {mg} g ball hits a wall at {v1} m/s and rebounds straight back at {v2} m/s. The contact lasts {tms} ms. Find the magnitude of the impulse and of the average force on the ball.'
+  prompt: 'A {mg} g ball hits a wall at {v1} m/s and rebounds straight back at {v2} m/s. The contact lasts {tms} ms. Find the magnitude of the impulse (N·s) and of the average force on the ball (N), to 3 significant figures.'
   answers:
     - {format: sig4, name: J, label: 'Impulse', relTolerance: 0.01, units: {'N·s': 1, 'N*s': 1, 'Ns': 1, 'kg·m/s': 1, 'kg*m/s': 1}}
     - {format: sig4, name: F, label: 'Average force', relTolerance: 0.01, units: {N: 1, kN: 1000}}
   solution: |-
-    Rebound direction positive: $\Delta p = m(v_f - v_i) = {m}({v2} - (-{v1})) =$ **{J:num4} N·s**.
+    Rebound direction positive: $\Delta p = m(v_f - v_i) = {m}({v2} - (-{v1})) =$ **{J:sig3} N·s**.
 
-    $F_{\text{avg}} = \dfrac{\Delta p}{\Delta t} = \dfrac{{J:num4}}{{tms}\times10^{-3}} =$ **{F:num1} N**.
+    $F_{\text{avg}} = \dfrac{\Delta p}{\Delta t} = \dfrac{{J:num4}}{{tms}\times10^{-3}} =$ **{F:sig3} N**.
 - id: phys-recoil
   title: Recoil (momentum from rest)
   topic: Momentum and impulse
@@ -159,13 +159,13 @@
     v: {min: 3, max: 25}
   calc:
     V: m*v/M
-  prompt: 'A {M} kg person standing on frictionless ice throws a {m} kg package horizontally at {v} m/s. With what speed does the person recoil?'
+  prompt: 'A {M} kg person standing on frictionless ice throws a {m} kg package horizontally at {v} m/s. With what speed does the person recoil? Give m/s to 3 significant figures.'
   answers:
     - {format: sig4, name: V, label: 'Recoil speed', relTolerance: 0.01, units: {'m/s': 1, 'cm/s': 0.01}}
   solution: |-
     Total momentum starts at zero and stays zero: ${m}({v}) + {M}V = 0$.
 
-    $|V| = \dfrac{{m}({v})}{{M}} =$ **{V:num4} m/s**, opposite to the throw.
+    $|V| = \dfrac{{m}({v})}{{M}} =$ **{V:sig3} m/s**, opposite to the throw.
 - id: phys-com
   title: Center of mass of three particles
   topic: Center of mass
@@ -184,7 +184,7 @@
     xc: (m1*x1 + m2*x2 + m3*x3)/M
     yc: (m1*y1 + m2*y2 + m3*y3)/M
   where: ['abs(xc) > 0.05', 'abs(yc) > 0.05', 'abs(xc + 15.54) > 1', 'abs(yc + 15.54) > 1']
-  prompt: 'Find the center of mass of {m1} kg at $({x1}, {y1})$, {m2} kg at $({x2}, {y2})$ and {m3} kg at $({x3}, {y3})$ (coordinates in meters). Give each coordinate to 2 decimals.'
+  prompt: 'Find the center of mass of {m1} kg at $({x1}, {y1})$, {m2} kg at $({x2}, {y2})$ and {m3} kg at $({x3}, {y3})$ (coordinates in meters). Give each coordinate in meters to 2 decimal places.'
   answers:
     - {format: sig4, name: xc, label: '$x_{\text{cm}} =$', tolerance: 0.01, units: {m: 1}}
     - {format: sig4, name: yc, label: '$y_{\text{cm}} =$', tolerance: 0.01, units: {m: 1}}
@@ -218,14 +218,14 @@
     Ki: 0.5*m1*v1^2 + 0.5*m2*v2^2
     Kf: 0.5*(m1 + m2)*vf^2
     dK: Ki - Kf
-  prompt: 'A {m1} kg car moving at {v1} m/s collides with a {m2} kg car moving at {v2} m/s along the same line (negative means the opposite direction), and they lock together. Find their common velocity and the kinetic energy lost.'
+  prompt: 'A {m1} kg car moving at {v1} m/s collides with a {m2} kg car moving at {v2} m/s along the same line (negative means the opposite direction), and they lock together. Find their common velocity (m/s, with sign) and the kinetic energy lost (J), to 3 significant figures.'
   answers:
     - {format: sig4, name: vf, label: 'Final velocity', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: dK, label: 'KE lost', relTolerance: 0.01, units: {J: 1, kJ: 1000}}
   solution: |-
-    Momentum: ${m1:dp0}({v1}) + {m2:dp0}({v2}) = ({m1:dp0} + {m2:dp0})v_f$, so $v_f =$ **{vf:num2} m/s**.
+    Momentum: ${m1:dp0}({v1}) + {m2:dp0}({v2}) = ({m1:dp0} + {m2:dp0})v_f$, so $v_f =$ **{vf:sig3} m/s**.
 
-    $K_i = {Ki:dp0}$ J and $K_f = \tfrac12({Mt:dp0})v_f^2 = {Kf:dp0}$ J, so the loss is **{dK:int} J**.
+    $K_i = {Ki:dp0}$ J and $K_f = \tfrac12({Mt:dp0})v_f^2 = {Kf:dp0}$ J, so the loss is $K_i - K_f =$ **{dK:sig3} J**.
 - id: phys-elastic-1d
   title: Elastic collision with a target at rest
   topic: Collisions
@@ -237,16 +237,16 @@
   calc:
     v1f: (m1 - m2)/(m1 + m2)*v
     v2f: 2*m1/(m1 + m2)*v
-  prompt: 'A {m1} kg cart moving at {v} m/s collides head-on and elastically with a {m2} kg cart at rest. Find both final velocities (positive = original direction of motion).'
+  prompt: 'A {m1} kg cart moving at {v} m/s collides head-on and elastically with a {m2} kg cart at rest. Find both final velocities in m/s, to 3 significant figures (positive = original direction of motion).'
   answers:
     - {format: sig4, name: v1f, label: 'First cart', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: v2f, label: 'Second cart', relTolerance: 0.01, units: {'m/s': 1}}
   solution: |-
-    $v_{1f} = \dfrac{m_1 - m_2}{m_1 + m_2}v_{1i} = \dfrac{{m1} - {m2}}{{m1} + {m2}}({v}) =$ **{v1f:num2} m/s**
+    $v_{1f} = \dfrac{m_1 - m_2}{m_1 + m_2}v_{1i} = \dfrac{{m1} - {m2}}{{m1} + {m2}}({v}) =$ **{v1f:sig3} m/s**
 
-    $v_{2f} = \dfrac{2m_1}{m_1 + m_2}v_{1i} =$ **{v2f:num2} m/s**
+    $v_{2f} = \dfrac{2m_1}{m_1 + m_2}v_{1i} =$ **{v2f:sig3} m/s**
 
-    Check: they separate at ${v2f:num2} - ({v1f:num2}) = {v}$ m/s, the same as the approach speed.
+    Check: they separate at $v_{2f} - v_{1f} = \dfrac{2m_1 - (m_1 - m_2)}{m_1 + m_2}v_{1i} = v_{1i} = {v}$ m/s, the same as the approach speed.
 - id: phys-ballistic
   title: Ballistic pendulum
   topic: Collisions
@@ -258,11 +258,11 @@
     m: mg/1000
     V: sqrt(2*9.8*hcm/100)
     v: (m + M)/m*V
-  prompt: 'A {mg} g bullet embeds itself in a {M} kg block hanging from strings. The block swings up {hcm} cm. Using $g = 9.8$ m/s², find the block''s speed just after impact and the bullet''s initial speed.'
+  prompt: 'A {mg} g bullet embeds itself in a {M} kg block hanging from strings. The block swings up {hcm} cm. Using $g = 9.8$ m/s², find the block''s speed just after impact and the bullet''s initial speed, in m/s to 3 significant figures.'
   answers:
     - {format: sig4, name: V, label: 'Block speed', relTolerance: 0.01, units: {'m/s': 1}}
     - {format: sig4, name: v, label: 'Bullet speed', relTolerance: 0.01, units: {'m/s': 1}}
   solution: |-
-    Swing (energy conserved): $V = \sqrt{2gh} = \sqrt{2(9.8)({hcm}/100)} =$ **{V:num4} m/s**.
+    Swing (energy conserved): $V = \sqrt{2gh} = \sqrt{2(9.8)({hcm}/100)} =$ **{V:sig3} m/s**.
 
-    Collision (momentum conserved): $mv = (m + M)V$, so $v = \dfrac{{m} + {M}}{{m}}({V:num4}) =$ **{v:num1} m/s**.
+    Collision (momentum conserved): $mv = (m + M)V$, so $v = \dfrac{{m:dp3} + {M}}{{m:dp3}}({V:num4}) =$ **{v:sig3} m/s**.

@@ -13,7 +13,7 @@ Flick one end of a rope and a pulse runs along it; drop a stone in a pond and ri
 
 ## Kinds of waves
 
-**Mechanical waves** need a medium (string, water, air, rock). Electromagnetic waves (light, radio) don't, and come later in the course.
+**Mechanical waves** need a medium (string, water, air, rock). Electromagnetic waves (light, radio) don't; they are covered in University Physics II.
 
 - In a **transverse wave** the medium moves perpendicular to the direction the wave travels: waves on a string, the "wave" in a stadium.
 - In a **longitudinal wave** the medium moves parallel to the direction of travel, in compressions and rarefactions: sound in air, a pulse along a stretched Slinky.
@@ -74,7 +74,7 @@ $$L = n\frac{\lambda_n}{2} \quad\Rightarrow\quad \lambda_n = \frac{2L}{n}, \qqua
 These are the string's **harmonics**. The lowest, $f_1 = v/(2L)$, is the **fundamental frequency**; the others are integer multiples. A plucked string vibrates in a mix of harmonics, and the mix gives each instrument its tone quality (timbre).
 
 ```plot
-{"x": [0, 3], "y": [-1.4, 1.4], "xLabel": "position along string", "yLabel": "displacement", "functions": [{"f": "sin(pi*x)", "label": "n = 3"}, {"f": "-sin(pi*x)", "dashed": true}], "points": [{"at": [0, 0], "label": "N"}, {"at": [1, 0], "label": "N"}, {"at": [2, 0], "label": "N"}, {"at": [3, 0], "label": "N"}, {"at": [0.5, 1], "label": "A"}], "caption": "Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2"}
+{"x": [0, 3], "y": [-1.4, 1.4], "xLabel": "position along string", "yLabel": "displacement", "functions": [{"f": "sin(pi*x)"}, {"f": "-sin(pi*x)", "dashed": true}], "points": [{"at": [0, 0], "label": "N"}, {"at": [1, 0], "label": "N"}, {"at": [2, 0], "label": "N"}, {"at": [3, 0], "label": "N"}, {"at": [0.5, 1], "label": "A"}], "caption": "Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2"}
 ```
 
 ### Example 2
@@ -95,7 +95,7 @@ $$I = \frac{P}{4\pi r^2}.$$
 
 That's another inverse-square law, which we'll use for sound.
 
-## With calculus: the wave equation
+## The wave function and the wave equation
 
 A sinusoidal wave moving in the $+x$ direction is
 

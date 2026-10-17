@@ -6,7 +6,7 @@
   choices: ['400 J', '346 J', '200 J', '0 J']
   answer: 2
   explanation: |-
-    $W = Fd\cos\theta = 40(10)\cos 60^\circ = 200$ J. Only the horizontal component (20 N) acts along the displacement. 346 J uses $\sin 60^\circ$.
+    $W = Fd\cos\theta = 40(10)\cos 60^\circ = 200$ J. Only the horizontal component (20 N) acts along the displacement. 346 J uses $\sin 60^\circ$; 400 J ignores the angle.
 - id: phys-q-1102
   lesson: phys-work
   topic: Work and kinetic energy
@@ -31,7 +31,7 @@
   choices: ['10 m/s', '50 m/s', '7.1 m/s', '100 m/s']
   answer: 0
   explanation: |-
-    $W_{\text{net}} = \tfrac12mv^2$: $100 = \tfrac12(2.0)v^2$, so $v^2 = 100$ and $v = 10$ m/s. 7.1 m/s forgets the $\tfrac12$.
+    $W_{\text{net}} = \tfrac12mv^2$: $100 = \tfrac12(2.0)v^2$, so $v^2 = 100$ and $v = 10$ m/s. 7.1 m/s forgets the $\tfrac12$; 100 m/s forgets the square root; 50 m/s is $W/m$.
 - id: phys-q-1105
   lesson: phys-work
   topic: Work and kinetic energy
@@ -72,7 +72,7 @@
   choices: ['the slope of the graph', 'the force at the final position times the distance', 'the area under the graph between them', 'the average of the two forces']
   answer: 2
   explanation: |-
-    $W = \int F\,dx$ is the area under the $F$–$x$ curve. For a constant force it's a rectangle, $Fd$; for a spring it's a triangle, $\tfrac12kx^2$.
+    $W = \int F\,dx$ is the area under the $F$–$x$ curve. For a constant force it's a rectangle, $Fd$; for a spring it's a triangle, $\tfrac12kx^2$. The slope has units of N/m, not joules.
 - id: phys-q-1110
   lesson: phys-work
   topic: Work and kinetic energy
@@ -89,7 +89,7 @@
   choices: ['49 m/s', '7.0 m/s', '98 m/s', '9.9 m/s']
   answer: 3
   explanation: |-
-    $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{98} = 9.9$ m/s. 7.0 m/s is $\sqrt{gh}$, missing the 2. The mass and the hill's shape don't matter.
+    $mgh = \tfrac12mv^2$, so $v = \sqrt{2gh} = \sqrt{98} = 9.9$ m/s. 7.0 m/s is $\sqrt{gh}$, missing the 2. The mass and the hill's shape don't matter. 98 is $2gh$ before taking the square root, and 49 is $gh$.
 - id: phys-q-1202
   lesson: phys-energy
   topic: Conservation of energy
@@ -105,7 +105,7 @@
   choices: ['4.0 m/s', '2.8 m/s', '7.8 m/s', '15.7 m/s']
   answer: 0
   explanation: |-
-    The string tension is perpendicular to the motion and does no work, so $v = \sqrt{2gh} = \sqrt{2(9.8)(0.80)} = 3.96$ m/s.
+    The string tension is perpendicular to the motion and does no work, so $v = \sqrt{2gh} = \sqrt{2(9.8)(0.80)} = 3.96$ m/s. 2.8 m/s is $\sqrt{gh}$ (missing the 2); 7.8 is $gh$ and 15.7 is $2gh$, which is $v^2$, not $v$.
 - id: phys-q-1204
   lesson: phys-energy
   module_quiz: true
@@ -114,7 +114,7 @@
   choices: ['−37.5 J', '−58.8 J', '−21.3 J', '+21.3 J']
   answer: 2
   explanation: |-
-    $U_i = 3.0(9.8)(2.0) = 58.8$ J and $K_f = \tfrac12(3.0)(25) = 37.5$ J. $W_{\text{nc}} = K_f - U_i = -21.3$ J. Friction removes mechanical energy, so its work is negative.
+    $U_i = 3.0(9.8)(2.0) = 58.8$ J and $K_f = \tfrac12(3.0)(25) = 37.5$ J. $W_{\text{nc}} = K_f - U_i = -21.3$ J. Friction removes mechanical energy, so its work is negative. −37.5 J is just $K_f$ and −58.8 J just $U_i$; +21.3 J has the wrong sign.
 - id: phys-q-1205
   lesson: phys-energy
   topic: Conservation of energy
@@ -130,15 +130,15 @@
   choices: ['30 W', '294 W', '2940 W', '588 W']
   answer: 1
   explanation: |-
-    $P = \dfrac{mgh}{t} = \dfrac{60(9.8)(5.0)}{10} = 294$ W, about 0.4 hp.
+    $P = \dfrac{mgh}{t} = \dfrac{60(9.8)(5.0)}{10} = 294$ W, about 0.4 hp. 30 W leaves out $g$; 2940 is the work in joules, not divided by the time; 588 is her weight in newtons.
 - id: phys-q-1207
   lesson: phys-energy
   topic: Power
   stem: 'A car''s engine delivers 15 kW while the car moves at a steady 30 m/s. What is the total resistive force on the car?'
-  choices: ['500 N', '450 kN', '2000 N', '50 N']
+  choices: ['500 N', '450 kN', '0.50 N', '2.0 N']
   answer: 0
   explanation: |-
-    At constant speed the driving force equals the resistive force, and $P = Fv$: $F = 15\,000/30 = 500$ N.
+    At constant speed the driving force equals the resistive force, and $P = Fv$: $F = 15\,000/30 = 500$ N. 450 kN multiplies instead of dividing; 0.50 N forgets to convert kW to W; 2.0 N divides the speed by the power in kW.
 - id: phys-q-1208
   lesson: phys-energy
   topic: Power
@@ -155,15 +155,15 @@
   choices: ['$F = -4$ N; $x = 2$ m', '$F = 4$ N; $x = 4$ m', '$F = -6$ N; $x = 0$', '$F = 4$ N; $x = 2$ m']
   answer: 3
   explanation: |-
-    $F = -dU/dx = -(4x - 8)$, so $F(1) = 4$ N. Equilibrium where $dU/dx = 0$: $x = 2$ m (a minimum, so stable). Forgetting the minus sign gives $-4$ N.
+    $F = -dU/dx = -(4x - 8)$, so $F(1) = 4$ N. Equilibrium where $dU/dx = 0$: $x = 2$ m (a minimum, so stable). Forgetting the minus sign gives $-4$ N; $x = 4$ m is where $U = 0$, not where the force is zero; $-6$ is $U(1)$ in joules, not the force.
 - id: phys-q-1210
   lesson: phys-energy
   topic: Conservation of energy
   stem: 'A 0.50 kg ball is launched straight up by a spring ($k = 400$ N/m) compressed 0.20 m. How high above the release point does it rise? ($g = 9.8$ m/s²)'
-  choices: ['1.6 m', '16 m', '3.3 m', '8.2 m']
+  choices: ['1.6 m', '16 m', '3.3 m', '0.82 m']
   answer: 0
   explanation: |-
-    $\tfrac12kx^2 = \tfrac12(400)(0.04) = 8.0$ J $= mgh$, so $h = 8.0/(0.50 \times 9.8) = 1.63$ m. 3.3 m drops the $\tfrac12$ in the spring energy.
+    $\tfrac12kx^2 = \tfrac12(400)(0.04) = 8.0$ J $= mgh$, so $h = 8.0/(0.50 \times 9.8) = 1.63$ m. 3.3 m drops the $\tfrac12$ in the spring energy; 16 m leaves out $g$; 0.82 m leaves out the mass.
 - id: phys-q-1211
   lesson: phys-energy
   topic: Conservation of energy
@@ -171,7 +171,7 @@
   choices: ['$U(x)$ has a minimum', '$U(x) = 0$', '$U(x) = E$', '$dU/dx = 0$']
   answer: 2
   explanation: |-
-    Kinetic energy is $E - U(x)$; at a turning point the particle stops, so $K = 0$ and $U = E$. Minima of $U$ are stable equilibria, not turning points.
+    Kinetic energy is $E - U(x)$; at a turning point the particle stops, so $K = 0$ and $U = E$. Minima of $U$, and other points where $dU/dx = 0$, are equilibrium points (zero force), not turning points.
 - id: phys-q-1301
   lesson: phys-momentum
   module_quiz: true
@@ -193,10 +193,10 @@
   lesson: phys-momentum
   topic: Momentum and impulse
   stem: 'A 4.0 kg rifle fires a 20 g bullet at 400 m/s. What is the rifle''s recoil speed?'
-  choices: ['2.0 m/s', '0.2 m/s', '20 m/s', '8.0 m/s']
+  choices: ['2.0 m/s', '0.20 m/s', '20 m/s', '8.0 m/s']
   answer: 0
   explanation: |-
-    Total momentum stays zero: $0.020(400) = 4.0\,v$, so $v = 2.0$ m/s backward.
+    Total momentum stays zero: $0.020(400) = 4.0\,v$, so $v = 2.0$ m/s backward. 20 m/s and 0.20 m/s come from converting 20 g to kilograms wrongly; 8.0 is the bullet's momentum in kg·m/s, not a speed.
 - id: phys-q-1304
   lesson: phys-momentum
   module_quiz: true
@@ -237,16 +237,16 @@
   choices: ['120 N·s', '240 N·s', '60 N·s', '80 N·s']
   answer: 3
   explanation: |-
-    $J = \int_0^2 30t^2\,dt = [10t^3]_0^2 = 80$ N·s. $F(2) \times 2$ s $= 240$ N·s wrongly treats the force as constant.
+    $J = \int_0^2 30t^2\,dt = [10t^3]_0^2 = 80$ N·s. $F(2) \times 2$ s $= 240$ N·s wrongly treats the force as constant; 120 is $F(2)$ in newtons, not an impulse; 60 N·s uses $30t$ in place of $30t^2$.
 - id: phys-q-1309
   lesson: phys-momentum
   module_quiz: true
   topic: Momentum and impulse
   stem: 'A 0.15 kg ball is caught: it goes from 30 m/s to rest in 0.050 s. What is the average force on the catcher''s glove?'
-  choices: ['90 N', '4.5 N', '225 N', '600 N']
+  choices: ['90 N', '4.5 N', '1350 N', '600 N']
   answer: 0
   explanation: |-
-    $F_{\text{avg}} = \Delta p/\Delta t = 0.15(30)/0.050 = 90$ N. (4.5 kg·m/s is the momentum change, not the force.)
+    $F_{\text{avg}} = \Delta p/\Delta t = 0.15(30)/0.050 = 90$ N. (4.5 kg·m/s is the momentum change, not the force.) 600 N ignores the mass ($v/\Delta t$); 1350 N divides the kinetic energy by the time.
 - id: phys-q-1310
   lesson: phys-momentum
   topic: Center of mass
@@ -263,15 +263,15 @@
   choices: ['3.0 m/s', '1.5 m/s', '1.0 m/s', '2.0 m/s']
   answer: 3
   explanation: |-
-    $2.0(3.0) = 3.0\,v_f$, so $v_f = 2.0$ m/s. Momentum is conserved in every collision.
+    $2.0(3.0) = 3.0\,v_f$, so $v_f = 2.0$ m/s. Momentum is conserved in every collision. 3.0 m/s ignores the second cart; 1.5 m/s averages the speeds as if the masses were equal; 1.0 m/s uses the 1.0 kg cart's mass in place of the 2.0 kg cart's.
 - id: phys-q-1402
   lesson: phys-collisions
   topic: Collisions
-  stem: 'In the previous collision (2.0 kg at 3.0 m/s sticking to 1.0 kg at rest), how much kinetic energy is lost?'
+  stem: 'A 2.0 kg cart moving at 3.0 m/s collides with a 1.0 kg cart at rest, and they stick together. How much kinetic energy is lost?'
   choices: ['3.0 J', '9.0 J', '6.0 J', '0 J']
   answer: 0
   explanation: |-
-    $K_i = \tfrac12(2.0)(9.0) = 9.0$ J; $K_f = \tfrac12(3.0)(4.0) = 6.0$ J. Lost: 3.0 J, turned into heat and deformation.
+    $K_i = \tfrac12(2.0)(9.0) = 9.0$ J; $K_f = \tfrac12(3.0)(4.0) = 6.0$ J. Lost: 3.0 J, turned into heat and deformation. 9.0 J and 6.0 J are the kinetic energies before and after, not the loss.
 - id: phys-q-1403
   lesson: phys-collisions
   topic: Collisions
@@ -310,10 +310,10 @@
   module_quiz: true
   topic: Collisions
   stem: 'An 8.0 g bullet embeds in a 1.992 kg block hanging as a pendulum, which then rises 5.0 cm. What was the bullet''s speed? ($g = 9.8$ m/s²)'
-  choices: ['0.99 m/s', '35 m/s', '248 m/s', '500 m/s']
+  choices: ['0.99 m/s', '15.7 m/s', '248 m/s', '2470 m/s']
   answer: 2
   explanation: |-
-    Swing: $V = \sqrt{2gh} = \sqrt{2(9.8)(0.050)} = 0.990$ m/s. Collision: $v = \dfrac{m + M}{m}V = \dfrac{2.000}{0.008}(0.990) = 248$ m/s.
+    Swing: $V = \sqrt{2gh} = \sqrt{2(9.8)(0.050)} = 0.990$ m/s. Collision: $v = \dfrac{m + M}{m}V = \dfrac{2.000}{0.008}(0.990) = 248$ m/s. 0.99 m/s is the block's speed, not the bullet's; 15.7 m/s wrongly applies energy conservation through the collision, $\tfrac12mv^2 = (m + M)gh$; 2470 m/s uses $h = 5.0$ m, forgetting to convert centimeters.
 - id: phys-q-1408
   lesson: phys-collisions
   topic: Collisions
