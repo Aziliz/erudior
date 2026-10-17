@@ -5,8 +5,8 @@
  "title": "University Physics I",
  "description": "Calculus-based University Physics I: measurement and vectors, kinematics, Newton's laws, work and energy, momentum and collisions, rotation, gravitation, oscillations, waves and sound, fluids, and thermodynamics. Assumes Calculus I (derivatives and integrals are used throughout).",
  "author": "Examiner",
- "revision": 2,
- "changelog": "Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections.",
+ "revision": 3,
+ "changelog": "Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lesson on damped and driven oscillations.",
  "modules": [
   {
    "id": "phys-m1",
@@ -71,6 +71,7 @@
     "phys-q-1301",
     "phys-q-1304",
     "phys-q-1309",
+    "phys-q-1311",
     "phys-q-1401",
     "phys-q-1404",
     "phys-q-1407"
@@ -91,6 +92,7 @@
     "phys-q-1710",
     "phys-q-1801",
     "phys-q-1804",
+    "phys-q-1811",
     "phys-q-1901",
     "phys-q-1904",
     "phys-q-1907"
@@ -103,9 +105,14 @@
     "phys-q-2001",
     "phys-q-2004",
     "phys-q-2008",
+    "phys-q-2051",
+    "phys-q-2054",
+    "phys-q-2058",
+    "phys-q-2061",
     "phys-q-2101",
     "phys-q-2104",
     "phys-q-2107",
+    "phys-q-2112",
     "phys-q-2201",
     "phys-q-2204",
     "phys-q-2206"
@@ -527,12 +534,13 @@
    "drills": [
     "phys-impulse",
     "phys-recoil",
-    "phys-com"
+    "phys-com",
+    "phys-rocket"
    ],
    "refs": [
     "phys-ref-mechanics"
    ],
-   "body": "## Why we need momentum\n\nEnergy handles forces acting over distances. But in a car crash, a bat hitting a ball, or a rocket firing, huge forces act for short and complicated times, and energy is often lost to heat and deformation. Momentum is the tool for these situations. It is conserved even when mechanical energy isn't, and it leads naturally to the center of mass, the point that moves as if the whole system's mass were concentrated there.\n\n## Linear momentum\n\nThe **[[momentum]]** (linear momentum) of an object is\n\n$$\\vec p = m\\vec v,$$\n\na vector in the direction of the velocity, with units kg·m/s. A slow truck and a fast bullet can have similar momenta. Unlike kinetic energy, momentum has a direction, so two objects moving in opposite directions can have a total momentum of zero.\n\nMomentum and kinetic energy are related: $K = \\dfrac{p^2}{2m}$. For equal momenta, the lighter object has more kinetic energy.\n\n## Impulse\n\nNewton's second law in momentum form is $\\vec F_{\\text{net}} = \\Delta\\vec p/\\Delta t$. Multiply through by $\\Delta t$:\n\n$$\\vec J = \\vec F_{\\text{avg}}\\,\\Delta t = \\Delta\\vec p.$$\n\nThe product of force and time is the **[[impulse]]** $\\vec J$, and it equals the change in momentum (the **[[impulse–momentum theorem]]**). Its units, N·s, are the same as kg·m/s.\n\nThe theorem explains a lot of safety engineering. To stop a moving object you must deliver a fixed impulse, $\\Delta p$. Spreading it over a longer time reduces the average force: air bags, crumple zones, bending your knees when you land, and a catcher's padded glove all increase $\\Delta t$. Conversely, a golf club or a hammer works because a large force acts over a very short time.\n\n### Example 1\n\nA 0.145 kg baseball arrives at 40 m/s and leaves the bat at 50 m/s in the opposite direction. The contact lasts 1.2 ms. Find the impulse and the average force.\n\nTake the outgoing direction as positive: $v_i = -40$ m/s, $v_f = +50$ m/s.\n\n$\\Delta p = 0.145(50 - (-40)) = 0.145(90) = 13.05$ kg·m/s.\n\n$F_{\\text{avg}} = \\dfrac{13.05}{1.2\\times10^{-3}} = 1.09\\times10^4$ N, roughly the weight of a small car, for about a millisecond. Forgetting the reversal of direction (using $50 - 40$) would underestimate the impulse by a factor of 9.\n\n## Conservation of momentum\n\nConsider a system of objects. Forces between objects inside the system (internal forces) come in third-law pairs, equal and opposite, so their impulses cancel. Only external forces can change the system's total momentum. If the net external force is zero,\n\n$$\\vec p_{\\text{total, initial}} = \\vec p_{\\text{total, final}}.$$\n\nThis is **[[conservation of momentum]]**. It holds for each component separately: if external forces are only vertical (gravity and normal forces), horizontal momentum is still conserved. It also holds approximately during brief collisions and explosions even when external forces exist, because the internal forces are so much larger for that short time.\n\n### Example 2: recoil\n\nA 70 kg skater standing on frictionless ice throws a 5.0 kg ball forward at 12 m/s. How fast does she recoil?\n\nInitially everything is at rest: total momentum 0. Afterward: $5.0(12) + 70v = 0$, so $v = -0.857$ m/s. She glides backward at 0.86 m/s. Kinetic energy was not conserved (it increased from 0, supplied by her muscles), but momentum was.\n\nThe same physics drives a rifle's recoil and a rocket: expelled gas carries momentum backward, so the rocket gains momentum forward. A rocket doesn't need anything to push against.\n\n## Center of mass\n\nFor a system of particles, the **[[center of mass]]** (CM) is the mass-weighted average position:\n\n$$x_{\\text{cm}} = \\frac{m_1x_1 + m_2x_2 + \\cdots}{m_1 + m_2 + \\cdots} = \\frac{\\sum m_ix_i}{M},$$\n\nand likewise for $y_{\\text{cm}}$ and $z_{\\text{cm}}$. For a symmetric uniform object (a sphere, rod or plate), the CM is at the geometric center. The CM can lie outside the material, as in a ring or a boomerang.\n\n### Example 3\n\nMasses of 2.0 kg at $(0, 0)$, 3.0 kg at $(4, 0)$ and 5.0 kg at $(0, 2)$ (meters). Find the center of mass.\n\n$M = 10$ kg. $x_{\\text{cm}} = \\dfrac{2(0) + 3(4) + 5(0)}{10} = 1.2$ m; $y_{\\text{cm}} = \\dfrac{2(0) + 3(0) + 5(2)}{10} = 1.0$ m. The CM is at $(1.2, 1.0)$ m, pulled toward the heavier masses.\n\n*Motion of the center of mass.* Differentiating the definition gives $M\\vec v_{\\text{cm}} = \\sum m_i\\vec v_i = \\vec p_{\\text{total}}$, and differentiating again,\n\n$$\\vec F_{\\text{net, ext}} = M\\vec a_{\\text{cm}}.$$\n\nSo the CM of any system moves like a single particle of mass $M$ acted on by the external forces alone, no matter how the parts move. When a firework shell explodes in midair, the fragments fly apart but their CM continues along the original parabola (until fragments hit the ground). With no external force, $\\vec v_{\\text{cm}}$ is constant: that's conservation of momentum in another form.\n\n### Example 4\n\nA 60 kg person stands at one end of a 120 kg, 4.0 m raft at rest on still water (no friction with the water). She walks to the other end. How far does the raft move?\n\nNo external horizontal forces, and the system starts at rest, so the CM stays put. If she moves 4.0 m relative to the raft and the raft moves $d$ backward, her ground displacement is $4.0 - d$. Setting the CM displacement to zero: $60(4.0 - d) - 120d = 0$, so $d = 240/180 = 1.33$ m.\n\n## Time-varying forces and continuous objects\n\nThe general second law is $\\vec F_{\\text{net}} = d\\vec p/dt$, and the impulse of a time-varying force is an integral:\n\n$$\\vec J = \\int_{t_1}^{t_2}\\vec F(t)\\,dt = \\Delta\\vec p,$$\n\nthe area under the force–time curve. The average force is the constant force with the same area over the same time.\n\nFor a continuous object, the CM sums become integrals over mass elements $dm$:\n\n$$x_{\\text{cm}} = \\frac{1}{M}\\int x\\,dm.$$\n\nFor a rod of length $L$ along $x$ with linear density $\\lambda(x)$ (kg/m), $dm = \\lambda\\,dx$. A uniform rod gives $x_{\\text{cm}} = L/2$, as expected. A rod with $\\lambda = cx$ (denser toward one end) gives $M = \\int_0^L cx\\,dx = cL^2/2$ and $\\int_0^L x\\,cx\\,dx = cL^3/3$, so $x_{\\text{cm}} = \\dfrac{2L}{3}$: shifted toward the heavy end.\n\n### Example 5\n\nA kick delivers a force $F(t) = (4.0\\times10^{7})\\,t\\,(0.010 - t)$ N to a 0.45 kg ball at rest, for $0 \\le t \\le 0.010$ s. Find the impulse, the ball's speed, and the peak and average forces.\n\n$$J = \\int_0^{0.010} (4.0\\times10^{7})(0.010\\,t - t^2)\\,dt = (4.0\\times10^{7})\\left[\\frac{0.010\\,t^2}{2} - \\frac{t^3}{3}\\right]_0^{0.010} = (4.0\\times10^{7})(1.667\\times10^{-7}) = 6.67\\text{ N·s}.$$\n\nThe ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midpoint, $t = 0.005$ s: $F_{\\max} = (4.0\\times10^{7})(0.005)(0.005) = 1000$ N. The average force is $J/\\Delta t = 667$ N, two-thirds of the peak, as expected for a parabolic pulse.\n\n## Rockets: momentum with changing mass\n\nA rocket is the standard example of a system that loses mass as it moves. Far from any planet (no external force), let the rocket have mass $m$ and velocity $v$, and let it eject exhaust backward at speed $u$ *relative to the rocket*. In a time $dt$ its mass changes by $dm$ (negative) and the exhaust carries away mass $-dm$ moving at $v - u$. Conserving momentum, $mv = (m + dm)(v + dv) + (-dm)(v - u)$, and dropping the tiny product $dm\\,dv$ leaves $m\\,dv = -u\\,dm$. Separating variables and integrating from the initial mass $m_i$ to the final mass $m_f$:\n\n$$\\Delta v = u\\ln\\frac{m_i}{m_f}.$$\n\nThis is the rocket equation. The push on the rocket, the thrust, is $u\\,|dm/dt|$. Because the gain grows only with the logarithm of the mass ratio, a rocket with $u = 3.0$ km/s that burns 80% of its mass ($m_i/m_f = 5$) gains only $3.0\\ln 5 = 4.8$ km/s, which is why orbital rockets drop empty stages.\n\n## Common mistakes\n\n- Ignoring direction: momentum and impulse are vectors, and a rebound reverses the sign of $v$.\n- Assuming kinetic energy is conserved whenever momentum is.\n- Applying momentum conservation when a large external force acts over the time considered.\n- Weighting CM positions by distance instead of by mass.\n\n## Key points\n\n- $\\vec p = m\\vec v$; impulse $\\vec J = \\vec F_{\\text{avg}}\\Delta t = \\Delta\\vec p$ (in general $\\int\\vec F\\,dt$).\n- With no net external force, total momentum is conserved, component by component.\n- $x_{\\text{cm}} = \\sum m_ix_i/M$ (or $\\tfrac1M\\int x\\,dm$); $\\vec F_{\\text{ext}} = M\\vec a_{\\text{cm}}$.\n- Longer stopping time means smaller average force for the same $\\Delta p$.\n",
+   "body": "## Why we need momentum\n\nEnergy handles forces acting over distances. But in a car crash, a bat hitting a ball, or a rocket firing, huge forces act for short and complicated times, and energy is often lost to heat and deformation. Momentum is the tool for these situations. It is conserved even when mechanical energy isn't, and it leads naturally to the center of mass, the point that moves as if the whole system's mass were concentrated there.\n\n## Linear momentum\n\nThe **[[momentum]]** (linear momentum) of an object is\n\n$$\\vec p = m\\vec v,$$\n\na vector in the direction of the velocity, with units kg·m/s. A slow truck and a fast bullet can have similar momenta. Unlike kinetic energy, momentum has a direction, so two objects moving in opposite directions can have a total momentum of zero.\n\nMomentum and kinetic energy are related: $K = \\dfrac{p^2}{2m}$. For equal momenta, the lighter object has more kinetic energy.\n\n## Impulse\n\nNewton's second law in momentum form is $\\vec F_{\\text{net}} = \\Delta\\vec p/\\Delta t$. Multiply through by $\\Delta t$:\n\n$$\\vec J = \\vec F_{\\text{avg}}\\,\\Delta t = \\Delta\\vec p.$$\n\nThe product of force and time is the **[[impulse]]** $\\vec J$, and it equals the change in momentum (the **[[impulse–momentum theorem]]**). Its units, N·s, are the same as kg·m/s.\n\nThe theorem explains a lot of safety engineering. To stop a moving object you must deliver a fixed impulse, $\\Delta p$. Spreading it over a longer time reduces the average force: air bags, crumple zones, bending your knees when you land, and a catcher's padded glove all increase $\\Delta t$. Conversely, a golf club or a hammer works because a large force acts over a very short time.\n\n### Example 1\n\nA 0.145 kg baseball arrives at 40 m/s and leaves the bat at 50 m/s in the opposite direction. The contact lasts 1.2 ms. Find the impulse and the average force.\n\nTake the outgoing direction as positive: $v_i = -40$ m/s, $v_f = +50$ m/s.\n\n$\\Delta p = 0.145(50 - (-40)) = 0.145(90) = 13.05$ kg·m/s.\n\n$F_{\\text{avg}} = \\dfrac{13.05}{1.2\\times10^{-3}} = 1.09\\times10^4$ N, roughly the weight of a small car, for about a millisecond. Forgetting the reversal of direction (using $50 - 40$) would underestimate the impulse by a factor of 9.\n\n## Conservation of momentum\n\nConsider a system of objects. Forces between objects inside the system (internal forces) come in third-law pairs, equal and opposite, so their impulses cancel. Only external forces can change the system's total momentum. If the net external force is zero,\n\n$$\\vec p_{\\text{total, initial}} = \\vec p_{\\text{total, final}}.$$\n\nThis is **[[conservation of momentum]]**. It holds for each component separately: if external forces are only vertical (gravity and normal forces), horizontal momentum is still conserved. It also holds approximately during brief collisions and explosions even when external forces exist, because the internal forces are so much larger for that short time.\n\n### Example 2: recoil\n\nA 70 kg skater standing on frictionless ice throws a 5.0 kg ball forward at 12 m/s. How fast does she recoil?\n\nInitially everything is at rest: total momentum 0. Afterward: $5.0(12) + 70v = 0$, so $v = -0.857$ m/s. She glides backward at 0.86 m/s. Kinetic energy was not conserved (it increased from 0, supplied by her muscles), but momentum was.\n\nThe same physics drives a rifle's recoil and a rocket: expelled gas carries momentum backward, so the rocket gains momentum forward. A rocket doesn't need anything to push against.\n\n## Center of mass\n\nFor a system of particles, the **[[center of mass]]** (CM) is the mass-weighted average position:\n\n$$x_{\\text{cm}} = \\frac{m_1x_1 + m_2x_2 + \\cdots}{m_1 + m_2 + \\cdots} = \\frac{\\sum m_ix_i}{M},$$\n\nand likewise for $y_{\\text{cm}}$ and $z_{\\text{cm}}$. For a symmetric uniform object (a sphere, rod or plate), the CM is at the geometric center. The CM can lie outside the material, as in a ring or a boomerang.\n\n### Example 3\n\nMasses of 2.0 kg at $(0, 0)$, 3.0 kg at $(4, 0)$ and 5.0 kg at $(0, 2)$ (meters). Find the center of mass.\n\n$M = 10$ kg. $x_{\\text{cm}} = \\dfrac{2(0) + 3(4) + 5(0)}{10} = 1.2$ m; $y_{\\text{cm}} = \\dfrac{2(0) + 3(0) + 5(2)}{10} = 1.0$ m. The CM is at $(1.2, 1.0)$ m, pulled toward the heavier masses.\n\n*Motion of the center of mass.* Differentiating the definition gives $M\\vec v_{\\text{cm}} = \\sum m_i\\vec v_i = \\vec p_{\\text{total}}$, and differentiating again,\n\n$$\\vec F_{\\text{net, ext}} = M\\vec a_{\\text{cm}}.$$\n\nSo the CM of any system moves like a single particle of mass $M$ acted on by the external forces alone, no matter how the parts move. When a firework shell explodes in midair, the fragments fly apart but their CM continues along the original parabola (until fragments hit the ground). With no external force, $\\vec v_{\\text{cm}}$ is constant: that's conservation of momentum in another form.\n\n### Example 4\n\nA 60 kg person stands at one end of a 120 kg, 4.0 m raft at rest on still water (no friction with the water). She walks to the other end. How far does the raft move?\n\nNo external horizontal forces, and the system starts at rest, so the CM stays put. If she moves 4.0 m relative to the raft and the raft moves $d$ backward, her ground displacement is $4.0 - d$. Setting the CM displacement to zero: $60(4.0 - d) - 120d = 0$, so $d = 240/180 = 1.33$ m.\n\n## Time-varying forces and continuous objects\n\nThe general second law is $\\vec F_{\\text{net}} = d\\vec p/dt$, and the impulse of a time-varying force is an integral:\n\n$$\\vec J = \\int_{t_1}^{t_2}\\vec F(t)\\,dt = \\Delta\\vec p,$$\n\nthe area under the force–time curve. The average force is the constant force with the same area over the same time.\n\nFor a continuous object, the CM sums become integrals over mass elements $dm$:\n\n$$x_{\\text{cm}} = \\frac{1}{M}\\int x\\,dm.$$\n\nFor a rod of length $L$ along $x$ with linear density $\\lambda(x)$ (kg/m), $dm = \\lambda\\,dx$. A uniform rod gives $x_{\\text{cm}} = L/2$, as expected. A rod with $\\lambda = cx$ (denser toward one end) gives $M = \\int_0^L cx\\,dx = cL^2/2$ and $\\int_0^L x\\,cx\\,dx = cL^3/3$, so $x_{\\text{cm}} = \\dfrac{2L}{3}$: shifted toward the heavy end.\n\n### Example 5\n\nA kick delivers a force $F(t) = (4.0\\times10^{7})\\,t\\,(0.010 - t)$ N to a 0.45 kg ball at rest, for $0 \\le t \\le 0.010$ s. Find the impulse, the ball's speed, and the peak and average forces.\n\n$$J = \\int_0^{0.010} (4.0\\times10^{7})(0.010\\,t - t^2)\\,dt = (4.0\\times10^{7})\\left[\\frac{0.010\\,t^2}{2} - \\frac{t^3}{3}\\right]_0^{0.010} = (4.0\\times10^{7})(1.667\\times10^{-7}) = 6.67\\text{ N·s}.$$\n\nThe ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midpoint, $t = 0.005$ s: $F_{\\max} = (4.0\\times10^{7})(0.005)(0.005) = 1000$ N. The average force is $J/\\Delta t = 667$ N, two-thirds of the peak, as expected for a parabolic pulse.\n\n## Rockets: momentum with changing mass\n\nA rocket is the standard example of a system that loses mass as it moves. Far from any planet (no external force), let the rocket have mass $m$ and velocity $v$, and let it eject exhaust backward at speed $u$ *relative to the rocket*. In a time $dt$ its mass changes by $dm$ (negative) and the exhaust carries away mass $-dm$ moving at $v - u$. Conserving momentum, $mv = (m + dm)(v + dv) + (-dm)(v - u)$, and dropping the tiny product $dm\\,dv$ leaves $m\\,dv = -u\\,dm$. Separating variables and integrating from the initial mass $m_i$ to the final mass $m_f$:\n\n$$\\Delta v = u\\ln\\frac{m_i}{m_f}.$$\n\nThis is the **[[rocket equation]]** (Tsiolkovsky's equation). The forward push on the rocket, the **[[thrust]]**, is $u\\,|dm/dt|$: exhaust speed times the rate at which mass is ejected. In a gravity field the thrust must exceed the rocket's weight just to lift off. Because the gain grows only with the logarithm of the mass ratio, a rocket with $u = 3.0$ km/s that burns 80% of its mass ($m_i/m_f = 5$) gains only $3.0\\ln 5 = 4.8$ km/s, which is why orbital rockets drop empty stages.\n\n## Common mistakes\n\n- Ignoring direction: momentum and impulse are vectors, and a rebound reverses the sign of $v$.\n- Assuming kinetic energy is conserved whenever momentum is.\n- Applying momentum conservation when a large external force acts over the time considered.\n- Weighting CM positions by distance instead of by mass.\n- In the rocket equation, using the mass of fuel burned (or $m_f/m_i$) where the ratio $m_i/m_f$ belongs, or using the exhaust's speed relative to the ground instead of relative to the rocket.\n\n## Key points\n\n- $\\vec p = m\\vec v$; impulse $\\vec J = \\vec F_{\\text{avg}}\\Delta t = \\Delta\\vec p$ (in general $\\int\\vec F\\,dt$).\n- With no net external force, total momentum is conserved, component by component.\n- $x_{\\text{cm}} = \\sum m_ix_i/M$ (or $\\tfrac1M\\int x\\,dm$); $\\vec F_{\\text{ext}} = M\\vec a_{\\text{cm}}$.\n- Longer stopping time means smaller average force for the same $\\Delta p$.\n- Rocket: $\\Delta v = u\\ln(m_i/m_f)$ with no external force; thrust $= u\\,|dm/dt|$.\n",
    "quiz": [
     "phys-q-1301",
     "phys-q-1302",
@@ -543,7 +551,11 @@
     "phys-q-1307",
     "phys-q-1308",
     "phys-q-1309",
-    "phys-q-1310"
+    "phys-q-1310",
+    "phys-q-1311",
+    "phys-q-1312",
+    "phys-q-1313",
+    "phys-q-1314"
    ]
   },
   {
@@ -674,16 +686,18 @@
    "title": "Static equilibrium",
    "minutes": 35,
    "topics": [
-    "Static equilibrium"
+    "Static equilibrium",
+    "Elasticity"
    ],
    "drills": [
     "phys-seesaw",
-    "phys-beam-supports"
+    "phys-beam-supports",
+    "phys-elastic-stretch"
    ],
    "refs": [
     "phys-ref-mechanics"
    ],
-   "body": "## Structures that stay put\n\nBridges, shelves, ladders and your own skeleton are designed not to move. Engineers need to know the forces in each support and cable to make sure nothing breaks or tips over. For a point particle, staying at rest just needs zero net force. An extended object can have zero net force and still start spinning (think of two equal, opposite forces at opposite ends of a ruler), so it needs a second condition. This lesson puts torque to work on objects that don't move at all.\n\n## The two conditions\n\nA rigid object is in **[[static equilibrium]]** when it is at rest and stays at rest. That requires\n\n$$\\sum\\vec F = 0 \\qquad\\text{and}\\qquad \\sum\\tau = 0 \\text{ about any axis}.$$\n\nThe first prevents translation, the second rotation. In two dimensions this gives three equations: $\\sum F_x = 0$, $\\sum F_y = 0$, $\\sum\\tau = 0$. So you can solve for up to three unknown forces or distances.\n\n*Freedom to choose the axis.* If the net force is zero, the net torque is the same about every point. So you may compute torques about whatever point is most convenient. The best choice is a point where an unknown force acts: that force then has zero lever arm and drops out of the torque equation, leaving fewer unknowns.\n\n## Center of gravity\n\nGravity acts on every bit of an object, but for torque purposes its total effect is as if the whole weight $Mg$ acted at one point, the **[[center of gravity]]**. In a uniform gravitational field (any object on Earth smaller than a mountain), the center of gravity is the center of mass. A uniform beam's weight acts at its midpoint.\n\nThis explains tipping. An object resting on a base is stable as long as its center of gravity lies above the base. Lean it until the center of gravity passes beyond the edge of the base, and gravity's torque about that edge tips it over. Wide bases and low centers of gravity make objects harder to tip, which is why racing cars are low and wide.\n\n## Solving equilibrium problems\n\n1. Draw a free-body diagram of the object, showing each force *at the point where it acts*.\n2. Choose a pivot point for torques, ideally where an unknown force acts.\n3. Write $\\sum\\tau = 0$ about that point (counterclockwise positive).\n4. Write $\\sum F_x = 0$ and $\\sum F_y = 0$.\n5. Solve. If a force comes out negative, it points opposite to the way you drew it.\n\n### Example 1: a seesaw\n\nA 30 kg child sits 1.8 m from the pivot of a seesaw. Where must a 45 kg child sit on the other side to balance it? (The seesaw is uniform and pivoted at its center.)\n\nTorques about the pivot (the pivot's force and the board's weight act there, so they contribute nothing):\n\n$$30g(1.8) = 45g\\,x \\quad\\Rightarrow\\quad x = \\frac{30(1.8)}{45} = 1.2\\text{ m}.$$\n\nThe heavier child sits closer. Balance is about equal torques, not equal weights.\n\n### Example 2: a beam on two supports\n\nA uniform 6.0 m plank of mass 20 kg rests on supports at its two ends, A (left) and B (right). A 60 kg painter stands 1.5 m from end A. Find the force each support exerts.\n\nWeights: plank $20(9.8) = 196$ N at 3.0 m from A; painter $60(9.8) = 588$ N at 1.5 m from A.\n\nTorques about A (eliminates $F_A$):\n\n$$F_B(6.0) - 196(3.0) - 588(1.5) = 0 \\quad\\Rightarrow\\quad F_B = \\frac{588 + 882}{6.0} = 245\\text{ N}.$$\n\nVertical forces: $F_A + F_B = 196 + 588 = 784$ N, so $F_A = 539$ N.\n\nCheck with torques about B: $-F_A(6.0) + 196(3.0) + 588(4.5) = -3234 + 588 + 2646 = 0$ ✓. The support nearer the painter carries more of the load.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [6, 0], [6, 0.2], [0, 0.2]]}, {\"points\": [[-0.2, -0.6], [0.2, -0.6], [0, 0]]}, {\"points\": [[5.8, -0.6], [6.2, -0.6], [6, 0]]}], \"segments\": [{\"from\": [0, -1.6], \"to\": [0, -0.7], \"arrow\": true}, {\"from\": [6, -1.6], \"to\": [6, -0.7], \"arrow\": true}, {\"from\": [3, 0.1], \"to\": [3, -0.9], \"arrow\": true}, {\"from\": [1.5, 1.4], \"to\": [1.5, 0.25], \"arrow\": true}], \"labels\": [{\"at\": [0.45, -1.3], \"text\": \"F_A\"}, {\"at\": [5.55, -1.3], \"text\": \"F_B\"}, {\"at\": [3.6, -0.6], \"text\": \"196 N\"}, {\"at\": [2.1, 0.9], \"text\": \"588 N\"}], \"caption\": \"Plank on two supports with a painter 1.5 m from the left end\"}\n```\n\n### Example 3: a hinged beam held by a cable\n\nA uniform 4.0 m horizontal beam of mass 25 kg is hinged to a wall at its left end. A cable from its right end to the wall makes $30^\\circ$ with the beam. A 40 kg sign hangs from the right end. Find the cable tension and the hinge force.\n\nWeights: beam 245 N at 2.0 m; sign 392 N at 4.0 m.\n\nTorques about the hinge (removes both unknown hinge components). The cable's perpendicular component is $T\\sin 30^\\circ$ at 4.0 m:\n\n$$T\\sin 30^\\circ(4.0) - 245(2.0) - 392(4.0) = 0 \\quad\\Rightarrow\\quad T = \\frac{490 + 1568}{2.0} = 1029\\text{ N}.$$\n\nHorizontal: hinge pushes outward, $H = T\\cos 30^\\circ = 891$ N. Vertical: $V + T\\sin 30^\\circ = 245 + 392$, so $V = 637 - 514.5 = 122.5$ N upward. A shallow cable angle makes the tension much larger than the weights it holds, a recurring theme.\n\n## Ladders\n\nA ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\\circ$).\n\n## Distributed loads and stability\n\nTorque balance for continuous loads uses integrals. A beam carrying a distributed load $w(x)$ (newtons per meter) experiences a total load $W = \\int w(x)\\,dx$, acting at $\\bar x = \\dfrac{\\int x\\,w(x)\\,dx}{\\int w(x)\\,dx}$, the load's \"center of mass.\" For a load increasing linearly from 0 to $w_0$ along a beam of length $L$, $W = \\tfrac12w_0L$ and $\\bar x = \\tfrac23L$: replace it by a single force there and proceed as before.\n\nEquilibrium can also be stable or unstable, which ties back to potential energy: an object resting where its gravitational $U = Mgy_{\\text{cg}}$ is at a minimum (any small tilt raises its center of gravity) is stable; at a maximum, unstable.\n\n## Elasticity: supports that stretch\n\nEquilibrium problems treat beams and cables as rigid, but every real support deforms a little. For small deformations the **[[stress]]** (force per unit area, $F/A$, in pascals) is proportional to the **[[strain]]** (the fractional change in length, $\\Delta L/L$, a pure number):\n\n$$\\frac{F}{A} = Y\\,\\frac{\\Delta L}{L},$$\n\nwhere $Y$ is **[[Young's modulus]]**, a property of the material (roughly $2\\times10^{11}$ Pa for steel, $7\\times10^{10}$ Pa for aluminum). This is Hooke's law written for materials. Past the material's elastic limit it no longer springs back, and beyond that it breaks. Similar moduli describe shearing (the shear modulus) and squeezing from all sides (the bulk modulus $B$, which sets the speed of sound in a fluid). For instance, the cable in Example 3 is $4.0/\\cos 30^\\circ = 4.6$ m long; if it is steel with a 1.0 cm² cross-section, the 1029 N tension stretches it by $\\Delta L = \\dfrac{FL}{AY} = \\dfrac{1029(4.6)}{(1.0\\times10^{-4})(2\\times10^{11})} \\approx 0.24$ mm, small enough that treating it as rigid was fine.\n\n## Common mistakes\n\n- Taking torques about a point but then including forces acting at that point (they have zero lever arm).\n- Placing a beam's weight at its end instead of its center of gravity.\n- Using the distance along the beam instead of the perpendicular lever arm for a slanted force.\n- Forgetting that a hinge can exert both horizontal and vertical components.\n\n## Key points\n\n- Static equilibrium: $\\sum\\vec F = 0$ and $\\sum\\tau = 0$.\n- Choose the torque pivot where an unknown force acts.\n- A uniform object's weight acts at its center (center of gravity).\n- An object tips when its center of gravity moves outside its base.\n",
+   "body": "## Structures that stay put\n\nBridges, shelves, ladders and your own skeleton are designed not to move. Engineers need to know the forces in each support and cable to make sure nothing breaks or tips over. For a point particle, staying at rest just needs zero net force. An extended object can have zero net force and still start spinning (think of two equal, opposite forces at opposite ends of a ruler), so it needs a second condition. This lesson puts torque to work on objects that don't move at all.\n\n## The two conditions\n\nA rigid object is in **[[static equilibrium]]** when it is at rest and stays at rest. That requires\n\n$$\\sum\\vec F = 0 \\qquad\\text{and}\\qquad \\sum\\tau = 0 \\text{ about any axis}.$$\n\nThe first prevents translation, the second rotation. In two dimensions this gives three equations: $\\sum F_x = 0$, $\\sum F_y = 0$, $\\sum\\tau = 0$. So you can solve for up to three unknown forces or distances.\n\n*Freedom to choose the axis.* If the net force is zero, the net torque is the same about every point. So you may compute torques about whatever point is most convenient. The best choice is a point where an unknown force acts: that force then has zero lever arm and drops out of the torque equation, leaving fewer unknowns.\n\n## Center of gravity\n\nGravity acts on every bit of an object, but for torque purposes its total effect is as if the whole weight $Mg$ acted at one point, the **[[center of gravity]]**. In a uniform gravitational field (any object on Earth smaller than a mountain), the center of gravity is the center of mass. A uniform beam's weight acts at its midpoint.\n\nThis explains tipping. An object resting on a base is stable as long as its center of gravity lies above the base. Lean it until the center of gravity passes beyond the edge of the base, and gravity's torque about that edge tips it over. Wide bases and low centers of gravity make objects harder to tip, which is why racing cars are low and wide.\n\n## Solving equilibrium problems\n\n1. Draw a free-body diagram of the object, showing each force *at the point where it acts*.\n2. Choose a pivot point for torques, ideally where an unknown force acts.\n3. Write $\\sum\\tau = 0$ about that point (counterclockwise positive).\n4. Write $\\sum F_x = 0$ and $\\sum F_y = 0$.\n5. Solve. If a force comes out negative, it points opposite to the way you drew it.\n\n### Example 1: a seesaw\n\nA 30 kg child sits 1.8 m from the pivot of a seesaw. Where must a 45 kg child sit on the other side to balance it? (The seesaw is uniform and pivoted at its center.)\n\nTorques about the pivot (the pivot's force and the board's weight act there, so they contribute nothing):\n\n$$30g(1.8) = 45g\\,x \\quad\\Rightarrow\\quad x = \\frac{30(1.8)}{45} = 1.2\\text{ m}.$$\n\nThe heavier child sits closer. Balance is about equal torques, not equal weights.\n\n### Example 2: a beam on two supports\n\nA uniform 6.0 m plank of mass 20 kg rests on supports at its two ends, A (left) and B (right). A 60 kg painter stands 1.5 m from end A. Find the force each support exerts.\n\nWeights: plank $20(9.8) = 196$ N at 3.0 m from A; painter $60(9.8) = 588$ N at 1.5 m from A.\n\nTorques about A (eliminates $F_A$):\n\n$$F_B(6.0) - 196(3.0) - 588(1.5) = 0 \\quad\\Rightarrow\\quad F_B = \\frac{588 + 882}{6.0} = 245\\text{ N}.$$\n\nVertical forces: $F_A + F_B = 196 + 588 = 784$ N, so $F_A = 539$ N.\n\nCheck with torques about B: $-F_A(6.0) + 196(3.0) + 588(4.5) = -3234 + 588 + 2646 = 0$ ✓. The support nearer the painter carries more of the load.\n\n```shape\n{\"polygons\": [{\"points\": [[0, 0], [6, 0], [6, 0.2], [0, 0.2]]}, {\"points\": [[-0.2, -0.6], [0.2, -0.6], [0, 0]]}, {\"points\": [[5.8, -0.6], [6.2, -0.6], [6, 0]]}], \"segments\": [{\"from\": [0, -1.6], \"to\": [0, -0.7], \"arrow\": true}, {\"from\": [6, -1.6], \"to\": [6, -0.7], \"arrow\": true}, {\"from\": [3, 0.1], \"to\": [3, -0.9], \"arrow\": true}, {\"from\": [1.5, 1.4], \"to\": [1.5, 0.25], \"arrow\": true}], \"labels\": [{\"at\": [0.45, -1.3], \"text\": \"F_A\"}, {\"at\": [5.55, -1.3], \"text\": \"F_B\"}, {\"at\": [3.6, -0.6], \"text\": \"196 N\"}, {\"at\": [2.1, 0.9], \"text\": \"588 N\"}], \"caption\": \"Plank on two supports with a painter 1.5 m from the left end\"}\n```\n\n### Example 3: a hinged beam held by a cable\n\nA uniform 4.0 m horizontal beam of mass 25 kg is hinged to a wall at its left end. A cable from its right end to the wall makes $30^\\circ$ with the beam. A 40 kg sign hangs from the right end. Find the cable tension and the hinge force.\n\nWeights: beam 245 N at 2.0 m; sign 392 N at 4.0 m.\n\nTorques about the hinge (removes both unknown hinge components). The cable's perpendicular component is $T\\sin 30^\\circ$ at 4.0 m:\n\n$$T\\sin 30^\\circ(4.0) - 245(2.0) - 392(4.0) = 0 \\quad\\Rightarrow\\quad T = \\frac{490 + 1568}{2.0} = 1029\\text{ N}.$$\n\nHorizontal: hinge pushes outward, $H = T\\cos 30^\\circ = 891$ N. Vertical: $V + T\\sin 30^\\circ = 245 + 392$, so $V = 637 - 514.5 = 122.5$ N upward. A shallow cable angle makes the tension much larger than the weights it holds, a recurring theme.\n\n## Ladders\n\nA ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\\circ$).\n\n## Distributed loads and stability\n\nTorque balance for continuous loads uses integrals. A beam carrying a distributed load $w(x)$ (newtons per meter) experiences a total load $W = \\int w(x)\\,dx$, acting at $\\bar x = \\dfrac{\\int x\\,w(x)\\,dx}{\\int w(x)\\,dx}$, the load's \"center of mass.\" For a load increasing linearly from 0 to $w_0$ along a beam of length $L$, $W = \\tfrac12w_0L$ and $\\bar x = \\tfrac23L$: replace it by a single force there and proceed as before.\n\nEquilibrium can also be stable or unstable, which ties back to potential energy: an object resting where its gravitational $U = Mgy_{\\text{cg}}$ is at a minimum (any small tilt raises its center of gravity) is stable; at a maximum, unstable.\n\n## Elasticity: supports that stretch\n\nEquilibrium problems treat beams and cables as rigid, but every real support deforms a little. For small deformations the **[[stress]]** (force per unit area, $F/A$, in pascals) is proportional to the **[[strain]]** (the fractional change in length, $\\Delta L/L$, a pure number):\n\n$$\\frac{F}{A} = Y\\,\\frac{\\Delta L}{L},$$\n\nwhere $Y$ is **[[Young's modulus]]**, a property of the material (roughly $2\\times10^{11}$ Pa for steel, $7\\times10^{10}$ Pa for aluminum). This is Hooke's law written for materials: comparing with $F = k\\,\\Delta L$, a rod or cable acts as a spring of stiffness $k = YA/L$. The same stress works for compression (squeezing a metal column shortens it by the same rule, with essentially the same $Y$). Past the material's **[[elastic limit]]** it no longer springs back when the load is removed, and beyond that it breaks. Two more moduli describe other deformations. A force $F$ applied parallel to a face of area $A$ (a shear) slides that face sideways by $\\Delta x$ relative to the opposite face a distance $L$ away: $F/A = S\\,\\Delta x/L$, where $S$ is the **[[shear modulus]]**. Squeezing from all sides with an added pressure $\\Delta P$ shrinks the volume: $\\Delta P = -B\\,\\Delta V/V$, where $B$ is the **[[bulk modulus]]** (it sets the speed of sound in a fluid, and fluids have a bulk modulus but no shear modulus). For instance, the cable in Example 3 is $4.0/\\cos 30^\\circ = 4.6$ m long; if it is steel with a 1.0 cm² cross-section, the 1029 N tension stretches it by $\\Delta L = \\dfrac{FL}{AY} = \\dfrac{1029(4.6)}{(1.0\\times10^{-4})(2\\times10^{11})} \\approx 0.24$ mm, small enough that treating it as rigid was fine.\n\n## Common mistakes\n\n- Taking torques about a point but then including forces acting at that point (they have zero lever arm).\n- Placing a beam's weight at its end instead of its center of gravity.\n- Using the distance along the beam instead of the perpendicular lever arm for a slanted force.\n- Forgetting that a hinge can exert both horizontal and vertical components.\n- In $F/A = Y\\,\\Delta L/L$, using the diameter instead of the cross-sectional area $\\pi d^2/4$, or forgetting to convert mm² or cm² to m².\n\n## Key points\n\n- Static equilibrium: $\\sum\\vec F = 0$ and $\\sum\\tau = 0$.\n- Choose the torque pivot where an unknown force acts.\n- A uniform object's weight acts at its center (center of gravity).\n- An object tips when its center of gravity moves outside its base.\n- Elasticity: stress $F/A = Y \\times$ strain $\\Delta L/L$, so $\\Delta L = FL/(AY)$; shear $F/A = S\\,\\Delta x/L$; bulk $\\Delta P = -B\\,\\Delta V/V$.\n",
    "quiz": [
     "phys-q-1801",
     "phys-q-1802",
@@ -694,7 +708,11 @@
     "phys-q-1807",
     "phys-q-1808",
     "phys-q-1809",
-    "phys-q-1810"
+    "phys-q-1810",
+    "phys-q-1811",
+    "phys-q-1812",
+    "phys-q-1813",
+    "phys-q-1814"
    ]
   },
   {
@@ -747,7 +765,7 @@
    "refs": [
     "phys-ref-waves-thermo"
    ],
-   "body": "## Motion that repeats\n\nA mass bouncing on a spring, a swinging pendulum, a vibrating guitar string, atoms jiggling in a crystal, the alternating current in your walls: nature is full of oscillations. The simplest and most important kind is simple harmonic motion, and it's worth mastering because almost any system nudged slightly from a stable equilibrium oscillates this way. It's also the bridge to waves, the subject of the next two lessons.\n\n## The restoring force\n\nRecall Hooke's law: a spring pulls back with $F = -kx$, proportional to the displacement and opposite to it. Any motion driven by a force of this form is **[[simple harmonic motion]]** (SHM). Newton's second law gives\n\n$$a = -\\frac{k}{m}x.$$\n\nThe acceleration always points toward equilibrium and is largest at the extremes. The object overshoots equilibrium (it has speed there, and inertia carries it on), slows as the spring stretches the other way, stops, and returns. The cycle repeats forever if there's no friction.\n\n## Describing the oscillation\n\nThe position follows a sine or cosine curve:\n\n$$x(t) = A\\cos(\\omega t + \\phi).$$\n\n- **[[Amplitude]]** $A$: the maximum displacement from equilibrium.\n- **[[Angular frequency]]** $\\omega$ (rad/s), related to the period $T$ and frequency $f$ by $\\omega = 2\\pi f = 2\\pi/T$.\n- **[[Phase constant]]** $\\phi$: sets where in the cycle the motion starts. Released from rest at $x = A$, $\\phi = 0$.\n\n```plot\n{\"x\": [0, 4.2], \"y\": [-1.5, 1.5], \"xLabel\": \"t (s)\", \"yLabel\": \"x (m)\", \"functions\": [{\"f\": \"1.2*cos(2*pi*x/2)\"}], \"labels\": [{\"at\": [1.0, 1.33], \"text\": \"x(t) = A cos(ωt)\"}], \"points\": [{\"at\": [2, 1.2], \"label\": \"one period T = 2 s\"}], \"segments\": [{\"from\": [0, 0], \"to\": [0, 1.2], \"arrow\": true, \"label\": \"A\"}], \"caption\": \"SHM with amplitude 1.2 m and period 2.0 s\"}\n```\n\nFor a mass on a spring,\n\n$$\\omega = \\sqrt{\\frac km}, \\qquad T = 2\\pi\\sqrt{\\frac mk}.$$\n\nA stiffer spring or lighter mass oscillates faster. Remarkably, *the period doesn't depend on the amplitude*: stretch the spring twice as far and the mass travels twice as far, but with twice the force, so it takes the same time. That's what makes oscillators good clocks.\n\n### Example 1\n\nA 0.50 kg block on a frictionless surface is attached to a spring with $k = 200$ N/m. It's pulled 0.10 m from equilibrium and released. Find the period, frequency, maximum speed and maximum acceleration.\n\n$\\omega = \\sqrt{200/0.50} = 20$ rad/s. $T = 2\\pi/20 = 0.314$ s; $f = 3.18$ Hz.\n\nMaximum speed (at equilibrium): $v_{\\max} = A\\omega = 0.10(20) = 2.0$ m/s.\n\nMaximum acceleration (at the ends): $a_{\\max} = A\\omega^2 = 0.10(400) = 40$ m/s². Check with force: $kA/m = 200(0.10)/0.50 = 40$ ✓.\n\n## Energy in SHM\n\nWith no friction, mechanical energy is conserved and shuttles between kinetic and spring potential energy:\n\n$$E = \\tfrac12mv^2 + \\tfrac12kx^2 = \\tfrac12kA^2.$$\n\nAt the turning points ($x = \\pm A$) it's all potential; at equilibrium it's all kinetic, so $\\tfrac12mv_{\\max}^2 = \\tfrac12kA^2$, giving $v_{\\max} = A\\sqrt{k/m} = A\\omega$. At any position, $v = \\omega\\sqrt{A^2 - x^2}$.\n\n### Example 2\n\nFor the block in Example 1, what is its speed when it's 0.06 m from equilibrium?\n\n$v = 20\\sqrt{0.10^2 - 0.06^2} = 20(0.08) = 1.6$ m/s.\n\n*Vertical springs.* Hanging a mass on a vertical spring shifts the equilibrium down by $mg/k$, but measured from the new equilibrium the motion is the same SHM with the same $\\omega = \\sqrt{k/m}$. Gravity just moves the center.\n\n## The simple pendulum\n\nA **[[simple pendulum]]** is a point mass on a light string of length $L$. Displaced by angle $\\theta$, gravity's component along the arc is $-mg\\sin\\theta$. For small angles, $\\sin\\theta \\approx \\theta$ (in radians; accurate to 1% up to about $14^\\circ$), and with arc length $s = L\\theta$ the restoring force is $-\\dfrac{mg}{L}s$, Hooke's-law form with effective $k = mg/L$. So\n\n$$\\omega = \\sqrt{\\frac gL}, \\qquad T = 2\\pi\\sqrt{\\frac Lg}.$$\n\nThe mass cancels (heavy and light bobs swing together, just as they fall together), and the amplitude doesn't matter as long as it's small. Pendulum clocks are adjusted by moving the bob to change $L$.\n\n### Example 3\n\nHow long must a pendulum be to have a period of exactly 2.00 s (a \"seconds pendulum,\" which ticks once per second each way)? Use $g = 9.80$ m/s².\n\n$L = g\\left(\\dfrac{T}{2\\pi}\\right)^2 = 9.80\\left(\\dfrac{2.00}{2\\pi}\\right)^2 = 0.993$ m.\n\nOn the Moon ($g = 1.62$ m/s²) the same pendulum would have $T = 2\\pi\\sqrt{0.993/1.62} = 4.92$ s.\n\nA **[[physical pendulum]]**, any rigid object swinging about a pivot a distance $d$ from its center of mass, has $T = 2\\pi\\sqrt{\\dfrac{I}{mgd}}$, where $I$ is the moment of inertia about the pivot. For a point mass, $I = mL^2$ and $d = L$, recovering the simple pendulum.\n\n## Damping and resonance\n\nReal oscillators lose energy to friction and air drag. With **[[damping]]**, the amplitude decays over time, often exponentially: $A(t) = A_0e^{-bt/2m}$ for a drag force $-bv$. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned to return the car to equilibrium quickly without bouncing, which is called critical damping).\n\nA periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\\omega_0 = \\sqrt{k/m}$, the amplitude grows large: **[[resonance]]**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency.\n\n## The equation of motion\n\nNewton's second law for a spring is the differential equation\n\n$$m\\frac{d^2x}{dt^2} = -kx \\quad\\Rightarrow\\quad \\frac{d^2x}{dt^2} = -\\omega^2x, \\qquad \\omega^2 = \\frac km.$$\n\nTry $x = A\\cos(\\omega t + \\phi)$: then $\\dfrac{dx}{dt} = -A\\omega\\sin(\\omega t + \\phi)$ and $\\dfrac{d^2x}{dt^2} = -A\\omega^2\\cos(\\omega t + \\phi) = -\\omega^2x$ ✓. Any system whose equation of motion has this form oscillates at angular frequency $\\omega$, which is how to find the period of a new oscillator: get its equation into the form $\\ddot x = -(\\text{something})\\,x$, and $\\omega^2$ is the something. For the pendulum, torque about the pivot gives $mL^2\\ddot\\theta = -mgL\\sin\\theta \\approx -mgL\\theta$, so $\\omega^2 = g/L$.\n\nThe velocity and acceleration are $v = -A\\omega\\sin(\\omega t + \\phi)$ and $a = -A\\omega^2\\cos(\\omega t + \\phi)$, so $v_{\\max} = A\\omega$ and $a_{\\max} = A\\omega^2$. Velocity is a quarter cycle out of step with position: it's largest when $x = 0$.\n\nWith damping, $m\\ddot x + b\\dot x + kx = 0$, whose underdamped solution is $x = A_0e^{-bt/2m}\\cos(\\omega' t)$ with $\\omega' = \\sqrt{\\omega_0^2 - (b/2m)^2}$.\n\n## Common mistakes\n\n- Thinking a larger amplitude means a longer period.\n- Using degrees in $\\omega t$ or in $\\sin\\theta \\approx \\theta$.\n- Putting the mass into the pendulum formula or the length into the spring formula.\n- Saying the acceleration is zero at the turning points (it's maximal there; the velocity is zero).\n- Confusing $\\omega$ (rad/s) with $f$ (Hz): $\\omega = 2\\pi f$.\n\n## Key points\n\n- SHM arises from a restoring force $F = -kx$: $x = A\\cos(\\omega t + \\phi)$.\n- Spring: $T = 2\\pi\\sqrt{m/k}$. Pendulum (small angles): $T = 2\\pi\\sqrt{L/g}$. Period is independent of amplitude.\n- $v_{\\max} = A\\omega$, $a_{\\max} = A\\omega^2$, $E = \\tfrac12kA^2$.\n- Damping makes amplitude decay; driving at the natural frequency causes resonance.\n- $\\ddot x = -\\omega^2x$ is the SHM equation.\n",
+   "body": "## Motion that repeats\n\nA mass bouncing on a spring, a swinging pendulum, a vibrating guitar string, atoms jiggling in a crystal, the alternating current in your walls: nature is full of oscillations. The simplest and most important kind is simple harmonic motion, and it's worth mastering because almost any system nudged slightly from a stable equilibrium oscillates this way. It's also the starting point for the next lesson, on damped and driven oscillators, and the bridge to waves after that.\n\n## The restoring force\n\nRecall Hooke's law: a spring pulls back with $F = -kx$, proportional to the displacement and opposite to it. Any motion driven by a force of this form is **[[simple harmonic motion]]** (SHM). Newton's second law gives\n\n$$a = -\\frac{k}{m}x.$$\n\nThe acceleration always points toward equilibrium and is largest at the extremes. The object overshoots equilibrium (it has speed there, and inertia carries it on), slows as the spring stretches the other way, stops, and returns. The cycle repeats forever if there's no friction.\n\n## Describing the oscillation\n\nThe position follows a sine or cosine curve:\n\n$$x(t) = A\\cos(\\omega t + \\phi).$$\n\n- **[[Amplitude]]** $A$: the maximum displacement from equilibrium.\n- **[[Angular frequency]]** $\\omega$ (rad/s), related to the period $T$ and frequency $f$ by $\\omega = 2\\pi f = 2\\pi/T$.\n- **[[Phase constant]]** $\\phi$: sets where in the cycle the motion starts. Released from rest at $x = A$, $\\phi = 0$.\n\n```plot\n{\"x\": [0, 4.2], \"y\": [-1.5, 1.5], \"xLabel\": \"t (s)\", \"yLabel\": \"x (m)\", \"functions\": [{\"f\": \"1.2*cos(2*pi*x/2)\"}], \"labels\": [{\"at\": [1.0, 1.33], \"text\": \"x(t) = A cos(ωt)\"}], \"points\": [{\"at\": [2, 1.2], \"label\": \"one period T = 2 s\"}], \"segments\": [{\"from\": [0, 0], \"to\": [0, 1.2], \"arrow\": true, \"label\": \"A\"}], \"caption\": \"SHM with amplitude 1.2 m and period 2.0 s\"}\n```\n\nFor a mass on a spring,\n\n$$\\omega = \\sqrt{\\frac km}, \\qquad T = 2\\pi\\sqrt{\\frac mk}.$$\n\nA stiffer spring or lighter mass oscillates faster. Remarkably, *the period doesn't depend on the amplitude*: stretch the spring twice as far and the mass travels twice as far, but with twice the force, so it takes the same time. That's what makes oscillators good clocks.\n\n### Example 1\n\nA 0.50 kg block on a frictionless surface is attached to a spring with $k = 200$ N/m. It's pulled 0.10 m from equilibrium and released. Find the period, frequency, maximum speed and maximum acceleration.\n\n$\\omega = \\sqrt{200/0.50} = 20$ rad/s. $T = 2\\pi/20 = 0.314$ s; $f = 3.18$ Hz.\n\nMaximum speed (at equilibrium): $v_{\\max} = A\\omega = 0.10(20) = 2.0$ m/s.\n\nMaximum acceleration (at the ends): $a_{\\max} = A\\omega^2 = 0.10(400) = 40$ m/s². Check with force: $kA/m = 200(0.10)/0.50 = 40$ ✓.\n\n## Energy in SHM\n\nWith no friction, mechanical energy is conserved and shuttles between kinetic and spring potential energy:\n\n$$E = \\tfrac12mv^2 + \\tfrac12kx^2 = \\tfrac12kA^2.$$\n\nAt the turning points ($x = \\pm A$) it's all potential; at equilibrium it's all kinetic, so $\\tfrac12mv_{\\max}^2 = \\tfrac12kA^2$, giving $v_{\\max} = A\\sqrt{k/m} = A\\omega$. At any position, $v = \\omega\\sqrt{A^2 - x^2}$.\n\n### Example 2\n\nFor the block in Example 1, what is its speed when it's 0.06 m from equilibrium?\n\n$v = 20\\sqrt{0.10^2 - 0.06^2} = 20(0.08) = 1.6$ m/s.\n\n*Vertical springs.* Hanging a mass on a vertical spring shifts the equilibrium down by $mg/k$, but measured from the new equilibrium the motion is the same SHM with the same $\\omega = \\sqrt{k/m}$. Gravity just moves the center.\n\n## The simple pendulum\n\nA **[[simple pendulum]]** is a point mass on a light string of length $L$. Displaced by angle $\\theta$, gravity's component along the arc is $-mg\\sin\\theta$. For small angles, $\\sin\\theta \\approx \\theta$ (in radians; accurate to 1% up to about $14^\\circ$), and with arc length $s = L\\theta$ the restoring force is $-\\dfrac{mg}{L}s$, Hooke's-law form with effective $k = mg/L$. So\n\n$$\\omega = \\sqrt{\\frac gL}, \\qquad T = 2\\pi\\sqrt{\\frac Lg}.$$\n\nThe mass cancels (heavy and light bobs swing together, just as they fall together), and the amplitude doesn't matter as long as it's small. Pendulum clocks are adjusted by moving the bob to change $L$.\n\n### Example 3\n\nHow long must a pendulum be to have a period of exactly 2.00 s (a \"seconds pendulum,\" which ticks once per second each way)? Use $g = 9.80$ m/s².\n\n$L = g\\left(\\dfrac{T}{2\\pi}\\right)^2 = 9.80\\left(\\dfrac{2.00}{2\\pi}\\right)^2 = 0.993$ m.\n\nOn the Moon ($g = 1.62$ m/s²) the same pendulum would have $T = 2\\pi\\sqrt{0.993/1.62} = 4.92$ s.\n\nA **[[physical pendulum]]**, any rigid object swinging about a pivot a distance $d$ from its center of mass, has $T = 2\\pi\\sqrt{\\dfrac{I}{mgd}}$, where $I$ is the moment of inertia about the pivot. For a point mass, $I = mL^2$ and $d = L$, recovering the simple pendulum.\n\n## Damping and resonance\n\nReal oscillators lose energy to friction and air drag. With **[[damping]]**, the amplitude decays over time, often exponentially: $A(t) = A_0e^{-bt/2m}$ for a drag force $-bv$. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned to return the car to equilibrium quickly without bouncing, which is called critical damping).\n\nA periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\\omega_0 = \\sqrt{k/m}$, the amplitude grows large: **[[resonance]]**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency. The next lesson solves the damped and driven equations and makes these ideas quantitative.\n\n## The equation of motion\n\nNewton's second law for a spring is the differential equation\n\n$$m\\frac{d^2x}{dt^2} = -kx \\quad\\Rightarrow\\quad \\frac{d^2x}{dt^2} = -\\omega^2x, \\qquad \\omega^2 = \\frac km.$$\n\nTry $x = A\\cos(\\omega t + \\phi)$: then $\\dfrac{dx}{dt} = -A\\omega\\sin(\\omega t + \\phi)$ and $\\dfrac{d^2x}{dt^2} = -A\\omega^2\\cos(\\omega t + \\phi) = -\\omega^2x$ ✓. Any system whose equation of motion has this form oscillates at angular frequency $\\omega$, which is how to find the period of a new oscillator: get its equation into the form $\\ddot x = -(\\text{something})\\,x$, and $\\omega^2$ is the something. For the pendulum, torque about the pivot gives $mL^2\\ddot\\theta = -mgL\\sin\\theta \\approx -mgL\\theta$, so $\\omega^2 = g/L$.\n\nThe velocity and acceleration are $v = -A\\omega\\sin(\\omega t + \\phi)$ and $a = -A\\omega^2\\cos(\\omega t + \\phi)$, so $v_{\\max} = A\\omega$ and $a_{\\max} = A\\omega^2$. Velocity is a quarter cycle out of step with position: it's largest when $x = 0$.\n\nWith damping, $m\\ddot x + b\\dot x + kx = 0$, whose underdamped solution is $x = A_0e^{-bt/2m}\\cos(\\omega' t)$ with $\\omega' = \\sqrt{\\omega_0^2 - (b/2m)^2}$.\n\n## Common mistakes\n\n- Thinking a larger amplitude means a longer period.\n- Using degrees in $\\omega t$ or in $\\sin\\theta \\approx \\theta$.\n- Putting the mass into the pendulum formula or the length into the spring formula.\n- Saying the acceleration is zero at the turning points (it's maximal there; the velocity is zero).\n- Confusing $\\omega$ (rad/s) with $f$ (Hz): $\\omega = 2\\pi f$.\n\n## Key points\n\n- SHM arises from a restoring force $F = -kx$: $x = A\\cos(\\omega t + \\phi)$.\n- Spring: $T = 2\\pi\\sqrt{m/k}$. Pendulum (small angles): $T = 2\\pi\\sqrt{L/g}$. Period is independent of amplitude.\n- $v_{\\max} = A\\omega$, $a_{\\max} = A\\omega^2$, $E = \\tfrac12kA^2$.\n- Damping makes amplitude decay; driving at the natural frequency causes resonance.\n- $\\ddot x = -\\omega^2x$ is the SHM equation.\n",
    "quiz": [
     "phys-q-2001",
     "phys-q-2002",
@@ -763,6 +781,39 @@
    ]
   },
   {
+   "id": "phys-damped-driven",
+   "module": "phys-m6",
+   "title": "Damped and driven oscillations",
+   "minutes": 45,
+   "topics": [
+    "Damped and driven oscillations"
+   ],
+   "drills": [
+    "phys-damped-decay",
+    "phys-damped-frequency",
+    "phys-driven-amplitude"
+   ],
+   "refs": [
+    "phys-ref-waves-thermo"
+   ],
+   "body": "## Beyond the ideal oscillator\n\nThe previous lesson's mass on a spring oscillates forever. Real oscillators don't: a plucked string falls silent, a swing stops unless someone pushes it, and a car bounces once or twice after a pothole and then settles. Two extra ingredients explain all of this. A **[[damping]]** force drains energy, and a periodic **[[driving force]]** can feed energy back in. This lesson solves the equation of motion with each added, and ends with resonance, the reason a small push at the right frequency can produce a huge response. The next lesson then turns to waves.\n\n## The damped equation of motion\n\nThe simplest model of friction in an oscillator is a drag force proportional to velocity, $F = -bv$, like the linear drag met with terminal velocity. The positive number $b$ (units kg/s) is the **[[damping constant]]**. Newton's second law becomes\n\n$$m\\ddot x + b\\dot x + kx = 0.$$\n\nIt's convenient to write $\\omega_0 = \\sqrt{k/m}$, the **[[natural frequency]]** the oscillator would have with no damping, and $\\gamma = b/(2m)$, a decay rate in s⁻¹. Dividing by $m$:\n\n$$\\ddot x + 2\\gamma\\dot x + \\omega_0^2x = 0.$$\n\nThis is a linear equation with constant coefficients, so try $x = e^{rt}$. Each derivative brings down a factor $r$, giving $r^2 + 2\\gamma r + \\omega_0^2 = 0$, so\n\n$$r = -\\gamma \\pm \\sqrt{\\gamma^2 - \\omega_0^2}.$$\n\nEverything depends on the sign under the square root, which compares the damping rate $\\gamma$ with $\\omega_0$.\n\n## Three damping regimes\n\n**[[Underdamped]]** ($\\gamma < \\omega_0$, light damping). The square root is imaginary, and the real solutions are a cosine times a decaying exponential:\n\n$$x(t) = A_0e^{-\\gamma t}\\cos(\\omega' t + \\phi), \\qquad \\omega' = \\sqrt{\\omega_0^2 - \\gamma^2}.$$\n\nThe system still oscillates, slightly slower than $\\omega_0$, inside an envelope $\\pm A_0e^{-\\gamma t}$ that shrinks steadily. Each cycle the amplitude is multiplied by the same factor $e^{-\\gamma T'}$, where $T' = 2\\pi/\\omega'$.\n\n```plot\n{\"x\": [0, 12.5], \"y\": [-1.2, 1.2], \"xLabel\": \"t (s)\", \"yLabel\": \"x (m)\", \"functions\": [{\"f\": \"exp(-0.25*x)*(cos(1.984*x) + 0.126*sin(1.984*x))\", \"to\": 11.5}, {\"f\": \"exp(-0.25*x)\", \"dashed\": true, \"to\": 11.5}, {\"f\": \"-exp(-0.25*x)\", \"dashed\": true, \"to\": 11.5}], \"labels\": [{\"at\": [6.5, 0.45], \"text\": \"envelope ±A₀e^(−γt)\"}], \"caption\": \"Underdamped motion (ω₀ = 2 rad/s, γ = 0.25 s⁻¹), released from rest at x = 1 m\"}\n```\n\n**[[Critically damped]]** ($\\gamma = \\omega_0$, so $b = 2\\sqrt{mk}$). The two roots coincide at $r = -\\omega_0$, and the solution is $x = (C_1 + C_2t)e^{-\\omega_0t}$. There is no oscillation, and this is the fastest return to equilibrium without overshooting. Car shock absorbers and the closing arms on doors are designed to be near critical damping.\n\n**[[Overdamped]]** ($\\gamma > \\omega_0$, heavy damping). Both roots are real and negative, and $x$ is a sum of two decaying exponentials. The system creeps back to equilibrium without oscillating, more slowly than in the critical case, because the slower exponential ($r = -\\gamma + \\sqrt{\\gamma^2 - \\omega_0^2}$, close to zero) lingers. Think of a spring moving through honey.\n\n```plot\n{\"x\": [0, 6], \"y\": [-0.6, 1.1], \"xLabel\": \"t (s)\", \"yLabel\": \"x (m)\", \"functions\": [{\"f\": \"exp(-0.5*x)*(cos(1.936*x) + 0.2582*sin(1.936*x))\", \"to\": 5.5}, {\"f\": \"(1 + 2*x)*exp(-2*x)\", \"to\": 5.5}, {\"f\": \"1.0303*exp(-0.3431*x) - 0.0303*exp(-11.657*x)\", \"dashed\": true, \"to\": 5.5}], \"labels\": [{\"at\": [2.6, -0.42], \"text\": \"underdamped\"}, {\"at\": [1.75, 0.3], \"text\": \"critical\"}, {\"at\": [3.2, 0.5], \"text\": \"overdamped\"}], \"caption\": \"The three regimes for ω₀ = 2 rad/s, each released from rest at x = 1 m: γ = 0.5, 2 and 6 s⁻¹\"}\n```\n\n## Energy decay and the quality factor\n\nThe energy of an underdamped oscillator is proportional to the amplitude squared, so it decays as $E \\propto e^{-2\\gamma t} = e^{-bt/m}$. A single number captures how lightly damped an oscillator is, the **[[quality factor]]**\n\n$$Q = \\frac{\\omega_0}{2\\gamma} = \\frac{m\\omega_0}{b} = \\frac{\\sqrt{mk}}{b}.$$\n\nWhen $Q$ is large, the fraction of energy lost per cycle is about $2\\gamma T = 2\\pi/Q$, so $Q \\approx 2\\pi \\times \\dfrac{\\text{energy stored}}{\\text{energy lost per cycle}}$, and the amplitude falls by a factor $e$ in about $Q/\\pi$ cycles. A car suspension has $Q$ of order 1; a guitar string a few hundred to a few thousand; a quartz watch crystal tens of thousands or more. Critical damping is $Q = \\tfrac12$, and underdamping means $Q > \\tfrac12$.\n\n### Example 1\n\nA 0.50 kg block on a spring with $k = 200$ N/m (the block of the previous lesson's Example 1) moves through air with damping constant $b = 0.40$ kg/s. Find $\\gamma$, $\\omega'$ and $Q$, the time for the amplitude to halve, and the damping constant that would make the system critically damped.\n\n$\\omega_0 = \\sqrt{200/0.50} = 20$ rad/s and $\\gamma = b/2m = 0.40/1.0 = 0.40$ s⁻¹. Since $\\gamma \\ll \\omega_0$ the motion is underdamped.\n\n$\\omega' = \\sqrt{20^2 - 0.40^2} = \\sqrt{399.84} = 19.996$ rad/s: light damping barely changes the frequency.\n\n$Q = \\omega_0/(2\\gamma) = 20/0.80 = 25$.\n\nHalving the amplitude: $e^{-\\gamma t} = \\tfrac12$, so $t = \\ln 2/\\gamma = 0.693/0.40 = 1.73$ s, about 5.5 periods of 0.314 s. (The energy halves twice as fast, in 0.87 s.)\n\nCritical damping needs $b = 2\\sqrt{mk} = 2\\sqrt{0.50 \\times 200} = 20$ kg/s, fifty times the actual damping.\n\n### Example 2\n\nOne corner of a car carries 300 kg on a spring of stiffness $3.0\\times10^4$ N/m, with a shock absorber of $b = 3000$ kg/s. Is it underdamped, and how much does a bounce shrink per cycle?\n\n$\\omega_0 = \\sqrt{3.0\\times10^4/300} = 10$ rad/s; $\\gamma = 3000/600 = 5.0$ s⁻¹. Critical damping would be $b = 2\\sqrt{300 \\times 3.0\\times10^4} = 6000$ kg/s, so this is underdamped with $Q = 10/(2 \\times 5.0) = 1.0$.\n\n$\\omega' = \\sqrt{100 - 25} = 8.66$ rad/s, so $T' = 2\\pi/8.66 = 0.726$ s. Each cycle the amplitude is multiplied by $e^{-\\gamma T'} = e^{-3.63} = 0.027$. After one cycle a 4 cm bounce is about 1 mm: the car settles almost at once, which is what a well-tuned suspension should do.\n\n## Driven oscillations\n\nNow push the damped oscillator with a sinusoidal force $F_0\\cos\\omega t$. The **[[driving frequency]]** $\\omega$ is set by whatever pushes and need not equal $\\omega_0$. The equation is\n\n$$m\\ddot x + b\\dot x + kx = F_0\\cos\\omega t.$$\n\nIts general solution is the damped solution above plus one particular solution. The damped part dies away as $e^{-\\gamma t}$ and is called the **[[transient]]**. What remains is the **[[steady state]]**, an oscillation at the *driving* frequency:\n\n$$x(t) = A\\cos(\\omega t - \\delta).$$\n\nTo find $A$, write the steady state as $x = C\\cos\\omega t + D\\sin\\omega t$, so $\\ddot x = -\\omega^2x$. Substituting and matching the $\\cos\\omega t$ and $\\sin\\omega t$ terms gives $(k - m\\omega^2)C + b\\omega D = F_0$ and $(k - m\\omega^2)D - b\\omega C = 0$. Solving, $A = \\sqrt{C^2 + D^2}$ is\n\n$$A(\\omega) = \\frac{F_0}{\\sqrt{(k - m\\omega^2)^2 + (b\\omega)^2}} = \\frac{F_0/m}{\\sqrt{(\\omega_0^2 - \\omega^2)^2 + (2\\gamma\\omega)^2}},$$\n\nand the displacement lags the force by $\\delta$, with $\\tan\\delta = \\dfrac{b\\omega}{k - m\\omega^2}$.\n\nCheck the limits:\n\n- **Slow driving** ($\\omega \\to 0$): $A \\to F_0/k$, just the static stretch, and the mass follows the force in phase.\n- **Fast driving** ($\\omega \\gg \\omega_0$): $A \\approx F_0/(m\\omega^2)$, small. Inertia dominates and the mass moves opposite to the force ($\\delta \\to 180^\\circ$).\n- **Driving at $\\omega_0$**: the spring and inertia terms cancel, leaving $A = F_0/(b\\omega_0)$, limited only by damping, and $\\delta = 90^\\circ$. The velocity is then in step with the force, so the force does positive work throughout every cycle.\n\n## Resonance and the Q factor\n\nThe graph of $A$ against $\\omega$ is the **[[resonance curve]]**. For light damping it has a tall, narrow peak at $\\omega \\approx \\omega_0$; this is **[[resonance]]**. (The exact peak is at $\\sqrt{\\omega_0^2 - 2\\gamma^2}$, slightly below $\\omega_0$, and only exists when $Q > 1/\\sqrt2$.) Dividing the peak value by the static stretch:\n\n$$\\frac{A(\\omega_0)}{F_0/k} = \\frac{k}{b\\omega_0} = \\frac{m\\omega_0}{b} = Q.$$\n\nSo $Q$ also tells you how strongly the oscillator responds at resonance: a $Q = 10$ system driven at resonance swings ten times farther than the same force would stretch it statically.\n\n```plot\n{\"x\": [0, 2], \"y\": [0, 11], \"xLabel\": \"ω / ω₀\", \"yLabel\": \"A / (F₀/k)\", \"functions\": [{\"f\": \"1/sqrt((1 - x^2)^2 + (x/10)^2)\", \"to\": 1.8}, {\"f\": \"1/sqrt((1 - x^2)^2 + (x/3)^2)\", \"to\": 1.8}, {\"f\": \"1/sqrt((1 - x^2)^2 + x^2)\", \"dashed\": true, \"to\": 1.8}], \"labels\": [{\"at\": [1.28, 9.6], \"text\": \"Q = 10\"}, {\"at\": [1.28, 3.6], \"text\": \"Q = 3\"}, {\"at\": [0.3, 2.0], \"text\": \"Q = 1\"}], \"caption\": \"Resonance curves: steady-state amplitude relative to the static stretch F₀/k\"}\n```\n\nThe width of the peak is the other face of $Q$. The average power the driving force delivers is $P = \\tfrac12b\\omega^2A^2$, which peaks at exactly $\\omega_0$ with $P_{\\max} = F_0^2/(2b)$. It falls to half that peak at two frequencies separated by the **[[bandwidth]]** $\\Delta\\omega = 2\\gamma = b/m$, so\n\n$$Q = \\frac{\\omega_0}{\\Delta\\omega}.$$\n\nA high-$Q$ oscillator responds strongly but only to a narrow band of frequencies. That selectivity is what a radio tuner needs, and what a building must avoid: engineers keep a structure's natural frequencies away from those of wind gusts, machinery and footsteps, or add damping (tuned mass dampers in skyscrapers) to lower $Q$.\n\n### Example 3\n\nA 0.20 kg mass on a spring with $k = 80$ N/m has damping constant $b = 0.80$ kg/s and is driven by a force of amplitude 2.0 N. Find $Q$, the steady-state amplitude when driven at $\\omega_0$, at 10 rad/s and at 30 rad/s, and the bandwidth.\n\n$\\omega_0 = \\sqrt{80/0.20} = 20$ rad/s, $\\gamma = 0.80/0.40 = 2.0$ s⁻¹, and $Q = 20/4.0 = 5.0$. The static stretch is $F_0/k = 2.0/80 = 0.025$ m.\n\nAt $\\omega_0$: $A = F_0/(b\\omega_0) = 2.0/(0.80 \\times 20) = 0.125$ m, which is $Q$ times 0.025 m ✓.\n\nAt 10 rad/s: $A = \\dfrac{2.0/0.20}{\\sqrt{(400 - 100)^2 + (2 \\times 2.0 \\times 10)^2}} = \\dfrac{10}{\\sqrt{90\\,000 + 1600}} = 0.0330$ m.\n\nAt 30 rad/s: $A = \\dfrac{10}{\\sqrt{(400 - 900)^2 + 120^2}} = \\dfrac{10}{514} = 0.0194$ m.\n\nDriving at half the natural frequency gives only a little more than the static stretch, and driving 50% above it gives less. The bandwidth is $\\Delta\\omega = b/m = 4.0$ rad/s, so the strong response lies between about 18 and 22 rad/s.\n\n## Common mistakes\n\n- Using $\\omega_0$ where the damped frequency $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2}$ is needed (or vice versa); they differ noticeably only when damping is heavy.\n- Writing the decay as $e^{-bt/m}$ for the amplitude: the amplitude decays as $e^{-bt/2m}$; the energy decays as $e^{-bt/m}$.\n- Thinking a driven oscillator settles into its natural frequency. In the steady state it moves at the driving frequency.\n- Thinking overdamping returns a system to equilibrium fastest. Critical damping does; overdamping is slower.\n- Forgetting that at resonance the amplitude is limited by damping alone: $A = F_0/(b\\omega_0)$, which grows without bound as $b \\to 0$.\n\n## Key points\n\n- Damped oscillator: $m\\ddot x + b\\dot x + kx = 0$; $\\gamma = b/2m$, $\\omega_0 = \\sqrt{k/m}$.\n- Underdamped ($\\gamma < \\omega_0$): $x = A_0e^{-\\gamma t}\\cos(\\omega' t + \\phi)$, $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2}$. Critical: $b = 2\\sqrt{mk}$. Overdamped: no oscillation.\n- $Q = \\omega_0/(2\\gamma) = \\sqrt{mk}/b$; energy decays as $e^{-bt/m}$.\n- Driven steady state: $A = \\dfrac{F_0/m}{\\sqrt{(\\omega_0^2 - \\omega^2)^2 + (2\\gamma\\omega)^2}}$ at the driving frequency.\n- At resonance $A = F_0/(b\\omega_0) = Q\\,F_0/k$; bandwidth $\\Delta\\omega = b/m$ and $Q = \\omega_0/\\Delta\\omega$.\n",
+   "quiz": [
+    "phys-q-2051",
+    "phys-q-2052",
+    "phys-q-2053",
+    "phys-q-2054",
+    "phys-q-2055",
+    "phys-q-2056",
+    "phys-q-2057",
+    "phys-q-2058",
+    "phys-q-2059",
+    "phys-q-2060",
+    "phys-q-2061",
+    "phys-q-2062",
+    "phys-q-2063"
+   ]
+  },
+  {
    "id": "phys-waves",
    "module": "phys-m6",
    "title": "Waves and superposition",
@@ -773,12 +824,13 @@
    ],
    "drills": [
     "phys-wave-speed",
-    "phys-string-wave"
+    "phys-string-wave",
+    "phys-wave-power"
    ],
    "refs": [
     "phys-ref-waves-thermo"
    ],
-   "body": "## Energy on the move\n\nFlick one end of a rope and a pulse runs along it; drop a stone in a pond and ripples spread out. In both cases the material itself only jiggles in place, yet energy travels across the whole medium. A **[[wave]]** is a disturbance that transfers energy from place to place without transporting matter. This lesson builds on SHM, because a wave is just SHM at every point of a medium, with each point slightly delayed relative to its neighbor.\n\n## Kinds of waves\n\n**[[Mechanical waves]]** need a medium (string, water, air, rock). Electromagnetic waves (light, radio) don't; they are covered in University Physics II.\n\n- In a **[[transverse wave]]** the medium moves perpendicular to the direction the wave travels: waves on a string, the \"wave\" in a stadium.\n- In a **[[longitudinal wave]]** the medium moves parallel to the direction of travel, in compressions and rarefactions: sound in air, a pulse along a stretched Slinky.\n\nWater waves are a mix: water parcels move in small circles.\n\n## Describing periodic waves\n\nIf the source oscillates in SHM, the wave is a repeating sinusoid in both space and time.\n\n- **[[Wavelength]]** $\\lambda$: the distance between adjacent crests (one full repeat in space).\n- **[[Period]]** $T$ and **[[frequency]]** $f = 1/T$: how often a point in the medium completes an oscillation (set by the source).\n- **[[Amplitude]]** $A$: the maximum displacement of the medium.\n\nIn one period the wave advances one wavelength, so its speed is\n\n$$v = \\frac{\\lambda}{T} = f\\lambda.$$\n\nThis is the master equation for every kind of wave. The speed depends on the medium, the frequency on the source; the wavelength adjusts to fit. When a wave passes into a new medium, its frequency stays the same and its speed and wavelength change.\n\n```plot\n{\"x\": [0, 4.5], \"y\": [-1.5, 1.5], \"xLabel\": \"position x (m)\", \"yLabel\": \"displacement y\", \"functions\": [{\"f\": \"sin(2*pi*x/2)\", \"label\": \"t = 0\"}, {\"f\": \"sin(2*pi*(x - 0.4)/2)\", \"dashed\": true, \"label\": \"a moment later\"}], \"segments\": [{\"from\": [0.5, 1.2], \"to\": [2.5, 1.2], \"arrow\": true, \"label\": \"λ = 2 m\"}], \"caption\": \"A sinusoidal wave moving right: the whole pattern shifts while each point moves up and down\"}\n```\n\n### Example 1\n\nA radio station broadcasts at 98.5 MHz. Radio waves travel at $3.00\\times10^8$ m/s. What is the wavelength?\n\n$\\lambda = v/f = (3.00\\times10^8)/(98.5\\times10^6) = 3.05$ m.\n\nSound in air at 20°C travels at 343 m/s. Middle A (440 Hz) has $\\lambda = 343/440 = 0.780$ m.\n\n## Waves on a string\n\nThe speed of a transverse wave on a string depends on the tension $F_T$ and the **[[linear mass density]]** $\\mu = m/L$ (kg/m):\n\n$$v = \\sqrt{\\frac{F_T}{\\mu}}.$$\n\nTighter strings carry waves faster (stronger restoring force); heavier strings slower (more inertia). Guitarists tune by changing tension; the bass strings are thicker to make them slower and lower.\n\n## Superposition and interference\n\nWhen two waves overlap, the displacement at each point is the sum of the individual displacements. This is the **[[principle of superposition]]**. After they pass through each other, each wave continues unchanged.\n\n- Crest meets crest: the displacements add, **[[constructive interference]]**.\n- Crest meets trough: they cancel, **[[destructive interference]]**.\n\nFor two waves from sources in step, the result at a point depends on the **[[path difference]]** $\\Delta r$ from the two sources: constructive if $\\Delta r = m\\lambda$ ($m = 0, 1, 2, \\ldots$), destructive if $\\Delta r = (m + \\tfrac12)\\lambda$. Noise-canceling headphones use destructive interference, producing a sound wave inverted relative to the incoming noise.\n\n## Reflection and standing waves\n\nA pulse reaching the fixed end of a string reflects upside down; at a free end, it reflects right side up. A continuous wave on a string fixed at both ends reflects back and forth, and the incoming and reflected waves superpose. At certain frequencies the result is a **[[standing wave]]**: a pattern that oscillates in place without traveling. Points that never move are **[[nodes]]**; points of maximum oscillation are **[[antinodes]]**. Adjacent nodes are half a wavelength apart.\n\nA string of length $L$ fixed at both ends must have nodes at both ends, so a whole number of half-wavelengths must fit:\n\n$$L = n\\frac{\\lambda_n}{2} \\quad\\Rightarrow\\quad \\lambda_n = \\frac{2L}{n}, \\qquad f_n = \\frac{nv}{2L} = nf_1, \\quad n = 1, 2, 3, \\ldots$$\n\nThese are the string's **[[harmonics]]**. The lowest, $f_1 = v/(2L)$, is the **[[fundamental frequency]]**; the others are integer multiples. A plucked string vibrates in a mix of harmonics, and the mix gives each instrument its tone quality (timbre).\n\n```plot\n{\"x\": [0, 3], \"y\": [-1.4, 1.4], \"xLabel\": \"position along string\", \"yLabel\": \"displacement\", \"functions\": [{\"f\": \"sin(pi*x)\"}, {\"f\": \"-sin(pi*x)\", \"dashed\": true}], \"points\": [{\"at\": [0, 0], \"label\": \"N\"}, {\"at\": [1, 0], \"label\": \"N\"}, {\"at\": [2, 0], \"label\": \"N\"}, {\"at\": [3, 0], \"label\": \"N\"}, {\"at\": [0.5, 1], \"label\": \"A\"}], \"caption\": \"Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2\"}\n```\n\n### Example 2\n\nA 0.65 m guitar string has mass 3.9 g and is under 80 N tension. Find the wave speed, the fundamental frequency, and the third harmonic.\n\n$\\mu = 0.0039/0.65 = 0.0060$ kg/m. $v = \\sqrt{80/0.0060} = 115.5$ m/s.\n\n$f_1 = \\dfrac{v}{2L} = \\dfrac{115.5}{1.30} = 88.8$ Hz. $f_3 = 3f_1 = 266$ Hz.\n\nPressing the string against a fret shortens $L$ and raises the pitch; to raise the fundamental an octave (double $f$), halve the length.\n\n## Energy and intensity\n\nA wave's energy is proportional to the square of its amplitude, and the power it carries is too. Doubling the amplitude quadruples the power. For waves spreading out in three dimensions from a point source, the power spreads over a sphere of area $4\\pi r^2$, so the **[[intensity]]** (power per area, W/m²) is\n\n$$I = \\frac{P}{4\\pi r^2}.$$\n\nThat's another inverse-square law, which we'll use for sound.\n\nFor a sinusoidal wave on a string the average power carried is $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$: it grows with the square of both the amplitude and the frequency, and with the wave speed.\n\n## The wave function and the wave equation\n\nA sinusoidal wave moving in the $+x$ direction is\n\n$$y(x, t) = A\\sin(kx - \\omega t),$$\n\nwhere $k = 2\\pi/\\lambda$ is the **[[wave number]]** and $\\omega = 2\\pi f$. A point of constant phase moves so that $kx - \\omega t$ is constant, i.e. at speed $v = \\omega/k = f\\lambda$. ($kx + \\omega t$ moves in the $-x$ direction.)\n\nApplying Newton's second law to a small piece of string gives the **[[wave equation]]**\n\n$$\\frac{\\partial^2y}{\\partial x^2} = \\frac{1}{v^2}\\frac{\\partial^2y}{\\partial t^2}, \\qquad v = \\sqrt{F_T/\\mu}.$$\n\nAny function $f(x - vt)$ satisfies it, which is why any pulse shape travels undistorted. The transverse velocity of a point on the string is $\\partial y/\\partial t = -A\\omega\\cos(kx - \\omega t)$, with maximum $A\\omega$, which is not the wave speed $v$.\n\nAdding a right-moving and a left-moving wave of the same amplitude:\n\n$$A\\sin(kx - \\omega t) + A\\sin(kx + \\omega t) = 2A\\sin(kx)\\cos(\\omega t),$$\n\na standing wave: a fixed spatial shape $\\sin(kx)$ whose size oscillates in time. Nodes are where $\\sin kx = 0$, at $x = 0, \\lambda/2, \\lambda, \\ldots$\n\n## Common mistakes\n\n- Thinking the medium travels with the wave.\n- Thinking frequency changes when a wave enters a new medium (speed and wavelength change).\n- Confusing the wave speed with the speed of the oscillating medium.\n- Forgetting that adjacent nodes are $\\lambda/2$ apart, not $\\lambda$.\n- Using total mass instead of mass per length in $v = \\sqrt{F_T/\\mu}$.\n\n## Key points\n\n- $v = f\\lambda$; speed set by the medium, frequency by the source.\n- String: $v = \\sqrt{F_T/\\mu}$.\n- Superposition: displacements add; path difference $m\\lambda$ constructive, $(m + \\tfrac12)\\lambda$ destructive.\n- Fixed–fixed string: $\\lambda_n = 2L/n$, $f_n = nv/(2L)$.\n- $y = A\\sin(kx - \\omega t)$ with $k = 2\\pi/\\lambda$, $\\omega = 2\\pi f$.\n",
+   "body": "## Energy on the move\n\nFlick one end of a rope and a pulse runs along it; drop a stone in a pond and ripples spread out. In both cases the material itself only jiggles in place, yet energy travels across the whole medium. A **[[wave]]** is a disturbance that transfers energy from place to place without transporting matter. This lesson builds on SHM, because a wave is just SHM at every point of a medium, with each point slightly delayed relative to its neighbor.\n\n## Kinds of waves\n\n**[[Mechanical waves]]** need a medium (string, water, air, rock). Electromagnetic waves (light, radio) don't; they are covered in University Physics II.\n\n- In a **[[transverse wave]]** the medium moves perpendicular to the direction the wave travels: waves on a string, the \"wave\" in a stadium.\n- In a **[[longitudinal wave]]** the medium moves parallel to the direction of travel, in compressions and rarefactions: sound in air, a pulse along a stretched Slinky.\n\nWater waves are a mix: water parcels move in small circles.\n\n## Describing periodic waves\n\nIf the source oscillates in SHM, the wave is a repeating sinusoid in both space and time.\n\n- **[[Wavelength]]** $\\lambda$: the distance between adjacent crests (one full repeat in space).\n- **[[Period]]** $T$ and **[[frequency]]** $f = 1/T$: how often a point in the medium completes an oscillation (set by the source).\n- **[[Amplitude]]** $A$: the maximum displacement of the medium.\n\nIn one period the wave advances one wavelength, so its speed is\n\n$$v = \\frac{\\lambda}{T} = f\\lambda.$$\n\nThis is the master equation for every kind of wave. The speed depends on the medium, the frequency on the source; the wavelength adjusts to fit. When a wave passes into a new medium, its frequency stays the same and its speed and wavelength change.\n\n```plot\n{\"x\": [0, 4.5], \"y\": [-1.5, 1.5], \"xLabel\": \"position x (m)\", \"yLabel\": \"displacement y\", \"functions\": [{\"f\": \"sin(2*pi*x/2)\", \"label\": \"t = 0\"}, {\"f\": \"sin(2*pi*(x - 0.4)/2)\", \"dashed\": true, \"label\": \"a moment later\"}], \"segments\": [{\"from\": [0.5, 1.2], \"to\": [2.5, 1.2], \"arrow\": true, \"label\": \"λ = 2 m\"}], \"caption\": \"A sinusoidal wave moving right: the whole pattern shifts while each point moves up and down\"}\n```\n\n### Example 1\n\nA radio station broadcasts at 98.5 MHz. Radio waves travel at $3.00\\times10^8$ m/s. What is the wavelength?\n\n$\\lambda = v/f = (3.00\\times10^8)/(98.5\\times10^6) = 3.05$ m.\n\nSound in air at 20°C travels at 343 m/s. Middle A (440 Hz) has $\\lambda = 343/440 = 0.780$ m.\n\n## Waves on a string\n\nThe speed of a transverse wave on a string depends on the tension $F_T$ and the **[[linear mass density]]** $\\mu = m/L$ (kg/m):\n\n$$v = \\sqrt{\\frac{F_T}{\\mu}}.$$\n\nTighter strings carry waves faster (stronger restoring force); heavier strings slower (more inertia). Guitarists tune by changing tension; the bass strings are thicker to make them slower and lower.\n\n## Superposition and interference\n\nWhen two waves overlap, the displacement at each point is the sum of the individual displacements. This is the **[[principle of superposition]]**. After they pass through each other, each wave continues unchanged.\n\n- Crest meets crest: the displacements add, **[[constructive interference]]**.\n- Crest meets trough: they cancel, **[[destructive interference]]**.\n\nFor two waves from sources in step, the result at a point depends on the **[[path difference]]** $\\Delta r$ from the two sources: constructive if $\\Delta r = m\\lambda$ ($m = 0, 1, 2, \\ldots$), destructive if $\\Delta r = (m + \\tfrac12)\\lambda$. Noise-canceling headphones use destructive interference, producing a sound wave inverted relative to the incoming noise.\n\n## Reflection and standing waves\n\nA pulse reaching the fixed end of a string reflects upside down; at a free end, it reflects right side up. A continuous wave on a string fixed at both ends reflects back and forth, and the incoming and reflected waves superpose. At certain frequencies the result is a **[[standing wave]]**: a pattern that oscillates in place without traveling. Points that never move are **[[nodes]]**; points of maximum oscillation are **[[antinodes]]**. Adjacent nodes are half a wavelength apart.\n\nA string of length $L$ fixed at both ends must have nodes at both ends, so a whole number of half-wavelengths must fit:\n\n$$L = n\\frac{\\lambda_n}{2} \\quad\\Rightarrow\\quad \\lambda_n = \\frac{2L}{n}, \\qquad f_n = \\frac{nv}{2L} = nf_1, \\quad n = 1, 2, 3, \\ldots$$\n\nThese are the string's **[[harmonics]]**. The lowest, $f_1 = v/(2L)$, is the **[[fundamental frequency]]**; the others are integer multiples. A plucked string vibrates in a mix of harmonics, and the mix gives each instrument its tone quality (timbre). Each harmonic is a natural frequency of the string, so a string driven at one of them resonates, just like the driven oscillator of the previous lesson.\n\n```plot\n{\"x\": [0, 3], \"y\": [-1.4, 1.4], \"xLabel\": \"position along string\", \"yLabel\": \"displacement\", \"functions\": [{\"f\": \"sin(pi*x)\"}, {\"f\": \"-sin(pi*x)\", \"dashed\": true}], \"points\": [{\"at\": [0, 0], \"label\": \"N\"}, {\"at\": [1, 0], \"label\": \"N\"}, {\"at\": [2, 0], \"label\": \"N\"}, {\"at\": [3, 0], \"label\": \"N\"}, {\"at\": [0.5, 1], \"label\": \"A\"}], \"caption\": \"Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2\"}\n```\n\n### Example 2\n\nA 0.65 m guitar string has mass 3.9 g and is under 80 N tension. Find the wave speed, the fundamental frequency, and the third harmonic.\n\n$\\mu = 0.0039/0.65 = 0.0060$ kg/m. $v = \\sqrt{80/0.0060} = 115.5$ m/s.\n\n$f_1 = \\dfrac{v}{2L} = \\dfrac{115.5}{1.30} = 88.8$ Hz. $f_3 = 3f_1 = 266$ Hz.\n\nPressing the string against a fret shortens $L$ and raises the pitch; to raise the fundamental an octave (double $f$), halve the length.\n\n## Energy and intensity\n\nA wave's energy is proportional to the square of its amplitude, and the power it carries is too. Doubling the amplitude quadruples the power. For waves spreading out in three dimensions from a point source, the power spreads over a sphere of area $4\\pi r^2$, so the **[[intensity]]** (power per area, W/m²) is\n\n$$I = \\frac{P}{4\\pi r^2}.$$\n\nThat's another inverse-square law, which we'll use for sound.\n\nFor a sinusoidal wave on a string the average power carried is\n\n$$P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v.$$\n\nHere is where it comes from. Each bit of string, of mass $\\mu\\,dx$, moves up and down in SHM with amplitude $A$ and angular frequency $\\omega$, so its kinetic energy averages $\\tfrac14(\\mu\\,dx)\\omega^2A^2$ (half its maximum, $\\tfrac12(\\mu\\,dx)\\omega^2A^2$). The stretching of the string stores an equal average amount of potential energy, so the average energy per unit length is $\\tfrac12\\mu\\omega^2A^2$, and the wave carries this pattern along at speed $v$, so energy passes a point at the rate (energy per length) × $v$. The power grows with the square of both the amplitude and the frequency, and with the wave speed. For example, a string with $\\mu = 0.010$ kg/m under 100 N of tension ($v = 100$ m/s) carrying a 120 Hz wave of amplitude 2.0 mm transmits $\\tfrac12(0.010)(0.0020)^2(2\\pi\\cdot120)^2(100) = 1.14$ W.\n\n## The wave function and the wave equation\n\nA sinusoidal wave moving in the $+x$ direction is\n\n$$y(x, t) = A\\sin(kx - \\omega t),$$\n\nwhere $k = 2\\pi/\\lambda$ is the **[[wave number]]** and $\\omega = 2\\pi f$. A point of constant phase moves so that $kx - \\omega t$ is constant, i.e. at speed $v = \\omega/k = f\\lambda$. ($kx + \\omega t$ moves in the $-x$ direction.)\n\nApplying Newton's second law to a small piece of string gives the **[[wave equation]]**\n\n$$\\frac{\\partial^2y}{\\partial x^2} = \\frac{1}{v^2}\\frac{\\partial^2y}{\\partial t^2}, \\qquad v = \\sqrt{F_T/\\mu}.$$\n\nAny function $f(x - vt)$ satisfies it, which is why any pulse shape travels undistorted. The transverse velocity of a point on the string is $\\partial y/\\partial t = -A\\omega\\cos(kx - \\omega t)$, with maximum $A\\omega$, which is not the wave speed $v$.\n\nAdding a right-moving and a left-moving wave of the same amplitude:\n\n$$A\\sin(kx - \\omega t) + A\\sin(kx + \\omega t) = 2A\\sin(kx)\\cos(\\omega t),$$\n\na standing wave: a fixed spatial shape $\\sin(kx)$ whose size oscillates in time. Nodes are where $\\sin kx = 0$, at $x = 0, \\lambda/2, \\lambda, \\ldots$\n\n## Common mistakes\n\n- Thinking the medium travels with the wave.\n- Thinking frequency changes when a wave enters a new medium (speed and wavelength change).\n- Confusing the wave speed with the speed of the oscillating medium.\n- Forgetting that adjacent nodes are $\\lambda/2$ apart, not $\\lambda$.\n- Using total mass instead of mass per length in $v = \\sqrt{F_T/\\mu}$.\n- Using $f$ instead of $\\omega = 2\\pi f$ in $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$ (an error of $4\\pi^2 \\approx 39$).\n\n## Key points\n\n- $v = f\\lambda$; speed set by the medium, frequency by the source.\n- String: $v = \\sqrt{F_T/\\mu}$.\n- Superposition: displacements add; path difference $m\\lambda$ constructive, $(m + \\tfrac12)\\lambda$ destructive.\n- Fixed–fixed string: $\\lambda_n = 2L/n$, $f_n = nv/(2L)$.\n- $y = A\\sin(kx - \\omega t)$ with $k = 2\\pi/\\lambda$, $\\omega = 2\\pi f$.\n- Power on a string: $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$, proportional to $A^2$ and $\\omega^2$.\n",
    "quiz": [
     "phys-q-2101",
     "phys-q-2102",
@@ -790,7 +842,11 @@
     "phys-q-2108",
     "phys-q-2109",
     "phys-q-2110",
-    "phys-q-2111"
+    "phys-q-2111",
+    "phys-q-2112",
+    "phys-q-2113",
+    "phys-q-2114",
+    "phys-q-2115"
    ]
   },
   {
@@ -3279,6 +3335,70 @@
      "explanation": "$M = \\int_0^L cx\\,dx = cL^2/2$ and $\\int_0^L x\\cdot cx\\,dx = cL^3/3$, so $x_{\\text{cm}} = \\dfrac{cL^3/3}{cL^2/2} = 2L/3$, toward the denser end."
     },
     {
+     "id": "phys-q-1311",
+     "section": "phys-m4",
+     "topic": "Momentum and impulse",
+     "stem": "A rocket in deep space has exhaust speed 2.5 km/s relative to the rocket. It burns fuel making up 75% of its initial mass. How much speed does it gain?",
+     "choices": [
+      "10 km/s",
+      "1.51 km/s",
+      "0.72 km/s",
+      "3.47 km/s"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The final mass is a quarter of the initial mass, so $m_i/m_f = 4$ and $\\Delta v = u\\ln(m_i/m_f) = 2.5\\ln 4 = 3.47$ km/s. 10 km/s multiplies $u$ by the mass ratio instead of its logarithm; 1.51 km/s uses $\\log_{10}$ instead of the natural log; 0.72 km/s uses the ratio $1/0.75$ (initial mass to fuel burned) instead of initial to final mass."
+    },
+    {
+     "id": "phys-q-1312",
+     "section": "phys-m4",
+     "topic": "Momentum and impulse",
+     "stem": "A 30 000 kg rocket sits on the launch pad. Its engines eject 150 kg of gas per second at 3000 m/s relative to the rocket. What is its upward acceleration just after lift-off? ($g = 9.8$ m/s²)",
+     "choices": [
+      "5.2 m/s²",
+      "15 m/s²",
+      "24.8 m/s²",
+      "0.53 m/s²"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Thrust $= u\\,|dm/dt| = 3000(150) = 4.5\\times10^5$ N; weight $= 30\\,000(9.8) = 2.94\\times10^5$ N. So $a = (4.5\\times10^5 - 2.94\\times10^5)/30\\,000 = 5.2$ m/s². 15 m/s² ignores gravity; 24.8 m/s² adds $g$ instead of subtracting it; 0.53 m/s² divides the net force by the weight instead of the mass."
+    },
+    {
+     "id": "phys-q-1313",
+     "section": "phys-m4",
+     "topic": "Momentum and impulse",
+     "stem": "A rocket has mass ratio $m_i/m_f = 4$. Which change would increase its total $\\Delta v$ more?",
+     "choices": [
+      "Doubling the mass ratio to 8",
+      "Doubling the exhaust speed",
+      "Both give the same increase",
+      "Neither, since $\\Delta v$ depends only on the fuel burned"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$\\Delta v = u\\ln(m_i/m_f)$ is proportional to $u$, so doubling $u$ doubles $\\Delta v$. Doubling the mass ratio only changes $\\ln 4 = 1.39$ to $\\ln 8 = 2.08$, a factor of 1.5, because of the logarithm. Treating $\\Delta v$ as proportional to the mass ratio would make the two look equal, and the mass of fuel alone does not fix $\\Delta v$ without $u$ and the final mass."
+    },
+    {
+     "id": "phys-q-1314",
+     "section": "phys-m4",
+     "topic": "Momentum and impulse",
+     "stem": "A 1200 kg space probe (including fuel) with exhaust speed 3.0 km/s needs to change its speed by 1.5 km/s. How much fuel must it burn?",
+     "choices": [
+      "600 kg",
+      "778 kg",
+      "728 kg",
+      "472 kg"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$m_f = m_i e^{-\\Delta v/u} = 1200e^{-0.5} = 728$ kg, so the fuel burned is $1200 - 728 = 472$ kg. 728 kg is the final mass, not the fuel; 600 kg assumes $\\Delta v$ grows in proportion to the fuel burned ($0.5 \\times 1200$); 778 kg uses $e^{+0.5}$, treating 1200 kg as the final mass."
+    },
+    {
      "id": "phys-q-1401",
      "section": "phys-m4",
      "topic": "Collisions",
@@ -4095,6 +4215,70 @@
      "explanation": "A low center of gravity and a wide base mean the car must tilt much farther before the center of gravity passes beyond the wheels' contact line, so cornering forces are less likely to roll it over."
     },
     {
+     "id": "phys-q-1811",
+     "section": "phys-m5",
+     "topic": "Elasticity",
+     "stem": "A steel wire 2.0 m long with cross-sectional area 1.0 mm² supports a 200 N load. How much does it stretch? ($Y = 2.0\\times10^{11}$ Pa)",
+     "choices": [
+      "1.0 mm",
+      "0.0020 mm",
+      "2.0 mm",
+      "0.50 mm"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$1.0$ mm² $= 1.0\\times10^{-6}$ m², so $\\Delta L = \\dfrac{FL}{AY} = \\dfrac{200(2.0)}{(1.0\\times10^{-6})(2.0\\times10^{11})} = 2.0\\times10^{-3}$ m $= 2.0$ mm. 0.0020 mm converts mm² to m² with $10^{-3}$ instead of $10^{-6}$; 1.0 mm leaves out the length $L$; 0.50 mm divides by $L$ instead of multiplying."
+    },
+    {
+     "id": "phys-q-1812",
+     "section": "phys-m5",
+     "topic": "Elasticity",
+     "stem": "Two wires of the same material and length carry the same load. Wire B has twice the diameter of wire A. How does B's stretch compare with A's?",
+     "choices": [
+      "One quarter as much",
+      "Half as much",
+      "The same, since the material is the same",
+      "Twice as much"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$\\Delta L = FL/(AY)$, and the area $\\pi d^2/4$ is four times larger for B, so B stretches one quarter as much. Half as much treats area as proportional to diameter; the same material gives the same $Y$ but not the same stretch; twice as much has the dependence upside down."
+    },
+    {
+     "id": "phys-q-1813",
+     "section": "phys-m5",
+     "topic": "Elasticity",
+     "stem": "An aluminum rod 0.50 m long with cross-section 2.0 cm² behaves like a stiff spring when pulled along its length. What is its effective spring constant? ($Y = 7.0\\times10^{10}$ Pa)",
+     "choices": [
+      "$7.0\\times10^{6}$ N/m",
+      "$2.8\\times10^{7}$ N/m",
+      "$2.8\\times10^{11}$ N/m",
+      "$2.8\\times10^{9}$ N/m"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "From $F = (YA/L)\\,\\Delta L$, $k = YA/L = (7.0\\times10^{10})(2.0\\times10^{-4})/0.50 = 2.8\\times10^7$ N/m, using 1 cm² $= 10^{-4}$ m². $7.0\\times10^6$ multiplies by $L$ instead of dividing; $2.8\\times10^{11}$ leaves the area in cm²; $2.8\\times10^{9}$ converts cm² with $10^{-2}$ (forgetting to square the 0.01)."
+    },
+    {
+     "id": "phys-q-1814",
+     "section": "phys-m5",
+     "topic": "Elasticity",
+     "stem": "Water has bulk modulus $2.2\\times10^9$ Pa. At a depth of 1000 m the pressure is higher than at the surface by $\\rho gh$. By what fraction is a sample of water compressed there? ($\\rho = 1000$ kg/m³, $g = 9.8$ m/s²)",
+     "choices": [
+      "$2.2\\times10^{2}$",
+      "$4.5\\times10^{-6}$",
+      "$4.5\\times10^{-4}$",
+      "$4.5\\times10^{-3}$"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$\\Delta P = \\rho gh = 1000(9.8)(1000) = 9.8\\times10^6$ Pa, and $|\\Delta V|/V = \\Delta P/B = 9.8\\times10^6/2.2\\times10^9 = 4.5\\times10^{-3}$, under half a percent: water is nearly incompressible. $2.2\\times10^2$ is the inverse, $B/\\Delta P$; $4.5\\times10^{-6}$ uses the depth as 1 (km) instead of 1000 m; $4.5\\times10^{-4}$ leaves out $g$."
+    },
+    {
      "id": "phys-q-1901",
      "section": "phys-m5",
      "topic": "Gravitation",
@@ -4447,6 +4631,214 @@
      "explanation": "$a = \\ddot x = -0.30(16)\\cos(4t)$, so $a_{\\max} = A\\omega^2 = 4.8$ m/s². 1.2 m/s is the maximum speed $A\\omega$."
     },
     {
+     "id": "phys-q-2051",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A 2.0 kg mass on a spring with $k = 50$ N/m has damping constant $b = 4.0$ kg/s. At what angular frequency does it oscillate?",
+     "choices": [
+      "4.90 rad/s",
+      "5.00 rad/s",
+      "4.58 rad/s",
+      "3.00 rad/s"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$\\omega_0 = \\sqrt{50/2.0} = 5.0$ rad/s and $\\gamma = b/2m = 4.0/4.0 = 1.0$ s⁻¹, so $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2} = \\sqrt{25 - 1} = 4.90$ rad/s. 5.00 rad/s ignores the damping; 4.58 rad/s uses $b/m = 2.0$ as $\\gamma$ (forgetting the 2); 3.00 rad/s subtracts $b^2$ itself."
+    },
+    {
+     "id": "phys-q-2052",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A 4.0 kg mass hangs on a spring with $k = 100$ N/m. What damping constant makes it critically damped?",
+     "choices": [
+      "20 kg/s",
+      "5.0 kg/s",
+      "40 kg/s",
+      "10 kg/s"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Critical damping is $\\gamma = \\omega_0$, i.e. $b = 2m\\omega_0 = 2\\sqrt{mk} = 2\\sqrt{400} = 40$ kg/s. 20 kg/s drops the factor 2; 5.0 is $\\omega_0$ in rad/s, not a damping constant; 10 kg/s is $2\\sqrt{k/m}$, which uses the wrong combination of $m$ and $k$."
+    },
+    {
+     "id": "phys-q-2053",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A door closer should swing a door shut as quickly as possible without it slamming past the closed position and bouncing. Which damping should it have?",
+     "choices": [
+      "Underdamped",
+      "Critically damped",
+      "Overdamped",
+      "No damping at all"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Critical damping ($b = 2\\sqrt{mk}$) gives the fastest return to equilibrium with no overshoot. Underdamping (and, even more, no damping) overshoots and oscillates; overdamping avoids overshoot but creeps back more slowly than the critical case."
+    },
+    {
+     "id": "phys-q-2054",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A 0.25 kg mass on a spring with $k = 100$ N/m has damping constant $b = 0.50$ kg/s. What is its quality factor $Q$?",
+     "choices": [
+      "20",
+      "0.10",
+      "5.0",
+      "10"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$Q = \\sqrt{mk}/b = \\sqrt{25}/0.50 = 10$ (equivalently $\\omega_0 = 20$ rad/s, $\\gamma = 1.0$ s⁻¹, $Q = \\omega_0/2\\gamma = 10$). 20 is $\\omega_0/\\gamma$, missing the 2; 0.10 is the inverse, $b/\\sqrt{mk}$; 5.0 is $\\sqrt{mk}$ before dividing by $b$."
+    },
+    {
+     "id": "phys-q-2055",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A lightly damped oscillator has $m = 0.50$ kg and $b = 0.20$ kg/s. How long does its amplitude take to fall to half its starting value?",
+     "choices": [
+      "1.73 s",
+      "3.47 s",
+      "5.0 s",
+      "0.139 s"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The amplitude decays as $e^{-\\gamma t}$ with $\\gamma = b/2m = 0.20$ s⁻¹, so $t = \\ln 2/\\gamma = 0.693/0.20 = 3.47$ s. 1.73 s uses $e^{-bt/m}$, which is the energy's decay, not the amplitude's; 5.0 s is $1/\\gamma$, the time to fall to $1/e$; 0.139 s multiplies $\\ln 2$ by $\\gamma$ instead of dividing."
+    },
+    {
+     "id": "phys-q-2056",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "After 10 s, the amplitude of a damped oscillator has fallen to 60% of its initial value. What fraction of its initial energy remains?",
+     "choices": [
+      "0.60",
+      "0.40",
+      "0.36",
+      "0.77"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Energy is proportional to amplitude squared: $0.60^2 = 0.36$. 0.60 assumes energy is proportional to amplitude; 0.40 is the fraction of amplitude lost; 0.77 takes the square root instead of squaring."
+    },
+    {
+     "id": "phys-q-2057",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A damped oscillator with natural frequency 5.0 Hz is pushed by a force that varies sinusoidally at 3.0 Hz. Once the transient has died away, it oscillates at",
+     "choices": [
+      "3.0 Hz",
+      "5.0 Hz",
+      "4.0 Hz",
+      "2.0 Hz"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The steady state is $x = A\\cos(\\omega t - \\delta)$ at the driving frequency, 3.0 Hz. The natural frequency 5.0 Hz only appears in the transient, which decays; 4.0 Hz averages the two and 2.0 Hz is their difference, as if the motion were beats."
+    },
+    {
+     "id": "phys-q-2058",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A 0.50 kg mass on a spring ($k = 50$ N/m, $b = 1.0$ kg/s) is driven by a force $3.0\\cos(8t)$ N. What is the steady-state amplitude?",
+     "choices": [
+      "0.060 m",
+      "0.30 m",
+      "0.167 m",
+      "0.152 m"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$\\omega_0^2 = 100$ s⁻², $2\\gamma\\omega = (b/m)\\omega = 2.0 \\times 8 = 16$ s⁻², so $A = \\dfrac{3.0/0.50}{\\sqrt{(100 - 64)^2 + 16^2}} = \\dfrac{6.0}{39.4} = 0.152$ m. 0.060 m is the static stretch $F_0/k$; 0.30 m is the amplitude at resonance, $F_0/(b\\omega_0)$; 0.167 m ignores the damping term."
+    },
+    {
+     "id": "phys-q-2059",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A force that would stretch a spring 2.0 mm if applied steadily is instead applied sinusoidally at the oscillator's natural frequency. The oscillator has $Q = 20$. What is the steady-state amplitude?",
+     "choices": [
+      "2.0 mm",
+      "0.10 mm",
+      "40 mm",
+      "80 mm"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "At resonance $A = F_0/(b\\omega_0) = Q\\,F_0/k = 20 \\times 2.0 = 40$ mm. 2.0 mm is just the static stretch; 0.10 mm divides by $Q$ instead of multiplying; 80 mm uses $\\omega_0/\\gamma = 2Q$ in place of $Q$."
+    },
+    {
+     "id": "phys-q-2060",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "A damped oscillator is driven exactly at its natural frequency $\\omega_0$. In the steady state, by how much does the displacement lag behind the driving force?",
+     "choices": [
+      "$0^\\circ$",
+      "$90^\\circ$",
+      "$180^\\circ$",
+      "$45^\\circ$"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$\\tan\\delta = \\dfrac{b\\omega}{k - m\\omega^2}$, and at $\\omega_0$ the denominator is zero, so $\\delta = 90^\\circ$: the velocity is then in step with the force. A lag of $0^\\circ$ is the slow-driving limit and $180^\\circ$ the fast-driving limit; $45^\\circ$ occurs only at the lower half-power frequency, where $k - m\\omega^2 = b\\omega$."
+    },
+    {
+     "id": "phys-q-2061",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "An oscillator with natural frequency $\\omega_0 = 500$ rad/s absorbs at least half its peak power over a band of driving frequencies 4.0 rad/s wide. What is its $Q$?",
+     "choices": [
+      "125",
+      "2000",
+      "62.5",
+      "0.008"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$Q = \\omega_0/\\Delta\\omega = 500/4.0 = 125$. 2000 multiplies instead of dividing; 0.008 is the inverse ratio; 62.5 divides by $2\\Delta\\omega$, treating the full width as $\\gamma$ when it is $2\\gamma$."
+    },
+    {
+     "id": "phys-q-2062",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "Two oscillators have the same mass and spring constant, but one has much less damping (higher $Q$). Driven by the same force amplitude, the lightly damped one has a resonance peak that is",
+     "choices": [
+      "taller and wider",
+      "shorter and narrower",
+      "at a much higher frequency",
+      "taller and narrower"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The peak height is $Q$ times the static stretch, and the bandwidth is $\\Delta\\omega = \\omega_0/Q$, so higher $Q$ means taller and narrower. Height and width don't move together; and the peak stays near $\\omega_0 = \\sqrt{k/m}$, which is the same for both, so its frequency barely changes."
+    },
+    {
+     "id": "phys-q-2063",
+     "section": "phys-m6",
+     "topic": "Damped and driven oscillations",
+     "stem": "An oscillator obeys $\\ddot x + 6\\dot x + 9x = 0$ (SI units). Its motion is",
+     "choices": [
+      "underdamped",
+      "overdamped",
+      "critically damped",
+      "undamped SHM with $\\omega = 3$ rad/s"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Matching $\\ddot x + 2\\gamma\\dot x + \\omega_0^2x = 0$: $\\gamma = 3$ s⁻¹ and $\\omega_0 = 3$ rad/s, so $\\gamma = \\omega_0$ (the roots of $r^2 + 6r + 9 = 0$ coincide at $r = -3$): critically damped. Calling it overdamped compares the coefficient 6 with $\\omega_0 = 3$, forgetting that the coefficient is $2\\gamma$; calling it underdamped compares $\\gamma$ with $\\omega_0^2 = 9$; the $\\dot x$ term means it is not undamped."
+    },
+    {
      "id": "phys-q-2101",
      "section": "phys-m6",
      "topic": "Wave properties",
@@ -4621,6 +5013,70 @@
       3
      ],
      "explanation": "The $n$th harmonic fits $n$ half-wavelengths, giving $n$ antinodes and $n + 1$ nodes. For $n = 3$: 4 nodes."
+    },
+    {
+     "id": "phys-q-2112",
+     "section": "phys-m6",
+     "topic": "Wave properties",
+     "stem": "A string with $\\mu = 0.020$ kg/m is under 80 N of tension and carries a 50 Hz sinusoidal wave of amplitude 5.0 mm. What average power does the wave carry?",
+     "choices": [
+      "0.040 W",
+      "1.56 W",
+      "3.12 W",
+      "1.97 W"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "$v = \\sqrt{80/0.020} = 63.2$ m/s and $\\omega = 2\\pi(50) = 314$ rad/s, so $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v = \\tfrac12(0.020)(0.0050)^2(314)^2(63.2) = 1.56$ W. 0.040 W uses $f$ in place of $\\omega$; 3.12 W drops the $\\tfrac12$; 1.97 W uses the tension 80 N in place of the wave speed."
+    },
+    {
+     "id": "phys-q-2113",
+     "section": "phys-m6",
+     "topic": "Wave properties",
+     "stem": "On the same string at the same tension, a wave's frequency is doubled while its amplitude is kept the same. The power it carries is multiplied by",
+     "choices": [
+      "4",
+      "2",
+      "8",
+      "16"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "$P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$, and $v$ is set by the string and tension, not the frequency. So only $\\omega^2$ changes: $2^2 = 4$. 2 forgets the square; 8 assumes the wave speed doubles too; 16 squares the factor 4 again."
+    },
+    {
+     "id": "phys-q-2114",
+     "section": "phys-m6",
+     "topic": "Wave properties",
+     "stem": "The tension in a string is quadrupled while the wave's frequency and amplitude are kept the same. The power carried is multiplied by",
+     "choices": [
+      "4",
+      "1 (unchanged)",
+      "2",
+      "16"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "$v = \\sqrt{F_T/\\mu}$ doubles, and $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$ is proportional to $v$, so the power doubles. 4 treats the power as proportional to the tension; \"unchanged\" forgets that $P$ depends on $v$; 16 squares the tension factor."
+    },
+    {
+     "id": "phys-q-2115",
+     "section": "phys-m6",
+     "topic": "Wave properties",
+     "stem": "A string with $\\mu = 0.010$ kg/m carries waves at 100 m/s. What amplitude must a 60 Hz wave have to carry an average power of 0.50 W?",
+     "choices": [
+      "17 mm",
+      "1.9 mm",
+      "0.0070 mm",
+      "2.7 mm"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "$A = \\sqrt{\\dfrac{2P}{\\mu\\omega^2v}} = \\sqrt{\\dfrac{2(0.50)}{0.010(2\\pi\\cdot60)^2(100)}} = 2.65\\times10^{-3}$ m $\\approx 2.7$ mm. 17 mm uses $f$ in place of $\\omega$; 1.9 mm forgets the factor 2 from the $\\tfrac12$; 0.0070 mm forgets the square root."
     },
     {
      "id": "phys-q-2201",
@@ -6170,492 +6626,570 @@
     },
     {
      "id": "c68",
+     "front": "Rocket equation",
+     "back": "$\\Delta v = u\\ln(m_i/m_f)$, $u$ = exhaust speed relative to the rocket (no external force).",
+     "topic": "Momentum and impulse"
+    },
+    {
+     "id": "c69",
+     "front": "Rocket thrust",
+     "back": "$u\\,|dm/dt|$: exhaust speed times mass ejected per second.",
+     "topic": "Momentum and impulse"
+    },
+    {
+     "id": "c70",
      "front": "Center of mass",
      "back": "$x_{\\text{cm}} = \\dfrac{\\sum m_ix_i}{M}$, or $\\dfrac1M\\int x\\,dm$; $\\vec F_{\\text{ext}} = M\\vec a_{\\text{cm}}$.",
      "topic": "Center of mass"
     },
     {
-     "id": "c69",
+     "id": "c71",
      "front": "Elastic vs inelastic vs perfectly inelastic",
      "back": "All conserve momentum. Elastic also conserves KE; perfectly inelastic objects stick and lose the most KE.",
      "topic": "Collisions"
     },
     {
-     "id": "c70",
+     "id": "c72",
      "front": "Perfectly inelastic final velocity",
      "back": "$v_f = \\dfrac{m_1v_{1i} + m_2v_{2i}}{m_1 + m_2}$",
      "topic": "Collisions"
     },
     {
-     "id": "c71",
+     "id": "c73",
      "front": "Elastic collision, target at rest",
      "back": "$v_{1f} = \\dfrac{m_1 - m_2}{m_1 + m_2}v_{1i}$, $v_{2f} = \\dfrac{2m_1}{m_1 + m_2}v_{1i}$",
      "topic": "Collisions"
     },
     {
-     "id": "c72",
+     "id": "c74",
      "front": "Elastic head-on collision: relative velocity",
      "back": "It reverses: $v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$.",
      "topic": "Collisions"
     },
     {
-     "id": "c73",
+     "id": "c75",
      "front": "Ballistic pendulum method",
      "back": "Momentum conservation for the collision, then energy conservation for the swing: $v = \\dfrac{m + M}{m}\\sqrt{2gh}$.",
      "topic": "Collisions"
     },
     {
-     "id": "c74",
+     "id": "c76",
      "front": "rpm to rad/s",
      "back": "Multiply by $2\\pi/60 \\approx 0.1047$.",
      "topic": "Rotational kinematics"
     },
     {
-     "id": "c75",
+     "id": "c77",
      "front": "Linear–angular links",
      "back": "$s = r\\theta$, $v = r\\omega$, $a_t = r\\alpha$, $a_c = r\\omega^2$ (θ in radians).",
      "topic": "Rotational kinematics"
     },
     {
-     "id": "c76",
+     "id": "c78",
      "front": "Constant angular acceleration equations",
      "back": "$\\omega = \\omega_0 + \\alpha t$; $\\Delta\\theta = \\omega_0t + \\tfrac12\\alpha t^2$; $\\omega^2 = \\omega_0^2 + 2\\alpha\\Delta\\theta$",
      "topic": "Rotational kinematics"
     },
     {
-     "id": "c77",
+     "id": "c79",
      "front": "Moment of inertia (discrete and continuous)",
      "back": "$I = \\sum m_ir_i^2 = \\int r^2\\,dm$",
      "topic": "Moment of inertia"
     },
     {
-     "id": "c78",
+     "id": "c80",
      "front": "I for hoop, solid disk, solid sphere, hollow sphere (central axis)",
      "back": "$MR^2$, $\\tfrac12MR^2$, $\\tfrac25MR^2$, $\\tfrac23MR^2$",
      "topic": "Moment of inertia"
     },
     {
-     "id": "c79",
+     "id": "c81",
      "front": "Parallel-axis theorem",
      "back": "$I = I_{\\text{cm}} + Md^2$",
      "topic": "Moment of inertia"
     },
     {
-     "id": "c80",
+     "id": "c82",
      "front": "Rotational kinetic energy",
      "back": "$K = \\tfrac12I\\omega^2$",
      "topic": "Moment of inertia"
     },
     {
-     "id": "c81",
+     "id": "c83",
      "front": "Torque",
      "back": "$\\tau = rF\\sin\\theta = rF_\\perp$; $\\vec\\tau = \\vec r\\times\\vec F$; counterclockwise positive.",
      "topic": "Torque"
     },
     {
-     "id": "c82",
+     "id": "c84",
      "front": "Newton's second law for rotation",
      "back": "$\\sum\\tau = I\\alpha$",
      "topic": "Rotational dynamics"
     },
     {
-     "id": "c83",
+     "id": "c85",
      "front": "Mass m hanging from a solid cylinder pulley of mass M",
      "back": "$a = \\dfrac{mg}{m + \\tfrac12M}$, $T = \\tfrac12Ma$",
      "topic": "Rotational dynamics"
     },
     {
-     "id": "c84",
+     "id": "c86",
      "front": "Rolling without slipping",
      "back": "$v_{\\text{cm}} = R\\omega$; $K = \\tfrac12Mv^2 + \\tfrac12I\\omega^2$",
      "topic": "Rolling motion"
     },
     {
-     "id": "c85",
+     "id": "c87",
      "front": "Speed at the bottom of a ramp for a rolling object with $I = cMR^2$",
      "back": "$v = \\sqrt{\\dfrac{2gh}{1 + c}}$",
      "topic": "Rolling motion"
     },
     {
-     "id": "c86",
+     "id": "c88",
      "front": "Rolling race order",
      "back": "Solid sphere, solid cylinder, hollow sphere, hoop (smallest $c$ first).",
      "topic": "Rolling motion"
     },
     {
-     "id": "c87",
+     "id": "c89",
      "front": "Angular momentum",
      "back": "$L = I\\omega$; particle: $L = mvr_\\perp$; vector: $\\vec L = \\vec r\\times\\vec p$.",
      "topic": "Angular momentum"
     },
     {
-     "id": "c88",
+     "id": "c90",
      "front": "Torque and angular momentum",
      "back": "$\\vec\\tau_{\\text{net}} = d\\vec L/dt$",
      "topic": "Angular momentum"
     },
     {
-     "id": "c89",
+     "id": "c91",
      "front": "Conservation of angular momentum",
      "back": "No external torque: $I_i\\omega_i = I_f\\omega_f$ (KE need not be conserved).",
      "topic": "Angular momentum"
     },
     {
-     "id": "c90",
+     "id": "c92",
      "front": "Conditions for static equilibrium",
      "back": "$\\sum\\vec F = 0$ and $\\sum\\tau = 0$ about any point.",
      "topic": "Static equilibrium"
     },
     {
-     "id": "c91",
+     "id": "c93",
      "front": "Best pivot for an equilibrium torque equation",
      "back": "A point where an unknown force acts, so it drops out.",
      "topic": "Static equilibrium"
     },
     {
-     "id": "c92",
+     "id": "c94",
      "front": "When does an object tip over?",
      "back": "When its center of gravity moves beyond the edge of its base.",
      "topic": "Static equilibrium"
     },
     {
-     "id": "c93",
+     "id": "c95",
+     "front": "Stress, strain, Young's modulus",
+     "back": "Stress $F/A$ = $Y$ × strain $\\Delta L/L$, so $\\Delta L = FL/(AY)$.",
+     "topic": "Elasticity"
+    },
+    {
+     "id": "c96",
+     "front": "Shear and bulk moduli",
+     "back": "Shear: $F/A = S\\,\\Delta x/L$. Bulk: $\\Delta P = -B\\,\\Delta V/V$.",
+     "topic": "Elasticity"
+    },
+    {
+     "id": "c97",
      "front": "Newton's law of gravitation",
      "back": "$F = \\dfrac{Gm_1m_2}{r^2}$, $G = 6.67\\times10^{-11}$ N·m²/kg²",
      "topic": "Gravitation"
     },
     {
-     "id": "c94",
+     "id": "c98",
      "front": "Surface gravity of a planet",
      "back": "$g = \\dfrac{GM}{R^2}$",
      "topic": "Gravitation"
     },
     {
-     "id": "c95",
+     "id": "c99",
      "front": "Circular orbit speed and period",
      "back": "$v = \\sqrt{GM/r}$; $T^2 = \\dfrac{4\\pi^2}{GM}r^3$",
      "topic": "Orbits"
     },
     {
-     "id": "c96",
+     "id": "c100",
      "front": "Kepler's three laws",
      "back": "Elliptical orbits (Sun at a focus); equal areas in equal times; $T^2 \\propto a^3$.",
      "topic": "Orbits"
     },
     {
-     "id": "c97",
+     "id": "c101",
      "front": "Escape speed",
      "back": "$v_{\\text{esc}} = \\sqrt{2GM/R}$ = $\\sqrt2$ × low-orbit speed; 11.2 km/s for Earth.",
      "topic": "Orbits"
     },
     {
-     "id": "c98",
+     "id": "c102",
      "front": "Energy of a circular orbit",
      "back": "$E = -\\dfrac{GMm}{2r}$ ($K = -E$, $U = 2E$)",
      "topic": "Orbits"
     },
     {
-     "id": "c99",
+     "id": "c103",
      "front": "Period of a mass on a spring",
      "back": "$T = 2\\pi\\sqrt{m/k}$; $\\omega = \\sqrt{k/m}$",
      "topic": "Simple harmonic motion"
     },
     {
-     "id": "c100",
+     "id": "c104",
      "front": "Period of a simple pendulum (small angles)",
      "back": "$T = 2\\pi\\sqrt{L/g}$, independent of mass and amplitude.",
      "topic": "Pendulums"
     },
     {
-     "id": "c101",
+     "id": "c105",
      "front": "SHM position, max speed, max acceleration",
      "back": "$x = A\\cos(\\omega t + \\phi)$; $v_{\\max} = A\\omega$; $a_{\\max} = A\\omega^2$",
      "topic": "Simple harmonic motion"
     },
     {
-     "id": "c102",
+     "id": "c106",
      "front": "Energy in SHM",
      "back": "$E = \\tfrac12kA^2 = \\tfrac12mv^2 + \\tfrac12kx^2$; $v = \\omega\\sqrt{A^2 - x^2}$",
      "topic": "Simple harmonic motion"
     },
     {
-     "id": "c103",
+     "id": "c107",
      "front": "Does SHM period depend on amplitude?",
      "back": "No (for ideal springs and small-angle pendulums).",
      "topic": "Simple harmonic motion"
     },
     {
-     "id": "c104",
+     "id": "c108",
      "front": "SHM differential equation",
      "back": "$\\ddot x = -\\omega^2x$; whatever multiplies $-x$ is $\\omega^2$.",
      "topic": "Simple harmonic motion"
     },
     {
-     "id": "c105",
+     "id": "c109",
      "front": "Resonance",
      "back": "Driving an oscillator at its natural frequency produces a large amplitude.",
      "topic": "Simple harmonic motion"
     },
     {
-     "id": "c106",
+     "id": "c110",
+     "front": "Damped oscillator equation",
+     "back": "$m\\ddot x + b\\dot x + kx = 0$; write $\\gamma = b/2m$, $\\omega_0 = \\sqrt{k/m}$.",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c111",
+     "front": "Underdamped motion",
+     "back": "$x = A_0e^{-\\gamma t}\\cos(\\omega' t + \\phi)$ with $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2}$ (when $\\gamma < \\omega_0$).",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c112",
+     "front": "Critical damping",
+     "back": "$b = 2\\sqrt{mk}$ ($\\gamma = \\omega_0$): fastest return to equilibrium with no overshoot. Overdamped is slower.",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c113",
+     "front": "Quality factor Q",
+     "back": "$Q = \\omega_0/(2\\gamma) = \\sqrt{mk}/b$; amplitude falls by $e$ in about $Q/\\pi$ cycles.",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c114",
+     "front": "Amplitude vs energy decay in a damped oscillator",
+     "back": "Amplitude $\\propto e^{-bt/2m}$; energy $\\propto e^{-bt/m}$ (twice as fast).",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c115",
+     "front": "Steady-state amplitude of a driven oscillator",
+     "back": "$A = \\dfrac{F_0/m}{\\sqrt{(\\omega_0^2 - \\omega^2)^2 + (2\\gamma\\omega)^2}}$, oscillating at the driving frequency.",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c116",
+     "front": "Amplitude at resonance",
+     "back": "$A = F_0/(b\\omega_0) = Q \\times$ the static stretch $F_0/k$; displacement lags the force by $90^\\circ$.",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c117",
+     "front": "Resonance width and Q",
+     "back": "Half-power bandwidth $\\Delta\\omega = b/m$, so $Q = \\omega_0/\\Delta\\omega$: high $Q$ means a tall, narrow peak.",
+     "topic": "Damped and driven oscillations"
+    },
+    {
+     "id": "c118",
      "front": "Wave speed equation",
      "back": "$v = f\\lambda = \\lambda/T$",
      "topic": "Wave properties"
     },
     {
-     "id": "c107",
+     "id": "c119",
      "front": "What changes when a wave enters a new medium?",
      "back": "Speed and wavelength change; frequency stays the same.",
      "topic": "Wave properties"
     },
     {
-     "id": "c108",
+     "id": "c120",
      "front": "Wave speed on a string",
      "back": "$v = \\sqrt{F_T/\\mu}$, $\\mu$ = mass per length",
      "topic": "Wave properties"
     },
     {
-     "id": "c109",
+     "id": "c121",
+     "front": "Average power of a wave on a string",
+     "back": "$P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$, proportional to $A^2$ and $\\omega^2$.",
+     "topic": "Wave properties"
+    },
+    {
+     "id": "c122",
      "front": "Transverse vs longitudinal",
      "back": "Transverse: medium moves ⊥ to travel (string). Longitudinal: medium moves ∥ (sound).",
      "topic": "Wave properties"
     },
     {
-     "id": "c110",
+     "id": "c123",
      "front": "Constructive vs destructive interference (path difference)",
      "back": "Constructive: $\\Delta r = m\\lambda$. Destructive: $\\Delta r = (m + \\tfrac12)\\lambda$.",
      "topic": "Wave properties"
     },
     {
-     "id": "c111",
+     "id": "c124",
      "front": "Standing waves on a string fixed at both ends",
      "back": "$\\lambda_n = 2L/n$, $f_n = nv/(2L)$, $n = 1, 2, 3, \\ldots$",
      "topic": "Standing waves"
     },
     {
-     "id": "c112",
+     "id": "c125",
      "front": "Sinusoidal traveling wave",
      "back": "$y = A\\sin(kx - \\omega t)$, $k = 2\\pi/\\lambda$, $\\omega = 2\\pi f$, $v = \\omega/k$",
      "topic": "Wave properties"
     },
     {
-     "id": "c113",
+     "id": "c126",
      "front": "Speed of sound in air at 20°C",
      "back": "About 343 m/s; $v \\approx 331 + 0.6\\,T_C$ m/s.",
      "topic": "Sound"
     },
     {
-     "id": "c114",
+     "id": "c127",
      "front": "Sound intensity level",
      "back": "$\\beta = 10\\log_{10}(I/I_0)$, $I_0 = 10^{-12}$ W/m²",
      "topic": "Sound"
     },
     {
-     "id": "c115",
+     "id": "c128",
      "front": "Decibel rules of thumb",
      "back": "×10 intensity: +10 dB. ×2 intensity: +3 dB. ×10 distance (point source): −20 dB.",
      "topic": "Sound"
     },
     {
-     "id": "c116",
+     "id": "c129",
      "front": "Pipe open at both ends",
      "back": "$f_n = nv/(2L)$, all harmonics",
      "topic": "Sound"
     },
     {
-     "id": "c117",
+     "id": "c130",
      "front": "Pipe closed at one end",
      "back": "$f_n = nv/(4L)$, odd harmonics only",
      "topic": "Sound"
     },
     {
-     "id": "c118",
+     "id": "c131",
      "front": "Beat frequency",
      "back": "$f_{\\text{beat}} = |f_1 - f_2|$",
      "topic": "Sound"
     },
     {
-     "id": "c119",
+     "id": "c132",
      "front": "Doppler formula",
      "back": "$f' = f\\dfrac{v \\pm v_o}{v \\mp v_s}$; upper signs for motion toward.",
      "topic": "Doppler effect"
     },
     {
-     "id": "c120",
+     "id": "c133",
      "front": "Pressure at depth",
      "back": "$P = P_0 + \\rho gh$ (depends only on depth)",
      "topic": "Pressure"
     },
     {
-     "id": "c121",
+     "id": "c134",
      "front": "Gauge vs absolute pressure",
      "back": "Gauge = absolute − atmospheric; 1 atm = $1.013\\times10^5$ Pa.",
      "topic": "Pressure"
     },
     {
-     "id": "c122",
+     "id": "c135",
      "front": "Hydraulic lift (Pascal)",
      "back": "$F_1/A_1 = F_2/A_2$; volumes moved are equal, so $A_1d_1 = A_2d_2$.",
      "topic": "Pressure"
     },
     {
-     "id": "c123",
+     "id": "c136",
      "front": "Archimedes' principle",
      "back": "$F_B = \\rho_{\\text{fluid}}V_{\\text{disp}}g$ (weight of displaced fluid).",
      "topic": "Buoyancy"
     },
     {
-     "id": "c124",
+     "id": "c137",
      "front": "Fraction submerged when floating",
      "back": "$V_{\\text{sub}}/V = \\rho_{\\text{obj}}/\\rho_{\\text{fluid}}$",
      "topic": "Buoyancy"
     },
     {
-     "id": "c125",
+     "id": "c138",
      "front": "Continuity equation",
      "back": "$A_1v_1 = A_2v_2$; $Q = Av$",
      "topic": "Fluid dynamics"
     },
     {
-     "id": "c126",
+     "id": "c139",
      "front": "Bernoulli's equation",
      "back": "$P + \\tfrac12\\rho v^2 + \\rho gy$ = constant along a streamline",
      "topic": "Fluid dynamics"
     },
     {
-     "id": "c127",
+     "id": "c140",
      "front": "Torricelli's theorem",
      "back": "$v = \\sqrt{2gh}$ for a hole at depth $h$",
      "topic": "Fluid dynamics"
     },
     {
-     "id": "c128",
+     "id": "c141",
      "front": "Temperature conversions",
      "back": "$T(\\text{K}) = T_C + 273.15$; $T_F = \\tfrac95T_C + 32$",
      "topic": "Temperature and expansion"
     },
     {
-     "id": "c129",
+     "id": "c142",
      "front": "Linear thermal expansion",
      "back": "$\\Delta L = \\alpha L\\Delta T$; volume: $\\Delta V = \\beta V\\Delta T$, $\\beta \\approx 3\\alpha$",
      "topic": "Temperature and expansion"
     },
     {
-     "id": "c130",
+     "id": "c143",
      "front": "Heat for a temperature change",
      "back": "$Q = mc\\Delta T$",
      "topic": "Heat and calorimetry"
     },
     {
-     "id": "c131",
+     "id": "c144",
      "front": "Heat for a phase change",
      "back": "$Q = mL$; water: $L_f = 3.34\\times10^5$ J/kg, $L_v = 2.26\\times10^6$ J/kg",
      "topic": "Heat and calorimetry"
     },
     {
-     "id": "c132",
+     "id": "c145",
      "front": "Calorimetry equation",
      "back": "$\\sum m c(T_f - T_i) = 0$ (add $\\pm mL$ for phase changes)",
      "topic": "Heat and calorimetry"
     },
     {
-     "id": "c133",
+     "id": "c146",
      "front": "Conduction rate",
      "back": "$Q/t = kA\\Delta T/L$",
      "topic": "Heat and calorimetry"
     },
     {
-     "id": "c134",
+     "id": "c147",
      "front": "Ideal gas law",
      "back": "$PV = nRT = Nk_BT$; $R = 8.314$ J/(mol·K)",
      "topic": "Ideal gas law"
     },
     {
-     "id": "c135",
+     "id": "c148",
      "front": "Combined gas law",
      "back": "$\\dfrac{P_1V_1}{T_1} = \\dfrac{P_2V_2}{T_2}$ (absolute $P$, $T$ in K)",
      "topic": "Ideal gas law"
     },
     {
-     "id": "c136",
+     "id": "c149",
      "front": "Average translational KE of a gas molecule",
      "back": "$\\tfrac12m\\overline{v^2} = \\tfrac32k_BT$",
      "topic": "Kinetic theory"
     },
     {
-     "id": "c137",
+     "id": "c150",
      "front": "rms speed",
      "back": "$v_{\\text{rms}} = \\sqrt{3RT/M}$ ($M$ in kg/mol)",
      "topic": "Kinetic theory"
     },
     {
-     "id": "c138",
+     "id": "c151",
      "front": "Internal energy of a monatomic ideal gas",
      "back": "$E_{\\text{int}} = \\tfrac32nRT$",
      "topic": "Kinetic theory"
     },
     {
-     "id": "c139",
+     "id": "c152",
      "front": "First law of thermodynamics",
      "back": "$\\Delta E_{\\text{int}} = Q - W$ ($Q$ in, $W$ by the gas)",
      "topic": "First law of thermodynamics"
     },
     {
-     "id": "c140",
+     "id": "c153",
      "front": "Work done by a gas",
      "back": "$W = \\int P\\,dV$ = area under the PV curve; $P\\Delta V$ at constant pressure.",
      "topic": "First law of thermodynamics"
     },
     {
-     "id": "c141",
+     "id": "c154",
      "front": "Isothermal work (ideal gas)",
      "back": "$W = nRT\\ln(V_f/V_i)$, and $Q = W$",
      "topic": "First law of thermodynamics"
     },
     {
-     "id": "c142",
+     "id": "c155",
      "front": "Adiabatic ideal gas",
      "back": "$Q = 0$; $PV^\\gamma$ = const; $TV^{\\gamma-1}$ = const; $\\gamma = 5/3$ monatomic",
      "topic": "First law of thermodynamics"
     },
     {
-     "id": "c143",
+     "id": "c156",
      "front": "Monatomic ideal gas molar specific heats",
      "back": "$C_V = \\tfrac32R$, $C_P = \\tfrac52R$, $C_P - C_V = R$",
      "topic": "First law of thermodynamics"
     },
     {
-     "id": "c144",
+     "id": "c157",
      "front": "Heat engine efficiency",
      "back": "$e = W/Q_H = 1 - Q_C/Q_H$",
      "topic": "Heat engines"
     },
     {
-     "id": "c145",
+     "id": "c158",
      "front": "Carnot efficiency",
      "back": "$e_C = 1 - T_C/T_H$ (kelvins); no engine between the same two reservoirs can do better.",
      "topic": "Heat engines"
     },
     {
-     "id": "c146",
+     "id": "c159",
      "front": "Refrigerator COP",
      "back": "$K = Q_C/W$; Carnot limit $T_C/(T_H - T_C)$",
      "topic": "Heat engines"
     },
     {
-     "id": "c147",
+     "id": "c160",
      "front": "Entropy change at constant temperature",
      "back": "$\\Delta S = Q/T$",
      "topic": "Entropy"
     },
     {
-     "id": "c148",
+     "id": "c161",
      "front": "Entropy change heating from $T_1$ to $T_2$",
      "back": "$\\Delta S = mc\\ln(T_2/T_1)$",
      "topic": "Entropy"
     },
     {
-     "id": "c149",
+     "id": "c162",
      "front": "Second law in entropy form",
      "back": "The total entropy of an isolated system never decreases.",
      "topic": "Entropy"
@@ -7216,6 +7750,21 @@
    "topic": "Momentum and impulse"
   },
   {
+   "term": "rocket equation",
+   "aliases": [
+    "Tsiolkovsky equation",
+    "Tsiolkovsky's equation",
+    "Tsiolkovsky rocket equation"
+   ],
+   "definition": "The speed gained by a rocket with no external force, $\\Delta v = u\\ln(m_i/m_f)$, where $u$ is the exhaust speed relative to the rocket and $m_i/m_f$ the ratio of initial to final mass.",
+   "topic": "Momentum and impulse"
+  },
+  {
+   "term": "thrust",
+   "definition": "The forward force on a rocket from its exhaust, $u\\,|dm/dt|$: exhaust speed relative to the rocket times the rate mass is ejected.",
+   "topic": "Momentum and impulse"
+  },
+  {
    "term": "conservation of momentum",
    "definition": "With zero net external force, a system's total momentum stays constant.",
    "topic": "Momentum and impulse"
@@ -7367,7 +7916,7 @@
     "tensile stress"
    ],
    "definition": "Force per unit area applied to a material, $F/A$, in pascals.",
-   "topic": "Static equilibrium"
+   "topic": "Elasticity"
   },
   {
    "term": "strain",
@@ -7375,7 +7924,7 @@
     "tensile strain"
    ],
    "definition": "The fractional deformation of a material, such as $\\Delta L/L$; dimensionless.",
-   "topic": "Static equilibrium"
+   "topic": "Elasticity"
   },
   {
    "term": "Young's modulus",
@@ -7383,7 +7932,22 @@
     "elastic modulus"
    ],
    "definition": "The ratio of tensile stress to strain for small deformations, $Y = (F/A)/(\\Delta L/L)$; about $2\\times10^{11}$ Pa for steel.",
-   "topic": "Static equilibrium"
+   "topic": "Elasticity"
+  },
+  {
+   "term": "elastic limit",
+   "definition": "The largest stress a material can take and still return to its original shape when the load is removed.",
+   "topic": "Elasticity"
+  },
+  {
+   "term": "shear modulus",
+   "definition": "The ratio of shear stress to shear strain, $S = (F/A)/(\\Delta x/L)$, for a force applied parallel to a face; fluids have none.",
+   "topic": "Elasticity"
+  },
+  {
+   "term": "bulk modulus",
+   "definition": "The ratio of added pressure to fractional volume decrease, $B = -\\Delta P/(\\Delta V/V)$; a large $B$ means hard to compress.",
+   "topic": "Elasticity"
   },
   {
    "term": "Newton's law of gravitation",
@@ -7477,6 +8041,96 @@
    "term": "resonance",
    "definition": "Large-amplitude response when a system is driven at its natural frequency.",
    "topic": "Simple harmonic motion"
+  },
+  {
+   "term": "damping constant",
+   "aliases": [
+    "damping coefficient"
+   ],
+   "definition": "The constant $b$ (kg/s) in a velocity-proportional damping force $F = -bv$.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "natural frequency",
+   "definition": "The angular frequency $\\omega_0 = \\sqrt{k/m}$ at which an oscillator vibrates when left alone with no damping.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "underdamped",
+   "aliases": [
+    "underdamping",
+    "light damping"
+   ],
+   "definition": "Damping weaker than critical ($b < 2\\sqrt{mk}$): the system still oscillates, at $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2}$, inside a decaying envelope $e^{-\\gamma t}$, $\\gamma = b/2m$.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "critically damped",
+   "aliases": [
+    "critical damping"
+   ],
+   "definition": "Damping with $b = 2\\sqrt{mk}$ ($\\gamma = \\omega_0$): the fastest return to equilibrium without overshooting.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "overdamped",
+   "aliases": [
+    "overdamping",
+    "heavy damping"
+   ],
+   "definition": "Damping stronger than critical ($b > 2\\sqrt{mk}$): the system returns to equilibrium without oscillating, more slowly than with critical damping.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "quality factor",
+   "aliases": [
+    "Q factor",
+    "Q-factor"
+   ],
+   "definition": "A measure of how lightly damped an oscillator is: $Q = \\omega_0/(2\\gamma) = \\sqrt{mk}/b$. It equals the resonant amplitude divided by the static stretch, and $\\omega_0/\\Delta\\omega$.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "driving force",
+   "aliases": [
+    "driven oscillation",
+    "driven oscillator",
+    "forced oscillation"
+   ],
+   "definition": "A periodic external force, such as $F_0\\cos\\omega t$, that pushes an oscillator and feeds energy into it.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "driving frequency",
+   "definition": "The angular frequency $\\omega$ of the external force on a driven oscillator; the steady-state motion has this frequency.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "transient",
+   "definition": "The part of a driven oscillator's motion that dies away (as $e^{-\\gamma t}$), leaving the steady state.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "steady state",
+   "aliases": [
+    "steady-state"
+   ],
+   "definition": "The lasting motion of a driven oscillator once transients have died out: $x = A\\cos(\\omega t - \\delta)$ at the driving frequency.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "resonance curve",
+   "definition": "The graph of a driven oscillator's steady-state amplitude (or absorbed power) against driving frequency; it peaks near $\\omega_0$.",
+   "topic": "Damped and driven oscillations"
+  },
+  {
+   "term": "bandwidth",
+   "aliases": [
+    "resonance width",
+    "half-power bandwidth"
+   ],
+   "definition": "The width $\\Delta\\omega = b/m$ of a resonance, measured between the frequencies where the absorbed power is half its peak; $Q = \\omega_0/\\Delta\\omega$.",
+   "topic": "Damped and driven oscillations"
   },
   {
    "term": "wave",
@@ -8074,7 +8728,7 @@
   {
    "id": "phys-ref-mechanics",
    "title": "Mechanics equations",
-   "body": "## Vectors\n\n| | |\n|---|---|\n| Components | $A_x = A\\cos\\theta$, $A_y = A\\sin\\theta$ |\n| Magnitude, direction | $A = \\sqrt{A_x^2 + A_y^2}$, $\\tan\\theta = A_y/A_x$ |\n| Dot product | $\\vec A\\cdot\\vec B = AB\\cos\\phi = A_xB_x + A_yB_y + A_zB_z$ |\n| Cross product | $\\lvert\\vec A\\times\\vec B\\rvert = AB\\sin\\phi$ (right-hand rule) |\n\n## Kinematics\n\n| | |\n|---|---|\n| Definitions | $v = \\dfrac{dx}{dt}$, $a = \\dfrac{dv}{dt}$; $\\Delta x = \\int v\\,dt$ |\n| Constant acceleration | $v = v_0 + at$; $\\Delta x = v_0t + \\tfrac12at^2$; $v^2 = v_0^2 + 2a\\Delta x$; $\\Delta x = \\tfrac12(v_0 + v)t$ |\n| Projectile (level ground) | $R = \\dfrac{v_0^2\\sin 2\\theta}{g}$, $H = \\dfrac{v_0^2\\sin^2\\theta}{2g}$, $T = \\dfrac{2v_0\\sin\\theta}{g}$ |\n| Relative velocity | $\\vec v_{AC} = \\vec v_{AB} + \\vec v_{BC}$ |\n| Circular motion | $v = \\dfrac{2\\pi r}{T}$, $a_c = \\dfrac{v^2}{r} = \\omega^2r$ |\n\n## Forces\n\n| | |\n|---|---|\n| Newton's second law | $\\sum\\vec F = m\\vec a = \\dfrac{d\\vec p}{dt}$ |\n| Weight | $W = mg$ |\n| Friction | $f_k = \\mu_kn$, $f_s \\le \\mu_sn$ |\n| Incline | $mg\\sin\\theta$ along, $mg\\cos\\theta$ into the slope |\n| Spring | $F = -kx$ |\n| Centripetal | $\\sum F_{\\text{in}} = \\dfrac{mv^2}{r}$ |\n| Atwood machine | $a = \\dfrac{m_1 - m_2}{m_1 + m_2}g$ |\n\n## Energy and momentum\n\n| | |\n|---|---|\n| Work | $W = Fd\\cos\\theta = \\int\\vec F\\cdot d\\vec\\ell$ |\n| Kinetic energy | $K = \\tfrac12mv^2$; $W_{\\text{net}} = \\Delta K$ |\n| Potential energy | $U_g = mgy$, $U_s = \\tfrac12kx^2$, $F = -\\dfrac{dU}{dx}$ |\n| Energy conservation | $K_i + U_i + W_{\\text{nc}} = K_f + U_f$ |\n| Power | $P = \\dfrac{W}{t} = Fv$ |\n| Momentum, impulse | $\\vec p = m\\vec v$; $\\vec J = \\int\\vec F\\,dt = \\Delta\\vec p$ |\n| Center of mass | $x_{\\text{cm}} = \\dfrac{\\sum m_ix_i}{M} = \\dfrac1M\\int x\\,dm$ |\n| Elastic collision (target at rest) | $v_{1f} = \\dfrac{m_1 - m_2}{m_1 + m_2}v_{1i}$, $v_{2f} = \\dfrac{2m_1}{m_1 + m_2}v_{1i}$ |\n| Perfectly inelastic | $v_f = \\dfrac{m_1v_1 + m_2v_2}{m_1 + m_2}$ |\n\n## Rotation\n\n| Linear | Rotational |\n|---|---|\n| $x$, $v$, $a$ | $\\theta$, $\\omega$, $\\alpha$; $v = r\\omega$, $a_t = r\\alpha$ |\n| $m$ | $I = \\sum mr^2 = \\int r^2\\,dm$; $I = I_{\\text{cm}} + Md^2$ |\n| $F = ma$ | $\\tau = rF\\sin\\theta = I\\alpha$; $\\vec\\tau = \\vec r\\times\\vec F$ |\n| $K = \\tfrac12mv^2$ | $K = \\tfrac12I\\omega^2$ |\n| $p = mv$ | $L = I\\omega$; $\\vec L = \\vec r\\times\\vec p$; $\\tau = dL/dt$ |\n| $P = Fv$ | $P = \\tau\\omega$ |\n\n| Shape (mass $M$) | $I$ |\n|---|---|\n| Hoop, radius $R$ | $MR^2$ |\n| Solid disk or cylinder | $\\tfrac12MR^2$ |\n| Solid sphere | $\\tfrac25MR^2$ |\n| Thin spherical shell | $\\tfrac23MR^2$ |\n| Rod about center / end | $\\tfrac1{12}ML^2$ / $\\tfrac13ML^2$ |\n\nRolling from height $h$ ($I = cMR^2$): $v = \\sqrt{2gh/(1 + c)}$. Static equilibrium: $\\sum\\vec F = 0$, $\\sum\\tau = 0$.\n\n## Gravitation\n\n| | |\n|---|---|\n| Universal gravitation | $F = \\dfrac{Gm_1m_2}{r^2}$; $g = \\dfrac{GM}{R^2}$ |\n| Circular orbit | $v = \\sqrt{\\dfrac{GM}{r}}$, $T^2 = \\dfrac{4\\pi^2}{GM}r^3$ |\n| Potential energy | $U = -\\dfrac{GMm}{r}$ |\n| Escape speed | $v_{\\text{esc}} = \\sqrt{\\dfrac{2GM}{R}}$ |\n"
+   "body": "## Vectors\n\n| | |\n|---|---|\n| Components | $A_x = A\\cos\\theta$, $A_y = A\\sin\\theta$ |\n| Magnitude, direction | $A = \\sqrt{A_x^2 + A_y^2}$, $\\tan\\theta = A_y/A_x$ |\n| Dot product | $\\vec A\\cdot\\vec B = AB\\cos\\phi = A_xB_x + A_yB_y + A_zB_z$ |\n| Cross product | $\\lvert\\vec A\\times\\vec B\\rvert = AB\\sin\\phi$ (right-hand rule) |\n\n## Kinematics\n\n| | |\n|---|---|\n| Definitions | $v = \\dfrac{dx}{dt}$, $a = \\dfrac{dv}{dt}$; $\\Delta x = \\int v\\,dt$ |\n| Constant acceleration | $v = v_0 + at$; $\\Delta x = v_0t + \\tfrac12at^2$; $v^2 = v_0^2 + 2a\\Delta x$; $\\Delta x = \\tfrac12(v_0 + v)t$ |\n| Projectile (level ground) | $R = \\dfrac{v_0^2\\sin 2\\theta}{g}$, $H = \\dfrac{v_0^2\\sin^2\\theta}{2g}$, $T = \\dfrac{2v_0\\sin\\theta}{g}$ |\n| Relative velocity | $\\vec v_{AC} = \\vec v_{AB} + \\vec v_{BC}$ |\n| Circular motion | $v = \\dfrac{2\\pi r}{T}$, $a_c = \\dfrac{v^2}{r} = \\omega^2r$ |\n\n## Forces\n\n| | |\n|---|---|\n| Newton's second law | $\\sum\\vec F = m\\vec a = \\dfrac{d\\vec p}{dt}$ |\n| Weight | $W = mg$ |\n| Friction | $f_k = \\mu_kn$, $f_s \\le \\mu_sn$ |\n| Incline | $mg\\sin\\theta$ along, $mg\\cos\\theta$ into the slope |\n| Spring | $F = -kx$ |\n| Centripetal | $\\sum F_{\\text{in}} = \\dfrac{mv^2}{r}$ |\n| Atwood machine | $a = \\dfrac{m_1 - m_2}{m_1 + m_2}g$ |\n\n## Energy and momentum\n\n| | |\n|---|---|\n| Work | $W = Fd\\cos\\theta = \\int\\vec F\\cdot d\\vec\\ell$ |\n| Kinetic energy | $K = \\tfrac12mv^2$; $W_{\\text{net}} = \\Delta K$ |\n| Potential energy | $U_g = mgy$, $U_s = \\tfrac12kx^2$, $F = -\\dfrac{dU}{dx}$ |\n| Energy conservation | $K_i + U_i + W_{\\text{nc}} = K_f + U_f$ |\n| Power | $P = \\dfrac{W}{t} = Fv$ |\n| Momentum, impulse | $\\vec p = m\\vec v$; $\\vec J = \\int\\vec F\\,dt = \\Delta\\vec p$ |\n| Center of mass | $x_{\\text{cm}} = \\dfrac{\\sum m_ix_i}{M} = \\dfrac1M\\int x\\,dm$ |\n| Elastic collision (target at rest) | $v_{1f} = \\dfrac{m_1 - m_2}{m_1 + m_2}v_{1i}$, $v_{2f} = \\dfrac{2m_1}{m_1 + m_2}v_{1i}$ |\n| Perfectly inelastic | $v_f = \\dfrac{m_1v_1 + m_2v_2}{m_1 + m_2}$ |\n| Rocket (no external force) | $\\Delta v = u\\ln\\dfrac{m_i}{m_f}$; thrust $= u\\,\\lvert dm/dt\\rvert$ |\n\n## Rotation\n\n| Linear | Rotational |\n|---|---|\n| $x$, $v$, $a$ | $\\theta$, $\\omega$, $\\alpha$; $v = r\\omega$, $a_t = r\\alpha$ |\n| $m$ | $I = \\sum mr^2 = \\int r^2\\,dm$; $I = I_{\\text{cm}} + Md^2$ |\n| $F = ma$ | $\\tau = rF\\sin\\theta = I\\alpha$; $\\vec\\tau = \\vec r\\times\\vec F$ |\n| $K = \\tfrac12mv^2$ | $K = \\tfrac12I\\omega^2$ |\n| $p = mv$ | $L = I\\omega$; $\\vec L = \\vec r\\times\\vec p$; $\\tau = dL/dt$ |\n| $P = Fv$ | $P = \\tau\\omega$ |\n\n| Shape (mass $M$) | $I$ |\n|---|---|\n| Hoop, radius $R$ | $MR^2$ |\n| Solid disk or cylinder | $\\tfrac12MR^2$ |\n| Solid sphere | $\\tfrac25MR^2$ |\n| Thin spherical shell | $\\tfrac23MR^2$ |\n| Rod about center / end | $\\tfrac1{12}ML^2$ / $\\tfrac13ML^2$ |\n\nRolling from height $h$ ($I = cMR^2$): $v = \\sqrt{2gh/(1 + c)}$. Static equilibrium: $\\sum\\vec F = 0$, $\\sum\\tau = 0$.\n\n## Elasticity\n\n| | |\n|---|---|\n| Tension or compression | $\\dfrac{F}{A} = Y\\dfrac{\\Delta L}{L}$, so $\\Delta L = \\dfrac{FL}{AY}$ (steel $Y \\approx 2\\times10^{11}$ Pa, aluminum $7\\times10^{10}$ Pa) |\n| Shear | $\\dfrac{F}{A} = S\\dfrac{\\Delta x}{L}$ |\n| Bulk (volume) | $\\Delta P = -B\\dfrac{\\Delta V}{V}$ |\n\n## Gravitation\n\n| | |\n|---|---|\n| Universal gravitation | $F = \\dfrac{Gm_1m_2}{r^2}$; $g = \\dfrac{GM}{R^2}$ |\n| Circular orbit | $v = \\sqrt{\\dfrac{GM}{r}}$, $T^2 = \\dfrac{4\\pi^2}{GM}r^3$ |\n| Potential energy | $U = -\\dfrac{GMm}{r}$ |\n| Escape speed | $v_{\\text{esc}} = \\sqrt{\\dfrac{2GM}{R}}$ |\n"
   },
   {
    "id": "phys-ref-units",
@@ -8084,7 +8738,7 @@
   {
    "id": "phys-ref-waves-thermo",
    "title": "Oscillations, waves, fluids, and thermodynamics",
-   "body": "## Oscillations\n\n| | |\n|---|---|\n| SHM | $x = A\\cos(\\omega t + \\phi)$; $\\ddot x = -\\omega^2x$ |\n| Spring | $\\omega = \\sqrt{k/m}$, $T = 2\\pi\\sqrt{m/k}$ |\n| Simple pendulum | $T = 2\\pi\\sqrt{L/g}$ |\n| Physical pendulum | $T = 2\\pi\\sqrt{I/(mgd)}$ |\n| Maxima | $v_{\\max} = A\\omega$, $a_{\\max} = A\\omega^2$; $E = \\tfrac12kA^2$ |\n\n## Waves and sound\n\n| | |\n|---|---|\n| Wave speed | $v = f\\lambda$; string: $v = \\sqrt{F_T/\\mu}$ |\n| Traveling wave | $y = A\\sin(kx - \\omega t)$, $k = 2\\pi/\\lambda$, $\\omega = 2\\pi f$ |\n| String fixed at both ends; open pipe | $f_n = \\dfrac{nv}{2L}$, $n = 1, 2, 3, \\ldots$ |\n| Pipe closed at one end | $f_n = \\dfrac{nv}{4L}$, $n = 1, 3, 5, \\ldots$ |\n| Intensity | $I = \\dfrac{P}{4\\pi r^2}$; $\\beta = 10\\log_{10}\\dfrac{I}{I_0}$, $I_0 = 10^{-12}$ W/m² |\n| Beats | $f_{\\text{beat}} = \\lvert f_1 - f_2\\rvert$ |\n| Doppler | $f' = f\\dfrac{v \\pm v_o}{v \\mp v_s}$ (upper signs: approaching) |\n\n## Fluids\n\n| | |\n|---|---|\n| Density, pressure | $\\rho = m/V$, $P = F/A$ |\n| Depth | $P = P_0 + \\rho gh$; $dP/dy = -\\rho g$ |\n| Pascal | $F_1/A_1 = F_2/A_2$ |\n| Buoyancy | $F_B = \\rho_{\\text{fluid}}V_{\\text{disp}}g$ |\n| Continuity | $A_1v_1 = A_2v_2$ |\n| Bernoulli | $P + \\tfrac12\\rho v^2 + \\rho gy$ = const |\n| Torricelli | $v = \\sqrt{2gh}$ |\n\n## Heat and gases\n\n| | |\n|---|---|\n| Expansion | $\\Delta L = \\alpha L\\Delta T$ |\n| Heat | $Q = mc\\Delta T$; phase change $Q = mL$ |\n| Conduction, radiation | $Q/t = kA\\Delta T/L$; $P = e\\sigma AT^4$ |\n| Ideal gas | $PV = nRT = Nk_BT$ |\n| Kinetic theory | $\\tfrac12m\\overline{v^2} = \\tfrac32k_BT$; $v_{\\text{rms}} = \\sqrt{3RT/M}$ |\n| Monatomic gas | $E_{\\text{int}} = \\tfrac32nRT$; $C_V = \\tfrac32R$, $C_P = \\tfrac52R$, $\\gamma = \\tfrac53$ |\n\n## Thermodynamics\n\n| | |\n|---|---|\n| First law | $\\Delta E_{\\text{int}} = Q - W$ ($W$ by the gas) |\n| Work by gas | $W = \\int P\\,dV$; isobaric $P\\Delta V$; isothermal $nRT\\ln(V_f/V_i)$ |\n| Adiabatic | $PV^\\gamma$ = const, $TV^{\\gamma - 1}$ = const |\n| Engine | $e = \\dfrac{W}{Q_H} = 1 - \\dfrac{Q_C}{Q_H}$; Carnot $e = 1 - \\dfrac{T_C}{T_H}$ |\n| Refrigerator | $K = Q_C/W$; Carnot $\\dfrac{T_C}{T_H - T_C}$ |\n| Entropy | $\\Delta S = \\int\\dfrac{dQ_{\\text{rev}}}{T}$; $Q/T$ at constant $T$; heating at constant $c$: $mc\\ln(T_2/T_1)$ |\n"
+   "body": "## Oscillations\n\n| | |\n|---|---|\n| SHM | $x = A\\cos(\\omega t + \\phi)$; $\\ddot x = -\\omega^2x$ |\n| Spring | $\\omega = \\sqrt{k/m}$, $T = 2\\pi\\sqrt{m/k}$ |\n| Simple pendulum | $T = 2\\pi\\sqrt{L/g}$ |\n| Physical pendulum | $T = 2\\pi\\sqrt{I/(mgd)}$ |\n| Maxima | $v_{\\max} = A\\omega$, $a_{\\max} = A\\omega^2$; $E = \\tfrac12kA^2$ |\n| Damped ($\\gamma = b/2m$) | $m\\ddot x + b\\dot x + kx = 0$; underdamped $x = A_0e^{-\\gamma t}\\cos(\\omega' t + \\phi)$, $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2}$; critical $b = 2\\sqrt{mk}$ |\n| Quality factor | $Q = \\dfrac{\\omega_0}{2\\gamma} = \\dfrac{\\sqrt{mk}}{b} = \\dfrac{\\omega_0}{\\Delta\\omega}$, bandwidth $\\Delta\\omega = b/m$ |\n| Driven ($F_0\\cos\\omega t$) | $A = \\dfrac{F_0/m}{\\sqrt{(\\omega_0^2 - \\omega^2)^2 + (2\\gamma\\omega)^2}}$; at $\\omega_0$: $A = \\dfrac{F_0}{b\\omega_0} = Q\\dfrac{F_0}{k}$ |\n\n## Waves and sound\n\n| | |\n|---|---|\n| Wave speed | $v = f\\lambda$; string: $v = \\sqrt{F_T/\\mu}$ |\n| Traveling wave | $y = A\\sin(kx - \\omega t)$, $k = 2\\pi/\\lambda$, $\\omega = 2\\pi f$ |\n| Power on a string | $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v$ |\n| String fixed at both ends; open pipe | $f_n = \\dfrac{nv}{2L}$, $n = 1, 2, 3, \\ldots$ |\n| Pipe closed at one end | $f_n = \\dfrac{nv}{4L}$, $n = 1, 3, 5, \\ldots$ |\n| Intensity | $I = \\dfrac{P}{4\\pi r^2}$; $\\beta = 10\\log_{10}\\dfrac{I}{I_0}$, $I_0 = 10^{-12}$ W/m² |\n| Beats | $f_{\\text{beat}} = \\lvert f_1 - f_2\\rvert$ |\n| Doppler | $f' = f\\dfrac{v \\pm v_o}{v \\mp v_s}$ (upper signs: approaching) |\n\n## Fluids\n\n| | |\n|---|---|\n| Density, pressure | $\\rho = m/V$, $P = F/A$ |\n| Depth | $P = P_0 + \\rho gh$; $dP/dy = -\\rho g$ |\n| Pascal | $F_1/A_1 = F_2/A_2$ |\n| Buoyancy | $F_B = \\rho_{\\text{fluid}}V_{\\text{disp}}g$ |\n| Continuity | $A_1v_1 = A_2v_2$ |\n| Bernoulli | $P + \\tfrac12\\rho v^2 + \\rho gy$ = const |\n| Torricelli | $v = \\sqrt{2gh}$ |\n\n## Heat and gases\n\n| | |\n|---|---|\n| Expansion | $\\Delta L = \\alpha L\\Delta T$ |\n| Heat | $Q = mc\\Delta T$; phase change $Q = mL$ |\n| Conduction, radiation | $Q/t = kA\\Delta T/L$; $P = e\\sigma AT^4$ |\n| Ideal gas | $PV = nRT = Nk_BT$ |\n| Kinetic theory | $\\tfrac12m\\overline{v^2} = \\tfrac32k_BT$; $v_{\\text{rms}} = \\sqrt{3RT/M}$ |\n| Monatomic gas | $E_{\\text{int}} = \\tfrac32nRT$; $C_V = \\tfrac32R$, $C_P = \\tfrac52R$, $\\gamma = \\tfrac53$ |\n\n## Thermodynamics\n\n| | |\n|---|---|\n| First law | $\\Delta E_{\\text{int}} = Q - W$ ($W$ by the gas) |\n| Work by gas | $W = \\int P\\,dV$; isobaric $P\\Delta V$; isothermal $nRT\\ln(V_f/V_i)$ |\n| Adiabatic | $PV^\\gamma$ = const, $TV^{\\gamma - 1}$ = const |\n| Engine | $e = \\dfrac{W}{Q_H} = 1 - \\dfrac{Q_C}{Q_H}$; Carnot $e = 1 - \\dfrac{T_C}{T_H}$ |\n| Refrigerator | $K = Q_C/W$; Carnot $\\dfrac{T_C}{T_H - T_C}$ |\n| Entropy | $\\Delta S = \\int\\dfrac{dQ_{\\text{rev}}}{T}$; $Q/T$ at constant $T$; heating at constant $c$: $mc\\ln(T_2/T_1)$ |\n"
   }
  ],
  "drills": [
@@ -10507,6 +11161,76 @@
    "format": "number"
   },
   {
+   "id": "phys-rocket",
+   "title": "The rocket equation and thrust",
+   "topic": "Momentum and impulse",
+   "vars": {
+    "u": {
+     "min": 2,
+     "max": 4.5,
+     "step": 0.1
+    },
+    "mi": {
+     "min": 50,
+     "max": 500,
+     "step": 10
+    },
+    "pct": {
+     "min": 50,
+     "max": 90,
+     "step": 5
+    },
+    "R": {
+     "min": 100,
+     "max": 2000,
+     "step": 50
+    }
+   },
+   "calc": {
+    "mf": "mi*(1 - pct/100)",
+    "dv": "u*ln(mi/mf)",
+    "thrust": "u*1000*R",
+    "tb": "(mi - mf)*1000/R"
+   },
+   "prompt": "A rocket of initial mass {mi} t (1 t = 1000 kg) in deep space ejects exhaust at {u} km/s relative to the rocket, at a rate of {R:dp0} kg/s, until it has burned fuel equal to {pct}% of its initial mass. Find its thrust (N), how long the burn lasts (s), and the speed it gains (km/s), each to 3 significant figures.",
+   "answers": [
+    {
+     "format": "sci",
+     "name": "thrust",
+     "label": "Thrust",
+     "relTolerance": 0.01,
+     "units": {
+      "N": 1,
+      "kN": 1000,
+      "MN": 1000000
+     }
+    },
+    {
+     "format": "sig4",
+     "name": "tb",
+     "label": "Burn time",
+     "relTolerance": 0.01,
+     "units": {
+      "s": 1,
+      "min": 60
+     }
+    },
+    {
+     "format": "sig4",
+     "name": "dv",
+     "label": "$\\Delta v$",
+     "relTolerance": 0.01,
+     "units": {
+      "km/s": 1,
+      "m/s": 0.001
+     }
+    }
+   ],
+   "solution": "Thrust $= u\\,|dm/dt| = ({u}\\times10^{3})({R:dp0}) = \\mathbf{{thrust:texsci}}$ N.\n\nThe final mass is $m_f = {mi}(1 - {pct}/100) = {mf:sig4}$ t, so the burn uses ${mi} - {mf:sig4}$ t of fuel and lasts **{tb:sig3} s** at {R:dp0} kg/s.\n\n$\\Delta v = u\\ln\\dfrac{m_i}{m_f} = {u}\\ln\\dfrac{{mi}}{{mf:sig4}} =$ **{dv:sig3} km/s**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "phys-rot-kinematics",
    "title": "Spinning down with constant angular acceleration",
    "topic": "Rotational kinematics",
@@ -11215,6 +11939,86 @@
    "format": "number"
   },
   {
+   "id": "phys-elastic-stretch",
+   "title": "Stress, strain and stretch of a wire",
+   "topic": "Elasticity",
+   "vars": {
+    "mat": {
+     "choices": [
+      {
+       "label": "steel ($Y = 2.0\\times10^{11}$ Pa)",
+       "value": 200000000000.0
+      },
+      {
+       "label": "aluminum ($Y = 7.0\\times10^{10}$ Pa)",
+       "value": 70000000000.0
+      }
+     ]
+    },
+    "L": {
+     "min": 0.5,
+     "max": 10,
+     "step": 0.5
+    },
+    "d": {
+     "min": 0.5,
+     "max": 4,
+     "step": 0.1
+    },
+    "load": {
+     "min": 5,
+     "max": 200,
+     "step": 5
+    }
+   },
+   "where": [
+    "sig <= if(mat > 1e11, 2.5e8, 1.0e8)",
+    "dL >= 0.05"
+   ],
+   "calc": {
+    "F": "load*9.8",
+    "A": "pi*(d/1000)^2/4",
+    "sig": "F/A",
+    "eps": "sig/mat",
+    "dL": "eps*L*1000"
+   },
+   "prompt": "A wire of {mat}, {L} m long and {d} mm in diameter, hangs vertically and supports a {load} kg mass. Using $g = 9.8$ m/s², find the stress in the wire (Pa), the strain, and how much the wire stretches (mm), each to 3 significant figures.",
+   "answers": [
+    {
+     "format": "sci",
+     "name": "sig",
+     "label": "Stress",
+     "relTolerance": 0.01,
+     "units": {
+      "Pa": 1,
+      "N/m²": 1,
+      "N/m^2": 1,
+      "MPa": 1000000
+     }
+    },
+    {
+     "format": "sci",
+     "name": "eps",
+     "label": "Strain",
+     "relTolerance": 0.01
+    },
+    {
+     "format": "sig4",
+     "name": "dL",
+     "label": "Stretch",
+     "relTolerance": 0.01,
+     "units": {
+      "mm": 1,
+      "m": 1000,
+      "cm": 10
+     }
+    }
+   ],
+   "solution": "Force $F = mg = {load}(9.8) = {F:sig4}$ N; area $A = \\pi d^2/4 = \\pi({d}\\times10^{-3})^2/4 = {A:texsci}$ m².\n\nStress $= F/A = \\mathbf{{sig:texsci}}$ Pa. Strain $= \\text{stress}/Y = \\mathbf{{eps:texsci}}$.\n\nStretch $\\Delta L = \\text{strain} \\times L = ({eps:texsci})({L}\\text{ m}) =$ **{dL:sig3} mm**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
    "id": "phys-spring-period",
    "title": "Period and frequency of a mass on a spring",
    "topic": "Simple harmonic motion",
@@ -11686,6 +12490,272 @@
     }
    ],
    "solution": "$f_{\\text{beat}} = |f_1 - f_2| = |{f1} - {f2}| =$ **{fb} Hz**.\n\nThe tone heard is the average frequency, $\\tfrac12({f1} + {f2}) =$ **{favg:num1} Hz**, getting louder and softer {fb} times per second.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "phys-damped-decay",
+   "title": "Decay of a damped oscillator",
+   "topic": "Damped and driven oscillations",
+   "vars": {
+    "m": {
+     "min": 0.2,
+     "max": 5,
+     "step": 0.1
+    },
+    "k": {
+     "min": 20,
+     "max": 800,
+     "step": 10
+    },
+    "b": {
+     "min": 0.05,
+     "max": 2,
+     "step": 0.05
+    },
+    "A0": {
+     "min": 2,
+     "max": 20
+    },
+    "tt": {
+     "min": 1,
+     "max": 12
+    }
+   },
+   "where": [
+    "sqrt(m*k)/b >= 3",
+    "b*tt/(2*m) >= 0.1",
+    "b*tt/(2*m) <= 3"
+   ],
+   "calc": {
+    "gam": "b/(2*m)",
+    "Q": "sqrt(m*k)/b",
+    "th": "ln(2)/gam",
+    "At": "A0*exp(-gam*tt)"
+   },
+   "prompt": "A {m} kg mass on a spring ($k = {k:dp0}$ N/m) is damped by a force $-bv$ with $b = {b}$ kg/s. It starts oscillating with amplitude {A0} cm. Find its quality factor $Q$, the time for the amplitude to fall to half (s), and the amplitude after {tt} s (cm), each to 3 significant figures.",
+   "answers": [
+    {
+     "format": "sig4",
+     "name": "Q",
+     "label": "$Q$",
+     "relTolerance": 0.01
+    },
+    {
+     "format": "sig4",
+     "name": "th",
+     "label": "Half-amplitude time",
+     "relTolerance": 0.01,
+     "units": {
+      "s": 1,
+      "ms": 0.001
+     }
+    },
+    {
+     "format": "sig4",
+     "name": "At",
+     "label": "Amplitude",
+     "relTolerance": 0.01,
+     "units": {
+      "cm": 1,
+      "m": 100,
+      "mm": 0.1
+     }
+    }
+   ],
+   "solution": "$Q = \\dfrac{\\sqrt{mk}}{\\,b} = \\dfrac{\\sqrt{{m}({k:dp0})}}{{b}} =$ **{Q:sig3}**, so the damping is light and the mass oscillates.\n\nThe amplitude decays as $e^{-\\gamma t}$ with $\\gamma = b/2m = {b}/(2 \\times {m}) = {gam:sig4}$ s⁻¹. It halves when $e^{-\\gamma t} = \\tfrac12$: $t = \\ln 2/\\gamma =$ **{th:sig3} s**.\n\nAfter {tt} s: $A = {A0}\\,e^{-({gam:sig4})({tt})} =$ **{At:sig3} cm**.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "phys-damped-frequency",
+   "title": "Critical damping and the damped frequency",
+   "topic": "Damped and driven oscillations",
+   "vars": {
+    "m": {
+     "min": 0.5,
+     "max": 10,
+     "step": 0.5
+    },
+    "k": {
+     "min": 50,
+     "max": 2000,
+     "step": 50
+    },
+    "b": {
+     "min": 1,
+     "max": 200
+    }
+   },
+   "where": [
+    "b/(2*sqrt(m*k)) >= 0.25",
+    "b/(2*sqrt(m*k)) <= 0.9"
+   ],
+   "calc": {
+    "bc": "2*sqrt(m*k)",
+    "w0": "sqrt(k/m)",
+    "gam": "b/(2*m)",
+    "wd": "sqrt(w0^2 - gam^2)"
+   },
+   "prompt": "A mass of {m} kg hangs on a spring with $k = {k:dp0}$ N/m. Find the damping constant that would make it critically damped (kg/s). If the actual damping constant is $b = {b}$ kg/s, find the angular frequency at which it oscillates (rad/s). Give both to 3 significant figures.",
+   "answers": [
+    {
+     "format": "sig4",
+     "name": "bc",
+     "label": "Critical $b$",
+     "relTolerance": 0.01,
+     "units": {
+      "kg/s": 1
+     }
+    },
+    {
+     "format": "sig4",
+     "name": "wd",
+     "label": "$\\omega'$",
+     "relTolerance": 0.01,
+     "units": {
+      "rad/s": 1
+     }
+    }
+   ],
+   "solution": "Critical damping means $\\gamma = \\omega_0$, i.e. $b_c = 2\\sqrt{mk} = 2\\sqrt{{m}({k:dp0})} =$ **{bc:sig3} kg/s**.\n\nThe actual $b = {b}$ kg/s is smaller, so the motion is underdamped. $\\omega_0 = \\sqrt{k/m} = {w0:sig4}$ rad/s and $\\gamma = b/2m = {gam:sig4}$ s⁻¹, so $\\omega' = \\sqrt{\\omega_0^2 - \\gamma^2} =$ **{wd:sig3} rad/s**, noticeably below $\\omega_0$.",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "phys-driven-amplitude",
+   "title": "Steady-state amplitude of a driven oscillator",
+   "topic": "Damped and driven oscillations",
+   "vars": {
+    "m": {
+     "min": 0.1,
+     "max": 2,
+     "step": 0.1
+    },
+    "k": {
+     "min": 10,
+     "max": 500,
+     "step": 10
+    },
+    "b": {
+     "min": 0.1,
+     "max": 3,
+     "step": 0.1
+    },
+    "F0": {
+     "min": 0.5,
+     "max": 10,
+     "step": 0.5
+    },
+    "w": {
+     "min": 2,
+     "max": 80
+    }
+   },
+   "where": [
+    "sqrt(m*k)/b >= 2",
+    "sqrt(m*k)/b <= 30",
+    "abs(w - sqrt(k/m)) >= 0.15*sqrt(k/m)",
+    "w >= 0.3*sqrt(k/m)",
+    "w <= 2*sqrt(k/m)"
+   ],
+   "calc": {
+    "w0": "sqrt(k/m)",
+    "gam": "b/(2*m)",
+    "g2": "b/m",
+    "Q": "sqrt(m*k)/b",
+    "A": "100*(F0/m)/sqrt((w0^2 - w^2)^2 + (2*gam*w)^2)",
+    "Ar": "100*F0/(b*w0)"
+   },
+   "prompt": "A {m} kg mass on a spring ($k = {k:dp0}$ N/m, damping constant $b = {b}$ kg/s) is driven by a force $F_0\\cos\\omega t$ with $F_0 = {F0}$ N. Find the steady-state amplitude when $\\omega = {w}$ rad/s, and when it is driven at its natural frequency. Give both in cm to 3 significant figures.",
+   "answers": [
+    {
+     "format": "sig4",
+     "name": "A",
+     "label": "Amplitude at the given $\\omega$",
+     "relTolerance": 0.01,
+     "units": {
+      "cm": 1,
+      "m": 100,
+      "mm": 0.1
+     }
+    },
+    {
+     "format": "sig4",
+     "name": "Ar",
+     "label": "Amplitude at $\\omega_0$",
+     "relTolerance": 0.01,
+     "units": {
+      "cm": 1,
+      "m": 100,
+      "mm": 0.1
+     }
+    }
+   ],
+   "solution": "$\\omega_0 = \\sqrt{k/m} = {w0:sig4}$ rad/s and $2\\gamma = b/m = {g2:sig4}$ s⁻¹.\n\n$A = \\dfrac{F_0/m}{\\sqrt{(\\omega_0^2 - \\omega^2)^2 + (2\\gamma\\omega)^2}}$ with $\\omega = {w}$ rad/s gives **{A:sig3} cm**.\n\nAt $\\omega_0$ only damping limits it: $A = \\dfrac{F_0}{b\\,\\omega_0} = \\dfrac{{F0}}{{b}({w0:sig4})} =$ **{Ar:sig3} cm** (that is $Q = {Q:sig3}$ times the static stretch $F_0/k$).",
+   "answer": "",
+   "format": "number"
+  },
+  {
+   "id": "phys-wave-power",
+   "title": "Power carried by a wave on a string",
+   "topic": "Wave properties",
+   "vars": {
+    "mug": {
+     "min": 1,
+     "max": 30
+    },
+    "F": {
+     "min": 20,
+     "max": 300,
+     "step": 10
+    },
+    "f": {
+     "min": 20,
+     "max": 400,
+     "step": 10
+    },
+    "Amm": {
+     "min": 0.5,
+     "max": 8,
+     "step": 0.5
+    }
+   },
+   "where": [
+    "0.5*(mug/1000)*(Amm/1000)^2*(2*pi*f)^2*sqrt(F/(mug/1000)) >= 0.01",
+    "0.5*(mug/1000)*(Amm/1000)^2*(2*pi*f)^2*sqrt(F/(mug/1000)) <= 500"
+   ],
+   "calc": {
+    "mu": "mug/1000",
+    "v": "sqrt(F/mu)",
+    "w": "2*pi*f",
+    "A": "Amm/1000",
+    "P": "0.5*mu*A^2*w^2*v"
+   },
+   "prompt": "A string with linear mass density {mug} g/m is under {F} N of tension. A sinusoidal wave of frequency {f} Hz and amplitude {Amm} mm travels along it. Find the wave speed (m/s) and the average power the wave carries (W), to 3 significant figures.",
+   "answers": [
+    {
+     "format": "sig4",
+     "name": "v",
+     "label": "Wave speed",
+     "relTolerance": 0.01,
+     "units": {
+      "m/s": 1
+     }
+    },
+    {
+     "format": "sig4",
+     "name": "P",
+     "label": "Average power",
+     "relTolerance": 0.01,
+     "units": {
+      "W": 1,
+      "mW": 0.001,
+      "kW": 1000
+     }
+    }
+   ],
+   "solution": "$\\mu = {mu:dp3}$ kg/m, so $v = \\sqrt{F_T/\\mu} = \\sqrt{{F}/{mu:dp3}} =$ **{v:sig3} m/s**.\n\n$\\omega = 2\\pi({f}) = {w:sig4}$ rad/s and $A = {A:dp4}$ m, so $P_{\\text{avg}} = \\tfrac12\\mu A^2\\omega^2v = \\tfrac12({mu:dp3})({A:dp4})^2({w:sig4})^2({v:sig4}) =$ **{P:sig3} W**.",
    "answer": "",
    "format": "number"
   },

@@ -46,6 +46,7 @@ title: Mechanics equations
 | Center of mass | $x_{\text{cm}} = \dfrac{\sum m_ix_i}{M} = \dfrac1M\int x\,dm$ |
 | Elastic collision (target at rest) | $v_{1f} = \dfrac{m_1 - m_2}{m_1 + m_2}v_{1i}$, $v_{2f} = \dfrac{2m_1}{m_1 + m_2}v_{1i}$ |
 | Perfectly inelastic | $v_f = \dfrac{m_1v_1 + m_2v_2}{m_1 + m_2}$ |
+| Rocket (no external force) | $\Delta v = u\ln\dfrac{m_i}{m_f}$; thrust $= u\,\lvert dm/dt\rvert$ |
 
 ## Rotation
 
@@ -67,6 +68,14 @@ title: Mechanics equations
 | Rod about center / end | $\tfrac1{12}ML^2$ / $\tfrac13ML^2$ |
 
 Rolling from height $h$ ($I = cMR^2$): $v = \sqrt{2gh/(1 + c)}$. Static equilibrium: $\sum\vec F = 0$, $\sum\tau = 0$.
+
+## Elasticity
+
+| | |
+|---|---|
+| Tension or compression | $\dfrac{F}{A} = Y\dfrac{\Delta L}{L}$, so $\Delta L = \dfrac{FL}{AY}$ (steel $Y \approx 2\times10^{11}$ Pa, aluminum $7\times10^{10}$ Pa) |
+| Shear | $\dfrac{F}{A} = S\dfrac{\Delta x}{L}$ |
+| Bulk (volume) | $\Delta P = -B\dfrac{\Delta V}{V}$ |
 
 ## Gravitation
 

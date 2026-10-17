@@ -66,6 +66,8 @@
 - {front: 'Impulse–momentum theorem', back: '$\vec J = \vec F_{\text{avg}}\Delta t = \Delta\vec p$ (generally $\int\vec F\,dt$).', topic: Momentum and impulse}
 - {front: 'Why do air bags and crumple zones help?', back: 'They lengthen the stopping time, so the same $\Delta p$ needs a smaller average force.', topic: Momentum and impulse}
 - {front: 'When is momentum conserved?', back: 'When the net external force on the system is zero (component by component).', topic: Momentum and impulse}
+- {front: 'Rocket equation', back: '$\Delta v = u\ln(m_i/m_f)$, $u$ = exhaust speed relative to the rocket (no external force).', topic: Momentum and impulse}
+- {front: 'Rocket thrust', back: '$u\,|dm/dt|$: exhaust speed times mass ejected per second.', topic: Momentum and impulse}
 - {front: 'Center of mass', back: '$x_{\text{cm}} = \dfrac{\sum m_ix_i}{M}$, or $\dfrac1M\int x\,dm$; $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$.', topic: Center of mass}
 - {front: 'Elastic vs inelastic vs perfectly inelastic', back: 'All conserve momentum. Elastic also conserves KE; perfectly inelastic objects stick and lose the most KE.', topic: Collisions}
 - {front: 'Perfectly inelastic final velocity', back: '$v_f = \dfrac{m_1v_{1i} + m_2v_{2i}}{m_1 + m_2}$', topic: Collisions}
@@ -91,6 +93,8 @@
 - {front: 'Conditions for static equilibrium', back: '$\sum\vec F = 0$ and $\sum\tau = 0$ about any point.', topic: Static equilibrium}
 - {front: 'Best pivot for an equilibrium torque equation', back: 'A point where an unknown force acts, so it drops out.', topic: Static equilibrium}
 - {front: 'When does an object tip over?', back: 'When its center of gravity moves beyond the edge of its base.', topic: Static equilibrium}
+- {front: 'Stress, strain, Young''s modulus', back: 'Stress $F/A$ = $Y$ × strain $\Delta L/L$, so $\Delta L = FL/(AY)$.', topic: Elasticity}
+- {front: 'Shear and bulk moduli', back: 'Shear: $F/A = S\,\Delta x/L$. Bulk: $\Delta P = -B\,\Delta V/V$.', topic: Elasticity}
 - {front: 'Newton''s law of gravitation', back: '$F = \dfrac{Gm_1m_2}{r^2}$, $G = 6.67\times10^{-11}$ N·m²/kg²', topic: Gravitation}
 - {front: 'Surface gravity of a planet', back: '$g = \dfrac{GM}{R^2}$', topic: Gravitation}
 - {front: 'Circular orbit speed and period', back: '$v = \sqrt{GM/r}$; $T^2 = \dfrac{4\pi^2}{GM}r^3$', topic: Orbits}
@@ -104,9 +108,18 @@
 - {front: 'Does SHM period depend on amplitude?', back: 'No (for ideal springs and small-angle pendulums).', topic: Simple harmonic motion}
 - {front: 'SHM differential equation', back: '$\ddot x = -\omega^2x$; whatever multiplies $-x$ is $\omega^2$.', topic: Simple harmonic motion}
 - {front: 'Resonance', back: 'Driving an oscillator at its natural frequency produces a large amplitude.', topic: Simple harmonic motion}
+- {front: 'Damped oscillator equation', back: '$m\ddot x + b\dot x + kx = 0$; write $\gamma = b/2m$, $\omega_0 = \sqrt{k/m}$.', topic: Damped and driven oscillations}
+- {front: 'Underdamped motion', back: '$x = A_0e^{-\gamma t}\cos(\omega'' t + \phi)$ with $\omega'' = \sqrt{\omega_0^2 - \gamma^2}$ (when $\gamma < \omega_0$).', topic: Damped and driven oscillations}
+- {front: 'Critical damping', back: '$b = 2\sqrt{mk}$ ($\gamma = \omega_0$): fastest return to equilibrium with no overshoot. Overdamped is slower.', topic: Damped and driven oscillations}
+- {front: 'Quality factor Q', back: '$Q = \omega_0/(2\gamma) = \sqrt{mk}/b$; amplitude falls by $e$ in about $Q/\pi$ cycles.', topic: Damped and driven oscillations}
+- {front: 'Amplitude vs energy decay in a damped oscillator', back: 'Amplitude $\propto e^{-bt/2m}$; energy $\propto e^{-bt/m}$ (twice as fast).', topic: Damped and driven oscillations}
+- {front: 'Steady-state amplitude of a driven oscillator', back: '$A = \dfrac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + (2\gamma\omega)^2}}$, oscillating at the driving frequency.', topic: Damped and driven oscillations}
+- {front: 'Amplitude at resonance', back: '$A = F_0/(b\omega_0) = Q \times$ the static stretch $F_0/k$; displacement lags the force by $90^\circ$.', topic: Damped and driven oscillations}
+- {front: 'Resonance width and Q', back: 'Half-power bandwidth $\Delta\omega = b/m$, so $Q = \omega_0/\Delta\omega$: high $Q$ means a tall, narrow peak.', topic: Damped and driven oscillations}
 - {front: 'Wave speed equation', back: '$v = f\lambda = \lambda/T$', topic: Wave properties}
 - {front: 'What changes when a wave enters a new medium?', back: 'Speed and wavelength change; frequency stays the same.', topic: Wave properties}
 - {front: 'Wave speed on a string', back: '$v = \sqrt{F_T/\mu}$, $\mu$ = mass per length', topic: Wave properties}
+- {front: 'Average power of a wave on a string', back: '$P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$, proportional to $A^2$ and $\omega^2$.', topic: Wave properties}
 - {front: 'Transverse vs longitudinal', back: 'Transverse: medium moves ⊥ to travel (string). Longitudinal: medium moves ∥ (sound).', topic: Wave properties}
 - {front: 'Constructive vs destructive interference (path difference)', back: 'Constructive: $\Delta r = m\lambda$. Destructive: $\Delta r = (m + \tfrac12)\lambda$.', topic: Wave properties}
 - {front: 'Standing waves on a string fixed at both ends', back: '$\lambda_n = 2L/n$, $f_n = nv/(2L)$, $n = 1, 2, 3, \ldots$', topic: Standing waves}

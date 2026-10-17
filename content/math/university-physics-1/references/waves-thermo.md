@@ -11,6 +11,9 @@ title: Oscillations, waves, fluids, and thermodynamics
 | Simple pendulum | $T = 2\pi\sqrt{L/g}$ |
 | Physical pendulum | $T = 2\pi\sqrt{I/(mgd)}$ |
 | Maxima | $v_{\max} = A\omega$, $a_{\max} = A\omega^2$; $E = \tfrac12kA^2$ |
+| Damped ($\gamma = b/2m$) | $m\ddot x + b\dot x + kx = 0$; underdamped $x = A_0e^{-\gamma t}\cos(\omega' t + \phi)$, $\omega' = \sqrt{\omega_0^2 - \gamma^2}$; critical $b = 2\sqrt{mk}$ |
+| Quality factor | $Q = \dfrac{\omega_0}{2\gamma} = \dfrac{\sqrt{mk}}{b} = \dfrac{\omega_0}{\Delta\omega}$, bandwidth $\Delta\omega = b/m$ |
+| Driven ($F_0\cos\omega t$) | $A = \dfrac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + (2\gamma\omega)^2}}$; at $\omega_0$: $A = \dfrac{F_0}{b\omega_0} = Q\dfrac{F_0}{k}$ |
 
 ## Waves and sound
 
@@ -18,6 +21,7 @@ title: Oscillations, waves, fluids, and thermodynamics
 |---|---|
 | Wave speed | $v = f\lambda$; string: $v = \sqrt{F_T/\mu}$ |
 | Traveling wave | $y = A\sin(kx - \omega t)$, $k = 2\pi/\lambda$, $\omega = 2\pi f$ |
+| Power on a string | $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$ |
 | String fixed at both ends; open pipe | $f_n = \dfrac{nv}{2L}$, $n = 1, 2, 3, \ldots$ |
 | Pipe closed at one end | $f_n = \dfrac{nv}{4L}$, $n = 1, 3, 5, \ldots$ |
 | Intensity | $I = \dfrac{P}{4\pi r^2}$; $\beta = 10\log_{10}\dfrac{I}{I_0}$, $I_0 = 10^{-12}$ W/m² |

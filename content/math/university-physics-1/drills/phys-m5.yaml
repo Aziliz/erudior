@@ -243,3 +243,29 @@
     Total energy zero: $\tfrac12mv^2 = \dfrac{GMm}{\,R}$, so $v_{\text{esc}} = \sqrt{\dfrac{2GM}{\,R}} =$ **{ve:sig3} km/s**.
 
     Low orbit: $v = \sqrt{GM/R} = v_{\text{esc}}/\sqrt2 =$ **{vo:sig3} km/s**.
+- id: phys-elastic-stretch
+  title: Stress, strain and stretch of a wire
+  topic: Elasticity
+  vars:
+    mat: {choices: [{label: 'steel ($Y = 2.0\times10^{11}$ Pa)', value: 2.0e+11}, {label: 'aluminum ($Y = 7.0\times10^{10}$ Pa)', value: 7.0e+10}]}
+    L: {min: 0.5, max: 10, step: 0.5}
+    d: {min: 0.5, max: 4, step: 0.1}
+    load: {min: 5, max: 200, step: 5}
+  where: ['sig <= if(mat > 1e11, 2.5e8, 1.0e8)', 'dL >= 0.05']
+  calc:
+    F: load*9.8
+    A: pi*(d/1000)^2/4
+    sig: F/A
+    eps: sig/mat
+    dL: eps*L*1000
+  prompt: 'A wire of {mat}, {L} m long and {d} mm in diameter, hangs vertically and supports a {load} kg mass. Using $g = 9.8$ m/s², find the stress in the wire (Pa), the strain, and how much the wire stretches (mm), each to 3 significant figures.'
+  answers:
+    - {format: sci, name: sig, label: 'Stress', relTolerance: 0.01, units: {Pa: 1, 'N/m²': 1, 'N/m^2': 1, MPa: 1000000}}
+    - {format: sci, name: eps, label: 'Strain', relTolerance: 0.01}
+    - {format: sig4, name: dL, label: 'Stretch', relTolerance: 0.01, units: {mm: 1, m: 1000, cm: 10}}
+  solution: |-
+    Force $F = mg = {load}(9.8) = {F:sig4}$ N; area $A = \pi d^2/4 = \pi({d}\times10^{-3})^2/4 = {A:texsci}$ m².
+
+    Stress $= F/A = \mathbf{{sig:texsci}}$ Pa. Strain $= \text{stress}/Y = \mathbf{{eps:texsci}}$.
+
+    Stretch $\Delta L = \text{strain} \times L = ({eps:texsci})({L}\text{ m}) =$ **{dL:sig3} mm**.

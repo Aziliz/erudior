@@ -255,6 +255,39 @@
   answer: 1
   explanation: |-
     $M = \int_0^L cx\,dx = cL^2/2$ and $\int_0^L x\cdot cx\,dx = cL^3/3$, so $x_{\text{cm}} = \dfrac{cL^3/3}{cL^2/2} = 2L/3$, toward the denser end.
+- id: phys-q-1311
+  lesson: phys-momentum
+  module_quiz: true
+  topic: Momentum and impulse
+  stem: 'A rocket in deep space has exhaust speed 2.5 km/s relative to the rocket. It burns fuel making up 75% of its initial mass. How much speed does it gain?'
+  choices: ['10 km/s', '1.51 km/s', '0.72 km/s', '3.47 km/s']
+  answer: 3
+  explanation: |-
+    The final mass is a quarter of the initial mass, so $m_i/m_f = 4$ and $\Delta v = u\ln(m_i/m_f) = 2.5\ln 4 = 3.47$ km/s. 10 km/s multiplies $u$ by the mass ratio instead of its logarithm; 1.51 km/s uses $\log_{10}$ instead of the natural log; 0.72 km/s uses the ratio $1/0.75$ (initial mass to fuel burned) instead of initial to final mass.
+- id: phys-q-1312
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'A 30 000 kg rocket sits on the launch pad. Its engines eject 150 kg of gas per second at 3000 m/s relative to the rocket. What is its upward acceleration just after lift-off? ($g = 9.8$ m/s²)'
+  choices: ['5.2 m/s²', '15 m/s²', '24.8 m/s²', '0.53 m/s²']
+  answer: 0
+  explanation: |-
+    Thrust $= u\,|dm/dt| = 3000(150) = 4.5\times10^5$ N; weight $= 30\,000(9.8) = 2.94\times10^5$ N. So $a = (4.5\times10^5 - 2.94\times10^5)/30\,000 = 5.2$ m/s². 15 m/s² ignores gravity; 24.8 m/s² adds $g$ instead of subtracting it; 0.53 m/s² divides the net force by the weight instead of the mass.
+- id: phys-q-1313
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'A rocket has mass ratio $m_i/m_f = 4$. Which change would increase its total $\Delta v$ more?'
+  choices: ['Doubling the mass ratio to 8', 'Doubling the exhaust speed', 'Both give the same increase', 'Neither, since $\Delta v$ depends only on the fuel burned']
+  answer: 1
+  explanation: |-
+    $\Delta v = u\ln(m_i/m_f)$ is proportional to $u$, so doubling $u$ doubles $\Delta v$. Doubling the mass ratio only changes $\ln 4 = 1.39$ to $\ln 8 = 2.08$, a factor of 1.5, because of the logarithm. Treating $\Delta v$ as proportional to the mass ratio would make the two look equal, and the mass of fuel alone does not fix $\Delta v$ without $u$ and the final mass.
+- id: phys-q-1314
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'A 1200 kg space probe (including fuel) with exhaust speed 3.0 km/s needs to change its speed by 1.5 km/s. How much fuel must it burn?'
+  choices: ['600 kg', '778 kg', '728 kg', '472 kg']
+  answer: 3
+  explanation: |-
+    $m_f = m_i e^{-\Delta v/u} = 1200e^{-0.5} = 728$ kg, so the fuel burned is $1200 - 728 = 472$ kg. 728 kg is the final mass, not the fuel; 600 kg assumes $\Delta v$ grows in proportion to the fuel burned ($0.5 \times 1200$); 778 kg uses $e^{+0.5}$, treating 1200 kg as the final mass.
 - id: phys-q-1401
   lesson: phys-collisions
   module_quiz: true

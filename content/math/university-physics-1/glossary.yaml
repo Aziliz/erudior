@@ -295,6 +295,13 @@
   aliases: [impulse-momentum theorem]
   definition: 'The impulse on an object equals its change in momentum: $\vec J = \Delta\vec p$.'
   topic: Momentum and impulse
+- term: rocket equation
+  aliases: [Tsiolkovsky equation, Tsiolkovsky's equation, Tsiolkovsky rocket equation]
+  definition: 'The speed gained by a rocket with no external force, $\Delta v = u\ln(m_i/m_f)$, where $u$ is the exhaust speed relative to the rocket and $m_i/m_f$ the ratio of initial to final mass.'
+  topic: Momentum and impulse
+- term: thrust
+  definition: 'The forward force on a rocket from its exhaust, $u\,|dm/dt|$: exhaust speed relative to the rocket times the rate mass is ejected.'
+  topic: Momentum and impulse
 - term: conservation of momentum
   definition: 'With zero net external force, a system''s total momentum stays constant.'
   topic: Momentum and impulse
@@ -377,15 +384,24 @@
 - term: stress
   aliases: [tensile stress]
   definition: 'Force per unit area applied to a material, $F/A$, in pascals.'
-  topic: Static equilibrium
+  topic: Elasticity
 - term: strain
   aliases: [tensile strain]
   definition: 'The fractional deformation of a material, such as $\Delta L/L$; dimensionless.'
-  topic: Static equilibrium
+  topic: Elasticity
 - term: Young's modulus
   aliases: [elastic modulus]
   definition: 'The ratio of tensile stress to strain for small deformations, $Y = (F/A)/(\Delta L/L)$; about $2\times10^{11}$ Pa for steel.'
-  topic: Static equilibrium
+  topic: Elasticity
+- term: elastic limit
+  definition: 'The largest stress a material can take and still return to its original shape when the load is removed.'
+  topic: Elasticity
+- term: shear modulus
+  definition: 'The ratio of shear stress to shear strain, $S = (F/A)/(\Delta x/L)$, for a force applied parallel to a face; fluids have none.'
+  topic: Elasticity
+- term: bulk modulus
+  definition: 'The ratio of added pressure to fractional volume decrease, $B = -\Delta P/(\Delta V/V)$; a large $B$ means hard to compress.'
+  topic: Elasticity
 - term: Newton's law of gravitation
   aliases: [universal gravitation, law of universal gravitation]
   definition: 'Any two masses attract with $F = Gm_1m_2/r^2$ along the line joining them.'
@@ -436,6 +452,50 @@
 - term: resonance
   definition: 'Large-amplitude response when a system is driven at its natural frequency.'
   topic: Simple harmonic motion
+- term: damping constant
+  aliases: [damping coefficient]
+  definition: 'The constant $b$ (kg/s) in a velocity-proportional damping force $F = -bv$.'
+  topic: Damped and driven oscillations
+- term: natural frequency
+  definition: 'The angular frequency $\omega_0 = \sqrt{k/m}$ at which an oscillator vibrates when left alone with no damping.'
+  topic: Damped and driven oscillations
+- term: underdamped
+  aliases: [underdamping, light damping]
+  definition: 'Damping weaker than critical ($b < 2\sqrt{mk}$): the system still oscillates, at $\omega'' = \sqrt{\omega_0^2 - \gamma^2}$, inside a decaying envelope $e^{-\gamma t}$, $\gamma = b/2m$.'
+  topic: Damped and driven oscillations
+- term: critically damped
+  aliases: [critical damping]
+  definition: 'Damping with $b = 2\sqrt{mk}$ ($\gamma = \omega_0$): the fastest return to equilibrium without overshooting.'
+  topic: Damped and driven oscillations
+- term: overdamped
+  aliases: [overdamping, heavy damping]
+  definition: 'Damping stronger than critical ($b > 2\sqrt{mk}$): the system returns to equilibrium without oscillating, more slowly than with critical damping.'
+  topic: Damped and driven oscillations
+- term: quality factor
+  aliases: [Q factor, Q-factor]
+  definition: 'A measure of how lightly damped an oscillator is: $Q = \omega_0/(2\gamma) = \sqrt{mk}/b$. It equals the resonant amplitude divided by the static stretch, and $\omega_0/\Delta\omega$.'
+  topic: Damped and driven oscillations
+- term: driving force
+  aliases: [driven oscillation, driven oscillator, forced oscillation]
+  definition: 'A periodic external force, such as $F_0\cos\omega t$, that pushes an oscillator and feeds energy into it.'
+  topic: Damped and driven oscillations
+- term: driving frequency
+  definition: 'The angular frequency $\omega$ of the external force on a driven oscillator; the steady-state motion has this frequency.'
+  topic: Damped and driven oscillations
+- term: transient
+  definition: 'The part of a driven oscillator''s motion that dies away (as $e^{-\gamma t}$), leaving the steady state.'
+  topic: Damped and driven oscillations
+- term: steady state
+  aliases: [steady-state]
+  definition: 'The lasting motion of a driven oscillator once transients have died out: $x = A\cos(\omega t - \delta)$ at the driving frequency.'
+  topic: Damped and driven oscillations
+- term: resonance curve
+  definition: 'The graph of a driven oscillator''s steady-state amplitude (or absorbed power) against driving frequency; it peaks near $\omega_0$.'
+  topic: Damped and driven oscillations
+- term: bandwidth
+  aliases: [resonance width, half-power bandwidth]
+  definition: 'The width $\Delta\omega = b/m$ of a resonance, measured between the frequencies where the absorbed power is half its peak; $Q = \omega_0/\Delta\omega$.'
+  topic: Damped and driven oscillations
 - term: wave
   aliases: [waves]
   definition: 'A traveling disturbance that carries energy through a medium (or through space) without carrying matter along.'

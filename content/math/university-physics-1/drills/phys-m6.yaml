@@ -164,3 +164,100 @@
     $f_{\text{beat}} = |f_1 - f_2| = |{f1} - {f2}| =$ **{fb} Hz**.
 
     The tone heard is the average frequency, $\tfrac12({f1} + {f2}) =$ **{favg:num1} Hz**, getting louder and softer {fb} times per second.
+- id: phys-damped-decay
+  title: Decay of a damped oscillator
+  topic: Damped and driven oscillations
+  vars:
+    m: {min: 0.2, max: 5, step: 0.1}
+    k: {min: 20, max: 800, step: 10}
+    b: {min: 0.05, max: 2, step: 0.05}
+    A0: {min: 2, max: 20}
+    tt: {min: 1, max: 12}
+  where: ['sqrt(m*k)/b >= 3', 'b*tt/(2*m) >= 0.1', 'b*tt/(2*m) <= 3']
+  calc:
+    gam: b/(2*m)
+    Q: sqrt(m*k)/b
+    th: ln(2)/gam
+    At: A0*exp(-gam*tt)
+  prompt: 'A {m} kg mass on a spring ($k = {k:dp0}$ N/m) is damped by a force $-bv$ with $b = {b}$ kg/s. It starts oscillating with amplitude {A0} cm. Find its quality factor $Q$, the time for the amplitude to fall to half (s), and the amplitude after {tt} s (cm), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: Q, label: '$Q$', relTolerance: 0.01}
+    - {format: sig4, name: th, label: 'Half-amplitude time', relTolerance: 0.01, units: {s: 1, ms: 0.001}}
+    - {format: sig4, name: At, label: 'Amplitude', relTolerance: 0.01, units: {cm: 1, m: 100, mm: 0.1}}
+  solution: |-
+    $Q = \dfrac{\sqrt{mk}}{\,b} = \dfrac{\sqrt{{m}({k:dp0})}}{{b}} =$ **{Q:sig3}**, so the damping is light and the mass oscillates.
+
+    The amplitude decays as $e^{-\gamma t}$ with $\gamma = b/2m = {b}/(2 \times {m}) = {gam:sig4}$ s⁻¹. It halves when $e^{-\gamma t} = \tfrac12$: $t = \ln 2/\gamma =$ **{th:sig3} s**.
+
+    After {tt} s: $A = {A0}\,e^{-({gam:sig4})({tt})} =$ **{At:sig3} cm**.
+- id: phys-damped-frequency
+  title: Critical damping and the damped frequency
+  topic: Damped and driven oscillations
+  vars:
+    m: {min: 0.5, max: 10, step: 0.5}
+    k: {min: 50, max: 2000, step: 50}
+    b: {min: 1, max: 200}
+  where: ['b/(2*sqrt(m*k)) >= 0.25', 'b/(2*sqrt(m*k)) <= 0.9']
+  calc:
+    bc: 2*sqrt(m*k)
+    w0: sqrt(k/m)
+    gam: b/(2*m)
+    wd: sqrt(w0^2 - gam^2)
+  prompt: 'A mass of {m} kg hangs on a spring with $k = {k:dp0}$ N/m. Find the damping constant that would make it critically damped (kg/s). If the actual damping constant is $b = {b}$ kg/s, find the angular frequency at which it oscillates (rad/s). Give both to 3 significant figures.'
+  answers:
+    - {format: sig4, name: bc, label: 'Critical $b$', relTolerance: 0.01, units: {'kg/s': 1}}
+    - {format: sig4, name: wd, label: "$\\omega'$", relTolerance: 0.01, units: {'rad/s': 1}}
+  solution: |-
+    Critical damping means $\gamma = \omega_0$, i.e. $b_c = 2\sqrt{mk} = 2\sqrt{{m}({k:dp0})} =$ **{bc:sig3} kg/s**.
+
+    The actual $b = {b}$ kg/s is smaller, so the motion is underdamped. $\omega_0 = \sqrt{k/m} = {w0:sig4}$ rad/s and $\gamma = b/2m = {gam:sig4}$ s⁻¹, so $\omega' = \sqrt{\omega_0^2 - \gamma^2} =$ **{wd:sig3} rad/s**, noticeably below $\omega_0$.
+- id: phys-driven-amplitude
+  title: Steady-state amplitude of a driven oscillator
+  topic: Damped and driven oscillations
+  vars:
+    m: {min: 0.1, max: 2, step: 0.1}
+    k: {min: 10, max: 500, step: 10}
+    b: {min: 0.1, max: 3, step: 0.1}
+    F0: {min: 0.5, max: 10, step: 0.5}
+    w: {min: 2, max: 80}
+  where: ['sqrt(m*k)/b >= 2', 'sqrt(m*k)/b <= 30', 'abs(w - sqrt(k/m)) >= 0.15*sqrt(k/m)', 'w >= 0.3*sqrt(k/m)', 'w <= 2*sqrt(k/m)']
+  calc:
+    w0: sqrt(k/m)
+    gam: b/(2*m)
+    g2: b/m
+    Q: sqrt(m*k)/b
+    A: 100*(F0/m)/sqrt((w0^2 - w^2)^2 + (2*gam*w)^2)
+    Ar: 100*F0/(b*w0)
+  prompt: 'A {m} kg mass on a spring ($k = {k:dp0}$ N/m, damping constant $b = {b}$ kg/s) is driven by a force $F_0\cos\omega t$ with $F_0 = {F0}$ N. Find the steady-state amplitude when $\omega = {w}$ rad/s, and when it is driven at its natural frequency. Give both in cm to 3 significant figures.'
+  answers:
+    - {format: sig4, name: A, label: 'Amplitude at the given $\omega$', relTolerance: 0.01, units: {cm: 1, m: 100, mm: 0.1}}
+    - {format: sig4, name: Ar, label: 'Amplitude at $\omega_0$', relTolerance: 0.01, units: {cm: 1, m: 100, mm: 0.1}}
+  solution: |-
+    $\omega_0 = \sqrt{k/m} = {w0:sig4}$ rad/s and $2\gamma = b/m = {g2:sig4}$ s⁻¹.
+
+    $A = \dfrac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + (2\gamma\omega)^2}}$ with $\omega = {w}$ rad/s gives **{A:sig3} cm**.
+
+    At $\omega_0$ only damping limits it: $A = \dfrac{F_0}{b\,\omega_0} = \dfrac{{F0}}{{b}({w0:sig4})} =$ **{Ar:sig3} cm** (that is $Q = {Q:sig3}$ times the static stretch $F_0/k$).
+- id: phys-wave-power
+  title: Power carried by a wave on a string
+  topic: Wave properties
+  vars:
+    mug: {min: 1, max: 30}
+    F: {min: 20, max: 300, step: 10}
+    f: {min: 20, max: 400, step: 10}
+    Amm: {min: 0.5, max: 8, step: 0.5}
+  where: ['0.5*(mug/1000)*(Amm/1000)^2*(2*pi*f)^2*sqrt(F/(mug/1000)) >= 0.01', '0.5*(mug/1000)*(Amm/1000)^2*(2*pi*f)^2*sqrt(F/(mug/1000)) <= 500']
+  calc:
+    mu: mug/1000
+    v: sqrt(F/mu)
+    w: 2*pi*f
+    A: Amm/1000
+    P: 0.5*mu*A^2*w^2*v
+  prompt: 'A string with linear mass density {mug} g/m is under {F} N of tension. A sinusoidal wave of frequency {f} Hz and amplitude {Amm} mm travels along it. Find the wave speed (m/s) and the average power the wave carries (W), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: v, label: 'Wave speed', relTolerance: 0.01, units: {'m/s': 1}}
+    - {format: sig4, name: P, label: 'Average power', relTolerance: 0.01, units: {W: 1, mW: 0.001, kW: 1000}}
+  solution: |-
+    $\mu = {mu:dp3}$ kg/m, so $v = \sqrt{F_T/\mu} = \sqrt{{F}/{mu:dp3}} =$ **{v:sig3} m/s**.
+
+    $\omega = 2\pi({f}) = {w:sig4}$ rad/s and $A = {A:dp4}$ m, so $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v = \tfrac12({mu:dp3})({A:dp4})^2({w:sig4})^2({v:sig4}) =$ **{P:sig3} W**.

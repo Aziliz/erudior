@@ -9,7 +9,7 @@ refs: [phys-ref-waves-thermo]
 ---
 ## Motion that repeats
 
-A mass bouncing on a spring, a swinging pendulum, a vibrating guitar string, atoms jiggling in a crystal, the alternating current in your walls: nature is full of oscillations. The simplest and most important kind is simple harmonic motion, and it's worth mastering because almost any system nudged slightly from a stable equilibrium oscillates this way. It's also the bridge to waves, the subject of the next two lessons.
+A mass bouncing on a spring, a swinging pendulum, a vibrating guitar string, atoms jiggling in a crystal, the alternating current in your walls: nature is full of oscillations. The simplest and most important kind is simple harmonic motion, and it's worth mastering because almost any system nudged slightly from a stable equilibrium oscillates this way. It's also the starting point for the next lesson, on damped and driven oscillators, and the bridge to waves after that.
 
 ## The restoring force
 
@@ -87,7 +87,7 @@ A **physical pendulum**, any rigid object swinging about a pivot a distance $d$ 
 
 Real oscillators lose energy to friction and air drag. With **damping**, the amplitude decays over time, often exponentially: $A(t) = A_0e^{-bt/2m}$ for a drag force $-bv$. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned to return the car to equilibrium quickly without bouncing, which is called critical damping).
 
-A periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\omega_0 = \sqrt{k/m}$, the amplitude grows large: **resonance**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency.
+A periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\omega_0 = \sqrt{k/m}$, the amplitude grows large: **resonance**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency. The next lesson solves the damped and driven equations and makes these ideas quantitative.
 
 ## The equation of motion
 

@@ -4,7 +4,7 @@ module: phys-m6
 title: Waves and superposition
 minutes: 40
 topics: [Wave properties, Standing waves]
-drills: [phys-wave-speed, phys-string-wave]
+drills: [phys-wave-speed, phys-string-wave, phys-wave-power]
 refs: [phys-ref-waves-thermo]
 ---
 ## Energy on the move
@@ -71,7 +71,7 @@ A string of length $L$ fixed at both ends must have nodes at both ends, so a who
 
 $$L = n\frac{\lambda_n}{2} \quad\Rightarrow\quad \lambda_n = \frac{2L}{n}, \qquad f_n = \frac{nv}{2L} = nf_1, \quad n = 1, 2, 3, \ldots$$
 
-These are the string's **harmonics**. The lowest, $f_1 = v/(2L)$, is the **fundamental frequency**; the others are integer multiples. A plucked string vibrates in a mix of harmonics, and the mix gives each instrument its tone quality (timbre).
+These are the string's **harmonics**. The lowest, $f_1 = v/(2L)$, is the **fundamental frequency**; the others are integer multiples. A plucked string vibrates in a mix of harmonics, and the mix gives each instrument its tone quality (timbre). Each harmonic is a natural frequency of the string, so a string driven at one of them resonates, just like the driven oscillator of the previous lesson.
 
 ```plot
 {"x": [0, 3], "y": [-1.4, 1.4], "xLabel": "position along string", "yLabel": "displacement", "functions": [{"f": "sin(pi*x)"}, {"f": "-sin(pi*x)", "dashed": true}], "points": [{"at": [0, 0], "label": "N"}, {"at": [1, 0], "label": "N"}, {"at": [2, 0], "label": "N"}, {"at": [3, 0], "label": "N"}, {"at": [0.5, 1], "label": "A"}], "caption": "Third harmonic on a string fixed at both ends: four nodes (N), three antinodes (A), L = 3λ/2"}
@@ -95,7 +95,11 @@ $$I = \frac{P}{4\pi r^2}.$$
 
 That's another inverse-square law, which we'll use for sound.
 
-For a sinusoidal wave on a string the average power carried is $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$: it grows with the square of both the amplitude and the frequency, and with the wave speed.
+For a sinusoidal wave on a string the average power carried is
+
+$$P_{\text{avg}} = \tfrac12\mu A^2\omega^2v.$$
+
+Here is where it comes from. Each bit of string, of mass $\mu\,dx$, moves up and down in SHM with amplitude $A$ and angular frequency $\omega$, so its kinetic energy averages $\tfrac14(\mu\,dx)\omega^2A^2$ (half its maximum, $\tfrac12(\mu\,dx)\omega^2A^2$). The stretching of the string stores an equal average amount of potential energy, so the average energy per unit length is $\tfrac12\mu\omega^2A^2$, and the wave carries this pattern along at speed $v$, so energy passes a point at the rate (energy per length) × $v$. The power grows with the square of both the amplitude and the frequency, and with the wave speed. For example, a string with $\mu = 0.010$ kg/m under 100 N of tension ($v = 100$ m/s) carrying a 120 Hz wave of amplitude 2.0 mm transmits $\tfrac12(0.010)(0.0020)^2(2\pi\cdot120)^2(100) = 1.14$ W.
 
 ## The wave function and the wave equation
 
@@ -124,6 +128,7 @@ a standing wave: a fixed spatial shape $\sin(kx)$ whose size oscillates in time.
 - Confusing the wave speed with the speed of the oscillating medium.
 - Forgetting that adjacent nodes are $\lambda/2$ apart, not $\lambda$.
 - Using total mass instead of mass per length in $v = \sqrt{F_T/\mu}$.
+- Using $f$ instead of $\omega = 2\pi f$ in $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$ (an error of $4\pi^2 \approx 39$).
 
 ## Key points
 
@@ -132,3 +137,4 @@ a standing wave: a fixed spatial shape $\sin(kx)$ whose size oscillates in time.
 - Superposition: displacements add; path difference $m\lambda$ constructive, $(m + \tfrac12)\lambda$ destructive.
 - Fixed–fixed string: $\lambda_n = 2L/n$, $f_n = nv/(2L)$.
 - $y = A\sin(kx - \omega t)$ with $k = 2\pi/\lambda$, $\omega = 2\pi f$.
+- Power on a string: $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$, proportional to $A^2$ and $\omega^2$.

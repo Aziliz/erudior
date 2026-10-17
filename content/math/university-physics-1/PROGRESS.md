@@ -137,3 +137,50 @@ and a wrong answer is rejected. Build and checker: OK, 0 problems.
 ## Source verification (2026-10-17)
 
 Checked against OpenStax University Physics Vol 1-2 (LibreTexts), NIST CODATA 2022, MIT OCW 8.01SC, HyperPhysics, ETSU and UF Physics I syllabi. Fixes: steel-on-ice mu_k 0.03 -> 0.02 (L08); STP convention (1 atm, 22.4 L) now stated with the IUPAC 1 bar / 22.7 L note (L26, glossary); Carnot "maximum possible" qualified as "between the same two reservoirs" (glossary, card). Coverage additions: rocket equation (L13), stress/strain/Young's modulus (L18, 3 glossary terms), wave power on a string (L21). All ~115 re-solved questions and 16 drills checked agreed with sources; no key changes.
+
+## Gap lessons (2026-10-17)
+
+Fills the "driven oscillations / resonance curves and Q" coverage gap from VERIFY.md and makes the three short source-check sections (rocket equation, elasticity, wave power) quizzable.
+Totals now: 29 lessons, 319 questions, 86 drills, 162 cards, 231 glossary terms, 4 reference sheets. build.py and check-course: zero problems.
+
+### New lesson
+| File | id | Module | Title |
+|---|---|---|---|
+| lessons/21-damped-driven-oscillations.md | phys-damped-driven | phys-m6 | Damped and driven oscillations (damped ODE and characteristic roots, under/critical/over damping, energy decay, Q; driven steady state A(ω) derived by matching cos/sin terms, phase lag, limits, resonance, Q = peak/static = ω₀/Δω, bandwidth b/m) |
+
+~1,660 words, 3 worked examples (Example 1 reuses lesson 20's 0.50 kg / 200 N/m block), 3 figures (underdamped with envelope; three regimes; resonance curves for Q = 1, 3, 10). Topic "Damped and driven oscillations".
+Renumbered files (ids unchanged): old 21–28 are now 22–29. No in-text "Lesson N" references existed in this course; lesson 21 cites "the linear drag met with terminal velocity" instead of a number.
+Cross-references: lesson 20 intro and its "Damping and resonance" section now point to the next lesson; lesson 22 (waves) harmonics paragraph links string resonance back to it. course.yaml untouched.
+
+### Task B lesson edits
+- L13 (phys-momentum): **rocket equation** and **thrust** bolded (glossary), thrust-vs-weight sentence, a common mistake and a key point.
+- L18 (phys-equilibrium): elasticity section gains k = YA/L, compression, **elastic limit**, shear ($F/A = S\Delta x/L$) and bulk ($\Delta P = -B\Delta V/V$) formulas with **shear modulus** / **bulk modulus** bolded; new topic "Elasticity" (stress/strain/Young's modulus glossary entries moved to it); common mistake and key point.
+- L22 (phys-waves): wave-power formula now displayed with a short derivation (average KE + equal PE per length, times v) and a worked number (1.14 W); common mistake and key point.
+
+### New questions (25)
+- phys-damped-driven: phys-q-2051 – phys-q-2063 (13; module quiz 2051, 2054, 2058, 2061)
+- phys-momentum (rocket): phys-q-1311 – phys-q-1314 (module quiz 1311)
+- phys-equilibrium (elasticity): phys-q-1811 – phys-q-1814 (module quiz 1811)
+- phys-waves (wave power): phys-q-2112 – phys-q-2115 (module quiz 2112)
+- Correct positions across the 25: 0×6, 1×6, 2×6, 3×7.
+
+### New drills (6)
+- m6: phys-damped-decay (Q, half-amplitude time, amplitude after t), phys-damped-frequency (critical b, ω′ with b/b_c in 0.25–0.9), phys-driven-amplitude (A at ω between 0.3ω₀ and 2ω₀, ≥15% off resonance, and A at ω₀; Q 2–30), phys-wave-power (v and P_avg)
+- m4: phys-rocket (thrust, burn time, Δv); m5: phys-elastic-stretch (stress, strain, stretch; steel/aluminum, stress kept below 250/100 MPa)
+- Lessons 13, 18 and 22 link the new Task B drills (lesson 13 now links 4 drills; AUTHORING suggests 1–3).
+
+### Also added
+- Glossary (17): damping constant, natural frequency, underdamped, critically damped, overdamped, quality factor (Q factor), driving force, driving frequency, transient, steady state, resonance curve, bandwidth; rocket equation, thrust; elastic limit, shear modulus, bulk modulus.
+- Cards (13): 8 damped/driven, 2 rocket, 2 elasticity, 1 wave power.
+- References: waves-thermo.md Oscillations gets damped, Q and driven rows and a string-power row; mechanics.md gets a rocket row and a new Elasticity table.
+
+### Verification
+- Every new question solved in Python (scratch keycheck.py) before fixing keys; distractor values checked against the named mistakes.
+- Worked examples recomputed (ω′ = 19.996 rad/s, Q = 25, t½ = 1.73 s; car Q = 1, e^(−γT′) = 0.027; driven A = 0.125, 0.0330, 0.0194 m; half-power points 18.1 and 22.1 rad/s confirm Δω = b/m exactly for absorbed power).
+- Each new drill generated 600 times (scratch drills.mts): targets match an independent solver that reads the values from the prompt as shown (driven amplitude via |k − mω² + ibω|); shown answer, a 3 s.f. answer and every bold solution value accepted; a 5% wrong answer rejected; no unfilled placeholders or comma-grouped numbers.
+- Lesson figures rendered with renderFigure and screenshotted.
+
+### Notes for a reviewer
+- course.yaml revision not bumped (not allowed in this task); whoever releases should bump it and mention the new lesson.
+- Drill bold Pa/N values use texsci, which drops a trailing zero (e.g. 1.3 × 10^8 for 1.296e8); still accepted at 1%.
+- The damping-envelope figure draws +e^(−γt) and −e^(−γt) in two palette colors (figure functions can't share a theme color).

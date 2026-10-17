@@ -3,8 +3,8 @@ id: phys-equilibrium
 module: phys-m5
 title: Static equilibrium
 minutes: 35
-topics: [Static equilibrium]
-drills: [phys-seesaw, phys-beam-supports]
+topics: [Static equilibrium, Elasticity]
+drills: [phys-seesaw, phys-beam-supports, phys-elastic-stretch]
 refs: [phys-ref-mechanics]
 ---
 ## Structures that stay put
@@ -91,7 +91,7 @@ Equilibrium problems treat beams and cables as rigid, but every real support def
 
 $$\frac{F}{A} = Y\,\frac{\Delta L}{L},$$
 
-where $Y$ is **Young's modulus**, a property of the material (roughly $2\times10^{11}$ Pa for steel, $7\times10^{10}$ Pa for aluminum). This is Hooke's law written for materials. Past the material's elastic limit it no longer springs back, and beyond that it breaks. Similar moduli describe shearing (the shear modulus) and squeezing from all sides (the bulk modulus $B$, which sets the speed of sound in a fluid). For instance, the cable in Example 3 is $4.0/\cos 30^\circ = 4.6$ m long; if it is steel with a 1.0 cm² cross-section, the 1029 N tension stretches it by $\Delta L = \dfrac{FL}{AY} = \dfrac{1029(4.6)}{(1.0\times10^{-4})(2\times10^{11})} \approx 0.24$ mm, small enough that treating it as rigid was fine.
+where $Y$ is **Young's modulus**, a property of the material (roughly $2\times10^{11}$ Pa for steel, $7\times10^{10}$ Pa for aluminum). This is Hooke's law written for materials: comparing with $F = k\,\Delta L$, a rod or cable acts as a spring of stiffness $k = YA/L$. The same stress works for compression (squeezing a metal column shortens it by the same rule, with essentially the same $Y$). Past the material's **elastic limit** it no longer springs back when the load is removed, and beyond that it breaks. Two more moduli describe other deformations. A force $F$ applied parallel to a face of area $A$ (a shear) slides that face sideways by $\Delta x$ relative to the opposite face a distance $L$ away: $F/A = S\,\Delta x/L$, where $S$ is the **shear modulus**. Squeezing from all sides with an added pressure $\Delta P$ shrinks the volume: $\Delta P = -B\,\Delta V/V$, where $B$ is the **bulk modulus** (it sets the speed of sound in a fluid, and fluids have a bulk modulus but no shear modulus). For instance, the cable in Example 3 is $4.0/\cos 30^\circ = 4.6$ m long; if it is steel with a 1.0 cm² cross-section, the 1029 N tension stretches it by $\Delta L = \dfrac{FL}{AY} = \dfrac{1029(4.6)}{(1.0\times10^{-4})(2\times10^{11})} \approx 0.24$ mm, small enough that treating it as rigid was fine.
 
 ## Common mistakes
 
@@ -99,6 +99,7 @@ where $Y$ is **Young's modulus**, a property of the material (roughly $2\times10
 - Placing a beam's weight at its end instead of its center of gravity.
 - Using the distance along the beam instead of the perpendicular lever arm for a slanted force.
 - Forgetting that a hinge can exert both horizontal and vertical components.
+- In $F/A = Y\,\Delta L/L$, using the diameter instead of the cross-sectional area $\pi d^2/4$, or forgetting to convert mm² or cm² to m².
 
 ## Key points
 
@@ -106,3 +107,4 @@ where $Y$ is **Young's modulus**, a property of the material (roughly $2\times10
 - Choose the torque pivot where an unknown force acts.
 - A uniform object's weight acts at its center (center of gravity).
 - An object tips when its center of gravity moves outside its base.
+- Elasticity: stress $F/A = Y \times$ strain $\Delta L/L$, so $\Delta L = FL/(AY)$; shear $F/A = S\,\Delta x/L$; bulk $\Delta P = -B\,\Delta V/V$.

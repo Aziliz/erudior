@@ -266,3 +266,27 @@
     Swing (energy conserved): $V = \sqrt{2gh} = \sqrt{2(9.8)({hcm}/100)} =$ **{V:sig3} m/s**.
 
     Collision (momentum conserved): $mv = (m + M)V$, so $v = \dfrac{{m:dp3} + {M}}{{m:dp3}}({V:num4}) =$ **{v:sig3} m/s**.
+- id: phys-rocket
+  title: The rocket equation and thrust
+  topic: Momentum and impulse
+  vars:
+    u: {min: 2, max: 4.5, step: 0.1}
+    mi: {min: 50, max: 500, step: 10}
+    pct: {min: 50, max: 90, step: 5}
+    R: {min: 100, max: 2000, step: 50}
+  calc:
+    mf: mi*(1 - pct/100)
+    dv: u*ln(mi/mf)
+    thrust: u*1000*R
+    tb: (mi - mf)*1000/R
+  prompt: 'A rocket of initial mass {mi} t (1 t = 1000 kg) in deep space ejects exhaust at {u} km/s relative to the rocket, at a rate of {R:dp0} kg/s, until it has burned fuel equal to {pct}% of its initial mass. Find its thrust (N), how long the burn lasts (s), and the speed it gains (km/s), each to 3 significant figures.'
+  answers:
+    - {format: sci, name: thrust, label: 'Thrust', relTolerance: 0.01, units: {N: 1, kN: 1000, MN: 1000000}}
+    - {format: sig4, name: tb, label: 'Burn time', relTolerance: 0.01, units: {s: 1, min: 60}}
+    - {format: sig4, name: dv, label: '$\Delta v$', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+  solution: |-
+    Thrust $= u\,|dm/dt| = ({u}\times10^{3})({R:dp0}) = \mathbf{{thrust:texsci}}$ N.
+
+    The final mass is $m_f = {mi}(1 - {pct}/100) = {mf:sig4}$ t, so the burn uses ${mi} - {mf:sig4}$ t of fuel and lasts **{tb:sig3} s** at {R:dp0} kg/s.
+
+    $\Delta v = u\ln\dfrac{m_i}{m_f} = {u}\ln\dfrac{{mi}}{{mf:sig4}} =$ **{dv:sig3} km/s**.

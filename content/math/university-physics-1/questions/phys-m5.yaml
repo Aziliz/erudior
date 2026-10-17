@@ -329,6 +329,39 @@
   answer: 3
   explanation: |-
     A low center of gravity and a wide base mean the car must tilt much farther before the center of gravity passes beyond the wheels' contact line, so cornering forces are less likely to roll it over.
+- id: phys-q-1811
+  lesson: phys-equilibrium
+  module_quiz: true
+  topic: Elasticity
+  stem: 'A steel wire 2.0 m long with cross-sectional area 1.0 mm² supports a 200 N load. How much does it stretch? ($Y = 2.0\times10^{11}$ Pa)'
+  choices: ['1.0 mm', '0.0020 mm', '2.0 mm', '0.50 mm']
+  answer: 2
+  explanation: |-
+    $1.0$ mm² $= 1.0\times10^{-6}$ m², so $\Delta L = \dfrac{FL}{AY} = \dfrac{200(2.0)}{(1.0\times10^{-6})(2.0\times10^{11})} = 2.0\times10^{-3}$ m $= 2.0$ mm. 0.0020 mm converts mm² to m² with $10^{-3}$ instead of $10^{-6}$; 1.0 mm leaves out the length $L$; 0.50 mm divides by $L$ instead of multiplying.
+- id: phys-q-1812
+  lesson: phys-equilibrium
+  topic: Elasticity
+  stem: 'Two wires of the same material and length carry the same load. Wire B has twice the diameter of wire A. How does B''s stretch compare with A''s?'
+  choices: ['One quarter as much', 'Half as much', 'The same, since the material is the same', 'Twice as much']
+  answer: 0
+  explanation: |-
+    $\Delta L = FL/(AY)$, and the area $\pi d^2/4$ is four times larger for B, so B stretches one quarter as much. Half as much treats area as proportional to diameter; the same material gives the same $Y$ but not the same stretch; twice as much has the dependence upside down.
+- id: phys-q-1813
+  lesson: phys-equilibrium
+  topic: Elasticity
+  stem: 'An aluminum rod 0.50 m long with cross-section 2.0 cm² behaves like a stiff spring when pulled along its length. What is its effective spring constant? ($Y = 7.0\times10^{10}$ Pa)'
+  choices: ['$7.0\times10^{6}$ N/m', '$2.8\times10^{7}$ N/m', '$2.8\times10^{11}$ N/m', '$2.8\times10^{9}$ N/m']
+  answer: 1
+  explanation: |-
+    From $F = (YA/L)\,\Delta L$, $k = YA/L = (7.0\times10^{10})(2.0\times10^{-4})/0.50 = 2.8\times10^7$ N/m, using 1 cm² $= 10^{-4}$ m². $7.0\times10^6$ multiplies by $L$ instead of dividing; $2.8\times10^{11}$ leaves the area in cm²; $2.8\times10^{9}$ converts cm² with $10^{-2}$ (forgetting to square the 0.01).
+- id: phys-q-1814
+  lesson: phys-equilibrium
+  topic: Elasticity
+  stem: 'Water has bulk modulus $2.2\times10^9$ Pa. At a depth of 1000 m the pressure is higher than at the surface by $\rho gh$. By what fraction is a sample of water compressed there? ($\rho = 1000$ kg/m³, $g = 9.8$ m/s²)'
+  choices: ['$2.2\times10^{2}$', '$4.5\times10^{-6}$', '$4.5\times10^{-4}$', '$4.5\times10^{-3}$']
+  answer: 3
+  explanation: |-
+    $\Delta P = \rho gh = 1000(9.8)(1000) = 9.8\times10^6$ Pa, and $|\Delta V|/V = \Delta P/B = 9.8\times10^6/2.2\times10^9 = 4.5\times10^{-3}$, under half a percent: water is nearly incompressible. $2.2\times10^2$ is the inverse, $B/\Delta P$; $4.5\times10^{-6}$ uses the depth as 1 (km) instead of 1000 m; $4.5\times10^{-4}$ leaves out $g$.
 - id: phys-q-1901
   lesson: phys-gravitation
   module_quiz: true

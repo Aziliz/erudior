@@ -4,7 +4,7 @@ module: phys-m4
 title: Momentum, impulse, and center of mass
 minutes: 40
 topics: [Momentum and impulse, Center of mass]
-drills: [phys-impulse, phys-recoil, phys-com]
+drills: [phys-impulse, phys-recoil, phys-com, phys-rocket]
 refs: [phys-ref-mechanics]
 ---
 ## Why we need momentum
@@ -111,7 +111,7 @@ A rocket is the standard example of a system that loses mass as it moves. Far fr
 
 $$\Delta v = u\ln\frac{m_i}{m_f}.$$
 
-This is the rocket equation. The push on the rocket, the thrust, is $u\,|dm/dt|$. Because the gain grows only with the logarithm of the mass ratio, a rocket with $u = 3.0$ km/s that burns 80% of its mass ($m_i/m_f = 5$) gains only $3.0\ln 5 = 4.8$ km/s, which is why orbital rockets drop empty stages.
+This is the **rocket equation** (Tsiolkovsky's equation). The forward push on the rocket, the **thrust**, is $u\,|dm/dt|$: exhaust speed times the rate at which mass is ejected. In a gravity field the thrust must exceed the rocket's weight just to lift off. Because the gain grows only with the logarithm of the mass ratio, a rocket with $u = 3.0$ km/s that burns 80% of its mass ($m_i/m_f = 5$) gains only $3.0\ln 5 = 4.8$ km/s, which is why orbital rockets drop empty stages.
 
 ## Common mistakes
 
@@ -119,6 +119,7 @@ This is the rocket equation. The push on the rocket, the thrust, is $u\,|dm/dt|$
 - Assuming kinetic energy is conserved whenever momentum is.
 - Applying momentum conservation when a large external force acts over the time considered.
 - Weighting CM positions by distance instead of by mass.
+- In the rocket equation, using the mass of fuel burned (or $m_f/m_i$) where the ratio $m_i/m_f$ belongs, or using the exhaust's speed relative to the ground instead of relative to the rocket.
 
 ## Key points
 
@@ -126,3 +127,4 @@ This is the rocket equation. The push on the rocket, the thrust, is $u\,|dm/dt|$
 - With no net external force, total momentum is conserved, component by component.
 - $x_{\text{cm}} = \sum m_ix_i/M$ (or $\tfrac1M\int x\,dm$); $\vec F_{\text{ext}} = M\vec a_{\text{cm}}$.
 - Longer stopping time means smaller average force for the same $\Delta p$.
+- Rocket: $\Delta v = u\ln(m_i/m_f)$ with no external force; thrust $= u\,|dm/dt|$.

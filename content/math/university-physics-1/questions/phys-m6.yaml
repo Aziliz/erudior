@@ -89,6 +89,114 @@
   answer: 2
   explanation: |-
     $a = \ddot x = -0.30(16)\cos(4t)$, so $a_{\max} = A\omega^2 = 4.8$ m/s². 1.2 m/s is the maximum speed $A\omega$.
+- id: phys-q-2051
+  lesson: phys-damped-driven
+  module_quiz: true
+  topic: Damped and driven oscillations
+  stem: 'A 2.0 kg mass on a spring with $k = 50$ N/m has damping constant $b = 4.0$ kg/s. At what angular frequency does it oscillate?'
+  choices: ['4.90 rad/s', '5.00 rad/s', '4.58 rad/s', '3.00 rad/s']
+  answer: 0
+  explanation: |-
+    $\omega_0 = \sqrt{50/2.0} = 5.0$ rad/s and $\gamma = b/2m = 4.0/4.0 = 1.0$ s⁻¹, so $\omega' = \sqrt{\omega_0^2 - \gamma^2} = \sqrt{25 - 1} = 4.90$ rad/s. 5.00 rad/s ignores the damping; 4.58 rad/s uses $b/m = 2.0$ as $\gamma$ (forgetting the 2); 3.00 rad/s subtracts $b^2$ itself.
+- id: phys-q-2052
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A 4.0 kg mass hangs on a spring with $k = 100$ N/m. What damping constant makes it critically damped?'
+  choices: ['20 kg/s', '5.0 kg/s', '40 kg/s', '10 kg/s']
+  answer: 2
+  explanation: |-
+    Critical damping is $\gamma = \omega_0$, i.e. $b = 2m\omega_0 = 2\sqrt{mk} = 2\sqrt{400} = 40$ kg/s. 20 kg/s drops the factor 2; 5.0 is $\omega_0$ in rad/s, not a damping constant; 10 kg/s is $2\sqrt{k/m}$, which uses the wrong combination of $m$ and $k$.
+- id: phys-q-2053
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A door closer should swing a door shut as quickly as possible without it slamming past the closed position and bouncing. Which damping should it have?'
+  choices: ['Underdamped', 'Critically damped', 'Overdamped', 'No damping at all']
+  answer: 1
+  explanation: |-
+    Critical damping ($b = 2\sqrt{mk}$) gives the fastest return to equilibrium with no overshoot. Underdamping (and, even more, no damping) overshoots and oscillates; overdamping avoids overshoot but creeps back more slowly than the critical case.
+- id: phys-q-2054
+  lesson: phys-damped-driven
+  module_quiz: true
+  topic: Damped and driven oscillations
+  stem: 'A 0.25 kg mass on a spring with $k = 100$ N/m has damping constant $b = 0.50$ kg/s. What is its quality factor $Q$?'
+  choices: ['20', '0.10', '5.0', '10']
+  answer: 3
+  explanation: |-
+    $Q = \sqrt{mk}/b = \sqrt{25}/0.50 = 10$ (equivalently $\omega_0 = 20$ rad/s, $\gamma = 1.0$ s⁻¹, $Q = \omega_0/2\gamma = 10$). 20 is $\omega_0/\gamma$, missing the 2; 0.10 is the inverse, $b/\sqrt{mk}$; 5.0 is $\sqrt{mk}$ before dividing by $b$.
+- id: phys-q-2055
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A lightly damped oscillator has $m = 0.50$ kg and $b = 0.20$ kg/s. How long does its amplitude take to fall to half its starting value?'
+  choices: ['1.73 s', '3.47 s', '5.0 s', '0.139 s']
+  answer: 1
+  explanation: |-
+    The amplitude decays as $e^{-\gamma t}$ with $\gamma = b/2m = 0.20$ s⁻¹, so $t = \ln 2/\gamma = 0.693/0.20 = 3.47$ s. 1.73 s uses $e^{-bt/m}$, which is the energy's decay, not the amplitude's; 5.0 s is $1/\gamma$, the time to fall to $1/e$; 0.139 s multiplies $\ln 2$ by $\gamma$ instead of dividing.
+- id: phys-q-2056
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'After 10 s, the amplitude of a damped oscillator has fallen to 60% of its initial value. What fraction of its initial energy remains?'
+  choices: ['0.60', '0.40', '0.36', '0.77']
+  answer: 2
+  explanation: |-
+    Energy is proportional to amplitude squared: $0.60^2 = 0.36$. 0.60 assumes energy is proportional to amplitude; 0.40 is the fraction of amplitude lost; 0.77 takes the square root instead of squaring.
+- id: phys-q-2057
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A damped oscillator with natural frequency 5.0 Hz is pushed by a force that varies sinusoidally at 3.0 Hz. Once the transient has died away, it oscillates at'
+  choices: ['3.0 Hz', '5.0 Hz', '4.0 Hz', '2.0 Hz']
+  answer: 0
+  explanation: |-
+    The steady state is $x = A\cos(\omega t - \delta)$ at the driving frequency, 3.0 Hz. The natural frequency 5.0 Hz only appears in the transient, which decays; 4.0 Hz averages the two and 2.0 Hz is their difference, as if the motion were beats.
+- id: phys-q-2058
+  lesson: phys-damped-driven
+  module_quiz: true
+  topic: Damped and driven oscillations
+  stem: 'A 0.50 kg mass on a spring ($k = 50$ N/m, $b = 1.0$ kg/s) is driven by a force $3.0\cos(8t)$ N. What is the steady-state amplitude?'
+  choices: ['0.060 m', '0.30 m', '0.167 m', '0.152 m']
+  answer: 3
+  explanation: |-
+    $\omega_0^2 = 100$ s⁻², $2\gamma\omega = (b/m)\omega = 2.0 \times 8 = 16$ s⁻², so $A = \dfrac{3.0/0.50}{\sqrt{(100 - 64)^2 + 16^2}} = \dfrac{6.0}{39.4} = 0.152$ m. 0.060 m is the static stretch $F_0/k$; 0.30 m is the amplitude at resonance, $F_0/(b\omega_0)$; 0.167 m ignores the damping term.
+- id: phys-q-2059
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A force that would stretch a spring 2.0 mm if applied steadily is instead applied sinusoidally at the oscillator''s natural frequency. The oscillator has $Q = 20$. What is the steady-state amplitude?'
+  choices: ['2.0 mm', '0.10 mm', '40 mm', '80 mm']
+  answer: 2
+  explanation: |-
+    At resonance $A = F_0/(b\omega_0) = Q\,F_0/k = 20 \times 2.0 = 40$ mm. 2.0 mm is just the static stretch; 0.10 mm divides by $Q$ instead of multiplying; 80 mm uses $\omega_0/\gamma = 2Q$ in place of $Q$.
+- id: phys-q-2060
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A damped oscillator is driven exactly at its natural frequency $\omega_0$. In the steady state, by how much does the displacement lag behind the driving force?'
+  choices: ['$0^\circ$', '$90^\circ$', '$180^\circ$', '$45^\circ$']
+  answer: 1
+  explanation: |-
+    $\tan\delta = \dfrac{b\omega}{k - m\omega^2}$, and at $\omega_0$ the denominator is zero, so $\delta = 90^\circ$: the velocity is then in step with the force. A lag of $0^\circ$ is the slow-driving limit and $180^\circ$ the fast-driving limit; $45^\circ$ occurs only at the lower half-power frequency, where $k - m\omega^2 = b\omega$.
+- id: phys-q-2061
+  lesson: phys-damped-driven
+  module_quiz: true
+  topic: Damped and driven oscillations
+  stem: 'An oscillator with natural frequency $\omega_0 = 500$ rad/s absorbs at least half its peak power over a band of driving frequencies 4.0 rad/s wide. What is its $Q$?'
+  choices: ['125', '2000', '62.5', '0.008']
+  answer: 0
+  explanation: |-
+    $Q = \omega_0/\Delta\omega = 500/4.0 = 125$. 2000 multiplies instead of dividing; 0.008 is the inverse ratio; 62.5 divides by $2\Delta\omega$, treating the full width as $\gamma$ when it is $2\gamma$.
+- id: phys-q-2062
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'Two oscillators have the same mass and spring constant, but one has much less damping (higher $Q$). Driven by the same force amplitude, the lightly damped one has a resonance peak that is'
+  choices: ['taller and wider', 'shorter and narrower', 'at a much higher frequency', 'taller and narrower']
+  answer: 3
+  explanation: |-
+    The peak height is $Q$ times the static stretch, and the bandwidth is $\Delta\omega = \omega_0/Q$, so higher $Q$ means taller and narrower. Height and width don't move together; and the peak stays near $\omega_0 = \sqrt{k/m}$, which is the same for both, so its frequency barely changes.
+- id: phys-q-2063
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'An oscillator obeys $\ddot x + 6\dot x + 9x = 0$ (SI units). Its motion is'
+  choices: ['underdamped', 'overdamped', 'critically damped', 'undamped SHM with $\omega = 3$ rad/s']
+  answer: 2
+  explanation: |-
+    Matching $\ddot x + 2\gamma\dot x + \omega_0^2x = 0$: $\gamma = 3$ s⁻¹ and $\omega_0 = 3$ rad/s, so $\gamma = \omega_0$ (the roots of $r^2 + 6r + 9 = 0$ coincide at $r = -3$): critically damped. Calling it overdamped compares the coefficient 6 with $\omega_0 = 3$, forgetting that the coefficient is $2\gamma$; calling it underdamped compares $\gamma$ with $\omega_0^2 = 9$; the $\dot x$ term means it is not undamped.
 - id: phys-q-2101
   lesson: phys-waves
   module_quiz: true
@@ -180,6 +288,39 @@
   answer: 3
   explanation: |-
     The $n$th harmonic fits $n$ half-wavelengths, giving $n$ antinodes and $n + 1$ nodes. For $n = 3$: 4 nodes.
+- id: phys-q-2112
+  lesson: phys-waves
+  module_quiz: true
+  topic: Wave properties
+  stem: 'A string with $\mu = 0.020$ kg/m is under 80 N of tension and carries a 50 Hz sinusoidal wave of amplitude 5.0 mm. What average power does the wave carry?'
+  choices: ['0.040 W', '1.56 W', '3.12 W', '1.97 W']
+  answer: 1
+  explanation: |-
+    $v = \sqrt{80/0.020} = 63.2$ m/s and $\omega = 2\pi(50) = 314$ rad/s, so $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v = \tfrac12(0.020)(0.0050)^2(314)^2(63.2) = 1.56$ W. 0.040 W uses $f$ in place of $\omega$; 3.12 W drops the $\tfrac12$; 1.97 W uses the tension 80 N in place of the wave speed.
+- id: phys-q-2113
+  lesson: phys-waves
+  topic: Wave properties
+  stem: 'On the same string at the same tension, a wave''s frequency is doubled while its amplitude is kept the same. The power it carries is multiplied by'
+  choices: ['4', '2', '8', '16']
+  answer: 0
+  explanation: |-
+    $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$, and $v$ is set by the string and tension, not the frequency. So only $\omega^2$ changes: $2^2 = 4$. 2 forgets the square; 8 assumes the wave speed doubles too; 16 squares the factor 4 again.
+- id: phys-q-2114
+  lesson: phys-waves
+  topic: Wave properties
+  stem: 'The tension in a string is quadrupled while the wave''s frequency and amplitude are kept the same. The power carried is multiplied by'
+  choices: ['4', '1 (unchanged)', '2', '16']
+  answer: 2
+  explanation: |-
+    $v = \sqrt{F_T/\mu}$ doubles, and $P_{\text{avg}} = \tfrac12\mu A^2\omega^2v$ is proportional to $v$, so the power doubles. 4 treats the power as proportional to the tension; "unchanged" forgets that $P$ depends on $v$; 16 squares the tension factor.
+- id: phys-q-2115
+  lesson: phys-waves
+  topic: Wave properties
+  stem: 'A string with $\mu = 0.010$ kg/m carries waves at 100 m/s. What amplitude must a 60 Hz wave have to carry an average power of 0.50 W?'
+  choices: ['17 mm', '1.9 mm', '0.0070 mm', '2.7 mm']
+  answer: 3
+  explanation: |-
+    $A = \sqrt{\dfrac{2P}{\mu\omega^2v}} = \sqrt{\dfrac{2(0.50)}{0.010(2\pi\cdot60)^2(100)}} = 2.65\times10^{-3}$ m $\approx 2.7$ mm. 17 mm uses $f$ in place of $\omega$; 1.9 mm forgets the factor 2 from the $\tfrac12$; 0.0070 mm forgets the square root.
 - id: phys-q-2201
   lesson: phys-sound
   module_quiz: true
