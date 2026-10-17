@@ -312,10 +312,10 @@
   module_quiz: true
   topic: werden
   stem: 'Complete: "Mein Bruder ___ nächste Woche dreißig."'
-  choices: ['wird', 'werdet', 'wirdt', 'ist']
+  choices: ['wird', 'werdet', 'wirdt', 'wirst']
   answer: 0
   explanation: |-
-    werden + an age means to turn that age, and the er form is wird, with no extra -t. "ist dreißig" means he is thirty now, not next week, and werdet is the ihr form.
+    werden + an age means to turn that age, and the er form is wird, with no extra -t. "wirst" is the du form, and werdet is the ihr form.
 - id: de2-q-0802
   lesson: de2-people-werden
   topic: werden
@@ -329,10 +329,10 @@
   module_quiz: true
   topic: werden
   stem: 'Complete: "Sie ___ Lehrerin geworden."'
-  choices: ['hat', 'wird', 'ist', 'war']
+  choices: ['hat', 'wird', 'ist', 'wurde']
   answer: 2
   explanation: |-
-    werden describes a change, so its perfect uses sein: sie ist geworden. "hat geworden" is the most common mistake.
+    werden describes a change, so its perfect uses sein: sie ist geworden. "hat geworden" is the most common mistake; "wird" and "wurde" can't be combined with the participle geworden.
 - id: de2-q-0804
   lesson: de2-people-werden
   topic: werden

@@ -13,11 +13,11 @@ The grammar answers a small but constant question: whose is it? You'll learn two
 
 ## Schools in Germany
 
-Every German state (*Bundesland*) runs its own schools, so details differ, but the outline is similar everywhere. (Austria and Switzerland have their own systems; in Austria the final exam at a Gymnasium is called *die Matura*.)
+Every German state (*Bundesland*) runs its own schools, so details differ, but the outline is similar everywhere. (Austria and Switzerland have their own systems; in both, the final exam at a Gymnasium is called *die Matura*.)
 
 | Stage | School | What happens |
 |---|---|---|
-| age 6–10 | *die Grundschule* (lesson 2) | primary school, usually four years |
+| age 6–10 | *die Grundschule* (lesson 2) | primary school, four years (six in Berlin and Brandenburg) |
 | from about 10 | *das Gymnasium* | academic secondary school; ends with *das Abitur*, the exam you need for university |
 | from about 10 | *die Realschule* | secondary school up to grade 10 |
 | from about 10 | *die Gesamtschule* and others | comprehensive schools that combine the types |
@@ -103,7 +103,7 @@ Masculine and neuter nouns add *-s* or *-es*. You don't need to produce these ye
 - *am Ende der Woche* — at the end of the week
 - *die Hälfte der Teilnehmer* — half of the participants
 - *der Name des Lehrers* — the teacher's name
-- *die Universität Wien, die Stadt Salzburg* — and *die Hauptstadt Österreichs*, the capital of Austria
+- *die Hauptstadt Österreichs* — the capital of Austria (a name just adds *-s*, as in *Annas*)
 
 The question word is *wessen?* — whose? *Wessen Heft ist das?* You'll read it more than you'll say it; in speech, *Von wem …?* is normal.
 
@@ -139,7 +139,7 @@ Lukas wants to sign up for an English course and talks to the woman at the regis
 >
 > Lukas: Und was passiert, wenn ich beim Test durchfalle?
 >
-> Frau Haas: Nein, nein! Der Test zeigt nur, was Sie schon können. Der Unterricht ist dienstags und donnerstags von 18 bis 19.30 Uhr.
+> Frau Haas: Keine Sorge! Bei diesem Test kann man nicht durchfallen. Er zeigt nur, was Sie schon können. Der Unterricht ist dienstags und donnerstags von 18 bis 19.30 Uhr.
 >
 > Lukas: Das passt gut. Wie hoch ist die Gebühr?
 >
@@ -161,7 +161,7 @@ In English:
 >
 > Lukas: And what happens if I fail the test?
 >
-> Ms Haas: No, no! The test only shows what you can already do. Lessons are on Tuesdays and Thursdays from 6 to 7.30 p.m.
+> Ms Haas: Don't worry! You can't fail this test. It only shows what you can already do. Lessons are on Tuesdays and Thursdays from 6 to 7.30 p.m.
 >
 > Lukas: That suits me. How much is the fee?
 >

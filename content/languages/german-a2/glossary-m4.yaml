@@ -34,11 +34,3 @@
   aliases: [linking adverbs, connecting adverb, connecting adverbs, conjunctional adverb, conjunctional adverbs]
   definition: 'A word like deshalb, trotzdem, außerdem, sonst, dann or danach that links a sentence to the one before. It counts as part of the sentence, so in position 1 it is followed directly by the verb and then the subject: Es regnet, trotzdem gehe ich spazieren.'
   topic: Sentence structure
-- term: coordinating conjunction
-  aliases: [coordinating conjunctions]
-  definition: 'A word that joins two main clauses without taking a position of its own (position 0), so the word order after it stays normal: und, aber, oder, denn, sondern. Ich bleibe zu Hause, denn es regnet.'
-  topic: Sentence structure
-- term: subordinating conjunction
-  aliases: [subordinating conjunctions]
-  definition: 'A word that starts a subordinate clause and sends the conjugated verb to the end of that clause: weil, dass, wenn, ob, als. Ich bleibe zu Hause, weil es regnet.'
-  topic: Sentence structure

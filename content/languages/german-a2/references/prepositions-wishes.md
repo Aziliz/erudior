@@ -36,7 +36,7 @@ title: Two-way prepositions, time words and polite forms
 | *an dem* | *am* | dative |
 | *in das* | *ins* | accusative |
 | *an das* | *ans* | accusative |
-| *auf das* | *aufs* (spoken) | accusative |
+| *auf das* | *aufs* | accusative |
 
 ## Putting and being: the verb pairs
 
@@ -46,7 +46,7 @@ title: Two-way prepositions, time words and polite forms
 | *legen* — put flat, lay | *hat gelegt* | *liegen* — lie, be flat | *hat gelegen* |
 | *setzen* — sit (someone) down; *sich setzen* — sit down | *hat gesetzt* | *sitzen* — sit, be sitting | *hat gesessen* |
 | *hängen* — hang (something) up | *hat gehängt* | *hängen* — hang, be hanging | *hat gehangen* |
-| *stecken* — put into | *hat gesteckt* | *stecken* — be inside, be stuck | *hat gesteckt* |
+| *stecken* — put into | *hat gesteckt* | *stecken* — be inside, be stuck | *hat gesteckt* (regular) |
 
 In southern Germany, Austria and Switzerland: *ist gestanden, ist gelegen, ist gesessen*.
 
@@ -65,7 +65,7 @@ Moving house: *einziehen in* + accusative (*ist eingezogen*), *ausziehen aus* + 
 | *für* | accusative | for (a planned length of time) | *für eine Woche* |
 | *nach* | dative | after | *nach dem Essen* |
 
-Dative plural nouns add *-n*: *vor zwei Tagen, in drei Wochen, seit vielen Jahren*.
+Dative plural nouns end in *-n*: *vor zwei Tagen, seit vielen Jahren* (plurals like *Wochen, Stunden* already end in *-n*).
 
 | Question | Answer with |
 |---|---|

@@ -93,11 +93,11 @@ You know *das Wetter, die Sonne, der Regen, der Schnee, der Wind, warm, kalt, he
 
 More: *das Gewitter* (thunderstorm), *der Sturm* (storm, gale), *die Hitze* (heat), *das Eis* (ice), *frieren* (to be cold, to freeze), *der Himmel* (sky), *das Klima* (climate). Temperatures use *der Grad* (degree), which doesn't change after a number: *Es sind heute 30 Grad.* — It's 30 degrees today. *In der Nacht hatten wir minus fünf Grad.* — In the night it was minus five. *Die Temperatur* is the temperature.
 
-For the environment: *die Umwelt* (environment), *der Umweltschutz* (environmental protection), *schützen* (to protect), *die Energie* and *der Strom* (energy, electricity), *sparen* (to save), *verbrauchen* (to consume, use up), *den Müll trennen* (to separate the rubbish) and *recyceln* (to recycle). In Germany people sort their rubbish into several bins: paper, plastic packaging, glass, and the rest.
+For the environment: *die Umwelt* (environment), *der Umweltschutz* (environmental protection), *schützen* (to protect), *die Energie* and *der Strom* (energy, electricity), *sparen* (to save), *verbrauchen* (to consume, use up), *den Müll trennen* (to separate the rubbish) and *recyceln* (to recycle). In Germany people sort their rubbish into several bins: paper, packaging (the yellow bin or bag), glass, food and garden waste, and the rest.
 
 ## Text: A weather forecast and a reply
 
-> Das Wetter für morgen: Im Norden ist es bewölkt und windig, an der Küste gibt es am Nachmittag Regen. Die Temperaturen liegen bei 12 bis 15 Grad. Im Süden scheint am Vormittag die Sonne, danach kommen von Westen Wolken und am Abend sind Gewitter möglich. In den Alpen kann es in der Nacht unter null Grad gehen, dort gibt es Eis auf den Straßen.
+> Das Wetter für morgen: Im Norden ist es bewölkt und windig, an der Küste gibt es am Nachmittag Regen. Die Temperaturen liegen zwischen 12 und 15 Grad. Im Süden scheint am Vormittag die Sonne, danach kommen von Westen Wolken und am Abend sind Gewitter möglich. In den Alpen fallen die Temperaturen in der Nacht unter null Grad, dort kann es Eis auf den Straßen geben.
 
 > Paula: Morgen soll es in München Gewitter geben. Wollen wir trotzdem wandern gehen?
 >
@@ -111,7 +111,7 @@ For the environment: *die Umwelt* (environment), *der Umweltschutz* (environment
 
 In English:
 
-> The weather for tomorrow: In the north it'll be cloudy and windy, with rain on the coast in the afternoon. Temperatures will be around 12 to 15 degrees. In the south the sun will shine in the morning; after that, clouds will come in from the west and thunderstorms are possible in the evening. In the Alps it may drop below zero overnight, and there will be ice on the roads.
+> The weather for tomorrow: In the north it'll be cloudy and windy, with rain on the coast in the afternoon. Temperatures will be between 12 and 15 degrees. In the south the sun will shine in the morning; after that, clouds will come in from the west and thunderstorms are possible in the evening. In the Alps temperatures will fall below zero overnight, and there may be ice on the roads.
 
 > Paula: There are supposed to be thunderstorms in Munich tomorrow. Shall we still go hiking?
 >
@@ -123,7 +123,7 @@ In English:
 >
 > Paula: And I'll pack some rolls. Then we won't have to buy anything on the way.
 
-(*Es soll … geben* = there is supposed to be, according to the forecast; *einverstanden* = agreed; *einpacken* = to pack.) Notice *trotzdem*, *sonst*, *außerdem* and *dann* each followed directly by the verb, while *sondern* and *denn* keep the normal order.
+(*Es soll … geben* = there is supposed to be, according to the forecast; *einverstanden* = agreed; *einpacken* = to pack.) Notice *sonst*, *außerdem* and *dann* each followed directly by the verb (*trotzdem* stands in the middle of Paula's question), while *sondern* and *denn* keep the normal order.
 
 ## Pronunciation
 

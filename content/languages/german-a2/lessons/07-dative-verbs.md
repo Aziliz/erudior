@@ -127,7 +127,7 @@ In English:
 >
 > We wrapped the voucher nicely and showed it to Grandma. She laughed: "That's perfect for him!" On Sunday we'll give it to him over coffee. Hopefully the surprise will be big. And I've already got a question for Grandpa: can you lend me your umbrella on the beach? You see, he takes it everywhere, even in summer.
 
-Notes: *Er wird achtzig* uses *werden* (to become), which is lesson 8; *etwas Besonderes* (something special) is also explained there. *dieselbe* means "the same", *nämlich* "you see, namely", *überallhin* "everywhere". *ein kleines Hotel* has an adjective ending (module 3). Look at the order: *wir wollen ihm etwas schenken* (pronoun before noun), *Wir haben ... ihn Oma gezeigt* (pronoun before noun), *geben wir ihn ihm* (two pronouns: accusative *ihn* before dative *ihm*).
+Notes: *Er wird achtzig* uses *werden* (to become), which is lesson 8; *etwas Besonderes* (something special) is also explained there. *dieselbe* means "the same", *nämlich* "you see, namely", *überallhin* "everywhere". *ein kleines Hotel* has an adjective ending (module 3). Look at the order: *wir wollen ihm etwas Besonderes schenken* (the short personal pronoun *ihm* first), *Wir haben ... ihn Oma gezeigt* (pronoun before noun), *geben wir ihn ihm* (two pronouns: accusative *ihn* before dative *ihm*).
 
 ## Things you give, lend and lose
 

@@ -240,7 +240,7 @@
   meanings: [Christmas, Xmas]
   example: Weihnachten fahren wir zu meinen Eltern.
   exampleEn: At Christmas we're going to my parents'.
-  note: 'Neuter, usually without an article: an/zu Weihnachten.'
+  note: 'Neuter, usually without an article: an/zu Weihnachten. In wishes it acts like a plural: Frohe Weihnachten!'
 - id: ostern
   lesson: de2-celebrations
   term: Ostern
@@ -254,7 +254,7 @@
   meanings: [New Year's Eve]
   example: Was machst du an Silvester?
   exampleEn: What are you doing on New Year's Eve?
-  note: 'Neuter, usually without an article. Spelled with i.'
+  note: 'Masculine or neuter (der/das Silvester), usually without an article. Spelled with i.'
 - id: neujahr
   lesson: de2-celebrations
   term: Neujahr
@@ -433,7 +433,7 @@
   pos: noun
   plural: die Glückwünsche
   meanings: [congratulations (the noun), good wishes, congratulation, congratulations]
-  example: Viele Glückwünsche zur Hochzeit!
+  example: Herzlichen Glückwunsch zur Hochzeit!
   exampleEn: Congratulations on your wedding!
 - id: frohe-weihnachten
   lesson: de2-celebrations
@@ -513,7 +513,7 @@
   meanings: [to let (someone) know, to let know, to tell, to inform]
   example: Sag mir Bescheid, wenn du zu Hause bist.
   exampleEn: Let me know when you're at home.
-  note: 'The person is dative: Sag mir Bescheid. Formal also: Bescheid geben.'
+  note: 'The person is dative: Sag mir Bescheid. Also: Bescheid geben.'
 - id: rueckmeldung
   lesson: de2-writing
   term: die Rückmeldung
@@ -610,8 +610,8 @@
   term: Mit freundlichen Grüßen
   pos: phrase
   meanings: [Yours sincerely (formal closing), Yours faithfully, kind regards, best regards, sincerely]
-  example: Mit freundlichen Grüßen, Anna Lindqvist
-  exampleEn: Yours sincerely, Anna Lindqvist
+  example: Die E-Mail endet mit „Mit freundlichen Grüßen“.
+  exampleEn: The e-mail ends with "Yours sincerely".
 - id: sehr-geehrte-frau
   lesson: de2-writing
   kind: phrase
@@ -644,8 +644,8 @@
   pos: phrase
   alt: [LG]
   meanings: [love (informal closing), lots of love, love from, best wishes]
-  example: Bis morgen! Liebe Grüße, Mia
-  exampleEn: See you tomorrow! Love, Mia
+  example: Bis morgen! Liebe Grüße von Mia
+  exampleEn: See you tomorrow! Love from Mia
 - id: sich-melden
   lesson: de2-writing
   term: sich melden
@@ -734,8 +734,8 @@
   pos: noun
   plural: die Durchsagen
   meanings: [announcement (over a loudspeaker), announcement, public announcement]
-  example: Achtung, eine Durchsage zu Gleis 5!
-  exampleEn: Attention, an announcement about platform 5!
+  example: 'Eine Durchsage: Der Zug auf Gleis 5 hat Verspätung.'
+  exampleEn: 'An announcement: the train on platform 5 is delayed.'
 - id: ansage
   lesson: de2-exam-review
   term: die Ansage

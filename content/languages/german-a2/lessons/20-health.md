@@ -58,7 +58,7 @@ The doctor gives you *ein Rezept*. You know this word from lesson 11 as a recipe
 
 ### Emergencies
 
-The emergency number in Germany and Austria and across the EU is *112* (*eins eins zwei*): *Rufen Sie einen Krankenwagen!* — Call an ambulance! For a doctor at night or at the weekend when it isn't an emergency, Germany has the number *116 117*. Hospitals have *die Notaufnahme*, the emergency department.
+The emergency number in Germany and Austria and across the EU is *112* (*eins eins zwei*): *Rufen Sie einen Krankenwagen!* — Call an ambulance! When your practice is closed (at night, at the weekend) and it isn't life-threatening but can't wait, Germany has the medical on-call service, *116 117*, which answers around the clock. Hospitals have *die Notaufnahme*, the emergency department.
 
 ## seit: how long so far
 

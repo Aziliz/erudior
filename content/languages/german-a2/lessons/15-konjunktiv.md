@@ -63,7 +63,7 @@ The present tense can sound direct. The Konjunktiv II makes a question softer, a
 | *Darf ich hier sitzen?* | *Dürfte ich hier sitzen?* — Might I sit here? |
 | *Ich will die Rechnung.* | *Ich hätte gern die Rechnung.* — I'd like the bill. |
 
-*Ich hätte gern …* is the most common way to order or ask for something in a shop, together with *Ich möchte …*: *Ich hätte gern zwei Brötchen.* A request is *eine Bitte*, and to ask someone for something is *bitten um* + accusative: *Darf ich Sie um eine Bitte bitten?* — May I ask you a favour? Useful answers: *Ja, gern. / Selbstverständlich! / Kein Problem.* And when someone thanks you: *Gern geschehen!* — My pleasure.
+*Ich hätte gern …* is the most common way to order or ask for something in a shop, together with *Ich möchte …*: *Ich hätte gern zwei Brötchen.* A request is *eine Bitte*: *Ich hätte eine Bitte.* — I have a favour to ask. To ask someone for something is *bitten um* + accusative: *Darf ich Sie um Hilfe bitten?* — May I ask you for help? Useful answers: *Ja, gern. / Selbstverständlich! / Kein Problem.* And when someone thanks you: *Gern geschehen!* — My pleasure.
 
 ## 2. Wishes and dreams
 
@@ -73,7 +73,6 @@ To say what you'd like, combine a Konjunktiv II form with *gern*:
 - *Ich wäre gern berühmt.* — I'd like to be famous.
 - *Ich würde gern einmal eine Weltreise machen.* — I'd love to travel around the world one day.
 - *Ich würde lieber zu Hause bleiben.* — I'd rather stay at home.
-
 - *Ich würde gern mal Surfen ausprobieren.* — I'd like to try out surfing some time.
 - *Wenn ich die Gelegenheit hätte, würde ich in Japan arbeiten.* — If I had the opportunity, I'd work in Japan.
 
@@ -111,7 +110,7 @@ Notice the verb–comma–verb pattern when the *wenn* clause comes first: *… 
 
 At A2 you only need to understand and use this pattern with *hätte, wäre, könnte* and *würde*. B1 takes it further.
 
-## Dialogue: Dreaming at the lake
+## Dialogue: Dreaming on the lunch break
 
 Selin and her colleague Max are on their lunch break.
 

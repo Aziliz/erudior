@@ -64,7 +64,7 @@ For information from an office you ask for *eine Auskunft* (a piece of informati
 - *Können wir das Treffen auf Donnerstag verschieben?* — Can we move the meeting to Thursday? (*verschieben* = to postpone; *hat verschoben*)
 - *Ich sage gern zu.* / *Ich komme gern.* — I'm happy to accept. (*zusagen* is the opposite of *absagen*.)
 - *Hiermit bestätige ich den Termin am 4. Mai.* — I hereby confirm the appointment on 4 May. Something written that confirms is *eine Bestätigung*.
-- *Ich möchte Ihnen mitteilen, dass …* — I would like to inform you that … *mitteilen* (separable) is a formal "tell"; a written notice is *eine Mitteilung*. A little less formal: *Ich möchte Sie informieren, dass …*
+- *Ich möchte Ihnen mitteilen, dass …* — I would like to inform you that … *mitteilen* (separable) is a formal "tell"; a written notice is *eine Mitteilung*. A little less formal: *Ich möchte Sie darüber informieren, dass …*
 
 ### Giving reasons and consequences
 
@@ -142,7 +142,7 @@ E-mail words: *der Betreff* is the subject line; *der Anhang* the attachment (*i
 
 ## Dialogue: a message thread
 
-Ella and her flatmate Jonas write each other during the day.
+Ella and her flatmate Jonas write to each other during the day.
 
 > Jonas: Hey, hast du die Mail vom Vermieter gesehen? Ich habe sie dir gerade weitergeleitet. Morgen kommt jemand wegen der Heizung, zwischen 8 und 12 Uhr.
 >

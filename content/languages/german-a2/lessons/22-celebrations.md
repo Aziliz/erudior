@@ -23,7 +23,7 @@ Festivals are where a language meets a culture. In this lesson you learn the mai
 
 Some notes on the words:
 
-- *Weihnachten, Ostern, Silvester* and *Neujahr* are neuter, but they are usually used without an article: *Weihnachten ist bald. Was machst du Silvester?* With a preposition, Germans say *an* or *zu*: *an Weihnachten* (more southern), *zu Ostern* (more northern). Both are correct.
+- *Weihnachten, Ostern* and *Neujahr* are neuter, and *Silvester* is masculine or neuter, but all four are usually used without an article: *Weihnachten ist bald. Was machst du Silvester?* In good wishes, *Weihnachten* and *Ostern* behave like plurals: *Frohe Weihnachten! Frohe Ostern!* With a preposition, Germans say *an* or *zu*: *an Weihnachten* (more southern), *zu Ostern* (more northern). Both are correct.
 - In Germany, presents are opened on the evening of *Heiligabend*, not on the morning of the 25th as in Britain or the USA.
 - The same season has three names: *Karneval* in the Rhineland (Köln, Düsseldorf, Mainz), *Fasching* in Bavaria and Austria, *Fastnacht* (Swiss *Fasnacht*) in the south-west and Switzerland. People *verkleiden sich* (dress up) in a *Kostüm*.
 - *der Feiertag* is a public holiday: shops are closed. Each country has a national day: in Germany 3 October, in Austria 26 October, in Switzerland 1 August. Some holidays exist only in some German states.
@@ -90,10 +90,10 @@ When it's clear which noun you mean, you can drop the noun and use *ein*, *kein*
 | nominative | einer / keiner / meiner | eine / keine / meine | eins / keins / meins | — / keine / meine |
 | accusative | einen / keinen / meinen | eine / keine / meine | eins / keins / meins | — / keine / meine |
 
-The difference from the article is in three places: masculine nominative *einer* (not *ein*), and neuter *eins* and *meins* (not *ein*, *mein*).
+The difference from the article is in two places: the masculine nominative (*einer, keiner, meiner*, not *ein, kein, mein*) and the neuter nominative and accusative (*eins, keins, meins*, not *ein, kein, mein*).
 
 - *Hast du schon einen Weihnachtsbaum? — Ja, wir haben gestern einen gekauft.* — Have you got a Christmas tree yet? — Yes, we bought one yesterday.
-- *Brauchen wir noch Kerzen? — Nein, wir haben genug. Im Schrank liegen noch welche.* — Do we still need candles? — No, there are still some in the cupboard. (*welche* is the plural of *eins*: some.)
+- *Brauchen wir noch Kerzen? — Nein, wir haben genug. Im Schrank liegen noch welche.* — Do we still need candles? — No, there are still some in the cupboard. (*welche* works as the plural of *einer/eine/eins*: some.)
 - *Ist das dein Glas? — Nein, das ist nicht meins. Meins steht da drüben.* — Is that your glass? — No, it's not mine. Mine is over there.
 - *Hat jemand ein Kostüm für mich? — Leider hat keiner eins.* — Has anyone got a costume for me? — Unfortunately, nobody has one. (*keiner* = nobody, no one.)
 
@@ -103,7 +103,7 @@ These three all translate as "when", but they do different jobs (lesson 4):
 
 - *wann* asks a question: *Wann feiert ihr Silvester?* Also in indirect questions: *Weißt du, wann die Party anfängt?*
 - *als* is for one single event or period in the past: *Als ich zehn war, haben wir Weihnachten in Kanada gefeiert.*
-- *wenn* is for things that happen again and again ("whenever"), and for the present and the future: *Wenn es Ostern schön ist, suchen die Kinder die Eier im Garten. Wenn du kommst, backe ich eine Torte.*
+- *wenn* is for things that happen again and again ("whenever"), and for the present and the future: *Wenn das Wetter an Ostern schön ist, suchen die Kinder die Eier im Garten. Wenn du kommst, backe ich eine Torte.*
 
 A test: if you can say "whenever", or the time is now or later, use *wenn*. If it happened once in the past, *als*.
 
@@ -125,7 +125,7 @@ Note *am Samstag, dem 31. Dezember*: after *am*, the date that follows is dative
 
 > Jana: Da seid ihr ja! Schön, dass ihr gekommen seid. Clara, was für ein tolles Kostüm!
 >
-> Clara: Danke! Das habe ich auf dem Flohmarkt gefunden. Wir haben auch etwas für dich, die Gastgeberin. Hier, wir haben es ein bisschen schön eingepackt.
+> Clara: Danke! Das habe ich auf dem Flohmarkt gefunden. Wir haben auch etwas für die Gastgeberin. Hier, bitte!
 >
 > Jana: Oh, eine Kerze und Pralinen! Vielen Dank, das wäre nicht nötig gewesen. Möchtet ihr etwas trinken?
 >
@@ -145,7 +145,7 @@ Translation:
 
 > Jana: There you are! How nice that you came. Clara, what a great costume!
 >
-> Clara: Thanks! I found it at the flea market. We've got something for you too, the hostess. Here, we wrapped it up a bit nicely.
+> Clara: Thanks! I found it at the flea market. We've got something for the hostess too. Here you are!
 >
 > Jana: Oh, a candle and chocolates! Thank you so much, you shouldn't have. Would you like something to drink?
 >
@@ -153,7 +153,7 @@ Translation:
 >
 > Jana: Here's one. Tell me, Ben, what do you usually do on New Year's Eve?
 >
-> Ben: When I was little we were always at my grandma's in the mountains. Whenever it had snowed, we walked through the forest with torches at midnight. That was our custom.
+> Ben: When I was little we were always at my grandma's in the mountains. Whenever it snowed, we walked through the forest with torches at midnight. That was our custom.
 >
 > Clara: And there were no fireworks at all, because grandma was worried about her animals!
 >
@@ -183,7 +183,7 @@ Notice *meins* and *eins* (neuter, *das Glas*), *keins* (*das Feuerwerk*), *als 
 
 ## Key points
 
-- *Weihnachten, Ostern, Silvester, Neujahr*: neuter, normally no article; *an/zu Weihnachten*.
+- *Weihnachten, Ostern, Silvester, Neujahr*: normally no article (*Frohe Weihnachten!*); *an/zu Weihnachten*.
 - *gratulieren* + dative + *zu*; *wünschen, danken, schenken* + dative person; *einladen* + accusative + *zu*.
 - Ordinals: *-te* up to 19, *-ste* from 20; *erste, dritte, siebte, achte*. *am …ten, vom …ten bis zum …ten*.
 - *einer, eine, eins* and *keiner, meiner* stand alone and show the gender: *Ich habe einen. Das ist meins.*

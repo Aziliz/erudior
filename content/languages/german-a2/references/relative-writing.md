@@ -122,4 +122,4 @@ After the opening: a comma, and the next word starts small. No comma after the c
 |---|---|
 | *Bis bald! / Bis morgen!* | *Ich freue mich auf Ihre Antwort.* |
 | *Melde dich!* | *Für Fragen bin ich unter 0171 2345678 erreichbar.* |
-| *Liebe Grüße, Mia* | *Mit freundlichen Grüßen, Anna Lindqvist* |
+| *Liebe Grüße* + *Mia* on the next line | *Mit freundlichen Grüßen* + *Anna Lindqvist* on the next line |

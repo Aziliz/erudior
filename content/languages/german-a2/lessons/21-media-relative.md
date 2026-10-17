@@ -167,7 +167,7 @@ Lukas helps his grandmother with her new laptop.
 >
 > Oma: Wunderbar! Und kann ich sie speichern?
 >
-> Lukas: Du kannst sie herunterladen. Aber ich würde sie einfach online ansehen. Und, Oma: Bitte lösch nichts, was du nicht kennst!
+> Lukas: Du kannst sie herunterladen. Aber ich würde sie mir einfach online ansehen. Und, Oma: Bitte lösch nichts, was du nicht kennst!
 
 Translation:
 

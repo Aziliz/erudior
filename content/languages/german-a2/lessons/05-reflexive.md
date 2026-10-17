@@ -95,7 +95,7 @@ The rule is simple: if the sentence already has an accusative object (the hands,
 - *Ich ziehe mir eine Jacke an.* — I put on a jacket. (*eine Jacke* is the object: dative)
 - *Du wäschst dich.* / *Du wäschst dir das Gesicht.* — You have a wash. / You wash your face.
 
-Notice that German does not say "my hands" or "my teeth" here. The dative pronoun already tells you whose hands they are, so the article is enough: *Ich putze mir die Zähne*, not ~~Ich putze meine Zähne~~ (which is understandable but sounds like you are cleaning someone else's set of teeth).
+Notice that German usually does not say "my hands" or "my teeth" here. The dative pronoun already tells you whose hands they are, so the article is enough: *Ich putze mir die Zähne*, rather than *Ich putze meine Zähne*, which is understood and not wrong, but much less usual.
 
 ## Feelings and states
 
@@ -152,7 +152,7 @@ With a modal verb, the modal is in position 2, the reflexive pronoun follows it,
 
 > Montags ist bei uns immer Chaos. Mein Wecker klingelt um halb sieben, aber ich bleibe noch zehn Minuten liegen. Dann muss ich mich natürlich beeilen. Ich dusche schnell, putze mir die Zähne und kämme mich vor dem Spiegel. Rasieren? Keine Zeit, das mache ich am Abend.
 >
-> Meine Frau Julia ist schon fertig. Sie steht um sechs auf, macht Yoga und schminkt sich in aller Ruhe. „Wie machst du das?", frage ich sie jeden Montag. „Ich ärgere mich nicht über den Montag", sagt sie. „Ich freue mich einfach auf den Kaffee."
+> Meine Frau Julia ist schon fertig. Sie steht um sechs auf, macht Yoga und schminkt sich in aller Ruhe. „Wie machst du das?“, frage ich sie jeden Montag. „Ich ärgere mich nicht über den Montag“, sagt sie. „Ich freue mich einfach auf den Kaffee.“
 >
 > Unser Sohn Leon ist zwölf. Er zieht sich am Morgen an wie ein Bär im Winter: langsam, langsam. Heute hat er sich zweimal umgezogen, weil ihm die Hose nicht gefallen hat. Und letzte Woche hat er sich beim Basketball verletzt, deshalb muss er sich jetzt in der Pause ausruhen. Er sagt, er langweilt sich.
 >

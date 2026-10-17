@@ -64,7 +64,7 @@ The part from the object to the verb (*den Bericht zu schreiben*) is called an *
 | *es ist wichtig / schwer / leicht / schön* | *Es ist wichtig, pünktlich zu sein.* — It's important to be on time. |
 | *bitten* (lesson 15) | *Der Chef bittet uns, morgen früher zu kommen.* — The boss is asking us to come earlier tomorrow. |
 
-*(die Unterlagen* = documents, papers, plural only.)
+(*die Unterlagen* = documents, papers; plural only.)
 
 ### No zu after modals and a few others
 
@@ -94,7 +94,7 @@ Verbs with an inseparable prefix (be-, ver-, er-, ent-, emp-, ge-, zer-) and *-i
 
 The reflexive pronoun stays in the infinitive clause and matches the subject: *Ich habe vor, mich zu bewerben. Hast du vor, dich zu bewerben?*
 
-Put a comma before the infinitive clause; it's required after a noun (*Zeit, Lust*) and after *es ist …*. A bare *zu* + verb usually stands without one: *Ich habe keine Lust zu arbeiten.*
+Put a comma before the infinitive clause; it's required after a noun (*Zeit, Lust*) and after *es ist …*. When *zu* + verb stands completely alone, you will sometimes see it without a comma: *Ich habe keine Lust(,) zu arbeiten.*
 
 ### Infinitive clause or dass?
 
@@ -117,6 +117,8 @@ When you pick up a business call, say the company and your full name, not just *
 | Leaving a message | *Könnten Sie ihr bitte sagen, dass ich angerufen habe?* |
 | Asking for a call back | *Er soll mich bitte zurückrufen.* |
 
+*Ich hätte gern Herrn Vogel gesprochen* is a fixed, very polite formula for "I'd like to speak to Mr Vogel". Learn it as a set phrase; its grammar (a past form of the Konjunktiv II) belongs to B1, and *Kann ich bitte … sprechen?* says the same thing.
+
 *ausrichten* means to pass on a message. *Ich richte es ihm aus.* — I'll let him know.
 
 ## Dialogue: a job interview
@@ -131,7 +133,7 @@ Jonas has applied for a job in the office of a printing company. Frau Brandt fro
 >
 > Jonas: Ich bin für die Kunden zuständig. Ich telefoniere viel, schreibe Angebote und erledige die Post. Manchmal muss ich auch Verträge vorbereiten.
 >
-> Frau Brandt: Bei uns gibt es oft viel zu tun. Haben Sie kein Problem damit, auch mal Überstunden zu machen?
+> Frau Brandt: Bei uns gibt es oft viel zu tun. Ist es für Sie ein Problem, auch mal Überstunden zu machen?
 >
 > Jonas: Nein, das ist in Ordnung. Ich versuche immer, meine Arbeit pünktlich fertig zu machen.
 >
@@ -153,7 +155,7 @@ In English:
 >
 > Jonas: I'm responsible for the customers. I'm on the phone a lot, write quotes and deal with the mail. Sometimes I also have to prepare contracts.
 >
-> Ms Brandt: There's often a lot to do here. Do you have a problem with doing overtime now and then?
+> Ms Brandt: There's often a lot to do here. Is it a problem for you to do overtime now and then?
 >
 > Jonas: No, that's fine. I always try to finish my work on time.
 >
@@ -180,6 +182,8 @@ Notice *jetzig* (current), *vorbereiten* (to prepare), *sich melden* (to get in 
 > Herr Vogel: Einen Moment … Der Vertrag liegt hier auf ihrem Schreibtisch. Ich drucke ihn aus und schicke ihn Ihnen heute noch.
 >
 > Frau Sommer: Wunderbar, vielen Dank!
+
+In English:
 
 > Mr Vogel: Lindner company, Vogel speaking.
 >

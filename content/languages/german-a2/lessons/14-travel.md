@@ -32,7 +32,7 @@ You know some of these from A1. Here they are side by side:
 - *In drei Wochen fliegen wir nach Portugal.* — We're flying to Portugal in three weeks.
 - *Der Zug fährt in zehn Minuten ab.* — The train leaves in ten minutes.
 
-Plurals in the dative take an extra *-n*: *vor zwei Tagen, in drei Wochen, vor vielen Jahren*. *Monat* and *Jahr* add *-en*: *vor zwei Monaten, in fünf Jahren*.
+Plural nouns in the dative end in *-n*: *Tage → vor zwei Tagen*, *Monate → vor zwei Monaten*, *Jahre → in fünf Jahren*. Plurals that already end in *-n* don't change: *in drei Wochen, vor zwei Stunden*.
 
 ### seit or für?
 
@@ -134,7 +134,7 @@ These words describe a place (*Wo?*). For a direction (*Wohin?*), put *nach* in 
 | *drinnen* — inside, indoors | *nach drinnen* (or *rein*) — inside, in |
 
 - *Das Zimmer ist oben, im zweiten Stock.* — The room is upstairs, on the second floor.
-- *Bringen Sie das Gepäck bitte nach oben?* — Could you take the luggage upstairs?
+- *Bringen Sie das Gepäck bitte nach oben?* — Will you take the luggage upstairs, please?
 - *Bei schönem Wetter frühstücken wir draußen.* — In nice weather we have breakfast outside.
 - *Es regnet, lass uns drinnen bleiben.* — It's raining, let's stay inside.
 

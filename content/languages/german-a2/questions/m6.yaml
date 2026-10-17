@@ -133,10 +133,10 @@
   lesson: de2-celebrations
   topic: Dates
   stem: 'Which ordinal is spelled correctly?'
-  choices: ['der siebente', 'der dreite', 'der siebte', 'der einste']
+  choices: ['der achtte', 'der dreite', 'der siebte', 'der einste']
   answer: 2
   explanation: |-
-    The irregular ordinals are erste, dritte, siebte and achte. "dreite" and "einste" don't exist; "siebente" is an old-fashioned variant you may see, but the standard form today is "siebte".
+    The irregular ordinals are erste, dritte, siebte and achte. "dreite", "einste" and "achtte" don't exist: achte has only one t. (You may also see the longer variant "siebente".)
 - id: de2-q-2205
   lesson: de2-celebrations
   topic: Pronouns
@@ -275,7 +275,7 @@
 - id: de2-q-2309
   lesson: de2-writing
   topic: Register
-  stem: 'Find the mistake: "Liebe Frau Brandt, kannst du mir bitte die Aufgaben schicken? Viele Grüße, Sofia"'
+  stem: 'Find the mistake: "Liebe Frau Brandt, kannst du mir bitte die Aufgaben schicken? Viele Grüße"'
   choices: ['"Liebe" should be "Lieber".', '"kannst du" should be "können Sie".', '"Viele Grüße" is too informal for a teacher.', '"kannst" should start with a capital letter.']
   answer: 1
   explanation: |-

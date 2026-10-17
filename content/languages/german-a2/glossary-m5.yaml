@@ -7,31 +7,11 @@
   aliases: [infinitive clauses, infinitive group, Infinitivgruppe, Infinitivsatz]
   definition: 'A group of words ending in zu + infinitive that works like a short clause without its own subject: in Ich versuche, den Bericht heute zu schreiben, the clause is "den Bericht heute zu schreiben". The person doing it is the subject of the main sentence. It usually follows a comma.'
   topic: Word order
-- term: separable verb
-  aliases: [separable verbs, trennbares Verb, separable prefix]
-  definition: 'A verb with a stressed prefix (an-, auf-, ab-, ein-, mit-, zurück-, durch- …) that splits off and goes to the end in a main clause: anrufen → Ich rufe dich an. The prefix joins up again at the end of a subordinate clause (weil ich dich anrufe), in the perfect (angerufen) and around zu (anzurufen).'
-  topic: Verbs
 - term: genitive
   aliases: [genitive case, Genitiv]
   definition: 'The fourth German case, used mainly to show possession in writing: das Auto meines Bruders (my brother''s car), am Ende der Woche. Articles: des/eines (masculine and neuter, and the noun adds -s or -es), der/einer (feminine and plural). In everyday speech von + dative usually replaces it: das Auto von meinem Bruder.'
   topic: Cases
-- term: dative
-  aliases: [dative case, Dativ]
-  definition: 'The case used after the prepositions aus, bei, mit, nach, seit, von and zu, for the indirect object, and after verbs like helfen and gefallen. Articles: dem/einem (masculine and neuter), der/einer (feminine), den (plural, and the noun adds -n): von meinem Bruder, seit einer Woche, mit den Kindern.'
-  topic: Cases
-- term: indirect question
-  aliases: [indirect questions, embedded question, indirekte Frage]
-  definition: 'A question tucked inside another sentence, often to sound polite: Können Sie mir sagen, wo der Bahnhof ist? W-questions keep the question word; yes/no questions use ob (whether). The conjugated verb goes to the end, as in any subordinate clause.'
-  topic: Word order
 - term: imperative
   aliases: [imperatives, Imperativ, command form]
   definition: 'The verb form for instructions and requests, with the verb first. Sie form: Nehmen Sie die Tabletten! du form: the present du form without du and -st, with e→i changes kept (Nimm! Iss! Bleib!). ihr form: the ihr form without ihr (Nehmt!). bitte makes it polite.'
-  topic: Verbs
-- term: present tense
-  aliases: [Präsens, present]
-  definition: 'The verb form for now, for habits and, with a time word, for the future. With seit it also covers something that started in the past and is still going on, where English uses "have been" or "have had": Ich wohne seit 2019 in Wien — I''ve lived in Vienna since 2019.'
-  topic: Verbs
-- term: Konjunktiv II
-  aliases: [subjunctive II, subjunctive, conditional mood]
-  definition: 'The verb mood for wishes, polite requests, advice and things that aren''t real. At A2 you use set forms: würde + infinitive, hätte, wäre, könnte, sollte (you should) and müsste (you really ought to / would have to). Example: Sie sollten ein paar Tage im Bett bleiben.'
   topic: Verbs

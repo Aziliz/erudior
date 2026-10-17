@@ -129,7 +129,8 @@
   - Er hat auf den Tisch gelegen.
   answer: 1
   explanation: 'A key lying somewhere is a position: liegen + dative, auf dem Tisch. "Auf den Tisch" is
-    the accusative (for movement), and "Er legt" is the putting verb, which needs an object.'
+    the accusative (for movement), and "Er legt" is the putting verb, which needs an object. "Er hat auf
+    den Tisch gelegen" mixes the dative verb with the accusative.'
 - id: de2-q-1311
   lesson: de2-two-way
   topic: Position verbs
@@ -199,7 +200,7 @@
   lesson: de2-travel
   module_quiz: true
   topic: Time prepositions
-  stem: Which sentence is correct?
+  stem: You started learning German two years ago and you are still learning it. Which sentence is correct?
   choices:
   - Ich lerne Deutsch für zwei Jahre.
   - Ich habe Deutsch seit zwei Jahren gelernt.
@@ -493,11 +494,12 @@
   choices:
   - Dürfte
   - Durfte
-  - Darf es
+  - Dürften
   - Dürfe
   answer: 0
   explanation: '"Dürfte ich …?" (might I …?) is the Konjunktiv II of "dürfen": past "durfte" + umlaut.
-    "Durfte" without the umlaut means "was allowed to"; "Dürfe" is not used here.'
+    "Durfte" without the umlaut means "was allowed to", "Dürften" is the wir/sie/Sie form, and "Dürfe"
+    is not used here.'
 - id: de2-q-1601
   lesson: de2-connectors
   module_quiz: true

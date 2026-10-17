@@ -167,7 +167,7 @@ Notes: *seit einer halben Stunde* (for half an hour) and *ein kleines Problem* c
 | *die Verabredung* | arrangement to meet, date |
 | *der Traum* | dream |
 
-*Bekannte* is unusual: it is an adjective used as a noun, so its ending changes with the article. *der Bekannte* but *ein Bekannter*, *die Bekannte* and *eine Bekannte*, plural *die Bekannten*: *Das ist ein Bekannter von mir.* — That's an acquaintance of mine. *lieben* is strong: *Ich liebe dich* is for partners and family. For friends and things you like, *mögen* or *gern haben* is more usual: *Ich mag dich. Ich hab dich gern.*
+*Bekannte* is unusual: it is an adjective used as a noun, so its ending changes with the article. *der Bekannte* but *ein Bekannter*, *die Bekannte* and *eine Bekannte*, plural *die Bekannten*: *Das ist ein Bekannter von mir.* — That's an acquaintance of mine. *lieben* is a strong word: *Ich liebe dich* is for partners and family. For friends and things you like, *mögen* or *gern haben* is more usual: *Ich mag dich. Ich hab dich gern.*
 
 ## Pronunciation
 

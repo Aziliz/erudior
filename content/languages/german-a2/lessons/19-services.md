@@ -24,7 +24,7 @@ The grammar builds on lessons 3, 4 and 15. You'll practise the polite **indirect
 | *Geld einzahlen* | to pay money in |
 | *überweisen / die Überweisung* | to transfer / bank transfer |
 
-German life runs on the *Girokonto*: your salary arrives there, and your rent goes out by *Überweisung*. Many Germans still pay cash, so you'll often hear *Ich muss noch schnell Geld abheben.* — I just need to get some cash. The card most people use is called *EC-Karte* in everyday speech (its official name is now *Girocard*).
+German life runs on the *Girokonto*: your salary arrives there, and your rent goes out by *Überweisung*. Many Germans still pay cash, so you'll often hear *Ich muss noch schnell Geld abheben.* — I just need to get some cash. The card most people use is still called *EC-Karte* in everyday speech, although its official name has been *Girocard* since 2007 (and many banks now issue Visa or Mastercard debit cards instead).
 
 Watch the verbs:
 
@@ -35,13 +35,13 @@ Watch the verbs:
 
 *die Behörde* is any public authority; *das Amt* (plural *die Ämter*) is a specific office: *das Finanzamt* (tax office), *das Standesamt* (registry office, where civil weddings happen). In big cities, the office for passports and addresses is *das Bürgeramt* (in some towns *Bürgerbüro*).
 
-In Germany, when you move into a new flat you must register your address there within two weeks: *Sie müssen sich beim Bürgeramt anmelden.* You met *sich anmelden* in lesson 18 for courses; here it means to register an address. Afterwards you get a *Meldebescheinigung*, a certificate of registration. *die Bescheinigung* is any official confirmation on paper.
+In Germany, when you move into a new flat you must register your address there within two weeks of moving in: *Sie müssen sich beim Bürgeramt anmelden.* (Austria is stricter: three days.) You met *sich anmelden* in lesson 18 for courses; here it means to register an address. You get a written confirmation on the spot (*die Meldebestätigung*), and if you later need official proof of your address, you can ask for a *Meldebescheinigung*. *die Bescheinigung* is any official certificate or confirmation on paper.
 
-To get anything from an authority, you fill in *einen Antrag* — an application form, a request: *Ich möchte einen neuen Pass beantragen.* — I'd like to apply for a new passport. *beantragen* is inseparable: *Ich habe einen Pass beantragt.* Compare *sich bewerben* (lesson 17), which is for jobs and places, never for documents.
+To get anything from an authority, you fill in and submit (*stellen*) *einen Antrag* — an application form, a request: *Ich möchte einen neuen Pass beantragen.* — I'd like to apply for a new passport. *beantragen* is inseparable: *Ich habe einen Pass beantragt.* Compare *sich bewerben* (lesson 17), which is for jobs and places, never for documents.
 
 ## Insurance, damage and the police
 
-*die Versicherung* means both insurance and the insurance company. *versichern* is to insure: *Ist das Fahrrad versichert?* — Is the bike insured? Almost every household in Germany has *eine Haftpflichtversicherung*, which pays if you damage someone else's things.
+*die Versicherung* means both insurance and the insurance company. *versichern* is to insure: *Ist das Fahrrad versichert?* — Is the bike insured? Most households in Germany (about 85 percent) have *eine Haftpflichtversicherung*, which pays if you damage someone else's things.
 
 If something happens, you *melden* it — report it: *Ich möchte einen Schaden melden.* — I'd like to report some damage. *der Schaden* (plural *die Schäden*) is damage or a loss. A theft goes to *die Polizei*: *Wir haben den Diebstahl bei der Polizei gemeldet.* — We reported the theft to the police. (*der Diebstahl* = theft.)
 
@@ -100,7 +100,7 @@ In the perfect, when *lassen* has a second verb, you'll see two infinitives at t
 
 ### Spelling and numbers
 
-Offices always want your name spelled. You can spell with words: *M wie Martha*. The traditional German spelling alphabet uses first names (*A wie Anton, B wie Berta, C wie Cäsar*); a newer official version uses city names (*A wie Aachen, B wie Berlin*). Either is understood.
+Offices always want your name spelled. You can spell with words: *M wie Martha*. The traditional German spelling alphabet uses first names (*A wie Anton, B wie Berta, C wie Cäsar*) and is still what most people use; since 2022 the official standard (DIN 5009) uses city names instead (*A wie Aachen, B wie Berlin, C wie Chemnitz*). Either is understood.
 
 Phone numbers are read in single digits or in pairs: *0 30 – 45 67 89* is *null drei null, vier fünf, sechs sieben, acht neun* or *null dreißig, fünfundvierzig, siebenundsechzig, neunundachtzig*. On the phone, many people say *zwo* for *zwei* so it isn't confused with *drei*.
 
@@ -134,7 +134,7 @@ Sara's wallet was stolen on the tram. She calls her bank.
 >
 > Bank: Das kann ich Ihnen leider nicht sagen. Da verbinde ich Sie mit meiner Kollegin. Einen Moment, bitte … Hm, es ist besetzt. Soll sie Sie zurückrufen?
 >
-> Sara: Ja, gern. Meine Nummer ist null eins sieben sechs, zwo drei, vier fünf, sechs sieben.
+> Sara: Ja, gern. Meine Nummer ist null eins sieben sechs, zwo drei, vier fünf, sechs sieben, acht neun.
 
 In English:
 
@@ -160,9 +160,9 @@ In English:
 >
 > Bank: I'm afraid I can't tell you that. I'll put you through to my colleague. One moment, please … Hm, it's busy. Shall she call you back?
 >
-> Sara: Yes, please. My number is 0176 23 45 67.
+> Sara: Yes, please. My number is 0176 23 45 67 89.
 
-*sperren* = to block (a card); *stehlen* = to steal (*hat gestohlen*); *die Filiale* = branch. *Man hat mir das Portemonnaie gestohlen* is how Germans report a theft when they don't know who did it.
+*sperren* = to block (a card; in Germany you can also block cards at any time on *116 116*); *stehlen* = to steal (*hat gestohlen*); *die Filiale* = branch. *Man hat mir das Portemonnaie gestohlen* is how Germans report a theft when they don't know who did it.
 
 ## A message on the answering machine
 

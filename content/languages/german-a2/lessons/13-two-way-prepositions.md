@@ -53,7 +53,7 @@ You already know *im* (in dem) and *am* (an dem) for the dative. The accusative 
 | *in das* | *ins* | accusative | *ins Schlafzimmer* — into the bedroom |
 | *an das* | *ans* | accusative | *ans Fenster* — to the window |
 
-In speech you will also hear *aufs* (auf das): *aufs Sofa*. It is fine in conversation; in careful writing use *auf das*.
+You will also meet *aufs* (auf das): *aufs Sofa*. It is correct in writing too, just less frequent than *ins* and *ans*.
 
 ## Put and be: five verb pairs
 
@@ -78,13 +78,13 @@ English uses "put" for almost everything and "is" for almost every position. Ger
 - *Sie steckt den Schlüssel in die Tasche.* — She puts the key in her bag.
   *Der Schlüssel steckt in der Tasche.* — The key is in the bag.
 
-How do you know whether something *steht* or *liegt*? Ask how it rests. A book standing on a shelf *steht*; the same book lying flat on the table *liegt*. A plate on the table *steht* in German (it rests on its base), and so do cups and glasses. Cities also "lie": *Wien liegt an der Donau* (Vienna lies on the Danube).
+How do you know whether something *steht* or *liegt*? Ask how it rests. A book standing on a shelf *steht*; the same book lying flat on the table *liegt*. A plate on the table usually *steht* in German (it rests on its base), and so do cups and glasses. Cities also "lie": *Wien liegt an der Donau* (Vienna lies on the Danube).
 
 ### Why there are two verbs: a memory hook
 
 Look at the pairs again. The putting verbs (*stellen, legen, setzen*) all have an *e* and are regular, like *machen*. They always have a **direct object**: you put *something*. The being verbs (*stehen, liegen, sitzen*) have other vowels, are irregular, and never take an object. So: *e* for effort (you do something to an object, and the object goes into the accusative).
 
-*hängen* and *stecken* look the same in both meanings. Only the case after the preposition, and the perfect of *hängen*, tell them apart.
+*hängen* and *stecken* look the same in both meanings. Only the object, the case after the preposition and the perfect of *hängen* tell them apart. (*stecken* is regular in both meanings: *hat gesteckt*.)
 
 ### The perfect forms
 
@@ -101,7 +101,7 @@ Look at the pairs again. The putting verbs (*stellen, legen, setzen*) all have a
 - *Ich habe die Jacke an die Tür gehängt.* — I hung the jacket on the door.
 - *Die Jacke hat an der Tür gehangen.* — The jacket was hanging on the door.
 
-In southern Germany, Austria and Switzerland, *stehen, liegen* and *sitzen* form the perfect with *sein*: *Ich bin lange gesessen.* You will hear it there; in standard German from the north, use *haben*.
+In southern Germany, Austria and Switzerland, *stehen, liegen* and *sitzen* form the perfect with *sein*: *Ich bin lange gesessen.* That is correct there; in the rest of Germany people use *haben*, and this course does too.
 
 ### Other verbs with Wo? and Wohin?
 
@@ -123,7 +123,7 @@ Both are separable and form the perfect with *sein*, like *umziehen*. (*die WG*,
 The people and the money:
 
 - *der Vermieter* (landlord) rents the flat to *der Mieter* (tenant). You know *mieten* (to rent) and *die Miete* (rent).
-- *die Kaution* — the deposit, often up to three months' rent: *Die Kaution bekommen Sie zurück, wenn Sie ausziehen.*
+- *die Kaution* — the deposit, by law at most three months' rent (without the extra costs): *Die Kaution bekommen Sie zurück, wenn Sie ausziehen.*
 - *die Nebenkosten* — the extra costs for heating, water and rubbish collection, paid on top of the rent. An advert might say: *Miete 650 € plus 180 € Nebenkosten.*
 
 Most of the things appear in the dialogue below. A few more: *die Möbel* (furniture) is a plural word: *Die Möbel kommen morgen.* *Die Decke* is both a blanket and the ceiling: *Die Lampe hängt an der Decke.* The dishwasher (*die Spülmaschine*) stands in the kitchen, and *der Müll* (rubbish) goes into the bin outside.
@@ -136,7 +136,7 @@ Lena is moving into her first flat. Her friend Tarek is helping.
 
 > Tarek: So, das ist der letzte Karton. Wohin soll ich ihn stellen?
 >
-> Lena: Was steht denn drauf? Ah, „Küche". Stell ihn bitte neben den Herd.
+> Lena: Was steht denn drauf? Ah, „Küche“. Stell ihn bitte neben den Herd.
 >
 > Tarek: Und die große Kiste mit den Büchern? Die ist wirklich schwer!
 >
@@ -150,7 +150,7 @@ Lena is moving into her first flat. Her friend Tarek is helping.
 >
 > Lena: Die liegen in dem blauen Sack auf dem Balkon. Leg sie einfach aufs Sofa.
 >
-> Tarek: Puh. Darf ich mich jetzt mal fünf Minuten setzen?
+> Tarek: Puh. Darf ich mich jetzt mal kurz setzen?
 >
 > Lena: Natürlich! Setz dich! Ich hole uns etwas zu trinken. Das Bier steht schon im Kühlschrank.
 >
@@ -176,7 +176,7 @@ In English:
 >
 > Lena: They're in the blue bag on the balcony. Just put them on the sofa.
 >
-> Tarek: Phew. Can I sit down for five minutes now?
+> Tarek: Phew. Can I sit down for a moment now?
 >
 > Lena: Of course! Sit down! I'll get us something to drink. The beer is already in the fridge.
 >
@@ -211,7 +211,7 @@ Look at the pairs: *stell ihn neben den Herd* (accusative, putting) against *Das
 - Accusative = arrow, dative = dot.
 - Contractions: *im, am* (dative), *ins, ans* (accusative).
 - Putting verbs are regular and take an object: *stellen, legen, setzen, hängen (gehängt), stecken* + accusative.
-- Being verbs are irregular and have no object: *stehen (gestanden), liegen (gelegen), sitzen (gesessen), hängen (gehangen), stecken* + dative.
+- Being verbs have no object: *stehen (gestanden), liegen (gelegen), sitzen (gesessen), hängen (gehangen)* are irregular; *stecken (gesteckt)* is regular in both meanings. They take the dative.
 - *stehen* for things upright, *liegen* for things flat; *sich setzen* = to sit down.
 - *einziehen in* + accusative, *ausziehen aus* + dative; both use *sein* in the perfect.
 

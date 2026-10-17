@@ -47,7 +47,7 @@ The same idea three ways:
 
 | Connector | Meaning | Example |
 |---|---|---|
-| *und* | and | *Ich arbeite in Teilzeit, und meine Frau arbeitet Vollzeit.* |
+| *und* | and | *Ich arbeite in Teilzeit, und meine Frau arbeitet in Vollzeit.* |
 | *aber* | but | *Der Kurs ist teuer, aber er ist sehr gut.* |
 | *oder* | or | *Zahlen Sie bar, oder möchten Sie mit Karte zahlen?* |
 | *denn* | because (for) | *Ich lerne Deutsch, denn ich möchte in Wien arbeiten.* |
@@ -136,12 +136,12 @@ Put a frame in front of a question and the verb moves to the end.
 
 In the middle of the sentence, information usually comes in this order: when (time), how or with whom (manner), where to or where (place). A memory hook: *te-ka-mo-lo* (temporal, kausal, modal, lokal: when, why, how, where).
 
-| Subject + verb | Time (wann?) | Manner (wie? mit wem? warum?) | Place (wo? wohin?) |
+| Subject + verb | Time (wann?) | Manner (wie? mit wem?) | Place (wo? wohin?) |
 |---|---|---|---|
 | *Ich fahre* | *morgen* | *mit dem Zug* | *nach Berlin.* |
 | *Wir gehen* | *am Samstag* | *zusammen* | *ins Kino.* |
 | *Sie arbeitet* | *seit 2020* | *in Teilzeit* | *in einer Bank.* |
-| *Er ist* | *gestern* | *wegen des Wetters* | *zu Hause geblieben.* |
+| *Er ist* | *gestern* | *mit dem Fahrrad* | *zur Arbeit gefahren.* |
 
 Other points:
 

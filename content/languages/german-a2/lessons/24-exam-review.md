@@ -13,11 +13,11 @@ This is the last lesson of German A2. Like the last lesson of A1, it does three 
 
 A2 is the second level of the **CEFR**, the Common European Framework of Reference for Languages. In plain words, someone at A2:
 
-- understands sentences and frequent expressions about the areas of life closest to them: their family, shopping, where they live, their work;
-- can manage simple, routine situations that need a direct exchange of information on familiar topics;
-- can describe, in simple terms, their background, their surroundings and the things they need right now.
+- can follow short, clear sentences about the everyday things that matter to them: family, shopping, home, work, the local area;
+- can get through simple everyday situations where people swap information directly: buying, booking, arranging a time, asking the way;
+- can say in simple words where they come from, what their life is like and what they need.
 
-The biggest difference (*der Unterschied*) from A1: you no longer depend on the other person speaking slowly and helping all the time. You can tell a short story in the past (lessons 1–2), give reasons and opinions (lesson 3), describe people and things in detail (lessons 8–12), and handle offices, doctors, shops and messages (lessons 17–23). Conversations on unfamiliar or abstract topics are still hard, and that is normal: that is B1.
+The biggest difference (*der Unterschied*) from A1: you no longer depend on the other person speaking slowly and helping all the time. You can tell a short story in the past (lessons 1–2), give reasons and opinions (lesson 3), describe people and things in detail (lessons 8–12), and handle shops, offices, doctors and messages (lessons 10–11 and 17–23). Conversations on unfamiliar or abstract topics are still hard, and that is normal: that is B1.
 
 ## The Goethe-Zertifikat A2
 
@@ -25,8 +25,8 @@ The adult version of the exam has four parts. Lesen, Hören and Schreiben are ta
 
 | part | time | parts | what you do |
 |---|---|---|---|
-| Lesen (reading) | 30 minutes | 4 | a newspaper article; an information board (for example in a building or a shop); a personal e-mail; matching people to small ads |
-| Hören (listening) | about 30 minutes | 4 | announcements and phone messages; a conversation whose details you match to pictures; short everyday conversations; a radio interview |
+| Lesen (reading) | 30 minutes | 4 | a short newspaper or magazine text; an information board (for example in a building or a shop); a personal e-mail; matching people to small ads |
+| Hören (listening) | about 30 minutes | 4 | short announcements, radio items and phone messages; a conversation whose details you match to pictures; short everyday conversations; a radio interview |
 | Schreiben (writing) | 30 minutes | 2 | an informal SMS of 20–30 words; a semi-formal e-mail of 30–40 words; each covers three content points |
 | Sprechen (speaking) | about 15 minutes | 3 | in pairs, with no preparation time: asking and answering questions with word cards; talking about your own life; planning an appointment together |
 
@@ -55,7 +55,7 @@ Dates, fees and details can change, so check with the exam centre where you regi
 - Read the task and the questions first, then the text. You are looking for specific information, not translating every word.
 - In matching tasks (people and ads), underline the key need of each person: a time, a price, an age, a place. Then look for an ad that fits all of it, not just one word. Watch out: one person may have no matching ad.
 - If you don't know the meaning (*die Bedeutung*) of a word, guess it from the context and move on.
-- Information boards are lists of floors, departments or offices: scan, don't read. The vocabulary of lessons 10, 13 and 19 helps.
+- Information boards are lists of floors, departments or offices: scan, don't read. The vocabulary of lessons 10, 14 and 19 helps.
 - Read the small words carefully (*genau lesen*): *nur, nicht, kein, schon, noch nicht, erst*. They often decide the answer. A *Hinweis* (note) in small print may be important too.
 
 ### Hören
