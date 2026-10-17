@@ -132,7 +132,7 @@ Kemal is in his second year at a Fachhochschule. He writes to a friend who alrea
 >
 > wie geht es dir in Berlin? Bei mir ist gerade viel los. Ich bin jetzt im vierten Semester, und im Sommer muss ich ein Praktikum machen, um meinen Bachelor abzuschließen. Ich habe mich bei drei Firmen beworben, aber bis jetzt hat niemand geantwortet.
 >
-> Gestern war ich bei der Studienberatung, um mir Tipps zu holen. Die Beraterin hat gesagt, dass ich meinen Lebenslauf ändern soll, damit man meine Qualifikationen besser sieht. Ich hatte zum Beispiel meine Programmierkenntnisse ganz unten geschrieben, statt sie gleich am Anfang zu nennen. Außerdem braucht man für viele Praktika gute Englischkenntnisse. Deshalb besuche ich jetzt zusätzlich ein Seminar auf Englisch.
+> Gestern war ich bei der Studienberatung, um mir Tipps zu holen. Die Beraterin hat gesagt, dass ich meinen Lebenslauf ändern soll, damit man meine Qualifikationen besser sieht. Ich hatte zum Beispiel meine Programmierkenntnisse ganz nach unten geschrieben, statt sie gleich am Anfang zu nennen. Außerdem braucht man für viele Praktika gute Englischkenntnisse. Deshalb besuche ich jetzt zusätzlich ein Seminar auf Englisch.
 >
 > Deine Firma sucht doch auch Praktikanten, oder? Könntest du mir sagen, welche Voraussetzungen man braucht? Du brauchst natürlich nicht mit deinem Chef zu sprechen, ich will nur wissen, ob sich eine Bewerbung lohnt. Ich möchte mich nicht bewerben, ohne etwas über die Firma zu wissen.
 >

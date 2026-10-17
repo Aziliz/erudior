@@ -5,11 +5,11 @@
   lesson: de3-obwohl
   module_quiz: true
   topic: Concession
-  stem: 'Complete: "Ich kaufe mir die Jacke, ___ sie sehr teuer ist."'
+  stem: 'Complete: "Ich kaufe mir die Jacke, ___ ich eigentlich kein Geld mehr habe."'
   choices: ['obwohl', 'weil', 'trotzdem', 'deshalb']
   answer: 0
   explanation: |-
-    The jacket is expensive, and yet I buy it: the fact should stop the action but doesn't, so it is obwohl, and the verb "ist" goes to the end. weil would give a reason (I buy it because it's expensive). trotzdem and deshalb are adverbs and would need the verb straight after them.
+    I have no money left, and yet I buy the jacket: the fact should stop the action but doesn't, so it is obwohl, and the verb "habe" goes to the end. weil would make having no money the reason for buying it, which makes no sense. trotzdem and deshalb are adverbs and would need the verb straight after them.
 - id: de3-q-0602
   lesson: de3-obwohl
   topic: Concession
@@ -183,11 +183,11 @@
 - id: de3-q-0710
   lesson: de3-um-zu-damit
   topic: Purpose
-  stem: 'Which sentence is the best style for "I work in a café to finance my studies."?'
-  choices: ['Ich arbeite in einem Café, für mein Studium zu finanzieren.', 'Ich arbeite in einem Café, um mein Studium zu finanzieren.', 'Ich arbeite in einem Café, damit finanziere ich mein Studium.', 'Ich arbeite in einem Café, um mein Studium finanzieren.']
+  stem: 'Which sentence is correct for "I work in a café to finance my studies."?'
+  choices: ['Ich arbeite in einem Café, für mein Studium zu finanzieren.', 'Ich arbeite in einem Café, um mein Studium zu finanzieren.', 'Ich arbeite in einem Café, damit ich finanziere mein Studium.', 'Ich arbeite in einem Café, um mein Studium finanzieren.']
   answer: 1
   explanation: |-
-    One subject, one goal: um … zu + infinitive at the end. "für … zu" is not German for purpose. "damit finanziere ich" uses damit as an adverb (with that), which is possible as a new sentence but not as the purpose clause asked for. The last choice is missing zu.
+    One subject, one goal: um … zu + infinitive at the end. "für … zu" is not German for purpose. The conjunction damit sends the verb to the end ("damit ich mein Studium finanziere"), so "damit ich finanziere mein Studium" has the wrong word order. The last choice is missing zu.
 - id: de3-q-0711
   lesson: de3-um-zu-damit
   topic: Infinitive clauses
@@ -269,7 +269,7 @@
   module_quiz: true
   topic: Reading
   stem: |-
-    Read the letter. "Sehr geehrte Frau Peters, vielen Dank für Ihre Schadensmeldung. Da der Unfall in Ihrer Wohnung passiert ist, zahlt Ihre Haftpflichtversicherung den Schaden beim Nachbarn. Leider fehlt noch die Rechnung für die Reparatur. Falls Sie keine Rechnung haben, genügt ein Kostenvoranschlag. Bitte schicken Sie uns das Dokument innerhalb von 14 Tagen. Die Selbstbeteiligung beträgt 100 Euro." What does Ms Peters have to do?
+    Read the letter. "Sehr geehrte Frau Peters, vielen Dank für Ihre Schadensmeldung. Da das Wasser aus Ihrer Waschmaschine kam, zahlt Ihre Haftpflichtversicherung den Schaden beim Nachbarn. Leider fehlt noch die Rechnung für die Reparatur. Falls Sie keine Rechnung haben, genügt ein Kostenvoranschlag. Bitte schicken Sie uns das Dokument innerhalb von 14 Tagen. Die Selbstbeteiligung beträgt 100 Euro." What does Ms Peters have to do?
   choices: ['Pay for the neighbour''s repair herself.', 'Call the neighbour within 14 days.', 'Take out new liability insurance.', 'Send the repair invoice or an estimate within 14 days.']
   answer: 3
   explanation: |-
@@ -285,11 +285,11 @@
 - id: de3-q-0810
   lesson: de3-da-falls
   topic: Reasons and results
-  stem: 'Which sentence uses "da" most naturally?'
+  stem: 'Which sentence uses the conjunction "da" (since, as) correctly?'
   choices: ['Ich bin müde, da ich habe schlecht geschlafen.', 'Da der Laden um 18 Uhr schließt, müssen wir uns beeilen.', 'Da müssen wir uns beeilen, der Laden schließt um 18 Uhr.', 'Warum beeilst du dich? – Da der Laden bald schließt.']
   answer: 1
   explanation: |-
-    The conjunction da sends the verb to the end and usually comes first, giving a known reason: "Da der Laden um 18 Uhr schließt, …". The first choice has main-clause order after da, the third uses da as "there/then", and da can't be a short answer to Warum?
+    The conjunction da sends the verb to the end and usually comes first, giving a known reason: "Da der Laden um 18 Uhr schließt, …". The first choice has main-clause order after da, the third uses the adverb da ("then, in that case"), not the conjunction, and da can't be a short answer to Warum?
 - id: de3-q-0811
   lesson: de3-da-falls
   topic: Insurance
@@ -456,10 +456,10 @@
   lesson: de3-je-desto
   topic: Comparison
   stem: 'How do you say "More and more people are going to the gym."?'
-  choices: ['Immer mehr Leute gehen ins Fitnessstudio.', 'Mehr und mehr Leute gehen ins Fitnessstudio.', 'Immer mehrere Leute gehen ins Fitnessstudio.', 'Je mehr Leute gehen ins Fitnessstudio.']
+  choices: ['Immer mehr Leute gehen ins Fitnessstudio.', 'Immer mehr Leute ins Fitnessstudio gehen.', 'Immer mehrere Leute gehen ins Fitnessstudio.', 'Je mehr Leute gehen ins Fitnessstudio.']
   answer: 0
   explanation: |-
-    immer + comparative describes a growing trend: immer mehr Leute. "mehr und mehr" is a translation from English and sounds unnatural. mehrere means "several", and je needs a desto part and the verb at the end.
+    immer + comparative describes a growing trend: immer mehr Leute. "Immer mehr Leute" is the subject in position 1 of a main clause, so the verb comes second, not at the end. mehrere means "several", and je needs a desto part and the verb at the end.
 - id: de3-q-1007
   lesson: de3-je-desto
   topic: Comparison

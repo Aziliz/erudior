@@ -47,7 +47,7 @@ You met *falls* in A2. It's a **conditional clause** like *wenn*, but it stresse
 
 Letters and contracts often use a noun phrase instead: *im Fall eines Unfalls* (in the event of an accident; a genitive, lesson 13), *im Schadensfall* (in the event of a claim), or *für den Fall, dass …* (in case …): *Für den Fall, dass Sie umziehen, informieren Sie uns bitte schriftlich.*
 
-English speakers often use *falls* for "in case" in the sense of "as a precaution": *Ich nehme einen Schirm mit, falls es regnet.* — I'm taking an umbrella in case it rains. That's correct German too.
+*falls* also covers English "in case" in the sense of "as a precaution": *Ich nehme einen Schirm mit, falls es regnet.* — I'm taking an umbrella in case it rains.
 
 ## sodass and so … dass: so that, with the result that
 
@@ -71,7 +71,7 @@ You know *deshalb*. Four more adverbs mean the same, "so, therefore, that's why"
 
 | adverb | style | example |
 |---|---|---|
-| *deshalb* | neutral | *Ich hatte einen Unfall, deshalb bin ich zu spät.* |
+| *deshalb* | neutral | *Ich hatte einen Unfall, deshalb komme ich zu spät.* |
 | *deswegen* | neutral, common in speech | *Das Handy war nicht versichert, deswegen muss ich alles selbst bezahlen.* |
 | *darum* | spoken | *Es ist billiger, darum habe ich es genommen.* |
 | *daher* | written, formal | *Die Unterlagen sind nicht vollständig. Daher können wir Ihren Antrag nicht bearbeiten.* |
@@ -109,7 +109,7 @@ One more trap: in German the adverb, not a conjunction, is used here, so it chan
 | *die Bedingung* | condition |
 | *das Kleingedruckte* | the small print |
 
-In Germany the *Haftpflichtversicherung* is the one most people have: it pays when you damage someone else's things, for example when your washing machine floods the neighbours' flat. *Anspruch* is a key word in official letters: *Sie haben Anspruch auf …* (You are entitled to …). *das Kleingedruckte* is an adjectival noun: *im Kleingedruckten*.
+In Germany the *Haftpflichtversicherung* is not compulsory, but most households have one: it pays when you damage someone else's things, for example when your washing machine floods the neighbours' flat. *Anspruch* is a key word in official letters: *Sie haben Anspruch auf …* (You are entitled to …). *das Kleingedruckte* is an adjectival noun: *im Kleingedruckten*.
 
 ## A letter: Ihre Schadensmeldung
 
@@ -126,7 +126,7 @@ Tobias's bike was stolen from the cellar. He reported it to his insurance compan
 > Wir bitten Sie, uns die fehlenden Dokumente innerhalb von 14 Tagen zu schicken. Nach Ablauf dieser Frist sind wir leider verpflichtet, den Fall zu schließen. Für Ausnahmen, zum Beispiel bei längerer Krankheit, wenden Sie sich bitte an Ihre Sachbearbeiterin, Frau Kurz.
 >
 > Mit freundlichen Grüßen
-> Ihre Nordstern Versicherung
+> Ihre Blauwal Versicherung
 
 In English:
 
@@ -141,7 +141,7 @@ In English:
 > We ask you to send us the missing documents within 14 days. After this deadline we are unfortunately obliged to close the case. For exceptions, for example in the case of a longer illness, please contact your case handler, Ms Kurz.
 >
 > Yours sincerely,
-> Nordstern Insurance
+> Blauwal Insurance
 
 Notes: *gestohlen wurde* is a passive (lessons 16–17): "was stolen". *grundsätzlich* = in principle; *im Rahmen* = within the scope of; *der Ersatz* = replacement, compensation; *genügen* = to be enough; *der Kontoauszug* = bank statement; *der Zeitwert* = current value; *nach Ablauf* = after the end of; *sich wenden an* = to contact, turn to. *innerhalb von* means "within". Find the connectors: *da* (known reason, first), *sodass* (result), *falls* (condition), *also* (conclusion).
 

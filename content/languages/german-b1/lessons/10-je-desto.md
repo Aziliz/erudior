@@ -56,7 +56,7 @@ You met this briefly in A2. *immer* + comparative describes a change that keeps 
 - *Immer mehr Menschen gehen ins Fitnessstudio.* — More and more people are going to the gym.
 - *Die Pausen werden immer kürzer.* — The breaks are getting shorter and shorter.
 
-Don't say ~~mehr und mehr~~ or ~~schneller und schneller~~ the English way. It isn't impossible, but it sounds translated.
+*mehr und mehr* exists, but it is less common and a bit literary; ~~schneller und schneller~~ sounds translated from English. Use *immer* + comparative.
 
 ## Comparatives and superlatives before a noun
 
@@ -93,7 +93,7 @@ Both are superlatives, but they are used differently:
 | *gut* | *besser*: *ein besseres Ergebnis* | *beste*: *das beste Ergebnis* |
 | *viel* | *mehr* (no ending) | *meiste*: *die meisten Spieler* |
 | *hoch* | *höher*: *ein höheres Gewicht* (no *c*) | *höchste*: *der höchste Berg* |
-| *nah* | *näher*: *der nähere Weg* | *nächste*: *das nächste Spiel* |
+| *nah* | *näher*: *die nähere Umgebung* (the immediate area) | *nächste*: *das nächste Spiel* |
 | *groß* | *größer*: *die größere Halle* | *größte*: *die größte Halle* (no extra *e*) |
 | *gern* | *lieber* | *liebste*: *mein liebster Sport* |
 
@@ -116,7 +116,7 @@ Note *die meisten*: *Die meisten Mitglieder trainieren abends.* — Most members
 
 *abnehmen* and *zunehmen* are separable and strong like *nehmen*: *Ich nehme ab, ich habe drei Kilo abgenommen.* *die Diät* is only a special diet to lose weight or for an illness; your normal way of eating is *die Ernährung*: *Er ernährt sich gesund. Eine ausgewogene Ernährung ist wichtig.*
 
-For competition: *der Verein* (club), *die Mannschaft* (team), *der Trainer / die Trainerin* (coach), *der Gegner / die Gegnerin* (opponent), *der Wettkampf* (competition, event), *das Turnier* (tournament), *die Meisterschaft* (championship), *der Sieg* (win, victory), *die Niederlage* (defeat), *der Rekord* (record). In Germany, most amateur sport happens in a *Verein*: there are nearly 90,000 sports clubs.
+For competition: *der Verein* (club), *die Mannschaft* (team), *der Trainer / die Trainerin* (coach), *der Gegner / die Gegnerin* (opponent), *der Wettkampf* (competition, event), *das Turnier* (tournament), *die Meisterschaft* (championship), *der Sieg* (win, victory), *die Niederlage* (defeat), *der Rekord* (record). In Germany, most amateur sport happens in a *Verein*: there are about 86,000 sports clubs.
 
 Adjectives for how you feel: *fit*, *aktiv*, *entspannt* (relaxed), *stressig* (stressful), and the noun *der Stress*: *Sport hilft gegen Stress.*
 

@@ -69,7 +69,7 @@ When the pair links two subjects, which form does the verb take?
 
 - *sowohl … als auch* adds the subjects together, so the verb is plural: *Sowohl mein Mitbewohner als auch ich arbeiten nachts.* — Both my flatmate and I work at night.
 - *entweder … oder*: the verb agrees with the subject nearest to it: *Entweder du oder deine Schwester muss den Müll rausbringen.* — Either you or your sister has to take out the rubbish. *Entweder die Kinder oder ich bin schuld.*
-- *weder … noch*: both singular and plural are used: *Weder der Vermieter noch die Hausmeisterin hat / haben sich gemeldet.* The plural is more common in speech.
+- *weder … noch*: with two singular subjects, both singular and plural are correct: *Weder der Vermieter noch die Hausmeisterin hat / haben sich gemeldet.*
 - *nicht nur … sondern auch*: the verb agrees with the nearest subject: *Nicht nur die Mieter, sondern auch der Eigentümer ist unzufrieden.*
 
 If this feels clumsy, you can always rephrase so that each subject has its own verb.
@@ -97,7 +97,7 @@ If this feels clumsy, you can always rephrase so that each subject has its own v
 
 ### Living together
 
-Every German apartment building has a *Hausordnung* (house rules), often in the stairwell. It usually sets *Ruhezeiten* (quiet hours), for example from 22 to 6 o'clock, and on Sundays. Key words:
+Almost every German apartment building has a *Hausordnung* (house rules), often in the stairwell. It usually sets *Ruhezeiten* (quiet hours), for example from 22 to 6 o'clock, and on Sundays. Key words:
 
 - *der Lärm* — noise: *Der Lärm von der Baustelle stört mich.*
 - *die Ruhe* — quiet, peace: *Ich brauche meine Ruhe.* — I need some peace.
@@ -109,7 +109,7 @@ Every German apartment building has a *Hausordnung* (house rules), often in the 
 
 On a forum for students, someone asked whether they should move into a WG. Ahmed replied.
 
-> Ich wohne seit drei Jahren in einer WG mit vier Mitbewohnern, und ich kann dir sagen: Eine WG ist entweder das Beste oder das Schlimmste, was dir passieren kann. Es kommt auf die Leute an.
+> Ich wohne seit drei Jahren in WGs, im Moment mit vier Mitbewohnern, und ich kann dir sagen: Eine WG ist entweder das Beste oder das Schlimmste, was dir passieren kann. Es kommt auf die Leute an.
 >
 > Meine erste WG war ein Albtraum. Ein Mitbewohner hat weder geputzt noch eingekauft, und er hat jede Nacht laut Musik gehört. Wir haben ihn oft gebeten, mehr Rücksicht zu nehmen, aber er hat sich nicht geändert. Am Ende haben sich die Nachbarn beim Hausmeister beschwert, und wir hatten nicht nur Stress in der WG, sondern auch Ärger mit der Eigentümerin.
 >
@@ -119,7 +119,7 @@ On a forum for students, someone asked whether they should move into a WG. Ahmed
 
 In English:
 
-> I've been living in a flat-share with four flatmates for three years, and I can tell you: a flat-share is either the best or the worst thing that can happen to you. It depends on the people.
+> I've been living in flat-shares for three years, at the moment with four flatmates, and I can tell you: a flat-share is either the best or the worst thing that can happen to you. It depends on the people.
 >
 > My first flat-share was a nightmare. One flatmate neither cleaned nor did any shopping, and he played loud music every night. We often asked him to be more considerate, but he didn't change. In the end the neighbours complained to the caretaker, and we had not only stress in the flat but also trouble with the owner.
 >
@@ -131,7 +131,7 @@ Notes: *der Albtraum* = nightmare; *jetzig* = current; *der Putzplan* = cleaning
 
 ## Pronunciation
 
-- *entweder*: ent-WE-der; *weder*: WE-der, long *e*; *sowohl*: so-WOHL.
+- *entweder*: ENT-we-der, stress on the first syllable; *weder*: WE-der, long *e*; *sowohl*: so-WOHL.
 - *WG*: say the letters, "we-ge". The plural is *WGs*, said "we-ges".
 - *Hausordnung*: HAUS-ord-nung; *Eigentümer*: EI-gen-tü-mer.
 - *Lärm*: the *ä* is like the *e* in "bed".
@@ -141,7 +141,7 @@ Notes: *der Albtraum* = nightmare; *jetzig* = current; *der Putzplan* = cleaning
 
 - Extra negation with *weder … noch*: ~~Ich habe weder kein Auto noch kein Fahrrad.~~ → *Ich habe weder ein Auto noch ein Fahrrad.*
 - *aber* instead of *sondern* after *nicht nur*: ~~nicht nur laut, aber auch schmutzig~~ → *nicht nur laut, sondern auch schmutzig*.
-- *als auch* without *sowohl*, or *sowie* mixed in: *sowohl … als auch* is fixed.
+- *als auch* without *sowohl*: the pair belongs together (*sowohl … als auch*, less often *sowohl … wie auch*).
 - Singular verb after *sowohl … als auch*: ~~Sowohl Tom als auch Lea wohnt hier.~~ → *wohnen*.
 - *sich beschweren* with the wrong preposition: ~~über den Hausmeister~~ when you mean "to": *beim Hausmeister* (to him) *über den Lärm* (about the noise).
 - Forgetting the reflexive: ~~Ich beschwere über den Lärm.~~ → *Ich beschwere mich über den Lärm.*

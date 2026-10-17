@@ -13,7 +13,7 @@
   lesson: de3-obwohl
   term: zwar
   pos: adverb
-  meanings: [admittedly (zwar … aber), admittedly, it's true, indeed]
+  meanings: ['admittedly (… but)', admittedly, "it's true", indeed]
   example: Das Auto ist zwar alt, aber es fährt gut.
   exampleEn: The car may be old, but it runs well.
   note: 'Used with aber in the next clause: zwar … aber.'
@@ -70,7 +70,7 @@
   term: die Ausgabe
   pos: noun
   plural: die Ausgaben
-  meanings: [expense, expenditure, spending, outgoing]
+  meanings: [expense, expenditure, spending, outgoings]
   example: Unsere größte Ausgabe ist die Miete.
   exampleEn: Our biggest expense is the rent.
   note: 'Often plural: die Ausgaben. Also means edition (of a book or newspaper).'
@@ -273,7 +273,7 @@
   lesson: de3-um-zu-damit
   kind: phrase
   term: um … zu
-  alt: [um ... zu, um zu]
+  alt: ['um ... zu', 'um...zu', 'um…zu', 'um zu']
   pos: conjunction
   meanings: [in order to, to (purpose), so as to]
   example: Ich lerne Deutsch, um in Wien zu arbeiten.
@@ -284,7 +284,7 @@
   term: die Hochschule
   pos: noun
   plural: die Hochschulen
-  meanings: [university (general term), college, institution of higher education, higher education institution]
+  meanings: [university or college (general term), university, college, institution of higher education, higher education institution]
   example: An unserer Hochschule studieren 20.000 Menschen.
   exampleEn: 20,000 people study at our university.
 - id: fachhochschule
@@ -679,6 +679,7 @@
 - id: schadensfall
   lesson: de3-da-falls
   term: der Schadensfall
+  alt: [der Schadenfall]
   pos: noun
   plural: die Schadensfälle
   meanings: [claim (insurance case), insurance claim, case of damage, claim]
@@ -803,7 +804,7 @@
   lesson: de3-two-part
   term: entweder
   pos: conjunction
-  meanings: [either (entweder … oder), either]
+  meanings: ['either (… or)', either]
   example: Wir ziehen entweder nach Köln oder nach Bonn.
   exampleEn: We're moving either to Cologne or to Bonn.
   note: 'Always with oder: entweder … oder.'
@@ -811,7 +812,7 @@
   lesson: de3-two-part
   term: weder
   pos: conjunction
-  meanings: [neither (weder … noch), neither]
+  meanings: ['neither (… nor)', neither]
   example: Die Wohnung hat weder Balkon noch Garten.
   exampleEn: The flat has neither a balcony nor a garden.
   note: 'Always with noch: weder … noch. No extra nicht or kein.'
@@ -819,7 +820,7 @@
   lesson: de3-two-part
   term: sowohl
   pos: conjunction
-  meanings: [both (sowohl … als auch), both, as well]
+  meanings: ['both (… and)', both]
   example: Hier wohnen sowohl Familien als auch Studenten.
   exampleEn: Both families and students live here.
   note: 'Always with als auch: sowohl … als auch.'
@@ -1078,17 +1079,18 @@
   lesson: de3-je-desto
   term: je
   pos: conjunction
-  meanings: [the (first part of je … desto), the more, the]
+  meanings: ['the (first "the" in "the more …, the better")', the more, the]
   example: Je mehr ich lerne, desto mehr weiß ich.
   exampleEn: The more I learn, the more I know.
-  note: 'je + comparative, verb at the end; then desto/umso + comparative + verb.'
+  note: 'je + comparative, verb at the end; then desto/umso + comparative + verb. On its own je also means "each, per" (je 5 Euro) and "ever".'
 - id: desto
   lesson: de3-je-desto
   term: desto
   pos: adverb
-  meanings: [the (second part of je … desto), the]
+  meanings: ['the (second "the" in "the more …, the better")', the]
   example: Je früher, desto besser.
   exampleEn: The sooner the better.
+  note: 'desto + comparative takes position 1, so the verb comes next: Je mehr ich übe, desto besser spreche ich.'
 - id: umso
   lesson: de3-je-desto
   term: umso
