@@ -53,7 +53,7 @@ These words are not articles. They don't show the case clearly enough, so the ad
 
 ### After alle, sämtliche, beide: weak
 
-*alle* behaves like *die*, so the adjective after it takes weak endings: *alle neuen Produkte*, *mit allen bestellten Artikeln*. *sämtliche* (all, every single one, formal) and usually *beide* work the same: *sämtliche reduzierten Waren*, *die beiden neuen Modelle*.
+*alle* behaves like *die*, so the adjective after it takes weak endings: *alle neuen Produkte*, *mit allen bestellten Artikeln*. *sämtliche* (all, every single one, formal) and usually *beide* work the same: *sämtliche reduzierten Waren*, *beide neuen Modelle*.
 
 ## Present participles: das weinende Kind
 

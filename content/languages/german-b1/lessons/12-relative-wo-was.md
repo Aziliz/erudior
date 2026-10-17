@@ -24,9 +24,9 @@ When the antecedent is a place, you can use *wo* instead of a preposition + rela
 - *Das Schloss, wohin der Ausflug geht, liegt am See.* — The palace where the trip is going is by the lake. (*wohin*: direction)
 - *Das Dorf, woher meine Großeltern kommen, hat nur 300 Einwohner.* — The village my grandparents come from has only 300 inhabitants. (*woher*: origin)
 
-### With the names of towns and countries: only wo
+### With the names of towns and countries: wo, wohin, woher
 
-With a city or country name that has no article, *wo* is the natural choice; a preposition + pronoun sounds stiff:
+With a city or country name that has no article, *wo* (or *wohin, woher*) is the natural choice; a preposition + pronoun sounds stiff:
 
 - *Ich war letztes Jahr in Salzburg, wo ich viele Konzerte besucht habe.* — I was in Salzburg last year, where I went to lots of concerts.
 - *Im Sommer fahren wir nach Sizilien, wohin ich schon immer reisen wollte.* — In summer we're going to Sicily, where I've always wanted to go.
@@ -54,7 +54,7 @@ After words that don't name a real thing, the relative pronoun is *was*:
 When the verb needs a preposition, use a *wo(r)-* word: *wo* + preposition, with an *r* before a vowel:
 
 - *Das ist alles, worüber wir gesprochen haben.* — That's everything we talked about.
-- *Es gibt nichts, wofür ich mich weniger interessiere.* — There's nothing I'm less interested in.
+- *Es gibt nichts, wovor ich Angst habe.* — There's nothing I'm afraid of.
 - *Das Konzert war etwas, worauf ich mich lange gefreut hatte.* — The concert was something I'd looked forward to for a long time.
 
 ### After superlatives and neuter adjectival nouns
@@ -148,7 +148,7 @@ Notes: *stattfinden* = to take place; *die Kette* (a chain, here a chain store, 
 - *wo* for direction: ~~die Stadt, wo wir fahren~~ → *die Stadt, wohin wir fahren* (or *in die wir fahren*).
 - *was* + preposition: ~~alles, über was wir gesprochen haben~~ → *alles, worüber wir gesprochen haben*.
 - Using *das* for a whole clause: ~~Er kam zu spät, das mich geärgert hat.~~ → *…, was mich geärgert hat.*
-- English "which" ≠ German *welche*: the relative pronoun is *der/die/das* or *was*, not *welcher*.
+- English "which" ≠ German *welche*: the relative pronoun is *der/die/das* or *was*. (*welcher* as a relative pronoun exists, but it is rare and old-fashioned.)
 
 ## Key points
 

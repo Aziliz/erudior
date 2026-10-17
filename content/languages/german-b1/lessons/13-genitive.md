@@ -15,7 +15,7 @@ The theme is family history: ancestors, documents, inheritances and the things p
 
 ## What the genitive does
 
-The genitive links two nouns: the second one owns, describes or belongs to the first. In English you say "the father's house" or "the house of the father"; German usually puts the genitive after the noun:
+The genitive links two nouns: the second one, in the genitive, is the owner of the first or the thing it belongs to. In English you say "the father's house" or "the house of the father"; German usually puts the genitive after the noun:
 
 - *das Haus des Vaters* — the father's house
 - *der Name der Straße* — the name of the street
@@ -67,7 +67,7 @@ With names, the genitive is an *-s* with no article and no apostrophe, and it us
 
 If the name already ends in an *s*-sound (*-s, -ß, -x, -z*), write only an apostrophe: *Klaus' Testament*, *Max' Schwester*, *Frau Lutz' Haus*. In speech this sounds clumsy, so people say *das Testament von Klaus*.
 
-Don't write ~~Anna's~~. You will see it on shop signs (*Anna's Café*), but it is English influence and not standard in sentences.
+Don't write ~~Anna's~~. You will see it on shop signs (*Anna's Café*), but it is English influence; the normal spelling in a sentence is *Annas*.
 
 With a title or an article, the name stays as it is and the article shows the genitive: *das Haus des alten Herrn Becker*; *die Briefe der Großmutter*.
 
@@ -92,7 +92,7 @@ In everyday speech, *von* + dative replaces the genitive almost everywhere:
 | *die Wohnung der Großeltern* | *die Wohnung von den Großeltern* |
 | *am Anfang des Jahres* | (genitive is normal here too) |
 
-But you must use *von* when there's no article to show the genitive, for example plurals without an article or names after nouns: *die Mutter von drei Kindern*; *ein Freund von Paul*; *die Preise von Häusern in München*.
+But use *von* when there's no article to show the genitive, for example with plurals without an article, and usually with names after a noun: *die Mutter von drei Kindern*; *ein Freund von Paul*; *die Preise von Häusern in München*.
 
 And some genitive phrases are fixed even in speech; learn them as chunks:
 

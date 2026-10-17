@@ -49,7 +49,7 @@ When the verb in the relative clause needs a preposition, the preposition goes f
 
 - *mit, von, bei, zu, aus, nach, seit* + dative: *die Kollegin, mit der ich ein Büro teile* — the colleague I share an office with.
 - *für, um, durch, gegen, ohne* + accusative: *der Freund, für den ich das Geschenk gekauft habe* — the friend I bought the present for.
-- Two-way prepositions in a fixed verb usually take the accusative: *das Problem, über das wir gestern diskutiert haben* — the problem we discussed yesterday.
+- With a two-way preposition, the verb fixes the case. *über* and *auf* in fixed verbs take the accusative: *das Problem, über das wir gestern diskutiert haben* — the problem we discussed yesterday. But some take the dative: *Angst haben vor*, *arbeiten an* (*die Präsentation, an der ich gearbeitet habe*).
 
 English puts the preposition at the end ("the colleague I share an office with"). German never does. The preposition and the pronoun stay together as a pair at the front of the clause.
 
@@ -130,7 +130,7 @@ A magazine has a column where readers ask for advice. Read the letter and the an
 >
 > Liebe Lena,
 >
-> Kritik, die vor allen geäußert wird, tut weh. Bevor Sie zur Chefin gehen, sprechen Sie zuerst mit Herrn K. selbst, und zwar allein. Wählen Sie einen ruhigen Moment, in dem keiner von Ihnen gestresst ist. Sagen Sie ihm, wie sein Verhalten auf Sie wirkt, ohne ihm Vorwürfe zu machen: „Ich fühle mich nicht respektiert, wenn …“ ist besser als „Du bist immer …“. Vielleicht weiß er gar nicht, wie er wirkt. Viele Menschen, denen Qualität sehr wichtig ist, vergessen, dass Lob genauso wichtig ist wie Kritik. Wenn das Gespräch nichts ändert, ist die Chefin die richtige Person, an die Sie sich wenden können. Ein Konflikt, über den man offen spricht, lässt sich meistens lösen.
+> Kritik, die vor allen geäußert wird, tut weh. Bevor Sie zur Chefin gehen, sprechen Sie zuerst mit Herrn K. selbst, und zwar allein. Wählen Sie einen ruhigen Moment, in dem keiner von Ihnen gestresst ist. Sagen Sie ihm, wie sein Verhalten auf Sie wirkt, ohne ihm Vorwürfe zu machen: „Ich fühle mich nicht respektiert, wenn …“ ist besser als „Sie sind immer …“. Vielleicht weiß er gar nicht, wie er wirkt. Viele Menschen, denen Qualität sehr wichtig ist, vergessen, dass Lob genauso wichtig ist wie Kritik. Wenn das Gespräch nichts ändert, ist die Chefin die richtige Person, an die Sie sich wenden können. Ein Konflikt, über den man offen spricht, lässt sich meistens lösen.
 >
 > Ihr Team von „Arbeit & Leben“
 
