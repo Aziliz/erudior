@@ -76,9 +76,9 @@ Dates, fees and details can change, so check with the exam centre where you regi
 ### Sprechen
 
 - The speaking test is a conversation (*ein Gespräch*), and the examiners want to see that you can react to your partner, not just recite.
-- **Questions with word cards**: you get a topic and a word, and you make a question. Make it simple and complete: topic *Freizeit*, word *Wochenende* → *Was machst du am Wochenende?* Then answer your partner's question with two or three sentences, not one word.
-- **Talking about your life**: you get a card with a question about your everyday life (*Wohnen, Essen, Reisen, Arbeit* …). Prepare at home: for each common topic, have four or five sentences ready, including the past (*Letztes Jahr bin ich …*), a reason (*weil …*) and an opinion (*Ich finde, dass …*).
-- **Planning together**: you and your partner each have a calendar with appointments and must find a time for something you want to do together. Suggest, react, and agree. The phrases are below.
+- Questions with word cards: you get a topic and a word, and you make a question. Make it simple and complete: topic *Freizeit*, word *Wochenende* → *Was machst du am Wochenende?* Then answer your partner's question with two or three sentences, not one word.
+- Talking about your life: you get a card with a question about your everyday life (*Wohnen, Essen, Reisen, Arbeit* …). Prepare at home: for each common topic, have four or five sentences ready, including the past (*Letztes Jahr bin ich …*), a reason (*weil …*) and an opinion (*Ich finde, dass …*).
+- Planning together: you and your partner each have a calendar with appointments and must find a time for something you want to do together. Suggest, react, and agree. The phrases are below.
 - If you don't understand: *Wie bitte? Kannst du das noch einmal sagen? Was bedeutet …?* Asking is part of the conversation; silence is not.
 
 ### Planning an appointment: phrases

@@ -23,7 +23,7 @@ Festivals are where a language meets a culture. In this lesson you learn the mai
 
 Some notes on the words:
 
-- *Weihnachten, Ostern, Silvester* and *Neujahr* are neuter, but they are usually used **without an article**: *Weihnachten ist bald. Was machst du Silvester?* With a preposition, Germans say *an* or *zu*: *an Weihnachten* (more southern), *zu Ostern* (more northern). Both are correct.
+- *Weihnachten, Ostern, Silvester* and *Neujahr* are neuter, but they are usually used without an article: *Weihnachten ist bald. Was machst du Silvester?* With a preposition, Germans say *an* or *zu*: *an Weihnachten* (more southern), *zu Ostern* (more northern). Both are correct.
 - In Germany, presents are opened on the evening of *Heiligabend*, not on the morning of the 25th as in Britain or the USA.
 - The same season has three names: *Karneval* in the Rhineland (Köln, Düsseldorf, Mainz), *Fasching* in Bavaria and Austria, *Fastnacht* (Swiss *Fasnacht*) in the south-west and Switzerland. People *verkleiden sich* (dress up) in a *Kostüm*.
 - *der Feiertag* is a public holiday: shops are closed. Each country has a national day: in Germany 3 October, in Austria 26 October, in Switzerland 1 August. Some holidays exist only in some German states.

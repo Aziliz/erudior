@@ -93,15 +93,15 @@ In *den ich gekauft habe*, the subject is *ich*; the laptop is the thing bought,
 
 This is the key idea of the whole lesson. You need two pieces of information, and they come from two different places:
 
-1. **Gender and number** come from the antecedent, the noun before the comma. *der Bericht* → masculine. *die Nachrichten* → plural.
-2. **Case** comes from the job the pronoun does inside its own clause, after the comma. Subject → nominative. Direct object → accusative.
+1. Gender and number come from the antecedent, the noun before the comma. *der Bericht* → masculine. *die Nachrichten* → plural.
+2. Case comes from the job the pronoun does inside its own clause, after the comma. Subject → nominative. Direct object → accusative.
 
 Look at the same noun in two different jobs:
 
 - *Das ist der Artikel, der gestern online war.* — That's the article that was online yesterday. (The article was online: subject → *der*.)
 - *Das ist der Artikel, den ich dir geschickt habe.* — That's the article I sent you. (I sent it: object → *den*.)
 
-A memory hook: **gender looks back, case looks inside.**
+A memory hook: gender looks back, case looks inside.
 
 The case of the antecedent in the main clause doesn't matter: in *Ich habe einen Laptop, der sehr leicht ist*, the main clause has *einen*, but inside its own clause the laptop is the subject, so: *der*.
 
@@ -109,10 +109,10 @@ The case of the antecedent in the main clause doesn't matter: in *Ich habe einen
 
 The verb goes to the end, as in every subordinate clause. That has the usual consequences:
 
-- **Perfect:** the auxiliary comes last, after the participle: *die Mail, die ich gestern geschrieben habe*.
-- **Separable verbs** join up again at the end: *das Programm, das ich gerade herunterlade*; *die Sendung, die um acht anfängt*.
-- **Modal verbs** come last, after the infinitive: *ein Passwort, das man nicht vergessen kann*; *Dateien, die du löschen musst* (*die Datei* = file).
-- **Reflexive pronouns** come early, right after the relative pronoun: *die Nachbarin, die sich nie einloggen kann* — the neighbour who can never log in.
+- Perfect: the auxiliary comes last, after the participle: *die Mail, die ich gestern geschrieben habe*.
+- Separable verbs join up again at the end: *das Programm, das ich gerade herunterlade*; *die Sendung, die um acht anfängt*.
+- Modal verbs come last, after the infinitive: *ein Passwort, das man nicht vergessen kann*; *Dateien, die du löschen musst* (*die Datei* = file).
+- Reflexive pronouns come early, right after the relative pronoun: *die Nachbarin, die sich nie einloggen kann* — the neighbour who can never log in.
 
 ### A relative clause in the middle
 

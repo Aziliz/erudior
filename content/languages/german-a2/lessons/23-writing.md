@@ -92,11 +92,11 @@ One linked reason per message shows the examiner, and any reader, that you can b
 
 Exam tasks, and many real situations, give you three things to say. The method:
 
-1. **Read the points and number them.** Each needs at least one full sentence; a forgotten point loses more than a grammar mistake.
-2. **Choose the register** from the person: a friend → *du*, informal; a teacher or neighbour → *Sie*, semi-formal.
-3. **Write one or two sentences per point**, using one link (*weil, deshalb, trotzdem*) somewhere.
-4. **Frame it**: opening, closing, name.
-5. **Check**: verb second in main clauses, verb last after *weil* and *dass*, one form of address all the way through, nouns with capitals.
+1. Read the points and number them. Each needs at least one full sentence; a forgotten point loses more than a grammar mistake.
+2. Choose the register from the person: a friend → *du*, informal; a teacher or neighbour → *Sie*, semi-formal.
+3. Write one or two sentences per point, using one link (*weil, deshalb, trotzdem*) somewhere.
+4. Frame it: opening, closing, name.
+5. Check: verb second in main clauses, verb last after *weil* and *dass*, one form of address all the way through, nouns with capitals.
 
 Opening, closing and name don't count as much as the content, but they belong to the task. Don't write far more than asked; a longer text has more room for mistakes.
 
