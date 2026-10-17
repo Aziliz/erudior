@@ -22,17 +22,20 @@ import {
 import { emptyBank } from "../lib/validate";
 import { percent, uid } from "../lib/util";
 import { AccuracyBar } from "../components/Bars";
+import { VocabTab, ReadingTab } from "./VocabTabs";
 
-export type CourseTab = "today" | "lessons" | "banks" | "cards" | "drills" | "glossary" | "reference";
+export type CourseTab = "today" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference";
 
 const TABS: { id: CourseTab; label: string; show: (c: Course) => boolean }[] = [
   { id: "today", label: "Today", show: () => true },
   { id: "lessons", label: "Lessons", show: (c) => c.lessons.length > 0 },
   { id: "banks", label: "Questions", show: () => true },
-  { id: "cards", label: "Notecards", show: () => true },
+  { id: "vocab", label: "Vocabulary", show: (c) => !!c.vocab?.length },
+  { id: "cards", label: "Notecards", show: (c) => !c.language || c.decks.length > 0 },
   { id: "drills", label: "Math drills", show: (c) => c.drills.length > 0 },
   { id: "glossary", label: "Glossary", show: (c) => c.glossary.length > 0 },
   { id: "reference", label: "Quick reference", show: (c) => c.references.length > 0 },
+  { id: "reading", label: "Reading list", show: (c) => !!c.readingList?.length },
 ];
 
 /** The bank used for planner tasks: the biggest one. */
@@ -102,6 +105,8 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
       {tab === "lessons" && <LessonsTab api={api} course={course} />}
       {tab === "banks" && <BanksTab api={api} course={course} />}
       {tab === "cards" && <CardsTab api={api} course={course} />}
+      {tab === "vocab" && <VocabTab api={api} course={course} />}
+      {tab === "reading" && <ReadingTab course={course} />}
       {tab === "drills" && <DrillsTab api={api} course={course} />}
       {tab === "glossary" && <GlossaryTab course={course} />}
       {tab === "reference" && <ReferenceTab api={api} course={course} />}
@@ -178,6 +183,9 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
         break;
       case "cards":
         api.go({ name: "cards", courseId: course.id, deckIds: studyDecks(course, progress).map((d) => d.id), mode: "review" });
+        break;
+      case "vocab":
+        api.go({ name: "vocab", courseId: course.id, mode: "review" });
         break;
       case "drills":
         api.go({ name: "drill", courseId: course.id, drillIds: course.drills.map((d) => d.id), count: t.count ?? 5 });

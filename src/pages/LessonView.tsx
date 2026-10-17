@@ -6,6 +6,7 @@ import { today } from "../lib/srs";
 import { lessonQuizNeeded, lessonQuizQuestions, startLessonQuiz } from "../lib/session";
 import { bestQuizScore } from "../lib/quiz";
 import { mainBank } from "./CourseHome";
+import { SpeakButton } from "./VocabRunner";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const key = lessonKey(course.id, lesson.id);
@@ -18,6 +19,8 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const module = course.modules[moduleIdx];
 
   const topics = lesson.topics ?? [];
+  const words = (course.vocab ?? []).filter((v) => v.lesson === lesson.id);
+  const lang = course.language;
   const bank = mainBank(course);
   const lessonDrills = course.drills.filter((d) => lesson.drills?.includes(d.id));
   const lessonRefs = (lesson.refs ?? []).map((id) => course.references.find((r) => r.id === id)).filter((r) => !!r);
@@ -70,6 +73,46 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       <article className="lesson-body">
         <Markdown source={lesson.body} glossary={course.glossary} />
       </article>
+
+      {words.length > 0 && (
+        <section className="panel lesson-words">
+          <h2>New words ({words.length})</h2>
+          <p className="muted small" style={{ marginTop: 6 }}>
+            These join your vocabulary reviews when you complete the lesson.
+          </p>
+          <table className="table vocab-table">
+            <tbody>
+              {words.map((v) => (
+                <tr key={v.id}>
+                  <td lang={lang?.code}>
+                    <span className="vocab-term">{v.term}</span>
+                    <SpeakButton text={v.term} lang={lang?.tts} />
+                    {v.plural && <div className="muted small">pl. {v.plural}</div>}
+                  </td>
+                  <td>
+                    {v.meanings.join("; ")}
+                    {v.example && (
+                      <div className="muted small">
+                        <span lang={lang?.code}>{v.example}</span>
+                        {v.exampleEn && ` — ${v.exampleEn}`}
+                      </div>
+                    )}
+                  </td>
+                  <td className="muted small">{v.pos}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="row" style={{ marginTop: 10 }}>
+            <button
+              className="btn"
+              onClick={() => api.go({ name: "vocab", courseId: course.id, mode: "practice", lessonIds: [lesson.id] })}
+            >
+              Practice these words
+            </button>
+          </div>
+        </section>
+      )}
 
       {hasQuiz && (
         <section className="panel lesson-quiz">

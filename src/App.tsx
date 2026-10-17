@@ -19,6 +19,7 @@ import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
 import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse } from "./lib/catalog";
 import RefView from "./pages/RefView";
+import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
 import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
@@ -40,7 +41,8 @@ export type View =
   | { name: "drill"; courseId: string; drillIds: string[]; count: number }
   | { name: "ref"; courseId: string; refId: string }
   | { name: "search"; q: string }
-  | { name: "overview"; catalogId: string };
+  | { name: "overview"; catalogId: string }
+  | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number };
 
 export interface AppApi {
   banks: Bank[];
@@ -333,6 +335,12 @@ export default function App() {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
       if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      break;
+    }
+    case "vocab": {
+      const c = courseFor(view.courseId);
+      if (c) body = <VocabRunner key={JSON.stringify(view)} api={api} course={c} mode={view.mode} lessonIds={view.lessonIds} count={view.count} />;
+      fullScreen = true;
       break;
     }
     case "cards": {

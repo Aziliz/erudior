@@ -311,6 +311,83 @@ export interface Course {
   glossary: GlossaryEntry[];
   references: RefSheet[];
   drills: Drill[];
+  /** Language courses: the language, its proficiency level, and typing helpers. */
+  language?: LanguageInfo;
+  /** Language courses: words (and alphabet characters) learned with typed review cards. */
+  vocab?: VocabItem[];
+  /** Recommended reading for the course's level. */
+  readingList?: ReadingItem[];
+}
+
+export interface LanguageInfo {
+  /** BCP-47 code, e.g. "de". */
+  code: string;
+  /** Display name, e.g. "German". */
+  name: string;
+  /** Voice for text-to-speech, e.g. "de-DE". */
+  tts?: string;
+  /** Characters offered as buttons under the typing box, e.g. ["ä", "ö", "ü", "ß"]. */
+  keys?: string[];
+  /** Input converter for non-Roman scripts (e.g. "ja": romaji -> kana -> kanji). */
+  ime?: string;
+  /** Proficiency framework and level, e.g. "CEFR A1". */
+  level?: string;
+  /** Recommended minimum vocabulary for the level. */
+  vocabTarget?: number;
+  /** Where vocabTarget comes from. */
+  vocabSource?: string;
+}
+
+export type VocabDirection = "meaning" | "recall";
+
+export interface VocabItem {
+  id: string;
+  /** Lesson that introduces it; it joins the review backlog once that lesson is done. */
+  lesson: string;
+  kind?: "word" | "phrase" | "char";
+  /** The word as written in the language, e.g. "der Hund" (nouns with their article). */
+  term: string;
+  /** Other accepted spellings of the term. */
+  alt?: string[];
+  /** Accepted English meanings; the first is shown. */
+  meanings: string[];
+  /** Romanization or pronunciation guide (non-Roman scripts). */
+  reading?: string;
+  /** Part of speech, e.g. "noun", "verb". */
+  pos?: string;
+  /** Noun plural, e.g. "die Hunde". */
+  plural?: string;
+  /** Example sentence and its translation. */
+  example?: string;
+  exampleEn?: string;
+  note?: string;
+  /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
+  directions?: VocabDirection[];
+}
+
+export interface ReadingItem {
+  title: string;
+  author?: string;
+  publisher?: string;
+  level?: string;
+  url?: string;
+  isbn?: string;
+  free?: boolean;
+  note?: string;
+}
+
+/** Review state of one vocab card (item + direction). */
+export interface VocabState {
+  /** 0 novice, 1 beginner, 2 advanced, 3 expert. */
+  stage: number;
+  /** Correct answers in a row within the stage (0-4; the 5th moves it up). */
+  streak: number;
+  /** Passed expert: out of the review rotation. */
+  done?: boolean;
+  /** YYYY-MM-DD of the last counted review (one counted review per day). */
+  last?: string;
+  right?: number;
+  wrong?: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -365,6 +442,8 @@ export interface Progress {
   activity: Record<string, DayActivity>;
   /** `${courseId}/${drillId}` -> tallies */
   drills: Record<string, { attempts: number; correct: number }>;
+  /** `${courseId}/${itemId}/${direction}` -> vocabulary review state */
+  vocab?: Record<string, VocabState>;
   /** `${bankId}/${questionId}` -> the user's persistent flag and note */
   qmeta?: Record<string, QuestionMeta>;
 }

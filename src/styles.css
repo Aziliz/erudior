@@ -2205,3 +2205,150 @@ mark {
   color: var(--ink-2);
   line-height: 1.7;
 }
+
+/* ---------- Vocabulary (language courses) ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.vocab-run .run-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.vocab-card {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.vocab-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+.vocab-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  text-align: center;
+  margin: 28px 0 6px;
+  overflow-wrap: anywhere;
+}
+.vocab-prompt.en {
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+}
+.vocab-sub {
+  text-align: center;
+  min-height: 1.4em;
+  margin-bottom: 18px;
+}
+.vocab-input {
+  width: 100%;
+  font-size: 1.3rem;
+  padding: 12px 14px;
+  border: 2px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: center;
+}
+.vocab-input.right {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+.vocab-input.wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+.char-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.char-keys .btn {
+  min-width: 2.6em;
+  font-size: 1.1rem;
+  padding: 4px 10px;
+}
+.vocab-hint {
+  color: var(--flag);
+  text-align: center;
+  margin-top: 8px;
+}
+.vocab-card .row {
+  justify-content: center;
+}
+.vocab-result {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  border-left: 4px solid var(--ok);
+  background: var(--ok-soft);
+}
+.vocab-result.wrong {
+  border-left-color: var(--bad);
+  background: var(--bad-soft);
+}
+.vocab-result p + p {
+  margin-top: 6px;
+}
+.vocab-answer {
+  font-size: 1.15rem;
+}
+.speak {
+  padding: 2px 6px;
+  font-size: 1rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.vocab-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+.vocab-stats > div {
+  display: flex;
+  flex-direction: column;
+}
+.vocab-stats strong {
+  font-size: 1.5rem;
+}
+.vocab-group + .vocab-group {
+  margin-top: 18px;
+}
+.vocab-group h3 {
+  margin-bottom: 6px;
+}
+.vocab-table td {
+  vertical-align: top;
+}
+.vocab-term {
+  font-weight: 600;
+}
+.lesson-words .table {
+  margin-top: 10px;
+}
+.reading-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+.reading-list li {
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+}
+.reading-list .pill {
+  margin-left: 8px;
+}

@@ -5,4 +5,5 @@ src-tauri/gen/
 *.log
 .DS_Store
 samples/math-drafts/
+samples/languages-drafts/
 __pycache__/

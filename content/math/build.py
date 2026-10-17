@@ -1,6 +1,6 @@
-"""Build the bundled math and science courses.
+"""Build the bundled courses (math and science in content/math, languages in content/languages).
 
-Each course lives in content/math/<folder>/ and is written as YAML and Markdown:
+Each course lives in content/<area>/<folder>/ and is written as YAML and Markdown:
 
   course.yaml          id, title, description, revision, changelog, modules: [{id, title}]
   lessons/*.md         one lesson per file: YAML front matter, then the Markdown body
@@ -9,6 +9,11 @@ Each course lives in content/math/<folder>/ and is written as YAML and Markdown:
   cards.yaml           notecards: [{front, back, topic}]
   glossary.yaml        [{term, definition, aliases?, topic?}]
   references/*.md      quick-reference sheets: front matter (id, title), then Markdown
+
+Language courses add:
+  course.yaml language: {code, name, tts, keys, ime?, level, vocabTarget, vocabSource}
+  vocab*.yaml          [{id, lesson, term, meanings, pos?, plural?, alt?, example?, exampleEn?, note?, kind?, reading?}]
+  reading.yaml         [{title, author?, publisher?, level?, url?, isbn?, free?, note?}]
 
 The builder wires lesson quizzes and module quizzes from the questions' `lesson` and
 `module_quiz` fields, checks every cross-reference, and writes samples/math/<id>.json.
@@ -22,9 +27,21 @@ import json, pathlib, re, sys
 import yaml
 
 ROOT = pathlib.Path(__file__).parent
-OUT = ROOT.parent.parent / "samples" / "math"
-# Unreleased drafts build here: outside the app bundle and not committed.
-DRAFTS = ROOT.parent.parent / "samples" / "math-drafts"
+# Course areas: content/<area>/ builds to samples/<area>/.
+AREAS = [ROOT, ROOT.parent / "languages"]
+SAMPLES = ROOT.parent.parent / "samples"
+OUT = SAMPLES / "math"
+# Unreleased drafts build to samples/<area>-drafts: outside the app bundle and not committed.
+DRAFTS = SAMPLES / "math-drafts"
+
+
+def out_dirs(folder: pathlib.Path):
+    area = folder.parent.name
+    return SAMPLES / area, SAMPLES / f"{area}-drafts"
+
+
+def course_folders():
+    return [p for a in AREAS if a.exists() for p in sorted(a.iterdir()) if (p / "course.yaml").exists()]
 
 ID = re.compile(r"^[A-Za-z0-9_-]{1,100}$")
 
@@ -194,6 +211,34 @@ def build(folder: pathlib.Path):
     if len(set(lesson_ids)) != len(lesson_ids):
         errors.append("duplicate lesson ids")
 
+    # Language courses: vocabulary and reading list.
+    language = meta.get("language")
+    vocab = [v for f in sorted(folder.glob("vocab*.yaml")) for v in (load_yaml(f) or [])]
+    reading = load_yaml(folder / "reading.yaml") if (folder / "reading.yaml").exists() else []
+    vids, terms = set(), {}
+    for v in vocab:
+        where = f"vocab {v.get('id') or v.get('term')}"
+        if not ID.match(str(v.get("id", ""))):
+            errors.append(f"{where}: bad or missing id")
+        elif v["id"] in vids:
+            errors.append(f"{where}: duplicate id")
+        vids.add(v.get("id"))
+        if v.get("lesson") not in lesson_by_id:
+            errors.append(f"{where}: lesson '{v.get('lesson')}' doesn't exist")
+        if not v.get("term") or not v.get("meanings"):
+            errors.append(f"{where}: needs term and meanings")
+        if v.get("pos") == "noun" and language and language.get("code") == "de" and not re.match(r"^(der|die|das) ", v.get("term", "")):
+            errors.append(f"{where}: German nouns need der/die/das in the term")
+        key = (v.get("term"), v.get("pos"))
+        if key in terms:
+            errors.append(f"{where}: same term and part of speech as {terms[key]}")
+        terms[key] = v.get("id")
+    if vocab and not language:
+        errors.append("vocab*.yaml needs a language: block in course.yaml")
+    for r in reading or []:
+        if not r.get("title"):
+            errors.append(f"reading.yaml: entry without a title")
+
     if errors:
         raise BuildError(f"{folder.name}: {len(errors)} problem(s):\n  " + "\n  ".join(errors))
 
@@ -259,30 +304,43 @@ def build(folder: pathlib.Path):
             "questions": bank_questions,
         }],
         "decks": [{"id": f"{cid}-cards", "title": f"{meta['title']} notecards",
-                   "cards": [{"id": f"c{i + 1}", **c} for i, c in enumerate(cards or [])]}],
+                   "cards": [{"id": f"c{i + 1}", **c} for i, c in enumerate(cards)]}] if cards else [],
         "glossary": glossary or [],
         "references": refs,
         "drills": drills,
     }
     if not course["changelog"]:
         del course["changelog"]
-    dest = OUT if meta.get("released") else DRAFTS
+    if language:
+        course["language"] = language
+    if vocab:
+        course["vocab"] = [{k: unwrap(x) if isinstance(x, str) and k in ("note",) else x for k, x in v.items()} for v in vocab]
+    if reading:
+        course["readingList"] = reading
+    out, drafts = out_dirs(folder)
+    dest = out if meta.get("released") else drafts
     dest.mkdir(parents=True, exist_ok=True)
     path = dest / f"{cid}.json"
-    (DRAFTS if dest is OUT else OUT).joinpath(f"{cid}.json").unlink(missing_ok=True)
+    (drafts if dest is out else out).joinpath(f"{cid}.json").unlink(missing_ok=True)
     path.write_text(json.dumps(course, indent=1, ensure_ascii=False), encoding="utf-8")
     return path, {"lessons": len(lessons), "questions": len(bank_questions), "drills": len(drills),
-                  "cards": len(cards or []), "terms": len(glossary or []), "refs": len(refs)}
+                  "cards": len(cards or []), "terms": len(glossary or []), "refs": len(refs),
+                  **({"words": len(vocab), "readings": len(reading or [])} if vocab else {})}
 
 
 def main():
     names = sys.argv[1:]
-    folders = [ROOT / n for n in names] if names else sorted(p for p in ROOT.iterdir() if (p / "course.yaml").exists())
+    def find(n):
+        hits = [a / n for a in AREAS if (a / n / "course.yaml").exists()]
+        if not hits:
+            sys.exit(f"no course folder named {n}")
+        return hits[0]
+    folders = [find(n) for n in names] if names else course_folders()
     failed = False
     for f in folders:
         try:
             path, counts = build(f)
-            print(f"{f.name}: " + ", ".join(f"{v} {k}" for k, v in counts.items()) + f" -> {path.relative_to(ROOT.parent.parent)}")
+            print(f"{f.name}: " + ", ".join(f"{v} {k}" for k, v in counts.items()) + f" -> {path.relative_to(SAMPLES.parent)}")
         except BuildError as e:
             failed = True
             print(e, file=sys.stderr)
@@ -307,6 +365,7 @@ def write_manifest():
             "questions": sum(len(b.get("questions", [])) for b in c.get("banks", [])),
             "cards": sum(len(d.get("cards", [])) for d in c.get("decks", [])),
             "drills": len(c.get("drills", [])),
+            **({"words": len(c["vocab"])} if c.get("vocab") else {}),
             # Lesson plan for the catalog's Overview page (titles only).
             "outline": [
                 {"title": m.get("title", ""), "lessons": [l.get("title", "") for l in c.get("lessons", []) if l.get("module") == m.get("id")]}
@@ -315,15 +374,15 @@ def write_manifest():
         }
 
     items = []
-    for folder in sorted(p for p in ROOT.iterdir() if (p / "course.yaml").exists()):
+    for folder in course_folders():
         meta = load_yaml(folder / "course.yaml")
         if not meta.get("released"):
             continue
-        out = OUT / f"{meta['id']}.json"
+        out = out_dirs(folder)[0] / f"{meta['id']}.json"
         if not out.exists():
             continue
         c = json.loads(out.read_text(encoding="utf-8"))
-        items.append(entry(c, f"math/{out.name}", meta.get("order", 999), meta.get("subject", "Math"),
+        items.append(entry(c, f"{folder.parent.name}/{out.name}", meta.get("order", 999), meta.get("subject", "Math"),
                            meta.get("level") or [], meta.get("type") or ["Course"]))
     extra = ROOT.parent / "catalog-extra.json"
     for x in json.loads(extra.read_text(encoding="utf-8")) if extra.exists() else []:

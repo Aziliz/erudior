@@ -29,7 +29,7 @@ export interface CatalogEntry {
 export const CATALOG = catalogJson as CatalogEntry[];
 
 // Each course is its own chunk, fetched only when it's added or updated.
-const FILES = import.meta.glob<{ default: unknown }>(["../../samples/math/*.json", "../../samples/colorado-broker-course.json"]);
+const FILES = import.meta.glob<{ default: unknown }>(["../../samples/math/*.json", "../../samples/languages/*.json", "../../samples/colorado-broker-course.json"]);
 
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
   const load = FILES[`../../samples/${entry.file}`];
@@ -39,7 +39,7 @@ export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
 
 export const catalogEntry = (id: string) => CATALOG.find((e) => e.id === id);
 
-const LEVELS = ["Middle school", "High school", "College", "Graduate", "Professional"];
+const LEVELS = ["Middle school", "High school", "College", "Graduate", "Professional", "A1", "A2", "B1", "B2", "C1", "C2"];
 const levelRank = (l: string) => (LEVELS.includes(l) ? LEVELS.indexOf(l) : LEVELS.length);
 
 /** Filter values in a stable order: by how they appear in the catalog. */

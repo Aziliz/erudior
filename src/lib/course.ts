@@ -1,4 +1,4 @@
-import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, Lesson, Module, RefSheet } from "./types";
+import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
 import { slugify, uid } from "./util";
 
@@ -113,6 +113,56 @@ export function normalizeCourse(raw: unknown): Course {
       solution: str(d.solution),
     }));
 
+  const strs = (v: unknown) => arr(v).map((x) => str(x).trim()).filter(Boolean);
+  const lang = isObj(raw.language) && str(raw.language.code) ? raw.language : undefined;
+  const language: LanguageInfo | undefined = lang && {
+    code: str(lang.code),
+    name: str(lang.name) || str(lang.code),
+    tts: str(lang.tts) || undefined,
+    keys: strs(lang.keys).length ? strs(lang.keys) : undefined,
+    ime: str(lang.ime) || undefined,
+    level: str(lang.level) || undefined,
+    vocabTarget: Number(lang.vocabTarget) > 0 ? Number(lang.vocabTarget) : undefined,
+    vocabSource: str(lang.vocabSource) || undefined,
+  };
+
+  const seenVocab = new Set<string>();
+  const vocab: VocabItem[] = arr(raw.vocab)
+    .filter(isObj)
+    .map((v, i): VocabItem => {
+      const dirs = strs(v.directions).filter((d) => d === "meaning" || d === "recall") as VocabItem["directions"];
+      return {
+        id: safeId(v.id, `w${i + 1}`),
+        lesson: str(v.lesson),
+        kind: (["word", "phrase", "char"].includes(str(v.kind)) ? str(v.kind) : undefined) as VocabItem["kind"],
+        term: str(v.term).trim(),
+        alt: strs(v.alt).length ? strs(v.alt) : undefined,
+        meanings: strs(v.meanings).length ? strs(v.meanings) : strs([v.meaning]),
+        reading: str(v.reading) || undefined,
+        pos: str(v.pos) || undefined,
+        plural: str(v.plural) || undefined,
+        example: str(v.example) || undefined,
+        exampleEn: str(v.exampleEn) || undefined,
+        note: str(v.note) || undefined,
+        directions: dirs && dirs.length ? dirs : undefined,
+      };
+    })
+    .filter((v) => v.term && v.meanings.length && v.lesson && !seenVocab.has(v.id) && seenVocab.add(v.id));
+
+  const readingList: ReadingItem[] = arr(raw.readingList)
+    .filter(isObj)
+    .map((r) => ({
+      title: str(r.title).trim(),
+      author: str(r.author) || undefined,
+      publisher: str(r.publisher) || undefined,
+      level: str(r.level) || undefined,
+      url: /^https?:\/\//.test(str(r.url)) ? str(r.url) : undefined,
+      isbn: str(r.isbn) || undefined,
+      free: r.free === true ? true : undefined,
+      note: str(r.note) || undefined,
+    }))
+    .filter((r) => r.title);
+
   return {
     format: "examiner-course",
     version: 1,
@@ -130,6 +180,9 @@ export function normalizeCourse(raw: unknown): Course {
     glossary,
     references,
     drills,
+    ...(language ? { language } : {}),
+    ...(vocab.length ? { vocab } : {}),
+    ...(readingList.length ? { readingList } : {}),
   };
 }
 

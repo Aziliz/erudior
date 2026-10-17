@@ -3,6 +3,7 @@
 // to the user as estimates.
 
 import type { Course, DayActivity, Lesson, Plan, Progress } from "./types";
+import { dueCards } from "./vocab";
 import { MISSED_DECK_ID, cardKey, daysBetween, deckStatus, studyDecks, today } from "./srs";
 
 export function emptyDay(): DayActivity {
@@ -116,7 +117,7 @@ export function readiness(n: CourseNumbers): { score: number; parts: { label: st
   return { score, parts };
 }
 
-export type TaskKind = "lesson" | "cards" | "practice" | "drills" | "exam";
+export type TaskKind = "lesson" | "cards" | "vocab" | "practice" | "drills" | "exam";
 
 export interface PlanTask {
   kind: TaskKind;
@@ -171,6 +172,16 @@ export function planToday(course: Course, plan: Plan, p: Progress, now = today()
       detail: next.map((l) => l.title).join(", "),
       done: wantLessons === 0,
       lessonIds: next.map((l) => l.id),
+    });
+  }
+
+  if (course.vocab?.length) {
+    const due = dueCards(course, p, now).length;
+    tasks.push({
+      kind: "vocab",
+      title: "Vocabulary reviews",
+      detail: due ? `${due} due` : "All caught up",
+      done: due === 0,
     });
   }
 
