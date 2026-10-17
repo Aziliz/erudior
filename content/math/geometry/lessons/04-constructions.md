@@ -76,6 +76,8 @@ This same construction finds the **midpoint** of a segment and is the basis of c
 
 *Regular hexagon:* draw a circle, keep the compass at the radius, and step around the circle marking six points. They close up exactly because a hexagon is six equilateral triangles meeting at the center.
 
+*Square inscribed in a circle:* draw a diameter, then construct its perpendicular bisector, which is a second diameter at right angles to the first. The four endpoints are the vertices of a square, because its diagonals are congruent, perpendicular and bisect each other.
+
 ### Example 1
 
 Using a perpendicular bisector construction, a student finds the midpoint $M$ of a segment whose endpoints sit at $-7$ and $11$ on a number line. Where is $M$, and what is the shortest compass opening that would have worked?

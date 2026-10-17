@@ -44,8 +44,8 @@ The left side is $(\mathbf{u} - \mathbf{v})\cdot(\mathbf{u} - \mathbf{v}) = \lVe
 Solving for the angle:
 $$\cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert}.$$
 
-The sign of the dot product tells the type of angle: positive means acute, zero means
-right, negative means obtuse.
+For nonzero vectors, the sign of the dot product tells the type of angle: positive means
+acute, zero means right, negative means obtuse.
 
 ### Example 1
 
@@ -122,8 +122,8 @@ to this idea.
 
 ## The Cauchy–Schwarz inequality
 
-Since $|\cos\theta| \le 1$, the formula gives $|\mathbf{u}\cdot\mathbf{v}| \le \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$, with equality only when the vectors are
-parallel. This is the Cauchy–Schwarz inequality, a workhorse of higher mathematics.
+Since $|\cos\theta| \le 1$, the formula gives $|\mathbf{u}\cdot\mathbf{v}| \le \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$, with equality exactly when one
+vector is a scalar multiple of the other (the vectors are parallel, or one of them is $\mathbf{0}$). This is the Cauchy–Schwarz inequality, a workhorse of higher mathematics.
 
 ## Common mistakes
 

@@ -29,6 +29,12 @@ $$V - E + F = 2.$$
 
 A cube has $8 - 12 + 6 = 2$ ✓. A square pyramid has $5 - 8 + 5 = 2$ ✓.
 
+## Cross sections and solids of revolution
+
+Slicing a solid with a plane leaves a flat shape called a **cross section**. Its shape depends on the angle of the cut. A cube cut parallel to a face gives a square; cut on a slant through two opposite edges it gives a rectangle; slice off one corner and you get a triangle; a cut through the center perpendicular to a long diagonal gives a regular hexagon. A cylinder sliced parallel to its bases gives a circle, sliced through its axis a rectangle, and sliced at a moderate tilt an ellipse. Every plane section of a sphere is a circle.
+
+Going the other way, spinning a flat region around a line (the axis) sweeps out a **solid of revolution**. A rectangle spun about one side makes a cylinder, a right triangle spun about a leg makes a cone, and a semicircle spun about its diameter makes a sphere. Recognizing the solid tells you which formula to use: spinning a right triangle with legs 3 and 4 about the leg of 4 gives a cone with radius 3 and height 4.
+
 ## Nets and lateral area
 
 A **net** is a flat pattern that folds up into the solid. The **lateral area** is the area of the sides only (not the bases); the **surface area** adds the bases.

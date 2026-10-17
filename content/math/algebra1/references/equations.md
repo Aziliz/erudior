@@ -43,7 +43,7 @@ Variable vanishes: false statement means no solution; true statement means all r
 | Slope | $m = \dfrac{y_2 - y_1}{x_2 - x_1}$ | horizontal: $m = 0$; vertical: undefined |
 | Slope-intercept | $y = mx + b$ | $y$-intercept $(0, b)$ |
 | Point-slope | $y - y_1 = m(x - x_1)$ | |
-| Standard | $Ax + By = C$ | slope $-\tfrac AB$ |
+| Standard | $Ax + By = C$ ($A$, $B$ not both 0) | slope $-\tfrac AB$ ($B \ne 0$) |
 | Horizontal / vertical | $y = b$ / $x = a$ | |
 | Parallel | $m_1 = m_2$ | different intercepts |
 | Perpendicular | $m_1m_2 = -1$ | $m_2 = -\tfrac{1}{m_1}$ |

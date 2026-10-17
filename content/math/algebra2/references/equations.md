@@ -46,7 +46,7 @@ Variable vanishes: false statement means no solution; true statement means all r
 | Standard | $Ax + By = C$ | slope $-\tfrac AB$ |
 | Horizontal / vertical | $y = b$ / $x = a$ | |
 | Parallel | $m_1 = m_2$ | different intercepts |
-| Perpendicular | $m_1m_2 = -1$ | $m_2 = -\tfrac{1}{m_1}$ |
+| Perpendicular | $m_1m_2 = -1$ | $m_2 = -\tfrac{1}{m_1}$ (neither line vertical) |
 
 ## Systems
 

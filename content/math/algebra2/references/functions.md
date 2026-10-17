@@ -48,11 +48,11 @@ Parent functions: $x$, $x^2$, $x^3$, $\lvert x \rvert$, $\sqrt x$ ($x \ge 0$), $
 | Rule | Statement |
 |---|---|
 | Root as exponent | $\sqrt[n]{a} = a^{1/n}$, $a^{m/n} = \left(\sqrt[n]a\right)^m$ |
-| Product, quotient | $\sqrt[n]{ab} = \sqrt[n]a\sqrt[n]b$, $\sqrt[n]{\tfrac ab} = \tfrac{\sqrt[n]a}{\sqrt[n]b}$ |
+| Product, quotient | $\sqrt[n]{ab} = \sqrt[n]a\sqrt[n]b$, $\sqrt[n]{\tfrac ab} = \tfrac{\sqrt[n]a}{\sqrt[n]b}$ ($a, b \ge 0$ if $n$ is even; $b \ne 0$) |
 | Square of a root | $\sqrt{x^2} = \lvert x \rvert$ |
 | Conjugates | $(a + \sqrt b)(a - \sqrt b) = a^2 - b$ |
 
-Radical equations: isolate the radical, raise both sides to the index power, solve, check for extraneous solutions.
+Radical equations: isolate the radical, raise both sides to the index power, solve, check for extraneous solutions. For $u^{m/n} = c$, raise to the power $\tfrac nm$, with $\pm$ when $m$ is even ($x^{2/3} = 4$ gives $x = \pm 8$).
 
 ## Complex numbers
 

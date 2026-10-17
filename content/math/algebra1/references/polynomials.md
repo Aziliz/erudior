@@ -41,7 +41,7 @@ Strategy: GCF first; 2 terms → squares/cubes; 3 terms → trinomial methods; 4
 | Method | Use when |
 |---|---|
 | Zero product property | it factors: $AB = 0 \Rightarrow A = 0$ or $B = 0$ |
-| Square root property | $u^2 = k \Rightarrow u = \pm\sqrt k$ |
+| Square root property | $u^2 = k \Rightarrow u = \pm\sqrt k$ ($k \ge 0$; no real solution if $k < 0$) |
 | Completing the square | add $\left(\tfrac b2\right)^2$ to $x^2 + bx$ |
 | Quadratic formula | always: $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ |
 

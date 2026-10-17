@@ -84,6 +84,8 @@ Subtracting a negative exponent is where most errors happen: $5 - (-1) = 6$, not
 | Zero exponent | $a^0 = 1$ |
 | Negative exponent | $a^{-n} = \dfrac{1}{a^n}$ |
 
+Any base that ends up in a denominator, or is raised to the power 0 or a negative power, must be nonzero: the quotient, zero-exponent and negative-exponent rules all assume $a \ne 0$ (and $b \ne 0$ in the quotient-to-a-power rule).
+
 Not a rule: $(a + b)^n$ is not $a^n + b^n$. For instance $(1 + 2)^2 = 9$ but $1^2 + 2^2 = 5$. Exponents distribute over multiplication, never over addition.
 
 ## Scientific notation

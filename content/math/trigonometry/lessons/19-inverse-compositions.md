@@ -92,7 +92,9 @@ The positive root is right because $\sin^{-1}x$ is in quadrants I or IV, where c
 ## Inverse secant, cosecant and cotangent
 
 The remaining inverses are defined through the reciprocal relationships. Conventions differ
-slightly between books; the ones below match most calculators and texts:
+between books. This course uses the ones below, which most precalculus texts and math software use;
+some calculus books instead take $\left[0, \tfrac{\pi}{2}\right) \cup \left[\pi, \tfrac{3\pi}{2}\right)$ as the range of $\sec^{-1}$, so check
+which one your text uses:
 
 | Function | Definition | Domain | Range |
 |---|---|---|---|
@@ -121,6 +123,17 @@ $\cos\theta = \tfrac{1}{\sqrt5} = \tfrac{\sqrt5}{5}$, positive as it must be in 
 **Second.** $\theta = \cos^{-1}\left(-\tfrac13\right)$ is in quadrant II. Take $x = -1$, $r = 3$, $y = \sqrt{9 - 1} = 2\sqrt2$:
 $\sin\theta = \tfrac{2\sqrt2}{3}$. Sine is positive in quadrant II, so the answer is positive even
 though the input was negative.
+
+## Equations that contain an inverse function
+
+To solve an equation such as $2\sin^{-1}x = \tfrac{\pi}{3}$, isolate the inverse function and then apply the
+ordinary function to both sides: $\sin^{-1}x = \tfrac{\pi}{6}$, so $x = \sin\tfrac{\pi}{6} = \tfrac12$. First check that the angle
+is in the inverse's range. $\cos^{-1}x = \tfrac{3\pi}{2}$ has no solution at all, because $\cos^{-1}$ never returns an
+angle larger than $\pi$. The same steps solve $y = 3\cos^{-1}\tfrac{x}{2}$ for $x$: $\tfrac{y}{3} = \cos^{-1}\tfrac{x}{2}$, so
+$x = 2\cos\tfrac{y}{3}$, valid for $0 \le y \le 3\pi$.
+
+A related fact is $\sin^{-1}x + \cos^{-1}x = \tfrac{\pi}{2}$ for every $x$ in $[-1, 1]$. If $\theta = \sin^{-1}x$, then
+$\tfrac{\pi}{2} - \theta$ lies in $[0, \pi]$ and its cosine is $\sin\theta = x$, so it is $\cos^{-1}x$.
 
 ## Why inverse compositions matter
 

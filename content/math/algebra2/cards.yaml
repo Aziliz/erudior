@@ -1,7 +1,7 @@
 # Notecards
 - {front: 'Strategy for a 3×3 system', back: 'Eliminate the same variable from two different pairs, solve the resulting 2×2 system, then back-substitute.', topic: Three-variable systems}
 - {front: 'Parabola through three points', back: 'Substitute each point into $y = ax^2 + bx + c$ and solve the 3×3 system for $a$, $b$, $c$.', topic: Three-variable systems}
-- {front: 'Product and quotient properties of radicals', back: '$\sqrt[n]{ab} = \sqrt[n]{a}\sqrt[n]{b}$ and $\sqrt[n]{\tfrac ab} = \tfrac{\sqrt[n]a}{\sqrt[n]b}$. Roots do not split over sums.', topic: Radicals}
+- {front: 'Product and quotient properties of radicals', back: '$\sqrt[n]{ab} = \sqrt[n]{a}\sqrt[n]{b}$ and $\sqrt[n]{\tfrac ab} = \tfrac{\sqrt[n]a}{\sqrt[n]b}$ (with $a, b \ge 0$ for even $n$, and $b \ne 0$). Roots do not split over sums.', topic: Radicals}
 - {front: 'Simplify $\sqrt{72}$', back: '$6\sqrt2$', topic: Radicals}
 - {front: '$\sqrt{x^2}$', back: '$|x|$', topic: Radicals}
 - {front: 'Rationalizing a two-term denominator', back: 'Multiply top and bottom by the conjugate: $(a + \sqrt b)(a - \sqrt b) = a^2 - b$.', topic: Radicals}

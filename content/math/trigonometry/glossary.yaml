@@ -183,7 +183,7 @@
   topic: Elevation and depression
 - term: bearing
   aliases: [bearings]
-  definition: 'A direction measured from north: either clockwise in three digits ($125^\circ$) or as N/S, an acute angle, then E/W (S $55^\circ$ E).'
+  definition: 'A direction given relative to north or south: either clockwise from north in three digits ($125^\circ$) or as N/S, an acute angle, then E/W (S $55^\circ$ E).'
   topic: Bearings
 - term: three-digit bearing
   aliases: [true bearing, Three-digit (true) bearing]
@@ -311,7 +311,7 @@
   topic: Inverse trig functions
 - term: inverse secant
   aliases: [arcsecant]
-  definition: '$\sec^{-1}x = \cos^{-1}\tfrac1x$ for $|x| \ge 1$; range $[0, \pi]$ excluding $\tfrac{\pi}{2}$.'
+  definition: '$\sec^{-1}x = \cos^{-1}\tfrac1x$ for $|x| \ge 1$; range $[0, \pi]$ excluding $\tfrac{\pi}{2}$ (some calculus texts use $\left[0, \tfrac{\pi}{2}\right) \cup \left[\pi, \tfrac{3\pi}{2}\right)$ instead).'
   topic: Inverse compositions
 - term: inverse cosecant
   aliases: [arccosecant]

@@ -80,10 +80,10 @@
   lesson: pre-stats
   topic: Measures of center
   stem: 'Which data set has no mode?'
-  choices: ['4, 6, 8, 10', '1, 1, 2, 2', '2, 3, 3, 5', '7, 7, 7, 7']
+  choices: ['4, 6, 8, 10', '1, 1, 2, 2, 3', '2, 3, 3, 5', '7, 7, 7, 8']
   answer: 0
   explanation: |-
-    In 4, 6, 8, 10 every value appears once, so no value is most frequent. (1, 1, 2, 2 has two modes.)
+    In 4, 6, 8, 10 every value appears once, so no value is most frequent. (1, 1, 2, 2, 3 has two modes, 1 and 2; 2, 3, 3, 5 has mode 3; 7, 7, 7, 8 has mode 7.)
 
 - id: pre-q-3410
   lesson: pre-stats

@@ -2,8 +2,9 @@ id: math-algebra1
 title: Algebra 1
 description: >-
   High school Algebra 1: real numbers, linear equations and inequalities, absolute value, functions and lines, systems, exponents, polynomials and factoring, quadratics, square roots, exponential growth and decay, sequences, and data analysis. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections.
 order: 2
 subject: Math
 level: [High school]

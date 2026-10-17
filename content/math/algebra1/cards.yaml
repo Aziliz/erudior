@@ -53,7 +53,7 @@
 - {front: 'Average rate of change of $f$ on $[a, b]$', back: '$\dfrac{f(b) - f(a)}{b - a}$', topic: Slope}
 - {front: 'Slope-intercept form', back: '$y = mx + b$: slope $m$, $y$-intercept $(0, b)$.', topic: Equations of lines}
 - {front: 'Point-slope form', back: '$y - y_1 = m(x - x_1)$', topic: Equations of lines}
-- {front: 'Standard form of a line and its slope', back: '$Ax + By = C$; slope $-\tfrac{A}{B}$.', topic: Equations of lines}
+- {front: 'Standard form of a line and its slope', back: '$Ax + By = C$ ($A$, $B$ not both 0); slope $-\tfrac{A}{B}$ when $B \ne 0$ (vertical line if $B = 0$).', topic: Equations of lines}
 - {front: 'Intercepts of $Ax + By = C$', back: '$x$-intercept: set $y = 0$. $y$-intercept: set $x = 0$.', topic: Equations of lines}
 - {front: 'Line through two points: method', back: 'Find the slope, then use point-slope form with either point; check with the other.', topic: Equations of lines}
 - {front: 'Equations of vertical and horizontal lines through $(a, b)$', back: 'Vertical: $x = a$. Horizontal: $y = b$.', topic: Equations of lines}

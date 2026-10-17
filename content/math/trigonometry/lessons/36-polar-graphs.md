@@ -46,7 +46,9 @@ A polar graph is symmetric
 - about the **pole** if replacing $r$ with $-r$ (or $\theta$ with $\theta + \pi$) gives an equivalent equation.
 
 Equations in $\cos\theta$ usually pass the first test, and equations in $\sin\theta$ the second.
-(The tests are sufficient, not necessary: a graph can be symmetric even if a test fails.)
+(The tests are sufficient, not necessary: a graph can be symmetric even if a test fails.
+Some books state the tests with different but equivalent substitutions, for example replacing
+$(r, \theta)$ with $(-r, -\theta)$ for the line $\theta = \tfrac{\pi}{2}$; passing either version shows the symmetry.)
 
 ## The standard families
 

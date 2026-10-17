@@ -197,7 +197,7 @@
 - {front: 'Angle between two vectors', back: '$\cos\theta = \dfrac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert}$', topic: Dot product}
 - {front: 'Test for orthogonal vectors', back: '$\mathbf{u}\cdot\mathbf{v} = 0$', topic: Dot product}
 - {front: 'Vector projection of $\mathbf{u}$ onto $\mathbf{v}$', back: '$\dfrac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{v}\rVert^2}\mathbf{v}$', topic: Dot product}
-- {front: 'Sign of the dot product', back: 'Positive: acute angle. Zero: right angle. Negative: obtuse angle.', topic: Dot product}
+- {front: 'Sign of the dot product (nonzero vectors)', back: 'Positive: acute angle. Zero: right angle. Negative: obtuse angle.', topic: Dot product}
 - {front: 'Work done by a constant force', back: '$W = \mathbf{F}\cdot\mathbf{D} = \lVert\mathbf{F}\rVert\lVert\mathbf{D}\rVert\cos\theta$', topic: Vector applications}
 - {front: 'Object on a ramp of angle $\theta$', back: 'Along the ramp: $W\sin\theta$. Into the ramp: $W\cos\theta$.', topic: Vector applications}
 - {front: 'Ground velocity of a plane', back: 'Air velocity + wind velocity (as vectors)', topic: Vector applications}

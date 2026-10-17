@@ -88,7 +88,7 @@ Reading the special products backward gives factoring patterns.
 | **Sum of cubes** | $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ |
 | **Difference of cubes** | $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ |
 
-A sum of squares, $a^2 + b^2$, is prime over the real numbers. No pair of real binomials multiplies to it.
+A sum of squares, $a^2 + b^2$, is prime over the real numbers once any GCF has been factored out. No pair of real binomials multiplies to it. (So $4x^2 + 16$ is not finished as is: it factors as $4(x^2 + 4)$, and only then is the $x^2 + 4$ prime.)
 
 To recognize a perfect square trinomial, check that the first and last terms are squares and the middle term is twice the product of their square roots: $9x^2 - 30x + 25$ has $(3x)^2$, $5^2$ and $2(3x)(5) = 30x$, so it equals $(3x - 5)^2$.
 

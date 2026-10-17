@@ -27,7 +27,7 @@
 - {front: How to disprove a conjecture, back: 'Give one counterexample: a case where the hypothesis is true and the conclusion is false.', topic: Inductive reasoning}
 - {front: Law of Detachment, back: 'From $p \to q$ and $p$, conclude $q$.', topic: Deductive reasoning}
 - {front: Law of Syllogism, back: 'From $p \to q$ and $q \to r$, conclude $p \to r$.', topic: Deductive reasoning}
-- {front: Affirming the conclusion (converse error), back: 'From $p \to q$ and $q$, you CANNOT conclude $p$.', topic: Deductive reasoning}
+- {front: Affirming the consequent (converse error), back: 'From $p \to q$ and $q$, you CANNOT conclude $p$.', topic: Deductive reasoning}
 - {front: 'Reflexive, symmetric, transitive', back: '$a = a$; if $a = b$ then $b = a$; if $a = b$ and $b = c$ then $a = c$.', topic: Algebraic proof}
 - {front: Congruent Supplements Theorem, back: 'Angles supplementary to the same (or congruent) angles are congruent.', topic: Geometric proof}
 - {front: '$=$ vs $\cong$', back: 'Numbers (lengths, measures) are equal; figures (segments, angles) are congruent.', topic: Geometric proof}

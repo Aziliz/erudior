@@ -107,11 +107,11 @@
 - {front: 'Estimating $\sqrt{58}$', back: 'Between $\sqrt{49} = 7$ and $\sqrt{64} = 8$; about 7.6.', topic: 'Square roots'}
 - {front: 'Cube root', back: '$\sqrt[3]{n}$: the number whose cube is $n$; $\sqrt[3]{-27} = -3$.', topic: 'Square roots'}
 - {front: 'Product rule', back: '$b^m \cdot b^n = b^{m+n}$', topic: 'Exponent rules'}
-- {front: 'Quotient rule', back: '$\dfrac{b^m}{b^n} = b^{m-n}$', topic: 'Exponent rules'}
+- {front: 'Quotient rule', back: '$\dfrac{b^m}{b^n} = b^{m-n}$ for $b \ne 0$', topic: 'Exponent rules'}
 - {front: 'Power of a power', back: '$(b^m)^n = b^{mn}$', topic: 'Exponent rules'}
 - {front: 'Power of a product', back: '$(ab)^n = a^n b^n$: $(2x)^3 = 8x^3$.', topic: 'Exponent rules'}
 - {front: 'Zero exponent', back: '$b^0 = 1$ for $b \ne 0$.', topic: 'Exponent rules'}
-- {front: 'Negative exponent', back: '$b^{-n} = \dfrac{1}{b^n}$: $2^{-3} = \tfrac18$ (not negative).', topic: 'Exponent rules'}
+- {front: 'Negative exponent', back: '$b^{-n} = \dfrac{1}{b^n}$ for $b \ne 0$: $2^{-3} = \tfrac18$ (not negative).', topic: 'Exponent rules'}
 - {front: '$(a + b)^2 = a^2 + b^2$?', back: 'No. Exponents distribute over products, not sums.', topic: 'Exponent rules'}
 - {front: 'Scientific notation form', back: '$a \times 10^n$ with $1 \le a < 10$, $n$ an integer.', topic: 'Scientific notation'}
 - {front: 'Sign of the exponent', back: 'Positive for numbers 10 or more; negative for numbers between 0 and 1.', topic: 'Scientific notation'}

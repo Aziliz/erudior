@@ -9,7 +9,7 @@ refs: [pre-ref-algebra]
 ---
 ## When the answer is a range
 
-"You must be at least 48 inches tall to ride." "Spend no more than \$60." "The temperature stayed above freezing." These don't pin down one number; they describe a whole range of numbers. An **inequality** is a statement that one expression is less than, greater than, or not equal to another. Solving inequalities uses almost exactly the same steps as solving equations, with one important twist.
+"You must be at least 48 inches tall to ride." "Spend no more than \$60." "The temperature stayed above freezing." These don't pin down one number; they describe a whole range of numbers. An **inequality** is a statement that compares two expressions using $<$, $>$, $\le$, $\ge$ or $\ne$: one is less than, greater than, at most, at least, or not equal to the other. Solving inequalities uses almost exactly the same steps as solving equations, with one important twist.
 
 ## Inequality symbols
 

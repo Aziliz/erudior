@@ -80,6 +80,10 @@ Sometimes the variable disappears.
 - $2(x + 3) = 2x + 6$ simplifies to $2x + 6 = 2x + 6$, and subtracting $2x$ leaves $6 = 6$, which is always true. Every number is a solution; the equation is an **identity**.
 - $2(x + 3) = 2x + 5$ leaves $6 = 5$, which is never true. The equation has **no solution**.
 
+## Solving a formula for a variable
+
+The same steps work on a formula with several letters. To solve $d = rt$ for $t$, treat $r$ like a number multiplying $t$ and divide both sides by it: $t = \dfrac{d}{r}$ (for $r \ne 0$). To solve the perimeter formula $P = 2l + 2w$ for $w$, subtract $2l$ from both sides, giving $P - 2l = 2w$, then divide by 2: $w = \dfrac{P - 2l}{2}$. Rewriting a formula this way is useful when you need the same unknown many times, such as the width of several rectangles with known perimeters and lengths.
+
 ## Word problems
 
 A reliable process:
@@ -141,4 +145,5 @@ The rectangle is 8 cm by 20 cm. Check: $2(8) + 2(20) = 56$. ✓
 - Simplify each side, collect variable terms on one side and constants on the other, then divide.
 - Clear fractions by multiplying every term by the LCD.
 - If the variable vanishes, a true statement means every number works; a false one means no solution.
+- Solve a formula for one of its letters with the same inverse operations, treating the other letters as numbers.
 - For word problems: define the variable, write the equation, solve, answer in words, check.

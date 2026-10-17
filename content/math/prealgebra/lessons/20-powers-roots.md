@@ -60,6 +60,8 @@ A radical sign groups like parentheses: $\sqrt{9 + 16} = \sqrt{25} = 5$, which i
 
 Most whole numbers aren't perfect squares, so their square roots aren't whole numbers; in fact they are endless, non-repeating decimals called **irrational numbers**. You can still pin them down between two whole numbers.
 
+This gives a full picture of the numbers in this course. A **rational number** is any number that can be written as a fraction $\tfrac{a}{b}$ of two integers with $b \ne 0$: every integer ($-4 = \tfrac{-4}{1}$), every fraction and mixed number, and every terminating or repeating decimal ($0.\overline{3} = \tfrac13$). Irrational numbers, such as $\sqrt{2}$, $\sqrt{58}$ and $\pi$, are exactly the numbers on the number line that can't be written that way. Together the rational and irrational numbers make up the **real numbers**, every point on the number line.
+
 ### Example 2
 
 Between which two consecutive whole numbers is $\sqrt{58}$? Estimate it to one decimal place.

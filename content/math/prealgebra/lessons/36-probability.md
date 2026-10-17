@@ -9,7 +9,7 @@ refs: [pre-ref-arithmetic]
 ---
 ## Measuring chance
 
-Will it rain tomorrow? What are the odds of rolling a six? How likely is a defective part? **Probability** puts a number on how likely something is. It uses almost everything in this course: fractions, decimals, percents, ratios and multiplication. This final lesson covers the basic definitions, how to count outcomes, complements, and the probability of two independent events both happening.
+Will it rain tomorrow? What is the chance of rolling a six? How likely is a defective part? **Probability** puts a number on how likely something is. It uses almost everything in this course: fractions, decimals, percents, ratios and multiplication. This final lesson covers the basic definitions, how to count outcomes, complements, and the probability of two independent events both happening.
 
 ## Experiments, outcomes and events
 

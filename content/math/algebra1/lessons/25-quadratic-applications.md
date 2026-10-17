@@ -31,7 +31,7 @@ An object thrown straight up (or launched) near Earth's surface, ignoring air re
 
 $$h(t) = -16t^2 + v_0 t + h_0 \quad \text{(feet)}, \qquad h(t) = -4.9t^2 + v_0 t + h_0 \quad \text{(meters)},$$
 
-where $t$ is time in seconds, $v_0$ is the initial upward velocity and $h_0$ is the starting height. The $-16$ (or $-4.9$) comes from gravity, and it's negative, so the parabola opens down and has a highest point.
+where $t$ is time in seconds, $v_0$ is the initial upward velocity and $h_0$ is the starting height. The $-16$ (or $-4.9$) is half the acceleration due to gravity, about $32$ ft/s² (or $9.8$ m/s²), rounded; it's negative because gravity pulls down, so the parabola opens down and has a highest point.
 
 ### Example 1
 

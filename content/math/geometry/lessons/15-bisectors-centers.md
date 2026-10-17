@@ -35,7 +35,7 @@ Three or more lines that meet at one point are **concurrent**, and the point whe
 
 *Why.* Let the perpendicular bisectors of $\overline{AB}$ and $\overline{BC}$ meet at $O$. Then $OA = OB$ (first bisector) and $OB = OC$ (second). So $OA = OC$, and by the converse $O$ is on the third perpendicular bisector too.
 
-Because $OA = OB = OC$, the circle centered at $O$ through $A$ passes through all three vertices. It's the **circumscribed circle** (circumcircle).
+Because $OA = OB = OC$, the circle centered at $O$ through $A$ passes through all three vertices. It's the **circumscribed circle** (circumcircle). To construct it with compass and straightedge, construct the perpendicular bisectors of two sides (Lesson 4), and draw the circle centered where they cross, through any vertex.
 
 ```shape
 {"polygons": [{"points": [[0, 0], [8, 0], [2, 5]]}], "circles": [{"center": [4, 1.3], "r": 4.206}], "segments": [{"from": [4, 1.3], "to": [0, 0], "dashed": true}, {"from": [4, 1.3], "to": [8, 0], "dashed": true}, {"from": [4, 1.3], "to": [2, 5], "dashed": true}], "points": [{"at": [4, 1.3], "label": "O"}], "labels": [{"at": [-0.4, -0.4], "text": "A"}, {"at": [8.4, -0.4], "text": "B"}, {"at": [2, 5.5], "text": "C"}], "caption": "The circumcenter O is equally far from A, B and C."}
@@ -65,7 +65,7 @@ Find the circumcenter of the triangle with vertices $A(0, 0)$, $B(8, 0)$ and $C(
 
 **Incenter Theorem.** The angle bisectors of a triangle are concurrent at a point, the **incenter**, which is equidistant from the three sides.
 
-The common distance is the radius of the **inscribed circle** (incircle), the largest circle that fits inside the triangle, touching all three sides. Unlike the circumcenter, the incenter is *always* inside the triangle.
+The common distance is the radius of the **inscribed circle** (incircle), the largest circle that fits inside the triangle, touching all three sides. Unlike the circumcenter, the incenter is *always* inside the triangle. To construct the incircle, bisect two angles to find $I$, construct the perpendicular from $I$ to one side, and use the length of that perpendicular as the radius.
 
 ```shape
 {"polygons": [{"points": [[0, 0], [8, 0], [0, 6]]}], "circles": [{"center": [2, 2], "r": 2}], "segments": [{"from": [2, 2], "to": [2, 0], "dashed": true}, {"from": [2, 2], "to": [0, 2], "dashed": true}, {"from": [2, 2], "to": [3.2, 3.6], "dashed": true}], "points": [{"at": [2, 2], "label": "I"}], "caption": "The incenter I of a 6-8-10 right triangle; the incircle has radius 2."}

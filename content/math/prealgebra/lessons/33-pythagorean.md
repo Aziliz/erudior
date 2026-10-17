@@ -97,7 +97,9 @@ $c^2 = 48^2 + 27^2 = 2{,}304 + 729 = 3{,}033$, so $c = \sqrt{3{,}033} \approx 55
 
 ## Distance on a grid
 
-The theorem also measures straight-line distance between two points on a grid. To go from $(1, 2)$ to $(7, 10)$, you move 6 units across and 8 units up. Those moves are the legs of a right triangle, and the straight-line distance is the hypotenuse:
+The theorem also measures straight-line distance between two points on a grid. The grid here is the **coordinate plane**: a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) that cross at 0, a point called the **origin**. Every point is named by an **ordered pair** $(x, y)$: the first number says how far to move left or right from the origin, the second how far to move up or down. Order matters: $(1, 2)$ and $(2, 1)$ are different points. The axes split the plane into four regions called quadrants; points with negative coordinates, like $(-3, 4)$, sit left of or below the origin.
+
+To go from $(1, 2)$ to $(7, 10)$, you move 6 units across and 8 units up. Those moves are the legs of a right triangle, and the straight-line distance is the hypotenuse:
 
 $$d = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10.$$
 

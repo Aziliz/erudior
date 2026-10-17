@@ -109,7 +109,7 @@ Why the original and not the new value? Because "percent change" answers "by wha
 
 ### Finding a new value after a percent change
 
-To increase a number by $r$%, multiply it by $(1 + r)$ with $r$ as a decimal; to decrease by $r$%, multiply by $(1 - r)$. A 15% raise on \$40,000 gives $40{,}000 \times 1.15 = 46{,}000$, which matches $40{,}000 + 0.15 \times 40{,}000$.
+Write the percent of change as a decimal $r$ (15% is $r = 0.15$). To increase a number by that percent, multiply it by $(1 + r)$; to decrease it, multiply by $(1 - r)$. A 15% raise on \$40,000 gives $40{,}000 \times 1.15 = 46{,}000$, which matches $40{,}000 + 0.15 \times 40{,}000$.
 
 ### Up and down don't cancel
 

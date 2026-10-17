@@ -39,6 +39,8 @@ $$S = (n - 2) \cdot 180^\circ.$$
 |---|---|---|---|---|---|---|
 | Sum | $180^\circ$ | $360^\circ$ | $540^\circ$ | $720^\circ$ | $1080^\circ$ | $1440^\circ$ |
 
+The same sum holds for concave polygons too (any polygon whose sides do not cross can be cut into $n - 2$ triangles by suitable diagonals), but the one-vertex fan of diagonals above is the easiest picture for convex ones.
+
 In a regular $n$-gon all the angles are equal, so each interior angle is
 
 $$\frac{(n - 2) \cdot 180^\circ}{n}.$$

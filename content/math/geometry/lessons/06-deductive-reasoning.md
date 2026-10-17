@@ -17,7 +17,7 @@ Inductive reasoning suggests what might be true; **deductive reasoning** shows w
 
 The law of detachment is the workhorse of proof: you check that a theorem's hypothesis is met, then you "detach" its conclusion.
 
-A common trap is running it backwards. Knowing $p \to q$ and $q$ tells you **nothing** about $p$. "If a figure is a square, it has four sides. This figure has four sides." It could be a trapezoid. This error is called *affirming the conclusion* (or the converse error).
+A common trap is running it backwards. Knowing $p \to q$ and $q$ tells you **nothing** about $p$. "If a figure is a square, it has four sides. This figure has four sides." It could be a trapezoid. This error is called *affirming the consequent* (the "consequent" is another name for the conclusion $q$), and is also known as the converse error.
 
 **Law of Syllogism.** If $p \to q$ and $q \to r$ are both true, then $p \to r$ is true.
 
@@ -106,7 +106,7 @@ Students often confuse symmetric, transitive and substitution:
 
 ## Common mistakes
 
-- **Affirming the conclusion.** From $p \to q$ and $q$, you cannot conclude $p$.
+- **Affirming the consequent.** From $p \to q$ and $q$, you cannot conclude $p$.
 - **Breaking the chain in a syllogism.** "If $p$ then $q$" and "if $r$ then $s$" don't combine unless $q$ and $r$ match.
 - **Naming the wrong property.** Moving a term to the other side is really adding or subtracting on both sides; name it that way.
 - **Dividing by zero** or by an expression that might be zero.

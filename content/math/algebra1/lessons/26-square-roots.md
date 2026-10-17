@@ -25,7 +25,7 @@ The numbers $1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, \dots$ are the **pe
 
 ## Rational or irrational?
 
-Lesson 1 split the real numbers into rational numbers (fractions of integers) and irrational numbers (decimals that never end or repeat). Square roots give the most common irrational numbers. The fact to remember:
+Lesson 1 split the real numbers into rational numbers (fractions of integers) and irrational numbers (decimals that never end and never repeat). Square roots give the most common irrational numbers. The fact to remember:
 
 > For a whole number $n$, $\sqrt{n}$ is rational exactly when $n$ is a perfect square. Otherwise it is irrational.
 

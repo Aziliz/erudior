@@ -79,6 +79,8 @@ Solve $(x - 2)^{3/2} = 8$.
 1. Raise both sides to the reciprocal power $\tfrac23$: $x - 2 = 8^{2/3} = 4$.
 2. So $x = 6$. Check: $4^{3/2} = (\sqrt4)^3 = 8$. True.
 
+Watch the numerator of the exponent. When it is even, the power hides a square, and squares lose the sign, so both signs must be kept. For $x^{2/3} = 4$, write it as $\left(\sqrt[3]{x}\right)^2 = 4$: then $\sqrt[3]{x} = \pm 2$ and $x = \pm 8$. Both check, since $(-8)^{2/3} = \left(\sqrt[3]{-8}\right)^2 = (-2)^2 = 4$. Raising both sides to the $\tfrac32$ power alone would find only $x = 8$. When the numerator is odd, as in Example 5, there is just one candidate.
+
 ### Example 6
 
 Solve $\sqrt{3x + 1} = -4$.
@@ -120,4 +122,4 @@ Notice that the formula shows doubling the speed requires four times the height,
 - Isolate the radical, raise both sides to the index power, solve, and check.
 - Squaring can introduce extraneous solutions, because $a^2 = b^2$ allows $a = -b$.
 - For two square roots, isolate and square twice.
-- For $u^{m/n} = c$, raise both sides to the power $\tfrac{n}{m}$, and check.
+- For $u^{m/n} = c$, raise both sides to the power $\tfrac{n}{m}$, taking $\pm$ when $m$ is even, and check.

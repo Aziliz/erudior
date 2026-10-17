@@ -22,7 +22,7 @@ A detail that matters later: $\sqrt{x^2} = |x|$, not $x$. For $x = -3$, $\sqrt{(
 
 ## Simplifying radicals
 
-Two properties let you split and combine radicals (for $a, b \ge 0$ when $n$ is even):
+Two properties let you split and combine radicals (for $a, b \ge 0$ when $n$ is even, and $b \ne 0$ in the quotient):
 
 $$\sqrt[n]{ab} = \sqrt[n]{a}\,\sqrt[n]{b}, \qquad \sqrt[n]{\frac{a}{b}} = \frac{\sqrt[n]{a}}{\sqrt[n]{b}}.$$
 

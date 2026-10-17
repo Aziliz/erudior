@@ -24,7 +24,7 @@
   "order": 1,
   "title": "Pre-algebra and Arithmetic",
   "description": "Arithmetic and pre-algebra from place value up through the level of a college developmental math course: whole numbers, integers, fractions, decimals, ratios and proportions, percents, exponents and scientific notation, expressions and equations, measurement and basic geometry, and basic data and probability, with word problems throughout.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school"
@@ -43,7 +43,7 @@
   "order": 2,
   "title": "Algebra 1",
   "description": "High school Algebra 1: real numbers, linear equations and inequalities, absolute value, functions and lines, systems, exponents, polynomials and factoring, quadratics, square roots, exponential growth and decay, sequences, and data analysis. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school"
@@ -62,7 +62,7 @@
   "order": 3,
   "title": "Algebra 2",
   "description": "High school Algebra 2: function transformations, composition and inverses, complex numbers, systems in three variables, polynomial functions, radicals and rational exponents, rational expressions and functions, exponentials and logarithms, sequences and series, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school"
@@ -81,7 +81,7 @@
   "order": 4,
   "title": "Geometry",
   "description": "Euclidean geometry from the first definitions through a college introduction: points, lines and angles; logic and proof; parallel lines; triangle congruence and similarity; special segments and quadrilaterals; right triangles and trigonometry; circles; area, surface area and volume; coordinates and transformations; and, at the college level, axiomatic systems, the parallel postulate, non-Euclidean geometry and geometric probability.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school"
@@ -100,7 +100,7 @@
   "order": 5,
   "title": "Trigonometry",
   "description": "Trigonometry from the first angle through a full college course: degrees and radians, arc length and angular speed, right-triangle trig, the unit circle, graphs of all six functions and sinusoidal models, inverse functions, identities and equations, the laws of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric form with De Moivre's theorem.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Math",
   "level": [
    "High school",

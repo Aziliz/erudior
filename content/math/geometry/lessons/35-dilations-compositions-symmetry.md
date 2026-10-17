@@ -11,7 +11,7 @@ Rigid motions keep size. Dilations change it, and they give a transformation-bas
 
 ## Dilations
 
-A **dilation** with center $C$ and scale factor $k > 0$ maps each point $P$ to the point $P'$ on ray $\overrightarrow{CP}$ with $CP' = k \cdot CP$.
+A **dilation** with center $C$ and scale factor $k > 0$ maps each point $P$ to the point $P'$ on ray $\overrightarrow{CP}$ with $CP' = k \cdot CP$. (This course uses positive scale factors only. Some textbooks also allow $k < 0$, which puts $P'$ on the ray opposite $\overrightarrow{CP}$, $|k|$ times as far away; that is a dilation by $|k|$ combined with a $180^\circ$ rotation about $C$.)
 
 - If $k > 1$ it's an **enlargement**; if $0 < k < 1$, a **reduction**; $k = 1$ changes nothing.
 - A dilation multiplies every length by $k$, keeps angle measures, and maps each line to a parallel line (or to itself, if the line passes through the center).

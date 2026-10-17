@@ -106,6 +106,8 @@ Even a perfect random sample won't match the population exactly, because samples
 
 $$\text{margin of error} \approx \frac{1}{\sqrt n}.$$
 
+This shortcut is a rounded, cautious version of the full formula $1.96\sqrt{\hat p(1 - \hat p)/n}$, where $\hat p$ is the sample proportion. It is close to exact when $\hat p$ is near 50% and a little too large otherwise, so it never understates the uncertainty.
+
 ### Example 5
 
 A random sample of 1,200 voters finds 54% support a proposal. Estimate the margin of error and the likely range for all voters.

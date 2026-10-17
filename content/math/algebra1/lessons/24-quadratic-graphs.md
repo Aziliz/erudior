@@ -36,6 +36,8 @@ is called **vertex form**, because the vertex is $(h, k)$ and the axis of symmet
 
 In terms of shifting, the graph of $a(x - h)^2 + k$ is the graph of $ax^2$ moved $h$ units right and $k$ units up. Watch the sign: $(x - 3)^2$ shifts right 3, and $(x + 3)^2 = (x - (-3))^2$ shifts left 3.
 
+These moves work for any function, not just $x^2$. Starting from the graph of $y = f(x)$: $y = f(x) + k$ moves it up $k$ units (down if $k < 0$); $y = f(x - h)$ moves it right $h$ units (left if $h < 0$); and $y = a\,f(x)$ stretches it vertically by the factor $|a|$, flipping it over the $x$-axis when $a < 0$. For example, $y = |x - 2| + 1$ is the V of $y = |x|$ moved right 2 and up 1, with its corner at $(2, 1)$, and $y = \sqrt{x + 4}$ is the graph of $y = \sqrt x$ moved left 4.
+
 ### Example 1
 
 Graph $f(x) = -2(x + 1)^2 + 8$.

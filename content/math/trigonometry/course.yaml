@@ -6,8 +6,9 @@ description: >-
   functions and sinusoidal models, inverse functions, identities and equations, the laws
   of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric
   form with De Moivre's theorem.
-revision: 1
+revision: 2
 released: true
+changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections.
 order: 5
 subject: Math
 level: [High school, College]

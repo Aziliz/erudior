@@ -108,7 +108,7 @@
   choices: ['Nothing about whether Rio is a hawk', 'Rio is a hawk.', 'Rio is not a hawk.', 'All birds are hawks.']
   answer: 0
   explanation: |-
-    The fact matches the conclusion, not the hypothesis. Concluding "Rio is a hawk" is the converse error (affirming the conclusion).
+    The fact matches the conclusion, not the hypothesis. Concluding "Rio is a hawk" is the converse error (affirming the consequent).
 - id: geo-q-0603
   lesson: geo-deductive
   module_quiz: true

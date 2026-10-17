@@ -65,7 +65,7 @@ The **standard form** of a line is
 
 $$Ax + By = C,$$
 
-usually with integers $A$, $B$, $C$ and $A \ge 0$. Every line can be written this way, including vertical lines ($x = 5$ is $1x + 0y = 5$), which slope-intercept form can't express.
+where $A$ and $B$ are not both zero (otherwise there is no line), usually written with integers $A$, $B$, $C$ and $A \ge 0$. Every line can be written this way, including vertical lines ($x = 5$ is $1x + 0y = 5$), which slope-intercept form can't express.
 
 Standard form makes the intercepts easy to find. Set $y = 0$ to get the $x$-intercept, and $x = 0$ to get the $y$-intercept.
 
@@ -76,7 +76,7 @@ Graph $3x - 4y = 12$ using its intercepts, and find its slope.
 1. $x$-intercept: $3x = 12$, so $(4, 0)$.
 2. $y$-intercept: $-4y = 12$, so $(0, -3)$.
 3. Plot both and draw the line.
-4. Slope: solve for $y$. $-4y = -3x + 12$, so $y = \tfrac34 x - 3$, and $m = \tfrac34$. In general, the slope of $Ax + By = C$ is $-\tfrac{A}{B}$.
+4. Slope: solve for $y$. $-4y = -3x + 12$, so $y = \tfrac34 x - 3$, and $m = \tfrac34$. In general, the slope of $Ax + By = C$ is $-\tfrac{A}{B}$ when $B \ne 0$; if $B = 0$, the line is vertical and its slope is undefined.
 
 ```plot
 {"x": [-3, 7], "y": [-5, 3], "functions": [{"f": "0.75*x - 3", "label": "3x - 4y = 12"}], "points": [{"at": [4, 0], "label": "(4, 0)"}, {"at": [0, -3], "label": "(0, -3)"}], "equal": true, "caption": "Intercepts make standard form quick to graph"}

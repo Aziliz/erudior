@@ -27,12 +27,12 @@ $-3^2 = -9$ but $(-3)^2 = 9$.
 | Rule | Statement |
 |---|---|
 | Product | $b^m b^n = b^{m+n}$ |
-| Quotient | $\dfrac{b^m}{b^n} = b^{m-n}$ |
+| Quotient | $\dfrac{b^m}{b^n} = b^{m-n}$ ($b \ne 0$) |
 | Power of a power | $(b^m)^n = b^{mn}$ |
 | Power of a product | $(ab)^n = a^n b^n$ |
 | Power of a quotient | $\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$ |
 | Zero exponent | $b^0 = 1$ ($b \ne 0$) |
-| Negative exponent | $b^{-n} = \dfrac{1}{b^n}$ |
+| Negative exponent | $b^{-n} = \dfrac{1}{b^n}$ ($b \ne 0$) |
 
 ## Squares, roots and cubes
 

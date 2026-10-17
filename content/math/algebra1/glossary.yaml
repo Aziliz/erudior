@@ -17,7 +17,7 @@
   topic: Real numbers
 - term: irrational number
   aliases: [irrational numbers]
-  definition: 'A real number that is not rational; its decimal never ends or repeats. Examples: $\sqrt2$, $\pi$.'
+  definition: 'A real number that is not rational; its decimal neither terminates nor repeats. Examples: $\sqrt2$, $\pi$.'
   topic: Real numbers
 - term: real numbers
   aliases: [real number]
@@ -276,7 +276,7 @@
   definition: '$y - y_1 = m(x - x_1)$, the line with slope $m$ through $(x_1, y_1)$.'
   topic: Equations of lines
 - term: standard form
-  definition: 'For a line, $Ax + By = C$. For a polynomial, terms written from highest degree to lowest. For a quadratic equation, $ax^2 + bx + c = 0$.'
+  definition: 'For a line, $Ax + By = C$ with $A$ and $B$ not both 0. For a polynomial, terms written from highest degree to lowest. For a quadratic equation, $ax^2 + bx + c = 0$.'
   topic: Equations of lines
 - term: parallel lines
   aliases: [parallel]
@@ -421,7 +421,7 @@
   definition: 'A polynomial with three terms.'
   topic: Polynomials
 - term: degree
-  definition: 'Of a term, the sum of its exponents; of a polynomial, the largest degree of its terms.'
+  definition: 'Of a term, the sum of the exponents of its variables (a nonzero constant has degree 0); of a polynomial, the largest degree of its terms.'
   topic: Polynomials
 - term: leading term
   definition: 'The term of highest degree in a polynomial.'

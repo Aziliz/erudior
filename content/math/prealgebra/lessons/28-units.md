@@ -30,7 +30,7 @@ The **metric system** uses one base unit for each kind of quantity, and prefixes
 |---|---|---|---|---|---|---|---|
 | Times the base | 1,000 | 100 | 10 | 1 | 0.1 | 0.01 | 0.001 |
 
-The base units are the **meter** (m) for length, the **gram** (g) for mass, and the **liter** (L) for capacity. So a kilometer is 1,000 meters, a centimeter is $\tfrac{1}{100}$ meter, and a milligram is $\tfrac{1}{1000}$ gram. The ones you'll use most are km, m, cm, mm; kg, g, mg; L and mL.
+The base units are the **meter** (m) for length, the **gram** (g) for mass, and the **liter** (L) for capacity. So a kilometer is 1,000 meters, a centimeter is $\tfrac{1}{100}$ meter, and a milligram is $\tfrac{1}{1000}$ gram. The ones you'll use most are km, m, cm, mm; kg, g, mg; L and mL. (One technical note: the prefixes attach to the gram, but in the SI system scientists use, the official base unit of mass is the kilogram.)
 
 Because every step is a factor of 10, converting within the metric system just moves the decimal point, exactly as in Lesson 14. Moving one column to the right in the table (toward smaller units) multiplies by 10; moving left divides by 10.
 

@@ -64,6 +64,8 @@ Keep the rate and the factor apart. A 15% decay rate means you keep 85% each yea
 | $y = 500(2)^t$ | 2 | doubles: grows 100% per step |
 | $y = 500(0.5)^t$ | 0.5 | halves: decays 50% per step |
 
+The power rule from Lesson 17 lets you restate a rate over a different time step. Since $1.21 = 1.1^2$, the function $y = 500(1.21)^t$ can be written $y = 500(1.1)^{2t}$: growing 21% per year is the same as growing 10% per half-year. Going the other way, a factor of 1.1 per month compounds to $1.1^{12} \approx 3.14$ per year, about 214% yearly growth, far more than $12 \times 10\% = 120\%$.
+
 ### Example 1
 
 A town has 2,400 residents and grows 5% per year. Write a function for the population after $t$ years and predict it after 10 years.

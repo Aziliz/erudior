@@ -109,7 +109,7 @@
   topic: Order of operations
 - term: multiple
   aliases: [multiples]
-  definition: 'The product of a number and a whole number. Multiples of 6 are 6, 12, 18, …'
+  definition: 'The product of a number and a counting number (1, 2, 3, …). Multiples of 6 are 6, 12, 18, …'
   topic: Factors and multiples
 - term: divisible
   definition: '$n$ is divisible by $a$ if $n \div a$ leaves remainder 0.'
@@ -343,6 +343,14 @@
   aliases: [irrational number, irrational]
   definition: 'Numbers whose decimals never end or repeat, such as $\sqrt2$ and $\pi$; they cannot be written as fractions of integers.'
   topic: Square roots
+- term: rational number
+  aliases: [rational numbers]
+  definition: 'A number that can be written as $\tfrac ab$ with $a$ and $b$ integers and $b \ne 0$; its decimal terminates or repeats.'
+  topic: Square roots
+- term: real numbers
+  aliases: [real number]
+  definition: 'All the rational and irrational numbers together: every point on the number line.'
+  topic: Square roots
 - term: cube root
   definition: 'The number whose cube is a given number: $\sqrt[3]{64} = 4$.'
   topic: Square roots
@@ -455,7 +463,7 @@
   topic: Unit conversion
 - term: gram
   aliases: [grams]
-  definition: 'The metric base unit of mass; 1,000 grams is a kilogram, about 2.2 pounds.'
+  definition: 'The metric unit of mass that the prefixes attach to; 1,000 grams is a kilogram, about 2.2 pounds. (In the SI system the official base unit of mass is the kilogram.)'
   topic: Unit conversion
 - term: liter
   aliases: [liters]
@@ -612,6 +620,16 @@
   topic: Pythagorean theorem
 - term: Pythagorean theorem
   definition: 'In a right triangle, $a^2 + b^2 = c^2$, where $c$ is the hypotenuse.'
+  topic: Pythagorean theorem
+- term: coordinate plane
+  definition: 'A flat grid formed by a horizontal number line (the $x$-axis) and a vertical one (the $y$-axis) crossing at the origin; each point is named by an ordered pair.'
+  topic: Pythagorean theorem
+- term: origin
+  definition: 'The point $(0, 0)$ where the $x$-axis and $y$-axis cross.'
+  topic: Pythagorean theorem
+- term: ordered pair
+  aliases: [ordered pairs]
+  definition: 'A pair of numbers $(x, y)$ naming a point: $x$ is the move left or right from the origin, $y$ the move up or down.'
   topic: Pythagorean theorem
 - term: Pythagorean triples
   aliases: [Pythagorean triple]

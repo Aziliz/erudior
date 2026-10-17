@@ -42,7 +42,7 @@ Notice that in this model the two diagonals do *not* intersect, because their cr
 - **Independence.** An axiom is **independent** if it can't be proved from the others. To show this, find a model where all the *other* axioms hold but this one fails. (If it could be proved from the others, it would have to hold too.)
 - **Completeness.** A system is **complete** if every statement in its language can be either proved or disproved from the axioms.
 
-Consistency is essential. Independence is elegant (no wasted axioms) but not required. Completeness turns out to be surprisingly subtle: in the 1930s Kurt Gödel showed that any consistent system rich enough to include ordinary arithmetic is incomplete.
+Consistency is essential. Independence is elegant (no wasted axioms) but not required. Completeness turns out to be surprisingly subtle: in the 1930s Kurt Gödel showed that any consistent system whose axioms can be listed and checked mechanically, and that is rich enough to include ordinary arithmetic, is incomplete. Geometry itself escapes this: Alfred Tarski later showed that elementary Euclidean geometry, formalized without the machinery of arithmetic, is complete.
 
 ### Example 1: showing independence
 

@@ -830,6 +830,14 @@
 - term: Euler's formula
   definition: 'For a convex polyhedron, vertices minus edges plus faces equals 2: $V - E + F = 2$.'
   topic: Solids
+- term: cross section
+  aliases: [cross sections, cross-section]
+  definition: 'The flat shape where a plane slices through a solid; for example, a sphere''s cross sections are circles.'
+  topic: Solids
+- term: solid of revolution
+  aliases: [solids of revolution]
+  definition: 'A solid swept out by spinning a flat region about a line (the axis), such as a cone from a right triangle spun about a leg.'
+  topic: Solids
 - term: net
   aliases: [nets]
   definition: 'A flat pattern that folds into a solid.'
