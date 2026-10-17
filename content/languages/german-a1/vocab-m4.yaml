@@ -1,0 +1,1331 @@
+- id: hobby
+  lesson: de1-hobbies
+  term: das Hobby
+  pos: noun
+  plural: die Hobbys
+  meanings:
+  - hobby
+  example: Mein Hobby ist Musik.
+  exampleEn: My hobby is music.
+- id: freizeit
+  lesson: de1-hobbies
+  term: die Freizeit
+  pos: noun
+  plural: —
+  meanings:
+  - free time
+  - spare time
+  - leisure time
+  - leisure
+  example: Was machst du in der Freizeit?
+  exampleEn: What do you do in your free time?
+- id: lesen
+  lesson: de1-hobbies
+  term: lesen
+  pos: verb
+  meanings:
+  - to read
+  example: Liest du gern Bücher?
+  exampleEn: Do you like reading books?
+  note: 'Stem change: du liest, er liest. Perfect: hat gelesen.'
+- id: sehen
+  lesson: de1-hobbies
+  term: sehen
+  pos: verb
+  meanings:
+  - to see
+  - to watch
+  example: Wir sehen heute einen Film.
+  exampleEn: We are watching a film today.
+  note: 'Stem change: du siehst, er sieht. Perfect: hat gesehen.'
+- id: fahren
+  lesson: de1-hobbies
+  term: fahren
+  pos: verb
+  meanings:
+  - to go (by vehicle)
+  - to go
+  - to drive
+  - to ride
+  - to travel
+  example: Mein Vater fährt jeden Tag Fahrrad.
+  exampleEn: My father rides his bike every day.
+  note: 'Stem change: du fährst, er fährt. Perfect: ist gefahren.'
+- id: schwimmen
+  lesson: de1-hobbies
+  term: schwimmen
+  pos: verb
+  meanings:
+  - to swim
+  - to go swimming
+  example: Im Sommer schwimme ich gern.
+  exampleEn: In summer I like swimming.
+  note: 'Perfect: ist geschwommen.'
+- id: tanzen
+  lesson: de1-hobbies
+  term: tanzen
+  pos: verb
+  meanings:
+  - to dance
+  example: Tanzt du gern?
+  exampleEn: Do you like dancing?
+  note: du tanzt (the stem ends in z, so du only adds -t).
+- id: singen
+  lesson: de1-hobbies
+  term: singen
+  pos: verb
+  meanings:
+  - to sing
+  example: Meine Schwester singt sehr schön.
+  exampleEn: My sister sings very beautifully.
+  note: 'Perfect: hat gesungen.'
+- id: reisen
+  lesson: de1-hobbies
+  term: reisen
+  pos: verb
+  meanings:
+  - to travel
+  - to journey
+  - to take a trip
+  example: Wir reisen gern zusammen.
+  exampleEn: We like travelling together.
+  note: 'du reist. Perfect: ist gereist.'
+- id: wandern
+  lesson: de1-hobbies
+  term: wandern
+  pos: verb
+  meanings:
+  - to hike
+  - to go hiking
+  - to go walking
+  - to ramble
+  - to walk (in the country)
+  example: Am Sonntag wandern wir oft.
+  exampleEn: We often go hiking on Sundays.
+  note: 'ich wandere. Perfect: ist gewandert.'
+- id: joggen
+  lesson: de1-hobbies
+  term: joggen
+  pos: verb
+  meanings:
+  - to jog
+  - to go jogging
+  - to run (for exercise)
+  example: Er joggt jeden Morgen.
+  exampleEn: He jogs every morning.
+  note: 'Perfect: ist gejoggt (hat gejoggt is also used).'
+- id: malen
+  lesson: de1-hobbies
+  term: malen
+  pos: verb
+  meanings:
+  - to paint
+  - to draw (a picture)
+  example: Das Kind malt eine Katze.
+  exampleEn: The child is painting a cat.
+- id: fotografieren
+  lesson: de1-hobbies
+  term: fotografieren
+  pos: verb
+  meanings:
+  - to take photos
+  - to take pictures
+  - to photograph
+  - to take a photo
+  example: Ich fotografiere gern Tiere.
+  exampleEn: I like taking photos of animals.
+  note: 'Perfect: hat fotografiert (no ge- with -ieren verbs).'
+- id: treffen
+  lesson: de1-hobbies
+  term: treffen
+  pos: verb
+  meanings:
+  - to meet
+  - to meet up with
+  - to see (meet)
+  example: Ich treffe am Freitag meine Freunde.
+  exampleEn: I am meeting my friends on Friday.
+  note: 'Stem change: du triffst, er trifft. Perfect: hat getroffen.'
+- id: sport
+  lesson: de1-hobbies
+  term: der Sport
+  pos: noun
+  plural: —
+  meanings:
+  - sport
+  - sports
+  - exercise
+  - PE
+  example: Machst du gern Sport?
+  exampleEn: Do you like doing sport?
+  note: Sport machen = to do sport, to exercise.
+- id: fussball
+  lesson: de1-hobbies
+  term: der Fußball
+  pos: noun
+  plural: die Fußbälle
+  meanings:
+  - football (soccer)
+  - soccer
+  - football
+  - soccer ball
+  example: Die Kinder spielen Fußball.
+  exampleEn: The children are playing football.
+  alt:
+  - der Fussball
+  note: 'No article for the game: Ich spiele Fußball.'
+- id: fahrrad
+  lesson: de1-hobbies
+  term: das Fahrrad
+  pos: noun
+  plural: die Fahrräder
+  meanings:
+  - bicycle
+  - bike
+  - cycle
+  example: Mein Fahrrad ist neu.
+  exampleEn: My bike is new.
+  note: 'Fahrrad fahren = to cycle. Short form: das Rad.'
+- id: musik
+  lesson: de1-hobbies
+  term: die Musik
+  pos: noun
+  plural: —
+  meanings:
+  - music
+  example: Ich höre gern Musik.
+  exampleEn: I like listening to music.
+- id: spiel
+  lesson: de1-hobbies
+  term: das Spiel
+  pos: noun
+  plural: die Spiele
+  meanings:
+  - game
+  - match
+  - play (game)
+  example: Das Spiel ist sehr lustig.
+  exampleEn: The game is very funny.
+- id: film
+  lesson: de1-hobbies
+  term: der Film
+  pos: noun
+  plural: die Filme
+  meanings:
+  - film
+  - movie
+  example: Der Film ist leider langweilig.
+  exampleEn: Unfortunately the film is boring.
+- id: kino
+  lesson: de1-hobbies
+  term: das Kino
+  pos: noun
+  plural: die Kinos
+  meanings:
+  - cinema
+  - movie theater
+  - movies
+  - the movies
+  example: Gehen wir heute ins Kino?
+  exampleEn: Shall we go to the cinema today?
+  note: ins Kino gehen = to go to the cinema.
+- id: konzert
+  lesson: de1-hobbies
+  term: das Konzert
+  pos: noun
+  plural: die Konzerte
+  meanings:
+  - concert
+  - gig
+  example: Das Konzert fängt um acht an.
+  exampleEn: The concert starts at eight.
+- id: theater
+  lesson: de1-hobbies
+  term: das Theater
+  pos: noun
+  plural: die Theater
+  meanings:
+  - theatre
+  - theater
+  example: Das Theater ist im Zentrum.
+  exampleEn: The theatre is in the centre.
+- id: lied
+  lesson: de1-hobbies
+  term: das Lied
+  pos: noun
+  plural: die Lieder
+  meanings:
+  - song
+  example: Wir singen ein Lied.
+  exampleEn: We are singing a song.
+- id: geben
+  lesson: de1-hobbies
+  term: geben
+  pos: verb
+  meanings:
+  - to give
+  - to hand
+  example: Gibst du mir bitte das Buch?
+  exampleEn: Can you give me the book, please?
+  note: 'Stem change: du gibst, er gibt. Perfect: hat gegeben. es gibt = there is/are.'
+- id: helfen
+  lesson: de1-hobbies
+  term: helfen
+  pos: verb
+  meanings:
+  - to help
+  example: Mein Bruder hilft gern.
+  exampleEn: My brother likes helping.
+  note: 'Stem change: du hilfst, er hilft. Perfect: hat geholfen. Takes the dative: Ich helfe dir.'
+- id: lieber
+  lesson: de1-hobbies
+  term: lieber
+  pos: adverb
+  meanings:
+  - rather (prefer)
+  - rather
+  - prefer
+  - preferably
+  - sooner
+  - more gladly
+  example: Ich trinke lieber Tee.
+  exampleEn: I prefer tea.
+  note: 'Comparative of gern: gern, lieber, am liebsten.'
+- id: am-liebsten
+  lesson: de1-hobbies
+  term: am liebsten
+  pos: adverb
+  meanings:
+  - most of all (like best)
+  - most of all
+  - like best
+  - best of all
+  - like most
+  - like most of all
+  example: Am liebsten lese ich.
+  exampleEn: Most of all I like reading.
+  note: Superlative of gern.
+- id: allein
+  lesson: de1-hobbies
+  term: allein
+  pos: adverb
+  meanings:
+  - alone
+  - by oneself
+  - on one's own
+  - on my own
+  - by myself
+  example: Ich wohne allein.
+  exampleEn: I live alone.
+  alt:
+  - alleine
+- id: spazieren-gehen
+  lesson: de1-hobbies
+  kind: phrase
+  term: spazieren gehen
+  pos: verb
+  meanings:
+  - to go for a walk
+  - to take a walk
+  - to walk
+  - to stroll
+  example: Wir gehen am Abend spazieren.
+  exampleEn: We go for a walk in the evening.
+  note: 'ich gehe spazieren. Perfect: ist spazieren gegangen.'
+- id: koennen
+  lesson: de1-modals-1
+  term: können
+  pos: verb
+  meanings:
+  - can (be able to)
+  - can
+  - to be able to
+  - to know how to
+  - be able
+  example: Kannst du schwimmen?
+  exampleEn: Can you swim?
+  note: 'Modal verb: ich kann, du kannst, er kann, wir können, ihr könnt, sie können.'
+- id: wollen
+  lesson: de1-modals-1
+  term: wollen
+  pos: verb
+  meanings:
+  - to want (to)
+  - to want
+  - to wish
+  - want to
+  example: Ich will Gitarre lernen.
+  exampleEn: I want to learn the guitar.
+  note: 'Modal verb: ich will, du willst, er will, wir wollen, ihr wollt, sie wollen. Ich will = I want
+    (not I will).'
+- id: moegen
+  lesson: de1-modals-1
+  term: mögen
+  pos: verb
+  meanings:
+  - to like (a thing or person)
+  - to like
+  - to be fond of
+  - to care for
+  example: Magst du Käse?
+  exampleEn: Do you like cheese?
+  note: ich mag, du magst, er mag, wir mögen, ihr mögt, sie mögen. Mostly with a noun; for activities
+    use gern.
+- id: instrument
+  lesson: de1-modals-1
+  term: das Instrument
+  pos: noun
+  plural: die Instrumente
+  meanings:
+  - instrument (musical)
+  - instrument
+  - musical instrument
+  example: Spielst du ein Instrument?
+  exampleEn: Do you play an instrument?
+- id: gitarre
+  lesson: de1-modals-1
+  term: die Gitarre
+  pos: noun
+  plural: die Gitarren
+  meanings:
+  - guitar
+  example: Ich spiele ein bisschen Gitarre.
+  exampleEn: I play the guitar a little.
+  note: 'No article for playing: Gitarre spielen.'
+- id: klavier
+  lesson: de1-modals-1
+  term: das Klavier
+  pos: noun
+  plural: die Klaviere
+  meanings:
+  - piano
+  example: Meine Tochter kann Klavier spielen.
+  exampleEn: My daughter can play the piano.
+- id: ski-fahren
+  lesson: de1-modals-1
+  kind: phrase
+  term: Ski fahren
+  pos: verb
+  meanings:
+  - to ski
+  - to go skiing
+  example: Im Winter fahren wir Ski.
+  exampleEn: In winter we go skiing.
+  alt:
+  - Ski laufen
+  - Schi fahren
+  note: 'ich fahre Ski, du fährst Ski. Perfect: ist Ski gefahren.'
+- id: auto-fahren
+  lesson: de1-modals-1
+  kind: phrase
+  term: Auto fahren
+  pos: verb
+  meanings:
+  - to drive (a car)
+  - to drive
+  - to drive a car
+  example: Kannst du schon Auto fahren?
+  exampleEn: Can you drive yet?
+  note: 'ich fahre Auto, du fährst Auto. Perfect: ist Auto gefahren.'
+- id: ein-bisschen
+  lesson: de1-modals-1
+  kind: phrase
+  term: ein bisschen
+  pos: adverb
+  meanings:
+  - a little bit
+  - a bit
+  - a little
+  - slightly
+  - some
+  example: Ich spreche ein bisschen Deutsch.
+  exampleEn: I speak a little German.
+- id: natuerlich
+  lesson: de1-modals-1
+  term: natürlich
+  pos: adverb
+  meanings:
+  - of course
+  - naturally
+  - certainly
+  - sure
+  example: Natürlich helfe ich dir.
+  exampleEn: Of course I will help you.
+- id: vielleicht
+  lesson: de1-modals-1
+  term: vielleicht
+  pos: adverb
+  meanings:
+  - maybe
+  - perhaps
+  - possibly
+  example: Vielleicht kommt sie später.
+  exampleEn: Maybe she will come later.
+- id: leider
+  lesson: de1-modals-1
+  term: leider
+  pos: adverb
+  meanings:
+  - unfortunately
+  - sadly
+  - I'm afraid
+  - regrettably
+  example: Ich kann leider nicht kommen.
+  exampleEn: Unfortunately I can't come.
+- id: schon
+  lesson: de1-modals-1
+  term: schon
+  pos: adverb
+  meanings:
+  - already
+  - yet (in questions)
+  - yet
+  example: Bist du schon fertig?
+  exampleEn: Are you finished already?
+- id: noch
+  lesson: de1-modals-1
+  term: noch
+  pos: adverb
+  meanings:
+  - still (continuing)
+  - still
+  - yet
+  - more (another)
+  example: Ich lerne noch.
+  exampleEn: I am still learning.
+  note: noch ein Kaffee = another coffee.
+- id: noch-nicht
+  lesson: de1-modals-1
+  kind: phrase
+  term: noch nicht
+  pos: adverb
+  meanings:
+  - not yet
+  example: Er kann noch nicht lesen.
+  exampleEn: He can't read yet.
+- id: gleich
+  lesson: de1-modals-1
+  term: gleich
+  pos: adverb
+  meanings:
+  - right away (in a moment)
+  - in a moment
+  - right away
+  - immediately
+  - at once
+  - soon
+  - in a minute
+  - same
+  - equal
+  example: Ich komme gleich!
+  exampleEn: I'm coming right away!
+  note: 'As an adjective it also means "same": das gleiche Buch.'
+- id: wirklich
+  lesson: de1-modals-1
+  term: wirklich
+  pos: adverb
+  meanings:
+  - really
+  - truly
+  - actually
+  - real
+  - genuinely
+  example: Das Konzert ist wirklich toll.
+  exampleEn: The concert is really great.
+- id: sicher
+  lesson: de1-modals-1
+  term: sicher
+  pos: adverb
+  meanings:
+  - sure (certain)
+  - sure
+  - certain
+  - certainly
+  - surely
+  - safe
+  - secure
+  example: Sie kommt sicher.
+  exampleEn: She's sure to come.
+  note: 'Also an adjective: safe, secure.'
+- id: idee
+  lesson: de1-modals-1
+  term: die Idee
+  pos: noun
+  plural: die Ideen
+  meanings:
+  - idea
+  example: Das ist eine gute Idee!
+  exampleEn: That is a good idea!
+- id: lust
+  lesson: de1-modals-1
+  term: die Lust
+  pos: noun
+  plural: —
+  meanings:
+  - desire (to do something)
+  - desire
+  - wish
+  - inclination
+  - interest
+  - pleasure
+  - mood
+  example: Hast du Lust auf Kino?
+  exampleEn: Do you feel like going to the cinema?
+  note: 'Lust haben = to feel like (doing something): Ich habe keine Lust. (Plural die Lüste exists but
+    means lusts.)'
+- id: spass
+  lesson: de1-modals-1
+  term: der Spaß
+  pos: noun
+  plural: die Späße
+  meanings:
+  - fun
+  - enjoyment
+  - joke
+  example: Tanzen macht Spaß.
+  exampleEn: Dancing is fun.
+  alt:
+  - der Spass
+  note: Das macht Spaß = that is fun. Viel Spaß! = Have fun!
+- id: plan
+  lesson: de1-modals-1
+  term: der Plan
+  pos: noun
+  plural: die Pläne
+  meanings:
+  - plan
+  - schedule
+  example: Hast du schon Pläne für Samstag?
+  exampleEn: Do you have plans for Saturday yet?
+- id: party
+  lesson: de1-modals-1
+  term: die Party
+  pos: noun
+  plural: die Partys
+  meanings:
+  - party (celebration)
+  - party
+  example: Am Freitag machen wir eine Party.
+  exampleEn: We're having a party on Friday.
+- id: fest
+  lesson: de1-modals-1
+  term: das Fest
+  pos: noun
+  plural: die Feste
+  meanings:
+  - festival (celebration)
+  - celebration
+  - festival
+  - feast
+  - fete
+  - party
+  example: Im Sommer gibt es hier ein großes Fest.
+  exampleEn: In summer there is a big festival here.
+- id: einladen
+  lesson: de1-modals-1
+  term: einladen
+  pos: verb
+  meanings:
+  - to invite
+  - to treat (pay for someone)
+  example: Ich lade meine Freunde ein.
+  exampleEn: I am inviting my friends.
+  note: 'Separable: ich lade ein. Stem change: du lädst ein, er lädt ein. Perfect: hat eingeladen.'
+- id: feiern
+  lesson: de1-modals-1
+  term: feiern
+  pos: verb
+  meanings:
+  - to celebrate
+  - to party
+  - to have a party
+  example: Wir feiern am Samstag.
+  exampleEn: We are celebrating on Saturday.
+  note: ich feiere, du feierst.
+- id: muessen
+  lesson: de1-modals-2
+  term: müssen
+  pos: verb
+  meanings:
+  - must (have to)
+  - must
+  - to have to
+  - to need to
+  - to have got to
+  example: Ich muss heute arbeiten.
+  exampleEn: I have to work today.
+  note: 'Modal verb: ich muss, du musst, er muss, wir müssen, ihr müsst, sie müssen. nicht müssen = not
+    have to.'
+- id: duerfen
+  lesson: de1-modals-2
+  term: dürfen
+  pos: verb
+  meanings:
+  - may (be allowed to)
+  - may
+  - to be allowed to
+  - to be permitted to
+  - can (be allowed)
+  example: Darf ich hier parken?
+  exampleEn: May I park here?
+  note: 'Modal verb: ich darf, du darfst, er darf, wir dürfen, ihr dürft, sie dürfen. nicht dürfen = must
+    not.'
+- id: sollen
+  lesson: de1-modals-2
+  term: sollen
+  pos: verb
+  meanings:
+  - should (be supposed to)
+  - should
+  - to be supposed to
+  - ought to
+  - shall
+  example: Soll ich das Fenster öffnen?
+  exampleEn: Shall I open the window?
+  note: 'Modal verb: ich soll, du sollst, er soll, wir sollen, ihr sollt, sie sollen.'
+- id: man
+  lesson: de1-modals-2
+  term: man
+  pos: pronoun
+  meanings:
+  - one (people in general)
+  - one
+  - you (in general)
+  - people
+  - they (in general)
+  - we (in general)
+  example: Hier darf man nicht rauchen.
+  exampleEn: You aren't allowed to smoke here.
+  note: 'Takes the er/sie/es form: man muss, man darf. Not der Mann (the man).'
+- id: rauchen
+  lesson: de1-modals-2
+  term: rauchen
+  pos: verb
+  meanings:
+  - to smoke
+  example: Rauchen Sie?
+  exampleEn: Do you smoke?
+- id: parken
+  lesson: de1-modals-2
+  term: parken
+  pos: verb
+  meanings:
+  - to park
+  example: Wo kann ich parken?
+  exampleEn: Where can I park?
+- id: warten
+  lesson: de1-modals-2
+  term: warten
+  pos: verb
+  meanings:
+  - to wait
+  example: Wir warten auf den Bus.
+  exampleEn: We are waiting for the bus.
+  note: du wartest, er wartet. warten auf + accusative = to wait for.
+- id: bleiben
+  lesson: de1-modals-2
+  term: bleiben
+  pos: verb
+  meanings:
+  - to stay
+  - to remain
+  example: Ich bleibe heute zu Hause.
+  exampleEn: I am staying at home today.
+  note: 'Perfect: ist geblieben.'
+- id: oeffnen
+  lesson: de1-modals-2
+  term: öffnen
+  pos: verb
+  meanings:
+  - to open
+  example: Kannst du bitte die Tür öffnen?
+  exampleEn: Can you open the door, please?
+  note: 'du öffnest, er öffnet. Signs: geöffnet = open.'
+- id: schliessen
+  lesson: de1-modals-2
+  term: schließen
+  pos: verb
+  meanings:
+  - to close
+  - to shut
+  example: Die Bäckerei schließt um sechs.
+  exampleEn: The bakery closes at six.
+  alt:
+  - schliessen
+  note: 'Perfect: hat geschlossen. Signs: geschlossen = closed.'
+- id: verboten
+  lesson: de1-modals-2
+  term: verboten
+  pos: adjective
+  meanings:
+  - forbidden
+  - prohibited
+  - not allowed
+  - banned
+  example: Parken ist hier verboten.
+  exampleEn: Parking is forbidden here.
+- id: erlaubt
+  lesson: de1-modals-2
+  term: erlaubt
+  pos: adjective
+  meanings:
+  - allowed
+  - permitted
+  example: Ist Rauchen hier erlaubt?
+  exampleEn: Is smoking allowed here?
+- id: regel
+  lesson: de1-modals-2
+  term: die Regel
+  pos: noun
+  plural: die Regeln
+  meanings:
+  - rule
+  - regulation
+  example: Das ist eine wichtige Regel.
+  exampleEn: That is an important rule.
+- id: schild
+  lesson: de1-modals-2
+  term: das Schild
+  pos: noun
+  plural: die Schilder
+  meanings:
+  - sign (notice)
+  - sign
+  - notice
+  - plate
+  - nameplate
+  example: Was steht auf dem Schild?
+  exampleEn: What does the sign say?
+- id: hausaufgabe
+  lesson: de1-modals-2
+  term: die Hausaufgabe
+  pos: noun
+  plural: die Hausaufgaben
+  meanings:
+  - homework (task)
+  - homework
+  - assignment
+  example: Ich muss noch die Hausaufgaben machen.
+  exampleEn: I still have to do my homework.
+  note: 'Usually plural: die Hausaufgaben machen.'
+- id: termin
+  lesson: de1-modals-2
+  term: der Termin
+  pos: noun
+  plural: die Termine
+  meanings:
+  - appointment
+  - date (arranged meeting)
+  - meeting
+  - deadline
+  example: Ich habe morgen einen Termin beim Arzt.
+  exampleEn: I have a doctor's appointment tomorrow.
+- id: puenktlich
+  lesson: de1-modals-2
+  term: pünktlich
+  pos: adjective
+  meanings:
+  - on time
+  - punctual
+  - punctually
+  example: Der Zug ist heute pünktlich.
+  exampleEn: The train is on time today.
+- id: ruhig
+  lesson: de1-modals-2
+  term: ruhig
+  pos: adjective
+  meanings:
+  - calm (quiet, peaceful)
+  - calm
+  - quiet
+  - peaceful
+  - calmly
+  - quietly
+  example: Unsere Straße ist sehr ruhig.
+  exampleEn: Our street is very quiet.
+- id: laut
+  lesson: de1-modals-2
+  term: laut
+  pos: adjective
+  meanings:
+  - loud
+  - noisy
+  - loudly
+  example: Die Musik ist zu laut.
+  exampleEn: The music is too loud.
+- id: leise
+  lesson: de1-modals-2
+  term: leise
+  pos: adjective
+  meanings:
+  - quiet (not loud)
+  - quiet
+  - quietly
+  - softly
+  - soft
+  - low (volume)
+  example: Bitte sprecht leise!
+  exampleEn: Please speak quietly!
+- id: wichtig
+  lesson: de1-modals-2
+  term: wichtig
+  pos: adjective
+  meanings:
+  - important
+  example: Der Termin ist sehr wichtig.
+  exampleEn: The appointment is very important.
+- id: ausweis
+  lesson: de1-modals-2
+  term: der Ausweis
+  pos: noun
+  plural: die Ausweise
+  meanings:
+  - ID card
+  - ID
+  - identity card
+  - identification
+  - pass
+  example: Haben Sie einen Ausweis?
+  exampleEn: Do you have an ID card?
+  note: The German ID card is der Personalausweis.
+- id: formular
+  lesson: de1-modals-2
+  term: das Formular
+  pos: noun
+  plural: die Formulare
+  meanings:
+  - form (to fill in)
+  - form
+  - application form
+  example: Das Formular ist nicht schwer.
+  exampleEn: The form isn't difficult.
+- id: ausfuellen
+  lesson: de1-modals-2
+  term: ausfüllen
+  pos: verb
+  meanings:
+  - to fill in (a form)
+  - to fill in
+  - to fill out
+  - to complete
+  example: Bitte füllen Sie das Formular aus.
+  exampleEn: Please fill in the form.
+  note: 'Separable: ich fülle aus. Perfect: hat ausgefüllt.'
+- id: unterschreiben
+  lesson: de1-modals-2
+  term: unterschreiben
+  pos: verb
+  meanings:
+  - to sign
+  example: Sie müssen hier unterschreiben.
+  exampleEn: You have to sign here.
+  note: 'Not separable: ich unterschreibe. Perfect: hat unterschrieben.'
+- id: information
+  lesson: de1-modals-2
+  term: die Information
+  pos: noun
+  plural: die Informationen
+  meanings:
+  - information
+  - piece of information
+  - info
+  example: Wo bekomme ich Informationen?
+  exampleEn: Where can I get information?
+  note: Often plural where English has uncountable "information".
+- id: januar
+  lesson: de1-dates-weather
+  term: der Januar
+  pos: noun
+  plural: die Januare (rare)
+  meanings:
+  - January
+  example: Im Januar ist es oft kalt.
+  exampleEn: It is often cold in January.
+  alt:
+  - der Jänner
+  note: 'Months are masculine. im Januar = in January. In Austria: der Jänner.'
+- id: februar
+  lesson: de1-dates-weather
+  term: der Februar
+  pos: noun
+  plural: die Februare (rare)
+  meanings:
+  - February
+  example: Der Februar ist ein kurzer Monat.
+  exampleEn: February is a short month.
+  note: Months are masculine. im Februar = in February.
+- id: maerz
+  lesson: de1-dates-weather
+  term: der März
+  pos: noun
+  plural: die Märze (rare)
+  meanings:
+  - March
+  example: Ich habe im März Geburtstag.
+  exampleEn: My birthday is in March.
+  note: Months are masculine. im März = in March.
+- id: april
+  lesson: de1-dates-weather
+  term: der April
+  pos: noun
+  plural: die Aprile (rare)
+  meanings:
+  - April
+  example: Im April regnet es oft.
+  exampleEn: It often rains in April.
+  note: Months are masculine. im April = in April.
+- id: mai
+  lesson: de1-dates-weather
+  term: der Mai
+  pos: noun
+  plural: die Maie (rare)
+  meanings:
+  - May
+  example: Am ersten Mai arbeiten wir nicht.
+  exampleEn: We don't work on the first of May.
+  note: Months are masculine. im Mai = in May.
+- id: juni
+  lesson: de1-dates-weather
+  term: der Juni
+  pos: noun
+  plural: die Junis (rare)
+  meanings:
+  - June
+  example: Im Juni ist das Wetter schön.
+  exampleEn: The weather is nice in June.
+  note: Months are masculine. im Juni = in June. On the phone often said Juno, to avoid confusion with
+    Juli.
+- id: juli
+  lesson: de1-dates-weather
+  term: der Juli
+  pos: noun
+  plural: die Julis (rare)
+  meanings:
+  - July
+  example: Wir reisen im Juli nach Italien.
+  exampleEn: We are travelling to Italy in July.
+  note: Months are masculine. im Juli = in July.
+- id: august
+  lesson: de1-dates-weather
+  term: der August
+  pos: noun
+  plural: die Auguste (rare)
+  meanings:
+  - August
+  example: Im August ist es sehr heiß.
+  exampleEn: It is very hot in August.
+  note: Months are masculine. im August = in August.
+- id: september
+  lesson: de1-dates-weather
+  term: der September
+  pos: noun
+  plural: die September (rare)
+  meanings:
+  - September
+  example: Der Kurs fängt im September an.
+  exampleEn: The course starts in September.
+  note: Months are masculine. im September = in September.
+- id: oktober
+  lesson: de1-dates-weather
+  term: der Oktober
+  pos: noun
+  plural: die Oktober (rare)
+  meanings:
+  - October
+  example: Der dritte Oktober ist ein Feiertag.
+  exampleEn: The third of October is a public holiday.
+  note: Months are masculine. im Oktober = in October.
+- id: november
+  lesson: de1-dates-weather
+  term: der November
+  pos: noun
+  plural: die November (rare)
+  meanings:
+  - November
+  example: Im November ist es oft grau.
+  exampleEn: It is often grey in November.
+  note: Months are masculine. im November = in November.
+- id: dezember
+  lesson: de1-dates-weather
+  term: der Dezember
+  pos: noun
+  plural: die Dezember (rare)
+  meanings:
+  - December
+  example: Im Dezember schneit es manchmal.
+  exampleEn: It sometimes snows in December.
+  note: Months are masculine. im Dezember = in December.
+- id: monat
+  lesson: de1-dates-weather
+  term: der Monat
+  pos: noun
+  plural: die Monate
+  meanings:
+  - month
+  example: Der Kurs dauert einen Monat.
+  exampleEn: The course lasts a month.
+- id: fruehling
+  lesson: de1-dates-weather
+  term: der Frühling
+  pos: noun
+  plural: die Frühlinge
+  meanings:
+  - spring (season)
+  - spring
+  - springtime
+  example: Im Frühling ist der Park schön.
+  exampleEn: The park is beautiful in spring.
+  note: Also das Frühjahr.
+- id: sommer
+  lesson: de1-dates-weather
+  term: der Sommer
+  pos: noun
+  plural: die Sommer
+  meanings:
+  - summer
+  example: Im Sommer schwimmen wir oft.
+  exampleEn: We often swim in summer.
+- id: herbst
+  lesson: de1-dates-weather
+  term: der Herbst
+  pos: noun
+  plural: die Herbste
+  meanings:
+  - autumn
+  - fall
+  example: Im Herbst gibt es viel Wind.
+  exampleEn: In autumn there is a lot of wind.
+- id: winter
+  lesson: de1-dates-weather
+  term: der Winter
+  pos: noun
+  plural: die Winter
+  meanings:
+  - winter
+  example: Der Winter in Berlin ist kalt.
+  exampleEn: Winter in Berlin is cold.
+- id: datum
+  lesson: de1-dates-weather
+  term: das Datum
+  pos: noun
+  plural: die Daten
+  meanings:
+  - date (calendar)
+  - date
+  example: Welches Datum ist heute?
+  exampleEn: What is the date today?
+- id: geburtstag
+  lesson: de1-dates-weather
+  term: der Geburtstag
+  pos: noun
+  plural: die Geburtstage
+  meanings:
+  - birthday
+  example: Wann hast du Geburtstag?
+  exampleEn: When is your birthday?
+  note: Ich habe am … Geburtstag = my birthday is on …
+- id: wetter
+  lesson: de1-dates-weather
+  term: das Wetter
+  pos: noun
+  plural: —
+  meanings:
+  - weather
+  example: Wie ist das Wetter heute?
+  exampleEn: What is the weather like today?
+- id: sonne
+  lesson: de1-dates-weather
+  term: die Sonne
+  pos: noun
+  plural: die Sonnen
+  meanings:
+  - sun
+  - sunshine
+  example: Heute scheint die Sonne.
+  exampleEn: The sun is shining today.
+- id: regen
+  lesson: de1-dates-weather
+  term: der Regen
+  pos: noun
+  plural: —
+  meanings:
+  - rain (noun)
+  - rain
+  example: Ich mag keinen Regen.
+  exampleEn: I don't like rain.
+- id: schnee
+  lesson: de1-dates-weather
+  term: der Schnee
+  pos: noun
+  plural: —
+  meanings:
+  - snow (noun)
+  - snow
+  example: Die Kinder spielen im Schnee.
+  exampleEn: The children are playing in the snow.
+- id: wind
+  lesson: de1-dates-weather
+  term: der Wind
+  pos: noun
+  plural: die Winde
+  meanings:
+  - wind
+  example: Der Wind ist heute sehr kalt.
+  exampleEn: The wind is very cold today.
+  note: es ist windig = it is windy.
+- id: regnen
+  lesson: de1-dates-weather
+  term: regnen
+  pos: verb
+  meanings:
+  - to rain
+  example: Es regnet schon wieder.
+  exampleEn: It is raining again.
+  note: 'Only with es: es regnet.'
+- id: schneien
+  lesson: de1-dates-weather
+  term: schneien
+  pos: verb
+  meanings:
+  - to snow
+  example: Schneit es heute?
+  exampleEn: Is it snowing today?
+  note: 'Only with es: es schneit.'
+- id: scheinen
+  lesson: de1-dates-weather
+  term: scheinen
+  pos: verb
+  meanings:
+  - to shine
+  - to seem
+  example: Die Sonne scheint.
+  exampleEn: The sun is shining.
+  note: 'Perfect: hat geschienen.'
+- id: warm
+  lesson: de1-dates-weather
+  term: warm
+  pos: adjective
+  meanings:
+  - warm
+  example: Heute ist es warm.
+  exampleEn: It is warm today.
+- id: kalt
+  lesson: de1-dates-weather
+  term: kalt
+  pos: adjective
+  meanings:
+  - cold
+  example: Das Wasser ist sehr kalt.
+  exampleEn: The water is very cold.
+  note: Mir ist kalt = I am cold.
+- id: heiss
+  lesson: de1-dates-weather
+  term: heiß
+  pos: adjective
+  meanings:
+  - hot
+  example: Im Juli ist es oft heiß.
+  exampleEn: It is often hot in July.
+  alt:
+  - heiss
+- id: kuehl
+  lesson: de1-dates-weather
+  term: kühl
+  pos: adjective
+  meanings:
+  - cool (chilly)
+  - cool
+  - chilly
+  - fresh
+  example: Am Abend ist es kühl.
+  exampleEn: It is cool in the evening.
+- id: fuer
+  lesson: de1-dates-weather
+  term: für
+  pos: preposition
+  meanings:
+  - for
+  example: Das Geschenk ist für dich.
+  exampleEn: The present is for you.
+  note: 'Always takes the accusative: für den Vater.'
+- id: ohne
+  lesson: de1-dates-weather
+  term: ohne
+  pos: preposition
+  meanings:
+  - without
+  example: Ich trinke Kaffee ohne Milch.
+  exampleEn: I drink coffee without milk.
+  note: 'Always takes the accusative: ohne einen Schirm.'
+- id: durch
+  lesson: de1-dates-weather
+  term: durch
+  pos: preposition
+  meanings:
+  - through
+  - across (through)
+  example: Wir gehen durch den Park.
+  exampleEn: We walk through the park.
+  note: Always takes the accusative.
+- id: geschenk
+  lesson: de1-dates-weather
+  term: das Geschenk
+  pos: noun
+  plural: die Geschenke
+  meanings:
+  - present (gift)
+  - present
+  - gift
+  example: Danke für das Geschenk!
+  exampleEn: Thanks for the present!
+- id: herzlichen-glueckwunsch
+  lesson: de1-dates-weather
+  kind: phrase
+  term: Herzlichen Glückwunsch!
+  pos: phrase
+  meanings:
+  - congratulations
+  - happy birthday
+  - many happy returns
+  - best wishes
+  - congrats
+  example: Herzlichen Glückwunsch zum Geburtstag!
+  exampleEn: Happy birthday!
+  alt:
+  - Herzlichen Glückwunsch
+  - Herzliche Glückwünsche!
+  note: zum Geburtstag = on your birthday; Herzlichen Glückwunsch zum Geburtstag = happy birthday.
+- id: einladung
+  lesson: de1-dates-weather
+  term: die Einladung
+  pos: noun
+  plural: die Einladungen
+  meanings:
+  - invitation
+  - invite
+  example: Danke für die Einladung!
+  exampleEn: Thanks for the invitation!
+- id: erste
+  lesson: de1-dates-weather
+  term: erste
+  pos: number
+  meanings:
+  - first
+  example: Heute ist der erste Mai.
+  exampleEn: Today is the first of May.
+  alt:
+  - erster
+  - ersten
+  note: Written 1. — der erste Mai, but am ersten Mai.
+- id: dritte
+  lesson: de1-dates-weather
+  term: dritte
+  pos: number
+  meanings:
+  - third
+  example: Mein Geburtstag ist am dritten Juni.
+  exampleEn: My birthday is on the third of June.
+  alt:
+  - dritter
+  - dritten
+  note: Written 3. — der dritte, but am dritten.

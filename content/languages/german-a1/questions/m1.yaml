@@ -1,0 +1,549 @@
+# Lesson 01: Sounds, letters and spelling
+- id: de1-q-0101
+  lesson: de1-sounds
+  module_quiz: true
+  topic: Pronunciation
+  stem: 'How is the "w" in "wohnen" (to live) pronounced?'
+  choices: ['like English v', 'like English w', 'like English f', 'it is silent']
+  answer: 0
+  explanation: |-
+    German w always sounds like English v: wohnen is "VOH-nen", wie is "vee". English speakers
+    often read it as an English w, which Germans hear as a foreign accent at once.
+
+- id: de1-q-0102
+  lesson: de1-sounds
+  topic: Pronunciation
+  stem: 'Which of these words has the long "ee" sound?'
+  choices: ['nein', 'Wein', 'sie', 'mein']
+  answer: 2
+  explanation: |-
+    ie sounds like English "ee", so sie is "zee". The others are spelled ei, which sounds like
+    English "eye". Hook: say the English name of the second letter (ie ends in e, ei ends in i).
+
+- id: de1-q-0103
+  lesson: de1-sounds
+  topic: Spelling
+  stem: 'The "ei" in "heißen" (to be called) is a diphthong. Which spelling is correct in Germany?'
+  choices: ['heisen', 'heißen', 'heihsen', 'heiszen']
+  answer: 1
+  explanation: |-
+    After a long vowel or a diphthong like ei, a sharp s is written ß: heißen. A single s
+    between vowels would sound like English z (heisen = "HY-zen"). Only in Switzerland is it
+    written heissen.
+
+- id: de1-q-0104
+  lesson: de1-sounds
+  topic: Spelling
+  stem: 'Which of these words must always start with a capital letter?'
+  choices: ['langsam', 'bitte', 'schreiben', 'name']
+  answer: 3
+  explanation: |-
+    Name is a noun, and every German noun is capitalized: der Name. Langsam (slow), bitte
+    (please) and schreiben (to write) are not nouns, so they are lowercase unless they start
+    a sentence.
+
+- id: de1-q-0105
+  lesson: de1-sounds
+  module_quiz: true
+  topic: Pronunciation
+  stem: 'How does the final "d" in "und" (and) sound?'
+  choices: ['like the d in "dog"', 'like the t in "tent"', 'it is silent', 'like the th in "this"']
+  answer: 1
+  explanation: |-
+    At the end of a word or syllable, b, d and g lose their voice and sound like p, t and k.
+    So und sounds like "oont" and Tag like "tahk". The letter is still written d.
+
+- id: de1-q-0106
+  lesson: de1-sounds
+  topic: Pronunciation
+  stem: 'Where is the stress in "Entschuldigung" (excuse me)?'
+  choices: ['ENT-schul-di-gung', 'ent-schul-DI-gung', 'ent-schul-di-GUNG', 'ent-SCHUL-di-gung']
+  answer: 3
+  explanation: |-
+    German words are usually stressed on the first syllable, but the prefix ent- is never
+    stressed, so the stress moves to the next syllable: ent-SCHUL-di-gung. The same happens
+    with be- and ver- (ver-STE-hen).
+
+- id: de1-q-0107
+  lesson: de1-sounds
+  module_quiz: true
+  topic: Greetings
+  stem: 'It''s 8 p.m. and you arrive at a friend''s house for dinner. How do you greet her parents?'
+  choices: ['Gute Nacht!', 'Guten Morgen!', 'Guten Abend!', 'Tschüss!']
+  answer: 2
+  explanation: |-
+    Guten Abend is the greeting from about 6 p.m. Gute Nacht looks like the right time of day,
+    but it is only said when someone goes to bed, as a goodbye. Tschüss is also a goodbye.
+
+- id: de1-q-0108
+  lesson: de1-sounds
+  topic: Greetings
+  stem: 'Someone says "Danke!" to you. What is the usual reply?'
+  choices: ['Bitte!', 'Danke!', 'Wie bitte?', 'Entschuldigung!']
+  answer: 0
+  explanation: |-
+    Bitte (or Bitte schön) is the answer to Danke: "You're welcome." Wie bitte? asks someone to
+    repeat, and Entschuldigung is "excuse me" or "sorry".
+
+- id: de1-q-0109
+  lesson: de1-sounds
+  topic: Greetings
+  stem: 'You didn''t catch what someone said. What do you say?'
+  choices: ['Bitte schön.', 'Gute Nacht.', 'Wie schreibt man das?', 'Wie bitte?']
+  answer: 3
+  explanation: |-
+    Wie bitte? means "Pardon?" and asks the speaker to repeat. Wie schreibt man das? asks how
+    a word is spelled, which only helps once you have heard it. Bitte schön means "you're
+    welcome".
+
+- id: de1-q-0110
+  lesson: de1-sounds
+  module_quiz: true
+  topic: Spelling
+  stem: 'You spell the name "Jens" in German. How do you say the first letter?'
+  choices: ['yot', 'jay', 'ee', 'gay']
+  answer: 0
+  explanation: |-
+    The German letter J is called "yot", and it sounds like English y: Jens is "Yens". "Jay"
+    is the English name, and a German listener might hear it as the letter G ("gay").
+
+- id: de1-q-0111
+  lesson: de1-sounds
+  topic: Reading
+  stem: |-
+    Read the message: "Hallo! Mein Vorname ist Katrin, mein Familienname ist Vogt. Vogt
+    schreibt man V – O – G – T." Which statement is true?
+  choices: ['Her first name is Vogt.', 'Her surname is Katrin.', 'Her surname is Vogt.', 'She spells her first name.']
+  answer: 2
+  explanation: |-
+    Der Familienname is the surname, so her surname is Vogt; der Vorname (Katrin) is her first
+    name. She spells the surname, not the first name.
+
+- id: de1-q-0112
+  lesson: de1-sounds
+  topic: Spelling
+  stem: 'Which sentence has a spelling mistake?'
+  choices: ['Mein Name ist Ali.', 'Mein vorname ist Ali.', 'Das Wort ist lang.', 'Wie schreibt man das?']
+  answer: 1
+  explanation: |-
+    Vorname (first name) is a noun, so it needs a capital letter: Mein Vorname ist Ali. The
+    possessive mein is not a noun, so it is lowercase in the middle of a sentence.
+
+- id: de1-q-0113
+  lesson: de1-sounds
+  topic: Pronunciation
+  stem: 'In which word is "ch" the rough sound at the back of the throat, as in Scottish "loch"?'
+  choices: ['ich', 'nicht', 'Milch', 'Nacht']
+  answer: 3
+  explanation: |-
+    After a, o, u and au, ch is the rough back sound: Nacht, noch, auch. After other letters
+    (ich, nicht, Milch) it is the soft front sound, like the h in "huge".
+
+# Lesson 02: Greetings and introductions
+- id: de1-q-0201
+  lesson: de1-greetings
+  module_quiz: true
+  topic: Greetings
+  stem: 'You meet your new neighbour, an older woman, for the first time. How do you ask her name?'
+  choices: ['Wie heißt du?', 'Wie heißen Sie?', 'Wer heißen Sie?', 'Was ist du Name?']
+  answer: 1
+  explanation: |-
+    With an adult you don't know, use Sie, and the verb form is the same as the infinitive:
+    Wie heißen Sie? Wie heißt du? is correct German but too familiar here. Wer means "who", not
+    "how".
+
+- id: de1-q-0202
+  lesson: de1-greetings
+  topic: Verbs
+  stem: 'Complete the question: "___ du Lena?"'
+  choices: ['Bin', 'Bist', 'Ist', 'Sind']
+  answer: 1
+  explanation: |-
+    The du form of sein is bist: Bist du Lena? (Are you Lena?) Bin goes with ich, ist with
+    er/sie, and sind with Sie.
+
+- id: de1-q-0203
+  lesson: de1-greetings
+  module_quiz: true
+  topic: Verbs
+  stem: 'Complete: "Wie ___ du?" (What''s your name?)'
+  choices: ['heißt', 'heißst', 'heiße', 'heißen']
+  answer: 0
+  explanation: |-
+    The du ending is normally -st, but the stem of heißen already ends in ß, so du adds only
+    -t: du heißt. Heiße goes with ich and heißen with Sie.
+
+- id: de1-q-0204
+  lesson: de1-greetings
+  topic: Questions
+  stem: 'Which question asks where someone is from?'
+  choices: ['Wo wohnst du?', 'Wer bist du?', 'Wie geht''s?', 'Woher kommst du?']
+  answer: 3
+  explanation: |-
+    Woher means "where from", so Woher kommst du? asks about origin. Wo wohnst du? asks where
+    someone lives now, which is a different question.
+
+- id: de1-q-0205
+  lesson: de1-greetings
+  topic: Questions
+  stem: 'What does "Wer ist das?" mean?'
+  choices: ['Who is that?', 'Where is that?', 'How is that?', 'What is that?']
+  answer: 0
+  explanation: |-
+    Wer means "who", even though it looks like English "where". "Where" is wo, "how" is wie and
+    "what" is was.
+
+- id: de1-q-0206
+  lesson: de1-greetings
+  module_quiz: true
+  topic: Greetings
+  stem: 'Complete: "Ich komme ___ Kanada."'
+  choices: ['von', 'in', 'aus', 'nach']
+  answer: 2
+  explanation: |-
+    Origin is expressed with kommen aus: Ich komme aus Kanada. Von looks like English "from",
+    but Germans don't use it for the country you come from.
+
+- id: de1-q-0207
+  lesson: de1-greetings
+  topic: Greetings
+  stem: 'Complete: "Ich wohne ___ Hamburg."'
+  choices: ['in', 'aus', 'an', 'woher']
+  answer: 0
+  explanation: |-
+    Where you live is wohnen in: Ich wohne in Hamburg. Aus goes with kommen, for origin.
+
+- id: de1-q-0208
+  lesson: de1-greetings
+  topic: Greetings
+  stem: 'Mr Braun asks you: "Wie geht es Ihnen?" What is the best reply?'
+  choices: ['Ich bin gut.', 'Gut, danke. Und dir?', 'Danke, sehr gut. Und Ihnen?', 'Freut mich.']
+  answer: 2
+  explanation: |-
+    He uses the formal Ihnen, so you answer formally and ask back with Und Ihnen? Und dir? is
+    the informal version. Ich bin gut means "I'm good (at something)" or "I'm a good person",
+    not "I'm fine".
+
+- id: de1-q-0209
+  lesson: de1-greetings
+  topic: Greetings
+  stem: 'Someone introduces himself: "Hallo, ich bin Jonas." What do you say?'
+  choices: ['Freut mich! Ich bin Sam.', 'Wie bitte schön!', 'Gute Nacht, Jonas!', 'Auch gut.']
+  answer: 0
+  explanation: |-
+    Freut mich means "Nice to meet you", the natural reply when you meet someone, followed by
+    your own name. Auch gut ("fine too") answers Wie geht's? Und dir?
+
+- id: de1-q-0210
+  lesson: de1-greetings
+  module_quiz: true
+  topic: Verbs
+  stem: 'Which question has a mistake?'
+  choices: ['Woher kommen Sie?', 'Wo wohnst du?', 'Wie heißen du?', 'Sind Sie Frau Roth?']
+  answer: 2
+  explanation: |-
+    Wie heißen du? mixes the Sie form of the verb with du. It must be Wie heißt du? (informal)
+    or Wie heißen Sie? (formal). The other questions match their pronoun.
+
+- id: de1-q-0211
+  lesson: de1-greetings
+  topic: Reading
+  stem: |-
+    Read: "Das ist Herr Petrović. Er kommt aus Kroatien, aber er wohnt jetzt in Österreich, in
+    Linz." Where does Mr Petrović live now?
+  choices: ['in Croatia', 'in Germany', 'in Switzerland', 'in Austria']
+  answer: 3
+  explanation: |-
+    Er wohnt jetzt in Österreich: he now lives in Austria, in Linz. Croatia (Kroatien) is where
+    he comes from (kommt aus), not where he lives.
+
+- id: de1-q-0212
+  lesson: de1-greetings
+  topic: Greetings
+  stem: 'How do you greet Ms Wagner, a colleague you call Sie?'
+  choices: ['Hallo, Wagner!', 'Guten Tag, Frau Wagner!', 'Guten Tag, Frau!', 'Guten Tag, Wagner Frau!']
+  answer: 1
+  explanation: |-
+    With Sie, use Frau (or Herr) plus the surname: Guten Tag, Frau Wagner! The surname alone
+    sounds rude, and Frau without a name is not a polite form of address.
+
+- id: de1-q-0213
+  lesson: de1-greetings
+  topic: Questions
+  stem: 'Which question is correct?'
+  choices: ['Woher Sie kommen?', 'Sie woher kommen?', 'Woher kommen aus Sie?', 'Woher kommen Sie?']
+  answer: 3
+  explanation: |-
+    In a W-question the verb comes straight after the question word, then the subject: Woher
+    kommen Sie? Aus is not needed in the question, because woher already means "where from".
+
+# Lesson 03: Numbers, age and phone numbers
+- id: de1-q-0301
+  lesson: de1-numbers
+  module_quiz: true
+  topic: Numbers
+  stem: 'How do you say 25 in German?'
+  choices: ['zwanzigfünf', 'fünfundzwanzig', 'fünfzwanzig', 'zweiundfünfzig']
+  answer: 1
+  explanation: |-
+    From 21 to 99 German says the unit first, then und, then the ten: fünf-und-zwanzig ("five
+    and twenty"), written as one word. Zweiundfünfzig is 52, the reversed number.
+
+- id: de1-q-0302
+  lesson: de1-numbers
+  topic: Numbers
+  stem: 'You hear "siebenundvierzig". Which number is it?'
+  choices: ['74', '70', '47', '17']
+  answer: 2
+  explanation: |-
+    Sieben (7) und vierzig (40) = 47. The unit comes first, so write the second digit you hear
+    first. 74 would be vierundsiebzig.
+
+- id: de1-q-0303
+  lesson: de1-numbers
+  topic: Numbers
+  stem: 'Which is the correct spelling of 30 in Germany?'
+  choices: ['dreizig', 'dreißig', 'dreisig', 'dreizehn']
+  answer: 1
+  explanation: |-
+    30 is the only ten that doesn't end in -zig: dreißig. Dreizehn is 13. (Switzerland writes
+    dreissig, because it doesn't use ß.)
+
+- id: de1-q-0304
+  lesson: de1-numbers
+  module_quiz: true
+  topic: Numbers
+  stem: 'Which is the correct spelling of 16?'
+  choices: ['sechszehn', 'sechzig', 'sechsehn', 'sechzehn']
+  answer: 3
+  explanation: |-
+    Sechzehn drops the s of sechs. Sechszehn is the most common spelling mistake. Sechzig is 60,
+    which also drops the s.
+
+- id: de1-q-0305
+  lesson: de1-numbers
+  topic: Personal details
+  stem: 'How do you ask a child how old they are?'
+  choices: ['Wie alt bist du?', 'Wie alt sind Sie?', 'Wie viele Jahre hast du?', 'Wie alt hast du?']
+  answer: 0
+  explanation: |-
+    German uses sein for age, as English does, and you say du to a child: Wie alt bist du?
+    Wie alt sind Sie? is correct for adults you don't know. Haben is wrong for age.
+
+- id: de1-q-0306
+  lesson: de1-numbers
+  module_quiz: true
+  topic: Personal details
+  stem: 'Which sentence is correct?'
+  choices: ['Ich habe 30 Jahre.', 'Ich bin alt 30 Jahre.', 'Ich bin 30 Jahre alt.', 'Ich habe 30 Jahre alt.']
+  answer: 2
+  explanation: |-
+    Age uses sein and the same order as English: Ich bin 30 Jahre alt (or just Ich bin 30).
+    Ich habe 30 Jahre is a direct copy of Spanish or French and is wrong in German.
+
+- id: de1-q-0307
+  lesson: de1-numbers
+  topic: Verbs
+  stem: 'Complete: "___ du eine Handynummer?"'
+  choices: ['Hast', 'Habst', 'Hat', 'Haben']
+  answer: 0
+  explanation: |-
+    The du form of haben is hast, without the b. Hat goes with er/sie, haben with Sie, and
+    habst doesn't exist.
+
+- id: de1-q-0308
+  lesson: de1-numbers
+  topic: Numbers
+  stem: 'On the phone someone says "null eins sieben zwo". What does "zwo" mean?'
+  choices: ['zero', '3', '12', '2']
+  answer: 3
+  explanation: |-
+    Zwo is another word for zwei (2), used on the phone and in announcements so that it can't
+    be confused with drei (3).
+
+- id: de1-q-0309
+  lesson: de1-numbers
+  topic: Personal details
+  stem: 'Read the address: "Thomas Berger, Mozartstraße 9, 80336 München". What is the house number?'
+  choices: ['80336', '336', '9', '8']
+  answer: 2
+  explanation: |-
+    In a German address the house number comes after the street name: Mozartstraße 9. The
+    five-digit number before the town, 80336, is the postcode (die Postleitzahl).
+
+- id: de1-q-0310
+  lesson: de1-numbers
+  topic: Personal details
+  stem: 'What does "die Postleitzahl" mean?'
+  choices: ['phone number', 'postcode', 'house number', 'e-mail address']
+  answer: 1
+  explanation: |-
+    Die Postleitzahl (PLZ) is the postcode or ZIP code. The phone number is die Telefonnummer
+    and the house number die Hausnummer.
+
+- id: de1-q-0311
+  lesson: de1-numbers
+  module_quiz: true
+  topic: Personal details
+  stem: 'Someone asks: "Wie ist Ihre Telefonnummer?" Which answer fits?'
+  choices: ['Ich bin 40 Jahre alt.', 'In Bremen.', 'Aus Bremen.', '0421 36 58 20.']
+  answer: 3
+  explanation: |-
+    Die Telefonnummer is the phone number, so the answer is a number. The other replies answer
+    Wie alt sind Sie?, Wo wohnen Sie? and Woher kommen Sie?
+
+- id: de1-q-0312
+  lesson: de1-numbers
+  topic: Numbers
+  stem: 'Mia says: "Ich bin einundzwanzig." How old is she?'
+  choices: ['21', '12', '20', '31']
+  answer: 0
+  explanation: |-
+    Ein(s) und zwanzig = 21. Inside a number eins becomes ein. 12 is zwölf and 31 is
+    einunddreißig.
+
+- id: de1-q-0313
+  lesson: de1-numbers
+  topic: Verbs
+  stem: 'Which sentence has a mistake?'
+  choices: ['Du habst zwei Handys.', 'Ich habe eine Adresse in Köln.', 'Er hat eine Handynummer.', 'Sie haben eine E-Mail-Adresse.']
+  answer: 0
+  explanation: |-
+    Haben is slightly irregular: the du form is du hast (and er hat), without the b. Du habst
+    is a regular-looking form that doesn't exist.
+
+# Lesson 04: The present tense and asking questions
+- id: de1-q-0401
+  lesson: de1-present-tense
+  module_quiz: true
+  topic: Verbs
+  stem: 'Complete: "Wir ___ in Berlin." (wohnen)'
+  choices: ['wohnt', 'wohnst', 'wohnen', 'wohne']
+  answer: 2
+  explanation: |-
+    The wir ending is -en, so the form is the same as the infinitive: wir wohnen. Wohnt is the
+    er/ihr form, wohnst the du form, wohne the ich form.
+
+- id: de1-q-0402
+  lesson: de1-present-tense
+  topic: Verbs
+  stem: 'Complete: "Ihr ___ heute." (arbeiten)'
+  choices: ['arbeitet', 'arbeitt', 'arbeiten', 'arbeitest']
+  answer: 0
+  explanation: |-
+    The ihr ending is -t, and because the stem arbeit- ends in t, an extra e is added: ihr
+    arbeitet. Arbeitest is the du form.
+
+- id: de1-q-0403
+  lesson: de1-present-tense
+  module_quiz: true
+  topic: Verbs
+  stem: 'Complete: "___ ihr aus Köln?"'
+  choices: ['Sind', 'Seid', 'Seit', 'Bist']
+  answer: 1
+  explanation: |-
+    The ihr form of sein is seid: Seid ihr aus Köln? (Are you from Cologne?) Seit sounds the
+    same but means "since". Sind goes with wir and sie/Sie.
+
+- id: de1-q-0404
+  lesson: de1-present-tense
+  topic: Word order
+  stem: 'Which sentence is correct?'
+  choices: ['Heute ich lerne Deutsch.', 'Ich heute lerne Deutsch.', 'Heute lerne Deutsch ich.', 'Heute lerne ich Deutsch.']
+  answer: 3
+  explanation: |-
+    The verb must be the second element. When heute comes first, the subject ich moves to just
+    after the verb: Heute lerne ich Deutsch. Heute ich lerne copies English word order.
+
+- id: de1-q-0405
+  lesson: de1-present-tense
+  topic: Questions
+  stem: 'Turn "Du spielst Gitarre." into a yes/no question.'
+  choices: ['Spielst du Gitarre?', 'Machst du Gitarre spielen?', 'Spielen du Gitarre?', 'Du spielen Gitarre?']
+  answer: 0
+  explanation: |-
+    For a yes/no question, put the verb first and keep its form: Spielst du Gitarre? German
+    has no helper verb like English "do", and the du form stays spielst.
+
+- id: de1-q-0406
+  lesson: de1-present-tense
+  module_quiz: true
+  topic: Verbs
+  stem: 'In "sie spielt", who is playing?'
+  choices: ['they', 'she', 'you (formal)', 'we']
+  answer: 1
+  explanation: |-
+    The ending -t shows one person: sie spielt = she plays. "They play" is sie spielen, and
+    formal "you play" is Sie spielen with a capital S.
+
+- id: de1-q-0407
+  lesson: de1-present-tense
+  topic: Questions
+  stem: 'Choose the question word: "___ lernst du Deutsch? – Ich wohne jetzt in Deutschland."'
+  choices: ['Wann', 'Wer', 'Wo', 'Warum']
+  answer: 3
+  explanation: |-
+    The answer gives a reason, so the question is Warum (why)? Wann asks about time and wo
+    about place.
+
+- id: de1-q-0408
+  lesson: de1-present-tense
+  topic: Questions
+  stem: 'Choose the question word: "___ arbeitest du? – Heute und morgen." (morgen = tomorrow)'
+  choices: ['Wo', 'Was', 'Wann', 'Wie']
+  answer: 2
+  explanation: |-
+    The answer is a time, so the question is Wann (when)? Wo would need a place in the answer,
+    and was a thing.
+
+- id: de1-q-0409
+  lesson: de1-present-tense
+  topic: Verbs
+  stem: 'How do you say "I''m learning German"?'
+  choices: ['Ich lerne Deutsch.', 'Ich bin lernen Deutsch.', 'Ich bin lerne Deutsch.', 'Ich lernen Deutsch.']
+  answer: 0
+  explanation: |-
+    German has no -ing form. The simple present ich lerne covers "I learn", "I'm learning" and
+    "I do learn". Ich bin lernen is a word-for-word copy of the English.
+
+- id: de1-q-0410
+  lesson: de1-present-tense
+  topic: Verbs
+  stem: 'Tom is a student at the university in Munich. Which sentence says that?'
+  choices: ['Tom lernt Universität in München.', 'Tom studiert in München.', 'Tom ist studieren in München.', 'Tom arbeitet in München.']
+  answer: 1
+  explanation: |-
+    Studieren means studying at a university. Lernen is learning in general (a language, for a
+    test). Arbeitet means he works there, which is not what we want to say.
+
+- id: de1-q-0411
+  lesson: de1-present-tense
+  topic: Reading
+  stem: |-
+    Read: "Das ist Elif. Sie kommt aus der Türkei, aber sie lebt jetzt in Hamburg. Sie arbeitet
+    in einem Café. Sie hört gern Musik und spielt oft Gitarre." Which statement is true?
+  choices: ['Elif lives in Turkey.', 'Elif works at a university.', 'Elif likes listening to music.', 'Elif never plays the guitar.']
+  answer: 2
+  explanation: |-
+    Sie hört gern Musik: gern after the verb means she likes doing it. She comes from Turkey but
+    lives in Hamburg now, works in a café, and plays the guitar often (oft).
+
+- id: de1-q-0412
+  lesson: de1-present-tense
+  module_quiz: true
+  topic: Verbs
+  stem: 'Which sentence has a mistake?'
+  choices: ['Wir sind hier.', 'Ihr seid dort.', 'Er ist jetzt hier.', 'Ihr sind heute hier.']
+  answer: 3
+  explanation: |-
+    The ihr form of sein is seid: Ihr seid heute hier. Sind is for wir and sie/Sie.
+
+- id: de1-q-0413
+  lesson: de1-present-tense
+  topic: Word order
+  stem: 'Which sentence means "We like playing"?'
+  choices: ['Wir gern spielen.', 'Gern wir spielen.', 'Wir spielen gern.', 'Wir gern spielt.']
+  answer: 2
+  explanation: |-
+    Gern goes after the conjugated verb: Wir spielen gern. In the other sentences the verb is
+    not in second position, and spielt is the wrong ending for wir.

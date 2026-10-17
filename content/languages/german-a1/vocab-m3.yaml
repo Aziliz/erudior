@@ -1,0 +1,985 @@
+# German A1, module 3: Food, shopping and time (lessons 09–12)
+
+# --- 09 Food, drink and the accusative ---
+- id: das-essen
+  lesson: de1-food-accusative
+  term: das Essen
+  pos: noun
+  plural: die Essen
+  meanings: [food (the noun), food, meal, dinner]
+  example: Das Essen ist sehr lecker.
+  exampleEn: The food is very tasty.
+- id: essen
+  lesson: de1-food-accusative
+  term: essen
+  pos: verb
+  meanings: [to eat]
+  example: Was isst du zum Frühstück?
+  exampleEn: What do you eat for breakfast?
+  note: 'Stem change e→i: du isst, er isst. Perfect: hat gegessen.'
+- id: trinken
+  lesson: de1-food-accusative
+  term: trinken
+  pos: verb
+  meanings: [to drink]
+  example: Wir trinken einen Tee.
+  exampleEn: We're drinking a tea.
+  note: 'Perfect: hat getrunken.'
+- id: nehmen
+  lesson: de1-food-accusative
+  term: nehmen
+  pos: verb
+  meanings: [to take, to have (when ordering), to get (when ordering)]
+  example: Ich nehme einen Kaffee, bitte.
+  exampleEn: I'll have a coffee, please.
+  note: 'Stem change: du nimmst, er nimmt. Perfect: hat genommen.'
+- id: moechten
+  lesson: de1-food-accusative
+  term: möchten
+  pos: verb
+  alt: [möchte]
+  meanings: [would like, to want (politely), to like (would like)]
+  example: Möchtest du ein Wasser?
+  exampleEn: Would you like a water?
+  note: 'ich möchte, du möchtest, er/sie/es möchte (no -t), wir möchten, ihr möchtet, sie möchten.'
+- id: brot
+  lesson: de1-food-accusative
+  term: das Brot
+  pos: noun
+  plural: die Brote
+  meanings: [bread, loaf, loaf of bread]
+  example: Das Brot ist noch warm.
+  exampleEn: The bread is still warm.
+- id: broetchen
+  lesson: de1-food-accusative
+  term: das Brötchen
+  pos: noun
+  plural: die Brötchen
+  meanings: [bread roll, roll, bun]
+  example: Ich esse ein Brötchen mit Käse.
+  exampleEn: I'm eating a roll with cheese.
+  note: 'Called die Semmel in Bavaria and Austria, and das Weggli in Switzerland.'
+- id: butter
+  lesson: de1-food-accusative
+  term: die Butter
+  pos: noun
+  plural: —
+  meanings: [butter]
+  example: Hast du Butter?
+  exampleEn: Do you have butter?
+- id: kaese
+  lesson: de1-food-accusative
+  term: der Käse
+  pos: noun
+  plural: die Käse (kinds of cheese)
+  meanings: [cheese]
+  example: Der Käse kommt aus der Schweiz.
+  exampleEn: The cheese comes from Switzerland.
+- id: wurst
+  lesson: de1-food-accusative
+  term: die Wurst
+  pos: noun
+  plural: die Würste
+  meanings: [sausage, cold cuts, cold meat]
+  example: Mein Vater isst gern Wurst.
+  exampleEn: My father likes eating sausage.
+- id: fleisch
+  lesson: de1-food-accusative
+  term: das Fleisch
+  pos: noun
+  plural: —
+  meanings: [meat]
+  example: Ich esse kein Fleisch.
+  exampleEn: I don't eat meat.
+- id: fisch
+  lesson: de1-food-accusative
+  term: der Fisch
+  pos: noun
+  plural: die Fische
+  meanings: [fish]
+  example: Heute gibt es Fisch.
+  exampleEn: There's fish today.
+- id: ei
+  lesson: de1-food-accusative
+  term: das Ei
+  pos: noun
+  plural: die Eier
+  meanings: [egg]
+  example: Ich möchte ein Ei zum Frühstück.
+  exampleEn: I'd like an egg for breakfast.
+- id: gemuese
+  lesson: de1-food-accusative
+  term: das Gemüse
+  pos: noun
+  plural: —
+  meanings: [vegetables, vegetable, veg, veggies]
+  example: Gemüse ist gesund.
+  exampleEn: Vegetables are healthy.
+  note: 'Uncountable singular in German: das Gemüse ist … = the vegetables are …'
+- id: obst
+  lesson: de1-food-accusative
+  term: das Obst
+  pos: noun
+  plural: —
+  meanings: [fruit]
+  example: Kinder essen gern Obst.
+  exampleEn: Children like eating fruit.
+- id: apfel
+  lesson: de1-food-accusative
+  term: der Apfel
+  pos: noun
+  plural: die Äpfel
+  meanings: [apple]
+  example: Der Apfel ist rot.
+  exampleEn: The apple is red.
+- id: kartoffel
+  lesson: de1-food-accusative
+  term: die Kartoffel
+  pos: noun
+  plural: die Kartoffeln
+  meanings: [potato]
+  example: Wir essen Fisch mit Kartoffeln.
+  exampleEn: We're eating fish with potatoes.
+- id: reis
+  lesson: de1-food-accusative
+  term: der Reis
+  pos: noun
+  plural: —
+  meanings: [rice]
+  example: Der Reis ist fertig.
+  exampleEn: The rice is ready.
+- id: nudeln
+  lesson: de1-food-accusative
+  term: die Nudeln
+  pos: noun
+  plural: die Nudeln (usually plural; one noodle is die Nudel)
+  meanings: [pasta, noodles]
+  example: Die Kinder essen gern Nudeln.
+  exampleEn: The children like eating pasta.
+- id: salat
+  lesson: de1-food-accusative
+  term: der Salat
+  pos: noun
+  plural: die Salate
+  meanings: [salad, lettuce]
+  example: Ich nehme einen Salat.
+  exampleEn: I'll have a salad.
+- id: kuchen
+  lesson: de1-food-accusative
+  term: der Kuchen
+  pos: noun
+  plural: die Kuchen
+  meanings: [cake]
+  example: Der Kuchen ist sehr lecker.
+  exampleEn: The cake is very tasty.
+- id: kaffee
+  lesson: de1-food-accusative
+  term: der Kaffee
+  pos: noun
+  plural: die Kaffees
+  meanings: [coffee]
+  example: Ich trinke Kaffee mit Milch.
+  exampleEn: I drink coffee with milk.
+- id: tee
+  lesson: de1-food-accusative
+  term: der Tee
+  pos: noun
+  plural: die Tees
+  meanings: [tea]
+  example: Möchten Sie einen Tee?
+  exampleEn: Would you like a tea?
+- id: wasser
+  lesson: de1-food-accusative
+  term: das Wasser
+  pos: noun
+  plural: die Wasser (rare)
+  meanings: [water]
+  example: Ein Wasser, bitte.
+  exampleEn: A water, please.
+- id: milch
+  lesson: de1-food-accusative
+  term: die Milch
+  pos: noun
+  plural: —
+  meanings: [milk]
+  example: Wir haben keine Milch.
+  exampleEn: We don't have any milk.
+- id: saft
+  lesson: de1-food-accusative
+  term: der Saft
+  pos: noun
+  plural: die Säfte
+  meanings: [juice]
+  example: Das Kind trinkt einen Saft.
+  exampleEn: The child is drinking a juice.
+- id: bier
+  lesson: de1-food-accusative
+  term: das Bier
+  pos: noun
+  plural: die Biere
+  meanings: [beer]
+  example: Zwei Bier, bitte!
+  exampleEn: Two beers, please!
+  note: 'When ordering, the singular follows a number: zwei Bier.'
+- id: wein
+  lesson: de1-food-accusative
+  term: der Wein
+  pos: noun
+  plural: die Weine
+  meanings: [wine]
+  example: Der Wein kommt aus Italien.
+  exampleEn: The wine comes from Italy.
+- id: fruehstueck
+  lesson: de1-food-accusative
+  term: das Frühstück
+  pos: noun
+  plural: die Frühstücke
+  meanings: [breakfast]
+  example: Das Frühstück ist um acht Uhr.
+  exampleEn: Breakfast is at eight o'clock.
+- id: mittagessen
+  lesson: de1-food-accusative
+  term: das Mittagessen
+  pos: noun
+  plural: die Mittagessen
+  meanings: [lunch, midday meal]
+  example: Was gibt es heute zum Mittagessen?
+  exampleEn: What's for lunch today?
+- id: abendessen
+  lesson: de1-food-accusative
+  term: das Abendessen
+  pos: noun
+  plural: die Abendessen
+  meanings: [dinner (evening meal), dinner, supper, evening meal]
+  example: Das Abendessen ist fertig!
+  exampleEn: Dinner is ready!
+- id: hunger
+  lesson: de1-food-accusative
+  term: der Hunger
+  pos: noun
+  plural: —
+  meanings: [hunger]
+  example: Ich habe Hunger.
+  exampleEn: I'm hungry.
+  note: 'Hunger haben = to be hungry (no article).'
+- id: durst
+  lesson: de1-food-accusative
+  term: der Durst
+  pos: noun
+  plural: —
+  meanings: [thirst]
+  example: Hast du Durst?
+  exampleEn: Are you thirsty?
+  note: 'Durst haben = to be thirsty (no article).'
+- id: lecker
+  lesson: de1-food-accusative
+  term: lecker
+  pos: adjective
+  meanings: [tasty, delicious, yummy]
+  example: Das Essen hier ist lecker.
+  exampleEn: The food here is delicious.
+
+# --- 10 Shopping and prices ---
+- id: kaufen
+  lesson: de1-shopping
+  term: kaufen
+  pos: verb
+  meanings: [to buy, to purchase]
+  example: Ich kaufe ein Brot.
+  exampleEn: I'm buying a loaf of bread.
+- id: kosten
+  lesson: de1-shopping
+  term: kosten
+  pos: verb
+  meanings: [to cost]
+  example: Was kostet der Käse?
+  exampleEn: How much is the cheese?
+  note: 'es kostet, sie kosten.'
+- id: bezahlen
+  lesson: de1-shopping
+  term: bezahlen
+  pos: verb
+  meanings: [to pay, to pay for]
+  example: Ich bezahle den Kaffee.
+  exampleEn: I'll pay for the coffee.
+  note: 'No ge- in the perfect: hat bezahlt.'
+- id: brauchen
+  lesson: de1-shopping
+  term: brauchen
+  pos: verb
+  meanings: [to need]
+  example: Wir brauchen Milch.
+  exampleEn: We need milk.
+- id: suchen
+  lesson: de1-shopping
+  term: suchen
+  pos: verb
+  meanings: [to look for, to search for, to search, to seek]
+  example: Ich suche eine Bäckerei.
+  exampleEn: I'm looking for a bakery.
+- id: euro
+  lesson: de1-shopping
+  term: der Euro
+  pos: noun
+  plural: die Euro (after numbers always zehn Euro)
+  meanings: [euro]
+  example: Das kostet zehn Euro.
+  exampleEn: That costs ten euros.
+- id: cent
+  lesson: de1-shopping
+  term: der Cent
+  pos: noun
+  plural: die Cent
+  meanings: [cent]
+  example: Ein Brötchen kostet 50 Cent.
+  exampleEn: A roll costs 50 cents.
+- id: preis
+  lesson: de1-shopping
+  term: der Preis
+  pos: noun
+  plural: die Preise
+  meanings: [price, prize]
+  example: Der Preis ist gut.
+  exampleEn: The price is good.
+- id: geld
+  lesson: de1-shopping
+  term: das Geld
+  pos: noun
+  plural: die Gelder (rare)
+  meanings: [money]
+  example: Ich habe kein Geld.
+  exampleEn: I don't have any money.
+- id: geschaeft
+  lesson: de1-shopping
+  term: das Geschäft
+  pos: noun
+  plural: die Geschäfte
+  meanings: [shop, store, business]
+  example: Das Geschäft ist heute zu.
+  exampleEn: The shop is closed today.
+- id: supermarkt
+  lesson: de1-shopping
+  term: der Supermarkt
+  pos: noun
+  plural: die Supermärkte
+  meanings: [supermarket]
+  example: Hier gibt es einen Supermarkt.
+  exampleEn: There's a supermarket here.
+- id: markt
+  lesson: de1-shopping
+  term: der Markt
+  pos: noun
+  plural: die Märkte
+  meanings: [market, marketplace]
+  example: Der Markt ist am Samstag.
+  exampleEn: The market is on Saturday.
+- id: baeckerei
+  lesson: de1-shopping
+  term: die Bäckerei
+  pos: noun
+  plural: die Bäckereien
+  meanings: [bakery, baker's]
+  example: Die Bäckerei ist dort.
+  exampleEn: The bakery is over there.
+- id: kilo
+  lesson: de1-shopping
+  term: das Kilo
+  pos: noun
+  plural: die Kilo (zwei Kilo)
+  alt: [das Kilogramm]
+  meanings: [kilo, kilogram, kilogramme]
+  example: Ein Kilo Äpfel, bitte.
+  exampleEn: A kilo of apples, please.
+- id: gramm
+  lesson: de1-shopping
+  term: das Gramm
+  pos: noun
+  plural: die Gramm (200 Gramm)
+  meanings: [gram, gramme]
+  example: Ich nehme 200 Gramm Käse.
+  exampleEn: I'll take 200 grams of cheese.
+- id: liter
+  lesson: de1-shopping
+  term: der Liter
+  pos: noun
+  plural: die Liter
+  meanings: [litre, liter]
+  example: Ein Liter Milch kostet einen Euro.
+  exampleEn: A litre of milk costs one euro.
+- id: flasche
+  lesson: de1-shopping
+  term: die Flasche
+  pos: noun
+  plural: die Flaschen
+  meanings: [bottle]
+  example: Wir brauchen zwei Flaschen Wasser.
+  exampleEn: We need two bottles of water.
+- id: stueck
+  lesson: de1-shopping
+  term: das Stück
+  pos: noun
+  plural: die Stücke (but zwei Stück Kuchen)
+  meanings: [piece, slice, bit, item]
+  example: Ein Stück Kuchen, bitte.
+  exampleEn: A piece of cake, please.
+- id: packung
+  lesson: de1-shopping
+  term: die Packung
+  pos: noun
+  plural: die Packungen
+  meanings: [packet, pack, package, box]
+  example: Ich kaufe eine Packung Reis.
+  exampleEn: I'm buying a packet of rice.
+- id: tausend
+  lesson: de1-shopping
+  term: tausend
+  pos: number
+  alt: [eintausend]
+  meanings: [thousand, a thousand, one thousand]
+  example: Der Computer kostet tausend Euro.
+  exampleEn: The computer costs a thousand euros.
+- id: million
+  lesson: de1-shopping
+  term: die Million
+  pos: noun
+  plural: die Millionen
+  meanings: [million]
+  example: Das Haus kostet eine Million Euro.
+  exampleEn: The house costs a million euros.
+- id: wie-viel
+  lesson: de1-shopping
+  term: wie viel
+  pos: question word
+  meanings: [how much, how many]
+  example: Wie viel kostet die Flasche?
+  exampleEn: How much is the bottle?
+- id: welcher
+  lesson: de1-shopping
+  term: welcher
+  pos: question word
+  alt: [welche, welches]
+  meanings: [which, what (which one)]
+  example: Welcher Käse ist gut?
+  exampleEn: Which cheese is good?
+  note: 'Endings like der/die/das: welcher, welche, welches; masculine accusative welchen.'
+- id: dieser
+  lesson: de1-shopping
+  term: dieser
+  pos: article
+  alt: [diese, dieses]
+  meanings: [this (pointing), this, that, these, this one]
+  example: Dieser Wein ist sehr gut.
+  exampleEn: This wine is very good.
+  note: 'Endings like der/die/das: dieser, diese, dieses; masculine accusative diesen.'
+- id: es-gibt
+  lesson: de1-shopping
+  kind: phrase
+  term: es gibt
+  pos: phrase
+  meanings: [there is, there are]
+  example: Hier gibt es einen Markt.
+  exampleEn: There's a market here.
+  note: 'Takes the accusative: es gibt einen …'
+- id: alles
+  lesson: de1-shopping
+  term: alles
+  pos: pronoun
+  meanings: [everything, all]
+  example: Ist das alles?
+  exampleEn: Is that everything?
+- id: viel
+  lesson: de1-shopping
+  term: viel
+  pos: adverb
+  meanings: [a lot, much, lots, many]
+  example: Das kostet viel.
+  exampleEn: That costs a lot.
+- id: wenig
+  lesson: de1-shopping
+  term: wenig
+  pos: adverb
+  meanings: [little (not much), little, not much, few]
+  example: Ich habe wenig Zeit.
+  exampleEn: I have little time.
+- id: zusammen
+  lesson: de1-shopping
+  term: zusammen
+  pos: adverb
+  meanings: [together, altogether, in total]
+  example: Das macht zusammen zwölf Euro.
+  exampleEn: That's twelve euros altogether.
+- id: kasse
+  lesson: de1-shopping
+  term: die Kasse
+  pos: noun
+  plural: die Kassen
+  meanings: [checkout, till, cash register, cash desk]
+  example: Die Kasse ist dort.
+  exampleEn: The checkout is over there.
+- id: angebot
+  lesson: de1-shopping
+  term: das Angebot
+  pos: noun
+  plural: die Angebote
+  meanings: [special offer, offer, deal]
+  example: Der Kaffee ist heute im Angebot.
+  exampleEn: The coffee is on special offer today.
+
+# --- 11 Days, times and the clock ---
+- id: zeit
+  lesson: de1-time
+  term: die Zeit
+  pos: noun
+  plural: die Zeiten
+  meanings: [time]
+  example: Hast du heute Zeit?
+  exampleEn: Do you have time today?
+- id: stunde
+  lesson: de1-time
+  term: die Stunde
+  pos: noun
+  plural: die Stunden
+  meanings: [hour, lesson (school period)]
+  example: Ich arbeite acht Stunden.
+  exampleEn: I work eight hours.
+- id: minute
+  lesson: de1-time
+  term: die Minute
+  pos: noun
+  plural: die Minuten
+  meanings: [minute]
+  example: Der Bus kommt in fünf Minuten.
+  exampleEn: The bus is coming in five minutes.
+- id: viertel
+  lesson: de1-time
+  term: das Viertel
+  pos: noun
+  plural: die Viertel
+  meanings: [quarter]
+  example: Es ist Viertel nach acht.
+  exampleEn: It's a quarter past eight.
+- id: halb
+  lesson: de1-time
+  term: halb
+  pos: adjective
+  meanings: [half, half past (halb vier = 3:30)]
+  example: Es ist halb drei.
+  exampleEn: It's half past two.
+  note: 'halb + the NEXT hour: halb drei = 2:30.'
+- id: nach
+  lesson: de1-time
+  term: nach
+  pos: preposition
+  meanings: [after (time), after, past]
+  example: Es ist zehn nach vier.
+  exampleEn: It's ten past four.
+- id: vor
+  lesson: de1-time
+  term: vor
+  pos: preposition
+  meanings: [before (time), before, ago, in front of]
+  example: Es ist fünf vor zwölf.
+  exampleEn: It's five to twelve.
+- id: um
+  lesson: de1-time
+  term: um
+  pos: preposition
+  meanings: [at (clock time), at, around]
+  example: Der Kurs beginnt um neun Uhr.
+  exampleEn: The course starts at nine o'clock.
+- id: am
+  lesson: de1-time
+  term: am
+  pos: preposition
+  meanings: [on (with days; am Montag), on, in the (am Abend), at the]
+  example: Am Sonntag schlafe ich lange.
+  exampleEn: On Sunday I sleep in.
+  note: 'Short for an dem. am Montag, am Abend, am Wochenende.'
+- id: von
+  lesson: de1-time
+  term: von
+  pos: preposition
+  meanings: [from (von … bis), from, of]
+  example: Ich arbeite von acht bis vier.
+  exampleEn: I work from eight to four.
+- id: bis
+  lesson: de1-time
+  term: bis
+  pos: preposition
+  meanings: [until, till, up to, by]
+  example: Das Geschäft ist bis 20 Uhr offen.
+  exampleEn: The shop is open until 8 p.m.
+- id: tag
+  lesson: de1-time
+  term: der Tag
+  pos: noun
+  plural: die Tage
+  meanings: [day]
+  example: Der Tag ist lang.
+  exampleEn: The day is long.
+- id: woche
+  lesson: de1-time
+  term: die Woche
+  pos: noun
+  plural: die Wochen
+  meanings: [week]
+  example: Die Woche hat sieben Tage.
+  exampleEn: The week has seven days.
+- id: wochenende
+  lesson: de1-time
+  term: das Wochenende
+  pos: noun
+  plural: die Wochenenden
+  meanings: [weekend]
+  example: Am Wochenende arbeite ich nicht.
+  exampleEn: I don't work at the weekend.
+- id: montag
+  lesson: de1-time
+  term: der Montag
+  pos: noun
+  plural: die Montage
+  meanings: [Monday]
+  example: Am Montag beginnt der Kurs.
+  exampleEn: The course starts on Monday.
+- id: dienstag
+  lesson: de1-time
+  term: der Dienstag
+  pos: noun
+  plural: die Dienstage
+  meanings: [Tuesday]
+  example: Am Dienstag habe ich Zeit.
+  exampleEn: I have time on Tuesday.
+- id: mittwoch
+  lesson: de1-time
+  term: der Mittwoch
+  pos: noun
+  plural: die Mittwoche
+  meanings: [Wednesday]
+  example: Der Markt ist am Mittwoch.
+  exampleEn: The market is on Wednesday.
+- id: donnerstag
+  lesson: de1-time
+  term: der Donnerstag
+  pos: noun
+  plural: die Donnerstage
+  meanings: [Thursday]
+  example: Am Donnerstag arbeite ich bis sechs.
+  exampleEn: On Thursday I work until six.
+- id: freitag
+  lesson: de1-time
+  term: der Freitag
+  pos: noun
+  plural: die Freitage
+  meanings: [Friday]
+  example: Heute ist Freitag!
+  exampleEn: Today is Friday!
+- id: samstag
+  lesson: de1-time
+  term: der Samstag
+  pos: noun
+  plural: die Samstage
+  alt: [der Sonnabend]
+  meanings: [Saturday]
+  example: Am Samstag kaufe ich ein.
+  exampleEn: On Saturday I go shopping.
+  note: 'In northern Germany also der Sonnabend.'
+- id: sonntag
+  lesson: de1-time
+  term: der Sonntag
+  pos: noun
+  plural: die Sonntage
+  meanings: [Sunday]
+  example: Am Sonntag sind die Geschäfte zu.
+  exampleEn: On Sunday the shops are closed.
+- id: der-morgen
+  lesson: de1-time
+  term: der Morgen
+  pos: noun
+  plural: die Morgen
+  meanings: [morning (the noun), morning]
+  example: Am Morgen trinke ich Tee.
+  exampleEn: In the morning I drink tea.
+- id: vormittag
+  lesson: de1-time
+  term: der Vormittag
+  pos: noun
+  plural: die Vormittage
+  meanings: [late morning (before noon), morning, forenoon]
+  example: Am Vormittag bin ich im Büro.
+  exampleEn: In the morning I'm at the office.
+- id: mittag
+  lesson: de1-time
+  term: der Mittag
+  pos: noun
+  plural: die Mittage
+  meanings: [noon, midday, lunchtime]
+  example: Am Mittag esse ich einen Salat.
+  exampleEn: At midday I eat a salad.
+- id: nachmittag
+  lesson: de1-time
+  term: der Nachmittag
+  pos: noun
+  plural: die Nachmittage
+  meanings: [afternoon]
+  example: Am Nachmittag spielen die Kinder.
+  exampleEn: In the afternoon the children play.
+- id: abend
+  lesson: de1-time
+  term: der Abend
+  pos: noun
+  plural: die Abende
+  meanings: [evening]
+  example: Am Abend sehe ich fern.
+  exampleEn: In the evening I watch TV.
+- id: nacht
+  lesson: de1-time
+  term: die Nacht
+  pos: noun
+  plural: die Nächte
+  meanings: [night]
+  example: In der Nacht schlafe ich.
+  exampleEn: At night I sleep.
+- id: morgen
+  lesson: de1-time
+  term: morgen
+  pos: adverb
+  meanings: [tomorrow]
+  example: Morgen habe ich frei.
+  exampleEn: Tomorrow I have the day off.
+- id: gestern
+  lesson: de1-time
+  term: gestern
+  pos: adverb
+  meanings: [yesterday]
+  example: Das Brot ist von gestern.
+  exampleEn: The bread is from yesterday.
+- id: frueh
+  lesson: de1-time
+  term: früh
+  pos: adjective
+  meanings: [early]
+  example: Es ist noch früh.
+  exampleEn: It's still early.
+- id: spaet
+  lesson: de1-time
+  term: spät
+  pos: adjective
+  meanings: [late]
+  example: Wie spät ist es?
+  exampleEn: What time is it?
+- id: manchmal
+  lesson: de1-time
+  term: manchmal
+  pos: adverb
+  meanings: [sometimes]
+  example: Ich trinke manchmal Wein.
+  exampleEn: I sometimes drink wine.
+- id: nie
+  lesson: de1-time
+  term: nie
+  pos: adverb
+  meanings: [never]
+  example: Er isst nie Fleisch.
+  exampleEn: He never eats meat.
+
+# --- 12 A day in my life: separable verbs ---
+- id: aufstehen
+  lesson: de1-daily-routine
+  term: aufstehen
+  pos: verb
+  meanings: [to get up, to stand up, to rise]
+  example: Ich stehe um sieben Uhr auf.
+  exampleEn: I get up at seven o'clock.
+  note: 'Separable: ich stehe … auf. Perfect: ist aufgestanden.'
+- id: anfangen
+  lesson: de1-daily-routine
+  term: anfangen
+  pos: verb
+  meanings: [to begin, to start]
+  example: Der Kurs fängt um neun an.
+  exampleEn: The course starts at nine.
+  note: 'Separable, with a→ä: du fängst an, er fängt an. Perfect: hat angefangen.'
+- id: einkaufen
+  lesson: de1-daily-routine
+  term: einkaufen
+  pos: verb
+  meanings: [to go shopping, to shop, to do the shopping]
+  example: Am Samstag kaufe ich ein.
+  exampleEn: On Saturday I go shopping.
+  note: 'Separable: ich kaufe … ein. Perfect: hat eingekauft.'
+- id: anrufen
+  lesson: de1-daily-routine
+  term: anrufen
+  pos: verb
+  meanings: [to phone, to call (on the phone), to ring, to call]
+  example: Ich rufe meine Mutter an.
+  exampleEn: I'm phoning my mother.
+  note: 'Separable: ich rufe … an. Perfect: hat angerufen.'
+- id: fernsehen
+  lesson: de1-daily-routine
+  term: fernsehen
+  pos: verb
+  meanings: [to watch TV, to watch television]
+  example: Siehst du heute Abend fern?
+  exampleEn: Are you watching TV this evening?
+  note: 'Separable, with e→ie: du siehst fern, er sieht fern. Perfect: hat ferngesehen.'
+- id: aufraeumen
+  lesson: de1-daily-routine
+  term: aufräumen
+  pos: verb
+  meanings: [to tidy up, to tidy, to clean up]
+  example: Wir räumen die Küche auf.
+  exampleEn: We're tidying up the kitchen.
+  note: 'Separable: ich räume … auf. Perfect: hat aufgeräumt.'
+- id: mitkommen
+  lesson: de1-daily-routine
+  term: mitkommen
+  pos: verb
+  meanings: [to come along, to come with, to come too]
+  example: Kommst du mit?
+  exampleEn: Are you coming along?
+  note: 'Separable: ich komme … mit. Perfect: ist mitgekommen.'
+- id: abholen
+  lesson: de1-daily-routine
+  term: abholen
+  pos: verb
+  meanings: [to pick up (collect), to pick up, to collect, to fetch]
+  example: Ich hole das Kind um vier ab.
+  exampleEn: I pick the child up at four.
+  note: 'Separable: ich hole … ab. Perfect: hat abgeholt.'
+- id: ankommen
+  lesson: de1-daily-routine
+  term: ankommen
+  pos: verb
+  meanings: [to arrive, to get (somewhere)]
+  example: Der Zug kommt um acht an.
+  exampleEn: The train arrives at eight.
+  note: 'Separable: ich komme … an. Perfect: ist angekommen.'
+- id: schlafen
+  lesson: de1-daily-routine
+  term: schlafen
+  pos: verb
+  meanings: [to sleep]
+  example: Das Baby schläft.
+  exampleEn: The baby is sleeping.
+  note: 'Stem change a→ä: du schläfst, er schläft. Perfect: hat geschlafen.'
+- id: duschen
+  lesson: de1-daily-routine
+  term: duschen
+  pos: verb
+  meanings: [to shower, to take a shower, to have a shower]
+  example: Ich dusche am Morgen.
+  exampleEn: I shower in the morning.
+- id: fruehstuecken
+  lesson: de1-daily-routine
+  term: frühstücken
+  pos: verb
+  meanings: [to have breakfast, to eat breakfast]
+  example: Wir frühstücken um acht.
+  exampleEn: We have breakfast at eight.
+  note: 'Not separable: ich frühstücke. Perfect: hat gefrühstückt.'
+- id: kochen
+  lesson: de1-daily-routine
+  term: kochen
+  pos: verb
+  meanings: [to cook, to boil]
+  example: Am Abend koche ich Nudeln.
+  exampleEn: In the evening I cook pasta.
+- id: putzen
+  lesson: de1-daily-routine
+  term: putzen
+  pos: verb
+  meanings: [to clean]
+  example: Er putzt das Bad.
+  exampleEn: He's cleaning the bathroom.
+  note: 'du putzt (no extra s).'
+- id: waschen
+  lesson: de1-daily-routine
+  term: waschen
+  pos: verb
+  meanings: [to wash]
+  example: Er wäscht das Auto.
+  exampleEn: He's washing the car.
+  note: 'Stem change a→ä: du wäschst, er wäscht. Perfect: hat gewaschen.'
+- id: zuerst
+  lesson: de1-daily-routine
+  term: zuerst
+  pos: adverb
+  meanings: [first of all, first, at first]
+  example: Zuerst dusche ich.
+  exampleEn: First I take a shower.
+- id: dann
+  lesson: de1-daily-routine
+  term: dann
+  pos: adverb
+  meanings: [then]
+  example: Dann frühstücke ich.
+  exampleEn: Then I have breakfast.
+- id: danach
+  lesson: de1-daily-routine
+  term: danach
+  pos: adverb
+  meanings: [afterwards, after that, then]
+  example: Danach räume ich auf.
+  exampleEn: After that I tidy up.
+- id: spaeter
+  lesson: de1-daily-routine
+  term: später
+  pos: adverb
+  meanings: [later]
+  example: Bis später!
+  exampleEn: See you later!
+- id: normalerweise
+  lesson: de1-daily-routine
+  term: normalerweise
+  pos: adverb
+  meanings: [normally, usually, as a rule]
+  example: Normalerweise stehe ich um sechs auf.
+  exampleEn: Normally I get up at six.
+- id: bett
+  lesson: de1-daily-routine
+  term: das Bett
+  pos: noun
+  plural: die Betten
+  meanings: [bed]
+  example: Das Bett ist groß.
+  exampleEn: The bed is big.
+- id: dusche
+  lesson: de1-daily-routine
+  term: die Dusche
+  pos: noun
+  plural: die Duschen
+  meanings: [shower (the noun), shower]
+  example: Die Dusche ist kaputt.
+  exampleEn: The shower is broken.
+- id: feierabend
+  lesson: de1-daily-routine
+  term: der Feierabend
+  pos: noun
+  plural: die Feierabende
+  meanings: [end of the working day, finishing time, time off after work, evening off, quitting time]
+  example: Um fünf Uhr habe ich Feierabend.
+  exampleEn: I finish work at five o'clock.
+  note: 'Feierabend haben = to have finished work for the day.'
+- id: alltag
+  lesson: de1-daily-routine
+  term: der Alltag
+  pos: noun
+  plural: —
+  meanings: [everyday life, daily routine, daily life, routine]
+  example: Mein Alltag ist ziemlich ruhig.
+  exampleEn: My everyday life is fairly quiet.
+- id: muede
+  lesson: de1-daily-routine
+  term: müde
+  pos: adjective
+  meanings: [tired, sleepy]
+  example: Am Abend bin ich müde.
+  exampleEn: In the evening I'm tired.
+- id: fertig
+  lesson: de1-daily-routine
+  term: fertig
+  pos: adjective
+  meanings: [finished, ready, done]
+  example: Bist du fertig?
+  exampleEn: Are you ready?

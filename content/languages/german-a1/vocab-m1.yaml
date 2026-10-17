@@ -1,0 +1,1078 @@
+- id: ja
+  lesson: de1-sounds
+  term: ja
+  pos: particle
+  meanings: ['yes', yeah, yep]
+  example: Ja, das ist richtig.
+  exampleEn: Yes, that's right.
+
+- id: nein
+  lesson: de1-sounds
+  term: nein
+  pos: particle
+  meanings: [no (the answer), 'no', nope]
+  example: Nein, danke.
+  exampleEn: No, thank you.
+  note: nein answers a question; 'not any' is kein (Lesson 8).
+
+- id: bitte
+  lesson: de1-sounds
+  term: bitte
+  pos: particle
+  meanings: [please, you're welcome, here you are, here you go, go ahead]
+  example: Noch einmal, bitte.
+  exampleEn: Again, please.
+  note: 'Also the reply to danke: Danke! – Bitte!'
+
+- id: danke
+  lesson: de1-sounds
+  term: danke
+  pos: interjection
+  meanings: [thanks, thank you, cheers]
+  example: Danke, gut!
+  exampleEn: Fine, thanks!
+
+- id: danke-schoen
+  lesson: de1-sounds
+  kind: phrase
+  term: danke schön
+  pos: phrase
+  alt: [dankeschön]
+  meanings: [thank you very much, thanks a lot, thank you, many thanks, thanks very much]
+  example: Danke schön, Frau Weber!
+  exampleEn: Thank you very much, Mrs Weber!
+
+- id: bitte-schoen
+  lesson: de1-sounds
+  kind: phrase
+  term: bitte schön
+  pos: phrase
+  alt: [bitteschön]
+  meanings: [you're welcome (reply to thanks), you're welcome, my pleasure, here you are, here you go, not at all,
+    don't mention it]
+  example: Danke! – Bitte schön!
+  exampleEn: Thanks! – You're welcome!
+
+- id: entschuldigung
+  lesson: de1-sounds
+  term: Entschuldigung
+  pos: interjection
+  meanings: [excuse me (or sorry), excuse me, sorry, pardon, pardon me, apology, I'm sorry]
+  example: Entschuldigung, wie heißen Sie?
+  exampleEn: Excuse me, what's your name?
+  note: 'As a noun it is die Entschuldigung (apology). Stress: Ent-SCHUL-di-gung.'
+
+- id: hallo
+  lesson: de1-sounds
+  term: Hallo
+  pos: interjection
+  meanings: [hello, hi, hey, hallo]
+  example: Hallo, Anna!
+  exampleEn: Hi, Anna!
+
+- id: tschuess
+  lesson: de1-sounds
+  term: Tschüss
+  pos: interjection
+  alt: [Tschüs]
+  meanings: [bye (informal), bye, goodbye, see you, cheers, bye-bye, see ya]
+  example: Tschüss, bis morgen!
+  exampleEn: Bye, see you tomorrow!
+
+- id: auf-wiedersehen
+  lesson: de1-sounds
+  kind: phrase
+  term: Auf Wiedersehen
+  pos: phrase
+  meanings: [goodbye (formal), goodbye, bye, see you again]
+  example: Auf Wiedersehen, Herr Klein!
+  exampleEn: Goodbye, Mr Klein!
+
+- id: guten-morgen
+  lesson: de1-sounds
+  kind: phrase
+  term: Guten Morgen
+  pos: phrase
+  meanings: [good morning, morning]
+  example: Guten Morgen, Paul!
+  exampleEn: Good morning, Paul!
+
+- id: guten-tag
+  lesson: de1-sounds
+  kind: phrase
+  term: Guten Tag
+  pos: phrase
+  meanings: ['hello (formal, during the day)', good day, good afternoon, hello, good morning]
+  example: Guten Tag, ich heiße Ben Wolf.
+  exampleEn: Hello, my name is Ben Wolf.
+
+- id: guten-abend
+  lesson: de1-sounds
+  kind: phrase
+  term: Guten Abend
+  pos: phrase
+  meanings: [good evening, evening]
+  example: Guten Abend, Frau Lang!
+  exampleEn: Good evening, Ms Lang!
+
+- id: gute-nacht
+  lesson: de1-sounds
+  kind: phrase
+  term: Gute Nacht
+  pos: phrase
+  meanings: [good night, goodnight, night]
+  example: Gute Nacht, Mia!
+  exampleEn: Good night, Mia!
+  note: Only when someone goes to bed; to greet in the evening say Guten Abend.
+
+- id: gruess-gott
+  lesson: de1-sounds
+  kind: phrase
+  term: Grüß Gott
+  pos: phrase
+  alt: [Grüss Gott]
+  meanings: [hello (in southern Germany and Austria), hello, good day, greetings, hi]
+  example: Grüß Gott, Frau Huber!
+  exampleEn: Hello, Mrs Huber!
+
+- id: wie-bitte
+  lesson: de1-sounds
+  kind: phrase
+  term: Wie bitte?
+  pos: phrase
+  meanings: ['pardon? (asking someone to repeat)', pardon, sorry, what, excuse me, come again, I beg your pardon,
+    pardon me]
+  example: Wie bitte? Noch einmal, bitte.
+  exampleEn: Pardon? Again, please.
+
+- id: langsam
+  lesson: de1-sounds
+  term: langsam
+  pos: adjective
+  meanings: [slow (or slowly), slow, slowly]
+  example: Langsam, bitte!
+  exampleEn: Slowly, please!
+
+- id: noch-einmal
+  lesson: de1-sounds
+  kind: phrase
+  term: noch einmal
+  pos: phrase
+  alt: [noch mal, nochmal, nochmals]
+  meanings: [again (one more time), again, once more, one more time, once again]
+  example: Bitte noch einmal!
+  exampleEn: Once more, please!
+
+- id: buchstabieren
+  lesson: de1-sounds
+  term: buchstabieren
+  pos: verb
+  meanings: [to spell (letter by letter), to spell, to spell out]
+  example: Können Sie das bitte buchstabieren?
+  exampleEn: Can you spell that, please?
+  note: 'Perfect: hat buchstabiert (no ge-).'
+
+- id: schreiben
+  lesson: de1-sounds
+  term: schreiben
+  pos: verb
+  meanings: [to write, to spell (in writing)]
+  example: Wie schreibt man das?
+  exampleEn: How do you spell that?
+  note: 'Irregular perfect: hat geschrieben.'
+
+- id: wie-schreibt-man-das
+  lesson: de1-sounds
+  kind: phrase
+  term: Wie schreibt man das?
+  pos: phrase
+  meanings: ['How do you spell that?', how is that spelled, how is that spelt, how do you write that, how is that
+      written]
+  example: Wie schreibt man das? – M, A, X.
+  exampleEn: How do you spell that? – M, A, X.
+
+- id: name
+  lesson: de1-sounds
+  term: der Name
+  pos: noun
+  plural: die Namen
+  meanings: [name]
+  example: Mein Name ist Lena Roth.
+  exampleEn: My name is Lena Roth.
+
+- id: vorname
+  lesson: de1-sounds
+  term: der Vorname
+  pos: noun
+  plural: die Vornamen
+  meanings: [first name, given name, forename, Christian name]
+  example: Mein Vorname ist Jonas.
+  exampleEn: My first name is Jonas.
+
+- id: familienname
+  lesson: de1-sounds
+  term: der Familienname
+  pos: noun
+  plural: die Familiennamen
+  meanings: [surname, last name, family name]
+  example: Wie ist Ihr Familienname?
+  exampleEn: What's your surname?
+
+- id: wort
+  lesson: de1-sounds
+  term: das Wort
+  pos: noun
+  plural: die Wörter
+  meanings: [word]
+  example: Das Wort ist lang.
+  exampleEn: The word is long.
+  note: Plural die Wörter (single words); die Worte means words in the sense of what someone says.
+
+- id: buchstabe
+  lesson: de1-sounds
+  term: der Buchstabe
+  pos: noun
+  plural: die Buchstaben
+  meanings: [letter (of the alphabet), letter, character]
+  example: Das Wort hat fünf Buchstaben.
+  exampleEn: The word has five letters.
+
+- id: alphabet
+  lesson: de1-sounds
+  term: das Alphabet
+  pos: noun
+  plural: die Alphabete
+  meanings: [alphabet]
+  example: Das Alphabet hat 26 Buchstaben.
+  exampleEn: The alphabet has 26 letters.
+  note: 'Stress on the last syllable: Al-pha-BET.'
+
+- id: ich
+  lesson: de1-greetings
+  term: ich
+  pos: pronoun
+  meanings: [I]
+  example: Ich bin Tom.
+  exampleEn: I'm Tom.
+  note: Lowercase unless it starts a sentence.
+
+- id: du
+  lesson: de1-greetings
+  term: du
+  pos: pronoun
+  meanings: ['you (informal, one person)', you]
+  example: Wie heißt du?
+  exampleEn: What's your name?
+
+- id: sie-formal
+  lesson: de1-greetings
+  term: Sie
+  pos: pronoun
+  meanings: [you (formal), you]
+  example: Woher kommen Sie?
+  exampleEn: Where are you from?
+  note: 'Always with a capital S. Used for one or more people. Verb form like the infinitive: Sie sind, Sie wohnen.'
+
+- id: sein
+  lesson: de1-greetings
+  term: sein
+  pos: verb
+  meanings: [to be]
+  example: Ich bin müde, aber du bist fit.
+  exampleEn: I'm tired, but you're fit.
+  note: 'Irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. Perfect: ist gewesen.'
+
+- id: heissen
+  lesson: de1-greetings
+  term: heißen
+  pos: verb
+  alt: [heissen]
+  meanings: [to be called, to be named, to be called (named), to mean, to call]
+  example: Ich heiße Clara.
+  exampleEn: My name is Clara.
+  note: 'du heißt, er heißt (stem ends in ß). Perfect: hat geheißen.'
+
+- id: kommen
+  lesson: de1-greetings
+  term: kommen
+  pos: verb
+  meanings: [to come, to come from, to arrive]
+  example: Ich komme aus Irland.
+  exampleEn: I'm from Ireland.
+  note: 'Perfect with sein: ist gekommen.'
+
+- id: wohnen
+  lesson: de1-greetings
+  term: wohnen
+  pos: verb
+  meanings: [to live (have your home somewhere), to live, to reside, to stay, to dwell]
+  example: Wir wohnen in Bremen.
+  exampleEn: We live in Bremen.
+
+- id: wer
+  lesson: de1-greetings
+  term: wer
+  pos: question word
+  meanings: [who]
+  example: Wer ist das?
+  exampleEn: Who is that?
+  note: Not 'where'! where = wo.
+
+- id: wie
+  lesson: de1-greetings
+  term: wie
+  pos: question word
+  meanings: [how, 'what (in Wie heißt du?)', like, as]
+  example: Wie geht's?
+  exampleEn: How are you?
+
+- id: woher
+  lesson: de1-greetings
+  term: woher
+  pos: question word
+  meanings: [where from, where … from, from where, whence]
+  example: Woher kommst du?
+  exampleEn: Where are you from?
+
+- id: wo
+  lesson: de1-greetings
+  term: wo
+  pos: question word
+  meanings: [where (location), where]
+  example: Wo wohnen Sie?
+  exampleEn: Where do you live?
+
+- id: aus
+  lesson: de1-greetings
+  term: aus
+  pos: preposition
+  meanings: [from (a country or town of origin), from, out of, of, made of]
+  example: Sie kommt aus Polen.
+  exampleEn: She's from Poland.
+
+- id: in
+  lesson: de1-greetings
+  term: in
+  pos: preposition
+  meanings: [in, into, to, inside]
+  example: Ich wohne in Wien.
+  exampleEn: I live in Vienna.
+
+- id: und
+  lesson: de1-greetings
+  term: und
+  pos: conjunction
+  meanings: [and]
+  example: Ich komme aus Kanada, und du?
+  exampleEn: I'm from Canada, and you?
+
+- id: herr
+  lesson: de1-greetings
+  term: der Herr
+  pos: noun
+  plural: die Herren
+  meanings: [Mr (title before a surname), Mr, mister, gentleman, sir, lord]
+  example: Guten Tag, Herr Fischer!
+  exampleEn: Hello, Mr Fischer!
+  note: 'Before a name: Herr Fischer (no article). Herren on a door means ''Gents''.'
+
+- id: frau-title
+  lesson: de1-greetings
+  term: Frau
+  meanings: [Mrs or Ms (title before a surname), Mrs, Ms, Miss, Madam]
+  example: Das ist Frau Becker.
+  exampleEn: This is Mrs Becker.
+  note: Title for every adult woman, married or not, with no article. As a noun (woman, wife) it is die Frau, plural
+    die Frauen.
+
+- id: wie-gehts
+  lesson: de1-greetings
+  kind: phrase
+  term: Wie geht's?
+  pos: phrase
+  alt: ['Wie gehts?', 'Wie geht’s?', 'Wie geht es dir?', 'Wie geht es?']
+  meanings: ['How are you? (informal)', how are you, how's it going, how are things, how are you doing]
+  example: Hallo, Ben! Wie geht's?
+  exampleEn: Hi, Ben! How are you?
+
+- id: wie-geht-es-ihnen
+  lesson: de1-greetings
+  kind: phrase
+  term: Wie geht es Ihnen?
+  pos: phrase
+  alt: ['Wie geht''s Ihnen?', 'Wie gehts Ihnen?']
+  meanings: ['How are you? (formal)', how are you, how are you doing]
+  example: Guten Tag, Frau Graf! Wie geht es Ihnen?
+  exampleEn: Hello, Mrs Graf! How are you?
+
+- id: gut
+  lesson: de1-greetings
+  term: gut
+  pos: adjective
+  meanings: [good, well, fine, OK, okay]
+  example: Danke, mir geht es gut.
+  exampleEn: I'm fine, thanks.
+  note: 'Comparative: besser, am besten.'
+
+- id: sehr
+  lesson: de1-greetings
+  term: sehr
+  pos: adverb
+  meanings: [very, very much, a lot, really]
+  example: Sehr gut, danke!
+  exampleEn: Very well, thanks!
+
+- id: auch
+  lesson: de1-greetings
+  term: auch
+  pos: adverb
+  meanings: [also, too, as well, even]
+  example: Ich wohne auch in Köln.
+  exampleEn: I live in Cologne too.
+
+- id: nicht-so-gut
+  lesson: de1-greetings
+  kind: phrase
+  term: nicht so gut
+  pos: phrase
+  meanings: [not so good, not so well, not too good, not very well, not great, not too well]
+  example: Wie geht's? – Nicht so gut.
+  exampleEn: How are you? – Not so good.
+
+- id: freut-mich
+  lesson: de1-greetings
+  kind: phrase
+  term: Freut mich.
+  pos: phrase
+  alt: [Freut mich sehr.]
+  meanings: [Nice to meet you., pleased to meet you, nice to meet you, glad to meet you, my pleasure, pleased]
+  example: Ich bin Jana. – Freut mich!
+  exampleEn: I'm Jana. – Nice to meet you!
+  note: 'From the verb freuen (to please). Reply: Mich auch.'
+
+- id: deutschland
+  lesson: de1-greetings
+  term: Deutschland
+  meanings: [Germany]
+  example: Ich komme aus Deutschland.
+  exampleEn: I'm from Germany.
+  note: Country name, neuter, used without an article.
+
+- id: oesterreich
+  lesson: de1-greetings
+  term: Österreich
+  meanings: [Austria]
+  example: Wien ist in Österreich.
+  exampleEn: Vienna is in Austria.
+  note: 'Country name, neuter, used without an article. Stress: ÖS-ter-reich.'
+
+- id: schweiz
+  lesson: de1-greetings
+  term: die Schweiz
+  pos: noun
+  plural: —
+  meanings: [Switzerland]
+  example: Wir wohnen in der Schweiz.
+  exampleEn: We live in Switzerland.
+  note: 'Always with the article: aus der Schweiz, in der Schweiz.'
+
+- id: stadt
+  lesson: de1-greetings
+  term: die Stadt
+  pos: noun
+  plural: die Städte
+  meanings: [city, town]
+  example: Graz ist eine Stadt in Österreich.
+  exampleEn: Graz is a city in Austria.
+
+- id: land
+  lesson: de1-greetings
+  term: das Land
+  pos: noun
+  plural: die Länder
+  meanings: [country, land, countryside, state (of Germany or Austria), nation]
+  example: Deutschland ist ein Land in Europa.
+  exampleEn: Germany is a country in Europe.
+  note: auf dem Land = in the countryside.
+
+- id: 'null'
+  lesson: de1-numbers
+  term: 'null'
+  pos: number
+  meanings: [zero (the number), zero, '0', nought, nil, oh]
+  example: Meine Nummer beginnt mit null.
+  exampleEn: My number starts with zero.
+
+- id: eins
+  lesson: de1-numbers
+  term: eins
+  pos: number
+  meanings: [one (the number), one, '1']
+  example: Eins, zwei, drei – los!
+  exampleEn: One, two, three – go!
+  note: 'Inside a number it becomes ein: einundzwanzig (21).'
+
+- id: zwei
+  lesson: de1-numbers
+  term: zwei
+  pos: number
+  alt: [zwo]
+  meanings: [two (the number), two, '2']
+  example: Ich habe zwei Handys.
+  exampleEn: I have two mobile phones.
+  note: On the phone and in announcements often zwo, to avoid confusion with drei.
+
+- id: drei
+  lesson: de1-numbers
+  term: drei
+  pos: number
+  meanings: [three (the number), three, '3']
+  example: Das Wort hat drei Buchstaben.
+  exampleEn: The word has three letters.
+
+- id: vier
+  lesson: de1-numbers
+  term: vier
+  pos: number
+  meanings: [four (the number), four, '4']
+  example: Das Kind ist vier.
+  exampleEn: The child is four.
+
+- id: fuenf
+  lesson: de1-numbers
+  term: fünf
+  pos: number
+  meanings: [five (the number), five, '5']
+  example: Die Hausnummer ist fünf.
+  exampleEn: The house number is five.
+
+- id: sechs
+  lesson: de1-numbers
+  term: sechs
+  pos: number
+  meanings: [six (the number), six, '6']
+  example: Das Kind ist sechs Jahre alt.
+  exampleEn: The child is six years old.
+
+- id: sieben
+  lesson: de1-numbers
+  term: sieben
+  pos: number
+  meanings: [seven (the number), seven, '7']
+  example: Ich wohne in der Lindenstraße sieben.
+  exampleEn: I live at Lindenstraße 7.
+
+- id: acht
+  lesson: de1-numbers
+  term: acht
+  pos: number
+  meanings: [eight (the number), eight, '8']
+  example: Paul ist acht.
+  exampleEn: Paul is eight.
+
+- id: neun
+  lesson: de1-numbers
+  term: neun
+  pos: number
+  meanings: [nine (the number), nine, '9']
+  example: Die Telefonnummer endet auf neun.
+  exampleEn: The phone number ends in nine.
+
+- id: zehn
+  lesson: de1-numbers
+  term: zehn
+  pos: number
+  meanings: [ten (the number), ten, '10']
+  example: Max ist zehn Jahre alt.
+  exampleEn: Max is ten years old.
+
+- id: elf
+  lesson: de1-numbers
+  term: elf
+  pos: number
+  meanings: [eleven (the number), eleven, '11']
+  example: Mein Bruder ist elf.
+  exampleEn: My brother is eleven.
+
+- id: zwoelf
+  lesson: de1-numbers
+  term: zwölf
+  pos: number
+  meanings: [twelve (the number), twelve, '12']
+  example: Das Jahr hat zwölf Monate.
+  exampleEn: The year has twelve months.
+
+- id: dreizehn
+  lesson: de1-numbers
+  term: dreizehn
+  pos: number
+  meanings: [thirteen (the number), thirteen, '13']
+  example: Lena ist dreizehn Jahre alt.
+  exampleEn: Lena is thirteen years old.
+
+- id: vierzehn
+  lesson: de1-numbers
+  term: vierzehn
+  pos: number
+  meanings: [fourteen (the number), fourteen, '14']
+  example: Ich wohne in der Bergstraße vierzehn.
+  exampleEn: I live at Bergstraße 14.
+
+- id: fuenfzehn
+  lesson: de1-numbers
+  term: fünfzehn
+  pos: number
+  meanings: [fifteen (the number), fifteen, '15']
+  example: Tim ist fünfzehn.
+  exampleEn: Tim is fifteen.
+
+- id: sechzehn
+  lesson: de1-numbers
+  term: sechzehn
+  pos: number
+  meanings: [sixteen (the number), sixteen, '16']
+  example: Sie ist sechzehn.
+  exampleEn: She's sixteen.
+  note: 'No s: sechzehn, not sechszehn.'
+
+- id: siebzehn
+  lesson: de1-numbers
+  term: siebzehn
+  pos: number
+  meanings: [seventeen (the number), seventeen, '17']
+  example: Anna ist siebzehn.
+  exampleEn: Anna is seventeen.
+  note: 'Drops the -en: siebzehn, not siebenzehn.'
+
+- id: achtzehn
+  lesson: de1-numbers
+  term: achtzehn
+  pos: number
+  meanings: [eighteen (the number), eighteen, '18']
+  example: Er ist achtzehn Jahre alt.
+  exampleEn: He's eighteen years old.
+
+- id: neunzehn
+  lesson: de1-numbers
+  term: neunzehn
+  pos: number
+  meanings: [nineteen (the number), nineteen, '19']
+  example: Meine Schwester ist neunzehn.
+  exampleEn: My sister is nineteen.
+
+- id: zwanzig
+  lesson: de1-numbers
+  term: zwanzig
+  pos: number
+  meanings: [twenty (the number), twenty, '20']
+  example: Ich bin zwanzig.
+  exampleEn: I'm twenty.
+  note: '21–29: einundzwanzig, zweiundzwanzig … (unit first).'
+
+- id: dreissig
+  lesson: de1-numbers
+  term: dreißig
+  pos: number
+  alt: [dreissig]
+  meanings: [thirty (the number), thirty, '30']
+  example: Er ist dreißig Jahre alt.
+  exampleEn: He's thirty years old.
+  note: Ends in -ßig, not -zig.
+
+- id: vierzig
+  lesson: de1-numbers
+  term: vierzig
+  pos: number
+  meanings: [forty (the number), forty, '40']
+  example: Frau Kaya ist vierzig.
+  exampleEn: Ms Kaya is forty.
+
+- id: fuenfzig
+  lesson: de1-numbers
+  term: fünfzig
+  pos: number
+  meanings: [fifty (the number), fifty, '50']
+  example: Mein Vater ist fünfzig.
+  exampleEn: My father is fifty.
+
+- id: sechzig
+  lesson: de1-numbers
+  term: sechzig
+  pos: number
+  meanings: [sixty (the number), sixty, '60']
+  example: Eine Stunde hat sechzig Minuten.
+  exampleEn: An hour has sixty minutes.
+  note: 'No s: sechzig.'
+
+- id: siebzig
+  lesson: de1-numbers
+  term: siebzig
+  pos: number
+  meanings: [seventy (the number), seventy, '70']
+  example: Oma ist siebzig.
+  exampleEn: Grandma is seventy.
+  note: 'Drops the -en: siebzig.'
+
+- id: achtzig
+  lesson: de1-numbers
+  term: achtzig
+  pos: number
+  meanings: [eighty (the number), eighty, '80']
+  example: Herr Brandt ist achtzig Jahre alt.
+  exampleEn: Mr Brandt is eighty years old.
+
+- id: neunzig
+  lesson: de1-numbers
+  term: neunzig
+  pos: number
+  meanings: [ninety (the number), ninety, '90']
+  example: Sie ist neunzig und sehr fit.
+  exampleEn: She's ninety and very fit.
+
+- id: hundert
+  lesson: de1-numbers
+  term: hundert
+  pos: number
+  alt: [einhundert]
+  meanings: [a hundred (100), hundred, one hundred, a hundred, '100']
+  example: Das Haus ist hundert Jahre alt.
+  exampleEn: The house is a hundred years old.
+  note: Also einhundert. 101 = hunderteins.
+
+- id: alt
+  lesson: de1-numbers
+  term: alt
+  pos: adjective
+  meanings: [old, aged, elderly]
+  example: Wie alt bist du?
+  exampleEn: How old are you?
+  note: 'Comparative: älter, am ältesten. Opposite: jung (people), neu (things).'
+
+- id: jung
+  lesson: de1-numbers
+  term: jung
+  pos: adjective
+  meanings: [young]
+  example: Meine Mutter ist noch jung.
+  exampleEn: My mother is still young.
+  note: 'Comparative: jünger, am jüngsten.'
+
+- id: jahr
+  lesson: de1-numbers
+  term: das Jahr
+  pos: noun
+  plural: die Jahre
+  meanings: [year]
+  example: Ich bin 25 Jahre alt.
+  exampleEn: I'm 25 years old.
+
+- id: telefonnummer
+  lesson: de1-numbers
+  term: die Telefonnummer
+  pos: noun
+  plural: die Telefonnummern
+  meanings: [phone number, telephone number, number]
+  example: Wie ist deine Telefonnummer?
+  exampleEn: What's your phone number?
+
+- id: handynummer
+  lesson: de1-numbers
+  term: die Handynummer
+  pos: noun
+  plural: die Handynummern
+  meanings: [mobile number, cell phone number, cell number, mobile phone number, cellphone number]
+  example: Hast du eine Handynummer?
+  exampleEn: Do you have a mobile number?
+  note: das Handy = mobile phone.
+
+- id: adresse
+  lesson: de1-numbers
+  term: die Adresse
+  pos: noun
+  plural: die Adressen
+  meanings: [address]
+  example: Wie ist Ihre Adresse?
+  exampleEn: What's your address?
+  note: 'Stress: Ad-RES-se.'
+
+- id: hausnummer
+  lesson: de1-numbers
+  term: die Hausnummer
+  pos: noun
+  plural: die Hausnummern
+  meanings: [house number, street number, building number]
+  example: Die Hausnummer ist zwölf.
+  exampleEn: The house number is twelve.
+
+- id: postleitzahl
+  lesson: de1-numbers
+  term: die Postleitzahl
+  pos: noun
+  plural: die Postleitzahlen
+  meanings: [postcode (ZIP code), postcode, zip code, postal code, zip]
+  example: Die Postleitzahl ist 10115.
+  exampleEn: The postcode is 10115.
+  note: 'Short form: PLZ.'
+
+- id: e-mail
+  lesson: de1-numbers
+  term: die E-Mail
+  pos: noun
+  plural: die E-Mails
+  meanings: [e-mail, email, e-mail address, email address]
+  example: Meine E-Mail ist tom@web.de.
+  exampleEn: My e-mail address is tom@web.de.
+  note: The full word for the address is die E-Mail-Adresse.
+
+- id: haben
+  lesson: de1-numbers
+  term: haben
+  pos: verb
+  meanings: [to have, to have got, to own]
+  example: Hast du eine Telefonnummer?
+  exampleEn: Do you have a phone number?
+  note: 'Irregular: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Perfect: hat gehabt.'
+
+- id: zahl
+  lesson: de1-numbers
+  term: die Zahl
+  pos: noun
+  plural: die Zahlen
+  meanings: [number (a figure or quantity), number, figure, digit, numeral]
+  example: Die Zahl ist richtig.
+  exampleEn: The number is correct.
+
+- id: nummer
+  lesson: de1-numbers
+  term: die Nummer
+  pos: noun
+  plural: die Nummern
+  meanings: ['number (of a phone, room or house)', number]
+  example: Wie ist die Nummer von Lisa?
+  exampleEn: What's Lisa's number?
+
+- id: er
+  lesson: de1-present-tense
+  term: er
+  pos: pronoun
+  meanings: [he, it (for a masculine noun), it]
+  example: Er heißt Max.
+  exampleEn: His name is Max.
+
+- id: sie
+  lesson: de1-present-tense
+  term: sie
+  pos: pronoun
+  meanings: [she; they (lowercase sie), she, they, her, them, it (for a feminine noun), it]
+  example: Sie wohnt in Hamburg, und sie wohnen in Kiel.
+  exampleEn: She lives in Hamburg, and they live in Kiel.
+  note: 'The verb ending shows which: sie wohnt (she), sie wohnen (they). Capital Sie = formal you.'
+
+- id: es
+  lesson: de1-present-tense
+  term: es
+  pos: pronoun
+  meanings: [it]
+  example: Wie geht es?
+  exampleEn: How's it going?
+
+- id: wir
+  lesson: de1-present-tense
+  term: wir
+  pos: pronoun
+  meanings: [we]
+  example: Wir lernen Deutsch.
+  exampleEn: We're learning German.
+
+- id: ihr
+  lesson: de1-present-tense
+  term: ihr
+  pos: pronoun
+  meanings: ['you (informal, two or more people)', you, you all, you guys, y'all, you two]
+  example: Wo wohnt ihr?
+  exampleEn: Where do you (all) live?
+  note: 'Verb ending -t: ihr wohnt, ihr seid.'
+
+- id: machen
+  lesson: de1-present-tense
+  term: machen
+  pos: verb
+  meanings: [to make (or do), to do, to make]
+  example: Was machst du heute?
+  exampleEn: What are you doing today?
+
+- id: lernen
+  lesson: de1-present-tense
+  term: lernen
+  pos: verb
+  meanings: [to learn, to study (for a test), to study, to revise]
+  example: Ich lerne jeden Tag Deutsch.
+  exampleEn: I learn German every day.
+
+- id: arbeiten
+  lesson: de1-present-tense
+  term: arbeiten
+  pos: verb
+  meanings: [to work]
+  example: Er arbeitet in Berlin.
+  exampleEn: He works in Berlin.
+  note: 'Extra e: du arbeitest, er arbeitet, ihr arbeitet.'
+
+- id: spielen
+  lesson: de1-present-tense
+  term: spielen
+  pos: verb
+  meanings: [to play]
+  example: Wir spielen heute Fußball.
+  exampleEn: We're playing football today.
+
+- id: hoeren
+  lesson: de1-present-tense
+  term: hören
+  pos: verb
+  meanings: [to hear (or listen to), to hear, to listen, to listen to]
+  example: Ich höre gern Musik.
+  exampleEn: I like listening to music.
+
+- id: fragen
+  lesson: de1-present-tense
+  term: fragen
+  pos: verb
+  meanings: [to ask (a question), to ask, to question, to inquire, to enquire]
+  example: Warum fragst du?
+  exampleEn: Why do you ask?
+
+- id: antworten
+  lesson: de1-present-tense
+  term: antworten
+  pos: verb
+  meanings: [to answer, to reply, to respond]
+  example: Er antwortet nicht.
+  exampleEn: He isn't answering.
+  note: 'Extra e: du antwortest, er antwortet.'
+
+- id: sagen
+  lesson: de1-present-tense
+  term: sagen
+  pos: verb
+  meanings: [to say, to tell]
+  example: Was sagst du?
+  exampleEn: What are you saying?
+
+- id: gehen
+  lesson: de1-present-tense
+  term: gehen
+  pos: verb
+  meanings: [to go (on foot), to go, to walk]
+  example: Wir gehen jetzt.
+  exampleEn: We're going now.
+  note: 'Perfect with sein: ist gegangen.'
+
+- id: leben
+  lesson: de1-present-tense
+  term: leben
+  pos: verb
+  meanings: [to live (be alive; spend your life), to live, to be alive]
+  example: Meine Oma lebt in Italien.
+  exampleEn: My grandma lives in Italy.
+
+- id: studieren
+  lesson: de1-present-tense
+  term: studieren
+  pos: verb
+  meanings: [to study (at university), to study, to major in, to be a student]
+  example: Sie studiert Medizin in Wien.
+  exampleEn: She's studying medicine in Vienna.
+  note: 'Stress on -ie-. Perfect: hat studiert (no ge-).'
+
+- id: verstehen
+  lesson: de1-present-tense
+  term: verstehen
+  pos: verb
+  meanings: [to understand, to see (understand), to get (understand)]
+  example: Verstehst du das?
+  exampleEn: Do you understand that?
+  note: 'Irregular perfect: hat verstanden.'
+
+- id: was
+  lesson: de1-present-tense
+  term: was
+  pos: question word
+  meanings: [what]
+  example: Was machen Sie hier?
+  exampleEn: What are you doing here?
+
+- id: warum
+  lesson: de1-present-tense
+  term: warum
+  pos: question word
+  meanings: [why]
+  example: Warum lernst du Deutsch?
+  exampleEn: Why are you learning German?
+
+- id: wann
+  lesson: de1-present-tense
+  term: wann
+  pos: question word
+  meanings: [when (asking about time), when, what time]
+  example: Wann arbeitest du?
+  exampleEn: When do you work?
+  note: Only for questions about time.
+
+- id: hier
+  lesson: de1-present-tense
+  term: hier
+  pos: adverb
+  meanings: [here]
+  example: Ich wohne hier.
+  exampleEn: I live here.
+
+- id: dort
+  lesson: de1-present-tense
+  term: dort
+  pos: adverb
+  meanings: [there, over there]
+  example: Dort ist Frau Klein.
+  exampleEn: Mrs Klein is over there.
+
+- id: jetzt
+  lesson: de1-present-tense
+  term: jetzt
+  pos: adverb
+  meanings: [now, right now, at the moment, currently]
+  example: Jetzt lerne ich.
+  exampleEn: Now I'm studying.
+
+- id: heute
+  lesson: de1-present-tense
+  term: heute
+  pos: adverb
+  meanings: [today]
+  example: Heute arbeite ich nicht.
+  exampleEn: I'm not working today.
+
+- id: oft
+  lesson: de1-present-tense
+  term: oft
+  pos: adverb
+  meanings: [often, frequently, a lot, many times]
+  example: Wir spielen oft Tennis.
+  exampleEn: We often play tennis.
+
+- id: gern
+  lesson: de1-present-tense
+  term: gern
+  pos: adverb
+  alt: [gerne]
+  meanings: [gladly (liking to do something), gladly, with pleasure, happily, like to, like, willingly, sure]
+  example: Ich spiele gern Gitarre.
+  exampleEn: I like playing the guitar.
+  note: 'Verb + gern = like doing something. Comparative: lieber, am liebsten.'
+
+- id: immer
+  lesson: de1-present-tense
+  term: immer
+  pos: adverb
+  meanings: [always, all the time, every time, ever]
+  example: Er ist immer hier.
+  exampleEn: He's always here.

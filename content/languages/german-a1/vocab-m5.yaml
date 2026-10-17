@@ -1,0 +1,1033 @@
+# Module 5: Town, travel and home (lessons 17–20)
+
+# 17 de1-city-imperative
+- id: strasse
+  lesson: de1-city-imperative
+  term: die Straße
+  pos: noun
+  plural: die Straßen
+  alt: ["die Strasse"]
+  meanings: ["street", "road"]
+  example: Unsere Straße ist sehr ruhig.
+  exampleEn: Our street is very quiet.
+- id: platz
+  lesson: de1-city-imperative
+  term: der Platz
+  pos: noun
+  plural: die Plätze
+  meanings: ["square (in a town)", "square", "place", "space", "seat", "room"]
+  example: Am Marktplatz gibt es ein Café.
+  exampleEn: There is a café on the market square.
+- id: bank-bank
+  lesson: de1-city-imperative
+  term: die Bank
+  pos: noun
+  plural: die Banken
+  meanings: ["bank (for money)", "bank"]
+  note: 'Die Bank also means bench (plural die Bänke).'
+  example: Die Bank ist links neben der Post.
+  exampleEn: The bank is on the left next to the post office.
+- id: post
+  lesson: de1-city-imperative
+  term: die Post
+  pos: noun
+  plural: — (plural rare)
+  meanings: ["post office", "post", "mail"]
+  example: Wo ist hier die Post?
+  exampleEn: Where is the post office around here?
+- id: apotheke
+  lesson: de1-city-imperative
+  term: die Apotheke
+  pos: noun
+  plural: die Apotheken
+  meanings: ["pharmacy", "chemist's", "drugstore", "chemist"]
+  example: Gibt es hier in der Nähe eine Apotheke?
+  exampleEn: Is there a pharmacy nearby?
+- id: krankenhaus
+  lesson: de1-city-imperative
+  term: das Krankenhaus
+  pos: noun
+  plural: die Krankenhäuser
+  meanings: ["hospital"]
+  example: Das Krankenhaus ist nicht weit.
+  exampleEn: The hospital isn't far.
+- id: hotel
+  lesson: de1-city-imperative
+  term: das Hotel
+  pos: noun
+  plural: die Hotels
+  meanings: ["hotel"]
+  example: Unser Hotel ist im Zentrum.
+  exampleEn: Our hotel is in the centre.
+- id: restaurant
+  lesson: de1-city-imperative
+  term: das Restaurant
+  pos: noun
+  plural: die Restaurants
+  meanings: ["restaurant"]
+  example: Das Restaurant ist heute geschlossen.
+  exampleEn: The restaurant is closed today.
+- id: cafe
+  lesson: de1-city-imperative
+  term: das Café
+  pos: noun
+  plural: die Cafés
+  alt: ["das Cafe"]
+  meanings: ["café", "cafe", "coffee shop"]
+  example: Wir treffen uns im Café.
+  exampleEn: We're meeting in the café.
+- id: museum
+  lesson: de1-city-imperative
+  term: das Museum
+  pos: noun
+  plural: die Museen
+  meanings: ["museum"]
+  example: Das Museum ist am Montag zu.
+  exampleEn: The museum is closed on Monday.
+- id: kirche
+  lesson: de1-city-imperative
+  term: die Kirche
+  pos: noun
+  plural: die Kirchen
+  meanings: ["church"]
+  example: Die Kirche ist sehr alt.
+  exampleEn: The church is very old.
+- id: park
+  lesson: de1-city-imperative
+  term: der Park
+  pos: noun
+  plural: die Parks
+  meanings: ["park"]
+  example: Im Park spielen viele Kinder.
+  exampleEn: Lots of children are playing in the park.
+- id: bruecke
+  lesson: de1-city-imperative
+  term: die Brücke
+  pos: noun
+  plural: die Brücken
+  alt: ["die Bruecke"]
+  meanings: ["bridge"]
+  example: Gehen Sie über die Brücke.
+  exampleEn: Go over the bridge.
+- id: zentrum
+  lesson: de1-city-imperative
+  term: das Zentrum
+  pos: noun
+  plural: die Zentren
+  meanings: ["centre (of a town)", "center", "centre", "city centre", "town centre", "downtown"]
+  example: Das Hotel ist im Zentrum.
+  exampleEn: The hotel is in the centre.
+- id: haltestelle
+  lesson: de1-city-imperative
+  term: die Haltestelle
+  pos: noun
+  plural: die Haltestellen
+  meanings: ["stop (for a bus or tram)", "stop", "bus stop", "tram stop"]
+  example: Die Haltestelle ist an der Ecke.
+  exampleEn: The stop is on the corner.
+- id: ecke
+  lesson: de1-city-imperative
+  term: die Ecke
+  pos: noun
+  plural: die Ecken
+  meanings: ["corner"]
+  example: An der Ecke ist eine Bäckerei.
+  exampleEn: There's a bakery on the corner.
+- id: ampel
+  lesson: de1-city-imperative
+  term: die Ampel
+  pos: noun
+  plural: die Ampeln
+  meanings: ["traffic lights", "traffic light", "stoplight"]
+  example: An der Ampel biegen Sie links ab.
+  exampleEn: Turn left at the traffic lights.
+- id: stadtplan
+  lesson: de1-city-imperative
+  term: der Stadtplan
+  pos: noun
+  plural: die Stadtpläne
+  meanings: ["city map", "town map", "street map", "map (of a town)"]
+  example: Hast du einen Stadtplan?
+  exampleEn: Do you have a city map?
+- id: weg
+  lesson: de1-city-imperative
+  term: der Weg
+  pos: noun
+  plural: die Wege
+  meanings: ["way (route)", "way", "path", "route"]
+  example: Können Sie mir den Weg zeigen?
+  exampleEn: Can you show me the way?
+- id: links
+  lesson: de1-city-imperative
+  term: links
+  pos: adverb
+  meanings: ["left (direction)", "left", "on the left", "to the left"]
+  example: Die Post ist links.
+  exampleEn: The post office is on the left.
+- id: rechts
+  lesson: de1-city-imperative
+  term: rechts
+  pos: adverb
+  meanings: ["right (direction)", "right", "on the right", "to the right"]
+  example: Nehmen Sie die erste Straße rechts.
+  exampleEn: Take the first street on the right.
+- id: geradeaus
+  lesson: de1-city-imperative
+  term: geradeaus
+  pos: adverb
+  meanings: ["straight ahead", "straight on", "straight"]
+  example: Gehen Sie immer geradeaus.
+  exampleEn: Keep going straight ahead.
+- id: weit
+  lesson: de1-city-imperative
+  term: weit
+  pos: adjective
+  meanings: ["far", "far away", "a long way"]
+  example: Ist das weit?
+  exampleEn: Is that far?
+- id: nah
+  lesson: de1-city-imperative
+  term: nah
+  pos: adjective
+  alt: ["nahe"]
+  meanings: ["near", "close", "nearby", "close by"]
+  example: Der Bahnhof ist ganz nah.
+  exampleEn: The station is very close.
+- id: in-der-naehe
+  lesson: de1-city-imperative
+  kind: phrase
+  term: in der Nähe
+  pos: phrase
+  meanings: ["nearby (in the area)", "nearby", "near here", "in the area", "close by", "in the vicinity"]
+  example: Gibt es hier in der Nähe ein Hotel?
+  exampleEn: Is there a hotel nearby?
+- id: zu-fuss
+  lesson: de1-city-imperative
+  kind: phrase
+  term: zu Fuß
+  pos: phrase
+  alt: ["zu Fuss"]
+  meanings: ["on foot", "by foot", "walking"]
+  example: Ich gehe zu Fuß zur Arbeit.
+  exampleEn: I walk to work.
+- id: gegenueber
+  lesson: de1-city-imperative
+  term: gegenüber
+  pos: preposition
+  meanings: ["opposite", "across from", "across the street", "facing"]
+  note: 'Takes the dative: gegenüber der Kirche. Also used alone: Die Post ist direkt gegenüber.'
+  example: Die Apotheke ist direkt gegenüber.
+  exampleEn: The pharmacy is directly opposite.
+- id: zweite
+  lesson: de1-city-imperative
+  term: zweite
+  pos: adjective
+  meanings: ["second (ordinal)", "second", "2nd"]
+  note: 'Ordinal of zwei: der/die/das zweite.'
+  example: Nehmen Sie die zweite Straße links.
+  exampleEn: Take the second street on the left.
+- id: zeigen
+  lesson: de1-city-imperative
+  term: zeigen
+  pos: verb
+  meanings: ["to show", "to point"]
+  example: Zeig mir bitte den Weg.
+  exampleEn: Please show me the way.
+- id: finden
+  lesson: de1-city-imperative
+  term: finden
+  pos: verb
+  meanings: ["to find", "to think (have an opinion)", "to think"]
+  note: 'Perfect: hat gefunden. Also for opinions: Ich finde das gut.'
+  example: Ich finde den Bahnhof nicht.
+  exampleEn: I can't find the station.
+- id: abbiegen
+  lesson: de1-city-imperative
+  term: abbiegen
+  pos: verb
+  meanings: ["to turn (left or right)", "to turn", "to turn off"]
+  note: 'Separable: Biegen Sie links ab! Perfect with sein: ist abgebogen.'
+  example: Biegen Sie an der Ampel rechts ab.
+  exampleEn: Turn right at the traffic lights.
+
+# 18 de1-travel-dative
+- id: bahnhof
+  lesson: de1-travel-dative
+  term: der Bahnhof
+  pos: noun
+  plural: die Bahnhöfe
+  meanings: ["station (for trains)", "station", "train station", "railway station"]
+  example: Wie komme ich zum Bahnhof?
+  exampleEn: How do I get to the station?
+- id: zug
+  lesson: de1-travel-dative
+  term: der Zug
+  pos: noun
+  plural: die Züge
+  meanings: ["train"]
+  example: Der Zug kommt um acht Uhr an.
+  exampleEn: The train arrives at eight o'clock.
+- id: bus
+  lesson: de1-travel-dative
+  term: der Bus
+  pos: noun
+  plural: die Busse
+  meanings: ["bus", "coach"]
+  example: Ich fahre mit dem Bus zur Schule.
+  exampleEn: I go to school by bus.
+- id: u-bahn
+  lesson: de1-travel-dative
+  term: die U-Bahn
+  pos: noun
+  plural: die U-Bahnen
+  meanings: ["underground (train)", "underground", "subway", "metro", "tube"]
+  example: Nimm die U-Bahn, das geht schneller.
+  exampleEn: Take the underground, it's quicker.
+- id: s-bahn
+  lesson: de1-travel-dative
+  term: die S-Bahn
+  pos: noun
+  plural: die S-Bahnen
+  meanings: ["suburban train", "commuter train", "city train", "S-Bahn"]
+  example: Die S-Bahn fährt zum Flughafen.
+  exampleEn: The suburban train goes to the airport.
+- id: strassenbahn
+  lesson: de1-travel-dative
+  term: die Straßenbahn
+  pos: noun
+  plural: die Straßenbahnen
+  alt: ["die Strassenbahn"]
+  meanings: ["tram", "streetcar", "trolley"]
+  example: Wir fahren mit der Straßenbahn.
+  exampleEn: We're going by tram.
+- id: auto
+  lesson: de1-travel-dative
+  term: das Auto
+  pos: noun
+  plural: die Autos
+  meanings: ["car", "automobile"]
+  example: Mein Auto ist leider kaputt.
+  exampleEn: Unfortunately my car is broken.
+- id: taxi
+  lesson: de1-travel-dative
+  term: das Taxi
+  pos: noun
+  plural: die Taxis
+  meanings: ["taxi", "cab"]
+  example: Wir nehmen ein Taxi zum Hotel.
+  exampleEn: We're taking a taxi to the hotel.
+- id: flugzeug
+  lesson: de1-travel-dative
+  term: das Flugzeug
+  pos: noun
+  plural: die Flugzeuge
+  meanings: ["plane", "airplane", "aeroplane", "aircraft"]
+  example: Das Flugzeug ist pünktlich.
+  exampleEn: The plane is on time.
+- id: flughafen
+  lesson: de1-travel-dative
+  term: der Flughafen
+  pos: noun
+  plural: die Flughäfen
+  meanings: ["airport"]
+  example: Ich fahre mit der S-Bahn zum Flughafen.
+  exampleEn: I'm taking the suburban train to the airport.
+- id: fahrkarte
+  lesson: de1-travel-dative
+  term: die Fahrkarte
+  pos: noun
+  plural: die Fahrkarten
+  meanings: ["ticket (for a train or bus)", "ticket", "travel ticket", "fare"]
+  example: Eine Fahrkarte nach Hamburg, bitte.
+  exampleEn: A ticket to Hamburg, please.
+- id: ticket
+  lesson: de1-travel-dative
+  term: das Ticket
+  pos: noun
+  plural: die Tickets
+  meanings: ["ticket (English loanword; also for planes and concerts)", "ticket"]
+  example: Hast du schon ein Ticket für das Konzert?
+  exampleEn: Have you already got a ticket for the concert?
+- id: fahrplan
+  lesson: de1-travel-dative
+  term: der Fahrplan
+  pos: noun
+  plural: die Fahrpläne
+  meanings: ["timetable", "schedule"]
+  example: Der Fahrplan hängt an der Haltestelle.
+  exampleEn: The timetable is at the stop.
+- id: gleis
+  lesson: de1-travel-dative
+  term: das Gleis
+  pos: noun
+  plural: die Gleise
+  meanings: ["platform (at a station)", "platform", "track"]
+  example: Der Zug fährt von Gleis 3 ab.
+  exampleEn: The train leaves from platform 3.
+- id: abfahrt
+  lesson: de1-travel-dative
+  term: die Abfahrt
+  pos: noun
+  plural: die Abfahrten
+  meanings: ["departure"]
+  example: Die Abfahrt ist um 9:20 Uhr.
+  exampleEn: The departure is at 9:20.
+- id: ankunft
+  lesson: de1-travel-dative
+  term: die Ankunft
+  pos: noun
+  plural: die Ankünfte
+  meanings: ["arrival"]
+  example: Die Ankunft in Berlin ist um 14 Uhr.
+  exampleEn: The arrival in Berlin is at 2 p.m.
+- id: verspaetung
+  lesson: de1-travel-dative
+  term: die Verspätung
+  pos: noun
+  plural: die Verspätungen
+  meanings: ["delay", "lateness"]
+  note: 'Verspätung haben = to be late, to be delayed: Der Zug hat Verspätung.'
+  example: Der Bus hat zehn Minuten Verspätung.
+  exampleEn: The bus is ten minutes late.
+- id: reise
+  lesson: de1-travel-dative
+  term: die Reise
+  pos: noun
+  plural: die Reisen
+  meanings: ["trip", "journey", "travel", "tour", "voyage"]
+  example: Gute Reise!
+  exampleEn: Have a good trip!
+- id: urlaub
+  lesson: de1-travel-dative
+  term: der Urlaub
+  pos: noun
+  plural: die Urlaube
+  meanings: ["holiday (time off work)", "holiday", "holidays", "vacation", "leave"]
+  example: Wir fahren im Sommer in den Urlaub.
+  exampleEn: We're going on holiday in the summer.
+- id: koffer
+  lesson: de1-travel-dative
+  term: der Koffer
+  pos: noun
+  plural: die Koffer
+  meanings: ["suitcase", "case"]
+  example: Mein Koffer ist sehr schwer.
+  exampleEn: My suitcase is very heavy.
+- id: abfahren
+  lesson: de1-travel-dative
+  term: abfahren
+  pos: verb
+  meanings: ["to leave (by vehicle)", "to leave", "to depart", "to set off", "to go"]
+  note: 'Separable, stem change: du fährst ab, er fährt ab. Perfect with sein: ist abgefahren.'
+  example: Wann fährt der Bus ab?
+  exampleEn: When does the bus leave?
+- id: einsteigen
+  lesson: de1-travel-dative
+  term: einsteigen
+  pos: verb
+  meanings: ["to get on (a vehicle)", "to get on", "to get in", "to board"]
+  note: 'Separable: Steigen Sie bitte ein! Perfect with sein: ist eingestiegen.'
+  example: Bitte schnell einsteigen!
+  exampleEn: Please get on quickly!
+- id: aussteigen
+  lesson: de1-travel-dative
+  term: aussteigen
+  pos: verb
+  meanings: ["to get off (a vehicle)", "to get off", "to get out"]
+  note: 'Separable: Wir steigen hier aus. Perfect with sein: ist ausgestiegen.'
+  example: Ich steige an der nächsten Haltestelle aus.
+  exampleEn: I'm getting off at the next stop.
+- id: umsteigen
+  lesson: de1-travel-dative
+  term: umsteigen
+  pos: verb
+  meanings: ["to change (trains or buses)", "to change", "to transfer", "to switch"]
+  note: 'Separable: Sie steigen in Köln um. Perfect with sein: ist umgestiegen.'
+  example: Muss ich umsteigen?
+  exampleEn: Do I have to change?
+- id: fliegen
+  lesson: de1-travel-dative
+  term: fliegen
+  pos: verb
+  meanings: ["to fly"]
+  note: 'Perfect with sein: ist geflogen.'
+  example: Wir fliegen im Mai nach Spanien.
+  exampleEn: We're flying to Spain in May.
+- id: mit
+  lesson: de1-travel-dative
+  term: mit
+  pos: preposition
+  meanings: ["with", "by (means of transport)", "by"]
+  note: 'Always takes the dative: mit dem Zug, mit meiner Schwester.'
+  example: Ich fahre mit dem Zug nach Wien.
+  exampleEn: I'm going to Vienna by train.
+- id: zu-to
+  lesson: de1-travel-dative
+  term: zu
+  pos: preposition
+  meanings: ["to (a person or a place)", "to"]
+  note: 'Always takes the dative: zum Arzt (zu dem), zur Post (zu der), zu Anna.'
+  example: Ich gehe heute zu meiner Oma.
+  exampleEn: I'm going to my grandma's today.
+- id: bei
+  lesson: de1-travel-dative
+  term: bei
+  pos: preposition
+  meanings: ["at (someone's place or a company)", "at", "with", "near", "at the home of"]
+  note: 'Always takes the dative: bei meinen Eltern, beim Arzt (bei dem).'
+  example: Ich wohne bei meinen Eltern.
+  exampleEn: I live with my parents.
+- id: seit
+  lesson: de1-travel-dative
+  term: seit
+  pos: preposition
+  meanings: ["since (a point in time)", "since", "for (a period up to now)", "for"]
+  note: 'Always takes the dative, with the present tense: Ich wohne seit einem Jahr hier.'
+  example: Ich lerne seit drei Monaten Deutsch.
+  exampleEn: I've been learning German for three months.
+- id: nach-to
+  lesson: de1-travel-dative
+  term: nach
+  pos: preposition
+  meanings: ["to (a city or country)", "to"]
+  note: 'Takes the dative. Used for towns and countries without an article: nach Berlin, nach Spanien; also nach Hause.'
+  example: Im Sommer fahren wir nach Italien.
+  exampleEn: In the summer we're going to Italy.
+- id: nach-hause
+  lesson: de1-travel-dative
+  kind: phrase
+  term: nach Hause
+  pos: phrase
+  meanings: ["home (going there)", "home", "to home", "homeward"]
+  note: 'For going home. Being at home is zu Hause.'
+  example: Ich gehe jetzt nach Hause.
+  exampleEn: I'm going home now.
+- id: wohin
+  lesson: de1-travel-dative
+  term: wohin
+  pos: question word
+  meanings: ["where to", "where"]
+  example: Wohin fährst du im Urlaub?
+  exampleEn: Where are you going on holiday?
+
+# 19 de1-home
+- id: wohnung
+  lesson: de1-home
+  term: die Wohnung
+  pos: noun
+  plural: die Wohnungen
+  meanings: ["flat", "apartment"]
+  example: Unsere Wohnung hat drei Zimmer.
+  exampleEn: Our flat has three rooms.
+- id: haus
+  lesson: de1-home
+  term: das Haus
+  pos: noun
+  plural: die Häuser
+  meanings: ["house", "building", "home"]
+  example: Das Haus hat einen Garten.
+  exampleEn: The house has a garden.
+- id: zimmer
+  lesson: de1-home
+  term: das Zimmer
+  pos: noun
+  plural: die Zimmer
+  meanings: ["room"]
+  example: Mein Zimmer ist klein, aber hell.
+  exampleEn: My room is small but bright.
+- id: kueche
+  lesson: de1-home
+  term: die Küche
+  pos: noun
+  plural: die Küchen
+  alt: ["die Kueche"]
+  meanings: ["kitchen", "cooking", "cuisine"]
+  example: Die Küche ist sehr modern.
+  exampleEn: The kitchen is very modern.
+- id: bad
+  lesson: de1-home
+  term: das Bad
+  pos: noun
+  plural: die Bäder
+  alt: ["das Badezimmer"]
+  meanings: ["bathroom", "bath"]
+  example: Das Bad ist neben dem Schlafzimmer.
+  exampleEn: The bathroom is next to the bedroom.
+- id: wohnzimmer
+  lesson: de1-home
+  term: das Wohnzimmer
+  pos: noun
+  plural: die Wohnzimmer
+  meanings: ["living room", "lounge", "sitting room"]
+  example: Wir sind im Wohnzimmer.
+  exampleEn: We're in the living room.
+- id: schlafzimmer
+  lesson: de1-home
+  term: das Schlafzimmer
+  pos: noun
+  plural: die Schlafzimmer
+  meanings: ["bedroom"]
+  example: Das Schlafzimmer ist ruhig.
+  exampleEn: The bedroom is quiet.
+- id: balkon
+  lesson: de1-home
+  term: der Balkon
+  pos: noun
+  plural: die Balkone (also die Balkons)
+  meanings: ["balcony"]
+  example: Wir frühstücken auf dem Balkon.
+  exampleEn: We have breakfast on the balcony.
+- id: garten
+  lesson: de1-home
+  term: der Garten
+  pos: noun
+  plural: die Gärten
+  meanings: ["garden", "yard", "backyard"]
+  example: Die Kinder spielen im Garten.
+  exampleEn: The children are playing in the garden.
+- id: treppe
+  lesson: de1-home
+  term: die Treppe
+  pos: noun
+  plural: die Treppen
+  meanings: ["stairs", "staircase", "stairway", "steps"]
+  example: Die Treppe ist links.
+  exampleEn: The stairs are on the left.
+- id: stock
+  lesson: de1-home
+  term: der Stock
+  pos: noun
+  plural: die Stock (drei Stock hoch); also die Stockwerke
+  meanings: ["floor (storey of a building)", "floor", "storey", "story", "level"]
+  note: 'Im ersten Stock = on the first floor (UK), second floor (US). The ground floor is das Erdgeschoss.'
+  example: Ich wohne im dritten Stock.
+  exampleEn: I live on the third floor.
+- id: sofa
+  lesson: de1-home
+  term: das Sofa
+  pos: noun
+  plural: die Sofas
+  meanings: ["sofa", "couch", "settee"]
+  example: Die Katze schläft auf dem Sofa.
+  exampleEn: The cat is sleeping on the sofa.
+- id: schrank
+  lesson: de1-home
+  term: der Schrank
+  pos: noun
+  plural: die Schränke
+  meanings: ["cupboard", "wardrobe", "closet", "cabinet"]
+  example: Die Gläser sind im Schrank.
+  exampleEn: The glasses are in the cupboard.
+- id: regal
+  lesson: de1-home
+  term: das Regal
+  pos: noun
+  plural: die Regale
+  meanings: ["shelf", "shelves", "bookcase", "shelving"]
+  example: Die Bücher sind im Regal.
+  exampleEn: The books are on the shelf.
+- id: kuehlschrank
+  lesson: de1-home
+  term: der Kühlschrank
+  pos: noun
+  plural: die Kühlschränke
+  alt: ["der Kuehlschrank"]
+  meanings: ["fridge", "refrigerator"]
+  example: Die Milch ist im Kühlschrank.
+  exampleEn: The milk is in the fridge.
+- id: wand
+  lesson: de1-home
+  term: die Wand
+  pos: noun
+  plural: die Wände
+  meanings: ["wall (of a room)", "wall"]
+  example: Das Foto ist an der Wand.
+  exampleEn: The photo is on the wall.
+- id: boden
+  lesson: de1-home
+  term: der Boden
+  pos: noun
+  plural: die Böden
+  meanings: ["floor (that you walk on)", "floor", "ground"]
+  example: Die Tasche ist auf dem Boden.
+  exampleEn: The bag is on the floor.
+- id: miete
+  lesson: de1-home
+  term: die Miete
+  pos: noun
+  plural: die Mieten
+  meanings: ["rent"]
+  example: Die Miete ist leider sehr hoch.
+  exampleEn: Unfortunately the rent is very high.
+- id: mieten
+  lesson: de1-home
+  term: mieten
+  pos: verb
+  meanings: ["to rent", "to hire", "to lease"]
+  example: Wir möchten eine Wohnung mieten.
+  exampleEn: We'd like to rent a flat.
+- id: hell
+  lesson: de1-home
+  term: hell
+  pos: adjective
+  meanings: ["bright", "light"]
+  example: Das Wohnzimmer ist schön hell.
+  exampleEn: The living room is nice and bright.
+- id: dunkel
+  lesson: de1-home
+  term: dunkel
+  pos: adjective
+  meanings: ["dark"]
+  example: Im Winter ist es früh dunkel.
+  exampleEn: In winter it gets dark early.
+- id: modern
+  lesson: de1-home
+  term: modern
+  pos: adjective
+  meanings: ["modern"]
+  example: Die Küche ist neu und modern.
+  exampleEn: The kitchen is new and modern.
+- id: gemuetlich
+  lesson: de1-home
+  term: gemütlich
+  pos: adjective
+  alt: ["gemuetlich"]
+  meanings: ["cosy", "cozy", "comfortable", "snug", "homely", "relaxed"]
+  example: Das Café ist klein und gemütlich.
+  exampleEn: The café is small and cosy.
+- id: zu-hause
+  lesson: de1-home
+  kind: phrase
+  term: zu Hause
+  pos: phrase
+  alt: ["zuhause"]
+  meanings: ["at home"]
+  note: 'Being at home. Going home is nach Hause.'
+  example: Am Sonntag bin ich zu Hause.
+  exampleEn: On Sunday I'm at home.
+- id: auf
+  lesson: de1-home
+  term: auf
+  pos: preposition
+  meanings: ["on (top of)", "on", "on top of", "onto"]
+  note: 'Two-way preposition: Wo? + dative (auf dem Tisch).'
+  example: Das Handy ist auf dem Tisch.
+  exampleEn: The mobile is on the table.
+- id: an
+  lesson: de1-home
+  term: an
+  pos: preposition
+  meanings: ["on (a wall or vertical surface)", "on", "at", "by", "next to"]
+  note: 'Two-way preposition: Wo? + dative (an der Wand, am Fenster).'
+  example: Die Uhr ist an der Wand.
+  exampleEn: The clock is on the wall.
+- id: unter
+  lesson: de1-home
+  term: unter
+  pos: preposition
+  meanings: ["under", "below", "underneath", "beneath"]
+  note: 'Two-way preposition: Wo? + dative (unter dem Bett).'
+  example: Der Hund ist unter dem Tisch.
+  exampleEn: The dog is under the table.
+- id: ueber
+  lesson: de1-home
+  term: über
+  pos: preposition
+  meanings: ["over (above)", "over", "above", "about", "across"]
+  note: 'Two-way preposition: Wo? + dative (über dem Sofa). Also means about: ein Buch über Berlin.'
+  example: Die Lampe ist über dem Tisch.
+  exampleEn: The lamp is above the table.
+- id: neben
+  lesson: de1-home
+  term: neben
+  pos: preposition
+  meanings: ["next to", "beside", "by"]
+  note: 'Two-way preposition: Wo? + dative (neben dem Schrank).'
+  example: Das Bad ist neben der Küche.
+  exampleEn: The bathroom is next to the kitchen.
+- id: zwischen
+  lesson: de1-home
+  term: zwischen
+  pos: preposition
+  meanings: ["between", "among"]
+  note: 'Two-way preposition: Wo? + dative (zwischen dem Sofa und dem Regal).'
+  example: Die Apotheke ist zwischen der Bank und dem Café.
+  exampleEn: The pharmacy is between the bank and the café.
+- id: hinter
+  lesson: de1-home
+  term: hinter
+  pos: preposition
+  meanings: ["behind", "at the back of", "in back of"]
+  note: 'Two-way preposition: Wo? + dative (hinter dem Haus).'
+  example: Der Garten ist hinter dem Haus.
+  exampleEn: The garden is behind the house.
+- id: ihn
+  lesson: de1-home
+  term: ihn
+  pos: pronoun
+  meanings: ["him (accusative)", "him", "it (masculine object)", "it"]
+  note: 'Accusative of er. For masculine things too: Der Schrank? Ich finde ihn schön.'
+  example: Der Tisch ist neu. Wie findest du ihn?
+  exampleEn: The table is new. What do you think of it?
+
+# 20 de1-body-health
+- id: koerper
+  lesson: de1-body-health
+  term: der Körper
+  pos: noun
+  plural: die Körper
+  alt: ["der Koerper"]
+  meanings: ["body"]
+  example: Sport ist gut für den Körper.
+  exampleEn: Sport is good for the body.
+- id: kopf
+  lesson: de1-body-health
+  term: der Kopf
+  pos: noun
+  plural: die Köpfe
+  meanings: ["head"]
+  example: Mein Kopf tut weh.
+  exampleEn: My head hurts.
+- id: auge
+  lesson: de1-body-health
+  term: das Auge
+  pos: noun
+  plural: die Augen
+  meanings: ["eye"]
+  example: Sie hat blaue Augen.
+  exampleEn: She has blue eyes.
+- id: ohr
+  lesson: de1-body-health
+  term: das Ohr
+  pos: noun
+  plural: die Ohren
+  meanings: ["ear"]
+  example: Mein Ohr tut weh.
+  exampleEn: My ear hurts.
+- id: nase
+  lesson: de1-body-health
+  term: die Nase
+  pos: noun
+  plural: die Nasen
+  meanings: ["nose"]
+  example: Das Baby hat eine kleine Nase.
+  exampleEn: The baby has a small nose.
+- id: mund
+  lesson: de1-body-health
+  term: der Mund
+  pos: noun
+  plural: die Münder
+  meanings: ["mouth"]
+  example: Machen Sie bitte den Mund auf.
+  exampleEn: Please open your mouth.
+- id: zahn
+  lesson: de1-body-health
+  term: der Zahn
+  pos: noun
+  plural: die Zähne
+  meanings: ["tooth"]
+  example: Das Baby hat schon zwei Zähne.
+  exampleEn: The baby already has two teeth.
+- id: hals
+  lesson: de1-body-health
+  term: der Hals
+  pos: noun
+  plural: die Hälse
+  meanings: ["throat", "neck"]
+  example: Mein Hals tut weh.
+  exampleEn: My throat hurts.
+- id: arm
+  lesson: de1-body-health
+  term: der Arm
+  pos: noun
+  plural: die Arme
+  meanings: ["arm"]
+  example: Sie hat das Baby im Arm.
+  exampleEn: She is holding the baby in her arms.
+- id: hand
+  lesson: de1-body-health
+  term: die Hand
+  pos: noun
+  plural: die Hände
+  meanings: ["hand"]
+  example: Gib mir deine Hand.
+  exampleEn: Give me your hand.
+- id: bauch
+  lesson: de1-body-health
+  term: der Bauch
+  pos: noun
+  plural: die Bäuche
+  meanings: ["stomach", "belly", "tummy", "abdomen"]
+  example: Mein Bauch tut weh.
+  exampleEn: My stomach hurts.
+- id: ruecken
+  lesson: de1-body-health
+  term: der Rücken
+  pos: noun
+  plural: die Rücken
+  alt: ["der Ruecken"]
+  meanings: ["back (of the body)", "back"]
+  example: Mir tut der Rücken weh.
+  exampleEn: My back hurts.
+- id: bein
+  lesson: de1-body-health
+  term: das Bein
+  pos: noun
+  plural: die Beine
+  meanings: ["leg"]
+  example: Nach dem Sport tun mir die Beine weh.
+  exampleEn: My legs hurt after sport.
+- id: fuss
+  lesson: de1-body-health
+  term: der Fuß
+  pos: noun
+  plural: die Füße
+  alt: ["der Fuss"]
+  meanings: ["foot"]
+  example: Meine Füße tun weh.
+  exampleEn: My feet hurt.
+- id: krank
+  lesson: de1-body-health
+  term: krank
+  pos: adjective
+  meanings: ["ill", "sick", "unwell"]
+  example: Ich bin krank und bleibe zu Hause.
+  exampleEn: I'm ill and I'm staying at home.
+- id: gesund
+  lesson: de1-body-health
+  term: gesund
+  pos: adjective
+  meanings: ["healthy", "well", "fit", "in good health"]
+  example: Obst ist gesund.
+  exampleEn: Fruit is healthy.
+- id: schmerzen
+  lesson: de1-body-health
+  term: die Schmerzen
+  pos: noun
+  plural: die Schmerzen (usually plural; singular der Schmerz)
+  alt: ["der Schmerz"]
+  meanings: ["pain (usually plural in German)", "pain", "pains", "ache", "aches"]
+  example: Haben Sie Schmerzen?
+  exampleEn: Are you in pain?
+- id: kopfschmerzen
+  lesson: de1-body-health
+  term: die Kopfschmerzen
+  pos: noun
+  plural: die Kopfschmerzen (usually plural)
+  meanings: ["headache", "a headache", "headaches"]
+  example: Ich habe Kopfschmerzen.
+  exampleEn: I have a headache.
+- id: fieber
+  lesson: de1-body-health
+  term: das Fieber
+  pos: noun
+  plural: —
+  meanings: ["fever", "temperature", "high temperature"]
+  example: Das Kind hat Fieber.
+  exampleEn: The child has a temperature.
+- id: tablette
+  lesson: de1-body-health
+  term: die Tablette
+  pos: noun
+  plural: die Tabletten
+  meanings: ["tablet (medicine)", "tablet", "pill"]
+  example: Nehmen Sie dreimal am Tag eine Tablette.
+  exampleEn: Take one tablet three times a day.
+- id: medikament
+  lesson: de1-body-health
+  term: das Medikament
+  pos: noun
+  plural: die Medikamente
+  meanings: ["medicine", "medication", "drug"]
+  example: Das Medikament gibt es in der Apotheke.
+  exampleEn: You can get the medicine at the pharmacy.
+- id: praxis
+  lesson: de1-body-health
+  term: die Praxis
+  pos: noun
+  plural: die Praxen
+  meanings: ["doctor's practice", "practice", "surgery", "doctor's office", "clinic"]
+  example: Die Praxis ist am Mittwochnachmittag geschlossen.
+  exampleEn: The practice is closed on Wednesday afternoon.
+- id: wehtun
+  lesson: de1-body-health
+  term: wehtun
+  pos: verb
+  alt: ["weh tun"]
+  meanings: ["to hurt", "to ache", "to be sore"]
+  note: 'Separable and irregular: Mein Kopf tut weh. Meine Füße tun weh. Perfect: hat wehgetan.'
+  example: Tut dein Arm noch weh?
+  exampleEn: Does your arm still hurt?
+- id: gute-besserung
+  lesson: de1-body-health
+  kind: phrase
+  term: Gute Besserung!
+  pos: phrase
+  alt: ["Gute Besserung"]
+  meanings: ["Get well soon!", "get well soon", "get better soon"]
+  example: Du bist krank? Gute Besserung!
+  exampleEn: You're ill? Get well soon!
+- id: mich
+  lesson: de1-body-health
+  term: mich
+  pos: pronoun
+  meanings: ["me (accusative)", "me", "myself"]
+  note: 'Accusative of ich: Verstehen Sie mich?'
+  example: Holst du mich am Bahnhof ab?
+  exampleEn: Will you pick me up at the station?
+- id: dich
+  lesson: de1-body-health
+  term: dich
+  pos: pronoun
+  meanings: ["you (informal, one person, accusative)", "you", "yourself"]
+  note: 'Accusative of du: Ich rufe dich an.'
+  example: Ich rufe dich morgen an.
+  exampleEn: I'll call you tomorrow.
+- id: mir
+  lesson: de1-body-health
+  term: mir
+  pos: pronoun
+  meanings: ["me (dative)", "to me", "me", "for me", "myself"]
+  note: 'Dative of ich: Kannst du mir helfen? Mir geht es gut.'
+  example: Kannst du mir bitte helfen?
+  exampleEn: Can you help me, please?
+- id: dir
+  lesson: de1-body-health
+  term: dir
+  pos: pronoun
+  meanings: ["you (informal, one person, dative)", "to you", "you", "for you", "yourself"]
+  note: 'Dative of du: Wie geht es dir?'
+  example: Wie geht es dir heute?
+  exampleEn: How are you today?
+- id: ihm
+  lesson: de1-body-health
+  term: ihm
+  pos: pronoun
+  meanings: ["him (dative)", "to him", "him", "it", "to it"]
+  note: 'Dative of er and es: Wie geht es ihm?'
+  example: Mein Bruder ist krank. Ich helfe ihm.
+  exampleEn: My brother is ill. I'm helping him.
+- id: uns
+  lesson: de1-body-health
+  term: uns
+  pos: pronoun
+  meanings: ["us", "to us", "ourselves"]
+  note: 'Accusative and dative of wir: Besuch uns! Kommst du zu uns?'
+  example: Kommst du am Samstag zu uns?
+  exampleEn: Are you coming to our place on Saturday?
+- id: euch
+  lesson: de1-body-health
+  term: euch
+  pos: pronoun
+  meanings: ["you (informal, plural, object)", "you", "to you", "yourselves"]
+  note: 'Accusative and dative of ihr: Ich sehe euch morgen.'
+  example: Ich lade euch zum Essen ein.
+  exampleEn: I'm inviting you to dinner.
+- id: ihnen-formal
+  lesson: de1-body-health
+  term: Ihnen
+  pos: pronoun
+  meanings: ["you (formal, dative)", "to you", "you"]
+  note: 'Dative of Sie, always with a capital I: Wie geht es Ihnen? Lowercase ihnen means to them.'
+  example: Kann ich Ihnen helfen?
+  exampleEn: Can I help you?

@@ -1,0 +1,64 @@
+- term: comparative
+  aliases:
+  - Komparativ
+  definition: 'The form used to compare two things or options ("more", "-er", "rather"). The comparative
+    of gern is lieber: Ich trinke lieber Tee (I prefer tea).'
+  topic: Adjectives and adverbs
+- term: superlative
+  aliases:
+  - Superlativ
+  definition: 'The form that says something is the most or the best of all. The superlative of gern is
+    am liebsten: Am liebsten lese ich (most of all I like reading).'
+  topic: Adjectives and adverbs
+- term: modal verb
+  aliases:
+  - modal verbs
+  - modal
+  - modals
+  - Modalverb
+  definition: 'A verb that adds ability, wish, obligation or permission to another verb: können, wollen,
+    mögen/möchten, müssen, dürfen, sollen. The modal is conjugated and stands in position 2; the other
+    verb goes to the end in the infinitive, without zu: Ich kann schwimmen. The ich and er/sie/es forms
+    are the same and have no ending (ich kann, er kann).'
+  topic: Verbs
+- term: sentence bracket
+  aliases:
+  - verb bracket
+  - Satzklammer
+  - verbal bracket
+  definition: 'The German pattern in which the verb is split into two parts: the conjugated verb in position
+    2 and the rest of the verb (an infinitive, a separable prefix, later a past participle) at the end,
+    with everything else in between. Ich will am Samstag eine Party feiern. Ich stehe um sieben auf.'
+  topic: Word order
+- term: indefinite pronoun
+  aliases:
+  - indefinite pronouns
+  - Indefinitpronomen
+  definition: 'A pronoun that does not refer to a particular person or thing. Man means people in general
+    (English one, you or they) and always takes the er/sie/es form of the verb: Hier darf man nicht rauchen.'
+  topic: Pronouns
+- term: ordinal number
+  aliases:
+  - ordinal numbers
+  - ordinal
+  - ordinals
+  - Ordinalzahl
+  definition: 'A number that gives a position in a row: first, second, third. In German 1–19 add -te (zweite,
+    vierte) and 20 and up add -ste (zwanzigste); erste, dritte, siebte and achte are irregular. Written
+    with a full stop: der 3. Oktober (der dritte Oktober), am 3. Oktober (am dritten Oktober).'
+  topic: Numbers and dates
+- term: impersonal verb
+  aliases:
+  - impersonal verbs
+  - impersonal es
+  definition: 'A verb used only with the placeholder subject es, which does not refer to anything, like
+    English "it" in "it is raining". Weather verbs are impersonal: es regnet, es schneit.'
+  topic: Verbs
+- term: accusative preposition
+  aliases:
+  - accusative prepositions
+  - preposition with the accusative
+  definition: 'A preposition that is always followed by the accusative case. At A1: für (for), ohne (without),
+    durch (through) and um (at a time, around). Only masculine articles change: für den Vater, durch einen
+    Park.'
+  topic: Cases

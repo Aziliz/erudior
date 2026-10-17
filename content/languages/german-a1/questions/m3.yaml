@@ -1,0 +1,409 @@
+# German A1, module 3: Food, shopping and time (lessons 09–12)
+
+# --- 09 Food, drink and the accusative ---
+- id: de1-q-0901
+  lesson: de1-food-accusative
+  module_quiz: true
+  topic: Accusative
+  stem: 'Complete the order: "Ich möchte ___ Kaffee, bitte." (der Kaffee)'
+  choices: ['einen', 'ein', 'eine', 'einem']
+  answer: 0
+  explanation: |-
+    Kaffee is masculine (der Kaffee) and it is the direct object of möchte, so it takes the accusative: einen Kaffee. "ein Kaffee" is the nominative form, the most common mistake here.
+- id: de1-q-0902
+  lesson: de1-food-accusative
+  topic: Accusative
+  stem: 'Complete: "Wir essen ___ Brot." (das Brot)'
+  choices: ['den', 'die', 'das', 'dem']
+  answer: 2
+  explanation: |-
+    Brot is neuter, and neuter articles don't change in the accusative: das Brot stays das Brot. Only masculine der becomes den, so "den Brot" is wrong.
+- id: de1-q-0903
+  lesson: de1-food-accusative
+  module_quiz: true
+  topic: Verbs
+  stem: 'Complete: "Paul ___ einen Apfel."'
+  choices: ['esst', 'isst', 'esse', 'essen']
+  answer: 1
+  explanation: |-
+    essen changes e to i in the du and er/sie/es forms: er isst. "esst" is the ihr form (ihr esst), and it is the mistake you make if you forget the stem change.
+- id: de1-q-0904
+  lesson: de1-food-accusative
+  topic: Verbs
+  stem: 'Complete: "Du ___ einen Tee, oder?" (nehmen)'
+  choices: ['nehmst', 'nimmt', 'nehmt', 'nimmst']
+  answer: 3
+  explanation: |-
+    nehmen changes in the du and er forms: du nimmst, er nimmt. The h disappears and the m doubles. "nimmt" is the er/sie/es form, and "nehmst" forgets the stem change.
+- id: de1-q-0905
+  lesson: de1-food-accusative
+  module_quiz: true
+  topic: Verbs
+  stem: 'Complete: "Er ___ ein Wasser."'
+  choices: ['möchte', 'möchtet', 'möchtest', 'möchten']
+  answer: 0
+  explanation: |-
+    The er/sie/es form of möchten has no -t: er möchte, exactly like ich möchte. "möchtet" is the ihr form, and "möchtest" is the du form.
+- id: de1-q-0906
+  lesson: de1-food-accusative
+  topic: Food and drink
+  stem: 'How do you say "I''m hungry" in German?'
+  choices: ['Ich bin Hunger.', 'Ich habe ein Hunger.', 'Ich habe Hunger.', 'Ich habe einen Hunger.']
+  answer: 2
+  explanation: |-
+    German says "I have hunger" with no article: Ich habe Hunger. In the same way, Ich habe Durst means I'm thirsty. "Ich bin Hunger" would mean "I am hunger".
+- id: de1-q-0907
+  lesson: de1-food-accusative
+  topic: Accusative
+  stem: 'Which sentence has a mistake?'
+  choices: ['Ich nehme einen Wasser.', 'Sie trinkt einen Saft.', 'Wir essen keinen Fisch.', 'Das ist ein Apfel.']
+  answer: 0
+  explanation: |-
+    Wasser is neuter (das Wasser), so its accusative is ein Wasser, not einen Wasser. The -en only goes on masculine words such as Saft and Fisch. "Das ist ein Apfel" is right because sein is followed by the nominative.
+- id: de1-q-0908
+  lesson: de1-food-accusative
+  module_quiz: true
+  topic: Food and drink
+  stem: 'Which sentence means "I like eating pasta"?'
+  choices: ['Ich gern esse Nudeln.', 'Gern ich esse Nudeln.', 'Ich essen gern Nudeln.', 'Ich esse gern Nudeln.']
+  answer: 3
+  explanation: |-
+    The verb comes second and gern follows it: Ich esse gern Nudeln. "Ich gern esse" uses English word order, and "Ich essen" has the wrong verb ending.
+- id: de1-q-0909
+  lesson: de1-food-accusative
+  topic: Food and drink
+  stem: 'Read the sign in a café: "Café Sonne. Unser Frühstück: ein Kaffee oder ein Tee, zwei Brötchen mit Butter und Käse, ein Ei. Saft kostet extra." What do you get with the breakfast?'
+  choices: ['a juice and a roll', 'two rolls and an egg', 'coffee and tea', 'sausage and cheese']
+  answer: 1
+  explanation: |-
+    The breakfast has zwei Brötchen (two rolls) and ein Ei (an egg), plus coffee OR tea (oder = or). Juice (Saft) costs extra, and there is no sausage (Wurst).
+- id: de1-q-0910
+  lesson: de1-food-accusative
+  topic: Food and drink
+  stem: 'The waiter asks: "Was möchten Sie trinken?" Which answer fits?'
+  choices: ['Ich habe Hunger.', 'Ich möchte einen Tee, bitte.', 'Ja, ich trinke.', 'Einen Kuchen, bitte.']
+  answer: 1
+  explanation: |-
+    The question is what you would like to drink (trinken), so name a drink: Ich möchte einen Tee, bitte. A cake (Kuchen) is food, and "Ja, ich trinke" doesn't answer a was-question.
+- id: de1-q-0911
+  lesson: de1-food-accusative
+  topic: Food and drink
+  stem: 'What does "Ich habe keinen Durst" mean?'
+  choices: ['I''m not hungry.', 'I have no juice.', 'I''m not thirsty.', 'I don''t drink.']
+  answer: 2
+  explanation: |-
+    Durst is thirst, and Durst haben means to be thirsty, so keinen Durst haben means not to be thirsty. Hunger is the word for hunger, and juice is Saft.
+- id: de1-q-0912
+  lesson: de1-food-accusative
+  topic: Accusative
+  stem: 'Why is it "den" in "Ich trinke den Saft"?'
+  choices: ['Because Saft is plural.', 'Because the sentence is a question.', 'Because trinken always takes den.', 'Because Saft is masculine and the direct object.']
+  answer: 3
+  explanation: |-
+    der Saft is masculine, and here it is the thing being drunk, the direct object. Masculine der becomes den in the accusative. With a feminine or neuter drink the article would not change: Ich trinke die Milch, das Wasser.
+
+# --- 10 Shopping and prices ---
+- id: de1-q-1001
+  lesson: de1-shopping
+  module_quiz: true
+  topic: Prices
+  stem: 'Complete: "Wie viel ___ die Äpfel?"'
+  choices: ['kostet', 'kosten', 'kostest', 'koste']
+  answer: 1
+  explanation: |-
+    die Äpfel is plural, so the verb is plural: Wie viel kosten die Äpfel? With one thing you'd say kostet: Wie viel kostet der Apfel?
+- id: de1-q-1002
+  lesson: de1-shopping
+  topic: Prices
+  stem: 'How do you say the price 3,50 €?'
+  choices: ['dreißig Euro fünf', 'drei Euros fünfzig', 'drei Euro fünfzig', 'fünfzig Euro drei']
+  answer: 2
+  explanation: |-
+    Say the euros, then the cents, without "und" or "Cent": drei Euro fünfzig. Euro has no plural after a number, so "drei Euros" is wrong.
+- id: de1-q-1003
+  lesson: de1-shopping
+  topic: Numbers
+  stem: 'How is 470 written in words?'
+  choices: ['vierhundertsiebzig', 'vierhundertsiebenzig', 'vierundsiebzighundert', 'vierhundertsiebzehn']
+  answer: 0
+  explanation: |-
+    Hundreds first, then the rest: vierhundert + siebzig. Seventy is siebzig, not siebenzig (sieben loses -en). siebzehn is 17.
+- id: de1-q-1004
+  lesson: de1-shopping
+  module_quiz: true
+  topic: Shopping
+  stem: 'Complete: "Ich möchte ein Kilo ___, bitte."'
+  choices: ['von Äpfel', 'Äpfel', 'Äpfeln von', 'der Äpfel']
+  answer: 1
+  explanation: |-
+    German puts the amount straight in front of the food with no word for "of": ein Kilo Äpfel, eine Flasche Wasser, 200 Gramm Käse. "ein Kilo von Äpfel" copies English.
+- id: de1-q-1005
+  lesson: de1-shopping
+  module_quiz: true
+  topic: Accusative
+  stem: 'Complete: "___ Wein nehmen Sie?" (der Wein)'
+  choices: ['Welche', 'Welches', 'Welcher', 'Welchen']
+  answer: 3
+  explanation: |-
+    Wein is masculine and the object of nehmen, so it's accusative: welchen, with the same -n as den. "Welcher" is the nominative (Welcher Wein ist gut?).
+- id: de1-q-1006
+  lesson: de1-shopping
+  topic: Shopping
+  stem: 'Complete: "___ Brot ist frisch." (das Brot)'
+  choices: ['Dieser', 'Diesen', 'Diese', 'Dieses']
+  answer: 3
+  explanation: |-
+    dieser takes the endings of der, die, das. Brot is neuter (das), so it's dieses Brot: das ends in -s, and so does dieses.
+- id: de1-q-1007
+  lesson: de1-shopping
+  module_quiz: true
+  topic: Accusative
+  stem: 'Complete: "Hier gibt es ___ Supermarkt."'
+  choices: ['einen', 'ein', 'eine', 'einer']
+  answer: 0
+  explanation: |-
+    es gibt is followed by the accusative, and Supermarkt is masculine (der Supermarkt), so: einen Supermarkt. "ein Supermarkt" is the nominative form.
+- id: de1-q-1008
+  lesson: de1-shopping
+  topic: Prices
+  stem: 'A sign in a supermarket: "Angebot! 500 Gramm Kaffee: nur 4,99 €. Normaler Preis: 6,49 €." How much do you save?'
+  choices: ['1.50 euros', '1.40 euros', '4.99 euros', '6.49 euros']
+  answer: 0
+  explanation: |-
+    The normal price (Preis) is 6,49 € and the offer (Angebot) price is 4,99 €: 6.49 − 4.99 = 1.50 euros. German writes the decimal comma where English writes a point.
+- id: de1-q-1009
+  lesson: de1-shopping
+  topic: Shopping
+  stem: 'Which sentence has a mistake?'
+  choices: ['Ich brauche zwei Flaschen Wasser.', 'Das kostet zehn Euros.', 'Wir kaufen zwei Kilo Kartoffeln.', 'Was kostet der Käse?']
+  answer: 1
+  explanation: |-
+    After a number, Euro stays singular: zehn Euro. Kilo stays singular too (zwei Kilo), while feminine Flasche takes its plural (zwei Flaschen), so the other sentences are correct.
+- id: de1-q-1010
+  lesson: de1-shopping
+  topic: Shopping
+  stem: 'At the market the saleswoman asks: "Ist das alles?" What is a good answer?'
+  choices: ['Nein, das ist billig.', 'Alles ist zehn Uhr.', 'Ja, ich habe alles Geld.', 'Ja, das ist alles. Was macht das?']
+  answer: 3
+  explanation: |-
+    "Ist das alles?" means "Is that everything?" Answer yes, and ask for the total: Was macht das? (What does that come to?). The other answers don't make sense here.
+- id: de1-q-1011
+  lesson: de1-shopping
+  topic: Numbers
+  stem: 'A bike costs 1.500 €. How much is that?'
+  choices: ['1.5 euros', '15 euros', '1,500 euros', '150 euros']
+  answer: 2
+  explanation: |-
+    In German the point separates thousands and the comma marks decimals. 1.500 € is one thousand five hundred euros (tausendfünfhundert Euro). One and a half euros would be 1,50 €.
+- id: de1-q-1012
+  lesson: de1-shopping
+  topic: Shopping
+  stem: 'In a café the waiter asks: "Zusammen oder getrennt?" What does he want to know?'
+  choices: ['With milk or without?', 'Here or to take away?', 'Do you want to pay together or separately?', 'Cash or card?']
+  answer: 2
+  explanation: |-
+    zusammen means together and getrennt means separately: the waiter is asking whether one person pays for everyone or each person pays for their own order.
+
+# --- 11 Days, times and the clock ---
+- id: de1-q-1101
+  lesson: de1-time
+  module_quiz: true
+  topic: Time
+  stem: 'It''s 2:30. How do you say this in everyday German?'
+  choices: ['halb zwei', 'halb drei', 'zwei Uhr halb', 'drei Uhr dreißig']
+  answer: 1
+  explanation: |-
+    halb points to the next hour: halb drei is "half way to three", so 2:30. "halb zwei" is 1:30, the classic mistake for English speakers.
+- id: de1-q-1102
+  lesson: de1-time
+  module_quiz: true
+  topic: Prepositions
+  stem: 'Complete: "Der Kurs beginnt ___ neun Uhr."'
+  choices: ['am', 'im', 'um', 'in']
+  answer: 2
+  explanation: |-
+    Clock times take um: um neun Uhr. am is for days and parts of the day (am Montag, am Abend).
+- id: de1-q-1103
+  lesson: de1-time
+  topic: Prepositions
+  stem: 'Complete: "___ Montag arbeite ich nicht."'
+  choices: ['Um', 'Am', 'Im', 'In']
+  answer: 1
+  explanation: |-
+    Days of the week take am: am Montag. um is only for clock times, and "in Montag" copies English "on Monday" with the wrong word.
+- id: de1-q-1104
+  lesson: de1-time
+  topic: Time
+  stem: 'A train leaves at 19:45. How does the announcement say it?'
+  choices: ['neunzehn Uhr fünfundvierzig', 'Viertel vor neunzehn', 'neunzehn fünfundvierzig Uhr', 'fünfundvierzig nach neunzehn']
+  answer: 0
+  explanation: |-
+    Official times are hours, then Uhr, then minutes: neunzehn Uhr fünfundvierzig. Viertel, nach and vor belong to the everyday 12-hour clock, not to the 24-hour clock.
+- id: de1-q-1105
+  lesson: de1-time
+  module_quiz: true
+  topic: Time
+  stem: 'Which everyday time means 8:45?'
+  choices: ['Viertel nach acht', 'Viertel vor acht', 'halb neun', 'Viertel vor neun']
+  answer: 3
+  explanation: |-
+    8:45 is a quarter to nine: Viertel vor neun. Viertel nach acht is 8:15, halb neun is 8:30, and Viertel vor acht is 7:45.
+- id: de1-q-1106
+  lesson: de1-time
+  topic: Prepositions
+  stem: 'Which phrase means "at night"?'
+  choices: ['am Nacht', 'im Nacht', 'um die Nacht', 'in der Nacht']
+  answer: 3
+  explanation: |-
+    The night is the exception among the parts of the day: in der Nacht. The others take am: am Morgen, am Nachmittag, am Abend.
+- id: de1-q-1107
+  lesson: de1-time
+  topic: Time
+  stem: 'How do you say "tomorrow morning"?'
+  choices: ['morgen Morgen', 'am Morgen morgen', 'morgen früh', 'früh Morgen']
+  answer: 2
+  explanation: |-
+    German avoids "morgen Morgen" and says morgen früh. Compare heute Morgen (this morning) and morgen Abend (tomorrow evening).
+- id: de1-q-1108
+  lesson: de1-time
+  topic: Time
+  stem: 'A sign on a door: "Bäckerei Kraus. Montag bis Freitag 6:30 bis 18 Uhr, Samstag 7 bis 13 Uhr, Sonntag geschlossen." (geschlossen = closed) Can you buy bread on Saturday at 2 p.m.?'
+  choices: ['Yes, it''s open until 6 p.m.', 'No, on Saturday it closes at 1 p.m.', 'Yes, it opens at 2 p.m.', 'No, it''s closed all day on Saturday.']
+  answer: 1
+  explanation: |-
+    On Saturday (Samstag) the bakery is open from 7 to 13 Uhr, so it closes at 1 p.m. The 18 Uhr closing time is for Monday to Friday, and it is closed (geschlossen) on Sunday.
+- id: de1-q-1109
+  lesson: de1-time
+  module_quiz: true
+  topic: Word order
+  stem: 'Complete: "Kaffee? Nein danke, ich trinke ___ Kaffee."'
+  choices: ['immer', 'oft', 'nie', 'manchmal']
+  answer: 2
+  explanation: |-
+    "Nein danke" tells you the person doesn't drink coffee: ich trinke nie Kaffee, I never drink coffee. immer (always), oft (often) and manchmal (sometimes) don't fit a refusal.
+- id: de1-q-1110
+  lesson: de1-time
+  topic: Time
+  stem: 'Complete: "Der Film ist zwei ___ lang."'
+  choices: ['Uhr', 'Uhren', 'Stunde', 'Stunden']
+  answer: 3
+  explanation: |-
+    For a length of time use die Stunde, plural Stunden: zwei Stunden. Uhr only gives the time on the clock (Es ist zwei Uhr) and has no plural in times.
+- id: de1-q-1111
+  lesson: de1-time
+  topic: Time
+  stem: 'Someone asks you: "Wie spät ist es?" Which answer fits?'
+  choices: ['Es ist zehn Uhr.', 'Ich bin spät.', 'Am Montag.', 'Zwei Stunden.']
+  answer: 0
+  explanation: |-
+    "Wie spät ist es?" means "What time is it?", even though spät means late. Answer with Es ist and the time. "Am Montag" answers wann?, and "Zwei Stunden" answers wie lange?
+- id: de1-q-1112
+  lesson: de1-time
+  topic: Time
+  stem: 'Which sentence has a mistake?'
+  choices: ['Es ist eins Uhr.', 'Es ist halb eins.', 'Es ist ein Uhr.', 'Es ist eins.']
+  answer: 0
+  explanation: |-
+    With Uhr, one is ein: Es ist ein Uhr. Without Uhr it's eins: Es ist eins. "eins Uhr" mixes the two. halb eins (12:30) is correct.
+
+# --- 12 A day in my life: separable verbs ---
+- id: de1-q-1201
+  lesson: de1-daily-routine
+  module_quiz: true
+  topic: Separable verbs
+  stem: 'Which sentence is correct?'
+  choices: ['Ich aufstehe um sieben Uhr.', 'Ich stehe um sieben Uhr auf.', 'Ich stehe auf um sieben Uhr.', 'Ich um sieben Uhr aufstehe.']
+  answer: 1
+  explanation: |-
+    aufstehen is separable: the verb part stehe goes in second place and the prefix auf goes to the very end. "Ich stehe auf um sieben Uhr" puts the prefix too early, as in English "I get up at seven".
+- id: de1-q-1202
+  lesson: de1-daily-routine
+  topic: Word order
+  stem: 'Which sentence is correct?'
+  choices: ['Am Montag ich kaufe ein.', 'Am Montag ich einkaufe.', 'Am Montag kaufe ein ich.', 'Am Montag kaufe ich ein.']
+  answer: 3
+  explanation: |-
+    When a time phrase comes first, the verb is second and the subject follows it (inversion): Am Montag kaufe ich. The prefix ein still goes to the end. "Am Montag ich kaufe" keeps English word order.
+- id: de1-q-1203
+  lesson: de1-daily-routine
+  module_quiz: true
+  topic: Separable verbs
+  stem: 'Which sentence is correct?'
+  choices: ['Der Film fangt um acht an.', 'Der Film anfängt um acht.', 'Der Film fängt um acht an.', 'Der Film fängst um acht an.']
+  answer: 2
+  explanation: |-
+    anfangen splits (fängt … an) and keeps the stem change of fangen in the er/sie/es form: er fängt. "fangt" forgets the umlaut, and "fängst" is the du form.
+- id: de1-q-1204
+  lesson: de1-daily-routine
+  topic: Separable verbs
+  stem: 'Which verb is NOT separable?'
+  choices: ['aufstehen', 'frühstücken', 'einkaufen', 'fernsehen']
+  answer: 1
+  explanation: |-
+    frühstücken stays in one piece: Ich frühstücke um acht. früh is not a separable prefix. The others split: ich stehe auf, ich kaufe ein, ich sehe fern.
+- id: de1-q-1205
+  lesson: de1-daily-routine
+  module_quiz: true
+  topic: Separable verbs
+  stem: 'Which sentence means "He watches TV every evening"?'
+  choices: ['Er sieht jeden Abend fern.', 'Er seht jeden Abend fern.', 'Er fernsieht jeden Abend.', 'Er sieht fern jeden Abend.']
+  answer: 0
+  explanation: |-
+    fernsehen splits, and sehen changes e to ie in the er form: er sieht … fern. The prefix fern goes to the end of the sentence, after jeden Abend.
+- id: de1-q-1206
+  lesson: de1-daily-routine
+  topic: Separable verbs
+  stem: 'Which sentence means "I''m phoning my mother"?'
+  choices: ['Ich rufe an meine Mutter.', 'Ich anrufe meine Mutter.', 'Ich rufe meine Mutter an.', 'Ich meine Mutter anrufe.']
+  answer: 2
+  explanation: |-
+    The verb part rufe is second, the person you call comes in the middle, and the prefix an goes to the end: Ich rufe meine Mutter an. "Ich rufe an meine Mutter" follows English "call up my mother".
+- id: de1-q-1207
+  lesson: de1-daily-routine
+  topic: Word order
+  stem: 'Complete: "Zuerst dusche ich, dann ___."'
+  choices: ['ich frühstücke', 'frühstücke ich', 'ich stücke früh', 'frühstückt ich']
+  answer: 1
+  explanation: |-
+    dann takes position 1, so the verb comes next and the subject after it: dann frühstücke ich. frühstücken is not separable, so "ich stücke früh" is wrong.
+- id: de1-q-1208
+  lesson: de1-daily-routine
+  topic: Daily routine
+  stem: 'Read: "Normalerweise steht Maria um sechs Uhr auf. Zuerst duscht sie, dann frühstückt sie. Um sieben holt sie ihre Freundin Eva ab. Die Arbeit fängt um acht an. Um vier hat Maria Feierabend, und danach kauft sie ein." What does Maria do after work?'
+  choices: ['She has a shower.', 'She picks up Eva.', 'She has breakfast.', 'She goes shopping.']
+  answer: 3
+  explanation: |-
+    Um vier hat Maria Feierabend means she finishes work at four, and danach kauft sie ein means after that she goes shopping. She picks up Eva at seven, before work.
+- id: de1-q-1209
+  lesson: de1-daily-routine
+  topic: Separable verbs
+  stem: 'Your friend says: "Ich gehe ins Kino. Kommst du mit?" What does she ask?'
+  choices: ['Are you coming back?', 'Are you arriving?', 'Are you coming from the cinema?', 'Are you coming along?']
+  answer: 3
+  explanation: |-
+    mitkommen means to come along (mit = with). Kommst du mit? is an invitation: "Are you coming along?" To arrive is ankommen.
+- id: de1-q-1210
+  lesson: de1-daily-routine
+  topic: Verbs
+  stem: 'Complete: "Psst! Das Baby ___."'
+  choices: ['schlaft', 'schläfst', 'schläft', 'schlafen']
+  answer: 2
+  explanation: |-
+    schlafen changes a to ä in the du and er/sie/es forms: das Baby (es) schläft. "schläfst" is the du form, and "schlaft" is the ihr form.
+- id: de1-q-1211
+  lesson: de1-daily-routine
+  topic: Separable verbs
+  stem: 'Complete: "Ich möchte heute ___."'
+  choices: ['einkaufen', 'kaufe ein', 'ein kaufen', 'einkaufe']
+  answer: 0
+  explanation: |-
+    After möchte the second verb is an infinitive at the end, and a separable verb stays in one piece in the infinitive: einkaufen. It only splits when it is the conjugated verb (Ich kaufe heute ein).
+- id: de1-q-1212
+  lesson: de1-daily-routine
+  module_quiz: true
+  topic: Word order
+  stem: 'Which sentence has a mistake?'
+  choices: ['Normalerweise ich stehe früh auf.', 'Dann räume ich die Küche auf.', 'Später sehe ich fern.', 'Um acht kommt der Zug an.']
+  answer: 0
+  explanation: |-
+    normalerweise fills position 1, so the verb must come next: Normalerweise stehe ich früh auf. The other sentences all have the verb second and the prefix at the end.

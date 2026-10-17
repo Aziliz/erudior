@@ -63,7 +63,8 @@ refs: [de1-ref-articles]
   - what the lesson is for and how it connects to the last one;
   - the grammar in `##` sections: the rule, a table of forms where it helps, why it works
     that way or a memory hook, and several examples;
-  - at least one short original dialogue or text (6–12 lines) using the lesson's words and
+  - at least one short original dialogue or text (6–12 lines) as a blockquote, one speaker per
+    paragraph (an empty `>` line between speakers) using the lesson's words and
     grammar, with a translation below it;
   - "Pronunciation" notes where a word is tricky (stress, ch, r, ei/ie, umlauts…);
   - "Common mistakes" (what English speakers get wrong);
@@ -133,11 +134,11 @@ Same format as the math courses:
   lesson: de1-nouns-gender
   module_quiz: true
   topic: Articles
-  stem: 'Which article goes with *Tisch* (table)?'
+  stem: 'Which article goes with "Tisch" (table)?'
   choices: ['der', 'die', 'das', 'den']
   answer: 0
   explanation: |-
-    *Tisch* is masculine: *der Tisch*. …
+    "Tisch" is masculine: "der Tisch". …
 ```
 
 - 10–14 questions per lesson. Mix: choose the right form (article, ending, verb form,
@@ -150,8 +151,8 @@ Same format as the math courses:
   wrong.
 - Mark about a third `module_quiz: true` (at least 2 per lesson).
 - Ids `de1-q-LLNN` (LL = lesson number).
-- Put German in the stem and choices in *italics* only when mixed with English; plain choices
-  can be bare German. Use straight single quotes around YAML strings and double any `'`
+- Questions are plain text (no Markdown): put German in "double quotes" when mixed with
+  English, use ___ for a blank; plain choices can be bare German. Use straight single quotes around YAML strings and double any `'`
   inside (`'Wie geht''s?'`).
 
 ## Glossary (`glossary.yaml`) and references
