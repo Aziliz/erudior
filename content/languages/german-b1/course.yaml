@@ -1,0 +1,22 @@
+id: lang-german-b1
+title: German B1
+description: >-
+  Placeholder; rewritten once the outline is final.
+revision: 1
+released: false
+order: 102
+subject: Languages
+level: [B1]
+type: [Course]
+requires: [lang-german-a2]
+language:
+  code: de
+  name: German
+  tts: de-DE
+  keys: [ä, ö, ü, ß, Ä, Ö, Ü]
+  level: CEFR B1
+  vocabTarget: 2400
+  vocabSource: Goethe-Institut B1 word list size, including A1 and A2
+modules:
+  - id: de3-m1
+    title: Module 1
