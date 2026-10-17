@@ -5,6 +5,9 @@ description: >-
 revision: 1
 released: true
 order: 3
+subject: Math
+level: [High school]
+type: [Course]
 modules:
   - id: a2-m1
     title: Functions and their transformations

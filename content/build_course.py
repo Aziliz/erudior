@@ -246,3 +246,11 @@ print("answer positions:", collections.Counter(q["answer"][0] for q in questions
 print("lesson quiz sizes:", sorted(len(l.get("quiz", [])) for l in lessons))
 print("module quiz sizes:", {m["id"]: len(m.get("quiz", [])) for m in modules})
 print("size KB:", OUT.stat().st_size // 1024)
+
+# Refresh the course catalog (title, description and counts shown before a course is added).
+import importlib.util as _u
+_spec = _u.spec_from_file_location("mathbuild", ROOT / "math" / "build.py")
+_mb = _u.module_from_spec(_spec)
+_spec.loader.exec_module(_mb)
+_mb.write_manifest()
+print("catalog refreshed")

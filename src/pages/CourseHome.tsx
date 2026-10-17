@@ -1,3 +1,4 @@
+import { catalogEntry } from "../lib/catalog";
 import { useMemo, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
@@ -42,16 +43,20 @@ export function mainBank(c: Course): Bank | undefined {
 export default function CourseHome({ api, course, tab }: { api: AppApi; course: Course; tab: CourseTab }) {
   const setTab = (t: CourseTab) => api.go({ name: "course", courseId: course.id, tab: t });
 
+  const fromCatalog = !!catalogEntry(course.id);
+
   async function onDelete() {
     const n = courseCounts(course);
     const ok = await store.confirmAction(
-      `Delete "${course.title}" (${n.lessons} lessons, ${n.questions} questions, ${n.cards} cards)? Your history stays. This can't be undone.`,
+      fromCatalog
+        ? `Remove "${course.title}" from In progress? Your progress is kept, and you can start it again from the course catalog.`
+        : `Delete "${course.title}" (${n.lessons} lessons, ${n.questions} questions, ${n.cards} cards)? Your history stays. This can't be undone.`,
     );
     if (!ok) return;
     await store.deleteCourse(course.id);
     await api.reload();
     api.go({ name: "library" });
-    api.toast(`Deleted "${course.title}"`);
+    api.toast(fromCatalog ? `Removed "${course.title}" from In progress` : `Deleted "${course.title}"`);
   }
 
   async function onExport() {
@@ -80,7 +85,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
             Export
           </button>
           <button className="btn danger ghost" onClick={onDelete}>
-            Delete
+            {fromCatalog ? "Remove" : "Delete"}
           </button>
         </div>
       </div>

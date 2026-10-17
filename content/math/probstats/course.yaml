@@ -12,6 +12,9 @@ description: >-
 revision: 1
 released: true
 order: 12
+subject: Math
+level: [College]
+type: [Course]
 modules:
   - id: ps-m1
     title: Probability foundations

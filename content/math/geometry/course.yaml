@@ -10,6 +10,9 @@ description: >-
 revision: 1
 released: true
 order: 4
+subject: Math
+level: [High school]
+type: [Course]
 modules:
   - id: geo-m1
     title: Foundations of geometry

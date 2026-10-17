@@ -2110,3 +2110,54 @@ mark {
   background: var(--sheet);
   min-height: 1.6em;
 }
+
+/* Course catalog (Library) */
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.catalog-filters .input {
+  width: 240px;
+  max-width: 100%;
+}
+.catalog-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.catalog-card h3 {
+  font-size: 17px;
+  margin: 2px 0 0;
+}
+.catalog-card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.catalog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.clamp3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

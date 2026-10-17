@@ -9,6 +9,9 @@ description: >-
 revision: 1
 released: true
 order: 5
+subject: Math
+level: [High school, College]
+type: [Course]
 modules:
   - id: trig-m1
     title: Angles and their measure

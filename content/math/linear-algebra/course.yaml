@@ -10,6 +10,9 @@ description: >-
 revision: 1
 released: true
 order: 10
+subject: Math
+level: [College]
+type: [Course]
 modules:
   - id: la-m1
     title: 'Bridge: vectors, systems and matrices'

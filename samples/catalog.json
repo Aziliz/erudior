@@ -1,0 +1,312 @@
+[
+ {
+  "id": "colorado-broker",
+  "file": "colorado-broker-course.json",
+  "order": 0,
+  "title": "Colorado Real Estate Broker",
+  "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 809-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
+  "revision": 13,
+  "subject": "Real estate",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Exam prep"
+  ],
+  "lessons": 48,
+  "questions": 809,
+  "cards": 590,
+  "drills": 25
+ },
+ {
+  "id": "math-prealgebra",
+  "file": "math/math-prealgebra.json",
+  "order": 1,
+  "title": "Pre-algebra and Arithmetic",
+  "description": "Arithmetic and pre-algebra from place value up through the level of a college developmental math course: whole numbers, integers, fractions, decimals, ratios and proportions, percents, exponents and scientific notation, expressions and equations, measurement and basic geometry, and basic data and probability, with word problems throughout.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 36,
+  "questions": 400,
+  "cards": 196,
+  "drills": 87
+ },
+ {
+  "id": "math-algebra1",
+  "file": "math/math-algebra1.json",
+  "order": 2,
+  "title": "Algebra 1",
+  "description": "High school Algebra 1: real numbers, linear equations and inequalities, absolute value, functions and lines, systems, exponents, polynomials and factoring, quadratics, square roots, exponential growth and decay, sequences, and data analysis. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 32,
+  "questions": 379,
+  "cards": 166,
+  "drills": 80
+ },
+ {
+  "id": "math-algebra2",
+  "file": "math/math-algebra2.json",
+  "order": 3,
+  "title": "Algebra 2",
+  "description": "High school Algebra 2: function transformations, composition and inverses, complex numbers, systems in three variables, polynomial functions, radicals and rational exponents, rational expressions and functions, exponentials and logarithms, sequences and series, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 26,
+  "questions": 298,
+  "cards": 166,
+  "drills": 71
+ },
+ {
+  "id": "math-geometry",
+  "file": "math/math-geometry.json",
+  "order": 4,
+  "title": "Geometry",
+  "description": "Euclidean geometry from the first definitions through a college introduction: points, lines and angles; logic and proof; parallel lines; triangle congruence and similarity; special segments and quadrilaterals; right triangles and trigonometry; circles; area, surface area and volume; coordinates and transformations; and, at the college level, axiomatic systems, the parallel postulate, non-Euclidean geometry and geometric probability.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 38,
+  "questions": 425,
+  "cards": 164,
+  "drills": 93
+ },
+ {
+  "id": "math-trigonometry",
+  "file": "math/math-trigonometry.json",
+  "order": 5,
+  "title": "Trigonometry",
+  "description": "Trigonometry from the first angle through a full college course: degrees and radians, arc length and angular speed, right-triangle trig, the unit circle, graphs of all six functions and sinusoidal models, inverse functions, identities and equations, the laws of sines and cosines, vectors, polar coordinates, and complex numbers in trigonometric form with De Moivre's theorem.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school",
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 38,
+  "questions": 430,
+  "cards": 206,
+  "drills": 88
+ },
+ {
+  "id": "math-precalculus",
+  "file": "math/math-precalculus.json",
+  "order": 6,
+  "title": "Precalculus",
+  "description": "Precalculus from the high school course through college precalculus, assuming Algebra 2: functions in depth, transformations, composition and inverses, polynomial and rational functions, exponential and logarithmic models, a compact trigonometry review, systems and matrices, conic sections, parametric and polar equations, vectors, sequences and series, induction, the binomial theorem, counting and probability, and a first look at limits and the derivative.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school",
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 40,
+  "questions": 481,
+  "cards": 204,
+  "drills": 95
+ },
+ {
+  "id": "math-calculus",
+  "file": "math/math-calculus.json",
+  "order": 7,
+  "title": "Calculus",
+  "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, introductory differential equations, sequences and series, Taylor series, and calculus with parametric and polar curves.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school",
+   "College"
+  ],
+  "type": [
+   "Course",
+   "Exam prep"
+  ],
+  "lessons": 44,
+  "questions": 480,
+  "cards": 282,
+  "drills": 90
+ },
+ {
+  "id": "math-multivariable",
+  "file": "math/math-multivariable.json",
+  "order": 8,
+  "title": "Multivariable Calculus",
+  "description": "A complete college Calculus III course. It opens with a bridge from single-variable calculus, then builds vectors and the geometry of space, vector functions and motion, partial derivatives and the gradient, optimization with Lagrange multipliers, double and triple integrals in every coordinate system, change of variables, and finishes with vector fields, line and surface integrals, and the theorems of Green, Stokes and Gauss with their uses in physics.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 37,
+  "questions": 425,
+  "cards": 187,
+  "drills": 72
+ },
+ {
+  "id": "math-diffeq",
+  "file": "math/math-diffeq.json",
+  "order": 9,
+  "title": "Differential Equations",
+  "description": "Ordinary differential equations from the AP-calculus bridge (slope fields, separable equations, exponential and logistic growth, Euler's method) through a full sophomore college course: first-order methods and models, autonomous equations and bifurcations, numerical methods, second-order and higher-order linear equations, vibrations and circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series solutions, and an introduction to Fourier series and the heat and wave equations.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 38,
+  "questions": 423,
+  "cards": 180,
+  "drills": 78
+ },
+ {
+  "id": "math-linear-algebra",
+  "file": "math/math-linear-algebra.json",
+  "order": 10,
+  "title": "Linear Algebra",
+  "description": "A first course in linear algebra, starting from high school vectors, elimination and matrix arithmetic and building through row reduction, span and independence, linear transformations, matrix algebra and factorizations, determinants, vector spaces, eigenvalues, orthogonality and least squares, symmetric matrices, quadratic forms and the singular value decomposition, with applications to networks, chemistry, graphics, Markov chains and regression.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 38,
+  "questions": 447,
+  "cards": 184,
+  "drills": 78
+ },
+ {
+  "id": "math-ap-statistics",
+  "file": "math/math-ap-statistics.json",
+  "order": 11,
+  "title": "AP Statistics",
+  "description": "AP Statistics: exploring one- and two-variable data, z-scores and the normal model, correlation and regression, sampling and experimental design, probability, random variables (binomial and geometric), sampling distributions and the Central Limit Theorem, confidence intervals and significance tests for proportions and means, chi-square tests and inference for the regression slope, with AP-style four-step inference throughout.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course",
+   "Exam prep"
+  ],
+  "lessons": 38,
+  "questions": 410,
+  "cards": 206,
+  "drills": 79
+ },
+ {
+  "id": "math-probstats",
+  "file": "math/math-probstats.json",
+  "order": 12,
+  "title": "Probability and Statistics",
+  "description": "Calculus-based probability and mathematical statistics at the college level: probability axioms, counting and Bayes' theorem, discrete and continuous random variables, moment generating functions, joint distributions, covariance and conditional expectation, the law of large numbers and the Central Limit Theorem, sampling distributions, point estimation and maximum likelihood, confidence intervals, hypothesis testing and likelihood ratio tests, regression, ANOVA and nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used for joint densities.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 34,
+  "questions": 422,
+  "cards": 271,
+  "drills": 96
+ },
+ {
+  "id": "science-physics",
+  "file": "math/science-physics.json",
+  "order": 13,
+  "title": "Physics",
+  "description": "Algebra-based physics at the high school / AP Physics 1 and 2 level (no calculus): measurement and vectors, kinematics, Newton's laws, energy and momentum, rotation and gravitation, oscillations, waves and sound, fluids and thermodynamics, electrostatics, circuits, magnetism and induction, optics, and modern physics. For the calculus-based versions, see University Physics I and II.",
+  "revision": 1,
+  "subject": "Science",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course",
+   "Exam prep"
+  ],
+  "lessons": 46,
+  "questions": 517,
+  "cards": 250,
+  "drills": 133
+ },
+ {
+  "id": "science-uphys1",
+  "file": "math/science-uphys1.json",
+  "order": 14,
+  "title": "University Physics I",
+  "description": "Calculus-based University Physics I: measurement and vectors, kinematics, Newton's laws, work and energy, momentum and collisions, rotation, gravitation, oscillations, waves and sound, fluids, and thermodynamics. Assumes Calculus I (derivatives and integrals are used throughout).",
+  "revision": 1,
+  "subject": "Science",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 28,
+  "questions": 294,
+  "cards": 149,
+  "drills": 80
+ },
+ {
+  "id": "science-uphys2",
+  "file": "math/science-uphys2.json",
+  "order": 15,
+  "title": "University Physics II",
+  "description": "Calculus-based University Physics II: electric charge and fields, Gauss's law, electric potential, capacitance, current and DC circuits, RC circuits, magnetic forces and fields, induction, inductance and AC circuits, electromagnetic waves and optics, interference and diffraction, and an introduction to relativity, quantum and nuclear physics. Assumes University Physics I and Calculus II.",
+  "revision": 1,
+  "subject": "Science",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 18,
+  "questions": 187,
+  "cards": 101,
+  "drills": 53
+ }
+]

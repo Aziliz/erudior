@@ -9,6 +9,9 @@ description: >-
 revision: 1
 released: true
 order: 13
+subject: Science
+level: [High school]
+type: [Course, Exam prep]
 modules:
   - id: phys-m1
     title: Measurement and vectors

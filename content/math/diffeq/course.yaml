@@ -10,6 +10,9 @@ description: >-
 revision: 1
 released: true
 order: 9
+subject: Math
+level: [College]
+type: [Course]
 modules:
   - id: de-m1
     title: 'Bridge: differential equations at the AP level'

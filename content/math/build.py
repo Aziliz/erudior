@@ -291,11 +291,24 @@ def main():
 
 
 def write_manifest():
-    """samples/math-index.json lists the bundled courses (id, title, revision) for the app.
+    """samples/catalog.json lists every course that ships with the app, for the course catalog.
 
-    Only courses marked `released: true` in course.yaml ship; drafts are built but not bundled.
-    They're listed in `order` (course.yaml), then by folder name.
+    Math/science courses marked `released: true` in course.yaml are listed by `order`; other
+    bundled courses (e.g. the real estate course) come from content/catalog-extra.json.
+    Each entry has what the catalog shows without loading the course: title, description,
+    subject, level, type and counts. `file` is the course JSON, relative to samples/.
     """
+    def entry(c, file, order, subject, level, kind):
+        return {
+            "id": c["id"], "file": file, "order": order, "title": c["title"],
+            "description": c.get("description", ""), "revision": c.get("revision", 1),
+            "subject": subject, "level": level, "type": kind,
+            "lessons": len(c.get("lessons", [])),
+            "questions": sum(len(b.get("questions", [])) for b in c.get("banks", [])),
+            "cards": sum(len(d.get("cards", [])) for d in c.get("decks", [])),
+            "drills": len(c.get("drills", [])),
+        }
+
     items = []
     for folder in sorted(p for p in ROOT.iterdir() if (p / "course.yaml").exists()):
         meta = load_yaml(folder / "course.yaml")
@@ -305,9 +318,15 @@ def write_manifest():
         if not out.exists():
             continue
         c = json.loads(out.read_text(encoding="utf-8"))
-        items.append((meta.get("order", 999), folder.name, {"id": c["id"], "title": c["title"], "revision": c.get("revision", 1)}))
-    items.sort(key=lambda t: (t[0], t[1]))
-    (OUT.parent / "math-index.json").write_text(json.dumps([t[2] for t in items], indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        items.append(entry(c, f"math/{out.name}", meta.get("order", 999), meta.get("subject", "Math"),
+                           meta.get("level") or [], meta.get("type") or ["Course"]))
+    extra = ROOT.parent / "catalog-extra.json"
+    for x in json.loads(extra.read_text(encoding="utf-8")) if extra.exists() else []:
+        c = json.loads((OUT.parent / x["file"]).read_text(encoding="utf-8"))
+        items.append(entry(c, x["file"], x.get("order", 999), x["subject"], x["level"], x["type"]))
+    items.sort(key=lambda e: (e["order"], e["title"]))
+    (OUT.parent / "catalog.json").write_text(json.dumps(items, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    (OUT.parent / "math-index.json").unlink(missing_ok=True)
 
 
 if __name__ == "__main__":

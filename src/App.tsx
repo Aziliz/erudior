@@ -17,18 +17,7 @@ import LessonView from "./pages/LessonView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
-import mathManifest from "../samples/math-index.json";
-
-/** Courses that ship with the app: id -> loader. Each is installed once; newer revisions are offered as updates. */
-const MATH_FILES = import.meta.glob<{ default: unknown }>("../samples/math/*.json");
-const BUNDLED: { id: string; revision: number; load: () => Promise<unknown> }[] = [
-  { id: "colorado-broker", revision: Infinity, load: () => import("../samples/colorado-broker-course.json").then((m) => m.default) },
-  ...(mathManifest as { id: string; revision: number }[]).map((m) => ({
-    id: m.id,
-    revision: m.revision,
-    load: () => MATH_FILES[`../samples/math/${m.id}.json`]().then((x) => x.default),
-  })),
-];
+import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse } from "./lib/catalog";
 import RefView from "./pages/RefView";
 import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
@@ -65,6 +54,8 @@ export interface AppApi {
   saveBank: (bank: Bank) => Promise<void>;
   deleteBank: (bank: Bank) => Promise<void>;
   saveCourse: (course: Course) => Promise<void>;
+  /** Add a catalog course to In progress (loads and stores it), then open it. */
+  addCourse: (id: string) => Promise<void>;
   /** Show the app-update banner for an update found elsewhere (e.g. a manual check). */
   notifyUpdate: (u: AvailableUpdate) => void;
   /** Go back from a bank: to its course if it has one, else the library. */
@@ -154,29 +145,22 @@ export default function App() {
     (async () => {
       try {
         let p = await store.loadProgress();
-        // Install bundled courses once each. Deleting one later doesn't bring it back.
-        const seeded = p.seededCourses ?? [];
-        const missing = BUNDLED.filter((b) => !seeded.includes(b.id));
-        if (missing.length) {
-          const { courses } = await store.listCourses();
-          for (const b of missing) {
-            if (!courses.some((c) => c.id === b.id)) await store.saveCourse(normalizeCourse(await b.load()));
-          }
-          p = { ...p, seeded: true, seededCourses: [...seeded, ...missing.map((b) => b.id)] };
+        // Courses are added from the catalog when someone starts them. Older versions
+        // installed every bundled course up front; once, remove the ones never used
+        // (progress is kept regardless, and they can be added again).
+        if (!p.catalogV1) {
+          const { courses: installed } = await store.listCourses();
+          for (const c of installed)
+            if (CATALOG.some((e) => e.id === c.id) && !hasActivity(c.id, p)) await store.deleteCourse(c.id);
+          p = { ...p, catalogV1: true };
           await store.saveProgress(p);
         }
         progressRef.current = p;
         setProgressState(p);
         await reload();
-        // Offer newer bundled courses to installs that have an older revision.
+        // Offer newer catalog versions of courses that are already added.
         const { courses: installed } = await store.listCourses();
-        const updates: Course[] = [];
-        for (const b of BUNDLED) {
-          const mine = installed.find((c) => c.id === b.id);
-          if (!mine || b.revision <= (mine.revision ?? 0)) continue;
-          const bundled = normalizeCourse(await b.load());
-          if ((bundled.revision ?? 0) > (mine.revision ?? 0)) updates.push(bundled);
-        }
+        const updates = (await catalogUpdates(installed)).map((u) => normalizeCourse(u.course));
         setCourseUpdates(updates);
         setReady(true);
         // Quietly look for a new version of the app; offline is fine.
@@ -208,6 +192,21 @@ export default function App() {
     [reload],
   );
 
+  const addCourse = useCallback(
+    async (id: string) => {
+      const entry = CATALOG.find((e) => e.id === id);
+      if (!entry) return;
+      try {
+        await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
+        await reload();
+        setView({ name: "course", courseId: id });
+      } catch (e) {
+        toast(`Couldn't add "${entry.title}": ${String(e)}`);
+      }
+    },
+    [reload, toast],
+  );
+
   const api: AppApi = {
     banks: allBanks,
     courses,
@@ -237,6 +236,7 @@ export default function App() {
     setProgress,
     updateProgress: (fn) => setProgress(fn(progressRef.current)),
     saveCourse,
+    addCourse,
     saveBank: async (bank) => {
       if (bank.courseId) {
         const course = courses.find((c) => c.id === bank.courseId);

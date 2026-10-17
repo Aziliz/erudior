@@ -10,6 +10,9 @@ description: >-
 revision: 1
 released: true
 order: 8
+subject: Math
+level: [College]
+type: [Course]
 modules:
   - id: mv-m1
     title: Vectors and the geometry of space

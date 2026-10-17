@@ -1,0 +1,14 @@
+[
+ {
+  "id": "colorado-broker",
+  "file": "colorado-broker-course.json",
+  "order": 0,
+  "subject": "Real estate",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Exam prep"
+  ]
+ }
+]

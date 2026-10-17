@@ -10,6 +10,9 @@ description: >-
 revision: 1
 released: true
 order: 11
+subject: Math
+level: [High school]
+type: [Course, Exam prep]
 modules:
   - id: stat-m1
     title: Exploring one-variable data

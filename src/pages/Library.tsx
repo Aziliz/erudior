@@ -1,4 +1,6 @@
+import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
+import { CATALOG, facets, type CatalogEntry } from "../lib/catalog";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
@@ -97,14 +99,11 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
       )}
 
-      <h2 className="section-title">Courses</h2>
+      <h2 className="section-title">In progress</h2>
       {courses.length === 0 ? (
-        <div className="panel empty" style={{ marginBottom: 32 }}>
-          <h2>No courses yet</h2>
-          <p className="muted">Import a course file (.json) to get lessons, question banks, notecards and a study plan in one place.</p>
-          <button className="btn primary" onClick={importFile}>
-            Import a course
-          </button>
+        <div className="panel" style={{ marginBottom: 8, padding: "18px 22px" }}>
+          <h2 style={{ fontSize: 17, marginBottom: 4 }}>No courses in progress</h2>
+          <p className="muted">Pick a course from the catalog below and choose Start course, or import a course file (.json).</p>
         </div>
       ) : (
         <div className="course-list">
@@ -149,6 +148,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
       )}
 
+      <Catalog api={api} />
+
       <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
         <h2 className="section-title" style={{ margin: 0 }}>
           Standalone question banks
@@ -187,5 +188,138 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
       )}
     </div>
+  );
+}
+
+type Filters = { q: string; subject: string[]; level: string[]; type: string[] };
+const FILTER_KEY = "examiner.catalogFilters";
+
+function readFilters(): Filters {
+  try {
+    const f = JSON.parse(localStorage.getItem(FILTER_KEY) ?? "null");
+    if (f && Array.isArray(f.subject)) return { q: "", subject: f.subject, level: f.level ?? [], type: f.type ?? [] };
+  } catch {
+    /* no saved filters */
+  }
+  return { q: "", subject: [], level: [], type: [] };
+}
+
+function matches(e: CatalogEntry, f: Filters): boolean {
+  const any = (want: string[], have: string[]) => want.length === 0 || want.some((w) => have.includes(w));
+  if (!any(f.subject, [e.subject]) || !any(f.level, e.level) || !any(f.type, e.type)) return false;
+  const words = f.q.toLowerCase().split(/\s+/).filter(Boolean);
+  const hay = `${e.title} ${e.description} ${e.subject} ${e.level.join(" ")} ${e.type.join(" ")}`.toLowerCase();
+  return words.every((w) => hay.includes(w));
+}
+
+/** Every course that ships with the app, with search and filters. Adding one puts it under In progress. */
+function Catalog({ api }: { api: AppApi }) {
+  const [f, setF] = useState<Filters>(readFilters);
+  const [adding, setAdding] = useState<string | null>(null);
+  const opts = useMemo(facets, []);
+  useEffect(() => {
+    try {
+      localStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
+    } catch {
+      /* filters just won't be remembered */
+    }
+  }, [f.subject, f.level, f.type]);
+
+  const toggle = (k: "subject" | "level" | "type", v: string) =>
+    setF((x) => ({ ...x, [k]: x[k].includes(v) ? x[k].filter((y) => y !== v) : [...x[k], v] }));
+  const shown = CATALOG.filter((e) => matches(e, f));
+  const filtered = f.q || f.subject.length || f.level.length || f.type.length;
+  const installed = new Set(api.courses.map((c) => c.id));
+
+  async function add(id: string) {
+    setAdding(id);
+    await api.addCourse(id);
+    setAdding(null);
+  }
+
+  const group = (label: string, k: "subject" | "level" | "type") => (
+    <div className="catalog-filter">
+      <span className="small muted">{label}</span>
+      <div className="chips">
+        {opts[k].map((v) => (
+          <button key={v} className="chip" aria-pressed={f[k].includes(v)} onClick={() => toggle(k, v)}>
+            {v}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="catalog">
+      <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
+        <h2 className="section-title" style={{ margin: 0 }}>
+          Course catalog
+        </h2>
+        <span className="small muted">
+          {shown.length} of {CATALOG.length} courses
+        </span>
+      </div>
+      <div className="catalog-filters">
+        <input
+          className="input"
+          type="search"
+          placeholder="Search courses"
+          aria-label="Search courses"
+          value={f.q}
+          onChange={(e) => setF((x) => ({ ...x, q: e.target.value }))}
+        />
+        {group("Subject", "subject")}
+        {group("Level", "level")}
+        {group("Type", "type")}
+        {filtered ? (
+          <button className="btn sm" onClick={() => setF({ q: "", subject: [], level: [], type: [] })}>
+            Clear filters
+          </button>
+        ) : null}
+      </div>
+      {shown.length === 0 ? (
+        <p className="muted small">No courses match. Try fewer filters.</p>
+      ) : (
+        <div className="catalog-grid">
+          {shown.map((e) => {
+            const have = installed.has(e.id);
+            return (
+              <div key={e.id} className="catalog-card">
+                <div className="catalog-tags">
+                  <span className="pill neutral">{e.subject}</span>
+                  {e.level.map((l) => (
+                    <span key={l} className="pill neutral">
+                      {l}
+                    </span>
+                  ))}
+                  {e.type.includes("Exam prep") && <span className="pill neutral">Exam prep</span>}
+                </div>
+                <h3>{e.title}</h3>
+                <p className="muted small clamp3">{e.description}</p>
+                <p className="meta small muted">
+                  {[
+                    e.lessons && `${e.lessons} lessons`,
+                    e.questions && `${e.questions} questions`,
+                    e.drills && `${e.drills} drills`,
+                  ]
+                    .filter(Boolean)
+                    .join(", ")}
+                </p>
+                {have ? (
+                  <button className="btn sm" onClick={() => api.go({ name: "course", courseId: e.id })}>
+                    In progress: open
+                  </button>
+                ) : (
+                  <button className="btn sm primary" disabled={adding !== null} onClick={() => add(e.id)}>
+                    {adding === e.id ? "Adding…" : "Start course"}
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </section>
   );
 }

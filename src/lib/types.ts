@@ -347,6 +347,8 @@ export interface Progress {
   seeded: boolean;
   /** Bundled courses already installed once (so deleting one doesn't bring it back). */
   seededCourses?: string[];
+  /** Set once the old "install every bundled course" data was cleaned up for the catalog. */
+  catalogV1?: boolean;
   theme?: "light" | "dark" | "system";
   attempts: Attempt[];
   /** bankId -> questionId -> stats */

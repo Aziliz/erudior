@@ -5,6 +5,9 @@ description: >-
 revision: 1
 released: true
 order: 15
+subject: Science
+level: [College]
+type: [Course]
 modules:
   - id: phys-m8
     title: Electrostatics

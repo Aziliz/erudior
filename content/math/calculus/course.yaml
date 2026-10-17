@@ -10,6 +10,9 @@ description: >-
 revision: 1
 released: true
 order: 7
+subject: Math
+level: [High school, College]
+type: [Course, Exam prep]
 modules:
   - id: calc-m1
     title: Limits and continuity

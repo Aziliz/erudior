@@ -9,6 +9,10 @@ Everything is original writing. Don't copy or closely paraphrase any textbook, w
 exam; standard formulas, definitions and theorems are fine, but explanations, examples
 and questions are yours.
 
+## Catalog
+
+Bundled courses aren't installed up front: the Library shows them in a course catalog (`samples/catalog.json`, written by build.py from each released course's course.yaml plus `content/catalog-extra.json` for non-math courses), with search and Subject / Level / Type filters. Choosing Start course loads that one course and adds it to In progress.
+
 ## Files
 
 One folder per course, `content/math/<folder>/`:
@@ -47,6 +51,10 @@ title: Algebra
 description: >-
   Algebra from the first equation through college algebra: …
 revision: 1
+order: 2              # position in the course catalog
+subject: Math        # catalog filter: Math, Science, Real estate, …
+level: [High school] # catalog filter: High school, College, Professional (one or more)
+type: [Course]       # catalog filter: Course and/or Exam prep
 modules:
   - id: alg-m1
     title: Foundations of algebra
