@@ -234,8 +234,11 @@ function closeEnough(given: number, target: number, spec: AnswerPart): boolean {
     const unit = 10 ** (Math.floor(Math.log10(Math.abs(target))) - spec.sigfigs + 1);
     return Math.abs(given - target) <= unit / 2 + 1e-12 * Math.abs(target);
   }
-  if (spec.relTolerance !== undefined) return Math.abs(given - target) <= spec.relTolerance * Math.abs(target) + 1e-12;
+  if (spec.relTolerance !== undefined) return Math.abs(given - target) <= spec.relTolerance * Math.abs(target) * (1 + 1e-9) + Number.MIN_VALUE;
   if (spec.tolerance === undefined && spec.format === "sci") return Math.abs(given - target) <= 1e-3 * Math.abs(target);
+  // Very small answers (e.g. 2.4e-12 C·m) with no explicit tolerance: compare relatively (0.5%),
+  // since the default absolute tolerance would accept almost anything.
+  if (spec.tolerance === undefined && target !== 0 && Math.abs(target) < 1e-3) return Math.abs(given - target) <= 5e-3 * Math.abs(target);
   let t = target;
   if (spec.format === "money") t = Math.round(t * 100) / 100;
   if (spec.format === "money0" || spec.format === "integer") t = Math.round(t);
