@@ -597,7 +597,7 @@
   lesson: de1-time
   term: am
   pos: preposition
-  meanings: [on (with days; am Montag), on, in the (am Abend), at the]
+  meanings: ['on (with days; am Montag)', 'on', 'in the (am Abend)', 'at the']
   example: Am Sonntag schlafe ich lange.
   exampleEn: On Sunday I sleep in.
   note: 'Short for an dem. am Montag, am Abend, am Wochenende.'

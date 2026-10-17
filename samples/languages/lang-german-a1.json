@@ -5,7 +5,8 @@
  "title": "German A1",
  "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, and a reading list points to graded readers you can try on your own.",
  "author": "Examiner",
- "revision": 1,
+ "revision": 2,
+ "changelog": "Fixed the word \"am\" not accepting \"on\" as an answer.",
  "modules": [
   {
    "id": "de1-m1",
@@ -10802,7 +10803,7 @@
    "pos": "preposition",
    "meanings": [
     "on (with days; am Montag)",
-    true,
+    "on",
     "in the (am Abend)",
     "at the"
    ],

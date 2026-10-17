@@ -7,7 +7,8 @@ description: >-
   modal and separable verbs, the imperative and the perfect tense. About 700 everyday
   words are learned through typed vocabulary reviews with pronunciation, and a reading
   list points to graded readers you can try on your own.
-revision: 1
+revision: 2
+changelog: Fixed the word "am" not accepting "on" as an answer.
 released: true
 order: 100
 subject: Languages

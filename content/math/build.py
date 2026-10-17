@@ -263,6 +263,11 @@ def build(folder: pathlib.Path):
         prompts[first] = v.get("id")
         if not isinstance(v.get("meanings"), list):
             errors.append(f"{where}: meanings must be a list")
+        elif any(not isinstance(m, str) for m in v["meanings"]):
+            errors.append(f"{where}: every meaning must be text (quote it: 'true', 'blanket (also: ceiling)')")
+        for k in ("term", "plural", "example", "exampleEn", "note"):
+            if k in v and v[k] is not None and not isinstance(v[k], str):
+                errors.append(f"{where}: {k} must be text (quote it)")
     if vocab and not language:
         errors.append("vocab*.yaml needs a language: block in course.yaml")
     for r in reading or []:
