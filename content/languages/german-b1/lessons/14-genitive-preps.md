@@ -38,7 +38,7 @@ In everyday spoken German, most people use *wegen*, *trotz* and *statt* with the
 | *trotz des Staus* | *trotz dem Stau* |
 | *statt eines Briefes* | *statt einem Brief* |
 
-You will hear the spoken forms everywhere, and nobody will notice if you use them in conversation. But they are not the standard: in writing, in a formal e-mail and in the exam, use the genitive. *während*, *innerhalb* and *außerhalb* are used with the genitive almost always, also in speech.
+You will hear the spoken forms everywhere, and nobody will notice if you use them in conversation. But they are not the standard: in writing, in a formal e-mail and in the exam, use the genitive. *während*, *innerhalb* and *außerhalb* usually keep the genitive, also in speech.
 
 ### When the genitive can't be seen: the dative takes over
 
@@ -111,13 +111,13 @@ Notes:
 
 First an announcement at a station, then the e-mail Herr Okafor wrote afterwards.
 
-> „Information zu ICE 578 nach Hamburg, Abfahrt 14:12 Uhr: Wegen einer Störung an einem Stellwerk verzögert sich die Abfahrt um voraussichtlich 40 Minuten. Fahrgäste nach Bremen nutzen bitte statt des ICE den Regionalexpress um 14:30 Uhr von Bahnsteig 3. Wir bitten um Entschuldigung.“
+> „Information zu ICE 578 nach Hamburg, Abfahrt 14:12 Uhr: Wegen einer Störung an einem Stellwerk verzögert sich die Abfahrt um voraussichtlich 40 Minuten. Fahrgäste nach Hanau nutzen bitte statt des ICE den Regionalexpress um 14:30 Uhr von Bahnsteig 3. Wir bitten um Entschuldigung.“
 >
 > Sehr geehrte Damen und Herren,
 >
-> am 12. Oktober bin ich mit dem ICE 578 von Frankfurt nach Hamburg gefahren. Wegen einer technischen Störung fuhr der Zug mit 40 Minuten Verspätung ab. Während der Fahrt mussten wir außerdem wegen Bauarbeiten an der Strecke eine Umleitung fahren, sodass wir mit insgesamt 95 Minuten Verspätung in Hamburg ankamen. Dadurch habe ich meinen Anschluss nach Kiel verpasst und musste trotz meiner reservierten Platzkarte eine Stunde auf den nächsten Zug warten.
+> am 12. Oktober bin ich mit einer Fahrkarte von Frankfurt nach Kiel gereist. Wegen einer technischen Störung fuhr mein ICE 578 nach Hamburg mit 40 Minuten Verspätung ab. Während der Fahrt mussten wir außerdem wegen Bauarbeiten an der Strecke eine Umleitung fahren, sodass wir mit insgesamt 95 Minuten Verspätung in Hamburg ankamen. Dadurch habe ich meinen Anschluss nach Kiel verpasst. Trotz der Hilfe des Personals am Infoschalter gab es keine schnellere Verbindung, und ich kam erst mit zwei Stunden und zehn Minuten Verspätung in Kiel an.
 >
-> Bei einer Verspätung von mehr als 60 Minuten haben Fahrgäste ein Recht auf eine Entschädigung von 25 Prozent des Fahrpreises. Ich bitte Sie daher, mir diesen Betrag innerhalb der gesetzlichen Frist auf mein Konto zu überweisen. Meine Fahrkarte und meine Bankverbindung finden Sie im Anhang.
+> Bei einer Verspätung von 120 Minuten oder mehr am Zielort haben Fahrgäste ein Recht auf eine Entschädigung von 50 Prozent des Fahrpreises. Ich bitte Sie daher, mir diesen Betrag innerhalb der gesetzlichen Frist auf mein Konto zu überweisen. Meine Fahrkarte und meine Bankverbindung finden Sie im Anhang.
 >
 > Mit freundlichen Grüßen
 >
@@ -125,13 +125,13 @@ First an announcement at a station, then the e-mail Herr Okafor wrote afterwards
 
 In English:
 
-> "Information about ICE 578 to Hamburg, departing 14:12: Because of a fault at a signal box, departure will be delayed by an expected 40 minutes. Passengers to Bremen please use the regional express at 14:30 from platform 3 instead of the ICE. We apologize."
+> "Information about ICE 578 to Hamburg, departing 14:12: Because of a fault at a signal box, departure will be delayed by an expected 40 minutes. Passengers to Hanau please use the regional express at 14:30 from platform 3 instead of the ICE. We apologize."
 >
-> Dear Sir or Madam, on 12 October I travelled on ICE 578 from Frankfurt to Hamburg. Because of a technical fault the train left 40 minutes late. During the journey we also had to take a diversion because of construction work on the line, so that we arrived in Hamburg a total of 95 minutes late. Because of this I missed my connection to Kiel and, despite my seat reservation, had to wait an hour for the next train.
+> Dear Sir or Madam, on 12 October I travelled from Frankfurt to Kiel on one ticket. Because of a technical fault my ICE 578 to Hamburg left 40 minutes late. During the journey we also had to take a diversion because of construction work on the line, so that we arrived in Hamburg a total of 95 minutes late. Because of this I missed my connection to Kiel. Despite the help of the staff at the information desk there was no faster connection, and I arrived in Kiel two hours and ten minutes late.
 >
-> For a delay of more than 60 minutes, passengers have a right to compensation of 25 percent of the fare. I therefore ask you to transfer this amount to my account within the legal deadline. You will find my ticket and my bank details attached. Yours faithfully, Daniel Okafor
+> For a delay of 120 minutes or more at the destination, passengers have a right to compensation of 50 percent of the fare. I therefore ask you to transfer this amount to my account within the legal deadline. You will find my ticket and my bank details attached. Yours faithfully, Daniel Okafor
 
-Notes: *die Störung* (fault, disruption) and *voraussichtlich* (expected) are words from earlier lessons; *das Stellwerk* = signal box; *sodass* = so that (lesson 8); *insgesamt* = in total; *dadurch* = because of this, as a result; *die Platzkarte* = seat reservation; *der Fahrpreis* = fare; *der Betrag* = amount; *die Frist* = deadline. The 25 percent rule after 60 minutes (50 percent after 120) is the real rule for train passengers in the EU. Notice that the announcement and the e-mail use the genitive throughout; in a conversation on the platform you would hear *wegen dem Streik*.
+Notes: *die Störung* (fault, disruption) and *voraussichtlich* (expected) are words from earlier lessons; *das Stellwerk* = signal box; *sodass* = so that (lesson 8); *insgesamt* = in total; *dadurch* = because of this, as a result; *das Personal* = staff; *der Infoschalter* = information desk; *der Zielort* = destination; *der Fahrpreis* = fare; *der Betrag* = amount; *die Frist* = deadline. The amounts are the real EU rule for train passengers: 25 percent of the fare for a delay of 60–119 minutes at your destination, 50 percent for 120 minutes or more. Since June 2023 there is no compensation if the delay was caused by extraordinary circumstances such as a severe storm (a strike by the railway's own staff doesn't count as one), and you have three months to claim. Notice that the announcement and the e-mail use the genitive throughout; in a conversation on the platform you would hear *wegen dem Streik*.
 
 ## Pronunciation
 

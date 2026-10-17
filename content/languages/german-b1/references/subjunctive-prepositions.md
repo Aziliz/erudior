@@ -13,7 +13,7 @@ title: Konjunktiv II and words with prepositions
 | ihr | *wärt* | *hättet* | *würdet* | *könntet* | *müsstet* | *dürftet* | *solltet* | *wolltet* | *möchtet* |
 | sie / Sie | *wären* | *hätten* | *würden* | *könnten* | *müssten* | *dürften* | *sollten* | *wollten* | *möchten* |
 
-Formation: simple past + umlaut (a → ä, o → ö, u → ü) where the infinitive has one. *sollte* and *wollte* look like the simple past.
+Formation of the modals: simple past + umlaut (a → ä, o → ö, u → ü) where the infinitive has one. *sollte* and *wollte* look like the simple past.
 
 ### würde + infinitive
 
@@ -27,11 +27,11 @@ Simple past stem + umlaut + *-e, -est, -e, -en, -et, -en*.
 |---|---|---|---|
 | *wissen* | *wusste* | *wüsste* | common |
 | *geben* | *gab* | *gäbe* (*es gäbe*) | common |
-| *kommen* | *kam* | *käme* | common |
-| *gehen* | *ging* | *ginge* (*das ginge*) | common |
+| *kommen* | *kam* | *käme* | common in set phrases |
+| *gehen* | *ging* | *ginge* (*das ginge*) | common in set phrases |
 | *finden* | *fand* | *fände* (*ich fände es gut*) | common |
-| *bleiben* | *blieb* | *bliebe* | common |
-| *brauchen* | *brauchte* | *bräuchte* | common in speech |
+| *bleiben* | *blieb* | *bliebe* | less common; usually *würde bleiben* |
+| *brauchen* | *brauchte* | *bräuchte* | common in speech (*brauchen* is weak; *bräuchte* copies the strong pattern) |
 | *lassen* | *ließ* | *ließe* | written |
 | *liegen* | *lag* | *läge* | written |
 | *stehen* | *stand* | *stünde / stände* | written |

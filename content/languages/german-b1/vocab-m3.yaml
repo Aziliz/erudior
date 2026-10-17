@@ -215,7 +215,7 @@
   lesson: de3-relative-all
   term: zurückhaltend
   pos: adjective
-  meanings: [reserved, restrained, shy]
+  meanings: [reserved, restrained]
   example: Am Anfang war sie etwas zurückhaltend.
   exampleEn: At first she was a little reserved.
 - id: grosszuegig
@@ -969,7 +969,7 @@
   plural: —
   alt: [der Schienenersatzverkehr]
   meanings: [replacement service, rail replacement (bus) service]
-  example: Zwischen Kassel und Fulda fährt Ersatzverkehr mit Bussen.
+  example: Zwischen Kassel und Fulda gibt es Ersatzverkehr mit Bussen.
   exampleEn: There's a rail replacement bus service between Kassel and Fulda.
 - id: anschluss
   lesson: de3-genitive-preps

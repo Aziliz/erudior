@@ -218,10 +218,10 @@
   module_quiz: true
   topic: Wishes
   stem: 'Complete the wish: "Wenn ich nur mehr Geld ___!"'
-  choices: ['habe', 'hatte', 'haben würde', 'hätte']
+  choices: ['habe', 'hatte', 'hättest', 'hätte']
   answer: 3
   explanation: |-
-    An unreal wish uses the Konjunktiv II with nur, doch or bloß, verb at the end: Wenn ich nur mehr Geld hätte! The indicative "habe" would not express a wish, "hatte" is the past, and "haben würde" is clumsy.
+    An unreal wish uses the Konjunktiv II with nur, doch or bloß, verb at the end: Wenn ich nur mehr Geld hätte! The indicative "habe" would not express a wish, "hatte" (no umlaut) is the simple past, and "hättest" is the du form.
 - id: de3-q-2302
   lesson: de3-advice-wishes
   topic: Wishes
@@ -345,10 +345,10 @@
   lesson: de3-verb-prep
   topic: Nouns with prepositions
   stem: 'Which is correct?'
-  choices: ['Sie hat großes Interesse an Kunst.', 'Sie hat großes Interesse für Kunst.', 'Sie hat großes Interesse in Kunst.', 'Sie hat großes Interesse auf Kunst.']
+  choices: ['Sie hat großes Interesse an Kunst.', 'Sie hat großes Interesse über Kunst.', 'Sie hat großes Interesse in Kunst.', 'Sie hat großes Interesse auf Kunst.']
   answer: 0
   explanation: |-
-    The noun "das Interesse" takes an + dative, although the verb is "sich interessieren für". This is one of the nouns whose preposition differs from the verb's.
+    The noun "das Interesse" takes an + dative (Interesse an etwas haben), although the verb is "sich interessieren für"; für only appears with zeigen (Interesse für etwas zeigen). This is one of the nouns whose preposition differs from the verb's.
 - id: de3-q-2405
   lesson: de3-verb-prep
   module_quiz: true
@@ -361,11 +361,11 @@
 - id: de3-q-2406
   lesson: de3-verb-prep
   topic: Questions
-  stem: 'Ask about the thing: "Ich habe mich über den Preis gewundert."'
+  stem: 'Ask about the thing in standard German: "Ich habe mich über den Preis gewundert."'
   choices: ['Über was hast du dich gewundert?', 'Über wen hast du dich gewundert?', 'Worüber hast du dich gewundert?', 'Was hast du dich gewundert?']
   answer: 2
   explanation: |-
-    For a thing in a prepositional object, use wo(r)- + preposition: worüber. "Über was" is colloquial, "über wen" is for people, and the question can't drop the preposition.
+    For a thing in a prepositional object, standard German uses wo(r)- + preposition: worüber. "Über was" is heard in casual speech but isn't the standard form, "über wen" is for people, and the question can't drop the preposition.
 - id: de3-q-2407
   lesson: de3-verb-prep
   module_quiz: true
@@ -450,7 +450,7 @@
   choices: ['Arbeitslosigkeit', 'Zentrum', 'Gewerkschaft', 'Qualifikation']
   answer: 1
   explanation: |-
-    Nouns ending in -um are neuter: das Zentrum. -keit (die Arbeitslosigkeit), -schaft (die Gewerkschaft) and -ion (die Qualifikation) are always feminine.
+    Nouns ending in -um are neuter: das Zentrum. -keit (die Arbeitslosigkeit) and -schaft (die Gewerkschaft) are always feminine, and -ion nouns like die Qualifikation practically always are.
 - id: de3-q-2505
   lesson: de3-work-career
   module_quiz: true

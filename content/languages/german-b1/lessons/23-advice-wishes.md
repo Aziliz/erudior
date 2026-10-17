@@ -95,9 +95,9 @@ An **unreal comparison** describes how something seems, when it isn't really tru
 
 - *Er tut so, als ob er alles wüsste.* — He acts as if he knew everything.
 - *Du siehst aus, als ob du nicht geschlafen hättest.* — You look as if you hadn't slept.
-- *Ich habe das Gefühl, als ob niemand mich verstehen würde.* — I feel as if nobody understood me.
+- *Ich habe das Gefühl, als ob mich niemand verstehen würde.* — I feel as if nobody understood me.
 
-There's also a short form with *als* alone and the verb straight after it: *Er tut so, als wüsste er alles.* Typical verbs before it: *so tun* (to act, pretend), *aussehen, klingen, sich anfühlen* (to feel), *das Gefühl haben*. In everyday speech you'll also hear the indicative after *als ob* (*als ob er alles weiß*) when the speaker isn't sure it's unreal. Use the Konjunktiv when you write.
+There's also a short form with *als* alone and the verb straight after it: *Er tut so, als wüsste er alles.* Typical verbs before it: *so tun* (to act, pretend), *aussehen, klingen, sich anfühlen* (to feel), *das Gefühl haben*. In everyday speech you'll also hear the indicative after *als ob* (*als ob er alles weiß*). At B1 you only need to recognize these sentences: spot *als ob* or *als* + Konjunktiv II and understand "as if (but it isn't true)".
 
 ## Text: Frag Frau Lindner
 
@@ -144,7 +144,7 @@ Notes: *sich trauen* (to dare) is reflexive and takes a *zu* infinitive: *Ich tr
 - *Ich wünsche* + Konjunktiv: ~~Ich wünsche, ich wäre reich.~~ → *Ich wünschte, ich wäre reich.* (*Ich wünsche dir …* is for good wishes: *Ich wünsche dir viel Glück.*)
 - Word order after *an deiner Stelle*: ~~An deiner Stelle ich würde …~~ → *An deiner Stelle würde ich …*
 - Missing *zu* after *Wären Sie so nett*: ~~Wären Sie so nett, mir helfen?~~ → *…, mir zu helfen?*
-- *als ob* with verb second: ~~als ob er weiß alles~~ → *als ob er alles wüsste* (verb at the end) or *als wüsste er alles*.
+- Reading *als ob*: after *als ob* the verb is at the end (*als ob er alles wüsste*); after *als* alone it comes straight after (*als wüsste er alles*). Both mean the same.
 - *sich trauen* without *sich*: ~~Ich traue nicht, sie zu fragen.~~ → *Ich traue mich nicht, …* (*jemandem trauen* without *sich* means to trust someone.)
 
 ## Key points

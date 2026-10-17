@@ -61,11 +61,13 @@ Work texts are full of long abstract nouns. Most of them end in a suffix that te
 | *-ion* | die | Latin roots | *die Qualifikation, die Position, die Produktion* |
 | *-tät* | die | Latin roots | *die Qualität, die Universität, die Realität* |
 | *-ie* | die | Greek and Latin roots | *die Technologie, die Strategie, die Energie* |
-| *-er* (people) | der | verbs | *der Arbeitgeber, der Unternehmer, der Bewerber* |
+| *-er* (person or tool made from a verb) | der | verbs | *der Arbeitgeber, der Unternehmer, der Bewerber* |
 | *-ismus* | der | | *der Tourismus, der Journalismus* |
-| *-ment* | das | | *das Management, das Dokument* |
-| *-um* | das | Latin | *das Zentrum, das Studium, das Praktikum* |
+| *-ment* | das (mostly) | | *das Management, das Dokument* (but *der Moment*) |
+| *-um* | das (mostly) | Latin | *das Zentrum, das Studium, das Praktikum* (but *der Konsum*) |
 | *-chen, -lein* | das | small things | *das Brötchen, das Mädchen* |
+
+Be careful with *-er*: the rule only works for nouns that name a person (or a tool) doing the action of a verb: *arbeiten → der Arbeiter*, *lehren → der Lehrer*, *bohren → der Bohrer* (drill). Plenty of other nouns just happen to end in *-er* and can be any gender: *die Mutter, die Butter, das Fenster, das Zimmer, die Nummer*.
 
 Two more facts make reading easier. First, a feminine version of a person noun ends in *-in*, plural *-innen*: *der Arbeitgeber → die Arbeitgeberin → die Arbeitgeberinnen*. Second, a compound noun takes the gender of its last part: *der Markt → der Arbeitsmarkt*, *die Zeit → die Arbeitszeit, die Probezeit, die Gleitzeit*, *die Anzeige → die Stellenanzeige*.
 
@@ -75,7 +77,7 @@ The *-s-* in *Arbeitsmarkt, Arbeitszeit* is a linking sound that many compounds 
 
 An article from a city magazine.
 
-> Wer heute eine Stelle sucht, hat in vielen Branchen gute Chancen. Besonders in der Pflege, im Handwerk und in der IT fehlen Fachkräfte, und manche Unternehmen finden monatelang keine passenden Bewerber. Die Arbeitslosigkeit ist in den letzten Jahren gesunken, auch wenn es große Unterschiede zwischen den Regionen gibt.
+> Wer heute eine Stelle sucht, hat in vielen Branchen gute Chancen. Besonders in der Pflege, im Handwerk und in der IT fehlen Fachkräfte, und manche Unternehmen finden monatelang keine passenden Bewerber. Trotzdem gibt es auch Arbeitslosigkeit, und zwischen den Regionen gibt es große Unterschiede.
 >
 > Gleichzeitig verändern sich die Wünsche der Arbeitnehmer. Ein hohes Gehalt allein scheint vielen jungen Leuten nicht mehr zu genügen. Sie fragen im Vorstellungsgespräch nach Gleitzeit, Homeoffice und Weiterbildung. „Früher musste man froh sein, wenn man überhaupt einen unbefristeten Vertrag bekam", sagt eine Personalchefin aus einem mittelgroßen Betrieb. „Heute müssen auch wir Arbeitgeber uns bewerben."
 >
@@ -85,7 +87,7 @@ An article from a city magazine.
 
 In English:
 
-> Anyone looking for a job today has good chances in many industries. In care, the skilled trades and IT in particular, skilled workers are missing, and some companies can't find suitable applicants for months. Unemployment has fallen in recent years, even if there are big differences between the regions.
+> Anyone looking for a job today has good chances in many industries. In care, the skilled trades and IT in particular, skilled workers are missing, and some companies can't find suitable applicants for months. Still, there is unemployment too, and there are big differences between the regions.
 >
 > At the same time, what employees want is changing. A high salary alone no longer seems to be enough for many young people. In the job interview they ask about flexitime, working from home and further training. "In the past you had to be glad if you got a permanent contract at all," says an HR manager from a medium-sized firm. "Today we employers have to apply too."
 >
@@ -156,7 +158,7 @@ Translation: *Subject: Your job advertisement of 3 March. Dear Sir or Madam, I r
 - *scheinen zu* = to seem to: *Er scheint krank zu sein.*
 - *brauchen nicht / kein / nur zu* = not have to, only have to: *Sie brauchen nicht zu warten.*
 - Recognize *haben zu* (= must) and *sein zu* (= can / must be done) in rules and contracts.
-- Suffixes show gender: *-ung, -heit, -keit, -schaft, -ion, -tät* → die; *-er* (people), *-ismus* → der; *-ment, -um, -chen* → das. Compounds take the gender of the last part.
+- Suffixes show gender: *-ung, -heit, -keit, -schaft, -ion, -tät* → die; *-er* (people doing something), *-ismus* → der; *-chen, -lein* → das, *-ment, -um* mostly das. Compounds take the gender of the last part.
 - Formal letter: *Betreff* without a verb, *Sehr geehrte …*, small letter after the comma, polite Konjunktiv II, *Mit freundlichen Grüßen*.
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.

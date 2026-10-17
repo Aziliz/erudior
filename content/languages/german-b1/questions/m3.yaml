@@ -190,7 +190,7 @@
 - id: de3-q-1211
   lesson: de3-relative-wo-was
   topic: Culture and sights
-  stem: 'Which does not fit? "Im Theater saß ___ vor der Bühne und hat lange geklatscht."'
+  stem: 'Which does not fit? "Im Theater saß ___ vor der Bühne und klatschte lange."'
   choices: ['das Publikum', 'die ganze Klasse', 'das Denkmal', 'meine Familie']
   answer: 2
   explanation: |-

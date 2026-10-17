@@ -94,7 +94,7 @@
   lesson: de3-konj2-present
   term: die Abwechslung
   pos: noun
-  plural: die Abwechslungen
+  plural: '— (the plural Abwechslungen is rare)'
   meanings: [variety (change from routine), change, variety, a change]
   example: Zur Abwechslung kochen wir heute mal indisch.
   exampleEn: For a change, we're cooking Indian food today.
@@ -188,7 +188,7 @@
   lesson: de3-konj2-present
   term: die Wirklichkeit
   pos: noun
-  plural: die Wirklichkeiten
+  plural: —
   meanings: [reality]
   example: In Wirklichkeit ist das Hotel viel kleiner als auf den Fotos.
   exampleEn: In reality the hotel is much smaller than in the photos.
@@ -211,7 +211,7 @@
   lesson: de3-konj2-present
   term: das Lotto
   pos: noun
-  plural: die Lottos
+  plural: —
   meanings: [lottery, lotto, the lottery]
   example: Er spielt jede Woche Lotto.
   exampleEn: He plays the lottery every week.
@@ -276,7 +276,7 @@
   lesson: de3-konj2-past
   term: bereuen
   pos: verb
-  meanings: [to regret]
+  meanings: [to regret (something you did), to regret, to rue]
   example: Ich bereue nichts.
   exampleEn: I don't regret anything.
   note: 'Perfect: hat bereut.'
@@ -414,7 +414,7 @@
   lesson: de3-konj2-past
   term: hinterher
   pos: adverb
-  meanings: [afterwards (after the event), afterwards, after, later, behind]
+  meanings: [afterwards (with hindsight), afterwards, after, later, behind, after the event]
   example: Hinterher ist man immer klüger.
   exampleEn: You're always wiser afterwards.
 - id: erleichtert
@@ -453,7 +453,7 @@
   term: die Konsequenz
   pos: noun
   plural: die Konsequenzen
-  meanings: [consequence]
+  meanings: [consequence (loanword, not Folge), consequence, consequences]
   example: Jede Entscheidung hat Konsequenzen.
   exampleEn: Every decision has consequences.
 - id: vermeiden
@@ -478,13 +478,13 @@
   pos: adverb
   meanings: [nearly (almost), almost, nearly]
   example: Ich wäre beinahe zu spät gekommen.
-  exampleEn: I nearly came too late.
+  exampleEn: I was nearly late.
   note: 'Like fast; with the past subjunctive for something that almost happened.'
 - id: knapp
   lesson: de3-konj2-past
   term: knapp
   pos: adjective
-  meanings: [narrow (only just), narrowly, just, barely, tight, scarce, short]
+  meanings: [only just (narrowly), narrowly, just, barely, narrow, tight, scarce, short]
   example: Wir haben den Zug ganz knapp erreicht.
   exampleEn: We only just caught the train.
   note: 'knapp bei Kasse: short of money; knapp eine Stunde: just under an hour.'
@@ -731,7 +731,7 @@
   lesson: de3-advice-wishes
   term: die Unterstützung
   pos: noun
-  plural: die Unterstützungen
+  plural: —
   meanings: [support]
   example: Vielen Dank für Ihre Unterstützung!
   exampleEn: Thank you very much for your support!
@@ -831,7 +831,7 @@
   pos: verb
   meanings: [to occupy oneself (with), to deal with, to be busy (with), to work on, to keep busy, to spend time on]
   example: In meiner Freizeit beschäftige ich mich mit Geschichte.
-  exampleEn: In my free time I spend my time on history.
+  exampleEn: In my free time I'm into history.
   note: 'sich beschäftigen mit + dative. Perfect: hat sich beschäftigt.'
 - id: sich-bemuehen
   lesson: de3-verb-prep
@@ -887,7 +887,7 @@
   term: das Interesse
   pos: noun
   plural: die Interessen
-  meanings: [interest]
+  meanings: [interest (in something), interest]
   example: Hast du Interesse an einem Sprachkurs?
   exampleEn: Are you interested in a language course?
   note: 'Interesse an + dative, though the verb is sich interessieren für.'
@@ -1111,7 +1111,7 @@
   term: die Branche
   pos: noun
   plural: die Branchen
-  meanings: [industry (sector), sector, branch of industry, line of business]
+  meanings: [sector (branch of business), sector, industry, branch of industry, line of business, branch]
   example: In welcher Branche arbeiten Sie?
   exampleEn: Which industry do you work in?
 - id: arbeitgeber
@@ -1128,8 +1128,8 @@
   pos: noun
   plural: die Arbeitgeberinnen
   meanings: [employer (female), employer]
-  example: Die Stadt ist eine wichtige Arbeitgeberin in der Region.
-  exampleEn: The city is an important employer in the region.
+  example: Meine neue Arbeitgeberin hat eine kleine Bäckerei.
+  exampleEn: My new employer has a small bakery.
 - id: arbeitnehmer
   lesson: de3-work-career
   term: der Arbeitnehmer
@@ -1182,7 +1182,7 @@
   lesson: de3-work-career
   term: die Gleitzeit
   pos: noun
-  plural: die Gleitzeiten
+  plural: —
   meanings: [flexitime, flextime, flexible working hours]
   example: Dank Gleitzeit kann ich mein Kind zur Schule bringen.
   exampleEn: Thanks to flexitime I can take my child to school.
@@ -1190,7 +1190,7 @@
   lesson: de3-work-career
   term: das Homeoffice
   pos: noun
-  plural: die Homeoffices
+  plural: '— (the plural Homeoffices is rare)'
   alt: [das Home-Office]
   meanings: [working from home, home office, remote work]
   example: Montags arbeite ich im Homeoffice.
@@ -1223,7 +1223,7 @@
   term: die Beförderung
   pos: noun
   plural: die Beförderungen
-  meanings: [promotion]
+  meanings: [promotion (at work), promotion, transport, transportation]
   example: Nach drei Jahren hat sie endlich eine Beförderung bekommen.
   exampleEn: After three years she finally got a promotion.
   note: 'Also: transport (of passengers or goods).'
@@ -1290,7 +1290,7 @@
   lesson: de3-work-career
   term: leiten
   pos: verb
-  meanings: [to manage, to lead, to run, to head, to direct]
+  meanings: [to manage (lead, run), to manage, to lead, to run, to head, to direct]
   example: Sie leitet ein Team von zehn Leuten.
   exampleEn: She leads a team of ten people.
   note: 'Perfect: hat geleitet.'
@@ -1340,7 +1340,7 @@
   term: das Team
   pos: noun
   plural: die Teams
-  meanings: [team]
+  meanings: [team (at work), team]
   example: Ich arbeite gern im Team.
   exampleEn: I like working in a team.
 - id: projekt
@@ -1371,8 +1371,8 @@
   lesson: de3-work-career
   term: die Konkurrenz
   pos: noun
-  plural: die Konkurrenzen
-  meanings: [competition, competitors, rivalry]
+  plural: —
+  meanings: [competition (business rivals), competition, competitors, rivals, rivalry]
   example: Die Konkurrenz auf dem Markt ist groß.
   exampleEn: The competition on the market is tough.
 - id: entlassen

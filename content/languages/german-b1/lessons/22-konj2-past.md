@@ -45,7 +45,7 @@ Use the past subjunctive in both clauses to imagine a different past:
 
 The word order is the same as in lesson 21. In the *wenn* clause the whole verb group goes to the end, with *hätte/wäre* last: *wenn ich das gewusst hätte*. In the main clause, *hätte/wäre* is the verb in position 2 (straight after the comma if the *wenn* clause comes first) and the participle goes to the end.
 
-And again, *wenn* can be dropped if the verb comes first: *Hätte ich das gewusst, wäre ich zu Hause geblieben.* This is very common in speech, especially in the short exclamation *Hätte ich das bloß gewusst!* — If only I'd known!
+And again, *wenn* can be dropped if the verb comes first: *Hätte ich das gewusst, wäre ich zu Hause geblieben.* You'll meet this in writing and in speech, especially in the short exclamation *Hätte ich das bloß gewusst!* — If only I'd known!
 
 ### Mixing past and present
 
@@ -84,7 +84,7 @@ When something nearly happened but didn't, German uses the past subjunctive with
 - *Fast hätten wir den Flug verpasst.* — We nearly missed the flight.
 - *Das hätte ich fast vergessen!* — I almost forgot that!
 
-Compare: *Ich bin fast gefallen* (indicative) is also heard in speech, but the Konjunktiv is the standard way to express a near miss. The feeling afterwards: *Ich war total erleichtert.* — I was so relieved. *Was für eine Erleichterung!* — What a relief!
+Compare: *Ich bin fast hingefallen* (indicative) is also correct and common in speech, but the Konjunktiv makes it extra clear that it didn't happen, and it's the usual choice in writing. The feeling afterwards: *Ich war total erleichtert.* — I was so relieved. *Was für eine Erleichterung!* — What a relief!
 
 ## Alternative histories
 
@@ -163,7 +163,7 @@ More words for mistakes, luck and blame:
 - Indicative in the wenn clause: ~~Wenn ich das gewusst habe, wäre ich gekommen.~~ → *Wenn ich das gewusst hätte, …*
 - Participle of the modal: ~~Ich hätte anrufen gesollt.~~ → *Ich hätte anrufen sollen.* With another verb, the modal stays an infinitive.
 - wäre with a modal: ~~Ich wäre früher losfahren sollen.~~ → *Ich hätte früher losfahren sollen.* Modals always take *hätte*.
-- Translating "almost" with the indicative in writing: *Ich bin fast gefallen* is spoken; *Ich wäre fast gefallen* is the standard.
+- Near misses: *Ich bin fast hingefallen* isn't wrong, but learners often don't know the typical German pattern *Ich wäre fast gefallen*. Use it, especially in writing.
 - Mixing up schuld and Schuld: *Ich bin schuld* (small *s*, with *sein*) but *Das ist meine Schuld* (noun, capital *S*).
 
 ## Key points

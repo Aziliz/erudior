@@ -7,7 +7,7 @@ topics: [Verbs with prepositions, Adjectives with prepositions, Nouns with prepo
 ---
 ## What this lesson is for
 
-In German A2 (lesson 6) you learned the first twenty verbs with a fixed preposition: *warten auf, denken an, sich interessieren für, Angst haben vor …* and how to ask about them with *worauf?* or *auf wen?* At B1 the list gets much longer, and two new groups join it: adjectives (*stolz auf, zufrieden mit*) and nouns (*die Lust auf, das Interesse an*). The B1 exam expects you to use many of these correctly, and they are a big part of sounding natural.
+In German A2 (lesson 6) you learned your first verbs with a fixed preposition: *warten auf, denken an, sich interessieren für, Angst haben vor …* and how to ask about them with *worauf?* or *auf wen?* At B1 the list gets much longer, and two new groups join it: adjectives (*stolz auf, zufrieden mit*) and nouns (*die Lust auf, das Interesse an*). The B1 exam expects you to use many of these correctly, and they are a big part of sounding natural.
 
 This lesson gives you the big table, a few rules of thumb for the case, and a lot of practice in context. The theme is interests, emotions and attitudes: what people are enthusiastic about, what they worry about and what they can't do without. The full list is also in the reference sheet for this module.
 
@@ -75,7 +75,7 @@ Many adjectives also come with a fixed preposition. These **prepositional adject
 
 *gespannt* is hard to translate: it's the feeling of waiting to find out what will happen, half excited and half curious. *Ich bin gespannt, ob es klappt.* — I'm curious to see whether it works. *Wir sind gespannt auf das Ergebnis.* — We can't wait to hear the result.
 
-Position: the prepositional phrase can come before the adjective (*mit dem Ergebnis zufrieden*) or after it (*zufrieden mit dem Ergebnis*). In speech, after is more common with longer phrases; in writing, before is a little more formal.
+Position: the prepositional phrase can come before the adjective (*Ich bin mit dem Ergebnis zufrieden*) or after it (*Ich bin zufrieden mit dem Ergebnis*). Both are correct; before the adjective is the more neutral order, and after it is common in speech.
 
 ## Nouns with prepositions
 
@@ -192,9 +192,9 @@ Notes: *die Werkstatt* is a workshop; *wegwerfen* (to throw away) is strong: *wa
 
 - English prepositions: ~~stolz von~~ → *stolz auf*; ~~interessiert in~~ → *interessiert an*; ~~abhängen auf~~ → *abhängen von*.
 - Wrong case: ~~Ich bin mit den Ergebnis zufrieden~~ → *mit dem Ergebnis* (dative). ~~Ich zweifle an seine Ehrlichkeit~~ → *an seiner Ehrlichkeit* (dative).
-- The noun is different: ~~das Interesse für Musik~~ → *das Interesse an Musik*, although the verb is *sich interessieren für*.
+- The noun is different: *Interesse haben* goes with *an*: ~~Ich habe Interesse für Musik~~ → *Ich habe Interesse an Musik*, although the verb is *sich interessieren für*. (*für* appears only in set phrases like *Interesse für etwas zeigen*.)
 - Forgetting the reflexive pronoun: ~~Ich beschäftige mit Politik.~~ → *Ich beschäftige mich mit Politik.*
-- Forgetting the *da-*word before a clause: ~~Ich bin stolz, dass …~~ is heard, but the standard is *Ich bin stolz darauf, dass …*; ~~Es hängt ab, ob …~~ → *Es hängt davon ab, ob …*
+- Forgetting the *da-*word before a clause: ~~Es hängt ab, ob …~~ → *Es hängt davon ab, ob …* With some adjectives the *da-*word is optional (*Ich bin stolz, dass …* is fine too), but *Ich bin stolz darauf, dass …* is always correct, so use it.
 - *wo-*word for a person: ~~Worauf bist du böse? — Auf meinen Bruder.~~ → *Auf wen bist du böse?*
 
 ## Key points
