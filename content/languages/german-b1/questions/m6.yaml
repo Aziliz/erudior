@@ -1,0 +1,563 @@
+# German B1, module 6: Living independently and the B1 exam (lessons 26–30)
+
+# --- 26 The health system; reported speech ---
+- id: de3-q-2601
+  lesson: de3-health-system
+  module_quiz: true
+  topic: Reported speech
+  stem: 'Tom says: "Ich bin krank." Which report is correct?'
+  choices: ['Tom sagt, dass ich krank bin.', 'Tom sagt, dass er ist krank.', 'Tom sagt, ob er krank ist.', 'Tom sagt, dass er krank ist.']
+  answer: 3
+  explanation: |-
+    When you report Tom's words, "ich" becomes "er", and after dass the verb goes to the end: dass er krank ist. "dass ich krank bin" would mean you are ill. "ob" is only for yes/no questions.
+- id: de3-q-2602
+  lesson: de3-health-system
+  topic: Reported speech
+  stem: 'Complete: "Die Ärztin fragt, ___ ich Fieber habe."'
+  choices: ['wenn', 'dass', 'ob', 'was']
+  answer: 2
+  explanation: |-
+    A reported yes/no question ("Haben Sie Fieber?") starts with ob (whether, if). English "if" tempts learners to use wenn, but wenn is for conditions and repeated times. dass is for statements, not questions.
+- id: de3-q-2603
+  lesson: de3-health-system
+  topic: Reported speech
+  stem: 'The receptionist asks: "Wann haben Sie Zeit?" Which report is correct?'
+  choices: ['Sie fragt, wann habe ich Zeit.', 'Sie fragt, wann ich Zeit habe.', 'Sie fragt, ob wann ich Zeit habe.', 'Sie fragt, dass ich wann Zeit habe.']
+  answer: 1
+  explanation: |-
+    A reported W-question keeps the question word (wann) and puts the verb at the end: wann ich Zeit habe. Keeping question order (wann habe ich) is the typical mistake. Don't add ob or dass to a W-question.
+- id: de3-q-2604
+  lesson: de3-health-system
+  module_quiz: true
+  topic: Reported speech
+  stem: 'The doctor said: "Nehmen Sie die Tabletten nach dem Essen." Which report is the natural one?'
+  choices: ['Der Arzt hat gesagt, ich soll die Tabletten nach dem Essen nehmen.', 'Der Arzt hat gesagt, ich nehme die Tabletten nach dem Essen.', 'Der Arzt hat gesagt, dass ich die Tabletten nach dem Essen nehmen sollen.', 'Der Arzt hat gesagt, dass nehmen Sie die Tabletten nach dem Essen.']
+  answer: 0
+  explanation: |-
+    Reported instructions use sollen: ich soll … nehmen. "ich nehme" reports a fact, not an instruction. "ich … sollen" has the wrong ending (ich soll), and the last option keeps the original command after dass.
+- id: de3-q-2605
+  lesson: de3-health-system
+  topic: Konjunktiv I
+  stem: 'In a news report you read: "Der Minister sagte, das System sei stabil." What does "sei" tell you?'
+  choices: ['The newspaper is reporting what the minister said, without claiming it is true.', 'It is a command: Be stable!', 'It is a spelling mistake for "ist".', 'It describes something that will happen in the future.']
+  answer: 0
+  explanation: |-
+    sei is the Konjunktiv I of sein. News texts use it to show that they are only passing on someone's words: the system is stable, according to the minister. It looks a little like the imperative sei!, but here it has a subject (das System).
+- id: de3-q-2606
+  lesson: de3-health-system
+  module_quiz: true
+  topic: Konjunktiv I
+  stem: 'Complete the news sentence: "Die Ärzte sagen, sie ___ zu wenig Zeit für ihre Patienten."'
+  choices: ['haben', 'habe', 'hätten', 'hatten']
+  answer: 2
+  explanation: |-
+    The Konjunktiv I of haben for sie (plural) is haben, which looks exactly like the indicative. So news writers switch to the Konjunktiv II: hätten. habe is only for er/sie/es, and hatten is the simple past.
+- id: de3-q-2607
+  lesson: de3-health-system
+  topic: Health system
+  stem: 'Your family doctor gives you "eine Überweisung". What is it?'
+  choices: ['a bank transfer to the doctor', 'a sick note for your employer', 'a prescription for medicine', 'a referral to a specialist']
+  answer: 3
+  explanation: |-
+    At the doctor's, eine Überweisung is a referral: it sends you on to a Facharzt or Fachärztin. You know the word from A2 as a bank transfer, but here the meaning is "sent over to someone else". A sick note is eine Krankmeldung; a prescription is ein Rezept.
+- id: de3-q-2608
+  lesson: de3-health-system
+  topic: Health system
+  stem: 'Which sentence is correct?'
+  choices: ['Man kann eine Erkältung mit viel Schlaf vorbeugen.', 'Man kann einer Erkältung mit viel Schlaf vorbeugen.', 'Man kann einer Erkältung mit viel Schlaf vorgebeugt.', 'Man vorbeugt einer Erkältung mit viel Schlaf.']
+  answer: 1
+  explanation: |-
+    vorbeugen takes the dative (einer Erkältung) and is separable. After the modal kann, the infinitive goes to the end: vorbeugen. The accusative eine Erkältung is the common mistake; vorgebeugt is the participle, and "man vorbeugt" doesn't separate the prefix.
+- id: de3-q-2609
+  lesson: de3-health-system
+  topic: Health system
+  stem: 'Your boss asks you for a "Krankmeldung". What does she want?'
+  choices: ['a referral to a specialist', 'a doctor''s note saying you are unable to work', 'your health insurance card', 'the date of your next appointment']
+  answer: 1
+  explanation: |-
+    Die Krankmeldung is the sick note. The doctor writes it when he or she krankschreibt you (signs you off sick). In Germany employers usually need it from the fourth day of illness, some from the first.
+- id: de3-q-2610
+  lesson: de3-health-system
+  topic: Reported speech
+  stem: 'Which sentence is NOT correct?'
+  choices: ['Sie sagt, dass sie kommt später.', 'Sie sagt, sie kommt später.', 'Sie sagt, dass sie später kommt.', 'Sie hat gesagt, sie würde später kommen.']
+  answer: 0
+  explanation: |-
+    After dass the verb must go to the end: dass sie später kommt. Without dass, main-clause order is fine (Sie sagt, sie kommt später). The Konjunktiv II version is also normal in speech and adds a little distance.
+- id: de3-q-2611
+  lesson: de3-health-system
+  topic: Reported speech
+  stem: '"Was hat die Ärztin gesagt?" Which answer is correct?'
+  choices: ['Sie hat gesagt, ob ich mich zwei Tage ausruhe.', 'Sie hat gesagt, ich soll ausruhen mich zwei Tage.', 'Sie hat gefragt, dass ich mich zwei Tage ausruhen soll.', 'Sie hat gesagt, dass ich mich zwei Tage ausruhen soll.']
+  answer: 3
+  explanation: |-
+    An instruction is reported with dass … sollen, verb at the end, and the reflexive pronoun changes to fit the new speaker (mich). ob is for questions, "gefragt, dass" mixes a question verb with a statement, and the third option has the wrong word order.
+- id: de3-q-2612
+  lesson: de3-health-system
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Laut einer Studie warten Patienten im Durchschnitt sechs Wochen auf einen Termin beim Facharzt. Eine Sprecherin der Ärzte sagte, das Problem sei bekannt. Es gebe aber nicht genug Fachärzte auf dem Land." According to the text, what did the spokeswoman say?'
+  choices: ['That patients wait six weeks for their family doctor.', 'That the problem was new.', 'That there are not enough specialists in rural areas.', 'That there are too many specialists in the cities.']
+  answer: 2
+  explanation: |-
+    The Konjunktiv I forms sei and gebe report what the spokeswoman said: the problem is known, and there aren't enough specialists auf dem Land (in the countryside). The six weeks are for a Facharzt, not the family doctor, and the problem is bekannt (known), not new.
+- id: de3-q-2613
+  lesson: de3-health-system
+  topic: Reading
+  stem: 'A letter from a health insurance fund: "Ab diesem Jahr übernehmen wir einmal im Jahr die Kosten für eine professionelle Zahnreinigung. Bitte schicken Sie uns die Rechnung der Zahnarztpraxis per App oder bringen Sie sie zu einer Beratungsstelle. Für Brillen zahlen wir weiterhin einen Zuschuss von 50 Euro, aber nur mit Rezept. Reiseimpfungen bezahlen wir leider nicht." What must you do to get money for a teeth cleaning?'
+  choices: ['Nothing: the dentist sends the bill.', 'Get a prescription first.', 'Send or bring the dentist''s bill to the insurance fund.', 'Pay a contribution of 50 euros.']
+  answer: 2
+  explanation: |-
+    The letter says: schicken Sie uns die Rechnung … oder bringen Sie sie zu einer Beratungsstelle. The prescription (Rezept) and the 50 euros belong to the glasses, and travel vaccinations are not paid at all.
+
+# --- 27 Living together; lassen ---
+- id: de3-q-2701
+  lesson: de3-neighbourhood
+  module_quiz: true
+  topic: lassen
+  stem: 'You are having your bike repaired. Complete: "Ich ___ mein Fahrrad reparieren."'
+  choices: ['mache', 'lasse', 'habe', 'werde']
+  answer: 1
+  explanation: |-
+    To have something done by someone else, German uses lassen + infinitive: Ich lasse mein Fahrrad reparieren. "mache … reparieren" is a translation of a structure German doesn't have, and werde … reparieren would mean that you will repair it yourself.
+- id: de3-q-2702
+  lesson: de3-neighbourhood
+  topic: lassen
+  stem: 'Which sentence means "I''m having my hair cut"?'
+  choices: ['Ich lasse mir die Haare schneiden.', 'Ich schneide mir die Haare.', 'Ich lasse mir die Haare zu schneiden.', 'Ich mache mir die Haare schneiden.']
+  answer: 0
+  explanation: |-
+    Causative lassen + infinitive, with a dative reflexive pronoun for something done to yourself: Ich lasse mir die Haare schneiden. "Ich schneide mir die Haare" means you cut it yourself. lassen takes no zu.
+- id: de3-q-2703
+  lesson: de3-neighbourhood
+  module_quiz: true
+  topic: lassen
+  stem: 'Complete: "Wir haben die Heizung reparieren ___."'
+  choices: ['gelassen', 'gelasst', 'zu lassen', 'lassen']
+  answer: 3
+  explanation: |-
+    When lassen is used with another infinitive, its perfect has two infinitives at the end: haben … reparieren lassen, just like modal verbs. gelassen is used only when there is no other verb (Ich habe den Schlüssel im Auto gelassen).
+- id: de3-q-2704
+  lesson: de3-neighbourhood
+  topic: lassen
+  stem: 'Complete: "Ich habe meinen Schlüssel im Büro ___."'
+  choices: ['lassen', 'gelasst', 'gelässt', 'gelassen']
+  answer: 3
+  explanation: |-
+    Here lassen means "to leave" and there is no second infinitive, so the perfect uses the normal participle gelassen. The double-infinitive form (lassen) is only for lassen + another verb.
+- id: de3-q-2705
+  lesson: de3-neighbourhood
+  topic: sich lassen
+  stem: 'What does "Das Fenster lässt sich nicht öffnen." mean?'
+  choices: ['The window won''t open.', 'Leave the window closed.', 'Somebody didn''t let me open the window.', 'The window wasn''t opened.']
+  answer: 0
+  explanation: |-
+    sich lassen + infinitive means that something can (or can't) be done: the window can't be opened. It's common in complaints. It isn't an instruction, and no other person is involved.
+- id: de3-q-2706
+  lesson: de3-neighbourhood
+  topic: lassen
+  stem: 'What does "Meine Eltern lassen mich allein nach Berlin fahren." mean?'
+  choices: ['My parents leave me alone in Berlin.', 'My parents are having me driven to Berlin.', 'My parents let me go to Berlin alone.', 'My parents leave Berlin without me.']
+  answer: 2
+  explanation: |-
+    lassen + person + infinitive means to let (or make) someone do something. Here the person is mich and the infinitive is fahren: they allow me to travel alone. "leave me alone" would be Sie lassen mich allein, without a second verb.
+- id: de3-q-2707
+  lesson: de3-neighbourhood
+  module_quiz: true
+  topic: lassen
+  stem: 'Complete: "___ du das Auto waschen?" (Are you having the car washed?)'
+  choices: ['Lasst', 'Lässt', 'Last', 'Läst']
+  answer: 1
+  explanation: |-
+    lassen changes its vowel with du and er/sie/es: du lässt, er lässt, with ss. lasst (no umlaut) is the ihr form, and last and läst are misspellings.
+- id: de3-q-2708
+  lesson: de3-neighbourhood
+  topic: Reading
+  stem: 'A notice in the hall: "Liebe Mieterinnen und Mieter, am Dienstag, den 14. Mai, lassen wir die Heizungen im ganzen Haus prüfen. Ein Handwerker kommt zwischen 8 und 12 Uhr in jede Wohnung. Wenn Sie nicht zu Hause sein können, geben Sie Ihren Schlüssel bitte bis Montag bei Herrn Kaya im Erdgeschoss ab. Bitte stellen Sie im Treppenhaus keine Kinderwagen oder Fahrräder ab. Ihre Hausverwaltung" What should tenants do if they are at work on Tuesday morning?'
+  choices: ['Check the heating themselves.', 'Leave their key with Mr Kaya by Monday.', 'Phone the tradesman to arrange another day.', 'Move their bikes into the stairwell.']
+  answer: 1
+  explanation: |-
+    The notice says: wenn Sie nicht zu Hause sein können, geben Sie Ihren Schlüssel … bei Herrn Kaya ab. The property management is having the heating checked (lassen … prüfen), so tenants don't check it themselves, and bikes must not be left (abstellen) in the stairwell.
+- id: de3-q-2709
+  lesson: de3-neighbourhood
+  topic: Reading
+  stem: 'A note on the door: "Hallo zusammen, ich ziehe am Samstag um. Kann mir jemand ein paar Umzugskartons ausleihen? Als Dankeschön lade ich alle am Abend zum Grillen in den Hof ein. Viele Grüße, Jonas (3. Stock)" What does Jonas offer his neighbours?'
+  choices: ['A barbecue in the courtyard in the evening.', 'Some moving boxes.', 'Money for their help.', 'Help with their own move.']
+  answer: 0
+  explanation: |-
+    Jonas wants to borrow boxes (sich etwas ausleihen) and invites everyone zum Grillen in den Hof as a thank-you. He is asking for the boxes, not offering them.
+- id: de3-q-2710
+  lesson: de3-neighbourhood
+  topic: lassen
+  stem: 'What does "Lass uns morgen den Hausmeister anrufen!" mean?'
+  choices: ['Let the caretaker call us tomorrow!', 'Leave the caretaker alone tomorrow!', 'The caretaker lets us call him tomorrow.', 'Let''s call the caretaker tomorrow!']
+  answer: 3
+  explanation: |-
+    Lass uns … / Lasst uns … + infinitive is a suggestion, like English "Let's …". The subject who calls is "we" (uns), and den Hausmeister is the person called.
+- id: de3-q-2711
+  lesson: de3-neighbourhood
+  module_quiz: true
+  topic: Living together
+  stem: 'The tap in your kitchen drips. Which message to the property management is correct?'
+  choices: ['Der Wasserhahn in meiner Küche tropfen. Könnten Sie bitte einen Handwerker schicken?', 'Mein Wasserhahn tropft mich. Bitte lassen Sie reparieren.', 'Der Wasserhahn in meiner Küche tropft. Könnten Sie bitte einen Handwerker schicken?', 'Der Wasserhahn ist undicht gelassen. Schicken Sie bitte lassen.']
+  answer: 2
+  explanation: |-
+    Der Wasserhahn tropft (third person singular), followed by a polite Könnten Sie bitte …? The second option has the infinitive tropfen instead of tropft, and the others misuse lassen without an infinitive and an object.
+- id: de3-q-2712
+  lesson: de3-neighbourhood
+  topic: lassen
+  stem: 'Which sentence is correct?'
+  choices: ['Ich lasse die Wohnung streichen.', 'Ich lasse die Wohnung zu streichen.', 'Ich lasse streichen die Wohnung.', 'Ich lasse die Wohnung gestrichen.']
+  answer: 0
+  explanation: |-
+    lassen works like a modal verb: bare infinitive (no zu) at the end of the clause. "zu streichen" and the participle gestrichen are wrong here, and the infinitive can't come before the object.
+- id: de3-q-2713
+  lesson: de3-neighbourhood
+  topic: Living together
+  stem: 'What is a "Mieterverein"?'
+  choices: ['a club for landlords', 'a tenants'' association that advises its members', 'the company that manages the building', 'a neighbourhood party']
+  answer: 1
+  explanation: |-
+    Der Mieterverein is a tenants' association: for a small yearly fee it advises members on their rights, for example about a Mietminderung. The company that manages a building is die Hausverwaltung; a neighbourhood party is ein Nachbarschaftsfest.
+
+# --- 28 Travel and regions; presentations ---
+- id: de3-q-2801
+  lesson: de3-travel-regions
+  module_quiz: true
+  topic: hin and her
+  stem: 'You are inside your flat. Someone knocks at the door. You call: "___!"'
+  choices: ['Hinein', 'Hinaus', 'Herein', 'Herunter']
+  answer: 2
+  explanation: |-
+    her- marks movement towards the speaker. You are inside, so the visitor comes towards you: Herein! (Come in!). Hinein would be said by someone outside who sends a person in, away from themselves.
+- id: de3-q-2802
+  lesson: de3-travel-regions
+  topic: hin and her
+  stem: 'You are at the bottom of the stairs and call up to your friend at the top: "Ich komme gleich ___!"'
+  choices: ['herauf', 'herunter', 'heraus', 'hinauf']
+  answer: 3
+  explanation: |-
+    You move up, away from yourself as the speaker: hinauf. Your friend at the top would say Komm herauf! because for them you move towards them.
+- id: de3-q-2803
+  lesson: de3-travel-regions
+  topic: hin and her
+  stem: 'What does "Wo kommst du her?" mean?'
+  choices: ['Where are you going?', 'Where do you come from?', 'When are you coming?', 'Where are you now?']
+  answer: 1
+  explanation: |-
+    Wo … her is the split form of woher: where from. "Where are you going?" is Wo gehst du hin? (wohin). Spoken German often splits the question word like this.
+- id: de3-q-2804
+  lesson: de3-travel-regions
+  module_quiz: true
+  topic: Presentations
+  stem: 'Which sentence is correct?'
+  choices: ['Einerseits das Hotel ist billig, andererseits es liegt weit vom Zentrum.', 'Einerseits ist das Hotel billig, andererseits es liegt weit vom Zentrum.', 'Einerseits das Hotel billig ist, andererseits es weit vom Zentrum liegt.', 'Einerseits ist das Hotel billig, andererseits liegt es weit vom Zentrum.']
+  answer: 3
+  explanation: |-
+    einerseits and andererseits take position 1, like deshalb, so the verb comes straight after them: einerseits ist …, andererseits liegt … The other options keep English order or move the verb to the end.
+- id: de3-q-2805
+  lesson: de3-travel-regions
+  topic: Regions
+  stem: 'Switzerland is divided into …'
+  choices: ['Bundesländer', 'Grafschaften', 'Kantone', 'Provinzen']
+  answer: 2
+  explanation: |-
+    Switzerland has 26 Kantone. Germany (16) and Austria (9) are divided into Bundesländer.
+- id: de3-q-2806
+  lesson: de3-travel-regions
+  module_quiz: true
+  topic: Presentations
+  stem: 'Which sentence fits best at the START of a short presentation?'
+  choices: ['In meiner Präsentation geht es um die Frage, ob …', 'Abschließend möchte ich sagen, dass …', 'Vielen Dank fürs Zuhören.', 'Ein weiterer Nachteil ist, dass …']
+  answer: 0
+  explanation: |-
+    The introduction (Einleitung) names the topic: In meiner Präsentation geht es um … Abschließend and Vielen Dank fürs Zuhören belong to the conclusion, and pros and cons come in the middle.
+- id: de3-q-2807
+  lesson: de3-travel-regions
+  topic: Presentations
+  stem: 'Which phrase is used to conclude a presentation?'
+  choices: ['Zuerst erzähle ich von meinen Erfahrungen.', 'In meinem Heimatland ist das ganz anders.', 'Abschließend möchte ich sagen, dass …', 'Ich möchte heute über … sprechen.']
+  answer: 2
+  explanation: |-
+    abschließend means "to conclude, finally". The others belong to the introduction (Zuerst …, Ich möchte heute über …) or to the part about your home country.
+- id: de3-q-2808
+  lesson: de3-travel-regions
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Das Allgäu im Süden Bayerns ist ein beliebtes Reiseziel. In der Hauptsaison im Juli und August sind viele Hotels voll, und an den Seilbahnen wartet man oft lange. Wer Ruhe sucht, kommt besser im Juni oder im September. Dann sind die Preise niedriger, aber einige Hütten haben schon geschlossen." Which statement is true?'
+  choices: ['In July and August you hardly wait at the cable cars.', 'In September prices are lower, but some huts are already closed.', 'The Allgäu is in the north of Bavaria.', 'All huts are open in June and September.']
+  answer: 1
+  explanation: |-
+    The text says that in June and September die Preise niedriger sind, aber einige Hütten … geschlossen haben. In the high season you wait a long time (lange) at the cable cars, and the Allgäu is im Süden.
+- id: de3-q-2809
+  lesson: de3-travel-regions
+  topic: Tourism
+  stem: 'What is "die Nebensaison"?'
+  choices: ['the low season, when fewer tourists come', 'the high season', 'a second holiday in the same year', 'the winter sports season']
+  answer: 0
+  explanation: |-
+    Die Nebensaison is the low season: quieter and cheaper. The high season is die Hauptsaison. Saison is used for tourism, sport and fashion; the four seasons of the year are die Jahreszeiten.
+- id: de3-q-2810
+  lesson: de3-travel-regions
+  topic: hin and her
+  stem: 'In everyday speech, "Kommst du herein?" is usually shortened to …'
+  choices: ['Kommst du raus?', 'Kommst du runter?', 'Kommst du hin?', 'Kommst du rein?']
+  answer: 3
+  explanation: |-
+    herein and hinein both become rein in speech; heraus/hinaus become raus, herunter/hinunter become runter. "Kommst du hin?" isn't a short form of herein.
+- id: de3-q-2811
+  lesson: de3-travel-regions
+  topic: Regions
+  stem: 'What does "die Mundart" mean?'
+  choices: ['mouth', 'dialect', 'way of speaking politely', 'local art']
+  answer: 1
+  explanation: |-
+    Die Mundart is a traditional word for dialect (der Dialekt). It is built from der Mund (mouth) and die Art (kind, way), so "way of the mouth", but it simply means a regional way of speaking.
+- id: de3-q-2812
+  lesson: de3-travel-regions
+  topic: Presentations
+  stem: '"Was ist ein Vorteil der Nebensaison?" Which answer is correct?'
+  choices: ['Ein Vorteil ist, weil es billiger ist und ruhig.', 'Ein Vorteil sind, dass es billiger ist.', 'Ein Vorteil ist, dass es billiger und ruhiger ist.', 'Ein Vorteil ist, dass es ist billiger.']
+  answer: 2
+  explanation: |-
+    The set phrase is Ein Vorteil ist, dass … with the verb at the end of the dass clause. weil doesn't fit after "Ein Vorteil ist", the verb must agree with Vorteil (ist), and the last option puts the verb in second position after dass.
+- id: de3-q-2813
+  lesson: de3-travel-regions
+  module_quiz: true
+  topic: hin and her
+  stem: 'You are upstairs. Your friend is in the cellar. You ask him to bring a box up to you: "Kannst du die Kiste ___bringen?"'
+  choices: ['hinauf', 'herunter', 'hinunter', 'herauf']
+  answer: 3
+  explanation: |-
+    The box moves up, towards you as the speaker: heraufbringen. Your friend would say "Ich bringe sie hinauf" because from his point of view it moves away from him.
+
+# --- 29 Writing at B1 ---
+- id: de3-q-2901
+  lesson: de3-writing
+  module_quiz: true
+  topic: Register
+  stem: 'You write to your course teacher, Ms Brandt, whom you know well but call "Sie". Which opening fits best?'
+  choices: ['Liebe Frau Brandt,', 'Hallo Brandt,', 'Sehr geehrte Damen und Herren,', 'Liebe Brandt,']
+  answer: 0
+  explanation: |-
+    A semi-formal message uses Sie but a friendly opening: Liebe Frau Brandt, with the title Frau. Sehr geehrte Damen und Herren is for companies when you don't know the name, and the surname without Frau is impolite.
+- id: de3-q-2902
+  lesson: de3-writing
+  module_quiz: true
+  topic: Register
+  stem: 'Which closing fits a formal complaint to a company?'
+  choices: ['Liebe Grüße', 'Mit freundlichen Grüßen', 'Bis bald', 'Tschüss']
+  answer: 1
+  explanation: |-
+    Mit freundlichen Grüßen is the standard formal closing. Liebe Grüße and Bis bald are for friends; Tschüss is spoken and informal.
+- id: de3-q-2903
+  lesson: de3-writing
+  topic: Writing conventions
+  stem: 'The e-mail begins "Liebe Frau Kraus,". Which next line is correct?'
+  choices: ['vielen Dank für Ihre Nachricht.', 'Vielen Dank für ihre Nachricht.', 'vielen Dank für ihre Nachricht.', 'Vielen dank für Ihre Nachricht.']
+  answer: 0
+  explanation: |-
+    After the comma of the opening, German starts the next line with a small letter: vielen Dank. The polite Ihre always has a capital (ihre would mean "her"), and Dank is a noun, so it has a capital too.
+- id: de3-q-2904
+  lesson: de3-writing
+  topic: Punctuation
+  stem: 'Which sentence has the comma in the right place?'
+  choices: ['Ich schreibe Ihnen weil, ich mich nach dem Kurs erkundigen möchte.', 'Ich schreibe, Ihnen weil ich mich nach dem Kurs erkundigen möchte.', 'Ich schreibe Ihnen, weil ich mich nach dem Kurs erkundigen möchte.', 'Ich schreibe Ihnen weil ich mich, nach dem Kurs erkundigen möchte.']
+  answer: 2
+  explanation: |-
+    German puts a comma before every subordinate clause, so before weil. The comma never comes after the conjunction or in the middle of the clause.
+- id: de3-q-2905
+  lesson: de3-writing
+  module_quiz: true
+  topic: Letters
+  stem: 'Complete: "Ich möchte mich ___ den Preisen für den Kurs erkundigen."'
+  choices: ['über', 'für', 'von', 'nach']
+  answer: 3
+  explanation: |-
+    sich erkundigen goes with nach + dative: sich nach den Preisen erkundigen (to ask about the prices). über and für are guesses from English "about" and "for".
+- id: de3-q-2906
+  lesson: de3-writing
+  topic: Reading
+  stem: 'A forum post: "Ich finde, dass Vermieter Haustiere grundsätzlich erlauben sollten. Natürlich kann ein Hund laut sein, und manche Nachbarn haben Allergien. Aber für viele ältere Menschen ist ein Haustier der wichtigste Freund. Meine Mutter lebt allein, und seit sie eine Katze hat, ist sie viel glücklicher. Mein Fazit: Regeln ja, Verbote nein." What is the writer''s position?'
+  choices: ['Pets should generally be allowed, with rules.', 'Pets should be banned because of allergies.', 'Only cats should be allowed.', 'Older people shouldn''t keep pets.']
+  answer: 0
+  explanation: |-
+    The writer takes a position in the first sentence (Haustiere grundsätzlich erlauben), mentions the other side (noise, allergies) and ends with a Fazit: rules yes, bans no. Cats are only the personal example.
+- id: de3-q-2907
+  lesson: de3-writing
+  topic: Writing conventions
+  stem: 'What does "bzw." stand for?'
+  choices: ['bezahlt werden', 'beziehungsweise', 'bezüglich weiter', 'besonders zwar']
+  answer: 1
+  explanation: |-
+    bzw. is short for beziehungsweise (or, or rather, respectively): Ich komme am Montag bzw. am Dienstag. sowie (as well as) is another formal linking word that is never abbreviated.
+- id: de3-q-2908
+  lesson: de3-writing
+  module_quiz: true
+  topic: Register
+  stem: 'Which sentence is a polite request in a semi-formal e-mail to your teacher?'
+  choices: ['Schick mir bitte die Hausaufgaben!', 'Sie müssen mir die Hausaufgaben schicken.', 'Hausaufgaben schicken, danke.', 'Könnten Sie mir bitte die Hausaufgaben schicken?']
+  answer: 3
+  explanation: |-
+    Könnten Sie … bitte …? is the key polite form. The second option uses du, which is wrong for a teacher you call Sie, "Sie müssen" sounds like an order, and the last is not a sentence.
+- id: de3-q-2909
+  lesson: de3-writing
+  topic: Letters
+  stem: 'In a complaint you ask for "Ersatz". What do you want?'
+  choices: ['an apology', 'a discount voucher', 'a replacement', 'a delivery date']
+  answer: 2
+  explanation: |-
+    Der Ersatz is a replacement (or a substitute): einen kostenlosen Ersatz bekommen. An apology is eine Entschuldigung. Other things you might ask for are a repair, an exchange (der Umtausch) or your money back.
+- id: de3-q-2910
+  lesson: de3-writing
+  topic: Writing conventions
+  stem: 'What is wrong with this ending? "Mit freundlichen Grüßen, Anna Weber"'
+  choices: ['"freundlichen" needs a capital letter.', 'It should be "Mit freundliche Grüße".', '"Grüßen" should be written with ss.', 'There should be no comma after "Grüßen".']
+  answer: 3
+  explanation: |-
+    German puts no punctuation after the closing formula: Mit freundlichen Grüßen, then your name on a new line. The adjective stays lower case, the phrase needs the dative (freundlichen Grüßen), and ß is correct after the long ü.
+- id: de3-q-2911
+  lesson: de3-writing
+  module_quiz: true
+  topic: Writing conventions
+  stem: 'Complete: "Ich hoffe, ___ Sie mein Anliegen schnell bearbeiten."'
+  choices: ['das', 'dass', 'was', 'ob']
+  answer: 1
+  explanation: |-
+    After hoffen, a clause with the verb at the end starts with the conjunction dass. das is an article or pronoun (test: could you say dieses or welches? No). ob is for indirect yes/no questions.
+- id: de3-q-2912
+  lesson: de3-writing
+  topic: Reading
+  stem: 'Read: "Liebe Frau Ott, vielen Dank für die Einladung zu Ihrem Gartenfest am Samstag. Leider kann ich nicht kommen, weil meine Schwester an diesem Tag heiratet. Ich hoffe, wir sehen uns bald im Treppenhaus! Viele Grüße, Hanna Berg" Why is Hanna writing?'
+  choices: ['To decline an invitation.', 'To invite Ms Ott to a wedding.', 'To complain about a party.', 'To ask about a problem in the stairwell.']
+  answer: 0
+  explanation: |-
+    Hanna thanks Ms Ott for the invitation (Einladung) and says leider kann ich nicht kommen, with a reason (weil …). It's a typical semi-formal message: Liebe Frau Ott, Sie, Viele Grüße. The stairwell is only mentioned in a friendly closing sentence.
+- id: de3-q-2913
+  lesson: de3-writing
+  topic: Writing conventions
+  stem: 'Which kind of text usually has no "Anrede" and no "Grußformel"?'
+  choices: ['a formal complaint', 'a semi-formal e-mail to a teacher', 'a forum post', 'an informal e-mail to a friend']
+  answer: 2
+  explanation: |-
+    A forum post often starts straight with your opinion, or with a short Hallo zusammen. All kinds of letters and e-mails have an opening (Anrede) and a closing (Grußformel) in the right register.
+
+# --- 30 The Goethe-Zertifikat B1 and review ---
+- id: de3-q-3001
+  lesson: de3-exam-review
+  module_quiz: true
+  topic: B1 exam
+  stem: 'How long is the reading module (Lesen) of the adult Goethe-Zertifikat B1?'
+  choices: ['30 minutes', '40 minutes', '65 minutes', '90 minutes']
+  answer: 2
+  explanation: |-
+    Lesen takes 65 minutes for five parts. Hören takes about 40 minutes, Schreiben 60 minutes and Sprechen about 15 minutes plus 15 minutes of preparation. 30 minutes was the A2 reading time.
+- id: de3-q-3002
+  lesson: de3-exam-review
+  module_quiz: true
+  topic: B1 exam
+  stem: 'How many points do you need to pass a module of the Goethe-Zertifikat B1?'
+  choices: ['45 out of 75', '60 out of 100', '50 out of 100', '75 out of 100']
+  answer: 1
+  explanation: |-
+    Each module is scored out of 100 points and passed with 60. "45 out of 75" was the rule for the written part of the A2 exam.
+- id: de3-q-3003
+  lesson: de3-exam-review
+  topic: B1 exam
+  stem: 'Which of these is NOT one of the B1 writing tasks?'
+  choices: ['an informal e-mail of about 80 words', 'a forum post giving your opinion', 'a semi-formal e-mail of about 40 words', 'an essay of 200 words']
+  answer: 3
+  explanation: |-
+    Schreiben has three tasks: an informal e-mail (about 80 words), a forum post with your opinion (about 80 words) and a semi-formal e-mail (about 40 words). Long essays come at higher levels.
+- id: de3-q-3004
+  lesson: de3-exam-review
+  topic: B1 exam
+  stem: 'You passed Lesen, Schreiben and Sprechen, but failed Hören. What can you do?'
+  choices: ['Retake only the Hören module.', 'Retake all four modules.', 'Wait two years before you try again.', 'Nothing: the result is final.']
+  answer: 0
+  explanation: |-
+    The adult B1 exam is modular: you can take and repeat each module separately. Results from the same year can often be combined into one certificate, but check the rules with your exam centre.
+- id: de3-q-3005
+  lesson: de3-exam-review
+  module_quiz: true
+  topic: B1 exam
+  stem: 'You score 74 points in a module. What is your grade?'
+  choices: ['gut', 'ausreichend', 'sehr gut', 'befriedigend']
+  answer: 3
+  explanation: |-
+    The grades: 90–100 sehr gut, 80–89 gut, 70–79 befriedigend, 60–69 ausreichend. 74 falls in the befriedigend band.
+- id: de3-q-3006
+  lesson: de3-exam-review
+  topic: B1 exam
+  stem: 'What happens in the speaking module (Sprechen)?'
+  choices: ['In pairs, you plan something together, give a short presentation and react to your partner''s.', 'You talk alone with the examiner about your life for an hour.', 'You read a text aloud and answer questions on it.', 'You listen to a dialogue and summarize it.']
+  answer: 0
+  explanation: |-
+    Sprechen is taken in pairs: after 15 minutes of preparation you plan something together, each give a short presentation, and react to the partner's presentation and answer questions. It lasts about 15 minutes.
+- id: de3-q-3007
+  lesson: de3-exam-review
+  module_quiz: true
+  topic: Exam language
+  stem: 'An instruction says: "Ordnen Sie die Anzeigen den Situationen zu." What do you do?'
+  choices: ['Write an ad for each situation.', 'Match the ads to the situations.', 'Put the ads in the right order.', 'Correct the mistakes in the ads.']
+  answer: 1
+  explanation: |-
+    zuordnen means to match or assign: etwas (Akk) einer Sache (Dat) zuordnen. Putting things in order would be in die richtige Reihenfolge bringen.
+- id: de3-q-3008
+  lesson: de3-exam-review
+  topic: Exam language
+  stem: 'What does "Trifft das auf Sie zu?" mean?'
+  choices: ['Are you going to meet them?', 'Did that hit you?', 'Does that apply to you?', 'Do you agree with them?']
+  answer: 2
+  explanation: |-
+    zutreffen auf + accusative means to apply to, to be true of. It's built on treffen, but it has nothing to do with meeting or hitting.
+- id: de3-q-3009
+  lesson: de3-exam-review
+  module_quiz: true
+  topic: Course review
+  stem: 'Which sentence is correct?'
+  choices: ['Die Brücke wurde 1990 gebaut worden.', 'Die Brücke ist 1990 gebaut geworden.', 'Die Brücke hat 1990 gebaut worden.', 'Die Brücke wurde 1990 gebaut.']
+  answer: 3
+  explanation: |-
+    The passive Präteritum is wurde + participle: wurde gebaut. The Perfekt would be ist … gebaut worden (worden, not geworden, and with sein). The other options mix the two.
+- id: de3-q-3010
+  lesson: de3-exam-review
+  topic: Course review
+  stem: 'Complete: "Je mehr ich lese, ___ besser verstehe ich."'
+  choices: ['dann', 'desto', 'als', 'wie']
+  answer: 1
+  explanation: |-
+    je + comparative … desto (or umso) + comparative: Je mehr ich lese, desto besser verstehe ich. The je part has the verb at the end; after desto besser the verb comes next.
+- id: de3-q-3011
+  lesson: de3-exam-review
+  module_quiz: true
+  topic: Course review
+  stem: 'Complete: "Wenn ich mehr Zeit ___, würde ich öfter reisen."'
+  choices: ['hätte', 'habe', 'hatte', 'hat']
+  answer: 0
+  explanation: |-
+    An unreal condition uses the Konjunktiv II: Wenn ich mehr Zeit hätte, würde ich … The form hatte (no umlaut) is the simple past and doesn't make the sentence hypothetical.
+- id: de3-q-3012
+  lesson: de3-exam-review
+  topic: Course review
+  stem: 'Complete: "Das ist die Frau, mit ___ ich gesprochen habe."'
+  choices: ['die', 'dem', 'der', 'denen']
+  answer: 2
+  explanation: |-
+    mit takes the dative, and die Frau is feminine singular, so the relative pronoun is der. dem is masculine or neuter, denen is plural, and die is nominative or accusative.
+- id: de3-q-3013
+  lesson: de3-exam-review
+  topic: Course review
+  stem: 'Which sentence is correct?'
+  choices: ['Obwohl es regnet, wir gehen spazieren.', 'Obwohl es regnet, gehen wir spazieren.', 'Obwohl regnet es, gehen wir spazieren.', 'Trotzdem es regnet, gehen wir spazieren.']
+  answer: 1
+  explanation: |-
+    obwohl starts a subordinate clause (verb at the end), and the whole clause counts as position 1, so the main verb comes next: gehen wir. trotzdem is an adverb, not a conjunction.
+- id: de3-q-3014
+  lesson: de3-exam-review
+  topic: B1 level
+  stem: 'Which description fits the CEFR level B1?'
+  choices: ['You can understand almost everything you hear without effort.', 'You can only use a few simple phrases about yourself.', 'You can follow complex technical discussions in any field.', 'You can describe experiences and plans and briefly give reasons for your opinions.']
+  answer: 3
+  explanation: |-
+    B1 users can describe experiences, events, hopes and plans and briefly explain their opinions. Understanding nearly everything is C2, only simple phrases is A1, and technical discussions in your own field are B2.

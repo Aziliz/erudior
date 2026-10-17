@@ -1,0 +1,50 @@
+# German B1, module 4: Society and the world (lessons 16–20)
+
+- term: passive
+  aliases: [passive voice, Passiv, Vorgangspassiv, werden-passive]
+  definition: 'A sentence form in which the subject is the person or thing the action is done to, not the one doing it. German builds it with werden + past participle: Das Glas wird gesammelt (present), Das Haus wurde 1900 gebaut (Präteritum), Mein Rad ist gestohlen worden (Perfekt), Der Antrag muss eingereicht werden (with a modal). Used for processes, rules, news and when the doer is unknown or unimportant.'
+  topic: Passive
+- term: active
+  aliases: [active voice, Aktiv]
+  definition: 'The normal sentence form, in which the subject does the action: Der Hausmeister leert die Tonnen. Its accusative object becomes the subject of the passive: Die Tonnen werden geleert.'
+  topic: Passive
+- term: agent
+  aliases: [agents]
+  definition: 'In a passive sentence, the person or thing that does the action. It is usually left out; if needed, it is added with von + dative for a person or organisation (Der Müll wird von der Stadt abgeholt) or durch + accusative for a means or cause (Die Luft wird durch Abgase verschmutzt).'
+  topic: Passive
+- term: state passive
+  aliases: [Zustandspassiv, statal passive]
+  definition: 'sein + past participle, describing the state that results from an action rather than the action itself: Die Straße ist gesperrt (the road is closed) vs Die Straße wurde gesperrt (the road was closed, an action). Common on signs: Heute geschlossen.'
+  topic: Passive
+- term: impersonal passive
+  aliases: [subjectless passive, impersonal passives]
+  definition: 'A passive without a subject, made from a verb without an object, saying that an activity takes place: Hier wird nicht geraucht. Gestern wurde lange gefeiert. If nothing else stands in position 1, es fills it: Es wurde viel gelacht.'
+  topic: Passive
+- term: passive infinitive
+  aliases: [Infinitiv Passiv]
+  definition: 'Past participle + werden, the passive form used after modal verbs: Das Formular muss unterschrieben werden. Die Fahrräder dürfen hier nicht abgestellt werden. In a subordinate clause the modal follows it: …, dass es repariert werden muss.'
+  topic: Passive
+- term: sein + zu
+  aliases: [sein + zu + infinitive, sein zu]
+  definition: 'sein + zu + infinitive, a formal short form of a passive with müssen or können: Der Antrag ist bis Freitag einzureichen (= muss eingereicht werden). Das Problem ist leicht zu lösen (= kann leicht gelöst werden). Typical of official letters and instructions.'
+  topic: Passive
+- term: -bar adjective
+  aliases: [-bar adjectives, bar adjective, adjective in -bar]
+  definition: 'An adjective formed from a verb with the ending -bar, meaning "can be …-ed", like English -able: machbar (doable), erreichbar (reachable), lesbar (legible), bezahlbar (affordable). With un- it turns negative: unlesbar.'
+  topic: Word formation
+- term: da-compound
+  aliases: [da-compounds, da-word, da-words, Pronominaladverb, da(r)-compound]
+  definition: 'da + a preposition (with r before a vowel), standing for a thing or idea already mentioned: Ich denke daran. Ich bin dafür. Not used for people: Ich warte auf ihn, not darauf.'
+  topic: Da- and wo- compounds
+- term: wo-compound
+  aliases: [wo-compounds, wo-word, wo-words, wo(r)-compound]
+  definition: 'wo + a preposition (with r before a vowel), asking about a thing or idea: Worüber sprecht ihr? Woran denkst du? For people use the preposition + wen or wem: An wen denkst du? It can also start a relative clause after etwas, nichts or alles: etwas, worüber ich nachdenke.'
+  topic: Da- and wo- compounds
+- term: forward-pointing da-compound
+  aliases: [forward-pointing da-compounds, anticipatory da-compound, Korrelat, correlate]
+  definition: 'A da-compound in the main clause that announces a following dass-, ob-, W- or zu-clause as the object of a verb with a fixed preposition: Ich freue mich darauf, dich zu sehen. Es kommt darauf an, ob es regnet. Ich bin dafür, dass wir bleiben.'
+  topic: Da- and wo- compounds
+- term: nominal style
+  aliases: [Nominalstil, nominalisation, nominalization]
+  definition: 'Expressing an action with a noun (often ending in -ung) plus a genitive instead of a verb: die Einführung des Gesetzes (= das Gesetz wird eingeführt). Typical of news, headlines and official texts; to understand it, turn the noun back into a verb.'
+  topic: Style

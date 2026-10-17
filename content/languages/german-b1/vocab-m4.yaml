@@ -87,7 +87,7 @@
   lesson: de3-passive-present
   term: wiederverwerten
   pos: verb
-  meanings: [to recycle, to reuse]
+  meanings: [to recycle (formal), to recycle, to reuse]
   example: Altes Papier wird wiederverwertet.
   exampleEn: Old paper is recycled.
   note: 'Separable: man verwertet das Glas wieder. Participle without ge-: wiederverwertet. In speech also recyceln (hat recycelt).'
@@ -130,7 +130,7 @@
   term: der Verbrauch
   pos: noun
   plural: —
-  meanings: [consumption, use (amount used)]
+  meanings: [consumption (amount used), consumption, use (amount used)]
   example: Der Verbrauch von Wasser ist im Sommer höher.
   exampleEn: Water consumption is higher in summer.
   note: The noun to verbrauchen.
@@ -200,13 +200,6 @@
   example: Der Abfall wird in Containern gesammelt.
   exampleEn: The waste is collected in containers.
   note: More formal than der Müll.
-- id: umweltfreundlich
-  lesson: de3-passive-present
-  term: umweltfreundlich
-  pos: adjective
-  meanings: [environmentally friendly, eco-friendly, green]
-  example: Das Fahrrad ist das umweltfreundlichste Verkehrsmittel.
-  exampleEn: The bike is the most environmentally friendly means of transport.
 - id: kunststoff
   lesson: de3-passive-present
   term: der Kunststoff
@@ -250,15 +243,6 @@
   example: Die Industrie braucht viel Energie.
   exampleEn: Industry needs a lot of energy.
   note: 'Stress on the last syllable: in-dus-TRIE.'
-- id: ware
-  lesson: de3-passive-present
-  term: die Ware
-  pos: noun
-  plural: die Waren
-  meanings: [goods, product (for sale), merchandise, wares]
-  example: Die Ware wird morgen geliefert.
-  exampleEn: The goods will be delivered tomorrow.
-  note: 'Often in the plural: die Waren.'
 - id: wegwerfen
   lesson: de3-passive-present
   term: wegwerfen
@@ -293,6 +277,14 @@
   example: Die Industrie braucht große Mengen Wasser.
   exampleEn: Industry needs large amounts of water.
   note: 'eine Menge = a lot: Ich habe eine Menge Arbeit.'
+- id: waerme
+  lesson: de3-passive-present
+  term: die Wärme
+  pos: noun
+  plural: —
+  meanings: [warmth, heat (warmth)]
+  example: Die Wärme aus dem Kraftwerk wird zum Heizen genutzt.
+  exampleEn: The heat from the power station is used for heating.
 
 # --- 17 What was done: the passive in the past ---
 - id: meldung
@@ -457,22 +449,6 @@
   meanings: [reporter (female), reporter]
   example: Die Reporterin war als Erste am Unfallort.
   exampleEn: The reporter was the first at the scene of the accident.
-- id: leser
-  lesson: de3-passive-past
-  term: der Leser
-  pos: noun
-  plural: die Leser
-  meanings: [reader (male), reader]
-  example: Viele Leser haben uns geschrieben.
-  exampleEn: Many readers have written to us.
-- id: leserin
-  lesson: de3-passive-past
-  term: die Leserin
-  pos: noun
-  plural: die Leserinnen
-  meanings: [reader (female), reader]
-  example: Eine Leserin hat uns ein Foto geschickt.
-  exampleEn: A reader sent us a photo.
 - id: brand
   lesson: de3-passive-past
   term: der Brand
@@ -491,15 +467,6 @@
   example: Ruf sofort die Feuerwehr!
   exampleEn: Call the fire brigade right away!
   note: 'Emergency number in Germany: 112.'
-- id: opfer
-  lesson: de3-passive-past
-  term: das Opfer
-  pos: noun
-  plural: die Opfer
-  meanings: [victim, casualty, sacrifice]
-  example: Das Museum wurde Opfer eines Diebstahls.
-  exampleEn: The museum became the victim of a theft.
-  note: 'Always neuter, even for a man or woman: das Opfer.'
 - id: retten
   lesson: de3-passive-past
   term: retten
@@ -549,30 +516,46 @@
   example: Die erste deutsche Eisenbahn fuhr 1835.
   exampleEn: The first German railway ran in 1835.
   note: 'In everyday speech: die Bahn.'
-- id: gebaeude
+- id: ausbrechen
   lesson: de3-passive-past
-  term: das Gebäude
-  pos: noun
-  plural: die Gebäude
-  meanings: [building]
-  example: Das Gebäude wurde durch das Feuer zerstört.
-  exampleEn: The building was destroyed by the fire.
-- id: diebstahl
-  lesson: de3-passive-past
-  term: der Diebstahl
-  pos: noun
-  plural: die Diebstähle
-  meanings: [theft, stealing]
-  example: Den Diebstahl müssen Sie bei der Polizei melden.
-  exampleEn: You have to report the theft to the police.
-- id: stehlen
-  lesson: de3-passive-past
-  term: stehlen
+  term: ausbrechen
   pos: verb
-  meanings: [to steal]
-  example: Mein Fahrrad ist gestohlen worden!
-  exampleEn: My bike has been stolen!
-  note: stiehlt, stahl, hat gestohlen.
+  meanings: [to break out, to escape (from prison)]
+  example: In der Nacht ist ein Feuer ausgebrochen.
+  exampleEn: A fire broke out in the night.
+  note: 'Separable: bricht aus, brach aus, ist ausgebrochen.'
+- id: bemerken
+  lesson: de3-passive-past
+  term: bemerken
+  pos: verb
+  meanings: [to notice, to remark]
+  example: Der Brand wurde von einem Nachbarn bemerkt.
+  exampleEn: The fire was noticed by a neighbour.
+  note: 'Perfect: hat bemerkt.'
+- id: inhaber
+  lesson: de3-passive-past
+  term: der Inhaber
+  pos: noun
+  plural: die Inhaber
+  meanings: ['owner (of a business, male)', owner, proprietor, holder]
+  example: Der Inhaber hat das Geschäft 1990 eröffnet.
+  exampleEn: The owner opened the shop in 1990.
+- id: inhaberin
+  lesson: de3-passive-past
+  term: die Inhaberin
+  pos: noun
+  plural: die Inhaberinnen
+  meanings: ['owner (of a business, female)', owner, proprietor, holder]
+  example: Die Inhaberin der Bäckerei gab ein Interview.
+  exampleEn: The owner of the bakery gave an interview.
+- id: hochwasser
+  lesson: de3-passive-past
+  term: das Hochwasser
+  pos: noun
+  plural: die Hochwasser
+  meanings: [flood, high water, flooding]
+  example: Die Altstadt wurde durch ein Hochwasser beschädigt.
+  exampleEn: The old town was damaged by a flood.
 
 # --- 18 What must be done: the passive with modal verbs ---
 - id: verwaltung
@@ -763,7 +746,7 @@
   lesson: de3-passive-modal
   term: notwendig
   pos: adjective
-  meanings: [necessary, essential, needed]
+  meanings: [essential (necessary), necessary, essential, needed]
   example: Ist das wirklich notwendig?
   exampleEn: Is that really necessary?
 - id: bussgeld
@@ -783,14 +766,6 @@
   example: Die Regel gilt auch am Wochenende.
   exampleEn: The rule also applies at the weekend.
   note: gilt, galt, hat gegolten. gelten als = to be regarded as.
-- id: nachweis
-  lesson: de3-passive-modal
-  term: der Nachweis
-  pos: noun
-  plural: die Nachweise
-  meanings: [proof, evidence (document), certificate (proof)]
-  example: Als Nachweis brauchen wir Ihren Mietvertrag.
-  exampleEn: We need your rental contract as proof.
 - id: vorlegen
   lesson: de3-passive-modal
   term: vorlegen
@@ -807,14 +782,6 @@
   example: Der Antrag muss bis Freitag eingereicht werden.
   exampleEn: The application must be submitted by Friday.
   note: 'Separable: reicht ein, hat eingereicht.'
-- id: bearbeiten
-  lesson: de3-passive-modal
-  term: bearbeiten
-  pos: verb
-  meanings: [to process (an application), to deal with, to handle, to edit]
-  example: Ihr Antrag wird in drei Wochen bearbeitet.
-  exampleEn: Your application will be processed in three weeks.
-  note: 'Perfect: hat bearbeitet.'
 - id: sitzung
   lesson: de3-passive-modal
   term: die Sitzung
@@ -1053,23 +1020,6 @@
   example: Damit bin ich einverstanden.
   exampleEn: I agree to that.
   note: einverstanden sein mit + Dat. Only used with sein.
-- id: einfluss
-  lesson: de3-opinions-media
-  term: der Einfluss
-  pos: noun
-  plural: die Einflüsse
-  meanings: [influence]
-  example: Die Medien haben einen großen Einfluss auf junge Leute.
-  exampleEn: The media have a big influence on young people.
-  note: Einfluss auf + Akk.
-- id: beeinflussen
-  lesson: de3-opinions-media
-  term: beeinflussen
-  pos: verb
-  meanings: [to influence, to affect]
-  example: Werbung beeinflusst unsere Entscheidungen.
-  exampleEn: Advertising influences our decisions.
-  note: 'Inseparable: hat beeinflusst.'
 - id: kritisch
   lesson: de3-opinions-media
   term: kritisch
@@ -1102,22 +1052,6 @@
   example: Falschmeldungen werden schnell verbreitet.
   exampleEn: Fake news is spread quickly.
   note: 'Perfect: hat verbreitet.'
-- id: zweifel
-  lesson: de3-opinions-media
-  term: der Zweifel
-  pos: noun
-  plural: die Zweifel
-  meanings: [doubt]
-  example: Ich habe da meine Zweifel.
-  exampleEn: I have my doubts about that.
-  note: ohne Zweifel = without doubt.
-- id: angeblich
-  lesson: de3-opinions-media
-  term: angeblich
-  pos: adverb
-  meanings: [supposedly, allegedly, apparently (so they say)]
-  example: Angeblich haben alle in der Klasse ein Handy.
-  exampleEn: Supposedly everyone in the class has a phone.
 - id: tatsaechlich
   lesson: de3-opinions-media
   term: tatsächlich
@@ -1133,6 +1067,31 @@
   example: Niemand hat die Quelle überprüft.
   exampleEn: Nobody checked the source.
   note: 'Inseparable: hat überprüft.'
+- id: profil
+  lesson: de3-opinions-media
+  term: das Profil
+  pos: noun
+  plural: die Profile
+  meanings: [profile]
+  example: Meine Tochter möchte ein eigenes Profil.
+  exampleEn: My daughter wants her own profile.
+- id: zugang
+  lesson: de3-opinions-media
+  term: der Zugang
+  pos: noun
+  plural: die Zugänge
+  meanings: [access, entrance]
+  example: Ohne Passwort hast du keinen Zugang.
+  exampleEn: Without a password you have no access.
+  note: Zugang zu + Dat.
+- id: erkennen
+  lesson: de3-opinions-media
+  term: erkennen
+  pos: verb
+  meanings: [to recognise, to recognize, to identify, to detect]
+  example: Ich habe dich am Telefon nicht erkannt!
+  exampleEn: I didn't recognise you on the phone!
+  note: erkannte, hat erkannt (mixed verb, like kennen).
 
 # --- 20 Politics and society ---
 - id: politik

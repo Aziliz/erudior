@@ -39,17 +39,17 @@ Words to note: *das Grundrecht* (basic right), *festlegen* (to lay down, fix), *
 
 News sentences look long, but they are built from parts you know. Read them in three passes.
 
-**1. Find the main clause and its verb.** Skip everything between commas for a moment.
+1. Find the main clause and its verb. Skip everything between commas for a moment.
 
 *Der Bundeskanzler, der seit zwei Jahren regiert, hat gestern eine neue Ministerin vorgestellt.* → *Der Bundeskanzler hat gestern eine neue Ministerin vorgestellt.*
 
-**2. Look at the relative clauses.** Who or what does each one describe?
+2. Look at the relative clauses. Who or what does each one describe?
 
 - *Die Partei, die die meisten Stimmen bekommen hat, …* — the party that got the most votes
 - *Die Politikerin, der viele junge Wähler vertrauen, …* — the politician (whom) many young voters trust (dative: *vertrauen* + Dat)
 - *Das Thema, über das im Parlament gestritten wird, …* — the topic that is being argued about in parliament
 
-**3. Spot the passive and the genitive.**
+3. Spot the passive and the genitive.
 
 - Passive: *Das Gesetz wurde mit großer Mehrheit beschlossen.* (*wurde* + participle: past.) *Die Steuern sollen erhöht werden.* (modal passive.)
 - Genitive: *die Wahl des Bundeskanzlers* (the election of the Chancellor), *die Rechte der Bürger* (the citizens' rights), *die Regierung des Landes* (the government of the state).
@@ -115,39 +115,39 @@ Some notes:
 
 ## Taking part: interview with a local campaigner
 
-> **Reporterin:** Frau Weber, Sie engagieren sich in der Bürgerinitiative „Rettet unser Hallenbad“. Worum geht es Ihnen?
+> Reporterin: Frau Weber, Sie engagieren sich in der Bürgerinitiative „Rettet unser Hallenbad“. Worum geht es Ihnen?
 >
-> **Frau Weber:** Die Stadt will das Hallenbad schließen, weil die Renovierung zu teuer ist. Wir finden das nicht gerecht. Das Bad wird von Schulen, Vereinen und vielen älteren Menschen genutzt.
+> Frau Weber: Die Stadt will das Hallenbad schließen, weil die Renovierung zu teuer ist. Wir finden das nicht gerecht. Das Bad wird von Schulen, Vereinen und vielen älteren Menschen genutzt.
 >
-> **Reporterin:** Was haben Sie bisher gemacht?
+> Reporterin: Was haben Sie bisher gemacht?
 >
-> **Frau Weber:** Wir haben über 4.000 Unterschriften gesammelt und letzten Samstag vor dem Rathaus demonstriert. Zu der Demonstration sind fast 800 Leute gekommen.
+> Frau Weber: Wir haben über 4.000 Unterschriften gesammelt und letzten Samstag vor dem Rathaus demonstriert. Zu der Demonstration sind fast 800 Leute gekommen.
 >
-> **Reporterin:** Und wie geht es weiter?
+> Reporterin: Und wie geht es weiter?
 >
-> **Frau Weber:** Im März wird im Stadtrat darüber abgestimmt. Bis dahin sprechen wir mit Politikerinnen und Politikern aller Parteien.
+> Frau Weber: Im März wird im Stadtrat darüber abgestimmt. Bis dahin sprechen wir mit Politikerinnen und Politikern aller Parteien.
 >
-> **Reporterin:** Machen Sie das alles ehrenamtlich?
+> Reporterin: Machen Sie das alles ehrenamtlich?
 >
-> **Frau Weber:** Natürlich. Ich arbeite Vollzeit, das Ehrenamt mache ich abends. Aber es lohnt sich: Ich habe viele Nachbarn kennengelernt, auch Familien, die erst seit Kurzem hier wohnen. Für die Integration ist so ein Projekt übrigens auch gut.
+> Frau Weber: Natürlich. Ich arbeite Vollzeit, das Ehrenamt mache ich abends. Aber es lohnt sich: Ich habe viele Nachbarn kennengelernt, auch Familien, die erst seit Kurzem hier wohnen. Für die Integration ist so ein Projekt übrigens auch gut.
 
 In English:
 
-> **Reporter:** Ms Weber, you're involved in the citizens' action group "Save our indoor pool". What is it about for you?
+> Reporter: Ms Weber, you're involved in the citizens' action group "Save our indoor pool". What is it about for you?
 >
-> **Ms Weber:** The town wants to close the indoor pool because the renovation is too expensive. We don't think that's fair. The pool is used by schools, clubs and lots of older people.
+> Ms Weber: The town wants to close the indoor pool because the renovation is too expensive. We don't think that's fair. The pool is used by schools, clubs and lots of older people.
 >
-> **Reporter:** What have you done so far?
+> Reporter: What have you done so far?
 >
-> **Ms Weber:** We've collected over 4,000 signatures and last Saturday we demonstrated in front of the town hall. Almost 800 people came to the demonstration.
+> Ms Weber: We've collected over 4,000 signatures and last Saturday we demonstrated in front of the town hall. Almost 800 people came to the demonstration.
 >
-> **Reporter:** And what happens next?
+> Reporter: And what happens next?
 >
-> **Ms Weber:** In March the town council will vote on it. Until then we're talking to politicians from all parties.
+> Ms Weber: In March the town council will vote on it. Until then we're talking to politicians from all parties.
 >
-> **Reporter:** Do you do all this as a volunteer?
+> Reporter: Do you do all this as a volunteer?
 >
-> **Ms Weber:** Of course. I work full-time; I do the voluntary work in the evenings. But it's worth it: I've got to know lots of neighbours, including families who have only lived here for a short time. A project like this is good for integration too, by the way.
+> Ms Weber: Of course. I work full-time; I do the voluntary work in the evenings. But it's worth it: I've got to know lots of neighbours, including families who have only lived here for a short time. A project like this is good for integration too, by the way.
 
 *sich engagieren* (to get involved, be active; said with a French *g*: an-ga-ZHIE-ren) is reflexive: *Ich engagiere mich für den Umweltschutz.* *ehrenamtlich* means unpaid, voluntary; *das Ehrenamt* is a voluntary position or volunteering. More than a third of people in Germany volunteer in some way: in sports clubs, the volunteer fire brigade, churches or helping refugees.
 

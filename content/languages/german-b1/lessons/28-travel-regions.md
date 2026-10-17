@@ -9,7 +9,7 @@ topics: [hin and her, Presentations, Regions, Tourism]
 
 German is spoken in Germany, Austria, most of Switzerland, Liechtenstein, parts of Belgium and Italy, and Luxembourg. Each of these places has its own regions, dialects and *Spezialitäten*, and tourism is a big part of their economies. This lesson gives you the words to talk about them.
 
-It also teaches two practical skills. The first is grammar: the little words *hin* and *her*, which tell you whether a movement goes away from the speaker or towards them (*Komm herein! Geh hinaus!*). The second is speaking: how to give a short, well-structured **presentation** on a topic, with an introduction, your own experience, the situation in your home country, pros and cons, and a conclusion. This is exactly what the second part of the Goethe-Zertifikat B1 speaking test asks for (lesson 30), and it's also a skill you'll use at work and in courses.
+It also teaches two practical skills. The first is grammar: the little words *hin* and *her*, which tell you whether a movement goes away from the speaker or towards them (*Komm herein! Geh hinaus!*). The second is speaking: how to give a short, well-structured presentation on a topic, with an introduction, your own experience, the situation in your home country, pros and cons, and a conclusion. This is exactly what the second part of the Goethe-Zertifikat B1 speaking test asks for (lesson 30), and it's also a skill you'll use at work and in courses.
 
 ## The German-speaking regions
 
@@ -39,8 +39,8 @@ Some sentences with the words of this lesson:
 
 German marks the direction of a movement with two small words:
 
-- ***hin*** = away from the speaker, "there"
-- ***her*** = towards the speaker, "here"
+- *hin* = away from the speaker, "there"
+- *her* = towards the speaker, "here"
 
 You know them already from *wohin?* (where to?) and *woher?* (where from?). In speech the question word is often split: *Wo gehst du hin?* — Where are you going? *Wo kommst du her?* — Where do you come from?
 

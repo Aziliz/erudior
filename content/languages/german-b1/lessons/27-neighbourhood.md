@@ -95,7 +95,7 @@ Many conflicts are about shared spaces: the *Treppenhaus* (stairwell), the *Hof*
 
 ## Reading: a blog post
 
-> **Mein Haus, meine Nachbarn**
+> *Mein Haus, meine Nachbarn*
 >
 > Als ich vor zwei Jahren in dieses Haus gezogen bin, kannte ich niemanden. Im Treppenhaus haben wir uns gegrüßt, mehr nicht. Das hat sich im letzten Winter geändert. Die Heizung war drei Tage lang kaputt, und es war eiskalt. Die Hausverwaltung war telefonisch nicht zu erreichen. Frau Özdemir aus dem Erdgeschoss hat dann eine Liste im Hof aufgehängt, und alle Mieter haben unterschrieben. Am nächsten Tag hat die Verwaltung endlich einen Handwerker geschickt und die Heizung reparieren lassen.
 >
@@ -107,7 +107,7 @@ Many conflicts are about shared spaces: the *Treppenhaus* (stairwell), the *Hof*
 
 Translation:
 
-> **My building, my neighbours**
+> *My building, my neighbours*
 >
 > When I moved into this building two years ago, I didn't know anyone. We said hello in the stairwell, nothing more. That changed last winter. The heating was broken for three days and it was freezing. The property management company couldn't be reached by phone. Mrs Özdemir from the ground floor then put up a list in the courtyard, and all the tenants signed it. The next day the management finally sent a tradesman and had the heating repaired.
 >

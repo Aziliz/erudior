@@ -127,33 +127,33 @@ With *un-* the meaning turns negative: *unlesbar* (illegible), *unbezahlbar* (un
 
 ## Text: a leaflet from the town hall
 
-> **Merkblatt: Feste in Ihrer Straße**
+> Merkblatt: Feste in Ihrer Straße
 >
 > Sie möchten mit Ihren Nachbarn ein Straßenfest feiern? Das freut uns! Damit alles gut klappt, müssen einige Vorschriften beachtet werden.
 >
-> **Genehmigung:** Wenn eine öffentliche Straße für das Fest gesperrt werden soll, ist eine Genehmigung der Stadtverwaltung erforderlich. Der Antrag muss spätestens sechs Wochen vor dem Fest eingereicht werden. Er kann online gestellt oder im Bürgerbüro abgegeben werden. Feste in privaten Gärten und Höfen brauchen keine Genehmigung.
+> Genehmigung: Wenn eine öffentliche Straße für das Fest gesperrt werden soll, ist eine Genehmigung der Stadtverwaltung erforderlich. Der Antrag muss spätestens sechs Wochen vor dem Fest eingereicht werden. Er kann online gestellt oder im Bürgerbüro abgegeben werden. Feste in privaten Gärten und Höfen brauchen keine Genehmigung.
 >
-> **Unterlagen:** Dem Antrag ist ein Plan der Straße beizufügen. Außerdem muss eine verantwortliche Person genannt werden, die während des ganzen Festes telefonisch erreichbar ist.
+> Unterlagen: Dem Antrag ist ein Plan der Straße beizufügen. Außerdem muss eine verantwortliche Person genannt werden, die während des ganzen Festes telefonisch erreichbar ist.
 >
-> **Ruhe und Sicherheit:** Ab 22 Uhr darf keine laute Musik mehr gespielt werden. Diese Regel gilt auch am Wochenende. Die Zufahrt für Feuerwehr und Krankenwagen muss immer frei bleiben, und Grills dürfen nicht direkt neben Häusern aufgestellt werden.
+> Ruhe und Sicherheit: Ab 22 Uhr darf keine laute Musik mehr gespielt werden. Diese Regel gilt auch am Wochenende. Die Zufahrt für Feuerwehr und Krankenwagen muss immer frei bleiben, und Grills dürfen nicht direkt neben Häusern aufgestellt werden.
 >
-> **Müll:** Nach dem Fest muss die Straße sauber hinterlassen werden. Einweggeschirr sollte vermieden werden; Mehrweggeschirr kann bei der Gemeinde kostenlos ausgeliehen werden.
+> Müll: Nach dem Fest muss die Straße sauber hinterlassen werden. Einweggeschirr sollte vermieden werden; Mehrweggeschirr kann bei der Gemeinde kostenlos ausgeliehen werden.
 >
 > Wer gegen diese Vorschriften verstößt, muss mit einem Bußgeld rechnen. Ihr Antrag wird normalerweise innerhalb von drei Wochen bearbeitet. Bei Fragen sind wir montags bis freitags von 8 bis 12 Uhr erreichbar.
 
 In English:
 
-> **Information sheet: parties in your street**
+> Information sheet: parties in your street
 >
 > Would you like to celebrate a street party with your neighbours? We're pleased to hear it! So that everything goes well, a few regulations have to be observed.
 >
-> **Permit:** If a public road is to be closed for the party, a permit from the city administration is required. The application must be submitted at least six weeks before the party. It can be made online or handed in at the citizens' office. Parties in private gardens and courtyards don't need a permit.
+> Permit: If a public road is to be closed for the party, a permit from the city administration is required. The application must be submitted at least six weeks before the party. It can be made online or handed in at the citizens' office. Parties in private gardens and courtyards don't need a permit.
 >
-> **Documents:** A plan of the street must be enclosed with the application. In addition, a responsible person must be named who can be reached by phone during the whole party.
+> Documents: A plan of the street must be enclosed with the application. In addition, a responsible person must be named who can be reached by phone during the whole party.
 >
-> **Quiet and safety:** From 10 pm no loud music may be played. This rule also applies at the weekend. The access for the fire brigade and ambulances must always stay clear, and barbecues may not be set up right next to houses.
+> Quiet and safety: From 10 pm no loud music may be played. This rule also applies at the weekend. The access for the fire brigade and ambulances must always stay clear, and barbecues may not be set up right next to houses.
 >
-> **Rubbish:** After the party the street must be left clean. Disposable crockery should be avoided; reusable crockery can be borrowed free of charge from the local authority.
+> Rubbish: After the party the street must be left clean. Disposable crockery should be avoided; reusable crockery can be borrowed free of charge from the local authority.
 >
 > Anyone who breaks these regulations must expect a fine. Your application is normally processed within three weeks. If you have questions, we can be reached Monday to Friday from 8 to 12.
 

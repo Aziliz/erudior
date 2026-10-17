@@ -69,8 +69,8 @@ The end of the clause reads like a chain: participle, *worden*, *ist*: *gebaut w
 
 The rule is the same as for active verbs in lesson 1:
 
-- **Präteritum** (*wurde gebaut*) in written texts that tell a story or report history: books, articles, museum signs, reports.
-- **Perfekt** (*ist gebaut worden*) in conversation, and in news for something that has just happened and still matters now.
+- Präteritum (*wurde gebaut*) in written texts that tell a story or report history: books, articles, museum signs, reports.
+- Perfekt (*ist gebaut worden*) in conversation, and in news for something that has just happened and still matters now.
 
 | written history | spoken / recent news |
 |---|---|
@@ -128,7 +128,7 @@ And a few verbs from history: *bauen* (to build), *errichten* (to put up, erect:
 
 ## Text 1: a local news report
 
-> **Brand in der Altstadt: Bäckerei zerstört, alle Bewohner gerettet**
+> Brand in der Altstadt: Bäckerei zerstört, alle Bewohner gerettet
 >
 > In der Nacht auf Sonntag ist in der Bäckerei Krämer in der Kirchgasse ein Feuer ausgebrochen. Gegen drei Uhr wurde der Brand von einem Nachbarn bemerkt, der sofort die Feuerwehr rief. Die sechs Bewohner des Hauses wurden über eine Leiter gerettet; zwei von ihnen wurden mit leichten Verletzungen ins Krankenhaus gebracht. Die Bäckerei im Erdgeschoss wurde durch das Feuer fast vollständig zerstört. Die Kirchgasse war bis Sonntagmittag gesperrt.
 >
@@ -138,7 +138,7 @@ And a few verbs from history: *bauen* (to build), *errichten* (to put up, erect:
 
 In English:
 
-> **Fire in the old town: bakery destroyed, all residents rescued**
+> Fire in the old town: bakery destroyed, all residents rescued
 >
 > In the night before Sunday a fire broke out in the Krämer bakery in Kirchgasse. At about three o'clock the fire was noticed by a neighbour, who immediately called the fire brigade. The six residents of the building were rescued by ladder; two of them were taken to hospital with minor injuries. The bakery on the ground floor was almost completely destroyed by the fire. Kirchgasse was closed until Sunday lunchtime.
 >

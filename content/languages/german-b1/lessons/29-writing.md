@@ -34,9 +34,9 @@ After the opening, put a comma, and start the next line with a small letter (unl
 
 An 80-word text with eight separate sentences of the form *Ich … Ich … Ich …* reads like a list. Examiners and readers want connections. Three tools help:
 
-1. **Change what comes first.** Put a time or a reason at the start: *Letzte Woche … Deshalb … Zum Glück …*
-2. **Use connectors** from this course: *weil, obwohl, damit, sodass, trotzdem, deshalb, außerdem, einerseits … andererseits, nicht nur … sondern auch*.
-3. **Refer back** with pronouns and *da*-words: *Darüber habe ich mich sehr gefreut. Das hat mich geärgert.*
+1. Change what comes first. Put a time or a reason at the start: *Letzte Woche … Deshalb … Zum Glück …*
+2. Use connectors from this course: *weil, obwohl, damit, sodass, trotzdem, deshalb, außerdem, einerseits … andererseits, nicht nur … sondern auch*.
+3. Refer back with pronouns and *da*-words: *Darüber habe ich mich sehr gefreut. Das hat mich geärgert.*
 
 Two words that make formal writing tighter: *sowie* (as well as, and also) and *beziehungsweise*, written *bzw.* (or, or rather, respectively):
 
@@ -89,7 +89,7 @@ The two most common reasons to write one are an *Anfrage* (inquiry: you *anfrage
 
 ### Model 4: a complaint
 
-> **Betreff: Reklamation – Bestellung Nr. 48213**
+> Betreff: Reklamation – Bestellung Nr. 48213
 >
 > Sehr geehrte Damen und Herren,
 >
@@ -105,7 +105,7 @@ The two most common reasons to write one are an *Anfrage* (inquiry: you *anfrage
 
 Translation:
 
-> **Subject: Complaint – order no. 48213**
+> Subject: Complaint – order no. 48213
 >
 > Dear Sir or Madam,
 >
@@ -136,9 +136,9 @@ Notes: *mit Bezug auf* (with reference to) + accusative is a formal way to *erw�
 
 ## Spelling and commas: the rules that cost marks
 
-- **Nouns have capitals**, including nouns made from verbs and adjectives: *beim Lesen, etwas Neues, das Gute*.
-- **Commas before every subordinate clause**: *Ich hoffe, dass … / …, weil … / …, obwohl … / …, die …* — and after it if the main clause continues: *Wenn du Zeit hast, komm vorbei.*
-- **Commas before infinitive groups** with *um, ohne, statt*: *Ich schreibe Ihnen, um mich zu erkundigen.*
+- Nouns have capitals, including nouns made from verbs and adjectives: *beim Lesen, etwas Neues, das Gute*.
+- Commas before every subordinate clause: *Ich hoffe, dass … / …, weil … / …, obwohl … / …, die …* — and after it if the main clause continues: *Wenn du Zeit hast, komm vorbei.*
+- Commas before infinitive groups with *um, ohne, statt*: *Ich schreibe Ihnen, um mich zu erkundigen.*
 - **No comma before *und* or *oder*** joining two short parts: *Ich habe angerufen und eine Nachricht hinterlassen.*
 - ***dass* vs *das***: *dass* starts a clause after a verb of saying or thinking; *das* is an article or pronoun. If you can replace it with *dieses* or *welches*, it's *das*.
 - ***ß* vs *ss***: *ß* after a long vowel or a diphthong (*Grüße, heißen*), *ss* after a short vowel (*müssen, dass*).

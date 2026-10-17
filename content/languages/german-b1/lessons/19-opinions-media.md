@@ -40,8 +40,8 @@ Prepositions that take the genitive (*wegen, trotz, während*) and *ohne, seit, 
 
 The rule from A2 still holds, and it is the most common mistake at this level:
 
-- For **things and ideas**: *da-* / *wo-*: *Sprichst du oft über Politik? — Ja, darüber spreche ich gern. Worüber sprichst du nicht gern?*
-- For **people**: preposition + pronoun / *wen, wem*: *Sprichst du oft über deinen Chef? — Ja, über ihn spreche ich jeden Tag. Über wen sprichst du?*
+- For things and ideas: *da-* / *wo-*: *Sprichst du oft über Politik? — Ja, darüber spreche ich gern. Worüber sprichst du nicht gern?*
+- For people: preposition + pronoun / *wen, wem*: *Sprichst du oft über deinen Chef? — Ja, über ihn spreche ich jeden Tag. Über wen sprichst du?*
 
 In casual speech you'll hear *Über was redet ihr?* or *Mit was hast du bezahlt?* It's widespread, but in writing and in the exam use *worüber, womit*.
 
@@ -101,7 +101,7 @@ Two useful adverbs: *angeblich* (supposedly, allegedly) shows you doubt a claim:
 
 ## Phrases for giving opinions and discussing
 
-**Giving your opinion**
+### Giving your opinion
 
 - *Meiner Ansicht nach / Meiner Meinung nach ist das …* (verb straight after: it's position 1)
 - *Ich bin der Meinung / der Ansicht, dass …*
@@ -109,20 +109,20 @@ Two useful adverbs: *angeblich* (supposedly, allegedly) shows you doubt a claim:
 - *Ich halte das für (eine gute Idee / übertrieben / gefährlich).* — I consider that (a good idea / exaggerated / dangerous). *halten für* + accusative.
 - *Mein Standpunkt ist klar: …*
 
-**Agreeing**
+### Agreeing
 
 - *Da stimme ich dir / Ihnen zu.* — I agree with you there.
 - *Das sehe ich genauso.* — I see it the same way.
 - *Da bin ich ganz deiner Meinung.* — I completely agree with you.
 - *Damit bin ich einverstanden.* — I'm fine with that / I agree to that (a suggestion or plan).
 
-**Partly agreeing**
+### Partly agreeing
 
 - *Da hast du zwar recht, aber …* — You're right there, but …
 - *Im Prinzip ja, aber …* — In principle yes, but …
 - *Das stimmt teilweise.* — That's partly true.
 
-**Disagreeing**
+### Disagreeing
 
 - *Das sehe ich anders.* — I see it differently.
 - *Da bin ich anderer Meinung.* — I have a different opinion on that.
@@ -130,7 +130,7 @@ Two useful adverbs: *angeblich* (supposedly, allegedly) shows you doubt a claim:
 - *Ich habe da meine Zweifel.* — I have my doubts about that.
 - *Das halte ich für übertrieben.* — I think that's exaggerated.
 
-**Keeping the discussion going**
+### Keeping the discussion going
 
 - *Was hältst du davon?* — What do you think of it?
 - *Wie siehst du das?* — How do you see it?
@@ -142,27 +142,27 @@ Two useful adverbs: *angeblich* (supposedly, allegedly) shows you doubt a claim:
 
 ## Text: an online forum
 
-> **Ab wann sollen Kinder soziale Medien nutzen?**
+> Ab wann sollen Kinder soziale Medien nutzen?
 >
-> **Lena_K:** Meine Tochter ist zwölf und möchte unbedingt ein eigenes Profil, weil angeblich alle in ihrer Klasse eins haben. Ich halte das für zu früh. Meiner Ansicht nach können Kinder in dem Alter noch nicht erkennen, welche Beiträge glaubwürdig sind. Außerdem mache ich mir Sorgen um ihre Privatsphäre: Was einmal gepostet ist, bleibt im Netz.
+> Lena_K: Meine Tochter ist zwölf und möchte unbedingt ein eigenes Profil, weil angeblich alle in ihrer Klasse eins haben. Ich halte das für zu früh. Meiner Ansicht nach können Kinder in dem Alter noch nicht erkennen, welche Beiträge glaubwürdig sind. Außerdem mache ich mir Sorgen um ihre Privatsphäre: Was einmal gepostet ist, bleibt im Netz.
 >
-> **Ömer1985:** Ich verstehe deine Sorgen, aber ich sehe das ein bisschen anders. Verbote helfen meiner Erfahrung nach wenig. Wir haben mit unserem Sohn lange darüber gesprochen, was er teilen darf und was nicht. Es geht doch darum, dass Kinder lernen, kritisch mit Medien umzugehen. Und das lernen sie nicht, wenn sie gar keinen Zugang haben.
+> Ömer1985: Ich verstehe deine Sorgen, aber ich sehe das ein bisschen anders. Verbote helfen meiner Erfahrung nach wenig. Wir haben mit unserem Sohn lange darüber gesprochen, was er teilen darf und was nicht. Es geht doch darum, dass Kinder lernen, kritisch mit Medien umzugehen. Und das lernen sie nicht, wenn sie gar keinen Zugang haben.
 >
-> **Frau_Berger:** Als Lehrerin muss ich Ömer teilweise widersprechen. Ich erlebe tatsächlich jeden Tag, wie stark soziale Medien meine Schüler beeinflussen. Falschmeldungen werden in der Klasse verbreitet, und niemand überprüft die Quelle. Manche Kinder sind richtig abhängig von ihrem Handy. Ich bin dafür, dass Eltern und Schulen mehr zusammenarbeiten.
+> Frau_Berger: Als Lehrerin muss ich Ömer teilweise widersprechen. Ich erlebe tatsächlich jeden Tag, wie stark soziale Medien meine Schüler beeinflussen. Falschmeldungen werden in der Klasse verbreitet, und niemand überprüft die Quelle. Manche Kinder sind richtig abhängig von ihrem Handy. Ich bin dafür, dass Eltern und Schulen mehr zusammenarbeiten.
 >
-> **Lena_K:** Danke euch! Wir haben jetzt einen Kompromiss gefunden: Meine Tochter darf ein Profil haben, aber es bleibt privat, und wir sprechen jede Woche darüber, was sie gesehen hat. Damit ist sie einverstanden – und ich auch.
+> Lena_K: Danke euch! Wir haben jetzt einen Kompromiss gefunden: Meine Tochter darf ein Profil haben, aber es bleibt privat, und wir sprechen jede Woche darüber, was sie gesehen hat. Damit ist sie einverstanden – und ich auch.
 
 In English:
 
-> **From what age should children use social media?**
+> From what age should children use social media?
 >
-> **Lena_K:** My daughter is twelve and really wants her own profile, because supposedly everyone in her class has one. I think that's too early. In my view, children at that age can't yet recognise which posts are credible. And I'm worried about her privacy: what's been posted once stays on the net.
+> Lena_K: My daughter is twelve and really wants her own profile, because supposedly everyone in her class has one. I think that's too early. In my view, children at that age can't yet recognise which posts are credible. And I'm worried about her privacy: what's been posted once stays on the net.
 >
-> **Ömer1985:** I understand your worries, but I see it a bit differently. In my experience bans don't help much. We talked to our son for a long time about what he may share and what not. The point is that children learn to deal critically with media. And they don't learn that if they have no access at all.
+> Ömer1985: I understand your worries, but I see it a bit differently. In my experience bans don't help much. We talked to our son for a long time about what he may share and what not. The point is that children learn to deal critically with media. And they don't learn that if they have no access at all.
 >
-> **Frau_Berger:** As a teacher I have to partly disagree with Ömer. I actually see every day how strongly social media influence my pupils. Fake news gets spread in the class, and nobody checks the source. Some children are really addicted to their phones. I'm in favour of parents and schools working together more.
+> Frau_Berger: As a teacher I have to partly disagree with Ömer. I actually see every day how strongly social media influence my pupils. Fake news gets spread in the class, and nobody checks the source. Some children are really addicted to their phones. I'm in favour of parents and schools working together more.
 >
-> **Lena_K:** Thanks, both of you! We've found a compromise now: my daughter can have a profile, but it stays private, and every week we talk about what she's seen. She's fine with that – and so am I.
+> Lena_K: Thanks, both of you! We've found a compromise now: my daughter can have a profile, but it stays private, and every week we talk about what she's seen. She's fine with that – and so am I.
 
 Words to note: *das Profil* (profile), *erkennen* (to recognise), *sich Sorgen machen um* (to worry about), *der Zugang* (access), *erleben* (to experience). Notice *Was einmal gepostet ist*: a state passive from lesson 17. And notice how each post has the same shape as a good B1 forum answer: an opinion, a reason, an example.
 

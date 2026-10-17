@@ -961,14 +961,14 @@
   meanings: [exchange (of goods), exchange, return]
   example: Ein Umtausch ist nur mit Kassenbon möglich.
   exampleEn: Exchange is only possible with a receipt.
-- id: zurueckschicken
+- id: rueckzahlung
   lesson: de3-writing
-  term: zurückschicken
-  pos: verb
-  meanings: [to send back, to return (by post), to return]
-  example: Ich habe die Schuhe zurückgeschickt, weil sie zu klein waren.
-  exampleEn: I sent the shoes back because they were too small.
-  note: 'Separable: ich schicke zurück. Perfect: hat zurückgeschickt.'
+  term: die Rückzahlung
+  pos: noun
+  plural: die Rückzahlungen
+  meanings: [refund, repayment, reimbursement]
+  example: Ich bitte um die Rückzahlung des Kaufpreises.
+  exampleEn: I'm asking for a refund of the purchase price.
 - id: kundendienst
   lesson: de3-writing
   term: der Kundendienst
@@ -997,7 +997,7 @@
   lesson: de3-writing
   term: bearbeiten
   pos: verb
-  meanings: [to deal with, to process, to handle, to edit, to work on]
+  meanings: [to process (deal with a request), to deal with, to process, to handle, to edit, to work on]
   example: Wir bearbeiten Ihren Antrag so schnell wie möglich.
   exampleEn: We'll process your application as quickly as possible.
 - id: beantworten

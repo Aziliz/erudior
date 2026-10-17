@@ -121,7 +121,7 @@ Two words often travel with reported information: *laut* (according to, with the
 
 ## Reading: a news report
 
-> **Lange Wartezeiten beim Facharzt**
+> *Lange Wartezeiten beim Facharzt*
 >
 > Patientinnen und Patienten in Deutschland müssen immer länger auf einen Termin beim Facharzt warten. Das geht aus einer neuen Umfrage einer großen Krankenkasse hervor. Laut der Studie wartet man auf einen Termin bei einer Hautärztin im Durchschnitt fast sechs Wochen. Besonders schwierig sei die Lage auf dem Land, sagte eine Sprecherin der Krankenkasse. Dort gebe es zu wenige Praxen, und viele ältere Ärzte fänden keine Nachfolger.
 >
@@ -131,7 +131,7 @@ Two words often travel with reported information: *laut* (according to, with the
 
 Translation:
 
-> **Long waits for specialists**
+> *Long waits for specialists*
 >
 > Patients in Germany are having to wait longer and longer for an appointment with a specialist. This is the result of a new survey by a large health insurance fund. According to the study, people wait almost six weeks on average for an appointment with a dermatologist. The situation is particularly difficult in the countryside, said a spokeswoman for the insurance fund. There are too few practices there, she said, and many older doctors can't find anyone to take over.
 >

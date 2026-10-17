@@ -48,7 +48,7 @@ Separable verbs keep their prefix in the participle, as always: *Der Müll wird 
 
 To turn an active sentence into a passive one, follow three steps:
 
-1. The **accusative object** of the active sentence becomes the subject (nominative) of the passive one.
+1. The accusative object of the active sentence becomes the subject (nominative) of the passive one.
 2. *werden* agrees with this new subject: singular *wird*, plural *werden*.
 3. The old subject disappears, or comes back with *von* (see below).
 
@@ -64,13 +64,13 @@ Watch the article in the first example: *den Biomüll* (accusative object) becom
 
 Most passive sentences (about four in five) don't mention who does the action at all. That's the point of the passive. But if you want to add it, this part of the sentence is called the **agent**, and German has two ways to introduce it.
 
-**von + dative** for the person, animal or organisation that does it:
+von + dative for the person, animal or organisation that does it:
 
 - *Der Müll wird von der Stadt abgeholt.* — The rubbish is collected by the town.
 - *Die Maschinen werden von zwei Technikerinnen kontrolliert.* — The machines are checked by two technicians.
 - *Das Fest wird vom Bürgerverein organisiert.* — The party is organised by the residents' association.
 
-**durch + accusative** for the means, the cause or the process through which something happens:
+durch + accusative for the means, the cause or the process through which something happens:
 
 - *Die Luft wird durch Abgase verschmutzt.* — The air is polluted by exhaust fumes.
 - *Viele Arbeitsplätze werden durch Maschinen ersetzt.* — Many jobs are being replaced by machines.
@@ -82,10 +82,10 @@ A good rule of thumb: *von* answers "by whom?", *durch* answers "through what? b
 
 Use the passive when the action is more interesting than the person:
 
-- **Processes and how things work**: *Zuerst wird das Glas gereinigt, dann wird es geschmolzen.*
-- **Rules and routines**: *Hier wird nicht geraucht. Die Tonnen werden dienstags geleert.*
-- **News and official texts**: *Das Kraftwerk wird im Mai abgeschaltet.*
-- **When the doer is unknown or obvious**: *Mein Fahrrad wird gerade repariert.* (by the mechanic, obviously)
+- Processes and how things work: *Zuerst wird das Glas gereinigt, dann wird es geschmolzen.*
+- Rules and routines: *Hier wird nicht geraucht. Die Tonnen werden dienstags geleert.*
+- News and official texts: *Das Kraftwerk wird im Mai abgeschaltet.*
+- When the doer is unknown or obvious: *Mein Fahrrad wird gerade repariert.* (by the mechanic, obviously)
 
 To describe a process in steps, combine the passive with time words: *zuerst* (first), *dann*, *danach*, *anschließend* (afterwards), *im nächsten Schritt* (in the next step), *zum Schluss* (finally).
 

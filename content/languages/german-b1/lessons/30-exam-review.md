@@ -22,7 +22,7 @@ The step from A2 is real. At A2 you got by in routine situations; at B1 you can 
 
 ## The Goethe-Zertifikat B1
 
-The adult exam is **modular**: there are four *Module* (modules), and you can take all four on one day or only the ones you need.
+The adult exam is modular: there are four *Module* (modules), and you can take all four on one day or only the ones you need.
 
 | module | time | what you do |
 |---|---|---|
