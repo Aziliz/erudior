@@ -4,6 +4,7 @@ module: de3-m4
 title: "How it's done: the passive in the present"
 minutes: 45
 topics: [Passive, Production and recycling]
+refs: [de3-ref-passive-opinions]
 ---
 ## What this lesson is for
 
@@ -62,7 +63,7 @@ Watch the article in the first example: *den Biomüll* (accusative object) becom
 
 ## Who does it? von and durch
 
-Most passive sentences (about four in five) don't mention who does the action at all. That's the point of the passive. But if you want to add it, this part of the sentence is called the **agent**, and German has two ways to introduce it.
+Most passive sentences don't mention who does the action at all. That's the point of the passive. But if you want to add it, this part of the sentence is called the **agent**, and German has two ways to introduce it.
 
 von + dative for the person, animal or organisation that does it:
 
@@ -83,7 +84,7 @@ A good rule of thumb: *von* answers "by whom?", *durch* answers "through what? b
 Use the passive when the action is more interesting than the person:
 
 - Processes and how things work: *Zuerst wird das Glas gereinigt, dann wird es geschmolzen.*
-- Rules and routines: *Hier wird nicht geraucht. Die Tonnen werden dienstags geleert.*
+- Rules and routines: *Die Tonnen werden dienstags geleert. Hier wird nicht geraucht.* (The second one, literally "here is not smoked", means "there's no smoking here". It's a passive with no subject at all; lesson 17 explains how that works.)
 - News and official texts: *Das Kraftwerk wird im Mai abgeschaltet.*
 - When the doer is unknown or obvious: *Mein Fahrrad wird gerade repariert.* (by the mechanic, obviously)
 
@@ -178,7 +179,7 @@ Germany is famous for sorting its rubbish, and the words come up in everyday lif
 | *die Restmülltonne* (grey or black) | everything else (*der Restmüll*) |
 | *der Altglascontainer* | glass bottles and jars, sorted into white, green and brown |
 
-Many plastic bottles and cans carry a deposit (*das Pfand*): you pay 25 cents extra and get it back when you return the bottle to a machine in the supermarket.
+Most drinks bottles and cans carry a deposit (*das Pfand*): you pay it on top of the price and get it back when you return the bottle or can, usually to a machine in the supermarket. On single-use (*Einweg*) plastic bottles and cans it is 25 cents; on refillable (*Mehrweg*) bottles it is less, usually 8 or 15 cents.
 
 ## Pronunciation
 
@@ -189,11 +190,11 @@ Many plastic bottles and cans carry a deposit (*das Pfand*): you pay 25 cents ex
 
 ## Common mistakes
 
-- Using *sein* for the passive because English uses "is": ~~Das Glas ist gesammelt.~~ → *Das Glas wird gesammelt.* (*ist gesammelt* means "has been collected", a finished state; more on that in lesson 17.)
+- Using *sein* for the passive because English uses "is": ~~Das Glas ist gesammelt.~~ → *Das Glas wird gesammelt.* (*ist gesammelt* describes a finished state, "is already collected"; more on that in lesson 17.)
 - Forgetting agreement: ~~Die Flaschen wird sortiert.~~ → *Die Flaschen werden sortiert.*
 - Keeping the accusative: ~~Den Müll wird abgeholt.~~ → *Der Müll wird abgeholt.* The object of the active sentence is the subject of the passive one.
 - English word order: ~~Es wird gesammelt das Altpapier.~~ → *Das Altpapier wird gesammelt.* The participle goes to the end.
-- *von* for a tool or cause: ~~Das Metall wird von einem Magneten herausgezogen~~ is understood, but *durch einen Magneten* is better. And *by* is never *bei* here: ~~bei der Stadt organisiert~~ → *von der Stadt organisiert*.
+- *von* or *durch*: *Das Metall wird von einem Magneten herausgezogen* is possible, but for a tool or cause *durch einen Magneten* is the clearer choice. And *by* is never *bei* here: ~~bei der Stadt organisiert~~ → *von der Stadt organisiert*.
 - Plural verb with *man*: ~~Man trennen den Müll.~~ → *Man trennt den Müll.*
 
 ## Key points

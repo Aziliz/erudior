@@ -4,6 +4,7 @@ module: de3-m3
 title: "Whose? The genitive"
 minutes: 45
 topics: [Genitive, Family history]
+refs: [de3-ref-relative-genitive]
 ---
 ## What this lesson is for
 

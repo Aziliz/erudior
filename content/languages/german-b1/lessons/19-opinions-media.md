@@ -4,6 +4,7 @@ module: de3-m4
 title: Giving opinions and discussing; da- and wo- words in full
 minutes: 45
 topics: [Da- and wo- compounds, Opinions, Media]
+refs: [de3-ref-passive-opinions]
 ---
 ## What this lesson is for
 
@@ -34,7 +35,7 @@ A **da-compound** is *da* + a preposition, and it stands for a thing or an idea 
 | *vor* | *davor* | *wovor* | *Wovor hast du Angst?* |
 | *zu* | *dazu* | *wozu* | *Was sagst du dazu?* — What do you say to that? |
 
-Prepositions that take the genitive (*wegen, trotz, während*) and *ohne, seit, außer* have no *da-* or *wo-* form. Say *ohne das*, *trotzdem* (the fixed word for "nevertheless") or *deswegen*.
+*hinter, neben* and *zwischen* also have *da-* forms (*dahinter, daneben, dazwischen*), though their *wo-* forms are rare. Prepositions that take the genitive (*wegen, trotz, während*) and *ohne, seit, außer* have no *da-* or *wo-* form. Say *ohne das*, *trotzdem* (the fixed word for "nevertheless") or *deswegen*.
 
 ### Things vs people
 
@@ -55,7 +56,7 @@ Here is something English does differently. When a verb has a fixed preposition 
 - *Ich warte darauf, dass du dich entschuldigst.* — I'm waiting for you to apologise.
 - *Wir sollten darauf achten, welche Informationen wir teilen.* — We should pay attention to what information we share.
 
-This is a **forward-pointing da-compound**. The clause after it can start with *dass*, *ob*, a W-word or be an infinitive with *zu*. The *da-* word stands at the end of the main clause, or after the conjugated verb if there's nothing else, and the comma follows it.
+This is a **forward-pointing da-compound**. The clause after it can start with *dass*, *ob*, a W-word or be an infinitive with *zu*. The *da-* word stays inside the main clause, before any participle or infinitive at its end (*Er hat sich darüber geärgert, dass …*), and the comma comes where the main clause ends.
 
 Some fixed expressions always need it, and they are extremely common in discussions:
 
@@ -71,7 +72,7 @@ Some fixed expressions always need it, and they are extremely common in discussi
 
 *Es kommt darauf an* also works alone as an answer: *Findest du soziale Medien gut? — Es kommt darauf an.* (It depends.)
 
-With everyday verbs like *sich freuen* or *sich ärgern*, the *da-* word is sometimes dropped in speech (*Ich freue mich, dass du da bist*), but you're never wrong if you include it.
+With everyday verbs like *sich freuen* or *sich ärgern*, the *da-* word is often left out (*Ich freue mich, dass du da bist.* — I'm glad you're here), but you're never wrong if you include it. Just pick the right one: *sich freuen über* (glad about something now) gives *darüber*, *sich freuen auf* (looking forward to something) gives *darauf*.
 
 ### wo-compounds in relative clauses *(receptive)*
 

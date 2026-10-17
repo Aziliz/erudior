@@ -2517,5 +2517,123 @@
     ]
    }
   ]
+ },
+ {
+  "id": "lang-german-b1",
+  "file": "languages/lang-german-b1.json",
+  "order": 102,
+  "title": "German B1",
+  "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Unlocks when German A2 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "B1"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "questions": 367,
+  "cards": 0,
+  "drills": 0,
+  "words": 2404,
+  "carried": 1384,
+  "requires": [
+   "lang-german-a2"
+  ],
+  "lessonIds": [
+   "de3-praeteritum",
+   "de3-plusquamperfekt",
+   "de3-temporal-clauses",
+   "de3-futur",
+   "de3-n-nouns",
+   "de3-obwohl",
+   "de3-um-zu-damit",
+   "de3-da-falls",
+   "de3-two-part",
+   "de3-je-desto",
+   "de3-relative-all",
+   "de3-relative-wo-was",
+   "de3-genitive",
+   "de3-genitive-preps",
+   "de3-participles",
+   "de3-passive-present",
+   "de3-passive-past",
+   "de3-passive-modal",
+   "de3-opinions-media",
+   "de3-politics-society",
+   "de3-konj2-present",
+   "de3-konj2-past",
+   "de3-advice-wishes",
+   "de3-verb-prep",
+   "de3-work-career",
+   "de3-health-system",
+   "de3-neighbourhood",
+   "de3-travel-regions",
+   "de3-writing",
+   "de3-exam-review"
+  ],
+  "outline": [
+   {
+    "title": "Stories and time",
+    "lessons": [
+     "Telling stories: the simple past",
+     "Before that: the past perfect, nachdem and bevor",
+     "While, since, until: time clauses",
+     "The future: werden + infinitive",
+     "Weak nouns and adjectival nouns"
+    ]
+   },
+   {
+    "title": "Reasons, goals and contrasts",
+    "lessons": [
+     "Although: obwohl, trotzdem, zwar … aber",
+     "Goals: um … zu, damit, ohne … zu, statt … zu",
+     "Since, in case, so that: da, falls, sodass",
+     "Either … or, neither … nor: two-part connectors",
+     "The more … the better: je … desto; comparisons in depth"
+    ]
+   },
+   {
+    "title": "Describing in detail",
+    "lessons": [
+     "Relative clauses in every case, with prepositions",
+     "The place where, everything that: wo, was and wohin as relatives",
+     "Whose? The genitive",
+     "Because of, despite, during: wegen, trotz, während, statt",
+     "Participles as adjectives and adjectives without articles"
+    ]
+   },
+   {
+    "title": "Society and the world",
+    "lessons": [
+     "How it's done: the passive in the present",
+     "What was done: the passive in the past",
+     "What must be done: the passive with modal verbs",
+     "Giving opinions and discussing; da- and wo- words in full",
+     "Politics and society"
+    ]
+   },
+   {
+    "title": "If only: Konjunktiv II and more",
+    "lessons": [
+     "If I were …: Konjunktiv II in full",
+     "If I had known: the past subjunctive",
+     "Wishes, advice and polite requests",
+     "Verbs, adjectives and nouns with prepositions",
+     "Careers and the job market"
+    ]
+   },
+   {
+    "title": "Living independently and the B1 exam",
+    "lessons": [
+     "The health system and social services; reported speech",
+     "Living together; getting things done with lassen",
+     "Travel and the German-speaking regions; giving a short presentation",
+     "Writing at B1: e-mails, forum posts and formal letters",
+     "The Goethe-Zertifikat B1 and review"
+    ]
+   }
+  ]
  }
 ]

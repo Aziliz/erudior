@@ -4,6 +4,7 @@ module: de3-m5
 title: 'If I had known: the past subjunctive'
 minutes: 45
 topics: [Konjunktiv II, Unreal conditions, Regrets and chances]
+refs: [de3-ref-subjunctive-prepositions]
 ---
 ## What this lesson is for
 

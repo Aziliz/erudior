@@ -4,6 +4,7 @@ module: de3-m4
 title: Politics and society
 minutes: 45
 topics: [Reading the news, Nominal style, Politics]
+refs: [de3-ref-passive-opinions]
 ---
 ## What this lesson is for
 
@@ -17,7 +18,7 @@ The theme is politics and society: how Germany is governed, elections, parties, 
 
 > Deutschland ist ein demokratischer Staat mit 16 Bundesländern. Die Regeln, nach denen der Staat funktioniert, stehen im Grundgesetz, der deutschen Verfassung, die 1949 beschlossen wurde. Darin sind auch die Grundrechte der Bürgerinnen und Bürger festgelegt, zum Beispiel die Meinungsfreiheit und die Gleichberechtigung von Frauen und Männern.
 >
-> Das wichtigste Parlament ist der Bundestag in Berlin. Er wird alle vier Jahre gewählt. Wählen darf jede deutsche Staatsbürgerin und jeder deutsche Staatsbürger ab 18 Jahren. Jeder Wähler und jede Wählerin hat zwei Stimmen: Mit der Erststimme wird eine Person aus dem eigenen Wahlkreis gewählt, mit der Zweitstimme eine Partei. Die Zweitstimme ist wichtiger, denn sie entscheidet darüber, wie viele Sitze jede Partei im Parlament bekommt.
+> Das wichtigste Parlament ist der Bundestag in Berlin. Er wird alle vier Jahre gewählt. Wählen darf jede deutsche Staatsbürgerin und jeder deutsche Staatsbürger ab 18 Jahren. Jeder Wähler und jede Wählerin hat zwei Stimmen: Mit der Erststimme wählt man eine Person aus dem eigenen Wahlkreis, mit der Zweitstimme eine Partei. Die Zweitstimme ist wichtiger, denn sie entscheidet darüber, wie viele Sitze jede Partei im Parlament bekommt.
 >
 > Weil eine Partei allein selten die Mehrheit hat, müssen sich nach der Wahl meistens zwei oder drei Parteien auf eine Koalition einigen. Danach wählen die Abgeordneten den Bundeskanzler oder die Bundeskanzlerin. Er oder sie leitet die Regierung und schlägt die Ministerinnen und Minister vor, die dann vom Bundespräsidenten ernannt werden.
 >
@@ -27,13 +28,15 @@ In English:
 
 > Germany is a democratic state with 16 federal states. The rules by which the state works are in the Basic Law, the German constitution, which was adopted in 1949. It also sets out the basic rights of citizens, for example freedom of expression and equal rights for women and men.
 >
-> The most important parliament is the Bundestag in Berlin. It is elected every four years. Every German citizen aged 18 or over may vote. Every voter has two votes: with the first vote a person from your own constituency is elected, with the second vote a party. The second vote is more important, because it decides how many seats each party gets in parliament.
+> The most important parliament is the Bundestag in Berlin. It is elected every four years. Every German citizen aged 18 or over may vote. Every voter has two votes: with the first vote you vote for a person from your own constituency, with the second vote for a party. The second vote is more important, because it decides how many seats each party gets in parliament.
 >
 > Because one party rarely has a majority on its own, two or three parties usually have to agree on a coalition after the election. Then the members of parliament elect the Federal Chancellor. He or she leads the government and proposes the ministers, who are then appointed by the Federal President.
 >
 > Laws are debated and passed in the Bundestag. For many laws, however, the federal states, which are represented in the Bundesrat, also have to agree. In addition, each federal state has its own parliament and its own government, which are responsible for schools and the police, for example.
 
 Words to note: *das Grundrecht* (basic right), *festlegen* (to lay down, fix), *der Staatsbürger / die Staatsbürgerin* (citizen), *der Wahlkreis* (constituency), *der Sitz* (seat), *die Koalition* (coalition), *der / die Abgeordnete* (member of parliament; an adjectival noun from lesson 5: *ein Abgeordneter*), *vorschlagen* (to propose), *ernennen* (to appoint), *der Bundespräsident / die Bundespräsidentin* (Federal President, the head of state), *vertreten* (to represent).
+
+A note on the facts: under the electoral reform of 2023, first used in the 2025 election, the Bundestag has a fixed 630 seats, and winning the most first votes in a constituency no longer guarantees a seat: the winner only gets in if their party's second votes cover it. In 2025, 23 constituencies were left without a directly elected member. Further changes are being discussed, so check the current rules before you rely on the details. Formally, the Bundestag elects the Chancellor on the proposal of the Federal President, who in practice proposes the coalition's candidate. And 18 is the voting age for the Bundestag; for European elections, and for state and local elections in several *Bundesländer*, it is 16.
 
 ## Taking a news sentence apart
 
@@ -149,7 +152,7 @@ In English:
 >
 > Ms Weber: Of course. I work full-time; I do the voluntary work in the evenings. But it's worth it: I've got to know lots of neighbours, including families who have only lived here for a short time. A project like this is good for integration too, by the way.
 
-*sich engagieren* (to get involved, be active; said with a French *g*: an-ga-ZHIE-ren) is reflexive: *Ich engagiere mich für den Umweltschutz.* *ehrenamtlich* means unpaid, voluntary; *das Ehrenamt* is a voluntary position or volunteering. More than a third of people in Germany volunteer in some way: in sports clubs, the volunteer fire brigade, churches or helping refugees.
+*sich engagieren* (to get involved, be active; said with a French *g*: an-ga-ZHIE-ren) is reflexive: *Ich engagiere mich für den Umweltschutz.* *ehrenamtlich* means unpaid, voluntary; *das Ehrenamt* is a voluntary position or volunteering. According to the government's large volunteering survey (2024), more than a third of people in Germany aged 14 and over volunteer in some way: in sports clubs, the volunteer fire brigade, churches or helping refugees.
 
 ## Austria and Switzerland
 
@@ -167,7 +170,7 @@ The words are the same, but the systems differ. In Austria you can vote from the
 - *die Partei* is only political. A party with music and drinks is *die Party* or *die Feier*: ~~Ich gehe heute Abend auf eine Partei.~~
 - *wählen* vs *abstimmen*: you *wählen* people and parties, you *abstimmen über* a question.
 - Forgetting the reflexive pronoun: ~~Ich engagiere für die Umwelt.~~ → *Ich engagiere mich für die Umwelt.*
-- *recht haben* vs *das Recht*: *Du hast recht* (you're right) is lower case; *Du hast das Recht, deine Meinung zu sagen* (you have the right to say what you think) is the noun.
+- *recht haben* vs *das Recht*: *Du hast recht* (you're right) is usually written lower case (*Recht haben* is also allowed); *Du hast das Recht, deine Meinung zu sagen* (you have the right to say what you think) is the noun.
 - Head of state and head of government: in Germany the *Bundeskanzler* leads the government; the *Bundespräsident* is the head of state, with mostly ceremonial tasks. Don't call the chancellor "Präsident".
 
 ## Key points
@@ -176,6 +179,6 @@ The words are the same, but the systems differ. In Austria you can vote from the
 - Nominal style turns a clause into a noun + genitive: *die Einführung des Gesetzes* = *das Gesetz wird eingeführt*. Recognise it; in your own writing, prefer verbs.
 - Nouns in *-ung* and *-ion* are feminine.
 - *wählen* people and parties; *abstimmen über* a question. *die Partei* is political, *die Party* is fun.
-- Germany: Bundestag elected every four years from 18, two votes, coalition, the Bundestag elects the Chancellor; the Grundgesetz is the constitution.
+- Germany: Bundestag elected every four years from age 18, two votes (the second vote decides the seats), coalition, the Bundestag elects the Chancellor; the Grundgesetz is the constitution.
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.

@@ -4,6 +4,7 @@ module: de3-m4
 title: "What was done: the passive in the past"
 minutes: 45
 topics: [Passive, News and history]
+refs: [de3-ref-passive-opinions]
 ---
 ## What this lesson is for
 
@@ -27,7 +28,7 @@ Replace the present *wird / werden* with the Präteritum of *werden*, and you ha
 - *Die Berliner Mauer wurde 1961 errichtet und 1989 geöffnet.* — The Berlin Wall was put up in 1961 and opened in 1989.
 - *Der Euro wurde 2002 als Bargeld eingeführt.* — The euro was introduced as cash in 2002.
 - *Die Röntgenstrahlen wurden 1895 von Wilhelm Conrad Röntgen entdeckt.* — X-rays were discovered by Wilhelm Conrad Röntgen in 1895.
-- *Der Kaffeefilter wurde 1908 von einer Hausfrau aus Dresden erfunden: Melitta Bentz.* — The coffee filter was invented in 1908 by a housewife from Dresden: Melitta Bentz.
+- *Der Kaffeefilter aus Papier wurde 1908 von einer Hausfrau aus Dresden erfunden: Melitta Bentz.* — The paper coffee filter was invented in 1908 by a housewife from Dresden: Melitta Bentz.
 
 Don't confuse *wurde* (was, past passive) with *würde* (would, Konjunktiv II). One umlaut changes the meaning completely: *Das Haus wurde verkauft* (the house was sold) vs *Das Haus würde verkauft* (the house would be sold).
 
@@ -124,7 +125,7 @@ If nothing else is in position 1, *es* fills the gap: *Es wurde viel gefeiert.* 
 
 Headlines often leave out the verb completely, so the participle carries the meaning on its own: *Rathaus nach Brand geschlossen* = *Das Rathaus ist nach dem Brand geschlossen worden.* *Neue Brücke eröffnet* = *Die neue Brücke ist eröffnet worden.*
 
-And a few verbs from history: *bauen* (to build), *errichten* (to put up, erect: buildings, walls, monuments; more formal than *bauen*), *eröffnen* (to open officially) and *die Eröffnung*, *einführen* (to introduce, e.g. a law or a currency) and *die Einführung*, *abschaffen* (to abolish): *Die Todesstrafe wurde in der Bundesrepublik 1949 abgeschafft.* (The death penalty was abolished in West Germany in 1949.)
+And a few verbs from history: *bauen* (to build), *errichten* (to put up, erect: buildings, walls, monuments; more formal than *bauen*), *eröffnen* (to open officially) and *die Eröffnung*, *einführen* (to introduce, e.g. a law or a currency) and *die Einführung*, *abschaffen* (to abolish): *Die Todesstrafe wurde in der Bundesrepublik 1949 abgeschafft.* (The death penalty was abolished in West Germany in 1949, by Article 102 of the Basic Law; East Germany abolished it in 1987.)
 
 ## Text 1: a local news report
 
@@ -140,7 +141,7 @@ In English:
 
 > Fire in the old town: bakery destroyed, all residents rescued
 >
-> In the night before Sunday a fire broke out in the Krämer bakery in Kirchgasse. At about three o'clock the fire was noticed by a neighbour, who immediately called the fire brigade. The six residents of the building were rescued by ladder; two of them were taken to hospital with minor injuries. The bakery on the ground floor was almost completely destroyed by the fire. Kirchgasse was closed until Sunday lunchtime.
+> During Saturday night a fire broke out in the Krämer bakery in Kirchgasse. At about three o'clock the fire was noticed by a neighbour, who immediately called the fire brigade. The six residents of the building were rescued by ladder; two of them were taken to hospital with minor injuries. The bakery on the ground floor was almost completely destroyed by the fire. Kirchgasse was closed until Sunday lunchtime.
 >
 > How the fire started is still unclear. "A technical fault is likely," a fire brigade spokesman said at a press conference on Monday.
 >
@@ -150,15 +151,15 @@ Words to note: *ausbrechen* (to break out; *ist ausgebrochen*), *bemerken* (to n
 
 ## Text 2: Der Adler
 
-> Am 7. Dezember 1835 wurde in Bayern die erste Eisenbahnstrecke Deutschlands eröffnet. Sie war nur etwa sechs Kilometer lang und verband die Städte Nürnberg und Fürth. Die Strecke wurde von einer privaten Gesellschaft gebaut und nach dem bayerischen König Ludwig I. „Ludwigseisenbahn“ genannt. Die Lokomotive, der „Adler“, wurde in England gebaut und mit dem Schiff nach Deutschland gebracht, und auch der erste Lokführer kam aus England. Die Bahn war von Anfang an ein großer Erfolg: Schon im ersten Jahr wurden Hunderttausende Fahrgäste befördert. Übrigens wurden die meisten Züge in den ersten Jahren von Pferden gezogen, denn Kohle war teuer. Bald wurden überall in Deutschland neue Strecken gebaut, und durch die Eisenbahn wurde das Reisen schneller und billiger.
+> Am 7. Dezember 1835 wurde in Bayern die erste Eisenbahnstrecke Deutschlands mit Dampflokomotive eröffnet. Sie war nur etwa sechs Kilometer lang und verband die Städte Nürnberg und Fürth. Die Strecke wurde von einer privaten Gesellschaft gebaut und nach dem bayerischen König Ludwig I. „Ludwigseisenbahn“ genannt. Die Lokomotive, der „Adler“, wurde in England gebaut und in Einzelteilen mit Schiffen und Pferdewagen nach Nürnberg gebracht, und auch der erste Lokführer kam aus England. Die Bahn war von Anfang an ein großer Erfolg: Schon im ersten Jahr wurden über 400.000 Fahrgäste befördert. Übrigens wurden in den ersten Jahren die meisten Züge von Pferden gezogen, denn die Kohle für den „Adler“ war teuer. Bald wurden überall in Deutschland neue Strecken gebaut, und durch die Eisenbahn wurde das Reisen schneller und billiger.
 
-In English: On 7 December 1835 the first railway line in Germany was opened in Bavaria. It was only about six kilometres long and connected the towns of Nuremberg and Fürth. The line was built by a private company and named "Ludwigseisenbahn" after the Bavarian king Ludwig I. The locomotive, the "Adler" (Eagle), was built in England and brought to Germany by ship, and the first engine driver came from England too. The railway was a big success from the start: in the very first year, hundreds of thousands of passengers were carried. By the way, in the early years most trains were pulled by horses, because coal was expensive. Soon new lines were being built all over Germany, and through the railway, travelling became faster and cheaper.
+In English: On 7 December 1835 the first steam railway line in Germany was opened in Bavaria. It was only about six kilometres long and connected the towns of Nuremberg and Fürth. The line was built by a private company and named "Ludwigseisenbahn" after the Bavarian king Ludwig I. The locomotive, the "Adler" (Eagle), was built in England and brought to Nuremberg in parts by ship and horse-drawn wagon, and the first engine driver came from England too. The railway was a big success from the start: in the very first year, over 400,000 passengers were carried. By the way, in the early years most trains were pulled by horses, because the coal for the "Adler" was expensive. Soon new lines were being built all over Germany, and through the railway, travelling became faster and cheaper.
 
-Words to note: *die Strecke* (line, route), *verbinden* (to connect; *verband, hat verbunden*), *die Gesellschaft* (here: company), *der Lokführer* (engine driver), *befördern* (to carry, transport people), *ziehen* (to pull; *zog, hat gezogen*). Look at the last sentence: *durch die Eisenbahn wurde das Reisen schneller* is not passive at all. *wurde* + adjective is the full verb "become" in the Präteritum: travelling *became* faster.
+Words to note: *die Dampflokomotive* (steam locomotive), *die Strecke* (line, route), *in Einzelteilen* (in parts, dismantled), *der Pferdewagen* (horse-drawn wagon), *verbinden* (to connect; *verband, hat verbunden*), *die Gesellschaft* (here: company), *der Lokführer* (engine driver), *befördern* (to carry, transport people), *ziehen* (to pull; *zog, hat gezogen*). Look at the last sentence: *durch die Eisenbahn wurde das Reisen schneller* is not passive at all. *wurde* + adjective is the full verb "become" in the Präteritum: travelling *became* faster.
 
 ## More history in the passive
 
-- *Der Buchdruck mit beweglichen Buchstaben wurde um 1450 von Johannes Gutenberg in Mainz erfunden.* Gutenberg was the *Erfinder*; Melitta Bentz was an *Erfinderin*.
+- *Der Buchdruck mit beweglichen Buchstaben wurde um 1450 von Johannes Gutenberg in Mainz erfunden.* (That is the European story; movable type had been used in China and Korea centuries earlier.) Gutenberg was the *Erfinder*; Melitta Bentz was an *Erfinderin*.
 - *Die Entdeckung der Röntgenstrahlen war ein großer Erfolg für die Medizin.*
 - *Die erfolgreichsten Erfindungen sind oft ganz einfach.*
 - *Das Museum ist Opfer eines Diebstahls geworden: Ein wertvolles Bild wurde gestohlen.* (*stehlen*: *stiehlt, stahl, hat gestohlen*.) Here *geworden* is "become": the museum *became* the victim of a theft.

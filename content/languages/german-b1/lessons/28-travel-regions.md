@@ -4,6 +4,7 @@ module: de3-m6
 title: Travel and the German-speaking regions; giving a short presentation
 minutes: 45
 topics: [hin and her, Presentations, Regions, Tourism]
+refs: [de3-ref-speaking-writing]
 ---
 ## What this lesson is for
 

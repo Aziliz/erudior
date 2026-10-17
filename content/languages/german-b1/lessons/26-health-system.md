@@ -4,6 +4,7 @@ module: de3-m6
 title: The health system and social services; reported speech
 minutes: 45
 topics: [Reported speech, Konjunktiv I, Health system, Social services]
+refs: [de3-ref-speaking-writing]
 ---
 ## What this lesson is for
 

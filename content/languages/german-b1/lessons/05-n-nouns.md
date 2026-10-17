@@ -4,6 +4,7 @@ module: de3-m1
 title: Weak nouns and adjectival nouns
 minutes: 45
 topics: [Nouns, Adjectival nouns, People in society]
+refs: [de3-ref-past-future]
 ---
 ## What this lesson is for
 

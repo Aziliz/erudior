@@ -4,6 +4,7 @@ module: de3-m1
 title: 'Before that: the past perfect, nachdem and bevor'
 minutes: 45
 topics: [Past perfect, Time clauses, History]
+refs: [de3-ref-past-future]
 ---
 ## What this lesson is for
 

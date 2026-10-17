@@ -6,18 +6,18 @@
   module_quiz: true
   topic: Passive
   stem: 'Complete: "Das Altpapier ___ jeden Freitag abgeholt."'
-  choices: ['wird', 'ist', 'hat', 'werden']
+  choices: ['wird', 'wirst', 'hat', 'werden']
   answer: 0
   explanation: |-
-    The present passive is werden + past participle, and the subject "das Altpapier" is singular, so it is "wird". "ist abgeholt" would describe a finished state (it has been collected), not the regular action, and "werden" is plural.
+    The present passive is werden + past participle, and the subject "das Altpapier" is singular (er/sie/es form), so it is "wird". "wirst" is the du form, "werden" is plural, and the passive is never formed with haben.
 - id: de3-q-1602
   lesson: de3-passive-present
   topic: Passive
   stem: 'Complete: "Die Flaschen ___ nach Farben sortiert."'
-  choices: ['wird', 'sind', 'werden', 'haben']
+  choices: ['wird', 'wirst', 'werden', 'haben']
   answer: 2
   explanation: |-
-    "Die Flaschen" is plural, so werden must be plural too: "Die Flaschen werden sortiert." "wird" is the singular form. The passive is never formed with haben, and "sind sortiert" would mean they are already sorted (a state).
+    "Die Flaschen" is plural, so werden must be plural too: "Die Flaschen werden sortiert." "wird" is the singular form and "wirst" the du form. The passive is never formed with haben.
 - id: de3-q-1603
   lesson: de3-passive-present
   module_quiz: true
@@ -39,10 +39,10 @@
   lesson: de3-passive-present
   topic: Passive
   stem: 'Complete: "Der Müll wird ___ abgeholt." (by the town)'
-  choices: ['durch die Stadt', 'von der Stadt', 'bei der Stadt', 'von die Stadt']
+  choices: ['mit der Stadt', 'von der Stadt', 'bei der Stadt', 'von die Stadt']
   answer: 1
   explanation: |-
-    The town is the organisation that does the collecting, so it is von + dative: "von der Stadt". "von die Stadt" has the wrong case (von always takes the dative). "durch" is for a means or cause, and "bei" never means "by" in a passive.
+    The town is the organisation that does the collecting, so it is von + dative: "von der Stadt". "von die Stadt" has the wrong case (von always takes the dative). "mit der Stadt" would mean "together with the town", and "bei" never means "by" in a passive.
 - id: de3-q-1606
   lesson: de3-passive-present
   module_quiz: true
@@ -72,7 +72,7 @@
   lesson: de3-passive-present
   module_quiz: true
   topic: Reading
-  stem: 'Read: "In Deutschland gibt es auf viele Flaschen und Dosen Pfand. Wenn man eine Plastikflasche kauft, bezahlt man 25 Cent extra. Die leere Flasche wird im Supermarkt in einen Automaten gegeben, und man bekommt das Geld zurück. Mehrwegflaschen werden gereinigt und wieder gefüllt. Einwegflaschen werden zerkleinert, und aus dem Kunststoff werden neue Produkte gemacht." What happens to single-use bottles (Einwegflaschen)?'
+  stem: 'Read: "In Deutschland gibt es auf viele Flaschen und Dosen Pfand. Wenn man eine Einwegflasche aus Plastik kauft, bezahlt man 25 Cent extra. Die leere Flasche wird im Supermarkt in einen Automaten gegeben, und man bekommt das Geld zurück. Mehrwegflaschen werden gereinigt und wieder gefüllt. Einwegflaschen werden zerkleinert, und aus dem Kunststoff werden neue Produkte gemacht." What happens to single-use bottles (Einwegflaschen)?'
   choices: ['They are cleaned and filled again.', 'They are shredded, and new products are made from the plastic.', 'They are thrown away.', 'They are sold back to the customers.']
   answer: 1
   explanation: |-
@@ -403,10 +403,10 @@
   lesson: de3-opinions-media
   topic: Da- and wo- compounds
   stem: 'Complete: "Das ist etwas, ___ ich mich sehr freue."'
-  choices: ['worüber', 'was', 'darüber', 'über das']
+  choices: ['worüber', 'was', 'darüber', 'über den']
   answer: 0
   explanation: |-
-    After etwas, the relative pronoun is was, but when the verb needs a preposition (sich freuen über), was becomes a wo-compound: "worüber". "darüber" can't start a relative clause, and "über das" doesn't follow etwas.
+    After etwas, the relative pronoun is was, but when the verb needs a preposition (sich freuen über), was becomes a wo-compound: "worüber". Plain "was" leaves out the preposition, "darüber" can't start a relative clause, and "über den" is a masculine relative pronoun, which doesn't refer back to etwas.
 
 # --- 20 Politics and society ---
 - id: de3-q-2001

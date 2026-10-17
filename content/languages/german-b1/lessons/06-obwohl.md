@@ -4,6 +4,7 @@ module: de3-m2
 title: "Although: obwohl, trotzdem, zwar … aber"
 minutes: 45
 topics: [Connectors, Concession, Money]
+refs: [de3-ref-connectors]
 ---
 ## What this lesson is for
 

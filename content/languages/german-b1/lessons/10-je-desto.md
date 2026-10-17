@@ -4,6 +4,7 @@ module: de3-m2
 title: "The more … the better: je … desto; comparisons in depth"
 minutes: 45
 topics: [Comparison, Connectors, Sport and health]
+refs: [de3-ref-connectors]
 ---
 ## What this lesson is for
 

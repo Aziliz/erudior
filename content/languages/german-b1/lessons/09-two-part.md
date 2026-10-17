@@ -4,6 +4,7 @@ module: de3-m2
 title: "Either … or, neither … nor: two-part connectors"
 minutes: 40
 topics: [Connectors, Two-part connectors, Housing]
+refs: [de3-ref-connectors]
 ---
 ## What this lesson is for
 

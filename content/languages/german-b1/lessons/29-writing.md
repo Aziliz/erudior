@@ -4,6 +4,7 @@ module: de3-m6
 title: "Writing at B1: e-mails, forum posts and formal letters"
 minutes: 50
 topics: [Writing, Register, Letters, Punctuation]
+refs: [de3-ref-speaking-writing]
 ---
 ## What this lesson is for
 

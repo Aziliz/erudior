@@ -106,12 +106,12 @@ Impersonal passive *(receptive)*: *Hier wird nicht geraucht. Es wurde bis drei U
 | *vor* | *davor* | *wovor* |
 | *zu* | *dazu* | *wozu* |
 
-*r* is added before a vowel. No *da-/wo-* forms with *ohne, seit, außer* or the genitive prepositions.
+*r* is added before a vowel. *hinter, neben, zwischen* also give *dahinter, daneben, dazwischen* (their *wo-* forms are rare). No *da-/wo-* forms with *ohne, seit, außer* or the genitive prepositions.
 
 | about a thing | about a person |
 |---|---|
 | *Worauf wartest du? — Ich warte darauf.* | *Auf wen wartest du? — Ich warte auf ihn.* |
-| *Womit fährst du? — Damit.* | *Mit wem fährst du? — Mit ihr.* |
+| *Woran denkst du? — An die Prüfung. Ich denke oft daran.* | *An wen denkst du? — An meine Mutter. Ich denke oft an sie.* |
 
 ### Pointing ahead to a clause
 

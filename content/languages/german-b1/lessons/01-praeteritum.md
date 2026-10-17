@@ -4,6 +4,7 @@ module: de3-m1
 title: 'Telling stories: the simple past'
 minutes: 45
 topics: [Simple past, Strong verbs, Stories and books]
+refs: [de3-ref-past-future]
 ---
 ## What this lesson is for
 

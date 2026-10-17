@@ -4,6 +4,7 @@ module: de3-m4
 title: "What must be done: the passive with modal verbs"
 minutes: 45
 topics: [Passive, Public life and rules]
+refs: [de3-ref-passive-opinions]
 ---
 ## What this lesson is for
 
@@ -157,7 +158,7 @@ In English:
 >
 > Anyone who breaks these regulations must expect a fine. Your application is normally processed within three weeks. If you have questions, we can be reached Monday to Friday from 8 to 12.
 
-Words to note: *das Merkblatt* (information sheet), *klappen* (to work out, go well; colloquial), *einen Antrag stellen* (to make an application), *beifügen* (to enclose, attach), *die Zufahrt* (access road), *hinterlassen* (to leave behind), *ausleihen* (to borrow), *verstoßen gegen* (to break, violate a rule), *rechnen mit* (to expect). Find the *sein + zu* sentence (*Dem Antrag ist ein Plan beizufügen*) and the two *-bar* adjectives.
+Words to note: *das Merkblatt* (information sheet), *klappen* (to work out, go well; colloquial), *einen Antrag stellen* (to make an application), *beifügen* (to enclose, attach), *die Zufahrt* (access road), *hinterlassen* (to leave behind), *ausleihen* (to borrow), *verstoßen gegen* (to break, violate a rule), *rechnen mit* (to expect). Find the *sein + zu* sentence (*Dem Antrag ist ein Plan beizufügen*) and the *-bar* adjective (it appears twice).
 
 ## Pronunciation
 

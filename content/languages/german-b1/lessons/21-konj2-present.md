@@ -4,6 +4,7 @@ module: de3-m5
 title: 'If I were …: Konjunktiv II in full'
 minutes: 45
 topics: [Konjunktiv II, Unreal conditions, Lifestyle and wishes]
+refs: [de3-ref-subjunctive-prepositions]
 ---
 ## What this lesson is for
 

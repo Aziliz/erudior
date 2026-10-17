@@ -4,6 +4,7 @@ module: de3-m6
 title: Living together; getting things done with lassen
 minutes: 45
 topics: [lassen, Neighbours, Renting]
+refs: [de3-ref-speaking-writing]
 ---
 ## What this lesson is for
 

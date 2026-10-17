@@ -4,6 +4,7 @@ module: de3-m6
 title: The Goethe-Zertifikat B1 and review
 minutes: 50
 topics: [B1 exam, Exam strategies, Course review]
+refs: [de3-ref-speaking-writing, de3-ref-past-future, de3-ref-connectors]
 ---
 ## What this lesson is for
 

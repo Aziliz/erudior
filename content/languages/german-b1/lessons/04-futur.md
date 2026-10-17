@@ -4,6 +4,7 @@ module: de3-m1
 title: 'The future: werden + infinitive'
 minutes: 40
 topics: [Future, werden, Technology and science]
+refs: [de3-ref-past-future]
 ---
 ## What this lesson is for
 

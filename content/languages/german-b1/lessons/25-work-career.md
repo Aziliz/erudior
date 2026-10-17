@@ -4,6 +4,7 @@ module: de3-m5
 title: Careers and the job market
 minutes: 45
 topics: [Infinitive constructions, Noun endings, Formal letters, Work and careers]
+refs: [de3-ref-subjunctive-prepositions]
 ---
 ## What this lesson is for
 

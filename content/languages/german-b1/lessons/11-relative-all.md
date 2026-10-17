@@ -4,6 +4,7 @@ module: de3-m3
 title: Relative clauses in every case, with prepositions
 minutes: 45
 topics: [Relative clauses, Relationships and communication]
+refs: [de3-ref-relative-genitive]
 ---
 ## What this lesson is for
 

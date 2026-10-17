@@ -4,6 +4,7 @@ module: de3-m3
 title: "Because of, despite, during: wegen, trotz, während, statt"
 minutes: 40
 topics: [Genitive, Prepositions, Travel problems]
+refs: [de3-ref-relative-genitive]
 ---
 ## What this lesson is for
 

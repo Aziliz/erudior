@@ -326,10 +326,10 @@ Lesson ids `de3-…`, files `NN-slug.md` with NN = 01–30, question ids `de3-q-
 
 ## Status
 
-- [ ] m1 lessons 01–05
-- [ ] m2 lessons 06–10
-- [ ] m3 lessons 11–15
-- [ ] m4 lessons 16–20
-- [ ] m5 lessons 21–25
-- [ ] m6 lessons 26–30
-- [ ] refs wiring, glossary dedupe, full build, independent review, browser check
+- [x] m1 lessons 01–05
+- [x] m2 lessons 06–10
+- [x] m3 lessons 11–15
+- [x] m4 lessons 16–20
+- [x] m5 lessons 21–25
+- [x] m6 lessons 26–30
+- [x] refs wiring, glossary dedupe, full build, independent review, browser check

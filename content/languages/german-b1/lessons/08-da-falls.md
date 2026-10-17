@@ -4,6 +4,7 @@ module: de3-m2
 title: "Since, in case, so that: da, falls, sodass"
 minutes: 45
 topics: [Connectors, Reasons and results, Insurance]
+refs: [de3-ref-connectors]
 ---
 ## What this lesson is for
 

@@ -86,6 +86,7 @@
 - id: wiederverwerten
   lesson: de3-passive-present
   term: wiederverwerten
+  alt: [wieder verwerten]
   pos: verb
   meanings: [to recycle (formal), to recycle, to reuse]
   example: Altes Papier wird wiederverwertet.
@@ -398,8 +399,8 @@
   term: abschaffen
   pos: verb
   meanings: [to abolish, to get rid of, to do away with]
-  example: Die Todesstrafe wurde 1949 abgeschafft.
-  exampleEn: The death penalty was abolished in 1949.
+  example: Die Todesstrafe wurde in Westdeutschland 1949 abgeschafft.
+  exampleEn: The death penalty was abolished in West Germany in 1949.
   note: 'Separable and weak: schaffte ab, hat abgeschafft.'
 - id: verbesserung
   lesson: de3-passive-past
@@ -513,8 +514,8 @@
   pos: noun
   plural: die Eisenbahnen
   meanings: [railway, railroad, train set]
-  example: Die erste deutsche Eisenbahn fuhr 1835.
-  exampleEn: The first German railway ran in 1835.
+  example: Die erste Eisenbahn in Deutschland fuhr 1835 von Nürnberg nach Fürth.
+  exampleEn: The first railway in Germany ran from Nuremberg to Fürth in 1835.
   note: 'In everyday speech: die Bahn.'
 - id: ausbrechen
   lesson: de3-passive-past
@@ -813,8 +814,8 @@
   pos: noun
   plural: die Personalausweise
   meanings: [identity card (official), identity card, ID card, national ID card]
-  example: Ab 16 braucht man einen Personalausweis.
-  exampleEn: From 16 you need an identity card.
+  example: Ab 16 braucht man einen Personalausweis oder einen Reisepass.
+  exampleEn: From 16 you need an identity card or a passport.
 - id: betreten
   lesson: de3-passive-modal
   term: betreten
@@ -1349,8 +1350,8 @@
   pos: noun
   plural: die Verfassungen
   meanings: [constitution]
-  example: Jedes Land hat eine Verfassung.
-  exampleEn: Every country has a constitution.
+  example: Die Verfassung schützt die Rechte der Bürger.
+  exampleEn: The constitution protects the rights of citizens.
   note: 'Also state, condition: in guter Verfassung.'
 - id: gerecht
   lesson: de3-politics-society

@@ -4,6 +4,7 @@ module: de3-m5
 title: Verbs, adjectives and nouns with prepositions
 minutes: 45
 topics: [Verbs with prepositions, Adjectives with prepositions, Nouns with prepositions, Interests and emotions]
+refs: [de3-ref-subjunctive-prepositions]
 ---
 ## What this lesson is for
 

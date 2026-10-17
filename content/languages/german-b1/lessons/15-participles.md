@@ -4,6 +4,7 @@ module: de3-m3
 title: Participles as adjectives and adjectives without articles
 minutes: 45
 topics: [Adjective endings, Participles, Products and shopping]
+refs: [de3-ref-relative-genitive]
 ---
 ## What this lesson is for
 

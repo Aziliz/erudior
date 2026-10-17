@@ -4,6 +4,7 @@ module: de3-m5
 title: Wishes, advice and polite requests
 minutes: 40
 topics: [Konjunktiv II, Wishes and advice, Polite requests, Feelings]
+refs: [de3-ref-subjunctive-prepositions]
 ---
 ## What this lesson is for
 

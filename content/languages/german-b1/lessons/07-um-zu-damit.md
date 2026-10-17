@@ -4,6 +4,7 @@ module: de3-m2
 title: "Goals: um … zu, damit, ohne … zu, statt … zu"
 minutes: 45
 topics: [Connectors, Infinitive clauses, Study]
+refs: [de3-ref-connectors]
 ---
 ## What this lesson is for
 
