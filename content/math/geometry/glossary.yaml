@@ -654,6 +654,24 @@
   aliases: [tiling]
   definition: 'A covering of the plane by shapes with no gaps or overlaps; the only regular polygons that tessellate alone are triangles, squares and hexagons.'
   topic: Polygon angles
+- term: oblique triangle
+  aliases: [oblique triangles]
+  definition: 'A triangle with no right angle; it is solved with the Law of Sines and the Law of Cosines instead of SOH-CAH-TOA.'
+  topic: Law of Sines
+- term: Law of Sines
+  definition: 'In any triangle, $\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$, where each side is opposite the angle with the same letter.'
+  topic: Law of Sines
+- term: ambiguous case
+  aliases: [SSA ambiguous case]
+  definition: 'The SSA situation, where two sides and an angle opposite one of them can fit no triangle, one triangle or two different triangles.'
+  topic: Ambiguous case
+- term: Law of Cosines
+  definition: 'In any triangle, $a^2 = b^2 + c^2 - 2bc\cos A$; it reduces to the Pythagorean theorem when $A = 90^\circ$.'
+  topic: Law of Cosines
+- term: solve a triangle
+  aliases: [solving a triangle, solve the triangle]
+  definition: 'To find all three sides and all three angles of a triangle from the parts that are given.'
+  topic: Solving triangles
 # Module 7
 - term: circle
   aliases: [circles]
@@ -948,6 +966,24 @@
   aliases: [order of rotational symmetry]
   definition: 'The number of positions in one full turn in which a figure looks the same.'
   topic: Compositions and symmetry
+- term: parabola
+  aliases: [parabolas]
+  definition: 'The set of points in a plane equally distant from a fixed point (the focus) and a fixed line (the directrix).'
+  topic: Parabolas
+- term: focus
+  aliases: [foci]
+  definition: 'The fixed point in the definition of a parabola; with vertex at the origin and $x^2 = 4py$, it is $(0, p)$.'
+  topic: Parabolas
+- term: directrix
+  definition: 'The fixed line in the definition of a parabola; with vertex at the origin and $x^2 = 4py$, it is $y = -p$.'
+  topic: Parabolas
+- term: axis of symmetry
+  definition: 'For a parabola, the line through the focus perpendicular to the directrix; the parabola is its own mirror image across it.'
+  topic: Parabolas
+- term: vertex of a parabola
+  aliases: [vertex of the parabola]
+  definition: 'The point where a parabola crosses its axis of symmetry, halfway between the focus and the directrix.'
+  topic: Parabolas
 # Module 10
 - term: axiomatic system
   aliases: [axiomatic systems, axiom system]

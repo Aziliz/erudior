@@ -366,3 +366,36 @@
   answer: 0
   explanation: |-
     The compass holds the distance from $A$ to $B$ and an arc from the new starting point marks a point at that same distance. It never measures in units.
+- id: geo-q-0412
+  lesson: geo-construct
+  module_quiz: true
+  topic: Constructions
+  stem: 'To inscribe a square in a circle, you first draw a diameter $\overline{AC}$. What do you construct next?'
+  choices: ['A chord from $A$ equal in length to the radius', 'The perpendicular bisector of $\overline{AC}$, a second diameter', 'The bisector of an angle at $A$', 'A circle centered at $A$ through $C$']
+  answer: 1
+  explanation: |-
+    The perpendicular bisector of $\overline{AC}$ passes through the center (the midpoint of the diameter) and meets the circle at the other two vertices $B$ and $D$. A chord equal to the radius is the hexagon step; bisecting an angle at $A$ or drawing a circle through $C$ does not produce the missing vertices.
+- id: geo-q-0413
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'In the inscribed-square construction, why is $ABCD$ (the endpoints of two perpendicular diameters) a square?'
+  choices: ['Because any four points on a circle form a square', 'Because the compass was stepped around the circle at the radius', 'Because its diagonals are congruent, perpendicular and bisect each other', 'Because its opposite sides are parallel']
+  answer: 2
+  explanation: |-
+    The diagonals are two diameters: equal in length, bisecting each other at the center, and perpendicular by construction. A quadrilateral with all three properties is a square. Four points on a circle can form many non-square shapes; stepping at the radius makes a hexagon; and parallel opposite sides only make a parallelogram.
+- id: geo-q-0414
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'In the inscribed-square construction, what angle do the segments from the center to two neighboring vertices make?'
+  choices: ['$60^\circ$', '$120^\circ$', '$45^\circ$', '$90^\circ$']
+  answer: 3
+  explanation: |-
+    The two diameters are perpendicular, so neighboring vertices are $90^\circ$ apart around the center ($4 \times 90^\circ = 360^\circ$). $60^\circ$ belongs to the regular hexagon, $120^\circ$ to the equilateral triangle, and $45^\circ$ to the regular octagon.
+- id: geo-q-0415
+  lesson: geo-construct
+  topic: Constructions
+  stem: 'After inscribing a square in a circle, how can you extend the construction to a regular octagon?'
+  choices: ['Bisect each of the four right angles at the center and mark where the bisectors meet the circle', 'Step the compass around the circle eight times at the radius', 'Draw the perpendicular bisector of a radius', 'Double the length of each side of the square']
+  answer: 0
+  explanation: |-
+    Bisecting the four $90^\circ$ angles at the center gives eight $45^\circ$ angles, and the bisectors meet the circle at four new points halfway between the square's vertices; all eight points are equally spaced. Stepping at the radius closes up after six points (a hexagon); bisecting a radius doesn't locate new vertices; and doubling the sides would push them off the circle.

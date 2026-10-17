@@ -70,6 +70,20 @@ Each converse proves lines parallel. Playfair: exactly one parallel through an o
 | 30°-60°-90° | $1 : \sqrt3 : 2$ |
 | Altitude to hypotenuse | $h = \sqrt{xy}$; leg $= \sqrt{c \cdot \text{adjacent piece}}$ |
 
+## Any triangle (oblique triangles)
+
+Side $a$ is opposite $\angle A$, $b$ opposite $\angle B$, $c$ opposite $\angle C$.
+
+| Fact | Statement |
+|---|---|
+| Obtuse angles | $\sin\theta = \sin(180^\circ - \theta)$, $\cos\theta = -\cos(180^\circ - \theta)$ |
+| Law of Sines | $\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$ (use for AAS, ASA, SSA) |
+| Law of Cosines | $a^2 = b^2 + c^2 - 2bc\cos A$ (use for SAS, SSS) |
+| Angle from three sides | $\cos A = \dfrac{b^2 + c^2 - a^2}{2bc}$ |
+| SSA, acute $A$, $h = b\sin A$ | $a < h$: none; $a = h$: one right triangle; $h < a < b$: two; $a \ge b$: one |
+| SSA, right or obtuse $A$ | one triangle if $a > b$, none otherwise |
+| Safe order | find the largest angle with the Law of Cosines (or last, by subtraction) |
+
 ## Polygons and quadrilaterals
 
 | Fact | Statement |

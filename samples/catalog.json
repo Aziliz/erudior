@@ -72,7 +72,7 @@
   ],
   "lessons": 30,
   "questions": 351,
-  "cards": 166,
+  "cards": 186,
   "drills": 84
  },
  {
@@ -80,8 +80,8 @@
   "file": "math/math-geometry.json",
   "order": 4,
   "title": "Geometry",
-  "description": "Euclidean geometry from the first definitions through a college introduction: points, lines and angles; logic and proof; parallel lines; triangle congruence and similarity; special segments and quadrilaterals; right triangles and trigonometry; circles; area, surface area and volume; coordinates and transformations; and, at the college level, axiomatic systems, the parallel postulate, non-Euclidean geometry and geometric probability.",
-  "revision": 2,
+  "description": "Euclidean geometry from the first definitions through a college introduction: points, lines and angles; logic and proof; parallel lines; triangle congruence and similarity; special segments and quadrilaterals; right triangles, trigonometry and the Laws of Sines and Cosines; circles; area, surface area and volume; coordinates, parabolas and transformations; and, at the college level, axiomatic systems, the parallel postulate, non-Euclidean geometry and geometric probability.",
+  "revision": 3,
   "subject": "Math",
   "level": [
    "High school"

@@ -7,7 +7,7 @@ topics: [Trigonometric ratios, Solving right triangles]
 drills: [geo-trig-side, geo-trig-angle, geo-elevation]
 refs: [geo-ref-coord]
 ---
-Special right triangles handle $30^\circ$, $45^\circ$ and $60^\circ$. What about a $37^\circ$ angle? Similarity gives the key: every right triangle with a $37^\circ$ angle is similar to every other (AA), so the *ratios* of its sides are fixed numbers that depend only on the angle. Those ratios are the trigonometric ratios. This lesson defines them, uses them to find missing sides and angles, and applies them to angles of elevation and depression.
+Special right triangles handle $30^\circ$, $45^\circ$ and $60^\circ$. What about a $37^\circ$ angle? Similarity gives the key: every right triangle with a $37^\circ$ angle is similar to every other (AA), so the *ratios* of its sides are fixed numbers that depend only on the angle. Those ratios are the trigonometric ratios. This lesson defines them, uses them to find missing sides and angles, and applies them to angles of elevation and depression. The next two lessons extend the same ideas to triangles with no right angle.
 
 ## The three ratios
 

@@ -276,6 +276,49 @@
   explanation: |-
     Six square faces: $6s^2 = 150$, so $s^2 = 25$ and $s = 5$ cm.
 
+- id: geo-q-3112
+  lesson: geo-surface
+  module_quiz: true
+  topic: Solids
+  stem: 'Which shape can NOT be a cross section of a cube?'
+  choices: ['A triangle', 'A rectangle that is not a square', 'A regular hexagon', 'A circle']
+  answer: 3
+  explanation: |-
+    Every cross section of a cube is a polygon, because the plane cuts flat faces along straight segments, so a circle is impossible. Slicing off a corner gives a triangle, a slanted cut through two opposite edges gives a non-square rectangle, and a cut through the center perpendicular to a long diagonal gives a regular hexagon.
+- id: geo-q-3113
+  lesson: geo-surface
+  topic: Solids
+  stem: 'A cylinder is sliced by a plane that contains its axis. What is the cross section?'
+  choices: ['A rectangle', 'A circle', 'An ellipse', 'A triangle']
+  answer: 0
+  explanation: |-
+    A plane through the axis cuts both bases along diameters and the curved side along two vertical segments, giving a rectangle (width = diameter, height = the cylinder's height). A circle comes from slicing parallel to the bases, an ellipse from a moderate tilt, and a triangle from slicing a cone through its apex.
+- id: geo-q-3114
+  lesson: geo-surface
+  module_quiz: true
+  topic: Solids
+  stem: 'A right triangle with legs 5 and 12 (hypotenuse 13) is spun around the leg of length 12. What is the total surface area of the solid?'
+  choices: ['$300\pi$', '$65\pi$', '$90\pi$', '$85\pi$']
+  answer: 2
+  explanation: |-
+    Spinning about the 12 leg makes a cone with height 12, radius 5 and slant height 13: $S = \pi r^2 + \pi r\ell = 25\pi + 65\pi = 90\pi$. $300\pi$ spins about the other leg (radius 12); $65\pi$ is the lateral area alone, without the base; $85\pi$ uses the height 12 in place of the slant height.
+- id: geo-q-3115
+  lesson: geo-surface
+  topic: Solids
+  stem: 'A 4-by-10 rectangle is spun around one of its 10-unit sides. What solid does it sweep out?'
+  choices: ['A cylinder with radius 10 and height 4', 'A cylinder with radius 4 and height 10', 'A cylinder with diameter 4 and height 10', 'A cone with radius 4 and height 10']
+  answer: 1
+  explanation: |-
+    The side it spins around becomes the axis, so the height is 10, and the opposite side traces a circle at distance 4: radius 4. Radius 10 and height 4 would come from spinning around a 4-unit side; the 4 is a radius, not a diameter, because it is measured from the axis; and a cone comes from a right triangle, not a rectangle.
+- id: geo-q-3116
+  lesson: geo-surface
+  topic: Solids
+  stem: 'A sphere of radius 10 cm is sliced by a plane 6 cm from its center. What is the cross section?'
+  choices: ['A circle of radius 8 cm', 'A circle of radius 4 cm', 'A circle of radius 10 cm', 'An ellipse']
+  answer: 0
+  explanation: |-
+    Every plane section of a sphere is a circle. The radius from the center to the edge of the cut (10) is the hypotenuse of a right triangle with legs 6 and $r$: $r = \sqrt{10^2 - 6^2} = 8$ cm. 4 cm subtracts the lengths instead of using the Pythagorean theorem; 10 cm is only right for a cut through the center; and spheres never give ellipses.
+
 - id: geo-q-3201
   lesson: geo-volume
   module_quiz: true

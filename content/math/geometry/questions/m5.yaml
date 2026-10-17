@@ -91,6 +91,40 @@
   explanation: |-
     The Perpendicular Bisector Theorem and its converse together say the perpendicular bisector is exactly the locus of points equidistant from $A$ and $B$.
 
+- id: geo-q-1512
+  lesson: geo-bisectors
+  module_quiz: true
+  topic: Points of concurrency
+  stem: 'How do you construct the circumscribed circle of a triangle with compass and straightedge?'
+  choices: ['Construct the perpendicular bisectors of two sides; center the circle where they cross and pass it through a vertex', 'Construct the bisectors of two angles; center the circle where they cross and pass it through a vertex', 'Construct two medians; center the circle where they cross and pass it through a vertex', 'Construct the perpendicular bisectors of two sides; use the perpendicular distance from their crossing to a side as the radius']
+  answer: 0
+  explanation: |-
+    The perpendicular bisectors meet at the circumcenter, which is equally far from all three vertices, so a circle centered there through one vertex passes through all three. Angle bisectors give the incenter, which is equally far from the sides, not the vertices; medians give the centroid; and the distance from the circumcenter to a side is not the circumradius.
+- id: geo-q-1513
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'After bisecting two angles of a triangle to find the incenter $I$, what length do you use as the radius of the inscribed circle?'
+  choices: ['The distance from $I$ to a vertex', 'Half the length of the shortest side', 'The length of the perpendicular segment from $I$ to a side', 'The distance from $I$ to the circumcenter']
+  answer: 2
+  explanation: |-
+    The incenter is equidistant from the three sides, and distance to a side is measured along the perpendicular, so you construct the perpendicular from $I$ to one side and use its length. A circle through a vertex would cross the sides; half a side has nothing to do with the incircle; and the circumcenter is a different point entirely.
+- id: geo-q-1514
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'When constructing a circumcenter, why is it enough to construct only two of the three perpendicular bisectors?'
+  choices: ['The third side has no perpendicular bisector', 'The three perpendicular bisectors are concurrent, so the third passes through the same point', 'Only two sides of a triangle can be bisected with a compass', 'The third bisector always lies outside the triangle']
+  answer: 1
+  explanation: |-
+    The Circumcenter Theorem says all three perpendicular bisectors meet at one point, so two of them already locate it; the third is a useful check. Every side has a perpendicular bisector, every segment can be bisected with a compass, and where a bisector runs has nothing to do with whether it is needed.
+- id: geo-q-1515
+  lesson: geo-bisectors
+  topic: Points of concurrency
+  stem: 'A student constructs the perpendicular bisectors of the sides of an obtuse triangle and finds that they cross outside the triangle. What should the student conclude?'
+  choices: ['The construction must be wrong; the circumcenter is always inside', 'The triangle has no circumscribed circle', 'The point is the incenter, not the circumcenter', 'Nothing is wrong; an obtuse triangle''s circumcenter is outside, and the circle still passes through all three vertices']
+  answer: 3
+  explanation: |-
+    The circumcenter is inside an acute triangle, at the midpoint of the hypotenuse of a right triangle, and outside an obtuse triangle. It is still equidistant from the vertices, so the circumscribed circle exists as usual. Only the incenter is always inside, and it comes from angle bisectors, not perpendicular bisectors.
+
 - id: geo-q-1601
   lesson: geo-medians
   module_quiz: true

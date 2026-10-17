@@ -76,7 +76,7 @@ $\tfrac{150}{360} \cdot 2\pi r = 10\pi$, so $\tfrac{5}{12} \cdot 2r = 10$, givin
 
 ## Radian measure
 
-Because arc length is proportional to the radius, the ratio $\tfrac{\text{arc length}}{r}$ depends only on the angle. That ratio is the angle's **radian** measure:
+Because arc length is proportional to the radius (all circles are similar, which Lesson 38 proves), the ratio $\tfrac{\text{arc length}}{r}$ depends only on the angle. That ratio is the angle's **radian** measure:
 
 $$\theta_{\text{radians}} = \frac{s}{r}.$$
 

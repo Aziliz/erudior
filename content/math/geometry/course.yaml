@@ -3,13 +3,13 @@ title: Geometry
 description: >-
   Euclidean geometry from the first definitions through a college introduction:
   points, lines and angles; logic and proof; parallel lines; triangle congruence
-  and similarity; special segments and quadrilaterals; right triangles and
-  trigonometry; circles; area, surface area and volume; coordinates and
-  transformations; and, at the college level, axiomatic systems, the parallel
+  and similarity; special segments and quadrilaterals; right triangles,
+  trigonometry and the Laws of Sines and Cosines; circles; area, surface area
+  and volume; coordinates, parabolas and transformations; and, at the college level, axiomatic systems, the parallel
   postulate, non-Euclidean geometry and geometric probability.
-revision: 2
+revision: 3
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections.
+changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on the Law of Sines, the Law of Cosines, and the parabola from focus and directrix.
 order: 4
 subject: Math
 level: [High school]

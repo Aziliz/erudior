@@ -40,7 +40,7 @@ Dilate $P(7, 5)$ with center $C(1, 2)$ and scale factor $\tfrac13$.
 
 $P' = \left(1 + \tfrac13(6),\; 2 + \tfrac13(3)\right) = (3, 3)$.
 
-**Similarity through transformations.** Two figures are similar if and only if a sequence of rigid motions and dilations maps one onto the other. This is why the scale factor of similar figures is a single number for every length.
+**Similarity through transformations.** Two figures are similar if and only if a sequence of rigid motions and dilations maps one onto the other. This is why the scale factor of similar figures is a single number for every length. The next lesson uses it to prove that all circles are similar.
 
 ## Compositions
 

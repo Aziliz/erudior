@@ -229,3 +229,53 @@ All 102 questions in m8–m10 were solved independently. Numeric ones were check
 - No errors were noticed in files outside this scope.
 
 Final state: build OK, and check-course reports OK with 0 problems on 4 runs.
+
+## Gap lessons (2026-10-17)
+
+Fills the gaps listed in VERIFY.md ("Coverage gaps") and makes the source-check sections quizzable.
+Totals now: 41 lessons, 476 questions, 103 drills, 184 cards, 300 glossary terms, 3 reference sheets.
+Build and check-course: zero problems.
+
+### New lessons
+| File | id | Module | Title |
+|---|---|---|---|
+| lessons/25-law-of-sines.md | geo-law-sines | geo-m6 | The Law of Sines (incl. sine/cosine of obtuse angles, SSA ambiguous case) |
+| lessons/26-law-of-cosines.md | geo-law-cosines | geo-m6 | The Law of Cosines and solving any triangle |
+| lessons/38-parabolas-similar-circles.md | geo-parabola | geo-m9 | Parabolas from focus and directrix; all circles are similar |
+
+Renumbered files (ids unchanged): old 25–35 are now 27–37, old 36–38 are now 39–41.
+In-text lesson numbers updated: "Lesson 28" → 30 (coordinate geometry intro), "Lesson 30" → 32 (volume, ring example).
+New cross-references: lesson 11 (SSA) → Lesson 25; lesson 24 intro → next two lessons; lessons 27 and 32
+("all circles are similar") → Lesson 38; lesson 37 → next lesson.
+course.yaml: description mentions the new topics; no module changes; id/revision/released/order untouched.
+
+### New questions (51)
+- geo-law-sines: geo-q-2451 – geo-q-2463 (13; module quiz 2451, 2454, 2455, 2463)
+- geo-law-cosines: geo-q-2471 – geo-q-2482 (12; module quiz 2471, 2473, 2477, 2481)
+- geo-parabola: geo-q-3551 – geo-q-3563 (13; module quiz 3551, 3553, 3560, 3561)
+- Task B: geo-construct (square inscribed in a circle) geo-q-0412 – 0415 (mq 0412);
+  geo-bisectors (constructing circumcircle/incircle) geo-q-1512 – 1515 (mq 1512);
+  geo-surface (cross sections, solids of revolution) geo-q-3112 – 3116 (mq 3112, 3114).
+
+### New drills (10)
+- m6: geo-los-side, geo-los-angle, geo-los-ambiguous (Law of Sines); geo-loc-side, geo-loc-angle, geo-loc-solve (Law of Cosines)
+- m9: geo-parabola-eq (expression answer), geo-parabola-focus, geo-circle-similar
+- m8: geo-revolve-sa (cone from a right triangle spun about a leg), linked from lesson 33 (geo-surface)
+
+### Also added
+- Glossary (10): oblique triangle, Law of Sines, ambiguous case, Law of Cosines, solve a triangle, parabola, focus, directrix, axis of symmetry, vertex of a parabola.
+- Cards (20): 11 Law of Sines/Cosines/solving triangles, 6 parabolas/similar circles, 3 for the Task B sections.
+- References: theorems.md gets an "Any triangle (oblique triangles)" table; coord.md gets parabola rows, obtuse-angle sin/cos, and the circle-similarity note.
+
+### Verification
+- Every new question solved in Python (scratch keycheck.py/qcheck.py) before fixing keys; all keys match; SSA counts checked by a separate case function; parabola equations checked with sympy.
+- Each new drill generated 500–600 times (drills.mts): targets match an independent solver that reads the prompt text; displayed answer and a 2-decimal answer accepted; a wrong answer rejected; no "+ -"/"+ 0" artifacts.
+- Rounded-intermediate check: for geo-loc-solve, a learner rounding $a$ to 2 decimals can be off by up to ~0.14° in the angles, so those boxes use tolerance 0.15 (others 0.01–0.02).
+- All new lesson and drill figures rendered and eyeballed.
+
+### Notes for a reviewer
+- course.yaml revision was not bumped (not allowed in this task); the changelog still describes the source check. Whoever releases this should bump revision and mention the three new lessons.
+- Lesson 33 (geo-surface) now links 4 drills (AUTHORING suggests 1–3); geo-revolve-sa is the only drill for solids of revolution.
+- No new drill for lesson 04 (inscribing a square needs the Pythagorean theorem, which comes in Module 6) or lesson 15 (the construction itself is not a computation; geo-circumcenter and geo-incenter-dist already cover the numbers).
+- Lesson 25 extends sine/cosine to obtuse angles with a coordinate definition (lesson 24 only defined acute ratios); lesson 26's proof uses it.
+- Conventions in VERIFY.md kept; the circle proof uses positive-k dilations only, as in lesson 37.

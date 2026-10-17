@@ -280,3 +280,33 @@
     - {name: V, label: 'Volume', tolerance: 0.01}
   solution: |-
     $V = Bh = \pi r^2 h = \pi({r})^2({h}) = {kV:dp0}\pi \approx$ **{V:num2}**.
+
+- id: geo-revolve-sa
+  title: Surface area of a solid of revolution
+  topic: Solids
+  vars:
+    lp: {min: 2, max: 15}
+    lq: {min: 2, max: 20}
+  where: ["lp != lq"]
+  calc:
+    l2: lp^2 + lq^2
+    l: sqrt(l2)
+    S: pi*lp^2 + pi*lp*l
+  prompt: 'A right triangle with legs {lp} and {lq} is spun around the leg of length {lq}. Name the radius of the solid it sweeps out, then find the solid''s total surface area (2 decimals).'
+  answers:
+    - {name: lp, label: 'Radius'}
+    - {name: S, label: 'Surface area', relTolerance: 0.002}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [lp, 0], [0, lq]]
+        fill: true
+      - points: [['-lp', 0], [lp, 0], [0, lq]]
+    segments:
+      - {from: [0, 0], to: [0, lq], dashed: true, label: '{lq}'}
+      - {from: [0, 0], to: [lp, 0], label: '{lp}'}
+    rightAngles:
+      - [[0, 0], [lp, 0], [0, lq]]
+  solution: |-
+    Spinning a right triangle about a leg makes a cone. The leg it spins around is the height ({lq}), the other leg is the radius, $r =$ **{lp}**, and the hypotenuse becomes the slant height: $\ell = \sqrt{{lp}^2 + {lq}^2} = \sqrt{{l2}} \approx {l:num2}$.
+    Total surface area $= \pi r^2 + \pi r\ell = \pi({lp})^2 + \pi({lp})(\sqrt{{l2}}) \approx$ **{S:num2}**.

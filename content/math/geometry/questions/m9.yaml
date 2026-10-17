@@ -274,3 +274,112 @@
   answer: 1
   explanation: |-
     $k = \tfrac{4}{12} = \tfrac13$, which is less than 1, so it's a reduction.
+# Lesson 38 — Parabolas from focus and directrix; all circles are similar
+- id: geo-q-3551
+  lesson: geo-parabola
+  module_quiz: true
+  topic: Parabolas
+  stem: 'A parabola is the set of all points in a plane that are equally distant from what?'
+  choices: ['Two fixed points', 'Two fixed lines', 'A fixed point and a fixed line not through it', 'A single fixed point']
+  answer: 2
+  explanation: |-
+    A parabola is the set of points equidistant from a focus (a point) and a directrix (a line not through the focus). Points equidistant from two fixed points form a perpendicular bisector; from two intersecting lines, angle bisectors; and a fixed distance from one point gives a circle.
+- id: geo-q-3552
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'Which equation describes the parabola with focus $(0, 3)$ and directrix $y = -3$?'
+  choices: ['$x^2 = 12y$', '$x^2 = 3y$', '$x^2 = 6y$', '$y^2 = 12x$']
+  answer: 0
+  explanation: |-
+    The vertex is halfway between, at the origin, and the focus is $p = 3$ above it, so $x^2 = 4py = 12y$. $x^2 = 3y$ uses $p$ in place of $4p$; $x^2 = 6y$ uses the focus-to-directrix distance 6 in place of $4p$; $y^2 = 12x$ opens to the right, which needs a vertical directrix.
+- id: geo-q-3553
+  lesson: geo-parabola
+  module_quiz: true
+  topic: Parabolas
+  stem: 'Where is the focus of $y = \tfrac18 x^2$?'
+  choices: ['$(0, 8)$', '$(0, 2)$', '$\left(0, \tfrac{1}{32}\right)$', '$\left(0, \tfrac12\right)$']
+  answer: 1
+  explanation: |-
+    Write it as $x^2 = 8y$, so $4p = 8$ and $p = 2$: the focus is $(0, 2)$. In general $p = \tfrac{1}{4a}$. $(0, 8)$ uses $p = \tfrac1a$; $\left(0, \tfrac{1}{32}\right)$ uses $p = \tfrac{a}{4}$; $\left(0, \tfrac12\right)$ uses $p = 4a$.
+- id: geo-q-3554
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'Which equation describes the parabola with focus $(-1, 4)$ and directrix $y = 0$?'
+  choices: ['$(x + 1)^2 = 16(y - 2)$', '$(x - 1)^2 = 8(y - 2)$', '$(x + 1)^2 = 8(y - 4)$', '$(x + 1)^2 = 8(y - 2)$']
+  answer: 3
+  explanation: |-
+    The vertex is halfway between $(-1, 4)$ and the line $y = 0$: $(-1, 2)$. The focus is $p = 2$ above it, so $4p = 8$ and $(x + 1)^2 = 8(y - 2)$. The 16 version takes $p$ to be the whole focus-to-directrix distance 4; $(x - 1)^2$ has the sign of $h$ wrong; $(y - 4)$ puts the vertex at the focus.
+- id: geo-q-3555
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'What is the directrix of $(x - 3)^2 = -12(y + 1)$?'
+  choices: ['$y = 2$', '$y = -4$', '$y = 11$', '$y = 4$']
+  answer: 0
+  explanation: |-
+    The vertex is $(3, -1)$ and $4p = -12$, so $p = -3$ (opens down). The directrix is $y = k - p = -1 - (-3) = 2$. $y = -4$ is where the focus is (the sign of $p$ was flipped); $y = 11$ uses $p = -12$; $y = 4$ reads the vertex as $(-3, 1)$.
+- id: geo-q-3556
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'Where is the focus of $y^2 = 8x$?'
+  choices: ['$(0, 2)$', '$(8, 0)$', '$(2, 0)$', '$(-2, 0)$']
+  answer: 2
+  explanation: |-
+    $y$ is squared, so the parabola opens left or right. $4p = 8$ gives $p = 2 > 0$: it opens right and the focus is $(2, 0)$, with directrix $x = -2$. $(0, 2)$ puts the focus on the wrong axis; $(8, 0)$ uses $4p$ as $p$; $(-2, 0)$ is on the directrix side.
+- id: geo-q-3557
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'The point $P(6, 9)$ is on the parabola $x^2 = 4y$, whose focus is $(0, 1)$. How far is $P$ from the focus?'
+  choices: ['9', '10', '8', '$\sqrt{117} \approx 10.82$']
+  answer: 1
+  explanation: |-
+    By the definition, it equals the distance to the directrix $y = -1$: $9 - (-1) = 10$. Directly: $\sqrt{6^2 + (9 - 1)^2} = \sqrt{100} = 10$. 9 measures to the $x$-axis instead of the directrix; 8 is only the vertical gap to the focus; $\sqrt{117}$ is the distance to the vertex.
+- id: geo-q-3558
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'Which way does the parabola $(y - 2)^2 = -6(x + 1)$ open?'
+  choices: ['Up', 'Down', 'Right', 'Left']
+  answer: 3
+  explanation: |-
+    $y$ is squared, so it opens left or right, and $4p = -6$ is negative, so it opens left (the focus is at $x = -1 - 1.5 = -2.5$). Up and down belong to equations with $x$ squared; right would need a positive $4p$.
+- id: geo-q-3559
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'A parabola has focus $(4, 1)$ and directrix $x = -2$. Where is its vertex?'
+  choices: ['$(4, 1)$', '$(-2, 1)$', '$(1, 1)$', '$(1, 4)$']
+  answer: 2
+  explanation: |-
+    The vertex is on the axis through the focus perpendicular to the directrix (the line $y = 1$), halfway between $x = 4$ and $x = -2$: $(1, 1)$. Here $p = 3$ and the equation is $(y - 1)^2 = 12(x - 1)$. $(4, 1)$ is the focus and $(-2, 1)$ is the directrix point; $(1, 4)$ swaps the coordinates.
+- id: geo-q-3560
+  lesson: geo-parabola
+  module_quiz: true
+  topic: Similar circles
+  stem: 'Circle $P$ has center $(0, 0)$ and radius 2. Circle $Q$ has center $(3, -1)$ and radius 5. Which sequence maps $P$ onto $Q$?'
+  choices: ['Translate by $\langle 3, -1 \rangle$, then dilate about $(3, -1)$ by $\tfrac52$', 'Translate by $\langle 3, -1 \rangle$, then dilate about the origin by $\tfrac52$', 'Translate by $\langle -3, 1 \rangle$, then dilate about $(3, -1)$ by $\tfrac52$', 'Translate by $\langle 3, -1 \rangle$, then dilate about $(3, -1)$ by $\tfrac25$']
+  answer: 0
+  explanation: |-
+    Translating center to center gives a circle at $(3, -1)$ with radius 2; dilating about that center by $\tfrac{5}{2}$ scales the radius to 5 without moving the center. Dilating about the origin would move the center to $(7.5, -2.5)$; the vector $\langle -3, 1 \rangle$ points the wrong way; and $\tfrac25$ is the scale factor upside down (radius 0.8).
+- id: geo-q-3561
+  lesson: geo-parabola
+  module_quiz: true
+  topic: Similar circles
+  stem: 'Why is the ratio of circumference to diameter, $\pi$, the same for every circle?'
+  choices: ['Because every circle has the same radius', 'Because circles have no corners', 'Because $\pi$ is defined to be 3.14', 'Because all circles are similar, so every length scales by the same factor']
+  answer: 3
+  explanation: |-
+    A translation and a dilation map any circle onto any other, so the circles are similar and every length (circumference and diameter alike) is multiplied by the same scale factor; their ratio stays the same. Circles have many different radii; having no corners says nothing about ratios; and 3.14 is only an approximation of $\pi$, not its definition.
+- id: geo-q-3562
+  lesson: geo-parabola
+  topic: Similar circles
+  stem: 'A translation followed by a dilation maps the circle $x^2 + y^2 = 4$ onto the circle $(x - 1)^2 + (y - 5)^2 = 36$. What is the scale factor of the dilation?'
+  choices: ['9', '3', '6', '$\tfrac13$']
+  answer: 1
+  explanation: |-
+    The radii are $\sqrt4 = 2$ and $\sqrt{36} = 6$, so $k = \tfrac62 = 3$. 9 divides $36$ by $4$, the ratio of the squared radii (that is the area ratio, $k^2$); 6 is just the second radius; $\tfrac13$ maps the larger circle to the smaller.
+- id: geo-q-3563
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'Where is the focus of $y = 2(x - 1)^2 + 3$?'
+  choices: ['$(1, 5)$', '$(1, 3.5)$', '$(1, 3.125)$', '$(1, 2.875)$']
+  answer: 2
+  explanation: |-
+    The vertex is $(1, 3)$ and $p = \tfrac{1}{4a} = \tfrac18$, so the focus is $(1, 3 + 0.125) = (1, 3.125)$. $(1, 5)$ uses $p = a$; $(1, 3.5)$ uses $p = \tfrac{a}{4}$; $(1, 2.875)$ subtracts $p$, which is where the directrix crosses the axis.

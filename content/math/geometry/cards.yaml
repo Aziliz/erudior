@@ -18,6 +18,7 @@
 - {front: Perpendicular bisector construction, back: 'Equal arcs (more than half the segment) from both endpoints; the line through the two crossings.', topic: Constructions}
 - {front: Why the angle-bisector construction works, back: 'The two triangles formed are congruent by SSS.', topic: Constructions}
 - {front: Impossible compass-and-straightedge task, back: 'Trisecting an arbitrary angle.', topic: Constructions}
+- {front: Square inscribed in a circle (construction), back: 'Draw a diameter, construct its perpendicular bisector (a second diameter); the four endpoints are the vertices.', topic: Constructions}
 # Module 2
 - {front: Conditional statement, back: '$p \to q$: "if $p$, then $q$". False only when $p$ is true and $q$ is false.', topic: Conditional statements}
 - {front: Converse, back: '$q \to p$', topic: Conditional statements}
@@ -65,6 +66,7 @@
 - {front: Angle Bisector Theorem (equidistance), back: 'A point on an angle bisector is equidistant from the sides of the angle.', topic: Bisectors}
 - {front: Circumcenter, back: 'Where the perpendicular bisectors meet; equidistant from the vertices; center of the circumscribed circle.', topic: Points of concurrency}
 - {front: Incenter, back: 'Where the angle bisectors meet; equidistant from the sides; center of the inscribed circle; always inside.', topic: Points of concurrency}
+- {front: Constructing the circumcircle and incircle, back: 'Circumcircle: perpendicular bisectors of two sides, circle through a vertex. Incircle: bisect two angles, radius = perpendicular distance to a side.', topic: Points of concurrency}
 - {front: Centroid, back: 'Where the medians meet; $\tfrac23$ of the way from each vertex; average of the vertices.', topic: Medians and altitudes}
 - {front: Orthocenter, back: 'Where the lines containing the altitudes meet.', topic: Medians and altitudes}
 - {front: Circumcenter of a right triangle, back: 'The midpoint of the hypotenuse.', topic: Points of concurrency}
@@ -103,6 +105,17 @@
 - {front: Cofunction identity, back: '$\sin\theta = \cos(90^\circ - \theta)$', topic: Trigonometric ratios}
 - {front: Finding an angle from two sides, back: 'Use an inverse ratio: $\theta = \tan^{-1}\left(\tfrac{\text{opp}}{\text{adj}}\right)$, etc.', topic: Solving right triangles}
 - {front: Angle of elevation vs depression, back: 'Both measured from the horizontal (up vs down); they are equal (alternate interior angles).', topic: Solving right triangles}
+- {front: 'Side and angle notation ($a$, $A$)', back: 'Side $a$ is opposite $\angle A$, side $b$ opposite $\angle B$, side $c$ opposite $\angle C$.', topic: Law of Sines}
+- {front: Sine and cosine of an obtuse angle, back: '$\sin\theta = \sin(180^\circ - \theta)$ (positive); $\cos\theta = -\cos(180^\circ - \theta)$ (negative).', topic: Law of Sines}
+- {front: Law of Sines, back: '$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$', topic: Law of Sines}
+- {front: When to use the Law of Sines, back: 'AAS, ASA (find the third angle first) and SSA. Not SAS or SSS.', topic: Law of Sines}
+- {front: 'SSA with acute $\angle A$: how many triangles?', back: 'With $h = b\sin A$: $a < h$ none; $a = h$ one (right); $h < a < b$ two; $a \ge b$ one.', topic: Ambiguous case}
+- {front: Second SSA triangle, back: '$B_2 = 180^\circ - B_1$; it is a real triangle only if $A + B_2 < 180^\circ$.', topic: Ambiguous case}
+- {front: Law of Cosines, back: '$a^2 = b^2 + c^2 - 2bc\cos A$', topic: Law of Cosines}
+- {front: Law of Cosines for an angle, back: '$\cos A = \dfrac{b^2 + c^2 - a^2}{2bc}$; a negative value means $\angle A$ is obtuse.', topic: Law of Cosines}
+- {front: When to use the Law of Cosines, back: 'SAS (find the third side) and SSS (find an angle).', topic: Law of Cosines}
+- {front: Safe order when solving a triangle, back: 'Settle the largest angle (opposite the longest side) with the Law of Cosines or by subtraction; the other angles are then acute.', topic: Solving triangles}
+- {front: 'Which givens determine one triangle?', back: 'SSS, SAS, ASA, AAS: exactly one. SSA: 0, 1 or 2. AAA: infinitely many (similar triangles).', topic: Solving triangles}
 # Module 7
 - {front: Arc measure, back: 'Minor arc = its central angle; major arc = $360^\circ$ − minor arc; semicircle = $180^\circ$.', topic: Arcs and arc length}
 - {front: Arc length, back: '$\dfrac{\theta}{360^\circ} \cdot 2\pi r$, or $r\theta$ with $\theta$ in radians.', topic: Arcs and arc length}
@@ -140,6 +153,7 @@
 - {front: Sphere surface area, back: '$S = 4\pi r^2$', topic: Surface area}
 - {front: Slant height of a cone, back: '$\ell = \sqrt{r^2 + h^2}$', topic: Surface area}
 - {front: Euler's formula, back: '$V - E + F = 2$ for convex polyhedra.', topic: Solids}
+- {front: Cross sections and solids of revolution, back: 'A plane slice of a solid is a cross section (every slice of a sphere is a circle). Spinning a rectangle about a side gives a cylinder; a right triangle about a leg, a cone.', topic: Solids}
 - {front: Prism and cylinder volume, back: '$V = Bh$; cylinder $\pi r^2 h$.', topic: Volume}
 - {front: Pyramid and cone volume, back: '$V = \tfrac13 Bh$; cone $\tfrac13\pi r^2 h$.', topic: Volume}
 - {front: Sphere volume, back: '$V = \tfrac43\pi r^3$', topic: Volume}
@@ -161,6 +175,12 @@
 - {front: Congruent vs similar (transformations), back: 'Congruent: rigid motions map one onto the other. Similar: rigid motions and dilations.', topic: Dilations}
 - {front: Two reflections, back: 'Parallel lines: a translation by twice the gap. Intersecting lines: a rotation by twice the angle.', topic: Compositions and symmetry}
 - {front: Symmetries of a regular $n$-gon, back: '$n$ lines of symmetry; rotational symmetry with angle $\tfrac{360^\circ}{n}$.', topic: Compositions and symmetry}
+- {front: Parabola (definition), back: 'All points equally distant from a focus (point) and a directrix (line).', topic: Parabolas}
+- {front: 'Parabola, vertex at origin, opening up/down', back: '$x^2 = 4py$: focus $(0, p)$, directrix $y = -p$.', topic: Parabolas}
+- {front: 'Parabola, vertex $(h, k)$', back: '$(x - h)^2 = 4p(y - k)$: focus $(h, k + p)$, directrix $y = k - p$. Opening sideways: $(y - k)^2 = 4p(x - h)$.', topic: Parabolas}
+- {front: 'Focus of $y = a(x - h)^2 + k$', back: '$p = \tfrac{1}{4a}$; focus $(h, k + p)$, directrix $y = k - p$.', topic: Parabolas}
+- {front: Why all circles are similar, back: 'Translate center to center, then dilate about that center by $\tfrac{r_2}{r_1}$.', topic: Similar circles}
+- {front: 'Why $\pi$ is a constant', back: 'All circles are similar, so circumference ÷ diameter is the same for every circle.', topic: Similar circles}
 # Module 10
 - {front: Parts of an axiomatic system, back: 'Undefined terms, axioms, definitions, theorems.', topic: Axiomatic systems}
 - {front: Consistent axiom system, back: 'Has no contradictions; shown by exhibiting a model.', topic: Axiomatic systems}

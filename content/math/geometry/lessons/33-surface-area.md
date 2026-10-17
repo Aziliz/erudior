@@ -4,7 +4,7 @@ module: geo-m8
 title: Solids and surface area
 minutes: 30
 topics: [Solids, Surface area]
-drills: [geo-sa-cyl, geo-sa-cone, geo-sa-prism]
+drills: [geo-sa-cyl, geo-sa-cone, geo-sa-prism, geo-revolve-sa]
 refs: [geo-ref-measure]
 ---
 Now we move from flat figures into space. This lesson names the common solids, introduces nets (a solid unfolded flat), and uses nets to find **surface area**: the total area of all the outside faces. Every formula here is just the area formulas of the last two lessons applied to the pieces of a net.

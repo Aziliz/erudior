@@ -365,3 +365,189 @@
       - {at: ['d/2', '-0.06*d'], text: '{d} m'}
   solution: |-
     The height is opposite the angle and the distance is adjacent: $\tan {t}^\circ = \dfrac{H}{{d}}$, so $H = {d}\tan {t}^\circ \approx$ **{ht:num2} m**.
+
+# Law of Sines (lesson geo-law-sines)
+- id: geo-los-side
+  title: Law of Sines (ASA)
+  topic: Law of Sines
+  vars:
+    angA: {min: 25, max: 80}
+    angB: {min: 25, max: 80}
+    sc: {min: 6, max: 30}
+  where: ["angA + angB <= 150", "angA != angB"]
+  calc:
+    angC: 180 - angA - angB
+    ans: sc*sind(angA)/sind(angC)
+    sb: sc*sind(angB)/sind(angC)
+  prompt: 'In $\triangle ABC$, $m\angle A = {angA}^\circ$, $m\angle B = {angB}^\circ$, and the side between them is $c = {sc}$. Find side $a$ (2 decimals).'
+  answers:
+    - {name: ans, label: '$a =$', tolerance: 0.01}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [sc, 0], ['sb*cosd(angA)', 'sb*sind(angA)']]
+    segments:
+      - {from: [0, 0], to: [sc, 0], label: '{sc}'}
+    labels:
+      - {at: ['-0.04*sc', '-0.05*sc'], text: 'A'}
+      - {at: ['1.04*sc', '-0.05*sc'], text: 'B'}
+      - {at: ['sb*cosd(angA)', 'sb*sind(angA) + 0.06*sc'], text: 'C'}
+      - {at: ['0.16*sc*cosd(angA/2)', '0.16*sc*sind(angA/2)'], text: '{angA}°'}
+      - {at: ['sc - 0.16*sc*cosd(angB/2)', '0.16*sc*sind(angB/2)'], text: '{angB}°'}
+  solution: |-
+    Third angle first: $m\angle C = 180^\circ - {angA}^\circ - {angB}^\circ = {angC}^\circ$. Now side $c$ and $\angle C$ are a known opposite pair, so the Law of Sines gives $\dfrac{a}{\sin A} = \dfrac{c}{\sin C}$:
+    $a = \dfrac{{sc}\sin {angA}^\circ}{\sin {angC}^\circ} \approx$ **{ans:num2}**.
+
+- id: geo-los-angle
+  title: Law of Sines for an angle (one triangle)
+  topic: Law of Sines
+  vars:
+    angA: {min: 20, max: 115}
+    sa: {min: 6, max: 30}
+    sb: {min: 4, max: 29}
+  calc:
+    sB: sb*sind(angA)/sa
+    ans: asind(sB)
+    angC: 180 - angA - ans
+    sup: 180 - ans
+  where: ["sb < sa", "ans >= 8", "ans <= 80"]
+  prompt: 'In $\triangle ABC$, $m\angle A = {angA}^\circ$, $a = {sa}$ and $b = {sb}$. Find $m\angle B$ in degrees (2 decimals).'
+  answers:
+    - {name: ans, label: '$m\angle B =$', tolerance: 0.02}
+  solution: |-
+    This is SSA. Flip the Law of Sines so the unknown is on top: $\sin B = \dfrac{b\sin A}{a} = \dfrac{{sb}\sin {angA}^\circ}{{sa}} \approx {sB:num4}$.
+    The calculator gives $m\angle B = \sin^{-1}({sB:num4}) \approx$ **{ans:num2}°**. The supplement, ${sup:num2}^\circ$, is impossible here: since $a > b$, $\angle B$ must be smaller than $\angle A$, and indeed ${angA}^\circ + {sup:num2}^\circ$ is more than $180^\circ$. So there is exactly one triangle (with $m\angle C \approx {angC:num2}^\circ$).
+
+- id: geo-los-ambiguous
+  title: The ambiguous case (two triangles)
+  topic: Ambiguous case
+  vars:
+    angA: {min: 20, max: 65}
+    sb: {min: 8, max: 30}
+    sa: {min: 3, max: 29}
+  calc:
+    ht: sb*sind(angA)
+    sB: sb*sind(angA)/sa
+    b1: asind(sB)
+    b2: 180 - b1
+    c1: 180 - angA - b1
+    c2: 180 - angA - b2
+  where: ["sa < sb", "sB < 0.97", "sB > 0.3", "c2 >= 3"]
+  prompt: 'In $\triangle ABC$, $m\angle A = {angA}^\circ$, $a = {sa}$ and $b = {sb}$. These measurements fit two different triangles. Find both possible values of $m\angle B$ in degrees (2 decimals).'
+  answers:
+    - {name: b1, label: 'Acute $m\angle B =$', tolerance: 0.02}
+    - {name: b2, label: 'Obtuse $m\angle B =$', tolerance: 0.02}
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 0], to: ['sb*cosd(angA) + sqrt(sa^2 - ht^2) + 0.12*sb', 0]}
+      - {from: [0, 0], to: ['sb*cosd(angA)', 'sb*sind(angA)'], label: '{sb}'}
+      - {from: ['sb*cosd(angA)', 'sb*sind(angA)'], to: ['sb*cosd(angA) + sqrt(sa^2 - ht^2)', 0], label: '{sa}'}
+      - {from: ['sb*cosd(angA)', 'sb*sind(angA)'], to: ['sb*cosd(angA) - sqrt(sa^2 - ht^2)', 0], dashed: true}
+    labels:
+      - {at: ['-0.04*sb', '-0.05*sb'], text: 'A'}
+      - {at: ['sb*cosd(angA)', 'sb*sind(angA) + 0.07*sb'], text: 'C'}
+      - {at: ['0.2*sb*cosd(angA/2)', '0.2*sb*sind(angA/2)'], text: '{angA}°'}
+  solution: |-
+    Check first: the altitude from $C$ is $h = b\sin A = {sb}\sin {angA}^\circ \approx {ht:num2}$, and $h < a < b$ (${ht:num2} < {sa} < {sb}$), so there are two triangles.
+    $\sin B = \dfrac{b\sin A}{a} = \dfrac{{sb}\sin {angA}^\circ}{{sa}} \approx {sB:num4}$. The calculator's angle is $B_1 = \sin^{-1}({sB:num4}) \approx$ **{b1:num2}°**, and its supplement is $B_2 = 180^\circ - {b1:num2}^\circ \approx$ **{b2:num2}°**.
+    Both are real triangles: $C_1 \approx {c1:num2}^\circ$ and $C_2 \approx {c2:num2}^\circ$ are both positive.
+
+# Law of Cosines (lesson geo-law-cosines)
+- id: geo-loc-side
+  title: Law of Cosines (SAS)
+  topic: Law of Cosines
+  vars:
+    sb: {min: 3, max: 20}
+    sc: {min: 3, max: 20}
+    angA: {min: 20, max: 150}
+  where: ["angA != 90"]
+  calc:
+    cA: cosd(angA)
+    sq: sb^2 + sc^2 - 2*sb*sc*cA
+    ans: sqrt(sq)
+    tw: 2*sb*sc
+    ss: sb^2 + sc^2
+  prompt: 'Two sides of a triangle are $b = {sb}$ and $c = {sc}$, and the angle between them is $m\angle A = {angA}^\circ$. Find the third side $a$ (2 decimals).'
+  answers:
+    - {name: ans, label: '$a =$', tolerance: 0.02}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [sc, 0], ['sb*cosd(angA)', 'sb*sind(angA)']]
+    segments:
+      - {from: [0, 0], to: [sc, 0], label: '{sc}'}
+      - {from: [0, 0], to: ['sb*cosd(angA)', 'sb*sind(angA)'], label: '{sb}'}
+    labels:
+      - {at: ['0.12*max(sb, sc)*cosd(angA/2)', '0.12*max(sb, sc)*sind(angA/2)'], text: '{angA}°'}
+  solution: |-
+    The angle is between the two known sides (SAS), so use the Law of Cosines:
+    $a^2 = b^2 + c^2 - 2bc\cos A = {sb}^2 + {sc}^2 - 2({sb})({sc})\cos {angA}^\circ \approx {ss} - {tw}({cA:num4}) \approx {sq:num2}$.
+    So $a = \sqrt{{sq:num2}} \approx$ **{ans:num2}**.
+
+- id: geo-loc-angle
+  title: Law of Cosines for the largest angle (SSS)
+  topic: Law of Cosines
+  vars:
+    sa: {min: 3, max: 20}
+    sb: {min: 3, max: 20}
+    sc: {min: 4, max: 24}
+  calc:
+    num: sa^2 + sb^2 - sc^2
+    den: 2*sa*sb
+    cC: num/den
+    ans: acosd(cC)
+    angA: acosd((sb^2 + sc^2 - sa^2)/(2*sb*sc))
+  where: ["sc > sa", "sc > sb", "sa + sb >= sc + 2", "ans <= 160", "num != 0"]
+  prompt: 'A triangle has sides $a = {sa}$, $b = {sb}$ and $c = {sc}$. Find its largest angle, $\angle C$, in degrees (2 decimals).'
+  answers:
+    - {name: ans, label: '$m\angle C =$', tolerance: 0.02}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [sc, 0], ['sb*cosd(angA)', 'sb*sind(angA)']]
+    segments:
+      - {from: [0, 0], to: [sc, 0], label: '{sc}'}
+      - {from: [0, 0], to: ['sb*cosd(angA)', 'sb*sind(angA)'], label: '{sb}'}
+      - {from: [sc, 0], to: ['sb*cosd(angA)', 'sb*sind(angA)'], label: '{sa}'}
+    labels:
+      - {at: ['sb*cosd(angA)', 'sb*sind(angA) + 0.06*sc'], text: 'C'}
+  solution: |-
+    The largest angle is opposite the longest side, $c = {sc}$. Solve the Law of Cosines for the angle:
+    $\cos C = \dfrac{a^2 + b^2 - c^2}{2ab} = \dfrac{{sa}^2 + {sb}^2 - {sc}^2}{2({sa})({sb})} = \dfrac{{num}}{{den}} \approx {cC:num4}$.
+    So $m\angle C = \cos^{-1}({cC:num4}) \approx$ **{ans:num2}°**. (A negative cosine means an obtuse angle; a positive one, acute.)
+
+- id: geo-loc-solve
+  title: Solve a triangle from SAS
+  topic: Solving triangles
+  vars:
+    sb: {min: 4, max: 17}
+    sc: {min: 5, max: 18}
+    angA: {min: 30, max: 140}
+  where: ["sb < sc", "angA != 90"]
+  calc:
+    sq: sb^2 + sc^2 - 2*sb*sc*cosd(angA)
+    sa: sqrt(sq)
+    cB: (sa^2 + sc^2 - sb^2)/(2*sa*sc)
+    angB: acosd(cB)
+    angC: 180 - angA - angB
+  prompt: 'In $\triangle ABC$, $b = {sb}$, $c = {sc}$ and $m\angle A = {angA}^\circ$. Solve the triangle: find $a$, $m\angle B$ and $m\angle C$ (2 decimals; angles in degrees).'
+  answers:
+    - {name: sa, label: '$a =$', tolerance: 0.02}
+    - {name: angB, label: '$m\angle B =$', tolerance: 0.15}
+    - {name: angC, label: '$m\angle C =$', tolerance: 0.15}
+  figure:
+    type: shape
+    polygons:
+      - points: [[0, 0], [sc, 0], ['sb*cosd(angA)', 'sb*sind(angA)']]
+    segments:
+      - {from: [0, 0], to: [sc, 0], label: '{sc}'}
+      - {from: [0, 0], to: ['sb*cosd(angA)', 'sb*sind(angA)'], label: '{sb}'}
+    labels:
+      - {at: ['-0.04*sc', '-0.05*sc'], text: 'A'}
+      - {at: ['1.04*sc', '-0.05*sc'], text: 'B'}
+      - {at: ['sb*cosd(angA)', 'sb*sind(angA) + 0.06*sc'], text: 'C'}
+  solution: |-
+    **Side.** SAS, so the Law of Cosines: $a^2 = {sb}^2 + {sc}^2 - 2({sb})({sc})\cos {angA}^\circ \approx {sq:num2}$, so $a \approx$ **{sa:num2}**.
+    **Smaller angle next.** $b < c$, so $\angle B$ is smaller than $\angle C$ and must be acute. $\cos B = \dfrac{a^2 + c^2 - b^2}{2ac} \approx {cB:num4}$, so $m\angle B \approx$ **{angB:num2}°**. (The Law of Sines gives the same angle here.)
+    **Last angle.** $m\angle C = 180^\circ - {angA}^\circ - {angB:num2}^\circ \approx$ **{angC:num2}°**.

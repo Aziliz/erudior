@@ -458,3 +458,213 @@
   answer: 3
   explanation: |-
     The ramp is the hypotenuse and the rise is opposite the angle: $\theta = \sin^{-1}\left(\tfrac14\right) \approx 14.5^\circ$. $14.0^\circ$ uses tangent (treating 4 m as the horizontal run), and $75.5^\circ$ is $\cos^{-1}(0.25)$, the angle at the top.
+# Lesson 25 — The Law of Sines
+- id: geo-q-2451
+  lesson: geo-law-sines
+  module_quiz: true
+  topic: Law of Sines
+  stem: 'In $\triangle ABC$, $m\angle A = 48^\circ$, $m\angle B = 72^\circ$ and $a = 10$. Find $b$, to two decimals.'
+  choices: ['12.80', '7.81', '10.98', '15.00']
+  answer: 0
+  explanation: |-
+    $\dfrac{b}{\sin 72^\circ} = \dfrac{10}{\sin 48^\circ}$, so $b = \dfrac{10\sin 72^\circ}{\sin 48^\circ} \approx \dfrac{10(0.9511)}{0.7431} \approx 12.80$. 7.81 turns the ratio upside down; 10.98 divides by $\sin 60^\circ$ (the third angle), pairing $a = 10$ with the wrong angle instead of its own opposite angle, $48^\circ$; 15.00 uses the angles themselves, $10 \cdot \tfrac{72}{48}$, instead of their sines.
+- id: geo-q-2452
+  lesson: geo-law-sines
+  topic: Law of Sines
+  stem: 'In $\triangle ABC$, side $a$ is opposite $\angle A$, and so on. Which equation is the Law of Sines?'
+  choices: ['$\dfrac{a}{\sin B} = \dfrac{b}{\sin A}$', '$\dfrac{a}{\sin A} = \dfrac{b}{\sin B}$', '$a\sin A = b\sin B$', '$\dfrac{a}{\cos A} = \dfrac{b}{\cos B}$']
+  answer: 1
+  explanation: |-
+    Each side is divided by the sine of the angle opposite it, and these ratios are equal. Pairing $a$ with $\sin B$ uses the wrong angle; $a\sin A = b\sin B$ multiplies where it should divide; the cosine version is not a law at all (the altitude in the proof is $b\sin A = a\sin B$, which involves sines).
+- id: geo-q-2453
+  lesson: geo-law-sines
+  topic: Law of Sines
+  stem: 'Which value equals $\sin 130^\circ$?'
+  choices: ['$-\sin 50^\circ$', '$\sin 40^\circ$', '$\sin 50^\circ$', '$-\cos 50^\circ$']
+  answer: 2
+  explanation: |-
+    $\sin\theta = \sin(180^\circ - \theta)$, so $\sin 130^\circ = \sin 50^\circ \approx 0.766$. The sine of an obtuse angle is positive (the point is above the $x$-axis), so $-\sin 50^\circ$ has the wrong sign; $\sin 40^\circ$ subtracts from $90^\circ$ instead of $180^\circ$; $-\cos 50^\circ$ mixes in the cosine rule.
+- id: geo-q-2454
+  lesson: geo-law-sines
+  module_quiz: true
+  topic: Law of Sines
+  stem: 'What is the exact value of $\cos 120^\circ$?'
+  choices: ['$\tfrac12$', '$-\tfrac{\sqrt3}{2}$', '$\tfrac{\sqrt3}{2}$', '$-\tfrac12$']
+  answer: 3
+  explanation: |-
+    $\cos 120^\circ = -\cos(180^\circ - 120^\circ) = -\cos 60^\circ = -\tfrac12$. The point on the $120^\circ$ side is left of the $y$-axis, so the cosine is negative; $\tfrac12$ forgets the sign. $\pm\tfrac{\sqrt3}{2}$ uses $\cos 30^\circ$ instead of $\cos 60^\circ$.
+- id: geo-q-2455
+  lesson: geo-law-sines
+  module_quiz: true
+  topic: Ambiguous case
+  stem: 'How many triangles have $m\angle A = 40^\circ$, $a = 8$ and $b = 10$?'
+  choices: ['Exactly two', 'None', 'Exactly one', 'Exactly one, a right triangle']
+  answer: 0
+  explanation: |-
+    The altitude from $C$ is $h = b\sin A = 10\sin 40^\circ \approx 6.43$. Since $h < a < b$ ($6.43 < 8 < 10$), side $a$ reaches the base at two points: two triangles. "None" would need $a < h$, "one right triangle" would need $a = h$, and "exactly one" would need $a \ge b$.
+- id: geo-q-2456
+  lesson: geo-law-sines
+  topic: Ambiguous case
+  stem: 'How many triangles have $m\angle A = 30^\circ$, $a = 3$ and $b = 10$?'
+  choices: ['Exactly one', 'None', 'Exactly two', 'Exactly one, a right triangle']
+  answer: 1
+  explanation: |-
+    $h = 10\sin 30^\circ = 5$, and $a = 3 < 5$, so side $a$ is too short to reach: no triangle. The Law of Sines agrees: $\sin B = \tfrac{10(0.5)}{3} \approx 1.67 > 1$. Answering "two" because $a < b$ skips the check against $h$; a right triangle would need $a = 5$ exactly.
+- id: geo-q-2457
+  lesson: geo-law-sines
+  topic: Ambiguous case
+  stem: 'How many triangles have $m\angle A = 65^\circ$, $a = 12$ and $b = 9$?'
+  choices: ['None', 'Exactly two', 'Exactly one', 'Exactly one, a right triangle']
+  answer: 2
+  explanation: |-
+    When $a \ge b$ the side opposite the given angle is the longer one, so there is exactly one triangle: $\sin B = \tfrac{9\sin 65^\circ}{12} \approx 0.680$, $B \approx 42.8^\circ$, and the supplement $137.2^\circ$ would make $A + B > 180^\circ$. "Two" forgets to test the supplement; the triangle is not right because $a \ne b\sin A \approx 8.16$.
+- id: geo-q-2458
+  lesson: geo-law-sines
+  topic: Ambiguous case
+  stem: 'In $\triangle ABC$, $m\angle A = 35^\circ$, $a = 6$ and $b = 9$. What are the possible measures of $\angle B$?'
+  choices: ['$B \approx 59.36^\circ$ only', '$B \approx 22.48^\circ$ only', '$B \approx 22.48^\circ$ or $B \approx 157.52^\circ$', '$B \approx 59.36^\circ$ or $B \approx 120.64^\circ$']
+  answer: 3
+  explanation: |-
+    $\sin B = \dfrac{9\sin 35^\circ}{6} \approx 0.8604$, so $B_1 \approx 59.36^\circ$ and $B_2 = 180^\circ - 59.36^\circ = 120.64^\circ$. Both work, since $35^\circ + 120.64^\circ < 180^\circ$ (and $h = 9\sin 35^\circ \approx 5.16 < 6 < 9$). "59.36° only" forgets the supplement; the $22.48^\circ$ answers come from swapping the sides, $\sin B = \tfrac{6\sin 35^\circ}{9}$.
+- id: geo-q-2459
+  lesson: geo-law-sines
+  topic: Law of Sines
+  stem: 'Two ranger towers $A$ and $B$ are 10 km apart. Each sights a fire $F$: $m\angle FAB = 38^\circ$ and $m\angle FBA = 61^\circ$. How far is the fire from tower $A$, to two decimals?'
+  choices: ['8.86 km', '6.23 km', '11.29 km', '14.21 km']
+  answer: 0
+  explanation: |-
+    $m\angle F = 180^\circ - 38^\circ - 61^\circ = 81^\circ$, opposite the known 10 km. $AF$ is opposite $\angle B$: $AF = \dfrac{10\sin 61^\circ}{\sin 81^\circ} \approx 8.86$ km. 6.23 km is $BF$ (opposite the $38^\circ$ angle); 11.29 km inverts the ratio; 14.21 km divides by $\sin 38^\circ$ instead of the sine of the angle opposite the 10 km side.
+- id: geo-q-2460
+  lesson: geo-law-sines
+  topic: Law of Sines
+  stem: 'For which given information can the Law of Sines NOT be used to start solving the triangle?'
+  choices: ['Two angles and a side not between them (AAS)', 'Two sides and the angle between them (SAS)', 'Two angles and the side between them (ASA)', 'Two sides and an angle opposite one of them (SSA)']
+  answer: 1
+  explanation: |-
+    The Law of Sines needs one side together with its opposite angle. In SAS the known angle is between the known sides, so neither side's opposite angle is known; that case needs the Law of Cosines. AAS and ASA give the third angle by the angle sum, completing a pair, and SSA gives a pair directly (though it may be ambiguous).
+- id: geo-q-2461
+  lesson: geo-law-sines
+  topic: Ambiguous case
+  stem: 'A student solves $\triangle ABC$ with $m\angle A = 25^\circ$, $a = 6$, $b = 10$ and reports a single answer, $m\angle B \approx 44.78^\circ$. What did the student miss?'
+  choices: ['Nothing: SSA always gives one triangle', 'No triangle exists, because $a < b$', 'A second triangle with $m\angle B \approx 135.22^\circ$', 'The angle should be $180^\circ - 25^\circ - 44.78^\circ = 110.22^\circ$']
+  answer: 2
+  explanation: |-
+    $h = 10\sin 25^\circ \approx 4.23$ and $4.23 < 6 < 10$, so there are two triangles. $\sin^{-1}$ gives only the acute angle; the supplement $135.22^\circ$ also works because $25^\circ + 135.22^\circ < 180^\circ$. SSA does not always give one triangle; $a < b$ alone doesn't rule a triangle out (that needs $a < h$); and $110.22^\circ$ is angle $C$ of the first triangle, not another value of $B$.
+- id: geo-q-2462
+  lesson: geo-law-sines
+  topic: Law of Sines
+  stem: 'The proof of the Law of Sines drops the altitude $h$ from $C$ to line $AB$. Which two expressions for $h$ does it set equal?'
+  choices: ['$h = a\sin A$ and $h = b\sin B$', '$h = b\cos A$ and $h = a\cos B$', '$h = c\sin C$ and $h = b\sin B$', '$h = b\sin A$ and $h = a\sin B$']
+  answer: 3
+  explanation: |-
+    In the right triangle containing $\angle A$, the hypotenuse is $b$ and $h$ is opposite $A$: $h = b\sin A$. In the one containing $\angle B$, the hypotenuse is $a$: $h = a\sin B$. Then $b\sin A = a\sin B$ rearranges to $\tfrac{a}{\sin A} = \tfrac{b}{\sin B}$. Pairing each side with its own opposite angle puts the wrong hypotenuse in each triangle; cosines give the pieces of the base, not the height; and $c$ is the base, not a hypotenuse.
+- id: geo-q-2463
+  lesson: geo-law-sines
+  module_quiz: true
+  topic: Law of Sines
+  stem: 'In $\triangle ABC$, $m\angle A = 105^\circ$, $m\angle B = 40^\circ$ and $a = 15$. Find $c$, to two decimals.'
+  choices: ['8.91', '25.26', '9.98', '13.38']
+  answer: 0
+  explanation: |-
+    $m\angle C = 180^\circ - 105^\circ - 40^\circ = 35^\circ$. Then $c = \dfrac{15\sin 35^\circ}{\sin 105^\circ} \approx \dfrac{15(0.5736)}{0.9659} \approx 8.91$. 25.26 inverts the ratio; 9.98 is side $b$ (it uses $\sin 40^\circ$); 13.38 divides by $\sin 40^\circ$, pairing $a$ with the wrong angle.
+# Lesson 26 — The Law of Cosines and solving any triangle
+- id: geo-q-2471
+  lesson: geo-law-cosines
+  module_quiz: true
+  topic: Law of Cosines
+  stem: 'In $\triangle ABC$, $b = 5$, $c = 8$ and $m\angle A = 60^\circ$. Find $a$.'
+  choices: ['$\sqrt{89}$', '$7$', '$\sqrt{129}$', '$\sqrt{4.5}$']
+  answer: 1
+  explanation: |-
+    $a^2 = 5^2 + 8^2 - 2(5)(8)\cos 60^\circ = 25 + 64 - 80(0.5) = 49$, so $a = 7$. $\sqrt{89}$ leaves out the $-2bc\cos A$ term (that's only right for a $90^\circ$ angle); $\sqrt{129}$ adds the term instead of subtracting; $\sqrt{4.5}$ computes $(25 + 64 - 80)\cos 60^\circ$, subtracting $2bc$ before multiplying by the cosine.
+- id: geo-q-2472
+  lesson: geo-law-cosines
+  topic: Law of Cosines
+  stem: 'A triangle has sides 5, 7 and 8. Find the angle opposite the side of length 7.'
+  choices: ['$81.79^\circ$', '$38.21^\circ$', '$60^\circ$', '$120^\circ$']
+  answer: 2
+  explanation: |-
+    $\cos\theta = \dfrac{5^2 + 8^2 - 7^2}{2(5)(8)} = \dfrac{40}{80} = \tfrac12$, so $\theta = 60^\circ$. $120^\circ$ comes from a sign slip ($\cos\theta = -\tfrac12$); $81.79^\circ$ and $38.21^\circ$ are the angles opposite 8 and 5, from putting the wrong side in the subtracted position.
+- id: geo-q-2473
+  lesson: geo-law-cosines
+  module_quiz: true
+  topic: Law of Cosines
+  stem: 'A triangle has sides 6, 8 and 11. What is its largest angle?'
+  choices: ['Acute, about $77.36^\circ$', 'Acute, about $32.16^\circ$', 'Right, $90^\circ$', 'Obtuse, about $102.64^\circ$']
+  answer: 3
+  explanation: |-
+    The largest angle is opposite 11: $\cos C = \dfrac{36 + 64 - 121}{2(6)(8)} = \dfrac{-21}{96} \approx -0.2188$, so $C \approx 102.64^\circ$. The negative cosine signals an obtuse angle (also $11^2 > 6^2 + 8^2$). $77.36^\circ$ drops the minus sign; $32.16^\circ$ is the smallest angle, opposite 6; it isn't right because $6^2 + 8^2 = 100 \ne 121$.
+- id: geo-q-2474
+  lesson: geo-law-cosines
+  topic: Law of Cosines
+  stem: 'Two hikers leave the same point. One walks 5 km and the other 7 km, on straight paths that make a $130^\circ$ angle. How far apart are they, to two decimals?'
+  choices: ['10.91 km', '5.39 km', '8.60 km', '12.00 km']
+  answer: 0
+  explanation: |-
+    $d^2 = 5^2 + 7^2 - 2(5)(7)\cos 130^\circ \approx 74 - 70(-0.6428) \approx 118.99$, so $d \approx 10.91$ km. 5.39 km treats $\cos 130^\circ$ as positive (subtracting 45 instead of adding); 8.60 km is $\sqrt{74}$, the Pythagorean answer for a right angle; 12.00 km just adds the distances, which only happens for a $180^\circ$ angle.
+- id: geo-q-2475
+  lesson: geo-law-cosines
+  topic: Law of Cosines
+  stem: 'What does the Law of Cosines $a^2 = b^2 + c^2 - 2bc\cos A$ become when $m\angle A = 90^\circ$?'
+  choices: ['$a^2 = b^2 + c^2 - 2bc$', '$a^2 = b^2 + c^2$', '$a = b + c$', '$\dfrac{a}{\sin A} = \dfrac{b}{\sin B}$']
+  answer: 1
+  explanation: |-
+    $\cos 90^\circ = 0$, so the correction term vanishes and $a^2 = b^2 + c^2$: the Pythagorean theorem, with $a$ as the hypotenuse. Keeping $-2bc$ treats $\cos 90^\circ$ as 1 (that's $\cos 0^\circ$); $a = b + c$ drops the squares; the Law of Sines is a different relationship.
+- id: geo-q-2476
+  lesson: geo-law-cosines
+  topic: Solving triangles
+  stem: 'You know all three sides of a triangle. What is the safest first step?'
+  choices: ['Use the Law of Sines to find any angle', 'Use the angle sum to find the third angle', 'Use the Law of Cosines to find the largest angle', 'Nothing: three sides do not determine a triangle']
+  answer: 2
+  explanation: |-
+    With SSS no angle is known, so start with the Law of Cosines, and use it on the largest angle (opposite the longest side), the only one that might be obtuse. After that, every remaining angle is acute and either law works. The Law of Sines needs a known angle to start; the angle sum needs two angles; and SSS does determine a unique triangle (it's a congruence test).
+- id: geo-q-2477
+  lesson: geo-law-cosines
+  module_quiz: true
+  topic: Law of Cosines
+  stem: 'Which formula gives $\cos B$ in $\triangle ABC$?'
+  choices: ['$\dfrac{a^2 + b^2 - c^2}{2ab}$', '$\dfrac{b^2 - a^2 - c^2}{2ac}$', '$\dfrac{a^2 + c^2 - b^2}{ac}$', '$\dfrac{a^2 + c^2 - b^2}{2ac}$']
+  answer: 3
+  explanation: |-
+    Start from $b^2 = a^2 + c^2 - 2ac\cos B$ (the angle is between sides $a$ and $c$) and solve: $\cos B = \dfrac{a^2 + c^2 - b^2}{2ac}$. The $2ab$ version is $\cos C$; flipping the signs in the numerator gives $-\cos B$; dropping the 2 in the denominator doubles the value.
+- id: geo-q-2478
+  lesson: geo-law-cosines
+  topic: Law of Cosines
+  stem: 'A student applies the Law of Cosines to sides 4, 5 and 10 to find the angle opposite 10. What happens?'
+  choices: ['$\cos C = -1.475$, so no such triangle exists', '$\cos C = -1.475$, so $C$ is a very obtuse angle', '$\cos C = 1.475$, so $C$ is acute', '$\cos C = 0$, so $C = 90^\circ$']
+  answer: 0
+  explanation: |-
+    $\cos C = \dfrac{16 + 25 - 100}{2(4)(5)} = \dfrac{-59}{40} = -1.475$. No angle has a cosine less than $-1$, so no triangle exists, which matches the triangle inequality ($4 + 5 < 10$). A negative cosine means obtuse only when it is between $-1$ and 0; the positive value comes from reversing the numerator; and $4^2 + 5^2 \ne 10^2$, so it is not a right angle.
+- id: geo-q-2479
+  lesson: geo-law-cosines
+  topic: Solving triangles
+  stem: 'In $\triangle ABC$, $b = 6$, $c = 10$, $m\angle A = 40^\circ$, and the student found $a \approx 6.64$. Then the student used $\sin C = \tfrac{10\sin 40^\circ}{6.64} \approx 0.968$ and wrote $m\angle C \approx 75.5^\circ$. What is correct?'
+  choices: ['$m\angle C \approx 75.5^\circ$ is correct', '$m\angle C \approx 104.5^\circ$, because $\angle C$ is the largest angle and $\sin^{-1}$ only returns acute angles', '$m\angle C \approx 64.5^\circ$, the remaining angle', 'No triangle exists, because $\sin C$ is close to 1']
+  answer: 1
+  explanation: |-
+    $\angle C$ is opposite the longest side, so it is the one angle that may be obtuse, and $\sin C \approx 0.968$ fits both $75.5^\circ$ and $104.5^\circ$. The Law of Cosines settles it: $\cos C = \tfrac{6.64^2 + 36 - 100}{2(6.64)(6)} \approx -0.250$, so $C \approx 104.5^\circ$. (Equivalently, the smaller angle $B \approx 35.5^\circ$, and $180^\circ - 40^\circ - 35.5^\circ = 104.5^\circ$.) Accepting $75.5^\circ$ is the Law of Sines trap; $64.5^\circ$ comes from $180^\circ - 40^\circ - 75.5^\circ$, building on that wrong angle; and a sine below 1 means a triangle exists.
+- id: geo-q-2480
+  lesson: geo-law-cosines
+  topic: Law of Cosines
+  stem: 'A triangular garden has two sides of 12 m and 15 m that meet at a $72^\circ$ angle. How long is the third side, to two decimals?'
+  choices: ['19.21 m', '21.91 m', '16.05 m', '1.67 m']
+  answer: 2
+  explanation: |-
+    $x^2 = 12^2 + 15^2 - 2(12)(15)\cos 72^\circ \approx 369 - 360(0.3090) \approx 257.75$, so $x \approx 16.05$ m. 19.21 m is $\sqrt{369}$, ignoring the angle; 21.91 m adds $360\cos 72^\circ$ instead of subtracting it; 1.67 m multiplies $(369 - 360)$ by $\cos 72^\circ$, an order-of-operations slip.
+- id: geo-q-2481
+  lesson: geo-law-cosines
+  module_quiz: true
+  topic: Solving triangles
+  stem: 'Which set of given information does NOT determine a single triangle?'
+  choices: ['Three sides (SSS)', 'Two sides and the included angle (SAS)', 'Two angles and the included side (ASA)', 'Three angles (AAA)']
+  answer: 3
+  explanation: |-
+    Three angles fix only the shape: every triangle similar to one solution is another solution, so AAA gives infinitely many triangles of different sizes. SSS and SAS are solved by the Law of Cosines, and ASA by the angle sum and the Law of Sines; each gives exactly one triangle (they are congruence tests).
+- id: geo-q-2482
+  lesson: geo-law-cosines
+  topic: Law of Cosines
+  stem: 'A triangle has sides 8, 10 and 12. Find its smallest angle, to two decimals.'
+  choices: ['$41.41^\circ$', '$55.77^\circ$', '$82.82^\circ$', '$138.59^\circ$']
+  answer: 0
+  explanation: |-
+    The smallest angle is opposite the shortest side, 8: $\cos\theta = \dfrac{10^2 + 12^2 - 8^2}{2(10)(12)} = \dfrac{180}{240} = 0.75$, so $\theta \approx 41.41^\circ$. $55.77^\circ$ and $82.82^\circ$ are the angles opposite 10 and 12; $138.59^\circ$ is the supplement, from a sign slip in the numerator.

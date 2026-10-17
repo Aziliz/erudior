@@ -49,7 +49,7 @@ Checking all six parts is tedious, and often only some are known. The question i
 
 Picture a door hinge: two fixed-length boards joined at a fixed angle. The distance between their free ends is forced, so the triangle is determined.
 
-The angle must be *included*. Two sides and a non-included angle (SSA) does *not* guarantee congruence: with sides 5 and 7 and a $30^\circ$ angle opposite the 5, two different triangles fit. That's the "ambiguous case", and it's why there is no SSA shortcut.
+The angle must be *included*. Two sides and a non-included angle (SSA) does *not* guarantee congruence: with sides 5 and 7 and a $30^\circ$ angle opposite the 5, two different triangles fit. That's the "ambiguous case", and it's why there is no SSA shortcut. (Lesson 25 finds both triangles.)
 
 ### Example 2
 

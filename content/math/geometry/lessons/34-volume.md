@@ -93,7 +93,7 @@ Volume often feeds a further calculation. **Density** is mass per unit volume, s
 
 A pipe is 2 m long, with outer radius 5 cm and inner radius 4 cm. How much material is in it?
 
-Work in centimeters: $V = \pi(5^2)(200) - \pi(4^2)(200) = \pi(25 - 16)(200) = 1800\pi \approx 5654.87$ cm³. As with the ring in Lesson 30, subtract the volumes, not the radii.
+Work in centimeters: $V = \pi(5^2)(200) - \pi(4^2)(200) = \pi(25 - 16)(200) = 1800\pi \approx 5654.87$ cm³. As with the ring in Lesson 32, subtract the volumes, not the radii.
 
 ## Common mistakes
 

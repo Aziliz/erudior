@@ -226,3 +226,92 @@
     - {name: ang, label: 'Angle', tolerance: 0.01}
   solution: |-
     A regular $n$-gon has $n$ lines of symmetry (**{n}**) and rotational symmetry of $360^\circ / n = \tfrac{360}{{n}} \approx$ **{ang:num2}°**.
+
+# Parabolas and similar circles (lesson geo-parabola)
+- id: geo-parabola-eq
+  title: Parabola from focus and directrix
+  topic: Parabolas
+  vars:
+    h: {min: -6, max: 6}
+    k: {min: -6, max: 6}
+    p: {choices: [-3, -2, -1, 1, 2, 3]}
+  where: ["h != 0", "k != 0"]
+  calc:
+    fy: k + p
+    dy: k - p
+    fp: 4*p
+    nh: -h
+    nk: -k
+    aa: 1/(4*p)
+  prompt: 'A parabola has focus $({h}, {fy})$ and directrix $y = {dy}$. Write its equation solved for $y$.'
+  answers:
+    - kind: expression
+      expression: (x - h)^2/(4*p) + k
+      variables: [x]
+      label: '$y =$'
+      show: '${aa:texfrac}(x {nh:signed})^2 {k:signed}$'
+  figure:
+    type: plot
+    x: ['h - 8', 'h + 8']
+    y: ['min(k, dy) - 3', 'max(k, fy) + 3']
+    functions:
+      - {f: 'dy', dashed: true, label: 'directrix'}
+    points:
+      - {at: [h, fy], label: 'F'}
+  solution: |-
+    The vertex is halfway between the focus and the directrix: $({h}, {k})$. The focus is $p = {p}$ units from the vertex (negative means below), so $4p = {fp}$ and
+    $(x {nh:signed})^2 = {fp}(y {nk:signed})$.
+    Solve for $y$: $y =$ **${aa:texfrac}(x {nh:signed})^2 {k:signed}$**.
+
+- id: geo-parabola-focus
+  title: Focus and directrix from an equation
+  topic: Parabolas
+  vars:
+    h: {min: -6, max: 6}
+    k: {min: -6, max: 6}
+    a: {choices: [{label: '\tfrac{1}{4}', value: 0.25}, {label: '-\tfrac{1}{4}', value: -0.25}, {label: '\tfrac{1}{8}', value: 0.125}, {label: '-\tfrac{1}{8}', value: -0.125}, {label: '\tfrac{1}{12}', value: 0.08333333333333333}, {label: '-\tfrac{1}{12}', value: -0.08333333333333333}, {label: '\tfrac{1}{2}', value: 0.5}, {label: '-\tfrac{1}{2}', value: -0.5}, {label: '', value: 1}, {label: '-', value: -1}]}
+  where: ["h != 0", "k != 0"]
+  calc:
+    p: 1/(4*a)
+    fy: k + p
+    dy: k - p
+    nh: -h
+  prompt: 'Find the focus and directrix of $y = {a}(x {nh:signed})^2 {k:signed}$.'
+  answers:
+    - {name: h, label: 'Focus $x =$', tolerance: 0.001}
+    - {name: fy, label: 'Focus $y =$', tolerance: 0.001}
+    - {name: dy, label: 'Directrix $y =$', tolerance: 0.001}
+  solution: |-
+    The vertex is $({h}, {k})$. For $y = a(x - h)^2 + k$, $p = \dfrac{1}{4a}$, so $p = {p:num4}$ (positive: the parabola opens up; negative: down).
+    Focus: $({h}, {k} {p:signed}) =$ **({h}, {fy:num4})**. Directrix: $y = {k} - ({p:num4})$, that is, **$y = {dy:num4}$**.
+
+- id: geo-circle-similar
+  title: The similarity between two circles
+  topic: Similar circles
+  vars:
+    h1: {min: -6, max: 6}
+    k1: {min: -6, max: 6}
+    h2: {min: -6, max: 6}
+    k2: {min: -6, max: 6}
+    r1: {min: 2, max: 6}
+    r2: {min: 2, max: 12}
+  where: ["h1 != 0", "k1 != 0", "h2 != 0", "k2 != 0", "r1 != r2", "h1 != h2 or k1 != k2"]
+  calc:
+    ta: h2 - h1
+    tb: k2 - k1
+    kk: r2/r1
+    q1: r1^2
+    q2: r2^2
+    nh1: -h1
+    nk1: -k1
+    nh2: -h2
+    nk2: -k2
+  prompt: 'Circle $C_1$ is $(x {nh1:signed})^2 + (y {nk1:signed})^2 = {q1}$ and circle $C_2$ is $(x {nh2:signed})^2 + (y {nk2:signed})^2 = {q2}$. A translation by $\langle a, b \rangle$, followed by a dilation centered at the new center with scale factor $k$, maps $C_1$ onto $C_2$. Find $a$, $b$ and $k$ ($k$ as a fraction or 2 decimals).'
+  answers:
+    - {name: ta, label: '$a =$'}
+    - {name: tb, label: '$b =$'}
+    - {name: kk, label: '$k =$', tolerance: 0.005}
+  solution: |-
+    $C_1$ has center $({h1}, {k1})$ and radius $\sqrt{{q1}} = {r1}$; $C_2$ has center $({h2}, {k2})$ and radius $\sqrt{{q2}} = {r2}$.
+    The translation moves center to center: $\langle {h2} - ({h1}),\; {k2} - ({k1}) \rangle =$ **$\langle {ta}, {tb} \rangle$**.
+    The dilation scales the radius from {r1} to {r2}: $k = \tfrac{{r2}}{{r1}} \approx$ **{kk:num2}**.

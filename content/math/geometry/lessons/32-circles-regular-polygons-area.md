@@ -11,7 +11,7 @@ The polygon formulas from the last lesson all came from cutting and rearranging 
 
 ## Circumference
 
-The ratio of a circle's circumference to its diameter is the same for every circle (all circles are similar). That constant is $\pi \approx 3.14159$. So
+The ratio of a circle's circumference to its diameter is the same for every circle (all circles are similar; Lesson 38 proves it). That constant is $\pi \approx 3.14159$. So
 
 $$C = \pi d = 2\pi r.$$
 

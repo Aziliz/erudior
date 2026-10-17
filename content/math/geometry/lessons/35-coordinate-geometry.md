@@ -7,7 +7,7 @@ topics: [Distance and midpoint, Coordinate proof]
 drills: [geo-distance, geo-midpoint, geo-partition]
 refs: [geo-ref-coord]
 ---
-Coordinates turn geometry into algebra: a point is a pair of numbers, a segment's length is a calculation, and "parallel" is a statement about slopes. You've already met slope (Lesson 9), the distance formula (Lesson 22) and the equation of a circle (Lesson 28). This lesson gathers the coordinate tools, adds a formula for dividing a segment in any ratio, and shows how to *prove* theorems by placing figures on axes.
+Coordinates turn geometry into algebra: a point is a pair of numbers, a segment's length is a calculation, and "parallel" is a statement about slopes. You've already met slope (Lesson 9), the distance formula (Lesson 22) and the equation of a circle (Lesson 30). This lesson gathers the coordinate tools, adds a formula for dividing a segment in any ratio, and shows how to *prove* theorems by placing figures on axes.
 
 ## Distance and midpoint
 
