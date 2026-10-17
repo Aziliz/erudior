@@ -193,7 +193,7 @@ export function normMeaning(s: string): string {
 }
 
 function normTerm(s: string): string {
-  return s.normalize("NFC").replace(/[.,!?;:"„“”]/g, " ").replace(/\s+/g, " ").trim();
+  return s.normalize("NFC").replace(/[.,!?;:"„“”…]/g, " ").replace(/\s+/g, " ").trim();
 }
 
 const DIGRAPHS: [RegExp, string][] = [

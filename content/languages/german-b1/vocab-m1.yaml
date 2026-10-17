@@ -1,0 +1,1473 @@
+# German B1, module 1: Stories and time (lessons 01–05)
+
+# --- 01 Telling stories: the simple past ---
+- id: ereignis
+  lesson: de3-praeteritum
+  term: das Ereignis
+  pos: noun
+  plural: die Ereignisse
+  meanings: [event, occurrence, incident, happening]
+  example: Die Hochzeit war das Ereignis des Jahres.
+  exampleEn: The wedding was the event of the year.
+- id: geschehen
+  lesson: de3-praeteritum
+  term: geschehen
+  pos: verb
+  meanings: [to occur, to happen, to take place]
+  example: 'Niemand weiß genau, was in der Nacht geschehen ist.'
+  exampleEn: Nobody knows exactly what happened in the night.
+  note: 'Strong: es geschieht, geschah, ist geschehen. More formal than passieren.'
+- id: berichten
+  lesson: de3-praeteritum
+  term: berichten
+  pos: verb
+  meanings: [to report (on events), to report, to tell about, to give an account]
+  example: Die Zeitung berichtet über den Unfall.
+  exampleEn: The newspaper reports on the accident.
+  note: 'berichten über + Akk or von + Dat. Simple past: berichtete.'
+- id: figur
+  lesson: de3-praeteritum
+  term: die Figur
+  pos: noun
+  plural: die Figuren
+  meanings: [character (in a story), character, figure, figurine]
+  example: Die wichtigste Figur im Buch ist ein alter Fischer.
+  exampleEn: The most important character in the book is an old fisherman.
+  note: 'Also figure (body shape): Sie hat eine gute Figur.'
+- id: held
+  lesson: de3-praeteritum
+  term: der Held
+  pos: noun
+  plural: die Helden
+  meanings: [hero (male), hero]
+  example: Der Held rettet am Ende das Dorf.
+  exampleEn: The hero saves the village in the end.
+  note: 'Weak noun: den Helden, dem Helden, des Helden.'
+- id: heldin
+  lesson: de3-praeteritum
+  term: die Heldin
+  pos: noun
+  plural: die Heldinnen
+  meanings: [heroine, hero (female)]
+  example: Die Heldin des Romans ist eine junge Ärztin.
+  exampleEn: The heroine of the novel is a young doctor.
+- id: roman
+  lesson: de3-praeteritum
+  term: der Roman
+  pos: noun
+  plural: die Romane
+  meanings: [novel]
+  example: Sie liest gerade einen Roman über Venedig.
+  exampleEn: She is reading a novel about Venice at the moment.
+- id: autor
+  lesson: de3-praeteritum
+  term: der Autor
+  pos: noun
+  plural: die Autoren
+  meanings: [author (male), author, writer]
+  example: Der Autor liest heute Abend in der Buchhandlung.
+  exampleEn: The author is giving a reading in the bookshop this evening.
+- id: autorin
+  lesson: de3-praeteritum
+  term: die Autorin
+  pos: noun
+  plural: die Autorinnen
+  meanings: [author (female), author, writer]
+  example: Die Autorin hat schon zehn Bücher geschrieben.
+  exampleEn: The author has already written ten books.
+- id: kapitel
+  lesson: de3-praeteritum
+  term: das Kapitel
+  pos: noun
+  plural: die Kapitel
+  meanings: [chapter]
+  example: Im dritten Kapitel passiert etwas Überraschendes.
+  exampleEn: Something surprising happens in the third chapter.
+- id: handlung
+  lesson: de3-praeteritum
+  term: die Handlung
+  pos: noun
+  plural: die Handlungen
+  meanings: [plot, story (of a book or film), action, storyline]
+  example: Die Handlung des Films spielt in Hamburg.
+  exampleEn: The plot of the film is set in Hamburg.
+- id: ende
+  lesson: de3-praeteritum
+  term: das Ende
+  pos: noun
+  plural: die Enden
+  meanings: [end (of something), end, ending]
+  example: Das Ende des Buches hat mich überrascht.
+  exampleEn: The ending of the book surprised me.
+  note: 'am Ende = in the end, at the end; zu Ende sein = to be over.'
+- id: erscheinen
+  lesson: de3-praeteritum
+  term: erscheinen
+  pos: verb
+  meanings: [to appear, to be published, to come out]
+  example: Ihr neues Buch erscheint im Mai.
+  exampleEn: Her new book comes out in May.
+  note: 'Strong: erschien, ist erschienen.'
+- id: veroeffentlichen
+  lesson: de3-praeteritum
+  term: veröffentlichen
+  pos: verb
+  meanings: [to publish, to make public, to release]
+  example: Er hat seinen ersten Roman mit 60 veröffentlicht.
+  exampleEn: He published his first novel at 60.
+  note: 'Inseparable: veröffentlichte, hat veröffentlicht.'
+- id: fantasie
+  lesson: de3-praeteritum
+  term: die Fantasie
+  pos: noun
+  plural: die Fantasien
+  alt: [die Phantasie]
+  meanings: [imagination, fantasy]
+  example: Kinder haben viel Fantasie.
+  exampleEn: Children have a lot of imagination.
+- id: ehemalig
+  lesson: de3-praeteritum
+  term: ehemalig
+  pos: adjective
+  meanings: [former, ex-, one-time]
+  example: Mein ehemaliger Chef wohnt jetzt in Spanien.
+  exampleEn: My former boss lives in Spain now.
+  note: 'Only before a noun, with endings: der ehemalige Lehrer.'
+- id: eines-tages
+  lesson: de3-praeteritum
+  kind: phrase
+  term: eines Tages
+  pos: phrase
+  meanings: [one day (in a story or the future), one day, someday, some day]
+  example: Eines Tages stand ein fremder Mann vor der Tür.
+  exampleEn: One day a strange man was standing at the door.
+- id: schliesslich
+  lesson: de3-praeteritum
+  term: schließlich
+  pos: adverb
+  meanings: [in the end (eventually), eventually, finally, after all]
+  example: Nach langem Suchen haben wir schließlich eine Wohnung gefunden.
+  exampleEn: After a long search we eventually found a flat.
+  note: 'Also "after all" as a reason: Er ist schließlich dein Bruder.'
+- id: verlauf
+  lesson: de3-praeteritum
+  term: der Verlauf
+  pos: noun
+  plural: die Verläufe
+  meanings: [course (of events), course, progress, development]
+  example: Im Verlauf der Geschichte lernt der Held viel über sich selbst.
+  exampleEn: In the course of the story the hero learns a lot about himself.
+- id: verschwinden
+  lesson: de3-praeteritum
+  term: verschwinden
+  pos: verb
+  meanings: [to disappear, to vanish, to go missing]
+  example: Mein Schlüssel ist schon wieder verschwunden.
+  exampleEn: My key has disappeared again.
+  note: 'Strong: verschwand, ist verschwunden.'
+- id: entdecken
+  lesson: de3-praeteritum
+  term: entdecken
+  pos: verb
+  meanings: [to discover, to find, to detect, to spot]
+  example: Kolumbus entdeckte 1492 Amerika.
+  exampleEn: Columbus discovered America in 1492.
+  note: 'Inseparable: entdeckte, hat entdeckt.'
+- id: zeuge
+  lesson: de3-praeteritum
+  term: der Zeuge
+  pos: noun
+  plural: die Zeugen
+  meanings: [witness (male), witness, eyewitness]
+  example: Der Zeuge hat den Unfall genau gesehen.
+  exampleEn: The witness saw the accident clearly.
+  note: 'Weak noun: den Zeugen, dem Zeugen, des Zeugen.'
+- id: zeugin
+  lesson: de3-praeteritum
+  term: die Zeugin
+  pos: noun
+  plural: die Zeuginnen
+  meanings: [witness (female), witness, eyewitness]
+  example: Die Zeugin hat die Polizei gerufen.
+  exampleEn: The witness called the police.
+- id: leser
+  lesson: de3-praeteritum
+  term: der Leser
+  pos: noun
+  plural: die Leser
+  meanings: [reader (male), reader]
+  example: Der Autor beantwortet Fragen von Lesern.
+  exampleEn: The author answers questions from readers.
+- id: leserin
+  lesson: de3-praeteritum
+  term: die Leserin
+  pos: noun
+  plural: die Leserinnen
+  meanings: [reader (female), reader]
+  example: Eine Leserin hat der Zeitung einen Brief geschrieben.
+  exampleEn: A reader wrote a letter to the newspaper.
+- id: biografie
+  lesson: de3-praeteritum
+  term: die Biografie
+  pos: noun
+  plural: die Biografien
+  alt: [die Biographie]
+  meanings: [biography, life story]
+  example: Ich lese gerade eine Biografie über Einstein.
+  exampleEn: I am reading a biography of Einstein at the moment.
+- id: schriftsteller
+  lesson: de3-praeteritum
+  term: der Schriftsteller
+  pos: noun
+  plural: die Schriftsteller
+  meanings: [writer (male), writer, novelist, author]
+  example: Thomas Mann war ein berühmter Schriftsteller.
+  exampleEn: Thomas Mann was a famous writer.
+- id: schriftstellerin
+  lesson: de3-praeteritum
+  term: die Schriftstellerin
+  pos: noun
+  plural: die Schriftstellerinnen
+  meanings: [writer (female), writer, novelist, author]
+  example: Die Schriftstellerin lebt seit Jahren in Berlin.
+  exampleEn: The writer has lived in Berlin for years.
+- id: koenig
+  lesson: de3-praeteritum
+  term: der König
+  pos: noun
+  plural: die Könige
+  meanings: [king]
+  example: 'Es war einmal ein König, der hatte keine Kinder.'
+  exampleEn: Once upon a time there was a king who had no children.
+- id: koenigin
+  lesson: de3-praeteritum
+  term: die Königin
+  pos: noun
+  plural: die Königinnen
+  meanings: [queen]
+  example: Die Königin wohnte in einem großen Schloss.
+  exampleEn: The queen lived in a big castle.
+- id: stehlen
+  lesson: de3-praeteritum
+  term: stehlen
+  pos: verb
+  meanings: [to steal, to rob (something)]
+  example: Jemand hat mein Fahrrad gestohlen.
+  exampleEn: Someone has stolen my bike.
+  note: 'Strong: er stiehlt, stahl, hat gestohlen.'
+- id: dieb
+  lesson: de3-praeteritum
+  term: der Dieb
+  pos: noun
+  plural: die Diebe
+  meanings: [thief (male), thief, burglar]
+  example: Die Polizei hat den Dieb schnell gefunden.
+  exampleEn: The police found the thief quickly.
+  note: 'Female: die Diebin.'
+- id: spur
+  lesson: de3-praeteritum
+  term: die Spur
+  pos: noun
+  plural: die Spuren
+  meanings: [trace, track, clue, mark, lead]
+  example: Von dem Dieb gibt es keine Spur.
+  exampleEn: There is no trace of the thief.
+- id: zunaechst
+  lesson: de3-praeteritum
+  term: zunächst
+  pos: adverb
+  meanings: [at first, initially, first of all, to begin with, for now]
+  example: Zunächst war alles ruhig.
+  exampleEn: At first everything was quiet.
+- id: fallen
+  lesson: de3-praeteritum
+  term: fallen
+  pos: verb
+  meanings: [to fall, to drop]
+  example: Das Glas ist auf den Boden gefallen.
+  exampleEn: The glass fell on the floor.
+  note: 'Strong: er fällt, fiel, ist gefallen.'
+- id: rufen
+  lesson: de3-praeteritum
+  term: rufen
+  pos: verb
+  meanings: [to call (out), to call, to shout, to cry]
+  example: Das Kind rief laut nach seiner Mutter.
+  exampleEn: The child called loudly for its mother.
+  note: 'Strong: rief, hat gerufen. jemanden rufen = to call someone (to come); the police: die Polizei rufen.'
+
+# --- 02 Before that: the past perfect, nachdem and bevor ---
+- id: krieg
+  lesson: de3-plusquamperfekt
+  term: der Krieg
+  pos: noun
+  plural: die Kriege
+  meanings: [war]
+  example: Der Zweite Weltkrieg endete 1945.
+  exampleEn: The Second World War ended in 1945.
+- id: frieden
+  lesson: de3-plusquamperfekt
+  term: der Frieden
+  pos: noun
+  plural: —
+  meanings: [peace]
+  example: Nach dem Krieg wünschten sich alle Frieden.
+  exampleEn: After the war everyone longed for peace.
+  note: 'Older form: der Friede. Genitive: des Friedens.'
+- id: mauer
+  lesson: de3-plusquamperfekt
+  term: die Mauer
+  pos: noun
+  plural: die Mauern
+  meanings: ['wall (outside, free-standing)', wall, the Berlin Wall]
+  example: Die Berliner Mauer fiel am 9. November 1989.
+  exampleEn: The Berlin Wall fell on 9 November 1989.
+  note: A wall of a room is die Wand.
+- id: wende
+  lesson: de3-plusquamperfekt
+  term: die Wende
+  pos: noun
+  plural: die Wenden
+  meanings: [turning point, change, the Wende (1989), turn]
+  example: Nach der Wende zogen viele junge Leute in den Westen.
+  exampleEn: After the Wende many young people moved to the West.
+  note: die Wende = the changes of 1989–90 in East Germany.
+- id: freiheit
+  lesson: de3-plusquamperfekt
+  term: die Freiheit
+  pos: noun
+  plural: die Freiheiten
+  meanings: [freedom, liberty]
+  example: Für die Freiheit sind viele Menschen auf die Straße gegangen.
+  exampleEn: Many people took to the streets for freedom.
+- id: revolution
+  lesson: de3-plusquamperfekt
+  term: die Revolution
+  pos: noun
+  plural: die Revolutionen
+  meanings: [revolution]
+  example: Die Revolution von 1989 war friedlich.
+  exampleEn: The revolution of 1989 was peaceful.
+- id: epoche
+  lesson: de3-plusquamperfekt
+  term: die Epoche
+  pos: noun
+  plural: die Epochen
+  meanings: [era, epoch, period, age]
+  example: Die Industrialisierung war eine Epoche großer Veränderungen.
+  exampleEn: Industrialisation was an era of great changes.
+- id: jahrhundert
+  lesson: de3-plusquamperfekt
+  term: das Jahrhundert
+  pos: noun
+  plural: die Jahrhunderte
+  meanings: [century]
+  example: Die Kirche ist aus dem 13. Jahrhundert.
+  exampleEn: The church dates from the 13th century.
+- id: jahrzehnt
+  lesson: de3-plusquamperfekt
+  term: das Jahrzehnt
+  pos: noun
+  plural: die Jahrzehnte
+  meanings: [decade]
+  example: Sie wohnen seit Jahrzehnten im selben Haus.
+  exampleEn: They have lived in the same house for decades.
+- id: generation
+  lesson: de3-plusquamperfekt
+  term: die Generation
+  pos: noun
+  plural: die Generationen
+  meanings: [generation]
+  example: Meine Generation ist mit dem Internet aufgewachsen.
+  exampleEn: My generation grew up with the internet.
+- id: zerstoeren
+  lesson: de3-plusquamperfekt
+  term: zerstören
+  pos: verb
+  meanings: [to destroy, to wreck, to ruin]
+  example: Das Feuer hat das alte Rathaus zerstört.
+  exampleEn: The fire destroyed the old town hall.
+  note: 'Inseparable: zerstörte, hat zerstört.'
+- id: aufbauen
+  lesson: de3-plusquamperfekt
+  term: aufbauen
+  pos: verb
+  meanings: [to build up, to rebuild, to set up, to put up, to assemble]
+  example: Nach dem Krieg haben die Menschen die Stadt wieder aufgebaut.
+  exampleEn: After the war people rebuilt the city.
+  note: 'Separable: baute auf, hat aufgebaut.'
+- id: fliehen
+  lesson: de3-plusquamperfekt
+  term: fliehen
+  pos: verb
+  meanings: [to flee, to escape, to run away]
+  example: Die Familie floh 1961 in den Westen.
+  exampleEn: The family fled to the West in 1961.
+  note: 'Strong: floh, ist geflohen.'
+- id: flucht
+  lesson: de3-plusquamperfekt
+  term: die Flucht
+  pos: noun
+  plural: die Fluchten
+  meanings: [escape, flight (running away), flight]
+  example: Die Flucht über die Berge dauerte drei Tage.
+  exampleEn: The escape over the mountains took three days.
+- id: fluechtling
+  lesson: de3-plusquamperfekt
+  term: der Flüchtling
+  pos: noun
+  plural: die Flüchtlinge
+  meanings: [refugee]
+  example: Viele Flüchtlinge haben in Deutschland eine neue Heimat gefunden.
+  exampleEn: Many refugees have found a new home in Germany.
+- id: damalig
+  lesson: de3-plusquamperfekt
+  term: damalig
+  pos: adjective
+  meanings: [of that time (before a noun), then, at the time, of the time]
+  example: Der damalige Bürgermeister hat das Museum gegründet.
+  exampleEn: The mayor at the time founded the museum.
+  note: 'Only before a noun, with endings. The adverb is damals.'
+- id: historisch
+  lesson: de3-plusquamperfekt
+  term: historisch
+  pos: adjective
+  meanings: [historical, historic]
+  example: Wir haben eine historische Stadtführung gemacht.
+  exampleEn: We went on a historical tour of the city.
+- id: zeitzeuge
+  lesson: de3-plusquamperfekt
+  term: der Zeitzeuge
+  pos: noun
+  plural: die Zeitzeugen
+  meanings: [contemporary witness (male), contemporary witness, eyewitness, witness]
+  example: Ein Zeitzeuge erzählte der Klasse vom Krieg.
+  exampleEn: A contemporary witness told the class about the war.
+  note: 'Weak noun: den Zeitzeugen, dem Zeitzeugen.'
+- id: zeitzeugin
+  lesson: de3-plusquamperfekt
+  term: die Zeitzeugin
+  pos: noun
+  plural: die Zeitzeuginnen
+  meanings: [contemporary witness (female), contemporary witness, eyewitness, witness]
+  example: Die Zeitzeugin war 1989 in Leipzig dabei.
+  exampleEn: The contemporary witness was there in Leipzig in 1989.
+- id: folge
+  lesson: de3-plusquamperfekt
+  term: die Folge
+  pos: noun
+  plural: die Folgen
+  meanings: [consequence (result), consequence, result, episode]
+  example: Die Folgen des Krieges waren schrecklich.
+  exampleEn: The consequences of the war were terrible.
+  note: 'Also an episode of a series: die letzte Folge.'
+- id: zuvor
+  lesson: de3-plusquamperfekt
+  term: zuvor
+  pos: adverb
+  meanings: [previously, before, beforehand, earlier]
+  example: Ein Jahr zuvor hatte sie geheiratet.
+  exampleEn: A year earlier she had got married.
+  note: More formal than vorher.
+- id: anschliessend
+  lesson: de3-plusquamperfekt
+  term: anschließend
+  pos: adverb
+  meanings: ['afterwards (and then, next)', afterwards, then, subsequently, after that]
+  example: 'Erst essen wir, anschließend gehen wir ins Kino.'
+  exampleEn: 'First we eat, afterwards we go to the cinema.'
+- id: soldat
+  lesson: de3-plusquamperfekt
+  term: der Soldat
+  pos: noun
+  plural: die Soldaten
+  meanings: [soldier (male), soldier]
+  example: Mein Urgroßvater war im Ersten Weltkrieg Soldat.
+  exampleEn: My great-grandfather was a soldier in the First World War.
+  note: 'Weak noun: den Soldaten, dem Soldaten.'
+- id: soldatin
+  lesson: de3-plusquamperfekt
+  term: die Soldatin
+  pos: noun
+  plural: die Soldatinnen
+  meanings: [soldier (female), soldier]
+  example: Sie arbeitet seit fünf Jahren als Soldatin.
+  exampleEn: She has worked as a soldier for five years.
+- id: diktatur
+  lesson: de3-plusquamperfekt
+  term: die Diktatur
+  pos: noun
+  plural: die Diktaturen
+  meanings: [dictatorship]
+  example: In einer Diktatur gibt es keine freien Wahlen.
+  exampleEn: In a dictatorship there are no free elections.
+- id: teilung
+  lesson: de3-plusquamperfekt
+  term: die Teilung
+  pos: noun
+  plural: die Teilungen
+  meanings: [division, partition, splitting]
+  example: Die Teilung Deutschlands endete 1990.
+  exampleEn: The division of Germany ended in 1990.
+- id: wiedervereinigung
+  lesson: de3-plusquamperfekt
+  term: die Wiedervereinigung
+  pos: noun
+  plural: die Wiedervereinigungen
+  meanings: [reunification]
+  example: Die Wiedervereinigung war am 3. Oktober 1990.
+  exampleEn: Reunification was on 3 October 1990.
+- id: einheit
+  lesson: de3-plusquamperfekt
+  term: die Einheit
+  pos: noun
+  plural: die Einheiten
+  meanings: [unity, unit]
+  example: Der 3. Oktober ist der Tag der Deutschen Einheit.
+  exampleEn: 3 October is the Day of German Unity.
+  note: 'Also a unit: Der Kurs hat zwölf Einheiten.'
+- id: ueberleben
+  lesson: de3-plusquamperfekt
+  term: überleben
+  pos: verb
+  meanings: [to survive, to live through]
+  example: Alle Passagiere haben den Unfall überlebt.
+  exampleEn: All the passengers survived the accident.
+  note: 'Inseparable: überlebte, hat überlebt.'
+- id: opfer
+  lesson: de3-plusquamperfekt
+  term: das Opfer
+  pos: noun
+  plural: die Opfer
+  meanings: [victim, sacrifice, casualty]
+  example: Das Denkmal erinnert an die Opfer des Krieges.
+  exampleEn: The memorial commemorates the victims of the war.
+- id: kaiser
+  lesson: de3-plusquamperfekt
+  term: der Kaiser
+  pos: noun
+  plural: die Kaiser
+  meanings: [emperor]
+  example: Der letzte deutsche Kaiser verließ 1918 das Land.
+  exampleEn: The last German emperor left the country in 1918.
+  note: 'Female: die Kaiserin (empress).'
+- id: befreien
+  lesson: de3-plusquamperfekt
+  term: befreien
+  pos: verb
+  meanings: [to free, to liberate, to release, to rescue]
+  example: Die Feuerwehr befreite den Mann aus dem Auto.
+  exampleEn: The fire brigade freed the man from the car.
+  note: 'Inseparable: befreite, hat befreit.'
+- id: widerstand
+  lesson: de3-plusquamperfekt
+  term: der Widerstand
+  pos: noun
+  plural: die Widerstände
+  meanings: [resistance, opposition]
+  example: Gegen den Plan gab es viel Widerstand.
+  exampleEn: There was a lot of resistance to the plan.
+- id: nachdem
+  lesson: de3-plusquamperfekt
+  term: nachdem
+  pos: conjunction
+  meanings: [after (+ clause), after]
+  example: 'Nachdem wir gegessen hatten, gingen wir spazieren.'
+  exampleEn: 'After we had eaten, we went for a walk.'
+  note: Verb at the end; usually with the past perfect.
+- id: bevor
+  lesson: de3-plusquamperfekt
+  term: bevor
+  pos: conjunction
+  meanings: [before (+ clause), before]
+  example: 'Bevor du gehst, ruf bitte deine Mutter an.'
+  exampleEn: 'Before you go, please call your mother.'
+  note: Verb at the end.
+
+# --- 03 While, since, until: time clauses ---
+- id: grosseltern
+  lesson: de3-temporal-clauses
+  term: die Großeltern
+  pos: noun
+  plural: die Großeltern (plural only)
+  meanings: [grandparents]
+  example: Meine Großeltern wohnen auf dem Land.
+  exampleEn: My grandparents live in the country.
+- id: erziehung
+  lesson: de3-temporal-clauses
+  term: die Erziehung
+  pos: noun
+  plural: —
+  meanings: [upbringing, education (at home), raising (children), parenting]
+  example: Eine gute Erziehung ist wichtig.
+  exampleEn: A good upbringing is important.
+- id: erziehen
+  lesson: de3-temporal-clauses
+  term: erziehen
+  pos: verb
+  meanings: [to bring up, to raise, to educate]
+  example: Sie hat ihre drei Kinder allein erzogen.
+  exampleEn: She brought up her three children alone.
+  note: 'Strong, inseparable: erzog, hat erzogen.'
+- id: rolle
+  lesson: de3-temporal-clauses
+  term: die Rolle
+  pos: noun
+  plural: die Rollen
+  meanings: [role, part]
+  example: Die Großeltern spielen in unserer Familie eine wichtige Rolle.
+  exampleEn: The grandparents play an important role in our family.
+  note: 'eine Rolle spielen = to play a role; Das spielt keine Rolle = That doesn''t matter.'
+- id: haushalt
+  lesson: de3-temporal-clauses
+  term: der Haushalt
+  pos: noun
+  plural: die Haushalte
+  meanings: [household, housework, housekeeping, budget]
+  example: Im Haushalt helfen bei uns alle mit.
+  exampleEn: Everyone at our place helps with the housework.
+- id: pflege
+  lesson: de3-temporal-clauses
+  term: die Pflege
+  pos: noun
+  plural: —
+  meanings: [care (nursing), care, nursing, looking after]
+  example: Die Pflege der alten Mutter kostet viel Zeit.
+  exampleEn: Caring for the old mother takes a lot of time.
+- id: pflegen
+  lesson: de3-temporal-clauses
+  term: pflegen
+  pos: verb
+  meanings: [to care for, to nurse, to look after, to take care of, to maintain]
+  example: Sie pflegt ihren kranken Vater zu Hause.
+  exampleEn: She cares for her sick father at home.
+- id: enkel
+  lesson: de3-temporal-clauses
+  term: der Enkel
+  pos: noun
+  plural: die Enkel
+  meanings: [grandson, grandchild]
+  example: Unser Enkel kommt am Wochenende zu Besuch.
+  exampleEn: Our grandson is coming to visit at the weekend.
+- id: enkelin
+  lesson: de3-temporal-clauses
+  term: die Enkelin
+  pos: noun
+  plural: die Enkelinnen
+  meanings: [granddaughter, grandchild]
+  example: Meine Enkelin ist schon zwölf.
+  exampleEn: My granddaughter is already twelve.
+- id: enkelkind
+  lesson: de3-temporal-clauses
+  term: das Enkelkind
+  pos: noun
+  plural: die Enkelkinder
+  meanings: [grandchild]
+  example: Sie hat sieben Enkelkinder.
+  exampleEn: She has seven grandchildren.
+- id: schwiegermutter
+  lesson: de3-temporal-clauses
+  term: die Schwiegermutter
+  pos: noun
+  plural: die Schwiegermütter
+  meanings: [mother-in-law]
+  example: Meine Schwiegermutter kocht sehr gut.
+  exampleEn: My mother-in-law is a very good cook.
+- id: schwiegervater
+  lesson: de3-temporal-clauses
+  term: der Schwiegervater
+  pos: noun
+  plural: die Schwiegerväter
+  meanings: [father-in-law]
+  example: Mein Schwiegervater hilft uns beim Umzug.
+  exampleEn: My father-in-law is helping us move.
+- id: der-verwandte
+  lesson: de3-temporal-clauses
+  term: der Verwandte
+  pos: noun
+  plural: die Verwandten
+  alt: [ein Verwandter]
+  meanings: [relative (male), relative, relation]
+  example: Ein Verwandter von mir wohnt in Kanada.
+  exampleEn: A relative of mine lives in Canada.
+  note: 'Adjectival noun: der Verwandte, but ein Verwandter.'
+- id: die-verwandte
+  lesson: de3-temporal-clauses
+  term: die Verwandte
+  pos: noun
+  plural: die Verwandten
+  alt: [eine Verwandte]
+  meanings: [relative (female), relative, relation]
+  example: Sie ist eine entfernte Verwandte meiner Mutter.
+  exampleEn: She is a distant relative of my mother.
+  note: 'Adjectival noun: die Verwandte, eine Verwandte.'
+- id: verwandt
+  lesson: de3-temporal-clauses
+  term: verwandt
+  pos: adjective
+  meanings: [related]
+  example: Bist du mit ihm verwandt?
+  exampleEn: Are you related to him?
+  note: verwandt mit + Dat.
+- id: verhaeltnis
+  lesson: de3-temporal-clauses
+  term: das Verhältnis
+  pos: noun
+  plural: die Verhältnisse
+  meanings: [relationship (how well people get on), relationship, relations, relation, ratio]
+  example: Ich habe ein gutes Verhältnis zu meinem Bruder.
+  exampleEn: I have a good relationship with my brother.
+  note: 'ein gutes Verhältnis zu + Dat. Plural also: conditions (die Verhältnisse).'
+- id: gewohnheit
+  lesson: de3-temporal-clauses
+  term: die Gewohnheit
+  pos: noun
+  plural: die Gewohnheiten
+  meanings: [habit, custom]
+  example: Früh aufstehen ist eine alte Gewohnheit von mir.
+  exampleEn: Getting up early is an old habit of mine.
+- id: sich-gewoehnen
+  lesson: de3-temporal-clauses
+  term: sich gewöhnen
+  pos: verb
+  meanings: [to get used to, to get accustomed to, to become used to]
+  example: Ich habe mich an das kalte Wetter gewöhnt.
+  exampleEn: I have got used to the cold weather.
+  note: 'sich gewöhnen an + Akk. Perfect: hat sich gewöhnt.'
+- id: onkel
+  lesson: de3-temporal-clauses
+  term: der Onkel
+  pos: noun
+  plural: die Onkel
+  meanings: [uncle]
+  example: Mein Onkel hat einen Bauernhof.
+  exampleEn: My uncle has a farm.
+- id: tante
+  lesson: de3-temporal-clauses
+  term: die Tante
+  pos: noun
+  plural: die Tanten
+  meanings: [aunt]
+  example: Meine Tante wohnt in Bremen.
+  exampleEn: My aunt lives in Bremen.
+- id: cousin
+  lesson: de3-temporal-clauses
+  term: der Cousin
+  pos: noun
+  plural: die Cousins
+  meanings: [cousin (male), cousin]
+  example: Mein Cousin ist genauso alt wie ich.
+  exampleEn: My cousin is exactly the same age as me.
+  note: 'Pronounced as in French: [kuˈzɛ̃ː].'
+- id: cousine
+  lesson: de3-temporal-clauses
+  term: die Cousine
+  pos: noun
+  plural: die Cousinen
+  meanings: [cousin (female), cousin]
+  example: Meine Cousine studiert in Graz.
+  exampleEn: My cousin is studying in Graz.
+- id: neffe
+  lesson: de3-temporal-clauses
+  term: der Neffe
+  pos: noun
+  plural: die Neffen
+  meanings: [nephew]
+  example: Ich gehe mit meinem Neffen in den Zoo.
+  exampleEn: I am going to the zoo with my nephew.
+  note: 'Weak noun: den Neffen, dem Neffen.'
+- id: nichte
+  lesson: de3-temporal-clauses
+  term: die Nichte
+  pos: noun
+  plural: die Nichten
+  meanings: [niece]
+  example: Meine Nichte hat heute Geburtstag.
+  exampleEn: 'It is my niece''s birthday today.'
+- id: ehe
+  lesson: de3-temporal-clauses
+  term: die Ehe
+  pos: noun
+  plural: die Ehen
+  meanings: [marriage]
+  example: Ihre Ehe hält schon fünfzig Jahre.
+  exampleEn: Their marriage has lasted fifty years.
+- id: ehemann
+  lesson: de3-temporal-clauses
+  term: der Ehemann
+  pos: noun
+  plural: die Ehemänner
+  meanings: [husband]
+  example: Ihr Ehemann arbeitet als Koch.
+  exampleEn: Her husband works as a cook.
+  note: In everyday speech usually mein Mann.
+- id: ehefrau
+  lesson: de3-temporal-clauses
+  term: die Ehefrau
+  pos: noun
+  plural: die Ehefrauen
+  meanings: [wife]
+  example: Er stellte uns seine Ehefrau vor.
+  exampleEn: He introduced his wife to us.
+  note: In everyday speech usually meine Frau.
+- id: alleinerziehend
+  lesson: de3-temporal-clauses
+  term: alleinerziehend
+  pos: adjective
+  meanings: [single (parent), single, bringing up a child alone]
+  example: Sie ist alleinerziehend und hat zwei Kinder.
+  exampleEn: She is a single mother with two children.
+- id: betreuen
+  lesson: de3-temporal-clauses
+  term: betreuen
+  pos: verb
+  meanings: ['to look after (children, clients)', to look after, to take care of, to supervise, to mentor]
+  example: Eine Nachbarin betreut nachmittags die Kinder.
+  exampleEn: A neighbour looks after the children in the afternoons.
+  note: 'Inseparable: betreute, hat betreut.'
+- id: vorbild
+  lesson: de3-temporal-clauses
+  term: das Vorbild
+  pos: noun
+  plural: die Vorbilder
+  meanings: [role model, model, example]
+  example: Meine Großmutter war immer mein Vorbild.
+  exampleEn: My grandmother was always my role model.
+- id: sobald
+  lesson: de3-temporal-clauses
+  term: sobald
+  pos: conjunction
+  meanings: [as soon as]
+  example: 'Sobald ich zu Hause bin, rufe ich dich an.'
+  exampleEn: 'As soon as I am home, I will call you.'
+  note: Verb at the end.
+- id: solange
+  lesson: de3-temporal-clauses
+  term: solange
+  pos: conjunction
+  meanings: [as long as]
+  example: 'Solange es regnet, bleiben wir drinnen.'
+  exampleEn: 'As long as it is raining, we will stay inside.'
+  note: Verb at the end. so lange (two words) = for such a long time.
+- id: seitdem
+  lesson: de3-temporal-clauses
+  term: seitdem
+  pos: conjunction
+  meanings: [since (+ clause), since, since then]
+  example: 'Seitdem sie in Rente ist, reist sie viel.'
+  exampleEn: Since she retired she has travelled a lot.
+  note: 'Verb at the end. Also an adverb: since then.'
+- id: waehrend-conj
+  lesson: de3-temporal-clauses
+  term: während
+  pos: conjunction
+  meanings: [while, whereas, whilst]
+  example: 'Während ich koche, deckst du den Tisch.'
+  exampleEn: 'While I cook, you lay the table.'
+  note: 'Verb at the end. Also a preposition + genitive: during.'
+- id: bis-conj
+  lesson: de3-temporal-clauses
+  term: bis
+  pos: conjunction
+  meanings: [until (+ clause), until, till]
+  example: 'Warte hier, bis ich zurückkomme.'
+  exampleEn: Wait here until I come back.
+  note: Verb at the end.
+
+# --- 04 The future: werden + infinitive ---
+- id: technik
+  lesson: de3-futur
+  term: die Technik
+  pos: noun
+  plural: die Techniken
+  meanings: [technology (in general), technology, engineering, technique, tech]
+  example: Die Technik entwickelt sich sehr schnell.
+  exampleEn: Technology is developing very fast.
+  note: 'Also technique: die Technik eines Sportlers.'
+- id: technologie
+  lesson: de3-futur
+  term: die Technologie
+  pos: noun
+  plural: die Technologien
+  meanings: [technology (a particular one), technology, technologies]
+  example: Die Firma arbeitet mit neuen Technologien.
+  exampleEn: The company works with new technologies.
+- id: entwicklung
+  lesson: de3-futur
+  term: die Entwicklung
+  pos: noun
+  plural: die Entwicklungen
+  meanings: [development, progress, evolution]
+  example: Die Entwicklung des Medikaments hat zehn Jahre gedauert.
+  exampleEn: The development of the drug took ten years.
+- id: entwickeln
+  lesson: de3-futur
+  term: entwickeln
+  pos: verb
+  meanings: [to develop, to design, to create]
+  example: Die Studenten entwickeln eine App für Senioren.
+  exampleEn: The students are developing an app for senior citizens.
+  note: 'Inseparable: entwickelte, hat entwickelt. sich entwickeln = to develop (by itself).'
+- id: fortschritt
+  lesson: de3-futur
+  term: der Fortschritt
+  pos: noun
+  plural: die Fortschritte
+  meanings: [progress, advance, improvement]
+  example: Du hast in Deutsch große Fortschritte gemacht.
+  exampleEn: You have made great progress in German.
+  note: Fortschritte machen = to make progress.
+- id: erfindung
+  lesson: de3-futur
+  term: die Erfindung
+  pos: noun
+  plural: die Erfindungen
+  meanings: [invention]
+  example: Das Rad ist eine sehr alte Erfindung.
+  exampleEn: The wheel is a very old invention.
+- id: erfinden
+  lesson: de3-futur
+  term: erfinden
+  pos: verb
+  meanings: [to invent, to make up]
+  example: Wer hat das Auto erfunden?
+  exampleEn: Who invented the car?
+  note: 'Strong: erfand, hat erfunden.'
+- id: roboter
+  lesson: de3-futur
+  term: der Roboter
+  pos: noun
+  plural: die Roboter
+  meanings: [robot]
+  example: In der Fabrik arbeiten viele Roboter.
+  exampleEn: Many robots work in the factory.
+- id: kuenstlich
+  lesson: de3-futur
+  term: künstlich
+  pos: adjective
+  meanings: [artificial, man-made, synthetic, fake]
+  example: 'Der See ist nicht natürlich, er ist künstlich.'
+  exampleEn: 'The lake is not natural, it is artificial.'
+- id: intelligenz
+  lesson: de3-futur
+  term: die Intelligenz
+  pos: noun
+  plural: —
+  meanings: [intelligence]
+  example: 'Intelligenz allein reicht nicht, man muss auch fleißig sein.'
+  exampleEn: 'Intelligence alone is not enough, you also have to work hard.'
+- id: kuenstliche-intelligenz
+  lesson: de3-futur
+  term: die künstliche Intelligenz
+  pos: noun
+  plural: —
+  alt: [die KI, künstliche Intelligenz]
+  meanings: [artificial intelligence, AI]
+  example: Die künstliche Intelligenz verändert viele Berufe.
+  exampleEn: Artificial intelligence is changing many professions.
+  note: 'Short form: die KI.'
+- id: forschung
+  lesson: de3-futur
+  term: die Forschung
+  pos: noun
+  plural: die Forschungen
+  meanings: [research]
+  example: Sie arbeitet in der Forschung.
+  exampleEn: She works in research.
+- id: forschen
+  lesson: de3-futur
+  term: forschen
+  pos: verb
+  meanings: [to do research, to research, to investigate]
+  example: Er forscht an einem neuen Impfstoff.
+  exampleEn: He is researching a new vaccine.
+  note: forschen an + Dat = to research (something).
+- id: wissenschaft
+  lesson: de3-futur
+  term: die Wissenschaft
+  pos: noun
+  plural: die Wissenschaften
+  meanings: [science, scholarship, academia]
+  example: Die Wissenschaft hat darauf noch keine Antwort.
+  exampleEn: 'Science doesn''t have an answer to that yet.'
+- id: wissenschaftler
+  lesson: de3-futur
+  term: der Wissenschaftler
+  pos: noun
+  plural: die Wissenschaftler
+  meanings: [scientist (male), scientist, researcher, scholar]
+  example: Ein Wissenschaftler hat das Virus entdeckt.
+  exampleEn: A scientist discovered the virus.
+- id: wissenschaftlerin
+  lesson: de3-futur
+  term: die Wissenschaftlerin
+  pos: noun
+  plural: die Wissenschaftlerinnen
+  meanings: [scientist (female), scientist, researcher, scholar]
+  example: Die Wissenschaftlerin hat einen Preis bekommen.
+  exampleEn: The scientist won a prize.
+- id: digital
+  lesson: de3-futur
+  term: digital
+  pos: adjective
+  meanings: [digital]
+  example: Heute sind fast alle Fotos digital.
+  exampleEn: Today almost all photos are digital.
+- id: voraussichtlich
+  lesson: de3-futur
+  term: voraussichtlich
+  pos: adverb
+  meanings: [expected (according to plan), expected, probably, likely, anticipated]
+  example: Der Bus kommt voraussichtlich zehn Minuten später.
+  exampleEn: The bus is expected to arrive ten minutes late.
+- id: vermutlich
+  lesson: de3-futur
+  term: vermutlich
+  pos: adverb
+  meanings: [presumably, probably, supposedly, I suppose]
+  example: Er hat vermutlich den Zug verpasst.
+  exampleEn: He has presumably missed the train.
+- id: wahrscheinlich
+  lesson: de3-futur
+  term: wahrscheinlich
+  pos: adverb
+  meanings: [probably, likely, most likely]
+  example: Morgen regnet es wahrscheinlich.
+  exampleEn: It will probably rain tomorrow.
+- id: prognose
+  lesson: de3-futur
+  term: die Prognose
+  pos: noun
+  plural: die Prognosen
+  meanings: [forecast, prognosis, prediction, projection]
+  example: Die Prognose für das Wetter am Wochenende ist gut.
+  exampleEn: The forecast for the weekend weather is good.
+- id: vorhersagen
+  lesson: de3-futur
+  term: vorhersagen
+  pos: verb
+  meanings: [to predict, to forecast, to foretell]
+  example: Niemand kann die Zukunft vorhersagen.
+  exampleEn: Nobody can predict the future.
+  note: 'Separable: sagt vorher, sagte vorher, hat vorhergesagt.'
+- id: ersetzen
+  lesson: de3-futur
+  term: ersetzen
+  pos: verb
+  meanings: [to replace, to substitute, to compensate (for), to reimburse]
+  example: Kann ein Computer einen Lehrer ersetzen?
+  exampleEn: Can a computer replace a teacher?
+  note: 'Inseparable: ersetzte, hat ersetzt. Also to pay for damage: den Schaden ersetzen.'
+- id: veraendern
+  lesson: de3-futur
+  term: verändern
+  pos: verb
+  meanings: [to alter, to change, to transform]
+  example: Das Internet hat unser Leben verändert.
+  exampleEn: The internet has changed our lives.
+  note: 'Inseparable: veränderte, hat verändert. sich verändern = to change (by itself).'
+- id: veraenderung
+  lesson: de3-futur
+  term: die Veränderung
+  pos: noun
+  plural: die Veränderungen
+  meanings: [transformation (change), change, alteration, shift]
+  example: In der Firma gibt es viele Veränderungen.
+  exampleEn: There are a lot of changes in the company.
+- id: raumfahrt
+  lesson: de3-futur
+  term: die Raumfahrt
+  pos: noun
+  plural: —
+  meanings: [space travel, spaceflight, space exploration]
+  example: Die Raumfahrt ist sehr teuer.
+  exampleEn: Space travel is very expensive.
+- id: planet
+  lesson: de3-futur
+  term: der Planet
+  pos: noun
+  plural: die Planeten
+  meanings: [planet]
+  example: Die Erde ist ein Planet.
+  exampleEn: The Earth is a planet.
+  note: 'Weak noun: den Planeten, dem Planeten.'
+- id: weltall
+  lesson: de3-futur
+  term: das Weltall
+  pos: noun
+  plural: —
+  meanings: [space (outer space), outer space, universe, cosmos]
+  example: Von der Raumstation aus kann man ins Weltall schauen.
+  exampleEn: From the space station you can look out into space.
+- id: erde
+  lesson: de3-futur
+  term: die Erde
+  pos: noun
+  plural: —
+  meanings: [earth (the planet), earth, the Earth, soil, ground]
+  example: Die Erde dreht sich um die Sonne.
+  exampleEn: The Earth revolves around the sun.
+  note: 'Also soil: Die Pflanze braucht frische Erde.'
+- id: rakete
+  lesson: de3-futur
+  term: die Rakete
+  pos: noun
+  plural: die Raketen
+  meanings: [rocket, missile]
+  example: Die Rakete startet morgen früh.
+  exampleEn: The rocket launches tomorrow morning.
+- id: daten
+  lesson: de3-futur
+  term: die Daten
+  pos: noun
+  plural: die Daten (plural only)
+  meanings: [data]
+  example: Das Programm speichert alle Daten.
+  exampleEn: The program saves all the data.
+- id: experiment
+  lesson: de3-futur
+  term: das Experiment
+  pos: noun
+  plural: die Experimente
+  meanings: [experiment]
+  example: Im Chemieunterricht machen wir ein Experiment.
+  exampleEn: We are doing an experiment in chemistry class.
+- id: labor
+  lesson: de3-futur
+  term: das Labor
+  pos: noun
+  plural: die Labore
+  meanings: [laboratory, lab]
+  example: Die Proben werden im Labor untersucht.
+  exampleEn: The samples are examined in the laboratory.
+  note: 'Plural also: die Labors. Stress on -bor.'
+- id: automatisch
+  lesson: de3-futur
+  term: automatisch
+  pos: adjective
+  meanings: [automatic, automatically]
+  example: Die Tür öffnet sich automatisch.
+  exampleEn: The door opens automatically.
+- id: elektroauto
+  lesson: de3-futur
+  term: das Elektroauto
+  pos: noun
+  plural: die Elektroautos
+  meanings: [electric car, EV, electric vehicle]
+  example: Immer mehr Leute fahren ein Elektroauto.
+  exampleEn: More and more people drive an electric car.
+- id: wohl
+  lesson: de3-futur
+  term: wohl
+  pos: particle
+  meanings: ['probably (with werden, a guess)', probably, I suppose, no doubt, presumably]
+  example: Er wird wohl noch schlafen.
+  exampleEn: He is probably still asleep.
+  note: 'Common with werden for a guess about now: Sie wird wohl krank sein.'
+
+# --- 05 Weak nouns and adjectival nouns ---
+- id: erwachsener
+  lesson: de3-n-nouns
+  term: der Erwachsene
+  pos: noun
+  plural: die Erwachsenen
+  alt: [ein Erwachsener]
+  meanings: [adult, grown-up]
+  example: Der Eintritt kostet für Erwachsene zehn Euro.
+  exampleEn: Admission costs ten euros for adults.
+  note: 'Adjectival noun: der Erwachsene, ein Erwachsener, die Erwachsene (female).'
+- id: jugendlicher
+  lesson: de3-n-nouns
+  term: der Jugendliche
+  pos: noun
+  plural: die Jugendlichen
+  alt: [ein Jugendlicher]
+  meanings: [young person, teenager, adolescent, youth, juvenile]
+  example: Viele Jugendliche treffen sich abends im Park.
+  exampleEn: Many young people meet in the park in the evenings.
+  note: 'Adjectival noun: ein Jugendlicher; female: die Jugendliche.'
+- id: angestellter
+  lesson: de3-n-nouns
+  term: der Angestellte
+  pos: noun
+  plural: die Angestellten
+  alt: [ein Angestellter]
+  meanings: [employee, white-collar worker, member of staff]
+  example: Die Firma hat 50 Angestellte.
+  exampleEn: The company has 50 employees.
+  note: 'Adjectival noun: ein Angestellter; female: die Angestellte.'
+- id: beamter
+  lesson: de3-n-nouns
+  term: der Beamte
+  pos: noun
+  plural: die Beamten
+  alt: [ein Beamter]
+  meanings: [civil servant (male), civil servant, official, public servant]
+  example: Mein Vater ist Beamter bei der Stadt.
+  exampleEn: My father is a civil servant with the city.
+  note: 'Adjectival noun: ein Beamter, zwei Beamte.'
+- id: beamtin
+  lesson: de3-n-nouns
+  term: die Beamtin
+  pos: noun
+  plural: die Beamtinnen
+  meanings: [civil servant (female), civil servant, official, public servant]
+  example: Die Beamtin hat meinen Antrag geprüft.
+  exampleEn: The civil servant checked my application.
+- id: buerger
+  lesson: de3-n-nouns
+  term: der Bürger
+  pos: noun
+  plural: die Bürger
+  meanings: [citizen (male), citizen]
+  example: Die Bürger der Stadt dürfen über das Projekt abstimmen.
+  exampleEn: The citizens of the town may vote on the project.
+- id: buergerin
+  lesson: de3-n-nouns
+  term: die Bürgerin
+  pos: noun
+  plural: die Bürgerinnen
+  meanings: [citizen (female), citizen]
+  example: Als Bürgerin der EU kann sie überall in Europa arbeiten.
+  exampleEn: As an EU citizen she can work anywhere in Europe.
+- id: mensch
+  lesson: de3-n-nouns
+  term: der Mensch
+  pos: noun
+  plural: die Menschen
+  meanings: [human being, person, human, man (humankind)]
+  example: Jeder Mensch braucht Freunde.
+  exampleEn: Every person needs friends.
+  note: 'Weak noun: den Menschen, dem Menschen. Mensch! = Wow! / Oh man!'
+- id: experte
+  lesson: de3-n-nouns
+  term: der Experte
+  pos: noun
+  plural: die Experten
+  meanings: [expert (male), expert, specialist]
+  example: Wir haben einen Experten um Rat gefragt.
+  exampleEn: We asked an expert for advice.
+  note: 'Weak noun: den Experten, dem Experten.'
+- id: expertin
+  lesson: de3-n-nouns
+  term: die Expertin
+  pos: noun
+  plural: die Expertinnen
+  meanings: [expert (female), expert, specialist]
+  example: Sie ist Expertin für Datenschutz.
+  exampleEn: She is an expert in data protection.
+- id: fremder
+  lesson: de3-n-nouns
+  term: der Fremde
+  pos: noun
+  plural: die Fremden
+  alt: [ein Fremder]
+  meanings: [stranger, foreigner, outsider]
+  example: Ein Fremder hat mich nach dem Weg gefragt.
+  exampleEn: A stranger asked me the way.
+  note: 'Adjectival noun: ein Fremder; female: die Fremde. The adjective fremd = strange, foreign.'
+- id: bewohner
+  lesson: de3-n-nouns
+  term: der Bewohner
+  pos: noun
+  plural: die Bewohner
+  meanings: [resident (male), resident, occupant, inhabitant]
+  example: Die Bewohner des Hauses kennen sich gut.
+  exampleEn: The residents of the building know each other well.
+- id: bewohnerin
+  lesson: de3-n-nouns
+  term: die Bewohnerin
+  pos: noun
+  plural: die Bewohnerinnen
+  meanings: [resident (female), resident, occupant, inhabitant]
+  example: Die älteste Bewohnerin ist 98 Jahre alt.
+  exampleEn: The oldest resident is 98 years old.
+- id: gesellschaft
+  lesson: de3-n-nouns
+  term: die Gesellschaft
+  pos: noun
+  plural: die Gesellschaften
+  meanings: [society, company (business), company, association]
+  example: Unsere Gesellschaft wird immer älter.
+  exampleEn: Our society is getting older and older.
+  note: 'Also a company: GmbH = Gesellschaft mit beschränkter Haftung.'
+- id: bevoelkerung
+  lesson: de3-n-nouns
+  term: die Bevölkerung
+  pos: noun
+  plural: die Bevölkerungen
+  meanings: [population, people, inhabitants]
+  example: Die Bevölkerung der Stadt wächst.
+  exampleEn: The population of the city is growing.
+- id: gruppe
+  lesson: de3-n-nouns
+  term: die Gruppe
+  pos: noun
+  plural: die Gruppen
+  meanings: [group]
+  example: Wir arbeiten heute in Gruppen.
+  exampleEn: We are working in groups today.
+- id: mehrheit
+  lesson: de3-n-nouns
+  term: die Mehrheit
+  pos: noun
+  plural: die Mehrheiten
+  meanings: [majority]
+  example: Die Mehrheit war für den Vorschlag.
+  exampleEn: The majority was in favour of the proposal.
+- id: minderheit
+  lesson: de3-n-nouns
+  term: die Minderheit
+  pos: noun
+  plural: die Minderheiten
+  meanings: [minority]
+  example: 'In Deutschland leben mehrere nationale Minderheiten, zum Beispiel die Sorben.'
+  exampleEn: 'Several national minorities live in Germany, for example the Sorbs.'
+- id: auslaender
+  lesson: de3-n-nouns
+  term: der Ausländer
+  pos: noun
+  plural: die Ausländer
+  meanings: [foreigner (male), foreigner, foreign national]
+  example: Als Ausländer muss man sich beim Bürgeramt anmelden.
+  exampleEn: 'As a foreigner you have to register at the citizens'' office.'
+- id: auslaenderin
+  lesson: de3-n-nouns
+  term: die Ausländerin
+  pos: noun
+  plural: die Ausländerinnen
+  meanings: [foreigner (female), foreigner, foreign national]
+  example: 'Sie ist Ausländerin, aber sie spricht perfekt Deutsch.'
+  exampleEn: 'She is a foreigner, but she speaks perfect German.'
+- id: herkunft
+  lesson: de3-n-nouns
+  term: die Herkunft
+  pos: noun
+  plural: —
+  meanings: [origin, background, descent, provenance]
+  example: Die Schüler in der Klasse sind sehr unterschiedlicher Herkunft.
+  exampleEn: The pupils in the class are of very different backgrounds.
+- id: deutsch-adj
+  lesson: de3-n-nouns
+  term: deutsch
+  pos: adjective
+  meanings: [German (adjective), German]
+  example: Ich mag das deutsche Brot.
+  exampleEn: I like German bread.
+  note: 'Small letter as an adjective: ein deutsches Auto. The language: Deutsch.'
+- id: deutscher
+  lesson: de3-n-nouns
+  term: der Deutsche
+  pos: noun
+  plural: die Deutschen
+  alt: [ein Deutscher]
+  meanings: [German (a man), German, German man]
+  example: 'Er ist Deutscher, aber er lebt in Spanien.'
+  exampleEn: 'He is German, but he lives in Spain.'
+  note: 'Adjectival noun: ein Deutscher, viele Deutsche.'
+- id: deutsche-woman
+  lesson: de3-n-nouns
+  term: die Deutsche
+  pos: noun
+  plural: die Deutschen
+  alt: [eine Deutsche]
+  meanings: [German (a woman), German, German woman]
+  example: Meine Frau ist Deutsche.
+  exampleEn: My wife is German.
+  note: 'Adjectival noun: eine Deutsche.'
+- id: junge
+  lesson: de3-n-nouns
+  term: der Junge
+  pos: noun
+  plural: die Jungen
+  meanings: [boy, lad]
+  example: Der Junge spielt mit seinem Hund im Garten.
+  exampleEn: The boy is playing with his dog in the garden.
+  note: 'Weak noun: den Jungen, dem Jungen. Colloquial plural: die Jungs.'
+- id: leute
+  lesson: de3-n-nouns
+  term: die Leute
+  pos: noun
+  plural: die Leute (plural only)
+  meanings: [people, folks]
+  example: Die Leute hier sind sehr freundlich.
+  exampleEn: The people here are very friendly.
+- id: franzose
+  lesson: de3-n-nouns
+  term: der Franzose
+  pos: noun
+  plural: die Franzosen
+  meanings: [Frenchman, French (a man)]
+  example: Mein Kollege ist Franzose.
+  exampleEn: My colleague is French.
+  note: 'Weak noun: den Franzosen, dem Franzosen.'
+- id: franzoesin
+  lesson: de3-n-nouns
+  term: die Französin
+  pos: noun
+  plural: die Französinnen
+  meanings: [Frenchwoman, French (a woman)]
+  example: Die Französin spricht sehr gut Deutsch.
+  exampleEn: The Frenchwoman speaks very good German.
+- id: arbeitsloser
+  lesson: de3-n-nouns
+  term: der Arbeitslose
+  pos: noun
+  plural: die Arbeitslosen
+  alt: [ein Arbeitsloser]
+  meanings: [unemployed person, unemployed man, jobless person]
+  example: Die Zahl der Arbeitslosen ist gesunken.
+  exampleEn: The number of unemployed people has fallen.
+  note: 'Adjectival noun: ein Arbeitsloser; female: die Arbeitslose.'
+- id: einheimischer
+  lesson: de3-n-nouns
+  term: der Einheimische
+  pos: noun
+  plural: die Einheimischen
+  alt: [ein Einheimischer]
+  meanings: [local (person), local, native]
+  example: Frag doch einen Einheimischen nach einem guten Restaurant.
+  exampleEn: Why not ask a local for a good restaurant?
+  note: 'Adjectival noun: ein Einheimischer; female: die Einheimische.'
+- id: mitglied
+  lesson: de3-n-nouns
+  term: das Mitglied
+  pos: noun
+  plural: die Mitglieder
+  meanings: [member]
+  example: Ich bin seit zehn Jahren Mitglied im Sportverein.
+  exampleEn: I have been a member of the sports club for ten years.
+- id: bauer
+  lesson: de3-n-nouns
+  term: der Bauer
+  pos: noun
+  plural: die Bauern
+  meanings: [farmer (male), farmer]
+  example: Der Bauer verkauft seine Eier auf dem Markt.
+  exampleEn: The farmer sells his eggs at the market.
+  note: 'Weak noun: den Bauern, dem Bauern.'
+- id: baeuerin
+  lesson: de3-n-nouns
+  term: die Bäuerin
+  pos: noun
+  plural: die Bäuerinnen
+  meanings: [farmer (female), farmer, 'farmer''s wife']
+  example: Die Bäuerin melkt jeden Morgen die Kühe.
+  exampleEn: The farmer milks the cows every morning.
+- id: kandidat
+  lesson: de3-n-nouns
+  term: der Kandidat
+  pos: noun
+  plural: die Kandidaten
+  meanings: [candidate (male), candidate]
+  example: Der Kandidat hat die Prüfung bestanden.
+  exampleEn: The candidate passed the exam.
+  note: 'Weak noun: den Kandidaten, dem Kandidaten.'
+- id: kandidatin
+  lesson: de3-n-nouns
+  term: die Kandidatin
+  pos: noun
+  plural: die Kandidatinnen
+  meanings: [candidate (female), candidate]
+  example: Die Kandidatin wartet auf ihr Ergebnis.
+  exampleEn: The candidate is waiting for her result.

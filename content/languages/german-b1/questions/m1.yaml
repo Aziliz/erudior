@@ -1,0 +1,517 @@
+# German B1, module 1: Stories and time (lessons 01–05)
+
+# --- 01 Telling stories: the simple past ---
+- id: de3-q-0101
+  lesson: de3-praeteritum
+  module_quiz: true
+  topic: Simple past
+  stem: 'Complete with the simple past of "finden": "Gestern ___ ich einen alten Brief im Keller."'
+  choices: ['fand', 'fandte', 'findete', 'fund']
+  answer: 0
+  explanation: |-
+    finden is a strong verb (i – a – u): finden, fand, gefunden. The ich form has no ending, so it is just the past stem: ich fand. Strong verbs never add -te, and "fund" mixes up the past with the vowel of the participle gefunden.
+- id: de3-q-0102
+  lesson: de3-praeteritum
+  topic: Simple past
+  stem: 'Complete with the simple past of "berichten": "Die Zeitung ___ ausführlich über das Ereignis."'
+  choices: ['berichte', 'berichtete', 'berichtet', 'berichtte']
+  answer: 1
+  explanation: |-
+    berichten is weak, and its stem ends in -t, so it adds -ete: berichtete. "berichtet" is the present tense, "berichte" the ich form of the present, and "berichtte" is missing the extra e that makes the ending audible.
+- id: de3-q-0103
+  lesson: de3-praeteritum
+  module_quiz: true
+  topic: Simple past
+  stem: 'Which sentence is correct?'
+  choices: ['Sie aufstand um sechs Uhr.', 'Sie stand um sechs Uhr aufstehen.', 'Sie stand um sechs Uhr auf.', 'Sie standauf um sechs Uhr.']
+  answer: 2
+  explanation: |-
+    In a main clause a separable verb splits in the simple past just as in the present: the past form stand goes to position 2 and the prefix auf goes to the end. The prefix never stays on the front of the verb in a main clause.
+- id: de3-q-0104
+  lesson: de3-praeteritum
+  topic: Strong verbs
+  stem: 'Which verb follows the same vowel pattern as "schreiben – schrieb – geschrieben"?'
+  choices: ['finden', 'fahren', 'sprechen', 'bleiben']
+  answer: 3
+  explanation: |-
+    bleiben – blieb – geblieben has the same ei – ie – ie pattern as schreiben. finden follows i – a – u (fand, gefunden), fahren a – u – a (fuhr, gefahren) and sprechen e – a – o (sprach, gesprochen).
+- id: de3-q-0105
+  lesson: de3-praeteritum
+  topic: Mixed verbs
+  stem: 'Complete: "Niemand ___ den Namen des Diebes."'
+  choices: ['kannte', 'kennte', 'kann', 'kennete']
+  answer: 0
+  explanation: |-
+    kennen is a mixed verb: it changes its vowel like a strong verb and adds -te like a weak one: kannte, gekannt. "kennete" treats it as a regular weak verb. "kann" is the present of können, a different verb.
+- id: de3-q-0106
+  lesson: de3-praeteritum
+  module_quiz: true
+  topic: Simple past
+  stem: 'What is the simple past of "verschwinden" in "Der Ring ___ spurlos."?'
+  choices: ['verschwund', 'verschwand', 'verschwindete', 'verschwunden']
+  answer: 1
+  explanation: |-
+    verschwinden follows i – a – u like finden: verschwinden, verschwand, ist verschwunden. "verschwunden" is the participle and would need "ist" (Der Ring ist verschwunden). Strong verbs do not add -te.
+- id: de3-q-0107
+  lesson: de3-praeteritum
+  module_quiz: true
+  topic: Written and spoken past
+  stem: 'Your friend asks on the phone what you did yesterday. Which answer sounds most natural, especially in southern Germany?'
+  choices: ['Ich ging ins Kino und sah einen Krimi.', 'Ich gehe ins Kino und sehe einen Krimi.', 'Ich bin ins Kino gegangen und habe einen Krimi gesehen.', 'Ich war ins Kino gegangen und hatte einen Krimi gesehen.']
+  answer: 2
+  explanation: |-
+    In conversation Germans normally use the perfect for most verbs; the simple past (ging, sah) is the tense of written stories and sounds bookish in a chat. The past perfect would mean something happened before another past event, which is not the case here.
+- id: de3-q-0108
+  lesson: de3-praeteritum
+  topic: Reading
+  stem: |-
+    Read the text: "Die Autorin Ruth Maier schrieb ihren ersten Roman mit 19. Kein Verlag wollte ihn haben. Zwanzig Jahre später fand ihre Tochter das Manuskript in einer Kiste. Sie schickte es an einen Verlag, und ein Jahr später erschien das Buch. Es wurde ein großer Erfolg." Who sent the manuscript to the publisher?
+  choices: ['Ruth Maier, when she was 19.', 'A publisher who found it in a box.', 'A friend of the author, twenty years later.', 'The author''s daughter.']
+  answer: 3
+  explanation: |-
+    "Zwanzig Jahre später fand ihre Tochter das Manuskript … Sie schickte es an einen Verlag": the daughter found it and sent it. Ruth Maier wrote it at 19, but no publisher wanted it then.
+- id: de3-q-0109
+  lesson: de3-praeteritum
+  topic: Stories and books
+  stem: 'What does "Das Buch erscheint im Herbst." mean?'
+  choices: ['The book comes out in autumn.', 'The book seems autumnal.', 'The book is set in autumn.', 'The book was written in autumn.']
+  answer: 0
+  explanation: |-
+    erscheinen means to appear, and for books, films and newspapers to come out or be published. "The book is set in autumn" would be "Die Handlung spielt im Herbst".
+- id: de3-q-0110
+  lesson: de3-praeteritum
+  topic: Simple past
+  stem: 'Spot the mistake: "Eines Tages kame ein Fremder ins Dorf und erzählte eine seltsame Geschichte."'
+  choices: ['erzählte should be erzählt', 'kame should be kam', 'Eines Tages should be Einen Tag', 'ins should be in das']
+  answer: 1
+  explanation: |-
+    The er/sie/es form of the simple past has no ending, so it is "kam", not "kame". erzählte is correct weak simple past, "eines Tages" is the fixed phrase for "one day", and "ins" is the normal short form of "in das".
+- id: de3-q-0111
+  lesson: de3-praeteritum
+  module_quiz: true
+  topic: Strong verbs
+  stem: 'Complete: "Der Dieb ___ das Geld und floh durch das Fenster."'
+  choices: ['stehlte', 'stohl', 'stahl', 'stiehl']
+  answer: 2
+  explanation: |-
+    stehlen follows e – a – o like sprechen: stehlen, stahl, hat gestohlen. "stohl" mixes the past with the participle vowel, "stehlte" treats it as weak, and "stiehl" is the du imperative.
+- id: de3-q-0112
+  lesson: de3-praeteritum
+  topic: Stories and books
+  stem: 'Which word completes the sentence? "Zuerst glaubte ihr niemand, aber ___ fand die Polizei den Ring doch in ihrem Garten."'
+  choices: ['zunächst', 'eines Tages', 'früher', 'schließlich']
+  answer: 3
+  explanation: |-
+    schließlich means "in the end, eventually", which fits a story where something finally happens after a long time. zunächst means "at first", the opposite end of the story; früher means "in the past"; eines Tages introduces a new event, not the outcome.
+
+# --- 02 Before that: the past perfect, nachdem and bevor ---
+- id: de3-q-0201
+  lesson: de3-plusquamperfekt
+  module_quiz: true
+  topic: Past perfect
+  stem: 'Complete: "Als wir ankamen, ___ der Zug schon abgefahren."'
+  choices: ['war', 'hatte', 'ist', 'wurde']
+  answer: 0
+  explanation: |-
+    The train had left before we arrived, so we need the past perfect. abfahren takes sein in the perfect (ist abgefahren), so the past perfect is war abgefahren. hatte is wrong because the helper verb is the same as in the perfect.
+- id: de3-q-0202
+  lesson: de3-plusquamperfekt
+  topic: Past perfect
+  stem: 'Complete: "Nachdem sie das Abitur ___, zog sie nach Berlin."'
+  choices: ['machte', 'gemacht hatte', 'gemacht hat', 'hatte gemacht']
+  answer: 1
+  explanation: |-
+    The nachdem clause describes the earlier action, so with a simple past main clause (zog) it takes the past perfect. In a subordinate clause the conjugated verb goes to the end: gemacht hatte, not hatte gemacht.
+- id: de3-q-0203
+  lesson: de3-plusquamperfekt
+  topic: Past perfect
+  stem: 'Which sentence is correct?'
+  choices: ['Er hatte 1961 in den Westen geflohen.', 'Er war 1961 in den Westen fliehen.', 'Er war 1961 in den Westen geflohen.', 'Er hat 1961 in den Westen geflohen gewesen.']
+  answer: 2
+  explanation: |-
+    fliehen takes sein in the perfect (ist geflohen), so the past perfect is war geflohen. The participle goes to the end, and you never need gewesen to form the past perfect.
+- id: de3-q-0204
+  lesson: de3-plusquamperfekt
+  module_quiz: true
+  topic: Time clauses
+  stem: 'Choose the right word: "___ dem Krieg bauten die Menschen die Stadt wieder auf."'
+  choices: ['Nachdem', 'Danach', 'Bevor', 'Nach']
+  answer: 3
+  explanation: |-
+    "dem Krieg" is a noun phrase without a verb, so you need the preposition nach + dative. nachdem and bevor are conjunctions and need a whole clause (Nachdem der Krieg zu Ende war, …). danach is an adverb meaning "after that" and cannot take a noun.
+- id: de3-q-0205
+  lesson: de3-plusquamperfekt
+  topic: Time clauses
+  stem: 'Which sentence is correct?'
+  choices: ['Bevor er ins Bett ging, las er noch ein Kapitel.', 'Bevor er ging ins Bett, las er noch ein Kapitel.', 'Vor er ins Bett ging, las er noch ein Kapitel.', 'Bevor er ins Bett ging, er las noch ein Kapitel.']
+  answer: 0
+  explanation: |-
+    bevor is a conjunction: the verb goes to the end of its clause (ins Bett ging), and because the clause fills position 1, the main clause starts with its verb (las er). vor is a preposition and cannot start a clause.
+- id: de3-q-0206
+  lesson: de3-plusquamperfekt
+  module_quiz: true
+  topic: Time adverbs
+  stem: 'Complete: "Zuerst gab es eine Führung durch das Museum, ___ diskutierten wir mit einer Zeitzeugin."'
+  choices: ['nachdem', 'anschließend', 'bevor', 'zuvor']
+  answer: 1
+  explanation: |-
+    anschließend means "afterwards" and is an adverb, so it is followed directly by the verb (diskutierten wir). nachdem and bevor would need the verb at the end of their clause. zuvor means "before", which gets the order wrong.
+- id: de3-q-0207
+  lesson: de3-plusquamperfekt
+  topic: Past perfect
+  stem: 'Which sentence uses the past perfect correctly?'
+  choices: ['Im Jahr 1945 hatte der Krieg in Europa geendet, und die Menschen hatten gefeiert.', 'Nachdem ich gegessen hatte, gehe ich spazieren.', 'Sie kannte die Stadt gut, weil sie dort früher studiert hatte.', 'Morgen hatte ich einen Termin beim Arzt.']
+  answer: 2
+  explanation: |-
+    She had studied there before the time of the story, so the past perfect correctly steps back from "kannte". A story about 1945 is told in the simple past (endete, feierten). With a present main clause, nachdem takes the perfect (gegessen habe). The past perfect cannot describe tomorrow.
+- id: de3-q-0208
+  lesson: de3-plusquamperfekt
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the text: "Meine Großmutter wurde 1940 in Königsberg geboren. Ihr Vater war schon im ersten Kriegsjahr gestorben. 1945 floh sie mit ihrer Mutter in den Westen. Nachdem sie zwei Jahre in einem Lager gelebt hatten, fanden sie eine Wohnung in Hamburg." What happened first?
+  choices: ['The family found a flat in Hamburg.', 'The grandmother fled to the West.', 'The family lived in a camp.', 'The grandmother''s father died.']
+  answer: 3
+  explanation: |-
+    "Ihr Vater war schon im ersten Kriegsjahr gestorben" is in the past perfect and comes before the flight of 1945. Then they lived in a camp for two years, and after that they found a flat in Hamburg.
+- id: de3-q-0209
+  lesson: de3-plusquamperfekt
+  topic: History
+  stem: 'What does "die Wende" mean in German history?'
+  choices: ['The changes of 1989–90 that ended the GDR and led to reunification.', 'The building of the Berlin Wall in 1961.', 'The end of the Second World War.', 'The founding of the Federal Republic in 1949.']
+  answer: 0
+  explanation: |-
+    die Wende literally means "the turn" or "turning point". In German history it is the name for the peaceful revolution of 1989 in East Germany, the fall of the Wall and the way to reunification on 3 October 1990.
+- id: de3-q-0210
+  lesson: de3-plusquamperfekt
+  topic: History
+  stem: 'Complete: "Das Schloss stammt aus dem 16. ___."'
+  choices: ['Jahrzehnt', 'Jahrhundert', 'Jahrestag', 'Epoche']
+  answer: 1
+  explanation: |-
+    das Jahrhundert is a century: aus dem 16. Jahrhundert = from the 16th century. das Jahrzehnt is a decade, which is never counted like this, and Epoche (era) is feminine, so "dem 16. Epoche" is impossible.
+- id: de3-q-0211
+  lesson: de3-plusquamperfekt
+  topic: Past perfect
+  stem: 'Spot the mistake: "Nachdem die Mauer fiel, reisten viele Menschen zum ersten Mal in den Westen."'
+  choices: ['reisten should be reisen', 'zum should be zu dem', 'fiel should be gefallen war', 'Nachdem should be Nach']
+  answer: 2
+  explanation: |-
+    nachdem with a simple past main clause takes the past perfect, because the Wall fell before people travelled: Nachdem die Mauer gefallen war, reisten … fallen takes sein, so it is gefallen war. The rest of the sentence is correct.
+- id: de3-q-0212
+  lesson: de3-plusquamperfekt
+  topic: History
+  stem: 'What does "Mein Großvater hat den Krieg überlebt." mean?'
+  choices: ['My grandfather lived after the war.', 'My grandfather experienced the whole war.', 'My grandfather fought in the war.', 'My grandfather survived the war.']
+  answer: 3
+  explanation: |-
+    überleben means to survive. It is inseparable (über- is unstressed here), so the participle has no ge-: hat überlebt. "To fight in the war" would be "im Krieg kämpfen".
+
+# --- 03 While, since, until: time clauses ---
+- id: de3-q-0301
+  lesson: de3-temporal-clauses
+  module_quiz: true
+  topic: Time clauses
+  stem: 'Complete: "___ meine Eltern arbeiteten, passte meine Oma auf uns auf."'
+  choices: ['Während', 'Seit', 'Bis', 'Bevor']
+  answer: 0
+  explanation: |-
+    Grandma looked after the children at the same time as the parents were working, so the right conjunction is während (while). seit would mean "since", bis "until" and bevor "before".
+- id: de3-q-0302
+  lesson: de3-temporal-clauses
+  topic: Time clauses
+  stem: 'Which sentence is correct?'
+  choices: ['Sobald ich bin zu Hause, rufe ich dich an.', 'Sobald ich zu Hause bin, rufe ich dich an.', 'Sobald ich zu Hause bin, ich rufe dich an.', 'Sobald bin ich zu Hause, rufe ich dich an.']
+  answer: 1
+  explanation: |-
+    sobald sends the verb to the end of its clause (zu Hause bin). Because the whole clause stands in position 1, the main clause continues with its verb: rufe ich. "ich rufe" after the comma is English word order.
+- id: de3-q-0303
+  lesson: de3-temporal-clauses
+  topic: Time clauses
+  stem: 'Complete: "Seit meine Großeltern in Rente ___, reisen sie sehr viel."'
+  choices: ['waren', 'gewesen sind', 'sind', 'werden']
+  answer: 2
+  explanation: |-
+    The situation started in the past and is still true, so German uses the present tense with seit: Seit sie in Rente sind, reisen sie viel. English uses "have retired / have been travelling", but German doesn't need a past tense here.
+- id: de3-q-0304
+  lesson: de3-temporal-clauses
+  module_quiz: true
+  topic: als and wenn
+  stem: 'Complete: "___ ich zehn Jahre alt war, bekam ich meinen ersten Hund."'
+  choices: ['Wenn', 'Wann', 'Ob', 'Als']
+  answer: 3
+  explanation: |-
+    A single event or period in the past takes als. wenn is for repeated events or the present and future, wann is a question word, and ob means "whether".
+- id: de3-q-0305
+  lesson: de3-temporal-clauses
+  topic: Time clauses
+  stem: 'Which conjunction fits? "Du kannst bei uns wohnen, ___ du willst."'
+  choices: ['solange', 'sobald', 'seitdem', 'bevor']
+  answer: 0
+  explanation: |-
+    solange means "as long as": the staying lasts for the same time as the wanting. sobald (as soon as) marks a starting point, seitdem looks back to the past, and bevor (before) makes no sense here.
+- id: de3-q-0306
+  lesson: de3-temporal-clauses
+  module_quiz: true
+  topic: Time clauses
+  stem: 'Which is the best German translation of "She didn''t start talking until she was three."?'
+  choices: ['Sie hat nicht gesprochen, bis sie drei war.', 'Sie hat erst gesprochen, als sie drei war.', 'Sie hat bis drei nicht gesprochen worden.', 'Sie sprach nicht, sobald sie drei war.']
+  answer: 1
+  explanation: |-
+    German expresses "not until" with erst: erst, als sie drei war, or simply erst mit drei. A word-for-word translation with nicht … bis is understandable but unnatural. sobald means "as soon as" and changes the meaning.
+- id: de3-q-0307
+  lesson: de3-temporal-clauses
+  topic: Family
+  stem: 'Your husband''s mother is your …'
+  choices: ['Großmutter', 'Stiefmutter', 'Schwiegermutter', 'Tante']
+  answer: 2
+  explanation: |-
+    The parents of your husband or wife are your Schwiegereltern: die Schwiegermutter and der Schwiegervater. die Großmutter is your grandmother, die Stiefmutter your stepmother, die Tante your aunt.
+- id: de3-q-0308
+  lesson: de3-temporal-clauses
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the text: "Seit Herr Ott allein lebt, kocht er jeden Tag selbst. Während er kocht, hört er Radio. Seine Enkelin besucht ihn jeden Mittwoch. Sobald sie kommt, macht er Kaffee, und sie erzählt ihm von der Uni." What does Mr Ott do as soon as his granddaughter arrives?
+  choices: ['He listens to the radio.', 'He starts cooking lunch.', 'He tells her about university.', 'He makes coffee.']
+  answer: 3
+  explanation: |-
+    "Sobald sie kommt, macht er Kaffee": as soon as she comes, he makes coffee. He listens to the radio while he cooks, and it is the granddaughter who tells him about university.
+- id: de3-q-0309
+  lesson: de3-temporal-clauses
+  topic: Time clauses
+  stem: 'What does "Er hat 2019 geheiratet. Seitdem lebt er in Graz." mean?'
+  choices: ['He got married in 2019. Since then he has lived in Graz.', 'He got married in 2019 while he was living in Graz.', 'He lived in Graz until he got married in 2019.', 'He has been married since 2019, but he lives in Graz.']
+  answer: 0
+  explanation: |-
+    Here seitdem is an adverb in a main clause meaning "since then", so the verb (lebt) comes straight after it. The present tense shows he still lives in Graz.
+- id: de3-q-0310
+  lesson: de3-temporal-clauses
+  topic: Family
+  stem: 'Complete: "Ich bin mit ihm nicht ___, er ist nur ein Freund der Familie."'
+  choices: ['verheiratet', 'verwandt', 'gewohnt', 'gewöhnt']
+  answer: 1
+  explanation: |-
+    verwandt mit means "related to". He is only a family friend, so he is not a relative. verheiratet means married, and gewöhnt is used with an: sich an etwas gewöhnen, to get used to something.
+- id: de3-q-0311
+  lesson: de3-temporal-clauses
+  topic: Family
+  stem: 'Complete: "Nach dem Umzug musste ich mich erst ___ das kalte Wetter gewöhnen."'
+  choices: ['mit', 'auf', 'an', 'für']
+  answer: 2
+  explanation: |-
+    sich gewöhnen always takes an + accusative: Ich gewöhne mich an das Wetter. With a clause, use daran: Ich habe mich daran gewöhnt, früh aufzustehen.
+- id: de3-q-0312
+  lesson: de3-temporal-clauses
+  topic: Time clauses
+  stem: 'Spot the mistake: "Wenn ich gestern nach Hause kam, war die Tür offen."'
+  choices: ['kam should be gekommen', 'war should be ist', 'gestern should be heute', 'Wenn should be Als']
+  answer: 3
+  explanation: |-
+    "gestern" makes it one event in the past, so it must be als: Als ich gestern nach Hause kam, war die Tür offen. wenn in the past is only for repeated events (every time I came home).
+
+# --- 04 The future: werden + infinitive ---
+- id: de3-q-0401
+  lesson: de3-futur
+  module_quiz: true
+  topic: Future
+  stem: 'Complete: "Du ___ die Prüfung bestimmt bestehen."'
+  choices: ['wirst', 'werdest', 'wirdst', 'wird']
+  answer: 0
+  explanation: |-
+    werden is irregular in the present: ich werde, du wirst, er wird. The du form has no d. "wird" is the er/sie/es form.
+- id: de3-q-0402
+  lesson: de3-futur
+  topic: Future
+  stem: 'Which sentence is correct?'
+  choices: ['Roboter werden ersetzen viele Jobs in der Zukunft.', 'Roboter werden in der Zukunft viele Jobs ersetzen.', 'Roboter in der Zukunft werden viele Jobs ersetzen.', 'Roboter werden in der Zukunft ersetzen viele Jobs.']
+  answer: 1
+  explanation: |-
+    The future builds a sentence bracket: werden in position 2, the infinitive ersetzen at the very end, and everything else in between. Putting the infinitive straight after werden is English word order.
+- id: de3-q-0403
+  lesson: de3-futur
+  topic: Future
+  stem: 'You arranged to visit your aunt next weekend. Which sentence would a German most naturally say?'
+  choices: ['Nächstes Wochenende werde ich meine Tante besucht.', 'Nächstes Wochenende will ich meine Tante besuchen werden.', 'Nächstes Wochenende besuche ich meine Tante.', 'Nächstes Wochenende ich besuche meine Tante.']
+  answer: 2
+  explanation: |-
+    For a plan with a time word, German normally uses the present tense: Nächstes Wochenende besuche ich meine Tante. The future with werden is possible but sounds heavier. "werde … besucht" has a participle instead of an infinitive, and the last option has the wrong word order.
+- id: de3-q-0404
+  lesson: de3-futur
+  module_quiz: true
+  topic: werden + wohl
+  stem: 'What does "Sie antwortet nicht. Sie wird wohl schon schlafen." mean?'
+  choices: ['She isn''t answering. She will go to sleep soon.', 'She isn''t answering. She wants to sleep.', 'She isn''t answering. She has been asleep for a long time.', 'She isn''t answering. She''s probably already asleep.']
+  answer: 3
+  explanation: |-
+    werden + wohl + infinitive often expresses a guess about the present, not the future: "she'll be asleep / she's probably asleep". The word schon (already) shows it is about now.
+- id: de3-q-0405
+  lesson: de3-futur
+  topic: werden
+  stem: 'In which sentence is "werden" used for the future?'
+  choices: ['Die Prognose wird sich wahrscheinlich als falsch erweisen.', 'Meine Tochter wird Ingenieurin.', 'Im Herbst wird es früh dunkel.', 'Das Auto wird in Bayern gebaut.']
+  answer: 0
+  explanation: |-
+    werden + infinitive (erweisen) is the future: "the forecast will probably turn out to be wrong". werden + a noun or adjective (Ingenieurin, dunkel) means "to become", and werden + participle (gebaut) is the passive.
+- id: de3-q-0406
+  lesson: de3-futur
+  module_quiz: true
+  topic: Future
+  stem: 'Complete: "Ich glaube, dass die künstliche Intelligenz unseren Alltag stark ___."'
+  choices: ['wird verändern', 'verändern wird', 'werden verändert', 'verändert werden']
+  answer: 1
+  explanation: |-
+    In a subordinate clause the conjugated verb goes to the very end, after the infinitive: …, dass sie unseren Alltag verändern wird. "verändert werden" is a passive infinitive and has no conjugated verb.
+- id: de3-q-0407
+  lesson: de3-futur
+  topic: werden vs wollen
+  stem: 'What does "Ich will das Projekt allein machen." mean?'
+  choices: ['I will do the project alone.', 'I did the project alone.', 'I want to do the project alone.', 'I should do the project alone.']
+  answer: 2
+  explanation: |-
+    wollen means "to want to". It is a false friend: "I will" is ich werde. So "Ich will das allein machen" is "I want to do it alone", and "I will do it alone" is "Ich werde das allein machen".
+- id: de3-q-0408
+  lesson: de3-futur
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the text: "Laut einer Studie werden im Jahr 2040 voraussichtlich die Hälfte aller neuen Autos elektrisch fahren. Die Forscher sagen aber auch, dass die Preise dafür noch sinken müssen. Ob Roboterautos bis dahin normal sein werden, ist noch unklar." Which statement matches the text?
+  choices: ['All new cars will be electric in 2040.', 'Self-driving cars will be normal by 2040.', 'Electric cars are already cheaper than other cars.', 'Prices for electric cars still need to fall.']
+  answer: 3
+  explanation: |-
+    "die Preise dafür noch sinken müssen" means prices still have to fall. The study expects half (die Hälfte), not all, of new cars to be electric, and it is unclear (unklar) whether self-driving cars will be normal.
+- id: de3-q-0409
+  lesson: de3-futur
+  topic: Technology and science
+  stem: 'Complete: "Wer hat eigentlich das Fahrrad ___?"'
+  choices: ['erfunden', 'erfindet', 'erfand', 'gefunden']
+  answer: 0
+  explanation: |-
+    erfinden (to invent) is strong and inseparable: erfand, hat erfunden. After hat you need the participle, and because er- is an inseparable prefix there is no ge-. "gefunden" is the participle of finden (to find).
+- id: de3-q-0410
+  lesson: de3-futur
+  topic: Technology and science
+  stem: 'Which word means "presumably, probably"?'
+  choices: ['vorhersagen', 'vermutlich', 'künstlich', 'digital']
+  answer: 1
+  explanation: |-
+    vermutlich means "presumably, probably": Er hat den Zug vermutlich verpasst. vorhersagen means to predict, künstlich artificial and digital digital.
+- id: de3-q-0411
+  lesson: de3-futur
+  topic: Future
+  stem: 'Complete with the future: "Wir ___ in Zukunft mehr Energie sparen müssen."'
+  choices: ['wollen', 'würden', 'werden', 'wurden']
+  answer: 2
+  explanation: |-
+    The future of a modal verb is werden + infinitive + modal infinitive: Wir werden sparen müssen (we will have to save). wurden is the simple past, würden is the Konjunktiv II (would), and wollen means "want".
+- id: de3-q-0412
+  lesson: de3-futur
+  topic: Technology and science
+  stem: 'Choose the correct sentence.'
+  choices: ['Der Wetterbericht hat Regen vorhersagt.', 'Der Wetterbericht vorhersagt Regen.', 'Der Wetterbericht hat Regen gevorhersagt.', 'Der Wetterbericht sagt Regen vorher.']
+  answer: 3
+  explanation: |-
+    vorhersagen is separable: the prefix vorher goes to the end in a main clause (sagt … vorher), and in the participle ge- goes between prefix and verb: hat vorhergesagt.
+
+# --- 05 Weak nouns and adjectival nouns ---
+- id: de3-q-0501
+  lesson: de3-n-nouns
+  module_quiz: true
+  topic: Weak nouns
+  stem: 'Complete: "Ich habe gestern mit dem ___ gesprochen."'
+  choices: ['Kollegen', 'Kollege', 'Kolleges', 'Kollegem']
+  answer: 0
+  explanation: |-
+    Kollege is a weak noun: it adds -n in every case except the nominative singular. After mit (dative) it is dem Kollegen. "Kollege" without -n is a very common mistake.
+- id: de3-q-0502
+  lesson: de3-n-nouns
+  topic: Weak nouns
+  stem: 'Which noun is NOT a weak noun (n-declension)?'
+  choices: ['der Mensch', 'der Tisch', 'der Student', 'der Junge']
+  answer: 1
+  explanation: |-
+    der Tisch is a normal masculine noun (den Tisch, dem Tisch). der Junge is a masculine person noun in -e, der Student a foreign word in -ent, and der Mensch one of the short weak nouns you learn by heart: den Jungen, den Studenten, den Menschen.
+- id: de3-q-0503
+  lesson: de3-n-nouns
+  topic: Weak nouns
+  stem: 'Complete: "Können Sie ___ Schulz bitte ausrichten, dass ich angerufen habe?"'
+  choices: ['Herr', 'Herren', 'Herrn', 'Herrem']
+  answer: 2
+  explanation: |-
+    ausrichten takes a dative person, and Herr is a weak noun that adds only -n in the singular: Herrn Schulz. Herren is the plural (Sehr geehrte Damen und Herren).
+- id: de3-q-0504
+  lesson: de3-n-nouns
+  module_quiz: true
+  topic: Adjectival nouns
+  stem: 'Complete: "Mein Bruder ist ein ___ bei der Stadtverwaltung."'
+  choices: ['Angestellte', 'Angestellten', 'Angestellt', 'Angestellter']
+  answer: 3
+  explanation: |-
+    der Angestellte is an adjectival noun, so it takes adjective endings. After ein (masculine nominative) the ending is -er: ein Angestellter, like ein netter Mann. With der it would be der Angestellte.
+- id: de3-q-0505
+  lesson: de3-n-nouns
+  topic: Adjectival nouns
+  stem: 'Complete: "Der Film ist nur für ___ geeignet."'
+  choices: ['Erwachsene', 'Erwachsenen', 'Erwachsener', 'Erwachsen']
+  answer: 0
+  explanation: |-
+    Without an article the plural of an adjectival noun ends in -e: für Erwachsene, viele Erwachsene. With the article it would be für die Erwachsenen. "Erwachsener" is the masculine singular after ein.
+- id: de3-q-0506
+  lesson: de3-n-nouns
+  module_quiz: true
+  topic: Adjectival nouns
+  stem: 'Complete: "Gibt es etwas ___?"'
+  choices: ['neues', 'Neues', 'Neue', 'neu']
+  answer: 1
+  explanation: |-
+    After etwas, nichts, viel and wenig an adjective becomes a neuter noun with a capital letter and the ending -es: etwas Neues, nichts Besonderes.
+- id: de3-q-0507
+  lesson: de3-n-nouns
+  topic: Nationalities
+  stem: 'Which sentence is correct?'
+  choices: ['Er ist ein Deutsche.', 'Sie ist Deutscher.', 'Er ist Deutscher.', 'Wir sind Deutscher.']
+  answer: 2
+  explanation: |-
+    Deutsche is an adjectival noun. Without an article (the usual way to give nationality) the masculine is Deutscher, the feminine Deutsche, the plural Deutsche: Er ist Deutscher. Sie ist Deutsche. Wir sind Deutsche.
+- id: de3-q-0508
+  lesson: de3-n-nouns
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the text: "In unserem Haus wohnen zwölf Parteien. Die meisten Bewohner sind Rentner, aber im zweiten Stock wohnt eine Studentin aus Polen. Sie hilft einem älteren Nachbarn beim Einkaufen. Dafür bringt er ihr Deutsch bei. Seit kurzem gibt es auch eine Gruppe im Treppenhaus, die jeden Monat ein Fest organisiert." Which statement matches the text?
+  choices: ['Most of the residents are students.', 'The Polish student teaches German to a neighbour.', 'The residents organise a party once a year.', 'An older neighbour teaches the student German.']
+  answer: 3
+  explanation: |-
+    "Dafür bringt er ihr Deutsch bei": in return he (the older neighbour) teaches her German. Most residents are pensioners, and the group organises a party every month (jeden Monat).
+- id: de3-q-0509
+  lesson: de3-n-nouns
+  topic: Weak nouns
+  stem: 'Complete: "Wie war noch mal der Name des ___?"'
+  choices: ['Autors', 'Autoren', 'Autor', 'Autores']
+  answer: 0
+  explanation: |-
+    der Autor is NOT a weak noun (stress on the first syllable, not a foreign -ent/-ist word), so the genitive adds -s: des Autors. The plural is die Autoren.
+- id: de3-q-0510
+  lesson: de3-n-nouns
+  topic: Weak nouns
+  stem: 'Spot the mistake: "Die Polizei hat den Zeuge gestern lange befragt."'
+  choices: ['hat should be ist', 'Zeuge should be Zeugen', 'den should be der', 'befragt should be gefragt']
+  answer: 1
+  explanation: |-
+    der Zeuge is a weak noun: in the accusative it is den Zeugen. The perfect with haben and the participle befragt are correct.
+- id: de3-q-0511
+  lesson: de3-n-nouns
+  topic: People in society
+  stem: 'What does "Die Mehrheit der Bürger ist gegen das Projekt." mean?'
+  choices: ['Many politicians are against the project.', 'A minority of residents support the project.', 'Most citizens are against the project.', 'Some citizens are more and more against the project.']
+  answer: 2
+  explanation: |-
+    die Mehrheit is the majority and die Bürger the citizens, so most citizens are against the project. A minority would be die Minderheit.
+- id: de3-q-0512
+  lesson: de3-n-nouns
+  topic: Nationalities
+  stem: 'Complete: "Ich habe dem ___ den Weg zum Bahnhof erklärt."'
+  choices: ['Franzose', 'Französe', 'Französin', 'Franzosen']
+  answer: 3
+  explanation: |-
+    der Franzose is a weak noun, so after dem (dative) it is dem Franzosen. die Französin is feminine and would need der, not dem.

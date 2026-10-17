@@ -1,0 +1,53 @@
+# German B1, module 3: Describing in detail (lessons 11–15)
+- term: relative clause
+  aliases: [relative clauses, Relativsatz, Relativsätze]
+  definition: 'A subordinate clause that describes a noun (or a whole statement). It starts with a relative pronoun or a relative word (der, die, das, dem, denen, dessen, wo, was) and the conjugated verb goes to the end: der Kollege, mit dem ich arbeite. It is always separated by commas, and German never leaves the relative pronoun out.'
+  topic: Relative clauses
+- term: relative pronoun
+  aliases: [relative pronouns, Relativpronomen]
+  definition: 'The word that starts a relative clause and stands for the antecedent: der, die, das, den, dem, denen, dessen, deren. It takes its gender and number from the antecedent and its case from its job inside the relative clause: die Freunde, denen ich vertraue (plural from Freunde, dative from vertrauen). The forms are those of the definite article except dative plural denen and genitive dessen and deren.'
+  topic: Relative clauses
+- term: antecedent
+  aliases: [antecedents, Bezugswort]
+  definition: 'The noun (or word) that a relative clause describes, usually just before the comma. In das Buch, das ich lese, the antecedent is das Buch. It decides the gender and number of the relative pronoun, but not its case.'
+  topic: Relative clauses
+- term: dative verb
+  aliases: [dative verbs]
+  definition: 'A verb whose only or main object is in the dative: helfen, danken, gefallen, gehören, vertrauen, verzeihen, zuhören, antworten, gratulieren. In a relative clause the relative pronoun is then dative: der Nachbar, dem ich geholfen habe; die Leute, denen das Haus gehört.'
+  topic: Cases
+- term: relative adverb
+  aliases: [relative adverbs, wo as a relative]
+  definition: 'A relative word that does not change for gender or case: wo, wohin, woher for places (die Stadt, wo ich wohne; das Dorf, woher sie kommt). wo can replace a preposition + relative pronoun (in der) and is the natural choice after town and country names. Spoken German also uses wo after time words (der Tag, wo …), but in writing use an dem or als.'
+  topic: Relative clauses
+- term: indefinite relative pronoun
+  aliases: [indefinite relative pronouns, free relative clause, wer … der]
+  definition: 'wer or was starting a relative clause with no antecedent, meaning "whoever" or "whatever": Wer zuerst kommt, mahlt zuerst. The main clause often repeats it with der or das in its own case: Wer Kunst liebt, dem gefällt die Ausstellung. Mostly found in proverbs, signs and formal advice.'
+  topic: Relative clauses
+- term: genitive
+  aliases: [genitive case, Genitiv, the genitive]
+  definition: 'The fourth German case, used for possession and belonging (das Haus des Vaters, die Geschichte der Stadt) and after some prepositions (wegen, trotz, während). Articles: des, eines, meines for masculine and neuter, with -s or -es on the noun; der, einer, meiner for feminine and plural, with no ending on the noun. Mostly written; in speech von + dative often replaces it.'
+  topic: Cases
+- term: genitive attribute
+  aliases: [genitive attributes, Genitivattribut]
+  definition: 'A noun in the genitive that follows another noun and says whose it is or what it belongs to: das Ende des Films, das Auto meiner Schwester. It answers wessen? (whose?). Names come before the noun instead: Annas Buch.'
+  topic: Cases
+- term: genitive preposition
+  aliases: [genitive prepositions, preposition with the genitive, prepositions with the genitive]
+  definition: 'A preposition that takes the genitive: wegen (because of), trotz (despite), während (during), statt or anstatt (instead of), innerhalb (within), außerhalb (outside). In everyday speech wegen, trotz and statt are often used with the dative (wegen dem Wetter); in writing use the genitive. Plurals without an article switch to the dative, often with von: innerhalb von zwei Tagen.'
+  topic: Prepositions
+- term: weak ending
+  aliases: [weak endings, weak adjective ending, weak adjective endings]
+  definition: 'The adjective endings -e and -en, used after der-words (der, dieser, jeder, alle, sämtliche), where the article already shows the case and gender: der neue Laptop, mit dem neuen Laptop, alle neuen Produkte. In the genitive, every adjective after an article ends in -en.'
+  topic: Adjectives
+- term: strong ending
+  aliases: [strong endings, strong adjective ending, strong adjective endings, unpreceded adjective, adjective without an article]
+  definition: 'The endings an adjective takes when no article shows the case: the endings of the definite article (guter Kaffee, frische Milch, kaltes Wasser, mit frischem Brot), except masculine and neuter genitive, which have -en (wegen schlechten Wetters). Also used after viele, einige, mehrere, wenige, ein paar and numbers: viele zufriedene Kunden.'
+  topic: Adjectives
+- term: present participle
+  aliases: [present participles, Partizip I, participle I]
+  definition: 'The infinitive + -d: weinend, lachend, steigend, folgend. It means something happening at the same time, like English "-ing", and is used as an adjective with normal endings (das weinende Kind, steigende Preise) or as an adverb (Sie kam lachend herein). It is not used to make verb tenses: "I am reading" is Ich lese.'
+  topic: Adjectives
+- term: participial adjective
+  aliases: [participial adjectives, participle as adjective, participles as adjectives]
+  definition: 'A present or past participle used before a noun with normal adjective endings. A present participle means the noun is doing something (die liefernde Firma); a past participle usually means something has been done to it (die gelieferte Ware, das reparierte Fahrrad). In writing, longer phrases can stand between article and participle: die von uns hergestellten Produkte.'
+  topic: Adjectives

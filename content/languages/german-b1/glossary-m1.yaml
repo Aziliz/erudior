@@ -1,0 +1,61 @@
+# German B1, module 1 glossary terms (lessons 01–05)
+- term: simple past
+  aliases: [Präteritum, preterite, simple past tense, imperfect, Imperfekt]
+  definition: 'The one-word past tense: ich ging, sie sagte, wir dachten. It means the same as the perfect but is the tense of written narration (novels, news, biographies, reports). In speech, Germans use it mainly for sein, haben, werden and the modal verbs; northern speakers use it a little more than southern ones.'
+  topic: Past tenses
+- term: past stem
+  aliases: [past stems, simple past stem, Präteritumstamm]
+  definition: 'The form of a verb that the simple past endings are added to: sagte- (weak), fand- (strong), dachte- (mixed). The ich and er/sie/es forms are the bare stem with no ending: ich fand, er fand; the others add -st, -en, -t, -en.'
+  topic: Past tenses
+- term: weak verb
+  aliases: [weak verbs, regular verb, regular verbs]
+  definition: 'A regular verb that keeps its stem vowel. Simple past: stem + -te (sagte, entdeckte), or -ete after -t, -d and some consonant clusters (arbeitete, berichtete). Past participle: ge- + stem + -t (gesagt). Most German verbs are weak.'
+  topic: Past tenses
+- term: strong verb
+  aliases: [strong verbs, irregular verb, irregular verbs]
+  definition: 'A verb that changes its stem vowel in the simple past and adds no -te: finden – fand, schreiben – schrieb, fahren – fuhr. Its participle usually ends in -en (gefunden, geschrieben). Most strong verbs follow one of a few vowel patterns.'
+  topic: Past tenses
+- term: mixed verb
+  aliases: [mixed verbs, irregular weak verb, irregular weak verbs]
+  definition: 'A verb that changes its vowel like a strong verb but adds -te like a weak verb: bringen – brachte – gebracht, denken – dachte – gedacht, kennen – kannte – gekannt, nennen – nannte – genannt, rennen – rannte – gerannt, wissen – wusste – gewusst.'
+  topic: Past tenses
+- term: ablaut
+  aliases: [vowel pattern, vowel patterns, vowel change, vowel gradation, Ablaut, Ablautreihe]
+  definition: 'The regular change of the stem vowel in strong verbs, which falls into a handful of patterns: ei – ie – ie (schreiben, schrieb, geschrieben), i – a – u (finden, fand, gefunden), e – a – o (sprechen, sprach, gesprochen), a – u – a (fahren, fuhr, gefahren) and others. Learning one model verb per pattern makes the rest easier.'
+  topic: Past tenses
+- term: separable verb
+  aliases: [separable verbs, trennbares Verb, separable prefix, separable prefixes]
+  definition: 'A verb with a stressed prefix (auf-, an-, ab-, mit-, zu- …) that splits off in a main clause in the present and the simple past and goes to the end: Sie stand um sechs auf. Er rief die Polizei an. In a subordinate clause the verb joins up again: als sie aufstand.'
+  topic: Verbs
+- term: past perfect
+  aliases: [Plusquamperfekt, pluperfect, past perfect tense]
+  definition: 'The "had done" tense: the simple past of haben or sein (hatte, war) + past participle: Er hatte gegessen. Sie war gegangen. It describes something that happened before another past event, and is typical after nachdem.'
+  topic: Past tenses
+- term: sequence of tenses
+  aliases: [tense sequence, Zeitenfolge, consecutio temporum]
+  definition: 'The rule for which tenses go together in a narrative or a sentence. A story is told in the simple past (or perfect in speech); anything earlier than the story''s time goes one step back into the past perfect. After nachdem the clause is one step further back than the main clause: Nachdem er gegessen hatte, ging er.'
+  topic: Past tenses
+- term: subordinating conjunction
+  aliases: [subordinating conjunctions, subordinator, subordinators, subordinierende Konjunktion, Subjunktion]
+  definition: 'A word that starts a subordinate clause and sends the conjugated verb to the end of it: weil, dass, wenn, als, ob, nachdem, bevor, während, seit, bis, sobald, solange. If the subordinate clause comes first, the main clause starts with its verb: Sobald er kommt, essen wir.'
+  topic: Word order
+- term: temporal clause
+  aliases: [temporal clauses, time clause, time clauses, Temporalsatz]
+  definition: 'A subordinate clause that says when something happens, answering Wann? Seit wann? Bis wann? Wie lange? It starts with a time conjunction such as als, wenn, während, seit(dem), bis, sobald, solange, bevor or nachdem.'
+  topic: Word order
+- term: future tense
+  aliases: [future, Futur, Futur I, future with werden]
+  definition: 'A form of werden in position 2 plus the infinitive at the end: Es wird regnen. Ich werde dir helfen. Germans use it for predictions, forecasts, promises and firm intentions, and with wohl for guesses about the present (Er wird wohl krank sein). Plans with a time word are usually in the present tense.'
+  topic: Verbs
+- term: n-declension
+  aliases: [n declension, weak declension, n-Deklination]
+  definition: 'The pattern of weak nouns: a masculine noun adds -n or -en in every case except the nominative singular: der Kollege, den Kollegen, dem Kollegen, des Kollegen; der Mensch, den Menschen. A few (der Name, der Gedanke, der Glaube) add -ns in the genitive.'
+  topic: Nouns
+- term: weak noun
+  aliases: [weak nouns, n-noun, n-nouns, weak masculine noun, weak masculine nouns]
+  definition: 'A masculine noun that follows the n-declension. Most are people or animals ending in -e (der Junge, der Kunde, der Zeuge, der Löwe), foreign words for people in -ant, -ent, -ist, -at, -oge (der Student, der Polizist, der Soldat), and a few short nouns (der Mensch, der Herr, der Nachbar, der Bauer, der Held).'
+  topic: Nouns
+- term: adjectival noun
+  aliases: [adjectival nouns, nominalized adjective, nominalised adjective, nominalized adjectives, nominalised adjectives, substantiviertes Adjektiv]
+  definition: 'An adjective or participle used as a noun, written with a capital letter and keeping adjective endings: der Erwachsene, ein Erwachsener, viele Erwachsene; der/die Deutsche, ein Deutscher. Neuter ones mean things or ideas: das Gute, etwas Neues, nichts Besonderes.'
+  topic: Nouns

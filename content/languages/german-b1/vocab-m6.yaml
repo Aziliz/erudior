@@ -1,0 +1,1351 @@
+# German B1, module 6: Living independently and the B1 exam (lessons 26–30)
+
+# --- 26 The health system and social services ---
+- id: gesundheitssystem
+  lesson: de3-health-system
+  term: das Gesundheitssystem
+  pos: noun
+  plural: die Gesundheitssysteme
+  meanings: [health system, health care system, healthcare system]
+  example: Das Gesundheitssystem in Deutschland ist gut, aber teuer.
+  exampleEn: The health system in Germany is good but expensive.
+- id: vorsorge
+  lesson: de3-health-system
+  term: die Vorsorge
+  pos: noun
+  plural: —
+  meanings: [prevention (health), preventive care, precaution, provision, check-ups]
+  example: Zur Vorsorge gehe ich einmal im Jahr zum Zahnarzt.
+  exampleEn: I go to the dentist once a year for a check-up.
+  note: 'Also provision for the future: Vorsorge für das Alter.'
+- id: vorbeugen
+  lesson: de3-health-system
+  term: vorbeugen
+  pos: verb
+  meanings: [to prevent (in advance), to prevent, to take precautions, to guard against]
+  example: Mit Sport kann man vielen Krankheiten vorbeugen.
+  exampleEn: You can prevent many illnesses with sport.
+  note: 'Separable, with the dative: einer Krankheit vorbeugen. Perfect: hat vorgebeugt.'
+- id: impfung
+  lesson: de3-health-system
+  term: die Impfung
+  pos: noun
+  plural: die Impfungen
+  meanings: [vaccination, jab, shot, inoculation]
+  example: Die Impfung tut kaum weh.
+  exampleEn: The vaccination hardly hurts.
+- id: impfen
+  lesson: de3-health-system
+  term: impfen
+  pos: verb
+  meanings: [to vaccinate, to immunize, to immunise, to inoculate]
+  example: Ich lasse mich gegen Grippe impfen.
+  exampleEn: I'm getting vaccinated against flu.
+- id: krankenversicherung
+  lesson: de3-health-system
+  term: die Krankenversicherung
+  pos: noun
+  plural: die Krankenversicherungen
+  meanings: [health insurance, medical insurance]
+  example: In Deutschland braucht jeder eine Krankenversicherung.
+  exampleEn: In Germany everyone needs health insurance.
+- id: pflegeversicherung
+  lesson: de3-health-system
+  term: die Pflegeversicherung
+  pos: noun
+  plural: die Pflegeversicherungen
+  meanings: [long-term care insurance, care insurance, nursing care insurance]
+  example: Die Pflegeversicherung zahlt einen Teil der Kosten.
+  exampleEn: The long-term care insurance pays part of the costs.
+- id: rentenversicherung
+  lesson: de3-health-system
+  term: die Rentenversicherung
+  pos: noun
+  plural: die Rentenversicherungen
+  meanings: [pension insurance, state pension scheme, pension scheme]
+  example: Ein Teil vom Lohn geht an die Rentenversicherung.
+  exampleEn: Part of your wages goes to the pension insurance.
+- id: arbeitslosenversicherung
+  lesson: de3-health-system
+  term: die Arbeitslosenversicherung
+  pos: noun
+  plural: die Arbeitslosenversicherungen
+  meanings: [unemployment insurance]
+  example: Die Arbeitslosenversicherung hilft, wenn man den Job verliert.
+  exampleEn: Unemployment insurance helps when you lose your job.
+- id: sozialversicherung
+  lesson: de3-health-system
+  term: die Sozialversicherung
+  pos: noun
+  plural: die Sozialversicherungen
+  meanings: [social insurance, social security, national insurance]
+  example: Die Sozialversicherung hat fünf Teile.
+  exampleEn: Social insurance has five parts.
+- id: hausarzt
+  lesson: de3-health-system
+  term: der Hausarzt
+  pos: noun
+  plural: die Hausärzte
+  meanings: [family doctor (male), GP, family doctor, general practitioner]
+  example: Mein Hausarzt kennt mich seit vielen Jahren.
+  exampleEn: My family doctor has known me for many years.
+- id: hausaerztin
+  lesson: de3-health-system
+  term: die Hausärztin
+  pos: noun
+  plural: die Hausärztinnen
+  meanings: [family doctor (female), GP, family doctor, general practitioner]
+  example: Die Hausärztin hat mir ein Rezept gegeben.
+  exampleEn: The family doctor gave me a prescription.
+- id: facharzt
+  lesson: de3-health-system
+  term: der Facharzt
+  pos: noun
+  plural: die Fachärzte
+  meanings: [specialist (male doctor), specialist, consultant]
+  example: Für einen Termin beim Facharzt wartet man oft lange.
+  exampleEn: You often wait a long time for an appointment with a specialist.
+- id: fachaerztin
+  lesson: de3-health-system
+  term: die Fachärztin
+  pos: noun
+  plural: die Fachärztinnen
+  meanings: [specialist (female doctor), specialist, consultant]
+  example: Die Fachärztin hat sich viel Zeit genommen.
+  exampleEn: The specialist took a lot of time.
+- id: sprechstunde
+  lesson: de3-health-system
+  term: die Sprechstunde
+  pos: noun
+  plural: die Sprechstunden
+  meanings: [surgery hours, office hours, consulting hours, consultation hours]
+  example: Die Sprechstunde ist montags bis freitags von acht bis zwölf.
+  exampleEn: Surgery hours are Monday to Friday from eight to twelve.
+- id: wartezimmer
+  lesson: de3-health-system
+  term: das Wartezimmer
+  pos: noun
+  plural: die Wartezimmer
+  meanings: [waiting room]
+  example: Im Wartezimmer saßen schon zehn Leute.
+  exampleEn: There were already ten people sitting in the waiting room.
+- id: notaufnahme
+  lesson: de3-health-system
+  term: die Notaufnahme
+  pos: noun
+  plural: die Notaufnahmen
+  meanings: [emergency department, A&E, accident and emergency, emergency room, ER]
+  example: Nach dem Unfall sind wir in die Notaufnahme gefahren.
+  exampleEn: After the accident we went to A&E.
+- id: patient
+  lesson: de3-health-system
+  term: der Patient
+  pos: noun
+  plural: die Patienten
+  meanings: [patient (male), patient]
+  example: Der Patient muss noch zwei Tage im Krankenhaus bleiben.
+  exampleEn: The patient has to stay in hospital for two more days.
+  note: 'Weak noun: den/dem/des Patienten.'
+- id: patientin
+  lesson: de3-health-system
+  term: die Patientin
+  pos: noun
+  plural: die Patientinnen
+  meanings: [patient (female), patient]
+  example: Die Patientin wartet auf ihre Ergebnisse.
+  exampleEn: The patient is waiting for her results.
+- id: diagnose
+  lesson: de3-health-system
+  term: die Diagnose
+  pos: noun
+  plural: die Diagnosen
+  meanings: [diagnosis]
+  example: Die Ärztin hat schnell eine Diagnose gestellt.
+  exampleEn: The doctor made a diagnosis quickly.
+- id: behandlung
+  lesson: de3-health-system
+  term: die Behandlung
+  pos: noun
+  plural: die Behandlungen
+  meanings: [treatment, medical treatment]
+  example: Die Behandlung dauert ungefähr sechs Wochen.
+  exampleEn: The treatment takes about six weeks.
+- id: behandeln
+  lesson: de3-health-system
+  term: behandeln
+  pos: verb
+  meanings: [to treat, to deal with]
+  example: Welcher Arzt hat Sie behandelt?
+  exampleEn: Which doctor treated you?
+- id: therapie
+  lesson: de3-health-system
+  term: die Therapie
+  pos: noun
+  plural: die Therapien
+  meanings: [therapy, treatment (long-term)]
+  example: Nach der Operation macht sie eine Therapie.
+  exampleEn: After the operation she's having therapy.
+- id: nebenwirkung
+  lesson: de3-health-system
+  term: die Nebenwirkung
+  pos: noun
+  plural: die Nebenwirkungen
+  meanings: [side effect]
+  example: Das Medikament hat kaum Nebenwirkungen.
+  exampleEn: The medicine has hardly any side effects.
+- id: chronisch
+  lesson: de3-health-system
+  term: chronisch
+  pos: adjective
+  meanings: [chronic]
+  example: Mein Vater hat eine chronische Krankheit.
+  exampleEn: My father has a chronic illness.
+- id: krankschreiben
+  lesson: de3-health-system
+  term: krankschreiben
+  pos: verb
+  alt: [krank schreiben]
+  meanings: [to sign off sick, to give a sick note, to put on sick leave]
+  example: Die Ärztin hat mich für drei Tage krankgeschrieben.
+  exampleEn: The doctor signed me off sick for three days.
+  note: 'Separable: sie schreibt mich krank. Perfect: hat krankgeschrieben. Ich bin krankgeschrieben = I''m on sick leave.'
+- id: krankmeldung
+  lesson: de3-health-system
+  term: die Krankmeldung
+  pos: noun
+  plural: die Krankmeldungen
+  meanings: [sick note, doctor's note, notification of sickness]
+  example: Ich habe die Krankmeldung an meinen Chef geschickt.
+  exampleEn: I sent the sick note to my boss.
+- id: leistung
+  lesson: de3-health-system
+  term: die Leistung
+  pos: noun
+  plural: die Leistungen
+  meanings: [benefit (from insurance), service, performance, achievement]
+  example: Welche Leistungen bezahlt die Krankenkasse?
+  exampleEn: Which services does the health insurance fund pay for?
+- id: zuschuss
+  lesson: de3-health-system
+  term: der Zuschuss
+  pos: noun
+  plural: die Zuschüsse
+  meanings: [subsidy, grant, contribution (towards costs), allowance]
+  example: Für die Brille gibt es einen kleinen Zuschuss.
+  exampleEn: There's a small contribution towards the glasses.
+- id: pflegekraft
+  lesson: de3-health-system
+  term: die Pflegekraft
+  pos: noun
+  plural: die Pflegekräfte
+  meanings: [care worker, nurse, carer, caregiver]
+  example: Eine Pflegekraft kommt jeden Morgen zu meiner Oma.
+  exampleEn: A care worker comes to my grandma every morning.
+- id: pflegeheim
+  lesson: de3-health-system
+  term: das Pflegeheim
+  pos: noun
+  plural: die Pflegeheime
+  meanings: [care home, nursing home, old people's home]
+  example: Mein Opa lebt seit einem Jahr im Pflegeheim.
+  exampleEn: My grandpa has been living in a care home for a year.
+- id: beratungsstelle
+  lesson: de3-health-system
+  term: die Beratungsstelle
+  pos: noun
+  plural: die Beratungsstellen
+  meanings: [advice centre, advice center, counselling centre, counseling center]
+  example: Die Beratungsstelle ist im Rathaus.
+  exampleEn: The advice centre is in the town hall.
+- id: laut-prep
+  lesson: de3-health-system
+  term: laut
+  pos: preposition
+  meanings: [according to]
+  example: Laut dem Wetterbericht regnet es morgen.
+  exampleEn: According to the weather forecast, it'll rain tomorrow.
+  note: 'With the dative or genitive: laut dem Bericht, laut des Berichts. As an adjective, laut means loud.'
+- id: angeblich
+  lesson: de3-health-system
+  term: angeblich
+  pos: adverb
+  meanings: [supposedly, allegedly, apparently, reportedly]
+  example: Der Nachbar ist angeblich nach Spanien gezogen.
+  exampleEn: The neighbour has supposedly moved to Spain.
+
+# --- 27 Living together; lassen ---
+- id: zusammenleben
+  lesson: de3-neighbourhood
+  term: das Zusammenleben
+  pos: noun
+  plural: —
+  meanings: [living together, coexistence, life together]
+  example: Das Zusammenleben im Haus funktioniert gut.
+  exampleEn: Living together in the building works well.
+- id: gemeinschaft
+  lesson: de3-neighbourhood
+  term: die Gemeinschaft
+  pos: noun
+  plural: die Gemeinschaften
+  meanings: [community, fellowship]
+  example: In unserem Dorf ist die Gemeinschaft sehr stark.
+  exampleEn: In our village the community is very strong.
+- id: sich-einigen
+  lesson: de3-neighbourhood
+  term: sich einigen
+  pos: verb
+  meanings: [to agree (reach an agreement), to come to an agreement, to reach an agreement, to settle]
+  example: Wir haben uns auf einen Termin geeinigt.
+  exampleEn: We agreed on a date.
+  note: 'sich einigen auf + accusative. Perfect: hat sich geeinigt.'
+- id: einigung
+  lesson: de3-neighbourhood
+  term: die Einigung
+  pos: noun
+  plural: die Einigungen
+  meanings: [agreement, settlement]
+  example: Nach langem Streit gab es endlich eine Einigung.
+  exampleEn: After a long argument there was finally an agreement.
+- id: vermitteln
+  lesson: de3-neighbourhood
+  term: vermitteln
+  pos: verb
+  meanings: [to mediate, to arrange, to find (for someone), to pass on]
+  example: Meine Kollegin hat zwischen uns vermittelt.
+  exampleEn: My colleague mediated between us.
+  note: 'Also to find someone a job or flat: Sie hat mir eine Wohnung vermittelt.'
+- id: vermittlung
+  lesson: de3-neighbourhood
+  term: die Vermittlung
+  pos: noun
+  plural: die Vermittlungen
+  meanings: [mediation, arranging, placement, agency]
+  example: Ohne die Vermittlung der Stadt hätten wir uns nie geeinigt.
+  exampleEn: Without the town's mediation we would never have agreed.
+- id: hausverwaltung
+  lesson: de3-neighbourhood
+  term: die Hausverwaltung
+  pos: noun
+  plural: die Hausverwaltungen
+  meanings: [property management, building management, property management company, managing agent]
+  example: Ich habe die Hausverwaltung wegen der Heizung angerufen.
+  exampleEn: I called the property management about the heating.
+- id: handwerker
+  lesson: de3-neighbourhood
+  term: der Handwerker
+  pos: noun
+  plural: die Handwerker
+  meanings: [tradesman, tradesperson (male), workman, craftsman, repairman]
+  example: Morgen kommt ein Handwerker und repariert das Fenster.
+  exampleEn: A tradesman is coming tomorrow to repair the window.
+- id: handwerkerin
+  lesson: de3-neighbourhood
+  term: die Handwerkerin
+  pos: noun
+  plural: die Handwerkerinnen
+  meanings: [tradeswoman, tradesperson (female), craftswoman]
+  example: Die Handwerkerin war sehr schnell fertig.
+  exampleEn: The tradeswoman was finished very quickly.
+- id: mangel
+  lesson: de3-neighbourhood
+  term: der Mangel
+  pos: noun
+  plural: die Mängel
+  meanings: [defect, fault, flaw, shortage, lack]
+  example: Die Wohnung hat einige Mängel.
+  exampleEn: The flat has a few defects.
+  note: 'Also a lack or shortage: ein Mangel an Zeit, der Fachkräftemangel.'
+- id: beheben
+  lesson: de3-neighbourhood
+  term: beheben
+  pos: verb
+  meanings: [to fix (a fault), to fix, to remedy, to repair, to rectify, to correct]
+  example: Der Fehler ist schon behoben.
+  exampleEn: The fault has already been fixed.
+  note: 'Präteritum: behob. Perfect: hat behoben.'
+- id: mietminderung
+  lesson: de3-neighbourhood
+  term: die Mietminderung
+  pos: noun
+  plural: die Mietminderungen
+  meanings: [rent reduction, reduction in rent]
+  example: Wegen des Schimmels haben wir eine Mietminderung bekommen.
+  exampleEn: We got a rent reduction because of the mould.
+- id: mieterverein
+  lesson: de3-neighbourhood
+  term: der Mieterverein
+  pos: noun
+  plural: die Mietervereine
+  meanings: [tenants' association, tenants association, tenants' union]
+  example: Der Mieterverein hat mir bei meinem Problem geholfen.
+  exampleEn: The tenants' association helped me with my problem.
+- id: nachbarschaftsfest
+  lesson: de3-neighbourhood
+  term: das Nachbarschaftsfest
+  pos: noun
+  plural: die Nachbarschaftsfeste
+  meanings: [neighbourhood party, neighborhood party, street party, block party]
+  example: Zum Nachbarschaftsfest bringt jeder einen Salat mit.
+  exampleEn: Everyone brings a salad to the neighbourhood party.
+- id: ausleihen
+  lesson: de3-neighbourhood
+  term: ausleihen
+  pos: verb
+  meanings: [to borrow (take out, e.g. from a library), to borrow, to lend, to lend out, to check out (a book)]
+  example: Kann ich mir dein Fahrrad ausleihen?
+  exampleEn: Can I borrow your bike?
+  note: 'Separable. sich etwas ausleihen = to borrow; jemandem etwas ausleihen = to lend. Präteritum: lieh aus. Perfect: hat ausgeliehen.'
+- id: hilfsbereitschaft
+  lesson: de3-neighbourhood
+  term: die Hilfsbereitschaft
+  pos: noun
+  plural: —
+  meanings: [helpfulness, willingness to help]
+  example: Vielen Dank für Ihre Hilfsbereitschaft!
+  exampleEn: Thank you very much for your helpfulness!
+- id: hilfsbereit
+  lesson: de3-neighbourhood
+  term: hilfsbereit
+  pos: adjective
+  meanings: [helpful, willing to help, obliging]
+  example: Unsere Nachbarin ist immer sehr hilfsbereit.
+  exampleEn: Our neighbour is always very helpful.
+- id: freundlicherweise
+  lesson: de3-neighbourhood
+  term: freundlicherweise
+  pos: adverb
+  meanings: [kindly]
+  example: Herr Lang hat freundlicherweise mein Paket angenommen.
+  exampleEn: Mr Lang kindly took in my parcel.
+- id: tolerieren
+  lesson: de3-neighbourhood
+  term: tolerieren
+  pos: verb
+  meanings: [to tolerate, to put up with, to accept]
+  example: Laute Musik nach 22 Uhr tolerieren wir nicht.
+  exampleEn: We don't tolerate loud music after 10 pm.
+  note: 'Perfect: hat toleriert (no ge-).'
+- id: gegenseitig
+  lesson: de3-neighbourhood
+  term: gegenseitig
+  pos: adjective
+  meanings: [mutual, each other, one another, mutually]
+  example: Wir helfen uns gegenseitig.
+  exampleEn: We help each other.
+- id: treppenhaus
+  lesson: de3-neighbourhood
+  term: das Treppenhaus
+  pos: noun
+  plural: die Treppenhäuser
+  meanings: [stairwell, staircase]
+  example: Im Treppenhaus ist das Licht kaputt.
+  exampleEn: The light in the stairwell is broken.
+- id: hof
+  lesson: de3-neighbourhood
+  term: der Hof
+  pos: noun
+  plural: die Höfe
+  meanings: [courtyard, yard, farm]
+  example: Die Kinder spielen im Hof.
+  exampleEn: The children are playing in the courtyard.
+  note: 'Also a farm: der Bauernhof.'
+- id: muelltonne
+  lesson: de3-neighbourhood
+  term: die Mülltonne
+  pos: noun
+  plural: die Mülltonnen
+  meanings: [bin, dustbin, rubbish bin, trash can, garbage can, wheelie bin]
+  example: Die Mülltonnen stehen hinter dem Haus.
+  exampleEn: The bins are behind the building.
+- id: heizung
+  lesson: de3-neighbourhood
+  term: die Heizung
+  pos: noun
+  plural: die Heizungen
+  meanings: [heating, heater, radiator]
+  example: Die Heizung ist schon wieder kaputt.
+  exampleEn: The heating is broken again.
+- id: wasserhahn
+  lesson: de3-neighbourhood
+  term: der Wasserhahn
+  pos: noun
+  plural: die Wasserhähne
+  meanings: [tap, faucet]
+  example: Der Wasserhahn in der Küche tropft.
+  exampleEn: The tap in the kitchen is dripping.
+- id: tropfen
+  lesson: de3-neighbourhood
+  term: tropfen
+  pos: verb
+  meanings: [to drip, to leak]
+  example: Es tropft von der Decke!
+  exampleEn: It's dripping from the ceiling!
+- id: undicht
+  lesson: de3-neighbourhood
+  term: undicht
+  pos: adjective
+  meanings: [leaky, leaking, not watertight, draughty]
+  example: Das Fenster im Schlafzimmer ist undicht.
+  exampleEn: The bedroom window leaks.
+- id: schimmel
+  lesson: de3-neighbourhood
+  term: der Schimmel
+  pos: noun
+  plural: —
+  meanings: [mould, mold, mildew]
+  example: Im Bad ist Schimmel an der Wand.
+  exampleEn: There's mould on the wall in the bathroom.
+  note: 'Also a white horse (plural die Schimmel).'
+- id: klingel
+  lesson: de3-neighbourhood
+  term: die Klingel
+  pos: noun
+  plural: die Klingeln
+  meanings: [doorbell, bell]
+  example: Die Klingel funktioniert nicht, bitte klopfen.
+  exampleEn: The doorbell doesn't work, please knock.
+- id: briefkasten
+  lesson: de3-neighbourhood
+  term: der Briefkasten
+  pos: noun
+  plural: die Briefkästen
+  meanings: [letterbox, mailbox, postbox]
+  example: Der Brief lag im falschen Briefkasten.
+  exampleEn: The letter was in the wrong letterbox.
+- id: abstellen
+  lesson: de3-neighbourhood
+  term: abstellen
+  pos: verb
+  meanings: [to put down, to park, to leave (somewhere), to store, to turn off]
+  example: Bitte keine Fahrräder im Flur abstellen!
+  exampleEn: Please don't leave bikes in the hall!
+  note: 'Separable: ich stelle ab. Also to turn off (water, a machine).'
+- id: kinderwagen
+  lesson: de3-neighbourhood
+  term: der Kinderwagen
+  pos: noun
+  plural: die Kinderwagen
+  meanings: [pushchair, pram, buggy, stroller, baby carriage]
+  example: Der Kinderwagen passt nicht in den Aufzug.
+  exampleEn: The pushchair doesn't fit in the lift.
+- id: grillen
+  lesson: de3-neighbourhood
+  term: grillen
+  pos: verb
+  meanings: [to barbecue, to grill, to have a barbecue]
+  example: Am Samstag grillen wir im Garten.
+  exampleEn: On Saturday we're having a barbecue in the garden.
+- id: haustier
+  lesson: de3-neighbourhood
+  term: das Haustier
+  pos: noun
+  plural: die Haustiere
+  meanings: [pet, domestic animal]
+  example: Sind Haustiere in der Wohnung erlaubt?
+  exampleEn: Are pets allowed in the flat?
+
+# --- 28 Travel and the regions; presentations ---
+- id: tourismus
+  lesson: de3-travel-regions
+  term: der Tourismus
+  pos: noun
+  plural: —
+  meanings: [tourism]
+  example: Viele Menschen in den Alpen leben vom Tourismus.
+  exampleEn: Many people in the Alps live from tourism.
+- id: tourist
+  lesson: de3-travel-regions
+  term: der Tourist
+  pos: noun
+  plural: die Touristen
+  meanings: [tourist (male), tourist]
+  example: Im Sommer ist die Altstadt voller Touristen.
+  exampleEn: In summer the old town is full of tourists.
+  note: 'Weak noun: den/dem/des Touristen.'
+- id: touristin
+  lesson: de3-travel-regions
+  term: die Touristin
+  pos: noun
+  plural: die Touristinnen
+  meanings: [tourist (female), tourist]
+  example: Eine Touristin hat mich nach dem Weg gefragt.
+  exampleEn: A tourist asked me the way.
+- id: region
+  lesson: de3-travel-regions
+  term: die Region
+  pos: noun
+  plural: die Regionen
+  meanings: [region, area]
+  example: Diese Region ist für ihren Wein bekannt.
+  exampleEn: This region is known for its wine.
+- id: regional
+  lesson: de3-travel-regions
+  term: regional
+  pos: adjective
+  meanings: [regional, local]
+  example: Wir kaufen gern regionales Obst.
+  exampleEn: We like buying local fruit.
+- id: bundesland
+  lesson: de3-travel-regions
+  term: das Bundesland
+  pos: noun
+  plural: die Bundesländer
+  meanings: [federal state, state (of Germany or Austria), Land]
+  example: Deutschland hat sechzehn Bundesländer.
+  exampleEn: Germany has sixteen federal states.
+- id: kanton
+  lesson: de3-travel-regions
+  term: der Kanton
+  pos: noun
+  plural: die Kantone
+  meanings: [canton]
+  example: Der Kanton Graubünden ist sehr groß.
+  exampleEn: The canton of Graubünden is very large.
+- id: alpen
+  lesson: de3-travel-regions
+  term: die Alpen
+  pos: noun
+  plural: die Alpen (plural only)
+  meanings: [Alps, the Alps]
+  example: Im Winter fahren wir in die Alpen.
+  exampleEn: In winter we go to the Alps.
+- id: gebirge
+  lesson: de3-travel-regions
+  term: das Gebirge
+  pos: noun
+  plural: die Gebirge
+  meanings: [mountains, mountain range, the mountains]
+  example: Wir machen Urlaub im Gebirge.
+  exampleEn: We're holidaying in the mountains.
+- id: gipfel
+  lesson: de3-travel-regions
+  term: der Gipfel
+  pos: noun
+  plural: die Gipfel
+  meanings: [summit, peak, top (of a mountain)]
+  example: Vom Gipfel sieht man bis nach Italien.
+  exampleEn: From the summit you can see as far as Italy.
+- id: huette
+  lesson: de3-travel-regions
+  term: die Hütte
+  pos: noun
+  plural: die Hütten
+  meanings: [hut, mountain hut, cabin, chalet]
+  example: Auf der Hütte gibt es warme Suppe.
+  exampleEn: There's hot soup at the mountain hut.
+- id: seilbahn
+  lesson: de3-travel-regions
+  term: die Seilbahn
+  pos: noun
+  plural: die Seilbahnen
+  meanings: [cable car, cableway, ropeway]
+  example: Mit der Seilbahn ist man in zehn Minuten oben.
+  exampleEn: By cable car you're at the top in ten minutes.
+- id: dialekt
+  lesson: de3-travel-regions
+  term: der Dialekt
+  pos: noun
+  plural: die Dialekte
+  meanings: [dialect]
+  example: Meine Oma spricht einen starken Dialekt.
+  exampleEn: My grandma speaks a strong dialect.
+- id: mundart
+  lesson: de3-travel-regions
+  term: die Mundart
+  pos: noun
+  plural: die Mundarten
+  meanings: [dialect (traditional word), vernacular, local dialect]
+  example: Im Dorf spricht man noch Mundart.
+  exampleEn: In the village people still speak the local dialect.
+- id: spezialitaet
+  lesson: de3-travel-regions
+  term: die Spezialität
+  pos: noun
+  plural: die Spezialitäten
+  meanings: [speciality, specialty, specialty dish]
+  example: Was ist die Spezialität des Hauses?
+  exampleEn: What's the speciality of the house?
+- id: typisch
+  lesson: de3-travel-regions
+  term: typisch
+  pos: adjective
+  meanings: [typical, characteristic]
+  example: Das ist typisch für diese Gegend.
+  exampleEn: That's typical of this area.
+- id: reiseziel
+  lesson: de3-travel-regions
+  term: das Reiseziel
+  pos: noun
+  plural: die Reiseziele
+  meanings: [destination, travel destination, holiday destination]
+  example: Wien ist ein beliebtes Reiseziel.
+  exampleEn: Vienna is a popular destination.
+- id: saison
+  lesson: de3-travel-regions
+  term: die Saison
+  pos: noun
+  plural: die Saisons
+  meanings: [season (for tourism, sport, fashion), season]
+  example: Die Saison beginnt im Dezember.
+  exampleEn: The season starts in December.
+  note: 'For the four seasons of the year, use die Jahreszeit. Austrian plural: die Saisonen.'
+- id: hauptsaison
+  lesson: de3-travel-regions
+  term: die Hauptsaison
+  pos: noun
+  plural: die Hauptsaisons
+  meanings: [high season, peak season]
+  example: In der Hauptsaison sind die Zimmer teurer.
+  exampleEn: In the high season the rooms are more expensive.
+- id: nebensaison
+  lesson: de3-travel-regions
+  term: die Nebensaison
+  pos: noun
+  plural: die Nebensaisons
+  meanings: [low season, off season, off-season]
+  example: In der Nebensaison ist es am Strand schön ruhig.
+  exampleEn: In the low season it's nice and quiet on the beach.
+- id: hinauf
+  lesson: de3-travel-regions
+  term: hinauf
+  pos: adverb
+  meanings: [up (away from the speaker), up, up there]
+  example: Wir sind zu Fuß zur Burg hinaufgegangen.
+  exampleEn: We walked up to the castle.
+  note: 'Towards the speaker: herauf. Spoken: rauf.'
+- id: herunter
+  lesson: de3-travel-regions
+  term: herunter
+  pos: adverb
+  meanings: [down (towards the speaker), down, down here]
+  example: Komm bitte herunter, das Essen ist fertig!
+  exampleEn: Come down, please, dinner's ready!
+  note: 'Away from the speaker: hinunter. Spoken: runter.'
+- id: hinein
+  lesson: de3-travel-regions
+  term: hinein
+  pos: adverb
+  meanings: [in (away from the speaker), in, into, inside]
+  example: Es regnet, lass uns hineingehen.
+  exampleEn: It's raining, let's go in.
+  note: 'Towards the speaker: herein (Herein! = Come in!). Spoken: rein.'
+- id: heraus
+  lesson: de3-travel-regions
+  term: heraus
+  pos: adverb
+  meanings: [out (towards the speaker), out, out here]
+  example: Komm heraus, die Sonne scheint!
+  exampleEn: Come out, the sun's shining!
+  note: 'Away from the speaker: hinaus. Spoken: raus.'
+- id: praesentation
+  lesson: de3-travel-regions
+  term: die Präsentation
+  pos: noun
+  plural: die Präsentationen
+  meanings: [presentation]
+  example: Meine Präsentation dauert zehn Minuten.
+  exampleEn: My presentation takes ten minutes.
+- id: praesentieren
+  lesson: de3-travel-regions
+  term: präsentieren
+  pos: verb
+  meanings: [to present, to show]
+  example: Morgen präsentiere ich unser Projekt.
+  exampleEn: Tomorrow I'm presenting our project.
+  note: 'Perfect: hat präsentiert (no ge-).'
+- id: folie
+  lesson: de3-travel-regions
+  term: die Folie
+  pos: noun
+  plural: die Folien
+  meanings: [slide (in a presentation), slide, transparency, foil, film]
+  example: Auf der nächsten Folie sehen Sie eine Karte.
+  exampleEn: On the next slide you can see a map.
+  note: 'Also foil or plastic film: die Alufolie.'
+- id: einleitung
+  lesson: de3-travel-regions
+  term: die Einleitung
+  pos: noun
+  plural: die Einleitungen
+  meanings: [introduction (of a text or talk), introduction, opening]
+  example: In der Einleitung nennt man das Thema.
+  exampleEn: In the introduction you state the topic.
+- id: schluss
+  lesson: de3-travel-regions
+  term: der Schluss
+  pos: noun
+  plural: die Schlüsse
+  meanings: [end, conclusion, ending, close]
+  example: Zum Schluss möchte ich mich bedanken.
+  exampleEn: Finally, I'd like to say thank you.
+  note: 'Schluss machen = to finish, to break up.'
+- id: abschliessend
+  lesson: de3-travel-regions
+  term: abschließend
+  pos: adverb
+  alt: [abschliessend]
+  meanings: [to conclude, in conclusion, finally, lastly]
+  example: Abschließend möchte ich sagen, dass mir die Reise gefallen hat.
+  exampleEn: To conclude, I'd like to say that I enjoyed the trip.
+- id: erstens
+  lesson: de3-travel-regions
+  term: erstens
+  pos: adverb
+  meanings: [firstly, first, in the first place, first of all]
+  example: Erstens ist das Hotel zu teuer.
+  exampleEn: Firstly, the hotel is too expensive.
+- id: zweitens
+  lesson: de3-travel-regions
+  term: zweitens
+  pos: adverb
+  meanings: [secondly, second, in the second place]
+  example: Zweitens liegt es weit vom Zentrum.
+  exampleEn: Secondly, it's a long way from the centre.
+- id: einerseits
+  lesson: de3-travel-regions
+  term: einerseits
+  pos: adverb
+  meanings: [on the one hand]
+  example: Einerseits ist die Stadt schön, andererseits ist sie sehr laut.
+  exampleEn: On the one hand the city is beautiful; on the other it's very loud.
+- id: andererseits
+  lesson: de3-travel-regions
+  term: andererseits
+  pos: adverb
+  meanings: [on the other hand]
+  example: Andererseits ist das Wetter im Herbst nicht so sicher.
+  exampleEn: On the other hand, the weather isn't so reliable in autumn.
+
+# --- 29 Writing at B1 ---
+- id: anrede
+  lesson: de3-writing
+  term: die Anrede
+  pos: noun
+  plural: die Anreden
+  meanings: [salutation, form of address, opening (of a letter)]
+  example: Die Anrede in einem formellen Brief ist "Sehr geehrte Damen und Herren".
+  exampleEn: The salutation in a formal letter is "Dear Sir or Madam".
+- id: grussformel
+  lesson: de3-writing
+  term: die Grußformel
+  pos: noun
+  plural: die Grußformeln
+  alt: [die Grussformel]
+  meanings: [closing (of a letter), complimentary close, sign-off, closing formula]
+  example: Vergiss die Grußformel am Ende nicht!
+  exampleEn: Don't forget the sign-off at the end!
+- id: absender
+  lesson: de3-writing
+  term: der Absender
+  pos: noun
+  plural: die Absender
+  meanings: [sender, return address]
+  example: Auf dem Brief steht kein Absender.
+  exampleEn: There's no sender on the letter.
+- id: empfaenger
+  lesson: de3-writing
+  term: der Empfänger
+  pos: noun
+  plural: die Empfänger
+  meanings: [recipient, addressee, receiver]
+  example: Der Empfänger war leider nicht zu Hause.
+  exampleEn: Unfortunately the recipient wasn't at home.
+- id: absatz
+  lesson: de3-writing
+  term: der Absatz
+  pos: noun
+  plural: die Absätze
+  meanings: [paragraph, heel (of a shoe)]
+  example: Schreib jeden Punkt in einen neuen Absatz.
+  exampleEn: Write each point in a new paragraph.
+- id: forum
+  lesson: de3-writing
+  term: das Forum
+  pos: noun
+  plural: die Foren
+  meanings: [forum, online forum, message board]
+  example: In dem Forum geben sich Eltern Tipps.
+  exampleEn: In the forum, parents give each other tips.
+- id: stellung-nehmen
+  lesson: de3-writing
+  kind: phrase
+  term: Stellung nehmen
+  pos: phrase
+  meanings: [to take a position, to give your opinion, to comment, to state your position]
+  example: Bitte nehmen Sie zu dieser Frage Stellung.
+  exampleEn: Please give your opinion on this question.
+  note: 'Stellung nehmen zu + dative. Perfect: hat Stellung genommen.'
+- id: stellungnahme
+  lesson: de3-writing
+  term: die Stellungnahme
+  pos: noun
+  plural: die Stellungnahmen
+  meanings: [position statement, statement, comment, opinion (written)]
+  example: Die Firma hat eine Stellungnahme veröffentlicht.
+  exampleEn: The company has published a statement.
+- id: fazit
+  lesson: de3-writing
+  term: das Fazit
+  pos: noun
+  plural: die Fazits
+  meanings: [conclusion (summing up), conclusion, summary, bottom line]
+  example: 'Mein Fazit: Der Kurs hat sich gelohnt.'
+  exampleEn: 'My conclusion: the course was worth it.'
+- id: grundsaetzlich
+  lesson: de3-writing
+  term: grundsätzlich
+  pos: adjective
+  meanings: [basically, in principle, fundamental, as a rule]
+  example: Ich finde die Idee grundsätzlich gut.
+  exampleEn: In principle I think the idea is good.
+- id: anfrage
+  lesson: de3-writing
+  term: die Anfrage
+  pos: noun
+  plural: die Anfragen
+  meanings: [inquiry, enquiry, request]
+  example: Vielen Dank für Ihre Anfrage.
+  exampleEn: Thank you for your inquiry.
+- id: anfragen
+  lesson: de3-writing
+  term: anfragen
+  pos: verb
+  meanings: [to inquire, to enquire, to ask (formally), to request]
+  example: Ich frage mal beim Hotel an, ob noch ein Zimmer frei ist.
+  exampleEn: I'll ask the hotel whether there's still a room free.
+  note: 'Separable: ich frage an. Perfect: hat angefragt.'
+- id: sich-erkundigen
+  lesson: de3-writing
+  term: sich erkundigen
+  pos: verb
+  meanings: [to ask about, to inquire, to enquire, to find out]
+  example: Ich möchte mich nach den Öffnungszeiten erkundigen.
+  exampleEn: I'd like to ask about the opening times.
+  note: 'sich erkundigen nach + dative. Perfect: hat sich erkundigt.'
+- id: reklamation
+  lesson: de3-writing
+  term: die Reklamation
+  pos: noun
+  plural: die Reklamationen
+  meanings: [complaint (about a product), complaint, claim]
+  example: Bei Reklamationen wenden Sie sich bitte an den Kundendienst.
+  exampleEn: For complaints, please contact customer service.
+- id: mangelhaft
+  lesson: de3-writing
+  term: mangelhaft
+  pos: adjective
+  meanings: [defective, faulty, poor, inadequate, deficient]
+  example: Die Qualität der Ware war mangelhaft.
+  exampleEn: The quality of the goods was poor.
+  note: 'Also the school grade 5 (poor, a fail) in Germany.'
+- id: beschaedigt
+  lesson: de3-writing
+  term: beschädigt
+  pos: adjective
+  meanings: [damaged]
+  example: Das Paket kam beschädigt an.
+  exampleEn: The parcel arrived damaged.
+- id: ersatz
+  lesson: de3-writing
+  term: der Ersatz
+  pos: noun
+  plural: —
+  meanings: [replacement, substitute, compensation]
+  example: Ich möchte einen Ersatz für das kaputte Gerät.
+  exampleEn: I'd like a replacement for the broken appliance.
+- id: umtausch
+  lesson: de3-writing
+  term: der Umtausch
+  pos: noun
+  plural: die Umtausche
+  meanings: [exchange (of goods), exchange, return]
+  example: Ein Umtausch ist nur mit Kassenbon möglich.
+  exampleEn: Exchange is only possible with a receipt.
+- id: zurueckschicken
+  lesson: de3-writing
+  term: zurückschicken
+  pos: verb
+  meanings: [to send back, to return (by post), to return]
+  example: Ich habe die Schuhe zurückgeschickt, weil sie zu klein waren.
+  exampleEn: I sent the shoes back because they were too small.
+  note: 'Separable: ich schicke zurück. Perfect: hat zurückgeschickt.'
+- id: kundendienst
+  lesson: de3-writing
+  term: der Kundendienst
+  pos: noun
+  plural: die Kundendienste
+  meanings: [customer service, after-sales service, customer services]
+  example: Der Kundendienst hat mich sofort zurückgerufen.
+  exampleEn: Customer service called me back straight away.
+- id: anliegen
+  lesson: de3-writing
+  term: das Anliegen
+  pos: noun
+  plural: die Anliegen
+  meanings: [concern, request, matter, issue]
+  example: Was ist Ihr Anliegen?
+  exampleEn: What can I do for you? (What is your concern?)
+- id: sich-wenden-an
+  lesson: de3-writing
+  term: sich wenden an
+  pos: verb
+  meanings: [to contact, to turn to, to get in touch with, to approach]
+  example: Bei Fragen wenden Sie sich bitte an Frau Klein.
+  exampleEn: If you have questions, please contact Ms Klein.
+  note: 'With the accusative: sich an jemanden wenden. Perfect: hat sich gewandt or hat sich gewendet.'
+- id: bearbeiten
+  lesson: de3-writing
+  term: bearbeiten
+  pos: verb
+  meanings: [to deal with, to process, to handle, to edit, to work on]
+  example: Wir bearbeiten Ihren Antrag so schnell wie möglich.
+  exampleEn: We'll process your application as quickly as possible.
+- id: beantworten
+  lesson: de3-writing
+  term: beantworten
+  pos: verb
+  meanings: [to answer (a question or letter), to answer, to reply to, to respond to]
+  example: Können Sie mir bitte diese Frage beantworten?
+  exampleEn: Could you please answer this question for me?
+  note: 'With a direct object (eine Frage beantworten); antworten uses auf + accusative.'
+- id: reagieren
+  lesson: de3-writing
+  term: reagieren
+  pos: verb
+  meanings: [to react, to respond]
+  example: Leider hat die Firma nicht auf meine E-Mail reagiert.
+  exampleEn: Unfortunately the company didn't respond to my e-mail.
+  note: 'reagieren auf + accusative. Perfect: hat reagiert (no ge-).'
+- id: rueckfrage
+  lesson: de3-writing
+  term: die Rückfrage
+  pos: noun
+  plural: die Rückfragen
+  meanings: [query, follow-up question, further question]
+  example: Für Rückfragen stehe ich gern zur Verfügung.
+  exampleEn: I'll be happy to answer any further questions.
+- id: bedauern
+  lesson: de3-writing
+  term: bedauern
+  pos: verb
+  meanings: [to regret (formally; to be sorry about), to regret, to be sorry about, to feel sorry for]
+  example: Wir bedauern die Verspätung.
+  exampleEn: We regret the delay.
+  note: 'Perfect: hat bedauert (no ge-).'
+- id: unannehmlichkeit
+  lesson: de3-writing
+  term: die Unannehmlichkeit
+  pos: noun
+  plural: die Unannehmlichkeiten
+  meanings: [inconvenience, trouble]
+  example: Bitte entschuldigen Sie die Unannehmlichkeiten.
+  exampleEn: We apologize for the inconvenience.
+- id: erwaehnen
+  lesson: de3-writing
+  term: erwähnen
+  pos: verb
+  meanings: [to mention, to refer to]
+  example: Sie hat in ihrer Mail nicht erwähnt, wann sie kommt.
+  exampleEn: She didn't mention in her e-mail when she's coming.
+- id: betonen
+  lesson: de3-writing
+  term: betonen
+  pos: verb
+  meanings: [to stress, to emphasize, to emphasise]
+  example: Ich möchte betonen, dass das nicht meine Schuld war.
+  exampleEn: I'd like to stress that it wasn't my fault.
+- id: hinzufuegen
+  lesson: de3-writing
+  term: hinzufügen
+  pos: verb
+  meanings: [to add]
+  example: Ich möchte noch etwas hinzufügen.
+  exampleEn: I'd like to add something.
+  note: 'Separable: ich füge hinzu. Perfect: hat hinzugefügt.'
+- id: nachholen
+  lesson: de3-writing
+  term: nachholen
+  pos: verb
+  meanings: [to catch up on, to make up for, to do later]
+  example: Den verpassten Unterricht hole ich nächste Woche nach.
+  exampleEn: I'll catch up on the lessons I missed next week.
+  note: 'Separable: ich hole nach. Perfect: hat nachgeholt.'
+- id: mit-bezug-auf
+  lesson: de3-writing
+  kind: phrase
+  term: mit Bezug auf
+  pos: phrase
+  meanings: [with reference to, regarding, referring to]
+  example: Mit Bezug auf Ihre E-Mail vom 3. Mai schicke ich Ihnen die Unterlagen.
+  exampleEn: With reference to your e-mail of 3 May, I'm sending you the documents.
+  note: 'With the accusative. Also: in Bezug auf.'
+- id: beziehungsweise
+  lesson: de3-writing
+  term: beziehungsweise
+  pos: conjunction
+  alt: [bzw.]
+  meanings: [or (rather), respectively, or, or rather]
+  example: Ich komme am Montag beziehungsweise am Dienstag.
+  exampleEn: I'll come on Monday or Tuesday.
+  note: 'Usually abbreviated bzw. in writing.'
+- id: sowie
+  lesson: de3-writing
+  term: sowie
+  pos: conjunction
+  meanings: [as well as, and also, and]
+  example: Bitte bringen Sie Ihren Pass sowie zwei Fotos mit.
+  exampleEn: Please bring your passport as well as two photos.
+
+# --- 30 The Goethe-Zertifikat B1 and review ---
+- id: modul
+  lesson: de3-exam-review
+  term: das Modul
+  pos: noun
+  plural: die Module
+  meanings: [module]
+  example: Ich mache nur das Modul Sprechen noch einmal.
+  exampleEn: I'm only retaking the speaking module.
+- id: aufgabenstellung
+  lesson: de3-exam-review
+  term: die Aufgabenstellung
+  pos: noun
+  plural: die Aufgabenstellungen
+  meanings: [task (instructions), task, instructions, assignment]
+  example: Lies zuerst die Aufgabenstellung genau.
+  exampleEn: First read the task instructions carefully.
+- id: anweisung
+  lesson: de3-exam-review
+  term: die Anweisung
+  pos: noun
+  plural: die Anweisungen
+  meanings: [instruction, direction, order]
+  example: Folgen Sie bitte den Anweisungen auf dem Bildschirm.
+  exampleEn: Please follow the instructions on the screen.
+- id: aussage
+  lesson: de3-exam-review
+  term: die Aussage
+  pos: noun
+  plural: die Aussagen
+  meanings: [statement, testimony, message]
+  example: Ist diese Aussage richtig oder falsch?
+  exampleEn: Is this statement true or false?
+- id: zutreffen
+  lesson: de3-exam-review
+  term: zutreffen
+  pos: verb
+  meanings: [to apply, to be true, to be correct, to be the case]
+  example: Das trifft auf mich nicht zu.
+  exampleEn: That doesn't apply to me.
+  note: 'Separable: es trifft zu. Präteritum: traf zu. Perfect: hat zugetroffen. zutreffen auf + accusative.'
+- id: zuordnen
+  lesson: de3-exam-review
+  term: zuordnen
+  pos: verb
+  meanings: [to match, to assign, to allocate, to classify]
+  example: Ordnen Sie die Überschriften den Texten zu.
+  exampleEn: Match the headings to the texts.
+  note: 'Separable: ich ordne zu. Perfect: hat zugeordnet. etwas (Akk) einer Sache (Dat) zuordnen.'
+- id: sprecher
+  lesson: de3-exam-review
+  term: der Sprecher
+  pos: noun
+  plural: die Sprecher
+  meanings: [speaker (male), speaker, spokesman, announcer]
+  example: Der Sprecher im Radio spricht sehr schnell.
+  exampleEn: The speaker on the radio talks very fast.
+- id: sprecherin
+  lesson: de3-exam-review
+  term: die Sprecherin
+  pos: noun
+  plural: die Sprecherinnen
+  meanings: [speaker (female), speaker, spokeswoman, announcer]
+  example: Eine Sprecherin der Firma hat die Pläne erklärt.
+  exampleEn: A spokeswoman for the company explained the plans.
+- id: markieren
+  lesson: de3-exam-review
+  term: markieren
+  pos: verb
+  meanings: [to mark, to highlight, to tick]
+  example: Markieren Sie die richtige Lösung.
+  exampleEn: Mark the correct answer.
+  note: 'Perfect: hat markiert (no ge-).'
+- id: unterstreichen
+  lesson: de3-exam-review
+  term: unterstreichen
+  pos: verb
+  meanings: [to underline, to emphasize, to emphasise]
+  example: Ich unterstreiche die wichtigen Wörter.
+  exampleEn: I underline the important words.
+  note: 'Not separable: ich unterstreiche. Präteritum: unterstrich. Perfect: hat unterstrichen.'
+- id: gliederung
+  lesson: de3-exam-review
+  term: die Gliederung
+  pos: noun
+  plural: die Gliederungen
+  meanings: [outline, structure, plan (of a text)]
+  example: Mach zuerst eine kurze Gliederung.
+  exampleEn: Make a short outline first.
+- id: gliedern
+  lesson: de3-exam-review
+  term: gliedern
+  pos: verb
+  meanings: [to structure, to organize, to organise, to divide (into parts)]
+  example: Gliedern Sie Ihren Vortrag in drei Teile.
+  exampleEn: Divide your talk into three parts.
+- id: inhalt
+  lesson: de3-exam-review
+  term: der Inhalt
+  pos: noun
+  plural: die Inhalte
+  meanings: [content, contents]
+  example: Der Inhalt des Briefes war sehr persönlich.
+  exampleEn: The content of the letter was very personal.
+- id: inhaltlich
+  lesson: de3-exam-review
+  term: inhaltlich
+  pos: adjective
+  meanings: [in terms of content, content-wise, regarding content]
+  example: Inhaltlich ist der Text gut.
+  exampleEn: In terms of content the text is good.
+- id: formulieren
+  lesson: de3-exam-review
+  term: formulieren
+  pos: verb
+  meanings: [to formulate, to put into words, to word, to phrase]
+  example: Wie kann ich das höflicher formulieren?
+  exampleEn: How can I phrase that more politely?
+  note: 'Perfect: hat formuliert (no ge-).'
+- id: formulierung
+  lesson: de3-exam-review
+  term: die Formulierung
+  pos: noun
+  plural: die Formulierungen
+  meanings: [wording, phrasing, formulation, expression]
+  example: Diese Formulierung ist zu umgangssprachlich.
+  exampleEn: This wording is too colloquial.
+- id: ausdruck
+  lesson: de3-exam-review
+  term: der Ausdruck
+  pos: noun
+  plural: die Ausdrücke
+  meanings: [expression, term, printout]
+  example: Diesen Ausdruck kenne ich nicht.
+  exampleEn: I don't know this expression.
+  note: 'As a printout the plural is die Ausdrucke.'
+- id: sich-ausdruecken
+  lesson: de3-exam-review
+  term: sich ausdrücken
+  pos: verb
+  meanings: [to express yourself, to express oneself, to put it]
+  example: Er kann sich auf Deutsch schon gut ausdrücken.
+  exampleEn: He can already express himself well in German.
+  note: 'Separable: ich drücke mich aus. Perfect: hat sich ausgedrückt.'
+- id: angemessen
+  lesson: de3-exam-review
+  term: angemessen
+  pos: adjective
+  meanings: [appropriate, suitable, adequate, reasonable]
+  example: Jeans sind für das Vorstellungsgespräch nicht angemessen.
+  exampleEn: Jeans aren't appropriate for the interview.
+- id: rechtschreibung
+  lesson: de3-exam-review
+  term: die Rechtschreibung
+  pos: noun
+  plural: —
+  meanings: [spelling, orthography]
+  example: Achte beim Schreiben auf die Rechtschreibung.
+  exampleEn: Pay attention to spelling when you write.
+- id: wortschatz
+  lesson: de3-exam-review
+  term: der Wortschatz
+  pos: noun
+  plural: —
+  meanings: [vocabulary]
+  example: Durch Lesen wird dein Wortschatz größer.
+  exampleEn: Reading makes your vocabulary bigger.
+- id: grammatik
+  lesson: de3-exam-review
+  term: die Grammatik
+  pos: noun
+  plural: die Grammatiken
+  meanings: [grammar]
+  example: Die Grammatik ist nicht so schwer, wie ich dachte.
+  exampleEn: The grammar isn't as hard as I thought.
+- id: punktzahl
+  lesson: de3-exam-review
+  term: die Punktzahl
+  pos: noun
+  plural: die Punktzahlen
+  meanings: [score, number of points, points]
+  example: Mit dieser Punktzahl hast du bestanden.
+  exampleEn: With this score you've passed.
+- id: niveau
+  lesson: de3-exam-review
+  term: das Niveau
+  pos: noun
+  plural: die Niveaus
+  meanings: [level, standard]
+  example: Der Kurs hat ein hohes Niveau.
+  exampleEn: The course is at a high level.
+- id: strategie
+  lesson: de3-exam-review
+  term: die Strategie
+  pos: noun
+  plural: die Strategien
+  meanings: [strategy]
+  example: Für jede Aufgabe brauchst du eine Strategie.
+  exampleEn: You need a strategy for every task.
+- id: pruefer
+  lesson: de3-exam-review
+  term: der Prüfer
+  pos: noun
+  plural: die Prüfer
+  meanings: [examiner (male), examiner, tester, inspector]
+  example: Der Prüfer hat mich nach meinem Beruf gefragt.
+  exampleEn: The examiner asked me about my job.
+- id: prueferin
+  lesson: de3-exam-review
+  term: die Prüferin
+  pos: noun
+  plural: die Prüferinnen
+  meanings: [examiner (female), examiner, tester, inspector]
+  example: Die Prüferin war sehr freundlich.
+  exampleEn: The examiner was very friendly.
+- id: sich-vorbereiten
+  lesson: de3-exam-review
+  term: sich vorbereiten
+  pos: verb
+  meanings: [to prepare (yourself), to prepare, to get ready]
+  example: Ich bereite mich auf die Prüfung vor.
+  exampleEn: I'm preparing for the exam.
+  note: 'Separable: sich vorbereiten auf + accusative. Perfect: hat sich vorbereitet.'
+- id: vorbereitung
+  lesson: de3-exam-review
+  term: die Vorbereitung
+  pos: noun
+  plural: die Vorbereitungen
+  meanings: [preparation]
+  example: Die Vorbereitung hat drei Monate gedauert.
+  exampleEn: The preparation took three months.
+- id: wiederholung
+  lesson: de3-exam-review
+  term: die Wiederholung
+  pos: noun
+  plural: die Wiederholungen
+  meanings: [review, revision, repetition, repeat]
+  example: Am Ende der Woche mache ich eine Wiederholung.
+  exampleEn: At the end of the week I do a review.
+- id: insgesamt
+  lesson: de3-exam-review
+  term: insgesamt
+  pos: adverb
+  meanings: [altogether, in total, overall, all in all]
+  example: Insgesamt waren wir zwanzig Leute.
+  exampleEn: Altogether there were twenty of us.
+- id: hauptsaechlich
+  lesson: de3-exam-review
+  term: hauptsächlich
+  pos: adverb
+  meanings: [mainly, mostly, chiefly, principally]
+  example: Ich lese hauptsächlich Krimis.
+  exampleEn: I mainly read crime novels.

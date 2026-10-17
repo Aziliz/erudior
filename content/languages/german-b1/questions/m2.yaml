@@ -1,0 +1,512 @@
+# German B1, module 2: Reasons, goals and contrasts (lessons 06–10)
+
+# --- 06 obwohl, trotzdem, zwar … aber ---
+- id: de3-q-0601
+  lesson: de3-obwohl
+  module_quiz: true
+  topic: Concession
+  stem: 'Complete: "Ich kaufe mir die Jacke, ___ sie sehr teuer ist."'
+  choices: ['obwohl', 'weil', 'trotzdem', 'deshalb']
+  answer: 0
+  explanation: |-
+    The jacket is expensive, and yet I buy it: the fact should stop the action but doesn't, so it is obwohl, and the verb "ist" goes to the end. weil would give a reason (I buy it because it's expensive). trotzdem and deshalb are adverbs and would need the verb straight after them.
+- id: de3-q-0602
+  lesson: de3-obwohl
+  topic: Concession
+  stem: 'Which sentence is correct?'
+  choices: ['Obwohl ich habe wenig Geld, fahre ich in Urlaub.', 'Obwohl ich wenig Geld habe, fahre ich in Urlaub.', 'Obwohl ich wenig Geld habe, ich fahre in Urlaub.', 'Obwohl habe ich wenig Geld, fahre ich in Urlaub.']
+  answer: 1
+  explanation: |-
+    obwohl sends the conjugated verb to the end of its clause ("obwohl ich wenig Geld habe"). The whole clause then fills position 1, so the main verb "fahre" comes straight after the comma, before the subject: verb, comma, verb.
+- id: de3-q-0603
+  lesson: de3-obwohl
+  module_quiz: true
+  topic: Concession
+  stem: 'Complete: "Der Lohn ist niedrig. Trotzdem ___."'
+  choices: ['sie arbeitet gern dort', 'arbeitet gern sie dort', 'arbeitet sie gern dort', 'sie gern dort arbeitet']
+  answer: 2
+  explanation: |-
+    trotzdem is a linking adverb. In position 1 it is followed directly by the verb, then the subject: "Trotzdem arbeitet sie gern dort." Putting the subject first is the English order; putting the verb at the end would be the order after obwohl.
+- id: de3-q-0604
+  lesson: de3-obwohl
+  topic: Concession
+  stem: 'Complete: "Das Hotel ist ___ klein, aber sehr gemütlich."'
+  choices: ['obwohl', 'trotzdem', 'sondern', 'zwar']
+  answer: 3
+  explanation: |-
+    zwar … aber concedes one point and then answers it: "admittedly small, but very cosy". zwar goes in the first part, usually after the verb. sondern only follows a negative, and obwohl and trotzdem can't stand in front of a single adjective like this.
+- id: de3-q-0605
+  lesson: de3-obwohl
+  topic: Concession
+  stem: 'Which word fits? "Ich spare jeden Monat 100 Euro, ___ ich im Sommer nach Japan fliegen will."'
+  choices: ['weil', 'obwohl', 'trotzdem', 'zwar']
+  answer: 0
+  explanation: |-
+    The trip is the reason for saving, so the logic is "and that's why": weil. obwohl would say the plan should stop the saving, which makes no sense. Test: if you can say "and that's why" between the facts, use weil; if you need "and yet", use obwohl.
+- id: de3-q-0606
+  lesson: de3-obwohl
+  topic: Money
+  stem: 'Complete: "Ich kann ___ leider kein neues Fahrrad leisten."'
+  choices: ['mich', 'mir', 'ich', 'mein']
+  answer: 1
+  explanation: |-
+    sich leisten takes a dative reflexive pronoun, because the thing you afford (kein neues Fahrrad) is the accusative object: Ich kann mir das nicht leisten. "mich" is a very common mistake.
+- id: de3-q-0607
+  lesson: de3-obwohl
+  topic: Money
+  stem: 'What does "Das lohnt sich nicht." mean?'
+  choices: ['That isn''t paid.', 'That isn''t allowed.', 'It isn''t worth it.', 'It doesn''t cost anything.']
+  answer: 2
+  explanation: |-
+    sich lohnen means to be worth it or to pay off. It is related to der Lohn (wage), which may tempt you towards "paid", but the reflexive verb is about whether something is worthwhile.
+- id: de3-q-0608
+  lesson: de3-obwohl
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the text. "Nina verdient nicht schlecht. Trotzdem hat sie am Monatsende oft kein Geld mehr. Sie kauft zwar selten Kleidung, aber sie isst fast jeden Tag im Restaurant. Jetzt hat sie alle Ausgaben aufgeschrieben. Obwohl sie gern ausgeht, will sie in Zukunft öfter zu Hause kochen." Which statement is true?
+  choices: ['Nina has a low income.', 'Nina spends a lot of money on clothes.', 'Nina no longer likes going out.', 'Nina wants to eat out less often.']
+  answer: 3
+  explanation: |-
+    The last sentence says she wants to cook at home more often, although she likes going out. "verdient nicht schlecht" means she earns quite well, "zwar selten Kleidung" means she rarely buys clothes, and "obwohl sie gern ausgeht" says she still likes going out.
+- id: de3-q-0609
+  lesson: de3-obwohl
+  topic: Concession
+  stem: 'Which sentence means the same as "Obwohl es regnet, gehen wir spazieren."?'
+  choices: ['Es regnet. Trotzdem gehen wir spazieren.', 'Es regnet. Deshalb gehen wir spazieren.', 'Weil es regnet, gehen wir spazieren.', 'Es regnet, denn wir gehen spazieren.']
+  answer: 0
+  explanation: |-
+    obwohl and trotzdem express the same unexpected result from opposite ends: obwohl stands before the fact, trotzdem before the result. deshalb and weil would make the rain the reason for the walk.
+- id: de3-q-0610
+  lesson: de3-obwohl
+  topic: Money
+  stem: 'Complete: "Wie viel Geld ___ du im Monat für dein Handy ___?"'
+  choices: ['gibst … ab', 'gibst … aus', 'verbringst … —', 'zahlst … aus']
+  answer: 1
+  explanation: |-
+    To spend money is Geld ausgeben, a separable verb: "Wie viel gibst du … aus?" verbringen is for spending time, and abgeben means to hand in.
+- id: de3-q-0611
+  lesson: de3-obwohl
+  topic: Concession
+  stem: 'Find the mistake: "Trotzdem es teuer war, haben wir das Sofa gekauft."'
+  choices: ['"Sofa" needs a different article.', '"gekauft" should be "kaufen".', '"Trotzdem" must be "Obwohl", because it starts a clause with the verb at the end.', 'There is no mistake.']
+  answer: 2
+  explanation: |-
+    trotzdem is an adverb, not a conjunction, so it can't introduce a clause with the verb at the end. Either "Obwohl es teuer war, haben wir das Sofa gekauft" or "Es war teuer. Trotzdem haben wir das Sofa gekauft."
+- id: de3-q-0612
+  lesson: de3-obwohl
+  module_quiz: true
+  topic: Concession
+  stem: 'Which reply sounds most natural? "Wollen wir das große Auto nehmen?" – "___"'
+  choices: ['Das Auto ist zwar bequem, trotzdem.', 'Obwohl das Auto bequem ist.', 'Das Auto ist bequem, sondern es braucht viel Benzin.', 'Es ist zwar bequem, aber es braucht viel Benzin.']
+  answer: 3
+  explanation: |-
+    zwar … aber gives the other side a point (it's comfortable) and then answers it (but it uses a lot of petrol). A clause with obwohl can't stand alone as a full answer here, sondern needs a negative before it, and trotzdem can't end a zwar sentence.
+
+# --- 07 um … zu, damit, ohne … zu, statt … zu ---
+- id: de3-q-0701
+  lesson: de3-um-zu-damit
+  module_quiz: true
+  topic: Purpose
+  stem: 'Complete: "Ich gehe in die Bibliothek, ___ in Ruhe zu lernen."'
+  choices: ['um', 'damit', 'für', 'zu']
+  answer: 0
+  explanation: |-
+    The same person goes and studies, so the purpose is expressed with um … zu: "um in Ruhe zu lernen". damit would need a full clause with a subject. für + infinitive is a translation of English "for", which German doesn't use for purpose.
+- id: de3-q-0702
+  lesson: de3-um-zu-damit
+  module_quiz: true
+  topic: Purpose
+  stem: 'Complete: "Der Dozent spricht langsam, ___ alle Studierenden ihn verstehen."'
+  choices: ['um', 'damit', 'ohne', 'statt']
+  answer: 1
+  explanation: |-
+    The lecturer speaks, but the students understand: two different subjects, so you need damit with a full clause and the verb at the end. um … zu only works when the subject of both parts is the same.
+- id: de3-q-0703
+  lesson: de3-um-zu-damit
+  topic: Purpose
+  stem: 'Which sentence is correct?'
+  choices: ['Ich muss mich bis Juli einschreiben, um im Oktober zu anfangen.', 'Ich muss mich bis Juli einschreiben, um im Oktober anfangen.', 'Ich muss mich bis Juli einschreiben, um im Oktober anzufangen.', 'Ich muss mich bis Juli einschreiben, zu im Oktober anfangen.']
+  answer: 2
+  explanation: |-
+    anfangen is separable, so zu goes between the prefix and the verb and it's written as one word: anzufangen. um stands at the start of the clause and the infinitive at the end.
+- id: de3-q-0704
+  lesson: de3-um-zu-damit
+  topic: Infinitive clauses
+  stem: 'Complete: "Er hat den Vertrag unterschrieben, ohne ihn ___."'
+  choices: ['lesen', 'gelesen', 'lesend', 'zu lesen']
+  answer: 3
+  explanation: |-
+    ohne + infinitive needs zu at the end: "ohne ihn zu lesen" (without reading it). English uses an -ing form after "without", but German always uses zu + infinitive here.
+- id: de3-q-0705
+  lesson: de3-um-zu-damit
+  topic: Infinitive clauses
+  stem: 'What does "Statt für die Klausur zu lernen, hat Max Videospiele gespielt." mean?'
+  choices: ['Instead of studying for the exam, Max played video games.', 'Max played video games to study for the exam.', 'Max played video games after studying for the exam.', 'Max studied for the exam without playing video games.']
+  answer: 0
+  explanation: |-
+    statt … zu means "instead of doing". Max did one thing (played games) in place of the other (studying). "um … zu" would be "in order to", and "ohne … zu" "without".
+- id: de3-q-0706
+  lesson: de3-um-zu-damit
+  topic: Infinitive clauses
+  stem: 'Which sentence means "You don''t have to pay any fees."?'
+  choices: ['Sie dürfen keine Gebühren bezahlen.', 'Sie brauchen keine Gebühren zu bezahlen.', 'Sie brauchen keine Gebühren bezahlen zu.', 'Sie müssen keine Gebühren zu bezahlen.']
+  answer: 1
+  explanation: |-
+    brauchen + kein/nicht + zu + infinitive means "don't have to", like nicht müssen. zu comes directly before the infinitive at the end. After müssen there is no zu, and "nicht dürfen" means "must not", which is a prohibition.
+- id: de3-q-0707
+  lesson: de3-um-zu-damit
+  topic: Purpose
+  stem: 'Find the mistake: "Ich gebe dir meine Notizen, um du die Klausur bestehst."'
+  choices: ['"Notizen" should be singular.', '"bestehst" should be "bestanden".', '"um" should be "damit", because the subjects are different.', 'There is no mistake.']
+  answer: 2
+  explanation: |-
+    I give, you pass: two different people, so it has to be "damit du die Klausur bestehst". um … zu never has its own subject and always ends with zu + infinitive.
+- id: de3-q-0708
+  lesson: de3-um-zu-damit
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the message. "Hallo Paul, ich habe eine gute Nachricht: Ich habe die Zulassung für den Master in Leipzig! Das Semester beginnt im Oktober. Um Geld zu sparen, will ich am Anfang im Studentenwohnheim wohnen. Meine Eltern helfen mir, damit ich nicht so viel jobben muss. Ein Stipendium habe ich leider nicht bekommen. Bis bald, Mira" Why do Mira's parents help her?
+  choices: ['So that she can get a scholarship.', 'So that she can live in a hall of residence.', 'So that she doesn''t have to study so much.', 'So that she doesn''t have to work so much.']
+  answer: 3
+  explanation: |-
+    "damit ich nicht so viel jobben muss" means "so that I don't have to work (in a part-time job) so much". She lives in the hall of residence to save money (um Geld zu sparen), and she didn't get a scholarship.
+- id: de3-q-0709
+  lesson: de3-um-zu-damit
+  topic: Study
+  stem: 'What is "die Mensa"?'
+  choices: ['the university canteen', 'a lecture hall', 'a written exam', 'the student advice centre']
+  answer: 0
+  explanation: |-
+    die Mensa is the canteen at a university, where students eat cheaply. A lecture hall is der Hörsaal, a written exam die Klausur, and the advice centre die Studienberatung.
+- id: de3-q-0710
+  lesson: de3-um-zu-damit
+  topic: Purpose
+  stem: 'Which sentence is the best style for "I work in a café to finance my studies."?'
+  choices: ['Ich arbeite in einem Café, für mein Studium zu finanzieren.', 'Ich arbeite in einem Café, um mein Studium zu finanzieren.', 'Ich arbeite in einem Café, damit finanziere ich mein Studium.', 'Ich arbeite in einem Café, um mein Studium finanzieren.']
+  answer: 1
+  explanation: |-
+    One subject, one goal: um … zu + infinitive at the end. "für … zu" is not German for purpose. "damit finanziere ich" uses damit as an adverb (with that), which is possible as a new sentence but not as the purpose clause asked for. The last choice is missing zu.
+- id: de3-q-0711
+  lesson: de3-um-zu-damit
+  topic: Infinitive clauses
+  stem: 'Complete: "Er ist gegangen, ___ ich es gemerkt habe."'
+  choices: ['ohne zu', 'statt dass', 'ohne dass', 'um dass']
+  answer: 2
+  explanation: |-
+    He left, I didn't notice: two different subjects, so you need a full clause with ohne dass (without me noticing). ohne … zu only works with the same subject, "um dass" doesn't exist, and "statt dass" would mean "instead of".
+- id: de3-q-0712
+  lesson: de3-um-zu-damit
+  topic: Study
+  stem: 'Which word completes the sentence? "Gute Englischkenntnisse sind eine ___ für dieses Praktikum."'
+  choices: ['Vorlesung', 'Zulassung', 'Hausarbeit', 'Voraussetzung']
+  answer: 3
+  explanation: |-
+    die Voraussetzung is a requirement or prerequisite: good English is needed for the internship. die Zulassung is the admission you get, die Vorlesung a lecture and die Hausarbeit a term paper.
+
+# --- 08 da, falls, sodass ---
+- id: de3-q-0801
+  lesson: de3-da-falls
+  module_quiz: true
+  topic: Reasons and results
+  stem: 'Complete: "___ Sie seit zehn Jahren Kunde bei uns sind, bekommen Sie einen Rabatt."'
+  choices: ['Da', 'Deshalb', 'Denn', 'Also']
+  answer: 0
+  explanation: |-
+    The clause has its verb at the end (sind), so it needs a subordinating conjunction: da, for a reason the listener already knows, typically at the start. deshalb and also are adverbs (verb straight after), and denn can't start a sentence like this or send the verb to the end.
+- id: de3-q-0802
+  lesson: de3-da-falls
+  topic: Reasons and results
+  stem: '"Warum hast du den Vertrag gekündigt?" Which answer is correct?'
+  choices: ['Da er zu teuer war.', 'Weil er zu teuer war.', 'Deshalb war er zu teuer.', 'Sodass er zu teuer war.']
+  answer: 1
+  explanation: |-
+    Only weil can stand alone as a short answer to Warum? A clause with da needs a main clause and gives known, background information. deshalb and sodass introduce results, not reasons.
+- id: de3-q-0803
+  lesson: de3-da-falls
+  module_quiz: true
+  topic: Reasons and results
+  stem: 'Complete: "Es hat drei Tage geregnet, ___ der Keller voller Wasser war."'
+  choices: ['damit', 'obwohl', 'sodass', 'falls']
+  answer: 2
+  explanation: |-
+    The full cellar is the result of the rain, so the right word is sodass (with the result that). damit would mean somebody wanted the cellar to flood (a goal). Test: "and as a result" → sodass; "in order that" → damit.
+- id: de3-q-0804
+  lesson: de3-da-falls
+  topic: Conditions
+  stem: 'Complete: "Nehmen Sie alle Unterlagen mit, ___ die Versicherung einen Nachweis braucht."'
+  choices: ['damit', 'sodass', 'obwohl', 'falls']
+  answer: 3
+  explanation: |-
+    falls means "in case": take the papers as a precaution, because the insurer might need proof. obwohl would be a contrast, and sodass a result. damit would describe a goal, which doesn't fit "the insurer needs proof".
+- id: de3-q-0805
+  lesson: de3-da-falls
+  topic: Reasons and results
+  stem: 'Which sentence is correct?'
+  choices: ['Die Unterlagen fehlen. Daher können wir den Antrag nicht bearbeiten.', 'Die Unterlagen fehlen. Daher wir können den Antrag nicht bearbeiten.', 'Die Unterlagen fehlen. Daher wir den Antrag nicht bearbeiten können.', 'Die Unterlagen fehlen, daher den Antrag können wir nicht bearbeiten.']
+  answer: 0
+  explanation: |-
+    daher is an adverb like deshalb. In position 1 it is followed immediately by the verb (können) and then the subject (wir). The infinitive stays at the end.
+- id: de3-q-0806
+  lesson: de3-da-falls
+  topic: Reasons and results
+  stem: 'What does "also" mean in "Der Vertrag läuft bis Juni. Also kann ich erst dann wechseln."?'
+  choices: ['also, too', 'so, therefore', 'although', 'in case']
+  answer: 1
+  explanation: |-
+    German also is a false friend: it means "so, therefore" (a conclusion). English "also" is auch in German.
+- id: de3-q-0807
+  lesson: de3-da-falls
+  topic: Reasons and results
+  stem: 'Complete: "Das Kleingedruckte war ___ klein, dass ich es kaum lesen konnte."'
+  choices: ['sodass', 'zu', 'so', 'sehr']
+  answer: 2
+  explanation: |-
+    so + adjective … dass shows a result that depends on how strong something was: "so small that I could hardly read it". "zu klein, dass" and "sehr klein, dass" aren't German, and sodass is one word that can't have an adjective in the middle.
+- id: de3-q-0808
+  lesson: de3-da-falls
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the letter. "Sehr geehrte Frau Peters, vielen Dank für Ihre Schadensmeldung. Da der Unfall in Ihrer Wohnung passiert ist, zahlt Ihre Haftpflichtversicherung den Schaden beim Nachbarn. Leider fehlt noch die Rechnung für die Reparatur. Falls Sie keine Rechnung haben, genügt ein Kostenvoranschlag. Bitte schicken Sie uns das Dokument innerhalb von 14 Tagen. Die Selbstbeteiligung beträgt 100 Euro." What does Ms Peters have to do?
+  choices: ['Pay for the neighbour''s repair herself.', 'Call the neighbour within 14 days.', 'Take out new liability insurance.', 'Send the repair invoice or an estimate within 14 days.']
+  answer: 3
+  explanation: |-
+    The invoice is missing (fehlt noch die Rechnung); if she hasn't got one, an estimate (Kostenvoranschlag) is enough, and she must send it within 14 days. The insurance pays the damage, minus an excess of 100 euros, so she doesn't pay for it all herself.
+- id: de3-q-0809
+  lesson: de3-da-falls
+  topic: Insurance
+  stem: 'What does "Sie haben Anspruch auf eine Erstattung." mean?'
+  choices: ['You are entitled to a refund.', 'You have applied for a refund.', 'You have to pay a refund.', 'You have refused a refund.']
+  answer: 0
+  explanation: |-
+    Anspruch haben auf + accusative means to be entitled to, to have a right to something. It's one of the most important phrases in official letters.
+- id: de3-q-0810
+  lesson: de3-da-falls
+  topic: Reasons and results
+  stem: 'Which sentence uses "da" most naturally?'
+  choices: ['Ich bin müde, da ich habe schlecht geschlafen.', 'Da der Laden um 18 Uhr schließt, müssen wir uns beeilen.', 'Da müssen wir uns beeilen, der Laden schließt um 18 Uhr.', 'Warum beeilst du dich? – Da der Laden bald schließt.']
+  answer: 1
+  explanation: |-
+    The conjunction da sends the verb to the end and usually comes first, giving a known reason: "Da der Laden um 18 Uhr schließt, …". The first choice has main-clause order after da, the third uses da as "there/then", and da can't be a short answer to Warum?
+- id: de3-q-0811
+  lesson: de3-da-falls
+  topic: Insurance
+  stem: 'Complete: "Mein Pass ist nur noch einen Monat ___. Ich muss einen neuen beantragen."'
+  choices: ['vollständig', 'verpflichtet', 'gültig', 'versichert']
+  answer: 2
+  explanation: |-
+    gültig means valid: the passport is only valid for one more month. vollständig is complete, verpflichtet obliged, and versichert insured.
+- id: de3-q-0812
+  lesson: de3-da-falls
+  topic: Reasons and results
+  stem: 'Which sentence has the same meaning as "Ich hatte keine Versicherung, deswegen musste ich alles selbst bezahlen."?'
+  choices: ['Ich hatte keine Versicherung, obwohl ich alles selbst bezahlen musste.', 'Ich hatte keine Versicherung, damit ich alles selbst bezahlen musste.', 'Falls ich keine Versicherung hatte, musste ich alles selbst bezahlen.', 'Da ich keine Versicherung hatte, musste ich alles selbst bezahlen.']
+  answer: 3
+  explanation: |-
+    deswegen introduces the result; da introduces the reason. The same facts seen from the other end: "Da ich keine Versicherung hatte, musste ich …". obwohl would be a contradiction, damit a goal, and falls a possibility.
+
+# --- 09 two-part connectors ---
+- id: de3-q-0901
+  lesson: de3-two-part
+  module_quiz: true
+  topic: Two-part connectors
+  stem: 'Complete: "Die Wohnung hat ___ einen Balkon noch einen Garten."'
+  choices: ['weder', 'entweder', 'sowohl', 'nicht nur']
+  answer: 0
+  explanation: |-
+    noch in the second part signals weder … noch (neither … nor). entweder pairs with oder, sowohl with als auch, and nicht nur with sondern auch.
+- id: de3-q-0902
+  lesson: de3-two-part
+  topic: Two-part connectors
+  stem: 'Which sentence is correct?'
+  choices: ['Ich habe weder keine Zeit noch kein Geld.', 'Ich habe weder Zeit noch Geld.', 'Ich habe nicht weder Zeit noch Geld.', 'Ich habe weder Zeit oder Geld.']
+  answer: 1
+  explanation: |-
+    weder … noch already contains the negation, so there is no extra kein or nicht. The partner of weder is noch, not oder.
+- id: de3-q-0903
+  lesson: de3-two-part
+  module_quiz: true
+  topic: Two-part connectors
+  stem: 'Complete: "Sowohl mein Mitbewohner als auch ich ___ nachts."'
+  choices: ['arbeite', 'arbeitet', 'arbeiten', 'arbeitest']
+  answer: 2
+  explanation: |-
+    sowohl … als auch adds the two subjects together (he and I = we), so the verb is plural: arbeiten.
+- id: de3-q-0904
+  lesson: de3-two-part
+  topic: Two-part connectors
+  stem: 'Complete: "Das Haus ist nicht nur groß, ___ auch günstig."'
+  choices: ['aber', 'oder', 'noch', 'sondern']
+  answer: 3
+  explanation: |-
+    nicht nur is always followed by sondern auch. aber after "nicht nur" is a typical English-influenced mistake (not only … but also).
+- id: de3-q-0905
+  lesson: de3-two-part
+  topic: Two-part connectors
+  stem: 'Which sentence is NOT correct?'
+  choices: ['Entweder ich spreche mit dem Hausmeister, oder ich spreche mit dem Vermieter.', 'Entweder spreche ich mit dem Hausmeister, oder ich spreche mit dem Vermieter.', 'Ich spreche entweder mit dem Hausmeister oder mit dem Vermieter.', 'Entweder ich spreche mit dem Hausmeister, oder spreche ich mit dem Vermieter.']
+  answer: 3
+  explanation: |-
+    oder is a position 0 word: it doesn't change the order, so the subject comes before the verb after it (oder ich spreche). entweder itself can be position 0 or position 1, so the first two are both correct, and the third links two phrases inside one clause.
+- id: de3-q-0906
+  lesson: de3-two-part
+  topic: Housing
+  stem: 'What is "die Hausordnung"?'
+  choices: ['the house rules', 'the order of the floors in a building', 'a cleaning company', 'the rent contract']
+  answer: 0
+  explanation: |-
+    die Hausordnung lists the rules for everyone in a building, such as quiet hours and where bikes may be kept. The rental contract is der Mietvertrag.
+- id: de3-q-0907
+  lesson: de3-two-part
+  topic: Housing
+  stem: 'Complete: "Die Nachbarn haben sich ___ Hausmeister ___ den Lärm beschwert."'
+  choices: ['über den … bei', 'beim … über', 'beim … für', 'zum … von']
+  answer: 1
+  explanation: |-
+    sich beschweren bei + dative is the person you complain to (beim Hausmeister); über + accusative is what you complain about (über den Lärm).
+- id: de3-q-0908
+  lesson: de3-two-part
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the ad. "Nette WG im Altbau sucht neue Mitbewohnerin. Das Zimmer ist 16 Quadratmeter groß und liegt sehr zentral. Wir sind zwei Studentinnen und ein Krankenpfleger, der oft nachts arbeitet. Deshalb ist uns Ruhe sowohl am Tag als auch am Abend wichtig. Wir haben weder einen Fernseher noch ein Auto, aber ein Fahrrad kannst du gern in den Keller stellen. Rauchen ist leider nicht erlaubt." Which statement is true?
+  choices: ['The flat-share wants a quiet person only for the evenings.', 'There is a TV in the living room.', 'A flatmate often works at night.', 'Smokers are welcome.']
+  answer: 2
+  explanation: |-
+    The text says a nurse lives there "der oft nachts arbeitet" (who often works at night). Quiet matters both by day and in the evening (sowohl … als auch), they have neither a TV nor a car (weder … noch), and smoking isn't allowed.
+- id: de3-q-0909
+  lesson: de3-two-part
+  topic: Two-part connectors
+  stem: 'Which sentence means "We''ll either buy a flat or keep renting."?'
+  choices: ['Wir kaufen weder eine Wohnung, noch bleiben wir zur Miete.', 'Wir kaufen sowohl eine Wohnung als auch bleiben zur Miete.', 'Wir kaufen nicht nur eine Wohnung, sondern bleiben auch zur Miete.', 'Wir kaufen entweder eine Wohnung, oder wir bleiben zur Miete.']
+  answer: 3
+  explanation: |-
+    entweder … oder is "either … or": one of the two will happen. weder … noch says neither will happen, and the other two say both will.
+- id: de3-q-0910
+  lesson: de3-two-part
+  topic: Housing
+  stem: 'Which word is the opposite of "zentral" when talking about where you live?'
+  choices: ['ländlich', 'rücksichtsvoll', 'gemütlich', 'ruhig']
+  answer: 0
+  explanation: |-
+    ländlich (rural) describes the countryside, far from a city centre; zentral is in the centre. A rural place may be ruhig (quiet), but that is not the opposite of central.
+- id: de3-q-0911
+  lesson: de3-two-part
+  topic: Housing
+  stem: 'Your neighbour is playing loud music at midnight. What do you say politely?'
+  choices: ['Entschuldigung, ich störe Sie gern.', 'Entschuldigung, könnten Sie die Musik etwas leiser machen? Ich muss morgen früh aufstehen.', 'Sie müssen sowohl die Musik als auch leise sein.', 'Ich beschwere Sie über die Musik.']
+  answer: 1
+  explanation: |-
+    A polite request with könnten and a reason is natural. "ich störe Sie gern" means "I'm happy to disturb you". The third sentence doesn't make sense, and "sich beschweren" needs mich and über, without Sie as an object.
+- id: de3-q-0912
+  lesson: de3-two-part
+  topic: Two-part connectors
+  stem: 'Complete: "Entweder du oder deine Schwester ___ heute den Müll rausbringen."'
+  choices: ['müssen', 'musst', 'muss', 'müsst']
+  answer: 2
+  explanation: |-
+    With entweder … oder, the verb agrees with the subject nearest to it. Here that is "deine Schwester" (she), so the verb is "muss". Only one of the two will do it, so it isn't a plural like with sowohl … als auch.
+
+# --- 10 je … desto, comparisons ---
+- id: de3-q-1001
+  lesson: de3-je-desto
+  module_quiz: true
+  topic: Comparison
+  stem: 'Complete: "Je mehr ich trainiere, ___."'
+  choices: ['desto fitter ich werde', 'desto ich werde fitter', 'desto werde ich fitter', 'desto fitter werde ich']
+  answer: 3
+  explanation: |-
+    In the desto part, desto + comparative fills position 1, so the verb comes straight after it and then the subject: "desto fitter werde ich". The comparative must stay directly after desto.
+- id: de3-q-1002
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'Which sentence is correct?'
+  choices: ['Je früher du anfängst, desto leichter ist es.', 'Je früher fängst du an, desto leichter ist es.', 'Je du früher anfängst, desto leichter es ist.', 'Je früher du anfängst, desto es ist leichter.']
+  answer: 0
+  explanation: |-
+    The je part is a subordinate clause: je + comparative, then the subject, and the verb at the end (anfängst, joined up again). The desto part has desto + comparative followed directly by the verb (ist).
+- id: de3-q-1003
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'What does "Umso besser!" mean as a reply?'
+  choices: ['Much worse!', 'All the better!', 'As good as before!', 'The best of all!']
+  answer: 1
+  explanation: |-
+    umso + comparative on its own means "all the …": Umso besser! = All the better! It is a common reaction to good news.
+- id: de3-q-1004
+  lesson: de3-je-desto
+  module_quiz: true
+  topic: Comparison
+  stem: 'Complete: "Wir brauchen einen ___ Trainer."'
+  choices: ['besser', 'bester', 'besseren', 'am besten']
+  answer: 2
+  explanation: |-
+    A comparative before a noun takes the normal adjective ending on top of its -er. "einen … Trainer" is masculine accusative after ein-, so the ending is -en: einen besseren Trainer. "am besten" is only used without a noun.
+- id: de3-q-1005
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'Which sentence is correct?'
+  choices: ['Lisa ist die am schnellsten Läuferin.', 'Lisa ist am schnellste Läuferin.', 'Lisa ist die schnellsten Läuferin.', 'Lisa ist die schnellste Läuferin.']
+  answer: 3
+  explanation: |-
+    Before a noun the superlative is der/die/das + -st- + ending, without am: die schnellste Läuferin. "am schnellsten" stands alone: Lisa läuft am schnellsten.
+- id: de3-q-1006
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'How do you say "More and more people are going to the gym."?'
+  choices: ['Immer mehr Leute gehen ins Fitnessstudio.', 'Mehr und mehr Leute gehen ins Fitnessstudio.', 'Immer mehrere Leute gehen ins Fitnessstudio.', 'Je mehr Leute gehen ins Fitnessstudio.']
+  answer: 0
+  explanation: |-
+    immer + comparative describes a growing trend: immer mehr Leute. "mehr und mehr" is a translation from English and sounds unnatural. mehrere means "several", and je needs a desto part and the verb at the end.
+- id: de3-q-1007
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'Complete: "___ Mitglieder trainieren am Abend."'
+  choices: ['Meisten', 'Die meisten', 'Die meiste', 'Am meisten']
+  answer: 1
+  explanation: |-
+    "Most members" needs the article in German: die meisten Mitglieder. English says "most" without "the", which leads to the mistake "Meisten Mitglieder". am meisten is used without a noun (Wer trainiert am meisten?).
+- id: de3-q-1008
+  lesson: de3-je-desto
+  module_quiz: true
+  topic: Reading
+  stem: |-
+    Read the text. "Mein Opa ist 78 und immer noch sehr fit. Er geht jeden Morgen eine Stunde spazieren und schwimmt zweimal pro Woche. Er sagt: Je älter man wird, desto wichtiger ist die Bewegung. Eine Diät hat er nie gemacht, aber er ernährt sich ausgewogen. Nur beim Kuchen kann er nicht Nein sagen. Seit letztem Jahr spielt er auch im Verein Tischtennis, und letzten Monat hat er sein erstes Turnier gewonnen." Which statement is true?
+  choices: ['The grandfather has been on many diets.', 'He thinks exercise matters less in old age.', 'He recently won a table tennis tournament.', 'He never eats cake.']
+  answer: 2
+  explanation: |-
+    "letzten Monat hat er sein erstes Turnier gewonnen" means he won his first tournament last month. He has never been on a diet, he says exercise gets more important the older you are (je älter … desto wichtiger), and he can't say no to cake.
+- id: de3-q-1009
+  lesson: de3-je-desto
+  topic: Sport and health
+  stem: 'Complete: "Im Urlaub habe ich drei Kilo ___. Jetzt muss ich wieder ___."'
+  choices: ['abgenommen … zunehmen', 'genommen … abnehmen', 'zugenommen … nehmen', 'zugenommen … abnehmen']
+  answer: 3
+  explanation: |-
+    zunehmen means to put on weight and abnehmen to lose weight. Both are separable: the participles are zugenommen and abgenommen. After a holiday you've put on weight (zugenommen), so now you need to lose it (abnehmen).
+- id: de3-q-1010
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'Complete: "Der Wettkampf wird immer ___, je näher er kommt."'
+  choices: ['spannender', 'spannend', 'am spannendsten', 'spannendste']
+  answer: 0
+  explanation: |-
+    immer + comparative: immer spannender (more and more exciting). The comparative after werden has no ending because it doesn't stand before a noun.
+- id: de3-q-1011
+  lesson: de3-je-desto
+  topic: Sport and health
+  stem: 'Which word fits? "Eine ___ Ernährung mit viel Gemüse ist besser als jede Diät."'
+  choices: ['stressige', 'ausgewogene', 'entspannte', 'aktive']
+  answer: 1
+  explanation: |-
+    ausgewogen means balanced, the usual adjective for a healthy diet: eine ausgewogene Ernährung. A diet can't be stressful, relaxed or active in this sense.
+- id: de3-q-1012
+  lesson: de3-je-desto
+  topic: Comparison
+  stem: 'Find the mistake: "Unsere Mannschaft hat gegen die stärkste Mannschaft der Liga gewonnen, und das war der schönere Sieg des Jahres."'
+  choices: ['"Mannschaft" should be "Mannschaften".', '"gewonnen" should be "gewinnt".', '"der schönere Sieg des Jahres" should be "der schönste Sieg des Jahres".', 'There is no mistake.']
+  answer: 2
+  explanation: |-
+    "of the year" points to the top of the whole group, which needs the superlative: der schönste Sieg des Jahres. A comparative (schöner) compares two things. Compare the correct "die stärkste Mannschaft der Liga" earlier in the sentence.

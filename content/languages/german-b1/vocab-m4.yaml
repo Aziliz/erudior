@@ -1,0 +1,1427 @@
+# German B1, module 4: Society and the world (lessons 16–20)
+
+# --- 16 How it's done: the passive in the present ---
+- id: prozess
+  lesson: de3-passive-present
+  term: der Prozess
+  pos: noun
+  plural: die Prozesse
+  meanings: [process, trial (in court)]
+  example: Das Recycling von Glas ist ein langer Prozess.
+  exampleEn: Recycling glass is a long process.
+  note: 'Stress on the second syllable: pro-ZESS. Also a court case: der Prozess gegen den Dieb.'
+- id: produktion
+  lesson: de3-passive-present
+  term: die Produktion
+  pos: noun
+  plural: die Produktionen
+  meanings: [production, output]
+  example: Die Produktion läuft rund um die Uhr.
+  exampleEn: Production runs around the clock.
+- id: produzieren
+  lesson: de3-passive-present
+  term: produzieren
+  pos: verb
+  meanings: [to produce, to make, to manufacture]
+  example: In dieser Fabrik werden Fahrräder produziert.
+  exampleEn: Bikes are produced in this factory.
+  note: 'Perfect: hat produziert (no ge-).'
+- id: fabrik
+  lesson: de3-passive-present
+  term: die Fabrik
+  pos: noun
+  plural: die Fabriken
+  meanings: [factory, works, plant (factory)]
+  example: Mein Onkel arbeitet seit 30 Jahren in der Fabrik.
+  exampleEn: My uncle has worked in the factory for 30 years.
+- id: maschine
+  lesson: de3-passive-present
+  term: die Maschine
+  pos: noun
+  plural: die Maschinen
+  meanings: [machine]
+  example: Die Maschinen werden jeden Morgen kontrolliert.
+  exampleEn: The machines are checked every morning.
+- id: rohstoff
+  lesson: de3-passive-present
+  term: der Rohstoff
+  pos: noun
+  plural: die Rohstoffe
+  meanings: [raw material, raw materials]
+  example: Holz ist ein wichtiger Rohstoff.
+  exampleEn: Wood is an important raw material.
+- id: verarbeiten
+  lesson: de3-passive-present
+  term: verarbeiten
+  pos: verb
+  meanings: [to process, to make into, to work (a material)]
+  example: Das Holz wird zu Papier verarbeitet.
+  exampleEn: The wood is processed into paper.
+  note: 'Perfect: hat verarbeitet. verarbeiten zu + Dat: to make into.'
+- id: verpackung
+  lesson: de3-passive-present
+  term: die Verpackung
+  pos: noun
+  plural: die Verpackungen
+  meanings: [packaging, wrapping, package]
+  example: Die Verpackung kommt in die gelbe Tonne.
+  exampleEn: The packaging goes in the yellow bin.
+- id: verpacken
+  lesson: de3-passive-present
+  term: verpacken
+  pos: verb
+  meanings: [to package, to pack, to wrap, to wrap up]
+  example: Die Ware wird in Kartons verpackt.
+  exampleEn: The goods are packed in boxes.
+  note: 'Perfect: hat verpackt.'
+- id: recycling
+  lesson: de3-passive-present
+  term: das Recycling
+  pos: noun
+  plural: —
+  meanings: [recycling]
+  example: Recycling spart Energie und Rohstoffe.
+  exampleEn: Recycling saves energy and raw materials.
+  note: 'Said roughly as in English: ri-SAI-kling. The verb is wiederverwerten or recyceln.'
+- id: wiederverwerten
+  lesson: de3-passive-present
+  term: wiederverwerten
+  pos: verb
+  meanings: [to recycle, to reuse]
+  example: Altes Papier wird wiederverwertet.
+  exampleEn: Old paper is recycled.
+  note: 'Separable: man verwertet das Glas wieder. Participle without ge-: wiederverwertet. In speech also recyceln (hat recycelt).'
+- id: tonne
+  lesson: de3-passive-present
+  term: die Tonne
+  pos: noun
+  plural: die Tonnen
+  meanings: [bin (large), bin, wheelie bin, tonne, ton, barrel]
+  example: Die Tonnen werden jeden Dienstag geleert.
+  exampleEn: The bins are emptied every Tuesday.
+  note: 'Also a metric tonne: 50.000 Tonnen Abfall.'
+- id: container
+  lesson: de3-passive-present
+  term: der Container
+  pos: noun
+  plural: die Container
+  meanings: [container, skip, bottle bank (container)]
+  example: Das Altglas bringen wir zum Container an der Ecke.
+  exampleEn: We take the old glass to the container on the corner.
+  note: Said kon-TEE-ner.
+- id: sammeln
+  lesson: de3-passive-present
+  term: sammeln
+  pos: verb
+  meanings: [to collect, to gather]
+  example: Der Biomüll wird getrennt gesammelt.
+  exampleEn: Organic waste is collected separately.
+  note: 'ich sammle, du sammelst. Perfect: hat gesammelt.'
+- id: sortieren
+  lesson: de3-passive-present
+  term: sortieren
+  pos: verb
+  meanings: [to sort, to sort out]
+  example: Die Flaschen werden nach Farben sortiert.
+  exampleEn: The bottles are sorted by colour.
+  note: 'Perfect: hat sortiert (no ge-).'
+- id: verbrauch
+  lesson: de3-passive-present
+  term: der Verbrauch
+  pos: noun
+  plural: —
+  meanings: [consumption, use (amount used)]
+  example: Der Verbrauch von Wasser ist im Sommer höher.
+  exampleEn: Water consumption is higher in summer.
+  note: The noun to verbrauchen.
+- id: ressource
+  lesson: de3-passive-present
+  term: die Ressource
+  pos: noun
+  plural: die Ressourcen
+  meanings: [resource, resources]
+  example: Wir müssen sparsamer mit unseren Ressourcen umgehen.
+  exampleEn: We have to be more careful with our resources.
+  note: 'Usually plural. French pronunciation: re-SUR-se.'
+- id: erneuerbar
+  lesson: de3-passive-present
+  term: erneuerbar
+  pos: adjective
+  meanings: [renewable]
+  example: Erneuerbare Energien werden immer wichtiger.
+  exampleEn: Renewable energies are becoming more and more important.
+- id: solarenergie
+  lesson: de3-passive-present
+  term: die Solarenergie
+  pos: noun
+  plural: —
+  meanings: [solar energy, solar power]
+  example: Auf unserem Dach wird Solarenergie produziert.
+  exampleEn: Solar energy is produced on our roof.
+- id: windkraft
+  lesson: de3-passive-present
+  term: die Windkraft
+  pos: noun
+  plural: —
+  meanings: [wind power, wind energy]
+  example: Im Norden wird viel Strom durch Windkraft erzeugt.
+  exampleEn: In the north a lot of electricity is generated by wind power.
+- id: kraftwerk
+  lesson: de3-passive-present
+  term: das Kraftwerk
+  pos: noun
+  plural: die Kraftwerke
+  meanings: [power station, power plant]
+  example: Das alte Kraftwerk wird nächstes Jahr abgeschaltet.
+  exampleEn: The old power station is being shut down next year.
+- id: schritt
+  lesson: de3-passive-present
+  term: der Schritt
+  pos: noun
+  plural: die Schritte
+  meanings: [step]
+  example: Im nächsten Schritt wird das Glas geschmolzen.
+  exampleEn: In the next step the glass is melted.
+  note: Schritt für Schritt = step by step.
+- id: ablauf
+  lesson: de3-passive-present
+  term: der Ablauf
+  pos: noun
+  plural: die Abläufe
+  meanings: [procedure (sequence of steps), procedure, sequence, course (of events), process]
+  example: Die Mitarbeiterin hat mir den ganzen Ablauf erklärt.
+  exampleEn: The member of staff explained the whole procedure to me.
+- id: abfall
+  lesson: de3-passive-present
+  term: der Abfall
+  pos: noun
+  plural: die Abfälle
+  meanings: [waste, rubbish, refuse, garbage, trash]
+  example: Der Abfall wird in Containern gesammelt.
+  exampleEn: The waste is collected in containers.
+  note: More formal than der Müll.
+- id: umweltfreundlich
+  lesson: de3-passive-present
+  term: umweltfreundlich
+  pos: adjective
+  meanings: [environmentally friendly, eco-friendly, green]
+  example: Das Fahrrad ist das umweltfreundlichste Verkehrsmittel.
+  exampleEn: The bike is the most environmentally friendly means of transport.
+- id: kunststoff
+  lesson: de3-passive-present
+  term: der Kunststoff
+  pos: noun
+  plural: die Kunststoffe
+  meanings: ['plastic (material, technical term)', plastic, plastics, synthetic material]
+  example: Die Kunststoffe werden durch Sensoren erkannt.
+  exampleEn: The plastics are detected by sensors.
+  note: More technical than das Plastik.
+- id: pfand
+  lesson: de3-passive-present
+  term: das Pfand
+  pos: noun
+  plural: die Pfänder
+  meanings: [deposit (on a bottle), deposit, bottle deposit]
+  example: Auf diese Flasche gibt es 25 Cent Pfand.
+  exampleEn: There is a 25-cent deposit on this bottle.
+  note: die Pfandflasche = bottle with a deposit.
+- id: verschmutzen
+  lesson: de3-passive-present
+  term: verschmutzen
+  pos: verb
+  meanings: [to pollute, to make dirty, to soil]
+  example: Abgase verschmutzen die Luft.
+  exampleEn: Exhaust fumes pollute the air.
+  note: 'Perfect: hat verschmutzt. die Umweltverschmutzung = pollution.'
+- id: klimawandel
+  lesson: de3-passive-present
+  term: der Klimawandel
+  pos: noun
+  plural: —
+  meanings: [climate change]
+  example: Der Klimawandel ist ein globales Problem.
+  exampleEn: Climate change is a global problem.
+- id: industrie
+  lesson: de3-passive-present
+  term: die Industrie
+  pos: noun
+  plural: die Industrien
+  meanings: [industry]
+  example: Die Industrie braucht viel Energie.
+  exampleEn: Industry needs a lot of energy.
+  note: 'Stress on the last syllable: in-dus-TRIE.'
+- id: ware
+  lesson: de3-passive-present
+  term: die Ware
+  pos: noun
+  plural: die Waren
+  meanings: [goods, product (for sale), merchandise, wares]
+  example: Die Ware wird morgen geliefert.
+  exampleEn: The goods will be delivered tomorrow.
+  note: 'Often in the plural: die Waren.'
+- id: wegwerfen
+  lesson: de3-passive-present
+  term: wegwerfen
+  pos: verb
+  meanings: [to throw away, to throw out, to discard]
+  example: Wirf die Flasche nicht weg, sie hat Pfand!
+  exampleEn: Don't throw the bottle away, it has a deposit!
+  note: 'Separable: wirft weg, warf weg, hat weggeworfen.'
+- id: schaedlich
+  lesson: de3-passive-present
+  term: schädlich
+  pos: adjective
+  meanings: [harmful, damaging, bad (for you)]
+  example: Rauchen ist schädlich für die Gesundheit.
+  exampleEn: Smoking is harmful to your health.
+  note: schädlich für + Akk.
+- id: kohle
+  lesson: de3-passive-present
+  term: die Kohle
+  pos: noun
+  plural: die Kohlen
+  meanings: [coal]
+  example: Früher wurde hier Strom aus Kohle produziert.
+  exampleEn: Electricity used to be produced from coal here.
+  note: 'Colloquially also money: Ich habe keine Kohle.'
+- id: menge
+  lesson: de3-passive-present
+  term: die Menge
+  pos: noun
+  plural: die Mengen
+  meanings: [amount, quantity, crowd, lot]
+  example: Die Industrie braucht große Mengen Wasser.
+  exampleEn: Industry needs large amounts of water.
+  note: 'eine Menge = a lot: Ich habe eine Menge Arbeit.'
+
+# --- 17 What was done: the passive in the past ---
+- id: meldung
+  lesson: de3-passive-past
+  term: die Meldung
+  pos: noun
+  plural: die Meldungen
+  meanings: [news item, report (news item), announcement, notification]
+  example: Die Meldung wurde von allen Zeitungen gebracht.
+  exampleEn: The news item was carried by all the papers.
+- id: journalist
+  lesson: de3-passive-past
+  term: der Journalist
+  pos: noun
+  plural: die Journalisten
+  meanings: [journalist (male), journalist]
+  example: Der Journalist hat mit vielen Zeugen gesprochen.
+  exampleEn: The journalist spoke to many witnesses.
+  note: 'n-noun: den, dem, des Journalisten. French j: zhur-na-LIST.'
+- id: journalistin
+  lesson: de3-passive-past
+  term: die Journalistin
+  pos: noun
+  plural: die Journalistinnen
+  meanings: [journalist (female), journalist]
+  example: Meine Schwester ist Journalistin geworden.
+  exampleEn: My sister has become a journalist.
+- id: interview
+  lesson: de3-passive-past
+  term: das Interview
+  pos: noun
+  plural: die Interviews
+  meanings: [interview]
+  example: Die Inhaberin hat der Zeitung ein Interview gegeben.
+  exampleEn: The owner gave the newspaper an interview.
+  note: A job interview is ein Vorstellungsgespräch.
+- id: schlagzeile
+  lesson: de3-passive-past
+  term: die Schlagzeile
+  pos: noun
+  plural: die Schlagzeilen
+  meanings: [headline]
+  example: 'Die Schlagzeile heute: Neue Brücke eröffnet.'
+  exampleEn: 'Today''s headline: New bridge opened.'
+- id: aktuell
+  lesson: de3-passive-past
+  term: aktuell
+  pos: adjective
+  meanings: [current, up to date, topical, latest]
+  example: Hier finden Sie die aktuellen Nachrichten.
+  exampleEn: Here you can find the latest news.
+  note: 'False friend: not "actual" (that is eigentlich or tatsächlich).'
+- id: pressekonferenz
+  lesson: de3-passive-past
+  term: die Pressekonferenz
+  pos: noun
+  plural: die Pressekonferenzen
+  meanings: [press conference]
+  example: Die Polizei hat eine Pressekonferenz gegeben.
+  exampleEn: The police held a press conference.
+- id: bauen
+  lesson: de3-passive-past
+  term: bauen
+  pos: verb
+  meanings: [to build, to construct]
+  example: Das Rathaus wurde 1890 gebaut.
+  exampleEn: The town hall was built in 1890.
+  note: 'Perfect: hat gebaut.'
+- id: errichten
+  lesson: de3-passive-past
+  term: errichten
+  pos: verb
+  meanings: [to erect, to put up, to build (formal), to set up]
+  example: Die Mauer wurde 1961 errichtet.
+  exampleEn: The wall was put up in 1961.
+  note: 'Perfect: hat errichtet. Used for buildings, walls and monuments.'
+- id: eroeffnung
+  lesson: de3-passive-past
+  term: die Eröffnung
+  pos: noun
+  plural: die Eröffnungen
+  meanings: [opening (official), opening, inauguration]
+  example: Zur Eröffnung des Museums kamen tausend Gäste.
+  exampleEn: A thousand guests came to the opening of the museum.
+- id: eroeffnen
+  lesson: de3-passive-past
+  term: eröffnen
+  pos: verb
+  meanings: [to open (officially), to open, to inaugurate]
+  example: Die Bäckerei wurde 1952 eröffnet.
+  exampleEn: The bakery was opened in 1952.
+  note: 'Perfect: hat eröffnet. Also ein Konto eröffnen (to open an account).'
+- id: einfuehren
+  lesson: de3-passive-past
+  term: einführen
+  pos: verb
+  meanings: [to introduce, to bring in, to import]
+  example: Der Euro wurde 2002 als Bargeld eingeführt.
+  exampleEn: The euro was introduced as cash in 2002.
+  note: 'Separable: führt ein, führte ein, hat eingeführt.'
+- id: einfuehrung
+  lesson: de3-passive-past
+  term: die Einführung
+  pos: noun
+  plural: die Einführungen
+  meanings: [introduction]
+  example: Nach der Einführung des Gesetzes gab es weniger Unfälle.
+  exampleEn: After the introduction of the law there were fewer accidents.
+- id: abschaffen
+  lesson: de3-passive-past
+  term: abschaffen
+  pos: verb
+  meanings: [to abolish, to get rid of, to do away with]
+  example: Die Todesstrafe wurde 1949 abgeschafft.
+  exampleEn: The death penalty was abolished in 1949.
+  note: 'Separable and weak: schaffte ab, hat abgeschafft.'
+- id: verbesserung
+  lesson: de3-passive-past
+  term: die Verbesserung
+  pos: noun
+  plural: die Verbesserungen
+  meanings: [improvement]
+  example: Die neue Maschine ist eine große Verbesserung.
+  exampleEn: The new machine is a big improvement.
+- id: erfolg
+  lesson: de3-passive-past
+  term: der Erfolg
+  pos: noun
+  plural: die Erfolge
+  meanings: [success]
+  example: Die erste Eisenbahn war ein großer Erfolg.
+  exampleEn: The first railway was a big success.
+  note: Viel Erfolg! = Good luck!
+- id: erfolgreich
+  lesson: de3-passive-past
+  term: erfolgreich
+  pos: adjective
+  meanings: [successful, successfully]
+  example: Sie ist eine erfolgreiche Erfinderin.
+  exampleEn: She is a successful inventor.
+- id: presse
+  lesson: de3-passive-past
+  term: die Presse
+  pos: noun
+  plural: —
+  meanings: [press (newspapers), the press, press]
+  example: Die Presse wurde zu spät informiert.
+  exampleEn: The press was informed too late.
+- id: reporter
+  lesson: de3-passive-past
+  term: der Reporter
+  pos: noun
+  plural: die Reporter
+  meanings: [reporter (male), reporter]
+  example: Ein Reporter hat die Feuerwehrleute interviewt.
+  exampleEn: A reporter interviewed the firefighters.
+- id: reporterin
+  lesson: de3-passive-past
+  term: die Reporterin
+  pos: noun
+  plural: die Reporterinnen
+  meanings: [reporter (female), reporter]
+  example: Die Reporterin war als Erste am Unfallort.
+  exampleEn: The reporter was the first at the scene of the accident.
+- id: leser
+  lesson: de3-passive-past
+  term: der Leser
+  pos: noun
+  plural: die Leser
+  meanings: [reader (male), reader]
+  example: Viele Leser haben uns geschrieben.
+  exampleEn: Many readers have written to us.
+- id: leserin
+  lesson: de3-passive-past
+  term: die Leserin
+  pos: noun
+  plural: die Leserinnen
+  meanings: [reader (female), reader]
+  example: Eine Leserin hat uns ein Foto geschickt.
+  exampleEn: A reader sent us a photo.
+- id: brand
+  lesson: de3-passive-past
+  term: der Brand
+  pos: noun
+  plural: die Brände
+  meanings: [fire (blaze), blaze, fire]
+  example: Der Brand wurde von einem Nachbarn bemerkt.
+  exampleEn: The fire was noticed by a neighbour.
+  note: in Brand geraten = to catch fire.
+- id: feuerwehr
+  lesson: de3-passive-past
+  term: die Feuerwehr
+  pos: noun
+  plural: die Feuerwehren
+  meanings: [fire brigade, fire department, fire service]
+  example: Ruf sofort die Feuerwehr!
+  exampleEn: Call the fire brigade right away!
+  note: 'Emergency number in Germany: 112.'
+- id: opfer
+  lesson: de3-passive-past
+  term: das Opfer
+  pos: noun
+  plural: die Opfer
+  meanings: [victim, casualty, sacrifice]
+  example: Das Museum wurde Opfer eines Diebstahls.
+  exampleEn: The museum became the victim of a theft.
+  note: 'Always neuter, even for a man or woman: das Opfer.'
+- id: retten
+  lesson: de3-passive-past
+  term: retten
+  pos: verb
+  meanings: [to rescue, to save (from danger)]
+  example: Alle Bewohner wurden gerettet.
+  exampleEn: All the residents were rescued.
+  note: 'Perfect: hat gerettet.'
+- id: betroffen
+  lesson: de3-passive-past
+  term: betroffen
+  pos: adjective
+  meanings: [affected, concerned (affected), dismayed]
+  example: Viele Familien sind von dem Hochwasser betroffen.
+  exampleEn: Many families are affected by the flood.
+  note: betroffen sein von + Dat.
+- id: entdeckung
+  lesson: de3-passive-past
+  term: die Entdeckung
+  pos: noun
+  plural: die Entdeckungen
+  meanings: [discovery]
+  example: Die Entdeckung der Röntgenstrahlen war sehr wichtig.
+  exampleEn: The discovery of X-rays was very important.
+- id: erfinder
+  lesson: de3-passive-past
+  term: der Erfinder
+  pos: noun
+  plural: die Erfinder
+  meanings: [inventor (male), inventor]
+  example: Wer war der Erfinder des Buchdrucks?
+  exampleEn: Who was the inventor of printing?
+- id: erfinderin
+  lesson: de3-passive-past
+  term: die Erfinderin
+  pos: noun
+  plural: die Erfinderinnen
+  meanings: [inventor (female), inventor]
+  example: Melitta Bentz war die Erfinderin des Kaffeefilters.
+  exampleEn: Melitta Bentz was the inventor of the coffee filter.
+- id: eisenbahn
+  lesson: de3-passive-past
+  term: die Eisenbahn
+  pos: noun
+  plural: die Eisenbahnen
+  meanings: [railway, railroad, train set]
+  example: Die erste deutsche Eisenbahn fuhr 1835.
+  exampleEn: The first German railway ran in 1835.
+  note: 'In everyday speech: die Bahn.'
+- id: gebaeude
+  lesson: de3-passive-past
+  term: das Gebäude
+  pos: noun
+  plural: die Gebäude
+  meanings: [building]
+  example: Das Gebäude wurde durch das Feuer zerstört.
+  exampleEn: The building was destroyed by the fire.
+- id: diebstahl
+  lesson: de3-passive-past
+  term: der Diebstahl
+  pos: noun
+  plural: die Diebstähle
+  meanings: [theft, stealing]
+  example: Den Diebstahl müssen Sie bei der Polizei melden.
+  exampleEn: You have to report the theft to the police.
+- id: stehlen
+  lesson: de3-passive-past
+  term: stehlen
+  pos: verb
+  meanings: [to steal]
+  example: Mein Fahrrad ist gestohlen worden!
+  exampleEn: My bike has been stolen!
+  note: stiehlt, stahl, hat gestohlen.
+
+# --- 18 What must be done: the passive with modal verbs ---
+- id: verwaltung
+  lesson: de3-passive-modal
+  term: die Verwaltung
+  pos: noun
+  plural: die Verwaltungen
+  meanings: [administration, management (administration)]
+  example: Sie arbeitet in der Verwaltung des Krankenhauses.
+  exampleEn: She works in the hospital administration.
+- id: gemeinde
+  lesson: de3-passive-modal
+  term: die Gemeinde
+  pos: noun
+  plural: die Gemeinden
+  meanings: [municipality, local authority, community, parish]
+  example: Unsere Gemeinde hat nur 3.000 Einwohner.
+  exampleEn: Our municipality has only 3,000 inhabitants.
+  note: Also a church community.
+- id: stadtverwaltung
+  lesson: de3-passive-modal
+  term: die Stadtverwaltung
+  pos: noun
+  plural: die Stadtverwaltungen
+  meanings: [city administration, town council (administration), local council, city hall]
+  example: Der Antrag muss bei der Stadtverwaltung eingereicht werden.
+  exampleEn: The application must be submitted to the city administration.
+- id: buergermeister
+  lesson: de3-passive-modal
+  term: der Bürgermeister
+  pos: noun
+  plural: die Bürgermeister
+  meanings: [mayor (male), mayor]
+  example: Der Bürgermeister hat das Fest eröffnet.
+  exampleEn: The mayor opened the party.
+- id: buergermeisterin
+  lesson: de3-passive-modal
+  term: die Bürgermeisterin
+  pos: noun
+  plural: die Bürgermeisterinnen
+  meanings: [mayor (female), mayor]
+  example: Die Bürgermeisterin leitet die Sitzung.
+  exampleEn: The mayor is chairing the meeting.
+- id: gesetz
+  lesson: de3-passive-modal
+  term: das Gesetz
+  pos: noun
+  plural: die Gesetze
+  meanings: [law (passed by parliament), law, act, statute]
+  example: Das neue Gesetz gilt ab Januar.
+  exampleEn: The new law applies from January.
+- id: gesetzlich
+  lesson: de3-passive-modal
+  term: gesetzlich
+  pos: adjective
+  meanings: [legal (by law), statutory, by law, legally]
+  example: Das ist gesetzlich vorgeschrieben.
+  exampleEn: That is required by law.
+- id: vorschrift
+  lesson: de3-passive-modal
+  term: die Vorschrift
+  pos: noun
+  plural: die Vorschriften
+  meanings: [regulation, rule (official), instruction]
+  example: Die Vorschriften müssen genau beachtet werden.
+  exampleEn: The regulations must be followed exactly.
+- id: vorschreiben
+  lesson: de3-passive-modal
+  term: vorschreiben
+  pos: verb
+  meanings: [to prescribe (a rule), to stipulate, to require (by rule), to dictate]
+  example: Das Gesetz schreibt eine Frist von zwei Wochen vor.
+  exampleEn: The law stipulates a deadline of two weeks.
+  note: 'Separable: schreibt vor, schrieb vor, hat vorgeschrieben.'
+- id: genehmigung
+  lesson: de3-passive-modal
+  term: die Genehmigung
+  pos: noun
+  plural: die Genehmigungen
+  meanings: [permit, approval, permission (official), licence]
+  example: Für das Straßenfest braucht man eine Genehmigung.
+  exampleEn: You need a permit for the street party.
+- id: genehmigen
+  lesson: de3-passive-modal
+  term: genehmigen
+  pos: verb
+  meanings: [to approve, to permit (officially), to authorise, to authorize, to grant]
+  example: Unser Antrag wurde genehmigt.
+  exampleEn: Our application was approved.
+  note: 'Perfect: hat genehmigt.'
+- id: verbieten
+  lesson: de3-passive-modal
+  term: verbieten
+  pos: verb
+  meanings: [to forbid, to ban, to prohibit]
+  example: Rauchen ist hier verboten.
+  exampleEn: Smoking is forbidden here.
+  note: verbot, hat verboten. jemandem etwas verbieten.
+- id: strafe
+  lesson: de3-passive-modal
+  term: die Strafe
+  pos: noun
+  plural: die Strafen
+  meanings: [punishment, penalty, fine (penalty), sentence]
+  example: Für den Diebstahl bekam er eine hohe Strafe.
+  exampleEn: He got a heavy penalty for the theft.
+- id: bestrafen
+  lesson: de3-passive-modal
+  term: bestrafen
+  pos: verb
+  meanings: [to punish, to penalise, to penalize]
+  example: Wer ohne Ticket fährt, wird bestraft.
+  exampleEn: Anyone who travels without a ticket is punished.
+  note: 'Perfect: hat bestraft.'
+- id: kontrollieren
+  lesson: de3-passive-modal
+  term: kontrollieren
+  pos: verb
+  meanings: [to inspect, to check, to control]
+  example: Im Zug wurden die Fahrkarten kontrolliert.
+  exampleEn: The tickets were checked on the train.
+  note: 'Perfect: hat kontrolliert (no ge-). Usually "to check", rarely "to control".'
+- id: kontrolle
+  lesson: de3-passive-modal
+  term: die Kontrolle
+  pos: noun
+  plural: die Kontrollen
+  meanings: [inspection, check (inspection), control]
+  example: Bei der Kontrolle wurde ein Mann ohne Ticket erwischt.
+  exampleEn: During the inspection a man without a ticket was caught.
+- id: einhalten
+  lesson: de3-passive-modal
+  term: einhalten
+  pos: verb
+  meanings: [to keep to, to comply with, to obey (a rule), to meet (a deadline), to observe]
+  example: Bitte halten Sie die Frist ein.
+  exampleEn: Please keep to the deadline.
+  note: 'Separable: hält ein, hielt ein, hat eingehalten.'
+- id: verantwortlich
+  lesson: de3-passive-modal
+  term: verantwortlich
+  pos: adjective
+  meanings: [responsible (accountable), responsible, accountable]
+  example: Die Stadt ist für die Straßen verantwortlich.
+  exampleEn: The town is responsible for the roads.
+  note: verantwortlich für + Akk.
+- id: verantwortung
+  lesson: de3-passive-modal
+  term: die Verantwortung
+  pos: noun
+  plural: die Verantwortungen
+  meanings: [responsibility]
+  example: Eltern tragen die Verantwortung für ihre Kinder.
+  exampleEn: Parents bear the responsibility for their children.
+  note: Plural rare.
+- id: oeffentlich
+  lesson: de3-passive-modal
+  term: öffentlich
+  pos: adjective
+  meanings: [public, publicly]
+  example: Rauchen ist in öffentlichen Gebäuden verboten.
+  exampleEn: Smoking is forbidden in public buildings.
+  note: öffentliche Verkehrsmittel = public transport.
+- id: privat
+  lesson: de3-passive-modal
+  term: privat
+  pos: adjective
+  meanings: [private, privately]
+  example: Das ist ein privater Parkplatz.
+  exampleEn: This is a private car park.
+- id: erlaubnis
+  lesson: de3-passive-modal
+  term: die Erlaubnis
+  pos: noun
+  plural: die Erlaubnisse
+  meanings: [permission]
+  example: Hast du die Erlaubnis von deinen Eltern?
+  exampleEn: Do you have your parents' permission?
+  note: Official permission on paper is usually eine Genehmigung.
+- id: erforderlich
+  lesson: de3-passive-modal
+  term: erforderlich
+  pos: adjective
+  meanings: [required, necessary (formal), needed]
+  example: Für die Anmeldung ist ein Ausweis erforderlich.
+  exampleEn: An ID is required for registration.
+- id: notwendig
+  lesson: de3-passive-modal
+  term: notwendig
+  pos: adjective
+  meanings: [necessary, essential, needed]
+  example: Ist das wirklich notwendig?
+  exampleEn: Is that really necessary?
+- id: bussgeld
+  lesson: de3-passive-modal
+  term: das Bußgeld
+  pos: noun
+  plural: die Bußgelder
+  meanings: [fine (for an offence), fine, penalty]
+  example: Falsch parken kostet ein Bußgeld.
+  exampleEn: Parking illegally costs a fine.
+  note: 'Swiss spelling: Bussgeld.'
+- id: gelten
+  lesson: de3-passive-modal
+  term: gelten
+  pos: verb
+  meanings: [to be valid, to apply, to count]
+  example: Die Regel gilt auch am Wochenende.
+  exampleEn: The rule also applies at the weekend.
+  note: gilt, galt, hat gegolten. gelten als = to be regarded as.
+- id: nachweis
+  lesson: de3-passive-modal
+  term: der Nachweis
+  pos: noun
+  plural: die Nachweise
+  meanings: [proof, evidence (document), certificate (proof)]
+  example: Als Nachweis brauchen wir Ihren Mietvertrag.
+  exampleEn: We need your rental contract as proof.
+- id: vorlegen
+  lesson: de3-passive-modal
+  term: vorlegen
+  pos: verb
+  meanings: [to present (a document), to show (a document), to produce (a document)]
+  example: Der Ausweis muss vorgelegt werden.
+  exampleEn: The ID must be presented.
+  note: 'Separable: legt vor, hat vorgelegt.'
+- id: einreichen
+  lesson: de3-passive-modal
+  term: einreichen
+  pos: verb
+  meanings: [to submit, to hand in (officially), to file]
+  example: Der Antrag muss bis Freitag eingereicht werden.
+  exampleEn: The application must be submitted by Friday.
+  note: 'Separable: reicht ein, hat eingereicht.'
+- id: bearbeiten
+  lesson: de3-passive-modal
+  term: bearbeiten
+  pos: verb
+  meanings: [to process (an application), to deal with, to handle, to edit]
+  example: Ihr Antrag wird in drei Wochen bearbeitet.
+  exampleEn: Your application will be processed in three weeks.
+  note: 'Perfect: hat bearbeitet.'
+- id: sitzung
+  lesson: de3-passive-modal
+  term: die Sitzung
+  pos: noun
+  plural: die Sitzungen
+  meanings: [meeting (formal), session, sitting]
+  example: In der Sitzung wurde lange diskutiert.
+  exampleEn: There was a long discussion at the meeting.
+- id: beschliessen
+  lesson: de3-passive-modal
+  term: beschließen
+  pos: verb
+  meanings: [to decide (formally), to resolve, to pass (a law)]
+  example: Der Gemeinderat hat beschlossen, einen Park zu bauen.
+  exampleEn: The local council has decided to build a park.
+  note: beschloss, hat beschlossen.
+- id: massnahme
+  lesson: de3-passive-modal
+  term: die Maßnahme
+  pos: noun
+  plural: die Maßnahmen
+  meanings: [measure (step taken), measure, step (action)]
+  example: Die Stadt plant neue Maßnahmen gegen den Lärm.
+  exampleEn: The town is planning new measures against the noise.
+  note: 'Swiss spelling: Massnahme.'
+- id: personalausweis
+  lesson: de3-passive-modal
+  term: der Personalausweis
+  pos: noun
+  plural: die Personalausweise
+  meanings: [identity card (official), identity card, ID card, national ID card]
+  example: Ab 16 braucht man einen Personalausweis.
+  exampleEn: From 16 you need an identity card.
+- id: betreten
+  lesson: de3-passive-modal
+  term: betreten
+  pos: verb
+  meanings: [to enter (a room or area), to walk on, to step onto, to enter]
+  example: Betreten verboten!
+  exampleEn: Keep out! (No entry!)
+  note: 'Inseparable: betritt, betrat, hat betreten.'
+
+# --- 19 Giving opinions and discussing; da- and wo- words ---
+- id: ansicht
+  lesson: de3-opinions-media
+  term: die Ansicht
+  pos: noun
+  plural: die Ansichten
+  meanings: [view (opinion), view, opinion]
+  example: Meiner Ansicht nach ist das zu früh.
+  exampleEn: In my view that's too early.
+  note: meiner Ansicht nach = in my view.
+- id: standpunkt
+  lesson: de3-opinions-media
+  term: der Standpunkt
+  pos: noun
+  plural: die Standpunkte
+  meanings: [point of view, standpoint, position (opinion)]
+  example: Ich verstehe deinen Standpunkt.
+  exampleEn: I understand your point of view.
+- id: debatte
+  lesson: de3-opinions-media
+  term: die Debatte
+  pos: noun
+  plural: die Debatten
+  meanings: [debate]
+  example: Im Parlament gab es eine lange Debatte.
+  exampleEn: There was a long debate in parliament.
+- id: argument
+  lesson: de3-opinions-media
+  term: das Argument
+  pos: noun
+  plural: die Argumente
+  meanings: [argument (reason), argument, point (reason)]
+  example: Das ist ein gutes Argument.
+  exampleEn: That's a good argument.
+  note: 'A reason, not a quarrel (der Streit). Stress: ar-gu-MENT.'
+- id: argumentieren
+  lesson: de3-opinions-media
+  term: argumentieren
+  pos: verb
+  meanings: [to argue (give reasons), to argue, to reason, to make a case]
+  example: Sie argumentiert immer sehr sachlich.
+  exampleEn: She always argues very objectively.
+  note: 'Perfect: hat argumentiert. Not "to quarrel" (sich streiten).'
+- id: behaupten
+  lesson: de3-opinions-media
+  term: behaupten
+  pos: verb
+  meanings: [to claim, to assert, to maintain]
+  example: Er behauptet, dass er nichts gewusst hat.
+  exampleEn: He claims that he didn't know anything.
+  note: 'Perfect: hat behauptet.'
+- id: behauptung
+  lesson: de3-opinions-media
+  term: die Behauptung
+  pos: noun
+  plural: die Behauptungen
+  meanings: [claim, assertion, allegation]
+  example: Diese Behauptung ist falsch.
+  exampleEn: This claim is false.
+- id: widersprechen
+  lesson: de3-opinions-media
+  term: widersprechen
+  pos: verb
+  meanings: [to contradict, to disagree (with someone), to object]
+  example: Da muss ich dir widersprechen.
+  exampleEn: I have to disagree with you there.
+  note: 'Inseparable, + dative: widerspricht, widersprach, hat widersprochen.'
+- id: ablehnen
+  lesson: de3-opinions-media
+  term: ablehnen
+  pos: verb
+  meanings: [to reject, to turn down, to refuse, to decline]
+  example: Der Antrag wurde abgelehnt.
+  exampleEn: The application was rejected.
+  note: 'Separable: lehnt ab, hat abgelehnt.'
+- id: ablehnung
+  lesson: de3-opinions-media
+  term: die Ablehnung
+  pos: noun
+  plural: die Ablehnungen
+  meanings: [rejection, refusal]
+  example: Wir haben eine Ablehnung bekommen.
+  exampleEn: We received a rejection.
+- id: soziale-medien
+  lesson: de3-opinions-media
+  term: die sozialen Medien
+  pos: noun
+  plural: die sozialen Medien (plural only)
+  meanings: [social media]
+  example: Meine Tochter möchte in den sozialen Medien aktiv sein.
+  exampleEn: My daughter wants to be active on social media.
+  note: 'Plural only. Without the article: soziale Medien. Also Social Media.'
+- id: beitrag
+  lesson: de3-opinions-media
+  term: der Beitrag
+  pos: noun
+  plural: die Beiträge
+  meanings: [post (online), post, contribution, fee (membership)]
+  example: Dein Beitrag hat schon hundert Likes.
+  exampleEn: Your post already has a hundred likes.
+  note: 'Also contribution or membership fee: der Mitgliedsbeitrag.'
+- id: posten
+  lesson: de3-opinions-media
+  term: posten
+  pos: verb
+  meanings: [to post (online), to post]
+  example: Sie postet jeden Tag ein Foto.
+  exampleEn: She posts a photo every day.
+  note: 'Perfect: hat gepostet.'
+- id: teilen
+  lesson: de3-opinions-media
+  term: teilen
+  pos: verb
+  meanings: [to share, to divide, to split]
+  example: Teil bitte keine Fotos von mir!
+  exampleEn: Please don't share any photos of me!
+  note: 'Perfect: hat geteilt.'
+- id: nutzer
+  lesson: de3-opinions-media
+  term: der Nutzer
+  pos: noun
+  plural: die Nutzer
+  meanings: [user (male), user]
+  example: Die App hat zwei Millionen Nutzer.
+  exampleEn: The app has two million users.
+- id: nutzerin
+  lesson: de3-opinions-media
+  term: die Nutzerin
+  pos: noun
+  plural: die Nutzerinnen
+  meanings: [user (female), user]
+  example: Eine Nutzerin hat den Fehler gemeldet.
+  exampleEn: A user reported the error.
+- id: quelle
+  lesson: de3-opinions-media
+  term: die Quelle
+  pos: noun
+  plural: die Quellen
+  meanings: [source, spring (water)]
+  example: Überprüf immer die Quelle!
+  exampleEn: Always check the source!
+- id: glaubwuerdig
+  lesson: de3-opinions-media
+  term: glaubwürdig
+  pos: adjective
+  meanings: [credible, believable, trustworthy]
+  example: Diese Webseite ist nicht glaubwürdig.
+  exampleEn: This website isn't credible.
+- id: falschmeldung
+  lesson: de3-opinions-media
+  term: die Falschmeldung
+  pos: noun
+  plural: die Falschmeldungen
+  meanings: [false report, fake news, hoax]
+  example: Die Falschmeldung wurde tausendmal geteilt.
+  exampleEn: The fake news was shared a thousand times.
+- id: privatsphaere
+  lesson: de3-opinions-media
+  term: die Privatsphäre
+  pos: noun
+  plural: —
+  meanings: [privacy, private life]
+  example: Ich mache mir Sorgen um meine Privatsphäre.
+  exampleEn: I'm worried about my privacy.
+- id: datenschutz
+  lesson: de3-opinions-media
+  term: der Datenschutz
+  pos: noun
+  plural: —
+  meanings: [data protection, data privacy]
+  example: Der Datenschutz ist in Deutschland sehr streng.
+  exampleEn: Data protection is very strict in Germany.
+- id: abhaengig
+  lesson: de3-opinions-media
+  term: abhängig
+  pos: adjective
+  meanings: [dependent, addicted, depending]
+  example: Manche Kinder sind richtig abhängig von ihrem Handy.
+  exampleEn: Some children are really addicted to their phones.
+  note: abhängig von + Dat.
+- id: abhaengigkeit
+  lesson: de3-opinions-media
+  term: die Abhängigkeit
+  pos: noun
+  plural: die Abhängigkeiten
+  meanings: [dependence, dependency, addiction]
+  example: Die Abhängigkeit vom Handy ist ein großes Problem.
+  exampleEn: Dependence on phones is a big problem.
+- id: einverstanden
+  lesson: de3-opinions-media
+  term: einverstanden
+  pos: adjective
+  meanings: [in agreement, agreed, okay (with something), fine (with)]
+  example: Damit bin ich einverstanden.
+  exampleEn: I agree to that.
+  note: einverstanden sein mit + Dat. Only used with sein.
+- id: einfluss
+  lesson: de3-opinions-media
+  term: der Einfluss
+  pos: noun
+  plural: die Einflüsse
+  meanings: [influence]
+  example: Die Medien haben einen großen Einfluss auf junge Leute.
+  exampleEn: The media have a big influence on young people.
+  note: Einfluss auf + Akk.
+- id: beeinflussen
+  lesson: de3-opinions-media
+  term: beeinflussen
+  pos: verb
+  meanings: [to influence, to affect]
+  example: Werbung beeinflusst unsere Entscheidungen.
+  exampleEn: Advertising influences our decisions.
+  note: 'Inseparable: hat beeinflusst.'
+- id: kritisch
+  lesson: de3-opinions-media
+  term: kritisch
+  pos: adjective
+  meanings: [critical, critically]
+  example: Man sollte kritisch mit Informationen umgehen.
+  exampleEn: You should treat information critically.
+- id: tatsache
+  lesson: de3-opinions-media
+  term: die Tatsache
+  pos: noun
+  plural: die Tatsachen
+  meanings: [fact]
+  example: Das ist eine Tatsache, keine Meinung.
+  exampleEn: That's a fact, not an opinion.
+- id: luege
+  lesson: de3-opinions-media
+  term: die Lüge
+  pos: noun
+  plural: die Lügen
+  meanings: [lie (untruth), lie, falsehood]
+  example: Das ist eine Lüge!
+  exampleEn: That's a lie!
+  note: 'The verb: lügen (log, hat gelogen).'
+- id: verbreiten
+  lesson: de3-opinions-media
+  term: verbreiten
+  pos: verb
+  meanings: [to spread, to circulate, to disseminate]
+  example: Falschmeldungen werden schnell verbreitet.
+  exampleEn: Fake news is spread quickly.
+  note: 'Perfect: hat verbreitet.'
+- id: zweifel
+  lesson: de3-opinions-media
+  term: der Zweifel
+  pos: noun
+  plural: die Zweifel
+  meanings: [doubt]
+  example: Ich habe da meine Zweifel.
+  exampleEn: I have my doubts about that.
+  note: ohne Zweifel = without doubt.
+- id: angeblich
+  lesson: de3-opinions-media
+  term: angeblich
+  pos: adverb
+  meanings: [supposedly, allegedly, apparently (so they say)]
+  example: Angeblich haben alle in der Klasse ein Handy.
+  exampleEn: Supposedly everyone in the class has a phone.
+- id: tatsaechlich
+  lesson: de3-opinions-media
+  term: tatsächlich
+  pos: adverb
+  meanings: [in fact, actually, really, indeed]
+  example: 'Ich habe es überprüft: Es stimmt tatsächlich.'
+  exampleEn: 'I checked it: it really is true.'
+- id: ueberpruefen
+  lesson: de3-opinions-media
+  term: überprüfen
+  pos: verb
+  meanings: [to verify, to check (verify), to check]
+  example: Niemand hat die Quelle überprüft.
+  exampleEn: Nobody checked the source.
+  note: 'Inseparable: hat überprüft.'
+
+# --- 20 Politics and society ---
+- id: politik
+  lesson: de3-politics-society
+  term: die Politik
+  pos: noun
+  plural: —
+  meanings: [politics, policy]
+  example: Interessierst du dich für Politik?
+  exampleEn: Are you interested in politics?
+  note: 'Stress: po-li-TIK.'
+- id: politisch
+  lesson: de3-politics-society
+  term: politisch
+  pos: adjective
+  meanings: [political, politically]
+  example: Das ist eine politische Frage.
+  exampleEn: That's a political question.
+- id: politiker
+  lesson: de3-politics-society
+  term: der Politiker
+  pos: noun
+  plural: die Politiker
+  meanings: [politician (male), politician]
+  example: Der Politiker hat ein Interview gegeben.
+  exampleEn: The politician gave an interview.
+  note: 'Stress: po-LI-ti-ker.'
+- id: politikerin
+  lesson: de3-politics-society
+  term: die Politikerin
+  pos: noun
+  plural: die Politikerinnen
+  meanings: [politician (female), politician]
+  example: Viele junge Wähler vertrauen dieser Politikerin.
+  exampleEn: Many young voters trust this politician.
+- id: partei
+  lesson: de3-politics-society
+  term: die Partei
+  pos: noun
+  plural: die Parteien
+  meanings: [party (political), political party, party]
+  example: Welche Partei hast du gewählt?
+  exampleEn: Which party did you vote for?
+  note: A party with music is die Party or die Feier.
+- id: wahl
+  lesson: de3-politics-society
+  term: die Wahl
+  pos: noun
+  plural: die Wahlen
+  meanings: [election, choice, vote]
+  example: Die nächste Wahl ist im Herbst.
+  exampleEn: The next election is in the autumn.
+  note: Ich habe keine Wahl = I have no choice.
+- id: waehlen
+  lesson: de3-politics-society
+  term: wählen
+  pos: verb
+  meanings: [to vote (in an election), to vote, to elect, to choose, to dial]
+  example: Der Bundestag wird alle vier Jahre gewählt.
+  exampleEn: The Bundestag is elected every four years.
+  note: 'Perfect: hat gewählt.'
+- id: regierung
+  lesson: de3-politics-society
+  term: die Regierung
+  pos: noun
+  plural: die Regierungen
+  meanings: [government]
+  example: Die Regierung plant ein neues Gesetz.
+  exampleEn: The government is planning a new law.
+- id: regieren
+  lesson: de3-politics-society
+  term: regieren
+  pos: verb
+  meanings: [to govern, to rule, to reign]
+  example: Die Partei regiert seit vier Jahren.
+  exampleEn: The party has been governing for four years.
+  note: 'Perfect: hat regiert.'
+- id: parlament
+  lesson: de3-politics-society
+  term: das Parlament
+  pos: noun
+  plural: die Parlamente
+  meanings: [parliament]
+  example: Das Parlament hat das Gesetz beschlossen.
+  exampleEn: Parliament passed the law.
+  note: 'Stress: par-la-MENT.'
+- id: bundestag
+  lesson: de3-politics-society
+  term: der Bundestag
+  pos: noun
+  plural: —
+  meanings: [Bundestag (German federal parliament), Bundestag, German parliament, federal parliament]
+  example: Der Bundestag sitzt in Berlin.
+  exampleEn: The Bundestag sits in Berlin.
+- id: staat
+  lesson: de3-politics-society
+  term: der Staat
+  pos: noun
+  plural: die Staaten
+  meanings: [state (country), state, country, nation]
+  example: Die Schulen werden vom Staat bezahlt.
+  exampleEn: The schools are paid for by the state.
+  note: A German federal state is ein Bundesland.
+- id: demokratie
+  lesson: de3-politics-society
+  term: die Demokratie
+  pos: noun
+  plural: die Demokratien
+  meanings: [democracy]
+  example: In einer Demokratie entscheidet das Volk.
+  exampleEn: In a democracy, the people decide.
+  note: 'Stress: de-mo-kra-TIE.'
+- id: demokratisch
+  lesson: de3-politics-society
+  term: demokratisch
+  pos: adjective
+  meanings: [democratic, democratically]
+  example: Die Entscheidung wurde demokratisch getroffen.
+  exampleEn: The decision was made democratically.
+- id: recht
+  lesson: de3-politics-society
+  term: das Recht
+  pos: noun
+  plural: die Rechte
+  meanings: [right (entitlement), right, law (legal system)]
+  example: Jedes Kind hat ein Recht auf Bildung.
+  exampleEn: Every child has a right to education.
+  note: Recht auf + Akk. Not recht haben (to be right).
+- id: meinungsfreiheit
+  lesson: de3-politics-society
+  term: die Meinungsfreiheit
+  pos: noun
+  plural: —
+  meanings: [freedom of expression, freedom of speech, freedom of opinion]
+  example: Die Meinungsfreiheit steht im Grundgesetz.
+  exampleEn: Freedom of expression is in the Basic Law.
+- id: buergerinitiative
+  lesson: de3-politics-society
+  term: die Bürgerinitiative
+  pos: noun
+  plural: die Bürgerinitiativen
+  meanings: [citizens' action group, citizens' initiative, residents' action group, action group]
+  example: Die Bürgerinitiative kämpft gegen die Schließung des Bads.
+  exampleEn: The action group is fighting the closure of the pool.
+- id: demonstrieren
+  lesson: de3-politics-society
+  term: demonstrieren
+  pos: verb
+  meanings: [to demonstrate (protest), to demonstrate, to protest]
+  example: Tausende haben für den Klimaschutz demonstriert.
+  exampleEn: Thousands demonstrated for climate protection.
+  note: 'Perfect: hat demonstriert.'
+- id: demonstration
+  lesson: de3-politics-society
+  term: die Demonstration
+  pos: noun
+  plural: die Demonstrationen
+  meanings: [demonstration (protest), demonstration, protest, demo]
+  example: Zur Demonstration kamen 800 Leute.
+  exampleEn: 800 people came to the demonstration.
+  note: 'Short form: die Demo.'
+- id: ehrenamt
+  lesson: de3-politics-society
+  term: das Ehrenamt
+  pos: noun
+  plural: die Ehrenämter
+  meanings: [voluntary work, volunteering, volunteer position, honorary post]
+  example: Das Ehrenamt macht sie am Wochenende.
+  exampleEn: She does her voluntary work at the weekend.
+- id: ehrenamtlich
+  lesson: de3-politics-society
+  term: ehrenamtlich
+  pos: adjective
+  meanings: [voluntary, unpaid, as a volunteer, volunteer]
+  example: Er arbeitet ehrenamtlich bei der Feuerwehr.
+  exampleEn: He works as a volunteer with the fire brigade.
+- id: sich-engagieren
+  lesson: de3-politics-society
+  term: sich engagieren
+  pos: verb
+  meanings: [to get involved, to be committed, to be active (in a cause)]
+  example: Ich engagiere mich für den Umweltschutz.
+  exampleEn: I'm involved in environmental protection.
+  note: 'Reflexive: ich engagiere mich. Perfect: hat sich engagiert. French g: an-ga-ZHIE-ren.'
+- id: integration
+  lesson: de3-politics-society
+  term: die Integration
+  pos: noun
+  plural: —
+  meanings: [integration]
+  example: Sprachkurse sind wichtig für die Integration.
+  exampleEn: Language courses are important for integration.
+- id: gleichberechtigung
+  lesson: de3-politics-society
+  term: die Gleichberechtigung
+  pos: noun
+  plural: —
+  meanings: [equal rights, equality (of rights), gender equality]
+  example: Die Gleichberechtigung von Männern und Frauen steht im Grundgesetz.
+  exampleEn: Equal rights for men and women are in the Basic Law.
+- id: minister
+  lesson: de3-politics-society
+  term: der Minister
+  pos: noun
+  plural: die Minister
+  meanings: [minister (male), minister]
+  example: Der Minister ist gestern zurückgetreten.
+  exampleEn: The minister resigned yesterday.
+- id: ministerin
+  lesson: de3-politics-society
+  term: die Ministerin
+  pos: noun
+  plural: die Ministerinnen
+  meanings: [minister (female), minister]
+  example: Die neue Ministerin wurde heute ernannt.
+  exampleEn: The new minister was appointed today.
+- id: bundeskanzler
+  lesson: de3-politics-society
+  term: der Bundeskanzler
+  pos: noun
+  plural: die Bundeskanzler
+  meanings: [Federal Chancellor (male), chancellor, federal chancellor]
+  example: Der Bundeskanzler wird vom Bundestag gewählt.
+  exampleEn: The Federal Chancellor is elected by the Bundestag.
+  note: 'Short: der Kanzler.'
+- id: bundeskanzlerin
+  lesson: de3-politics-society
+  term: die Bundeskanzlerin
+  pos: noun
+  plural: die Bundeskanzlerinnen
+  meanings: [Federal Chancellor (female), chancellor, federal chancellor]
+  example: Die Bundeskanzlerin leitet die Regierung.
+  exampleEn: The Federal Chancellor leads the government.
+  note: 'Short: die Kanzlerin.'
+- id: stimme
+  lesson: de3-politics-society
+  term: die Stimme
+  pos: noun
+  plural: die Stimmen
+  meanings: [vote (in an election), vote, voice]
+  example: Jeder Wähler hat zwei Stimmen.
+  exampleEn: Every voter has two votes.
+  note: 'Also voice: Sie hat eine schöne Stimme.'
+- id: abstimmen
+  lesson: de3-politics-society
+  term: abstimmen
+  pos: verb
+  meanings: [to vote (on a question), to take a vote, to vote]
+  example: Morgen wird über das Gesetz abgestimmt.
+  exampleEn: The law will be voted on tomorrow.
+  note: 'Separable: stimmt ab, hat abgestimmt. abstimmen über + Akk.'
+- id: verfassung
+  lesson: de3-politics-society
+  term: die Verfassung
+  pos: noun
+  plural: die Verfassungen
+  meanings: [constitution]
+  example: Jedes Land hat eine Verfassung.
+  exampleEn: Every country has a constitution.
+  note: 'Also state, condition: in guter Verfassung.'
+- id: gerecht
+  lesson: de3-politics-society
+  term: gerecht
+  pos: adjective
+  meanings: [just (fair), fair, just]
+  example: Wir finden die Entscheidung nicht gerecht.
+  exampleEn: We don't think the decision is fair.
+  note: ungerecht = unfair.
+- id: waehler
+  lesson: de3-politics-society
+  term: der Wähler
+  pos: noun
+  plural: die Wähler
+  meanings: [voter (male), voter]
+  example: Viele Wähler sind unzufrieden.
+  exampleEn: Many voters are dissatisfied.
+- id: waehlerin
+  lesson: de3-politics-society
+  term: die Wählerin
+  pos: noun
+  plural: die Wählerinnen
+  meanings: [voter (female), voter]
+  example: Jede Wählerin hat zwei Stimmen.
+  exampleEn: Every voter has two votes.
+- id: grundgesetz
+  lesson: de3-politics-society
+  term: das Grundgesetz
+  pos: noun
+  plural: —
+  meanings: [Basic Law (German constitution), German constitution, basic law]
+  example: Das Grundgesetz gilt seit 1949.
+  exampleEn: The Basic Law has been in force since 1949.

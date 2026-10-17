@@ -1,0 +1,1393 @@
+# German B1, module 5: If only: Konjunktiv II and more (lessons 21–25)
+
+# --- 21 Konjunktiv II in full: dreams, lifestyle, wishes ---
+- id: lebensstil
+  lesson: de3-konj2-present
+  term: der Lebensstil
+  pos: noun
+  plural: die Lebensstile
+  meanings: [lifestyle, way of life, style of living]
+  example: Ihr Lebensstil ist sehr einfach.
+  exampleEn: Her lifestyle is very simple.
+- id: lebensqualitaet
+  lesson: de3-konj2-present
+  term: die Lebensqualität
+  pos: noun
+  plural: —
+  meanings: [quality of life]
+  example: Seit dem Umzug aufs Land haben wir mehr Lebensqualität.
+  exampleEn: Since moving to the country we have a better quality of life.
+- id: das-ideal
+  lesson: de3-konj2-present
+  term: das Ideal
+  pos: noun
+  plural: die Ideale
+  meanings: [ideal (noun), ideal]
+  example: Ein Leben ohne Stress ist für viele ein Ideal.
+  exampleEn: A life without stress is an ideal for many people.
+- id: ideal
+  lesson: de3-konj2-present
+  term: ideal
+  pos: adjective
+  meanings: [ideal (adjective), ideal, perfect]
+  example: Das Wetter ist ideal für einen Ausflug.
+  exampleEn: The weather is ideal for a trip.
+- id: vorstellung
+  lesson: de3-konj2-present
+  term: die Vorstellung
+  pos: noun
+  plural: die Vorstellungen
+  meanings: [idea (picture in your mind), idea, notion, image, conception, performance, introduction]
+  example: Ich habe eine genaue Vorstellung von meinem Traumhaus.
+  exampleEn: I have a clear idea of my dream house.
+  note: 'Also a performance (theatre, cinema) and an introduction (of a person).'
+- id: sich-vorstellen
+  lesson: de3-konj2-present
+  term: sich vorstellen
+  pos: verb
+  meanings: [to imagine, to picture, to introduce oneself, to introduce yourself]
+  example: Ich kann mir gut vorstellen, in Wien zu leben.
+  exampleEn: I can easily imagine living in Vienna.
+  note: 'Separable. To imagine takes a dative pronoun: ich stelle mir vor. To introduce yourself takes an accusative pronoun: ich stelle mich vor.'
+- id: wunschtraum
+  lesson: de3-konj2-present
+  term: der Wunschtraum
+  pos: noun
+  plural: die Wunschträume
+  meanings: [dream (something you wish for), pipe dream, dream, wish]
+  example: Ein Haus am Meer bleibt wohl ein Wunschtraum.
+  exampleEn: A house by the sea will probably remain a dream.
+- id: aussteiger
+  lesson: de3-konj2-present
+  term: der Aussteiger
+  pos: noun
+  plural: die Aussteiger
+  meanings: [dropout (male, someone who leaves normal working life), dropout, drop-out]
+  example: Der Aussteiger lebt seit Jahren auf einem Bauernhof.
+  exampleEn: The dropout has been living on a farm for years.
+  note: 'From aussteigen: aus dem Beruf aussteigen, to give up your career.'
+- id: aussteigerin
+  lesson: de3-konj2-present
+  term: die Aussteigerin
+  pos: noun
+  plural: die Aussteigerinnen
+  meanings: [dropout (female, someone who leaves normal working life), dropout, drop-out]
+  example: Als Aussteigerin verdient sie wenig, aber sie ist glücklich.
+  exampleEn: As a dropout she earns little, but she's happy.
+- id: unabhaengig
+  lesson: de3-konj2-present
+  term: unabhängig
+  pos: adjective
+  meanings: [independent]
+  example: Mit dem eigenen Auto bin ich unabhängig.
+  exampleEn: With my own car I'm independent.
+  note: 'unabhängig von + dative: independent of.'
+- id: unabhaengigkeit
+  lesson: de3-konj2-present
+  term: die Unabhängigkeit
+  pos: noun
+  plural: —
+  meanings: [independence]
+  example: Meine Unabhängigkeit ist mir wichtig.
+  exampleEn: My independence is important to me.
+- id: abwechslung
+  lesson: de3-konj2-present
+  term: die Abwechslung
+  pos: noun
+  plural: die Abwechslungen
+  meanings: [variety (change from routine), change, variety, a change]
+  example: Zur Abwechslung kochen wir heute mal indisch.
+  exampleEn: For a change, we're cooking Indian food today.
+- id: abwechslungsreich
+  lesson: de3-konj2-present
+  term: abwechslungsreich
+  pos: adjective
+  meanings: [varied, full of variety, diverse]
+  example: Meine Arbeit ist sehr abwechslungsreich.
+  exampleEn: My work is very varied.
+- id: langeweile
+  lesson: de3-konj2-present
+  term: die Langeweile
+  pos: noun
+  plural: —
+  meanings: [boredom]
+  example: Im Urlaub hatte ich nach drei Tagen Langeweile.
+  exampleEn: On holiday I was bored after three days.
+- id: sehnsucht
+  lesson: de3-konj2-present
+  term: die Sehnsucht
+  pos: noun
+  plural: die Sehnsüchte
+  meanings: [longing, yearning]
+  example: Im Winter habe ich Sehnsucht nach der Sonne.
+  exampleEn: In winter I long for the sun.
+  note: 'Sehnsucht nach + dative.'
+- id: sich-sehnen
+  lesson: de3-konj2-present
+  term: sich sehnen
+  pos: verb
+  meanings: [to long (for), to long for, to yearn for, to yearn]
+  example: Nach dem Umzug sehnte sie sich nach ihrer Familie.
+  exampleEn: After the move she longed for her family.
+  note: 'sich sehnen nach + dative.'
+- id: gluecklicherweise
+  lesson: de3-konj2-present
+  term: glücklicherweise
+  pos: adverb
+  meanings: [fortunately, luckily]
+  example: Glücklicherweise hat niemand den Fehler bemerkt.
+  exampleEn: Fortunately, nobody noticed the mistake.
+- id: ausgerechnet
+  lesson: de3-konj2-present
+  term: ausgerechnet
+  pos: adverb
+  meanings: [of all things, of all people, of all days, of all places]
+  example: Ausgerechnet heute regnet es!
+  exampleEn: It's raining today of all days!
+- id: ehrgeizig
+  lesson: de3-konj2-present
+  term: ehrgeizig
+  pos: adjective
+  meanings: [ambitious]
+  example: Meine Schwester ist sehr ehrgeizig und lernt jeden Abend.
+  exampleEn: My sister is very ambitious and studies every evening.
+- id: ehrgeiz
+  lesson: de3-konj2-present
+  term: der Ehrgeiz
+  pos: noun
+  plural: —
+  meanings: [ambition]
+  example: Ihm fehlt der Ehrgeiz.
+  exampleEn: He lacks ambition.
+- id: karriere
+  lesson: de3-konj2-present
+  term: die Karriere
+  pos: noun
+  plural: die Karrieren
+  meanings: [career]
+  example: Sie hat ihre Karriere als Krankenschwester begonnen.
+  exampleEn: She began her career as a nurse.
+  note: 'Karriere machen: to have a successful career, get ahead.'
+- id: verwirklichen
+  lesson: de3-konj2-present
+  term: verwirklichen
+  pos: verb
+  meanings: [to realize (make real), to realise, to make come true, to carry out]
+  example: Mit 50 hat er seinen Traum verwirklicht.
+  exampleEn: At 50 he made his dream come true.
+  note: 'Perfect: hat verwirklicht (no ge-).'
+- id: auswandern
+  lesson: de3-konj2-present
+  term: auswandern
+  pos: verb
+  meanings: [to emigrate]
+  example: Meine Großeltern sind nach Kanada ausgewandert.
+  exampleEn: My grandparents emigrated to Canada.
+  note: 'Separable. Perfect with sein: ist ausgewandert.'
+- id: wirklichkeit
+  lesson: de3-konj2-present
+  term: die Wirklichkeit
+  pos: noun
+  plural: die Wirklichkeiten
+  meanings: [reality]
+  example: In Wirklichkeit ist das Hotel viel kleiner als auf den Fotos.
+  exampleEn: In reality the hotel is much smaller than in the photos.
+- id: realistisch
+  lesson: de3-konj2-present
+  term: realistisch
+  pos: adjective
+  meanings: [realistic]
+  example: Ist dieser Plan realistisch?
+  exampleEn: Is this plan realistic?
+- id: reichtum
+  lesson: de3-konj2-present
+  term: der Reichtum
+  pos: noun
+  plural: die Reichtümer
+  meanings: [wealth, riches]
+  example: Reichtum allein macht nicht glücklich.
+  exampleEn: Wealth alone doesn't make you happy.
+- id: lotto
+  lesson: de3-konj2-present
+  term: das Lotto
+  pos: noun
+  plural: die Lottos
+  meanings: [lottery, lotto, the lottery]
+  example: Er spielt jede Woche Lotto.
+  exampleEn: He plays the lottery every week.
+  note: 'im Lotto gewinnen: to win the lottery.'
+- id: erfuellen
+  lesson: de3-konj2-present
+  term: erfüllen
+  pos: verb
+  meanings: [to fulfil, to fulfill, to meet (a requirement), to grant (a wish)]
+  example: Mit der Reise hat sie sich einen großen Wunsch erfüllt.
+  exampleEn: With the trip she fulfilled a big wish.
+  note: 'Perfect: hat erfüllt. sich einen Wunsch erfüllen: to treat yourself to something you have long wanted.'
+- id: angenommen
+  lesson: de3-konj2-present
+  term: angenommen
+  pos: conjunction
+  meanings: [supposing, assuming, suppose]
+  example: Angenommen, du hättest ein Jahr frei, was würdest du machen?
+  exampleEn: Supposing you had a year off, what would you do?
+  note: 'Starts a hypothetical situation, often followed by Konjunktiv II.'
+- id: theoretisch
+  lesson: de3-konj2-present
+  term: theoretisch
+  pos: adjective
+  meanings: [theoretical, theoretically, in theory]
+  example: Theoretisch könnte ich morgen kündigen.
+  exampleEn: In theory I could quit tomorrow.
+- id: zufriedenheit
+  lesson: de3-konj2-present
+  term: die Zufriedenheit
+  pos: noun
+  plural: —
+  meanings: [satisfaction, contentment]
+  example: Für mich ist Zufriedenheit wichtiger als Geld.
+  exampleEn: For me, contentment is more important than money.
+- id: eigentlich
+  lesson: de3-konj2-present
+  term: eigentlich
+  pos: adverb
+  meanings: [actually, really, in fact]
+  example: Eigentlich wollte ich heute früh ins Bett gehen.
+  exampleEn: Actually, I wanted to go to bed early tonight.
+- id: vermissen
+  lesson: de3-konj2-present
+  term: vermissen
+  pos: verb
+  meanings: [to miss (someone or something you long for), to miss]
+  example: Im Ausland vermisse ich vor allem das deutsche Brot.
+  exampleEn: Abroad, what I miss most is German bread.
+  note: 'Perfect: hat vermisst. For missing a train, use verpassen.'
+- id: einteilen
+  lesson: de3-konj2-present
+  term: einteilen
+  pos: verb
+  meanings: [to divide up, to plan (time or money), to organize, to split up]
+  example: Als Freiberufler kann ich mir die Zeit selbst einteilen.
+  exampleEn: As a freelancer I can plan my own time.
+  note: 'Separable: er teilt ein, hat eingeteilt.'
+
+# --- 22 The past subjunctive: regrets, mistakes, chances ---
+- id: bereuen
+  lesson: de3-konj2-past
+  term: bereuen
+  pos: verb
+  meanings: [to regret]
+  example: Ich bereue nichts.
+  exampleEn: I don't regret anything.
+  note: 'Perfect: hat bereut.'
+- id: reue
+  lesson: de3-konj2-past
+  term: die Reue
+  pos: noun
+  plural: —
+  meanings: [remorse, regret, repentance]
+  example: Der Täter zeigte keine Reue.
+  exampleEn: The offender showed no remorse.
+- id: versaeumen
+  lesson: de3-konj2-past
+  term: versäumen
+  pos: verb
+  meanings: [to miss (fail to attend or do), to miss, to neglect, to fail to do]
+  example: Ich habe den Termin leider versäumt.
+  exampleEn: Unfortunately I missed the appointment.
+  note: 'Perfect: hat versäumt. More formal than verpassen.'
+- id: zufall
+  lesson: de3-konj2-past
+  term: der Zufall
+  pos: noun
+  plural: die Zufälle
+  meanings: [coincidence, chance, accident]
+  example: Was für ein Zufall, dich hier zu treffen!
+  exampleEn: What a coincidence to meet you here!
+  note: 'durch Zufall: by chance.'
+- id: zufaellig
+  lesson: de3-konj2-past
+  term: zufällig
+  pos: adjective
+  meanings: [by chance, accidental, random, coincidentally, by any chance]
+  example: Weißt du zufällig, wann der Laden aufmacht?
+  exampleEn: Do you know by any chance when the shop opens?
+- id: schicksal
+  lesson: de3-konj2-past
+  term: das Schicksal
+  pos: noun
+  plural: die Schicksale
+  meanings: [fate, destiny]
+  example: Sie glaubt nicht an das Schicksal.
+  exampleEn: She doesn't believe in fate.
+- id: vorwurf
+  lesson: de3-konj2-past
+  term: der Vorwurf
+  pos: noun
+  plural: die Vorwürfe
+  meanings: [reproach, accusation, criticism]
+  example: Mach dir keine Vorwürfe, es war nicht deine Schuld.
+  exampleEn: Don't blame yourself, it wasn't your fault.
+  note: 'sich Vorwürfe machen: to blame yourself.'
+- id: vorwerfen
+  lesson: de3-konj2-past
+  term: vorwerfen
+  pos: verb
+  meanings: [to reproach, to accuse (of), to blame (for)]
+  example: Er wirft mir vor, dass ich nie zuhöre.
+  exampleEn: He accuses me of never listening.
+  note: 'Separable and strong: er wirft vor, warf vor, hat vorgeworfen. jemandem (dative) etwas vorwerfen.'
+- id: schuld-sein
+  lesson: de3-konj2-past
+  kind: phrase
+  term: schuld sein
+  pos: phrase
+  meanings: [to be to blame, to be at fault, to be someone's fault]
+  example: Wer ist schuld an dem Unfall?
+  exampleEn: Who is to blame for the accident?
+  note: 'Small s: Ich bin schuld. schuld sein an + dative.'
+- id: schuld
+  lesson: de3-konj2-past
+  term: die Schuld
+  pos: noun
+  plural: — (die Schulden = debts)
+  meanings: [fault (blame), guilt, blame, fault]
+  example: Das war nicht deine Schuld.
+  exampleEn: That wasn't your fault.
+- id: ursache
+  lesson: de3-konj2-past
+  term: die Ursache
+  pos: noun
+  plural: die Ursachen
+  meanings: [cause, reason]
+  example: Die Ursache des Feuers ist noch unklar.
+  exampleEn: The cause of the fire is still unclear.
+  note: 'Keine Ursache! is a reply to thanks: not at all, you''re welcome.'
+- id: wirkung
+  lesson: de3-konj2-past
+  term: die Wirkung
+  pos: noun
+  plural: die Wirkungen
+  meanings: [effect]
+  example: Der Tee hat eine beruhigende Wirkung.
+  exampleEn: The tea has a calming effect.
+- id: sich-auswirken
+  lesson: de3-konj2-past
+  term: sich auswirken
+  pos: verb
+  meanings: [to affect, to have an effect (on), to impact]
+  example: Schlechter Schlaf wirkt sich auf die Konzentration aus.
+  exampleEn: Poor sleep affects concentration.
+  note: 'Separable. sich auswirken auf + accusative. Perfect: hat sich ausgewirkt.'
+- id: auswirkung
+  lesson: de3-konj2-past
+  term: die Auswirkung
+  pos: noun
+  plural: die Auswirkungen
+  meanings: [impact, consequence, effect (on something)]
+  example: Die Entscheidung hat Auswirkungen auf die ganze Familie.
+  exampleEn: The decision has an impact on the whole family.
+  note: 'Auswirkung auf + accusative.'
+- id: nachtraeglich
+  lesson: de3-konj2-past
+  term: nachträglich
+  pos: adjective
+  meanings: [belated, belatedly, afterwards, later, subsequent]
+  example: Nachträglich alles Gute zum Geburtstag!
+  exampleEn: Belated happy birthday!
+- id: im-nachhinein
+  lesson: de3-konj2-past
+  kind: phrase
+  term: im Nachhinein
+  pos: phrase
+  meanings: [in hindsight, with hindsight, afterwards, in retrospect]
+  example: Im Nachhinein war die Entscheidung richtig.
+  exampleEn: In hindsight the decision was right.
+- id: rueckblickend
+  lesson: de3-konj2-past
+  term: rückblickend
+  pos: adverb
+  meanings: [looking back, in retrospect, retrospectively]
+  example: Rückblickend war das die beste Zeit meines Lebens.
+  exampleEn: Looking back, that was the best time of my life.
+- id: hinterher
+  lesson: de3-konj2-past
+  term: hinterher
+  pos: adverb
+  meanings: [afterwards (after the event), afterwards, after, later, behind]
+  example: Hinterher ist man immer klüger.
+  exampleEn: You're always wiser afterwards.
+- id: erleichtert
+  lesson: de3-konj2-past
+  term: erleichtert
+  pos: adjective
+  meanings: [relieved]
+  example: Nach der Prüfung war ich total erleichtert.
+  exampleEn: After the exam I was really relieved.
+- id: erleichterung
+  lesson: de3-konj2-past
+  term: die Erleichterung
+  pos: noun
+  plural: die Erleichterungen
+  meanings: [relief]
+  example: Was für eine Erleichterung!
+  exampleEn: What a relief!
+- id: irrtum
+  lesson: de3-konj2-past
+  term: der Irrtum
+  pos: noun
+  plural: die Irrtümer
+  meanings: [error (wrong belief), mistake, misconception, error]
+  example: Das muss ein Irrtum sein.
+  exampleEn: That must be a mistake.
+- id: sich-irren
+  lesson: de3-konj2-past
+  term: sich irren
+  pos: verb
+  meanings: [to be wrong, to be mistaken]
+  example: Wenn ich mich nicht irre, beginnt der Film um acht.
+  exampleEn: If I'm not mistaken, the film starts at eight.
+  note: 'Perfect: hat sich geirrt.'
+- id: konsequenz
+  lesson: de3-konj2-past
+  term: die Konsequenz
+  pos: noun
+  plural: die Konsequenzen
+  meanings: [consequence]
+  example: Jede Entscheidung hat Konsequenzen.
+  exampleEn: Every decision has consequences.
+- id: vermeiden
+  lesson: de3-konj2-past
+  term: vermeiden
+  pos: verb
+  meanings: [to avoid]
+  example: Diesen Fehler hättest du leicht vermeiden können.
+  exampleEn: You could easily have avoided this mistake.
+  note: 'Strong: vermied, hat vermieden.'
+- id: verhindern
+  lesson: de3-konj2-past
+  term: verhindern
+  pos: verb
+  meanings: [to prevent, to stop (from happening)]
+  example: Der Fahrer konnte den Unfall nicht verhindern.
+  exampleEn: The driver couldn't prevent the accident.
+  note: 'Perfect: hat verhindert.'
+- id: beinahe
+  lesson: de3-konj2-past
+  term: beinahe
+  pos: adverb
+  meanings: [nearly (almost), almost, nearly]
+  example: Ich wäre beinahe zu spät gekommen.
+  exampleEn: I nearly came too late.
+  note: 'Like fast; with the past subjunctive for something that almost happened.'
+- id: knapp
+  lesson: de3-konj2-past
+  term: knapp
+  pos: adjective
+  meanings: [narrow (only just), narrowly, just, barely, tight, scarce, short]
+  example: Wir haben den Zug ganz knapp erreicht.
+  exampleEn: We only just caught the train.
+  note: 'knapp bei Kasse: short of money; knapp eine Stunde: just under an hour.'
+- id: pech
+  lesson: de3-konj2-past
+  term: das Pech
+  pos: noun
+  plural: —
+  meanings: [bad luck]
+  example: So ein Pech! Der Laden ist schon zu.
+  exampleEn: What bad luck! The shop is already closed.
+  note: 'Pech haben: to be unlucky. Opposite: Glück haben.'
+- id: warnen
+  lesson: de3-konj2-past
+  term: warnen
+  pos: verb
+  meanings: [to warn]
+  example: Ich habe dich vor dem Hund gewarnt!
+  exampleEn: I warned you about the dog!
+  note: 'warnen vor + dative.'
+- id: warnung
+  lesson: de3-konj2-past
+  term: die Warnung
+  pos: noun
+  plural: die Warnungen
+  meanings: [warning]
+  example: Er hat die Warnung nicht ernst genommen.
+  exampleEn: He didn't take the warning seriously.
+- id: einfluss
+  lesson: de3-konj2-past
+  term: der Einfluss
+  pos: noun
+  plural: die Einflüsse
+  meanings: [influence]
+  example: Meine Lehrerin hatte großen Einfluss auf mich.
+  exampleEn: My teacher had a big influence on me.
+  note: 'Einfluss auf + accusative.'
+- id: beeinflussen
+  lesson: de3-konj2-past
+  term: beeinflussen
+  pos: verb
+  meanings: [to influence, to affect]
+  example: Das Wetter beeinflusst meine Laune.
+  exampleEn: The weather influences my mood.
+  note: 'Perfect: hat beeinflusst.'
+- id: verursachen
+  lesson: de3-konj2-past
+  term: verursachen
+  pos: verb
+  meanings: [to cause]
+  example: Ein kleiner Fehler hat große Probleme verursacht.
+  exampleEn: A small mistake caused big problems.
+  note: 'Perfect: hat verursacht.'
+- id: absichtlich
+  lesson: de3-konj2-past
+  term: absichtlich
+  pos: adjective
+  meanings: [deliberately, on purpose, intentional, intentionally]
+  example: Das habe ich nicht absichtlich gemacht!
+  exampleEn: I didn't do that on purpose!
+- id: ansprechen
+  lesson: de3-konj2-past
+  term: ansprechen
+  pos: verb
+  meanings: [to speak to (approach someone), to approach, to address, to talk to, to raise (a topic)]
+  example: Im Zug hat mich eine ältere Dame angesprochen.
+  exampleEn: On the train an older lady started talking to me.
+  note: 'Separable and strong: er spricht an, sprach an, hat angesprochen. Also: ein Thema ansprechen, to raise a topic.'
+
+# --- 23 Wishes, advice and polite requests: personal problems and feelings ---
+- id: ratschlag
+  lesson: de3-advice-wishes
+  term: der Ratschlag
+  pos: noun
+  plural: die Ratschläge
+  meanings: [piece of advice, advice, tip]
+  example: Danke für deinen Ratschlag!
+  exampleEn: Thanks for your advice!
+  note: 'Countable, unlike der Rat: ein Ratschlag, zwei Ratschläge.'
+- id: tipp
+  lesson: de3-advice-wishes
+  term: der Tipp
+  pos: noun
+  plural: die Tipps
+  meanings: [tip (useful hint), tip, hint]
+  example: Hast du einen Tipp für ein gutes Restaurant?
+  exampleEn: Do you have a tip for a good restaurant?
+- id: beraten
+  lesson: de3-advice-wishes
+  term: beraten
+  pos: verb
+  meanings: [to advise (professionally), to give advice, to counsel, to advise]
+  example: Die Verkäuferin hat mich sehr gut beraten.
+  exampleEn: The sales assistant gave me very good advice.
+  note: 'Strong: sie berät, beriet, hat beraten. Takes an accusative: jemanden beraten.'
+- id: beratung
+  lesson: de3-advice-wishes
+  term: die Beratung
+  pos: noun
+  plural: die Beratungen
+  meanings: [counselling, advice, consultation, counseling]
+  example: Die Beratung ist kostenlos.
+  exampleEn: The advice session is free.
+- id: berater
+  lesson: de3-advice-wishes
+  term: der Berater
+  pos: noun
+  plural: die Berater
+  meanings: [adviser (male), advisor, consultant, counsellor]
+  example: Mein Berater bei der Bank ist sehr freundlich.
+  exampleEn: My adviser at the bank is very friendly.
+- id: beraterin
+  lesson: de3-advice-wishes
+  term: die Beraterin
+  pos: noun
+  plural: die Beraterinnen
+  meanings: [adviser (female), advisor, consultant, counsellor]
+  example: Sie arbeitet als Beraterin für eine große Firma.
+  exampleEn: She works as a consultant for a big company.
+- id: krise
+  lesson: de3-advice-wishes
+  term: die Krise
+  pos: noun
+  plural: die Krisen
+  meanings: [crisis]
+  example: Nach der Trennung war er in einer Krise.
+  exampleEn: After the break-up he was in a crisis.
+- id: kummer
+  lesson: de3-advice-wishes
+  term: der Kummer
+  pos: noun
+  plural: —
+  meanings: [sorrow, grief, distress, worry]
+  example: Sie hat ihren Kummer niemandem erzählt.
+  exampleEn: She didn't tell anyone about her sorrow.
+- id: liebeskummer
+  lesson: de3-advice-wishes
+  term: der Liebeskummer
+  pos: noun
+  plural: —
+  meanings: [heartache, lovesickness, a broken heart]
+  example: Mein Bruder hat gerade Liebeskummer.
+  exampleEn: My brother is heartbroken at the moment.
+- id: einsam
+  lesson: de3-advice-wishes
+  term: einsam
+  pos: adjective
+  meanings: [lonely, lonesome, solitary]
+  example: Seit ihr Mann gestorben ist, fühlt sie sich einsam.
+  exampleEn: Since her husband died, she has felt lonely.
+- id: einsamkeit
+  lesson: de3-advice-wishes
+  term: die Einsamkeit
+  pos: noun
+  plural: —
+  meanings: [loneliness, solitude]
+  example: Einsamkeit ist auch bei jungen Menschen ein Problem.
+  exampleEn: Loneliness is a problem among young people too.
+- id: enttaeuschung
+  lesson: de3-advice-wishes
+  term: die Enttäuschung
+  pos: noun
+  plural: die Enttäuschungen
+  meanings: [disappointment]
+  example: Das Konzert war eine große Enttäuschung.
+  exampleEn: The concert was a big disappointment.
+- id: verzweifelt
+  lesson: de3-advice-wishes
+  term: verzweifelt
+  pos: adjective
+  meanings: [desperate, in despair]
+  example: Er war verzweifelt, weil er keine Wohnung fand.
+  exampleEn: He was desperate because he couldn't find a flat.
+- id: hoffentlich
+  lesson: de3-advice-wishes
+  term: hoffentlich
+  pos: adverb
+  meanings: [hopefully, I hope]
+  example: Hoffentlich regnet es morgen nicht.
+  exampleEn: Hopefully it won't rain tomorrow.
+- id: mutig
+  lesson: de3-advice-wishes
+  term: mutig
+  pos: adjective
+  meanings: [brave, courageous, bold]
+  example: Es war sehr mutig von dir, die Wahrheit zu sagen.
+  exampleEn: It was very brave of you to tell the truth.
+- id: mut
+  lesson: de3-advice-wishes
+  term: der Mut
+  pos: noun
+  plural: —
+  meanings: [courage, bravery]
+  example: Mir fehlt der Mut, ihn anzusprechen.
+  exampleEn: I don't have the courage to speak to him.
+  note: 'Nur Mut! means Don''t worry, go for it!'
+- id: sich-trauen
+  lesson: de3-advice-wishes
+  term: sich trauen
+  pos: verb
+  meanings: [to dare, to have the courage]
+  example: Ich traue mich nicht, ihn zu fragen.
+  exampleEn: I don't dare ask him.
+  note: 'Reflexive (accusative): ich traue mich. Without sich, jemandem trauen means to trust someone.'
+- id: schuechtern
+  lesson: de3-advice-wishes
+  term: schüchtern
+  pos: adjective
+  meanings: [shy, timid]
+  example: Als Kind war ich sehr schüchtern.
+  exampleEn: As a child I was very shy.
+- id: selbstbewusstsein
+  lesson: de3-advice-wishes
+  term: das Selbstbewusstsein
+  pos: noun
+  plural: —
+  meanings: [self-confidence, confidence, self-esteem]
+  example: Der Sport hat ihr Selbstbewusstsein gestärkt.
+  exampleEn: Sport has boosted her self-confidence.
+- id: selbstbewusst
+  lesson: de3-advice-wishes
+  term: selbstbewusst
+  pos: adjective
+  meanings: [self-confident, confident, self-assured]
+  example: Im Vorstellungsgespräch wirkte sie sehr selbstbewusst.
+  exampleEn: In the interview she seemed very self-confident.
+- id: sich-verlassen
+  lesson: de3-advice-wishes
+  term: sich verlassen
+  pos: verb
+  meanings: [to rely (on), to rely on, to depend on, to count on]
+  example: Auf meine beste Freundin kann ich mich immer verlassen.
+  exampleEn: I can always rely on my best friend.
+  note: 'sich verlassen auf + accusative. Strong: verlässt, verließ, hat verlassen.'
+- id: unterstuetzen
+  lesson: de3-advice-wishes
+  term: unterstützen
+  pos: verb
+  meanings: [to support]
+  example: Meine Eltern haben mich während des Studiums unterstützt.
+  exampleEn: My parents supported me while I was at university.
+  note: 'Inseparable. Perfect: hat unterstützt.'
+- id: unterstuetzung
+  lesson: de3-advice-wishes
+  term: die Unterstützung
+  pos: noun
+  plural: die Unterstützungen
+  meanings: [support]
+  example: Vielen Dank für Ihre Unterstützung!
+  exampleEn: Thank you very much for your support!
+- id: troesten
+  lesson: de3-advice-wishes
+  term: trösten
+  pos: verb
+  meanings: [to comfort, to console]
+  example: Die Mutter tröstet das weinende Kind.
+  exampleEn: The mother comforts the crying child.
+- id: trost
+  lesson: de3-advice-wishes
+  term: der Trost
+  pos: noun
+  plural: —
+  meanings: [comfort (consolation), consolation, comfort]
+  example: Das ist nur ein schwacher Trost.
+  exampleEn: That's small consolation.
+- id: ermutigen
+  lesson: de3-advice-wishes
+  term: ermutigen
+  pos: verb
+  meanings: [to encourage]
+  example: Meine Lehrerin hat mich ermutigt, weiterzumachen.
+  exampleEn: My teacher encouraged me to keep going.
+  note: 'Perfect: hat ermutigt. ermutigen + zu-infinitive.'
+- id: kolumne
+  lesson: de3-advice-wishes
+  term: die Kolumne
+  pos: noun
+  plural: die Kolumnen
+  meanings: [column (in a newspaper), column, advice column]
+  example: Ich lese jede Woche ihre Kolumne in der Zeitung.
+  exampleEn: I read her column in the paper every week.
+- id: ratlos
+  lesson: de3-advice-wishes
+  term: ratlos
+  pos: adjective
+  meanings: [at a loss, helpless, baffled, perplexed]
+  example: Der Techniker war auch ratlos.
+  exampleEn: The technician was at a loss too.
+- id: ueberfordert
+  lesson: de3-advice-wishes
+  term: überfordert
+  pos: adjective
+  meanings: [overwhelmed, out of one's depth, overstretched, overloaded]
+  example: Mit drei Jobs und zwei Kindern ist sie völlig überfordert.
+  exampleEn: With three jobs and two children she's completely overwhelmed.
+- id: peinlich
+  lesson: de3-advice-wishes
+  term: peinlich
+  pos: adjective
+  meanings: [embarrassing, awkward]
+  example: Es ist mir peinlich, dass ich deinen Namen vergessen habe.
+  exampleEn: I'm embarrassed that I forgot your name.
+  note: 'Es ist mir peinlich: I''m embarrassed (literally: it is embarrassing to me).'
+- id: sich-schaemen
+  lesson: de3-advice-wishes
+  term: sich schämen
+  pos: verb
+  meanings: [to be ashamed, to feel ashamed, to be embarrassed]
+  example: Du musst dich für nichts schämen.
+  exampleEn: You don't need to be ashamed of anything.
+  note: 'sich schämen für + accusative.'
+- id: an-deiner-stelle
+  lesson: de3-advice-wishes
+  kind: phrase
+  term: an deiner Stelle
+  pos: phrase
+  alt: [an Ihrer Stelle]
+  meanings: [if I were you, in your place, in your position, in your shoes]
+  example: An deiner Stelle würde ich den Job annehmen.
+  exampleEn: If I were you, I'd take the job.
+  note: 'The verb comes next: An deiner Stelle würde ich … Formal: an Ihrer Stelle.'
+- id: als-ob
+  lesson: de3-advice-wishes
+  term: als ob
+  pos: conjunction
+  meanings: [as if, as though]
+  example: Er tut so, als ob er nichts gehört hätte.
+  exampleEn: He's acting as if he hadn't heard anything.
+  note: 'Verb at the end, usually with Konjunktiv II. Short form: als hätte er nichts gehört.'
+- id: bloss
+  lesson: de3-advice-wishes
+  term: bloß
+  pos: particle
+  alt: [bloss]
+  meanings: [only (in wishes and warnings), just, only, merely]
+  example: Wenn ich bloß mehr Zeit hätte!
+  exampleEn: If only I had more time!
+  note: 'In wishes like nur and doch. In warnings: Pass bloß auf! (Just be careful!)'
+
+# --- 24 Verbs, adjectives and nouns with prepositions: interests, emotions, attitudes ---
+- id: sich-beschaeftigen
+  lesson: de3-verb-prep
+  term: sich beschäftigen
+  pos: verb
+  meanings: [to deal with, to occupy oneself (with), to be busy (with), to work on, to keep busy]
+  example: In meiner Freizeit beschäftige ich mich mit Geschichte.
+  exampleEn: In my free time I spend my time on history.
+  note: 'sich beschäftigen mit + dative. Perfect: hat sich beschäftigt.'
+- id: sich-bemuehen
+  lesson: de3-verb-prep
+  term: sich bemühen
+  pos: verb
+  meanings: [to make an effort, to try hard, to try (to get something)]
+  example: Er bemüht sich um eine Stelle als Koch.
+  exampleEn: He's trying hard to get a job as a cook.
+  note: 'sich bemühen um + accusative; with a zu-infinitive: Ich bemühe mich, pünktlich zu sein.'
+- id: abhaengen
+  lesson: de3-verb-prep
+  term: abhängen
+  pos: verb
+  meanings: [to depend (on), to depend, to depend on]
+  example: Das hängt vom Preis ab.
+  exampleEn: That depends on the price.
+  note: 'abhängen von + dative. Separable and strong: hing ab, hat abgehangen. Das hängt davon ab: it depends.'
+- id: bestehen-aus
+  lesson: de3-verb-prep
+  term: bestehen aus
+  pos: verb
+  meanings: [to consist of, to be made of, to be made up of]
+  example: Die Wohnung besteht aus drei Zimmern und einer Küche.
+  exampleEn: The flat consists of three rooms and a kitchen.
+  note: 'Takes the dative. Strong: bestand, hat bestanden. Without aus, bestehen means to pass (an exam).'
+- id: sich-beziehen
+  lesson: de3-verb-prep
+  term: sich beziehen
+  pos: verb
+  meanings: [to refer (to), to refer to, to relate to]
+  example: Ich beziehe mich auf Ihre E-Mail vom 3. Mai.
+  exampleEn: I am referring to your e-mail of 3 May.
+  note: 'sich beziehen auf + accusative. Strong: bezog, hat bezogen.'
+- id: begeistert
+  lesson: de3-verb-prep
+  term: begeistert
+  pos: adjective
+  meanings: [enthusiastic, thrilled, delighted, keen]
+  example: Die Kinder waren von dem Ausflug begeistert.
+  exampleEn: The children were thrilled with the trip.
+  note: 'begeistert von + dative.'
+- id: begeisterung
+  lesson: de3-verb-prep
+  term: die Begeisterung
+  pos: noun
+  plural: —
+  meanings: [enthusiasm, excitement]
+  example: Ihre Begeisterung für Musik ist ansteckend.
+  exampleEn: Her enthusiasm for music is infectious.
+  note: 'Begeisterung für + accusative.'
+- id: interesse
+  lesson: de3-verb-prep
+  term: das Interesse
+  pos: noun
+  plural: die Interessen
+  meanings: [interest]
+  example: Hast du Interesse an einem Sprachkurs?
+  exampleEn: Are you interested in a language course?
+  note: 'Interesse an + dative, though the verb is sich interessieren für.'
+- id: interessiert
+  lesson: de3-verb-prep
+  term: interessiert
+  pos: adjective
+  meanings: [interested]
+  example: Er ist sehr an Politik interessiert.
+  exampleEn: He is very interested in politics.
+  note: 'interessiert an + dative.'
+- id: neugier
+  lesson: de3-verb-prep
+  term: die Neugier
+  pos: noun
+  plural: —
+  alt: [die Neugierde]
+  meanings: [curiosity]
+  example: Aus Neugier habe ich das Paket geöffnet.
+  exampleEn: I opened the parcel out of curiosity.
+- id: gespannt
+  lesson: de3-verb-prep
+  term: gespannt
+  pos: adjective
+  meanings: [eager (to see what happens), excited, curious, eager, in suspense]
+  example: Ich bin gespannt, wie der Film endet.
+  exampleEn: I'm curious to see how the film ends.
+  note: 'gespannt auf + accusative: Ich bin gespannt auf deine Antwort.'
+- id: sich-wundern
+  lesson: de3-verb-prep
+  term: sich wundern
+  pos: verb
+  meanings: [to be surprised, to wonder, to be amazed]
+  example: Ich wundere mich über den hohen Preis.
+  exampleEn: I'm surprised at the high price.
+  note: 'sich wundern über + accusative.'
+- id: staunen
+  lesson: de3-verb-prep
+  term: staunen
+  pos: verb
+  meanings: [to be amazed, to marvel, to be astonished]
+  example: Die Touristen staunten über die hohen Berge.
+  exampleEn: The tourists marvelled at the high mountains.
+  note: 'staunen über + accusative. Perfect: hat gestaunt.'
+- id: dankbar
+  lesson: de3-verb-prep
+  term: dankbar
+  pos: adjective
+  meanings: [grateful, thankful]
+  example: Ich bin dir sehr dankbar für deine Hilfe.
+  exampleEn: I'm very grateful to you for your help.
+  note: 'jemandem (dative) dankbar sein für + accusative.'
+- id: dankbarkeit
+  lesson: de3-verb-prep
+  term: die Dankbarkeit
+  pos: noun
+  plural: —
+  meanings: [gratitude, thankfulness]
+  example: Als Zeichen der Dankbarkeit hat sie uns Blumen geschenkt.
+  exampleEn: As a sign of gratitude she gave us flowers.
+- id: sich-sorgen
+  lesson: de3-verb-prep
+  term: sich sorgen
+  pos: verb
+  meanings: [to worry (about), to worry, to be worried]
+  example: Meine Mutter sorgt sich immer um mich.
+  exampleEn: My mother always worries about me.
+  note: 'sich sorgen um + accusative. Also: sich Sorgen machen um.'
+- id: besorgt
+  lesson: de3-verb-prep
+  term: besorgt
+  pos: adjective
+  meanings: [worried, concerned, anxious]
+  example: Der Arzt sah besorgt aus.
+  exampleEn: The doctor looked worried.
+  note: 'besorgt um + accusative.'
+- id: leidenschaft
+  lesson: de3-verb-prep
+  term: die Leidenschaft
+  pos: noun
+  plural: die Leidenschaften
+  meanings: [passion]
+  example: Kochen ist seine große Leidenschaft.
+  exampleEn: Cooking is his great passion.
+  note: 'Leidenschaft für + accusative.'
+- id: leidenschaftlich
+  lesson: de3-verb-prep
+  term: leidenschaftlich
+  pos: adjective
+  meanings: [passionate, passionately]
+  example: Sie ist eine leidenschaftliche Sammlerin.
+  exampleEn: She is a passionate collector.
+- id: der-stolz
+  lesson: de3-verb-prep
+  term: der Stolz
+  pos: noun
+  plural: —
+  meanings: [pride]
+  example: Mit Stolz zeigt er uns sein neues Auto.
+  exampleEn: He proudly shows us his new car.
+  note: 'Stolz auf + accusative, like the adjective stolz auf.'
+- id: verzichten
+  lesson: de3-verb-prep
+  term: verzichten
+  pos: verb
+  meanings: [to do without, to give up, to go without, to forgo]
+  example: Im Urlaub verzichte ich auf mein Handy.
+  exampleEn: On holiday I do without my phone.
+  note: 'verzichten auf + accusative. Perfect: hat verzichtet.'
+- id: zweifeln
+  lesson: de3-verb-prep
+  term: zweifeln
+  pos: verb
+  meanings: [to doubt, to have doubts]
+  example: Ich zweifle nicht an deiner Ehrlichkeit.
+  exampleEn: I don't doubt your honesty.
+  note: 'zweifeln an + dative.'
+- id: zweifel
+  lesson: de3-verb-prep
+  term: der Zweifel
+  pos: noun
+  plural: die Zweifel
+  meanings: [doubt]
+  example: Ohne Zweifel ist das die beste Lösung.
+  exampleEn: Without doubt, that's the best solution.
+- id: achten
+  lesson: de3-verb-prep
+  term: achten
+  pos: verb
+  meanings: [to watch out for, to pay attention to, to make sure, to look out for, to mind, to respect]
+  example: Achte bitte darauf, dass die Tür zu ist.
+  exampleEn: Please make sure the door is shut.
+  note: 'achten auf + accusative. Perfect: hat geachtet.'
+- id: sich-einsetzen
+  lesson: de3-verb-prep
+  term: sich einsetzen
+  pos: verb
+  meanings: [to stand up for, to campaign for, to fight for, to support]
+  example: Sie setzt sich für die Rechte von Kindern ein.
+  exampleEn: She campaigns for children's rights.
+  note: 'sich einsetzen für + accusative. Separable: hat sich eingesetzt.'
+- id: sich-fuerchten
+  lesson: de3-verb-prep
+  term: sich fürchten
+  pos: verb
+  meanings: [to be afraid (of), to fear, to be scared]
+  example: Mein Hund fürchtet sich vor Feuerwerk.
+  exampleEn: My dog is afraid of fireworks.
+  note: 'sich fürchten vor + dative.'
+- id: neidisch
+  lesson: de3-verb-prep
+  term: neidisch
+  pos: adjective
+  meanings: [envious, jealous]
+  example: Bist du neidisch auf seinen Erfolg?
+  exampleEn: Are you envious of his success?
+  note: 'neidisch auf + accusative.'
+- id: neid
+  lesson: de3-verb-prep
+  term: der Neid
+  pos: noun
+  plural: —
+  meanings: [envy, jealousy]
+  example: Der Neid hat ihre Freundschaft zerstört.
+  exampleEn: Envy destroyed their friendship.
+- id: vorliebe
+  lesson: de3-verb-prep
+  term: die Vorliebe
+  pos: noun
+  plural: die Vorlieben
+  meanings: [preference, fondness, liking]
+  example: Er hat eine Vorliebe für alte Filme.
+  exampleEn: He has a fondness for old films.
+  note: 'Vorliebe für + accusative.'
+- id: halten
+  lesson: de3-verb-prep
+  term: halten
+  pos: verb
+  meanings: [to hold, to stop, to keep, to think of (halten von), to consider (halten für)]
+  example: Was hältst du von meiner Idee?
+  exampleEn: What do you think of my idea?
+  note: 'Strong: er hält, hielt, hat gehalten. halten von + dative: to think of; halten für + accusative: to consider; sich halten an + accusative: to stick to.'
+- id: geeignet
+  lesson: de3-verb-prep
+  term: geeignet
+  pos: adjective
+  meanings: [suited, suitable, appropriate, fit]
+  example: Diese Wohnung ist nicht für Familien geeignet.
+  exampleEn: This flat isn't suitable for families.
+  note: 'geeignet für + accusative.'
+- id: es-handelt-sich-um
+  lesson: de3-verb-prep
+  kind: phrase
+  term: es handelt sich um
+  pos: phrase
+  meanings: [it is about, it's a matter of, it concerns, it is]
+  example: Es handelt sich um ein Missverständnis.
+  exampleEn: It's a misunderstanding.
+  note: 'es is the fixed subject; um + accusative. Bei dem Brief handelt es sich um eine Rechnung.'
+- id: boese
+  lesson: de3-verb-prep
+  term: böse
+  pos: adjective
+  alt: [boese]
+  meanings: [angry (with), cross, mad, evil, bad, wicked]
+  example: Bist du mir noch böse?
+  exampleEn: Are you still cross with me?
+  note: 'jemandem (dative) böse sein or böse auf + accusative: to be angry with someone. Also means evil.'
+
+# --- 25 Careers and the job market ---
+- id: arbeitsmarkt
+  lesson: de3-work-career
+  term: der Arbeitsmarkt
+  pos: noun
+  plural: die Arbeitsmärkte
+  meanings: [job market, labour market, labor market]
+  example: Auf dem Arbeitsmarkt werden Pflegekräfte dringend gesucht.
+  exampleEn: Care workers are urgently needed on the job market.
+- id: branche
+  lesson: de3-work-career
+  term: die Branche
+  pos: noun
+  plural: die Branchen
+  meanings: [industry (sector), sector, branch of industry, line of business]
+  example: In welcher Branche arbeiten Sie?
+  exampleEn: Which industry do you work in?
+- id: arbeitgeber
+  lesson: de3-work-career
+  term: der Arbeitgeber
+  pos: noun
+  plural: die Arbeitgeber
+  meanings: [employer (male), employer]
+  example: Mein Arbeitgeber zahlt das Ticket für den Bus.
+  exampleEn: My employer pays for the bus ticket.
+- id: arbeitgeberin
+  lesson: de3-work-career
+  term: die Arbeitgeberin
+  pos: noun
+  plural: die Arbeitgeberinnen
+  meanings: [employer (female), employer]
+  example: Die Stadt ist eine wichtige Arbeitgeberin in der Region.
+  exampleEn: The city is an important employer in the region.
+- id: arbeitnehmer
+  lesson: de3-work-career
+  term: der Arbeitnehmer
+  pos: noun
+  plural: die Arbeitnehmer
+  meanings: [employee (male, as opposed to employer), employee, worker]
+  example: Jeder Arbeitnehmer hat ein Recht auf Urlaub.
+  exampleEn: Every employee has a right to holiday.
+- id: arbeitnehmerin
+  lesson: de3-work-career
+  term: die Arbeitnehmerin
+  pos: noun
+  plural: die Arbeitnehmerinnen
+  meanings: [employee (female, as opposed to employer), employee, worker]
+  example: Als Arbeitnehmerin zahlt sie Steuern und Sozialversicherung.
+  exampleEn: As an employee she pays tax and social insurance.
+- id: stellenanzeige
+  lesson: de3-work-career
+  term: die Stellenanzeige
+  pos: noun
+  plural: die Stellenanzeigen
+  meanings: [job advertisement, job ad, job posting, job advert]
+  example: Ich habe eine interessante Stellenanzeige im Internet gefunden.
+  exampleEn: I found an interesting job advertisement online.
+- id: arbeitslosigkeit
+  lesson: de3-work-career
+  term: die Arbeitslosigkeit
+  pos: noun
+  plural: —
+  meanings: [unemployment]
+  example: Die Arbeitslosigkeit ist im letzten Jahr gesunken.
+  exampleEn: Unemployment fell last year.
+- id: gewerkschaft
+  lesson: de3-work-career
+  term: die Gewerkschaft
+  pos: noun
+  plural: die Gewerkschaften
+  meanings: [trade union, union, labor union]
+  example: Die Gewerkschaft fordert mehr Lohn.
+  exampleEn: The union is demanding higher pay.
+- id: arbeitszeit
+  lesson: de3-work-career
+  term: die Arbeitszeit
+  pos: noun
+  plural: die Arbeitszeiten
+  meanings: [working hours, working time, hours of work]
+  example: Meine Arbeitszeit ist von acht bis halb fünf.
+  exampleEn: My working hours are from eight to half past four.
+- id: gleitzeit
+  lesson: de3-work-career
+  term: die Gleitzeit
+  pos: noun
+  plural: die Gleitzeiten
+  meanings: [flexitime, flextime, flexible working hours]
+  example: Dank Gleitzeit kann ich mein Kind zur Schule bringen.
+  exampleEn: Thanks to flexitime I can take my child to school.
+- id: homeoffice
+  lesson: de3-work-career
+  term: das Homeoffice
+  pos: noun
+  plural: die Homeoffices
+  alt: [das Home-Office]
+  meanings: [working from home, home office, remote work]
+  example: Montags arbeite ich im Homeoffice.
+  exampleEn: On Mondays I work from home.
+  note: 'im Homeoffice arbeiten: to work from home.'
+- id: befristet
+  lesson: de3-work-career
+  term: befristet
+  pos: adjective
+  meanings: [fixed-term, temporary, limited]
+  example: Mein Vertrag ist auf ein Jahr befristet.
+  exampleEn: My contract is limited to one year.
+- id: unbefristet
+  lesson: de3-work-career
+  term: unbefristet
+  pos: adjective
+  meanings: [permanent (contract), permanent, open-ended, unlimited]
+  example: Endlich habe ich einen unbefristeten Vertrag!
+  exampleEn: At last I have a permanent contract!
+- id: probezeit
+  lesson: de3-work-career
+  term: die Probezeit
+  pos: noun
+  plural: die Probezeiten
+  meanings: [probationary period, probation, trial period]
+  example: Die Probezeit dauert sechs Monate.
+  exampleEn: The probationary period lasts six months.
+- id: befoerderung
+  lesson: de3-work-career
+  term: die Beförderung
+  pos: noun
+  plural: die Beförderungen
+  meanings: [promotion]
+  example: Nach drei Jahren hat sie endlich eine Beförderung bekommen.
+  exampleEn: After three years she finally got a promotion.
+  note: 'Also: transport (of passengers or goods).'
+- id: befoerdern
+  lesson: de3-work-career
+  term: befördern
+  pos: verb
+  meanings: [to promote, to transport]
+  example: Er wurde zum Abteilungsleiter befördert.
+  exampleEn: He was promoted to head of department.
+  note: 'Perfect: hat befördert.'
+- id: selbststaendig
+  lesson: de3-work-career
+  term: selbstständig
+  pos: adjective
+  alt: [selbständig]
+  meanings: [self-employed, independent, independently, on one's own]
+  example: Seit zwei Jahren ist sie als Grafikerin selbstständig.
+  exampleEn: She has been self-employed as a graphic designer for two years.
+  note: 'Both spellings are correct: selbstständig, selbständig.'
+- id: selbststaendigkeit
+  lesson: de3-work-career
+  term: die Selbstständigkeit
+  pos: noun
+  plural: —
+  alt: [die Selbständigkeit]
+  meanings: [self-employment, independence]
+  example: Der Schritt in die Selbstständigkeit war nicht leicht.
+  exampleEn: The step into self-employment wasn't easy.
+- id: das-unternehmen
+  lesson: de3-work-career
+  term: das Unternehmen
+  pos: noun
+  plural: die Unternehmen
+  meanings: [enterprise (company), company, business, firm, enterprise]
+  example: Das Unternehmen hat 200 Mitarbeiter.
+  exampleEn: The company has 200 employees.
+- id: unternehmer
+  lesson: de3-work-career
+  term: der Unternehmer
+  pos: noun
+  plural: die Unternehmer
+  meanings: [entrepreneur (male), entrepreneur, business owner, businessman]
+  example: Der junge Unternehmer hat seine Firma in der Garage gegründet.
+  exampleEn: The young entrepreneur founded his company in the garage.
+- id: unternehmerin
+  lesson: de3-work-career
+  term: die Unternehmerin
+  pos: noun
+  plural: die Unternehmerinnen
+  meanings: [entrepreneur (female), entrepreneur, business owner, businesswoman]
+  example: Als Unternehmerin trägt sie viel Verantwortung.
+  exampleEn: As an entrepreneur she bears a lot of responsibility.
+- id: leitung
+  lesson: de3-work-career
+  term: die Leitung
+  pos: noun
+  plural: die Leitungen
+  meanings: [management (leadership), management, leadership, direction, line (phone)]
+  example: Frau Weber übernimmt ab Mai die Leitung der Abteilung.
+  exampleEn: Ms Weber is taking over the management of the department from May.
+  note: 'Also a pipe or line: die Wasserleitung, die Leitung ist besetzt (the line is busy).'
+- id: leiten
+  lesson: de3-work-career
+  term: leiten
+  pos: verb
+  meanings: [to manage, to lead, to run, to head, to direct]
+  example: Sie leitet ein Team von zehn Leuten.
+  exampleEn: She leads a team of ten people.
+  note: 'Perfect: hat geleitet.'
+- id: fachkraft
+  lesson: de3-work-career
+  term: die Fachkraft
+  pos: noun
+  plural: die Fachkräfte
+  meanings: [skilled worker, specialist, qualified employee]
+  example: Viele Firmen suchen dringend Fachkräfte.
+  exampleEn: Many companies urgently need skilled workers.
+  note: 'Feminine for everyone: Er ist eine gute Fachkraft.'
+- id: vollzeit
+  lesson: de3-work-career
+  term: die Vollzeit
+  pos: noun
+  plural: —
+  meanings: [full-time (work), full time, full-time]
+  example: Nach der Elternzeit möchte sie wieder in Vollzeit arbeiten.
+  exampleEn: After her parental leave she wants to work full-time again.
+- id: gehaltserhoehung
+  lesson: de3-work-career
+  term: die Gehaltserhöhung
+  pos: noun
+  plural: die Gehaltserhöhungen
+  meanings: [pay rise, raise, salary increase, pay raise]
+  example: Ich möchte mit meiner Chefin über eine Gehaltserhöhung sprechen.
+  exampleEn: I'd like to talk to my boss about a pay rise.
+- id: bewerber
+  lesson: de3-work-career
+  term: der Bewerber
+  pos: noun
+  plural: die Bewerber
+  meanings: [applicant (male), applicant, candidate]
+  example: Für die Stelle gab es über hundert Bewerber.
+  exampleEn: There were over a hundred applicants for the job.
+- id: bewerberin
+  lesson: de3-work-career
+  term: die Bewerberin
+  pos: noun
+  plural: die Bewerberinnen
+  meanings: [applicant (female), applicant, candidate]
+  example: Die Bewerberin hat einen sehr guten Eindruck gemacht.
+  exampleEn: The applicant made a very good impression.
+- id: team
+  lesson: de3-work-career
+  term: das Team
+  pos: noun
+  plural: die Teams
+  meanings: [team]
+  example: Ich arbeite gern im Team.
+  exampleEn: I like working in a team.
+- id: projekt
+  lesson: de3-work-career
+  term: das Projekt
+  pos: noun
+  plural: die Projekte
+  meanings: [project]
+  example: Das Projekt muss bis Ende März fertig sein.
+  exampleEn: The project has to be finished by the end of March.
+- id: schicht
+  lesson: de3-work-career
+  term: die Schicht
+  pos: noun
+  plural: die Schichten
+  meanings: [shift (at work), shift, layer]
+  example: Diese Woche habe ich Nachtschicht.
+  exampleEn: This week I'm on the night shift.
+  note: 'Also a layer: eine Schicht Schnee.'
+- id: anscheinend
+  lesson: de3-work-career
+  term: anscheinend
+  pos: adverb
+  meanings: [apparently, seemingly]
+  example: Anscheinend ist der Chef heute krank.
+  exampleEn: Apparently the boss is ill today.
+- id: konkurrenz
+  lesson: de3-work-career
+  term: die Konkurrenz
+  pos: noun
+  plural: die Konkurrenzen
+  meanings: [competition, competitors, rivalry]
+  example: Die Konkurrenz auf dem Markt ist groß.
+  exampleEn: The competition on the market is tough.
+- id: entlassen
+  lesson: de3-work-career
+  term: entlassen
+  pos: verb
+  meanings: [to dismiss, to lay off, to fire, to discharge, to release]
+  example: Die Firma musste zwanzig Mitarbeiter entlassen.
+  exampleEn: The company had to lay off twenty employees.
+  note: 'Strong: er entlässt, entließ, hat entlassen. Also: aus dem Krankenhaus entlassen, to discharge from hospital.'
+- id: genuegen
+  lesson: de3-work-career
+  term: genügen
+  pos: verb
+  meanings: [to be enough, to suffice, to be sufficient]
+  example: Eine kurze E-Mail genügt.
+  exampleEn: A short e-mail is enough.
+  note: 'Takes the dative: Das genügt mir.'

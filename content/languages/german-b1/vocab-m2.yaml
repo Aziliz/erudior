@@ -1,0 +1,1342 @@
+# German B1, module 2: Reasons, goals and contrasts (lessons 06–10)
+
+# --- 06 obwohl, trotzdem, zwar … aber (consumer choices, money) ---
+- id: obwohl
+  lesson: de3-obwohl
+  term: obwohl
+  pos: conjunction
+  meanings: [although, even though, though]
+  example: Ich kaufe das Handy, obwohl es teuer ist.
+  exampleEn: I'm buying the phone although it's expensive.
+  note: 'Verb at the end: obwohl ich wenig Geld habe.'
+- id: zwar
+  lesson: de3-obwohl
+  term: zwar
+  pos: adverb
+  meanings: [admittedly (zwar … aber), admittedly, it's true, indeed]
+  example: Das Auto ist zwar alt, aber es fährt gut.
+  exampleEn: The car may be old, but it runs well.
+  note: 'Used with aber in the next clause: zwar … aber.'
+- id: dennoch
+  lesson: de3-obwohl
+  term: dennoch
+  pos: adverb
+  meanings: [even so (formal), even so, nevertheless, all the same, still, yet]
+  example: Die Preise sind gestiegen. Dennoch kaufen viele Leute mehr.
+  exampleEn: Prices have gone up. Even so, many people are buying more.
+  note: 'Like trotzdem but more formal. In position 1 the verb comes next.'
+- id: jedoch
+  lesson: de3-obwohl
+  term: jedoch
+  pos: adverb
+  meanings: [however, but, though]
+  example: Das Angebot war gut, die Qualität jedoch nicht.
+  exampleEn: The offer was good, but the quality wasn't.
+  note: 'Formal. In position 1 the verb comes next: Jedoch hat er nicht bezahlt.'
+- id: verbraucher
+  lesson: de3-obwohl
+  term: der Verbraucher
+  pos: noun
+  plural: die Verbraucher
+  meanings: [consumer (male), consumer]
+  example: Viele Verbraucher achten auf den Preis.
+  exampleEn: Many consumers pay attention to the price.
+- id: verbraucherin
+  lesson: de3-obwohl
+  term: die Verbraucherin
+  pos: noun
+  plural: die Verbraucherinnen
+  meanings: [consumer (female), consumer]
+  example: Die Verbraucherin hat sich über das Produkt beschwert.
+  exampleEn: The consumer complained about the product.
+- id: konsum
+  lesson: de3-obwohl
+  term: der Konsum
+  pos: noun
+  plural: —
+  meanings: [consumption, consumerism]
+  example: Der Konsum von Fleisch ist gesunken.
+  exampleEn: Meat consumption has fallen.
+- id: sich-leisten
+  lesson: de3-obwohl
+  term: sich leisten
+  pos: verb
+  meanings: [to afford, to treat yourself to, can afford]
+  example: Ich kann mir kein neues Auto leisten.
+  exampleEn: I can't afford a new car.
+  note: 'The pronoun is dative: Ich leiste mir etwas. Usually with können.'
+- id: ausgabe
+  lesson: de3-obwohl
+  term: die Ausgabe
+  pos: noun
+  plural: die Ausgaben
+  meanings: [expense, expenditure, spending, outgoing]
+  example: Unsere größte Ausgabe ist die Miete.
+  exampleEn: Our biggest expense is the rent.
+  note: 'Often plural: die Ausgaben. Also means edition (of a book or newspaper).'
+- id: ausgeben
+  lesson: de3-obwohl
+  term: ausgeben
+  pos: verb
+  meanings: [to spend (money), to spend]
+  example: Wie viel gibst du im Monat für Essen aus?
+  exampleEn: How much do you spend on food a month?
+  note: 'Separable and strong: er gibt aus, gab aus, hat ausgegeben. Time is spent with verbringen.'
+- id: einnahme
+  lesson: de3-obwohl
+  term: die Einnahme
+  pos: noun
+  plural: die Einnahmen
+  meanings: [takings, earnings, income (money coming in), revenue]
+  example: Die Einnahmen des Cafés sind im Sommer höher.
+  exampleEn: The café's takings are higher in summer.
+  note: 'Usually plural: die Einnahmen und Ausgaben.'
+- id: einkommen
+  lesson: de3-obwohl
+  term: das Einkommen
+  pos: noun
+  plural: die Einkommen
+  meanings: [income, earnings]
+  example: Mit einem kleinen Einkommen muss man sparsam sein.
+  exampleEn: On a small income you have to be careful with money.
+- id: lohn
+  lesson: de3-obwohl
+  term: der Lohn
+  pos: noun
+  plural: die Löhne
+  meanings: [wage, wages, pay]
+  example: Der Lohn kommt am Ende des Monats.
+  exampleEn: The wages come at the end of the month.
+- id: steuer
+  lesson: de3-obwohl
+  term: die Steuer
+  pos: noun
+  plural: die Steuern
+  meanings: [tax]
+  example: Wer mehr verdient, zahlt mehr Steuern.
+  exampleEn: Those who earn more pay more tax.
+- id: kredit
+  lesson: de3-obwohl
+  term: der Kredit
+  pos: noun
+  plural: die Kredite
+  meanings: [loan, credit]
+  example: Für die Wohnung haben wir einen Kredit aufgenommen.
+  exampleEn: We took out a loan for the flat.
+  note: 'einen Kredit aufnehmen = to take out a loan.'
+- id: schulden
+  lesson: de3-obwohl
+  term: die Schulden
+  pos: noun
+  plural: die Schulden (plural only)
+  meanings: [debts, debt]
+  example: Er hat hohe Schulden bei der Bank.
+  exampleEn: He has big debts with the bank.
+  note: 'Schulden machen = to get into debt.'
+- id: verschuldet
+  lesson: de3-obwohl
+  term: verschuldet
+  pos: adjective
+  meanings: [in debt, indebted]
+  example: Viele junge Leute sind verschuldet.
+  exampleEn: Many young people are in debt.
+- id: zins
+  lesson: de3-obwohl
+  term: der Zins
+  pos: noun
+  plural: die Zinsen
+  meanings: [interest (on money), interest, interest rate]
+  example: Die Bank zahlt kaum Zinsen.
+  exampleEn: The bank pays hardly any interest.
+  note: 'Mostly used in the plural: die Zinsen.'
+- id: ersparnis
+  lesson: de3-obwohl
+  term: die Ersparnis
+  pos: noun
+  plural: die Ersparnisse
+  meanings: [savings, saving]
+  example: Für den Urlaub hat sie ihre Ersparnisse genommen.
+  exampleEn: She used her savings for the holiday.
+  note: 'Money you have saved is usually plural: die Ersparnisse.'
+- id: sparsam
+  lesson: de3-obwohl
+  term: sparsam
+  pos: adjective
+  meanings: [thrifty, economical, careful with money, frugal]
+  example: Meine Großeltern waren immer sehr sparsam.
+  exampleEn: My grandparents were always very thrifty.
+- id: verschwenden
+  lesson: de3-obwohl
+  term: verschwenden
+  pos: verb
+  meanings: [to waste]
+  example: Wir verschwenden zu viel Geld für Kaffee.
+  exampleEn: We waste too much money on coffee.
+  note: 'Perfect: hat verschwendet (no ge-).'
+- id: luxus
+  lesson: de3-obwohl
+  term: der Luxus
+  pos: noun
+  plural: —
+  meanings: [luxury]
+  example: Ein eigenes Auto ist für mich Luxus.
+  exampleEn: A car of my own is a luxury for me.
+- id: nachhaltig
+  lesson: de3-obwohl
+  term: nachhaltig
+  pos: adjective
+  meanings: [sustainable, sustainably, lasting]
+  example: Ich versuche, nachhaltig einzukaufen.
+  exampleEn: I try to shop sustainably.
+- id: qualitaet
+  lesson: de3-obwohl
+  term: die Qualität
+  pos: noun
+  plural: die Qualitäten
+  meanings: [quality]
+  example: Gute Qualität hat ihren Preis.
+  exampleEn: Good quality comes at a price.
+- id: ueberzeugen
+  lesson: de3-obwohl
+  term: überzeugen
+  pos: verb
+  meanings: [to convince, to persuade]
+  example: Die Werbung hat mich nicht überzeugt.
+  exampleEn: The advert didn't convince me.
+  note: 'Inseparable. Perfect: hat überzeugt. überzeugt sein von = to be convinced of.'
+- id: ueberzeugung
+  lesson: de3-obwohl
+  term: die Überzeugung
+  pos: noun
+  plural: die Überzeugungen
+  meanings: [conviction, belief]
+  example: Er kauft aus Überzeugung nur Bio-Produkte.
+  exampleEn: He only buys organic products out of conviction.
+- id: vergleichen
+  lesson: de3-obwohl
+  term: vergleichen
+  pos: verb
+  meanings: [to compare]
+  example: Vor dem Kauf vergleiche ich immer die Preise.
+  exampleEn: I always compare prices before buying.
+  note: 'Strong: verglich, hat verglichen.'
+- id: vergleich
+  lesson: de3-obwohl
+  term: der Vergleich
+  pos: noun
+  plural: die Vergleiche
+  meanings: [comparison]
+  example: Im Vergleich zu letztem Jahr ist alles teurer.
+  exampleEn: Compared with last year, everything is more expensive.
+  note: 'im Vergleich zu = compared with.'
+- id: preiswert
+  lesson: de3-obwohl
+  term: preiswert
+  pos: adjective
+  meanings: [reasonably priced, good value, inexpensive, cheap]
+  example: Der Markt ist preiswerter als der Supermarkt.
+  exampleEn: The market is better value than the supermarket.
+- id: schnaeppchen
+  lesson: de3-obwohl
+  term: das Schnäppchen
+  pos: noun
+  plural: die Schnäppchen
+  meanings: [bargain, good deal, steal]
+  example: Die Jacke war ein echtes Schnäppchen.
+  exampleEn: The jacket was a real bargain.
+- id: sich-lohnen
+  lesson: de3-obwohl
+  term: sich lohnen
+  pos: verb
+  meanings: [to be worth it, to be worthwhile, to pay off]
+  example: Ein teures Fahrrad lohnt sich, wenn man jeden Tag fährt.
+  exampleEn: An expensive bike is worth it if you ride every day.
+  note: 'Mostly with es or a thing as subject: Das lohnt sich.'
+- id: finanziell
+  lesson: de3-obwohl
+  term: finanziell
+  pos: adjective
+  meanings: [financial, financially]
+  example: Nach dem Studium war ich endlich finanziell unabhängig.
+  exampleEn: After university I was finally financially independent.
+
+# --- 07 um … zu, damit (study and training) ---
+- id: damit-so-that
+  lesson: de3-um-zu-damit
+  term: damit
+  pos: conjunction
+  meanings: [so that (purpose), so that, in order that]
+  example: Ich spreche langsam, damit du mich verstehst.
+  exampleEn: I'm speaking slowly so that you understand me.
+  note: 'Verb at the end. Same subject in both clauses: um … zu is usually better.'
+- id: um-zu
+  lesson: de3-um-zu-damit
+  kind: phrase
+  term: um … zu
+  alt: [um ... zu, um zu]
+  pos: conjunction
+  meanings: [in order to, to (purpose), so as to]
+  example: Ich lerne Deutsch, um in Wien zu arbeiten.
+  exampleEn: I'm learning German in order to work in Vienna.
+  note: 'um at the start, zu + infinitive at the end: um mich einzuschreiben.'
+- id: hochschule
+  lesson: de3-um-zu-damit
+  term: die Hochschule
+  pos: noun
+  plural: die Hochschulen
+  meanings: [university (general term), college, institution of higher education, higher education institution]
+  example: An unserer Hochschule studieren 20.000 Menschen.
+  exampleEn: 20,000 people study at our university.
+- id: fachhochschule
+  lesson: de3-um-zu-damit
+  term: die Fachhochschule
+  pos: noun
+  plural: die Fachhochschulen
+  meanings: [university of applied sciences, polytechnic]
+  example: Meine Schwester studiert Design an einer Fachhochschule.
+  exampleEn: My sister is studying design at a university of applied sciences.
+- id: semester
+  lesson: de3-um-zu-damit
+  term: das Semester
+  pos: noun
+  plural: die Semester
+  meanings: [semester, term (at university)]
+  example: Ich bin im dritten Semester.
+  exampleEn: I'm in my third semester.
+- id: vorlesung
+  lesson: de3-um-zu-damit
+  term: die Vorlesung
+  pos: noun
+  plural: die Vorlesungen
+  meanings: [lecture]
+  example: Die Vorlesung beginnt um Viertel nach acht.
+  exampleEn: The lecture starts at a quarter past eight.
+- id: seminar
+  lesson: de3-um-zu-damit
+  term: das Seminar
+  pos: noun
+  plural: die Seminare
+  meanings: [seminar, class (at university)]
+  example: Im Seminar diskutieren wir die Texte.
+  exampleEn: In the seminar we discuss the texts.
+- id: hoersaal
+  lesson: de3-um-zu-damit
+  term: der Hörsaal
+  pos: noun
+  plural: die Hörsäle
+  meanings: [lecture hall, lecture theatre, auditorium]
+  example: Der Hörsaal war so voll, dass ich stehen musste.
+  exampleEn: The lecture hall was so full that I had to stand.
+- id: hausarbeit
+  lesson: de3-um-zu-damit
+  term: die Hausarbeit
+  pos: noun
+  plural: die Hausarbeiten
+  meanings: [term paper, essay (at university), paper]
+  example: Ich muss bis Freitag meine Hausarbeit abgeben.
+  exampleEn: I have to hand in my term paper by Friday.
+  note: 'Also means housework.'
+- id: klausur
+  lesson: de3-um-zu-damit
+  term: die Klausur
+  pos: noun
+  plural: die Klausuren
+  meanings: [written exam, exam (at university), test]
+  example: Morgen schreiben wir eine Klausur in Statistik.
+  exampleEn: Tomorrow we have a written exam in statistics.
+  note: 'eine Klausur schreiben = to sit a written exam.'
+- id: bachelor
+  lesson: de3-um-zu-damit
+  term: der Bachelor
+  pos: noun
+  plural: die Bachelor
+  meanings: [bachelor's degree, bachelor's, bachelor]
+  example: Nach dem Bachelor möchte ich arbeiten.
+  exampleEn: After my bachelor's I'd like to work.
+- id: master
+  lesson: de3-um-zu-damit
+  term: der Master
+  pos: noun
+  plural: die Master
+  meanings: [master's degree, master's, master]
+  example: Sie macht ihren Master in Wien.
+  exampleEn: She's doing her master's in Vienna.
+- id: stipendium
+  lesson: de3-um-zu-damit
+  term: das Stipendium
+  pos: noun
+  plural: die Stipendien
+  meanings: [scholarship, grant, bursary]
+  example: Ohne Stipendium könnte ich nicht studieren.
+  exampleEn: Without a scholarship I couldn't study.
+- id: sich-einschreiben
+  lesson: de3-um-zu-damit
+  term: sich einschreiben
+  pos: verb
+  meanings: [to enrol, to enroll, to register (at university), to sign up]
+  example: Ich habe mich für Biologie eingeschrieben.
+  exampleEn: I've enrolled for biology.
+  note: 'Separable and strong: schrieb sich ein, hat sich eingeschrieben. With zu: sich einzuschreiben.'
+- id: studiengang
+  lesson: de3-um-zu-damit
+  term: der Studiengang
+  pos: noun
+  plural: die Studiengänge
+  meanings: [degree programme, degree program, course of study, course (at university)]
+  example: Der Studiengang dauert sechs Semester.
+  exampleEn: The degree programme lasts six semesters.
+- id: studienplatz
+  lesson: de3-um-zu-damit
+  term: der Studienplatz
+  pos: noun
+  plural: die Studienplätze
+  meanings: [university place, place at university]
+  example: Für Medizin gibt es nur wenige Studienplätze.
+  exampleEn: There are only a few university places for medicine.
+- id: zulassung
+  lesson: de3-um-zu-damit
+  term: die Zulassung
+  pos: noun
+  plural: die Zulassungen
+  meanings: [admission, acceptance, registration (of a car), approval]
+  example: Gestern habe ich die Zulassung für Jura bekommen.
+  exampleEn: Yesterday I got my acceptance for law.
+- id: studiengebuehr
+  lesson: de3-um-zu-damit
+  term: die Studiengebühr
+  pos: noun
+  plural: die Studiengebühren
+  meanings: [tuition fee, tuition fees, university fee]
+  example: In Deutschland gibt es meistens keine Studiengebühren.
+  exampleEn: In Germany there are mostly no tuition fees.
+  note: 'Usually plural: die Studiengebühren.'
+- id: bibliothek
+  lesson: de3-um-zu-damit
+  term: die Bibliothek
+  pos: noun
+  plural: die Bibliotheken
+  meanings: [library]
+  example: In der Bibliothek ist es ruhig.
+  exampleEn: It's quiet in the library.
+- id: mensa
+  lesson: de3-um-zu-damit
+  term: die Mensa
+  pos: noun
+  plural: die Mensen
+  meanings: [university canteen, refectory, cafeteria (at university)]
+  example: Mittags essen wir in der Mensa.
+  exampleEn: At lunchtime we eat in the university canteen.
+- id: studentenwohnheim
+  lesson: de3-um-zu-damit
+  term: das Studentenwohnheim
+  pos: noun
+  plural: die Studentenwohnheime
+  alt: [das Wohnheim]
+  meanings: [hall of residence, student residence, dorm, dormitory]
+  example: Im ersten Jahr habe ich im Studentenwohnheim gewohnt.
+  exampleEn: In my first year I lived in a hall of residence.
+- id: professor
+  lesson: de3-um-zu-damit
+  term: der Professor
+  pos: noun
+  plural: die Professoren
+  meanings: [professor (male), professor]
+  example: Der Professor hält heute keine Vorlesung.
+  exampleEn: The professor isn't giving a lecture today.
+- id: professorin
+  lesson: de3-um-zu-damit
+  term: die Professorin
+  pos: noun
+  plural: die Professorinnen
+  meanings: [professor (female), professor]
+  example: Unsere Professorin kommt aus Brasilien.
+  exampleEn: Our professor is from Brazil.
+- id: dozent
+  lesson: de3-um-zu-damit
+  term: der Dozent
+  pos: noun
+  plural: die Dozenten
+  meanings: [lecturer (male), lecturer, tutor]
+  example: Der Dozent hat uns die Hausarbeit zurückgegeben.
+  exampleEn: The lecturer gave us back our term papers.
+  note: 'n-noun: den, dem, des Dozenten.'
+- id: dozentin
+  lesson: de3-um-zu-damit
+  term: die Dozentin
+  pos: noun
+  plural: die Dozentinnen
+  meanings: [lecturer (female), lecturer, tutor]
+  example: Die Dozentin spricht sehr schnell.
+  exampleEn: The lecturer speaks very fast.
+- id: praktikum
+  lesson: de3-um-zu-damit
+  term: das Praktikum
+  pos: noun
+  plural: die Praktika
+  meanings: [internship, work placement, placement]
+  example: Im Sommer mache ich ein Praktikum bei einer Zeitung.
+  exampleEn: In the summer I'm doing an internship at a newspaper.
+- id: praktikant
+  lesson: de3-um-zu-damit
+  term: der Praktikant
+  pos: noun
+  plural: die Praktikanten
+  meanings: [intern (male), intern, trainee]
+  example: Wir suchen einen Praktikanten für drei Monate.
+  exampleEn: We're looking for an intern for three months.
+  note: 'n-noun: den, dem, des Praktikanten.'
+- id: praktikantin
+  lesson: de3-um-zu-damit
+  term: die Praktikantin
+  pos: noun
+  plural: die Praktikantinnen
+  meanings: [intern (female), intern, trainee]
+  example: Die neue Praktikantin hilft im Büro.
+  exampleEn: The new intern is helping in the office.
+- id: qualifikation
+  lesson: de3-um-zu-damit
+  term: die Qualifikation
+  pos: noun
+  plural: die Qualifikationen
+  meanings: [qualification]
+  example: Für die Stelle fehlt mir eine Qualifikation.
+  exampleEn: I'm missing a qualification for the job.
+- id: qualifiziert
+  lesson: de3-um-zu-damit
+  term: qualifiziert
+  pos: adjective
+  meanings: [qualified]
+  example: Sie ist für die Stelle sehr gut qualifiziert.
+  exampleEn: She is very well qualified for the job.
+- id: kenntnis
+  lesson: de3-um-zu-damit
+  term: die Kenntnis
+  pos: noun
+  plural: die Kenntnisse
+  meanings: [knowledge (of a subject, mostly plural), knowledge, skills, skill]
+  example: Für den Job braucht man gute Englischkenntnisse.
+  exampleEn: For the job you need a good knowledge of English.
+  note: 'Usually plural: Kenntnisse, Deutschkenntnisse, Computerkenntnisse.'
+- id: faehigkeit
+  lesson: de3-um-zu-damit
+  term: die Fähigkeit
+  pos: noun
+  plural: die Fähigkeiten
+  meanings: [ability, skill, capability]
+  example: Teamarbeit ist eine wichtige Fähigkeit.
+  exampleEn: Teamwork is an important skill.
+- id: faehig
+  lesson: de3-um-zu-damit
+  term: fähig
+  pos: adjective
+  meanings: [capable, able, competent]
+  example: Er ist nicht fähig, allein zu arbeiten.
+  exampleEn: He isn't capable of working on his own.
+  note: 'fähig sein, etwas zu tun / fähig zu etwas.'
+- id: voraussetzung
+  lesson: de3-um-zu-damit
+  term: die Voraussetzung
+  pos: noun
+  plural: die Voraussetzungen
+  meanings: [requirement, prerequisite, precondition]
+  example: Das Abitur ist eine Voraussetzung für das Studium.
+  exampleEn: The Abitur is a requirement for university.
+
+# --- 08 da, falls, sodass (insurance, contracts, risk) ---
+- id: da-since
+  lesson: de3-da-falls
+  term: da
+  pos: conjunction
+  meanings: [since (because), as (because), since, as, because]
+  example: Da es regnet, bleiben wir zu Hause.
+  exampleEn: Since it's raining, we're staying at home.
+  note: 'Verb at the end. A known reason, usually at the start of the sentence.'
+- id: sodass
+  lesson: de3-da-falls
+  term: sodass
+  alt: [so dass]
+  pos: conjunction
+  meanings: [so that (result), with the result that, so that, so]
+  example: Es hat stark geregnet, sodass der Keller nass war.
+  exampleEn: It rained heavily, so that the cellar was wet.
+  note: 'Verb at the end. For a goal, use damit.'
+- id: also-so
+  lesson: de3-da-falls
+  term: also
+  pos: adverb
+  meanings: [so (therefore), therefore, so, well then, thus]
+  example: Der Laden ist zu, also gehen wir morgen.
+  exampleEn: The shop is closed, so we'll go tomorrow.
+  note: 'False friend: English "also" is auch.'
+- id: daher
+  lesson: de3-da-falls
+  term: daher
+  pos: adverb
+  meanings: [therefore (formal), therefore, hence, for this reason, so]
+  example: Die Unterlagen fehlen. Daher können wir nicht zahlen.
+  exampleEn: The documents are missing. Therefore we can't pay.
+- id: deswegen
+  lesson: de3-da-falls
+  term: deswegen
+  pos: adverb
+  meanings: [for that reason, that's why, so, therefore]
+  example: Ich war krank, deswegen bin ich nicht gekommen.
+  exampleEn: I was ill, that's why I didn't come.
+  note: 'Same as deshalb; very common in speech.'
+- id: frist
+  lesson: de3-da-falls
+  term: die Frist
+  pos: noun
+  plural: die Fristen
+  meanings: [deadline, time limit, period]
+  example: Die Frist endet am 30. Juni.
+  exampleEn: The deadline is 30 June.
+- id: kuendigungsfrist
+  lesson: de3-da-falls
+  term: die Kündigungsfrist
+  pos: noun
+  plural: die Kündigungsfristen
+  meanings: [notice period, period of notice]
+  example: Die Kündigungsfrist beträgt drei Monate.
+  exampleEn: The notice period is three months.
+- id: bedingung
+  lesson: de3-da-falls
+  term: die Bedingung
+  pos: noun
+  plural: die Bedingungen
+  meanings: [condition, term (of a contract), requirement]
+  example: 'Unter einer Bedingung: Du hilfst mir beim Putzen.'
+  exampleEn: 'On one condition: you help me with the cleaning.'
+- id: gueltig
+  lesson: de3-da-falls
+  term: gültig
+  pos: adjective
+  meanings: [valid]
+  example: Mein Pass ist noch zwei Jahre gültig.
+  exampleEn: My passport is valid for two more years.
+- id: ungueltig
+  lesson: de3-da-falls
+  term: ungültig
+  pos: adjective
+  meanings: [invalid, not valid, void]
+  example: Ohne Stempel ist die Fahrkarte ungültig.
+  exampleEn: Without a stamp the ticket is invalid.
+- id: gueltigkeit
+  lesson: de3-da-falls
+  term: die Gültigkeit
+  pos: noun
+  plural: —
+  meanings: [validity]
+  example: Bitte prüfen Sie die Gültigkeit Ihres Ausweises.
+  exampleEn: Please check the validity of your ID card.
+- id: verlaengern
+  lesson: de3-da-falls
+  term: verlängern
+  pos: verb
+  meanings: [to extend, to renew, to prolong, to lengthen]
+  example: Ich möchte meinen Vertrag um ein Jahr verlängern.
+  exampleEn: I'd like to extend my contract by a year.
+  note: 'Perfect: hat verlängert. sich verlängern = to be extended.'
+- id: laufzeit
+  lesson: de3-da-falls
+  term: die Laufzeit
+  pos: noun
+  plural: die Laufzeiten
+  meanings: [term (of a contract), duration, running time]
+  example: Der Handyvertrag hat eine Laufzeit von 24 Monaten.
+  exampleEn: The phone contract has a term of 24 months.
+- id: abschliessen
+  lesson: de3-da-falls
+  term: abschließen
+  pos: verb
+  meanings: [to take out (insurance or a contract), to conclude, to complete, to finish, to lock]
+  example: Wir haben eine Hausratversicherung abgeschlossen.
+  exampleEn: We've taken out home contents insurance.
+  note: 'Separable and strong: schloss ab, hat abgeschlossen. Also means to lock (a door) and to complete (studies).'
+- id: haftpflichtversicherung
+  lesson: de3-da-falls
+  term: die Haftpflichtversicherung
+  pos: noun
+  plural: die Haftpflichtversicherungen
+  meanings: [liability insurance, personal liability insurance, third-party insurance]
+  example: Die Haftpflichtversicherung zahlt den Schaden beim Nachbarn.
+  exampleEn: The liability insurance pays for the damage at the neighbour's.
+- id: hausratversicherung
+  lesson: de3-da-falls
+  term: die Hausratversicherung
+  pos: noun
+  plural: die Hausratversicherungen
+  meanings: [home contents insurance, contents insurance, household insurance]
+  example: Die Hausratversicherung zahlt auch bei Diebstahl.
+  exampleEn: Home contents insurance also pays in case of theft.
+- id: versichert
+  lesson: de3-da-falls
+  term: versichert
+  pos: adjective
+  meanings: [insured]
+  example: Ist dein Fahrrad gegen Diebstahl versichert?
+  exampleEn: Is your bike insured against theft?
+- id: schadensfall
+  lesson: de3-da-falls
+  term: der Schadensfall
+  pos: noun
+  plural: die Schadensfälle
+  meanings: [claim (insurance case), insurance claim, case of damage, claim]
+  example: Im Schadensfall rufen Sie bitte diese Nummer an.
+  exampleEn: In the event of a claim, please call this number.
+- id: selbstbeteiligung
+  lesson: de3-da-falls
+  term: die Selbstbeteiligung
+  pos: noun
+  plural: die Selbstbeteiligungen
+  meanings: [excess (insurance), deductible, excess]
+  example: Die Selbstbeteiligung beträgt 150 Euro.
+  exampleEn: The excess is 150 euros.
+- id: anspruch
+  lesson: de3-da-falls
+  term: der Anspruch
+  pos: noun
+  plural: die Ansprüche
+  meanings: [right (to), entitlement, claim (a right to something), claim, demand]
+  example: Sie haben Anspruch auf 30 Tage Urlaub.
+  exampleEn: You are entitled to 30 days' holiday.
+  note: 'Anspruch auf + accusative; Anspruch haben auf = to be entitled to.'
+- id: unfall
+  lesson: de3-da-falls
+  term: der Unfall
+  pos: noun
+  plural: die Unfälle
+  meanings: [accident]
+  example: Bei dem Unfall wurde zum Glück niemand verletzt.
+  exampleEn: Luckily nobody was hurt in the accident.
+- id: diebstahl
+  lesson: de3-da-falls
+  term: der Diebstahl
+  pos: noun
+  plural: die Diebstähle
+  meanings: [theft]
+  example: Den Diebstahl müssen Sie bei der Polizei melden.
+  exampleEn: You have to report the theft to the police.
+- id: einbruch
+  lesson: de3-da-falls
+  term: der Einbruch
+  pos: noun
+  plural: die Einbrüche
+  meanings: [burglary, break-in]
+  example: Nach dem Einbruch haben wir ein neues Schloss gekauft.
+  exampleEn: After the burglary we bought a new lock.
+- id: beschaedigen
+  lesson: de3-da-falls
+  term: beschädigen
+  pos: verb
+  meanings: [to damage]
+  example: Der Sturm hat unser Dach beschädigt.
+  exampleEn: The storm damaged our roof.
+  note: 'Perfect: hat beschädigt (no ge-).'
+- id: unterlagen
+  lesson: de3-da-falls
+  term: die Unterlagen
+  pos: noun
+  plural: die Unterlagen (plural only)
+  meanings: [documents, papers, paperwork]
+  example: Bringen Sie bitte alle Unterlagen mit.
+  exampleEn: Please bring all the documents with you.
+- id: nachweis
+  lesson: de3-da-falls
+  term: der Nachweis
+  pos: noun
+  plural: die Nachweise
+  meanings: [proof, evidence, certificate]
+  example: Als Nachweis reicht eine Kopie der Rechnung.
+  exampleEn: A copy of the invoice is enough as proof.
+- id: vollstaendig
+  lesson: de3-da-falls
+  term: vollständig
+  pos: adjective
+  meanings: [complete, completely, full]
+  example: Ihr Antrag ist leider nicht vollständig.
+  exampleEn: Unfortunately your application isn't complete.
+- id: ausnahme
+  lesson: de3-da-falls
+  term: die Ausnahme
+  pos: noun
+  plural: die Ausnahmen
+  meanings: [exception]
+  example: Heute machen wir eine Ausnahme.
+  exampleEn: Today we'll make an exception.
+- id: verpflichtet
+  lesson: de3-da-falls
+  term: verpflichtet
+  pos: adjective
+  meanings: [obliged, required, obligated]
+  example: Der Mieter ist verpflichtet, Schäden zu melden.
+  exampleEn: The tenant is obliged to report damage.
+  note: 'verpflichtet sein, etwas zu tun.'
+- id: pflicht
+  lesson: de3-da-falls
+  term: die Pflicht
+  pos: noun
+  plural: die Pflichten
+  meanings: [duty, obligation]
+  example: In Deutschland ist die Krankenversicherung Pflicht.
+  exampleEn: In Germany health insurance is compulsory.
+  note: 'Pflicht sein = to be compulsory.'
+- id: das-kleingedruckte
+  lesson: de3-da-falls
+  term: das Kleingedruckte
+  pos: noun
+  plural: —
+  meanings: [small print, the fine print, fine print]
+  example: Lies immer das Kleingedruckte, bevor du unterschreibst!
+  exampleEn: Always read the small print before you sign!
+  note: 'An adjectival noun: im Kleingedruckten.'
+- id: jaehrlich
+  lesson: de3-da-falls
+  term: jährlich
+  pos: adjective
+  meanings: [annual, yearly, annually, every year]
+  example: Die Versicherung kostet jährlich 80 Euro.
+  exampleEn: The insurance costs 80 euros a year.
+
+# --- 09 two-part connectors (housing choices, living together) ---
+- id: entweder
+  lesson: de3-two-part
+  term: entweder
+  pos: conjunction
+  meanings: [either (entweder … oder), either]
+  example: Wir ziehen entweder nach Köln oder nach Bonn.
+  exampleEn: We're moving either to Cologne or to Bonn.
+  note: 'Always with oder: entweder … oder.'
+- id: weder
+  lesson: de3-two-part
+  term: weder
+  pos: conjunction
+  meanings: [neither (weder … noch), neither]
+  example: Die Wohnung hat weder Balkon noch Garten.
+  exampleEn: The flat has neither a balcony nor a garden.
+  note: 'Always with noch: weder … noch. No extra nicht or kein.'
+- id: sowohl
+  lesson: de3-two-part
+  term: sowohl
+  pos: conjunction
+  meanings: [both (sowohl … als auch), both, as well]
+  example: Hier wohnen sowohl Familien als auch Studenten.
+  exampleEn: Both families and students live here.
+  note: 'Always with als auch: sowohl … als auch.'
+- id: wohngemeinschaft
+  lesson: de3-two-part
+  term: die Wohngemeinschaft
+  alt: [die WG]
+  pos: noun
+  plural: die Wohngemeinschaften
+  meanings: [flat-share, shared flat, shared house, house share, flatshare]
+  example: Ich wohne in einer Wohngemeinschaft mit drei Leuten.
+  exampleEn: I live in a flat-share with three people.
+  note: 'Usually shortened to die WG (plural die WGs).'
+- id: mitbewohner
+  lesson: de3-two-part
+  term: der Mitbewohner
+  pos: noun
+  plural: die Mitbewohner
+  meanings: [flatmate (male), flatmate, roommate, housemate]
+  example: Mein Mitbewohner kocht jeden Abend.
+  exampleEn: My flatmate cooks every evening.
+- id: mitbewohnerin
+  lesson: de3-two-part
+  term: die Mitbewohnerin
+  pos: noun
+  plural: die Mitbewohnerinnen
+  meanings: [flatmate (female), flatmate, roommate, housemate]
+  example: Meine Mitbewohnerin studiert Musik.
+  exampleEn: My flatmate is studying music.
+- id: einfamilienhaus
+  lesson: de3-two-part
+  term: das Einfamilienhaus
+  pos: noun
+  plural: die Einfamilienhäuser
+  meanings: [detached house, single-family house, family house]
+  example: Meine Eltern haben ein Einfamilienhaus mit Garten.
+  exampleEn: My parents have a detached house with a garden.
+- id: mehrfamilienhaus
+  lesson: de3-two-part
+  term: das Mehrfamilienhaus
+  pos: noun
+  plural: die Mehrfamilienhäuser
+  meanings: [apartment building, block of flats, multi-family house]
+  example: In unserem Mehrfamilienhaus wohnen zwölf Parteien.
+  exampleEn: Twelve households live in our apartment building.
+- id: reihenhaus
+  lesson: de3-two-part
+  term: das Reihenhaus
+  pos: noun
+  plural: die Reihenhäuser
+  meanings: [terraced house, townhouse, row house]
+  example: Ein Reihenhaus ist billiger als ein Einfamilienhaus.
+  exampleEn: A terraced house is cheaper than a detached house.
+- id: hochhaus
+  lesson: de3-two-part
+  term: das Hochhaus
+  pos: noun
+  plural: die Hochhäuser
+  meanings: [high-rise, tower block, skyscraper]
+  example: Wir wohnen im zehnten Stock eines Hochhauses.
+  exampleEn: We live on the tenth floor of a tower block.
+- id: eigentumswohnung
+  lesson: de3-two-part
+  term: die Eigentumswohnung
+  pos: noun
+  plural: die Eigentumswohnungen
+  meanings: [owner-occupied flat, condo, condominium, flat you own]
+  example: Sie haben sich eine Eigentumswohnung gekauft.
+  exampleEn: They've bought a flat of their own.
+- id: eigentuemer
+  lesson: de3-two-part
+  term: der Eigentümer
+  pos: noun
+  plural: die Eigentümer
+  meanings: [owner (male), owner, proprietor]
+  example: Der Eigentümer wohnt im Erdgeschoss.
+  exampleEn: The owner lives on the ground floor.
+- id: eigentuemerin
+  lesson: de3-two-part
+  term: die Eigentümerin
+  pos: noun
+  plural: die Eigentümerinnen
+  meanings: [owner (female), owner, proprietor]
+  example: Die Eigentümerin will das Haus verkaufen.
+  exampleEn: The owner wants to sell the house.
+- id: besitzen
+  lesson: de3-two-part
+  term: besitzen
+  pos: verb
+  meanings: [to own, to possess, to have]
+  example: Meine Tante besitzt zwei Wohnungen.
+  exampleEn: My aunt owns two flats.
+  note: 'Strong: besaß, hat besessen.'
+- id: besitz
+  lesson: de3-two-part
+  term: der Besitz
+  pos: noun
+  plural: —
+  meanings: [possession, property, possessions, ownership]
+  example: Das Haus ist seit 100 Jahren im Besitz der Familie.
+  exampleEn: The house has been in the family's possession for 100 years.
+- id: vermieten
+  lesson: de3-two-part
+  term: vermieten
+  pos: verb
+  meanings: [to rent out, to let]
+  example: Wir vermieten ein Zimmer an eine Studentin.
+  exampleEn: We're renting out a room to a student.
+  note: 'Perfect: hat vermietet. Compare mieten (to rent from someone).'
+- id: altbau
+  lesson: de3-two-part
+  term: der Altbau
+  pos: noun
+  plural: die Altbauten
+  meanings: [old building, period building, prewar building]
+  example: Im Altbau sind die Decken sehr hoch.
+  exampleEn: In the old building the ceilings are very high.
+- id: neubau
+  lesson: de3-two-part
+  term: der Neubau
+  pos: noun
+  plural: die Neubauten
+  meanings: [new building, new-build, newly built building]
+  example: Der Neubau hat einen Aufzug und eine Tiefgarage.
+  exampleEn: The new building has a lift and an underground car park.
+- id: ruhezeit
+  lesson: de3-two-part
+  term: die Ruhezeit
+  pos: noun
+  plural: die Ruhezeiten
+  meanings: [quiet hours, quiet time, rest period]
+  example: Die Ruhezeit beginnt um 22 Uhr.
+  exampleEn: Quiet hours begin at 10 pm.
+  note: 'Usually plural in house rules: die Ruhezeiten.'
+- id: lage
+  lesson: de3-two-part
+  term: die Lage
+  pos: noun
+  plural: die Lagen
+  meanings: [location, position, situation]
+  example: Die Wohnung ist klein, aber die Lage ist super.
+  exampleEn: The flat is small, but the location is great.
+- id: zentral
+  lesson: de3-two-part
+  term: zentral
+  pos: adjective
+  meanings: [central, centrally]
+  example: Wir wohnen sehr zentral, direkt am Marktplatz.
+  exampleEn: We live very centrally, right on the market square.
+- id: laendlich
+  lesson: de3-two-part
+  term: ländlich
+  pos: adjective
+  meanings: [rural, country]
+  example: Meine Großeltern wohnen in einer ländlichen Gegend.
+  exampleEn: My grandparents live in a rural area.
+- id: nachbarschaft
+  lesson: de3-two-part
+  term: die Nachbarschaft
+  pos: noun
+  plural: die Nachbarschaften
+  meanings: [neighbourhood, neighborhood, the neighbours, vicinity]
+  example: In unserer Nachbarschaft gibt es viele Familien.
+  exampleEn: There are lots of families in our neighbourhood.
+- id: hausordnung
+  lesson: de3-two-part
+  term: die Hausordnung
+  pos: noun
+  plural: die Hausordnungen
+  meanings: [house rules, building rules]
+  example: Laut Hausordnung ist ab 22 Uhr Ruhe.
+  exampleEn: According to the house rules, it has to be quiet from 10 pm.
+- id: laerm
+  lesson: de3-two-part
+  term: der Lärm
+  pos: noun
+  plural: —
+  meanings: [noise, din]
+  example: Der Lärm von der Straße ist furchtbar.
+  exampleEn: The noise from the street is terrible.
+- id: ruhe
+  lesson: de3-two-part
+  term: die Ruhe
+  pos: noun
+  plural: —
+  meanings: [quiet, peace, peace and quiet, calm, rest]
+  example: Lass mich in Ruhe!
+  exampleEn: Leave me alone!
+- id: stoeren
+  lesson: de3-two-part
+  term: stören
+  pos: verb
+  meanings: [to disturb, to bother, to interrupt]
+  example: Stört es dich, wenn ich das Fenster aufmache?
+  exampleEn: Does it bother you if I open the window?
+- id: stoerung
+  lesson: de3-two-part
+  term: die Störung
+  pos: noun
+  plural: die Störungen
+  meanings: [disturbance, disruption, fault (technical), interruption]
+  example: Entschuldigen Sie die Störung!
+  exampleEn: Sorry to disturb you!
+- id: sich-beschweren
+  lesson: de3-two-part
+  term: sich beschweren
+  pos: verb
+  meanings: [to complain]
+  example: Die Nachbarn haben sich über den Lärm beschwert.
+  exampleEn: The neighbours complained about the noise.
+  note: 'sich beschweren bei (+ Dat, the person) über (+ Akk, the thing). Perfect: hat sich beschwert.'
+- id: beschwerde
+  lesson: de3-two-part
+  term: die Beschwerde
+  pos: noun
+  plural: die Beschwerden
+  meanings: [complaint]
+  example: Wir haben schon wieder eine Beschwerde bekommen.
+  exampleEn: We've had another complaint.
+  note: 'Plural Beschwerden also means (physical) complaints, aches.'
+- id: ruecksicht
+  lesson: de3-two-part
+  term: die Rücksicht
+  pos: noun
+  plural: —
+  meanings: [consideration, regard, thoughtfulness]
+  example: Bitte nehmt Rücksicht auf die Nachbarn!
+  exampleEn: Please be considerate of the neighbours!
+  note: 'Rücksicht nehmen auf + accusative.'
+- id: ruecksichtsvoll
+  lesson: de3-two-part
+  term: rücksichtsvoll
+  pos: adjective
+  meanings: [considerate, thoughtful]
+  example: Unser Nachbar ist sehr rücksichtsvoll.
+  exampleEn: Our neighbour is very considerate.
+- id: hausmeister
+  lesson: de3-two-part
+  term: der Hausmeister
+  pos: noun
+  plural: die Hausmeister
+  meanings: [caretaker, janitor, superintendent]
+  example: Der Hausmeister repariert die Heizung.
+  exampleEn: The caretaker is repairing the heating.
+- id: renovieren
+  lesson: de3-two-part
+  term: renovieren
+  pos: verb
+  meanings: [to renovate, to redecorate, to do up]
+  example: Bevor wir einziehen, renovieren wir die Küche.
+  exampleEn: Before we move in, we're renovating the kitchen.
+  note: 'Perfect: hat renoviert (no ge-).'
+
+# --- 10 je … desto (sport, fitness, a healthy life) ---
+- id: je
+  lesson: de3-je-desto
+  term: je
+  pos: conjunction
+  meanings: [the (first part of je … desto), the more, the]
+  example: Je mehr ich lerne, desto mehr weiß ich.
+  exampleEn: The more I learn, the more I know.
+  note: 'je + comparative, verb at the end; then desto/umso + comparative + verb.'
+- id: desto
+  lesson: de3-je-desto
+  term: desto
+  pos: adverb
+  meanings: [the (second part of je … desto), the]
+  example: Je früher, desto besser.
+  exampleEn: The sooner the better.
+- id: umso
+  lesson: de3-je-desto
+  term: umso
+  pos: adverb
+  meanings: [all the (more), all the more, the, so much the]
+  example: Das Spiel war schwer, umso schöner war der Sieg.
+  exampleEn: The game was hard, so the win was all the sweeter.
+  note: 'Same as desto in je … umso. Umso besser! = All the better!'
+- id: bewegung
+  lesson: de3-je-desto
+  term: die Bewegung
+  pos: noun
+  plural: die Bewegungen
+  meanings: [exercise, movement, motion]
+  example: Ein bisschen Bewegung tut dir gut.
+  exampleEn: A bit of exercise will do you good.
+- id: sich-bewegen
+  lesson: de3-je-desto
+  term: sich bewegen
+  pos: verb
+  meanings: [to move, to get exercise, to exercise]
+  example: Ich bewege mich zu wenig.
+  exampleEn: I don't get enough exercise.
+  note: 'Weak: hat sich bewegt.'
+- id: trainieren
+  lesson: de3-je-desto
+  term: trainieren
+  pos: verb
+  meanings: [to train, to practise, to practice, to work out]
+  example: Die Mannschaft trainiert dreimal pro Woche.
+  exampleEn: The team trains three times a week.
+  note: 'Perfect: hat trainiert (no ge-).'
+- id: training
+  lesson: de3-je-desto
+  term: das Training
+  pos: noun
+  plural: die Trainings
+  meanings: [training, practice, workout]
+  example: Nach dem Training bin ich total müde.
+  exampleEn: After training I'm completely tired.
+- id: trainer
+  lesson: de3-je-desto
+  term: der Trainer
+  pos: noun
+  plural: die Trainer
+  meanings: [coach (male), coach, trainer]
+  example: Unser Trainer war früher Profi.
+  exampleEn: Our coach used to be a professional.
+- id: trainerin
+  lesson: de3-je-desto
+  term: die Trainerin
+  pos: noun
+  plural: die Trainerinnen
+  meanings: [coach (female), coach, trainer]
+  example: Die Trainerin erklärt die Übung.
+  exampleEn: The coach explains the exercise.
+- id: ausdauer
+  lesson: de3-je-desto
+  term: die Ausdauer
+  pos: noun
+  plural: —
+  meanings: [stamina, endurance, perseverance]
+  example: Für einen Marathon braucht man viel Ausdauer.
+  exampleEn: You need a lot of stamina for a marathon.
+- id: kraft
+  lesson: de3-je-desto
+  term: die Kraft
+  pos: noun
+  plural: die Kräfte
+  meanings: [strength, power, force]
+  example: Ich habe keine Kraft mehr.
+  exampleEn: I have no strength left.
+- id: muskel
+  lesson: de3-je-desto
+  term: der Muskel
+  pos: noun
+  plural: die Muskeln
+  meanings: [muscle]
+  example: Nach dem Training tun mir alle Muskeln weh.
+  exampleEn: After training all my muscles hurt.
+- id: gewicht
+  lesson: de3-je-desto
+  term: das Gewicht
+  pos: noun
+  plural: die Gewichte
+  meanings: [weight]
+  example: Er achtet auf sein Gewicht.
+  exampleEn: He watches his weight.
+- id: abnehmen
+  lesson: de3-je-desto
+  term: abnehmen
+  pos: verb
+  meanings: [to lose weight, to slim, to take off, to pick up (the phone)]
+  example: Sie hat fünf Kilo abgenommen.
+  exampleEn: She has lost five kilos.
+  note: 'Separable and strong: nimmt ab, nahm ab, hat abgenommen.'
+- id: zunehmen
+  lesson: de3-je-desto
+  term: zunehmen
+  pos: verb
+  meanings: [to put on weight, to gain weight, to increase]
+  example: Im Urlaub habe ich zwei Kilo zugenommen.
+  exampleEn: I put on two kilos on holiday.
+  note: 'Separable and strong: nimmt zu, nahm zu, hat zugenommen.'
+- id: ernaehrung
+  lesson: de3-je-desto
+  term: die Ernährung
+  pos: noun
+  plural: —
+  meanings: [diet (what you eat), nutrition, food, diet]
+  example: Eine gesunde Ernährung ist wichtig.
+  exampleEn: A healthy diet is important.
+- id: sich-ernaehren
+  lesson: de3-je-desto
+  term: sich ernähren
+  pos: verb
+  meanings: [to eat (a type of diet), to feed yourself, to live on, to eat]
+  example: Er ernährt sich vegetarisch.
+  exampleEn: He eats a vegetarian diet.
+  note: 'Perfect: hat sich ernährt.'
+- id: ausgewogen
+  lesson: de3-je-desto
+  term: ausgewogen
+  pos: adjective
+  meanings: [balanced]
+  example: Das Essen in der Kantine ist ausgewogen.
+  exampleEn: The food in the canteen is balanced.
+- id: diaet
+  lesson: de3-je-desto
+  term: die Diät
+  pos: noun
+  plural: die Diäten
+  meanings: [diet (to lose weight), slimming diet, special diet, diet]
+  example: Seit Montag mache ich eine Diät.
+  exampleEn: I've been on a diet since Monday.
+- id: verein
+  lesson: de3-je-desto
+  term: der Verein
+  pos: noun
+  plural: die Vereine
+  meanings: [club, society, association]
+  example: Mein Sohn spielt im Verein Handball.
+  exampleEn: My son plays handball in a club.
+- id: mannschaft
+  lesson: de3-je-desto
+  term: die Mannschaft
+  pos: noun
+  plural: die Mannschaften
+  meanings: [team (in sport), team, side, crew]
+  example: Unsere Mannschaft hat drei Spiele hintereinander gewonnen.
+  exampleEn: Our team has won three games in a row.
+- id: gegner
+  lesson: de3-je-desto
+  term: der Gegner
+  pos: noun
+  plural: die Gegner
+  meanings: [opponent (male), opponent, rival, opposition]
+  example: Der Gegner war heute einfach besser.
+  exampleEn: The opponents were simply better today.
+- id: gegnerin
+  lesson: de3-je-desto
+  term: die Gegnerin
+  pos: noun
+  plural: die Gegnerinnen
+  meanings: [opponent (female), opponent, rival]
+  example: Ihre Gegnerin im Finale kommt aus Polen.
+  exampleEn: Her opponent in the final is from Poland.
+- id: wettkampf
+  lesson: de3-je-desto
+  term: der Wettkampf
+  pos: noun
+  plural: die Wettkämpfe
+  meanings: [competition (sporting event), competition, contest, event (in sport)]
+  example: Vor einem Wettkampf bin ich immer nervös.
+  exampleEn: I'm always nervous before a competition.
+- id: turnier
+  lesson: de3-je-desto
+  term: das Turnier
+  pos: noun
+  plural: die Turniere
+  meanings: [tournament]
+  example: Am Wochenende spielen wir ein Turnier in Mainz.
+  exampleEn: At the weekend we're playing in a tournament in Mainz.
+- id: meisterschaft
+  lesson: de3-je-desto
+  term: die Meisterschaft
+  pos: noun
+  plural: die Meisterschaften
+  meanings: [championship, championships]
+  example: Sie hat die deutsche Meisterschaft gewonnen.
+  exampleEn: She won the German championship.
+- id: sieg
+  lesson: de3-je-desto
+  term: der Sieg
+  pos: noun
+  plural: die Siege
+  meanings: [victory, win]
+  example: Nach dem Sieg haben alle gefeiert.
+  exampleEn: After the win everyone celebrated.
+- id: niederlage
+  lesson: de3-je-desto
+  term: die Niederlage
+  pos: noun
+  plural: die Niederlagen
+  meanings: [defeat, loss]
+  example: Die Niederlage war bitter.
+  exampleEn: The defeat was bitter.
+- id: rekord
+  lesson: de3-je-desto
+  term: der Rekord
+  pos: noun
+  plural: die Rekorde
+  meanings: [record (best result), record]
+  example: Er hat einen neuen Rekord aufgestellt.
+  exampleEn: He set a new record.
+- id: fit
+  lesson: de3-je-desto
+  term: fit
+  pos: adjective
+  meanings: [fit, in shape]
+  example: Mit 70 ist mein Opa noch sehr fit.
+  exampleEn: At 70 my grandpa is still very fit.
+- id: aktiv
+  lesson: de3-je-desto
+  term: aktiv
+  pos: adjective
+  meanings: [active, actively]
+  example: Im Alter aktiv zu bleiben ist wichtig.
+  exampleEn: Staying active in old age is important.
+- id: stress
+  lesson: de3-je-desto
+  term: der Stress
+  pos: noun
+  plural: —
+  meanings: [stress]
+  example: Bei der Arbeit habe ich gerade viel Stress.
+  exampleEn: I've got a lot of stress at work at the moment.
+- id: stressig
+  lesson: de3-je-desto
+  term: stressig
+  pos: adjective
+  meanings: [stressful, hectic]
+  example: Die Woche war sehr stressig.
+  exampleEn: The week was very stressful.
+- id: entspannt
+  lesson: de3-je-desto
+  term: entspannt
+  pos: adjective
+  meanings: [relaxed, laid-back]
+  example: Nach dem Yoga fühle ich mich entspannt.
+  exampleEn: After yoga I feel relaxed.

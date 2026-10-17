@@ -112,3 +112,11 @@ if (fails) process.exit(1);
 }
 console.log(fails ? `${fails} FAILURES` : "cap tests passed");
 if (fails) process.exit(1);
+
+{
+  const item = { id: "umzu", lesson: "l", term: "um … zu", meanings: ["in order to"] };
+  ok("ellipsis term: um zu", checkRecall(item, "um zu").ok);
+  ok("ellipsis term: um...zu", checkRecall(item, "um...zu").ok);
+}
+console.log(fails ? `${fails} FAILURES` : "ellipsis tests passed");
+if (fails) process.exit(1);

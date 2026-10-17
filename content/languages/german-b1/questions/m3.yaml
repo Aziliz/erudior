@@ -1,0 +1,511 @@
+# German B1, module 3: Describing in detail (lessons 11–15)
+
+# --- 11 Relative clauses in every case, with prepositions ---
+- id: de3-q-1101
+  lesson: de3-relative-all
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete: "Das sind die Nachbarn, ___ ich meinen Schlüssel gegeben habe."'
+  choices: ['denen', 'den', 'die', 'deren']
+  answer: 0
+  explanation: |-
+    "jemandem etwas geben": the person who receives something is in the dative. The antecedent "die Nachbarn" is plural, and the dative plural relative pronoun is "denen", with an extra syllable. "den" is the article (den Nachbarn), not the relative pronoun; "die" would be nominative or accusative; "deren" means "whose".
+- id: de3-q-1102
+  lesson: de3-relative-all
+  topic: Relative clauses
+  stem: 'Complete: "Die Kollegin, mit ___ ich ein Büro teile, ist sehr zuverlässig."'
+  choices: ['die', 'der', 'dem', 'den']
+  answer: 1
+  explanation: |-
+    "mit" always takes the dative, and "die Kollegin" is feminine, so the dative feminine relative pronoun "der" is needed. "die" would be right without a preposition (nominative or accusative); "dem" is masculine or neuter.
+- id: de3-q-1103
+  lesson: de3-relative-all
+  topic: Relative clauses
+  stem: 'Complete: "Das ist der Freund, für ___ ich das Geschenk gekauft habe."'
+  choices: ['dem', 'der', 'den', 'denen']
+  answer: 2
+  explanation: |-
+    "für" always takes the accusative, and "der Freund" is masculine, so: "für den". "dem" is the dative form you would need after "mit" or "von".
+- id: de3-q-1104
+  lesson: de3-relative-all
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Which sentence is correct?'
+  choices: ['Das ist die Frau, ich mit gesprochen habe.', 'Das ist die Frau, die ich mit gesprochen habe.', 'Das ist die Frau, mit die ich gesprochen habe.', 'Das ist die Frau, mit der ich gesprochen habe.']
+  answer: 3
+  explanation: |-
+    In German the preposition goes at the front of the relative clause, together with the relative pronoun, and it decides the case: "mit" + dative feminine = "mit der". English puts "with" at the end ("the woman I talked to"), which German never does; and "mit die" has the wrong case.
+- id: de3-q-1105
+  lesson: de3-relative-all
+  topic: Relative clauses
+  stem: 'Complete: "Ich habe eine Nachbarin, ___ Sohn in meine Klasse geht."'
+  choices: ['dessen', 'deren', 'die', 'ihre']
+  answer: 1
+  explanation: |-
+    "whose" is dessen or deren, and it agrees with the owner, not with the thing owned. The owner is "eine Nachbarin" (feminine), so: "deren Sohn". "dessen" would be for a masculine or neuter owner; "ihre" would make a main clause (Ihr Sohn geht …), and the verb would not be at the end.
+- id: de3-q-1106
+  lesson: de3-relative-all
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete: "Der Mann, ___ das Auto gehört, wohnt im dritten Stock."'
+  choices: ['dem', 'der', 'den', 'dessen']
+  answer: 0
+  explanation: |-
+    "gehören" takes the dative: Das Auto gehört ihm. So the relative pronoun is dative masculine: "dem". "der" is the subject form; "dessen" would need a noun after it (dessen Auto) and a different verb.
+- id: de3-q-1107
+  lesson: de3-relative-all
+  topic: Relative clauses
+  stem: 'Find the mistake: "Die Kinder, den ich bei den Hausaufgaben helfe, sind sehr geduldig."'
+  choices: ['"Kinder" should be "Kindern"', '"helfe" should be "geholfen"', '"geduldig" needs an ending', '"den" should be "denen"']
+  answer: 3
+  explanation: |-
+    "helfen" takes the dative and "die Kinder" is plural, so the relative pronoun is "denen". "den" is the dative plural article (den Kindern), a very common mix-up. "Kinder" is the subject of the main clause and stays as it is; "geduldig" after "sind" takes no ending.
+- id: de3-q-1108
+  lesson: de3-relative-all
+  topic: Relative clauses
+  stem: 'Complete: "Das ist ein Problem, über ___ wir lange diskutiert haben."'
+  choices: ['dem', 'was', 'das', 'den']
+  answer: 2
+  explanation: |-
+    "diskutieren über" takes the accusative, and "das Problem" is neuter: "über das". "dem" would be dative; "den" is masculine. "was" is for alles, etwas, nichts and whole clauses, not for a real noun like "ein Problem".
+- id: de3-q-1109
+  lesson: de3-relative-all
+  topic: Relationships and communication
+  stem: 'What does "Sie kann gut mit Kritik umgehen" mean?'
+  choices: ['She often criticizes other people.', 'She avoids criticism.', 'She deals well with criticism.', 'She likes to go out after criticism.']
+  answer: 2
+  explanation: |-
+    "umgehen mit" means to deal with or handle something or someone. The sentence says she handles criticism well. It has nothing to do with going out, and the one who receives the criticism is her.
+- id: de3-q-1110
+  lesson: de3-relative-all
+  topic: Reading
+  stem: 'Read: "Liebe Frau Berg, ich schreibe Ihnen wegen meines Mitbewohners Tim. Tim ist eigentlich ein großzügiger Mensch, mit dem man viel lachen kann. Aber er ist sehr unzuverlässig: Er vergisst Termine, die wir zusammen ausgemacht haben, und putzt nie. Wenn ich ihn kritisiere, wird er sofort wütend. Wir haben schon zweimal darüber diskutiert, aber ohne Ergebnis. Was soll ich tun? Jana" What is Jana''s main problem with Tim?'
+  choices: ['He is selfish with money.', 'He never laughs at her jokes.', 'He doesn''t want to discuss anything.', 'He isn''t reliable and reacts badly to criticism.']
+  answer: 3
+  explanation: |-
+    Jana says Tim is "unzuverlässig" (unreliable: he forgets arrangements and never cleans) and becomes angry when she criticizes him. He is actually "großzügig" (generous), and they have discussed it twice, so the other answers contradict the text.
+- id: de3-q-1111
+  lesson: de3-relative-all
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Which sentence sounds most natural?'
+  choices: ['Ich habe gestern den Kollegen getroffen, mit dem ich früher gearbeitet habe.', 'Ich habe gestern den Kollegen, mit dem ich früher gearbeitet habe, getroffen.', 'Ich habe gestern den Kollegen getroffen, mit dem ich habe früher gearbeitet.', 'Ich habe gestern getroffen den Kollegen, mit dem ich früher gearbeitet habe.']
+  answer: 0
+  explanation: |-
+    The relative clause usually moves behind the participle at the end, so that "getroffen" is not left alone after a long relative clause. The second sentence is grammatical but sounds clumsy. In the third, the verb "habe" must be last in the relative clause; in the fourth, the participle must close the main clause.
+- id: de3-q-1112
+  lesson: de3-relative-all
+  topic: Relationships and communication
+  stem: 'A friend says: "Mein Freund liest heimlich meine Nachrichten und ist sauer, wenn ich mit anderen Männern spreche." How would you describe him?'
+  choices: ['geduldig', 'eifersüchtig', 'zurückhaltend', 'großzügig']
+  answer: 1
+  explanation: |-
+    Secretly reading someone's messages and getting angry when they talk to other men is typical of someone who is "eifersüchtig" (jealous). "geduldig" is patient, "zurückhaltend" reserved, "großzügig" generous.
+
+# --- 12 wo, was, wer as relatives ---
+- id: de3-q-1201
+  lesson: de3-relative-wo-was
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete: "Das ist alles, ___ ich über die Stadt weiß."'
+  choices: ['das', 'was', 'die', 'wo']
+  answer: 1
+  explanation: |-
+    After "alles", "etwas", "nichts" and "das" the relative pronoun is "was". "das" is used after a real neuter noun (das Buch, das …); "wo" is for places.
+- id: de3-q-1202
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'Complete: "Wir fahren nächste Woche nach Wien, ___ meine Schwester seit drei Jahren wohnt."'
+  choices: ['wohin', 'was', 'wo', 'woher']
+  answer: 2
+  explanation: |-
+    The relative clause is about where the sister lives, with no movement, so it is "wo". With a city name without an article, "wo" is the natural choice. "wohin" would need a verb of movement (wohin sie gezogen ist), "woher" an origin.
+- id: de3-q-1203
+  module_quiz: true
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'Complete: "Das Beste, ___ ich in Salzburg gegessen habe, waren die Nockerln."'
+  choices: ['was', 'das', 'den', 'wo']
+  answer: 0
+  explanation: |-
+    After a neuter superlative used as a noun (das Beste, das Schönste, das Einzige), German uses "was". "das" would follow a real noun: das beste Gericht, das ich gegessen habe.
+- id: de3-q-1204
+  lesson: de3-relative-wo-was
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete: "Das Museum war am Montag geschlossen, ___ wir leider nicht wussten."'
+  choices: ['das', 'der', 'wo', 'was']
+  answer: 3
+  explanation: |-
+    The relative clause refers to the whole statement (that the museum was closed), not to the noun "Museum". For a whole clause German uses "was", like English "which". "das" would mean that we didn't know the museum itself.
+- id: de3-q-1205
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'Complete: "Es gibt nichts, ___ ich mich mehr freue als auf den Urlaub."'
+  choices: ['worauf', 'auf was', 'auf das', 'was']
+  answer: 0
+  explanation: |-
+    "sich freuen auf" needs its preposition, and after "nichts" the relative word is "was". "was" + preposition becomes a wo(r)- word: "worauf". "auf was" is colloquial; "auf das" would follow a real noun; plain "was" loses the preposition.
+- id: de3-q-1206
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'Which sentence is correct in written German?'
+  choices: ['Ich lese gerade ein Buch, was mir gut gefällt.', 'Ich lese gerade ein Buch, das mir gut gefällt.', 'Ich lese gerade ein Buch, wo mir gut gefällt.', 'Ich lese gerade ein Buch, welches mir gefällt gut.']
+  answer: 1
+  explanation: |-
+    After a real noun ("ein Buch", neuter) the relative pronoun is "das". "was" after a noun is heard in speech but is wrong in writing; "wo" is only for places; the last sentence has the verb in the wrong place.
+- id: de3-q-1207
+  lesson: de3-relative-wo-was
+  topic: Culture and sights
+  stem: 'A sign at a castle says: "Führungen täglich um 11 und 15 Uhr. Eintritt: 8 Euro, Kinder frei." What does it tell you?'
+  choices: ['The castle is open from 11 to 3.', 'Children can take the tour alone.', 'Tours cost 8 Euro extra.', 'There are guided tours twice a day, and children don''t pay.']
+  answer: 3
+  explanation: |-
+    "die Führung" is a guided tour, and there are two each day (11 and 15 Uhr). "der Eintritt" is admission: 8 Euro, and "Kinder frei" means children get in free. The sign doesn't give opening hours or say that tours cost extra.
+- id: de3-q-1208
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'Complete: "Das Dorf, ___ meine Großeltern kommen, liegt in den Bergen."'
+  choices: ['wo', 'wohin', 'woher', 'was']
+  answer: 2
+  explanation: |-
+    "kommen aus" describes where someone comes from, so the relative word is "woher" (or "aus dem"). "wo" is for location without movement, "wohin" for direction towards.
+- id: de3-q-1209
+  lesson: de3-relative-wo-was
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Lindenberg ist eine kleine Stadt am See, wo jeden Sommer ein Musikfestival stattfindet. Die Konzerte finden auf einer Bühne im Wasser statt, was die Atmosphäre besonders macht. Wer keine Karte bekommen hat, kann vom Ufer aus zuhören, und das ist kostenlos. Das Einzige, was man mitbringen muss, ist eine Decke." Which statement is true?'
+  choices: ['You can only listen with a ticket.', 'People without tickets can listen from the shore for free.', 'The festival takes place in the town hall.', 'You have to bring your own chair.']
+  answer: 1
+  explanation: |-
+    "Wer keine Karte bekommen hat, kann vom Ufer aus zuhören, und das ist kostenlos": whoever didn't get a ticket can listen from the shore for free. The stage is on the water, and the only thing to bring is a blanket ("eine Decke"), not a chair.
+- id: de3-q-1210
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'What does "Wer zuerst kommt, mahlt zuerst" mean?'
+  choices: ['Whoever comes first gets served first.', 'Whoever comes first has to work first.', 'The first visitor pays the most.', 'Come early, or you will miss the mill.']
+  answer: 0
+  explanation: |-
+    "wer" here means "whoever": the proverb comes from old mills, where the farmer who arrived first got his grain ground first. The English equivalent is "first come, first served".
+- id: de3-q-1211
+  lesson: de3-relative-wo-was
+  topic: Culture and sights
+  stem: 'Which does not fit? "Im Theater saß ___ vor der Bühne und hat lange geklatscht."'
+  choices: ['das Publikum', 'die ganze Klasse', 'das Denkmal', 'meine Familie']
+  answer: 2
+  explanation: |-
+    "das Denkmal" is a monument; it can't sit in a theatre or clap. "das Publikum" (the audience), "die ganze Klasse" (the whole class) and "meine Familie" all fit.
+- id: de3-q-1212
+  lesson: de3-relative-wo-was
+  topic: Relative clauses
+  stem: 'Which sentence is best in a written text?'
+  choices: ['An dem Tag, wo wir uns kennengelernt haben, hat es geregnet.', 'An dem Tag, was wir uns kennengelernt haben, hat es geregnet.', 'An dem Tag, wann wir uns kennengelernt haben, hat es geregnet.', 'An dem Tag, an dem wir uns kennengelernt haben, hat es geregnet.']
+  answer: 3
+  explanation: |-
+    After a time word, "wo" is very common in speech, but in writing use a preposition + relative pronoun: "an dem Tag, an dem …" (or "als" for a single past event without "an dem Tag"). "was" and "wann" are not relative words for time.
+
+# --- 13 The genitive ---
+- id: de3-q-1301
+  lesson: de3-genitive
+  module_quiz: true
+  topic: Genitive
+  stem: 'Complete: "Das ist das Auto ___."'
+  choices: ['meines Vater', 'meinem Vater', 'meines Vaters', 'meiner Vaters']
+  answer: 2
+  explanation: |-
+    The genitive masculine possessive is "meines", and the masculine noun adds -s: "meines Vaters". "meines Vater" forgets the noun ending; "meinem Vater" is dative (used with von in speech: das Auto von meinem Vater).
+- id: de3-q-1302
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Complete: "Am Ende ___ gibt es eine Prüfung."'
+  choices: ['des Kurses', 'der Kurs', 'den Kurs', 'des Kurs']
+  answer: 0
+  explanation: |-
+    "der Kurs" is masculine; the genitive article is "des", and because the noun ends in -s it takes -es: "des Kurses". "des Kurs" is missing the noun ending.
+- id: de3-q-1303
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Complete: "Die Wohnung ___ ist sehr hell."'
+  choices: ['der Tantes', 'meiner Tante', 'meines Tantes', 'meine Tante']
+  answer: 1
+  explanation: |-
+    "die Tante" is feminine: the genitive is "meiner Tante", and feminine nouns never add -s. "meines" is for masculine and neuter; "meine Tante" would be nominative or accusative.
+- id: de3-q-1304
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Complete: "Der Name ___ steht nicht auf der Liste."'
+  choices: ['des Kollegens', 'des Kollege', 'dem Kollegen', 'des Kollegen']
+  answer: 3
+  explanation: |-
+    "der Kollege" is an n-noun: in every case except the nominative singular it ends in -n, and it never adds -s. So: "des Kollegen". "des Kollegens" is a common mistake (only a few n-nouns like Name take -ns).
+- id: de3-q-1305
+  lesson: de3-genitive
+  module_quiz: true
+  topic: Genitive
+  stem: 'Which is the correct way to write "Klaus''s will"?'
+  choices: ['Klaus''s Testament', 'Klauss Testament', 'Klaus Testament', 'Klaus'' Testament']
+  answer: 3
+  explanation: |-
+    With a name that already ends in an s-sound, German writes only an apostrophe: "Klaus' Testament". German doesn't use English "'s". In speech most people say "das Testament von Klaus".
+- id: de3-q-1306
+  module_quiz: true
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Complete: "Sie beschreibt das Leben ___ Familie auf dem Land."'
+  choices: ['einer großer', 'eine große', 'einer großen', 'einen großen']
+  answer: 2
+  explanation: |-
+    "die Familie" is feminine: genitive "einer". After any article in the genitive, the adjective ends in -en: "einer großen Familie". "einer großer" uses the ending for adjectives without an article.
+- id: de3-q-1307
+  lesson: de3-genitive
+  topic: Family history
+  stem: 'What is the difference between "das Erbe" and "der Erbe"?'
+  choices: ['"das Erbe" is the inheritance, "der Erbe" is the heir.', '"das Erbe" is the heir, "der Erbe" is the inheritance.', 'There is no difference.', '"das Erbe" is a will, "der Erbe" is a family tree.']
+  answer: 0
+  explanation: |-
+    Same word, different gender and meaning: "das Erbe" is what someone leaves behind (the inheritance), "der Erbe" (an n-noun: des Erben) is the person who receives it. A will is "das Testament", a family tree "der Stammbaum".
+- id: de3-q-1308
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Which sentence is natural in everyday spoken German?'
+  choices: ['Das ist des Vaters Haus.', 'Das ist das Haus von meinem Vater.', 'Das ist das Haus meinem Vater.', 'Das ist das Haus von meines Vaters.']
+  answer: 1
+  explanation: |-
+    In speech, von + dative usually replaces the genitive: "das Haus von meinem Vater". "das Haus meines Vaters" would also be correct, especially in writing. "des Vaters Haus" is old-fashioned poetry; "von" can't be followed by a genitive.
+- id: de3-q-1309
+  lesson: de3-genitive
+  module_quiz: true
+  topic: Reading
+  stem: 'Read: "Mein Urgroßvater hat das Haus 1931 gebaut. Nach seinem Tod hat es meine Großmutter geerbt. Sie hat es nie verkauft, obwohl sie später in der Stadt gewohnt hat. Heute gehört es meinem Onkel, der dort im Sommer mit seiner Familie Urlaub macht. Im Keller gibt es noch eine Kiste mit Briefen meines Urgroßvaters." Who owns the house now?'
+  choices: ['The writer''s uncle', 'The writer''s grandmother', 'The writer''s great-grandfather', 'The writer''s family together']
+  answer: 0
+  explanation: |-
+    "Heute gehört es meinem Onkel": today it belongs to the uncle. The great-grandfather built it, and the grandmother inherited it later. The letters in the cellar are the great-grandfather's ("Briefe meines Urgroßvaters").
+- id: de3-q-1310
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Complete: "Die Fotos ___ hängen im Flur."'
+  choices: ['der Kinders', 'des Kinder', 'den Kindern', 'der Kinder']
+  answer: 3
+  explanation: |-
+    The genitive plural article is "der", and plural nouns take no extra ending: "der Kinder". "den Kindern" is dative; "der Kinders" adds a wrong -s.
+- id: de3-q-1311
+  lesson: de3-genitive
+  topic: Genitive
+  stem: 'Which sentence uses a correct fixed genitive phrase?'
+  choices: ['Einen Tag kam ein Brief aus Amerika.', 'Eines Tages kam ein Brief aus Amerika.', 'Einem Tag kam ein Brief aus Amerika.', 'Eines Tag kam ein Brief aus Amerika.']
+  answer: 1
+  explanation: |-
+    "eines Tages" (one day) is a fixed genitive phrase, common in stories. It has both the genitive article "eines" and the noun ending -es.
+- id: de3-q-1312
+  lesson: de3-genitive
+  topic: Family history
+  stem: 'What is "die Geburtsurkunde"?'
+  choices: ['a birthday present', 'a family photo album', 'a birth certificate', 'a family tree']
+  answer: 2
+  explanation: |-
+    "die Urkunde" is an official certificate, so "die Geburtsurkunde" is a birth certificate. A family tree is "der Stammbaum", a photo album "das Fotoalbum".
+
+# --- 14 Genitive prepositions ---
+- id: de3-q-1401
+  lesson: de3-genitive-preps
+  module_quiz: true
+  topic: Genitive prepositions
+  stem: 'Complete (written German): "___ des Streiks fahren heute keine Züge."'
+  choices: ['Weil', 'Trotz', 'Deshalb', 'Wegen']
+  answer: 3
+  explanation: |-
+    The strike is the reason, and a noun follows, so the preposition "wegen" (+ genitive) is needed. "weil" would need a clause with the verb at the end; "deshalb" is an adverb; "trotz" means despite, which doesn't make sense here.
+- id: de3-q-1402
+  module_quiz: true
+  lesson: de3-genitive-preps
+  topic: Genitive prepositions
+  stem: 'Complete (written German): "Trotz ___ sind wir spazieren gegangen."'
+  choices: ['den Regen', 'des Regens', 'der Regen', 'dem Regens']
+  answer: 1
+  explanation: |-
+    "trotz" takes the genitive in standard German: "des Regens", masculine article des + noun ending -s. In speech you will hear "trotz dem Regen" (dative), but the accusative "den Regen" is wrong in both.
+- id: de3-q-1403
+  lesson: de3-genitive-preps
+  topic: Genitive prepositions
+  stem: 'Complete: "Bitte schicken Sie uns die Unterlagen innerhalb ___."'
+  choices: ['von zwei Wochen', 'zwei Wochen', 'zweier Woche', 'den zwei Wochen']
+  answer: 0
+  explanation: |-
+    With a number and no article, the genitive can't be seen, so "innerhalb" adds "von" + dative: "innerhalb von zwei Wochen". With an article it is the genitive: innerhalb einer Woche.
+- id: de3-q-1404
+  lesson: de3-genitive-preps
+  module_quiz: true
+  topic: Genitive prepositions
+  stem: 'Which sentence is correct?'
+  choices: ['Wegen es regnet, bleiben wir zu Hause.', 'Es regnet, trotz bleiben wir zu Hause.', 'Weil des Regens bleiben wir zu Hause.', 'Wegen des Regens bleiben wir zu Hause.']
+  answer: 3
+  explanation: |-
+    "wegen" is a preposition and needs a noun in the genitive: "wegen des Regens". A clause needs the conjunction "weil" (Weil es regnet, …). "trotz" cannot stand alone as an adverb (that is "trotzdem"), and "weil" cannot be followed by a noun.
+- id: de3-q-1405
+  lesson: de3-genitive-preps
+  topic: Genitive prepositions
+  stem: 'Complete: "___ der Fahrt darf man nicht mit dem Fahrer sprechen."'
+  choices: ['Seit', 'Während', 'Wegen', 'Statt']
+  answer: 1
+  explanation: |-
+    "während" + genitive means "during": during the journey you must not talk to the driver. "seit" (since) takes the dative and doesn't fit; "wegen" would give a reason and "statt" means "instead of".
+- id: de3-q-1406
+  lesson: de3-genitive-preps
+  topic: Genitive prepositions
+  stem: 'Your colleague asks: "Können wir das Meeting auf morgen verschieben?" You reply "Meinetwegen." What do you mean?'
+  choices: ['That''s because of me.', 'No, absolutely not.', 'Fine by me.', 'I''m sorry, it''s my fault.']
+  answer: 2
+  explanation: |-
+    "meinetwegen" literally means "because of me", but as a reply it means "fine by me, I don't mind", often a little unenthusiastic. It is not a refusal or an apology.
+- id: de3-q-1407
+  lesson: de3-genitive-preps
+  topic: Travel problems
+  stem: 'Read the announcement: "Achtung an Gleis 4: Der RE 7 nach Köln, planmäßige Abfahrt 9:15 Uhr, fällt heute wegen eines Personalausfalls aus. Bitte nutzen Sie den Ersatzverkehr mit Bussen vor dem Bahnhof." What should passengers to Köln do?'
+  choices: ['Wait for the train on platform 4.', 'Take a later train from platform 7.', 'Take the replacement bus in front of the station.', 'Ask for a refund at the ticket office.']
+  answer: 2
+  explanation: |-
+    The train "fällt aus" (is cancelled) because of staff shortage, and passengers should use the "Ersatzverkehr mit Bussen" (replacement buses) in front of the station. RE 7 is the train's name, not a platform. The announcement says nothing about refunds.
+- id: de3-q-1408
+  lesson: de3-genitive-preps
+  module_quiz: true
+  topic: Travel problems
+  stem: 'Which verb fits? "Ich kann am Freitag nicht fliegen. Kann ich den Flug auf Sonntag ___?"'
+  choices: ['umbuchen', 'ausfallen', 'verpassen', 'sperren']
+  answer: 0
+  explanation: |-
+    "umbuchen" means to change a booking to another date or time. "ausfallen" is what a flight or train does when it is cancelled; "verpassen" is to miss; "sperren" is to close a road or block a card.
+- id: de3-q-1409
+  lesson: de3-genitive-preps
+  topic: Genitive prepositions
+  stem: 'Which sentence is spoken German rather than the written standard?'
+  choices: ['Wegen des Wetters fällt das Spiel aus.', 'Während des Urlaubs war ich offline.', 'Statt eines Briefes schreibe ich eine E-Mail.', 'Wegen dem Wetter fällt das Spiel aus.']
+  answer: 3
+  explanation: |-
+    "wegen dem Wetter" uses the dative, which is very common in speech but not the written standard (wegen des Wetters). The other three sentences use the genitive correctly.
+- id: de3-q-1410
+  lesson: de3-genitive-preps
+  topic: Travel problems
+  stem: 'What is "der Anschluss" when you travel by train?'
+  choices: ['the ticket inspection', 'the end of the line', 'the connecting train', 'the dining car']
+  answer: 2
+  explanation: |-
+    "der Anschluss" is the connection, the next train you change to: "Ich habe meinen Anschluss verpasst" (I missed my connection). "die Verbindung" is the whole route between two places.
+- id: de3-q-1411
+  lesson: de3-genitive-preps
+  topic: Reading
+  stem: 'Read: "Liebe Frau Schulz, leider kann ich heute nicht zum Termin kommen. Wegen eines Unfalls auf der A3 stehe ich seit einer Stunde im Stau, und die Polizei hat die Autobahn gesperrt. Trotz der Umleitung werde ich frühestens um 14 Uhr da sein. Können wir den Termin auf Donnerstag verschieben? Viele Grüße, Mehmet Arslan" Why is Mehmet late?'
+  choices: ['He missed his train.', 'He is stuck in traffic because of an accident.', 'His car broke down on the motorway.', 'He forgot the appointment.']
+  answer: 1
+  explanation: |-
+    "Wegen eines Unfalls auf der A3 stehe ich seit einer Stunde im Stau": because of an accident he has been in a traffic jam for an hour, and the motorway is closed ("gesperrt"). There is no mention of a breakdown ("Panne") or a train.
+- id: de3-q-1412
+  lesson: de3-genitive-preps
+  topic: Genitive prepositions
+  stem: 'Complete: "Das Hotel liegt etwas ___ der Stadt, aber es gibt einen Bus ins Zentrum."'
+  choices: ['außerhalb', 'innerhalb', 'statt', 'trotz']
+  answer: 0
+  explanation: |-
+    The hotel is a bit outside the town, which is why you need a bus to the centre: "außerhalb der Stadt". "innerhalb" would mean inside the town, which doesn't fit with "aber".
+
+# --- 15 Participles and adjectives without articles ---
+- id: de3-q-1501
+  lesson: de3-participles
+  module_quiz: true
+  topic: Adjective endings
+  stem: 'Complete (written German): "Wegen ___ Wetters fällt das Fest aus."'
+  choices: ['schlechten', 'schlechtes', 'schlechter', 'schlechtem']
+  answer: 0
+  explanation: |-
+    Without an article, the adjective usually takes the article's ending, but the masculine and neuter genitive are the exception: -en, not -es, because the noun already has -s. So: "wegen schlechten Wetters".
+- id: de3-q-1502
+  module_quiz: true
+  lesson: de3-participles
+  topic: Adjective endings
+  stem: 'Complete: "Wir haben viele ___ Kunden."'
+  choices: ['zufriedenen', 'zufriedener', 'zufriedenes', 'zufriedene']
+  answer: 3
+  explanation: |-
+    After "viele" the adjective takes the strong endings, as if there were no article. Nominative or accusative plural: -e, so "viele zufriedene Kunden". After "alle" it would be weak: alle zufriedenen Kunden.
+- id: de3-q-1503
+  lesson: de3-participles
+  topic: Adjective endings
+  stem: 'Complete: "Zum Frühstück gibt es Brötchen mit ___ Käse."'
+  choices: ['frischen', 'frischer', 'frischem', 'frisches']
+  answer: 2
+  explanation: |-
+    "mit" takes the dative, "der Käse" is masculine and there is no article, so the adjective takes the article's ending: dem → "frischem Käse". "frischen" would be right after an article (mit dem frischen Käse).
+- id: de3-q-1504
+  lesson: de3-participles
+  module_quiz: true
+  topic: Participles
+  stem: 'What does "das weinende Kind" mean?'
+  choices: ['the child who has cried', 'the crying child', 'the child who made someone cry', 'the child who will cry']
+  answer: 1
+  explanation: |-
+    "weinend" is the present participle (infinitive + -d). It describes something happening at the same time, like English "-ing": the crying child. A finished action would use the past participle.
+- id: de3-q-1505
+  lesson: de3-participles
+  topic: Participles
+  stem: 'Complete: "Die ___ Ware kam leider beschädigt an."'
+  choices: ['liefernde', 'lieferte', 'gelieferte', 'geliefert']
+  answer: 2
+  explanation: |-
+    The goods were delivered (something was done to them), so the past participle is used as an adjective, with a normal ending after "die": "die gelieferte Ware". "liefernde" would mean the goods are delivering something; "geliefert" has no ending.
+- id: de3-q-1506
+  lesson: de3-participles
+  topic: Adjective endings
+  stem: 'Complete: "Alle ___ Produkte sind 20 Prozent günstiger."'
+  choices: ['reduzierten', 'reduzierte', 'reduziertes', 'reduzierter']
+  answer: 0
+  explanation: |-
+    "alle" works like the article "die", so the adjective after it takes the weak ending -en: "alle reduzierten Produkte". After "viele" or "einige" it would be strong: viele reduzierte Produkte.
+- id: de3-q-1507
+  lesson: de3-participles
+  topic: Participles
+  stem: 'Which sentence is correct German for "I am waiting for the bus"?'
+  choices: ['Ich bin wartend auf den Bus.', 'Ich warte auf den Bus.', 'Ich bin auf den Bus warten.', 'Ich bin gewartet auf den Bus.']
+  answer: 1
+  explanation: |-
+    German has no "-ing" tense: "I am waiting" is simply "Ich warte". The present participle (wartend) is only used as an adjective or adverb (die wartenden Fahrgäste), never with "sein" to make a tense.
+- id: de3-q-1508
+  lesson: de3-participles
+  topic: Products and shopping
+  stem: 'An online shop says: "Dieser Artikel ist zurzeit nicht vorrätig. Lieferzeit: 3–4 Wochen." What does it mean?'
+  choices: ['The item is free of charge.', 'The item has been discontinued.', 'The item can be returned within 3–4 weeks.', 'The item is out of stock and will take 3–4 weeks to arrive.']
+  answer: 3
+  explanation: |-
+    "vorrätig" means "in stock", so "nicht vorrätig" is out of stock; "die Lieferzeit" is the delivery time. Nothing says the product is free or discontinued, and returns ("die Rücksendung") are not mentioned.
+- id: de3-q-1509
+  lesson: de3-participles
+  module_quiz: true
+  topic: Reading
+  stem: 'Read the review: "Ich habe die Jacke wegen der vielen positiven Bewertungen bestellt. Die Qualität ist wirklich gut, und die Lieferung war schnell. Leider fällt die Jacke sehr klein aus, deshalb habe ich sie zurückgeschickt und eine größere bestellt. Die Rücksendung war zum Glück kostenlos." Why did the customer send the jacket back?'
+  choices: ['It was too small.', 'The quality was poor.', 'It arrived too late.', 'Returns cost money.']
+  answer: 0
+  explanation: |-
+    "Leider fällt die Jacke sehr klein aus" means the jacket comes up very small, so she sent it back and ordered a bigger one. The quality was good, the delivery was fast, and the return was free ("kostenlos").
+- id: de3-q-1510
+  lesson: de3-participles
+  topic: Adjective endings
+  stem: 'Complete: "Trotz ___ Qualität ist das Produkt nicht teuer."'
+  choices: ['guten', 'guter', 'gute', 'gutes']
+  answer: 1
+  explanation: |-
+    "trotz" takes the genitive, "die Qualität" is feminine and there is no article, so the adjective takes the ending of the genitive article "der": "trotz guter Qualität".
+- id: de3-q-1511
+  lesson: de3-participles
+  topic: Participles
+  stem: 'What does "die von uns hergestellten Produkte" mean?'
+  choices: ['the products that make us happy', 'the products we are going to buy', 'the products recommended to us', 'the products made by us']
+  answer: 3
+  explanation: |-
+    "hergestellt" is the past participle of "herstellen" (to make, manufacture), used as an adjective. Everything between "die" and "Produkte" describes them: made by us. A relative clause says the same: die Produkte, die wir herstellen.
+- id: de3-q-1512
+  lesson: de3-participles
+  topic: Products and shopping
+  stem: 'Which word means the same as "kostenlos"?'
+  choices: ['preiswert', 'hochwertig', 'gratis', 'begrenzt']
+  answer: 2
+  explanation: |-
+    "kostenlos" and "gratis" both mean free of charge. "preiswert" means good value (but not free), "hochwertig" high-quality, "begrenzt" limited.
