@@ -830,30 +830,29 @@
   meanings: [meaning, significance, importance]
   example: Das Wort hat zwei Bedeutungen.
   exampleEn: The word has two meanings.
-- id: ergebnis
+- id: luecke
   lesson: de2-exam-review
-  term: das Ergebnis
+  term: die Lücke
   pos: noun
-  plural: die Ergebnisse
-  meanings: [result, outcome, score]
-  example: Wann bekomme ich das Ergebnis?
-  exampleEn: When do I get the result?
-- id: teilnehmer
+  plural: die Lücken
+  meanings: [gap, blank (in a text), space]
+  example: Ergänzen Sie die Lücken im Text.
+  exampleEn: Fill in the gaps in the text.
+- id: reihenfolge
   lesson: de2-exam-review
-  term: der Teilnehmer
+  term: die Reihenfolge
   pos: noun
-  plural: die Teilnehmer
-  meanings: [participant (male), participant, candidate, attendee]
-  example: Jeder Teilnehmer bekommt ein Zertifikat.
-  exampleEn: Every participant gets a certificate.
-- id: teilnehmerin
+  plural: die Reihenfolgen
+  meanings: [order (sequence), order, sequence]
+  example: Bringen Sie die Sätze in die richtige Reihenfolge.
+  exampleEn: Put the sentences in the right order.
+- id: passend
   lesson: de2-exam-review
-  term: die Teilnehmerin
-  pos: noun
-  plural: die Teilnehmerinnen
-  meanings: [participant (female), participant, candidate, attendee]
-  example: Die Teilnehmerin aus Spanien spricht sehr gut Deutsch.
-  exampleEn: The participant from Spain speaks German very well.
+  term: passend
+  pos: adjective
+  meanings: [suitable, matching, appropriate, fitting, right]
+  example: Kreuzen Sie die passende Antwort an.
+  exampleEn: Tick the right answer.
 - id: korrigieren
   lesson: de2-exam-review
   term: korrigieren

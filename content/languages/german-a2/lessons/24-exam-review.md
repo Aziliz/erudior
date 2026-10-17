@@ -105,13 +105,15 @@ Instructions are in German. These words come up often:
 | beachten | to pay attention to, to note |
 | verwechseln | to mix up, to confuse |
 | zusammenfassen, die Zusammenfassung | to summarize, summary |
-| der Teilnehmer, die Teilnehmerin | participant, candidate |
-| das Ergebnis | result |
+| die Lücke | gap (in a text) |
+| die Reihenfolge | order, sequence |
+| passend | suitable, matching |
 | korrigieren | to correct |
 
 - *Beachten Sie die Uhrzeit.* — Pay attention to the time.
 - *Verwechseln Sie nicht Montag und Mittwoch!* — Don't mix up Monday and Wednesday!
-- *Die Ergebnisse bekommen Sie in ungefähr vier Wochen.* — You'll get the results in about four weeks.
+- *Finden Sie die passende Anzeige.* — Find the matching ad.
+- *Wann bekomme ich mein Ergebnis?* — When will I get my result?
 
 ## Review of the course
 
@@ -182,7 +184,6 @@ The dialogue uses a suggestion (*Wie wäre es mit …?*), a refusal with a reaso
 
 - *Missverständnis*: MISS-ver-ständ-nis, stress on the first syllable.
 - *Thema*: TEH-ma; the *th* is a plain *t*.
-- *ungefähr*: UN-ge-fähr or un-ge-FÄHR, both heard; long *ä*.
 - *Zusammenfassung*: zu-SAM-men-fas-sung.
 - *korrigieren*: kor-ri-GIE-ren, stress on *-gie-*, like all *-ieren* verbs.
 
@@ -206,6 +207,6 @@ Until then, keep your vocabulary reviews going every day, read graded readers fr
 - Goethe A2: Lesen 30 min, Hören about 30 min, Schreiben 30 min (SMS 20–30 words, e-mail 30–40 words), Sprechen about 15 min in pairs. Pass with 60/100 and at least 45/75 written and 15/25 speaking.
 - Practise with the free official model test, practice test and interactive version.
 - Planning: *Hast du … Zeit? Wie wäre es mit …? Da kann ich leider nicht. Einverstanden!*
-- Exam language: *die Anzeige, die Durchsage, der Hinweis, beachten, verwechseln, das Ergebnis*.
+- Exam language: *die Anzeige, die Durchsage, der Hinweis, die Lücke, beachten, verwechseln, passend*.
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson. Herzlichen Glückwunsch: you have finished German A2!
