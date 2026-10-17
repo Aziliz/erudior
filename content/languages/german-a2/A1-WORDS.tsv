@@ -1,0 +1,718 @@
+# Words already taught in German A1 (id, term, pos, first meaning). Generated; don't edit.
+ja	ja	particle	yes
+nein	nein	particle	no (the answer)
+bitte	bitte	particle	please
+danke	danke	interjection	thanks
+danke-schoen	danke schön	phrase	thank you very much
+bitte-schoen	bitte schön	phrase	you're welcome (reply to thanks)
+entschuldigung	Entschuldigung	interjection	excuse me (or sorry)
+hallo	Hallo	interjection	hello
+tschuess	Tschüss	interjection	bye (informal)
+auf-wiedersehen	Auf Wiedersehen	phrase	goodbye (formal)
+guten-morgen	Guten Morgen	phrase	good morning
+guten-tag	Guten Tag	phrase	hello (formal, during the day)
+guten-abend	Guten Abend	phrase	good evening
+gute-nacht	Gute Nacht	phrase	good night
+gruess-gott	Grüß Gott	phrase	hello (in southern Germany and Austria)
+wie-bitte	Wie bitte?	phrase	pardon? (asking someone to repeat)
+langsam	langsam	adjective	slow (or slowly)
+noch-einmal	noch einmal	phrase	again (one more time)
+buchstabieren	buchstabieren	verb	to spell (letter by letter)
+schreiben	schreiben	verb	to write
+wie-schreibt-man-das	Wie schreibt man das?	phrase	How do you spell that?
+name	der Name	noun	name
+vorname	der Vorname	noun	first name
+familienname	der Familienname	noun	surname
+wort	das Wort	noun	word
+buchstabe	der Buchstabe	noun	letter (of the alphabet)
+alphabet	das Alphabet	noun	alphabet
+ich	ich	pronoun	I
+du	du	pronoun	you (informal, one person)
+sie-formal	Sie	pronoun	you (formal)
+sein	sein	verb	to be
+heissen	heißen	verb	to be called
+kommen	kommen	verb	to come
+wohnen	wohnen	verb	to live (have your home somewhere)
+wer	wer	question word	who
+wie	wie	question word	how
+woher	woher	question word	where from
+wo	wo	question word	where (location)
+aus	aus	preposition	from (a country or town of origin)
+in	in	preposition	in
+und	und	conjunction	and
+herr	der Herr	noun	Mr (title before a surname)
+frau-title	Frau		Mrs or Ms (title before a surname)
+wie-gehts	Wie geht's?	phrase	How are you? (informal)
+wie-geht-es-ihnen	Wie geht es Ihnen?	phrase	How are you? (formal)
+gut	gut	adjective	good
+sehr	sehr	adverb	very
+auch	auch	adverb	also
+nicht-so-gut	nicht so gut	phrase	not so good
+freut-mich	Freut mich.	phrase	Nice to meet you.
+deutschland	Deutschland		Germany
+oesterreich	Österreich		Austria
+schweiz	die Schweiz	noun	Switzerland
+stadt	die Stadt	noun	city
+land	das Land	noun	country
+null	null	number	zero (the number)
+eins	eins	number	one (the number)
+zwei	zwei	number	two (the number)
+drei	drei	number	three (the number)
+vier	vier	number	four (the number)
+fuenf	fünf	number	five (the number)
+sechs	sechs	number	six (the number)
+sieben	sieben	number	seven (the number)
+acht	acht	number	eight (the number)
+neun	neun	number	nine (the number)
+zehn	zehn	number	ten (the number)
+elf	elf	number	eleven (the number)
+zwoelf	zwölf	number	twelve (the number)
+dreizehn	dreizehn	number	thirteen (the number)
+vierzehn	vierzehn	number	fourteen (the number)
+fuenfzehn	fünfzehn	number	fifteen (the number)
+sechzehn	sechzehn	number	sixteen (the number)
+siebzehn	siebzehn	number	seventeen (the number)
+achtzehn	achtzehn	number	eighteen (the number)
+neunzehn	neunzehn	number	nineteen (the number)
+zwanzig	zwanzig	number	twenty (the number)
+dreissig	dreißig	number	thirty (the number)
+vierzig	vierzig	number	forty (the number)
+fuenfzig	fünfzig	number	fifty (the number)
+sechzig	sechzig	number	sixty (the number)
+siebzig	siebzig	number	seventy (the number)
+achtzig	achtzig	number	eighty (the number)
+neunzig	neunzig	number	ninety (the number)
+hundert	hundert	number	a hundred (100)
+alt	alt	adjective	old
+jung	jung	adjective	young
+jahr	das Jahr	noun	year
+telefonnummer	die Telefonnummer	noun	phone number
+handynummer	die Handynummer	noun	mobile number
+adresse	die Adresse	noun	address
+hausnummer	die Hausnummer	noun	house number
+postleitzahl	die Postleitzahl	noun	postcode (ZIP code)
+e-mail	die E-Mail	noun	e-mail
+haben	haben	verb	to have
+zahl	die Zahl	noun	number (a figure or quantity)
+nummer	die Nummer	noun	number (of a phone, room or house)
+er	er	pronoun	he
+sie	sie	pronoun	she; they (lowercase sie)
+es	es	pronoun	it
+wir	wir	pronoun	we
+ihr	ihr	pronoun	you (informal, two or more people)
+machen	machen	verb	to make (or do)
+lernen	lernen	verb	to learn
+arbeiten	arbeiten	verb	to work
+spielen	spielen	verb	to play
+hoeren	hören	verb	to hear (or listen to)
+fragen	fragen	verb	to ask (a question)
+antworten	antworten	verb	to answer
+sagen	sagen	verb	to say
+gehen	gehen	verb	to go (on foot)
+leben	leben	verb	to live (be alive; spend your life)
+studieren	studieren	verb	to study (at university)
+verstehen	verstehen	verb	to understand
+was	was	question word	what
+warum	warum	question word	why
+wann	wann	question word	when (asking about time)
+hier	hier	adverb	here
+dort	dort	adverb	there
+jetzt	jetzt	adverb	now
+heute	heute	adverb	today
+oft	oft	adverb	often
+gern	gern	adverb	gladly (liking to do something)
+immer	immer	adverb	always
+der	der	article	the (masculine)
+die-article	die	article	the (feminine or plural)
+das-article	das	article	the (neuter)
+ein	ein	article	a (masculine or neuter)
+eine	eine	article	a (feminine)
+was-ist-das	Was ist das?		What is that?
+das-ist	Das ist		That is (pointing at one thing or person)
+das-sind	Das sind		Those are (pointing at several things or people)
+tisch	der Tisch	noun	table
+stuhl	der Stuhl	noun	chair
+buch	das Buch	noun	book
+heft	das Heft	noun	exercise book
+stift	der Stift	noun	pen (any pen or pencil)
+kuli	der Kuli	noun	ballpoint pen
+papier	das Papier	noun	paper
+tasche	die Tasche	noun	bag
+schluessel	der Schlüssel	noun	key
+handy	das Handy	noun	mobile phone
+computer	der Computer	noun	computer
+uhr	die Uhr	noun	clock (or watch)
+lampe	die Lampe	noun	lamp
+fenster	das Fenster	noun	window
+tuer	die Tür	noun	door
+foto	das Foto	noun	photo
+brille	die Brille	noun	glasses (a pair)
+zeitung	die Zeitung	noun	newspaper
+ding	das Ding	noun	thing (object)
+familie	die Familie	noun	family
+eltern	die Eltern	noun	parents
+mutter	die Mutter	noun	mother
+vater	der Vater	noun	father
+kind	das Kind	noun	child
+sohn	der Sohn	noun	son
+tochter	die Tochter	noun	daughter
+bruder	der Bruder	noun	brother
+schwester	die Schwester	noun	sister
+geschwister	die Geschwister	noun	siblings
+grossvater	der Großvater	noun	grandfather
+opa	der Opa	noun	grandpa (informal)
+grossmutter	die Großmutter	noun	grandmother
+oma	die Oma	noun	grandma (informal)
+mann	der Mann	noun	man (also: husband)
+frau-woman	die Frau	noun	woman (also: wife)
+freund	der Freund	noun	friend (male; also: boyfriend)
+freundin	die Freundin	noun	friend (female; also: girlfriend)
+baby	das Baby	noun	baby
+verheiratet	verheiratet	adjective	married
+ledig	ledig	adjective	single (not married)
+geschieden	geschieden	adjective	divorced
+mein	mein	article	my
+dein	dein	article	your (informal, one person)
+sein-his	sein	article	his (or its)
+ihr-her	ihr	article	her (or their)
+unser	unser	article	our
+euer	euer	article	your (informal, several people)
+hund	der Hund	noun	dog
+katze	die Katze	noun	cat
+tier	das Tier	noun	animal
+person	die Person	noun	person
+beruf	der Beruf	noun	profession (occupation)
+arbeit	die Arbeit	noun	work (noun)
+lehrer	der Lehrer	noun	teacher (male)
+lehrerin	die Lehrerin	noun	teacher (female)
+arzt	der Arzt	noun	doctor (male)
+aerztin	die Ärztin	noun	doctor (female)
+student	der Student	noun	student (male, at university)
+studentin	die Studentin	noun	student (female, at university)
+schueler	der Schüler	noun	pupil (male, at school)
+verkaeufer	der Verkäufer	noun	salesperson (male)
+kellner	der Kellner	noun	waiter
+ingenieur	der Ingenieur	noun	engineer (male)
+polizist	der Polizist	noun	police officer (male)
+koch	der Koch	noun	cook (male, as a job)
+firma	die Firma	noun	company (business)
+buero	das Büro	noun	office
+schule	die Schule	noun	school
+universitaet	die Universität	noun	university
+sprache	die Sprache	noun	language
+deutsch	Deutsch		German (the language)
+englisch	Englisch		English (the language)
+sprechen	sprechen	verb	to speak
+england	England		England
+usa	die USA	noun	the USA
+spanien	Spanien		Spain
+frankreich	Frankreich		France
+italien	Italien		Italy
+tuerkei	die Türkei	noun	Turkey (the country)
+polen	Polen		Poland
+international	international	adjective	international
+gross	groß	adjective	big (also: tall)
+klein	klein	adjective	small (also: short, of people)
+neu	neu	adjective	new
+schoen	schön	adjective	beautiful
+schlecht	schlecht	adjective	bad
+lang	lang	adjective	long
+kurz	kurz	adjective	short (in length or time)
+teuer	teuer	adjective	expensive
+billig	billig	adjective	cheap
+richtig	richtig	adjective	correct
+falsch	falsch	adjective	wrong
+leicht	leicht	adjective	easy (also: light, not heavy)
+schwer	schwer	adjective	difficult (also: heavy)
+schnell	schnell	adjective	fast
+interessant	interessant	adjective	interesting
+langweilig	langweilig	adjective	boring
+toll	toll	adjective	great
+kaputt	kaputt	adjective	broken
+nicht	nicht	adverb	not
+kein	kein	article	no (not a, not any — before a noun)
+doch	doch	particle	yes (contradicting a negative)
+farbe	die Farbe	noun	colour
+rot	rot	adjective	red
+blau	blau	adjective	blue
+gruen	grün	adjective	green
+gelb	gelb	adjective	yellow
+schwarz	schwarz	adjective	black
+weiss	weiß	adjective	white
+grau	grau	adjective	grey
+braun	braun	adjective	brown
+ziemlich	ziemlich	adverb	quite (fairly)
+zu-too	zu	adverb	too (excessively, as in too big)
+das-essen	das Essen	noun	food (the noun)
+essen	essen	verb	to eat
+trinken	trinken	verb	to drink
+nehmen	nehmen	verb	to take
+moechten	möchten	verb	would like
+brot	das Brot	noun	bread
+broetchen	das Brötchen	noun	bread roll
+butter	die Butter	noun	butter
+kaese	der Käse	noun	cheese
+wurst	die Wurst	noun	sausage
+fleisch	das Fleisch	noun	meat
+fisch	der Fisch	noun	fish
+ei	das Ei	noun	egg
+gemuese	das Gemüse	noun	vegetables
+obst	das Obst	noun	fruit
+apfel	der Apfel	noun	apple
+kartoffel	die Kartoffel	noun	potato
+reis	der Reis	noun	rice
+nudeln	die Nudeln	noun	pasta
+salat	der Salat	noun	salad
+kuchen	der Kuchen	noun	cake
+kaffee	der Kaffee	noun	coffee
+tee	der Tee	noun	tea
+wasser	das Wasser	noun	water
+milch	die Milch	noun	milk
+saft	der Saft	noun	juice
+bier	das Bier	noun	beer
+wein	der Wein	noun	wine
+fruehstueck	das Frühstück	noun	breakfast
+mittagessen	das Mittagessen	noun	lunch
+abendessen	das Abendessen	noun	dinner (evening meal)
+hunger	der Hunger	noun	hunger
+durst	der Durst	noun	thirst
+lecker	lecker	adjective	tasty
+kaufen	kaufen	verb	to buy
+kosten	kosten	verb	to cost
+bezahlen	bezahlen	verb	to pay
+brauchen	brauchen	verb	to need
+suchen	suchen	verb	to look for
+euro	der Euro	noun	euro
+cent	der Cent	noun	cent
+preis	der Preis	noun	price
+geld	das Geld	noun	money
+geschaeft	das Geschäft	noun	shop
+supermarkt	der Supermarkt	noun	supermarket
+markt	der Markt	noun	market
+baeckerei	die Bäckerei	noun	bakery
+kilo	das Kilo	noun	kilo
+gramm	das Gramm	noun	gram
+liter	der Liter	noun	litre
+flasche	die Flasche	noun	bottle
+stueck	das Stück	noun	piece
+packung	die Packung	noun	packet
+tausend	tausend	number	thousand
+million	die Million	noun	million
+wie-viel	wie viel	question word	how much
+welcher	welcher	question word	which
+dieser	dieser	article	this (pointing)
+es-gibt	es gibt	phrase	there is
+alles	alles	pronoun	everything
+viel	viel	adverb	a lot
+wenig	wenig	adverb	little (not much)
+zusammen	zusammen	adverb	together
+kasse	die Kasse	noun	checkout
+angebot	das Angebot	noun	special offer
+zeit	die Zeit	noun	time
+stunde	die Stunde	noun	hour
+minute	die Minute	noun	minute
+viertel	das Viertel	noun	quarter
+halb	halb	adjective	half
+nach	nach	preposition	after (time); to (a city or country)
+vor	vor	preposition	before (time)
+um	um	preposition	at (clock time)
+am	am	preposition	on (with days; am Montag)
+von	von	preposition	from (von … bis)
+bis	bis	preposition	until
+tag	der Tag	noun	day
+woche	die Woche	noun	week
+wochenende	das Wochenende	noun	weekend
+montag	der Montag	noun	Monday
+dienstag	der Dienstag	noun	Tuesday
+mittwoch	der Mittwoch	noun	Wednesday
+donnerstag	der Donnerstag	noun	Thursday
+freitag	der Freitag	noun	Friday
+samstag	der Samstag	noun	Saturday
+sonntag	der Sonntag	noun	Sunday
+der-morgen	der Morgen	noun	morning (the noun)
+vormittag	der Vormittag	noun	late morning (before noon)
+mittag	der Mittag	noun	noon
+nachmittag	der Nachmittag	noun	afternoon
+abend	der Abend	noun	evening
+nacht	die Nacht	noun	night
+morgen	morgen	adverb	tomorrow
+gestern	gestern	adverb	yesterday
+frueh	früh	adjective	early
+spaet	spät	adjective	late
+manchmal	manchmal	adverb	sometimes
+nie	nie	adverb	never
+aufstehen	aufstehen	verb	to get up
+anfangen	anfangen	verb	to begin
+einkaufen	einkaufen	verb	to go shopping
+anrufen	anrufen	verb	to phone
+fernsehen	fernsehen	verb	to watch TV
+aufraeumen	aufräumen	verb	to tidy up
+mitkommen	mitkommen	verb	to come along
+abholen	abholen	verb	to pick up (collect)
+ankommen	ankommen	verb	to arrive
+schlafen	schlafen	verb	to sleep
+duschen	duschen	verb	to shower
+fruehstuecken	frühstücken	verb	to have breakfast
+kochen	kochen	verb	to cook
+putzen	putzen	verb	to clean
+waschen	waschen	verb	to wash
+zuerst	zuerst	adverb	first of all
+dann	dann	adverb	then
+danach	danach	adverb	afterwards
+spaeter	später	adverb	later
+normalerweise	normalerweise	adverb	normally
+bett	das Bett	noun	bed
+dusche	die Dusche	noun	shower (the noun)
+feierabend	der Feierabend	noun	end of the working day
+alltag	der Alltag	noun	everyday life
+muede	müde	adjective	tired
+fertig	fertig	adjective	finished
+hobby	das Hobby	noun	hobby
+freizeit	die Freizeit	noun	free time
+lesen	lesen	verb	to read
+sehen	sehen	verb	to see
+fahren	fahren	verb	to go (by vehicle)
+schwimmen	schwimmen	verb	to swim
+tanzen	tanzen	verb	to dance
+singen	singen	verb	to sing
+reisen	reisen	verb	to travel
+wandern	wandern	verb	to hike
+joggen	joggen	verb	to jog
+malen	malen	verb	to paint
+fotografieren	fotografieren	verb	to take photos
+treffen	treffen	verb	to meet
+sport	der Sport	noun	sport
+fussball	der Fußball	noun	football (soccer)
+fahrrad	das Fahrrad	noun	bicycle
+musik	die Musik	noun	music
+spiel	das Spiel	noun	game
+film	der Film	noun	film
+kino	das Kino	noun	cinema
+konzert	das Konzert	noun	concert
+theater	das Theater	noun	theatre
+lied	das Lied	noun	song
+geben	geben	verb	to give
+helfen	helfen	verb	to help
+lieber	lieber	adverb	rather (prefer)
+am-liebsten	am liebsten	adverb	most of all (like best)
+allein	allein	adverb	alone
+spazieren-gehen	spazieren gehen	verb	to go for a walk
+koennen	können	verb	can (be able to)
+wollen	wollen	verb	to want (to)
+moegen	mögen	verb	to like (a thing or person)
+instrument	das Instrument	noun	instrument (musical)
+gitarre	die Gitarre	noun	guitar
+klavier	das Klavier	noun	piano
+ski-fahren	Ski fahren	verb	to ski
+auto-fahren	Auto fahren	verb	to drive (a car)
+ein-bisschen	ein bisschen	adverb	a little bit
+natuerlich	natürlich	adverb	of course
+vielleicht	vielleicht	adverb	maybe
+leider	leider	adverb	unfortunately
+schon	schon	adverb	already
+noch	noch	adverb	still (continuing)
+noch-nicht	noch nicht	adverb	not yet
+gleich	gleich	adverb	right away (in a moment)
+wirklich	wirklich	adverb	really
+sicher	sicher	adverb	sure (certain)
+idee	die Idee	noun	idea
+lust	die Lust	noun	desire (to do something)
+spass	der Spaß	noun	fun
+plan	der Plan	noun	plan
+party	die Party	noun	party (celebration)
+fest	das Fest	noun	festival (celebration)
+einladen	einladen	verb	to invite
+feiern	feiern	verb	to celebrate
+muessen	müssen	verb	must (have to)
+duerfen	dürfen	verb	may (be allowed to)
+sollen	sollen	verb	should (be supposed to)
+man	man	pronoun	one (people in general)
+rauchen	rauchen	verb	to smoke
+parken	parken	verb	to park
+warten	warten	verb	to wait
+bleiben	bleiben	verb	to stay
+oeffnen	öffnen	verb	to open
+schliessen	schließen	verb	to close
+verboten	verboten	adjective	forbidden
+erlaubt	erlaubt	adjective	allowed
+regel	die Regel	noun	rule
+schild	das Schild	noun	sign (notice)
+hausaufgabe	die Hausaufgabe	noun	homework (task)
+termin	der Termin	noun	appointment
+puenktlich	pünktlich	adjective	on time
+ruhig	ruhig	adjective	calm (quiet, peaceful)
+laut	laut	adjective	loud
+leise	leise	adjective	quiet (not loud)
+wichtig	wichtig	adjective	important
+ausweis	der Ausweis	noun	ID card
+formular	das Formular	noun	form (to fill in)
+ausfuellen	ausfüllen	verb	to fill in (a form)
+unterschreiben	unterschreiben	verb	to sign
+information	die Information	noun	information
+januar	der Januar	noun	January
+februar	der Februar	noun	February
+maerz	der März	noun	March
+april	der April	noun	April
+mai	der Mai	noun	May
+juni	der Juni	noun	June
+juli	der Juli	noun	July
+august	der August	noun	August
+september	der September	noun	September
+oktober	der Oktober	noun	October
+november	der November	noun	November
+dezember	der Dezember	noun	December
+monat	der Monat	noun	month
+fruehling	der Frühling	noun	spring (season)
+sommer	der Sommer	noun	summer
+herbst	der Herbst	noun	autumn
+winter	der Winter	noun	winter
+datum	das Datum	noun	date (calendar)
+geburtstag	der Geburtstag	noun	birthday
+wetter	das Wetter	noun	weather
+sonne	die Sonne	noun	sun
+regen	der Regen	noun	rain (noun)
+schnee	der Schnee	noun	snow (noun)
+wind	der Wind	noun	wind
+regnen	regnen	verb	to rain
+schneien	schneien	verb	to snow
+scheinen	scheinen	verb	to shine
+warm	warm	adjective	warm
+kalt	kalt	adjective	cold
+heiss	heiß	adjective	hot
+kuehl	kühl	adjective	cool (chilly)
+fuer	für	preposition	for
+ohne	ohne	preposition	without
+durch	durch	preposition	through
+geschenk	das Geschenk	noun	present (gift)
+herzlichen-glueckwunsch	Herzlichen Glückwunsch!	phrase	congratulations
+einladung	die Einladung	noun	invitation
+erste	erste	number	first
+dritte	dritte	number	third
+strasse	die Straße	noun	street
+platz	der Platz	noun	square (in a town)
+bank-bank	die Bank	noun	bank (for money)
+post	die Post	noun	post office
+apotheke	die Apotheke	noun	pharmacy
+krankenhaus	das Krankenhaus	noun	hospital
+hotel	das Hotel	noun	hotel
+restaurant	das Restaurant	noun	restaurant
+cafe	das Café	noun	café
+museum	das Museum	noun	museum
+kirche	die Kirche	noun	church
+park	der Park	noun	park
+bruecke	die Brücke	noun	bridge
+zentrum	das Zentrum	noun	centre (of a town)
+haltestelle	die Haltestelle	noun	stop (for a bus or tram)
+ecke	die Ecke	noun	corner
+ampel	die Ampel	noun	traffic lights
+stadtplan	der Stadtplan	noun	city map
+weg	der Weg	noun	way (route)
+links	links	adverb	left (direction)
+rechts	rechts	adverb	right (direction)
+geradeaus	geradeaus	adverb	straight ahead
+weit	weit	adjective	far
+nah	nah	adjective	near
+in-der-naehe	in der Nähe	phrase	nearby (in the area)
+zu-fuss	zu Fuß	phrase	on foot
+gegenueber	gegenüber	preposition	opposite
+zweite	zweite	adjective	second (ordinal)
+zeigen	zeigen	verb	to show
+finden	finden	verb	to find
+abbiegen	abbiegen	verb	to turn (left or right)
+bahnhof	der Bahnhof	noun	station (for trains)
+zug	der Zug	noun	train
+bus	der Bus	noun	bus
+u-bahn	die U-Bahn	noun	underground (train)
+s-bahn	die S-Bahn	noun	suburban train
+strassenbahn	die Straßenbahn	noun	tram
+auto	das Auto	noun	car
+taxi	das Taxi	noun	taxi
+flugzeug	das Flugzeug	noun	plane
+flughafen	der Flughafen	noun	airport
+fahrkarte	die Fahrkarte	noun	ticket (for a train or bus)
+ticket	das Ticket	noun	ticket (English loanword; also for planes and concerts)
+fahrplan	der Fahrplan	noun	timetable
+gleis	das Gleis	noun	platform (at a station)
+abfahrt	die Abfahrt	noun	departure
+ankunft	die Ankunft	noun	arrival
+verspaetung	die Verspätung	noun	delay
+reise	die Reise	noun	trip
+urlaub	der Urlaub	noun	holiday (time off work)
+koffer	der Koffer	noun	suitcase
+abfahren	abfahren	verb	to leave (by vehicle)
+einsteigen	einsteigen	verb	to get on (a vehicle)
+aussteigen	aussteigen	verb	to get off (a vehicle)
+umsteigen	umsteigen	verb	to change (trains or buses)
+fliegen	fliegen	verb	to fly
+mit	mit	preposition	with
+zu-to	zu	preposition	to (a person or a place)
+bei	bei	preposition	at (someone's place or a company)
+seit	seit	preposition	since (a point in time)
+nach-hause	nach Hause	phrase	home (going there)
+wohin	wohin	question word	where to
+wohnung	die Wohnung	noun	flat
+haus	das Haus	noun	house
+zimmer	das Zimmer	noun	room
+kueche	die Küche	noun	kitchen
+bad	das Bad	noun	bathroom
+wohnzimmer	das Wohnzimmer	noun	living room
+schlafzimmer	das Schlafzimmer	noun	bedroom
+balkon	der Balkon	noun	balcony
+garten	der Garten	noun	garden
+treppe	die Treppe	noun	stairs
+stock	der Stock	noun	floor (storey of a building)
+sofa	das Sofa	noun	sofa
+schrank	der Schrank	noun	cupboard
+regal	das Regal	noun	shelf
+kuehlschrank	der Kühlschrank	noun	fridge
+wand	die Wand	noun	wall (of a room)
+boden	der Boden	noun	floor (that you walk on)
+miete	die Miete	noun	rent
+mieten	mieten	verb	to rent
+hell	hell	adjective	bright
+dunkel	dunkel	adjective	dark
+modern	modern	adjective	modern
+gemuetlich	gemütlich	adjective	cosy
+zu-hause	zu Hause	phrase	at home
+auf	auf	preposition	on (top of)
+an	an	preposition	on (a wall or vertical surface)
+unter	unter	preposition	under
+ueber	über	preposition	over (above)
+neben	neben	preposition	next to
+zwischen	zwischen	preposition	between
+hinter	hinter	preposition	behind
+ihn	ihn	pronoun	him (accusative)
+koerper	der Körper	noun	body
+kopf	der Kopf	noun	head
+auge	das Auge	noun	eye
+ohr	das Ohr	noun	ear
+nase	die Nase	noun	nose
+mund	der Mund	noun	mouth
+zahn	der Zahn	noun	tooth
+hals	der Hals	noun	throat
+arm	der Arm	noun	arm
+hand	die Hand	noun	hand
+bauch	der Bauch	noun	stomach
+ruecken	der Rücken	noun	back (of the body)
+bein	das Bein	noun	leg
+fuss	der Fuß	noun	foot
+krank	krank	adjective	ill
+gesund	gesund	adjective	healthy
+schmerzen	die Schmerzen	noun	pain (usually plural in German)
+kopfschmerzen	die Kopfschmerzen	noun	headache
+fieber	das Fieber	noun	fever
+tablette	die Tablette	noun	tablet (medicine)
+medikament	das Medikament	noun	medicine
+praxis	die Praxis	noun	doctor's practice
+wehtun	wehtun	verb	to hurt
+gute-besserung	Gute Besserung!	phrase	Get well soon!
+mich	mich	pronoun	me (accusative)
+dich	dich	pronoun	you (informal, one person, accusative)
+mir	mir	pronoun	me (dative)
+dir	dir	pronoun	you (informal, one person, dative)
+ihm	ihm	pronoun	him (dative)
+uns	uns	pronoun	us
+euch	euch	pronoun	you (informal, plural, object)
+ihnen-formal	Ihnen	pronoun	you (formal, dative)
+besuchen	besuchen	verb	to visit
+bekommen	bekommen	verb	to get (to receive)
+vergessen	vergessen	verb	to forget
+verlieren	verlieren	verb	to lose
+erzaehlen	erzählen	verb	to tell (a story)
+kennen	kennen	verb	to know (a person or place)
+wissen	wissen	verb	to know (a fact)
+glauben	glauben	verb	to believe
+denken	denken	verb	to think
+lachen	lachen	verb	to laugh
+weinen	weinen	verb	to cry
+kennenlernen	kennenlernen	verb	to get to know
+verkaufen	verkaufen	verb	to sell
+benutzen	benutzen	verb	to use
+schenken	schenken	verb	to give (as a present)
+bringen	bringen	verb	to bring
+letzte-woche	letzte Woche	phrase	last week
+vorgestern	vorgestern	adverb	the day before yesterday
+gerade	gerade	adverb	just (a moment ago)
+damals	damals	adverb	back then (at that time)
+ausflug	der Ausflug	noun	trip (a day out)
+picknick	das Picknick	noun	picnic
+geschichte	die Geschichte	noun	story
+brief	der Brief	noun	letter (that you post)
+postkarte	die Postkarte	noun	postcard
+bild	das Bild	noun	picture
+sache	die Sache	noun	thing (matter, item)
+passieren	passieren	verb	to happen
+werden	werden	verb	to become
+laufen	laufen	verb	to run
+umziehen	umziehen	verb	to move (house)
+zurueckkommen	zurückkommen	verb	to come back
+ferien	die Ferien	noun	holidays (school or university break)
+meer	das Meer	noun	sea
+see	der See	noun	lake
+berg	der Berg	noun	mountain
+dorf	das Dorf	noun	village
+insel	die Insel	noun	island
+strand	der Strand	noun	beach
+natur	die Natur	noun	nature
+fluss	der Fluss	noun	river
+ausland	das Ausland	noun	abroad (foreign countries)
+welt	die Welt	noun	world
+war	war	verb	was (past of sein)
+hatte	hatte	verb	had (past of haben)
+letztes-jahr	letztes Jahr	phrase	last year
+frueher	früher	adverb	in the past (formerly, used to)
+endlich	endlich	adverb	finally (at last)
+ploetzlich	plötzlich	adverb	suddenly
+zurueck	zurück	adverb	back (returning)
+oder	oder	conjunction	or
+aber	aber	conjunction	but
+denn	denn	conjunction	because (verb stays in position 2)
+sondern	sondern	conjunction	but (rather, after a negative)
+deshalb	deshalb	adverb	that's why (therefore)
+liebe-dear	liebe	adjective	dear (opening a letter to a woman)
+lieber-dear	lieber	adjective	dear (opening a letter to a man)
+sehr-geehrte-damen-und-herren	Sehr geehrte Damen und Herren	phrase	Dear Sir or Madam
+viele-gruesse	Viele Grüße	phrase	best wishes (to close a message)
+bis-bald	Bis bald!	phrase	See you soon!
+nachricht	die Nachricht	noun	message
+schicken	schicken	verb	to send
+geburtsdatum	das Geburtsdatum	noun	date of birth
+geburtsort	der Geburtsort	noun	place of birth
+staatsangehoerigkeit	die Staatsangehörigkeit	noun	nationality
+familienstand	der Familienstand	noun	marital status
+geschlecht	das Geschlecht	noun	sex (on a form: male, female)
+maennlich	männlich	adjective	male
+weiblich	weiblich	adjective	female
+unterschrift	die Unterschrift	noun	signature
+absage	die Absage	noun	cancellation (saying no to an invitation or appointment)
+absagen	absagen	verb	to cancel (an appointment or event)
+antwort	die Antwort	noun	answer
+frage	die Frage	noun	question
+kurs	der Kurs	noun	course (a class)
+pruefung	die Prüfung	noun	exam
+bestehen	bestehen	verb	to pass (an exam)
+problem	das Problem	noun	problem
+aufgabe	die Aufgabe	noun	task (an exercise to do)
+text	der Text	noun	text
+loesung	die Lösung	noun	solution (correct answer)
+ankreuzen	ankreuzen	verb	to tick (mark with a cross)
+ergaenzen	ergänzen	verb	to complete (fill in the gaps)
+wiederholen	wiederholen	verb	to repeat
+erklaeren	erklären	verb	to explain
+ueben	üben	verb	to practise
+koennen-sie-das-wiederholen	Können Sie das bitte wiederholen?	phrase	Could you repeat that? (formal, polite request)
+ich-verstehe-das-nicht	Ich verstehe das nicht.	phrase	I don't understand (that).
+was-bedeutet-das	Was bedeutet das?	phrase	What does that mean?
+wie-sagt-man-das-auf-deutsch	Wie sagt man das auf Deutsch?	phrase	How do you say that in German?
+beispiel	das Beispiel	noun	example
+teil	der Teil	noun	part
+fehler	der Fehler	noun	mistake
+seite	die Seite	noun	page (of a book)
+punkt	der Punkt	noun	point (score)
+genug	genug	adverb	enough
+nichts	nichts	pronoun	nothing
+etwas	etwas	pronoun	something
+jemand	jemand	pronoun	someone
+niemand	niemand	pronoun	nobody
+alle	alle	pronoun	everybody (all people)
+beide	beide	pronoun	both
