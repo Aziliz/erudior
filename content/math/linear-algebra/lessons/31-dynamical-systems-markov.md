@@ -73,7 +73,6 @@ returned to B; 30% of the cars at B end up at A and 70% stay at B. Today half th
 each lot. Find the distribution tomorrow and the day after.
 
 1. Columns are "from", rows are "to": $P = \begin{bmatrix} 0.8 & 0.3 \\ 0.2 & 0.7\end{bmatrix}$. Each column sums to 1.
-
 2. $\mathbf{x}_1 = P\mathbf{x}_0 = \begin{bmatrix} 0.8(0.5) + 0.3(0.5) \\ 0.2(0.5) + 0.7(0.5)\end{bmatrix} = \begin{bmatrix} 0.55 \\ 0.45\end{bmatrix}$.
 3. $\mathbf{x}_2 = P\mathbf{x}_1 = \begin{bmatrix} 0.44 + 0.135 \\ 0.11 + 0.315\end{bmatrix} = \begin{bmatrix} 0.575 \\ 0.425\end{bmatrix}$.
 

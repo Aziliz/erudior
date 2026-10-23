@@ -1,0 +1,29 @@
+# Round 2 cards for la-m6 (Determinants): honors lessons 21h1 and 21h2
+
+# --- 21h1: the permutation formula ---
+- {front: 'Inversion of a permutation $\sigma$', back: 'A pair of positions $i < j$ with $\sigma(i) > \sigma(j)$', topic: Permutation formula}
+- {front: 'Sign of a permutation', back: '$\operatorname{sgn}\sigma = (-1)^{\#\text{inversions}}$: even $\to +1$, odd $\to -1$', topic: Permutation formula}
+- {front: 'Quick way to count inversions', back: 'For each entry, count the smaller entries to its right; add the counts', topic: Permutation formula}
+- {front: 'Effect of swapping two entries of a permutation', back: 'The sign flips (any swap is an odd number of neighbor swaps)', topic: Permutation formula}
+- {front: 'Permutation formula for $\det A$', back: '$\sum_\sigma \operatorname{sgn}(\sigma)\, a_{1\sigma(1)}\cdots a_{n\sigma(n)}$, one entry from each row and each column', topic: Permutation formula}
+- {front: 'Number of terms in the permutation formula ($n \times n$)', back: '$n!$ (6 for $3 \times 3$, 24 for $4 \times 4$)', topic: Permutation formula}
+- {front: 'Where the cofactor sign $(-1)^{1+j}$ comes from', back: 'If $\sigma(1) = j$, exactly $j - 1$ inversions involve position 1', topic: Permutation formula}
+- {front: 'Determinant of the permutation matrix $P_\sigma$', back: '$\operatorname{sgn}\sigma$', topic: Permutation formula}
+- {front: 'The three defining properties of the determinant', back: 'Multilinear in the rows, alternating (a swap flips the sign), $\det I = 1$', topic: Defining properties of the determinant}
+- {front: 'Uniqueness theorem for determinants', back: 'Only one function is multilinear in the rows, alternating and 1 at $I$: the determinant', topic: Defining properties of the determinant}
+- {front: 'Proof idea for $\det(AB) = \det A\det B$', back: 'If $\det B \neq 0$, $D(A) = \det(AB)/\det B$ has the three defining properties, so $D = \det$', topic: Defining properties of the determinant}
+- {front: 'Why $\det A^T = \det A$', back: 'Its terms are those of $\det A$ for $\sigma^{-1}$, and $\sigma^{-1}$ has the same number of inversions as $\sigma$', topic: Defining properties of the determinant}
+- {front: 'Vandermonde determinant ($3 \times 3$, rows $1, x, x^2$)', back: '$(b - a)(c - a)(c - b)$; in general $\prod_{i < j}(x_j - x_i)$', topic: Defining properties of the determinant}
+
+# --- 21h2: determinants in geometry ---
+- {front: 'Cross product $\mathbf{u} \times \mathbf{v}$', back: '$(u_2v_3 - u_3v_2,\; u_3v_1 - u_1v_3,\; u_1v_2 - u_2v_1)$', topic: Cross product}
+- {front: 'Cross product as a determinant', back: 'Expand $\begin{vmatrix} \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3 \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3\end{vmatrix}$ along row 1', topic: Cross product}
+- {front: 'Geometry of $\mathbf{u} \times \mathbf{v}$', back: 'Perpendicular to $\mathbf{u}$ and $\mathbf{v}$; length = area of their parallelogram; direction by the right-hand rule', topic: Cross product}
+- {front: '$\mathbf{v} \times \mathbf{u}$', back: '$-(\mathbf{u} \times \mathbf{v})$', topic: Cross product}
+- {front: 'Scalar triple product', back: '$\mathbf{w} \cdot (\mathbf{u} \times \mathbf{v}) = \det[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,]$', topic: Cross product}
+- {front: 'Volume of a tetrahedron with corners $\mathbf{a}, \mathbf{b}, \mathbf{c}, \mathbf{d}$', back: '$\tfrac16|\det[\,\mathbf{b} - \mathbf{a} \;\; \mathbf{c} - \mathbf{a} \;\; \mathbf{d} - \mathbf{a}\,]|$', topic: Cross product}
+- {front: 'Orientation test for $\mathbf{p}, \mathbf{q}, \mathbf{r}$ in the plane', back: '$D = \det[\,\mathbf{q} - \mathbf{p} \;\; \mathbf{r} - \mathbf{p}\,]$: $> 0$ left turn, $< 0$ right turn, $= 0$ collinear', topic: Orientation and polygon area}
+- {front: 'Line through $(x_1, y_1)$ and $(x_2, y_2)$ as a determinant', back: '$\begin{vmatrix} x & y & 1 \\ x_1 & y_1 & 1 \\ x_2 & y_2 & 1\end{vmatrix} = 0$', topic: Orientation and polygon area}
+- {front: 'Shoelace formula', back: 'Area $= \tfrac12\sum(x_iy_{i+1} - x_{i+1}y_i)$, corners counterclockwise, wrapping around', topic: Orientation and polygon area}
+- {front: 'Shoelace formula with corners listed clockwise', back: 'Gives the negative of the area', topic: Orientation and polygon area}
+- {front: 'Polar coordinates: area factor (Jacobian determinant)', back: '$r$, so $dA = r\,dr\,d\theta$', topic: Orientation and polygon area}

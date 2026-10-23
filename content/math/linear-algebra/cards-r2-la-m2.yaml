@@ -9,14 +9,14 @@
 - {front: 'Test for row equivalence', back: 'Two matrices of the same size are row equivalent exactly when they have the same RREF.', topic: Uniqueness of the RREF}
 - {front: 'Canonical form', back: 'One standard representative per equivalence class. The RREF is a canonical form for row equivalence.', topic: Uniqueness of the RREF}
 - {front: 'What uniqueness of the RREF guarantees', back: 'Pivot positions, the number of pivots and the basic and free variables do not depend on how you row-reduce.', topic: Uniqueness of the RREF}
-- {front: 'Flop', back: 'One floating-point addition, subtraction, multiplication or division.', topic: Cost and accuracy of elimination}
-- {front: 'Cost of the forward phase ($n \times n$ system)', back: '$\tfrac23 n^3 + \tfrac12 n^2 - \tfrac76 n$ flops, about $\tfrac23 n^3$ for large $n$.', topic: Cost and accuracy of elimination}
-- {front: 'Cost of back-substitution', back: 'Exactly $n^2$ flops for an $n \times n$ triangular system.', topic: Cost and accuracy of elimination}
-- {front: 'Doubling the size of a system', back: 'Multiplies the work of elimination by about $2^3 = 8$; ten times the size means about 1,000 times the work.', topic: Cost and accuracy of elimination}
-- {front: 'Clearing above and below every pivot in one pass', back: 'About $n^3$ flops, 1.5 times the $\tfrac23 n^3$ of elimination plus back-substitution.', topic: Cost and accuracy of elimination}
-- {front: 'Solve $A\mathbf{x} = \mathbf{b}$ with $A^{-1}$?', back: 'No: computing $A^{-1}$ costs about $2n^3$ flops, three times elimination, and is usually less accurate.', topic: Cost and accuracy of elimination}
-- {front: 'Round-off error', back: 'The error rounding leaves in a computed result. A tiny pivot gives huge multipliers that magnify it.', topic: Cost and accuracy of elimination}
-- {front: 'Partial pivoting', back: 'Swap the entry of largest absolute value (from the pivot row down) into the pivot position before clearing; every multiplier then has size at most 1.', topic: Cost and accuracy of elimination}
-- {front: '$0.0001x + y = 1$, $x + y = 2$ in 3-digit arithmetic', back: 'Without a swap: $x = 0$, $y = 1$ (wrong). With partial pivoting: $x = 1.00$, $y = 1.00$ (right to 3 digits).', topic: Cost and accuracy of elimination}
-- {front: 'Ill-conditioned system', back: 'Tiny changes in the data cause large changes in the solution, e.g. $x + y = 2$, $x + 1.001y = 2.001$ vs. $2.002$: $(1, 1)$ becomes $(0, 2)$.', topic: Cost and accuracy of elimination}
-- {front: 'Small leftover, big error', back: 'For an ill-conditioned system, an answer can satisfy the equations almost exactly and still be far from the true solution.', topic: Cost and accuracy of elimination}
+- {front: 'Direct vs. iterative method', back: 'Direct (row reduction): exact in a fixed number of steps. Iterative: improves a guess sweep by sweep; cheap for huge sparse systems.', topic: Iterative methods}
+- {front: 'Sparse matrix', back: 'Most entries are 0; typical when each equation involves only a few neighboring unknowns.', topic: Iterative methods}
+- {front: 'Equilibrium temperature model', back: 'At each interior grid point, the temperature is the average of its four neighbors.', topic: Iterative methods}
+- {front: 'Plate equation for a point with neighbors 80, 40, $T_2$, $T_3$', back: '$4T_1 - T_2 - T_3 = 120$', topic: Iterative methods}
+- {front: 'Jacobi update ($2 \times 2$)', back: '$x_{k+1} = (b_1 - a_{12}y_k)/a_{11}$, $y_{k+1} = (b_2 - a_{21}x_k)/a_{22}$: old values only.', topic: Iterative methods}
+- {front: 'Gauss–Seidel update ($2 \times 2$)', back: '$x_{k+1} = (b_1 - a_{12}y_k)/a_{11}$, then $y_{k+1} = (b_2 - a_{21}x_{k+1})/a_{22}$: newest values.', topic: Iterative methods}
+- {front: 'Strictly diagonally dominant', back: 'In every row, $|a_{ii}| >$ the sum of the absolute values of the other entries.', topic: Iterative methods}
+- {front: 'Convergence guarantee', back: 'Strictly diagonally dominant matrix: Jacobi and Gauss–Seidel converge to the unique solution from any starting guess.', topic: Iterative methods}
+- {front: 'Jacobi diverges on $x + 2y = 3$, $3x + y = 4$. Fix?', back: 'Swap the equations: $3x + y = 4$, $x + 2y = 3$ is strictly diagonally dominant, so the iteration converges to $(1, 1)$.', topic: Iterative methods}
+- {front: 'Jacobi vs. Gauss–Seidel on the plate example', back: 'Jacobi error halves each sweep; Gauss–Seidel error shrinks by about 4 each sweep.', topic: Iterative methods}
+- {front: 'When to stop iterating', back: 'When the change between sweeps is below a chosen tolerance: a practical rule, not a guarantee of accuracy.', topic: Iterative methods}

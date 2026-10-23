@@ -40,7 +40,7 @@
   definition: 'The determinant of the matrix with rows $(1, x_i, x_i^2, \dots, x_i^{n-1})$; it equals $\prod_{i < j}(x_j - x_i)$, which is nonzero exactly when the $x_i$ are distinct.'
   topic: Defining properties of the determinant
 - term: cross product
-  aliases: [vector product, 'u × v']
+  aliases: [vector product]
   definition: '$\mathbf{u} \times \mathbf{v} = (u_2v_3 - u_3v_2,\; u_3v_1 - u_1v_3,\; u_1v_2 - u_2v_1)$ for vectors in $\mathbb{R}^3$: perpendicular to both, with length equal to the area of the parallelogram they span.'
   topic: Cross product
 - term: scalar triple product

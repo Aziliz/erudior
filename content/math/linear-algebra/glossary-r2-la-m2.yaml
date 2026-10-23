@@ -11,26 +11,31 @@
   aliases: [canonical forms]
   definition: 'A standard representative chosen from a family of equivalent objects, so that two objects are equivalent exactly when they have the same canonical form. The RREF is a canonical form for row equivalence.'
   topic: Uniqueness of the RREF
-- term: flop
-  aliases: [flops]
-  definition: 'One floating-point arithmetic operation: an addition, subtraction, multiplication or division. Counting flops estimates the cost of an algorithm.'
-  topic: Cost and accuracy of elimination
-- term: operation count
-  aliases: [operation counts]
-  definition: 'The number of arithmetic operations (flops) an algorithm uses, usually as a formula in the problem size. Elimination on an $n \times n$ system takes about $\tfrac23 n^3$ flops.'
-  topic: Cost and accuracy of elimination
-- term: floating-point arithmetic
-  aliases: [floating point arithmetic, floating-point]
-  definition: 'Computer arithmetic that stores each number with a fixed number of significant digits (about 16 decimal digits in standard double precision) times a power of the base, rounding after every operation.'
-  topic: Cost and accuracy of elimination
-- term: round-off error
-  aliases: [roundoff error, rounding error, rounding errors, round-off errors]
-  definition: 'The difference between a computed result and the exact one caused by rounding in floating-point arithmetic.'
-  topic: Cost and accuracy of elimination
-- term: partial pivoting
-  definition: 'In the forward phase of elimination, choosing as pivot the entry of largest absolute value in the current column (from the pivot row down) and swapping its row into place, so every multiplier has absolute value at most 1.'
-  topic: Cost and accuracy of elimination
-- term: ill-conditioned
-  aliases: [ill-conditioned system, ill-conditioned systems, ill conditioned]
-  definition: 'Describes a problem (such as a linear system) whose solution changes a lot when its data change a little. No choice of algorithm removes this sensitivity.'
-  topic: Cost and accuracy of elimination
+- term: sparse
+  aliases: [sparse matrix, sparse matrices, sparse system, sparse systems]
+  definition: 'Describes a matrix (or the system it comes from) in which most entries are 0, as when each equation involves only a few neighboring unknowns.'
+  topic: Iterative methods
+- term: direct method
+  aliases: [direct methods]
+  definition: 'A method, such as row reduction, that reaches the exact solution of a linear system (apart from rounding) in a fixed, finite number of steps.'
+  topic: Iterative methods
+- term: iterative method
+  aliases: [iterative methods]
+  definition: 'A method that starts from a guess at the solution of a system and improves it repeatedly, stopping when the guesses have settled down.'
+  topic: Iterative methods
+- term: Jacobi method
+  aliases: [Jacobi iteration]
+  definition: 'An iterative method for $A\mathbf{x} = \mathbf{b}$: solve equation $i$ for $x_i$, and compute every new value from the previous guess only.'
+  topic: Iterative methods
+- term: sweep
+  aliases: [sweeps]
+  definition: 'One round of an iterative method in which every unknown is updated once.'
+  topic: Iterative methods
+- term: Gauss–Seidel method
+  aliases: [Gauss-Seidel method, Gauss–Seidel, Gauss-Seidel, Gauss–Seidel iteration]
+  definition: 'An iterative method like the Jacobi method, except that each new value is used as soon as it is computed, within the same sweep.'
+  topic: Iterative methods
+- term: strictly diagonally dominant
+  aliases: [diagonally dominant, strict diagonal dominance, diagonal dominance]
+  definition: 'Describes a square matrix in which, in every row, the diagonal entry is larger in absolute value than the sum of the absolute values of the other entries. Then the system has one solution and the Jacobi and Gauss–Seidel methods converge to it.'
+  topic: Iterative methods
