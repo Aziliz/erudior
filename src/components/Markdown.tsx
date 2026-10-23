@@ -101,6 +101,27 @@ export default function Markdown({
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
 
+  // Wide display math scrolls sideways in its box; such a box must be reachable by keyboard.
+  useEffect(() => {
+    const el = body.current;
+    if (!el) return;
+    const mark = () =>
+      el.querySelectorAll<HTMLElement>(".math-display").forEach((m) => {
+        if (m.scrollWidth > m.clientWidth + 1) {
+          m.tabIndex = 0;
+          m.setAttribute("role", "group");
+          m.setAttribute("aria-label", "Equation (scroll sideways to see all of it)");
+        } else if (m.hasAttribute("tabindex")) {
+          m.removeAttribute("tabindex");
+          m.removeAttribute("role");
+          m.removeAttribute("aria-label");
+        }
+      });
+    mark();
+    window.addEventListener("resize", mark);
+    return () => window.removeEventListener("resize", mark);
+  }, [html]);
+
   // Mermaid diagrams: drawn after render, and redrawn in the new colors when the theme changes.
   useEffect(() => {
     const el = body.current;

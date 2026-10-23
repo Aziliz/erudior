@@ -32,6 +32,8 @@ A transit survey of 200 commuters:
 Each inner cell is a *joint* count: 30 commuters are *both* under 30 *and* take the
 train. The totals in the margins are the *marginal* counts.
 
+![The transit survey table drawn as a grid with four highlighted cells. The cell 30 (under 30, train) is marked joint count. The cell 60 at the end of the under-30 row is marked row total. The cell 70 at the bottom of the train column is marked column total. The cell 200 in the bottom right corner is marked grand total.](images/stat-m3-two-way-parts.svg)
+
 ## Three kinds of distribution
 
 - The **marginal distribution** of one variable uses the row or column totals, divided by
@@ -88,6 +90,19 @@ train riders who are over 50, and (c) the percent of over-50 commuters who take 
 
 Parts (b) and (c) use the same cell, 15, but different denominators — the "given" group
 determines the denominator. Mixing them up is the most common error with two-way tables.
+
+To pick the denominator, ask what group the percent is *of*:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the denominator in a two-way table
+  accDescr: Ask what group the percent is of. If it is a percent of everyone in the table and describes one variable, such as the percent who drive, it is marginal: divide a row or column total by the grand total. If it is a percent of everyone and describes both variables at once, such as the percent who are under 30 and drive, it is joint: divide the cell by the grand total. If it is a percent of one group only, such as among over-50 commuters, it is conditional: divide the cell by that group's row or column total.
+  A["What group is the percent of?"] --> B{"Everyone in the table?"}
+  B -- Yes --> C{"Does it describe one variable or both?"}
+  C -- "One, such as 'drive'" --> D["Marginal: row or column total ÷ grand total"]
+  C -- "Both, such as 'under 30 and drive'" --> E["Joint: cell ÷ grand total"]
+  B -- "No, one group, such as 'among over-50s'" --> F["Conditional: cell ÷ that group's total"]
+```
 
 ## Simpson's paradox
 

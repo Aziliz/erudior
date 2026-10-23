@@ -2,6 +2,7 @@
 // so it's loaded the first time a page has a diagram.
 
 import DOMPurify from "dompurify";
+import { mermaidA11y } from "./diagram";
 
 type Mermaid = typeof import("mermaid").default;
 let loading: Promise<Mermaid> | null = null;
@@ -91,7 +92,7 @@ export async function renderDiagrams(root: HTMLElement): Promise<void> {
       holder.innerHTML = clean;
       if (!holder.isConnected) el.prepend(holder);
       el.classList.add("drawn");
-      fitDiagram(el, holder as HTMLElement);
+      fitDiagram(el, holder as HTMLElement, mermaidA11y(src).title);
     } catch (e) {
       el.classList.add("failed");
       console.warn("diagram", e);
@@ -103,7 +104,7 @@ export async function renderDiagrams(root: HTMLElement): Promise<void> {
  * Wide diagrams shrink to fit, but not below about 70% of their natural size (smaller text is
  * hard to read on a phone); past that the diagram scrolls sideways in its own box.
  */
-function fitDiagram(fig: HTMLElement, holder: HTMLElement) {
+function fitDiagram(fig: HTMLElement, holder: HTMLElement, title: string) {
   const svg = holder.querySelector("svg");
   if (!svg) return;
   const natural = svg.viewBox?.baseVal?.width || svg.getBoundingClientRect().width;
@@ -118,7 +119,7 @@ function fitDiagram(fig: HTMLElement, holder: HTMLElement) {
   if (scrolls) {
     holder.tabIndex = 0;
     holder.setAttribute("role", "region");
-    holder.setAttribute("aria-label", "Diagram (scroll sideways to see all of it)");
+    holder.setAttribute("aria-label", `${title || "Diagram"} (scroll sideways to see all of it)`);
   } else {
     holder.removeAttribute("tabindex");
     holder.removeAttribute("role");

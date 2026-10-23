@@ -106,6 +106,15 @@ multiplied by about 1.51 each hour (51% growth per hour).
 {"x": [-0.5, 6], "y": [1.1, 2.6], "xLabel": "hour", "yLabel": "log count", "points": [{"at": [0, 1.301], "color": "#2c5e8f"}, {"at": [1, 1.491], "color": "#2c5e8f"}, {"at": [2, 1.643], "color": "#2c5e8f"}, {"at": [3, 1.845], "color": "#2c5e8f"}, {"at": [4, 2.021], "color": "#2c5e8f"}, {"at": [5, 2.204], "color": "#2c5e8f"}], "functions": [{"f": "1.3006 + 0.1802*x", "color": "#c2570c"}], "caption": "After taking log of the counts, the points lie on a line"}
 ```
 
+Back on the original scale, the back-transformed model follows the counts closely, while the
+straight line fitted to the raw counts ($\hat{y} \approx 3.95 + 27.09x$) runs below the points at
+both ends and above them in the middle: exactly the curved residual pattern (positive, then
+negative, then positive) described above.
+
+```plot
+{"x": [-0.5, 6], "y": [0, 250], "xLabel": "hour", "yLabel": "count", "points": [{"at": [0, 20], "color": "#2c5e8f"}, {"at": [1, 31], "color": "#2c5e8f"}, {"at": [2, 44], "color": "#2c5e8f"}, {"at": [3, 70], "color": "#2c5e8f"}, {"at": [4, 105], "color": "#2c5e8f"}, {"at": [5, 160], "color": "#2c5e8f"}], "functions": [{"f": "10^(1.3006 + 0.1802*x)", "color": "#c2570c", "label": "ŷ = 10^(1.3006 + 0.1802x)"}, {"f": "3.952 + 27.086*x", "dashed": true, "label": "straight line"}], "caption": "Bacteria counts with the back-transformed exponential model (solid) and the straight-line fit (dashed)"}
+```
+
 ### Example 2: a power model
 
 For a set of animals, $x$ = body length (m) and $y$ = mass (kg). A plot of $\ln y$ against

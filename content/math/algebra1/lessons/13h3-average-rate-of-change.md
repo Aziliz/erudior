@@ -107,7 +107,7 @@ For $f(x) = x^2$, simplify the difference quotient at $a = 3$, and find what it 
 That limiting value, 6, is the **instantaneous rate of change** of $x^2$ at $x = 3$. On the graph, as the second point slides toward $(3, 9)$, the secant lines turn toward a single line that just touches the curve there: the tangent line, with slope 6.
 
 ```plot
-{"x": [0, 6], "y": [-2, 30], "functions": [{"f": "x^2", "label": "y = x²"}], "tangents": [{"f": "x^2", "at": 3}], "segments": [{"from": [3, 9], "to": [5, 25], "dashed": true, "label": "slope 8"}, {"from": [3, 9], "to": [4, 16], "dashed": true, "label": "slope 7"}], "points": [{"at": [3, 9], "label": "(3, 9)"}, {"at": [4, 16], "label": "(4, 16)"}, {"at": [5, 25], "label": "(5, 25)"}], "caption": "Secants from (3, 9) to (5, 25) and to (4, 16) tilt toward the tangent line at (3, 9), whose slope is 6"}
+{"x": [1.5, 6], "y": [0, 30], "functions": [{"f": "x^2", "label": "y = x²"}], "tangents": [{"f": "x^2", "at": 3}], "segments": [{"from": [3, 9], "to": [5, 25], "dashed": true}, {"from": [3, 9], "to": [4, 16], "dashed": true}], "points": [{"at": [3, 9], "label": "(3, 9)"}, {"at": [4, 16], "label": "(4, 16)"}, {"at": [5, 25], "label": "(5, 25)"}], "labels": [{"at": [5.3, 19], "text": "tangent"}], "caption": "Secant slopes 8 (to (5, 25)) and 7 (to (4, 16)) approach the tangent slope 6 at (3, 9)"}
 ```
 
 The same idea gives the ball's velocity at an instant. Using the shortcut with $p = 1$ and $q = 1 + h$: the average velocity on $[1, 1 + h]$ is $-16(2 + h) + 64 = 32 - 16h$, which approaches 32 as $h$ approaches 0. One second after the throw, the ball is rising at 32 feet per second. (Check with $h = 1$: $32 - 16 = 16$, the average on $[1, 2]$ from Example 1.)

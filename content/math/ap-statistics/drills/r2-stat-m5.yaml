@@ -1,0 +1,205 @@
+# Round 2, module stat-m5 (Probability): drills for the core lessons on conditional probability
+# and Bayes, and for the honors lessons on inclusion–exclusion and on odds.
+
+- id: stat-m5-r2-without-repl
+  title: Two draws without replacement
+  topic: Conditional probability
+  vars:
+    rr: {min: 3, max: 12}
+    bb: {min: 3, max: 12}
+  calc:
+    nn: rr + bb
+    rm1: rr - 1
+    nm1: nn - 1
+    pboth: rr*(rr - 1)/(nn*(nn - 1))
+    pone: 2*rr*bb/(nn*(nn - 1))
+  prompt: |-
+    A bin holds {rr} red and {bb} blue tokens. Two tokens are drawn at random **without
+    replacement**. Find the probability that both are red, and the probability that exactly one
+    is red. Give each to 4 decimal places.
+  answers:
+    - {name: pboth, label: 'Both red', tolerance: 0.0001, format: num4}
+    - {name: pone, label: 'Exactly one red', tolerance: 0.0001, format: num4}
+  solution: |-
+    Multiplication rule: $P(\text{both red}) = \dfrac{{rr}}{{nn}} \cdot \dfrac{{rm1}}{{nm1}} =$ **{pboth:num4}**.
+    Exactly one red happens as red then blue or blue then red, two paths with the same product:
+    $2 \cdot \dfrac{{rr}}{{nn}} \cdot \dfrac{{bb}}{{nm1}} =$ **{pone:num4}**.
+
+- id: stat-m5-r2-neg-test
+  title: Probability of the condition after a negative test
+  topic: Bayes' theorem
+  vars:
+    prev: {choices: [0.01, 0.02, 0.05, 0.1, 0.2, 0.3]}
+    sens: {min: 0.8, max: 0.99, step: 0.01}
+    spec: {min: 0.8, max: 0.99, step: 0.01}
+  calc:
+    fn: prev*(1 - sens)
+    tn: (1 - prev)*spec
+    pneg: fn + tn
+    post: fn/pneg
+    miss: 1 - sens
+    healthy: 1 - prev
+  prompt: |-
+    A condition has prevalence {prev}. A test has sensitivity {sens} and specificity {spec}. A
+    randomly chosen person tests **negative**. What is the probability that they have the condition
+    anyway? Give 3 significant figures.
+  answers:
+    - {name: post, label: '$P(D \mid -) =$', sigfigs: 3}
+  solution: |-
+    False negatives: ${prev} \times {miss:num2} = {fn:sig4}$. True negatives: ${healthy:num2} \times {spec} = {tn:sig4}$.
+    $P(-) = {pneg:sig4}$, so $P(D \mid -) = \dfrac{{fn:sig4}}{{pneg:sig4}} =$ **{post:sig3}**.
+    A negative result lowers the probability below the prior of {prev}.
+
+- id: stat-m5-r2-incl-excl3
+  title: Inclusion–exclusion with three events
+  topic: Inclusion–exclusion
+  vars:
+    tot: {choices: [400, 500, 600]}
+    ra: {min: 20, max: 120}
+    rb: {min: 20, max: 120}
+    rc: {min: 10, max: 80}
+    rab: {min: 5, max: 40}
+    rac: {min: 5, max: 40}
+    rbc: {min: 5, max: 40}
+    rabc: {min: 2, max: 15}
+  where: ['ra + rb + rc + rab + rac + rbc + rabc <= tot - 20']
+  calc:
+    na: ra + rab + rac + rabc
+    nb: rb + rab + rbc + rabc
+    nc: rc + rac + rbc + rabc
+    nab: rab + rabc
+    nac: rac + rabc
+    nbc: rbc + rabc
+    uni: na + nb + nc - nab - nac - nbc + rabc
+    none: tot - uni
+  prompt: |-
+    A survey of {tot} households asked which of three streaming services they pay for. {na} pay for
+    service A, {nb} for B and {nc} for C; {nab} pay for both A and B, {nac} for both A and C, {nbc}
+    for both B and C, and {rabc} pay for all three. How many households pay for at least one of the
+    services, and how many pay for none?
+  answers:
+    - {name: uni, label: 'At least one', format: integer}
+    - {name: none, label: 'None', format: integer}
+  solution: |-
+    Add the singles, subtract the pairs, add back the triple:
+    ${na} + {nb} + {nc} - {nab} - {nac} - {nbc} + {rabc} =$ **{uni}**. None: ${tot} - {uni} =$ **{none}**.
+
+- id: stat-m5-r2-birthday
+  title: The birthday problem
+  topic: Inclusion–exclusion
+  vars:
+    nn: {min: 10, max: 60}
+  calc:
+    pall: exp(lgamma(366) - lgamma(366 - nn) - nn*ln(365))
+    pany: 1 - pall
+    oth: nn - 1
+    pme: 1 - (364/365)^(nn - 1)
+    pairs: nn*(nn - 1)/2
+  prompt: |-
+    Assume 365 equally likely birthdays (ignore February 29) and independent people. In a group of
+    {nn} people, find (a) the probability that at least two share a birthday and (b) the probability
+    that at least one of the other {oth} people shares **your** birthday. Give 4 decimal places.
+  answers:
+    - {name: pany, label: '(a)', tolerance: 0.0001, format: num4}
+    - {name: pme, label: '(b)', tolerance: 0.0001, format: num4}
+  solution: |-
+    (a) $P(\text{all different}) = \dfrac{365}{365} \cdot \dfrac{364}{365} \cdots \dfrac{365 - {oth}}{365} = {pall:num4}$, so
+    $P(\text{shared}) = 1 - {pall:num4} =$ **{pany:num4}**.
+    (b) Each other person misses your birthday with probability $\tfrac{364}{365}$:
+    $1 - (364/365)^{{oth}} =$ **{pme:num4}**. Part (a) is much larger because the group has {pairs:int} pairs, and only
+    {oth} of them include you.
+
+- id: stat-m5-r2-derange
+  title: The matching problem
+  topic: Inclusion–exclusion
+  vars:
+    nn: {min: 3, max: 8}
+  calc:
+    tot: fact(nn)
+    nder: round(fact(nn)/e)
+    pno: nder/tot
+    pat: 1 - pno
+  prompt: |-
+    At a party, {nn} guests leave their coats, and the coats are handed back completely at random.
+    In how many of the {tot:int} possible ways of returning the coats does **nobody** get their own coat,
+    and what is the probability of that? Give the probability to 4 decimal places.
+  answers:
+    - {name: nder, label: 'Ways', format: integer}
+    - {name: pno, label: 'Probability', tolerance: 0.0001, format: num4}
+  solution: |-
+    By inclusion–exclusion, $P(\text{no match}) = \dfrac{1}{0!} - \dfrac{1}{1!} + \dfrac{1}{2!} - \cdots \pm \dfrac{1}{{nn}!} =$ **{pno:num4}**.
+    The number of such arrangements is ${pno:num4} \times {tot:int} =$ **{nder}** (a shortcut: $n!/e$ rounded to the
+    nearest whole number). So the chance at least one guest gets their own coat is {pat:num4}, close to $1 - 1/e \approx 0.632$.
+
+- id: stat-m5-r2-odds-convert
+  title: Converting between probability and odds
+  topic: Odds and likelihood ratios
+  vars:
+    pp: {min: 0.05, max: 0.95, step: 0.05}
+    aa: {min: 1, max: 9}
+    bb: {min: 1, max: 9}
+  where: ['aa != bb']
+  calc:
+    od: pp/(1 - pp)
+    qq: 1 - pp
+    pr: aa/(aa + bb)
+    sm: aa + bb
+  prompt: |-
+    (a) An event has probability {pp}. What are its odds (in favor)? Give 3 significant figures.
+    (b) Another event has odds of {aa} to {bb} in favor. What is its probability? Give 4 decimal places.
+  answers:
+    - {name: od, label: '(a) odds', sigfigs: 3}
+    - {name: pr, label: '(b) probability', tolerance: 0.0001, format: num4}
+  solution: |-
+    (a) Odds $= \dfrac{p}{1 - p} = \dfrac{{pp}}{{qq:num2}} =$ **{od:sig3}**.
+    (b) Odds of {aa} to {bb} mean {aa} occurrences for every {bb} non-occurrences, so
+    $p = \dfrac{{aa}}{{aa} + {bb}} = \dfrac{{aa}}{{sm}} =$ **{pr:num4}**.
+
+- id: stat-m5-r2-odds-update
+  title: Bayes with odds and a likelihood ratio
+  topic: Odds and likelihood ratios
+  vars:
+    prev: {choices: [0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3]}
+    sens: {min: 0.8, max: 0.99, step: 0.01}
+    spec: {min: 0.8, max: 0.98, step: 0.01}
+  calc:
+    fpr: 1 - spec
+    lr: sens/(1 - spec)
+    po: prev/(1 - prev)
+    pso: po*lr
+    post: pso/(1 + pso)
+  prompt: |-
+    A test has sensitivity {sens} and specificity {spec}. It is used where the prevalence is
+    {prev:num4}. Find the likelihood ratio of a positive result, $\text{LR}_+$, to 2 decimal places, and
+    the probability that a person who tests positive has the condition, to 4 decimal places.
+  answers:
+    - {name: lr, label: '$\text{LR}_+ =$', tolerance: 0.006, format: num2}
+    - {name: post, label: '$P(D \mid +) =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    $\text{LR}_+ = \dfrac{\text{sensitivity}}{1 - \text{specificity}} = \dfrac{{sens}}{{fpr:num2}} =$ **{lr:num2}**.
+    Prior odds $= {prev:num4}/(1 - {prev:num4}) = {po:sig4}$. Posterior odds $= {po:sig4} \times {lr:num2} = {pso:sig4}$.
+    Probability $= \dfrac{{pso:sig4}}{1 + {pso:sig4}} =$ **{post:num4}**.
+
+- id: stat-m5-r2-repeat-tests
+  title: Several independent positive results
+  topic: Odds and likelihood ratios
+  vars:
+    prev: {choices: [0.01, 0.02, 0.05, 0.1]}
+    lr: {choices: [4, 5, 8, 10, 12, 20]}
+    kk: {choices: [2, 3]}
+  calc:
+    po: prev/(1 - prev)
+    mult: lr^kk
+    pso: po*mult
+    post: pso/(1 + pso)
+  prompt: |-
+    A condition has prior probability {prev}. Each positive result of a test has likelihood ratio
+    {lr}, and the results are conditionally independent. A person tests positive {kk} times. Find the
+    posterior odds (3 significant figures) and the posterior probability (4 decimal places).
+  answers:
+    - {name: pso, label: 'Posterior odds', sigfigs: 3}
+    - {name: post, label: 'Probability', tolerance: 0.0001, format: num4}
+  solution: |-
+    Prior odds $= {prev}/(1 - {prev}) = {po:sig4}$. Each positive multiplies the odds by {lr}, so
+    {kk} positives multiply them by ${lr}^{{kk}} = {mult:int}$: posterior odds $= {po:sig4} \times {mult:int} =$ **{pso:sig3}**.
+    Probability $= \dfrac{{pso:sig4}}{1 + {pso:sig4}} =$ **{post:num4}**.
