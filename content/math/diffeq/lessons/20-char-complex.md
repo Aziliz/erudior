@@ -4,7 +4,7 @@ module: de-m5
 title: 'Constant coefficients: complex roots'
 minutes: 30
 topics: [Characteristic equation]
-drills: [de-char-complex-ivp, de-char-roots]
+drills: [de-char-complex-ivp, de-char-roots, de-m5-r2-phase]
 refs: [de-ref-solutions]
 ---
 ## When the discriminant is negative
@@ -46,12 +46,31 @@ are real solutions. Their Wronskian is $\mu e^{2\lambda t} \ne 0$ (since $\mu > 
 
 $$y = e^{\lambda t}\left(c_1\cos\mu t + c_2\sin\mu t\right).$$
 
+The whole chain of reasoning, from roots to a real general solution:
+
+```mermaid
+flowchart TD
+  accTitle: From complex roots to real solutions
+  accDescr: Find the complex roots lambda plus or minus i mu. Write the complex solution e to the (lambda plus i mu) t. Expand it with Euler's formula into e to the lambda t times cos mu t plus i sin mu t. Its real part e to the lambda t cos mu t and its imaginary part e to the lambda t sin mu t are each real solutions. Combine them into the general solution e to the lambda t times c1 cos mu t plus c2 sin mu t.
+  A["Roots λ ± iμ of ar² + br + c = 0"] --> B["Complex solution e^((λ + iμ)t)"]
+  B --> C["Euler's formula: e^(λt) (cos μt + i sin μt)"]
+  C --> D["Real part e^(λt) cos μt and imaginary part e^(λt) sin μt"]
+  D --> E["y = e^(λt) (c1 cos μt + c2 sin μt)"]
+```
+
 ## What the parts mean
 
 - $\mu$ is the **angular frequency** of oscillation (radians per unit time); the period is
   $2\pi/\mu$.
 - $e^{\lambda t}$ is the **envelope**: if $\lambda < 0$ the oscillations die out; if
   $\lambda > 0$ they grow; if $\lambda = 0$ they continue forever with constant amplitude.
+
+The picture labels these parts on $y = 2e^{-t/4}\cos 2t$, a solution of
+$16y'' + 8y' + 65y = 0$ (roots $-\tfrac14 \pm 2i$, so $\lambda = -\tfrac14$ and $\mu = 2$). The curve
+stays inside the shaded band between $\pm 2e^{-t/4}$, touching the envelope near each peak and
+trough, and successive peaks are $2\pi/\mu = \pi$ apart.
+
+![A decaying oscillation starting at y(0) = 2, drawn inside a shaded band bounded by the dashed curves plus and minus 2e to the minus t over 4. A bracket between two successive peaks is marked 2 pi over mu equals pi, and the horizontal axis is marked y = 0.](images/de-m5-damped-parts.svg)
 
 ### Example 1
 

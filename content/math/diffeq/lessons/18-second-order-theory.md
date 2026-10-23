@@ -4,7 +4,7 @@ module: de-m5
 title: Second-order linear equations and the Wronskian
 minutes: 30
 topics: [Second-order theory]
-drills: [de-wronskian, de-ivp-combo]
+drills: [de-wronskian, de-ivp-combo]drills: [de-wronskian, de-ivp-combo, de-m5-r2-abel]
 refs: [de-ref-solutions]
 ---
 ## Why second order?
@@ -94,6 +94,13 @@ $y'' + y' - 6y = 0$, and solve the IVP $y(0) = 1$, $y'(0) = 7$.
 
 Abel's theorem check: $p = 1$, so $W = Ce^{-t}$, matching $-5e^{-t}$.
 
+The figure shows superposition at work: the solution is the sum of the two pieces
+$2e^{2t}$ and $-e^{-3t}$, and it passes through $(0, 1)$ as required.
+
+```plot
+{"x": [-1, 1], "y": [-20, 15], "xLabel": "t", "functions": [{"f": "2exp(2x)", "dashed": true}, {"f": "-exp(-3x)", "dashed": true}, {"f": "2exp(2x) - exp(-3x)", "label": "y = 2e^(2t) − e^(−3t)"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "caption": "The IVP solution (solid) is the sum of 2e^(2t) (dashed, rising) and −e^(−3t) (dashed, below the axis)."}
+```
+
 ### Example 2
 
 Are $y_1 = \cos 3t$ and $y_2 = \sin 3t$ a fundamental set for $y'' + 9y = 0$?
@@ -120,6 +127,24 @@ $$y = \underbrace{c_1y_1 + c_2y_2}_{y_c,\ \text{complementary solution}} + \unde
 The homogeneous part is called the **complementary solution** $y_c$; $Y$ is any one
 **particular solution**. You met this structure for first-order equations in Lesson 8.
 Module 6 finds particular solutions; Lessons 19–21 find $y_c$.
+
+The flowchart puts the whole procedure of this lesson in one place.
+
+```mermaid
+flowchart TD
+  accTitle: From two solutions to the solution of an initial value problem
+  accDescr: Start with two solutions y1 and y2 of the homogeneous equation. Compute their Wronskian at one point. If it is zero, they are not a fundamental set, so find a different second solution and test again. If it is nonzero, the general solution of the homogeneous equation is c1 y1 + c2 y2. If the equation has a forcing term g, add one particular solution Y. Finally fit c1 and c2 to the two initial conditions.
+  A["Two solutions y1, y2 of L[y] = 0"] --> B["Compute W = y1 y2' - y1' y2 at one point"]
+  B --> C{"Is W zero?"}
+  C -- "yes" --> D["Not a fundamental set: find another solution"]
+  D --> B
+  C -- "no" --> E["Fundamental set: y_c = c1 y1 + c2 y2"]
+  E --> F{"Is g zero?"}
+  F -- "yes" --> H["y = y_c"]
+  F -- "no" --> G["y = y_c + Y, one particular solution Y"]
+  H --> I["Fit c1, c2 to y(t0) and y'(t0)"]
+  G --> I
+```
 
 ## Common mistakes
 

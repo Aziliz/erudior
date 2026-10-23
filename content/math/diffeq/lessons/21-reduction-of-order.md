@@ -46,6 +46,20 @@ $$y_2 = y_1\int \frac{e^{-\int p\,dt}}{y_1^2}\,dt.$$
 It's often easier to use the formula, but doing the substitution builds understanding and
 avoids errors with $p$.
 
+The steps in order:
+
+```mermaid
+flowchart TD
+  accTitle: Reduction of order step by step
+  accDescr: Start with one known solution y1. Divide by the leading coefficient to reach standard form and read off p. Substitute y equals v times y1. The terms containing v itself cancel because y1 is a solution. Set w equal to v prime and solve the resulting first-order equation for w. Integrate w to get v. The second solution is y2 equals v times y1, and the general solution is c1 y1 plus c2 y2.
+  A["One known solution y1"] --> B["Standard form y'' + p y' + q y = 0"]
+  B --> C["Substitute y = v y1"]
+  C --> D["Terms with v cancel; only v' and v'' remain"]
+  D --> E["Set w = v' and solve the first-order equation"]
+  E --> F["Integrate w to get v"]
+  F --> G["y2 = v y1; general solution c1 y1 + c2 y2"]
+```
+
 ### Example 1: where $te^{rt}$ comes from
 
 For $y'' - 6y' + 9y = 0$, one solution is $y_1 = e^{3t}$. Find another.
@@ -65,6 +79,13 @@ Given that $y_1 = t^2$ solves $t^2y'' - 3ty' + 4y = 0$ for $t > 0$, find the gen
 
 Check $y_2$: $y_2' = 2t\ln t + t$, $y_2'' = 2\ln t + 3$. Then
 $t^2(2\ln t + 3) - 3t(2t\ln t + t) + 4t^2\ln t = (2 - 6 + 4)t^2\ln t + (3 - 3)t^2 = 0$. ✓
+
+The two solutions are plotted below. Neither is a constant multiple of the other: their ratio
+$\ln t$ changes, so they form a fundamental set on $(0, \infty)$.
+
+```plot
+{"x": [0, 3], "y": [-1, 10], "xLabel": "t", "functions": [{"f": "x^2", "from": 0.01, "label": "y₁ = t²"}, {"f": "x^2 ln(x)", "from": 0.01, "dashed": true, "label": "y₂ = t² ln t"}], "caption": "The given solution t² (solid) and the second solution t² ln t (dashed) found by reduction of order; y₂ is negative for 0 < t < 1."}
+```
 
 ### Example 3
 
@@ -100,6 +121,18 @@ $$am(m - 1) + bm + c = 0.$$
 The substitution $t = e^x$ turns a Cauchy–Euler equation into a constant-coefficient one,
 which is why the three cases mirror Lessons 19 and 20, with $t^m$ in place of $e^{rt}$ and
 $\ln t$ in place of $t$.
+
+The three cases at a glance:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a Cauchy-Euler equation
+  accDescr: For a t squared y double prime plus b t y prime plus c y equals 0 with t positive, try y equals t to the m and solve the indicial equation a m times m minus 1 plus b m plus c equals 0. Two distinct real roots give c1 t to the m1 plus c2 t to the m2. A repeated root m gives t to the m times c1 plus c2 ln t. Complex roots alpha plus or minus i beta give t to the alpha times c1 cos of beta ln t plus c2 sin of beta ln t.
+  A["at²y'' + bty' + cy = 0, t #gt; 0"] --> B["Indicial equation am(m - 1) + bm + c = 0"]
+  B -- "distinct real m1, m2" --> C["c1 t^m1 + c2 t^m2"]
+  B -- "repeated m" --> D["t^m (c1 + c2 ln t)"]
+  B -- "complex α ± iβ" --> E["t^α (c1 cos(β ln t) + c2 sin(β ln t))"]
+```
 
 ### Example 4
 

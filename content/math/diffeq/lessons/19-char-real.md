@@ -35,6 +35,31 @@ discriminant $b^2 - 4ac$:
 
 This lesson does the first two; Lesson 20 handles complex roots.
 
+The three cases are easiest to remember as pictures of where the roots sit in the complex
+plane. A fourth picture, a purely imaginary pair, is the special complex case with
+$\lambda = 0$ (pure oscillation, Lesson 20).
+
+![Four complex planes. The first has two dots on the real axis, labeled two distinct real roots. The second has one circled dot on the real axis marked times 2, labeled one repeated real root. The third has two dots mirror-imaged above and below the real axis to the left of the imaginary axis, labeled complex pair. The fourth has two dots on the imaginary axis, labeled purely imaginary pair.](images/de-m5-root-cases.svg)
+
+The decision is always made the same way:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the solution form for ay'' + by' + cy = 0
+  accDescr: Write the characteristic equation a r squared plus b r plus c equals 0 and compute the discriminant b squared minus 4ac. If it is positive there are two distinct real roots and y equals c1 e to the r1 t plus c2 e to the r2 t. If it is zero there is one repeated root r equal to minus b over 2a and y equals c1 plus c2 t, times e to the r t. If it is negative the roots are complex, lambda plus or minus i mu, and y equals e to the lambda t times c1 cos mu t plus c2 sin mu t, as in Lesson 20. In every case, fit c1 and c2 to the initial conditions last.
+  A["ay'' + by' + cy = 0"] --> B["Characteristic equation ar² + br + c = 0"]
+  B --> C{"Sign of b² - 4ac"}
+  C -- "positive" --> D["Distinct real roots r1, r2"]
+  C -- "zero" --> E["Repeated root r = -b/(2a)"]
+  C -- "negative" --> F["Complex roots λ ± iμ (Lesson 20)"]
+  D --> G["y = c1 e^(r1 t) + c2 e^(r2 t)"]
+  E --> H["y = (c1 + c2 t) e^(rt)"]
+  F --> K["y = e^(λt) (c1 cos μt + c2 sin μt)"]
+  G --> L["Fit c1, c2 to the initial conditions"]
+  H --> L
+  K --> L
+```
+
 ## Distinct real roots
 
 If $r_1 \ne r_2$ are real, $e^{r_1t}$ and $e^{r_2t}$ are both solutions, and their Wronskian
@@ -94,6 +119,13 @@ Solve $y'' + 6y' + 9y = 0$, $y(0) = 2$, $y'(0) = -1$.
 - $y = (c_1 + c_2t)e^{-3t}$; $y' = \big(c_2 - 3c_1 - 3c_2t\big)e^{-3t}$.
 - $y(0) = c_1 = 2$; $y'(0) = c_2 - 3c_1 = -1$, so $c_2 = 5$.
 - Answer: $y = (2 + 5t)e^{-3t}$.
+
+The extra factor $t$ slows the decay but cannot stop it: $e^{-3t}$ eventually wins. Since
+$2 + 5t > 0$ for $t \ge 0$, this solution never crosses zero for $t \ge 0$.
+
+```plot
+{"x": [0, 3], "y": [-0.2, 2.2], "xLabel": "t", "functions": [{"f": "(2 + 5x)exp(-3x)", "label": "y = (2 + 5t)e^(−3t)"}, {"f": "2exp(-3x)", "dashed": true}], "caption": "The repeated-root solution (solid) decays more slowly than 2e^(−3t) (dashed) because of the factor 2 + 5t."}
+```
 
 ### Example 4
 
