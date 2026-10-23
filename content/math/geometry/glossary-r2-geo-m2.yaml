@@ -1,0 +1,104 @@
+# Round 2 glossary for geo-m2 (honors lessons 07h1-07h3)
+- term: truth table
+  aliases: [truth tables]
+  definition: 'A table listing every combination of truth values (T or F) of the simple statements, with the truth value of a compound statement in each row. $n$ simple statements need $2^n$ rows.'
+  topic: Symbolic logic
+- term: truth value
+  aliases: [truth values]
+  definition: 'Whether a statement is true (T) or false (F).'
+  topic: Symbolic logic
+- term: compound statement
+  aliases: [compound statements]
+  definition: 'A statement built from simpler statements with connectives such as "not", "and", "or", "if … then" and "if and only if".'
+  topic: Symbolic logic
+- term: conjunction
+  aliases: [conjunctions]
+  definition: 'The statement "$p$ and $q$", written $p \wedge q$; true only when both parts are true.'
+  topic: Symbolic logic
+- term: disjunction
+  aliases: [disjunctions]
+  definition: 'The statement "$p$ or $q$", written $p \vee q$; true when at least one part is true (the inclusive "or").'
+  topic: Symbolic logic
+- term: tautology
+  aliases: [tautologies]
+  definition: 'A compound statement that is true in every row of its truth table, such as $p \vee \sim p$.'
+  topic: Symbolic logic
+- term: contradiction
+  aliases: [contradictions]
+  definition: 'A statement that is false in every case, such as $p \wedge \sim p$; in a proof, a conclusion that violates a given fact, definition, postulate or theorem.'
+  topic: Symbolic logic
+- term: De Morgan's laws
+  aliases: [De Morgan's law, De Morgan]
+  definition: 'The rules for negating "and" and "or": $\sim(p \wedge q) \equiv \sim p \vee \sim q$ and $\sim(p \vee q) \equiv \sim p \wedge \sim q$.'
+  topic: Symbolic logic
+- term: quantifier
+  aliases: [quantifiers]
+  definition: 'A word that tells how many objects a statement is about, such as "all", "every", "no", "some", "there is" or "at least one".'
+  topic: Symbolic logic
+- term: universal statement
+  aliases: [universal statements]
+  definition: 'A statement about every object of some kind ("All right angles are congruent"). One counterexample disproves it.'
+  topic: Symbolic logic
+- term: existential statement
+  aliases: [existential statements]
+  definition: 'A statement that at least one object of some kind has a property ("Some rectangle is a square"). One example proves it.'
+  topic: Symbolic logic
+- term: valid argument
+  aliases: [valid, valid arguments]
+  definition: 'An argument whose conclusion is true in every case where all its premises are true. Validity depends on the form, not on whether the premises are actually true.'
+  topic: Symbolic logic
+- term: sound argument
+  aliases: [sound, sound arguments]
+  definition: 'A valid argument whose premises are all true, so its conclusion must be true.'
+  topic: Symbolic logic
+- term: modus ponens
+  definition: 'Latin for "the mode that affirms": from $p \to q$ and $p$, conclude $q$. Another name for the Law of Detachment.'
+  topic: Symbolic logic
+- term: modus tollens
+  definition: 'Latin for "the mode that denies": from $p \to q$ and $\sim q$, conclude $\sim p$. A valid argument form, sometimes called the Law of Contrapositive.'
+  topic: Symbolic logic
+- term: denying the antecedent
+  aliases: [inverse error]
+  definition: 'The invalid argument "from $p \to q$ and $\sim p$, conclude $\sim q$". It treats the inverse as if it followed from the conditional.'
+  topic: Symbolic logic
+- term: direct proof
+  aliases: [direct proofs]
+  definition: 'A proof that starts from the given facts and chains forward, step by justified step, to the conclusion.'
+  topic: Proof methods
+- term: proof by contrapositive
+  definition: 'A proof of $p \to q$ that gives a direct proof of the equivalent statement $\sim q \to \sim p$ instead.'
+  topic: Proof methods
+- term: proof by cases
+  aliases: [cases]
+  definition: 'A proof that splits the situation into cases covering every possibility and proves the conclusion in each case.'
+  topic: Proof methods
+- term: irrational number
+  aliases: [irrational, irrational numbers]
+  definition: 'A real number that cannot be written as a fraction of whole numbers, such as $\sqrt{2}$ or $\pi$.'
+  topic: Proof methods
+- term: incommensurable
+  definition: 'Describes two lengths that no common unit measures a whole number of times, such as the side and diagonal of a square; their ratio is irrational.'
+  topic: Proof methods
+- term: mathematical induction
+  aliases: [induction, proof by induction]
+  definition: 'A method of proving a statement $P(n)$ for every whole number $n \ge n_0$: prove the base case $P(n_0)$, then prove that $P(k)$ implies $P(k + 1)$ for every $k \ge n_0$.'
+  topic: Mathematical induction
+- term: base case
+  definition: 'In a proof by induction, the proof of the first case, $P(n_0)$.'
+  topic: Mathematical induction
+- term: inductive step
+  definition: 'In a proof by induction, the proof that for every $k \ge n_0$, if $P(k)$ is true then $P(k + 1)$ is true.'
+  topic: Mathematical induction
+- term: inductive hypothesis
+  definition: 'The assumption that $P(k)$ is true, made at the start of the inductive step.'
+  topic: Mathematical induction
+- term: well-ordering principle
+  definition: 'Every nonempty set of whole numbers has a smallest member. It is the reason induction is valid.'
+  topic: Mathematical induction
+- term: general position
+  definition: 'For lines in a plane: no two are parallel and no three pass through one point. Then $n$ lines make $\tfrac{n(n+1)}{2} + 1$ regions.'
+  topic: Mathematical induction
+- term: gnomon
+  aliases: [gnomons]
+  definition: 'An L-shaped piece that turns a square into the next larger square; around a $k$-by-$k$ square it has $2k + 1$ unit squares.'
+  topic: Mathematical induction

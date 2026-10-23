@@ -154,13 +154,13 @@ Solve $ty'' + y' + ty = 0$ with $y(0) = 1$, for a solution that stays bounded ne
 
 $$\mathcal{L}\{J_0(t)\} = \frac{1}{\sqrt{s^2 + 1}}.$$
 
-The solution is the **Bessel function** $J_0$, which describes, among other things, the
+The solution is the Bessel function $J_0$, which describes, among other things, the
 vibration of a drumhead and heat flow in a cylinder. It isn't an elementary function, but
 we found its transform in four lines. To check, expand for large $s$:
 $\dfrac{1}{\sqrt{s^2 + 1}} = \dfrac1s - \dfrac{1}{2s^3} + \dfrac{3}{8s^5} - \cdots$, and inverting term by term
 gives $1 - \dfrac{t^2}{4} + \dfrac{t^4}{64} - \cdots$, the start of the power series
 $J_0(t) = \sum_{k\ge0}\dfrac{(-1)^k}{(k!)^2}\left(\dfrac t2\right)^{2k}$. (That series is what the method of
-Frobenius, mentioned at the end of Lesson 38, produces for this equation.)
+Frobenius produces for this equation; the honors lesson on that method in Module 9 derives it.)
 
 Two cautions. First, $t = 0$ is a singular point of this equation, so it has only one
 solution that is bounded there; the derivative rules assumed $y$, $y'$ and $y''$ behave

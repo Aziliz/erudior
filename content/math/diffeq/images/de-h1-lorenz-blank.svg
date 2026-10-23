@@ -6,4 +6,6 @@
 <circle cx="339.1" cy="207.8" r="6.5" fill="#ffffff" stroke="#a33a2c" stroke-width="3"/>
 <circle cx="160.9" cy="207.8" r="6.5" fill="#ffffff" stroke="#a33a2c" stroke-width="3"/>
 <circle cx="250.0" cy="440.0" r="6.5" fill="#ffffff" stroke="#a33a2c" stroke-width="3"/>
+<text x="477.0" y="430.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">x</text>
+<text x="260.0" y="22.0" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">z</text>
 </svg>

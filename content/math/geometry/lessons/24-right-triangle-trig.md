@@ -46,7 +46,7 @@ Notice $\sin 30^\circ = \cos 60^\circ$. In general, $\sin\theta = \cos(90^\circ 
 Choose the ratio that uses the known side and the side you want, then solve. Make sure your calculator is in *degree* mode. The chart shows the choice for sides and for angles.
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Choosing a trigonometric ratio in a right triangle
   accDescr: First decide whether you want a side or an angle. To find a side from a known angle and a known side, look at the two sides involved, the known one and the wanted one, named relative to the angle. Opposite and hypotenuse means use sine. Adjacent and hypotenuse means use cosine. Opposite and adjacent means use tangent. To find an angle from two known sides, use the inverse of the ratio those two sides form.
   Q["Want a side or an angle?"] --> S["Side: name the known side and the wanted side relative to the angle"]

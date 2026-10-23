@@ -27,7 +27,7 @@
 <text x="195.5" y="123.0" font-size="14" text-anchor="middle" fill="#1c2833">Y arrives</text>
 <text x="303.5" y="276.0" font-size="14" text-anchor="middle" fill="#1c2833">Y leaves before</text>
 <text x="303.5" y="294.0" font-size="14" text-anchor="middle" fill="#1c2833">X arrives</text>
-<text x="227.0" y="177.0" font-size="15" text-anchor="middle" fill="#1c2833" font-weight="bold">they meet</text>
+<text x="0" y="0" font-size="15" font-weight="bold" text-anchor="middle" fill="#1c2833" transform="translate(206.8 192.8) rotate(-45)">they meet</text>
 <text x="390.0" y="82.0" font-size="15" text-anchor="start" fill="#1c2833">x = y</text>
 <text x="390.0" y="100.0" font-size="14" text-anchor="start" fill="#1c2833">(same moment)</text>
 </svg>

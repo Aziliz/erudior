@@ -95,7 +95,7 @@ To **solve a triangle** is to find all three sides and all three angles. Three p
 The same plan as a decision chart:
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Planning the solution of any triangle
   accDescr: Sort the three known pieces into a case. ASA or AAS: find the third angle from the 180 degree sum, then each side by the Law of Sines. SAS: find the third side by the Law of Cosines, then the smaller remaining angle, then the last angle by the angle sum. SSS: find the largest angle by the Law of Cosines, then a second angle, then the last angle by the angle sum. SSA: use the Law of Sines for a second angle and check for zero, one or two triangles. AAA: there is no unique triangle, only a family of similar ones.
   K["Three known pieces"] --> A["ASA or AAS"]

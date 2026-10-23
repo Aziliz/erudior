@@ -97,7 +97,8 @@ $c > 0$ (Lesson 24 in disguise: positive damping and positive stiffness). For hi
 having all coefficients positive is necessary but no longer sufficient. In 1868 James Clerk
 Maxwell, studying governors that regulate steam engines, asked for a test that avoids
 solving for the roots; Edward Routh (1877) and Adolf Hurwitz (1895) found general ones, now
-called the **Routh–Hurwitz criterion**. For a cubic it reads:
+called the Routh–Hurwitz criterion (the honors lesson on larger systems in Module 8 develops
+it). For a cubic it reads:
 
 > $a_3s^3 + a_2s^2 + a_1s + a_0$ with $a_3 > 0$ has all roots in the open left half-plane
 > exactly when $a_2, a_1, a_0 > 0$ and $a_2a_1 > a_3a_0$.
@@ -160,19 +161,22 @@ the gain.
 
 ### Example 5: the gain that makes it oscillate
 
-Let $G(s) = \dfrac{1}{(s + 1)^3}$ (three first-order lags in a row, like three tanks or three RC
-stages in series). The closed loop is $\dfrac{K}{(s + 1)^3 + K}$ with characteristic polynomial
+Let $G(s) = \dfrac{1}{(s + 1)(s + 2)(s + 3)}$ (three first-order lags in a row, like three tanks
+or three RC stages in series, each with its own time constant). The closed loop is
+$\dfrac{K}{(s + 1)(s + 2)(s + 3) + K}$ with characteristic polynomial
 
-$$s^3 + 3s^2 + 3s + (1 + K).$$
+$$s^3 + 6s^2 + 11s + (6 + K).$$
 
-- Routh–Hurwitz: need $1 + K > 0$ and $3\cdot3 > 1\cdot(1 + K)$, so the loop is stable exactly for
-  $-1 < K < 8$.
-- At $K = 8$ the polynomial is $s^3 + 3s^2 + 3s + 9 = (s + 3)(s^2 + 3)$: poles $\pm i\sqrt3$ on the axis.
-  The loop oscillates at angular frequency $\sqrt3$ (period $2\pi/\sqrt3 \approx 3.63$). For $K > 8$
-  the pair crosses into the right half-plane and the oscillation grows.
-- Step response for a stable $K$: by the final value theorem $y \to \dfrac{K}{1 + K}$, so the
-  error settles at $\dfrac{1}{1 + K}$. Raising $K$ shrinks it ($K = 4$ leaves 20%), but stability
-  caps $K$ below 8, so this controller can't get the error below $1/9 \approx 11\%$.
+- Routh–Hurwitz: need $6 + K > 0$ and $6\cdot11 > 1\cdot(6 + K)$, so the loop is stable exactly for
+  $-6 < K < 60$.
+- At $K = 60$ the polynomial is $s^3 + 6s^2 + 11s + 66 = (s + 6)(s^2 + 11)$: poles $\pm i\sqrt{11}$ on
+  the axis. The loop oscillates at angular frequency $\sqrt{11} \approx 3.32$ (period
+  $2\pi/\sqrt{11} \approx 1.89$). For $K > 60$ the pair crosses into the right half-plane and the
+  oscillation grows.
+- Step response for a stable $K > 0$: by the final value theorem $y \to \dfrac{K}{6 + K}$ (the
+  closed-loop DC gain), so the error settles at $\dfrac{6}{6 + K}$. Raising $K$ shrinks it
+  ($K = 18$ leaves 25%), but stability caps $K$ below 60, so this controller can't get the error
+  below $\dfrac{6}{66} = \dfrac{1}{11} \approx 9\%$.
 
 That trade-off, accuracy against stability, is the central tension of control design. This
 example is deliberately simple: real designs add integral action (which removes the
