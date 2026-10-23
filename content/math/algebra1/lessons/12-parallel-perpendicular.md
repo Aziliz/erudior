@@ -26,7 +26,7 @@ Write the equation of the line through $(4, -1)$ parallel to $3x + 2y = 6$.
 3. Simplify: $y + 1 = -\tfrac32 x + 6$, so $y = -\tfrac32 x + 5$.
 
 ```plot
-{"x": [-2, 7], "y": [-4, 7], "functions": [{"f": "-1.5*x + 3", "label": "3x + 2y = 6"}, {"f": "-1.5*x + 5", "label": "y = -3/2 x + 5", "dashed": true}], "points": [{"at": [4, -1], "label": "(4, -1)"}, {"at": [0, 3]}, {"at": [0, 5]}], "segments": [{"from": [0, 3], "to": [2, 3], "dashed": true, "label": "run 2"}, {"from": [2, 3], "to": [2, 0], "dashed": true, "label": "rise -3"}, {"from": [0, 5], "to": [2, 5], "dashed": true, "label": "run 2"}, {"from": [2, 5], "to": [2, 2], "dashed": true, "label": "rise -3"}], "equal": true, "caption": "Same slope, different intercepts: the lines stay 2 units apart vertically and never meet"}
+{"x": [-2, 7], "y": [-4, 7], "functions": [{"f": "-1.5*x + 3"}, {"f": "-1.5*x + 5", "dashed": true}], "points": [{"at": [4, -1], "label": "(4, -1)"}, {"at": [0, 3], "label": "(0, 3)"}, {"at": [0, 5], "label": "(0, 5)"}], "segments": [{"from": [0, 3], "to": [2, 3], "dashed": true, "label": "run 2"}, {"from": [2, 3], "to": [2, 0], "dashed": true, "label": "rise -3"}, {"from": [2, 2], "to": [4, 2], "dashed": true, "label": "run 2"}, {"from": [4, 2], "to": [4, -1], "dashed": true, "label": "rise -3"}], "equal": true, "caption": "Solid: 3x + 2y = 6. Dashed: y = -3/2 x + 5. Same slope, different intercepts: the lines stay 2 units apart vertically and never meet"}
 ```
 
 Both lines have the same slope triangle (run 2, rise $-3$), so they fall at the same rate. At every $x$ the dashed line is exactly 2 units above the solid one.

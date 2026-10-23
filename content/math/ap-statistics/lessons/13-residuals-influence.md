@@ -46,6 +46,12 @@ It magnifies departures from the line that are hard to see on the scatterplot.
 {"x": [0, 10], "y": [-3, 3], "xLabel": "x", "yLabel": "residual", "points": [{"at": [1, 2.1], "color": "#2c5e8f"}, {"at": [2, 0.8], "color": "#2c5e8f"}, {"at": [3, -0.4], "color": "#2c5e8f"}, {"at": [4, -1.2], "color": "#2c5e8f"}, {"at": [5, -1.6], "color": "#2c5e8f"}, {"at": [6, -1.5], "color": "#2c5e8f"}, {"at": [7, -0.9], "color": "#2c5e8f"}, {"at": [8, 0.1], "color": "#2c5e8f"}, {"at": [9, 1.5], "color": "#2c5e8f"}], "caption": "A curved residual pattern: a straight line is not the right model"}
 ```
 
+A fan shape looks different: no curve, but the residuals spread out as $x$ grows.
+
+```plot
+{"x": [0, 10], "y": [-3, 3], "xLabel": "x", "yLabel": "residual", "functions": [{"f": "0", "dashed": true}], "points": [{"at": [1, 0.3], "color": "#2c5e8f"}, {"at": [1.5, -0.4], "color": "#2c5e8f"}, {"at": [2, 0.2], "color": "#2c5e8f"}, {"at": [3, -0.6], "color": "#2c5e8f"}, {"at": [3.5, 0.8], "color": "#2c5e8f"}, {"at": [4, -0.3], "color": "#2c5e8f"}, {"at": [5, 1.1], "color": "#2c5e8f"}, {"at": [5.5, -1.2], "color": "#2c5e8f"}, {"at": [6, 0.5], "color": "#2c5e8f"}, {"at": [7, -1.7], "color": "#2c5e8f"}, {"at": [7.5, 1.9], "color": "#2c5e8f"}, {"at": [8, -0.8], "color": "#2c5e8f"}, {"at": [9, 2.4], "color": "#2c5e8f"}, {"at": [9.5, -2.2], "color": "#2c5e8f"}], "caption": "A fan-shaped residual plot: the line's form is fine, but predictions are less precise for large x"}
+```
+
 ## The coefficient of determination r²
 
 The square of the correlation, $r^2$, is called the **coefficient of determination**. It
@@ -80,6 +86,22 @@ data. For the training data, $s = \sqrt{3.6/3} \approx 1.10$: predictions of ski
 score are typically off by about 1.1 points. $r^2$ is a percentage with no units; $s$ is
 in the units of $y$. Report both.
 
+Putting the checks in order:
+
+```mermaid
+flowchart TD
+  accTitle: Checking whether a straight line is a good model
+  accDescr: Fit the least-squares line and make a residual plot. If the residuals curve, the form is wrong, so try a transformation as in the next lesson. If they fan out, the line's form is fine but errors grow with x, so be careful with predictions at large x. If they show random scatter, report r squared and s. Then look for a point with an extreme x value. If there is one, refit without it and compare to see whether it is influential. If not, use the line within the range of the data.
+  A["Fit the least-squares line"] --> B["Make a residual plot"]
+  B --> C{"What pattern do the residuals show?"}
+  C -- Curve --> D["Wrong form: try a transformation"]
+  C -- "Fan shape" --> E["Form OK, but errors grow with x"]
+  C -- "Random scatter" --> F["Report r squared and s"]
+  F --> G{"Any point with an extreme x?"}
+  G -- Yes --> H["Refit without it and compare"]
+  G -- No --> I["Use the line within the data range"]
+```
+
 ## Outliers, leverage and influential points
 
 *AP exam scope:* the AP Statistics framework that took effect in the 2026–27 school year
@@ -103,6 +125,18 @@ without the point and compare.
 ```plot
 {"x": [0, 16], "y": [0, 12], "xLabel": "x", "yLabel": "y", "points": [{"at": [1, 4], "color": "#2c5e8f"}, {"at": [2, 5], "color": "#2c5e8f"}, {"at": [3, 4.5], "color": "#2c5e8f"}, {"at": [4, 6], "color": "#2c5e8f"}, {"at": [5, 6.5], "color": "#2c5e8f"}, {"at": [6, 7.5], "color": "#2c5e8f"}, {"at": [15, 2], "label": "P", "color": "#c53030"}], "functions": [{"f": "3.233 + 0.671*x", "dashed": true}, {"f": "5.998 - 0.180*x", "color": "#c53030"}], "caption": "One high-leverage point P flips the slope (dashed: fit without P; solid: fit with P)"}
 ```
+
+The three kinds of unusual point side by side. Each panel has the same eight points plus one
+circled point, with the line fitted with it (solid) and without it (dashed).
+
+![Three scatterplots of the same eight points rising along a line, each with one extra circled point. Point A, at x = 4.5 and well above the others, is an outlier with a large residual; the line with it is only slightly higher than the line without it. Point B, at x = 16 and lying on the trend of the other points, has high leverage but follows the pattern, so the two lines coincide. Point C, at x = 16 and far below the trend, is influential: it drags the fitted line almost flat, while the line without it rises steeply.](images/stat-m3-unusual-points.svg)
+
+The numbers behind the panels: without the circled point the line is $\hat{y} = 2.125 + 0.475x$
+with $r \approx 0.97$. A sits at $x = 4.5$, the mean of the other $x$ values, so it has no leverage
+at all: adding it only raises the intercept a little (to about 2.48), keeps the slope at 0.475, and lowers $r$ to about 0.70, and A's
+residual (about 2.9) is the largest in any panel. Adding B leaves the line almost unchanged
+and raises $r$ to about 0.99. Adding C drops the slope to about 0.01 and $r$ to about 0.04, yet
+C's residual (about −1.7) is *smaller* than A's: C has pulled the line toward itself.
 
 ### Example 1
 

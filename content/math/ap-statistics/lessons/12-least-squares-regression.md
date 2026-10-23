@@ -100,6 +100,20 @@ the data. The linear pattern may not continue. A child's height grows roughly li
 from ages 3 to 10; extrapolating to age 40 predicts a 2.7-meter adult. Predict only within
 (or very near) the observed range.
 
+The whole procedure, from summary statistics to a trustworthy prediction:
+
+```mermaid
+flowchart TD
+  accTitle: From summary statistics to a prediction
+  accDescr: First decide which variable is explanatory, x, and which is the response, y. Compute the slope b as r times s sub y over s sub x. Compute the intercept a as the mean of y minus b times the mean of x. Write the line y-hat = a + bx. Then ask whether the new x value is inside the range of the data. If yes, plug it in to predict. If no, the prediction is an extrapolation and may be badly wrong.
+  A["Decide which variable is x (explanatory) and y (response)"] --> B["Slope: b = r times sy / sx"]
+  B --> C["Intercept: a = mean of y minus b times mean of x"]
+  C --> D["Write the line: y-hat = a + bx"]
+  D --> E{"Is the new x inside the range of the data?"}
+  E -- Yes --> F["Predict: put x into the line"]
+  E -- No --> G["Extrapolation: the prediction may be badly wrong"]
+```
+
 ## Regression toward the mean
 
 Because $|r| \le 1$, a point $k$ SDs from $\bar{x}$ is predicted to be only $r \cdot k$ SDs

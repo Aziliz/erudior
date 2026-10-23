@@ -68,6 +68,23 @@ completely at random. To assign 40 volunteers to two groups of 20: write each na
 identical slip, shuffle, draw 20 for treatment A; the rest get treatment B. Or number the
 subjects 1–40 and use a random number generator to pick 20 distinct numbers.
 
+An outline like the one below is the standard way to describe a design: the units, the random
+assignment, the groups and their treatments, and what is compared. This one is the completely
+randomized version of Example 3 later in the lesson.
+
+```mermaid
+flowchart TD
+  accTitle: Outline of a completely randomized design
+  accDescr: Thirty volunteers are split by random assignment into two groups of 15. Group 1 gets the caffeinated drink and group 2 gets the decaffeinated placebo drink. Both groups take the same reaction-time test, and the mean reaction times are compared.
+  V["30 volunteers"] --> RA["Random assignment"]
+  RA --> G1["Group 1: 15 volunteers"]
+  RA --> G2["Group 2: 15 volunteers"]
+  G1 --> T1["Caffeinated drink"]
+  G2 --> T2["Decaf drink (placebo)"]
+  T1 --> C["Compare mean reaction times"]
+  T2 --> C
+```
+
 ## Blocking
 
 A **block** is a group of experimental units that are similar in a way expected to affect
@@ -91,6 +108,11 @@ Curve sharpness strongly affects wear.
   each lubricant; do the same within the 20 gentle curves. Compare lubricants within each
   block. The large sharp/gentle difference no longer adds noise.
 
+The outline of the randomized block design shows the random assignment happening twice, once
+inside each block:
+
+![Outline of the randomized block design: 40 rail curves split into Block 1, 20 sharp curves, and Block 2, 20 gentle curves. In each block a random assignment sends 10 curves to lubricant A and 10 to lubricant B, and wear is compared within that block.](images/stat-m4-block-design.svg)
+
 ## Matched pairs
 
 A **matched pairs design** is blocking with blocks of size 2. Either two similar units are
@@ -99,6 +121,19 @@ or each unit receives *both* treatments in random order (each driver tests both 
 designs, the order decided by a coin flip). The analysis looks at the *differences* within
 pairs, which removes unit-to-unit variation. Randomizing the order guards against
 learning or fatigue effects.
+
+Which design to use depends on what you know about the units before the experiment starts:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an experimental design
+  accDescr: First ask whether some variable other than the treatment is expected to strongly affect the response. If not, use a completely randomized design. If so, ask whether units can be formed into pairs of very similar units, or whether each unit can receive both treatments. If yes, use a matched pairs design and randomize within each pair or randomize the order. If no, use a randomized block design: group similar units into blocks and randomly assign treatments within each block.
+  Q1{"Is another variable expected to strongly affect the response?"}
+  Q1 -- No --> CRD["Completely randomized design"]
+  Q1 -- Yes --> Q2{"Can units be paired, or can each unit get both treatments?"}
+  Q2 -- Yes --> MP["Matched pairs: randomize within each pair or randomize the order"]
+  Q2 -- No --> RB["Randomized block design: randomize within each block"]
+```
 
 ## Statistical significance (a preview)
 

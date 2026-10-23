@@ -41,6 +41,14 @@ A **normal distribution** is described by a symmetric, single-peaked, bell-shape
 curve. Every normal curve is determined by two numbers: its mean $\mu$ (the center and
 peak) and its standard deviation $\sigma$ (the spread). We write $N(\mu, \sigma)$.
 
+Changing $\mu$ slides the curve along the axis without changing its shape. Changing
+$\sigma$ stretches or squeezes it, and because the total area must stay 1, a curve twice as
+wide is only half as tall.
+
+```plot
+{"x": [20, 90], "y": [0, 0.09], "grid": false, "xLabel": "value", "yLabel": "density", "functions": [{"f": "normpdf(x, 50, 5)", "label": "N(50, 5)"}, {"f": "normpdf(x, 50, 10)", "label": "N(50, 10)", "dashed": true}, {"f": "normpdf(x, 70, 5)", "label": "N(70, 5)"}], "caption": "Same σ, different μ: the curve slides. Same μ, double σ: twice as wide, half as tall."}
+```
+
 The curve's formula is
 
 $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^2}.$$
@@ -87,7 +95,10 @@ beyond $\mu + 2\sigma$.
 | $\mu + 2\sigma$ to $\mu + 3\sigma$ | 2.35% |
 | above $\mu + 3\sigma$ | 0.15% |
 
-Sketching the curve and labeling these regions is the fastest way to avoid mistakes.
+Sketching the curve and labeling these regions is the fastest way to avoid mistakes. A
+finished sketch looks like this:
+
+![A normal curve with vertical lines at μ and at 1, 2 and 3 standard deviations on each side. The regions are labeled 34% between μ and μ ± σ, 13.5% between σ and 2σ on each side, 2.35% between 2σ and 3σ on each side, and 0.15% beyond 3σ in each tail. Dots mark the inflection points at μ − σ and μ + σ.](images/stat-m2-empirical.svg)
 
 ### Example 1
 

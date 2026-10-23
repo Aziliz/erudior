@@ -31,6 +31,17 @@ Observational studies come in flavors:
   people without it (controls), then compare past exposures. They are efficient for rare
   outcomes.
 
+```mermaid
+flowchart TD
+  accTitle: Kinds of studies
+  accDescr: Studies divide into experiments, where researchers impose treatments, and observational studies, where they do not. Observational studies include retrospective studies that look back at existing records, prospective studies that follow people forward in time, and case-control studies that start from people with and without an outcome and compare their past exposures.
+  ST["Study"] --> EX["Experiment: researchers impose treatments"]
+  ST --> OB["Observational study: researchers only observe"]
+  OB --> RE["Retrospective: look back at existing records"]
+  OB --> PR["Prospective: follow people forward in time"]
+  OB --> CC["Case-control: start from the outcome, look back at exposures"]
+```
+
 Observational studies are often the only ethical or practical option — you can't assign
 people to smoke — but they have a serious weakness.
 
@@ -49,6 +60,8 @@ Possibly — but moderate wine drinkers also tend to have higher incomes, better
 better access to health care, all of which lower heart-disease risk. Income is a likely
 confounding variable: it is associated with wine drinking and affects heart health. The
 study cannot tell whether wine, income or both are responsible.
+
+![Three boxes joined by arrows. Income, the confounding variable, is at the top, with an arrow labeled related to pointing to moderate wine drinking, the explanatory variable, and an arrow labeled affects pointing to heart disease, the response variable. A dashed two-headed arrow labeled observed association joins wine drinking and heart disease.](images/stat-m4-confounding.svg)
 
 Even careful statistical adjustment can only account for confounders that were measured.
 Random assignment is the only method that balances *all* potential confounders —
@@ -75,6 +88,20 @@ Two separate questions:
 Most experiments use volunteers: the causal conclusion is solid but applies, strictly,
 only to people like the volunteers. Most surveys use random samples but no assignment:
 they describe the population well but can't establish causation.
+
+The two questions are separate, so answer each one on its own:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding the scope of inference
+  accDescr: Two separate questions decide what a study can conclude. First, were treatments randomly assigned? If yes, a cause-and-effect conclusion is possible; if no, only an association can be claimed. Second, were individuals randomly selected from a population? If yes, the conclusion extends to that population; if no, it applies only to individuals like those in the study.
+  S["Data from a study"] --> A{"Were treatments randomly assigned?"}
+  S --> B{"Were individuals randomly selected?"}
+  A -- Yes --> A1["Cause and effect can be concluded"]
+  A -- No --> A2["Association only"]
+  B -- Yes --> B1["Generalize to the sampled population"]
+  B -- No --> B2["Applies only to individuals like these"]
+```
 
 ### Example 2
 

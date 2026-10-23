@@ -34,6 +34,8 @@ Three facts cover every case:
 
 Symmetry also gives $\Phi(-z) = 1 - \Phi(z)$.
 
+![Three standard normal curves side by side. Left: the area to the left of z is shaded, labeled Φ(z). Middle: the area to the right of z is shaded, labeled 1 − Φ(z). Right: the area between z₁ and z₂ is shaded, labeled Φ(z₂) − Φ(z₁).](images/stat-m2-three-areas.svg)
+
 A few values worth knowing: $\Phi(1) \approx 0.8413$, $\Phi(1.645) \approx 0.95$,
 $\Phi(1.96) \approx 0.975$, $\Phi(2.576) \approx 0.995$.
 
@@ -101,6 +103,21 @@ contain less than 12 oz. What standard deviation is required?
 
 The same setup solves for $\mu$ when $\sigma$ is known: to have only 1% below 12 oz with
 $\sigma = 0.2$, need $\mu = 12 + 2.326(0.2) \approx 12.47$ oz, since $\Phi^{-1}(0.99) \approx 2.326$.
+
+Every problem in this lesson is one of three kinds. Decide which before you calculate:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the right normal calculation
+  accDescr: Start by asking what you know. If you know a value and want a proportion, standardize with z equals x minus mu over sigma, then find the area: left is Phi of z, right is 1 minus Phi of z, between is Phi of z2 minus Phi of z1. If you know a proportion and want a value, first turn it into an area to the left, for example top 10 percent means 0.90 to the left, then find z with invNorm, then unstandardize with x equals mu plus z sigma. If you know a value and the proportion below it but mu or sigma is missing, find z with invNorm and solve z equals x minus mu over sigma for the unknown.
+  Q{"What do you know?"} -->|"a value, want a proportion"| F1["Standardize: z = (x − μ) / σ"]
+  F1 --> F2["Area: left Φ(z), right 1 − Φ(z), between Φ(z₂) − Φ(z₁)"]
+  Q -->|"a proportion, want a value"| B1["Make it an area to the LEFT (top 10% → 0.90)"]
+  B1 --> B2["z = invNorm(left area)"]
+  B2 --> B3["Unstandardize: x = μ + zσ"]
+  Q -->|"a value and its proportion, want μ or σ"| S1["z = invNorm(left area)"]
+  S1 --> S2["Solve z = (x − μ) / σ for the unknown"]
+```
 
 ## Assessing normality
 

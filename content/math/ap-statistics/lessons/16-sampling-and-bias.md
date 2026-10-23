@@ -70,6 +70,11 @@ the network. Clusters work best when each cluster is a mini-version of the popul
 The contrast is the key exam point: *strata are similar inside, and we sample from every
 stratum; clusters are mixed inside, and we sample whole clusters*.
 
+The picture below shows four of these methods on the same population of 40 individuals. Dark
+dots are the ones chosen.
+
+![Four panels, each showing 40 dots. Simple random sample: 8 dots chosen with no pattern. Stratified random sample: the dots form four colored rows (strata), and 2 dots are chosen in every row. Cluster sample: the dots sit in 8 dashed boxes of 5 (clusters); 2 boxes are chosen and all 5 dots in each are dark. Systematic sample: every 5th dot is chosen, starting from the 3rd, so the chosen dots line up in two columns.](images/stat-m4-sampling-methods.svg)
+
 ### Systematic random sample
 
 Choose a random starting point among the first $k$ individuals in a list, then take every
@@ -116,12 +121,35 @@ Even a random sample can produce biased results:
 
 Random sampling protects against *selection* bias but not against these.
 
+The chart follows a survey from the population to the recorded answers and shows where each
+problem can enter.
+
+```mermaid
+flowchart TD
+  accTitle: Where bias can enter a survey
+  accDescr: A survey moves from the population to a sampling frame, then to the chosen sample, then to the people who respond, then to the recorded answers. Undercoverage enters between the population and the frame. Selection bias from a nonrandom method and sampling variability enter when the sample is chosen from the frame. Nonresponse bias enters when some chosen people do not respond. Response bias and question wording enter when answers are recorded.
+  P["Population: everyone you want to learn about"] --> F["Sampling frame: the list you draw from"]
+  F --> S["Chosen sample"]
+  S --> R["People who actually respond"]
+  R --> A["Recorded answers"]
+  P -. "undercoverage" .- F
+  F -. "selection bias if not random; sampling variability always" .- S
+  S -. "nonresponse bias" .- R
+  R -. "response bias, wording" .- A
+```
+
 ## Sampling variability
 
 Different random samples give different results — this is **sampling variability**, and
 it is not bias. Larger random samples vary less. The rest of the course measures this
 variability precisely (margins of error). The goal is a method that is *unbiased* (right
 on average) *and* has low variability (consistent from sample to sample).
+
+Think of each sample's estimate as a shot at a target whose bullseye is the true population
+value. Bias is how far the center of the shots is from the bullseye; variability is how widely
+the shots scatter. A larger random sample tightens the scatter but doesn't move its center.
+
+![Four archery targets, each with ten shots. Low bias, low variability: shots tightly grouped on the bullseye. Low bias, high variability: shots scattered widely but centered on the bullseye. High bias, low variability: shots tightly grouped but off to the upper right. High bias, high variability: shots scattered and centered off to the lower left.](images/stat-m4-bias-variability.svg)
 
 ## Common mistakes
 
