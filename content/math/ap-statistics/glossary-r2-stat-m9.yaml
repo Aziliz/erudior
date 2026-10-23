@@ -8,7 +8,7 @@
   definition: 'A measure of the strength of association in a two-way table: $V = \sqrt{\chi^2/(n \cdot \min(r - 1, c - 1))}$, from 0 (no association) to 1. Unlike $\chi^2$, it does not grow with the sample size.'
   topic: Chi-square follow-up
 - term: phi coefficient
-  aliases: [phi]
+  aliases: [phi coefficients]
   definition: 'Cramér''s V for a 2 × 2 table: $\phi = \sqrt{\chi^2/n}$. It equals the size of the correlation between the two variables coded as 0 and 1.'
   topic: Chi-square follow-up
 - term: Fisher's exact test

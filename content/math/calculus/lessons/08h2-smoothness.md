@@ -86,7 +86,7 @@ How smooth is $f(x) = x\lvert x\rvert$ at 0?
 So $x\lvert x\rvert$ is $C^1$ but not $C^2$. The same reasoning shows $\lvert x\rvert^3$ is $C^2$ but not $C^3$: its derivatives are $3x\lvert x\rvert$, then $6\lvert x\rvert$, which has a corner.
 
 ```plot
-{"x": [-2, 2], "y": [-4, 4], "functions": [{"f": "x*abs(x)", "label": "x|x|"}, {"f": "2abs(x)", "dashed": true, "label": "2|x|"}], "caption": "f(x) = x|x| (solid) looks perfectly smooth; its derivative 2|x| (dashed) has a corner at 0, so f″(0) does not exist"}
+{"x": [-2, 2], "y": [-4, 4], "functions": [{"f": "x*abs(x)"}, {"f": "2abs(x)", "dashed": true}], "caption": "f(x) = x|x| (solid) looks perfectly smooth; its derivative 2|x| (dashed) has a corner at 0, so f″(0) does not exist"}
 ```
 
 ## Why the second derivative matters: transition curves

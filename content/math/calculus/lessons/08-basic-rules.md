@@ -114,7 +114,7 @@ Velocity and acceleration have the same sign, so the particle is speeding up at 
 Graphing all three together shows how they fit: $v$ is the slope of $s$, and $a$ is the slope of $v$. Where $v$ crosses zero (at $t = 4$) the position graph turns around, and where $a$ crosses zero (at $t = 2$) the velocity is at its lowest.
 
 ```plot
-{"x": [0, 5], "y": [-30, 20], "functions": [{"f": "x^3 - 6x^2 + 5", "label": "s"}, {"f": "3x^2 - 12x", "dashed": true, "label": "v"}, {"f": "6x - 12", "label": "a", "color": "#b03a2e"}], "points": [{"at": [4, 0]}, {"at": [2, 0]}], "xLabel": "t", "caption": "Position s(t) = t³ − 6t² + 5 (solid), velocity v = s′ (dashed) and acceleration a = v′ (red)"}
+{"x": [0, 5], "y": [-30, 20], "functions": [{"f": "x^3 - 6x^2 + 5"}, {"f": "3x^2 - 12x", "dashed": true}, {"f": "6x - 12", "color": "#b03a2e"}], "points": [{"at": [4, 0]}, {"at": [2, 0]}], "xLabel": "t", "caption": "Position s(t) = t³ − 6t² + 5 (solid curve), velocity v = s′ (dashed) and acceleration a = v′ (the straight line)"}
 ```
 
 ### Example 5

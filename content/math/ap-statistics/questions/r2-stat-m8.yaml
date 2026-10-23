@@ -257,3 +257,478 @@
     - 'Find the p-value from the t distribution with $n - 1$ df'
   explanation: |-
     A paired t test is a one-sample t test on the differences, so the differences come first; their mean and SD give $t$, and $t$ gives the p-value, with $n$ the number of pairs.
+
+# ---- Honors 1: planning a study (power curves and sample size)
+- id: stat-m8-r2-h01
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'A one-sided z test is run at significance level $\alpha$. What is the height of its power curve at the null value $\mu_0$?'
+  choices: ['0', '$\alpha$', '$1 - \alpha$', '0.5']
+  answer: 1
+  explanation: |-
+    At $\mu = \mu_0$ the null hypothesis is true, so "power" there is the probability of rejecting a true $H_0$, which is the Type I error rate $\alpha$. The curve rises from $\alpha$ toward 1 as the true mean moves away from $\mu_0$ in the direction of $H_a$.
+
+- id: stat-m8-r2-h02
+  lesson: stat-m8-h-power-planning
+  type: text
+  topic: Power and sample size
+  stem: 'A one-sided z test at $\alpha = 0.05$ ($z_\alpha = 1.645$) should have power 0.80 ($z_\beta = 0.842$) to detect a mean 2 units above $\mu_0$. The individual measurements have $\sigma = 8$. The smallest sample size that does this is $n =$ ___.'
+  accept: ['99']
+  explanation: |-
+    $n = \left(\dfrac{(1.645 + 0.842)(8)}{2}\right)^2 = (9.948)^2 \approx 98.96$. Always round up, to 99; with 98 the power would fall just short of 0.80.
+
+- id: stat-m8-r2-h03
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'A study was planned to detect a difference of 6 units. The investigators decide that a difference of 3 units also matters. Keeping $\alpha$, the power and $\sigma$ the same, the required sample size is multiplied by about'
+  choices: ['4', '2', '$\sqrt{2}$', '8']
+  answer: 0
+  explanation: |-
+    $n = \left((z_\alpha + z_\beta)\sigma/\delta\right)^2$ depends on $1/\delta^2$. Halving $\delta$ multiplies $n$ by $2^2 = 4$. Small effects are expensive to detect.
+
+- id: stat-m8-r2-h04
+  lesson: stat-m8-h-power-planning
+  type: match
+  topic: Power and sample size
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Power curve, Power plotted against the true value of the parameter]
+    - [Effect size, The effect measured in standard deviations of individual values]
+    - [Winner's curse, Significant estimates from low-power studies overstate the effect]
+    - [Observed power, Power computed from the observed effect after the study]
+  distractors: [The probability that the null hypothesis is true]
+  explanation: |-
+    A power curve shows power at every possible true value. The effect size $d = \delta/\sigma$ is measured in units of $\sigma$, not of the standard error. The winner's curse (a Type M error) is the exaggeration of effects that survive a low-power test. Observed power is computed after the fact and is just a restatement of the p-value. No test gives the probability that $H_0$ is true.
+
+- id: stat-m8-r2-h05
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'Which statements describe the power curve of a one-sided z test of $H_0: \mu = \mu_0$ against $H_a: \mu > \mu_0$? Select all that apply.'
+  choices:
+    - 'It equals $\alpha$ at $\mu = \mu_0$.'
+    - 'It rises toward 1 as the true mean increases above $\mu_0$.'
+    - 'A larger sample size makes it rise more steeply.'
+    - 'It equals $1 - \alpha$ at $\mu = \mu_0$.'
+    - 'It decreases as the true effect grows.'
+  answer: [0, 1, 2]
+  explanation: |-
+    At the null value the rejection probability is $\alpha$ (not $1 - \alpha$, which is the chance of correctly failing to reject). Bigger effects are easier to detect, so the curve rises with the true mean, and a larger $n$ shrinks the standard error, so the curve climbs faster. With $n = 25$ the lesson's curve is at 0.44 when $\mu = 53$; with $n = 100$ it is at 0.91.
+
+- id: stat-m8-r2-h06
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'A training program is expected to raise a test score by 6 points. Scores of individual students have a standard deviation of 15 points. What is the effect size $d$?'
+  choices: ['2.5', '0.04', '0.4', '0.6']
+  answer: 2
+  explanation: |-
+    $d = \delta/\sigma = 6/15 = 0.4$, a little under Cohen's rough "medium" of 0.5. Dividing the other way gives 2.5; 0.04 and 0.6 are slips with the decimal point or the subtraction.
+
+- id: stat-m8-r2-h07
+  lesson: stat-m8-h-power-planning
+  type: text
+  topic: Power and sample size
+  stem: 'Two independent groups of equal size will be compared with a two-sided test at $\alpha = 0.05$ ($z_{\alpha/2} = 1.960$). With $\sigma = 10$ in each group, the study needs power 0.80 ($z_\beta = 0.842$) to detect a difference of 5. How many subjects are needed in each group? ___'
+  accept: ['63']
+  explanation: |-
+    $n = 2\left(\dfrac{(1.960 + 0.842)(10)}{5}\right)^2 = 2(5.604)^2 \approx 62.8$, rounded up to 63 per group (126 in all). Forgetting the factor 2 gives 32, too few.
+
+- id: stat-m8-r2-h08
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'The sample size formula gives $n = 95.2$. Why should the planner use 96 rather than 95?'
+  choices:
+    - 'Sample sizes must be even numbers.'
+    - 'Rounding up makes $\alpha$ smaller.'
+    - 'The formula always underestimates by exactly one observation.'
+    - 'With 95 observations the power would be slightly below the target.'
+  answer: 3
+  explanation: |-
+    Power increases with $n$, and 95.2 is the size that gives exactly the target power. Any smaller $n$, including 95, gives a little less (0.8996 instead of 0.90 in the lesson's Example 1), so round up. The significance level is fixed by the cutoff, not by the rounding.
+
+- id: stat-m8-r2-h09
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'A small study with power about 0.2 against a realistic effect finds a statistically significant improvement of 8 points. What is the most reasonable reading?'
+  choices:
+    - 'The true effect is very likely 8 points or more, since the result survived a hard test.'
+    - 'The effect is probably real, but its true size is likely smaller than 8 points.'
+    - 'The result must be a Type I error, because the power was low.'
+    - 'Low power means the p-value was computed incorrectly.'
+  answer: 1
+  explanation: |-
+    With low power, only estimates that happened to land far from 0 reach significance, so significant estimates tend to overstate the effect (the winner's curse). In the lesson's Example 4 the exaggeration averaged about 2.5 times. Low power does not make a significant result automatically false, and it doesn't affect how the p-value is computed.
+
+- id: stat-m8-r2-h10
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'A study finds p-value 0.30. A colleague plugs the observed effect into the power formula, gets "observed power" 0.18, and concludes that the effect might exist but the study lacked power. What is wrong with this reasoning?'
+  choices:
+    - 'Observed power is determined by the p-value, so it adds no new information; a confidence interval shows which effects are still plausible.'
+    - 'Observed power should be computed with $\alpha = 0.30$.'
+    - 'Power can only be computed for two-sided tests.'
+    - 'A p-value of 0.30 proves that the effect does not exist.'
+  answer: 0
+  explanation: |-
+    For a given test, observed power is a fixed function of the p-value: a large p-value always comes with low observed power, so it cannot be independent evidence of anything. Power is for planning; after the study, the confidence interval reports which effect sizes the data rule out. A large p-value never proves the null hypothesis.
+
+- id: stat-m8-r2-h11
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'To plan the sample size for a two-sided test at $\alpha = 0.05$, which value replaces $z_\alpha$ in the formula?'
+  choices: ['1.645', '0.842', '1.960', '2.576']
+  answer: 2
+  explanation: |-
+    A two-sided test puts $\alpha/2 = 0.025$ in each tail, so the cutoff is $z_{0.025} = 1.960$. 1.645 is the one-sided value, 0.842 is $z_\beta$ for power 0.80, and 2.576 is the two-sided value for $\alpha = 0.01$.
+
+- id: stat-m8-r2-h12
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'The sample size formula for a one-proportion test has two different square roots, $\sqrt{p_0(1-p_0)}$ and $\sqrt{p_1(1-p_1)}$. Why?'
+  choices:
+    - 'One is for the sample and one is for the population.'
+    - 'One is for a one-sided test and one for a two-sided test.'
+    - 'Because the test pools the two proportions.'
+    - 'The SD of $\hat{p}$ depends on $p$, so it is different when $H_0$ is true (setting the cutoff) and when the alternative $p_1$ is true (giving the power).'
+  answer: 3
+  explanation: |-
+    The cutoff is placed using the SD of $\hat{p}$ under $H_0$, $\sqrt{p_0(1-p_0)/n}$, while the chance of landing beyond it is computed under the alternative, with SD $\sqrt{p_1(1-p_1)/n}$. For means, $\sigma$ is the same under both hypotheses, so one $\sigma$ appears.
+
+- id: stat-m8-r2-h13
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'The z-based formula gives $n = 96$ for a study that will actually be analyzed with a t test (because $\sigma$ will be estimated). What should the planner expect?'
+  choices:
+    - 'The t test needs far fewer observations, about half.'
+    - 'The t test needs slightly more observations, here about 97.'
+    - 'Exactly 96, since z and t tests have the same power.'
+    - 'Power cannot be computed for a t test.'
+  answer: 1
+  explanation: |-
+    Critical values of $t$ are a little larger than those of $z$, so a t test needs slightly more data for the same power. Exact calculations (with the noncentral t distribution) give 97 for the lesson's Example 1. Usually the larger uncertainty is in the planning value of $\sigma$.
+
+- id: stat-m8-r2-h14
+  lesson: stat-m8-h-power-planning
+  topic: Power and sample size
+  stem: 'With everything else unchanged, which changes reduce the sample size needed for a test? Select all that apply.'
+  choices:
+    - 'Deciding that only a larger effect is worth detecting'
+    - 'Using a larger planning value for $\sigma$'
+    - 'Accepting power 0.80 instead of 0.90'
+    - 'Lowering $\alpha$ from 0.05 to 0.01'
+    - 'Using matched pairs that reduce the SD of the differences'
+  answer: [0, 2, 4]
+  explanation: |-
+    $n = \left((z_\alpha + z_\beta)\sigma/\delta\right)^2$ shrinks when $\delta$ grows, when $z_\beta$ shrinks (lower power) and when the relevant SD shrinks, which is what good pairing does. A larger $\sigma$ and a smaller $\alpha$ (larger $z_\alpha$) both increase $n$.
+
+# ---- Honors 2: multiple comparisons and false discoveries
+- id: stat-m8-r2-h15
+  lesson: stat-m8-h-multiple-testing
+  type: text
+  topic: Multiple testing
+  stem: 'Ten independent tests are each run at $\alpha = 0.05$, and all ten null hypotheses are true. The probability of at least one Type I error, rounded to 3 decimal places, is ___.'
+  accept: ['0.401']
+  explanation: |-
+    All ten tests avoid a false alarm with probability $0.95^{10} \approx 0.599$, so the family-wise error rate is $1 - 0.599 = 0.401$. Adding the ten 5% chances (0.50) overstates it, because it double-counts the cases with two or more false alarms.
+
+- id: stat-m8-r2-h16
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'A study tests 8 hypotheses and wants a family-wise error rate of at most 0.05 using the Bonferroni correction. What level should each test use?'
+  choices: ['0.05', '0.00625', '0.4', '0.0125']
+  answer: 1
+  explanation: |-
+    Bonferroni divides $\alpha$ by the number of tests: $0.05/8 = 0.00625$. Using 0.05 for each gives no correction; 0.4 multiplies instead of dividing; 0.0125 would be right for 4 tests.
+
+- id: stat-m8-r2-h17
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'In 200 independent tests, every null hypothesis is true and every test statistic is continuous. About how many of the p-values should be below 0.10?'
+  choices: ['20', '10', '2', '0']
+  answer: 0
+  explanation: |-
+    When $H_0$ is true, the p-value is uniform between 0 and 1, so $P(\text{p-value} \le 0.10) = 0.10$, and about $0.10 \times 200 = 20$ of the p-values fall below 0.10, all of them by chance.
+
+- id: stat-m8-r2-h18
+  lesson: stat-m8-h-multiple-testing
+  type: order
+  topic: Multiple testing
+  stem: 'Put the steps of Holm''s method in order.'
+  items:
+    - 'Sort the p-values from smallest to largest'
+    - 'Compare the smallest p-value with $\alpha/m$'
+    - 'If it passes, compare the next p-value with $\alpha/(m-1)$, then the next with $\alpha/(m-2)$, and so on'
+    - 'At the first p-value above its threshold, stop: reject only the hypotheses before it'
+  explanation: |-
+    Holm's thresholds are attached to ranks, so sorting comes first; the comparisons go from the smallest p-value up, with the threshold relaxing at each step, and the procedure stops at the first failure.
+
+- id: stat-m8-r2-h19
+  lesson: stat-m8-h-multiple-testing
+  type: match
+  topic: Multiple testing
+  stem: 'Match each procedure or practice to what it does.'
+  pairs:
+    - [Bonferroni correction, Tests every hypothesis at level α/m]
+    - [Holm's method, 'Compares sorted p-values with α/m, α/(m − 1), and so on, stopping at the first failure']
+    - [Benjamini–Hochberg procedure, Controls the expected share of false discoveries among rejections]
+    - [Preregistration, Records the hypotheses and analysis plan before data are collected]
+  distractors: [Raises the significance level of each test]
+  explanation: |-
+    Bonferroni and Holm both control the family-wise error rate, Holm with more power. Benjamini–Hochberg controls the false discovery rate instead. Preregistration is a procedural defense against p-hacking. None of these raises the level of individual tests; corrections make each test stricter.
+
+- id: stat-m8-r2-h20
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'Five sorted p-values are 0.003, 0.012, 0.020, 0.041 and 0.30. How many hypotheses does the Benjamini–Hochberg procedure reject at $q = 0.05$?'
+  choices: ['1', '2', '3', '4']
+  answer: 2
+  explanation: |-
+    The BH thresholds are $0.05i/5$: 0.01, 0.02, 0.03, 0.04, 0.05. Check from the largest rank down: $0.30 > 0.05$, $0.041 > 0.04$, but $0.020 \le 0.03$. So $k = 3$, and the three smallest p-values are rejected. (Bonferroni, with threshold 0.01, would reject only 1.)
+
+- id: stat-m8-r2-h21
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'For the same five p-values (0.003, 0.012, 0.020, 0.041, 0.30), which hypotheses does Holm''s method reject at $\alpha = 0.05$? Select all that apply.'
+  choices: ['The one with p = 0.003', 'The one with p = 0.012', 'The one with p = 0.020', 'The one with p = 0.041', 'The one with p = 0.30']
+  answer: [0, 1]
+  explanation: |-
+    Holm's thresholds are $0.05/5 = 0.01$, $0.05/4 = 0.0125$, $0.05/3 \approx 0.0167$, $0.05/2 = 0.025$ and $0.05$. The first two pass ($0.003 \le 0.01$, $0.012 \le 0.0125$), but $0.020 > 0.0167$, so Holm stops there; 0.041 and 0.30 are not rejected even though 0.30 is compared with nothing and 0.041 would have been below 0.05.
+
+- id: stat-m8-r2-h22
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'A genetics screen uses the Benjamini–Hochberg procedure at $q = 0.05$. What does that control?'
+  choices:
+    - 'The probability that any of the rejected hypotheses is false is at most 0.05.'
+    - 'The expected proportion of false discoveries among the rejected hypotheses is at most 0.05.'
+    - 'Each individual test has a Type I error rate of exactly 0.05.'
+    - 'The probability that all the null hypotheses are true is 0.05.'
+  answer: 1
+  explanation: |-
+    The false discovery rate is the expected share of false discoveries among the rejections. Controlling the chance of *any* false discovery is the family-wise error rate, which is stricter. The BH thresholds $iq/m$ are not a fixed per-test level, and no procedure gives the probability that hypotheses are true.
+
+- id: stat-m8-r2-h23
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'A field tests 2,000 hypotheses at $\alpha = 0.05$. Suppose 20% of them are real effects and the power is 0.50. About what share of the significant results are false?'
+  choices: ['0.050', '0.200', '0.400', '0.286']
+  answer: 3
+  explanation: |-
+    Real effects: 400, of which $0.50 \times 400 = 200$ are detected. True nulls: 1,600, giving $0.05 \times 1{,}600 = 80$ false alarms. Share false $= 80/(200 + 80) \approx 0.286$. The answer is not $\alpha$: that is a rate among true nulls, not among significant results.
+
+- id: stat-m8-r2-h24
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'A researcher checks the p-value after every 10 subjects and stops as soon as it falls below 0.05. If the null hypothesis is true, the probability that the study ends with a "significant" result is'
+  choices: ['larger than 0.05', 'exactly 0.05', 'smaller than 0.05', '0.05 divided by the number of checks']
+  answer: 0
+  explanation: |-
+    Each look is another chance for a false alarm, and the researcher stops at the first one, so the overall error rate grows with the number of looks: about 0.19 with 10 looks at a z test, by the lesson's figure. Planned designs with interim looks use stricter thresholds at each look to hold the overall rate at 0.05.
+
+- id: stat-m8-r2-h25
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'Which of these is an example of p-hacking?'
+  choices:
+    - 'Choosing $\alpha = 0.01$ before the study because a Type I error would be costly'
+    - 'Reporting a confidence interval along with the p-value'
+    - 'Trying several rules for removing outliers and reporting the one that gives $p < 0.05$'
+    - 'Writing down the analysis plan before collecting data'
+  answer: 2
+  explanation: |-
+    Trying analyses until one crosses 0.05 and reporting only that one is p-hacking: the reported p-value hides the other attempts, so its real false-positive rate is much higher than 5%. Fixing $\alpha$ or the analysis plan in advance and reporting intervals are good practice.
+
+- id: stat-m8-r2-h26
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'Why does the Bonferroni correction keep the family-wise error rate at or below $\alpha$ even when the tests are not independent?'
+  choices:
+    - 'Because dependent tests cannot both make Type I errors'
+    - 'Because $(1 - \alpha/m)^m$ is always exactly $1 - \alpha$'
+    - 'Because it assumes the tests are independent anyway'
+    - 'Because the probability of a union of events is at most the sum of their probabilities, and here that sum is $m \cdot \alpha/m = \alpha$'
+  answer: 3
+  explanation: |-
+    The union bound $P(A_1 \text{ or } \dots \text{ or } A_m) \le P(A_1) + \dots + P(A_m)$ holds for any events, dependent or not. With each test at $\alpha/m$, the sum is $\alpha$. The formula $(1 - \alpha/m)^m$ needs independence and is only approximately $1 - \alpha$.
+
+- id: stat-m8-r2-h27
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'Which practices help keep false discoveries in check? Select all that apply.'
+  choices:
+    - 'Preregistering the hypotheses and analysis plan'
+    - 'Reporting how many tests were run in total'
+    - 'Repeating surprising findings in a new study'
+    - 'Reporting only the outcomes that were significant'
+    - 'Adding subjects until the p-value drops below 0.05'
+  answer: [0, 1, 2]
+  explanation: |-
+    Preregistration removes hidden flexibility, full reporting lets readers judge multiplicity, and replication checks whether a finding survives fresh data. Reporting only significant outcomes and optional stopping are exactly the habits that create false discoveries.
+
+- id: stat-m8-r2-h28
+  lesson: stat-m8-h-multiple-testing
+  topic: Multiple testing
+  stem: 'A report analyzes 20 subgroups and highlights the one with p-value 0.04. Why is this weak evidence of a real effect in that subgroup?'
+  choices:
+    - 'Because p-values below 0.05 are never meaningful'
+    - 'Because with 20 tests about one p-value below 0.05 is expected even if there are no real effects'
+    - 'Because subgroups always have lower power, so the effect must be false'
+    - 'Because 0.04 is a two-sided p-value'
+  answer: 1
+  explanation: |-
+    With 20 tests at 0.05, the expected number of false alarms is $20 \times 0.05 = 1$, and the chance of at least one is about 0.64. Singling out one result from 20 hides that multiplicity; with a Bonferroni threshold of $0.05/20 = 0.0025$, 0.04 is far from significant.
+
+# ---- Honors 3: exact tests
+- id: stat-m8-r2-h29
+  lesson: stat-m8-h-exact-tests
+  type: text
+  topic: Exact tests
+  stem: 'In a paired study of 10 pairs, 7 differences are positive, 2 are negative and 1 is zero. The one-sided sign test p-value for "the median difference is positive" is ___ (4 decimal places).'
+  accept: ['0.0898']
+  explanation: |-
+    Drop the zero, leaving $n = 9$. Under $H_0$ the number of positive signs is $B(9, 0.5)$, so the p-value is $P(X \ge 7) = \dfrac{\binom{9}{7} + \binom{9}{8} + \binom{9}{9}}{2^9} = \dfrac{36 + 9 + 1}{512} \approx 0.0898$. Keeping the zero ($B(10, 0.5)$) would give a different, wrong answer.
+
+- id: stat-m8-r2-h30
+  lesson: stat-m8-h-exact-tests
+  type: text
+  topic: Exact tests
+  stem: 'In Fisher''s tea-tasting experiment, the lady must choose which 4 of 8 cups had milk poured first. The number of different sets of 4 cups she could choose is ___.'
+  accept: ['70']
+  explanation: |-
+    $\binom{8}{4} = \dfrac{8!}{4!\,4!} = 70$. If she is guessing, each set is equally likely, so getting all four right has probability $1/70 \approx 0.014$.
+
+- id: stat-m8-r2-h31
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'Test $H_0: p = 0.5$ against $H_a: p > 0.5$ with an exact binomial test. In 12 independent trials there are 10 successes. What is the p-value?'
+  choices: ['0.0193', '0.0161', '0.0386', '0.0002']
+  answer: 0
+  explanation: |-
+    $P(X \ge 10) = \dfrac{\binom{12}{10} + \binom{12}{11} + \binom{12}{12}}{2^{12}} = \dfrac{66 + 12 + 1}{4096} \approx 0.0193$. 0.0161 is $P(X = 10)$ alone (not "at least as extreme"), 0.0386 doubles the tail for a two-sided test, and 0.0002 is $P(X = 12)$.
+
+- id: stat-m8-r2-h32
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'An exact test is called conservative. What does that mean?'
+  choices:
+    - 'It always gives a smaller p-value than the normal approximation.'
+    - 'It can only be used for one-sided alternatives.'
+    - 'Its actual probability of a Type I error is at most the nominal $\alpha$, often less.'
+    - 'It assumes the population is normal.'
+  answer: 2
+  explanation: |-
+    Discrete statistics allow only certain p-values, so "reject when p-value $\le \alpha$" usually has a true Type I error rate below $\alpha$, as in the lesson's coin example (0.0107 instead of 0.05). That protects against false alarms at some cost in power. Exact tests make no normality assumption.
+
+- id: stat-m8-r2-h33
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'With $n = 10$ trials, an exact binomial test of $H_0: p = 0.5$ against $H_a: p > 0.5$ rejects when the p-value is at most 0.05. If $H_0$ is true, what is the actual probability of a Type I error?'
+  choices: ['0.0547', '0.0500', '0.0010', '0.0107']
+  answer: 3
+  explanation: |-
+    $P(X \ge 8) = 56/1024 \approx 0.0547$ is above 0.05, but $P(X \ge 9) = 11/1024 \approx 0.0107$ is not, so the test rejects only when $X \ge 9$. The real Type I error rate is therefore 0.0107. No count gives exactly 0.05.
+
+- id: stat-m8-r2-h34
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'For the lesson''s jig data, the paired t test gave a p-value of 0.0074 but the sign test gave 0.0625. What best explains the difference?'
+  choices:
+    - 'The sign test made an arithmetic error by dropping the zero.'
+    - 'The sign test uses only the directions of the differences, not their sizes, so it has less power when the t test''s conditions hold.'
+    - 'The t test is exact and the sign test is approximate.'
+    - 'The sign test is two-sided and the t test is one-sided.'
+  answer: 1
+  explanation: |-
+    Both tests here are one-sided. The sign test throws away the sizes of the differences and keeps only their signs, so it needs stronger evidence to reject; in exchange it needs no normality assumption and isn't affected by outliers. The sign test is the exact one, and dropping the zero difference is the correct rule.
+
+- id: stat-m8-r2-h35
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'In a randomized experiment, a permutation test treats every split of the observed responses into groups of the original sizes as equally likely under $H_0$. What justifies this?'
+  choices:
+    - 'The responses are normally distributed.'
+    - 'The sample sizes are large enough for the central limit theorem.'
+    - 'The two groups have equal standard deviations.'
+    - 'If the treatment has no effect, each subject''s response would be the same in either group, and random assignment made every split equally likely.'
+  answer: 3
+  explanation: |-
+    Under the no-effect hypothesis the responses are fixed numbers; the only randomness is the assignment, and the random assignment gave every split the same probability. No normality, large samples or equal SDs are needed, which is the point of a permutation test.
+
+- id: stat-m8-r2-h36
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'Six subjects are randomly split into two groups of 3. Treatment: 9, 11, 13. Control: 4, 6, 7. What is the one-sided permutation test p-value for "the treatment raises the response"?'
+  choices: ['0.05', '0.10', '0.0167', '0.50']
+  answer: 0
+  explanation: |-
+    There are $\binom{6}{3} = 20$ equally likely splits. The treatment group already holds the three largest values, so no split gives a larger difference in means: only 1 of 20 is at least as extreme, and the p-value is $1/20 = 0.05$. That is also the smallest p-value this design can produce.
+
+- id: stat-m8-r2-h37
+  lesson: stat-m8-h-exact-tests
+  type: match
+  topic: Exact tests
+  stem: 'Match each exact test to the null distribution it uses.'
+  pairs:
+    - [Exact binomial test, 'Binomial with n trials and the null value p0']
+    - [Sign test, 'Binomial with p = 0.5 for the nonzero differences']
+    - [Fisher's exact test, Hypergeometric with the table's margins fixed]
+    - [Permutation test, All equally likely splits of the observed values into groups]
+  distractors: [Normal curve with large counts]
+  explanation: |-
+    The exact binomial test uses $B(n, p_0)$ directly; the sign test is the special case $B(n, 0.5)$ applied to signs; Fisher's test deals the successes among the groups at random (hypergeometric); a permutation test lists every relabeling of the data. None of them uses a normal approximation, which is what makes them exact.
+
+- id: stat-m8-r2-h38
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'In which situations do the conditions for the usual z or t procedure fail, so that an exact test is the better choice? Select all that apply.'
+  choices:
+    - 'A one-proportion test with $np_0 = 3$'
+    - 'A two-way table in which one expected count is 3.8'
+    - 'Eight paired differences that include one extreme outlier'
+    - 'A simple random sample of 500 with $np_0 = 150$ and $n(1 - p_0) = 350$'
+  answer: [0, 1, 2]
+  explanation: |-
+    Expected counts below 10 break the large counts condition for z tests (use the exact binomial or Fisher's test), and a small sample with an extreme outlier breaks the t test's normal condition (a sign or permutation test is safer). With 150 and 350 expected successes and failures, the z test is accurate.
+
+- id: stat-m8-r2-h39
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'In a small trial, 5 of 6 patients on a new treatment improved and 1 of 5 on the standard treatment improved. With the margins fixed (6 improvers among 11 patients, 6 on the new treatment), what is the one-sided Fisher''s exact test p-value?'
+  choices: ['0.0649', '0.0022', '0.1342', '0.0671']
+  answer: 3
+  explanation: |-
+    $P(X = 5) = \dfrac{\binom{6}{5}\binom{5}{1}}{\binom{11}{6}} = \dfrac{30}{462}$ and $P(X = 6) = \dfrac{\binom{6}{6}\binom{5}{0}}{462} = \dfrac{1}{462}$, so $P(X \ge 5) = 31/462 \approx 0.0671$. 0.0649 counts only $X = 5$, 0.0022 only $X = 6$, and 0.1342 doubles the tail.
+
+- id: stat-m8-r2-h40
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'For the train-cancellation data ($n = 150$, $p_0 = 0.02$, 6 cancellations), a two-sided exact p-value is 0.164 by doubling the tail but 0.130 by summing all outcomes no more likely than 6. Why do the two conventions disagree?'
+  choices:
+    - 'The binomial distribution with $p_0 = 0.02$ is lopsided, so the two tails are not mirror images.'
+    - 'One of the two calculations must contain an error.'
+    - 'Doubling is only allowed for proportions above 0.5.'
+    - 'The sample is too small for any two-sided test.'
+  answer: 0
+  explanation: |-
+    With mean 3 and a floor at 0, $B(150, 0.02)$ is strongly skewed: the lower tail cannot mirror the upper one. The two rules handle that asymmetry differently, and both are in use, so a report should say which one it used. When $p_0 = 0.5$ the distribution is symmetric and the two agree.
+
+- id: stat-m8-r2-h41
+  lesson: stat-m8-h-exact-tests
+  type: order
+  topic: Exact tests
+  stem: 'Put the steps of an exact permutation test for a difference in means in order.'
+  items:
+    - 'List every possible split of the observed values into groups of the original sizes'
+    - 'Compute the difference in means for each split'
+    - 'Count the splits whose difference is at least as large as the observed one'
+    - 'Divide that count by the number of splits to get the p-value'
+  explanation: |-
+    The splits must be listed before their differences can be computed, the differences are needed for the count, and the p-value is the count's share of all splits. The observed split is one of the listed splits, so it is always counted.
+
+- id: stat-m8-r2-h42
+  lesson: stat-m8-h-exact-tests
+  topic: Exact tests
+  stem: 'A paired study of 12 pairs has 8 positive differences, 1 negative and 3 equal to zero. Under $H_0$, the number of positive signs in the sign test has which distribution?'
+  choices: ['$B(12, 0.5)$', '$B(9, 0.5)$', '$B(8, 0.5)$', '$B(11, 0.5)$']
+  answer: 1
+  explanation: |-
+    Zero differences have no sign and are dropped, leaving $8 + 1 = 9$ nonzero differences, each positive with probability 0.5 under $H_0$: $B(9, 0.5)$. The p-value would be $P(X \ge 8) = 10/512 \approx 0.0195$.

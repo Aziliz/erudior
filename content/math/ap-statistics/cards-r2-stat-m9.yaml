@@ -1,0 +1,34 @@
+# Round 2 cards for stat-m9 (honors lessons 39h1–39h3)
+# Chi-square theory
+- {front: 'Definition of the chi-square distribution with k df', back: 'The distribution of $Z_1^2 + \cdots + Z_k^2$ for independent standard normals $Z_i$.', topic: 'Chi-square theory'}
+- {front: 'Mean and variance of $\chi^2_k$', back: 'Mean $k$, variance $2k$ (each $Z^2$ has mean 1 and variance 2).', topic: 'Chi-square theory'}
+- {front: 'Chi-square with 1 df and z', back: '$\chi^2_1 = Z^2$, so the 0.05 critical value 3.841 is $1.96^2$.', topic: 'Chi-square theory'}
+- {front: 'Two-category goodness of fit and the z test', back: '$\chi^2 = \dfrac{n(\hat{p} - p_0)^2}{p_0(1 - p_0)} = z^2$ exactly; same p-value as the two-sided one-proportion z test.', topic: 'Chi-square theory'}
+- {front: 'Expected value of the GOF statistic under $H_0$', back: '$E(\chi^2) = \sum (1 - p_i) = k - 1$, exactly, for any $n$.', topic: 'Chi-square theory'}
+- {front: 'Why one df is lost in goodness of fit', back: 'The misses $O - E$ always add to 0, because observed and expected counts both add to $n$ (Pearson, 1900).', topic: 'Chi-square theory'}
+- {front: 'df when parameters are estimated', back: 'df $= k - 1 - m$, where $m$ is the number of parameters estimated from the data (Fisher).', topic: 'Chi-square theory'}
+- {front: 'Two-way df by parameter counting', back: '$(rc - 1) - (r - 1) - (c - 1) = (r - 1)(c - 1)$: cells minus the total, minus the estimated row and column proportions.', topic: 'Chi-square theory'}
+- {front: 'Stated vs. estimated parameters', back: 'A value given in $H_0$ costs no df; only parameters estimated from the data are subtracted.', topic: 'Chi-square theory'}
+- {front: 'Small expected counts', back: 'The chi-square curve is a large-count approximation: combine sparse categories (or use an exact test) when expected counts fall below 5.', topic: 'Chi-square theory'}
+# Chi-square follow-up
+- {front: 'Adjusted residual', back: '$\dfrac{O - E}{\sqrt{E(1 - \text{row}/n)(1 - \text{col}/n)}}$, about $N(0, 1)$ under $H_0$; beyond ±2 flags a cell.', topic: 'Chi-square follow-up'}
+- {front: 'Standardized vs. adjusted residuals', back: '$(O - E)/\sqrt{E}$ has variance below 1; the adjusted residual rescales it to the standard normal scale, so it is larger in size.', topic: 'Chi-square follow-up'}
+- {front: 'Many cells, many residuals', back: 'With many cells, one may pass ±2 by chance; use a stricter cutoff such as ±3 when searching a big table.', topic: 'Chi-square follow-up'}
+- {front: 'Cramér''s V', back: '$V = \sqrt{\chi^2/(n \cdot \min(r - 1, c - 1))}$, from 0 (no association) to 1.', topic: 'Chi-square follow-up'}
+- {front: 'Phi coefficient', back: '$\phi = \sqrt{\chi^2/n}$ for a 2 × 2 table; equals the size of the correlation of the 0/1-coded variables.', topic: 'Chi-square follow-up'}
+- {front: 'Evidence vs. strength', back: '$\chi^2$ grows in proportion to $n$ for fixed percentages; V does not. A tiny p-value can go with a trivial association.', topic: 'Chi-square follow-up'}
+- {front: 'Rough conventions for V (2 × 2 or 2 × c)', back: 'About 0.1 small, 0.3 medium, 0.5 large (Cohen, 1988); conventions only, judge in context.', topic: 'Chi-square follow-up'}
+- {front: 'Fisher''s exact test', back: 'Fix the margins; the top-left count is hypergeometric; add the probabilities of tables at least as extreme. For small 2 × 2 tables.', topic: 'Chi-square follow-up'}
+- {front: 'Hypergeometric probability in a 2 × 2 table', back: '$P(a) = \binom{R_1}{a}\binom{R_2}{C_1 - a}\big/\binom{n}{C_1}$ for row totals $R_1, R_2$ and column total $C_1$.', topic: 'Chi-square follow-up'}
+- {front: 'Lady tasting tea', back: '8 cups, 4 milk-first: guessing all 4 right has probability $1/\binom{8}{4} = 1/70 \approx 0.014$ (Fisher, 1935).', topic: 'Chi-square follow-up'}
+# Regression intervals
+- {front: 'Mean response vs. one new value', back: 'Mean response: the average $y$ of all individuals at $x^*$. A new value: one individual, $\mu_y + \varepsilon$. Both estimated by $\hat{y}$.', topic: 'Regression intervals'}
+- {front: 'SE of the mean response', back: '$SE_{\hat{\mu}} = s\sqrt{\dfrac{1}{n} + \dfrac{(x^* - \bar{x})^2}{(n - 1)s_x^2}} = \sqrt{s^2/n + (x^* - \bar{x})^2 SE_b^2}$.', topic: 'Regression intervals'}
+- {front: 'SE for predicting one new value', back: '$SE_{\text{pred}} = \sqrt{s^2 + SE_{\hat{\mu}}^2} = s\sqrt{1 + \dfrac{1}{n} + \dfrac{(x^* - \bar{x})^2}{(n - 1)s_x^2}}$.', topic: 'Regression intervals'}
+- {front: 'Regression intervals at $x^*$', back: '$\hat{y} \pm t^* SE_{\hat{\mu}}$ (mean response) and $\hat{y} \pm t^* SE_{\text{pred}}$ (one new value), df $= n - 2$.', topic: 'Regression intervals'}
+- {front: 'Why the bands curve', back: '$\hat{y} = \bar{y} + b(x^* - \bar{x})$: slope error is amplified by distance from $\bar{x}$, so bands are narrowest at $\bar{x}$.', topic: 'Regression intervals'}
+- {front: 'Prediction interval as n grows', back: '$SE_{\hat{\mu}} \to 0$ but $SE_{\text{pred}} \to \sigma$: a 95% PI never gets narrower than about $\hat{y} \pm 1.96\sigma$.', topic: 'Regression intervals'}
+- {front: 'Conditions for prediction intervals', back: 'Normal errors and equal SD matter much more than for slope inference; the CLT does not rescue a single new value.', topic: 'Regression intervals'}
+- {front: 'Extrapolation and intervals', back: 'Bands widen outside the data, but they assume the line stays straight there; they do not cover model failure.', topic: 'Regression intervals'}
+- {front: 't test for a correlation', back: '$t = \dfrac{r\sqrt{n - 2}}{\sqrt{1 - r^2}}$, df $= n - 2$; identical to the slope''s $t = b/SE_b$.', topic: 'Regression intervals'}
+- {front: 'Same r, different n', back: '$r = 0.8$ with $n = 5$ gives $p \approx 0.10$; $r = 0.3$ with $n = 50$ gives $p \approx 0.034$.', topic: 'Regression intervals'}

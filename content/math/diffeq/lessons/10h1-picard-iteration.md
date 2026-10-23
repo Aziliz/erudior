@@ -77,7 +77,7 @@ $\varphi_n = \sum_{k=0}^{n} \dfrac{t^k}{k!}$, which converges to $e^t$ for every
 iteration has rediscovered the exponential function from nothing but the equation.
 
 ```plot
-{"x": [-2, 2.6], "y": [-0.5, 7.6], "xLabel": "t", "functions": [{"f": "1", "dashed": true}, {"f": "1 + x", "dashed": true}, {"f": "1 + x + x^2/2", "dashed": true}, {"f": "1 + x + x^2/2 + x^3/6", "dashed": true}, {"f": "exp(x)"}], "labels": [{"at": [2.15, 1.25], "text": "φ₀"}, {"at": [2.15, 3.1], "text": "φ₁"}, {"at": [2.15, 5.05], "text": "φ₂"}, {"at": [2.15, 6.3], "text": "φ₃"}, {"at": [1.55, 6.9], "text": "e^t"}], "caption": "Picard iterates for y′ = y, y(0) = 1 (dashed) close in on the solution e^t (solid). Near t = 0 they agree after very few steps; farther out they need more."}
+{"x": [-2, 2.6], "y": [-0.5, 7.6], "xLabel": "t", "functions": [{"f": "1", "dashed": true, "to": 2}, {"f": "1 + x", "dashed": true, "to": 2}, {"f": "1 + x + x^2/2", "dashed": true, "to": 2}, {"f": "1 + x + x^2/2 + x^3/6", "dashed": true, "to": 2}, {"f": "exp(x)", "to": 2}], "labels": [{"at": [2.15, 1.25], "text": "φ₀"}, {"at": [2.15, 3.1], "text": "φ₁"}, {"at": [2.15, 5.05], "text": "φ₂"}, {"at": [2.15, 6.3], "text": "φ₃"}, {"at": [1.55, 6.9], "text": "eᵗ"}], "caption": "Picard iterates for y′ = y, y(0) = 1 (dashed) close in on the solution eᵗ (solid). Near t = 0 they agree after very few steps; farther out they need more."}
 ```
 
 ### Example 2
