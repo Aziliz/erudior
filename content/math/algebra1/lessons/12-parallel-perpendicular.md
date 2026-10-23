@@ -25,6 +25,12 @@ Write the equation of the line through $(4, -1)$ parallel to $3x + 2y = 6$.
 2. The new line has the same slope. Point-slope: $y + 1 = -\tfrac32(x - 4)$.
 3. Simplify: $y + 1 = -\tfrac32 x + 6$, so $y = -\tfrac32 x + 5$.
 
+```plot
+{"x": [-2, 7], "y": [-4, 7], "functions": [{"f": "-1.5*x + 3", "label": "3x + 2y = 6"}, {"f": "-1.5*x + 5", "label": "y = -3/2 x + 5", "dashed": true}], "points": [{"at": [4, -1], "label": "(4, -1)"}, {"at": [0, 3]}, {"at": [0, 5]}], "segments": [{"from": [0, 3], "to": [2, 3], "dashed": true, "label": "run 2"}, {"from": [2, 3], "to": [2, 0], "dashed": true, "label": "rise -3"}, {"from": [0, 5], "to": [2, 5], "dashed": true, "label": "run 2"}, {"from": [2, 5], "to": [2, 2], "dashed": true, "label": "rise -3"}], "equal": true, "caption": "Same slope, different intercepts: the lines stay 2 units apart vertically and never meet"}
+```
+
+Both lines have the same slope triangle (run 2, rise $-3$), so they fall at the same rate. At every $x$ the dashed line is exactly 2 units above the solid one.
+
 ## Perpendicular lines
 
 **Perpendicular lines** meet at a right angle. Their slopes have a neat relationship: if one line has slope $m$ (not 0), a perpendicular line has slope $-\tfrac{1}{m}$, the **negative reciprocal**. Equivalently, the product of their slopes is $-1$.
@@ -58,6 +64,21 @@ Are the lines $4x - 6y = 3$ and $3x + 2y = 8$ parallel, perpendicular or neither
 
 1. Slopes: $-\tfrac{A}{B}$ gives $-\tfrac{4}{-6} = \tfrac23$ and $-\tfrac32$.
 2. Product: $\tfrac23 \cdot \left(-\tfrac32\right) = -1$. The lines are perpendicular.
+
+For two lines that aren't vertical, the whole decision fits in one chart. (If a line is vertical, use the rules above: two vertical lines are parallel or the same line, and a vertical line is perpendicular only to a horizontal one.)
+
+```mermaid
+flowchart TD
+  accTitle: Parallel, perpendicular or neither, for two non-vertical lines
+  accDescr: Find both slopes, by solving each equation for y or by using slope equals negative A over B. If the slopes are equal, compare the y-intercepts: equal intercepts mean it is the same line, and different intercepts mean the lines are parallel. If the slopes are not equal, multiply them: a product of negative 1 means the lines are perpendicular; any other product means neither, so the lines cross but not at a right angle.
+  A["Find both slopes (solve for y, or use −A/B)"] --> B{"Are the slopes equal?"}
+  B -- yes --> C{"Are the y-intercepts equal?"}
+  C -- yes --> S["The same line"]
+  C -- no --> P["Parallel"]
+  B -- no --> D{"Is the product of the slopes −1?"}
+  D -- yes --> Q["Perpendicular"]
+  D -- no --> N["Neither: they cross, but not at a right angle"]
+```
 
 ## Linear models
 

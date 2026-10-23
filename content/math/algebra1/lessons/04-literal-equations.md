@@ -61,6 +61,22 @@ The amount in an account with simple interest is $A = P + Prt$. Solve for $P$.
 
 Trying to "subtract $Prt$" first leaves $A - Prt = P$, which still has $P$ on both sides. Not solved.
 
+So the first question to ask is how many terms contain the variable you want. This chart sums up both cases:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a formula for one variable
+  accDescr: First clear any fractions if that helps. Then ask how many terms contain the target variable. If only one term does, undo the other operations in reverse order: move the other terms away by adding or subtracting, then divide by everything multiplying the target. If two or more terms contain it, collect those terms on one side, factor the target variable out, and divide by the factor that is left, noting that it must not be zero. In both cases, check the result with a set of values you know.
+  A["Clear fractions if it helps"] --> B{"How many terms contain the target variable?"}
+  B -- One --> C["Add or subtract to move the other terms away"]
+  C --> D["Divide by everything multiplying the target"]
+  B -- "Two or more" --> E["Collect those terms on one side"]
+  E --> F["Factor the target variable out"]
+  F --> G["Divide by the remaining factor (not 0)"]
+  D --> H["Check with values you know"]
+  G --> H
+```
+
 ## Using a formula once it's rearranged
 
 Rearranging first pays off when you'll use a formula many times, or when it makes the arithmetic cleaner.
@@ -81,6 +97,10 @@ A trapezoid has area $A = \tfrac12 h(b_1 + b_2)$. If its area is 60 square cm, i
 ### Example 6
 
 The surface area of a closed cylinder is $S = 2\pi r h + 2\pi r^2$. Solve for $h$, then find the height of a can with $S = 100\pi$ square cm and $r = 5$ cm.
+
+Where does the formula come from? Unroll the can. The two ends are circles of area $\pi r^2$ each, and the curved side opens into a rectangle whose height is $h$ and whose width is the distance around the circle, $2\pi r$. Adding the three areas gives $2\pi r h + 2\pi r^2$.
+
+![On the left, a closed cylinder with radius r and height h. An arrow labeled unroll points to its net on the right: a rectangle with height h and width 2πr, which equals the circle's circumference, so its area is 2πr times h; a circle of area πr² is attached to the middle of the top edge and another circle of radius r to the bottom edge.](images/alg-m1-cylinder-net.svg)
 
 1. The term without $h$ is $2\pi r^2$. Subtract it: $S - 2\pi r^2 = 2\pi r h$.
 2. Divide both sides by $2\pi r$: $h = \dfrac{S - 2\pi r^2}{2\pi r}$.

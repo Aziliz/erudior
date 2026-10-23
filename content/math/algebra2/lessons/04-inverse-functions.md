@@ -44,6 +44,20 @@ A function with an inverse is called **invertible**, and its inverse is the **in
 3. Solve the new equation for $y$.
 4. Replace $y$ with $f^{-1}(x)$, and state its domain (the range of $f$) if it's restricted.
 
+The whole process, including the check at the end, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Finding an inverse function
+  accDescr: First apply the horizontal line test. If the function fails, restrict its domain to a piece where it is one-to-one and continue with that piece. Once it passes, write y = f(x), swap x and y, and solve for y. The domain of the inverse is the range of f. Finally, check that f of the inverse and the inverse of f both simplify to x.
+  A{"Passes the horizontal line test?"} -- "no" --> R["Restrict the domain to a one-to-one piece"]
+  R --> B
+  A -- "yes" --> B["Write y = f(x), swap x and y"]
+  B --> C["Solve for y"]
+  C --> D["Domain of the inverse = range of f"]
+  D --> E["Check by composing both ways"]
+```
+
 ### Example 1
 
 Find the inverse of $f(x) = 3x - 5$ and verify it by composition.
@@ -75,6 +89,10 @@ Since $(a, b)$ on $f$ becomes $(b, a)$ on $f^{-1}$, and swapping coordinates is 
 ```plot
 {"x": [-1, 8], "y": [-1, 8], "equal": true, "functions": [{"f": "sqrt(x - 2)", "from": 2, "to": 8, "label": "f(x) = √(x − 2)"}, {"f": "x^2 + 2", "from": 0, "to": 2.45, "dashed": true, "label": "f⁻¹(x) = x² + 2, x ≥ 0"}, {"f": "x", "from": -1, "to": 8, "color": "gray", "label": "y = x"}], "points": [{"at": [6, 2], "label": "(6, 2)"}, {"at": [2, 6], "label": "(2, 6)"}, {"at": [2, 0]}, {"at": [0, 2]}], "caption": "A function and its inverse are reflections of each other across y = x"}
 ```
+
+The picture below shows the reflection in detail. The dashed segment joining $(6, 2)$ and $(2, 6)$ crosses $y = x$ at a right angle, at its midpoint $(4, 4)$: that is what reflecting across a line means. The endpoint $(2, 0)$ of $f$ becomes the endpoint $(0, 2)$ of $f^{-1}$.
+
+![The graph of f(x) = √(x − 2), starting at (2, 0) and curving up to the right, and the graph of its inverse, x² + 2 for x ≥ 0, starting at (0, 2) and rising steeply. The dashed line y = x lies between them. The points (6, 2) on f and (2, 6) on the inverse are joined by a dashed segment that crosses y = x at a right angle.](images/a2-m1-inverse-mirror.svg)
 
 You can use this to sketch an inverse without a formula: reflect a few key points and connect them.
 

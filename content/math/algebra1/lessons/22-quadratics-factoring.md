@@ -35,6 +35,22 @@ This only works with 0 on one side. If $AB = 6$, nothing forces either factor to
 4. Solve each resulting equation.
 5. Check in the original equation.
 
+The flowchart shows the same steps, including the extra check that applications need.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a quadratic equation by factoring
+  accDescr: Write the equation in standard form with 0 on one side. Factor out any GCF, then factor the rest completely. Set each factor that contains x equal to 0 and solve each small equation. Check every solution in the original equation. In an application, also reject any solution that makes no sense in context, such as a negative width; otherwise report all the roots.
+  A["Write in standard form: ax² + bx + c = 0"] --> B["Factor out any GCF"]
+  B --> C["Factor the rest completely"]
+  C --> D["Set each factor that contains x equal to 0"]
+  D --> E["Solve each small equation"]
+  E --> F["Check in the original equation"]
+  F --> G{"Is it an application?"}
+  G -- yes --> H["Reject roots that make no sense, such as a negative width"]
+  G -- no --> I["Report all the roots"]
+```
+
 ### Example 1
 
 Solve $x^2 + 2x = 15$.
@@ -103,6 +119,10 @@ A rectangular garden is 3 m longer than it is wide, and its area is 70 m². Find
 2. Standard form: $w^2 + 3w - 70 = 0$.
 3. Factor: $(w + 10)(w - 7) = 0$, so $w = -10$ or $w = 7$.
 4. A width can't be negative, so $w = 7$ m and the length is 10 m.
+
+```shape
+{"polygons": [{"points": [[0, 0], [10, 0], [10, 7], [0, 7]]}], "segments": [{"from": [0, 0], "to": [10, 0], "label": "length w + 3 = 10 m"}, {"from": [0, 7], "to": [0, 0], "label": "width w = 7 m"}], "labels": [{"at": [5, 3.5], "text": "area 70 m²"}], "caption": "The garden: 7 m by 10 m, and 7 × 10 = 70"}
+```
 
 Applications often produce a root that makes no sense in context. Check each root against the situation, and say why you reject one.
 

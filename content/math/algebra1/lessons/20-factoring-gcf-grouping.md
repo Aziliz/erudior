@@ -26,6 +26,10 @@ For $12x^4y^2$, $18x^3y$ and $30x^2y^3$: the GCF of 12, 18, 30 is 6; the lowest 
 
 Factoring out the GCF is the distributive property in reverse: $ab + ac = a(b + c)$. Divide each term by the GCF to find what goes in the parentheses.
 
+As areas: a rectangle of area $6x^2 + 9x$ whose height is the GCF $3x$ must have width $2x + 3$, because $3x \cdot 2x = 6x^2$ and $3x \cdot 3 = 9x$. So $6x^2 + 9x = 3x(2x + 3)$.
+
+![A rectangle split into two parts with areas 6x squared and 9x. Its height is labeled 3x, and its width is split into 2x and 3.](images/alg-m5-gcf-area.svg)
+
 ### Example 1
 
 Factor $12x^4y^2 - 18x^3y + 30x^2y^3$.
@@ -71,6 +75,19 @@ Factor $6ab - 9a - 4b + 6$.
 3. Result: $(2b - 3)(3a - 2)$.
 
 If the binomials don't match after factoring each pair, try factoring a negative out of one pair, or regroup the terms in a different order. If no arrangement works, the polynomial may not factor by grouping.
+
+```mermaid
+flowchart TD
+  accTitle: The steps of factoring by grouping
+  accDescr: First factor out the GCF of all four terms. Split the terms into two pairs and factor the GCF out of each pair. If the two binomials match, factor out the common binomial, then check each factor and multiply back. If they do not match, factor a negative out of the second pair or regroup the terms in a different order, and factor each pair again.
+  A["Factor out the GCF of all four terms"] --> B["Split into two pairs"]
+  B --> C["Factor the GCF out of each pair"]
+  C --> D{"Do the binomials match?"}
+  D -- Yes --> E["Factor out the common binomial"]
+  E --> F["Factor further if possible, then multiply back to check"]
+  D -- No --> G["Factor a negative out of the second pair, or regroup"]
+  G --> C
+```
 
 ### Example 4
 

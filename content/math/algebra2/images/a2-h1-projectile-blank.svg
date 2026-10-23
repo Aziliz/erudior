@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" font-family="sans-serif" fill="#1c2833">
+<rect width="800" height="400" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a03c12"/></marker></defs>
+<rect x="20" y="320" width="760" height="22" fill="#dcf0e3"/>
+<line x1="20" y1="320" x2="780" y2="320" stroke="#1c2833" stroke-width="2"/>
+<polyline points="200.0,272.0 206.9,261.6 213.7,251.4 220.6,241.6 227.5,232.0 234.3,222.7 241.2,213.6 248.0,204.9 254.9,196.4 261.8,188.2 268.6,180.3 275.5,172.6 282.4,165.3 289.2,158.2 296.1,151.4 303.0,144.9 309.8,138.7 316.7,132.7 323.6,127.0 330.4,121.6 337.3,116.5 344.1,111.6 351.0,107.1 357.9,102.8 364.7,98.8 371.6,95.1 378.5,91.6 385.3,88.4 392.2,85.5 399.1,82.9 405.9,80.6 412.8,78.6 419.6,76.8 426.5,75.3 433.4,74.1 440.2,73.1 447.1,72.5 454.0,72.1 460.8,72.0 467.7,72.2 474.6,72.6 481.4,73.4 488.3,74.4 495.2,75.7 502.0,77.3 508.9,79.1 515.7,81.3 522.6,83.7 529.5,86.4 536.3,89.4 543.2,92.6 550.1,96.1 556.9,99.9 563.8,104.0 570.7,108.4 577.5,113.1 584.4,118.0 591.2,123.2 598.1,128.7 605.0,134.4 611.8,140.5 618.7,146.8 625.6,153.4 632.4,160.3 639.3,167.5 646.2,174.9 653.0,182.6 659.9,190.6 666.8,198.9 673.6,207.4 680.5,216.3 687.3,225.4 694.2,234.8 701.1,244.5 707.9,254.4 714.8,264.7 721.7,275.2 728.5,286.0 735.4,297.0 742.3,308.4 749.1,320.0" fill="none" stroke="#2c5e8f" stroke-width="3" stroke-dasharray="9 6"/>
+<rect x="160.0" y="272.0" width="40" height="48.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="200.0" y1="272.0" x2="265.4" y2="171.4" stroke="#a03c12" stroke-width="3.5" marker-end="url(#ar)"/>
+<line x1="200.0" y1="272.0" x2="350.0" y2="272.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M255.0,272.0 A55,55 0 0 0 230.0,225.9" fill="none" stroke="#1c2833" stroke-width="2"/>
+<circle cx="200.0" cy="272.0" r="7" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="140.0" y1="320" x2="140.0" y2="272.0" stroke="#1c2833" stroke-width="2" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<circle cx="459.79999999999995" cy="72.0" r="6" fill="#2c5e8f"/>
+<line x1="459.79999999999995" y1="320" x2="459.79999999999995" y2="80.0" stroke="#1c2833" stroke-width="2" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<circle cx="749.12" cy="320.0" r="7" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="200.0" y1="370" x2="749.12" y2="370" stroke="#1c2833" stroke-width="2" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="200.0" y1="348" x2="200.0" y2="380" stroke="#1c2833" stroke-width="1.2"/>
+<line x1="749.12" y1="348" x2="749.12" y2="380" stroke="#1c2833" stroke-width="1.2"/>
+</svg>

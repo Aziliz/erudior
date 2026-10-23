@@ -1,0 +1,30 @@
+# Round 2 glossary: alg-m2 honors lessons
+- term: critical value
+  aliases: [critical values]
+  definition: 'In solving an absolute value problem by cases, a value of $x$ that makes an expression inside the bars equal to 0. On either side of it the sign of that expression is fixed, so the bars can be removed.'
+  topic: Absolute value by cases
+- term: case analysis
+  aliases: [solving by cases]
+  definition: 'Splitting a problem into separate cases (for example, regions of the number line where each expression inside absolute value bars has a fixed sign), solving each case, and keeping only the answers that belong to their case.'
+  topic: Absolute value by cases
+- term: midpoint
+  aliases: [midpoint of an interval]
+  definition: 'The point halfway between two numbers $a$ and $b$: $\tfrac{a + b}{2}$. The interval from $a$ to $b$ is all numbers within the half-width of its midpoint.'
+  topic: Tolerance and error
+- term: half-width
+  definition: 'Half the length of an interval from $a$ to $b$: $\tfrac{b - a}{2}$. With midpoint $m$ and half-width $h$, $a \le x \le b$ is the same as $|x - m| \le h$.'
+  topic: Tolerance and error
+- term: tolerance
+  aliases: [tolerances]
+  definition: 'The largest allowed difference between an actual value and its nominal (target) value. A size of $25 \pm 0.03$ mm means $|d - 25| \le 0.03$. A percent tolerance is that percent of the nominal value.'
+  topic: Tolerance and error
+- term: absolute error
+  definition: 'The size of the difference between a measured or estimated value and the true value: $|\text{measured} - \text{true}|$.'
+  topic: Tolerance and error
+- term: relative error
+  aliases: [percent error]
+  definition: 'The absolute error divided by the size of the true value, $\tfrac{|\text{measured} - \text{true}|}{|\text{true}|}$, often written as a percent.'
+  topic: Tolerance and error
+- term: triangle inequality
+  definition: 'For all real numbers $a$ and $b$, $|a + b| \le |a| + |b|$, with equality exactly when $a$ and $b$ do not have opposite signs. In distance form, $|x - z| \le |x - y| + |y - z|$.'
+  topic: Tolerance and error

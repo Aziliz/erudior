@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" font-family="sans-serif" fill="#1c2833">
+<rect width="800" height="360" fill="#ffffff"/>
+<text x="200" y="34" font-size="24" text-anchor="middle" font-weight="bold">3x + 2 = 11</text>
+<line x1="200" y1="95" x2="200" y2="290" stroke="#1c2833" stroke-width="5"/>
+<path d="M155,300 L245,300 L200,270 Z" fill="#e8e2f3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="75" y1="95" x2="325" y2="95" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<circle cx="200" cy="95" r="7" fill="#1c2833"/>
+<line x1="100" y1="95" x2="20" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<line x1="100" y1="95" x2="180" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<path d="M15,220 L185,220 Q100,252 15,220 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="300" y1="95" x2="220" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<line x1="300" y1="95" x2="380" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<path d="M215,220 L385,220 Q300,252 215,220 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="29.0" y="184" width="34" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="46.0" y="208" font-size="22" font-style="italic" text-anchor="middle">x</text>
+<rect x="67.0" y="184" width="34" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="84.0" y="208" font-size="22" font-style="italic" text-anchor="middle">x</text>
+<rect x="105.0" y="184" width="34" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="122.0" y="208" font-size="22" font-style="italic" text-anchor="middle">x</text>
+<rect x="149.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="149.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="234.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="256.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="278.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="300.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="322.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="344.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="234.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="256.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="278.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="300.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="322.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="200" y="335" font-size="18" text-anchor="middle">Each small square weighs 1.</text>
+<line x1="400" y1="20" x2="400" y2="340" stroke="#1c2833" stroke-width="1" stroke-dasharray="6 6"/>
+<text x="600" y="34" font-size="24" text-anchor="middle" font-weight="bold">3x = 9</text>
+<line x1="600" y1="95" x2="600" y2="290" stroke="#1c2833" stroke-width="5"/>
+<path d="M555,300 L645,300 L600,270 Z" fill="#e8e2f3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="475" y1="95" x2="725" y2="95" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<circle cx="600" cy="95" r="7" fill="#1c2833"/>
+<line x1="500" y1="95" x2="420" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<line x1="500" y1="95" x2="580" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<path d="M415,220 L585,220 Q500,252 415,220 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="700" y1="95" x2="620" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<line x1="700" y1="95" x2="780" y2="220" stroke="#1c2833" stroke-width="1.8"/>
+<path d="M615,220 L785,220 Q700,252 615,220 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="443.0" y="184" width="34" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="460.0" y="208" font-size="22" font-style="italic" text-anchor="middle">x</text>
+<rect x="481.0" y="184" width="34" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="498.0" y="208" font-size="22" font-style="italic" text-anchor="middle">x</text>
+<rect x="519.0" y="184" width="34" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="536.0" y="208" font-size="22" font-style="italic" text-anchor="middle">x</text>
+<rect x="634.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="656.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="678.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="700.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="722.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="744.0" y="198" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="634.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="656.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="678.0" y="176" width="20" height="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="600" y="335" font-size="18" text-anchor="middle">Take 2 squares off each side: still level.</text>
+</svg>

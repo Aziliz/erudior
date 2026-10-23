@@ -57,6 +57,17 @@ A boxplot drawn this way is a **modified boxplot**. If you skip step 2 and run w
 to the min and max, it's a plain boxplot; most software and calculators draw the
 modified version.
 
+```mermaid
+flowchart TD
+  accTitle: Drawing a modified boxplot
+  accDescr: Sort the data and find the five-number summary. Compute the IQR as Q3 minus Q1. Compute the fences, Q1 minus 1.5 IQR and Q3 plus 1.5 IQR. Draw the box from Q1 to Q3 with a line at the median. Plot each value beyond a fence as a separate point. Draw each whisker to the most extreme value that is still inside the fences.
+  A["1. Sort; find min, Q1, median, Q3, max"] --> B["2. IQR = Q3 minus Q1"]
+  B --> C["3. Fences: Q1 minus 1.5 IQR and Q3 plus 1.5 IQR"]
+  C --> D["4. Box from Q1 to Q3, line at the median"]
+  D --> E["5. Plot values beyond a fence as separate points"]
+  E --> F["6. Whiskers to the most extreme values inside the fences"]
+```
+
 Using the delivery times from the last lesson (9, 11, 12, 13, 14, 15, 16, 18, 22, 30):
 five-number summary 9, 12, 14.5, 18, 30; IQR $= 6$; fences $12 - 9 = 3$ and
 $18 + 9 = 27$. The value 30 is above 27, so it is an outlier, and the right whisker stops
@@ -65,6 +76,11 @@ at 22, the largest non-outlier.
 ```plot
 {"x": [3.8, 36.2], "y": [-0.8, 2.1], "grid": false, "polygons": [{"points": [[12, 0.5], [18, 0.5], [18, 1.5], [12, 1.5]]}], "segments": [{"from": [14.5, 0.5], "to": [14.5, 1.5]}, {"from": [9, 1.0], "to": [12, 1.0]}, {"from": [18, 1.0], "to": [22, 1.0]}, {"from": [9, 0.75], "to": [9, 1.25]}, {"from": [22, 0.75], "to": [22, 1.25]}, {"from": [5, 0], "to": [35, 0]}, {"from": [5, 0], "to": [5, -0.12]}, {"from": [10, 0], "to": [10, -0.12]}, {"from": [15, 0], "to": [15, -0.12]}, {"from": [20, 0], "to": [20, -0.12]}, {"from": [25, 0], "to": [25, -0.12]}, {"from": [30, 0], "to": [30, -0.12]}, {"from": [35, 0], "to": [35, -0.12]}], "labels": [{"at": [5, -0.45], "text": "5"}, {"at": [10, -0.45], "text": "10"}, {"at": [15, -0.45], "text": "15"}, {"at": [20, -0.45], "text": "20"}, {"at": [25, -0.45], "text": "25"}, {"at": [30, -0.45], "text": "30"}, {"at": [35, -0.45], "text": "35"}], "points": [{"at": [30, 1.0], "open": true, "color": "#2c5e8f"}], "caption": "Modified boxplot of delivery times; 30 is an outlier"}
 ```
+
+The same boxplot with each part named. Notice that the right whisker stops at 22, an actual data
+value, not at the fence (27), and that nothing is drawn at the fences themselves.
+
+![The modified boxplot of the delivery times with labels: minimum (9) at the end of the left whisker, Q1 (12) at the left edge of the box, median (14.5) at the line inside the box, Q3 (18) at the right edge of the box, largest non-outlier (22) at the end of the right whisker, and outlier (30) as a separate open circle.](images/stat-m1-boxplot-parts.svg)
 
 ## Reading boxplots
 

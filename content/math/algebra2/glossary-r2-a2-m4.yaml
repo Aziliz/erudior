@@ -1,0 +1,41 @@
+# Round 2 glossary entries for module a2-m4 (honors lessons)
+- term: rational number
+  aliases: [rational numbers]
+  definition: 'A number that can be written as a fraction $\tfrac{a}{b}$ of integers with $b \ne 0$. Its decimal expansion either ends or repeats.'
+  topic: Irrational numbers
+- term: irrational number
+  aliases: [irrational numbers]
+  definition: 'A real number that is not rational, such as $\sqrt2$ or $\pi$. Its decimal expansion never ends and never repeats.'
+  topic: Irrational numbers
+- term: proof by contradiction
+  aliases: [proofs by contradiction]
+  definition: 'A proof that assumes the opposite of the statement, reasons correctly to something impossible, and concludes that the assumption was false.'
+  topic: Irrational numbers
+- term: Heron's method
+  aliases: [Heron’s method, Babylonian method]
+  definition: 'An approximation for $\sqrt n$: replace a guess $x$ by $\tfrac12\left(x + \tfrac{n}{x}\right)$ and repeat. Once a guess is close, the number of correct digits roughly doubles each step.'
+  topic: Approximating roots
+- term: Newton's method
+  aliases: [Newton’s method]
+  definition: 'A general method for solving equations by repeated improvement of a guess. For square roots it is Heron''s method; for cube roots it gives $x \to \tfrac13\left(2x + \tfrac{n}{x^2}\right)$.'
+  topic: Approximating roots
+- term: power function
+  aliases: [power functions]
+  definition: 'A function $f(x) = kx^p$ with constants $k$ and $p$, such as $x^2$, $x^{-1}$ or $x^{3/2}$.'
+  topic: Power functions
+- term: power law
+  aliases: [power laws]
+  definition: 'A relationship $y = kx^p$ between two quantities. Multiplying $x$ by $c$ multiplies $y$ by $c^p$.'
+  topic: Power laws
+- term: astronomical unit
+  aliases: [astronomical units, AU]
+  definition: 'A unit of distance equal to the average distance from Earth to the Sun, about 150 million km.'
+  topic: Power laws
+- term: square–cube law
+  aliases: [square-cube law]
+  definition: 'When every length of a solid is multiplied by $c$, its areas are multiplied by $c^2$ and its volume by $c^3$.'
+  topic: Power laws
+- term: Kleiber's law
+  aliases: [Kleiber’s law]
+  definition: 'The empirical rule that an animal''s resting metabolic rate grows roughly like its mass to the $\tfrac34$ power. The exact exponent is debated.'
+  topic: Power laws

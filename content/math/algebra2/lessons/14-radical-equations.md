@@ -16,6 +16,22 @@ A **radical equation** has the variable inside a radical, like $\sqrt{2x + 3} = 
 3. Solve the resulting equation.
 4. Check every candidate in the original equation and discard any that fail.
 
+When an equation has two radicals, the first squaring leaves one behind, so the first two steps repeat, as the loop in this chart shows.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a radical equation
+  accDescr: Isolate one radical, then raise both sides to the power that matches its index. If a radical is still left, go back and isolate it. When no radical is left, solve the resulting equation and check every candidate in the original equation. A candidate that makes a true statement is kept; one that does not is rejected as extraneous.
+  A["Isolate one radical"] --> B["Raise both sides to the index power"]
+  B --> C{"Is a radical still left?"}
+  C -- yes --> A
+  C -- no --> D["Solve the resulting equation"]
+  D --> E["Check each candidate in the original equation"]
+  E --> F{"True statement?"}
+  F -- yes --> G["Keep it"]
+  F -- no --> H["Reject it as extraneous"]
+```
+
 ### Example 1
 
 Solve $\sqrt{2x + 3} - 1 = 4$.
@@ -43,6 +59,10 @@ The only solution is $x = 2$. Notice that $x = -3$ solves $-\sqrt{x + 7} = x + 1
 ```plot
 {"x": [-8, 5], "y": [-4, 6], "functions": [{"f": "sqrt(x + 7)", "label": "y = √(x + 7)"}, {"f": "x + 1", "label": "y = x + 1", "dashed": true}], "points": [{"at": [2, 3], "label": "(2, 3)"}, {"at": [-3, -2], "open": true, "label": "x = -3 is not an intersection"}], "caption": "The graphs meet only at x = 2"}
 ```
+
+The next picture adds the graph of $y = -\sqrt{x + 7}$, the lower half of the same sideways parabola $y^2 = x + 7$. Squaring can't tell the two halves apart, so it finds every point where the line meets *either* half: the true solution on the upper half and the extraneous value on the lower half.
+
+![A coordinate grid with the upper half of a sideways parabola, y = √(x + 7), drawn solid, and the lower half, y = −√(x + 7), drawn dashed, both starting at (−7, 0). The line y = x + 1 crosses the solid upper half at (2, 3), marked as the solution, and the dashed lower half at (−3, −2), marked as extraneous.](images/a2-m4-extraneous.svg)
 
 A quick sign check can catch extraneous roots before you finish: a principal square root is never negative, so in $\sqrt{x + 7} = x + 1$ we need $x + 1 \ge 0$. That rules out $x = -3$ immediately.
 

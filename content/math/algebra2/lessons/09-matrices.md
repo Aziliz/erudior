@@ -25,6 +25,10 @@ $$\begin{cases} x + 2y - z = 4 \\ 3x - y = 5 \\ y + 4z = -2 \end{cases} \quad\lo
 
 Each row is one equation and each column left of the bar belongs to one variable. A missing variable gets a 0, as for $z$ in the second equation and $x$ in the third. The part left of the bar is the **coefficient matrix**.
 
+The picture labels the parts of this augmented matrix.
+
+![The augmented matrix of the system above, with columns headed x, y and z and a vertical bar before the last column. A brace under the first three columns is labeled coefficient matrix and a brace under the shaded last column, holding 4, 5 and −2, is labeled constants. The entry 2 in row 1 is shaded and keyed as the coefficient of y in equation 1, the 0 in row 2, column 3 is shaded and keyed as the 0 for the missing z, and an arrow marks row 2 as equation 2.](images/a2-m2-augmented.svg)
+
 ## Row operations
 
 Three moves change a system into an equivalent one (same solutions). On the matrix they are the **row operations**:
@@ -87,6 +91,19 @@ Row reduction reveals the special cases from the last lesson.
 The system $2x + 3y - z = 1$, $x - 2y + 3z = 13$, $3x + y + 2z = 16$ from the last lesson:
 $$\xrightarrow{R_1 \leftrightarrow R_2} \left[\begin{array}{ccc|c} 1 & -2 & 3 & 13 \\ 2 & 3 & -1 & 1 \\ 3 & 1 & 2 & 16 \end{array}\right] \xrightarrow[R_3 - 3R_1 \to R_3]{R_2 - 2R_1 \to R_2} \left[\begin{array}{ccc|c} 1 & -2 & 3 & 13 \\ 0 & 7 & -7 & -25 \\ 0 & 7 & -7 & -23 \end{array}\right] \xrightarrow{R_3 - R_2 \to R_3} \left[\begin{array}{ccc|c} 1 & -2 & 3 & 13 \\ 0 & 7 & -7 & -25 \\ 0 & 0 & 0 & 2 \end{array}\right]$$
 The last row reads $0 = 2$, so there is no solution.
+
+Once a matrix is in row echelon form, two questions settle which case you're in:
+
+```mermaid
+flowchart TD
+  accTitle: Reading the result of row reduction
+  accDescr: Row-reduce the augmented matrix to row echelon form. If some row reads all zeros, then a bar, then a nonzero number c, the system has no solution. Otherwise, if every variable column has a leading 1, there is exactly one solution, found by back-substitution or by going on to reduced row echelon form. If some variable column has no leading 1, there are infinitely many solutions.
+  A["Row-reduce the augmented matrix to row echelon form"] --> Q1{"Is there a row 0 0 … 0 | c with c ≠ 0?"}
+  Q1 -- yes --> N["No solution: the system is inconsistent"]
+  Q1 -- no --> Q2{"Does every variable column have a leading 1?"}
+  Q2 -- yes --> U["Exactly one solution: back-substitute or go on to RREF"]
+  Q2 -- no --> I["Infinitely many solutions"]
+```
 
 ## The inverse-matrix method (brief)
 

@@ -30,6 +30,11 @@ zero:
 
 $$\sum (x_i - \bar{x}) = \sum x_i - n\bar{x} = n\bar{x} - n\bar{x} = 0.$$
 
+The picture uses the nine ridership counts from Example 1 below. Two far-out values on the right
+move the balance point to 15, to the right of the median, 13.
+
+![Nine dots on a beam at 9, 9, 11, 12, 13, 14, 15, 22 and 30. The beam balances on a triangle at 15, labeled mean = 15 (balance point). A dashed line marks the median at 13, and a note says the tail (22, 30) pulls the balance point right.](images/stat-m1-balance.svg)
+
 The mean also has a "fair share" meaning: if the total were split equally among the
 $n$ individuals, each would get $\bar{x}$. That makes it easy to find a missing value
 from a known mean: the total must be $n\bar{x}$.
@@ -74,6 +79,28 @@ then average) is a compromise that is more resistant than the mean.
 
 ```plot
 {"x": [0, 10], "y": [-0.04, 0.27], "grid": false, "functions": [{"f": "x*exp(-x/1.6)/2.56"}], "segments": [{"from": [0, 0], "to": [10, 0]}, {"from": [2.69, 0], "to": [2.69, 0.196], "dashed": true}, {"from": [3.2, 0], "to": [3.2, 0.169], "dashed": true}], "labels": [{"at": [2.2, -0.025], "text": "median"}, {"at": [3.8, -0.025], "text": "mean"}], "caption": "In a right-skewed distribution the mean is pulled toward the tail"}
+```
+
+The mirror image shows left skew: the long tail is on the left, and the mean sits to the left of
+the median.
+
+```plot
+{"x": [0, 10], "y": [-0.04, 0.27], "grid": false, "functions": [{"f": "(10-x)*exp(-(10-x)/1.6)/2.56"}], "segments": [{"from": [0, 0], "to": [10, 0]}, {"from": [7.31, 0], "to": [7.31, 0.196], "dashed": true}, {"from": [6.8, 0], "to": [6.8, 0.169], "dashed": true}], "labels": [{"at": [7.8, -0.025], "text": "median"}, {"at": [6.2, -0.025], "text": "mean"}], "caption": "In a left-skewed distribution the mean is pulled toward the left tail"}
+```
+
+Putting the shape, the type of variable and the weights together gives a quick way to choose.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a measure of center
+  accDescr: For a categorical variable, the only measure of center is the mode. For a quantitative variable, look at the shape. If the distribution is roughly symmetric with no outliers, report the mean. If it is skewed or has outliers, report the median, which is resistant. If values carry different weights, such as credit hours, use the weighted mean.
+  A["Variable"] --> B{"Categorical?"}
+  B -- Yes --> M["Mode"]
+  B -- No --> W{"Do values carry different weights?"}
+  W -- Yes --> WM["Weighted mean"]
+  W -- No --> S{"Roughly symmetric, no outliers?"}
+  S -- Yes --> MN["Mean"]
+  S -- No --> MD["Median (resistant)"]
 ```
 
 ## The weighted mean and grouped data

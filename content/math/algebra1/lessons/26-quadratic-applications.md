@@ -25,6 +25,21 @@ A strategy for word problems:
 3. Find the vertex.
 4. Answer the question in context, with units.
 
+```mermaid
+flowchart TD
+  accTitle: Solving a quadratic optimization problem
+  accDescr: Name the quantity to maximize or minimize and write it as a function of one variable. Check the sign of a: if a is negative the vertex is a maximum, if a is positive it is a minimum. Find the input at the vertex, x = minus b over 2a. If the question asks where or when, answer with that input; if it asks how much, answer with the output f at that input. Include units.
+  A["Name the quantity to maximize or minimize"] --> B["Write it as a function of one variable"]
+  B --> C{"Sign of a"}
+  C -- "a negative" --> D["Maximum at the vertex"]
+  C -- "a positive" --> E["Minimum at the vertex"]
+  D --> F["Find x = −b/(2a)"]
+  E --> F
+  F --> G{"What does the question ask?"}
+  G -- "where or when" --> H["Answer with x, with units"]
+  G -- "how much" --> I["Answer with f(x), with units"]
+```
+
 ## Projectile motion
 
 An object thrown straight up (or launched) near Earth's surface, ignoring air resistance, has height
@@ -62,6 +77,12 @@ A farmer has 240 m of fencing to enclose a rectangular field along a river. No f
 2. Area: $A(x) = x(240 - 2x) = -2x^2 + 240x$.
 3. $a = -2 < 0$, so there's a maximum at $x = -\dfrac{240}{2(-2)} = 60$.
 4. Dimensions: 60 m by $240 - 120 = 120$ m. Maximum area: $60 \times 120 = 7{,}200$ m².
+
+Graphing the area function shows why the vertex is the answer: the area rises, peaks at $x = 60$, and falls back to 0 when $x = 120$ (all the fence is used on the two short sides).
+
+```plot
+{"x": [-10, 130], "y": [-500, 8000], "functions": [{"f": "-2*x^2 + 240*x", "label": "A(x) = -2x² + 240x", "from": 0, "to": 120}], "points": [{"at": [60, 7200], "label": "max (60, 7200)"}, {"at": [0, 0]}, {"at": [120, 0]}], "xLabel": "x (m)", "yLabel": "area (m²)", "caption": "Area against the length x of each side perpendicular to the river"}
+```
 
 Without the river, with fencing on all four sides, the same reasoning gives a square. The river lets the long side be twice the short side.
 

@@ -33,6 +33,8 @@ The pattern is called the shape of the distribution:
 
 The direction of skew is the direction of the tail, not of the big clump.
 
+![Three histograms side by side. The left one has a long tail to the left and is labeled skewed left, mean less than median. The middle one is a symmetric mound labeled symmetric, mean about equal to median. The right one has a long tail to the right and is labeled skewed right, mean greater than median.](images/a1-m8-shapes.svg)
+
 ## Center: mean and median
 
 The **mean** is the ordinary average: add the values and divide by how many there are. It's written $\bar x$ ("x-bar"):
@@ -86,6 +88,10 @@ Eleven students' commute times, in minutes: 5, 8, 10, 12, 12, 15, 18, 20, 22, 25
 {"type": "shape", "x": [-2.1, 72.1], "y": [-8.4, 25.2], "segments": [{"from": [0, 0], "to": [70, 0]}, {"from": [0, 0], "to": [0, -1.68]}, {"from": [10, 0], "to": [10, -1.68]}, {"from": [20, 0], "to": [20, -1.68]}, {"from": [30, 0], "to": [30, -1.68]}, {"from": [40, 0], "to": [40, -1.68]}, {"from": [50, 0], "to": [50, -1.68]}, {"from": [60, 0], "to": [60, -1.68]}, {"from": [70, 0], "to": [70, -1.68]}, {"from": [15, 8.4], "to": [15, 19.6]}, {"from": [5, 14.0], "to": [10, 14.0]}, {"from": [22, 14.0], "to": [25, 14.0]}, {"from": [5, 11.2], "to": [5, 16.8]}, {"from": [25, 11.2], "to": [25, 16.8]}], "polygons": [{"points": [[10, 8.4], [22, 8.4], [22, 19.6], [10, 19.6]]}], "labels": [{"at": [0, -5.04], "text": "0"}, {"at": [10, -5.04], "text": "10"}, {"at": [20, -5.04], "text": "20"}, {"at": [30, -5.04], "text": "30"}, {"at": [40, -5.04], "text": "40"}, {"at": [50, -5.04], "text": "50"}, {"at": [60, -5.04], "text": "60"}, {"at": [70, -5.04], "text": "70"}], "points": [{"at": [60, 14.0], "open": true}], "caption": "Commute times (minutes): box from Q1 = 10 to Q3 = 22, median 15; the whisker stops at 25 and the outlier 60 is a separate dot"}
 ```
 
+The same box plot again, with every part named, including the upper fence at 40 that decides which values count as outliers:
+
+![The commute-time box plot with its parts named: the minimum 5 at the end of the left whisker, the box from Q1 = 10 to Q3 = 22 with the median line at 15, an IQR bracket of 12 above the box, the right whisker ending at 25, a dashed upper fence at 22 + 1.5(12) = 40, and the outlier 60 drawn as a separate open dot.](images/a1-m8-boxplot.svg)
+
 The lesson: the median and IQR are **resistant**, meaning a few extreme values hardly change them. The mean (and the standard deviation, below) are not.
 
 ## Standard deviation
@@ -118,6 +124,19 @@ So these values are typically about 3.4 away from the mean of 8. (The sample ver
 
 - Roughly symmetric, no outliers: report the mean and standard deviation.
 - Skewed, or with outliers: report the median and IQR.
+
+Whichever pair you report, describe the shape too and name any outliers:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing summaries for one-variable data
+  accDescr: First graph the data. If the distribution is roughly symmetric with no outliers, report the mean for center and the standard deviation for spread. If it is skewed or has outliers, report the median for center and the IQR for spread. Either way, describe the shape and name any outliers.
+  A[Graph the data: dot plot, histogram or box plot] --> B{"Roughly symmetric, with no outliers?"}
+  B -- yes --> C[Center: mean. Spread: standard deviation]
+  B -- "no: skewed or outliers" --> D[Center: median. Spread: IQR]
+  C --> E[Describe the shape and name any outliers]
+  D --> E
+```
 
 ### Example 3
 

@@ -23,6 +23,21 @@ The conditions must not overlap. If $x = 4$ were allowed in both the second and 
 
 To find $f(a)$, first decide which condition $a$ satisfies, then use that piece's formula and no other. The boundary values, where one condition ends and the next begins, need the most care: look at whether each inequality is strict ($<$) or includes the endpoint ($\le$).
 
+The procedure is a loop through the conditions, shown in this chart. If an input satisfies none of them, it isn't in the domain.
+
+```mermaid
+flowchart TD
+  accTitle: Evaluating a piecewise function at an input a
+  accDescr: Take the input a and look at the first piece's condition. If a satisfies it, substitute a into that piece's formula only, and the result is f(a). If not, ask whether there is another piece. If there is, move to the next piece and check its condition, paying attention at boundaries to whether the inequality is strict or includes the endpoint. If there are no more pieces, a is not in the domain.
+  A["Input a"] --> B{"Does a satisfy this piece's condition? Check < versus ≤ at boundaries"}
+  B -- yes --> C["Substitute a into this piece's formula only"]
+  C --> D["The result is f(a)"]
+  B -- no --> E{"Is there another piece?"}
+  E -- yes --> F["Move to the next piece"]
+  F --> B
+  E -- no --> G["a is not in the domain"]
+```
+
 ### Example 1
 
 For the function $f$ above, find $f(-3)$, $f(1)$, $f(2.5)$ and $f(4)$.

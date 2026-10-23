@@ -31,6 +31,24 @@ Find the domain of $h(x) = \dfrac{1}{\sqrt{x + 4}}$.
 
 The square root needs $x + 4 \ge 0$, and it's in the denominator so it also can't be 0. Together, $x + 4 > 0$, so $x > -4$. Domain: $(-4, \infty)$.
 
+The checks always come in the same order, summed up in this chart. (The last question, about the situation, is the subject of "Domain from context" below.)
+
+```mermaid
+flowchart TD
+  accTitle: Finding the domain of a function from its formula
+  accDescr: Start with the formula. If a variable appears in a denominator, exclude the inputs that make the denominator 0. If there is an even root such as a square root, require the radicand to be at least 0, or strictly positive if the root is in a denominator. If the situation limits the inputs, keep only the inputs that make sense. Finally, state the domain in interval notation.
+  A["Start with the formula"] --> B{"A variable in a denominator?"}
+  B -- yes --> C["Exclude inputs that make the denominator 0"]
+  B -- no --> D{"An even root, such as a square root?"}
+  C --> D
+  D -- yes --> E["Require radicand ≥ 0 (strictly positive if the root is in a denominator)"]
+  D -- no --> F{"Does the situation limit the inputs?"}
+  E --> F
+  F -- yes --> G["Keep only inputs that make sense"]
+  F -- no --> H["State the domain in interval notation"]
+  G --> H
+```
+
 ## Domain and range from a graph
 
 On a graph, the domain is the set of $x$-values the graph covers, which you see by squashing the graph flat onto the $x$-axis. The range is the set of $y$-values it covers, seen by squashing it onto the $y$-axis. Solid dots mean an endpoint is included, open dots mean it isn't, and arrows mean the graph continues forever.
@@ -43,6 +61,10 @@ The graph above is $f(x) = -(x - 1)^2 + 4$ restricted to $-2 \le x < 4$, with a 
 
 - Domain: the $x$-values run from $-2$ (included) to 4 (not included): $[-2, 4)$.
 - Range: the highest point is the vertex at height 4. The lowest height reached is $-5$, at the included left endpoint. So the range is $[-5, 4]$. Note that the open dot at the right doesn't matter for the range, because the height $-5$ is already reached at $x = -2$.
+
+The picture below shows the "squashing" for the same graph. Dashed lines carry each key point straight down (or up) to the $x$-axis and straight across to the $y$-axis. The blue band on the $x$-axis is the domain, with an open end at 4. The pink band on the $y$-axis is the range, closed at both ends.
+
+![The graph of f(x) = −(x − 1)² + 4 from a closed dot at (−2, −5) to an open dot at (4, −5), with its vertex at (1, 4). A blue band on the x-axis runs from −2 (closed) to 4 (open), labeled domain [−2, 4). A pink band on the y-axis runs from −5 to 4, labeled range [−5, 4].](images/alg-m3-domain-range.svg)
 
 ## Key features of a graph
 

@@ -62,6 +62,23 @@ Here's the picture. Start with an $x$ by $x$ square and split the $10x$ into two
 3. Write the left side as $\left(x + \tfrac{b}{2}\right)^2$.
 4. Use the square root property and solve.
 
+The flowchart adds the first check (is the $x^2$ coefficient 1?) and the last one (a negative right side means no real solution).
+
+```mermaid
+flowchart TD
+  accTitle: Steps for completing the square
+  accDescr: If the coefficient of x squared is not 1, first divide every term by it. Move the constant term to the right side. Add the square of half the x coefficient, (b/2) squared, to both sides. Write the left side as (x + b/2) squared. If the right side is negative there is no real solution; otherwise take plus or minus the square root of both sides and solve for x.
+  A{"Is the x² coefficient 1?"} -- no --> B["Divide every term by a"]
+  A -- yes --> C["Move the constant to the right side"]
+  B --> C
+  C --> D["Add (b/2)² to both sides"]
+  D --> E["Write the left side as (x + b/2)²"]
+  E --> F{"Is the right side negative?"}
+  F -- yes --> G["No real solution"]
+  F -- no --> H["Take ± square roots of both sides"]
+  H --> I["Solve for x"]
+```
+
 ### Example 3
 
 Solve $x^2 + 6x - 2 = 0$ by completing the square.
@@ -70,6 +87,10 @@ Solve $x^2 + 6x - 2 = 0$ by completing the square.
 2. Half of 6 is 3; $3^2 = 9$. Add 9 to both sides: $x^2 + 6x + 9 = 11$.
 3. $(x + 3)^2 = 11$.
 4. $x + 3 = \pm\sqrt{11}$, so $x = -3 \pm \sqrt{11}$ (about $0.317$ and $-6.317$).
+
+The area picture for step 2: $x^2 + 6x$ is an $x$ by $x$ square plus two 3 by $x$ strips, and the 9 added to both sides fills the corner, making a square of side $x + 3$.
+
+![An x by x square with a 3 by x strip on its right and another below it; a 3 by 3 corner square of area 9 completes a big square whose side is x + 3. The caption reads x² + 6x + 9 = (x + 3)².](images/alg-m6-area-model.svg)
 
 ### When the leading coefficient isn't 1
 

@@ -53,6 +53,12 @@ The quantity under the root, $b^2 - 4ac$, is the **discriminant**. Its sign tell
 | $b^2 - 4ac = 0$ | one real **double root** | touches the $x$-axis at the vertex |
 | $b^2 - 4ac < 0$ | two non-real complex solutions, conjugates of each other | never meets the $x$-axis |
 
+The graph shows all three cases with the same $a = 1$ and $b = -2$; only $c$ changes, which slides the parabola up and down.
+
+```plot
+{"x": [-3, 5], "y": [-5, 8], "functions": [{"f": "x^2 - 2*x - 3", "label": "x² − 2x − 3: D = 16"}, {"f": "x^2 - 2*x + 1", "label": "x² − 2x + 1: D = 0", "dashed": true}, {"f": "x^2 - 2*x + 3", "label": "x² − 2x + 3: D = −8"}], "points": [{"at": [-1, 0], "label": "−1"}, {"at": [3, 0], "label": "3"}, {"at": [1, 0], "label": "double root 1"}], "caption": "D > 0: two x-intercepts; D = 0: the vertex touches the axis; D < 0: no x-intercepts, so the zeros 1 ± i√2 are complex"}
+```
+
 So "no real solution" never means "no solution" anymore. Every quadratic equation has exactly two solutions in the complex numbers, if a double root is counted twice.
 
 When the discriminant is negative, write $\sqrt{b^2 - 4ac} = i\sqrt{4ac - b^2}$, simplify the radical, and then divide *both* terms of the numerator by $2a$ to get the form $p \pm qi$.
@@ -112,6 +118,27 @@ A quadratic has real coefficients, leading coefficient 2, and one root $3 - i\sq
 
 1. The other root is the conjugate, $3 + i\sqrt2$. So $p = 3$, $q = \sqrt2$, $q^2 = 2$.
 2. $2\left[(x - 3)^2 + 2\right] = 2(x^2 - 6x + 11) = 2x^2 - 12x + 22$.
+
+## Choosing a method
+
+Every method in this lesson gives the same solutions, but some are much quicker for a given equation. The chart is a rule of thumb, not a law: the quadratic formula always works, so it's the safe choice whenever you're unsure.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a quadratic equation
+  accDescr: To solve ax² + bx + c = 0, first ask whether it is already a squared expression plus a constant, or has no x term; if so, isolate the square and take plus or minus square roots. If not, ask whether it factors easily over the integers; if so, factor and use the zero product property. If not, and a = 1 with b even, complete the square; otherwise use the quadratic formula. Whatever the method, check the answers with the sum −b/a and the product c/a.
+  S["Solve ax² + bx + c = 0"] --> Q1{"In the form a(x − h)² + k = 0, or no x term?"}
+  Q1 -- yes --> R1["Isolate the square, take ± square roots"]
+  Q1 -- no --> Q2{"Factors easily over the integers?"}
+  Q2 -- yes --> R2["Factor, use the zero product property"]
+  Q2 -- no --> Q3{"a = 1 and b even?"}
+  Q3 -- yes --> R3["Complete the square"]
+  Q3 -- no --> R4["Quadratic formula"]
+  R1 --> C["Check: roots add to −b/a and multiply to c/a"]
+  R2 --> C
+  R3 --> C
+  R4 --> C
+```
 
 ## Common mistakes
 

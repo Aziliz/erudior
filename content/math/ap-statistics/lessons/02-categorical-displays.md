@@ -61,7 +61,11 @@ to the category's share of the whole:
 
 $$\text{angle} = \text{relative frequency} \times 360^\circ$$
 
-For the walkers, $0.38 \times 360^\circ = 136.8^\circ$. Pie charts only make sense when
+For the walkers, $0.38 \times 360^\circ = 136.8^\circ$. The full pie chart of the 400 riders, with every angle worked out, is below.
+
+![Pie chart of arrival mode for 400 riders: Walk 38 percent (136.8 degrees), Bus 24 percent (86.4 degrees), Car 22 percent (79.2 degrees), Bike 16 percent (57.6 degrees); the angles add to 360 degrees.](images/stat-m1-pie-chart.svg)
+
+ Pie charts only make sense when
 the categories are parts of one whole — every individual in exactly one slice, slices
 adding to 100%. If respondents could pick several modes, the percentages would add to
 more than 100% and a pie chart would be wrong (a bar chart still works).
@@ -77,6 +81,29 @@ for weekday riders versus weekend riders — use relative frequencies within eac
 (group sizes usually differ). A **side-by-side bar chart** puts each group's bars next to
 each other; a **segmented bar chart** (stacked to 100%) draws one bar per group divided
 into pieces for each category. These ideas return in the two-way tables lesson.
+
+Suppose 300 of the 400 riders came on weekdays and 100 on weekends. The weekday counts were walk 120,
+bus 84, car 54, bike 42; the weekend counts were walk 32, bus 12, car 34, bike 22. Raw counts would make
+every weekday bar taller simply because there are three times as many weekday riders, so each bar below
+is scaled to 100% of its own group. The picture shows at once that weekend riders drive and bike more
+and take the bus much less.
+
+![Segmented bar chart, each bar stacked to 100 percent. Weekday riders (n = 300): walk 40 percent, bus 28 percent, car 18 percent, bike 14 percent. Weekend riders (n = 100): walk 32 percent, bus 12 percent, car 34 percent, bike 22 percent.](images/stat-m1-segmented-bar.svg)
+
+The flowchart summarizes which display to choose.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a display for categorical data
+  accDescr: If you are comparing a categorical variable across two or more groups, use relative frequencies within each group in a side-by-side or segmented bar chart. If there is one group, ask whether every individual falls in exactly one category so the parts make a whole. If not, for example when people can choose several answers, use a bar chart. If they do, a bar chart works and a pie chart is also possible; prefer the bar chart when categories have similar sizes.
+  A["Categorical data"] --> B{"Comparing two or more groups?"}
+  B -- Yes --> C["Side-by-side or segmented bar chart of relative frequencies"]
+  B -- No --> D{"Is each individual in exactly one category?"}
+  D -- No --> E["Bar chart only"]
+  D -- Yes --> F{"Are some categories close in size?"}
+  F -- Yes --> G["Bar chart (easier to compare)"]
+  F -- No --> H["Bar chart or pie chart"]
+```
 
 ## Misleading graphs
 

@@ -30,6 +30,10 @@ $$26 \cdot 26 \cdot 26 \cdot 10 \cdot 10 \cdot 10 \cdot 10 = 26^3 \cdot 10^4 = 1
 2. With no repeated letters, the first letter has 26 options, the second only 25 (any letter but the first), the third 24:
 $$26 \cdot 25 \cdot 24 \cdot 10^4 = 156{,}000{,}000.$$
 
+The picture shows the seven slots for both versions. Write the number of options in each slot, then multiply across.
+
+![Two rows of seven boxes. In the first row, labeled repeats allowed, the three letter boxes each hold 26 and the four digit boxes each hold 10; their product is 175,760,000 plates. In the second row, labeled no letter used twice, the letter boxes hold 26, 25 and 24 and the digit boxes still hold 10; their product is 156,000,000 plates.](images/a2-m8-plate-slots.svg)
+
 ## Factorials
 
 How many ways can 5 books be lined up on a shelf? The first spot has 5 choices, the next 4, then 3, 2 and 1, so there are $5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 120$ orders. Products like this come up so often that they get a name. The **factorial** of a whole number $n$ is
@@ -112,6 +116,20 @@ The hardest part is usually deciding which tool to use. Ask: if I rearranged the
 | Several independent stages (plate letters then digits, a junior group then a senior group) | Each stage separately | Multiply the stage counts |
 
 If repetition is allowed (a PIN can be 4-4-1-4), use the counting principle directly: $10^4$, not $_{10}P_4$.
+
+The flowchart below puts these questions in order. For a problem with several stages, run each stage through it separately and multiply the results.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a counting method
+  accDescr: First ask whether rearranging the chosen items gives a different outcome. If not, order does not matter, so use combinations, n C r. If it does, ask whether an item can be used more than once. If repeats are allowed, use the counting principle and multiply the options in each slot, as in 10 to the 4th for a 4-digit PIN. If repeats are not allowed, ask whether you are arranging all of the items with some of them identical. If so, divide n factorial by the factorial of each group of identical items. Otherwise use permutations, n P r.
+  A["Does rearranging the chosen items give a new outcome?"] -- no --> C["Combination: nCr"]
+  A -- yes --> B["Can an item be used more than once?"]
+  B -- yes --> R["Counting principle: multiply the options in each slot"]
+  B -- no --> D["Arranging all n items, some identical?"]
+  D -- yes --> I["n! divided by the factorial of each group of identical items"]
+  D -- no --> P["Permutation: nPr"]
+```
 
 ## Common mistakes
 

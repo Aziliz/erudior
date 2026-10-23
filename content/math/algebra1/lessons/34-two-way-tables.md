@@ -25,6 +25,8 @@ Suppose 200 students at a school are asked whether they prefer online or in-pers
 - The row and column totals in the margins are **marginal frequencies**: 120 students are 9th graders, 84 prefer online.
 - The bottom-right number is the grand total, 200. Both the row totals and the column totals add up to it, which is a handy check.
 
+![The two-way table of 200 students with its parts shaded. The four inner cells 36, 84, 48 and 32 are joint frequencies; the row totals 120 and 80 and the column totals 84 and 116 are marginal frequencies; 200 in the bottom-right corner is the grand total.](images/a1-m8-two-way.svg)
+
 ## Relative frequencies
 
 A count on its own is hard to interpret: is 48 a lot? A **relative frequency** divides a count by a total, giving a fraction or percent. Which total you divide by is the whole skill, and it depends on the question.
@@ -34,6 +36,19 @@ A count on its own is hard to interpret: is 48 a lot? A **relative frequency** d
 **Marginal relative frequency**: a row or column total divided by the grand total. "What percent of all students prefer online?" $\tfrac{84}{200} = 42\%$.
 
 **Conditional relative frequency**: a cell divided by its own row or column total. It answers a question that starts with a restriction, "among the students who…", so you divide by the size of that group. "Among 9th graders, what percent prefer online?" $\tfrac{36}{120} = 30\%$.
+
+To decide which total goes in the denominator, ask the questions in this chart in order:
+
+```mermaid
+flowchart TD
+  accTitle: Which total goes in the denominator
+  accDescr: Read the question. If it restricts to a group, with words like of the or among, divide the cell by that group's row or column total; this is a conditional relative frequency. If it does not restrict to a group and asks about one variable only, divide that row or column total by the grand total; this is a marginal relative frequency. If it asks about both variables at once, divide the cell by the grand total; this is a joint relative frequency.
+  A[Read the question] --> B{"Restricted to one group? (of the..., among...)"}
+  B -- yes --> C[Conditional: cell divided by that group's total]
+  B -- no --> D{About one variable only?}
+  D -- yes --> E[Marginal: row or column total divided by grand total]
+  D -- "no, both variables" --> F[Joint: cell divided by grand total]
+```
 
 Dividing every cell by the grand total gives a table of joint and marginal relative frequencies:
 
@@ -49,6 +64,10 @@ Dividing each cell by its *row* total instead gives the conditional relative fre
 |---|---|---|---|
 | 9th grade | 30% | 70% | 100% |
 | 12th grade | 60% | 40% | 100% |
+
+A segmented bar chart draws these row percents: one bar per grade, each the full height of 100%, split into the two preferences. Unequal splits are easy to see at a glance.
+
+![A segmented bar chart with one bar for each grade, each 100 percent tall. The 9th grade bar is 30 percent online and 70 percent in person; the 12th grade bar is 60 percent online and 40 percent in person.](images/a1-m8-segmented.svg)
 
 ## Association
 

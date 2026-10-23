@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" font-family="sans-serif" fill="#1c2833">
+<rect width="800" height="440" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#1c2833"/></marker></defs>
+<text x="400" y="182" font-size="18" text-anchor="middle">remainders</text>
+<text x="400" y="206" font-size="18" text-anchor="middle">when dividing by 7</text>
+<line x1="429.4" y1="67.0" x2="490.1" y2="102.0" stroke="#1c2833" stroke-width="2.2" marker-end="url(#ah)"/>
+<circle cx="475.6" cy="59.0" r="17" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="475.6" y="66.0" font-size="20" text-anchor="middle" font-weight="bold">1</text>
+<line x1="521.2" y1="154.0" x2="521.2" y2="224.0" stroke="#1c2833" stroke-width="2.2" marker-end="url(#ah)"/>
+<circle cx="551.2" cy="190.0" r="17" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="551.2" y="197.0" font-size="20" text-anchor="middle" font-weight="bold">4</text>
+<line x1="491.8" y1="277.0" x2="431.2" y2="312.0" stroke="#1c2833" stroke-width="2.2" marker-end="url(#ah)"/>
+<circle cx="475.6" cy="321.0" r="17" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="475.6" y="328.0" font-size="20" text-anchor="middle" font-weight="bold">2</text>
+<line x1="370.6" y1="313.0" x2="309.9" y2="278.0" stroke="#1c2833" stroke-width="2.2" marker-end="url(#ah)"/>
+<circle cx="324.4" cy="321.0" r="17" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="324.4" y="328.0" font-size="20" text-anchor="middle" font-weight="bold">8</text>
+<line x1="278.8" y1="226.0" x2="278.8" y2="156.0" stroke="#1c2833" stroke-width="2.2" marker-end="url(#ah)"/>
+<circle cx="248.8" cy="190.0" r="17" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="248.8" y="197.0" font-size="20" text-anchor="middle" font-weight="bold">5</text>
+<line x1="308.2" y1="103.0" x2="368.8" y2="68.0" stroke="#1c2833" stroke-width="2.2" marker-end="url(#ah)"/>
+<circle cx="324.4" cy="59.0" r="17" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="324.4" y="66.0" font-size="20" text-anchor="middle" font-weight="bold">7</text>
+<circle cx="400.0" cy="50.0" r="30" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="400.0" y="58.0" font-size="24" text-anchor="middle">1</text>
+<circle cx="521.2" cy="120.0" r="30" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="521.2" y="128.0" font-size="24" text-anchor="middle">3</text>
+<circle cx="521.2" cy="260.0" r="30" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="521.2" y="268.0" font-size="24" text-anchor="middle">2</text>
+<circle cx="400.0" cy="330.0" r="30" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="400.0" y="338.0" font-size="24" text-anchor="middle">6</text>
+<circle cx="278.8" cy="260.0" r="30" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="278.8" y="268.0" font-size="24" text-anchor="middle">4</text>
+<circle cx="278.8" cy="120.0" r="30" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="278.8" y="128.0" font-size="24" text-anchor="middle">5</text>
+<circle cx="40" cy="22" r="11" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/><text x="58" y="28" font-size="16">remainder</text>
+<circle cx="160" cy="22" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/><text x="178" y="28" font-size="16">digit written at that step</text>
+<text x="400" y="400" font-size="24" text-anchor="middle">1/7 = 0.142857 142857 142857 …</text>
+<text x="400" y="428" font-size="17" text-anchor="middle">Remainder 1 comes back after 6 steps, so the block 142857 repeats forever.</text>
+</svg>

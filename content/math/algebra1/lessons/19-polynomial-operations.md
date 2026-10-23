@@ -17,6 +17,8 @@ The **degree** of a term is the sum of its variables' exponents ($5x^2y$ has deg
 
 For $-2x^3 + 4x^5 - x + 9$, standard form is $4x^5 - 2x^3 - x + 9$: degree 5, leading coefficient 4, constant term 9.
 
+![The polynomial 4x to the 5th minus 2x cubed minus x plus 9 with its parts labeled: 4x to the 5th is the leading term, 4 is the leading coefficient, the exponent 5 is the degree of the polynomial, and 9 is the constant term.](images/alg-m5-poly-parts.svg)
+
 Expressions like $\tfrac{1}{x}$ (a negative exponent) or $\sqrt{x}$ (a fractional exponent) are not polynomials.
 
 Degree names: degree 0 is constant, 1 linear, 2 quadratic, 3 cubic, 4 quartic.
@@ -54,6 +56,12 @@ Multiply $(x - 2)(x^2 + 3x - 4)$.
 1. Multiply $x$ by each term: $x^3 + 3x^2 - 4x$.
 2. Multiply $-2$ by each term: $-2x^2 - 6x + 8$.
 3. Add: $x^3 + (3 - 2)x^2 + (-4 - 6)x + 8 = x^3 + x^2 - 10x + 8$.
+
+The same product in a grid: the two terms of $x - 2$ label the rows and the three terms of $x^2 + 3x - 4$ label the columns. Like terms sit on diagonals, which makes them easy to find.
+
+```shape
+{"polygons": [{"points": [[0, 0], [9, 0], [9, 4], [0, 4]]}], "segments": [{"from": [3, 0], "to": [3, 4]}, {"from": [6, 0], "to": [6, 4]}, {"from": [0, 2], "to": [9, 2]}], "labels": [{"at": [1.5, 4.5], "text": "x²"}, {"at": [4.5, 4.5], "text": "+3x"}, {"at": [7.5, 4.5], "text": "-4"}, {"at": [-0.7, 3], "text": "x"}, {"at": [-0.7, 1], "text": "-2"}, {"at": [1.5, 3], "text": "x³"}, {"at": [4.5, 3], "text": "3x²"}, {"at": [7.5, 3], "text": "-4x"}, {"at": [1.5, 1], "text": "-2x²"}, {"at": [4.5, 1], "text": "-6x"}, {"at": [7.5, 1], "text": "8"}], "caption": "Grid for (x - 2)(x² + 3x - 4): 3x² and -2x² combine, -4x and -6x combine, giving x³ + x² - 10x + 8"}
+```
 
 A degree-1 polynomial times a degree-2 polynomial has degree 3: degrees add when you multiply, because the leading terms multiply.
 
@@ -93,6 +101,20 @@ The most common error in algebra may be writing $(3x - 4)^2 = 9x^2 + 16$ (or $9x
 Use a special product to compute $49 \times 51$ mentally.
 
 $49 \times 51 = (50 - 1)(50 + 1) = 50^2 - 1^2 = 2500 - 1 = 2499$.
+
+Before multiplying, check whether a special product applies. It saves work and avoids missed terms:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a way to multiply polynomials
+  accDescr: First ask whether the product is a binomial squared. If yes, use a squared plus or minus 2ab plus b squared. If not, ask whether it is a sum times the matching difference. If yes, use a squared minus b squared. If not, ask whether it is two binomials. If yes, use FOIL and combine like terms. Otherwise, multiply every term by every term, distributing or using a grid, and combine like terms.
+  A{"A binomial squared?"} -- Yes --> B["a² ± 2ab + b²"]
+  A -- No --> C{"A sum times the matching difference?"}
+  C -- Yes --> D["a² − b²"]
+  C -- No --> E{"Two binomials?"}
+  E -- Yes --> F["FOIL, then combine like terms"]
+  E -- No --> G["Every term times every term (distribute or grid), then combine"]
+```
 
 ## Common mistakes
 

@@ -40,6 +40,20 @@ List the possible rational zeros of $f(x) = 2x^3 + x^2 - 13x + 6$.
 3. Use the quotient, the **depressed polynomial**, for the remaining zeros.
 4. When the quotient is quadratic, factor it or use the quadratic formula.
 
+For higher degrees, the loop repeats until a quadratic is left:
+
+```mermaid
+flowchart TD
+  accTitle: Strategy for finding all zeros of a polynomial
+  accDescr: List the possible rational zeros, plus or minus p over q. Test candidates by synthetic division until one leaves remainder 0. Divide it out to get the depressed polynomial. If the depressed polynomial has degree 3 or more, go back and test candidates on it. When it is quadratic, solve it by factoring or the quadratic formula. Finally, list all n zeros, real and non-real, counting multiplicity.
+  A["List the candidates ±p/q"] --> B["Test candidates until one leaves remainder 0"]
+  B --> C["Divide it out: the depressed polynomial"]
+  C --> D{"Is the depressed polynomial quadratic?"}
+  D -- "no, degree 3 or more" --> B
+  D -- yes --> E["Factor it or use the quadratic formula"]
+  E --> F["List all n zeros, counting multiplicity"]
+```
+
 ### Example 2
 
 Find all zeros of $f(x) = 2x^3 + x^2 - 13x + 6$.
@@ -72,6 +86,18 @@ The **Fundamental Theorem of Algebra** states that every polynomial of degree $n
 > A polynomial of degree $n$ has exactly $n$ complex zeros, counting multiplicity, and factors into $n$ linear factors over the complex numbers.
 
 Some of those zeros may be real and some non-real. When the coefficients are real, non-real zeros come in **conjugate pairs**: if $a + bi$ is a zero, so is $a - bi$. (That's what happened with the quadratic formula in Module 2.) So a cubic with real coefficients always has at least one real zero.
+
+The diagram sorts the kinds of zeros a polynomial can have. Only the rational ones appear on the candidate list.
+
+```mermaid
+flowchart TD
+  accTitle: Kinds of zeros of a polynomial
+  accDescr: Every zero is a complex number. Complex zeros are either real or non-real. Real zeros are either rational, such as 1/2, which the rational root theorem can find, or irrational, such as 1 plus root 2. Non-real zeros, such as 2i, come in conjugate pairs when the coefficients are real.
+  Z["Complex zeros (exactly n of them)"] --> R["Real: x-intercepts"]
+  Z --> N["Non-real, like 2i: conjugate pairs if the coefficients are real"]
+  R --> Q["Rational, like 1/2: on the ±p/q list"]
+  R --> I["Irrational, like 1 + √2: not on the list"]
+```
 
 ### Example 4
 

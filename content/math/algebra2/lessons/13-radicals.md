@@ -45,6 +45,22 @@ With variables (taken nonnegative), pull out pairs for square roots and triples 
 - one term: $\dfrac{6}{\sqrt3} = \dfrac{6}{\sqrt3} \cdot \dfrac{\sqrt3}{\sqrt3} = \dfrac{6\sqrt3}{3} = 2\sqrt3$;
 - two terms: multiply by the **conjugate**. The conjugate of $a + \sqrt b$ is $a - \sqrt b$, and their product $a^2 - b$ has no radical (a difference of squares).
 
+For a single cube root, multiply by enough extra factors to make the radicand a perfect cube: $\sqrt[3]{2} \cdot \sqrt[3]{4} = \sqrt[3]{8} = 2$, so $\dfrac{5}{\sqrt[3]{2}} = \dfrac{5\sqrt[3]{4}}{\sqrt[3]{2}\,\sqrt[3]{4}} = \dfrac{5\sqrt[3]{4}}{2}$. This chart sums up which factor to use.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the factor that rationalizes a denominator
+  accDescr: If the denominator has no radical, nothing needs to be done. If it is a single square root of b, multiply top and bottom by the square root of b. If it is a single cube root of b, multiply top and bottom by the cube root of b squared, which makes the cube root of b cubed, that is b. If it has two terms, a plus the square root of b, multiply top and bottom by the conjugate, a minus the square root of b. In every case, finish by simplifying.
+  A{"Is there a radical in the denominator?"} -- no --> Z["Nothing to do"]
+  A -- yes --> B{"What does the denominator look like?"}
+  B -- "one square root, √b" --> C["Multiply top and bottom by √b"]
+  B -- "one cube root, ∛b" --> D["Multiply top and bottom by ∛(b²)"]
+  B -- "two terms, a + √b" --> E["Multiply top and bottom by the conjugate a − √b"]
+  C --> F["Simplify the fraction"]
+  D --> F
+  E --> F
+```
+
 ### Example 1
 
 Rationalize $\dfrac{4}{3 - \sqrt5}$.
@@ -61,6 +77,10 @@ How should $a^{1/n}$ be defined? If the power rule $(a^m)^n = a^{mn}$ is to keep
 $$a^{1/n} = \sqrt[n]{a}, \qquad a^{m/n} = \left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m}.$$
 
 A **rational exponent** $\tfrac{m}{n}$ means: the denominator is the root, the numerator is the power. It's usually easiest to take the root first, while the number is small: $8^{2/3} = \left(\sqrt[3]{8}\right)^2 = 2^2 = 4$. Negative rational exponents still mean reciprocals: $16^{-3/4} = \dfrac{1}{16^{3/4}} = \dfrac{1}{2^3} = \dfrac18$.
+
+The picture names the parts of both notations side by side.
+
+![Two panels. Left, radical form: 5 times the cube root of 2x, with the 5 labeled coefficient, the small 3 labeled index and 2x labeled radicand. Right, rational exponent form: 8 to the power two thirds, with 8 labeled base, the numerator 2 labeled power and the denominator 3 labeled root, followed by the value: the cube root of 8, squared, equals 4.](images/a2-m4-radical-parts.svg)
 
 All the exponent rules from Algebra 1 apply to rational exponents (for positive bases).
 

@@ -28,6 +28,10 @@ Together, the rational and irrational numbers make up the **real numbers**, writ
 | Irrational numbers | $\sqrt{3}, \pi$ | (no overlap with rationals) |
 | Real numbers | all of the above | rationals and irrationals |
 
+The picture shows the same nesting: each set sits inside the next larger one, and the irrational numbers sit beside the rational numbers, with no overlap, inside the real numbers.
+
+![Nested boxes. The outer box is the real numbers. Inside it, on the left, is the rational numbers box, which contains the integers box, which contains the whole numbers box, which contains the natural numbers box. On the right, separate from the rational box, is the irrational numbers box. Examples: 1, 2, 3 and 47 are natural numbers; 0 is whole but not natural; −5 and −12 are integers but not whole; 2/3, −0.75 and 0.333… are rational but not integers; √2, π and √50 are irrational.](images/alg-m1-number-sets.svg)
+
 ### Example 1
 
 Classify $-6$, $\tfrac{9}{3}$, $0.\overline{18}$, $\sqrt{49}$ and $\sqrt{50}$.
@@ -37,6 +41,23 @@ Classify $-6$, $\tfrac{9}{3}$, $0.\overline{18}$, $\sqrt{49}$ and $\sqrt{50}$.
 - $0.\overline{18}$ repeats, so it is rational. (It equals $\tfrac{18}{99} = \tfrac{2}{11}$.)
 - $\sqrt{49} = 7$ is natural.
 - $\sqrt{50} = 5\sqrt{2}$ is irrational, because 50 is not a perfect square.
+
+To classify any number the way Example 1 did, ask a short chain of questions, from the largest set down to the smallest. Each answer in the chart names the most specific set; the number also belongs to every larger set around it.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding which set a real number belongs to
+  accDescr: Start by simplifying the number. If it cannot be written as a fraction of integers, it is irrational. If it can, it is rational; then ask whether it is an integer. If not, it is rational but not an integer. If it is an integer, ask whether it is negative: if so, it is an integer but not whole. If it is not negative, ask whether it is zero: zero is whole but not natural, and any other value is a natural number. Each answer also belongs to every larger set that contains it.
+  A["Simplify the number first"] --> B{"A fraction of integers?"}
+  B -- No --> C["Irrational"]
+  B -- Yes --> D{"Is it an integer?"}
+  D -- No --> E["Rational, not an integer"]
+  D -- Yes --> F{"Is it negative?"}
+  F -- Yes --> G["Integer, not whole"]
+  F -- No --> H{"Is it 0?"}
+  H -- Yes --> I["Whole, not natural"]
+  H -- No --> J["Natural number"]
+```
 
 ## The number line and order
 
@@ -57,6 +78,10 @@ $$|a| = \begin{cases} a & \text{if } a \ge 0 \\ -a & \text{if } a < 0 \end{cases
 The second line confuses people: if $a$ is negative, then $-a$ is positive. For $a = -5$, $-a = -(-5) = 5$.
 
 Because absolute value measures distance from zero, $|a - b|$ measures the distance between $a$ and $b$. The distance from $-3$ to $4$ is $|4 - (-3)| = |7| = 7$; you can count the seven steps on the number line. Order doesn't matter: $|-3 - 4| = |-7| = 7$ too.
+
+```numberline
+{"x": [-5, 6], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [4, 0], "label": "4"}], "segments": [{"from": [-3, 0], "to": [4, 0], "label": "7 units"}], "caption": "The distance between -3 and 4 is |4 - (-3)| = 7"}
+```
 
 ## Operations with signed numbers and fractions
 

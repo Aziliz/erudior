@@ -73,6 +73,10 @@ When substitution leaves a quadratic $ax^2 + bx + c = 0$, its discriminant $D = 
 
 Complex roots are perfectly good solutions of the quadratic, but they don't give points you can plot, so a system with $D < 0$ has no real solution.
 
+The same three cases happen for a line and a circle. Sliding the line away from the center, it first cuts the circle twice, then touches it once (a tangent line), then misses it.
+
+![Three panels, each with the same circle and a line. In the first the line cuts through the circle at two marked points, labeled 2 points: D > 0. In the second the line touches the circle at one marked point, labeled 1 point: D = 0. In the third the line passes below the circle without touching it, labeled no point: D < 0.](images/a2-m2-line-circle.svg)
+
 ### Example 3
 
 For which values of $k$ does the line $y = 2x + k$ meet the parabola $y = x^2$?
@@ -102,6 +106,23 @@ There are four solutions: $(3, 2)$, $(3, -2)$, $(-3, 2)$ and $(-3, -2)$. The sec
 ```
 
 Two quadratic curves can meet up to four times, so don't stop at two answers.
+
+To decide between the two methods, look at the equations before you start:
+
+```mermaid
+flowchart TD
+  accTitle: Substitution or elimination for a nonlinear system
+  accDescr: If one equation is linear, solve it for x or y and substitute. If not, and both equations contain only x² and y² terms besides constants, eliminate one squared variable by adding or subtracting. Otherwise solve the simpler equation for one variable and substitute. Each path leads to a one-variable equation to solve; then find the partner coordinates and check every pair in both original equations.
+  S["Nonlinear system in x and y"] --> Q1{"Is one equation linear?"}
+  Q1 -- yes --> A["Substitute: solve the linear equation for x or y"]
+  Q1 -- no --> Q2{"Only x² and y² terms, plus constants?"}
+  Q2 -- yes --> B["Eliminate: treat x² and y² as the unknowns"]
+  Q2 -- no --> C["Substitute: solve the simpler equation for one variable"]
+  A --> D["Solve the one-variable equation"]
+  B --> D
+  C --> D
+  D --> E["Find the partners and check every pair in both equations"]
+```
 
 ## An application
 

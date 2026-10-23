@@ -1,0 +1,490 @@
+# Round 2: Foundations and linear equations (alg-m1). Core lessons q01-q25, honors h01-h26.
+
+# --- Lesson 1: Real numbers ---
+- id: alg-m1-r2-q01
+  lesson: alg-real-numbers
+  type: label
+  module_quiz: true
+  topic: Real numbers
+  stem: 'The picture sorts real numbers into sets, with examples in each region. Name the numbered sets.'
+  image: {src: images/alg-m1-number-sets-blank.svg, alt: 'Nested boxes with examples but no names. The outer box (1) holds everything. Inside it on the left, box 2 contains box 3, which contains box 4, which contains box 5. Box 5 holds 1, 2, 3 and 47; the ring of box 4 outside box 5 holds 0; the ring of box 3 holds −5 and −12; the ring of box 2 holds 2/3, −0.75 and 0.333…. Box 6, on the right and separate from box 2, holds √2, π and √50.'}
+  labels:
+    - {x: 12, y: 7.5, text: Real numbers}
+    - {x: 12, y: 18.5, text: Rational numbers}
+    - {x: 12, y: 29, text: Integers}
+    - {x: 15, y: 39.5, text: Whole numbers}
+    - {x: 19.5, y: 52, text: Natural numbers}
+    - {x: 82.5, y: 19, text: Irrational numbers}
+  distractors: [Prime numbers]
+  explanation: |-
+    The natural numbers $1, 2, 3, \dots$ are innermost. Adding 0 gives the whole numbers, adding the negatives gives the integers, and adding every other fraction of integers (such as $\tfrac23$ and $0.\overline{3} = \tfrac13$) gives the rational numbers. The irrational numbers ($\sqrt2$, $\pi$, $\sqrt{50}$) are separate from the rationals, and the two together make up the real numbers, the outer box.
+- id: alg-m1-r2-q02
+  lesson: alg-real-numbers
+  topic: Real numbers
+  stem: 'Which of these numbers are rational? Select all that apply.'
+  choices: ['$\sqrt{81}$', '$0.\overline{6}$', '$\sqrt{12}$', '$-\tfrac{14}{4}$', '$\pi$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $\sqrt{81} = 9$, $0.\overline{6} = \tfrac23$ (it repeats) and $-\tfrac{14}{4} = -\tfrac72$ are all fractions of integers, so they are rational. 12 is not a perfect square, so $\sqrt{12}$ is irrational, and $\pi$ is irrational too.
+- id: alg-m1-r2-q03
+  lesson: alg-real-numbers
+  type: match
+  topic: Real numbers
+  stem: 'Match each statement to the property it shows.'
+  pairs:
+    - ['$4 + (-4) = 0$', Inverse property of addition]
+    - ['$(2 \cdot 5) \cdot 3 = 2 \cdot (5 \cdot 3)$', Associative property of multiplication]
+    - ['$x + 7 = 7 + x$', Commutative property of addition]
+    - ['$9 \cdot 1 = 9$', Identity property of multiplication]
+    - ['$3(a - 2) = 3a - 6$', Distributive property]
+  distractors: [Associative property of addition]
+  explanation: |-
+    A number plus its opposite gives 0 (inverse). Regrouping a product without changing the order is associative. Swapping the order of a sum is commutative. Multiplying by 1 changes nothing (identity). Multiplying 3 by each term inside the parentheses is the distributive property.
+- id: alg-m1-r2-q04
+  lesson: alg-real-numbers
+  type: text
+  module_quiz: true
+  topic: Real numbers
+  stem: 'The distance between $-9$ and $4$ on the number line is ___.'
+  accept: ['13']
+  explanation: |-
+    Distance is the absolute value of the difference: $|4 - (-9)| = |13| = 13$. Getting 5 means adding $-9 + 4$ instead of subtracting.
+- id: alg-m1-r2-q05
+  lesson: alg-real-numbers
+  type: order
+  topic: Real numbers
+  stem: 'Put these numbers in order from least to greatest.'
+  items: ['$-3$', '$-\sqrt{5}$', '$-\tfrac{3}{2}$', '$0.\overline{3}$', '$\tfrac{1}{2}$']
+  explanation: |-
+    As decimals: $-3$, $-\sqrt5 \approx -2.24$, $-\tfrac32 = -1.5$, $0.\overline{3} \approx 0.33$ and $\tfrac12 = 0.5$. Among negatives, the one farther from 0 is smaller, so $-3 < -\sqrt5 < -1.5$.
+
+# --- Lesson 2: Expressions ---
+- id: alg-m1-r2-q06
+  lesson: alg-expressions
+  type: label
+  module_quiz: true
+  topic: Expressions
+  stem: 'Name the numbered parts of the expression $4x^2 - 7xy + 9$.'
+  image: {src: images/alg-m1-expression-parts-blank.svg, alt: 'The expression 4x² − 7xy + 9 written large, with each of its three terms shaded. Marker 1 points to the 4, marker 2 to the small raised 2, marker 3 to the x in the first term, marker 4 to the whole middle term −7xy, and marker 5 to the 9.'}
+  labels:
+    - {x: 11.25, y: 15.6, text: Coefficient}
+    - {x: 36.25, y: 12, text: Exponent}
+    - {x: 18.75, y: 86.2, text: Variable}
+    - {x: 48.1, y: 86.2, text: Term}
+    - {x: 83.75, y: 15.6, text: Constant term}
+  distractors: [Equation, Like terms]
+  explanation: |-
+    The 4 multiplies the variable part $x^2$, so it is the coefficient; $x$ is a variable and the raised 2 is its exponent. The parts being added are the terms: $4x^2$, $-7xy$ and $9$. The term with no variable, 9, is the constant term. There is no equals sign, so this is an expression, not an equation.
+- id: alg-m1-r2-q07
+  lesson: alg-expressions
+  type: order
+  topic: Expressions
+  stem: 'Put the steps for evaluating $30 - 4(1 + 2)^2 \div 6$ in order.'
+  items: ['$1 + 2 = 3$', '$3^2 = 9$', '$4 \cdot 9 = 36$', '$36 \div 6 = 6$', '$30 - 6 = 24$']
+  explanation: |-
+    Grouping first, then the exponent, then multiplication and division from left to right ($4 \cdot 9$ comes before $\div 6$ because it is further left), and the subtraction last. The value is 24.
+- id: alg-m1-r2-q08
+  lesson: alg-expressions
+  type: text
+  topic: Expressions
+  stem: 'Evaluate $-2^4 + (-2)^3$. Give only the number: ___'
+  accept: ['-24']
+  explanation: |-
+    The exponent in $-2^4$ applies only to 2, so $-2^4 = -(2^4) = -16$. In $(-2)^3$ the parentheses make $-2$ the base: $(-2)^3 = -8$. The sum is $-16 + (-8) = -24$.
+- id: alg-m1-r2-q09
+  lesson: alg-expressions
+  module_quiz: true
+  topic: Expressions
+  stem: 'Which of these are like terms with $3x^2y$? Select all that apply.'
+  choices: ['$-x^2y$', '$3xy^2$', '$\tfrac12 yx^2$', '$3x^2$', '$7x^2y$']
+  answer: [0, 2, 4]
+  explanation: |-
+    Like terms have the same variables raised to the same powers: here $x^2$ and $y^1$. $-x^2y$, $\tfrac12 yx^2$ (the same as $\tfrac12 x^2y$, since multiplication can be done in any order) and $7x^2y$ qualify. $3xy^2$ has the powers swapped, and $3x^2$ has no $y$. The coefficients don't matter.
+- id: alg-m1-r2-q10
+  lesson: alg-expressions
+  type: match
+  topic: Expressions
+  stem: 'Match each expression to its description in words, where $n$ is a number.'
+  pairs:
+    - ['$n - 7$', 7 less than a number]
+    - ['$7 - n$', A number subtracted from 7]
+    - ['$(n + 7)^2$', The square of the sum of a number and 7]
+    - ['$n^2 + 7^2$', The sum of the squares of a number and 7]
+    - ['$2n - 7$', 'Twice a number, decreased by 7']
+  distractors: [7 more than twice a number]
+  explanation: |-
+    "7 less than a number" starts with the number and takes 7 away: $n - 7$. "A number subtracted from 7" starts with 7: $7 - n$. "The square of the sum" adds first and then squares; "the sum of the squares" squares each and then adds. "7 more than twice a number" would be $2n + 7$.
+
+# --- Lesson 3: Linear equations ---
+- id: alg-m1-r2-q11
+  lesson: alg-linear-eq
+  type: order
+  topic: Linear equations
+  stem: 'Put the steps for solving $4(x - 3) = x + 9$ in order.'
+  items: ['$4x - 12 = x + 9$', '$3x - 12 = 9$', '$3x = 21$', '$x = 7$']
+  explanation: |-
+    Distribute first, then subtract $x$ from both sides to collect the $x$-terms, add 12 to both sides, and divide by 3. Check: $4(7 - 3) = 16$ and $7 + 9 = 16$.
+- id: alg-m1-r2-q12
+  lesson: alg-linear-eq
+  type: text
+  module_quiz: true
+  topic: Linear equations
+  stem: 'Solve $\dfrac{x + 1}{3} = \dfrac{x - 2}{4} + 1$. Give only the number: $x =$ ___'
+  accept: ['2']
+  explanation: |-
+    Multiply every term by 12: $4(x + 1) = 3(x - 2) + 12$. Distribute: $4x + 4 = 3x - 6 + 12 = 3x + 6$. Subtract $3x$ and 4: $x = 2$. Check: $\tfrac33 = 1$ and $\tfrac04 + 1 = 1$.
+- id: alg-m1-r2-q13
+  lesson: alg-linear-eq
+  type: match
+  module_quiz: true
+  topic: Linear equations
+  stem: 'Match each equation to its number of solutions.'
+  pairs:
+    - ['$2(x + 3) = 2x + 6$', 'Every real number (identity)']
+    - ['$5x - 1 = 5x + 4$', 'No solution (contradiction)']
+    - ['$3x + 2 = 2x + 2$', Exactly one solution]
+    - ['$4 - x = -(x - 4)$', 'Every real number (identity)']
+    - ['$7x = 0$', Exactly one solution]
+  explanation: |-
+    $2(x + 3) = 2x + 6$ and $-(x - 4) = -x + 4$ make both sides identical, so every $x$ works. $5x - 1 = 5x + 4$ simplifies to $-1 = 4$, false, so there is no solution. $3x + 2 = 2x + 2$ gives $x = 0$, and $7x = 0$ also gives $x = 0$: a solution of 0 is still exactly one solution.
+- id: alg-m1-r2-q14
+  lesson: alg-linear-eq
+  topic: Linear equations
+  stem: 'Which of these steps always turn an equation into an equivalent equation? Select all that apply.'
+  choices: ['Adding 5 to both sides', 'Multiplying both sides by 0', 'Dividing both sides by $-3$', 'Adding 5 to the left side only', 'Subtracting $2x$ from both sides']
+  answer: [0, 2, 4]
+  explanation: |-
+    Adding or subtracting the same quantity on both sides (even a variable term like $2x$) and dividing both sides by a nonzero number keep the solution set the same. Multiplying by 0 turns every equation into $0 = 0$, and changing only one side breaks the balance.
+- id: alg-m1-r2-q15
+  lesson: alg-linear-eq
+  topic: Linear equations
+  stem: 'If you graph $y = 3x + 1$ and $y = 3x - 2$ (the two sides of $3x + 1 = 3x - 2$), what do you see, and what does it tell you?'
+  choices: ['The same line twice, so every real number is a solution', 'Two lines crossing at one point, so there is one solution', 'Two parallel lines, so there is no solution', 'Two lines crossing at the origin, so $x = 0$']
+  answer: 2
+  explanation: |-
+    Both lines have slope 3 but different starting heights, so they are parallel and never meet. Algebraically, subtracting $3x$ leaves $1 = -2$, which is false: no solution.
+
+# --- Lesson 4: Literal equations ---
+- id: alg-m1-r2-q16
+  lesson: alg-literal
+  type: label
+  topic: Literal equations
+  stem: 'A closed cylinder with radius $r$ and height $h$ is unrolled into the net on the right. Name the numbered parts.'
+  image: {src: images/alg-m1-cylinder-net-blank.svg, alt: 'On the left, a closed cylinder with radius r and height h, and an arrow labeled unroll. On the right, its net: a rectangle with a circle attached to the top edge and another to the bottom edge. Marker 1 is in the top circle, marker 2 in the middle of the rectangle, marker 3 on the rectangle''s left side, and marker 4 on its long bottom edge.'}
+  labels:
+    - {x: 60.89, y: 17.44, text: 'Circular end, area πr²'}
+    - {x: 60.89, y: 50, text: 'Curved side, area 2πrh'}
+    - {x: 41.25, y: 50, text: Height h}
+    - {x: 75, y: 70.93, text: 'Circumference of the end, 2πr'}
+  distractors: [Radius r, 'Diameter 2r']
+  explanation: |-
+    The two ends are circles of area $\pi r^2$. The curved side unrolls into a rectangle as tall as the cylinder ($h$) and as wide as the distance around the circle ($2\pi r$), so its area is $2\pi r h$. Together: $S = 2\pi r h + 2\pi r^2$.
+- id: alg-m1-r2-q17
+  lesson: alg-literal
+  type: order
+  topic: Literal equations
+  stem: 'Put the steps for solving $5(w - h) = 2w + c$ for $w$ in order.'
+  items: ['$5w - 5h = 2w + c$', '$3w - 5h = c$', '$3w = c + 5h$', '$w = \dfrac{c + 5h}{3}$']
+  explanation: |-
+    Distribute, collect the $w$-terms by subtracting $2w$ from both sides, move the other term by adding $5h$, and divide the whole right side by 3. The other letters are treated just like numbers.
+- id: alg-m1-r2-q18
+  lesson: alg-literal
+  type: text
+  module_quiz: true
+  topic: Literal equations
+  stem: 'Solved for $F$, the formula $C = \tfrac59(F - 32)$ becomes $F = \tfrac95 C + 32$. Use it to find $F$ when $C = -40$. Give only the number: ___'
+  accept: ['-40']
+  explanation: |-
+    $F = \tfrac95(-40) + 32 = -72 + 32 = -40$. So $-40$ degrees is the same temperature on both scales.
+- id: alg-m1-r2-q19
+  lesson: alg-literal
+  topic: Literal equations
+  stem: 'Which are correct ways to write $P = 2l + 2w$ solved for $w$? Select all that apply.'
+  choices: ['$w = \dfrac{P - 2l}{2}$', '$w = \dfrac{P}{2} - l$', '$w = P - l$', '$w = \tfrac12(P - 2l)$', '$w = \dfrac{P - l}{2}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Subtract $2l$ and divide the whole side by 2: $w = \tfrac{P - 2l}{2}$. Dividing each term by 2 gives $\tfrac P2 - l$, and multiplying by $\tfrac12$ is the same as dividing by 2. $P - l$ divides only one term by 2, and $\tfrac{P - l}{2}$ forgot that the $l$-term was $2l$.
+- id: alg-m1-r2-q20
+  lesson: alg-literal
+  type: match
+  topic: Literal equations
+  stem: 'Match each equation to the best first step for solving it for $x$.'
+  pairs:
+    - ['$ax + bx = c$', Factor x out of the left side]
+    - ['$\dfrac{x}{a} = b$', Multiply both sides by a]
+    - ['$x - a = b$', Add a to both sides]
+    - ['$ax = b$', Divide both sides by a]
+  distractors: [Subtract b from both sides]
+  explanation: |-
+    When $x$ is in two terms, factor it out: $x(a + b) = c$. Undo a division by $a$ by multiplying by $a$, undo subtracting $a$ by adding $a$, and undo multiplying by $a$ by dividing by $a$ (assuming $a \ne 0$).
+
+# --- Lesson 5: Linear applications ---
+- id: alg-m1-r2-q21
+  lesson: alg-linear-apps
+  type: order
+  topic: Linear applications
+  stem: 'Put the steps of the word-problem routine in order.'
+  items: ['Read the problem and write down what is being asked', 'Name the unknown with a variable', 'Write the other quantities in terms of that variable', 'Write an equation from a fact in the problem', 'Solve the equation', 'Answer with units and check against the original wording']
+  explanation: |-
+    You can't express other quantities until the unknown has a name, and you can't write the equation until every quantity is expressed. The check comes last, and it is against the problem's words, since the equation itself might be wrong.
+- id: alg-m1-r2-q22
+  lesson: alg-linear-apps
+  type: text
+  module_quiz: true
+  topic: Linear applications
+  stem: 'Three consecutive integers add up to 234. The smallest of them is ___.'
+  accept: ['77']
+  explanation: |-
+    Let the integers be $n$, $n + 1$ and $n + 2$. Then $3n + 3 = 234$, so $3n = 231$ and $n = 77$. Check: $77 + 78 + 79 = 234$.
+- id: alg-m1-r2-q23
+  lesson: alg-linear-apps
+  type: match
+  module_quiz: true
+  topic: Linear applications
+  stem: 'Each equation finds an original price $p$. Match it to the situation it describes.'
+  pairs:
+    - ['$0.85p = 68$', A price after a 15% discount is 68 dollars]
+    - ['$1.15p = 68$', A price after a 15% increase is 68 dollars]
+    - ['$p - 15 = 68$', A price after a 15-dollar discount is 68 dollars]
+    - ['$0.15p = 68$', A 15% tip on the price is 68 dollars]
+  distractors: [A price after two 15% discounts is 68 dollars]
+  explanation: |-
+    A 15% discount leaves 85% of the price ($0.85p$); a 15% increase gives 115% ($1.15p$); a 15-dollar discount subtracts 15; and a 15% tip is $0.15p$ by itself. Two 15% discounts would be $0.85 \cdot 0.85p = 0.7225p$.
+- id: alg-m1-r2-q24
+  lesson: alg-linear-apps
+  topic: Linear applications
+  stem: '10 liters of a 15% acid solution are mixed with $x$ liters of a 40% acid solution to make a 25% solution. Which statements are true? Select all that apply.'
+  choices: ['The mixture has $10 + x$ liters', 'The mixture contains $1.5 + 0.40x$ liters of acid', 'An equation for $x$ is $1.5 + 0.40x = 0.25(10 + x)$', 'The mixture is 55% acid, because 15% + 40% = 55%', 'The mixture contains $0.25x$ liters of acid']
+  answer: [0, 1, 2]
+  explanation: |-
+    Volumes add: $10 + x$ liters. Acid adds too: $0.15(10) + 0.40x = 1.5 + 0.40x$ liters. The mixture is 25% acid, so its acid is $0.25(10 + x)$, which gives the equation. Percentages don't add (the mixture must be between 15% and 40%), and $0.25x$ forgets the first 10 liters.
+- id: alg-m1-r2-q25
+  lesson: alg-linear-apps
+  topic: Linear applications
+  stem: 'Two hikers leave the same trailhead at the same time and walk in opposite directions, at 3 mph and 4.5 mph. After how many hours are they 15 miles apart?'
+  choices: ['5 hours', '2 hours', '10 hours', '3.3 hours']
+  answer: 1
+  explanation: |-
+    Moving apart, their distances add: $3t + 4.5t = 15$, so $7.5t = 15$ and $t = 2$ hours. Check: 6 miles plus 9 miles is 15. Ten hours comes from subtracting the speeds, which would be right only if they walked in the same direction.
+
+# --- Honors: repeating decimals and irrationality ---
+- id: alg-m1-r2-h01
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'Which fraction has a terminating decimal?'
+  choices: ['$\tfrac{7}{12}$', '$\tfrac{9}{60}$', '$\tfrac{5}{6}$', '$\tfrac{4}{15}$']
+  answer: 1
+  explanation: |-
+    Reduce first: $\tfrac{9}{60} = \tfrac{3}{20}$, and $20 = 2^2 \cdot 5$ has only 2s and 5s, so it terminates: $0.15$. The others are in lowest terms with a factor 3 in the denominator ($12$, $6$, $15$), so they repeat.
+- id: alg-m1-r2-h02
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'Using only the remainder argument, what is the greatest possible length of the repeating block of $\tfrac{p}{13}$, where $p$ is not a multiple of 13?'
+  choices: ['12 digits', '13 digits', '6 digits', '26 digits']
+  answer: 0
+  explanation: |-
+    Dividing by 13 leaves a remainder from 0 to 12. Remainder 0 never appears (13 does not divide $p$ times a power of 10), so only the 12 nonzero remainders are possible, and the block can be at most 12 digits long. (In fact $\tfrac{1}{13} = 0.\overline{076923}$ has a block of 6; the argument gives only an upper limit.)
+- id: alg-m1-r2-h03
+  lesson: alg-m1-h-decimals-proof
+  type: text
+  topic: Decimals and irrationality
+  stem: 'Written as a fraction in lowest terms, $0.\overline{81}$ has denominator 11. Its numerator is ___.'
+  accept: ['9']
+  explanation: |-
+    Let $x = 0.\overline{81}$. Then $100x = 81.\overline{81}$, and subtracting gives $99x = 81$, so $x = \tfrac{81}{99} = \tfrac{9}{11}$.
+- id: alg-m1-r2-h04
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'Write $0.2\overline{7} = 0.2777\ldots$ as a fraction in lowest terms.'
+  choices: ['$\tfrac{3}{11}$', '$\tfrac{7}{25}$', '$\tfrac{25}{99}$', '$\tfrac{5}{18}$']
+  answer: 3
+  explanation: |-
+    Let $x = 0.2777\ldots$ Then $10x = 2.777\ldots$ and $100x = 27.777\ldots$ Subtract: $90x = 25$, so $x = \tfrac{25}{90} = \tfrac{5}{18}$. $\tfrac{3}{11} = 0.\overline{27}$ repeats both digits, and $\tfrac{7}{25} = 0.28$ terminates.
+- id: alg-m1-r2-h05
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'To turn $x = 0.\overline{2025} = 0.20252025\ldots$ into a fraction, you multiply by a power of 10 and subtract $x$. Which multiple of $x$ makes the tails cancel?'
+  choices: ['$10x$', '$100x$', '$1000x$', '$10000x$']
+  answer: 3
+  explanation: |-
+    The repeating block has 4 digits, so shift by 4 places: $10000x = 2025.2025\ldots$ Then $9999x = 2025$ and $x = \tfrac{2025}{9999} = \tfrac{225}{1111}$. A smaller shift leaves the tails misaligned.
+- id: alg-m1-r2-h06
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'Which of these numbers are rational? Select all that apply.'
+  choices: ['$0.\overline{9}$', '$0.101001000100001\ldots$ (one more 0 between the 1s each time)', '$\sqrt{0.25}$', '$\tfrac{\sqrt3}{2}$', '$3.14159$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $0.\overline{9} = 1$. $\sqrt{0.25} = 0.5$. $3.14159$ terminates, so it is $\tfrac{314159}{100000}$ (it is close to $\pi$ but is not $\pi$). The decimal $0.1010010001\ldots$ never ends and its pattern never settles into a repeating block, so it is irrational. If $\tfrac{\sqrt3}{2}$ were a fraction, $\sqrt3$ would be twice that fraction, also a fraction; so it is irrational.
+- id: alg-m1-r2-h07
+  lesson: alg-m1-h-decimals-proof
+  type: order
+  topic: Decimals and irrationality
+  stem: 'Put the steps of the proof that $\sqrt2$ is irrational in order.'
+  items: ['Assume $\sqrt2 = \tfrac{p}{q}$ in lowest terms', 'Square both sides: $p^2 = 2q^2$, so $p$ is even', 'Write $p = 2k$ and substitute: $q^2 = 2k^2$, so $q$ is even', 'Then $p$ and $q$ share the factor 2, contradicting lowest terms', 'So the assumption is false: $\sqrt2$ is irrational']
+  explanation: |-
+    A proof by contradiction starts from the assumption, reasons step by step (each step uses the one before it) until it reaches something impossible, and then concludes that the assumption was false.
+- id: alg-m1-r2-h08
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'In the proof that $\sqrt2$ is irrational, what justifies the step "$p^2$ is even, so $p$ is even"?'
+  choices: ['Every perfect square is even', '$p$ and $q$ are in lowest terms', 'The square of an odd number is odd', '$\sqrt2$ is about 1.414']
+  answer: 2
+  explanation: |-
+    $(2k + 1)^2 = 2(2k^2 + 2k) + 1$ is odd, so an odd $p$ would make $p^2$ odd. Since $p^2$ is even, $p$ can't be odd. Not every square is even ($9$ isn't), and lowest terms is used later, to reach the contradiction.
+- id: alg-m1-r2-h09
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'Someone runs the same argument on $\sqrt4 = \tfrac{p}{q}$ (lowest terms). Where does it stop working?'
+  choices: ['At the start: you cannot assume $\sqrt4$ is a fraction', 'After $p = 2k$: it gives $k^2 = q^2$, which does not force $q$ to be even', 'At the first step: $p^2 = 4q^2$ does not make $p$ even', 'Nowhere: the argument shows that $\sqrt4$ is irrational']
+  answer: 1
+  explanation: |-
+    $p^2 = 4q^2$ does make $p$ even, but substituting $p = 2k$ gives $4k^2 = 4q^2$, so $k^2 = q^2$. Nothing says $q$ is even, so no contradiction appears, which is right, since $\sqrt4 = \tfrac21$. Assuming something is a fraction is always allowed in a proof by contradiction; the point is to see whether it leads to something impossible.
+- id: alg-m1-r2-h10
+  lesson: alg-m1-h-decimals-proof
+  type: match
+  topic: Decimals and irrationality
+  stem: 'Match each decimal to the fraction it equals.'
+  pairs:
+    - ['$0.\overline{3}$', 1/3]
+    - ['$0.1\overline{6}$', 1/6]
+    - ['$0.\overline{09}$', 1/11]
+    - ['$0.375$', 3/8]
+  distractors: [3/10]
+  explanation: |-
+    $0.\overline{3} = \tfrac39 = \tfrac13$. For $x = 0.1666\ldots$, $100x - 10x = 16.\overline{6} - 1.\overline{6} = 15$, so $x = \tfrac{15}{90} = \tfrac16$. $0.\overline{09} = \tfrac{9}{99} = \tfrac{1}{11}$. $0.375 = \tfrac{375}{1000} = \tfrac38$. ($\tfrac{3}{10} = 0.3$, which matches none of them.)
+- id: alg-m1-r2-h11
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'Which statement about $0.999\ldots$ (9s forever) is true?'
+  choices: ['It equals 1 exactly', 'It is the largest number less than 1', 'It is irrational, because its digits never end', 'It is very close to 1 but not equal to it']
+  answer: 0
+  explanation: |-
+    With $x = 0.999\ldots$, $10x - x = 9$, so $x = 1$. Also $3 \times 0.333\ldots = 0.999\ldots$ and $3 \times \tfrac13 = 1$. There is no "largest number less than 1" (between any number below 1 and 1 lies their average), and a repeating decimal is rational even though its digits never end.
+- id: alg-m1-r2-h12
+  lesson: alg-m1-h-decimals-proof
+  type: text
+  topic: Decimals and irrationality
+  stem: 'The decimal of $\tfrac{3}{7}$ repeats a block of how many digits? ___'
+  accept: ['6', six]
+  explanation: |-
+    Long division of 3 by 7 gives remainders 3, 2, 6, 4, 5, 1 and then 3 again, writing the digits 4, 2, 8, 5, 7, 1: $\tfrac37 = 0.\overline{428571}$, a block of 6 digits, the most possible for a denominator of 7.
+- id: alg-m1-r2-h13
+  lesson: alg-m1-h-decimals-proof
+  topic: Decimals and irrationality
+  stem: 'The proof that $\sqrt3$ is irrational follows the $\sqrt2$ proof. Which fact takes the place of "odd numbers have odd squares"?'
+  choices: ['Every multiple of 3 is odd', 'If $p^2$ is even, then $p$ is a multiple of 3', 'If $p^2$ is a multiple of 3, then $p$ is a multiple of 3', 'Every perfect square is a multiple of 3']
+  answer: 2
+  explanation: |-
+    The proof needs: from $p^2 = 3q^2$, conclude $3$ divides $p$. That holds because numbers of the form $3k + 1$ and $3k + 2$ have squares that leave remainder 1 when divided by 3. The other statements are false ($6$ is even; $4$ is a square that is not a multiple of 3).
+
+# --- Honors: rates, work and averages ---
+- id: alg-m1-r2-h14
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'One pump fills a pool in 6 hours and a second pump fills it in 12 hours. How long does it take with both pumps running?'
+  choices: ['9 hours', '18 hours', '3 hours', '4 hours']
+  answer: 3
+  explanation: |-
+    Rates add: $\tfrac{t}{6} + \tfrac{t}{12} = 1$. Multiply by 12: $2t + t = 12$, so $t = 4$ hours. Equivalently, $\tfrac{6 \cdot 12}{6 + 12} = 4$. Nine hours is the average of the times and 18 their sum; both are longer than the faster pump alone, which can't be right.
+- id: alg-m1-r2-h15
+  lesson: alg-m1-h-rates-averages
+  type: text
+  topic: Rates and averages
+  stem: 'One copier prints a batch of flyers in 10 minutes and another prints the same batch in 15 minutes. Working together on one batch, they need ___ minutes.'
+  accept: ['6', six]
+  explanation: |-
+    $\tfrac{t}{10} + \tfrac{t}{15} = 1$. Multiply by 30: $3t + 2t = 30$, so $t = 6$ minutes.
+- id: alg-m1-r2-h16
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'A tap fills an empty sink in 3 minutes. The open drain empties a full sink in 5 minutes. With the tap on and the drain open, how long does the empty sink take to fill?'
+  choices: ['7.5 minutes', '1.875 minutes', '2 minutes', '4 minutes']
+  answer: 0
+  explanation: |-
+    The drain works against the tap, so subtract its rate: $\tfrac{t}{3} - \tfrac{t}{5} = 1$. Multiply by 15: $5t - 3t = 15$, so $t = 7.5$ minutes. 1.875 minutes is what you get by adding the rates, as if the drain helped.
+- id: alg-m1-r2-h17
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'Working together, Lee and Sam mow a lawn in 2 hours. Lee alone takes 3 hours. How long would Sam take alone?'
+  choices: ['1 hour', '5 hours', '6 hours', '1.2 hours']
+  answer: 2
+  explanation: |-
+    Let $r$ be Sam's rate in lawns per hour. Together: $2\left(\tfrac13 + r\right) = 1$, so $\tfrac13 + r = \tfrac12$ and $r = \tfrac16$. Sam takes 6 hours. Check: in 2 hours Lee mows $\tfrac23$ and Sam $\tfrac26 = \tfrac13$, one lawn in all.
+- id: alg-m1-r2-h18
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'You bike 30 km uphill at 10 km/h and then back down the same 30 km at 30 km/h. What is your average speed for the whole ride?'
+  choices: ['20 km/h', '15 km/h', '25 km/h', '12 km/h']
+  answer: 1
+  explanation: |-
+    Up takes $\tfrac{30}{10} = 3$ hours and down takes $\tfrac{30}{30} = 1$ hour. Total: 60 km in 4 hours, so 15 km/h. The harmonic mean formula agrees: $\tfrac{2 \cdot 10 \cdot 30}{10 + 30} = 15$. 20 km/h is the plain average of the speeds, which ignores that you spent three times as long going up.
+- id: alg-m1-r2-h19
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'Which statements about average speed are true? Select all that apply.'
+  choices: ['It equals total distance divided by total time', 'For two equal distances at different speeds, it is less than the average of the two speeds', 'It always equals the average of the speeds driven', 'For equal times at 40 mph and 60 mph, it is 50 mph', 'It is found by adding the speeds driven']
+  answer: [0, 1, 3]
+  explanation: |-
+    Average speed is defined as total distance over total time. With equal distances you spend more time at the slower speed, so the result (the harmonic mean) is below the plain average. With equal times $t$, it is $\tfrac{40t + 60t}{2t} = 50$, the plain average. It is not always the plain average, and adding speeds makes no sense.
+- id: alg-m1-r2-h20
+  lesson: alg-m1-h-rates-averages
+  type: order
+  topic: Rates and averages
+  stem: 'One painter takes 4 hours to paint a room and another takes 6 hours. Put the steps for finding their time together in order.'
+  items: ['Write the rates: $\tfrac14$ and $\tfrac16$ of the room per hour', 'Write the equation $\tfrac{t}{4} + \tfrac{t}{6} = 1$', 'Multiply both sides by 12: $3t + 2t = 12$', 'Solve: $t = \tfrac{12}{5} = 2.4$ hours']
+  explanation: |-
+    Rates come first, because the equation is built from them; then clear the fractions with the least common denominator 12, and solve. 2.4 hours is 2 hours 24 minutes, less than the faster painter's 4 hours, as it should be.
+- id: alg-m1-r2-h21
+  lesson: alg-m1-h-rates-averages
+  type: match
+  topic: Rates and averages
+  stem: 'Match each trip to its average speed.'
+  pairs:
+    - ['Equal distances at 30 mph and at 60 mph', 40 mph]
+    - ['Equal times at 30 mph and at 60 mph', 45 mph]
+    - ['1 hour at 30 mph, then 2 hours at 60 mph', 50 mph]
+    - ['2 hours at 30 mph, then 1 hour at 60 mph', 40 mph]
+  distractors: [35 mph, 55 mph]
+  explanation: |-
+    Equal distances: $\tfrac{2 \cdot 30 \cdot 60}{30 + 60} = 40$. Equal times: the plain average, 45. One hour at 30 and two at 60: $\tfrac{30 + 120}{3} = 50$. Two hours at 30 and one at 60: $\tfrac{60 + 60}{3} = 40$. Each is a weighted average of the speeds, weighted by time.
+- id: alg-m1-r2-h22
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'Homework counts 40% of a course grade and tests count 60%. A student has a homework average of 95 and a test average of 70. What is the course grade?'
+  choices: ['82.5', '85', '75', '80']
+  answer: 3
+  explanation: |-
+    Weighted average: $0.40(95) + 0.60(70) = 38 + 42 = 80$. 82.5 is the unweighted average, and 85 comes from swapping the weights.
+- id: alg-m1-r2-h23
+  lesson: alg-m1-h-rates-averages
+  type: text
+  topic: Rates and averages
+  stem: 'Quizzes count 30% of a grade and the final exam counts 70%. Jo''s quiz average is 76. What final exam score gives a course grade of exactly 90? Give only the number: ___'
+  accept: ['96']
+  explanation: |-
+    $0.30(76) + 0.70F = 90$, so $22.8 + 0.70F = 90$, $0.70F = 67.2$ and $F = 96$. Check: $22.8 + 67.2 = 90$.
+- id: alg-m1-r2-h24
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'How many liters of a 10% juice drink must be mixed with 6 liters of a 50% juice drink to make a 20% juice drink?'
+  choices: ['18 liters', '2 liters', '12 liters', '24 liters']
+  answer: 0
+  explanation: |-
+    Balance rule: $w(20 - 10) = 6(50 - 20)$, so $10w = 180$ and $w = 18$ liters. Check: $0.10(18) + 0.50(6) = 1.8 + 3 = 4.8$ liters of juice in 24 liters, which is 20%. The target 20% is much closer to 10% than to 50%, so far more of the 10% drink is needed; 2 liters puts the weights on the wrong sides, and 24 liters is the total.
+- id: alg-m1-r2-h25
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'You drive 30 miles to a lake at 30 mph. How fast must you drive the 30 miles back to average 60 mph for the round trip?'
+  choices: ['90 mph', 'It is impossible', '120 mph', '60 mph']
+  answer: 1
+  explanation: |-
+    Averaging 60 mph over 60 miles means finishing in 1 hour. The drive out at 30 mph already took 1 hour, so with return time $t$: $\tfrac{60}{1 + t} = 60$ gives $t = 0$. No real trip takes 0 hours. 90 mph comes from averaging the speeds: $\tfrac{30 + 90}{2} = 60$, but at 90 mph the return takes 20 minutes, and 60 miles in 80 minutes is only 45 mph.
+- id: alg-m1-r2-h26
+  lesson: alg-m1-h-rates-averages
+  topic: Rates and averages
+  stem: 'For a trip with two equal distances at speeds $a$ and $b$, which expression gives the average speed?'
+  choices: ['$\dfrac{a + b}{2}$', '$\dfrac{ab}{a + b}$', '$\dfrac{2ab}{a + b}$', '$\dfrac{a + b}{ab}$']
+  answer: 2
+  explanation: |-
+    With distance $d$ each way, the total distance is $2d$ and the total time is $\tfrac da + \tfrac db$. Dividing and cancelling $d$ gives $\tfrac{2}{\frac1a + \frac1b} = \tfrac{2ab}{a + b}$, the harmonic mean. $\tfrac{ab}{a + b}$ is the combined-work time, half the harmonic mean.

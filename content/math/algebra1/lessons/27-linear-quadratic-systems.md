@@ -39,6 +39,22 @@ That is the general pattern. After substituting, you always reach a quadratic eq
 4. Solve by factoring, the quadratic formula, or completing the square.
 5. Find each $y$ from the *linear* equation (it's quicker), then check each point in the quadratic one.
 
+The flowchart adds the discriminant check, which tells you how many points to expect before you solve.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a linear-quadratic system
+  accDescr: Solve the linear equation for y, set the two expressions for y equal, and rearrange to ax squared + bx + c = 0. The discriminant of that quadratic counts the intersection points: positive gives two, zero gives one (the line is tangent), negative gives none. When there are points, solve for x and find each y from the linear equation.
+  A["Solve the linear equation for y"] --> B["Set the two expressions for y equal"]
+  B --> C["Rearrange to ax² + bx + c = 0"]
+  C --> D{"Discriminant D"}
+  D -- "D positive" --> E["Two intersection points"]
+  D -- "D zero" --> F["One point: the line is tangent"]
+  D -- "D negative" --> G["No intersection points"]
+  E --> H["Solve for x, then find y from the line"]
+  F --> H
+```
+
 ### Example 1
 
 Solve the system $y = x^2 - 4x + 1$ and $y = 2x - 7$.

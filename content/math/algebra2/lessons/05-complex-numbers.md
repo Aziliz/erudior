@@ -23,6 +23,20 @@ Always rewrite $\sqrt{-b}$ as $i\sqrt b$ before multiplying. The rule $\sqrt a\s
 
 A **complex number** has the form $a + bi$ with $a$ and $b$ real. Its **real part** is $a$ and its **imaginary part** is $b$ (the number $b$, not $bi$). If $b = 0$ it's a real number; if $a = 0$ and $b \ne 0$, it's a **pure imaginary number**, like $3i$. Two complex numbers are equal exactly when their real parts are equal and their imaginary parts are equal.
 
+The chart sorts any complex number into one of these kinds by asking about $b$ first, then $a$.
+
+```mermaid
+flowchart TD
+  accTitle: Sorting complex numbers
+  accDescr: Start with a complex number a + bi. If b = 0 it is a real number, such as 4 or negative square root of 2. If b is not 0 it is a non-real complex number; then if a = 0 it is pure imaginary, such as 3i, and otherwise it has both parts nonzero, such as 2 + 3i.
+  A["Complex number a + bi"] --> Q1{"Is b = 0?"}
+  Q1 -- yes --> R["Real number, like 4 or −√2"]
+  Q1 -- no --> N["Non-real complex number"]
+  N --> Q2{"Is a = 0?"}
+  Q2 -- yes --> P["Pure imaginary, like 3i"]
+  Q2 -- no --> M["Both parts nonzero, like 2 + 3i"]
+```
+
 Complex numbers can be pictured as points in the **complex plane**: $a + bi$ sits at $(a, b)$, with real parts along the horizontal axis and imaginary parts along the vertical axis.
 
 ```plot
@@ -70,6 +84,10 @@ The powers of $i$ repeat in a cycle of four:
 | $i$ | $-1$ | $-i$ | $1$ | $i$ | $-1$ |
 
 Since $i^4 = 1$, divide the exponent by 4 and keep the remainder: $i^{n} = i^{r}$ where $r$ is the remainder of $n \div 4$ (with $i^0 = 1$). For example, $i^{43}$: $43 = 4 \cdot 10 + 3$, so $i^{43} = i^3 = -i$.
+
+The picture shows the cycle on the complex plane. The four values $1$, $i$, $-1$, $-i$ sit on the axes, one unit from the origin, and each multiplication by $i$ moves to the next one, a quarter turn counterclockwise. (The honors lesson on the geometry of complex numbers explains why multiplying by $i$ is a rotation.)
+
+![The complex plane with four points one unit from the origin: 1 on the positive real axis, i on the positive imaginary axis, −1 on the negative real axis and −i on the negative imaginary axis. Curved arrows labeled "times i" go counterclockwise from each point to the next. The labels read 1 = i to the 0 = i to the 4, i = i to the 1, −1 = i squared, and −i = i cubed.](images/a2-m2-i-cycle.svg)
 
 ## Complex solutions of quadratic equations
 

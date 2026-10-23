@@ -18,6 +18,10 @@ A **function** is a relation in which each input has exactly one output. The inp
 - $\{(1, 4), (2, 7), (3, 4)\}$ is a function. Two inputs share the output 4, which is allowed.
 - $\{(1, 4), (1, 6), (2, 7)\}$ is not a function, because the input 1 has two outputs.
 
+A **mapping diagram** makes the rule easy to see: the inputs go in one oval, the outputs in another, and an arrow joins each input to its output. In a function, exactly one arrow leaves each input. Several arrows may arrive at the same output.
+
+![Two mapping diagrams. Left, a function: inputs −1, 0, 2, 5 with arrows to outputs 3, 1, 1, 4; the inputs 0 and 2 share the output 1. Right, not a function: the input 1 has arrows to both 4 and 6, and the inputs 2 and 4 both go to 7.](images/alg-m3-mapping.svg)
+
 The test is about inputs, not outputs: a function may repeat outputs but never assigns two outputs to one input. Think of a vending machine: each button gives one item. Two buttons giving the same snack is fine; one button giving either of two snacks at random is not a function.
 
 ## Functions described different ways
@@ -40,6 +44,26 @@ On a graph, an input $x = a$ corresponds to the vertical line through $a$. If so
 
 ```plot
 {"x": [-1, 9], "y": [-4, 4], "functions": [{"f": "sqrt(x)", "label": "y = √x"}, {"f": "-sqrt(x)", "label": "y = -√x", "dashed": true}], "segments": [{"from": [4, -4], "to": [4, 4], "dashed": true}], "points": [{"at": [4, 2], "label": "(4, 2)"}, {"at": [4, -2], "label": "(4, -2)"}], "caption": "The whole curve y² = x fails the vertical line test at x = 4; its top half alone is a function"}
+```
+
+The chart below collects the three checks: one for pairs and tables, one for graphs and one for equations. They all ask the same question in different clothes: can one input have two outputs?
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a relation is a function
+  accDescr: First ask how the relation is given. For ordered pairs or a table, check whether any input appears with two different outputs. For a graph, check whether any vertical line crosses it more than once. For an equation in x and y, check whether some x gives two different y-values. If the answer is yes, it is not a function; if no, it is a function.
+  A["How is the relation given?"] --> B["Ordered pairs or a table"]
+  A --> C["A graph"]
+  A --> D["An equation in x and y"]
+  B --> E["Does any input appear with two different outputs?"]
+  C --> F["Does any vertical line cross the graph more than once?"]
+  D --> G["Does some x give two different y-values?"]
+  E -- yes --> N["Not a function"]
+  F -- yes --> N
+  G -- yes --> N
+  E -- no --> Y["Function"]
+  F -- no --> Y
+  G -- no --> Y
 ```
 
 ## Function notation

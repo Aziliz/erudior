@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" width="680" height="410" font-family="sans-serif">
+<rect width="680" height="410" fill="#ffffff"/>
+<rect x="190" y="80" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="240" y="80" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="290" y="80" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="340" y="80" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="390" y="80" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="440" y="80" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="190" y="130" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="240" y="130" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="290" y="130" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="340" y="130" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="390" y="130" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="440" y="130" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="190" y="180" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="240" y="180" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="290" y="180" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="340" y="180" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="390" y="180" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="440" y="180" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="190" y="230" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="240" y="230" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="290" y="230" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="340" y="230" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="390" y="230" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="440" y="230" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="190" y="280" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="240" y="280" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="290" y="280" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="340" y="280" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="390" y="280" width="50" height="50" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="440" y="280" width="50" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="190,80 240,80 240,130 290,130 290,180 340,180 340,230 390,230 390,280 440,280 440,330 190,330" fill="none" stroke="#1c2833" stroke-width="4"/>
+<rect x="190" y="80" width="300" height="250" fill="none" stroke="#1c2833" stroke-width="4"/>
+<line x1="190" y1="58" x2="490" y2="58" stroke="#1c2833" stroke-width="2"/>
+<line x1="190" y1="50" x2="190" y2="66" stroke="#1c2833" stroke-width="2"/>
+<line x1="490" y1="50" x2="490" y2="66" stroke="#1c2833" stroke-width="2"/>
+<line x1="166" y1="80" x2="166" y2="330" stroke="#1c2833" stroke-width="2"/>
+<line x1="158" y1="80" x2="174" y2="80" stroke="#1c2833" stroke-width="2"/>
+<line x1="158" y1="330" x2="174" y2="330" stroke="#1c2833" stroke-width="2"/>
+</svg>

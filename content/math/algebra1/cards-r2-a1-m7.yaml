@@ -1,0 +1,29 @@
+# Round 2 cards for a1-m7 honors lessons
+- {front: 'If $n^2$ is even, what can you say about $n$?', back: '$n$ is even. Odd numbers have odd squares: $(2k + 1)^2 = 2(2k^2 + 2k) + 1$.', topic: Irrationality proofs}
+- {front: 'Proof by contradiction', back: 'Assume the opposite of what you want to prove, reason correctly, and reach something impossible. Then the assumption is false.', topic: Irrationality proofs}
+- {front: 'Outline: why $\sqrt2$ is irrational', back: 'Assume $\sqrt2 = \tfrac pq$ in lowest terms. Then $p^2 = 2q^2$, so $p$ is even, $p = 2m$; then $q^2 = 2m^2$, so $q$ is even. Both even contradicts lowest terms.', topic: Irrationality proofs}
+- {front: 'Why the $\sqrt2$ proof does not work for $\sqrt4$', back: '$p^2 = 4q^2$ gives $p = 2m$ and then $q^2 = m^2$, which does not force $q$ to be even. No contradiction: $\sqrt4 = \tfrac21$.', topic: Irrationality proofs}
+- {front: 'When is $\sqrt n$ irrational (whole $n$)?', back: 'Exactly when $n$ is not a perfect square. The general proof uses unique prime factorization: in a perfect square every prime appears an even number of times.', topic: Irrationality proofs}
+- {front: 'Rationalize $\dfrac{a}{\sqrt b}$', back: 'Multiply top and bottom by $\sqrt b$: $\dfrac{a\sqrt b}{b}$. Example: $\dfrac{6}{\sqrt3} = \dfrac{6\sqrt3}{3} = 2\sqrt3$.', topic: Rationalizing denominators}
+- {front: 'Conjugate of $a + \sqrt b$, and their product', back: '$a - \sqrt b$. $(a + \sqrt b)(a - \sqrt b) = a^2 - b$, with no radical left.', topic: Rationalizing denominators}
+- {front: 'Rationalize $\dfrac{4}{3 - \sqrt5}$', back: 'Multiply by $\dfrac{3 + \sqrt5}{3 + \sqrt5}$: $\dfrac{4(3 + \sqrt5)}{9 - 5} = 3 + \sqrt5$.', topic: Rationalizing denominators}
+- {front: 'Why rationalize denominators at all?', back: 'A convention from hand computation: dividing by a long decimal like 1.41421 is hard, multiplying is easy. Both forms are equal; the rationalized one is the usual final form.', topic: Rationalizing denominators}
+- {front: 'Even and odd $n$th roots', back: 'Even index: needs $a \ge 0$; the symbol means the nonnegative root ($\sqrt[4]{81} = 3$). Odd index: every real number has one real root with the same sign ($\sqrt[5]{-32} = -2$).', topic: Rational exponents}
+- {front: '$a^{1/n}$ and $a^{m/n}$ (for $a > 0$)', back: '$a^{1/n} = \sqrt[n]{a}$; $a^{m/n} = (\sqrt[n]{a})^m = \sqrt[n]{a^m}$. Denominator = root, numerator = power.', topic: Rational exponents}
+- {front: 'Why does $a^{1/2}$ mean $\sqrt a$?', back: 'To keep the power rule: $(a^{1/2})^2 = a^1 = a$, so $a^{1/2}$ must be a number whose square is $a$.', topic: Rational exponents}
+- {front: 'Evaluate $27^{-2/3}$', back: '$\dfrac{1}{(\sqrt[3]{27})^2} = \dfrac{1}{9}$. A negative exponent means reciprocal, not a negative answer.', topic: Rational exponents}
+- {front: 'Solve $x^{m/n} = c$ for $x > 0$', back: 'Raise both sides to the reciprocal power: $x = c^{n/m}$. Example: $x^{3/2} = 27$ gives $x = 27^{2/3} = 9$.', topic: Rational exponents}
+- {front: 'Yearly factor $B$ → factor per month', back: '$B^{1/12}$. 12% a year is $1.12^{1/12} \approx 1.00949$, about 0.949% a month (not 1%).', topic: Rational exponents}
+- {front: 'Half-life formula', back: '$A = A_0\left(\tfrac12\right)^{t/h}$, where $h$ is the half-life; $\tfrac th$ counts half-lives.', topic: Rational exponents}
+- {front: 'Kepler''s third law (years and AU)', back: '$T^2 = a^3$, so $T = a^{3/2}$ and $a = T^{2/3}$. A planet 4 AU out takes $4^{3/2} = 8$ years per orbit.', topic: Rational exponents}
+- {front: 'Negative bases and fractional exponents', back: 'Avoid them: $(-8)^{1/3} = -2$, but $\sqrt[6]{(-8)^2} = 2$. Keep fractional exponents on positive bases.', topic: Rational exponents}
+- {front: 'Summation notation $\sum_{k=1}^{n} a_k$', back: '$a_1 + a_2 + \dots + a_n$: $k$ starts at the bottom number and counts up by 1 to the top number.', topic: Series}
+- {front: 'Arithmetic series sum', back: '$S_n = \dfrac{n(a_1 + a_n)}{2} = \dfrac n2\big[2a_1 + (n - 1)d\big]$: number of terms times the average of first and last.', topic: Series}
+- {front: '$1 + 2 + 3 + \dots + n$', back: '$\dfrac{n(n + 1)}{2}$. For $n = 100$: 5050.', topic: Series}
+- {front: 'Geometric series sum ($n$ terms)', back: '$S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ for $r \ne 1$ (and $S_n = na_1$ when $r = 1$).', topic: Series}
+- {front: 'How the geometric sum formula is derived', back: 'Write $S_n$ and $rS_n$; subtract so all but two terms cancel: $S_n - rS_n = a_1 - a_1r^n$.', topic: Series}
+- {front: 'Infinite geometric series', back: 'If $|r| < 1$ it converges to $\dfrac{a_1}{1 - r}$. If $|r| \ge 1$ it diverges (no sum).', topic: Series}
+- {front: 'Write $0.777\ldots$ as a fraction', back: '$0.7 + 0.07 + \dots = \dfrac{0.7}{1 - 0.1} = \dfrac79$.', topic: Series}
+- {front: 'Total distance of a bouncing ball', back: 'First drop plus twice the sum of the bounce heights. Dropped from 10 ft with $r = 0.6$: $10 + 2 \cdot \dfrac{6}{0.4} = 40$ ft.', topic: Series}
+- {front: 'Counting terms in a sum from $k = p$ to $k = q$', back: '$q - p + 1$ terms. From $k = 3$ to $k = 10$ is 8 terms.', topic: Series}
+- {front: 'Sum of $n$ terms vs the $n$th term (geometric)', back: 'The $n$th term uses $r^{n-1}$; the sum of $n$ terms uses $r^n$.', topic: Series}

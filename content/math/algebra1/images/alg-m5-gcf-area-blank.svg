@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="sans-serif">
+<rect width="640" height="360" fill="#ffffff"/>
+<rect x="150" y="90" width="260" height="190" rx="0" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="410" y="90" width="130" height="190" rx="0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="280.0" y="197.0" font-size="34" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">6x²</text>
+<text x="475.0" y="197.0" font-size="34" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">9x</text>
+<text x="320" y="340" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">area 6x² + 9x</text>
+<line x1="150" y1="72" x2="410" y2="72" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="410" y1="72" x2="540" y2="72" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="150" y1="64" x2="150" y2="80" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="410" y1="64" x2="410" y2="80" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="540" y1="64" x2="540" y2="80" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="132" y1="90" x2="132" y2="280" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="124" y1="90" x2="140" y2="90" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="124" y1="280" x2="140" y2="280" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="280.0" cy="40" r="14" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="475.0" cy="40" r="14" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="80" cy="185.0" r="14" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+</svg>

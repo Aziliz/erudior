@@ -1,0 +1,227 @@
+# Honors module a1-h1 (Algebraic reasoning and modeling), round 2
+- id: a1-h1-r2-consecutive-sum
+  title: Consecutive integers from their sum
+  topic: Algebraic proof
+  vars:
+    cnt: {choices: [3, 5, 7]}
+    lo: {min: -20, max: 60}
+  calc:
+    half: (cnt - 1)/2
+    mid: lo + half
+    total: cnt*mid
+  where: ['total != 0']
+  prompt: 'The sum of an odd number of consecutive integers equals that many times the middle integer. (For three: $n + (n + 1) + (n + 2) = 3(n + 1)$.) If {cnt} consecutive integers add up to {total}, what is the smallest of them?'
+  answers:
+    - {name: lo, label: 'Smallest integer'}
+  solution: |-
+    The {cnt} integers are balanced around the middle one, so the sum is {cnt} times the middle integer: middle $= {total} \div {cnt} = {mid}$.
+    There are {half} integers below the middle one, so the smallest is ${mid} - {half} =$ **{lo}**.
+
+- id: a1-h1-r2-digit-reverse
+  title: The digit-reversal identity
+  topic: Algebraic proof
+  vars:
+    ta: {min: 2, max: 9}
+    ob: {min: 1, max: 8}
+  calc:
+    num: 10*ta + ob
+    rev: 10*ob + ta
+    diff: num - rev
+    dd: ta - ob
+  where: ['ta > ob']
+  prompt: 'A two-digit number with tens digit {ta} has a larger value than its reversal, and the number minus its reversal is {diff}. Use $(10a + b) - (10b + a) = 9(a - b)$ to find the ones digit.'
+  answers:
+    - {name: ob, label: 'Ones digit'}
+  solution: |-
+    $9(a - b) = {diff}$, so $a - b = {diff} \div 9 = {dd}$.
+    With $a = {ta}$, the ones digit is ${ta} - {dd} =$ **{ob}**. Check: ${num} - {rev} = {diff}$.
+
+- id: a1-h1-r2-radical-eq
+  title: Solve a radical equation and spot the extraneous candidate
+  topic: Equivalence and extraneous solutions
+  vars:
+    cc: {min: -4, max: 4}
+    r1: {min: -6, max: 8}
+    s1: {min: -8, max: 6}
+  calc:
+    aa: r1 + s1 + 2*cc
+    bb: cc^2 - r1*s1
+    tc: 2*cc
+    csq: cc^2
+    pp: -(r1 + s1)
+    qq: r1*s1
+    nr: -r1
+    ns: -s1
+    rc: r1 + cc
+    sc: s1 + cc
+    radr: (r1 + cc)^2
+    rads: (s1 + cc)^2
+    asc: abs(s1 + cc)
+  where: ['cc != 0', 'r1 + cc >= 1', 's1 + cc <= -1', 'aa > 0', 'bb != 0', 'pp != 0', 'qq != 0', 'tc != aa']
+  prompt: 'Solve $\sqrt{{aa:coef}x {bb:signed}} = x {cc:signed}$ by squaring both sides. The squared equation has two solutions: enter the one that checks and the one that is extraneous.'
+  answers:
+    - {name: r1, label: 'Solution'}
+    - {name: s1, label: 'Extraneous candidate'}
+  solution: |-
+    Square both sides: ${aa:coef}x {bb:signed} = x^2 {tc:signedcoef}x {csq:signed}$.
+    Collect terms on one side: $x^2 {pp:signedcoef}x {qq:signed} = 0$, which factors as $(x {nr:signed})(x {ns:signed}) = 0$. Candidates: $x = {r1}$ and $x = {s1}$.
+    Check in the original equation. $x = {r1}$: $\sqrt{{radr}} = {rc}$, and the right side is ${r1} {cc:signed} = {rc}$ ✓.
+    $x = {s1}$: $\sqrt{{rads}} = {asc}$, but the right side is ${s1} {cc:signed} = {sc}$ ✗ (a square root is never negative).
+    Solution **{r1}**; extraneous candidate **{s1}**.
+
+- id: a1-h1-r2-radical-isolate
+  title: Isolate the root, then square
+  topic: Equivalence and extraneous solutions
+  vars:
+    qv: {min: 1, max: 6}
+    r1: {min: 3, max: 14}
+  calc:
+    s1: 1 + 2*qv - r1
+    bb: qv^2 - r1*s1
+    tq: 2*qv
+    qsq: qv^2
+    pp: -(r1 + s1)
+    pr: r1*s1
+    nr: -r1
+    ns: -s1
+    rq: r1 - qv
+    sq: s1 - qv
+    rads: (s1 - qv)^2
+    asq: abs(s1 - qv)
+    radr: (r1 - qv)^2
+    chk: abs(s1 - qv) + qv
+  where: ['r1 >= qv + 2', 'r1 <= qv + 8', 'bb != 0', 'pr != 0', 's1 != 0']
+  prompt: 'Solve $\sqrt{x {bb:signed}} + {qv} = x$. (Check your candidates: one of them is extraneous.)'
+  answers:
+    - {name: r1, label: '$x =$'}
+  solution: |-
+    Isolate the root: $\sqrt{x {bb:signed}} = x - {qv}$. A solution needs $x - {qv} \ge 0$.
+    Square: $x {bb:signed} = x^2 - {tq}x + {qsq}$, so $x^2 {pp:signedcoef}x {pr:signed} = 0$, which factors as $(x {nr:signed})(x {ns:signed}) = 0$.
+    Check $x = {r1}$: $\sqrt{{radr}} + {qv} = {rq} + {qv} = {r1}$ ✓.
+    Check $x = {s1}$: $\sqrt{{rads}} + {qv} = {asq} + {qv} = {chk} \ne {s1}$ ✗, so it is extraneous.
+    The solution is $x =$ **{r1}**.
+
+- id: a1-h1-r2-unit-convert
+  title: Convert a speed and find a reaction distance
+  topic: The modeling cycle
+  vars:
+    kk: {min: 1, max: 5}
+    tt: {choices: [0.5, 1, 1.5, 2, 2.5]}
+  calc:
+    mph: 15*kk
+    fts: 22*kk
+    top: mph*5280
+    dist: fts*tt
+  prompt: 'A car travels at {mph} miles per hour. (1 mile = 5,280 feet; 1 hour = 3,600 seconds.) (a) What is its speed in feet per second? (b) How many feet does it travel during a reaction time of {tt} seconds?'
+  answers:
+    - {name: fts, label: '(a) Speed (ft/s)'}
+    - {name: dist, label: '(b) Distance (ft)'}
+  solution: |-
+    (a) Multiply by conversion factors so miles and hours cancel: ${mph}\,\tfrac{\text{mi}}{\text{h}} \times \tfrac{5280 \text{ ft}}{1 \text{ mi}} \times \tfrac{1 \text{ h}}{3600 \text{ s}} = \tfrac{{top}}{3600} =$ **{fts}** ft/s.
+    (b) Distance = rate × time: ${fts}\,\tfrac{\text{ft}}{\text{s}} \times {tt} \text{ s} =$ **{dist}** ft.
+
+- id: a1-h1-r2-cooling
+  title: A cooling model that levels off
+  topic: The modeling cycle
+  vars:
+    room: {min: 18, max: 24}
+    hot: {min: 80, max: 95}
+    hh: {choices: [5, 8, 10, 12, 15]}
+    mm: {min: 1, max: 8}
+  calc:
+    tm: hh*mm/2
+    gap: hot - room
+    ex: tm/hh
+    fac: 0.5^(tm/hh)
+    temp: room + (hot - room)*0.5^(tm/hh)
+  prompt: 'A drink at {hot} °C sits in a room at {room} °C. The difference between the drink and the room halves every {hh} minutes, so $T = {room} + {gap}\left(\tfrac12\right)^{t/{hh}}$. Find the temperature after {tm} minutes, to the nearest tenth of a degree.'
+  answers:
+    - {name: temp, label: '$T$ (°C)', format: num1, tolerance: 0.051}
+  solution: |-
+    The exponent is ${tm} \div {hh} = {ex}$, and $\left(\tfrac12\right)^{{ex}} \approx {fac:num4}$.
+    $T = {room} + {gap} \times {fac:num4} \approx$ **{temp:num1}** °C. It stays above the room temperature of {room} °C, as it should.
+
+- id: a1-h1-r2-fermi
+  title: A Fermi estimate with units
+  topic: The modeling cycle
+  vars:
+    ppl: {min: 2, max: 6}
+    mins: {min: 5, max: 12}
+    gpm: {choices: [1.5, 1.8, 2, 2.5]}
+    days: {choices: [7, 30, 365]}
+  calc:
+    perday: ppl*mins*gpm
+    total: ppl*mins*gpm*days
+  prompt: 'Estimate the shower water used by a household of {ppl} people in {days} days, assuming each person takes one {mins}-minute shower a day with a showerhead that delivers {gpm} gallons per minute. Give the product of the assumptions, in gallons.'
+  answers:
+    - {name: total, label: 'Water (gallons)', tolerance: 0.01}
+  solution: |-
+    Chain the units so that only gallons are left:
+    ${ppl} \text{ people} \times \tfrac{1 \text{ shower}}{\text{person} \cdot \text{day}} \times \tfrac{{mins} \text{ min}}{\text{shower}} \times \tfrac{{gpm} \text{ gal}}{\text{min}} = {perday}$ gallons per day.
+    Over {days} days: ${perday} \times {days} =$ **{total}** gallons. Report it rounded, with its assumptions.
+
+- id: a1-h1-r2-iterate
+  title: Walk a multiply-then-add rule
+  topic: Recursive models
+  vars:
+    start: {min: 1, max: 30}
+    rr: {choices: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}
+    dd: {min: 1, max: 10}
+  calc:
+    a1: 10*start
+    dv: 10*dd
+    a2: rr*a1 + dv
+    a3: rr*a2 + dv
+    a4: rr*a3 + dv
+  prompt: 'A sequence starts at $a_1 = {a1}$ and follows $a_n = {rr}\,a_{n-1} + {dv}$. Find $a_2$, $a_3$ and $a_4$ (exact decimals).'
+  answers:
+    - {name: a2, label: '$a_2 =$', tolerance: 0.006}
+    - {name: a3, label: '$a_3 =$', tolerance: 0.006}
+    - {name: a4, label: '$a_4 =$', tolerance: 0.006}
+  solution: |-
+    Multiply the previous term by {rr}, then add {dv}:
+    $a_2 = {rr}({a1}) + {dv} = {a2:num2}$, $a_3 = {rr}({a2:num2}) + {dv} = {a3:num2}$, $a_4 = {rr}({a3:num2}) + {dv} = {a4:num2}$.
+    So $a_2 =$ **{a2:num2}**, $a_3 =$ **{a3:num2}**, $a_4 =$ **{a4:num2}**.
+
+- id: a1-h1-r2-equilibrium
+  title: Find an equilibrium
+  topic: Recursive models
+  vars:
+    rr: {choices: [0.2, 0.25, 0.4, 0.5, 0.6, 0.75, 0.8, 0.9, 1.1, 1.2, 1.25, 1.5]}
+    ee: {min: 2, max: 40}
+  calc:
+    eq: 10*ee
+    om: round(1 - rr, 4)
+    dv: round(eq*(1 - rr), 4)
+  prompt: 'Find the equilibrium value $E$ of the rule $a_n = {rr}\,a_{n-1} {dv:signed}$.'
+  answers:
+    - {name: eq, label: '$E =$', tolerance: 0.01}
+  solution: |-
+    An equilibrium is left unchanged by the rule: $E = {rr}E {dv:signed}$.
+    Subtract ${rr}E$: ${om}E = {dv}$, so $E = {dv} \div {om} =$ **{eq}**.
+    Check: ${rr}({eq}) {dv:signed} = {eq}$. (With $0 < r < 1$ the terms approach $E$; with $r > 1$ they move away from it.)
+
+- id: a1-h1-r2-savings
+  title: Savings with monthly deposits
+  topic: Recursive models
+  vars:
+    dep: {min: 1, max: 10}
+    ip: {choices: [0.25, 0.5, 0.75, 1]}
+    months: {choices: [12, 24, 36, 48, 60]}
+  calc:
+    dv: 50*dep
+    gr: 1 + ip/100
+    eq: -dv/(ip/100)
+    negeq: dv/(ip/100)
+    pwm: (1 + ip/100)^months - 1
+    pw: (1 + ip/100)^months
+    bal: dv*((1 + ip/100)^months - 1)/(ip/100)
+    paid: dv*months
+  prompt: 'An account starts at \$0. At the end of each month it earns {ip}% interest and then a deposit of \${dv} is added: $B_n = {gr}\,B_{n-1} + {dv}$, $B_0 = 0$. Use the equilibrium to find the balance after {months} months, to the nearest cent.'
+  answers:
+    - {name: bal, label: 'Balance in dollars', format: money, tolerance: 0.011}
+  solution: |-
+    Equilibrium: $E = {dv} \div (1 - {gr}) = {eq:num2}$. (It is negative, and the balance moves away from it because the factor is greater than 1.)
+    Explicit formula, starting from $B_0 = 0$: $B_n = E + (0 - E)({gr})^n$.
+    That is $B_n = {negeq:num2}\left[({gr})^n - 1\right]$. With $({gr})^{{months}} \approx {pw:num4}$: $B_{{months}} = {negeq:num2} \times {pwm:num4} \approx$ **{bal:money}**.
+    You deposited {paid:money}; the rest is interest.

@@ -1,0 +1,38 @@
+# Notecards: honors module a1-h1 (Algebraic reasoning and modeling), round 2
+- {front: 'Conjecture, proof and counterexample', back: 'A conjecture is a guess from examples; a proof shows it holds in every case; one counterexample shows a "for every" statement is false.', topic: Algebraic proof}
+- {front: 'Why don''t 40 examples prove "$n^2 + n + 41$ is always prime"?', back: 'Because it fails at $n = 40$: $40^2 + 40 + 41 = 1681 = 41^2$. Examples can''t cover infinitely many cases.', topic: Algebraic proof}
+- {front: 'General forms: even, odd, consecutive, two-digit', back: 'Even $2k$; odd $2k + 1$; consecutive $n, n + 1, n + 2$; two-digit number $10a + b$ ($k$, $n$, $a$, $b$ integers).', topic: Algebraic proof}
+- {front: 'Prove: odd + odd is even', back: '$(2j + 1) + (2k + 1) = 2(j + k + 1)$, which is 2 times an integer. Use two different letters.', topic: Algebraic proof}
+- {front: 'Sum of three consecutive integers', back: '$n + (n + 1) + (n + 2) = 3(n + 1)$: divisible by 3, and equal to 3 times the middle integer.', topic: Algebraic proof}
+- {front: 'A two-digit number minus its reversal', back: '$(10a + b) - (10b + a) = 9(a - b)$: always a multiple of 9.', topic: Algebraic proof}
+- {front: 'Gap between consecutive squares', back: '$(n + 1)^2 - n^2 = 2n + 1$, an odd number. Picture: add a column of $n$, a row of $n$ and one corner dot.', topic: Algebraic proof}
+- {front: 'Square of an odd number', back: '$(2k + 1)^2 = 4k(k + 1) + 1 = 8m + 1$: odd, and 1 more than a multiple of 8.', topic: Algebraic proof}
+- {front: 'Proof by contradiction', back: 'Assume the statement is false and reach something impossible. Example: if $3 + \sqrt2 = \tfrac ab$, then $\sqrt2 = \tfrac{a - 3b}{b}$ would be rational.', topic: Algebraic proof}
+- {front: 'Integers with $6x + 9y = 100$?', back: 'None: the left side is $3(2x + 3y)$, a multiple of 3, and 100 is not.', topic: Algebraic proof}
+- {front: 'What breaks the "proof" that $2 = 1$?', back: 'It divides both sides by $a - b$, which is 0 because $a = b$.', topic: Algebraic proof}
+- {front: 'Which solving steps are reversible?', back: 'Adding or subtracting the same expression, multiplying or dividing by a nonzero number, and rewriting one side. They keep the same solutions.', topic: Equivalence and extraneous solutions}
+- {front: 'Steps that can LOSE solutions', back: 'Dividing by an expression that can be 0 ($x^2 = 5x \to x = 5$ loses 0) and taking a square root without $\pm$.', topic: Equivalence and extraneous solutions}
+- {front: 'Steps that can ADD solutions', back: 'Squaring both sides, and multiplying both sides by an expression that can be 0.', topic: Equivalence and extraneous solutions}
+- {front: 'Extraneous solution', back: 'A candidate produced by solving that fails the original equation. It usually comes from squaring both sides.', topic: Equivalence and extraneous solutions}
+- {front: 'Steps for a radical equation', back: 'Isolate the root, square both sides, solve, then check every candidate in the ORIGINAL equation.', topic: Equivalence and extraneous solutions}
+- {front: 'Solve $\sqrt{x + 6} = x$', back: 'Squaring gives $x^2 - x - 6 = 0$, so $x = 3$ or $x = -2$. Only $x = 3$ checks; $-2$ is extraneous.', topic: Equivalence and extraneous solutions}
+- {front: 'Quick test for a radical equation $\sqrt{A} = B$', back: 'A principal square root is never negative, so any candidate with $B < 0$ is extraneous.', topic: Equivalence and extraneous solutions}
+- {front: 'Solving $|A| = B$ when $B$ has a variable', back: 'Split into $A = B$ or $A = -B$, then check: a solution needs $B \ge 0$.', topic: Equivalence and extraneous solutions}
+- {front: 'Why check in the original equation, not the squared one?', back: 'Every candidate satisfies the squared equation, since that''s where it came from. Only the original can expose an extraneous one.', topic: Equivalence and extraneous solutions}
+- {front: 'The modeling cycle', back: 'Problem, formulate, compute, interpret, validate; then revise (back to formulate) or report.', topic: The modeling cycle}
+- {front: 'What does "formulate" involve?', back: 'Choosing variables and units, stating assumptions, and picking a type of function or equation.', topic: The modeling cycle}
+- {front: 'Ways to validate a model', back: 'Compare with data, check the units, test extreme inputs, and check the domain makes sense.', topic: The modeling cycle}
+- {front: 'Two rules of dimensional analysis', back: 'Only like units can be added or set equal; units multiply, divide and cancel like variables.', topic: The modeling cycle}
+- {front: '60 mi/h in ft/s', back: '$60 \times \tfrac{5280}{3600} = 88$ ft/s.', topic: The modeling cycle}
+- {front: 'Fermi estimate', back: 'A chain of stated assumptions multiplied together. Report a rounded range, and note which assumption matters most.', topic: The modeling cycle}
+- {front: 'A quantity that levels off at $L$', back: '$y = L + a \cdot b^x$ with $0 < b < 1$: the distance $y - L$ decays exponentially.', topic: The modeling cycle}
+- {front: 'Cooling coffee model', back: '$T = 20 + 70\left(\tfrac12\right)^{t/10}$: 90 °C coffee in a 20 °C room, the difference halving every 10 min.', topic: The modeling cycle}
+- {front: 'Which function family? (5 clues)', back: 'Rule changes at thresholds: piecewise. Same amount: linear. Same percent: exponential. Rises then falls: quadratic. Levels off: shifted exponential.', topic: The modeling cycle}
+- {front: 'Multiply-then-add rule', back: '$a_n = r\,a_{n-1} + d$: geometric when $d = 0$, arithmetic when $r = 1$.', topic: Recursive models}
+- {front: 'Medicine model: 60% removed between doses of 200 mg', back: '$a_n = 0.4\,a_{n-1} + 200$ (the fraction that remains is 0.4).', topic: Recursive models}
+- {front: 'Equilibrium of $a_n = r\,a_{n-1} + d$', back: 'Solve $E = rE + d$: $E = \dfrac{d}{1 - r}$ (for $r \ne 1$).', topic: Recursive models}
+- {front: 'Explicit formula for $a_n = r\,a_{n-1} + d$', back: '$a_n = E + (a_1 - E)\,r^{\,n-1}$, because the distance $a_n - E$ is geometric with ratio $r$.', topic: Recursive models}
+- {front: 'Stable vs unstable equilibrium', back: '$0 < r < 1$: terms approach $E$ (stable). $r > 1$: terms move away from $E$ (unstable).', topic: Recursive models}
+- {front: '"Add, then multiply" vs "multiply, then add"', back: '$r(a_{n-1} + d) = r\,a_{n-1} + rd$, which is not $r\,a_{n-1} + d$. Order changes the rule.', topic: Recursive models}
+- {front: 'Saving \$100 a month at 0.5% monthly interest', back: '$B_n = 1.005B_{n-1} + 100$, $B_0 = 0$, so $B_n = 20{,}000\left[(1.005)^n - 1\right]$; after 24 months, about \$2,543.20.', topic: Recursive models}
+- {front: 'Fish pond $P_n = 1.2P_{n-1} - 300$', back: 'Equilibrium 1500 is unstable: start at 1600 and it grows; start at 1400 and it collapses.', topic: Recursive models}

@@ -21,6 +21,21 @@ Multiplying or dividing by a positive number also keeps the order. But multiplyi
 
 > When you multiply or divide both sides of an inequality by a negative number, reverse the inequality symbol.
 
+The whole procedure fits in one chart. The only place it differs from solving an equation is the question in the middle.
+
+```mermaid
+flowchart TD
+  accTitle: Steps for solving a linear inequality
+  accDescr: Top to bottom. First clear fractions by multiplying by a positive common denominator, and remove parentheses. Next collect the variable terms on one side and the constants on the other. Then ask whether getting x alone means multiplying or dividing by a negative number. If yes, do it and reverse the inequality symbol; if no, do it and keep the symbol. Either way, graph the answer and write it in interval notation, then check one value inside the solution set and one outside it.
+  A["Clear fractions (multiply by a positive number) and remove parentheses"] --> B["Collect x terms on one side, numbers on the other"]
+  B --> C{"Multiply or divide by a negative to get x alone?"}
+  C -- yes --> D["Do it and reverse the symbol"]
+  C -- no --> E["Do it and keep the symbol"]
+  D --> F["Graph it and write it in interval notation"]
+  E --> F
+  F --> G["Check one value inside and one outside"]
+```
+
 ### Example 1
 
 Solve $7 - 3x \ge 19$ and graph the solution.
@@ -95,6 +110,10 @@ Solve $3x - 1 < -7$ or $2x + 5 \ge 11$.
 ```numberline
 {"x": [-7, 7], "points": [{"at": [-2, 0], "open": true, "label": "-2"}, {"at": [3, 0], "label": "3"}], "segments": [{"from": [-2, 0], "to": [-7, 0], "arrow": true}, {"from": [3, 0], "to": [7, 0], "arrow": true}], "caption": "x < -2 or x ≥ 3: two separate rays"}
 ```
+
+The picture below puts "and" and "or" side by side for the same two sets, $A$: $x > -2$ and $B$: $x \le 3$. "And" keeps only the stretch shaded in both rows, from $-2$ (open) to 3 (closed). "Or" keeps everything shaded in either row, which here is the whole number line.
+
+![Four number lines. Row A shows x greater than -2: an open dot at -2 and shading to the right. Row B shows x at most 3: a closed dot at 3 and shading to the left. Row "A and B" shows only the overlap, from an open dot at -2 to a closed dot at 3. Row "A or B" shows the whole line shaded.](images/alg-m2-and-or.svg)
 
 Watch for special cases. "$x > 4$ and $x < 1$" has no overlap, so it has no solution. "$x > 1$ or $x < 4$" covers every real number, because each number is either above 1 or below 4 (or both).
 

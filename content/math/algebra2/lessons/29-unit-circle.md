@@ -79,6 +79,10 @@ $$\cos\theta = x, \qquad \sin\theta = y, \qquad \tan\theta = \frac{y}{x} = \frac
 
 Why these definitions? For an acute angle, drop a perpendicular from $P$ to the $x$-axis. You get a right triangle with hypotenuse 1, adjacent leg $x$ and opposite leg $y$, so the triangle ratios give $\cos\theta = \tfrac{x}{1}$ and $\sin\theta = \tfrac{y}{1}$. The new definitions agree with the old ones for acute angles and keep working for every other angle. In words: **cosine** is the $x$-coordinate and **sine** is the $y$-coordinate of the point on the unit circle.
 
+![The unit circle with a point P at an angle θ in quadrant I. A right triangle is drawn from the origin to P and straight down to the x-axis: its hypotenuse is a radius of length 1, its horizontal leg has length cos θ and its vertical leg has length sin θ, so P = (cos θ, sin θ).](images/a2-m9-unit-triangle.svg)
+
+The picture shows the triangle for an angle in quadrant I. For larger angles the same point $P$ still exists; only the signs of its coordinates change.
+
 Because $P$ is on the circle, $x^2 + y^2 = 1$ gives the **Pythagorean identity**:
 
 $$\sin^2\theta + \cos^2\theta = 1.$$
@@ -100,10 +104,29 @@ Sine climbs from 0 to 1 while cosine falls from 1 to 0. The other quadrants are 
 
 In quadrant I both coordinates are positive; in quadrant II $x < 0$, so cosine is negative and sine positive; in quadrant III both are negative; in quadrant IV cosine is positive and sine negative.
 
+![Four boxes, one for each quadrant. Quadrant I: x and y positive, so cosine and sine are both positive. Quadrant II: x negative and y positive, so cosine is negative and sine positive. Quadrant III: both negative. Quadrant IV: x positive and y negative, so cosine is positive and sine negative.](images/a2-m9-quadrant-signs.svg)
+
 To evaluate sine or cosine of any special angle:
 
 1. Find the reference angle and use its quadrant I values.
 2. Attach the signs for the quadrant of the terminal side.
+
+The flowchart puts the whole procedure together, including the first step of bringing the angle into the range $0^\circ$ to $360^\circ$ and the special case of an angle on an axis.
+
+```mermaid
+flowchart TD
+  accTitle: How to find the exact sine or cosine of any special angle
+  accDescr: Start with the angle. If it is not between 0 and 360 degrees, add or subtract full turns of 360 degrees (2 pi) to get a coterminal angle in that range. If the terminal side lies on an axis, read the coordinates of the point (1, 0), (0, 1), (minus 1, 0) or (0, minus 1) directly. Otherwise find the quadrant, find the reference angle to the x-axis, look up the quadrant I values for that reference angle, and attach the signs for the quadrant: cosine follows the sign of x and sine follows the sign of y.
+  A["Angle θ"] --> B{"Between 0° and 360°?"}
+  B -- "no" --> C["Add or subtract 360° until it is"]
+  C --> D
+  B -- "yes" --> D{"Terminal side on an axis?"}
+  D -- "yes" --> E["Read the point: (1, 0), (0, 1), (−1, 0) or (0, −1)"]
+  D -- "no" --> F["Find the quadrant"]
+  F --> G["Reference angle: acute angle to the x-axis"]
+  G --> H["Quadrant I values for the reference angle"]
+  H --> I["Attach signs: cos follows x, sin follows y"]
+```
 
 ### Example 3
 

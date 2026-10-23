@@ -88,6 +88,10 @@ Without solving, describe the roots of $4x^2 - 12x + 9 = 0$, $x^2 + x + 1 = 0$ a
 2. $D = 1 - 4 = -3 < 0$: no real roots.
 3. $D = 49 - 24 = 25 > 0$, a perfect square: two rational roots ($3$ and $\tfrac12$).
 
+The three cases side by side:
+
+![Three upward parabolas over an x-axis. The first dips below the axis and crosses it at two marked points, labeled D > 0: two real roots. The second touches the axis at one marked point, labeled D = 0: one double root. The third stays above the axis, labeled D < 0: no real roots.](images/alg-m6-discriminant.svg)
+
 ### Example 5
 
 For what values of $k$ does $x^2 + kx + 9 = 0$ have exactly one real solution?
@@ -103,7 +107,20 @@ One solution means $D = 0$: $k^2 - 36 = 0$, so $k = 6$ or $k = -6$. (Then the eq
 | $x^2 + bx + c$ with $b$ even, if you want vertex form too | completing the square |
 | anything else | quadratic formula |
 
-The formula always works, so when in doubt, use it.
+The formula always works, so when in doubt, use it. The flowchart puts the same choices in order, checking the discriminant before you start factoring.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a quadratic equation
+  accDescr: If the equation has the form x squared equals k, or a squared binomial equals k, use the square root property. Otherwise write it in standard form and compute the discriminant D = b squared minus 4ac. If D is negative there are no real solutions. If D is a perfect square and a, b and c are integers, the quadratic factors, so factor. Otherwise use the quadratic formula, or complete the square if you also want vertex form.
+  A{"Is it x² = k or (x + h)² = k?"} -- yes --> B["Square root property"]
+  A -- no --> C["Standard form, then D = b² − 4ac"]
+  C --> E{"Is D negative?"}
+  E -- yes --> F["No real solutions"]
+  E -- no --> G{"Is D a perfect square, with integer a, b, c?"}
+  G -- yes --> H["Factor"]
+  G -- no --> I["Quadratic formula, or complete the square"]
+```
 
 ## Common mistakes
 

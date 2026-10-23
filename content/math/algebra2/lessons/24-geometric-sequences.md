@@ -97,6 +97,10 @@ If $|r| \ge 1$, the terms don't shrink to 0 and the series has no finite sum; it
 
 The partial sums of $1 + \tfrac12 + \tfrac14 + \tfrac18 + \cdots$ are $1, 1.5, 1.75, 1.875, \dots$, creeping toward $\dfrac{1}{1 - \frac12} = 2$. Picture walking halfway to a wall, then half the remaining distance, and so on: you cover a total of exactly the distance to the wall.
 
+The same idea works with area. Cut a square of area 1 in half, then cut the leftover piece in half, and keep going. The pieces have areas $\tfrac12, \tfrac14, \tfrac18, \dots$, and together they fill the whole square, so $\tfrac12 + \tfrac14 + \tfrac18 + \cdots = 1$, which matches $\dfrac{a_1}{1 - r} = \dfrac{1/2}{1 - 1/2} = 1$.
+
+![A square of area 1 divided into pieces: the left half labeled 1/2, the upper right quarter labeled 1/4, then pieces labeled 1/8, 1/16 and 1/32, each half the size of the one before, with two tiny leftover pieces.](images/a2-m7-halving.svg)
+
 ```plot
 {"x": [0, 9], "y": [0, 2.4], "points": [{"at": [1, 1]}, {"at": [2, 1.5]}, {"at": [3, 1.75]}, {"at": [4, 1.875]}, {"at": [5, 1.9375]}, {"at": [6, 1.96875]}, {"at": [7, 1.984375]}, {"at": [8, 1.9921875]}], "functions": [{"f": "2", "dashed": true, "label": "S = 2"}], "xLabel": "n", "yLabel": "Sₙ", "caption": "Partial sums of 1 + 1/2 + 1/4 + ... approach 2"}
 ```
@@ -126,6 +130,26 @@ A job pays 40,000 dollars in the first year, with a 3% raise every year after th
 3. Total: $S_{10} = \dfrac{40000(1 - 1.03^{10})}{1 - 1.03} \approx 458{,}555$ dollars.
 
 Compare a flat salary of 40,000 dollars for 10 years, which totals 400,000 dollars; the raises add almost 58,600 dollars.
+
+## Choosing a formula
+
+This chart sums up Lessons 23 and 24: test the sequence first, then pick the formula that fits the question.
+
+```mermaid
+flowchart TD
+  accTitle: Arithmetic, geometric or neither, and which sum formula to use
+  accDescr: Look at consecutive terms. If the differences are equal, the sequence is arithmetic, with a n equals a 1 plus n minus 1 times d. If not, check the ratios. If the ratios are not equal either, the sequence is neither and needs another pattern. If the ratios are equal, it is geometric, with a n equals a 1 times r to the n minus 1. For a finite geometric sum use S n equals a 1 times 1 minus r to the n, over 1 minus r. For an infinite sum, check whether the absolute value of r is less than 1: if so, S equals a 1 over 1 minus r; if not, the series diverges.
+  A["Look at consecutive terms"] --> B{"Equal differences?"}
+  B -- yes --> C["Arithmetic: aₙ = a₁ + (n − 1)d"]
+  B -- no --> D{"Equal ratios?"}
+  D -- no --> N["Neither: look for another pattern"]
+  D -- yes --> G["Geometric: aₙ = a₁ · rⁿ⁻¹"]
+  G --> H{"Sum of how many terms?"}
+  H -- "n terms" --> I["Sₙ = a₁(1 − rⁿ) ÷ (1 − r)"]
+  H -- "infinitely many" --> J{"Is |r| < 1?"}
+  J -- yes --> K["S = a₁ ÷ (1 − r)"]
+  J -- no --> L["Diverges: no finite sum"]
+```
 
 ## Common mistakes
 

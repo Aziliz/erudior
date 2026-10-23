@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="sans-serif" fill="#1c2833">
+<rect width="800" height="300" fill="#ffffff"/>
+<rect x="100" y="110" width="100" height="70" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="150.0" y="140" font-size="18" text-anchor="middle">Ana</text>
+<text x="150.0" y="165" font-size="16" text-anchor="middle">1/6</text>
+<rect x="200" y="110" width="100" height="70" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="250.0" y="140" font-size="18" text-anchor="middle">Ana</text>
+<text x="250.0" y="165" font-size="16" text-anchor="middle">1/6</text>
+<rect x="300" y="110" width="100" height="70" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="350.0" y="140" font-size="18" text-anchor="middle">Ben</text>
+<text x="350.0" y="165" font-size="16" text-anchor="middle">1/6</text>
+<rect x="400" y="110" width="100" height="70" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="450.0" y="140" font-size="18" text-anchor="middle">Ana</text>
+<text x="450.0" y="165" font-size="16" text-anchor="middle">1/6</text>
+<rect x="500" y="110" width="100" height="70" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="550.0" y="140" font-size="18" text-anchor="middle">Ana</text>
+<text x="550.0" y="165" font-size="16" text-anchor="middle">1/6</text>
+<rect x="600" y="110" width="100" height="70" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="650.0" y="140" font-size="18" text-anchor="middle">Ben</text>
+<text x="650.0" y="165" font-size="16" text-anchor="middle">1/6</text>
+<rect x="100" y="110" width="600" height="70" fill="none" stroke="#1c2833" stroke-width="3"/>
+<line x1="400" y1="102" x2="400" y2="188" stroke="#1c2833" stroke-width="3"/>
+<path d="M106,100 L106,85 L394,85 L394,100" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="250.0" y="75" font-size="20" text-anchor="middle" font-weight="bold">hour 1</text>
+<path d="M406,100 L406,85 L694,85 L694,100" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="550.0" y="75" font-size="20" text-anchor="middle" font-weight="bold">hour 2</text>
+<text x="400" y="30" font-size="18" text-anchor="middle">one whole fence</text>
+<text x="400" y="225" font-size="19" text-anchor="middle">Each hour: Ana paints 1/3 (two sixths), Ben paints 1/6.</text>
+<text x="400" y="255" font-size="19" text-anchor="middle">1/3 + 1/6 = 1/2 of the fence per hour, so the whole fence takes 2 hours.</text>
+</svg>

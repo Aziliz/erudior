@@ -37,6 +37,12 @@ $$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B).$$
 
 $$P(\text{heart or face}) = \frac{13}{52} + \frac{12}{52} - \frac{3}{52} = \frac{22}{52} = \frac{11}{26}.$$
 
+A **Venn diagram** shows why. Each event is a circle inside a rectangle that stands for the whole sample space, and the overlap holds the outcomes in both events. Adding the two circles counts the overlap twice.
+
+![A Venn diagram of a 52-card deck. A circle labeled Hearts and a circle labeled Face cards overlap. The hearts-only part holds 10 cards (ace through 10 of hearts), the overlap holds 3 cards (jack, queen and king of hearts), the face-cards-only part holds 9 cards (the other jacks, queens and kings), and 30 cards lie outside both circles.](images/a2-m8-venn-cards.svg)
+
+Reading the regions: heart or face is $10 + 3 + 9 = 22$ cards, and neither is the 30 cards outside both circles, so $P(\text{neither}) = \tfrac{30}{52}$, the complement of $\tfrac{22}{52}$.
+
 Events that can't happen together are **mutually exclusive** (or disjoint), such as "roll a 2" and "roll a 5". Then $P(A \text{ and } B) = 0$ and the rule shrinks to $P(A \text{ or } B) = P(A) + P(B)$.
 
 ## Two-way tables and conditional probability
@@ -114,6 +120,24 @@ A 3-person committee is picked at random from 5 girls and 4 boys. What is the pr
 4. $P(\text{exactly 2 girls}) = \tfrac{40}{84} = \tfrac{10}{21} \approx 0.476$.
 
 As a check, the tree method gives the same all-girls answer: $\tfrac59 \cdot \tfrac48 \cdot \tfrac37 = \tfrac{60}{504} = \tfrac{5}{42}$.
+
+## Which rule?
+
+Most probability questions come down to one of four words. The chart sends each one to its rule.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a probability rule
+  accDescr: Start from what the question asks for. For not A, use 1 minus P of A. For A or B, ask whether A and B can happen together: if yes, add P of A and P of B and subtract P of A and B; if no, they are mutually exclusive and you just add. For B given A, divide P of A and B by P of A, or in a table use only the row or column of A. For A and B, ask whether A changes the chance of B: if yes, multiply P of A by P of B given A; if no, the events are independent and you multiply P of A by P of B.
+  Q["What does the question ask for?"] --> N["not A: 1 - P(A)"]
+  Q --> O{"A or B: can they happen together?"}
+  O -- yes --> O1["P(A) + P(B) - P(A and B)"]
+  O -- no --> O2["P(A) + P(B)"]
+  Q --> G["B given A: P(A and B) / P(A), or use only A's row or column"]
+  Q --> M{"A and B: does A change the chance of B?"}
+  M -- yes --> M1["P(A) x P(B given A)"]
+  M -- no --> M2["P(A) x P(B)"]
+```
 
 ## Common mistakes
 

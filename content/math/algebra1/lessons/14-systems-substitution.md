@@ -33,6 +33,10 @@ Two lines in a plane can relate in only three ways, so a linear system has exact
 | parallel (same slope, different intercepts) | none | **inconsistent system** |
 | the same line (same slope and intercept) | infinitely many | consistent, **dependent** equations |
 
+The three possibilities side by side. In the third panel the dashed line lies exactly on top of the solid one, so every point of it is shared.
+
+![Three small graphs side by side. Left: two lines that cross at one point, marked with a dot, labeled one solution. Middle: two parallel lines with the same slope, labeled no solution. Right: two lines drawn on top of each other, labeled infinitely many solutions.](images/alg-m4-three-cases.svg)
+
 ```plot
 {"x": [-4, 4], "y": [-4, 6], "functions": [{"f": "x + 1", "label": "y = x + 1"}, {"f": "x - 2", "label": "y = x - 2", "dashed": true}], "caption": "Parallel lines never meet: an inconsistent system with no solution"}
 ```
@@ -75,6 +79,21 @@ Solve $\begin{cases} y = 2x - 3 \\ 4x - 2y = 6 \end{cases}$.
 3. The variable vanished and left a true statement. The equations describe the same line, so there are infinitely many solutions: every point with $y = 2x - 3$.
 
 If substituting leaves a false statement such as $0 = 5$, the lines are parallel and the system has no solution. These are the same signals you met with single equations in Lesson 3.
+
+The whole method, including how to read each possible ending, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: The substitution method and what its result means
+  accDescr: First solve one equation for one variable, choosing a variable with coefficient 1 or minus 1 if possible. Substitute that expression into the other equation and simplify. Then ask whether a variable is left. If yes, solve for it, back-substitute to find the other variable, and check the pair in both equations: the system has one solution. If the variable vanished and left a true statement such as 6 = 6, there are infinitely many solutions. If it left a false statement such as 0 = 5, there is no solution.
+  A["Solve one equation for a variable (coefficient 1 or -1 if possible)"] --> B[Substitute into the OTHER equation and simplify]
+  B --> C{Is a variable left?}
+  C -- yes --> D[Solve for that variable]
+  D --> E[Back-substitute to find the other variable]
+  E --> F["Check in both equations: one solution (x, y)"]
+  C -- "no: true, like 6 = 6" --> G[Infinitely many solutions]
+  C -- "no: false, like 0 = 5" --> H[No solution]
+```
 
 ### Example 4
 

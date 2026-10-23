@@ -36,6 +36,10 @@ a variable.
 
 Here the individuals are students and there are four variables.
 
+In a picture of a larger table, one row (green) is an individual, one column (blue) is a variable, and a single cell (yellow) is one value of one variable for one individual.
+
+![A data table with columns Student, Grade, Sleep (h), Favorite subject and Commute (min) and rows for students A to D. Row B is highlighted and labeled an individual (one row); the Sleep column is highlighted and labeled a variable (one column); the cell for student D's favorite subject, Biology, is labeled one value of one variable.](images/stat-m1-data-table.svg)
+
 ## Categorical versus quantitative
 
 The most important distinction is between two kinds of variables.
@@ -83,6 +87,23 @@ Nominal and ordinal data are categorical; interval and ratio data are quantitati
 "Twice as hot" makes no sense in Fahrenheit (0 °F isn't "no heat"), but "twice as heavy"
 does, which is the difference between interval and ratio.
 
+The flowchart puts the questions in order. Ask them about any variable before choosing a graph or a summary.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a variable
+  accDescr: Start with a variable and ask whether averaging its values makes sense. If not, it is categorical; categorical variables are ordinal if the categories have a natural order and nominal if they do not. If averaging makes sense, it is quantitative; quantitative variables are discrete if the values come from counting and continuous if they come from measuring.
+  V["A variable"] --> Q1{"Does averaging its values make sense?"}
+  Q1 -- No --> C["Categorical"]
+  Q1 -- Yes --> N["Quantitative"]
+  C --> Q2{"Do the categories have a natural order?"}
+  Q2 -- No --> NOM["Nominal: eye color, brand"]
+  Q2 -- Yes --> ORD["Ordinal: poor, fair, good"]
+  N --> Q3{"Counted or measured?"}
+  Q3 -- Counted --> DIS["Discrete: number of siblings"]
+  Q3 -- Measured --> CON["Continuous: height, time"]
+```
+
 ## Populations, samples, parameters and statistics
 
 The **population** is the entire group you want to know about. A **sample** is the part
@@ -93,6 +114,15 @@ A number that describes a population is a **parameter**; a number computed from 
 is a **statistic**. Memory hook: *p*opulation–*p*arameter, *s*ample–*s*tatistic.
 Parameters are usually unknown and fixed; statistics are known but change from sample to
 sample. Much of this course is about how well a statistic estimates a parameter.
+
+```mermaid
+flowchart LR
+  accTitle: From population to sample and back
+  accDescr: A sample is selected from the population. A statistic, such as the sample mean x-bar, is computed from the sample. The statistic is then used to estimate the population parameter, such as mu, which is usually unknown.
+  P["Population (parameter, unknown)"] -- "select" --> S["Sample"]
+  S -- "compute" --> T["Statistic"]
+  T -- "estimates" --> P
+```
 
 Standard notation:
 

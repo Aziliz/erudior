@@ -17,6 +17,10 @@ $$\log_b x = y \quad \text{means} \quad b^y = x.$$
 
 The **logarithm** $\log_b x$ is the exponent you put on the base $b$ to get $x$. So $\log_2 32 = 5$ because $2^5 = 32$, and $\log_{10} 0.01 = -2$ because $10^{-2} = 0.01$.
 
+The picture shows how the parts line up: the base stays the base, the logarithm becomes the exponent, and the argument becomes the result of the power.
+
+![Two boxes. The left box, logarithmic form, shows log base 2 of 8 equals 3, with the base 2, the argument 8 and the value 3 labeled. The right box, exponential form, shows 2 cubed equals 8, with the same colors: base 2, exponent 3, result 8. Arrows go both ways between the boxes.](images/a2-m6-log-parts.svg)
+
 Every logarithmic statement can be rewritten in **exponential form** and back:
 
 | Logarithmic form | Exponential form |
@@ -103,6 +107,20 @@ Why: let $y = \log_b x$, so $b^y = x$. Take $\ln$ of both sides: $y\ln b = \ln x
 Evaluate $\log_3 50$ to four decimal places.
 
 $\log_3 50 = \dfrac{\ln 50}{\ln 3} \approx \dfrac{3.9120}{1.0986} \approx 3.5609$. Check: $3^{3.5609} \approx 50$. It makes sense: $3^3 = 27$ and $3^4 = 81$, so the answer is between 3 and 4.
+
+Putting the last few sections together, here is how to evaluate any logarithm.
+
+```mermaid
+flowchart TD
+  accTitle: How to evaluate a logarithm
+  accDescr: To evaluate log base b of x, first ask whether x is a power of b you can recognize. If so, the answer is that exponent, for example log base 2 of 32 is 5. If not, ask whether the base is 10 or e; if so, use the log or ln key. Otherwise use change of base, ln x divided by ln b, then check that the answer lies between the neighboring whole-number exponents.
+  A["Evaluate log_b x"] --> B{"Is x a power of b you recognize?"}
+  B -- yes --> C["The answer is that exponent: log_2 32 = 5"]
+  B -- no --> D{"Is the base 10 or e?"}
+  D -- yes --> E["Use the log or ln key"]
+  D -- no --> F["Change of base: ln x ÷ ln b"]
+  F --> G["Check: between the neighboring whole-number exponents?"]
+```
 
 ## Logarithmic scales
 

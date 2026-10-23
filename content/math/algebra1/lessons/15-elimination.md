@@ -21,6 +21,12 @@ Solve $\begin{cases} 3x + 2y = 7 \\ 5x - 2y = 1 \end{cases}$.
 2. Back-substitute into the first: $3(1) + 2y = 7$, so $2y = 4$ and $y = 2$.
 3. Check in the second: $5(1) - 2(2) = 1$. Solution $(1, 2)$.
 
+Here is what the addition did, in a picture. The sum $8x = 8$ is a new equation, and its graph is the vertical line $x = 1$. Because every solution of the system satisfies the sum, that new line passes through the same intersection point. Elimination swaps a slanted line for a simpler one through the same point.
+
+```plot
+{"x": [-2, 4], "y": [-2, 6], "functions": [{"f": "(7 - 3*x)/2", "label": "3x + 2y = 7"}, {"f": "(5*x - 1)/2", "label": "5x - 2y = 1"}], "segments": [{"from": [1, -2], "to": [1, 6], "dashed": true, "label": "sum: 8x = 8"}], "points": [{"at": [1, 2], "label": "(1, 2)"}], "caption": "The sum of the two equations, x = 1, goes through the same intersection point"}
+```
+
 ## Making coefficients opposites
 
 Usually the coefficients aren't opposites yet. Multiply one or both equations by constants (allowed by the multiplication property of equality) so that one variable's coefficients become opposites. Choose the variable that needs the smallest multipliers, and aim for the **least common multiple** of its coefficients.
@@ -80,6 +86,22 @@ Solve $\begin{cases} 2x - 6y = 4 \\ -3x + 9y = 5 \end{cases}$.
 | you want a picture or a rough estimate | graphing |
 
 Every method gives the same answer; pick the one that keeps the arithmetic easiest.
+
+The same advice as a decision chart, read from the top:
+
+```mermaid
+flowchart TD
+  accTitle: Which method to use for a system of two linear equations
+  accDescr: First question, do you only need a picture or a rough estimate? If yes, graph the lines. If no, is a variable already isolated, as in y = 3x - 1? If yes, use substitution. If no, does some variable have coefficient 1 or minus 1? If yes, substitution and elimination are both quick. If no, are there fractions or decimals? If yes, multiply to clear them first and then use elimination. If no, use elimination, multiplying so that one variable has opposite coefficients.
+  A{Only need a picture or a rough estimate?} -- yes --> G[Graph the lines]
+  A -- no --> B{"Is a variable already isolated, like y = 3x - 1?"}
+  B -- yes --> S[Substitution]
+  B -- no --> C{Does some variable have coefficient 1 or -1?}
+  C -- yes --> E1[Substitution or elimination: both are quick]
+  C -- no --> D{Fractions or decimals?}
+  D -- yes --> F[Clear them first, then elimination]
+  D -- no --> E2[Elimination: multiply to make opposite coefficients]
+```
 
 ## Describing infinitely many solutions
 

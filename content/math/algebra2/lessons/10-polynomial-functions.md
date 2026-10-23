@@ -28,6 +28,10 @@ with whole-number exponents and $a_n \ne 0$. Its degree is $n$ and $a_n$ is its 
 
 In arrow notation, "up on the right" is written: as $x \to \infty$, $f(x) \to \infty$.
 
+The four combinations are pictured below.
+
+![A two-by-two grid of graphs. Rows: even degree and odd degree. Columns: positive and negative leading coefficient. Even and positive, like x squared: up on both ends. Even and negative, like negative x squared: down on both ends. Odd and positive, like x cubed: down on the left, up on the right. Odd and negative, like negative x cubed: up on the left, down on the right.](images/a2-m3-end-behavior.svg)
+
 ```plot
 {"x": [-3, 3], "y": [-8, 8], "functions": [{"f": "x^4 - 3*x^2", "label": "x⁴ - 3x²", "from": -2.3, "to": 2.3}, {"f": "x^3 - 3*x", "label": "x³ - 3x", "dashed": true, "from": -2.6, "to": 2.3}], "caption": "Even degree, positive lead: both ends up. Odd degree, positive lead: left down, right up"}
 ```
@@ -66,6 +70,24 @@ Describe the zeros of $f(x) = (x + 2)(x - 1)^2(x - 3)$ and sketch the graph.
 ```
 
 The signs between zeros can be checked with test values: $f(2) = (4)(1)(-1) = -4 < 0$, consistent with the graph dipping below the axis between 1 and 3.
+
+The same steps work for any polynomial in factored form:
+
+```mermaid
+flowchart TD
+  accTitle: Sketching a polynomial from its factored form
+  accDescr: Step 1, read each zero and its multiplicity from the factors. Step 2, add the multiplicities to get the degree and note the sign of the leading coefficient. Step 3, use those to decide the end behavior. Step 4, find the y-intercept by evaluating f(0). Step 5, mark each zero as a crossing for odd multiplicity or a touch for even multiplicity. Step 6, check a test value between zeros if unsure. Step 7, connect the pieces with one smooth, unbroken curve.
+  A["1. Read the zeros and their multiplicities from the factors"] --> B["2. Degree = sum of multiplicities; note the sign of the leading coefficient"]
+  B --> C["3. Decide the end behavior"]
+  C --> D["4. Find the y-intercept, f(0)"]
+  D --> E["5. Mark each zero: odd multiplicity crosses, even touches"]
+  E --> F["6. If unsure, check a test value between zeros"]
+  F --> G["7. Join everything with one smooth, unbroken curve"]
+```
+
+The graph below, of $f(x) = (x + 4)^2(x + 2)(x - 1)^3$ (degree 6, leading coefficient 1), shows every feature from this lesson on one curve: both ends up, a touch at the double zero $-4$, a simple crossing at $-2$, a flattened crossing at the triple zero 1, and three turning points: a local maximum near $-3$, a local minimum near $-1$, and the touch at $-4$, which is a local minimum too.
+
+![The graph of a degree-6 polynomial rising on both ends. It comes down from the upper left and touches the x-axis at x = -4, labeled as a zero of multiplicity 2 that touches and turns back, which is also a local minimum. It rises to a turning point near x = -3, labeled local maximum, comes down to cross the axis at x = -2, labeled as a zero of multiplicity 1 that crosses, falls to a turning point near x = -1, labeled local minimum, rises through the y-intercept (0, -32), and crosses at x = 1 with a flattened S shape, labeled as a zero of multiplicity 3, before rising to the upper right.](images/a2-m3-graph-features.svg)
 
 ## Turning points
 

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 518" width="550" height="518" font-family="sans-serif">
+<rect width="550" height="518" fill="#ffffff"/>
+<line x1="150" y1="438" x2="150" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="188" y1="438" x2="188" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="226" y1="438" x2="226" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="264" y1="438" x2="264" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="302" y1="438" x2="302" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="340" y1="438" x2="340" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="378" y1="438" x2="378" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="416" y1="438" x2="416" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="454" y1="438" x2="454" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="492" y1="438" x2="492" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="530" y1="438" x2="530" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="438" x2="530" y2="438" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="400" x2="530" y2="400" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="362" x2="530" y2="362" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="324" x2="530" y2="324" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="286" x2="530" y2="286" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="248" x2="530" y2="248" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="210" x2="530" y2="210" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="172" x2="530" y2="172" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="134" x2="530" y2="134" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="96" x2="530" y2="96" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="58" x2="530" y2="58" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="20" x2="530" y2="20" stroke="#d6dde4" stroke-width="1"/>
+<line x1="150" y1="210" x2="530" y2="210" stroke="#1c2833" stroke-width="1.8"/>
+<line x1="302" y1="438" x2="302" y2="20" stroke="#1c2833" stroke-width="1.8"/>
+<text x="526.0" y="202.0" font-size="16" text-anchor="end" font-weight="bold" fill="#1c2833">x</text>
+<text x="312.0" y="36.0" font-size="16" text-anchor="start" font-weight="bold" fill="#1c2833">y</text>
+<rect x="295" y="58" width="14" height="342" fill="#f8e1dc" stroke="#a93226" stroke-width="2" rx="4"/>
+<rect x="226" y="203" width="228" height="14" fill="#dde8f3" stroke="#244d76" stroke-width="2" rx="4"/>
+<line x1="226" y1="400" x2="226" y2="210" stroke="#244d76" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="226" y1="400" x2="302" y2="400" stroke="#a93226" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="454" y1="400" x2="454" y2="210" stroke="#244d76" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="454" y1="400" x2="302" y2="400" stroke="#a93226" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="340" y1="58" x2="340" y2="210" stroke="#244d76" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="340" y1="58" x2="302" y2="58" stroke="#a93226" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M226.0,400.0 L227.1,393.2 L228.3,386.5 L229.4,379.8 L230.6,373.2 L231.7,366.7 L232.8,360.2 L234.0,353.8 L235.1,347.5 L236.3,341.2 L237.4,335.0 L238.5,328.9 L239.7,322.8 L240.8,316.9 L242.0,310.9 L243.1,305.1 L244.2,299.3 L245.4,293.6 L246.5,288.0 L247.7,282.4 L248.8,276.9 L249.9,271.4 L251.1,266.1 L252.2,260.8 L253.4,255.5 L254.5,250.4 L255.6,245.3 L256.8,240.3 L257.9,235.3 L259.1,230.4 L260.2,225.6 L261.3,220.8 L262.5,216.1 L263.6,211.5 L264.8,207.0 L265.9,202.5 L267.0,198.1 L268.2,193.7 L269.3,189.5 L270.5,185.3 L271.6,181.1 L272.7,177.1 L273.9,173.0 L275.0,169.1 L276.2,165.3 L277.3,161.5 L278.4,157.7 L279.6,154.1 L280.7,150.5 L281.9,147.0 L283.0,143.5 L284.1,140.1 L285.3,136.8 L286.4,133.5 L287.6,130.4 L288.7,127.3 L289.8,124.2 L291.0,121.2 L292.1,118.3 L293.3,115.5 L294.4,112.7 L295.5,110.0 L296.7,107.4 L297.8,104.8 L299.0,102.3 L300.1,99.9 L301.2,97.5 L302.4,95.2 L303.5,93.0 L304.7,90.9 L305.8,88.8 L306.9,86.8 L308.1,84.8 L309.2,82.9 L310.4,81.1 L311.5,79.4 L312.6,77.7 L313.8,76.1 L314.9,74.6 L316.1,73.1 L317.2,71.7 L318.3,70.3 L319.5,69.1 L320.6,67.9 L321.8,66.8 L322.9,65.7 L324.0,64.7 L325.2,63.8 L326.3,62.9 L327.5,62.1 L328.6,61.4 L329.7,60.8 L330.9,60.2 L332.0,59.7 L333.2,59.2 L334.3,58.9 L335.4,58.5 L336.6,58.3 L337.7,58.1 L338.9,58.0 L340.0,58.0 L341.1,58.0 L342.3,58.1 L343.4,58.3 L344.6,58.5 L345.7,58.9 L346.8,59.2 L348.0,59.7 L349.1,60.2 L350.3,60.8 L351.4,61.4 L352.5,62.1 L353.7,62.9 L354.8,63.8 L356.0,64.7 L357.1,65.7 L358.2,66.8 L359.4,67.9 L360.5,69.1 L361.7,70.3 L362.8,71.7 L363.9,73.1 L365.1,74.6 L366.2,76.1 L367.4,77.7 L368.5,79.4 L369.6,81.1 L370.8,82.9 L371.9,84.8 L373.1,86.8 L374.2,88.8 L375.3,90.9 L376.5,93.0 L377.6,95.2 L378.8,97.5 L379.9,99.9 L381.0,102.3 L382.2,104.8 L383.3,107.4 L384.5,110.0 L385.6,112.7 L386.7,115.5 L387.9,118.3 L389.0,121.2 L390.2,124.2 L391.3,127.3 L392.4,130.4 L393.6,133.5 L394.7,136.8 L395.9,140.1 L397.0,143.5 L398.1,147.0 L399.3,150.5 L400.4,154.1 L401.6,157.7 L402.7,161.5 L403.8,165.3 L405.0,169.1 L406.1,173.0 L407.3,177.1 L408.4,181.1 L409.5,185.3 L410.7,189.5 L411.8,193.7 L413.0,198.1 L414.1,202.5 L415.2,207.0 L416.4,211.5 L417.5,216.1 L418.7,220.8 L419.8,225.6 L420.9,230.4 L422.1,235.3 L423.2,240.3 L424.4,245.3 L425.5,250.4 L426.6,255.5 L427.8,260.8 L428.9,266.1 L430.1,271.4 L431.2,276.9 L432.3,282.4 L433.5,288.0 L434.6,293.6 L435.8,299.3 L436.9,305.1 L438.0,310.9 L439.2,316.9 L440.3,322.8 L441.5,328.9 L442.6,335.0 L443.7,341.2 L444.9,347.5 L446.0,353.8 L447.2,360.2 L448.3,366.7 L449.4,373.2 L450.6,379.8 L451.7,386.5 L452.9,393.2 L454.0,400.0" fill="none" stroke="#1c2833" stroke-width="3"/>
+<circle cx="226.0" cy="400.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="454.0" cy="400.0" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="340.0" cy="58.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="226" cy="210" r="6" fill="#244d76" stroke="#244d76" stroke-width="2"/>
+<circle cx="454" cy="210" r="6" fill="#ffffff" stroke="#244d76" stroke-width="2.5"/>
+<text x="340.0" y="478.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#244d76">Domain [−2, 4): the x-values covered</text>
+<text x="340.0" y="502.0" font-size="15" text-anchor="middle" font-weight="normal" fill="#244d76">open dot at x = 4: not included</text>
+<text x="72.0" y="194.8" font-size="16" text-anchor="middle" font-weight="bold" fill="#a93226">Range</text>
+<text x="72.0" y="221.4" font-size="16" text-anchor="middle" font-weight="bold" fill="#a93226">[−5, 4]:</text>
+<text x="72.0" y="248.0" font-size="15" text-anchor="middle" font-weight="normal" fill="#a93226">the y-values</text>
+<text x="72.0" y="270.8" font-size="15" text-anchor="middle" font-weight="normal" fill="#a93226">covered</text>
+<text x="150.0" y="238.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">−4</text>
+<text x="226.0" y="238.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">−2</text>
+<text x="378.0" y="238.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">2</text>
+<text x="454.0" y="238.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">4</text>
+<text x="530.0" y="238.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">6</text>
+<text x="289.0" y="443.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">−6</text>
+<text x="289.0" y="367.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">−4</text>
+<text x="289.0" y="291.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">−2</text>
+<text x="289.0" y="139.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">2</text>
+<text x="289.0" y="63.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">4</text>
+</svg>

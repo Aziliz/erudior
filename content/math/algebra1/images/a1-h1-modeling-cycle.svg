@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" font-family="sans-serif" fill="#1c2833">
+<rect width="720" height="400" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1c2833"/></marker></defs>
+<rect x="30" y="60" width="150" height="64" rx="10" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<text x="105" y="88" font-size="18" font-weight="bold" text-anchor="middle">Problem</text>
+<text x="105" y="110" font-size="14" text-anchor="middle">the question</text>
+<rect x="285" y="60" width="150" height="64" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="360" y="88" font-size="18" font-weight="bold" text-anchor="middle">Formulate</text>
+<text x="360" y="110" font-size="14" text-anchor="middle">variables, assumptions</text>
+<rect x="540" y="60" width="150" height="64" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="615" y="88" font-size="18" font-weight="bold" text-anchor="middle">Compute</text>
+<text x="615" y="110" font-size="14" text-anchor="middle">solve, graph, fit</text>
+<rect x="540" y="300" width="150" height="64" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="615" y="328" font-size="18" font-weight="bold" text-anchor="middle">Interpret</text>
+<text x="615" y="350" font-size="14" text-anchor="middle">answer in context</text>
+<rect x="285" y="300" width="150" height="64" rx="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="360" y="328" font-size="18" font-weight="bold" text-anchor="middle">Validate</text>
+<text x="360" y="350" font-size="14" text-anchor="middle">data, units, extremes</text>
+<rect x="30" y="300" width="150" height="64" rx="10" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="105" y="328" font-size="18" font-weight="bold" text-anchor="middle">Report</text>
+<text x="105" y="350" font-size="14" text-anchor="middle">answer + assumptions</text>
+<line x1="180" y1="92" x2="283" y2="92" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="435" y1="92" x2="538" y2="92" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="615" y1="124" x2="615" y2="298" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="540" y1="332" x2="437" y2="332" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="285" y1="332" x2="182" y2="332" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="360" y1="300" x2="360" y2="126" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)" stroke-dasharray="8 6"/>
+<text x="233" y="320" font-size="15" text-anchor="middle">good</text>
+<text x="233" y="370" font-size="15" text-anchor="middle">enough</text>
+<text x="372" y="200" font-size="15">not good enough:</text>
+<text x="372" y="220" font-size="15">revise</text>
+<text x="360.0" y="32" font-size="20" font-weight="bold" text-anchor="middle">The modeling cycle</text>
+</svg>

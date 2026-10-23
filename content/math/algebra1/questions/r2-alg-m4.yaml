@@ -1,0 +1,496 @@
+# Round 2 questions for alg-m4 (Systems of equations and inequalities)
+# Core lessons: alg-m4-r2-q01…q20. Honors lessons: alg-m4-r2-h01…h28.
+
+# ---------- Lesson 14: systems by graphing and substitution ----------
+- id: alg-m4-r2-q01
+  lesson: alg-systems-sub
+  module_quiz: true
+  type: label
+  topic: Systems of equations
+  stem: 'Each panel shows the two lines of a system of linear equations. In the third panel the dashed line lies exactly on top of the solid one. How many solutions does each system have?'
+  image: {src: images/alg-m4-three-cases-blank.svg, alt: 'Three numbered graphs side by side. Graph 1: two lines that cross at one marked point. Graph 2: two parallel lines with the same slope. Graph 3: a dashed line drawn exactly on top of a solid line.'}
+  labels:
+    - {x: 16.7, y: 91.7, text: One solution}
+    - {x: 50.0, y: 91.7, text: No solution}
+    - {x: 83.3, y: 91.7, text: Infinitely many solutions}
+  distractors: [Exactly two solutions]
+  explanation: |-
+    1: the lines cross once, so exactly one point is on both: one solution. 2: parallel lines never meet: no solution (an inconsistent system). 3: the two equations describe the same line, so every point on it is a solution: infinitely many. Two different lines can never share exactly two points.
+- id: alg-m4-r2-q02
+  lesson: alg-systems-sub
+  type: text
+  topic: Systems of equations
+  stem: 'Solve by substitution: $y = 2x + 1$ and $3x + y = 16$. Give only the numbers: $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['3']
+    - ['7']
+  explanation: |-
+    Substitute $2x + 1$ for $y$ in the second equation: $3x + (2x + 1) = 16$, so $5x = 15$ and $x = 3$. Back-substitute: $y = 2(3) + 1 = 7$. Check: $3(3) + 7 = 16$. The solution is $(3, 7)$.
+- id: alg-m4-r2-q03
+  lesson: alg-systems-sub
+  type: order
+  topic: Systems of equations
+  stem: 'Put the steps for solving $x - 2y = 1$, $2x + 3y = 16$ by substitution in order.'
+  items:
+    - 'Solve the first equation for $x$: $x = 2y + 1$'
+    - 'Substitute into the second: $2(2y + 1) + 3y = 16$'
+    - 'Simplify and solve: $7y = 14$, so $y = 2$'
+    - 'Back-substitute: $x = 2(2) + 1 = 5$'
+    - 'Check $(5, 2)$ in both original equations'
+  explanation: |-
+    Isolate a variable with coefficient 1, substitute into the OTHER equation, solve the one-variable equation, back-substitute, then check: $5 - 4 = 1$ and $10 + 6 = 16$. Each step uses the result of the one before it.
+- id: alg-m4-r2-q04
+  lesson: alg-systems-sub
+  module_quiz: true
+  topic: Systems of equations
+  stem: 'Which of these systems have infinitely many solutions? Select all that apply.'
+  choices: ['$y = 2x - 3$ and $4x - 2y = 6$', '$x + y = 4$ and $2x + 2y = 8$', '$y = 3x + 1$ and $y = 3x - 1$', '$x - y = 2$ and $x + y = 2$', '$3x - 6y = 9$ and $x = 2y + 3$']
+  answer: [0, 1, 4]
+  explanation: |-
+    Infinitely many solutions means both equations describe the same line. $4x - 2y = 6$ is $y = 2x - 3$; $2x + 2y = 8$ is 2 times $x + y = 4$; $3x - 6y = 9$ divided by 3 is $x - 2y = 3$, which is $x = 2y + 3$. The lines $y = 3x \pm 1$ are parallel (no solution), and $x - y = 2$, $x + y = 2$ cross once, at $(2, 0)$.
+- id: alg-m4-r2-q05
+  lesson: alg-systems-sub
+  type: match
+  topic: Systems of equations
+  stem: 'While solving three different systems by substitution, you reach each of these lines. Match each to what it tells you about its system.'
+  pairs:
+    - ['$14y = 28$', One solution]
+    - ['$6 = 6$', Infinitely many solutions]
+    - ['$0 = 5$', No solution]
+  distractors: [Exactly two solutions]
+  explanation: |-
+    $14y = 28$ still has a variable: solve it ($y = 2$) and back-substitute to get one solution. If the variable vanishes, look at what is left: a true statement such as $6 = 6$ means the equations describe the same line (infinitely many solutions); a false statement such as $0 = 5$ means parallel lines (no solution).
+
+# ---------- Lesson 15: elimination ----------
+- id: alg-m4-r2-q06
+  lesson: alg-elimination
+  type: text
+  topic: Systems of equations
+  stem: 'To eliminate $x$ from $3x + 5y = 1$ and $4x - 2y = 10$, multiply the first equation by 4 and the second by ___, then add. (Give only the number.)'
+  accept: ['-3', '−3']
+  explanation: |-
+    Multiplying the first equation by 4 gives $12x$. To cancel it when adding, the second equation's $x$-term must become $-12x$, so multiply $4x - 2y = 10$ by $-3$: $-12x + 6y = -30$. (Multiplying by 3 gives $+12x$, which would only cancel if you subtracted instead.)
+- id: alg-m4-r2-q07
+  lesson: alg-elimination
+  module_quiz: true
+  type: text
+  topic: Systems of equations
+  stem: 'Solve by elimination: $5x + 3y = 11$ and $2x - 3y = 17$. Give only the numbers: $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['4']
+    - ['-3', '−3']
+  explanation: |-
+    The $y$-coefficients $3$ and $-3$ are already opposites. Add: $7x = 28$, so $x = 4$. Back-substitute: $5(4) + 3y = 11$, so $3y = -9$ and $y = -3$. Check: $2(4) - 3(-3) = 8 + 9 = 17$.
+- id: alg-m4-r2-q08
+  lesson: alg-elimination
+  type: order
+  topic: Systems of equations
+  stem: 'Put the steps for solving $2x + 3y = 8$, $5x - 2y = 1$ by elimination in order.'
+  items:
+    - 'Multiply the first equation by 2 and the second by 3: $4x + 6y = 16$, $15x - 6y = 3$'
+    - 'Add the new equations: $19x = 19$'
+    - 'Divide: $x = 1$'
+    - 'Back-substitute: $2(1) + 3y = 8$, so $y = 2$'
+    - 'Check $(1, 2)$ in $5x - 2y = 1$'
+  explanation: |-
+    Making the $y$-coefficients $6$ and $-6$ (the LCM of 3 and 2, with opposite signs) lets addition eliminate $y$. Then solve for $x$, back-substitute for $y$, and check in the equation you didn't use: $5(1) - 2(2) = 1$.
+- id: alg-m4-r2-q09
+  lesson: alg-elimination
+  module_quiz: true
+  topic: Systems of equations
+  stem: 'For the system $2x + 3y = 5$, $3x - 4y = 16$, which pairs of multipliers make one variable cancel when the resulting equations are added? Select all that apply.'
+  choices: ['First equation × 3, second × −2', 'First equation × 4, second × 3', 'First equation × 3, second × 2', 'First equation × −4, second × 3', 'First equation × −3, second × 2']
+  answer: [0, 1, 4]
+  explanation: |-
+    × 3 and × −2: $6x + 9y = 15$ and $-6x + 8y = -32$; the $x$-terms cancel. × 4 and × 3: $8x + 12y = 20$ and $9x - 12y = 48$; the $y$-terms cancel. × −3 and × 2: $-6x - 9y = -15$ and $6x - 8y = 32$; the $x$-terms cancel. With × 3 and × 2 both $x$-terms are $6x$ (equal, not opposite), and with × −4 and × 3 the $y$-terms are $-12y$ and $-12y$, so nothing cancels when adding.
+- id: alg-m4-r2-q10
+  lesson: alg-elimination
+  type: match
+  topic: Systems of equations
+  stem: 'Match each situation to the method that keeps the work simplest.'
+  pairs:
+    - ['$y = 4x - 2$ and $3x + 5y = 7$', Substitution]
+    - ['$6x + 5y = 3$ and $4x - 3y = 13$', Elimination]
+    - ['$0.4x + 0.3y = 2$ and $0.5x - 0.2y = 1$', 'Clear the decimals, then elimination']
+    - [You only need a rough idea of where two lines cross, Graphing]
+  explanation: |-
+    $y$ is already isolated in $y = 4x - 2$, so substitute it. In $6x + 5y = 3$, $4x - 3y = 13$ no coefficient is 1 or $-1$, so substitution would bring in fractions; elimination is cleaner. Multiplying the decimal equations by 10 gives $4x + 3y = 20$ and $5x - 2y = 10$, ready for elimination. A graph is the quickest way to an estimate, though it is exact only when the crossing lands on grid points.
+
+# ---------- Lesson 16: applications ----------
+- id: alg-m4-r2-q11
+  lesson: alg-system-apps
+  module_quiz: true
+  type: label
+  topic: System applications
+  stem: 'The graph shows a bakery''s weekly cost and revenue for the number of loaves it sells. Name the numbered parts.'
+  image: {src: images/alg-m4-break-even-blank.svg, alt: 'A graph of dollars per week against loaves sold per week. A solid cost line starts at 600 dollars on the vertical axis; a dashed revenue line starts at 0. They cross at about (240, 960). Marker 1 is in the shaded triangle between the lines left of the crossing, marker 2 in the shaded region between them right of the crossing, marker 3 on the crossing point, and marker 4 where the cost line meets the vertical axis.'}
+  labels:
+    - {x: 42.5, y: 51.8, text: Loss}
+    - {x: 88.2, y: 21.6, text: Profit}
+    - {x: 62.8, y: 37.7, text: Break-even point}
+    - {x: 14.1, y: 54.9, text: Fixed costs}
+  distractors: [Cost per loaf, Price per loaf]
+  explanation: |-
+    1: left of the crossing the cost line is above the revenue line, so the gap is a loss. 2: right of it revenue is above cost: profit. 3: where the lines cross, revenue equals cost, the break-even point (240 loaves, \$960). 4: the cost when no loaves are sold, \$600, is the fixed cost. The cost and price per loaf are the slopes of the two lines (\$1.50 and \$4), not points on the graph.
+- id: alg-m4-r2-q12
+  lesson: alg-system-apps
+  module_quiz: true
+  type: text
+  topic: System applications
+  stem: 'A coffee stand sold 70 coffees for 290 dollars. Small coffees cost 3 dollars and large ones cost 5 dollars. How many large coffees were sold? ___'
+  accept: ['40', '40 large', '40 large coffees', '40 coffees']
+  explanation: |-
+    Let $s$ and $l$ be the numbers of small and large coffees: $s + l = 70$ and $3s + 5l = 290$. Substitute $s = 70 - l$: $3(70 - l) + 5l = 290$, so $210 + 2l = 290$ and $l = 40$ (and $s = 30$). Check: $90 + 200 = 290$.
+- id: alg-m4-r2-q13
+  lesson: alg-system-apps
+  type: order
+  topic: System applications
+  stem: 'A boat goes 60 miles downstream in 3 hours and returns upstream in 5 hours. Put the steps for finding its speed in still water and the current''s speed in order.'
+  items:
+    - 'Let $b$ = boat speed in still water and $c$ = current speed (mph)'
+    - 'Use rate = distance ÷ time for each trip: $b + c = 20$ and $b - c = 12$'
+    - 'Add the equations: $2b = 32$'
+    - 'So $b = 16$ mph, and then $c = 4$ mph'
+    - 'Check: $20 \times 3 = 60$ and $12 \times 5 = 60$'
+  explanation: |-
+    Name the unknowns, write one equation per trip ($60 \div 3 = 20$ with the current, $60 \div 5 = 12$ against it), eliminate $c$ by adding, find both speeds, and check against the distances.
+- id: alg-m4-r2-q14
+  lesson: alg-system-apps
+  topic: System applications
+  stem: 'A jar holds 40 coins, all nickels ($n$) and dimes ($d$), worth 3.10 dollars in all. Which equations are correct parts of a model for this problem? Select all that apply.'
+  choices: ['$n + d = 40$', '$0.05n + 0.10d = 3.10$', '$5n + 10d = 310$', '$n + d = 3.10$', '$0.10n + 0.05d = 3.10$']
+  answer: [0, 1, 2]
+  explanation: |-
+    The count gives $n + d = 40$. The value in dollars gives $0.05n + 0.10d = 3.10$; the same fact in cents is $5n + 10d = 310$. $n + d = 3.10$ mixes a count with a value, and $0.10n + 0.05d$ swaps the coins' values. (The solution is 18 nickels and 22 dimes: $0.90 + 2.20 = 3.10$.)
+- id: alg-m4-r2-q15
+  lesson: alg-system-apps
+  type: match
+  topic: System applications
+  stem: 'Each row of a problem table multiplies an amount by a rate. Match each quantity to its value.'
+  pairs:
+    - [Acid in 30 mL of a 20% solution, 6 mL]
+    - [One year of simple interest on 4500 dollars at 6%, 270 dollars]
+    - [Speed of a 15 mph boat against a 3 mph current, 12 mph]
+    - [Revenue from 240 loaves sold at 4 dollars each, 960 dollars]
+  distractors: [18 mph, 27 dollars]
+  explanation: |-
+    $0.20 \times 30 = 6$ mL of acid; $0.06 \times 4500 = 270$ dollars; against the current the speeds subtract, $15 - 3 = 12$ mph (18 mph would be with the current); $240 \times 4 = 960$ dollars.
+
+# ---------- Lesson 17: inequalities and systems of inequalities ----------
+- id: alg-m4-r2-q16
+  lesson: alg-ineq-systems
+  module_quiz: true
+  type: label
+  topic: Systems of inequalities
+  stem: 'The graph shows the system $y \le -x + 5$ and $y > x - 3$. Name the numbered parts.'
+  image: {src: images/alg-m4-feasible-region-blank.svg, alt: 'A coordinate grid with a solid line y = negative x + 5 sloping down and a dashed line y = x minus 3 sloping up, meeting at (4, 1), which is drawn as an open circle. The region left of both lines is shaded. A dot marks the origin. Marker 1 is on the solid line, marker 2 on the dashed line, marker 3 in the shaded region, marker 4 on the open circle where the lines meet, and marker 5 on the origin.'}
+  labels:
+    - {x: 45.5, y: 32.0, text: 'Solid boundary: its points are solutions'}
+    - {x: 81.2, y: 40.0, text: 'Dashed boundary: its points are not solutions'}
+    - {x: 18.8, y: 40.8, text: Feasible region}
+    - {x: 67.9, y: 52.0, text: Vertex}
+    - {x: 32.1, y: 60.0, text: Test point}
+  distractors: [Objective function]
+  explanation: |-
+    1: $y \le -x + 5$ includes equality, so its boundary is solid and points on it count. 2: $y > x - 3$ is strict, so its boundary is dashed and points on it don't count. 3: the shaded overlap where both inequalities hold is the feasible region. 4: the corner where the boundary lines meet, $(4, 1)$, is a vertex; it is drawn open because it lies on the dashed line. 5: the origin, not on either line, is the test point: $0 \le 5$ and $0 > -3$ are both true, so the region containing it is shaded.
+- id: alg-m4-r2-q17
+  lesson: alg-ineq-systems
+  type: text
+  topic: Systems of inequalities
+  stem: 'A feasible region has vertices $(0, 0)$, $(5, 0)$, $(3, 4)$ and $(0, 6)$. The maximum value of $P = 4x + 3y$ over the region is ___.'
+  accept: ['24']
+  explanation: |-
+    A linear objective takes its maximum over a polygon at a vertex, so evaluate at each: $P(0, 0) = 0$, $P(5, 0) = 20$, $P(3, 4) = 12 + 12 = 24$, $P(0, 6) = 18$. The maximum is 24, at $(3, 4)$.
+- id: alg-m4-r2-q18
+  lesson: alg-ineq-systems
+  type: order
+  topic: Systems of inequalities
+  stem: 'Put the steps for solving a linear programming problem with a bounded feasible region in order.'
+  items:
+    - Graph the constraints and shade the feasible region
+    - Find the vertices by solving pairs of boundary equations
+    - Evaluate the objective function at each vertex
+    - Choose the vertex that gives the best value
+  explanation: |-
+    You need the region before you can find its corners, the corners before you can evaluate the objective there, and all the values before you can pick the best one.
+- id: alg-m4-r2-q19
+  lesson: alg-ineq-systems
+  module_quiz: true
+  topic: Systems of inequalities
+  stem: 'Which points are solutions of the system $y \le -x + 5$, $y > x - 3$? Select all that apply.'
+  choices: ['$(0, 0)$', '$(4, 1)$', '$(2, 3)$', '$(5, 1)$', '$(-2, -6)$', '$(-3, 2)$']
+  answer: [0, 2, 5]
+  explanation: |-
+    Test each point in both inequalities. $(0, 0)$: $0 \le 5$ and $0 > -3$, yes. $(2, 3)$: $3 \le 3$ (on the solid line, allowed) and $3 > -1$, yes. $(-3, 2)$: $2 \le 8$ and $2 > -6$, yes. $(4, 1)$: $1 \le 1$ but $1 > 1$ is false (it is on the dashed line). $(5, 1)$: $1 \le 0$ is false. $(-2, -6)$: $-6 > -5$ is false.
+- id: alg-m4-r2-q20
+  lesson: alg-ineq-systems
+  type: match
+  topic: Systems of inequalities
+  stem: 'Match each inequality to its graph.'
+  pairs:
+    - ['$y > 2x + 1$', 'Dashed line, shade above']
+    - ['$y \le 2x + 1$', 'Solid line, shade below']
+    - ['$y \ge 2x + 1$', 'Solid line, shade above']
+    - ['$y < 2x + 1$', 'Dashed line, shade below']
+  explanation: |-
+    The symbol decides the line: $\le$ and $\ge$ include the boundary (solid), $<$ and $>$ don't (dashed). With $y$ alone on the left, "$y >$" or "$y \ge$" means the points above the line and "$y <$" or "$y \le$" the points below.
+
+# ---------- Honors: determinants and Cramer's rule ----------
+- id: alg-m4-r2-h01
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Evaluate $\begin{vmatrix} 3 & -2 \\ 5 & 4 \end{vmatrix}$.'
+  choices: ['$2$', '$22$', '$-22$', '$7$']
+  answer: 1
+  explanation: |-
+    Main diagonal minus other diagonal: $(3)(4) - (-2)(5) = 12 + 10 = 22$. Getting 2 means treating $-(-2)(5)$ as $-10$; $-22$ subtracts in the wrong order; 7 adds the main diagonal.
+- id: alg-m4-r2-h02
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'For the system $2x + y = 7$, $3x - 4y = 5$, what is $D_x$?'
+  choices: ['$-11$', '$-23$', '$33$', '$-33$']
+  answer: 3
+  explanation: |-
+    Replace the $x$-column of the coefficients with the constants: $D_x = \begin{vmatrix} 7 & 1 \\ 5 & -4 \end{vmatrix} = (7)(-4) - (1)(5) = -28 - 5 = -33$. Since $D = -8 - 3 = -11$, $x = \tfrac{-33}{-11} = 3$; and $D_y = (2)(5) - (7)(3) = -11$ gives $y = 1$. $-11$ is $D$ (and $D_y$), and $-23$ adds the 5 instead of subtracting it.
+- id: alg-m4-r2-h03
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Solve by Cramer''s rule: $5x - 2y = 3$, $3x + 4y = 20$.'
+  choices: ['$\left(2, \tfrac72\right)$', '$\left(\tfrac72, 2\right)$', '$\left(2, -\tfrac72\right)$', '$\left(\tfrac{26}{52}, \tfrac{26}{91}\right)$']
+  answer: 0
+  explanation: |-
+    $D = (5)(4) - (-2)(3) = 26$. $D_x = (3)(4) - (-2)(20) = 12 + 40 = 52$, so $x = 2$. $D_y = (5)(20) - (3)(3) = 91$, so $y = \tfrac{91}{26} = \tfrac72$. Check: $10 - 7 = 3$ and $6 + 14 = 20$. The last choice divides the wrong way round ($D/D_x$, $D/D_y$).
+- id: alg-m4-r2-h04
+  lesson: alg-m4-h-cramer
+  type: text
+  topic: Determinants and Cramer's rule
+  stem: 'The system $kx + 4y = 3$, $6x + 8y = 5$ fails to have exactly one solution when $k =$ ___. (Give only the number.)'
+  accept: ['3']
+  explanation: |-
+    $D = (k)(8) - (4)(6) = 8k - 24$. There is exactly one solution unless $D = 0$, that is, $k = 3$.
+- id: alg-m4-r2-h05
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'With $k = 3$, how many solutions does $kx + 4y = 3$, $6x + 8y = 5$ have?'
+  choices: ['Exactly one', 'None', 'Infinitely many', 'Exactly two']
+  answer: 1
+  explanation: |-
+    $D = 0$, so check $D_x = (3)(8) - (4)(5) = 24 - 20 = 4 \ne 0$: no solution. Directly: doubling $3x + 4y = 3$ gives $6x + 8y = 6$, which can't also equal 5. The lines are parallel.
+- id: alg-m4-r2-h06
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'For which values of $k$ and $m$ does $3x - y = 2$, $9x + ky = m$ have infinitely many solutions?'
+  choices: ['$k = 3$, $m = 6$', '$k = -3$, $m = 2$', '$k = -3$, $m = 6$', '$k = -3$, any $m$']
+  answer: 2
+  explanation: |-
+    $D = 3k - (-1)(9) = 3k + 9 = 0$ gives $k = -3$. Then $D_x = (2)(-3) - (-1)(m) = m - 6 = 0$ gives $m = 6$, and $D_y = (3)(m) - (2)(9) = 3m - 18 = 0$ also. The second equation is then $9x - 3y = 6$, exactly 3 times the first. With $k = -3$ and $m \ne 6$ there is no solution, so "any $m$" is wrong.
+- id: alg-m4-r2-h07
+  lesson: alg-m4-h-cramer
+  type: match
+  topic: Determinants and Cramer's rule
+  stem: 'For a system of two linear equations (each a genuine line), match each condition to what it tells you.'
+  pairs:
+    - ['$D \ne 0$', Exactly one solution]
+    - ['$D = 0$ and $D_x \ne 0$', No solution]
+    - ['$D = D_x = D_y = 0$', Infinitely many solutions]
+  distractors: [Exactly two solutions]
+  explanation: |-
+    $D \ne 0$ means different slopes, so the lines cross once. If $D = 0$, the derived equation $Dx = D_x$ reads $0 = D_x$: false when $D_x \ne 0$ (parallel lines, no solution). When all three determinants are 0, the equations are multiples of each other: the same line.
+- id: alg-m4-r2-h08
+  lesson: alg-m4-h-cramer
+  type: order
+  topic: Determinants and Cramer's rule
+  stem: 'Put the steps for solving a system by Cramer''s rule in order.'
+  items:
+    - 'Write both equations in the form $ax + by = e$'
+    - 'Compute $D = ad - bc$'
+    - 'Since $D \ne 0$, compute $D_x$ and $D_y$'
+    - 'Divide: $x = D_x / D$ and $y = D_y / D$'
+    - Check the pair in both original equations
+  explanation: |-
+    The coefficients can only be read once the equations are in standard form. $D$ comes first because if it is 0 the rule doesn't apply; only then are $D_x$ and $D_y$ worth computing. Divide, then check.
+- id: alg-m4-r2-h09
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Which of these systems have exactly one solution? Select all that apply.'
+  choices: ['$2x + 3y = 1$, $4x + 6y = 5$', '$x - y = 3$, $x + y = 3$', '$5x + 10y = 2$, $x + 2y = 7$', '$3x - 2y = 0$, $6x + 4y = 0$', '$y = 4x - 1$, $y = -4x + 1$']
+  answer: [1, 3, 4]
+  explanation: |-
+    Compute $D$ for each. $(2)(6) - (3)(4) = 0$; $(1)(1) - (-1)(1) = 2$; $(5)(2) - (10)(1) = 0$; $(3)(4) - (-2)(6) = 24$; and writing the last as $-4x + y = -1$, $4x + y = 1$ gives $(-4)(1) - (1)(4) = -8$. Exactly one solution when $D \ne 0$: the second, fourth and fifth.
+- id: alg-m4-r2-h10
+  lesson: alg-m4-h-cramer
+  type: text
+  topic: Determinants and Cramer's rule
+  stem: 'Solve $x + y = 2$, $x + 1.01y = 2.02$. Give only the numbers: $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['0']
+    - ['2']
+  explanation: |-
+    Subtract the first equation from the second: $0.01y = 0.02$, so $y = 2$ and $x = 0$. With $2.01$ instead of $2.02$ the solution would be $(1, 1)$: changing one constant by $0.01$ moved the answer a whole unit. Here $D = 0.01$, so the system is ill-conditioned.
+- id: alg-m4-r2-h11
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Why can the solution of an ill-conditioned system not be trusted when its numbers come from measurements?'
+  choices: ['Because $D$ is close to 0, so dividing by $D$ magnifies small errors in the data', 'Because $D$ is exactly 0, so the system has no solution', 'Because the lines are perpendicular, so the crossing point is hard to read', 'Because Cramer''s rule only works when every coefficient is a whole number']
+  answer: 0
+  explanation: |-
+    In an ill-conditioned system $D$ is small but not 0, so there is exactly one solution, but $x = D_x/D$ and $y = D_y/D$ divide by a tiny number. A small error in a constant changes $D_x$ or $D_y$ a little, and the quotient a lot. Geometrically the lines are nearly parallel, not perpendicular. Cramer's rule works with any real coefficients.
+- id: alg-m4-r2-h12
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'In the proof that $x = D_x/D$, $y = D_y/D$ really solves $ax + by = e$, one computes $aD_x + bD_y$, where $D_x = ed - bf$ and $D_y = af - ce$. What does it simplify to?'
+  choices: ['$fD$', '$0$', '$eD$', '$D$']
+  answer: 2
+  explanation: |-
+    $a(ed - bf) + b(af - ce) = aed - abf + abf - bce = e(ad - bc) = eD$. Dividing by $D$ shows $a \cdot \tfrac{D_x}{D} + b \cdot \tfrac{D_y}{D} = e$, so the first equation holds.
+- id: alg-m4-r2-h13
+  lesson: alg-m4-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Which statement about the history of solving systems is accurate?'
+  choices: ['Gabriel Cramer invented elimination in 1750', 'Methods equivalent to elimination appear in the Chinese Nine Chapters on the Mathematical Art, compiled by about the first century CE', 'Determinants were invented for computers in the 1950s', 'Cramer''s rule is the method computers use for large systems']
+  answer: 1
+  explanation: |-
+    The Nine Chapters solves systems by combining columns of counting-rod coefficients, elimination in all but notation, many centuries before Cramer. Cramer published his determinant rule (not elimination) in 1750; Seki and Leibniz had written about determinants in 1683 and 1693. For large systems computers use elimination, which needs far less arithmetic than Cramer's rule.
+- id: alg-m4-r2-h14
+  lesson: alg-m4-h-cramer
+  type: label
+  topic: Determinants and Cramer's rule
+  stem: 'The picture shows the system $4x + 3y = 10$, $6x - 5y = -4$ and three determinants used to solve it by Cramer''s rule. Name the numbered parts.'
+  image: {src: images/alg-m4-cramer-blank.svg, alt: 'The system 4x + 3y = 10 and 6x minus 5y = negative 4, with the right-hand numbers 10 and negative 4 inside a dashed box, marked 1. Below are three determinants. Marker 2: rows 4, 3 and 6, negative 5. Marker 3: rows 10, 3 and negative 4, negative 5, with its first column highlighted. Marker 4: rows 4, 10 and 6, negative 4, with its second column highlighted.'}
+  labels:
+    - {x: 64.8, y: 16.3, text: Constants}
+    - {x: 21.2, y: 52.6, text: D}
+    - {x: 55.0, y: 52.6, text: Dx}
+    - {x: 88.8, y: 52.6, text: Dy}
+  distractors: [Coefficients of y, The solution]
+  explanation: |-
+    1: the right-hand sides 10 and $-4$ are the constants. 2: the coefficients alone form $D = -20 - 18 = -38$. 3: the $x$-column replaced by the constants is $D_x = -50 + 12 = -38$. 4: the $y$-column replaced is $D_y = -16 - 60 = -76$. So $x = 1$ and $y = 2$.
+
+# ---------- Honors: linear programming ----------
+- id: alg-m4-r2-h15
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'What is the slope of every level line of $P = 30x + 20y$?'
+  choices: ['$-\tfrac23$', '$\tfrac32$', '$-\tfrac32$', '$30$']
+  answer: 2
+  explanation: |-
+    Solve $30x + 20y = c$ for $y$: $y = \tfrac{c}{20} - \tfrac32 x$. The slope is $-\tfrac32$ whatever $c$ is, which is why the level lines are parallel. $-\tfrac23$ flips the fraction.
+- id: alg-m4-r2-h16
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'Over the workshop region with vertices $(0, 0)$, $(6, 0)$, $(4, 4)$ and $(0, 8)$, where is $P = 10x + 30y$ largest?'
+  choices: ['$(6, 0)$', '$(4, 4)$', '$(0, 8)$', 'Along the edge from $(4, 4)$ to $(0, 8)$']
+  answer: 2
+  explanation: |-
+    $P(0, 0) = 0$, $P(6, 0) = 60$, $P(4, 4) = 160$, $P(0, 8) = 240$. Only $(0, 8)$ gives 240. In slope terms, the level lines have slope $-\tfrac13$, flatter than the edge slope $-1$, so the sliding line last touches $(0, 8)$. There is no tie, because the level lines aren't parallel to an edge.
+- id: alg-m4-r2-h17
+  lesson: alg-m4-h-linear-programming
+  type: text
+  topic: Linear programming
+  stem: 'For the workshop region (vertices $(0, 0)$, $(6, 0)$, $(4, 4)$, $(0, 8)$, edges through $(4, 4)$ along $x + y = 8$ and $2x + y = 12$), the objective $P = px + 30y$ has $(4, 4)$ as a best vertex when $p$ is from ___ to ___. (Give only the numbers.)'
+  accept:
+    - ['30']
+    - ['60']
+  explanation: |-
+    The level lines have slope $-\tfrac{p}{30}$, and $(4, 4)$ is best when this lies between the edge slopes $-2$ and $-1$: $1 \le \tfrac{p}{30} \le 2$, so $30 \le p \le 60$. At $p = 30$ it ties with $(0, 8)$, and at $p = 60$ with $(6, 0)$.
+- id: alg-m4-r2-h18
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'Maximize $P = 40x + 20y$ over the workshop region (vertices $(0, 0)$, $(6, 0)$, $(4, 4)$, $(0, 8)$). Which statement is true?'
+  choices: ['Only $(6, 0)$ gives the maximum, 240', 'Only $(4, 4)$ gives the maximum, 240', 'Every point on the edge from $(4, 4)$ to $(6, 0)$ gives the maximum, 240', 'Every point on the edge from $(4, 4)$ to $(0, 8)$ gives the maximum, 240']
+  answer: 2
+  explanation: |-
+    $P(6, 0) = 240$, $P(4, 4) = 160 + 80 = 240$, $P(0, 8) = 160$. Two corners tie. The level lines have slope $-2$, parallel to the edge $2x + y = 12$ that joins them, so every point of that edge, such as $(5, 2)$ with $200 + 40 = 240$, is a best plan.
+- id: alg-m4-r2-h19
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'Over the feed region $x \ge 0$, $y \ge 0$, $3x + y \ge 12$, $x + 2y \ge 9$ (vertices $(0, 12)$, $(3, 3)$, $(9, 0)$), what is the minimum of $C = 2x + 5y$?'
+  choices: ['$18$', '$21$', '$60$', 'There is no minimum']
+  answer: 0
+  explanation: |-
+    $C(0, 12) = 60$, $C(3, 3) = 6 + 15 = 21$, $C(9, 0) = 18$. The coefficients are positive and $x, y \ge 0$, so $C$ can't decrease forever and the minimum is at a vertex: 18, at $(9, 0)$. With feed B this expensive, buying only feed A is cheapest.
+- id: alg-m4-r2-h20
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'Over the same unbounded feed region, what is the maximum of $C = 4x + 3y$?'
+  choices: ['36, at $(0, 12)$ and $(9, 0)$', '21, at $(3, 3)$', '36, at $(9, 0)$ only', 'There is no maximum']
+  answer: 3
+  explanation: |-
+    The region goes on forever up and to the right, and moving that way increases $C$ without limit (for example $C(100, 0) = 400$). So there is no maximum. The corner values 36 and 21 only help with the minimum; checking corners for a maximum on an unbounded region gives a wrong answer.
+- id: alg-m4-r2-h21
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'For which objectives does a minimum exist over the region $x \ge 0$, $y \ge 0$, $3x + y \ge 12$, $x + 2y \ge 9$? Select all that apply.'
+  choices: ['$C = 4x + 3y$', '$C = x + y$', '$C = -x + y$', '$C = 2x$', '$C = x - y$']
+  answer: [0, 1, 3]
+  explanation: |-
+    With coefficients that aren't negative and $x, y \ge 0$, $C$ can't go below 0, so a minimum exists at a corner: $4x + 3y$ (21 at $(3, 3)$), $x + y$ (6 at $(3, 3)$), $2x$ (0 at $(0, 12)$, and also at every point above it on the $y$-axis). But $-x + y$ decreases forever along the $x$-axis (for example $-100$ at $(100, 0)$), and $x - y$ decreases forever up the $y$-axis.
+- id: alg-m4-r2-h22
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'Maximize $P = 3x + 4y$ subject to $x + 2y \le 9$, $3x + y \le 10$, $x, y \ge 0$, where $x$ and $y$ must be whole numbers. The best corner without that rule is $(2.2, 3.4)$. What is the best whole-number plan?'
+  choices: ['$(2, 3)$', '$(2, 4)$', '$(3, 1)$', '$(1, 4)$']
+  answer: 3
+  explanation: |-
+    Rounding gives $(2, 3)$, which is allowed ($8 \le 9$, $9 \le 10$) with $P = 18$, but it isn't the best: $(1, 4)$ is allowed ($9 \le 9$, $7 \le 10$) with $P = 3 + 16 = 19$. $(2, 4)$ breaks the first constraint ($10 > 9$), and $(3, 1)$ gives only 13. Checking all the whole-number points in the region confirms 19 is the largest.
+- id: alg-m4-r2-h23
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'The best corner of a problem whose variables must be whole numbers is $(1.8, 2.8)$. What should you do?'
+  choices: ['Report $(1.8, 2.8)$, since the best corner is always the answer', 'Round to $(2, 3)$ and report it', 'Check that nearby whole-number points satisfy the constraints and compare their objective values', 'Round both coordinates down, which always gives the best whole-number plan']
+  answer: 2
+  explanation: |-
+    The rounded point may break a constraint (in the bakery example $(2, 3)$ needs 13 oven hours out of 12), and even an allowed rounded point may not be best. Rounding down keeps a plan allowed in problems like this, but it can miss a better one, such as $(1, 4)$ in a problem whose best corner is $(2.2, 3.4)$. Compare the allowed whole-number points near the corner.
+- id: alg-m4-r2-h24
+  lesson: alg-m4-h-linear-programming
+  type: text
+  topic: Linear programming
+  stem: 'In the feed problem (minimize $C = 4x + py$; edges through $(3, 3)$ along $3x + y = 12$ and $x + 2y = 9$), the price $p$ of feed B rises. The vertex $(3, 3)$ stays a cheapest plan as long as $p$ is at most ___ dollars. (Give only the number.)'
+  accept: ['8']
+  explanation: |-
+    The level lines $4x + py = c$ have slope $-\tfrac4p$. The vertex $(3, 3)$ is best when this lies between the edge slopes $-3$ and $-\tfrac12$: $\tfrac12 \le \tfrac4p \le 3$, so $\tfrac43 \le p \le 8$. Check: at $p = 9$, $C(3, 3) = 39$ but $C(9, 0) = 36$, so $(9, 0)$ becomes cheaper.
+- id: alg-m4-r2-h25
+  lesson: alg-m4-h-linear-programming
+  type: match
+  topic: Linear programming
+  stem: 'Match each linear programming problem to its outcome.'
+  pairs:
+    - ['Constraints $x + y \le 4$ and $x + y \ge 6$', 'Infeasible: no plan meets every constraint']
+    - ['Maximize $x + y$ over $x \ge 0$, $y \ge 0$, $x + 2y \ge 4$', No maximum]
+    - ['Maximize $25x + 25y$ over the workshop region', Every point of an edge is best]
+    - ['Maximize $30x + 20y$ over the workshop region', One best vertex]
+  explanation: |-
+    No point can have $x + y$ both at most 4 and at least 6: infeasible. The region $x + 2y \ge 4$ is unbounded, and $x + y$ grows without limit. $25x + 25y$ has level lines parallel to the edge $x + y = 8$, so $(4, 4)$, $(0, 8)$ and every point between them give 200. $30x + 20y$ is best only at $(4, 4)$.
+- id: alg-m4-r2-h26
+  lesson: alg-m4-h-linear-programming
+  type: label
+  topic: Linear programming
+  stem: 'The graph shows the feed problem: minimize $C = 4x + 3y$ subject to $3x + y \ge 12$, $x + 2y \ge 9$, $x \ge 0$, $y \ge 0$. The dashed lines are level lines of $C$. Name the numbered parts.'
+  image: {src: images/alg-m4-feed-region-blank.svg, alt: 'A grid with x, bags of feed A, from 0 to 10 and y, bags of feed B, from 0 to 13. A steep solid line and a shallow solid line cross at (3, 3). The region above and to the right of both is shaded and extends to the edges of the graph. Two parallel dashed lines are drawn, one through (3, 3) and one through (0, 12) and (9, 0). Marker 1 is in the shaded region, marker 2 on the point (3, 3), marker 3 on the lower dashed line, and marker 4 on the shallow solid line.'}
+  labels:
+    - {x: 67.8, y: 27.9, text: Unbounded feasible region}
+    - {x: 35.9, y: 68.9, text: Minimum-cost vertex}
+    - {x: 23.3, y: 55.9, text: Level line of the cost}
+    - {x: 61.1, y: 78.7, text: Boundary line of a constraint}
+  distractors: [Maximum-cost vertex, Test point]
+  explanation: |-
+    1: the shaded region goes on forever up and to the right, so it is unbounded. 2: the lower level line, $C = 21$, touches the region only at $(3, 3)$, the cheapest plan. 3: that dashed line is the level line $4x + 3y = 21$, made of plans that all cost 21 dollars. 4: the solid line $x + 2y = 9$ is the boundary of the fiber constraint. There is no maximum-cost vertex, because the cost can grow without limit.
+- id: alg-m4-r2-h27
+  lesson: alg-m4-h-linear-programming
+  topic: Linear programming
+  stem: 'Which describes the simplex method?'
+  choices: ['It lists every vertex of the region and compares all the objective values', 'It starts at a vertex and repeatedly moves along an edge to a neighboring vertex with a better objective value, stopping when no neighbor is better', 'It rounds the objective function to whole numbers before graphing', 'It guesses random points inside the region and keeps the best one']
+  answer: 1
+  explanation: |-
+    George Dantzig's simplex method (1947) walks from corner to better neighboring corner. That avoids listing every corner, which for large problems could be astronomically many. It is the corner principle turned into a step-by-step procedure.
+- id: alg-m4-r2-h28
+  lesson: alg-m4-h-linear-programming
+  type: order
+  topic: Linear programming
+  stem: 'Put these events in the history of linear programming in order, earliest first.'
+  items:
+    - Kantorovich writes about planning production with limited resources
+    - Dantzig invents the simplex method while working on Air Force planning
+    - Kantorovich and Koopmans share the Nobel Memorial Prize in Economic Sciences
+  explanation: |-
+    Kantorovich's work dates from 1939, Dantzig's simplex method from 1947, and the Nobel Memorial Prize to Kantorovich and Koopmans from 1975.

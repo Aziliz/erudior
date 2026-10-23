@@ -19,6 +19,20 @@ To graph one:
 2. Draw it solid if the symbol is $\le$ or $\ge$ (boundary points are solutions), and dashed if it is $<$ or $>$ (they aren't).
 3. Choose a **test point** not on the line, often $(0, 0)$. If it satisfies the inequality, shade its side; if not, shade the other side.
 
+```mermaid
+flowchart TD
+  accTitle: Graphing a linear inequality in two variables
+  accDescr: Replace the inequality symbol with an equals sign to get the boundary line and graph it. If the symbol is less than or equal to, or greater than or equal to, draw the line solid; if it is strictly less than or greater than, draw it dashed. Pick a test point that is not on the line, often (0, 0). If the test point makes the inequality true, shade its side of the line; if false, shade the other side.
+  A["Replace the symbol with = and graph the boundary line"] --> B{"Symbol ≤ or ≥?"}
+  B -- yes --> C[Solid line]
+  B -- "no: < or >" --> D[Dashed line]
+  C --> E["Pick a test point not on the line, often (0, 0)"]
+  D --> E
+  E --> F{Is the inequality true there?}
+  F -- yes --> G[Shade the side with the test point]
+  F -- no --> H[Shade the other side]
+```
+
 Why does one test point decide everything? The two sides of the inequality are equal only on the boundary line, so as a point moves around without crossing the line, the inequality can't switch from true to false. Every point on the same side gives the same answer.
 
 ### Example 1
@@ -39,6 +53,10 @@ A vertical boundary such as $x \ge 3$ shades to the right of the solid line $x =
 ## Systems of inequalities
 
 A **system of linear inequalities** is a set of inequalities to satisfy at the same time. Its solution set is the overlap of the half-planes, often a polygon called the **feasible region**. The corners of the region, where boundary lines meet, are called its **vertices** (or corner points).
+
+The picture below names every part for the system $y \le -x + 5$ and $y > x - 3$. The region is open on the left, because only two conditions limit it. Its vertex $(4, 1)$ is drawn as an open circle: it lies on the dashed line, so it is a corner of the region but not itself a solution.
+
+![A coordinate grid with two boundary lines. The solid line y = negative x + 5 slopes down; the dashed line y = x minus 3 slopes up. They meet at the vertex (4, 1), drawn as an open circle. The region to the left of both lines, below the solid line and above the dashed line, is shaded and labeled feasible region. The origin is marked as the test point (0, 0).](images/alg-m4-feasible-region.svg)
 
 ### Example 2
 

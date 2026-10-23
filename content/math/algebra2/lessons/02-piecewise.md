@@ -49,6 +49,23 @@ For the function $f$ above:
 
 At $x = 2$ the graph has a jump: the second piece ends at height 4 and the third starts at height 3. You can test any break point this way: evaluate both neighboring formulas there. If they agree, the pieces meet; if not, the graph jumps. For instance, $g(x) = x + k$ for $x < 2$ and $g(x) = x^2$ for $x \ge 2$ meet only if $2 + k = 2^2$, that is, $k = 2$.
 
+```mermaid
+flowchart TD
+  accTitle: Does a piecewise graph join or jump at a break point?
+  accDescr: At a break point c, evaluate the formula from the left piece at c and the formula from the right piece at c. If the two values are equal, the pieces meet and the graph is unbroken there. If they are different, the graph jumps at c, and the inequality signs decide which end gets the closed dot and which gets the open dot.
+  A["Break point x = c"] --> L["Left formula at c"]
+  A --> R["Right formula at c"]
+  L --> C{"Same value?"}
+  R --> C
+  C -- "yes" --> J["Pieces join: no gap"]
+  C -- "no" --> K["Graph jumps at c"]
+  K --> D["≤ or ≥: closed dot; < or >: open dot"]
+```
+
+Here is the same graph with its important features named. Notice that the closed dot and the open dot at $x = 2$ sit one above the other: only the closed one is on the graph, so $f(2) = 4$.
+
+![The graph of the three-piece function f: the line y = 2x + 3 for x < −1 rising to the point (−1, 1), where the parabola y = x² takes over with a closed dot, the parabola rising to a closed dot at (2, 4), and an open dot at (2, 3) where the line y = 5 − x starts and heads down to the right.](images/a2-m1-piecewise-parts.svg)
+
 ## Absolute value as a piecewise function
 
 The absolute value function is really a two-piece function:

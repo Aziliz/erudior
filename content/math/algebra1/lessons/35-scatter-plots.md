@@ -45,11 +45,24 @@ The **correlation coefficient** $r$ is a number from $-1$ to $1$ that measures t
 
 The sign gives the direction and the size $|r|$ gives the strength, so $r = -0.9$ is stronger than $r = 0.6$. For the study data, $r \approx 0.96$.
 
+The six scatter plots below show what different values of $r$ look like. Plot F is a perfect curve, yet its $r$ is 0, because $r$ looks only for a straight-line pattern.
+
+![Six scatter plots. A: points tightly along a rising line, r = 0.95. B: a loose rising cloud, r = 0.60. C: a shapeless cloud, r = 0. D: a loose falling cloud, r = −0.60. E: points tightly along a falling line, r = −0.95. F: points on an upside-down U-shaped curve, r = 0.](images/a1-m8-correlation.svg)
+
 Two cautions. First, $r$ only measures straight-line patterns: points on a U-shaped curve can have $r$ near 0 even though $y$ depends on $x$ perfectly. Always look at the plot. Second, $r$ has no units and doesn't change if you swap $x$ and $y$.
 
 ## Correlation is not causation
 
 A strong correlation says two variables move together; it does not say one causes the other. Across the months of a year, ice cream sales and swimming-pool accidents are positively correlated, but ice cream doesn't cause accidents. Both rise in hot weather. A variable like temperature, not part of the analysis but affecting both, is a **lurking variable**. Only a controlled experiment, where the researcher changes $x$ on purpose and keeps everything else the same, can establish cause and effect.
+
+```mermaid
+flowchart TD
+  accTitle: A lurking variable behind a correlation
+  accDescr: Hot weather increases ice cream sales and also increases swimming pool accidents. The two outcomes are correlated with each other, but neither causes the other; the dotted link between them marks correlation only.
+  H[Hot weather] --> I[More ice cream sales]
+  H --> P[More swimming pool accidents]
+  I -.-|"correlated, but no cause"| P
+```
 
 ## Lines of fit
 
@@ -83,6 +96,10 @@ A **residual** measures how far an actual data point is from the line's predicti
 $$\text{residual} = y - \hat y = \text{actual} - \text{predicted}.$$
 
 A positive residual means the point lies above the line (the actual value beat the prediction); a negative one means it lies below.
+
+![A scatter plot of eight points with the line of fit y-hat = 4x + 20. At x = 4 the observed point (4, 48) is 12 above the predicted value 36, shown as a small square on the line, so its residual is 12. At x = 6 the observed point (6, 34) is 10 below the predicted value 44, so its residual is −10. Each residual is drawn as a dashed vertical segment from the point to the line.](images/a1-m8-residual.svg)
+
+In the picture, each residual is the vertical gap from a point to the line, measured from the line up to the point: above the line is positive, below is negative.
 
 ### Example 2
 

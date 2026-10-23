@@ -18,6 +18,19 @@ With substitution and elimination in hand, word problems with two unknowns get m
 
 A table with a row for each kind of item and columns for (number, rate, total) organizes most of these problems.
 
+```mermaid
+flowchart TD
+  accTitle: The routine for a word problem with two unknowns
+  accDescr: Name two unknowns with units. Organize the facts in a table with columns for number, rate and total. Write one equation for each independent fact. Solve the system. Then ask whether the values make sense: whole numbers where needed, not negative, realistic. If not, recheck the setup and write the equations again. If they do, answer the question that was asked, with units.
+  A[Name two unknowns, with units] --> B["Organize: table of number, rate, total"]
+  B --> C[Write one equation per independent fact]
+  C --> D[Solve the system]
+  D --> E{"Do the values make sense (whole, not negative, realistic)?"}
+  E -- no --> F[Recheck the setup]
+  F --> C
+  E -- yes --> G[Answer the question asked, with units]
+```
+
 ## Totals and values
 
 ### Example 1
@@ -39,6 +52,10 @@ The theater sold 240 adult and 180 child tickets.
 ## Mixtures
 
 Mixture problems have the same shape: the amount of each ingredient, and the amount of some substance in each.
+
+The picture behind Example 2: the volumes add, and so do the amounts of pure acid. The percentages do not add (20% + 55% is not 34%), which is why the equations track milliliters of acid instead.
+
+![Three beakers. The first holds x mL of a 20% acid solution containing 0.20x mL of acid. Plus the second, holding y mL of a 55% solution containing 0.55y mL of acid. Equals the third, holding 50 mL of a 34% solution containing 0.34 times 50, or 17 mL of acid. A line below reads: volumes add, x + y = 50; acid adds, 0.20x + 0.55y = 17.](images/alg-m4-mixture.svg)
 
 ### Example 2
 
@@ -98,6 +115,10 @@ A small bakery pays $600 a week in fixed costs, and each loaf costs $1.50 to mak
 ```plot
 {"x": [0, 400], "y": [0, 1600], "functions": [{"f": "600 + 1.5*x", "label": "cost"}, {"f": "4*x", "label": "revenue", "dashed": true}], "points": [{"at": [240, 960], "label": "break-even (240, 960)"}], "xLabel": "loaves", "yLabel": "dollars", "caption": "Profit starts where the revenue line rises above the cost line"}
 ```
+
+Shading the gap between the two lines shows the whole story. Left of the break-even point the cost line is higher: each week ends with a loss, the vertical gap. Right of it the revenue line is higher: the gap is profit. The cost line starts at $600, not 0, because the fixed costs are owed even when no loaves are sold.
+
+![The bakery's cost and revenue lines on axes of loaves sold per week and dollars per week. The cost line starts at 600 dollars, marked fixed costs; the dashed revenue line starts at 0. They cross at the break-even point (240, 960). The triangle between the lines to the left of that point is shaded and labeled loss; the region between them to the right is shaded and labeled profit.](images/alg-m4-break-even.svg)
 
 ## Common mistakes
 

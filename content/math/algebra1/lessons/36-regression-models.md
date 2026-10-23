@@ -65,11 +65,33 @@ Several model types can look plausible for the same scatter plot. Use three chec
 2. *The data.* With equal $x$-steps: constant differences suggest linear, constant second differences suggest quadratic, constant ratios suggest exponential.
 3. *Residual plots.* Fit each candidate and plot its residuals. Prefer the model whose residuals look like random scatter around 0 and are small. A curved pattern means the model misses the shape.
 
+Here are the three checks as one procedure:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a regression model
+  accDescr: Start with a scatter plot and the context. With equally spaced x-values, constant first differences suggest a linear model, constant second differences suggest a quadratic model, and constant ratios suggest an exponential model. Fit the candidate model with technology, then look at its residual plot. If the residuals scatter randomly around zero, use the model, predicting only within or near the range of the data. If they show a pattern, try another model type.
+  A[Scatter plot and context] --> B{"Equal x-steps: what stays about constant?"}
+  B -- "first differences" --> L[Try linear]
+  B -- "second differences" --> Q[Try quadratic]
+  B -- ratios --> X[Try exponential]
+  L --> F[Fit with technology]
+  Q --> F
+  X --> F
+  F --> R{"Residual plot: random scatter around 0?"}
+  R -- yes --> U[Use the model, mostly inside the data range]
+  R -- "no, a pattern" --> B
+```
+
 A high $|r|$ is not enough. $r$ only measures how close the points are to a *line*, so a strongly curved data set can still have $|r|$ near 1. Tools often report a similar number, $R^2$, for curve fits; a value near 1 is encouraging, but it doesn't tell you the curve has the right shape. The residual plot does.
 
 ### Example 3
 
 For the car data, linear regression gives $\hat y = -2663x + 28{,}931$ with $r \approx -0.986$. Compare the residuals of the two models.
+
+```plot
+{"x": [-0.5, 11], "y": [-2000, 34000], "points": [[0, 31000], [1, 26100], [2, 23600], [3, 19500], [4, 17300], [5, 14100], [6, 12700], [7, 11100], [8, 9100]], "functions": [{"f": "30980*0.86^x", "label": "exponential"}, {"f": "-2663x + 28931", "label": "linear", "dashed": true}], "xLabel": "age (years)", "yLabel": "value ($)", "caption": "The car data with both models: the exponential curve bends with the data; the line runs below the points at both ends and above them in the middle, and it drops below zero after about 11 years"}
+```
 
 | Age | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|---|

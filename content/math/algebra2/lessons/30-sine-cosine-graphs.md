@@ -45,6 +45,10 @@ Each parameter is a transformation you have seen before:
 - $k$ shifts the graph up or down. The horizontal line $y = k$ through the middle of the wave is the **midline**. The maximum is $k + |a|$ and the minimum is $k - |a|$.
 - $h$ shifts the graph left or right. This horizontal shift is called the **phase shift**: right if $h > 0$, left if $h < 0$.
 
+The picture names the parts of a sinusoid. The amplitude is measured from the midline, not from the bottom, and the period can be measured between any two matching points, such as two maxima in a row.
+
+![A sine-shaped wave above the x-axis with a dashed horizontal midline through its middle. A double arrow from the midline up to a maximum is the amplitude; a double arrow from one maximum to the next is the period, one full cycle; the highest and lowest points are marked maximum and minimum.](images/a2-m9-sinusoid-parts.svg)
+
 ### Example 1
 
 Graph $y = 3\sin(2x) - 1$ for one cycle. State the amplitude, period, midline, maximum and minimum.
@@ -82,6 +86,20 @@ To fit a sinusoid to something that cycles, read three things from the situation
 1. Maximum and minimum. Midline $k = \dfrac{\max + \min}{2}$, amplitude $= \dfrac{\max - \min}{2}$.
 2. Period $P$, the time for one cycle. Then $b = \dfrac{2\pi}{P}$.
 3. A starting point. Cosine starts at a maximum, $-\cos$ at a minimum, sine on the midline going up. Shift by $h$ if the cycle starts somewhere other than $t = 0$.
+
+The choice in step 3 is a small decision chart. Here $A$ stands for the amplitude, a positive number.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a sinusoid model from where the cycle starts
+  accDescr: First find the midline k as the average of the maximum and minimum, the amplitude A as half their difference, and b as 2 pi divided by the period. Then look at what happens at time 0. If it starts at a maximum, use y equals A cosine of b t plus k. If it starts at a minimum, use y equals negative A cosine of b t plus k. If it starts on the midline going up, use y equals A sine of b t plus k. If the maximum or minimum comes at some other time h, use cosine or negative cosine with t minus h in place of t.
+  A["Read the maximum, minimum and period"] --> B["k = (max + min) / 2, A = (max − min) / 2, b = 2π / period"]
+  B --> C{"What happens at t = 0?"}
+  C -- "at a maximum" --> D["y = A cos(bt) + k"]
+  C -- "at a minimum" --> E["y = −A cos(bt) + k"]
+  C -- "on the midline, rising" --> F["y = A sin(bt) + k"]
+  C -- "max or min at another time h" --> G["cos or −cos with (t − h) in place of t"]
+```
 
 ### Example 3
 

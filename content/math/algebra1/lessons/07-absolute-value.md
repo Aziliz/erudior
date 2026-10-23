@@ -23,6 +23,10 @@ Because $|x|$ is the distance from $x$ to 0:
 
 More generally, $|x - c|$ is the distance from $x$ to $c$, so $|x - 3| < 2$ describes the numbers within 2 units of 3: the interval $(1, 5)$.
 
+The picture shows the general case. The solutions of $|x - c| \le r$ form an interval with center $c$ that reaches $r$ units to each side, from $c - r$ to $c + r$.
+
+![A number line with a center point c and a shaded interval from c - r to c + r, both endpoints closed dots. Arrows above show a distance r from c to each endpoint.](images/alg-m2-distance.svg)
+
 ## Absolute value equations
 
 For $k > 0$, the equation $|u| = k$ is equivalent to
@@ -102,6 +106,23 @@ Once the absolute value is isolated, look at the number on the other side before
 | $\lvert u \rvert > -3$ | all real numbers (where $u$ is defined) | every distance is at least 0 |
 | $\lvert u \rvert \le 0$ | only where $u = 0$ | the distance must be exactly 0 |
 | $\lvert u \rvert > 0$ | everything except where $u = 0$ | every nonzero distance is positive |
+
+This chart sums up the whole lesson: isolate, look at the number on the other side, then let the symbol choose the rule.
+
+```mermaid
+flowchart TD
+  accTitle: Which rule to use for an absolute value equation or inequality
+  accDescr: Top to bottom. First isolate the absolute value so that the absolute value of u stands alone on one side and a number k on the other. Then ask whether k is negative. If k is negative, an equation or a less-than inequality has no solution, and a greater-than inequality is true for every x. If k is zero or positive, look at the symbol. An equals sign gives u equals k or u equals negative k. A less-than symbol gives the double inequality negative k less than u less than k, one interval. A greater-than symbol gives u less than negative k or u greater than k, two rays. In every case, finish by solving for x and checking.
+  A["Isolate: |u| alone on one side, a number k on the other"] --> B{"Is k negative?"}
+  B -- yes --> C["= or less than: no solution. Greater than: every x"]
+  B -- no --> D{"Which symbol?"}
+  D -- "=" --> E["u = k or u = -k"]
+  D -- "less than" --> F["-k < u < k: one interval"]
+  D -- "greater than" --> G["u < -k or u > k: two rays"]
+  E --> H["Solve for x and check"]
+  F --> H
+  G --> H
+```
 
 ## A graphical view
 

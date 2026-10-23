@@ -27,6 +27,22 @@ These numbers are the **critical values**. They cut the number line into interva
 5. Choose the intervals whose sign matches the inequality. Include a zero of the numerator when the symbol is $\le$ or $\ge$ (unless it also makes the denominator 0); never include a zero of the denominator.
 6. Write the answer in interval notation.
 
+The last decision, which endpoints to include, is where most errors happen, so the flowchart spells it out:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a polynomial or rational inequality with a sign chart
+  accDescr: Move everything to one side so the inequality compares an expression with 0. Combine it into one fraction and factor. The critical values are the zeros of the numerator and of the denominator. Test the sign on each interval between critical values and keep the intervals with the sign the inequality asks for. Then decide each endpoint. A zero of the numerator is included with less than or equal or greater than or equal, and left out with strict less than or greater than. A zero of the denominator is always left out.
+  A["Get 0 on one side"] --> B["Combine into one fraction and factor"]
+  B --> C["Critical values: zeros of the numerator and the denominator"]
+  C --> D["Find the sign on each interval"]
+  D --> E["Keep the intervals with the sign you want"]
+  E --> F{"What kind of critical value is the endpoint?"}
+  F -- "numerator zero, with ≤ or ≥" --> G["Include it"]
+  F -- "numerator zero, with < or >" --> H["Leave it out"]
+  F -- "denominator zero" --> I["Always leave it out"]
+```
+
 A **polynomial inequality** is one like $p(x) > 0$ with $p$ a polynomial; a **rational inequality** has a variable in a denominator. The same six steps solve both.
 
 ### Example 1
@@ -84,6 +100,12 @@ Solve $\dfrac{x + 1}{x - 3} \le 0$.
 3. Keep the negative interval. Include $-1$ (the fraction equals 0 there) but not $3$ (undefined).
 
 The solution is $[-1, 3)$.
+
+The graph tells the same story: $y = \dfrac{x + 1}{x - 3}$ touches the $x$-axis at $x = -1$, stays below it until the vertical asymptote $x = 3$, and is above it everywhere else.
+
+```plot
+{"x": [-6, 9], "y": [-8, 8], "functions": [{"f": "(x + 1)/(x - 3)", "label": "y = (x + 1)/(x − 3)"}], "segments": [{"from": [3, -8], "to": [3, 8], "dashed": true, "label": "x = 3"}], "points": [{"at": [-1, 0], "label": "(−1, 0)"}], "caption": "Below the x-axis exactly for −1 < x < 3; equal to 0 at x = −1; undefined at x = 3"}
+```
 
 ```numberline
 {"x": [-4, 6], "points": [{"at": [-1, 0], "label": "−1"}, {"at": [3, 0], "open": true, "label": "3"}], "segments": [{"from": [-1, 0], "to": [3, 0]}], "labels": [{"at": [-2.5, 0.5], "text": "+"}, {"at": [1.5, 0.5], "text": "−"}, {"at": [4.5, 0.5], "text": "+"}], "caption": "[−1, 3): closed at the numerator's zero, open at the denominator's zero"}

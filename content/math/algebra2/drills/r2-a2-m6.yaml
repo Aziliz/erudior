@@ -1,0 +1,119 @@
+# Round 2 drills for module a2-m6 (honors lessons 22h1 and 22h2)
+- id: a2-m6-r2-continuous-rate
+  title: Convert between yearly and continuous rates
+  topic: Continuous growth
+  vars:
+    rp: {min: 1, max: 15, step: 0.5}
+    kp: {min: 1, max: 15, step: 0.5}
+  where: ['rp != kp']
+  calc:
+    kk: 100*ln(1 + rp/100)
+    yy: 100*(e^(kp/100) - 1)
+    bf: 1 + rp/100
+    ek: e^(kp/100)
+  prompt: |-
+    (a) A quantity grows {rp}% per year. What continuous rate $k$ (as a percent) gives the same growth?
+    (b) Another quantity grows continuously at {kp}% per year. By what percent does it grow each year?
+    Give both percents to 2 decimal places.
+  answers:
+    - {name: kk, label: '(a) $k$ (%)', tolerance: 0.006, format: num2}
+    - {name: yy, label: '(b) yearly rate (%)', tolerance: 0.006, format: num2}
+  solution: |-
+    (a) The yearly growth factor is {bf}, so $k = \ln {bf} \approx$ **{kk:num2}%**.
+    (b) The yearly growth factor is $e^{{kp}/100} \approx {ek:num4}$, so the yearly rate is **{yy:num2}%**.
+    The continuous rate is always a little smaller than the yearly rate it matches.
+
+- id: a2-m6-r2-apy
+  title: Annual percentage yield
+  topic: Effective rates
+  vars:
+    rp: {min: 1, max: 10, step: 0.25}
+    n: {choices: [{label: 'quarterly', value: 4}, {label: 'monthly', value: 12}, {label: 'daily (365 times a year)', value: 365}, {label: 'continuously', value: 0}]}
+  calc:
+    fac: if(n == 0, e^(rp/100), (1 + rp/100/max(n, 1))^max(n, 1))
+    apy: 100*(fac - 1)
+  prompt: 'A savings account pays a nominal {rp}% per year, compounded {n}. What is its annual percentage yield (APY)? Give the percent to 3 decimal places.'
+  answers:
+    - {name: apy, label: 'APY (%)', tolerance: 0.0006, format: dp3}
+  solution: |-
+    In one year the balance is multiplied by $\left(1 + \tfrac{\,r}{\,n}\right)^{\,n}$, or by $e^{r}$ for continuous compounding, with $r = {rp}/100$.
+    Compounded {n}, that factor is about {fac:num4}, so the APY is **{apy:dp3}%**.
+
+- id: a2-m6-r2-radiocarbon
+  title: Radiocarbon age
+  topic: Continuous growth
+  vars:
+    p: {min: 5, max: 95, step: 5}
+  where: ['p != 50', 'p != 25']
+  calc:
+    lam: ln(2)/5730
+    t: 5730*ln(p/100)/(-ln(2))
+    q: p/100
+  prompt: 'A sample has {p}% of the carbon-14 found in living material. Using a half-life of 5,730 years, how old is it? Give the age to the nearest year.'
+  answers:
+    - {name: t, label: 'Age (years)', tolerance: 1, format: int}
+  solution: |-
+    The decay constant is $\lambda = \dfrac{\ln 2}{5730}$. Solve $e^{-\lambda t} = {q}$:
+    $t = \dfrac{\ln {q}}{-\lambda} = \dfrac{5730 \ln {q}}{-\ln 2} \approx$ **{t:int}** years.
+
+- id: a2-m6-r2-decibels
+  title: Sound level in decibels
+  topic: Logarithmic scales
+  vars:
+    m: {min: 1.1, max: 9.9, step: 0.1}
+    ex: {min: 3, max: 11}
+  calc:
+    L: 10*(log10(m) + 12 - ex)
+    lm: log10(m)
+    pw: 12 - ex
+  prompt: 'A sound has intensity ${m:num1} \times 10^{-{ex}}$ W/m². Using $L = 10\log\dfrac{I}{10^{-12}}$, find its sound level in decibels to 1 decimal place.'
+  answers:
+    - {name: L, label: '$L$ (dB)', tolerance: 0.06, format: num1}
+  solution: |-
+    $\dfrac{I}{10^{-12}} = {m:num1} \times 10^{{pw}}$, so $\log\dfrac{I}{10^{-12}} = \log {m:num1} + {pw} \approx {lm:num4} + {pw}$.
+    Multiply by 10: $L \approx$ **{L:num1} dB**.
+
+- id: a2-m6-r2-fit-exp
+  title: Exponential model through two points
+  topic: Fitting models to data
+  vars:
+    a: {min: 2, max: 9}
+    b: {choices: [2, 3, 4, 5]}
+    x1: {min: 1, max: 3}
+    g: {min: 1, max: 3}
+  calc:
+    x2: x1 + g
+    y1: a*b^x1
+    y2: a*b^(x1 + g)
+    ratio: b^g
+    bx1: b^x1
+  where: ['a*b^(x1 + g) <= 20000']
+  prompt: 'Find the exponential model $y = ab^x$ whose graph passes through $({x1}, {y1:dp0})$ and $({x2}, {y2:dp0})$.'
+  answers:
+    - {name: a, label: '$a =$'}
+    - {name: b, label: '$b =$'}
+  solution: |-
+    Divide the two equations: $\dfrac{ab^{{x2}}}{ab^{{x1}}} = \dfrac{{y2:dp0}}{{y1:dp0}}$, so $b^{{g}} = {ratio}$ and $b =$ **{b}**.
+    Then $a \cdot {b}^{{x1}} = {y1:dp0}$, so $a = \dfrac{{y1:dp0}}{{bx1}} =$ **{a}**. The model is $y = {a} \cdot {b}^x$.
+
+- id: a2-m6-r2-power-law
+  title: Power model through two points
+  topic: Fitting models to data
+  vars:
+    c: {min: 1, max: 5}
+    p: {choices: [0.5, 1.5, 2, 2.5, 3]}
+    x1: {choices: [1, 4, 9, 16]}
+    x2: {choices: [4, 9, 16, 25, 36]}
+  calc:
+    y1: c*x1^p
+    y2: c*x2^p
+    yr: y2/y1
+    xr: x2/x1
+  where: ['x2 > x1', 'c*x2^p <= 100000']
+  prompt: 'Data follow a power model $y = cx^p$. Two data points are $({x1}, {y1:dp0})$ and $({x2}, {y2:dp0})$. Find $p$ and $c$.'
+  answers:
+    - {name: p, label: '$p =$', tolerance: 0.006}
+    - {name: c, label: '$c =$', tolerance: 0.01}
+  solution: |-
+    Divide: $\left(\dfrac{{x2}}{{x1}}\right)^p = \dfrac{{y2:dp0}}{{y1:dp0}}$. Take logs: $p = \dfrac{\log({y2:dp0}/{y1:dp0})}{\log({x2}/{x1})} = \dfrac{\log {yr:sig6}}{\log {xr:sig6}} =$ **{p}**.
+    Then $c = \dfrac{{y1:dp0}}{{x1}^{{p}}} =$ **{c}**, so $y = {c:coef}x^{{p}}$.

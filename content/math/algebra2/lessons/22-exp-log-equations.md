@@ -42,6 +42,12 @@ Solve $5 \cdot 3^{x} - 7 = 43$.
 
 Equivalently, from $3^x = 10$ write $x = \log_3 10$ and use change of base.
 
+A graph makes the answer believable: the solution of $3^x = 10$ is the $x$-coordinate where the curve $y = 3^x$ crosses the horizontal line $y = 10$.
+
+```plot
+{"x": [-1, 3], "y": [-1, 16], "functions": [{"f": "3^x", "label": "y = 3^x", "from": -1, "to": 2.5}, {"f": "10", "label": "y = 10", "dashed": true}], "points": [{"at": [2.096, 10], "label": "x ≈ 2.096"}], "segments": [{"from": [2.096, 0], "to": [2.096, 10], "dashed": true}], "caption": "3^x = 10 where the curve meets the line: x = ln 10 / ln 3 ≈ 2.096"}
+```
+
 Don't take the log before isolating: $\ln(5 \cdot 3^x - 7)$ can't be split, since there's no rule for the log of a difference.
 
 ### Example 4
@@ -111,6 +117,24 @@ A substance decays according to $A = A_0e^{-0.0231t}$ ($t$ in years). Find its h
 
 ```plot
 {"x": [0, 100], "y": [0, 110], "functions": [{"f": "100*e^(-0.0231*x)", "label": "A = 100e^(-0.0231t)"}], "points": [{"at": [30, 50], "label": "half-life ≈ 30 yr"}, {"at": [60, 25], "label": "(60, 25)"}], "segments": [{"from": [0, 50], "to": [30, 50], "dashed": true}, {"from": [30, 0], "to": [30, 50], "dashed": true}], "xLabel": "t (years)", "yLabel": "amount", "caption": "Each half-life halves what is left"}
+```
+
+## Choosing a method
+
+The chart sums up the whole lesson: first ask where the variable is, then pick the tool.
+
+```mermaid
+flowchart TD
+  accTitle: Which method solves this exponential or logarithmic equation?
+  accDescr: If the variable is in an exponent, first ask whether both sides are powers of one base; if so, set the exponents equal. If not, ask whether the equation is quadratic in e to the x or b to the x; if so, substitute u, solve the quadratic and keep only positive values of u. Otherwise isolate the power and take ln of both sides. If the variable is inside a logarithm, condense to a single log, rewrite in exponential form or use one-to-one, solve, and check that every log argument is positive.
+  A{"Where is the variable?"} -- "in an exponent" --> B{"Both sides powers of one base?"}
+  B -- yes --> C["Set the exponents equal"]
+  B -- no --> D{"Quadratic in e^x or b^x?"}
+  D -- yes --> E["Let u = e^x, solve, keep only positive u"]
+  D -- no --> F["Isolate the power, take ln of both sides"]
+  A -- "inside a log" --> G["Condense to a single log"]
+  G --> H["Rewrite in exponential form or use one-to-one"]
+  H --> I["Solve, then check every argument is positive"]
 ```
 
 ## Common mistakes

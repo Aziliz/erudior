@@ -1,0 +1,19 @@
+# Round 2 cards for module a2-m6 (honors lessons 22h1 and 22h2)
+- {front: 'Rewrite $ab^t$ with base $e$', back: '$ab^t = ae^{kt}$ with $k = \ln b$; going back, $b = e^k$.', topic: Continuous growth}
+- {front: 'Continuous rate $k$ vs. yearly rate $r$', back: '$k = \ln(1 + r)$ and $r = e^k - 1$. For growth, $k$ is a little smaller than $r$.', topic: Continuous growth}
+- {front: 'Why $\left(1 + \tfrac rn\right)^{nt} \to e^{rt}$', back: 'With $m = n/r$ it equals $\left[\left(1 + \tfrac1m\right)^m\right]^{rt}$, and the bracket approaches $e$.', topic: Continuous growth}
+- {front: 'Effective annual rate (APY)', back: '$\left(1 + \tfrac rn\right)^n - 1$; continuous: $e^r - 1$. Compare accounts by this, not by the nominal rate.', topic: Effective rates}
+- {front: 'APY of 6% compounded monthly', back: '$1.005^{12} - 1 \approx 6.17\%$.', topic: Effective rates}
+- {front: 'Exact doubling time', back: 'Continuous rate $k$: $\dfrac{\ln 2}{k}$. Yearly rate $r$: $\dfrac{\ln 2}{\ln(1 + r)}$.', topic: Continuous growth}
+- {front: 'Rule of 72', back: 'At $R$% a year, doubling takes about $72 \div R$ years. Good for about 4–12%; $69.3 \div R$ is exact for continuous growth.', topic: Continuous growth}
+- {front: 'Half-life and decay constant', back: '$h = \dfrac{\ln 2}{\lambda}$ and $\lambda = \dfrac{\ln 2}{h}$ for $A = A_0e^{-\lambda t}$.', topic: Continuous growth}
+- {front: 'Radiocarbon age from fraction $f$ remaining', back: '$t = \dfrac{5730\ln f}{-\ln 2}$ years (simplified; real ages are calibrated).', topic: Continuous growth}
+- {front: 'Continuous rate from two measurements', back: '$k = \dfrac{1}{t}\ln\dfrac{A(t)}{A_0}$', topic: Continuous growth}
+- {front: 'Logarithmic scale', back: 'Equal distances mean equal factors: 1 to 10 is as long as 10 to 100. There is no 0.', topic: Logarithmic scales}
+- {front: 'Decibel formula', back: '$L = 10\log\dfrac{I}{I_0}$, $I_0 = 10^{-12}$ W/m². +10 dB is ×10 intensity; +3 dB is about ×2.', topic: Logarithmic scales}
+- {front: 'Moment magnitude: one step', back: 'About $10^{1.5} \approx 32$ times the energy; two steps about 1,000 times.', topic: Logarithmic scales}
+- {front: 'When is a semi-log graph straight?', back: 'For exponential data $y = ab^x$: $\log y = \log a + x\log b$ (slope $\log b$, intercept $\log a$).', topic: Fitting models to data}
+- {front: 'When is a log-log graph straight?', back: 'For power data $y = ax^p$: $\log y = \log a + p\log x$, so the slope is $p$.', topic: Fitting models to data}
+- {front: '$y = ab^x$ through two points', back: '$b = \left(\dfrac{y_2}{y_1}\right)^{1/(x_2 - x_1)}$, then $a = \dfrac{y_1}{b^{x_1}}$.', topic: Fitting models to data}
+- {front: 'Power exponent from two points', back: '$p = \dfrac{\log(y_2/y_1)}{\log(x_2/x_1)}$', topic: Fitting models to data}
+- {front: 'Linear, exponential or power?', back: 'Equal differences: linear. Equal ratios (semi-log straight): exponential. Log-log straight: power.', topic: Fitting models to data}

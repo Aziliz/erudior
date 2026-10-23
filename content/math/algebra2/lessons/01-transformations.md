@@ -61,6 +61,22 @@ Multiplying the *input* works the opposite way, as you'd expect from an inside c
 
 For some parent functions a horizontal compression looks exactly like a vertical stretch: $(2x)^2 = 4x^2$ and $\sqrt{4x} = 2\sqrt{x}$. That's why most problems in this course use the vertical form $a f(x)$.
 
+This chart sums up the six basic moves. The first question is always where the change sits: outside $f$ or inside it.
+
+```mermaid
+flowchart LR
+  accTitle: Reading a change to the formula y = f(x)
+  accDescr: Ask where the change is. A change outside f acts on the outputs, the way it looks: f(x) + k shifts the graph up k, a times f(x) stretches it vertically by a factor of a, and negative f(x) reflects it across the x-axis. A change inside f acts on the inputs, the opposite way to how it looks: f(x − h) shifts the graph right h, f(bx) compresses it horizontally by a factor of 1/b, and f(−x) reflects it across the y-axis.
+  Q(["Where is the change?"]) -- "outside f" --> O["Acts on y, as it looks"]
+  Q -- "inside f" --> I["Acts on x, the opposite way"]
+  O --> O1["f(x) + k: up k"]
+  O --> O2["a·f(x): vertical stretch by a"]
+  O --> O3["−f(x): flip over x-axis"]
+  I --> I1["f(x − h): right h"]
+  I --> I2["f(bx): compress by 1/b"]
+  I --> I3["f(−x): flip over y-axis"]
+```
+
 ## Putting transformations together
 
 The general form you'll see most is
@@ -72,6 +88,10 @@ Read it as: stretch by $|a|$ (and reflect across the $x$-axis if $a < 0$), then 
 $$(x, y) \to (x + h,\; ay + k).$$
 
 The order matters for the $y$-coordinate: multiply by $a$ first, then add $k$. The point that sat at the parent's "anchor" (the vertex of $x^2$ or $\lvert x \rvert$, the endpoint of $\sqrt x$, the center of $x^3$) lands at $(h, k)$.
+
+The picture shows the parent $y = x^2$ and three of its transformations. Each dot is a vertex: the parent's vertex $(0, 0)$ moved to $(h, k)$. The negative $a$ turns one parabola upside down, and $a = 3$ makes another one narrower.
+
+![The parabola y = x² and three transformed parabolas on one grid: y = (x − 4)² + 1 with vertex (4, 1), y = −(x + 3)² + 5 opening downward with vertex (−3, 5), and the narrower y = 3x² − 4 with vertex (0, −4).](images/a2-m1-parabola-family.svg)
 
 ### Example 1
 

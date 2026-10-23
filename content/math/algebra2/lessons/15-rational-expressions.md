@@ -77,6 +77,22 @@ $$\frac{A}{B} \div \frac{C}{D} = \frac{A}{B} \cdot \frac{D}{C}.$$
 
 When dividing, the divisor's numerator $C$ also can't be zero, since it ends up in the denominator.
 
+The flowchart below puts simplifying, multiplying and dividing into one procedure. A single expression to simplify, or a product, takes the "no" branch; only a quotient needs the reciprocal step first.
+
+```mermaid
+flowchart TD
+  accTitle: Steps for simplifying, multiplying and dividing rational expressions
+  accDescr: Start with a rational expression, a product or a quotient. If it is a quotient, first rewrite it as multiplication by the reciprocal of the divisor. Then factor every numerator and denominator completely, list the excluded values from every original denominator and from the divisor's numerator, cancel common factors including opposite pairs such as a minus b and b minus a, multiply what is left straight across, and finally check with a test number that is not excluded.
+  A["A rational expression, product or quotient"] --> B{"Dividing?"}
+  B -- yes --> C["Multiply by the reciprocal of the divisor"]
+  B -- no --> D["Factor every numerator and denominator completely"]
+  C --> D
+  D --> E["List excluded values: original denominators and the divisor's numerator"]
+  E --> F["Cancel common factors, including opposites like a − b and b − a"]
+  F --> G["Multiply what is left straight across"]
+  G --> H["Check with a test number that isn't excluded"]
+```
+
 ### Example 4
 
 Divide $\dfrac{x^2 + x - 6}{x^2 - 1} \div \dfrac{x + 3}{x + 1}$.

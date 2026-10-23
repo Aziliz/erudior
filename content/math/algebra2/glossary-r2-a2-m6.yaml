@@ -1,0 +1,44 @@
+# Round 2 glossary for module a2-m6 (honors lessons 22h1 and 22h2)
+- term: continuous growth rate
+  aliases: [continuous growth rates, continuous rate, continuous decay rate]
+  definition: 'The constant $k$ in $A = A_0e^{kt}$. A model $ab^t$ has continuous rate $k = \ln b$; growth if $k > 0$, decay if $k < 0$.'
+  topic: Continuous growth
+- term: nominal rate
+  aliases: [nominal rates, nominal annual rate, stated rate]
+  definition: 'The stated yearly interest rate $r$ before compounding is taken into account, as in $A = P\left(1 + \tfrac rn\right)^{nt}$.'
+  topic: Effective rates
+- term: effective annual rate
+  aliases: [effective annual rates, effective rate, annual percentage yield, APY]
+  definition: 'The percent a balance actually grows in one year: $\left(1 + \tfrac rn\right)^n - 1$ with $n$ compoundings, or $e^r - 1$ when compounded continuously. US banks report it for deposit accounts as the annual percentage yield (APY).'
+  topic: Effective rates
+- term: rule of 72
+  definition: 'A rule of thumb: at $R$% growth per year, an amount doubles in about $72 \div R$ years. The exact doubling time is $\dfrac{\ln 2}{\ln(1 + r)}$.'
+  topic: Continuous growth
+- term: decay constant
+  aliases: [decay constants]
+  definition: 'The positive constant $\lambda$ in $A = A_0e^{-\lambda t}$. It is related to the half-life $h$ by $\lambda = \dfrac{\ln 2}{h}$.'
+  topic: Continuous growth
+- term: radiocarbon dating
+  aliases: [carbon dating, carbon-14 dating]
+  definition: 'Estimating how long ago something died from the fraction of its carbon-14 that remains (half-life about 5,730 years). Real ages are corrected with calibration curves.'
+  topic: Continuous growth
+- term: logarithmic scale
+  aliases: [logarithmic scales, log scale, log scales]
+  definition: 'A scale on which each number is placed at a distance proportional to its logarithm, so equal distances mean equal factors (1 to 10 is as long as 10 to 100).'
+  topic: Logarithmic scales
+- term: decibel
+  aliases: [decibels, dB]
+  definition: 'The unit of sound level, $L = 10\log\dfrac{I}{I_0}$ with $I_0 = 10^{-12}$ W/m². Each 10 dB is a factor of 10 in intensity; about 3 dB is a factor of 2.'
+  topic: Logarithmic scales
+- term: semi-log graph
+  aliases: [semi-log graphs, semi-log plot, semilog graph]
+  definition: 'A graph with one logarithmic axis, usually $\log y$ against $x$. Exponential data $y = ab^x$ fall on a straight line with slope $\log b$.'
+  topic: Fitting models to data
+- term: log-log graph
+  aliases: [log-log graphs, log-log plot]
+  definition: 'A graph of $\log y$ against $\log x$. Power-law data $y = ax^p$ fall on a straight line whose slope is $p$.'
+  topic: Fitting models to data
+- term: linearize
+  aliases: [linearizing, linearized, linearization]
+  definition: 'To transform data (for example by taking logarithms) so that the transformed points lie on a straight line that is easy to recognize and fit.'
+  topic: Fitting models to data

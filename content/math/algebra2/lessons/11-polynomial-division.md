@@ -57,6 +57,10 @@ $$\begin{array}{r|rrrr} 2 & 2 & -3 & 4 & -5 \\ & & 4 & 2 & 12 \\ \hline & 2 & 1 
 
 Bring down 2. $2 \cdot 2 = 4$; $-3 + 4 = 1$. $1 \cdot 2 = 2$; $4 + 2 = 6$. $6 \cdot 2 = 12$; $-5 + 12 = 7$. Quotient $2x^2 + x + 6$, remainder 7, matching Example 1.
 
+Here are the parts of that table. The arrows show each number below the line being multiplied by $c$ and written in the next column.
+
+![The synthetic division table for dividing 2x cubed minus 3x squared plus 4x minus 5 by x minus 2. The number 2 in a box on the left is labeled c = 2, from the divisor x - 2. The top row 2, -3, 4, -5 is labeled dividend coefficients. The middle row 4, 2, 12 is labeled products, c times the entry below the line, with arrows from each bottom entry up to the next column. The bottom row 2, 1, 6 is labeled quotient 2x squared + x + 6, and the boxed last entry 7 is labeled remainder = f(2).](images/a2-m3-synthetic-parts.svg)
+
 For a divisor like $x + 3$, use $c = -3$, since $x + 3 = x - (-3)$.
 
 ### Example 4
@@ -94,6 +98,20 @@ Show that $x - 3$ is a factor of $f(x) = x^3 - 4x^2 + x + 6$, and factor $f$ com
 
 ```plot
 {"x": [-2, 4.5], "y": [-6, 6], "functions": [{"f": "x^3 - 4*x^2 + x + 6", "label": "y = x³ - 4x² + x + 6", "from": -1.6, "to": 4.2}], "points": [{"at": [-1, 0], "label": "-1"}, {"at": [2, 0], "label": "2"}, {"at": [3, 0], "label": "3"}], "caption": "One known zero, divided out, reveals the rest"}
+```
+
+## Choosing a method
+
+Which tool to use depends on the divisor and on what you need:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a division method
+  accDescr: If you only need the remainder of dividing f(x) by x minus c, evaluate f(c), by the Remainder Theorem. Otherwise, ask whether the divisor has the form x minus c, degree 1 with leading coefficient 1. If yes, use synthetic division with c; for a divisor x plus c, use negative c. If no, for example x squared plus 1, use long division.
+  Q1{"Need only the remainder, for a divisor x - c?"} -- yes --> R["Evaluate f(c): Remainder Theorem"]
+  Q1 -- no --> Q2{"Is the divisor x - c (degree 1, leading coefficient 1)?"}
+  Q2 -- yes --> S["Synthetic division with c (for x + c, use -c)"]
+  Q2 -- no --> L["Long division (for example, dividing by x² + 1)"]
 ```
 
 ## Common mistakes

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460" font-family="sans-serif" fill="#1c2833">
+<rect width="640" height="460" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a03c12"/></marker></defs>
+<polygon points="150,370 450,370 450,160" fill="#f7ebcf"/>
+<line x1="40" y1="370" x2="610" y2="370" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="150" y1="440" x2="150" y2="30" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="450" y1="370" x2="450" y2="160" stroke="#1c2833" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="150" y1="370" x2="450" y2="160" stroke="#a03c12" stroke-width="3.5" marker-end="url(#ar)"/>
+<path d="M220,370 A70,70 0 0 0 207.3,329.9" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="450" cy="160" r="7" fill="#2c5e8f"/>
+<line x1="150" y1="400" x2="450" y2="400" stroke="#1c2833" stroke-width="1.8" marker-start="url(#ah)" marker-end="url(#ah)"/>
+</svg>

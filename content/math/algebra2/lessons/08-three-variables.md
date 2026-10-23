@@ -15,6 +15,10 @@ A **linear equation in three variables** has the form $ax + by + cz = d$. A solu
 
 Geometrically, each such equation describes a flat plane in three-dimensional space. Three planes can meet in a single point (one solution), have no point common to all three (no solution), or share a whole line or plane (infinitely many solutions). The algebra tells you which case you're in, just as with two lines.
 
+The picture shows the main cases. "No solution" can happen in more than one way: the planes can be parallel, or each pair can meet in a line without all three ever sharing a point, like the three sides of a tent with no floor.
+
+![Four panels of three planes each. Top left: three planes cross at a single marked point, labeled one point: one solution. Top right: three planes turn around one common line like pages of a book, labeled a common line: infinitely many. Bottom left: three parallel stacked planes, labeled parallel planes: no solution. Bottom right: three planes form the sides of a triangular tube, each pair meeting in a line but with no point on all three, labeled meet only in pairs: no solution.](images/a2-m2-planes.svg)
+
 ## The elimination strategy
 
 1. Pick a variable to eliminate, preferably one with simple coefficients.
@@ -25,6 +29,22 @@ Geometrically, each such equation describes a flat plane in three-dimensional sp
 6. Check the triple in all three original equations.
 
 The crucial point in step 3: eliminate the same variable both times. Otherwise (A) and (B) won't share the same two variables.
+
+The flowchart shows the same strategy, including what to do when the variables vanish (the special cases below).
+
+```mermaid
+flowchart TD
+  accTitle: Solving a three-variable system by elimination
+  accDescr: Choose a variable to eliminate. Use one pair of equations to eliminate it, giving equation A. Use a second pair that includes the third equation to eliminate the same variable, giving equation B. Solve the two-variable system A and B. If a false statement such as 0 = 2 appears, there is no solution. If 0 = 0 appears, the equations are dependent and, if the rest is consistent, there are infinitely many solutions. Otherwise back-substitute to find the third variable and check the triple in all three equations.
+  A["Choose a variable to eliminate"] --> B["Pair 1: eliminate it, giving (A)"]
+  B --> C["Pair 2, using the third equation: eliminate the same variable, giving (B)"]
+  C --> D["Solve the 2 × 2 system (A), (B)"]
+  D --> Q{"What do you get?"}
+  Q -- "a false statement, like 0 = 2" --> N["No solution"]
+  Q -- "0 = 0" --> I["Dependent: infinitely many solutions, if the rest is consistent"]
+  Q -- "values of two variables" --> E["Back-substitute for the third variable"]
+  E --> F["Check the triple in all three equations"]
+```
 
 ### Example 1
 

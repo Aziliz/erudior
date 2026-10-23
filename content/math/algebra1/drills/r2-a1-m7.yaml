@@ -1,0 +1,168 @@
+# Round 2 drills for a1-m7 honors lessons (rationalizing, rational exponents, series)
+- id: a1-m7-r2-rationalize-mono
+  title: Rationalize a one-term denominator
+  topic: Rationalizing denominators
+  vars:
+    c: {min: 1, max: 20}
+    m: {choices: [1, 1, 2, 3]}
+    s: {choices: [2, 3, 5, 6, 7, 10, 11, 14, 15]}
+  calc:
+    ms: m*s
+    g: gcd(c, m*s)
+    p: c/gcd(c, m*s)
+    q: m*s/gcd(c, m*s)
+  prompt: 'Rationalize the denominator of $\dfrac{{c}}{{m:coef}\sqrt{{s}}}$. Write the result as $\dfrac{p\sqrt{{s}}}{q}$ with $p$ and $q$ sharing no common factor ($q$ may be 1).'
+  answers:
+    - {name: p, label: '$p =$'}
+    - {name: q, label: '$q =$'}
+  solution: |-
+    Multiply the top and bottom by $\sqrt{{s}}$, using $\sqrt{{s}} \cdot \sqrt{{s}} = {s}$:
+    $\dfrac{{c}}{{m:coef}\sqrt{{s}}} \cdot \dfrac{\sqrt{{s}}}{\sqrt{{s}}} = \dfrac{{c}\sqrt{{s}}}{{ms}}$.
+    Divide {c} and {ms} by their greatest common factor, {g}: $p =$ **{p}** and $q =$ **{q}**.
+
+- id: a1-m7-r2-rationalize-conj
+  title: Rationalize with a conjugate
+  topic: Rationalizing denominators
+  vars:
+    a: {min: 1, max: 6}
+    b: {choices: [2, 3, 5, 6, 7, 10, 11]}
+    sg: {choices: [1, -1]}
+    k: {min: 1, max: 4}
+  calc:
+    D: a^2 - b
+    nsg: -sg
+    c: abs(a^2 - b)*k
+    f: abs(a^2 - b)*k/(a^2 - b)
+    p: a*abs(a^2 - b)*k/(a^2 - b)
+    q: -sg*abs(a^2 - b)*k/(a^2 - b)
+  where: ['a^2 != b', 'abs(a^2 - b) <= 12']
+  prompt: 'Rationalize the denominator and simplify $\dfrac{{c}}{{a} {sg:signedcoef}\sqrt{{b}}}$. Write the result as $p + q\sqrt{{b}}$.'
+  answers:
+    - {name: p, label: '$p =$'}
+    - {name: q, label: '$q =$'}
+  solution: |-
+    Multiply the top and bottom by the conjugate ${a} {nsg:signedcoef}\sqrt{{b}}$.
+    Denominator: $({a})^2 - (\sqrt{{b}})^2 = {a}^2 - {b} = {D}$.
+    So the fraction is $\dfrac{{c}({a} {nsg:signedcoef}\sqrt{{b}})}{{D}} = {f}({a} {nsg:signedcoef}\sqrt{{b}})$. Distribute: $p =$ **{p}** and $q =$ **{q}**.
+
+- id: a1-m7-r2-rational-power
+  title: Evaluate a rational exponent
+  topic: Rational exponents
+  vars:
+    r: {min: 2, max: 5}
+    n: {choices: [2, 3, 4]}
+    m: {choices: [-3, -2, -1, 1, 2, 3, 4, 5]}
+  calc:
+    base: r^n
+    val: r^m
+  where: ['gcd(abs(m), n) == 1', 'm != 1 or n != 2', 'r^n <= 625', 'abs(m) <= 3 or r <= 3']
+  prompt: 'Evaluate $\left({base}\right)^{{m}/{n}}$ exactly. Give a whole number or a fraction.'
+  answers:
+    - {name: val, kind: fraction, lowestTerms: true, label: 'Value'}
+  solution: |-
+    The denominator {n} is the root: the root of {base} with index {n} is {r}, because ${r}^{{n}} = {base}$.
+    The numerator {m} is the power (a negative power means a reciprocal): ${r}^{{m}} =$ **{val:frac}**.
+
+- id: a1-m7-r2-monthly-rate
+  title: Yearly rate to a rate per shorter period
+  topic: Rational exponents
+  vars:
+    r: {min: 2, max: 30}
+    per: {choices: [{label: month, value: 12}, {label: quarter, value: 4}]}
+    dir: {choices: [{label: grows, value: 1}, {label: shrinks, value: -1}]}
+  calc:
+    n: per
+    B: 1 + dir*r/100
+    f: (1 + dir*r/100)^(1/per)
+    pct: ((1 + dir*r/100)^(1/per) - 1)*100
+    naive: dir*r/per
+  prompt: 'A quantity {dir} by {r}% per year, and the change compounds every {per}. What is its percent change per {per}? Give it to 2 decimal places, as a negative number for a decrease.'
+  answers:
+    - {name: pct, label: 'Percent change per {per}', tolerance: 0.0051}
+  solution: |-
+    The yearly factor is $B = {B}$, and a year is {n} steps of one {per}, so the factor $f$ per {per} satisfies $f^{{n}} = {B}$.
+    $f = {B}^{1/{n}} \approx {f:num4}$, a change of about **{pct:num2}%** per {per}.
+    (Dividing {r}% by {n} gives {naive:num2}%, which ignores compounding and is not quite right.)
+
+- id: a1-m7-r2-half-life
+  title: Amount left after a fractional number of half-lives
+  topic: Rational exponents
+  vars:
+    A0: {min: 40, max: 800, step: 20}
+    h: {choices: [2, 3, 4, 5, 6, 8, 10, 12]}
+    t: {min: 1, max: 50}
+  calc:
+    nh: t/h
+    A: A0*0.5^(t/h)
+  where: ['mod(t, h) != 0', 't/h <= 5']
+  prompt: 'A substance has a half-life of {h} hours. A sample starts at {A0} mg. How much remains after {t} hours? Give the answer in mg to 2 decimal places.'
+  answers:
+    - {name: A, label: 'Amount (mg)', tolerance: 0.0051}
+  solution: |-
+    In {t} hours there are $\tfrac{{t}}{{h}} \approx {nh:num4}$ half-lives, so $A = {A0}\left(\tfrac12\right)^{{t}/{h}}$.
+    $A \approx$ **{A:num2}** mg.
+
+- id: a1-m7-r2-arith-series
+  title: Sum of an arithmetic series
+  topic: Series
+  vars:
+    a1: {min: -20, max: 30}
+    d: {min: -6, max: 9}
+    n: {min: 10, max: 40}
+  calc:
+    t2: a1 + d
+    t3: a1 + 2*d
+    an: a1 + (n - 1)*d
+    nm: n - 1
+    S: n*(2*a1 + (n - 1)*d)/2
+    tot: a1 + a1 + (n - 1)*d
+  where: ['d != 0']
+  prompt: 'Find the sum of the first {n} terms of the arithmetic sequence ${a1}, {t2}, {t3}, \dots$'
+  answers:
+    - {name: S, label: '$S_{{n}} =$'}
+  solution: |-
+    $a_1 = {a1}$ and $d = {d}$, so the last term is $a_{{n}} = {a1} + ({nm})({d}) = {an}$.
+    $S_{{n}} = \dfrac{{n}({a1} + ({an}))}{2} = \dfrac{{n} \cdot {tot}}{2} =$ **{S}**.
+
+- id: a1-m7-r2-geom-series
+  title: Sum of a finite geometric series
+  topic: Series
+  vars:
+    a1: {min: 1, max: 9}
+    r: {choices: [2, 3, -2, -3]}
+    n: {min: 5, max: 10}
+  calc:
+    t2: a1*r
+    t3: a1*r^2
+    rn: r^n
+    S: a1*(1 - r^n)/(1 - r)
+    omr: 1 - r
+  where: ['abs(a1*(1 - r^n)/(1 - r)) <= 200000']
+  prompt: 'Find the sum of the first {n} terms of the geometric sequence ${a1}, {t2}, {t3}, \dots$'
+  answers:
+    - {name: S, label: '$S_{{n}} =$'}
+  solution: |-
+    $a_1 = {a1}$ and $r = {r}$. Use $S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ with $({r})^{{n}} = {rn}$:
+    $S_{{n}} = \dfrac{{a1}(1 - ({rn}))}{{omr}} =$ **{S}**.
+
+- id: a1-m7-r2-infinite-geom
+  title: Sum of an infinite geometric series
+  topic: Series
+  vars:
+    rd: {choices: [2, 3, 4, 5]}
+    rn: {min: -4, max: 4}
+    k: {min: 1, max: 3}
+  calc:
+    a1: k*rd^2
+    r: rn/rd
+    t2: k*rd*rn
+    t3: k*rn^2
+    omr: 1 - rn/rd
+    S: k*rd^3/(rd - rn)
+  where: ['rn != 0', 'abs(rn) < rd', 'gcd(abs(rn), rd) == 1']
+  prompt: 'Find the sum of the infinite geometric series ${a1} {t2:signed} {t3:signed} + \cdots$ Give an exact whole number or fraction.'
+  answers:
+    - {name: S, kind: fraction, lowestTerms: true, label: 'Sum'}
+  solution: |-
+    $a_1 = {a1}$ and $r = \dfrac{{t2}}{{a1}} = {r:texfrac}$. Since $|r| < 1$, the series converges.
+    $S = \dfrac{a_1}{1 - r} = \dfrac{{a1}}{{omr:texfrac}} =$ **{S:frac}**.

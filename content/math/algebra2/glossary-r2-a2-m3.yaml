@@ -1,0 +1,48 @@
+# Round 2 glossary terms for module a2-m3 (honors lessons 12h1 and 12h2)
+- term: Descartes' rule of signs
+  aliases: [rule of signs]
+  definition: 'For a polynomial with real coefficients and nonzero constant term, the number of positive real zeros (counted with multiplicity) equals the number of sign changes in its coefficients or is less than that by an even number; applying it to $f(-x)$ does the same for negative zeros.'
+  topic: Locating real zeros
+- term: sign change
+  aliases: [sign changes]
+  definition: 'A place where consecutive nonzero coefficients of a polynomial, written in standard form, switch from positive to negative or from negative to positive. Zero coefficients are skipped.'
+  topic: Locating real zeros
+- term: upper bound
+  aliases: [upper bounds]
+  definition: 'A number that no real zero of a polynomial is greater than.'
+  topic: Locating real zeros
+- term: lower bound
+  aliases: [lower bounds]
+  definition: 'A number that no real zero of a polynomial is less than.'
+  topic: Locating real zeros
+- term: bound test
+  aliases: [upper and lower bound test]
+  definition: 'For a polynomial with positive leading coefficient divided synthetically by $x - c$: if $c > 0$ and the bottom row has no negative entries, $c$ is an upper bound; if $c < 0$ and the bottom row alternates in sign (a 0 counts as either sign), $c$ is a lower bound. A failed test proves nothing.'
+  topic: Locating real zeros
+- term: bisection method
+  aliases: [bisection]
+  definition: 'A way to approximate a zero: start with an interval where $f$ changes sign, evaluate $f$ at the midpoint, keep the half where the sign still changes, and repeat. Each step halves the interval.'
+  topic: Locating real zeros
+- term: Vieta's formulas
+  aliases: [Viète's formulas]
+  definition: 'Formulas giving combinations of a polynomial''s roots from its coefficients. For $ax^3 + bx^2 + cx + d$ with roots $r, s, t$: $r + s + t = -\tfrac ba$, $rs + rt + st = \tfrac ca$, $rst = -\tfrac da$.'
+  topic: Vieta's formulas
+- term: polynomial identity
+  aliases: [polynomial identities]
+  definition: 'An equation between two polynomial expressions that is true for every value of the variables, such as $(x + 1)^2 = x^2 + 2x + 1$.'
+  topic: Polynomial identities
+- term: identity principle
+  definition: 'If two polynomials of degree at most $n$ are equal at more than $n$ different values of $x$, they are equal for all $x$ and have the same coefficients.'
+  topic: Polynomial identities
+- term: comparing coefficients
+  aliases: [compare coefficients]
+  definition: 'Setting the coefficients of matching powers of $x$ equal on the two sides of a polynomial identity, to find unknown constants.'
+  topic: Polynomial identities
+- term: symmetric expression
+  aliases: [symmetric expressions]
+  definition: 'An expression in the roots of a polynomial that stays the same when any two roots are swapped, such as $r^2 + s^2 + t^2$; it can be found from the coefficients using Vieta''s formulas.'
+  topic: Vieta's formulas
+- term: Pythagorean triple
+  aliases: [Pythagorean triples]
+  definition: 'Three positive integers $a, b, c$ with $a^2 + b^2 = c^2$, such as 3, 4, 5. Euclid''s formula $m^2 - n^2$, $2mn$, $m^2 + n^2$ (with $m > n > 0$) produces them.'
+  topic: Polynomial identities

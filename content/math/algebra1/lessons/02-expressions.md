@@ -15,6 +15,10 @@ A **variable** is a letter that stands for a number we either don't know yet or 
 
 The pieces of an expression that are added together are its **terms**. In $4x^2 - 7xy + 9$ the terms are $4x^2$, $-7xy$ and $9$. Notice the minus sign travels with the term that follows it: subtracting $7xy$ is the same as adding $-7xy$. The number in front of a variable part is its **coefficient**: here 4 and $-7$. A term with no variable, like 9, is a **constant term**.
 
+Here is the same expression with its parts labeled. Each shaded box is one term.
+
+![The expression 4x² − 7xy + 9 written large. The three terms, 4x², −7xy and 9, are each shaded. Labels point to the 4 as the coefficient, to the x as a variable, to the small raised 2 as the exponent, to −7xy as a term, and to 9 as the constant term.](images/alg-m1-expression-parts.svg)
+
 An expression is not an equation. An expression has no equals sign; you can simplify or evaluate it, but you can't "solve" it.
 
 ## Order of operations
@@ -25,6 +29,15 @@ The expression $2 + 3 \cdot 4$ would give 20 if you worked left to right and 14 
 2. Exponents next.
 3. Multiplication and division, from left to right, as they appear.
 4. Addition and subtraction, from left to right, as they appear.
+
+```mermaid
+flowchart TD
+  accTitle: The order of operations
+  accDescr: Four steps from top to bottom. First, work inside grouping symbols such as parentheses, brackets, fraction bars, absolute value bars and radicals, innermost first, using the remaining steps inside each group. Second, evaluate exponents. Third, do multiplication and division from left to right as they appear. Fourth, do addition and subtraction from left to right as they appear.
+  A["1. Grouping symbols, innermost first (use steps 2 to 4 inside each group)"] --> B["2. Exponents"]
+  B --> C["3. Multiplication and division, left to right"]
+  C --> D["4. Addition and subtraction, left to right"]
+```
 
 The memory aid **PEMDAS** (Parentheses, Exponents, Multiplication/Division, Addition/Subtraction) is handy, but it hides a trap: multiplication does not come before division, and addition does not come before subtraction. Each pair has equal rank and is done left to right. So $12 \div 3 \cdot 2 = 4 \cdot 2 = 8$, not $12 \div 6 = 2$.
 

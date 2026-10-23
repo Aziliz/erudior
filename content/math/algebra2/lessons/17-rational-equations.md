@@ -16,6 +16,20 @@ A **rational equation** contains rational expressions, such as $\dfrac{3}{x} + \
 3. Solve the resulting polynomial equation.
 4. Reject any solution that is an excluded value, and check the rest.
 
+Step 4 is the one people skip, so the flowchart gives it its own decision:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a rational equation and screening out extraneous solutions
+  accDescr: Factor the denominators and list the excluded values. Multiply every term on both sides by the LCD, then solve the polynomial equation that results. For each solution ask whether it is an excluded value. If it is, reject it as extraneous. If it is not, check it in the original equation and keep it.
+  A["Factor denominators; list excluded values"] --> B["Multiply every term by the LCD"]
+  B --> C["Solve the polynomial equation"]
+  C --> D{"Is this solution an excluded value?"}
+  D -- yes --> E["Reject it: extraneous"]
+  D -- no --> F["Check it in the original equation"]
+  F --> G["Keep it"]
+```
+
 ### Example 1
 
 Solve $\dfrac{3}{x} + \dfrac{1}{2} = \dfrac{5}{x}$.
@@ -33,6 +47,12 @@ Solve $\dfrac{x}{x - 3} = \dfrac{3}{x - 3} + 2$.
 3. But 3 is excluded: both fractions would have a zero denominator. The equation has no solution.
 
 The value $x = 3$ is an extraneous solution: it solves the cleared equation but not the original. Multiplying by $x - 3$, which is zero at $x = 3$, is what let it in.
+
+The graphs show why there is no solution. The left side $\dfrac{x}{x - 3}$ and the right side $\dfrac{3}{x - 3} + 2$ are two curves that never meet: subtracting them gives $\dfrac{x - 3}{x - 3} - 2 = -1$ at every allowed $x$, so the left side is always exactly 1 below the right side. Both have the vertical asymptote $x = 3$, so the only "meeting point" the algebra finds is the one place where neither side exists.
+
+```plot
+{"x": [-6, 12], "y": [-6, 10], "functions": [{"f": "x/(x - 3)", "label": "left side x/(x − 3)"}, {"f": "3/(x - 3) + 2", "dashed": true, "label": "right side 3/(x − 3) + 2"}], "segments": [{"from": [3, -6], "to": [3, 10], "dashed": true, "label": "x = 3"}], "caption": "The two sides of Example 2 never cross; the left side is always 1 below the right side"}
+```
 
 ### Example 3
 

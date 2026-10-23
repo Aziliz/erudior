@@ -23,6 +23,12 @@ The Greek letter delta is often used for "change in," so you'll also see $m = \d
 
 Why is the slope the same no matter which two points you choose? Any two "slope triangles" on the same line are similar triangles: they have the same angles, so the ratio of their vertical side to their horizontal side is the same. That constant ratio is exactly what makes the graph a straight line.
 
+```plot
+{"x": [-1, 9], "y": [-1, 6], "functions": [{"f": "0.5*x + 1", "label": "y = 0.5x + 1"}], "points": [{"at": [0, 1], "label": "(0, 1)"}, {"at": [2, 2], "label": "(2, 2)"}, {"at": [8, 5], "label": "(8, 5)"}], "segments": [{"from": [0, 1], "to": [2, 1], "dashed": true, "label": "run 2"}, {"from": [2, 1], "to": [2, 2], "dashed": true, "label": "rise 1"}, {"from": [2, 2], "to": [8, 2], "dashed": true, "label": "run 6"}, {"from": [8, 2], "to": [8, 5], "dashed": true, "label": "rise 3"}], "equal": true, "caption": "A small and a large slope triangle on the same line: 1/2 = 3/6"}
+```
+
+In the picture, the small triangle has rise 1 and run 2, and the large one has rise 3 and run 6. The large triangle is the small one scaled up by 3, so the ratio stays $\tfrac12$.
+
 ### Example 1
 
 Find the slope of the line through $(-2, 5)$ and $(4, -7)$.
@@ -41,6 +47,8 @@ Find the slope of the line through $(-2, 5)$ and $(4, -7)$.
 | undefined | vertical | $x = -1$ |
 
 A **horizontal line** has rise 0 for every run, so its slope is $0$. A **vertical line** has run 0, and dividing by zero is undefined, so a vertical line has **undefined slope**. Don't confuse "zero slope" with "no slope": they describe opposite lines.
+
+![Four small graphs, each with x- and y-axes and one red line. Positive slope: the line rises to the right. Negative slope: the line falls to the right. Zero slope: a horizontal line. Undefined slope: a vertical line.](images/alg-m3-slope-types.svg)
 
 The size of the slope measures steepness. A line with slope $-5$ is steeper than one with slope $2$, because $|-5| > |2|$.
 

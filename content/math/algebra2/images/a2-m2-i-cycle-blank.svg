@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="440" viewBox="0 0 460 440" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="460" height="440" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker></defs>
+<line x1="40" y1="220" x2="420" y2="220" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="230" y1="410" x2="230" y2="30" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="420.0" y="246.0" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833" font-style="italic">real</text>
+<text x="240.0" y="40.0" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" font-style="italic">imaginary</text>
+<circle cx="230" cy="220" r="140" fill="none" stroke="#7f8c99" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path d="M334.8,193.9 A108,108 0 0 0 256.1,115.2" fill="none" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="283.7" y="171.3" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">× i</text>
+<path d="M203.9,115.2 A108,108 0 0 0 125.2,193.9" fill="none" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="176.3" y="171.3" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">× i</text>
+<path d="M125.2,246.1 A108,108 0 0 0 203.9,324.8" fill="none" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="176.3" y="278.7" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">× i</text>
+<path d="M256.1,324.8 A108,108 0 0 0 334.8,246.1" fill="none" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="283.7" y="278.7" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">× i</text>
+<circle cx="370" cy="220" r="9" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="230" cy="80" r="9" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="90" cy="220" r="9" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<circle cx="230" cy="360" r="9" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+</svg>

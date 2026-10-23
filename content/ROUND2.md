@@ -86,7 +86,8 @@ your notes. Never edit course.yaml, PROGRESS.md, other modules' files, `src/`, `
   correctly rounded answer is accepted (`tolerance` ≥ half the last place, or `sigfigs`), for
   every possible input.
 - Mermaid: `flowchart TD` (top-down) for chains of more than four boxes; about 12 boxes max;
-  `accTitle:` and `accDescr:` describing the whole diagram; quote labels with punctuation.
+  `accTitle:` and `accDescr:` describing the whole diagram; quote labels with punctuation;
+  write <, > and & in labels as #lt; #gt; #amp; (or words), since raw ones can vanish.
 - Pictures: original SVG only; white background rect, #1c2833 lines and text ≥14px sans-serif,
   soft fills (#dde8f3, #dcf0e3, #f7ebcf, #f8e1dc, #e8e2f3); under ~40 KB; for label questions an
   unlabeled copy (`-blank.svg`) with markers placed exactly on the parts. LOOK at each one:

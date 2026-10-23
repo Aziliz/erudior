@@ -45,6 +45,10 @@ If $a > 0$:
 
 In both cases the outputs are always positive: a positive number multiplied by a positive factor stays positive, no matter how many times. So for $a > 0$ the domain is all real numbers and the range is $y > 0$. The graph gets closer and closer to the $x$-axis (to the left for growth, to the right for decay) without touching it. A line that a graph approaches this way is a **horizontal asymptote**; here it is $y = 0$.
 
+The labeled picture collects these features. Both curves have initial value 2, so they cross the $y$-axis at the same point; one multiplies by 1.6 per step and the other by 0.6.
+
+![Graphs of the growth curve y = 2(1.6)^x and the decay curve y = 2(0.6)^x. Both pass through the initial value (0, 2) on the y-axis. The growth curve hugs the x-axis on the left and climbs steeply on the right; the decay curve is high on the left and hugs the x-axis on the right. The x-axis, y = 0, is labeled as the horizontal asymptote.](images/a1-m7-exp-graph.svg)
+
 ## Percent rates of change
 
 Growth "by 5% per year" means each year's amount is the previous amount plus 5% of it:
@@ -63,6 +67,22 @@ Keep the rate and the factor apart. A 15% decay rate means you keep 85% each yea
 | $y = 500(0.92)^t$ | 0.92 | decays 8% per step |
 | $y = 500(2)^t$ | 2 | doubles: grows 100% per step |
 | $y = 500(0.5)^t$ | 0.5 | halves: decays 50% per step |
+
+Turning a word problem into a formula follows the same few steps every time:
+
+```mermaid
+flowchart TD
+  accTitle: Writing an exponential model from a description
+  accDescr: Find the initial value a, the amount at time zero. Then decide how the amount changes each step. If it grows by a percent r, the factor is b = 1 + r. If it shrinks by a percent r, the factor is b = 1 − r. If it doubles, b = 2; if it halves, b = 0.5. Write y = a times b to the t, and check that t counts the same time steps that the rate uses.
+  A["Find the initial value a (the amount at t = 0)"] --> B{"How does it change each step?"}
+  B -- "grows r%" --> C["b = 1 + r"]
+  B -- "shrinks r%" --> D["b = 1 − r"]
+  B -- "doubles or halves" --> E["b = 2 or b = 0.5"]
+  C --> F["Write y = a · b^t"]
+  D --> F
+  E --> F
+  F --> G["Check: t counts the same steps as the rate"]
+```
 
 The power rule from Lesson 18 lets you restate a rate over a different time step. Since $1.21 = 1.1^2$, the function $y = 500(1.21)^t$ can be written $y = 500(1.1)^{2t}$: growing 21% per year is the same as growing 10% per half-year. Going the other way, a factor of 1.1 per month compounds to $1.1^{12} \approx 3.14$ per year, about 214% yearly growth, far more than $12 \times 10\% = 120\%$.
 

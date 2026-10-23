@@ -1,0 +1,449 @@
+# Round 2, module a2-m3 (Polynomial functions): new question types for the core lessons,
+# and the questions for the two honors lessons.
+
+# ---------- 10 Polynomial functions ----------
+- id: a2-m3-r2-q01
+  lesson: alg-poly-functions
+  type: text
+  topic: Polynomial functions
+  stem: 'The function $f(x) = -2x(x - 3)^2(x + 1)^3$ has degree ___, so its graph has at most ___ turning points.'
+  accept:
+    - ['6', six]
+    - ['5', five]
+  explanation: |-
+    The degree is the sum of the multiplicities: $1 + 2 + 3 = 6$ (the constant $-2$ doesn't add to the degree). A degree-$n$ polynomial has at most $n - 1 = 5$ turning points.
+- id: a2-m3-r2-q02
+  lesson: alg-poly-functions
+  type: match
+  module_quiz: true
+  topic: Polynomial functions
+  stem: 'Match each polynomial to its end behavior.'
+  pairs:
+    - ['$-x^4 + 3x$', Down on both ends]
+    - ['$2x^6 - 7x^5$', Up on both ends]
+    - ['$4x^3 - x^2$', Down on the left and up on the right]
+    - ['$1 + x - 3x^5$', Up on the left and down on the right]
+  distractors: [Levels off toward a horizontal line]
+  explanation: |-
+    Look only at the highest-degree term. $-x^4$: even degree, negative, so both ends down. $2x^6$: even, positive, both up. $4x^3$: odd, positive, like $x^3$. $-3x^5$ (not the first term written): odd, negative, like $-x^3$. Polynomial graphs never level off toward a horizontal line; their ends go to $\pm\infty$ (unless the polynomial is constant).
+- id: a2-m3-r2-q03
+  lesson: alg-poly-functions
+  topic: Polynomial functions
+  stem: 'Which statements about $f(x) = -(x + 1)^2(x - 3)$ are true? Select all that apply.'
+  choices:
+    - 'The graph touches the $x$-axis at $x = -1$ and turns back'
+    - 'The graph crosses the $x$-axis at $x = 3$'
+    - 'The $y$-intercept is $3$'
+    - 'Both ends of the graph point down'
+  answer: [0, 1, 2]
+  explanation: |-
+    $-1$ has multiplicity 2 (even), so the graph touches there; $3$ has multiplicity 1 (odd), so it crosses. $f(0) = -(1)^2(-3) = 3$. The degree is 3 (odd) with leading coefficient $-1$, so the graph goes up on the left and down on the right; the ends don't match.
+- id: a2-m3-r2-q04
+  lesson: alg-poly-functions
+  type: label
+  module_quiz: true
+  topic: Polynomial functions
+  stem: 'The graph shows $f(x) = (x + 4)^2(x + 2)(x - 1)^3$. Name the numbered features.'
+  image: {src: images/a2-m3-graph-features-blank.svg, alt: 'The graph of a degree-6 polynomial rising on both ends, with five numbered dots: where it touches the x-axis at x = -4, at the peak near x = -3, where it crosses the axis at x = -2, where it crosses the y-axis below the origin, and where it flattens as it crosses the axis at x = 1.'}
+  labels:
+    - {x: 15.8, y: 47.4, text: Zero of multiplicity 2 (touches)}
+    - {x: 30.5, y: 13.9, text: Turning point (local maximum)}
+    - {x: 43.0, y: 47.4, text: Zero of multiplicity 1 (crosses)}
+    - {x: 70.2, y: 64.0, text: y-intercept}
+    - {x: 83.8, y: 47.4, text: Zero of multiplicity 3 (flattens as it crosses)}
+  distractors: [Vertical asymptote, Hole]
+  explanation: |-
+    $(x + 4)^2$ gives a double zero at $-4$, where the graph touches and turns back (1). The peak near $x = -3$ is a turning point, a local maximum (2). $(x + 2)$ gives a simple crossing at $-2$ (3). The graph meets the $y$-axis at $f(0) = (16)(2)(-1) = -32$ (4). $(x - 1)^3$ gives a flattened crossing at 1 (5). Polynomial graphs have no asymptotes or holes.
+- id: a2-m3-r2-q05
+  lesson: alg-poly-functions
+  topic: Polynomial functions
+  stem: 'How many turning points does the graph of $f(x) = (x + 4)^2(x + 2)(x - 1)^3$ have?'
+  image: {src: images/a2-m3-graph-features-blank.svg, alt: 'The graph of a degree-6 polynomial rising on both ends. It touches the x-axis at x = -4, rises to a peak near x = -3, falls through x = -2 to a low point near x = -1, then rises and flattens as it crosses the axis at x = 1.'}
+  choices: ['$2$', '$5$', '$3$', '$4$']
+  answer: 2
+  explanation: |-
+    The graph turns at the touch point $x = -4$ (falling, then rising: a local minimum), at the peak near $x = -3$, and at the low point near $x = -1$: 3 turning points. At the triple zero $x = 1$ it flattens but keeps rising, so that isn't a turning point. Five is only the most a degree-6 graph could have.
+
+# ---------- 11 Polynomial division ----------
+- id: a2-m3-r2-q06
+  lesson: alg-poly-division
+  type: label
+  module_quiz: true
+  topic: Polynomial division
+  stem: 'This table divides $2x^3 - 3x^2 + 4x - 5$ by $x - 2$. Name the numbered parts.'
+  image: {src: images/a2-m3-synthetic-parts-blank.svg, alt: 'A synthetic division table. A boxed 2 sits on the left. The top row is 2, -3, 4, -5. The middle row is 4, 2, 12, with arrows from each number in the bottom row up to the next column. Below a line, the bottom row is 2, 1, 6, and a boxed 7 ends the row.'}
+  labels:
+    - {x: 18.1, y: 18.8, text: Zero of the divisor (c)}
+    - {x: 50.0, y: 24.2, text: Dividend coefficients}
+    - {x: 50.0, y: 42.4, text: Products of c and the entry below the line}
+    - {x: 40.7, y: 65.2, text: Quotient coefficients}
+    - {x: 63.3, y: 59.1, text: Remainder}
+  distractors: [Divisor coefficients, Zeros of the quotient]
+  explanation: |-
+    The divisor $x - 2$ puts $c = 2$ in the box (1). The top row lists the dividend's coefficients (2). Each middle-row number is $c$ times the bottom-row number in the column before it (3). The bottom row gives the quotient $2x^2 + x + 6$ (4) and, last, the remainder 7 (5), which equals $f(2)$.
+- id: a2-m3-r2-q07
+  lesson: alg-poly-division
+  type: order
+  topic: Polynomial division
+  stem: 'Put the steps of synthetic division by $x - c$ in order.'
+  items:
+    - 'Write $c$ and the dividend''s coefficients, with 0 for each missing power'
+    - 'Bring down the first coefficient'
+    - 'Multiply the number just written below the line by $c$ and write the product under the next coefficient'
+    - 'Add that column and write the sum below the line'
+    - 'Repeat the multiply-and-add steps through the last column'
+    - 'Read the quotient''s coefficients and the remainder from the bottom row'
+  explanation: |-
+    Set up the row (zeros included), bring down the leading coefficient, then alternate multiply-by-$c$ and add until the last column. The last bottom number is the remainder; the others are the quotient's coefficients, one degree lower than the dividend.
+- id: a2-m3-r2-q08
+  lesson: alg-poly-division
+  type: text
+  module_quiz: true
+  topic: Polynomial division
+  stem: 'When $f(x) = 3x^3 - x + 4$ is divided by $x + 2$, the remainder is ___. (Give only the number.)'
+  accept: ['-18']
+  explanation: |-
+    By the Remainder Theorem the remainder is $f(-2) = 3(-8) - (-2) + 4 = -24 + 2 + 4 = -18$. (Synthetic division with $c = -2$ on $3, 0, -1, 4$ gives $3, -6, 11$ and remainder $-18$.) Using $f(2) = 26$ is the sign mistake.
+- id: a2-m3-r2-q09
+  lesson: alg-poly-division
+  topic: Polynomial division
+  stem: 'Which are factors of $f(x) = x^3 - 7x + 6$? Select all that apply.'
+  choices: ['$x - 1$', '$x + 1$', '$x - 2$', '$x + 3$']
+  answer: [0, 2, 3]
+  explanation: |-
+    By the Factor Theorem, $x - c$ is a factor exactly when $f(c) = 0$. $f(1) = 1 - 7 + 6 = 0$, $f(2) = 8 - 14 + 6 = 0$ and $f(-3) = -27 + 21 + 6 = 0$, but $f(-1) = -1 + 7 + 6 = 12$. So $f(x) = (x - 1)(x - 2)(x + 3)$.
+- id: a2-m3-r2-q10
+  lesson: alg-poly-division
+  type: match
+  topic: Polynomial division
+  stem: 'Match each divisor to the way you would divide a cubic by it in this lesson.'
+  pairs:
+    - ['$x - 5$', Synthetic division with c = 5]
+    - ['$x + 5$', Synthetic division with c = −5]
+    - ['$x^2 + 5$', Long division]
+    - ['$x^2 - 3x + 1$', Long division]
+  distractors: [Synthetic division with c = 1/5]
+  explanation: |-
+    Synthetic division handles divisors of the form $x - c$: $x - 5$ uses $c = 5$, and $x + 5 = x - (-5)$ uses $c = -5$. Divisors of degree 2 need long division.
+
+# ---------- 12 Rational root theorem ----------
+- id: a2-m3-r2-q11
+  lesson: alg-rational-roots
+  type: text
+  topic: Rational root theorem
+  stem: 'A polynomial of degree 7 with real coefficients has exactly ___ complex zeros, counting multiplicity, and at least ___ of them must be real.'
+  accept:
+    - ['7', seven]
+    - ['1', one]
+  explanation: |-
+    The Fundamental Theorem of Algebra gives exactly 7 zeros counting multiplicity. Non-real zeros come in conjugate pairs, so at most 6 are non-real and at least 1 is real.
+- id: a2-m3-r2-q12
+  lesson: alg-rational-roots
+  type: order
+  module_quiz: true
+  topic: Rational root theorem
+  stem: 'Put the steps for finding all zeros of a polynomial with integer coefficients in order.'
+  items:
+    - 'List the possible rational zeros $\pm\tfrac pq$'
+    - 'Test candidates until one leaves remainder 0'
+    - 'Divide out that zero to get the depressed polynomial'
+    - 'Repeat on the depressed polynomial until it is quadratic'
+    - 'Solve the quadratic by factoring or the quadratic formula'
+  explanation: |-
+    The candidate list comes first, because it tells you what to test. Each zero found is divided out, and you keep working on the smaller depressed polynomial. Once a quadratic is left, factoring or the quadratic formula gives the last two zeros, including irrational or non-real ones.
+- id: a2-m3-r2-q13
+  lesson: alg-rational-roots
+  topic: Rational root theorem
+  stem: 'Which numbers are on the list of possible rational zeros of $2x^3 + 5x^2 - x - 9$? Select all that apply.'
+  choices: ['$\tfrac92$', '$\tfrac23$', '$-\tfrac32$', '$2$']
+  answer: [0, 2]
+  explanation: |-
+    Numerators divide 9 ($\pm1, \pm3, \pm9$) and denominators divide 2 ($\pm1, \pm2$): $\pm1, \pm3, \pm9, \pm\tfrac12, \pm\tfrac32, \pm\tfrac92$. $\tfrac23$ has the fraction upside down, and 2 doesn't divide 9.
+- id: a2-m3-r2-q14
+  lesson: alg-rational-roots
+  type: match
+  module_quiz: true
+  topic: Rational root theorem
+  stem: 'Match each zero to the kind of number it is.'
+  pairs:
+    - ['$\tfrac23$', Rational]
+    - ['$-7$', Rational]
+    - ['$\sqrt5$', Irrational]
+    - ['$1 - \sqrt2$', Irrational]
+    - ['$4i$', Non-real]
+  distractors: [Not a complex number]
+  explanation: |-
+    $\tfrac23$ and $-7$ are ratios of integers, so the rational root theorem could find them. $\sqrt5$ and $1 - \sqrt2$ are real but irrational, so they never appear on the candidate list. $4i$ is non-real. Every one of them is a complex number, since real numbers are complex numbers with imaginary part 0.
+- id: a2-m3-r2-q15
+  lesson: alg-rational-roots
+  topic: Rational root theorem
+  stem: 'A polynomial with real coefficients has zeros $2$, $3 - i$ and $\sqrt5$. Which statements must be true? Select all that apply.'
+  choices:
+    - '$3 + i$ is also a zero'
+    - '$-\sqrt5$ is also a zero'
+    - '$-2$ is also a zero'
+    - 'Its degree is at least 4'
+  answer: [0, 3]
+  explanation: |-
+    Real coefficients force non-real zeros to come in conjugate pairs, so $3 + i$ is a zero. That gives at least four zeros ($2$, $3 \pm i$, $\sqrt5$), so the degree is at least 4. Nothing forces $-\sqrt5$ or $-2$: for example, $(x - 2)(x - \sqrt5)(x^2 - 6x + 10)$ has real coefficients and neither of them as a zero. (With rational coefficients, $-\sqrt5$ would be forced, but that's a different theorem.)
+
+# ---------- Honors: Locating real zeros ----------
+- id: a2-m3-r2-h01
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'Count the sign changes of $f(x) = 3x^4 - 5x^3 - x^2 + 2x - 7$. What does Descartes'' rule of signs say about its positive real zeros?'
+  choices: ['3 sign changes: 3 or 1 positive zeros', '3 sign changes: exactly 3 positive zeros', '2 sign changes: 2 or 0 positive zeros', '4 sign changes: 4, 2 or 0 positive zeros']
+  answer: 0
+  explanation: |-
+    The signs are $+\;-\;-\;+\;-$, which switch three times ($+$ to $-$, $-$ to $+$, $+$ to $-$). So there are 3 or 1 positive zeros; the count can drop by an even number, so "exactly 3" is too strong.
+- id: a2-m3-r2-h02
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'How many negative real zeros does $f(x) = 3x^4 - 5x^3 - x^2 + 2x - 7$ have?'
+  choices: ['3 or 1', 'None', 'Exactly 1', '1 or 0']
+  answer: 2
+  explanation: |-
+    $f(-x) = 3x^4 + 5x^3 - x^2 - 2x - 7$ (only the odd-power terms change sign). Its signs $+\;+\;-\;-\;-$ change once. One minus an even number can't be another nonnegative number, so there is exactly 1 negative zero. "1 or 0" forgets that the count drops by 2, not by 1.
+- id: a2-m3-r2-h03
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'How many real zeros does $f(x) = x^5 + 4x^3 + 2x + 9$ have?'
+  choices: ['5', '0', '1 or 3', 'Exactly 1']
+  answer: 3
+  explanation: |-
+    All coefficients are positive, so $f(x)$ has no sign changes: no positive zeros. $f(-x) = -x^5 - 4x^3 - 2x + 9$ has one sign change: exactly one negative zero. Zero isn't a zero, since $f(0) = 9$. So there is exactly 1 real zero; the other four are two conjugate pairs.
+- id: a2-m3-r2-h04
+  lesson: a2-m3-h-locating-zeros
+  type: text
+  topic: Locating real zeros
+  stem: 'A polynomial with real coefficients and a nonzero constant term has 4 sign changes. By Descartes'' rule, its number of positive real zeros is 4, 2 or ___.'
+  accept: ['0', zero, none]
+  explanation: |-
+    The number of positive zeros equals the number of sign changes or is less than it by an even number: 4, 2 or 0.
+- id: a2-m3-r2-h05
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'What does Descartes'' rule of signs allow for the number of positive real zeros of $x^5 - 3x^2 + 4$?'
+  choices: ['1', '2 or 0', '4, 2 or 0', '5, 3 or 1']
+  answer: 1
+  explanation: |-
+    Skip the missing powers: the signs are $+\;-\;+$, with 2 sign changes, so there are 2 or 0 positive zeros. (There are 0; its only real zero is $-1$.) Treating the missing terms as sign changes, or using the degree, gives the wrong counts.
+- id: a2-m3-r2-h06
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'Which combinations of positive, negative and non-real zeros are possible for $f(x) = x^4 + 2x^3 - x^2 + 5x - 3$, according to Descartes'' rule? Select all that apply.'
+  choices:
+    - '3 positive, 1 negative, 0 non-real'
+    - '1 positive, 1 negative, 2 non-real'
+    - '2 positive, 2 negative, 0 non-real'
+    - '1 positive, 0 negative, 3 non-real'
+  answer: [0, 1]
+  explanation: |-
+    $f(x)$ has signs $+\;+\;-\;+\;-$: 3 changes, so 3 or 1 positive zeros. $f(-x) = x^4 - 2x^3 - x^2 - 5x - 3$ has signs $+\;-\;-\;-\;-$: 1 change, so exactly 1 negative zero. The four zeros must total 4, and non-real zeros come in pairs, so the options are $(3, 1, 0)$ and $(1, 1, 2)$. (The second is what happens: the real zeros are $-3$ and about $0.570$.)
+- id: a2-m3-r2-h07
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'A polynomial $f$ has a positive leading coefficient. Dividing it by $x - 4$ synthetically gives the bottom row $1, 3, 2, 9, 41$. What can you conclude?'
+  choices: ['$4$ is a zero of $f$', '$f$ has no real zeros', 'Every real zero of $f$ is between 0 and 4', 'No real zero of $f$ is greater than 4']
+  answer: 3
+  explanation: |-
+    With $c = 4 > 0$ and no negative entries in the bottom row, 4 is an upper bound. That says nothing about zeros below 0, so "between 0 and 4" goes too far. The remainder is 41, not 0, so 4 isn't a zero.
+- id: a2-m3-r2-h08
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'Dividing $f(x) = x^3 + 2x^2 - 5x - 3$ by $x + 4$ synthetically gives the bottom row $1, -2, 3, -15$. What does this show?'
+  choices: ['No real zero of $f$ is less than $-4$', '$-4$ is an upper bound for the zeros', '$x + 4$ is a factor of $f$', '$f$ has exactly one negative zero']
+  answer: 0
+  explanation: |-
+    Here $c = -4 < 0$ and the bottom row alternates in sign ($+\;-\;+\;-$), so $-4$ is a lower bound. The remainder is $-15$, not 0, so $x + 4$ isn't a factor. (The real zeros are about $-3.25$, $-0.52$ and $1.77$, all greater than $-4$; two of them are negative.)
+- id: a2-m3-r2-h09
+  lesson: a2-m3-h-locating-zeros
+  type: text
+  topic: Locating real zeros
+  stem: 'Bisection on $f(x) = x^3 - x - 1$ starts with the interval from 1 to 2, where $f(1) = -1$. Since $f(1.5) = 0.875$, the next interval runs from 1 to ___.'
+  accept: ['1.5', '3/2']
+  explanation: |-
+    $f(1) < 0$ and $f(1.5) > 0$ have opposite signs, so the zero is between 1 and 1.5. Keep that half: the interval from 1 to 1.5.
+- id: a2-m3-r2-h10
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'Bisection starts on an interval of width 1. How many steps are needed before the interval is narrower than 0.01?'
+  choices: ['6', '100', '7', '10']
+  answer: 2
+  explanation: |-
+    After $n$ steps the width is $\tfrac{1}{2^n}$. We need $2^n > 100$: $2^6 = 64$ is too small and $2^7 = 128$ works, so 7 steps.
+- id: a2-m3-r2-h11
+  lesson: a2-m3-h-locating-zeros
+  type: order
+  topic: Locating real zeros
+  stem: 'Put one round of the bisection method in order.'
+  items:
+    - 'Check that $f(a)$ and $f(b)$ have opposite signs'
+    - 'Compute the midpoint $m = \tfrac{a + b}{2}$'
+    - 'Evaluate $f(m)$'
+    - 'Replace the endpoint whose value has the same sign as $f(m)$ with $m$'
+    - 'Check whether the new interval is narrow enough'
+  explanation: |-
+    You need a sign change to start; then find the midpoint, evaluate there, and keep the half that still has a sign change (by moving the endpoint whose sign matches $f(m)$). Only then can you check the new width and decide whether to stop.
+- id: a2-m3-r2-h12
+  lesson: a2-m3-h-locating-zeros
+  type: match
+  topic: Locating real zeros
+  stem: 'Match each tool to what it tells you about the zeros of a polynomial.'
+  pairs:
+    - ['Descartes'' rule of signs', Possible numbers of positive and negative real zeros]
+    - [Bound test, An interval that contains every real zero]
+    - [Rational root theorem, A finite list of possible rational zeros]
+    - [Bisection method, A real zero approximated as closely as you like]
+  distractors: [The exact value of every irrational zero]
+  explanation: |-
+    Descartes' rule counts, the bound test fences in, the rational root theorem lists candidates, and bisection approximates. None of these tools gives exact irrational zeros in general; the quadratic formula does that only once a quadratic is left.
+- id: a2-m3-r2-h13
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'A polynomial of degree 4 has a positive leading coefficient and a negative constant term. What must be true?'
+  choices: ['It has exactly two real zeros', 'It has at least one positive and at least one negative real zero', 'It has no real zeros', 'It has at least one positive real zero, but possibly no negative ones']
+  answer: 1
+  explanation: |-
+    $f(0)$ is the constant term, which is negative. With even degree and a positive leading coefficient, $f(x)$ is large and positive far to the right and far to the left. So the graph crosses the axis at least once for $x > 0$ and at least once for $x < 0$ (Intermediate Value Theorem). There could be more than two real zeros, such as four.
+- id: a2-m3-r2-h14
+  lesson: a2-m3-h-locating-zeros
+  topic: Locating real zeros
+  stem: 'A student says $x^2 - 2x + 5$ must have two positive zeros because its coefficients have two sign changes. What''s wrong?'
+  choices: ['Nothing; it has two positive zeros', 'The rule counts negative zeros, not positive ones', 'Two sign changes allow 2 or 0 positive zeros, and here there are none: the discriminant is $-16$', 'The rule only works for odd degree']
+  answer: 2
+  explanation: |-
+    Descartes' rule gives an upper limit that can drop by an even number. The discriminant $(-2)^2 - 4(1)(5) = -16 < 0$, so the zeros are the non-real pair $1 \pm 2i$.
+
+# ---------- Honors: Roots and coefficients ----------
+- id: a2-m3-r2-h15
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'What is the sum of the roots of $3x^3 - 6x^2 + x - 9$?'
+  choices: ['$-2$', '$6$', '$3$', '$2$']
+  answer: 3
+  explanation: |-
+    The sum of the roots is $-\tfrac ba = -\tfrac{-6}{3} = 2$. $-2$ forgets the minus sign, and $6$ forgets to divide by the leading coefficient.
+- id: a2-m3-r2-h16
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'What is the product of the roots of $2x^4 - x^3 + 5x - 8$?'
+  choices: ['$4$', '$-4$', '$-8$', '$8$']
+  answer: 1
+  explanation: |-
+    For degree $n$ the product is $(-1)^n\tfrac{a_0}{a_n}$. Here $n = 4$, so it's $\tfrac{-8}{2} = -4$. The sign flip $-\tfrac{a_0}{a_n}$ applies to odd degrees like the cubic, not to degree 4.
+- id: a2-m3-r2-h17
+  lesson: a2-m3-h-roots-coefficients
+  type: text
+  topic: Vieta's formulas
+  stem: 'Let $r$, $s$, $t$ be the roots of $x^3 - 5x^2 + 2x + 7$. Then $r + s + t =$ ___, $rs + rt + st =$ ___, and $rst =$ ___.'
+  accept:
+    - ['5']
+    - ['2']
+    - ['-7']
+  explanation: |-
+    With $a = 1$, $b = -5$, $c = 2$, $d = 7$: the sum is $-\tfrac ba = 5$, the pairwise products add to $\tfrac ca = 2$, and the product is $-\tfrac da = -7$.
+- id: a2-m3-r2-h18
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'Let $r$, $s$, $t$ be the roots of $x^3 - 3x^2 - 4x + 1$. Find $r^2 + s^2 + t^2$.'
+  choices: ['$1$', '$9$', '$17$', '$5$']
+  answer: 2
+  explanation: |-
+    $r + s + t = 3$ and $rs + rt + st = -4$. Then $r^2 + s^2 + t^2 = 3^2 - 2(-4) = 9 + 8 = 17$. $9$ forgets the cross terms, and $1$ subtracts $2 \cdot 4$ instead of $2 \cdot (-4)$.
+- id: a2-m3-r2-h19
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'Let $r$, $s$, $t$ be the roots of $x^3 - 3x^2 - 4x + 1$. Find $\tfrac1r + \tfrac1s + \tfrac1t$.'
+  choices: ['$4$', '$-4$', '$-3$', '$\tfrac14$']
+  answer: 0
+  explanation: |-
+    $\tfrac1r + \tfrac1s + \tfrac1t = \tfrac{rs + rt + st}{rst}$. Here $rs + rt + st = -4$ and $rst = -\tfrac11 = -1$, so the sum is $\tfrac{-4}{-1} = 4$. $-3$ uses the sum of the roots on top instead of the pairwise products.
+- id: a2-m3-r2-h20
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'The roots of $x^3 + kx^2 + 11x - 6$ add up to 6. What is $k$?'
+  choices: ['$6$', '$-6$', '$11$', '$-11$']
+  answer: 1
+  explanation: |-
+    The sum of the roots is $-\tfrac k1 = 6$, so $k = -6$. Then the polynomial is $x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3)$, and indeed $1 + 2 + 3 = 6$.
+- id: a2-m3-r2-h21
+  lesson: a2-m3-h-roots-coefficients
+  topic: Polynomial identities
+  stem: 'Which of these are identities (true for every value of $x$)? Select all that apply.'
+  choices:
+    - '$(x + 1)^3 = x^3 + 3x^2 + 3x + 1$'
+    - '$x^3 + 8 = (x + 2)(x^2 - 2x + 4)$'
+    - '$(x + 2)^2 = x^2 + 4$'
+    - '$x^2 - 1 = 3$'
+  answer: [0, 1]
+  explanation: |-
+    Expanding confirms the first two (the second is the sum of cubes). $(x + 2)^2 = x^2 + 4x + 4$, which equals $x^2 + 4$ only when $x = 0$. $x^2 - 1 = 3$ is an equation, true only for $x = \pm2$.
+- id: a2-m3-r2-h22
+  lesson: a2-m3-h-roots-coefficients
+  type: text
+  topic: Polynomial identities
+  stem: 'With $m = 5$ and $n = 2$, Euclid''s formula gives the Pythagorean triple $m^2 - n^2 =$ ___, $2mn =$ ___, $m^2 + n^2 =$ ___.'
+  accept:
+    - ['21']
+    - ['20']
+    - ['29']
+  explanation: |-
+    $25 - 4 = 21$, $2 \cdot 5 \cdot 2 = 20$ and $25 + 4 = 29$. Check: $21^2 + 20^2 = 441 + 400 = 841 = 29^2$.
+- id: a2-m3-r2-h23
+  lesson: a2-m3-h-roots-coefficients
+  topic: Polynomial identities
+  stem: 'If $(x + 3)(ax + b) = 2x^2 + 5x - 3$ for every $x$, what are $a$ and $b$?'
+  choices: ['$a = 2$, $b = 1$', '$a = 1$, $b = -1$', '$a = 2$, $b = -1$', '$a = 2$, $b = -3$']
+  answer: 2
+  explanation: |-
+    Expand: $ax^2 + (b + 3a)x + 3b$. Comparing coefficients, $a = 2$ and $3b = -3$, so $b = -1$. Check the middle term: $b + 3a = -1 + 6 = 5$. ✓
+- id: a2-m3-r2-h24
+  lesson: a2-m3-h-roots-coefficients
+  topic: Polynomial identities
+  stem: 'Two polynomials each have degree at most 3. At how many different values of $x$ must they agree to guarantee they are identical?'
+  choices: ['$3$', '$6$', 'Every value of $x$ must be checked', '$4$']
+  answer: 3
+  explanation: |-
+    Their difference has degree at most 3, so if it isn't the zero polynomial it has at most 3 zeros. Agreement at 4 different values means the difference has 4 zeros, so it must be the zero polynomial.
+- id: a2-m3-r2-h25
+  lesson: a2-m3-h-roots-coefficients
+  type: match
+  topic: Vieta's formulas
+  stem: 'The cubic $x^3 + bx^2 + cx + d$ has roots $r$, $s$, $t$. Match each expression to its value.'
+  pairs:
+    - ['$r + s + t$', −b]
+    - ['$rs + rt + st$', c]
+    - ['$rst$', −d]
+    - ['$r^2 + s^2 + t^2$', b² − 2c]
+  distractors: [b, −c]
+  explanation: |-
+    With leading coefficient 1, Vieta's formulas give $r + s + t = -b$, $rs + rt + st = c$ and $rst = -d$ (signs alternate $-, +, -$). Then $r^2 + s^2 + t^2 = (r + s + t)^2 - 2(rs + rt + st) = b^2 - 2c$.
+- id: a2-m3-r2-h26
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'Let $r$, $s$, $t$ be the roots of $x^3 - 2x^2 + 3x - 4$. Which statements are true? Select all that apply.'
+  choices:
+    - '$r + s + t = 2$'
+    - '$rst = 4$'
+    - '$rs + rt + st = -3$'
+    - '$r^2 + s^2 + t^2 = -2$'
+  answer: [0, 1, 3]
+  explanation: |-
+    The sum is $-\tfrac{-2}{1} = 2$, the pairwise products add to $\tfrac31 = 3$ (not $-3$), and the product is $-\tfrac{-4}{1} = 4$. So $r^2 + s^2 + t^2 = 2^2 - 2(3) = -2$. A negative sum of squares is possible here only because two of the roots are non-real.
+- id: a2-m3-r2-h27
+  lesson: a2-m3-h-roots-coefficients
+  topic: Vieta's formulas
+  stem: 'Which cubic has roots that are twice the roots of $x^3 + 2x^2 - 3x + 1$?'
+  choices: ['$2x^3 + 4x^2 - 6x + 2$', '$x^3 + 4x^2 - 12x + 8$', '$x^3 + 4x^2 - 6x + 2$', '$x^3 + 2x^2 - 12x + 8$']
+  answer: 1
+  explanation: |-
+    The old roots have sum $-2$, pairwise products $-3$ and product $-1$. Doubled: sum $-4$, pairwise products $4(-3) = -12$, product $8(-1) = -8$. So the cubic is $x^3 + 4x^2 - 12x + 8$. Check by substitution: $8\left[\left(\tfrac x2\right)^3 + 2\left(\tfrac x2\right)^2 - 3\cdot\tfrac x2 + 1\right] = x^3 + 4x^2 - 12x + 8$. Multiplying the whole polynomial by 2 keeps the same roots.
+- id: a2-m3-r2-h28
+  lesson: a2-m3-h-roots-coefficients
+  topic: Polynomial identities
+  stem: 'A student checks $(a + b)^2 = a^2 + b^2$ with $a = 0$ and $b = 5$, gets $25 = 25$, and calls it an identity. What''s the problem?'
+  choices: ['It isn''t an identity: with $a = b = 1$ the sides are 4 and 2', 'One check is never enough, but two would be', 'Nothing; the check proves it', 'Identities can''t be checked with numbers at all']
+  answer: 0
+  explanation: |-
+    $(a + b)^2 = a^2 + 2ab + b^2$, so the two sides agree only when $ab = 0$. A single counterexample disproves an identity, but a few successful checks can't prove one. To prove an identity, expand or factor; here expanding shows it's false.

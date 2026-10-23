@@ -18,6 +18,10 @@ Every parabola has:
 - a **vertex**, the turning point, which is either the lowest point (a minimum) or the highest point (a maximum);
 - an **axis of symmetry**, the vertical line through the vertex; the two halves of the parabola are mirror images across it.
 
+The picture names these parts on the parabola $y = x^2 - 6x + 5$, which Example 2 below works out in full. Every point has a mirror image across the axis: the $y$-intercept $(0, 5)$ is matched by $(6, 5)$, and the two $x$-intercepts are matched with each other.
+
+![The parabola y = x² − 6x + 5 on a grid, opening upward. Labeled: the vertex (3, −4) at the bottom, the dashed vertical axis of symmetry x = 3, the y-intercept (0, 5), its mirror point (6, 5), and the x-intercepts (1, 0) and (5, 0).](images/alg-m6-parabola-parts.svg)
+
 ## The effect of $a$
 
 The sign of $a$ decides the direction: if $a > 0$ the parabola **opens upward** and the vertex is a minimum; if $a < 0$ it **opens downward** and the vertex is a maximum. The size of $|a|$ controls the width: $|a| > 1$ makes it narrower (steeper) than $y = x^2$, and $|a| < 1$ makes it wider.
@@ -68,6 +72,22 @@ Find the vertex, axis, intercepts and range of $f(x) = x^2 - 6x + 5$.
 3. $y$-intercept: $f(0) = 5$, so $(0, 5)$. Its mirror image is $(6, 5)$.
 4. $x$-intercepts: $(x - 1)(x - 5) = 0$, so $x = 1$ and $x = 5$, symmetric about $x = 3$.
 5. Range: $[-4, \infty)$. Vertex form: $f(x) = (x - 3)^2 - 4$.
+
+The steps of Example 2 work for any quadratic in standard form. As a checklist:
+
+```mermaid
+flowchart TD
+  accTitle: Sketching the graph of a quadratic function
+  accDescr: Use the sign of a to decide whether the parabola opens up or down. Find the vertex with h = minus b over 2a and k = f(h), and draw the axis of symmetry x = h. Plot the y-intercept (0, c) and its mirror point across the axis. If the discriminant is at least 0, plot the x-intercepts; if it is negative there are none. Then draw a smooth U through the points.
+  A["Sign of a: opens up or down"] --> B["Vertex: h = −b/(2a), k = f(h)"]
+  B --> C["Draw the axis of symmetry x = h"]
+  C --> D["Plot (0, c) and its mirror point"]
+  D --> E{"Is D ≥ 0?"}
+  E -- yes --> F["Plot the x-intercepts"]
+  E -- no --> G["No x-intercepts"]
+  F --> H["Draw a smooth U through the points"]
+  G --> H
+```
 
 ```plot
 {"x": [-1, 7], "y": [-5, 7], "functions": [{"f": "x^2 - 6*x + 5", "label": "y = x² - 6x + 5", "from": -0.4, "to": 6.4}], "points": [{"at": [3, -4], "label": "(3, -4)"}, {"at": [0, 5], "label": "(0, 5)"}, {"at": [6, 5], "label": "(6, 5)"}, {"at": [1, 0], "label": "(1, 0)"}, {"at": [5, 0], "label": "(5, 0)"}], "segments": [{"from": [3, -5], "to": [3, 7], "dashed": true}], "caption": "Symmetric about the axis x = 3"}

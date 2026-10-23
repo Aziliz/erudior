@@ -19,6 +19,10 @@ Two equations are **equivalent equations** when they have the same solution set.
 
 What moves keep an equation equivalent? Think of a balance scale: whatever you do to one side, you must do to the other.
 
+![Two balance scales, both level. On the left scale, labeled 3x + 2 = 11, one pan holds three boxes marked x and two small unit squares, and the other pan holds eleven unit squares. On the right scale, labeled 3x = 9, two unit squares have been taken off each pan: three x boxes balance nine unit squares. So each x box weighs 3.](images/alg-m1-balance.svg)
+
+Taking the same amount off both pans keeps the scale level, and so does halving or tripling what is on both pans. The two properties below say exactly that.
+
 - **Addition property of equality**: if $a = b$, then $a + c = b + c$ (and likewise $a - c = b - c$).
 - **Multiplication property of equality**: if $a = b$, then $ac = bc$, and $\tfrac{a}{c} = \tfrac{b}{c}$ for $c \ne 0$.
 
@@ -45,6 +49,21 @@ Most linear equations fall to the same five steps:
 3. Collect variable terms on one side and constants on the other, using the addition property.
 4. Isolate the variable using the multiplication property.
 5. Check your answer in the original equation.
+
+The chart shows the same strategy, including the two unusual endings covered later in this lesson, when the variable disappears.
+
+```mermaid
+flowchart TD
+  accTitle: A general strategy for solving a linear equation
+  accDescr: Step 1, clear fractions or decimals by multiplying both sides. Step 2, simplify each side by distributing and combining like terms. Step 3, collect variable terms on one side and constants on the other. Then ask whether the variable is still there. If yes, step 4, divide by the coefficient to isolate the variable, and step 5, check the answer in the original equation. If the variable has disappeared, a false statement such as 0 = 5 means no solution, and a true statement such as 3 = 3 means every real number is a solution.
+  A["1. Clear fractions or decimals"] --> B["2. Simplify each side: distribute, combine like terms"]
+  B --> C["3. Variable terms to one side, constants to the other"]
+  C --> D{"Is the variable still there?"}
+  D -- Yes --> E["4. Divide by the coefficient"]
+  E --> F["5. Check in the original equation"]
+  D -- "No: false statement" --> G["No solution"]
+  D -- "No: true statement" --> H["All real numbers"]
+```
 
 ### Example 2
 
@@ -94,6 +113,10 @@ Solve $4(x - 2) + 3 = 4x - 1$ and $3(2x + 1) = 6x + 3$.
 2. Second equation: the left side is $6x + 3$, identical to the right side. Subtract $6x$: $3 = 3$, always true. Every real number is a solution.
 
 On a graph, the first case is two parallel lines that never meet, and the second is the same line drawn twice.
+
+```plot
+{"x": [-2, 4], "y": [-12, 14], "functions": [{"f": "4*x - 5", "label": "y = 4x - 5"}, {"f": "4*x - 1", "label": "y = 4x - 1", "dashed": true}], "caption": "4(x - 2) + 3 = 4x - 1 has no solution: the two sides graph as parallel lines that never meet"}
+```
 
 ## Common mistakes
 

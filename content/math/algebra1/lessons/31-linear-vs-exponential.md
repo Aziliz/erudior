@@ -20,6 +20,18 @@ Why: for $L(x) = mx + c$, $L(x + 1) - L(x) = m(x + 1) + c - (mx + c) = m$, the s
 
 So to classify a table with equally spaced inputs, compute successive differences and successive ratios. Whichever is constant tells you the model. If neither is, the data are neither linear nor exponential.
 
+```mermaid
+flowchart TD
+  accTitle: Is a table linear, exponential or neither?
+  accDescr: First check whether the x values are equally spaced. If not, compare the change per unit of x or fill in the gaps first. If they are, compute the differences of consecutive y values. If the differences are constant, the data are linear, and the difference per step gives the slope. If not, compute the ratios of consecutive y values. If the ratios are constant, the data are exponential, and the ratio is the factor b. If neither is constant, the data are neither linear nor exponential.
+  A{"Are the x-steps equal?"} -- "no" --> B["Compare change per unit of x, or fill in the gaps"]
+  A -- "yes" --> C{"Are the differences constant?"}
+  C -- "yes" --> D["Linear: difference per step = slope m"]
+  C -- "no" --> E{"Are the ratios constant?"}
+  E -- "yes" --> F["Exponential: ratio = factor b"]
+  E -- "no" --> G["Neither model fits exactly"]
+```
+
 ### Example 1
 
 Classify each table, and write the function when there is one.
@@ -92,6 +104,12 @@ Job offer A pays a bonus of $L(x) = 1000 + 500x$ dollars in year $x$. Offer B pa
 | $E(x)$ | 640 | 1,280 | 2,560 | 5,120 | 10,240 |
 
 3. In year 9 A still leads (5,500 vs 5,120), but in year 10 B pays 10,240, far more. B first pays more in year 10, and from then on it leads by more every year.
+
+The graph shows the race. The line starts far ahead, but the exponential curve, tiny at first, bends upward and crosses it between years 9 and 10.
+
+```plot
+{"x": [0, 11], "y": [0, 12000], "functions": [{"f": "1000 + 500*x", "label": "A: L(x) = 1000 + 500x"}, {"f": "10*2^x", "label": "B: E(x) = 10 · 2^x", "dashed": true}], "points": [{"at": [9, 5500], "label": "year 9: A 5,500"}, {"at": [9, 5120]}, {"at": [10, 10240], "label": "year 10: B 10,240"}, {"at": [10, 6000]}], "xLabel": "year x", "yLabel": "bonus (dollars)", "caption": "Offer B starts at 10 dollars but passes offer A in year 10"}
+```
 
 The same thing happens against a quadratic. Compare $x^2$ and $2^x$: they're equal at $x = 2$ and $x = 4$, $x^2$ is larger between them, and for every $x > 4$, $2^x$ is larger and races ahead ($2^{10} = 1024$ vs $10^2 = 100$).
 

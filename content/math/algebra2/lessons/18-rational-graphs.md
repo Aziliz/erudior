@@ -35,6 +35,18 @@ Why the difference? Near an asymptote the denominator gets close to 0 while the 
 
 Near a vertical asymptote, the two sides of the graph go the same direction (both up or both down) if the factor appears an even number of times, as in $\dfrac{1}{(x - 1)^2}$, and opposite directions if it appears an odd number of times, as in $\dfrac1x$. A test point on each side tells you which.
 
+The decision for each zero of the denominator, as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Hole or vertical asymptote at a zero of the denominator
+  accDescr: Factor the numerator and denominator completely. For each number c that makes the denominator zero, ask whether the factor x minus c cancels completely. If it does, the graph has a hole at x equals c, and the hole's height comes from the simplified form. If a factor x minus c is still in the denominator after cancelling, the graph has a vertical asymptote x equals c.
+  A["Factor the numerator and denominator completely"] --> B["Take a zero c of the denominator"]
+  B --> C{"Does the factor x − c cancel completely?"}
+  C -- yes --> D["Hole at x = c; find its height from the simplified form"]
+  C -- "no, x − c is still in the denominator" --> E["Vertical asymptote x = c"]
+```
+
 ## Horizontal asymptotes
 
 A horizontal asymptote describes the end behavior: what $f(x)$ approaches as $x$ gets very large or very negative. For huge $|x|$, only the leading terms matter, so compare the degree of the numerator ($n$) with the degree of the denominator ($m$):
@@ -53,6 +65,10 @@ A graph never crosses a vertical asymptote, but it may cross a horizontal one so
 
 - The $y$-intercept is $f(0)$, if 0 is in the domain.
 - The $x$-intercepts are the zeros of the numerator after cancelling, as long as they are in the domain. A zero of the numerator that cancels is a hole, not an intercept.
+
+The picture shows all of these features on one graph, $f(x) = \dfrac{2x^2 + 4x - 16}{x^2 + 5x + 4} = \dfrac{2(x - 2)(x + 4)}{(x + 1)(x + 4)}$. The factor $(x + 4)$ cancels, leaving a hole at $x = -4$ whose height comes from $\dfrac{2(x - 2)}{x + 1}$: $\dfrac{2(-6)}{-3} = 4$. The factor $(x + 1)$ stays, so $x = -1$ is a vertical asymptote. Equal degrees give $y = \tfrac21 = 2$. The simplified numerator is zero at $x = 2$, and $f(0) = \tfrac{-16}{4} = -4$.
+
+![Graph of f(x) = (2x² + 4x − 16)/(x² + 5x + 4) with a dashed vertical asymptote x = −1 and a dashed horizontal asymptote y = 2. The left branch rises from just above y = 2 toward the vertical asymptote and has an open circle, the hole, at (−4, 4). The right branch comes up from below along the vertical asymptote, passes through the y-intercept (0, −4) and the x-intercept (2, 0), and levels off below y = 2.](images/a2-m5-rational-features.svg)
 
 ## Sketching a rational function
 

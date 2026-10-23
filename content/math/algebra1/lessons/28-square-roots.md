@@ -17,7 +17,15 @@ $$\sqrt{a} = \text{the number } r \ge 0 \text{ with } r^2 = a, \qquad a \ge 0.$$
 
 So $\sqrt{25} = 5$, $-\sqrt{25} = -5$, and when you need both roots you write $\pm\sqrt{25}$. In $\sqrt{a}$, the symbol is the **radical** sign and $a$ is the **radicand**. A negative radicand has no real square root, because no real number squares to a negative.
 
+A number written in front of a radical multiplies it. In $5\sqrt{12}$, the 5 is the coefficient, so the expression means $5 \times \sqrt{12}$:
+
+![The expression 5√12 with three parts labeled: the coefficient 5, the radical sign, and the radicand 12 under the sign.](images/a1-m7-radical-parts.svg)
+
 The numbers $1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, \dots$ are the **perfect squares**: squares of whole numbers. Their square roots are whole numbers. Every other positive whole number has a square root that lies between two whole numbers. Since $36 < 40 < 49$, for example, $6 < \sqrt{40} < 7$.
+
+A picture makes this concrete: $\sqrt a$ is the side length of a square whose area is $a$. A square of area 40 is a little bigger than one of area 36 and smaller than one of area 49, so its side is between 6 and 7.
+
+![Three squares side by side: area 36 with side 6, area 40 with side √40 ≈ 6.32, and area 49 with side 7.](images/a1-m7-square-area.svg)
 
 ```plot
 {"x": [0, 50], "y": [0, 8], "functions": [{"f": "sqrt(x)", "label": "y = √x", "from": 0, "to": 50}], "points": [{"at": [36, 6], "label": "(36, 6)"}, {"at": [49, 7], "label": "(49, 7)"}, {"at": [40, 6.32], "label": "(40, √40 ≈ 6.32)"}], "caption": "√40 sits between √36 = 6 and √49 = 7"}
@@ -51,6 +59,19 @@ The product rule lets you pull perfect squares out from under the radical. A squ
 1. Find the largest perfect square that divides $n$.
 2. Write $n$ as (that perfect square) × (what's left).
 3. Split with the product rule and take the root of the perfect square.
+
+The flowchart shows the same procedure, including what to do if you didn't spot the largest square the first time: just repeat.
+
+```mermaid
+flowchart TD
+  accTitle: How to simplify a square root
+  accDescr: Start with the square root of n. Ask whether n has a perfect-square factor other than 1. If yes, write n as the largest perfect square factor times what is left, take the square root of the perfect square and move it outside as a multiplier, then ask the question again about what is left under the root. If no, the root is in simplest radical form.
+  A["Start with √n"] --> B{"Does n have a perfect-square factor other than 1?"}
+  B -- "yes" --> C["Write n = (largest perfect square) × (rest)"]
+  C --> D["Take the root of the perfect square; it moves outside as a multiplier"]
+  D --> B
+  B -- "no" --> E["Done: simplest radical form"]
+```
 
 ### Example 1
 
@@ -103,6 +124,10 @@ Square roots show up whenever you undo a square. The classic case is the Pythago
 ### Example 4
 
 A 12-foot ladder leans against a wall with its base 4 feet from the wall. How high up the wall does it reach? Give the exact answer in simplest form and a decimal.
+
+```shape
+{"polygons": [{"points": [[0, 0], [4, 0], [0, 11.31]]}], "rightAngles": [[[0, 0], [4, 0], [0, 11.31]]], "segments": [{"from": [0, 0], "to": [4, 0], "label": "4 ft"}, {"from": [4, 0], "to": [0, 11.31], "label": "ladder 12 ft"}, {"from": [0, 0], "to": [0, 11.31], "label": "h"}], "caption": "The wall, the ground and the ladder form a right triangle with hypotenuse 12"}
+```
 
 1. With height $h$: $h^2 + 4^2 = 12^2$, so $h^2 = 144 - 16 = 128$.
 2. Height is positive, so $h = \sqrt{128}$.

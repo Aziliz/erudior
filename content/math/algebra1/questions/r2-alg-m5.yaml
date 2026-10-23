@@ -1,0 +1,493 @@
+# Round 2: alg-m5 (Exponents, polynomials, and factoring): new question types and honors lessons
+# Lesson 18: exponent rules and scientific notation
+- id: alg-m5-r2-q01
+  lesson: alg-exponent-rules
+  type: text
+  module_quiz: true
+  topic: Scientific notation
+  stem: 'Write $0.0000052$ in scientific notation, $c \times 10^n$. Then $c =$ ___ and $n =$ ___.'
+  accept:
+    - ['5.2']
+    - ['-6']
+  explanation: |-
+    Move the decimal point right until one nonzero digit is in front of it: $5.2$. That took 6 moves, and the number is small, so the exponent is negative: $0.0000052 = 5.2 \times 10^{-6}$.
+- id: alg-m5-r2-q02
+  lesson: alg-exponent-rules
+  type: order
+  topic: Exponents
+  stem: 'Put these numbers in order from least to greatest.'
+  items: ['$-2^2$', '$2^{-3}$', '$3^{-1}$', '$7^0$', '$\left(\tfrac12\right)^{-2}$']
+  explanation: |-
+    $-2^2 = -(2^2) = -4$, since the exponent applies only to the 2. $2^{-3} = \tfrac18$ and $3^{-1} = \tfrac13$ are positive fractions; $\tfrac18 < \tfrac13$. $7^0 = 1$. $\left(\tfrac12\right)^{-2} = 2^2 = 4$. So the order is $-4, \tfrac18, \tfrac13, 1, 4$.
+- id: alg-m5-r2-q03
+  lesson: alg-exponent-rules
+  topic: Exponents
+  stem: 'Which expressions equal $\tfrac{1}{16}$? Select all that apply.'
+  choices: ['$2^{-4}$', '$-2^{4}$', '$(-4)^{-2}$', '$8^{-2}$']
+  answer: [0, 2]
+  explanation: |-
+    $2^{-4} = \dfrac{1}{2^4} = \dfrac{1}{16}$, and $(-4)^{-2} = \dfrac{1}{(-4)^2} = \dfrac{1}{16}$ (a negative base squared is positive). But $-2^4 = -16$, a negative number, not a reciprocal, and $8^{-2} = \dfrac{1}{64}$.
+- id: alg-m5-r2-q04
+  lesson: alg-exponent-rules
+  type: label
+  module_quiz: true
+  topic: Exponents
+  stem: 'Name the numbered parts of these two expressions.'
+  image: {src: images/alg-m5-power-parts-blank.svg, alt: 'Two expressions with five numbered parts. On the left, 7x to the 4th: 1 points to the 7, 2 to the x and 3 to the raised 4. On the right, 3.2 times 10 to the minus 5: 4 points to the 3.2 and 5 to the 10 to the minus 5.'}
+  labels:
+    - {x: 11.9, y: 79.7, text: Coefficient}
+    - {x: 30.6, y: 79.7, text: Base}
+    - {x: 28.6, y: 14.1, text: Exponent}
+    - {x: 58.8, y: 79.7, text: Decimal part}
+    - {x: 80.0, y: 14.1, text: Power of ten}
+  distractors: [Constant term, Radicand]
+  explanation: |-
+    In $7x^4$, $x$ is the base, 4 is the exponent (it counts the factors of $x$), and 7 is the coefficient multiplying the power. In $3.2 \times 10^{-5}$, 3.2 is the decimal part, which must be at least 1 and less than 10, and $10^{-5}$ is the power of ten that sets the size.
+- id: alg-m5-r2-q05
+  lesson: alg-exponent-rules
+  type: match
+  topic: Exponents
+  stem: 'Match each expression to its value.'
+  pairs:
+    - ['$4^{-1}$', '1/4']
+    - ['$4^{0}$', '1']
+    - ['$(-4)^{-1}$', '-1/4']
+    - ['$-4^{0}$', '-1']
+  distractors: ['-4', '0']
+  explanation: |-
+    A negative exponent means reciprocal: $4^{-1} = \tfrac14$ and $(-4)^{-1} = -\tfrac14$. Any nonzero base to the power 0 is 1, so $4^0 = 1$. In $-4^0$ the exponent applies only to the 4, so it is $-(4^0) = -1$. Neither $-4$ nor $0$ fits: a negative exponent never makes a number negative, and a power of a nonzero number is never 0.
+# Lesson 19: polynomial operations
+- id: alg-m5-r2-q06
+  lesson: alg-poly-ops
+  type: label
+  module_quiz: true
+  topic: Polynomials
+  stem: 'Name the numbered parts of the polynomial $4x^5 - 2x^3 - x + 9$.'
+  image: {src: images/alg-m5-poly-parts-blank.svg, alt: 'The polynomial 4x to the 5th minus 2x cubed minus x plus 9 with four numbered parts. 1 points to a bracket under 4x to the 5th, 2 to the 4, 3 to the raised 5 and 4 to the 9.'}
+  labels:
+    - {x: 20.5, y: 82.8, text: Leading term}
+    - {x: 13.8, y: 15.6, text: Leading coefficient}
+    - {x: 41.2, y: 15.6, text: Degree of the polynomial}
+    - {x: 80.0, y: 82.8, text: Constant term}
+  distractors: [Binomial, Base]
+  explanation: |-
+    In standard form the first term, $4x^5$, is the leading term. Its coefficient, 4, is the leading coefficient. Its exponent, 5, is the highest degree of any term, so it is the degree of the polynomial. The term with no variable, 9, is the constant term.
+- id: alg-m5-r2-q07
+  lesson: alg-poly-ops
+  type: text
+  topic: Polynomials
+  stem: 'Fill in the missing coefficient: $(x + 7)^2 = x^2 +$ ___ $x + 49$.'
+  accept: ['14']
+  explanation: |-
+    $(a + b)^2 = a^2 + 2ab + b^2$, so the middle term is $2 \cdot x \cdot 7 = 14x$. Leaving the middle term out, as in $x^2 + 49$, is the classic mistake.
+- id: alg-m5-r2-q08
+  lesson: alg-poly-ops
+  type: match
+  module_quiz: true
+  topic: Polynomials
+  stem: 'Match each product to its expanded form.'
+  pairs:
+    - ['$(x + 3)^2$', 'x² + 6x + 9']
+    - ['$(x - 3)^2$', 'x² − 6x + 9']
+    - ['$(x + 3)(x - 3)$', 'x² − 9']
+    - ['$(x + 3)(x + 6)$', 'x² + 9x + 18']
+  distractors: ['x² + 9', 'x² − 6x − 9']
+  explanation: |-
+    Squares of binomials: $(x \pm 3)^2 = x^2 \pm 6x + 9$, and the last term is $+9$ either way. Sum times difference: the middle terms cancel, giving $x^2 - 9$. FOIL for $(x + 3)(x + 6)$: $x^2 + 6x + 3x + 18 = x^2 + 9x + 18$. Neither $x^2 + 9$ (missing middle term) nor $x^2 - 6x - 9$ (wrong last sign) is any of these products.
+- id: alg-m5-r2-q09
+  lesson: alg-poly-ops
+  topic: Polynomials
+  stem: 'Which of these are polynomials? Select all that apply.'
+  choices: ['$4x^3 - x + \tfrac12$', '$\sqrt{x} + 1$', '$\dfrac{3}{x^2}$', '$-7$', '$x^2y - 5y^3$']
+  answer: [0, 3, 4]
+  explanation: |-
+    A polynomial uses only whole-number exponents on its variables. Fractional coefficients like $\tfrac12$ are fine, a constant such as $-7$ is a polynomial of degree 0, and polynomials can have several variables. $\sqrt{x} = x^{1/2}$ has a fractional exponent and $\dfrac{3}{x^2} = 3x^{-2}$ has a negative one, so those two are not polynomials.
+- id: alg-m5-r2-q10
+  lesson: alg-poly-ops
+  type: order
+  topic: Polynomials
+  stem: 'Put these polynomials in order from lowest degree to highest degree.'
+  items: ['$-6$', '$5x + 2$', '$x^2 - 4x$', '$2xy^2$', '$x^3y^2 + 1$']
+  explanation: |-
+    The degree of a term is the sum of its variables' exponents. $-6$ has degree 0, $5x + 2$ degree 1, $x^2 - 4x$ degree 2, $2xy^2$ degree $1 + 2 = 3$, and $x^3y^2 + 1$ degree $3 + 2 = 5$.
+# Lesson 20: GCF and grouping
+- id: alg-m5-r2-q11
+  lesson: alg-factor-gcf
+  type: label
+  module_quiz: true
+  topic: Factoring
+  stem: 'The rectangle has area $6x^2 + 9x$, and its height is the GCF of the two terms. Label the numbered side lengths.'
+  image: {src: images/alg-m5-gcf-area-blank.svg, alt: 'A rectangle split into a wide part with area 6x squared and a narrow part with area 9x. Marker 1 is above the wide part, marker 2 above the narrow part, and marker 3 beside the height.'}
+  labels:
+    - {x: 43.8, y: 11.1, text: 2x}
+    - {x: 74.2, y: 11.1, text: '3'}
+    - {x: 12.5, y: 51.4, text: 3x}
+  distractors: [6x, x, '9']
+  explanation: |-
+    The GCF of $6x^2$ and $9x$ is $3x$, so the height is $3x$. Each width is the area divided by the height: $\tfrac{6x^2}{3x} = 2x$ and $\tfrac{9x}{3x} = 3$. So $6x^2 + 9x = 3x(2x + 3)$.
+- id: alg-m5-r2-q12
+  lesson: alg-factor-gcf
+  type: order
+  topic: Factoring
+  stem: 'Put the steps of factoring $x^3 + 5x^2 + 2x + 10$ by grouping in order.'
+  items:
+    - '$(x^3 + 5x^2) + (2x + 10)$'
+    - '$x^2(x + 5) + 2(x + 5)$'
+    - '$(x + 5)(x^2 + 2)$'
+    - 'Check: $(x + 5)(x^2 + 2) = x^3 + 2x + 5x^2 + 10$'
+  explanation: |-
+    Group the terms in pairs, factor the GCF out of each pair, factor out the common binomial $(x + 5)$, then multiply back to check. Each step uses the result of the one before.
+- id: alg-m5-r2-q13
+  lesson: alg-factor-gcf
+  type: text
+  topic: Factoring
+  stem: 'Factoring out the GCF gives $14x^5 - 21x^3 = 7x^3(2x^2 - k)$. The number $k$ is ___.'
+  accept: ['3']
+  explanation: |-
+    The GCF is $7x^3$. Divide each term by it: $\tfrac{14x^5}{7x^3} = 2x^2$ and $\tfrac{-21x^3}{7x^3} = -3$. So $k = 3$. Check: $7x^3(2x^2 - 3) = 14x^5 - 21x^3$.
+- id: alg-m5-r2-q14
+  lesson: alg-factor-gcf
+  module_quiz: true
+  topic: Factoring
+  stem: 'Which of these are factored completely over the integers? Select all that apply.'
+  choices: ['$3x(x + 2)$', '$2(x^2 - 9)$', '$(x + 1)(4x + 8)$', '$5(x^2 + 4)$']
+  answer: [0, 3]
+  explanation: |-
+    $3x(x + 2)$ can't go further, and in $5(x^2 + 4)$ the sum of squares $x^2 + 4$ is prime. But $x^2 - 9$ is a difference of squares, so $2(x^2 - 9) = 2(x + 3)(x - 3)$, and $4x + 8$ still has the common factor 4, so $(x + 1)(4x + 8) = 4(x + 1)(x + 2)$.
+- id: alg-m5-r2-q15
+  lesson: alg-factor-gcf
+  type: match
+  topic: Factoring
+  stem: 'Match each polynomial to its greatest common factor.'
+  pairs:
+    - ['$8x^3 + 12x^2$', '4x²']
+    - ['$9x^2y - 6xy^2$', '3xy']
+    - ['$15x^4 - 10x$', '5x']
+    - ['$x(y + 2) - 3(y + 2)$', 'y + 2']
+  distractors: ['2x²', 'x²y']
+  explanation: |-
+    Take the GCF of the coefficients and the lowest power of each shared variable: $\gcd(8, 12) = 4$ with $x^2$; $\gcd(9, 6) = 3$ with $x$ and $y$; $\gcd(15, 10) = 5$ with $x$. In the last one the common factor is the whole binomial $y + 2$, giving $(y + 2)(x - 3)$. $2x^2$ is a common factor of $8x^3 + 12x^2$ but not the greatest one.
+# Lesson 21: factoring trinomials and special patterns
+- id: alg-m5-r2-q16
+  lesson: alg-factor-trinomials
+  type: label
+  module_quiz: true
+  topic: Factoring
+  stem: 'The box shows the split $6x^2 + 15x - 4x - 10$ of $6x^2 + 11x - 10$. Label the numbered row and column factors.'
+  image: {src: images/alg-m5-box-method-blank.svg, alt: 'A 2 by 2 box. The top row holds 6x squared and 15x, the bottom row minus 4x and minus 10. Markers 1 and 2 are above the left and right columns, and markers 3 and 4 are beside the top and bottom rows.'}
+  labels:
+    - {x: 46.7, y: 16.2, text: 2x}
+    - {x: 76.7, y: 16.2, text: '+5'}
+    - {x: 22.5, y: 41.2, text: 3x}
+    - {x: 22.5, y: 68.8, text: '−2'}
+  distractors: ['−5', '+2']
+  explanation: |-
+    The top row, $6x^2$ and $15x$, has common factor $3x$, leaving $2x$ and $5$, the column factors. The bottom row, $-4x$ and $-10$, must give the same columns, so take out $-2$: $-2 \cdot 2x = -4x$ and $-2 \cdot 5 = -10$. So $6x^2 + 11x - 10 = (2x + 5)(3x - 2)$.
+- id: alg-m5-r2-q17
+  lesson: alg-factor-trinomials
+  type: text
+  topic: Factoring
+  stem: 'Fill in the blanks: $x^2 - x - 42 = (x +$ ___ $)(x -$ ___ $)$.'
+  accept:
+    - ['6']
+    - ['7']
+  explanation: |-
+    Find two integers with product $-42$ and sum $-1$: $6$ and $-7$. So $x^2 - x - 42 = (x + 6)(x - 7)$. Check: $x^2 - 7x + 6x - 42 = x^2 - x - 42$.
+- id: alg-m5-r2-q18
+  lesson: alg-factor-trinomials
+  type: match
+  module_quiz: true
+  topic: Factoring
+  stem: 'Match each polynomial to the method that factors it.'
+  pairs:
+    - ['$4x^2 - 49$', 'Difference of squares']
+    - ['$x^3 + 8$', 'Sum of cubes']
+    - ['$x^2 + 10x + 25$', 'Perfect square trinomial']
+    - ['$x^3 - 2x^2 + 3x - 6$', 'Grouping']
+    - ['$3x^2 + 10x - 8$', 'ac method']
+  distractors: ['Difference of cubes']
+  explanation: |-
+    $4x^2 - 49 = (2x)^2 - 7^2 = (2x + 7)(2x - 7)$. $x^3 + 8 = x^3 + 2^3 = (x + 2)(x^2 - 2x + 4)$. $x^2 + 10x + 25 = (x + 5)^2$, since $10x = 2 \cdot x \cdot 5$. The four terms $x^3 - 2x^2 + 3x - 6$ group as $x^2(x - 2) + 3(x - 2) = (x - 2)(x^2 + 3)$. For $3x^2 + 10x - 8$, $ac = -24$ and the numbers $12$ and $-2$ split the middle term, giving $(3x - 2)(x + 4)$.
+- id: alg-m5-r2-q19
+  lesson: alg-factor-trinomials
+  topic: Factoring
+  stem: 'Which polynomials are prime over the integers? Select all that apply.'
+  choices: ['$x^2 + 9$', '$x^2 + 5x + 7$', '$x^2 - 9$', '$2x^2 + 8$']
+  answer: [0, 1]
+  explanation: |-
+    $x^2 + 9$ is a sum of squares with no common factor, so it is prime. For $x^2 + 5x + 7$, the factor pairs of 7 are $1, 7$ and $-1, -7$, with sums $8$ and $-8$, never 5, so it is prime. $x^2 - 9 = (x + 3)(x - 3)$. And $2x^2 + 8$ is not prime: it has the common factor 2, $2(x^2 + 4)$.
+- id: alg-m5-r2-q20
+  lesson: alg-factor-trinomials
+  type: order
+  topic: Factoring
+  stem: 'Put the steps of factoring $2x^3 - 8x^2 - 42x$ completely in order.'
+  items:
+    - 'Factor out the GCF: $2x(x^2 - 4x - 21)$'
+    - 'Find integers with product $-21$ and sum $-4$: $-7$ and $3$'
+    - 'Write the result: $2x(x - 7)(x + 3)$'
+    - 'Multiply back to check'
+  explanation: |-
+    The strategy starts with the GCF, $2x$. The trinomial left over has leading coefficient 1, so look for a product of $-21$ and a sum of $-4$: $-7$ and $3$. That gives $2x(x - 7)(x + 3)$, and multiplying back gives $2x^3 - 8x^2 - 42x$.
+# Honors: dividing polynomials, remainder and factor theorems
+- id: alg-m5-r2-h01
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'Divide: $\dfrac{6x^3 - 9x^2 + 3x}{3x}$, for $x \ne 0$.'
+  choices: ['$2x^2 - 3x$', '$2x^2 - 3x + 1$', '$2x^3 - 3x^2 + x$', '$2x^2 - 9x + 1$']
+  answer: 1
+  explanation: |-
+    Divide each term by $3x$: $\tfrac{6x^3}{3x} = 2x^2$, $\tfrac{-9x^2}{3x} = -3x$ and $\tfrac{3x}{3x} = 1$. Dropping the 1 is the same slip as forgetting the 1 when factoring out a GCF; dividing only the coefficients gives $2x^3 - 3x^2 + x$; dividing $-9x^2$ by $x$ but not by 3 gives $-9x$.
+- id: alg-m5-r2-h02
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'Divide $x^2 + 5x + 7$ by $x + 2$.'
+  choices: ['Quotient $x + 7$, remainder 21', 'Quotient $x + 3$, remainder $-1$', 'Quotient $x + 3$, remainder 1', 'Quotient $x + 3$, remainder 13']
+  answer: 2
+  explanation: |-
+    $x^2 \div x = x$; subtract $x(x + 2) = x^2 + 2x$ to leave $3x + 7$. Then $3x \div x = 3$; subtract $3(x + 2) = 3x + 6$ to leave 1. Check: $(x + 2)(x + 3) + 1 = x^2 + 5x + 7$. Quotient $x + 7$ with remainder 21 is the result of dividing by $x - 2$ instead, and remainder 13 comes from adding the 6 instead of subtracting it.
+- id: alg-m5-r2-h03
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'Divide $x^3 - 8$ by $x - 2$.'
+  choices: ['$x^2 - 2x + 4$', '$x^2 + 4$', '$x^2 + 2x - 4$', '$x^2 + 2x + 4$']
+  answer: 3
+  explanation: |-
+    Write the dividend as $x^3 + 0x^2 + 0x - 8$. Synthetic division with $c = 2$: bring down 1; $0 + 2 = 2$; $0 + 4 = 4$; $-8 + 8 = 0$. Quotient $x^2 + 2x + 4$, remainder 0. This matches the difference of cubes: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$. $x^2 - 2x + 4$ belongs to the sum of cubes $x^3 + 8$.
+- id: alg-m5-r2-h04
+  lesson: alg-m5-h-polynomial-division
+  type: text
+  topic: Polynomial division
+  stem: 'When $P(x) = x^3 - 4x^2 + 2x + 5$ is divided by $x - 3$, the remainder is ___.'
+  accept: ['2']
+  explanation: |-
+    By the remainder theorem the remainder is $P(3) = 27 - 36 + 6 + 5 = 2$. Synthetic division with $1, -4, 2, 5$ and $c = 3$ gives the same: $1$; $-4 + 3 = -1$; $2 - 3 = -1$; $5 - 3 = 2$.
+- id: alg-m5-r2-h05
+  lesson: alg-m5-h-polynomial-division
+  type: text
+  topic: Polynomial division
+  stem: '$x + 2$ is a factor of $x^3 + kx^2 - 4$ when $k =$ ___.'
+  accept: ['3']
+  explanation: |-
+    By the factor theorem, $x + 2 = x - (-2)$ is a factor exactly when $P(-2) = 0$. $P(-2) = -8 + 4k - 4 = 4k - 12$, which is 0 when $k = 3$. Check: $x^3 + 3x^2 - 4 = (x + 2)(x^2 + x - 2) = (x + 2)^2(x - 1)$.
+- id: alg-m5-r2-h06
+  lesson: alg-m5-h-polynomial-division
+  type: order
+  topic: Polynomial division
+  stem: 'Put the steps of dividing $x^3 - 2x^2 - 5x + 6$ by $x - 3$ with synthetic division in order.'
+  items:
+    - 'Write 3 in the box and the row $1, -2, -5, 6$'
+    - 'Bring down the 1'
+    - 'Multiply $1 \cdot 3 = 3$ and add: $-2 + 3 = 1$'
+    - 'Multiply $1 \cdot 3 = 3$ and add: $-5 + 3 = -2$'
+    - 'Multiply $-2 \cdot 3 = -6$ and add: $6 + (-6) = 0$'
+    - 'Read off quotient $x^2 + x - 2$, remainder 0'
+  explanation: |-
+    Synthetic division works left to right: set up, bring down the leading coefficient, then multiply by $c = 3$ and add, column by column. Each product uses the number just written below the line. The last number is the remainder, so $x^3 - 2x^2 - 5x + 6 = (x - 3)(x^2 + x - 2)$.
+- id: alg-m5-r2-h07
+  lesson: alg-m5-h-polynomial-division
+  type: match
+  topic: Polynomial division
+  stem: '$P(x) = x^3 - 2x + 1$ is divided by each binomial. Match each divisor to the remainder.'
+  pairs:
+    - ['$x - 1$', '0']
+    - ['$x + 1$', '2']
+    - ['$x - 2$', '5']
+    - ['$x + 2$', '-3']
+  distractors: ['-1', '3']
+  explanation: |-
+    The remainder on dividing by $x - c$ is $P(c)$. $P(1) = 1 - 2 + 1 = 0$; $P(-1) = -1 + 2 + 1 = 2$; $P(2) = 8 - 4 + 1 = 5$; $P(-2) = -8 + 4 + 1 = -3$. For $x + 1$ and $x + 2$, $c$ is negative.
+- id: alg-m5-r2-h08
+  lesson: alg-m5-h-polynomial-division
+  type: label
+  topic: Polynomial division
+  stem: 'This is the synthetic division of $2x^3 - 3x^2 - 11x + 6$ by $x - 3$. Name the numbered parts.'
+  image: {src: images/alg-m5-synthetic-blank.svg, alt: 'Synthetic division. A boxed 3 on the left (marker 1). The top row 2, minus 3, minus 11, 6 (marker 2). The middle row 6, 9, minus 6 (marker 3). The bottom row 2, 3, minus 2 (marker 4) and a final boxed 0 (marker 5).'}
+  labels:
+    - {x: 18.8, y: 11.2, text: 'Zero of the divisor, c'}
+    - {x: 58.8, y: 11.2, text: 'Dividend''s coefficients'}
+    - {x: 91.2, y: 54.2, text: Products}
+    - {x: 41.2, y: 92.5, text: 'Quotient''s coefficients'}
+    - {x: 81.2, y: 92.5, text: Remainder}
+  distractors: ['Divisor''s coefficients', Degree of the quotient]
+  explanation: |-
+    The box holds $c = 3$, the zero of the divisor $x - 3$. The top row lists the dividend's coefficients. The middle row holds the products of $c$ and each number already written below the line. Adding each column gives the bottom row: the quotient's coefficients $2, 3, -2$ (so $2x^2 + 3x - 2$) and, last, the remainder 0.
+- id: alg-m5-r2-h09
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'Which are factors of $P(x) = x^3 - 7x + 6$? Select all that apply.'
+  choices: ['$x - 1$', '$x + 1$', '$x - 2$', '$x - 3$', '$x + 3$']
+  answer: [0, 2, 4]
+  explanation: |-
+    By the factor theorem, $x - c$ is a factor exactly when $P(c) = 0$. $P(1) = 1 - 7 + 6 = 0$, $P(2) = 8 - 14 + 6 = 0$ and $P(-3) = -27 + 21 + 6 = 0$, so $x - 1$, $x - 2$ and $x + 3$ are factors. $P(-1) = 12$ and $P(3) = 12$, so $x + 1$ and $x - 3$ are not.
+- id: alg-m5-r2-h10
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'A polynomial $P(x)$ has $P(5) = 0$. Which statement must be true?'
+  choices: ['$x - 5$ is a factor of $P(x)$', '$x + 5$ is a factor of $P(x)$', '$P(0) = 5$', 'Dividing $P(x)$ by $x$ leaves remainder 5']
+  answer: 0
+  explanation: |-
+    The factor theorem: $P(c) = 0$ exactly when $x - c$ is a factor. With $c = 5$ the factor is $x - 5$, not $x + 5$. Nothing is known about $P(0)$, which is also the remainder on dividing by $x$.
+- id: alg-m5-r2-h11
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'Which number cannot be an integer zero of $x^3 + 4x^2 + x - 6$?'
+  choices: ['$1$', '$-2$', '$4$', '$-3$']
+  answer: 2
+  explanation: |-
+    The polynomial has integer coefficients, so every integer zero divides the constant term $-6$. The number 4 does not divide 6, so it can't be a zero (indeed $P(4) = 126$). The other three are zeros: $P(1) = 0$, $P(-2) = 0$ and $P(-3) = 0$.
+- id: alg-m5-r2-h12
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'Factor $x^3 + 4x^2 + x - 6$ completely.'
+  choices: ['$(x + 1)(x - 2)(x - 3)$', '$(x - 1)(x + 2)(x - 3)$', '$(x - 1)(x^2 + 5x + 6)$', '$(x - 1)(x + 2)(x + 3)$']
+  answer: 3
+  explanation: |-
+    $P(1) = 1 + 4 + 1 - 6 = 0$, so $x - 1$ is a factor. Synthetic division with $1, 4, 1, -6$ and $c = 1$ gives $1, 5, 6$ with remainder 0, so the quotient is $x^2 + 5x + 6 = (x + 2)(x + 3)$. Stopping at $(x - 1)(x^2 + 5x + 6)$ is not complete, and $(x + 1)(x - 2)(x - 3)$ has every sign flipped.
+- id: alg-m5-r2-h13
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'In polynomial long division, when do you stop?'
+  choices: ['When what is left has lower degree than the divisor', 'When the quotient has the same degree as the divisor', 'When what is left is 0, and never before', 'After as many steps as the dividend has terms']
+  answer: 0
+  explanation: |-
+    The division algorithm requires the remainder to be 0 or of lower degree than the divisor. Many divisions end with a nonzero remainder, such as 2 in $(2x^3 + 3x^2 - 8x + 5) \div (x + 3)$. That division takes three steps, one per term of the quotient, although the dividend has four terms.
+- id: alg-m5-r2-h14
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'A box has volume $x^3 + 6x^2 + 11x + 6$ cubic centimeters and height $x + 1$ centimeters. Which expression gives the area of its base, in square centimeters?'
+  choices: ['$x^2 + 6x + 11$', '$x^2 + 5x + 5$', '$x^2 + 5x + 6$', '$x^2 + 7x + 18$']
+  answer: 2
+  explanation: |-
+    Base area = volume ÷ height. Synthetic division by $x + 1$ ($c = -1$) with $1, 6, 11, 6$: $1$; $6 - 1 = 5$; $11 - 5 = 6$; $6 - 6 = 0$. So the base area is $x^2 + 5x + 6$. Using $c = 1$ by mistake gives $x^2 + 7x + 18$ with a nonzero remainder.
+- id: alg-m5-r2-h15
+  lesson: alg-m5-h-polynomial-division
+  topic: Polynomial division
+  stem: 'A student divides $x^3 - 5x + 4$ by $x - 1$ with synthetic division, using the row $1, -5, 4$, and gets quotient $x - 4$, remainder 0. What went wrong?'
+  choices: ['The box should hold $-1$, not 1', 'The row needs a 0 for the missing $x^2$ term; the quotient is $x^2 + x - 4$', 'The remainder should be 4, the constant term', 'Synthetic division cannot be used to divide by $x - 1$']
+  answer: 1
+  explanation: |-
+    Every power must have a place: the row is $1, 0, -5, 4$. Then: $1$; $0 + 1 = 1$; $-5 + 1 = -4$; $4 - 4 = 0$. The quotient is $x^2 + x - 4$, one degree less than the cubic. Check: $(x - 1)(x^2 + x - 4) = x^3 - 5x + 4$. The box is right, since $x - 1$ means $c = 1$.
+# Honors: Pascal's triangle, binomial expansion and identities
+- id: alg-m5-r2-h16
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'How many terms does $(a + b)^7$ have when it is expanded and simplified?'
+  choices: ['7', '8', '49', '128']
+  answer: 1
+  explanation: |-
+    $(a + b)^n$ has $n + 1$ terms: $a^7, a^6b, \dots, b^7$, with the power of $b$ running from 0 to 7. That is 8 terms. 128 is $2^7$, the sum of the coefficients in row 7.
+- id: alg-m5-r2-h17
+  lesson: alg-m5-h-binomial-expansion
+  type: text
+  topic: Binomial expansion
+  stem: 'Row 7 of Pascal''s triangle is $1, 7, 21,$ ___ $, 35, 21, 7, 1$.'
+  accept: ['35']
+  explanation: |-
+    The rows are symmetric, so the missing entry matches the 35 on the other side. You can also build it from row 6, $1, 6, 15, 20, 15, 6, 1$: the entry is $15 + 20 = 35$.
+- id: alg-m5-r2-h18
+  lesson: alg-m5-h-binomial-expansion
+  type: label
+  topic: Binomial expansion
+  stem: 'Fill in the four numbered entries of Pascal''s triangle.'
+  image: {src: images/alg-m5-pascal-blank.svg, alt: 'Pascal''s triangle, rows 0 to 6, with four blank numbered cells: 1 is the middle entry of row 4; 2 is the third entry of row 5; 3 and 4 are the third and fourth entries of row 6.'}
+  labels:
+    - {x: 55.3, y: 59.6, text: '6'}
+    - {x: 49.2, y: 72.0, text: '10'}
+    - {x: 43.2, y: 84.4, text: '15'}
+    - {x: 55.3, y: 84.4, text: '20'}
+  distractors: ['8', '12']
+  explanation: |-
+    Each entry is the sum of the two above it. Row 4: $3 + 3 = 6$. Row 5, third entry: $4 + 6 = 10$. Row 6: $5 + 10 = 15$ and $10 + 10 = 20$. The symmetry of each row is a quick check.
+- id: alg-m5-r2-h19
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'Expand $(x - 1)^3$.'
+  choices: ['$x^3 - 1$', '$x^3 - 3x^2 - 3x - 1$', '$x^3 + 3x^2 + 3x - 1$', '$x^3 - 3x^2 + 3x - 1$']
+  answer: 3
+  explanation: |-
+    Row 3 is $1, 3, 3, 1$, with $a = x$ and $b = -1$: $x^3 + 3x^2(-1) + 3x(-1)^2 + (-1)^3 = x^3 - 3x^2 + 3x - 1$. The signs alternate because odd powers of $-1$ are negative. $x^3 - 1$ drops the middle terms.
+- id: alg-m5-r2-h20
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'What is the coefficient of $x^2$ in the expansion of $(x + 3)^4$?'
+  choices: ['6', '18', '54', '108']
+  answer: 2
+  explanation: |-
+    The $x^2$ term has $a^2b^2$ with $a = x$, $b = 3$: $\dbinom42 x^2 \cdot 3^2 = 6 \cdot 9x^2 = 54x^2$. 6 forgets the $3^2$, 18 uses $3$ instead of $3^2$, and 108 is the coefficient of $x$, $\dbinom43 \cdot 3^3 = 4 \cdot 27$.
+- id: alg-m5-r2-h21
+  lesson: alg-m5-h-binomial-expansion
+  type: text
+  topic: Binomial expansion
+  stem: 'Compute $\dbinom{6}{2}$: ___'
+  accept: ['15']
+  explanation: |-
+    $\dbinom62 = \dfrac{6!}{2!\,4!} = \dfrac{6 \cdot 5}{2 \cdot 1} = 15$. It is the number of ways to choose 2 things from 6, and it appears in row 6 of Pascal's triangle: $1, 6, 15, 20, 15, 6, 1$.
+- id: alg-m5-r2-h22
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'What is the coefficient of $x^4$ in the expansion of $(2x + 1)^5$?'
+  choices: ['80', '5', '10', '32']
+  answer: 0
+  explanation: |-
+    With $a = 2x$ and $b = 1$, the $x^4$ term is $\dbinom51 (2x)^4 (1)^1 = 5 \cdot 16x^4 = 80x^4$. Using $2x^4$ instead of $(2x)^4$ gives 10, and 32 is the coefficient of $x^5$.
+- id: alg-m5-r2-h23
+  lesson: alg-m5-h-binomial-expansion
+  type: order
+  topic: Binomial expansion
+  stem: 'Put these binomial coefficients in order from least to greatest.'
+  items: ['$\dbinom51$', '$\dbinom42$', '$\dbinom52$', '$\dbinom62$', '$\dbinom63$']
+  explanation: |-
+    $\dbinom51 = 5$, $\dbinom42 = 6$, $\dbinom52 = 10$, $\dbinom62 = 15$ and $\dbinom63 = 20$. Each can be read from Pascal's triangle: row $n$, position $k$, counting from 0.
+- id: alg-m5-r2-h24
+  lesson: alg-m5-h-binomial-expansion
+  topic: Polynomial identities
+  stem: 'Which equations are identities, true for every value of the variables? Select all that apply.'
+  choices: ['$(x + 1)^2 = x^2 + 2x + 1$', '$(x + 2)^3 = x^3 + 8$', '$(a - b)^2 = (b - a)^2$', '$x^3 = x$', '$(m^2 - n^2)^2 + (2mn)^2 = (m^2 + n^2)^2$']
+  answer: [0, 2, 4]
+  explanation: |-
+    Expanding proves the first. For the third, both sides expand to $a^2 - 2ab + b^2$. The last is Euclid's identity: both sides equal $m^4 + 2m^2n^2 + n^4$. $(x + 2)^3 = x^3 + 8$ fails at $x = 1$ ($27 \ne 9$), and $x^3 = x$ fails at $x = 2$.
+- id: alg-m5-r2-h25
+  lesson: alg-m5-h-binomial-expansion
+  type: match
+  topic: Polynomial identities
+  stem: 'Euclid''s formula makes the Pythagorean triple $m^2 - n^2$, $2mn$, $m^2 + n^2$. Match each pair $m$, $n$ to its triple.'
+  pairs:
+    - ['$m = 2$, $n = 1$', '3, 4, 5']
+    - ['$m = 3$, $n = 2$', '5, 12, 13']
+    - ['$m = 4$, $n = 1$', '15, 8, 17']
+    - ['$m = 5$, $n = 2$', '21, 20, 29']
+  distractors: ['6, 8, 10', '7, 24, 25']
+  explanation: |-
+    For $m = 5$, $n = 2$: $25 - 4 = 21$, $2 \cdot 5 \cdot 2 = 20$ and $25 + 4 = 29$, and indeed $441 + 400 = 841 = 29^2$. The others work the same way. $7, 24, 25$ is a real triple, but it comes from $m = 4$, $n = 3$; $6, 8, 10$ is a multiple of $3, 4, 5$ and comes from none of these pairs.
+- id: alg-m5-r2-h26
+  lesson: alg-m5-h-binomial-expansion
+  topic: Polynomial identities
+  stem: 'Which value of $x$ shows that $x^3 = x$ is not an identity?'
+  choices: ['$x = 0$', '$x = 1$', '$x = -1$', '$x = 2$']
+  answer: 3
+  explanation: |-
+    At $x = 2$ the left side is 8 and the right side is 2, so the equation fails: one counterexample is enough. At $0$, $1$ and $-1$ the two sides agree, which is why testing only those values could fool you.
+- id: alg-m5-r2-h27
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'Use the first three terms of the binomial expansion to estimate $1.02^4$.'
+  choices: ['$1.0824$', '$1.08$', '$1.8$', '$1.0024$']
+  answer: 0
+  explanation: |-
+    $(1 + 0.02)^4 \approx 1 + 4(0.02) + 6(0.02)^2 = 1 + 0.08 + 0.0024 = 1.0824$. (The exact value is $1.08243216$.) Stopping after two terms gives $1.08$, leaving out the $4(0.02)$ term gives $1.0024$, and $1.8$ comes from misplacing the decimal point in $4(0.02) = 0.08$.
+- id: alg-m5-r2-h28
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'Why is the coefficient of $a^3b^2$ in $(a + b)^5$ equal to $4 + 6$?'
+  choices: ['Because $4 + 6 = 10$ is the number of terms in row 5', 'Because $a^3b^2$ has degree $3 + 2 = 5$', 'Because the coefficients of every row add to 10', 'Because $a^3b^2$ comes from $a^3b$ times $b$ (coefficient 4) and from $a^2b^2$ times $a$ (coefficient 6)']
+  answer: 3
+  explanation: |-
+    $(a + b)^5 = (a + b)^4(a + b)$. In $(a + b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4$, two terms can produce $a^3b^2$: $4a^3b \cdot b$ and $6a^2b^2 \cdot a$. Their coefficients add to 10. Row 5 has 6 terms, and its coefficients add to $2^5 = 32$.
+- id: alg-m5-r2-h29
+  lesson: alg-m5-h-binomial-expansion
+  topic: Binomial expansion
+  stem: 'What is the middle term of the expansion of $(x - 2)^4$?'
+  choices: ['$-24x^2$', '$24x^2$', '$6x^2$', '$-12x^2$']
+  answer: 1
+  explanation: |-
+    The middle term has $k = 2$: $\dbinom42 x^2(-2)^2 = 6 \cdot 4x^2 = 24x^2$. It is positive because $-2$ is squared. $-24x^2$ has the right size but the wrong sign, $6x^2$ leaves out the $(-2)^2$, and $-12x^2$ uses $-2$ where $(-2)^2$ belongs.

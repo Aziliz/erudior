@@ -51,6 +51,12 @@ $$a^{-n} = \frac{1}{a^n} \quad (a \ne 0).$$
 
 A negative exponent means "reciprocal," not "negative number": $2^{-3} = \tfrac18$, which is positive. With these definitions, all the rules above work for every integer exponent.
 
+The pattern in the powers of 2 shows the same thing. Each step to the left divides by 2, so the values keep halving past $2^0 = 1$ instead of turning negative:
+
+```plot
+{"x": [-3.5, 3.5], "y": [-0.5, 9], "points": [{"at": [-3, 0.125], "label": "1/8"}, {"at": [-2, 0.25], "label": "1/4"}, {"at": [-1, 0.5], "label": "1/2"}, {"at": [0, 1], "label": "1"}, {"at": [1, 2], "label": "2"}, {"at": [2, 4], "label": "4"}, {"at": [3, 8], "label": "8"}], "xLabel": "exponent n", "yLabel": "2ⁿ", "caption": "Powers of 2 from 2⁻³ to 2³: each step left halves the value, so 2⁰ = 1, 2⁻¹ = 1/2 and 2⁻³ = 1/8"}
+```
+
 Two handy consequences: $\dfrac{1}{a^{-n}} = a^n$, so a factor can move between numerator and denominator by changing the sign of its exponent; and $\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$.
 
 ### Example 2
@@ -71,6 +77,18 @@ Simplify $\dfrac{12x^{-3}y^5}{4x^2y^{-1}}$ and write it with positive exponents 
 4. Result: $3x^{-5}y^6 = \dfrac{3y^6}{x^5}$.
 
 Subtracting a negative exponent is where most errors happen: $5 - (-1) = 6$, not 4.
+
+Examples 1 and 3 follow the same routine, which works for any product or quotient of powers:
+
+```mermaid
+flowchart TD
+  accTitle: A routine for simplifying an exponent expression
+  accDescr: Step 1, apply any exponent outside parentheses to every factor inside. Step 2, multiply or divide the coefficients. Step 3, for each base, add the exponents when multiplying and subtract them when dividing. Step 4, rewrite negative exponents as reciprocals. Step 5, check that each base appears only once and every exponent is positive.
+  A["Apply any outside exponent to every factor inside"] --> B["Multiply or divide the coefficients"]
+  B --> C["Each base: add exponents to multiply, subtract to divide"]
+  C --> D["Rewrite negative exponents as reciprocals"]
+  D --> E["Check: each base once, all exponents positive"]
+```
 
 ## Summary of the rules
 
@@ -95,6 +113,10 @@ Not a rule: $(a + b)^n$ is not $a^n + b^n$. For instance $(1 + 2)^2 = 9$ but $1^
 $$c \times 10^n, \qquad 1 \le |c| < 10,\; n \text{ an integer}.$$
 
 The exponent counts how many places the decimal point moves. Large numbers get positive exponents and small numbers negative ones: $93{,}000{,}000 = 9.3 \times 10^7$ and $0.00042 = 4.2 \times 10^{-4}$.
+
+The picture names the parts of a power and of a number in scientific notation:
+
+![Two expressions with their parts labeled. In 7x to the 4th, the 7 is the coefficient, x is the base and 4 is the exponent. In 3.2 times 10 to the minus 5, 3.2 is the decimal part and 10 to the minus 5 is the power of ten.](images/alg-m5-power-parts.svg)
 
 To multiply or divide, handle the decimal parts and the powers of ten separately (using the product and quotient rules), then adjust so the decimal part is between 1 and 10.
 

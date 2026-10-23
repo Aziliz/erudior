@@ -1,0 +1,113 @@
+# Functions and their transformations: round 2 drills (honors lessons)
+- id: a2-m1-r2-full-transform
+  title: Move a point through y = a f(bx − c) + k
+  topic: Transformations
+  vars:
+    n: {min: -6, max: 6}
+    b: {choices: [-3, -2, 2, 3]}
+    h: {min: -5, max: 5}
+    q: {min: -6, max: 6}
+    a: {choices: [-3, -2, 2, 3, 4]}
+    k: {min: -8, max: 8}
+  where: ['h != 0', 'k != 0', 'q != 0', 'n != h', 'abs(b*(n - h)) <= 15']
+  calc:
+    p: b*(n - h)
+    pb: n - h
+    c: b*h
+    nc: -c
+    nh: -h
+    aq: a*q
+    ny: a*q + k
+  prompt: 'The point $({p}, {q})$ is on the graph of $y = f(x)$. Find the matching point on the graph of $y = {a:coef}f({b:coef}x {nc:signed}) {k:signed}$.'
+  answers:
+    - {name: n, label: 'New $x$'}
+    - {name: ny, label: 'New $y$'}
+  solution: |-
+    Factor $b$ out of the inside: ${b:coef}x {nc:signed} = {b}(x {nh:signed})$. So $b = {b}$, $h = {h}$, $a = {a}$ and $k = {k}$. Points move by $(x, y) \to \left(\tfrac{x}{b} + h,\; ay + k\right)$.
+    New $x$: ${p} \div ({b}) + ({h}) = {pb} + ({h}) = {n}$. New $y$: ${a}({q}) + ({k}) = {aq} + ({k}) = {ny}$. The point is **$({n}, {ny})$**.
+    Check: at $x = {n}$ the inside is ${b}({n}) {nc:signed} = {p}$, so the output is ${a}f({p}) + ({k}) = {ny}$.
+
+- id: a2-m1-r2-even-odd-parts
+  title: Even and odd parts of a cubic
+  topic: Symmetry
+  vars:
+    p: {choices: [-3, -2, -1, 1, 2, 3]}
+    q: {min: -9, max: 9}
+  where: ['p^3 + q != 0', 'q != 0']
+  calc:
+    tp: 3*p
+    tp2: 3*p^2
+    c0: p^3 + q
+  prompt: 'Split $f(x) = (x {p:signed})^3 {q:signed}$ into its even part $E(x)$ and its odd part $O(x)$, so that $f = E + O$.'
+  answers:
+    - {kind: expression, expression: 3*p*x^2 + p^3 + q, variables: [x], label: '$E(x) =$', show: '${tp}x^2 {c0:signed}$'}
+    - {kind: expression, expression: x^3 + 3*p^2*x, variables: [x], label: '$O(x) =$', show: 'x^3 + {tp2}x'}
+  solution: |-
+    Expand: $f(x) = x^3 {tp:signed}x^2 + {tp2}x {c0:signed}$.
+    $E(x) = \tfrac12\big(f(x) + f(-x)\big)$ keeps the even powers (the constant counts as $x^0$), and $O(x) = \tfrac12\big(f(x) - f(-x)\big)$ keeps the odd powers.
+    So $E(x) =$ **${tp}x^2 {c0:signed}$** and $O(x) =$ **$x^3 + {tp2}x$**. Check: $E(-x) = E(x)$, $O(-x) = -O(x)$, and $E + O = f$.
+
+- id: a2-m1-r2-inverse-composite
+  title: Undo a chain of steps
+  topic: Inverse functions
+  vars:
+    a: {choices: [-3, -2, 2, 3, 4, 5]}
+    hh: {min: -5, max: 5}
+    k: {min: -20, max: 20}
+    t: {min: -4, max: 4}
+  where: ['hh != 0', 'k != 0', 't != hh', 'abs(a*(t - hh)^3 + k) <= 400']
+  calc:
+    nhh: -hh
+    v: a*(t - hh)^3 + k
+    u1: v - k
+    u2: (v - k)/a
+    u3: t - hh
+  prompt: 'Let $h(x) = {a:coef}(x {nhh:signed})^3 {k:signed}$. Find $h^{-1}({v})$.'
+  answer: t
+  format: integer
+  solution: |-
+    $h$ subtracts {hh} (adds {nhh} inside), cubes, multiplies by {a} and adds {k}. Undo the steps in reverse order, starting from {v}:
+    subtract {k}: ${v} - ({k}) = {u1}$; divide by {a}: ${u1} \div ({a}) = {u2}$; cube root: $\sqrt[3]{ {u2} } = {u3}$; add {hh}: ${u3} + ({hh}) = {t}$.
+    So $h^{-1}({v}) =$ **{t}**. Check: $h({t}) = {a}({u3})^3 + ({k}) = {v}$.
+
+- id: a2-m1-r2-inverse-monotone
+  title: Inverse value of an increasing function
+  topic: Monotonic functions
+  vars:
+    m: {min: 1, max: 6}
+    c: {min: -10, max: 10}
+    t: {min: -3, max: 3}
+  where: ['c != 0']
+  calc:
+    v: t^3 + m*t + c
+    w: v - c
+    t3: t^3
+    mt: m*t
+  prompt: 'The function $f(x) = x^3 + {m:coef}x {c:signed}$ is strictly increasing, so it has an inverse. Find $f^{-1}({v})$. (The answer is an integer.)'
+  answer: t
+  format: integer
+  solution: |-
+    $f^{-1}({v})$ is the input that gives {v}. Solve $x^3 + {m:coef}x {c:signed} = {v}$, that is, $x^3 + {m:coef}x = {w}$.
+    Try small integers: $x = {t}$ gives ${t3} + ({mt}) = {w}$. ✓ Because $x^3$ and ${m:coef}x$ are both strictly increasing, so is $f$, so there is no other solution.
+    $f^{-1}({v}) =$ **{t}**.
+
+- id: a2-m1-r2-inverse-tiered
+  title: Usage from a tiered bill
+  topic: Inverse functions
+  vars:
+    r1: {choices: [0.08, 0.1, 0.12]}
+    r2: {choices: [0.15, 0.18, 0.2]}
+    L: {choices: [300, 400, 500]}
+    u: {min: 550, max: 1500, step: 10}
+  calc:
+    base: r1*L
+    extra: u - L
+    bill: r1*L + r2*(u - L)
+    over: r2*(u - L)
+  prompt: 'An electricity plan charges {r1:money} per kWh for the first {L} kWh in a month and {r2:money} per kWh after that. A month''s bill is {bill:money}. How many kWh were used?'
+  answer: u
+  format: integer
+  solution: |-
+    The first {L} kWh cost ${L} \times {r1} = $ {base:money}. The bill is more than that, so the usage is past {L} kWh, in the second tier.
+    The rest of the bill is {bill:money} − {base:money} = {over:money}, which buys {over:money} ÷ {r2:money} = {extra} more kWh.
+    Usage: ${L} + {extra} =$ **{u}** kWh. Check: {base:money} + {extra} × {r2:money} = {bill:money}.

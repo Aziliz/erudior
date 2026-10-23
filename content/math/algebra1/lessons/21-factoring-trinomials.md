@@ -65,6 +65,12 @@ Factor $6x^2 + 11x - 10$.
 
 Why does this work? If $ax^2 + bx + c = (px + q)(rx + s)$, then $a = pr$, $c = qs$ and $b = ps + qr$. The two numbers $ps$ and $qr$ have sum $b$ and product $ps \cdot qr = pr \cdot qs = ac$. Splitting $bx$ into $psx + qrx$ is exactly what makes grouping succeed.
 
+Some people prefer to do the grouping step in a box. Put the four terms of the split into a 2-by-2 grid, with $ax^2$ top left and $c$ bottom right. The common factor of each row and of each column then gives the two binomials. For Example 3, the rows have common factors $3x$ and $-2$, and the columns $2x$ and $5$:
+
+![A 2 by 2 box for 6x squared plus 11x minus 10. The cells hold 6x squared, 15x, minus 4x and minus 10. The columns are labeled 2x and plus 5, and the rows 3x and minus 2, so the trinomial is (2x + 5)(3x - 2).](images/alg-m5-box-method.svg)
+
+Choose the sign of each row's factor so that the column factors come out the same in both rows: taking $-2$ out of $-4x$ and $-10$ leaves $2x$ and $5$, matching the top row.
+
 The alternative is trial and error: list the factor pairs of $a$ and of $c$ and test combinations until the outer plus inner products give $bx$. With practice this is often faster for small numbers.
 
 ### Example 4
@@ -112,6 +118,23 @@ Factor $x^4 - 81$ completely.
 4. Result: $(x^2 + 9)(x + 3)(x - 3)$.
 
 ## A factoring strategy
+
+```mermaid
+flowchart TD
+  accTitle: A strategy for factoring any polynomial
+  accDescr: First factor out the GCF. Then count the terms. With two terms, look for a difference of squares, a sum of cubes or a difference of cubes. With three terms, check for a perfect square trinomial, which factors as a binomial squared; otherwise use sum and product when the leading coefficient is 1, or the ac method. With four terms, use grouping. In every case, finish by factoring each factor further if possible and checking by multiplying.
+  A["Factor out the GCF"] --> B{"How many terms?"}
+  B -- Two --> C["Difference of squares, sum of cubes or difference of cubes"]
+  B -- Three --> D{"Perfect square trinomial?"}
+  D -- Yes --> E["Write it as (a ± b)²"]
+  D -- No --> F["Sum-product if a = 1, otherwise the ac method"]
+  B -- Four --> G["Grouping"]
+  C --> H["Factor each factor further, then multiply back to check"]
+  E --> H
+  F --> H
+  G --> H
+```
+
 
 1. Factor out the GCF (a negative one if the leading coefficient is negative).
 2. Count the terms.

@@ -50,6 +50,20 @@ $$y = a\sqrt{x - h} + k \qquad\qquad y = a\sqrt[3]{x - h} + k$$
 
 To plot points quickly, choose inputs that make $x - h$ a perfect square (or a perfect cube), so the root comes out whole.
 
+Here is the whole procedure for a square root graph as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Graphing y = a√(x − h) + k
+  accDescr: First read h and k from the equation, remembering that x + 3 means h = −3. Plot the starting point (h, k); the domain is x greater than or equal to h. Then check the sign of a. If a is positive the graph rises from the starting point and the range is y greater than or equal to k. If a is negative the graph falls and the range is y less than or equal to k. Finally choose x values that make x − h equal 0, 1, 4 and 9, compute the outputs, plot and connect.
+  A["Read h and k (x + 3 means h = −3)"] --> B["Plot the starting point (h, k); domain x ≥ h"]
+  B --> C{"Sign of a?"}
+  C -- "a positive" --> D["Graph rises; range y ≥ k"]
+  C -- "a negative" --> E["Graph falls; range y ≤ k"]
+  D --> F["Pick x with x − h = 0, 1, 4, 9; plot and connect"]
+  E --> F
+```
+
 ### Example 1
 
 Graph $g(x) = 2\sqrt{x + 3} - 1$ and state its domain and range.
@@ -73,6 +87,10 @@ Graph $h(x) = -\sqrt[3]{x - 2} + 4$.
 ```
 
 A number multiplying $x$ inside the root changes the domain too. For $y = \sqrt{2x - 6}$, the radicand must be nonnegative: $2x - 6 \ge 0$, so $x \ge 3$, and the graph starts at $(3, 0)$. For $y = \sqrt{-x}$, the domain is $x \le 0$: the graph of $\sqrt x$ reflected across the $y$-axis.
+
+The picture puts the two reflections of $\sqrt x$ next to the original and the cube root. A minus sign outside the root, $-\sqrt x$, flips the graph across the $x$-axis; a minus sign inside, $\sqrt{-x}$, flips it across the $y$-axis. The cube root needs neither: it already covers both sides.
+
+![Four graphs on one set of axes. y = √x starts at the origin and rises to the right. y = −√x starts at the origin and falls to the right. y = √(−x) starts at the origin and rises to the left. y = ∛x passes through the origin, rising from the lower left to the upper right.](images/a1-m7-root-graphs.svg)
 
 ### Example 3
 

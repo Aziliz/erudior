@@ -96,11 +96,36 @@ The reverse question, "what lifetime is at the 90th percentile?", uses the inver
 
 Not every data set is normal. Incomes and waiting times, for example, are **skewed**, with a long tail on one side, and the 68–95–99.7 rule doesn't apply to them. Check the shape (a histogram) before using normal methods.
 
+The chart sums up which tool to reach for.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a normal probability
+  accDescr: First check whether the data are roughly normal, for example with a histogram. If not, normal methods do not apply; work with the actual distribution instead. If the data are roughly normal, ask whether the cutoffs are a whole number of standard deviations from the mean. If so, the 68-95-99.7 rule gives an estimate. If not, find the z-scores and use normalcdf or a z-table; for a greater-than question, subtract the left-tail area from 1.
+  A["Are the data roughly normal?"] -- no --> X["Don't use normal methods; work with the actual distribution"]
+  A -- yes --> B["Are the cutoffs a whole number of SDs from the mean?"]
+  B -- yes --> C["Use the 68-95-99.7 rule"]
+  B -- no --> D["Find z-scores, then use normalcdf or a z-table"]
+  D --> E["For a greater-than question, subtract the left area from 1"]
+```
+
 ## Samples, surveys and margin of error
 
 Usually we want to know something about a **population**, the entire group of interest, such as all voters in a state. Measuring everyone is rarely possible, so we study a **sample**, a part of the population, and use it to estimate the population. A number describing the population (the true percent of all voters who support a law) is a **parameter**; the matching number computed from a sample is a **statistic**.
 
 A sample is only useful if it represents the population. In a **simple random sample**, every group of $n$ individuals is equally likely to be chosen. Samples chosen for convenience (people walking by a mall) or by volunteering (an online poll) are prone to **bias**: they systematically over- or under-represent part of the population, and no amount of extra data fixes that.
+
+The diagram shows how the pieces of a survey fit together.
+
+```mermaid
+flowchart TD
+  accTitle: From a population to an estimate
+  accDescr: The population is the whole group of interest, and its true value, such as the percent of all voters who support a law, is a parameter that is usually unknown. A random sample of n individuals is drawn from the population. A statistic, such as the percent of the sample who support the law, is computed from the sample. The statistic plus or minus the margin of error gives an estimate of the parameter, which describes the population.
+  P["Population: the whole group; its true value is a parameter, usually unknown"] --> S["Random sample of n individuals"]
+  S --> T["Statistic: the value computed from the sample, such as 54%"]
+  T --> E["Estimate: statistic plus or minus the margin of error"]
+  E -. "says something about the parameter" .-> P
+```
 
 Even a perfect random sample won't match the population exactly, because samples vary by chance. The **margin of error** says how far a sample percent is likely to be from the population percent. For a random sample of size $n$, a quick estimate at about 95% confidence is
 

@@ -68,6 +68,22 @@ A value on a boundary, like 20, goes in the bin that starts there (20–<30). Bi
 is a choice: too few bins hide the shape, too many make it ragged. About 5–15 bins is
 typical. A histogram cannot tell you individual values — only how many fall in each bin.
 
+Which display to use depends mostly on how many values there are and what you need to read off.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a display for quantitative data
+  accDescr: For a small data set of up to about 50 values, use a dotplot or a stemplot, which keep every value. For a larger data set, use a histogram. To read off percentiles or the median from grouped data, use a cumulative relative frequency graph, called an ogive. Whatever the display, describe shape, center, spread and unusual values in context.
+  A["Quantitative data"] --> B{"About 50 values or fewer?"}
+  B -- Yes --> C["Dotplot or stemplot (every value visible)"]
+  B -- No --> D["Histogram (values grouped into bins)"]
+  A --> E{"Need percentiles from grouped data?"}
+  E -- Yes --> F["Ogive (cumulative relative frequency)"]
+  C --> G["Describe shape, center, spread, unusual values"]
+  D --> G
+  F --> G
+```
+
 ## Describing shape
 
 - **Symmetric**: the left and right halves are rough mirror images.
@@ -78,6 +94,8 @@ typical. A histogram cannot tell you individual values — only how many fall in
 - **Unimodal** / **bimodal**: one clear peak or two. Two peaks often mean two groups mixed
   together (e.g., heights of adult men and women combined).
 - **Uniform**: roughly flat; all bins about equally full.
+
+![Four histograms. Top left: symmetric, with one central peak and matching tails. Top right: skewed right, with the peak at the left and a long tail to the right. Bottom left: skewed left, with the peak at the right and a long tail to the left. Bottom right: bimodal, with two separate peaks.](images/stat-m1-shapes.svg)
 
 The direction of skew is the direction of the *tail*, not of the peak. In a right-skewed
 distribution the peak is on the left.

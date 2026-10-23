@@ -38,6 +38,10 @@ Why does adding work? To get $(a + b)^5$, multiply $(a + b)^4$ by $(a + b)$. The
 
 Write $(a + b)^4 = (a + b)(a + b)(a + b)(a + b)$. Multiplying out means choosing either $a$ or $b$ from each of the four factors and multiplying the choices. A term $a^2b^2$ appears once for every way of choosing which 2 of the 4 factors supply a $b$. That's $_4C_2 = 6$ ways, which is exactly the coefficient of $a^2b^2$.
 
+The picture shows the same idea for the smaller power $(a + b)^3$: list every way to pick $a$ or $b$ from the three factors, then group the picks by how many $b$'s they use.
+
+![All eight ways to pick a or b from each of three factors, sorted into four columns by the number of b's. No b: aaa, 1 way, giving a cubed. One b: baa, aba, aab, 3 ways, giving 3a squared b. Two b's: bba, bab, abb, 3 ways, giving 3ab squared. Three b's: bbb, 1 way, giving b cubed. So (a + b) cubed equals a cubed + 3a squared b + 3ab squared + b cubed, with coefficients 1, 3, 3, 1.](images/a2-m8-choose-factors.svg)
+
 In general, the coefficient of $a^{n-k}b^k$ in $(a + b)^n$ is the number of ways to choose the $k$ factors that supply $b$, which is $_nC_k$. Because of this, the numbers $_nC_k$, also written $\binom{n}{k}$, are called **binomial coefficients**, and entry $k$ of row $n$ of Pascal's triangle (counting from $k = 0$) is $_nC_k$. Row 6 is $_6C_0, {}_6C_1, \ldots, {}_6C_6 = 1, 6, 15, 20, 15, 6, 1$.
 
 ## The binomial theorem
@@ -103,6 +107,20 @@ $$_6C_k\, x^{6-k}\left(2x^{-1}\right)^k = {}_6C_k\, 2^k\, x^{6-k}x^{-k} = {}_6C_
 3. The constant term is $_6C_3 \cdot 2^3 = 20 \cdot 8 = 160$.
 
 The method is always the same: write the general term, collect the powers of $x$ into one exponent, and choose $k$ to make that exponent what you want. If no whole number $k$ from 0 to $n$ works, there is no such term. For instance, $\left(x + \tfrac2x\right)^6$ has no $x^3$ term, because $6 - 2k = 3$ has no whole-number solution.
+
+Here is the whole procedure as a flowchart. To find "the $r$th term" instead of a given power, skip to $k = r - 1$.
+
+```mermaid
+flowchart TD
+  accTitle: Finding one term of a binomial expansion
+  accDescr: Identify a, b and n, keeping any coefficient and minus sign with a and b. Write the general term, n C k times a to the n minus k times b to the k. Collect the powers of x into a single exponent. Set that exponent equal to the power you want and solve for k. If k is not a whole number from 0 to n, there is no such term. If it is, substitute k and simplify to get the term and its coefficient.
+  A["Identify a, b and n, keeping signs and coefficients"] --> B["Write the general term: nCk times a^(n-k) times b^k"]
+  B --> C["Collect the powers of x into one exponent"]
+  C --> D["Set the exponent equal to the power you want; solve for k"]
+  D --> E["Is k a whole number from 0 to n?"]
+  E -- no --> F["There is no such term"]
+  E -- yes --> G["Substitute k and simplify"]
+```
 
 ## A connection to counting and probability
 

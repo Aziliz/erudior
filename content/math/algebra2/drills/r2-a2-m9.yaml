@@ -1,0 +1,168 @@
+# Round 2 drills for a2-m9 honors lessons (tangent and reciprocal functions; inverse trig and equations)
+- id: a2-m9-r2-reciprocal-values
+  title: Tangent, secant and cosecant of special angles
+  topic: Tangent and reciprocal functions
+  vars:
+    ang:
+      choices:
+      - {label: '$30^\circ$ is in quadrant I with reference angle $30^\circ$, so $\sin\theta = \tfrac12$ and $\cos\theta = \tfrac{\sqrt3}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \tfrac{\sqrt3}{3}$, $\sec\theta = \dfrac{1}{\cos\theta} = \tfrac{2\sqrt3}{3}$ and $\csc\theta = \dfrac{1}{\sin\theta} = 2$ (rationalized).', value: 30}
+      - {label: '$45^\circ$ is in quadrant I with reference angle $45^\circ$, so $\sin\theta = \tfrac{\sqrt2}{2}$ and $\cos\theta = \tfrac{\sqrt2}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = 1$, $\sec\theta = \dfrac{1}{\cos\theta} = \sqrt2$ and $\csc\theta = \dfrac{1}{\sin\theta} = \sqrt2$ (rationalized).', value: 45}
+      - {label: '$60^\circ$ is in quadrant I with reference angle $60^\circ$, so $\sin\theta = \tfrac{\sqrt3}{2}$ and $\cos\theta = \tfrac12$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \sqrt3$, $\sec\theta = \dfrac{1}{\cos\theta} = 2$ and $\csc\theta = \dfrac{1}{\sin\theta} = \tfrac{2\sqrt3}{3}$ (rationalized).', value: 60}
+      - {label: '$120^\circ$ is in quadrant II with reference angle $60^\circ$, so $\sin\theta = \tfrac{\sqrt3}{2}$ and $\cos\theta = -\tfrac12$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = -\sqrt3$, $\sec\theta = \dfrac{1}{\cos\theta} = -2$ and $\csc\theta = \dfrac{1}{\sin\theta} = \tfrac{2\sqrt3}{3}$ (rationalized).', value: 120}
+      - {label: '$135^\circ$ is in quadrant II with reference angle $45^\circ$, so $\sin\theta = \tfrac{\sqrt2}{2}$ and $\cos\theta = -\tfrac{\sqrt2}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = -1$, $\sec\theta = \dfrac{1}{\cos\theta} = -\sqrt2$ and $\csc\theta = \dfrac{1}{\sin\theta} = \sqrt2$ (rationalized).', value: 135}
+      - {label: '$150^\circ$ is in quadrant II with reference angle $30^\circ$, so $\sin\theta = \tfrac12$ and $\cos\theta = -\tfrac{\sqrt3}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = -\tfrac{\sqrt3}{3}$, $\sec\theta = \dfrac{1}{\cos\theta} = -\tfrac{2\sqrt3}{3}$ and $\csc\theta = \dfrac{1}{\sin\theta} = 2$ (rationalized).', value: 150}
+      - {label: '$210^\circ$ is in quadrant III with reference angle $30^\circ$, so $\sin\theta = -\tfrac12$ and $\cos\theta = -\tfrac{\sqrt3}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \tfrac{\sqrt3}{3}$, $\sec\theta = \dfrac{1}{\cos\theta} = -\tfrac{2\sqrt3}{3}$ and $\csc\theta = \dfrac{1}{\sin\theta} = -2$ (rationalized).', value: 210}
+      - {label: '$225^\circ$ is in quadrant III with reference angle $45^\circ$, so $\sin\theta = -\tfrac{\sqrt2}{2}$ and $\cos\theta = -\tfrac{\sqrt2}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = 1$, $\sec\theta = \dfrac{1}{\cos\theta} = -\sqrt2$ and $\csc\theta = \dfrac{1}{\sin\theta} = -\sqrt2$ (rationalized).', value: 225}
+      - {label: '$240^\circ$ is in quadrant III with reference angle $60^\circ$, so $\sin\theta = -\tfrac{\sqrt3}{2}$ and $\cos\theta = -\tfrac12$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \sqrt3$, $\sec\theta = \dfrac{1}{\cos\theta} = -2$ and $\csc\theta = \dfrac{1}{\sin\theta} = -\tfrac{2\sqrt3}{3}$ (rationalized).', value: 240}
+      - {label: '$300^\circ$ is in quadrant IV with reference angle $60^\circ$, so $\sin\theta = -\tfrac{\sqrt3}{2}$ and $\cos\theta = \tfrac12$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = -\sqrt3$, $\sec\theta = \dfrac{1}{\cos\theta} = 2$ and $\csc\theta = \dfrac{1}{\sin\theta} = -\tfrac{2\sqrt3}{3}$ (rationalized).', value: 300}
+      - {label: '$315^\circ$ is in quadrant IV with reference angle $45^\circ$, so $\sin\theta = -\tfrac{\sqrt2}{2}$ and $\cos\theta = \tfrac{\sqrt2}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = -1$, $\sec\theta = \dfrac{1}{\cos\theta} = \sqrt2$ and $\csc\theta = \dfrac{1}{\sin\theta} = -\sqrt2$ (rationalized).', value: 315}
+      - {label: '$330^\circ$ is in quadrant IV with reference angle $30^\circ$, so $\sin\theta = -\tfrac12$ and $\cos\theta = \tfrac{\sqrt3}{2}$. Then $\tan\theta = \dfrac{\sin\theta}{\cos\theta} = -\tfrac{\sqrt3}{3}$, $\sec\theta = \dfrac{1}{\cos\theta} = \tfrac{2\sqrt3}{3}$ and $\csc\theta = \dfrac{1}{\sin\theta} = -2$ (rationalized).', value: 330}
+  calc:
+    tn: tand(ang)
+    se: 1/cosd(ang)
+    cs: 1/sind(ang)
+  prompt: 'Find the exact values of $\tan\theta$, $\sec\theta$ and $\csc\theta$ for $\theta = {ang:int}^\circ$. Type roots like sqrt(3)/3 or 2sqrt(3)/3.'
+  answers:
+    - {name: tn, label: '$\tan\theta =$', tolerance: 0.001, format: num4}
+    - {name: se, label: '$\sec\theta =$', tolerance: 0.001, format: num4}
+    - {name: cs, label: '$\csc\theta =$', tolerance: 0.001, format: num4}
+  solution: |-
+    {ang}
+    As decimals: $\tan\theta \approx {tn:dp3}$, $\sec\theta \approx {se:dp3}$, $\csc\theta \approx {cs:dp3}$.
+
+- id: a2-m9-r2-tan-graph
+  title: Period and asymptotes of y = a tan(bx)
+  topic: Tangent and reciprocal functions
+  vars:
+    a: {min: 1, max: 6}
+    bb: {min: 2, max: 6}
+  calc:
+    per: pi/bb
+    asy: pi/(2*bb)
+    den2: 2*bb
+    den4: 4*bb
+    yq: a*tan(pi/4)
+  prompt: 'For $y = {a:coef}\tan({bb}x)$, find the period, the first vertical asymptote to the right of $x = 0$, and the value of $y$ at $x = \dfrac{\pi}{{den4}}$. Type pi for $\pi$.'
+  answers:
+    - {name: per, label: 'Period', tolerance: 0.001, format: num4}
+    - {name: asy, label: 'Asymptote: $x =$', tolerance: 0.001, format: num4}
+    - {name: yq, label: '$y =$', tolerance: 0.001}
+  solution: |-
+    The period of $y = a\tan(bx)$ is $\dfrac{\pi}{b} =$ **$\dfrac{\pi}{{bb}}$** (about {per:num2}).
+    Tangent has a vertical asymptote where its input is $\tfrac{\pi}{2}$: ${bb}x = \dfrac{\pi}{2}$ gives **$x = \dfrac{\pi}{{den2}}$**, halfway between the zeros at $0$ and $\dfrac{\pi}{{bb}}$.
+    At $x = \dfrac{\pi}{{den4}}$ the input is ${bb} \cdot \dfrac{\pi}{{den4}} = \dfrac{\pi}{4}$, and $\tan\dfrac{\pi}{4} = 1$, so $y = {a} \cdot 1 =$ **{a}**.
+
+- id: a2-m9-r2-pythagorean-tan
+  title: From tangent to secant and sine
+  topic: Tangent and reciprocal functions
+  vars:
+    tr: {min: 1, max: 4}
+    sw: {choices: [0, 1]}
+    quad: {choices: [{label: 'I', value: 1}, {label: 'II', value: 2}, {label: 'III', value: 3}, {label: 'IV', value: 4}]}
+  calc:
+    p1: if(tr == 1, 3, if(tr == 2, 5, if(tr == 3, 8, 7)))
+    p2: if(tr == 1, 4, if(tr == 2, 12, if(tr == 3, 15, 24)))
+    hyp: if(tr == 1, 5, if(tr == 2, 13, if(tr == 3, 17, 25)))
+    adj: if(sw == 0, p1, p2)
+    opp: if(sw == 0, p2, p1)
+    sx: if(quad == 1 or quad == 4, 1, -1)
+    sy: if(quad <= 2, 1, -1)
+    tn: sy*opp/(sx*adj)
+    sec2: 1 + tn^2
+    se: sx*hyp/adj
+    si: sy*opp/hyp
+    co: sx*adj/hyp
+  prompt: 'If $\tan\theta = {tn:texfrac}$ and $\theta$ is in quadrant {quad}, find the exact values of $\sec\theta$ and $\sin\theta$ (as fractions).'
+  answers:
+    - {name: se, label: '$\sec\theta =$', kind: fraction}
+    - {name: si, label: '$\sin\theta =$', kind: fraction}
+  solution: |-
+    Use $\tan^2\theta + 1 = \sec^2\theta$: $\sec^2\theta = 1 + \left({tn:texfrac}\right)^2 = {sec2:texfrac}$, so $\sec\theta = \pm\dfrac{{hyp}}{{adj}}$.
+    Secant has the same sign as cosine, and in quadrant {quad} that gives $\sec\theta =$ **${se:texfrac}$**, so $\cos\theta = \dfrac{1}{\sec\theta} = {co:texfrac}$.
+    Then $\sin\theta = \tan\theta \cdot \cos\theta = {tn:texfrac} \cdot \left({co:texfrac}\right) =$ **${si:texfrac}$**. Check: $\sin^2\theta + \cos^2\theta = 1$, and the signs of sine and cosine fit quadrant {quad}.
+
+- id: a2-m9-r2-inverse-values
+  title: Exact values of inverse trig functions
+  topic: Inverse trig and equations
+  vars:
+    ex:
+      choices:
+      - {label: '\arcsin\left(\tfrac12\right)', value: 0.166666666667}
+      - {label: '\arcsin\left(-\tfrac12\right)', value: -0.166666666667}
+      - {label: '\arcsin\left(\tfrac{\sqrt2}{2}\right)', value: 0.25}
+      - {label: '\arcsin\left(-\tfrac{\sqrt2}{2}\right)', value: -0.25}
+      - {label: '\arcsin\left(\tfrac{\sqrt3}{2}\right)', value: 0.333333333333}
+      - {label: '\arcsin\left(-\tfrac{\sqrt3}{2}\right)', value: -0.333333333333}
+      - {label: '\arcsin\left(1\right)', value: 0.5}
+      - {label: '\arcsin\left(-1\right)', value: -0.5}
+      - {label: '\arccos\left(\tfrac12\right)', value: 0.333333333333}
+      - {label: '\arccos\left(-\tfrac12\right)', value: 0.666666666667}
+      - {label: '\arccos\left(\tfrac{\sqrt2}{2}\right)', value: 0.25}
+      - {label: '\arccos\left(-\tfrac{\sqrt2}{2}\right)', value: 0.75}
+      - {label: '\arccos\left(\tfrac{\sqrt3}{2}\right)', value: 0.166666666667}
+      - {label: '\arccos\left(-\tfrac{\sqrt3}{2}\right)', value: 0.833333333333}
+      - {label: '\arccos\left(0\right)', value: 0.5}
+      - {label: '\arctan\left(1\right)', value: 0.25}
+      - {label: '\arctan\left(-1\right)', value: -0.25}
+      - {label: '\arctan\left(\sqrt3\right)', value: 0.333333333333}
+      - {label: '\arctan\left(-\sqrt3\right)', value: -0.333333333333}
+      - {label: '\arctan\left(\tfrac{\sqrt3}{3}\right)', value: 0.166666666667}
+      - {label: '\arctan\left(-\tfrac{\sqrt3}{3}\right)', value: -0.166666666667}
+  calc:
+    ans: ex*pi
+    dg: ex*180
+  prompt: 'Find the exact value of ${ex}$ in radians. Type pi for $\pi$.'
+  answers:
+    - {name: ans, label: 'Value', tolerance: 0.001, format: num4}
+  solution: |-
+    An inverse trig function gives its principal value: $\arcsin$ and $\arctan$ answer with angles from $-\tfrac{\pi}{2}$ to $\tfrac{\pi}{2}$ (quadrants IV and I), and $\arccos$ with angles from $0$ to $\pi$ (quadrants I and II).
+    The angle in that range with the given value is ${dg:int}^\circ$, so ${ex} =$ **${ex:texfrac}\pi$** (about {ans:num4}).
+
+- id: a2-m9-r2-solve-basic
+  title: Solve sin x = c or cos x = c in degrees
+  topic: Inverse trig and equations
+  vars:
+    fn: {choices: [{label: '\sin', value: 1}, {label: '\cos', value: 0}]}
+    cv: {min: -95, max: 95}
+  where: ['cv != 0', 'mod(cv, 5) != 0']
+  calc:
+    cc: cv/100
+    pv: if(fn == 1, asind(cc), acosd(cc))
+    other: if(fn == 1, 180 - pv, -pv)
+    o2: if(other < 0, other + 360, other)
+    p2: if(pv < 0, pv + 360, pv)
+    x1: min(p2, o2)
+    x2: max(p2, o2)
+  prompt: 'Solve ${fn} x = {cc}$ for $0^\circ \le x < 360^\circ$. Give both solutions to the nearest tenth of a degree, smaller first.'
+  answers:
+    - {name: x1, label: 'Smaller: $x \approx$', tolerance: 0.06, format: num1}
+    - {name: x2, label: 'Larger: $x \approx$', tolerance: 0.06, format: num1}
+  solution: |-
+    The calculator (degree mode) gives the principal value ${fn}^{-1}({cc}) \approx {pv:num1}^\circ$.
+    The other angle in the same turn: for sine it is $180^\circ$ minus the principal value, and for cosine it is the negative of the principal value. Here that is ${other:num1}^\circ$.
+    Adding $360^\circ$ to any negative angle and listing the smaller first: **{x1:num1}°** and **{x2:num1}°**.
+
+- id: a2-m9-r2-model-when
+  title: When does a Ferris wheel rider reach a height?
+  topic: Inverse trig and equations
+  vars:
+    D: {min: 20, max: 80, step: 2}
+    plat: {min: 1, max: 5}
+    T: {choices: [4, 5, 6, 8, 10, 12]}
+    Hn: {min: 3, max: 84}
+  where: ['Hn > plat + 1', 'Hn < D + plat - 1', 'Hn != D/2 + plat']
+  calc:
+    R: D/2
+    c: D/2 + plat
+    cr: (c - Hn)/R
+    t1: T/(2*pi)*acos(cr)
+    t2: T - t1
+    above: T - 2*t1
+  prompt: 'A Ferris wheel {D} m across has its center {c} m above the ground and turns once every {T} minutes, so a rider who boards at the bottom at $t = 0$ is at height $h(t) = -{R}\cos\left(\dfrac{2\pi}{{T}}t\right) + {c}$ meters. During the first revolution, when is the rider first {Hn} m up, and for how many minutes per revolution is the rider above {Hn} m? Give both to 2 decimal places.'
+  answers:
+    - {name: t1, label: 'First time (min)', tolerance: 0.006, format: num2}
+    - {name: above, label: 'Time above (min)', tolerance: 0.011, format: num2}
+  solution: |-
+    Set $-{R}\cos\left(\dfrac{2\pi}{{T}}t\right) + {c} = {Hn}$, so $\cos\left(\dfrac{2\pi}{{T}}t\right) = \dfrac{{c} - {Hn}}{{R}} \approx {cr:dp4}$.
+    The first solution is the principal value: $\dfrac{2\pi}{{T}}t = \arccos({cr:dp4})$, so $t = \dfrac{{T}}{2\pi}\arccos({cr:dp4}) \approx$ **{t1:num2}** min (radian mode).
+    By symmetry the rider comes back down through {Hn} m at $t = {T} - {t1:num2} \approx {t2:num2}$ min, so the time above {Hn} m is ${t2:num2} - {t1:num2} \approx$ **{above:num2}** min.

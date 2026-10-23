@@ -80,6 +80,10 @@ $$S_n = \frac{n(a_1 + a_n)}{2} = \frac{n}{2}\left[2a_1 + (n - 1)d\right].$$
 
 In words: the number of terms times the average of the first and last terms. The second version is handy when you know $d$ but not $a_n$.
 
+The picture shows the same trick for $1 + 2 + 3 + 4 + 5$. Two copies of the staircase, one turned around, fit together into a rectangle 5 rows tall and 6 squares wide, so twice the sum is $5 \cdot 6 = 30$.
+
+![Five rows of squares forming a 5 by 6 rectangle. A blue staircase has 1, 2, 3, 4 and 5 squares in its rows; a yellow copy of it, turned around, has 5, 4, 3, 2 and 1 squares and fills the rest. The width is marked n + 1 = 6 and the height n = 5.](images/a2-m7-staircase.svg)
+
 ### Example 5
 
 Find the sum of the first 40 terms of $3, 8, 13, \dots$
@@ -99,6 +103,22 @@ Evaluate $\displaystyle\sum_{k=1}^{25} (4k - 1)$.
 A theater has 20 seats in the first row and 2 more in each row after that. With 30 rows, how many seats are there?
 
 $a_1 = 20$, $d = 2$, $n = 30$: $S_{30} = \dfrac{30}{2}[40 + 29(2)] = 15 \cdot 98 = 1470$ seats.
+
+## Choosing a formula
+
+Most arithmetic-sequence problems follow the same path: check that the differences are constant, find $a_1$ and $d$, then use the term formula or the sum formula depending on the question.
+
+```mermaid
+flowchart TD
+  accTitle: Solving an arithmetic sequence problem
+  accDescr: First check whether consecutive differences are constant. If not, the sequence is not arithmetic and these formulas do not apply. If they are, find the first term and the common difference; when you know two terms, d is their difference divided by the number of steps between them. Then, if you are asked for a term, use a n equals a 1 plus n minus 1 times d. If asked which term equals a value, set that expression equal to the value and solve for n. If asked for a sum, find the last term and use S n equals n times the first plus last terms, over 2.
+  A{"Are the differences constant?"} -- no --> X["Not arithmetic: these formulas don't apply"]
+  A -- yes --> B["Find a₁ and d (from two terms: d = change in value ÷ number of steps)"]
+  B --> C{"What is asked?"}
+  C -- "a term" --> D["aₙ = a₁ + (n − 1)d"]
+  C -- "which term equals a value" --> E["Set a₁ + (n − 1)d equal to the value; solve for n"]
+  C -- "a sum" --> F["Find aₙ, then Sₙ = n(a₁ + aₙ) ÷ 2"]
+```
 
 ## Common mistakes
 

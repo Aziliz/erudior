@@ -56,6 +56,19 @@ For a whole population, divide by $N$ and use the population mean:
 $\sigma = \sqrt{\sum (x_i - \mu)^2 / N}$. Calculators label these $s_x$ (sample) and
 $\sigma_x$ (population).
 
+The same steps as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Computing a sample standard deviation
+  accDescr: First find the mean. Then find each deviation, the value minus the mean, and check that the deviations add to zero. Square each deviation and add the squares. Divide the sum by n minus 1 to get the sample variance. Finally take the square root to get the sample standard deviation, which is in the original units.
+  A["1. Find the mean x-bar"] --> B["2. Find each deviation x minus x-bar (they add to 0)"]
+  B --> C["3. Square each deviation"]
+  C --> D["4. Add the squares"]
+  D --> E["5. Divide by n minus 1: variance s squared"]
+  E --> F["6. Take the square root: standard deviation s"]
+```
+
 ### Why divide by n − 1?
 
 The deviations are measured from $\bar{x}$, which was computed from the same data and
@@ -86,6 +99,14 @@ Find the sample variance and standard deviation of 4, 7, 8, 10, 11.
 
 Interpretation: the values typically differ from the mean of 8 by about 2.7. If these
 five values were an entire population, $\sigma = \sqrt{30/5} = \sqrt{6} \approx 2.449$.
+
+The "squared" in "sum of squared deviations" is literal: draw a square on each deviation and the
+sum of squares is their total area.
+
+![The values 4, 7, 8, 10 and 11 plotted with a dashed line at the mean, 8. Each value has a square whose side runs from the value to the mean: sides 4, 1, 0, 2 and 3, areas 16, 1, 0, 4 and 9. The caption reads: sum of the squares 16 + 1 + 0 + 4 + 9 = 30, so s squared = 30 / 4 = 7.5.](images/stat-m1-deviations.svg)
+
+The square of side 4 alone is more than half the total, which is why the standard deviation is
+so sensitive to values far from the mean.
 
 ### Example 2
 

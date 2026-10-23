@@ -33,12 +33,31 @@ The **least common denominator** (LCD) of several rational expressions is the si
 
 For denominators $x^2 - 9 = (x - 3)(x + 3)$ and $x^2 + 6x + 9 = (x + 3)^2$, the LCD is $(x - 3)(x + 3)^2$.
 
+A tidy way to build an LCD is to write each factored denominator in a row, with matching factors in the same column. The LCD row needs as many copies of each factor as the row that has the most of them.
+
+![Two rows of factor boxes: x squared minus 9 has the factors x minus 3 and x plus 3; x squared plus 6x plus 9 has x plus 3 twice, lined up under the first x plus 3 and in a new column. Below a line, the LCD row has x minus 3, x plus 3 and x plus 3, so the LCD is (x minus 3)(x plus 3) squared.](images/a2-m5-lcd-columns.svg)
+
 ## Different denominators
 
 1. Factor the denominators and find the LCD.
 2. Rewrite each fraction with the LCD by multiplying top and bottom by the missing factors.
 3. Add or subtract the numerators.
 4. Simplify the numerator and factor it to see if anything cancels.
+
+The whole procedure, including the shortcut when the denominators already match, fits in one flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for adding or subtracting rational expressions
+  accDescr: First ask whether the denominators already match. If they do, go straight to combining the numerators. If not, factor each denominator, build the least common denominator from each distinct factor to its highest power, and rewrite each fraction over it. Then combine the numerators over the common denominator, using parentheses when subtracting, simplify and factor the new numerator, and cancel any common factor while keeping the excluded values.
+  A{"Do the denominators already match?"} -- no --> B["Factor each denominator"]
+  B --> C["Build the LCD: each distinct factor to its highest power"]
+  C --> D["Rewrite each fraction over the LCD"]
+  A -- yes --> E["Combine the numerators; parentheses when subtracting"]
+  D --> E
+  E --> F["Simplify the numerator, then factor it"]
+  F --> G["Cancel any common factor; keep the excluded values"]
+```
 
 ### Example 2
 

@@ -24,6 +24,12 @@ Compare $f(x) = 2x$ and $g(x) = 2^x$. For each step of 1 in $x$, $f$ adds 2 whil
 | $2x$ (adds 2) | 0 | 2 | 4 | 6 | 8 |
 | $2^x$ (doubles) | 1 | 2 | 4 | 8 | 16 |
 
+The graph shows the same comparison. The two meet at $x = 1$ and $x = 2$ (and $2^x$ is even a little lower in between), but after that the exponential pulls away fast.
+
+```plot
+{"x": [0, 6], "y": [0, 40], "functions": [{"f": "2*x", "label": "y = 2x (adds 2)"}, {"f": "2^x", "label": "y = 2^x (doubles)", "from": 0, "to": 5.3}], "points": [{"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 4], "label": "(2, 4)"}, {"at": [5, 32], "label": "(5, 32)"}, {"at": [5, 10], "label": "(5, 10)"}], "caption": "Linear growth adds a fixed amount; exponential growth multiplies by a fixed factor"}
+```
+
 ## Graphs
 
 For $f(x) = b^x$:
@@ -37,6 +43,10 @@ For $f(x) = b^x$:
 ```
 
 The graphs of $2^x$ and $\left(\tfrac12\right)^x = 2^{-x}$ are mirror images across the $y$-axis.
+
+The picture below names the parts of these graphs. The staircase on $y = 2^x$ shows the defining pattern: each step of 1 to the right multiplies the height by the base, 2.
+
+![The graphs of y = 2^x (solid, rising) and y = (1/2)^x (dashed, falling) cross at the y-intercept (0, 1). A staircase on the rising curve shows the height doubling from 1 to 2 to 4 for each step of 1 in x. The x-axis is marked as the horizontal asymptote y = 0, which both curves approach but never touch.](images/a2-m6-exp-graph.svg)
 
 ## Growth and decay models
 
@@ -111,6 +121,21 @@ Invest $5,000 at 4% compounded continuously for 6 years.
 $A = 5000e^{0.04 \cdot 6} = 5000e^{0.24} \approx 5000(1.27125) \approx 6{,}356.25$ dollars, just slightly more than daily compounding.
 
 The function $f(x) = e^x$ is called the **natural exponential function**. It's the most important exponential function in calculus and science; models like $A = A_0e^{kt}$ (growth when $k > 0$, decay when $k < 0$) appear everywhere.
+
+The chart below sums up which model to reach for, based on what a problem tells you.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an exponential model
+  accDescr: Start from what the problem tells you. A fixed percent change per period uses A equals a times 1 plus or minus r to the t. Otherwise, a half-life or doubling time uses A equals A0 times one half to the t over h, or A0 times 2 to the t over d. Otherwise, interest compounded n times a year uses A equals P times 1 plus r over n to the n t. Interest compounded continuously uses A equals P e to the r t.
+  S["What does the problem give?"] --> Q1{"A percent change per period?"}
+  Q1 -- yes --> M1["A = a(1 ± r)^t"]
+  Q1 -- no --> Q2{"A half-life or doubling time?"}
+  Q2 -- yes --> M2["A = A0 (1/2)^(t/h) or A0 · 2^(t/d)"]
+  Q2 -- no --> Q3{"Interest compounded n times a year?"}
+  Q3 -- yes --> M3["A = P(1 + r/n)^(nt)"]
+  Q3 -- "no: continuous" --> M4["A = Pe^(rt)"]
+```
 
 ## Common mistakes
 

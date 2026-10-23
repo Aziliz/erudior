@@ -1,0 +1,21 @@
+# Round 2 cards for a2-m9 honors lessons
+- {front: 'Tangent as a slope', back: '$\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \dfrac{y}{x}$ is the slope of the terminal side of $\theta$.', topic: Tangent and reciprocal functions}
+- {front: 'Why the name "tangent"', back: 'The terminal side meets the tangent line $x = 1$ at the point $(1, \tan\theta)$.', topic: Tangent and reciprocal functions}
+- {front: 'Exact values of tan 30°, 45°, 60°', back: '$\tan 30^\circ = \tfrac{\sqrt3}{3}$, $\tan 45^\circ = 1$, $\tan 60^\circ = \sqrt3$; $\tan 90^\circ$ is undefined.', topic: Tangent and reciprocal functions}
+- {front: 'Signs of tangent by quadrant', back: 'Positive in quadrants I and III, negative in II and IV.', topic: Tangent and reciprocal functions}
+- {front: 'Graph of y = tan x', back: 'Period $\pi$, zeros at $k\pi$, vertical asymptotes at $\tfrac{\pi}{2} + k\pi$, range all real numbers, no amplitude.', topic: Tangent and reciprocal functions}
+- {front: 'Period of y = a tan(bx)', back: '$\dfrac{\pi}{b}$ (not $\dfrac{2\pi}{b}$)', topic: Tangent and reciprocal functions}
+- {front: 'Secant, cosecant, cotangent', back: '$\sec\theta = \dfrac{1}{\cos\theta}$, $\csc\theta = \dfrac{1}{\sin\theta}$, $\cot\theta = \dfrac{\cos\theta}{\sin\theta}$', topic: Tangent and reciprocal functions}
+- {front: 'Where sec, tan are undefined; where csc, cot are undefined', back: 'sec and tan: where $\cos\theta = 0$. csc and cot: where $\sin\theta = 0$.', topic: Tangent and reciprocal functions}
+- {front: 'Range of sec x and csc x', back: '$(-\infty, -1] \cup [1, \infty)$', topic: Tangent and reciprocal functions}
+- {front: 'Pythagorean identities with tangent and cotangent', back: '$\tan^2\theta + 1 = \sec^2\theta$ and $1 + \cot^2\theta = \csc^2\theta$ (divide $\sin^2\theta + \cos^2\theta = 1$ by $\cos^2\theta$ or $\sin^2\theta$).', topic: Tangent and reciprocal functions}
+- {front: 'Slope and angle of inclination', back: '$m = \tan\alpha$, with $0^\circ \le \alpha < 180^\circ$.', topic: Tangent and reciprocal functions}
+- {front: 'Ranges of arcsin, arccos, arctan', back: '$\arcsin$: $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$; $\arccos$: $[0, \pi]$; $\arctan$: $\left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$.', topic: Inverse trig and equations}
+- {front: 'Domains of arcsin, arccos, arctan', back: '$\arcsin$ and $\arccos$: $[-1, 1]$; $\arctan$: all real numbers.', topic: Inverse trig and equations}
+- {front: '$\sin^{-1} x$ vs. $(\sin x)^{-1}$', back: '$\sin^{-1} x = \arcsin x$, the inverse function; $(\sin x)^{-1} = \dfrac{1}{\sin x} = \csc x$, the reciprocal.', topic: Inverse trig and equations}
+- {front: 'All solutions of sin x = c ($-1 < c < 1$)', back: '$x = \arcsin c + 2\pi k$ or $x = \pi - \arcsin c + 2\pi k$', topic: Inverse trig and equations}
+- {front: 'All solutions of cos x = c ($-1 < c < 1$)', back: '$x = \pm\arccos c + 2\pi k$', topic: Inverse trig and equations}
+- {front: 'All solutions of tan x = c', back: '$x = \arctan c + \pi k$', topic: Inverse trig and equations}
+- {front: 'Solving sin(bx) = c on [0, 2π)', back: 'Let $u = bx$; solve for $u$ on $[0, 2\pi b)$ ($b$ full turns), then divide every solution by $b$.', topic: Inverse trig and equations}
+- {front: 'arcsin(sin x) = x when?', back: 'Only for $x$ in $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$. For example, $\arcsin\left(\sin\tfrac{5\pi}{6}\right) = \tfrac{\pi}{6}$.', topic: Inverse trig and equations}
+- {front: 'Trig equations that factor', back: 'Treat $\sin x$ as the variable, factor, and solve each factor. Never divide by $\sin x$ or $\cos x$: you lose the solutions where it is 0.', topic: Inverse trig and equations}

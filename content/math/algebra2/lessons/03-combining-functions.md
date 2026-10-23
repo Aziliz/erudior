@@ -62,6 +62,10 @@ Checking a formula against a value you computed directly is a quick way to catch
 
 Compositions can also be read from tables or graphs. If a table says $g(1) = 4$ and $f(4) = -2$, then $f(g(1)) = f(4) = -2$, whatever the formulas are.
 
+An arrow diagram shows the same idea with sets of numbers. Each input travels along a $g$ arrow to an intermediate value, then along an $f$ arrow to the final output; the composite $f \circ g$ is the single trip from the first set to the last.
+
+![An arrow diagram with three ovals. The first holds the inputs 1, 2, 3; arrows labeled g, times 3 plus 1, take them to 4, 7, 10 in the middle oval; arrows labeled f, minus 6, take those to −2, 1, 4 in the third oval. A dashed curved arrow underneath goes straight from the first oval to the third and is labeled f ∘ g.](images/a2-m1-composition-map.svg)
+
 ### Example 3
 
 A store is taking 20% off everything, and you also have a \$10 coupon. Let $D(x) = 0.8x$ (the discount) and $C(x) = x - 10$ (the coupon), where $x$ is a price in dollars. Which order is better for a \$50 item?
@@ -78,6 +82,20 @@ For $f(g(x))$ to exist, two things must be true:
 2. $g(x)$ is in the domain of $f$ (so $f$ can accept it).
 
 Simplifying the final formula can hide the first condition, so find the domain from these two conditions, not just from the formula you end up with.
+
+The two conditions make a two-stage test for each input:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the domain of f of g of x
+  accDescr: Test each input x in two stages. First, is x in the domain of g? If not, x is excluded. If it is, compute g(x) and ask whether g(x) is in the domain of f. If not, x is excluded. If it is, x is in the domain of the composition. Find the domain from these two tests, not from the simplified formula.
+  X["Input x"] --> Q1{"Is x in the domain of g?"}
+  Q1 -- "no" --> N1["Excluded"]
+  Q1 -- "yes" --> G["Compute g(x)"]
+  G --> Q2{"Is g(x) in the domain of f?"}
+  Q2 -- "no" --> N2["Excluded"]
+  Q2 -- "yes" --> Y["x is in the domain of f ∘ g"]
+```
 
 ### Example 4
 

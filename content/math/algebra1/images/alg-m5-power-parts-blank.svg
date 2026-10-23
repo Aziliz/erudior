@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320" font-family="sans-serif">
+<rect width="800" height="320" fill="#ffffff"/>
+<rect x="40" y="95" width="300" height="120" rx="14" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="400" y="95" width="360" height="120" rx="14" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="130" y="185" font-size="72" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">7</text>
+<text x="190" y="185" font-size="72" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">x</text>
+<text x="229" y="136" font-size="44" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">4</text>
+<text x="475" y="180" font-size="56" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">3.2</text>
+<text x="552" y="178" font-size="48" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">×</text>
+<text x="625" y="180" font-size="56" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">10</text>
+<text x="686" y="140" font-size="36" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">−5</text>
+<text x="190" y="300" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">a power with a coefficient</text>
+<text x="580" y="300" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">scientific notation</text>
+<line x1="130" y1="200" x2="95" y2="255" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="130" cy="200" r="3.5" fill="#1c2833"/>
+<circle cx="95" cy="255" r="13" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="192" y1="200" x2="245" y2="255" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="192" cy="200" r="3.5" fill="#1c2833"/>
+<circle cx="245" cy="255" r="13" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="229" y1="104" x2="229" y2="45" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="229" cy="104" r="3.5" fill="#1c2833"/>
+<circle cx="229" cy="45" r="13" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="475" y1="200" x2="470" y2="255" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="475" cy="200" r="3.5" fill="#1c2833"/>
+<circle cx="470" cy="255" r="13" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="640" y1="130" x2="640" y2="45" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="640" cy="130" r="3.5" fill="#1c2833"/>
+<circle cx="640" cy="45" r="13" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+</svg>

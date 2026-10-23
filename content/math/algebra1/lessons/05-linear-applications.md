@@ -19,6 +19,19 @@ The point of solving equations is to answer questions about the world. This less
 
 A table or sketch often helps with step 3.
 
+```mermaid
+flowchart TD
+  accTitle: A routine for word problems
+  accDescr: Five steps from top to bottom. Read and write down what is being asked. Name the unknown with a variable and write the other quantities in terms of it. Find a fact that gives two expressions for the same quantity and write the equation. Solve the equation. Answer the question in words with units and check it against the original wording. If the check fails, go back to writing the equation.
+  A["1. Read: what is being asked?"] --> B["2. Let x = ... and write the other quantities using x"]
+  B --> C["3. Write an equation: two expressions for the same quantity"]
+  C --> D["4. Solve"]
+  D --> E["5. Answer in words with units"]
+  E --> F{"Fits the wording?"}
+  F -- No --> C
+  F -- Yes --> G["Done"]
+```
+
 ## Number and consecutive integer problems
 
 **Consecutive integers** follow one another: $n$, $n + 1$, $n + 2$. Consecutive even integers (like 8, 10, 12) and consecutive odd integers (like 7, 9, 11) both step by 2: $n$, $n + 2$, $n + 4$. The step is 2 in both cases; whether they are even or odd depends only on the first one.
@@ -68,6 +81,10 @@ Two cyclists leave the same point at the same time and ride in opposite directio
 | Cyclist A | 14 | $t$ | $14t$ |
 | Cyclist B | 18 | $t$ | $18t$ |
 
+```shape
+{"segments": [{"from": [0, 0], "to": [-24.5, 0], "arrow": true, "label": "A: 14t"}, {"from": [0, 0], "to": [31.5, 0], "arrow": true, "label": "B: 18t"}, {"from": [-24.5, -6], "to": [31.5, -6], "dashed": true, "label": "14t + 18t = 56 miles apart"}], "points": [{"at": [0, 0], "label": "start"}], "caption": "Riding in opposite directions, their distances add up to the gap"}
+```
+
 1. They move apart, so their distances add up to the gap: $14t + 18t = 56$.
 2. Solve: $32t = 56$, so $t = 1.75$ hours.
 3. Answer: 1.75 hours, which is 1 hour 45 minutes. Check: $14(1.75) = 24.5$ and $18(1.75) = 31.5$, total 56.
@@ -98,6 +115,10 @@ When items of different values are combined, the total value is the sum of (numb
 ### Example 5
 
 How many liters of a 40% acid solution must be added to 10 liters of a 15% solution to make a 25% solution?
+
+![Three beakers in an equation. The first holds 10 liters at 15%, with 1.5 liters of acid. Plus the second, holding x liters at 40%, with 0.40x liters of acid. Equals the third, holding 10 + x liters at 25%, with 0.25(10 + x) liters of acid. The acid part of each beaker is shaded separately to show its amount. Underneath: acid in plus acid in equals acid in the mixture, 1.5 + 0.40x = 0.25(10 + x).](images/alg-m1-mixture.svg)
+
+The picture shows the fact that gives the equation: no acid is lost or gained in mixing, so the acid in the two parts adds up to the acid in the mixture.
 
 | | Liters | Concentration | Liters of acid |
 |---|---|---|---|

@@ -75,9 +75,19 @@ Find the explicit formula and $a_{10}$ for $3, 6, 12, 24, \dots$, and the explic
 1. First sequence: $r = \tfrac63 = 2$, so $a_n = 3 \cdot 2^{n-1}$ and $a_{10} = 3 \cdot 2^9 = 3 \cdot 512 = 1536$.
 2. Second sequence: $r = \tfrac{20}{80} = \tfrac14$ (check: $\tfrac{5}{20} = \tfrac14$). So $a_n = 80\left(\tfrac14\right)^{n-1}$.
 
+Graphed, the first sequence is a set of separate points that sit on an exponential curve, just as an arithmetic sequence's points sit on a line:
+
+```plot
+{"x": [0, 6], "y": [0, 60], "functions": [{"f": "1.5*2^x", "dashed": true, "label": "y = 1.5 · 2^x"}], "points": [{"at": [1, 3], "label": "a₁ = 3"}, [2, 6], [3, 12], [4, 24], {"at": [5, 48], "label": "a₅ = 48"}], "xLabel": "n", "yLabel": "aₙ", "caption": "A geometric sequence with r = 2: separate points on an exponential curve"}
+```
+
 ### Example 4
 
 A ball is dropped from 10 feet. Each bounce reaches 60% of the height of the previous one. How high does it rise after the 4th bounce?
+
+![A ball dropped from 10 feet bounces along the ground. The first bounce reaches a₁ = 6 feet, the second a₂ = 3.6 feet, the third a₃ = 2.16 feet, and the fourth is smaller still. Each bounce is 60% as high as the one before.](images/a1-m7-bouncing-ball.svg)
+
+Notice in the picture that the 10-foot drop is the starting height, not a bounce, so it is not one of the terms.
 
 1. The first bounce reaches $0.6 \times 10 = 6$ feet, so $a_1 = 6$ and $r = 0.6$.
 2. Recursive: $a_1 = 6$, $a_n = 0.6\,a_{n-1}$. Explicit: $a_n = 6(0.6)^{n-1}$.

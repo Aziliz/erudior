@@ -1,0 +1,470 @@
+# Functions and their transformations: round 2 (new question types and honors lessons)
+# Core lessons
+- id: a2-m1-r2-q01
+  lesson: a2-transformations
+  type: text
+  topic: Transformations
+  stem: 'The graph of $y = \lvert x \rvert$ is shifted right 6 and down 2. The corner of the new graph is at $x =$ ___ and $y =$ ___. Give only the numbers.'
+  accept:
+    - ['6']
+    - ['-2']
+  explanation: |-
+    The new function is $y = \lvert x - 6 \rvert - 2$. The corner of $y = \lvert x \rvert$ is at $(0, 0)$; shifting right 6 and down 2 moves it to $(6, -2)$. The inside $x - 6$ is zero at $x = 6$, and the outputs there are $-2$.
+- id: a2-m1-r2-q02
+  lesson: a2-transformations
+  type: text
+  topic: Transformations
+  stem: 'The point $(2, 5)$ is on the graph of $y = f(x)$. The graph of $y = f(x + 3) - 4$ must pass through the point with $x$-coordinate ___ and $y$-coordinate ___.'
+  accept:
+    - ['-1']
+    - ['1']
+  explanation: |-
+    $f(x + 3) = f(x - (-3))$, so the graph moves left 3; the $-4$ outside moves it down 4. So $(2, 5) \to (2 - 3,\; 5 - 4) = (-1, 1)$. Check: at $x = -1$, $f(-1 + 3) - 4 = f(2) - 4 = 5 - 4 = 1$.
+- id: a2-m1-r2-q03
+  lesson: a2-transformations
+  type: match
+  module_quiz: true
+  topic: Transformations
+  stem: 'Match each equation to how its graph is obtained from the graph of $y = f(x)$.'
+  pairs:
+    - ['$y = f(x) + 3$', Shift up 3]
+    - ['$y = f(x + 3)$', Shift left 3]
+    - ['$y = 3f(x)$', Vertical stretch by a factor of 3]
+    - ['$y = f(3x)$', Horizontal compression by a factor of 1/3]
+    - ['$y = -f(x)$', Reflection across the x-axis]
+  distractors: [Shift right 3, Reflection across the y-axis]
+  explanation: |-
+    Changes outside $f$ act on $y$ the way they look: $+3$ moves up 3, $3f(x)$ stretches vertically by 3, and $-f(x)$ flips across the $x$-axis. Changes inside act on $x$ the opposite way: $f(x + 3)$ moves left 3 (not right), and $f(3x)$ squeezes the graph toward the $y$-axis by a factor of $\tfrac13$. A reflection across the $y$-axis would be $f(-x)$.
+- id: a2-m1-r2-q04
+  lesson: a2-transformations
+  topic: Transformations
+  stem: 'Which graphs have their anchor point (vertex, corner, endpoint or center) at $(2, -1)$? Select all that apply.'
+  choices: ['$y = (x - 2)^2 - 1$', '$y = -3\lvert x - 2 \rvert - 1$', '$y = \sqrt{x + 2} - 1$', '$y = 5(x - 2)^3 - 1$']
+  answer: [0, 1, 3]
+  explanation: |-
+    In $y = a f(x - h) + k$ the anchor lands at $(h, k)$. The parabola, the V and the cubic all have $h = 2$ and $k = -1$; the factors $-3$ and $5$ stretch or flip them without moving the anchor. The square root graph has $x + 2 = x - (-2)$, so its endpoint is at $(-2, -1)$.
+- id: a2-m1-r2-q05
+  lesson: a2-transformations
+  type: label
+  module_quiz: true
+  topic: Transformations
+  stem: 'The grid shows $y = x^2$ and three transformations of it. Each numbered marker sits on the vertex of one parabola. Name each parabola.'
+  image: {src: images/a2-m1-parabola-family-blank.svg, alt: 'Four parabolas on one grid. One opens upward with its vertex at the origin. A dashed one opens upward with its vertex at (4, 1). A dotted one opens downward with its vertex at (−3, 5). A narrow one opens upward with its vertex at (0, −4).'}
+  labels:
+    - {x: 50.0, y: 59.2, text: 'y = x²'}
+    - {x: 73.4, y: 53.1, text: 'y = (x − 4)² + 1'}
+    - {x: 32.5, y: 28.5, text: 'y = −(x + 3)² + 5'}
+    - {x: 50.0, y: 83.7, text: 'y = 3x² − 4'}
+  distractors: ['y = (x + 4)² + 1', 'y = −(x − 3)² + 5']
+  explanation: |-
+    Read each vertex as $(h, k)$. Marker 1 is at the origin: the parent $y = x^2$. Marker 2 is at $(4, 1)$: $y = (x - 4)^2 + 1$, since the inside $x - 4$ is zero at $x = 4$. Marker 3 is at $(-3, 5)$ on a parabola opening downward: $y = -(x + 3)^2 + 5$. Marker 4 is at $(0, -4)$ on the narrow parabola: $y = 3x^2 - 4$, stretched by 3 and moved down 4. The distractors move the vertex the wrong way horizontally.
+- id: a2-m1-r2-q06
+  lesson: a2-piecewise
+  type: text
+  topic: Piecewise functions
+  stem: 'Evaluate the greatest integer (floor) function: $\lfloor -3.5 \rfloor =$ ___.'
+  accept: ['-4']
+  explanation: |-
+    $\lfloor x \rfloor$ is the greatest integer less than or equal to $x$. On the number line, $-3.5$ lies between $-4$ and $-3$; $-3$ is greater than $-3.5$, so it doesn't qualify. Rounding down gives $-4$. Chopping off the decimal (to get $-3$) is the common mistake.
+- id: a2-m1-r2-q07
+  lesson: a2-piecewise
+  type: order
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'Put these values in order from least to greatest.'
+  items: ['$\lfloor -2.7 \rfloor$', '$\lfloor -1.2 \rfloor$', '$\lfloor -0.4 \rfloor$', '$\lfloor 0.99 \rfloor$', '$\lfloor 1 \rfloor$']
+  explanation: |-
+    Round each one down on the number line: $\lfloor -2.7 \rfloor = -3$, $\lfloor -1.2 \rfloor = -2$, $\lfloor -0.4 \rfloor = -1$, $\lfloor 0.99 \rfloor = 0$ and $\lfloor 1 \rfloor = 1$. The floor of a negative non-integer is the next integer down, and the floor of an integer is itself.
+- id: a2-m1-r2-q08
+  lesson: a2-piecewise
+  type: match
+  topic: Piecewise functions
+  stem: 'A garage charges \$4 for the first hour or less and \$3 for each additional hour or part of an hour, up to a daily maximum of \$15. Match each parking time to its cost.'
+  pairs:
+    - [1 hour, 4 dollars]
+    - [1 hour 5 minutes, 7 dollars]
+    - [3 hours, 10 dollars]
+    - [3 hours 1 minute, 13 dollars]
+    - [5 hours 30 minutes, 15 dollars]
+  distractors: [16 dollars, 19 dollars]
+  explanation: |-
+    Each started hour after the first adds \$3. One hour costs \$4. Any time past 1 hour, up to 2, costs \$7. Exactly 3 hours is in $2 < t \le 3$: \$10. One minute more starts the fourth hour: \$13. At 5.5 hours the uncapped charge would be $4 + 3 \cdot 5 = 19$ dollars, but the daily maximum caps it at \$15.
+- id: a2-m1-r2-q09
+  lesson: a2-piecewise
+  topic: Piecewise functions
+  stem: 'Let $f(x) = \begin{cases} 2x + 3 & \text{if } x < -1 \\ x^2 & \text{if } -1 \le x \le 2 \\ 5 - x & \text{if } x > 2 \end{cases}$. Which inputs are evaluated with the formula $x^2$? Select all that apply.'
+  choices: ['$-1$', '$0$', '$2$', '$2.01$']
+  answer: [0, 1, 2]
+  explanation: |-
+    The middle piece owns every $x$ with $-1 \le x \le 2$, both ends included. So $-1$, $0$ and $2$ all use $x^2$. $2.01$ is greater than 2, so it uses $5 - x$.
+- id: a2-m1-r2-q10
+  lesson: a2-piecewise
+  type: label
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'The graph shows $f(x) = \begin{cases} 2x + 3 & \text{if } x < -1 \\ x^2 & \text{if } -1 \le x \le 2 \\ 5 - x & \text{if } x > 2 \end{cases}$. Name the numbered parts.'
+  image: {src: images/a2-m1-piecewise-parts-blank.svg, alt: 'A graph in three pieces: a rising line ending at the point (−1, 1), a parabola from (−1, 1) up to a filled dot at (2, 4), and a falling line that starts at a hollow dot at (2, 3).'}
+  labels:
+    - {x: 37.3, y: 45.8, text: 'Break point where the pieces join'}
+    - {x: 62.7, y: 20.6, text: 'Closed dot: included endpoint'}
+    - {x: 62.7, y: 29.0, text: 'Open dot: excluded endpoint'}
+    - {x: 20.3, y: 79.4, text: 'The piece for x < −1'}
+  distractors: ['The piece for x > 2', 'Vertical asymptote']
+  explanation: |-
+    1: at $x = -1$ the line reaches $2(-1) + 3 = 1$ and the parabola starts at $(-1)^2 = 1$, so the pieces join. 2: the parabola includes $x = 2$ ($\le$), so $(2, 4)$ is a closed dot and $f(2) = 4$. 3: the last piece needs $x > 2$, so $(2, 3)$ is an open dot, not on the graph. 4: the rising line on the left is the piece $2x + 3$ for $x < -1$. There are no asymptotes on this graph.
+- id: a2-m1-r2-q11
+  lesson: a2-composition
+  type: text
+  topic: Composition
+  stem: 'Let $f(x) = x^2 - 1$ and $g(x) = 2x + 3$. Then $(f \circ g)(-1) =$ ___ and $(g \circ f)(-1) =$ ___.'
+  accept:
+    - ['0']
+    - ['3']
+  explanation: |-
+    Work from the inside out. $(f \circ g)(-1) = f(g(-1)) = f(1) = 1 - 1 = 0$. $(g \circ f)(-1) = g(f(-1)) = g(0) = 3$. The two orders give different results.
+- id: a2-m1-r2-q12
+  lesson: a2-composition
+  type: order
+  module_quiz: true
+  topic: Composition
+  stem: 'The function $h(x) = \sqrt{2x - 6} + 1$ is a chain of simple steps. Put the steps it applies to $x$ in order.'
+  items: [Multiply by 2, Subtract 6, Take the square root, Add 1]
+  explanation: |-
+    Follow the order of operations from the inside out: first $2x$, then $2x - 6$, then $\sqrt{2x - 6}$, and finally $+1$. As a composition, $h = f \circ g$ with inner function $g(x) = 2x - 6$ and outer function $f(x) = \sqrt{x} + 1$.
+- id: a2-m1-r2-q13
+  lesson: a2-composition
+  type: match
+  topic: Composition
+  stem: 'Let $f(x) = x^2$ and $g(x) = x + 3$. Match each combination to its formula.'
+  pairs:
+    - ['$f(g(x))$', '(x + 3)²']
+    - ['$g(f(x))$', 'x² + 3']
+    - ['$f(x) \cdot g(x)$', 'x³ + 3x²']
+    - ['$(f + g)(x)$', 'x² + x + 3']
+  distractors: ['x² + 9', '3x²']
+  explanation: |-
+    $f(g(x))$ squares the result of adding 3: $(x + 3)^2$. $g(f(x))$ adds 3 to $x^2$. The product is $x^2(x + 3) = x^3 + 3x^2$, and the sum is $x^2 + x + 3$. $x^2 + 9$ comes from squaring $x + 3$ term by term, which is wrong.
+- id: a2-m1-r2-q14
+  lesson: a2-composition
+  topic: Composition
+  stem: 'Let $f(x) = \dfrac{1}{x - 2}$ and $g(x) = \sqrt{x}$. Which numbers are in the domain of $f(g(x))$? Select all that apply.'
+  choices: ['$0$', '$4$', '$9$', '$-1$']
+  answer: [0, 2]
+  explanation: |-
+    First, $x$ must be in the domain of $g$: $x \ge 0$, which rules out $-1$. Second, $g(x) = \sqrt{x}$ must be in the domain of $f$, so $\sqrt{x} \ne 2$, which rules out $x = 4$. That leaves $0$ (where $f(g(0)) = -\tfrac12$) and $9$ (where $f(g(9)) = 1$).
+- id: a2-m1-r2-q15
+  lesson: a2-composition
+  type: label
+  module_quiz: true
+  topic: Composition
+  stem: 'This arrow diagram shows $g(x) = 3x + 1$ followed by $f(x) = x - 6$. Name the numbered parts.'
+  image: {src: images/a2-m1-composition-map-blank.svg, alt: 'Three ovals in a row. The first holds 1, 2 and 3; arrows take them to 4, 7 and 10 in the second oval; more arrows take those to −2, 1 and 4 in the third oval. A dashed curved arrow runs underneath from the first oval to the third.'}
+  labels:
+    - {x: 16.7, y: 24.4, text: 'Inputs x'}
+    - {x: 33.3, y: 49.4, text: 'Inner function g'}
+    - {x: 50.0, y: 24.4, text: 'Values g(x)'}
+    - {x: 66.7, y: 49.4, text: 'Outer function f'}
+    - {x: 83.3, y: 24.4, text: 'Outputs f(g(x))'}
+  distractors: ['Inverse function', 'Values f(x)·g(x)']
+  explanation: |-
+    The inputs 1, 2, 3 go into $g$ first (the inner function): $3x + 1$ gives 4, 7, 10, the values $g(x)$. Those go into $f$ (the outer function): subtracting 6 gives $-2$, 1, 4, the outputs $f(g(x))$. The dashed arrow is the composite $f \circ g$ as one trip. Nothing here is multiplied or undone.
+- id: a2-m1-r2-q16
+  lesson: a2-inverses
+  type: text
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Let $f(x) = 2x + 7$. Then $f^{-1}(15) =$ ___.'
+  accept: ['4']
+  explanation: |-
+    $f^{-1}(15)$ is the input that $f$ sends to 15: solve $2x + 7 = 15$, so $x = 4$. Check: $f(4) = 15$. (Using the formula $f^{-1}(x) = \tfrac{x - 7}{2}$ gives the same: $\tfrac{8}{2} = 4$.)
+- id: a2-m1-r2-q17
+  lesson: a2-inverses
+  type: order
+  topic: Inverse functions
+  stem: 'Put the steps for finding the inverse of $f(x) = \dfrac{x - 4}{5}$ in order.'
+  items: ['Write $y = \dfrac{x - 4}{5}$', 'Swap $x$ and $y$: $x = \dfrac{y - 4}{5}$', 'Multiply both sides by 5: $5x = y - 4$', 'Add 4 to both sides: $y = 5x + 4$', 'Write $f^{-1}(x) = 5x + 4$']
+  explanation: |-
+    Replace $f(x)$ with $y$, swap the variables, then solve for $y$ by undoing the operations: the division by 5 was done last, so it is undone first, then the subtraction of 4. Finally rename $y$ as $f^{-1}(x)$. Check: $f(f^{-1}(x)) = \tfrac{(5x + 4) - 4}{5} = x$.
+- id: a2-m1-r2-q18
+  lesson: a2-inverses
+  type: match
+  module_quiz: true
+  topic: Inverse functions
+  stem: 'Match each function to its inverse.'
+  pairs:
+    - ['$f(x) = 3x - 5$', '(x + 5)/3']
+    - ['$f(x) = x^3 + 1$', '∛(x − 1)']
+    - ['$f(x) = \dfrac{x}{3} + 5$', '3x − 15']
+    - ['$f(x) = \dfrac{1}{x}$', '1/x']
+  distractors: ['3x + 5', '1/(3x − 5)']
+  explanation: |-
+    Undo the steps in reverse order. $3x - 5$: add 5, then divide by 3. $x^3 + 1$: subtract 1, then take the cube root. $\tfrac{x}{3} + 5$: subtract 5, then multiply by 3, giving $3(x - 5) = 3x - 15$. $\tfrac1x$ is its own inverse, since $\tfrac{1}{1/x} = x$. $\tfrac{1}{3x - 5}$ is the reciprocal of $3x - 5$, not its inverse.
+- id: a2-m1-r2-q19
+  lesson: a2-inverses
+  topic: Inverse functions
+  stem: 'Which functions are one-to-one on all real numbers? Select all that apply.'
+  choices: ['$f(x) = x^3$', '$f(x) = x^2 - 1$', '$f(x) = 5 - 2x$', '$f(x) = \lvert x \rvert$']
+  answer: [0, 2]
+  explanation: |-
+    $x^3$ always increases and $5 - 2x$ always decreases, so each passes the horizontal line test. $x^2 - 1$ gives 3 at both $x = 2$ and $x = -2$, and $\lvert x \rvert$ gives 5 at both $5$ and $-5$, so neither is one-to-one.
+- id: a2-m1-r2-q20
+  lesson: a2-inverses
+  type: label
+  topic: Inverse functions
+  stem: 'The picture shows $f(x) = \sqrt{x - 2}$, its inverse, and the line $y = x$. Name the numbered parts.'
+  image: {src: images/a2-m1-inverse-mirror-blank.svg, alt: 'On a grid, a solid curve starts at (2, 0) and rises slowly to the right; a dashed curve starts at (0, 2) and rises steeply; a dashed straight line passes through the origin at 45 degrees between them. The points (6, 2) and (2, 6) are joined by a dotted segment.'}
+  labels:
+    - {x: 55.1, y: 71.5, text: 'Graph of f'}
+    - {x: 26.6, y: 50.0, text: 'Graph of the inverse of f'}
+    - {x: 86.0, y: 14.0, text: 'Line y = x'}
+    - {x: 75.7, y: 65.4, text: 'Point (6, 2)'}
+    - {x: 34.6, y: 24.3, text: 'Point (2, 6)'}
+  distractors: ['Line y = −x', 'Point (−6, −2)']
+  explanation: |-
+    $f(x) = \sqrt{x - 2}$ starts at $(2, 0)$ and rises slowly, so marker 1 is on $f$. Its inverse, $x^2 + 2$ for $x \ge 0$, starts at $(0, 2)$ and rises steeply (marker 2). The straight line through the origin (marker 3) is $y = x$, the mirror line. $f(6) = 2$ puts $(6, 2)$ on $f$ (marker 4), and its mirror image $(2, 6)$ is on the inverse (marker 5).
+# Honors: Symmetry and the general transformation
+- id: a2-m1-r2-h01
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'Which function is odd?'
+  choices: ['$f(x) = x^3 + 1$', '$f(x) = x^5 - 4x$', '$f(x) = x^4 + x$', '$f(x) = \lvert x \rvert$']
+  answer: 1
+  explanation: |-
+    $f(-x) = (-x)^5 - 4(-x) = -x^5 + 4x = -(x^5 - 4x)$, so $x^5 - 4x$ is odd: every exponent is odd. $x^3 + 1$ has $f(0) = 1 \ne 0$, so it can't be odd. $x^4 + x$ mixes an even and an odd power (neither), and $\lvert x \rvert$ is even.
+- id: a2-m1-r2-h02
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'Which statement describes the graph of every even function?'
+  choices: ['It is symmetric about the origin', 'It is symmetric about the line $y = x$', 'It is symmetric about the $y$-axis', 'It is symmetric about the $x$-axis']
+  answer: 2
+  explanation: |-
+    $f(-x) = f(x)$ means that whenever $(a, b)$ is on the graph, so is $(-a, b)$: a mirror image across the $y$-axis. Symmetry about the origin belongs to odd functions. A graph symmetric about the $x$-axis (other than part of the axis itself) fails the vertical line test, so it isn't a function's graph.
+- id: a2-m1-r2-h03
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'The function $f$ is odd and $f(3) = -7$. What is $f(-3)$?'
+  choices: ['$7$', '$-7$', '$\tfrac17$', '$-3$']
+  answer: 0
+  explanation: |-
+    Odd means $f(-x) = -f(x)$, so $f(-3) = -f(3) = -(-7) = 7$. The answer $-7$ would be right for an even function.
+- id: a2-m1-r2-h04
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'Classify $q(x) = \dfrac{x^2}{x^4 + 1}$.'
+  choices: ['Odd', 'Neither even nor odd', 'Both even and odd', 'Even']
+  answer: 3
+  explanation: |-
+    $q(-x) = \dfrac{(-x)^2}{(-x)^4 + 1} = \dfrac{x^2}{x^4 + 1} = q(x)$, so $q$ is even. It isn't also odd: that would need $q(x) = 0$ for every $x$, but $q(1) = \tfrac12$.
+- id: a2-m1-r2-h05
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'The function $f$ is even and $g$ is odd, both defined for all real numbers. What is $h(x) = f(x)\,g(x)$?'
+  choices: ['Odd', 'Even', 'Neither, in general', 'Both even and odd']
+  answer: 0
+  explanation: |-
+    $h(-x) = f(-x)\,g(-x) = f(x)\big(-g(x)\big) = -f(x)\,g(x) = -h(x)$, so $h$ is odd. Products follow the sign rule: even times odd is odd. (Sums are different: even plus odd is usually neither.)
+- id: a2-m1-r2-h06
+  lesson: a2-m1-h-symmetry
+  topic: Transformations
+  stem: 'How is the graph of $y = f(3x - 12)$ obtained from the graph of $y = f(x)$?'
+  choices: ['Compress horizontally by a factor of $\tfrac13$, then shift right 12', 'Compress horizontally by a factor of $\tfrac13$, then shift right 4', 'Shift right 4, then compress horizontally by a factor of $\tfrac13$', 'Stretch horizontally by a factor of 3, then shift right 4']
+  answer: 1
+  explanation: |-
+    Factor the inside: $3x - 12 = 3(x - 4)$. Compressing first gives $f(3x)$, and then shifting right 4 replaces $x$ with $x - 4$: $f(3(x - 4)) = f(3x - 12)$. "Then shift right 12" would give $f(3x - 36)$. Shifting right 4 first and then compressing gives $f(3x - 4)$. (Shifting right 12 first and then compressing would also work.)
+- id: a2-m1-r2-h07
+  lesson: a2-m1-h-symmetry
+  topic: Transformations
+  stem: 'The point $(6, 2)$ is on the graph of $y = f(x)$. Which point must be on the graph of $y = 4f(2x + 2) - 3$?'
+  choices: ['$(11, 5)$', '$(4, 5)$', '$(2, 5)$', '$(2, 11)$']
+  answer: 2
+  explanation: |-
+    Factor: $4f(2(x + 1)) - 3$, so $b = 2$, $h = -1$, $a = 4$, $k = -3$. Points move $(x, y) \to \left(\tfrac{x}{b} + h,\; ay + k\right) = \left(\tfrac62 - 1,\; 4 \cdot 2 - 3\right) = (2, 5)$. Check: at $x = 2$ the inside is $2(2) + 2 = 6$, and $4f(6) - 3 = 5$. Multiplying by 2 instead of dividing gives 11 for the $x$-coordinate; shifting the wrong way gives 4.
+- id: a2-m1-r2-h08
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'About which point is the graph of $y = (x - 2)^3 + 5$ symmetric?'
+  choices: ['$(-2, 5)$', '$(5, 2)$', '$(2, -5)$', '$(2, 5)$']
+  answer: 3
+  explanation: |-
+    $y = x^3$ is odd, so it is symmetric about the origin. Shifting right 2 and up 5 moves the center of symmetry to $(2, 5)$. Check with a pair of inputs: at $x = 3$ the output is 6 and at $x = 1$ it is 4, and the midpoint of $(3, 6)$ and $(1, 4)$ is $(2, 5)$.
+- id: a2-m1-r2-h09
+  lesson: a2-m1-h-symmetry
+  topic: Symmetry
+  stem: 'Which functions are even? Select all that apply.'
+  choices: ['$f(x) = x^4 - 3x^2 + 2$', '$f(x) = \lvert x \rvert - x^2$', '$f(x) = (x - 1)^2$', '$f(x) = \dfrac{1}{x^2}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Replacing $x$ with $-x$ leaves $x^4 - 3x^2 + 2$, $\lvert x \rvert - x^2$ and $\tfrac{1}{x^2}$ unchanged (and the domain of $\tfrac1{x^2}$, all $x \ne 0$, is symmetric). $(x - 1)^2$ is not even: it is 0 at $x = 1$ but 4 at $x = -1$. Its graph is symmetric about $x = 1$, not the $y$-axis.
+- id: a2-m1-r2-h10
+  lesson: a2-m1-h-symmetry
+  type: text
+  topic: Symmetry
+  stem: 'Let $f(x) = 2^x$. Its even part at $x = 2$ is $E(2) = \tfrac12\big(f(2) + f(-2)\big) =$ ___. Give a decimal or a fraction.'
+  accept: ['2.125', '17/8']
+  explanation: |-
+    $f(2) = 4$ and $f(-2) = \tfrac14$, so $E(2) = \tfrac12\left(4 + \tfrac14\right) = \tfrac12 \cdot \tfrac{17}{4} = \tfrac{17}{8} = 2.125$. The odd part is $O(2) = \tfrac12\left(4 - \tfrac14\right) = 1.875$, and $E(2) + O(2) = 4 = f(2)$.
+- id: a2-m1-r2-h11
+  lesson: a2-m1-h-symmetry
+  type: text
+  topic: Transformations
+  stem: 'The graph of $y = \sqrt{x}$ is transformed into $y = 2\sqrt{9 - 3x} + 4$. The endpoint $(0, 0)$ moves to $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['3']
+    - ['4']
+  explanation: |-
+    Factor the inside: $9 - 3x = -3(x - 3)$, so $b = -3$, $h = 3$, $a = 2$, $k = 4$. The endpoint moves to $\left(\tfrac{0}{-3} + 3,\; 2 \cdot 0 + 4\right) = (3, 4)$. Check: the radicand $9 - 3x$ is zero at $x = 3$, where $y = 4$. The graph runs to the left from there (domain $x \le 3$).
+- id: a2-m1-r2-h12
+  lesson: a2-m1-h-symmetry
+  type: match
+  topic: Symmetry
+  stem: 'Match each function to the symmetry of its graph.'
+  pairs:
+    - ['$y = (x + 1)^2 - 4$', 'Symmetric about the line x = −1']
+    - ['$y = \dfrac{1}{x - 3} + 2$', 'Symmetric about the point (3, 2)']
+    - ['$y = x^3 - x$', 'Symmetric about the origin']
+    - ['$y = \lvert x \rvert + 5$', 'Symmetric about the y-axis']
+  distractors: ['Symmetric about the point (−3, 2)', 'Symmetric about the line x = 1']
+  explanation: |-
+    A shifted even function is symmetric about $x = h$: the parabola has $h = -1$. A shifted odd function is symmetric about $(h, k)$: $\tfrac1x$ moved right 3 and up 2 has center $(3, 2)$. $x^3 - x$ has only odd powers, so it is odd (symmetric about the origin). $\lvert x \rvert + 5$ is even: shifting up keeps the $y$-axis as its mirror line.
+- id: a2-m1-r2-h13
+  lesson: a2-m1-h-symmetry
+  type: order
+  topic: Symmetry
+  stem: 'Let $h(x) = f(x)\,g(x)$, where $f$ and $g$ are odd. Put the steps of the proof that $h$ is even in order.'
+  items: ['$h(-x) = f(-x)\,g(-x)$', '$h(-x) = \big(-f(x)\big)\big(-g(x)\big)$', '$h(-x) = f(x)\,g(x)$', '$h(-x) = h(x)$, so $h$ is even']
+  explanation: |-
+    Start from the definition of $h$ at $-x$. Use that $f$ and $g$ are odd to replace $f(-x)$ with $-f(x)$ and $g(-x)$ with $-g(x)$. The two minus signs multiply to a plus. The result is $h(x)$, which is the definition of an even function.
+- id: a2-m1-r2-h14
+  lesson: a2-m1-h-symmetry
+  type: label
+  topic: Symmetry
+  stem: 'The left graph is an even function and the right graph is an odd function. In each graph, the unnumbered dot is $(a, f(a))$ with $a > 0$. Name the numbered parts.'
+  image: {src: images/a2-m1-even-odd-blank.svg, alt: 'Two graphs side by side. Left: a U-shaped curve with a highlighted y-axis and two dots at the same height, joined by a dashed horizontal line. Right: an S-shaped curve with a hollow dot at the origin and two dots joined by a dashed line through the origin, one up and to the right, one down and to the left.'}
+  labels:
+    - {x: 25.7, y: 84.8, text: 'Line of symmetry (the y-axis)'}
+    - {x: 14.1, y: 43.2, text: 'The point (−a, f(a))'}
+    - {x: 74.3, y: 53.6, text: 'Center of symmetry (the origin)'}
+    - {x: 59.4, y: 72.3, text: 'The point (−a, −f(a))'}
+  distractors: ['The point (a, −f(a))', 'Line of symmetry y = x']
+  explanation: |-
+    An even function satisfies $f(-a) = f(a)$, so the partner of $(a, f(a))$ is $(-a, f(a))$, at the same height across the $y$-axis (markers 1 and 2). An odd function satisfies $f(-a) = -f(a)$, so the partner is $(-a, -f(a))$, the point you reach by a half turn about the origin (markers 3 and 4).
+# Honors: Inverses of composite and piecewise functions
+- id: a2-m1-r2-h15
+  lesson: a2-m1-h-inverses
+  topic: Inverse functions
+  stem: 'Let $f(x) = 2x$ and $g(x) = x + 3$. What is $(f \circ g)^{-1}(x)$?'
+  choices: ['$\dfrac{x}{2} - 3$', '$\dfrac{x - 3}{2}$', '$\dfrac{1}{2x + 6}$', '$2x - 6$']
+  answer: 0
+  explanation: |-
+    $(f \circ g)^{-1} = g^{-1} \circ f^{-1}$: undo $f$ first (divide by 2), then undo $g$ (subtract 3), giving $\tfrac{x}{2} - 3$. Check: $(f \circ g)(x) = 2x + 6$, and $\tfrac{2x + 6}{2} - 3 = x$. The choice $\tfrac{x - 3}{2}$ undoes the steps in the wrong order, and $\tfrac{1}{2x + 6}$ is a reciprocal, not an inverse.
+- id: a2-m1-r2-h16
+  lesson: a2-m1-h-inverses
+  topic: Inverse functions
+  stem: 'What is $h^{-1}(x)$ for $h(x) = 4(x + 2)^3 - 1$?'
+  choices: ['$\sqrt[3]{\dfrac{x - 1}{4}} + 2$', '$\sqrt[3]{\dfrac{x + 1}{4}} - 2$', '$\dfrac{\sqrt[3]{x + 1}}{4} - 2$', '$\sqrt[3]{4x + 1} - 2$']
+  answer: 1
+  explanation: |-
+    $h$ adds 2, cubes, multiplies by 4 and subtracts 1. Undo in reverse: add 1, divide by 4, take the cube root, subtract 2: $\sqrt[3]{\tfrac{x + 1}{4}} - 2$. Check: $h(0) = 4 \cdot 8 - 1 = 31$, and $\sqrt[3]{\tfrac{32}{4}} - 2 = 2 - 2 = 0$. Dividing after the cube root, or multiplying by 4, undoes the steps in the wrong order.
+- id: a2-m1-r2-h17
+  lesson: a2-m1-h-inverses
+  topic: Monotonic functions
+  stem: 'Let $f(x) = x^5 + x + 3$, which is strictly increasing. What is $f^{-1}(5)$?'
+  choices: ['$-1$', '$2$', '$1$', '$\tfrac15$']
+  answer: 2
+  explanation: |-
+    $f^{-1}(5)$ is the input that gives 5: solve $x^5 + x + 3 = 5$, that is, $x^5 + x = 2$. $x = 1$ works: $1 + 1 = 2$. Because $f$ is strictly increasing, it is one-to-one, so this is the only solution. Check the others: $f(-1) = 1$ and $f(2) = 37$.
+- id: a2-m1-r2-h18
+  lesson: a2-m1-h-inverses
+  topic: Monotonic functions
+  stem: 'Why must a strictly decreasing function be one-to-one?'
+  choices: ['Its graph passes the vertical line test', 'Its range is all real numbers', 'It has no break points', 'Different inputs are ordered, so their outputs are ordered too and can''t be equal']
+  answer: 3
+  explanation: |-
+    If $a < b$, then strictly decreasing gives $f(a) > f(b)$, so $f(a) \ne f(b)$. Every function passes the vertical line test, so that says nothing about one-to-one. A decreasing function's range need not be all reals ($\tfrac{1}{x}$ for $x > 0$), and break points are irrelevant.
+- id: a2-m1-r2-h19
+  lesson: a2-m1-h-inverses
+  topic: Monotonic functions
+  stem: 'The function $f$ is strictly increasing and $g$ is strictly decreasing, both on all real numbers. What can you say about $f \circ g$?'
+  choices: ['It is strictly decreasing', 'It is strictly increasing', 'It is constant', 'It may fail to be one-to-one']
+  answer: 0
+  explanation: |-
+    If $a < b$, then $g(a) > g(b)$ because $g$ decreases, and then $f(g(a)) > f(g(b))$ because $f$ preserves order. So $f \circ g$ is strictly decreasing, and in particular one-to-one. For example, $f(x) = x^3$ and $g(x) = -x$ give $-x^3$.
+- id: a2-m1-r2-h20
+  lesson: a2-m1-h-inverses
+  topic: Inverse functions
+  stem: 'Which piecewise function is one-to-one?'
+  choices: ['$f(x) = \begin{cases} x + 3 & \text{if } x < 0 \\ x^2 & \text{if } x \ge 0 \end{cases}$', '$f(x) = \begin{cases} x - 2 & \text{if } x < 0 \\ x^2 & \text{if } x \ge 0 \end{cases}$', '$f(x) = \begin{cases} -x & \text{if } x < 0 \\ x^2 & \text{if } x \ge 0 \end{cases}$', '$f(x) = \begin{cases} x^2 & \text{if } x < 0 \\ x + 1 & \text{if } x \ge 0 \end{cases}$']
+  answer: 1
+  explanation: |-
+    Each piece must be one-to-one and the ranges must not overlap. In the correct choice, $x - 2$ on $x < 0$ gives outputs below $-2$, and $x^2$ on $x \ge 0$ gives outputs $\ge 0$: separate. In the others the ranges overlap: $x + 3$ gives values below 3, which $x^2$ also reaches ($f(-1) = f(\sqrt2) = 2$); $-x$ on $x < 0$ gives positive values, as does $x^2$ ($f(-4) = f(2) = 4$); and $x^2$ on $x < 0$ gives positive values, as does $x + 1$ ($f(-2) = f(3) = 4$).
+- id: a2-m1-r2-h21
+  lesson: a2-m1-h-inverses
+  topic: Inverse functions
+  stem: 'Let $f(x) = \begin{cases} x + 1 & \text{if } x < 0 \\ x^2 + 1 & \text{if } x \ge 0 \end{cases}$. What is $f^{-1}(10)$?'
+  choices: ['$9$, from the inverse piece $x - 1$', '$\sqrt{11}$, from the inverse piece $\sqrt{x + 1}$', '$3$, from the inverse piece $\sqrt{x - 1}$', '$\tfrac{1}{101}$, the reciprocal of $f(10)$']
+  answer: 2
+  explanation: |-
+    The output 10 is at least 1, so it came from the second piece, $x^2 + 1$ with $x \ge 0$. Solve $x^2 + 1 = 10$: $x = 3$ (the nonnegative root). Check: $f(3) = 10$. The first piece only produces outputs below 1, and $f(9) = 82$, so 9 is wrong.
+- id: a2-m1-r2-h22
+  lesson: a2-m1-h-inverses
+  topic: Inverse functions
+  stem: 'Which function is its own inverse?'
+  choices: ['$f(x) = 2x$', '$f(x) = x^3$', '$f(x) = \dfrac{x + 1}{x - 2}$', '$f(x) = \dfrac{3x + 1}{x - 3}$']
+  answer: 3
+  explanation: |-
+    For $\tfrac{ax + b}{cx + d}$ the inverse is $\tfrac{dx - b}{-cx + a}$. With $a = 3$, $b = 1$, $c = 1$, $d = -3$ this is $\tfrac{-3x - 1}{-x + 3} = \tfrac{3x + 1}{x - 3}$, the same function. Check: $f(4) = 13$ and $f(13) = \tfrac{40}{10} = 4$. For $\tfrac{x + 1}{x - 2}$, $d \ne -a$: $f(3) = 4$ but $f(4) = \tfrac52$. The inverses of $2x$ and $x^3$ are $\tfrac{x}{2}$ and $\sqrt[3]{x}$.
+- id: a2-m1-r2-h23
+  lesson: a2-m1-h-inverses
+  topic: Monotonic functions
+  stem: 'The graphs of a strictly increasing function $f$ and its inverse meet. Which equation finds the meeting points most directly?'
+  choices: ['$f(x) = -x$', '$f(x) = x$', '$f(x) = 0$', '$f(x) = \dfrac{1}{x}$']
+  answer: 1
+  explanation: |-
+    For a strictly increasing $f$, any point on both graphs has $f(a) = b$ and $f(b) = a$, which forces $a = b$. So the meeting points lie on $y = x$, and solving $f(x) = x$ finds them. This shortcut fails for decreasing functions.
+- id: a2-m1-r2-h24
+  lesson: a2-m1-h-inverses
+  topic: Inverse functions
+  stem: 'Which functions are their own inverses? Select all that apply.'
+  choices: ['$f(x) = 7 - x$', '$f(x) = \dfrac{4}{x}$', '$f(x) = x + 7$', '$f(x) = -x$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Check $f(f(x)) = x$. $7 - (7 - x) = x$; $\dfrac{4}{4/x} = x$; $-(-x) = x$. But $f(f(x)) = (x + 7) + 7 = x + 14$, so $x + 7$ is not self-inverse: its inverse is $x - 7$.
+- id: a2-m1-r2-h25
+  lesson: a2-m1-h-inverses
+  type: text
+  topic: Inverse functions
+  stem: 'A water plan charges \$2 per unit for the first 20 units in a month and \$3 per unit after that. A bill of \$70 means that ___ units were used.'
+  accept: ['30']
+  explanation: |-
+    The first 20 units cost $20 \cdot 2 = 40$ dollars, less than 70, so the usage is in the second tier. The remaining $70 - 40 = 30$ dollars buys $30 \div 3 = 10$ more units: $20 + 10 = 30$ units. Check: $40 + 3 \cdot 10 = 70$.
+- id: a2-m1-r2-h26
+  lesson: a2-m1-h-inverses
+  type: text
+  topic: Monotonic functions
+  stem: 'The function $f(x) = x^3 - 6$ is strictly increasing. Its graph meets the graph of $f^{-1}$ at exactly one point, with $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['2']
+    - ['2']
+  explanation: |-
+    For an increasing function the graphs meet only on $y = x$, so solve $x^3 - 6 = x$, that is, $x^3 - x - 6 = 0$. $x = 2$ works ($8 - 2 - 6 = 0$), and $x^3 - x - 6 = (x - 2)(x^2 + 2x + 3)$, where the quadratic has no real roots (its discriminant is $4 - 12 < 0$). So the point is $(2, 2)$.
+- id: a2-m1-r2-h27
+  lesson: a2-m1-h-inverses
+  type: match
+  topic: Monotonic functions
+  stem: 'Match each function, defined on its natural domain, to the correct statement about it.'
+  pairs:
+    - ['$f(x) = x^3 + x$', 'Strictly increasing, so one-to-one']
+    - ['$f(x) = 4 - x^3$', 'Strictly decreasing, so one-to-one']
+    - ['$f(x) = x^2 + x$', 'Not one-to-one: f(0) = f(−1)']
+    - ['$f(x) = \dfrac{1}{x}$', 'One-to-one but not monotonic on its whole domain']
+  distractors: ['Not one-to-one: f(1) = f(−1)']
+  explanation: |-
+    $x^3 + x$ is a sum of increasing functions. $4 - x^3$ decreases because $x^3$ increases. $x^2 + x$ is 0 at both $x = 0$ and $x = -1$. $\tfrac1x$ never repeats an output, but it decreases on each side of 0 while $f(-1) = -1 < f(1) = 1$, so it is not decreasing across its whole domain.
+- id: a2-m1-r2-h28
+  lesson: a2-m1-h-inverses
+  type: order
+  topic: Inverse functions
+  stem: 'Put the steps of $h^{-1}$ in order for $h(x) = 3(x + 2)^5 - 1$.'
+  items: [Add 1, Divide by 3, Take the fifth root, Subtract 2]
+  explanation: |-
+    $h$ adds 2, raises to the 5th power, multiplies by 3 and subtracts 1. The inverse undoes these in reverse order: add 1, divide by 3, take the fifth root, subtract 2. So $h^{-1}(x) = \sqrt[5]{\tfrac{x + 1}{3}} - 2$.

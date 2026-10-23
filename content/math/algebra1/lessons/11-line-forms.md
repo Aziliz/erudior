@@ -86,6 +86,12 @@ Graph $3x - 4y = 12$ using its intercepts, and find its slope.
 
 A horizontal line through $(a, b)$ has slope 0, so its equation is $y = b$: every point has the same $y$-coordinate. A vertical line through $(a, b)$ is $x = a$: every point has the same $x$-coordinate. A vertical line is not the graph of a function (it fails the vertical line test in the most dramatic way possible).
 
+```plot
+{"x": [-3, 7], "y": [-3, 6], "functions": [{"f": "2", "label": "y = 2"}], "segments": [{"from": [3, -3], "to": [3, 6], "label": "x = 3"}], "points": [{"at": [3, 2], "label": "(3, 2)"}, {"at": [-1, 2], "label": "(-1, 2)"}, {"at": [3, -1], "label": "(3, -1)"}], "equal": true, "caption": "Through (3, 2): the horizontal line y = 2 and the vertical line x = 3"}
+```
+
+Every point on the horizontal line, such as $(-1, 2)$, has $y = 2$; every point on the vertical line, such as $(3, -1)$, has $x = 3$.
+
 ## Choosing a form
 
 | You know | Start with | Notes |
@@ -94,6 +100,26 @@ A horizontal line through $(a, b)$ has slope 0, so its equation is $y = b$: ever
 | slope and a point | $y - y_1 = m(x - x_1)$ | then simplify if asked |
 | two points | compute $m$, then point-slope | check with the second point |
 | intercepts, or you need integer coefficients | $Ax + By = C$ | also handles vertical lines |
+
+The same choices as a flowchart. Notice that "two points" isn't a separate method: once you've found the slope, you are in the "slope and a point" case.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a form for the equation of a line
+  accDescr: Start from what you know about the line. If it is vertical or horizontal, write x = a or y = b. If you know the slope m and the y-intercept b, write y = mx + b. If you know two points, first find m from them, which leaves you with the slope and one point. With the slope and one point, write point-slope form y minus y1 equals m times x minus x1, then simplify to the form asked for. If integer coefficients are wanted, rearrange either result to standard form Ax + By = C.
+  A["What do you know about the line?"] --> V["It is vertical or horizontal"]
+  A --> B["Slope m and y-intercept b"]
+  A --> D["Two points"]
+  A --> C["Slope m and one point"]
+  V --> W["Write x = a or y = b"]
+  B --> E["Write y = mx + b"]
+  D --> F["Find m from the two points"]
+  F --> C
+  C --> G["Write y − y1 = m(x − x1)"]
+  G --> H["Simplify to the form asked for"]
+  E --> I["Integer coefficients wanted? Rearrange to Ax + By = C"]
+  H --> I
+```
 
 ### Example 5
 
