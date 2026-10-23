@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="430" viewBox="0 0 640 430" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<title>Proof that the centroid splits each median 2 to 1</title>
+<rect width="640" height="430" fill="#ffffff"/>
+<polygon points="50.0,380.0 590.0,380.0 230.0,50.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="170.0,325.0 440.0,325.0 410.0,215.0 140.0,215.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="50.0" y1="380.0" x2="410.0" y2="215.0" stroke="#1c2833" stroke-width="2.2"/>
+<line x1="590.0" y1="380.0" x2="140.0" y2="215.0" stroke="#1c2833" stroke-width="2.2"/>
+<line x1="505.4" y1="291.6" x2="494.6" y2="303.4" stroke="#1c2833" stroke-width="2"/>
+<line x1="325.4" y1="126.6" x2="314.6" y2="138.4" stroke="#1c2833" stroke-width="2"/>
+<line x1="100.8" y1="303.5" x2="86.8" y2="295.9" stroke="#1c2833" stroke-width="2"/>
+<line x1="103.2" y1="299.1" x2="89.2" y2="291.5" stroke="#1c2833" stroke-width="2"/>
+<line x1="190.8" y1="138.5" x2="176.8" y2="130.9" stroke="#1c2833" stroke-width="2"/>
+<line x1="193.2" y1="134.1" x2="179.2" y2="126.5" stroke="#1c2833" stroke-width="2"/>
+<line x1="109.7" y1="361.4" x2="103.0" y2="346.9" stroke="#1c2833" stroke-width="2"/>
+<line x1="113.3" y1="359.8" x2="106.7" y2="345.2" stroke="#1c2833" stroke-width="2"/>
+<line x1="117.0" y1="358.1" x2="110.3" y2="343.6" stroke="#1c2833" stroke-width="2"/>
+<line x1="229.7" y1="306.4" x2="223.0" y2="291.9" stroke="#1c2833" stroke-width="2"/>
+<line x1="233.3" y1="304.8" x2="226.7" y2="290.2" stroke="#1c2833" stroke-width="2"/>
+<line x1="237.0" y1="303.1" x2="230.3" y2="288.6" stroke="#1c2833" stroke-width="2"/>
+<circle cx="50.0" cy="380.0" r="4.5" fill="#1c2833"/>
+<circle cx="590.0" cy="380.0" r="4.5" fill="#1c2833"/>
+<circle cx="230.0" cy="50.0" r="4.5" fill="#1c2833"/>
+<circle cx="410.0" cy="215.0" r="4.5" fill="#1c2833"/>
+<circle cx="140.0" cy="215.0" r="4.5" fill="#1c2833"/>
+<circle cx="290.0" cy="270.0" r="4.5" fill="#1c2833"/>
+<circle cx="170.0" cy="325.0" r="4.5" fill="#1c2833"/>
+<circle cx="440.0" cy="325.0" r="4.5" fill="#1c2833"/>
+<text x="42.0" y="404.0" text-anchor="middle" font-size="16" font-weight="normal">A</text>
+<text x="598.0" y="404.0" text-anchor="middle" font-size="16" font-weight="normal">B</text>
+<text x="230.0" y="36.0" text-anchor="middle" font-size="16" font-weight="normal">C</text>
+<text x="424.0" y="211.0" text-anchor="start" font-size="16" font-weight="normal">D</text>
+<text x="126.0" y="213.0" text-anchor="end" font-size="16" font-weight="normal">E</text>
+<text x="290.0" y="254.0" text-anchor="middle" font-size="16" font-weight="bold">G</text>
+<text x="164.0" y="349.0" text-anchor="middle" font-size="16" font-weight="normal">M</text>
+<text x="446.0" y="349.0" text-anchor="middle" font-size="16" font-weight="normal">N</text>
+</svg>

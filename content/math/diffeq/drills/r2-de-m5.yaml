@@ -1,0 +1,89 @@
+# Round 2 drills for de-m5 (second-order linear equations)
+- id: de-m5-r2-abel
+  title: Wronskian from Abel's theorem
+  topic: Second-order theory
+  vars:
+    k: {choices: [-3, -2, 1, 2, 3]}
+    t1: {choices: [2, 3]}
+    w0: {min: -6, max: 6}
+  where: ['w0 != 0']
+  calc:
+    W: w0*t1^(-k)
+    nk: -k
+  prompt: 'Two solutions of $ty'''' {k:signedcoef}y'' + t^2y = 0$ on $t > 0$ have Wronskian $W(1) = {w0}$. Use Abel''s theorem to find $W({t1})$. Give an exact value (a fraction if needed).'
+  answers:
+    - {name: W, label: '$W({t1}) =$', kind: fraction}
+  solution: |-
+    Divide by $t$: $p = \dfrac{{k}}{t}$. Abel's theorem gives $W(t) = W(1)\exp\left(-\int_1^t \dfrac{{k}}{s}\,ds\right) = {w0}\,t^{{nk}}$. At $t = {t1}$: $W({t1}) = {w0} \cdot {t1}^{{nk}} =$ **{W:frac}**.
+- id: de-m5-r2-phase
+  title: Amplitude and phase angle
+  topic: Characteristic equation
+  vars:
+    c1: {min: -5, max: 5}
+    c2: {min: -5, max: 5}
+    w: {min: 2, max: 4}
+  where: ['c1 != 0', 'c2 != 0']
+  calc:
+    R: sqrt(c1^2 + c2^2)
+    d: atan2(c2, c1)
+    R2: c1^2 + c2^2
+  prompt: 'Write ${c1:coef}\cos {w}t {c2:signedcoef}\sin {w}t$ in the form $R\cos({w}t - \delta)$ with $R > 0$ and $-\pi < \delta \le \pi$ (radians). Give $R$ and $\delta$ to 3 decimal places.'
+  answers:
+    - {name: R, label: '$R =$', tolerance: 0.0006}
+    - {name: d, label: '$\delta =$', tolerance: 0.0006}
+  solution: |-
+    $R = \sqrt{({c1})^2 + ({c2})^2} = \sqrt{{R2}} \approx$ **{R:dp3}**. The angle needs $\cos\delta = {c1}/R$ and $\sin\delta = {c2}/R$; their signs fix the quadrant, so $\delta = \operatorname{atan2}({c2}, {c1}) \approx$ **{d:dp3}** (when $c_1 < 0$, $\arctan(c_2/c_1)$ alone is off by $\pi$).
+- id: de-m5-r2-recover-eq
+  title: Rebuild a Cauchy–Euler equation from two solutions
+  topic: Solution spaces
+  vars:
+    m: {choices: [-3, -2, -1, 3, 4, 5]}
+    n: {choices: [-3, -2, -1, 3, 4, 5]}
+  where: ['m < n', 'm + n != 1', 'm + n != 2']
+  calc:
+    b: 1 - m - n
+    c: m*n
+    nm: n - m
+    ex: m + n - 1
+    m1: m - 1
+    n1: n - 1
+  prompt: '$y_1 = t^{{m}}$ and $y_2 = t^{{n}}$ form a fundamental set on $t > 0$ for an equation $t^2y'''' + bty'' + cy = 0$. Find $b$ and $c$.'
+  answers:
+    - {name: b, label: '$b =$', format: integer}
+    - {name: c, label: '$c =$', format: integer}
+  solution: |-
+    $W = t^{{m}} \cdot {n:coef}t^{{n1}} - {m:coef}t^{{m1}} \cdot t^{{n}} = {nm:coef}t^{{ex}}$, so $p = -W'/W = -\dfrac{{ex}}{t}$, which makes $b = tp =$ **{b}**. Then $q = (y_1'y_2'' - y_1''y_2')/W = \dfrac{{c}}{t^2}$, so $c = t^2q =$ **{c}**. Check with the indicial equation: $m(m - 1) + bm + c = m^2 - ({m} + {n})m + ({m})({n})$, with roots ${m}$ and ${n}$.
+- id: de-m5-r2-invariant
+  title: Remove the first-derivative term
+  topic: Oscillation theory
+  vars:
+    k: {min: -4, max: 4}
+    A: {min: 1, max: 4}
+    c: {min: -6, max: 6}
+  where: ['k != 0', 'c != 0']
+  calc:
+    Kv: c - k^2/4 + k/2
+    k2: k^2
+  prompt: 'The substitution $y = u\,e^{-\frac12\int p\,dt}$ turns $t^2y'''' {k:signedcoef}ty'' + ({A}t^2 {c:signed})y = 0$ ($t > 0$) into $u'''' + Q(t)u = 0$ with $Q = {A} + \dfrac{K}{t^2}$. Find $K$ as an exact fraction.'
+  answers:
+    - {name: Kv, label: '$K =$', kind: fraction}
+  solution: |-
+    Divide by $t^2$: $p = \dfrac{{k}}{t}$, $q = {A} + \dfrac{{c}}{t^2}$. Then $\dfrac{p^2}{4} = \dfrac{{k2}}{4t^2}$ and $\dfrac{p'}{2} = -\dfrac{{k}}{2t^2}$, so $Q = q - \dfrac{p^2}{4} - \dfrac{p'}{2} = {A} + \dfrac{1}{t^2}\left({c} - \dfrac{{k2}}{4} + \dfrac{{k}}{2}\right)$ and $K =$ **{Kv:frac}**.
+- id: de-m5-r2-zero-spacing
+  title: Bounds on the spacing of zeros
+  topic: Oscillation theory
+  vars:
+    A: {min: 5, max: 20}
+    B: {min: 1, max: 9}
+  where: ['A - B >= 2']
+  calc:
+    lo: pi/sqrt(A + B)
+    hi: pi/sqrt(A - B)
+    Mx: A + B
+    Mn: A - B
+  prompt: 'Sturm''s comparison theorem bounds the distance $d$ between consecutive zeros of any nonzero solution of $u'''' + ({A} + {B}\cos t)u = 0$. Find the bounds in $\pi/M \le d \le \pi/m$, to 3 decimal places.'
+  answers:
+    - {name: lo, label: 'smallest possible $d$:', tolerance: 0.0006}
+    - {name: hi, label: 'largest possible $d$:', tolerance: 0.0006}
+  solution: |-
+    $Q = {A} + {B}\cos t$ lies between $m^2 = {Mn}$ and $M^2 = {Mx}$. Comparing with $\sin(\sqrt{{Mx}}\,t)$ and $\sin(\sqrt{{Mn}}\,t)$: $d \ge \pi/\sqrt{{Mx}} \approx$ **{lo:dp3}** and $d \le \pi/\sqrt{{Mn}} \approx$ **{hi:dp3}**.

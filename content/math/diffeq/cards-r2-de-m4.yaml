@@ -1,0 +1,32 @@
+# Round 2 cards for module de-m4 (honors lessons 17h1-17h3)
+# Harvesting policies and resilience
+- {front: 'Constant-quota harvesting model', back: '$P'' = rP(1 - P/K) - h$: fixed catch $h$; saddle-node bifurcation at $h = rK/4$.', topic: Harvesting models}
+- {front: 'Constant-effort harvesting model', back: '$P'' = rP(1 - P/K) - EP$: catch proportional to stock; logistic with rate $r - E$ and capacity $K(1 - E/r)$.', topic: Harvesting models}
+- {front: 'Stable equilibrium under constant effort $E < r$', back: '$P^* = K(1 - E/r)$, with $f''(P^*) = -(r - E)$.', topic: Harvesting models}
+- {front: 'Bifurcation in the constant-effort model', back: 'Transcritical at $E = r$: $P^*$ meets $0$ and they swap stability; a gradual decline, not a sudden collapse.', topic: Harvesting models}
+- {front: 'Sustainable yield under constant effort', back: '$Y(E) = EK(1 - E/r)$, maximized at $E = r/2$ with $Y = rK/4$ and $P^* = K/2$.', topic: Harvesting models}
+- {front: 'MSY: quota versus effort', back: 'Same maximum yield $rK/4$ at stock $K/2$. Quota $h = rK/4$: semistable (fragile). Effort $E = r/2$: stable, $f''(P^*) = -r/2$.', topic: Harvesting models}
+- {front: 'Return time', back: '$T_R = 1/\lvert f''(y^*)\rvert$ at a stable equilibrium: time for a small disturbance to shrink by a factor of $e$.', topic: Harvesting models}
+- {front: 'Return time under constant effort', back: '$T_R = \dfrac{1}{r - E}$', topic: Harvesting models}
+- {front: 'Return time under a quota $h < rK/4$', back: '$T_R = \dfrac{1}{r\sqrt{1 - 4h/(rK)}}$, which grows without bound as $h \to rK/4$.', topic: Harvesting models}
+- {front: 'Critical slowing down', back: 'Near a saddle-node, $f''(y^*) \to 0$, so recovery from small disturbances gets slower and slower: a proposed (not foolproof) early-warning signal.', topic: Harvesting models}
+- {front: 'Why effort control is more robust to shocks', back: 'A smaller stock means a smaller catch (negative feedback). A fixed quota takes the same amount from a weakened stock and can push it below the threshold.', topic: Harvesting models}
+# Stiff equations and implicit methods
+- {front: 'Test equation and stability function', back: 'On $y'' = \lambda y$ a one-step method gives $y_{n+1} = R(z)y_n$ with $z = h\lambda$; stable where $\lvert R(z)\rvert \le 1$.', topic: Stiff equations}
+- {front: 'Stability functions of explicit methods', back: 'Euler $1 + z$; improved Euler $1 + z + \tfrac{z^2}{2}$; RK4 $1 + z + \tfrac{z^2}{2} + \tfrac{z^3}{6} + \tfrac{z^4}{24}$.', topic: Stiff equations}
+- {front: 'Step-size limits for real $\lambda < 0$', back: 'Euler and improved Euler: $h \le 2/\lvert\lambda\rvert$. RK4: $h \le 2.785/\lvert\lambda\rvert$ (about).', topic: Stiff equations}
+- {front: 'Stiff problem (working definition)', back: 'Stability, not accuracy, limits an explicit method''s step size; usually a fast-decaying component alongside slow behavior.', topic: Stiff equations}
+- {front: 'Backward Euler method', back: '$y_{n+1} = y_n + h f(t_{n+1}, y_{n+1})$; $R(z) = \dfrac{1}{1 - z}$; first order, A-stable and L-stable.', topic: Stiff equations}
+- {front: 'Trapezoidal method', back: '$y_{n+1} = y_n + \tfrac h2\big(f_n + f_{n+1}\big)$; $R(z) = \dfrac{1 + z/2}{1 - z/2}$; second order, A-stable, $R \to -1$ as $\lvert z\rvert \to \infty$.', topic: Stiff equations}
+- {front: 'A-stable versus L-stable', back: 'A-stable: stability region contains the whole left half-plane. L-stable: also $R(z) \to 0$ as $\lvert z\rvert \to \infty$, so stiff transients die at once.', topic: Stiff equations}
+- {front: 'Why explicit RK regions are bounded', back: '$R(z)$ is a polynomial, so $\lvert R(z)\rvert \to \infty$ as $\lvert z\rvert \to \infty$.', topic: Stiff equations}
+- {front: 'Cost of an implicit step', back: 'Solve an equation for $y_{n+1}$ each step (Newton''s method, starting at $y_n$, if $f$ is nonlinear). Worth it only on stiff problems.', topic: Stiff equations}
+# Error estimates and adaptive step size
+- {front: 'Richardson error estimate (order $p$)', back: '$y(T) - A(h/2) \approx \dfrac{A(h/2) - A(h)}{2^p - 1}$', topic: Adaptive step size}
+- {front: 'Richardson extrapolated value', back: '$A(h/2) + \dfrac{A(h/2) - A(h)}{2^p - 1}$, which cancels the leading $Ch^p$ error term.', topic: Adaptive step size}
+- {front: 'Heun–Euler embedded pair', back: '$y_E = y_n + hk_1$, $z = y_n + \tfrac h2(k_1 + k_2)$; error estimate $\lvert z - y_E\rvert = \tfrac h2\lvert k_2 - k_1\rvert$.', topic: Adaptive step size}
+- {front: 'Step-size update formula', back: '$h_{\text{new}} = \sigma h\left(\dfrac{\text{tol}}{\text{est}}\right)^{1/(p+1)}$, $p$ = order of the method whose error is estimated, $\sigma \approx 0.9$.', topic: Adaptive step size}
+- {front: 'Accept or reject a step', back: 'Accept if est $\le$ tol and move on; otherwise stay at the same point and retry with the smaller $h_{\text{new}}$.', topic: Adaptive step size}
+- {front: 'Dormand–Prince', back: '5(4) embedded pair behind MATLAB ode45 and SciPy RK45; seven stages, but about six new evaluations of $f$ per step.', topic: Adaptive step size}
+- {front: 'What a tolerance controls', back: 'The estimated local error per step, not the final global error. Check accuracy by re-solving with a smaller tolerance.', topic: Adaptive step size}
+- {front: 'Signature of stiffness in an adaptive solver', back: 'Many tiny steps and many rejections while the solution looks smooth: switch to an implicit method.', topic: Adaptive step size}

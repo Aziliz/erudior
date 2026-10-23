@@ -144,7 +144,7 @@ $R(-100) = \tfrac1{101}$ wipes the transient out at once.
 The difference is the limit as $z \to -\infty$: backward Euler's $R(z) \to 0$, but the
 trapezoidal $R(z) \to -1$. A method that is A-stable and also has $R(z) \to 0$ as $\lvert z\rvert \to \infty$ is called
 **L-stable**. Most production stiff solvers are built on backward-Euler-like formulas, such as
-the **backward differentiation formulas (BDF)**, which use several earlier points to reach higher
+the **backward differentiation formulas** (BDF), which use several earlier points to reach higher
 order.
 
 ## The price: solving an equation each step

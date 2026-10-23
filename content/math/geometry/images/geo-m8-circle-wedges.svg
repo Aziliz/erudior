@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" width="640" height="330" font-family="sans-serif">
+<rect width="640" height="330" fill="#ffffff"/>
+<path d="M115,165 L195.0,165.0 A80,80 0 0 0 184.3,125.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L184.3,125.0 A80,80 0 0 0 155.0,95.7 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L155.0,95.7 A80,80 0 0 0 115.0,85.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L115.0,85.0 A80,80 0 0 0 75.0,95.7 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L75.0,95.7 A80,80 0 0 0 45.7,125.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L45.7,125.0 A80,80 0 0 0 35.0,165.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L35.0,165.0 A80,80 0 0 0 45.7,205.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L45.7,205.0 A80,80 0 0 0 75.0,234.3 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L75.0,234.3 A80,80 0 0 0 115.0,245.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L115.0,245.0 A80,80 0 0 0 155.0,234.3 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L155.0,234.3 A80,80 0 0 0 184.3,205.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M115,165 L184.3,205.0 A80,80 0 0 0 195.0,165.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="115.0" y="285.0" font-size="18" text-anchor="middle" fill="#1c2833">a circle cut into 12 wedges</text>
+<path d="M290.0,95 L269.3,172.3 A80,80 0 0 0 310.7,172.3 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M310.7,172.3 L290.0,95.0 A80,80 0 0 1 331.4,95.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M331.4,95 L310.7,172.3 A80,80 0 0 0 352.1,172.3 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M352.1,172.3 L331.4,95.0 A80,80 0 0 1 372.8,95.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M372.8,95 L352.1,172.3 A80,80 0 0 0 393.5,172.3 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M393.5,172.3 L372.8,95.0 A80,80 0 0 1 414.2,95.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M414.2,95 L393.5,172.3 A80,80 0 0 0 434.9,172.3 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M434.9,172.3 L414.2,95.0 A80,80 0 0 1 455.6,95.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M455.6,95 L434.9,172.3 A80,80 0 0 0 476.3,172.3 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M476.3,172.3 L455.6,95.0 A80,80 0 0 1 497.1,95.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M497.1,95 L476.3,172.3 A80,80 0 0 0 517.8,172.3 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M517.8,172.3 L497.1,95.0 A80,80 0 0 1 538.5,95.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="259.3" y="139.6" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">r</text>
+<line x1="269.3" y1="194.3" x2="517.8" y2="194.3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="393.5" y="220.3" font-size="18" text-anchor="middle" fill="#1c2833">about half the circumference, πr</text>
+<text x="403.9" y="60.0" font-size="18" text-anchor="middle" fill="#1c2833">the same wedges, rearranged</text>
+</svg>

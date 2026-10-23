@@ -51,7 +51,15 @@ A common slip is to stop at $x = 6$ or at one half, 21. Read what is asked.
 
 An **angle** is two rays with a common endpoint. The rays are the **sides** and the common endpoint is the **vertex**. An angle with vertex $B$ and sides $\overrightarrow{BA}$ and $\overrightarrow{BC}$ is named $\angle ABC$ or $\angle CBA$ (vertex always in the middle), or just $\angle B$ if no other angle shares that vertex. Its size, in degrees, is written $m\angle ABC$.
 
+An angle splits the rest of the plane into two parts: the **interior** between the sides (shaded below) and the exterior outside them.
+
+![An angle with its vertex at the lower left, two sides drawn as rays, the shaded interior between the sides and the exterior outside them](images/geo-m1-angle-parts.svg)
+
 The **Protractor Postulate** says the rays from a point on one side of a line can be matched with the numbers 0 to 180, and the measure of an angle is the difference of its two rays' numbers. That is exactly what you do when you read a protractor.
+
+In the picture, ray $\overrightarrow{BC}$ passes the 45 mark and ray $\overrightarrow{BA}$ passes the 130 mark, so $m\angle ABC = 130 - 45 = 85^\circ$. You subtract, so it doesn't matter that neither ray sits on 0.
+
+![A protractor centered at vertex B, with ray BC through the 45 mark and ray BA through the 130 mark; the angle between them is marked 85 degrees](images/geo-m1-protractor.svg)
 
 Angles are classified by measure:
 
@@ -97,6 +105,23 @@ $\overrightarrow{QS}$ bisects $\angle PQR$ and $m\angle PQS = 2y + 7$, $m\angle 
 **Step 2.** Solve: $2y = 32$, $y = 16$.
 
 **Step 3.** $m\angle PQR = 6(16) - 18 = 78^\circ$, and each half is $2(16)+7 = 39^\circ$. Check: $2 \cdot 39 = 78$.
+
+All of these midpoint and bisector problems follow one plan:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a midpoint or bisector problem
+  accDescr: Read what is given. If you are given expressions for the two halves, set one half equal to the other. If you are given one half and the whole, set the whole equal to two times the half. Either way, solve for the variable, then substitute it back into every expression. Check that every length or angle is positive and that the parts add up to the whole; if they do, answer the question that was asked, and if not, recheck the equation.
+  A["Read what is given"] --> B{"Two halves, or a half and the whole?"}
+  B -- "two halves" --> C["Set half = other half"]
+  B -- "half and whole" --> D["Set whole = 2 times half"]
+  C --> E["Solve for the variable"]
+  D --> E
+  E --> F["Substitute back into every expression"]
+  F --> G{"All positive, and parts add to the whole?"}
+  G -- yes --> H["Answer the question asked"]
+  G -- no --> I["Recheck the equation"]
+```
 
 ## Common mistakes
 

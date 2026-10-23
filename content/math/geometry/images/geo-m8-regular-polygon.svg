@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" font-family="sans-serif">
+<rect width="560" height="400" fill="#ffffff"/>
+<polygon points="418.6,137.6 337.4,56.4 222.6,56.4 141.4,137.6 141.4,252.4 222.6,333.6 337.4,333.6 418.6,252.4" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="280.0,195.0 222.6,56.4 141.4,137.6" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<path d="M263.9,156.2 A42,42 0 0 0 241.2,178.9" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="280.0" y1="195.0" x2="280.0" y2="333.6" stroke="#1c2833" stroke-width="2.5" stroke-dasharray="8 6"/>
+<polyline points="280.0,321.6 292.0,321.6 292.0,333.6" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="280.0" y1="195.0" x2="418.6" y2="137.6" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="280.0" cy="195.0" r="4.5" fill="#1c2833"/>
+<text x="292.0" y="215.0" font-size="18" text-anchor="start" fill="#1c2833">center</text>
+<text x="270.0" y="280.0" font-size="18" text-anchor="end" fill="#1c2833">apothem a</text>
+<text x="353.3" y="190.3" font-size="18" text-anchor="start" fill="#1c2833">radius r</text>
+<text x="185.0" y="125.0" font-size="18" text-anchor="middle" fill="#1c2833">45°</text>
+<text x="168.0" y="311.0" font-size="18" text-anchor="end" fill="#1c2833">side s</text>
+</svg>

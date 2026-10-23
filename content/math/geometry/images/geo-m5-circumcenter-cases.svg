@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="330" viewBox="0 0 720 330" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<title>Circumcenter of acute, right and obtuse triangles</title>
+<rect width="720" height="330" fill="#ffffff"/>
+<circle cx="120.0" cy="150.0" r="92.0" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="6 5"/>
+<polygon points="34.5,184.0 199.8,195.8 125.0,58.1" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="120.0" y1="150.0" x2="34.5" y2="184.0" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<line x1="120.0" y1="150.0" x2="199.8" y2="195.8" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<line x1="120.0" y1="150.0" x2="125.0" y2="58.1" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<circle cx="120.0" cy="150.0" r="5.5" fill="#1c2833"/>
+<text x="132.0" y="170.0" text-anchor="start" font-size="16" font-weight="bold">O</text>
+<text x="120.0" y="278.0" text-anchor="middle" font-size="16" font-weight="bold">Acute triangle</text>
+<text x="120.0" y="302.0" text-anchor="middle" font-size="15" font-weight="normal">O is inside</text>
+<circle cx="360.0" cy="150.0" r="92.0" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="6 5"/>
+<polygon points="268.0,150.0 452.0,150.0 401.4,67.8" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="360.0" y1="150.0" x2="268.0" y2="150.0" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<line x1="360.0" y1="150.0" x2="452.0" y2="150.0" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<line x1="360.0" y1="150.0" x2="401.4" y2="67.8" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<circle cx="360.0" cy="150.0" r="5.5" fill="#1c2833"/>
+<text x="372.0" y="174.0" text-anchor="start" font-size="16" font-weight="bold">O</text>
+<polyline points="391.2,74.1 397.5,84.4 407.7,78.1" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<text x="360.0" y="278.0" text-anchor="middle" font-size="16" font-weight="bold">Right triangle</text>
+<text x="360.0" y="302.0" text-anchor="middle" font-size="15" font-weight="normal">O is the midpoint of the hypotenuse</text>
+<circle cx="600.0" cy="150.0" r="92.0" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="6 5"/>
+<polygon points="526.0,95.3 674.0,95.3 566.7,64.2" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="600.0" y1="150.0" x2="526.0" y2="95.3" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<line x1="600.0" y1="150.0" x2="674.0" y2="95.3" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<line x1="600.0" y1="150.0" x2="566.7" y2="64.2" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="3 4"/>
+<circle cx="600.0" cy="150.0" r="5.5" fill="#1c2833"/>
+<text x="612.0" y="170.0" text-anchor="start" font-size="16" font-weight="bold">O</text>
+<text x="600.0" y="278.0" text-anchor="middle" font-size="16" font-weight="bold">Obtuse triangle</text>
+<text x="600.0" y="302.0" text-anchor="middle" font-size="15" font-weight="normal">O is outside</text>
+</svg>

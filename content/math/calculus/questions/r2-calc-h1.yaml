@@ -383,6 +383,7 @@
     The midpoint is $\frac{0.625 + 0.75}{2} = 0.6875$, and $f(0.6875) = 0.6875^3 + 0.6875 - 1 \approx 0.0125 > 0$. Since $f$ is negative at 0.625 and positive at 0.6875, the sign change (and the root $c \approx 0.6823$) is in $[0.625, 0.6875]$.
 - id: calc-h1-r2-h33
   lesson: calc-h1-big-theorems
+  module_quiz: true
   topic: Sequential continuity
   stem: 'Let $f(x) = \sin\frac1x$ for $x \ne 0$ and $f(0) = 0$. Which sequence proves that $f$ is not continuous at 0?'
   choices:
@@ -420,7 +421,6 @@
     Each $x_{n_k}$ satisfies $a \le x_{n_k} \le b$, and passing to the limit keeps $\le$, so $a \le c \le b$. This is where the interval being closed matters: on $(0, 1)$ the same argument only gives $0 \le c \le 1$, and $c$ can be an endpoint outside the interval. Continuity is used only after $c$ is known to be in the domain.
 - id: calc-h1-r2-h36
   lesson: calc-h1-big-theorems
-  module_quiz: true
   topic: Proving the IVT and EVT
   stem: 'Which result does the proof of the Extreme Value Theorem use to get a convergent sequence of points?'
   choices: ['The Bolzano–Weierstrass theorem', 'The nested interval property', 'The Mean Value Theorem', 'The Intermediate Value Theorem']

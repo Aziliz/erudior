@@ -20,7 +20,7 @@ backward, tells you how a system responds and how it settles into a repeating cy
 
 ## The transform of a periodic function
 
-A function is **periodic with period** $T > 0$ if $f(t + T) = f(t)$ for all $t \ge 0$. (The
+A function is periodic with period $T > 0$ if $f(t + T) = f(t)$ for all $t \ge 0$. (The
 Fourier-series lesson uses the same idea on the whole real line; here only $t \ge 0$
 matters.) Suppose $f$ is periodic and piecewise continuous. Split the transform integral
 into one-period pieces:

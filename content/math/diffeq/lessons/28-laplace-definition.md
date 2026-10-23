@@ -27,6 +27,14 @@ for those values of $s$ where the improper integral converges. The transform tak
 function of $t$ and produces a function of a new variable $s$. Lowercase letters
 ($f$, $y$) denote functions of $t$; capitals ($F$, $Y$) their transforms.
 
+The factor $e^{-st}$ is a weight. For larger $s$ it dies off faster, so $F(s)$ depends more
+and more on what $f$ does near $t = 0$; for small $s$ the weight lingers and late times
+count too.
+
+```plot
+{"x": [0, 4], "y": [0, 1.1], "xLabel": "t", "functions": [{"f": "exp(-0.5x)", "label": "s = 0.5"}, {"f": "exp(-x)", "label": "s = 1"}, {"f": "exp(-2x)", "label": "s = 2"}], "caption": "The weight e^(−st) for three values of s: the larger s is, the more the transform concentrates on small t."}
+```
+
 ### Example 1: a constant
 
 $$\mathcal{L}\{1\} = \int_0^\infty e^{-st}\,dt = \lim_{b\to\infty}\left[-\frac{e^{-st}}{s}\right]_0^b = \frac1s \quad (s > 0).$$
@@ -95,6 +103,14 @@ $|f(t)| \le Me^{ct}$ for large $t$. Polynomials, exponentials, sines, cosines an
 functions all qualify. $e^{t^2}$ does not: it grows faster than every exponential. Also,
 for any such $f$, $F(s) \to 0$ as $s \to \infty$, so a function like $F(s) = s$ is not the
 transform of any ordinary function.
+
+On a logarithmic scale the idea is easy to see: $\ln(Me^{ct}) = \ln M + ct$ is a straight
+line, and a function is of exponential order when $\ln|f|$ eventually stays below some line.
+$\ln(e^{t^2}) = t^2$ is a parabola, which overtakes every line.
+
+```plot
+{"x": [0, 5], "y": [0, 16], "xLabel": "t", "yLabel": "ln of the size", "functions": [{"f": "x^2", "label": "ln(e^(t²)) = t²"}, {"f": "3x", "dashed": true, "label": "ln(e^(3t)) = 3t"}, {"f": "1 + 2x", "dashed": true, "label": "ln(e·e^(2t))"}], "caption": "Logarithms of e^(t²) and two exponential bounds: the parabola crosses every straight line, so e^(t²) is not of exponential order."}
+```
 
 ## The basic table
 

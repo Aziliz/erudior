@@ -25,6 +25,10 @@ A common trap is running it backwards. Knowing $p \to q$ and $q$ tells you **not
 
 Syllogism chains conditionals together like links, as long as the conclusion of one exactly matches the hypothesis of the next.
 
+In a diagram of sets, a syllogism is a set inside a set inside a set. Anything in the innermost set (squares) is inside the middle one (rhombuses), so it is inside the outer one (quadrilaterals with perpendicular diagonals) too. The picture also shows why the arrows can't be reversed: the kite has perpendicular diagonals but is not a rhombus.
+
+![Inside a box labeled quadrilaterals, three nested regions: an outer oval labeled perpendicular diagonals, a middle oval labeled rhombuses, and an inner circle labeled squares. A square with its diagonals is drawn in the inner circle, a rhombus with unequal perpendicular diagonals in the middle oval, and a kite with perpendicular diagonals in the outer oval only. A rectangle whose diagonals are not perpendicular is drawn outside all three.](images/geo-m2-syllogism-sets.svg)
+
 ### Example 1
 
 Decide what (if anything) follows.
@@ -40,6 +44,19 @@ Decide what (if anything) follows.
 **(b)** Nothing follows. The given fact matches the *conclusion*, not the hypothesis. (35 doesn't end in 0.)
 
 **(c)** By syllogism: if $x = 4$, then $3x + 1 = 13$.
+
+The chart sums up what you may and may not conclude from a true conditional. The "q is false" branch uses the contrapositive from the last lesson: "if not $q$, then not $p$" is true whenever "if $p$, then $q$" is.
+
+```mermaid
+flowchart LR
+  accTitle: What can you conclude from a true conditional?
+  accDescr: You know "if p, then q" is true, plus one more fact. If p is true, conclude q by the Law of Detachment. If q is false, conclude p is false, using the contrapositive. If you also know "if q, then r", conclude "if p, then r" by the Law of Syllogism. If you only know that q is true, or only that p is false, nothing follows about the other part.
+  A["You know: if p, then q"] --> B("What else do you know?")
+  B -- "p is true" --> C["Conclude q: Law of Detachment"]
+  B -- "q is false" --> F["Conclude p is false: use the contrapositive"]
+  B -- "if q, then r" --> E["Conclude: if p, then r: Law of Syllogism"]
+  B -- "q is true, or p is false" --> D["Nothing follows about the other part"]
+```
 
 ## Properties of equality
 

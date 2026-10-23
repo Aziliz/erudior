@@ -9,7 +9,7 @@ refs: [calc-ref-limits, calc-ref-derivatives]
 ---
 ## Two theorems taken on faith
 
-Lesson 5 stated the Intermediate Value Theorem and Lesson 17 stated the Extreme Value Theorem, each with a convincing picture and no proof. Lesson 17 then proved Rolle's theorem *from* the EVT and the Mean Value Theorem *from* Rolle, and almost everything later in the course leans on the MVT. So the whole tower rests on two unproved statements.
+Lesson 5 stated the Intermediate Value Theorem and Lesson 17 stated the Extreme Value Theorem, each with a convincing picture and no proof. Lesson 17 then derived Rolle's theorem *from* the EVT, and the Mean Value Theorem *from* Rolle (apply Rolle's theorem to $f$ minus its secant line, which is the "tilt the picture" step), and almost everything later in the course leans on the MVT. So the whole tower rests on two unproved statements.
 
 Lesson 91 explained why pictures can't be enough: on the rational numbers, $x^2 - 2$ changes sign on $[1, 2]$ without ever being 0. Any real proof must use completeness. This lesson gives those proofs, using the tools from Lessons 90 and 91: nested intervals for the IVT, and the Bolzano–Weierstrass theorem for the EVT.
 
@@ -118,4 +118,4 @@ FTC Part 2 also needs Part 1, and Part 1 needs the integral to exist. Lesson 93 
 - Sequential criterion: $f$ is continuous at $c$ exactly when $x_n \to c$ always gives $f(x_n) \to f(c)$. One bad sequence proves discontinuity.
 - IVT proof: bisect, keeping a sign change; nested intervals close on $c$; limits of negative and positive values force $f(c) = 0$.
 - EVT proof: Bolzano–Weierstrass plus continuity shows $f$ is bounded, then that the supremum is attained. Closed, bounded and continuous are each essential.
-- Both proofs use completeness. Together with Lesson 17's proofs of Rolle and the MVT, all of differential calculus now rests on that one axiom.
+- Both proofs use completeness. Together with Lesson 17's arguments for Rolle and the MVT, all of differential calculus now rests on that one axiom.

@@ -118,8 +118,9 @@ $$\lim_{t\to\infty}f(t) = \lim_{s\to0}sF(s).$$
 
 The hypothesis is essential. For $f = \sin t$, $sF = \dfrac{s}{s^2 + 1} \to 0$, but $\sin t$ has no
 limit (poles $\pm i$). For $f = e^t$, $sF = \dfrac{s}{s - 1} \to 0$, yet $e^t \to \infty$ (pole at 1). Its
-partner, the initial value theorem $f(0^+) = \lim_{s\to\infty}sF(s)$ (Lesson 29), needs no such
-condition for the functions in this course.
+partner, the **initial value theorem** $f(0^+) = \lim_{s\to\infty}sF(s)$ (Lesson 29), has no condition
+on the poles; it needs only that $F$ be the transform of an ordinary function (no delta
+terms).
 
 The **step response** is the output for the input $u_0(t) = 1$, starting from rest:
 $Y = H(s)/s$. If the system is stable, the final value theorem gives
@@ -143,7 +144,7 @@ $r$, and drives the system (the "plant", transfer function $G$) with an input pr
 to the error $e = r - y$. With gain $K$ this is **proportional control**.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: A feedback loop with proportional control
   accDescr: The reference r enters a comparison point, which subtracts the measured output y to form the error e. The error goes through the controller gain K and then the plant G(s), whose output is y. The output y is fed back to the comparison point.
   R["Reference r"] --> S(("Compare: e = r − y"))
@@ -153,8 +154,8 @@ flowchart LR
   Y -- "feedback" --> S
 ```
 
-In transforms, $Y = G\,K\,(R - Y)$, so $Y = \dfrac{KG}{1 + KG}R$. The **closed-loop transfer
-function** $\dfrac{KG}{1 + KG}$ has new poles, the roots of $1 + KG(s) = 0$, which move as you turn
+In transforms, $Y = G\,K\,(R - Y)$, so $Y = \dfrac{KG}{1 + KG}R$. The
+**closed-loop transfer function** $\dfrac{KG}{1 + KG}$ has new poles, the roots of $1 + KG(s) = 0$, which move as you turn
 the gain.
 
 ### Example 5: the gain that makes it oscillate

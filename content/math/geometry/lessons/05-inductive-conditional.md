@@ -62,6 +62,12 @@ Many statements are conditionals in disguise. "All right angles are congruent" m
 
 A conditional is **false only when the hypothesis is true and the conclusion is false.** If the hypothesis is false, the conditional is counted as true (it made no promise about that case). Think of it as a promise: "If it rains, I'll bring an umbrella" is only broken if it rains and you come without one.
 
+A picture helps. A true conditional says that everything satisfying the hypothesis also satisfies the conclusion, so in a diagram of sets the hypothesis set sits inside the conclusion set. Here is "If a quadrilateral is a square, then it is a rectangle":
+
+![Inside a box labeled quadrilaterals, a large oval labeled rectangles contains a smaller circle labeled squares. A small square is drawn inside the squares circle. A long 2-by-5 rectangle is drawn inside the rectangles oval but outside the squares circle. A trapezoid is drawn outside the oval.](images/geo-m2-square-rectangle.svg)
+
+Every square lands inside the rectangle oval, so the conditional is true. The 2-by-5 rectangle is in the oval but not in the circle: it makes the hypothesis of the *converse* ("if a quadrilateral is a rectangle, then it is a square") true and its conclusion false, so it is a counterexample to the converse.
+
 ## Converse, inverse and contrapositive
 
 From $p \to q$ we can build three related statements. The symbol $\sim p$ means "not $p$" (the **negation** of $p$).
@@ -78,6 +84,18 @@ In this example the conditional is true, the converse is false (a $50^\circ$ ang
 That pattern always holds: **a conditional and its contrapositive always have the same truth value**, and so do the converse and inverse. Statements with the same truth value in every case are called **logically equivalent**. Why? The contrapositive says "whenever the conclusion fails, the hypothesis must have failed too", which is just another way of saying "the hypothesis forces the conclusion".
 
 The converse and inverse are contrapositives of *each other*, which is why they match each other but can differ from the original.
+
+The diagram shows how the three related statements are built. Statements at opposite corners (conditional and contrapositive, converse and inverse) always have the same truth value.
+
+```mermaid
+flowchart LR
+  accTitle: How the converse, inverse and contrapositive are built from a conditional
+  accDescr: Start from the conditional "if p, then q". Swapping the hypothesis and conclusion gives the converse "if q, then p". Negating both parts gives the inverse "if not p, then not q". Negating both parts of the converse, or swapping the parts of the inverse, gives the contrapositive "if not q, then not p". The conditional and contrapositive always have the same truth value, and so do the converse and inverse.
+  C["Conditional: if p, then q"] -- "swap" --> V["Converse: if q, then p"]
+  C -- "negate both" --> I["Inverse: if not p, then not q"]
+  V -- "negate both" --> P["Contrapositive: if not q, then not p"]
+  I -- "swap" --> P
+```
 
 ### Example 2
 

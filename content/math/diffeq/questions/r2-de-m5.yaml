@@ -1,0 +1,588 @@
+- id: de-m5-r2-q01
+  lesson: de-second-order
+  module_quiz: true
+  topic: Second-order theory
+  type: text
+  stem: Compute the Wronskian $W(e^{t}, e^{4t})$ at $t = 0$. Give only the number. $W(0) =$ ___
+  accept:
+  - '3'
+  explanation: $W = e^t \cdot 4e^{4t} - e^t \cdot e^{4t} = 3e^{5t}$, so $W(0) = 3$. It is never zero, so $e^t$ and $e^{4t}$ form a fundamental set for any equation they both solve.
+- id: de-m5-r2-q02
+  lesson: de-second-order
+  topic: Second-order theory
+  type: match
+  stem: Match each term to its meaning for $y'' + p(t)y' + q(t)y = g(t)$.
+  pairs:
+  - - Fundamental set
+    - Two solutions of the homogeneous equation with nonzero Wronskian
+  - - Complementary solution
+    - The general solution of the homogeneous equation
+  - - Particular solution
+    - Any one solution of the nonhomogeneous equation
+  - - Superposition
+    - Combinations of homogeneous solutions are again solutions
+  distractors:
+  - The solution that satisfies both initial conditions
+  explanation: A fundamental set is a pair $y_1, y_2$ with $W \ne 0$; $y_c = c_1y_1 + c_2y_2$ is the complementary solution; any one solution $Y$ of $L[y] = g$ is a particular solution; and superposition says $c_1y_1 + c_2y_2$ solves $L[y] = 0$. The solution of the IVP is a specific $y_c + Y$, which is not one of these terms.
+- id: de-m5-r2-q03
+  lesson: de-second-order
+  module_quiz: true
+  topic: Second-order theory
+  stem: Which pairs form a fundamental set of solutions for $y'' - 4y = 0$? Select all that apply.
+  choices:
+  - $e^{2t}$ and $e^{-2t}$
+  - $\cosh 2t$ and $\sinh 2t$
+  - $e^{2t}$ and $3e^{2t}$
+  - $e^{2t}$ and $e^{2t} + e^{-2t}$
+  - $\sinh 2t$ and $e^{2t} - e^{-2t}$
+  answer:
+  - 0
+  - 1
+  - 3
+  explanation: All five functions solve $y'' = 4y$. $W(e^{2t}, e^{-2t}) = -4$, $W(\cosh 2t, \sinh 2t) = 2(\cosh^2 2t - \sinh^2 2t) = 2$ and $W(e^{2t}, e^{2t} + e^{-2t}) = -4$, all nonzero. But $3e^{2t}$ is a multiple of $e^{2t}$, and $e^{2t} - e^{-2t} = 2\sinh 2t$ is a multiple of $\sinh 2t$, so those two pairs have $W = 0$.
+- id: de-m5-r2-q04
+  lesson: de-second-order
+  topic: Second-order theory
+  type: text
+  stem: Two solutions of $ty'' + 3y' + ty = 0$ on $t > 0$ have Wronskian $W(1) = 2$. Use Abel's theorem to find $W(2)$. Give an exact fraction. $W(2) =$ ___
+  accept:
+  - 1/4
+  explanation: In standard form $p = 3/t$, so $W = Ce^{-\int 3/t\,dt} = Ct^{-3}$. $W(1) = C = 2$, so $W(2) = 2/8 = 1/4$.
+- id: de-m5-r2-q05
+  lesson: de-second-order
+  topic: Second-order theory
+  stem: Two solutions $y_1$, $y_2$ of $y'' + p(t)y' + q(t)y = 0$ ($p$, $q$ continuous on $I$) both equal 0 at the same point $t_0$ in $I$. What follows?
+  choices:
+  - They form a fundamental set on $I$
+  - They are linearly dependent on $I$
+  - One of them must be identically zero
+  - Nothing, until $W$ is checked at another point
+  answer: 1
+  explanation: '$W(t_0) = y_1(t_0)y_2''(t_0) - y_1''(t_0)y_2(t_0) = 0$, and by Abel''s theorem $W$ is then zero on all of $I$, so they are not a fundamental set: they are dependent. Neither has to be zero: $\sin t$ and $2\sin t$ both vanish at 0. No other point needs checking, since $W$ is zero everywhere or nowhere.'
+- id: de-m5-r2-q06
+  lesson: de-char-real
+  topic: Characteristic equation
+  type: label
+  stem: Each numbered panel shows where the characteristic roots of $ay'' + by' + cy = 0$ lie in the complex plane. Name each case.
+  image:
+    src: images/de-m5-root-cases-blank.svg
+    alt: Four complex planes, each with axes Re and Im. Panel 1 has two dots on the real axis. Panel 2 has one circled dot on the real axis marked times 2. Panel 3 has two dots mirrored above and below the real axis, left of the imaginary axis. Panel 4 has two dots on the imaginary axis. One root in each panel is numbered.
+  labels:
+  - x: 5.7
+    y: 39.4
+    text: Two distinct real roots
+  - x: 34.4
+    y: 39.4
+    text: One repeated real root
+  - x: 58.8
+    y: 18.8
+    text: Complex pair with nonzero real part
+  - x: 87.5
+    y: 18.8
+    text: Purely imaginary pair
+  distractors:
+  - Two equal complex roots
+  explanation: 'Panel 1: two different points on the real axis, so $b^2 - 4ac > 0$ and $y = c_1e^{r_1t} + c_2e^{r_2t}$. Panel 2: one double point ($b^2 = 4ac$), $y = (c_1 + c_2t)e^{rt}$. Panel 3: a conjugate pair $\lambda \pm i\mu$ off both axes ($\lambda < 0$ here), damped oscillation. Panel 4: $\pm i\mu$ on the imaginary axis ($\lambda = 0$), pure oscillation. Complex roots of a real quadratic always come as a conjugate pair, never as two equal complex roots.'
+- id: de-m5-r2-q07
+  lesson: de-char-real
+  module_quiz: true
+  topic: Characteristic equation
+  type: text
+  stem: The characteristic equation of $y'' - 2y' - 15y = 0$ has roots ___ and ___. Put the larger root in the first blank.
+  accept:
+  - - '5'
+  - - '-3'
+  explanation: $r^2 - 2r - 15 = (r - 5)(r + 3) = 0$, so $r = 5$ and $r = -3$; $y = c_1e^{5t} + c_2e^{-3t}$.
+- id: de-m5-r2-q08
+  lesson: de-char-real
+  topic: Characteristic equation
+  type: match
+  stem: Match each equation to its general solution.
+  pairs:
+  - - $y'' - 5y' + 6y = 0$
+    - c1 e^(2t) + c2 e^(3t)
+  - - $y'' + 5y' + 6y = 0$
+    - c1 e^(−2t) + c2 e^(−3t)
+  - - $y'' - 6y' + 9y = 0$
+    - (c1 + c2 t) e^(3t)
+  - - $y'' + 6y' + 9y = 0$
+    - (c1 + c2 t) e^(−3t)
+  distractors:
+  - c1 e^(3t) + c2 e^(3t)
+  explanation: $r^2 - 5r + 6 = (r - 2)(r - 3)$ gives roots 2, 3; $r^2 + 5r + 6 = (r + 2)(r + 3)$ gives $-2, -3$; $(r - 3)^2$ gives the double root 3 and $(r + 3)^2$ the double root $-3$, each needing the factor $t$. $c_1e^{3t} + c_2e^{3t}$ is really just one solution, the classic repeated-root mistake.
+- id: de-m5-r2-q09
+  lesson: de-char-real
+  module_quiz: true
+  topic: Characteristic equation
+  stem: For which equations does every solution tend to 0 as $t \to \infty$? Select all that apply.
+  choices:
+  - $y'' + 3y' + 2y = 0$
+  - $y'' - y' - 2y = 0$
+  - $y'' + 4y' + 4y = 0$
+  - $y'' + y' = 0$
+  - $y'' - 4y' + 4y = 0$
+  answer:
+  - 0
+  - 2
+  explanation: 'Roots: $-1, -2$ (both negative, decay); $2, -1$ (the $e^{2t}$ term grows); $-2$ double ($(c_1 + c_2t)e^{-2t} \to 0$); $0, -1$ (the constant solution $e^{0t} = 1$ does not tend to 0); $2$ double (grows).'
+- id: de-m5-r2-q10
+  lesson: de-char-real
+  topic: Characteristic equation
+  stem: Which equation has general solution $y = (c_1 + c_2t)e^{-t/2}$?
+  choices:
+  - $4y'' - 4y' + y = 0$
+  - $16y'' + 8y' + y = 0$
+  - $4y'' + 4y' + y = 0$
+  - $2y'' + 2y' + y = 0$
+  answer: 2
+  explanation: A double root $r = -\tfrac12$ means the characteristic polynomial is a multiple of $(r + \tfrac12)^2 = r^2 + r + \tfrac14$, or $4r^2 + 4r + 1$. $4r^2 - 4r + 1$ has the double root $+\tfrac12$ (sign error); $16r^2 + 8r + 1 = (4r + 1)^2$ has the double root $-\tfrac14$; $2r^2 + 2r + 1$ has complex roots $-\tfrac12 \pm \tfrac12 i$.
+- id: de-m5-r2-q11
+  lesson: de-char-complex
+  topic: Characteristic equation
+  type: label
+  stem: The graph shows $y = 2e^{-t/4}\cos 2t$, a solution of $16y'' + 8y' + 65y = 0$. Name the numbered parts.
+  image:
+    src: images/de-m5-damped-parts-blank.svg
+    alt: 'A decaying oscillation that starts at the top of the vertical axis, drawn inside a shaded band bounded by two dashed curves. A bracket spans two successive peaks. Four points are numbered: on the upper dashed curve, on the bracket, at the starting point and on the horizontal axis.'
+  labels:
+  - x: 47.9
+    y: 39.1
+    text: Envelope
+  - x: 47.9
+    y: 26.9
+    text: Time between successive peaks
+  - x: 9.7
+    y: 15.0
+    text: Initial value y(0)
+  - x: 22.4
+    y: 50.0
+    text: Equilibrium y = 0
+  distractors:
+  - Phase angle
+  - Growing amplitude
+  explanation: The roots are $-\tfrac14 \pm 2i$. The dashed curve $2e^{-t/4}$ is the envelope set by $\lambda = -\tfrac14$; the bracket spans one period $2\pi/\mu = \pi$ between successive peaks; the curve starts at $y(0) = 2$; and it oscillates about the axis $y = 0$. The amplitude shrinks because $\lambda < 0$, and the phase angle is not a point or length on this graph (here it is 0).
+- id: de-m5-r2-q12
+  lesson: de-char-complex
+  module_quiz: true
+  topic: Characteristic equation
+  type: text
+  stem: The characteristic roots of $y'' + 4y' + 13y = 0$ are $\lambda \pm i\mu$ with $\mu > 0$. Give $\lambda$ in the first blank and $\mu$ in the second. $\lambda =$ ___, $\mu =$ ___
+  accept:
+  - - '-2'
+  - - '3'
+  explanation: $r = \dfrac{-4 \pm \sqrt{16 - 52}}{2} = \dfrac{-4 \pm 6i}{2} = -2 \pm 3i$. So $\lambda = -2$, $\mu = 3$, and $y = e^{-2t}(c_1\cos 3t + c_2\sin 3t)$.
+- id: de-m5-r2-q13
+  lesson: de-char-complex
+  topic: Characteristic equation
+  type: order
+  stem: Put the steps for getting real solutions from complex characteristic roots in order.
+  items:
+  - Find the roots $\lambda \pm i\mu$ of $ar^2 + br + c = 0$
+  - Write the complex solution $e^{(\lambda + i\mu)t}$
+  - Expand it with Euler's formula as $e^{\lambda t}(\cos\mu t + i\sin\mu t)$
+  - Take its real and imaginary parts as $y_1$ and $y_2$
+  - Write $y = e^{\lambda t}(c_1\cos\mu t + c_2\sin\mu t)$
+  explanation: 'Each step uses the one before: the roots give the exponent, Euler''s formula splits the complex exponential into real and imaginary parts, those parts are real solutions (the equation has real coefficients), and their combination is the general solution.'
+- id: de-m5-r2-q14
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: Which statements are true for every nonzero solution of $y'' + 2y' + 10y = 0$? Select all that apply.
+  choices:
+  - It tends to 0 as $t \to \infty$
+  - Consecutive zeros are $\pi/3$ apart
+  - It changes sign at most once
+  - It grows like $e^{t}$
+  - Its amplitude stays constant
+  answer:
+  - 0
+  - 1
+  explanation: Roots $-1 \pm 3i$, so $y = e^{-t}(c_1\cos 3t + c_2\sin 3t) = Re^{-t}\cos(3t - \delta)$. The envelope $Re^{-t}$ decays, and the cosine factor vanishes every $\pi/3$ units of time. It oscillates forever, so it changes sign infinitely often, and its amplitude shrinks rather than staying constant or growing.
+- id: de-m5-r2-q15
+  lesson: de-char-complex
+  topic: Characteristic equation
+  stem: Write $-\cos 2t - \sqrt3\sin 2t$ as $2\cos(2t - \delta)$ with $-\pi < \delta \le \pi$. What is $\delta$?
+  choices:
+  - $\tfrac{\pi}{3}$
+  - $\tfrac{2\pi}{3}$
+  - $-\tfrac{\pi}{3}$
+  - $-\tfrac{2\pi}{3}$
+  answer: 3
+  explanation: '$\cos\delta = c_1/R = -\tfrac12$ and $\sin\delta = c_2/R = -\tfrac{\sqrt3}{2}$: both negative, so $\delta$ is in the third quadrant, $\delta = -\tfrac{2\pi}{3}$. $\arctan(c_2/c_1) = \arctan\sqrt3 = \tfrac{\pi}{3}$ ignores the quadrant (since $c_1 < 0$ you must add or subtract $\pi$); $\tfrac{2\pi}{3}$ has the wrong sign of $\sin\delta$; $-\tfrac{\pi}{3}$ has the wrong sign of $\cos\delta$.'
+- id: de-m5-r2-q16
+  lesson: de-reduction
+  topic: Reduction of order
+  type: order
+  stem: Put the steps of reduction of order (the substitution method) in order, starting from one known solution $y_1$.
+  items:
+  - Substitute $y = vy_1$ into the equation
+  - Note that the terms containing $v$ itself cancel
+  - Set $w = v'$ and solve the first-order equation for $w$
+  - Integrate $w$ to get $v$
+  - 'Multiply: $y_2 = vy_1$'
+  explanation: After substituting $y = vy_1$, the $v$ terms cancel because $y_1$ is a solution, leaving an equation in $v'$ and $v''$ only. With $w = v'$ it is first order; solve it, integrate once to get $v$, and multiply by $y_1$.
+- id: de-m5-r2-q17
+  lesson: de-reduction
+  module_quiz: true
+  topic: Reduction of order
+  type: text
+  stem: The indicial equation of $t^2y'' - 2ty' - 10y = 0$ has roots ___ and ___. Put the larger root in the first blank.
+  accept:
+  - - '5'
+  - - '-2'
+  explanation: 'Try $y = t^m$: $m(m - 1) - 2m - 10 = m^2 - 3m - 10 = (m - 5)(m + 2) = 0$, so $m = 5$ and $m = -2$, and $y = c_1t^5 + c_2t^{-2}$.'
+- id: de-m5-r2-q18
+  lesson: de-reduction
+  topic: Reduction of order
+  type: match
+  stem: Match the roots of the indicial equation of a Cauchy–Euler equation ($t > 0$) to the general solution.
+  pairs:
+  - - $m = 2$ and $m = -1$
+    - c1 t^2 + c2 t^(−1)
+  - - $m = 3$ (double)
+    - t^3 (c1 + c2 ln t)
+  - - $m = 1 \pm 2i$
+    - t (c1 cos(2 ln t) + c2 sin(2 ln t))
+  distractors:
+  - e^t (c1 cos 2t + c2 sin 2t)
+  - (c1 + c2 t) t^3
+  explanation: Distinct real roots give $t^{m_1}$ and $t^{m_2}$; a repeated root gives $t^m$ and $t^m\ln t$; complex roots $\alpha \pm i\beta$ give $t^\alpha\cos(\beta\ln t)$ and $t^\alpha\sin(\beta\ln t)$. The distractors use the constant-coefficient forms, with $t$ where $\ln t$ belongs.
+- id: de-m5-r2-q19
+  lesson: de-reduction
+  topic: Reduction of order
+  stem: Which are Cauchy–Euler equations, solvable by trying $y = t^m$? Select all that apply.
+  choices:
+  - $t^2y'' + 3ty' - 2y = 0$
+  - $4t^2y'' + y = 0$
+  - $t^2y'' + 3y' + y = 0$
+  - $y'' + ty' + t^2y = 0$
+  - $t^2y'' + t^2y' + y = 0$
+  answer:
+  - 0
+  - 1
+  explanation: 'In a Cauchy–Euler equation the power of $t$ matches the order of the derivative in every term: $t^2y''''$, $ty''$, $y$. $4t^2y'''' + y = 0$ qualifies with $b = 0$. The others have a mismatched term ($3y''$, $y''''$ with $ty''$ and $t^2y$, or $t^2y''$), so $y = t^m$ leaves different powers of $t$ that can''t cancel.'
+- id: de-m5-r2-q20
+  lesson: de-reduction
+  module_quiz: true
+  topic: Reduction of order
+  stem: Given that $y_1 = t^{-1}$ solves $t^2y'' + 3ty' + y = 0$ for $t > 0$, which is a second solution from the reduction-of-order formula?
+  choices:
+  - $t^{-1}\ln t$
+  - $t^{-3}$
+  - $\ln t$
+  - $t\ln t$
+  answer: 0
+  explanation: 'Standard form: $p = 3/t$, so $e^{-\int p\,dt} = t^{-3}$. Then $\dfrac{t^{-3}}{(t^{-1})^2} = t^{-1}$, whose integral is $\ln t$, and $y_2 = t^{-1}\ln t$. (The indicial equation $m^2 + 2m + 1 = 0$ has the double root $-1$, agreeing.) $t^{-3}$ forgets to divide by $y_1^2$ and integrate; $\ln t$ forgets to multiply by $y_1$.'
+- id: de-m5-r2-h01
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: In the proof of Abel's theorem, $y'' = -py' - qy$ is substituted into $W' = y_1y_2'' - y_1''y_2$. What happens to the terms containing $q$?
+  choices:
+  - They add up to $-2qW$
+  - They leave an extra term, giving $W' = -pW - qW$
+  - They cancel, so $W$ does not depend on $q$
+  - They cancel only when $q$ is constant
+  answer: 2
+  explanation: The $q$ terms are $y_1(-qy_2) - (-qy_1)y_2 = -qy_1y_2 + qy_1y_2 = 0$ at every $t$, whatever $q(t)$ is. That leaves $W' = -pW$.
+- id: de-m5-r2-h02
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  type: text
+  stem: Two solutions of $y'' + \dfrac2t y' + e^t y = 0$ on $t > 0$ have $W(1) = 6$. Find $W(3)$. Give an exact fraction. $W(3) =$ ___
+  accept:
+  - 2/3
+  explanation: $W(t) = W(1)\exp\left(-\int_1^t \tfrac2s\,ds\right) = 6t^{-2}$, so $W(3) = 6/9 = 2/3$. The coefficient $e^t$ of $y$ plays no role.
+- id: de-m5-r2-h03
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: $y_1$, $y_2$, $y_3$ are any three solutions of $y'' + p(t)y' + q(t)y = 0$ on $I$ ($p$, $q$ continuous). What must be true?
+  choices:
+  - Some combination $c_1y_1 + c_2y_2 + c_3y_3$ with not all $c_i = 0$ is identically zero
+  - Every pair among them is linearly dependent
+  - One of them is identically zero
+  - They form a fundamental set
+  answer: 0
+  explanation: 'The solution space has dimension 2, so any three solutions are linearly dependent. That does not make each pair dependent: $e^t$, $e^{-t}$ and $\cosh t$ solve $y'''' - y = 0$, any two are independent, yet $e^t + e^{-t} - 2\cosh t = 0$. None of them needs to be zero, and a fundamental set has exactly two members.'
+- id: de-m5-r2-h04
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: What is the principal fundamental set of $y'' + 9y = 0$ at $t_0 = 0$?
+  choices:
+  - $u_1 = \cos 3t$, $u_2 = \sin 3t$
+  - $u_1 = \cos 3t$, $u_2 = 3\sin 3t$
+  - $u_1 = \sin 3t$, $u_2 = \cos 3t$
+  - $u_1 = \cos 3t$, $u_2 = \tfrac13\sin 3t$
+  answer: 3
+  explanation: We need $u_1(0) = 1$, $u_1'(0) = 0$ (so $u_1 = \cos 3t$) and $u_2(0) = 0$, $u_2'(0) = 1$. $\sin 3t$ has derivative 3 at 0, so $u_2 = \tfrac13\sin 3t$. $3\sin 3t$ has $u_2'(0) = 9$, and the last pair has the roles swapped.
+- id: de-m5-r2-h05
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  type: text
+  stem: $u_1$, $u_2$ is the principal fundamental set of an equation $y'' + py' + qy = 0$ at $t_0 = 0$. The solution with $y(0) = 4$, $y'(0) = -7$ is $y =$ ___ $u_1 +$ ___ $u_2$.
+  accept:
+  - - '4'
+  - - '-7'
+  explanation: '$y = au_1 + bu_2$ has $y(0) = a \cdot 1 + b \cdot 0 = a$ and $y''(0) = a \cdot 0 + b \cdot 1 = b$. So the coefficients are just the initial values: $y = 4u_1 - 7u_2$.'
+- id: de-m5-r2-h06
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: Why is $\left(\dfrac{y_2}{y_1}\right)' = \dfrac{W(y_1, y_2)}{y_1^2}$ wherever $y_1 \ne 0$?
+  choices:
+  - By Abel's theorem
+  - By the quotient rule, the numerator is $y_1y_2' - y_1'y_2$
+  - Because $y_1$ and $y_2$ solve the same equation
+  - By the product rule applied to $y_1y_2$
+  answer: 1
+  explanation: $\left(\dfrac{y_2}{y_1}\right)' = \dfrac{y_1y_2' - y_1'y_2}{y_1^2}$, and the numerator is $W$. This holds for any differentiable functions; Abel's theorem is what then supplies $W$ when $y_1$, $y_2$ are solutions.
+- id: de-m5-r2-h07
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: $y_1 = t$ solves $(t^2 + 1)y'' - 2ty' + 2y = 0$. Using $W = Ce^{-\int p\,dt}$ and $(y_2/y_1)' = W/y_1^2$, which is a second solution?
+  choices:
+  - $t^2 + 1$
+  - $\tfrac13t^4 + t^2$
+  - $-1 - t\arctan t$
+  - $t^2 - 1$
+  answer: 3
+  explanation: '$p = -\dfrac{2t}{t^2 + 1}$, so $W = e^{\ln(t^2 + 1)} = t^2 + 1$. Then $(y_2/t)'' = \dfrac{t^2 + 1}{t^2} = 1 + t^{-2}$, so $y_2/t = t - t^{-1}$ and $y_2 = t^2 - 1$. Check: $(t^2 + 1)(2) - 2t(2t) + 2(t^2 - 1) = 0$. $t^2 + 1$ comes from integrating $t^{-2}$ as $+t^{-1}$; $\tfrac13t^4 + t^2$ forgets to divide by $y_1^2$; $-1 - t\arctan t$ uses $e^{+\int p}$.'
+- id: de-m5-r2-h08
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: Which equation has the fundamental set $y_1 = 1$, $y_2 = t^2$ on $t > 0$?
+  choices:
+  - $ty'' - y' = 0$
+  - $ty'' + y' = 0$
+  - $t^2y'' - 2y = 0$
+  - $y'' - 2y = 0$
+  answer: 0
+  explanation: '$W = 1 \cdot 2t - 0 \cdot t^2 = 2t$, so $p = -W''/W = -1/t$ and $q = (y_1''y_2'''' - y_1''''y_2'')/W = 0$. The equation is $y'''' - y''/t = 0$, or $ty'''' - y'' = 0$. Check $t^2$: $t(2) - 2t = 0$. $ty'''' + y'' = 0$ has solutions $1$ and $\ln t$ (sign of $p$ flipped); $t^2y'''' - 2y = 0$ has $t^2$ and $t^{-1}$, not 1; $y'''' - 2y = 0$ has exponential solutions.'
+- id: de-m5-r2-h09
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: Which statements are true? Select all that apply.
+  choices:
+  - If $W(f, g) \ne 0$ at some point, then $f$ and $g$ are linearly independent
+  - If $W(f, g) = 0$ for every $t$, then $f$ and $g$ are linearly dependent
+  - If $y_1$, $y_2$ solve one equation $y'' + py' + qy = 0$ with continuous coefficients and $W(t_0) = 0$, they are linearly dependent
+  - Two solutions of one such equation can have $W = 0$ at some points of $I$ and $W \ne 0$ at others
+  answer:
+  - 0
+  - 2
+  explanation: 'If $f = kg$ then $W = 0$ everywhere, so $W \ne 0$ anywhere rules out dependence (true for any differentiable functions). The converse fails in general: $t^2$ and $t\lvert t\rvert$ have $W \equiv 0$ but are independent on $(-1, 1)$. For solutions it holds, by uniqueness. And Abel''s theorem makes the Wronskian of two solutions zero everywhere or nowhere.'
+- id: de-m5-r2-h10
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  type: match
+  stem: Match each fact about solutions $y_1$, $y_2$ of $y'' + py' + qy = 0$ to its formula.
+  pairs:
+  - - Abel's theorem
+    - W′ = −pW
+  - - Coefficient p from a fundamental set
+    - p = −W′/W
+  - - Quotient identity
+    - (y2/y1)′ = W/y1²
+  - - Second solution from the first
+    - y2 = y1 ∫ W/y1² dt
+  distractors:
+  - W′ = −qW
+  explanation: 'Abel: $W'' = -pW$, which rearranged gives $p = -W''/W$. The quotient rule gives $(y_2/y_1)'' = W/y_1^2$, and integrating it gives $y_2 = y_1\int W/y_1^2\,dt$ with $W = e^{-\int p\,dt}$. The coefficient $q$ never enters the Wronskian.'
+- id: de-m5-r2-h11
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  type: order
+  stem: Put the steps of the proof that two solutions with $W(t_0) = 0$ are linearly dependent in order.
+  items:
+  - Suppose $W(t_0) = 0$
+  - Find $c_1$, $c_2$, not both zero, with $c_1y_1(t_0) + c_2y_2(t_0) = 0$ and $c_1y_1'(t_0) + c_2y_2'(t_0) = 0$
+  - Note that $\phi = c_1y_1 + c_2y_2$ solves the equation with $\phi(t_0) = \phi'(t_0) = 0$
+  - By uniqueness, $\phi$ is the zero function on all of $I$
+  - Conclude that $y_1$ and $y_2$ are linearly dependent
+  explanation: $W(t_0)$ is the determinant of the $2 \times 2$ system, so a zero determinant gives a nontrivial solution $(c_1, c_2)$. Superposition makes $\phi$ a solution with zero initial data, uniqueness makes it identically zero, and $c_1y_1 + c_2y_2 \equiv 0$ with $c_1$, $c_2$ not both zero is the definition of dependence.
+- id: de-m5-r2-h12
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: $f = t^2$ and $g = t\lvert t\rvert$ have $W(f, g) = 0$ for all $t$ in $(-1, 1)$ but are linearly independent there. Why doesn't this contradict the theorem for solutions?
+  choices:
+  - Their Wronskian is actually nonzero at $t = 0$
+  - $t\lvert t\rvert$ is not differentiable at $t = 0$
+  - They do not both solve one equation $y'' + py' + qy = 0$ with $p$, $q$ continuous on $(-1, 1)$
+  - They are dependent after all, since $g = f$ for $t > 0$
+  answer: 2
+  explanation: 'The theorem needs both to be solutions of one such equation; then uniqueness drives the proof. These two can''t be: both have value 0 and slope 0 at $t = 0$, which would force them to be the zero solution. $W$ is 0 at $t = 0$ too, $g'' = 2\lvert t\rvert$ exists everywhere, and $g = -f$ for $t < 0$, so no single constant works.'
+- id: de-m5-r2-h13
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  type: text
+  stem: $u_1$, $u_2$ is the principal fundamental set of $y'' + 2y' + 7y = 0$ at $t_0 = 0$. Then $W(u_1, u_2)(t) = e^{kt}$ with $k =$ ___
+  accept:
+  - '-2'
+  explanation: $W(0) = u_1(0)u_2'(0) - u_1'(0)u_2(0) = 1 \cdot 1 - 0 \cdot 0 = 1$, and Abel gives $W(t) = W(0)e^{-2t} = e^{-2t}$. So $k = -2$.
+- id: de-m5-r2-h14
+  lesson: de-m5-h-wronskian
+  topic: Solution spaces
+  stem: In the proof that the solution space has dimension 2, which fact makes the map $y \mapsto \big(y(t_0), y'(t_0)\big)$ one-to-one?
+  choices:
+  - 'Existence: every pair of initial values is reached by some solution'
+  - 'Uniqueness: two solutions with the same $y(t_0)$ and $y''(t_0)$ are equal'
+  - 'Abel''s theorem: $W$ is never zero'
+  - 'Superposition: combinations of solutions are solutions'
+  answer: 1
+  explanation: One-to-one means different solutions have different initial pairs, which is the uniqueness theorem. Existence makes the map onto; superposition makes the solutions a vector space and the map linear.
+- id: de-m5-r2-h15
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Substituting $y = ue^{-2t}$ into $y'' + 4y' + 13y = 0$ gives $u'' + Qu = 0$. What is $Q$?
+  choices:
+  - $9$
+  - $13$
+  - $-3$
+  - $11$
+  answer: 0
+  explanation: $Q = q - p^2/4 - p'/2 = 13 - 16/4 - 0 = 9$. So $u = \cos 3t$ or $\sin 3t$, matching the roots $-2 \pm 3i$. $13$ forgets the correction, $-3$ subtracts $p^2$ instead of $p^2/4$, and $11$ subtracts $p/2$.
+- id: de-m5-r2-h16
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  type: text
+  stem: For Bessel's equation of order 2, $t^2y'' + ty' + (t^2 - 4)y = 0$ ($t > 0$), removing the $y'$ term gives $u'' + Q(t)u = 0$ with $Q = 1 + \dfrac{K}{t^2}$. Give $K$ as an exact fraction. $K =$ ___
+  accept:
+  - -15/4
+  explanation: $p = 1/t$, $q = 1 - 4/t^2$, so $Q = 1 - \dfrac4{t^2} - \dfrac1{4t^2} + \dfrac1{2t^2} = 1 + \dfrac{1/4 - 4}{t^2}$, and $K = -\tfrac{15}{4}$.
+- id: de-m5-r2-h17
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Every solution of $t^2y'' + ty' + \left(t^2 - \tfrac14\right)y = 0$ on $t > 0$ is $y = (c_1\cos t + c_2\sin t)/\sqrt t$. How far apart are consecutive zeros of a nonzero solution?
+  choices:
+  - Exactly $2\pi$
+  - Exactly $\pi/2$
+  - It depends on $c_1$ and $c_2$
+  - Exactly $\pi$
+  answer: 3
+  explanation: $1/\sqrt t$ is never zero, so the zeros are those of $c_1\cos t + c_2\sin t = R\cos(t - \delta)$, which are exactly $\pi$ apart whatever $c_1$, $c_2$ are (they only shift the zeros). $2\pi$ is the period of $c_1\cos t + c_2\sin t$, which has two zeros per period.
+- id: de-m5-r2-h18
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: $y_1$ and $y_2$ are linearly independent solutions of $y'' + p(t)y' + q(t)y = 0$, and $t = 1$ and $t = 4$ are consecutive zeros of $y_1$. How many zeros does $y_2$ have in $(1, 4)$?
+  choices:
+  - At least two
+  - Exactly one
+  - None or one, depending on $p$ and $q$
+  - None, since independent solutions cannot share zeros
+  answer: 1
+  explanation: 'The Sturm separation theorem: between consecutive zeros of one solution there is exactly one zero of any independent solution. Independent solutions can''t share a zero, but that concerns the points 1 and 4 themselves, not the interval between them.'
+- id: de-m5-r2-h19
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Which follow from the Sturm separation theorem for $y'' + p(t)y' + q(t)y = 0$? Select all that apply.
+  choices:
+  - Between two consecutive zeros of $y_1$, an independent solution $y_2$ has exactly one zero
+  - If one nonzero solution has infinitely many zeros on $[0, \infty)$, so does every nonzero solution
+  - The zeros of every solution are equally spaced
+  - Every nonzero solution has at least one zero
+  - Two solutions that share a zero are linearly independent
+  answer:
+  - 0
+  - 1
+  explanation: 'The first is the theorem itself. The second follows: a dependent solution has the same zeros, and an independent one has a zero between each consecutive pair. Spacing need not be equal (zeros of $\cos(2\ln t)$ spread out); $e^t$ solves $y'''' - y = 0$ with no zeros; and solutions sharing a zero have $W = 0$ there, so they are dependent.'
+- id: de-m5-r2-h20
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: In the proof of the comparison theorem for $u'' + Q_1u = 0$ and $v'' + Q_2v = 0$, why is $(u'v - uv')' = (Q_2 - Q_1)uv$?
+  choices:
+  - Abel's theorem with $p = 0$ makes it constant
+  - $u$ and $v$ have the same zeros
+  - Its derivative is $u''v - uv''$ because the $u'v'$ terms cancel; then substitute $u'' = -Q_1u$, $v'' = -Q_2v$
+  - The quotient rule applied to $u/v$
+  answer: 2
+  explanation: $(u'v - uv')' = u''v + u'v' - u'v' - uv'' = u''v - uv''$, and substituting gives $-Q_1uv + Q_2uv$. Abel's theorem applies to two solutions of the same equation (where this expression would be constant), not to two different equations.
+- id: de-m5-r2-h21
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: For $u'' + t^2u = 0$, how far apart are consecutive zeros that both lie in $[2, 3]$?
+  choices:
+  - Between $\pi/9$ and $\pi/4$
+  - Between $\pi/3$ and $\pi/2$
+  - Between $3/\pi$ and $2/\pi$
+  - Exactly $\pi/t$
+  answer: 1
+  explanation: $Q = t^2$ satisfies $4 \le Q \le 9$ on $[2, 3]$, so $m = 2$, $M = 3$ and gaps lie between $\pi/M = \pi/3$ and $\pi/m = \pi/2$. $\pi/9$ and $\pi/4$ forget the square root; $3/\pi$ and $2/\pi$ are upside down; the gap is not given exactly by any simple formula.
+- id: de-m5-r2-h22
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  type: text
+  stem: Every nonzero solution of $u'' + (9 + 7\cos t)u = 0$ has at least how many zeros in $[0, 10\pi]$, according to the Sturm bounds? Give a whole number. ___
+  accept:
+  - '14'
+  explanation: $2 \le Q \le 16$, so $m = \sqrt2$ and consecutive zeros (and the first zero after $t = 0$) are at most $\pi/\sqrt2$ apart. The $k$th zero is at most $k\pi/\sqrt2$, which is $\le 10\pi$ for $k \le 10\sqrt2 \approx 14.14$. So at least 14 zeros. (The upper bound is $1 + 10\pi \cdot 4/\pi = 41$; a numerical solution finds 28 or 29.)
+- id: de-m5-r2-h23
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  type: match
+  stem: Match each equation to what Sturm theory (or its explicit solution) says about the zeros of its nonzero solutions.
+  pairs:
+  - - $u'' + 9u = 0$
+    - Zeros exactly π/3 apart
+  - - $u'' - 9u = 0$
+    - At most one zero
+  - - $u'' + tu = 0$ on $t > 0$
+    - Infinitely many zeros, closer and closer together
+  - - $t^2y'' + ty' + \left(t^2 - \tfrac14\right)y = 0$
+    - Zeros exactly π apart
+  distractors:
+  - Zeros exactly π/9 apart
+  explanation: '$u'''' + 9u = 0$ has solutions $R\cos(3t - \delta)$, zeros $\pi/3$ apart (not $\pi/9$: take the square root). $Q = -9 \le 0$ allows at most one zero. For Airy''s equation $Q = t$ grows, so gaps (roughly $\pi/\sqrt t$) shrink. Bessel of order $\tfrac12$ has $Q = 1$ exactly after removing the $y''$ term.'
+- id: de-m5-r2-h24
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Which equation has a nonzero solution with two or more zeros?
+  choices:
+  - $y'' - t^2y = 0$
+  - $y'' + 2y' + y = 0$
+  - $y'' + 4y' + 3y = 0$
+  - $y'' + e^{t}y = 0$
+  answer: 3
+  explanation: 'For $y'''' + e^ty = 0$, $Q = e^t \ge 1$ on $t \ge 0$, so zeros there are at most $\pi$ apart: infinitely many. $y'''' - t^2y = 0$ has $Q = -t^2 \le 0$; $y'''' + 2y'' + y = 0$ has $Q = 1 - 1 = 0$; $y'''' + 4y'' + 3y = 0$ has $Q = 3 - 4 = -1$. With $Q \le 0$, at most one zero.'
+- id: de-m5-r2-h25
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  type: order
+  stem: Put the steps for bounding the spacing of zeros of solutions of $a(t)y'' + b(t)y' + c(t)y = 0$ on an interval in order.
+  items:
+  - Divide by $a(t)$ to read off $p$ and $q$
+  - Compute $Q = q - p^2/4 - p'/2$
+  - Find $m$, $M$ with $m^2 \le Q \le M^2$ on the interval
+  - Conclude that consecutive zeros are between $\pi/M$ and $\pi/m$ apart
+  explanation: $Q$ needs $p$ and $q$ from standard form, the bounds need $Q$, and the conclusion uses the bounds through comparison with $\sin Mt$ and $\sin mt$.
+- id: de-m5-r2-h26
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Near $t = 100$, about how far apart are consecutive zeros of solutions of Airy's equation $y'' + ty = 0$?
+  choices:
+  - About 0.31
+  - About 0.031
+  - About 0.63
+  - About 10
+  answer: 0
+  explanation: On a short interval around 100, $Q = t \approx 100$, so the gaps are close to $\pi/\sqrt{100} = \pi/10 \approx 0.314$ (for instance, $99 \le Q \le 101$ puts them between $0.3126$ and $0.3158$). $0.031$ uses $\pi/100$ (no square root), $0.63$ uses $2\pi/10$ (a full period), and $10$ is $\sqrt{100}$ itself.
+- id: de-m5-r2-h27
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Why can't two linearly independent solutions of $y'' + p(t)y' + q(t)y = 0$ have a zero at the same point $t_0$?
+  choices:
+  - Two solutions can never take the same value at the same point
+  - The comparison theorem needs $Q_2 > Q_1$
+  - Their Wronskian would be 0 at $t_0$, which would make them dependent
+  - A zero of one solution is always a peak of the other
+  answer: 2
+  explanation: If $y_1(t_0) = y_2(t_0) = 0$ then $W(t_0) = 0 \cdot y_2'(t_0) - y_1'(t_0) \cdot 0 = 0$, and for solutions that means dependence. Solutions can certainly share other values (e.g. both equal 1 at a point), and a zero of one need not be a peak of the other.
+- id: de-m5-r2-h28
+  lesson: de-m5-h-sturm
+  topic: Oscillation theory
+  stem: Which are true for every nonzero solution of $u'' + Q(t)u = 0$ with $Q$ continuous? Select all that apply.
+  choices:
+  - If $Q(t) \le 0$ on an interval, $u$ has at most one zero there
+  - If $Q(t) \ge 4$ for all $t$, consecutive zeros of $u$ are at most $\pi/2$ apart
+  - If $Q(t) \ge 4$ for all $t$, consecutive zeros of $u$ are at least $\pi/2$ apart
+  - If $Q$ is negative somewhere, $u$ has no zeros at all
+  answer:
+  - 0
+  - 1
+  explanation: '$Q \le 0$: compare with $v = 1$, which never vanishes. $Q \ge 4 = 2^2$: compare with $\sin 2(t - a)$, so the next zero comes within $\pi/2$. A lower bound on $Q$ gives an upper bound on the gap, not a lower one (e.g. $Q = 100$ gives gaps of $\pi/10$). And $Q$ can be negative somewhere and positive elsewhere, where $u$ may oscillate.'

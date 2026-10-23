@@ -29,6 +29,10 @@ With the undefined terms in hand, we can define new objects precisely.
 - **Opposite rays** share an endpoint and point in opposite directions along one line; together they form a line.
 - An **intersection** of two figures is the set of points they have in common.
 
+The picture shows one of each figure with its name.
+
+![A line through points A and B with arrows at both ends, a ray starting at C through D, a segment from E to F, a single point G, and a shaded parallelogram standing for plane P](images/geo-m1-figures.svg)
+
 ```shape
 {"segments": [{"from": [0, 0], "to": [10, 0], "arrow": true}, {"from": [10, 0], "to": [0, 0], "arrow": true}, {"from": [0, -2], "to": [6, -2]}, {"from": [0, -4], "to": [10, -4], "arrow": true}], "points": [{"at": [3, 0], "label": "A"}, {"at": [7, 0], "label": "B"}, {"at": [0, -2], "label": "C"}, {"at": [6, -2], "label": "D"}, {"at": [0, -4], "label": "E"}, {"at": [4, -4], "label": "F"}], "caption": "Top: line AB. Middle: segment CD. Bottom: ray EF, which starts at E."}
 ```
@@ -90,6 +94,25 @@ Always finish a problem like this by substituting $x$ back in. The question usua
 ## Space, collinear and coplanar in practice
 
 We usually draw on paper, which is a plane, but geometry also lives in three-dimensional **space**, the set of all points. Lines in space can do something lines in a plane cannot: they can miss each other without being parallel. Two lines that are not coplanar are called **skew lines**. Think of a road on an overpass and a road underneath going a different direction: they never meet, yet they are not parallel.
+
+So two different lines can relate in only a few ways. The chart sorts them with two questions.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying two lines
+  accDescr: Start with two distinct lines and ask whether they meet. If they meet, they intersect in exactly one point; if the angle there is a right angle they are perpendicular, otherwise they are simply intersecting lines. If they do not meet, ask whether one plane contains both. If yes, they are parallel. If no, they are skew, which can only happen in space.
+  S["Two distinct lines"] --> Q1{"Do they meet?"}
+  Q1 -- yes --> Q3{"At a right angle?"}
+  Q3 -- yes --> P["Perpendicular"]
+  Q3 -- no --> I["Intersecting, not perpendicular"]
+  Q1 -- no --> Q2{"Does one plane contain both?"}
+  Q2 -- yes --> PA["Parallel"]
+  Q2 -- no --> SK["Skew (only in space)"]
+```
+
+The box in the next example is drawn below; edges hidden from view are dashed.
+
+![A rectangular box with top face ABCD and bottom face EFGH; E is under A, F under B, G under C and H under D, and the hidden edges from H are dashed](images/geo-m1-box.svg)
 
 ### Example 3
 

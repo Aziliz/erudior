@@ -74,11 +74,14 @@
     ny0: -y0
     asq: a^2
     q1c: -2*a
+    sg: sign(y0)
+    ay0: abs(y0)
+    cinv: 1/y0
   prompt: 'The Riccati equation $y'' = {a} + (y {na:signedcoef}t)^2$ has the solution $y_1 = {a:coef}t$. Use $y = y_1 + \dfrac1v$ to solve it with $y(0) = {y0}$.'
   answers:
-    - {kind: expression, expression: 'a*t + y0/(1 - y0*t)', variables: [t], label: '$y =$', show: '${a:coef}t + \dfrac{{y0}}{1 {ny0:signedcoef}t}$'}
+    - {kind: expression, expression: 'a*t + y0/(1 - y0*t)', variables: [t], label: '$y =$', show: '${a:coef}t {sg:signedcoef}\dfrac{{ay0}}{1 {ny0:signedcoef}t}$'}
   solution: |-
-    Expanding, $q_0 = {a} + {asq}t^2$, $q_1 = {q1c:coef}t$ and $q_2 = 1$, so $2q_2y_1 = 2({a:coef}t)$ cancels $q_1$: $q_1 + 2q_2y_1 = 0$ and the linear equation is $v' = -1$. So $v = C - t$ and $y = {a:coef}t + \dfrac{1}{C - t}$. At $t = 0$: $\dfrac1C = {y0}$, so $C = \dfrac{1}{{y0}}$. Multiplying top and bottom of $\dfrac{1}{C - t}$ by ${y0}$ gives **$y = {a:coef}t + \dfrac{{y0}}{1 {ny0:signedcoef}t}$**.
+    Expanding, $q_0 = {a} + {asq}t^2$, $q_1 = {q1c:coef}t$ and $q_2 = 1$, so $2q_2y_1 = 2({a:coef}t)$ cancels $q_1$: $q_1 + 2q_2y_1 = 0$ and the linear equation is $v' = -1$. So $v = C - t$ and $y = {a:coef}t + \dfrac{1}{C - t}$. At $t = 0$: $\dfrac1C = {y0}$, so $C = {cinv:texfrac}$. Multiplying top and bottom of $\dfrac{1}{C - t}$ by ${y0}$ gives **$y = {a:coef}t {sg:signedcoef}\dfrac{{ay0}}{1 {ny0:signedcoef}t}$**.
 - id: de-m2-r2-clairaut
   title: Straight-line solutions of a Clairaut equation
   topic: Riccati and Clairaut equations

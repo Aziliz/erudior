@@ -1,0 +1,703 @@
+# Module 6, round 2: new question types for the core lessons, and the honors lessons
+# ---- Lesson 22: undetermined coefficients
+- id: de-m6-r2-q01
+  lesson: de-undetermined
+  module_quiz: true
+  type: text
+  topic: Undetermined coefficients
+  stem: 'A particular solution of $y'''' + y'' - 6y = 12e^{t}$ has the form $Y = Ae^{t}$. Then $A =$ ___. (Give only the number.)'
+  accept: ['-3']
+  explanation: |-
+    $1$ is not a root of $r^2 + r - 6 = (r - 2)(r + 3)$, so no modification is needed. Substituting $Y = Ae^t$: $(1 + 1 - 6)Ae^t = -4Ae^t = 12e^t$, so $A = -3$.
+- id: de-m6-r2-q02
+  lesson: de-undetermined
+  module_quiz: true
+  type: order
+  topic: Undetermined coefficients
+  stem: 'Put the steps for solving an IVP by undetermined coefficients in order.'
+  items:
+    - 'Find $y_c$ and the characteristic roots'
+    - 'Compare the basic guess with $y_c$ and multiply by $t$ if they overlap'
+    - 'Substitute $Y$ and solve for its coefficients'
+    - 'Form $y = y_c + Y$ and apply the initial conditions'
+  explanation: |-
+    You need the roots before you can tell whether the guess overlaps $y_c$; you need the final form of the guess before substituting; and the initial conditions go on the full solution $y_c + Y$, never on $y_c$ alone, so they come last.
+- id: de-m6-r2-q03
+  lesson: de-undetermined
+  topic: Undetermined coefficients
+  stem: 'For which right-hand sides $g(t)$ does $y'''' + 4y = g(t)$ need the modification rule (an extra factor of $t$ in the guess)? Select all that apply.'
+  choices: ['$e^{2t}$', '$3\sin 2t$', '$\cos t$', '$t\cos 2t$']
+  answer: [1, 3]
+  explanation: |-
+    The roots are $\pm 2i$, so $y_c = c_1\cos 2t + c_2\sin 2t$. The guess for $3\sin 2t$ is $A\cos 2t + B\sin 2t$, which overlaps $y_c$. The guess for $t\cos 2t$ is $(At + B)\cos 2t + (Ct + E)\sin 2t$, which also contains $\cos 2t$ and $\sin 2t$. The guesses $Ae^{2t}$ and $A\cos t + B\sin t$ don't overlap ($2$ and $\pm i$ are not roots).
+- id: de-m6-r2-q04
+  lesson: de-undetermined
+  type: match
+  topic: Undetermined coefficients
+  stem: 'For $y'''' + y'' + y = g(t)$ (no guess overlaps $y_c$ here), match each forcing term to the correct guess.'
+  pairs:
+    - ['$g = t^2$', 'A t^2 + B t + C']
+    - ['$g = 5e^{-3t}$', 'A e^(-3t)']
+    - ['$g = \cos 4t$', 'A cos 4t + B sin 4t']
+    - ['$g = te^{t}$', '(A t + B) e^t']
+  distractors: ['A cos 4t', 'A t e^t']
+  explanation: |-
+    The roots of $r^2 + r + 1$ are $-\tfrac12 \pm \tfrac{\sqrt3}{2}i$, so nothing overlaps. A polynomial needs all lower powers; a cosine needs a sine as well; $te^t$ needs the full degree-1 polynomial $(At + B)$ times $e^t$.
+- id: de-m6-r2-q05
+  lesson: de-undetermined
+  type: text
+  topic: Undetermined coefficients
+  stem: 'For $y'''' - 4y = 8e^{2t}$ the modified guess is $Y = Ate^{2t}$. Then $A =$ ___. (Give only the number.)'
+  accept: ['2']
+  explanation: |-
+    $Y' = A(1 + 2t)e^{2t}$, $Y'' = A(4 + 4t)e^{2t}$. Then $Y'' - 4Y = A(4 + 4t - 4t)e^{2t} = 4Ae^{2t} = 8e^{2t}$, so $A = 2$. The $t$ terms cancel, as they should when the modification is right.
+# ---- Lesson 23: variation of parameters
+- id: de-m6-r2-q06
+  lesson: de-variation
+  module_quiz: true
+  type: text
+  topic: Variation of parameters
+  stem: 'For $y'''' + 9y = g(t)$ with $y_1 = \cos 3t$ and $y_2 = \sin 3t$, the Wronskian is $W =$ ___.'
+  accept: ['3']
+  explanation: |-
+    $W = y_1y_2' - y_1'y_2 = \cos 3t\,(3\cos 3t) - (-3\sin 3t)\sin 3t = 3(\cos^2 3t + \sin^2 3t) = 3$.
+- id: de-m6-r2-q07
+  lesson: de-variation
+  type: order
+  topic: Variation of parameters
+  stem: 'Put the steps of variation of parameters in order (the equation is already in standard form).'
+  items:
+    - 'Find a fundamental set $y_1, y_2$ of the homogeneous equation'
+    - 'Compute the Wronskian $W = y_1y_2'' - y_1''y_2$'
+    - 'Compute $u_1'' = -y_2g/W$ and $u_2'' = y_1g/W$'
+    - 'Integrate to get $u_1$ and $u_2$'
+    - 'Form $Y = u_1y_1 + u_2y_2$'
+  explanation: |-
+    Each step uses the result of the one before: $W$ is built from $y_1, y_2$; the formulas for $u_1', u_2'$ divide by $W$; integrating gives $u_1, u_2$; and they multiply $y_1, y_2$ in $Y$.
+- id: de-m6-r2-q08
+  lesson: de-variation
+  module_quiz: true
+  topic: Variation of parameters
+  stem: 'For which equations is variation of parameters needed, because undetermined coefficients does not apply? Select all that apply.'
+  choices: ['$y'''' + y = \tan t$', '$y'''' - y = te^{t}$', '$t^2y'''' + ty'' - y = t$', '$y'''' + 2y'' + y = e^{-t}\cos t$']
+  answer: [0, 2]
+  explanation: |-
+    $\tan t$ is not built from polynomials, exponentials, sines and cosines, and the third equation has variable coefficients; both need variation of parameters. The other two have constant coefficients and forcing of the table's types, so undetermined coefficients works (with the modification rule for $te^t$, since 1 is a root).
+- id: de-m6-r2-q09
+  lesson: de-variation
+  type: match
+  topic: Variation of parameters
+  stem: 'For $y'''' + p(t)y'' + q(t)y = g(t)$ with fundamental set $y_1, y_2$, match each quantity to its formula.'
+  pairs:
+    - ['$W$', "y1 y2' − y1' y2"]
+    - ["$u_1'$", '−y2 g / W']
+    - ["$u_2'$", 'y1 g / W']
+    - ['$Y$', 'u1 y1 + u2 y2']
+  distractors: ["y1 y2' + y1' y2", 'y2 g / W']
+  explanation: |-
+    Cramer's rule on $u_1'y_1 + u_2'y_2 = 0$, $u_1'y_1' + u_2'y_2' = g$ gives $u_1' = -y_2g/W$ and $u_2' = y_1g/W$ with $W = y_1y_2' - y_1'y_2$. Dropping the minus sign in $u_1'$ is the classic slip.
+- id: de-m6-r2-q10
+  lesson: de-variation
+  type: text
+  topic: Variation of parameters
+  stem: 'To use the formulas on $2y'''' + 8y = \sec 2t$, first write it in standard form. The forcing to use is $g(t) = c\sec 2t$ with $c =$ ___.'
+  accept: ['1/2']
+  explanation: |-
+    Divide by 2: $y'' + 4y = \tfrac12\sec 2t$, so $g = \tfrac12\sec 2t$. Using $\sec 2t$ itself would make the particular solution twice too large.
+# ---- Lesson 24: free vibrations
+- id: de-m6-r2-q11
+  lesson: de-free-vibrations
+  module_quiz: true
+  type: label
+  topic: Mechanical vibrations
+  stem: 'Name the numbered parts of this spring–mass system.'
+  image: {src: images/de-m6-spring-mass-blank.svg, alt: 'A mass hanging from a ceiling by a coiled spring, with a piston-in-cylinder device beside the spring also connecting the ceiling to the mass. A dashed horizontal line runs above the mass, a short downward arrow goes from that line to the top of the mass, and an arrow points down from the bottom of the mass. Six points are numbered.'}
+  labels:
+    - {x: 33.3, y: 34.1, text: Spring}
+    - {x: 53.3, y: 28.4, text: Damper}
+    - {x: 43.3, y: 65.9, text: Mass}
+    - {x: 25.0, y: 43.2, text: Equilibrium position}
+    - {x: 66.7, y: 49.5, text: Displacement u(t)}
+    - {x: 43.3, y: 84.1, text: External force F(t)}
+  distractors: [Natural frequency, Amplitude]
+  explanation: |-
+    The spring supplies the force $-ku$ and the damper (dashpot) the force $-\gamma u'$. The dashed line is the equilibrium position, where gravity and the spring's initial stretch balance; $u(t)$ is measured from it, down positive. The arrow below the mass is the external force $F(t)$, zero for free vibrations.
+- id: de-m6-r2-q12
+  lesson: de-free-vibrations
+  type: text
+  topic: Mechanical vibrations
+  stem: 'A 4 kg mass stretches a spring 0.98 m at equilibrium. With $g = 9.8$ m/s², the spring constant is $k =$ ___ N/m.'
+  accept: ['40']
+  explanation: |-
+    At equilibrium $kL = mg$, so $k = \dfrac{4(9.8)}{0.98} = 40$ N/m.
+- id: de-m6-r2-q13
+  lesson: de-free-vibrations
+  module_quiz: true
+  type: match
+  topic: Mechanical vibrations
+  stem: 'Match each free spring–mass equation to the type of motion.'
+  pairs:
+    - ["$u'' + 4u' + 4u = 0$", Critically damped]
+    - ["$u'' + 2u' + 10u = 0$", Underdamped]
+    - ["$u'' + 6u' + 5u = 0$", Overdamped]
+    - ["$u'' + 9u = 0$", Undamped]
+  distractors: [Resonant]
+  explanation: |-
+    Compare $\gamma^2$ with $4km$: $16 = 16$ (critical); $4 < 40$ (underdamped, roots $-1 \pm 3i$); $36 > 20$ (overdamped, roots $-1, -5$); $\gamma = 0$ (undamped, simple harmonic motion). Resonance needs an external force, so it describes none of these.
+- id: de-m6-r2-q14
+  lesson: de-free-vibrations
+  topic: Mechanical vibrations
+  stem: 'Which statements hold for every damped free vibration ($\gamma > 0$, $F = 0$)? Select all that apply.'
+  choices: ['$u(t) \to 0$ as $t \to \infty$', 'The total energy never increases', 'The mass crosses equilibrium infinitely often', 'The quasi-frequency equals $\omega_0$']
+  answer: [0, 1]
+  explanation: |-
+    All characteristic roots have negative real part, so $u \to 0$, and $dE/dt = -\gamma u'^2 \le 0$. Only underdamped motion crosses equilibrium infinitely often, and its quasi-frequency $\mu$ is smaller than $\omega_0$ (overdamped and critically damped motion has no quasi-frequency at all).
+- id: de-m6-r2-q15
+  lesson: de-free-vibrations
+  type: text
+  topic: Mechanical vibrations
+  stem: 'An undamped spring–mass system has $m = 0.5$ kg and $k = 8$ N/m. Its natural frequency is $\omega_0 =$ ___ rad/s.'
+  accept: ['4']
+  explanation: |-
+    $\omega_0 = \sqrt{k/m} = \sqrt{8/0.5} = \sqrt{16} = 4$ rad/s.
+# ---- Lesson 25: forced vibrations and RLC circuits
+- id: de-m6-r2-q16
+  lesson: de-forced-vibrations
+  type: label
+  topic: RLC circuits
+  stem: 'Name the numbered parts of this series circuit.'
+  image: {src: images/de-m6-rlc-blank.svg, alt: 'A rectangular circuit loop. On the left side is a circle with a wave inside; on the top side is a zigzag, with an arrow above the wire at the top left; on the right side is a coil; on the bottom side are two parallel plates. Five points are numbered.'}
+  labels:
+    - {x: 50.0, y: 22.5, text: Resistor}
+    - {x: 78.3, y: 50.0, text: Inductor}
+    - {x: 50.0, y: 77.5, text: Capacitor}
+    - {x: 21.7, y: 50.0, text: Voltage source}
+    - {x: 29.7, y: 17.0, text: Direction of the current}
+  distractors: [Spring, Switch]
+  explanation: |-
+    The zigzag is the resistor $R$, the coil the inductor $L$, the parallel plates the capacitor $C$, and the circle with a wave the voltage source $E(t)$; the arrow shows the direction of the current $I = q'$. Together they give $Lq'' + Rq' + q/C = E(t)$.
+- id: de-m6-r2-q17
+  lesson: de-forced-vibrations
+  module_quiz: true
+  type: match
+  topic: RLC circuits
+  stem: 'Match each spring–mass quantity to its counterpart in the series RLC circuit $Lq'''' + Rq'' + q/C = E(t)$.'
+  pairs:
+    - ['Mass $m$', Inductance L]
+    - ['Damping coefficient $\gamma$', Resistance R]
+    - ['Spring constant $k$', Reciprocal of capacitance 1/C]
+    - ['Displacement $u$', Charge q]
+  distractors: [Capacitance C, Current I]
+  explanation: |-
+    Line up the equations $mu'' + \gamma u' + ku = F$ and $Lq'' + Rq' + (1/C)q = E$: $m \to L$, $\gamma \to R$, $k \to 1/C$, $u \to q$. The current $I = q'$ plays the role of the velocity, not the displacement, and the capacitance itself is not the spring constant; its reciprocal is.
+- id: de-m6-r2-q18
+  lesson: de-forced-vibrations
+  type: text
+  topic: Forced vibrations
+  stem: 'For $u'''' + 9u = 6\cos 3t$ the particular solution is $U = At\sin 3t$. Then $A =$ ___. (Give only the number.)'
+  accept: ['1']
+  explanation: |-
+    This is resonance ($\omega = \omega_0 = 3$), and $U = \dfrac{F_0}{2m\omega_0}t\sin\omega_0t = \dfrac{6}{2(1)(3)}t\sin 3t = t\sin 3t$, so $A = 1$.
+- id: de-m6-r2-q19
+  lesson: de-forced-vibrations
+  module_quiz: true
+  topic: Forced vibrations
+  stem: 'For $mu'''' + \gamma u'' + ku = F_0\cos\omega t$ with $\gamma > 0$, which statements are true? Select all that apply.'
+  choices: ['The steady state oscillates at the forcing frequency $\omega$', 'The transient part decays to zero', 'The amplitude grows without bound when $\omega = \omega_0$', 'The steady-state amplitude depends on the initial conditions']
+  answer: [0, 1]
+  explanation: |-
+    With damping, the complementary (transient) part decays, leaving $U = A\cos\omega t + B\sin\omega t$, which oscillates at the forcing frequency. Its amplitude $F_0/\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}$ stays finite even at $\omega_0$ (unbounded growth is the undamped case), and it involves only $m, \gamma, k, F_0, \omega$: the initial conditions affect only the transient.
+- id: de-m6-r2-q20
+  lesson: de-forced-vibrations
+  type: text
+  topic: Forced vibrations
+  stem: 'The steady-state amplitude of $u'''' + 3u'' + 5u = 10\cos t$ is ___.'
+  accept: ['2']
+  explanation: |-
+    $R = \dfrac{F_0}{\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}} = \dfrac{10}{\sqrt{(5 - 1)^2 + 3^2}} = \dfrac{10}{5} = 2$.
+# ---- Lesson 26: complex gain
+- id: de-m6-r2-q21
+  lesson: de-complex-gain
+  type: label
+  topic: Complex gain
+  stem: 'The picture shows $p(i\omega)$ for the spring $p(r) = mr^2 + \gamma r + k$, with $\omega < \omega_0$. Name the numbered parts.'
+  image: {src: images/de-m6-complex-gain-blank.svg, alt: 'The complex plane with axes Re and Im and a vector from the origin to a point in the first quadrant, forming a shaded right triangle with the real axis. The horizontal leg, the dashed vertical leg, the vector itself and the angle at the origin are numbered.'}
+  labels:
+    - {x: 50.0, y: 80.0, text: Real part k − mω²}
+    - {x: 69.4, y: 63.8, text: Imaginary part γω}
+    - {x: 43.5, y: 56.2, text: Modulus 1/gain}
+    - {x: 28.6, y: 75.4, text: Phase lag φ}
+  distractors: [Gain, Forcing amplitude F0]
+  explanation: |-
+    $p(i\omega) = (k - m\omega^2) + i\gamma\omega$: the horizontal leg is the real part and the vertical leg the imaginary part. The vector's length $|p(i\omega)|$ is the reciprocal of the gain, and its angle with the positive real axis is the phase lag $\phi = \arg p(i\omega)$.
+- id: de-m6-r2-q22
+  lesson: de-complex-gain
+  module_quiz: true
+  type: text
+  topic: Complex gain
+  stem: 'For $x'' + x = \cos t$, the steady state is $\tfrac{1}{\sqrt2}\cos(t - \phi)$ with phase lag $\phi = \pi/$___.'
+  accept: ['4']
+  explanation: |-
+    $p(r) = r + 1$, so $p(i) = 1 + i$, with modulus $\sqrt2$ (gain $1/\sqrt2$) and argument $\pi/4$ (first quadrant). So $\phi = \pi/4$.
+- id: de-m6-r2-q23
+  lesson: de-complex-gain
+  type: order
+  topic: Complex gain
+  stem: 'Put the steps for finding the steady state of $p(D)x = F_0\cos\omega t$ by complex replacement in order.'
+  items:
+    - 'Write the characteristic polynomial $p(r)$'
+    - 'Evaluate $p(i\omega)$'
+    - 'Form $z_p = F_0e^{i\omega t}/p(i\omega)$'
+    - 'Take the real part of $z_p$'
+  explanation: |-
+    You need $p$ to evaluate $p(i\omega)$, and $p(i\omega)$ to form $z_p$. The real part comes last: taking it before multiplying by $e^{i\omega t}$ is a common mistake.
+- id: de-m6-r2-q24
+  lesson: de-complex-gain
+  module_quiz: true
+  topic: Complex gain
+  stem: 'For the damped spring $mx'''' + \gamma x'' + kx = F_0\cos\omega t$ ($\gamma > 0$), which statements about the phase lag $\phi$ are true? Select all that apply.'
+  choices: ['$0 < \phi < \pi$', '$\phi = \pi/2$ when $\omega = \omega_0$', '$\phi > \pi/2$ when $\omega > \omega_0$', '$\phi$ is negative when $\omega > \omega_0$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $p(i\omega) = (k - m\omega^2) + i\gamma\omega$ has positive imaginary part, so it lies in the upper half-plane and $0 < \phi < \pi$. At $\omega_0$ the real part is 0 ($\phi = \pi/2$); above $\omega_0$ it is negative, so $\phi$ is in the second quadrant. A negative angle is what a calculator's arctan gives there, which is the wrong quadrant.
+- id: de-m6-r2-q25
+  lesson: de-complex-gain
+  type: match
+  topic: Complex gain
+  stem: 'Match each real input to the complex exponential and part you would use in complex replacement.'
+  pairs:
+    - ['$\cos 3t$', 'Real part of e^(3it)']
+    - ['$\sin 3t$', 'Imaginary part of e^(3it)']
+    - ['$e^{-t}\cos 2t$', 'Real part of e^((−1+2i)t)']
+    - ['$e^{-t}\sin 2t$', 'Imaginary part of e^((−1+2i)t)']
+  distractors: ['Real part of e^((2−i)t)']
+  explanation: |-
+    By Euler's formula $e^{(a + ib)t} = e^{at}(\cos bt + i\sin bt)$: cosines are real parts and sines imaginary parts. The exponent's real part $a$ carries the $e^{at}$ factor and its imaginary part $b$ the frequency, so $e^{-t}\cos 2t$ uses $a + ib = -1 + 2i$, not $2 - i$.
+# ---- Lesson 27: higher-order equations
+- id: de-m6-r2-q26
+  lesson: de-higher-order
+  type: text
+  topic: Higher-order equations
+  stem: 'The general solution of $y^{(4)} - 16y = 0$ contains the terms $c_3\cos bt + c_4\sin bt$ with $b =$ ___. (Give a positive number.)'
+  accept: ['2']
+  explanation: |-
+    $r^4 - 16 = (r^2 - 4)(r^2 + 4)$, with roots $\pm 2$ and $\pm 2i$. The pair $\pm 2i$ gives $\cos 2t$ and $\sin 2t$.
+- id: de-m6-r2-q27
+  lesson: de-higher-order
+  module_quiz: true
+  type: match
+  topic: Higher-order equations
+  stem: 'Match each set of characteristic roots to the solutions it contributes.'
+  pairs:
+    - ['$r = 2$ (triple root)', 'e^(2t), t e^(2t), t^2 e^(2t)']
+    - ['$r = \pm i$ (each a double root)', 'cos t, sin t, t cos t, t sin t']
+    - ['$r = 1 \pm 2i$ (simple)', 'e^t cos 2t, e^t sin 2t']
+    - ['$r = 0$ (double root)', '1, t']
+  distractors: ['cos t, sin t, cos 2t, sin 2t', '1, e^t']
+  explanation: |-
+    A root of multiplicity $k$ contributes its basic solutions times $1, t, \dots, t^{k-1}$. For $r = 0$ the basic solution is $e^{0t} = 1$, so a double root gives $1$ and $t$. A complex pair $\lambda \pm i\mu$ gives $e^{\lambda t}\cos\mu t$ and $e^{\lambda t}\sin\mu t$.
+- id: de-m6-r2-q28
+  lesson: de-higher-order
+  module_quiz: true
+  topic: Higher-order equations
+  stem: 'Which functions are solutions of $y'''''' - y'''' = 0$? Select all that apply.'
+  choices: ['$5$', '$3t - 2$', '$e^{t}$', '$e^{-t}$', '$t^2$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $r^3 - r^2 = r^2(r - 1)$: a double root 0 gives $1$ and $t$, and the root 1 gives $e^t$, so $y = c_1 + c_2t + c_3e^t$. That includes $5$, $3t - 2$ and $e^t$. For $t^2$: $y''' - y'' = 0 - 2 \ne 0$; for $e^{-t}$: $-e^{-t} - e^{-t} \ne 0$.
+- id: de-m6-r2-q29
+  lesson: de-higher-order
+  type: order
+  topic: Higher-order equations
+  stem: 'Put the steps for solving $y'''''' - 6y'''' + 11y'' - 6y = 0$ in order.'
+  items:
+    - 'Write the characteristic polynomial $r^3 - 6r^2 + 11r - 6$'
+    - 'Find the root $r = 1$ by trying the rational candidates'
+    - 'Divide by $r - 1$ to get $r^2 - 5r + 6$'
+    - 'Factor completely as $(r - 1)(r - 2)(r - 3)$'
+    - 'Write $y = c_1e^{t} + c_2e^{2t} + c_3e^{3t}$'
+  explanation: |-
+    Each step needs the one before: the polynomial, then one root, then the quotient after dividing it out, then the full factorization, then one exponential per root.
+- id: de-m6-r2-q30
+  lesson: de-higher-order
+  type: text
+  topic: Higher-order equations
+  stem: 'For $y^{(4)} - 2y'''' + y = e^{t}$, the basic guess $Ae^{t}$ must be multiplied by $t^s$ with $s =$ ___.'
+  accept: ['2']
+  explanation: |-
+    $r^4 - 2r^2 + 1 = (r^2 - 1)^2 = (r - 1)^2(r + 1)^2$, so $r = 1$ is a double root and both $e^t$ and $te^t$ are in $y_c$. The modification uses the multiplicity: $s = 2$, $Y = At^2e^t$.
+# ---- Honors: the annihilator method
+- id: de-m6-r2-h01
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'What is the smallest annihilator of $t^2e^{3t}$?'
+  choices: ['$(D - 3)^3$', '$(D - 3)^2$', '$D^3(D - 3)$', '$(D + 3)^3$']
+  answer: 0
+  explanation: |-
+    $t^ne^{\alpha t}$ is killed by $(D - \alpha)^{n+1}$; here $n = 2$, $\alpha = 3$. $(D - 3)^2$ kills only $e^{3t}$ and $te^{3t}$. $D^3(D - 3)$ treats $t^2$ and $e^{3t}$ as separate pieces, which is wrong for a product, and $(D + 3)^3$ has the wrong sign.
+- id: de-m6-r2-h02
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'Which operator annihilates $2\cos 5t - \sin 5t$?'
+  choices: ['$D^2 - 25$', '$D^2 + 25$', '$D^2 + 5$', '$D - 5i$']
+  answer: 1
+  explanation: |-
+    $\cos 5t$ and $\sin 5t$ come from the roots $\pm 5i$, so $D^2 + 25$ kills both and any combination. $D^2 - 25$ kills $e^{\pm 5t}$; $D^2 + 5$ would need frequency $\sqrt5$; $D - 5i$ alone kills only the complex $e^{5it}$, not a real sine or cosine.
+- id: de-m6-r2-h03
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'Which operator annihilates $e^{-t}\sin 2t$?'
+  choices: ['$D^2 - 2D + 5$', '$D^2 + 4$', '$D^2 + 2D + 5$', '$(D + 1)(D^2 + 4)$']
+  answer: 2
+  explanation: |-
+    The roots are $-1 \pm 2i$, so the annihilator is $(D + 1)^2 + 4 = D^2 + 2D + 5$. $D^2 - 2D + 5$ has roots $1 \pm 2i$ (wrong sign), $D^2 + 4$ ignores the $e^{-t}$, and $(D + 1)(D^2 + 4)$ treats the product as a sum.
+- id: de-m6-r2-h04
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'Use the annihilator method to find the form of a particular solution of $y'''' - y = te^{t}$.'
+  choices: ['$(At + B)e^{t}$', '$Ate^{t}$', '$(At^3 + Bt^2)e^{t}$', '$(At^2 + Bt)e^{t}$']
+  answer: 3
+  explanation: |-
+    $p(r) = (r - 1)(r + 1)$ and $te^t$ is killed by $(D - 1)^2$. The product $(r - 1)^3(r + 1)$ gives $e^t, te^t, t^2e^t, e^{-t}$; deleting $y_c = c_1e^t + c_2e^{-t}$ leaves $Y = (At^2 + Bt)e^t$. The unmodified guess $(At + B)e^t$ overlaps $y_c$; $(At^3 + Bt^2)e^t$ is what a double root 1 would need.
+- id: de-m6-r2-h05
+  lesson: de-m6-h-annihilators
+  type: text
+  topic: Annihilators
+  stem: 'By the exponential shift rule, $(D - 2)^2\big[e^{2t}v\big] = e^{2t}D^{k}v$ with $k =$ ___.'
+  accept: ['2']
+  explanation: |-
+    Pulling $e^{2t}$ to the left replaces $D$ by $D + 2$: $(D + 2 - 2)^2 = D^2$. So $(D - 2)^2[e^{2t}v] = e^{2t}v''$.
+- id: de-m6-r2-h06
+  lesson: de-m6-h-annihilators
+  type: text
+  topic: Annihilators
+  stem: 'A particular solution of $y'''' - 4y'' + 4y = 6e^{2t}$ is $Y = At^2e^{2t}$ with $A =$ ___. (Give only the number.)'
+  accept: ['3']
+  explanation: |-
+    $p(D) = (D - 2)^2$. With $Y = e^{2t}v$, the shift rule gives $e^{2t}v'' = 6e^{2t}$, so $v'' = 6$ and $v = 3t^2$ (dropping $c_1 + c_2t$, which only reproduces $y_c$). So $A = 3$.
+- id: de-m6-r2-h07
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'Which functions have a constant-coefficient annihilator? Select all that apply.'
+  choices: ['$t^3e^{-t}$', '$\ln t$', '$e^{2t}\cos t + t$', '$\dfrac1t$', '$\sin^2 t$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $t^3e^{-t}$ is killed by $(D + 1)^4$, and $e^{2t}\cos t + t$ by $\big[(D - 2)^2 + 1\big]D^2$. $\sin^2 t$ looks new, but $\sin^2 t = \tfrac12 - \tfrac12\cos 2t$, killed by $D(D^2 + 4)$. $\ln t$ and $1/t$ are not sums of $t^ne^{\alpha t}\cos\beta t$ or $t^ne^{\alpha t}\sin\beta t$ terms, so they have no annihilator.
+- id: de-m6-r2-h08
+  lesson: de-m6-h-annihilators
+  type: match
+  topic: Annihilators
+  stem: 'Match each function to its smallest annihilator.'
+  pairs:
+    - ['$t^3$', 'D^4']
+    - ['$e^{-2t}$', 'D + 2']
+    - ['$\sin 3t$', 'D^2 + 9']
+    - ['$te^{t}$', '(D − 1)^2']
+  distractors: ['D^3', 'D − 2']
+  explanation: |-
+    A cubic needs four derivatives to vanish ($D^4$, not $D^3$). $e^{-2t}$ comes from the root $-2$, giving $D + 2$. $\sin 3t$ comes from $\pm 3i$, giving $D^2 + 9$. $te^t$ comes from a double root 1, giving $(D - 1)^2$.
+- id: de-m6-r2-h09
+  lesson: de-m6-h-annihilators
+  type: order
+  topic: Annihilators
+  stem: 'Put the steps of the annihilator method for $p(D)y = g$ in order.'
+  items:
+    - 'Find an operator $A(D)$ with $A(D)g = 0$'
+    - 'Apply it to get $A(D)p(D)y = 0$'
+    - 'Write the general solution from the roots of $A(r)p(r)$'
+    - 'Delete the terms already in $y_c$'
+    - 'Substitute the remaining form to find its coefficients'
+  explanation: |-
+    The annihilator turns the equation into a homogeneous one; its general solution contains $y_c$ plus the new terms; deleting $y_c$ leaves the form of $Y$; substitution then fixes the coefficients.
+- id: de-m6-r2-h10
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'For which pair of operators does the order of application matter (applying them in the two orders gives different results)?'
+  choices: ['$(D - 1)(D + 2)$ and $(D + 2)(D - 1)$', '$(D^2 + 1)D$ and $D(D^2 + 1)$', '$D(tD)$ and $(tD)D$', '$(D - 3)^2$ and $(D - 3)(D - 3)$']
+  answer: 2
+  explanation: |-
+    $D(tD)y = D(ty') = y' + ty''$, but $(tD)Dy = ty''$. The variable coefficient $t$ breaks commuting. Constant-coefficient operators always commute, so the other pairs are equal.
+- id: de-m6-r2-h11
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'For $y'''' + 4y = t\cos 2t$, what is $A(r)p(r)$, the characteristic polynomial of the equation after annihilating?'
+  choices: ['$(r^2 + 4)^2$', '$(r^2 + 4)^3$', '$r^2(r^2 + 4)$', '$(r^2 + 4)(r - 2)^2$']
+  answer: 1
+  explanation: |-
+    $p(r) = r^2 + 4$, and $t\cos 2t$ (with $n = 1$) is killed by $(D^2 + 4)^2$. The product is $(r^2 + 4)^3$, so $\pm 2i$ are triple roots and $Y = (At + Bt^2)\cos 2t + (Ct + Et^2)\sin 2t$.
+- id: de-m6-r2-h12
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'What is the form of a particular solution of $y'''''' - y'''' = 3t^2 + e^{2t}$?'
+  choices: ['$At^2 + Bt + C + Ee^{2t}$', '$At^4 + Bt^3 + Ct^2 + Ete^{2t}$', '$At^3 + Bt^2 + Ct + Ee^{2t}$', '$At^4 + Bt^3 + Ct^2 + Ee^{2t}$']
+  answer: 3
+  explanation: |-
+    $p(r) = r^2(r - 1)$ and the annihilator is $D^3(D - 2)$. The product $r^5(r - 1)(r - 2)$ gives $1, t, \dots, t^4, e^t, e^{2t}$; deleting $y_c = c_1 + c_2t + c_3e^t$ leaves $At^4 + Bt^3 + Ct^2 + Ee^{2t}$. Since 2 is not a root of $p$, $e^{2t}$ needs no factor of $t$.
+- id: de-m6-r2-h13
+  lesson: de-m6-h-annihilators
+  type: text
+  topic: Annihilators
+  stem: 'For $y'''' - y'' = 2$, the annihilator method gives $Y = At$. Then $A =$ ___. (Give only the number.)'
+  accept: ['-2']
+  explanation: |-
+    $p(r) = r(r - 1)$ and $D$ kills 2, so $A(r)p(r) = r^2(r - 1)$: the root 0 becomes double and $Y = At$ (a constant would be part of $y_c$). Substituting: $0 - A = 2$, so $A = -2$.
+- id: de-m6-r2-h14
+  lesson: de-m6-h-annihilators
+  topic: Annihilators
+  stem: 'Compute $(D + 1)^3\big[t^2e^{-t}\big]$.'
+  choices: ['$2e^{-t}$', '$0$', '$6te^{-t}$', '$t^2e^{-t}$']
+  answer: 1
+  explanation: |-
+    By the exponential shift rule, $(D + 1)^3[e^{-t}t^2] = e^{-t}(D - 1 + 1)^3t^2 = e^{-t}D^3t^2 = 0$. That's why $(D + 1)^3$ is the annihilator of $t^2e^{-t}$. ($2e^{-t}$ is what $(D + 1)^2$ gives.)
+# ---- Honors: the quality factor
+- id: de-m6-r2-h15
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'A spring–mass system has $m = 2$ kg, $k = 50$ N/m and $\gamma = 1$ N·s/m. What is its quality factor $Q$?'
+  choices: ['$0.05$', '$5$', '$10$', '$20$']
+  answer: 2
+  explanation: |-
+    $Q = \sqrt{km}/\gamma = \sqrt{100}/1 = 10$. The value 0.05 is the damping ratio $\zeta = 1/(2Q)$; 5 and 20 come from halving or doubling by mistake (for instance $\omega_0/\gamma = 5/1$ forgets the factor $m$).
+- id: de-m6-r2-h16
+  lesson: de-m6-h-quality-factor
+  type: text
+  topic: Quality factor
+  stem: 'A critically damped system has quality factor $Q =$ ___.'
+  accept: ['1/2']
+  explanation: |-
+    Critical damping is $\gamma = 2\sqrt{km}$, that is $\zeta = 1$, and $Q = 1/(2\zeta) = \tfrac12$. Underdamped systems have $Q > \tfrac12$.
+- id: de-m6-r2-h17
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'An oscillator has damping ratio $\zeta = 0.1$. What is $Q$?'
+  choices: ['$5$', '$0.2$', '$10$', '$20$']
+  answer: 0
+  explanation: |-
+    $Q = 1/(2\zeta) = 1/0.2 = 5$. Taking $Q = 1/\zeta$ gives 10; $0.2$ is $2\zeta$.
+- id: de-m6-r2-h18
+  lesson: de-m6-h-quality-factor
+  type: text
+  topic: Quality factor
+  stem: 'Two successive maxima of a decaying oscillation are 8.0 cm and 6.4 cm. The logarithmic decrement, to 3 decimal places, is $\delta =$ ___.'
+  accept: ['0.223']
+  explanation: |-
+    $\delta = \ln(8.0/6.4) = \ln 1.25 \approx 0.223$. Then $Q \approx \pi/\delta \approx 14$.
+- id: de-m6-r2-h19
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'A struck tuning system has $Q = 50$. About how many cycles does it ring before its amplitude falls to about 4% of the start?'
+  choices: ['$25$', '$100$', '$314$', '$50$']
+  answer: 3
+  explanation: |-
+    The envelope is $e^{-\omega_0t/(2Q)}$. After $Q$ natural periods, $t = 2\pi Q/\omega_0$, it equals $e^{-\pi} \approx 0.043$. So about $Q = 50$ cycles. ($314 \approx 2\pi \cdot 50$ counts radians, not cycles.)
+- id: de-m6-r2-h20
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'A system with $m = 1$ kg, $k = 400$ N/m and $\gamma = 2$ N·s/m is driven by $4\cos 20t$ newtons. What is the steady-state amplitude?'
+  choices: ['$0.01$ m', '$0.1$ m', '$0.2$ m', '$1$ m']
+  answer: 1
+  explanation: |-
+    $\omega_0 = 20$, so this is driving at the natural frequency. $Q = \sqrt{400}/2 = 10$ and the static deflection is $F_0/k = 0.01$ m, so $R = Q \cdot 0.01 = 0.1$ m. Check: $F_0/(\gamma\omega_0) = 4/40 = 0.1$. 0.01 m is the static deflection alone.
+- id: de-m6-r2-h21
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'For $mu'''' + \gamma u'' + ku = F_0\cos\omega t$ with light damping, which statements are true? Select all that apply.'
+  choices: ['The average power absorbed peaks exactly at $\omega_0$', 'The displacement amplitude peaks exactly at $\omega_0$', 'The half-power bandwidth is $\gamma/m$', 'Doubling $\gamma$ doubles $Q$', '$\omega_0$ is the geometric mean of the two half-power frequencies']
+  answer: [0, 2, 4]
+  explanation: |-
+    $P(\omega)$ has denominator $(k/\omega - m\omega)^2 + \gamma^2$ (times a constant), smallest exactly at $\omega_0$. The half-power points satisfy $m\omega^2 \pm \gamma\omega - k = 0$, so $\omega_+ - \omega_- = \gamma/m$ and $\omega_+\omega_- = k/m = \omega_0^2$. The displacement amplitude peaks slightly below $\omega_0$, and $Q = \sqrt{km}/\gamma$ halves when $\gamma$ doubles.
+- id: de-m6-r2-h22
+  lesson: de-m6-h-quality-factor
+  type: match
+  topic: Quality factor
+  stem: 'Match each quantity for $mu'''' + \gamma u'' + ku = F_0\cos\omega t$ to its formula.'
+  pairs:
+    - ['Damping ratio $\zeta$', 'γ / (2√(km))']
+    - ['Quality factor $Q$', '√(km) / γ']
+    - ['Bandwidth $\Delta\omega$', 'γ / m']
+    - ['Natural frequency $\omega_0$', '√(k/m)']
+  distractors: ['2√(km)', 'm / γ']
+  explanation: |-
+    $\zeta = \gamma/\gamma_c$ with $\gamma_c = 2\sqrt{km}$ (the critical damping coefficient itself, the first distractor). $Q = 1/(2\zeta) = \sqrt{km}/\gamma$, and the half-power bandwidth is $\Delta\omega = \gamma/m = \omega_0/Q$.
+- id: de-m6-r2-h23
+  lesson: de-m6-h-quality-factor
+  type: text
+  topic: Quality factor
+  stem: 'A series RLC circuit has $L = 0.1$ H, $C = 10^{-5}$ F and $R = 10$ Ω. Its quality factor is $Q =$ ___.'
+  accept: ['10']
+  explanation: |-
+    $Q = \dfrac1R\sqrt{\dfrac LC} = \dfrac{1}{10}\sqrt{\dfrac{0.1}{10^{-5}}} = \dfrac{1}{10}\sqrt{10^4} = 10$. (Also $\omega_0 = 1/\sqrt{LC} = 1000$ rad/s and $\Delta\omega = R/L = 100$ rad/s, and $1000/100 = 10$.)
+- id: de-m6-r2-h24
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'For which systems does the steady-state displacement amplitude have a peak at some $\omega > 0$?'
+  choices: ['Exactly those with $Q > 1/\sqrt2$', 'Exactly those with $Q > 1/2$', 'Exactly those with $Q > 1$', 'Exactly those with $\zeta > 1/\sqrt2$']
+  answer: 0
+  explanation: |-
+    A peak needs $\omega_{\max}^2 = \omega_0^2(1 - 1/(2Q^2)) > 0$, that is $Q > 1/\sqrt2$, or equivalently $\zeta < 1/\sqrt2$ (so the last choice has the inequality backwards). $Q > \tfrac12$ is the condition for underdamped free motion, a different question: a system with $\tfrac12 < Q \le 1/\sqrt2$ oscillates freely but has no amplitude peak.
+- id: de-m6-r2-h25
+  lesson: de-m6-h-quality-factor
+  type: order
+  topic: Quality factor
+  stem: 'Order these oscillators from the narrowest resonance peak (smallest half-power bandwidth) to the widest.'
+  items:
+    - '$m = 2$, $\gamma = 0.1$'
+    - '$m = 1$, $\gamma = 0.1$'
+    - '$m = 0.5$, $\gamma = 0.1$'
+    - '$m = 1$, $\gamma = 0.5$'
+  explanation: |-
+    The bandwidth is $\Delta\omega = \gamma/m$: $0.05$, $0.1$, $0.2$ and $0.5$ rad/s. The stiffness $k$ doesn't enter the bandwidth at all (it sets $\omega_0$, and with it $Q$).
+- id: de-m6-r2-h26
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'What is the phase lag of the steady state at the upper half-power frequency $\omega_+$?'
+  choices: ['$\pi/4$', '$\pi/2$', '$3\pi/4$', '$\pi$']
+  answer: 2
+  explanation: |-
+    At the half-power points $(k - m\omega^2)^2 = \gamma^2\omega^2$, so $\tan\phi = \gamma\omega/(k - m\omega^2) = \pm1$. Above $\omega_0$ the real part $k - m\omega^2$ is negative, so $\phi$ is in the second quadrant: $3\pi/4$. ($\pi/4$ is the lag at $\omega_-$, and $\pi/2$ the lag at $\omega_0$.)
+- id: de-m6-r2-h27
+  lesson: de-m6-h-quality-factor
+  type: text
+  topic: Quality factor
+  stem: 'An oscillator has $m = 0.5$ kg and $\gamma = 0.2$ N·s/m. Its half-power bandwidth is $\Delta\omega =$ ___ rad/s.'
+  accept: ['0.4']
+  explanation: |-
+    $\Delta\omega = \gamma/m = 0.2/0.5 = 0.4$ rad/s, whatever the spring constant.
+- id: de-m6-r2-h28
+  lesson: de-m6-h-quality-factor
+  topic: Quality factor
+  stem: 'A decay record gives a logarithmic decrement $\delta = 0.2$. To three significant figures, what is the damping ratio $\zeta$?'
+  choices: ['$0.1$', '$0.2$', '$0.0637$', '$0.0318$']
+  answer: 3
+  explanation: |-
+    $\zeta = \delta/\sqrt{4\pi^2 + \delta^2} = 0.2/\sqrt{39.52} \approx 0.0318$ (the light-damping shortcut $\delta/(2\pi)$ agrees to these figures). $0.0637$ is $\delta/\pi$, and $0.1$ is $\delta/2$.
+# ---- Honors: beams and buckling
+- id: de-m6-r2-h29
+  lesson: de-m6-h-beams
+  type: label
+  topic: Beams and buckling
+  stem: 'Name the numbered parts of these two loaded beams.'
+  image: {src: images/de-m6-beams-blank.svg, alt: 'Two beams under rows of downward arrows. The top beam rests on a triangle at its left end and on a triangle with wheels at its right end, with a dashed curve sagging below it. The bottom beam is built into a wall on the left and sticks out freely to the right, with a dashed curve drooping below it. Six points are numbered.'}
+  labels:
+    - {x: 50.0, y: 14.3, text: Distributed load}
+    - {x: 13.6, y: 29.0, text: Pinned support}
+    - {x: 86.4, y: 29.0, text: Roller support}
+    - {x: 50.0, y: 35.7, text: Deflected shape}
+    - {x: 10.0, y: 71.4, text: Clamped end}
+    - {x: 80.3, y: 65.7, text: Free end}
+  distractors: [Buckled column, Bending moment]
+  explanation: |-
+    The arrows are a load spread along the beam ($w$ newtons per meter). The top beam is simply supported: a pin on the left, a roller on the right, both with $y = 0$ and $y'' = 0$. The bottom beam is a cantilever: clamped in the wall ($y = y' = 0$) and free at the tip ($y'' = y''' = 0$). The dashed curves are the deflected shapes.
+- id: de-m6-r2-h30
+  lesson: de-m6-h-beams
+  type: match
+  topic: Beams and buckling
+  stem: 'Match each way of holding a beam''s end to its boundary conditions.'
+  pairs:
+    - [Clamped end, "y = 0 and y' = 0"]
+    - [Simply supported end, "y = 0 and y'' = 0"]
+    - [Free end, "y'' = 0 and y''' = 0"]
+  distractors: ["y' = 0 and y''' = 0", "y = 0 and y''' = 0"]
+  explanation: |-
+    Clamped: no movement and no rotation. Simply supported (pinned): no movement, but free to rotate, so no bending moment ($y'' = 0$). Free: no bending moment and no shear force ($y'' = y''' = 0$), with no condition on $y$ or $y'$.
+- id: de-m6-r2-h31
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'What is the largest deflection of a simply supported beam of length $L$ under a uniform load $w$?'
+  choices: ['$\dfrac{wL^4}{8EI}$', '$\dfrac{5wL^4}{384EI}$', '$\dfrac{wL^4}{384EI}$', '$\dfrac{5wL^4}{24EI}$']
+  answer: 1
+  explanation: |-
+    $y = \dfrac{w}{24EI}(x^4 - 2Lx^3 + L^3x)$, and at $x = L/2$ the bracket is $\tfrac{5}{16}L^4$, giving $\dfrac{5wL^4}{384EI}$. $wL^4/(8EI)$ is the cantilever's tip deflection and $wL^4/(384EI)$ the beam clamped at both ends.
+- id: de-m6-r2-h32
+  lesson: de-m6-h-beams
+  type: text
+  topic: Beams and buckling
+  stem: 'If the span of a simply supported beam is doubled (same load per meter and same $EI$), its largest sag is multiplied by ___.'
+  accept: ['16']
+  explanation: |-
+    The sag $5wL^4/(384EI)$ is proportional to $L^4$, and $2^4 = 16$.
+- id: de-m6-r2-h33
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'A cantilever 2 m long with $EI = 1.2 \times 10^4$ N·m² carries a uniform load of 300 N/m. How far does its tip deflect?'
+  choices: ['$0.0052$ m', '$0.4$ m', '$0.0167$ m', '$0.05$ m']
+  answer: 3
+  explanation: |-
+    $y(L) = \dfrac{wL^4}{8EI} = \dfrac{300 \cdot 16}{8 \cdot 12000} = 0.05$ m. $0.0052$ m uses the simply supported formula $5wL^4/(384EI)$, $0.0167$ m divides by 24 instead of 8, and $0.4$ m leaves out the 8.
+- id: de-m6-r2-h34
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'For which lengths $L$ does $y'''' + y = 0$, $y(0) = 0$, $y(L) = 0$ have nonzero solutions? Select all that apply.'
+  choices: ['$L = \pi$', '$L = \pi/2$', '$L = 2\pi$', '$L = 3$', '$L = 3\pi$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $y(0) = 0$ leaves $y = c\sin x$, and $y(L) = c\sin L = 0$ allows $c \ne 0$ only when $\sin L = 0$, that is $L = n\pi$. $L = 3$ is close to $\pi$ but $\sin 3 \ne 0$.
+- id: de-m6-r2-h35
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'How many solutions does $y'''' + y = 0$, $y(0) = 0$, $y(\pi) = 2$ have?'
+  choices: ['Exactly one, $y = 2\sin x$', 'Infinitely many', 'None', 'Exactly one, $y = 2\cos x$']
+  answer: 2
+  explanation: |-
+    $y(0) = 0$ forces $y = c\sin x$, and then $y(\pi) = c\sin\pi = 0$, which can never equal 2. So there is no solution. (With $y(\pi) = 0$ instead there would be infinitely many.) $2\sin x$ fails the condition at $\pi$, and $2\cos x$ fails it at 0.
+- id: de-m6-r2-h36
+  lesson: de-m6-h-beams
+  type: text
+  topic: Beams and buckling
+  stem: 'If the length of a pinned column is tripled (same $EI$), its critical buckling load is divided by ___.'
+  accept: ['9']
+  explanation: |-
+    $P_{\text{cr}} = \pi^2EI/L^2$ is proportional to $1/L^2$, and $3^2 = 9$.
+- id: de-m6-r2-h37
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'A pinned column has $EI = 5000$ N·m² and length 2 m. What is its critical buckling load?'
+  choices: ['About 12.3 kN', 'About 3.08 kN', 'About 24.7 kN', '1.25 kN']
+  answer: 0
+  explanation: |-
+    $P_{\text{cr}} = \pi^2EI/L^2 = \pi^2(5000)/4 \approx 12{,}337$ N, about 12.3 kN. 3.08 kN is the clamped–free value $\pi^2EI/(4L^2)$; 24.7 kN divides by $L$ instead of $L^2$; 1.25 kN leaves out $\pi^2$.
+- id: de-m6-r2-h38
+  lesson: de-m6-h-beams
+  type: order
+  topic: Beams and buckling
+  stem: 'Put the steps for finding a uniformly loaded cantilever''s tip deflection in order (clamped at $x = 0$, free at $x = L$).'
+  items:
+    - 'Integrate $EI\,y^{(4)} = w$ four times'
+    - 'Use $y(0) = 0$ and $y''(0) = 0$ to get $c_0 = c_1 = 0$'
+    - 'Use $y''''''(L) = 0$ to find $c_3$'
+    - 'Use $y''''(L) = 0$, with $c_3$ known, to find $c_2$'
+    - 'Evaluate $y(L)$'
+  explanation: |-
+    The constants must exist before conditions can fix them. $y'''$ involves only $c_3$, so it comes first among the free-end conditions; $y''(L)$ involves both $c_3$ and $c_2$, so it needs $c_3$. Only when all four constants are known can you evaluate $y(L) = wL^4/(8EI)$.
+- id: de-m6-r2-h39
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'At the critical load, what shape does a pinned column of length $L$ buckle into ($x$ along the column)?'
+  choices: ['$y = c\sin(2\pi x/L)$', '$y = c\cos(\pi x/L)$', '$y = c\sin(\pi x/L)$', '$y = c(1 - \cos(2\pi x/L))$']
+  answer: 2
+  explanation: |-
+    The first mode $n = 1$ of $EI\,y'' + Py = 0$, $y(0) = y(L) = 0$ is $\sin(\pi x/L)$, a half sine wave. $\sin(2\pi x/L)$ is the second mode, which needs four times the load; $\cos(\pi x/L)$ is not 0 at $x = 0$.
+- id: de-m6-r2-h40
+  lesson: de-m6-h-beams
+  type: text
+  topic: Beams and buckling
+  stem: 'A column clamped at its base and free at its top has critical load $P_{\text{cr}} = \dfrac{\pi^2EI}{c\,L^2}$ with $c =$ ___.'
+  accept: ['4']
+  explanation: |-
+    The clamped–free (flagpole) column has $P_{\text{cr}} = \pi^2EI/(4L^2)$, a quarter of the pinned value: it buckles as if it were a pinned column twice as long.
+- id: de-m6-r2-h41
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'Which statements about the Euler buckling model $EI\,y'''' + Py = 0$, $y(0) = y(L) = 0$ are true? Select all that apply.'
+  choices: ['For $P$ below $\pi^2EI/L^2$ the only solution is $y = 0$', 'It predicts how far the column bows after buckling', 'Short, stocky columns may crush before they buckle', '$P_{\text{cr}}$ is proportional to $EI$', 'Halving $L$ doubles $P_{\text{cr}}$']
+  answer: [0, 2, 3]
+  explanation: |-
+    Below the first eigenvalue only the straight shape solves the problem, and $P_{\text{cr}} = \pi^2EI/L^2$ is proportional to $EI$. The linear model leaves the amplitude $c$ undetermined, and it describes slender columns; stocky ones fail by crushing first. Halving $L$ multiplies $P_{\text{cr}}$ by 4, not 2.
+- id: de-m6-r2-h42
+  lesson: de-m6-h-beams
+  topic: Beams and buckling
+  stem: 'A beam clamped at both ends carries the same uniform load as an otherwise identical simply supported beam. How does its middle sag compare?'
+  choices: ['One fifth as large', 'The same', 'Five times as large', 'One quarter as large']
+  answer: 0
+  explanation: |-
+    Clamped at both ends the middle sag is $wL^4/(384EI)$; simply supported it is $5wL^4/(384EI)$. Clamping stops the ends from rotating, so the beam bends less: one fifth as much.

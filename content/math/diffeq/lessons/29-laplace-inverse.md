@@ -86,6 +86,21 @@ Find $\mathcal{L}^{-1}\left\{\dfrac{10}{s(s^2 + 2s + 5)}\right\}$.
 - $\dfrac{-2s - 4}{(s + 1)^2 + 4} = \dfrac{-2(s + 1) - 2}{(s + 1)^2 + 4}$.
 - Inverse: $2 - 2e^{-t}\cos 2t - e^{-t}\sin 2t$.
 
+
+The term to write down for each factor of the denominator follows a short decision chart.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing partial-fraction terms
+  accDescr: First make sure the fraction is proper, with the numerator degree less than the denominator degree, and factor the denominator over the reals. Then look at each factor. A linear factor s minus a that appears once gets one term A over s minus a, found by cover-up. A linear factor repeated k times gets k terms, A1 over s minus a up to Ak over s minus a to the k. An irreducible quadratic gets one term Bs plus C over the quadratic; complete the square to invert it. Finally invert term by term.
+  A["Proper fraction? Factor the denominator over the reals"] --> B{"What kind of factor?"}
+  B -- "linear, once: s − a" --> C["A/(s − a), cover-up"]
+  B -- "linear, k times: (s − a)^k" --> D["A1/(s − a) + … + Ak/(s − a)^k"]
+  B -- "irreducible quadratic" --> E["(Bs + C)/quadratic, complete the square"]
+  C --> F["Invert term by term"]
+  D --> F
+  E --> F
+```
 ## A strategy checklist
 
 1. If the numerator's degree is not less than the denominator's, something's off (for

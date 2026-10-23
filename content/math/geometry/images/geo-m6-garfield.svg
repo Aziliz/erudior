@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 280" width="500" height="280" font-family="sans-serif">
+<rect width="500" height="280" fill="#ffffff"/>
+<polygon points="70.0,240.0 220.0,240.0 70.0,40.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="220.0,240.0 420.0,240.0 420.0,90.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="70.0,40.0 220.0,240.0 420.0,90.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="84.0,240.0 84.0,226.0 70.0,226.0" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<polyline points="406.0,240.0 406.0,226.0 420.0,226.0" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<polyline points="210.4,227.2 223.2,217.6 232.8,230.4" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<text x="145.0" y="264.0" font-size="17" text-anchor="middle" font-style="italic" fill="#1c2833">a</text>
+<text x="320.0" y="264.0" font-size="17" text-anchor="middle" font-style="italic" fill="#1c2833">b</text>
+<text x="56.0" y="146.0" font-size="17" text-anchor="middle" font-style="italic" fill="#1c2833">b</text>
+<text x="434.0" y="171.0" font-size="17" text-anchor="middle" font-style="italic" fill="#1c2833">a</text>
+<text x="159.0" y="144.0" font-size="17" text-anchor="start" font-style="italic" fill="#1c2833">c</text>
+<text x="324.0" y="155.0" font-size="17" text-anchor="end" font-style="italic" fill="#1c2833">c</text>
+<text x="135.0" y="190.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">1</text>
+<text x="350.0" y="210.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">2</text>
+<text x="236.7" y="129.3" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">3</text>
+</svg>

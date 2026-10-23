@@ -88,6 +88,30 @@ Solve $y'' + 2y' + 5y = 0$, $y(0) = 1$, $y'(0) = 3$ (Example 2 of Lesson 20).
 - $Y = \dfrac{s + 5}{(s + 1)^2 + 4} = \dfrac{(s + 1) + 4}{(s + 1)^2 + 4}$.
 - $y = e^{-t}\cos 2t + 2e^{-t}\sin 2t$. Same answer as before, with no constants to fit.
 
+
+## Where each part of $Y(s)$ comes from
+
+After collecting terms, $Y(s)$ always has the same anatomy. For $ay'' + by' + cy = g$,
+
+$$Y(s) = \frac{a\big(sy(0) + y'(0)\big) + by(0)}{as^2 + bs + c} + \frac{G(s)}{as^2 + bs + c}.$$
+
+The first fraction comes only from the initial conditions (the **zero-input response**:
+what the system does with no forcing), the second only from the forcing (the
+**zero-state response**: what the forcing does to a system starting at rest). Both share
+the characteristic polynomial as denominator, and $y$ is their sum.
+
+```mermaid
+flowchart TD
+  accTitle: The two parts of the Laplace solution
+  accDescr: Transforming a y double prime plus b y prime plus c y equals g splits Y of s into two fractions over the characteristic polynomial. The initial conditions give the zero-input part, which inverts to the response of the unforced system. The forcing transform G of s gives the zero-state part, which inverts to the response of a system starting at rest. Adding the two gives y of t.
+  A["Transform the IVP"] --> B["Initial conditions: IC terms over p(s)"]
+  A --> C["Forcing: G(s) over p(s)"]
+  B --> D["Zero-input response"]
+  C --> E["Zero-state response"]
+  D --> F["y(t) = sum of the two"]
+  E --> F
+```
+
 ## Systems and higher order
 
 The same steps work for higher-order equations (more initial conditions enter) and for

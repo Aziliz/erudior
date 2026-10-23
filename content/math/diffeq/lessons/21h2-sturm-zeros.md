@@ -37,8 +37,8 @@ $v$, the $u'$ terms are $u'(2v'/v + p) = u'(-p + p) = 0$, and what is left is
 
 $$u'' + Q(t)\,u = 0, \qquad Q = q - \frac{p^2}{4} - \frac{p'}{2}.$$
 
-Because $v$ is an exponential, it is never zero, so **$y$ and $u$ have exactly the same
-zeros**. Every question about zeros of $y$ is a question about zeros of $u$.
+Because $v$ is an exponential, it is never zero, so *$y$ and $u$ have exactly the same
+zeros*. Every question about zeros of $y$ is a question about zeros of $u$.
 
 Check with constant coefficients: for $y'' + 4y' + 13y = 0$, $p = 4$, $q = 13$, so
 $Q = 13 - 4 = 9$ and $u'' + 9u = 0$. So $u = \cos 3t$ (for example) and $y = e^{-2t}\cos 3t$,
@@ -129,7 +129,7 @@ $$m^2 \le Q(t) \le M^2 \qquad (m, M > 0).$$
 
 In short, consecutive zeros are between $\pi/M$ and $\pi/m$ apart. And if $Q(t) \le 0$ on an
 interval, compare with $v = 1$ (which solves $v'' + 0 \cdot v = 0$ and never vanishes): a
-solution has **at most one zero** there. (If $Q \equiv 0$, $u$ is linear, which also has at
+solution has *at most one zero* there. (If $Q \equiv 0$, $u$ is linear, which also has at
 most one zero.) That is why $y'' - y = 0$, with $Q = -1$, never oscillates.
 
 ```mermaid

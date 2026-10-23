@@ -59,6 +59,20 @@ Notice the rhythm: definitions move us from geometry words ("supplementary", "co
 
 Using the theorem from Example 1 made this proof short. That is how mathematics grows: each proved theorem becomes a tool for the next.
 
+Some books draw the same argument as a flowchart, with each statement in a box, its reason underneath, and arrows showing which statements each one depends on. The arrows make the structure visible: the conclusion needs *both* supplementary pairs, because the Congruent Supplements Theorem uses two pairs.
+
+```mermaid
+flowchart TD
+  accTitle: The Vertical Angles Theorem drawn as a flowchart proof
+  accDescr: From the given fact that angles 1 and 3 are vertical angles, two arrows lead to two statements: angles 1 and 2 form a linear pair, and angles 2 and 3 form a linear pair, each by the definition of a linear pair. Each of these leads, by the Linear Pair Postulate, to a statement that the pair is supplementary. Both supplementary statements lead together to the conclusion that angle 1 is congruent to angle 3, by the Congruent Supplements Theorem.
+  G["∠1 and ∠3 are vertical angles. Given"] --> L1["∠1 and ∠2 form a linear pair. Def. of linear pair"]
+  G --> L2["∠2 and ∠3 form a linear pair. Def. of linear pair"]
+  L1 --> S1["∠1 and ∠2 are supplementary. Linear Pair Postulate"]
+  L2 --> S2["∠2 and ∠3 are supplementary. Linear Pair Postulate"]
+  S1 --> K["∠1 ≅ ∠3. Congruent Supplements Theorem"]
+  S2 --> K
+```
+
 ## Paragraph proofs
 
 A **paragraph proof** gives the same reasoning in sentences. It's the style used in college courses and in mathematics generally. It should still make every reason clear.
@@ -87,6 +101,21 @@ The key move, adding the same shared piece to equal parts, is called the **overl
 - **Translate words into equations.** "Midpoint", "bisects", "supplementary" and "perpendicular" each have a definition that produces an equation.
 - **Look for shared parts.** Shared segments and angles, and vertical angles, give free facts.
 - **Use earlier theorems.** If a step looks familiar, a theorem probably already does it.
+
+Put together, the strategy is a loop you can follow whenever you are stuck:
+
+```mermaid
+flowchart TD
+  accTitle: A procedure for finding a proof
+  accDescr: First read the Given and the Prove and mark the given facts on the diagram. Work forward, asking what the givens let you say. Work backward, asking what statement must come just before the conclusion. Find a bridge between the two, such as shared parts, vertical angles or an earlier theorem. Write the statements in order, each with a reason. Then check whether every reason is allowed: given information, a definition, a postulate, a property or a proved theorem. If yes, the proof is done; if not, go back and look for another bridge.
+  A["Read Given and Prove; mark the diagram"] --> B["Forward: what do the givens let you say?"]
+  B --> C["Backward: what must come just before the conclusion?"]
+  C --> D["Find a bridge: shared parts, vertical angles, an earlier theorem"]
+  D --> E["Write statements in order, each with a reason"]
+  E --> F("Is every reason allowed?")
+  F -- "yes" --> G["Proof done"]
+  F -- "no" --> D
+```
 
 ## Common mistakes
 

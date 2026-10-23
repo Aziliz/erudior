@@ -31,6 +31,14 @@ $$\mathcal{L}\{u_c(t)\} = \int_c^\infty e^{-st}\,dt = \frac{e^{-cs}}{s}.$$
 - A function that equals $f_1(t)$ for $t < c$ and $f_2(t)$ for $t \ge c$:
   $f_1(t) + \big(f_2(t) - f_1(t)\big)u_c(t)$. Read it as "start with $f_1$; at $t = c$, swap it for $f_2$."
 
+
+The picture shows four switched functions side by side. Compare the last two: the delayed
+ramp $u_2(t)(t - 2)$ starts from 0, while $u_2(t)\,t$ jumps straight to 2. Only the first is
+"$t$ shifted by 2", which is why the second shifting theorem needs the function written in
+terms of $t - c$.
+
+![Four small graphs. Top left: u sub 2 of t, zero until t equals 2, then 1. Top right: the pulse u sub 1 minus u sub 3, equal to 1 from t equals 1 to 3 and zero elsewhere. Bottom left: the delayed ramp u sub 2 of t times t minus 2, zero until 2 and then rising with slope 1 from 0. Bottom right: u sub 2 of t times t, zero until 2, then jumping to 2 and rising with slope 1.](images/de-m7-step-panels.svg)
+
 ### Example 1
 
 Write $g(t) = \begin{cases} 0, & t < 1 \\ 3, & 1 \le t < 4 \\ 0, & t \ge 4 \end{cases}$ with step functions.
@@ -118,6 +126,15 @@ describe the solution on each piece.
   $y = 2e^{-2(t - 1)} - 2e^{-2t}$, a decaying exponential that starts where the first piece ended.
 
 Notice that $y$ itself is continuous at $t = 1$ even though the input jumps; only $y'$ jumps.
+
+```mermaid
+flowchart TD
+  accTitle: Inverting a transform with a delay factor
+  accDescr: Start with Y of s equal to e to the minus c s times H of s. First set the exponential aside and invert H of s alone to get h of t. Then replace t by t minus c to get h of t minus c. Finally multiply by the step u sub c of t, so the piece is zero before time c.
+  A["Y(s) = e^(−cs) H(s)"] --> B["Set e^(−cs) aside; invert H(s) to get h(t)"]
+  B --> C["Replace t by t − c: h(t − c)"]
+  C --> D["Multiply by the step u_c(t)"]
+```
 
 ## Common mistakes
 

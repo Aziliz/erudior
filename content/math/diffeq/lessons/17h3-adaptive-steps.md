@@ -31,8 +31,8 @@ computed numbers alone:
 
 $$y(T) - A(h/2) \approx \frac{A(h/2) - A(h)}{2^p - 1}.$$
 
-Adding this estimate to $A(h/2)$ gives an improved value. That step is called **Richardson
-extrapolation**, after the English scientist Lewis Fry Richardson, who used it in the early
+Adding this estimate to $A(h/2)$ gives an improved value. That step is called
+**Richardson extrapolation**, after the English scientist Lewis Fry Richardson, who used it in the early
 twentieth century.
 
 $$A_{\text{better}} = A(h/2) + \frac{A(h/2) - A(h)}{2^p - 1}.$$

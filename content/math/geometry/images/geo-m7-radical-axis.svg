@@ -19,7 +19,7 @@
 <text x="320.0" y="254.0" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">O₂</text>
 <text x="276.0" y="55.0" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">P</text>
 <text x="274.0" y="146.0" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">X</text>
-<text x="274.0" y="328.0" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">Y</text>
+<text x="254.0" y="330.0" font-size="17" text-anchor="end" font-weight="bold" fill="#1c2833">Y</text>
 <text x="113.0" y="100.0" font-size="17" text-anchor="end" font-weight="bold" fill="#1c2833">T₁</text>
 <text x="385.4" y="153.1" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">T₂</text>
 <text x="274.0" y="397.6" font-size="16" text-anchor="start" font-weight="bold" fill="#a93226">radical axis</text>

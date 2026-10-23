@@ -32,6 +32,13 @@ $$\int_{-\infty}^{\infty}f(t)\,\delta(t - c)\,dt = f(c).$$
 No ordinary function behaves this way; $\delta$ is a "generalized function", but every
 calculation in this course is justified by the limit of $d_\varepsilon$.
 
+The pulses $d_\varepsilon$ for three widths show what "taller and narrower with the same area"
+means: each rectangle has area 1.
+
+```plot
+{"x": [0, 3], "y": [0, 4.5], "xLabel": "t", "segments": [{"from": [0, 0], "to": [1, 0]}, {"from": [1, 0], "to": [1, 1]}, {"from": [1, 1], "to": [2, 1]}, {"from": [2, 1], "to": [2, 0]}, {"from": [2, 0], "to": [3, 0]}, {"from": [1, 0], "to": [1, 2], "dashed": true}, {"from": [1, 2], "to": [1.5, 2], "dashed": true}, {"from": [1.5, 2], "to": [1.5, 0], "dashed": true}, {"from": [1, 0], "to": [1, 4]}, {"from": [1, 4], "to": [1.25, 4]}, {"from": [1.25, 4], "to": [1.25, 0]}], "labels": [{"at": [2.3, 1.2], "text": "ε = 1, height 1"}, {"at": [2.05, 2.2], "text": "ε = 0.5, height 2"}, {"at": [1.85, 4.2], "text": "ε = 0.25, height 4"}], "caption": "Pulses d_ε starting at c = 1 with widths 1, 0.5 and 0.25: each has area 1, and as ε → 0 they approach δ(t − 1)."}
+```
+
 ### Its transform
 
 By sifting with $f(t) = e^{-st}$:
@@ -76,6 +83,14 @@ $H(s) = \dfrac{1}{as^2 + bs + c}$ is the **transfer function**. If $g = \delta(t
 and $Y = H$: so $h(t) = \mathcal{L}^{-1}\{H\}$ is the **impulse response**, the system's reaction
 to a single kick at $t = 0$. For general $g$, the output transform is $H \times G$. What
 function of $t$ has a product of transforms as its transform?
+
+```mermaid
+flowchart LR
+  accTitle: A linear system as a block
+  accDescr: An input g of t with transform G of s enters a block labeled with the transfer function H of s. The output has transform Y of s equal to H of s times G of s, which in the time domain is the convolution y equals h star g, for zero initial conditions.
+  G["Input g(t), G(s)"] --> H["System H(s)"]
+  H --> Y["Output Y = H·G, y = h * g"]
+```
 
 ## Convolution
 

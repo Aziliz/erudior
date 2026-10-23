@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" font-family="sans-serif">
+<rect width="560" height="400" fill="#ffffff"/>
+<polygon points="285.0,50.0 90.0,340.0 370.0,340.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="285.0,50.0 370.0,340.0 480.0,260.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="200.0" y1="260.0" x2="90.0" y2="340.0" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="200.0" y1="260.0" x2="480.0" y2="260.0" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="200.0" y1="260.0" x2="285.0" y2="50.0" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="285.0" y1="50.0" x2="285.0" y2="300.0" stroke="#1c2833" stroke-width="2.5" stroke-dasharray="8 6"/>
+<line x1="285.0" y1="300.0" x2="425.0" y2="300.0" stroke="#1c2833" stroke-width="1.8" stroke-dasharray="8 6"/>
+<polyline points="285.0,289.0 296.0,289.0 296.0,300.0" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-linejoin="round"/>
+<line x1="285.0" y1="50.0" x2="425.0" y2="300.0" stroke="#1c2833" stroke-width="2" stroke-dasharray="2 5"/>
+<circle cx="285.0" cy="300.0" r="3.5" fill="#1c2833"/>
+<text x="275.0" y="220.0" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">h</text>
+<text x="395.0" y="175.0" font-size="18" text-anchor="start" fill="#1c2833" font-style="italic">ℓ</text>
+<text x="168.0" y="205.0" font-size="18" text-anchor="end" fill="#1c2833">lateral edge</text>
+<text x="230.0" y="372.0" font-size="18" text-anchor="middle" fill="#1c2833">base edge s</text>
+<text x="318.0" y="292.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">s/2</text>
+</svg>
