@@ -11,3 +11,4 @@ __pycache__/
 # Course signing keys and published course packages
 .keys/
 dist-courses/
+*.preview.png
