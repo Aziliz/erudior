@@ -54,6 +54,12 @@ $z = \dfrac{0.53 - 0.5}{\sqrt{0.25/1000}} \approx 1.90$; p-value $= 2P(Z \ge 1.9
 Since $0.058 > 0.05$, fail to reject $H_0$: not convincing evidence the machine is unfair.
 (A 95% CI for $p$, about $(0.499, 0.561)$, contains 0.5 — consistent with the test.)
 
+For a two-sided test the p-value is the area in *both* tails, beyond $-1.90$ and beyond $1.90$:
+
+```plot
+{"x": [-3.5, 3.5], "y": [-0.04, 0.42], "grid": false, "functions": [{"f": "normpdf(x)"}], "shade": [{"f": "normpdf(x)", "from": -3.5, "to": -1.9}, {"f": "normpdf(x)", "from": 1.9, "to": 3.5}], "segments": [{"from": [-3.5, 0], "to": [3.5, 0]}], "labels": [{"at": [-1.9, -0.025], "text": "−1.90"}, {"at": [1.9, -0.025], "text": "z = 1.90"}, {"at": [0, -0.025], "text": "0"}, {"at": [2.6, 0.08], "text": "0.029"}, {"at": [-2.6, 0.08], "text": "0.029"}], "caption": "Two-sided p-value: 0.029 in each tail, about 0.058 in all"}
+```
+
 ## Two-proportion z test
 
 To compare two proportions, test $H_0: p_1 = p_2$ (equivalently $p_1 - p_2 = 0$) against a
@@ -104,6 +110,22 @@ cancelled (4%). Can we use a one-proportion z test? Check large counts with $p_0
 $150(0.02) = 3 < 10$. No — the normal approximation is poor. An exact binomial calculation
 works instead: if $p = 0.02$, $P(X \ge 6) = 1 - P(X \le 5) \approx 0.08$ for $X \sim B(150, 0.02)$.
 At $\alpha = 0.05$ that is not convincing evidence against the claim.
+
+The whole decision, from the kind of question to the procedure, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a significance test for proportions
+  accDescr: First ask whether one sample is compared with a claimed value p0 or two groups are compared. For one sample, check large counts using p0: n times p0 and n times 1 minus p0 must both be at least 10. If they are, use the one-proportion z test with a standard error built from p0; if not, use an exact binomial calculation. For two groups, first pool the samples: the pooled proportion is total successes over total sample size. Then check that all four expected counts built from the pooled proportion are at least 10. If they are, use the two-proportion z test with the pooled standard error; if not, use an exact or simulation-based method.
+  A{"One sample vs. a claimed p₀, or two groups?"}
+  A -->|"One sample"| B{"Large counts with p₀: np₀ and n(1 − p₀) at least 10?"}
+  B -->|"Yes"| C["One-proportion z test, SE from p₀"]
+  B -->|"No"| E["Exact binomial calculation"]
+  A -->|"Two groups"| F["Pool: p̂c = total successes ÷ total sample size"]
+  F --> G{"All four expected counts from p̂c at least 10?"}
+  G -->|"Yes"| H["Two-proportion z test, pooled SE"]
+  G -->|"No"| I["Exact or simulation-based method"]
+```
 
 ## One-sided two-proportion tests
 

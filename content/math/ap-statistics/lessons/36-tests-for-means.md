@@ -70,6 +70,14 @@ $\alpha = 0.05$.
 Treating the two columns as independent samples would be wrong — and would usually miss the
 effect, since operator-to-operator differences would swamp the jig effect.
 
+The picture makes the point. The old-jig values below are made up for illustration (the
+lesson gives only the differences), but they show the typical pattern: operators differ from
+one another by up to 13 units per hour, while each operator's change is only a few units. The
+lines mostly rise, which the paired test sees. A two-sample t test on the same 16 numbers
+would compare two widely spread columns and give $t \approx 0.95$, p-value $\approx 0.36$.
+
+![A slope graph with two vertical axes, Old jig and New jig, from 14 to 34 units per hour. Eight lines join each operator's old and new output: 18 to 21, 25 to 24, 21 to 25, 29 to 31, 23 to 28, 16 to 16, 27 to 30 and 20 to 22. Six lines rise; the lines for 25 to 24 and 16 to 16 are dashed. The operators' levels spread from 16 to 31, while the changes are between −1 and 5.](images/stat-m8-paired-lines.svg)
+
 ## Two-sample t test
 
 For independent samples or two randomly assigned treatment groups, test $H_0: \mu_1 = \mu_2$:
@@ -103,6 +111,21 @@ mean output? $\alpha = 0.05$.
 | One sample, compare its mean to a standard | one-sample t |
 | Two measurements on each individual / matched pairs | paired t on differences |
 | Two independent groups | two-sample t |
+
+The same choice as a chart, including the first question to ask: is the response a mean at all?
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a significance test for means
+  accDescr: First ask whether the response is quantitative, so that a mean is being tested. If it is categorical, use a z test for proportions instead. If it is quantitative, ask how many samples or groups there are. With one sample compared with a standard value mu0, use the one-sample t test. With two sets of measurements, ask whether they are paired, meaning the same individuals measured twice or matched pairs. If paired, use the paired t test on the differences, with degrees of freedom equal to the number of pairs minus 1. If the groups are independent, use the two-sample t test with Welch or conservative degrees of freedom.
+  A{"Is the response quantitative (a mean)?"}
+  A -->|"No, categorical"| Z["Use a z test for proportions"]
+  A -->|"Yes"| B{"One sample or two sets of measurements?"}
+  B -->|"One sample vs. μ₀"| C["One-sample t test, df = n − 1"]
+  B -->|"Two"| D{"Paired: same individuals or matched pairs?"}
+  D -->|"Yes"| E["Paired t test on the differences, df = pairs − 1"]
+  D -->|"No, independent"| F["Two-sample t test, Welch or conservative df"]
+```
 
 The key question is whether the two sets of numbers are *dependent* (paired) or
 **independent**.

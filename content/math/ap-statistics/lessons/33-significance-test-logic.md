@@ -85,7 +85,7 @@ Before collecting data, choose a **significance level** $\alpha$ — the thresho
 - If p-value $> \alpha$: *fail to reject $H_0$*. There is not convincing evidence for $H_a$.
 
 The picture puts the pieces of Example 1 on one sampling distribution. At $\alpha = 0.05$, any
-$\hat{p}$ at or below the **critical value** 0.7535 ($z = -1.645$) would lead to rejecting $H_0$;
+$\hat{p}$ at or below the critical value 0.7535 ($z = -1.645$) would lead to rejecting $H_0$;
 that stretch of values is the **rejection region**, with total area $\alpha$. The observed 0.74
 falls inside it, and the p-value (the darker tail) is smaller than $\alpha$. Comparing the p-value
 with $\alpha$ and comparing the observed statistic with the critical value always give the same
