@@ -453,14 +453,14 @@
 - id: bio-q-0741
   lesson: bio-speciation
   topic: Phylogeny
-  stem: In a character table, which trait would help show which two of these three groups (mammals, birds and lizards) are most closely related?
+  stem: In a character table, which trait would help show which two of these three animals (frog, lizard and human) are most closely related?
   choices:
-  - Two openings in the skull behind each eye, present in birds and lizards but not mammals
+  - An amniotic egg, present in lizards and humans but not frogs
   - A backbone, which all three have
-  - Living on land, which all three do
+  - Four limbs, which all three have
   - Body size, which varies within each group
   answer: 0
-  explanation: A shared derived trait groups the species that inherited it from a common ancestor. The two skull openings (the diapsid skull) are shared by birds and lizards, marking them as a clade (the reptiles) that excludes mammals. A backbone or land life is shared by all three, so it can't separate them, and body size varies too much and can evolve repeatedly. A trait found in only one group, like hair in mammals, marks that group but can't show which two are closest.
+  explanation: A shared derived trait groups the species that inherited it from a common ancestor. The amniotic egg is shared by lizards and humans, marking them as a clade (the amniotes) that excludes frogs. A backbone and four limbs are shared by all three, so they can't separate them, and body size varies too much and can evolve repeatedly. A trait found in only one of the three, like hair in humans, marks that line but can't show which two are closest.
 - id: bio-q-0742
   lesson: bio-speciation
   topic: Phylogeny
