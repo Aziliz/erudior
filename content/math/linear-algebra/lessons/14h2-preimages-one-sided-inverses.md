@@ -117,8 +117,8 @@ flowchart TD
   R --> Q2{"Pivot in every row?"}
   Q1 -- yes --> L["One-to-one: left inverse C, CA = I"]
   Q2 -- yes --> Rt["Onto: right inverse D, AD = I"]
-  L --> B["Both: A is square and invertible, C = D = inverse of A"]
-  Rt --> B
+  L -- "if both" --> B["Both: A is square and invertible, C = D = inverse of A"]
+  Rt -- "if both" --> B
 ```
 
 ### Example 3

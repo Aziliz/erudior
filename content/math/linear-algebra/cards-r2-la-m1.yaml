@@ -1,0 +1,23 @@
+# Round 2 cards for la-m1 honors lessons
+# 03h1 Proving geometry with vectors
+- {front: 'Midpoint of $AB$ (vectors)', back: '$\mathbf{m} = \dfrac{\mathbf{a} + \mathbf{b}}{2}$', topic: Points and lines with vectors}
+- {front: 'Point a fraction $t$ of the way from $A$ to $B$', back: '$\mathbf{a} + t(\mathbf{b} - \mathbf{a}) = (1 - t)\mathbf{a} + t\mathbf{b}$', topic: Points and lines with vectors}
+- {front: 'Section formula: $R$ on $AB$ with $AR : RB = m : n$', back: '$\mathbf{r} = \dfrac{n\mathbf{a} + m\mathbf{b}}{m + n}$ (the weight on $\mathbf{a}$ is the part next to $B$)', topic: Points and lines with vectors}
+- {front: 'Line through $P$ with direction $\mathbf{d}$', back: '$\mathbf{r}(t) = \mathbf{p} + t\mathbf{d}$, $t$ any real number', topic: Points and lines with vectors}
+- {front: 'Test: are $A$, $B$, $C$ collinear?', back: 'Yes exactly when $\overrightarrow{AC} = k\,\overrightarrow{AB}$ for some scalar $k$ (with $A \ne B$)', topic: Points and lines with vectors}
+- {front: 'Midsegment theorem (vector form)', back: '$\overrightarrow{MN} = \tfrac12\overrightarrow{BC}$: parallel to the third side and half as long', topic: Vector proofs}
+- {front: 'Parallelogram $ABCD$ in vectors', back: '$\mathbf{a} + \mathbf{c} = \mathbf{b} + \mathbf{d}$: the diagonals share a midpoint; $\mathbf{d} = \mathbf{a} + \mathbf{c} - \mathbf{b}$', topic: Vector proofs}
+- {front: 'Centroid of triangle $ABC$', back: '$\mathbf{g} = \dfrac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$, two-thirds of the way along each median from the vertex', topic: Vector proofs}
+- {front: 'Varignon''s theorem', back: 'The midpoints of the sides of any quadrilateral form a parallelogram, since $\overrightarrow{PQ} = \overrightarrow{SR} = \tfrac12\overrightarrow{AC}$', topic: Vector proofs}
+- {front: 'Vector proof: how to show two points coincide; how to show parallel', back: 'Show the two position-vector expressions are equal; show one vector is a scalar multiple of the other', topic: Vector proofs}
+# 03h2 Sensitive systems, round-off and pivoting
+- {front: 'Ill-conditioned system', back: 'Small changes in the data cause large changes in the solution (nearly parallel lines); a property of the problem', topic: Conditioning}
+- {front: 'How a change $\Delta\mathbf{b}$ moves the solution of $A\mathbf{x} = \mathbf{b}$', back: '$\Delta\mathbf{x} = A^{-1}\Delta\mathbf{b}$: large entries of $A^{-1}$ amplify errors', topic: Conditioning}
+- {front: 'Row-sum norm $\|A\|_\infty$', back: 'The largest sum of absolute values along a row', topic: Conditioning}
+- {front: '$\kappa_\infty(A)$', back: '$\|A\|_\infty\|A^{-1}\|_\infty \ge 1$; bounds the magnification of relative error: $\frac{\|\Delta\mathbf{x}\|_\infty}{\|\mathbf{x}\|_\infty} \le \kappa_\infty\frac{\|\Delta\mathbf{b}\|_\infty}{\|\mathbf{b}\|_\infty}$', topic: Conditioning}
+- {front: 'Rule of thumb for $\kappa \approx 10^k$', back: 'Expect to lose up to about $k$ significant digits (a guide, not a theorem)', topic: Conditioning}
+- {front: 'Is a small determinant a sign of ill-conditioning?', back: 'Not by itself: $0.001I$ has a tiny determinant but $\kappa = 1$. Compare $ad - bc$ with the size of the entries.', topic: Conditioning}
+- {front: 'Partial pivoting', back: 'In each column, swap up the entry of largest absolute value before eliminating, so every multiplier is at most 1 in size', topic: Pivoting and round-off}
+- {front: 'Why a tiny pivot is dangerous with rounding', back: 'Its huge multiplier swamps the other equation, and rounding erases that equation''s information', topic: Pivoting and round-off}
+- {front: 'Pivoting vs. conditioning', back: 'Pivoting protects against an unstable method; nothing fixes an ill-conditioned problem', topic: Pivoting and round-off}
+- {front: 'Cost of elimination on an $n \times n$ system', back: 'About $\frac{n^3}{3}$ multiplications (doubling $n$ multiplies the work by 8); back-substitution about $\frac{n^2}{2}$', topic: Pivoting and round-off}

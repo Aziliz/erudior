@@ -1,0 +1,22 @@
+# Round 2 cards: la-m2 honors lessons
+- {front: 'Uniqueness of the reduced echelon form', back: 'Each matrix is row equivalent to one and only one reduced echelon matrix. Ordinary echelon forms are not unique.', topic: Uniqueness of the RREF}
+- {front: 'Invariant', back: 'Something a process never changes. Row operations change entries but keep every column relation.', topic: Uniqueness of the RREF}
+- {front: 'Column relation of $A$', back: 'Weights with $c_1\mathbf{a}_1 + \cdots + c_n\mathbf{a}_n = \mathbf{0}$, i.e. a solution of the homogeneous system with coefficient matrix $A$.', topic: Uniqueness of the RREF}
+- {front: 'Why row operations keep column relations', back: 'Column relations are the solutions of $[\,A \;\; \mathbf{0}\,]$, and row-equivalent augmented matrices have the same solution set.', topic: Uniqueness of the RREF}
+- {front: 'Pivot column test (no row reduction)', back: 'Column $j$ is a pivot column exactly when it is not a combination of the columns to its left.', topic: Uniqueness of the RREF}
+- {front: 'Non-pivot column of an RREF', back: 'Its entries are the weights that build the matching column of $A$ from the pivot columns to its left.', topic: Uniqueness of the RREF}
+- {front: 'RREF $\begin{bmatrix} 1 & 0 & 1 & 3 \\ 0 & 1 & 2 & -1 \\ 0 & 0 & 0 & 0\end{bmatrix}$: relations', back: '$\mathbf{a}_3 = \mathbf{a}_1 + 2\mathbf{a}_2$ and $\mathbf{a}_4 = 3\mathbf{a}_1 - \mathbf{a}_2$.', topic: Uniqueness of the RREF}
+- {front: 'Test for row equivalence', back: 'Two matrices of the same size are row equivalent exactly when they have the same RREF.', topic: Uniqueness of the RREF}
+- {front: 'Canonical form', back: 'One standard representative per equivalence class. The RREF is a canonical form for row equivalence.', topic: Uniqueness of the RREF}
+- {front: 'What uniqueness of the RREF guarantees', back: 'Pivot positions, the number of pivots and the basic and free variables do not depend on how you row-reduce.', topic: Uniqueness of the RREF}
+- {front: 'Flop', back: 'One floating-point addition, subtraction, multiplication or division.', topic: Cost and accuracy of elimination}
+- {front: 'Cost of the forward phase ($n \times n$ system)', back: '$\tfrac23 n^3 + \tfrac12 n^2 - \tfrac76 n$ flops, about $\tfrac23 n^3$ for large $n$.', topic: Cost and accuracy of elimination}
+- {front: 'Cost of back-substitution', back: 'Exactly $n^2$ flops for an $n \times n$ triangular system.', topic: Cost and accuracy of elimination}
+- {front: 'Doubling the size of a system', back: 'Multiplies the work of elimination by about $2^3 = 8$; ten times the size means about 1,000 times the work.', topic: Cost and accuracy of elimination}
+- {front: 'Clearing above and below every pivot in one pass', back: 'About $n^3$ flops, 1.5 times the $\tfrac23 n^3$ of elimination plus back-substitution.', topic: Cost and accuracy of elimination}
+- {front: 'Solve $A\mathbf{x} = \mathbf{b}$ with $A^{-1}$?', back: 'No: computing $A^{-1}$ costs about $2n^3$ flops, three times elimination, and is usually less accurate.', topic: Cost and accuracy of elimination}
+- {front: 'Round-off error', back: 'The error rounding leaves in a computed result. A tiny pivot gives huge multipliers that magnify it.', topic: Cost and accuracy of elimination}
+- {front: 'Partial pivoting', back: 'Swap the entry of largest absolute value (from the pivot row down) into the pivot position before clearing; every multiplier then has size at most 1.', topic: Cost and accuracy of elimination}
+- {front: '$0.0001x + y = 1$, $x + y = 2$ in 3-digit arithmetic', back: 'Without a swap: $x = 0$, $y = 1$ (wrong). With partial pivoting: $x = 1.00$, $y = 1.00$ (right to 3 digits).', topic: Cost and accuracy of elimination}
+- {front: 'Ill-conditioned system', back: 'Tiny changes in the data cause large changes in the solution, e.g. $x + y = 2$, $x + 1.001y = 2.001$ vs. $2.002$: $(1, 1)$ becomes $(0, 2)$.', topic: Cost and accuracy of elimination}
+- {front: 'Small leftover, big error', back: 'For an ill-conditioned system, an answer can satisfy the equations almost exactly and still be far from the true solution.', topic: Cost and accuracy of elimination}

@@ -1,0 +1,469 @@
+# Round 2: la-m1 (Bridge: vectors, systems and matrices). Core: q01-q15. Honors: h01-h26.
+
+# ---------- Lesson 01: Vectors in the plane ----------
+- id: la-m1-r2-q01
+  lesson: la-plane-vectors
+  module_quiz: true
+  topic: Plane vectors
+  type: text
+  stem: 'The vector from $P = (3, -2)$ to $Q = (-1, 5)$ has first component ___ and second component ___.'
+  accept:
+    - ['-4']
+    - ['7']
+  explanation: |-
+    Head minus tail: $Q - P = (-1 - 3,\ 5 - (-2)) = (-4, 7)$. Subtracting the other way, $P - Q = (4, -7)$, gives the opposite vector.
+
+- id: la-m1-r2-q02
+  lesson: la-plane-vectors
+  module_quiz: true
+  topic: Plane vectors
+  type: label
+  stem: 'The arrow shows the vector $\mathbf{v} = (v_1, v_2)$. Name each numbered part.'
+  image: {src: images/la-m1-vector-parts-blank.svg, alt: 'An arrow pointing up and to the right from a dot. A dashed horizontal segment runs from the dot to a point directly below the arrowhead, and a dashed vertical segment runs up from there to the arrowhead, forming a shaded right triangle. An arc marks the angle at the dot. Six parts are numbered.'}
+  labels:
+    - {x: 20.3, y: 81.0, text: 'Tail'}
+    - {x: 70.3, y: 23.8, text: 'Head'}
+    - {x: 45.3, y: 81.0, text: 'Horizontal component v₁'}
+    - {x: 70.3, y: 52.4, text: 'Vertical component v₂'}
+    - {x: 45.3, y: 52.4, text: 'Length ‖v‖'}
+    - {x: 33.1, y: 75.7, text: 'Angle θ with the positive x-axis'}
+  distractors: ['Zero vector', 'Unit vector']
+  explanation: |-
+    The arrow starts at its tail (the dot) and ends at its head (the arrowhead). The horizontal leg of the right triangle is the first component $v_1$, the vertical leg is the second component $v_2$, and the arrow itself is the hypotenuse, whose length is $\|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2}$. The arc at the tail marks the angle $\theta$ measured from the positive $x$-direction.
+
+- id: la-m1-r2-q03
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  stem: 'Which vectors are parallel to $\mathbf{v} = \begin{bmatrix} 2 \\ -1\end{bmatrix}$? Select all that apply.'
+  choices: ['$\begin{bmatrix} -4 \\ 2\end{bmatrix}$', '$\begin{bmatrix} 6 \\ -3\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 2\end{bmatrix}$', '$\begin{bmatrix} -2 \\ -1\end{bmatrix}$', '$\begin{bmatrix} 1 \\ -0.5\end{bmatrix}$']
+  answer: [0, 1, 4]
+  explanation: |-
+    A vector is parallel to $\mathbf{v}$ when it is a scalar multiple of $\mathbf{v}$: $(-4, 2) = -2\mathbf{v}$, $(6, -3) = 3\mathbf{v}$ and $(1, -0.5) = 0.5\mathbf{v}$. For $(1, 2)$ the first component needs the scalar $\tfrac12$ but the second needs $-2$, so no single scalar works. For $(-2, -1)$ the first component needs $-1$ and the second needs $1$, so it is not a multiple either.
+
+- id: la-m1-r2-q04
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  type: match
+  stem: 'Let $\mathbf{u} = \begin{bmatrix} 3 \\ 4\end{bmatrix}$. Match each expression to its value.'
+  pairs:
+    - ['$\|\mathbf{u}\|$', '5']
+    - ['$\mathbf{u}/\|\mathbf{u}\|$', '(0.6, 0.8)']
+    - ['$-2\mathbf{u}$', '(-6, -8)']
+    - ['$\mathbf{u} + \mathbf{e}_1$', '(4, 4)']
+  distractors: ['7', '(3/7, 4/7)']
+  explanation: |-
+    $\|\mathbf{u}\| = \sqrt{9 + 16} = 5$, and dividing by 5 gives the unit vector $(0.6, 0.8)$. Scaling by $-2$ multiplies both components: $(-6, -8)$. Adding $\mathbf{e}_1 = (1, 0)$ adds 1 to the first component: $(4, 4)$. The extra values come from adding the components ($3 + 4 = 7$) instead of using the Pythagorean theorem.
+
+- id: la-m1-r2-q05
+  lesson: la-plane-vectors
+  topic: Plane vectors
+  type: order
+  stem: 'Put the steps for finding the unit vector in the direction from $P$ to $Q$ in order.'
+  items:
+    - 'Subtract tail from head: $\overrightarrow{PQ} = Q - P$'
+    - 'Square the two components of $\overrightarrow{PQ}$ and add them'
+    - 'Take the square root to get the length $\|\overrightarrow{PQ}\|$'
+    - 'Divide each component of $\overrightarrow{PQ}$ by that length'
+  explanation: |-
+    You need the vector before you can measure it, and its length before you can divide by it. Inside the length, the squares are added first and the square root comes last: $\|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2}$.
+
+# ---------- Lesson 02: Solving systems by elimination ----------
+- id: la-m1-r2-q06
+  lesson: la-elimination
+  module_quiz: true
+  topic: Elimination
+  type: text
+  stem: 'Solve $x + 2y = 1$ and $3x - y = 10$ by elimination. Give only the numbers: $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['3']
+    - ['-1']
+  explanation: |-
+    Double the second equation, $6x - 2y = 20$, and add it to the first: $7x = 21$, so $x = 3$. Then $3 + 2y = 1$ gives $y = -1$. Check in the second equation: $9 - (-1) = 10$. ✓
+
+- id: la-m1-r2-q07
+  lesson: la-elimination
+  module_quiz: true
+  topic: Elimination
+  type: label
+  stem: 'Each numbered panel shows the two lines of a system of two equations in two unknowns. Say how many solutions each system has.'
+  image: {src: images/la-m1-three-cases-blank.svg, alt: 'Three numbered panels, each with two lines. Panel 1: two lines crossing at one point. Panel 2: two parallel lines that never meet. Panel 3: two lines lying exactly on top of each other.'}
+  labels:
+    - {x: 17.9, y: 48.5, text: 'Exactly one solution'}
+    - {x: 50.0, y: 43.9, text: 'No solution (inconsistent)'}
+    - {x: 82.1, y: 48.5, text: 'Infinitely many solutions'}
+  distractors: ['Exactly two solutions']
+  explanation: |-
+    A solution is a point on both lines. Crossing lines share exactly one point. Parallel lines share none, so the system is inconsistent. Lines that coincide share every point, so there are infinitely many solutions. Exactly two is impossible: two different lines meet at most once.
+
+- id: la-m1-r2-q08
+  lesson: la-elimination
+  topic: Elimination
+  type: order
+  stem: 'Put the steps for solving a system of three equations in $x$, $y$, $z$ with exactly one solution in order.'
+  items:
+    - 'Use equation 1 to eliminate $x$ from equations 2 and 3'
+    - 'Use the new equation 2 to eliminate $y$ from the new equation 3'
+    - 'Solve the last equation for $z$'
+    - 'Back-substitute to find $y$, then $x$'
+    - 'Check the solution in all three original equations'
+  explanation: |-
+    Elimination removes one variable at a time until the system is triangular: first $x$ from the lower equations, then $y$ from the last one. The last equation then has only $z$, and back-substitution works upward. Checking comes last, in the original equations, where a slip would show.
+
+- id: la-m1-r2-q09
+  lesson: la-elimination
+  topic: Elimination
+  stem: 'Which systems are inconsistent? Select all that apply.'
+  choices: ['$x + y = 3$ and $x + y = 5$', '$2x - y = 1$ and $-4x + 2y = -2$', '$x - 3y = 2$ and $2x - 6y = 7$', '$x + y = 1$ and $x - y = 1$', '$3x + 6y = 9$ and $x + 2y = 4$']
+  answer: [0, 2, 4]
+  explanation: |-
+    Eliminate and look for $0 = $ (nonzero). $x + y = 3$, $x + y = 5$: subtracting gives $0 = 2$, no solution. $x - 3y = 2$, $2x - 6y = 7$: subtracting twice the first gives $0 = 3$. $3x + 6y = 9$, $x + 2y = 4$: subtracting 3 times the second gives $0 = -3$. But $-4x + 2y = -2$ is $-2$ times $2x - y = 1$, so that pair gives $0 = 0$ (the same line, infinitely many solutions), and $x + y = 1$, $x - y = 1$ has the single solution $(1, 0)$.
+
+- id: la-m1-r2-q10
+  lesson: la-elimination
+  topic: Elimination
+  type: match
+  stem: 'Elimination on a system ends with the result on the left. Match each result to what it tells you.'
+  pairs:
+    - ['An equation $0 = 7$', 'No solution']
+    - ['An equation $0 = 0$, and no contradiction anywhere else', 'Infinitely many solutions']
+    - ['A triangular $3 \times 3$ system whose last equation is $5z = 10$', 'Exactly one solution']
+  distractors: ['Exactly two solutions']
+  explanation: |-
+    $0 = 7$ is a contradiction, so no values work. $0 = 0$ means an equation was redundant: with nothing contradictory, there are fewer real conditions than unknowns, so infinitely many solutions. A triangular $3 \times 3$ system ending in $5z = 10$ gives $z = 2$, and back-substitution then fixes $y$ and $x$: exactly one solution. A linear system can never have exactly two solutions.
+
+# ---------- Lesson 03: Matrix arithmetic ----------
+- id: la-m1-r2-q11
+  lesson: la-matrix-arith
+  module_quiz: true
+  topic: Matrix arithmetic
+  type: text
+  stem: 'If $A$ is $4 \times 2$ and $B$ is $2 \times 5$, then $AB$ has ___ rows and ___ columns.'
+  accept:
+    - ['4', 'four']
+    - ['5', 'five']
+  explanation: |-
+    $(4 \times \underline{2})(\underline{2} \times 5)$: the inner sizes match, so the product exists, and the outer sizes give its size, $4 \times 5$.
+
+- id: la-m1-r2-q12
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  type: label
+  stem: 'The picture shows how one entry of the product $AB$ is computed. Name each numbered highlighted part.'
+  image: {src: images/la-m1-row-col-blank.svg, alt: 'A 2 by 3 matrix with rows (2, −1, 3) and (4, 0, 1), times a 3 by 2 matrix with rows (1, 2), (−2, 0) and (3, 5), equals a 2 by 2 matrix with rows (13, 19) and (7, 13). The second row of the first matrix, the first column of the second matrix and the entry 7 of the product are highlighted and numbered.'}
+  labels:
+    - {x: 8.2, y: 54.2, text: 'Row 2 of A'}
+    - {x: 42.1, y: 18.2, text: 'Column 1 of B'}
+    - {x: 72.3, y: 54.2, text: 'Entry in row 2, column 1 of AB'}
+  distractors: ['Row 1 of A', 'Column 2 of B']
+  explanation: |-
+    Entry $(i, j)$ of $AB$ is row $i$ of $A$ times column $j$ of $B$. Here the highlighted row is the second row of $A$, $(4, 0, 1)$, the highlighted column is the first column of $B$, $(1, -2, 3)$, and $(4)(1) + (0)(-2) + (1)(3) = 7$ lands in row 2, column 1 of $AB$.
+
+- id: la-m1-r2-q13
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  stem: '$A$ is $2 \times 3$, $B$ is $3 \times 2$ and $C$ is $2 \times 2$. Which of these are defined? Select all that apply.'
+  choices: ['$AB$', '$BA$', '$A + B$', '$CA$', '$AC$']
+  answer: [0, 1, 3]
+  explanation: |-
+    A product needs (columns of the left matrix) = (rows of the right one). $AB$: $(2 \times 3)(3 \times 2)$, defined, $2 \times 2$. $BA$: $(3 \times 2)(2 \times 3)$, defined, $3 \times 3$. $CA$: $(2 \times 2)(2 \times 3)$, defined, $2 \times 3$. $AC$: $(2 \times 3)(2 \times 2)$, and $3 \ne 2$, so undefined. $A + B$ needs equal sizes, and $2 \times 3 \ne 3 \times 2$.
+
+- id: la-m1-r2-q14
+  lesson: la-matrix-arith
+  module_quiz: true
+  topic: Matrix arithmetic
+  type: order
+  stem: 'Put the steps for finding the inverse of $A = \begin{bmatrix} 5 & 2 \\ 7 & 3\end{bmatrix}$ in order.'
+  items:
+    - 'Compute $ad - bc = 15 - 14 = 1$'
+    - 'Since $1 \ne 0$, the inverse exists'
+    - 'Swap the diagonal entries and negate the others: $\begin{bmatrix} 3 & -2 \\ -7 & 5\end{bmatrix}$'
+    - 'Divide every entry by $ad - bc = 1$'
+    - 'Check that $A$ times the result is $I$'
+  explanation: |-
+    The determinant comes first, because it decides whether there is an inverse at all and is the number you divide by. Then swap and negate, divide, and check: $\begin{bmatrix} 5 & 2 \\ 7 & 3\end{bmatrix}\begin{bmatrix} 3 & -2 \\ -7 & 5\end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$.
+
+- id: la-m1-r2-q15
+  lesson: la-matrix-arith
+  topic: Matrix arithmetic
+  type: text
+  stem: 'For $A = \begin{bmatrix} 2 & 1 \\ 7 & 4\end{bmatrix}$, the determinant is ___ and the entry in row 1, column 2 of $A^{-1}$ is ___.'
+  accept:
+    - ['1']
+    - ['-1']
+  explanation: |-
+    $ad - bc = 2(4) - 1(7) = 1$. Swap the diagonal and negate the off-diagonal: $A^{-1} = \frac11\begin{bmatrix} 4 & -1 \\ -7 & 2\end{bmatrix}$, so the row 1, column 2 entry is $-1$.
+
+# ---------- Honors 03h1: Proving geometry with vectors ----------
+- id: la-m1-r2-h01
+  lesson: la-m1-h-vector-geometry
+  topic: Points and lines with vectors
+  stem: 'What is the midpoint of $A = (-3, 4)$ and $B = (5, -2)$?'
+  choices: ['$(4, -3)$', '$(8, -6)$', '$(1, 1)$', '$(2, 2)$']
+  answer: 2
+  explanation: |-
+    $\mathbf{m} = \frac{\mathbf{a} + \mathbf{b}}{2} = \frac{(-3 + 5,\ 4 + (-2))}{2} = \frac{(2, 2)}{2} = (1, 1)$.
+    $(8, -6)$ is $\mathbf{b} - \mathbf{a}$ and $(4, -3)$ is half of it: those describe the trip from $A$ to $B$, not a point. $(2, 2)$ forgets to divide by 2.
+
+- id: la-m1-r2-h02
+  lesson: la-m1-h-vector-geometry
+  topic: Points and lines with vectors
+  stem: '$P = (1, -2)$ and $Q = (9, 10)$. Find the point $R$ on segment $PQ$ with $PR : RQ = 1 : 3$.'
+  choices: ['$(3, 1)$', '$(7, 7)$', '$\left(\tfrac{11}{3}, 2\right)$', '$(5, 4)$']
+  answer: 0
+  explanation: |-
+    $R$ is $\frac{1}{1 + 3} = \frac14$ of the way from $P$: $\mathbf{p} + \frac14(8, 12) = (1, -2) + (2, 3) = (3, 1)$. The section formula agrees: $\frac{3\mathbf{p} + 1\mathbf{q}}{4} = \frac{(12, 4)}{4} = (3, 1)$.
+    $(7, 7)$ swaps the weights (it is $\frac34$ of the way), $\left(\frac{11}{3}, 2\right)$ goes $\frac13$ of the way (using $\frac{m}{n}$ instead of $\frac{m}{m + n}$), and $(5, 4)$ is the midpoint.
+
+- id: la-m1-r2-h03
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  type: text
+  stem: 'The triangle with vertices $(2, -1)$, $(6, 5)$ and $(-2, 8)$ has centroid $G$ with $x$-coordinate ___ and $y$-coordinate ___.'
+  accept:
+    - ['2']
+    - ['4']
+  explanation: |-
+    $\mathbf{g} = \frac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3} = \frac{(2 + 6 - 2,\ -1 + 5 + 8)}{3} = \frac{(6, 12)}{3} = (2, 4)$.
+
+- id: la-m1-r2-h04
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  stem: '$ABCD$ is a parallelogram (vertices in that order) with $A = (1, 1)$, $B = (4, 2)$ and $C = (6, 6)$. Find $D$.'
+  choices: ['$(9, 7)$', '$(-1, -3)$', '$(3.5, 3.5)$', '$(3, 5)$']
+  answer: 3
+  explanation: |-
+    In parallelogram $ABCD$, $\overrightarrow{AB} = \overrightarrow{DC}$, so $\mathbf{b} - \mathbf{a} = \mathbf{c} - \mathbf{d}$ and $\mathbf{d} = \mathbf{a} + \mathbf{c} - \mathbf{b} = (1 + 6 - 4,\ 1 + 6 - 2) = (3, 5)$. Check: the diagonals' midpoints are $\frac{\mathbf{a} + \mathbf{c}}{2} = (3.5, 3.5)$ and $\frac{\mathbf{b} + \mathbf{d}}{2} = (3.5, 3.5)$. ✓
+    $(9, 7) = \mathbf{b} + \mathbf{c} - \mathbf{a}$ would make $A$ and $D$ opposite corners (the order $ABDC$), $(-1, -3) = \mathbf{a} + \mathbf{b} - \mathbf{c}$ would make $C$ and $D$ opposite corners, and $(3.5, 3.5)$ is the center, not a corner.
+
+- id: la-m1-r2-h05
+  lesson: la-m1-h-vector-geometry
+  topic: Points and lines with vectors
+  stem: 'Which points lie on the line $\mathbf{r}(t) = \begin{bmatrix} 1 \\ -2\end{bmatrix} + t\begin{bmatrix} 2 \\ 3\end{bmatrix}$? Select all that apply.'
+  choices: ['$(1, -2)$', '$(5, 4)$', '$(3, 2)$', '$(-3, -8)$', '$(4, 3)$']
+  answer: [0, 1, 3]
+  explanation: |-
+    A point is on the line when one value of $t$ gives both coordinates. $(1, -2)$: $t = 0$. $(5, 4)$: $t = 2$ gives $(1 + 4, -2 + 6)$. $(-3, -8)$: $t = -2$ gives $(1 - 4, -2 - 6)$. For $(3, 2)$ the first coordinate needs $t = 1$, which gives $(3, 1)$, not $(3, 2)$. For $(4, 3)$ the first coordinate needs $t = 1.5$, which gives $(4, 2.5)$.
+
+- id: la-m1-r2-h06
+  lesson: la-m1-h-vector-geometry
+  topic: Points and lines with vectors
+  stem: 'For which $k$ are $A = (0, 1)$, $B = (2, 4)$ and $C = (6, k)$ collinear?'
+  choices: ['$k = 9$', '$k = 10$', '$k = 13$', '$k = 7$']
+  answer: 1
+  explanation: |-
+    $\overrightarrow{AB} = (2, 3)$ and $\overrightarrow{AC} = (6, k - 1)$. Collinear means $\overrightarrow{AC} = c\,\overrightarrow{AB}$; the first components force $c = 3$, so $k - 1 = 9$ and $k = 10$.
+    $k = 9$ forgets that $A$ starts at height 1. $k = 13$ adds $3\overrightarrow{AB}$ to $B$ instead of to $A$, which would put $C$ at $x = 8$. $k = 7$ uses $c = 2$, which doesn't match the first components.
+
+- id: la-m1-r2-h07
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  type: order
+  stem: 'Put the steps of the vector proof that the medians of triangle $ABC$ meet in one point in order.'
+  items:
+    - 'Write the midpoint of $BC$ as $\frac{\mathbf{b} + \mathbf{c}}{2}$'
+    - 'Go $\frac23$ of the way from $A$ toward it: $\mathbf{a} + \frac23\left(\frac{\mathbf{b} + \mathbf{c}}{2} - \mathbf{a}\right)$'
+    - 'Simplify to $\frac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$'
+    - 'Notice the result is symmetric in $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$'
+    - 'Conclude that the medians from $B$ and $C$ pass through the same point'
+  explanation: |-
+    You need the midpoint before you can move toward it, and the simplified form before you can see its symmetry. The symmetry is what lets the same computation, repeated from $B$ or $C$, land on the same point.
+
+- id: la-m1-r2-h08
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  type: label
+  stem: 'Triangle $ABC$ is drawn with its three medians. Name each numbered part.'
+  image: {src: images/la-m1-h-centroid-blank.svg, alt: 'Triangle ABC with A at lower left, B at right and C at the top. Three dashed segments run from each vertex to a dot on the opposite side, and they cross at one point inside the triangle. Four parts are numbered: a dot on side BC, a dot on side AB, the crossing point, and a point on the dashed segment leaving A.'}
+  labels:
+    - {x: 63.3, y: 32.3, text: 'Midpoint of BC'}
+    - {x: 48.3, y: 66.1, text: 'Midpoint of AB'}
+    - {x: 48.3, y: 46.8, text: 'Centroid'}
+    - {x: 31.8, y: 62.7, text: 'Median from A'}
+  distractors: ['Midpoint of AC', 'Vertex B']
+  explanation: |-
+    Marker 1 sits halfway along side $BC$ and marker 2 halfway along side $AB$. The dashed segment from $A$ (marker 4) runs to the midpoint of the opposite side $BC$, so it is the median from $A$. All three medians cross at the centroid (marker 3), $\frac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$, two-thirds of the way along each median from its vertex.
+
+- id: la-m1-r2-h09
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  type: match
+  stem: 'Match each figure to the vector statement behind its theorem. (Lowercase letters are position vectors of the points.)'
+  pairs:
+    - ['Midsegment $MN$ of triangle $ABC$, with $M$, $N$ the midpoints of $AB$, $AC$', 'Vector MN = (1/2)(vector BC)']
+    - ['Diagonals of parallelogram $ABCD$', 'a + c = b + d']
+    - ['Centroid $G$ of triangle $ABC$', 'g = (a + b + c)/3']
+    - ['Midpoints $P, Q, R, S$ of the sides $AB, BC, CD, DA$ of a quadrilateral', 'Vector PQ = vector SR = (1/2)(vector AC)']
+  distractors: ['g = (a + b + c)/2']
+  explanation: |-
+    The midsegment is $\frac{\mathbf{a} + \mathbf{c}}{2} - \frac{\mathbf{a} + \mathbf{b}}{2} = \frac12(\mathbf{c} - \mathbf{b})$. A parallelogram has $\mathbf{b} - \mathbf{a} = \mathbf{c} - \mathbf{d}$, which rearranges to $\mathbf{a} + \mathbf{c} = \mathbf{b} + \mathbf{d}$: the diagonals share a midpoint. The centroid is the average of the three vertices (divide by 3, not 2). Varignon's theorem rests on $\overrightarrow{PQ} = \overrightarrow{SR} = \frac12(\mathbf{c} - \mathbf{a})$.
+
+- id: la-m1-r2-h10
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  stem: 'In triangle $ABC$, $B = (1, 2)$ and $C = (9, 8)$; $A$ can be anywhere off line $BC$. How long is the segment joining the midpoints of $AB$ and $AC$?'
+  choices: ['$10$', '$20$', '$5$', 'It depends on where $A$ is']
+  answer: 2
+  explanation: |-
+    By the midsegment theorem the segment equals $\frac12\overrightarrow{BC}$ as a vector, whatever $A$ is. $\overrightarrow{BC} = (8, 6)$ has length $\sqrt{64 + 36} = 10$, so the midsegment has length 5. 10 is the third side itself, and 20 doubles instead of halving.
+
+- id: la-m1-r2-h11
+  lesson: la-m1-h-vector-geometry
+  topic: Points and lines with vectors
+  stem: '$R$ lies on segment $AB$ with $AR : RB = 3 : 2$. Which expression is its position vector $\mathbf{r}$?'
+  choices: ['$\dfrac{2\mathbf{a} + 3\mathbf{b}}{5}$', '$\dfrac{3\mathbf{a} + 2\mathbf{b}}{5}$', '$\mathbf{a} + \tfrac32(\mathbf{b} - \mathbf{a})$', '$\dfrac{2\mathbf{a} + 3\mathbf{b}}{6}$']
+  answer: 0
+  explanation: |-
+    $R$ is $\frac{3}{3 + 2} = \frac35$ of the way from $A$: $\mathbf{a} + \frac35(\mathbf{b} - \mathbf{a}) = \frac{2\mathbf{a} + 3\mathbf{b}}{5}$. The weight on $\mathbf{a}$ is the part of the ratio next to $B$.
+    $\frac{3\mathbf{a} + 2\mathbf{b}}{5}$ swaps the weights (that point is closer to $A$), $\mathbf{a} + \frac32(\mathbf{b} - \mathbf{a})$ uses $\frac{m}{n}$ and lands beyond $B$, and weights that don't add to 1, as in $\frac{2\mathbf{a} + 3\mathbf{b}}{6}$, depend on where the origin is.
+
+- id: la-m1-r2-h12
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  stem: 'Why does the vector proof of the midsegment theorem prove it for every triangle?'
+  choices: ['Because it checks the claim on a typical triangle with whole-number coordinates', 'Because every triangle can be moved so that one vertex is at the origin', 'Because a vector proof only needs to work for right triangles', 'Because it uses only the letters $\mathbf{a}, \mathbf{b}, \mathbf{c}$ and the rules of vector algebra, which hold for any three points']
+  answer: 3
+  explanation: |-
+    The computation $\frac{\mathbf{a} + \mathbf{c}}{2} - \frac{\mathbf{a} + \mathbf{b}}{2} = \frac12(\mathbf{c} - \mathbf{b})$ never assumes anything about the points, so it is true whatever they are. Checking one example, however typical, only shows the claim holds there. Moving a vertex to the origin is allowed but isn't the reason, and right triangles are not special here.
+
+- id: la-m1-r2-h13
+  lesson: la-m1-h-vector-geometry
+  topic: Vector proofs
+  type: text
+  stem: 'Quadrilateral $ABCD$ has $A = (0, 0)$, $B = (4, 0)$, $C = (6, 6)$, $D = (0, 4)$. With $P$ the midpoint of $AB$ and $Q$ the midpoint of $BC$, $\overrightarrow{PQ}$ has first component ___ and second component ___.'
+  accept:
+    - ['3']
+    - ['3']
+  explanation: |-
+    $P = (2, 0)$ and $Q = (5, 3)$, so $\overrightarrow{PQ} = (3, 3)$. This is $\frac12\overrightarrow{AC} = \frac12(6, 6)$, as Varignon's theorem predicts; the opposite side $\overrightarrow{SR}$, from $S = (0, 2)$ to $R = (3, 5)$, is also $(3, 3)$.
+
+# ---------- Honors 03h2: Sensitive systems, round-off and pivoting ----------
+- id: la-m1-r2-h14
+  lesson: la-m1-h-sensitive-systems
+  topic: Conditioning
+  stem: '$x + y = 2$, $x + 1.01y = 2.01$ has solution $(1, 1)$. If the 2.01 is changed to 2.03, what is the new solution?'
+  choices: ['$(1, 1.02)$', '$(-1, 3)$', '$(0.98, 1.02)$', '$(3, -1)$']
+  answer: 1
+  explanation: |-
+    Subtract the first equation from the second: $0.01y = 2.03 - 2 = 0.03$, so $y = 3$, and then $x = 2 - 3 = -1$. A change of 0.02 in one right side moved $y$ by 2: the lines are nearly parallel, so the system is ill-conditioned. $(1, 1.02)$ and $(0.98, 1.02)$ assume the answer changes about as little as the data did, and $(3, -1)$ swaps $x$ and $y$.
+
+- id: la-m1-r2-h15
+  lesson: la-m1-h-sensitive-systems
+  topic: Conditioning
+  type: text
+  stem: 'The row-sum norm of $A = \begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix}$ is $\|A\|_\infty =$ ___.'
+  accept: ['7']
+  explanation: |-
+    Add absolute values along each row: $|2| + |-5| = 7$ and $|-1| + |3| = 4$. The largest is 7. (Without absolute values, row 1 would give $-3$, which is not a size.)
+
+- id: la-m1-r2-h16
+  lesson: la-m1-h-sensitive-systems
+  topic: Conditioning
+  stem: 'Find $\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$ for $A = \begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix}$.'
+  choices: ['$56$', '$7$', '$15$', '$1$']
+  answer: 0
+  explanation: |-
+    $ad - bc = 6 - 5 = 1$, so $A^{-1} = \begin{bmatrix} 3 & 5 \\ 1 & 2\end{bmatrix}$, with row sums 8 and 3: $\|A^{-1}\|_\infty = 8$. With $\|A\|_\infty = 7$, $\kappa_\infty = 7 \times 8 = 56$.
+    7 is $\|A\|_\infty$ alone, 15 adds the two norms instead of multiplying, and 1 is the determinant, which does not measure conditioning.
+
+- id: la-m1-r2-h17
+  lesson: la-m1-h-sensitive-systems
+  topic: Conditioning
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['$\kappa_\infty(A) \ge 1$ for every invertible matrix $A$', 'A matrix with a very small determinant must be ill-conditioned', 'With partial pivoting, every multiplier is at most 1 in absolute value', 'Partial pivoting turns an ill-conditioned problem into a well-conditioned one', 'If $A\mathbf{x} = \mathbf{b}$ and $A(\mathbf{x} + \Delta\mathbf{x}) = \mathbf{b} + \Delta\mathbf{b}$, then $\Delta\mathbf{x} = A^{-1}\Delta\mathbf{b}$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $1 = \|I\|_\infty = \|AA^{-1}\|_\infty \le \|A\|_\infty\|A^{-1}\|_\infty$, so $\kappa_\infty \ge 1$. Partial pivoting puts the largest entry (in absolute value) in the pivot spot, so each multiplier (entry divided by pivot) is at most 1 in size. Subtracting the two equations gives $A\Delta\mathbf{x} = \Delta\mathbf{b}$, so $\Delta\mathbf{x} = A^{-1}\Delta\mathbf{b}$.
+    A small determinant alone means nothing: $0.001I$ has determinant $0.000001$ but $\kappa = 1$. And pivoting fixes an unstable method, not a sensitive problem: conditioning belongs to $A$ itself.
+
+- id: la-m1-r2-h18
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  type: order
+  stem: 'Put the steps of one stage of elimination with partial pivoting in order.'
+  items:
+    - 'In the current column, at or below the current row, find the entry of largest absolute value'
+    - 'Swap its row into the pivot position'
+    - 'Divide each entry below the pivot by the pivot to get the multipliers'
+    - 'Subtract multiplier times the pivot row from each row below'
+    - 'Move down one row and right one column'
+  explanation: |-
+    The pivot is chosen and swapped into place first, since the multipliers are computed from it. Each multiplier is then used to clear its row's entry below the pivot, and only after the column is cleared does the process move to the next column.
+
+- id: la-m1-r2-h19
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  type: match
+  stem: 'Match each term to its description.'
+  pairs:
+    - ['Ill-conditioned system', 'Small changes in the data cause large changes in the solution']
+    - ['Round-off error', 'Error from storing a result with a limited number of digits']
+    - ['Partial pivoting', 'Swapping up the largest entry of the column before eliminating']
+    - ['Row-sum norm', 'Largest sum of absolute values along a row']
+  distractors: ['Smallest sum of absolute values along a row']
+  explanation: |-
+    Ill-conditioning is a property of the problem (nearly parallel lines). Round-off error comes from floating-point storage. Partial pivoting chooses the largest available pivot so multipliers stay at most 1 in size. The row-sum norm $\|A\|_\infty$ takes the largest absolute row sum, not the smallest.
+
+- id: la-m1-r2-h20
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  stem: 'The first column of a $3 \times 3$ system has entries $0.5$, $-3$ and $2$ (rows 1, 2, 3). Which row does partial pivoting move to the top?'
+  choices: ['Row 3, because 2 is the largest entry', 'Row 1, because 0.5 is already nonzero', 'Row 2, because $|-3|$ is the largest absolute value', 'Row 1, because the smallest pivot gives the smallest multipliers']
+  answer: 2
+  explanation: |-
+    Partial pivoting compares absolute values: $|0.5| < |2| < |-3|$, so row 2 goes on top. Then the multipliers are $0.5/(-3)$ and $2/(-3)$, both at most 1 in size. Any nonzero pivot works in exact arithmetic, but with rounding a small pivot gives large multipliers, the opposite of what we want.
+
+- id: la-m1-r2-h21
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  stem: 'Solve $0.0004x + y = 2$, $x + y = 4$ by elimination without row swaps, rounding every result to 3 significant digits. What do you get? (The exact solution is about $(2.0008, 1.9992)$.)'
+  choices: ['$x = 2.00$, $y = 2.00$', '$x = 1.00$, $y = 3.00$', '$x = 4.00$, $y = 0$', '$x = 0$, $y = 2.00$']
+  answer: 3
+  explanation: |-
+    The multiplier is $1/0.0004 = 2500$. New equation 2: $(1 - 2500)y = 4 - 2500 \cdot 2$, that is $-2499y = -4996$, which rounds to $-2500y = -5000$. So $y = 2.00$, and then $0.0004x = 2 - 2.00 = 0$ gives $x = 0$. The huge multiplier wiped out the information in equation 2. With the rows swapped first, the same arithmetic gives $(2.00, 2.00)$.
+
+- id: la-m1-r2-h22
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  type: text
+  stem: 'Solve $0.0004x + y = 2$, $x + y = 4$ again with 3-significant-digit rounding, but use partial pivoting (put $x + y = 4$ first). Give only the numbers: $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['2', '2.00']
+    - ['2', '2.00']
+  explanation: |-
+    The multiplier is $0.0004/1 = 0.0004$. New equation 2: $(1 - 0.0004)y = 2 - 0.0004 \cdot 4$, that is $0.9996y = 1.9984$, which rounds to $1.00y = 2.00$. So $y = 2.00$ and $x = 4 - 2.00 = 2.00$, matching the exact $(2.0008, 1.9992)$ to the 3 digits kept.
+
+- id: la-m1-r2-h23
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  stem: 'Without pivoting, 3-digit elimination gave $x = 0$ for $0.0004x + y = 2$, $x + y = 4$, although the true $x$ is about 2. What went wrong?'
+  choices: ['The system is ill-conditioned, so no method could do better', 'The multiplier 2500 was so large that rounding erased the information in equation 2', 'Three digits are not enough to store the number 0.0004', 'Back-substitution divided by zero']
+  answer: 1
+  explanation: |-
+    After rounding, equation 2 became $-2500y = -5000$, just a multiple of equation 1, so its own information was lost. The system itself is well-conditioned ($\kappa_\infty \approx 4$), and with a row swap the same 3-digit arithmetic gets the right answer. 0.0004 is stored exactly (one significant digit), and back-substitution divided by 0.0004, not by 0.
+
+- id: la-m1-r2-h24
+  lesson: la-m1-h-sensitive-systems
+  topic: Pivoting and round-off
+  stem: 'A computer solves a system with 1,000 unknowns by elimination in about 1 second. Roughly how long does a system with 4,000 unknowns take by the same method?'
+  choices: ['About 4 seconds', 'About 16 seconds', 'About 64 seconds', 'About 8 seconds']
+  answer: 2
+  explanation: |-
+    Elimination takes about $\frac{n^3}{3}$ multiplications, so multiplying $n$ by 4 multiplies the work by about $4^3 = 64$. 4 seconds assumes the work grows like $n$, 16 like $n^2$ (closer to back-substitution's cost), and 8 applies the "doubling multiplies the work by 8" rule only once, though 4,000 is two doublings of 1,000.
+
+- id: la-m1-r2-h25
+  lesson: la-m1-h-sensitive-systems
+  topic: Conditioning
+  stem: 'Which of these matrices is ill-conditioned?'
+  choices: ['$\begin{bmatrix} 1 & 2 \\ 2 & 4.001\end{bmatrix}$', '$\begin{bmatrix} 0.001 & 0 \\ 0 & 0.001\end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$', '$\begin{bmatrix} 100 & 0 \\ 0 & 100\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    For $\begin{bmatrix} 1 & 2 \\ 2 & 4.001\end{bmatrix}$, $ad - bc = 0.001$ while the entries are about 1 to 4, and $A^{-1} = 1000\begin{bmatrix} 4.001 & -2 \\ -2 & 1\end{bmatrix}$, so $\kappa_\infty = 6.001 \times 6001 \approx 36{,}000$: its rows are nearly proportional. The tiny diagonal matrix has determinant $0.000001$, but $\kappa_\infty = 1$, and so does $100I$. $\begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$ has $\kappa_\infty = 4 \times 0.5 = 2$.
+
+- id: la-m1-r2-h26
+  lesson: la-m1-h-sensitive-systems
+  topic: Conditioning
+  type: text
+  stem: 'A computer keeps about 16 significant digits, and a system has $\kappa \approx 10^6$. By the lesson''s rule of thumb, about ___ significant digits of the computed solution can be trusted.'
+  accept: ['10', 'ten']
+  explanation: |-
+    The rule of thumb says a condition number near $10^k$ can cost up to about $k$ digits, so about $16 - 6 = 10$ digits remain trustworthy. It is a rough guide, not a guarantee: the actual loss can be smaller.

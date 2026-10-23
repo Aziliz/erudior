@@ -57,7 +57,7 @@ The tools can also take square roots, which no amount of adding and multiplying 
 
 ### Example 2
 
-Starting from a unit segment, construct the length $\varphi = \dfrac{1 + \sqrt5}{2} \approx 1.618$ (the **golden ratio**, which reappears in Lesson 93 as the diagonal of a regular pentagon with side 1).
+Starting from a unit segment, construct the length $\varphi = \dfrac{1 + \sqrt5}{2} \approx 1.618$ (the **golden ratio**, studied in the Module 6 honors lesson; it reappears in Lesson 93 as the diagonal of a regular pentagon with side 1).
 
 **Step 1.** Build $\sqrt5$. Either use the semicircle with $a = 5$, or more simply construct a right triangle with legs 1 and 2 (perpendicular at the end of a segment of length 2, then copy the unit onto it). Its hypotenuse is $\sqrt{1^2 + 2^2} = \sqrt5$.
 
@@ -73,7 +73,7 @@ Combining the constructions above, every number you can reach from 1 using $+$, 
 
 The remarkable part is the converse: *nothing else* is constructible. We state this without a full proof, which needs college algebra (field theory), but the reason can be seen. Put the construction on a coordinate grid. Every new point is an intersection of two lines, a line and a circle, or two circles. Two lines meet where a *linear* system is solved; a circle meets a line or another circle where a *quadratic* equation is solved (subtracting two circle equations leaves a line). Solving a quadratic needs at most one new square root, by the quadratic formula. So each step can only add, subtract, multiply, divide and take square roots of numbers you already had.
 
-This gives a practical test, also stated without proof: **if a cubic equation with rational coefficients has no rational root, none of its roots is constructible.** A cube root of something is the typical number that square roots can never reach.
+This gives a practical test, also stated without proof: *if a cubic equation with rational coefficients has no rational root, none of its roots is constructible.* A cube root of something is the typical number that square roots can never reach.
 
 ## The three classical problems
 

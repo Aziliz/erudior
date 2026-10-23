@@ -82,8 +82,8 @@ the second (with $\mathbf{b} \ne \mathbf{0}$):
 
 $$\frac{\|\Delta\mathbf{x}\|_\infty}{\|\mathbf{x}\|_\infty} \;\le\; \underbrace{\|A\|_\infty\,\|A^{-1}\|_\infty}_{\kappa_\infty(A)}\;\frac{\|\Delta\mathbf{b}\|_\infty}{\|\mathbf{b}\|_\infty}.$$
 
-The number $\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$ is the **infinity-norm condition
-number**. It bounds how many times the *relative* error in the data can be magnified in the
+The number $\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$ is the
+**infinity-norm condition number**. It bounds how many times the *relative* error in the data can be magnified in the
 answer. It is always at least 1, and large values mean ill-conditioned. (The singular value
 decomposition lesson at the end of the course defines the more common condition number
 $\sigma_1/\sigma_n$, which uses ordinary lengths. The two versions give different numbers, but
@@ -105,7 +105,7 @@ $k$ significant digits between the data and the answer. Computers usually work i
 about 16 significant digits, so a system with $\kappa \approx 10^{10}$ may leave only about 6
 trustworthy digits.
 
-**The determinant is not the measure.** It's tempting to call a matrix nearly singular when
+*The determinant is not the measure.* It's tempting to call a matrix nearly singular when
 $ad - bc$ is small, but $0.001I$ has determinant $0.000001$ and condition number exactly 1:
 it just scales everything by 0.001, which is perfectly harmless. What matters is how small
 $ad - bc$ is *compared with the entries*, and the condition number captures that.

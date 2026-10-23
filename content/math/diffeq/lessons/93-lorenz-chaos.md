@@ -169,10 +169,9 @@ survives every refinement, because it belongs to the equations.
 flowchart TD
   accTitle: What long-run behavior an autonomous system can have, by dimension
   accDescr: In one dimension, solutions of an autonomous equation are monotone, so a bounded solution approaches an equilibrium. In two dimensions, the Poincare-Bendixson theorem allows equilibria, closed orbits such as limit cycles, and loops of equilibria joined by trajectories, but no chaos. In three or more dimensions all of these are possible, and so is chaos on a strange attractor, as in the Lorenz equations. Iterated maps can be chaotic even in one dimension, as the logistic map shows.
-  A["Autonomous ODE: long-run behavior of a bounded solution"] --> B["1 dimension: approaches an equilibrium (monotone)"]
-  A --> C["2 dimensions: equilibrium, closed orbit or loop of equilibria (Poincare-Bendixson)"]
-  A --> D["3 or more dimensions: all of these, plus chaos on a strange attractor"]
-  E["Iterated maps"] --> F["Chaos already possible in 1 dimension (logistic map)"]
+  A["1 dimension: a bounded solution approaches an equilibrium"] -- "add a dimension" --> B["2 dimensions: equilibrium, closed orbit or loop of equilibria (Poincare-Bendixson)"]
+  B -- "add a dimension" --> C["3 or more dimensions: all of these, plus chaos on a strange attractor"]
+  A -. "unlike" .-> E["Iterated maps: chaos already possible in 1 dimension (logistic map)"]
 ```
 
 ## Other chaotic systems

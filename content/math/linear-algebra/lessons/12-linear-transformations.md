@@ -75,12 +75,12 @@ The chart sums up how to decide whether a given rule is linear.
 ```mermaid
 flowchart TD
   accTitle: Deciding whether a transformation is linear
-  accDescr: Start with a rule T from R n to R m. First ask whether T of the zero vector is the zero vector. If not, T is not linear. If it is, ask whether each output entry is a combination c1 x1 plus up to cn xn with no constant terms, powers or products of variables. If yes, T is linear and equals x maps to A x. If unsure, check the two properties T of u plus v equals T of u plus T of v, and T of c u equals c times T of u, for all vectors and scalars. If both always hold, T is linear; a single counterexample shows T is not linear.
+  accDescr: Start with a rule T from R n to R m. First ask whether T of the zero vector is the zero vector. If not, T is not linear. If it is, ask whether each output entry is just a combination c1 x1 plus up to cn xn, with no constant terms, powers or products of variables. If yes, T is linear and equals x maps to A x. If unsure, check the two properties T of u plus v equals T of u plus T of v, and T of c u equals c times T of u, for all vectors and scalars. If both always hold, T is linear; a single counterexample shows T is not linear.
   S["A rule T from Rn to Rm"] --> Z{"Is T(0) = 0?"}
   Z -- no --> N["Not linear"]
-  Z -- yes --> M{"Is every output entry c1x1 + ... + cnxn, with no constants, powers or products?"}
+  Z -- yes --> M{"Each output entry just c1x1 + ... + cnxn?"}
   M -- yes --> Y["Linear: T(x) = Ax"]
-  M -- not sure --> C{"Do T(u + v) = T(u) + T(v) and T(cu) = cT(u) always hold?"}
+  M -- not sure --> C{"Check both linearity properties for all u, v, c"}
   C -- yes --> Y
   C -- "no: one counterexample" --> N
 ```

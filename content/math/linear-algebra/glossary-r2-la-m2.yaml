@@ -1,0 +1,36 @@
+# Round 2 glossary: la-m2 honors lessons
+- term: invariant
+  aliases: [invariants]
+  definition: 'A quantity or property that a process never changes. Elementary row operations change the entries of a matrix but keep its column relations (the solutions of the homogeneous system with that coefficient matrix).'
+  topic: Uniqueness of the RREF
+- term: column relation
+  aliases: [column relations]
+  definition: 'For a matrix with columns $\mathbf{a}_1, \dots, \mathbf{a}_n$, a list of numbers $c_1, \dots, c_n$ with $c_1\mathbf{a}_1 + \cdots + c_n\mathbf{a}_n = \mathbf{0}$; equivalently, a solution of the homogeneous system with that coefficient matrix. Row-equivalent matrices have the same column relations.'
+  topic: Uniqueness of the RREF
+- term: canonical form
+  aliases: [canonical forms]
+  definition: 'A standard representative chosen from a family of equivalent objects, so that two objects are equivalent exactly when they have the same canonical form. The RREF is a canonical form for row equivalence.'
+  topic: Uniqueness of the RREF
+- term: flop
+  aliases: [flops]
+  definition: 'One floating-point arithmetic operation: an addition, subtraction, multiplication or division. Counting flops estimates the cost of an algorithm.'
+  topic: Cost and accuracy of elimination
+- term: operation count
+  aliases: [operation counts]
+  definition: 'The number of arithmetic operations (flops) an algorithm uses, usually as a formula in the problem size. Elimination on an $n \times n$ system takes about $\tfrac23 n^3$ flops.'
+  topic: Cost and accuracy of elimination
+- term: floating-point arithmetic
+  aliases: [floating point arithmetic, floating-point]
+  definition: 'Computer arithmetic that stores each number with a fixed number of significant digits (about 16 decimal digits in standard double precision) times a power of the base, rounding after every operation.'
+  topic: Cost and accuracy of elimination
+- term: round-off error
+  aliases: [roundoff error, rounding error, rounding errors, round-off errors]
+  definition: 'The difference between a computed result and the exact one caused by rounding in floating-point arithmetic.'
+  topic: Cost and accuracy of elimination
+- term: partial pivoting
+  definition: 'In the forward phase of elimination, choosing as pivot the entry of largest absolute value in the current column (from the pivot row down) and swapping its row into place, so every multiplier has absolute value at most 1.'
+  topic: Cost and accuracy of elimination
+- term: ill-conditioned
+  aliases: [ill-conditioned system, ill-conditioned systems, ill conditioned]
+  definition: 'Describes a problem (such as a linear system) whose solution changes a lot when its data change a little. No choice of algorithm removes this sensitivity.'
+  topic: Cost and accuracy of elimination

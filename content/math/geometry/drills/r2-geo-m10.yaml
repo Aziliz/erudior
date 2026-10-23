@@ -1,0 +1,141 @@
+# Round 2 drills, module geo-m10 (honors lessons)
+- id: geo-m10-r2-proj-count
+  title: Counting in a projective plane
+  topic: Projective planes
+  vars:
+    n: {choices: [2, 3, 4, 5, 7, 8, 9]}
+  calc:
+    k: n + 1
+    N: n^2 + n + 1
+    n2: n^2
+  prompt: 'A finite projective plane has order {n}. How many points are on each line, how many points does the plane have, and how many lines does it have?'
+  answers:
+    - {name: k, label: 'Points per line'}
+    - {name: N, label: 'Points'}
+    - {name: N, label: 'Lines'}
+  solution: |-
+    Order {n} means each line has $n + 1 =$ **{k}** points. Fix a point $P$: it is on {k} lines, each holding {n} other points, and every other point is on exactly one of them. So there are $1 + {k} \cdot {n} = {n2} + {n} + 1 =$ **{N}** points. By duality (or the same count with points and lines swapped) there are also **{N}** lines.
+
+- id: geo-m10-r2-affine-count
+  title: From a projective plane to an affine plane
+  topic: Finite geometries
+  vars:
+    n: {choices: [2, 3, 4, 5, 7, 8, 9]}
+  calc:
+    N: n^2 + n + 1
+    k: n + 1
+    P: n^2
+    L: n^2 + n
+  prompt: 'A projective plane has {N} points and {N} lines, with {k} points on each line. One line and all its points are deleted. How many points and lines are left, and how many lines are in each parallel class of the resulting affine plane?'
+  answers:
+    - {name: P, label: 'Points left'}
+    - {name: L, label: 'Lines left'}
+    - {name: n, label: 'Lines per parallel class'}
+  solution: |-
+    The plane has order $n = {k} - 1 = {n}$. Deleting a line removes its {k} points, leaving ${N} - {k} =$ **{P}** points, and removes one line, leaving ${N} - 1 =$ **{L}** lines. The {k} deleted points give {k} parallel classes, and each deleted point was on {k} lines, one of which was the deleted line, so each class has **{n}** lines.
+
+- id: geo-m10-r2-defect-split
+  title: Splitting a hyperbolic triangle
+  topic: Neutral geometry
+  vars:
+    a1: {min: 10, max: 40}
+    a2: {min: 10, max: 40}
+    B: {min: 30, max: 80}
+    C: {min: 30, max: 80}
+    D1: {min: 60, max: 130}
+  where: ["a1 + B + D1 <= 178", "a2 + C <= D1 - 2"]
+  calc:
+    A: a1 + a2
+    D2: 180 - D1
+    whole: 180 - A - B - C
+    s1: a1 + B + D1
+    s2: a2 + C + D2
+    def1: 180 - s1
+    def2: 180 - s2
+  prompt: 'In hyperbolic geometry, $\triangle ABC$ has $\angle A = {A}^\circ$, $\angle B = {B}^\circ$ and $\angle C = {C}^\circ$. A segment from $A$ to a point $D$ on $\overline{BC}$ makes $\angle BAD = {a1}^\circ$ and $\angle ADB = {D1}^\circ$. Find the defects of $\triangle ABC$, $\triangle ABD$ and $\triangle ADC$, in degrees.'
+  answers:
+    - {name: whole, label: 'Defect of $\triangle ABC$'}
+    - {name: def1, label: 'Defect of $\triangle ABD$'}
+    - {name: def2, label: 'Defect of $\triangle ADC$'}
+  solution: |-
+    Whole triangle: $180 - ({A} + {B} + {C}) =$ **{whole}°**. In $\triangle ABD$ the angles are ${a1}^\circ$, ${B}^\circ$, ${D1}^\circ$, sum ${s1}^\circ$, so its defect is **{def1}°**. In $\triangle ADC$: $\angle DAC = {A} - {a1} = {a2}^\circ$ and $\angle ADC = 180 - {D1} = {D2}^\circ$ (a linear pair), with $\angle C = {C}^\circ$; the sum is ${s2}^\circ$ and the defect is **{def2}°**. Check: ${def1} + {def2} = {whole}$, because defect is additive.
+
+- id: geo-m10-r2-saccheri
+  title: Angles of a Saccheri quadrilateral
+  topic: Saccheri quadrilaterals
+  vars:
+    s: {min: 60, max: 89}
+  calc:
+    total: 180 + 2*s
+    dq: 360 - total
+    dl: 90 - s
+  prompt: 'In hyperbolic geometry, a Saccheri quadrilateral has summit angles of ${s}^\circ$ each. Find its angle sum, its defect ($360^\circ$ minus the angle sum), and the defect of each Lambert quadrilateral formed by cutting it along the segment joining the midpoints of the base and the summit.'
+  answers:
+    - {name: total, label: 'Angle sum (degrees)'}
+    - {name: dq, label: 'Defect (degrees)'}
+    - {name: dl, label: 'Defect of each half (degrees)'}
+  solution: |-
+    The base angles are right angles, so the sum is $90 + 90 + {s} + {s} =$ **{total}°**, and the defect is $360 - {total} =$ **{dq}°**. Each half has angles $90^\circ$, $90^\circ$, $90^\circ$ and ${s}^\circ$, so its defect is $360 - (270 + {s}) =$ **{dl}°**, half of the whole.
+
+- id: geo-m10-r2-buffon
+  title: Buffon's needle probability
+  topic: Buffon's needle
+  vars:
+    l: {min: 2, max: 12}
+    d: {min: 3, max: 15}
+  where: ["l <= d"]
+  calc:
+    p: 2*l/(pi*d)
+    l2: 2*l
+  prompt: 'A needle {l} cm long is dropped on a floor ruled with parallel lines {d} cm apart. What is the probability that it crosses a line? Give 3 decimal places.'
+  answers:
+    - {name: p, label: '$P =$', format: dp3, tolerance: 0.001}
+  solution: |-
+    Since $\ell = {l} \le d = {d}$, Buffon's formula applies: $P = \dfrac{2\ell}{\pi d} = \dfrac{{l2}}{{d}\pi} \approx$ **{p:dp3}**.
+
+- id: geo-m10-r2-buffon-pi
+  title: Estimating pi with needles
+  topic: Buffon's needle
+  vars:
+    l: {choices: [2, 3, 4, 5]}
+    d: {choices: [5, 6]}
+    N: {choices: [200, 300, 400, 500, 600, 800, 1000]}
+    k: {min: -12, max: 12}
+  calc:
+    C: round(N*2*l/(pi*d)) + k
+    est: 2*l*N/(d*C)
+    top: 2*l*N
+    bot: d*C
+  prompt: 'A needle {l} cm long is dropped {N} times on lines {d} cm apart and crosses a line {C} times. Estimate $\pi$ from this experiment. Give 3 decimal places.'
+  answers:
+    - {name: est, label: '$\pi \approx$', format: dp3, tolerance: 0.001}
+  solution: |-
+    The fraction of drops that cross, {C} out of {N}, estimates $\tfrac{2\ell}{\pi d}$, so $\pi \approx \dfrac{2\ell N}{d\,C} = \dfrac{2 \cdot {l} \cdot {N}}{{d} \cdot {C}} = \dfrac{{top}}{{bot}} \approx$ **{est:dp3}**.
+
+- id: geo-m10-r2-bertrand
+  title: Random chords three ways
+  topic: Random chords
+  vars:
+    r: {choices: [5, 10, 12, 15, 20]}
+    L: {min: 2, max: 39}
+  where: ["L < 2*r", "L >= 2"]
+  calc:
+    h: L/2
+    t: sqrt(r^2 - h^2)
+    p1: 1 - 2*asin(L/(2*r))/pi
+    ang: 2*asind(L/(2*r))
+    p2: t/r
+    p3: (t/r)^2
+  prompt: 'In a circle of radius {r}, a chord is chosen at random. Find the probability that the chord is longer than {L}, using each of Bertrand''s methods: (1) two random endpoints on the circle, (2) a random point on a random radius, (3) a random midpoint in the disk. Give 3 decimal places.'
+  answers:
+    - {name: p1, label: 'Method 1', format: dp3, tolerance: 0.001}
+    - {name: p2, label: 'Method 2', format: dp3, tolerance: 0.001}
+    - {name: p3, label: 'Method 3', format: dp3, tolerance: 0.001}
+  solution: |-
+    A chord at distance $t$ from the center has length $2\sqrt{r^2 - t^2}$, so it is longer than {L} when $t < \sqrt{{r}^2 - {h}^2} \approx {t:num4}$.
+
+    (1) A chord of central angle $\varphi$ has length $2r\sin\tfrac{\varphi}{2}$, which equals {L} at $\varphi \approx {ang:num2}^\circ$. The second endpoint must be more than that far from the first in either direction: $P = 1 - \tfrac{2 \cdot {ang:num2}}{360} \approx$ **{p1:dp3}**.
+
+    (2) $t$ is uniform on $[0, {r}]$: $P = \tfrac{{t:num4}}{{r}} \approx$ **{p2:dp3}**.
+
+    (3) The midpoint must land within ${t:num4}$ of the center: $P = \left(\tfrac{{t:num4}}{{r}}\right)^2 \approx$ **{p3:dp3}**.

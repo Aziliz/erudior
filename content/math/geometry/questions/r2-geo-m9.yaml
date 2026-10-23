@@ -1,0 +1,639 @@
+# Round 2 questions for geo-m9: core lessons 35–38 (q01–q21) and honors lessons 38h1–38h3 (h01–h43)
+
+# --- geo-coord (lesson 35) ---
+- id: geo-m9-r2-q01
+  lesson: geo-coord
+  type: text
+  module_quiz: true
+  topic: Distance and midpoint
+  stem: 'Point $P$ is three-fourths of the way from $A(2, -3)$ to $B(10, 9)$. Its $x$-coordinate is ___ and its $y$-coordinate is ___.'
+  accept:
+    - ['8']
+    - ['6']
+  explanation: |-
+    $k = \tfrac34$. The changes are $\Delta x = 8$ and $\Delta y = 12$, so $P = \left(2 + \tfrac34 \cdot 8,\; -3 + \tfrac34 \cdot 12\right) = (8, 6)$.
+- id: geo-m9-r2-q02
+  lesson: geo-coord
+  type: match
+  topic: Coordinate proof
+  stem: 'Match each property you want to show with the coordinate tool that shows it.'
+  pairs:
+    - [Two sides are congruent, Distance formula]
+    - [Two sides are parallel, Equal slopes]
+    - [Two sides are perpendicular, Slopes whose product is -1]
+    - [Two diagonals bisect each other, Midpoint formula (same midpoint)]
+  distractors: [Slopes that add to zero]
+  explanation: |-
+    Lengths come from the distance formula, parallel lines have equal slopes, perpendicular lines (neither vertical) have slopes multiplying to $-1$, and two segments bisect each other exactly when they have the same midpoint. Slopes adding to zero (like $2$ and $-2$) say nothing special.
+- id: geo-m9-r2-q03
+  lesson: geo-coord
+  module_quiz: true
+  topic: Coordinate proof
+  stem: 'Quadrilateral $ABCD$ has vertices $A(0, 0)$, $B(4, 2)$, $C(3, 4)$, $D(-1, 2)$. Which names apply to it? Select all that apply.'
+  choices: [Parallelogram, Rectangle, Rhombus, Square]
+  answer: [0, 1]
+  explanation: |-
+    Side vectors: $\overrightarrow{AB} = (4, 2)$, $\overrightarrow{BC} = (-1, 2)$, $\overrightarrow{CD} = (-4, -2)$, $\overrightarrow{DA} = (1, -2)$. Opposite sides are parallel and equal, so it is a parallelogram. Slopes $\tfrac12$ and $-2$ multiply to $-1$, so the angles are right: a rectangle. But $AB = \sqrt{20}$ and $BC = \sqrt5$ differ, so it is not a rhombus, and therefore not a square.
+- id: geo-m9-r2-q04
+  lesson: geo-coord
+  type: label
+  topic: Coordinate proof
+  stem: 'This setup proves that the midpoint of a right triangle''s hypotenuse is equidistant from all three vertices. The right angle is at the origin, and the legs have lengths $2a$ and $2b$. Give the coordinates of each numbered point.'
+  image: {src: images/geo-m9-hypotenuse-midpoint-blank.svg, alt: 'A right triangle with its right angle at the origin, one leg along the positive x-axis and one along the positive y-axis. Point 1 is the right-angle vertex, point 2 the end of the horizontal leg, point 3 the top of the vertical leg, and point 4 the midpoint of the hypotenuse, joined to point 1 by a dashed segment.'}
+  labels:
+    - {x: 16.7, y: 80.6, text: '(0, 0)'}
+    - {x: 83.3, y: 80.6, text: '(2a, 0)'}
+    - {x: 16.7, y: 19.4, text: '(0, 2b)'}
+    - {x: 50, y: 50, text: '(a, b)'}
+  distractors: ['(2a, 2b)', '(a, 0)']
+  explanation: |-
+    The right angle sits at $(0, 0)$, the horizontal leg ends at $(2a, 0)$ and the vertical leg at $(0, 2b)$. The midpoint of the hypotenuse averages $(2a, 0)$ and $(0, 2b)$: $(a, b)$. Using $2a$ and $2b$ keeps that midpoint free of fractions.
+- id: geo-m9-r2-q05
+  lesson: geo-coord
+  topic: Coordinate proof
+  stem: 'In the coordinate proof about a right triangle''s hypotenuse, why are the legs placed at $(2a, 0)$ and $(0, 2b)$ rather than $(a, 0)$ and $(0, b)$?'
+  choices:
+    - 'Because the legs of a right triangle must have even lengths'
+    - 'Because it makes the triangle isosceles, which the proof needs'
+    - 'So the midpoint of the hypotenuse is $(a, b)$, with no fractions'
+    - 'Because the distance formula only works with even coordinates'
+  answer: 2
+  explanation: |-
+    With $(a, 0)$ and $(0, b)$ the midpoint would be $\left(\tfrac a2, \tfrac b2\right)$; doubling avoids the fractions. Since $a$ and $b$ can be any positive numbers, $2a$ and $2b$ can still be any lengths, so nothing is lost. The triangle is not assumed isosceles, and the distance formula works for any coordinates.
+
+# --- geo-rigid (lesson 36) ---
+- id: geo-m9-r2-q06
+  lesson: geo-rigid
+  type: text
+  module_quiz: true
+  topic: Rigid motions
+  stem: 'Rotating $(3, -7)$ by $90^\circ$ counterclockwise about the origin gives a point with $x$-coordinate ___ and $y$-coordinate ___.'
+  accept:
+    - ['7']
+    - ['3']
+  explanation: |-
+    The $90^\circ$ counterclockwise rule is $(x, y) \to (-y, x)$, so $(3, -7) \to (7, 3)$. Check with a sketch: a point in Quadrant IV turns into Quadrant I.
+- id: geo-m9-r2-q07
+  lesson: geo-rigid
+  type: order
+  topic: Rigid motions
+  stem: 'Put the steps for rotating a point $P$ about a center $C(a, b)$ that is not the origin in order.'
+  items:
+    - 'Subtract the center: $(x - a,\; y - b)$'
+    - 'Apply the rotation rule for the origin to that point'
+    - 'Add the center back: add $a$ to $x$ and $b$ to $y$'
+    - 'Check that the image is the same distance from $C$ as $P$'
+  explanation: |-
+    The origin rules only work about the origin, so first slide $C$ to the origin, then rotate, then slide back. The check comes last because it tests the finished image.
+- id: geo-m9-r2-q08
+  lesson: geo-rigid
+  topic: Rigid motions
+  stem: 'Which of these does every rigid motion preserve? Select all that apply.'
+  choices: ['Distances between points', 'Angle measures', 'Orientation (the clockwise order of labeled points)', 'Parallelism (parallel lines stay parallel)']
+  answer: [0, 1, 3]
+  explanation: |-
+    Rigid motions keep distance, and with it angle measure, collinearity and parallelism. Orientation is not always kept: a reflection turns clockwise labels counterclockwise.
+- id: geo-m9-r2-q09
+  lesson: geo-rigid
+  type: label
+  topic: Rigid motions
+  stem: 'In this picture, the point marked 1 is reflected in the slanted line. Name the numbered parts.'
+  image: {src: images/geo-m9-reflection-blank.svg, alt: 'A slanted line with a point on each side, joined by a dashed segment that crosses the line at a right angle. Tick marks show the two halves of the dashed segment are equal. A green triangle and its mirror-image tan triangle lie on opposite sides of the line.'}
+  labels:
+    - {x: 18.8, y: 20.9, text: Preimage point}
+    - {x: 80.9, y: 74.0, text: Image point}
+    - {x: 68.3, y: 20.5, text: Line of reflection}
+    - {x: 49.8, y: 47.5, text: Midpoint of the segment from a point to its image}
+  distractors: [Center of rotation, Translation vector]
+  explanation: |-
+    A reflection sends $P$ to $P'$ so that the line of reflection is the perpendicular bisector of $\overline{PP'}$: the dashed segment meets the line at a right angle, at its midpoint. Point 1 is the preimage $P$ and point 2 its image $P'$. There is no center of rotation or translation vector in a single reflection.
+- id: geo-m9-r2-q10
+  lesson: geo-rigid
+  type: match
+  module_quiz: true
+  topic: Rigid motions
+  stem: 'Match each coordinate rule with the transformation it describes.'
+  pairs:
+    - ['$(x, y) \to (y, x)$', Reflection in the line y = x]
+    - ['$(x, y) \to (-y, x)$', Rotation of 90° counterclockwise about the origin]
+    - ['$(x, y) \to (-x, -y)$', Rotation of 180° about the origin]
+    - ['$(x, y) \to (x, -y)$', Reflection in the x-axis]
+  distractors: [Reflection in the y-axis, Rotation of 90° clockwise about the origin]
+  explanation: |-
+    Swapping coordinates reflects in $y = x$. $(-y, x)$ is the $90^\circ$ counterclockwise turn (test: $(1, 0) \to (0, 1)$). Negating both is a $180^\circ$ turn. Negating only $y$ reflects in the $x$-axis. The $y$-axis reflection would be $(-x, y)$ and the clockwise turn $(y, -x)$.
+
+# --- geo-dilation (lesson 37) ---
+- id: geo-m9-r2-q11
+  lesson: geo-dilation
+  type: text
+  module_quiz: true
+  topic: Dilations
+  stem: 'A dilation centered at the origin maps $(6, -4)$ to $(15, -10)$. The scale factor is ___.'
+  accept: ['2.5']
+  explanation: |-
+    $k = \tfrac{15}{6} = \tfrac{-10}{-4} = 2.5$. Both coordinates must give the same ratio for a dilation centered at the origin.
+- id: geo-m9-r2-q12
+  lesson: geo-dilation
+  type: match
+  module_quiz: true
+  topic: Compositions and symmetry
+  stem: 'Match each figure with its number of lines of symmetry.'
+  pairs:
+    - [Rectangle that is not a square, '2']
+    - [Square, '4']
+    - [Regular hexagon, '6']
+    - [Parallelogram that is not a rectangle or rhombus, '0']
+    - [Isosceles triangle that is not equilateral, '1']
+  distractors: ['3']
+  explanation: |-
+    A non-square rectangle folds along its two midlines; a square adds the two diagonals; a regular $n$-gon has $n$; a general parallelogram has none (folding on a diagonal does not match it up); a non-equilateral isosceles triangle has only the line through its vertex angle. Three would be an equilateral triangle.
+- id: geo-m9-r2-q13
+  lesson: geo-dilation
+  topic: Compositions and symmetry
+  stem: 'Which figures are mapped onto themselves by a $180^\circ$ rotation about their center? Select all that apply.'
+  choices: ['A rhombus that is not a square', 'A parallelogram that is not a rectangle or rhombus', 'An equilateral triangle', 'A regular pentagon']
+  answer: [0, 1]
+  explanation: |-
+    Every parallelogram, including every rhombus, has $180^\circ$ rotational symmetry about the point where its diagonals cross. An equilateral triangle's rotation angles are multiples of $120^\circ$ and a regular pentagon's are multiples of $72^\circ$; neither list includes $180^\circ$.
+- id: geo-m9-r2-q14
+  lesson: geo-dilation
+  type: label
+  topic: Dilations
+  stem: 'The picture shows a dilation with scale factor 2.5. Name the numbered parts.'
+  image: {src: images/geo-m9-dilation-blank.svg, alt: 'A point at the lower left with three dashed rays leaving it. Each ray passes through a vertex of a small blue triangle and continues to the matching vertex of a large tan triangle. Point 1 is where the rays start, marker 2 is on the small triangle, marker 3 on the large triangle and marker 4 on one of the dashed rays.'}
+  labels:
+    - {x: 10.0, y: 86.1, text: Center of dilation}
+    - {x: 35.3, y: 68.5, text: Preimage}
+    - {x: 73.3, y: 42.1, text: Image}
+    - {x: 25.0, y: 67.0, text: Ray from the center through a vertex}
+  distractors: [Line of reflection, Line of symmetry]
+  explanation: |-
+    Every image point lies on the ray from the center through its preimage, $k = 2.5$ times as far out. With $k > 1$ the image is the larger triangle (an enlargement), so the small triangle is the preimage.
+- id: geo-m9-r2-q15
+  lesson: geo-dilation
+  topic: Compositions and symmetry
+  stem: 'A rigid motion reverses orientation and leaves no point where it was. What kind of rigid motion is it?'
+  choices: [A rotation, A translation, A reflection, A glide reflection]
+  answer: 3
+  explanation: |-
+    Reversing orientation means a reflection or a glide reflection. A reflection fixes every point on its mirror line, so a motion with no fixed points must be a glide reflection. Rotations and translations keep orientation.
+
+# --- geo-parabola (lesson 38) ---
+- id: geo-m9-r2-q16
+  lesson: geo-parabola
+  type: text
+  topic: Parabolas
+  stem: 'The parabola $y = \tfrac{1}{12}x^2$ can be written $x^2 = 4py$. Its focus is $(0, p)$, where $p$ is ___. Give only the number.'
+  accept: ['3']
+  explanation: |-
+    Multiply by 12: $x^2 = 12y$, so $4p = 12$ and $p = 3$. Equivalently $a = \tfrac{1}{12}$ and $p = \tfrac{1}{4a} = 3$. The value $\tfrac{1}{48}$ comes from using $\tfrac{a}{4}$ by mistake.
+- id: geo-m9-r2-q17
+  lesson: geo-parabola
+  type: order
+  module_quiz: true
+  topic: Parabolas
+  stem: 'Put the steps deriving the equation of the parabola with focus $(0, p)$ and directrix $y = -p$ in order.'
+  items:
+    - 'Set the distances equal: $\sqrt{x^2 + (y - p)^2} = |y + p|$'
+    - 'Square both sides'
+    - 'Expand: $x^2 + y^2 - 2py + p^2 = y^2 + 2py + p^2$'
+    - 'Cancel $y^2$ and $p^2$ and collect terms: $x^2 = 4py$'
+  explanation: |-
+    The definition gives the distance equation; squaring removes the root and the absolute value; expanding shows $y^2$ and $p^2$ on both sides, and cancelling them leaves $x^2 = 4py$.
+- id: geo-m9-r2-q18
+  lesson: geo-parabola
+  topic: Parabolas
+  stem: 'Which statements about the parabola $x^2 = -8y$ are true? Select all that apply.'
+  choices: ['It opens downward', 'Its focus is $(0, -2)$', 'Its directrix is $y = -2$', 'Its focus is $(0, -8)$']
+  answer: [0, 1]
+  explanation: |-
+    $4p = -8$, so $p = -2$: the focus is 2 units below the vertex at $(0, -2)$, the parabola opens down toward it, and the directrix is 2 units above the vertex, $y = 2$. $(0, -8)$ uses $4p$ in place of $p$.
+- id: geo-m9-r2-q19
+  lesson: geo-parabola
+  type: label
+  topic: Parabolas
+  stem: 'Name the numbered parts of this parabola.'
+  image: {src: images/geo-m9-parabola-parts-blank.svg, alt: 'A parabola opening upward with a dotted vertical line through its lowest point and a dashed horizontal line below it. Marker 1 is a point inside the curve on the dotted line, marker 2 is on the dashed line, marker 3 is the lowest point of the curve and marker 4 is on the dotted line high above. A point on the curve is joined to marker 1 and, by a perpendicular, to the dashed line, with tick marks showing the two segments are equal.'}
+  labels:
+    - {x: 50, y: 60.5, text: Focus}
+    - {x: 16.7, y: 81.6, text: Directrix}
+    - {x: 50, y: 71.1, text: Vertex}
+    - {x: 50, y: 23.7, text: Axis of symmetry}
+  distractors: [Center, Asymptote]
+  explanation: |-
+    Every point of the parabola is as far from the focus (inside the curve) as from the directrix (the line below). The vertex is the point of the curve halfway between them, and the axis of symmetry passes through the focus perpendicular to the directrix. Parabolas have no center or asymptotes.
+- id: geo-m9-r2-q20
+  lesson: geo-parabola
+  type: match
+  module_quiz: true
+  topic: Parabolas
+  stem: 'Match each parabola with the direction it opens.'
+  pairs:
+    - ['$(y - 1)^2 = 6(x + 2)$', Opens right]
+    - ['$(x - 3)^2 = -4(y - 1)$', Opens down]
+    - ['$(y + 2)^2 = -10(x - 1)$', Opens left]
+    - ['$(x + 1)^2 = 2y$', Opens up]
+  explanation: |-
+    When $x$ is squared the parabola opens up ($4p > 0$) or down ($4p < 0$); when $y$ is squared it opens right ($4p > 0$) or left ($4p < 0$). The sign of the number multiplying the unsquared side is the sign of $4p$.
+- id: geo-m9-r2-q21
+  lesson: geo-parabola
+  topic: Similar circles
+  stem: 'A translation followed by a dilation about the new center maps the circle $x^2 + y^2 = 4$ onto $(x - 3)^2 + (y + 1)^2 = 36$. What is the scale factor of the dilation?'
+  choices: ['$9$', '$3$', '$\tfrac13$', '$6$']
+  answer: 1
+  explanation: |-
+    The radii are $\sqrt4 = 2$ and $\sqrt{36} = 6$, so $k = \tfrac{6}{2} = 3$. Nine compares $r^2$ values ($36 \div 4$), $\tfrac13$ maps the large circle to the small one, and 6 is the new radius, not the ratio.
+
+# --- geo-h-isometries (honors 38h1) ---
+- id: geo-m9-r2-h01
+  lesson: geo-h-isometries
+  topic: Classifying isometries
+  stem: 'A figure is reflected in the line through the origin at $20^\circ$ to the positive $x$-axis, and then in the line through the origin at $65^\circ$. What single transformation is this?'
+  choices: ['A rotation of $45^\circ$ counterclockwise about the origin', 'A rotation of $90^\circ$ counterclockwise about the origin', 'A rotation of $90^\circ$ clockwise about the origin', 'A rotation of $170^\circ$ counterclockwise about the origin']
+  answer: 1
+  explanation: |-
+    Two reflections in lines through $O$ give a rotation about $O$ by twice the angle from the first line to the second: $2(65^\circ - 20^\circ) = 90^\circ$ counterclockwise. $45^\circ$ forgets the doubling, clockwise has the order backward, and $170^\circ$ doubles the sum of the angles.
+- id: geo-m9-r2-h02
+  lesson: geo-h-isometries
+  topic: Classifying isometries
+  stem: 'Reflect in the line $x = -1$, then in the line $x = 3$. What single transformation is this?'
+  choices: ['A translation 4 units right', 'A translation 8 units left', 'A translation 8 units right', 'A reflection in $x = 1$']
+  answer: 2
+  explanation: |-
+    $x \to 2(-1) - x = -2 - x \to 2(3) - (-2 - x) = x + 8$. Parallel mirrors 4 apart give a translation by twice the gap, 8, in the direction from the first mirror toward the second: right. Two reflections keep orientation, so the result cannot be a single reflection.
+- id: geo-m9-r2-h03
+  lesson: geo-h-isometries
+  type: text
+  topic: Classifying isometries
+  stem: 'A rotation of $70^\circ$ about $O$ can be written as two reflections in lines through $O$ that meet at an angle of ___ degrees.'
+  accept: ['35']
+  explanation: |-
+    Two reflections in lines meeting at angle $\theta$ make a rotation by $2\theta$, so $2\theta = 70^\circ$ and $\theta = 35^\circ$. Any pair of lines through $O$ at that angle works, with the first line turned $35^\circ$ clockwise from the second.
+- id: geo-m9-r2-h04
+  lesson: geo-h-isometries
+  topic: Classifying isometries
+  stem: 'An isometry sends $A(0, 0)$ to $(0, 0)$, $B(1, 0)$ to $(1, 0)$ and $C(0, 1)$ to $(0, -1)$. Which isometry is it?'
+  choices: ['A rotation of $180^\circ$ about the origin', 'A reflection in the $y$-axis', 'A glide reflection along the $x$-axis', 'A reflection in the $x$-axis']
+  answer: 3
+  explanation: |-
+    Reflection in the $x$-axis, $(x, y) \to (x, -y)$, sends the three points to exactly those images, and an isometry is determined by what it does to three noncollinear points, so it is the only answer. The $180^\circ$ rotation and the $y$-axis reflection both send $B$ to $(-1, 0)$, and a glide reflection has no fixed points, but $A$ is fixed.
+- id: geo-m9-r2-h05
+  lesson: geo-h-isometries
+  type: order
+  topic: Classifying isometries
+  stem: 'An isometry sends noncollinear points $A$, $B$, $C$ to $A''$, $B''$, $C''$. Put the steps of the proof that it is a composition of at most three reflections in order.'
+  items:
+    - 'Reflect in the perpendicular bisector of $\overline{AA''}$, moving $A$ onto $A''$'
+    - 'Reflect in the perpendicular bisector of $\overline{B_1B''}$, which passes through $A''$, moving $B_1$ onto $B''$'
+    - 'If needed, reflect in line $A''B''$, moving $C_2$ onto $C''$'
+    - 'Conclude that the reflections equal the isometry, since three noncollinear points determine an isometry'
+  explanation: |-
+    Each reflection puts one more point in place without disturbing the ones already placed: the second mirror passes through $A'$, and the third is line $A'B'$ itself. Once all three points match, the uniqueness claim says the composition is the original isometry.
+- id: geo-m9-r2-h06
+  lesson: geo-h-isometries
+  type: match
+  topic: Classifying isometries
+  stem: 'Match each isometry with its fixed points.'
+  pairs:
+    - [Translation (not the identity), No fixed points]
+    - [Rotation (not the identity), Exactly one fixed point]
+    - [Reflection, A whole line of fixed points]
+    - [Identity, Every point is fixed]
+  distractors: [Exactly two fixed points]
+  explanation: |-
+    A translation moves every point. A rotation fixes only its center. A reflection fixes its mirror line. The identity fixes everything. An isometry fixing exactly two points is impossible: fixing two points fixes the whole line through them.
+- id: geo-m9-r2-h07
+  lesson: geo-h-isometries
+  topic: Classifying isometries
+  stem: 'Which of these are opposite isometries (they reverse orientation)? Select all that apply.'
+  choices: ['A reflection in the line $y = 2$', 'A glide reflection', 'A rotation of $180^\circ$ about the origin', 'A reflection in the $x$-axis followed by a reflection in the $y$-axis']
+  answer: [0, 1]
+  explanation: |-
+    One reflection reverses orientation, and a glide reflection is a reflection plus a translation, so it reverses it too. A rotation keeps orientation, and two reflections (here in perpendicular lines, giving the $180^\circ$ rotation) keep it as well.
+- id: geo-m9-r2-h08
+  lesson: geo-h-isometries
+  topic: Classifying isometries
+  stem: 'Describe the isometry $U(x, y) = (x - 2,\; 4 - y)$.'
+  choices: ['A glide reflection: reflect in $y = 2$, then slide 2 units left', 'A reflection in the line $y = 2$', 'A glide reflection: reflect in $y = 4$, then slide 2 units left', 'A rotation of $180^\circ$ about $(-1, 2)$']
+  answer: 0
+  explanation: |-
+    $y$ and $4 - y$ always average 2, so the mirror is $y = 2$, and $x$ decreases by 2. Orientation is reversed and $x - 2 = x$ has no solution, so there are no fixed points: a glide reflection, not a plain reflection. Reflecting in $y = 4$ would give $8 - y$, and the $180^\circ$ rotation about $(-1, 2)$ is $(-2 - x,\; 4 - y)$.
+- id: geo-m9-r2-h09
+  lesson: geo-h-isometries
+  topic: Classifying isometries
+  stem: 'Reflect in the $x$-axis and then translate by $\langle 0, 10 \rangle$. What single transformation is this?'
+  choices: ['A reflection in $y = 10$', 'A translation by $\langle 0, 10 \rangle$', 'A glide reflection along $y = 5$', 'A reflection in $y = 5$']
+  answer: 3
+  explanation: |-
+    $(x, y) \to (x, -y) \to (x, 10 - y) = (x, 2 \cdot 5 - y)$, the rule for reflection in $y = 5$. A translation perpendicular to the mirror just moves the mirror by half the translation. There is no sideways slide, so it is not a glide reflection, and orientation is reversed, so it is not a translation.
+- id: geo-m9-r2-h10
+  lesson: geo-h-isometries
+  topic: Symmetry groups
+  stem: 'How many symmetries, including the identity, does a regular octagon have?'
+  choices: ['8', '9', '16', '17']
+  answer: 2
+  explanation: |-
+    A regular octagon has symmetry group $D_8$: 8 rotations (multiples of $45^\circ$, including $0^\circ$) and 8 reflections, 16 in all. 8 counts only one kind, and 9 and 17 count the identity twice.
+- id: geo-m9-r2-h11
+  lesson: geo-h-isometries
+  type: match
+  topic: Symmetry groups
+  stem: 'Match each figure with its symmetry group.'
+  pairs:
+    - [Regular pentagon, D5]
+    - [Capital letter Z, C2]
+    - [Capital letter H, D2]
+    - [Three-bladed pinwheel with all blades leaning the same way, C3]
+  distractors: [D3, C5]
+  explanation: |-
+    The pentagon has 5 rotations and 5 lines of symmetry. Z has a $180^\circ$ turn but no mirror (a mirror reverses the slant of its diagonal). H has a $180^\circ$ turn and horizontal and vertical mirror lines. The pinwheel has 3 rotations and no mirror lines, since a mirror would reverse the lean of the blades.
+- id: geo-m9-r2-h12
+  lesson: geo-h-isometries
+  topic: Symmetry groups
+  stem: 'Why can a bounded figure (one that fits inside some circle) never have a glide reflection as a symmetry?'
+  choices: ['Glide reflections do not preserve distances', 'Doing it twice is a translation, and repeating that would carry the figure arbitrarily far away', 'Glide reflections keep orientation, and bounded figures cannot', 'Every glide reflection has a fixed point, which a bounded figure cannot have']
+  answer: 1
+  explanation: |-
+    A glide reflection done twice is a translation by twice the slide. If the figure were mapped onto itself, so would be its images under that translation repeated over and over, which move farther and farther away: impossible for a bounded figure. Glide reflections do preserve distance, reverse orientation, and have no fixed points.
+- id: geo-m9-r2-h13
+  lesson: geo-h-isometries
+  topic: Symmetry groups
+  stem: 'A non-square rectangle is centered at the origin with sides parallel to the axes. Reflect it in the $x$-axis, then in the $y$-axis. Which single symmetry of the rectangle is this?'
+  choices: ['The rotation of $180^\circ$', 'The identity', 'The reflection in $y = x$', 'The rotation of $90^\circ$']
+  answer: 0
+  explanation: |-
+    $(x, y) \to (x, -y) \to (-x, -y)$: the $180^\circ$ rotation, as the two-mirror rule predicts for mirrors at $90^\circ$. The $90^\circ$ rotation and the reflection in $y = x$ are not symmetries of a non-square rectangle at all.
+- id: geo-m9-r2-h14
+  lesson: geo-h-isometries
+  topic: Symmetry groups
+  stem: 'Which of these figures have a cyclic symmetry group (rotations only, no line of symmetry)? Select all that apply.'
+  choices: [Capital letter S, Capital letter N, A square, An isosceles triangle that is not equilateral]
+  answer: [0, 1]
+  explanation: |-
+    S and N are each mapped onto themselves by a $180^\circ$ turn and have no mirror line: group $C_2$. A square has 4 lines of symmetry ($D_4$), and a non-equilateral isosceles triangle has one line of symmetry (its group, $D_1$, is the identity and that reflection).
+- id: geo-m9-r2-h15
+  lesson: geo-h-isometries
+  type: label
+  topic: Classifying isometries
+  stem: 'A point is reflected in line $m$ and then in line $n$; the lines cross at the point marked 4. Name the numbered points.'
+  image: {src: images/geo-m9-two-reflections-blank.svg, alt: 'Two lines crossing at the lower left, one at a shallow angle and one steeper. Point 1 lies below the shallow line; a dashed segment perpendicular to that line joins it to point 2, which lies between the lines. A dashed segment perpendicular to the steeper line joins point 2 to point 3 beyond it. An arc with an arrow turns from the direction of point 1 toward point 3 around the crossing point, marker 4.'}
+  labels:
+    - {x: 70.8, y: 87.8, text: Original point}
+    - {x: 59.3, y: 38.8, text: Image after the first reflection}
+    - {x: 41.3, y: 24.3, text: Image after both reflections}
+    - {x: 22.9, y: 76.2, text: Center of the resulting rotation}
+  distractors: [Focus, Midpoint of the original point and its final image]
+  explanation: |-
+    Each dashed segment is perpendicular to a mirror and bisected by it: point 1 reflects in the shallow line to point 2, which reflects in the steep line to point 3. The two reflections together turn point 1 to point 3 about the crossing point by twice the angle between the lines.
+
+# --- geo-h-matrices (honors 38h2) ---
+- id: geo-m9-r2-h16
+  lesson: geo-h-matrices
+  topic: Rotations by any angle
+  stem: 'Rotate $(2, 0)$ by $120^\circ$ counterclockwise about the origin.'
+  choices: ['$(1, \sqrt3)$', '$(-\sqrt3, 1)$', '$(-1, -\sqrt3)$', '$(-1, \sqrt3)$']
+  answer: 3
+  explanation: |-
+    The image is $(2\cos 120^\circ,\; 2\sin 120^\circ) = \left(2 \cdot (-\tfrac12),\; 2 \cdot \tfrac{\sqrt3}{2}\right) = (-1, \sqrt3)$, in Quadrant II as a $120^\circ$ turn should be. $(1, \sqrt3)$ is the $60^\circ$ rotation, and $(-1, -\sqrt3)$ the $240^\circ$ one.
+- id: geo-m9-r2-h17
+  lesson: geo-h-matrices
+  type: text
+  topic: Transformation matrices
+  stem: 'The determinant of $\begin{bmatrix} 3 & 2 \\ 1 & 4 \end{bmatrix}$ is ___.'
+  accept: ['10']
+  explanation: |-
+    $ad - bc = 3 \cdot 4 - 2 \cdot 1 = 10$. The transformation multiplies every area by 10 and keeps orientation.
+- id: geo-m9-r2-h18
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'Which matrix reflects points in the $y$-axis?'
+  choices: ['$\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Reflection in the $y$-axis sends $(1, 0)$ to $(-1, 0)$ and keeps $(0, 1)$; those images are the columns. The others reflect in the $x$-axis, reflect in $y = x$, and rotate $180^\circ$.
+- id: geo-m9-r2-h19
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'Find the image of $(2, 3)$ under $\begin{bmatrix} 1 & -2 \\ 3 & 0 \end{bmatrix}$.'
+  choices: ['$(-4, 6)$', '$(11, -4)$', '$(8, 6)$', '$(-4, 9)$']
+  answer: 0
+  explanation: |-
+    Row times column: $1 \cdot 2 + (-2) \cdot 3 = -4$ and $3 \cdot 2 + 0 \cdot 3 = 6$, giving $(-4, 6)$. $(11, -4)$ uses the columns as rows.
+- id: geo-m9-r2-h20
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'Reflect in the line $y = x$, then rotate $180^\circ$ about the origin. Which single transformation is this?'
+  choices: ['Reflection in $y = x$', 'Rotation of $90^\circ$ counterclockwise', 'Reflection in $y = -x$', 'Rotation of $90^\circ$ clockwise']
+  answer: 2
+  explanation: |-
+    The reflection is done first, so it goes on the right: $\begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}$, which sends $(x, y)$ to $(-y, -x)$: reflection in $y = -x$. Its determinant is $-1$, so it cannot be a rotation.
+- id: geo-m9-r2-h21
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'Reflect $(10, 0)$ in the line $y = 3x$.'
+  choices: ['$(8, -6)$', '$(-8, 6)$', '$(6, -8)$', '$(-6, 8)$']
+  answer: 1
+  explanation: |-
+    With $m = 3$: $\cos 2\alpha = \tfrac{1 - 9}{10} = -0.8$ and $\sin 2\alpha = \tfrac{6}{10} = 0.6$, so $(10, 0) \to (10 \cdot (-0.8),\; 10 \cdot 0.6) = (-8, 6)$. Check: the midpoint $(1, 3)$ is on $y = 3x$, and the segment's direction $(-18, 6)$ is perpendicular to the line's direction $(1, 3)$ because $-18 + 18 = 0$.
+- id: geo-m9-r2-h22
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'A region of area 5 is transformed by $\begin{bmatrix} 3 & 1 \\ -2 & 4 \end{bmatrix}$. What is the area of the image?'
+  choices: ['$50$', '$14$', '$5\sqrt{14}$', '$70$']
+  answer: 3
+  explanation: |-
+    $\det = 3 \cdot 4 - 1 \cdot (-2) = 14$, and areas are multiplied by $|\det|$: $5 \cdot 14 = 70$. 50 comes from $ad + bc = 10$; 14 is the factor, not the area; $\sqrt{14}$ would be a length factor, which a non-similarity does not have.
+- id: geo-m9-r2-h23
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'Which matrices represent rigid motions? Select all that apply.'
+  choices: ['$\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 0.6 & -0.8 \\ 0.8 & 0.6 \end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$']
+  answer: [0, 1]
+  explanation: |-
+    A matrix is a rigid motion when its columns are perpendicular and both have length 1. The first is the $90^\circ$ rotation. The second has columns $(0.6, 0.8)$ and $(-0.8, 0.6)$, each of length 1 and perpendicular: a rotation by about $53^\circ$. The third doubles every length (a dilation), and the fourth has a column $(1, 1)$ of length $\sqrt2$ (it slants squares into parallelograms).
+- id: geo-m9-r2-h24
+  lesson: geo-h-matrices
+  type: match
+  topic: Transformation matrices
+  stem: 'Match each matrix with the transformation it performs.'
+  pairs:
+    - ['$\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$', Reflection in the x-axis]
+    - ['$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$', Reflection in the line y = x]
+    - ['$\begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$', Rotation of 180° about the origin]
+    - ['$\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$', Rotation of 90° counterclockwise about the origin]
+  distractors: [Dilation by 2 about the origin]
+  explanation: |-
+    Read the columns as the images of $(1, 0)$ and $(0, 1)$. The $x$-axis reflection keeps $(1, 0)$ and flips $(0, 1)$; $y = x$ swaps them; $180^\circ$ negates both; the $90^\circ$ turn sends $(1, 0)$ to $(0, 1)$ and $(0, 1)$ to $(-1, 0)$. A dilation by 2 would be $\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}$.
+- id: geo-m9-r2-h25
+  lesson: geo-h-matrices
+  type: order
+  topic: Rotations by any angle
+  stem: 'Put the steps of the proof of the angle-addition formulas in order.'
+  items:
+    - 'Note that rotating by $\beta$ and then by $\alpha$ is a rotation by $\alpha + \beta$'
+    - 'Write this as the matrix equation $R_\alpha R_\beta = R_{\alpha + \beta}$'
+    - 'Multiply out the product $R_\alpha R_\beta$'
+    - 'Compare the first columns of the two sides'
+  explanation: |-
+    The geometric fact comes first, then its matrix form, then the computation, and comparing entries gives $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$ and $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$.
+- id: geo-m9-r2-h26
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'What transformation does $\begin{bmatrix} 0.6 & 0.8 \\ 0.8 & -0.6 \end{bmatrix}$ perform?'
+  choices: ['A rotation by about $53^\circ$', 'A reflection in $y = 2x$', 'A rotation by about $37^\circ$', 'A reflection in $y = \tfrac12 x$']
+  answer: 3
+  explanation: |-
+    The columns are perpendicular unit vectors and the determinant is $-0.36 - 0.64 = -1$, so it is a reflection in a line through the origin. A point on the mirror stays put: $(2, 1) \to (1.2 + 0.8,\; 1.6 - 0.6) = (2, 1)$, so the mirror is $y = \tfrac12 x$. (Check with the formulas: $m = \tfrac12$ gives $\cos 2\alpha = \tfrac{3/4}{5/4} = 0.6$ and $\sin 2\alpha = \tfrac{1}{5/4} = 0.8$.) A rotation would have determinant $+1$.
+- id: geo-m9-r2-h27
+  lesson: geo-h-matrices
+  type: text
+  topic: Transformation matrices
+  stem: 'A matrix has determinant $-3$. It maps a triangle of area 4 to a triangle of area ___.'
+  accept: ['12']
+  explanation: |-
+    Areas are multiplied by $|\det| = 3$: $4 \cdot 3 = 12$. The negative sign means the image has the opposite orientation; an area is never negative.
+- id: geo-m9-r2-h28
+  lesson: geo-h-matrices
+  topic: Transformation matrices
+  stem: 'Why is the translation by $\langle 2, 0 \rangle$ not given by any $2 \times 2$ matrix?'
+  choices: ['Translations change distances, and matrices never do', 'A translation reverses orientation', 'Every matrix sends $(0, 0)$ to $(0, 0)$, but this translation moves the origin', 'Its determinant would be 0']
+  answer: 2
+  explanation: |-
+    A matrix times the zero column is the zero column, so every linear transformation fixes the origin. The translation sends $(0, 0)$ to $(2, 0)$. Translations keep distances and orientation; many matrices change distances.
+- id: geo-m9-r2-h29
+  lesson: geo-h-matrices
+  topic: Rotations by any angle
+  stem: 'Rotate $(2, 2)$ by $45^\circ$ counterclockwise about the origin.'
+  choices: ['$(2\sqrt2, 0)$', '$(2, 2\sqrt2)$', '$(0, 2\sqrt2)$', '$(-2\sqrt2, 0)$']
+  answer: 2
+  explanation: |-
+    $(2, 2)$ is $2\sqrt2$ from the origin at angle $45^\circ$; turning $45^\circ$ more puts it on the positive $y$-axis: $(0, 2\sqrt2)$. By the formula: $x' = 2\cos 45^\circ - 2\sin 45^\circ = 0$ and $y' = 2\sin 45^\circ + 2\cos 45^\circ = 2\sqrt2$. $(2\sqrt2, 0)$ is the clockwise turn.
+
+# --- geo-h-conics (honors 38h3) ---
+- id: geo-m9-r2-h30
+  lesson: geo-h-conics
+  topic: Ellipses
+  stem: 'Find the ellipse with foci $(\pm 6, 0)$ whose points have distances to the foci adding up to 20.'
+  choices: ['$\dfrac{x^2}{100} + \dfrac{y^2}{36} = 1$', '$\dfrac{x^2}{100} + \dfrac{y^2}{64} = 1$', '$\dfrac{x^2}{64} + \dfrac{y^2}{100} = 1$', '$\dfrac{x^2}{10} + \dfrac{y^2}{8} = 1$']
+  answer: 1
+  explanation: |-
+    $2a = 20$ gives $a = 10$; $c = 6$; $b^2 = a^2 - c^2 = 100 - 36 = 64$. The foci are on the $x$-axis, so $a^2 = 100$ goes under $x^2$. Using $c^2$ as $b^2$ gives 36; swapping the denominators turns the major axis vertical; 10 and 8 forget to square.
+- id: geo-m9-r2-h31
+  lesson: geo-h-conics
+  type: text
+  topic: Ellipses
+  stem: 'The ellipse $\dfrac{x^2}{169} + \dfrac{y^2}{25} = 1$ has foci $(\pm c, 0)$, where $c$ is ___. Give only the number.'
+  accept: ['12']
+  explanation: |-
+    $c^2 = a^2 - b^2 = 169 - 25 = 144$, so $c = 12$.
+- id: geo-m9-r2-h32
+  lesson: geo-h-conics
+  topic: Ellipses
+  stem: 'Find the foci of $\dfrac{(x + 3)^2}{9} + \dfrac{(y - 1)^2}{25} = 1$.'
+  choices: ['$(1, 1)$ and $(-7, 1)$', '$(3, 5)$ and $(3, -3)$', '$(-3, 5)$ and $(-3, -3)$', '$(-3, 1 + \sqrt{34})$ and $(-3, 1 - \sqrt{34})$']
+  answer: 2
+  explanation: |-
+    The center is $(-3, 1)$. The larger denominator, 25, is under the $y$-term, so the major axis is vertical: $c^2 = 25 - 9 = 16$, $c = 4$, and the foci are 4 above and below the center. Moving sideways treats the axis as horizontal, $(3, \ldots)$ has the sign of $h$ wrong, and $\sqrt{34}$ adds instead of subtracting.
+- id: geo-m9-r2-h33
+  lesson: geo-h-conics
+  type: label
+  topic: Ellipses
+  stem: 'Name the numbered parts of this ellipse.'
+  image: {src: images/geo-m9-ellipse-parts-blank.svg, alt: 'A wide ellipse with a dashed horizontal axis and a dotted vertical axis. Two points on the horizontal axis inside the ellipse are joined to a point on the ellipse. Marker 1 is the right-hand inner point, marker 2 is the left end of the horizontal axis, marker 3 the top end of the vertical axis, and marker 4 the point where the axes cross.'}
+  labels:
+    - {x: 83.6, y: 48.5, text: Focus}
+    - {x: 8.0, y: 48.5, text: Vertex}
+    - {x: 50, y: 10.3, text: Co-vertex}
+    - {x: 50, y: 48.5, text: Center}
+  distractors: [Directrix, Asymptote]
+  explanation: |-
+    The foci lie inside the ellipse on the major (long) axis, and lines to them from any point of the ellipse add to $2a$. The vertices are the ends of the major axis, the co-vertices the ends of the minor axis, and the center is where the axes cross, halfway between the foci.
+- id: geo-m9-r2-h34
+  lesson: geo-h-conics
+  topic: Ellipses
+  stem: 'Which statements are true of every ellipse that is not a circle? Select all that apply.'
+  choices: ['The distances from any of its points to the two foci add up to the same number', '$c^2 = a^2 - b^2$, where $a$ is half the major axis and $b$ half the minor axis', 'Its eccentricity is greater than 1', 'Its foci lie on the minor axis']
+  answer: [0, 1]
+  explanation: |-
+    The constant sum is the definition, and the right triangle formed by the center, a focus and a co-vertex gives $a^2 = b^2 + c^2$. An ellipse has $0 < e < 1$ (greater than 1 is a hyperbola), and its foci lie on the major axis.
+- id: geo-m9-r2-h35
+  lesson: geo-h-conics
+  topic: Hyperbolas
+  stem: 'Find the hyperbola with foci $(\pm 10, 0)$ whose points have distances to the foci differing by 12.'
+  choices: ['$\dfrac{x^2}{36} + \dfrac{y^2}{64} = 1$', '$\dfrac{x^2}{64} - \dfrac{y^2}{36} = 1$', '$\dfrac{x^2}{36} - \dfrac{y^2}{136} = 1$', '$\dfrac{x^2}{36} - \dfrac{y^2}{64} = 1$']
+  answer: 3
+  explanation: |-
+    $2a = 12$ gives $a = 6$; $c = 10$; for a hyperbola $b^2 = c^2 - a^2 = 100 - 36 = 64$. The plus sign makes an ellipse, swapping $a^2$ and $b^2$ moves the vertices to $(\pm 8, 0)$, and 136 adds $a^2$ and $c^2$.
+- id: geo-m9-r2-h36
+  lesson: geo-h-conics
+  topic: Hyperbolas
+  stem: 'What are the asymptotes of $\dfrac{y^2}{16} - \dfrac{x^2}{9} = 1$?'
+  choices: ['$y = \pm\tfrac43 x$', '$y = \pm\tfrac34 x$', '$y = \pm\tfrac{16}{9} x$', '$y = \pm\tfrac{9}{16} x$']
+  answer: 0
+  explanation: |-
+    This hyperbola opens up and down with $a = 4$ (under $y^2$) and $b = 3$. Its box is 6 wide and 8 tall, so the asymptotes are $y = \pm\tfrac{a}{b}x = \pm\tfrac43 x$. Far from the center, $\tfrac{y^2}{16} \approx \tfrac{x^2}{9}$, so $y \approx \pm\tfrac43 x$. $\tfrac{16}{9}$ and $\tfrac{9}{16}$ forget the square roots.
+- id: geo-m9-r2-h37
+  lesson: geo-h-conics
+  type: text
+  topic: Ellipses
+  stem: 'The eccentricity of the ellipse $\dfrac{x^2}{25} + \dfrac{y^2}{16} = 1$ is ___. Give it as a decimal or fraction.'
+  accept: ['0.6']
+  explanation: |-
+    $c^2 = 25 - 16 = 9$, so $c = 3$ and $e = \tfrac{c}{a} = \tfrac35 = 0.6$.
+- id: geo-m9-r2-h38
+  lesson: geo-h-conics
+  type: match
+  topic: Hyperbolas
+  stem: 'Match each eccentricity with the kind of conic section.'
+  pairs:
+    - ['$e = 0$', Circle]
+    - ['$e = 0.5$', Ellipse]
+    - ['$e = 1$', Parabola]
+    - ['$e = 2$', Hyperbola]
+  explanation: |-
+    $e = \tfrac{c}{a}$ is 0 when the foci merge (a circle), between 0 and 1 for an ellipse, exactly 1 for a parabola, and greater than 1 for a hyperbola, where $c > a$.
+- id: geo-m9-r2-h39
+  lesson: geo-h-conics
+  type: order
+  topic: Ellipses
+  stem: 'Put the steps deriving the equation of the ellipse with foci $(\pm c, 0)$ and distance sum $2a$ in order.'
+  items:
+    - 'Write the definition: $\sqrt{(x + c)^2 + y^2} + \sqrt{(x - c)^2 + y^2} = 2a$'
+    - 'Move one square root to the other side and square both sides'
+    - 'Simplify to $a\sqrt{(x - c)^2 + y^2} = a^2 - cx$'
+    - 'Square again and collect terms: $(a^2 - c^2)x^2 + a^2y^2 = a^2(a^2 - c^2)$'
+    - 'Replace $a^2 - c^2$ with $b^2$ and divide by $a^2b^2$'
+  explanation: |-
+    Two square roots need two squarings, isolating one root before each. The last step uses $b^2 = a^2 - c^2$ and gives $\tfrac{x^2}{a^2} + \tfrac{y^2}{b^2} = 1$.
+- id: geo-m9-r2-h40
+  lesson: geo-h-conics
+  topic: Hyperbolas
+  stem: 'Radio stations $A(-40, 0)$ and $B(40, 0)$ (in km) send pulses at the same instant. A ship finds it is 24 km closer to $B$ than to $A$. On which curve is the ship?'
+  choices: ['$\dfrac{x^2}{144} - \dfrac{y^2}{1456} = 1$ with $x > 0$', '$\dfrac{x^2}{144} - \dfrac{y^2}{1456} = 1$ with $x < 0$', '$\dfrac{x^2}{576} - \dfrac{y^2}{1024} = 1$ with $x > 0$', '$\dfrac{x^2}{144} + \dfrac{y^2}{1456} = 1$']
+  answer: 0
+  explanation: |-
+    The fixed difference $PA - PB = 24$ puts the ship on a hyperbola with foci $A$ and $B$: $2a = 24$, $a = 12$, $c = 40$, $b^2 = 1600 - 144 = 1456$. Being closer to $B(40, 0)$ puts it on the right branch, $x > 0$. Using $a = 24$ forgets to halve the difference, and the plus sign gives an ellipse.
+- id: geo-m9-r2-h41
+  lesson: geo-h-conics
+  topic: Ellipses
+  stem: 'For $\dfrac{x^2}{20} + \dfrac{y^2}{36} = 1$, which way does the major axis run, and what is $c$?'
+  choices: ['Vertical, $c = 4$', 'Horizontal, $c = 4$', 'Vertical, $c = \sqrt{56}$', 'Horizontal, $c = 16$']
+  answer: 0
+  explanation: |-
+    The larger denominator, 36, is under $y^2$, so the major axis is vertical, with $a^2 = 36$ and $b^2 = 20$. Then $c^2 = 36 - 20 = 16$ and $c = 4$. $\sqrt{56}$ adds the denominators, and 16 is $c^2$.
+- id: geo-m9-r2-h42
+  lesson: geo-h-conics
+  topic: Ellipses
+  stem: 'A light sits at one focus of an elliptical mirror. Where do the rays go after they reflect off the mirror?'
+  choices: ['Through the other focus', 'Out parallel to the major axis', 'Back through the same focus', 'Through the center of the ellipse']
+  answer: 0
+  explanation: |-
+    The reflection property of the ellipse sends every ray from one focus through the other focus. Leaving parallel to the axis is the parabola's property (Lesson 38).
+- id: geo-m9-r2-h43
+  lesson: geo-h-conics
+  topic: Hyperbolas
+  stem: 'Which statements about $\dfrac{x^2}{9} - \dfrac{y^2}{16} = 1$ are true? Select all that apply.'
+  choices: ['Its vertices are $(\pm 3, 0)$', 'Its foci are $(\pm 5, 0)$', 'Its foci are $(\pm\sqrt7, 0)$', 'It crosses the $y$-axis']
+  answer: [0, 1]
+  explanation: |-
+    $a = 3$ gives the vertices. $c^2 = a^2 + b^2 = 9 + 16 = 25$, so the foci are $(\pm 5, 0)$; $\sqrt7$ uses the ellipse relation. At $x = 0$ the equation says $-\tfrac{y^2}{16} = 1$, which has no solution, so the curve never meets the $y$-axis.

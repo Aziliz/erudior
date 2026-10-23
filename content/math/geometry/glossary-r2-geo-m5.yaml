@@ -1,0 +1,44 @@
+# Module 5, round 2: terms introduced in the honors lessons
+- term: medial triangle
+  aliases: [medial triangles]
+  definition: 'The triangle whose vertices are the midpoints of the sides of a given triangle; its sides are the three midsegments.'
+  topic: Concurrency proofs
+- term: anticomplementary triangle
+  aliases: [anticomplementary triangles]
+  definition: 'The larger triangle formed by the lines through the vertices of $\triangle ABC$ parallel to the opposite sides. $\triangle ABC$ is its medial triangle, and the altitudes of $\triangle ABC$ are its perpendicular bisectors.'
+  topic: Concurrency proofs
+- term: Varignon parallelogram
+  aliases: [Varignon parallelograms, "Varignon's theorem"]
+  definition: 'The parallelogram whose vertices are the midpoints of the sides of a quadrilateral. Varignon''s theorem says it is always a parallelogram, with sides parallel to the quadrilateral''s diagonals and half as long.'
+  topic: Varignon's theorem
+- term: inclusive definition
+  aliases: [inclusive definitions]
+  definition: 'A definition that lets special cases count, such as "a trapezoid has at least one pair of parallel sides", which makes every parallelogram a trapezoid.'
+  topic: Classifying quadrilaterals
+- term: exclusive definition
+  aliases: [exclusive definitions]
+  definition: 'A definition that leaves special cases out, such as "a trapezoid has exactly one pair of parallel sides", which makes no parallelogram a trapezoid. This course uses it for trapezoids and kites.'
+  topic: Classifying quadrilaterals
+- term: reflex angle
+  aliases: [reflex angles]
+  definition: 'An angle greater than $180^\circ$ and less than $360^\circ$. Every concave polygon has at least one reflex interior angle.'
+  topic: Turning and star polygons
+- term: star polygon
+  aliases: [star polygons]
+  definition: 'The figure made by joining every $k$th of $n$ equally spaced points on a circle, where $k$ and $n$ have no common factor and $1 < k < \tfrac n2$; for example the pentagram $\{5/2\}$.'
+  topic: Turning and star polygons
+- term: Schläfli symbol
+  aliases: [Schlafli symbol, Schläfli symbols]
+  definition: 'Notation for regular polygons: $\{n\}$ for the regular $n$-gon and $\{n/k\}$ for the star polygon joining every $k$th of $n$ points.'
+  topic: Turning and star polygons
+- term: edge-to-edge
+  definition: 'Describes a tiling by polygons in which tiles meet only full side to full side, so no vertex lies partway along another tile''s side.'
+  topic: Tilings
+- term: vertex configuration
+  aliases: [vertex configurations, vertex type, vertex types]
+  definition: 'The list of regular polygons around a vertex of a tiling, in order, by their numbers of sides; for example $4.8.8$ is a square and two octagons. 21 vertex types are possible.'
+  topic: Tilings
+- term: semiregular tiling
+  aliases: [semiregular tilings, Archimedean tiling, Archimedean tilings]
+  definition: 'An edge-to-edge tiling by two or more kinds of regular polygons with the same arrangement at every vertex. There are exactly 8, such as $4.8.8$ and $3.6.3.6$.'
+  topic: Tilings

@@ -20,7 +20,7 @@ Rotate by $\theta$ about the origin:
 - $(0, 1)$ is at angle $90^\circ$ and moves to angle $90^\circ + \theta$. That is the $90^\circ$ turn of the first image, so by the rule $(x, y) \to (-y, x)$ it lands on $(-\sin\theta, \cos\theta)$.
 
 ```plot
-{"x": [-1.5, 1.5], "y": [-0.5, 1.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 3.1416], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true, "label": "(1, 0)"}, {"from": [0, 0], "to": [0, 1], "arrow": true, "label": "(0, 1)"}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true, "label": "(cos θ, sin θ)"}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true, "label": "(−sin θ, cos θ)"}], "caption": "A rotation by θ = 30° carries (1, 0) and (0, 1) to (cos θ, sin θ) and (−sin θ, cos θ)."}
+{"x": [-1.6, 1.6], "y": [-0.4, 1.4], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 3.1416], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true}, {"from": [0, 0], "to": [0, 1], "arrow": true}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true}], "labels": [{"at": [1.05, -0.12], "text": "(1, 0)"}, {"at": [0.12, 1.12], "text": "(0, 1)"}, {"at": [1.15, 0.55], "text": "(cos θ, sin θ)"}, {"at": [-0.95, 0.98], "text": "(−sin θ, cos θ)"}], "caption": "A rotation by θ = 30° carries (1, 0) and (0, 1) to (cos θ, sin θ) and (−sin θ, cos θ)."}
 ```
 
 ## Why two points are enough

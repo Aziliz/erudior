@@ -7,7 +7,7 @@ topics: [Euler line, Nine-point circle]
 drills: [geo-h1-r2-euler-coords, geo-h1-r2-right-euler]
 refs: [geo-ref-theorems, geo-ref-coord]
 ---
-Lesson 16 ended with a remarkable fact, stated without proof: in any triangle, the circumcenter $O$, the centroid $G$ and the orthocenter $H$ lie on one line, the Euler line, with $G$ one-third of the way from $O$ to $H$. Leonhard Euler found it in 1765 by algebraic calculation from the side lengths. This lesson proves it with a single transformation, and then uses a second transformation to find one of the most surprising facts in elementary geometry: nine special points of every triangle lie on one circle.
+Lesson 16 ended with a remarkable fact, stated without proof: in any triangle, the circumcenter $O$, the centroid $G$ and the orthocenter $H$ lie on one line, the Euler line, with $G$ one-third of the way from $O$ to $H$. Leonhard Euler found it in 1765 by algebraic calculation from the side lengths. The Module 5 honors lesson *Proving the triangle centers exist* proves it with coordinates. This lesson proves it with no coordinates at all, using a single transformation, and then uses a second transformation to find one of the most surprising facts in elementary geometry: nine special points of every triangle lie on one circle.
 
 The tools are ones you already have: the centroid's $2 : 1$ ratio (Lesson 16), midsegments (Lesson 16), dilations (Lesson 37) and Thales' theorem (Lesson 29).
 
@@ -15,7 +15,7 @@ The tools are ones you already have: the centroid's $2 : 1$ ratio (Lesson 16), m
 
 The three midpoints of the sides, $D$ on $\overline{BC}$, $E$ on $\overline{CA}$ and $F$ on $\overline{AB}$, form the **medial triangle** $DEF$. Its sides are the three midsegments, so each side of $\triangle DEF$ is parallel to a side of $\triangle ABC$ and half as long. In particular $\overline{EF} \parallel \overline{BC}$.
 
-Now look at the centroid $G$. It lies on median $\overline{AD}$ with $AG = 2\,GD$, and $D$ is on the opposite side of $G$ from $A$. So the map "**rotate $180^\circ$ about $G$, then dilate by $\tfrac12$ from $G$**" sends $A$ to $D$. In the same way it sends $B$ to $E$ and $C$ to $F$. Call this map $T$. (Lesson 37 noted that some books call $T$ a dilation with scale factor $-\tfrac12$.) Like any rotation or dilation, $T$ sends every line to a parallel line, keeps angles, and halves every length. So $T$ maps $\triangle ABC$ onto its medial triangle.
+Now look at the centroid $G$. It lies on median $\overline{AD}$ with $AG = 2\,GD$, and $D$ is on the opposite side of $G$ from $A$. So the map "*rotate $180^\circ$ about $G$, then dilate by $\tfrac12$ from $G$*" sends $A$ to $D$. In the same way it sends $B$ to $E$ and $C$ to $F$. Call this map $T$. (Lesson 37 noted that some books call $T$ a dilation with scale factor $-\tfrac12$.) Like any rotation or dilation, $T$ sends every line to a parallel line, keeps angles, and halves every length. So $T$ maps $\triangle ABC$ onto its medial triangle.
 
 ## Proof of the Euler line
 

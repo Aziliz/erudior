@@ -39,9 +39,26 @@ Each column of $AB$ is $A$ times the corresponding column of $B$. Reading off en
 column $j$ gives the familiar **row–column rule**:
 $(AB)_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{in}b_{nj}$.
 
+The picture shows both rules at once for a $(3 \times 4)(4 \times 2)$ product: one row of $A$
+meets one column of $B$ to make one entry of $AB$, and the sizes tell you whether the product
+exists and how big it is.
+
+![Matrix A, 3 by 4, with row 2 shaded; matrix B, 4 by 2, with column 2 shaded; and their product AB, 3 by 2, with entry (2, 2) shaded, labeled as row 2 times column 2. Below, the sizes (3 × 4)(4 × 2) are joined by two arcs: the inner sizes 4 and 4 must match, and the outer sizes 3 and 2 give the size of AB.](images/la-m5-row-column.svg)
+
 Notice the order: $AB$ means "apply $B$ first, then $A$", because $B$ is next to
 $\mathbf{x}$. This is the same right-to-left reading as function composition
 $f(g(x))$.
+
+The diagram traces a vector through the two maps and through the single product matrix.
+
+```mermaid
+flowchart LR
+  accTitle: Matrix multiplication as composition
+  accDescr: B sends a vector x in R p to Bx in R n, and then A sends Bx to A(Bx) in R m. The single matrix AB sends x straight from R p to R m, so AB means apply B first, then A.
+  X["x in Rᵖ"] -- "multiply by B" --> Y["Bx in Rⁿ"]
+  Y -- "multiply by A" --> Z["A(Bx) in Rᵐ"]
+  X -. "multiply by AB: B first, then A" .-> Z
+```
 
 ### Example 1
 

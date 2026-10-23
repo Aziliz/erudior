@@ -64,6 +64,17 @@ change the determinant, and geometrically they shear the parallelogram along one
 keeps the same base and height, hence the same area. Every matrix can be sheared to a
 diagonal one this way (or has dependent columns, giving a flat parallelogram of area 0).
 
+```plot
+{"x": [-1, 8], "y": [-1, 3.5], "equal": true, "polygons": [{"points": [[0, 0], [3, 0], [7, 2], [4, 2]]}], "segments": [{"from": [0, 0], "to": [1, 2], "dashed": true}, {"from": [1, 2], "to": [4, 2], "dashed": true}, {"from": [3, 0], "to": [4, 2], "dashed": true}, {"from": [0, 0], "to": [3, 0], "arrow": true, "label": "u"}, {"from": [0, 0], "to": [4, 2], "arrow": true, "label": "v + u"}], "caption": "Column replacement v → v + u is a shear: the dashed parallelogram (u, v) and the shaded one (u, v + u) share base 3 and height 2, so both have area 6"}
+```
+
+The same argument works in three dimensions, where the volume of a parallelepiped is the area
+of its base times its height. A column replacement slides the top face around without
+changing its height above the base, so it leaves the volume alone, just as it leaves the
+determinant alone.
+
+![A slanted box spanned by vectors u, v and w from the origin. The base is the parallelogram spanned by u and v, and the height is the dashed perpendicular from the tip of w down to the base. Below: volume equals area of base times height, which equals the absolute value of det of u, v, w.](images/la-m6-parallelepiped.svg)
+
 ### Example 2
 
 Find the area of the parallelogram determined by $\mathbf{u} = (1, 3)$ and $\mathbf{v} = (4, -2)$.

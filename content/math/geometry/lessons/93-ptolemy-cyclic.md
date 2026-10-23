@@ -7,28 +7,17 @@ topics: [Cyclic quadrilaterals, Ptolemy's theorem]
 drills: [geo-h1-r2-trap-diagonal, geo-h1-r2-brahmagupta, geo-h1-r2-equilateral-arc]
 refs: [geo-ref-theorems, geo-ref-measure]
 ---
-Lesson 29 proved that the opposite angles of a cyclic quadrilateral are supplementary, and Lesson 30 showed that two chords crossing inside a circle cut each other into pieces with equal products. Both are facts about angles or pieces. This lesson asks two further questions. First, how can you tell that four points lie on one circle? Second, what do the sides and diagonals of a cyclic quadrilateral have to do with each other? The answer to the second is **Ptolemy's theorem**, a relation used nearly 1,900 years ago to build the first trigonometric tables, and it ties together several earlier lessons: it contains the Pythagorean theorem as a special case and produces the golden ratio from Lesson 90.
+Lesson 29 proved that the opposite angles of a cyclic quadrilateral are supplementary, and Lesson 30 showed that two chords crossing inside a circle cut each other into pieces with equal products. Both are facts about angles or pieces of diagonals. This lesson asks what the *sides* and the *whole diagonals* of a cyclic quadrilateral have to do with each other. The answer is **Ptolemy's theorem**, a relation used nearly 1,900 years ago to build the first trigonometric tables, and it ties together several earlier lessons: it contains the Pythagorean theorem as a special case and produces the golden ratio from Lesson 90.
 
-## When are four points on one circle?
+## Recognizing a cyclic quadrilateral
 
-Any three points not on a line lie on exactly one circle (the circumcircle, Lesson 15). Four points usually don't. Points that do lie on one circle are called **concyclic**, and a quadrilateral whose vertices are concyclic is a cyclic quadrilateral. There are three standard tests for a convex quadrilateral $ABCD$.
+Ptolemy's theorem applies only to quadrilaterals whose vertices lie on one circle, so first a quick recap of how to recognize one. Points that lie on one circle are **concyclic**. The Module 7 honors lesson, *Concyclic points and the circumcircle*, proves three tests for a convex quadrilateral $ABCD$; here they are without proofs:
 
-**Test 1: supplementary opposite angles.** If $m\angle A + m\angle C = 180^\circ$, then $ABCD$ is cyclic. This is the converse of the Lesson 29 theorem. *Why (a sketch):* draw the circle through $A$, $B$, $D$, and let line $DC$ meet it again at $C'$. Then $ABC'D$ is cyclic, so $m\angle BC'D = 180^\circ - m\angle A = m\angle BCD$. If $C$ were not $C'$, one of these two equal angles would be an exterior angle of $\triangle BCC'$ and the other a remote interior angle. But an exterior angle is always larger than each remote interior angle (it equals their sum, Lesson 10). So $C = C'$, and $C$ is on the circle.
+- **Opposite angles:** if $m\angle A + m\angle C = 180^\circ$, the quadrilateral is cyclic (the converse of the Lesson 29 theorem).
+- **Equal angles on one side:** if $\angle BAC \cong \angle BDC$ with $A$ and $D$ on the same side of $\overleftrightarrow{BC}$, the four points are concyclic.
+- **Equal products:** if the diagonals meet at $P$ and $PA \cdot PC = PB \cdot PD$, the quadrilateral is cyclic (the converse of the intersecting chords theorem from Lesson 30).
 
-**Test 2: equal angles on one side.** If $\angle BAC \cong \angle BDC$, with $A$ and $D$ on the same side of $\overleftrightarrow{BC}$, then $A$, $B$, $C$, $D$ are concyclic. (Both angles would then be inscribed angles on the same arc $BC$.)
-
-**Test 3: equal products.** If diagonals $\overline{AC}$ and $\overline{BD}$ meet at $P$ and $PA \cdot PC = PB \cdot PD$, then $ABCD$ is cyclic. This is the converse of the intersecting chords theorem (Lesson 30), proved with SAS similarity.
-
-These tests settle which special quadrilaterals are cyclic.
-
-| Quadrilateral | Cyclic? | Reason |
-|---|---|---|
-| Rectangle, square | always | opposite angles are $90^\circ + 90^\circ$ |
-| Isosceles trapezoid | always | base angles congruent, and same-side angles supplementary |
-| Parallelogram that isn't a rectangle | never | opposite angles are congruent, so supplementary only if both are $90^\circ$ |
-| Rhombus that isn't a square | never | it's a parallelogram that isn't a rectangle |
-| Kite | only with two right angles | the two congruent angles must be supplementary, so both are $90^\circ$ |
-| Trapezoid that isn't isosceles | never | its base angles differ, so a pair of opposite angles can't add to $180^\circ$ |
+By the first test, rectangles, squares and isosceles trapezoids are always cyclic, while a parallelogram is cyclic only when it is a rectangle (its opposite angles are congruent, so they can add to $180^\circ$ only as $90^\circ + 90^\circ$). This lesson adds a fourth test, Ptolemy's inequality, near the end; the chart collects all four.
 
 ```mermaid
 flowchart TD
@@ -101,7 +90,7 @@ A regular pentagon has side 1. Find its diagonal $d$.
 
 **Step 3.** Ptolemy: $AC \cdot BD = AB \cdot CD + AD \cdot BC$ gives $d^2 = 1 + d$, so $d^2 - d - 1 = 0$.
 
-**Step 4.** The positive root is $d = \dfrac{1 + \sqrt5}{2} \approx 1.618$, the golden ratio $\varphi$ that Lesson 90 constructed with compass and straightedge. That is exactly why the regular pentagon is constructible.
+**Step 4.** The positive root is $d = \dfrac{1 + \sqrt5}{2} \approx 1.618$, the golden ratio $\varphi$ that Lesson 90 constructed with compass and straightedge. That is exactly why the regular pentagon is constructible. (The Module 6 honors lesson on the golden ratio reaches the same ratio with similar golden triangles; Ptolemy's theorem gets there in one line.)
 
 ### Example 4
 
@@ -132,14 +121,12 @@ Let $d$ shrink to 0 and the quadrilateral becomes a triangle: the formula turns 
 
 - **Using a vertex order that skips around.** Ptolemy's theorem pairs the diagonals ($AC$, $BD$) against the *opposite sides* ($AB$ with $CD$, $AD$ with $BC$) for vertices in order around the circle. Pairing a side with a diagonal is wrong.
 - **Applying it to a quadrilateral that isn't cyclic.** For a non-square rhombus, for example, the two sides of Ptolemy's relation differ.
-- **Assuming every trapezoid or kite is cyclic.** Only isosceles trapezoids, and kites with two right angles, are.
-- **Testing the wrong angles.** For Test 1 add *opposite* angles. Consecutive angles of a parallelogram always add to $180^\circ$, and that proves nothing.
+- **Testing the wrong angles.** To check that a quadrilateral is cyclic, add *opposite* angles. Consecutive angles of a parallelogram always add to $180^\circ$, and that proves nothing.
 - **Using Brahmagupta's formula on any quadrilateral.** Four side lengths don't fix a quadrilateral's shape; the formula is the area only of the cyclic one.
 
 ## Key points
 
-- Four points are concyclic if opposite angles of the quadrilateral are supplementary, if two angles on the same side of a chord are congruent, or if the diagonal pieces have equal products.
-- Rectangles and isosceles trapezoids are always cyclic; non-rectangular parallelograms never are.
+- Check that a quadrilateral is cyclic before using Ptolemy's theorem or Brahmagupta's formula: supplementary opposite angles, equal angles on one side, equal diagonal products, or equality in Ptolemy's inequality.
 - Ptolemy: in a cyclic quadrilateral $ABCD$, $AC \cdot BD = AB \cdot CD + AD \cdot BC$. The proof splits a diagonal with a point $K$ and uses two pairs of similar triangles.
 - Special cases: the Pythagorean theorem (rectangle), the golden ratio (regular pentagon), and $PA = PB + PC$ (equilateral triangle).
 - Ptolemy's inequality holds for every quadrilateral, with equality only for cyclic ones. Brahmagupta's formula gives the area of a cyclic quadrilateral from its sides.

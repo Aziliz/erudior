@@ -1,0 +1,28 @@
+# Module 10, round 2: cards for honors lessons 41h1, 41h2, 41h3
+- {front: 'Projective plane axioms', back: 'P1: two points are on exactly one line. P2: two lines meet in exactly one point. P3: four points exist, no three on a line.', topic: Projective planes}
+- {front: 'Fano plane', back: '7 points, 7 lines, 3 points per line, 3 lines per point: the smallest projective plane (order 2).', topic: Projective planes}
+- {front: 'Projective plane of order $n$: counts', back: '$n + 1$ points per line, $n + 1$ lines per point, $n^2 + n + 1$ points and $n^2 + n + 1$ lines.', topic: Projective planes}
+- {front: 'Which orders of projective planes exist?', back: 'Every prime power (2, 3, 4, 5, 7, 8, 9, …). Not 6 (Bruck–Ryser, 1949) and not 10 (computer search, 1989). 12 is unknown.', topic: Projective planes}
+- {front: 'Principle of duality', back: 'In a projective plane, swap point and line in any theorem and you get another theorem.', topic: Projective planes}
+- {front: 'Dual of P3', back: 'There are four lines, no three through one point (a theorem, proved from P3 with lines $AB$, $BC$, $CD$, $DA$).', topic: Projective planes}
+- {front: 'Affine plane of order $n$: counts', back: '$n^2$ points, $n^2 + n$ lines, $n$ points per line, $n + 1$ parallel classes of $n$ lines.', topic: Finite geometries}
+- {front: 'Projective to affine', back: 'Delete one line and its points; lines that met there become parallel.', topic: Finite geometries}
+- {front: 'Affine to projective', back: 'Add a point at infinity to each parallel class and one new line through all of them.', topic: Finite geometries}
+- {front: 'The four-point geometry inside the Fano plane', back: 'Delete line $DEF$: points $A, B, C, G$ and six two-point lines, the affine plane of order 2.', topic: Finite geometries}
+- {front: 'Saccheri–Legendre theorem', back: 'In neutral geometry every triangle''s angle sum is at most $180^\circ$.', topic: Neutral geometry}
+- {front: 'Legendre''s construction', back: '$M$ = midpoint of $\overline{BC}$, extend $AM$ to $E$ with $ME = AM$. $\triangle AEC$ has the same angle sum, and one of its angles is at most $\tfrac12\angle A$.', topic: Neutral geometry}
+- {front: 'Two angles of a triangle (neutral geometry)', back: 'Always add to less than $180^\circ$, by the Exterior Angle Inequality.', topic: Neutral geometry}
+- {front: 'Why the sphere isn''t neutral geometry', back: 'Its lines close up and two opposite points lie on many lines, so the Exterior Angle Inequality fails there.', topic: Neutral geometry}
+- {front: 'Defect is additive', back: 'Cut a triangle from a vertex to the opposite side: defect(whole) = defect(piece 1) + defect(piece 2).', topic: Neutral geometry}
+- {front: 'All-or-nothing theorem', back: 'If one triangle has angle sum $180^\circ$, all do (Euclidean); otherwise every triangle has sum below $180^\circ$ (hyperbolic).', topic: Neutral geometry}
+- {front: 'Saccheri quadrilateral', back: 'Base with two congruent legs perpendicular to it; summit opposite the base. Summit angles congruent (SAS, then SSS).', topic: Saccheri quadrilaterals}
+- {front: 'Saccheri''s three hypotheses', back: 'Summit angles right: Euclidean. Acute: hyperbolic. Obtuse: impossible in neutral geometry.', topic: Saccheri quadrilaterals}
+- {front: 'Lambert quadrilateral', back: 'Three right angles; the fourth is right (Euclidean) or acute (hyperbolic). Half of a Saccheri quadrilateral.', topic: Saccheri quadrilaterals}
+- {front: 'Buffon''s needle setup', back: '$x$ (center to nearest line) uniform on $[0, \tfrac d2]$, $\theta$ uniform on $[0, \tfrac{\pi}{2}]$; crosses when $x \le \tfrac{\ell}{2}\sin\theta$.', topic: Buffon's needle}
+- {front: 'Buffon''s needle as an area', back: 'Favorable area $\tfrac{\ell}{2}$ (under $\tfrac{\ell}{2}\sin\theta$) over rectangle area $\tfrac{\pi d}{4}$ gives $\tfrac{2\ell}{\pi d}$.', topic: Buffon's needle}
+- {front: 'Barbier''s argument', back: 'Expected crossings $= c \cdot$ length for any shape; a circle of diameter $d$ crosses exactly twice, so $c = \tfrac{2}{\pi d}$.', topic: Buffon's needle}
+- {front: '$\tfrac{2\ell}{\pi d}$ when $\ell > d$', back: 'The expected number of crossings, not a probability (it can exceed 1).', topic: Buffon's needle}
+- {front: 'Estimating $\pi$ with needles', back: '$\pi \approx \dfrac{2\ell N}{d\,C}$ for $C$ crossings in $N$ drops; error shrinks like $\tfrac{1}{\sqrt N}$.', topic: Buffon's needle}
+- {front: 'Long chord condition', back: 'A chord is longer than the inscribed equilateral triangle''s side $r\sqrt3$ when its distance from the center is less than $\tfrac r2$.', topic: Random chords}
+- {front: 'Bertrand''s paradox: three answers', back: 'Random endpoints $\tfrac13$; random point on a radius $\tfrac12$; random midpoint $\tfrac14$.', topic: Random chords}
+- {front: 'Lesson of Bertrand''s paradox', back: '"At random" has no meaning until the random process is specified; each method is a different probability model.', topic: Random chords}

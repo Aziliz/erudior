@@ -1,0 +1,173 @@
+# Round 2 drills for la-m1 honors lessons (03h1 vector geometry, 03h2 sensitive systems)
+
+- id: la-m1-r2-section
+  title: Point dividing a segment in a given ratio
+  topic: Points and lines with vectors
+  vars:
+    p1: {min: -8, max: 8}
+    p2: {min: -8, max: 8}
+    q1: {min: -8, max: 8}
+    q2: {min: -8, max: 8}
+    rm: {min: 1, max: 4}
+    rn: {min: 1, max: 4}
+  where: ["gcd(rm, rn) == 1", "rm != rn", "p1 != q1", "p2 != q2"]
+  calc:
+    s: rm + rn + 0
+    d1: q1 - p1 + 0
+    d2: q2 - p2 + 0
+    np1: rn*p1 + 0
+    np2: rn*p2 + 0
+    mq1: rm*q1 + 0
+    mq2: rm*q2 + 0
+    t1: rn*p1 + rm*q1 + 0
+    t2: rn*p2 + rm*q2 + 0
+    r1: (rn*p1 + rm*q1)/(rm + rn) + 0
+    r2: (rn*p2 + rm*q2)/(rm + rn) + 0
+  prompt: |-
+    $P = ({p1}, {p2})$ and $Q = ({q1}, {q2})$. Find the point $R$ on segment $PQ$ with $PR : RQ = {rm} : {rn}$. Give each coordinate as a whole number or a fraction (like 7/3), not a decimal.
+  answers:
+    - {name: r1, label: '$x$-coordinate', kind: fraction}
+    - {name: r2, label: '$y$-coordinate', kind: fraction}
+  figure:
+    type: plot
+    equal: true
+    x: ['min(p1, q1) - 1', 'max(p1, q1) + 1']
+    y: ['min(p2, q2) - 1', 'max(p2, q2) + 1']
+    points:
+      - {at: [p1, p2], label: P}
+      - {at: [q1, q2], label: Q}
+    segments:
+      - {from: [p1, p2], to: [q1, q2]}
+  solution: |-
+    $R$ is $\frac{{rm}}{{s}}$ of the way from $P$ to $Q$, and $\overrightarrow{PQ} = ({d1}, {d2})$. By the section formula, the weight on $P$ is the part of the ratio next to $Q$:
+    $$\mathbf{r} = \frac{{rn}\,\mathbf{p} + {rm}\,\mathbf{q}}{{s}} = \left(\frac{{np1} + ({mq1})}{{s}},\ \frac{{np2} + ({mq2})}{{s}}\right) = \left(\frac{{t1}}{{s}},\ \frac{{t2}}{{s}}\right).$$
+    So $R =$ **$\left({r1:texfrac},\ {r2:texfrac}\right)$**.
+
+- id: la-m1-r2-centroid
+  title: Centroid of a triangle
+  topic: Vector proofs
+  vars:
+    a1: {min: -7, max: 7}
+    a2: {min: -7, max: 7}
+    b1: {min: -7, max: 7}
+    b2: {min: -7, max: 7}
+    c1: {min: -7, max: 7}
+    c2: {min: -7, max: 7}
+  where: ["(b1 - a1)*(c2 - a2) - (b2 - a2)*(c1 - a1) != 0"]
+  calc:
+    s1: a1 + b1 + c1 + 0
+    s2: a2 + b2 + c2 + 0
+    g1: (a1 + b1 + c1)/3 + 0
+    g2: (a2 + b2 + c2)/3 + 0
+  prompt: |-
+    Find the centroid $G$ of the triangle with vertices $A = ({a1}, {a2})$, $B = ({b1}, {b2})$ and $C = ({c1}, {c2})$. Give each coordinate as a whole number or a fraction (like 7/3), not a decimal.
+  answers:
+    - {name: g1, label: '$x$-coordinate', kind: fraction}
+    - {name: g2, label: '$y$-coordinate', kind: fraction}
+  figure:
+    type: plot
+    equal: true
+    x: [-8, 8]
+    y: [-8, 8]
+    polygons:
+      - {points: [[a1, a2], [b1, b2], [c1, c2]]}
+    points:
+      - {at: [a1, a2], label: A}
+      - {at: [b1, b2], label: B}
+      - {at: [c1, c2], label: C}
+  solution: |-
+    The centroid is the average of the vertices, $\mathbf{g} = \frac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$. Add the coordinates: $x$: ${a1} + ({b1}) + ({c1}) = {s1}$ and $y$: ${a2} + ({b2}) + ({c2}) = {s2}$. Divide by 3: $G =$ **$\left({g1:texfrac},\ {g2:texfrac}\right)$**.
+
+- id: la-m1-r2-parallelogram
+  title: Fourth vertex and center of a parallelogram
+  topic: Vector proofs
+  vars:
+    a1: {min: -6, max: 6}
+    a2: {min: -6, max: 6}
+    b1: {min: -6, max: 6}
+    b2: {min: -6, max: 6}
+    c1: {min: -6, max: 6}
+    c2: {min: -6, max: 6}
+  where: ["(b1 - a1)*(c2 - a2) - (b2 - a2)*(c1 - a1) != 0", "abs(a1 + c1 - b1) <= 9", "abs(a2 + c2 - b2) <= 9"]
+  calc:
+    dd1: a1 + c1 - b1 + 0
+    dd2: a2 + c2 - b2 + 0
+    m1: (a1 + c1)/2 + 0
+    m2: (a2 + c2)/2 + 0
+  prompt: |-
+    $ABCD$ is a parallelogram with its vertices in that order, and $A = ({a1}, {a2})$, $B = ({b1}, {b2})$, $C = ({c1}, {c2})$. Find $D$ and the point $M$ where the diagonals cross. Give fractions (like 3/2), not decimals, where needed.
+  answers:
+    - {name: dd1, label: '$D$: $x$-coordinate', kind: fraction}
+    - {name: dd2, label: '$D$: $y$-coordinate', kind: fraction}
+    - {name: m1, label: '$M$: $x$-coordinate', kind: fraction}
+    - {name: m2, label: '$M$: $y$-coordinate', kind: fraction}
+  figure:
+    type: plot
+    equal: true
+    x: [-10, 10]
+    y: [-10, 10]
+    points:
+      - {at: [a1, a2], label: A}
+      - {at: [b1, b2], label: B}
+      - {at: [c1, c2], label: C}
+    segments:
+      - {from: [a1, a2], to: [b1, b2]}
+      - {from: [b1, b2], to: [c1, c2]}
+  solution: |-
+    In a parallelogram $\overrightarrow{AB} = \overrightarrow{DC}$, so $\mathbf{b} - \mathbf{a} = \mathbf{c} - \mathbf{d}$ and $\mathbf{d} = \mathbf{a} + \mathbf{c} - \mathbf{b} = ({a1} + ({c1}) - ({b1}),\ {a2} + ({c2}) - ({b2})) = ({dd1}, {dd2})$. The diagonals bisect each other, so they cross at the midpoint of $AC$: $\frac{\mathbf{a} + \mathbf{c}}{2} = \left({m1:texfrac},\ {m2:texfrac}\right)$. **Answer:** $D = ({dd1}, {dd2})$, $M = \left({m1:texfrac},\ {m2:texfrac}\right)$.
+
+- id: la-m1-r2-perturb
+  title: A nearly parallel system with changed data
+  topic: Conditioning
+  vars:
+    hh: {choices: [0.001, 0.002, 0.005]}
+    ee: {choices: [0.001, 0.002, 0.003, -0.001, -0.002]}
+  where: ["hh != ee"]
+  calc:
+    k: 1 + hh
+    c: 2 + hh
+    c2: 2 + hh + ee
+    rhs: hh + ee
+    ys: round(1 + ee/hh, 4)
+    xs: round(1 - ee/hh, 4)
+    dy: round(abs(ee/hh), 4)
+    ae: abs(ee)
+  prompt: |-
+    The system $x + y = 2$, $\;x + {k:dp3}\,y = {c:dp3}$ has the solution $x = 1$, $y = 1$. The second right side is changed to ${c2:dp3}$. Find the new solution.
+  answers:
+    - {name: xs, label: '$x =$', tolerance: 0.0001}
+    - {name: ys, label: '$y =$', tolerance: 0.0001}
+  solution: |-
+    Subtract the first equation from the second: ${hh:dp3}\,y = {c2:dp3} - 2 = {rhs:dp3}$, so $y = \frac{{rhs:dp3}}{{hh:dp3}} =$ **{ys}**. Then $x = 2 - y =$ **{xs}**. The data changed by only {ae:dp3}, but $y$ moved by {dy}: the two lines are nearly parallel, so the system is ill-conditioned.
+
+- id: la-m1-r2-cond
+  title: Condition number of a 2×2 matrix (row-sum norm)
+  topic: Conditioning
+  vars:
+    a11: {min: -6, max: 6}
+    a12: {min: -6, max: 6}
+    a21: {min: -6, max: 6}
+    a22: {min: -6, max: 6}
+  where: ["a11*a22 - a12*a21 != 0", "abs(a11*a22 - a12*a21) <= 5", "a11 != 0", "a12 != 0", "a21 != 0", "a22 != 0"]
+  calc:
+    det: a11*a22 - a12*a21 + 0
+    adet: abs(a11*a22 - a12*a21)
+    rA1: abs(a11) + abs(a12)
+    rA2: abs(a21) + abs(a22)
+    nA: max(abs(a11) + abs(a12), abs(a21) + abs(a22))
+    rI1: (abs(a22) + abs(a12))/abs(a11*a22 - a12*a21)
+    rI2: (abs(a21) + abs(a11))/abs(a11*a22 - a12*a21)
+    nI: max(abs(a22) + abs(a12), abs(a21) + abs(a11))/abs(a11*a22 - a12*a21)
+    kap: max(abs(a11) + abs(a12), abs(a21) + abs(a22))*max(abs(a22) + abs(a12), abs(a21) + abs(a11))/abs(a11*a22 - a12*a21)
+    n12: -a12 + 0
+    n21: -a21 + 0
+  prompt: |-
+    For $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$, find the row-sum norms $\|A\|_\infty$ and $\|A^{-1}\|_\infty$ and the condition number $\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$. Give exact values (fractions are fine) or round to 2 decimal places.
+  answers:
+    - {name: nA, label: '$\|A\|_\infty =$', tolerance: 0.006}
+    - {name: nI, label: '$\|A^{-1}\|_\infty =$', tolerance: 0.006}
+    - {name: kap, label: '$\kappa_\infty(A) =$', tolerance: 0.006}
+  solution: |-
+    Row sums of $A$ (absolute values): {rA1} and {rA2}, so $\|A\|_\infty = {nA}$. The determinant is $({a11})({a22}) - ({a12})({a21}) = {det}$, so
+    $$A^{-1} = \frac{1}{{det}}\begin{bmatrix} {a22} & {n12} \\ {n21} & {a11}\end{bmatrix}.$$
+    Its absolute row sums are ${rI1:texfrac}$ and ${rI2:texfrac}$, so $\|A^{-1}\|_\infty = {nI:texfrac}$. Then $\kappa_\infty(A) = {nA} \cdot {nI:texfrac} =$ **${kap:texfrac} \approx {kap:num2}$**.

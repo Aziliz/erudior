@@ -1,0 +1,27 @@
+# Module 5, round 2: notecards for the honors lessons
+- {front: 'Plan of a concurrency proof', back: 'Let two of the three lines meet, then show the meeting point has a property that puts it on the third line.', topic: Concurrency proofs}
+- {front: 'Why the centroid is $\tfrac23$ of the way along each median', back: 'With medians $\overline{AD}$, $\overline{BE}$ meeting at $G$ and $M$, $N$ the midpoints of $\overline{AG}$, $\overline{BG}$: $MNDE$ is a parallelogram (two midsegments), so $AM = MG = GD$.', topic: Concurrency proofs}
+- {front: 'Why the altitudes are concurrent', back: 'They lie on the perpendicular bisectors of the anticomplementary triangle (lines through each vertex parallel to the opposite side), which meet at its circumcenter.', topic: Concurrency proofs}
+- {front: 'Medial triangle', back: 'The triangle formed by the three midsegments. $\triangle ABC$ is the medial triangle of its anticomplementary triangle.', topic: Concurrency proofs}
+- {front: 'Euler line relation', back: '$3G = H + 2O$, so $G$ is on $\overline{OH}$ with $OG : GH = 1 : 2$ and $H = 3G - 2O$.', topic: Euler line}
+- {front: 'Coordinates for the Euler line proof', back: '$A(a, 0)$, $B(b, 0)$, $C(0, c)$: $G = (\tfrac{a+b}3, \tfrac c3)$, $H = (0, -\tfrac{ab}{c})$, $O = (\tfrac{a+b}2, \tfrac{c^2 + ab}{2c})$.', topic: Euler line}
+- {front: 'Is the incenter on the Euler line?', back: 'Only when the triangle is isosceles (all four centers then lie on the axis of symmetry).', topic: Euler line}
+- {front: 'Right triangle: circumcenter and orthocenter', back: 'Circumcenter: midpoint of the hypotenuse (complete the triangle to a rectangle). Orthocenter: the right-angle vertex.', topic: Concurrency proofs}
+- {front: 'Varignon''s theorem', back: 'The midpoints of the sides of any quadrilateral form a parallelogram with sides parallel to the diagonals and half as long.', topic: Varignon's theorem}
+- {front: 'Varignon parallelogram: perimeter and area', back: 'Perimeter $= AC + BD$ (sum of the diagonals); area $=$ half the quadrilateral''s area.', topic: Varignon's theorem}
+- {front: 'When is the Varignon parallelogram a rectangle? A rhombus?', back: 'Rectangle: the diagonals are perpendicular. Rhombus: the diagonals are congruent. Square: both.', topic: Varignon's theorem}
+- {front: 'Varignon parallelogram of a rhombus, rectangle, kite, isosceles trapezoid', back: 'Rhombus → rectangle; rectangle → rhombus; kite → rectangle; isosceles trapezoid → rhombus.', topic: Varignon's theorem}
+- {front: 'Diagonals bisect each other and are congruent', back: 'Rectangle. (Add perpendicular: square.)', topic: Classifying quadrilaterals}
+- {front: 'Diagonals bisect each other and are perpendicular', back: 'Rhombus. (Add congruent: square.)', topic: Classifying quadrilaterals}
+- {front: 'One diagonal is the perpendicular bisector of the other (they don''t bisect each other)', back: 'Kite: the endpoints of the bisecting diagonal are each equidistant from the ends of the other.', topic: Classifying quadrilaterals}
+- {front: 'Congruent, perpendicular diagonals: square?', back: 'Not necessarily. The diagonals must also bisect each other.', topic: Classifying quadrilaterals}
+- {front: 'Inclusive vs exclusive trapezoid', back: 'Inclusive: at least one pair of parallel sides (parallelograms count). Exclusive (this course): exactly one pair.', topic: Classifying quadrilaterals}
+- {front: 'Turning around any polygon', back: 'Count left turns positive and right turns negative: the turns add to $360^\circ$, so the angle sum is $(n - 2) \cdot 180^\circ$ even for concave polygons.', topic: Turning and star polygons}
+- {front: 'Star polygon $\{n/k\}$', back: 'Join every $k$th of $n$ points on a circle; needs $k$ and $n$ with no common factor and $1 < k < \tfrac n2$.', topic: Turning and star polygons}
+- {front: 'Tip angle of $\{n/k\}$', back: '$180^\circ - \dfrac{360^\circ k}{n}$; the tips add to $180(n - 2k)$ degrees. Pentagram: $36^\circ$ each, $180^\circ$ total.', topic: Turning and star polygons}
+- {front: 'Three regular polygons around a point', back: '$\tfrac1a + \tfrac1b + \tfrac1c = \tfrac12$. (Four: the reciprocals add to 1.)', topic: Tilings}
+- {front: 'How many ways regular polygons fit around a point', back: '17 combinations of polygons, 21 vertex types (order counted).', topic: Tilings}
+- {front: 'Odd-polygon rule for $a.b.c$', back: 'If $a$ is odd and every vertex is $a.b.c$, then $b = c$, because the neighbors around the $a$-gon must alternate. Rules out $3.7.42$, $4.5.20$, $5.5.10$ and others.', topic: Tilings}
+- {front: 'Tilings with every vertex alike', back: '11: three regular ($3^6$, $4^4$, $6^3$) and eight semiregular ($3.12.12$, $4.6.12$, $4.8.8$, $3.6.3.6$, $3.4.6.4$, $3.3.3.3.6$, $3.3.3.4.4$, $3.3.4.3.4$).', topic: Tilings}
+- {front: 'Reflex angle', back: 'An angle between $180^\circ$ and $360^\circ$. At a reflex vertex of a polygon the walk-around turn is negative (a right turn).', topic: Turning and star polygons}
+- {front: 'Vertex configuration $3.6.3.6$ vs $3.3.6.6$', back: 'Same polygons, different order around the vertex: different vertex types. $3.6.3.6$ is a semiregular tiling; $3.3.6.6$ only appears mixed with other vertex types.', topic: Tilings}

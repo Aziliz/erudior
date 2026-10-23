@@ -42,6 +42,23 @@ $$\det A = (-1)^r \cdot (\text{product of the diagonal entries of } U),$$
 where $r$ is the number of row interchanges used. This takes about $\tfrac23n^3$ operations,
 the same as solving a system.
 
+The flowchart below spells out the procedure one column at a time.
+
+```mermaid
+flowchart TD
+  accTitle: Computing a determinant by row reduction
+  accDescr: Set the swap count r to 0 and start at column 1. If the column has no nonzero entry on or below the diagonal, the determinant is 0. Otherwise, if the diagonal entry is 0, swap in a lower row that has a nonzero entry there and add 1 to r. Then use row replacements to clear the entries below the pivot, which does not change the determinant. Move to the next column and repeat. When every column is done, the matrix is triangular and det A equals minus 1 to the power r times the product of the diagonal entries.
+  A["Start: r = 0, first column"] --> B{"Nonzero entry on or below the diagonal?"}
+  B -- No --> Z["det A = 0"]
+  B -- Yes --> C{"Is the diagonal entry 0?"}
+  C -- Yes --> D["Swap in a lower row, add 1 to r"]
+  C -- No --> E["Clear below the pivot with replacements (det unchanged)"]
+  D --> E
+  E --> F{"More columns?"}
+  F -- Yes --> B
+  F -- No --> G["det A = (−1)^r × product of the diagonal"]
+```
+
 ### Example 1
 
 Compute $\det A$ for $A = \begin{bmatrix} 1 & 3 & 2 \\ 2 & 8 & 5 \\ -1 & 1 & 4\end{bmatrix}$.
@@ -79,6 +96,14 @@ everything we've said about rows is also true for *columns*: column replacements
 change the determinant, column swaps flip its sign, and so on. The inverse rule follows from
 $\det A \cdot \det A^{-1} = \det(AA^{-1}) = \det I = 1$. The last rule holds because $cA$
 multiplies each of the $n$ rows by $c$.
+
+For columns the rules have a picture. The columns $\mathbf{u}, \mathbf{v}$ of a $2 \times 2$
+matrix span a parallelogram whose area is $|\det A|$ (the next lesson proves this). Adding $\mathbf{u}$
+to $\mathbf{v}$ slides the top edge sideways (a shear), keeping the base and height; doubling
+$\mathbf{v}$ doubles the area; swapping the columns keeps the shape but reverses the direction
+of turning from the first column to the second, and that is what the sign records.
+
+![Three panels. Shear: replacing v by v + u slants the parallelogram but keeps its base and height, so the area stays 6. Scale: replacing v by 2v doubles the area from 6 to 12. Swap: exchanging u and v keeps the same parallelogram, but the turn from the first column to the second becomes clockwise, and the determinant changes from 6 to −6.](images/la-m6-colops.svg)
 
 Warning: there is no sum rule. In general $\det(A + B) \ne \det A + \det B$; try
 $A = B = I_2$: $\det(2I_2) = 4$, but $\det I_2 + \det I_2 = 2$.

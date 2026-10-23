@@ -8,7 +8,7 @@ topics: [Neutral geometry, Saccheri quadrilaterals]
 drills: [geo-m10-r2-defect-split, geo-m10-r2-saccheri]
 refs: [geo-ref-theorems]
 ---
-Lesson 40 described three geometries: Euclidean (angle sum $180^\circ$), hyperbolic (less) and spherical (more). This lesson asks what can be proved *before* choosing. Take every axiom of Euclidean geometry except the parallel postulate; the resulting system is called neutral geometry (or absolute geometry), and both Euclidean and hyperbolic geometry are models of it. You will prove that in neutral geometry no triangle's angles can add to more than $180^\circ$, see why that shuts spherical geometry out, and meet the four-sided figure that Girolamo Saccheri used in 1733 in a brave, failed attempt to prove the parallel postulate, which in hindsight was the first serious study of hyperbolic geometry.
+Lesson 40 described three geometries: Euclidean (angle sum $180^\circ$), hyperbolic (less) and spherical (more). This lesson asks what can be proved *before* choosing. Take every axiom of Euclidean geometry except the parallel postulate; the resulting system is called **neutral geometry** (or absolute geometry), and both Euclidean and hyperbolic geometry are models of it. You will prove that in neutral geometry no triangle's angles can add to more than $180^\circ$, see why that shuts spherical geometry out, and meet the four-sided figure that Girolamo Saccheri used in 1733 in a brave, failed attempt to prove the parallel postulate, which in hindsight was the first serious study of hyperbolic geometry.
 
 ## What neutral geometry can prove
 

@@ -16,6 +16,14 @@ the invertible ones. The bridge module gave the $2 \times 2$ formula; this lesso
 inverses carefully, proves their basic properties, and gives an algorithm that works for any
 size.
 
+Here is the shear example in a picture: the shear $\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$ pushes
+the unit square over into a parallelogram, and the inverse shear
+$\begin{bmatrix} 1 & -1 \\ 0 & 1\end{bmatrix}$ pushes it back.
+
+```plot
+{"x": [-0.5, 2.5], "y": [-0.5, 1.6], "equal": true, "polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}, {"points": [[0, 0], [1, 0], [2, 1], [1, 1]]}], "points": [{"at": [0, 1], "label": "(0, 1)"}, {"at": [1, 1], "label": "(1, 1)"}, {"at": [2, 1], "label": "(2, 1)"}], "caption": "The shear sends the unit square to the slanted parallelogram ((0, 1) goes to (1, 1), (1, 1) goes to (2, 1)); the inverse shear sends it back"}
+```
+
 ## Definition
 
 An $n \times n$ matrix $A$ is **invertible** if there is an $n \times n$ matrix $C$ with
@@ -92,6 +100,23 @@ Check: $A(1, 1, 1) = (1 + 2,\ 1 + 1,\ 1 + 2 + 1) = (3, 2, 4)$. ✓
 Is $B = \begin{bmatrix} 1 & 2 \\ 3 & 6\end{bmatrix}$ invertible? Row-reducing $[\,B \;\; I\,]$,
 $R_2 \leftarrow R_2 - 3R_1$ gives $[\,0 \;\; 0 \;\; {-3} \;\; 1\,]$: the left block has a zero
 row, so it can never become $I$. $B$ is singular, as $ad - bc = 6 - 6 = 0$ confirms.
+
+The chart sums up the decision. (To solve a single system $A\mathbf{x} = \mathbf{b}$, you don't
+need $A^{-1}$ at all: row-reduce $[\,A \;\; \mathbf{b}\,]$.)
+
+```mermaid
+flowchart TD
+  accTitle: Finding an inverse, or finding out there is none
+  accDescr: Start with a square matrix A. If it is 2 by 2, compute ad minus bc: if that is 0, A is singular; otherwise use the 2 by 2 formula. If A is larger, row-reduce the augmented matrix A I. If the left block becomes I, the right block is the inverse; if a zero row appears in the left block, A is singular.
+  A["Square matrix A"] --> B{"Is A 2 × 2?"}
+  B -- yes --> C{"Is ad − bc = 0?"}
+  C -- no --> F["Use the 2 × 2 formula"]
+  C -- yes --> S["Singular: no inverse"]
+  B -- no --> D["Row-reduce [ A  I ]"]
+  D --> E{"Does the left block become I?"}
+  E -- yes --> G["The right block is the inverse"]
+  E -- "no: a zero row appears" --> S
+```
 
 ## Common mistakes
 

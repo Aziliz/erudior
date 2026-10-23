@@ -117,7 +117,7 @@ flowchart TD
   D -- "A length ratio" --> G["Read the ratio from that scalar"]
 ```
 
-**The midsegment theorem.** In triangle $ABC$, let $M$ and $N$ be the midpoints of $AB$ and
+*The midsegment theorem.* In triangle $ABC$, let $M$ and $N$ be the midpoints of $AB$ and
 $AC$. The segment $MN$ is called a **midsegment**. Then
 
 $$\overrightarrow{MN} = \mathbf{n} - \mathbf{m} = \frac{\mathbf{a} + \mathbf{c}}{2} - \frac{\mathbf{a} + \mathbf{b}}{2} = \frac{\mathbf{c} - \mathbf{b}}{2} = \tfrac12\,\overrightarrow{BC}.$$
@@ -125,14 +125,14 @@ $$\overrightarrow{MN} = \mathbf{n} - \mathbf{m} = \frac{\mathbf{a} + \mathbf{c}}
 So the midsegment is parallel to the third side and exactly half as long. Nothing about the
 triangle's shape was assumed.
 
-**The diagonals of a parallelogram bisect each other.** $ABCD$ is a parallelogram when
+*The diagonals of a parallelogram bisect each other.* $ABCD$ is a parallelogram when
 $\overrightarrow{AB} = \overrightarrow{DC}$, that is, $\mathbf{b} - \mathbf{a} = \mathbf{c} - \mathbf{d}$.
 Rearranged, $\mathbf{a} + \mathbf{c} = \mathbf{b} + \mathbf{d}$. Divide by 2: the midpoint of
 diagonal $AC$ equals the midpoint of diagonal $BD$. One point is the midpoint of both diagonals,
 which is exactly what "bisect each other" means. The same equation gives the missing corner of a
 parallelogram: $\mathbf{d} = \mathbf{a} + \mathbf{c} - \mathbf{b}$.
 
-**The medians meet at the centroid.** A **median** of a triangle joins a vertex to the midpoint
+*The medians meet at the centroid.* A **median** of a triangle joins a vertex to the midpoint
 of the opposite side. Go $\frac23$ of the way from $A$ along its median to the midpoint
 $\frac{\mathbf{b} + \mathbf{c}}{2}$:
 

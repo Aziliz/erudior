@@ -53,6 +53,10 @@ Note the sign: the operation *subtracts* $\ell_{ij}$ times the pivot row, and $L
 $+\ell_{ij}$. Equivalently, $\ell_{ij}$ is (entry being cleared) ÷ (pivot), computed at the
 moment you clear it.
 
+The picture shows where everything goes in the $4 \times 4$ case.
+
+![The factorization A = LU for a 4 by 4 matrix. L has 1s on its diagonal, zeros above it, and the multipliers l21, l31, l32, l41, l42, l43 below it. U has the pivots p1 to p4 on its diagonal, other entries of the echelon form above it, and zeros below it.](images/la-m5-lu-shape.svg)
+
 ### Example 1
 
 Find an LU factorization of $A = \begin{bmatrix} 2 & 1 & -1 \\ 4 & 5 & 1 \\ -2 & 2 & 6\end{bmatrix}$.
@@ -73,6 +77,19 @@ Use the factorization to solve $A\mathbf{x} = \mathbf{b}$ with $\mathbf{b} = (-1
 
 So $\mathbf{x} = (1, -1, 2)$. For another right-hand side you'd redo only these two short
 substitutions.
+
+When is the factorization worth it? The chart gives the rule of thumb.
+
+```mermaid
+flowchart TD
+  accTitle: When to use the LU factorization
+  accDescr: To solve Ax = b, first ask whether there are many right-hand sides with the same A. If there is just one, row-reduce the augmented matrix A b. If there are many, factor A = LU once, using PA = LU if a row swap is needed. Then for each b, forward-substitute to solve Ly = b, and back-substitute to solve Ux = y, which gives x.
+  S["Solve Ax = b"] --> Q{"Many right sides b with the same A?"}
+  Q -- "no, just one" --> R["Row-reduce [ A  b ]"]
+  Q -- yes --> F["Factor A = LU once; PA = LU if a row swap is needed"]
+  F --> Y["For each b: forward-substitute Ly = b"]
+  Y --> X["Back-substitute Ux = y to get x"]
+```
 
 ## When there's no LU factorization
 

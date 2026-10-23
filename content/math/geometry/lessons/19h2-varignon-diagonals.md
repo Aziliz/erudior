@@ -5,7 +5,7 @@ title: 'Honors: Varignon''s theorem and classifying quadrilaterals by their diag
 minutes: 45
 honors: true
 topics: [Varignon's theorem, Classifying quadrilaterals]
-drills: [geo-m5-r2-varignon, geo-m5-r2-classify]
+drills: [geo-m5-r2-varignon]
 refs: [geo-ref-theorems, geo-ref-coord]
 ---
 Lesson 18 showed that "the diagonals bisect each other" is the quickest test for a parallelogram, and Lesson 19 showed that each special parallelogram is marked by its diagonals: congruent for a rectangle, perpendicular for a rhombus. This lesson pushes both ideas further. First, a surprise: join the midpoints of the sides of *any* quadrilateral, however lopsided, and you always get a parallelogram. Second, the diagonals alone are enough to classify a quadrilateral, and knowing exactly which diagonal facts are *enough* trains the careful "if and only if" thinking that proofs need. The lesson ends with a question that has no single right answer: should a square count as a rectangle, and a parallelogram as a trapezoid?

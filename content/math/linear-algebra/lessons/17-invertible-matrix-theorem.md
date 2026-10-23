@@ -56,6 +56,18 @@ row-reducing $[\,A \;\; I\,]$ yields $[\,I \;\; A^{-1}\,]$. It also proves:
 
 > *Theorem.* An $n \times n$ matrix $A$ is invertible if and only if $A$ is row equivalent to $I_n$. In that case $A = E_1^{-1}E_2^{-1}\cdots E_k^{-1}$ is a product of elementary matrices.
 
+The chain of products, step by step:
+
+```mermaid
+flowchart TD
+  accTitle: Row reduction as multiplication by elementary matrices
+  accDescr: Start with A. The first row operation multiplies A on the left by an elementary matrix E1, giving E1 A. The second multiplies by E2, giving E2 E1 A. After k operations the result is Ek times and so on times E1 times A, which equals I. Therefore the product Ek through E1 is the inverse of A.
+  A["A"] -- "first row operation: multiply by E₁" --> B["E₁A"]
+  B -- "second row operation: multiply by E₂" --> C["E₂E₁A"]
+  C -- "more row operations" --> D["Eₖ ⋯ E₂E₁A = I"]
+  D --> E["So Eₖ ⋯ E₂E₁ = A⁻¹"]
+```
+
 ## The invertible matrix theorem
 
 For square matrices, many properties we have studied turn out to be the same property.
@@ -79,6 +91,26 @@ every column (statements 4–6, from the independence test and the one-to-one th
 a pivot in every row (statements 7–9, from the spanning theorem). Statement 2 is the RREF
 version of 3, and we just showed it's equivalent to 1. Statements 10 and 11 say a one-sided
 inverse is enough for square matrices: $CA = I$ forces $A\mathbf{x} = \mathbf{0} \Rightarrow \mathbf{x} = CA\mathbf{x} = \mathbf{0}$ (statement 4); $AD = I$ forces $A(D\mathbf{b}) = \mathbf{b}$ (statement 7).
+
+The diagram shows that structure: everything hangs on the count of pivots, which for a square
+matrix means a pivot in every column and in every row at the same time. (Statements 10–12 join
+at the top, through invertibility.)
+
+```mermaid
+flowchart TD
+  accTitle: How the invertible matrix theorem fits together
+  accDescr: For a square n by n matrix, A is invertible exactly when A is row equivalent to I, exactly when A has n pivot positions. For a square matrix, n pivots means a pivot in every column, which matches three statements: Ax = 0 has only the trivial solution, the columns are linearly independent, and x maps to Ax is one-to-one. It also means a pivot in every row, which matches three more: Ax = b has a solution for every b, the columns span R n, and x maps to Ax is onto. All of these stand or fall together.
+  INV["A is invertible"] --- RE["A is row equivalent to I"]
+  RE --- NP["A has n pivot positions"]
+  NP --- COL["A pivot in every column"]
+  NP --- ROW["A pivot in every row"]
+  COL --- C1["Ax = 0 has only the trivial solution"]
+  C1 --- C2["Columns are linearly independent"]
+  C2 --- C3["x ↦ Ax is one-to-one"]
+  ROW --- R1["Ax = b is solvable for every b"]
+  R1 --- R2["Columns span Rⁿ"]
+  R2 --- R3["x ↦ Ax is onto"]
+```
 
 The theorem's power is in the negations. If any one statement fails, they *all* fail. A
 singular matrix has dependent columns, a free variable, a non-trivial null solution, columns

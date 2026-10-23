@@ -28,6 +28,12 @@ $A$. The $(i, j)$ **cofactor** is the minor with a sign attached:
 
 $$C_{ij} = (-1)^{i+j}\det A_{ij}.$$
 
+The picture shows how $A_{23}$ is formed from a $4 \times 4$ matrix: cross out row 2 and
+column 3 (the row and column of the entry $a_{23}$), and the nine entries left over, kept in
+their original order, make the $3 \times 3$ matrix $A_{23}$.
+
+![A 4 by 4 matrix with row 2 and column 3 crossed out and the entry a23 boxed where they meet; an arrow points to the 3 by 3 matrix A23 made of the nine entries that remain. Below: the minor is det A23 and the cofactor C23 is minus det A23.](images/la-m6-minor.svg)
+
 The signs $(-1)^{i+j}$ form a checkerboard starting with $+$ in the top left:
 
 $$\begin{bmatrix} + & - & + & \cdots \\ - & + & - & \cdots \\ + & - & + & \cdots \\ \vdots & & & \ddots\end{bmatrix}$$
@@ -92,6 +98,22 @@ Cofactor expansion of an $n \times n$ matrix with no zeros needs about $n!$ mult
 For $n = 25$ that's around $1.5 \times 10^{25}$, far beyond any computer. Cofactor
 expansion is for small or sparse matrices and for theory; the row-reduction method in the
 next lesson takes about $n^3$ operations.
+
+The flowchart sums up which method to reach for. The row-reduction method in its last box is
+the subject of the next lesson.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method to compute a determinant
+  accDescr: Start with a square matrix. If it is 2 by 2, use ad minus bc. Otherwise, if it is triangular, multiply the diagonal entries. Otherwise, if some row or column is mostly zeros, expand along it by cofactors and repeat on the smaller determinants. Otherwise, row reduce to echelon form and multiply the pivots, changing the sign once for each row swap.
+  S["Square matrix A"] --> Q1{"Is it 2 by 2?"}
+  Q1 -- Yes --> F1["det A = ad − bc"]
+  Q1 -- No --> Q2{"Triangular?"}
+  Q2 -- Yes --> F2["Multiply the diagonal entries"]
+  Q2 -- No --> Q3{"A row or column that is mostly zeros?"}
+  Q3 -- Yes --> F3["Cofactor-expand along it, then repeat on the smaller determinants"]
+  Q3 -- No --> F4["Row reduce: product of pivots, sign flips once per row swap"]
+```
 
 ## Common mistakes
 

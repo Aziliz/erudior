@@ -1,0 +1,55 @@
+# Round 2 glossary for la-m1 honors lessons
+- term: midpoint formula
+  definition: 'The midpoint of segment $AB$ has position vector $\mathbf{m} = \frac{\mathbf{a} + \mathbf{b}}{2}$: average the coordinates.'
+  topic: Points and lines with vectors
+- term: section formula
+  definition: 'The point $R$ on segment $AB$ with $AR : RB = m : n$ has position vector $\mathbf{r} = \frac{n\mathbf{a} + m\mathbf{b}}{m + n}$; it is $\frac{m}{m+n}$ of the way from $A$ to $B$.'
+  topic: Points and lines with vectors
+- term: direction vector
+  aliases: [direction vectors]
+  definition: 'A nonzero vector $\mathbf{d}$ along a line; the line through point $P$ is $\mathbf{r}(t) = \mathbf{p} + t\mathbf{d}$ for all real $t$.'
+  topic: Points and lines with vectors
+- term: collinear
+  definition: 'Lying on one line. $A$, $B$, $C$ (with $A \ne B$) are collinear exactly when $\overrightarrow{AC}$ is a scalar multiple of $\overrightarrow{AB}$.'
+  topic: Points and lines with vectors
+- term: midsegment
+  aliases: [midsegments]
+  definition: 'The segment joining the midpoints of two sides of a triangle; it is parallel to the third side and half as long.'
+  topic: Vector proofs
+- term: median
+  aliases: [medians, median of a triangle]
+  definition: 'A segment joining a vertex of a triangle to the midpoint of the opposite side.'
+  topic: Vector proofs
+- term: centroid
+  definition: 'The point where the three medians of a triangle meet, $\mathbf{g} = \frac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$; it is two-thirds of the way along each median from the vertex.'
+  topic: Vector proofs
+- term: ill-conditioned
+  aliases: [ill-conditioning, ill conditioned]
+  definition: 'Describes a system (or matrix) whose solution changes a lot when the data change a little, as with nearly parallel lines; the condition number is large.'
+  topic: Conditioning
+- term: well-conditioned
+  aliases: [well conditioned]
+  definition: 'Describes a system whose solution changes only a little when the data change a little; the condition number is small (close to 1).'
+  topic: Conditioning
+- term: maximum norm
+  aliases: [max norm]
+  definition: 'The size of a vector measured by its largest component in absolute value: $\|\mathbf{v}\|_\infty = \max_i |v_i|$.'
+  topic: Conditioning
+- term: row-sum norm
+  definition: 'The size of a matrix measured by its largest absolute row sum, $\|A\|_\infty = \max_i \sum_j |a_{ij}|$; it satisfies $\|A\mathbf{v}\|_\infty \le \|A\|_\infty\|\mathbf{v}\|_\infty$.'
+  topic: Conditioning
+- term: infinity-norm condition number
+  aliases: ['κ∞']
+  definition: '$\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$ for invertible $A$. It is at least 1 and bounds how much the relative error in $\mathbf{b}$ can be magnified in the solution of $A\mathbf{x} = \mathbf{b}$.'
+  topic: Conditioning
+- term: floating-point arithmetic
+  aliases: [floating point, floating-point]
+  definition: 'Computer arithmetic that stores each number as a fixed number of significant digits times a power of the base, rounding every result to fit.'
+  topic: Pivoting and round-off
+- term: round-off error
+  aliases: [round-off errors, rounding error, roundoff error]
+  definition: 'The small error made each time a result is rounded to the digits a computer (or calculator) keeps.'
+  topic: Pivoting and round-off
+- term: partial pivoting
+  definition: 'In elimination, swapping up the row whose entry in the current column (at or below the current row) is largest in absolute value, so every multiplier is at most 1 in size.'
+  topic: Pivoting and round-off

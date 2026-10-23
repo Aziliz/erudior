@@ -83,7 +83,7 @@ Find the hyperbola with foci $(\pm 5, 0)$ on which the distances to the foci dif
 **Check.** At $x = 5$: $\tfrac{y^2}{16} = \tfrac{25}{9} - 1 = \tfrac{16}{9}$, so $y = \tfrac{16}{3}$. The point $(5, \tfrac{16}{3})$ is $\tfrac{16}{3}$ from $(5, 0)$ and $\sqrt{100 + \tfrac{256}{9}} = \tfrac{34}{3}$ from $(-5, 0)$; the difference is $\tfrac{18}{3} = 6$ ✓.
 
 ```plot
-{"x": [-9, 9], "y": [-8, 8], "equal": true, "curves": [{"x": "3cosh(t)", "y": "4sinh(t)", "t": [-1.6, 1.6]}, {"x": "-3cosh(t)", "y": "4sinh(t)", "t": [-1.6, 1.6]}], "functions": [{"f": "4x/3", "dashed": true}, {"f": "-4x/3", "dashed": true}], "polygons": [{"points": [[-3, -4], [3, -4], [3, 4], [-3, 4]]}], "points": [{"at": [5, 0], "label": "F₂(5, 0)"}, {"at": [-5, 0], "label": "F₁(−5, 0)"}, {"at": [3, 0], "label": "(3, 0)"}, {"at": [-3, 0], "label": "(−3, 0)"}, {"at": [5, 5.333], "label": "(5, 16/3)"}], "caption": "x²/9 − y²/16 = 1: two branches between the dashed asymptotes y = ±4x/3, the diagonals of the 6-by-8 box."}
+{"x": [-9, 9], "y": [-8, 8], "equal": true, "curves": [{"x": "3cosh(t)", "y": "4sinh(t)", "t": [-1.6, 1.6]}, {"x": "-3cosh(t)", "y": "4sinh(t)", "t": [-1.6, 1.6]}], "functions": [{"f": "4x/3", "dashed": true}, {"f": "-4x/3", "dashed": true}], "polygons": [{"points": [[-3, -4], [3, -4], [3, 4], [-3, 4]]}], "points": [{"at": [5, 0], "label": "F₂(5, 0)"}, {"at": [-5, 0], "label": "F₁(−5, 0)"}, {"at": [3, 0], "label": "(3, 0)"}, {"at": [-3, 0]}, {"at": [5, 5.333], "label": "(5, 16/3)"}], "caption": "x²/9 − y²/16 = 1: two branches between the dashed asymptotes y = ±4x/3, the diagonals of the 6-by-8 box."}
 ```
 
 ### Example 4: locating a ship

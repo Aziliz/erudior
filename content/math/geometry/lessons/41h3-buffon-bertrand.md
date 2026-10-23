@@ -72,7 +72,7 @@ This argument skips some details (why "proportional to length" holds for every l
 
 A needle twice as long as the line spacing ($\ell = 2d$) is dropped. What does $\tfrac{2\ell}{\pi d}$ tell you?
 
-$\tfrac{2(2d)}{\pi d} = \tfrac{4}{\pi} \approx 1.27$. That is more than 1, so it can't be a probability. Steps 1–3 still hold, so it is the **expected number of crossings**: on average the long needle crosses about 1.27 lines. Only for $\ell \le d$, when the needle crosses at most once, does the expected number equal the probability.
+$\tfrac{2(2d)}{\pi d} = \tfrac{4}{\pi} \approx 1.27$. That is more than 1, so it can't be a probability. Steps 1–3 still hold, so it is the *expected number of crossings*: on average the long needle crosses about 1.27 lines. Only for $\ell \le d$, when the needle crosses at most once, does the expected number equal the probability.
 
 ## Estimating $\pi$ by experiment
 

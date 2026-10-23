@@ -1,0 +1,628 @@
+# Round 2 questions for geo-m8 (Area, surface area and volume)
+# ---- Core lessons: new question types
+- id: geo-m8-r2-q01
+  lesson: geo-area-poly
+  type: label
+  module_quiz: true
+  topic: Area of polygons
+  stem: 'Name the numbered parts of this trapezoid.'
+  image: {src: images/geo-m8-trapezoid-parts-blank.svg, alt: 'A trapezoid with a short top side and a long bottom side, both horizontal, and two slanted sides. A dashed vertical segment runs from the top side down to the bottom side, meeting it at a right angle, and a dotted horizontal segment joins the middles of the two slanted sides. Five parts are numbered.'}
+  labels:
+    - {x: 55.4, y: 28.9, text: Shorter base}
+    - {x: 64.3, y: 78.9, text: Longer base}
+    - {x: 35.7, y: 67.1, text: Height}
+    - {x: 17.0, y: 66.4, text: Leg}
+    - {x: 58.9, y: 53.9, text: Midsegment}
+  distractors: [Diagonal, Apothem]
+  explanation: |-
+    The two parallel sides are the bases (1 is the shorter, 2 the longer). The dashed segment 3 is perpendicular to both bases, so it is the height. The slanted side 4 is a leg. The dotted segment 5 joins the midpoints of the legs, so it is the midsegment, whose length is the average of the bases. A diagonal would join opposite corners, and an apothem belongs to a regular polygon.
+- id: geo-m8-r2-q02
+  lesson: geo-area-poly
+  type: text
+  topic: Area of polygons
+  stem: 'A trapezoid has bases 6 and 14 and height 5. Its area is ___. Give only the number.'
+  accept: ['50']
+  explanation: |-
+    $A = \tfrac12(b_1 + b_2)h = \tfrac12(6 + 14)(5) = \tfrac12(20)(5) = 50$. Forgetting the $\tfrac12$ gives 100.
+- id: geo-m8-r2-q03
+  lesson: geo-area-poly
+  type: match
+  module_quiz: true
+  topic: Area of polygons
+  stem: 'Match each figure to how its area is found.'
+  pairs:
+    - [Parallelogram, Base times perpendicular height]
+    - [Triangle, Half of base times height]
+    - [Trapezoid, Half the sum of the bases times the height]
+    - [Kite, Half the product of the diagonals]
+  distractors: [Half the apothem times the perimeter]
+  explanation: |-
+    A parallelogram rearranges into a rectangle ($A = bh$), and a triangle is half a parallelogram ($A = \tfrac12 bh$). Two copies of a trapezoid make a parallelogram with base $b_1 + b_2$, so $A = \tfrac12(b_1 + b_2)h$. A kite's perpendicular diagonals give $A = \tfrac12 d_1 d_2$. Half the apothem times the perimeter is the formula for a regular polygon (Lesson 32).
+- id: geo-m8-r2-q04
+  lesson: geo-area-poly
+  topic: Area of polygons
+  stem: 'For which of these figures is the area always half the product of the diagonals? Select all that apply.'
+  choices: [Rhombus, Kite, Square, Isosceles trapezoid]
+  answer: [0, 1, 2]
+  explanation: |-
+    $A = \tfrac12 d_1 d_2$ works whenever the diagonals are perpendicular. A rhombus and a kite have perpendicular diagonals, and a square is a special rhombus. An isosceles trapezoid's diagonals are equal in length but usually not perpendicular, so the formula does not apply to it.
+- id: geo-m8-r2-q05
+  lesson: geo-area-poly
+  type: order
+  topic: Area of polygons
+  stem: 'An isosceles trapezoid has its bases and legs given, but not its height. Put the steps for finding its area in order.'
+  items:
+    - Drop perpendiculars from the ends of the shorter base
+    - Find the base of each corner triangle, half the difference of the bases
+    - Use the Pythagorean theorem with a leg as hypotenuse to find the height
+    - 'Compute $\tfrac12(b_1 + b_2)h$'
+  explanation: |-
+    The perpendiculars create two congruent right triangles at the corners. Each has base $\tfrac{b_2 - b_1}{2}$ and hypotenuse equal to a leg, so the Pythagorean theorem gives the height. Only then can the area formula be used, as in Example 2 of the lesson.
+- id: geo-m8-r2-q06
+  lesson: geo-area-circle
+  type: label
+  module_quiz: true
+  topic: Regular polygons
+  stem: 'Name the numbered parts of this regular octagon.'
+  image: {src: images/geo-m8-regular-polygon-blank.svg, alt: 'A regular octagon with a dot at its center. A solid segment runs from the center to a vertex, a dashed segment runs from the center to the middle of the bottom side and meets it at a right angle, and a shaded wedge lies between the segments from the center to two neighboring vertices. Five parts are numbered.'}
+  labels:
+    - {x: 50.0, y: 48.8, text: Center}
+    - {x: 50.0, y: 73.8, text: Apothem}
+    - {x: 62.4, y: 41.6, text: Radius}
+    - {x: 40.5, y: 35.5, text: Central angle}
+    - {x: 32.5, y: 73.2, text: Side}
+  distractors: [Diameter, Slant height]
+  explanation: |-
+    1 is the center, the same distance from every vertex. The dashed segment 2 meets a side at a right angle at its midpoint, so it is the apothem. The solid segment 3 goes to a vertex, so it is a radius. The shaded angle 4 between radii to neighboring vertices is a central angle, $\tfrac{360^\circ}{8} = 45^\circ$. 5 marks a side. Slant height belongs to pyramids and cones.
+- id: geo-m8-r2-q07
+  lesson: geo-area-circle
+  type: text
+  topic: Regular polygons
+  stem: 'Each central angle of a regular decagon (10 sides) measures ___ degrees. Give only the number.'
+  accept: ['36']
+  explanation: |-
+    The central angles go once around the center: $\tfrac{360^\circ}{10} = 36^\circ$. (The interior angle of a regular decagon is $144^\circ$, a different angle; and the angle in the apothem triangle is half the central angle, $18^\circ$.)
+- id: geo-m8-r2-q08
+  lesson: geo-area-circle
+  type: order
+  topic: Regular polygons
+  stem: 'Put the steps for finding the area of a regular polygon from its number of sides $n$ and side length $s$ in order.'
+  items:
+    - 'Find the central angle, $360^\circ \div n$'
+    - Halve it to get the angle at the center of the apothem's right triangle
+    - 'Find the apothem: half a side divided by the tangent of that angle'
+    - Multiply the apothem by the perimeter and halve the result
+  explanation: |-
+    The apothem, half a side and a radius form a right triangle whose angle at the center is half the central angle, $\tfrac{180^\circ}{n}$. The side opposite that angle is $\tfrac{s}{2}$ and the adjacent side is the apothem, so $a = \tfrac{s/2}{\tan(180^\circ/n)}$. Then $A = \tfrac12 aP$.
+- id: geo-m8-r2-q09
+  lesson: geo-area-circle
+  type: match
+  module_quiz: true
+  topic: Area of circles and sectors
+  stem: 'Match each region to how its area is found.'
+  pairs:
+    - [Sector, The fraction of the circle given by its central angle]
+    - [Segment of a circle, Sector area minus the triangle's area]
+    - [Annulus (ring), Big circle's area minus the small circle's area]
+    - [Regular polygon, Half the apothem times the perimeter]
+  distractors: [Pi times the difference of the radii squared]
+  explanation: |-
+    A sector with central angle $\theta$ is $\tfrac{\theta}{360^\circ}$ of the circle. A segment is what is left of a sector after removing the triangle made by the two radii and the chord. A ring is found by subtracting areas, $\pi R^2 - \pi r^2$; $\pi(R - r)^2$ is the common mistake of subtracting radii first. A regular polygon has $A = \tfrac12 aP$.
+- id: geo-m8-r2-q10
+  lesson: geo-area-circle
+  topic: Regular polygons
+  stem: 'A regular hexagon has side 6. Which statements are true? Select all that apply.'
+  choices: ['Its radius is 6', 'Its apothem is $3\sqrt3$', 'Its central angle is $120^\circ$', 'Its area is $108\sqrt3$']
+  answer: [0, 1]
+  explanation: |-
+    Radii to all six vertices cut a regular hexagon into six equilateral triangles, so the radius equals the side, 6, and the central angle is $\tfrac{360^\circ}{6} = 60^\circ$, not $120^\circ$ (that is the interior angle). The apothem is the height of one equilateral triangle, $3\sqrt3 \approx 5.20$. The area is $\tfrac12 \cdot 3\sqrt3 \cdot 36 = 54\sqrt3$; $108\sqrt3$ forgets the $\tfrac12$.
+- id: geo-m8-r2-q11
+  lesson: geo-surface
+  type: label
+  module_quiz: true
+  topic: Surface area
+  stem: 'Name the numbered parts of this cone.'
+  image: {src: images/geo-m8-cone-parts-blank.svg, alt: 'A right cone with a dot at its top point. A dashed vertical segment runs from the top point to the center of the circular base, meeting a horizontal segment from the center to the edge of the base at a right angle. Five parts are numbered: the top point, the dashed segment, the horizontal segment, the slanted side and the circular bottom.'}
+  labels:
+    - {x: 50.0, y: 11.2, text: Apex (vertex)}
+    - {x: 50.0, y: 52.5, text: Height}
+    - {x: 65.2, y: 80.0, text: Radius}
+    - {x: 64.7, y: 49.1, text: Slant height}
+    - {x: 36.6, y: 85.5, text: Base}
+  distractors: [Lateral edge, Apothem]
+  explanation: |-
+    1 is the apex. The dashed segment 2 is perpendicular to the base, so it is the height $h$. Segment 3 goes from the center of the base to its edge, the radius $r$. The slanted side 4 is the slant height $\ell$, the hypotenuse of the right triangle with legs $h$ and $r$, so $\ell = \sqrt{r^2 + h^2}$. 5 is the circular base. A cone has no lateral edges; those belong to pyramids.
+- id: geo-m8-r2-q12
+  lesson: geo-surface
+  type: text
+  topic: Solids
+  stem: 'A convex polyhedron has 8 faces and 12 vertices. It has ___ edges. Give only the number.'
+  accept: ['18']
+  explanation: |-
+    Euler's formula: $V - E + F = 2$, so $12 - E + 8 = 2$ and $E = 18$. (A hexagonal prism is an example: 12 vertices, 18 edges, 8 faces.)
+- id: geo-m8-r2-q13
+  lesson: geo-surface
+  type: match
+  module_quiz: true
+  topic: Solids
+  stem: 'Match each solid to its net.'
+  pairs:
+    - [Cube, Six squares]
+    - [Square pyramid, A square and four triangles]
+    - [Triangular prism, Two triangles and three rectangles]
+    - [Cylinder, A rectangle and two circles]
+    - [Cone, A circle and a fan-shaped sector of a circle]
+  distractors: [A circle and two rectangles]
+  explanation: |-
+    A net shows every face flat. A cube has 6 square faces. A square pyramid has a square base and 4 triangular sides. A triangular prism has 2 triangular bases and 3 rectangular sides. A cylinder's curved side unrolls into a rectangle, with a circle at each end. A cone's curved side unrolls into a sector of a circle, attached to one circular base.
+- id: geo-m8-r2-q14
+  lesson: geo-surface
+  topic: Solids
+  stem: 'Which of these solids are polyhedra? Select all that apply.'
+  choices: [Triangular prism, Cone, Square pyramid, Cylinder]
+  answer: [0, 2]
+  explanation: |-
+    A polyhedron is bounded only by flat polygons. A prism and a pyramid qualify. A cone and a cylinder have curved surfaces (and circular bases, which are not polygons), so they are not polyhedra.
+- id: geo-m8-r2-q15
+  lesson: geo-surface
+  type: order
+  topic: Surface area
+  stem: 'Put these solids in order of total surface area, smallest first.'
+  items:
+    - 'A cone with radius 3 and height 4'
+    - 'A cube with edge 4'
+    - 'A cylinder with radius 2 and height 6'
+    - 'A sphere with radius 3'
+  explanation: |-
+    Cone: $\ell = \sqrt{9 + 16} = 5$, so $S = \pi(3)(5) + \pi(9) = 24\pi \approx 75.4$. Cube: $6 \cdot 16 = 96$. Cylinder: $2\pi(2)(6) + 2\pi(4) = 32\pi \approx 100.5$. Sphere: $4\pi(9) = 36\pi \approx 113.1$.
+- id: geo-m8-r2-q16
+  lesson: geo-volume
+  type: label
+  module_quiz: true
+  topic: Volume
+  stem: 'Name the numbered segments of this square pyramid.'
+  image: {src: images/geo-m8-pyramid-parts-blank.svg, alt: 'A square pyramid. A dashed segment drops from the apex straight down to the center of the base. A dotted segment runs up the middle of the right-hand triangular face from the midpoint of a base edge to the apex. A segment from the apex to a front corner of the base and a front edge of the base are also numbered. Four segments are numbered.'}
+  labels:
+    - {x: 50.9, y: 53.8, text: Height}
+    - {x: 65.9, y: 50.0, text: Slant height}
+    - {x: 31.7, y: 52.4, text: Lateral edge}
+    - {x: 41.1, y: 85.0, text: Base edge}
+  distractors: [Radius, Diagonal of the base]
+  explanation: |-
+    The dashed segment 1 is perpendicular to the base, so it is the height, the one used in $V = \tfrac13 Bh$. The dotted segment 2 runs up the middle of a face, so it is the slant height, used for surface area. Segment 3 joins the apex to a corner of the base, a lateral edge, which is longer than the slant height. 4 is an edge of the square base.
+- id: geo-m8-r2-q17
+  lesson: geo-volume
+  type: text
+  topic: Volume
+  stem: 'A square pyramid has base edge 6 and slant height 5. Its volume is ___. Give only the number.'
+  accept: ['48']
+  explanation: |-
+    The height, half the base edge (3) and the slant height (5) form a right triangle, so $h = \sqrt{25 - 9} = 4$. Then $V = \tfrac13(36)(4) = 48$. Using the slant height as the height gives 60.
+- id: geo-m8-r2-q18
+  lesson: geo-volume
+  type: order
+  topic: Volume
+  stem: 'Each solid has radius 3. Put them in order of volume, smallest first.'
+  items:
+    - 'A cone with height 4'
+    - 'A hemisphere'
+    - 'A cylinder with height 3'
+    - 'A sphere'
+  explanation: |-
+    Cone: $\tfrac13\pi(9)(4) = 12\pi$. Hemisphere: $\tfrac23\pi(27) = 18\pi$. Cylinder: $\pi(9)(3) = 27\pi$. Sphere: $\tfrac43\pi(27) = 36\pi$.
+- id: geo-m8-r2-q19
+  lesson: geo-volume
+  type: match
+  module_quiz: true
+  topic: Volume
+  stem: 'Match each solid to its volume formula.'
+  pairs:
+    - [Prism, Base area times height]
+    - [Pyramid, One third of base area times height]
+    - [Sphere, Four thirds times pi times radius cubed]
+    - [Hemisphere, Two thirds times pi times radius cubed]
+  distractors: [Four times pi times radius squared]
+  explanation: |-
+    $V = Bh$ for prisms (and cylinders), $V = \tfrac13 Bh$ for pyramids (and cones), $V = \tfrac43\pi r^3$ for a sphere and half that, $\tfrac23\pi r^3$, for a hemisphere. $4\pi r^2$ is a sphere's surface area, not a volume.
+- id: geo-m8-r2-q20
+  lesson: geo-volume
+  topic: Cavalieri's principle
+  stem: 'Which pairs of solids must have equal volumes? Select all that apply.'
+  choices:
+    - 'A right cylinder and an oblique cylinder with the same base radius and the same perpendicular height'
+    - 'A neat stack of 20 identical coins and the same stack pushed into a slant'
+    - 'A right cylinder and an oblique cylinder with the same base radius and the same slanted side length'
+    - 'A cone and a cylinder with the same base and the same height'
+  answer: [0, 1]
+  explanation: |-
+    By Cavalieri's principle, equal heights and equal cross sections at every level mean equal volumes, which covers the two cylinders with the same perpendicular height and the pushed stack of coins. If the oblique cylinder's slanted side equals the right cylinder's height, its perpendicular height is shorter, so its volume is smaller. A cone holds one third of the cylinder with the same base and height.
+# ---- Honors lesson 34h1: regular polyhedra, Euler's formula and angle defect
+- id: geo-m8-r2-h01
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'Which of these solids is NOT a regular polyhedron?'
+  choices: ['An octahedron', 'A bipyramid made of two tetrahedra glued face to face', 'An icosahedron', 'A tetrahedron']
+  answer: 1
+  explanation: |-
+    The bipyramid's six faces are congruent equilateral triangles, but three faces meet at each tip and four at each of the three middle vertices. A regular polyhedron needs the same number of faces at every vertex. The octahedron, icosahedron and tetrahedron are three of the five regular polyhedra.
+- id: geo-m8-r2-h02
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'Why can''t three regular hexagons meet at a vertex of a polyhedron?'
+  choices: ['Their angles add to more than $360^\circ$', 'A face of a polyhedron can have at most five sides', 'Their angles add to exactly $360^\circ$, so they lie flat', 'Regular hexagons are never congruent to each other']
+  answer: 2
+  explanation: |-
+    Each angle of a regular hexagon is $120^\circ$, and $3 \times 120^\circ = 360^\circ$, so three hexagons fill the plane around a point instead of making a corner (they tile a floor). The angles at a vertex must add to less than $360^\circ$. Polyhedra can have faces with any number of sides (a hexagonal prism has hexagonal bases).
+- id: geo-m8-r2-h03
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'A polyhedron has 12 faces, all pentagons, with 3 faces meeting at every vertex. How many vertices does it have?'
+  choices: ['60', '30', '12', '20']
+  answer: 3
+  explanation: |-
+    The faces have $12 \times 5 = 60$ corners in all, and each vertex is a corner of 3 faces, so $V = \tfrac{60}{3} = 20$. 60 counts each vertex three times; 30 is the number of edges ($\tfrac{60}{2}$); 12 is the number of faces.
+- id: geo-m8-r2-h04
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'An octahedron has 8 triangular faces. How many edges does it have?'
+  choices: ['12', '24', '6', '8']
+  answer: 0
+  explanation: |-
+    The faces have $8 \times 3 = 24$ sides, and each edge is shared by 2 faces, so $E = 12$. 24 forgets to divide by 2; 6 is the number of vertices. Check: $6 - 12 + 8 = 2$.
+- id: geo-m8-r2-h05
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'Put a dot at the center of each face of a cube and join the dots on neighboring faces. Which solid do the dots outline?'
+  choices: ['A smaller cube', 'An octahedron', 'A tetrahedron', 'An icosahedron']
+  answer: 1
+  explanation: |-
+    This is the dual of the cube. The cube's 6 faces become 6 vertices, its 8 vertices become 8 faces (one triangle around each corner), and the 12 edges stay 12: an octahedron.
+- id: geo-m8-r2-h06
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'What is the angle defect at one vertex of a regular octahedron?'
+  choices: ['$60^\circ$', '$90^\circ$', '$240^\circ$', '$120^\circ$']
+  answer: 3
+  explanation: |-
+    Four equilateral triangles meet at each vertex: $4 \times 60^\circ = 240^\circ$. The defect is $360^\circ - 240^\circ = 120^\circ$, and $6 \times 120^\circ = 720^\circ$ as Descartes' theorem says. $240^\circ$ is the angle sum, not the defect; $60^\circ$ is the icosahedron's defect and $90^\circ$ the cube's.
+- id: geo-m8-r2-h07
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'A convex polyhedron has 16 vertices. What is the sum of its angle defects?'
+  choices: ['$720^\circ$', '$360^\circ$', '$5760^\circ$', 'It depends on the shapes of the faces']
+  answer: 0
+  explanation: |-
+    Descartes' theorem: the angle defects of any convex polyhedron add to $720^\circ$, whatever its faces and however many vertices it has. ($5760^\circ$ is $16 \times 360^\circ$, which ignores the face angles.)
+- id: geo-m8-r2-h08
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'A soccer ball (truncated icosahedron) has 60 vertices, and each vertex touches one pentagon and two hexagons. How many hexagons does it have?'
+  choices: ['12', '32', '60', '20']
+  answer: 3
+  explanation: |-
+    The hexagons have $60 \times 2 = 120$ corners in all (two per vertex), and each hexagon has 6 corners, so there are $\tfrac{120}{6} = 20$ hexagons. 12 is the number of pentagons, and 32 is the total number of faces.
+- id: geo-m8-r2-h09
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'A square picture frame built from flat faces has 16 vertices, 32 edges and 16 faces. What is $V - E + F$, and why isn''t it 2?'
+  choices: ['2; Euler''s formula holds for every polyhedron', '0; the frame has a hole through it', '1; one face is missing', '$-2$; the frame is not convex, so the sign flips']
+  answer: 1
+  explanation: |-
+    $16 - 32 + 16 = 0$. Euler's formula $V - E + F = 2$ holds for polyhedra without holes. The Euler characteristic drops by 2 for each hole, so a one-hole frame gives 0. Being non-convex alone does not change the answer; the hole does.
+- id: geo-m8-r2-h10
+  lesson: geo-m8-h-polyhedra
+  type: text
+  topic: Polyhedra
+  stem: 'The angle defect at each vertex of a regular dodecahedron is ___ degrees. Give only the number.'
+  accept: ['36']
+  explanation: |-
+    Three regular pentagons meet at each vertex, with angles of $108^\circ$: $3 \times 108^\circ = 324^\circ$. The defect is $360^\circ - 324^\circ = 36^\circ$, and $20 \times 36^\circ = 720^\circ$.
+- id: geo-m8-r2-h11
+  lesson: geo-m8-h-polyhedra
+  type: match
+  topic: Polyhedra
+  stem: 'Match each regular polyhedron to its faces.'
+  pairs:
+    - [Tetrahedron, 4 triangles]
+    - [Cube, 6 squares]
+    - [Octahedron, 8 triangles]
+    - [Dodecahedron, 12 pentagons]
+    - [Icosahedron, 20 triangles]
+  distractors: [10 squares]
+  explanation: |-
+    The names count faces (tetra = 4, hexa = 6 for the cube's other name hexahedron, octa = 8, dodeca = 12, icosa = 20). Three solids use triangles (3, 4 or 5 at a vertex), one uses squares and one uses pentagons. No regular polyhedron has 10 faces.
+- id: geo-m8-r2-h12
+  lesson: geo-m8-h-polyhedra
+  type: order
+  topic: Polyhedra
+  stem: 'Put the regular polyhedra in order of the angle defect at one vertex, largest first.'
+  items: [Tetrahedron, Octahedron, Cube, Icosahedron, Dodecahedron]
+  explanation: |-
+    Defects: tetrahedron $360^\circ - 180^\circ = 180^\circ$, octahedron $360^\circ - 240^\circ = 120^\circ$, cube $360^\circ - 270^\circ = 90^\circ$, icosahedron $360^\circ - 300^\circ = 60^\circ$, dodecahedron $360^\circ - 324^\circ = 36^\circ$. The defects always total $720^\circ$, so the solid with the smallest defect has the most vertices (the dodecahedron, 20).
+- id: geo-m8-r2-h13
+  lesson: geo-m8-h-polyhedra
+  topic: Polyhedra
+  stem: 'Which statements are true for every convex polyhedron? Select all that apply.'
+  choices: ['$V - E + F = 2$', 'Its angle defects add to $720^\circ$', 'At least three faces meet at each vertex', 'All its faces are congruent']
+  answer: [0, 1, 2]
+  explanation: |-
+    Euler's formula and Descartes' theorem hold for every convex polyhedron, and a corner needs at least three faces. But the faces need not match: a square pyramid has a square and four triangles.
+- id: geo-m8-r2-h14
+  lesson: geo-m8-h-polyhedra
+  type: label
+  topic: Polyhedra
+  stem: 'Name the five numbered regular polyhedra.'
+  image: {src: images/geo-m8-platonic-blank.svg, alt: 'Five solids, numbered. 1 has four triangular faces. 2 has square faces. 3 has eight triangular faces, four meeting at each corner. 4 has pentagonal faces. 5 has twenty triangular faces, five meeting at each corner.'}
+  labels:
+    - {x: 17.2, y: 25.0, text: Tetrahedron}
+    - {x: 50.0, y: 26.1, text: Cube}
+    - {x: 82.8, y: 26.1, text: Octahedron}
+    - {x: 33.6, y: 71.6, text: Dodecahedron}
+    - {x: 66.4, y: 71.6, text: Icosahedron}
+  distractors: [Square pyramid, Triangular prism]
+  explanation: |-
+    Look at the faces and count how many meet at a corner. Triangles: 3 at a corner is the tetrahedron (1), 4 is the octahedron (3), 5 is the icosahedron (5). Squares give the cube (2) and pentagons the dodecahedron (4). A square pyramid and a triangular prism have two kinds of faces, so they are not regular.
+# ---- Honors lesson 34h2: frustums, spherical caps and Pappus's theorem
+- id: geo-m8-r2-h15
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A frustum of a cone has bottom radius 6, top radius 3 and height 7. Find its volume.'
+  choices: ['$84\pi$', '$157.5\pi$', '$147\pi$', '$252\pi$']
+  answer: 2
+  explanation: |-
+    $V = \tfrac{\pi h}{3}(R^2 + Rr + r^2) = \tfrac{7\pi}{3}(36 + 18 + 9) = \tfrac{7\pi}{3}(63) = 147\pi$. $157.5\pi$ averages the two circles, $\pi \cdot 7 \cdot \tfrac{36 + 9}{2}$; $252\pi$ is the cylinder $\pi(36)(7)$; $84\pi$ is a cone of radius 6 and height 7.
+- id: geo-m8-r2-h16
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A frustum is 10 tall, and its top radius is half its bottom radius. How tall was the whole cone before the top was cut off?'
+  choices: ['15', '20', '30', '10']
+  answer: 1
+  explanation: |-
+    The small cone that was cut off is similar to the whole cone with scale factor $\tfrac12$, so its height is half the whole height $H$. The frustum is the other half: $H - \tfrac{H}{2} = 10$, so $H = 20$. (The formula $H = \tfrac{hR}{R - r}$ gives the same: $\tfrac{10R}{R/2} = 20$.)
+- id: geo-m8-r2-h17
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A frustum of a cone has radii 8 and 5 and height 4. Find its lateral (side) area.'
+  choices: ['$65\pi$', '$52\pi$', '$130\pi$', '$39\pi$']
+  answer: 0
+  explanation: |-
+    The slant height is $s = \sqrt{4^2 + (8 - 5)^2} = \sqrt{25} = 5$, so $L = \pi(R + r)s = \pi(13)(5) = 65\pi$. $52\pi$ uses the height 4 instead of the slant height; $130\pi$ doubles the formula; $39\pi$ uses $R - r$ instead of $R + r$.
+- id: geo-m8-r2-h18
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A pyramid with a square base is cut parallel to its base, leaving a frustum with bottom side 6, top side 3 and height 4. Find its volume.'
+  choices: ['90', '63', '144', '84']
+  answer: 3
+  explanation: |-
+    $V = \tfrac{h}{3}\big(B_1 + B_2 + \sqrt{B_1 B_2}\big) = \tfrac43(36 + 9 + 18) = \tfrac43(63) = 84$. 90 averages the two bases and multiplies by the height; 63 forgets the $\tfrac{h}{3}$; 144 is the prism $36 \times 4$.
+- id: geo-m8-r2-h19
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A cap of height 3 is cut from a sphere of radius 5. Find the cap''s volume.'
+  choices: ['$45\pi$', '$30\pi$', '$36\pi$', '$12\pi$']
+  answer: 2
+  explanation: |-
+    $V = \tfrac{\pi h^2}{3}(3R - h) = \tfrac{9\pi}{3}(15 - 3) = 3\pi \cdot 12 = 36\pi$. $45\pi$ forgets to subtract $h$; $30\pi$ uses $2R$ in place of $3R$; $12\pi$ drops the factor $h^2/3 = 3$.
+- id: geo-m8-r2-h20
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A cap of height 8 is cut from a sphere of radius 13. What is the radius of the cap''s flat circular face?'
+  choices: ['5', '12', 'About 10.25', '8']
+  answer: 1
+  explanation: |-
+    The center of the sphere is $13 - 8 = 5$ below the cut, so the right triangle has legs 5 and $a$ and hypotenuse 13: $a = \sqrt{169 - 25} = 12$. Equivalently $a^2 = h(2R - h) = 8 \cdot 18 = 144$. 5 is the distance from the center to the cut; $\sqrt{13^2 - 8^2} \approx 10.25$ wrongly uses the cap's height as the leg.
+- id: geo-m8-r2-h21
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'Two parallel planes, 1 and 3 units from the center, slice a band from a sphere of radius 6. What is the area of the band''s curved surface?'
+  choices: ['$12\pi$', '$48\pi$', '$144\pi$', '$24\pi$']
+  answer: 3
+  explanation: |-
+    By Archimedes' hat-box theorem the band's area is $2\pi R h$, where $h$ is the distance between the planes: $2\pi(6)(2) = 24\pi$. It doesn't matter where the band sits. $12\pi$ drops the 2; $144\pi$ is the whole sphere, $4\pi(36)$.
+- id: geo-m8-r2-h22
+  lesson: geo-m8-h-frustums-pappus
+  topic: Pappus's theorem
+  stem: 'A flat region of area 10 has its centroid 3 units from an axis that does not cross it. It is spun once around the axis. What is the volume of the solid?'
+  choices: ['$30\pi$', '$60\pi$', '$90\pi$', '$20\pi$']
+  answer: 1
+  explanation: |-
+    Pappus: volume $=$ area × distance traveled by the centroid $= 10 \cdot 2\pi(3) = 60\pi$. $30\pi$ uses $\pi d$ instead of $2\pi d$; $90\pi$ uses $\pi d^2$; $20\pi$ ignores the distance.
+- id: geo-m8-r2-h23
+  lesson: geo-m8-h-frustums-pappus
+  topic: Pappus's theorem
+  stem: 'A torus is made by spinning a circle of radius 2 around an axis 6 units from its center. Find its volume.'
+  choices: ['$48\pi^2$', '$24\pi^2$', '$96\pi^2$', '$24\pi$']
+  answer: 0
+  explanation: |-
+    The disk has area $\pi(2)^2 = 4\pi$ and its centroid travels $2\pi(6) = 12\pi$, so $V = 4\pi \cdot 12\pi = 48\pi^2 \approx 473.7$. That is $2\pi^2 R r^2$. $24\pi^2$ uses $\pi R$ instead of $2\pi R$; $96\pi^2$ is the surface area $4\pi^2 R r$, not the volume; $24\pi$ forgets that the area itself contains $\pi$.
+- id: geo-m8-r2-h24
+  lesson: geo-m8-h-frustums-pappus
+  topic: Pappus's theorem
+  stem: 'Pappus''s theorem does NOT apply directly to which of these?'
+  choices: ['A square spun around one of its own sides', 'A triangle spun around a line 5 units away from it', 'A disk spun around a line through its center', 'A semicircular region spun around its diameter']
+  answer: 2
+  explanation: |-
+    The axis must not cut through the region. A line through a disk's center splits it, and the two halves sweep over the same space, so area × $2\pi d$ (with $d = 0$) gives 0, which is wrong. An axis along the region's edge, like a square's side or a semicircle's diameter, is allowed, and so is an axis outside the region.
+- id: geo-m8-r2-h25
+  lesson: geo-m8-h-frustums-pappus
+  type: text
+  topic: Frustums and caps
+  stem: 'A cap of height 2 is cut from a sphere of radius 10. The radius of the cap''s flat circular face is ___. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    $a^2 = h(2R - h) = 2(20 - 2) = 36$, so $a = 6$. Or: the cut is $10 - 2 = 8$ from the center, and $\sqrt{10^2 - 8^2} = 6$.
+- id: geo-m8-r2-h26
+  lesson: geo-m8-h-frustums-pappus
+  type: match
+  topic: Frustums and caps
+  stem: 'Match each formula to what it measures.'
+  pairs:
+    - ['$\tfrac{\pi h}{3}(R^2 + Rr + r^2)$', Volume of a frustum of a cone]
+    - ['$\pi(R + r)s$', Lateral area of a frustum of a cone]
+    - ['$\tfrac{\pi h^2}{3}(3R - h)$', Volume of a spherical cap]
+    - ['$2\pi R h$', Curved area of a spherical cap]
+    - ['$2\pi^2 R r^2$', Volume of a torus]
+  distractors: [Surface area of a torus]
+  explanation: |-
+    The frustum's volume is the big cone minus the small cone; its lateral area uses its own slant height $s$. A cap's volume comes from Archimedes' comparison, and its curved area is the hat-box theorem. The torus volume is Pappus's theorem, $\pi r^2 \cdot 2\pi R$; its surface area would be $4\pi^2 R r$, which is not listed.
+- id: geo-m8-r2-h27
+  lesson: geo-m8-h-frustums-pappus
+  type: order
+  topic: Frustums and caps
+  stem: 'Put these solids in order of volume, smallest first.'
+  items:
+    - 'A cone with radius 3 and height 3'
+    - 'A frustum with radii 3 and 2 and height 3'
+    - 'A cap of height 2 from a sphere of radius 6'
+    - 'A torus with $R = 4$ and $r = 1$'
+  explanation: |-
+    Cone: $\tfrac13\pi(9)(3) = 9\pi \approx 28.3$. Frustum: $\tfrac{3\pi}{3}(9 + 6 + 4) = 19\pi \approx 59.7$. Cap: $\tfrac{4\pi}{3}(18 - 2) = \tfrac{64\pi}{3} \approx 67.0$. Torus: $2\pi^2(4)(1) = 8\pi^2 \approx 79.0$.
+- id: geo-m8-r2-h28
+  lesson: geo-m8-h-frustums-pappus
+  topic: Frustums and caps
+  stem: 'A frustum of a cone has bottom radius $R$, top radius $r$ and height $h$, with $0 < r < R$. Which statements are true? Select all that apply.'
+  choices: ['Its volume is less than $\pi R^2 h$', 'Its volume is more than $\tfrac13 \pi R^2 h$', 'Its volume equals $\tfrac{\pi h}{2}(R^2 + r^2)$', 'Its lateral area equals $\pi(R + r)h$']
+  answer: [0, 1]
+  explanation: |-
+    $V = \tfrac{\pi h}{3}(R^2 + Rr + r^2)$. Because $r < R$, the bracket is less than $3R^2$, so $V < \pi R^2 h$ (the cylinder); and the bracket is more than $R^2$, so $V > \tfrac13\pi R^2 h$ (the cone with the same bottom and height). Averaging the two circles overestimates the volume, and the lateral area needs the slant height $s$, not $h$.
+- id: geo-m8-r2-h29
+  lesson: geo-m8-h-frustums-pappus
+  type: label
+  topic: Frustums and caps
+  stem: 'Name the numbered parts of this frustum of a cone.'
+  image: {src: images/geo-m8-frustum-blank.svg, alt: 'A cone with its top sliced off parallel to the base. The sliced-off top is drawn with dashed lines. A dashed vertical segment joins the centers of the top and bottom circles; a radius is drawn in each circle; the slanted side between the circles is marked. Five parts are numbered.'}
+  labels:
+    - {x: 68.2, y: 83.3, text: Bottom radius}
+    - {x: 57.6, y: 46.4, text: Top radius}
+    - {x: 50.0, y: 69.6, text: Height of the frustum}
+    - {x: 72.8, y: 64.9, text: Slant height}
+    - {x: 50.0, y: 33.9, text: Small cone that was cut off}
+  distractors: [Apothem, Height of the whole cone]
+  explanation: |-
+    1 is the radius $R$ of the larger, bottom circle and 2 is the radius $r$ of the top circle. The dashed segment 3 between their centers is the frustum's height $h$, the one in $\tfrac{\pi h}{3}(R^2 + Rr + r^2)$. 4 is the slant height $s$ along the side, used for the lateral area $\pi(R + r)s$. 5 is the small cone that was removed, which is similar to the whole cone. The whole cone's height would run all the way to the dashed tip.
+# ---- Honors lesson 34h3: the isoperimetric problem
+- id: geo-m8-r2-h30
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'What is the largest area of a rectangle with perimeter 36?'
+  choices: ['80', '324', '81', '72']
+  answer: 2
+  explanation: |-
+    The best rectangle is a square with side $\tfrac{36}{4} = 9$, area 81. 80 is a 10-by-8 rectangle and 72 a 12-by-6, both with perimeter 36 but less area. 324 is $18^2$, squaring half the perimeter instead of a quarter.
+- id: geo-m8-r2-h31
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'What are the arithmetic mean and the geometric mean of 2 and 18?'
+  choices: ['Arithmetic 10, geometric 6', 'Arithmetic 6, geometric 10', 'Arithmetic 10, geometric 36', 'Arithmetic 20, geometric 6']
+  answer: 0
+  explanation: |-
+    Arithmetic mean $\tfrac{2 + 18}{2} = 10$; geometric mean $\sqrt{2 \cdot 18} = \sqrt{36} = 6$. As AM–GM says, $6 \le 10$. 36 is the product before taking the square root, and 20 is the sum before halving.
+- id: geo-m8-r2-h32
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'With 80 m of fence, a farmer builds a rectangular pen against a long wall, fencing only the other three sides. What is the largest possible area?'
+  choices: ['400 m²', '800 m²', 'About 711 m²', '1600 m²']
+  answer: 1
+  explanation: |-
+    With $L + 2W = 80$, the area is largest when $L = 2W$: $W = 20$, $L = 40$, area 800 m². 400 m² is a 20-by-20 square (fence on all four sides); about 711 m² comes from making all three fenced sides equal ($\tfrac{80}{3}$ each); 1600 m² is $40^2$.
+- id: geo-m8-r2-h33
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'Each triangle has perimeter 18. Which has the greatest area?'
+  choices: ['Sides 5, 6, 7', 'Sides 4, 7, 7', 'Sides 3, 7, 8', 'Sides 6, 6, 6']
+  answer: 3
+  explanation: |-
+    With fixed perimeter the equilateral triangle wins. By Heron's formula with $s = 9$: 6-6-6 gives $\sqrt{9 \cdot 27} \approx 15.59$; 5-6-7 gives $\sqrt{216} \approx 14.70$; 4-7-7 gives $\sqrt{180} \approx 13.42$; 3-7-8 gives $\sqrt{108} \approx 10.39$.
+- id: geo-m8-r2-h34
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'What is the isoperimetric quotient $Q = \dfrac{4\pi A}{P^2}$ of a square?'
+  choices: ['1', 'About 0.605', 'About 0.785', 'About 0.907']
+  answer: 2
+  explanation: |-
+    A square with side $s$ has $A = s^2$ and $P = 4s$, so $Q = \tfrac{4\pi s^2}{16 s^2} = \tfrac{\pi}{4} \approx 0.785$, whatever the size. 1 is the circle's value, about 0.605 the equilateral triangle's and about 0.907 the regular hexagon's.
+- id: geo-m8-r2-h35
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'A closed loop of string 20 cm long is laid flat on a table. What is the largest area it can enclose?'
+  choices: ['About 31.83 cm²', '25 cm²', 'About 314.16 cm²', 'About 62.83 cm²']
+  answer: 0
+  explanation: |-
+    The best shape is a circle, and by the isoperimetric inequality $A \le \tfrac{P^2}{4\pi} = \tfrac{400}{4\pi} \approx 31.83$. (Radius $\tfrac{20}{2\pi} \approx 3.18$.) 25 cm² is a square's area; 314.16 is $\pi \cdot 10^2$, wrongly treating the 20 cm loop as a diameter; 62.83 is $20\pi$.
+- id: geo-m8-r2-h36
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'Among closed cylindrical cans that hold the same volume, which uses the least metal (counting every square centimeter of metal the same)?'
+  choices: ['The one whose height equals its radius', 'The one whose height equals its diameter', 'The one whose height is twice its diameter', 'The one whose height equals its circumference']
+  answer: 1
+  explanation: |-
+    Writing $S = 2\pi r^2 + \tfrac{V}{r} + \tfrac{V}{r}$ and using AM–GM, the three terms must be equal, which gives $V = 2\pi r^3$ and $h = 2r$: the height equals the diameter. Real cans are taller, because their ends use thicker metal and other design needs matter.
+- id: geo-m8-r2-h37
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'In the 1830s Jakob Steiner gave arguments that any closed curve other than a circle can be improved to enclose more area with the same length. Why weren''t they a complete proof that the circle is best?'
+  choices: ['They only worked for polygons', 'They used the AM–GM inequality incorrectly', 'They assumed that a best shape exists', 'They assumed the curve was already a circle']
+  answer: 2
+  explanation: |-
+    Showing that every non-circle can be improved proves the circle is best only if some best shape exists. Without that, the improvements could go on forever without reaching a winner. Later mathematicians filled this gap, so the isoperimetric inequality is now fully proved.
+- id: geo-m8-r2-h38
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'A closed box must hold 64 cm³. What is the least possible surface area?'
+  choices: ['96 cm²', '112 cm²', '168 cm²', '64 cm²']
+  answer: 0
+  explanation: |-
+    Among boxes with a fixed volume the cube has the least surface area. A $4 \times 4 \times 4$ cube has $6 \cdot 16 = 96$ cm². An $8 \times 4 \times 2$ box needs $2(32 + 16 + 8) = 112$ and a $16 \times 4 \times 1$ box needs $2(64 + 16 + 4) = 168$. 64 is the volume, not an area.
+- id: geo-m8-r2-h39
+  lesson: geo-m8-h-isoperimetric
+  type: text
+  topic: Optimal shapes
+  stem: 'With 100 m of fence around all four sides, the largest rectangular area you can enclose is ___ m². Give only the number.'
+  accept: ['625']
+  explanation: |-
+    The best rectangle is a square with side $\tfrac{100}{4} = 25$ m, so the area is $625$ m².
+- id: geo-m8-r2-h40
+  lesson: geo-m8-h-isoperimetric
+  type: text
+  topic: Optimal shapes
+  stem: 'Two positive numbers add up to 20. The largest their product can be is ___. Give only the number.'
+  accept: ['100']
+  explanation: |-
+    By AM–GM, $\sqrt{ab} \le \tfrac{a + b}{2} = 10$, so $ab \le 100$, with equality when $a = b = 10$.
+- id: geo-m8-r2-h41
+  lesson: geo-m8-h-isoperimetric
+  type: match
+  topic: Optimal shapes
+  stem: 'Match each shape to its isoperimetric quotient $Q = \dfrac{4\pi A}{P^2}$.'
+  pairs:
+    - [Circle, Exactly 1]
+    - [Regular hexagon, About 0.907]
+    - [Square, About 0.785]
+    - [Equilateral triangle, About 0.605]
+  distractors: [About 1.27]
+  explanation: |-
+    $Q$ does not depend on size, only on shape. For a regular $n$-gon, $Q = \tfrac{\pi}{n\tan(180^\circ/n)}$: about 0.605 for $n = 3$, 0.785 for $n = 4$, 0.907 for $n = 6$, approaching 1 (the circle) as $n$ grows. No shape has $Q > 1$; that is the isoperimetric inequality.
+- id: geo-m8-r2-h42
+  lesson: geo-m8-h-isoperimetric
+  type: order
+  topic: Optimal shapes
+  stem: 'Each shape has perimeter 24. Put them in order of area, smallest first.'
+  items: ['A 2-by-10 rectangle', 'An equilateral triangle', 'A square', 'A regular hexagon', 'A circle']
+  explanation: |-
+    Rectangle: 20. Triangle (side 8): $16\sqrt3 \approx 27.71$. Square (side 6): 36. Hexagon (side 4): $24\sqrt3 \approx 41.57$. Circle: $\tfrac{24^2}{4\pi} \approx 45.84$. A long thin rectangle wastes perimeter, and the area grows as the shape gets rounder.
+- id: geo-m8-r2-h43
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['Among rectangles with perimeter $P$, the square has the most area', 'Two shapes with the same perimeter always have the same area', 'Among closed curves of length $P$, the circle encloses the most area', 'Among closed cylinders with a given volume, the tallest one uses the least metal']
+  answer: [0, 2]
+  explanation: |-
+    The square and the circle are the winners for rectangles and for all closed curves. Equal perimeters do not mean equal areas (a 1-by-19 rectangle and a 10-by-10 square both have perimeter 40). A very tall, thin can needs a lot of side metal; the least metal goes with $h = 2r$.
+- id: geo-m8-r2-h44
+  lesson: geo-m8-h-isoperimetric
+  topic: Optimal shapes
+  stem: 'A closed can is shaped to use the least metal for its volume, and its radius is 5 cm. What is its volume?'
+  choices: ['$125\pi$ cm³', '$50\pi$ cm³', '$500\pi$ cm³', '$250\pi$ cm³']
+  answer: 3
+  explanation: |-
+    The least-metal can has $h = 2r = 10$ cm, so $V = \pi(25)(10) = 250\pi \approx 785.4$ cm³. $125\pi$ uses $h = r$; $500\pi$ uses $h = 4r$; $50\pi$ is $2\pi r^2$, an area.

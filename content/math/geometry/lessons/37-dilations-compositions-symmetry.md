@@ -93,7 +93,7 @@ Reflect $P(2, 5)$ in $x = 1$ and then in $x = 4$. Compare with a translation.
 The point moved 6 units right, twice the distance (3) between the lines.
 
 ```plot
-{"x": [-1, 9], "y": [0, 8], "equal": true, "segments": [{"from": [1, 0], "to": [1, 8], "dashed": true, "label": "x = 1"}, {"from": [4, 0], "to": [4, 8], "dashed": true, "label": "x = 4"}, {"from": [2, 5], "to": [0, 5], "arrow": true}, {"from": [0, 4.4], "to": [8, 4.4], "arrow": true}], "points": [{"at": [2, 5], "label": "P(2, 5)"}, {"at": [0, 5], "label": "(0, 5)"}, {"at": [8, 5], "label": "(8, 5)"}], "caption": "Reflect in x = 1, then in x = 4: P ends up 6 units to the right, twice the gap of 3 between the lines."}
+{"x": [-1, 9], "y": [0, 8], "equal": true, "segments": [{"from": [1, 0], "to": [1, 8], "dashed": true, "label": "x = 1"}, {"from": [4, 0], "to": [4, 8], "dashed": true, "label": "x = 4"}, {"from": [2, 5], "to": [0, 5], "arrow": true}, {"from": [0, 6.2], "to": [8, 6.2], "arrow": true}], "points": [{"at": [2, 5], "label": "P(2, 5)"}, {"at": [0, 5], "label": "(0, 5)"}, {"at": [8, 5], "label": "(8, 5)"}], "caption": "Reflect in x = 1, then in x = 4: P ends up 6 units to the right, twice the gap of 3 between the lines."}
 ```
 
 ## Symmetry

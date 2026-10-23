@@ -1,0 +1,65 @@
+# Glossary: honors module geo-h1 (Constructions and classic theorems), round 2
+- term: constructible number
+  aliases: [constructible numbers, constructible length, constructible lengths]
+  definition: 'A length that can be built from a unit segment in finitely many compass-and-straightedge steps. Exactly the numbers reached from 1 by $+$, $-$, $\times$, $\div$ and square roots.'
+  topic: Constructible lengths
+- term: transcendental
+  aliases: [transcendental number, transcendental numbers]
+  definition: 'Describes a number that is not a root of any polynomial equation with rational coefficients, such as $\pi$ (proved by Lindemann in 1882). A transcendental number is never constructible.'
+  topic: Impossible constructions
+- term: Gauss–Wantzel theorem
+  aliases: [Gauss-Wantzel theorem]
+  definition: 'A regular $n$-gon can be constructed with compass and straightedge exactly when $n$ is a power of 2 times a product of distinct Fermat primes.'
+  topic: Impossible constructions
+- term: Fermat prime
+  aliases: [Fermat primes]
+  definition: 'A prime of the form $2^{2^k} + 1$. The known ones are 3, 5, 17, 257 and 65537; no others have been found.'
+  topic: Impossible constructions
+- term: doubling the cube
+  aliases: [duplicating the cube]
+  definition: 'The classical problem of constructing the edge of a cube with twice the volume of a given cube; it needs $\sqrt[3]{2}$ and is impossible with compass and straightedge (Wantzel, 1837).'
+  topic: Impossible constructions
+- term: angle trisection
+  aliases: [trisecting an angle, trisection, trisect]
+  definition: 'Dividing an angle into three congruent angles. Some angles can be trisected with compass and straightedge, but no method works for every angle; $60^\circ$ cannot be trisected (Wantzel, 1837).'
+  topic: Impossible constructions
+- term: squaring the circle
+  definition: 'The classical problem of constructing a square with the same area as a given circle; it needs $\sqrt\pi$ and is impossible with compass and straightedge because $\pi$ is transcendental.'
+  topic: Impossible constructions
+- term: cevian
+  aliases: [cevians]
+  definition: 'A segment from a vertex of a triangle to a point on the opposite side (or its extension). Medians and angle bisectors are cevians.'
+  topic: Ceva's theorem
+- term: Ceva's theorem
+  definition: 'Cevians $\overline{AD}$, $\overline{BE}$, $\overline{CF}$ of $\triangle ABC$, with feet on the sides, are concurrent exactly when $\tfrac{AF}{FB} \cdot \tfrac{BD}{DC} \cdot \tfrac{CE}{EA} = 1$.'
+  topic: Ceva's theorem
+- term: Menelaus's theorem
+  aliases: [Menelaus' theorem, theorem of Menelaus]
+  definition: 'If a line meets lines $BC$, $CA$, $AB$ of $\triangle ABC$ at $D$, $E$, $F$ (not at vertices), then $\tfrac{AF}{FB} \cdot \tfrac{BD}{DC} \cdot \tfrac{CE}{EA} = 1$. One or three of the points lie on extended sides.'
+  topic: Menelaus's theorem
+- term: Gergonne point
+  definition: 'The point where the three cevians from the vertices of a triangle to the touch points of its incircle meet. It is generally not the incenter.'
+  topic: Ceva's theorem
+- term: Euler points
+  aliases: [Euler point]
+  definition: 'The midpoints of the segments joining the vertices of a triangle to its orthocenter. They lie on the nine-point circle.'
+  topic: Nine-point circle
+- term: nine-point circle
+  aliases: [nine-point circles]
+  definition: 'The circle through the three side midpoints, the three feet of the altitudes and the three Euler points of a triangle. Its center is the midpoint of $\overline{OH}$ and its radius is half the circumradius.'
+  topic: Nine-point circle
+- term: nine-point center
+  definition: 'The center $N$ of the nine-point circle: the midpoint of the segment from the circumcenter to the orthocenter, on the Euler line.'
+  topic: Nine-point circle
+- term: Feuerbach's theorem
+  definition: 'The nine-point circle of a triangle is tangent to its incircle (and to its three excircles). Proved by Karl Feuerbach in 1822.'
+  topic: Nine-point circle
+- term: Ptolemy's theorem
+  definition: 'In a cyclic quadrilateral $ABCD$, the product of the diagonals equals the sum of the products of opposite sides: $AC \cdot BD = AB \cdot CD + AD \cdot BC$.'
+  topic: Ptolemy's theorem
+- term: Ptolemy's inequality
+  definition: 'For any quadrilateral $ABCD$, $AC \cdot BD \le AB \cdot CD + AD \cdot BC$, with equality exactly when the quadrilateral is cyclic.'
+  topic: Ptolemy's theorem
+- term: Brahmagupta's formula
+  definition: 'The area of a cyclic quadrilateral with sides $a$, $b$, $c$, $d$ and semiperimeter $s$ is $\sqrt{(s - a)(s - b)(s - c)(s - d)}$.'
+  topic: Cyclic quadrilaterals

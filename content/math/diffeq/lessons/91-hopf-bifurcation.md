@@ -66,7 +66,7 @@ experiment slowly turning up $\mu$ sees a tiny oscillation that swells smoothly.
 **supercritical** case.
 
 ```plot
-{"x": [-0.5, 0.5], "y": [-0.8, 0.8], "xLabel": "μ", "yLabel": "x on the cycle", "functions": [{"f": "0", "from": -0.5, "to": 0, "label": "stable"}, {"f": "0", "from": 0, "to": 0.5, "dashed": true}, {"f": "sqrt(x)", "from": 0, "to": 0.5, "label": "stable cycle"}, {"f": "-sqrt(x)", "from": 0, "to": 0.5}], "caption": "Supercritical Hopf bifurcation diagram for r′ = μr − r³: the equilibrium (solid where stable, dashed where unstable) and the cycle's extent x = ±√μ."}
+{"x": [-0.5, 0.5], "y": [-0.8, 0.8], "xLabel": "μ", "yLabel": "x on the cycle", "functions": [{"f": "0", "from": -0.5, "to": 0, "label": "stable"}, {"f": "0", "from": 0, "to": 0.5, "dashed": true}, {"f": "sqrt(x)", "from": 0, "to": 0.5, "label": "stable cycle", "color": "#2f855a"}, {"f": "-sqrt(x)", "from": 0, "to": 0.5, "color": "#2f855a"}], "caption": "Supercritical Hopf bifurcation diagram for r′ = μr − r³: the equilibrium (solid where stable, dashed where unstable) and the cycle's extent x = ±√μ."}
 ```
 
 ### Example 1

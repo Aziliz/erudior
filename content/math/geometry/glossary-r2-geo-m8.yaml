@@ -1,0 +1,65 @@
+# Round 2 glossary for geo-m8 (honors lessons 34h1-34h3)
+- term: regular polyhedron
+  aliases: [regular polyhedra, Platonic solid, Platonic solids]
+  definition: 'A convex polyhedron whose faces are all the same regular polygon, with the same number of faces at every vertex. There are exactly five: tetrahedron, cube, octahedron, dodecahedron and icosahedron.'
+  topic: Polyhedra
+- term: bipyramid
+  aliases: [bipyramids]
+  definition: 'A solid made of two pyramids glued base to base, such as two tetrahedra joined face to face.'
+  topic: Polyhedra
+- term: dual polyhedron
+  aliases: [dual polyhedra, dual]
+  definition: 'The polyhedron formed by joining the centers of neighboring faces of a polyhedron; vertices and faces swap, and the number of edges stays the same (the cube and octahedron are duals).'
+  topic: Polyhedra
+- term: angle defect
+  aliases: [angle defects]
+  definition: 'At a vertex of a polyhedron, $360^\circ$ minus the sum of the face angles that meet there; it is positive at every vertex of a convex polyhedron.'
+  topic: Polyhedra
+- term: Descartes' theorem
+  definition: 'The angle defects at all the vertices of a convex polyhedron add up to $720^\circ$; it is equivalent to Euler''s formula.'
+  topic: Polyhedra
+- term: truncated icosahedron
+  definition: 'The soccer-ball polyhedron: an icosahedron with its corners sliced off, with 12 regular pentagons, 20 regular hexagons, 60 vertices and 90 edges.'
+  topic: Polyhedra
+- term: Euler characteristic
+  definition: 'The number $V - E + F$ for a polyhedron; it is 2 for any polyhedron without holes and drops by 2 for each hole.'
+  topic: Polyhedra
+- term: frustum
+  aliases: [frustums, frusta]
+  definition: 'The part of a cone or pyramid between its base and a cut parallel to the base. A cone''s frustum with radii $R$ and $r$ and height $h$ has volume $\tfrac{\pi h}{3}(R^2 + Rr + r^2)$.'
+  topic: Frustums and caps
+- term: spherical cap
+  aliases: [spherical caps]
+  definition: 'The piece of a ball cut off by a plane. With sphere radius $R$ and cap height $h$, its volume is $\tfrac{\pi h^2}{3}(3R - h)$ and its curved area is $2\pi R h$.'
+  topic: Frustums and caps
+- term: hat-box theorem
+  aliases: [Archimedes' hat-box theorem]
+  definition: 'Archimedes'' result that a band of a sphere of radius $R$ between two parallel planes a distance $h$ apart has curved area $2\pi R h$, the same as the matching band of the cylinder around the sphere.'
+  topic: Frustums and caps
+- term: centroid of a region
+  definition: 'The balance point of a flat region (where a cutout of it would balance on a pin); for a rectangle or circle it is the center.'
+  topic: Pappus's theorem
+- term: Pappus's theorem
+  aliases: [Pappus's centroid theorem, Pappus's theorems, Guldin's theorem]
+  definition: 'A region of area $A$ spun around an axis that does not cut it sweeps out volume $A \cdot 2\pi d$, where $d$ is the distance from the axis to the region''s centroid; a curve sweeps out area (length) $\times\, 2\pi d$ in the same way.'
+  topic: Pappus's theorem
+- term: torus
+  aliases: [tori]
+  definition: 'A doughnut-shaped solid made by spinning a circle of radius $r$ around an axis a distance $R > r$ from its center; volume $2\pi^2 R r^2$, surface area $4\pi^2 R r$.'
+  topic: Pappus's theorem
+- term: isoperimetric problem
+  definition: 'The problem of finding, among all shapes with a given perimeter, the one that encloses the most area (its answer is the circle).'
+  topic: Optimal shapes
+- term: arithmetic mean
+  definition: 'The ordinary average: for two numbers $a$ and $b$, $\tfrac{a + b}{2}$.'
+  topic: Optimal shapes
+- term: AM–GM inequality
+  aliases: [AM-GM inequality, AM-GM, AM–GM]
+  definition: 'For positive numbers, the geometric mean is at most the arithmetic mean: $\sqrt{ab} \le \tfrac{a + b}{2}$, with equality only when $a = b$ (and similarly for three numbers).'
+  topic: Optimal shapes
+- term: isoperimetric inequality
+  definition: 'Any closed curve of length $P$ encloses area $A$ with $4\pi A \le P^2$; equality holds only for a circle.'
+  topic: Optimal shapes
+- term: isoperimetric quotient
+  definition: 'The number $Q = \tfrac{4\pi A}{P^2}$ measuring how round a shape is: 1 for a circle and less than 1 for every other shape.'
+  topic: Optimal shapes

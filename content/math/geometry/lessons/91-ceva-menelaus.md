@@ -123,7 +123,7 @@ Use Menelaus's theorem to prove that the centroid divides each median in the rat
 
 $$\frac{AG}{GD} \cdot \frac{DB}{BC} \cdot \frac{CE}{EA} = 1.$$
 
-**Step 3.** $DB = \tfrac12 BC$, so $\tfrac{DB}{BC} = \tfrac12$; and $E$ is a midpoint, so $\tfrac{CE}{EA} = 1$. Then $\tfrac{AG}{GD} \cdot \tfrac12 = 1$, so $\tfrac{AG}{GD} = 2$. $\blacksquare$ Lesson 16 stated this ratio; now it's proved.
+**Step 3.** $DB = \tfrac12 BC$, so $\tfrac{DB}{BC} = \tfrac12$; and $E$ is a midpoint, so $\tfrac{CE}{EA} = 1$. Then $\tfrac{AG}{GD} \cdot \tfrac12 = 1$, so $\tfrac{AG}{GD} = 2$. $\blacksquare$ Lesson 16 stated this ratio, and the Module 5 honors lesson proved it another way; Menelaus's theorem gives it in two lines.
 
 ## Common mistakes
 

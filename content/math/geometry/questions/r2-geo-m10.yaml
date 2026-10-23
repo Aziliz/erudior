@@ -1,0 +1,682 @@
+# Round 2, module geo-m10: new question types for the core lessons, and the three honors lessons.
+# Core lessons
+- id: geo-m10-r2-q01
+  lesson: geo-axiomatic
+  type: text
+  topic: Axiomatic systems
+  stem: 'An interpretation of the undefined terms of an axiomatic system in which every axiom is true is called a ___ of the system.'
+  accept: [model, a model]
+  explanation: |-
+    A model gives the undefined terms a meaning that makes all the axioms true. Every theorem is then true in the model too, and the existence of a model shows the axioms are consistent.
+- id: geo-m10-r2-q02
+  lesson: geo-axiomatic
+  type: match
+  module_quiz: true
+  topic: Axiomatic systems
+  stem: 'Match each goal to the method that achieves it.'
+  pairs:
+    - [Show the axioms are consistent, Find one model where every axiom is true]
+    - [Show axiom X is independent of the others, Find a model where the other axioms hold and X fails]
+    - [Show statement S is a theorem, Prove S from the axioms]
+    - [Show statement S is not a theorem, Find a model where every axiom holds and S fails]
+  distractors: [Check many examples and find no contradiction]
+  explanation: |-
+    Consistency needs one model of all the axioms. Independence and "not a theorem" both need a model in which the axioms (or the other axioms) hold but the statement fails, because a proof would force the statement to hold in every model. A theorem can only be shown by a proof. Failing to find a contradiction proves nothing.
+- id: geo-m10-r2-q03
+  lesson: geo-axiomatic
+  module_quiz: true
+  topic: Euclid's postulates
+  stem: 'Given Euclid''s other postulates, which of these statements are equivalent to the parallel postulate? Select all that apply.'
+  choices:
+    - 'Through a point not on a line there is exactly one parallel to the line.'
+    - 'The angles of every triangle add to $180^\circ$.'
+    - 'Vertical angles are congruent.'
+    - 'A rectangle exists.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Playfair's axiom, the $180^\circ$ triangle sum and the existence of a rectangle are each equivalent to the fifth postulate, so each fails in hyperbolic geometry. Vertical angles are congruent in every geometry discussed here: the proof uses only linear pairs, not parallels.
+- id: geo-m10-r2-q04
+  lesson: geo-axiomatic
+  type: label
+  topic: Euclid's postulates
+  stem: 'Each panel pictures one of Euclid''s postulates. Name the postulate shown in each numbered panel.'
+  image: {src: images/geo-m10-postulates-blank.svg, alt: 'Four panels. Panel 1: a segment joining two points. Panel 2: a segment with dashed extensions and arrows at both ends. Panel 3: a circle with its center and one radius drawn. Panel 4: two right angles in different positions.'}
+  labels:
+    - {x: 25, y: 27, text: 'Postulate 1: a line can be drawn between any two points'}
+    - {x: 75, y: 27, text: 'Postulate 2: a segment can be extended'}
+    - {x: 25, y: 78, text: 'Postulate 3: a circle can be drawn with any center and radius'}
+    - {x: 75, y: 80, text: 'Postulate 4: all right angles are equal'}
+  distractors: ['Postulate 5: the parallel postulate']
+  explanation: |-
+    The first three postulates describe what a straightedge and compass can do: join two points, extend a segment, and draw a circle. The fourth says all right angles are equal, wherever they are. The parallel postulate would need two lines and a transversal.
+- id: geo-m10-r2-q05
+  lesson: geo-axiomatic
+  type: text
+  topic: Axiomatic systems
+  stem: 'In the four-point geometry (four points; each pair of points on exactly one line; each line has exactly two points), how many lines pass through each point? Give only the number.'
+  accept: ['3']
+  explanation: |-
+    A point is paired with each of the other 3 points, and each pair has its own line, so 3 lines pass through each point. (Check: 4 points × 3 lines each counts every line twice, once at each end, so there are $\tfrac{4 \cdot 3}{2} = 6$ lines.)
+
+- id: geo-m10-r2-q06
+  lesson: geo-non-euclid
+  type: label
+  topic: Non-Euclidean geometry
+  stem: 'Name the numbered point and circles on this sphere.'
+  image: {src: images/geo-m10-sphere-lines-blank.svg, alt: 'A sphere with a point at the top, a small circle near the top, a large circle around the middle, and a tilted large circle passing through the top and bottom points. Hidden back halves are dashed.'}
+  labels:
+    - {x: 46.9, y: 14.9, text: North Pole}
+    - {x: 55.2, y: 30.8, text: 'Line of latitude (not a great circle)'}
+    - {x: 62.9, y: 60.7, text: 'Equator (a great circle)'}
+    - {x: 29.1, y: 76.5, text: Great circle through the poles}
+  distractors: [South Pole, 'Line of latitude (a great circle)']
+  explanation: |-
+    Great circles have the sphere's center as their center: the equator and every circle through both poles. A line of latitude near the top is a smaller circle whose center is above the sphere's center, so it is not a great circle and not a shortest path.
+- id: geo-m10-r2-q07
+  lesson: geo-non-euclid
+  type: match
+  module_quiz: true
+  topic: Non-Euclidean geometry
+  stem: 'Match each geometry to its parallels and triangle angle sums.'
+  pairs:
+    - [Euclidean, 'Exactly one parallel; angle sum equal to 180°']
+    - [Hyperbolic, 'Infinitely many parallels; angle sum less than 180°']
+    - ['Elliptic (spherical)', 'No parallels; angle sum more than 180°']
+  distractors: ['No parallels; angle sum less than 180°']
+  explanation: |-
+    The number of parallels through an outside point controls the angle sum: one parallel gives exactly $180^\circ$, many give less, none gives more.
+- id: geo-m10-r2-q08
+  lesson: geo-non-euclid
+  module_quiz: true
+  topic: Non-Euclidean geometry
+  stem: 'On a sphere, with great circles as the lines, which statements are true? Select all that apply.'
+  choices:
+    - 'Any two lines meet.'
+    - 'Every line has finite length.'
+    - 'Some triangles have three right angles.'
+    - 'Any two points lie on exactly one line.'
+  answer: [0, 1, 2]
+  explanation: |-
+    Two great circles always cross (at two opposite points), each great circle is $2\pi R$ long, and the pole-to-equator triangle has three right angles. But two opposite points, such as the poles, lie on infinitely many great circles, so the last statement fails.
+- id: geo-m10-r2-q09
+  lesson: geo-non-euclid
+  type: text
+  topic: Non-Euclidean geometry
+  stem: 'A spherical triangle has angles $100^\circ$, $80^\circ$ and $60^\circ$. Its spherical excess is ___ degrees. Give only the number.'
+  accept: ['60']
+  explanation: |-
+    $E = 100 + 80 + 60 - 180 = 60^\circ$, which is $\tfrac{\pi}{3}$ radians. On a sphere of radius $R$ the triangle's area would be $R^2 \cdot \tfrac{\pi}{3}$.
+- id: geo-m10-r2-q10
+  lesson: geo-non-euclid
+  type: order
+  topic: Non-Euclidean geometry
+  stem: 'Put these events in the history of the parallel postulate in order, earliest first.'
+  items:
+    - 'Euclid''s Elements states the fifth postulate'
+    - 'Saccheri tries to prove it by contradiction'
+    - 'Lobachevsky and Bolyai publish hyperbolic geometry'
+    - 'Beltrami''s models show hyperbolic geometry is as consistent as Euclidean geometry'
+    - 'Einstein''s general relativity describes gravity with curved spacetime'
+  explanation: |-
+    Euclid wrote about 300 BCE; Saccheri published in 1733; Lobachevsky (1829) and Bolyai (1832) published hyperbolic geometry; Beltrami's models came in 1868; general relativity in 1915.
+
+- id: geo-m10-r2-q11
+  lesson: geo-probability
+  type: label
+  module_quiz: true
+  topic: Geometric probability
+  stem: 'Two friends each arrive at a random time between 12:00 and 1:00 and wait 15 minutes. The square shows all pairs of arrival times ($x$ for friend X, $y$ for friend Y). What does each numbered region or line mean?'
+  image: {src: images/geo-m10-meeting-blank.svg, alt: 'A 60 by 60 square of arrival times with a band around the dashed diagonal, an upper-left corner triangle and a lower-right corner triangle.'}
+  labels:
+    - {x: 29.3, y: 28.5, text: X leaves before Y arrives}
+    - {x: 58.2, y: 69.0, text: Y leaves before X arrives}
+    - {x: 37.3, y: 45.4, text: They meet}
+    - {x: 61.4, y: 24.0, text: They arrive at the same moment}
+  distractors: [They both arrive after 12:45]
+  explanation: |-
+    In the upper-left triangle $y > x + 15$: Y comes more than 15 minutes after X, so X has already left. The lower-right triangle is the reverse. The band $|x - y| \le 15$ is where they meet, and the diagonal $y = x$ is where they arrive together.
+- id: geo-m10-r2-q12
+  lesson: geo-probability
+  type: match
+  module_quiz: true
+  topic: Geometric probability
+  stem: 'Match each random experiment to the measure you should use to find its probabilities.'
+  pairs:
+    - [The moment you arrive during a 10-minute wait for a bus, Length]
+    - [The point where a dart lands on a board, Area]
+    - [The arrival times of two people in the same hour, Area]
+    - [A random point inside a cube, Volume]
+  distractors: [Number of outcomes]
+  explanation: |-
+    One random time is a point on a segment (length). A dart's landing spot is a point in a flat region (area). Two random times together form a point in a square (area). A point in a solid uses volume. Counting outcomes doesn't work because there are infinitely many.
+- id: geo-m10-r2-q13
+  lesson: geo-probability
+  type: text
+  topic: Geometric probability
+  stem: 'A point is chosen at random inside a circle of radius 6. The probability that it lies within 2 units of the center is ___. Give an exact fraction.'
+  accept: ['1/9']
+  explanation: |-
+    The favorable region is a circle of radius 2: $P = \dfrac{\pi \cdot 2^2}{\pi \cdot 6^2} = \dfrac{4}{36} = \dfrac19$. Comparing radii ($\tfrac26 = \tfrac13$) is the common mistake: area, not radius, is the measure.
+- id: geo-m10-r2-q14
+  lesson: geo-probability
+  topic: Geometric probability
+  stem: 'A circle of radius 5 is inscribed in a $10 \times 10$ square, and a point is chosen at random in the square. Which statements are true? Select all that apply.'
+  choices:
+    - 'The probability it lands inside the circle is $\tfrac{\pi}{4}$.'
+    - 'The probability it lands outside the circle is $1 - \tfrac{\pi}{4}$.'
+    - 'The probability it lands within 2.5 of the center is one quarter of the probability it lands inside the circle.'
+    - 'The probability it lands inside the circle is $\tfrac12$, because the radius is half the side.'
+  answer: [0, 1, 2]
+  explanation: |-
+    $P(\text{circle}) = \tfrac{25\pi}{100} = \tfrac{\pi}{4} \approx 0.785$, so the outside has $1 - \tfrac{\pi}{4}$. A circle of radius 2.5 has area $6.25\pi$, a quarter of $25\pi$ (half the radius gives a quarter of the area). The last statement compares lengths instead of areas.
+- id: geo-m10-r2-q15
+  lesson: geo-probability
+  type: order
+  topic: Geometric probability
+  stem: 'Two people arrive at random times in the same $T$-minute window and each waits $w$ minutes. Put the steps for finding the probability that they meet in order.'
+  items:
+    - 'Let $x$ and $y$ be the two arrival times.'
+    - 'Draw the $T \times T$ square of all possible points $(x, y)$.'
+    - 'Mark the band $|x - y| \le w$ where they meet.'
+    - 'Find the area of the two corner triangles outside the band.'
+    - 'Divide that area by $T^2$ and subtract the result from 1.'
+  explanation: |-
+    The method turns two random times into one random point in a square. The corner triangles (legs $T - w$) are where they miss each other, so $P = 1 - \tfrac{(T - w)^2}{T^2}$.
+
+# Honors: Finite geometries and projective planes
+- id: geo-m10-r2-h01
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'Which projective plane axiom means there are no parallel lines?'
+  choices:
+    - 'P2: any two distinct lines meet in exactly one point.'
+    - 'P1: any two distinct points are on exactly one line.'
+    - 'P3: there are four points, no three on one line.'
+    - 'Playfair''s axiom: through an outside point there is exactly one parallel.'
+  answer: 0
+  explanation: |-
+    Parallel lines are lines that don't meet. P2 says every two lines meet, so there are none. P1 is about points, P3 rules out tiny models, and Playfair's axiom belongs to affine planes, which do have parallels.
+- id: geo-m10-r2-h02
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'Three points $A$, $B$, $C$ with the three lines $AB$, $BC$, $CA$ satisfy P1 and P2. Why is this not a projective plane?'
+  choices:
+    - 'Lines $AB$ and $CA$ don''t meet.'
+    - 'It fails P3: it doesn''t have four points with no three on a line.'
+    - 'Lines $AB$ and $BC$ meet in two points.'
+    - 'It has parallel lines.'
+  answer: 1
+  explanation: |-
+    Each pair of the three lines meets at one corner, so P2 holds, and each pair of points has one line, so P1 holds. But there are only three points, so P3 fails. P3 exists precisely to rule out degenerate models like this one. (Lines $AB$ and $CA$ do meet, at $A$.)
+- id: geo-m10-r2-h03
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'The Fano plane has points $A$ to $G$ and lines $ADB$, $BEC$, $CFA$, $AGE$, $BGF$, $CGD$, $DEF$. Which set of three points is a line?'
+  choices:
+    - '$\{A, B, C\}$'
+    - '$\{D, G, F\}$'
+    - '$\{C, G, D\}$'
+    - '$\{B, E, F\}$'
+  answer: 2
+  explanation: |-
+    $CGD$ is on the list (it is the median from $C$). $A$, $B$, $C$ are the triangle's corners, which lie on three different lines. $D$ and $G$ share only line $CGD$, and $B$ and $E$ share only $BEC$.
+- id: geo-m10-r2-h04
+  lesson: geo-m10-h-projective-planes
+  type: text
+  topic: Projective planes
+  stem: 'A projective plane of order 4 has ___ points. Give only the number.'
+  accept: ['21']
+  explanation: |-
+    A plane of order $n$ has $n^2 + n + 1$ points: $16 + 4 + 1 = 21$. (Each line has $n + 1 = 5$ points.)
+- id: geo-m10-r2-h05
+  lesson: geo-m10-h-projective-planes
+  topic: Finite geometries
+  stem: 'In the usual picture of the Fano plane, the circle $DEF$ crosses the median $BF$ at a spot with no dot. What is that crossing in the geometry?'
+  choices:
+    - 'The point $G$'
+    - 'A point at infinity'
+    - 'An eighth point of the plane'
+    - 'Nothing: it is not a point of the geometry'
+  answer: 3
+  explanation: |-
+    The geometry has only the seven points $A$ to $G$. Lines $DEF$ and $BGF$ already share the point $F$, and two lines share exactly one point, so the drawn crossing is an accident of the picture, like the crossing of the diagonals in Lesson 39's four-point geometry.
+- id: geo-m10-r2-h06
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'What is known about a projective plane of order 12?'
+  choices:
+    - 'It exists, because 12 is even.'
+    - 'It is ruled out by the Bruck–Ryser theorem.'
+    - 'Nobody knows: 12 is the smallest order still unsettled.'
+    - 'It was ruled out by a computer search in 1989.'
+  answer: 2
+  explanation: |-
+    Prime-power orders exist; 6 is excluded by Bruck–Ryser; 10 was excluded by the 1989 computer search of Lam, Thiel and Swiercz. Twelve leaves remainder 0 when divided by 4, so Bruck–Ryser says nothing about it, and the question is open.
+- id: geo-m10-r2-h07
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'Which statements are true in a projective plane of order 3? Select all that apply.'
+  choices:
+    - 'Each line has 4 points.'
+    - 'There are 13 lines.'
+    - 'Each point is on exactly 3 lines.'
+    - 'Any two lines meet in exactly one point.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Order 3 means $n + 1 = 4$ points per line, and also 4 lines through each point (not 3). There are $9 + 3 + 1 = 13$ points and 13 lines, and P2 holds in every projective plane.
+- id: geo-m10-r2-h08
+  lesson: geo-m10-h-projective-planes
+  type: match
+  topic: Projective planes
+  stem: 'For a projective plane of order $n$, match each quantity to its formula.'
+  pairs:
+    - [Points on each line, n + 1]
+    - [Lines through each point, n + 1]
+    - [Number of points, n² + n + 1]
+    - [Points left after deleting one line, n²]
+  distractors: [2n + 1]
+  explanation: |-
+    Points per line is $n + 1$ by definition of the order, and the same number of lines passes through each point. Counting along the lines through one point gives $1 + (n + 1)n = n^2 + n + 1$ points. Deleting a line removes its $n + 1$ points, leaving $n^2$: the affine plane.
+- id: geo-m10-r2-h09
+  lesson: geo-m10-h-projective-planes
+  topic: Finite geometries
+  stem: 'Delete the line $DEF$ from the Fano plane. In the affine plane that remains, which line is parallel to $AB$?'
+  choices:
+    - '$CG$'
+    - '$BC$'
+    - '$AG$'
+    - '$BG$'
+  answer: 0
+  explanation: |-
+    The old lines $ADB$ and $CGD$ met at $D$, which was deleted, so $AB$ and $CG$ no longer meet: they are parallel. $BC$ and $AB$ still share $B$, and $AG$ and $BG$ share points with $AB$ too.
+- id: geo-m10-r2-h10
+  lesson: geo-m10-h-projective-planes
+  type: order
+  topic: Finite geometries
+  stem: 'Put the steps for turning an affine plane into a projective plane in order.'
+  items:
+    - 'Sort the lines into parallel classes.'
+    - 'Create one new point for each parallel class.'
+    - 'Put each new point on every line of its class.'
+    - 'Add one new line containing all the new points.'
+  explanation: |-
+    The parallel classes must be known before you can give each one a point at infinity; each point at infinity goes on the lines of its class, so parallel lines now meet; and the last new line, through all the points at infinity, makes P1 and P2 hold for the new points as well.
+- id: geo-m10-r2-h11
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'What is the dual of axiom P3, "there are four points, no three of which are on one line"?'
+  choices:
+    - 'There are four lines, no three of which are parallel.'
+    - 'There are four lines, no three of which pass through one point.'
+    - 'There are three lines through every point.'
+    - 'Any four points lie on two lines.'
+  answer: 1
+  explanation: |-
+    Swap point and line, and "on one line" with "through one point". The dual is a theorem (proved in the lesson from the four points of P3 and the lines $AB$, $BC$, $CD$, $DA$), which is why the principle of duality works.
+- id: geo-m10-r2-h12
+  lesson: geo-m10-h-projective-planes
+  topic: Finite geometries
+  stem: 'How do we know the projective plane axioms are consistent?'
+  choices:
+    - 'No one has found a contradiction in them.'
+    - 'Duality turns each axiom into another axiom.'
+    - 'They are weaker than Euclid''s postulates.'
+    - 'The Fano plane is a model in which all three hold.'
+  answer: 3
+  explanation: |-
+    As in Lesson 39, a model proves consistency: if the axioms led to a contradiction, the contradiction would have to be true in the Fano plane, which is impossible.
+- id: geo-m10-r2-h13
+  lesson: geo-m10-h-projective-planes
+  type: text
+  topic: Finite geometries
+  stem: 'An affine plane has 5 points on each line (order 5). How many lines does it have? Give only the number.'
+  accept: ['30']
+  explanation: |-
+    An affine plane of order $n$ has $n^2 + n$ lines: $25 + 5 = 30$. They fall into $n + 1 = 6$ parallel classes of $n = 5$ lines each. (It has $n^2 = 25$ points.)
+- id: geo-m10-r2-h14
+  lesson: geo-m10-h-projective-planes
+  topic: Projective planes
+  stem: 'The Bruck–Ryser theorem says: if $n$ leaves remainder 1 or 2 when divided by 4 and a plane of order $n$ exists, then $n$ is a sum of two squares. Which order does it rule out?'
+  choices:
+    - '10'
+    - '9'
+    - '6'
+    - '13'
+  answer: 2
+  explanation: |-
+    $6$ leaves remainder 2 and is not a sum of two squares ($0+1$, $1+1$, $0+4$, $1+4$, $4+4$ give 1, 2, 4, 5, 8), so no plane of order 6 exists. $10 = 9 + 1$ passes the test (it was ruled out later by computer), $9$ leaves remainder 1 and $9 = 9 + 0$, and $13 = 9 + 4$; both 9 and 13 are prime powers, and their planes exist.
+
+# Honors: Geometry without the parallel postulate
+- id: geo-m10-r2-h15
+  lesson: geo-m10-h-saccheri
+  topic: Neutral geometry
+  stem: 'What is neutral geometry?'
+  choices:
+    - 'Euclidean geometry with all of its axioms except the parallel postulate'
+    - 'Geometry on a sphere'
+    - 'Hyperbolic geometry'
+    - 'Euclidean geometry restricted to small regions'
+  answer: 0
+  explanation: |-
+    Neutral (absolute) geometry keeps every axiom except the parallel postulate. Euclidean and hyperbolic geometry are both models of it; the sphere is not, because it breaks other axioms too.
+- id: geo-m10-r2-h16
+  lesson: geo-m10-h-saccheri
+  topic: Neutral geometry
+  stem: 'Which statement can be proved in neutral geometry?'
+  choices:
+    - 'The angles of a triangle add to $180^\circ$.'
+    - 'An exterior angle of a triangle is greater than each remote interior angle.'
+    - 'Rectangles exist.'
+    - 'Through a point not on a line there is exactly one parallel.'
+  answer: 1
+  explanation: |-
+    Euclid proved the Exterior Angle Inequality (I.16) with congruent triangles alone. The other three statements are each equivalent to the parallel postulate, so they can't be proved without it.
+- id: geo-m10-r2-h17
+  lesson: geo-m10-h-saccheri
+  topic: Neutral geometry
+  stem: 'What does the Saccheri–Legendre theorem say?'
+  choices:
+    - 'Every triangle''s angles add to exactly $180^\circ$.'
+    - 'Every triangle''s angles add to less than $180^\circ$.'
+    - 'In neutral geometry, every triangle''s angles add to at most $180^\circ$.'
+    - 'Every quadrilateral''s angles add to $360^\circ$.'
+  answer: 2
+  explanation: |-
+    The theorem gives an upper bound, $180^\circ$, and nothing more: Euclidean triangles reach it and hyperbolic ones fall short. Neither "exactly" nor "less than" can be proved without choosing a parallel axiom.
+- id: geo-m10-r2-h18
+  lesson: geo-m10-h-saccheri
+  topic: Neutral geometry
+  stem: 'In Legendre''s construction, $M$ is the midpoint of $\overline{BC}$ and $E$ is on ray $AM$ with $ME = AM$. What is the angle of $\triangle AEC$ at $C$?'
+  choices:
+    - '$\angle C$'
+    - '$\tfrac12 \angle A$'
+    - '$180^\circ - \angle C$'
+    - '$\angle B + \angle C$'
+  answer: 3
+  explanation: |-
+    $\triangle AMB \cong \triangle EMC$ by SAS, so $\angle BCE = \angle ABC$. The angle at $C$ is $\angle ACB + \angle BCE = \angle C + \angle B$. That is how the new triangle keeps the old angle sum.
+- id: geo-m10-r2-h19
+  lesson: geo-m10-h-saccheri
+  type: text
+  topic: Neutral geometry
+  stem: 'A hyperbolic triangle has angles $48^\circ$, $61^\circ$ and $57^\circ$. Its defect is ___ degrees. Give only the number.'
+  accept: ['14']
+  explanation: |-
+    Defect $= 180 - (48 + 61 + 57) = 180 - 166 = 14^\circ$.
+- id: geo-m10-r2-h20
+  lesson: geo-m10-h-saccheri
+  topic: Neutral geometry
+  stem: 'A spherical triangle can have angles adding to $270^\circ$. Why doesn''t that contradict the Saccheri–Legendre theorem?'
+  choices:
+    - 'The sphere is not a model of neutral geometry: its lines close up and two points can lie on several lines.'
+    - 'The theorem applies only to small triangles.'
+    - 'Spherical angles are measured in radians.'
+    - 'The theorem was later shown to be false.'
+  answer: 0
+  explanation: |-
+    The theorem is proved from the axioms of neutral geometry, so it holds only where they hold. On a sphere, opposite points lie on infinitely many great circles and lines can't be extended without coming back, so the Exterior Angle Inequality and the theorem built on it fail.
+- id: geo-m10-r2-h21
+  lesson: geo-m10-h-saccheri
+  type: order
+  topic: Neutral geometry
+  stem: 'Put the steps of the proof of the Saccheri–Legendre theorem in order.'
+  items:
+    - 'Suppose some triangle has angle sum $180^\circ + p$ with $p > 0$.'
+    - 'Apply Legendre''s construction repeatedly to get a triangle with the same sum and an angle smaller than $p$.'
+    - 'Conclude that the other two angles of that triangle add to more than $180^\circ$.'
+    - 'Note that this contradicts the fact that any two angles of a triangle add to less than $180^\circ$.'
+    - 'Conclude that every triangle has angle sum at most $180^\circ$.'
+  explanation: |-
+    It is a proof by contradiction. Halving keeps the sum fixed while one angle shrinks below $p$; then the other two must exceed $180^\circ$, which the Exterior Angle Inequality forbids.
+- id: geo-m10-r2-h22
+  lesson: geo-m10-h-saccheri
+  type: label
+  topic: Saccheri quadrilaterals
+  stem: 'Name the numbered parts of this Saccheri quadrilateral $ABCD$.'
+  image: {src: images/geo-m10-saccheri-blank.svg, alt: 'Quadrilateral ABCD with right angles at A and B, congruent vertical sides AD and BC, a top side DC drawn curving down toward AB, and a dashed segment from M on AB to N on DC.'}
+  labels:
+    - {x: 35.9, y: 85.7, text: Base}
+    - {x: 37.5, y: 37.4, text: Summit}
+    - {x: 78.1, y: 71.4, text: Leg}
+    - {x: 25.0, y: 26.7, text: Summit angle}
+    - {x: 50, y: 61.9, text: Segment joining the midpoints of base and summit}
+  distractors: [Diagonal, Hypotenuse]
+  explanation: |-
+    The base $\overline{AB}$ has right angles at both ends; the congruent legs $\overline{AD}$ and $\overline{BC}$ stand on it; the summit $\overline{DC}$ is opposite the base, and the angles at $D$ and $C$ are the summit angles. $\overline{MN}$ joins the midpoints and is perpendicular to both base and summit.
+- id: geo-m10-r2-h23
+  lesson: geo-m10-h-saccheri
+  topic: Saccheri quadrilaterals
+  stem: 'In proving that the summit angles of Saccheri quadrilateral $ABCD$ are congruent, what does SAS applied to $\triangle DAB$ and $\triangle CBA$ give?'
+  choices:
+    - 'The summit angles are right angles.'
+    - 'The summit equals the base.'
+    - 'The diagonals are congruent: $DB = CA$.'
+    - 'The legs are parallel.'
+  answer: 2
+  explanation: |-
+    $AD = BC$, the right angles at $A$ and $B$ match, and $\overline{AB}$ is shared, so the triangles are congruent and $DB = CA$. Then SSS on $\triangle ADC$ and $\triangle BCD$ gives the congruent summit angles. Nothing here says the angles are right.
+- id: geo-m10-r2-h24
+  lesson: geo-m10-h-saccheri
+  topic: Saccheri quadrilaterals
+  stem: 'In hyperbolic geometry, the summit angles of a Saccheri quadrilateral are:'
+  choices:
+    - 'right'
+    - 'obtuse'
+    - 'one acute and one obtuse'
+    - 'acute'
+  answer: 3
+  explanation: |-
+    The summit angles are always congruent. Right angles happen exactly in Euclidean geometry, obtuse ones are impossible in neutral geometry, and in hyperbolic geometry they are acute.
+- id: geo-m10-r2-h25
+  lesson: geo-m10-h-saccheri
+  topic: Saccheri quadrilaterals
+  stem: 'Which statements are true of every Saccheri quadrilateral in hyperbolic geometry? Select all that apply.'
+  choices:
+    - 'Its summit angles are congruent.'
+    - 'Its summit angles are acute.'
+    - 'Its summit is shorter than its base.'
+    - 'Its angles add to less than $360^\circ$.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Congruent summit angles hold in all of neutral geometry; in hyperbolic geometry they are acute, so the angle sum $180^\circ + 2s$ is below $360^\circ$. The summit is longer than the base, not shorter.
+- id: geo-m10-r2-h26
+  lesson: geo-m10-h-saccheri
+  topic: Saccheri quadrilaterals
+  stem: 'A Saccheri quadrilateral in hyperbolic geometry has summit angles of $80^\circ$. What is its defect, $360^\circ$ minus its angle sum?'
+  choices:
+    - '$10^\circ$'
+    - '$20^\circ$'
+    - '$80^\circ$'
+    - '$100^\circ$'
+  answer: 1
+  explanation: |-
+    Angle sum $= 90 + 90 + 80 + 80 = 340^\circ$, so the defect is $360 - 340 = 20^\circ$. Each half cut off by $\overline{MN}$ is a Lambert quadrilateral with defect $10^\circ$.
+- id: geo-m10-r2-h27
+  lesson: geo-m10-h-saccheri
+  type: match
+  topic: Saccheri quadrilaterals
+  stem: 'Match each mathematician to the contribution described in the lesson.'
+  pairs:
+    - [Saccheri, Studied quadrilaterals with congruent legs perpendicular to a base (1733)]
+    - [Lambert, Studied quadrilaterals with three right angles]
+    - [Legendre, Gave a halving construction showing angle sums are at most 180°]
+    - [Bolyai and Lobachevsky, Published hyperbolic geometry as a consistent alternative]
+  distractors: [Proved the parallel postulate from the other four]
+  explanation: |-
+    Saccheri hoped to prove the parallel postulate by contradiction and instead found many hyperbolic theorems; Lambert studied the three-right-angle quadrilateral (half a Saccheri quadrilateral); Legendre's construction proves the Saccheri–Legendre theorem; Bolyai and Lobachevsky accepted the new geometry. Nobody proved the parallel postulate from the other four: it is independent.
+- id: geo-m10-r2-h28
+  lesson: geo-m10-h-saccheri
+  topic: Neutral geometry
+  stem: 'A segment from vertex $A$ to side $\overline{BC}$ splits a hyperbolic triangle into two triangles with defects $4^\circ$ and $9^\circ$. What is the defect of the whole triangle?'
+  choices:
+    - '$5^\circ$'
+    - '$9^\circ$'
+    - '$36^\circ$'
+    - '$13^\circ$'
+  answer: 3
+  explanation: |-
+    Defect is additive: the two angles at the split point add to $180^\circ$, so the defects of the pieces add to the defect of the whole: $4 + 9 = 13^\circ$.
+
+# Honors: Buffon's needle and Bertrand's paradox
+- id: geo-m10-r2-h29
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'In Buffon''s needle problem with lines $d$ apart, $x$ is the distance from the needle''s center to the nearest line. What values can $x$ take?'
+  choices:
+    - '$0$ to $d$'
+    - '$0$ to $\tfrac{\ell}{2}$'
+    - '$0$ to $\tfrac{d}{2}$'
+    - '$0$ to $\tfrac{\pi}{2}$'
+  answer: 2
+  explanation: |-
+    The center is somewhere between two lines $d$ apart, and the nearest one is at most halfway across: $0 \le x \le \tfrac d2$. The range $0$ to $\tfrac{\pi}{2}$ belongs to the angle $\theta$.
+- id: geo-m10-r2-h30
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'A needle of length $\ell \le d$ makes acute angle $\theta$ with the lines, and its center is $x$ from the nearest line. When does it cross that line?'
+  choices:
+    - 'When $x \le \tfrac{\ell}{2}\sin\theta$'
+    - 'When $x \le \tfrac{\ell}{2}\cos\theta$'
+    - 'When $x \le \ell\sin\theta$'
+    - 'When $x \ge \tfrac{\ell}{2}\sin\theta$'
+  answer: 0
+  explanation: |-
+    Half the needle, of length $\tfrac{\ell}{2}$, rises a vertical distance $\tfrac{\ell}{2}\sin\theta$ (opposite side over hypotenuse). It reaches the line when that is at least $x$. Using the whole length $\ell$ forgets that the center is in the middle.
+- id: geo-m10-r2-h31
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'With $\theta$ in radians, what is the area of the sample-space rectangle $0 \le \theta \le \tfrac{\pi}{2}$, $0 \le x \le \tfrac{d}{2}$?'
+  choices:
+    - '$\tfrac{\pi d}{2}$'
+    - '$\tfrac{\pi d}{4}$'
+    - '$\tfrac{\ell}{2}$'
+    - '$\pi d$'
+  answer: 1
+  explanation: |-
+    $\tfrac{\pi}{2} \cdot \tfrac{d}{2} = \tfrac{\pi d}{4}$. The favorable area under $x = \tfrac{\ell}{2}\sin\theta$ is $\tfrac{\ell}{2}$, and their ratio is $\tfrac{2\ell}{\pi d}$.
+- id: geo-m10-r2-h32
+  lesson: geo-m10-h-buffon-bertrand
+  type: text
+  topic: Buffon's needle
+  stem: 'A needle as long as the line spacing ($\ell = d$) is dropped 200 times and crosses a line 125 times. Using $\pi \approx \tfrac{2\ell N}{dC}$, the estimate of $\pi$ is ___. Give a decimal.'
+  accept: ['3.2']
+  explanation: |-
+    With $\ell = d$, $\pi \approx \dfrac{2N}{C} = \dfrac{400}{125} = 3.2$. With only 200 drops an error of a few hundredths or more is normal.
+- id: geo-m10-r2-h33
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'A needle 6 cm long is dropped on lines 10 cm apart. What is the probability that it crosses a line?'
+  choices:
+    - '$\tfrac{6}{5\pi} \approx 0.382$'
+    - '$\tfrac{3}{5} = 0.6$'
+    - '$\tfrac{3}{5\pi} \approx 0.191$'
+    - '$\tfrac{12}{5\pi} \approx 0.764$'
+  answer: 0
+  explanation: |-
+    $P = \dfrac{2\ell}{\pi d} = \dfrac{12}{10\pi} = \dfrac{6}{5\pi} \approx 0.382$. $\tfrac35$ is just $\tfrac{\ell}{d}$; the other two drop or double the factor 2.
+- id: geo-m10-r2-h34
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'In Barbier''s argument, why is a circle of diameter $d$ so useful?'
+  choices:
+    - 'Its area is easy to compute.'
+    - 'It never crosses a line.'
+    - 'It always crosses the lines exactly twice, which fixes the constant in $E = c \cdot (\text{length})$.'
+    - 'It crosses a line with probability $\tfrac{2}{\pi}$.'
+  answer: 2
+  explanation: |-
+    Wherever it lands (apart from tangent positions, which have probability 0), the circle straddles exactly one line, so $E = 2$ for length $\pi d$. That gives $c = \tfrac{2}{\pi d}$.
+- id: geo-m10-r2-h35
+  lesson: geo-m10-h-buffon-bertrand
+  type: order
+  topic: Buffon's needle
+  stem: 'Put the steps of Barbier''s argument for Buffon''s needle in order.'
+  items:
+    - 'Expected crossings add when a needle is cut into pieces, so $E = c \cdot (\text{length})$.'
+    - 'The same rule holds for bent wires and, in the limit, for curves.'
+    - 'A circle of diameter $d$ always crosses exactly twice, so $c \cdot \pi d = 2$.'
+    - 'A needle with $\ell \le d$ crosses at most once, so $P = E = \tfrac{2\ell}{\pi d}$.'
+  explanation: |-
+    First the rule that expected crossings are proportional to length, then its extension to curves (needed to use a circle), then the circle fixes the constant, and finally a short needle's expected crossings equal its probability of crossing.
+- id: geo-m10-r2-h36
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'For a needle three times as long as the line spacing ($\ell = 3d$), $\tfrac{2\ell}{\pi d} = \tfrac{6}{\pi} \approx 1.91$. What does this number mean?'
+  choices:
+    - 'The probability of crossing a line'
+    - 'Nothing: the formula fails completely'
+    - 'The probability of crossing two lines'
+    - 'The expected number of lines the needle crosses'
+  answer: 3
+  explanation: |-
+    A probability can't exceed 1. Barbier's argument still applies to long needles, so $\tfrac{2\ell}{\pi d}$ is the expected number of crossings; only for $\ell \le d$ is it also the probability of crossing.
+- id: geo-m10-r2-h37
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Buffon's needle
+  stem: 'Which statements about estimating $\pi$ with Buffon''s needle are true? Select all that apply.'
+  choices:
+    - 'The typical error shrinks roughly in proportion to $\tfrac{1}{\sqrt{N}}$.'
+    - 'Quadrupling the number of drops roughly halves the typical error.'
+    - 'A hundred drops usually give $\pi$ correct to five decimal places.'
+    - 'Lazzarini''s 1901 result, $\tfrac{355}{113}$, is widely regarded as too good to be true.'
+  answer: [0, 1, 3]
+  explanation: |-
+    The error goes like $\tfrac{1}{\sqrt N}$, so $4N$ drops give about half the error. A hundred drops typically miss by a tenth or more, nowhere near five decimals. Lazzarini's 3408 tosses should have had an error of about 0.05, so his six correct decimals are widely suspected of being arranged.
+- id: geo-m10-r2-h38
+  lesson: geo-m10-h-buffon-bertrand
+  type: label
+  topic: Buffon's needle
+  stem: 'Name the numbered parts of the Buffon''s needle setup.'
+  image: {src: images/geo-m10-buffon-blank.svg, alt: 'Three horizontal parallel lines. A tilted needle lies between the top two lines with its center marked, a dashed vertical segment from the center down to the nearest line, an arc between the needle and a horizontal dashed reference line, and a double arrow between two lines at the left.'}
+  labels:
+    - {x: 14.8, y: 25.5, text: Spacing between the lines}
+    - {x: 56.2, y: 48.1, text: Distance from the needle's center to the nearest line}
+    - {x: 66.2, y: 38.7, text: Angle between the needle and the lines}
+    - {x: 47.0, y: 50.4, text: The needle}
+  distractors: [Half the needle's length, Radius of a circle]
+  explanation: |-
+    The double arrow is the spacing $d$; the dashed vertical segment from the center to the line below is $x$; the arc measures the acute angle $\theta$ between the needle and the lines; the thick segment is the needle, of length $\ell$.
+- id: geo-m10-r2-h39
+  lesson: geo-m10-h-buffon-bertrand
+  type: match
+  topic: Random chords
+  stem: 'Match each of Bertrand''s ways of choosing a random chord to the probability that the chord is longer than a side of the inscribed equilateral triangle.'
+  pairs:
+    - [Two random endpoints on the circle, 1/3]
+    - [Random point on a random radius, 1/2]
+    - [Random midpoint in the disk, 1/4]
+  distractors: [2/3]
+  explanation: |-
+    A chord is longer than the side $r\sqrt3$ when its distance from the center is under $\tfrac r2$. Random endpoints: the second endpoint must land on the far $120^\circ$ arc, $\tfrac13$. Random radius: the distance is uniform on $[0, r]$, $\tfrac12$. Random midpoint: the midpoint must land in a disk of half the radius, $\tfrac14$ of the area.
+- id: geo-m10-r2-h40
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Random chords
+  stem: 'What is the main lesson of Bertrand''s paradox?'
+  choices:
+    - 'Geometric probability gives wrong answers for circles.'
+    - 'A probability isn''t determined until you say exactly how the random choice is made.'
+    - 'The correct answer is always the average of the methods.'
+    - 'Chords can''t be chosen at random.'
+  answer: 1
+  explanation: |-
+    Each method is a different probability model, and each computes its own answer correctly. "At random" has to be made precise; which model fits depends on the physical situation.
+- id: geo-m10-r2-h41
+  lesson: geo-m10-h-buffon-bertrand
+  topic: Random chords
+  stem: 'A chord''s midpoint is chosen uniformly at random in a disk of radius $r$ (Bertrand''s method 3). What is the probability that the chord is longer than the radius?'
+  choices:
+    - '$\tfrac23$'
+    - '$\tfrac{\sqrt3}{2}$'
+    - '$\tfrac12$'
+    - '$\tfrac34$'
+  answer: 3
+  explanation: |-
+    A chord at distance $t$ from the center has length $2\sqrt{r^2 - t^2}$, which exceeds $r$ when $t < \tfrac{\sqrt3}{2}r$. The midpoint must land in a disk of that radius: $P = \left(\tfrac{\sqrt3}{2}\right)^2 = \tfrac34$. $\tfrac23$ is method 1's answer and $\tfrac{\sqrt3}{2}$ is method 2's.
+- id: geo-m10-r2-h42
+  lesson: geo-m10-h-buffon-bertrand
+  type: text
+  topic: Buffon's needle
+  stem: 'Estimating a number by repeated random sampling, as in estimating $\pi$ with needles, is called the ___ method.'
+  accept: [Monte Carlo, Monte-Carlo, MonteCarlo]
+  explanation: |-
+    The Monte Carlo method is named after the casino in Monaco. Today it runs on computers, which can simulate millions of random trials.

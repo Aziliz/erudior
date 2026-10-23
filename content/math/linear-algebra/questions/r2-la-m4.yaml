@@ -1,0 +1,516 @@
+# Round 2, module la-m4 (linear transformations): new question types for the core lessons,
+# and questions for the honors lessons la-m4-h-lines and la-m4-h-inverses.
+
+# --- Lesson 12: linear transformations ---
+- id: la-m4-r2-q01
+  lesson: la-transformations
+  module_quiz: true
+  type: text
+  topic: Linear transformations
+  stem: '$A$ is a $4 \times 7$ matrix. The transformation $\mathbf{x} \mapsto A\mathbf{x}$ has domain $\mathbb{R}^k$ with $k =$ ___ and codomain $\mathbb{R}^j$ with $j =$ ___. Give only the numbers.'
+  accept:
+    - ['7', seven]
+    - ['4', four]
+  explanation: |-
+    For $A\mathbf{x}$ to make sense, $\mathbf{x}$ needs one entry per column of $A$, so inputs live in $\mathbb{R}^7$. The output has one entry per row, so it lives in $\mathbb{R}^4$. Inputs match columns, outputs match rows.
+
+- id: la-m4-r2-q02
+  lesson: la-transformations
+  type: label
+  topic: Linear transformations
+  stem: 'This picture shows a transformation $T$. Name the numbered parts.'
+  image: {src: images/la-m4-domain-range-blank.svg, alt: 'Two ovals joined by arrows labeled T. Arrows run from points in the left oval to points inside a dashed region within the right oval. One point of the right oval lies outside the dashed region and receives no arrow. Six parts are numbered.'}
+  labels:
+    - {x: 23.6, y: 23.5, text: Domain}
+    - {x: 92.4, y: 51.5, text: Codomain}
+    - {x: 85.4, y: 62.4, text: Range}
+    - {x: 16.7, y: 38.2, text: Input vector}
+    - {x: 81.9, y: 50.6, text: Image of the input}
+    - {x: 84.7, y: 27.9, text: Vector not in the range}
+  distractors: [Span of the rows, Zero vector]
+  explanation: |-
+    Inputs come from the domain (left oval). Outputs are allowed anywhere in the codomain (right oval), but they actually land in the range (dashed region), the set of all images. Each arrow carries an input vector to its image. The point outside the dashed region is in the codomain but no input reaches it, so it is not in the range.
+
+- id: la-m4-r2-q03
+  lesson: la-transformations
+  module_quiz: true
+  topic: Linear transformations
+  stem: 'Which of these transformations $\mathbb{R}^2 \to \mathbb{R}^2$ are linear? Select all that apply.'
+  choices:
+    - '$T(x_1, x_2) = (2x_1 - x_2,\ 0)$'
+    - '$T(x_1, x_2) = (x_1 + x_2,\ x_1 - 1)$'
+    - '$T(x_1, x_2) = (x_2,\ x_1)$'
+    - '$T(x_1, x_2) = (x_1x_2,\ x_2)$'
+    - '$T(x_1, x_2) = (0,\ 0)$'
+  answer: [0, 2, 4]
+  explanation: |-
+    A rule whose output entries are combinations $c_1x_1 + c_2x_2$ with no constants, powers or products is a matrix transformation, so it is linear: $(2x_1 - x_2,\ 0)$, $(x_2,\ x_1)$, and the zero map $(0,\ 0)$, whose matrix is the zero matrix. $(x_1 + x_2,\ x_1 - 1)$ sends $\mathbf{0}$ to $(0, -1)$. $(x_1x_2,\ x_2)$ fixes $\mathbf{0}$ but fails scaling: $T(2, 2) = (4, 2)$ while $2T(1, 1) = (2, 2)$.
+
+- id: la-m4-r2-q04
+  lesson: la-transformations
+  type: order
+  topic: Linear transformations
+  stem: '$T$ is linear and you know $T(\mathbf{e}_1)$ and $T(\mathbf{e}_2)$. Put the steps for finding $T(3, -2)$ in order.'
+  items:
+    - 'Write $(3, -2) = 3\mathbf{e}_1 - 2\mathbf{e}_2$'
+    - 'Use linearity: $T(3\mathbf{e}_1 - 2\mathbf{e}_2) = 3T(\mathbf{e}_1) - 2T(\mathbf{e}_2)$'
+    - 'Substitute the given vectors $T(\mathbf{e}_1)$ and $T(\mathbf{e}_2)$'
+    - 'Scale them and add entry by entry'
+  explanation: |-
+    First express the input as a combination of $\mathbf{e}_1$ and $\mathbf{e}_2$; linearity then turns $T$ of the combination into the same combination of the images; only then can you plug in the known images and do the arithmetic.
+
+- id: la-m4-r2-q05
+  lesson: la-transformations
+  type: match
+  topic: Linear transformations
+  stem: 'Match each rule $\mathbb{R}^2 \to \mathbb{R}^2$ with the right verdict.'
+  pairs:
+    - ['$T(x_1, x_2) = (x_1 + 1,\ x_2)$', 'Not linear: it moves the zero vector']
+    - ['$T(x_1, x_2) = (x_1^2,\ x_2)$', 'Not linear, even though it fixes the zero vector']
+    - ['$T(x_1, x_2) = (3x_2,\ x_1 - x_2)$', 'Linear']
+    - ['$T(x_1, x_2) = (0,\ 0)$', 'Linear']
+  distractors: [Linear only for positive inputs]
+  explanation: |-
+    $(x_1 + 1,\ x_2)$ sends $\mathbf{0}$ to $(1, 0)$, so it can't be linear. $(x_1^2,\ x_2)$ sends $\mathbf{0}$ to $\mathbf{0}$, but $T(2, 0) = (4, 0) \ne 2T(1, 0) = (2, 0)$: passing the $T(\mathbf{0}) = \mathbf{0}$ test is not enough. $(3x_2,\ x_1 - x_2)$ is $\begin{bmatrix} 0 & 3 \\ 1 & -1\end{bmatrix}\mathbf{x}$, and the zero map is the zero matrix times $\mathbf{x}$; both are linear. Linearity must hold for all inputs, so "linear only for some inputs" is not a thing.
+
+# --- Lesson 13: the standard matrix ---
+- id: la-m4-r2-q06
+  lesson: la-std-matrix
+  module_quiz: true
+  type: text
+  topic: Standard matrix
+  stem: '$T: \mathbb{R}^3 \to \mathbb{R}^2$ is linear with $T(\mathbf{e}_1) = (1, 4)$, $T(\mathbf{e}_2) = (0, -2)$ and $T(\mathbf{e}_3) = (5, 3)$. The entry in row 2, column 3 of its standard matrix is ___.'
+  accept: ['3']
+  explanation: |-
+    Column $j$ of the standard matrix is $T(\mathbf{e}_j)$, so column 3 is $(5, 3)$ and its row-2 entry is 3. The full matrix is $\begin{bmatrix} 1 & 0 & 5 \\ 4 & -2 & 3\end{bmatrix}$. Writing the images as rows instead would give the wrong answer (and a $3 \times 2$ matrix).
+
+- id: la-m4-r2-q07
+  lesson: la-std-matrix
+  module_quiz: true
+  type: label
+  topic: Geometric transformations
+  stem: 'Each panel shows the unit square (dashed) and its image (shaded) under a transformation, with the arrows $T(\mathbf{e}_1)$ and $T(\mathbf{e}_2)$. Name the transformation in each numbered panel.'
+  image: {src: images/la-m4-gallery-blank.svg, alt: 'Four numbered panels. Panel 1: T(e₁) points straight up and T(e₂) points left, and the square has turned to the upper left. Panel 2: T(e₁) is unchanged and T(e₂) points down, and the square has flipped below the axis. Panel 3: T(e₁) is unchanged and T(e₂) is (1, 1), and the square leans into a parallelogram. Panel 4: T(e₁) is unchanged and T(e₂) is the zero vector, and the square is flattened onto the axis.'}
+  labels:
+    - {x: 43.7, y: 14.2, text: Rotation by 90°}
+    - {x: 91.1, y: 14.2, text: Reflection across the x₁-axis}
+    - {x: 43.7, y: 61.3, text: Horizontal shear}
+    - {x: 91.1, y: 61.3, text: Projection onto the x₁-axis}
+  distractors: [Reflection across the line x₂ = x₁, Dilation by 2]
+  explanation: |-
+    Read the columns from the arrows. Panel 1: $\mathbf{e}_1 \mapsto (0, 1)$ and $\mathbf{e}_2 \mapsto (-1, 0)$, the $90^\circ$ counterclockwise rotation. Panel 2: $\mathbf{e}_1$ stays and $\mathbf{e}_2 \mapsto (0, -1)$, the reflection across the $x_1$-axis. Panel 3: $\mathbf{e}_1$ stays and $\mathbf{e}_2 \mapsto (1, 1)$, the horizontal shear $\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$. Panel 4: $\mathbf{e}_2 \mapsto \mathbf{0}$, the projection onto the $x_1$-axis. A reflection across $x_2 = x_1$ would swap $\mathbf{e}_1$ and $\mathbf{e}_2$; a dilation by 2 would double both.
+
+- id: la-m4-r2-q08
+  lesson: la-std-matrix
+  type: order
+  topic: Standard matrix
+  stem: 'Put the steps for finding the standard matrix of a linear $T: \mathbb{R}^n \to \mathbb{R}^m$ in order.'
+  items:
+    - 'List the inputs $\mathbf{e}_1, \dots, \mathbf{e}_n$ (one per column)'
+    - 'Compute each image $T(\mathbf{e}_j)$'
+    - 'Place $T(\mathbf{e}_j)$ as column $j$ of an $m \times n$ matrix'
+    - 'Check that $A\mathbf{x} = T(\mathbf{x})$ for a test vector $\mathbf{x}$'
+  explanation: |-
+    The theorem says $A = [\,T(\mathbf{e}_1) \;\cdots\; T(\mathbf{e}_n)\,]$: you need the basis vectors, then their images, then you assemble the columns. A final check on one other vector catches slips such as putting images in rows.
+
+- id: la-m4-r2-q09
+  lesson: la-std-matrix
+  topic: Geometric transformations
+  stem: 'Which of these transformations of $\mathbb{R}^2$ leave $\mathbf{e}_1$ where it is? Select all that apply.'
+  choices:
+    - 'Reflection across the $x_1$-axis'
+    - 'Horizontal shear $(x_1, x_2) \mapsto (x_1 + 3x_2,\ x_2)$'
+    - 'Projection onto the $x_1$-axis'
+    - 'Rotation by $90^\circ$ counterclockwise'
+    - 'Vertical shear $(x_1, x_2) \mapsto (x_1,\ 3x_1 + x_2)$'
+  answer: [0, 1, 2]
+  explanation: |-
+    The first column of the standard matrix is $T(\mathbf{e}_1)$, so look for first column $(1, 0)$. The reflection $\begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix}$, the horizontal shear $\begin{bmatrix} 1 & 3 \\ 0 & 1\end{bmatrix}$ and the projection $\begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix}$ all have it. The rotation sends $\mathbf{e}_1$ to $(0, 1)$ and the vertical shear sends it to $(1, 3)$.
+
+- id: la-m4-r2-q10
+  lesson: la-std-matrix
+  type: match
+  topic: Geometric transformations
+  stem: 'Match each standard matrix with its transformation of $\mathbb{R}^2$.'
+  pairs:
+    - ['$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$', 'Rotation by 90° counterclockwise']
+    - ['$\begin{bmatrix} -1 & 0 \\ 0 & 1\end{bmatrix}$', 'Reflection across the x₂-axis']
+    - ['$\begin{bmatrix} 1 & 0 \\ 3 & 1\end{bmatrix}$', 'Vertical shear']
+    - ['$\begin{bmatrix} 0 & 0 \\ 0 & 1\end{bmatrix}$', 'Projection onto the x₂-axis']
+  distractors: [Reflection across the line x₂ = x₁, Rotation by 90° clockwise]
+  explanation: |-
+    Read each matrix by its columns. $\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$ sends $\mathbf{e}_1 \mapsto \mathbf{e}_2$ and $\mathbf{e}_2 \mapsto -\mathbf{e}_1$: counterclockwise by $90^\circ$ (clockwise would send $\mathbf{e}_1$ to $-\mathbf{e}_2$). $\begin{bmatrix} -1 & 0 \\ 0 & 1\end{bmatrix}$ flips $x_1$ only: reflection across the $x_2$-axis. $\begin{bmatrix} 1 & 0 \\ 3 & 1\end{bmatrix}$ sends $(x_1, x_2)$ to $(x_1,\ 3x_1 + x_2)$: a vertical shear. $\begin{bmatrix} 0 & 0 \\ 0 & 1\end{bmatrix}$ keeps only $x_2$: projection onto the $x_2$-axis.
+
+# --- Lesson 14: one-to-one and onto ---
+- id: la-m4-r2-q11
+  lesson: la-onto-one
+  type: label
+  topic: One-to-one and onto
+  stem: 'Each numbered arrow diagram shows a map from a domain (left) to a codomain (right). Name the property of each.'
+  image: {src: images/la-m4-arrow-diagrams-blank.svg, alt: 'Four numbered arrow diagrams. Diagram 1: three inputs go to three different outputs and a fourth output gets no arrow. Diagram 2: four inputs go to three outputs; every output gets an arrow and the top output gets two. Diagram 3: three inputs are paired one each with three outputs. Diagram 4: the top two inputs both go to the top output, the third input goes to the bottom output, and the middle output gets no arrow.'}
+  labels:
+    - {x: 23.7, y: 26.6, text: 'One-to-one, not onto'}
+    - {x: 73.7, y: 26.6, text: 'Onto, not one-to-one'}
+    - {x: 23.7, y: 75.8, text: One-to-one and onto}
+    - {x: 73.7, y: 75.8, text: Neither}
+  distractors: [Not a function]
+  explanation: |-
+    Onto: every output gets at least one arrow. One-to-one: no output gets more than one arrow. Diagram 1 misses an output but never doubles up; diagram 2 hits every output but one output twice; diagram 3 pairs everything up; diagram 4 both doubles up and misses an output. Every input has exactly one arrow in all four, so each one is a function.
+
+- id: la-m4-r2-q12
+  lesson: la-onto-one
+  module_quiz: true
+  topic: One-to-one and onto
+  stem: '$A$ is a $3 \times 5$ matrix with 3 pivot positions, and $T(\mathbf{x}) = A\mathbf{x}$. Which statements are true? Select all that apply.'
+  choices:
+    - '$T$ is onto $\mathbb{R}^3$'
+    - '$T$ is one-to-one'
+    - '$A\mathbf{x} = \mathbf{0}$ has nontrivial solutions'
+    - 'The columns of $A$ span $\mathbb{R}^3$'
+    - 'The columns of $A$ are linearly independent'
+  answer: [0, 2, 3]
+  explanation: |-
+    Three pivots in three rows means a pivot in every row: $T$ is onto and the columns span $\mathbb{R}^3$. But only 3 of the 5 columns have pivots, so there are 2 free variables: $A\mathbf{x} = \mathbf{0}$ has nontrivial solutions, the columns are dependent, and $T$ is not one-to-one.
+
+- id: la-m4-r2-q13
+  lesson: la-onto-one
+  type: text
+  topic: One-to-one and onto
+  stem: '$A$ is a $5 \times 8$ matrix with a pivot in every row, so $\mathbf{x} \mapsto A\mathbf{x}$ is onto $\mathbb{R}^5$. How many free variables does $A\mathbf{x} = \mathbf{0}$ have? ___'
+  accept: ['3', three]
+  explanation: |-
+    A pivot in each of the 5 rows uses 5 of the 8 columns. The other $8 - 5 = 3$ columns give free variables, which is why a wide matrix can never be one-to-one.
+
+- id: la-m4-r2-q14
+  lesson: la-onto-one
+  module_quiz: true
+  type: match
+  topic: One-to-one and onto
+  stem: 'Match each matrix description with the properties of $\mathbf{x} \mapsto A\mathbf{x}$.'
+  pairs:
+    - ['$A$ is $4 \times 6$ with 4 pivots', 'Onto, not one-to-one']
+    - ['$A$ is $6 \times 4$ with 4 pivots', 'One-to-one, not onto']
+    - ['$A$ is $4 \times 4$ with 4 pivots', 'One-to-one and onto']
+    - ['$A$ is $4 \times 4$ with 3 pivots', 'Neither']
+  explanation: |-
+    Compare the pivot count with the number of rows (onto needs a pivot in every row) and with the number of columns (one-to-one needs a pivot in every column). $4 \times 6$ with 4 pivots: every row, not every column. $6 \times 4$ with 4 pivots: every column, not every row. $4 \times 4$ with 4: both. $4 \times 4$ with 3: neither, as square matrices always have both or neither.
+
+- id: la-m4-r2-q15
+  lesson: la-onto-one
+  type: order
+  topic: One-to-one and onto
+  stem: '$T$ is linear and only $\mathbf{x} = \mathbf{0}$ satisfies $T(\mathbf{x}) = \mathbf{0}$. Put the steps of the proof that $T$ is one-to-one in order.'
+  items:
+    - 'Suppose $T(\mathbf{u}) = T(\mathbf{v})$'
+    - 'By linearity, $T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v}) = \mathbf{0}$'
+    - 'Only $\mathbf{0}$ maps to $\mathbf{0}$, so $\mathbf{u} - \mathbf{v} = \mathbf{0}$'
+    - 'So $\mathbf{u} = \mathbf{v}$: no output is hit twice'
+  explanation: |-
+    Start from two inputs with the same output, use linearity to turn that into an input that maps to $\mathbf{0}$, apply the hypothesis, and conclude the two inputs were equal.
+
+# --- Honors: projections, reflections and rotations through any line ---
+- id: la-m4-r2-h01
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'What is the standard matrix of the projection onto the line $x_2 = 3x_1$?'
+  choices:
+    - '$\begin{bmatrix} 1 & 3 \\ 3 & 9\end{bmatrix}$'
+    - '$\dfrac{1}{10}\begin{bmatrix} 1 & 3 \\ 3 & 9\end{bmatrix}$'
+    - '$\dfrac{1}{10}\begin{bmatrix} 9 & 3 \\ 3 & 1\end{bmatrix}$'
+    - '$\dfrac{1}{10}\begin{bmatrix} -8 & 6 \\ 6 & 8\end{bmatrix}$'
+  answer: 1
+  explanation: |-
+    With $m = 3$, $P = \dfrac{1}{1 + m^2}\begin{bmatrix} 1 & m \\ m & m^2\end{bmatrix} = \dfrac{1}{10}\begin{bmatrix} 1 & 3 \\ 3 & 9\end{bmatrix}$. Check: $P(1, 3) = \tfrac{1}{10}(10, 30) = (1, 3)$, so points on the line stay put. Without the $\tfrac{1}{10}$, $(1, 3)$ would go to $(10, 30)$. The matrix with 9 in the top left projects onto $x_2 = \tfrac13 x_1$, and $\tfrac{1}{10}\begin{bmatrix} -8 & 6 \\ 6 & 8\end{bmatrix}$ is the reflection across $x_2 = 3x_1$.
+
+- id: la-m4-r2-h02
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'Reflect $(5, 0)$ across the line $x_2 = 2x_1$. Where does it land?'
+  choices: ['$(1, 2)$', '$(3, 4)$', '$(-4, 3)$', '$(-3, 4)$']
+  answer: 3
+  explanation: |-
+    $P = \tfrac15\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$ gives $P(5, 0) = (1, 2)$, the foot of the perpendicular. Then $R\mathbf{x} = 2P\mathbf{x} - \mathbf{x} = (2, 4) - (5, 0) = (-3, 4)$. Check: the midpoint of $(5, 0)$ and $(-3, 4)$ is $(1, 2)$, on the line, and both have length 5. $(1, 2)$ is the projection, not the reflection.
+
+- id: la-m4-r2-h03
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'Which matrix reflects $\mathbb{R}^2$ across the line through the origin at angle $60^\circ$?'
+  choices:
+    - '$\begin{bmatrix} \tfrac12 & \tfrac{\sqrt3}{2} \\ \tfrac{\sqrt3}{2} & -\tfrac12\end{bmatrix}$'
+    - '$\begin{bmatrix} -\tfrac12 & \tfrac{\sqrt3}{2} \\ \tfrac{\sqrt3}{2} & \tfrac12\end{bmatrix}$'
+    - '$\begin{bmatrix} -\tfrac12 & -\tfrac{\sqrt3}{2} \\ \tfrac{\sqrt3}{2} & -\tfrac12\end{bmatrix}$'
+    - '$\begin{bmatrix} \tfrac14 & \tfrac{\sqrt3}{4} \\ \tfrac{\sqrt3}{4} & \tfrac34\end{bmatrix}$'
+  answer: 1
+  explanation: |-
+    The reflection matrix uses the doubled angle: $\begin{bmatrix} \cos 120^\circ & \sin 120^\circ \\ \sin 120^\circ & -\cos 120^\circ\end{bmatrix}$ with $\cos 120^\circ = -\tfrac12$ and $\sin 120^\circ = \tfrac{\sqrt3}{2}$. Using $60^\circ$ itself gives the reflection across the $30^\circ$ line; the matrix with $-\tfrac{\sqrt3}{2}$ in the top right is the rotation by $120^\circ$; and the one with quarters is the projection onto the $60^\circ$ line.
+
+- id: la-m4-r2-h04
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'Reflect across the line at angle $20^\circ$, then across the line at angle $65^\circ$ (both through the origin). What is the result?'
+  choices: ['Rotation by $45^\circ$ counterclockwise', 'Rotation by $90^\circ$ clockwise', 'Rotation by $90^\circ$ counterclockwise', 'Reflection across the line at $45^\circ$']
+  answer: 2
+  explanation: |-
+    Two reflections, first across the line at $\alpha$ and then the line at $\beta$, make the rotation by $2(\beta - \alpha) = 2(65^\circ - 20^\circ) = 90^\circ$, counterclockwise because $\beta > \alpha$. The angle is twice the angle between the lines, not $45^\circ$. Clockwise $90^\circ$ would be the answer for the opposite order. Two reflections never make a reflection.
+
+- id: la-m4-r2-h05
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'Rotate by $90^\circ$ counterclockwise, then reflect across the $x_1$-axis. What single transformation is this?'
+  choices: ['Reflection across the line $x_2 = -x_1$', 'Reflection across the line $x_2 = x_1$', 'Rotation by $90^\circ$ clockwise', 'Rotation by $180^\circ$']
+  answer: 0
+  explanation: |-
+    Rotation by $\gamma$ then reflection across the line at $\beta$ is the reflection across the line at $\beta - \tfrac{\gamma}{2} = 0^\circ - 45^\circ = -45^\circ$, the line $x_2 = -x_1$. Check with the basis: $\mathbf{e}_1 \mapsto (0, 1) \mapsto (0, -1)$ and $\mathbf{e}_2 \mapsto (-1, 0) \mapsto (-1, 0)$, so the matrix is $\begin{bmatrix} 0 & -1 \\ -1 & 0\end{bmatrix}$, which swaps the coordinates and changes both signs. A rotation combined with a reflection is always a reflection, never a rotation.
+
+- id: la-m4-r2-h06
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'What does $T(\mathbf{x}) = \dfrac{1}{13}\begin{bmatrix} 5 & 12 \\ 12 & -5\end{bmatrix}\mathbf{x}$ do?'
+  choices: ['Rotates by about $67.4^\circ$', 'Reflects across the line $x_2 = \tfrac32 x_1$', 'Projects onto the line $x_2 = \tfrac23 x_1$', 'Reflects across the line $x_2 = \tfrac23 x_1$']
+  answer: 3
+  explanation: |-
+    The matrix has the reflection pattern $\begin{bmatrix} a & b \\ b & -a\end{bmatrix}$ with $a^2 + b^2 = \tfrac{25 + 144}{169} = 1$. A reflection fixes its line: $T(3, 2) = \tfrac{1}{13}(15 + 24,\ 36 - 10) = (3, 2)$, so the line is $x_2 = \tfrac23 x_1$. (From $\tfrac{1 - m^2}{1 + m^2} = \tfrac{5}{13}$ you get $m^2 = \tfrac49$, and $\tfrac{2m}{1 + m^2} = \tfrac{12}{13} > 0$ picks $m = \tfrac23$.) A rotation would have the pattern $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$, and a projection matrix has no negative diagonal entry.
+
+- id: la-m4-r2-h07
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: '$P$ is the projection onto a line $L$ through the origin in $\mathbb{R}^2$. Which description is correct?'
+  choices: ['Idempotent, one-to-one, and onto $\mathbb{R}^2$', 'Idempotent, neither one-to-one nor onto $\mathbb{R}^2$', 'An involution, neither one-to-one nor onto $\mathbb{R}^2$', 'An isometry, one-to-one but not onto $\mathbb{R}^2$']
+  answer: 1
+  explanation: |-
+    Projecting twice is the same as projecting once ($P$ is idempotent). All outputs lie on $L$, so $P$ is not onto $\mathbb{R}^2$, and every vector perpendicular to $L$ goes to $\mathbf{0}$, so it is not one-to-one. It is not an involution ($P$ twice is $P$, not the identity) and not an isometry (it shortens vectors off the line).
+
+- id: la-m4-r2-h08
+  lesson: la-m4-h-lines
+  type: text
+  topic: Reflections and projections
+  stem: 'The reflection across the line $x_2 = 3x_1$ has standard matrix $\dfrac{1}{1 + m^2}\begin{bmatrix} 1 - m^2 & 2m \\ 2m & m^2 - 1\end{bmatrix}$ with $m = 3$. Its entry in row 1, column 1 is ___. Give an exact fraction or a decimal.'
+  accept: ['-4/5', '-0.8', '-8/10']
+  explanation: |-
+    $\dfrac{1 - 9}{1 + 9} = \dfrac{-8}{10} = -\dfrac45$. The whole matrix is $\tfrac15\begin{bmatrix} -4 & 3 \\ 3 & 4\end{bmatrix}$; check that it fixes $(1, 3)$: $\tfrac15(-4 + 9,\ 3 + 12) = (1, 3)$.
+
+- id: la-m4-r2-h09
+  lesson: la-m4-h-lines
+  type: text
+  topic: Reflections and projections
+  stem: 'Reflecting across the $x_1$-axis and then across the line through the origin at angle $\beta$ (with $0^\circ \le \beta < 180^\circ$) gives the counterclockwise rotation by $100^\circ$. $\beta =$ ___ degrees. Give only the number.'
+  accept: ['50']
+  explanation: |-
+    The $x_1$-axis is the line at $\alpha = 0^\circ$, so the rotation angle is $2(\beta - 0^\circ) = 100^\circ$ and $\beta = 50^\circ$. The rotation is twice the angle between the mirrors.
+
+- id: la-m4-r2-h10
+  lesson: la-m4-h-lines
+  type: order
+  topic: Reflections and projections
+  stem: 'Put the steps for reflecting a vector $\mathbf{x}$ across the line $x_2 = mx_1$ in order, using $R\mathbf{x} = 2P\mathbf{x} - \mathbf{x}$.'
+  items:
+    - 'Note that $(1, m)$ lies on the line'
+    - 'Write $P = \dfrac{1}{1 + m^2}\begin{bmatrix} 1 & m \\ m & m^2\end{bmatrix}$'
+    - 'Compute $P\mathbf{x}$, the foot of the perpendicular from $\mathbf{x}$'
+    - 'Compute $R\mathbf{x} = 2P\mathbf{x} - \mathbf{x}$'
+    - 'Check that $P\mathbf{x}$ is the midpoint of $\mathbf{x}$ and $R\mathbf{x}$'
+  explanation: |-
+    The direction $(1, m)$ gives the projection matrix; the projection gives the foot of the perpendicular; doubling it and subtracting $\mathbf{x}$ gives the reflection; and the midpoint check can only come once $R\mathbf{x}$ is known.
+
+- id: la-m4-r2-h11
+  lesson: la-m4-h-lines
+  type: label
+  topic: Reflections and projections
+  stem: 'The picture shows a vector, a line through the origin, and two vectors made from them. Name the numbered parts.'
+  image: {src: images/la-m4-reflect-line-blank.svg, alt: 'Coordinate axes with a steep line through the origin. An arrow from the origin points to the lower right of the line, a second arrow points to the upper left, and a dashed segment joins their tips, crossing the line at a right angle at a marked point. Four parts are numbered.'}
+  labels:
+    - {x: 85.7, y: 56.5, text: Original vector}
+    - {x: 35.7, y: 26.1, text: Reflection of the vector}
+    - {x: 60.7, y: 41.3, text: Projection of the vector}
+    - {x: 72.0, y: 13.9, text: Line of reflection}
+  distractors: [Rotation of the vector, Unit vector along the line]
+  explanation: |-
+    The line is the mirror. The projection is the foot of the perpendicular from the original vector's tip, on the line. The reflection is the same distance on the other side, so the projection is the midpoint of the dashed segment joining the original vector and its reflection. (In the lesson the line is $x_2 = 2x_1$, the vector is $(3, 1)$, its projection $(1, 2)$ and its reflection $(-1, 3)$.)
+
+- id: la-m4-r2-h12
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'Which of these linear maps of $\mathbb{R}^2$ preserve the length of every vector? Select all that apply.'
+  choices:
+    - 'Rotation by $37^\circ$'
+    - 'Reflection across the line $x_2 = 5x_1$'
+    - 'Projection onto the $x_1$-axis'
+    - 'The horizontal shear $\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$'
+    - 'A reflection followed by a rotation'
+  answer: [0, 1, 4]
+  explanation: |-
+    Rotations and reflections are isometries, and doing one isometry after another keeps every length, so a reflection followed by a rotation is one too (in fact it is another reflection). The projection sends $\mathbf{e}_2$ to $\mathbf{0}$, and the shear sends $\mathbf{e}_2$ (length 1) to $(1, 1)$ (length $\sqrt2$).
+
+- id: la-m4-r2-h13
+  lesson: la-m4-h-lines
+  type: match
+  topic: Reflections and projections
+  stem: 'Match each matrix pattern with the map it describes. Here $a^2 + b^2 = 1$.'
+  pairs:
+    - ['$\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$', Rotation]
+    - ['$\begin{bmatrix} a & b \\ b & -a\end{bmatrix}$', Reflection across a line]
+    - ['$\dfrac{1}{1 + m^2}\begin{bmatrix} 1 & m \\ m & m^2\end{bmatrix}$', Projection onto a line]
+    - ['$\begin{bmatrix} 1 & k \\ 0 & 1\end{bmatrix}$', Horizontal shear]
+  distractors: [Dilation]
+  explanation: |-
+    A rotation by $\gamma$ has $a = \cos\gamma$, $b = \sin\gamma$. A reflection across the line at $\theta$ has $a = \cos 2\theta$, $b = \sin 2\theta$; the minus sign in the bottom right is what distinguishes it. The projection onto $x_2 = mx_1$ has the slope form shown. The shear adds $k$ times $x_2$ to $x_1$. A dilation would be $r$ times the identity.
+
+- id: la-m4-r2-h14
+  lesson: la-m4-h-lines
+  topic: Reflections and projections
+  stem: 'Let $T(\mathbf{x}) = \begin{bmatrix} 2 & 1 \\ -2 & -1\end{bmatrix}\mathbf{x}$. What is the image of the line $(1, 0) + t(1, -2)$?'
+  choices: ['The line $(2, -2) + t(1, -2)$', 'The single point $(2, -2)$', 'The line through the origin in the direction $(2, -2)$', 'The whole plane $\mathbb{R}^2$']
+  answer: 1
+  explanation: |-
+    The image of $\mathbf{p} + t\mathbf{d}$ is $T(\mathbf{p}) + t\,T(\mathbf{d})$. Here $T(1, 0) = (2, -2)$ and $T(1, -2) = (2 - 2,\ -2 + 2) = (0, 0)$, so every point of the line goes to $(2, -2)$. A line is sent to a line only when $T(\mathbf{d}) \ne \mathbf{0}$; a linear map can never spread a line over the whole plane.
+
+# --- Honors: preimages and one-sided inverses ---
+- id: la-m4-r2-h15
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: 'For $A = \begin{bmatrix} 1 & 2 & 0 \\ 0 & 1 & 3\end{bmatrix}$, what is the preimage of $\mathbf{b} = (3, 1)$ under $\mathbf{x} \mapsto A\mathbf{x}$?'
+  choices:
+    - 'The single point $(1, 1, 0)$'
+    - 'The line $(1, 1, 0) + t(6, -3, 1)$'
+    - 'The line $(3, 1, 0) + t(6, -3, 1)$'
+    - 'The line $(1, 1, 0) + t(-6, 3, 1)$'
+  answer: 1
+  explanation: |-
+    With $x_3 = t$: $x_2 = 1 - 3t$ and $x_1 = 3 - 2x_2 = 1 + 6t$, so the preimage is $(1, 1, 0) + t(6, -3, 1)$. Check: $A(1, 1, 0) = (3, 1)$ and $A(6, -3, 1) = (0, 0)$. The free variable makes it a line, not a point. $A(3, 1, 0) = (5, 1)$, not $\mathbf{b}$, and $A(-6, 3, 1) = (0, 6)$, not $\mathbf{0}$.
+
+- id: la-m4-r2-h16
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: '$A$ is $2 \times 3$ with 2 pivot positions. What do the preimages of $\mathbf{x} \mapsto A\mathbf{x}$ look like?'
+  choices: ['Single points of $\mathbb{R}^3$', 'Planes in $\mathbb{R}^3$, all parallel', 'Lines in $\mathbb{R}^3$, all parallel', 'Lines in $\mathbb{R}^3$, all through the origin']
+  answer: 2
+  explanation: |-
+    A pivot in both rows means every $\mathbf{b}$ is reached, so no preimage is empty. One of the three columns has no pivot, so $A\mathbf{x} = \mathbf{0}$ has one free variable and its solutions form a line through the origin. Every other preimage is a parallel copy of that line, shifted off the origin (only the preimage of $\mathbf{0}$ passes through it).
+
+- id: la-m4-r2-h17
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: '$T: \mathbb{R}^n \to \mathbb{R}^m$ and $S: \mathbb{R}^m \to \mathbb{R}^p$ are linear, and "first $T$, then $S$" is onto $\mathbb{R}^p$. Which must be true?'
+  choices: ['$S$ is onto $\mathbb{R}^p$', '$T$ is onto $\mathbb{R}^m$', '$T$ is one-to-one', '$S$ is one-to-one']
+  answer: 0
+  explanation: |-
+    Every $\mathbf{c}$ in $\mathbb{R}^p$ is $S(T(\mathbf{x}))$ for some $\mathbf{x}$, so it is the image under $S$ of $T(\mathbf{x})$: $S$ is onto. Nothing forces the others. With $T(x) = (x, 0)$ and $S(y_1, y_2) = y_1$, the composite is onto $\mathbb{R}$, yet $T$ is not onto $\mathbb{R}^2$ and $S$ is not one-to-one.
+
+- id: la-m4-r2-h18
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: '$A$ is a $5 \times 3$ matrix whose columns are linearly independent. What size is a left inverse $C$ of $A$?'
+  choices: ['$5 \times 3$', '$3 \times 3$', '$5 \times 5$', '$3 \times 5$']
+  answer: 3
+  explanation: |-
+    $CA = I_3$ needs $C$ to have 5 columns (to multiply the 5 rows of $A$) and 3 rows (so the product is $3 \times 3$). A one-sided inverse of an $m \times n$ matrix is always $n \times m$.
+
+- id: la-m4-r2-h19
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: 'Which matrix has a right inverse?'
+  choices:
+    - '$\begin{bmatrix} 1 & 2 \\ 2 & 4 \\ 0 & 1\end{bmatrix}$'
+    - '$\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & -1\end{bmatrix}$'
+    - '$\begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6\end{bmatrix}$'
+    - '$\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$'
+  answer: 1
+  explanation: |-
+    A right inverse exists exactly when there is a pivot in every row. $\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & -1\end{bmatrix}$ has pivots in both rows; for example $D = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0\end{bmatrix}$ works. The $3 \times 2$ matrix is tall, so it can't have a pivot in all 3 rows. In the other two, the second row is twice the first, so row reduction leaves a zero row.
+
+- id: la-m4-r2-h20
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: 'Which matrix $C$ is a left inverse of $A = \begin{bmatrix} 1 & 0 \\ 2 & 1 \\ 0 & 3\end{bmatrix}$?'
+  choices:
+    - '$\begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0\end{bmatrix}$'
+    - '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0\end{bmatrix}$'
+    - '$\begin{bmatrix} 0 & \tfrac12 & -\tfrac16 \\ 0 & 0 & \tfrac13\end{bmatrix}$'
+    - '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 3\end{bmatrix}$'
+  answer: 2
+  explanation: |-
+    Rows 2 and 3 of $A$ form $B = \begin{bmatrix} 2 & 1 \\ 0 & 3\end{bmatrix}$ with $B^{-1} = \tfrac16\begin{bmatrix} 3 & -1 \\ 0 & 2\end{bmatrix} = \begin{bmatrix} \tfrac12 & -\tfrac16 \\ 0 & \tfrac13\end{bmatrix}$. Put it in columns 2 and 3 of $C$ and zeros in column 1: $CA = I_2$. Multiplying out the others gives $\begin{bmatrix} 1 & 0 \\ 4 & 1\end{bmatrix}$ (the top block, not its inverse), $\begin{bmatrix} 1 & 0 \\ 2 & 1\end{bmatrix}$ and $\begin{bmatrix} 1 & 0 \\ 0 & 9\end{bmatrix}$, none of them $I_2$.
+
+- id: la-m4-r2-h21
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: '$A$ is $3 \times 2$ with a left inverse $C$, and for some $\mathbf{b}$ in $\mathbb{R}^3$, $C\mathbf{b} = (1, 2)$. What can you conclude?'
+  choices:
+    - '$(1, 2)$ solves $A\mathbf{x} = \mathbf{b}$'
+    - '$A\mathbf{x} = \mathbf{b}$ has no solution'
+    - 'If $A\mathbf{x} = \mathbf{b}$ has a solution, it is $(1, 2)$; check whether $A(1, 2) = \mathbf{b}$'
+    - '$A\mathbf{x} = \mathbf{b}$ has infinitely many solutions'
+  answer: 2
+  explanation: |-
+    If $A\mathbf{x} = \mathbf{b}$, then $\mathbf{x} = CA\mathbf{x} = C\mathbf{b} = (1, 2)$, so a solution can only be $(1, 2)$. But a $3 \times 2$ matrix is never onto, and when $\mathbf{b}$ is outside the range, $C\mathbf{b}$ is still some vector that solves nothing. Since $A$ is one-to-one, there are never infinitely many solutions.
+
+- id: la-m4-r2-h22
+  lesson: la-m4-h-inverses
+  type: text
+  topic: Preimages and one-sided inverses
+  stem: '$A$ is $4 \times 7$ and has a right inverse $D$, so $AD = I_4$. $D$ has ___ rows and ___ columns.'
+  accept:
+    - ['7', seven]
+    - ['4', four]
+  explanation: |-
+    $AD$ needs $D$ to have as many rows as $A$ has columns (7), and $AD = I_4$ needs $D$ to have 4 columns. So $D$ is $7 \times 4$, the reverse of $A$'s size.
+
+- id: la-m4-r2-h23
+  lesson: la-m4-h-inverses
+  type: text
+  topic: Preimages and one-sided inverses
+  stem: '$T: \mathbb{R}^3 \to \mathbb{R}^5$ and $S: \mathbb{R}^5 \to \mathbb{R}^3$ are linear, and "first $T$, then $S$" is one-to-one. How many pivot positions must the $5 \times 3$ standard matrix of $T$ have? ___'
+  accept: ['3', three]
+  explanation: |-
+    If the composite is one-to-one, the first map $T$ is one-to-one, so its standard matrix has a pivot in every column: 3 pivots. (It can't have more, since there are only 3 columns.)
+
+- id: la-m4-r2-h24
+  lesson: la-m4-h-inverses
+  type: order
+  topic: Preimages and one-sided inverses
+  stem: '$CA = I$ and $AD = I$. Put the steps of the proof that $C = D$ in order.'
+  items:
+    - '$C = CI$'
+    - '$CI = C(AD)$, because $AD = I$'
+    - '$C(AD) = (CA)D$, by the associative law'
+    - '$(CA)D = ID$, because $CA = I$'
+    - '$ID = D$'
+  explanation: |-
+    The chain $C = CI = C(AD) = (CA)D = ID = D$ uses each hypothesis once, with associativity in the middle to move the brackets. So a matrix with inverses on both sides has only one, the inverse $A^{-1}$.
+
+- id: la-m4-r2-h25
+  lesson: la-m4-h-inverses
+  type: match
+  topic: Preimages and one-sided inverses
+  stem: 'Match each fact about a matrix $A$ with what it guarantees.'
+  pairs:
+    - [Pivot in every column, Has a left inverse]
+    - [Pivot in every row, Has a right inverse]
+    - ['Square, with a pivot in every row', Invertible]
+    - [Fewer pivots than its rows and than its columns, Has no one-sided inverse]
+  distractors: [Has exactly one right inverse]
+  explanation: |-
+    Pivot in every column means one-to-one, which is equivalent to having a left inverse; pivot in every row means onto, equivalent to a right inverse. A square matrix with a pivot in every row also has one in every column, so it has both, and they are the same matrix, $A^{-1}$. With pivots missing from some row and some column, $A$ is neither one-to-one nor onto, so it has neither kind. A non-square matrix with a right inverse has many of them, not exactly one.
+
+- id: la-m4-r2-h26
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: '$A$ is $3 \times 2$ and $\mathbf{x} \mapsto A\mathbf{x}$ is one-to-one. Which statements are true? Select all that apply.'
+  choices:
+    - '$A$ has a left inverse'
+    - '$A$ has a right inverse'
+    - 'Every nonempty preimage is a single point'
+    - 'Some vectors $\mathbf{b}$ in $\mathbb{R}^3$ have an empty preimage'
+    - '$A$ has exactly one left inverse'
+  answer: [0, 2, 3]
+  explanation: |-
+    One-to-one gives a left inverse and makes every nonempty preimage a single point. A $3 \times 2$ matrix has at most 2 pivots, so some row has none: it is not onto, some $\mathbf{b}$ are never reached, and there is no right inverse. Left inverses are not unique: the lesson found two different ones for $\begin{bmatrix} 1 & 0 \\ 2 & 1 \\ 0 & 3\end{bmatrix}$, and every tall one-to-one matrix has infinitely many.
+
+- id: la-m4-r2-h27
+  lesson: la-m4-h-inverses
+  topic: Preimages and one-sided inverses
+  stem: '$T: \mathbb{R}^2 \to \mathbb{R}^3$ and $S: \mathbb{R}^3 \to \mathbb{R}^2$ are linear, and $S(T(\mathbf{x})) = \mathbf{x}$ for every $\mathbf{x}$ in $\mathbb{R}^2$. Which must be true?'
+  choices: ['$T$ is onto and $S$ is one-to-one', '$T$ is one-to-one and $S$ is onto', '$T$ and $S$ are both invertible', '$T$ and $S$ are both one-to-one']
+  answer: 1
+  explanation: |-
+    The composite "first $T$, then $S$" is the identity, which is both one-to-one and onto. So the first map, $T$, is one-to-one, and the last map, $S$, is onto. $T$ can't be onto (a $3 \times 2$ standard matrix has no pivot in some row) and $S$ can't be one-to-one (a $2 \times 3$ matrix has a free column), so neither is invertible.
