@@ -163,7 +163,7 @@ How good is it? That depends on how fast the singular values fall off. As an ill
 3. its spectral-norm error is $\sigma_3 = 3$.
 
 ```plot
-{"x": [0, 6], "y": [0, 11], "xLabel": "i", "yLabel": "σᵢ", "bars": [{"x": 1, "height": 10, "width": 0.7, "label": "10"}, {"x": 2, "height": 6, "width": 0.7, "label": "6"}, {"x": 3, "height": 3, "width": 0.7, "label": "3"}, {"x": 4, "height": 1, "width": 0.7, "label": "1"}, {"x": 5, "height": 0.5, "width": 0.7, "label": "0.5"}], "segments": [{"from": [2.5, 0], "to": [2.5, 10.5], "dashed": true, "label": "keep k = 2"}], "caption": "Keeping the first two singular values; the error comes from the ones to the right of the line"}
+{"x": [0, 6], "y": [0, 11], "xLabel": "i", "yLabel": "σᵢ", "bars": [{"x": 1, "height": 10, "width": 0.7}, {"x": 2, "height": 6, "width": 0.7}, {"x": 3, "height": 3, "width": 0.7}, {"x": 4, "height": 1, "width": 0.7}, {"x": 5, "height": 0.5, "width": 0.7}], "segments": [{"from": [2.5, 0], "to": [2.5, 10.5], "dashed": true}], "labels": [{"at": [1.5, 10.6], "text": "kept (k = 2)"}, {"at": [4.1, 6], "text": "dropped: σ₃, σ₄, σ₅"}], "caption": "Keeping the first two singular values; the error comes from the ones to the right of the line"}
 ```
 
 ## Small singular values and truncation

@@ -116,58 +116,67 @@
   solution: |-
     In a parallelogram $\overrightarrow{AB} = \overrightarrow{DC}$, so $\mathbf{b} - \mathbf{a} = \mathbf{c} - \mathbf{d}$ and $\mathbf{d} = \mathbf{a} + \mathbf{c} - \mathbf{b} = ({a1} + ({c1}) - ({b1}),\ {a2} + ({c2}) - ({b2})) = ({dd1}, {dd2})$. The diagonals bisect each other, so they cross at the midpoint of $AC$: $\frac{\mathbf{a} + \mathbf{c}}{2} = \left({m1:texfrac},\ {m2:texfrac}\right)$. **Answer:** $D = ({dd1}, {dd2})$, $M = \left({m1:texfrac},\ {m2:texfrac}\right)$.
 
-- id: la-m1-r2-perturb
-  title: A nearly parallel system with changed data
-  topic: Conditioning
+- id: la-m1-r2-leontief-solve
+  title: Production in a two-sector Leontief model
+  topic: The Leontief inverse
   vars:
-    hh: {choices: [0.001, 0.002, 0.005]}
-    ee: {choices: [0.001, 0.002, 0.003, -0.001, -0.002]}
-  where: ["hh != ee", "hh + ee != 0"]
+    k11: {min: 1, max: 4}
+    k12: {min: 1, max: 4}
+    k21: {min: 1, max: 4}
+    k22: {min: 1, max: 4}
+    x1: {min: 50, max: 300, step: 10}
+    x2: {min: 50, max: 300, step: 10}
   calc:
-    k: 1 + hh
-    c: 2 + hh
-    c2: 2 + hh + ee
-    rhs: hh + ee
-    ys: round(1 + ee/hh, 4)
-    xs: round(1 - ee/hh, 4)
-    dy: round(abs(ee/hh), 4)
-    ae: abs(ee)
+    c11: k11/10
+    c12: k12/10
+    c21: k21/10
+    c22: k22/10
+    d1: round(x1 - (k11*x1 + k12*x2)/10, 4)
+    d2: round(x2 - (k21*x1 + k22*x2)/10, 4)
+    m11: round(1 - k11/10, 4)
+    m22: round(1 - k22/10, 4)
+    det: round((1 - k11/10)*(1 - k22/10) - k12*k21/100, 4)
+    n1: round((1 - k22/10)*(x1 - (k11*x1 + k12*x2)/10) + (k12/10)*(x2 - (k21*x1 + k22*x2)/10), 4)
+    n2: round((k21/10)*(x1 - (k11*x1 + k12*x2)/10) + (1 - k11/10)*(x2 - (k21*x1 + k22*x2)/10), 4)
+  where: ["x1 - (k11*x1 + k12*x2)/10 > 0", "x2 - (k21*x1 + k22*x2)/10 > 0"]
   prompt: |-
-    The system $x + y = 2$, $\;x + {k:dp3}\,y = {c:dp3}$ has the solution $x = 1$, $y = 1$. The second right side is changed to ${c2:dp3}$. Find the new solution.
+    An economy has consumption matrix $C = \begin{bmatrix} {c11} & {c12} \\ {c21} & {c22}\end{bmatrix}$ (one column per producing sector) and final demand $\mathbf{d} = ({d1:num4}, {d2:num4})$. Find the production $\mathbf{x}$ that meets it.
   answers:
-    - {name: xs, label: '$x =$', tolerance: 0.0001}
-    - {name: ys, label: '$y =$', tolerance: 0.0001}
+    - {name: x1, label: '$x_1 =$', tolerance: 0.01}
+    - {name: x2, label: '$x_2 =$', tolerance: 0.01}
   solution: |-
-    Subtract the first equation from the second: ${hh:dp3}\,y = {c2:dp3} - 2 = {rhs:dp3}$, so $y = \frac{{rhs:dp3}}{{hh:dp3}} =$ **{ys}**. Then $x = 2 - y =$ **{xs}**. The data changed by only {ae:dp3}, but $y$ moved by {dy}: the two lines are nearly parallel, so the system is ill-conditioned.
+    Solve $(I - C)\mathbf{x} = \mathbf{d}$ with $I - C = \begin{bmatrix} {m11} & -{c12} \\ -{c21} & {m22}\end{bmatrix}$. Its determinant is $({m11})({m22}) - ({c12})({c21}) = {det}$, so
+    $$\mathbf{x} = \frac{1}{{det}}\begin{bmatrix} {m22} & {c12} \\ {c21} & {m11}\end{bmatrix}\begin{bmatrix} {d1:num4} \\ {d2:num4}\end{bmatrix} = \frac{1}{{det}}\begin{bmatrix} {n1:num4} \\ {n2:num4}\end{bmatrix}.$$
+    So $x_1 =$ **{x1}** and $x_2 =$ **{x2}**. Check: $\mathbf{x} - C\mathbf{x} = \mathbf{d}$.
 
-- id: la-m1-r2-cond
-  title: Condition number of a 2×2 matrix (row-sum norm)
-  topic: Conditioning
+- id: la-m1-r2-leontief-change
+  title: Effect of a change in final demand
+  topic: The Leontief inverse
   vars:
-    a11: {min: -6, max: 6}
-    a12: {min: -6, max: 6}
-    a21: {min: -6, max: 6}
-    a22: {min: -6, max: 6}
-  where: ["a11*a22 - a12*a21 != 0", "abs(a11*a22 - a12*a21) <= 5", "a11 != 0", "a12 != 0", "a21 != 0", "a22 != 0"]
+    k11: {min: 1, max: 4}
+    k12: {min: 1, max: 4}
+    k21: {min: 1, max: 4}
+    k22: {min: 1, max: 4}
+    sec: {choices: [1, 2]}
+    amt: {min: 5, max: 30, step: 5}
   calc:
-    det: a11*a22 - a12*a21 + 0
-    adet: abs(a11*a22 - a12*a21)
-    rA1: abs(a11) + abs(a12)
-    rA2: abs(a21) + abs(a22)
-    nA: max(abs(a11) + abs(a12), abs(a21) + abs(a22))
-    rI1: (abs(a22) + abs(a12))/abs(a11*a22 - a12*a21)
-    rI2: (abs(a21) + abs(a11))/abs(a11*a22 - a12*a21)
-    nI: max(abs(a22) + abs(a12), abs(a21) + abs(a11))/abs(a11*a22 - a12*a21)
-    kap: max(abs(a11) + abs(a12), abs(a21) + abs(a22))*max(abs(a22) + abs(a12), abs(a21) + abs(a11))/abs(a11*a22 - a12*a21)
-    n12: -a12 + 0
-    n21: -a21 + 0
+    c11: k11/10
+    c12: k12/10
+    c21: k21/10
+    c22: k22/10
+    m11: round(1 - k11/10, 4)
+    m22: round(1 - k22/10, 4)
+    det: round((1 - k11/10)*(1 - k22/10) - k12*k21/100, 4)
+    top: if(sec == 1, round(1 - k22/10, 4), k12/10)
+    bot: if(sec == 1, k21/10, round(1 - k11/10, 4))
+    dx1: amt*if(sec == 1, 1 - k22/10, k12/10)/((1 - k11/10)*(1 - k22/10) - k12*k21/100)
+    dx2: amt*if(sec == 1, k21/10, 1 - k11/10)/((1 - k11/10)*(1 - k22/10) - k12*k21/100)
   prompt: |-
-    For $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$, find the row-sum norms $\|A\|_\infty$ and $\|A^{-1}\|_\infty$ and the condition number $\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$. Give exact values (fractions are fine) or round to 2 decimal places.
+    An economy has consumption matrix $C = \begin{bmatrix} {c11} & {c12} \\ {c21} & {c22}\end{bmatrix}$ (one column per producing sector). Final demand for sector {sec} rises by {amt} units and nothing else changes. By how much must each sector's production rise? Give exact values (fractions are fine) or round to 2 decimal places.
   answers:
-    - {name: nA, label: '$\|A\|_\infty =$', tolerance: 0.006}
-    - {name: nI, label: '$\|A^{-1}\|_\infty =$', tolerance: 0.006}
-    - {name: kap, label: '$\kappa_\infty(A) =$', tolerance: 0.006}
+    - {name: dx1, label: 'Sector 1:', tolerance: 0.006}
+    - {name: dx2, label: 'Sector 2:', tolerance: 0.006}
   solution: |-
-    Row sums of $A$ (absolute values): {rA1} and {rA2}, so $\|A\|_\infty = {nA}$. The determinant is $({a11})({a22}) - ({a12})({a21}) = {det}$, so
-    $$A^{-1} = \frac{1}{{det}}\begin{bmatrix} {a22} & {n12} \\ {n21} & {a11}\end{bmatrix}.$$
-    Its absolute row sums are ${rI1:texfrac}$ and ${rI2:texfrac}$, so $\|A^{-1}\|_\infty = {nI:texfrac}$. Then $\kappa_\infty(A) = {nA} \cdot {nI:texfrac} =$ **${kap:texfrac}$**, which is {kap:dp2} to 2 decimal places.
+    The change is $\Delta\mathbf{x} = (I - C)^{-1}\Delta\mathbf{d}$, and $\Delta\mathbf{d}$ is {amt} times $\mathbf{e}_{sec}$, so $\Delta\mathbf{x}$ is {amt} times column {sec} of the Leontief inverse. With $\det(I - C) = ({m11})({m22}) - ({c12})({c21}) = {det}$,
+    $$(I - C)^{-1} = \frac{1}{{det}}\begin{bmatrix} {m22} & {c12} \\ {c21} & {m11}\end{bmatrix},$$
+    and column {sec} is $\frac{1}{{det}}({top}, {bot})$. Multiply by {amt}: **$\Delta x_1 \approx {dx1:num2}$, $\Delta x_2 \approx {dx2:num2}$**.
