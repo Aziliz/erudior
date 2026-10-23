@@ -323,7 +323,7 @@
   module_quiz: true
   topic: Substitutions
   stem: 'Use $u = x + y$ to solve $y'' = (x + y)^2 - 1$ with $y(0) = 1$.'
-  choices: ['$y = \dfrac{1}{1 - x} - x$', '$y = \dfrac{1}{1 - x}$', '$y = \tan\!\left(x + \tfrac{\pi}{4}\right) - x$', '$y = 1 + x^3/3$']
+  choices: ['$y = \dfrac{1}{1 - x} - x$', '$y = \dfrac{1}{1 - x}$', '$y = \tan\!\left(x + \tfrac{\pi}{4}\right) - x$', '$y = 1 - x + x^3/3$']
   answer: 0
   explanation: |-
     $u' = 1 + y' = u^2$, so $-\dfrac1u = x + C$. With $u(0) = 0 + 1 = 1$: $C = -1$, so $u = \dfrac{1}{1 - x}$ and $y = u - x = \dfrac{1}{1 - x} - x$. Forgetting to subtract $x$ gives $\dfrac{1}{1 - x}$; dropping the $-1$ (so $u' = 1 + u^2$) gives the tangent; $1 + x^3/3$ treats $y$ as if it were $0$ on the right side.
@@ -464,10 +464,10 @@
   lesson: de-m2-h-picard
   topic: Picard iteration
   stem: 'For $y'' = y^2$, $y(0) = 1$, the theorem guarantees a solution only for $|t| \le \tfrac14$, but the solution $\dfrac{1}{1 - t}$ exists on $(-\infty, 1)$. What does this show?'
-  choices: ['The guaranteed interval is a safe lower estimate; the true interval can be much longer.', 'The theorem is wrong for this equation.', 'The solution is not unique outside $|t| \le \tfrac14$.', 'Picard iteration diverges for $|t| > \tfrac14$.']
+  choices: ['The guaranteed interval is a safe lower estimate; the true interval can be much longer.', 'The theorem is wrong for this equation.', 'The solution is not unique outside $|t| \le \tfrac14$.', 'Solutions of nonlinear equations never last longer than $h$.']
   answer: 0
   explanation: |-
-    The theorem promises only what it can prove from bounds on one rectangle. Uniqueness still holds wherever $f = y^2$ is Lipschitz (everywhere, locally), so the solution stays unique beyond $\frac14$; the iterates' behavior beyond $h$ isn't settled by this argument either way.
+    The theorem promises only what it can prove from bounds on one rectangle. Uniqueness still holds wherever $f = y^2$ is Lipschitz (everywhere, locally), so the solution stays unique beyond $\frac14$, and here it lasts far longer than $h$.
 
 # ---- Honors: Grönwall's inequality and continuous dependence
 - id: de-m2-r2-h14
@@ -672,7 +672,7 @@
   choices: ['$u'''' + tu = 0$', '$u'''' - tu = 0$', '$u'''' + t^2u = 0$', '$u'''' + u'' + t = 0$']
   answer: 0
   explanation: |-
-    $y' = -\frac{u''}{u} + \frac{(u')^2}{u^2} = -\frac{u''}{u} + y^2$. Setting this equal to $y^2 + t$ gives $-\frac{u''}{u} = t$, so $u'' + tu = 0$ (Airy's equation, up to sign conventions; Lesson 38). This matches $u'' - q_1u' + q_0u = 0$ with $q_0 = t$, $q_1 = 0$.
+    $y' = -\frac{u''}{u} + \frac{(u')^2}{u^2} = -\frac{u''}{u} + y^2$. Setting this equal to $y^2 + t$ gives $-\frac{u''}{u} = t$, so $u'' + tu = 0$ (Airy's equation $y'' - xy = 0$ from Lesson 38 with $x = -t$). This matches $u'' - q_1u' + q_0u = 0$ with $q_0 = t$, $q_1 = 0$.
 
 - id: de-m2-r2-h34
   lesson: de-m2-h-riccati

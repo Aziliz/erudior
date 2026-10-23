@@ -27,20 +27,19 @@
   topic: Proving sequence limits
   vars:
     r: {choices: [0.5, 0.6, 0.8, 0.9, 0.95]}
-    m: {choices: [100, 1000, 10000]}
+    tol: {choices: [{label: '0.01', value: 0.01}, {label: '0.001', value: 0.001}, {label: '0.0001', value: 0.0001}]}
   calc:
-    eps: 1/m
-    ratio: ln(eps)/ln(r)
+    ratio: ln(tol)/ln(r)
     first: floor(ratio) + 1
     N: first - 1
     before: r^N
     after: r^first
-  prompt: 'The sequence $a_n = {r}^n$ converges to 0. For $\varepsilon = {eps}$, find the smallest whole number $N$ such that ${r}^n < \varepsilon$ for every $n > N$.'
+  prompt: 'The sequence $a_n = {r}^n$ converges to 0. For $\varepsilon = {tol}$, find the smallest whole number $N$ such that ${r}^n < \varepsilon$ for every $n > N$.'
   answer: N
   format: integer
   solution: |-
-    The terms decrease, so once one term is below ${eps}$, all later ones are too. Solve ${r}^n < {eps}$ with logarithms: $n\ln {r} < \ln {eps}$. Since $\ln {r} < 0$, dividing flips the inequality: $n > \dfrac{\ln {eps}}{\ln {r}} \approx {ratio:num2}$.
-    The first term below ${eps}$ is $n = {first}$ (${r}^{{first}} \approx {after:sig3}$, while ${r}^{{N}} \approx {before:sig3}$ is not below it). Every $n > N$ must be at least {first}, so $N =$ **{N}**.
+    The terms decrease, so once one term is below ${tol}$, all later ones are too. Solve ${r}^n < {tol}$ with logarithms: $n\ln {r} < \ln {tol}$. Since $\ln {r} < 0$, dividing flips the inequality: $n > \dfrac{\ln {tol}}{\ln {r}} \approx {ratio:num2}$.
+    The first term below ${tol}$ is $n = {first}$ (${r}^{{first}} \approx {after:sig3}$, while ${r}^{{N}} \approx {before:sig3}$ is not below it). Every $n > N$ must be at least {first}, so $N =$ **{N}**.
 
 - id: calc-h1-r2-sup-inf
   title: Supremum and infimum of a set of fractions
@@ -66,7 +65,7 @@
   solution: |-
     Split off the limit: ${p}(n + {c}) {k:signed} = {p:coef}n {q:signed}$, so each element is ${p} + \dfrac{{k}}{n + {c}}$.
     As $n$ grows, $\dfrac{{k}}{n + {c}}$ shrinks toward 0, so the terms are {dir} and approach ${p}$, never reaching it.
-    The first term ($n = 1$) is $\dfrac{{pq}}{{c1}} = {first:texfrac}$.
+    The first term ($n = 1$) is $\dfrac{{pq}}{{c1}}$.
     So $\sup S =$ **${sv:texfrac}$** and $\inf S =$ **${iv:texfrac}$**. The one equal to the first term is attained (a maximum or minimum); the one equal to ${p}$ is not.
 
 - id: calc-h1-r2-recursive-limit
@@ -85,7 +84,7 @@
     - {name: a3, label: '$a_3 \approx$', tolerance: 0.0006}
     - {name: L, label: '$L =$', tolerance: 0.000001}
   solution: |-
-    $a_2 = \sqrt{{cc} {bb:signedcoef}\cdot 1} = \sqrt{{c1}} \approx {a2:dp3}$, and $a_3 = \sqrt{{cc} {bb:signedcoef}a_2} \approx$ **{a3:dp3}** (keep the unrounded $a_2$).
+    $a_2 = \sqrt{{cc} + {bb}\cdot 1} = \sqrt{{c1}} \approx {a2:dp3}$, and $a_3 = \sqrt{{cc} {bb:signedcoef}a_2} \approx$ **{a3:dp3}** (keep the unrounded $a_2$).
     Because the limit exists (monotone convergence theorem), let $n \to \infty$ in the recursion: $L = \sqrt{{cc} {bb:signedcoef}L}$, so $L^2 = {cc} {bb:signedcoef}L$, that is $L^2 - {bb:coef}L - {cc} = 0$.
     Its roots are ${L}$ and a negative number; the terms are positive, so $L =$ **{L}**.
 
@@ -95,11 +94,10 @@
   vars:
     a0: {min: -3, max: 3}
     w: {min: 1, max: 5}
-    m: {choices: [100, 1000, 10000]}
+    tol: {choices: [{label: '0.01', value: 100}, {label: '0.001', value: 1000}, {label: '0.0001', value: 10000}]}
   calc:
     b0: a0 + w
-    tol: 1/m
-    ratio: w*m
+    ratio: w*tol
     k: floor(log2(ratio)) + 1
     km1: k - 1
     lo2: 2^(k - 1)
@@ -131,8 +129,8 @@
     - {name: up, label: '$U =$', tolerance: 0.0006}
   solution: |-
     The width is $\Delta x = {dxv:texfrac}$ and the points are $x_i = i\,\Delta x$. Since $x^2$ increases on $[0, {top}]$, the infimum on each piece is at its left end and the supremum at its right end, and each term $f(x_i)\Delta x = i^2(\Delta x)^3$.
-    $L = (\Delta x)^3\,(0^2 + 1^2 + \cdots + {last}^2) = \left({dxv:texfrac}\right)^3\cdot {s1} =$ **${lo:texfrac}$**.
-    $U = (\Delta x)^3\,(1^2 + 2^2 + \cdots + {pcs}^2) = \left({dxv:texfrac}\right)^3\cdot {s2} =$ **${up:texfrac}$**.
+    $L = (\Delta x)^3\displaystyle\sum_{i=0}^{{last}} i^2 = \left({dxv:texfrac}\right)^3\cdot {s1} =$ **${lo:texfrac}$**.
+    $U = (\Delta x)^3\displaystyle\sum_{i=1}^{{pcs}} i^2 = \left({dxv:texfrac}\right)^3\cdot {s2} =$ **${up:texfrac}$**.
     Check: $U - L = [f({top}) - f(0)]\,\Delta x = {gap:texfrac}$.
 
 - id: calc-h1-r2-darboux-n

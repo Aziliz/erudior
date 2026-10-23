@@ -82,15 +82,15 @@
     t1: {min: 2, max: 24}
   calc:
     kk: ln(2)/th
-    CL: kk*V
-    Css: R0/CL
+    clr: kk*V
+    Css: R0/clr
     C: Css*(1 - exp(-kk*t1))
   prompt: 'A drug with half-life {th} h and volume of distribution {V} L is infused at a constant {R0} mg/h, starting at $t = 0$ with none in the body. Find the steady-state concentration and the concentration after {t1} h, in mg/L. (2 decimal places each)'
   answers:
     - {name: Css, label: '$C_{ss}$ (mg/L)', tolerance: 0.006}
     - {name: C, label: '$C({t1})$ (mg/L)', tolerance: 0.006}
   solution: |-
-    $k = \dfrac{\ln 2}{{th}} \approx {kk:num4}$ per hour and $\text{CL} = kV \approx {CL:num4}$ L/h. Steady state: $C_{ss} = \dfrac{R_0}{\text{CL}} = \dfrac{{R0}}{{CL:num4}} \approx$ **{Css:num2} mg/L**. Then $C({t1}) = C_{ss}\left(1 - e^{-k({t1})}\right) \approx$ **{C:num2} mg/L**.
+    $k = \dfrac{\ln 2}{{th}} \approx {kk:num4}$ per hour and $\text{CL} = kV \approx {clr:num4}$ L/h. Steady state: $C_{ss} = \dfrac{R_0}{\text{CL}} = \dfrac{{R0}}{{clr:num4}} \approx$ **{Css:num2} mg/L**. Then $C({t1}) = C_{ss}\left(1 - e^{-k({t1})}\right) \approx$ **{C:num2} mg/L**.
 - id: de-m3-r2-dose-steady
   title: Steady-state peak and trough for repeated doses
   topic: Pharmacokinetics
@@ -103,11 +103,11 @@
     kk: ln(2)/th
     r: exp(-kk*tau)
     C1: D/V
-    peak: D/V/(1 - r)
-    trough: r*peak
+    pk: D/V/(1 - r)
+    trough: r*pk
   prompt: 'A drug with half-life {th} h and volume of distribution {V} L is given as a {D} mg IV bolus every {tau} h. Using the one-compartment model, find the steady-state peak and trough concentrations in mg/L. (2 decimal places each)'
   answers:
-    - {name: peak, label: 'Peak (mg/L)', tolerance: 0.006}
+    - {name: pk, label: 'Peak (mg/L)', tolerance: 0.006}
     - {name: trough, label: 'Trough (mg/L)', tolerance: 0.006}
   solution: |-
-    Each dose adds $D/V = {C1:num4}$ mg/L. The fraction left after one interval is $r = e^{-k\tau} = 2^{-{tau}/{th}} \approx {r:num4}$. Steady-state peak $= \dfrac{D/V}{1 - r} \approx$ **{peak:num2} mg/L**; trough $= r \times \text{peak} \approx$ **{trough:num2} mg/L**.
+    Each dose adds $D/V = {C1:num4}$ mg/L. The fraction left after one interval is $r = e^{-k\tau} = 2^{-{tau}/{th}} \approx {r:num4}$. Steady-state peak $= \dfrac{D/V}{1 - r} \approx$ **{pk:num2} mg/L**; trough $= r \times \text{peak} \approx$ **{trough:num2} mg/L**.
