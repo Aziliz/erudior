@@ -20,16 +20,16 @@
 <line x1="370.0" y1="390.0" x2="450.0" y2="390.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
 <line x1="370.0" y1="390.0" x2="370.0" y2="310.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
 <polyline points="384.0,390.0 384.0,376.0 370.0,376.0" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
-<line x1="520.0" y1="395.0" x2="585.5" y2="349.1" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="520.0" y1="395.0" x2="474.1" y2="329.5" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
-<polyline points="531.5,387.0 523.4,375.5 512.0,383.5" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="548.0" y1="395.0" x2="613.5" y2="349.1" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="548.0" y1="395.0" x2="502.1" y2="329.5" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<polyline points="559.5,387.0 551.4,375.5 540.0,383.5" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
 <text x="160.0" y="36.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">1. Join any two points</text>
 <text x="480.0" y="36.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">2. Extend any segment</text>
 <text x="160.0" y="256.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">3. Draw a circle with</text>
 <text x="160.0" y="276.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">any center and radius</text>
 <text x="480.0" y="256.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">4. All right angles</text>
 <text x="480.0" y="276.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">are equal</text>
-<text x="470.0" y="340.0" font-size="30" text-anchor="middle" fill="#1c2833">=</text>
+<text x="478.0" y="380.0" font-size="30" text-anchor="middle" fill="#1c2833">=</text>
 <text x="60.0" y="172.0" font-size="16" text-anchor="middle" fill="#1c2833" font-style="italic">P</text>
 <text x="262.0" y="82.0" font-size="16" text-anchor="middle" fill="#1c2833" font-style="italic">Q</text>
 <text x="148.0" y="365.0" font-size="16" text-anchor="middle" fill="#1c2833" font-style="italic">O</text>

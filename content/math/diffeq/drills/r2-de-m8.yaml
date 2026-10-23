@@ -80,7 +80,7 @@
     p33: {min: -4, max: 1}
   where: ['p12 != 0 or p21 != 0', 'p23 != 0 or p32 != 0', 'p13 != 0 or p31 != 0']
   calc:
-    tr: p11 + p22 + p33
+    trA: p11 + p22 + p33
     mi1: p22*p33 - p23*p32
     mi2: p11*p33 - p13*p31
     mi3: p11*p22 - p12*p21
@@ -95,7 +95,7 @@
     - {name: a2, label: '$a_2 =$'}
     - {name: a3, label: '$a_3 =$'}
   solution: |-
-    $a_1 = -\operatorname{tr}A = -({tr}) =$ **{a1}**. The principal minors (delete row and column 1, 2, 3 in turn) are ${mi1}$, ${mi2}$ and ${mi3}$, so $a_2 =$ **{a2}**. Expanding along the first row, $\det A = {dt}$, so $a_3 = -\det A =$ **{a3}**. Routh–Hurwitz: the origin is asymptotically stable exactly when $a_1 > 0$, $a_3 > 0$ and $a_1a_2 > a_3$; here $a_1a_2 = {prod}$.
+    $a_1 = -\operatorname{tr}A = -({trA}) =$ **{a1}**. The principal minors (delete row and column 1, 2, 3 in turn) are ${mi1}$, ${mi2}$ and ${mi3}$, so $a_2 =$ **{a2}**. Expanding along the first row, $\det A = {dt}$, so $a_3 = -\det A =$ **{a3}**. Routh–Hurwitz: the origin is asymptotically stable exactly when $a_1 > 0$, $a_3 > 0$ and $a_1a_2 > a_3$; here $a_1a_2 = {prod}$.
 - id: de-m8-r2-critical-gain
   title: Critical feedback strength for a three-stage loop
   topic: Stability of larger systems

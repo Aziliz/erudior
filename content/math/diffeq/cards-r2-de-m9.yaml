@@ -26,4 +26,4 @@
 - {front: String with fixed ends via d'Alembert, back: 'Extend $f$ and $g$ to be odd and $2L$-periodic; pulses reflect upside down, and the motion has period $2L/a$.', topic: d'Alembert's solution}
 - {front: A standing wave as traveling waves, back: '$\sin kx\cos kat = \tfrac12\big[\sin k(x - at) + \sin k(x + at)\big]$', topic: d'Alembert's solution}
 - {front: Signal speed, back: 'Wave equation: finite speed $a$. Heat equation model: a change is felt everywhere at once (faintly far away).', topic: d'Alembert's solution}
-- {front: 'String struck with velocity $g$ on $|x| < w$ (infinite string, $f = 0$)', back: '$u = \dfrac{1}{2a}\times g$ times the length of $[x - at,\ x + at] \cap [-w, w]$; the struck part ends up permanently displaced.', topic: d'Alembert's solution}
+- {front: 'Infinite string, $f = 0$, struck with constant velocity $g_0$ on $|x| < w$', back: '$u = \dfrac{g_0}{2a}\times$ (length of $[x - at,\ x + at] \cap [-w, w]$); the string ends up permanently displaced by $g_0w/a$.', topic: d'Alembert's solution}

@@ -140,7 +140,7 @@ So $14 < AC + BD < 24$. In words: the diagonals of a convex quadrilateral add to
 - **Checking only one inequality for a polygon.** Test the longest side against the sum of all the others; that's the one that can fail.
 - **Reflecting the wrong way in Heron's problem.** Reflect one of the points *across the line the path must touch*, then join the image to the *other* point with a straight segment.
 - **Joining $A$ to $B$ directly.** The segment $\overline{AB}$ doesn't touch $\ell$ when both points are on the same side; the straight segment that solves the problem is $\overline{A'B}$.
-- **Assuming the best point is halfway along.** In Example 2 the midpoint of the river stretch, $x = 6$, is not the answer; the closer point to the river gets the shorter leg.
+- **Assuming the best point is halfway along.** In Example 2 the point halfway between the two hikers' positions along the river, $x = 6$, is not the answer; the best point, $x = 4$, is nearer to $A$, the point that is closer to the river.
 
 ## Key points
 

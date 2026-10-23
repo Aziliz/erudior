@@ -101,7 +101,7 @@ Show that the edge needed to double a unit cube is not constructible.
 
 **Step 1.** The edge is a root of $x^3 - 2 = 0$, a cubic with rational (in fact whole-number) coefficients.
 
-**Step 2.** By the Rational Root Theorem, a rational root would have to be $\pm1$ or $\pm2$. Test them: $1^3 = 1$, $(-1)^3 = -1$, $2^3 = 8$, $(-2)^3 = -8$. None equals 2.
+**Step 2.** By the Rational Root Theorem from algebra (a rational root $\tfrac pq$ in lowest terms has $p$ dividing the constant term and $q$ dividing the leading coefficient), a rational root would have to be $\pm1$ or $\pm2$. Test them: $1^3 = 1$, $(-1)^3 = -1$, $2^3 = 8$, $(-2)^3 = -8$. None equals 2.
 
 **Step 3.** So the cubic has no rational root, and by the test above $\sqrt[3]{2} \approx 1.26$ is not constructible. Doubling the cube is impossible with compass and straightedge.
 
@@ -129,11 +129,11 @@ Which regular polygons with 9, 10, 15, 18 and 20 sides are constructible?
 
 - $9 = 3 \cdot 3$: the Fermat prime 3 is used twice, so the factors aren't distinct. **Not constructible** (this is the trisection problem again: a $40^\circ$ central angle would trisect $120^\circ$).
 - $10 = 2 \cdot 5$: a power of 2 times the Fermat prime 5. **Constructible** (bisect the pentagon's central angles).
-- $15 = 3 \cdot 5$: two distinct Fermat primes. **Constructible.** Its central angle $24^\circ$ is $72^\circ - 48^\circ$... or more simply, $\tfrac{2}{5}$ of a turn minus $\tfrac13$ of a turn is $\tfrac{1}{15}$ of a turn.
+- $15 = 3 \cdot 5$: two distinct Fermat primes. **Constructible.** Its central angle is $24^\circ = 144^\circ - 120^\circ$: two central angles of a pentagon minus one of a triangle ($\tfrac25$ of a turn minus $\tfrac13$ of a turn is $\tfrac{1}{15}$ of a turn).
 - $18 = 2 \cdot 9$: contains $3 \cdot 3$. **Not constructible.**
 - $20 = 4 \cdot 5$: **constructible.**
 
-A consequence worth knowing: an angle of a whole number of degrees is constructible exactly when it's a multiple of $3^\circ$. ($3^\circ = 18^\circ - 15^\circ$, where $18^\circ$ comes from the pentagon and $15^\circ$ from the triangle; $1^\circ$ is impossible because tripling... rather, because $20^\circ$ would then be constructible.)
+A consequence worth knowing: an angle of a whole number of degrees is constructible exactly when it's a multiple of $3^\circ$. ($3^\circ = 18^\circ - 15^\circ$, where $18^\circ$ is a quarter of the pentagon's $72^\circ$ central angle and $15^\circ$ a quarter of $60^\circ$. If $1^\circ$ were constructible, copying it 20 times would construct $20^\circ$, which is impossible.)
 
 ## Common mistakes
 

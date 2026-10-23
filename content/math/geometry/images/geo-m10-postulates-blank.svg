@@ -20,7 +20,7 @@
 <line x1="370.0" y1="390.0" x2="450.0" y2="390.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
 <line x1="370.0" y1="390.0" x2="370.0" y2="310.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
 <polyline points="384.0,390.0 384.0,376.0 370.0,376.0" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
-<line x1="520.0" y1="395.0" x2="585.5" y2="349.1" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="520.0" y1="395.0" x2="474.1" y2="329.5" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
-<polyline points="531.5,387.0 523.4,375.5 512.0,383.5" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
+<line x1="548.0" y1="395.0" x2="613.5" y2="349.1" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="548.0" y1="395.0" x2="502.1" y2="329.5" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<polyline points="559.5,387.0 551.4,375.5 540.0,383.5" fill="none" stroke="#1c2833" stroke-width="1.8" stroke-linejoin="round"/>
 </svg>
