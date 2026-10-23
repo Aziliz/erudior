@@ -97,10 +97,10 @@ A non-geometric example of cases: $n^2 + n = n(n + 1)$ is even for every whole n
 
 How you prove or disprove a statement depends on its quantifier:
 
-- To **disprove** a universal statement ("every angle …"), one counterexample is enough.
-- To **prove** an existential statement ("there is an angle that …"), one example is enough. For instance, "some angle is congruent to its own supplement" is proved by the $90^\circ$ angle.
-- To **prove** a universal statement, examples are never enough, however many you check. You need a general argument.
-- To **disprove** an existential statement, you must show that *no* object works, which again needs a general argument.
+- To *disprove* a universal statement ("every angle …"), one counterexample is enough.
+- To *prove* an existential statement ("there is an angle that …"), one example is enough. For instance, "some angle is congruent to its own supplement" is proved by the $90^\circ$ angle.
+- To *prove* a universal statement, examples are never enough, however many you check. You need a general argument.
+- To *disprove* an existential statement, you must show that *no* object works, which again needs a general argument.
 
 ## Choosing a method
 

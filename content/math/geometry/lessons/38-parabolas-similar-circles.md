@@ -66,7 +66,17 @@ Find the vertex, focus and directrix of $y = -\tfrac12(x - 1)^2 + 4$.
 
 **Step 3.** Focus $(1, 4 - \tfrac12) = (1, 3.5)$; directrix $y = 4 + \tfrac12$, that is, $y = 4.5$.
 
-In general, $y = a(x - h)^2 + k$ has $p = \dfrac{1}{4a}$.
+In general, $y = a(x - h)^2 + k$ has $p = \dfrac{1}{4a}$. The steps of Example 2 work for any parabola in this form:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the focus and directrix from y = a(x − h)² + k
+  accDescr: Five steps. Read the vertex (h, k) from the equation. Compute p as 1 divided by 4a. The sign of p gives the direction: positive opens up, negative opens down. The focus is p units from the vertex along the axis, at (h, k + p). The directrix is the horizontal line y = k − p, the same distance on the other side of the vertex.
+  A["Read the vertex (h, k)"] --> B["Compute p = 1 ÷ (4a)"]
+  B --> C["Sign of p: positive opens up, negative opens down"]
+  C --> D["Focus: (h, k + p)"]
+  D --> E["Directrix: y = k − p"]
+```
 
 **Why the focus matters.** A parabolic mirror reflects every ray that arrives parallel to its axis through the focus. That is why satellite dishes put their receiver at the focus and why a car headlight puts its bulb there (the same paths, run backward).
 
@@ -96,6 +106,10 @@ Describe a similarity that maps $(x - 1)^2 + (y + 2)^2 = 9$ onto $(x - 5)^2 + (y
 **Step 3. Dilate** about $(5, 4)$ by $k = \tfrac63 = 2$.
 
 **Check one point.** $(4, -2)$ is on $C_1$. Translate: $(8, 4)$. Dilate about $(5, 4)$: $(5 + 2 \cdot 3,\; 4 + 2 \cdot 0) = (11, 4)$, and $(11 - 5)^2 + 0^2 = 36$ ✓.
+
+```plot
+{"x": [-3, 12], "y": [-6, 11], "equal": true, "circles": [{"center": [1, -2], "r": 3}, {"center": [5, 4], "r": 3, "dashed": true}, {"center": [5, 4], "r": 6}], "segments": [{"from": [1, -2], "to": [5, 4], "arrow": true, "label": "⟨4, 6⟩"}], "points": [{"at": [1, -2], "label": "(1, −2)"}, {"at": [5, 4], "label": "(5, 4)"}, {"at": [4, -2], "label": "(4, −2)"}, {"at": [8, 4], "label": "(8, 4)"}, {"at": [11, 4], "label": "(11, 4)"}], "caption": "Translate the radius-3 circle by ⟨4, 6⟩ (dashed copy), then dilate about (5, 4) by 2 to get the radius-6 circle."}
+```
 
 ## Common mistakes
 

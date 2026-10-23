@@ -14,8 +14,8 @@ The lesson on inductive reasoning ended with a warning. Points on a circle, join
 
 Let $P(n)$ be a statement about a whole number $n$, such as "$n$ points have $\tfrac{n(n-1)}{2}$ connecting segments". To prove $P(n)$ for every $n \ge n_0$:
 
-1. **Base case.** Prove $P(n_0)$, the first case.
-2. **Inductive step.** Prove that for every $k \ge n_0$, *if* $P(k)$ is true, *then* $P(k + 1)$ is true.
+1. **Base case**: prove $P(n_0)$, the first case.
+2. **Inductive step**: prove that for every $k \ge n_0$, *if* $P(k)$ is true, *then* $P(k + 1)$ is true.
 
 In the inductive step you assume $P(k)$; that assumption is called the **inductive hypothesis**. You are not assuming what you want to prove. You are proving a conditional, "$P(k) \to P(k+1)$", for an arbitrary $k$, and a conditional is proved by assuming its hypothesis.
 

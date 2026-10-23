@@ -100,7 +100,7 @@ To negate a quantified statement, switch the quantifier and negate what follows 
 | No A is B. | Some A is B. |
 | Some A is not B. | All A are B. |
 
-In the picture, "All A are B" fails as soon as a single member of A sits outside B. That is why **one counterexample disproves a universal statement**, the rule you met in the lesson on inductive reasoning, and why one example is enough to prove an existential statement. A universal statement is really a conditional applied to every object ("for every angle, if it is right, then it measures $90^\circ$"), and its negation is $p \wedge \sim q$ for at least one object: a counterexample.
+In the picture, "All A are B" fails as soon as a single member of A sits outside B. That is why *one counterexample disproves a universal statement*, the rule you met in the lesson on inductive reasoning, and why one example is enough to prove an existential statement. A universal statement is really a conditional applied to every object ("for every angle, if it is right, then it measures $90^\circ$"), and its negation is $p \wedge \sim q$ for at least one object: a counterexample.
 
 ### Example 2: Negating statements
 
