@@ -21,9 +21,17 @@ Given a line $\ell$ and a point $P$ not on it, how many lines through $P$ never 
 
 Each choice gives a consistent geometry. Since hyperbolic geometry satisfies Euclid's first four postulates but not the fifth, the fifth can't be a consequence of the first four: it is **independent**. That settled the two-thousand-year question.
 
+The picture exaggerates the difference so you can see it: compared with a flat triangle, a spherical triangle's sides bulge outward and its angles are bigger, while a hyperbolic triangle's sides curve inward and its angles are smaller.
+
+![Three triangles side by side. Left, a Euclidean triangle with straight sides, labeled sum = 180°. Middle, on a shaded disk standing for a sphere, a triangle whose sides bulge outward, labeled spherical, sum more than 180°. Right, a triangle whose sides curve inward, labeled hyperbolic, sum less than 180°.](images/geo-m10-three-triangles.svg)
+
 ## Spherical geometry
 
 On the surface of a sphere, the "straight lines" (shortest paths) are **great circles**: circles whose center is the center of the sphere, like the equator or the lines of longitude. Airline routes follow great circles, which is why a flight from Chicago to Rome arcs up toward the north.
+
+![A sphere with the North Pole N marked at the top. A solid ellipse around the middle is the equator, labeled as a great circle. A smaller circle near the top is a line of latitude, labeled not a great circle. A tilted circle passing through the North Pole and the South Pole is labeled great circle through the poles. Hidden back halves are dashed.](images/geo-m10-sphere-lines.svg)
+
+The equator and every circle through both poles have the sphere's center as their center, so they are great circles. A line of latitude away from the equator is a smaller circle; its center lies on the axis above or below the sphere's center.
 
 - Any two great circles intersect (in two opposite points), so *there are no parallel lines*.
 - Lines have finite length (one great circle is $2\pi R$ around).
@@ -84,6 +92,18 @@ Each of these differs from Euclid exactly where the parallel postulate was used.
 ## Why this matters
 
 Non-Euclidean geometry showed that axioms are *choices*, not self-evident truths, and that geometry is about the logical consequences of those choices. It also turned out to describe reality: Einstein's general relativity (1915) models spacetime as curved, and the geometry of large regions of space is a question for measurement, not for Euclid's postulates.
+
+```mermaid
+flowchart TD
+  accTitle: Milestones in the story of the parallel postulate
+  accDescr: About 300 BCE, Euclid's Elements states the fifth postulate. In 1733 Saccheri tries to prove it by contradiction and fails. From 1829 to 1832 Lobachevsky and Bolyai publish hyperbolic geometry. In 1868 Beltrami's models show hyperbolic geometry is as consistent as Euclidean geometry. In 1915 Einstein's general relativity describes gravity with curved spacetime.
+  A["About 300 BCE: Euclid's Elements states the fifth postulate"] --> B["1733: Saccheri tries to prove it by contradiction"]
+  B --> C["1829 to 1832: Lobachevsky and Bolyai publish hyperbolic geometry"]
+  C --> D["1868: Beltrami's models show hyperbolic geometry is as consistent as Euclidean geometry"]
+  D --> E["1915: Einstein's general relativity describes gravity with curved spacetime"]
+```
+
+Beltrami's result is a *relative* consistency proof: he built models of hyperbolic geometry out of Euclidean objects, so any contradiction in hyperbolic geometry would also be a contradiction in Euclidean geometry.
 
 ## Common mistakes
 

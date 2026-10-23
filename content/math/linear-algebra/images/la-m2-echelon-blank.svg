@@ -1,40 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="sans-serif" fill="#1c2833">
-<rect width="760" height="400" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" font-family="sans-serif" fill="#1c2833">
+<rect width="760" height="420" fill="#ffffff"/>
 <text x="380.0" y="30.0" font-size="17" text-anchor="middle" font-weight="bold">An echelon form: ■ = nonzero leading entry, * = any number</text>
-<rect x="174" y="86" width="62" height="240" rx="6" fill="#dde8f3"/>
-<rect x="314" y="86" width="62" height="240" rx="6" fill="#dde8f3"/>
-<rect x="384" y="86" width="62" height="240" rx="6" fill="#dde8f3"/>
-<rect x="164" y="266" width="362" height="54" rx="6" fill="#f8e1dc"/>
-<path d="M168,80 H156 V332 H168" fill="none" stroke="#1c2833" stroke-width="2.5"/>
-<path d="M522,80 H534 V332 H522" fill="none" stroke="#1c2833" stroke-width="2.5"/>
-<circle cx="205.0" cy="119.0" r="21" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
-<text x="205.0" y="126.0" font-size="20" text-anchor="middle">■</text>
-<text x="275.0" y="126.0" font-size="20" text-anchor="middle">*</text>
-<text x="345.0" y="126.0" font-size="20" text-anchor="middle">*</text>
-<text x="415.0" y="126.0" font-size="20" text-anchor="middle">*</text>
-<text x="485.0" y="126.0" font-size="20" text-anchor="middle">*</text>
-<text x="205.0" y="184.0" font-size="20" text-anchor="middle">0</text>
-<text x="275.0" y="184.0" font-size="20" text-anchor="middle">0</text>
-<circle cx="345.0" cy="177.0" r="21" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
-<text x="345.0" y="184.0" font-size="20" text-anchor="middle">■</text>
-<text x="415.0" y="184.0" font-size="20" text-anchor="middle">*</text>
-<text x="485.0" y="184.0" font-size="20" text-anchor="middle">*</text>
-<text x="205.0" y="242.0" font-size="20" text-anchor="middle">0</text>
-<text x="275.0" y="242.0" font-size="20" text-anchor="middle">0</text>
-<text x="345.0" y="242.0" font-size="20" text-anchor="middle">0</text>
-<circle cx="415.0" cy="235.0" r="21" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
-<text x="415.0" y="242.0" font-size="20" text-anchor="middle">■</text>
-<text x="485.0" y="242.0" font-size="20" text-anchor="middle">*</text>
-<text x="205.0" y="300.0" font-size="20" text-anchor="middle">0</text>
-<text x="275.0" y="300.0" font-size="20" text-anchor="middle">0</text>
-<text x="345.0" y="300.0" font-size="20" text-anchor="middle">0</text>
-<text x="415.0" y="300.0" font-size="20" text-anchor="middle">0</text>
-<text x="485.0" y="300.0" font-size="20" text-anchor="middle">0</text>
-<path d="M170,148 H310 V206 H380 V264 H520" fill="none" stroke="#b03a2e" stroke-width="2.5" stroke-dasharray="7 5"/>
-<text x="205.0" y="68.0" font-size="15" text-anchor="middle">col 1</text>
-<text x="275.0" y="68.0" font-size="15" text-anchor="middle">col 2</text>
-<text x="345.0" y="68.0" font-size="15" text-anchor="middle">col 3</text>
-<text x="415.0" y="68.0" font-size="15" text-anchor="middle">col 4</text>
-<text x="485.0" y="68.0" font-size="15" text-anchor="middle">col 5</text>
-<text x="380.0" y="380.0" font-size="14" text-anchor="middle">The shaded columns are a hint; the numbered markers show the parts.</text>
+<rect x="174" y="106" width="62" height="240" rx="6" fill="#dde8f3"/>
+<rect x="314" y="106" width="62" height="240" rx="6" fill="#dde8f3"/>
+<rect x="384" y="106" width="62" height="240" rx="6" fill="#dde8f3"/>
+<rect x="164" y="286" width="362" height="54" rx="6" fill="#f8e1dc"/>
+<path d="M168,100 H156 V352 H168" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M522,100 H534 V352 H522" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="205.0" cy="139.0" r="21" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="205.0" y="146.0" font-size="20" text-anchor="middle">■</text>
+<text x="275.0" y="146.0" font-size="20" text-anchor="middle">*</text>
+<text x="345.0" y="146.0" font-size="20" text-anchor="middle">*</text>
+<text x="415.0" y="146.0" font-size="20" text-anchor="middle">*</text>
+<text x="485.0" y="146.0" font-size="20" text-anchor="middle">*</text>
+<text x="205.0" y="204.0" font-size="20" text-anchor="middle">0</text>
+<text x="275.0" y="204.0" font-size="20" text-anchor="middle">0</text>
+<circle cx="345.0" cy="197.0" r="21" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="345.0" y="204.0" font-size="20" text-anchor="middle">■</text>
+<text x="415.0" y="204.0" font-size="20" text-anchor="middle">*</text>
+<text x="485.0" y="204.0" font-size="20" text-anchor="middle">*</text>
+<text x="205.0" y="262.0" font-size="20" text-anchor="middle">0</text>
+<text x="275.0" y="262.0" font-size="20" text-anchor="middle">0</text>
+<text x="345.0" y="262.0" font-size="20" text-anchor="middle">0</text>
+<circle cx="415.0" cy="255.0" r="21" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="415.0" y="262.0" font-size="20" text-anchor="middle">■</text>
+<text x="485.0" y="262.0" font-size="20" text-anchor="middle">*</text>
+<text x="205.0" y="320.0" font-size="20" text-anchor="middle">0</text>
+<text x="275.0" y="320.0" font-size="20" text-anchor="middle">0</text>
+<text x="345.0" y="320.0" font-size="20" text-anchor="middle">0</text>
+<text x="415.0" y="320.0" font-size="20" text-anchor="middle">0</text>
+<text x="485.0" y="320.0" font-size="20" text-anchor="middle">0</text>
+<path d="M170,168 H310 V226 H380 V284 H520" fill="none" stroke="#b03a2e" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="205.0" y="88.0" font-size="15" text-anchor="middle">col 1</text>
+<text x="275.0" y="88.0" font-size="15" text-anchor="middle">col 2</text>
+<text x="345.0" y="88.0" font-size="15" text-anchor="middle">col 3</text>
+<text x="415.0" y="88.0" font-size="15" text-anchor="middle">col 4</text>
+<text x="485.0" y="88.0" font-size="15" text-anchor="middle">col 5</text>
 </svg>

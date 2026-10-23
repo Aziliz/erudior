@@ -3,8 +3,8 @@
   title: Indicial roots at a regular singular point
   topic: Frobenius method
   vars:
-    u: {min: -2, max: 4}
-    v: {min: -2, max: 2}
+    u: {min: -3, max: 5}
+    v: {min: -2, max: 3}
   where: ['u != 0', 'v != 0', 'u != 2*v', 'u + 2*v != 2', 'u + 2*v != 0']
   calc:
     p: 2 - u - 2*v

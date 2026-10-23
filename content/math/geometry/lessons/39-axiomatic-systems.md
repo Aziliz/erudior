@@ -50,6 +50,21 @@ In the four-point geometry, is Axiom 3 independent of Axioms 1 and 2?
 
 Find a model of Axioms 1 and 2 where Axiom 3 fails. Take four points $A, B, C, D$, with one line containing $A$, $B$ and $C$, plus lines $AD$, $BD$, $CD$. Every pair of points is on exactly one line (Axiom 2) and there are four points (Axiom 1), but one line has three points, so Axiom 3 fails. Hence Axiom 3 is independent.
 
+Models do a lot of work in this subject, but they can't do everything. The chart sums up which tool proves which kind of fact.
+
+```mermaid
+flowchart LR
+  accTitle: Which method shows which fact about an axiom system
+  accDescr: To show the axioms are consistent, find one model in which every axiom is true. To show an axiom X is independent, find a model in which the other axioms are true and X is false. To show a statement is a theorem, prove it from the axioms; checking models can never do this. To show a statement is not a theorem, find a model in which every axiom is true but the statement is false.
+  Q["What do you want to show?"]
+  Q --> C["The axioms are consistent"] --> C2["Find one model where every axiom is true"]
+  Q --> I["Axiom X is independent"] --> I2["Find a model where the other axioms are true and X is false"]
+  Q --> T["Statement S is a theorem"] --> T2["Prove S from the axioms (no model can do this)"]
+  Q --> N["Statement S is not a theorem"] --> N2["Find a model where every axiom is true and S is false"]
+```
+
+The last row is the same idea as independence: a model where every axiom holds but $S$ fails shows that no proof of $S$ can exist, because a proof would make $S$ true in every model.
+
 ## Euclid's postulates
 
 Euclid's *Elements* begins with 23 definitions, five "common notions" (general facts like "things equal to the same thing are equal to each other", our transitive property), and five postulates:
@@ -59,6 +74,10 @@ Euclid's *Elements* begins with 23 definitions, five "common notions" (general f
 3. A circle can be drawn with any center and any radius.
 4. All right angles are equal to one another.
 5. **The parallel postulate.** If a straight line crossing two straight lines makes the interior angles on the same side add up to less than two right angles, then the two lines, if extended indefinitely, meet on that side.
+
+The first four postulates describe what a straightedge and compass can do, plus one fact about angles; the picture shows each one. The fifth is drawn after it.
+
+![Four panels. Panel 1, join any two points: a segment from point P to point Q. Panel 2, extend any segment: a segment with dashed extensions and arrows at both ends. Panel 3, draw a circle with any center and radius: a circle with center O and radius r. Panel 4, all right angles are equal: two right angles in different positions with an equals sign between them.](images/geo-m10-postulates.svg)
 
 ```shape
 {"segments": [{"from": [0, 4], "to": [10, 2.6]}, {"from": [0, -0.5], "to": [10, 0.9]}, {"from": [2, -2], "to": [2.6, 5]}], "labels": [{"at": [3.2, 3.1], "text": "a"}, {"at": [3.1, 0.4], "text": "b"}, {"at": [8, 1.75], "text": "meet this way →"}], "caption": "Postulate 5: if a + b < 180°, the two lines meet on the side of a and b."}

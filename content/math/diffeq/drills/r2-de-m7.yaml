@@ -14,7 +14,7 @@
   answers:
     - {name: F, label: '$F({s0}) \approx$', tolerance: 0.00006, format: num4}
   solution: |-
-    One period: $\displaystyle\int_0^{{w}} {k:coef}e^{-st}\,dt = \dfrac{{k:coef}(1 - e^{-{w:coef}s})}{s}$. Divide by $1 - e^{-{T:coef}s}$ (the full period is {T}): $F(s) = \dfrac{{k:coef}(1 - e^{-{w:coef}s})}{s(1 - e^{-{T:coef}s})}$. At $s = {s0}$ this is **{F:num4}**.
+    One period: $\displaystyle\int_0^{w} {k:coef}e^{-st}\,dt = \dfrac{{k:coef}(1 - e^{-{w:coef}s})}{s}$. Divide by $1 - e^{-{T:coef}s}$ (the full period is {T}): $F(s) = \dfrac{{k:coef}(1 - e^{-{w:coef}s})}{s(1 - e^{-{T:coef}s})}$. At $s = {s0}$ this is **{F:num4}**.
 - id: de-m7-r2-periodic-steady
   title: Periodic steady state under a square wave
   topic: Laplace transforms of periodic functions

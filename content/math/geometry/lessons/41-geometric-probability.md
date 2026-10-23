@@ -17,6 +17,21 @@ $$P = \frac{\text{measure of the favorable region}}{\text{measure of the whole r
 
 where "measure" means length on a segment, area in a plane region, or volume in a solid.
 
+The first decision in every problem is which of the three measures to use. It depends on what is chosen at random, not on what the picture looks like:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the right measure for a geometric probability
+  accDescr: First ask what is chosen at random. If it is one random number, time, or point on a segment, use lengths. If it is a point in a flat region, or two random numbers treated as a point in a square, use areas. If it is a point in a solid, use volumes. In every case the probability is the favorable measure divided by the total measure.
+  S["What is chosen at random?"]
+  S --> A["One number, time or point on a segment"] --> AL["Use lengths"]
+  S --> B["A point in a flat region, or two random numbers"] --> BL["Use areas"]
+  S --> C["A point in a solid"] --> CL["Use volumes"]
+  AL --> P["P = favorable measure ÷ total measure"]
+  BL --> P
+  CL --> P
+```
+
 ## Probability with lengths
 
 ### Example 1
@@ -70,6 +85,10 @@ Two friends each arrive at a café at a random time between 12:00 and 1:00 and w
 ```
 
 This idea, turning a question about two random quantities into an area in a square, is one of the most useful tricks in probability.
+
+Every region of the square tells a story. Above the band, $y > x + 15$: friend X arrived more than 15 minutes before friend Y, gave up and left before Y came. Below the band, the roles are reversed. The diagonal $y = x$ is where they arrive at exactly the same moment.
+
+![The 60 by 60 square of arrival times, with x for friend X's arrival on the horizontal axis and y for friend Y's on the vertical axis, both marked 0, 15, 45 and 60. A green band around the dashed diagonal x = y is labeled they meet. The upper-left corner triangle is labeled X leaves before Y arrives, and the lower-right corner triangle is labeled Y leaves before X arrives.](images/geo-m10-meeting.svg)
 
 ## Probability with volumes
 

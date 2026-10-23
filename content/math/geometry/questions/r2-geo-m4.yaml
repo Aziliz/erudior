@@ -1,0 +1,519 @@
+# Round 2, module geo-m4: new question types for the core lessons, and the two honors lessons
+# Lesson 10: classifying triangles and their angles
+- id: geo-m4-r2-q01
+  lesson: geo-tri-angles
+  type: label
+  module_quiz: true
+  topic: Triangle angle sum
+  stem: 'Side $\overline{AC}$ of $\triangle ABC$ has been extended past $C$. Name the numbered parts.'
+  image: {src: images/geo-m4-exterior-angle-blank.svg, alt: 'Triangle ABC with side AC extended to the right past C. Four parts are marked: the angle at A, the interior angle at C, the angle outside the triangle at C between the extension and side CB, and the extension itself.'}
+  labels:
+    - {x: 15.7, y: 79.2, text: Remote interior angle}
+    - {x: 61.7, y: 79.9, text: Adjacent interior angle}
+    - {x: 68.3, y: 73.9, text: Exterior angle}
+    - {x: 87.5, y: 83.3, text: Extension of a side}
+  distractors: [Vertical angle, Included angle]
+  explanation: |-
+    1 is the angle at $A$, one of the two interior angles not next to the exterior angle: a remote interior angle (the angle at $B$ is the other). 2 is the interior angle at $C$, which forms a linear pair with the exterior angle. 3 is the exterior angle, between the extension and side $\overline{CB}$. 4 is the extension of side $\overline{AC}$. By the Exterior Angle Theorem, angle 3 equals the sum of the angles at $A$ and $B$.
+- id: geo-m4-r2-q02
+  lesson: geo-tri-angles
+  type: text
+  topic: Triangle angle sum
+  stem: 'At each vertex of a triangle, one exterior angle is drawn. The three exterior angles add to ___ degrees. Give only the number.'
+  accept: ['360']
+  explanation: |-
+    Each exterior angle and its interior angle form a linear pair, so the three pairs total $3 \cdot 180^\circ = 540^\circ$. The interior angles use $180^\circ$ of that, leaving $540 - 180 = 360^\circ$ for the exterior angles.
+- id: geo-m4-r2-q03
+  lesson: geo-tri-angles
+  type: match
+  topic: Triangle classification
+  stem: 'Each line gives the three angles of a triangle. Match each triangle to its classification by angles.'
+  pairs:
+    - ['$60^\circ, 60^\circ, 60^\circ$', Equiangular]
+    - ['$25^\circ, 65^\circ, 90^\circ$', Right]
+    - ['$20^\circ, 30^\circ, 130^\circ$', Obtuse]
+    - ['$50^\circ, 60^\circ, 70^\circ$', Acute]
+  distractors: [Scalene]
+  explanation: |-
+    Look at the largest angle. $130^\circ$ is obtuse, so that triangle is obtuse; $90^\circ$ makes a right triangle; with all angles less than $90^\circ$ a triangle is acute; and three equal angles make it equiangular (every equiangular triangle is also acute, but "equiangular" is the more specific name). "Scalene" classifies by sides, not angles.
+- id: geo-m4-r2-q04
+  lesson: geo-tri-angles
+  module_quiz: true
+  topic: Triangle classification
+  stem: 'Which of these triangles can exist? Select all that apply.'
+  choices: ['An obtuse isosceles triangle', 'A right scalene triangle', 'An obtuse equilateral triangle', 'A triangle with two right angles']
+  answer: [0, 1]
+  explanation: |-
+    An obtuse isosceles triangle exists (for example $120^\circ, 30^\circ, 30^\circ$), and so does a right scalene one (for example $30^\circ, 60^\circ, 90^\circ$, whose sides all differ). An equilateral triangle has three $60^\circ$ angles, so it is never obtuse. Two right angles would already use up $180^\circ$, leaving $0^\circ$ for the third angle.
+- id: geo-m4-r2-q05
+  lesson: geo-tri-angles
+  type: order
+  topic: Triangle angle sum
+  stem: 'In $\triangle ABC$, $m\angle A = (x + 10)^\circ$, $m\angle B = (2x)^\circ$ and $m\angle C = (3x - 10)^\circ$. Put the steps for classifying the triangle in order.'
+  items:
+    - 'Write $(x + 10) + 2x + (3x - 10) = 180$'
+    - 'Simplify to $6x = 180$'
+    - 'Solve: $x = 30$'
+    - 'Substitute: the angles are $40^\circ$, $60^\circ$ and $80^\circ$'
+    - 'All three angles are less than $90^\circ$, so the triangle is acute'
+  explanation: |-
+    Each step uses the one before it: the angle sum gives the equation, which simplifies to $6x = 180$ and $x = 30$. Then $m\angle A = 40^\circ$, $m\angle B = 60^\circ$, $m\angle C = 80^\circ$ (check: $40 + 60 + 80 = 180$), and since the largest is less than $90^\circ$, the triangle is acute.
+# Lesson 11: congruent triangles, SSS and SAS
+- id: geo-m4-r2-q06
+  lesson: geo-congruent
+  type: text
+  module_quiz: true
+  topic: Congruent figures
+  stem: '$\triangle ABC \cong \triangle PQR$. The side of $\triangle PQR$ that corresponds to $\overline{BC}$ is ___. Type its two letters.'
+  accept: [QR, RQ]
+  explanation: |-
+    $B$ and $C$ are the second and third letters of $ABC$, so they match the second and third letters of $PQR$: $Q$ and $R$. The corresponding side is $\overline{QR}$.
+- id: geo-m4-r2-q07
+  lesson: geo-congruent
+  type: match
+  topic: Congruent figures
+  stem: '$\triangle KLM \cong \triangle XYZ$. Match each part of $\triangle KLM$ to the corresponding part of $\triangle XYZ$.'
+  pairs:
+    - ['$\angle L$', Angle Y]
+    - ['$\angle M$', Angle Z]
+    - ['$\overline{KM}$', Side XZ]
+    - ['$\overline{LM}$', Side YZ]
+  distractors: [Side XY, Angle X]
+  explanation: |-
+    The letters pair up by position: $K \leftrightarrow X$, $L \leftrightarrow Y$, $M \leftrightarrow Z$. So $\angle L$ matches $\angle Y$, $\angle M$ matches $\angle Z$, $\overline{KM}$ (first and third letters) matches $\overline{XZ}$, and $\overline{LM}$ matches $\overline{YZ}$. Side XY would match $\overline{KL}$ and angle X would match $\angle K$, which aren't listed.
+- id: geo-m4-r2-q08
+  lesson: geo-congruent
+  module_quiz: true
+  topic: SSS and SAS
+  stem: 'Which sets of facts prove $\triangle ABC \cong \triangle DEF$? Select all that apply.'
+  choices: ['$\overline{AB} \cong \overline{DE}$, $\overline{BC} \cong \overline{EF}$, $\overline{AC} \cong \overline{DF}$', '$\overline{AB} \cong \overline{DE}$, $\angle B \cong \angle E$, $\overline{BC} \cong \overline{EF}$', '$\overline{AB} \cong \overline{DE}$, $\overline{BC} \cong \overline{EF}$, $\angle A \cong \angle D$', '$\angle A \cong \angle D$, $\angle B \cong \angle E$, $\angle C \cong \angle F$']
+  answer: [0, 1]
+  explanation: |-
+    Three pairs of sides is SSS. $\overline{AB}$, $\angle B$, $\overline{BC}$ is SAS, since $\angle B$ lies between those sides. $\overline{AB}$, $\overline{BC}$ and $\angle A$ is SSA: $\angle A$ is not between $\overline{AB}$ and $\overline{BC}$, so it doesn't prove congruence. Three pairs of angles (AAA) gives the same shape but not necessarily the same size.
+- id: geo-m4-r2-q09
+  lesson: geo-congruent
+  topic: SSS and SAS
+  stem: 'In this picture, $\angle A$ and side $\overline{AC}$ are fixed, and side $\overline{CB}$ has a fixed length but can swing. What does the picture show?'
+  image: {src: images/geo-m4-ssa-swing.svg, alt: 'Angle A with point C on its upper side. A dashed circle around C crosses the lower ray at two points, B1 and B2, and C is joined to both.'}
+  choices: ['SAS fails when the angle is acute', 'SSA does not guarantee congruence', 'The triangles $AB_1C$ and $AB_2C$ are congruent', 'Every SSA triangle is a right triangle']
+  answer: 1
+  explanation: |-
+    Triangles $AB_1C$ and $AB_2C$ share $\angle A$, side $\overline{AC}$ and a side of length $CB_1 = CB_2$ opposite $\angle A$, yet they are clearly different triangles. So two sides and a non-included angle (SSA) do not force congruence. SAS is not involved, because the fixed angle is not between the two fixed sides.
+- id: geo-m4-r2-q10
+  lesson: geo-congruent
+  type: text
+  topic: SSS and SAS
+  stem: 'For SAS to apply, the congruent angle must be the ___ angle: the angle formed by the two congruent sides.'
+  accept: [included, included angle]
+  explanation: |-
+    SAS needs the **included angle**, the angle between the two given sides. An angle that is not between them gives SSA, which is not a congruence test.
+# Lesson 12: ASA, AAS, HL and CPCTC
+- id: geo-m4-r2-q11
+  lesson: geo-asa-hl
+  type: label
+  module_quiz: true
+  topic: ASA AAS and HL
+  stem: 'In each triangle, tick marks show sides and arcs show angles that match another triangle. Name the congruence test each one shows.'
+  image: {src: images/geo-m4-congruence-tests-blank.svg, alt: 'Five numbered triangles. Triangle 1 has all three sides marked. Triangle 2 has two sides and the angle between them marked. Triangle 3 has two angles and the side between them marked. Triangle 4 has two angles and a side that is not between them marked. Triangle 5 is a right triangle with its hypotenuse and one leg marked.'}
+  labels:
+    - {x: 15.4, y: 28.8, text: SSS}
+    - {x: 48.0, y: 28.8, text: SAS}
+    - {x: 80.6, y: 28.8, text: ASA}
+    - {x: 30.6, y: 77.5, text: AAS}
+    - {x: 63.6, y: 77.5, text: HL}
+  distractors: [SSA, AAA]
+  explanation: |-
+    1: three sides, SSS. 2: two sides with the marked angle between them, SAS. 3: two angles with the marked side between their vertices, ASA. 4: two angles and a side that is not between them, AAS. 5: a right angle with the hypotenuse and a leg, HL. SSA and AAA are not congruence tests, so none of the pictures shows them.
+- id: geo-m4-r2-q12
+  lesson: geo-asa-hl
+  type: order
+  topic: CPCTC
+  stem: 'Given: $\overline{AD} \perp \overline{BC}$ at $D$, and $\overline{AB} \cong \overline{AC}$. Prove: $\overline{AD}$ bisects $\angle BAC$. Put the steps of the proof in order.'
+  items:
+    - '$\angle ADB$ and $\angle ADC$ are right angles (definition of perpendicular)'
+    - '$\triangle ADB \cong \triangle ADC$ (HL, with $\overline{AD} \cong \overline{AD}$)'
+    - '$\angle BAD \cong \angle CAD$ (CPCTC)'
+    - '$\overline{AD}$ bisects $\angle BAC$ (definition of angle bisector)'
+  explanation: |-
+    HL needs right triangles, so the right angles come first. Then the hypotenuses $\overline{AB} \cong \overline{AC}$ and the shared leg $\overline{AD}$ give the congruence. Only after that can CPCTC give $\angle BAD \cong \angle CAD$, and two congruent halves mean $\overline{AD}$ is the bisector.
+- id: geo-m4-r2-q13
+  lesson: geo-asa-hl
+  type: text
+  topic: ASA AAS and HL
+  stem: 'Two right triangles have congruent legs, and their hypotenuses measure $2x + 7$ and $4x - 5$. If the triangles are congruent by HL, each hypotenuse is ___. Give only the number.'
+  accept: ['19']
+  explanation: |-
+    Congruent hypotenuses: $2x + 7 = 4x - 5$, so $2x = 12$ and $x = 6$. Each hypotenuse is $2(6) + 7 = 19$ (check: $4(6) - 5 = 19$).
+- id: geo-m4-r2-q14
+  lesson: geo-asa-hl
+  module_quiz: true
+  topic: ASA AAS and HL
+  stem: '$\triangle ABC$ and $\triangle DEF$ have $\angle A \cong \angle D$ and $\angle B \cong \angle E$. Which one additional fact would prove the triangles congruent? Select all that apply.'
+  choices: ['$\overline{AB} \cong \overline{DE}$', '$\overline{BC} \cong \overline{EF}$', '$\overline{AC} \cong \overline{DF}$', '$\angle C \cong \angle F$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\overline{AB}$ lies between the two angles, so it gives ASA. $\overline{BC}$ and $\overline{AC}$ are not between them, so each gives AAS. $\angle C \cong \angle F$ follows anyway from the Third Angles Theorem, and three pairs of angles (AAA) only make the triangles the same shape.
+- id: geo-m4-r2-q15
+  lesson: geo-asa-hl
+  type: match
+  topic: ASA AAS and HL
+  stem: 'Match each set of known matching parts to the congruence test it uses.'
+  pairs:
+    - ['Two angles and the side between them', ASA]
+    - ['Two angles and a side not between them', AAS]
+    - ['The hypotenuse and a leg of two right triangles', HL]
+    - ['Two sides and the angle between them', SAS]
+  distractors: [SSA]
+  explanation: |-
+    The letters list the parts in order around the triangle: in ASA the side sits between the two angles, in AAS it doesn't, and in SAS the angle sits between the two sides. HL is the special test for right triangles. SSA (two sides and an angle not between them) is not a valid test.
+# Lesson 13: isosceles and equilateral triangles
+- id: geo-m4-r2-q16
+  lesson: geo-isosceles
+  type: label
+  module_quiz: true
+  topic: Isosceles triangles
+  stem: 'Name the numbered parts of this isosceles triangle. The tick marks show the two congruent sides.'
+  image: {src: images/geo-m4-isosceles-blank.svg, alt: 'Isosceles triangle ABC with apex B; sides AB and CB carry tick marks. Marked are side AB, side AC, the angle at B and the angle at A.'}
+  labels:
+    - {x: 29.9, y: 47.8, text: Leg}
+    - {x: 50.0, y: 90.0, text: Base}
+    - {x: 50.0, y: 26.3, text: Vertex angle}
+    - {x: 20.6, y: 80.9, text: Base angle}
+  distractors: [Hypotenuse, Exterior angle]
+  explanation: |-
+    The congruent sides $\overline{AB}$ and $\overline{CB}$ are the legs, and the third side $\overline{AC}$ is the base. The angle between the legs (at $B$) is the vertex angle, and the angles at the ends of the base ($A$ and $C$) are the base angles. "Hypotenuse" belongs to right triangles.
+- id: geo-m4-r2-q17
+  lesson: geo-isosceles
+  type: text
+  topic: Isosceles triangles
+  stem: 'The vertex angle of an isosceles triangle measures $52^\circ$. Each base angle measures ___ degrees. Give only the number.'
+  accept: ['64']
+  explanation: |-
+    The base angles are equal and share what's left: $\dfrac{180 - 52}{2} = \dfrac{128}{2} = 64$. Check: $52 + 64 + 64 = 180$.
+- id: geo-m4-r2-q18
+  lesson: geo-isosceles
+  topic: Isosceles triangles
+  stem: 'In $\triangle ABC$, $\overline{AB} \cong \overline{CB}$, and $\overline{BD}$ bisects $\angle ABC$, meeting $\overline{AC}$ at $D$. Which statements must be true? Select all that apply.'
+  choices: ['$\angle A \cong \angle C$', '$\overline{AD} \cong \overline{CD}$', '$\overline{BD} \perp \overline{AC}$', '$\overline{AB} \cong \overline{AC}$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\triangle ABD \cong \triangle CBD$ by SAS, and CPCTC gives $\angle A \cong \angle C$, $\overline{AD} \cong \overline{CD}$, and $\angle ADB \cong \angle CDB$; those last two form a linear pair, so each is $90^\circ$ and $\overline{BD} \perp \overline{AC}$. Nothing says the base $\overline{AC}$ equals a leg; that would make the triangle equilateral.
+- id: geo-m4-r2-q19
+  lesson: geo-isosceles
+  type: order
+  topic: Isosceles triangles
+  stem: 'Put the steps of the proof of the Base Angles Theorem in order. ($\overline{AB} \cong \overline{CB}$ is given.)'
+  items:
+    - 'Draw the bisector of $\angle B$, meeting $\overline{AC}$ at $D$'
+    - '$\angle ABD \cong \angle CBD$ (definition of angle bisector)'
+    - '$\triangle ABD \cong \triangle CBD$ (SAS, using $\overline{BD} \cong \overline{BD}$)'
+    - '$\angle A \cong \angle C$ (CPCTC)'
+  explanation: |-
+    The bisector has to exist before you can say what it does, the congruent angles at $B$ are needed for SAS, and CPCTC can only come after the triangles are proved congruent.
+- id: geo-m4-r2-q20
+  lesson: geo-isosceles
+  type: match
+  topic: Isosceles triangles
+  stem: 'Match each statement to the theorem it is.'
+  pairs:
+    - ['If $\overline{AB} \cong \overline{CB}$, then $\angle A \cong \angle C$', Base Angles Theorem]
+    - ['If $\angle A \cong \angle C$, then $\overline{AB} \cong \overline{CB}$', Converse of the Base Angles Theorem]
+    - ['A triangle with three congruent sides has three congruent angles', Corollary on equilateral triangles]
+  distractors: [Third Angles Theorem, Exterior Angle Theorem]
+  explanation: |-
+    Congruent sides give congruent opposite angles: the Base Angles Theorem. Going from congruent angles back to congruent sides is its converse. Applying the theorem to every pair of sides gives the corollary that an equilateral triangle is equiangular. The Third Angles Theorem compares two different triangles, and the Exterior Angle Theorem is about an angle outside the triangle.
+# Lesson 14: inequalities in triangles
+- id: geo-m4-r2-q21
+  lesson: geo-tri-ineq
+  type: label
+  module_quiz: true
+  topic: Triangle inequalities
+  stem: 'In $\triangle PQR$, $m\angle P = 35^\circ$, $m\angle Q = 85^\circ$ and $m\angle R = 60^\circ$. Name each numbered side by its length compared with the others.'
+  image: {src: images/geo-m4-side-angle-blank.svg, alt: 'Triangle PQR with angle P of 35 degrees, angle Q of 85 degrees and angle R of 60 degrees. The three sides are numbered: side QR, side PR and side PQ.'}
+  labels:
+    - {x: 83.9, y: 50.8, text: Shortest side}
+    - {x: 42.4, y: 45.8, text: Longest side}
+    - {x: 46.4, y: 93.0, text: Middle-length side}
+  distractors: [Hypotenuse]
+  explanation: |-
+    Each side is opposite one angle, and larger angles face longer sides. Side 1, $\overline{QR}$, is opposite the $35^\circ$ angle at $P$, so it is shortest. Side 2, $\overline{PR}$, is opposite the $85^\circ$ angle at $Q$, so it is longest. Side 3, $\overline{PQ}$, is opposite the $60^\circ$ angle at $R$, the middle one. There's no hypotenuse: no angle is $90^\circ$.
+- id: geo-m4-r2-q22
+  lesson: geo-tri-ineq
+  type: text
+  topic: Triangle inequalities
+  stem: 'Two sides of a triangle are 8 and 13. The third side is a whole number. How many lengths are possible for it? Give only the number.'
+  accept: ['15']
+  explanation: |-
+    The third side is strictly between the difference and the sum: $13 - 8 = 5 < x < 21 = 13 + 8$. The whole numbers allowed are 6 through 20, and there are $20 - 6 + 1 = 15$ of them.
+- id: geo-m4-r2-q23
+  lesson: geo-tri-ineq
+  module_quiz: true
+  topic: Triangle inequalities
+  stem: 'Which sets of lengths can be the sides of a triangle? Select all that apply.'
+  choices: ['5, 6, 10', '3, 4, 7', '2, 9, 10', '1, 2, 4']
+  answer: [0, 2]
+  explanation: |-
+    Add the two shorter lengths and compare with the longest. $5 + 6 = 11 > 10$: yes. $3 + 4 = 7$, not more than 7: the figure collapses into a segment, so no. $2 + 9 = 11 > 10$: yes. $1 + 2 = 3 < 4$: no.
+- id: geo-m4-r2-q24
+  lesson: geo-tri-ineq
+  type: order
+  topic: Triangle inequalities
+  stem: 'In $\triangle ABC$, $m\angle A = 70^\circ$ and $m\angle B = 45^\circ$. Put the sides in order from shortest to longest.'
+  items: ['$\overline{AC}$', '$\overline{AB}$', '$\overline{BC}$']
+  explanation: |-
+    $m\angle C = 180 - 70 - 45 = 65^\circ$. Order the angles: $\angle B$ ($45^\circ$) < $\angle C$ ($65^\circ$) < $\angle A$ ($70^\circ$). The sides opposite them come in the same order: $\overline{AC}$ (opposite $B$), $\overline{AB}$ (opposite $C$), $\overline{BC}$ (opposite $A$).
+- id: geo-m4-r2-q25
+  lesson: geo-tri-ineq
+  type: match
+  topic: Triangle inequalities
+  stem: 'Match each task to the theorem that handles it.'
+  pairs:
+    - ['Order the sides of one triangle using its angles', Side-Angle Inequality]
+    - ['Two pairs of congruent sides, different included angles: which third side is longer?', Hinge Theorem]
+    - ['Two pairs of congruent sides, different third sides: which included angle is larger?', Converse Hinge Theorem]
+    - ['Decide whether three lengths can form a triangle', Triangle Inequality Theorem]
+  distractors: [Exterior Angle Theorem]
+  explanation: |-
+    Within one triangle, sides and opposite angles are ordered together (Side-Angle Inequality). Across two triangles with two pairs of congruent sides, the Hinge Theorem goes from angles to third sides and its converse goes from third sides to angles. Whether three lengths make a triangle is the Triangle Inequality Theorem.
+# Honors: When SSA works (geo-m4-h-ssa-congruence)
+- id: geo-m4-r2-h01
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'In $\triangle ABC$ and $\triangle DEF$, $\angle A \cong \angle D$ (each $40^\circ$), $AC = DF = 6$, and $BC = EF = 8$, where $\overline{BC}$ and $\overline{EF}$ are opposite the $40^\circ$ angles. What can you conclude?'
+  choices: ['The triangles are congruent by the Long Side SSA Theorem', 'The triangles are congruent by SAS', 'Nothing: SSA never proves congruence', 'The triangles are congruent by HL']
+  answer: 0
+  explanation: |-
+    The angle is not between the two given sides, so this is SSA, not SAS. But the side opposite the angle (8) is at least as long as the other given side (6), so the Long Side SSA Theorem applies and the triangles are congruent. HL needs right angles.
+- id: geo-m4-r2-h02
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: '$\angle A$ is acute, $AC = 10$, and $C$ is 6 units from the other side of $\angle A$. How many different triangles $ABC$ have $BC = 8$?'
+  choices: ['None', 'One', 'Two', 'Infinitely many']
+  answer: 2
+  explanation: |-
+    Here $d = 6$ and $b = 10$. Since $6 < 8 < 10$, the circle of radius 8 around $C$ crosses the other side of the angle twice, giving two triangles. (With $a < 6$ there would be none, with $a = 6$ one right triangle, and with $a \ge 10$ one triangle.)
+- id: geo-m4-r2-h03
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'Two triangles have two pairs of congruent sides and a pair of congruent angles that are not between those sides. In which situations must the triangles be congruent? Select all that apply.'
+  choices: ['The angles are right angles', 'The angles are obtuse', 'The angles are acute, and the side opposite each angle is longer than the other given side', 'The angles are acute, and the side opposite each angle is shorter than the other given side']
+  answer: [0, 1, 2]
+  explanation: |-
+    A right or obtuse angle is the largest angle of its triangle, so the side opposite it is automatically the longest, and the Long Side SSA Theorem applies (for a right angle this is HL). With an acute angle, the theorem applies when the opposite side is at least as long as the other side. If the opposite side is shorter, two different triangles may fit, so congruence is not guaranteed.
+- id: geo-m4-r2-h04
+  lesson: geo-m4-h-ssa-congruence
+  type: text
+  topic: SSA and congruence
+  stem: '$\angle A$ is acute, $AC = 10$, and $C$ is 6 units from the other side of $\angle A$. There is exactly one triangle $ABC$ with $BC$ less than 10 when $BC =$ ___. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    For $BC$ less than $AC = 10$, the circle of radius $BC$ around $C$ meets the other side of the angle twice if $BC > 6$, never if $BC < 6$, and exactly once (touching at the foot of the perpendicular) when $BC = 6$. That single triangle has a right angle at $B$.
+- id: geo-m4-r2-h05
+  lesson: geo-m4-h-ssa-congruence
+  type: order
+  topic: SSA and congruence
+  stem: 'The proof of the Long Side SSA Theorem starts from $\angle A \cong \angle D$, $\overline{AC} \cong \overline{DF}$, $\overline{BC} \cong \overline{EF}$ and $BC \ge AC$. Put its steps in order.'
+  items:
+    - 'Mark $G$ on ray $\overrightarrow{AB}$ with $AG = DE$'
+    - '$\triangle AGC \cong \triangle DEF$ by SAS, so $CG = EF = BC$'
+    - 'If $G \ne B$, the triangle formed by $C$, $B$ and $G$ is isosceles, so its base angles are acute'
+    - 'The angle at whichever of $B$, $G$ is nearer $A$ is obtuse in its triangle with $A$ and $C$, so $AC$ is longer than $BC$'
+    - 'This contradicts $BC \ge AC$, so $G = B$ and the triangles are congruent'
+  explanation: |-
+    The point $G$ must be built before SAS can be used on it. SAS gives $CG = BC$, which is what makes the triangle $CBG$ isosceles. Its acute base angles make the supplementary angle obtuse, the obtuse angle faces the longest side, and that inequality contradicts the hypothesis.
+- id: geo-m4-r2-h06
+  lesson: geo-m4-h-ssa-congruence
+  type: match
+  topic: SSA and congruence
+  stem: '$\angle A$ is acute, $AC = b$, $BC = a$, and $d$ is the distance from $C$ to the other side of $\angle A$. Match each case to the number of triangles.'
+  pairs:
+    - ['$a < d$', No triangle]
+    - ['$a = d$', One right triangle]
+    - ['$d < a < b$', Two triangles]
+    - ['$a \ge b$', One triangle]
+  distractors: [Infinitely many triangles]
+  explanation: |-
+    The third vertex is where the circle of radius $a$ around $C$ meets the ray. Shorter than $d$, the circle misses; equal to $d$, it touches at the foot of the perpendicular (a right angle at $B$); between $d$ and $b$, it crosses twice on the ray; at least $b$, the second crossing is at $A$ or behind it, leaving one triangle.
+- id: geo-m4-r2-h07
+  lesson: geo-m4-h-ssa-congruence
+  type: label
+  topic: SSA and congruence
+  stem: 'This picture shows the construction of a triangle from SSA. Name the numbered parts.'
+  image: {src: images/geo-m4-ssa-swing-blank.svg, alt: 'Angle A with point C on its upper side. A dashed circle around C crosses the lower ray at B1 and B2, and a dashed perpendicular drops from C to the lower ray. Marked are the angle at A, segment AC, the circle and the perpendicular.'}
+  labels:
+    - {x: 14.3, y: 82.3, text: The given angle}
+    - {x: 24.9, y: 65.5, text: Side next to the given angle}
+    - {x: 55.8, y: 6.6, text: All points at distance a from C}
+    - {x: 41.4, y: 70.8, text: Distance from C to the other side}
+  distractors: [Side opposite the given angle, Angle bisector]
+  explanation: |-
+    1 is the given angle $\angle A$. 2 is $\overline{AC}$, the given side next to it. 3 is the circle of radius $a$ around $C$: the possible positions of $B$. 4 is the perpendicular from $C$ to the other side, whose length $d$ decides how many times the circle meets the ray. The sides opposite $\angle A$ are $\overline{CB_1}$ and $\overline{CB_2}$, which are not numbered.
+- id: geo-m4-r2-h08
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'Why is HL a special case of the Long Side SSA Theorem?'
+  choices: ['The hypotenuse is between the right angle and the leg', 'The legs of a right triangle are always congruent', 'The hypotenuse is opposite the right angle and is longer than either leg', 'A right triangle has two acute angles']
+  answer: 2
+  explanation: |-
+    In HL the known parts are the right angle, a leg (next to it) and the hypotenuse (opposite it). The right angle is the largest angle, so the hypotenuse is the longest side, longer than the leg. That's exactly the condition of the Long Side SSA Theorem. The hypotenuse is not between the right angle and the leg; it's opposite the right angle.
+- id: geo-m4-r2-h09
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'In the SSA construction with an acute $\angle A$, the foot of the perpendicular from $C$ is $F$, with $AF = 15$ and $CF = 8$. If $BC = 10$, what are the two possible lengths of $\overline{AB}$?'
+  choices: ['$9$ and $21$', '$5$ and $25$', '$7$ and $23$', '$6$ and $10$']
+  answer: 0
+  explanation: |-
+    The two positions of $B$ are the same distance from $F$, one on each side. By the Pythagorean theorem that distance is $\sqrt{10^2 - 8^2} = 6$, so $AB = 15 - 6 = 9$ or $15 + 6 = 21$. Both are on the ray because $6 < 15$ (equivalently, $BC = 10$ is less than $AC = 17$). $5$ and $25$ use $10$ instead of $6$; $7$ and $23$ use $8$.
+- id: geo-m4-r2-h10
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'In the two-triangle SSA case, the third vertex can be $B_1$ or $B_2$. If $m\angle AB_1C = 112^\circ$, what is $m\angle AB_2C$?'
+  choices: ['$112^\circ$', '$56^\circ$', '$22^\circ$', '$68^\circ$']
+  answer: 3
+  explanation: |-
+    $CB_1 = CB_2$, so the triangle $CB_1B_2$ is isosceles and its base angles are equal. $\angle AB_1C$ forms a linear pair with the base angle at $B_1$, so the base angles are $180 - 112 = 68^\circ$, and $\angle AB_2C$ is the base angle at $B_2$: $68^\circ$. The two angles are supplementary, not congruent.
+- id: geo-m4-r2-h11
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'A student writes: "$\angle A \cong \angle D = 30^\circ$, $AC = DF = 9$, $BC = EF = 5$, with $\overline{BC}$ opposite $\angle A$, so $\triangle ABC \cong \triangle DEF$ by SSA." What is wrong?'
+  choices: ['Nothing; SSA always works for acute angles', 'The side opposite the acute angle is the shorter one, so two different triangles may fit', 'The angle must be obtuse for any SSA argument', 'The student should have used SAS']
+  answer: 1
+  explanation: |-
+    The angle is acute and the opposite side (5) is shorter than the adjacent side (9), the one situation where SSA can fail. Here $C$ is $9 \cdot \tfrac12 = 4.5$ from the other side of the $30^\circ$ angle (in a 30-60-90 triangle the short leg is half the hypotenuse, Module 6), and $4.5 < 5 < 9$, so two different triangles really do fit. SAS doesn't apply because the angle isn't between the given sides.
+- id: geo-m4-r2-h12
+  lesson: geo-m4-h-ssa-congruence
+  type: text
+  topic: SSA and congruence
+  stem: 'In $\triangle ABC$, $\angle A$ is acute and $AC = 12$. Another triangle has a congruent angle and congruent sides matching $\overline{AC}$ and $\overline{BC}$. The smallest length of $\overline{BC}$ for which the Long Side SSA Theorem guarantees congruence is ___. Give only the number.'
+  accept: ['12']
+  explanation: |-
+    The theorem needs the side opposite $\angle A$ to be at least as long as the other given side: $BC \ge AC = 12$. So the smallest such length is 12 (the case $BC = AC$, an isosceles triangle, is included).
+- id: geo-m4-r2-h13
+  lesson: geo-m4-h-ssa-congruence
+  topic: SSA and congruence
+  stem: 'Which statement about the history of the congruence tests is accurate?'
+  choices: ['Euclid''s Elements contains HL as a numbered proposition', 'Euclid proved SAS by superposition, and many modern axiom systems take SAS as an axiom instead', 'SSA was proved by Euclid for acute angles', 'Hilbert showed that SAS can be proved from SSS']
+  answer: 1
+  explanation: |-
+    Euclid proved SAS (Book I, Proposition 4) by imagining one triangle laid on the other. Because that step is hard to justify from his postulates, axiom systems such as Hilbert's (1899) take a form of SAS as an axiom. HL and the Long Side SSA Theorem are not among Euclid's numbered propositions.
+# Honors: Shortest paths and the Triangle Inequality (geo-m4-h-shortest-paths)
+- id: geo-m4-r2-h14
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: 'Three sides of a quadrilateral are 5, 6 and 15. Which range gives the possible lengths of the fourth side $s$?'
+  choices: ['$4 < s < 26$', '$9 < s < 21$', '$0 < s < 26$', '$1 < s < 11$']
+  answer: 0
+  explanation: |-
+    If $s$ is the longest side, $s < 5 + 6 + 15 = 26$. If 15 is the longest, $15 < 5 + 6 + s$, so $s > 4$. Together $4 < s < 26$. $9 < s < 21$ treats it like a triangle with sides 6 and 15; $0 < s$ forgets that 5 and 6 alone can't span 15.
+- id: geo-m4-r2-h15
+  lesson: geo-m4-h-shortest-paths
+  type: text
+  topic: Shortest paths
+  stem: 'Three sides of a quadrilateral are 2, 3 and 10. The smallest whole-number length the fourth side can have is ___. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    The longest given side, 10, must be shorter than the other three together: $10 < 2 + 3 + s$, so $s > 5$. The smallest whole number above 5 is 6. (The upper limit is $s < 15$.)
+- id: geo-m4-r2-h16
+  lesson: geo-m4-h-shortest-paths
+  type: order
+  topic: Shortest paths
+  stem: 'Put the steps of Euclid''s proof that $AB + BC > AC$ in order.'
+  items:
+    - 'Extend $\overline{AB}$ past $B$ to $D$ with $BD = BC$'
+    - 'Triangle $BCD$ is isosceles, so $\angle BDC \cong \angle BCD$'
+    - '$\angle ACD$ is larger than $\angle BCD$, so it is larger than $\angle ADC$'
+    - 'In $\triangle ACD$ the larger angle faces the longer side, so $AD > AC$'
+    - 'Since $AD = AB + BC$, conclude $AB + BC > AC$'
+  explanation: |-
+    The point $D$ must exist before the isosceles triangle does; its base angles let you compare $\angle ACD$ with $\angle ADC$; the side–angle inequality turns that into $AD > AC$; and $AD = AB + BD = AB + BC$ finishes the proof.
+- id: geo-m4-r2-h17
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: 'A river runs along the $x$-axis. A path starts at $A(0, 2)$, touches the river at $P$, and ends at $B(9, 4)$. Which point $P$ makes the path shortest?'
+  choices: ['$(4.5, 0)$', '$(3, 0)$', '$(6, 0)$', '$(0, 0)$']
+  answer: 1
+  explanation: |-
+    Reflect $A$ to $A'(0, -2)$. The segment from $A'$ to $B(9, 4)$ has slope $\tfrac{6}{9} = \tfrac23$, so it is $y = \tfrac23 x - 2$, which crosses $y = 0$ at $x = 3$. $(4.5, 0)$ is just halfway along; $(6, 0)$ comes from swapping the roles of the two heights; $(0, 0)$ goes straight down from $A$.
+- id: geo-m4-r2-h18
+  lesson: geo-m4-h-shortest-paths
+  type: label
+  topic: Shortest paths
+  stem: 'This picture solves Heron''s problem for a path from one point to the horizontal line and then to another point. Name the numbered parts.'
+  image: {src: images/geo-m4-heron-blank.svg, alt: 'A horizontal line with two points above it. Below the line is a third point, joined by a dotted perpendicular segment to the upper left point. A dashed segment from the lower point to the upper right point crosses the line at a marked point, and the solid path runs from the upper left point to that crossing and on to the upper right point.'}
+  labels:
+    - {x: 13.8, y: 33.8, text: Point that gets reflected}
+    - {x: 13.4, y: 92.9, text: Its mirror image}
+    - {x: 43.6, y: 70.0, text: Point that makes the path shortest}
+    - {x: 93.8, y: 59.5, text: Mirror line}
+  distractors: [Midpoint of the path]
+  explanation: |-
+    1 is $A$, the starting point, which is reflected across the line. 2 is its image $A'$: the dotted segment $\overline{AA'}$ is perpendicular to the line and bisected by it. 3 is $P$, where the straight segment from $A'$ to $B$ crosses the line; that point makes $AP + PB$ smallest. 4 is the mirror line $\ell$ that the path must touch.
+- id: geo-m4-r2-h19
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: 'In Heron''s problem, $A''$ is the reflection of $A$ across $\ell$ and $P$ is the best point on $\ell$. Which statements are always true? Select all that apply.'
+  choices: ['$A''$, $P$ and $B$ are collinear', '$\overline{PA}$ and $\overline{PB}$ make equal angles with $\ell$', '$PA = PB$', '$P$ is halfway between the feet of the perpendiculars from $A$ and $B$ to $\ell$']
+  answer: [0, 1]
+  explanation: |-
+    The best $P$ is where segment $\overline{A'B}$ crosses $\ell$, so $A'$, $P$, $B$ are collinear, and the equal angles follow (CPCTC plus vertical angles). $PA = PB$ and "halfway" are true only when $A$ and $B$ are the same distance from $\ell$; in general $P$ is nearer the point that is closer to the line.
+- id: geo-m4-r2-h20
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: '$P$ is a point inside $\triangle ABC$, with $AB = 7$ and $AC = 9$. Which value could $PB + PC$ have?'
+  choices: ['$17$', '$20$', '$16$', '$15$']
+  answer: 3
+  explanation: |-
+    Euclid's theorem says $PB + PC < AB + AC = 16$. Only 15 is less than 16. Equality (16) would need $P$ at the vertex $A$, which is not inside the triangle.
+- id: geo-m4-r2-h21
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: '$ABCD$ is a convex quadrilateral. Where is the point $P$ that makes $PA + PB + PC + PD$ as small as possible?'
+  choices: ['At the midpoint of the longest side', 'At the vertex with the largest angle', 'Where the diagonals $\overline{AC}$ and $\overline{BD}$ cross', 'At the midpoint of the shorter diagonal']
+  answer: 2
+  explanation: |-
+    $PA + PC \ge AC$ with equality only on $\overline{AC}$, and $PB + PD \ge BD$ with equality only on $\overline{BD}$. Both equalities hold at the intersection of the diagonals, where the total is $AC + BD$, its smallest possible value.
+- id: geo-m4-r2-h22
+  lesson: geo-m4-h-shortest-paths
+  type: match
+  topic: Shortest paths
+  stem: 'Match each result to the key idea in its proof.'
+  pairs:
+    - [Triangle Inequality (Euclid), Extend a side to build an isosceles triangle]
+    - [Heron's problem, Reflect one point across the line]
+    - [Polygon inequality, Apply the triangle inequality one step at a time]
+    - ['$PB + PC < AB + AC$ for $P$ inside', Extend BP to meet the opposite side]
+  distractors: [Draw a line parallel to one side]
+  explanation: |-
+    Euclid extends $\overline{AB}$ by $BD = BC$ and uses the isosceles triangle $BCD$. Heron reflects $A$ to $A'$ so the broken path becomes comparable to a straight segment. A polygonal path is shortened one corner at a time. For an inside point, extending $\overline{BP}$ to $E$ on $\overline{AC}$ splits the comparison into two triangle inequalities. A parallel line is the idea behind the Triangle Angle Sum Theorem.
+- id: geo-m4-r2-h23
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: 'Convex quadrilateral $ABCD$ has $AB = 3$, $BC = 10$, $CD = 5$ and $DA = 6$. Using $AB + CD < AC + BD$ and $AD + BC < AC + BD$, what is the best lower bound for $AC + BD$?'
+  choices: ['$8$', '$12$', '$16$', '$24$']
+  answer: 2
+  explanation: |-
+    The first inequality gives $AC + BD > 3 + 5 = 8$, and the second gives $AC + BD > 6 + 10 = 16$. Both are true, so the stronger one, 16, is the best bound. 12 is half the perimeter (also true but weaker), and 24 is the whole perimeter, which is an *upper* bound.
+- id: geo-m4-r2-h24
+  lesson: geo-m4-h-shortest-paths
+  type: text
+  topic: Shortest paths
+  stem: 'A path goes from $A(0, 5)$ to a point on the $x$-axis and then to $B(24, 5)$. The shortest possible length of the path is ___. Give only the number.'
+  accept: ['26']
+  explanation: |-
+    Reflect $A$ to $A'(0, -5)$. The shortest path has length $A'B = \sqrt{24^2 + 10^2} = \sqrt{676} = 26$, touching the axis at $(12, 0)$ (halfway here, because $A$ and $B$ are the same height).
+- id: geo-m4-r2-h25
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: 'In Heron''s problem, $\ell$ is the perpendicular bisector of $\overline{AA''}$, meeting it at $M$. Why is $PA = PA''$ for every point $P$ of $\ell$ other than $M$?'
+  choices: ['Triangles $PMA$ and $PMA''$ are congruent by SAS', 'Triangles $PMA$ and $PMA''$ are congruent by SSS', '$P$ is the midpoint of $\overline{AA''}$', 'The Triangle Inequality makes them equal']
+  answer: 0
+  explanation: |-
+    The triangles share $\overline{PM}$, have right angles at $M$, and $AM = A'M$: two sides and the included angle, so SAS. Then CPCTC gives $PA = PA'$. SSS would need $PA = PA'$ already, which is what we want to prove.
+- id: geo-m4-r2-h26
+  lesson: geo-m4-h-shortest-paths
+  topic: Shortest paths
+  stem: 'For three points $A$, $B$, $C$, when is $AB + BC = AC$?'
+  choices: ['When $\triangle ABC$ is isosceles', 'When $\angle B$ is a right angle', 'Never', 'Exactly when $B$ lies on segment $\overline{AC}$']
+  answer: 3
+  explanation: |-
+    For a real triangle the inequality is strict. Equality means the "triangle" is degenerate: $B$ sits on $\overline{AC}$, so the path through $B$ is the straight segment itself. A right angle at $B$ gives $AB^2 + BC^2 = AC^2$, not $AB + BC = AC$.
