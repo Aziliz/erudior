@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Examiner",
-  "version": "0.16.0",
-  "identifier": "com.aziliz.examiner",
+  "productName": "Erudior",
+  "version": "0.17.0",
+  "identifier": "com.erudior.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Examiner",
+        "title": "Erudior",
         "width": 1200,
         "height": 820,
         "minWidth": 820,
@@ -21,7 +21,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; connect-src 'self' https://examiner-courses.azilizlabs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+      "csp": "default-src 'self'; connect-src 'self' https://courses.erudior.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
     }
   },
   "bundle": {
@@ -34,8 +34,8 @@
       "msi"
     ],
     "category": "Education",
-    "shortDescription": "Exam prep: courses, practice exams, notecards",
-    "longDescription": "Examiner is a study app for licensing exams: courses with lessons, timed practice exams, spaced-repetition notecards, math drills and a study planner.",
+    "shortDescription": "Free courses and homeschool records",
+    "longDescription": "Erudior is a free learning app: courses with lessons, practice exams, spaced-repetition notecards, math drills and vocabulary, plus homeschool records (attendance, grades, reports) kept on the family's computer.",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",

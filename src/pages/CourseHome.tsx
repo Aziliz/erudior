@@ -237,7 +237,7 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
         <section className="panel">
           <h2 style={{ marginBottom: 6 }}>{plan ? "Change your plan" : "Plan your study time"}</h2>
           <p className="muted" style={{ marginBottom: 18 }}>
-            Set your exam date and Examiner lays out a daily checklist: lessons spread over the time you have, notecard
+            Set your exam date and Erudior lays out a daily checklist: lessons spread over the time you have, notecard
             reviews, practice questions, and full timed exams in the last stretch.
           </p>
           <PlanForm api={api} course={course} plan={plan} onDone={() => setEditing(false)} />
@@ -581,7 +581,7 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
             <h2>Spaced repetition</h2>
             <p className="muted small">
               {totalDue} due now, {totalNew} new. Up to {plan?.newCardsPerDay ?? 20} new cards are introduced per day. Rate
-              each card and Examiner decides when you see it again.
+              each card and Erudior decides when you see it again.
             </p>
           </div>
           <div className="row">

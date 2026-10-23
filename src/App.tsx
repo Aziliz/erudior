@@ -451,7 +451,7 @@ export default function App() {
   if (loadError) {
     return (
       <div className="page">
-        <h1>Examiner couldn't load your data</h1>
+        <h1>Erudior couldn't load your data</h1>
         <p className="notice error" style={{ marginTop: 16 }}>
           {loadError}
         </p>
@@ -612,7 +612,7 @@ export default function App() {
         <header className="topbar">
           <div className="brand">
             <Mark />
-            Examiner
+            Erudior
           </div>
           <nav className="nav" aria-label="Main">
             <button
@@ -726,10 +726,10 @@ export default function App() {
         {!fullScreen && appUpdate && (
           <div className="resume-banner update-banner" role="region" aria-label="App update">
             <div>
-              <b>Examiner {appUpdate.version} is available</b>
+              <b>Erudior {appUpdate.version} is available</b>
               <span className="small muted">
                 {installing !== false
-                  ? `Downloading${installing !== null ? ` (${installing}%)` : ""}… Examiner restarts when it's done.`
+                  ? `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`
                   : appUpdate.canInstall
                     ? "Install it now; your courses and progress are kept."
                     : "Download the new .deb or .rpm from the release page and install it over this one. Your data is kept."}

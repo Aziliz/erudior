@@ -1,6 +1,6 @@
-# Examiner
+# Erudior
 
-A desktop study app for licensing and certification exams, for Linux and Windows. Built with Tauri 2, React and TypeScript.
+A free learning app for Linux, Windows and the web, with homeschool record-keeping in the desktop app. Built with Tauri 2, React and TypeScript.
 
 Content is organized into **courses**. Each course is one file with its own lessons, question banks, notecards, glossary, quick-reference sheets and math drills, so different subjects never mix. See [docs/COURSE_FORMAT.md](docs/COURSE_FORMAT.md).
 
@@ -23,8 +23,8 @@ Content is organized into **courses**. Each course is one file with its own less
 
 Data lives in the per-user app data folder. The path is shown at the bottom of the Progress screen:
 
-- Linux: `~/.local/share/com.aziliz.examiner/`
-- Windows: `%APPDATA%\com.aziliz.examiner\`
+- Linux: `~/.local/share/com.erudior.app/` (before v0.17.0: `com.aziliz.examiner`, copied over on first start)
+- Windows: `%APPDATA%\com.erudior.app\`
 
 ## Keyboard
 

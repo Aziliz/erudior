@@ -52,7 +52,7 @@
     --field: #58756b;
     --ink: #e4ebe7;
     --ink-2: #b4c1ba;
-    --ink-3: #a9b4af;
+    --ink-3: #b3beb9;
     --pencil: #e4ebe7;
     --accent: #99c3ea;
     --accent-ink: #0f1a24;
@@ -84,7 +84,7 @@
     --field: #58756b;
   --ink: #e4ebe7;
   --ink-2: #b4c1ba;
-  --ink-3: #a9b4af;
+  --ink-3: #b3beb9;
   --pencil: #e4ebe7;
   --accent: #99c3ea;
   --accent-ink: #0f1a24;
@@ -2891,4 +2891,11 @@ details.panel > summary {
   @page {
     margin: 16mm 14mm;
   }
+}
+.doc-list {
+  margin: 0 0 8px;
+  padding-left: 1.4rem;
+}
+.doc cite {
+  font-style: italic;
 }

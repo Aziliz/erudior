@@ -71,7 +71,7 @@ export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: 
     return (
       <div className="page narrow-page">
         <h1>Write down your recovery code</h1>
-        <p>If you forget the parent password, this code is the only way to reset it. Examiner keeps nothing online, so nobody else can.</p>
+        <p>If you forget the parent password, this code is the only way to reset it. Erudior keeps nothing online, so nobody else can.</p>
         <p className="recovery-code" aria-label={`Recovery code: ${done.code.split("").join(" ")}`}>
           {done.code}
         </p>

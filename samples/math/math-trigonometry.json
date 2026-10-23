@@ -4,7 +4,7 @@
  "id": "math-trigonometry",
  "title": "Trigonometry",
  "description": "Trigonometry from the first angle through a full college course: degrees and radians, arc length and angular speed, right-triangle trig, the unit circle, graphs of all six functions and sinusoidal models, inverse functions, identities and equations, the laws of sines and cosines, vectors, polar coordinates, parametric equations, and complex numbers in trigonometric form with De Moivre's theorem.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, added a few short sections, and added a lesson on parametric equations.",
  "modules": [

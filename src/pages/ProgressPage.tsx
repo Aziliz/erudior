@@ -67,7 +67,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
       const text = await store.pickJsonFile();
       if (text === null) return;
       const raw = JSON.parse(text);
-      if (raw?.format !== "examiner-backup") return api.toast("That file isn't an Examiner backup.");
+      if (raw?.format !== "examiner-backup") return api.toast("That file isn't an Erudior backup.");
       const when = raw.createdAt ? new Date(raw.createdAt).toLocaleString() : "an unknown date";
       const ok = await store.confirmAction(
         `Restore the backup from ${when}? This replaces all your courses, question banks and progress on this computer with what's in the backup.`,
@@ -245,7 +245,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
       <div className="row" style={{ marginTop: 24, justifyContent: "space-between" }}>
         <span className="faint small">
-          Examiner {version}. Data is stored in {location}.{" "}
+          Erudior {version}. Data is stored in {location}.{" "}
           {UPDATES_ENABLED && (
             <>
               <button className="linkish" onClick={checkUpdates}>

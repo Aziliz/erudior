@@ -59,7 +59,7 @@ export async function deleteCourse(id: string): Promise<void> {
 }
 
 export async function exportCourseFile(course: Course): Promise<boolean> {
-  return exportText(serializeCourse(course), `${course.id}.json`, "Examiner course");
+  return exportText(serializeCourse(course), `${course.id}.json`, "Erudior course");
 }
 
 export async function listBanks(): Promise<{ banks: Bank[]; broken: string[] }> {
@@ -145,7 +145,7 @@ export async function pickJsonFile(): Promise<string | null> {
     const path = await open({
       multiple: false,
       directory: false,
-      filters: [{ name: "Examiner course or question bank", extensions: ["json"] }],
+      filters: [{ name: "Erudior course or question bank", extensions: ["json"] }],
     });
     if (!path || Array.isArray(path)) return null;
     return invoke<string>("read_text_file", { path });
@@ -165,7 +165,7 @@ export async function pickJsonFile(): Promise<string | null> {
 
 /** Save a bank to a file the user chooses. Returns false if cancelled. */
 export async function exportBankFile(bank: Bank): Promise<boolean> {
-  return exportText(serializeBank(bank), `${bank.id}.json`, "Examiner question bank");
+  return exportText(serializeBank(bank), `${bank.id}.json`, "Erudior question bank");
 }
 
 export async function exportText(content: string, name: string, label: string, ext = "json"): Promise<boolean> {
@@ -205,7 +205,7 @@ export async function exportBackup(courses: Course[], banks: Bank[], progress: P
     banks: banks.map((b) => JSON.parse(serializeBank(b))),
   };
   const day = new Date().toISOString().slice(0, 10);
-  return exportText(JSON.stringify(backup), `examiner-backup-${day}.json`, "Examiner backup");
+  return exportText(JSON.stringify(backup), `erudior-backup-${day}.json`, "Erudior backup");
 }
 
 /** Replace all stored data with a backup. Returns counts restored. */
@@ -214,7 +214,7 @@ export async function restoreBackup(
   current: { courses: Course[]; banks: Bank[] },
 ): Promise<{ courses: number; banks: number }> {
   const b = raw as Backup;
-  if (!b || b.format !== "examiner-backup" || !b.progress) throw new Error("This isn't an Examiner backup file.");
+  if (!b || b.format !== "examiner-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
   const courses = b.courses.map((c) => normalizeCourse(c));
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await deleteCourse(c.id);
@@ -234,7 +234,7 @@ export async function saveSessionState(content: string | null): Promise<void> {
   return saveState(student ? `session-${student}` : "session", content);
 }
 
-export async function confirmAction(message: string, title = "Examiner"): Promise<boolean> {
+export async function confirmAction(message: string, title = "Erudior"): Promise<boolean> {
   if (inApp) {
     const { ask } = await import("@tauri-apps/plugin-dialog");
     return ask(message, { title, kind: "warning" });

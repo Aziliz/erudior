@@ -4,7 +4,7 @@
  "id": "math-algebra2",
  "title": "Algebra 2",
  "description": "High school Algebra 2: function transformations, composition and inverses, complex numbers, nonlinear systems, systems in three variables and matrices, polynomial functions, radicals and rational exponents, rational expressions and functions, polynomial and rational inequalities, exponentials and logarithms, sequences and series, counting and the binomial theorem, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on nonlinear systems, matrices, polynomial and rational inequalities, and the binomial theorem.",
  "modules": [

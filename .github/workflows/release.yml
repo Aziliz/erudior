@@ -64,7 +64,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: ${{ github.ref_name }}
-          releaseName: Examiner ${{ github.ref_name }}
+          releaseName: Erudior ${{ github.ref_name }}
           releaseBody: Download the installer for your system below.
           releaseDraft: true
           includeUpdaterJson: false
@@ -77,7 +77,7 @@ jobs:
       - name: Upload installers
         uses: actions/upload-artifact@v4
         with:
-          name: examiner-${{ runner.os }}
+          name: erudior-${{ runner.os }}
           path: |
             src-tauri/target/release/bundle/deb/*.deb
             src-tauri/target/release/bundle/rpm/*.rpm

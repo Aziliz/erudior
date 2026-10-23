@@ -92,7 +92,7 @@ export async function loadFamily(): Promise<Family | null> {
   const text = await loadState("family");
   if (!text) return null;
   const f = JSON.parse(text) as Family;
-  if (f.format !== "examiner-family") throw new Error("family.json isn't an Examiner family file.");
+  if (f.format !== "examiner-family") throw new Error("family.json isn't an Erudior family file.");
   return { ...f, reminders: f.reminders ?? [], done: f.done ?? [] };
 }
 

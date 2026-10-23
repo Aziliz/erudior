@@ -4,7 +4,7 @@
  "id": "science-physics",
  "title": "Physics",
  "description": "Algebra-based physics at the high school / AP Physics 1 and 2 level (no calculus): measurement and vectors, kinematics, Newton's laws, energy and momentum, rotation and gravitation, oscillations, waves and sound, fluids and thermodynamics, electrostatics, circuits, magnetism and induction, optics, and modern physics. For the calculus-based versions, see University Physics I and II.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lessons on elasticity, optical instruments, and atomic physics.",
  "modules": [

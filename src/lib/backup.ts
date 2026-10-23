@@ -6,6 +6,7 @@ import type { Bank, Course, Progress } from "./types";
 import { loadFamily, saveFamily, type Family } from "./family";
 import { loadRecords, saveRecords, type Records } from "./records";
 import { loadPhotos, savePhotos } from "./portfolio";
+import { loadFile, putFile } from "./documents";
 import type { PortfolioPhoto } from "./reports";
 import * as store from "./storage";
 import { serializeCourse, normalizeCourse } from "./course";
@@ -28,6 +29,8 @@ interface Contents {
   progress: Progress;
   courses: unknown[];
   banks: unknown[];
+  /** Attached documents by file id. */
+  files?: Record<string, { mime: string; data: string }>;
 }
 
 const ITERATIONS = 600_000;
@@ -69,7 +72,7 @@ export const isEncryptedBackup = (raw: unknown): boolean => (raw as Envelope | n
 
 export async function decryptText(raw: unknown, passphrase: string): Promise<string> {
   const env = raw as Envelope;
-  if (!isEncryptedBackup(env)) throw new Error("This isn't an encrypted Examiner backup.");
+  if (!isEncryptedBackup(env)) throw new Error("This isn't an encrypted Erudior backup.");
   const key = await keyFor(passphrase, fromB64(env.kdf.salt), env.kdf.iterations);
   try {
     const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: fromB64(env.iv) as BufferSource }, key, fromB64(env.data) as BufferSource);
@@ -100,13 +103,25 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     progress: await store.loadBaseProgress(),
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
+    files: await gatherFiles(students),
   };
+}
+
+async function gatherFiles(students: Contents["students"]): Promise<Contents["files"]> {
+  const files: NonNullable<Contents["files"]> = {};
+  for (const s of Object.values(students))
+    for (const d of s.records.documents ?? []) {
+      if (files[d.fileId]) continue;
+      const f = await loadFile(d.fileId);
+      if (f) files[d.fileId] = f;
+    }
+  return files;
 }
 
 export async function exportEncrypted(courses: Course[], banks: Bank[], passphrase: string): Promise<boolean> {
   const text = await encryptText(JSON.stringify(await collect(courses, banks)), passphrase);
   const day = new Date().toISOString().slice(0, 10);
-  return store.exportText(text, `examiner-family-backup-${day}.json`, "Examiner encrypted backup");
+  return store.exportText(text, `erudior-family-backup-${day}.json`, "Erudior encrypted backup");
 }
 
 /** Replace everything on this computer with a decrypted backup. */
@@ -127,6 +142,7 @@ export async function restoreContents(
     await saveRecords(id, s.records);
     await savePhotos(id, s.photos ?? []);
   }
+  for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
   store.useStudentFiles(null);
   await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true });
   if (b.family) await saveFamily(b.family);

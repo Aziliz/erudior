@@ -13,6 +13,8 @@ import {
   type StudentData,
 } from "../lib/reports";
 import { stateInfo } from "../lib/states";
+import type { Activity, BookEntry } from "../lib/records";
+import type { DocumentRef } from "../lib/documents";
 
 export const fmtDate = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
 const short = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric" });
@@ -56,7 +58,7 @@ function Signature({ family, note }: { family: Family; note?: string }) {
       </div>
       <p className="doc-small doc-note">
         {note ??
-          "Prepared by the parent from records kept in Examiner on the family's computer. The parent, as the home school's administrator, is responsible for the accuracy of this record."}
+          "Prepared by the parent from records kept in Erudior on the family's computer. The parent, as the home school's administrator, is responsible for the accuracy of this record."}
       </p>
     </footer>
   );
@@ -68,6 +70,86 @@ function Scale({ cutoffs }: { cutoffs: Cutoffs }) {
       Grading scale: A {cutoffs.A}–100, B {cutoffs.B}–{cutoffs.A - 1}, C {cutoffs.C}–{cutoffs.B - 1}, D {cutoffs.D}–{cutoffs.C - 1}, F below {cutoffs.D}. Plus
       and minus mark the top and bottom 30% of each band. GPA on a 4.0 scale (A+ counts 4.0); weighted GPA adds 0.5 for Honors and 1.0 for AP or dual credit.
     </p>
+  );
+}
+
+// ---------- shared sections ----------
+
+function ReadingList({ books }: { books: BookEntry[] }) {
+  if (!books.length) return null;
+  const sorted = [...books].sort((a, b) => a.date.localeCompare(b.date));
+  return (
+    <>
+      <h3>Reading log ({books.length} book{books.length === 1 ? "" : "s"})</h3>
+      <ol className="doc-small doc-list">
+        {sorted.map((b) => (
+          <li key={b.id}>
+            <cite>{b.title}</cite>
+            {b.author && `, ${b.author}`} ({b.subject}, finished {short(b.date)}){b.note && `. ${b.note}`}
+          </li>
+        ))}
+      </ol>
+    </>
+  );
+}
+
+function ActivityList({ acts, title = "Activities" }: { acts: Activity[]; title?: string }) {
+  if (!acts.length) return null;
+  const sorted = [...acts].sort((a, b) => a.kind.localeCompare(b.kind) || a.from.localeCompare(b.from));
+  const total = acts.reduce((s, a) => s + a.hours, 0);
+  return (
+    <>
+      <h3>{title}</h3>
+      <table className="doc-table">
+        <caption className="sr-only">{title}</caption>
+        <thead>
+          <tr>
+            <th scope="col">Activity</th>
+            <th scope="col">Kind</th>
+            <th scope="col">Dates</th>
+            <th scope="col" className="r">
+              Hours
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {sorted.map((a) => (
+            <tr key={a.id}>
+              <td>
+                {a.name}
+                {a.role && `, ${a.role}`}
+                {a.note && <span className="doc-comment">{a.note}</span>}
+              </td>
+              <td>{a.kind}</td>
+              <td>
+                {short(a.from)} {a.from.slice(0, 4)} – {a.to ? `${short(a.to)} ${a.to.slice(0, 4)}` : "ongoing"}
+              </td>
+              <td className="r">{a.hours ? a.hours.toLocaleString() : "—"}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="doc-small">Total: {total.toLocaleString()} hours.</p>
+    </>
+  );
+}
+
+function DocsOnFile({ docs }: { docs: DocumentRef[] }) {
+  if (!docs.length) return null;
+  return (
+    <>
+      <h3>Documents on file</h3>
+      <ul className="doc-small doc-list">
+        {[...docs]
+          .sort((a, b) => a.date.localeCompare(b.date))
+          .map((x) => (
+            <li key={x.id}>
+              {fmtDate(x.date)}: {x.kind} ({x.name}){x.note && `. ${x.note}`}
+            </li>
+          ))}
+      </ul>
+      <p className="doc-small">Copies are kept by the parent and available on request.</p>
+    </>
   );
 }
 
@@ -228,11 +310,12 @@ export function TranscriptDoc({ d }: { d: StudentData }) {
           Credits by subject: {t.bySubject.map((s) => `${s.subject} ${cred(s.credits)}`).join(" · ")}. IP = in progress (credits in parentheses not yet earned).
         </p>
       )}
+      <ActivityList acts={d.records.activities} title="Activities and service" />
       <Scale cutoffs={cutoffs} />
       <p className="doc-small">One credit is a full-year course (about 120–180 hours). Courses taken elsewhere name the provider.</p>
       <Signature
         family={d.family}
-        note="I certify that this is a true and accurate record of the student's high school work in our home school. Prepared with Examiner from records kept on the family's computer."
+        note="I certify that this is a true and accurate record of the student's high school work in our home school. Prepared with Erudior from records kept on the family's computer."
       />
     </article>
   );
@@ -413,6 +496,9 @@ export function ComplianceDoc({ d, period, title }: { d: StudentData; period: Pe
           </ul>
         </>
       )}
+      <ReadingList books={d.records.reading.filter((b) => b.date >= period.from && b.date <= period.to)} />
+      <ActivityList acts={d.records.activities.filter((a) => a.from <= period.to && (a.to || "9999") >= period.from)} />
+      <DocsOnFile docs={d.records.documents.filter((x) => x.date >= c.year.from && x.date <= period.to)} />
       <Signature family={d.family} />
     </article>
   );
@@ -505,6 +591,9 @@ export function PortfolioDoc({ d, yearStart, photos }: { d: StudentData; yearSta
         </section>
       ))}
       {subjects.length === 0 && <p>Nothing on record for this school year yet.</p>}
+      <ReadingList books={d.records.reading.filter((b) => b.date >= r.year.from && b.date <= r.year.to)} />
+      <ActivityList acts={d.records.activities.filter((a) => a.from <= r.year.to && (a.to || "9999") >= r.year.from)} />
+      <DocsOnFile docs={d.records.documents.filter((x) => x.date >= r.year.from && x.date <= r.year.to)} />
       <Signature family={d.family} />
     </article>
   );

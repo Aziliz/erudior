@@ -24,7 +24,7 @@ import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
 import { ComplianceDoc, PortfolioDoc, ReportCardDoc, TranscriptDoc, clampPeriod, fmtDate } from "../components/ReportDocs";
 
-function useStudentData(api: AppApi, family: Family, sid: string) {
+export function useStudentData(api: AppApi, family: Family, sid: string) {
   const [data, setData] = useState<StudentData | null>(null);
   useEffect(() => {
     let live = true;
@@ -46,7 +46,7 @@ function useStudentData(api: AppApi, family: Family, sid: string) {
   return { data, setRecords };
 }
 
-function StudentPicker({ family, sid, setSid }: { family: Family; sid: string; setSid: (s: string) => void }) {
+export function StudentPicker({ family, sid, setSid }: { family: Family; sid: string; setSid: (s: string) => void }) {
   return (
     <label className="field">
       <span>Student</span>

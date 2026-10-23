@@ -334,7 +334,7 @@ def build(folder: pathlib.Path):
         "id": cid,
         "title": meta["title"],
         "description": meta.get("description", ""),
-        "author": "Examiner",
+        "author": "Erudior",
         "revision": meta.get("revision", 1),
         "changelog": meta.get("changelog"),
         "modules": modules,

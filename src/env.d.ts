@@ -1,5 +1,5 @@
 interface ImportMetaEnv {
-  /** Where course packages are published (e.g. https://examiner-courses.azilizlabs.com/v1/). Unset = bundled courses. */
+  /** Where course packages are published (e.g. https://courses.erudior.com/v1/). Unset = bundled courses. */
   readonly VITE_COURSES_URL?: string;
   /** "1" turns on the homeschool features outside the desktop app (testing). */
   readonly VITE_HOMESCHOOL?: string;

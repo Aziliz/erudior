@@ -1,11 +1,11 @@
 # Hosting: the website and course downloads
 
-Examiner has two front doors:
+Erudior has two front doors:
 
-- **examiner.azilizlabs.com** — the web app for free learning, on Cloudflare Pages.
+- **app.erudior.com** — the web app for free learning, on Cloudflare Pages.
 - **The desktop app** — for homeschool families and schools (records stay on the computer).
 
-Both download courses from **examiner-courses.azilizlabs.com/v1/**, a public Cloudflare R2 bucket.
+Both download courses from **courses.erudior.com/v1/**, a public Cloudflare R2 bucket.
 Nothing about a student is sent anywhere; the only requests are for the catalog and course files.
 
 ## How it works
@@ -35,25 +35,25 @@ as before.
    - Back up `.keys/course-signing.key` somewhere safe (a password manager). If it's lost, a new
      key needs an app update before new catalogs are trusted.
 2. **R2 bucket** (Cloudflare dashboard → R2):
-   - Create a bucket named `examiner-courses`.
-   - Settings → Custom Domains → add `examiner-courses.azilizlabs.com`.
+   - Create a bucket named `erudior-courses`.
+   - Settings → Custom Domains → add `courses.erudior.com` (the erudior.com zone must be on this Cloudflare account).
    - Settings → CORS policy:
      ```json
      [{ "AllowedOrigins": ["*"], "AllowedMethods": ["GET", "HEAD"], "AllowedHeaders": ["*"], "MaxAgeSeconds": 86400 }]
      ```
 3. **Pages project** (Workers & Pages → Create → Pages → Direct Upload):
-   - Name it `examiner` (upload anything once, e.g. an empty folder, to create it).
-   - Custom domains → add `examiner.azilizlabs.com`.
+   - Name it `erudior` (upload anything once, e.g. an empty folder, to create it).
+   - Custom domains → add `app.erudior.com`.
 4. **API token** (My Profile → API Tokens → Create Token → Custom):
    - Permissions: Account · Cloudflare Pages · Edit, and Account · Workers R2 Storage · Edit.
    - Note your Account ID (right side of the account home page).
 5. **GitHub** (Aziliz/examiner → Settings → Secrets and variables → Actions):
    - Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `COURSE_SIGNING_KEY` (the contents
      of `.keys/course-signing.key`).
-   - Variables: `COURSES_URL` = `https://examiner-courses.azilizlabs.com/v1/`, `R2_BUCKET` =
-     `examiner-courses`, `PAGES_PROJECT` = `examiner`.
+   - Variables: `COURSES_URL` = `https://courses.erudior.com/v1/`, `R2_BUCKET` =
+     `erudior-courses`, `PAGES_PROJECT` = `erudior`.
 6. Actions → **Publish website and courses** → Run workflow. Check
-   `https://examiner-courses.azilizlabs.com/v1/catalog.json` and `https://examiner.azilizlabs.com`.
+   `https://courses.erudior.com/v1/catalog.json` and `https://app.erudior.com`.
 7. Actions → **Build installers**: with `COURSES_URL` set, new installers download courses instead
    of bundling them.
 
@@ -73,5 +73,5 @@ After that, every push to `main` that changes courses or the app republishes aut
 
 ## Privacy note
 
-Cloudflare sees the IP address of each download, like any web host. Examiner adds no analytics
+Cloudflare sees the IP address of each download, like any web host. Erudior adds no analytics
 and sends no student data. The children's privacy notice (roadmap section 7) should say so.

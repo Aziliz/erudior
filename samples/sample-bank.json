@@ -3,8 +3,8 @@
   "version": 1,
   "id": "examiner-sample",
   "title": "Sample bank",
-  "description": "A short general-knowledge bank for trying out Examiner. Delete it once you've imported your own.",
-  "author": "Examiner",
+  "description": "A short general-knowledge bank for trying out Erudior. Delete it once you've imported your own.",
+  "author": "Erudior",
   "sections": [
     { "id": "science", "name": "Science" },
     { "id": "geography", "name": "Geography" }

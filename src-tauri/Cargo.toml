@@ -1,12 +1,12 @@
 [package]
-name = "examiner"
-version = "0.16.0"
-description = "Study app for licensing exams"
+name = "erudior"
+version = "0.17.0"
+description = "Free courses and homeschool records"
 authors = ["Jon"]
 edition = "2021"
 
 [lib]
-name = "examiner_lib"
+name = "erudior_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

@@ -4,7 +4,7 @@
  "id": "math-algebra1",
  "title": "Algebra 1",
  "description": "High school Algebra 1: real numbers, linear equations and inequalities, absolute value, functions and lines, systems, exponents, polynomials and factoring, quadratics, square roots, exponential growth and decay, sequences, and data analysis. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on piecewise and step functions, solving f(x) = g(x), square and cube root functions, and regression models.",
  "modules": [

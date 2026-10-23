@@ -4,7 +4,7 @@
  "id": "math-geometry",
  "title": "Geometry",
  "description": "Euclidean geometry from the first definitions through a college introduction: points, lines and angles; logic and proof; parallel lines; triangle congruence and similarity; special segments and quadrilaterals; right triangles, trigonometry and the Laws of Sines and Cosines; circles; area, surface area and volume; coordinates, parabolas and transformations; and, at the college level, axiomatic systems, the parallel postulate, non-Euclidean geometry and geometric probability.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on the Law of Sines, the Law of Cosines, and the parabola from focus and directrix.",
  "modules": [

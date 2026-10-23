@@ -1,6 +1,6 @@
-# Examiner: handoff
+# Erudior (formerly Examiner): handoff
 
-State as of 2026-10-23, v0.16.0. Read this first in a new chat.
+State as of 2026-10-23, v0.17.0. Read this first in a new chat.
 
 ## What it is
 
@@ -60,6 +60,21 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Renamed to Erudior (v0.17.0)
+
+- App name Erudior, identifier `com.erudior.app`, Cargo package `erudior` (lib `erudior_lib`), npm name `erudior`. The GitHub repo is still `Aziliz/examiner` (the updater endpoint and release links point there).
+- Data folder: `~/.local/share/com.erudior.app/` and `%APPDATA%\com.erudior.app\`. On the first start `move_old_data` (lib.rs) copies top-level JSON files and `courses/`, `banks/`, `documents/` from the old `com.aziliz.examiner` folder (left in place) and writes `.moved-from-examiner`; it skips if the new folder already has progress.json or family.json. Display settings and the cached catalog (localStorage) don't carry over; they rebuild.
+- Domains (Jon): web app `app.erudior.com` (Pages project `erudior`), course packages `courses.erudior.com/v1/` (R2 bucket `erudior-courses`). docs/HOSTING.md, CSP and env docs updated; the old azilizlabs hosts never went live and are dropped.
+- Internal format strings (`examiner-course`, `examiner-bank`, `examiner-backup`, `examiner-family`, `examiner-records`, `examiner-catalog`, `examiner-states`) and localStorage/IndexedDB keys (`examiner.*`) are unchanged on purpose so existing files keep working.
+- Course `author` is now "Erudior" (rebuilt; revisions not bumped, only that field and one precalculus sentence changed).
+- The claude.ai roadmap doc still says Examiner in its title.
+
+## More records (v0.17.0)
+
+- **Documents** (Parent area → Documents, `lib/documents.ts`): attach files (≤15 MB; notice of intent, letters, test reports, immunization/exemption, IHIP…) per student, optionally to every student at once. Files stored once as base64 JSON in `documents/<fileId>.json` (new collection kind; `load_item`, `write_base64_file` Rust commands); deleted when no student refers to them; "Save a copy" exports. Included in the encrypted backup (`files`). Listed as "Documents on file" in the progress report and portfolio.
+- **Reading log and activities** (Parent area → Reading and activities): books (title, author, finished date, subject, note) and activities (PE/sports, extracurricular, volunteer, work, other; role, dates, hours). Reading log prints in the portfolio and progress reports; activities in those and on the transcript ("Activities and service").
+- Dark theme `--ink-3` raised to #b3beb9 so faint text on flagged rows meets 7:1.
+
 ## Homeschool records (v0.16.0)
 
 - **Grades** (`lib/grades.ts`; Parent area → Grades): course percent = weighted mean of best score per lesson quiz, best per module test, best full exam, and work the parent graded (default weights 25/35/25/15, editable; parts with no scores are skipped). Parent can set the percent with a reason (printed). Letters A–F with +/- (plus = top 30% of a band, minus = bottom 30%); cutoffs default 90/80/70/60 and can only be made stricter (`cutoffProblem`), per Jon. GPA 4.0 (A+ = 4.0); weighted adds 0.5 Honors, 1.0 AP/dual credit on passing grades. Credits default 1.0 for high school, college and language-level catalog courses, else 0; editable per course with level, grade level, comment.
@@ -69,7 +84,6 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Output:** "Print or save as PDF" uses the system print dialog (print CSS shows only the report); "Save as web page" writes a standalone .html with the report's styles. Check window.print() in the Linux and Windows builds before relying on it.
 - Photos: `portfolio-<id>.json`, shrunk to 1600 px JPEG; in the encrypted backup.
 - Tests: `tests/records.test.mts`; the walkthrough now covers grading scale, a parent grade, comment, test result, every report, print view, web-page save and a photo.
-- Not done from Phase 3 of the roadmap's feature table: records storage (attached documents), reading log and activities. Rename to Erudior not done (Jon: no preference on timing).
 
 ## Homeschool (v0.15.0, desktop app only)
 
@@ -275,7 +289,8 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
-- Phase 4 per the roadmap (community course editor + review queue on the website, Classroom mode, Live room), the remaining records items (attached documents, reading log/activities), the Erudior rename, and K-12 courses. Ask Jon first.
+- Phase 4 per the roadmap (community course editor on the website, Classroom mode, Live room) and K-12 courses. Ask Jon first. Jon: community courses carry a **Reviewed** or **Not reviewed** tag; the backend choice is still open.
+- Jon's hosting setup (docs/HOSTING.md) now uses erudior.com.
 
 - The Van Ed refinement pass.
 - A CCNA course pack. The drill engine can't do subnetting yet: it may need bitwise operators or a custom drill type.

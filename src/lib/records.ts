@@ -8,6 +8,33 @@ import { hoursFor, stateInfo, type StateInfo } from "./states";
 import { loadState, saveState } from "./storage";
 import { uid } from "./util";
 import type { CourseRecord, OutsideCourse, ParentGrade } from "./grades";
+import type { DocumentRef } from "./documents";
+
+/** A book the student read (for the reading log; Pennsylvania requires one). */
+export interface BookEntry {
+  id: string;
+  /** Date finished. */
+  date: string;
+  title: string;
+  author: string;
+  subject: string;
+  note: string;
+}
+
+export const ACTIVITY_KINDS = ["Physical education and sports", "Extracurricular", "Volunteer service", "Work experience", "Other"] as const;
+
+/** An activity for the high school résumé and transcript. */
+export interface Activity {
+  id: string;
+  kind: string;
+  name: string;
+  /** Role or position, e.g. captain, first violin. */
+  role: string;
+  from: string;
+  to: string;
+  hours: number;
+  note: string;
+}
 
 /** A standardized test or outside evaluation. */
 export interface TestResult {
@@ -46,6 +73,10 @@ export interface Records {
   tests: TestResult[];
   /** Parent's per-subject evaluation for a report period, keyed `${from}..${to}` then subject. */
   narratives: Record<string, Record<string, string>>;
+  /** Attached files on record (the files themselves are in documents/). */
+  documents: DocumentRef[];
+  reading: BookEntry[];
+  activities: Activity[];
 }
 
 export const emptyRecords = (): Records => ({
@@ -59,6 +90,9 @@ export const emptyRecords = (): Records => ({
   outside: [],
   tests: [],
   narratives: {},
+  documents: [],
+  reading: [],
+  activities: [],
 });
 
 export async function loadRecords(studentId: string): Promise<Records> {

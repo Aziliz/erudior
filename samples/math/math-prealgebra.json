@@ -4,7 +4,7 @@
  "id": "math-prealgebra",
  "title": "Pre-algebra and Arithmetic",
  "description": "Arithmetic and pre-algebra from place value up through the level of a college developmental math course: whole numbers, integers, fractions, decimals, ratios and proportions, percents, exponents and scientific notation, expressions and equations, measurement and basic geometry, and basic data and probability, with word problems throughout.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on money word problems and graphing lines.",
  "modules": [

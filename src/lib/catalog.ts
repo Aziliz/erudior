@@ -1,4 +1,4 @@
-// The course catalog: every course Examiner offers. Courses aren't installed until someone
+// The course catalog: every course Erudior offers. Courses aren't installed until someone
 // adds one ("Start course"); then it's stored like any other course and shows under In
 // progress. samples/catalog.json (written by content/math/build.py) is bundled as a snapshot;
 // when the build sets VITE_COURSES_URL, the signed catalog on the website replaces it at

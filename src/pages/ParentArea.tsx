@@ -33,15 +33,18 @@ import { decryptText, exportEncrypted, isEncryptedBackup, restoreContents } from
 import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
 import { GradesTab, ReportsTab } from "./ParentRecords";
+import { DocumentsTab, ReadingTab } from "./ParentFiles";
 import { DEFAULT_WEIGHTS, MIN_CUTOFFS as MIN, cutoffProblem, type Cutoffs, type Weights } from "../lib/grades";
 
-export type ParentTab = "overview" | "attendance" | "courses" | "grades" | "reports" | "students" | "state" | "settings";
+export type ParentTab = "overview" | "attendance" | "courses" | "grades" | "reading" | "documents" | "reports" | "students" | "state" | "settings";
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
+  { id: "reading", label: "Reading and activities" },
+  { id: "documents", label: "Documents" },
   { id: "reports", label: "Reports" },
   { id: "students", label: "Students" },
   { id: "state", label: "State rules" },
@@ -100,6 +103,8 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
           {tab === "courses" && <Courses api={api} family={family} />}
           {tab === "grades" && <GradesTab api={api} family={family} />}
           {tab === "reports" && <ReportsTab api={api} family={family} />}
+          {tab === "reading" && <ReadingTab api={api} family={family} />}
+          {tab === "documents" && <DocumentsTab api={api} family={family} />}
           {tab === "students" && <Students api={api} family={family} />}
           {tab === "state" && <StateTab api={api} family={family} />}
           {tab === "settings" && <Settings api={api} family={family} />}
@@ -810,7 +815,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
       const text = await store.pickJsonFile();
       if (text === null) return;
       const raw = JSON.parse(text);
-      if (!isEncryptedBackup(raw)) return setMsg("That file isn't an encrypted Examiner family backup.");
+      if (!isEncryptedBackup(raw)) return setMsg("That file isn't an encrypted Erudior family backup.");
       const plain = await decryptText(raw, rpass);
       const ok = await store.confirmAction(
         "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",

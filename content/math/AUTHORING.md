@@ -1,6 +1,6 @@
 # Writing a bundled math or science course
 
-These courses ship inside Examiner. Each one takes a learner from the high school level
+These courses ship inside Erudior. Each one takes a learner from the high school level
 through the intro college level of its subject, in that order: early modules are high
 school (Algebra 1 / Geometry / AP-level), later modules are college (Calc II, upper-level
 topics). Learners study alone with no teacher, so every lesson has to teach, not summarize.

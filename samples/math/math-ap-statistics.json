@@ -4,7 +4,7 @@
  "id": "math-ap-statistics",
  "title": "AP Statistics",
  "description": "AP Statistics: exploring one- and two-variable data, z-scores and the normal model, correlation and regression, sampling and experimental design, probability, random variables, sampling distributions and the Central Limit Theorem, confidence intervals and significance tests for proportions and means, and chi-square tests, with AP-style four-step inference. Also covers topics the 2026–27 AP framework dropped but college intro courses still teach (geometric distribution, combining random variables, transformations, goodness of fit, slope inference), each marked with an AP scope note.",
- "author": "Examiner",
+ "author": "Erudior",
  "revision": 3,
  "changelog": "Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lesson on simulation.",
  "modules": [
