@@ -138,7 +138,7 @@ That's about 0.01 MPa (0.1 bar) per meter. Friction in the conduits adds more; s
 
 $$-0.3 - 1.08 - 0.9 \approx -2.3 \text{ MPa}.$$
 
-Can water survive that? In 1950 the physicist Lyman Briggs found water in a spinning glass tube held together under about 25 MPa, so cohesion is strong enough; in real xylem, cavitation sets in much sooner, one reason a 2004 redwood study put the limit on tree height at roughly 120–130 m. Meanwhile air at 20 °C and 50% humidity has a water potential near $-93$ MPa (lesson 9), a steep slope that the sun keeps pulling water down.
+Can water survive that? In 1950 the physicist Lyman Briggs found water in a spinning glass tube held together under nearly 28 MPa (about 280 atmospheres), so cohesion is strong enough; in real xylem, cavitation sets in much sooner. A 2004 study of the tallest redwoods found that the growing water stress near the top (which brings the xylem close to cavitation and limits leaf growth and photosynthesis) would cap tree height at roughly 120–130 m. Meanwhile air at 20 °C and 50% humidity has a water potential near $-93$ MPa (lesson 9), a steep slope that the sun keeps pulling water down.
 
 ## Common mistakes
 

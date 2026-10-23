@@ -50,7 +50,7 @@ flowchart TD
   X3[Protease inhibitors] -.-> G
 ```
 
-**Reverse transcriptase** is the enzyme that copies the viral RNA into DNA. It has no proofreading, and measured error rates are about 3 mistakes per 100,000 bases copied. HIV's genome is about 9,700 bases, so roughly one new copy in three carries a fresh mutation. An untreated patient produces billions of new virus particles a day, so every possible single mutation arises over and over, including ones that resist any single drug.
+**Reverse transcriptase** is the enzyme that copies the viral RNA into DNA. It has no proofreading, and measured error rates are about 3 mistakes per 100,000 bases copied. HIV's genome is about 9,700 bases, so each new copy carries on average about 0.3 new mutations (roughly one new mutation for every three genomes copied). An untreated patient produces billions of new virus particles a day, so every possible single mutation arises over and over, including ones that resist any single drug.
 
 Once integrated, the viral DNA is a **provirus**, a permanent part of that cell's chromosome. Some infected cells go quiet with the provirus inside, out of reach of drugs that act only on replicating virus. This hidden reservoir is why antiretroviral drugs control HIV but don't cure it. Since 1996, combinations of drugs from different classes have kept the virus suppressed for decades; people whose virus is suppressed to undetectable levels don't transmit it sexually. Example 3 shows the arithmetic behind combination therapy.
 
@@ -73,7 +73,7 @@ An antibiotic works by hitting something bacteria have and our cells lack, or ha
 |---|---|---|
 | Peptidoglycan wall synthesis | Penicillins, cephalosporins, vancomycin | Human cells have no peptidoglycan |
 | Bacterial (70S) ribosomes | Tetracyclines, macrolides, streptomycin | Our cytoplasmic ribosomes (80S) differ |
-| DNA gyrase (unwinds DNA for copying) | Ciprofloxacin and other fluoroquinolones | Our version of the enzyme differs |
+| DNA gyrase (relieves the twisting of DNA during copying) | Ciprofloxacin and other fluoroquinolones | Our version of the enzyme differs |
 | Folate synthesis | Sulfonamides | We get folate from food |
 
 Some antibiotics kill bacteria (bactericidal); others stop growth and leave the immune system to clear the infection (bacteriostatic). The lowest concentration that stops visible growth in a lab test is the **minimum inhibitory concentration** (MIC), and doctors compare a strain's MIC with the levels a drug reaches in the body to decide whether the strain counts as resistant. Because our mitochondria descend from bacteria, their ribosomes resemble bacterial ones, which explains some side effects of ribosome-targeting drugs.
@@ -105,7 +105,7 @@ Bacteria can also gain resistance genes ready-made, by horizontal gene transfer:
 Whatever the source, resistance genes work in a few ways: an enzyme destroys the drug (a **beta-lactamase** breaks the ring in penicillins), the target changes (MRSA has an altered wall-building enzyme that penicillins can't grip), pumps push the drug out, or the outer membrane lets less in.
 
 ```plot
-{"x": [0, 36], "y": [0, 10], "xLabel": "hours after antibiotic starts", "yLabel": "log₁₀ of cell number", "functions": [{"f": "9 - 0.5*x", "from": 0, "to": 18, "label": "susceptible cells"}, {"f": "1 + 0.301*x", "from": 0, "to": 26.6, "label": "resistant cells", "dashed": true}, {"f": "9", "from": 26.6, "to": 36, "dashed": true}], "caption": "Selection in a culture with 10 resistant cells among a billion (illustrative). The drug kills susceptible cells, and the resistant ones, doubling every hour, take over."}
+{"x": [0, 36], "y": [0, 10], "xLabel": "hours after antibiotic starts", "yLabel": "log₁₀ of cell number", "functions": [{"f": "9 - 0.5*x", "from": 0, "to": 18, "label": "susceptible cells"}, {"f": "min(1 + 0.301*x, 9)", "from": 0, "to": 36, "label": "resistant cells", "dashed": true}], "caption": "Selection in a culture with 10 resistant cells among a billion (illustrative). The drug kills susceptible cells, and the resistant ones, doubling every hour, take over."}
 ```
 
 ### Example 3: why combinations beat single drugs

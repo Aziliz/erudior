@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 500" width="620" height="500" font-family="sans-serif">
 <rect width="620" height="500" fill="#ffffff"/>
 <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e5f8a"/></marker></defs>
-<path d="M40,330 L80,330 Q100,330 100,300 L100,215 L125,215" fill="none" stroke="#1c2833" stroke-width="34" stroke-linecap="butt" stroke-linejoin="round"/>
-<path d="M40,330 L80,330 Q100,330 100,300 L100,215 L125,215" fill="none" stroke="#dde8f3" stroke-width="30" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M40,330 L80,330 Q100,330 100,300 L100,195 L125,195" fill="none" stroke="#1c2833" stroke-width="34" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M40,330 L80,330 Q100,330 100,300 L100,195 L125,195" fill="none" stroke="#dde8f3" stroke-width="30" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M600,175 L480,175" fill="none" stroke="#1c2833" stroke-width="28" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M600,175 L480,175" fill="none" stroke="#f8e1dc" stroke-width="24" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M600,222 L480,222" fill="none" stroke="#1c2833" stroke-width="28" stroke-linecap="butt" stroke-linejoin="round"/>

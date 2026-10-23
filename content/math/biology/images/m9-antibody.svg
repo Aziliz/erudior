@@ -23,7 +23,7 @@
 <line x1="323" y1="355" x2="341" y2="355" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="317" y1="272" x2="323" y2="272" stroke="#1c2833" stroke-width="3"/>
 <line x1="317" y1="282" x2="323" y2="282" stroke="#1c2833" stroke-width="3"/>
-<path d="M151,99 Q175,91 179,113 Q187,133 167,131 Q143,129 151,99 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<path d="M138,84 Q172,72 180,108 Q190,134 165,133 Q128,131 138,84 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
 <line x1="98.65" y1="47" x2="160.1644302003174" y2="106.30656582404833" stroke="#1c2833" stroke-width="1"/>
 <circle cx="160.1644302003174" cy="106.30656582404833" r="2.2" fill="#1c2833"/>
 <text x="40" y="40" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Antigen</text>

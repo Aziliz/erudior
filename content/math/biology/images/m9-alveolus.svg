@@ -23,12 +23,12 @@
 <ellipse cx="360" cy="248" rx="36" ry="16" fill="#e59a8c" stroke="#1c2833" stroke-width="1.5"/>
 <ellipse cx="470" cy="248" rx="36" ry="16" fill="#e59a8c" stroke="#1c2833" stroke-width="1.5"/>
 <ellipse cx="590" cy="248" rx="36" ry="16" fill="#e59a8c" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="420" y1="95" x2="420" y2="230" stroke="#b03a2e" stroke-width="2.5" marker-end="url(#ahr)"/>
-<text x="432" y="112" font-size="16" text-anchor="start" font-weight="bold" fill="#b03a2e">O₂</text>
-<line x1="540" y1="225" x2="540" y2="95" stroke="#2e5f8a" stroke-width="2.5" marker-end="url(#ahb)"/>
-<text x="552" y="112" font-size="16" text-anchor="start" font-weight="bold" fill="#2e5f8a">CO₂</text>
-<line x1="320" y1="220" x2="380" y2="220" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
-<text x="310" y="212" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" font-style="italic">blood flow</text>
+<line x1="360" y1="95" x2="360" y2="231" stroke="#b03a2e" stroke-width="2.5" marker-end="url(#ahr)"/>
+<text x="372" y="112" font-size="16" text-anchor="start" font-weight="bold" fill="#b03a2e">O₂</text>
+<line x1="415" y1="240" x2="415" y2="95" stroke="#2e5f8a" stroke-width="2.5" marker-end="url(#ahb)"/>
+<text x="427" y="112" font-size="16" text-anchor="start" font-weight="bold" fill="#2e5f8a">CO₂</text>
+<line x1="392" y1="284" x2="452" y2="284" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="310" y="289" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" font-style="italic">blood flow</text>
 <text x="310" y="85" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">air in the alveolus</text>
 <text x="672" y="165" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">alveolar wall (one cell)</text>
 <text x="672" y="185" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">capillary wall (one cell)</text>

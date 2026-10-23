@@ -987,7 +987,7 @@
   choices:
     - About 3
     - About 30
-    - About 0.3, so roughly one copy in three has a new mutation
+    - About 0.3, roughly one new mutation per three genomes copied
     - About 0.003
   answer: 2
   explanation: '$9700 \times 3 \times 10^{-5} \approx 0.29$. With billions of copies made each day, every possible single mutation appears many times, which is why one drug alone soon fails. The other choices misplace the decimal point.'
