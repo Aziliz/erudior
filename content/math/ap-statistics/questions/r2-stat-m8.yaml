@@ -603,10 +603,10 @@
   lesson: stat-m8-h-exact-tests
   type: text
   topic: Exact tests
-  stem: 'In Fisher''s tea-tasting experiment, the lady must choose which 4 of 8 cups had milk poured first. The number of different sets of 4 cups she could choose is ___.'
-  accept: ['70']
+  stem: 'Five paired differences are 4, −1, 6, 3 and 8. For the Wilcoxon signed-rank test, the sum of the ranks of the positive differences is $W^+ =$ ___.'
+  accept: ['14']
   explanation: |-
-    $\binom{8}{4} = \dfrac{8!}{4!\,4!} = 70$. If she is guessing, each set is equally likely, so getting all four right has probability $1/70 \approx 0.014$.
+    Rank the sizes 1, 3, 4, 6, 8 as 1 to 5. Only the −1 (rank 1) is negative, so $W^+ = 2 + 3 + 4 + 5 = 14$, which is also the total $5(6)/2 = 15$ minus 1. Ranking the signed values instead of their sizes is the common mistake.
 
 - id: stat-m8-r2-h31
   lesson: stat-m8-h-exact-tests
@@ -655,38 +655,34 @@
 - id: stat-m8-r2-h35
   lesson: stat-m8-h-exact-tests
   topic: Exact tests
-  stem: 'In a randomized experiment, a permutation test treats every split of the observed responses into groups of the original sizes as equally likely under $H_0$. What justifies this?'
-  choices:
-    - 'The responses are normally distributed.'
-    - 'The sample sizes are large enough for the central limit theorem.'
-    - 'The two groups have equal standard deviations.'
-    - 'If the treatment has no effect, each subject''s response would be the same in either group, and random assignment made every split equally likely.'
-  answer: 3
+  stem: 'For the five differences 4, −1, 6, 3, 8 ($W^+ = 14$), what is the exact one-sided signed-rank p-value for "the differences tend to be positive"?'
+  choices: ['0.0313', '0.1875', '0.0625', '0.1250']
+  answer: 2
   explanation: |-
-    Under the no-effect hypothesis the responses are fixed numbers; the only randomness is the assignment, and the random assignment gave every split the same probability. No normality, large samples or equal SDs are needed, which is the point of a permutation test.
+    All $2^5 = 32$ sign patterns are equally likely under $H_0$. $W^+ \ge 14$ means the negative ranks add to at most 1: either none negative or only rank 1 negative, 2 patterns. p-value $= 2/32 = 0.0625$. 0.0313 counts only the all-positive pattern, 0.1250 doubles for a two-sided test, and 0.1875 is the sign test's $P(X \ge 4) = 6/32$ for 4 positives out of 5.
 
 - id: stat-m8-r2-h36
   lesson: stat-m8-h-exact-tests
   topic: Exact tests
-  stem: 'Six subjects are randomly split into two groups of 3. Treatment: 9, 11, 13. Control: 4, 6, 7. What is the one-sided permutation test p-value for "the treatment raises the response"?'
-  choices: ['0.05', '0.10', '0.0167', '0.50']
-  answer: 0
+  stem: 'Of the sign test, the Wilcoxon signed-rank test and the paired t test, which makes the weakest assumption about the shape of the distribution of the differences?'
+  choices: ['The paired t test', 'The Wilcoxon signed-rank test', 'All three make the same assumption', 'The sign test']
+  answer: 3
   explanation: |-
-    There are $\binom{6}{3} = 20$ equally likely splits. The treatment group already holds the three largest values, so no split gives a larger difference in means: only 1 of 20 is at least as extreme, and the p-value is $1/20 = 0.05$. That is also the smallest p-value this design can produce.
+    The sign test needs only that, under $H_0$, each nonzero difference is equally likely to be positive or negative (median 0). The signed-rank test adds symmetry about 0, and the t test needs the differences to be roughly normal (or the sample to be large). The price of the weaker assumptions is less power.
 
 - id: stat-m8-r2-h37
   lesson: stat-m8-h-exact-tests
   type: match
   topic: Exact tests
-  stem: 'Match each exact test to the null distribution it uses.'
+  stem: 'Match each test to the null distribution its p-value comes from.'
   pairs:
-    - [Exact binomial test, 'Binomial with n trials and the null value p0']
-    - [Sign test, 'Binomial with p = 0.5 for the nonzero differences']
-    - [Fisher's exact test, Hypergeometric with the table's margins fixed]
-    - [Permutation test, All equally likely splits of the observed values into groups]
-  distractors: [Normal curve with large counts]
+    - [Exact binomial test, Binomial with n trials and the null value p0]
+    - [Sign test, Binomial with p = 0.5 for the nonzero differences]
+    - [Wilcoxon signed-rank test, All 2^n equally likely sign patterns of the ranks]
+    - [Paired t test, t distribution with n − 1 degrees of freedom]
+  distractors: [Normal curve with mean p0]
   explanation: |-
-    The exact binomial test uses $B(n, p_0)$ directly; the sign test is the special case $B(n, 0.5)$ applied to signs; Fisher's test deals the successes among the groups at random (hypergeometric); a permutation test lists every relabeling of the data. None of them uses a normal approximation, which is what makes them exact.
+    The exact binomial test uses $B(n, p_0)$ itself, and the sign test is the special case $B(n, 0.5)$ applied to signs. The signed-rank test lists every way of attaching signs to the ranks. The paired t test uses a t curve, which is exact only when the differences are normal. A normal curve with mean $p_0$ is the approximation the z test uses.
 
 - id: stat-m8-r2-h38
   lesson: stat-m8-h-exact-tests
@@ -704,11 +700,15 @@
 - id: stat-m8-r2-h39
   lesson: stat-m8-h-exact-tests
   topic: Exact tests
-  stem: 'In a small trial, 5 of 6 patients on a new treatment improved and 1 of 5 on the standard treatment improved. With the margins fixed (6 improvers among 11 patients, 6 on the new treatment), what is the one-sided Fisher''s exact test p-value?'
-  choices: ['0.0649', '0.0022', '0.1342', '0.0671']
+  stem: 'The sign and signed-rank tests are called nonparametric. What does that mean?'
+  choices:
+    - 'They have no assumptions at all.'
+    - 'They can only be used with fewer than 30 observations.'
+    - 'They don''t estimate anything, so they give no p-value.'
+    - 'Their null distributions don''t depend on a normal or other parametric model for the data.'
   answer: 3
   explanation: |-
-    $P(X = 5) = \dfrac{\binom{6}{5}\binom{5}{1}}{\binom{11}{6}} = \dfrac{30}{462}$ and $P(X = 6) = \dfrac{\binom{6}{6}\binom{5}{0}}{462} = \dfrac{1}{462}$, so $P(X \ge 5) = 31/462 \approx 0.0671$. 0.0649 counts only $X = 5$, 0.0022 only $X = 6$, and 0.1342 doubles the tail.
+    Their p-values come from counting equally likely sign patterns, not from a normal or t curve, so they are also called distribution-free. They still have assumptions: random data, and for the signed-rank test, symmetry. They give p-values, and they work for any sample size.
 
 - id: stat-m8-r2-h40
   lesson: stat-m8-h-exact-tests
@@ -727,14 +727,14 @@
   lesson: stat-m8-h-exact-tests
   type: order
   topic: Exact tests
-  stem: 'Put the steps of an exact permutation test for a difference in means in order.'
+  stem: 'Put the steps of the Wilcoxon signed-rank test in order.'
   items:
-    - 'List every possible split of the observed values into groups of the original sizes'
-    - 'Compute the difference in means for each split'
-    - 'Count the splits whose difference is at least as large as the observed one'
-    - 'Divide that count by the number of splits to get the p-value'
+    - 'Drop any differences that are exactly 0'
+    - 'Rank the remaining differences by absolute value'
+    - 'Add the ranks of the positive differences to get $W^+$'
+    - 'Find the share of the $2^n$ equally likely sign patterns with a $W^+$ at least as extreme'
   explanation: |-
-    The splits must be listed before their differences can be computed, the differences are needed for the count, and the p-value is the count's share of all splits. The observed split is one of the listed splits, so it is always counted.
+    Zeros are removed before ranking (they would otherwise take up ranks), the ranks are needed to form $W^+$, and $W^+$ is compared with its exact null distribution to get the p-value.
 
 - id: stat-m8-r2-h42
   lesson: stat-m8-h-exact-tests
