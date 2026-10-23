@@ -12,6 +12,29 @@ title: Genetics and probability
 | $AaBb \times aabb$ | 1 : 1 : 1 : 1 | 1 : 1 : 1 : 1 |
 | Incomplete dominance $RW \times RW$ | 1 RR : 2 RW : 1 WW | 1 red : 2 pink : 1 white |
 
+## Genetic code (mRNA codons)
+
+| First base | Second U | Second C | Second A | Second G | Third base |
+|---|---|---|---|---|---|
+| U | UUU Phe | UCU Ser | UAU Tyr | UGU Cys | U |
+|  | UUC Phe | UCC Ser | UAC Tyr | UGC Cys | C |
+|  | UUA Leu | UCA Ser | UAA Stop | UGA Stop | A |
+|  | UUG Leu | UCG Ser | UAG Stop | UGG Trp | G |
+| C | CUU Leu | CCU Pro | CAU His | CGU Arg | U |
+|  | CUC Leu | CCC Pro | CAC His | CGC Arg | C |
+|  | CUA Leu | CCA Pro | CAA Gln | CGA Arg | A |
+|  | CUG Leu | CCG Pro | CAG Gln | CGG Arg | G |
+| A | AUU Ile | ACU Thr | AAU Asn | AGU Ser | U |
+|  | AUC Ile | ACC Thr | AAC Asn | AGC Ser | C |
+|  | AUA Ile | ACA Thr | AAA Lys | AGA Arg | A |
+|  | AUG Met | ACG Thr | AAG Lys | AGG Arg | G |
+| G | GUU Val | GCU Ala | GAU Asp | GGU Gly | U |
+|  | GUC Val | GCC Ala | GAC Asp | GGC Gly | C |
+|  | GUA Val | GCA Ala | GAA Glu | GGA Gly | A |
+|  | GUG Val | GCG Ala | GAG Glu | GGG Gly | G |
+
+AUG (Met) is the start codon; UAA, UAG and UGA are stop codons. Read the mRNA 5′→3′ in groups of three from the start codon.
+
 ## Probability rules
 
 | Rule | Use | Formula |

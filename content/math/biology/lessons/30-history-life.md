@@ -50,7 +50,7 @@ The earliest widely accepted fossils are about 3.5 billion years old: microscopi
 
 Cyanobacteria evolved oxygen-releasing photosynthesis. Their oxygen at first reacted with dissolved iron, forming rust-red banded rock layers, but by about 2.4 billion years ago it began to build up in the air, the Great Oxidation Event. Oxygen was poisonous to many microbes, but it made aerobic respiration possible, with its much larger ATP yield (module 3).
 
-Eukaryotes appear around 2 billion years ago (estimates range from about 1.6 to 2.1). Their mitochondria and chloroplasts descend from bacteria engulfed by a host cell, the endosymbiotic theory: these organelles have their own circular DNA and bacterial-type ribosomes, and divide by splitting like bacteria. Multicellular algae appear over a billion years ago, and soft-bodied animals by about 575 million years ago.
+Eukaryotes appear around 2 billion years ago (estimates range from about 1.6 to 2.1). Their mitochondria and chloroplasts descend from bacteria engulfed by a host cell (the endosymbiotic theory from module 2): these organelles have their own circular DNA and bacterial-type ribosomes, and divide by splitting like bacteria. Multicellular algae appear over a billion years ago, and soft-bodied animals by about 575 million years ago.
 
 Then, starting about 539 million years ago, the Cambrian explosion: within roughly 20 to 25 million years, most of the major animal groups alive today appear in the fossil record, many with shells, skeletons and eyes. Predators and prey drove one another's evolution, and hard parts fossilize well, so the record suddenly becomes rich.
 

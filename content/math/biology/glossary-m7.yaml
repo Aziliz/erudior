@@ -13,11 +13,11 @@
   definition: 'The time for half of the atoms of a radioactive isotope to decay. After $h$ half-lives, $\left(\tfrac12\right)^h$ remains.'
   topic: Evidence for evolution
 - term: homologous structures
-  aliases: [homologous structure, homologous]
+  aliases: [homologous structure]
   definition: 'Body parts with the same underlying structure, inherited from a common ancestor, even if used differently (human arm, bat wing, whale flipper).'
   topic: Evidence for evolution
 - term: analogous structures
-  aliases: [analogous structure, analogous]
+  aliases: [analogous structure]
   definition: 'Body parts with a similar function but different structure and origin, produced by convergent evolution (bird wing and insect wing).'
   topic: Evidence for evolution
 - term: vestigial structures

@@ -97,6 +97,7 @@
       step: 100
   calc:
     q2: round(100*q^2, 0)
+    q2d: q^2
     p: 1 - q
     het: 2*(1 - q)*q
     nhet: round(N*2*(1 - q)*q, 0)
@@ -114,7 +115,7 @@
   - name: nhet
     label: Heterozygotes
     tolerance: 1
-  solution: 'The recessive phenotype is $aa$, so $q^2 = {q2}\% $, and $q = \sqrt{q^2} =$ **{q}**.
+  solution: 'The recessive phenotype is $aa$, so $q^2 = {q2}\% = {q2d:num2}$, and $q = \sqrt{{q2d:num2}} =$ **{q}**.
 
 
     $p = 1 - q =$ **{p:num1}**. $2pq = 2({p:num1})({q}) =$ **{het:num2}**.
@@ -206,27 +207,33 @@
   vars:
     ev:
       choices:
-      - label: the earliest widely accepted fossils (3,500 million years ago)
+      - label: The earliest widely accepted fossils (3,500 million years ago)
         value: 3500
-      - label: the Great Oxidation Event (2,400 million years ago)
+      - label: The Great Oxidation Event (2,400 million years ago)
         value: 2400
-      - label: the first eukaryotes (about 2,000 million years ago)
+      - label: The first eukaryotes (about 2,000 million years ago)
         value: 2000
-      - label: the start of the Cambrian explosion (539 million years ago)
+      - label: The start of the Cambrian explosion (539 million years ago)
         value: 539
-      - label: the first land plants (about 470 million years ago)
+      - label: The first land plants (about 470 million years ago)
         value: 470
-      - label: the end-Permian extinction (252 million years ago)
+      - label: The end-Permian extinction (252 million years ago)
         value: 252
-      - label: the first dinosaurs (about 230 million years ago)
+      - label: The first dinosaurs (about 230 million years ago)
         value: 230
-      - label: the end-Cretaceous extinction (66 million years ago)
+      - label: The end-Cretaceous extinction (66 million years ago)
         value: 66
   calc:
     el: 4540 - ev
     hr: 24*(4540 - ev)/4540
     left: 24*ev/4540
-  prompt: Squeeze Earth's 4,540 million years into a single 24-hour day, with Earth forming at midnight (0 hours) and the present at the next midnight (24 hours). At how many hours after midnight does {ev} happen? Give hours to 1 decimal place.
+  prompt: 'Squeeze Earth''s 4,540 million years into a single 24-hour day, with Earth forming at midnight (0 hours) and the present at the next midnight (24 hours).
+
+
+    Event: {ev}.
+
+
+    How many hours after midnight does this event fall on the clock? Give hours to 1 decimal place.'
   answers:
   - name: hr
     label: Hours after midnight

@@ -831,82 +831,82 @@
         value: 163
     sol:
       choices:
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUU GAG GCA AGG GGG UAA` = Met–Ile–Glu–Ala–Arg–Gly. Mutated protein: Met–Ile (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUU GAG GCA AGG GGG UAA` = Met–Ile–Glu–Ala–Arg–Gly. Mutated protein: Met–Ile, then stop.
 
 
           Codon 3 changed from GAG (Glu) to UAG, a stop codon. The protein is cut short: **nonsense** (3).'
         value: 13
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AAA AGA GGG UUU AAU UAA` = Met–Lys–Arg–Gly–Phe–Asn. Mutated protein: Met–Arg–Arg–Gly–Phe–Asn (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AAA AGA GGG UUU AAU UAA` = Met–Lys–Arg–Gly–Phe–Asn. Mutated protein: Met–Arg–Arg–Gly–Phe–Asn, then stop.
 
 
           Codon 2 changed from AAA (Lys) to AGA (Arg). One amino acid is replaced: **missense** (2).'
         value: 22
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG UCC AAA CGG GGU UAA` = Met–Ser–Ser–Lys–Arg–Gly. Mutated protein: Met–Ser–Ser (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG UCC AAA CGG GGU UAA` = Met–Ser–Ser–Lys–Arg–Gly. Mutated protein: Met–Ser–Ser, then stop.
 
 
           Codon 4 changed from AAA (Lys) to UAA, a stop codon. The protein is cut short: **nonsense** (3).'
         value: 33
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAG UCC CUA AGU ACA UAA` = Met–Glu–Ser–Leu–Ser–Thr. Mutated protein: Met–Glu–Ser–Leu–Ser–Thr (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAG UCC CUA AGU ACA UAA` = Met–Glu–Ser–Leu–Ser–Thr. Mutated protein: Met–Glu–Ser–Leu–Ser–Thr, then stop.
 
 
           Codon 4 changed from CUA to UUA, but both code for Leu. The protein is unchanged: **silent** (1).'
         value: 41
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG CAC ACC CAA UGC UAA` = Met–Ser–His–Thr–Gln–Cys. Mutated protein: Met–Ser–Leu–His–Pro–Met–Leu (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG CAC ACC CAA UGC UAA` = Met–Ser–His–Thr–Gln–Cys. Mutated protein: Met–Ser–Leu–His–Pro–Met–Leu (no stop codon in this stretch).
 
 
           The mutation is inserting an U before position 8. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG UCG CUA CAC CCA AUG CUA`, and every codon after the change is different. **Frameshift** (4).'
         value: 54
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUA UUG GCG UUC UCG UAA` = Met–Ile–Leu–Ala–Phe–Ser. Mutated protein: Met–Ile–Ser–Ala–Phe–Ser (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUA UUG GCG UUC UCG UAA` = Met–Ile–Leu–Ala–Phe–Ser. Mutated protein: Met–Ile–Ser–Ala–Phe–Ser, then stop.
 
 
           Codon 3 changed from UUG (Leu) to UCG (Ser). One amino acid is replaced: **missense** (2).'
         value: 62
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG CAG CUA UUG GCA AGA UAA` = Met–Gln–Leu–Leu–Ala–Arg. Mutated protein: Met–Gln–Leu–Leu–Glu–Asp (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG CAG CUA UUG GCA AGA UAA` = Met–Gln–Leu–Leu–Ala–Arg. Mutated protein: Met–Gln–Leu–Leu–Glu–Asp (no stop codon in this stretch).
 
 
           The mutation is deleting the C at position 14. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG CAG CUA UUG GAA GAU`, and every codon after the change is different. **Frameshift** (4).'
         value: 74
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GCU CAA CCU AGA CGA UAA` = Met–Ala–Gln–Pro–Arg–Arg. Mutated protein: Met–Ala–Gln–Pro–Asp–Asp (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GCU CAA CCU AGA CGA UAA` = Met–Ala–Gln–Pro–Arg–Arg. Mutated protein: Met–Ala–Gln–Pro–Asp–Asp (no stop codon in this stretch).
 
 
           The mutation is deleting the U at position 12. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG GCU CAA CCA GAC GAU`, and every codon after the change is different. **Frameshift** (4).'
         value: 84
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GGC UCG UCC CCG ACC UAA` = Met–Gly–Ser–Ser–Pro–Thr. Mutated protein: Met–Gly (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GGC UCG UCC CCG ACC UAA` = Met–Gly–Ser–Ser–Pro–Thr. Mutated protein: Met–Gly, then stop.
 
 
           Codon 3 changed from UCG (Ser) to UAG, a stop codon. The protein is cut short: **nonsense** (3).'
         value: 93
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAC AAU CUG GCG UCU UAA` = Met–Asp–Asn–Leu–Ala–Ser. Mutated protein: Met–Asp–Asn–Leu–Ala–Ser (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAC AAU CUG GCG UCU UAA` = Met–Asp–Asn–Leu–Ala–Ser. Mutated protein: Met–Asp–Asn–Leu–Ala–Ser, then stop.
 
 
           Codon 6 changed from UCU to UCC, but both code for Ser. The protein is unchanged: **silent** (1).'
         value: 101
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG CAG CCU CCC AAA UCU UAA` = Met–Gln–Pro–Pro–Lys–Ser. Mutated protein: Met–Gln–Pro–Pro–Lys–Ser (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG CAG CCU CCC AAA UCU UAA` = Met–Gln–Pro–Pro–Lys–Ser. Mutated protein: Met–Gln–Pro–Pro–Lys–Ser, then stop.
 
 
           Codon 6 changed from UCU to UCA, but both code for Ser. The protein is unchanged: **silent** (1).'
         value: 111
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG ACU GAG UAC AGG ACU UAA` = Met–Thr–Glu–Tyr–Arg–Thr. Mutated protein: Met–Thr–Glu–Ser–Gly–Leu (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG ACU GAG UAC AGG ACU UAA` = Met–Thr–Glu–Tyr–Arg–Thr. Mutated protein: Met–Thr–Glu–Ser–Gly–Leu (no stop codon in this stretch).
 
 
           The mutation is deleting the A at position 11. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG ACU GAG UCA GGA CUU`, and every codon after the change is different. **Frameshift** (4).'
         value: 124
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAG UCU GUG CCG UGC UAA` = Met–Glu–Ser–Val–Pro–Cys. Mutated protein: Met–Glu–Ser–Val–Pro–Cys (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAG UCU GUG CCG UGC UAA` = Met–Glu–Ser–Val–Pro–Cys. Mutated protein: Met–Glu–Ser–Val–Pro–Cys, then stop.
 
 
           Codon 3 changed from UCU to UCC, but both code for Ser. The protein is unchanged: **silent** (1).'
         value: 131
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUU AAC CGC GCG UGU UAA` = Met–Ile–Asn–Arg–Ala–Cys. Mutated protein: Met–Ile–Thr–Arg–Ala–Cys (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUU AAC CGC GCG UGU UAA` = Met–Ile–Asn–Arg–Ala–Cys. Mutated protein: Met–Ile–Thr–Arg–Ala–Cys, then stop.
 
 
           Codon 3 changed from AAC (Asn) to ACC (Thr). One amino acid is replaced: **missense** (2).'
         value: 142
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UUA CCG AAG UCC AGU UAA` = Met–Leu–Pro–Lys–Ser–Ser. Mutated protein: Met–Leu–Arg–Lys–Ser–Ser (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UUA CCG AAG UCC AGU UAA` = Met–Leu–Pro–Lys–Ser–Ser. Mutated protein: Met–Leu–Arg–Lys–Ser–Ser, then stop.
 
 
           Codon 3 changed from CCG (Pro) to CGG (Arg). One amino acid is replaced: **missense** (2).'
         value: 152
-      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAC UUG GCU GUA GUC UAA` = Met–Asp–Leu–Ala–Val–Val. Mutated protein: Met–Asp (then stop).
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAC UUG GCU GUA GUC UAA` = Met–Asp–Leu–Ala–Val–Val. Mutated protein: Met–Asp, then stop.
 
 
           Codon 3 changed from UUG (Leu) to UAG, a stop codon. The protein is cut short: **nonsense** (3).'
@@ -947,16 +947,17 @@
   calc:
     tw: 2^cyc
     N: n0 * 2^cyc
+    ex: floor(log10(n0 * 2^cyc))
+    man: round(n0 * 2^cyc / 10^floor(log10(n0 * 2^cyc)), 2)
   prompt: A PCR reaction starts with {n0} copies of a target DNA sequence. Assuming the number of copies doubles every cycle, how many copies are there after {cyc} cycles? Give 3 significant figures (scientific notation such as 1.05e9 is fine).
   answers:
   - name: N
     label: Copies
-    format: sci
-    sigfigs: 3
+    relTolerance: 0.005
   solution: 'Each cycle doubles the count, so after $n$ cycles $N = N_0 \times 2^n$.
 
 
-    $N = {n0} \times 2^{{cyc}}$, and $2^{{cyc}}$ = {tw:int}, so $N =$ **${N:texsci}$** copies ({N:int}).'
+    $N = {n0} \times 2^{{cyc}}$, and $2^{{cyc}}$ = {tw:int}, so $N =$ **{N:int}** copies, about ${man:num2} \times 10^{{ex}}$.'
 - id: bio-gel-size
   title: Estimate fragment size from a DNA ladder
   topic: Gel electrophoresis
@@ -1009,7 +1010,7 @@
   solution: 'From 10,000 bp ({d10} mm) to 1,000 bp ({d1} mm) is a factor of 10 in size over {k} mm, so each {k} mm of travel is one step in $\log_{10}$ of size.
 
 
-    The unknown is ${d1} - {du}$ mm from the 1,000 bp band (negative means it is farther, so smaller). $\log_{10}(\text{size}) = 3 + \dfrac{{d1} - {du}}{{k}} \approx {lg}$, so size $\approx 10^{{lg}} \approx$ **{est:int} bp**.'
+    The unknown band is ${d1} - {du}$ mm closer to the wells than the 1,000 bp band (if that difference is negative, it is farther, so smaller than 1,000 bp). $\log_{10}(\text{size}) = 3 + \dfrac{{d1} - {du}}{{k}} \approx {lg}$, so size $\approx 10^{{lg}} \approx$ **{est:int} bp**.'
 - id: bio-restriction-fragments
   title: Restriction fragment sizes
   topic: Biotechnology
