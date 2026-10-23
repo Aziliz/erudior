@@ -1,0 +1,558 @@
+# Round 2, module stat-m6 (Random variables): new question types for the core lessons
+# (stat-m6-r2-q..) and questions for the two honors lessons (stat-m6-r2-h..).
+
+# ---- Lesson 24: discrete random variables
+- id: stat-m6-r2-q01
+  lesson: stat-discrete-rv
+  type: label
+  module_quiz: true
+  topic: Discrete random variables
+  stem: 'The probability histogram shows the number of defects $X$ on a rail weld ($P = 0.50, 0.30, 0.15, 0.05$ for 0 to 3 defects; $\mu_X = 0.75$, $\sigma_X \approx 0.89$). Name each numbered part.'
+  image: {src: images/stat-m6-ev-balance-blank.svg, alt: 'Probability histogram of weld defects with bars of height 0.50, 0.30, 0.15 and 0.05 at x = 0, 1, 2 and 3, resting on a beam. Marker 1 is on a triangle under the beam at 0.75. Marker 2 is on the tallest bar, at 0. Marker 3 is on the bar at 2. Marker 4 is on a dashed vertical line at about 1.64.'}
+  labels:
+    - {x: 38.3, y: 73.1, text: Expected value (balance point)}
+    - {x: 22.6, y: 18.8, text: Most likely value}
+    - {x: 64.5, y: 59.1, text: Probability of one value}
+    - {x: 56.9, y: 37.3, text: One SD above the mean}
+  distractors: [Variance, Sum of the probabilities]
+  explanation: |-
+    1: the histogram balances at its mean, $\mu_X = 0.75$, which is not a possible value. 2: the tallest bar, $x = 0$, is the most likely value; the mean is pulled to its right by the tail. 3: a bar's height is the probability of that one value, here $P(X = 2) = 0.15$. 4: the dashed line is at $\mu_X + \sigma_X \approx 0.75 + 0.89 = 1.64$. The variance (0.79) is in squared units and isn't a point on the axis, and the probabilities sum to 1, which is not a location either.
+
+- id: stat-m6-r2-q02
+  lesson: stat-discrete-rv
+  type: text
+  topic: Discrete random variables
+  stem: '$X$ takes the values 0, 1 and 2 with probabilities 0.2, 0.5 and 0.3. Then $E(X) =$ ___. Give only the number.'
+  accept: ['1.1']
+  explanation: |-
+    $E(X) = 0(0.2) + 1(0.5) + 2(0.3) = 0 + 0.5 + 0.6 = 1.1$. The unweighted average of the values, 1, ignores the probabilities.
+
+- id: stat-m6-r2-q03
+  lesson: stat-discrete-rv
+  type: order
+  topic: Discrete random variables
+  stem: 'Put the steps for finding the standard deviation of a discrete random variable (by the definition, not the shortcut) in order.'
+  items:
+    - 'Find the mean $\mu_X = \sum x_i p_i$'
+    - 'Subtract the mean from each value'
+    - 'Square each deviation'
+    - 'Multiply each squared deviation by its probability'
+    - 'Add the products to get the variance'
+    - 'Take the square root of the variance'
+  explanation: |-
+    The deviations need the mean, the squares need the deviations, and weighting by probability must come after squaring: $(x - \mu)^2 p$, not $((x - \mu)p)^2$. Adding gives $\sigma_X^2$, and the square root returns to the original units.
+
+- id: stat-m6-r2-q04
+  lesson: stat-discrete-rv
+  topic: Discrete random variables
+  stem: 'Which statements about the expected value of a discrete random variable are true? Select all that apply.'
+  choices:
+    - 'It can be a value that the random variable can never take.'
+    - 'It is the long-run average of the variable over many repetitions.'
+    - 'It is always the most likely value of the variable.'
+    - 'It equals the plain average of the possible values, ignoring the probabilities.'
+    - 'It is the balance point of the probability histogram.'
+  answer: [0, 1, 4]
+  explanation: |-
+    The weld example has $\mu_X = 0.75$ defects, which no weld can have; it is the long-run average and the balance point of the histogram. The most likely value there is 0, not 0.75, and the plain average of 0, 1, 2, 3 is 1.5, which ignores the probabilities.
+
+- id: stat-m6-r2-q05
+  lesson: stat-discrete-rv
+  type: match
+  module_quiz: true
+  topic: Discrete random variables
+  stem: 'Two independent relays fail with probabilities 0.1 and 0.2, and $X$ is the number that fail, so $P(X = 0) = 0.72$, $P(X = 1) = 0.26$ and $P(X = 2) = 0.02$. Match each quantity to its value.'
+  pairs:
+    - ['$P(X \ge 1)$', '0.28']
+    - ['$\mu_X$', '0.30']
+    - ['$E(X^2)$', '0.34']
+    - ['$\sigma_X^2$', '0.25']
+  distractors: ['0.09', '0.50']
+  explanation: |-
+    $P(X \ge 1) = 1 - 0.72 = 0.28$. $\mu_X = 1(0.26) + 2(0.02) = 0.30$. $E(X^2) = 1(0.26) + 4(0.02) = 0.34$, so $\sigma_X^2 = 0.34 - 0.30^2 = 0.25$ (and $\sigma_X = 0.50$). 0.09 is $\mu_X^2$, which you subtract, not the variance.
+
+# ---- Lesson 25: combining random variables
+- id: stat-m6-r2-q06
+  lesson: stat-combining-rv
+  type: text
+  topic: Combining random variables
+  stem: 'Independent random variables $X$ and $Y$ have $\sigma_X = 6$ and $\sigma_Y = 8$. Then $\sigma_{X-Y} =$ ___. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    Variances add for differences too: $\sigma_{X-Y}^2 = 36 + 64 = 100$, so $\sigma_{X-Y} = 10$. Subtracting the SDs (2) or adding them (14) are the usual mistakes.
+
+- id: stat-m6-r2-q07
+  lesson: stat-combining-rv
+  type: match
+  module_quiz: true
+  topic: Combining random variables
+  stem: 'Match each quantity to the rule that gives it. ($X$, $Y$ and $X_1, X_2, X_3$ are independent; the $X_i$ each have the same SD as $X$.)'
+  pairs:
+    - ['$\mu_{X-Y}$', 'Mean of X minus mean of Y']
+    - ['$\sigma^2_{X-Y}$', 'Variance of X plus variance of Y']
+    - ['$\sigma_{a+bX}$', '|b| times the SD of X']
+    - ['$\sigma_{X_1+X_2+X_3}$', 'Square root of 3 times the SD of X']
+    - ['$\sigma_{3X}$', '3 times the SD of X']
+  distractors: ['SD of X plus SD of Y', 'Variance of X minus variance of Y']
+  explanation: |-
+    Means combine the obvious way. For independent variables, variances add for sums and differences alike. Adding $a$ doesn't change spread, and multiplying by $b$ scales the SD by $|b|$. Three independent copies give variance $3\sigma^2$ and SD $\sqrt{3}\,\sigma$, while one value tripled has SD $3\sigma$. SDs never simply add, and variances never subtract.
+
+- id: stat-m6-r2-q08
+  lesson: stat-combining-rv
+  topic: Combining random variables
+  stem: '$X$ and $Y$ are independent random variables. Which statements are true? Select all that apply.'
+  choices:
+    - '$\sigma^2_{X+Y} = \sigma^2_X + \sigma^2_Y$'
+    - '$\sigma_{X-Y} = \sigma_X - \sigma_Y$'
+    - '$\mu_{X-Y} = \mu_X - \mu_Y$'
+    - '$\sigma_{X+Y} = \sigma_X + \sigma_Y$'
+    - '$\sigma^2_{X-Y} = \sigma^2_X + \sigma^2_Y$'
+  answer: [0, 2, 4]
+  explanation: |-
+    Means subtract, and variances add for both sums and differences. SDs neither add nor subtract: $\sigma_{X \pm Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}$, which is less than $\sigma_X + \sigma_Y$ and more than $|\sigma_X - \sigma_Y|$ (when both are positive).
+
+- id: stat-m6-r2-q09
+  lesson: stat-combining-rv
+  type: order
+  topic: Combining random variables
+  stem: 'Ann''s commute $A$ and Bob''s commute $B$ are independent and normal. Put the steps for finding $P(A > B)$ in order.'
+  items:
+    - 'Define $D = A - B$, so that "$A > B$" becomes "$D > 0$"'
+    - 'Find $\mu_D = \mu_A - \mu_B$ and $\sigma_D = \sqrt{\sigma_A^2 + \sigma_B^2}$'
+    - 'Standardize: $z = (0 - \mu_D)/\sigma_D$'
+    - 'Find $P(Z > z)$ from the standard normal distribution'
+  explanation: |-
+    The difference $D$ must be defined before its mean and SD can be found; the z-score needs that mean and SD; and the probability comes from the z-score. $D$ is normal because independent normals combine to a normal.
+
+- id: stat-m6-r2-q10
+  lesson: stat-combining-rv
+  type: text
+  topic: Combining random variables
+  stem: 'Nine independent parts are stacked. Each part''s thickness has SD 4 µm. The SD of the total thickness is ___ µm. Give only the number.'
+  accept: ['12']
+  explanation: |-
+    Variances add: $9 \times 4^2 = 144$, so the SD is $\sqrt{144} = 12$ µm, which is $\sqrt{9} \times 4$. Multiplying one part's SD by 9 (36 µm) would treat the nine parts as one part counted nine times.
+
+# ---- Lesson 26: binomial distribution
+- id: stat-m6-r2-q11
+  lesson: stat-binomial
+  type: label
+  module_quiz: true
+  topic: Binomial distribution
+  stem: 'The three probability histograms show $B(10, p)$ for $p = 0.2$, $0.5$ and $0.8$, in some order. Label each one with its $p$.'
+  image: {src: images/stat-m6-binomial-shapes-blank.svg, alt: 'Three probability histograms for 10 trials, stacked, with axis marks at 0, 5 and 10. Marker 1, top: tallest bars at 1 and 2 with a long tail to the right. Marker 2, middle: tallest bar at 5 with matching tails. Marker 3, bottom: tallest bars at 8 and 9 with a long tail to the left.'}
+  labels:
+    - {x: 89.3, y: 5.9, text: p = 0.2}
+    - {x: 89.3, y: 38.0, text: p = 0.5}
+    - {x: 89.3, y: 70.1, text: p = 0.8}
+  explanation: |-
+    The peak sits near the mean $np$: 2 for $p = 0.2$ (top, skewed right), 5 for $p = 0.5$ (middle, symmetric) and 8 for $p = 0.8$ (bottom, skewed left). The top and bottom histograms are mirror images, because successes with $p = 0.2$ are failures with $p = 0.8$.
+
+- id: stat-m6-r2-q12
+  lesson: stat-binomial
+  type: text
+  topic: Binomial distribution
+  stem: '$X \sim B(20, 0.3)$. Its mean is ___ and its standard deviation is ___. Give the SD to 2 decimal places.'
+  accept:
+    - ['6']
+    - ['2.05']
+  explanation: |-
+    $\mu = np = 20(0.3) = 6$ and $\sigma = \sqrt{np(1-p)} = \sqrt{20(0.3)(0.7)} = \sqrt{4.2} \approx 2.05$. Using $\sqrt{np} = \sqrt{6} \approx 2.45$ is a common mistake.
+
+- id: stat-m6-r2-q13
+  lesson: stat-binomial
+  type: match
+  module_quiz: true
+  topic: Binomial distribution
+  stem: '$X$ is a binomial count. Match each phrase to the event it describes.'
+  pairs:
+    - [at most 4, X ≤ 4]
+    - [fewer than 4, X ≤ 3]
+    - [at least 4, X ≥ 4]
+    - [more than 4, X ≥ 5]
+  distractors: [X ≥ 3]
+  explanation: |-
+    "At most" includes 4; "fewer than" excludes it. "At least" includes 4; "more than" excludes it, which for whole numbers starts at 5. So $P(\text{at least } 4) = 1 - \text{binomcdf}(n, p, 3)$ and $P(\text{more than } 4) = 1 - \text{binomcdf}(n, p, 4)$.
+
+- id: stat-m6-r2-q14
+  lesson: stat-binomial
+  topic: Binomial distribution
+  stem: 'Which counts are binomial, or approximately binomial by the 10% condition? Select all that apply.'
+  choices:
+    - 'The number of heads in 25 flips of a fair coin'
+    - 'The number of flips of a fair coin until the first head'
+    - 'The number of defective chips in a random sample of 40 from a run of 50,000 chips, 2% of which are defective'
+    - 'The number of aces when 6 cards are dealt from a 20-card pile that holds 4 aces'
+    - 'The total number of dots showing on 10 rolls of a die'
+  answer: [0, 2]
+  explanation: |-
+    Coin flips: binary, independent, $n = 25$ fixed, $p = 0.5$: binomial. Chips: the sample is 0.08% of the run, so the draws are nearly independent: approximately $B(40, 0.02)$. Flips until a head has no fixed $n$ (geometric). Six cards from 20 is 30% of the pile, so the draws are far from independent. Total dots is a sum of values from 1 to 6, not a count of successes.
+
+- id: stat-m6-r2-q15
+  lesson: stat-binomial
+  type: order
+  topic: Binomial distribution
+  stem: 'Put these binomial distributions in order from smallest to largest standard deviation.'
+  items: ['$B(10, 0.5)$', '$B(16, 0.5)$', '$B(100, 0.1)$', '$B(40, 0.5)$', '$B(100, 0.5)$']
+  explanation: |-
+    $\sigma = \sqrt{np(1-p)}$: $\sqrt{2.5} \approx 1.58$, $\sqrt{4} = 2$, $\sqrt{9} = 3$, $\sqrt{10} \approx 3.16$ and $\sqrt{25} = 5$. $B(100, 0.1)$ has the most trials of the middle three but a small $p$, so $p(1-p) = 0.09$ keeps its SD below that of $B(40, 0.5)$.
+
+# ---- Lesson 27: geometric distribution
+- id: stat-m6-r2-q16
+  lesson: stat-geom-poisson
+  type: text
+  topic: Geometric distribution
+  stem: 'Trials are independent, each a success with probability 0.25. The probability that the first success is on trial 3 is ___. Give 4 decimal places.'
+  accept: ['0.1406', '0.140625', '9/64']
+  explanation: |-
+    Two failures, then a success: $P(X = 3) = (0.75)^2(0.25) = 0.140625 \approx 0.1406$. Using $(0.75)^3(0.25) \approx 0.1055$ puts the success on trial 4.
+
+- id: stat-m6-r2-q17
+  lesson: stat-geom-poisson
+  type: match
+  module_quiz: true
+  topic: Geometric distribution
+  stem: 'Match each count to the model that fits it.'
+  pairs:
+    - [Number of rolls of a die until the first six, Geometric]
+    - [Number of sixes in 30 rolls of a die, Binomial]
+    - [Number of cards dealt from one shuffled deck until the first ace, Neither]
+    - [Number of free throws made out of 12 (independent shots with the same p), Binomial]
+    - [Number of independent sales calls until the first sale, Geometric]
+  explanation: |-
+    Counting trials until the first success is geometric; counting successes in a fixed number of trials is binomial. Cards dealt from one deck without replacement change the chance of an ace after every card, and the deck is small, so neither model applies.
+
+- id: stat-m6-r2-q18
+  lesson: stat-geom-poisson
+  topic: Geometric distribution
+  stem: '$X$ is a geometric random variable with $p = 0.2$ (counting trials up to and including the first success). Which statements are true? Select all that apply.'
+  choices:
+    - '$P(X > 3) = 0.8^3$'
+    - '$P(X \ge 3) = 0.8^3$'
+    - '$\mu_X = 5$'
+    - 'The most likely value of $X$ is 5'
+    - '$P(X = 0) = 0.2$'
+    - '$P(X \le 2) = 1 - 0.8^2$'
+  answer: [0, 2, 5]
+  explanation: |-
+    $X > 3$ means the first three trials fail: $0.8^3$. $X \ge 3$ means the first two fail: $0.8^2$, not $0.8^3$. $\mu_X = 1/0.2 = 5$, but the most likely value is always $X = 1$. $X = 0$ is impossible when counting trials. $P(X \le 2) = 1 - P(X > 2) = 1 - 0.8^2$.
+
+- id: stat-m6-r2-q19
+  lesson: stat-geom-poisson
+  type: order
+  topic: Geometric distribution
+  stem: 'For a geometric random variable with $p = 0.4$, put these probabilities in order from smallest to largest.'
+  items: ['$P(X = 3)$', '$P(X > 3)$', '$P(X = 1)$', '$P(X \le 3)$']
+  explanation: |-
+    $P(X = 3) = 0.6^2(0.4) = 0.144$; $P(X > 3) = 0.6^3 = 0.216$; $P(X = 1) = 0.4$; $P(X \le 3) = 1 - 0.216 = 0.784$.
+
+- id: stat-m6-r2-q20
+  lesson: stat-geom-poisson
+  type: text
+  topic: Geometric distribution
+  stem: '15% of callers need escalation, independently. The probability that more than 8 calls are needed to reach the first escalation is ___. Give 4 decimal places.'
+  accept: ['0.2725']
+  explanation: |-
+    More than 8 calls means the first 8 calls are all not escalated: $P(X > 8) = 0.85^8 \approx 0.2725$. The formula $1 - 0.85^8$ would give $P(X \le 8)$ instead.
+
+# ---- Honors lesson 27h1: linearity of expectation and indicator variables
+- id: stat-m6-r2-h01
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'Which statement is true for *any* two random variables $X$ and $Y$, independent or not?'
+  choices: ['$\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$', '$E(XY) = E(X)E(Y)$', '$E(X + Y) = E(X) + E(Y)$', '$\sigma_{X+Y} = \sigma_X + \sigma_Y$']
+  answer: 2
+  explanation: |-
+    Linearity of expectation needs no assumptions: the proof splits $\sum\sum (x + y)p(x, y)$ into two sums without ever factoring $p(x, y)$. Variances add and $E(XY) = E(X)E(Y)$ only for independent (more generally, uncorrelated) variables, and SDs don't add even then.
+
+- id: stat-m6-r2-h02
+  lesson: stat-m6-h-indicators
+  type: text
+  topic: Linearity of expectation
+  stem: 'An indicator variable equals 1 when an event with probability 0.35 occurs and 0 otherwise. Its expected value is ___. Give only the number.'
+  accept: ['0.35']
+  explanation: |-
+    $E(I) = 1(0.35) + 0(0.65) = 0.35$. The expected value of an indicator is always the probability of its event.
+
+- id: stat-m6-r2-h03
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'Two well-shuffled 52-card decks are turned over one card at a time, side by side. A "match" happens when the two cards in a position are identical. What is the expected number of matches?'
+  choices: ['$\tfrac{1}{52}$', '1', '26', '$\tfrac{1}{e} \approx 0.368$']
+  answer: 1
+  explanation: |-
+    Give each of the 52 positions an indicator for a match. In any position, the second deck's card is equally likely to be any of the 52, so the match probability is $\tfrac{1}{52}$. By linearity, $E = 52 \times \tfrac{1}{52} = 1$. $\tfrac{1}{52}$ is one position's probability, and about 0.368 is (approximately) the probability of *no* match at all.
+
+- id: stat-m6-r2-h04
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'Which of these equations need $X$ and $Y$ to be independent (or at least uncorrelated) to be guaranteed? Select all that apply.'
+  choices:
+    - '$\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$'
+    - '$E(XY) = E(X)E(Y)$'
+    - '$E(X + Y) = E(X) + E(Y)$'
+    - '$E(3X - 2Y + 5) = 3E(X) - 2E(Y) + 5$'
+  answer: [0, 1]
+  explanation: |-
+    The last two are linearity of expectation, true for all random variables. Adding variances and factoring $E(XY)$ both hold exactly when the covariance is zero, which independence guarantees.
+
+- id: stat-m6-r2-h05
+  lesson: stat-m6-h-indicators
+  type: order
+  topic: Linearity of expectation
+  stem: 'Put the steps for finding the expected number of boxes in the coupon collector problem in order.'
+  items:
+    - 'Split the total wait into stages, one for each new toy'
+    - 'Recognize each stage''s wait as geometric with $p = (n - k)/n$'
+    - 'Find each stage''s mean wait, $n/(n - k)$'
+    - 'Add the stage means, using linearity of expectation'
+  explanation: |-
+    The stages come first; each stage's wait is geometric because every box is an independent trial with the same chance $(n - k)/n$ of a new toy; a geometric mean is $1/p$; and linearity adds the stage means to get $n H_n$.
+
+- id: stat-m6-r2-h06
+  lesson: stat-m6-h-indicators
+  type: text
+  topic: Linearity of expectation
+  stem: 'A promotion hides one of 4 different cards in each box, all equally likely and independent from box to box. The expected number of boxes needed to get all 4 cards is ___. Give 2 decimal places.'
+  accept: ['8.33', '8.333', '25/3']
+  explanation: |-
+    $4\left(1 + \tfrac12 + \tfrac13 + \tfrac14\right) = 4 \times \tfrac{25}{12} = \tfrac{25}{3} \approx 8.33$ boxes. The stage means are 1, $\tfrac43$, 2 and 4.
+
+- id: stat-m6-r2-h07
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'In a group of 23 people (365 equally likely birthdays), what is the expected number of pairs who share a birthday?'
+  choices: ['About 0.063', 'About 0.507', 'About 1.386', 'About 0.693']
+  answer: 3
+  explanation: |-
+    There are $\binom{23}{2} = 253$ pairs, each sharing with probability $\tfrac{1}{365}$: $253/365 \approx 0.693$. 0.063 is $23/365$ (people, not pairs); 1.386 counts ordered pairs twice; and 0.507 is the *probability* that at least one pair shares, which is a different quantity.
+
+- id: stat-m6-r2-h08
+  lesson: stat-m6-h-indicators
+  type: match
+  topic: Linearity of expectation
+  stem: 'A cereal has 6 equally likely toys. Match each expected number of boxes to its value.'
+  pairs:
+    - [Boxes to get the first toy, '1']
+    - [Boxes to get the second different toy, '1.2']
+    - [Boxes to get the last toy once five are collected, '6']
+    - [Boxes to collect all six, '14.7']
+  distractors: ['2.45', '36']
+  explanation: |-
+    The stage with $k$ toys already collected has mean $6/(6 - k)$: 1, 1.2, 1.5, 2, 3, 6, adding to 14.7. 2.45 is the harmonic number $H_6$ (multiply it by 6), and 36 is $6 \times 6$, which has no meaning here.
+
+- id: stat-m6-r2-h09
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: '$X$ is 0 or 2, each with probability $\tfrac12$. Compare $E(X^2)$ with $[E(X)]^2$.'
+  choices: ['$E(X^2) = 1$ and $[E(X)]^2 = 1$', '$E(X^2) = 2$ and $[E(X)]^2 = 1$', '$E(X^2) = 4$ and $[E(X)]^2 = 1$', '$E(X^2) = 2$ and $[E(X)]^2 = 2$']
+  answer: 1
+  explanation: |-
+    $E(X^2) = \tfrac12(0) + \tfrac12(4) = 2$, while $E(X) = 1$ gives $[E(X)]^2 = 1$. The difference, 1, is the variance. Expectation passes through sums and constant multiples, not through squaring.
+
+- id: stat-m6-r2-h10
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: '$n$ letters are put into $n$ addressed envelopes at random, and $M$ is the number in the right envelope; $I_j$ indicates that letter $j$ is in the right envelope. Which statements are true? Select all that apply.'
+  choices:
+    - '$E(M) = 1$ for every $n$'
+    - 'The indicators $I_1, \ldots, I_n$ are independent'
+    - '$P(I_j = 1) = 1/n$ for each $j$'
+    - '$M$ has the binomial distribution $B(n, 1/n)$'
+    - 'At least one letter is certain to be in the right envelope'
+  answer: [0, 2]
+  explanation: |-
+    Each letter is equally likely to be in any envelope, so $P(I_j = 1) = 1/n$ and $E(M) = n \cdot \tfrac1n = 1$. The indicators are dependent: if the first $n - 1$ letters are all right, the last must be too. So $M$ is not binomial (for example, $M = n - 1$ is impossible). The chance of no match at all is about 0.37 for large $n$, so a match is not certain.
+
+- id: stat-m6-r2-h11
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'Five cards are dealt from a shuffled 52-card deck. What is the expected number of hearts?'
+  choices: ['1.25', '0.25', '1', '2.5']
+  answer: 0
+  explanation: |-
+    Each of the five cards dealt is equally likely to be any card in the deck, so it is a heart with probability $\tfrac{13}{52} = 0.25$. By linearity, $E = 5 \times 0.25 = 1.25$, even though the cards are dealt without replacement and the indicators are dependent.
+
+- id: stat-m6-r2-h12
+  lesson: stat-m6-h-indicators
+  type: text
+  topic: Linearity of expectation
+  stem: 'Ten jobs are each assigned at random to one of 10 crews, independently. The expected number of crews that get no job is ___. Give 2 decimal places.'
+  accept: ['3.49']
+  explanation: |-
+    A given crew misses all 10 jobs with probability $0.9^{10} \approx 0.3487$. Adding this indicator mean over 10 crews: $10 \times 0.3487 \approx 3.49$ crews.
+
+- id: stat-m6-r2-h13
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'Why can''t linearity of expectation alone give the probability that at least one pair in a class shares a birthday?'
+  choices:
+    - 'Because the pair indicators are dependent, so linearity fails for them'
+    - 'Because linearity gives only an expected count; the chance of at least one depends on how the events overlap'
+    - 'Because birthdays are not equally likely, so indicators cannot be used'
+    - 'Because the expected number of shared pairs is less than 1'
+  answer: 1
+  explanation: |-
+    Linearity works fine with dependent indicators, which is why the expected count $\binom{n}{2}/365$ is correct. But "at least one" is a probability, and it depends on how the events overlap, so it needs the complement rule and the full calculation. An expected count can exceed 1 while the probability stays below 1.
+
+- id: stat-m6-r2-h14
+  lesson: stat-m6-h-indicators
+  topic: Linearity of expectation
+  stem: 'A fair coin is flipped 10 times. What is the expected number of places where a head is immediately followed by a tail?'
+  choices: ['2.5', '5', '2.25', '1.25']
+  answer: 2
+  explanation: |-
+    There are 9 adjacent positions (flips 1–2, 2–3, …, 9–10). Each is "head then tail" with probability $\tfrac12 \times \tfrac12 = \tfrac14$. By linearity, $E = 9 \times \tfrac14 = 2.25$; overlapping positions are dependent, but that doesn't matter for the mean. 2.5 uses 10 positions instead of 9.
+
+# ---- Honors lesson 27h2: covariance
+- id: stat-m6-r2-h15
+  lesson: stat-m6-h-covariance
+  type: text
+  topic: Covariance
+  stem: '$E(XY) = 10$, $\mu_X = 2$ and $\mu_Y = 4$. Then $\text{Cov}(X, Y) =$ ___. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    $\text{Cov}(X, Y) = E(XY) - \mu_X\mu_Y = 10 - 8 = 2$.
+
+- id: stat-m6-r2-h16
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: '$\text{Var}(X) = 9$, $\text{Var}(Y) = 16$ and $\text{Cov}(X, Y) = 6$. Find $\text{Var}(X + Y)$.'
+  choices: ['25', '31', '37', '13']
+  answer: 2
+  explanation: |-
+    $\text{Var}(X + Y) = 9 + 16 + 2(6) = 37$. 25 ignores the covariance, 31 forgets the factor 2, and 13 subtracts it (that is the variance of $X - Y$).
+
+- id: stat-m6-r2-h17
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: 'With the same values ($\text{Var}(X) = 9$, $\text{Var}(Y) = 16$, $\text{Cov}(X, Y) = 6$), find $\text{Var}(X - Y)$.'
+  choices: ['13', '37', '25', '1']
+  answer: 0
+  explanation: |-
+    $\text{Var}(X - Y) = 9 + 16 - 2(6) = 13$. When $X$ and $Y$ move together, their difference varies less than independent variables would. Subtracting the variances ($16 - 9$) or adding the covariance are the usual mistakes.
+
+- id: stat-m6-r2-h18
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - 'If $X$ and $Y$ are independent, then $\text{Cov}(X, Y) = 0$.'
+    - 'If $\text{Cov}(X, Y) = 0$, then $X$ and $Y$ are independent.'
+    - '$\text{Cov}(X, X) = \text{Var}(X)$'
+    - 'Covariance has no units.'
+    - 'The correlation $\rho$ of two random variables is always between $-1$ and $1$.'
+  answer: [0, 2, 4]
+  explanation: |-
+    Independence makes $E(XY) = E(X)E(Y)$, so the covariance is 0, but zero covariance doesn't imply independence ($Y = X^2$ with $X$ equal to $-1$, 0 or 1 is a counterexample). $\text{Cov}(X, X) = E[(X - \mu)^2]$ is the variance. Covariance has the units of $X$ times the units of $Y$; dividing by $\sigma_X\sigma_Y$ gives the unitless $\rho$, which lies between $-1$ and $1$.
+
+- id: stat-m6-r2-h19
+  lesson: stat-m6-h-covariance
+  type: match
+  topic: Covariance
+  stem: 'Two investments each have return SD 10 percentage points. You put half your money in each. Match each correlation between them to the SD of your return.'
+  pairs:
+    - ['$\rho = 1$', '10 points']
+    - ['$\rho = 0$', '7.07 points']
+    - ['$\rho = -0.5$', '5 points']
+    - ['$\rho = -1$', '0 points']
+  distractors: ['20 points', '14.14 points']
+  explanation: |-
+    $\text{Var} = 0.25(100) + 0.25(100) + 2(0.5)(0.5)\rho(100) = 50(1 + \rho)$, so the SD is $\sqrt{100} = 10$, $\sqrt{50} \approx 7.07$, $\sqrt{25} = 5$ and 0. 20 and 14.14 forget the weights of 0.5.
+
+- id: stat-m6-r2-h20
+  lesson: stat-m6-h-covariance
+  type: text
+  topic: Covariance
+  stem: 'For the railway in the lesson, $\text{Var}(X) = 0.61$, $\text{Var}(Y) = 0.24$ and $\text{Cov}(X, Y) = 0.17$. Then $\text{Var}(X - Y) =$ ___. Give only the number.'
+  accept: ['0.51']
+  explanation: |-
+    $\text{Var}(X - Y) = 0.61 + 0.24 - 2(0.17) = 0.51$. The difference in late trains between the lines varies less than the total (1.19), because the lines tend to be late together.
+
+- id: stat-m6-r2-h21
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: 'A joint table has $P(X = 1, Y = 1) = 0.20$, $P(X = 1) = 0.4$ and $P(Y = 1) = 0.5$, where $X$ and $Y$ each take the values 0 and 1. What can you conclude?'
+  choices:
+    - '$\text{Cov}(X, Y) = 0$, so $X$ and $Y$ must be independent'
+    - '$\text{Cov}(X, Y) = 0.20$, a positive relationship'
+    - '$\text{Cov}(X, Y) = -0.20$, a negative relationship'
+    - '$\text{Cov}(X, Y) = 0$; with two values each, the other cells then factor too, so $X$ and $Y$ are independent'
+  answer: 3
+  explanation: |-
+    $E(XY) = P(X = 1, Y = 1) = 0.20$ and $\mu_X\mu_Y = 0.4 \times 0.5 = 0.20$, so the covariance is 0. In general zero covariance doesn't prove independence, but for two 0/1 variables it does: once $P(1, 1) = P(X = 1)P(Y = 1)$, the other three cells are forced to factor as well (for example, $P(X = 1, Y = 0) = 0.4 - 0.2 = 0.2 = 0.4 \times 0.5$). The first choice states the right conclusion for the wrong reason.
+
+- id: stat-m6-r2-h22
+  lesson: stat-m6-h-covariance
+  type: order
+  topic: Covariance
+  stem: 'Put the steps of the proof that $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2\,\text{Cov}(X, Y)$ in order.'
+  items:
+    - 'Write $S - \mu_S = (X - \mu_X) + (Y - \mu_Y)$, where $S = X + Y$'
+    - 'Square both sides'
+    - 'Take the expected value of each term, using linearity of expectation'
+    - 'Recognize $2E[(X - \mu_X)(Y - \mu_Y)]$ as $2\,\text{Cov}(X, Y)$'
+  explanation: |-
+    The deviation of the sum is the sum of the deviations (because $\mu_S = \mu_X + \mu_Y$). Squaring gives two squared terms and a cross term; taking expected values turns the squared terms into the two variances, and the cross term is twice the covariance.
+
+- id: stat-m6-r2-h23
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: '$X$ is $-1$, 0 or 1, each with probability $\tfrac13$, and $Y = X^2$. What is $\text{Cov}(X, Y)$?'
+  choices: ['$\tfrac23$', '0', '$\tfrac13$', '1']
+  answer: 1
+  explanation: |-
+    $E(X) = 0$ and $E(XY) = E(X^3) = \tfrac13(-1 + 0 + 1) = 0$, so $\text{Cov}(X, Y) = 0 - 0 \cdot E(Y) = 0$. Yet $Y$ is completely determined by $X$: the variables are uncorrelated but strongly dependent, because the relationship is U-shaped rather than linear. ($\tfrac23$ is $E(Y)$.)
+
+- id: stat-m6-r2-h24
+  lesson: stat-m6-h-covariance
+  type: text
+  topic: Covariance
+  stem: 'A sample of 8 is drawn without replacement from a lot of 20 items. The finite population correction factor $\tfrac{N - n}{N - 1}$ is ___. Give 3 decimal places.'
+  accept: ['0.632', '12/19']
+  explanation: |-
+    $\tfrac{20 - 8}{20 - 1} = \tfrac{12}{19} \approx 0.632$. The binomial variance is multiplied by this factor, so the SD shrinks by $\sqrt{0.632} \approx 0.79$.
+
+- id: stat-m6-r2-h25
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: 'Why is the number of defectives in a sample drawn *without* replacement less variable than a binomial count with the same $n$ and $p$?'
+  choices:
+    - 'Each draw is less likely to be defective than in the binomial model.'
+    - 'The draws are independent, so the variance is divided by $N$.'
+    - 'The indicators for different draws have negative covariance: a defective drawn leaves fewer for the other draws.'
+    - 'The mean is smaller without replacement, and a smaller mean means less spread.'
+  answer: 2
+  explanation: |-
+    Each draw is still defective with probability $p$, and the mean is still $np$. But two draws are both defective with probability $\tfrac{K}{N} \cdot \tfrac{K - 1}{N - 1} < p^2$, so each pair of indicators has negative covariance, and the $n(n-1)$ negative terms reduce the variance by the factor $\tfrac{N - n}{N - 1}$.
+
+- id: stat-m6-r2-h26
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: 'In which situations would using the binomial SD (ignoring the finite population correction) change the answer by only a few percent or less? Select all that apply.'
+  choices:
+    - 'A sample of 40 from a population of 10,000'
+    - 'A sample of 500 from a population of 2,000'
+    - 'A sample of 30 from a population of 1,000'
+    - 'A sample of 6 from a population of 12'
+  answer: [0, 2]
+  explanation: |-
+    The SD factor is $\sqrt{(N - n)/(N - 1)}$: about 0.998 for 40 of 10,000 and 0.985 for 30 of 1,000 (samples under 10% of the population), but about 0.866 for 500 of 2,000 and 0.739 for 6 of 12, where the binomial SD is far too large.
+
+- id: stat-m6-r2-h27
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: 'Investment A has return SD 10 points and investment B has SD 20 points; their returns are uncorrelated. Half your money goes in each. What is the SD of your return?'
+  choices: ['15 points', '11.18 points', '22.36 points', '125 points']
+  answer: 1
+  explanation: |-
+    $\text{Var} = 0.5^2(10^2) + 0.5^2(20^2) + 0 = 25 + 100 = 125$, so the SD is $\sqrt{125} \approx 11.18$ points. 15 averages the SDs (correct only if $\rho = 1$), 22.36 forgets the weights, and 125 is the variance.
+
+- id: stat-m6-r2-h28
+  lesson: stat-m6-h-covariance
+  topic: Covariance
+  stem: '$\text{Cov}(X, Y) = -3$, $\sigma_X = 2$ and $\sigma_Y = 5$. What is the correlation $\rho$?'
+  choices: ['$-0.6$', '$-0.15$', '$-0.3$', '$-3$']
+  answer: 2
+  explanation: |-
+    $\rho = \text{Cov}/(\sigma_X\sigma_Y) = -3/(2 \times 5) = -0.3$. Dividing by $\sigma_X + \sigma_Y$ or by only one SD gives the wrong values, and $-3$ is the covariance itself, which has units.
