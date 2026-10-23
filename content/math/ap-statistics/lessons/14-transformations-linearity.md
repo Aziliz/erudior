@@ -67,6 +67,19 @@ against $\log x$ is linear, a power model fits*. Power models describe geometric
 3. Choose the one whose scatterplot is most linear *and* whose residual plot shows
    random scatter. A higher $r^2$ alone is not enough — check residuals.
 
+```mermaid
+flowchart TD
+  accTitle: Choosing a transformation
+  accDescr: Start when the residual plot from a straight-line fit of y on x is curved. Plot log y against x. If that plot is linear with random residuals, use an exponential model. If not, plot log y against log x. If that is linear with random residuals, use a power model. If neither works, try another re-expression such as a square root. Whichever model you choose, fit the least-squares line to the transformed data and back-transform its predictions.
+  A["Residual plot of y on x is curved"] --> B{"log y vs x: linear, random residuals?"}
+  B -- Yes --> C["Exponential model: y = a times b to the x"]
+  B -- No --> D{"log y vs log x: linear, random residuals?"}
+  D -- Yes --> E["Power model: y = a times x to the p"]
+  D -- No --> F["Try another re-expression, such as a square root"]
+  C --> G["Fit the line to the transformed data, then back-transform predictions"]
+  E --> G
+```
+
 ### Example 1: exponential growth
 
 A colony of bacteria is counted each hour:

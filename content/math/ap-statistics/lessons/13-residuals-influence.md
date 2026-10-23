@@ -132,8 +132,8 @@ circled point, with the line fitted with it (solid) and without it (dashed).
 ![Three scatterplots of the same eight points rising along a line, each with one extra circled point. Point A, at x = 4.5 and well above the others, is an outlier with a large residual; the line with it is only slightly higher than the line without it. Point B, at x = 16 and lying on the trend of the other points, has high leverage but follows the pattern, so the two lines coincide. Point C, at x = 16 and far below the trend, is influential: it drags the fitted line almost flat, while the line without it rises steeply.](images/stat-m3-unusual-points.svg)
 
 The numbers behind the panels: without the circled point the line is $\hat{y} = 2.125 + 0.475x$
-with $r \approx 0.97$. A sits at $x = 4.5$, the mean of the other $x$ values, so it has no leverage
-at all: adding it only raises the intercept a little (to about 2.48), keeps the slope at 0.475, and lowers $r$ to about 0.70, and A's
+with $r \approx 0.97$. A sits at $x = 4.5$, the mean of the other $x$ values, so it has the least
+possible leverage: adding it only raises the intercept a little (to about 2.48), keeps the slope at 0.475, and lowers $r$ to about 0.70, and A's
 residual (about 2.9) is the largest in any panel. Adding B leaves the line almost unchanged
 and raises $r$ to about 0.99. Adding C drops the slope to about 0.01 and $r$ to about 0.04, yet
 C's residual (about −1.7) is *smaller* than A's: C has pulled the line toward itself.

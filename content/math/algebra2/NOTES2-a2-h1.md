@@ -62,7 +62,7 @@ None of these terms or aliases duplicates an entry in any `glossary*.yaml` in th
 - **"modulus" is not bolded in lesson 92.** The a2-m2 honors lesson bolds and defines it, and I didn't want a duplicate glossary entry. Its glossary file (`glossary-r2-a2-m2.yaml`) did not exist yet when I finished. If that writer doesn't add "modulus", it should be added to one of the two files.
 - Lesson 92 refers to "the honors lesson on the geometry of complex numbers in Module 2" (`09h1-complex-plane.md`). If that lesson is renamed or dropped, this sentence needs to change.
 - **Conventions.** Arguments are given in $[0^\circ, 360^\circ)$; the lesson notes that many books use $(-180^\circ, 180^\circ]$. Conic standard forms use $a$ for the semi-major axis (ellipse) and the positive term (hyperbola), and $p$ for the focal distance of a parabola.
-- **Hyperbola orientation.** The general-form table names the conic for the non-degenerate case. The lesson says that degenerate cases show up only after completing the square.
+- **Degenerate cases.** The general-form table names the conic for the non-degenerate case. The lesson says that degenerate cases show up only after completing the square.
 - **History** (kept short and hedged):
   - Apollonius of Perga, around 200 BC, named the ellipse, parabola and hyperbola.
   - Kepler, 1609: planets move on ellipses with the Sun at a focus.
@@ -83,7 +83,11 @@ None. I read lessons 01, 05, 06, 07, 13, 29 and 30 (and the a2-m2 honors lesson 
 
 ## Sources
 
-- OpenStax *Precalculus 2e*: ch. 8 (Periodic functions, polar form of complex numbers, De Moivre's theorem, parametric equations); ch. 10 (Analytic geometry: ellipse, hyperbola, parabola, conics in general form).
-- OpenStax *Calculus Volume 1*, sec. 2.1 (secant and tangent lines, the difference quotient).
-- Wikipedia: "De Moivre's formula" (history: named after de Moivre, who never stated it in his works); "Apollonius of Perga"; "Kepler's laws of planetary motion"; "Halley's Comet"; "Euler's formula".
-- Projectile model and $g \approx 32$ ft/s²: standard (OpenStax *University Physics Volume 1*, sec. 4.3).
+- The formulas are standard results: conic standard forms and $c$ relations, parametric forms, polar form and De Moivre's theorem, and the difference quotient. All explanations, examples and questions are original, and every number was recomputed in Python.
+- History: Wikipedia, "De Moivre's formula", fetched 2026-10-23. It says the formula is named after de Moivre, although he never stated it in his works.
+- These facts are well known, but I did not re-fetch a source for them during this round; a reviewer may want to spot-check:
+  - Apollonius and the names of the conics;
+  - Kepler's 1609 *Astronomia Nova*;
+  - Euler's 1748 *Introductio*;
+  - the eccentricities of Earth (0.0167) and Halley's comet (0.967);
+  - $g \approx 32$ ft/s².
