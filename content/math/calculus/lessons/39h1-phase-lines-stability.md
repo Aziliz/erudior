@@ -17,7 +17,7 @@ For $\frac{dy}{dt} = g(y)$ the slope depends only on the height $y$, so every ro
 1. Find the equilibria, the roots of $g(y) = 0$, and mark them as dots on a vertical line.
 2. In each interval between them, pick a test value. If $g > 0$ there, draw an arrow pointing up (solutions increase); if $g < 0$, draw it pointing down.
 
-That diagram is the **phase line**. An equilibrium with arrows pointing toward it on both sides is **stable**: solutions that start nearby approach it. One with arrows pointing away on both sides is **unstable**: nearby solutions leave. If the arrows point the same way on both sides (one toward, one away), the equilibrium is **semi-stable**: it attracts from one side and repels on the other. (Some books call a semi-stable point a "node" or simply count it as unstable, since a tiny push in the wrong direction sends the solution away.)
+That diagram is the **phase line**. An equilibrium with arrows pointing toward it on both sides is **stable**: solutions that start nearby approach it. One with arrows pointing away on both sides is **unstable**: nearby solutions leave. If the arrows point the same way on both sides (one toward, one away), the equilibrium is **semi-stable**: it attracts from one side and repels on the other. (Some books simply count a semi-stable point as unstable, since a tiny push in the wrong direction sends the solution away.)
 
 ### Example 1
 

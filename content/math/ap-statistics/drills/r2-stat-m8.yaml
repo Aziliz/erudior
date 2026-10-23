@@ -160,13 +160,13 @@
   prompt: |-
     A field tests {nh} hypotheses at $\alpha = {al}$. Suppose {rpct:int}% of them are real effects and the
     studies have power {pw:num2}. Find the expected number of false discoveries and the expected share of
-    significant results that are false (3 decimals).
+    significant results that are false (3 decimals). Give the expected number to 2 decimals if it isn't whole.
   answers:
-    - {name: fd, label: 'false discoveries', tolerance: 0.05, format: num1}
+    - {name: fd, label: 'false discoveries', tolerance: 0.006, format: num2}
     - {name: share, label: 'share false', tolerance: 0.0006, format: dp3}
   solution: |-
-    Real effects: {real:int}; true nulls: {nulls:int}. True discoveries: ${pw:num2} \times {real:int} = {td:num1}$.
-    False discoveries: ${al} \times {nulls:int} =$ **{fd:num1}**. Share false $= \dfrac{{fd:num1}}{{td:num1} + {fd:num1}} \approx$ **{share:dp3}**.
+    Real effects: {real:int}; true nulls: {nulls:int}. True discoveries: ${pw:num2} \times {real:int} = {td:num2}$.
+    False discoveries: ${al} \times {nulls:int} =$ **{fd:num2}**. Share false $= \dfrac{{fd:num2}}{{td:num2} + {fd:num2}} \approx$ **{share:dp3}**.
 
 # ---- Honors 3: exact tests
 - id: stat-m8-r2-exact-binom
@@ -212,7 +212,7 @@
     - {name: nn, label: '$n =$', format: int, tolerance: 0}
     - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
   solution: |-
-    Drop the {nzero} zero differences: $n = {npos} + {nneg} =$ **{nn:int}**. Under $H_0$ the number of
+    Drop the zero differences (there are {nzero}): $n = {npos} + {nneg} =$ **{nn:int}**. Under $H_0$ the number of
     positive signs is $B({nn:int}, 0.5)$, so the p-value is $P(X \ge {npos}) = 1 - \text{binomcdf}({nn:int}, 0.5, {nm:int}) \approx$ **{pv:num4}**.
 
 - id: stat-m8-r2-fisher

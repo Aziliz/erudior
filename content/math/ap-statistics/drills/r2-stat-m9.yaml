@@ -132,7 +132,7 @@
 
     Find $\chi^2$ for a test of independence (2 decimals) and Cramér's V (3 decimals).
   answers:
-    - {name: chi, label: '$\chi^2 =$', tolerance: 0.01, format: num2}
+    - {name: chi, label: '$\chi^2 =$', tolerance: 0.03, format: num2}
     - {name: vv, label: '$V =$', tolerance: 0.002, format: dp3}
   solution: |-
     Totals: rows {r1}, {r2}; columns {c1}, {c2}, {c3}; grand {tot}. Expected counts: {eaa:num2},

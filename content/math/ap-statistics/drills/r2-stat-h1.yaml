@@ -104,7 +104,7 @@
     prone: {choices: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]}
     nt: {min: 4, max: 12}
     xs: {min: 0, max: 12}
-  where: ['xs <= nt']
+  where: ['xs <= nt', 'binompdf(nt, pone, xs) >= 0.001', 'binompdf(nt, ptwo, xs) >= 0.001']
   calc:
     lone: binompdf(nt, pone, xs)
     ltwo: binompdf(nt, ptwo, xs)
