@@ -30,7 +30,9 @@ in 1979, makes one bold substitution: *treat the sample as if it were the popula
 new samples from it.
 
 A **bootstrap sample** (or resample) is $n$ values drawn **with replacement** from the original
-$n$ values. Some values appear twice or more, and some not at all. Compute the statistic for each
+$n$ values. Some values appear twice or more, and some not at all: the chance that a particular value
+is missed by one resample is $(1 - 1/n)^n$, about 0.35 to 0.37 for $n \ge 10$, so a typical resample
+leaves out roughly a third of the original values. Compute the statistic for each
 of many resamples, typically 1,000 to 10,000, and the collection of results is the **bootstrap
 distribution**. Its standard deviation is the **bootstrap standard error**.
 
@@ -44,7 +46,7 @@ population whose distribution looks like the sample.
 The logic in one sentence: the bootstrap distribution varies around the *sample's* statistic
 roughly the way the sampling distribution varies around the *population's* parameter. The center
 of the bootstrap distribution tells you nothing new (it sits near your own statistic); its
-**spread** and shape are what you use.
+*spread* and shape are what you use.
 
 ### Example 1: three resamples by hand
 
@@ -78,7 +80,7 @@ one of the nine data values, so the bootstrap distribution sits on just those va
 The simplest bootstrap confidence interval is the **percentile interval**: the middle 95% of the
 bootstrap distribution, from its 2.5th to its 97.5th percentile. About 3.0% of resample medians
 are 15 or less and about 97.0% are 26 or less, so the 2.5th percentile is 15 and the 97.5th is 33.
-A 95% percentile interval for the median commute is **15 to 33 minutes**. The lumpiness of the
+A 95% percentile interval for the median commute is 15 to 33 minutes. The lumpiness of the
 histogram is a warning that with $n = 9$ this interval is rough.
 
 ### How good is the bootstrap standard error?
@@ -94,8 +96,8 @@ $s/\sqrt{9} \approx 4.06$ while the bootstrap gives $\sqrt{8/9} \times 4.06 \app
 $n = 100$ the factor is 0.995 and the difference vanishes. The bootstrap reproduces the textbook
 answer where one exists, which is the main reason to trust it where none does.
 
-That small-sample shrinkage is also why the plain percentile interval tends to be **too narrow when
-$n$ is small** (it covers the true value less often than 95%). Statisticians use refined versions
+That small-sample shrinkage is also why the plain percentile interval tends to be *too narrow when
+$n$ is small* (it covers the true value less often than 95%). Statisticians use refined versions
 (the "bias-corrected and accelerated" interval, for one) and treat any bootstrap with $n$ below
 about 20 cautiously. This lesson keeps to the percentile interval as a simplified first look.
 

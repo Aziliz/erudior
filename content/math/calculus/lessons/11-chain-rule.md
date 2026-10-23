@@ -89,6 +89,10 @@ Differentiate $y = e^{\cos(3x)}$.
 Three layers: exponential, then cosine, then $3x$.
 $$y' = e^{\cos(3x)}\cdot\left(-\sin(3x)\right)\cdot3 = \mathbf{-3\sin(3x)\,e^{\cos(3x)}}.$$
 
+Picture the function as three machines in a row. Each machine's rate is evaluated at whatever goes into it, and the chain rule multiplies the three rates.
+
+![A chain of three boxes: x enters the inner box ×3, whose output 3x enters the middle box cos, whose output cos 3x enters the outer box e to the u, which outputs y. Under the boxes are their rates 3, −sin(3x) and e^(cos 3x), and below that y′ = e^(cos 3x) · (−sin 3x) · 3](images/calc-m3-chain-layers.svg)
+
 ### Example 5
 
 Differentiate $y = \sqrt{1 + \tan^2(2x)}$ for $-\frac\pi4 < x < \frac\pi4$.
@@ -123,6 +127,10 @@ $$T'(t) = 10\cos\left(\frac{\pi t}{12}\right)\cdot\frac{\pi}{12}.$$
 At $t = 4$: $T'(4) = \frac{10\pi}{12}\cos\frac\pi3 = \frac{10\pi}{12}\cdot\frac12 = \frac{5\pi}{12} \approx 1.31$ °C per hour.
 
 Forgetting the inner derivative $\frac{\pi}{12}$ would give $5$ °C per hour, nearly four times too big. The inner factor converts "per unit of angle" into "per hour."
+
+```plot
+{"x": [0, 24], "y": [0, 35], "functions": [{"f": "20 + 10*sin(pi*x/12)", "label": "T(t)"}], "tangents": [{"f": "20 + 10*sin(pi*x/12)", "at": 4}], "points": [{"at": [4, 28.66], "label": "10 a.m."}], "xLabel": "t (hours after 6 a.m.)", "yLabel": "T (°C)", "caption": "The greenhouse temperature; the tangent at t = 4 has slope 5π/12 ≈ 1.31 °C per hour"}
+```
 
 ## Common mistakes
 

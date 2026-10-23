@@ -20,7 +20,7 @@ $$f'_-(a) = \lim_{h\to0^-}\frac{f(a + h) - f(a)}{h}, \qquad f'_+(a) = \lim_{h\to
 
 For a piecewise function it is tempting to skip the limits and just compare the derivatives of the two formulas at the seam. That shortcut is backed by a theorem (a consequence of the Mean Value Theorem, Lesson 17): *if $f$ is continuous at $a$, differentiable just to the left of $a$, and $f'(x) \to L$ as $x \to a^-$, then $f'_-(a) = L$* (and likewise on the right).
 
-Note the hypothesis: **continuity at $a$**. Without it the shortcut lies. Take
+Note the hypothesis: *continuity at $a$*. Without it the shortcut lies. Take
 
 $$f(x) = \begin{cases} x^2, & x \le 1\\ x^2 + 1, & x > 1.\end{cases}$$
 
@@ -42,7 +42,7 @@ Let $f(x) = x^2\sin(1/x)$ for $x \ne 0$ and $f(0) = 0$. Find $f'(0)$, and decide
 $$f'(0) = \lim_{h\to0}\frac{h^2\sin(1/h) - 0}{h} = \lim_{h\to0} h\sin(1/h).$$
 2. Squeeze (Lesson 4): $-|h| \le h\sin(1/h) \le |h|$, and both bounds go to 0. So $f'(0) = \mathbf{0}$.
 3. For $x \ne 0$, the product and chain rules of Lessons 9 and 11 give $f'(x) = 2x\sin(1/x) - \cos(1/x)$. As $x \to 0$, the first term goes to 0, but $\cos(1/x)$ keeps swinging between $-1$ and $1$ infinitely often.
-4. So $\lim_{x\to0}f'(x)$ does not exist, while $f'(0) = 0$. The function is differentiable everywhere, but $f'$ is **not continuous** at 0.
+4. So $\lim_{x\to0}f'(x)$ does not exist, while $f'(0) = 0$. The function is differentiable everywhere, but $f'$ is *not continuous* at 0.
 
 ```plot
 {"x": [-0.4, 0.4], "y": [-0.17, 0.17], "functions": [{"f": "x^2*sin(1/x)", "label": "f"}, {"f": "x^2", "dashed": true}, {"f": "-x^2", "dashed": true}], "caption": "f(x) = x² sin(1/x) wiggles infinitely often near 0 but is trapped between y = x² and y = −x², so it flattens out: f′(0) = 0"}

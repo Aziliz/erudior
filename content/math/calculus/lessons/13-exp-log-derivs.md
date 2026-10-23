@@ -83,6 +83,21 @@ Differentiate $y = x^x$ for $x > 0$.
 
 Notice the answer is neither $x\cdot x^{x-1}$ (power rule) nor $x^x\ln x$ (exponential rule); it's their sum. That's a nice way to remember it.
 
+For any expression of the form base to a power, the chart picks the rule: what matters is which of the base and the exponent vary with $x$.
+
+```mermaid
+flowchart TD
+  accTitle: Which rule differentiates a base raised to an exponent
+  accDescr: For an expression of the form base to the power exponent, first ask whether the exponent is constant. If the exponent is constant and the base is constant too, the expression is a constant with derivative 0. If the exponent is constant and the base varies, use the power rule with the chain rule. If the exponent varies and the base is constant, use the exponential rule, b to the u times ln b times u prime. If both base and exponent vary, use logarithmic differentiation.
+  A["base ^ exponent"] --> Q1{"Is the exponent a constant?"}
+  Q1 -- yes --> Q2{"Is the base a constant?"}
+  Q2 -- yes --> R1["A constant: derivative 0"]
+  Q2 -- no --> R2["Power rule: n u^(n − 1) u′"]
+  Q1 -- no --> Q3{"Is the base a constant?"}
+  Q3 -- yes --> R3["Exponential rule: b^u ln b · u′"]
+  Q3 -- no --> R4["Logarithmic differentiation"]
+```
+
 ### Example 5
 
 Differentiate $y = \dfrac{(x + 1)^4\sqrt{x - 3}}{(2x + 5)^3}$.
@@ -125,6 +140,10 @@ Product rule: $y' = 1\cdot\ln x + x\cdot\frac1x = \ln x + 1$.
 - Horizontal tangent: $\ln x + 1 = 0$, so $\ln x = -1$ and $x = e^{-1} = \frac1e$. There $y = \frac1e\ln\frac1e = -\frac1e$.
 
 The point $\left(\frac1e, -\frac1e\right)$ turns out to be the lowest point of the graph, which you'll be able to prove with the tools of Module 5.
+
+```plot
+{"x": [-0.5, 4], "y": [-1, 5], "functions": [{"f": "x*ln(x)", "from": 0.001, "label": "y = x ln x"}], "tangents": [{"f": "x*ln(x)", "at": 2.718281828}], "segments": [{"from": [0, -0.3679], "to": [1, -0.3679], "dashed": true}], "points": [{"at": [2.718281828, 2.718281828], "label": "(e, e)"}, {"at": [0.3679, -0.3679], "label": "(1/e, −1/e)"}], "caption": "y = x ln x: tangent of slope 2 at (e, e), horizontal tangent at (1/e, −1/e)"}
+```
 
 ## Common mistakes
 

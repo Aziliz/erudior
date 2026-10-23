@@ -19,7 +19,8 @@ they work, and how they fail, is part of reading science.
 
 ## Effect sizes
 
-An **effect size** is a number that measures how large an effect is, independent of sample size.
+An effect size is a number that measures how large an effect is, independent of sample size (the
+honors lesson on power and sample size used one to plan studies).
 The simplest is unstandardized: a difference in means in the original units (4.3 test points, 2.1 kg),
 or a difference in proportions. Units make sense to a reader, but two studies that measured with
 different scales can't be compared directly.
@@ -120,7 +121,7 @@ settings. **Heterogeneity** is variation among the true effects of the studies. 
 - **Cochran's Q**: $Q = \sum w_i (y_i - \hat{\theta})^2$. If there is no heterogeneity, $Q$ has
   roughly a chi-square distribution with $k - 1$ degrees of freedom, so $Q$ much larger than $k - 1$
   signals heterogeneity.
-- **$I^2$** (Higgins and Thompson, 2002): $I^2 = \max\!\left(0,\ \dfrac{Q - (k-1)}{Q}\right)$, the
+- **I-squared** (Higgins and Thompson, 2002): $I^2 = \max\!\left(0,\ \dfrac{Q - (k-1)}{Q}\right)$, the
   estimated share of the variation among estimates that comes from real differences rather than
   chance. Values near 25%, 50% and 75% are often read as low, moderate and high.
 

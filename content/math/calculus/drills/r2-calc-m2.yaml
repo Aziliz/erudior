@@ -1,0 +1,113 @@
+# Round 2 drills, module calc-m2 (honors lessons)
+- id: calc-m2-r2-central-error
+  title: Forward and central differences
+  topic: Numerical differentiation
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -5, max: 5}
+    c: {min: -6, max: 6}
+    p: {min: -3, max: 3}
+    st: {choices: [0.1, 0.2, 0.5]}
+  where: ["a != 0", "b != 0", "c != 0", "p != 0"]
+  funcs:
+    f(x): a*x^3 + b*x^2 + c*x
+  calc:
+    fplus: round(f(p + st), 6)
+    f0: round(f(p), 6)
+    fminus: round(f(p - st), 6)
+    fwd: round((f(p + st) - f(p))/st, 6)
+    cen: round((f(p + st) - f(p - st))/(2*st), 6)
+    ex: 3*a*p^2 + 2*b*p + c
+    efwd: round(fwd - ex, 6)
+    ecen: round(cen - ex, 6)
+    st2: 2*st
+  prompt: 'Let $f(x) = {a:coef}x^3 {b:signedcoef}x^2 {c:signedcoef}x$. With step $h = {st}$, compute the forward difference $\dfrac{f({p} + h) - f({p})}{h}$ and the central difference $\dfrac{f({p} + h) - f({p} - h)}{2h}$. Both are exact decimals; give them exactly.'
+  answers:
+    - {name: fwd, label: 'Forward', tolerance: 0.0001}
+    - {name: cen, label: 'Central', tolerance: 0.0001}
+  solution: |-
+    $f({p} + {st}) = {fplus}$, $f({p}) = {f0}$ and $f({p} - {st}) = {fminus}$.
+
+    Forward: $\dfrac{{fplus} - ({f0})}{{st}} =$ **{fwd}**. Central: $\dfrac{{fplus} - ({fminus})}{{st2}} =$ **{cen}**.
+
+    The exact derivative is $f'(x) = 3({a})x^2 + 2({b})x {c:signed}$, so $f'({p}) = {ex}$. The forward error is {efwd}; the central error is {ecen}, which is exactly $a h^2 = ({a})({st})^2$: for a cubic the central difference's error is the $x^3$ coefficient times $h^2$, and the $x^2$ and $x$ terms contribute no error at all.
+- id: calc-m2-r2-richardson
+  title: Richardson extrapolation of central differences
+  topic: Numerical differentiation
+  vars:
+    k: {min: 1, max: 3}
+    p: {min: -3, max: 3}
+    m: {min: -5, max: 5}
+    st: {choices: [0.1, 0.2, 0.4]}
+  where: ["p != 0", "m != 0"]
+  funcs:
+    f(x): k*x^4 + m*x^2
+  calc:
+    half: st/2
+    d1: round((f(p + st) - f(p - st))/(2*st), 6)
+    d2: round((f(p + st/2) - f(p - st/2))/st, 6)
+    fourd2: round(4*d2, 6)
+    num: round(4*d2 - d1, 6)
+    rich: round((4*d2 - d1)/3, 6)
+    ex: 4*k*p^3 + 2*m*p
+  prompt: 'A program estimates $f''({p})$ for a smooth function with central differences: $D_c({st}) = {d1}$ and $D_c({half}) = {d2}$. Use Richardson extrapolation, $\dfrac{4D_c(h/2) - D_c(h)}{3}$, to get a better estimate.'
+  answers:
+    - {name: rich, label: 'Improved estimate', tolerance: 0.0001}
+  solution: |-
+    $\dfrac{4({d2}) - ({d1})}{3} = \dfrac{{fourd2} - ({d1})}{3} = \dfrac{{num}}{3} =$ **{rich}**.
+
+    These numbers came from $f(x) = {k:coef}x^4 {m:signedcoef}x^2$, whose exact derivative at ${p}$ is $4({k})({p})^3 + 2({m})({p}) = {ex}$. For a polynomial of degree 4 the central difference's error is exactly a constant times $h^2$, so Richardson extrapolation removes it completely; for other smooth functions it leaves a much smaller error, about $h^4$.
+- id: calc-m2-r2-one-sided
+  title: One-sided derivatives at a seam
+  topic: Smoothness
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -6, max: 6}
+    q: {min: -2, max: 2}
+    m: {min: -8, max: 8}
+  where: ["a != 0", "q != 0", "m != 2*a*q + b"]
+  calc:
+    left: 2*a*q + b
+    right: m
+    d: a*q^2 + b*q - m*q
+    yq: a*q^2 + b*q
+    a2: 2*a
+  prompt: |-
+    The pieces of
+    $$f(x) = \begin{cases} {a:coef}x^2 {b:signedcoef}x, & x \le {q}\\ {m:coef}x {d:signed}, & x > {q}\end{cases}$$
+    meet at $x = {q}$ (check it). Find the left-hand and right-hand derivatives of $f$ at $x = {q}$.
+  answers:
+    - {name: left, label: '$f''_-({q}) =$'}
+    - {name: right, label: '$f''_+({q}) =$'}
+  solution: |-
+    Both pieces give $f({q}) = {yq}$, so $f$ is continuous at ${q}$, and the one-sided derivatives equal the limits of the pieces' derivatives. Left piece: derivative ${a2}x {b:signed}$, which is **{left}** at $x = {q}$. Right piece: a line with slope **{right}**. The two differ, so $f$ has a corner at $x = {q}$ and is not differentiable there.
+- id: calc-m2-r2-c2-join
+  title: A twice-differentiable join
+  topic: Smoothness
+  vars:
+    k: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+  where: ["k != 0", "q != 0"]
+  calc:
+    big: 3*k*q
+    mid: -3*k*q^2
+    small: k*q^3
+    k3: 3*k
+    k6: 6*k
+    k6q: 6*k*q
+    k3q2: 3*k*q^2
+    big2: 6*k*q^2
+  prompt: |-
+    Find $A$, $B$ and $C$ so that
+    $$f(x) = \begin{cases} {k:coef}x^3, & x \le {q}\\ Ax^2 + Bx + C, & x > {q}\end{cases}$$
+    has continuous $f$, $f'$ and $f''$ at $x = {q}$.
+  answers:
+    - {name: big, label: '$A =$'}
+    - {name: mid, label: '$B =$'}
+    - {name: small, label: '$C =$'}
+  solution: |-
+    Left piece: $f' = {k3}x^2$ and $f'' = {k6}x$. Right piece: $f' = 2Ax + B$ and $f'' = 2A$.
+
+    - Second derivatives at ${q}$: $2A = {k6}({q}) = {k6q}$, so $A =$ **{big}**.
+    - Slopes: $2A({q}) + B = {k3}({q})^2 = {k3q2}$, so $B = {k3q2} - {big2} =$ **{mid}**.
+    - Values: $A({q})^2 + B({q}) + C = {k:coef}({q})^3 = {small}$; the $A$ and $B$ terms add to $0$, so $C =$ **{small}**.

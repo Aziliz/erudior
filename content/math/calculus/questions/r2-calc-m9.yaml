@@ -391,8 +391,8 @@
   lesson: calc-m9-h-numerical-methods
   topic: Numerical methods for differential equations
   stem: 'The improved Euler method has error 0.012 at $x = 2$ with $h = 0.2$. About what error should you expect with $h = 0.1$?'
-  choices: ['$0.006$', '$0.003$', '$0.0015$', '$0.00075$']
-  answer: 1
+  choices: ['$0.003$', '$0.006$', '$0.0015$', '$0.00075$']
+  answer: 0
   explanation: |-
     It is an order-2 method: error $\approx Ch^2$. Halving $h$ divides the error by $2^2 = 4$: $0.012 / 4 = 0.003$. (0.006 would be order 1; 0.00075 order 4.)
 - id: calc-m9-r2-h19
@@ -466,9 +466,9 @@
   choices:
     - 'Errors in different steps always cancel in pairs'
     - 'The last step''s error is the only one that matters'
-    - 'About $\dfrac{b - x_0}{h}$ steps each add an error of size about $Ch^2$'
     - 'Smaller steps make the slope function smaller'
-  answer: 2
+    - 'About $\dfrac{b - x_0}{h}$ steps each add an error of size about $Ch^2$'
+  answer: 3
   explanation: |-
     The number of steps grows like $\frac1h$ as $h$ shrinks. Roughly $\frac{b - x_0}{h} \cdot Ch^2 = C(b - x_0)h$. (This is a heuristic; errors also propagate from step to step, but the conclusion holds under mild conditions.)
 - id: calc-m9-r2-h26

@@ -81,6 +81,8 @@ The derivatives of $\sin x$ repeat every four steps:
 
 $$\sin x \to \cos x \to -\sin x \to -\cos x \to \sin x \to \cdots$$
 
+![Four boxes in a cycle joined by arrows labeled d/dx: sin x to cos x, cos x to −sin x, −sin x to −cos x, and −cos x back to sin x](images/calc-m3-trig-cycle.svg)
+
 So $\frac{d^n}{dx^n}\sin x$ depends only on $n \bmod 4$. For example, $\frac{d^{27}}{dx^{27}}\sin x$: $27 = 4\cdot6 + 3$, so it's the third derivative, $-\cos x$.
 
 ### Example 4 (simple harmonic motion)

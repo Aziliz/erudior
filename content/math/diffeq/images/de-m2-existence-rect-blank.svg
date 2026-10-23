@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+<rect x="0" y="0" width="640" height="420" fill="#ffffff"/>
+<line x1="60" y1="370" x2="615" y2="370" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="620,370 608,364 608,376" fill="#1c2833"/>
+<line x1="60" y1="370" x2="60" y2="25" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="60,20 54,32 66,32" fill="#1c2833"/>
+<text x="625" y="392" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">t</text>
+<text x="42" y="30" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">y</text>
+<rect x="140" y="90" width="360" height="210" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="235" y="90" width="130" height="210" fill="#dcf0e3" stroke="none"/>
+<line x1="235" y1="90" x2="235" y2="370" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5" stroke-linecap="butt"/>
+<line x1="365" y1="90" x2="365" y2="370" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5" stroke-linecap="butt"/>
+<line x1="235" y1="370" x2="365" y2="370" stroke="#2e7d4f" stroke-width="7" stroke-linecap="butt"/>
+<rect x="140" y="90" width="360" height="210" fill="none" stroke="#1c2833" stroke-width="2"/>
+<path d="M140,262 C 215,244 262,214 300,195 C 345,172 395,135 431,90" fill="none" stroke="#b03a2e" stroke-width="3.5"/>
+<path d="M431,90 C 440,77 446,66 452,55" fill="none" stroke="#b03a2e" stroke-width="3" stroke-dasharray="5 5"/>
+<circle cx="300" cy="195" r="7" fill="#1c2833"/>
+<line x1="140" y1="364" x2="140" y2="376" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="300" y1="364" x2="300" y2="376" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="500" y1="364" x2="500" y2="376" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="54" y1="90" x2="66" y2="90" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="54" y1="195" x2="66" y2="195" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="54" y1="300" x2="66" y2="300" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="60" y1="195" x2="300" y2="195" stroke="#1c2833" stroke-width="1" stroke-dasharray="3 5" stroke-linecap="butt"/>
+<line x1="300" y1="195" x2="300" y2="370" stroke="#1c2833" stroke-width="1" stroke-dasharray="3 5" stroke-linecap="butt"/>
+</svg>

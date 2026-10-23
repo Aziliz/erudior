@@ -23,6 +23,18 @@ Then solve the resulting equation for $\frac{dy}{dx}$. Steps:
 2. Move every term containing $\frac{dy}{dx}$ to one side, everything else to the other.
 3. Factor out $\frac{dy}{dx}$ and divide.
 
+When you need the slope at a particular point, finish by substituting its coordinates, as in the chart.
+
+```mermaid
+flowchart TD
+  accTitle: The steps of implicit differentiation
+  accDescr: Step 1, differentiate both sides of the equation with respect to x, attaching a factor dy/dx to the derivative of every expression in y. Step 2, move every term containing dy/dx to one side and everything else to the other. Step 3, factor out dy/dx. Step 4, divide to solve for dy/dx. Step 5, if a point is given, check that it lies on the curve and substitute both of its coordinates.
+  S1["1. Differentiate both sides with respect to x; every y-term gets a factor dy/dx"] --> S2["2. Collect the dy/dx terms on one side, everything else on the other"]
+  S2 --> S3["3. Factor out dy/dx"]
+  S3 --> S4["4. Divide to solve for dy/dx"]
+  S4 --> S5["5. At a point: check it is on the curve, then substitute x and y"]
+```
+
 ### Example 1
 
 Find $\frac{dy}{dx}$ for the circle $x^2 + y^2 = 25$, and the tangent line at $(3, -4)$.
@@ -50,6 +62,10 @@ $$\frac{dy}{dx} = \frac{2y - x^2}{y^2 - 2x}.$$
 At $(3, 3)$: $\dfrac{6 - 9}{9 - 6} = \mathbf{-1}$.
 
 Horizontal tangents occur where the numerator is 0 (and the denominator isn't); vertical tangents where the denominator is 0 (and the numerator isn't).
+
+```plot
+{"x": [-5, 5], "y": [-5, 5], "equal": true, "curves": [{"x": "6t/(1 + t^3)", "y": "6t^2/(1 + t^3)", "t": [-0.85, 25]}, {"x": "6t/(1 + t^3)", "y": "6t^2/(1 + t^3)", "t": [-25, -1.2]}], "functions": [{"f": "6 - x", "dashed": true}], "points": [{"at": [3, 3], "label": "(3, 3)"}], "caption": "The folium x³ + y³ = 6xy and its tangent at (3, 3), slope −1"}
+```
 
 ## Second derivatives implicitly
 

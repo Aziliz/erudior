@@ -45,31 +45,31 @@
   calc:
     b: a + len
     ratio: round(len/t)
-    n: ceil(log2(len/t))
+    ns: ceil(log2(len/t))
     lg: log2(len/t)
-    nm1: n - 1
-    pw: 2^n
-    pwlow: 2^(n - 1)
+    nm1: ns - 1
+    pw: 2^ns
+    pwlow: 2^(ns - 1)
   prompt: 'A continuous function changes sign on $[{a}, {b}]$. What is the fewest number of bisection steps that guarantees a bracket of length at most ${t}$?'
   answers:
-    - {name: n, label: 'Steps', format: integer}
+    - {name: ns, label: 'Steps', format: integer}
   solution: |-
-    After $n$ steps the bracket has length $\dfrac{{len}}{2^n}$. We need $\dfrac{{len}}{2^n} \le {t}$, that is, $2^n \ge \dfrac{{len}}{{t}} = {ratio}$. Since $\log_2 {ratio} \approx {lg:num2}$, round up: $2^{{nm1}} = {pwlow}$ is too small and $2^{{n}} = {pw}$ is enough, so **{n}** steps.
+    After $n$ steps the bracket has length $\dfrac{{len}}{2^n}$. We need $\dfrac{{len}}{2^n} \le {t}$, that is, $2^n \ge \dfrac{{len}}{{t}} = {ratio}$. Since $\log_2 {ratio} \approx {lg:num2}$, round up: $2^{{nm1}} = {pwlow}$ is too small and $2^{{ns}} = {pw}$ is enough, so **{ns}** steps.
 - id: calc-m1-r2-bisection-error
   title: Error bound after bisection
   topic: IVT applications
   vars:
     a: {min: -4, max: 4}
     len: {choices: [1, 2, 3, 4, 5]}
-    n: {min: 3, max: 8}
+    ns: {min: 3, max: 8}
   calc:
     b: a + len
-    np1: n + 1
-    den: 2^(n + 1)
-    blen: len/2^n
-    err: len/2^(n + 1)
-  prompt: 'Bisection starts on the bracket $[{a}, {b}]$ and runs for ${n}$ steps. The midpoint of the final bracket is reported as the root. What is the largest possible error (the guaranteed bound)? Give an exact fraction.'
+    np1: ns + 1
+    den: 2^(ns + 1)
+    blen: len/2^ns
+    err: len/2^(ns + 1)
+  prompt: 'Bisection starts on the bracket $[{a}, {b}]$ and runs for ${ns}$ steps. The midpoint of the final bracket is reported as the root. What is the largest possible error (the guaranteed bound)? Give an exact fraction.'
   answers:
     - {name: err, kind: fraction, lowestTerms: true, label: 'Error at most'}
   solution: |-
-    Each step halves the bracket, so after ${n}$ steps its length is $\dfrac{{len}}{2^{{n}}} = {blen:frac}$. The root is somewhere in the bracket, so it is at most half a bracket from the midpoint: $\dfrac{{len}}{2^{{np1}}} = \dfrac{{len}}{{den}}$, which is **{err:frac}**.
+    Each step halves the bracket, so after ${ns}$ steps its length is $\dfrac{{len}}{2^{{ns}}} = {blen:frac}$. The root is somewhere in the bracket, so it is at most half a bracket from the midpoint: $\dfrac{{len}}{2^{{np1}}} = \dfrac{{len}}{{den}}$, which is **{err:frac}**.

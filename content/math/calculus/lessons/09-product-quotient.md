@@ -90,6 +90,24 @@ Given $f(2) = 3$, $f'(2) = -1$, $g(2) = 4$, $g'(2) = 5$. Find $(fg)'(2)$ and $\l
 
 A quotient with a constant denominator is just a constant multiple: $\frac{x^3 + x}{5} = \frac15(x^3 + x)$, derivative $\frac15(3x^2 + 1)$. A quotient with a monomial denominator can be split: $\frac{x^2 + 4}{x} = x + 4x^{-1}$. And a constant over a function, like $\frac{3}{x^2 + 1}$, is often easier as $3(x^2 + 1)^{-1}$ with the chain rule (Lesson 11). The quotient rule always works, but these routes are shorter and less error-prone.
 
+The chart below sums up how to choose a rule for a product or a quotient.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a rule for a product or a quotient
+  accDescr: Start by asking whether the function is a quotient. If it is and the denominator is a constant, use the constant multiple rule. If the denominator is a single power of x, split the fraction into terms and use the power rule. Otherwise use the quotient rule. If the function is not a quotient but is a product of two functions, expand it and use the power rule when expanding is easy, and otherwise use the product rule. If it is neither, use the sum, power and basic rules of Lesson 8.
+  A{"Is it a quotient?"} -- yes --> B{"Is the denominator a constant?"}
+  B -- yes --> C["Constant multiple rule"]
+  B -- no --> D{"Is the denominator a single power of x?"}
+  D -- yes --> E["Split into terms, then power rule"]
+  D -- no --> F["Quotient rule"]
+  A -- no --> G{"Is it a product of two functions?"}
+  G -- yes --> H{"Easy to expand?"}
+  H -- yes --> I["Expand, then power rule"]
+  H -- no --> J["Product rule"]
+  G -- no --> K["Sum, power and basic rules (Lesson 8)"]
+```
+
 ### Example 6
 
 Differentiate $y = \dfrac{x^2 - 1}{x^2 + 1}$, find where its tangent line is horizontal, and find the tangent line at $x = 1$.

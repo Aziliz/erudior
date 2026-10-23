@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+<rect x="0" y="0" width="640" height="420" fill="#ffffff"/>
+<rect x="80" y="70" width="480" height="260" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<polygon points="320,200 392.2,70 392.2,330" fill="#f7ebcf" stroke="none"/>
+<polygon points="320,200 247.8,70 247.8,330" fill="#f7ebcf" stroke="none"/>
+<line x1="247.77777777777777" y1="330" x2="392.22222222222223" y2="70" stroke="#244d76" stroke-width="2.5" stroke-linecap="butt"/>
+<line x1="247.77777777777777" y1="70" x2="392.22222222222223" y2="330" stroke="#244d76" stroke-width="2.5" stroke-linecap="butt"/>
+<line x1="247.77777777777777" y1="70" x2="247.77777777777777" y2="360" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5" stroke-linecap="butt"/>
+<line x1="392.22222222222223" y1="70" x2="392.22222222222223" y2="360" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5" stroke-linecap="butt"/>
+<path d="M247.8,240 C 280,218 305,204 320,200 C 340,194 370,170 392.2,138" fill="none" stroke="#b03a2e" stroke-width="3.5"/>
+<circle cx="320" cy="200" r="6" fill="#1c2833"/>
+<line x1="40" y1="360" x2="610" y2="360" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<polygon points="615,360 603,354 603,366" fill="#1c2833"/>
+<line x1="80" y1="354" x2="80" y2="366" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="247.77777777777777" y1="354" x2="247.77777777777777" y2="366" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="320" y1="354" x2="320" y2="366" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="392.22222222222223" y1="354" x2="392.22222222222223" y2="366" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="560" y1="354" x2="560" y2="366" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
+<line x1="392.22222222222223" y1="360" x2="560" y2="360" stroke="#1c2833" stroke-width="1" stroke-linecap="butt"/>
+<line x1="247.77777777777777" y1="360" x2="392.22222222222223" y2="360" stroke="#2e7d4f" stroke-width="7" stroke-linecap="butt"/>
+<line x1="560" y1="70" x2="560" y2="360" stroke="#1c2833" stroke-width="1" stroke-dasharray="2 5" stroke-linecap="butt"/>
+<line x1="80" y1="330" x2="80" y2="360" stroke="#1c2833" stroke-width="1" stroke-dasharray="2 5" stroke-linecap="butt"/>
+<text x="620" y="385" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">t</text>
+<text x="80" y="384" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">t₀ − a</text>
+<text x="560" y="384" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">t₀ + a</text>
+<text x="320" y="384" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">t₀</text>
+<text x="392.22222222222223" y="404" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">t₀ + b/M</text>
+<text x="247.77777777777777" y="404" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">t₀ − b/M</text>
+<text x="568" y="75" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">y₀ + b</text>
+<text x="568" y="335" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">y₀ − b</text>
+<text x="400.22222222222223" y="92" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">slope M</text>
+<text x="400.22222222222223" y="320" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">slope −M</text>
+<text x="330" y="224" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">(t₀, y₀)</text>
+<text x="90" y="92" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">R: |f| ≤ M here</text>
+</svg>

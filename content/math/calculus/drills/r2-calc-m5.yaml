@@ -1,0 +1,133 @@
+# Round 2 drills for calc-m5 (honors lessons 20h1-20h3)
+- id: calc-m5-r2-derivative-bounds
+  title: Bound a function value from bounds on its derivative
+  topic: Inequalities from the MVT
+  vars:
+    a0: {min: -3, max: 3}
+    w: {min: 2, max: 6}
+    y0: {min: -10, max: 10}
+    m: {min: -3, max: 4}
+    gap: {min: 1, max: 5}
+  calc:
+    b0: a0 + w
+    big: m + gap
+    mw: m*w
+    bw: (m + gap)*w
+    lo: y0 + m*w
+    hi: y0 + (m + gap)*w
+  prompt: 'Suppose $f$ is differentiable everywhere, $f({a0}) = {y0}$, and ${m} \le f''(x) \le {big}$ for every $x$ in $({a0}, {b0})$. Use the Mean Value Theorem to find the smallest and largest values that $f({b0})$ could have.'
+  answers:
+    - {name: lo, label: 'Smallest'}
+    - {name: hi, label: 'Largest'}
+  solution: |-
+    By the MVT, $f({b0}) - f({a0}) = f'(c)\,({b0} - ({a0})) = {w}\,f'(c)$ for some $c$ in $({a0}, {b0})$. Since ${m} \le f'(c) \le {big}$ and ${w} > 0$,
+    $${mw} \le f({b0}) - {y0} \le {bw}.$$
+    So $f({b0})$ lies between ${y0} {mw:signed} =$ **{lo}** and ${y0} {bw:signed} =$ **{hi}**. (Both values are possible: they occur for the straight lines with slopes {m} and {big}.)
+- id: calc-m5-r2-cubic-roots
+  title: Count the real roots of a cubic
+  topic: Counting roots
+  vars:
+    k: {min: 1, max: 4}
+    t: {min: -35, max: 35}
+  calc:
+    q: round(t*k^3/10)
+    c3: 3*k^2
+    tk: 2*k^3
+    lmax: 2*k^3 + round(t*k^3/10)
+    lmin: -2*k^3 + round(t*k^3/10)
+    n: if(abs(round(t*k^3/10)) < 2*k^3, 3, 1)
+  where: ["q != 0", "abs(q) != 2*k^3"]
+  prompt: 'How many real solutions does $x^3 - {c3}x {q:signed} = 0$ have?'
+  answers:
+    - {name: n, label: 'Number of real solutions'}
+  solution: |-
+    Let $f(x) = x^3 - {c3}x {q:signed}$. Then $f'(x) = 3x^2 - {c3} = 3(x - {k})(x + {k})$, so $f'$ has two zeros and $f$ has at most three roots (Rolle). On $(-\infty, -{k})$ and $({k}, \infty)$ $f$ is increasing, and on $(-{k}, {k})$ it is decreasing.
+
+    Local max $f(-{k}) = {tk} {q:signed} = {lmax}$; local min $f({k}) = -{tk} {q:signed} = {lmin}$.
+
+    If the local max is positive and the local min is negative, the graph crosses the axis once on each of the three intervals (IVT); if both have the same sign, it crosses only once. Here the answer is **{n}**.
+- id: calc-m5-r2-amgm-min
+  title: Minimize with the AM-GM inequality
+  topic: Classic inequalities
+  vars:
+    a: {min: 1, max: 9}
+    t: {min: 2, max: 9}
+  calc:
+    b: a*t^2
+    ab: a*a*t^2
+    mn: 2*a*t
+  prompt: 'Find the minimum value of $f(x) = {a:coef}x + \dfrac{{b}}{x}$ for $x > 0$, and the $x$ where it occurs.'
+  answers:
+    - {name: t, label: '$x =$'}
+    - {name: mn, label: 'Minimum value'}
+  solution: |-
+    The two terms are positive and their product ${a:coef}x\cdot\dfrac{{b}}{x} = {ab}$ is constant. By AM-GM,
+    $${a:coef}x + \dfrac{{b}}{x} \ge 2\sqrt{{ab}} = {mn},$$
+    with equality when the terms are equal: ${a:coef}x = \dfrac{{b}}{x}$, so $x^2 = {t}^2$ and $x =$ **{t}**. The minimum value is **{mn}**. (Check: $f'(x) = {a} - \dfrac{{b}}{x^2} = 0$ at the same $x$.)
+- id: calc-m5-r2-lifeguard
+  title: The lifeguard problem
+  topic: Optimization models
+  vars:
+    a: {min: 10, max: 40, step: 5}
+    b: {min: 10, max: 50, step: 5}
+    d: {min: 40, max: 100, step: 10}
+    v1: {choices: [5, 6, 7, 8]}
+    v2: {choices: [1.5, 2, 2.5, 3]}
+  funcs:
+    tp(x): x/(v1*sqrt(a^2 + x^2)) - (d - x)/(v2*sqrt(b^2 + (d - x)^2))
+    tt(x): sqrt(a^2 + x^2)/v1 + sqrt(b^2 + (d - x)^2)/v2
+  calc:
+    xs: solve(tp, 0, d)
+    tm: tt(solve(tp, 0, d))
+    s1: (solve(tp, 0, d))/sqrt(a^2 + (solve(tp, 0, d))^2)
+    s2: (d - solve(tp, 0, d))/sqrt(b^2 + (d - solve(tp, 0, d))^2)
+  prompt: 'A lifeguard is {a} m from a straight shoreline. A swimmer is {b} m out from the shore and {d} m farther along it. The lifeguard runs at {v1} m/s and swims at {v2} m/s. How far along the shore, measured from the point nearest the lifeguard, should she enter the water to reach the swimmer in the least time, and what is that time? (Both to 2 decimal places.)'
+  answers:
+    - {name: xs, label: 'Distance (m)', tolerance: 0.006, format: num2}
+    - {name: tm, label: 'Least time (s)', tolerance: 0.006, format: num2}
+  solution: |-
+    Entering at distance $x$, the time is
+    $$T(x) = \frac{\sqrt{ {a}^2 + x^2}}{ {v1}} + \frac{\sqrt{ {b}^2 + ({d} - x)^2}}{ {v2}}, \qquad 0 \le x \le {d}.$$
+    $T'(x) = \dfrac{x}{ {v1}\sqrt{ {a}^2 + x^2}} - \dfrac{ {d} - x}{ {v2}\sqrt{ {b}^2 + ({d} - x)^2}}$, which is $\dfrac{\sin\theta_1}{ {v1}} - \dfrac{\sin\theta_2}{ {v2}}$. $T'(0) < 0$, $T'({d}) > 0$ and $T'' > 0$, so the single zero of $T'$ is the minimum. Solving $T'(x) = 0$ numerically (Newton's method or a graphing tool) gives $x \approx$ **{xs:num2}** m, where $\sin\theta_1 \approx {s1:dp3}$ and $\sin\theta_2 \approx {s2:dp3}$. The least time is $T \approx$ **{tm:num2}** s.
+- id: calc-m5-r2-eoq
+  title: Economic order quantity
+  topic: Optimization models
+  vars:
+    j: {min: 3, max: 30}
+    K: {choices: [20, 25, 40, 50, 80, 100]}
+    hold: {choices: [0.5, 1, 1.5, 2, 2.5, 3, 4]}
+  calc:
+    Q: 20*j
+    D: (20*j)^2*hold/(2*K)
+    oc: K*((20*j)^2*hold/(2*K))/(20*j)
+    hc: hold*20*j/2
+    cost: hold*20*j
+    orders: ((20*j)^2*hold/(2*K))/(20*j)
+  where: ["D == round(D)", "D >= 500"]
+  prompt: 'A store sells {D} units a year at a steady rate. Each order costs {K:money0} to place, and holding one unit in stock for a year costs {hold:money}. Find the economic order quantity and the minimum yearly ordering-plus-holding cost (in dollars).'
+  answers:
+    - {name: Q, label: 'Order size (units)'}
+    - {name: cost, label: 'Yearly cost (dollars)', tolerance: 0.5}
+  solution: |-
+    $C(Q) = \dfrac{KD}{Q} + \dfrac{hQ}{2}$ is minimized at
+    $$Q^* = \sqrt{\frac{2KD}{h}} = \sqrt{\frac{2({K})({D})}{ {hold}}} =$$ **{Q}** units ({orders} orders a year).
+
+    At $Q^*$ the ordering cost $\dfrac{ {K}\cdot{D}}{ {Q}} = {oc:money}$ equals the holding cost $\dfrac{ {hold}\cdot{Q}}{2} = {hc:money}$, so the total is **{cost:money}** a year.
+- id: calc-m5-r2-ladder
+  title: Longest ladder around a corner
+  topic: Optimization models
+  vars:
+    a: {min: 3, max: 10}
+    b: {min: 3, max: 12}
+  where: ["a != b"]
+  calc:
+    L: (a^(2/3) + b^(2/3))^(3/2)
+    th: atand(cbrt(a/b))
+    pa: a^(2/3)
+    pb: b^(2/3)
+  prompt: 'Hallways {a} ft and {b} ft wide meet at a right angle. What is the length of the longest ladder that can be carried horizontally around the corner? (2 decimal places.)'
+  answers:
+    - {name: L, label: 'Length (ft)', tolerance: 0.006, format: num2}
+  solution: |-
+    The longest ladder equals the shortest segment that touches the inner corner and reaches both outer walls. At angle $\theta$ to the walls of the {a}-ft hallway, that segment has length $L(\theta) = \dfrac{ {a}}{\sin\theta} + \dfrac{ {b}}{\cos\theta}$. Setting $L'(\theta) = 0$ gives $\tan^3\theta = \dfrac{ {a}}{ {b}}$, so $\theta \approx {th:num1}°$, and the minimum is
+    $$L = \left({a}^{2/3} + {b}^{2/3}\right)^{3/2} \approx ({pa:dp3} + {pb:dp3})^{3/2} \approx$$ **{L:num2}** ft.

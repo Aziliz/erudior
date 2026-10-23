@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="270" viewBox="0 0 640 270">
+<rect x="0" y="0" width="640" height="270" fill="#ffffff"/>
+<rect x="66" y="114" width="56" height="50" rx="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="1"/>
+<rect x="124" y="114" width="48" height="50" rx="8" fill="#dde8f3" stroke="#1c2833" stroke-width="1"/>
+<rect x="290" y="114" width="120" height="50" rx="8" fill="#e8e2f3" stroke="#1c2833" stroke-width="1"/>
+<rect x="478" y="114" width="64" height="50" rx="8" fill="#dcf0e3" stroke="#1c2833" stroke-width="1"/>
+<text x="94" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">t²</text>
+<text x="148" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">y″</text>
+<text x="192" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833">+</text>
+<text x="222" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">3t</text>
+<text x="258" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">y′</text>
+<text x="282" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833">−</text>
+<text x="350" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" fill="#1c2833">(sin <tspan font-style="italic">t</tspan>)</text>
+<text x="432" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">y</text>
+<text x="462" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833">=</text>
+<text x="510" y="150" font-family="Helvetica, Arial, sans-serif" font-size="32" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">eᵗ</text>
+</svg>
