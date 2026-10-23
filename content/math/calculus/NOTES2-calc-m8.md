@@ -140,8 +140,6 @@ extrapolation.
   The Gaussian integral's value is quoted (as in Lesson 35), with the proof deferred.
 - 36h2 Example 5 builds on 30h2 (the exponential distribution and the variance shortcut). If 30h2
   changes its notation, check that example.
-- q17 (match "first method") pairs $\int\frac{x + 5}{x^2 + x - 2}dx$ with partial fractions; trig
-  substitution is not a candidate for it, so the match is unambiguous.
 
 ## Errors found in existing content
 
