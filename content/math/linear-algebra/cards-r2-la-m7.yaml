@@ -1,37 +1,37 @@
 # Round 2, la-m7 honors lessons: notecards (26h1: 10, 26h2: 10, 26h3: 10).
 
 # 26h1 Exchange, extension and sums of subspaces
-- {front: Exchange lemma, back: 'If $V = \operatorname{Span}\{\mathbf{w}_1, \dots, \mathbf{w}_n\}$ and $\{\mathbf{u}_1, \dots, \mathbf{u}_m\}$ is independent in $V$, then $m \le n$; the $\mathbf{u}$''s can replace $m$ of the $\mathbf{w}$''s and the set still spans.', topic: Dimension}
-- {front: Why every basis has the same size, back: 'Each basis is independent and the other spans, so by the exchange lemma each is no larger than the other.', topic: Dimension}
+- {front: 'Exchange lemma', back: 'If $V = \operatorname{Span}\{\mathbf{w}_1, \dots, \mathbf{w}_n\}$ and $\{\mathbf{u}_1, \dots, \mathbf{u}_m\}$ is independent in $V$, then $m \le n$; the $\mathbf{u}$''s can replace $m$ of the $\mathbf{w}$''s and the set still spans.', topic: Dimension}
+- {front: 'Why every basis has the same size', back: 'Each basis is independent and the other spans, so by the exchange lemma each is no larger than the other.', topic: Dimension}
 - {front: 'Exchange step: which $\mathbf{w}_j$ can $\mathbf{u}$ replace?', back: 'Any $\mathbf{w}_j$ whose coefficient is nonzero when $\mathbf{u}$ is written in terms of the current spanning set.', topic: Dimension}
-- {front: Extension theorem, back: 'In a finite-dimensional space, every linearly independent set can be enlarged to a basis (and every spanning set trimmed to one).', topic: Dimension}
+- {front: 'Extension theorem', back: 'In a finite-dimensional space, every linearly independent set can be enlarged to a basis (and every spanning set trimmed to one).', topic: Dimension}
 - {front: 'How to extend $\{\mathbf{u}_1, \dots, \mathbf{u}_p\}$ to a basis of $\mathbb{R}^n$', back: 'Row-reduce $[\,\mathbf{u}_1 \cdots \mathbf{u}_p \;\; \mathbf{e}_1 \cdots \mathbf{e}_n\,]$ (given vectors first) and keep the original columns in pivot positions.', topic: Dimension}
 - {front: 'Subspace $H$ of finite-dimensional $V$', back: '$\dim H \le \dim V$, with equality only when $H = V$.', topic: Dimension}
-- {front: Sum of subspaces $H + K$, back: '$\{\mathbf{h} + \mathbf{k}\}$: the smallest subspace containing $H$ and $K$; spanned by bases of $H$ and $K$ together.', topic: Sums of subspaces}
-- {front: Dimension formula for a sum, back: '$\dim(H + K) = \dim H + \dim K - \dim(H \cap K)$ (sometimes called Grassmann''s formula). Valid for two subspaces only.', topic: Sums of subspaces}
-- {front: Direct sum $H \oplus K$, back: 'A sum with $H \cap K = \{\mathbf{0}\}$: each vector is $\mathbf{h} + \mathbf{k}$ in exactly one way, and dimensions add.', topic: Sums of subspaces}
-- {front: Complements of a plane in $\mathbb{R}^3$, back: 'Every line through the origin that is not in the plane. Complements are not unique.', topic: Sums of subspaces}
+- {front: 'Sum of subspaces $H + K$', back: '$\{\mathbf{h} + \mathbf{k}\}$: the smallest subspace containing $H$ and $K$; spanned by bases of $H$ and $K$ together.', topic: Sums of subspaces}
+- {front: 'Dimension formula for a sum', back: '$\dim(H + K) = \dim H + \dim K - \dim(H \cap K)$ (sometimes called Grassmann''s formula). Valid for two subspaces only.', topic: Sums of subspaces}
+- {front: 'Direct sum $H \oplus K$', back: 'A sum with $H \cap K = \{\mathbf{0}\}$: each vector is $\mathbf{h} + \mathbf{k}$ in exactly one way, and dimensions add.', topic: Sums of subspaces}
+- {front: 'Complements of a plane in $\mathbb{R}^3$', back: 'Every line through the origin that is not in the plane. Complements are not unique.', topic: Sums of subspaces}
 
 # 26h2 Matrices of linear maps
 - {front: 'Matrix of $T: V \to W$ relative to $\mathcal{B}$, $\mathcal{C}$', back: '$M = \big[\,[T(\mathbf{b}_1)]_{\mathcal{C}} \cdots [T(\mathbf{b}_n)]_{\mathcal{C}}\,\big]$, so $[T(\mathbf{x})]_{\mathcal{C}} = M[\mathbf{x}]_{\mathcal{B}}$.', topic: Matrices of linear maps}
-- {front: Size of the matrix of $T: V \to W$, back: '$\dim W \times \dim V$ (rows = output coordinates, columns = input basis vectors).', topic: Matrices of linear maps}
+- {front: 'Size of the matrix of $T: V \to W$', back: '$\dim W \times \dim V$ (rows = output coordinates, columns = input basis vectors).', topic: Matrices of linear maps}
 - {front: 'Matrix of $D(p) = p''$, $\mathbb{P}_3 \to \mathbb{P}_2$, standard bases', back: '$\begin{bmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 3\end{bmatrix}$', topic: Matrices of linear maps}
-- {front: Kernel and range through the matrix, back: '$\ker T$ corresponds to $\operatorname{Nul} M$ and $\operatorname{range} T$ to $\operatorname{Col} M$ (via the coordinate mappings).', topic: Matrices of linear maps}
-- {front: Rank–nullity for linear maps, back: '$\dim V = \dim\ker T + \dim\operatorname{range} T$ for linear $T: V \to W$, $V$ finite-dimensional.', topic: Matrices of linear maps}
+- {front: 'Kernel and range through the matrix', back: '$\ker T$ corresponds to $\operatorname{Nul} M$ and $\operatorname{range} T$ to $\operatorname{Col} M$ (via the coordinate mappings).', topic: Matrices of linear maps}
+- {front: 'Rank–nullity for linear maps', back: '$\dim V = \dim\ker T + \dim\operatorname{range} T$ for linear $T: V \to W$, $V$ finite-dimensional.', topic: Matrices of linear maps}
 - {front: '$\dim V > \dim W$ or $\dim V < \dim W$', back: 'If $\dim V > \dim W$, no linear $T: V \to W$ is one-to-one; if $\dim V < \dim W$, none is onto.', topic: Matrices of linear maps}
-- {front: When are two finite-dimensional spaces isomorphic?, back: 'Exactly when they have the same dimension (e.g. $\mathbb{P}_3$, $\mathbb{R}^4$, $M_{2\times 2}$).', topic: Matrices of linear maps}
-- {front: Matrix of a composition $S \circ T$, back: '$M_SM_T$ (first map on the right), with the middle basis shared.', topic: Matrices of linear maps}
+- {front: 'When are two finite-dimensional spaces isomorphic?', back: 'Exactly when they have the same dimension (e.g. $\mathbb{P}_3$, $\mathbb{R}^4$, $M_{2\times 2}$).', topic: Matrices of linear maps}
+- {front: 'Matrix of a composition $S \circ T$', back: '$M_SM_T$ (first map on the right), with the middle basis shared.', topic: Matrices of linear maps}
 - {front: 'Matrix of $S(p)(t) = p(t + 1)$ on $\mathbb{P}_2$', back: '$\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1\end{bmatrix}$; its inverse is the matrix of $p(t - 1)$.', topic: Matrices of linear maps}
-- {front: Linear operator, back: 'A linear map from a space to itself; usually given one matrix relative to a single basis $\mathcal{B}$.', topic: Matrices of linear maps}
+- {front: 'Linear operator', back: 'A linear map from a space to itself; usually given one matrix relative to a single basis $\mathcal{B}$.', topic: Matrices of linear maps}
 
 # 26h3 Interpolation and linear recurrences
 - {front: 'Evaluation at $n + 1$ different nodes', back: 'An isomorphism $\mathbb{P}_n \to \mathbb{R}^{n+1}$, so exactly one polynomial of degree at most $n$ fits any data at those nodes.', topic: Interpolation}
 - {front: 'Lagrange basis polynomial $L_0$ for nodes $t_0, t_1, t_2$', back: '$L_0(t) = \dfrac{(t - t_1)(t - t_2)}{(t_0 - t_1)(t_0 - t_2)}$: 1 at $t_0$, 0 at the other nodes.', topic: Interpolation}
-- {front: Lagrange coordinates of $p$, back: 'Its values at the nodes: $p = p(t_0)L_0 + p(t_1)L_1 + p(t_2)L_2$.', topic: Interpolation}
-- {front: Vandermonde matrix and the Lagrange basis, back: '$V$ converts standard coordinates to values at the nodes; $V^{-1}$ has the standard coordinates of $L_0, \dots, L_n$ as columns.', topic: Interpolation}
+- {front: 'Lagrange coordinates of $p$', back: 'Its values at the nodes: $p = p(t_0)L_0 + p(t_1)L_1 + p(t_2)L_2$.', topic: Interpolation}
+- {front: 'Vandermonde matrix and the Lagrange basis', back: '$V$ converts standard coordinates to values at the nodes; $V^{-1}$ has the standard coordinates of $L_0, \dots, L_n$ as columns.', topic: Interpolation}
 - {front: 'Solutions of $y_{k+2} + a\,y_{k+1} + b\,y_k = 0$', back: 'A 2-dimensional subspace of the sequence space: $y \mapsto (y_0, y_1)$ is an isomorphism onto $\mathbb{R}^2$.', topic: Linear recurrences}
-- {front: Auxiliary equation, back: '$r^2 + ar + b = 0$, from trying $y_k = r^k$ in $y_{k+2} + a\,y_{k+1} + b\,y_k = 0$.', topic: Linear recurrences}
+- {front: 'Auxiliary equation', back: '$r^2 + ar + b = 0$, from trying $y_k = r^k$ in $y_{k+2} + a\,y_{k+1} + b\,y_k = 0$.', topic: Linear recurrences}
 - {front: 'Basis for two different real roots $r_1, r_2$', back: '$\{r_1^k, r_2^k\}$; general solution $c_1r_1^k + c_2r_2^k$.', topic: Linear recurrences}
-- {front: Basis for a repeated root $r$, back: '$\{r^k, k\,r^k\}$.', topic: Linear recurrences}
-- {front: Casorati test, back: 'Two solutions $u$, $v$ of the same second-order recurrence are independent exactly when $\begin{bmatrix} u_0 & v_0 \\ u_1 & v_1\end{bmatrix}$ is invertible.', topic: Linear recurrences}
-- {front: Forced recurrence, back: 'Solutions of $y_{k+2} + a\,y_{k+1} + b\,y_k = f_k$: one particular solution plus every homogeneous solution (not a subspace).', topic: Linear recurrences}
+- {front: 'Basis for a repeated root $r$', back: '$\{r^k, k\,r^k\}$.', topic: Linear recurrences}
+- {front: 'Casorati test', back: 'Two solutions $u$, $v$ of the same second-order recurrence are independent exactly when $\begin{bmatrix} u_0 & v_0 \\ u_1 & v_1\end{bmatrix}$ is invertible.', topic: Linear recurrences}
+- {front: 'Forced recurrence', back: 'Solutions of $y_{k+2} + a\,y_{k+1} + b\,y_k = f_k$: one particular solution plus every homogeneous solution (not a subspace).', topic: Linear recurrences}
