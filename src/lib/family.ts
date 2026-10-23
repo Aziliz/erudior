@@ -57,9 +57,35 @@ export interface CustomReminder {
   text: string;
 }
 
+/** A class in Classroom mode. Students can be in several classes. */
+export interface ClassInfo {
+  id: string;
+  name: string;
+  /** Shared with students' own devices in the class file; checks hand-in files. Base64, 32 bytes. */
+  secret: string;
+  students: string[];
+  assignments: ClassAssignment[];
+  /** May students start courses that aren't assigned? */
+  freeChoice: boolean;
+  /** Last hand-in imported per student (ISO time of the file). */
+  handins: Record<string, string>;
+}
+
+export interface ClassAssignment {
+  courseId: string;
+  /** YYYY-MM-DD, optional. */
+  due?: string;
+  /** YYYY-MM-DD it was assigned. */
+  assigned: string;
+}
+
 export interface Family {
   format: "examiner-family";
   version: 1;
+  /** Homeschool (the default) or Classroom (a teacher's computer). */
+  mode?: "homeschool" | "classroom";
+  /** Classroom mode: the teacher's classes. */
+  classes?: ClassInfo[];
   /** Two-letter code from the state rules file. */
   state: string;
   /** "Home education law" or another route from the state's rules. */
@@ -82,6 +108,24 @@ export interface Family {
   school?: { name: string; administrator: string; address: string };
   /** Letter-grade cutoffs (never looser than MIN_CUTOFFS) and how course percents are weighted. */
   grading?: { cutoffs: Cutoffs; weights: Weights };
+}
+
+export const isClassroom = (f: Family | null | undefined) => f?.mode === "classroom";
+/** "Parent" or "Teacher", for labels. */
+export const adultLabel = (f: Family | null | undefined) => (isClassroom(f) ? "Teacher" : "Parent");
+export const classesOf = (f: Family, studentId: string) => (f.classes ?? []).filter((c) => c.students.includes(studentId));
+
+export function newClass(name: string, studentIds: string[] = []): ClassInfo {
+  const secret = crypto.getRandomValues(new Uint8Array(32));
+  return {
+    id: uid("c").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 16),
+    name: name.trim(),
+    secret: btoa(String.fromCharCode(...secret)),
+    students: studentIds,
+    assignments: [],
+    freeChoice: false,
+    handins: {},
+  };
 }
 
 export const gradingOf = (f: Family) => ({ cutoffs: f.grading?.cutoffs ?? MIN_CUTOFFS, weights: f.grading?.weights ?? DEFAULT_WEIGHTS });
@@ -109,6 +153,10 @@ export function newStudent(name: string, grade: number): Student {
  * already on this computer (the old files stay as they were, as a fallback).
  */
 export async function createFamily(input: {
+  mode?: "homeschool" | "classroom";
+  /** Classroom: the first class's name (all students go in it). */
+  className?: string;
+  school?: { name: string; administrator: string; address: string };
   state: string;
   route: string;
   year: { start: string; end: string };
@@ -120,9 +168,12 @@ export async function createFamily(input: {
   const students = input.students.map((s) => newStudent(s.name, s.grade));
   if (!students.length) throw new Error("Add at least one student.");
   const recoveryCode = makeRecoveryCode();
+  const classroom = input.mode === "classroom";
   const family: Family = {
     format: "examiner-family",
     version: 1,
+    ...(classroom ? { mode: "classroom" as const, classes: [newClass(input.className || "My class", students.map((s) => s.id))] } : {}),
+    ...(input.school ? { school: input.school } : {}),
     state: input.state,
     route: input.route,
     year: input.year,
@@ -136,6 +187,12 @@ export async function createFamily(input: {
     reminders: [],
     done: [],
   };
+  if (classroom) {
+    // Students start fresh; whatever was on this computer stays as the teacher's own progress file.
+    for (const st of students) await saveState(`progress-${st.id}`, JSON.stringify({ catalogV1: true, enrolled: [] }));
+    await saveFamily(family);
+    return { family, recoveryCode };
+  }
   const first = students[0].id;
   const existing = await loadBaseProgress();
   await saveState(`progress-${first}`, JSON.stringify(existing));

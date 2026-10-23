@@ -27,7 +27,7 @@ import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
-import { HOMESCHOOL, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
+import { HOMESCHOOL, adultLabel, classesOf, isClassroom, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
 import { courseFinished } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
 import { useStudyTimer } from "./lib/timer";
@@ -318,6 +318,11 @@ export default function App() {
   const assignmentBlock = useCallback(
     (courseId: string): string | null => {
       if (!student) return null;
+      if (isClassroom(family)) {
+        const mine = classesOf(family!, student.id);
+        if (mine.some((c) => c.assignments.some((a) => a.courseId === courseId) || c.freeChoice)) return null;
+        return "Not assigned in your class";
+      }
       const finished = (id: string) => courseFinished(id, progressRef.current, courses.find((c) => c.id === id)).done;
       const current = currentAssignments(student, finished);
       if (current.has(courseId)) return null;
@@ -329,7 +334,7 @@ export default function App() {
       }
       return student.freeChoice ? null : "Not assigned yet; ask a parent";
     },
-    [student, courses],
+    [student, courses, family],
   );
 
   const chooseStudent = useCallback(
@@ -613,6 +618,12 @@ export default function App() {
             api={api}
             onDone={async (f) => {
               setFamilyState(f);
+              if (isClassroom(f)) {
+                // The teacher who just set it up goes straight to their area.
+                setParentUnlocked(true);
+                setView({ name: "parent", tab: "classes" });
+                return;
+              }
               await chooseStudent(f.students[0].id);
               // Courses already on this computer stay in the first student's list.
               const p = progressRef.current;
@@ -686,13 +697,13 @@ export default function App() {
                 aria-current={view.name === "parent" ? "page" : undefined}
                 onClick={() => setView({ name: "parent" })}
               >
-                Parent
+                {adultLabel(family)}
               </button>
             </div>
           )}
           {HOMESCHOOL && !family && (
             <button className="btn sm" onClick={() => setView({ name: "familySetup" })}>
-              Homeschool
+              Homeschool or classroom
             </button>
           )}
           <form

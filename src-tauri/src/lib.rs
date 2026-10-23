@@ -101,7 +101,8 @@ fn save_progress(app: AppHandle, content: String) -> Result<(), String> {
 }
 
 /// Small named state files next to progress.json (e.g. the in-progress exam).
-/// Homeschool families add "family", and per-student "progress-<id>", "records-<id>" and
+/// Homeschool families and classrooms add "family"; a student's own device joined to classes
+/// adds "classes"; and per-student "progress-<id>", "records-<id>" and
 /// "session-<id>", "portfolio-<id>" (ids are 1-24 lowercase letters or digits).
 fn aux_path(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
     if valid_state_name(name) {
@@ -112,7 +113,7 @@ fn aux_path(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
 }
 
 fn valid_state_name(name: &str) -> bool {
-    if name == "session" || name == "family" {
+    if name == "session" || name == "family" || name == "classes" {
         return true;
     }
     for prefix in ["progress-", "records-", "session-", "portfolio-"] {

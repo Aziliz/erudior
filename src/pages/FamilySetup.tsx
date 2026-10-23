@@ -1,6 +1,14 @@
 import { useState } from "react";
 import type { AppApi } from "../App";
-import { GRADES, createFamily, defaultYear, gradeLabel, passwordProblem, pinProblem, type Family } from "../lib/family";
+import {
+  GRADES,
+  createFamily,
+  defaultYear,
+  gradeLabel,
+  passwordProblem,
+  pinProblem,
+  type Family,
+} from "../lib/family";
 import { hoursFor, routeOptions, stateInfo, statesData } from "../lib/states";
 import { today } from "../lib/srs";
 
@@ -15,8 +23,21 @@ export function suggestedMinutes(code: string): number {
   return 180;
 }
 
-export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: Family) => Promise<void> }) {
+export default function FamilySetup({
+  api,
+  onDone,
+}: {
+  api: AppApi;
+  onDone: (f: Family) => Promise<void>;
+}) {
   const year = defaultYear(today());
+  const [mode, setMode] = useState<"homeschool" | "classroom">("homeschool");
+  const classroom = mode === "classroom";
+  const [school, setSchool] = useState("");
+  const [teacher, setTeacher] = useState("");
+  const [className, setClassName] = useState("");
+  const [classGrade, setClassGrade] = useState(6);
+  const [roster, setRoster] = useState("");
   const [state, setState] = useState("");
   const [route, setRoute] = useState("Home education law");
   const [start, setStart] = useState(year.start);
@@ -29,14 +50,24 @@ export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: 
   const [students, setStudents] = useState([{ name: "", grade: 1 }]);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  const [done, setDone] = useState<{ family: Family; code: string } | null>(null);
+  const [done, setDone] = useState<{ family: Family; code: string } | null>(
+    null,
+  );
   const info = stateInfo(state);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    const named = students.filter((s) => s.name.trim());
+    const named = classroom
+      ? roster
+          .split("\n")
+          .map((n) => n.trim())
+          .filter(Boolean)
+          .map((name) => ({ name, grade: classGrade }))
+      : students.filter((s) => s.name.trim());
     const problem =
-      (!state && "Choose your state.") ||
+      (!classroom && !state && "Choose your state.") ||
+      (classroom && !teacher.trim() && "Enter your name as the teacher.") ||
+      (classroom && !className.trim() && "Name your first class.") ||
       (end <= start && "The school year has to end after it starts.") ||
       (!named.length && "Add at least one student.") ||
       passwordProblem(pw) ||
@@ -51,7 +82,12 @@ export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: 
     setBusy(true);
     try {
       const { family, recoveryCode } = await createFamily({
-        state,
+        mode,
+        className: className.trim(),
+        school: classroom
+          ? { name: school.trim(), administrator: teacher.trim(), address: "" }
+          : undefined,
+        state: classroom ? "" : state,
         route,
         year: { start, end },
         dailyMinutes: minutes,
@@ -71,11 +107,21 @@ export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: 
     return (
       <div className="page narrow-page">
         <h1>Write down your recovery code</h1>
-        <p>If you forget the parent password, this code is the only way to reset it. Erudior keeps nothing online, so nobody else can.</p>
-        <p className="recovery-code" aria-label={`Recovery code: ${done.code.split("").join(" ")}`}>
+        <p>
+          If you forget the {classroom ? "teacher" : "parent"} password, this
+          code is the only way to reset it. Erudior keeps nothing online, so
+          nobody else can.
+        </p>
+        <p
+          className="recovery-code"
+          aria-label={`Recovery code: ${done.code.split("").join(" ")}`}
+        >
           {done.code}
         </p>
-        <p className="muted small">Keep it somewhere safe, away from the computer (a notebook or a password manager).</p>
+        <p className="muted small">
+          Keep it somewhere safe, away from the computer (a notebook or a
+          password manager).
+        </p>
         <button className="btn primary" onClick={() => onDone(done.family)}>
           I've written it down
         </button>
@@ -84,137 +130,290 @@ export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: 
 
   return (
     <form className="page narrow-page" onSubmit={submit} noValidate>
-      <button type="button" className="back" onClick={() => api.go({ name: "library" })}>
+      <button
+        type="button"
+        className="back"
+        onClick={() => api.go({ name: "library" })}
+      >
         ← Library
       </button>
-      <h1>Set up homeschool</h1>
+      <h1>Set up homeschool or a classroom</h1>
       <p className="muted">
-        Separate progress for each student, a parent area behind a password, attendance and hours against your state's
-        rules, and reminders. Everything stays on this computer.
+        Separate progress for each student and an area behind a password for the
+        adult in charge. Everything stays on this computer.
       </p>
 
-      <fieldset className="panel form-grid">
-        <legend>Your state</legend>
-        <label className="field">
-          <span>State</span>
-          <select
-            className="select"
-            value={state}
-            required
-            onChange={(e) => {
-              setState(e.target.value);
-              setRoute("Home education law");
-              setMinutes(suggestedMinutes(e.target.value));
-            }}
-          >
-            <option value="">Choose…</option>
-            {statesData().states.map((s) => (
-              <option key={s.code} value={s.code}>
-                {s.name}
-              </option>
-            ))}
-          </select>
+      <fieldset className="panel">
+        <legend>Who is this computer for?</legend>
+        <label className="check">
+          <input
+            type="radio"
+            name="mode"
+            checked={!classroom}
+            onChange={() => setMode("homeschool")}
+          />
+          <span>
+            <b>Homeschool</b>: a family. Attendance and hours against your
+            state's rules, records, reminders.
+          </span>
         </label>
-        {info && (
+        <label className="check" style={{ marginTop: 8 }}>
+          <input
+            type="radio"
+            name="mode"
+            checked={classroom}
+            onChange={() => setMode("classroom")}
+          />
+          <span>
+            <b>Classroom</b>: a teacher. Classes, assignments with due dates, a
+            gradebook, and hand-in files from students' own devices.
+          </span>
+        </label>
+      </fieldset>
+
+      {classroom && (
+        <fieldset className="panel form-grid">
+          <legend>Your class</legend>
           <label className="field">
-            <span>How you homeschool</span>
-            <select className="select" value={route} onChange={(e) => setRoute(e.target.value)}>
-              {routeOptions(info).map((r) => (
-                <option key={r}>{r}</option>
+            <span>Your name (shown to students and on reports)</span>
+            <input
+              className="input"
+              value={teacher}
+              autoComplete="name"
+              onChange={(e) => setTeacher(e.target.value)}
+            />
+          </label>
+          <label className="field">
+            <span>School (optional)</span>
+            <input
+              className="input"
+              value={school}
+              onChange={(e) => setSchool(e.target.value)}
+            />
+          </label>
+          <label className="field">
+            <span>First class name</span>
+            <input
+              className="input"
+              value={className}
+              onChange={(e) => setClassName(e.target.value)}
+              placeholder="e.g. Period 3 Algebra 1"
+            />
+          </label>
+          <label className="field">
+            <span>Grade</span>
+            <select
+              className="select"
+              value={classGrade}
+              onChange={(e) => setClassGrade(Number(e.target.value))}
+            >
+              {GRADES.map((_, g) => (
+                <option key={g} value={g}>
+                  {gradeLabel(g)}
+                </option>
               ))}
             </select>
           </label>
-        )}
-        {info && (
-          <p className="small muted span-2">
-            {info.name}: notice: {info.notice}. Time: {info.time}. Testing: {info.assessment}.{" "}
-            {route !== "Home education law" && "Under another route the school or program sets the rules; reminders use only your own dates."}
-          </p>
-        )}
-      </fieldset>
+          <label className="field span-2">
+            <span>
+              Students, one name per line (first names or nicknames are enough)
+            </span>
+            <textarea
+              className="textarea"
+              rows={6}
+              value={roster}
+              onChange={(e) => setRoster(e.target.value)}
+            />
+          </label>
+        </fieldset>
+      )}
+
+      {!classroom && (
+        <fieldset className="panel form-grid">
+          <legend>Your state</legend>
+          <label className="field">
+            <span>State</span>
+            <select
+              className="select"
+              value={state}
+              required
+              onChange={(e) => {
+                setState(e.target.value);
+                setRoute("Home education law");
+                setMinutes(suggestedMinutes(e.target.value));
+              }}
+            >
+              <option value="">Choose…</option>
+              {statesData().states.map((s) => (
+                <option key={s.code} value={s.code}>
+                  {s.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          {info && (
+            <label className="field">
+              <span>How you homeschool</span>
+              <select
+                className="select"
+                value={route}
+                onChange={(e) => setRoute(e.target.value)}
+              >
+                {routeOptions(info).map((r) => (
+                  <option key={r}>{r}</option>
+                ))}
+              </select>
+            </label>
+          )}
+          {info && (
+            <p className="small muted span-2">
+              {info.name}: notice: {info.notice}. Time: {info.time}. Testing:{" "}
+              {info.assessment}.{" "}
+              {route !== "Home education law" &&
+                "Under another route the school or program sets the rules; reminders use only your own dates."}
+            </p>
+          )}
+        </fieldset>
+      )}
 
       <fieldset className="panel form-grid">
         <legend>School year</legend>
         <label className="field">
           <span>Starts</span>
-          <input className="input" type="date" value={start} onChange={(e) => setStart(e.target.value)} />
+          <input
+            className="input"
+            type="date"
+            value={start}
+            onChange={(e) => setStart(e.target.value)}
+          />
         </label>
         <label className="field">
           <span>Ends</span>
-          <input className="input" type="date" value={end} onChange={(e) => setEnd(e.target.value)} />
-        </label>
-        <label className="field">
-          <span>Minutes that make a school day</span>
           <input
             className="input"
-            type="number"
-            min={15}
-            max={720}
-            step={15}
-            value={minutes}
-            onChange={(e) => setMinutes(Number(e.target.value) || 0)}
-            aria-describedby="minutes-help"
+            type="date"
+            value={end}
+            onChange={(e) => setEnd(e.target.value)}
           />
         </label>
-        <p id="minutes-help" className="small muted">
-          Days with at least this much learning (in the app or entered by hand) are proposed as school days. You confirm them.
-        </p>
+        {!classroom && (
+          <label className="field">
+            <span>Minutes that make a school day</span>
+            <input
+              className="input"
+              type="number"
+              min={15}
+              max={720}
+              step={15}
+              value={minutes}
+              onChange={(e) => setMinutes(Number(e.target.value) || 0)}
+              aria-describedby="minutes-help"
+            />
+          </label>
+        )}
+        {!classroom && (
+          <p id="minutes-help" className="small muted">
+            Days with at least this much learning (in the app or entered by
+            hand) are proposed as school days. You confirm them.
+          </p>
+        )}
       </fieldset>
 
-      <fieldset className="panel">
-        <legend>Students</legend>
-        <p className="small muted" style={{ marginBottom: 12 }}>
-          Each student gets their own progress. Progress already on this computer becomes the first student's.
-        </p>
-        {students.map((s, i) => (
-          <div key={i} className="row student-row">
-            <label className="field grow">
-              <span>Name</span>
-              <input
-                className="input"
-                value={s.name}
-                autoComplete="off"
-                onChange={(e) => setStudents((x) => x.map((y, j) => (j === i ? { ...y, name: e.target.value } : y)))}
-              />
-            </label>
-            <label className="field">
-              <span>Grade</span>
-              <select
-                className="select"
-                value={s.grade}
-                onChange={(e) => setStudents((x) => x.map((y, j) => (j === i ? { ...y, grade: Number(e.target.value) } : y)))}
-              >
-                {GRADES.map((_, g) => (
-                  <option key={g} value={g}>
-                    {gradeLabel(g)}
-                  </option>
-                ))}
-              </select>
-            </label>
-            {students.length > 1 && (
-              <button type="button" className="btn sm ghost" onClick={() => setStudents((x) => x.filter((_, j) => j !== i))}>
-                Remove<span className="sr-only"> student {i + 1}</span>
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" className="btn sm" onClick={() => setStudents((x) => [...x, { name: "", grade: 1 }])}>
-          Add another student
-        </button>
-      </fieldset>
+      {!classroom && (
+        <fieldset className="panel">
+          <legend>Students</legend>
+          <p className="small muted" style={{ marginBottom: 12 }}>
+            Each student gets their own progress. Progress already on this
+            computer becomes the first student's.
+          </p>
+          {students.map((s, i) => (
+            <div key={i} className="row student-row">
+              <label className="field grow">
+                <span>Name</span>
+                <input
+                  className="input"
+                  value={s.name}
+                  autoComplete="off"
+                  onChange={(e) =>
+                    setStudents((x) =>
+                      x.map((y, j) =>
+                        j === i ? { ...y, name: e.target.value } : y,
+                      ),
+                    )
+                  }
+                />
+              </label>
+              <label className="field">
+                <span>Grade</span>
+                <select
+                  className="select"
+                  value={s.grade}
+                  onChange={(e) =>
+                    setStudents((x) =>
+                      x.map((y, j) =>
+                        j === i ? { ...y, grade: Number(e.target.value) } : y,
+                      ),
+                    )
+                  }
+                >
+                  {GRADES.map((_, g) => (
+                    <option key={g} value={g}>
+                      {gradeLabel(g)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {students.length > 1 && (
+                <button
+                  type="button"
+                  className="btn sm ghost"
+                  onClick={() =>
+                    setStudents((x) => x.filter((_, j) => j !== i))
+                  }
+                >
+                  Remove<span className="sr-only"> student {i + 1}</span>
+                </button>
+              )}
+            </div>
+          ))}
+          <button
+            type="button"
+            className="btn sm"
+            onClick={() => setStudents((x) => [...x, { name: "", grade: 1 }])}
+          >
+            Add another student
+          </button>
+        </fieldset>
+      )}
 
       <fieldset className="panel form-grid">
-        <legend>Parent password</legend>
+        <legend>{classroom ? "Teacher" : "Parent"} password</legend>
         <label className="field">
           <span>Password (8 characters or more)</span>
-          <input className="input" type="password" autoComplete="new-password" value={pw} onChange={(e) => setPw(e.target.value)} />
+          <input
+            className="input"
+            type="password"
+            autoComplete="new-password"
+            value={pw}
+            onChange={(e) => setPw(e.target.value)}
+          />
         </label>
         <label className="field">
           <span>Type it again</span>
-          <input className="input" type="password" autoComplete="new-password" value={pw2} onChange={(e) => setPw2(e.target.value)} />
+          <input
+            className="input"
+            type="password"
+            autoComplete="new-password"
+            value={pw2}
+            onChange={(e) => setPw2(e.target.value)}
+          />
         </label>
         <label className="check span-2">
-          <input type="checkbox" checked={usePin} onChange={(e) => setUsePin(e.target.checked)} />
+          <input
+            type="checkbox"
+            checked={usePin}
+            onChange={(e) => setUsePin(e.target.checked)}
+          />
           Also allow a PIN for quicker sign-in
         </label>
         {usePin && (
@@ -239,7 +438,11 @@ export default function FamilySetup({ api, onDone }: { api: AppApi; onDone: (f: 
       )}
       <div className="row" style={{ marginTop: 16 }}>
         <button className="btn primary" type="submit" disabled={busy}>
-          {busy ? "Setting up…" : "Set up homeschool"}
+          {busy
+            ? "Setting up…"
+            : classroom
+              ? "Set up the classroom"
+              : "Set up homeschool"}
         </button>
       </div>
     </form>

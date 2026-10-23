@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
-import { lockedFor, passwordProblem, resetWithRecovery, unlockParent, type Family } from "../lib/family";
+import { adultLabel, isClassroom, lockedFor, passwordProblem, resetWithRecovery, unlockParent, type Family } from "../lib/family";
 
 /** Password (or PIN, if the parent turned it on) before the parent area opens. */
 export default function ParentGate({ api, family, onUnlock }: { api: AppApi; family: Family; onUnlock: () => void }) {
@@ -40,10 +40,10 @@ export default function ParentGate({ api, family, onUnlock }: { api: AppApi; fam
 
   return (
     <form className="page narrow-page" onSubmit={submit}>
-      <h1>Parent area</h1>
-      <p className="muted">Attendance, hours, course assignments and settings.</p>
+      <h1>{adultLabel(family)} area</h1>
+      <p className="muted">{isClassroom(family) ? "Classes, assignments, grades, hand-ins and settings." : "Attendance, hours, course assignments and settings."}</p>
       <label className="field" style={{ maxWidth: 360, marginTop: 16 }}>
-        <span>{kind === "pin" ? "PIN" : "Parent password"}</span>
+        <span>{kind === "pin" ? "PIN" : `${adultLabel(family)} password`}</span>
         <input
           ref={input}
           className="input"
@@ -102,14 +102,14 @@ function Recovery({ api, family, onBack, onUnlock }: { api: AppApi; family: Fami
         <p>Your old recovery code no longer works. Here's the new one; write it down. The PIN was turned off; you can set a new one in Settings.</p>
         <p className="recovery-code">{newCode}</p>
         <button className="btn primary" onClick={onUnlock}>
-          Open the parent area
+          Open the area
         </button>
       </div>
     );
 
   return (
     <form className="page narrow-page" onSubmit={submit}>
-      <h1>Reset the parent password</h1>
+      <h1>Reset the password</h1>
       <p className="muted">Use the recovery code shown when homeschool was set up.</p>
       <div className="form-grid" style={{ marginTop: 16 }}>
         <label className="field">

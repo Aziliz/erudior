@@ -1,7 +1,7 @@
 // The printable homeschool reports. Each renders an <article class="doc"> that prints on its own
 // (styles.css hides everything else when printing) and can be saved as an HTML file.
 
-import { gradingOf, gradeLabel, type Family, type Student } from "../lib/family";
+import { gradingOf, gradeLabel, isClassroom, type Family, type Student } from "../lib/family";
 import { LEVEL_LABEL, letterFor, type Cutoffs } from "../lib/grades";
 import {
   compliance,
@@ -28,7 +28,7 @@ function Letterhead({ family, student, title, sub }: { family: Family; student: 
   return (
     <header className="doc-head">
       <div>
-        <p className="doc-school">{school?.name || `${student.name}'s home school`}</p>
+        <p className="doc-school">{school?.name || (isClassroom(family) ? school?.administrator || "Classroom" : `${student.name}'s home school`)}</p>
         {school?.address && <p className="doc-small">{school.address}</p>}
         <p className="doc-small">{stateInfo(family.state)?.name}</p>
       </div>
@@ -48,7 +48,7 @@ function Signature({ family, note }: { family: Family; note?: string }) {
         <div>
           <span className="doc-line" />
           <p className="doc-small">
-            {family.school?.administrator || "Parent"}, school administrator
+            {family.school?.administrator || (isClassroom(family) ? "Teacher" : "Parent")}, {isClassroom(family) ? "teacher" : "school administrator"}
           </p>
         </div>
         <div>
@@ -58,7 +58,9 @@ function Signature({ family, note }: { family: Family; note?: string }) {
       </div>
       <p className="doc-small doc-note">
         {note ??
-          "Prepared by the parent from records kept in Erudior on the family's computer. The parent, as the home school's administrator, is responsible for the accuracy of this record."}
+          (isClassroom(family)
+            ? "Prepared by the teacher from records kept in Erudior on the teacher's computer."
+            : "Prepared by the parent from records kept in Erudior on the family's computer. The parent, as the home school's administrator, is responsible for the accuracy of this record.")}
       </p>
     </footer>
   );

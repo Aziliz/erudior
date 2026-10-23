@@ -1,6 +1,6 @@
 # Erudior (formerly Examiner): handoff
 
-State as of 2026-10-23, v0.18.0. Read this first in a new chat.
+State as of 2026-10-23, v0.19.0. Read this first in a new chat.
 
 ## What it is
 
@@ -59,6 +59,16 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
+
+## Classroom mode (v0.19.0, desktop app)
+
+- Jon: both ways of working — students on the teacher's computer (pick their name) and on their own device (class file in, hand-in file out).
+- Setup (top bar "Homeschool or classroom") asks Homeschool or Classroom. Classroom = `family.json` with `mode: "classroom"` and `classes: ClassInfo[]` (name, roster of student ids, assignments with optional due dates, `freeChoice`, a 32-byte secret, last hand-in per student). Students start with fresh progress (whatever was on the computer stays as the base progress.json). No state rules, attendance, minutes or reminders in this mode; labels say Teacher.
+- Teacher area tabs: Overview (per class: students, assigned, finished, past due, next due), Classes (rename, assign courses + due dates, free choice, roster add/remove/move, "Save class file"), Gradebook (students × assigned courses: grade + lessons + past due; CSV), Hand-ins (import), Grades and Reports (report card, portfolio) and Students and Settings from homeschool.
+- Students on the teacher's computer: "Who's learning?" grouped by class; Library shows "Assigned in <class>" with due dates; other catalog courses locked unless the class allows free choice.
+- Own device (`lib/classroom.ts`, `components/ClassViews.tsx`): any install without a family (desktop or app.erudior.com) shows "Join a class" → open the class file → pick your name (stored in state file `classes`). The class's assignments show with due dates; "Hand in work" saves `erudior-handin` JSON with the student's attempts, lessons, modules and drills for the assigned courses, HMAC-SHA256 with the class secret over a stable JSON form. Teacher import checks class, roster and HMAC, then merges (attempts by id, earliest completion dates, larger drill tallies, enrolls the courses; installs missing catalog courses). The secret is in the class file, so this stops mix-ups and casual edits, not a determined student (said in the code comment).
+- Fixed along the way: under 900px the exam/quiz answer sheet (with Finish quiz / End session) was hidden; it now sits under the question.
+- Tests: `tests/classroom.test.mts` (in npm test); `scripts/classroom-walkthrough.mjs` (teacher + a second browser as the student's device: setup, assign with due date, class file, shared-computer quiz, join, hand-in, tampered file refused, gradebook, CSV, reports), clean light/dark 1280 and 320.
 
 ## Community courses (v0.18.0)
 
@@ -155,6 +165,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
 | `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech; input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
 | `src/pages/VocabRunner.tsx`, `src/pages/VocabTabs.tsx` | Vocabulary review/practice screen; Vocabulary and Reading list tabs |
+| `src/lib/classroom.ts`; `src/pages/TeacherTabs.tsx`; `src/components/ClassViews.tsx` | Classroom mode: class file / hand-in / merge; teacher tabs; Library class sections |
 | `worker/`; `src/lib/communityFormat.ts`, `community.ts`; `src/pages/CreateHome.tsx`, `CommunityEditor.tsx`, `ReviewQueue.tsx`; `src/components/CommunityCatalog.tsx` | Community courses: API, format/converter, client, editor, review, Library section |
 | `src/lib/grades.ts`, `reports.ts`, `portfolio.ts`; `src/pages/ParentRecords.tsx`; `src/components/ReportDocs.tsx` | Homeschool records: grades/GPA, report data, photos; Grades and Reports tabs; printable documents |
 | `src/lib/family.ts`, `records.ts`, `states.ts`, `timer.ts`, `backup.ts` | Homeschool: family/students/parent lock, records + attendance + reminders, state rules, active study timer, encrypted backup |
@@ -300,7 +311,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
-- Rest of Phase 4: Classroom mode, Live room; K-12 courses. Ask Jon first.
+- Rest of Phase 4: Live room (Jon: through api.erudior.com, e.g. a Durable Object room, join code + nickname, nothing stored); K-12 courses. Ask Jon first.
 - Jon's hosting setup (docs/HOSTING.md) now uses erudior.com.
 
 - The Van Ed refinement pass.

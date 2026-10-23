@@ -690,12 +690,17 @@ a:hover {
   grid-template-columns: 1fr 300px;
   height: 100%;
 }
+/* Narrow windows: the answer sheet (and its Finish / End buttons) moves under the question. */
 @media (max-width: 900px) {
   .runner {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 100%;
   }
   .runner .sheet-side {
-    display: none;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
   }
 }
 .runner-main {
@@ -3012,4 +3017,8 @@ fieldset.block-edit > legend {
   .save-state {
     text-align: left;
   }
+}
+.late {
+  color: var(--bad);
+  font-weight: 600;
 }

@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
-import { SUBJECTS, gradeLabel, gradingOf, GRADES, type Family } from "../lib/family";
+import { SUBJECTS, gradeLabel, gradingOf, GRADES, isClassroom, type Family } from "../lib/family";
 import { LEVEL_LABEL, letterFor, type CourseLevel, type CourseRecord } from "../lib/grades";
 import { loadRecords, saveRecords, type Records } from "../lib/records";
 import {
@@ -585,7 +585,7 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
         <label className="field">
           <span>Report</span>
           <select className="select" value={kind} onChange={(e) => setKind(e.target.value as Kind)}>
-            {KINDS.map((k) => (
+            {KINDS.filter((k) => !isClassroom(family) || k.id === "card" || k.id === "portfolio").map((k) => (
               <option key={k.id} value={k.id}>
                 {k.label}
               </option>
@@ -629,7 +629,7 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
 
       {!family.school?.name && (
         <p className="notice no-print" style={{ marginBottom: 16 }}>
-          Add your home school's name and the administrator's name in Settings and backup; they're printed on every report.
+          {isClassroom(family) ? "Add your school's name and your name" : "Add your home school's name and the administrator's name"} in Settings and backup; they're printed on every report.
         </p>
       )}
 

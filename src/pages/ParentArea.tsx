@@ -6,6 +6,8 @@ import {
   SUBJECTS,
   gradeLabel,
   gradingOf,
+  adultLabel,
+  isClassroom,
   makeSecret,
   newStudent,
   passwordProblem,
@@ -29,14 +31,55 @@ import {
 import { routeOptions, stateInfo, statesData } from "../lib/states";
 import { addDays, today } from "../lib/srs";
 import * as store from "../lib/storage";
-import { decryptText, exportEncrypted, isEncryptedBackup, restoreContents } from "../lib/backup";
+import {
+  decryptText,
+  exportEncrypted,
+  isEncryptedBackup,
+  restoreContents,
+} from "../lib/backup";
 import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
 import { GradesTab, ReportsTab } from "./ParentRecords";
+import {
+  ClassOverview,
+  ClassesTab,
+  GradebookTab,
+  HandinsTab,
+} from "./TeacherTabs";
 import { DocumentsTab, ReadingTab } from "./ParentFiles";
-import { DEFAULT_WEIGHTS, MIN_CUTOFFS as MIN, cutoffProblem, type Cutoffs, type Weights } from "../lib/grades";
+import {
+  DEFAULT_WEIGHTS,
+  MIN_CUTOFFS as MIN,
+  cutoffProblem,
+  type Cutoffs,
+  type Weights,
+} from "../lib/grades";
 
-export type ParentTab = "overview" | "attendance" | "courses" | "grades" | "reading" | "documents" | "reports" | "students" | "state" | "settings";
+export type ParentTab =
+  | "overview"
+  | "attendance"
+  | "courses"
+  | "grades"
+  | "reading"
+  | "documents"
+  | "reports"
+  | "students"
+  | "state"
+  | "settings"
+  | "classes"
+  | "gradebook"
+  | "handins";
+
+const CLASS_TABS: { id: ParentTab; label: string }[] = [
+  { id: "overview", label: "Overview" },
+  { id: "classes", label: "Classes" },
+  { id: "gradebook", label: "Gradebook" },
+  { id: "handins", label: "Hand-ins" },
+  { id: "grades", label: "Grades" },
+  { id: "reports", label: "Reports" },
+  { id: "students", label: "Students" },
+  { id: "settings", label: "Settings and backup" },
+];
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
@@ -52,14 +95,34 @@ const TABS: { id: ParentTab; label: string }[] = [
 ];
 
 const fmtDate = (d: string) =>
-  new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
-const fmtHours = (h: number) => (h < 10 ? h.toFixed(1) : Math.round(h).toLocaleString());
-const fmtMinutes = (m: number) => (m >= 60 ? `${Math.floor(m / 60)} h ${Math.round(m % 60)} min` : `${Math.round(m)} min`);
+  new Date(`${d}T12:00:00`).toLocaleDateString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+const fmtHours = (h: number) =>
+  h < 10 ? h.toFixed(1) : Math.round(h).toLocaleString();
+const fmtMinutes = (m: number) =>
+  m >= 60
+    ? `${Math.floor(m / 60)} h ${Math.round(m % 60)} min`
+    : `${Math.round(m)} min`;
 
 type RecordsMap = Record<string, Records>;
 
-export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; family: Family; tab: ParentTab; onLock: () => void }) {
+export default function ParentArea({
+  api,
+  family,
+  tab,
+  onLock,
+}: {
+  api: AppApi;
+  family: Family;
+  tab: ParentTab;
+  onLock: () => void;
+}) {
   const [records, setRecords] = useState<RecordsMap | null>(null);
+  const classroom = isClassroom(family);
 
   useEffect(() => {
     (async () => {
@@ -78,18 +141,31 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
     <div className="page">
       <div className="page-head no-print">
         <div>
-          <h1>Parent area</h1>
+          <h1>{adultLabel(family)} area</h1>
           <p className="muted">
-            {stateInfo(family.state)?.name ?? family.state} · School year {fmtDate(family.year.start)} to {fmtDate(family.year.end)}
+            {classroom
+              ? family.school?.name ||
+                family.school?.administrator ||
+                "Classroom"
+              : (stateInfo(family.state)?.name ?? family.state)}{" "}
+            · School year {fmtDate(family.year.start)} to{" "}
+            {fmtDate(family.year.end)}
           </p>
         </div>
         <button className="btn" onClick={onLock}>
           Lock
         </button>
       </div>
-      <nav className="tabs no-print" aria-label="Parent sections">
-        {TABS.map((t) => (
-          <button key={t.id} aria-current={tab === t.id ? "page" : undefined} onClick={() => api.go({ name: "parent", tab: t.id })}>
+      <nav
+        className="tabs no-print"
+        aria-label={`${adultLabel(family)} sections`}
+      >
+        {(classroom ? CLASS_TABS : TABS).map((t) => (
+          <button
+            key={t.id}
+            aria-current={tab === t.id ? "page" : undefined}
+            onClick={() => api.go({ name: "parent", tab: t.id })}
+          >
             {t.label}
           </button>
         ))}
@@ -98,8 +174,23 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
         <p className="muted">Loading records…</p>
       ) : (
         <>
-          {tab === "overview" && <Overview api={api} family={family} records={records} />}
-          {tab === "attendance" && <Attendance api={api} family={family} records={records} saveRec={saveRec} />}
+          {tab === "overview" &&
+            (classroom ? (
+              <ClassOverview api={api} family={family} />
+            ) : (
+              <Overview api={api} family={family} records={records} />
+            ))}
+          {tab === "classes" && <ClassesTab api={api} family={family} />}
+          {tab === "gradebook" && <GradebookTab api={api} family={family} />}
+          {tab === "handins" && <HandinsTab api={api} family={family} />}
+          {tab === "attendance" && (
+            <Attendance
+              api={api}
+              family={family}
+              records={records}
+              saveRec={saveRec}
+            />
+          )}
           {tab === "courses" && <Courses api={api} family={family} />}
           {tab === "grades" && <GradesTab api={api} family={family} />}
           {tab === "reports" && <ReportsTab api={api} family={family} />}
@@ -116,7 +207,19 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
 
 // ---------- Overview ----------
 
-function Meter({ label, have, need, pace, whole }: { label: string; have: number; need?: number; pace: number; whole?: boolean }) {
+function Meter({
+  label,
+  have,
+  need,
+  pace,
+  whole,
+}: {
+  label: string;
+  have: number;
+  need?: number;
+  pace: number;
+  whole?: boolean;
+}) {
   const show = whole ? have.toLocaleString() : fmtHours(have);
   if (!need)
     return (
@@ -133,16 +236,30 @@ function Meter({ label, have, need, pace, whole }: { label: string; have: number
         <span>
           <b>{show}</b> of {need.toLocaleString()} {label}
         </span>
-        <span className="small muted">{behind ? "Behind pace" : "On pace"}</span>
+        <span className="small muted">
+          {behind ? "Behind pace" : "On pace"}
+        </span>
       </div>
-      <div className={`bar ${behind ? "low" : ""}`} role="img" aria-label={`${pct}% of the yearly minimum`}>
+      <div
+        className={`bar ${behind ? "low" : ""}`}
+        role="img"
+        aria-label={`${pct}% of the yearly minimum`}
+      >
         <i style={{ width: `${pct}%` }} />
       </div>
     </div>
   );
 }
 
-function Overview({ api, family, records }: { api: AppApi; family: Family; records: RecordsMap }) {
+function Overview({
+  api,
+  family,
+  records,
+}: {
+  api: AppApi;
+  family: Family;
+  records: RecordsMap;
+}) {
   const due = upcoming(family);
   const now = today();
   const [text, setText] = useState("");
@@ -162,10 +279,18 @@ function Overview({ api, family, records }: { api: AppApi; family: Family; recor
             {due.map((r) => (
               <li key={r.key} className={r.date < now ? "overdue" : ""}>
                 <span className="small">
-                  <b>{r.date < now ? "Overdue: " : ""}{fmtDate(r.date)}</b>
+                  <b>
+                    {r.date < now ? "Overdue: " : ""}
+                    {fmtDate(r.date)}
+                  </b>
                 </span>
                 <span>{r.text}</span>
-                <button className="btn sm" onClick={() => api.setFamily({ ...family, done: [...family.done, r.key] })}>
+                <button
+                  className="btn sm"
+                  onClick={() =>
+                    api.setFamily({ ...family, done: [...family.done, r.key] })
+                  }
+                >
                   Done<span className="sr-only">: {r.text}</span>
                 </button>
               </li>
@@ -178,20 +303,40 @@ function Overview({ api, family, records }: { api: AppApi; family: Family; recor
           onSubmit={async (e) => {
             e.preventDefault();
             if (!text.trim()) return;
-            await api.setFamily({ ...family, reminders: [...family.reminders, { id: uid("r"), date, text: text.trim() }] });
+            await api.setFamily({
+              ...family,
+              reminders: [
+                ...family.reminders,
+                { id: uid("r"), date, text: text.trim() },
+              ],
+            });
             setText("");
             api.toast("Reminder added");
           }}
         >
           <label className="field grow">
             <span>Add your own reminder</span>
-            <input className="input" value={text} onChange={(e) => setText(e.target.value)} placeholder="e.g. Book the standardized test" />
+            <input
+              className="input"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder="e.g. Book the standardized test"
+            />
           </label>
           <label className="field">
             <span>Date</span>
-            <input className="input" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            <input
+              className="input"
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
           </label>
-          <button className="btn" type="submit" style={{ alignSelf: "flex-end" }}>
+          <button
+            className="btn"
+            type="submit"
+            style={{ alignSelf: "flex-end" }}
+          >
             Add
           </button>
         </form>
@@ -204,25 +349,50 @@ function Overview({ api, family, records }: { api: AppApi; family: Family; recor
           <section key={s.id} className="panel">
             <div className="panel-head">
               <h2>
-                {s.name} <span className="small muted">({gradeLabel(s.grade)})</span>
+                {s.name}{" "}
+                <span className="small muted">({gradeLabel(s.grade)})</span>
               </h2>
               {y.daysProposed > 0 && (
-                <button className="btn sm primary" onClick={() => api.go({ name: "parent", tab: "attendance" })}>
-                  {y.daysProposed} day{y.daysProposed === 1 ? "" : "s"} to confirm
+                <button
+                  className="btn sm primary"
+                  onClick={() => api.go({ name: "parent", tab: "attendance" })}
+                >
+                  {y.daysProposed} day{y.daysProposed === 1 ? "" : "s"} to
+                  confirm
                 </button>
               )}
             </div>
             <div className="meters">
-              <Meter label="school days" have={y.daysPresent} need={y.needDays} pace={y.yearElapsed} whole />
-              <Meter label="hours" have={y.hours} need={y.needHours} pace={y.yearElapsed} />
+              <Meter
+                label="school days"
+                have={y.daysPresent}
+                need={y.needDays}
+                pace={y.yearElapsed}
+                whole
+              />
+              <Meter
+                label="hours"
+                have={y.hours}
+                need={y.needHours}
+                pace={y.yearElapsed}
+              />
             </div>
             {y.state?.rules.either && y.needDays && y.needHours && (
-              <p className="small muted">{y.state.name} accepts either the days or the hours.</p>
+              <p className="small muted">
+                {y.state.name} accepts either the days or the hours.
+              </p>
             )}
-            {y.state?.rules.guidance && <p className="small muted">These minimums are the state agency's reading, not statute (see State rules).</p>}
+            {y.state?.rules.guidance && (
+              <p className="small muted">
+                These minimums are the state agency's reading, not statute (see
+                State rules).
+              </p>
+            )}
             {y.bySubject.length > 0 ? (
               <table className="table" style={{ marginTop: 12 }}>
-                <caption className="sr-only">Hours by subject for {s.name}</caption>
+                <caption className="sr-only">
+                  Hours by subject for {s.name}
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Subject</th>
@@ -283,7 +453,12 @@ function Attendance({
   const r = records[s.id] ?? emptyRecords();
   const rows = dayRows(r, family);
   const proposed = rows.filter((x) => x.status === "proposed").length;
-  const [form, setForm] = useState({ date: today(), minutes: 60, subject: "Other", note: "" });
+  const [form, setForm] = useState({
+    date: today(),
+    minutes: 60,
+    subject: "Other",
+    note: "",
+  });
 
   const setDay = (date: string, v: "present" | "absent" | null) => {
     const days = { ...r.days };
@@ -297,21 +472,50 @@ function Attendance({
     const lines = ["Date,Minutes,Status,Subjects and notes"];
     for (const row of [...rows].reverse()) {
       const parts = [
-        ...Object.entries(r.time[row.date] ?? {}).map(([c, sec]) => `${subjectOf(c, s)} (${Math.round(sec / 60)} min, in app)`),
-        ...r.manual.filter((m) => m.date === row.date).map((m) => `${m.subject} (${m.minutes} min${m.note ? `: ${m.note}` : ""})`),
+        ...Object.entries(r.time[row.date] ?? {}).map(
+          ([c, sec]) =>
+            `${subjectOf(c, s)} (${Math.round(sec / 60)} min, in app)`,
+        ),
+        ...r.manual
+          .filter((m) => m.date === row.date)
+          .map(
+            (m) =>
+              `${m.subject} (${m.minutes} min${m.note ? `: ${m.note}` : ""})`,
+          ),
       ];
-      lines.push([row.date, Math.round(row.minutes), STATUS[row.status] || "", q(parts.join("; "))].join(","));
+      lines.push(
+        [
+          row.date,
+          Math.round(row.minutes),
+          STATUS[row.status] || "",
+          q(parts.join("; ")),
+        ].join(","),
+      );
     }
-    if (await store.exportText(lines.join("\n") + "\n", `attendance-${s.name.replace(/\W+/g, "-")}-${family.year.start.slice(0, 4)}.csv`, "CSV", "csv"))
+    if (
+      await store.exportText(
+        lines.join("\n") + "\n",
+        `attendance-${s.name.replace(/\W+/g, "-")}-${family.year.start.slice(0, 4)}.csv`,
+        "CSV",
+        "csv",
+      )
+    )
       api.toast("Attendance saved");
   }
 
   return (
     <>
-      <div className="row" style={{ marginBottom: 16, justifyContent: "space-between" }}>
+      <div
+        className="row"
+        style={{ marginBottom: 16, justifyContent: "space-between" }}
+      >
         <label className="field">
           <span>Student</span>
-          <select className="select" value={s.id} onChange={(e) => setSid(e.target.value)}>
+          <select
+            className="select"
+            value={s.id}
+            onChange={(e) => setSid(e.target.value)}
+          >
             {family.students.map((x) => (
               <option key={x.id} value={x.id}>
                 {x.name}
@@ -323,7 +527,17 @@ function Attendance({
           <button className="btn" onClick={downloadCsv}>
             Download attendance (CSV)
           </button>
-          <button className="btn primary" disabled={!proposed} onClick={() => saveRec(s.id, confirmProposed(r, family)).then(() => api.toast(`Confirmed ${proposed} day${proposed === 1 ? "" : "s"}`))}>
+          <button
+            className="btn primary"
+            disabled={!proposed}
+            onClick={() =>
+              saveRec(s.id, confirmProposed(r, family)).then(() =>
+                api.toast(
+                  `Confirmed ${proposed} day${proposed === 1 ? "" : "s"}`,
+                ),
+              )
+            }
+          >
             Confirm {proposed || "no"} proposed day{proposed === 1 ? "" : "s"}
           </button>
         </div>
@@ -332,29 +546,54 @@ function Attendance({
       <section className="panel">
         <div className="panel-head">
           <h2>Add learning time</h2>
-          <span className="small muted">Field trips, reading, sports, music lessons…</span>
+          <span className="small muted">
+            Field trips, reading, sports, music lessons…
+          </span>
         </div>
         <form
           className="form-grid four"
           onSubmit={async (e) => {
             e.preventDefault();
             if (form.minutes <= 0) return;
-            await saveRec(s.id, addManual(r, { ...form, note: form.note.trim() }));
+            await saveRec(
+              s.id,
+              addManual(r, { ...form, note: form.note.trim() }),
+            );
             setForm((f) => ({ ...f, note: "" }));
             api.toast("Time added");
           }}
         >
           <label className="field">
             <span>Date</span>
-            <input className="input" type="date" value={form.date} max={today()} onChange={(e) => setForm({ ...form, date: e.target.value })} />
+            <input
+              className="input"
+              type="date"
+              value={form.date}
+              max={today()}
+              onChange={(e) => setForm({ ...form, date: e.target.value })}
+            />
           </label>
           <label className="field">
             <span>Minutes</span>
-            <input className="input" type="number" min={5} max={720} step={5} value={form.minutes} onChange={(e) => setForm({ ...form, minutes: Number(e.target.value) || 0 })} />
+            <input
+              className="input"
+              type="number"
+              min={5}
+              max={720}
+              step={5}
+              value={form.minutes}
+              onChange={(e) =>
+                setForm({ ...form, minutes: Number(e.target.value) || 0 })
+              }
+            />
           </label>
           <label className="field">
             <span>Subject</span>
-            <select className="select" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })}>
+            <select
+              className="select"
+              value={form.subject}
+              onChange={(e) => setForm({ ...form, subject: e.target.value })}
+            >
               {SUBJECTS.map((x) => (
                 <option key={x}>{x}</option>
               ))}
@@ -362,7 +601,11 @@ function Attendance({
           </label>
           <label className="field">
             <span>Note (optional)</span>
-            <input className="input" value={form.note} onChange={(e) => setForm({ ...form, note: e.target.value })} />
+            <input
+              className="input"
+              value={form.note}
+              onChange={(e) => setForm({ ...form, note: e.target.value })}
+            />
           </label>
           <div>
             <button className="btn" type="submit">
@@ -375,10 +618,15 @@ function Attendance({
       <section className="panel">
         <div className="panel-head">
           <h2>Days</h2>
-          <span className="small muted">A day with {fmtMinutes(family.dailyMinutes)} or more is proposed. You decide.</span>
+          <span className="small muted">
+            A day with {fmtMinutes(family.dailyMinutes)} or more is proposed.
+            You decide.
+          </span>
         </div>
         {rows.length === 0 ? (
-          <p className="muted small">No learning recorded this school year yet.</p>
+          <p className="muted small">
+            No learning recorded this school year yet.
+          </p>
         ) : (
           <div className="table-wrap">
             <table className="table">
@@ -401,23 +649,46 @@ function Attendance({
                     <td>{fmtDate(row.date)}</td>
                     <td className="r">{fmtMinutes(row.minutes)}</td>
                     <td>
-                      <span className={`pill ${row.status === "present" ? "pass" : row.status === "absent" ? "fail" : "neutral"}`}>{STATUS[row.status] || "None"}</span>
+                      <span
+                        className={`pill ${row.status === "present" ? "pass" : row.status === "absent" ? "fail" : "neutral"}`}
+                      >
+                        {STATUS[row.status] || "None"}
+                      </span>
                     </td>
                     <td>
                       <div className="row">
                         {row.status !== "present" && (
-                          <button className="btn sm" onClick={() => setDay(row.date, "present")}>
-                            School day<span className="sr-only">: {fmtDate(row.date)}</span>
+                          <button
+                            className="btn sm"
+                            onClick={() => setDay(row.date, "present")}
+                          >
+                            School day
+                            <span className="sr-only">
+                              : {fmtDate(row.date)}
+                            </span>
                           </button>
                         )}
                         {row.status !== "absent" && (
-                          <button className="btn sm ghost" onClick={() => setDay(row.date, "absent")}>
-                            Not a school day<span className="sr-only">: {fmtDate(row.date)}</span>
+                          <button
+                            className="btn sm ghost"
+                            onClick={() => setDay(row.date, "absent")}
+                          >
+                            Not a school day
+                            <span className="sr-only">
+                              : {fmtDate(row.date)}
+                            </span>
                           </button>
                         )}
-                        {(row.status === "present" || row.status === "absent") && (
-                          <button className="btn sm ghost" onClick={() => setDay(row.date, null)}>
-                            Undo<span className="sr-only">: {fmtDate(row.date)}</span>
+                        {(row.status === "present" ||
+                          row.status === "absent") && (
+                          <button
+                            className="btn sm ghost"
+                            onClick={() => setDay(row.date, null)}
+                          >
+                            Undo
+                            <span className="sr-only">
+                              : {fmtDate(row.date)}
+                            </span>
                           </button>
                         )}
                       </div>
@@ -437,12 +708,24 @@ function Attendance({
           </div>
           <ul className="plain-list">
             {[...r.manual].reverse().map((m) => (
-              <li key={m.id} className="row" style={{ justifyContent: "space-between" }}>
+              <li
+                key={m.id}
+                className="row"
+                style={{ justifyContent: "space-between" }}
+              >
                 <span>
                   {fmtDate(m.date)}: {m.subject}, {fmtMinutes(m.minutes)}
                   {m.note && <span className="muted"> ({m.note})</span>}
                 </span>
-                <button className="btn sm ghost" onClick={() => saveRec(s.id, { ...r, manual: r.manual.filter((x) => x.id !== m.id) })}>
+                <button
+                  className="btn sm ghost"
+                  onClick={() =>
+                    saveRec(s.id, {
+                      ...r,
+                      manual: r.manual.filter((x) => x.id !== m.id),
+                    })
+                  }
+                >
                   Delete<span className="sr-only"> this entry</span>
                 </button>
               </li>
@@ -464,16 +747,29 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
   const [subject, setSubject] = useState<string>("Math");
 
   useEffect(() => {
-    store.loadState(`progress-${s.id}`).then((t) => setProgress(t ? (JSON.parse(t) as Progress) : store.emptyProgress()));
+    store
+      .loadState(`progress-${s.id}`)
+      .then((t) =>
+        setProgress(t ? (JSON.parse(t) as Progress) : store.emptyProgress()),
+      );
   }, [s.id]);
 
   const options = [
     ...CATALOG.map((e) => ({ id: e.id, title: e.title })),
-    ...api.allCourses.filter((c) => !CATALOG.some((e) => e.id === c.id) && !c.community).map((c) => ({ id: c.id, title: `${c.title} (your course)` })),
+    ...api.allCourses
+      .filter((c) => !CATALOG.some((e) => e.id === c.id) && !c.community)
+      .map((c) => ({ id: c.id, title: `${c.title} (your course)` })),
   ].filter((o) => !s.assigned.some((a) => a.courseId === o.id));
-  const title = (id: string) => CATALOG.find((e) => e.id === id)?.title ?? api.allCourses.find((c) => c.id === id)?.title ?? id;
+  const title = (id: string) =>
+    CATALOG.find((e) => e.id === id)?.title ??
+    api.allCourses.find((c) => c.id === id)?.title ??
+    id;
 
-  const update = (st: Student) => api.setFamily({ ...family, students: family.students.map((x) => (x.id === st.id ? st : x)) });
+  const update = (st: Student) =>
+    api.setFamily({
+      ...family,
+      students: family.students.map((x) => (x.id === st.id ? st : x)),
+    });
   const move = (i: number, d: -1 | 1) => {
     const a = [...s.assigned];
     [a[i], a[i + d]] = [a[i + d], a[i]];
@@ -484,7 +780,11 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
     <>
       <label className="field" style={{ marginBottom: 16, maxWidth: 320 }}>
         <span>Student</span>
-        <select className="select" value={s.id} onChange={(e) => setSid(e.target.value)}>
+        <select
+          className="select"
+          value={s.id}
+          onChange={(e) => setSid(e.target.value)}
+        >
           {family.students.map((x) => (
             <option key={x.id} value={x.id}>
               {x.name}
@@ -495,28 +795,59 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
       <section className="panel">
         <div className="panel-head">
           <h2>{s.name}'s courses</h2>
-          <span className="small muted">In each subject the first unfinished course is current; the next one opens when it's finished.</span>
+          <span className="small muted">
+            In each subject the first unfinished course is current; the next one
+            opens when it's finished.
+          </span>
         </div>
         {s.assigned.length === 0 ? (
           <p className="muted small">No courses assigned yet.</p>
         ) : (
           <ol className="assign-list">
             {s.assigned.map((a, i) => {
-              const f = progress ? courseFinished(a.courseId, progress, api.allCourses.find((c) => c.id === a.courseId)) : null;
+              const f = progress
+                ? courseFinished(
+                    a.courseId,
+                    progress,
+                    api.allCourses.find((c) => c.id === a.courseId),
+                  )
+                : null;
               return (
                 <li key={a.courseId} className="row">
                   <span className="pill neutral">{a.subject}</span>
                   <b className="grow">{title(a.courseId)}</b>
                   <span className="small muted">
-                    {f ? (f.done ? "Finished" : `${f.lessonsDone} of ${f.lessons} lessons`) : ""}
+                    {f
+                      ? f.done
+                        ? "Finished"
+                        : `${f.lessonsDone} of ${f.lessons} lessons`
+                      : ""}
                   </span>
-                  <button className="btn sm ghost" disabled={i === 0} onClick={() => move(i, -1)}>
+                  <button
+                    className="btn sm ghost"
+                    disabled={i === 0}
+                    onClick={() => move(i, -1)}
+                  >
                     Up<span className="sr-only">: {title(a.courseId)}</span>
                   </button>
-                  <button className="btn sm ghost" disabled={i === s.assigned.length - 1} onClick={() => move(i, 1)}>
+                  <button
+                    className="btn sm ghost"
+                    disabled={i === s.assigned.length - 1}
+                    onClick={() => move(i, 1)}
+                  >
                     Down<span className="sr-only">: {title(a.courseId)}</span>
                   </button>
-                  <button className="btn sm ghost" onClick={() => update({ ...s, assigned: s.assigned.filter((x) => x.courseId !== a.courseId) })}>
+                  <button
+                    className="btn sm ghost"
+                    onClick={() =>
+                      update({
+                        ...s,
+                        assigned: s.assigned.filter(
+                          (x) => x.courseId !== a.courseId,
+                        ),
+                      })
+                    }
+                  >
                     Remove<span className="sr-only">: {title(a.courseId)}</span>
                   </button>
                 </li>
@@ -530,7 +861,10 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
           onSubmit={async (e) => {
             e.preventDefault();
             if (!pick) return;
-            await update({ ...s, assigned: [...s.assigned, { courseId: pick, subject }] });
+            await update({
+              ...s,
+              assigned: [...s.assigned, { courseId: pick, subject }],
+            });
             setPick("");
           }}
         >
@@ -554,7 +888,11 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
           </label>
           <label className="field">
             <span>Counts toward</span>
-            <select className="select" value={subject} onChange={(e) => setSubject(e.target.value)}>
+            <select
+              className="select"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            >
               {SUBJECTS.map((x) => (
                 <option key={x}>{x}</option>
               ))}
@@ -565,7 +903,11 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
           </button>
         </form>
         <label className="check" style={{ marginTop: 16 }}>
-          <input type="checkbox" checked={s.freeChoice} onChange={(e) => update({ ...s, freeChoice: e.target.checked })} />
+          <input
+            type="checkbox"
+            checked={s.freeChoice}
+            onChange={(e) => update({ ...s, freeChoice: e.target.checked })}
+          />
           {s.name} may also start courses that aren't assigned
         </label>
       </section>
@@ -578,17 +920,28 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
 function Students({ api, family }: { api: AppApi; family: Family }) {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState(1);
-  const update = (st: Student) => api.setFamily({ ...family, students: family.students.map((x) => (x.id === st.id ? st : x)) });
+  const update = (st: Student) =>
+    api.setFamily({
+      ...family,
+      students: family.students.map((x) => (x.id === st.id ? st : x)),
+    });
 
   async function remove(st: Student) {
-    if (family.students.length === 1) return api.toast("A family needs at least one student.");
-    const ok = await store.confirmAction(`Remove ${st.name}? Their progress and attendance records are deleted from this computer. Back up first if you may need them.`, "Remove student");
+    if (family.students.length === 1)
+      return api.toast("A family needs at least one student.");
+    const ok = await store.confirmAction(
+      `Remove ${st.name}? Their progress and attendance records are deleted from this computer. Back up first if you may need them.`,
+      "Remove student",
+    );
     if (!ok) return;
     await store.saveState(`progress-${st.id}`, null);
     await store.saveState(`records-${st.id}`, null);
     await store.saveState(`session-${st.id}`, null);
     await store.saveState(`portfolio-${st.id}`, null);
-    await api.setFamily({ ...family, students: family.students.filter((x) => x.id !== st.id) });
+    await api.setFamily({
+      ...family,
+      students: family.students.filter((x) => x.id !== st.id),
+    });
     api.toast(`Removed ${st.name}`);
   }
 
@@ -602,11 +955,25 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
           <li key={st.id} className="row student-row">
             <label className="field grow">
               <span>Name</span>
-              <input className="input" defaultValue={st.name} onBlur={(e) => e.target.value.trim() && e.target.value.trim() !== st.name && update({ ...st, name: e.target.value.trim() })} />
+              <input
+                className="input"
+                defaultValue={st.name}
+                onBlur={(e) =>
+                  e.target.value.trim() &&
+                  e.target.value.trim() !== st.name &&
+                  update({ ...st, name: e.target.value.trim() })
+                }
+              />
             </label>
             <label className="field">
               <span>Grade</span>
-              <select className="select" value={st.grade} onChange={(e) => update({ ...st, grade: Number(e.target.value) })}>
+              <select
+                className="select"
+                value={st.grade}
+                onChange={(e) =>
+                  update({ ...st, grade: Number(e.target.value) })
+                }
+              >
                 {GRADES.map((_, g) => (
                   <option key={g} value={g}>
                     {gradeLabel(g)}
@@ -618,11 +985,25 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
               <>
                 <label className="field">
                   <span>Date of birth (transcript, optional)</span>
-                  <input className="input" type="date" value={st.birthDate ?? ""} onChange={(e) => update({ ...st, birthDate: e.target.value || undefined })} />
+                  <input
+                    className="input"
+                    type="date"
+                    value={st.birthDate ?? ""}
+                    onChange={(e) =>
+                      update({ ...st, birthDate: e.target.value || undefined })
+                    }
+                  />
                 </label>
                 <label className="field">
                   <span>Graduation date (optional)</span>
-                  <input className="input" type="date" value={st.graduation ?? ""} onChange={(e) => update({ ...st, graduation: e.target.value || undefined })} />
+                  <input
+                    className="input"
+                    type="date"
+                    value={st.graduation ?? ""}
+                    onChange={(e) =>
+                      update({ ...st, graduation: e.target.value || undefined })
+                    }
+                  />
                 </label>
               </>
             )}
@@ -639,19 +1020,38 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
           e.preventDefault();
           if (!name.trim()) return;
           const st = newStudent(name, grade);
-          await store.saveState(`progress-${st.id}`, JSON.stringify({ ...store.emptyProgress(), catalogV1: true, enrolled: [] }));
-          await api.setFamily({ ...family, students: [...family.students, st] });
+          await store.saveState(
+            `progress-${st.id}`,
+            JSON.stringify({
+              ...store.emptyProgress(),
+              catalogV1: true,
+              enrolled: [],
+            }),
+          );
+          await api.setFamily({
+            ...family,
+            students: [...family.students, st],
+          });
           setName("");
           api.toast(`Added ${st.name}`);
         }}
       >
         <label className="field grow">
           <span>New student's name</span>
-          <input className="input" value={name} onChange={(e) => setName(e.target.value)} autoComplete="off" />
+          <input
+            className="input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            autoComplete="off"
+          />
         </label>
         <label className="field">
           <span>Grade</span>
-          <select className="select" value={grade} onChange={(e) => setGrade(Number(e.target.value))}>
+          <select
+            className="select"
+            value={grade}
+            onChange={(e) => setGrade(Number(e.target.value))}
+          >
             {GRADES.map((_, g) => (
               <option key={g} value={g}>
                 {gradeLabel(g)}
@@ -690,7 +1090,11 @@ function StateTab({ api, family }: { api: AppApi; family: Family }) {
       <div className="row" style={{ marginBottom: 16, alignItems: "flex-end" }}>
         <label className="field">
           <span>State</span>
-          <select className="select" value={code} onChange={(e) => setCode(e.target.value)}>
+          <select
+            className="select"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          >
             {statesData().states.map((x) => (
               <option key={x.code} value={x.code}>
                 {x.name}
@@ -700,14 +1104,31 @@ function StateTab({ api, family }: { api: AppApi; family: Family }) {
           </select>
         </label>
         {!mine && (
-          <button className="btn" onClick={() => api.setFamily({ ...family, state: code, route: "Home education law" }).then(() => api.toast("State changed"))}>
+          <button
+            className="btn"
+            onClick={() =>
+              api
+                .setFamily({
+                  ...family,
+                  state: code,
+                  route: "Home education law",
+                })
+                .then(() => api.toast("State changed"))
+            }
+          >
             Make this our state
           </button>
         )}
         {mine && s && (
           <label className="field">
             <span>How you homeschool</span>
-            <select className="select" value={family.route} onChange={(e) => api.setFamily({ ...family, route: e.target.value })}>
+            <select
+              className="select"
+              value={family.route}
+              onChange={(e) =>
+                api.setFamily({ ...family, route: e.target.value })
+              }
+            >
               {routeOptions(s).map((r) => (
                 <option key={r}>{r}</option>
               ))}
@@ -719,7 +1140,9 @@ function StateTab({ api, family }: { api: AppApi; family: Family }) {
         <section className="panel">
           <div className="panel-head">
             <h2>{s.name}</h2>
-            <span className="small muted">Last checked {fmtDate(s.checked)}</span>
+            <span className="small muted">
+              Last checked {fmtDate(s.checked)}
+            </span>
           </div>
           <dl className="rules-list">
             {rows.map(([k, v]) => (
@@ -746,7 +1169,9 @@ function StateTab({ api, family }: { api: AppApi; family: Family }) {
                     // The desktop app opens links in the system browser.
                     if (!store.inApp) return;
                     e.preventDefault();
-                    import("@tauri-apps/plugin-opener").then((o) => o.openUrl(u)).catch(() => api.toast("Couldn't open the browser."));
+                    import("@tauri-apps/plugin-opener")
+                      .then((o) => o.openUrl(u))
+                      .catch(() => api.toast("Couldn't open the browser."));
                   }}
                 >
                   {new URL(u).hostname}
@@ -756,8 +1181,9 @@ function StateTab({ api, family }: { api: AppApi; family: Family }) {
             ))}
           </ul>
           <p className="small muted" style={{ marginTop: 12 }}>
-            A summary to help you keep track, not legal advice. Laws change; check the sources, your state's education
-            department, or a homeschool association. Rules version {statesData().version}.
+            A summary to help you keep track, not legal advice. Laws change;
+            check the sources, your state's education department, or a
+            homeschool association. Rules version {statesData().version}.
           </p>
         </section>
       )}
@@ -779,19 +1205,39 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
 
   async function saveYear(e: React.FormEvent) {
     e.preventDefault();
-    if (end <= start) return api.toast("The school year has to end after it starts.");
-    await api.setFamily({ ...family, year: { start, end }, dailyMinutes: Math.max(15, minutes) });
+    if (end <= start)
+      return api.toast("The school year has to end after it starts.");
+    await api.setFamily({
+      ...family,
+      year: { start, end },
+      dailyMinutes: Math.max(15, minutes),
+    });
     api.toast("School year saved");
   }
 
   async function newYear() {
-    const next = { start: addDays(family.year.end, 1), end: addDays(family.year.end, 1 + (Date.parse(family.year.end) - Date.parse(family.year.start)) / 86400000) };
+    const next = {
+      start: addDays(family.year.end, 1),
+      end: addDays(
+        family.year.end,
+        1 +
+          (Date.parse(family.year.end) - Date.parse(family.year.start)) /
+            86400000,
+      ),
+    };
     const ok = await store.confirmAction(
       `Start the ${next.start.slice(0, 4)}–${next.end.slice(0, 4)} school year? Every student moves up a grade. Last year's records stay and can still be downloaded.`,
       "New school year",
     );
     if (!ok) return;
-    await api.setFamily({ ...family, year: next, students: family.students.map((s) => ({ ...s, grade: Math.min(12, s.grade + 1) })) });
+    await api.setFamily({
+      ...family,
+      year: next,
+      students: family.students.map((s) => ({
+        ...s,
+        grade: Math.min(12, s.grade + 1),
+      })),
+    });
     setStart(next.start);
     setEnd(next.end);
     api.toast("New school year started");
@@ -799,10 +1245,12 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
 
   async function backup(e: React.FormEvent) {
     e.preventDefault();
-    if (bpass.length < 8) return setMsg("Use a backup passphrase of at least 8 characters.");
+    if (bpass.length < 8)
+      return setMsg("Use a backup passphrase of at least 8 characters.");
     setMsg("");
     try {
-      if (await exportEncrypted(api.allCourses, api.banks, bpass)) api.toast("Encrypted backup saved");
+      if (await exportEncrypted(api.allCourses, api.banks, bpass))
+        api.toast("Encrypted backup saved");
       setBpass("");
     } catch (err) {
       setMsg(`Backup failed: ${String(err)}`);
@@ -815,14 +1263,18 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
       const text = await store.pickJsonFile();
       if (text === null) return;
       const raw = JSON.parse(text);
-      if (!isEncryptedBackup(raw)) return setMsg("That file isn't an encrypted Erudior family backup.");
+      if (!isEncryptedBackup(raw))
+        return setMsg("That file isn't an encrypted Erudior family backup.");
       const plain = await decryptText(raw, rpass);
       const ok = await store.confirmAction(
         "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",
         "Restore backup",
       );
       if (!ok) return;
-      await restoreContents(plain, { courses: api.allCourses, banks: api.banks });
+      await restoreContents(plain, {
+        courses: api.allCourses,
+        banks: api.banks,
+      });
       window.location.reload();
     } catch (err) {
       setMsg((err as Error).message ?? String(err));
@@ -840,16 +1292,36 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
         <form className="form-grid" onSubmit={saveYear}>
           <label className="field">
             <span>Starts</span>
-            <input className="input" type="date" value={start} onChange={(e) => setStart(e.target.value)} />
+            <input
+              className="input"
+              type="date"
+              value={start}
+              onChange={(e) => setStart(e.target.value)}
+            />
           </label>
           <label className="field">
             <span>Ends</span>
-            <input className="input" type="date" value={end} onChange={(e) => setEnd(e.target.value)} />
+            <input
+              className="input"
+              type="date"
+              value={end}
+              onChange={(e) => setEnd(e.target.value)}
+            />
           </label>
-          <label className="field">
-            <span>Minutes that make a school day</span>
-            <input className="input" type="number" min={15} max={720} step={15} value={minutes} onChange={(e) => setMinutes(Number(e.target.value) || 0)} />
-          </label>
+          {!isClassroom(family) && (
+            <label className="field">
+              <span>Minutes that make a school day</span>
+              <input
+                className="input"
+                type="number"
+                min={15}
+                max={720}
+                step={15}
+                value={minutes}
+                onChange={(e) => setMinutes(Number(e.target.value) || 0)}
+              />
+            </label>
+          )}
           <div className="row span-2">
             <button className="btn primary" type="submit">
               Save
@@ -872,14 +1344,23 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             e.preventDefault();
             const p = passwordProblem(pw);
             if (p) return api.toast(p);
-            await api.setFamily({ ...family, parent: { ...family.parent, password: await makeSecret(pw) } });
+            await api.setFamily({
+              ...family,
+              parent: { ...family.parent, password: await makeSecret(pw) },
+            });
             setPw("");
             api.toast("Password changed");
           }}
         >
           <label className="field grow">
             <span>New password</span>
-            <input className="input" type="password" autoComplete="new-password" value={pw} onChange={(e) => setPw(e.target.value)} />
+            <input
+              className="input"
+              type="password"
+              autoComplete="new-password"
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
+            />
           </label>
           <button className="btn" type="submit">
             Change password
@@ -892,14 +1373,28 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             e.preventDefault();
             const p = pinProblem(pin);
             if (p) return api.toast(p);
-            await api.setFamily({ ...family, parent: { ...family.parent, pin: await makeSecret(pin) } });
+            await api.setFamily({
+              ...family,
+              parent: { ...family.parent, pin: await makeSecret(pin) },
+            });
             setPin("");
             api.toast("PIN saved");
           }}
         >
           <label className="field grow">
-            <span>{family.parent.pin ? "New PIN" : "PIN for quicker sign-in (optional, 4 to 8 digits)"}</span>
-            <input className="input" type="password" inputMode="numeric" autoComplete="new-password" value={pin} onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))} />
+            <span>
+              {family.parent.pin
+                ? "New PIN"
+                : "PIN for quicker sign-in (optional, 4 to 8 digits)"}
+            </span>
+            <input
+              className="input"
+              type="password"
+              inputMode="numeric"
+              autoComplete="new-password"
+              value={pin}
+              onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))}
+            />
           </label>
           <button className="btn" type="submit">
             {family.parent.pin ? "Change PIN" : "Turn on PIN"}
@@ -908,7 +1403,14 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             <button
               className="btn ghost"
               type="button"
-              onClick={() => api.setFamily({ ...family, parent: { ...family.parent, pin: undefined } }).then(() => api.toast("PIN turned off"))}
+              onClick={() =>
+                api
+                  .setFamily({
+                    ...family,
+                    parent: { ...family.parent, pin: undefined },
+                  })
+                  .then(() => api.toast("PIN turned off"))
+              }
             >
               Turn off PIN
             </button>
@@ -921,90 +1423,166 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
           <h2>Encrypted backup</h2>
         </div>
         <p className="muted small" style={{ marginBottom: 12 }}>
-          One file with the family settings, every student's progress and records, and your courses, locked with a
-          passphrase. Use it to move to another computer or after reinstalling. Without the passphrase it can't be opened.
+          One file with the family settings, every student's progress and
+          records, and your courses, locked with a passphrase. Use it to move to
+          another computer or after reinstalling. Without the passphrase it
+          can't be opened.
         </p>
-        <form className="row" style={{ alignItems: "flex-end" }} onSubmit={backup}>
+        <form
+          className="row"
+          style={{ alignItems: "flex-end" }}
+          onSubmit={backup}
+        >
           <label className="field grow">
             <span>Backup passphrase</span>
-            <input className="input" type="password" autoComplete="new-password" value={bpass} onChange={(e) => setBpass(e.target.value)} />
+            <input
+              className="input"
+              type="password"
+              autoComplete="new-password"
+              value={bpass}
+              onChange={(e) => setBpass(e.target.value)}
+            />
           </label>
           <button className="btn primary" type="submit">
             Back up now
           </button>
         </form>
-        <form className="row" style={{ alignItems: "flex-end", marginTop: 16 }} onSubmit={restore}>
+        <form
+          className="row"
+          style={{ alignItems: "flex-end", marginTop: 16 }}
+          onSubmit={restore}
+        >
           <label className="field grow">
             <span>Passphrase of the backup to restore</span>
-            <input className="input" type="password" autoComplete="off" value={rpass} onChange={(e) => setRpass(e.target.value)} />
+            <input
+              className="input"
+              type="password"
+              autoComplete="off"
+              value={rpass}
+              onChange={(e) => setRpass(e.target.value)}
+            />
           </label>
           <button className="btn" type="submit">
             Restore from backup…
           </button>
         </form>
-        <p className={msg ? "notice error" : "sr-only"} role="alert" style={{ marginTop: 12 }}>
+        <p
+          className={msg ? "notice error" : "sr-only"}
+          role="alert"
+          style={{ marginTop: 12 }}
+        >
           {msg}
         </p>
       </section>
 
-      <section className="panel">
-        <div className="panel-head">
-          <h2>All reminders this year</h2>
-        </div>
-        <ul className="plain-list small">
-          {reminders(family).map((r) => (
-            <li key={r.key} className="row" style={{ justifyContent: "space-between" }}>
-              <span>
-                <b>{fmtDate(r.date)}</b> {r.text} {family.done.includes(r.key) && <span className="muted">(done)</span>}
-              </span>
-              {r.custom && (
-                <button
-                  className="btn sm ghost"
-                  onClick={() => api.setFamily({ ...family, reminders: family.reminders.filter((x) => `custom:${x.id}` !== r.key) })}
-                >
-                  Delete<span className="sr-only">: {r.text}</span>
-                </button>
-              )}
-              {!r.custom && family.done.includes(r.key) && (
-                <button className="btn sm ghost" onClick={() => api.setFamily({ ...family, done: family.done.filter((k) => k !== r.key) })}>
-                  Not done<span className="sr-only">: {r.text}</span>
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {!isClassroom(family) && (
+        <section className="panel">
+          <div className="panel-head">
+            <h2>All reminders this year</h2>
+          </div>
+          <ul className="plain-list small">
+            {reminders(family).map((r) => (
+              <li
+                key={r.key}
+                className="row"
+                style={{ justifyContent: "space-between" }}
+              >
+                <span>
+                  <b>{fmtDate(r.date)}</b> {r.text}{" "}
+                  {family.done.includes(r.key) && (
+                    <span className="muted">(done)</span>
+                  )}
+                </span>
+                {r.custom && (
+                  <button
+                    className="btn sm ghost"
+                    onClick={() =>
+                      api.setFamily({
+                        ...family,
+                        reminders: family.reminders.filter(
+                          (x) => `custom:${x.id}` !== r.key,
+                        ),
+                      })
+                    }
+                  >
+                    Delete<span className="sr-only">: {r.text}</span>
+                  </button>
+                )}
+                {!r.custom && family.done.includes(r.key) && (
+                  <button
+                    className="btn sm ghost"
+                    onClick={() =>
+                      api.setFamily({
+                        ...family,
+                        done: family.done.filter((k) => k !== r.key),
+                      })
+                    }
+                  >
+                    Not done<span className="sr-only">: {r.text}</span>
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </>
   );
 }
 
 function SchoolInfo({ api, family }: { api: AppApi; family: Family }) {
-  const [f, setF] = useState(family.school ?? { name: "", administrator: "", address: "" });
+  const [f, setF] = useState(
+    family.school ?? { name: "", administrator: "", address: "" },
+  );
   return (
     <section className="panel">
       <div className="panel-head">
         <h2>Home school</h2>
-        <span className="small muted">Printed on report cards, transcripts and reports.</span>
+        <span className="small muted">
+          Printed on report cards, transcripts and reports.
+        </span>
       </div>
       <form
         className="form-grid"
         onSubmit={async (e) => {
           e.preventDefault();
-          await api.setFamily({ ...family, school: { name: f.name.trim(), administrator: f.administrator.trim(), address: f.address.trim() } });
+          await api.setFamily({
+            ...family,
+            school: {
+              name: f.name.trim(),
+              administrator: f.administrator.trim(),
+              address: f.address.trim(),
+            },
+          });
           api.toast("Saved");
         }}
       >
         <label className="field">
           <span>School name</span>
-          <input className="input" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} placeholder="e.g. Maple Street Academy" />
+          <input
+            className="input"
+            value={f.name}
+            onChange={(e) => setF({ ...f, name: e.target.value })}
+            placeholder="e.g. Maple Street Academy"
+          />
         </label>
         <label className="field">
           <span>Administrator (the parent who signs)</span>
-          <input className="input" value={f.administrator} onChange={(e) => setF({ ...f, administrator: e.target.value })} autoComplete="name" />
+          <input
+            className="input"
+            value={f.administrator}
+            onChange={(e) => setF({ ...f, administrator: e.target.value })}
+            autoComplete="name"
+          />
         </label>
         <label className="field span-2">
           <span>Address (optional)</span>
-          <input className="input" value={f.address} onChange={(e) => setF({ ...f, address: e.target.value })} autoComplete="street-address" />
+          <input
+            className="input"
+            value={f.address}
+            onChange={(e) => setF({ ...f, address: e.target.value })}
+            autoComplete="street-address"
+          />
         </label>
         <div className="span-2">
           <button className="btn primary" type="submit">
@@ -1018,7 +1596,12 @@ function SchoolInfo({ api, family }: { api: AppApi; family: Family }) {
 
 function Grading({ api, family }: { api: AppApi; family: Family }) {
   const g = gradingOf(family);
-  const [c, setC] = useState<Record<keyof Cutoffs, string>>({ A: String(g.cutoffs.A), B: String(g.cutoffs.B), C: String(g.cutoffs.C), D: String(g.cutoffs.D) });
+  const [c, setC] = useState<Record<keyof Cutoffs, string>>({
+    A: String(g.cutoffs.A),
+    B: String(g.cutoffs.B),
+    C: String(g.cutoffs.C),
+    D: String(g.cutoffs.D),
+  });
   const [w, setW] = useState<Record<keyof Weights, string>>({
     lessons: String(g.weights.lessons),
     modules: String(g.weights.modules),
@@ -1036,15 +1619,34 @@ function Grading({ api, family }: { api: AppApi; family: Family }) {
     <section className="panel">
       <div className="panel-head">
         <h2>Grading</h2>
-        <span className="small muted">A from 90, B from 80, C from 70, D from 60 at the loosest; you can raise them.</span>
+        <span className="small muted">
+          A from 90, B from 80, C from 70, D from 60 at the loosest; you can
+          raise them.
+        </span>
       </div>
       <form
         noValidate
         onSubmit={async (e) => {
           e.preventDefault();
-          const cutoffs = { A: Number(c.A), B: Number(c.B), C: Number(c.C), D: Number(c.D) };
-          const weights = { lessons: Number(w.lessons), modules: Number(w.modules), final: Number(w.final), parent: Number(w.parent) };
-          const p = cutoffProblem(cutoffs) || (Object.values(weights).some((x) => !(x >= 0 && x <= 100)) && "Weights go from 0 to 100.") || (Object.values(weights).every((x) => x === 0) && "At least one weight has to be above 0.") || "";
+          const cutoffs = {
+            A: Number(c.A),
+            B: Number(c.B),
+            C: Number(c.C),
+            D: Number(c.D),
+          };
+          const weights = {
+            lessons: Number(w.lessons),
+            modules: Number(w.modules),
+            final: Number(w.final),
+            parent: Number(w.parent),
+          };
+          const p =
+            cutoffProblem(cutoffs) ||
+            (Object.values(weights).some((x) => !(x >= 0 && x <= 100)) &&
+              "Weights go from 0 to 100.") ||
+            (Object.values(weights).every((x) => x === 0) &&
+              "At least one weight has to be above 0.") ||
+            "";
           setMsg(p);
           if (p) return;
           await api.setFamily({ ...family, grading: { cutoffs, weights } });
@@ -1057,23 +1659,44 @@ function Grading({ api, family }: { api: AppApi; family: Family }) {
             {(["A", "B", "C", "D"] as const).map((k) => (
               <label key={k} className="field">
                 <span>{k}</span>
-                <input className="input" type="number" min={MIN[k]} max={100} value={c[k]} onChange={(e) => setC({ ...c, [k]: e.target.value })} />
+                <input
+                  className="input"
+                  type="number"
+                  min={MIN[k]}
+                  max={100}
+                  value={c[k]}
+                  onChange={(e) => setC({ ...c, [k]: e.target.value })}
+                />
               </label>
             ))}
           </div>
         </fieldset>
         <fieldset className="plain-fieldset">
-          <legend className="small">What the course percent is made of (weights; parts with no scores yet are skipped)</legend>
+          <legend className="small">
+            What the course percent is made of (weights; parts with no scores
+            yet are skipped)
+          </legend>
           <div className="form-grid four">
             {W.map(([k, label]) => (
               <label key={k} className="field">
                 <span>{label}</span>
-                <input className="input" type="number" min={0} max={100} value={w[k]} onChange={(e) => setW({ ...w, [k]: e.target.value })} />
+                <input
+                  className="input"
+                  type="number"
+                  min={0}
+                  max={100}
+                  value={w[k]}
+                  onChange={(e) => setW({ ...w, [k]: e.target.value })}
+                />
               </label>
             ))}
           </div>
         </fieldset>
-        <p className={msg ? "notice error" : "sr-only"} role="alert" style={{ marginBottom: 12 }}>
+        <p
+          className={msg ? "notice error" : "sr-only"}
+          role="alert"
+          style={{ marginBottom: 12 }}
+        >
           {msg}
         </p>
         <div className="row">
@@ -1084,7 +1707,12 @@ function Grading({ api, family }: { api: AppApi; family: Family }) {
             className="btn ghost"
             type="button"
             onClick={() => {
-              setW({ lessons: String(DEFAULT_WEIGHTS.lessons), modules: String(DEFAULT_WEIGHTS.modules), final: String(DEFAULT_WEIGHTS.final), parent: String(DEFAULT_WEIGHTS.parent) });
+              setW({
+                lessons: String(DEFAULT_WEIGHTS.lessons),
+                modules: String(DEFAULT_WEIGHTS.modules),
+                final: String(DEFAULT_WEIGHTS.final),
+                parent: String(DEFAULT_WEIGHTS.parent),
+              });
             }}
           >
             Default weights

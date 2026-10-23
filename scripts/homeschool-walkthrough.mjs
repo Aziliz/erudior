@@ -32,7 +32,7 @@ await pg.getByRole("button", { name: /German A1\b.*view overview/ }).first().cli
 await btn("Start course").click(); await pg.waitForTimeout(1200);
 
 await pg.goto(B); await pg.waitForTimeout(1200);
-await btn(/^Homeschool$/).click(); await pg.waitForTimeout(300);
+await btn(/^Homeschool or classroom$/).click(); await pg.waitForTimeout(300);
 await audit("setup");
 await pg.getByLabel(/^State/).selectOption("GA");
 await pg.getByLabel("Name").first().fill("Ada");

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
-import { currentAssignments } from "../lib/family";
+import { currentAssignments, isClassroom } from "../lib/family";
+import { ClassAssignments, MyClasses } from "../components/ClassViews";
 import { COMMUNITY } from "../lib/community";
 import CommunityCatalog, { ReviewPill } from "../components/CommunityCatalog";
 import { REMOTE } from "../lib/courseSource";
@@ -103,7 +104,9 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
       )}
 
-      {api.student && api.student.assigned.length > 0 && <Assigned api={api} />}
+      {api.family && api.student && isClassroom(api.family) && <ClassAssignments api={api} family={api.family} student={api.student} />}
+      {api.student && !isClassroom(api.family) && api.student.assigned.length > 0 && <Assigned api={api} />}
+      {!api.family && <MyClasses api={api} />}
 
       <h2 className="section-title">In progress</h2>
       {courses.length === 0 ? (
