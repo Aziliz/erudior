@@ -124,7 +124,7 @@ $C^2\mathbf{d} = C(24, 21) = (13.2, 9.3)$, then $C^3\mathbf{d} = (6.36, 4.89)$. 
 for energy are 60, 84, 97.2, 103.56, … and they close in on the exact answer 110.
 
 ```plot
-{"x": [-0.7, 7.7], "y": [0, 125], "bars": [{"x": 0, "height": 60, "width": 0.7}, {"x": 1, "height": 84, "width": 0.7}, {"x": 2, "height": 97.2, "width": 0.7}, {"x": 3, "height": 103.56, "width": 0.7}, {"x": 4, "height": 106.79, "width": 0.7}, {"x": 5, "height": 108.39, "width": 0.7}, {"x": 6, "height": 109.2, "width": 0.7}, {"x": 7, "height": 109.6, "width": 0.7}], "functions": [{"f": "110", "dashed": true, "label": "110"}], "xLabel": "rounds of production included", "yLabel": "energy produced so far", "caption": "Total energy after each round approaches 110"}
+{"x": [0, 8.8], "y": [0, 125], "bars": [{"x": 1, "height": 60, "width": 0.7}, {"x": 2, "height": 84, "width": 0.7}, {"x": 3, "height": 97.2, "width": 0.7}, {"x": 4, "height": 103.56, "width": 0.7}, {"x": 5, "height": 106.79, "width": 0.7}, {"x": 6, "height": 108.39, "width": 0.7}, {"x": 7, "height": 109.2, "width": 0.7}, {"x": 8, "height": 109.6, "width": 0.7}], "functions": [{"f": "110", "dashed": true, "label": "110"}], "xLabel": "rounds", "yLabel": "energy so far", "caption": "Total energy produced after 1, 2, …, 8 rounds (round 1 is d itself) approaches 110"}
 ```
 
 Each round is smaller than the last because every column of $C$ adds up to less than 1. Here is

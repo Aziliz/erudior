@@ -46,6 +46,8 @@ rectangles and add: each interior edge is traversed twice in opposite directions
 leaving only the outer boundary $C$. The sum of the small circulations is the circulation
 around $C$.
 
+![A rectangle divided into six small squares, two rows of three. Each small square has its own counterclockwise loop of blue arrows just inside its edges. Where two squares share an edge, their arrows along that edge point in opposite directions. The thick outer boundary C carries large counterclockwise arrows. Text below: each small square has circulation approximately Q sub x minus P sub y times delta A; shared edges are traversed both ways and cancel; only the outer boundary C is left.](images/mv-m7-green-tiles.svg)
+
 ### Example 1: checking on a rectangle
 
 Evaluate $\oint_C xy\,dx + x^2\,dy$ around the rectangle $[0, 2]\times[0, 1]$, counterclockwise.
@@ -95,6 +97,11 @@ a shape on a map reads off its area.
 - **Flux form.** Green's theorem also says the outward **flux** of $\mathbf F$ across $C$,
   $\oint_C\mathbf F\cdot\mathbf n\,ds = \oint_C P\,dy - Q\,dx$, equals
   $\iint_D(P_x + Q_y)\,dA$. This is the two-dimensional Divergence theorem (Lesson 37).
+
+Here is the orientation rule for a region with one hole. Walking along either boundary curve
+in its arrow's direction, you keep $D$ on your left.
+
+![An annulus: a large circle C1 and a smaller circle C2 inside it, with the ring between them shaded and labeled D, and the white disk inside C2 labeled hole, with a dot at its center. Arrows on the outer circle C1 go counterclockwise. Arrows on the inner circle C2 go clockwise.](images/mv-m7-annulus.svg)
 
 ## Common mistakes
 

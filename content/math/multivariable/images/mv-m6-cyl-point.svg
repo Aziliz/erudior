@@ -12,11 +12,11 @@
 <line x1="260.0" y1="340.0" x2="355.9" y2="378.2" stroke="#244d76" stroke-width="3" stroke-opacity="1"/>
 <line x1="355.9" y1="378.2" x2="355.9" y2="199.0" stroke="#2e7d4f" stroke-width="3" stroke-opacity="1"/>
 <line x1="260.0" y1="160.8" x2="355.9" y2="199.0" stroke="#5d6d7e" stroke-width="1.2" stroke-dasharray="5 4" stroke-opacity="1"/>
-<polyline points="213.8,369.4 215.8,369.4 217.9,369.4 220.0,369.3 222.1,369.3 224.2,369.2 226.3,369.1 228.5,369.0 230.7,368.9 232.9,368.7 235.1,368.6 237.3,368.4 239.6,368.2 241.8,368.0 244.1,367.8 246.4,367.5 248.6,367.3 250.9,367.0 253.2,366.7 255.5,366.4 257.8,366.1 260.1,365.7 262.4,365.4 264.7,365.0 267.0,364.7 269.3,364.3 271.6,363.9 273.9,363.4 276.1,363.0 278.4,362.6 280.7,362.1 282.9,361.6 285.1,361.1 287.3,360.7 289.5,360.1 291.7,359.6 293.9,359.1 296.0,358.6 298.1,358.0 300.2,357.4 302.3,356.9" fill="none" fill-opacity="1" stroke="#b03a2e" stroke-width="2.5"/>
+<polyline points="229.2,359.6 230.6,359.6 231.9,359.6 233.3,359.5 234.7,359.5 236.1,359.5 237.6,359.4 239.0,359.3 240.5,359.2 241.9,359.1 243.4,359.0 244.9,358.9 246.4,358.8 247.9,358.7 249.4,358.5 250.9,358.3 252.4,358.2 253.9,358.0 255.5,357.8 257.0,357.6 258.5,357.4 260.1,357.2 261.6,356.9 263.1,356.7 264.7,356.4 266.2,356.2 267.7,355.9 269.2,355.6 270.8,355.3 272.3,355.0 273.8,354.7 275.3,354.4 276.7,354.1 278.2,353.8 279.7,353.4 281.1,353.1 282.6,352.7 284.0,352.4 285.4,352.0 286.8,351.6 288.2,351.2" fill="none" fill-opacity="1" stroke="#b03a2e" stroke-width="2.5"/>
 <circle cx="355.9" cy="199.0" r="5" fill="#1c2833"/>
 <circle cx="355.9" cy="378.2" r="4" fill="#1c2833"/>
-<text x="308.7" y="345.0" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic" fill="#244d76">r</text>
-<text x="253.8" y="392.1" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic" fill="#b03a2e">θ</text>
+<text x="321.2" y="350.0" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic" fill="#244d76">r</text>
+<text x="252.5" y="381.4" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic" fill="#b03a2e">θ</text>
 <text x="367.9" y="293.6" text-anchor="start" font-size="18" font-weight="bold" font-style="italic" fill="#2e7d4f">z</text>
 <text x="367.9" y="221.0" text-anchor="start" font-size="16" fill="#1c2833">P (r, θ, z)</text>
 <text x="365.9" y="398.2" text-anchor="start" font-size="16" fill="#1c2833">shadow (r, θ, 0)</text>

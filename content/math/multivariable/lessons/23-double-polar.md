@@ -31,6 +31,10 @@ for the same $\Delta r$ and $\Delta\theta$.
 {"x": [-0.2, 3.2], "y": [-0.2, 3.2], "equal": true, "curves": [{"x": "1.5*cos(t)", "y": "1.5*sin(t)", "t": [0.5, 0.9]}, {"x": "2.5*cos(t)", "y": "2.5*sin(t)", "t": [0.5, 0.9], "label": "arc length r Δθ"}], "segments": [{"from": [1.3164, 0.7191], "to": [2.1939, 1.1986], "label": "Δr"}, {"from": [0.9324, 1.1750], "to": [1.5540, 1.9583]}, {"from": [0, 0], "to": [1.3164, 0.7191], "dashed": true}, {"from": [0, 0], "to": [0.9324, 1.1750], "dashed": true}], "caption": "A polar rectangle has sides Δr and about r Δθ, so dA = r dr dθ"}
 ```
 
+In the sketch below, the patch is bounded by two rays an angle $\Delta\theta$ apart and two arcs a distance $\Delta r$ apart; the outer arc has length about $r\,\Delta\theta$.
+
+![A polar rectangle: a shaded patch between two dashed rays from the origin, which make a small angle delta theta, and two circular arcs. The radial side has length delta r, the outer arc has length about r delta theta, and the distance from the origin along the lower ray is r. The patch is labeled dA](images/mv-m5-polar-patch.svg)
+
 Therefore:
 
 $$dA = r\,dr\,d\theta,$$
@@ -102,6 +106,19 @@ The circle $x^2 + y^2 = 2x$ (center $(1, 0)$, radius 1) has polar equation $r^2 
 ```
 
 When choosing coordinates, ask two questions: is the *region* simpler (circles, rays, rings), and is the *integrand* simpler ($x^2 + y^2$, $\sqrt{x^2 + y^2}$, $\arctan(y/x)$)? If either answer is yes, polar coordinates are worth trying.
+
+```mermaid
+flowchart TD
+  accTitle: Rectangular or polar coordinates?
+  accDescr: For a double integral over a region D, first ask whether D is a disk, ring, sector or a region bounded by a polar curve. If yes, try polar coordinates. If no, ask whether the integrand involves x squared plus y squared, its square root, or the angle arctan of y over x. If yes, try polar coordinates; if no, stay with rectangular coordinates. In polar coordinates, write the limits for r and theta, replace x by r cos theta and y by r sin theta, and include the extra factor r, since dA equals r dr d theta.
+  A["Double integral over D"] --> B{"Is D a disk, ring, sector or polar-curve region?"}
+  B -- yes --> P["Try polar coordinates"]
+  B -- no --> C{"Does f contain x² + y², its square root, or arctan(y/x)?"}
+  C -- yes --> P
+  C -- no --> R["Stay with x and y"]
+  P --> S["Write limits for r and θ; put x = r cos θ, y = r sin θ"]
+  S --> T["Include the factor r: dA = r dr dθ"]
+```
 
 ## Common mistakes
 

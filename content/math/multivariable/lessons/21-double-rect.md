@@ -54,6 +54,10 @@ $$\int_a^b\int_c^d f(x, y)\,dy\,dx = \int_a^b\left[\int_c^d f(x, y)\,dy\right]dx
 Work from the inside out: integrate in $y$ first (treating $x$ as constant), then in $x$.
 Slicing the other way gives the iterated integral in the other order.
 
+The picture shows both ways of seeing the volume: one thin column from a Riemann sum, and one slice whose area is $A(x)$.
+
+![A surface z = f(x, y) above a rectangle R in the xy-plane. Inside the solid under the surface, a shaded vertical slice at a fixed x has area A(x), and a thin rectangular column standing on one small sub-rectangle reaches up to the surface, with volume f(x*, y*) times delta A](images/mv-m5-slice.svg)
+
 **Fubini's theorem.** If $f$ is continuous on $R = [a, b]\times[c, d]$, then
 
 $$\iint_R f(x, y)\,dA = \int_a^b\int_c^d f(x, y)\,dy\,dx = \int_c^d\int_a^b f(x, y)\,dx\,dy.$$
@@ -88,6 +92,22 @@ $$\iint_R g(x)h(y)\,dA = \left(\int_a^b g(x)\,dx\right)\left(\int_c^d h(y)\,dy\r
 
 For example, $\iint_{[0,1]\times[0,\ln2]} xe^y\,dA = \tfrac12\cdot(2 - 1) = \tfrac12$. This
 shortcut works only for rectangles (constant limits).
+
+The chart sums up how to choose a method for a rectangle.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing how to evaluate a double integral over a rectangle
+  accDescr: Start with a double integral over a rectangle. If the integrand is a product of a function of x and a function of y, multiply the two single integrals. Otherwise ask which inner integral is easier. If integrating in x first is easier, use the order dx dy; if integrating in y first is easier or there is no difference, use dy dx. Either way, integrate the inner integral holding the other variable constant, then do the outer integral of the result, and finally check that no x or y is left in the answer.
+  A["Double integral over a rectangle"] --> B{"Is f = g(x) times h(y)?"}
+  B -- yes --> C["Multiply the two single integrals"]
+  B -- no --> D{"Which inner integral is easier?"}
+  D -- "in x" --> E["Order dx dy: integrate in x, y held constant"]
+  D -- "in y, or no difference" --> F["Order dy dx: integrate in y, x held constant"]
+  E --> G["Integrate the result over the outer interval"]
+  F --> G
+  G --> H["Check: the answer is a number, with no x or y left"]
+```
 
 ## Average value
 

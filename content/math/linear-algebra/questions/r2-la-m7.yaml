@@ -1,0 +1,726 @@
+# Round 2, module la-m7 (Vector spaces): new question types for the core lessons
+# (la-m7-r2-q01..q25) and the three honors lessons (la-m7-r2-h01..h42).
+
+# ---------- Lesson 22: vector spaces and subspaces ----------
+- id: la-m7-r2-q01
+  lesson: la-vector-spaces
+  type: label
+  module_quiz: true
+  topic: Subspaces
+  stem: 'Each panel shows a set in $\mathbb{R}^2$. Say whether it is a subspace, and if not, which condition it fails.'
+  image: {src: images/la-m7-subspace-tests-blank.svg, alt: 'Four small coordinate planes, numbered. One shows a line through the origin; one shows a line that misses the origin, with the origin drawn as a hollow dot; one shows both axes highlighted, with u on the x-axis, v on the y-axis and a dashed u + v pointing between them; one shows the shaded first quadrant with u inside it and a dashed −u pointing out of it.'}
+  labels:
+    - {x: 38.2, y: 21.7, text: Subspace}
+    - {x: 85.5, y: 13.3, text: Does not contain the zero vector}
+    - {x: 11.8, y: 72.5, text: Not closed under addition}
+    - {x: 87.5, y: 60.8, text: Not closed under scalar multiplication}
+  distractors: [Not a subset of R², Contains only the zero vector]
+  explanation: |-
+    The line through the origin is $\operatorname{Span}$ of one vector, so it is a subspace. The line that misses the origin fails at once: it doesn't contain $\mathbf{0}$. The union of the axes contains $\mathbf{0}$ and every multiple of an axis vector stays on that axis, but $\mathbf{u} + \mathbf{v}$ lands off both axes, so it is not closed under addition. The first quadrant is closed under addition, but $(-1)\mathbf{u}$ leaves it, so it is not closed under scalar multiplication.
+
+- id: la-m7-r2-q02
+  lesson: la-vector-spaces
+  type: text
+  topic: Subspaces
+  stem: 'Write $H = \{(a - 2b,\ b,\ 3a) : a, b \text{ real}\}$ as a span: $H = \operatorname{Span}\{(1, 0, 3),\ (x, 1, y)\}$, where $x =$ ___ and $y =$ ___. Give only the numbers.'
+  accept:
+    - ['-2']
+    - ['0']
+  explanation: |-
+    Split by parameter: $(a - 2b, b, 3a) = a(1, 0, 3) + b(-2, 1, 0)$. So $x = -2$ and $y = 0$. Since $H$ is a span, it is a subspace of $\mathbb{R}^3$.
+
+- id: la-m7-r2-q03
+  lesson: la-vector-spaces
+  type: match
+  topic: Subspaces
+  stem: 'Test each set in the order: zero vector, then closure under addition, then closure under scalar multiplication. Match each set with the first test it fails (or with "Subspace" if it passes all three).'
+  pairs:
+    - ['$\{(x, y) : y = 5x\}$', Subspace]
+    - ['$\{p \in \mathbb{P}_2 : p(2) = 1\}$', Fails the zero-vector test]
+    - ['$\{(x, y) : xy = 0\}$', Fails closure under addition]
+    - ['$\{(x, y) : y \ge 0\}$', Fails closure under scalar multiplication]
+  explanation: |-
+    $y = 5x$ is a line through the origin, the span of $(1, 5)$. The zero polynomial has value 0 at $t = 2$, not 1, so the second set fails the first test. $xy = 0$ is the union of the two axes: it contains $(0, 0)$, but $(1, 0) + (0, 1) = (1, 1)$ has $xy = 1$. The upper half-plane $y \ge 0$ contains $\mathbf{0}$ and is closed under addition (two nonnegative $y$'s add to a nonnegative one), but $(-1)(0, 1) = (0, -1)$ leaves it.
+
+- id: la-m7-r2-q04
+  lesson: la-vector-spaces
+  topic: Subspaces
+  stem: 'Which of these sets are subspaces of $\mathbb{P}_3$? Select all that apply.'
+  choices: ['$\{p : p(0) = 0\}$', '$\{p : p(1) = p(2)\}$', '$\{p : p \text{ has degree exactly } 3\}$', '$\{p : p(0) \ge 0\}$']
+  answer: [0, 1]
+  explanation: |-
+    $p(0) = 0$ and $p(1) - p(2) = 0$ are conditions that survive adding and scaling (each side is linear in $p$), and the zero polynomial satisfies both, so both sets are subspaces. "Degree exactly 3" misses the zero polynomial, and $t^3 + (-t^3 + t)$ has degree 1. $p(0) \ge 0$ fails under multiplication by $-1$: $p = 1$ is in the set but $-1$ is not.
+
+- id: la-m7-r2-q05
+  lesson: la-vector-spaces
+  module_quiz: true
+  topic: Subspaces
+  stem: 'Which subset of $M_{2\times 2}$ is a subspace?'
+  choices: ['The matrices with determinant 0', 'The invertible matrices', 'The matrices whose two diagonal entries add to 0', 'The matrices whose entries are all $\ge 0$']
+  answer: 2
+  explanation: |-
+    $\begin{bmatrix} a & b \\ c & d\end{bmatrix}$ with $a + d = 0$: the zero matrix qualifies, and if $a + d = 0$ and $a' + d' = 0$ then $(a + a') + (d + d') = 0$ and $ka + kd = 0$. The determinant-0 matrices are not closed under addition: $\begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix} + \begin{bmatrix} 0 & 0 \\ 0 & 1\end{bmatrix} = I$. The invertible matrices don't contain the zero matrix. Nonnegative matrices aren't closed under multiplication by $-1$.
+
+# ---------- Lesson 23: null space and column space ----------
+- id: la-m7-r2-q06
+  lesson: la-nul-col
+  type: label
+  module_quiz: true
+  topic: Null space
+  stem: 'The picture shows the subspaces of $A = \begin{bmatrix} 1 & 2 \\ 2 & 4 \\ -1 & -2\end{bmatrix}$. Name the numbered parts.'
+  image: {src: images/la-m7-nul-col-blank.svg, alt: 'Two panels, inputs R² on the left and outputs R³ on the right, joined by an arrow. The left panel shows a line through the origin. The right panel shows three axes, a line through the origin, and a hollow point on the x₃-axis that is off that line. The line in each panel, the arrow and the hollow point are numbered.'}
+  labels:
+    - {x: 28.7, y: 58.5, text: Nul A}
+    - {x: 71.5, y: 45.8, text: Col A}
+    - {x: 50.0, y: 53.8, text: Multiplication by A}
+    - {x: 77.6, y: 38.5, text: A vector not in Col A}
+  distractors: [Row A, The zero subspace]
+  explanation: |-
+    $\operatorname{Nul} A$ lives among the inputs: it is the line $\operatorname{Span}\{(-2, 1)\}$ in $\mathbb{R}^2$. $\operatorname{Col} A$ lives among the outputs: the line $\operatorname{Span}\{(1, 2, -1)\}$ in $\mathbb{R}^3$, because column 2 is twice column 1. The arrow is the map $\mathbf{x} \mapsto A\mathbf{x}$. The hollow point $(0, 0, 2)$ is not a multiple of $(1, 2, -1)$, so it is not in $\operatorname{Col} A$, and $A\mathbf{x} = (0, 0, 2)$ has no solution.
+
+- id: la-m7-r2-q07
+  lesson: la-nul-col
+  type: text
+  topic: Null space
+  stem: 'Let $A$ be a $4 \times 6$ matrix. Then $\operatorname{Nul} A$ is a subspace of $\mathbb{R}^n$ with $n =$ ___, and $\operatorname{Col} A$ is a subspace of $\mathbb{R}^m$ with $m =$ ___.'
+  accept:
+    - ['6']
+    - ['4']
+  explanation: |-
+    Null-space vectors are inputs $\mathbf{x}$ with $A\mathbf{x} = \mathbf{0}$; they have one entry per column, 6. Column-space vectors are outputs $A\mathbf{x}$; they have one entry per row, 4.
+
+- id: la-m7-r2-q08
+  lesson: la-nul-col
+  type: order
+  topic: Null space
+  stem: 'Put the steps for finding a spanning set for $\operatorname{Nul} A$ in order.'
+  items:
+    - 'Row-reduce $A$ to reduced echelon form'
+    - 'Identify the free variables (the non-pivot columns)'
+    - 'Solve for each pivot variable in terms of the free variables'
+    - 'Write the solution $\mathbf{x}$ in parametric vector form'
+    - 'Take the vector multiplying each free variable'
+  explanation: |-
+    You need the reduced echelon form to see the pivots, the pivots to know which variables are free, the free variables before you can solve for the others, and the solved equations before you can write $\mathbf{x}$ as a combination of vectors. The vectors in that combination, one per free variable, span $\operatorname{Nul} A$.
+
+- id: la-m7-r2-q09
+  lesson: la-nul-col
+  topic: Null space
+  stem: 'Let $A = \begin{bmatrix} 1 & -1 & 2 \\ 2 & -2 & 4\end{bmatrix}$. Which vectors are in $\operatorname{Nul} A$? Select all that apply.'
+  choices: ['$(1, 1, 0)$', '$(-2, 0, 1)$', '$(1, -1, 0)$', '$(2, 0, 1)$']
+  answer: [0, 1]
+  explanation: |-
+    Row 2 is twice row 1, so $\mathbf{x}$ is in $\operatorname{Nul} A$ exactly when $x_1 - x_2 + 2x_3 = 0$. Check each: $1 - 1 + 0 = 0$ ✓; $-2 - 0 + 2 = 0$ ✓; $1 + 1 + 0 = 2$ ✗; $2 - 0 + 2 = 4$ ✗. Testing membership in a null space is just multiplying by $A$.
+
+- id: la-m7-r2-q10
+  lesson: la-nul-col
+  module_quiz: true
+  topic: Column space
+  stem: 'Let $A = \begin{bmatrix} 1 & 3 \\ 2 & 6\end{bmatrix}$. Is $\mathbf{b} = (2, 5)$ in $\operatorname{Col} A$?'
+  choices: ['Yes: $A(2, 0) = (2, 5)$', 'No: $(2, 5)$ is not a multiple of $(1, 2)$', 'Yes: every vector of $\mathbb{R}^2$ is in the column space of a $2 \times 2$ matrix', 'No: $A(2, 5) \ne \mathbf{0}$']
+  answer: 1
+  explanation: |-
+    Column 2 is $3 \times$ column 1, so $\operatorname{Col} A = \operatorname{Span}\{(1, 2)\}$, a line. $(2, 5)$ is not on it ($2 \cdot 2 \ne 5$), so $A\mathbf{x} = (2, 5)$ is inconsistent. $A(2, 0) = (2, 4)$, not $(2, 5)$. A $2 \times 2$ matrix has $\operatorname{Col} A = \mathbb{R}^2$ only when it has two pivots. Computing $A\mathbf{b}$ tests the null space, not the column space.
+
+# ---------- Lesson 24: bases ----------
+- id: la-m7-r2-q11
+  lesson: la-bases
+  type: label
+  module_quiz: true
+  topic: Bases
+  stem: 'The picture shows $A = \begin{bmatrix} 1 & 2 & -1 & 3 \\ 2 & 4 & 1 & 0 \\ 3 & 6 & 0 & 3\end{bmatrix}$ and its reduced echelon form. Name the numbered parts.'
+  image: {src: images/la-m7-pivot-columns-blank.svg, alt: 'The matrix A beside its reduced echelon form, joined by an arrow labeled row-reduce. In A, columns 1 and 3 are shaded. In the reduced echelon form, two entries equal to 1 are circled, the last column is outlined with a dashed box, and the bottom row of zeros is shaded. Four parts are numbered.'}
+  labels:
+    - {x: 27.6, y: 33.0, text: 'Pivot column of A, part of a basis for Col A'}
+    - {x: 80.3, y: 55.8, text: Pivot position}
+    - {x: 65.5, y: 71.5, text: Zero row}
+    - {x: 87.6, y: 33.0, text: Non-pivot column}
+  distractors: [Basis vector for Nul A, Pivot column of the RREF to use for Col A]
+  explanation: |-
+    The reduced echelon form has pivots in columns 1 and 3 (the circled 1s), so columns 1 and 3 of $A$ itself, $(1, 2, 3)$ and $(-1, 1, 0)$, are a basis for $\operatorname{Col} A$. Column 4 has no pivot: it is a combination of the pivot columns. The bottom row became all zeros, so $A$ has rank 2. The RREF's own pivot columns $(1, 0, 0)$ and $(0, 1, 0)$ are not even in $\operatorname{Col} A$.
+
+- id: la-m7-r2-q12
+  lesson: la-bases
+  type: text
+  topic: Bases
+  stem: 'The reduced echelon form of $A$ is $\begin{bmatrix} 1 & 0 & 2 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 0 & 1\end{bmatrix}$. A basis for $\operatorname{Nul} A$ is $\{(a, b, 1, 0)\}$, where $a =$ ___ and $b =$ ___. Give only the numbers.'
+  accept:
+    - ['-2']
+    - ['1']
+  explanation: |-
+    Pivots are in columns 1, 2 and 4, so $x_3$ is the only free variable. The rows say $x_1 + 2x_3 = 0$, $x_2 - x_3 = 0$ and $x_4 = 0$. So $\mathbf{x} = x_3(-2, 1, 1, 0)$: $a = -2$, $b = 1$.
+
+- id: la-m7-r2-q13
+  lesson: la-bases
+  type: match
+  topic: Bases
+  stem: 'Match each subspace with where a basis for it comes from after one row reduction of $A$.'
+  pairs:
+    - ['$\operatorname{Col} A$', The pivot columns of A itself]
+    - ['$\operatorname{Row} A$', The nonzero rows of an echelon form]
+    - ['$\operatorname{Nul} A$', The vectors in the parametric vector form of Ax = 0]
+  distractors: [The pivot columns of the echelon form, The rows of A itself]
+  explanation: |-
+    Row operations keep the dependence relations among the columns but change the columns themselves, so the pivot columns tell you which columns of the original $A$ to keep for $\operatorname{Col} A$. Row operations do preserve the row space, so the nonzero rows of an echelon form are a basis for $\operatorname{Row} A$ (the rows of $A$ may be dependent). The parametric vector form gives one null-space basis vector per free variable.
+
+- id: la-m7-r2-q14
+  lesson: la-bases
+  topic: Bases
+  stem: 'Which sets are bases of $\mathbb{R}^2$? Select all that apply.'
+  choices: ['$\{(1, 2), (2, 1)\}$', '$\{(1, 0), (0, 1), (1, 1)\}$', '$\{(3, -6), (-1, 2)\}$', '$\{(0, 5), (2, 0)\}$']
+  answer: [0, 3]
+  explanation: |-
+    $(1, 2)$ and $(2, 1)$ are not multiples of each other, so they are independent and span $\mathbb{R}^2$; the same goes for $(0, 5)$ and $(2, 0)$. Three vectors in $\mathbb{R}^2$ are always dependent, so $\{(1, 0), (0, 1), (1, 1)\}$ spans but is not a basis. $(3, -6) = -3(-1, 2)$, so that pair is dependent and spans only a line.
+
+- id: la-m7-r2-q15
+  lesson: la-bases
+  module_quiz: true
+  topic: Bases
+  stem: 'Which set is a basis for $\mathbb{P}_2$?'
+  choices: ['$\{1, t^2\}$', '$\{1 + t,\ 2 + 2t,\ t^2\}$', '$\{1, t, t^2, t^3\}$', '$\{1 + t,\ t + t^2,\ 1 + t^2\}$']
+  answer: 3
+  explanation: |-
+    In coordinates relative to $\{1, t, t^2\}$, the last set is $(1, 1, 0)$, $(0, 1, 1)$, $(1, 0, 1)$. Row-reducing the matrix with these columns gives three pivots, so they are independent and span $\mathbb{P}_2$. $\{1, t^2\}$ can't produce $t$. $2 + 2t = 2(1 + t)$, so that set is dependent. $t^3$ is not in $\mathbb{P}_2$ at all.
+
+# ---------- Lesson 25: coordinates and change of basis ----------
+- id: la-m7-r2-q16
+  lesson: la-coordinates
+  type: label
+  module_quiz: true
+  topic: Coordinates
+  stem: 'The slanted grid is built from $\mathbf{b}_1 = (2, 1)$ and $\mathbf{b}_2 = (-1, 1)$. Give the $\mathcal{B}$-coordinates $(c_1, c_2)$ of each numbered point.'
+  image: {src: images/la-m7-coord-grid-blank.svg, alt: 'A slanted grid drawn over the standard axes, with the arrows b₁ and b₂ starting at the origin. Four grid points are numbered.'}
+  labels:
+    - {x: 50.0, y: 19.0, text: '(2, 3)'}
+    - {x: 42.6, y: 41.5, text: '(1, 2)'}
+    - {x: 79.5, y: 64.1, text: '(2, −1)'}
+    - {x: 20.5, y: 75.4, text: '(−1, 1)'}
+  distractors: ['(1, 5)', '(3, 2)']
+  explanation: |-
+    Count grid steps along $\mathbf{b}_1$ and $\mathbf{b}_2$. Point 1 is $2\mathbf{b}_1 + 3\mathbf{b}_2 = (1, 5)$: its standard coordinates are $(1, 5)$, but its $\mathcal{B}$-coordinates are $(2, 3)$. Point 2 is $\mathbf{b}_1 + 2\mathbf{b}_2 = (0, 3)$. Point 3 is $2\mathbf{b}_1 - \mathbf{b}_2 = (5, 1)$. Point 4 is $-\mathbf{b}_1 + \mathbf{b}_2 = (-3, 0)$.
+
+- id: la-m7-r2-q17
+  lesson: la-coordinates
+  type: text
+  topic: Coordinates
+  stem: 'Let $\mathcal{B} = \{(1, 1), (1, -1)\}$ and $\mathbf{x} = (5, 1)$. Then $[\mathbf{x}]_{\mathcal{B}} = (c_1, c_2)$ with $c_1 =$ ___ and $c_2 =$ ___.'
+  accept:
+    - ['3']
+    - ['2']
+  explanation: |-
+    Solve $c_1(1, 1) + c_2(1, -1) = (5, 1)$: $c_1 + c_2 = 5$ and $c_1 - c_2 = 1$. Adding, $2c_1 = 6$, so $c_1 = 3$ and $c_2 = 2$. Check: $3(1, 1) + 2(1, -1) = (5, 1)$.
+
+- id: la-m7-r2-q18
+  lesson: la-coordinates
+  type: order
+  topic: Change of basis
+  stem: 'You know $[\mathbf{x}]_{\mathcal{B}}$ and want $[\mathbf{x}]_{\mathcal{C}}$, for two bases of $\mathbb{R}^n$. Put the steps in order.'
+  items:
+    - 'Form the matrix $[\,\mathbf{c}_1 \;\cdots\; \mathbf{c}_n \;|\; \mathbf{b}_1 \;\cdots\; \mathbf{b}_n\,]$'
+    - 'Row-reduce until the left block is $I$'
+    - 'Read $P_{\mathcal{C} \leftarrow \mathcal{B}}$ from the right block'
+    - 'Compute $P_{\mathcal{C} \leftarrow \mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$'
+  explanation: |-
+    The target basis $\mathcal{C}$ goes on the left. When the left block becomes $I$, the right block holds the columns $[\mathbf{b}_j]_{\mathcal{C}}$, which is $P_{\mathcal{C} \leftarrow \mathcal{B}}$. Only then can you multiply it by $[\mathbf{x}]_{\mathcal{B}}$.
+
+- id: la-m7-r2-q19
+  lesson: la-coordinates
+  topic: Coordinates
+  stem: 'Let $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ be a basis of $\mathbb{R}^2$ and $P_{\mathcal{B}} = [\,\mathbf{b}_1 \;\; \mathbf{b}_2\,]$. Which statements are true for every $\mathbf{x}$ in $\mathbb{R}^2$? Select all that apply.'
+  choices: ['$\mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$', '$[\mathbf{x}]_{\mathcal{B}} = P_{\mathcal{B}}^{-1}\mathbf{x}$', '$[\mathbf{x}]_{\mathcal{B}} = P_{\mathcal{B}}\mathbf{x}$', '$[\mathbf{b}_1]_{\mathcal{B}} = (1, 0)$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} = c_1\mathbf{b}_1 + c_2\mathbf{b}_2 = \mathbf{x}$, and multiplying by $P_{\mathcal{B}}^{-1}$ reverses it. $P_{\mathcal{B}}\mathbf{x}$ goes the wrong way: it treats the standard coordinates of $\mathbf{x}$ as if they were $\mathcal{B}$-coordinates. $\mathbf{b}_1 = 1\mathbf{b}_1 + 0\mathbf{b}_2$, so its coordinate vector is $(1, 0)$.
+
+- id: la-m7-r2-q20
+  lesson: la-coordinates
+  module_quiz: true
+  topic: Coordinates
+  stem: 'Find the coordinate vector of $p(t) = 4 + 3t - t^2$ relative to the basis $\mathcal{B} = \{1,\ 1 + t,\ t^2\}$ of $\mathbb{P}_2$.'
+  choices: ['$(4, 3, -1)$', '$(7, 3, -1)$', '$(1, 3, -1)$', '$(1, -1, 3)$']
+  answer: 2
+  explanation: |-
+    Write $p = c_1 \cdot 1 + c_2(1 + t) + c_3t^2$. Matching $t^2$: $c_3 = -1$. Matching $t$: $c_2 = 3$. Matching constants: $c_1 + c_2 = 4$, so $c_1 = 1$. Check: $1 + 3(1 + t) - t^2 = 4 + 3t - t^2$. $(4, 3, -1)$ is the coordinate vector in the standard basis; $(7, 3, -1)$ adds $c_2$ instead of subtracting it; $(1, -1, 3)$ lists the weights in the wrong order.
+
+# ---------- Lesson 26: dimension and rank ----------
+- id: la-m7-r2-q21
+  lesson: la-dim-rank
+  type: label
+  module_quiz: true
+  topic: Rank
+  stem: 'An $m \times n$ matrix $A$ has rank $r$. Name the four subspaces in the picture, using their dimensions and where they live.'
+  image: {src: images/la-m7-four-subspaces-blank.svg, alt: 'Two regions: Rⁿ (inputs, n = number of columns) and Rᵐ (outputs, m = number of rows), joined by an arrow labeled A. Each region holds two numbered ovals. In Rⁿ the ovals have dimension r and n − r, and a dashed arrow labeled sent to 0 runs from the second one to the zero vector of Rᵐ. In Rᵐ the ovals have dimension r and m − r.'}
+  labels:
+    - {x: 23.7, y: 36.2, text: Row A}
+    - {x: 23.7, y: 71.9, text: Nul A}
+    - {x: 76.3, y: 36.2, text: Col A}
+    - {x: 76.3, y: 71.9, text: Nul Aᵀ}
+  distractors: [Column space of the RREF, All of Rᵐ]
+  explanation: |-
+    Among the inputs: $\operatorname{Row} A$ has dimension $r$ (the number of pivots) and $\operatorname{Nul} A$ has dimension $n - r$ (the number of free variables); $\operatorname{Nul} A$ is the part sent to $\mathbf{0}$. Among the outputs: $\operatorname{Col} A$ has dimension $r$, and $\operatorname{Nul} A^T$ has dimension $m - r$ by the rank theorem applied to the $n \times m$ matrix $A^T$, which also has rank $r$.
+
+- id: la-m7-r2-q22
+  lesson: la-dim-rank
+  type: text
+  topic: Rank
+  stem: 'A $6 \times 9$ matrix $A$ has rank 4. Then $\dim\operatorname{Nul} A =$ ___ and $\dim\operatorname{Nul} A^T =$ ___.'
+  accept:
+    - ['5']
+    - ['2']
+  explanation: |-
+    Rank theorem for $A$ (9 columns): $\dim\operatorname{Nul} A = 9 - 4 = 5$. $A^T$ is $9 \times 6$ with the same rank 4, so $\dim\operatorname{Nul} A^T = 6 - 4 = 2$.
+
+- id: la-m7-r2-q23
+  lesson: la-dim-rank
+  type: match
+  topic: Dimension
+  stem: 'Match each vector space with its dimension.'
+  pairs:
+    - ['$\mathbb{P}_4$', '5']
+    - ['$M_{2\times 3}$', '6']
+    - ['A plane through $\mathbf{0}$ in $\mathbb{R}^3$', '2']
+    - ['$\mathbb{R}^4$', '4']
+  distractors: ['3']
+  explanation: |-
+    $\mathbb{P}_4$ has basis $1, t, t^2, t^3, t^4$: five vectors (count the constant). $M_{2\times 3}$ has one basis matrix per entry: 6. A plane through the origin is spanned by two independent vectors, even though its vectors have three entries. $\mathbb{R}^4$ has the standard basis of 4 vectors.
+
+- id: la-m7-r2-q24
+  lesson: la-dim-rank
+  topic: Rank
+  stem: 'A $5 \times 5$ matrix $A$ has $\dim\operatorname{Nul} A = 0$. Which statements must be true? Select all that apply.'
+  choices: ['$A$ is invertible', '$\operatorname{rank} A = 5$', '$\operatorname{Col} A = \mathbb{R}^5$', 'The columns of $A$ are linearly dependent']
+  answer: [0, 1, 2]
+  explanation: |-
+    By the rank theorem, $\operatorname{rank} A = 5 - 0 = 5$, so $\operatorname{Col} A$ is a 5-dimensional subspace of $\mathbb{R}^5$, which is all of $\mathbb{R}^5$. Five pivots in a $5 \times 5$ matrix means $A$ is invertible, and its columns are independent, not dependent.
+
+- id: la-m7-r2-q25
+  lesson: la-dim-rank
+  module_quiz: true
+  topic: Rank
+  stem: 'What is the smallest possible value of $\dim\operatorname{Nul} A$ for a $4 \times 7$ matrix $A$?'
+  choices: ['0', '3', '4', '7']
+  answer: 1
+  explanation: |-
+    The rank is at most the number of rows, 4, so the rank theorem gives $\dim\operatorname{Nul} A = 7 - \operatorname{rank} A \ge 7 - 4 = 3$. A $4 \times 7$ matrix always has at least three free variables. 0 would need rank 7, which is impossible with 4 rows.
+
+# ---------- Honors 26h1: exchange, extension and sums of subspaces ----------
+- id: la-m7-r2-h01
+  lesson: la-m7-h-dimension-proofs
+  topic: Dimension
+  stem: 'A vector space $V$ is spanned by 5 vectors. Which statement must be true?'
+  choices: ['Every linearly independent set in $V$ has at most 5 vectors', 'Every spanning set of $V$ has exactly 5 vectors', '$\dim V = 5$', 'Every set of 5 vectors in $V$ is a basis']
+  answer: 0
+  explanation: |-
+    The exchange lemma says an independent set is never larger than a spanning set. The spanning set may be redundant, so $\dim V$ could be less than 5 (for example, five vectors spanning a plane). Then other spanning sets can be smaller, and five vectors in $V$ cannot all be independent.
+
+- id: la-m7-r2-h02
+  lesson: la-m7-h-dimension-proofs
+  topic: Dimension
+  stem: 'In the proof of the exchange lemma, $\mathbf{u}_k = a_1\mathbf{u}_1 + \cdots + a_{k-1}\mathbf{u}_{k-1} + c_k\mathbf{w}_k + \cdots + c_n\mathbf{w}_n$. Why must some $c_j$ be nonzero?'
+  choices: ['Because the $\mathbf{w}$''s are linearly independent', 'Otherwise $\mathbf{u}_k$ would be a combination of $\mathbf{u}_1, \dots, \mathbf{u}_{k-1}$, which contradicts the independence of the $\mathbf{u}$''s', 'Because $\mathbf{u}_k$ is not the zero vector', 'Because $V$ is finite-dimensional']
+  answer: 1
+  explanation: |-
+    If every $c_j$ were 0, the equation would write $\mathbf{u}_k$ using only earlier $\mathbf{u}$'s, a dependence relation among independent vectors. The $\mathbf{w}$'s are only assumed to span, not to be independent. $\mathbf{u}_k \ne \mathbf{0}$ is true but not enough: a nonzero vector could still be a combination of $\mathbf{u}_1, \dots, \mathbf{u}_{k-1}$.
+
+- id: la-m7-r2-h03
+  lesson: la-m7-h-dimension-proofs
+  type: order
+  topic: Dimension
+  stem: 'Put the steps for extending a linearly independent set $\{\mathbf{u}_1, \dots, \mathbf{u}_p\}$ to a basis of $\mathbb{R}^n$ in order.'
+  items:
+    - 'Make $\mathbf{u}_1, \dots, \mathbf{u}_p$ the first columns of a matrix'
+    - 'Append $\mathbf{e}_1, \dots, \mathbf{e}_n$ as the remaining columns'
+    - 'Row-reduce to find the pivot columns'
+    - 'Keep the pivot columns of the original matrix as the basis'
+  explanation: |-
+    The given vectors must come first: independent vectors at the front are always pivot columns, so they all survive. The standard vectors are added so the columns span $\mathbb{R}^n$. Row reduction finds the pivot columns, and, as for any column space, the basis is made of the original columns in those positions.
+
+- id: la-m7-r2-h04
+  lesson: la-m7-h-dimension-proofs
+  topic: Dimension
+  stem: 'The vector $\mathbf{u} = (0, 2, 1, 0)$ is to be swapped into the spanning set $\{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3, \mathbf{e}_4\}$ of $\mathbb{R}^4$. Which $\mathbf{e}_j$ could it replace, so that the new set still spans $\mathbb{R}^4$? Select all that apply.'
+  choices: ['$\mathbf{e}_1$', '$\mathbf{e}_2$', '$\mathbf{e}_3$', '$\mathbf{e}_4$']
+  answer: [1, 2]
+  explanation: |-
+    $\mathbf{u} = 0\mathbf{e}_1 + 2\mathbf{e}_2 + 1\mathbf{e}_3 + 0\mathbf{e}_4$. The exchange works for any $\mathbf{e}_j$ with a nonzero coefficient: $\mathbf{e}_2 = \tfrac12(\mathbf{u} - \mathbf{e}_3)$ and $\mathbf{e}_3 = \mathbf{u} - 2\mathbf{e}_2$. Replacing $\mathbf{e}_1$ or $\mathbf{e}_4$ fails: $\mathbf{u}, \mathbf{e}_2, \mathbf{e}_3$ and the remaining one all have a 0 in that slot, so the removed vector can't be rebuilt.
+
+- id: la-m7-r2-h05
+  lesson: la-m7-h-dimension-proofs
+  topic: Sums of subspaces
+  stem: '$H$ and $K$ are subspaces of $\mathbb{R}^6$ with $\dim H = \dim K = 4$. What is the smallest possible value of $\dim(H \cap K)$?'
+  choices: ['0', '1', '2', '4']
+  answer: 2
+  explanation: |-
+    $H + K$ is a subspace of $\mathbb{R}^6$, so $\dim(H + K) \le 6$. The dimension formula gives $\dim(H \cap K) = 4 + 4 - \dim(H + K) \ge 8 - 6 = 2$. It can equal 2: take $H = \operatorname{Span}\{\mathbf{e}_1, \dots, \mathbf{e}_4\}$ and $K = \operatorname{Span}\{\mathbf{e}_3, \dots, \mathbf{e}_6\}$, which meet in $\operatorname{Span}\{\mathbf{e}_3, \mathbf{e}_4\}$.
+
+- id: la-m7-r2-h06
+  lesson: la-m7-h-dimension-proofs
+  type: text
+  topic: Sums of subspaces
+  stem: 'Two 3-dimensional subspaces $H$ and $K$ of $\mathbb{R}^5$ meet in a 2-dimensional subspace. Then $\dim(H + K) =$ ___.'
+  accept: ['4']
+  explanation: |-
+    $\dim(H + K) = \dim H + \dim K - \dim(H \cap K) = 3 + 3 - 2 = 4$.
+
+- id: la-m7-r2-h07
+  lesson: la-m7-h-dimension-proofs
+  topic: Sums of subspaces
+  stem: 'In $\mathbb{R}^3$, let $H = \operatorname{Span}\{(1, 0, 0), (0, 1, 0)\}$ and $K = \operatorname{Span}\{(1, 1, 0), (0, 0, 1)\}$. What is $H \cap K$?'
+  choices: ['$\operatorname{Span}\{(0, 0, 1)\}$', '$\{\mathbf{0}\}$', '$\operatorname{Span}\{(1, 0, 0), (0, 1, 0)\}$', '$\operatorname{Span}\{(1, 1, 0)\}$']
+  answer: 3
+  explanation: |-
+    $H$ is the plane $x_3 = 0$ and $K$ is the plane $x_1 = x_2$. A vector in both has $x_3 = 0$ and $x_1 = x_2$, so it is a multiple of $(1, 1, 0)$. Check with the formula: the two planes are different, so $H + K = \mathbb{R}^3$ and $\dim(H \cap K) = 2 + 2 - 3 = 1$. $(0, 0, 1)$ is in $K$ but not $H$; $\{\mathbf{0}\}$ is impossible for two planes in $\mathbb{R}^3$; the last plane is $H$ itself.
+
+- id: la-m7-r2-h08
+  lesson: la-m7-h-dimension-proofs
+  topic: Sums of subspaces
+  stem: 'Let $H$ and $K$ be subspaces of a finite-dimensional space $V$. Which statements are always true? Select all that apply.'
+  choices: ['$H \cap K$ is a subspace', '$H + K$ is the smallest subspace that contains both $H$ and $K$', '$H \cup K$ is a subspace', '$\dim(H + K) = \dim H + \dim K$']
+  answer: [0, 1]
+  explanation: |-
+    The intersection contains $\mathbf{0}$ and is closed under both operations, because each of $H$ and $K$ is. Any subspace containing $H$ and $K$ contains every sum $\mathbf{h} + \mathbf{k}$, so $H + K$ is the smallest. The union of the two axes in $\mathbb{R}^2$ is not a subspace. The dimension formula subtracts $\dim(H \cap K)$, which is 0 only for a direct sum.
+
+- id: la-m7-r2-h09
+  lesson: la-m7-h-dimension-proofs
+  topic: Sums of subspaces
+  stem: '$H$ is a plane through the origin in $\mathbb{R}^3$, and $\mathbb{R}^3 = H \oplus K$. What can $K$ be?'
+  choices: ['Any line through the origin that does not lie in $H$', 'Only the line through the origin perpendicular to $H$', 'Any plane through the origin other than $H$', 'Any line through the origin']
+  answer: 0
+  explanation: |-
+    A direct sum needs $H \cap K = \{\mathbf{0}\}$ and $\dim H + \dim K = 3$, so $K$ is a line meeting $H$ only at $\mathbf{0}$: any line through the origin not lying in $H$. The perpendicular line is one choice among many. A second plane meets $H$ in a line, so the sum isn't direct, and a line inside $H$ adds nothing.
+
+- id: la-m7-r2-h10
+  lesson: la-m7-h-dimension-proofs
+  type: match
+  topic: Sums of subspaces
+  stem: 'Match each pair of subspaces $H$, $K$ with $\dim(H + K)$.'
+  pairs:
+    - ['Two different lines through $\mathbf{0}$ in $\mathbb{R}^3$', 'dim(H + K) = 2']
+    - ['Two different planes through $\mathbf{0}$ in $\mathbb{R}^3$', 'dim(H + K) = 3']
+    - ['A line $H$ lying inside a plane $K$, both through $\mathbf{0}$', 'dim(H + K) = 2']
+    - ['Two 2-dimensional subspaces of $\mathbb{R}^4$ with $H \cap K = \{\mathbf{0}\}$', 'dim(H + K) = 4']
+  distractors: ['dim(H + K) = 1']
+  explanation: |-
+    Use $\dim(H + K) = \dim H + \dim K - \dim(H \cap K)$. Two different lines meet only at $\mathbf{0}$: $1 + 1 - 0 = 2$ (they span a plane). Two different planes in $\mathbb{R}^3$ meet in a line: $2 + 2 - 1 = 3$. A line inside a plane: $H \cap K = H$, so $1 + 2 - 1 = 2$, the plane itself. A direct sum of two planes in $\mathbb{R}^4$: $2 + 2 - 0 = 4$.
+
+- id: la-m7-r2-h11
+  lesson: la-m7-h-dimension-proofs
+  topic: Dimension
+  stem: 'To extend $\{\mathbf{u}_1, \mathbf{u}_2\}$ with $\mathbf{u}_1 = (1, 1, 0)$ and $\mathbf{u}_2 = (0, 1, 1)$ to a basis of $\mathbb{R}^3$, you row-reduce $[\,\mathbf{u}_1 \;\; \mathbf{u}_2 \;\; \mathbf{e}_1 \;\; \mathbf{e}_2 \;\; \mathbf{e}_3\,]$ and find pivots in columns 1, 2 and 3. Which basis does the method give?'
+  choices: ['$\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{e}_1\}$', '$\{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3\}$', '$\{\mathbf{u}_1, \mathbf{u}_2\}$', '$\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{e}_1, \mathbf{e}_2\}$']
+  answer: 0
+  explanation: |-
+    Keep the original columns in the pivot positions 1, 2, 3: $\mathbf{u}_1$, $\mathbf{u}_2$ and $\mathbf{e}_1$. This contains the given vectors, as an extension must. Two vectors can't span $\mathbb{R}^3$, and four vectors in $\mathbb{R}^3$ are dependent. The standard basis is a basis but doesn't contain $\mathbf{u}_1, \mathbf{u}_2$.
+
+- id: la-m7-r2-h12
+  lesson: la-m7-h-dimension-proofs
+  topic: Sums of subspaces
+  stem: '$L_1$, $L_2$, $L_3$ are three different lines through the origin in $\mathbb{R}^2$. What is $\dim(L_1 + L_2 + L_3)$?'
+  choices: ['1', '2', '3', '0']
+  answer: 1
+  explanation: |-
+    Any two different lines through the origin already span $\mathbb{R}^2$, so the sum is $\mathbb{R}^2$, of dimension 2. Adding dimensions and subtracting pairwise intersections (all $\{\mathbf{0}\}$) would wrongly give 3: the two-subspace formula does not extend to three subspaces like inclusion–exclusion.
+
+- id: la-m7-r2-h13
+  lesson: la-m7-h-dimension-proofs
+  type: text
+  topic: Sums of subspaces
+  stem: 'Subspaces $H$ and $K$ of $\mathbb{R}^7$ have $\dim H = 3$, $\dim K = 5$ and $H + K = \mathbb{R}^7$. Then $\dim(H \cap K) =$ ___.'
+  accept: ['1']
+  explanation: |-
+    $\dim(H \cap K) = \dim H + \dim K - \dim(H + K) = 3 + 5 - 7 = 1$.
+
+- id: la-m7-r2-h14
+  lesson: la-m7-h-dimension-proofs
+  topic: Dimension
+  stem: 'Which of these statements needs the space $V$ to be finite-dimensional?'
+  choices: ['The intersection of two subspaces of $V$ is a subspace', 'A span of vectors in $V$ is a subspace', '$H + K$ contains $H$', 'A subspace $H$ of $V$ with $\dim H = \dim V$ equals $V$']
+  answer: 3
+  explanation: |-
+    The other three are true in every vector space. The last one fails in infinite dimensions: the polynomials with zero constant term are an infinite-dimensional subspace of the space of all polynomials, yet not the whole space. In finite dimensions, a basis of $H$ is an independent set of $\dim V$ vectors, so by the basis theorem it spans $V$.
+
+# ---------- Honors 26h2: matrices of linear maps ----------
+- id: la-m7-r2-h15
+  lesson: la-m7-h-linear-maps
+  type: label
+  topic: Matrices of linear maps
+  stem: '$T: V \to W$ is linear, $\mathcal{B}$ is a basis of $V$ (with $n$ vectors) and $\mathcal{C}$ a basis of $W$ (with $m$ vectors), and $M$ is the matrix of $T$ relative to $\mathcal{B}$ and $\mathcal{C}$. Name the numbered maps.'
+  image: {src: images/la-m7-h-square-blank.svg, alt: 'A square diagram with boxes V at top left, W at top right, Rⁿ at bottom left and Rᵐ at bottom right. Arrows go from V to W, from Rⁿ to Rᵐ, from V down to Rⁿ, and from W down to Rᵐ, and each arrow is numbered. Beside the boxes are x, T(x), [x] sub B and [T(x)] sub C.'}
+  labels:
+    - {x: 50.0, y: 22.5, text: T}
+    - {x: 50.0, y: 75.0, text: Multiply by M}
+    - {x: 22.4, y: 48.8, text: Take B-coordinates}
+    - {x: 77.6, y: 48.8, text: Take C-coordinates}
+  distractors: [Multiply by M⁻¹, Apply T⁻¹]
+  explanation: |-
+    $T$ goes straight from $V$ to $W$. Taking $\mathcal{B}$-coordinates turns $\mathbf{x}$ into $[\mathbf{x}]_{\mathcal{B}}$ in $\mathbb{R}^n$, and taking $\mathcal{C}$-coordinates turns $T(\mathbf{x})$ into $[T(\mathbf{x})]_{\mathcal{C}}$ in $\mathbb{R}^m$. The bottom arrow is multiplication by $M$, because $[T(\mathbf{x})]_{\mathcal{C}} = M[\mathbf{x}]_{\mathcal{B}}$: both routes from $V$ to $\mathbb{R}^m$ agree.
+
+- id: la-m7-r2-h16
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'Let $T: \mathbb{P}_4 \to \mathbb{P}_2$ be linear. What size is the matrix of $T$ relative to bases of $\mathbb{P}_4$ and $\mathbb{P}_2$?'
+  choices: ['$5 \times 3$', '$3 \times 5$', '$2 \times 4$', '$4 \times 2$']
+  answer: 1
+  explanation: |-
+    The matrix is $\dim W \times \dim V$: one column per input basis vector and one row per output coordinate. $\dim\mathbb{P}_4 = 5$ and $\dim\mathbb{P}_2 = 3$, so it is $3 \times 5$. The sizes with 4 and 2 forget that $\dim\mathbb{P}_n = n + 1$; $5 \times 3$ has rows and columns swapped.
+
+- id: la-m7-r2-h17
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'Find the matrix of differentiation $D: \mathbb{P}_2 \to \mathbb{P}_1$, $D(p) = p''$, relative to the standard bases $\{1, t, t^2\}$ and $\{1, t\}$.'
+  choices: ['$\begin{bmatrix} 0 & 0 \\ 1 & 0 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 2 & 0\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \\ 0 & 0 & 0\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $D(1) = 0$, $D(t) = 1$, $D(t^2) = 2t$, with coordinates $(0, 0)$, $(1, 0)$, $(0, 2)$ in $\{1, t\}$. These are the three columns of a $2 \times 3$ matrix. The $3 \times 2$ choice writes them as rows; $\begin{bmatrix} 1 & 0 & 0 \\ 0 & 2 & 0\end{bmatrix}$ drops the zero column for $D(1)$ and shifts the others; the $3 \times 3$ matrix uses $\mathbb{P}_2$ as the output space.
+
+- id: la-m7-r2-h18
+  lesson: la-m7-h-linear-maps
+  type: text
+  topic: Matrices of linear maps
+  stem: 'Let $T: \mathbb{P}_2 \to \mathbb{R}^2$, $T(p) = (p(0), p(3))$. Its kernel is spanned by one polynomial $t^2 + bt + c$, where $b =$ ___ and $c =$ ___.'
+  accept:
+    - ['-3']
+    - ['0']
+  explanation: |-
+    The matrix relative to $\{1, t, t^2\}$ is $\begin{bmatrix} 1 & 0 & 0 \\ 1 & 3 & 9\end{bmatrix}$. Its null space: $x_1 = 0$ and $3x_2 + 9x_3 = 0$, so $(0, -3, 1)x_3$. That is the polynomial $-3t + t^2 = t(t - 3)$, which vanishes at 0 and 3. So $b = -3$ and $c = 0$.
+
+- id: la-m7-r2-h19
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'A linear map $T: M_{2\times 2} \to \mathbb{P}_2$ is onto. What is $\dim(\ker T)$?'
+  choices: ['1', '0', '3', '4']
+  answer: 0
+  explanation: |-
+    Onto means the range is all of $\mathbb{P}_2$, of dimension 3. Rank–nullity: $\dim M_{2\times 2} = 4 = \dim\ker T + 3$, so $\dim\ker T = 1$. 0 would need $\dim V = \dim W$; 3 confuses the range's dimension with the kernel's.
+
+- id: la-m7-r2-h20
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'For which of these could a linear map be one-to-one? Select all that apply.'
+  choices: ['$T: \mathbb{P}_3 \to \mathbb{R}^4$', '$T: \mathbb{R}^2 \to M_{2\times 2}$', '$T: M_{2\times 2} \to \mathbb{R}^3$', '$T: \mathbb{P}_5 \to \mathbb{P}_4$']
+  answer: [0, 1]
+  explanation: |-
+    One-to-one means $\ker T = \{\mathbf{0}\}$, so $\dim V = \dim\operatorname{range} T \le \dim W$. $\mathbb{P}_3 \to \mathbb{R}^4$ has $4 \le 4$ (the coordinate mapping works) and $\mathbb{R}^2 \to M_{2\times 2}$ has $2 \le 4$. $M_{2\times 2} \to \mathbb{R}^3$ has $4 > 3$ and $\mathbb{P}_5 \to \mathbb{P}_4$ has $6 > 5$, so those kernels are at least 1-dimensional.
+
+- id: la-m7-r2-h21
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'Which vector space is isomorphic to $\mathbb{P}_5$?'
+  choices: ['$\mathbb{R}^5$', '$M_{2\times 2}$', '$\mathbb{P}_6$', '$M_{2\times 3}$']
+  answer: 3
+  explanation: |-
+    Finite-dimensional spaces are isomorphic exactly when their dimensions agree. $\dim\mathbb{P}_5 = 6$ and $\dim M_{2\times 3} = 6$. The others have dimensions 5, 4 and 7.
+
+- id: la-m7-r2-h22
+  lesson: la-m7-h-linear-maps
+  type: match
+  topic: Matrices of linear maps
+  stem: 'Match each linear map with its kernel.'
+  pairs:
+    - ['$D: \mathbb{P}_3 \to \mathbb{P}_2$, $D(p) = p''$', The constant polynomials]
+    - ['$T: M_{2\times 2} \to M_{2\times 2}$, $T(A) = A^T$', Only the zero matrix]
+    - ['$T: \mathbb{P}_2 \to \mathbb{R}^2$, $T(p) = (p(1), p(2))$', Multiples of (t − 1)(t − 2)]
+    - ['$T: \mathbb{P}_2 \to \mathbb{R}$, $T(p) = p(0)$', Polynomials with zero constant term]
+  distractors: [All of P₂]
+  explanation: |-
+    A derivative is 0 exactly for constants. $A^T = 0$ only when $A = 0$, so the transpose is one-to-one. A quadratic vanishing at 1 and 2 is a multiple of $(t - 1)(t - 2)$ (Example 2 of the lesson). $p(0)$ is the constant term, so the kernel is $\{a_1t + a_2t^2\}$, a 2-dimensional subspace, matching rank–nullity: $3 = 2 + 1$.
+
+- id: la-m7-r2-h23
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: '$T: U \to V$ has a $3 \times 4$ matrix $M_T$ (bases $\mathcal{A}$, $\mathcal{B}$) and $S: V \to W$ has a $2 \times 3$ matrix $M_S$ (bases $\mathcal{B}$, $\mathcal{C}$). What is the matrix of $S \circ T$ relative to $\mathcal{A}$ and $\mathcal{C}$?'
+  choices: ['$M_SM_T$, a $2 \times 4$ matrix', '$M_TM_S$, a $2 \times 4$ matrix', '$M_SM_T$, a $4 \times 2$ matrix', '$M_S + M_T$']
+  answer: 0
+  explanation: |-
+    $[S(T(\mathbf{x}))]_{\mathcal{C}} = M_S[T(\mathbf{x})]_{\mathcal{B}} = M_SM_T[\mathbf{x}]_{\mathcal{A}}$. The first map applied is written on the right, as with standard matrices. $(2 \times 3)(3 \times 4)$ is $2 \times 4$: $\dim W \times \dim U$. $M_TM_S$ isn't even defined ($4 \ne 2$), and matrices of different sizes can't be added.
+
+- id: la-m7-r2-h24
+  lesson: la-m7-h-linear-maps
+  type: text
+  topic: Matrices of linear maps
+  stem: 'Let $S(p)(t) = p(t + 1)$ on $\mathbb{P}_2$, with matrix $\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1\end{bmatrix}$ relative to $\{1, t, t^2\}$. For $q(t) = 1 + 2t + t^2$, $S(q) = a + bt + t^2$ with $a =$ ___ and $b =$ ___.'
+  accept:
+    - ['4']
+    - ['4']
+  explanation: |-
+    Multiply: $\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1\end{bmatrix}(1, 2, 1) = (4, 4, 1)$, so $S(q) = 4 + 4t + t^2$. Check directly: $q(t) = (t + 1)^2$, so $q(t + 1) = (t + 2)^2 = t^2 + 4t + 4$.
+
+- id: la-m7-r2-h25
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'The matrix $M$ of a linear operator $T: V \to V$ relative to a basis $\mathcal{B}$ is invertible. What follows?'
+  choices: ['$T$ is the identity map', '$T$ is an isomorphism of $V$ onto itself', '$M$ must be the identity matrix', '$T$ is one-to-one but may not be onto']
+  answer: 1
+  explanation: |-
+    $\ker T$ corresponds to $\operatorname{Nul} M = \{\mathbf{0}\}$ and $\operatorname{range} T$ to $\operatorname{Col} M$, which is everything, so $T$ is one-to-one and onto. Its inverse has matrix $M^{-1}$. The transpose on $M_{2\times 2}$ is an example that is invertible but not the identity, and its matrix is not $I$.
+
+- id: la-m7-r2-h26
+  lesson: la-m7-h-linear-maps
+  type: order
+  topic: Matrices of linear maps
+  stem: 'Put the steps for building the matrix of $T: V \to W$ relative to bases $\mathcal{B}$ and $\mathcal{C}$ in order.'
+  items:
+    - 'List the basis vectors $\mathbf{b}_1, \dots, \mathbf{b}_n$ of $V$ in order'
+    - 'Compute $T(\mathbf{b}_j)$ for each $j$'
+    - 'Write each $T(\mathbf{b}_j)$ in $\mathcal{C}$-coordinates'
+    - 'Use $[T(\mathbf{b}_j)]_{\mathcal{C}}$ as column $j$ of the matrix'
+  explanation: |-
+    The order of the input basis fixes the order of the columns; each column is the output of one basis vector, and it must be converted to $\mathcal{C}$-coordinates before it can be written down as a column of numbers.
+
+- id: la-m7-r2-h27
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'Let $T: \mathbb{R}^2 \to \mathbb{P}_1$, $T(a, b) = a + bt$. Find its matrix relative to the standard basis of $\mathbb{R}^2$ and the basis $\mathcal{C} = \{1 + t,\ 1 - t\}$ of $\mathbb{P}_1$.'
+  choices: ['$\begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$', '$\begin{bmatrix} \tfrac12 & \tfrac12 \\ -\tfrac12 & \tfrac12\end{bmatrix}$', '$\begin{bmatrix} \tfrac12 & \tfrac12 \\ \tfrac12 & -\tfrac12\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    $T(\mathbf{e}_1) = 1 = \tfrac12(1 + t) + \tfrac12(1 - t)$, so column 1 is $(\tfrac12, \tfrac12)$. $T(\mathbf{e}_2) = t = \tfrac12(1 + t) - \tfrac12(1 - t)$, so column 2 is $(\tfrac12, -\tfrac12)$. The identity is what you'd get by forgetting to convert to $\mathcal{C}$-coordinates; $\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$ lists the vectors of $\mathcal{C}$ themselves; the remaining matrix would make $T(\mathbf{e}_2) = \tfrac12(1 + t) + \tfrac12(1 - t) = 1$.
+
+- id: la-m7-r2-h28
+  lesson: la-m7-h-linear-maps
+  topic: Matrices of linear maps
+  stem: 'Why does every linear map $T: \mathbb{P}_3 \to \mathbb{R}^3$ send some nonzero polynomial to $\mathbf{0}$?'
+  choices: ['Because constant polynomials are always sent to $\mathbf{0}$', 'Because $\mathbb{P}_3$ is infinite-dimensional', 'Because $\dim\mathbb{P}_3 = 4$, so $\dim\ker T = 4 - \dim\operatorname{range} T \ge 4 - 3 = 1$', 'Because $T$ cannot be onto']
+  answer: 2
+  explanation: |-
+    Rank–nullity: the range is a subspace of $\mathbb{R}^3$, so its dimension is at most 3, leaving at least 1 dimension for the kernel. Constants need not go to $\mathbf{0}$ (e.g. $T(p) = (p(0), p(1), p(2))$ sends 1 to $(1, 1, 1)$). $\mathbb{P}_3$ is finite-dimensional. And $T$ can be onto (that same evaluation map is).
+
+# ---------- Honors 26h3: interpolation and linear recurrences ----------
+- id: la-m7-r2-h29
+  lesson: la-m7-h-function-spaces
+  topic: Interpolation
+  stem: 'With nodes $0, 1, 2$, what is the coordinate vector of $p(t) = t^2$ relative to the Lagrange basis $\{L_0, L_1, L_2\}$?'
+  choices: ['$(0, 0, 1)$', '$(0, 1, 4)$', '$(1, 1, 1)$', '$(0, 2, 2)$']
+  answer: 1
+  explanation: |-
+    Lagrange coordinates are the values at the nodes: $(p(0), p(1), p(2)) = (0, 1, 4)$, so $t^2 = 0L_0 + 1L_1 + 4L_2$. $(0, 0, 1)$ is the coordinate vector in the standard basis $\{1, t, t^2\}$.
+
+- id: la-m7-r2-h30
+  lesson: la-m7-h-function-spaces
+  type: text
+  topic: Interpolation
+  stem: 'With nodes $0, 1, 3$, the Lagrange polynomial $L_1$ is $L_1(t) = \dfrac{t(t - 3)}{(1 - 0)(1 - 3)}$. Then $L_1(2) =$ ___.'
+  accept: ['1']
+  explanation: |-
+    $L_1(2) = \dfrac{2(2 - 3)}{(1)(-2)} = \dfrac{-2}{-2} = 1$. Note that 2 is not a node, so nothing forces $L_1(2)$ to be 0 or 1; it just happens to be 1 here. At the nodes, $L_1(0) = 0$, $L_1(1) = 1$ and $L_1(3) = 0$.
+
+- id: la-m7-r2-h31
+  lesson: la-m7-h-function-spaces
+  topic: Interpolation
+  stem: 'Find the polynomial of degree at most 2 through $(0, 2)$, $(1, 0)$ and $(2, 0)$.'
+  choices: ['$2t^2 - 6t + 4$', '$2 - 2t$', '$t^2 - 3t$', '$t^2 - 3t + 2$']
+  answer: 3
+  explanation: |-
+    The data are 2, 0, 0, so $p = 2L_0 + 0L_1 + 0L_2 = 2 \cdot \tfrac12(t - 1)(t - 2) = t^2 - 3t + 2$. Check: $p(0) = 2$, $p(1) = 0$, $p(2) = 0$. $2t^2 - 6t + 4$ forgets the denominator $(0 - 1)(0 - 2) = 2$ in $L_0$ (it gives $p(0) = 4$); $2 - 2t$ misses $(2, 0)$; $t^2 - 3t$ misses $(0, 2)$.
+
+- id: la-m7-r2-h32
+  lesson: la-m7-h-function-spaces
+  topic: Interpolation
+  stem: 'Let $E: \mathbb{P}_2 \to \mathbb{R}^3$, $E(p) = (p(t_0), p(t_1), p(t_2))$, for three different nodes. Which statements are true? Select all that apply.'
+  choices: ['$E$ is linear', '$E$ is one-to-one', '$E$ is onto', 'The same map would still be one-to-one if $t_0 = t_1$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Evaluation respects sums and multiples, so $E$ is linear. A nonzero polynomial of degree at most 2 has at most two roots, so only $p = 0$ vanishes at three different nodes: $E$ is one-to-one, and with equal dimensions (3 and 3) it is onto. If $t_0 = t_1$, the nonzero polynomial $(t - t_0)(t - t_2)$ is sent to $\mathbf{0}$.
+
+- id: la-m7-r2-h33
+  lesson: la-m7-h-function-spaces
+  topic: Interpolation
+  stem: 'For three different nodes, $V$ is the Vandermonde matrix with rows $(1, t_i, t_i^2)$. Which matrix has as its columns the standard coordinate vectors of $L_0, L_1, L_2$?'
+  choices: ['$V^{-1}$', '$V$', '$V^T$', '$I_3$']
+  answer: 0
+  explanation: |-
+    $V$ turns standard coordinates into values at the nodes, which are Lagrange coordinates: $V = P_{\mathcal{L} \leftarrow \mathcal{S}}$. The matrix whose columns are $[L_i]_{\mathcal{S}}$ is $P_{\mathcal{S} \leftarrow \mathcal{L}}$, the inverse. (For nodes $0, 1, 2$ the lesson checked that its first column is $(1, -\tfrac32, \tfrac12)$, the coefficients of $L_0$.)
+
+- id: la-m7-r2-h34
+  lesson: la-m7-h-function-spaces
+  topic: Linear recurrences
+  stem: 'What is the dimension of the space of sequences that satisfy $y_{k+2} - 3y_{k+1} + 2y_k = 0$ for all $k \ge 0$?'
+  choices: ['1', '3', 'Infinite', '2']
+  answer: 3
+  explanation: |-
+    The map $y \mapsto (y_0, y_1)$ is an isomorphism from the solution space onto $\mathbb{R}^2$: any starting pair can be continued in exactly one way. So the dimension is 2, with basis $\{1^k, 2^k\}$ here. The space of all sequences is infinite-dimensional, but the solutions form only a plane inside it.
+
+- id: la-m7-r2-h35
+  lesson: la-m7-h-function-spaces
+  type: text
+  topic: Linear recurrences
+  stem: 'The auxiliary equation of $y_{k+2} - 7y_{k+1} + 10y_k = 0$ has roots $r =$ ___ and $r =$ ___. Give the smaller root first.'
+  accept:
+    - ['2']
+    - ['5']
+  explanation: |-
+    Substituting $y_k = r^k$ gives $r^2 - 7r + 10 = (r - 2)(r - 5) = 0$. So the basis is $\{2^k, 5^k\}$.
+
+- id: la-m7-r2-h36
+  lesson: la-m7-h-function-spaces
+  type: order
+  topic: Linear recurrences
+  stem: 'Put the steps for solving $y_{k+2} + a\,y_{k+1} + b\,y_k = 0$ with given $y_0$ and $y_1$ in order.'
+  items:
+    - 'Write the auxiliary equation $r^2 + ar + b = 0$'
+    - 'Find its roots'
+    - 'Choose a basis of two solutions and write the general solution'
+    - 'Use $y_0$ and $y_1$ to solve for the two weights'
+  explanation: |-
+    The roots come from the auxiliary equation, and the basis ($r_1^k, r_2^k$ or $r^k, k\,r^k$) depends on the roots. The initial values can only pin down the weights once the general solution is written.
+
+- id: la-m7-r2-h37
+  lesson: la-m7-h-function-spaces
+  topic: Linear recurrences
+  stem: 'Solve $y_{k+2} = 5y_{k+1} - 6y_k$ with $y_0 = 2$ and $y_1 = 5$.'
+  choices: ['$2^k + 3^k$', '$(-2)^k + (-3)^k$', '$2 \cdot 2^k + 3^k$', '$5^k + 1$']
+  answer: 0
+  explanation: |-
+    $r^2 - 5r + 6 = (r - 2)(r - 3)$, so $y_k = c_12^k + c_23^k$ with $c_1 + c_2 = 2$ and $2c_1 + 3c_2 = 5$, giving $c_2 = 1$, $c_1 = 1$. Check: $y_2 = 5 \cdot 5 - 6 \cdot 2 = 13 = 4 + 9$. The negative roots come from a sign slip in the auxiliary equation (they give $y_1 = -5$); $2 \cdot 2^k + 3^k$ has $y_0 = 3$; $5^k + 1$ has $y_1 = 6$.
+
+- id: la-m7-r2-h38
+  lesson: la-m7-h-function-spaces
+  topic: Linear recurrences
+  stem: 'Which sequences satisfy $y_{k+2} - 4y_{k+1} + 4y_k = 0$ for all $k$? Select all that apply.'
+  choices: ['$2^k$', '$k\,2^k$', '$(-2)^k$', '$k^2\,2^k$', '$3 \cdot 2^k - k\,2^k$']
+  answer: [0, 1, 4]
+  explanation: |-
+    The auxiliary equation $(r - 2)^2 = 0$ has the repeated root 2, so $\{2^k, k\,2^k\}$ is a basis and every combination of them is a solution, including $3 \cdot 2^k - k\,2^k$. $(-2)^k$ gives $(-2)^k(4 + 8 + 4) \ne 0$. $k^2\,2^k$ gives $2^k\big[4(k + 2)^2 - 8(k + 1)^2 + 4k^2\big] = 8 \cdot 2^k \ne 0$.
+
+- id: la-m7-r2-h39
+  lesson: la-m7-h-function-spaces
+  topic: Linear recurrences
+  stem: 'The sequences $u_k = 3^k$ and $v_k = 3^{k+1}$ both solve $y_{k+2} - 5y_{k+1} + 6y_k = 0$. Are they linearly independent?'
+  choices: ['Yes: they are different sequences', 'Yes: their Casorati matrix is invertible', 'No: their Casorati matrix $\begin{bmatrix} 1 & 3 \\ 3 & 9\end{bmatrix}$ is singular, and in fact $v = 3u$', 'It cannot be decided from the first two terms']
+  answer: 2
+  explanation: |-
+    The Casorati matrix has columns $(u_0, u_1) = (1, 3)$ and $(v_0, v_1) = (3, 9)$; its determinant is $9 - 9 = 0$. For solutions of the same recurrence, the first two terms decide independence, because $y \mapsto (y_0, y_1)$ is an isomorphism. Different sequences can still be dependent: $v = 3u$.
+
+- id: la-m7-r2-h40
+  lesson: la-m7-h-function-spaces
+  type: match
+  topic: Linear recurrences
+  stem: 'Match each recurrence with a basis for its solution space.'
+  pairs:
+    - ['$y_{k+2} - 5y_{k+1} + 6y_k = 0$', '2ᵏ and 3ᵏ']
+    - ['$y_{k+2} - 6y_{k+1} + 9y_k = 0$', '3ᵏ and k·3ᵏ']
+    - ['$y_{k+2} - y_{k+1} - 6y_k = 0$', '3ᵏ and (−2)ᵏ']
+    - ['$y_{k+2} - 4y_k = 0$', '2ᵏ and (−2)ᵏ']
+  distractors: ['(−3)ᵏ and 2ᵏ']
+  explanation: |-
+    Auxiliary equations: $r^2 - 5r + 6 = (r - 2)(r - 3)$; $r^2 - 6r + 9 = (r - 3)^2$, a repeated root, so the second basis vector is $k\,3^k$; $r^2 - r - 6 = (r - 3)(r + 2)$; $r^2 - 4 = (r - 2)(r + 2)$. The distractor $(-3)^k, 2^k$ would come from $r^2 + r - 6$.
+
+- id: la-m7-r2-h41
+  lesson: la-m7-h-function-spaces
+  topic: Linear recurrences
+  stem: 'Which describes every solution of $y_{k+2} - 6y_{k+1} + 8y_k = 9$?'
+  choices: ['$c_1 2^k + c_2 4^k$', '$9 + c_1 2^k + c_2 4^k$', '$3 + c_1 2^k + c_2 4^k$', '$3 + c_1(-2)^k + c_2(-4)^k$']
+  answer: 2
+  explanation: |-
+    Try a constant $y_k = c$: $c - 6c + 8c = 3c = 9$, so $c = 3$ is a particular solution. The homogeneous part has $r^2 - 6r + 8 = (r - 2)(r - 4)$. Every solution is particular plus homogeneous: $3 + c_12^k + c_24^k$. Without the 3 you get only the homogeneous solutions; 9 is the right-hand side, not a solution ($9 - 54 + 72 = 27$); the negative roots are a sign slip.
+
+- id: la-m7-r2-h42
+  lesson: la-m7-h-function-spaces
+  type: text
+  topic: Linear recurrences
+  stem: 'The recurrence $y_{k+2} = y_{k+1} + 2y_k$ with $y_0 = 0$, $y_1 = 3$ has solution $y_k = c_1 2^k + c_2(-1)^k$, where $c_1 =$ ___ and $c_2 =$ ___.'
+  accept:
+    - ['1']
+    - ['-1']
+  explanation: |-
+    The auxiliary equation $r^2 - r - 2 = (r - 2)(r + 1)$ gives the basis $\{2^k, (-1)^k\}$. Then $c_1 + c_2 = 0$ and $2c_1 - c_2 = 3$, so $3c_1 = 3$: $c_1 = 1$, $c_2 = -1$. Check: the recurrence gives $y_2 = 3 + 0 = 3$, and $4 - 1 = 3$.

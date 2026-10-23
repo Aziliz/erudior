@@ -1,0 +1,619 @@
+# Round 2 questions for mv-m1: new question types for the core lessons (q) and the honors lessons (h)
+
+# ---------- Lesson 01: bridge
+- id: mv-m1-r2-q01
+  lesson: mv-bridge
+  module_quiz: true
+  type: text
+  topic: Derivative review
+  stem: 'If $f(x) = (x^2 + 1)^3$, then $f''(1) =$ ___. Give only the number.'
+  accept: ['24']
+  explanation: |-
+    Chain rule: $f'(x) = 3(x^2+1)^2\cdot 2x$. At $x = 1$: $3\cdot 2^2\cdot 2 = 24$.
+    Forgetting the inner derivative $2x$ gives 12.
+- id: mv-m1-r2-q02
+  lesson: mv-bridge
+  type: match
+  topic: Integral review
+  stem: 'Match each single-variable tool to the place it reappears later in this course.'
+  pairs:
+    - [Chain rule, Multivariable chain rule with tree diagrams]
+    - [Substitution, Change of variables with Jacobians]
+    - [Parametric arc length, Arc length of space curves]
+    - [Polar area wedge, Double integrals in polar coordinates]
+    - [Fundamental Theorem of Calculus, 'Green''s, Stokes'' and the Divergence theorems']
+  distractors: [Cross products of vectors]
+  explanation: |-
+    The chain rule grows a branch per intermediate variable (Lesson 15); substitution becomes the Jacobian change of variables (Lesson 28); $\int\sqrt{x'^2+y'^2}\,dt$ gains a $z'^2$ term (Lesson 8); the wedge $\tfrac12r^2\,d\theta$ becomes $dA = r\,dr\,d\theta$ (Lesson 23); and every big theorem at the end is a version of "total change equals the sum of small changes." Cross products are new in this course, not a reappearance of a Calculus I tool.
+- id: mv-m1-r2-q03
+  lesson: mv-bridge
+  topic: Integral review
+  stem: 'Which integrals are natural candidates for integration by parts? Select all that apply.'
+  choices: ['$\int x e^{2x}\,dx$', '$\int 2x\cos(x^2)\,dx$', '$\int x\ln x\,dx$', '$\int x^2\sin x\,dx$']
+  answer: [0, 2, 3]
+  explanation: |-
+    Each of $xe^{2x}$, $x\ln x$ and $x^2\sin x$ is a polynomial times an exponential, log or trig function, the classic setting for parts (twice, for $x^2\sin x$).
+    $\int 2x\cos(x^2)\,dx$ has the inner function $x^2$ with its derivative $2x$ as a factor, so it is a substitution: $u = x^2$ gives $\sin(x^2) + C$.
+- id: mv-m1-r2-q04
+  lesson: mv-bridge
+  topic: Parametric and polar review
+  stem: 'A thin polar wedge between angles $\theta$ and $\theta + d\theta$ reaches out to radius $r$. Its area is approximately'
+  choices: ['$r\,d\theta$', '$\tfrac12 r^2\,d\theta$', '$r^2\,d\theta$', '$\tfrac12 r\,d\theta$']
+  answer: 1
+  explanation: |-
+    The wedge is nearly a triangle with two sides of length $r$ and the small angle $d\theta$ between them, so its area is $\tfrac12 r\cdot r\sin(d\theta) \approx \tfrac12r^2\,d\theta$.
+    $r\,d\theta$ is the length of the short arc, not the area; dropping the $\tfrac12$ is the common polar-area mistake.
+- id: mv-m1-r2-q05
+  lesson: mv-bridge
+  type: order
+  topic: Integral review
+  stem: 'Put the steps for evaluating $\displaystyle\int_0^2 x\sqrt{x^2+5}\,dx$ by substitution in order.'
+  items:
+    - 'Choose $u = x^2 + 5$, so $du = 2x\,dx$'
+    - 'Rewrite the integral as $\int_5^9 \tfrac12u^{1/2}\,du$'
+    - 'Find the antiderivative $\tfrac13u^{3/2}$'
+    - 'Evaluate: $\tfrac13\left(27 - 5\sqrt5\right)$'
+  explanation: |-
+    You need $u$ and $du$ before you can rewrite the integral (with the new limits $u(0) = 5$, $u(2) = 9$); only then is there a $u$-integral to antidifferentiate, and the last step plugs in the limits: $\tfrac13(9^{3/2} - 5^{3/2}) = \tfrac13(27 - 5\sqrt5) \approx 5.273$.
+
+# ---------- Lesson 02: vectors
+- id: mv-m1-r2-q06
+  lesson: mv-vectors
+  module_quiz: true
+  type: label
+  topic: 3D coordinates
+  stem: 'The axes are drawn in the standard right-handed way, with the $z$-axis pointing up. Name the numbered parts.'
+  image: {src: images/mv-m1-axes-blank.svg, alt: 'Three axes drawn from a common point: one toward the viewer and down to the left, one to the right and one straight up, with the flat region between the first two shaded and a point P(2, 4, 3) joined by dashed lines to the shaded region. Five parts are numbered.'}
+  labels:
+    - {x: 25, y: 84.9, text: x-axis}
+    - {x: 93.3, y: 63.1, text: y-axis}
+    - {x: 48.1, y: 13.1, text: z-axis}
+    - {x: 48.1, y: 63.1, text: Origin}
+    - {x: 49.9, y: 78.2, text: xy-plane}
+  distractors: [yz-plane, xz-plane]
+  explanation: |-
+    In the usual right-handed picture the $x$-axis comes toward you, the $y$-axis points right and the $z$-axis points up: curling your right hand's fingers from $x$ toward $y$ makes the thumb point up along $z$. The three meet at the origin, and the shaded region between the $x$- and $y$-axes is the $xy$-plane ($z = 0$), where the dashed line from $P$ lands at $(2, 4, 0)$.
+- id: mv-m1-r2-q07
+  lesson: mv-vectors
+  type: text
+  topic: Vector algebra
+  stem: 'The length of the vector $\langle 2, -3, 6\rangle$ is ___.'
+  accept: ['7']
+  explanation: |-
+    $|\langle 2,-3,6\rangle| = \sqrt{4 + 9 + 36} = \sqrt{49} = 7$. The minus sign disappears when squaring.
+- id: mv-m1-r2-q08
+  lesson: mv-vectors
+  type: match
+  topic: 3D coordinates
+  stem: 'Match each equation in $xyz$-space to what it describes.'
+  pairs:
+    - ['$z = 3$', A horizontal plane]
+    - ['$x^2 + y^2 + z^2 = 9$', A sphere]
+    - ['$y = x$', A vertical plane containing the z-axis]
+    - ['$(x-1)^2 + (y-2)^2 + (z+3)^2 = 0$', A single point]
+  distractors: [A line]
+  explanation: |-
+    $z = 3$ fixes the height and leaves $x, y$ free: a horizontal plane. $x^2+y^2+z^2 = 9$ is the sphere of radius 3 about the origin. $y = x$ leaves $z$ free, so it is the vertical plane through the line $y = x$ and the $z$-axis. A sum of squares equals 0 only when every square is 0, so the last equation is the single point $(1, 2, -3)$. One equation in space never describes a line.
+- id: mv-m1-r2-q09
+  lesson: mv-vectors
+  topic: Vector algebra
+  stem: 'Which of these are unit vectors? Select all that apply.'
+  choices: ['$\langle 1, 1, 0\rangle$', '$\left\langle \tfrac13, \tfrac23, -\tfrac23\right\rangle$', '$\langle 0.6, 0, 0.8\rangle$', '$\left\langle \tfrac12, \tfrac12, \tfrac12\right\rangle$']
+  answer: [1, 2]
+  explanation: |-
+    $\tfrac19 + \tfrac49 + \tfrac49 = 1$ and $0.36 + 0 + 0.64 = 1$, so those two have length 1.
+    $\langle 1,1,0\rangle$ has length $\sqrt2$, and $\left\langle\tfrac12,\tfrac12,\tfrac12\right\rangle$ has length $\sqrt{3/4} = \tfrac{\sqrt3}{2}$.
+- id: mv-m1-r2-q10
+  lesson: mv-vectors
+  topic: 3D coordinates
+  stem: 'Find the center and radius of the sphere $x^2 + y^2 + z^2 - 6y + 2z = 6$.'
+  choices: ['Center $(0, -3, 1)$, radius 4', 'Center $(0, 3, -1)$, radius $\sqrt6$', 'Center $(0, 3, -1)$, radius 4', 'Center $(0, 3, -1)$, radius 16']
+  answer: 2
+  explanation: |-
+    Complete the squares: $x^2 + (y-3)^2 - 9 + (z+1)^2 - 1 = 6$, so $x^2 + (y-3)^2 + (z+1)^2 = 16$.
+    The center is $(0, 3, -1)$ (signs flipped from the shifts) and the radius is $\sqrt{16} = 4$. $\sqrt6$ forgets to add 9 and 1 to the right side; 16 is $r^2$, not $r$.
+
+# ---------- Lesson 03: dot product
+- id: mv-m1-r2-q11
+  lesson: mv-dot
+  type: label
+  topic: Projections
+  stem: 'The picture splits a vector $\mathbf b$ using a vector $\mathbf a$ along the horizontal line. Name the numbered parts.'
+  image: {src: images/mv-m1-projection-blank.svg, alt: 'Two arrows from a common start: one long horizontal arrow and one slanted arrow above it, with an angle mark between them. A thick arrow lies along the horizontal from the start to the point directly below the tip of the slanted arrow, and a dashed arrow rises from there to that tip, with a right-angle mark. Five parts are numbered.'}
+  labels:
+    - {x: 81.4, y: 81.8, text: Vector a}
+    - {x: 42.1, y: 43.5, text: Vector b}
+    - {x: 36.2, y: 81.8, text: Vector projection of b onto a}
+    - {x: 59.8, y: 51.8, text: Part of b orthogonal to a}
+    - {x: 22.3, y: 77.6, text: Angle between a and b}
+  distractors: [Vector projection of a onto b]
+  explanation: |-
+    The long horizontal arrow is $\mathbf a$ and the slanted arrow is $\mathbf b$, with the angle $\theta$ between them at the common start. Dropping a perpendicular from the tip of $\mathbf b$ to the line of $\mathbf a$ gives the shadow $\operatorname{proj}_{\mathbf a}\mathbf b$ (the thick arrow along $\mathbf a$) and the remainder $\mathbf b - \operatorname{proj}_{\mathbf a}\mathbf b$ (dashed), which is orthogonal to $\mathbf a$. The projection of $\mathbf a$ onto $\mathbf b$ would lie along $\mathbf b$'s line, which is not drawn.
+- id: mv-m1-r2-q12
+  lesson: mv-dot
+  module_quiz: true
+  type: order
+  topic: Dot product
+  stem: 'Order these vectors by the angle they make with $\mathbf i = \langle 1, 0, 0\rangle$, smallest angle first.'
+  items: ['$\langle 3, 1, 0\rangle$', '$\langle 1, 1, 1\rangle$', '$\langle 0, 2, 5\rangle$', '$\langle -1, 2, 2\rangle$', '$\langle -4, 1, 0\rangle$']
+  explanation: |-
+    $\cos\theta = \dfrac{\mathbf v\cdot\mathbf i}{|\mathbf v|} = \dfrac{v_1}{|\mathbf v|}$, and a larger cosine means a smaller angle:
+    $\tfrac{3}{\sqrt{10}} \approx 0.95$ (about $18^\circ$), $\tfrac{1}{\sqrt3} \approx 0.58$ (about $55^\circ$), $0$ ($90^\circ$), $-\tfrac13$ (about $109^\circ$), $-\tfrac{4}{\sqrt{17}} \approx -0.97$ (about $166^\circ$).
+- id: mv-m1-r2-q13
+  lesson: mv-dot
+  type: text
+  topic: Projections
+  stem: 'The scalar projection of $\mathbf b = \langle 5, 1, 4\rangle$ onto $\mathbf a = \langle 2, -1, 2\rangle$ is ___. Give an exact fraction or 2 decimal places.'
+  accept: ['17/3', '5.67', '5.667']
+  explanation: |-
+    $\operatorname{comp}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|} = \dfrac{10 - 1 + 8}{\sqrt{4+1+4}} = \dfrac{17}{3} \approx 5.67$.
+    Dividing by $|\mathbf a|^2 = 9$ instead gives the coefficient $\tfrac{17}{9}$ used in the vector projection, not the scalar projection.
+- id: mv-m1-r2-q14
+  lesson: mv-dot
+  type: match
+  topic: Dot product
+  stem: 'For nonzero vectors $\mathbf a$ and $\mathbf b$, match each fact about $\mathbf a\cdot\mathbf b$ to what it says about the angle between them.'
+  pairs:
+    - ['$\mathbf a\cdot\mathbf b > 0$', The angle is acute]
+    - ['$\mathbf a\cdot\mathbf b = 0$', The vectors are orthogonal]
+    - ['$\mathbf a\cdot\mathbf b < 0$', The angle is obtuse]
+    - ['$\mathbf a\cdot\mathbf b = |\mathbf a||\mathbf b|$', The vectors point the same way]
+  distractors: [The angle is more than 180 degrees]
+  explanation: |-
+    $\mathbf a\cdot\mathbf b = |\mathbf a||\mathbf b|\cos\theta$ with $|\mathbf a||\mathbf b| > 0$, so the sign of the dot product is the sign of $\cos\theta$: positive for $\theta < 90^\circ$, zero at $90^\circ$, negative above. Equality with $|\mathbf a||\mathbf b|$ means $\cos\theta = 1$, so $\theta = 0$. The angle between vectors is defined to lie between $0^\circ$ and $180^\circ$.
+- id: mv-m1-r2-q15
+  lesson: mv-dot
+  module_quiz: true
+  topic: Projections
+  stem: 'Which statements about $\operatorname{proj}_{\mathbf a}\mathbf b$ are true for all nonzero vectors $\mathbf a$ and $\mathbf b$? Select all that apply.'
+  choices: ['It is parallel to $\mathbf a$', '$\mathbf b - \operatorname{proj}_{\mathbf a}\mathbf b$ is orthogonal to $\mathbf a$', 'It equals $\operatorname{proj}_{\mathbf b}\mathbf a$', 'Its length is $\dfrac{|\mathbf a\cdot\mathbf b|}{|\mathbf a|}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $\operatorname{proj}_{\mathbf a}\mathbf b = \dfrac{\mathbf a\cdot\mathbf b}{|\mathbf a|^2}\mathbf a$ is a multiple of $\mathbf a$, its length is $\dfrac{|\mathbf a\cdot\mathbf b|}{|\mathbf a|^2}|\mathbf a| = \dfrac{|\mathbf a\cdot\mathbf b|}{|\mathbf a|}$, and the remainder dotted with $\mathbf a$ is $\mathbf a\cdot\mathbf b - \mathbf a\cdot\mathbf b = 0$.
+    $\operatorname{proj}_{\mathbf b}\mathbf a$ lies along $\mathbf b$ instead, so the two are different unless $\mathbf a$ and $\mathbf b$ are parallel.
+
+# ---------- Lesson 04: cross product
+- id: mv-m1-r2-q16
+  lesson: mv-cross
+  module_quiz: true
+  type: label
+  topic: Triple product
+  stem: 'The box has edges $\mathbf a$, $\mathbf b$, $\mathbf c$ from one corner, with $\mathbf b$ and $\mathbf c$ spanning the base. Name the numbered parts.'
+  image: {src: images/mv-m1-parallelepiped-blank.svg, alt: 'A slanted box on a shaded base. The base edges b and c are labeled. A slanted edge rises from the corner, an arrow points straight up from a front corner of the base, and a dashed segment runs from the top of the slanted edge straight down to the base. Four parts are numbered.'}
+  labels:
+    - {x: 47.9, y: 40.4, text: Edge vector a}
+    - {x: 19.4, y: 37.5, text: Normal vector b × c}
+    - {x: 55.4, y: 45.6, text: Height of the box}
+    - {x: 54.0, y: 73.0, text: Base with area equal to the length of b × c}
+  distractors: [Diagonal a + b + c, Vector a × b]
+  explanation: |-
+    The slanted edge is $\mathbf a$. The arrow standing straight up from the base is perpendicular to both $\mathbf b$ and $\mathbf c$, so it is the normal $\mathbf b\times\mathbf c$ (pointing up by the right-hand rule). The dashed segment is the height, $|\mathbf a||\cos\phi|$, and the shaded base has area $|\mathbf b\times\mathbf c|$. Base times height gives the volume $|\mathbf a\cdot(\mathbf b\times\mathbf c)|$.
+- id: mv-m1-r2-q17
+  lesson: mv-cross
+  type: match
+  topic: Cross product
+  stem: 'Match each expression to what it tells you.'
+  pairs:
+    - ['$|\mathbf a\times\mathbf b|$', Area of the parallelogram spanned by a and b]
+    - ['$|\mathbf a\cdot(\mathbf b\times\mathbf c)|$', Volume of the box with edges a b c]
+    - ['$\mathbf a\times\mathbf b = \mathbf 0$', a and b are parallel]
+    - ['$\mathbf r\times\mathbf F$', Torque about the pivot]
+  distractors: [Perimeter of the parallelogram, a and b are orthogonal]
+  explanation: |-
+    $|\mathbf a\times\mathbf b| = |\mathbf a||\mathbf b|\sin\theta$ is base times height of the parallelogram; the absolute triple product is base area times height of the box; $\sin\theta = 0$ means the vectors are parallel; and $\mathbf r\times\mathbf F$ is the torque. Orthogonality is tested with the dot product, $\mathbf a\cdot\mathbf b = 0$.
+- id: mv-m1-r2-q18
+  lesson: mv-cross
+  type: text
+  topic: Cross product
+  stem: '$\langle 2, 1, 0\rangle\times\langle 0, 3, 1\rangle = \langle$ ___ , ___ , ___ $\rangle$'
+  accept:
+    - ['1']
+    - ['-2', '−2']
+    - ['6']
+  explanation: |-
+    $\mathbf i$: $1\cdot1 - 0\cdot3 = 1$. $\mathbf j$: $-(2\cdot1 - 0\cdot0) = -2$. $\mathbf k$: $2\cdot3 - 1\cdot0 = 6$.
+    Check: $\langle 1,-2,6\rangle\cdot\langle 2,1,0\rangle = 0$ and $\langle 1,-2,6\rangle\cdot\langle 0,3,1\rangle = -6 + 6 = 0$.
+- id: mv-m1-r2-q19
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'Which are true for all vectors $\mathbf a$, $\mathbf b$, $\mathbf c$ in space? Select all that apply.'
+  choices: ['$(\mathbf a\times\mathbf b)\times\mathbf c = \mathbf a\times(\mathbf b\times\mathbf c)$', '$\mathbf a\times\mathbf b = -(\mathbf b\times\mathbf a)$', '$\mathbf a\cdot(\mathbf a\times\mathbf b) = 0$', '$\mathbf a\times\mathbf a = \mathbf 0$']
+  answer: [1, 2, 3]
+  explanation: |-
+    The cross product is anticommutative, $\mathbf a\times\mathbf b$ is perpendicular to $\mathbf a$, and $\mathbf a\times\mathbf a = \mathbf 0$ since $\sin 0 = 0$.
+    It is not associative: $(\mathbf i\times\mathbf i)\times\mathbf j = \mathbf 0$ but $\mathbf i\times(\mathbf i\times\mathbf j) = -\mathbf j$.
+- id: mv-m1-r2-q20
+  lesson: mv-cross
+  topic: Cross product
+  stem: 'You need a vector perpendicular to the plane through the points $P$, $Q$ and $R$. Which should you compute?'
+  choices: ['$\overrightarrow{PQ}\cdot\overrightarrow{PR}$', '$\operatorname{proj}_{\overrightarrow{PQ}}\overrightarrow{PR}$', '$\overrightarrow{PQ} + \overrightarrow{PR}$', '$\overrightarrow{PQ}\times\overrightarrow{PR}$']
+  answer: 3
+  explanation: |-
+    The cross product of two edge vectors lying in the plane is perpendicular to both, so it is normal to the plane. The dot product is a number, not a vector; the projection and the sum both lie in the plane.
+
+# ---------- Lesson 05: lines and planes
+- id: mv-m1-r2-q21
+  lesson: mv-lines-planes
+  type: label
+  topic: Planes
+  stem: 'This picture shows how a plane is described by a point and a normal vector. Name the numbered parts.'
+  image: {src: images/mv-m1-plane-normal-blank.svg, alt: 'A shaded flat region seen at an angle. From a point on it an arrow stands straight up with a right-angle mark, and another arrow runs along the region to a second point. Five parts are numbered.'}
+  labels:
+    - {x: 37.5, y: 30.1, text: Normal vector n}
+    - {x: 37.5, y: 64.3, text: Fixed point P₀ on the plane}
+    - {x: 71.4, y: 56.0, text: Any point P on the plane}
+    - {x: 54.5, y: 60.1, text: Vector r − r₀ lying in the plane}
+    - {x: 62.7, y: 76.4, text: The plane}
+  distractors: [Direction vector of a line through P]
+  explanation: |-
+    The plane is the shaded region. $P_0$ is the known point, $P(x, y, z)$ is any other point on the plane, and the arrow from $P_0$ to $P$ is $\mathbf r - \mathbf r_0$, which lies in the plane. The normal $\mathbf n$ stands perpendicular to it, which is the equation $\mathbf n\cdot(\mathbf r - \mathbf r_0) = 0$.
+- id: mv-m1-r2-q22
+  lesson: mv-lines-planes
+  module_quiz: true
+  type: order
+  topic: Planes
+  stem: 'Put the steps for finding an equation of the plane through three points $P$, $Q$, $R$ in order.'
+  items:
+    - 'Form the vectors $\overrightarrow{PQ}$ and $\overrightarrow{PR}$'
+    - 'Cross them to get a normal $\mathbf n = \langle a, b, c\rangle$'
+    - 'Write $a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$ using the point $P$'
+    - 'Expand to the form $ax + by + cz = d$'
+  explanation: |-
+    The normal comes from the cross product of two vectors in the plane, so the vectors come first; the point-normal equation needs the normal; expanding it is last. Checking that $Q$ and $R$ satisfy the result is a good extra step.
+- id: mv-m1-r2-q23
+  lesson: mv-lines-planes
+  type: text
+  topic: Planes
+  stem: 'The distance from the point $(3, -1, 2)$ to the plane $2x - 2y + z = 1$ is ___.'
+  accept: ['3']
+  explanation: |-
+    $D = \dfrac{|2(3) - 2(-1) + 2 - 1|}{\sqrt{4 + 4 + 1}} = \dfrac{|6 + 2 + 2 - 1|}{3} = \dfrac{9}{3} = 3$.
+- id: mv-m1-r2-q24
+  lesson: mv-lines-planes
+  topic: Lines in space
+  stem: 'Which statements about lines in space are true? Select all that apply.'
+  choices: ['Two lines with parallel direction vectors are either parallel or the same line', 'Two lines that are not parallel must intersect', 'Skew lines are not parallel and never meet', 'A single equation $ax + by + cz = d$ describes a line']
+  answer: [0, 2]
+  explanation: |-
+    Parallel direction vectors give parallel or identical lines, and skew lines are by definition non-parallel lines that never meet.
+    Non-parallel lines in space can be skew, so they need not intersect; and one linear equation in $x, y, z$ describes a plane, not a line.
+- id: mv-m1-r2-q25
+  lesson: mv-lines-planes
+  type: match
+  topic: Planes
+  stem: 'Match each plane to the description that fits it.'
+  pairs:
+    - ['$z = 5$', A horizontal plane]
+    - ['$x + y = 2$', A vertical plane that misses the origin]
+    - ['$x - 2y + z = 0$', A plane through the origin]
+    - ['$2x - 4y + 2z = 7$', Parallel to x − 2y + z = 0 but not through the origin]
+  distractors: [Perpendicular to the z-axis and through the origin]
+  explanation: |-
+    $z = 5$ has normal $\mathbf k$: horizontal. $x + y = 2$ has normal $\langle 1,1,0\rangle$, which is horizontal, so the plane is vertical, and $(0,0,0)$ does not satisfy it. $(0,0,0)$ satisfies $x - 2y + z = 0$. The normal $\langle 2,-4,2\rangle$ is twice $\langle 1,-2,1\rangle$, so $2x - 4y + 2z = 7$ is parallel to $x - 2y + z = 0$, and $0 \ne 7$ keeps it off the origin. A plane perpendicular to the $z$-axis through the origin would be $z = 0$, which is not listed.
+
+# ---------- Lesson 06: surfaces
+- id: mv-m1-r2-q26
+  lesson: mv-surfaces
+  module_quiz: true
+  type: label
+  topic: Quadric surfaces
+  stem: 'Each panel shows a quadric surface as a wire frame of traces, with its axis vertical. Name the numbered surfaces.'
+  image: {src: images/mv-m1-quadrics-blank.svg, alt: 'Six wire-frame surfaces in two rows. Top row: a closed oval surface; a bowl; a saddle. Bottom row: two cones meeting tip to tip; an hourglass shape that is one connected piece; two separate bowls opening away from each other. Each is numbered.'}
+  labels:
+    - {x: 16.7, y: 25.6, text: Ellipsoid}
+    - {x: 50, y: 25.6, text: Elliptic paraboloid}
+    - {x: 83.3, y: 25.6, text: Hyperbolic paraboloid}
+    - {x: 16.7, y: 74.4, text: Cone}
+    - {x: 50, y: 74.4, text: Hyperboloid of one sheet}
+    - {x: 83.3, y: 74.4, text: Hyperboloid of two sheets}
+  distractors: [Elliptic cylinder, Parabolic cylinder]
+  explanation: |-
+    Closed and oval: ellipsoid (all traces ellipses). A bowl: elliptic paraboloid. A saddle, rising one way and falling the other: hyperbolic paraboloid. Two nappes meeting at a point: cone. One connected hourglass: hyperboloid of one sheet. Two separate pieces: hyperboloid of two sheets. A cylinder would have identical traces all along its axis, which none of these has.
+- id: mv-m1-r2-q27
+  lesson: mv-surfaces
+  type: match
+  topic: Quadric surfaces
+  stem: 'Match each equation to its surface.'
+  pairs:
+    - ['$\dfrac{x^2}{4} + y^2 + \dfrac{z^2}{9} = 1$', Ellipsoid]
+    - ['$y = x^2 + z^2$', Elliptic paraboloid]
+    - ['$x^2 - y^2 + z^2 = 1$', Hyperboloid of one sheet]
+    - ['$y^2 = x^2 + z^2$', Cone]
+    - ['$x^2 + z^2 = 4$', Circular cylinder]
+  distractors: [Hyperboloid of two sheets]
+  explanation: |-
+    Three squares, no minus signs, constant 1: ellipsoid. Two squares plus a linear $y$: paraboloid opening along the $y$-axis, elliptic since both squares have the same sign. One minus sign with constant 1: one sheet (axis $y$). Constant 0 with three squares: a cone with axis $y$. No $y$ at all: a cylinder of radius 2 along the $y$-axis.
+- id: mv-m1-r2-q28
+  lesson: mv-surfaces
+  type: text
+  topic: Quadric surfaces
+  stem: 'The surface $x^2 - y^2 - z^2 = 1$ is a hyperboloid of ___ sheet(s).'
+  accept: [two, '2']
+  explanation: |-
+    With the constant on the right and positive, there are two minus signs, so the surface has two sheets. Its axis is the $x$-axis, the variable with the odd sign: it needs $x^2 \ge 1$, so nothing lies between $x = -1$ and $x = 1$.
+- id: mv-m1-r2-q29
+  lesson: mv-surfaces
+  topic: Cylinders
+  stem: 'Which equations describe cylinders in space? Select all that apply.'
+  choices: ['$z = x^2 + y^2$', '$x^2 + z^2 = 9$', '$z = \sin y$', '$x^2 + y^2 + z^2 = 1$']
+  answer: [1, 2]
+  explanation: |-
+    $x^2 + z^2 = 9$ has no $y$ and $z = \sin y$ has no $x$, so each is a cylinder parallel to the missing variable's axis (a circular cylinder and a corrugated sheet).
+    $z = x^2 + y^2$ (a paraboloid) and $x^2 + y^2 + z^2 = 1$ (a sphere) use all three variables.
+- id: mv-m1-r2-q30
+  lesson: mv-surfaces
+  topic: Quadric surfaces
+  stem: 'What is the axis of the hyperboloid $x^2 - y^2 + z^2 = 4$?'
+  choices: ['The $y$-axis', 'The $x$-axis', 'The $z$-axis', 'It has no axis']
+  answer: 0
+  explanation: |-
+    The odd one out is $y$, the only variable with a minus sign, so the axis is the $y$-axis. With one minus sign this is a hyperboloid of one sheet whose traces $y = k$ are circles $x^2 + z^2 = 4 + k^2$.
+
+# ---------- Honors 06h1: vector identities and distances
+- id: mv-m1-r2-h01
+  lesson: mv-m1-h-distances
+  topic: Vector identities
+  stem: 'The proof of the Cauchy–Schwarz inequality looks at $|\mathbf a + t\mathbf b|^2 = |\mathbf b|^2t^2 + 2(\mathbf a\cdot\mathbf b)t + |\mathbf a|^2$ as a quadratic in $t$. Why can its discriminant not be positive?'
+  choices: ['The quadratic is never negative, so it has at most one real root', 'The parameter $t$ is always positive', 'The vectors $\mathbf a$ and $\mathbf b$ are orthogonal', 'The leading coefficient $|\mathbf b|^2$ is 1']
+  answer: 0
+  explanation: |-
+    A squared length is never negative, so the parabola never dips below the axis. A positive discriminant would mean two real roots with negative values between them. So $4(\mathbf a\cdot\mathbf b)^2 - 4|\mathbf a|^2|\mathbf b|^2 \le 0$, which is the inequality. The proof works for every real $t$ and any vectors, not just orthogonal or unit ones.
+- id: mv-m1-r2-h02
+  lesson: mv-m1-h-distances
+  type: text
+  topic: Vector identities
+  stem: 'If $|\mathbf a| = 3$ and $|\mathbf b| = 5$, the largest possible value of $\mathbf a\cdot\mathbf b$ is ___.'
+  accept: ['15']
+  explanation: |-
+    By Cauchy–Schwarz, $\mathbf a\cdot\mathbf b \le |\mathbf a||\mathbf b| = 15$, with equality when $\mathbf b$ is a positive multiple of $\mathbf a$ (angle 0).
+- id: mv-m1-r2-h03
+  lesson: mv-m1-h-distances
+  topic: Vector identities
+  stem: 'For nonzero vectors, when does $|\mathbf u + \mathbf v| = |\mathbf u| + |\mathbf v|$?'
+  choices: ['When $\mathbf u$ and $\mathbf v$ are orthogonal', 'When $\mathbf u$ is a positive multiple of $\mathbf v$', 'When $\mathbf u = -\mathbf v$', 'When $|\mathbf u| = |\mathbf v|$']
+  answer: 1
+  explanation: |-
+    The proof of the triangle inequality replaces $\mathbf u\cdot\mathbf v$ by $|\mathbf u||\mathbf v|$, so equality needs $\mathbf u\cdot\mathbf v = |\mathbf u||\mathbf v|$: angle 0, the same direction.
+    Orthogonal vectors give $\sqrt{|\mathbf u|^2 + |\mathbf v|^2}$, and $\mathbf u = -\mathbf v$ gives $0$.
+- id: mv-m1-r2-h04
+  lesson: mv-m1-h-distances
+  topic: Vector identities
+  stem: 'Which expressions always equal $\mathbf a\cdot(\mathbf b\times\mathbf c)$? Select all that apply.'
+  choices: ['$\mathbf b\cdot(\mathbf c\times\mathbf a)$', '$\mathbf a\cdot(\mathbf c\times\mathbf b)$', '$(\mathbf a\times\mathbf b)\cdot\mathbf c$', '$\mathbf c\cdot(\mathbf b\times\mathbf a)$']
+  answer: [0, 2]
+  explanation: |-
+    A cyclic shift ($\mathbf a\mathbf b\mathbf c \to \mathbf b\mathbf c\mathbf a$) is two row swaps of the determinant, so it keeps the value; $(\mathbf a\times\mathbf b)\cdot\mathbf c = \mathbf c\cdot(\mathbf a\times\mathbf b)$ is another cyclic shift.
+    $\mathbf a\cdot(\mathbf c\times\mathbf b)$ and $\mathbf c\cdot(\mathbf b\times\mathbf a)$ each swap one pair, which flips the sign.
+- id: mv-m1-r2-h05
+  lesson: mv-m1-h-distances
+  type: text
+  topic: Vector identities
+  stem: 'Fill in the vectors: $\mathbf a\times(\mathbf b\times\mathbf c) =$ ___ $(\mathbf a\cdot\mathbf c) -$ ___ $(\mathbf a\cdot\mathbf b)$.'
+  accept:
+    - [b, vector b]
+    - [c, vector c]
+  explanation: |-
+    "BAC minus CAB": $\mathbf a\times(\mathbf b\times\mathbf c) = \mathbf b(\mathbf a\cdot\mathbf c) - \mathbf c(\mathbf a\cdot\mathbf b)$. The middle vector $\mathbf b$ gets the plus sign, and the result lies in the plane of $\mathbf b$ and $\mathbf c$.
+- id: mv-m1-r2-h06
+  lesson: mv-m1-h-distances
+  topic: Vector identities
+  stem: 'For $\mathbf a = \langle 2, 1, 0\rangle$, $\mathbf b = \langle 1, 0, 1\rangle$, $\mathbf c = \langle 0, 1, 1\rangle$, find $\mathbf a\times(\mathbf b\times\mathbf c)$.'
+  choices: ['$\langle -1, 2, 1\rangle$', '$\langle -1, -1, 1\rangle$', '$\langle 1, -2, -1\rangle$', '$\langle 1, 2, 3\rangle$']
+  answer: 2
+  explanation: |-
+    $\mathbf a\cdot\mathbf c = 1$ and $\mathbf a\cdot\mathbf b = 2$, so the result is $1\,\mathbf b - 2\,\mathbf c = \langle 1, 0, 1\rangle - \langle 0, 2, 2\rangle = \langle 1, -2, -1\rangle$.
+    $\langle -1, 2, 1\rangle$ reverses the signs of BAC−CAB; $\langle -1,-1,1\rangle$ is $(\mathbf a\times\mathbf b)\times\mathbf c$; $\langle 1,2,3\rangle$ adds instead of subtracting.
+- id: mv-m1-r2-h07
+  lesson: mv-m1-h-distances
+  topic: Distances in space
+  stem: 'Find the distance from $Q(1, -1, 4)$ to the line through the origin with direction $\mathbf v = \langle 2, 1, 2\rangle$.'
+  choices: ['$9$', '$1$', '$\sqrt{18}$', '$3$']
+  answer: 3
+  explanation: |-
+    $\overrightarrow{OQ}\times\mathbf v = \langle (-1)(2) - 4(1),\; 4(2) - 1(2),\; 1(1) - (-1)(2)\rangle = \langle -6, 6, 3\rangle$, of length 9, and $|\mathbf v| = 3$, so $D = 9/3 = 3$.
+    9 forgets to divide by $|\mathbf v|$; 1 divides by $|\mathbf v|^2$; $\sqrt{18}$ is the distance from $Q$ to the origin, not to the line.
+- id: mv-m1-r2-h08
+  lesson: mv-m1-h-distances
+  type: order
+  topic: Distances in space
+  stem: 'Put the steps for finding the closest points of two skew lines $\mathbf r_1(t)$ and $\mathbf r_2(s)$ in order.'
+  items:
+    - 'Write $\mathbf w = \mathbf r_1(t) - \mathbf r_2(s)$ with two different parameters'
+    - 'Set $\mathbf w\cdot\mathbf v_1 = 0$ and $\mathbf w\cdot\mathbf v_2 = 0$'
+    - 'Solve the two linear equations for $t$ and $s$'
+    - 'Substitute $t$ into $\mathbf r_1$ and $s$ into $\mathbf r_2$'
+  explanation: |-
+    The connecting vector $\mathbf w$ must exist before you can demand that it be perpendicular to both directions; those two conditions give the linear system, and only its solution tells you where to evaluate the lines.
+- id: mv-m1-r2-h09
+  lesson: mv-m1-h-distances
+  type: label
+  topic: Distances in space
+  stem: 'Two skew lines $L_1$ and $L_2$ lie in parallel planes. Name the numbered parts.'
+  image: {src: images/mv-m1-skew-lines-blank.svg, alt: 'Two parallel shaded planes, one above the other. The lower plane contains a horizontal line L1 with an arrow on it; the upper plane contains a slanted line L2 with an arrow on it. A dashed segment joins a dot on L1 straight up to a dot on L2, with right-angle marks at both ends. Five parts are numbered.'}
+  labels:
+    - {x: 71.2, y: 75.0, text: Direction vector of L₁}
+    - {x: 37.5, y: 52.7, text: Direction vector of L₂}
+    - {x: 46.9, y: 59.8, text: Common perpendicular}
+    - {x: 46.9, y: 75.0, text: Closest point on L₁}
+    - {x: 46.9, y: 41.2, text: Closest point on L₂}
+  distractors: [Point where L₁ and L₂ intersect]
+  explanation: |-
+    The arrows along each line are the direction vectors $\mathbf v_1$ and $\mathbf v_2$. The dashed segment meets both lines at right angles: it is the common perpendicular, parallel to $\mathbf v_1\times\mathbf v_2$, and its length is the distance $D$. Its endpoints are the closest points. Skew lines never intersect, so there is no intersection point to label.
+- id: mv-m1-r2-h10
+  lesson: mv-m1-h-distances
+  topic: Distances in space
+  stem: 'Find the distance between the skew lines $\mathbf r_1 = t\langle 1, 1, 0\rangle$ and $\mathbf r_2 = \langle 2, 0, 1\rangle + s\langle 0, 1, 1\rangle$.'
+  choices: ['$3$', '$\sqrt3$', '$1$', '$\sqrt5$']
+  answer: 1
+  explanation: |-
+    $\mathbf n = \langle 1,1,0\rangle\times\langle 0,1,1\rangle = \langle 1, -1, 1\rangle$, $|\mathbf n| = \sqrt3$. With $\overrightarrow{P_1P_2} = \langle 2, 0, 1\rangle$, the triple product is $2 - 0 + 1 = 3$, so $D = 3/\sqrt3 = \sqrt3$.
+    3 forgets to divide by $|\mathbf n|$; 1 divides by $|\mathbf n|^2$; $\sqrt5$ is the distance between the two given points, which are not the closest points.
+- id: mv-m1-r2-h11
+  lesson: mv-m1-h-distances
+  type: match
+  topic: Distances in space
+  stem: 'Match each distance problem to the formula or method that solves it.'
+  pairs:
+    - [Point to plane, '|ax₁ + by₁ + cz₁ − d| divided by the length of n']
+    - [Point to line, Length of PQ × v divided by the length of v]
+    - [Two skew lines, Absolute triple product divided by the length of v₁ × v₂]
+    - [Two parallel planes, Point-to-plane formula with any point of one plane]
+  distractors: [Absolute value of PQ · v divided by the length of v]
+  explanation: |-
+    Point to plane is a projection onto the normal. Point to line is parallelogram area over base. Skew lines are box volume over base area. Parallel planes reduce to point to plane. $|\overrightarrow{PQ}\cdot\mathbf v|/|\mathbf v|$ is the component of $\overrightarrow{PQ}$ along the line, which is the wrong part for a distance to the line.
+- id: mv-m1-r2-h12
+  lesson: mv-m1-h-distances
+  topic: Distances in space
+  stem: 'For two lines with $\mathbf v_1\times\mathbf v_2 \ne \mathbf 0$, you find $\overrightarrow{P_1P_2}\cdot(\mathbf v_1\times\mathbf v_2) = 0$. What can you conclude?'
+  choices: ['The lines are parallel', 'The lines are skew', 'The lines intersect', 'The lines are the same line']
+  answer: 2
+  explanation: |-
+    $\mathbf v_1\times\mathbf v_2 \ne \mathbf 0$ means the lines are not parallel (so not identical either). A zero triple product means the box with edges $\overrightarrow{P_1P_2}$, $\mathbf v_1$, $\mathbf v_2$ is flat, so both lines lie in one plane, and non-parallel lines in a plane meet. The distance $D = 0$ says the same thing.
+- id: mv-m1-r2-h13
+  lesson: mv-m1-h-distances
+  topic: Vector identities
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['When $\mathbf b$ and $\mathbf c$ are not parallel, $\mathbf a\times(\mathbf b\times\mathbf c)$ lies in the plane of $\mathbf b$ and $\mathbf c$', '$\mathbf a\times(\mathbf b\times\mathbf c) = (\mathbf a\times\mathbf b)\times\mathbf c$ for all vectors', '$|\mathbf a\cdot\mathbf b| \le |\mathbf a||\mathbf b|$ holds for vectors with any number of components', 'The triangle inequality says $|\mathbf u + \mathbf v| \ge |\mathbf u| + |\mathbf v|$']
+  answer: [0, 2]
+  explanation: |-
+    BAC−CAB writes $\mathbf a\times(\mathbf b\times\mathbf c)$ as a combination of $\mathbf b$ and $\mathbf c$, and the Cauchy–Schwarz proof used only dot product algebra, so it works in any dimension.
+    The cross product is not associative, and the triangle inequality goes the other way: $|\mathbf u + \mathbf v| \le |\mathbf u| + |\mathbf v|$.
+- id: mv-m1-r2-h14
+  lesson: mv-m1-h-distances
+  topic: Distances in space
+  stem: 'What point of the line $\mathbf r = t\langle 1, 2, 2\rangle$ is closest to $Q(9, 0, 0)$?'
+  choices: ['$(3, 6, 6)$', '$(9, 18, 18)$', '$\left(\tfrac13, \tfrac23, \tfrac23\right)$', '$(1, 2, 2)$']
+  answer: 3
+  explanation: |-
+    The foot of the perpendicular is at $t = \dfrac{\overrightarrow{OQ}\cdot\mathbf v}{\mathbf v\cdot\mathbf v} = \dfrac{9}{9} = 1$, the point $(1, 2, 2)$. Check: $\langle 8, -2, -2\rangle\cdot\langle 1,2,2\rangle = 8 - 4 - 4 = 0$.
+    $(3,6,6)$ divides by $|\mathbf v| = 3$ instead of $|\mathbf v|^2 = 9$; $(9,18,18)$ forgets to divide; $\left(\tfrac13,\tfrac23,\tfrac23\right)$ is the unit direction vector, not the foot.
+
+# ---------- Honors 06h2: quadratic forms
+- id: mv-m1-r2-h15
+  lesson: mv-m1-h-quadratic-forms
+  topic: Quadratic forms
+  stem: 'Which is the symmetric matrix of $Q(x, y) = 3x^2 + 4xy - y^2$?'
+  choices: ['$\begin{bmatrix} 3 & 4\\ 4 & -1\end{bmatrix}$', '$\begin{bmatrix} 3 & 2\\ 2 & -1\end{bmatrix}$', '$\begin{bmatrix} 3 & 4\\ 0 & -1\end{bmatrix}$', '$\begin{bmatrix} 3 & 2\\ 2 & 1\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    The diagonal holds the coefficients of $x^2$ and $y^2$ (3 and $-1$), and the cross coefficient 4 is split evenly, 2 in each off-diagonal place: $3x^2 + 2xy + 2yx - y^2$.
+    Putting 4 in both places counts the cross term twice ($8xy$). The third matrix gives the right polynomial but is not symmetric; the last has the wrong sign on $y^2$.
+- id: mv-m1-r2-h16
+  lesson: mv-m1-h-quadratic-forms
+  type: text
+  topic: Quadratic forms
+  stem: 'For $2x^2 + 6xy + 5y^2$, the discriminant $B^2 - 4AC$ equals ___.'
+  accept: ['-4', '−4']
+  explanation: |-
+    $A = 2$, $B = 6$, $C = 5$: $36 - 40 = -4$. Since it is negative and $A > 0$, the curve $2x^2 + 6xy + 5y^2 = 1$ is an ellipse.
+- id: mv-m1-r2-h17
+  lesson: mv-m1-h-quadratic-forms
+  type: match
+  topic: Rotated quadrics
+  stem: 'Match each condition to the curve $Ax^2 + Bxy + Cy^2 = 1$ it gives.'
+  pairs:
+    - ['$B^2 - 4AC < 0$ and $A > 0$', Ellipse]
+    - ['$B^2 - 4AC > 0$', Hyperbola]
+    - ['$B^2 - 4AC = 0$ and $A > 0$', Two parallel lines]
+    - ['$B^2 - 4AC < 0$ and $A < 0$', No points at all]
+  distractors: [Parabola]
+  explanation: |-
+    After rotation the curve is $A'x'^2 + C'y'^2 = 1$ with $-4A'C' = B^2 - 4AC$. Negative discriminant: $A'$ and $C'$ have the same sign as $A$; both positive gives an ellipse, both negative gives no points. Positive: opposite signs, a hyperbola. Zero with $A > 0$: one coefficient is 0 and the other is $A + C > 0$, so $A'x'^2 = 1$, two parallel lines. A parabola needs a linear term, which a pure quadratic form does not have.
+- id: mv-m1-r2-h18
+  lesson: mv-m1-h-quadratic-forms
+  topic: Quadratic forms
+  stem: 'Find the eigenvalues of $\begin{bmatrix} 2 & 2\\ 2 & 5\end{bmatrix}$.'
+  choices: ['$2$ and $5$', '$7$ and $0$', '$6$ and $1$', '$4$ and $3$']
+  answer: 2
+  explanation: |-
+    $\lambda = \dfrac{7}{2} \pm \sqrt{\left(\dfrac{-3}{2}\right)^2 + 2^2} = 3.5 \pm 2.5$, so 6 and 1.
+    Check: the sum is $7 = 2 + 5$ and the product is $6 = 2\cdot5 - 2\cdot2$. The diagonal entries 2 and 5 are the eigenvalues only when the off-diagonal entries are 0.
+- id: mv-m1-r2-h19
+  lesson: mv-m1-h-quadratic-forms
+  topic: Rotated quadrics
+  stem: 'Through what angle $\theta$ ($0^\circ < \theta < 90^\circ$) should the axes be rotated to remove the $xy$ term from $x^2 + 2\sqrt3\,xy + 3y^2 = 4$?'
+  choices: ['$30^\circ$', '$15^\circ$', '$120^\circ$', '$60^\circ$']
+  answer: 3
+  explanation: |-
+    $\cot2\theta = \dfrac{A - C}{B} = \dfrac{1 - 3}{2\sqrt3} = -\dfrac{1}{\sqrt3}$, so $2\theta = 120^\circ$ and $\theta = 60^\circ$.
+    $30^\circ$ comes from using $\tan2\theta$ in place of $\cot2\theta$ and dropping the sign; $120^\circ$ is $2\theta$, not $\theta$.
+- id: mv-m1-r2-h20
+  lesson: mv-m1-h-quadratic-forms
+  type: order
+  topic: Rotated quadrics
+  stem: 'Put the steps for identifying the surface $Q(x, y, z) = 1$, where $Q$ has cross terms, in order.'
+  items:
+    - Write the symmetric matrix of Q
+    - Find its eigenvalues
+    - Count how many eigenvalues are negative or zero
+    - Name the surface from that count
+  explanation: |-
+    The eigenvalues come from the matrix, the classification uses their signs, and the name comes last: no negatives is an ellipsoid, one is a hyperboloid of one sheet, two is a hyperboloid of two sheets, and a zero eigenvalue gives a degenerate surface such as a cylinder.
+- id: mv-m1-r2-h21
+  lesson: mv-m1-h-quadratic-forms
+  topic: Rotated quadrics
+  stem: 'Rotating the axes changes $Ax^2 + Bxy + Cy^2$ into $A''x''^2 + B''x''y'' + C''y''^2$. Which quantities never change under rotation? Select all that apply.'
+  choices: ['$A + C$', '$B^2 - 4AC$', '$B$', '$A$']
+  answer: [0, 1]
+  explanation: |-
+    $A' + C' = A + C$ and $B'^2 - 4A'C' = B^2 - 4AC$ for every angle; these are the trace and (up to a factor of $-4$) the determinant of the matrix.
+    $B$ changes: that is the whole point, since a well-chosen angle makes $B' = 0$. $A$ changes too; in Example 1 of the lesson it goes from 5 to 4.
+- id: mv-m1-r2-h22
+  lesson: mv-m1-h-quadratic-forms
+  type: text
+  topic: Rotated quadrics
+  stem: 'Rotating by $45^\circ$ turns $z = xy$ into $z = \tfrac12x''^2 - \tfrac12y''^2$, so $z = xy$ is a hyperbolic ___.'
+  accept: [paraboloid]
+  explanation: |-
+    One variable ($z$) is linear and the two squares have opposite signs: a hyperbolic paraboloid, the saddle of Lesson 6 turned $45^\circ$ about the $z$-axis.
+- id: mv-m1-r2-h23
+  lesson: mv-m1-h-quadratic-forms
+  topic: Rotated quadrics
+  stem: 'Identify the surface $2xz - y^2 = 1$.'
+  choices: ['Hyperboloid of two sheets', 'Hyperboloid of one sheet', 'Cone', 'Ellipsoid']
+  answer: 0
+  explanation: |-
+    Rotate the $xz$-plane by $45^\circ$: $2xz = x'^2 - z'^2$. The equation becomes $x'^2 - y^2 - z'^2 = 1$, with eigenvalues $1, -1, -1$: two minus signs, so two sheets, with axis along $x'$, the direction $\langle 1, 0, 1\rangle$. One minus sign would give one sheet; a cone needs constant 0.
+- id: mv-m1-r2-h24
+  lesson: mv-m1-h-quadratic-forms
+  topic: Rotated quadrics
+  stem: 'The symmetric matrix of a quadratic form $Q(x, y, z)$ has eigenvalues 2, 3 and 5. What is the surface $Q(x, y, z) = 1$?'
+  choices: ['A hyperboloid of one sheet', 'An ellipsoid', 'An elliptic paraboloid', 'A hyperboloid of two sheets']
+  answer: 1
+  explanation: |-
+    In principal-axis coordinates the surface is $2x'^2 + 3y'^2 + 5z'^2 = 1$: three positive coefficients, so an ellipsoid with semi-axes $\tfrac{1}{\sqrt2}$, $\tfrac{1}{\sqrt3}$, $\tfrac{1}{\sqrt5}$. A paraboloid needs a linear term, and hyperboloids need negative eigenvalues.
+- id: mv-m1-r2-h25
+  lesson: mv-m1-h-quadratic-forms
+  topic: Quadratic forms
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['Every real symmetric matrix has real eigenvalues', 'For a symmetric matrix, eigenvectors for different eigenvalues are perpendicular', 'A nonzero multiple of an eigenvector is also an eigenvector', 'The eigenvalues of a matrix are always its diagonal entries']
+  answer: [0, 1, 2]
+  explanation: |-
+    The first two are the principal axes theorem, and $M(c\mathbf u) = cM\mathbf u = \lambda(c\mathbf u)$ shows the third.
+    The diagonal entries are the eigenvalues only for diagonal (or triangular) matrices: $\begin{bmatrix} 5 & -2\\ -2 & 8\end{bmatrix}$ has eigenvalues 4 and 9, not 5 and 8.
+- id: mv-m1-r2-h26
+  lesson: mv-m1-h-quadratic-forms
+  topic: Quadratic forms
+  stem: 'At a critical point of $f(x, y)$, $f_{xx} = 2$, $f_{xy} = 3$ and $f_{yy} = 1$. What do the level curves of the quadratic part look like, and what kind of point is it?'
+  choices: ['Ellipses, so a local minimum', 'Hyperbolas, so a saddle point', 'Ellipses, so a local maximum', 'Parallel lines, so the test fails']
+  answer: 1
+  explanation: |-
+    The quadratic part $2h^2 + 6hk + k^2$ has discriminant $36 - 8 = 28 > 0$, so its level curves are hyperbolas. Equivalently $D = f_{xx}f_{yy} - f_{xy}^2 = 2 - 9 = -7 < 0$: a saddle point. A positive $f_{xx}$ alone does not make it a minimum.
+- id: mv-m1-r2-h27
+  lesson: mv-m1-h-quadratic-forms
+  topic: Rotated quadrics
+  stem: 'In principal-axis coordinates the ellipse $5x^2 - 4xy + 8y^2 = 36$ becomes $4x''^2 + 9y''^2 = 36$. What is its longer semi-axis?'
+  choices: ['$2$', '$4$', '$3$', '$9$']
+  answer: 2
+  explanation: |-
+    Divide by 36: $\dfrac{x'^2}{9} + \dfrac{y'^2}{4} = 1$, so the semi-axes are $\sqrt9 = 3$ (along $x'$) and $\sqrt4 = 2$ (along $y'$). The smaller eigenvalue gives the longer axis. 4 and 9 are the eigenvalues, not lengths.
+- id: mv-m1-r2-h28
+  lesson: mv-m1-h-quadratic-forms
+  type: text
+  topic: Quadratic forms
+  stem: 'The matrix $\begin{bmatrix} 1 & 2\\ 2 & 1\end{bmatrix}$ has eigenvalues ___ (the larger) and ___ (the smaller).'
+  accept:
+    - ['3']
+    - ['-1', '−1']
+  explanation: |-
+    $\lambda = 1 \pm \sqrt{0 + 4} = 1 \pm 2$, so 3 and $-1$. Eigenvectors $\langle 1, 1\rangle$ and $\langle 1, -1\rangle$. So $x^2 + 4xy + y^2 = 1$ becomes $3x'^2 - y'^2 = 1$, a hyperbola.

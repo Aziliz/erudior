@@ -65,7 +65,7 @@ The eigenvalues also have a geometric meaning. For a unit vector $\mathbf u$, th
 
 Classify the critical point of $f(x, y) = 3x^2 + 2xy + 3y^2$ at the origin and find the directions of greatest and least curvature.
 
-1. $H = \begin{bmatrix} 6 & 2\\ 2 & 6\end{bmatrix}$, so $D = 36 - 4 = 32 > 0$ and $f_{xx} = 6 > 0$: a local minimum (in fact a global one, since $f$ is its own quadratic form).
+1. $H = \begin{bmatrix} 6 & 2\\ 2 & 6\end{bmatrix}$, so $D = 36 - 4 = 32 > 0$ and $f_{xx} = 6 > 0$: a local minimum (in fact a global one, since here $f$ equals $\tfrac12 Q$ exactly, with no higher-order terms).
 2. Eigenvalues: $\det(H - \lambda I) = (6 - \lambda)^2 - 4 = 0$ gives $\lambda = 8$ and $\lambda = 4$. Check: product $32 = D$, sum $12 = f_{xx} + f_{yy}$.
 3. For $\lambda = 8$: $(H - 8I)\mathbf v = \mathbf 0$ gives $-2v_1 + 2v_2 = 0$, so $\mathbf v = \langle 1, 1\rangle$. For $\lambda = 4$: $\mathbf v = \langle 1, -1\rangle$.
 4. In the rotated coordinates $u = \tfrac{x + y}{\sqrt2}$, $v = \tfrac{x - y}{\sqrt2}$, the function is $f = 4u^2 + 2v^2$ (half of each eigenvalue, because $f = \tfrac12 Q$). The surface is steepest along $\langle 1, 1\rangle$ and flattest along $\langle 1, -1\rangle$, so the level ellipses are long in the $\langle 1, -1\rangle$ direction.

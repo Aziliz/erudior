@@ -20,11 +20,11 @@ Divide $R = [a, b]\times[c, d]$ into $m\times n$ sub-rectangles of width $h = \t
 
 $$\iint_R f\,dA \approx M_{m,n} = \sum_{i=1}^m\sum_{j=1}^n f(\bar x_i, \bar y_j)\,\Delta A.$$
 
-How good is it? Expand $f$ in a Taylor polynomial about the center of one sub-rectangle. The linear terms integrate to zero over the sub-rectangle, because the center sits in the middle, so the midpoint rule is *exact* for every function of the form $a + bx + cy + dxy$. The first terms that it misses are the quadratic ones, and adding up their contributions gives, for $f$ with continuous second partial derivatives,
+How good is it? Expand $f$ in a Taylor polynomial about the center of one sub-rectangle. The linear terms integrate to zero over the sub-rectangle, because the center sits in the middle, and so does the mixed term $(x - \bar x_i)(y - \bar y_j)$. So the midpoint rule is *exact* for every function of the form $a + bx + cy + dxy$. The first terms that it misses are the quadratic ones, and adding up their contributions gives, for $f$ with continuous second partial derivatives,
 
 $$\iint_R f\,dA - M_{m,n} \approx \frac{h^2}{24}\iint_R f_{xx}\,dA + \frac{k^2}{24}\iint_R f_{yy}\,dA.$$
 
-(The approximation sign means that the terms left out shrink faster than $h^2$ and $k^2$.) Two lessons follow. First, the error is proportional to the *square* of the mesh size: halving $h$ and $k$ cuts the error by about a factor of 4. Mathematicians say the method has **order of accuracy** 2. Second, when $f$ is convex in both directions ($f_{xx}, f_{yy} > 0$) the midpoint rule *under*estimates, as it did in Lesson 21.
+(The approximation sign means that the terms left out shrink faster than $h^2$ and $k^2$.) Two lessons follow. First, the error is proportional to the *square* of the mesh size: halving $h$ and $k$ cuts the error by about a factor of 4. Mathematicians say the method has **order of accuracy** 2. Second, when $f$ is convex in both directions ($f_{xx}, f_{yy} > 0$) the midpoint rule *under*estimates (at least once the grid is fine), as it did in Lesson 21.
 
 ### Example 1: halving the mesh
 

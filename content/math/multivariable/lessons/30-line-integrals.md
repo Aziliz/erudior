@@ -51,6 +51,10 @@ Equivalently, $\int_C\mathbf F\cdot d\mathbf r = \int_C\mathbf F\cdot\mathbf T\,
 scalar line integral of the **tangential component** of $\mathbf F$. Only the part of the
 force along the motion does work; a force perpendicular to the path does none.
 
+The picture splits a force into these two parts at a point of the path.
+
+![A curve C with an arrow at its end showing the direction of travel. At an earlier point Q, a short red arrow T is the unit tangent. At a point P near the top of the curve, a blue arrow F is split into a green arrow along the curve, labeled F dot T times T, and a dashed gray arrow perpendicular to the curve, labeled normal part; dotted lines complete the rectangle with F as its diagonal.](images/mv-m7-tangential.svg)
+
 **Orientation matters.** Reversing the direction of travel (written $-C$) flips the sign:
 $\int_{-C}\mathbf F\cdot d\mathbf r = -\int_C\mathbf F\cdot d\mathbf r$. Pushing a box
 uphill takes positive work; letting it slide down returns it.
@@ -97,6 +101,23 @@ Evaluate $\int_C\mathbf F\cdot d\mathbf r$ for $\mathbf F = \langle y, z, x\rang
 If $C$ is made of smooth pieces $C_1, \dots, C_n$ joined end to end, integrate over each piece
 with its own parametrization and add. A handy parametrization for the segment from
 $\mathbf r_0$ to $\mathbf r_1$ is $\mathbf r(t) = (1 - t)\mathbf r_0 + t\mathbf r_1$, $0 \le t \le 1$.
+
+## The procedure at a glance
+
+Both kinds of line integral follow the same steps; they differ only in what multiplies $dt$.
+
+```mermaid
+flowchart TD
+  accTitle: Steps for evaluating a line integral
+  accDescr: First parametrize the curve as r of t for t from a to b, in the direction of travel if it is a vector line integral. Then compute r prime of t. Then decide which kind of integral it is. For a scalar line integral of f ds, the integrand is f of r of t times the length of r prime of t. For a vector line integral of F dot dr, the integrand is F of r of t dotted with r prime of t. In both cases, integrate from t equals a to t equals b. For a piecewise curve, repeat for each piece and add.
+  A["Parametrize C: r(t), a ≤ t ≤ b (in the direction of travel for F · dr)"] --> B["Compute r′(t)"]
+  B --> K{"Which integral?"}
+  K -- "scalar, ∫ f ds" --> S["Integrand: f(r(t)) |r′(t)|"]
+  K -- "vector, ∫ F · dr" --> V["Integrand: F(r(t)) · r′(t)"]
+  S --> I["Integrate from t = a to t = b"]
+  V --> I
+  I --> P["Piecewise curve: repeat for each piece and add"]
+```
 
 ## Common mistakes
 

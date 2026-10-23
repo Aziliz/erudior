@@ -1,0 +1,161 @@
+# Round 2 drills for module mv-m4 (Optimization): honors lessons
+- id: mv-m4-r2-minors
+  title: Classify by leading principal minors
+  topic: Quadratic forms and the Hessian
+  vars:
+    sg: {choices: [-1, 1]}
+    fl: {choices: [1, 1, 1, -1]}
+    ma: {min: 1, max: 5}
+    mb: {min: 1, max: 5}
+    mc: {min: 1, max: 5}
+    d: {min: -2, max: 2}
+    e: {min: -2, max: 2}
+  where: ["D2 != 0", "D3 != 0"]
+  calc:
+    a: sg*ma
+    b: sg*mb
+    c: sg*mc*fl
+    D1: a
+    D2: a*b - d^2
+    D3: a*(b*c - e^2) - d^2*c
+    cls: if(D1 > 0 and D2 > 0 and D3 > 0, 1, if(D1 < 0 and D2 > 0 and D3 < 0, 2, 3))
+  prompt: 'At a critical point of $f(x, y, z)$ the Hessian is $H = \begin{bmatrix} {a} & {d} & 0\\ {d} & {b} & {e}\\ 0 & {e} & {c}\end{bmatrix}$. Find the leading principal minors $D_1$, $D_2$, $D_3$, then classify the point: type **1** for a local minimum, **2** for a local maximum, **3** for a saddle point.'
+  answers:
+    - {name: D1, label: '$D_1 =$'}
+    - {name: D2, label: '$D_2 =$'}
+    - {name: D3, label: '$D_3 =$'}
+    - {name: cls, label: 'Type (1, 2 or 3)'}
+  solution: |-
+    $D_1 = {a}$.
+    $D_2 = ({a})({b}) - ({d})^2 = {D2}$.
+    $D_3 = \det H = {a}\left(({b})({c}) - ({e})^2\right) - ({d})\left(({d})({c}) - 0\right) + 0 = {D3}$.
+    Signs $+, +, +$ mean a minimum; $-, +, -$ a maximum; any other pattern with $D_3 \ne 0$ a saddle. Here $D_1 = {D1}$, $D_2 = {D2}$, $D_3 = {D3}$: **type {cls}**.
+- id: mv-m4-r2-crit3
+  title: Critical point of a quadratic in three variables
+  topic: Quadratic forms and the Hessian
+  vars:
+    A: {min: -3, max: 3}
+    B: {min: -3, max: 3}
+    C: {min: -3, max: 3}
+    p: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+    X: {min: -3, max: 3}
+    Y: {min: -3, max: 3}
+    Z: {min: -3, max: 3}
+  where: ["A != 0", "B != 0", "C != 0", "p != 0", "q != 0", "l1 != 0", "l2 != 0", "l3 != 0", "D2 != 0", "D3 != 0"]
+  calc:
+    A2: 2*A
+    B2: 2*B
+    C2: 2*C
+    l1: -(A2*X + p*Y)
+    l2: -(p*X + B2*Y + q*Z)
+    l3: -(q*Y + C2*Z)
+    D1: A2
+    D2: A2*B2 - p^2
+    D3: A2*(B2*C2 - q^2) - p^2*C2
+    cls: if(D1 > 0 and D2 > 0 and D3 > 0, 1, if(D1 < 0 and D2 > 0 and D3 < 0, 2, 3))
+  prompt: 'Find the critical point of $f(x, y, z) = {A:coef}x^2 {B:signedcoef}y^2 {C:signedcoef}z^2 {p:signedcoef}xy {q:signedcoef}yz {l1:signedcoef}x {l2:signedcoef}y {l3:signedcoef}z$, then classify it: type **1** for a local minimum, **2** for a local maximum, **3** for a saddle point.'
+  answers:
+    - {name: X, label: '$x =$'}
+    - {name: Y, label: '$y =$'}
+    - {name: Z, label: '$z =$'}
+    - {name: cls, label: 'Type (1, 2 or 3)'}
+  solution: |-
+    Set the gradient to zero:
+    $f_x = {A2:coef}x {p:signedcoef}y {l1:signed} = 0$, $f_y = {p:coef}x {B2:signedcoef}y {q:signedcoef}z {l2:signed} = 0$, $f_z = {q:coef}y {C2:signedcoef}z {l3:signed} = 0$.
+    Solving this linear system gives **$({X}, {Y}, {Z})$**. Check the first equation: ${A2}({X}) + ({p})({Y}) + ({l1}) = 0$.
+    The Hessian is constant: $H = \begin{bmatrix} {A2} & {p} & 0\\ {p} & {B2} & {q}\\ 0 & {q} & {C2}\end{bmatrix}$, with leading principal minors $D_1 = {D1}$, $D_2 = {D2}$, $D_3 = {D3}$.
+    $+, +, +$ is a minimum, $-, +, -$ a maximum, anything else (with $D_3 \ne 0$) a saddle: **type {cls}**.
+- id: mv-m4-r2-kkt
+  title: Maximize with an inequality constraint (KKT)
+  topic: Inequality constraints
+  vars:
+    p: {min: 1, max: 6}
+    q: {min: 1, max: 6}
+    a: {min: 1, max: 3}
+    b: {min: 1, max: 3}
+    s: {min: -8, max: 6}
+  where: ["s != 0"]
+  calc:
+    k: a*p + b*q + s
+    ss: a^2 + b^2
+    t: max(0, -s/ss)
+    X: p - a*t
+    Y: q - b*t
+    lam: 2*t
+    gpq: a*p + b*q
+  prompt: 'Maximize $f(x, y) = -(x - {p})^2 - (y - {q})^2$ subject to ${a:coef}x {b:signedcoef}y \le {k}$. Give the maximizing point and the KKT multiplier $\lambda$ (from $\nabla f = \lambda\nabla g$, with $\lambda = 0$ if the constraint is inactive). Exact fractions.'
+  answers:
+    - {name: X, kind: fraction, label: '$x =$'}
+    - {name: Y, kind: fraction, label: '$y =$'}
+    - {name: lam, kind: fraction, label: '$\lambda =$'}
+  solution: |-
+    Inactive case: $\nabla f = \mathbf 0$ at $({p}, {q})$, where ${a:coef}x {b:signedcoef}y = {gpq}$. The limit is ${k}$, so this point is feasible exactly when ${gpq} \le {k}$.
+    Active case: $\nabla f = \langle -2(x - {p}), -2(y - {q})\rangle = \lambda\langle {a}, {b}\rangle$ gives $x = {p} - \tfrac{{a}}{2}\lambda$, $y = {q} - \tfrac{{b}}{2}\lambda$. Substituting into ${a:coef}x {b:signedcoef}y = {k}$: ${gpq} - \tfrac{{ss}}{2}\lambda = {k}$, so $\lambda = \dfrac{2({gpq} - {k})}{{ss}}$, which must be $\ge 0$.
+    Exactly one case is valid here, giving $x =$ **${X:texfrac}$**, $y =$ **${Y:texfrac}$**, $\lambda =$ **${lam:texfrac}$**. ($f$ is concave and the constraint is linear, so this KKT point is the maximum: the point of the half-plane nearest $({p}, {q})$.)
+- id: mv-m4-r2-gd
+  title: Two steps of gradient descent
+  topic: Numerical optimization
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: 1, max: 4}
+    p: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+    x0: {min: -4, max: 4}
+    y0: {min: -4, max: 4}
+    al: {choices: [0.05, 0.1, 0.2]}
+  where: ["p != 0", "q != 0", "x0 != p", "y0 != q"]
+  calc:
+    np: -p
+    nq: -q
+    a2: 2*a
+    b2: 2*b
+    rx: 1 - 2*a*al
+    ry: 1 - 2*b*al
+    gx0: 2*a*(x0 - p)
+    gy0: 2*b*(y0 - q)
+    x1: x0 - al*gx0
+    y1: y0 - al*gy0
+    gx1: 2*a*(x1 - p)
+    gy1: 2*b*(y1 - q)
+    x2: x1 - al*gx1
+    y2: y1 - al*gy1
+  prompt: 'Apply two steps of gradient descent with step size $\alpha = {al}$ to $f(x, y) = {a:coef}(x {np:signed})^2 + {b:coef}(y {nq:signed})^2$, starting at $({x0}, {y0})$. Give the second iterate $(x_2, y_2)$ as exact decimals.'
+  answers:
+    - {name: x2, label: '$x_2 =$', format: num4, tolerance: 0.0001}
+    - {name: y2, label: '$y_2 =$', format: num4, tolerance: 0.0001}
+  solution: |-
+    $\nabla f = \langle {a2}(x {np:signed}),\ {b2}(y {nq:signed})\rangle$, and each step is $\mathbf x_{n+1} = \mathbf x_n - {al}\,\nabla f(\mathbf x_n)$.
+    Step 1: $\nabla f({x0}, {y0}) = \langle {gx0}, {gy0}\rangle$, so $\mathbf x_1 = ({x0} - {al}({gx0}),\ {y0} - {al}({gy0})) = ({x1:num4}, {y1:num4})$.
+    Step 2: $\nabla f(\mathbf x_1) = \langle {gx1:num4}, {gy1:num4}\rangle$, so $\mathbf x_2 =$ **$({x2:num4}, {y2:num4})$**.
+    (Shortcut: each step multiplies $x {np:signed}$ by $1 - 2({a})({al}) = {rx}$ and $y {nq:signed}$ by $1 - 2({b})({al}) = {ry}$.)
+- id: mv-m4-r2-newton
+  title: One step of Newton's method
+  topic: Numerical optimization
+  vars:
+    x0: {choices: [-2, -1, 1, 2]}
+    y0: {min: -2, max: 2}
+    c: {min: 1, max: 3}
+    d: {min: -3, max: 3}
+  where: ["d != 0", "DD != 0"]
+  calc:
+    HA: 12*x0^2
+    HB: d
+    nHB: -d
+    HC: 2*c
+    DD: HA*HC - HB^2
+    g1: 4*x0^3 + d*y0
+    g2: 2*c*y0 + d*x0
+    s1: (HC*g1 - HB*g2)/DD
+    s2: (-HB*g1 + HA*g2)/DD
+    x1: x0 - s1
+    y1: y0 - s2
+  prompt: 'Take one step of Newton''s method for $f(x, y) = x^4 {c:signedcoef}y^2 {d:signedcoef}xy$ from the point $({x0}, {y0})$. Give the new point to 3 decimal places (or as exact fractions).'
+  answers:
+    - {name: x1, label: '$x_1 =$', format: dp3, tolerance: 0.001}
+    - {name: y1, label: '$y_1 =$', format: dp3, tolerance: 0.001}
+  solution: |-
+    $\nabla f = \langle 4x^3 {d:signedcoef}y,\ {HC}y {d:signedcoef}x\rangle$ and $H = \begin{bmatrix} 12x^2 & {HB}\\ {HB} & {HC}\end{bmatrix}$.
+    At $({x0}, {y0})$: $\nabla f = \langle {g1}, {g2}\rangle$, $H = \begin{bmatrix} {HA} & {HB}\\ {HB} & {HC}\end{bmatrix}$, $D = ({HA})({HC}) - ({HB})^2 = {DD}$.
+    $H^{-1}\nabla f = \dfrac{1}{{DD}}\begin{bmatrix} {HC} & {nHB}\\ {nHB} & {HA}\end{bmatrix}\begin{bmatrix} {g1}\\ {g2}\end{bmatrix} \approx \langle {s1:dp3}, {s2:dp3}\rangle$.
+    New point: $({x0}, {y0}) - H^{-1}\nabla f \approx$ **$({x1:dp3}, {y1:dp3})$**.

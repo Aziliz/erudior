@@ -67,6 +67,12 @@ If $f(x, y)$ is a scalar function, its gradient
 $\nabla f = \langle f_x, f_y\rangle$ is a vector field, the **gradient field** of $f$. Its
 arrows point uphill and cross the level curves of $f$ at right angles (Lesson 16).
 
+The picture shows this for $f(x, y) = x^2 + 2y^2$, whose level curves are ellipses around the
+minimum at the origin. Following the arrows of $\nabla f$ traces a flow line of the gradient
+field, the path of steepest ascent.
+
+![Three nested ellipses, the level curves f = 1, 3 and 6 of f = x squared plus 2 y squared, around a dot at the origin marked minimum. Red arrows labeled gradient of f start on the curves and point outward, each crossing its curve at a right angle. A blue curve labeled flow line of gradient f starts at the minimum and bends outward, crossing every ellipse at a right angle.](images/mv-m7-gradient-contours.svg)
+
 For example, $f(x, y) = x^2y - y^3$ has gradient field
 $\nabla f = \langle 2xy,\; x^2 - 3y^2\rangle$.
 
@@ -78,6 +84,18 @@ $\partial_x\left(mMG(x^2 + y^2 + z^2)^{-1/2}\right) = -\dfrac{mMGx}{|\mathbf x|^
 field $\langle -y, x\rangle$ is not conservative, as we will see in Lesson 31. Conservative
 fields have remarkable properties, and much of the next three lessons is about recognizing
 them.
+
+The diagram sums up how a potential and its gradient field are tied together.
+
+```mermaid
+flowchart LR
+  accTitle: How a potential and its gradient field are related
+  accDescr: A scalar function f gives the gradient field F equals the gradient of f, by taking partial derivatives. Going back, finding a potential recovers f from a conservative field, as in Lesson 31. The arrows of the gradient field cross the level curves of f at right angles, and the arrows are tangent to the flow lines of the gradient field, which are the paths of steepest ascent of f.
+  f["Scalar function f"] -- "take the gradient" --> F["Gradient field F = ∇f"]
+  F -- "find a potential (Lesson 31)" --> f
+  F -- "arrows cross at right angles" --> L["Level curves of f"]
+  F -- "arrows are tangent to" --> S["Flow lines: steepest ascent paths"]
+```
 
 ### Example 4
 

@@ -45,6 +45,21 @@ $\bar x = \frac{1}{A}\iint_D x\,dA$, $\bar y = \frac{1}{A}\iint_D y\,dA$.
 Use symmetry: if the region and density are symmetric about a line, the center of mass lies
 on that line.
 
+The steps, in order:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the center of mass of a lamina
+  accDescr: Start with a lamina occupying a region D with density rho. First look for symmetry: if both the region and the density are symmetric about a line, the center of mass lies on that line, which settles one coordinate. Then compute the mass m as the double integral of rho, compute the moments M_y as the double integral of x rho and M_x as the double integral of y rho (skipping any settled by symmetry), and divide: x bar equals M_y over m and y bar equals M_x over m. Finally check that the point is pulled toward the heavier part of the plate.
+  A["Lamina on D with density ρ"] --> B{"Are D and ρ symmetric about a line?"}
+  B -- yes --> C["The center of mass lies on that line"]
+  B -- no --> D["Mass: m = ∬ ρ dA"]
+  C --> D
+  D --> E["Moments: M_y = ∬ xρ dA, M_x = ∬ yρ dA"]
+  E --> F["Divide: x̄ = M_y / m, ȳ = M_x / m"]
+  F --> G["Check: is the point pulled toward the heavier part?"]
+```
+
 ### Example 1
 
 A square plate $[0, 1]\times[0, 1]$ has density $\rho = x + y$. Find its mass and center of mass.
@@ -90,6 +105,10 @@ $$A(S) = \iint_D\sqrt{1 + f_x^2 + f_y^2}\;dA.$$
 
 The square root is the stretch factor: how much bigger a patch of surface is than its shadow
 on the $xy$-plane. A flat horizontal surface has factor 1; steep surfaces have large factors.
+
+The picture shows one patch: a small rectangle of area $\Delta A$ in the $xy$-plane, the piece of tangent plane above it spanned by $\mathbf a$ and $\mathbf b$, and the normal vector $\mathbf a\times\mathbf b$, which is $\langle -f_x, -f_y, 1\rangle\,\Delta x\,\Delta y$.
+
+![A curved surface z = f(x, y) floating above the xy-plane. A small rectangle of area delta A in the xy-plane is its shadow; dashed vertical lines rise from its corners to a parallelogram on the surface, which is a piece of the tangent plane spanned by edge vectors a and b. A red normal vector n = (-f_x, -f_y, 1) points up and slightly back from the center of the parallelogram](images/mv-m5-surface-patch.svg)
 
 ### Example 3: a tilted plane
 

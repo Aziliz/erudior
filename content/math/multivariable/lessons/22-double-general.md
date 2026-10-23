@@ -28,6 +28,8 @@ $$\iint_D f(x, y)\,dA = \int_a^b\int_{g_1(x)}^{g_2(x)} f(x, y)\,dy\,dx.$$
 Picture a vertical line crossing the region at a fixed $x$: it enters at the bottom curve
 $y = g_1(x)$ and leaves at the top curve $y = g_2(x)$. Those are the inner limits.
 
+![A shaded Type I region between a top curve y = g2(x) and a bottom curve y = g1(x), with dashed vertical sides at x = a and x = b. At a fixed x between them, an arrow runs up from the point where the vertical line enters the region on the bottom curve to the point where it leaves on the top curve](images/mv-m5-type1.svg)
+
 A region is **Type II** if it lies between two graphs of functions of $y$:
 
 $$D = \{(x, y) : c \le y \le d,\ h_1(y) \le x \le h_2(y)\},\qquad \iint_D f\,dA = \int_c^d\int_{h_1(y)}^{h_2(y)} f(x, y)\,dx\,dy.$$
@@ -99,6 +101,24 @@ additive over regions: if $D = D_1\cup D_2$ with only boundary overlap, then
 $\iint_D f = \iint_{D_1}f + \iint_{D_2}f$. Use additivity to split a region that is neither
 Type I nor Type II into pieces that are. Also, if $m \le f \le M$ on $D$, then
 $m\,A(D) \le \iint_D f\,dA \le M\,A(D)$, a quick sanity check.
+
+Putting the pieces together, this chart is a checklist for any region:
+
+```mermaid
+flowchart TD
+  accTitle: Setting up a double integral over a general region
+  accDescr: Start with a region D. If every vertical line meets D in one segment, from one bottom curve to one top curve, D is Type I and you integrate dy dx with inner limits g1(x) to g2(x). If not, ask whether every horizontal line meets D in one segment, from one left curve to one right curve; if so D is Type II and you integrate dx dy with inner limits h1(y) to h2(y). If neither works, split D into pieces that are Type I or Type II and add the integrals. After setting up, if the inner integral has no elementary antiderivative, reverse the order by redescribing D the other way; otherwise evaluate.
+  A["Region D"] --> B{"Does each vertical line meet D in one segment, bottom curve to top curve?"}
+  B -- yes --> C["Type I: dy dx, inner limits g1(x) to g2(x)"]
+  B -- no --> D{"Does each horizontal line meet D in one segment, left curve to right curve?"}
+  D -- yes --> E["Type II: dx dy, inner limits h1(y) to h2(y)"]
+  D -- no --> F["Split D into Type I or Type II pieces and add"]
+  C --> G{"Does the inner integral have an elementary antiderivative?"}
+  E --> G
+  G -- yes --> H["Evaluate"]
+  G -- no --> I["Reverse the order: sketch D and describe it the other way"]
+  I --> H
+```
 
 ## Common mistakes
 

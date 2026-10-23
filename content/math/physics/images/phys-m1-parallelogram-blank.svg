@@ -6,5 +6,5 @@
 <line x1="90" y1="290" x2="490.0" y2="290.0" stroke="#244d76" stroke-width="5"/><polygon points="510.0,290.0 490.0,299.0 490.0,281.0" fill="#244d76"/>
 <line x1="90" y1="290" x2="237.8" y2="100.9" stroke="#2f6b45" stroke-width="5"/><polygon points="250.1,85.1 244.9,106.4 230.7,95.3" fill="#2f6b45"/>
 <path d="M145,290 A55,55 0 0 0 123.9,246.7" fill="none" stroke="#1c2833" stroke-width="2"/>
-<circle cx="420.0" cy="187.6" r="16" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/><circle cx="420.0" cy="187.6" r="5" fill="#1c2833"/>
+<circle cx="420.0" cy="187.6" r="20" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/><circle cx="420.0" cy="187.6" r="6" fill="#1c2833"/>
 </svg>

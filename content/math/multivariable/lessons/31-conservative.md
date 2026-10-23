@@ -51,6 +51,14 @@ So for fields on such a region: *conservative ⇔ path independent ⇔ zero arou
 loop*. The field $\langle x^2, xy\rangle$ of Lesson 30 gave $\tfrac{11}{15}$ and $\tfrac23$ on
 two paths, so it is not conservative.
 
+```mermaid
+flowchart LR
+  accTitle: Three equivalent conditions for a conservative field
+  accDescr: For a field that is continuous on an open connected region, three conditions are equivalent. F is the gradient of a potential f exactly when its line integrals are independent of path, and that happens exactly when its integral around every closed curve is zero. Each condition implies the other two.
+  G["F = ∇f for some potential f"] <--> P["Line integrals are independent of path"]
+  P <--> Z["Integral around every closed curve is 0"]
+```
+
 ## Testing whether a field is conservative
 
 If $\mathbf F = \langle P, Q\rangle = \nabla f$, then $P = f_x$ and $Q = f_y$, so by Clairaut's
@@ -64,6 +72,12 @@ This necessary condition is also sufficient when the domain has no holes:
 **simply connected** region $D$ (connected, and every closed curve in $D$ encloses only points
 of $D$; informally, no holes). Then $\mathbf F$ is conservative on $D$ if and only if
 $P_y = Q_x$ throughout $D$.
+
+The difference is easy to see. In a disk, every loop can be shrunk to a point without leaving
+the region. In an annulus, or in the plane with one point removed, a loop around the hole
+cannot.
+
+![Three regions side by side. A shaded disk containing a dashed loop, labeled disk, simply connected. A shaded annulus, a ring with a white hole in the middle, with a dashed loop going around the hole, labeled annulus, not simply connected. A shaded square standing for the whole plane with a single small open circle removed at its center and a dashed loop around that point, labeled plane minus a point, not simply connected.](images/mv-m7-regions.svg)
 
 For $\mathbf F = \langle -y, x\rangle$: $P_y = -1 \ne 1 = Q_x$, so the rotation field is not
 conservative. Indeed, around the unit circle it has circulation $2\pi$.
@@ -115,6 +129,24 @@ Newton's law, the work done equals the gain in **kinetic energy** $K = \tfrac12m
 By the fundamental theorem, it also equals the loss of potential energy. Therefore
 $K(A) + U(A) = K(B) + U(B)$: total energy is conserved. That is where the word
 "conservative" comes from.
+
+## Which method for a line integral?
+
+You now have three ways to evaluate $\int_C\mathbf F\cdot d\mathbf r$: parametrize (Lesson 30),
+use a potential (this lesson), or, for a closed curve in the plane, Green's theorem (Lesson 32).
+This chart shows how to choose.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a vector line integral
+  accDescr: First test whether F is conservative, with P sub y equal to Q sub x on a simply connected region, or curl F equal to zero in space. If it is, find a potential f; the integral is f at the end minus f at the start, which is zero for a closed curve. If it is not conservative, ask whether C is a closed curve in the plane with F smooth, that is with continuous partial derivatives, everywhere inside. If so, use Green's theorem, the double integral of Q sub x minus P sub y. Otherwise, parametrize C and integrate F of r of t dotted with r prime of t.
+  T{"Is F conservative? (Py = Qx on a simply connected region; curl F = 0 in 3D)"}
+  T -- yes --> Pot["Find a potential f"]
+  Pot --> FT["Integral = f(end) − f(start); 0 for a closed curve"]
+  T -- no --> Cl{"Is C a closed plane curve, with F smooth everywhere inside?"}
+  Cl -- yes --> Gr["Green's theorem: double integral of Qx − Py"]
+  Cl -- no --> Par["Parametrize C and integrate F(r(t)) · r′(t)"]
+```
 
 ## Common mistakes
 

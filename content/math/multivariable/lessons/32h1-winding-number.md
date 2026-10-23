@@ -82,7 +82,7 @@ circled twice, points between the loops once, and points outside not at all. The
 number is constant on each piece of the plane that the curve cuts out, and changes by 1 when
 you step across the curve.
 
-![A limaçon: a closed curve with a large outer loop and a small inner loop on its right side, with arrows showing it is traced counterclockwise. Three marked points: one inside the small inner loop labeled w = 2, one between the inner and outer loops labeled w = 1, and one outside the curve labeled w = 0.](images/mv-m7-winding.svg)
+![A limaçon: a closed curve with a large outer loop and a small inner loop on its left side, with arrows showing it is traced counterclockwise. Three marked points: one inside the small inner loop labeled w = 2, one between the inner and outer loops labeled w = 1, and one outside the curve labeled w = 0.](images/mv-m7-winding.svg)
 
 ## Deforming the curve
 
