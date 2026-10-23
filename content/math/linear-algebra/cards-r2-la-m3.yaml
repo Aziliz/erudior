@@ -1,0 +1,24 @@
+# Round 2, module la-m3: cards for the honors lessons 11h1 and 11h2
+- {front: Affine combination, back: 'A linear combination $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p$ with $c_1 + \cdots + c_p = 1$. Weights may be negative.', topic: Affine combinations}
+- {front: Affine combinations of two points, back: '$(1 - t)\mathbf{p} + t\mathbf{q} = \mathbf{p} + t(\mathbf{q} - \mathbf{p})$, all real $t$: the line through $\mathbf{p}$ and $\mathbf{q}$. $0 \le t \le 1$ gives the segment.', topic: Affine combinations}
+- {front: Affine test by differences, back: '$\mathbf{y}$ is an affine combination of $\mathbf{v}_1, \dots, \mathbf{v}_p$ ⟺ $\mathbf{y} - \mathbf{v}_1 \in \operatorname{Span}\{\mathbf{v}_2 - \mathbf{v}_1, \dots, \mathbf{v}_p - \mathbf{v}_1\}$.', topic: Affine combinations}
+- {front: Affine test by lifting, back: '$\mathbf{y}$ is an affine combination of the $\mathbf{v}_i$ ⟺ $(\mathbf{y}, 1)$ is a linear combination of the $(\mathbf{v}_i, 1)$. The row of 1s forces the weights to add to 1.', topic: Affine combinations}
+- {front: Flat, back: 'A span shifted by a vector: $\mathbf{p} + \operatorname{Span}\{\dots\}$. Affine hulls and solution sets of consistent systems are flats.', topic: Affine combinations}
+- {front: Affinely independent, back: 'No point is an affine combination of the others ⟺ the differences $\mathbf{v}_i - \mathbf{v}_1$ are linearly independent. At most $n + 1$ such points in $\mathbb{R}^n$.', topic: Affine combinations}
+- {front: Affine vs linear independence, back: '$(1, 0)$, $(0, 1)$, $(1, 1)$ are affinely independent (a triangle) but linearly dependent. The tests are different.', topic: Affine combinations}
+- {front: Barycentric coordinates, back: 'For a triangle $\mathbf{v}_1\mathbf{v}_2\mathbf{v}_3$, the unique weights adding to 1 with $\mathbf{y} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3$.', topic: Convex combinations}
+- {front: Reading barycentric coordinates, back: 'All positive: inside. One zero: on an edge. Two zero: at a vertex. Any negative: outside.', topic: Convex combinations}
+- {front: Barycentric coordinates as areas, back: '$c_1 = $ area of $\mathbf{y}\mathbf{v}_2\mathbf{v}_3$ ÷ area of $\mathbf{v}_1\mathbf{v}_2\mathbf{v}_3$ (negative if $\mathbf{y}$ is across edge $\mathbf{v}_2\mathbf{v}_3$); similarly $c_2$, $c_3$.', topic: Convex combinations}
+- {front: Convex combination, back: 'Weights add to 1 and are all $\ge 0$. Convex combinations of points fill their convex hull; they model mixtures.', topic: Convex combinations}
+- {front: Mixture problems, back: 'A blend in proportions $c_i$ (adding to 1, all $\ge 0$) has each percentage equal to the same convex combination of the ingredients'' percentages. A negative solved weight means the target can''t be mixed.', topic: Convex combinations}
+- {front: GF(2), back: 'The field $\{0, 1\}$ with arithmetic mod 2: $1 + 1 = 0$, so $-1 = 1$ and subtracting equals adding.', topic: Linear algebra mod 2}
+- {front: Field, back: 'A number system with $+$, $-$, $\times$ and $\div$ (by nonzero elements) under the usual rules. Examples: $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$, GF(2). Not a field: the integers, the integers mod 4.', topic: Linear algebra mod 2}
+- {front: Span size over GF(2), back: '$p$ vectors span at most $2^p$ vectors, exactly $2^p$ when they are independent.', topic: Linear algebra mod 2}
+- {front: Number of solutions mod 2, back: 'A consistent system over GF(2) with $k$ free variables has exactly $2^k$ solutions.', topic: Linear algebra mod 2}
+- {front: Independence depends on the field, back: '$(1, 1, 0)$, $(0, 1, 1)$, $(1, 0, 1)$ are independent over $\mathbb{R}$ but dependent mod 2: their sum is $(2, 2, 2) = \mathbf{0}$.', topic: Linear algebra mod 2}
+- {front: Lights Out as a linear system, back: 'Press set $\mathbf{x}$ clears start pattern $\mathbf{b}$ ⟺ $A\mathbf{x} = \mathbf{b}$ mod 2, where column $j$ of $A$ is the toggle pattern of light $j$.', topic: Linear algebra mod 2}
+- {front: Quiet pattern, back: 'A nonzero press set that changes nothing: a nontrivial solution of $A\mathbf{x} = \mathbf{0}$ mod 2. All solutions = one solution + quiet patterns.', topic: Linear algebra mod 2}
+- {front: 5 × 5 Lights Out, back: 'Its $25 \times 25$ matrix has rank 23 mod 2: one pattern in four is solvable, each with exactly 4 solutions (Anderson and Feil, 1998).', topic: Linear algebra mod 2}
+- {front: Hamming(7,4) code, back: 'Codewords solve $H\mathbf{c} = \mathbf{0}$, where column $j$ of the $3 \times 7$ matrix $H$ is $j$ in binary. 16 codewords; 4 data bits in 7.', topic: Error-correcting codes}
+- {front: Syndrome, back: '$H\mathbf{r}$ mod 2. Zero for a codeword; with bit $j$ flipped it equals $H\mathbf{e}_j$, column $j$ of $H$, which names the bad bit.', topic: Error-correcting codes}
+- {front: Parity bit, back: 'One extra bit making the number of 1s even. Detects one flipped bit but can''t locate it.', topic: Error-correcting codes}

@@ -42,10 +42,10 @@ Which formula applies depends on the solid's shape:
 ```mermaid
 flowchart TD
   accTitle: Choosing a volume formula
-  accDescr: If the solid has the same cross section all the way up, it is a prism or cylinder and its volume is base area times height. If it narrows to a point, it is a pyramid or cone and its volume is one third of base area times height. If it is a ball, its volume is four thirds pi r cubed. In every case the height is the perpendicular height, never the slant height.
+  accDescr: If the solid has the same cross section all the way up, it is a prism or cylinder and its volume is base area times height. If it narrows to a point, it is a pyramid or cone and its volume is one third of base area times height. If the cross sections grow and then shrink, as in a ball, it is a sphere and its volume is four thirds pi r cubed. In every case the height is the perpendicular height, never the slant height.
   A{"What happens to the cross sections as you go up?"} -->|"they stay the same"| B["Prism or cylinder: V = Bh"]
   A -->|"they shrink to a point"| C["Pyramid or cone: V = ⅓Bh"]
-  A -->|"it is a ball"| D["Sphere: V = (4/3)πr³"]
+  A -->|"they grow, then shrink: a ball"| D["Sphere: V = (4/3)πr³"]
   B --> E["Use the perpendicular height, not the slant height"]
   C --> E
 ```

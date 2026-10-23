@@ -30,6 +30,15 @@ $\mathbf r(t) = \mathbf r(0) + \int_0^t\mathbf v(u)\,du$. Each integration bring
 initial condition, which is why a motion problem needs both a starting position and a
 starting velocity.
 
+```mermaid
+flowchart TD
+  accTitle: From force to path
+  accDescr: Divide the force by the mass to get the acceleration a of t. Integrate once and add the initial velocity to get v of t. Integrate again and add the initial position to get r of t.
+  F["Force F(t)"] -- "divide by mass m" --> A["Acceleration a(t)"]
+  A -- "integrate, add v(0)" --> V["Velocity v(t)"]
+  V -- "integrate, add r(0)" --> R["Position r(t)"]
+```
+
 ### Example 1
 
 A particle has position $\mathbf r(t) = \langle t^2,\, 2t,\, \ln t\rangle$ for $t > 0$. Find its velocity, speed and acceleration at $t = 1$.
@@ -70,6 +79,10 @@ initial upward speed. From this one formula:
 
 Eliminating $t$ shows the path is a parabola:
 $y = (\tan\alpha)\,x - \dfrac{g}{2v_0^2\cos^2\alpha}x^2$.
+
+The labeled sketch shows where each quantity lives on the path.
+
+![A parabolic projectile path over level ground. A red arrow v zero leaves the launch point at angle alpha above the ground. A dashed blue line from the ground up to the top of the arc is labeled H, maximum height. A green double arrow along the ground from launch to landing is labeled R, range.](images/mv-m2-projectile.svg)
 
 ```plot
 {"x": [0, 11], "y": [0, 4], "equal": true, "functions": [{"f": "x - 9.8/(2*100*0.5)*x^2", "from": 0, "to": 10.204}, {"f": "tan(pi/3)*x - 9.8/(2*100*0.25)*x^2", "from": 0, "to": 8.837, "dashed": true}, {"f": "tan(pi/6)*x - 9.8/(2*100*0.75)*x^2", "from": 0, "to": 8.837}], "xLabel": "x (m)", "yLabel": "y (m)", "caption": "Launches at 10 m/s: the 30° (lowest) and 60° (highest, dashed) paths land at the same spot; 45° goes farthest"}

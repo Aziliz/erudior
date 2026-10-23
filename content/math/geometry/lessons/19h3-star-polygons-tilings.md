@@ -27,7 +27,7 @@ $$180n - S = 360, \qquad\text{so}\qquad S = (n - 2) \cdot 180^\circ.$$
 An L-shaped hexagon has vertices $(0, 0)$, $(6, 0)$, $(6, 2)$, $(2, 2)$, $(2, 5)$ and $(0, 5)$. Check both theorems.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [6, 2], [2, 2], [2, 5], [0, 5]]}], "labels": [{"at": [2.6, 2.6], "text": "270°"}, {"at": [0.5, 0.45], "text": "90°"}, {"at": [5.5, 0.45], "text": "90°"}, {"at": [5.5, 1.55], "text": "90°"}, {"at": [1.5, 4.55], "text": "90°"}, {"at": [0.5, 4.55], "text": "90°"}], "caption": "An L-shaped hexagon: five 90° angles and one reflex angle of 270°."}
+{"polygons": [{"points": [[0, 0], [6, 0], [6, 2], [2, 2], [2, 5], [0, 5]]}], "labels": [{"at": [1.5, 1.55], "text": "270°"}, {"at": [0.5, 0.45], "text": "90°"}, {"at": [5.5, 0.45], "text": "90°"}, {"at": [5.5, 1.55], "text": "90°"}, {"at": [1.5, 4.55], "text": "90°"}, {"at": [0.5, 4.55], "text": "90°"}], "caption": "An L-shaped hexagon: five 90° angles and one reflex angle of 270°."}
 ```
 
 **Step 1.** Five interior angles are $90^\circ$ and the one at $(2, 2)$ is reflex, $270^\circ$. Sum: $5 \cdot 90 + 270 = 720^\circ = (6 - 2) \cdot 180^\circ$. ✓

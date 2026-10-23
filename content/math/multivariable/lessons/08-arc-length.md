@@ -26,6 +26,14 @@ This is the bridge lesson's parametric formula with a third term under the root.
 quantity $|\mathbf r'(t)|$ is the **speed** of the moving point, and length is the
 integral of speed, just as distance travelled is the integral of speed in one variable.
 
+The formula comes from adding up many short straight pieces. In the figure, four chords
+approximate the curve; each chord has length about $|\mathbf r'(t)|\,\Delta t$, and as the
+pieces shrink their total approaches the integral.
+
+```plot
+{"x": [-0.3, 2.5], "y": [-0.3, 2.3], "equal": true, "functions": [{"f": "0.5*x^2", "from": 0, "to": 2, "label": "curve"}], "segments": [{"from": [0, 0], "to": [0.5, 0.125]}, {"from": [0.5, 0.125], "to": [1, 0.5]}, {"from": [1, 0.5], "to": [1.5, 1.125]}, {"from": [1.5, 1.125], "to": [2, 2]}], "points": [{"at": [0, 0]}, {"at": [0.5, 0.125]}, {"at": [1, 0.5]}, {"at": [1.5, 1.125]}, {"at": [2, 2]}], "caption": "Four chords approximate the arc of y = x²/2 from x = 0 to 2; more, shorter chords get closer to its true length"}
+```
+
 ### Example 1: one turn of a helix
 
 Find the length of $\mathbf r(t) = \langle \cos t,\, \sin t,\, t\rangle$ for $0\le t\le 2\pi$.
@@ -89,6 +97,21 @@ $$\kappa(x) = \frac{|f''(x)|}{\left(1 + f'(x)^2\right)^{3/2}}.$$
 - A straight line has $\mathbf T$ constant, so $\kappa = 0$.
 - A circle of radius $a$ has $\kappa = 1/a$: small circles bend sharply.
 - The helix $\langle \cos t, \sin t, t\rangle$ has $\kappa = \tfrac12$ everywhere (check: $\mathbf r'\times\mathbf r'' = \langle \sin t, -\cos t, 1\rangle$ has length $\sqrt2$, and $\sqrt2/(\sqrt2)^3 = \tfrac12$).
+
+Which formula should you reach for? It depends on how the curve is given:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a curvature formula
+  accDescr: Start by asking how the curve is given. If it is a graph y equals f of x, use kappa equals the absolute value of f double prime over one plus f prime squared to the three halves. If it is r of t with any parameter, use the length of r prime cross r double prime over the cube of the length of r prime; or, if T of t is already known, the length of T prime over the length of r prime. If it is parametrized by arc length s, the speed is 1 and kappa is the length of dT/ds, which equals the length of r double prime of s.
+  Q{"How is the curve given?"} --> G["A graph y = f(x)"]
+  Q --> P["r(t), any parameter"]
+  Q --> S["r(s), by arc length"]
+  G --> FG["kappa = |f''| / (1 + f'²)^(3/2)"]
+  P --> FP["kappa = |r' × r''| / |r'|³"]
+  P --> FT["T(t) already known: kappa = |T'| / |r'|"]
+  S --> FS["kappa = |dT/ds| = |r''(s)|"]
+```
 
 The reciprocal $\rho = 1/\kappa$ is the **radius of curvature**: the radius of the
 **osculating circle**, the circle that best hugs the curve at that point. It sits on the

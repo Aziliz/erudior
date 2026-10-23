@@ -1,0 +1,59 @@
+# Round 2, module la-m3: terms from the honors lessons 11h1 and 11h2
+- term: affine combination
+  aliases: [affine combinations]
+  definition: 'A linear combination $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p$ whose weights add up to 1. The affine combinations $(1 - t)\mathbf{p} + t\mathbf{q}$ of two points fill the line through them.'
+  topic: Affine combinations
+- term: affine hull
+  aliases: [affine span]
+  definition: 'The set of all affine combinations of some points; it equals $\mathbf{v}_1 + \operatorname{Span}\{\mathbf{v}_2 - \mathbf{v}_1, \dots, \mathbf{v}_p - \mathbf{v}_1\}$. Of two distinct points it is the line through them; of three non-collinear points, the plane through them.'
+  topic: Affine combinations
+- term: flat
+  aliases: [flats, affine set]
+  definition: 'A span shifted by a fixed vector, $\mathbf{p} + \operatorname{Span}\{\dots\}$: a point, line, plane or higher-dimensional analog that need not pass through the origin. The solution set of a consistent system $A\mathbf{x} = \mathbf{b}$ is a flat.'
+  topic: Affine combinations
+- term: affinely independent
+  aliases: [affine independence, affinely dependent]
+  definition: 'Describes points none of which is an affine combination of the others; equivalently, the differences $\mathbf{v}_2 - \mathbf{v}_1, \dots, \mathbf{v}_p - \mathbf{v}_1$ are linearly independent. Three points are affinely dependent exactly when they are collinear.'
+  topic: Affine combinations
+- term: barycentric coordinates
+  aliases: [barycentric coordinate]
+  definition: 'The unique weights $(c_1, c_2, c_3)$, adding to 1, that write a point as $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3$ for a triangle $\mathbf{v}_1\mathbf{v}_2\mathbf{v}_3$. All positive means inside the triangle; a negative one means outside.'
+  topic: Convex combinations
+- term: convex combination
+  aliases: [convex combinations]
+  definition: 'An affine combination whose weights are all nonnegative: $c_1 + \cdots + c_p = 1$ and every $c_i \ge 0$. Convex combinations describe mixtures and weighted averages.'
+  topic: Convex combinations
+- term: convex hull
+  definition: 'The set of all convex combinations of some points: the smallest set containing them with no dents, such as the segment between two points or the filled triangle on three.'
+  topic: Convex combinations
+- term: field
+  aliases: [fields]
+  definition: 'A number system with addition, subtraction, multiplication and division by nonzero elements obeying the usual rules, such as the rationals, the reals, the complex numbers or GF(2). Span, independence and row reduction work the same over any field.'
+  topic: Linear algebra mod 2
+- term: GF(2)
+  aliases: [binary field, 'Z_2', integers mod 2]
+  definition: 'The field with two elements, 0 and 1, using arithmetic mod 2, so $1 + 1 = 0$ and $-1 = 1$. Vectors over GF(2) are bit strings, added by exclusive or.'
+  topic: Linear algebra mod 2
+- term: quiet pattern
+  aliases: [quiet patterns]
+  definition: 'In Lights Out, a nonempty set of presses that leaves every light unchanged: a nonzero solution of $A\mathbf{x} = \mathbf{0}$ mod 2. Adding one to a solution gives another solution.'
+  topic: Linear algebra mod 2
+- term: parity bit
+  aliases: [parity bits]
+  definition: 'An extra bit chosen so that the total number of 1s in a message is even. It detects a single flipped bit but cannot say which one flipped.'
+  topic: Error-correcting codes
+- term: parity-check matrix
+  aliases: [parity check matrix]
+  definition: 'A matrix $H$ over GF(2) that defines a code: the codewords are exactly the vectors $\mathbf{c}$ with $H\mathbf{c} = \mathbf{0}$.'
+  topic: Error-correcting codes
+- term: codeword
+  aliases: [codewords]
+  definition: 'A vector allowed by a code; for a code with parity-check matrix $H$, a solution of $H\mathbf{c} = \mathbf{0}$ mod 2. Sums of codewords are codewords.'
+  topic: Error-correcting codes
+- term: Hamming code
+  aliases: ['Hamming(7,4)', Hamming codes]
+  definition: 'The code, described by Richard Hamming in 1950, whose $3 \times 7$ parity-check matrix has the binary numbers 1 to 7 as columns. It carries 4 data bits in 7 and corrects any single flipped bit.'
+  topic: Error-correcting codes
+- term: syndrome
+  definition: 'For a received word $\mathbf{r}$, the vector $H\mathbf{r}$ mod 2. It is $\mathbf{0}$ for a codeword; if one bit $j$ flipped, it equals column $j$ of $H$, which locates the error.'
+  topic: Error-correcting codes

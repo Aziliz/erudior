@@ -40,6 +40,12 @@ normal. For a plane curve the osculating plane is just the curve's plane and $\m
 constant. How fast $\mathbf B$ turns measures how fast the curve twists out of its
 osculating plane; that rate is called the **torsion** $\tau$, with $d\mathbf B/ds = -\tau\mathbf N$.
 
+The picture shows the frame at one point $P$. $\mathbf T$ and $\mathbf N$ lie in the shaded
+osculating plane, and $\mathbf B$ stands perpendicular to it. Where the curve rises out of
+the shaded plane, it is twisting: that is torsion at work.
+
+![A curve passing through a point P on a shaded parallelogram labeled osculating plane. At P, a red arrow T points along the curve, a blue arrow N points within the plane toward the side the curve bends to, and a green arrow B points straight up, perpendicular to the plane. Beyond P the curve rises out of the plane.](images/mv-m2-tnb.svg)
+
 ### Example 1: the helix
 
 For $\mathbf r(t) = \langle \cos t,\, \sin t,\, t\rangle$:
@@ -81,6 +87,22 @@ $$a_T = \frac{\mathbf r'\cdot\mathbf r''}{|\mathbf r'|},\qquad a_N = \frac{|\mat
 
 A check on any computation: $a_T^2 + a_N^2 = |\mathbf a|^2$, since $\mathbf T$ and
 $\mathbf N$ are perpendicular unit vectors.
+
+The whole computation, from a position function to the frame and the two components, runs
+like this:
+
+```mermaid
+flowchart TD
+  accTitle: Computing the TNB frame and the components of acceleration
+  accDescr: Start from r of t. Differentiate to get r prime and r double prime. Find the speed v, the length of r prime. Then T equals r prime over v. Differentiate T and normalize to get N, then B equals T cross N. Separately, from r prime and r double prime, find the curvature as the length of r prime cross r double prime over v cubed, and the components a sub T equals r prime dot r double prime over v and a sub N equals kappa v squared.
+  n1["Position r(t)"] --> n2["Differentiate: r'(t) and r''(t)"]
+  n2 --> n3["Speed v = |r'|"]
+  n3 --> n4["T = r' / v"]
+  n4 --> n5["Differentiate T, then N = T' / |T'|"]
+  n5 --> n6["B = T × N"]
+  n3 --> n7["kappa = |r' × r''| / v³"]
+  n7 --> n8["a_T = (r' · r'') / v and a_N = kappa v²"]
+```
 
 ### Example 2
 
