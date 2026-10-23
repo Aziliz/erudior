@@ -40,6 +40,18 @@ $\mathbb{R}^n$: $P^{-1}AP$ is always the matrix of $\mathbf{x} \mapsto A\mathbf{
 given by the columns of $P$. That is the precise sense in which similar matrices describe the
 same transformation.
 
+The diagram shows the two routes from $\mathbf{x}$ to $A\mathbf{x}$: directly, or by changing to eigenvector coordinates, scaling, and changing back.
+
+```mermaid
+flowchart TD
+  accTitle: A equals P D P inverse as a change of coordinates
+  accDescr: Two routes lead from x to Ax. The direct route multiplies by A. The indirect route first multiplies x by P inverse to get its coordinates in the eigenvector basis, then multiplies by the diagonal matrix D, which scales each coordinate by its eigenvalue, giving the eigenvector coordinates of Ax, and finally multiplies by P to return to standard coordinates. Both routes give the same result, which is why A equals P D P inverse.
+  X["x"] -- "A" --> AX["Ax"]
+  X -- "P⁻¹" --> XB["coordinates of x in the eigenvector basis"]
+  XB -- "D: scale coordinate i by λi" --> AXB["coordinates of Ax in the eigenvector basis"]
+  AXB -- "P" --> AX
+```
+
 ## Powers
 
 If $A = PDP^{-1}$, the inner factors cancel in products:
@@ -74,6 +86,22 @@ independent eigenvectors for $\lambda$. It's always between 1 and the algebraic 
 > $A$ is diagonalizable exactly when its eigenvalues are all real (counted with multiplicity, there are $n$ of them) and, for every eigenvalue, the geometric multiplicity equals the algebraic multiplicity. Equivalently, the eigenspace dimensions add up to $n$.
 
 The "all real" part matters because we are building $P$ and $D$ from real numbers. A $3 \times 3$ matrix with eigenvalues $1$ and $\pm i$ has a 1-dimensional eigenspace for $1$ that matches its multiplicity, but only one real eigenvector, so it is not diagonalizable with real matrices. (Complex eigenvalues are the subject of the next lesson.)
+
+Put together, the tests give a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a matrix is diagonalizable
+  accDescr: Find the eigenvalues of the n by n matrix A with their algebraic multiplicities. If some eigenvalue is not real, A is not diagonalizable with real matrices. If all are real and there are n distinct eigenvalues, A is diagonalizable. If some eigenvalue is repeated, find the dimension of each eigenspace, the null space of A minus lambda I. If every eigenspace dimension equals the algebraic multiplicity, A is diagonalizable, with eigenvectors as the columns of P and eigenvalues on the diagonal of D; if any is smaller, A is not diagonalizable.
+  A["Find the eigenvalues and their algebraic multiplicities"] --> B{"Are they all real?"}
+  B -- "no" --> N1["Not diagonalizable with real matrices"]
+  B -- "yes" --> C{"n distinct eigenvalues?"}
+  C -- "yes" --> Y["Diagonalizable: P holds eigenvectors, D the eigenvalues"]
+  C -- "no" --> E["For each repeated λ, find dim Nul(A - λI)"]
+  E --> F{"Every dimension equals the algebraic multiplicity?"}
+  F -- "yes" --> Y
+  F -- "no" --> N2["Not diagonalizable: too few eigenvectors"]
+```
 
 ### Example 2
 

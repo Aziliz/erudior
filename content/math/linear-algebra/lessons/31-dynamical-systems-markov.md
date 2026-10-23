@@ -41,6 +41,10 @@ For $2 \times 2$ systems the origin is classified by the eigenvalues:
 | both $\lvert\lambda\rvert > 1$ | **repeller** | trajectories move away from $\mathbf{0}$ |
 | one $\lvert\lambda\rvert > 1$, one $\lvert\lambda\rvert < 1$ | **saddle point** | attracted along one direction, repelled along the other |
 
+The pictures show typical trajectories of each kind, with diagonal matrices so that the eigenvectors lie along the axes. Each dot is one step.
+
+![Three panels of trajectories near the origin. Attractor: both eigenvalues less than 1 in absolute value, and every trajectory steps in toward the origin. Repeller: both eigenvalues greater than 1, and trajectories step away from the origin. Saddle point: one eigenvalue greater than 1 and one less than 1, and trajectories come in along the vertical axis and then leave along the horizontal axis.](images/la-m8-portraits.svg)
+
 ### Example 1
 
 Let $A = \begin{bmatrix} 0.85 & 0.25 \\ 0.25 & 0.85\end{bmatrix}$ and $\mathbf{x}_0 = (3, 1)$. Describe $\mathbf{x}_k$.
@@ -69,8 +73,21 @@ returned to B; 30% of the cars at B end up at A and 70% stay at B. Today half th
 each lot. Find the distribution tomorrow and the day after.
 
 1. Columns are "from", rows are "to": $P = \begin{bmatrix} 0.8 & 0.3 \\ 0.2 & 0.7\end{bmatrix}$. Each column sums to 1.
+
 2. $\mathbf{x}_1 = P\mathbf{x}_0 = \begin{bmatrix} 0.8(0.5) + 0.3(0.5) \\ 0.2(0.5) + 0.7(0.5)\end{bmatrix} = \begin{bmatrix} 0.55 \\ 0.45\end{bmatrix}$.
 3. $\mathbf{x}_2 = P\mathbf{x}_1 = \begin{bmatrix} 0.44 + 0.135 \\ 0.11 + 0.315\end{bmatrix} = \begin{bmatrix} 0.575 \\ 0.425\end{bmatrix}$.
+
+A transition diagram shows the numbers of $P$: an arrow for each move, labeled with its probability. The arrows leaving each lot add up to 1.
+
+```mermaid
+flowchart LR
+  accTitle: Transition diagram for the rental cars
+  accDescr: Two lots, A and B. Each day 80 percent of the cars at lot A stay at A and 20 percent move to B. Of the cars at lot B, 30 percent move to A and 70 percent stay at B. The probabilities leaving each lot add up to 1, which is why each column of the stochastic matrix sums to 1.
+  A(("Lot A")) -- "0.2" --> B(("Lot B"))
+  B -- "0.3" --> A
+  A -- "0.8" --> A
+  B -- "0.7" --> B
+```
 
 ## Steady states
 

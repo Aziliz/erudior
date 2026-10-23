@@ -55,10 +55,32 @@ $$\det(A - \lambda I) = (4 - \lambda)\begin{vmatrix} 1 - \lambda & 2 \\ 2 & 1 - 
 2. $(1 - \lambda)^2 - 4 = 0$ gives $1 - \lambda = \pm 2$, so $\lambda = -1$ or $\lambda = 3$.
 3. The eigenvalues are $4$, $3$ and $-1$. Their sum is $6 = 1 + 1 + 4$, the trace. ✓
 
+The graph of the characteristic polynomial shows the three eigenvalues as the places where it crosses the horizontal axis:
+
+```plot
+{"x": [-2, 5], "y": [-12, 14], "xLabel": "λ", "yLabel": "det(A - λI)", "functions": [{"f": "(4 - x)*((1 - x)^2 - 4)", "label": "(4 - λ)[(1 - λ)² - 4]"}], "points": [{"at": [-1, 0], "label": "-1"}, {"at": [3, 0], "label": "3"}, {"at": [4, 0], "label": "4"}], "caption": "The eigenvalues are the roots of the characteristic polynomial"}
+```
+
 For $3 \times 3$ and larger matrices, finding roots of the characteristic polynomial by hand is
 only practical when the matrix has structure (zeros, triangular blocks) or the roots are
 nice. Software finds eigenvalues by entirely different iterative methods, because polynomial
 roots are numerically unstable to compute from coefficients.
+
+Which method to use by hand depends on the matrix:
+
+```mermaid
+flowchart TD
+  accTitle: Which method finds the eigenvalues
+  accDescr: First ask what kind of matrix A is. If it is triangular, read the eigenvalues off the diagonal. If it is 2 by 2, solve lambda squared minus the trace times lambda plus the determinant equals zero. If it is larger with no special structure, expand det of A minus lambda I along the row or column with the most zeros and factor the characteristic polynomial. In every case, check that the eigenvalues add up to the trace and multiply to the determinant.
+  S{"What kind of matrix is A?"}
+  S -- "triangular" --> T["Read the diagonal entries"]
+  S -- "2 × 2" --> Q["Solve λ² - (tr A)λ + det A = 0"]
+  S -- "larger" --> X["Expand det(A - λI) along the row or column with the most zeros"]
+  X --> F["Factor the characteristic polynomial"]
+  T --> C["Check: sum = trace, product = det A"]
+  Q --> C
+  F --> C
+```
 
 ## Multiplicity
 

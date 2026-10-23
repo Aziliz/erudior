@@ -51,6 +51,10 @@ modulus of the eigenvalue is the scale factor and its angle is the rotation angl
 multiplication by $C$ makes points spiral: outward if $r > 1$, inward if $r < 1$, around a
 circle if $r = 1$.
 
+In the complex plane, the eigenvalue $a + bi$ sits at the point $(a, b)$; its distance from 0 is the scale factor and its angle is the rotation angle:
+
+![The complex plane with the eigenvalue λ = a + bi plotted as a point. The segment from 0 to λ has length r = |λ|, the angle φ between that segment and the positive real axis is the rotation angle, the real part a is measured along the real axis and the imaginary part b vertically. The conjugate a - bi is the mirror image below the real axis.](images/la-m8-complex-plane.svg)
+
 ```plot
 {"x": [-4, 5], "y": [-3, 4], "equal": true, "segments": [{"from": [4.0, 0.0], "to": [3.12, 1.8], "arrow": true}, {"from": [3.12, 1.8], "to": [1.62, 2.81], "arrow": true}, {"from": [1.62, 2.81], "to": [0.0, 2.92], "arrow": true}, {"from": [0.0, 2.92], "to": [-1.31, 2.27], "arrow": true}, {"from": [-1.31, 2.27], "to": [-2.05, 1.18], "arrow": true}, {"from": [-2.05, 1.18], "to": [-2.13, 0.0], "arrow": true}, {"from": [-2.13, 0.0], "to": [-1.66, -0.96], "arrow": true}, {"from": [-1.66, -0.96], "to": [-0.86, -1.49], "arrow": true}, {"from": [-0.86, -1.49], "to": [0.0, -1.55], "arrow": true}, {"from": [0.0, -1.55], "to": [0.7, -1.21], "arrow": true}, {"from": [0.7, -1.21], "to": [1.09, -0.63], "arrow": true}, {"from": [1.09, -0.63], "to": [1.13, 0.0], "arrow": true}], "points": [{"at": [4.0, 0.0], "label": "x₀"}], "caption": "Iterates of a rotation–scaling matrix with r = 0.9 and angle 30°: an inward spiral"}
 ```

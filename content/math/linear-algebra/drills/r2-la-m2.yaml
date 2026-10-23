@@ -65,61 +65,62 @@
     Check row 3: $({p})({u3}) + ({q})({v3}) = {c3}$. ✓
     **Answer:** $r = {p}$, $s = {q}$.
 
-- id: la-m2-r2-flops
-  title: Count the flops of elimination
-  topic: Cost and accuracy of elimination
+- id: la-m2-r2-jacobi
+  title: One Jacobi sweep
+  topic: Iterative methods
   vars:
-    n: {choices: [4, 5, 6, 8, 10, 12, 15, 20, 30, 50, 100]}
+    a11: {choices: [3, 4, 5, 6]}
+    a22: {choices: [3, 4, 5, 6]}
+    a12: {choices: [-2, -1, 1, 2]}
+    a21: {choices: [-2, -1, 1, 2]}
+    x0: {min: -4, max: 4}
+    y0: {min: -4, max: 4}
+    x1: {min: -6, max: 6}
+    y1: {min: -6, max: 6}
   calc:
-    fw: (4*n^3 + 3*n^2 - 7*n)/6
-    bk: n^2
-    tot: fw + bk
+    b1: a11*x1 + a12*y0 + 0
+    b2: a22*y1 + a21*x0 + 0
+    n1: b1 - a12*y0 + 0
+    n2: b2 - a21*x0 + 0
   prompt: |-
-    Gaussian elimination (forward phase, no row swaps) on the augmented matrix of an $n \times n$ system takes $\tfrac23 n^3 + \tfrac12 n^2 - \tfrac76 n$ flops, and back-substitution takes $n^2$. For $n = {n}$, find the number of flops for the forward phase and for the whole solve.
+    Apply one sweep of the Jacobi method to
+    $$\begin{aligned} {a11}x {a12:signedcoef}y &= {b1} \\ {a21:coef}x + {a22}y &= {b2} \end{aligned}$$
+    starting from the guess $(x_0, y_0) = ({x0}, {y0})$. Find $(x_1, y_1)$.
   answers:
-    - {name: fw, label: 'forward phase', format: integer}
-    - {name: tot, label: 'whole solve', format: integer}
+    - {name: x1, label: '$x_1 =$'}
+    - {name: y1, label: '$y_1 =$'}
   solution: |-
-    Forward phase: $\tfrac23({n})^3 + \tfrac12({n})^2 - \tfrac76({n}) = \dfrac{4({n})^3 + 3({n})^2 - 7({n})}{6} =$ **{fw}** flops.
-    Back-substitution: ${n}^2 = {bk}$ flops.
-    Whole solve: ${fw} + {bk} =$ **{tot}** flops.
+    Solve equation 1 for $x$ and equation 2 for $y$, and plug in the old values $x_0 = {x0}$, $y_0 = {y0}$:
+    $x_1 = \dfrac{{b1} - ({a12})({y0})}{{a11}} = \dfrac{{n1}}{{a11}} =$ **{x1}**,
+    $y_1 = \dfrac{{b2} - ({a21})({x0})}{{a22}} = \dfrac{{n2}}{{a22}} =$ **{y1}**.
 
-- id: la-m2-r2-scale-time
-  title: How solve time grows with size
-  topic: Cost and accuracy of elimination
+- id: la-m2-r2-gauss-seidel
+  title: One Gauss–Seidel sweep
+  topic: Iterative methods
   vars:
-    t0: {choices: [0.1, 0.2, 0.25, 0.4, 0.5, 0.8, 1.5, 2]}
-    n0: {choices: [500, 1000, 2000]}
-    k: {choices: [2, 3, 4, 5, 10]}
+    a11: {choices: [3, 4, 5, 6]}
+    a22: {choices: [3, 4, 5, 6]}
+    a12: {choices: [-2, -1, 1, 2]}
+    a21: {choices: [-2, -1, 1, 2]}
+    x0: {min: -4, max: 4}
+    y0: {min: -4, max: 4}
+    x1: {min: -6, max: 6}
+    y1: {min: -6, max: 6}
+  where: ['x1 != x0']
   calc:
-    n1: k*n0
-    cube: k^3
-    t1: t0*k^3
-  prompt: 'A program solves a dense system with {n0} unknowns by elimination in {t0} seconds. Assuming the time is proportional to $n^3$, estimate the time in seconds for a dense system with {n1} unknowns on the same machine.'
-  answers:
-    - {name: t1, label: 'time (seconds)', relTolerance: 0.01}
-  solution: |-
-    The number of unknowns grows by a factor of {n1} ÷ {n0} = {k}, so the work grows by ${k}^3 = {cube}$.
-    Estimated time: ${t0} \times {cube} =$ **{t1}** seconds.
-
-- id: la-m2-r2-ill-cond
-  title: A nearly singular system
-  topic: Cost and accuracy of elimination
-  vars:
-    sv: {min: 1, max: 9}
-    k: {choices: [-4, -3, -2, -1, 0, 2, 3, 4, 5, 6]}
-  calc:
-    x0: sv - 1
-    r0: sv + 0.001
-    r1: sv + k*0.001
-    xk: sv - k
-    yk: k + 0
+    b1: a11*x1 + a12*y0 + 0
+    b2: a22*y1 + a21*x1 + 0
+    n1: b1 - a12*y0 + 0
+    n2: b2 - a21*x1 + 0
   prompt: |-
-    The system $x + y = {sv}$, $x + 1.001y = {r0:dp3}$ has the solution $x = {x0}$, $y = 1$. Change the second right side to ${r1:dp3}$ and solve the new system
-    $$x + y = {sv}, \qquad x + 1.001y = {r1:dp3}.$$
+    Apply one sweep of the Gauss–Seidel method to
+    $$\begin{aligned} {a11}x {a12:signedcoef}y &= {b1} \\ {a21:coef}x + {a22}y &= {b2} \end{aligned}$$
+    starting from the guess $(x_0, y_0) = ({x0}, {y0})$. Find $(x_1, y_1)$.
   answers:
-    - {name: xk, label: '$x =$'}
-    - {name: yk, label: '$y =$'}
+    - {name: x1, label: '$x_1 =$'}
+    - {name: y1, label: '$y_1 =$'}
   solution: |-
-    Subtract the first equation from the second: $0.001y = {r1:dp3} - {sv}$, so $y =$ **{yk}**. Then $x = {sv} - ({yk}) =$ **{xk}**.
-    A change of less than $0.01$ in one right-hand side moved the solution from $({x0}, 1)$ to $({xk}, {yk})$: the two lines are nearly parallel, so the system is ill-conditioned.
+    First update $x$ from equation 1, using the old $y_0 = {y0}$:
+    $x_1 = \dfrac{{b1} - ({a12})({y0})}{{a11}} = \dfrac{{n1}}{{a11}} =$ **{x1}**.
+    Then update $y$ from equation 2, using the *new* $x_1 = {x1}$ (not $x_0$):
+    $y_1 = \dfrac{{b2} - ({a21})({x1})}{{a22}} = \dfrac{{n2}}{{a22}} =$ **{y1}**.

@@ -42,6 +42,19 @@ At $t = 0$ every exponential equals 1, so the weights come from the initial stat
 $c_1\mathbf{v}_1 + \cdots + c_n\mathbf{v}_n = \mathbf{x}(0)$, that is, $P\mathbf{c} = \mathbf{x}(0)$ with
 $P = [\,\mathbf{v}_1 \;\cdots\; \mathbf{v}_n\,]$.
 
+The steps, in order:
+
+```mermaid
+flowchart TD
+  accTitle: Solving x prime equals A x with an eigenvector basis
+  accDescr: Find the eigenvalues of A from the characteristic equation. Find an eigenvector for each eigenvalue. Solve P c equals x of 0 for the weights, where the columns of P are the eigenvectors. Write x of t as the sum of c i times e to the lambda i t times v i. Check that the formula gives x of 0 at t equals 0. Read off the long-run behavior from the signs of the real parts of the eigenvalues.
+  A["Find the eigenvalues from det(A - λI) = 0"] --> B["Find an eigenvector vi for each λi"]
+  B --> C["Solve Pc = x(0) for the weights"]
+  C --> D["x(t) = c1 e^(λ1 t) v1 + ... + cn e^(λn t) vn"]
+  D --> E["Check: t = 0 gives x(0)"]
+  E --> F["Long run: signs of the real parts of the λi"]
+```
+
 ### Example 1
 
 Solve $\mathbf{x}' = A\mathbf{x}$ with $A = \begin{bmatrix} 1 & 2 \\ 3 & 2\end{bmatrix}$ and $\mathbf{x}(0) = (3, 2)$.
@@ -159,6 +172,10 @@ Because $\operatorname{tr} A = \lambda_1 + \lambda_2$ and $\det A = \lambda_1\la
 eigenvalues included), a $2 \times 2$ system is asymptotically stable exactly when
 $\operatorname{tr} A < 0$ and $\det A > 0$. Example 1 ($\det A = -4$) is a saddle; Example 2
 ($\operatorname{tr} = -6$, $\det = 8$) is a sink.
+
+The trace–determinant plane collects the whole table in one picture. The parabola $\det A = (\operatorname{tr} A)^2/4$ is where the discriminant $(\operatorname{tr} A)^2 - 4\det A$ is zero: above it the eigenvalues are complex (spirals and centers), below it they are real. Points exactly on the parabola or on the horizontal axis are borderline cases (a repeated eigenvalue, or an eigenvalue 0) not covered by the table.
+
+![The trace-determinant plane, with trace on the horizontal axis and determinant on the vertical axis. Everything below the horizontal axis (negative determinant) is a saddle point. Above the axis, a dashed parabola det = tr²/4 separates regions: outside it on the left are sinks and on the right sources; inside it on the left are spiral sinks and on the right spiral sources; the positive vertical axis between them is the center.](images/la-m8-trace-det.svg)
 
 The discrete and continuous tests fit together. Sampling a solution once per time unit gives
 $\mathbf{x}(k + 1) = e^{A}\mathbf{x}(k)$, a discrete system whose matrix $e^A$ has eigenvalues

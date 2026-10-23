@@ -68,6 +68,21 @@ Show that 2 is an eigenvalue of $B = \begin{bmatrix} 3 & 1 & 1 \\ 1 & 3 & 1 \\ 1
 
 (The vector $(1, 1, 1)$ is another eigenvector: $B(1, 1, 1) = (5, 5, 5)$, eigenvalue 5.)
 
+The flowchart sums up the test and the eigenspace computation:
+
+```mermaid
+flowchart TD
+  accTitle: Testing a number and finding its eigenspace
+  accDescr: Given a matrix A and a number lambda, form A minus lambda I by subtracting lambda on the diagonal only, then row-reduce it. If there are no free variables, the only solution is the trivial one and lambda is not an eigenvalue. If there is at least one free variable, lambda is an eigenvalue; write the null space of A minus lambda I in parametric vector form, and the vectors that appear form a basis for the eigenspace.
+  A["Given A and a number λ"] --> B["Form A - λI: subtract λ on the diagonal only"]
+  B --> C["Row-reduce A - λI"]
+  C --> D{"Any free variables?"}
+  D -- "no" --> E["Only the trivial solution: λ is not an eigenvalue"]
+  D -- "yes" --> F["λ is an eigenvalue"]
+  F --> G["Write Nul(A - λI) in parametric vector form"]
+  G --> H["Those vectors are a basis for the eigenspace"]
+```
+
 ## Useful facts
 
 - *Triangular matrices.* The eigenvalues of a triangular matrix are its diagonal entries. If $A$ is upper triangular, $A - \lambda I$ is too, and it's singular exactly when some diagonal entry $a_{ii} - \lambda$ is 0.
@@ -95,6 +110,10 @@ Find the eigenvalues and eigenvectors of the reflection across the line $x_2 = x
 1. Vectors *on* the mirror line don't move: $(1, 1) \mapsto (1, 1)$. So $(1, 1)$ is an eigenvector with eigenvalue 1.
 2. Vectors *perpendicular* to the mirror flip: $(1, -1) \mapsto (-1, 1) = -1\cdot(1, -1)$. Eigenvalue $-1$.
 3. Every other vector changes direction, so these two lines are the only eigenspaces.
+
+The picture shows all three kinds of vector. The solid arrows are vectors and the dashed arrows are their images under the reflection $T$.
+
+![A reflection across the dashed line x₂ = x₁. The vector u = (1, 1) lies on the mirror line and is its own image (eigenvalue 1). The vector v = (1, -1) is perpendicular to the line and its image is -v, pointing the opposite way (eigenvalue -1). A third vector w = (3, 1) is sent to (1, 3), a different direction, so it is not an eigenvector.](images/la-m8-reflection.svg)
 
 The same reasoning shows that a projection onto a line has eigenvalue 1 (vectors on the line) and 0 (vectors perpendicular to it), and that a rotation by an angle other than $0^\circ$ or $180^\circ$ has no real eigenvectors at all.
 
