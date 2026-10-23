@@ -63,7 +63,7 @@ For the logistic map, $f'(x) = R(1 - 2x)$ and the fixed points solve $Rx(1 - x) 
   stable when $|2 - R| < 1$, that is, $1 < R < 3$. The approach is one-sided for $R < 2$ and alternating for $2 < R < 3$.
 
 Translated back to Euler: $R < 3$ means $hr < 2$. That matches the stability condition for
-Euler's method from Lessons 16 and 17: near $y = 1$ the equation behaves like $u' = -ru$,
+Euler's method from Lesson 17: near $y = 1$ the equation behaves like $u' = -ru$,
 and Euler is stable for that only when $hr < 2$.
 
 ### Example 1

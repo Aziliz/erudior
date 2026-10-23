@@ -90,6 +90,10 @@ Show that $A(1, 2)$, $B(5, 5)$, $C(8, 1)$, $D(4, -2)$ is a square.
 
 **Step 3.** A rhombus with a right angle is a square.
 
+```plot
+{"x": [-1, 10], "y": [-4, 7], "equal": true, "polygons": [{"points": [[1, 2], [5, 5], [8, 1], [4, -2]]}], "rightAngles": [[[5, 5], [1, 2], [8, 1]]], "points": [{"at": [1, 2], "label": "A(1, 2)"}, {"at": [5, 5], "label": "B(5, 5)"}, {"at": [8, 1], "label": "C(8, 1)"}, {"at": [4, -2], "label": "D(4, −2)"}], "caption": "The square of Example 3: four sides of length 5 and a right angle at B."}
+```
+
 ## Coordinate proofs
 
 A **coordinate proof** places a figure on the plane using variables for its coordinates, then proves a property with algebra. Because the variables stand for *any* values, the proof covers every case. Place figures to make the algebra easy:
@@ -107,6 +111,8 @@ $AC = \sqrt{a^2 + b^2}$ and $BD = \sqrt{(0 - a)^2 + (b - 0)^2} = \sqrt{a^2 + b^2
 ### Example 5: the midpoint of a right triangle's hypotenuse is equidistant from all three vertices
 
 Place the right angle at $O(0, 0)$ with legs on the axes: $A(2a, 0)$ and $B(0, 2b)$. The midpoint of $\overline{AB}$ is $M(a, b)$.
+
+![A right triangle with its right angle at the origin O(0, 0), vertex A(2a, 0) on the x-axis and vertex B(0, 2b) on the y-axis. M(a, b) is the midpoint of the hypotenuse AB, and a dashed segment joins M to O. Tick marks show MB, MA and MO are equal.](images/geo-m9-hypotenuse-midpoint.svg)
 
 $MO = \sqrt{a^2 + b^2}$, $MA = \sqrt{(2a - a)^2 + (0 - b)^2} = \sqrt{a^2 + b^2}$ and $MB = \sqrt{a^2 + (2b - b)^2} = \sqrt{a^2 + b^2}$. All equal. $\blacksquare$
 

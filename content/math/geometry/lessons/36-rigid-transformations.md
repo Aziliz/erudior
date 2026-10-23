@@ -33,6 +33,8 @@ Add 4 to each $x$ and subtract 3 from each $y$: $A'(3, -1)$, $B'(7, -3)$, $C'(5,
 
 A **reflection** in a line $\ell$ (the **line of reflection**) maps each point $P$ to $P'$ so that $\ell$ is the perpendicular bisector of $\overline{PP'}$. (Points on $\ell$ stay put.) A reflection reverses orientation: clockwise labels become counterclockwise, like a mirror image.
 
+![A slanted line ℓ with point P on one side and its image P′ on the other. A dashed segment joins P to P′; it crosses ℓ at a right angle at M, and tick marks show PM equals MP′. A green triangle ABC on the left of ℓ has a mirror-image tan triangle A′B′C′ on the right.](images/geo-m9-reflection.svg)
+
 Coordinate rules:
 
 | Reflection in | Rule |

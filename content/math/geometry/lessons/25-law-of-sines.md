@@ -70,6 +70,10 @@ In $\triangle ABC$, $m\angle A = 40^\circ$, $m\angle B = 65^\circ$ and $c = 12$.
 
 Surveyors mark points $A$ and $B$ 300 m apart along a straight riverbank and sight a tree $C$ on the far bank. They measure $m\angle CAB = 52^\circ$ and $m\angle CBA = 71^\circ$. How far is the tree from $A$, and how wide is the river?
 
+```shape
+{"polygons": [{"points": [[0, 0], [10, 0], [6.94, 8.88]]}], "segments": [{"from": [-1, 0], "to": [11.5, 0]}, {"from": [-1, 8.88], "to": [11.5, 8.88], "dashed": true}, {"from": [6.94, 8.88], "to": [6.94, 0], "dashed": true, "label": "width"}, {"from": [0, 0], "to": [10, 0], "label": "300 m"}], "rightAngles": [[[6.94, 0], [10, 0], [6.94, 8.88]]], "labels": [{"at": [-0.4, -0.5], "text": "A"}, {"at": [10.4, -0.5], "text": "B"}, {"at": [6.94, 9.5], "text": "C (tree)"}, {"at": [1.3, 0.55], "text": "52°"}, {"at": [9.2, 0.6], "text": "71°"}], "caption": "Baseline AB on the near bank (solid line), tree C on the far bank (dashed line)."}
+```
+
 **Step 1.** $m\angle C = 180^\circ - 52^\circ - 71^\circ = 57^\circ$, and the known side $AB = 300$ is opposite $\angle C$.
 
 **Step 2.** $AC$ is opposite $\angle B$: $AC = \dfrac{300\sin 71^\circ}{\sin 57^\circ} \approx \dfrac{300(0.9455)}{0.8387} \approx 338.2$ m.
