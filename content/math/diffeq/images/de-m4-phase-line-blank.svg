@@ -13,8 +13,7 @@
 <text x="278.0" y="107.2" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">y = 3</text>
 <text x="278.0" y="202.2" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">y = 1</text>
 <text x="278.0" y="344.8" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">y = −2</text>
-<circle cx="300.0" cy="101.2" r="10" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
-<circle cx="300.0" cy="338.8" r="10" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
-<circle cx="300.0" cy="196.2" r="10" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
-<path d="M290,196.2 A10,10 0 0,0 310,196.2 Z" fill="#1c2833"/>
+<circle cx="300.0" cy="101.2" r="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<circle cx="300.0" cy="196.2" r="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<circle cx="300.0" cy="338.8" r="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
 </svg>

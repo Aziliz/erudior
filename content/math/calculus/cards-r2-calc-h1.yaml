@@ -1,0 +1,43 @@
+# Honors module calc-h1 (Honors: Toward analysis), round 2 notecards
+# Lesson 90
+- {front: 'Limit of a sequence ($\lim a_n = L$)', back: 'For every $\varepsilon > 0$ there is $N$ with $|a_n - L| < \varepsilon$ for all $n > N$.', topic: Proving sequence limits}
+- {front: 'In an ε–N proof, what may $N$ depend on?', back: 'Only on $\varepsilon$ (and the sequence), never on $n$. Any larger $N$ also works.', topic: Proving sequence limits}
+- {front: 'Finding $N$ when solving is messy', back: 'Restrict $n$ (say $n \ge 10$), bound $|a_n - L|$ above by something simple like $\frac1n$, and take $N = \max(10, \frac1\varepsilon)$.', topic: Proving sequence limits}
+- {front: 'Negation of $a_n \to L$', back: 'There is an $\varepsilon > 0$ such that for every $N$, some $n > N$ has $|a_n - L| \ge \varepsilon$.', topic: Proving sequence limits}
+- {front: 'Why $(-1)^n$ diverges', back: 'Take $\varepsilon = 1$: consecutive terms are 2 apart, so by the triangle inequality they can''t both be within 1 of any $L$.', topic: Proving sequence limits}
+- {front: 'Uniqueness of limits', back: 'If $a_n \to L$ and $a_n \to M$, then $L = M$. Proof idea: take $\varepsilon = \frac{|L - M|}{2}$.', topic: Proving sequence limits}
+- {front: 'Convergent implies bounded', back: 'Use $\varepsilon = 1$ for the tail; finitely many earlier terms have a largest size. The converse is false: $(-1)^n$.', topic: Proving sequence limits}
+- {front: 'Sum law for sequences: the two moves', back: 'Give each sequence the tolerance $\frac\varepsilon2$, then take $N = \max(N_1, N_2)$.', topic: Proving sequence limits}
+- {front: 'Subsequence test for divergence', back: 'If two subsequences have different limits, the sequence diverges. Example: $(-1)^n\frac{n}{n+1}$ (evens $\to 1$, odds $\to -1$).', topic: Subsequences}
+- {front: 'Subsequences of a convergent sequence', back: 'Every subsequence converges to the same limit.', topic: Subsequences}
+# Lesson 91
+- {front: 'Supremum ($\sup S$)', back: 'The least upper bound. Test: an upper bound $s$ such that every $s - \varepsilon$ is exceeded by some element of $S$.', topic: Completeness}
+- {front: 'Supremum vs maximum', back: 'A maximum is a supremum that belongs to the set. $\sup\{1 - \frac1n\} = 1$, but there is no maximum.', topic: Completeness}
+- {front: 'Completeness axiom', back: 'Every nonempty set of reals that is bounded above has a real least upper bound.', topic: Completeness}
+- {front: 'Why the rationals are not complete', back: '$\{q \in \mathbb{Q} : q^2 < 2\}$ is bounded above but has no rational least upper bound ($\sqrt2$ is irrational).', topic: Completeness}
+- {front: 'Archimedean property', back: 'For every real $x$ some natural number $n > x$; so $\frac1n < \varepsilon$ for large $n$. Proved from completeness by contradiction.', topic: Completeness}
+- {front: 'Monotone convergence theorem', back: 'Bounded increasing sequences converge to the sup of their terms; bounded decreasing ones to the inf.', topic: Completeness}
+- {front: 'Recursive sequence: order of steps', back: 'First prove the limit exists (bounded and monotone), then let $n \to \infty$ in the recursion and solve for $L$.', topic: Completeness}
+- {front: 'Nested interval property', back: 'Nested closed intervals with lengths $\to 0$ share exactly one point. Open intervals can fail: $(0, \frac1n)$.', topic: Completeness}
+- {front: 'Bolzano–Weierstrass theorem', back: 'Every bounded sequence has a convergent subsequence. Proof: keep halving, always keeping a half with infinitely many terms.', topic: Bolzano–Weierstrass theorem}
+- {front: 'Cauchy sequence', back: 'For every $\varepsilon > 0$ there is $N$ with $|a_m - a_n| < \varepsilon$ for $m, n > N$. In $\mathbb{R}$: Cauchy ⇔ convergent.', topic: Bolzano–Weierstrass theorem}
+# Lesson 92
+- {front: 'Sequential criterion for continuity', back: '$f$ is continuous at $c$ ⇔ $x_n \to c$ always gives $f(x_n) \to f(c)$.', topic: Sequential continuity}
+- {front: 'Limits and inequalities', back: 'Limits keep $\le$: if $y_n \le 0$ and $y_n \to y$ then $y \le 0$. Strict $<$ can become $=$ ($\frac1n > 0$, limit 0).', topic: Proving the IVT and EVT}
+- {front: 'IVT proof in one line', back: 'Bisect, keeping a sign change; nested intervals close on $c$; $f(a_k) < 0 < f(b_k)$ and continuity give $f(c) = 0$.', topic: Proving the IVT and EVT}
+- {front: 'EVT proof, Step 1', back: 'If $f$ were unbounded, pick $|f(x_n)| > n$; Bolzano–Weierstrass gives $x_{n_k} \to c$ in $[a, b]$; continuity makes $f(x_{n_k})$ convergent, hence bounded. Contradiction.', topic: Proving the IVT and EVT}
+- {front: 'EVT proof, Step 2', back: 'Take $M = \sup f$ and points with $f(x_n) > M - \frac1n$; a convergent subsequence $x_{n_k} \to c$ gives $f(c) = M$.', topic: Proving the IVT and EVT}
+- {front: 'Where "closed" is used in the EVT proof', back: 'To keep the limit $c$ of the subsequence inside the interval. On $(0, 1)$, $x^2$ has sup 1 but no max.', topic: Proving the IVT and EVT}
+- {front: 'Chain from completeness to FTC 2', back: 'Completeness → Bolzano–Weierstrass → EVT → Rolle → MVT → ($f'' = 0$ ⇒ constant) → FTC Part 2.', topic: Proving the IVT and EVT}
+- {front: 'Converse of the IVT?', back: 'False: $\sin\frac1x$ with $f(0) = 0$ takes every intermediate value but is discontinuous at 0.', topic: Sequential continuity}
+# Lesson 93
+- {front: 'Upper and lower sums', back: '$U(f, P) = \sum M_i\Delta x_i$, $L(f, P) = \sum m_i\Delta x_i$ with $M_i$, $m_i$ the sup and inf of $f$ on each piece.', topic: Upper and lower sums}
+- {front: 'Effect of refining a partition', back: 'Lower sums can only rise, upper sums can only fall. So every lower sum ≤ every upper sum.', topic: Upper and lower sums}
+- {front: 'Definition of integrable (Darboux)', back: 'A bounded $f$ is integrable when the lower integral ($\sup$ of lower sums) equals the upper integral ($\inf$ of upper sums).', topic: Integrability}
+- {front: 'Riemann''s criterion', back: '$f$ is integrable ⇔ for every $\varepsilon > 0$ some partition has $U - L < \varepsilon$.', topic: Integrability}
+- {front: 'Dirichlet function and integrability', back: '$U = 1$ and $L = 0$ for every partition, so it is not Riemann integrable.', topic: Integrability}
+- {front: '$U - L$ for an increasing function, $n$ equal pieces', back: '$[f(b) - f(a)]\dfrac{b - a}{n}$ (the sum telescopes). So monotone functions are integrable.', topic: Integrability}
+- {front: 'Uniform continuity', back: 'One $\delta$ works at every point at once. Continuous on $[a, b]$ ⇒ uniformly continuous. $\frac1x$ on $(0, 1]$ is not.', topic: Integrability}
+- {front: 'Why continuous functions are integrable', back: 'Uniform continuity makes $M_i - m_i < \frac{\varepsilon}{b - a}$ on short pieces, so $U - L < \varepsilon$.', topic: Integrability}
+- {front: 'FTC Part 1 proof idea', back: '$m_h \le \frac{G(x + h) - G(x)}{h} \le M_h$ (one-piece lower and upper sums); continuity squeezes both to $f(x)$.', topic: Integrability}
+- {front: 'Unbounded functions and Riemann integrals', back: 'An unbounded function is never Riemann integrable; it can only have an improper integral.', topic: Integrability}
