@@ -5,6 +5,7 @@ title: From gene to protein
 minutes: 40
 topics: [Transcription, Translation, Genetic code]
 drills: [bio-transcribe, bio-translate, bio-codon-count]
+refs: [bio-ref-genetics]
 ---
 The last lesson showed how DNA is copied. But a gene is not useful just sitting in the nucleus being copied; it has to *do* something. Almost everything a gene does, it does through a protein: an enzyme, a channel, a hormone receptor, a structural fiber. This lesson follows the path from a stretch of DNA to a finished protein, and explains how a four-letter alphabet spells out sequences of 20 amino acids.
 

@@ -1,7 +1,7 @@
 # ---- m8 The diversity of life
 - {front: 'Taxonomic ranks, broadest to narrowest', back: 'Domain, kingdom, phylum, class, order, family, genus, species ("Dear King Philip Came Over For Good Soup").', topic: Classification}
 - {front: 'Rules for writing a binomial name', back: 'Genus capitalized, species epithet lowercase, both italicized (or underlined): Homo sapiens. Genus may be abbreviated after first use: E. coli.', topic: Classification}
-- {front: 'The three domains', back: 'Bacteria, Archaea, Eukarya (Woese, from ribosomal RNA comparisons).', topic: Classification}
+- {front: 'The three domains', back: 'Bacteria, Archaea, Eukarya (Woese, from ribosomal RNA comparisons). Current evidence suggests eukaryotes arose from within the archaea, closest to the Asgard archaea.', topic: Classification}
 - {front: 'Goal of modern classification', back: 'Groups should reflect ancestry: each group contains an ancestor and all its descendants. Classifications change as DNA evidence comes in.', topic: Classification}
 - {front: 'Dichotomous key', back: 'A series of paired, mutually exclusive choices about observable features that leads step by step to an identification.', topic: Classification}
 - {front: 'Bacteria vs archaea', back: 'Both lack a nucleus. Bacteria: peptidoglycan walls, ester-linked lipids, many pathogens. Archaea: no peptidoglycan, ether-linked lipids, eukaryote-like gene machinery, no known human pathogens.', topic: Bacteria and archaea}

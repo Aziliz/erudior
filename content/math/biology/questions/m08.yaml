@@ -124,6 +124,17 @@
   - Nutrients are running out and waste products are building up.
   answer: 3
   explanation: A closed flask has limited food, and wastes accumulate, so division slows until births balance deaths (the stationary phase). There's no built-in limit on the number of fissions, and bacteria don't reproduce sexually.
+- id: bio-q-0848
+  lesson: bio-classification
+  topic: Classification
+  stem: A textbook sorts life into three domains, but a recent research paper draws a tree with only two primary branches, Bacteria and Archaea. How can both be reasonable?
+  choices:
+  - The paper counts eukaryotes as bacteria because they have mitochondria.
+  - Archaea have recently been shown to be a kind of bacteria.
+  - The paper leaves out eukaryotes because many of them are multicellular.
+  - On that tree eukaryotes sit inside the archaeal branch, but they are distinctive enough to keep as a domain.
+  answer: 3
+  explanation: Genome studies place eukaryotes within the archaea (closest to the Asgard archaea), so a tree of descent has two primary branches; the three-domain system remains a useful classification because eukaryotes differ so much from both. Mitochondria came from a bacterium but the host was archaeal, archaea are not bacteria, and no tree of life leaves out eukaryotes.
 - id: bio-q-0812
   lesson: bio-protists-fungi
   module_quiz: true

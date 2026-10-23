@@ -7,7 +7,7 @@
   topic: Classification
 - term: three-domain system
   aliases: [three domains]
-  definition: 'The classification of all cellular life into Bacteria, Archaea and Eukarya, proposed by Carl Woese from ribosomal RNA comparisons.'
+  definition: 'The classification of all cellular life into Bacteria, Archaea and Eukarya, proposed by Carl Woese from ribosomal RNA comparisons (formalized in 1990). Many current trees place eukaryotes within the archaeal branch, but the three domains remain the standard classification.'
   topic: Classification
 - term: Archaea
   aliases: [archaeon, archaeans]

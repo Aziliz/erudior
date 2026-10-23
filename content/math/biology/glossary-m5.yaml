@@ -47,7 +47,7 @@
   definition: 'A cross that follows two genes, typically between parents heterozygous for both (AaBb × AaBb), which gives a 9 : 3 : 3 : 1 phenotype ratio when the genes are unlinked and fully dominant.'
   topic: Dihybrid crosses
 - term: law of independent assortment
-  definition: 'Mendel''s second law: alleles of different genes go into gametes independently of each other (true for genes on different chromosomes or far apart on one), because homologous pairs line up at random in meiosis I.'
+  definition: 'Mendel''s second law: alleles of different genes go into gametes independently of each other. For genes on different chromosomes the physical basis is the random orientation of each homologous pair at metaphase I; genes far apart on one chromosome also behave independently, but only because crossing over between them is so frequent.'
   topic: Dihybrid crosses
 - term: product rule
   definition: 'The probability that independent events all happen is the product of their probabilities: $P(A \text{ and } B) = P(A)\,P(B)$.'

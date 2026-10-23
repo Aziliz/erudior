@@ -7,7 +7,7 @@
 - {front: 'Aa × Aa: genotype and phenotype ratios', back: 'Genotypes 1 AA : 2 Aa : 1 aa. Phenotypes 3 dominant : 1 recessive.', topic: Mendelian genetics}
 - {front: Test cross, back: 'Cross a dominant-phenotype individual of unknown genotype with a homozygous recessive. All dominant offspring suggests AA; any recessive offspring proves Aa (expected 1 : 1).', topic: Mendelian genetics}
 - {front: 'Of the dominant-phenotype offspring of Aa × Aa, what fraction are heterozygous?', back: '2/3 (two Aa boxes out of three non-aa boxes).', topic: Mendelian genetics}
-- {front: Law of independent assortment, back: 'Alleles of different genes go into gametes independently (for unlinked genes), because homologous pairs line up at random at metaphase I.', topic: Dihybrid crosses}
+- {front: Law of independent assortment, back: 'Alleles of different (unlinked) genes go into gametes independently. Physical basis for genes on different chromosomes: each homologous pair orients at random at metaphase I. Genes close together on one chromosome travel together unless crossing over separates them.', topic: Dihybrid crosses}
 - {front: 'AaBb × AaBb phenotype ratio', back: '9 : 3 : 3 : 1 (two dominant : first dominant only : second dominant only : both recessive), out of 16.', topic: Dihybrid crosses}
 - {front: Product rule, back: 'For independent events, P(A and B) = P(A) × P(B). Example: P(aabbcc) from AaBbCc × AaBbCc = (1/4)³ = 1/64.', topic: Probability in genetics}
 - {front: Sum rule, back: 'For mutually exclusive events, P(A or B) = P(A) + P(B). Example: P(AA or aa) from Aa × Aa = 1/4 + 1/4 = 1/2.', topic: Probability in genetics}

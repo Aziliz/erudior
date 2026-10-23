@@ -33,9 +33,9 @@ All four combinations appeared, close to $\tfrac{9}{16} = 0.5625$, $\tfrac{3}{16
 
 The **law of independent assortment** says that the alleles of different genes separate into gametes independently of one another. Whether a gamete gets R or r tells you nothing about whether it gets Y or y.
 
-The cellular reason is the way homologous pairs line up in metaphase I of meiosis. Each pair orients at random, independently of the other pairs, so the chromosome carrying R is as likely to end up with the Y chromosome as with the y chromosome. An RrYy plant therefore makes four kinds of gametes in equal numbers: RY, Ry, rY and ry, each $\tfrac14$.
+For genes on different chromosomes, the cellular reason is the way homologous pairs line up in metaphase I of meiosis. Each pair orients at random, independently of the other pairs, so the chromosome carrying R is as likely to end up with the Y chromosome as with the y chromosome. An RrYy plant therefore makes four kinds of gametes in equal numbers: RY, Ry, rY and ry, each $\tfrac14$.
 
-An important exception: genes that sit close together on the *same* chromosome tend to be inherited together because they ride on one piece of DNA. Such linked genes do not assort independently, although crossing over in meiosis sometimes separates them. Thomas Hunt Morgan's fruit-fly work around 1910 first showed this. Mendel's seven traits happen to behave independently, and in this module we assume genes are unlinked unless told otherwise.
+An important exception: genes that sit close together on the *same* chromosome tend to be inherited together because they ride on one piece of DNA. Such linked genes do not assort independently, although crossing over in meiosis sometimes separates them. Genes very far apart on one chromosome are separated by crossing over so often that they behave as if unlinked, but the reason is crossing over, not the random orientation of homologous pairs. Thomas Hunt Morgan's fruit-fly work around 1910 first showed linkage. Mendel's seven traits happen to behave independently, and in this module we assume genes are unlinked unless told otherwise.
 
 ## The 16-box Punnett square
 
@@ -144,7 +144,7 @@ An individual heterozygous for $n$ unlinked genes can make $2^n$ different gamet
 
 ## Key points
 
-- Law of independent assortment: alleles of different (unlinked) genes go into gametes independently, because homologous pairs orient at random in meiosis I.
+- Law of independent assortment: alleles of different (unlinked) genes go into gametes independently. For genes on different chromosomes, the cause is the random orientation of each homologous pair at metaphase I.
 - AaBb makes four gamete types equally; AaBb × AaBb gives 9 : 3 : 3 : 1.
 - Product rule for "and" (independent events), sum rule for "or" (mutually exclusive events).
 - Solve multi-gene crosses gene by gene, then multiply.

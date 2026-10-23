@@ -483,6 +483,17 @@
   - gene flow
   answer: 2
   explanation: One ancestor diversifying into many species, each adapted to a different way of life, is an adaptive radiation.
+- id: bio-q-0755
+  lesson: bio-speciation
+  topic: Phylogeny
+  stem: Genome studies of the Asgard archaea have changed how biologists picture the base of the tree of life. What do most recent analyses suggest?
+  choices:
+  - Eukaryotes descend from bacteria, and archaea branched off from eukaryotes later.
+  - Archaea are eukaryotes that lost their nucleus.
+  - Viruses form a fourth domain at the root of the tree.
+  - Eukaryotes arose from within the archaea, from an archaeal cell that took in a bacterium.
+  answer: 3
+  explanation: Asgard archaea carry many genes once thought unique to eukaryotes, and most analyses place eukaryotes on a branch growing out of the archaea, with the mitochondrion coming from an engulfed bacterium. Archaea have no nucleus and never did, archaea are not descended from eukaryotes, and viruses are not cells, so they are not placed in any domain.
 - id: bio-q-0744
   lesson: bio-history-life
   module_quiz: true
