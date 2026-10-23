@@ -178,7 +178,7 @@
   topic: Cell signaling
 - term: G protein-coupled receptor
   aliases: [G protein-coupled receptors, G protein-coupled receptors (GPCRs), G protein-coupled receptor (GPCR), GPCR, GPCRs]
-  definition: 'A receptor that crosses the membrane seven times and, when its ligand binds, activates a G protein inside the cell; the largest family of receptors.'
+  definition: 'A receptor that crosses the membrane seven times and, when its ligand binds, activates a G protein inside the cell; the largest family of membrane receptors.'
   topic: Cell signaling
 - term: G protein
   aliases: [G proteins]

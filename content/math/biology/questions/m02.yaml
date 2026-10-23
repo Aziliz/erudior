@@ -611,7 +611,7 @@
   topic: Microscopy
   type: text
   stem: 'The smallest distance between two points at which a microscope can still show them as separate is called its ___.'
-  accept: [resolution, resolving power]
+  accept: [resolution, resolving power, limit of resolution, resolution limit]
   explanation: |-
     That is resolution. For a light microscope it is about 0.2 µm, set by the wavelength of light; magnifying more than the resolution allows only enlarges the blur.
 - id: bio-q-0260
@@ -782,7 +782,7 @@
   topic: Organelles
   type: text
   stem: 'A plant cell stores water, ions and pigments in a large central ___, which presses against the cell wall and keeps the plant firm.'
-  accept: [vacuole, central vacuole]
+  accept: [vacuole, central vacuole, vacuoles]
   explanation: |-
     The central vacuole can fill most of a plant cell. When it is full of water it pushes outward against the wall; when it loses water the plant wilts.
 - id: bio-q-0274
@@ -1019,7 +1019,7 @@
   stem: 'A ribosome making a secreted protein is brought to the ER when the ___ binds the protein''s ___ as it emerges from the ribosome.'
   accept:
     - [signal recognition particle, SRP, signal recognition particle (SRP)]
-    - [signal sequence, signal peptide, signal]
+    - [signal sequence, signal peptide, signal, ER signal sequence]
   explanation: |-
     The signal recognition particle (SRP) binds the signal sequence at the start of the new chain, pauses translation and docks the ribosome at the ER.
 - id: bio-qh-0212

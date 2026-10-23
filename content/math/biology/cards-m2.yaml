@@ -48,4 +48,4 @@
 - {front: 'Sutherland''s experiment', back: 'Epinephrine plus liver membranes made a heat-stable small molecule (cAMP) that activated phosphorylase in the cytosol: the second messenger.', topic: Cell signaling}
 - {front: 'Switching a cAMP signal off', back: 'Ligand leaves the receptor; Gα hydrolyzes GTP; phosphodiesterase breaks down cAMP; phosphatases remove phosphates; receptors are taken inside.', topic: Cell signaling}
 - {front: 'Cholera toxin', back: 'Locks the Gα that activates adenylyl cyclase in its GTP form → cAMP stays high → chloride and water pour into the gut → severe diarrhea.', topic: Cell signaling}
-- {front: 'Amplification', back: 'Each enzyme in a cascade activates many molecules of the next, so multiply the factors: one hormone molecule can release about a million glucose units per second.', topic: Cell signaling}
+- {front: 'Amplification', back: 'Each enzyme in a cascade activates many molecules of the next, so multiply the factors: in the lesson''s illustrative liver-cell example, one hormone molecule releases about a million glucose units per second.', topic: Cell signaling}
