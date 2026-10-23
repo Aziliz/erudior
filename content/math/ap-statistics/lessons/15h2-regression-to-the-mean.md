@@ -54,8 +54,8 @@ The weaker the relationship, the stronger the pull toward the mean.
 
 Two misreadings are worth heading off.
 
-- Regression to the mean does **not** make a population more uniform over time. Children's
-  heights spread out just as much as their parents'. The *predictions* are pulled in, but the
+- Regression to the mean does **not** make a population more uniform over time. In a stable
+  population, children's heights are about as spread out as their parents'. The *predictions* are pulled in, but the
   actual values are prediction plus scatter, and the scatter refills the tails. New extreme
   individuals keep appearing; they just aren't the same individuals as before.
 - It works in both directions. Predicting parents from children pulls toward the mean too.

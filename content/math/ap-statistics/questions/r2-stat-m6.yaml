@@ -259,7 +259,7 @@
 - id: stat-m6-r2-h01
   lesson: stat-m6-h-indicators
   topic: Linearity of expectation
-  stem: 'Which statement is true for *any* two random variables $X$ and $Y$, independent or not?'
+  stem: 'Which statement is true for any two random variables $X$ and $Y$, independent or not?'
   choices: ['$\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$', '$E(XY) = E(X)E(Y)$', '$E(X + Y) = E(X) + E(Y)$', '$\sigma_{X+Y} = \sigma_X + \sigma_Y$']
   answer: 2
   explanation: |-
@@ -281,7 +281,7 @@
   choices: ['$\tfrac{1}{52}$', '1', '26', '$\tfrac{1}{e} \approx 0.368$']
   answer: 1
   explanation: |-
-    Give each of the 52 positions an indicator for a match. In any position, the second deck's card is equally likely to be any of the 52, so the match probability is $\tfrac{1}{52}$. By linearity, $E = 52 \times \tfrac{1}{52} = 1$. $\tfrac{1}{52}$ is one position's probability, and about 0.368 is (approximately) the probability of *no* match at all.
+    Give each of the 52 positions an indicator for a match. In any position, the second deck's card is equally likely to be any of the 52, so the match probability is $\tfrac{1}{52}$. By linearity, $E = 52 \times \tfrac{1}{52} = 1$. $\tfrac{1}{52}$ is one position's probability, and about 0.368 is (approximately) the probability of no match at all.
 
 - id: stat-m6-r2-h04
   lesson: stat-m6-h-indicators
@@ -325,7 +325,7 @@
   choices: ['About 0.063', 'About 0.507', 'About 1.386', 'About 0.693']
   answer: 3
   explanation: |-
-    There are $\binom{23}{2} = 253$ pairs, each sharing with probability $\tfrac{1}{365}$: $253/365 \approx 0.693$. 0.063 is $23/365$ (people, not pairs); 1.386 counts ordered pairs twice; and 0.507 is the *probability* that at least one pair shares, which is a different quantity.
+    There are $\binom{23}{2} = 253$ pairs, each sharing with probability $\tfrac{1}{365}$: $253/365 \approx 0.693$. 0.063 is $23/365$ (people, not pairs); 1.386 counts ordered pairs twice; and 0.507 is the probability that at least one pair shares, which is a different quantity.
 
 - id: stat-m6-r2-h08
   lesson: stat-m6-h-indicators
@@ -345,8 +345,8 @@
   lesson: stat-m6-h-indicators
   topic: Linearity of expectation
   stem: '$X$ is 0 or 2, each with probability $\tfrac12$. Compare $E(X^2)$ with $[E(X)]^2$.'
-  choices: ['$E(X^2) = 1$ and $[E(X)]^2 = 1$', '$E(X^2) = 2$ and $[E(X)]^2 = 1$', '$E(X^2) = 4$ and $[E(X)]^2 = 1$', '$E(X^2) = 2$ and $[E(X)]^2 = 2$']
-  answer: 1
+  choices: ['$E(X^2) = 2$ and $[E(X)]^2 = 1$', '$E(X^2) = 1$ and $[E(X)]^2 = 1$', '$E(X^2) = 4$ and $[E(X)]^2 = 1$', '$E(X^2) = 2$ and $[E(X)]^2 = 2$']
+  answer: 0
   explanation: |-
     $E(X^2) = \tfrac12(0) + \tfrac12(4) = 2$, while $E(X) = 1$ gives $[E(X)]^2 = 1$. The difference, 1, is the variance. Expectation passes through sums and constant multiples, not through squaring.
 
@@ -418,8 +418,8 @@
   lesson: stat-m6-h-covariance
   topic: Covariance
   stem: '$\text{Var}(X) = 9$, $\text{Var}(Y) = 16$ and $\text{Cov}(X, Y) = 6$. Find $\text{Var}(X + Y)$.'
-  choices: ['25', '31', '37', '13']
-  answer: 2
+  choices: ['37', '31', '25', '13']
+  answer: 0
   explanation: |-
     $\text{Var}(X + Y) = 9 + 16 + 2(6) = 37$. 25 ignores the covariance, 31 forgets the factor 2, and 13 subtracts it (that is the variance of $X - Y$).
 
@@ -472,15 +472,15 @@
 - id: stat-m6-r2-h21
   lesson: stat-m6-h-covariance
   topic: Covariance
-  stem: 'A joint table has $P(X = 1, Y = 1) = 0.20$, $P(X = 1) = 0.4$ and $P(Y = 1) = 0.5$, where $X$ and $Y$ each take the values 0 and 1. What can you conclude?'
+  stem: 'In the lesson''s railway table, $P(X = 0) = 0.50$, $P(Y = 0) = 0.60$, $P(X = 0, Y = 0) = 0.40$ and $P(X = 1, Y = 1) = P(X = 2, Y = 1) = 0.15$. Which fact shows that $X$ and $Y$ are not independent?'
   choices:
-    - '$\text{Cov}(X, Y) = 0$, so $X$ and $Y$ must be independent'
-    - '$\text{Cov}(X, Y) = 0.20$, a positive relationship'
-    - '$\text{Cov}(X, Y) = -0.20$, a negative relationship'
-    - '$\text{Cov}(X, Y) = 0$; with two values each, the other cells then factor too, so $X$ and $Y$ are independent'
+    - '$P(X = 0)$ and $P(Y = 0)$ are different numbers'
+    - '$P(X = 1, Y = 1)$ equals $P(X = 2, Y = 1)$'
+    - '$X$ has three possible values but $Y$ has only two'
+    - '$P(X = 0, Y = 0) = 0.40$, but $P(X = 0)P(Y = 0) = 0.30$'
   answer: 3
   explanation: |-
-    $E(XY) = P(X = 1, Y = 1) = 0.20$ and $\mu_X\mu_Y = 0.4 \times 0.5 = 0.20$, so the covariance is 0. In general zero covariance doesn't prove independence, but for two 0/1 variables it does: once $P(1, 1) = P(X = 1)P(Y = 1)$, the other three cells are forced to factor as well (for example, $P(X = 1, Y = 0) = 0.4 - 0.2 = 0.2 = 0.4 \times 0.5$). The first choice states the right conclusion for the wrong reason.
+    Independence requires every cell to equal the product of its row and column totals; one cell that fails is enough to show dependence, and $0.40 \ne 0.5 \times 0.6 = 0.30$. Different marginal probabilities, equal cells, or different numbers of possible values say nothing about independence.
 
 - id: stat-m6-r2-h22
   lesson: stat-m6-h-covariance
@@ -516,7 +516,7 @@
 - id: stat-m6-r2-h25
   lesson: stat-m6-h-covariance
   topic: Covariance
-  stem: 'Why is the number of defectives in a sample drawn *without* replacement less variable than a binomial count with the same $n$ and $p$?'
+  stem: 'Why is the number of defectives in a sample drawn without replacement less variable than a binomial count with the same $n$ and $p$?'
   choices:
     - 'Each draw is less likely to be defective than in the binomial model.'
     - 'The draws are independent, so the variance is divided by $N$.'
@@ -543,8 +543,8 @@
   lesson: stat-m6-h-covariance
   topic: Covariance
   stem: 'Investment A has return SD 10 points and investment B has SD 20 points; their returns are uncorrelated. Half your money goes in each. What is the SD of your return?'
-  choices: ['15 points', '11.18 points', '22.36 points', '125 points']
-  answer: 1
+  choices: ['15 points', '22.36 points', '125 points', '11.18 points']
+  answer: 3
   explanation: |-
     $\text{Var} = 0.5^2(10^2) + 0.5^2(20^2) + 0 = 25 + 100 = 125$, so the SD is $\sqrt{125} \approx 11.18$ points. 15 averages the SDs (correct only if $\rho = 1$), 22.36 forgets the weights, and 125 is the variance.
 
@@ -552,7 +552,7 @@
   lesson: stat-m6-h-covariance
   topic: Covariance
   stem: '$\text{Cov}(X, Y) = -3$, $\sigma_X = 2$ and $\sigma_Y = 5$. What is the correlation $\rho$?'
-  choices: ['$-0.6$', '$-0.15$', '$-0.3$', '$-3$']
-  answer: 2
+  choices: ['$-0.6$', '$-0.15$', '$-3$', '$-0.3$']
+  answer: 3
   explanation: |-
     $\rho = \text{Cov}/(\sigma_X\sigma_Y) = -3/(2 \times 5) = -0.3$. Dividing by $\sigma_X + \sigma_Y$ or by only one SD gives the wrong values, and $-3$ is the covariance itself, which has units.

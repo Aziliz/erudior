@@ -1,0 +1,36 @@
+# Round 2, module stat-m5: terms bolded in the new core additions and honors lessons.
+- term: area model
+  aliases: [area models]
+  definition: 'A unit square split into strips whose widths are the probabilities of one variable''s outcomes and whose shaded heights are conditional probabilities; each rectangle''s area is a joint probability, $P(A)P(B \mid A)$.'
+  topic: Conditional probability
+- term: inclusion–exclusion principle
+  aliases: [inclusion-exclusion principle, inclusion–exclusion, inclusion-exclusion]
+  definition: 'The rule for the probability of a union of several events: add the single probabilities, subtract those of all pairs, add those of all triples, and so on with alternating signs. For three events, $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)$.'
+  topic: Inclusion–exclusion
+- term: union bound
+  aliases: [Boole's inequality]
+  definition: 'The inequality $P(A_1 \cup \cdots \cup A_n) \le P(A_1) + \cdots + P(A_n)$, which holds for any events, independent or not; it is exact only when the events are mutually exclusive.'
+  topic: Inclusion–exclusion
+- term: derangement
+  aliases: [derangements]
+  definition: 'An arrangement in which no object is in its own original place, such as letters that all end up in wrong envelopes. A random arrangement of $n$ objects is a derangement with probability $\sum_{k=0}^{n} (-1)^k/k!$, which is close to $1/e \approx 0.368$.'
+  topic: Inclusion–exclusion
+- term: odds
+  aliases: [odds in favor]
+  definition: 'The probability of an event divided by the probability that it does not happen, $p/(1-p)$. Odds of 3 (3 to 1) mean $p = 3/4$; convert back with $p = \text{odds}/(1 + \text{odds})$.'
+  topic: Odds and likelihood ratios
+- term: likelihood ratio
+  aliases: [likelihood ratios, LR]
+  definition: 'How much more likely the evidence is if a hypothesis is true than if it is false: $P(E \mid H)/P(E \mid H^c)$. In Bayes'' theorem in odds form, posterior odds = prior odds × likelihood ratio. For a test, $\text{LR}_+ = \text{sensitivity}/(1 - \text{specificity})$.'
+  topic: Odds and likelihood ratios
+- term: conditionally independent
+  aliases: [conditional independence]
+  definition: 'Independent within each group being compared, for example two test results that are independent among people with the condition and also among people without it. Likelihood ratios of conditionally independent pieces of evidence can be multiplied.'
+  topic: Odds and likelihood ratios
+- term: weight of evidence
+  definition: 'The logarithm of a likelihood ratio. On the log-odds scale, the weights of conditionally independent pieces of evidence add to the prior log odds to give the posterior log odds.'
+  topic: Odds and likelihood ratios
+- term: prosecutor's fallacy
+  aliases: [prosecutors fallacy, transposed conditional]
+  definition: 'Treating $P(\text{evidence} \mid \text{innocent})$ as if it were $P(\text{innocent} \mid \text{evidence})$, which ignores the prior and the other explanations of the evidence.'
+  topic: Odds and likelihood ratios

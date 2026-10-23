@@ -1,0 +1,690 @@
+# Module 4 (stat-m4), round 2: new question types for lessons 16-18 and honors lessons 18h1-18h3
+- id: stat-m4-r2-q01
+  lesson: stat-sampling
+  type: label
+  module_quiz: true
+  topic: Sampling and bias
+  stem: 'Each numbered panel shows the same population of 40 individuals, with the chosen ones shaded dark. Name the sampling method in each panel.'
+  image: {src: images/stat-m4-sampling-methods-blank.svg, alt: 'Four panels of 40 dots. Panel 1: 8 dark dots scattered with no pattern. Panel 2: four colored rows of 10 dots with 2 dark dots in every row. Panel 3: eight dashed boxes of 5 dots, with every dot dark in 2 of the boxes. Panel 4: every 5th dot dark, starting from the 3rd, forming two columns.'}
+  labels:
+    - {x: 26.6, y: 8.1, text: 'Simple random sample'}
+    - {x: 75, y: 8.1, text: 'Stratified random sample'}
+    - {x: 26.6, y: 54.2, text: 'Cluster sample'}
+    - {x: 75, y: 54.2, text: 'Systematic sample'}
+  distractors: ['Convenience sample', 'Voluntary response sample']
+  explanation: |-
+    1: chosen dots have no pattern, as in a simple random sample. 2: the rows are strata (similar individuals), and a few are chosen at random from every row, a stratified random sample. 3: whole groups (clusters) are chosen and everyone in them is included, a cluster sample. 4: every 5th individual after a random start, a systematic sample. Convenience and voluntary response samples don't use chance, so a picture can't tell you who would be chosen.
+- id: stat-m4-r2-q02
+  lesson: stat-sampling
+  type: text
+  topic: Sampling and bias
+  stem: 'The actual list of individuals from which a sample is drawn, such as a list of registered voters or student ID numbers, is called the ___.'
+  accept: ['sampling frame', 'frame', 'the sampling frame', 'sample frame', 'sampling frames']
+  explanation: |-
+    That list is the sampling frame. If it leaves out part of the population, the survey suffers from undercoverage, and no sampling method applied to the frame can fix it.
+- id: stat-m4-r2-q03
+  lesson: stat-sampling
+  type: order
+  topic: Sampling and bias
+  stem: 'Put the steps of taking a simple random sample in order.'
+  items:
+    - 'Define the population you want to learn about'
+    - 'Build a sampling frame that lists its members'
+    - 'Number the individuals in the frame from 1 to N'
+    - 'Generate random numbers, skipping repeats and numbers outside 1 to N, until n distinct labels are chosen'
+    - 'Contact and measure the chosen individuals'
+  explanation: |-
+    You must know the population before you can list it, and the list must exist before it can be numbered. Random numbers then pick n distinct labels, and only then are the chosen individuals measured.
+- id: stat-m4-r2-q04
+  lesson: stat-sampling
+  type: match
+  module_quiz: true
+  topic: Sampling and bias
+  stem: 'Match each survey problem to the kind of bias it causes.'
+  pairs:
+    - ['An online survey of a town cannot reach residents without internet access', 'Undercoverage']
+    - ['Only 18% of the randomly chosen households return the questionnaire', 'Nonresponse bias']
+    - ['Students asked face to face by their teacher whether they have cheated mostly say no', 'Response bias']
+    - ['A radio station invites listeners to text in their votes', 'Voluntary response bias']
+  distractors: ['Sampling variability']
+  explanation: |-
+    Missing internet users are left out of the frame (undercoverage). Chosen households that don't answer cause nonresponse bias. Answers distorted by who is asking are response bias. People who choose to text in form a voluntary response sample. Sampling variability is chance variation between random samples, not bias.
+- id: stat-m4-r2-q05
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'Which of these are random sampling methods? Select all that apply.'
+  choices:
+    - 'Stratified random sample'
+    - 'Cluster sample with clusters chosen at random'
+    - 'Convenience sample'
+    - 'Systematic sample with a random start'
+    - 'Voluntary response sample'
+  answer: [0, 1, 3]
+  explanation: |-
+    Stratified, cluster and systematic samples all use chance to decide who is chosen (an SRS within each stratum, a random choice of clusters, a random starting point). Convenience and voluntary response samples let the researcher's ease or the respondents' own choice decide, so they are not random.
+- id: stat-m4-r2-q06
+  lesson: stat-sampling
+  topic: Sampling and bias
+  stem: 'A polling firm doubles its random sample from 500 to 1,000 people, still dialing only landline numbers. What happens? Select all that apply.'
+  choices:
+    - 'Sampling variability decreases'
+    - 'Undercoverage of people without landlines is removed'
+    - 'Estimates from repeated samples would cluster more tightly'
+    - 'The center of the estimates moves to the true population value'
+  answer: [0, 2]
+  explanation: |-
+    A larger random sample varies less from sample to sample, so repeated estimates cluster more tightly. But the frame still leaves out people without landlines, so the bias stays: the estimates cluster tightly around the wrong value, like the high bias, low variability target.
+- id: stat-m4-r2-q07
+  lesson: stat-experiments
+  type: label
+  topic: Experimental design
+  stem: 'This outline shows the rail-lubricant experiment from the lesson. Name each numbered part of the design.'
+  image: {src: images/stat-m4-block-design-blank.svg, alt: 'An outline: 40 rail curves split into 20 sharp curves and 20 gentle curves. Each of those leads to a blank box, which splits into two boxes of 10 curves, which both lead to one blank box at the bottom.'}
+  labels:
+    - {x: 61.7, y: 26.9, text: 'Block of similar units'}
+    - {x: 25.8, y: 45.3, text: 'Random assignment'}
+    - {x: 6.9, y: 66.5, text: 'Treatment group'}
+    - {x: 74.2, y: 90.1, text: 'Comparison of responses within a block'}
+  distractors: ['Random sample from a population', 'Placebo group']
+  explanation: |-
+    1: the 20 gentle curves are a block, units alike in a way that affects wear. 2: inside each block, chance decides which curves get which lubricant. 3: each set of 10 curves receives one lubricant, a treatment group. 4: wear is compared within the block, so the sharp/gentle difference doesn't blur the comparison. The curves were not randomly sampled from a population, and no placebo is involved.
+- id: stat-m4-r2-q08
+  lesson: stat-experiments
+  type: text
+  topic: Experimental design
+  stem: 'In a randomized block design, units that are similar in a way expected to affect the response are grouped together, and each group is called a ___.'
+  accept: ['block', 'blocks']
+  explanation: |-
+    Each group is a block. Treatments are then randomly assigned separately within each block, and treatments are compared within blocks.
+- id: stat-m4-r2-q09
+  lesson: stat-experiments
+  type: order
+  module_quiz: true
+  topic: Experimental design
+  stem: 'Put the steps of carrying out a randomized block design in order.'
+  items:
+    - 'Identify a variable expected to affect the response'
+    - 'Sort the units into blocks according to that variable'
+    - 'Randomly assign the treatments separately within each block'
+    - 'Apply the treatments and measure the response'
+    - 'Compare the treatments within each block, then combine the results'
+  explanation: |-
+    You need the blocking variable before you can form blocks, and randomization happens after blocking, inside each block. Responses can only be compared once treatments have been applied and measured.
+- id: stat-m4-r2-q10
+  lesson: stat-experiments
+  type: match
+  module_quiz: true
+  topic: Experimental design
+  stem: 'Match each feature of a well-designed experiment to its purpose.'
+  pairs:
+    - ['Random assignment', 'Makes treatment groups similar before treatment, in measured and unmeasured ways']
+    - ['Replication', 'Lets chance differences between groups average out']
+    - ['Double-blinding', 'Keeps expectations and measurement the same in every group']
+    - ['Blocking', 'Removes variation due to a known variable from the comparison']
+  distractors: ['Lets results generalize to a larger population']
+  explanation: |-
+    Random assignment balances groups; replication gives enough units for chance to even out; double-blinding equalizes expectations and keeps measurement unbiased; blocking compares like with like. Generalizing to a population needs random sampling, which is not one of these.
+- id: stat-m4-r2-q11
+  lesson: stat-experiments
+  topic: Experimental design
+  stem: 'In the two-factor tomato experiment of Example 1 (fertilizer: none, low, high; watering: daily, every other day), which of these are treatments? Select all that apply.'
+  choices:
+    - 'Low fertilizer, watered daily'
+    - 'High fertilizer'
+    - 'No fertilizer, watered every other day'
+    - 'Fruit weight after 10 weeks'
+  answer: [0, 2]
+  explanation: |-
+    In a multifactor experiment a treatment is a combination of one level of each factor, so "low fertilizer, watered daily" and "no fertilizer, watered every other day" are treatments. "High fertilizer" is only a level of one factor, and fruit weight is the response variable.
+- id: stat-m4-r2-q12
+  lesson: stat-study-conclusions
+  type: label
+  topic: Scope of inference
+  stem: 'An observational study finds that moderate wine drinkers have less heart disease. Give the role of each numbered variable.'
+  image: {src: images/stat-m4-confounding-blank.svg, alt: 'Three boxes: Income at the top, with arrows to Moderate wine drinking at lower left and Heart disease at lower right; a dashed two-headed arrow labeled observed association joins the two lower boxes.'}
+  labels:
+    - {x: 35.9, y: 14.4, text: 'Confounding variable'}
+    - {x: 6.6, y: 79.2, text: 'Explanatory variable'}
+    - {x: 63.6, y: 79.2, text: 'Response variable'}
+  distractors: ['Treatment', 'Experimental unit']
+  explanation: |-
+    Wine drinking is the explanatory variable and heart disease the response. Income is related to wine drinking and also affects heart health, so it is a confounding variable. Nothing was imposed in this observational study, so there are no treatments or experimental units.
+- id: stat-m4-r2-q13
+  lesson: stat-study-conclusions
+  type: text
+  topic: Scope of inference
+  stem: 'A variable that is associated with the explanatory variable and also affects the response, so that their effects cannot be separated, is called a ___ variable.'
+  accept: ['confounding', 'confounder', 'lurking', 'confounding variable', 'lurking variable']
+  explanation: |-
+    This is a confounding variable: it offers an alternative explanation for the association. "Lurking variable" is a close cousin that stresses the variable wasn't measured in the study.
+- id: stat-m4-r2-q14
+  lesson: stat-study-conclusions
+  type: match
+  module_quiz: true
+  topic: Scope of inference
+  stem: 'Match each study to its type.'
+  pairs:
+    - ['Researchers review ten years of hospital records on patients’ coffee intake and heart attacks', 'Retrospective study of existing records']
+    - ['5,000 teenagers are enrolled now, and their screen time and grades are tracked for four years', 'Prospective study']
+    - ['200 people with a rare disease and 400 similar people without it are asked about past exposures', 'Case-control study']
+    - ['Volunteers are randomly given a new or a standard sunscreen, and sunburns are recorded', 'Randomized experiment']
+  distractors: ['Matched pairs experiment']
+  explanation: |-
+    Looking back through existing records is retrospective; enrolling people and following them forward is prospective; starting from people with and without the outcome is case-control; randomly assigning sunscreens is an experiment. Nobody receives both treatments or is paired, so no matched pairs design is described.
+- id: stat-m4-r2-q15
+  lesson: stat-study-conclusions
+  topic: Scope of inference
+  stem: 'Sixty volunteer employees at one company are randomly assigned to standing or regular desks, and the standing-desk group reports significantly less back pain. Which conclusions are justified? Select all that apply.'
+  choices:
+    - 'The standing desks caused less back pain for these volunteers'
+    - 'Standing desks would reduce back pain for all office workers in the country'
+    - 'A cause-and-effect conclusion is possible because desks were randomly assigned'
+    - 'Only an association can be concluded because the subjects were volunteers'
+  answer: [0, 2]
+  explanation: |-
+    Random assignment supports cause and effect, so the desks caused the difference for these volunteers. The volunteers were not a random sample of office workers, so generalizing to everyone is not justified. Being volunteers limits generalization, not causation.
+- id: stat-m4-r2-h01
+  lesson: stat-m4-h-survey-estimation
+  type: text
+  topic: Survey estimation
+  stem: 'A stratum of 12,000 people is sampled with 300 respondents. Each respondent’s sampling weight is ___. Give only the number.'
+  accept: ['40']
+  explanation: |-
+    Weight $= N_h/n_h = 12{,}000/300 = 40$: each respondent stands for 40 people in the stratum.
+- id: stat-m4-r2-h02
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'Region A has 30,000 households and Region B 20,000. A survey samples 150 households in each: 60% in A and 30% in B say yes. Estimate the proportion of all households that would say yes.'
+  choices:
+    - '$0.48$'
+    - '$0.45$'
+    - '$0.42$'
+    - '$0.60$'
+  answer: 0
+  explanation: |-
+    Weight each region's result by its share of households: $0.6(0.60) + 0.4(0.30) = 0.36 + 0.12 = 0.48$. The unweighted figure $(90 + 45)/300 = 0.45$ treats the regions as equal in size; $0.42$ swaps the shares; $0.60$ is Region A alone.
+- id: stat-m4-r2-h03
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'A survey oversamples a small stratum. Why is the plain average of all responses usually biased?'
+  choices:
+    - 'Oversampling makes the small stratum’s answers less accurate'
+    - 'The small stratum makes up a larger share of the sample than of the population, so its answers count too much'
+    - 'Plain averages are always biased for stratified samples, even with proportional allocation'
+    - 'The large stratum is left out of the sample'
+  answer: 1
+  explanation: |-
+    Oversampling gives the small stratum more than its population share of the sample. Unweighted, its answers pull the estimate toward that stratum's results. With proportional allocation every weight is equal, so the plain average is fine; oversampling makes the small stratum's own estimate more precise, not less.
+- id: stat-m4-r2-h04
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'For the survey in which Region A (60% of households) had $\hat{p}_A = 0.60$ and Region B (40%) had $\hat{p}_B = 0.30$, with 150 sampled in each, find the standard error of the stratified estimate.'
+  choices:
+    - 'About $0.039$'
+    - 'About $0.055$'
+    - 'About $0.028$'
+    - 'About $0.0008$'
+  answer: 2
+  explanation: |-
+    $SE = \sqrt{0.6^2 \cdot \dfrac{0.6(0.4)}{150} + 0.4^2 \cdot \dfrac{0.3(0.7)}{150}} = \sqrt{0.000576 + 0.000224} = \sqrt{0.0008} \approx 0.028$. Using $W_h$ instead of $W_h^2$ gives about 0.039; leaving out the weights gives about 0.055; 0.0008 is the variance before taking the square root.
+- id: stat-m4-r2-h05
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'Stratum 1 has 400 units with standard deviation 15; stratum 2 has 600 units with standard deviation 5. With Neyman allocation, how should a sample of 60 be split?'
+  choices:
+    - '24 from stratum 1, 36 from stratum 2'
+    - '30 from each stratum'
+    - '45 from stratum 1, 15 from stratum 2'
+    - '40 from stratum 1, 20 from stratum 2'
+  answer: 3
+  explanation: |-
+    $N_h S_h$: $400(15) = 6{,}000$ and $600(5) = 3{,}000$, total 9,000. Stratum 1 gets $60 \times 6/9 = 40$ and stratum 2 gets 20. 24 and 36 is proportional allocation (ignores the SDs); 45 and 15 uses the SDs alone (ignores the stratum sizes).
+- id: stat-m4-r2-h06
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'Compared with proportional allocation, Neyman allocation puts a larger share of the sample in strata that'
+  choices:
+    - 'are smaller'
+    - 'have less variability within them'
+    - 'have more variability within them'
+    - 'are cheaper to sample, regardless of variability'
+  answer: 2
+  explanation: |-
+    Neyman allocation sets $n_h \propto N_h S_h$, so for a stratum of a given size, a larger standard deviation earns a larger sample. Where everyone is alike, a few observations suffice. Cost enters only through the extended rule $n_h \propto N_h S_h/\sqrt{c_h}$, and it doesn't override variability.
+- id: stat-m4-r2-h07
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'A survey takes everyone in 40 clusters of 30 people ($n = 1{,}200$). The intraclass correlation is about $0.10$. Find the approximate design effect and effective sample size.'
+  choices:
+    - '$\text{deff} \approx 3.9$; about 308'
+    - '$\text{deff} \approx 4.0$; about 300'
+    - '$\text{deff} \approx 2.9$; about 414'
+    - '$\text{deff} \approx 3.9$; about 4,680'
+  answer: 0
+  explanation: |-
+    $\text{deff} \approx 1 + (m - 1)\rho = 1 + 29(0.10) = 3.9$, and $n/\text{deff} = 1200/3.9 \approx 308$. Using $m$ instead of $m - 1$ gives 4.0; forgetting the 1 gives 2.9; multiplying instead of dividing gives 4,680.
+- id: stat-m4-r2-h08
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'Why do cluster samples usually have a design effect greater than 1?'
+  choices:
+    - 'Clusters are always smaller than strata'
+    - 'Cluster samples are not random'
+    - 'Clusters are chosen to be as different from each other as possible'
+    - 'Members of the same cluster tend to be alike, so each extra member adds less new information'
+  answer: 3
+  explanation: |-
+    People in one classroom or block share influences, so a second person from the same cluster partly repeats the first. That positive intraclass correlation inflates the variance compared with an SRS of the same size. Cluster samples are random when clusters are chosen at random.
+- id: stat-m4-r2-h09
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'Renters are 50% of a city’s adults but only 30% of a poll’s 300 respondents. Support for a rent-control measure is 80% among renters and 50% among owners in the poll. What is the post-stratified estimate of support?'
+  choices:
+    - '$59\%$'
+    - '$65\%$'
+    - '$71\%$'
+    - '$50\%$'
+  answer: 1
+  explanation: |-
+    Weight each group by its population share: $0.5(0.80) + 0.5(0.50) = 0.65$. The unweighted figure is $(72 + 105)/300 = 59\%$. Using the sample shares in reverse ($0.7(0.80) + 0.3(0.50)$) gives 71%.
+- id: stat-m4-r2-h10
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'A poll is weighted so that its age groups match the census. Which problem can this weighting NOT fix?'
+  choices:
+    - 'Within each age group, the people who answered hold different opinions from those who did not'
+    - 'Younger adults are underrepresented among respondents'
+    - 'Older adults are overrepresented among respondents'
+    - 'The sample’s age mix differs from the population’s'
+  answer: 0
+  explanation: |-
+    Post-stratification fixes imbalance on the weighting variable (age) only. If responders differ from nonresponders within an age group, for example in interest in the topic, the weighted estimate is still biased.
+- id: stat-m4-r2-h11
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'The 1936 Literary Digest poll got about 2.4 million ballots back and still predicted the wrong winner. What is its main lesson?'
+  choices:
+    - 'Mail surveys are always less accurate than phone surveys'
+    - 'A huge sample from a slanted frame with heavy nonresponse can still be badly wrong'
+    - 'Its sample was too small to predict a national election'
+    - 'Polls should never use lists of telephone or car owners, whatever the year'
+  answer: 1
+  explanation: |-
+    Its frame overrepresented better-off households and fewer than a quarter of those mailed a ballot returned it. Bias comes from how individuals are chosen and who responds, and a bigger sample doesn't shrink it. The problem was not sample size.
+- id: stat-m4-r2-h12
+  lesson: stat-m4-h-survey-estimation
+  topic: Survey estimation
+  stem: 'Which statements about sampling weights are true? Select all that apply.'
+  choices:
+    - 'With proportional allocation, weighted and unweighted estimates are equal'
+    - 'A sampling weight equals the stratum size divided by the number sampled from it'
+    - 'Weighting removes all nonresponse bias'
+    - 'Oversampling a small stratum makes that stratum’s own estimate more precise'
+    - 'A larger weight means the researchers consider that person’s opinion more important'
+  answer: [0, 1, 3]
+  explanation: |-
+    Proportional allocation gives every respondent the same weight $N/n$, so weighting changes nothing. A weight is $N_h/n_h$, the number of people a respondent represents, not a measure of importance. Oversampling gives the small stratum more observations, so its own estimate is more precise. Weighting only fixes imbalance on the weighting variables.
+- id: stat-m4-r2-h13
+  lesson: stat-m4-h-survey-estimation
+  type: match
+  topic: Survey estimation
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - ['Sampling weight', 'Number of population members a respondent represents']
+    - ['Design effect', 'Variance under the actual design divided by variance under an SRS of the same size']
+    - ['Effective sample size', 'Size of an SRS that would give the same precision']
+    - ['Intraclass correlation', 'How alike members of the same cluster are']
+    - ['Post-stratification', 'Reweighting respondents to match known population shares']
+  distractors: ['Taking a larger share of a small stratum than its population share']
+  explanation: |-
+    These are the definitions from the lesson. The extra description, taking more than a stratum's share of the sample, is oversampling.
+- id: stat-m4-r2-h14
+  lesson: stat-m4-h-survey-estimation
+  type: order
+  topic: Survey estimation
+  stem: 'Put the steps of planning a survey with Neyman allocation in order.'
+  items:
+    - 'Estimate each stratum’s standard deviation from a pilot study or past survey'
+    - 'Multiply each stratum’s size by its standard deviation'
+    - 'Divide each product by the sum of all the products'
+    - 'Multiply by the total sample size and round to whole numbers'
+    - 'Take a simple random sample of that size within each stratum'
+  explanation: |-
+    Neyman allocation is $n_h = n \cdot N_h S_h / \sum N_k S_k$: the standard deviations must be estimated first, then the products formed, turned into fractions, scaled by $n$, and finally the samples drawn.
+- id: stat-m4-r2-h15
+  lesson: stat-m4-h-survey-estimation
+  type: text
+  topic: Survey estimation
+  stem: 'A survey uses clusters of 11 people with intraclass correlation $0.08$. Its approximate design effect is ___. Give only the number.'
+  accept: ['1.8']
+  explanation: |-
+    $\text{deff} \approx 1 + (m - 1)\rho = 1 + 10(0.08) = 1.8$. The survey's variance is about 1.8 times that of an SRS of the same size.
+- id: stat-m4-r2-h16
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'A $2 \times 2$ experiment crosses temperature (low, high) with catalyst (A, B). Mean yields (made-up data): low temperature with catalyst A 50, low with B 56, high with A 60, high with B 74. What is the main effect of temperature?'
+  choices:
+    - '10'
+    - '24'
+    - '14'
+    - '8'
+  answer: 2
+  explanation: |-
+    Average over catalysts: high $(60 + 74)/2 = 67$, low $(50 + 56)/2 = 53$, so the main effect is $67 - 53 = 14$. 10 is the catalyst's main effect; 24 compares only the extreme cells; 8 is the interaction.
+- id: stat-m4-r2-h17
+  lesson: stat-m4-h-factorial
+  type: text
+  topic: Factorial experiments
+  stem: 'Same experiment. Mean yields (made-up data): low temperature with catalyst A 50, low with B 56, high with A 60, high with B 74. Measured as a difference of differences (effect of catalyst at high temperature minus its effect at low temperature), the interaction is ___. Give only the number.'
+  accept: ['8']
+  explanation: |-
+    Catalyst effect at high temperature: $74 - 60 = 14$; at low: $56 - 50 = 6$. Interaction $= 14 - 6 = 8$. (From the other side: temperature adds 10 with A and 18 with B, and $18 - 10 = 8$ again.)
+- id: stat-m4-r2-h18
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'Same experiment. Mean yields (made-up data): low temperature with catalyst A 50, low with B 56, high with A 60, high with B 74. What is the main effect of switching from catalyst A to catalyst B?'
+  choices:
+    - '6'
+    - '14'
+    - '18'
+    - '10'
+  answer: 3
+  explanation: |-
+    Average over temperatures: B $(56 + 74)/2 = 65$, A $(50 + 60)/2 = 55$, so the main effect is 10. 6 and 14 are the simple effects at low and high temperature; 18 is $74 - 56$, temperature's effect with catalyst B.
+- id: stat-m4-r2-h19
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'On an interaction plot of treatment means, the two lines are parallel. This means'
+  choices:
+    - 'neither factor has any effect'
+    - 'the two factors are confounded'
+    - 'there is no interaction: each factor’s effect is the same at both levels of the other'
+    - 'the experiment was not randomized'
+  answer: 2
+  explanation: |-
+    Parallel lines mean the gap between them (one factor's effect) is the same at every level of the other factor, which is the definition of no interaction. The factors can still have large main effects. (With real data, lines are never exactly parallel because of chance.)
+- id: stat-m4-r2-h20
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'Mean test scores: small class with lecture 70, small with discussion 80, large with lecture 75, large with discussion 65. Which summary is best?'
+  choices:
+    - 'Discussion helps in small classes (+10) and hurts in large ones (−10), so report the simple effects'
+    - 'Teaching method has no effect, because its main effect is 0'
+    - 'Class size has no effect, because its main effect is 0'
+    - 'There is no interaction, because the main effect of method is 0'
+  answer: 0
+  explanation: |-
+    The main effect of method is $(80 + 65)/2 - (70 + 75)/2 = 0$, but the simple effects are $+10$ and $-10$: the lines cross. With a strong interaction, main effects mislead. Class size's main effect is $(75 + 65)/2 - (70 + 80)/2 = -5$, not 0.
+- id: stat-m4-r2-h21
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'What is the main weakness of studying factors one at a time instead of in a factorial design?'
+  choices:
+    - 'It requires random assignment, which factorial designs avoid'
+    - 'It always needs more factors'
+    - 'It cannot use a control group'
+    - 'It can’t detect interactions, so it can mispredict combinations it never tried'
+  answer: 3
+  explanation: |-
+    One-factor-at-a-time studies never run the combinations, so an interaction goes unseen and predictions for untried combinations can be wrong. They also use units less efficiently. Both designs should randomize.
+- id: stat-m4-r2-h22
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'In the temperature and catalyst experiment, the true mean yields are 50 (low, A), 56 (low, B), 60 (high, A) and 74 (high, B). A one-factor-at-a-time study starts at low temperature with catalyst A, varies temperature (keeping A), then varies the catalyst (keeping low temperature). What does it predict for high temperature with catalyst B?'
+  choices:
+    - '74, exactly right'
+    - '66, which is 8 below the true 74'
+    - '70, which is 4 below the true 74'
+    - '80, which is 6 above the true 74'
+  answer: 1
+  explanation: |-
+    Temperature alone: $60 - 50 = +10$. Catalyst alone: $56 - 50 = +6$. Prediction: $50 + 10 + 6 = 66$, but the true mean is 74. The gap of 8 is exactly the interaction, which OFAT can't see.
+- id: stat-m4-r2-h23
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'An engineer wants to test 6 factors, each at 2 levels, in a full factorial design. How many treatments are needed?'
+  choices:
+    - '64'
+    - '12'
+    - '36'
+    - '32'
+  answer: 0
+  explanation: |-
+    A full factorial uses every combination: $2^6 = 64$. Adding levels gives 12; $6^2 = 36$ squares the wrong number; 32 is $2^5$. Designs this large are why fractional factorial designs exist.
+- id: stat-m4-r2-h24
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'Which statement correctly contrasts interaction and confounding?'
+  choices:
+    - 'They are two names for the same thing'
+    - 'Interaction means one factor’s effect depends on another factor; confounding means an outside variable’s effect is mixed up with a factor’s'
+    - 'Interaction can occur only in observational studies'
+    - 'Confounding means the interaction plot’s lines cross'
+  answer: 1
+  explanation: |-
+    Interaction is a real feature of how the response behaves, and a balanced factorial experiment is designed to measure it. Confounding is a design flaw: the effect of an unbalanced outside variable can't be separated from the factor's effect.
+- id: stat-m4-r2-h25
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'A $2 \times 2$ factorial experiment uses 48 subjects, 12 per treatment. When estimating the main effect of factor A, how many subjects are compared with how many?'
+  choices:
+    - '12 with 12'
+    - '48 with 48'
+    - '24 with 24'
+    - '6 with 6'
+  answer: 2
+  explanation: |-
+    Each level of A includes two treatments, $2 \times 12 = 24$ subjects, so every subject contributes. The same 48 subjects, regrouped, give 24 with 24 for factor B too.
+- id: stat-m4-r2-h26
+  lesson: stat-m4-h-factorial
+  topic: Factorial experiments
+  stem: 'Which statements about a balanced $2 \times 2$ factorial experiment with several units per treatment are true? Select all that apply.'
+  choices:
+    - 'Every unit helps estimate both main effects'
+    - 'It can detect an interaction between the factors'
+    - 'Main effects are meaningful summaries even when the interaction plot’s lines cross'
+    - 'Units should be randomly assigned to all four treatment combinations'
+    - 'An interaction means the two factors are confounded'
+  answer: [0, 1, 3]
+  explanation: |-
+    Each unit sits at one level of A and one level of B, so it counts in both main-effect comparisons, and having all four combinations lets the design see an interaction. Randomize to all four combinations. When lines cross, main effects can hide opposite simple effects, and interaction is not confounding.
+- id: stat-m4-r2-h27
+  lesson: stat-m4-h-factorial
+  type: match
+  topic: Factorial experiments
+  stem: 'Match each term to its description.'
+  pairs:
+    - ['Main effect', 'Change in mean response between two levels of a factor, averaged over the other factor']
+    - ['Simple effect', 'Effect of a factor at one particular level of the other factor']
+    - ['Interaction', 'The effect of one factor depends on the level of another']
+    - ['Fractional factorial design', 'Runs a planned subset of all the factor combinations']
+  distractors: ['Assigning units to treatments by chance']
+  explanation: |-
+    These are the definitions from the lesson. Assigning units by chance is random assignment, which every good factorial experiment uses but which is not one of these terms.
+- id: stat-m4-r2-h28
+  lesson: stat-m4-h-factorial
+  type: order
+  topic: Factorial experiments
+  stem: 'Put the steps of running a $2 \times 2$ factorial experiment with 40 subjects in order.'
+  items:
+    - 'Choose two factors and two levels of each'
+    - 'List the four treatment combinations'
+    - 'Randomly assign 10 subjects to each combination'
+    - 'Apply the treatments and measure the response'
+    - 'Compute the main effects and interaction from the treatment means'
+  explanation: |-
+    The factors and levels define the combinations; only then can subjects be randomized to them. The analysis needs the measured responses, so it comes last.
+- id: stat-m4-r2-h29
+  lesson: stat-m4-h-factorial
+  type: text
+  topic: Factorial experiments
+  stem: 'In a two-factor experiment, the effect of one factor at a single level of the other factor is called a ___ effect.'
+  accept: ['simple']
+  explanation: |-
+    That is a simple effect. If the simple effects of a factor differ across the levels of the other factor, the factors interact.
+- id: stat-m4-r2-h30
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Why can’t an individual causal effect $Y(1) - Y(0)$ be observed directly?'
+  choices:
+    - 'Potential outcomes are always measured with error'
+    - 'The effect is too small to measure for one person'
+    - 'It can be observed, but only in a large sample'
+    - 'Each unit either gets the treatment or doesn’t, so only one of its potential outcomes is ever seen'
+  answer: 3
+  explanation: |-
+    A treated unit's $Y(0)$ is a "what if" that never happened, and vice versa. That is why we estimate average effects, using groups that are comparable.
+- id: stat-m4-r2-h31
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Four units have potential outcomes $Y(0) = 10, 12, 15, 19$ and $Y(1) = 14, 13, 18, 24$ (units 1 to 4, in order). Find the average treatment effect.'
+  choices:
+    - '$10$'
+    - '$5$'
+    - '$3.25$'
+    - '$17.25$'
+  answer: 2
+  explanation: |-
+    Individual effects are $4, 1, 3, 5$, so the ATE is $13/4 = 3.25$ (equivalently $17.25 - 14 = 3.25$). 10 is the naive difference if units 3 and 4 chose treatment; 5 is the largest single effect; 17.25 is the mean of $Y(1)$ alone.
+- id: stat-m4-r2-h32
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Four units have potential outcomes $Y(0) = 10, 12, 15, 19$ and $Y(1) = 14, 13, 18, 24$ (units 1 to 4, in order). Units 3 and 4 choose treatment, so the naive difference is $(18 + 24)/2 - (10 + 12)/2 = 10$. How much of this is selection bias?'
+  choices:
+    - '$6$'
+    - '$4$'
+    - '$3.25$'
+    - '$10$'
+  answer: 0
+  explanation: |-
+    The treated units' untreated scores average $(15 + 19)/2 = 17$; the untreated units' average 11. Selection bias $= 17 - 11 = 6$. The rest, $21 - 17 = 4$, is the effect on the treated units, and $4 + 6 = 10$.
+- id: stat-m4-r2-h33
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'In the language of potential outcomes, what does random assignment accomplish?'
+  choices:
+    - 'It reveals both potential outcomes for every unit'
+    - 'It guarantees the difference in means equals the average effect in every experiment'
+    - 'It removes chance variation from the estimate'
+    - 'It makes the selection-bias term zero on average, so the difference in group means is an unbiased estimate of the average effect'
+  answer: 3
+  explanation: |-
+    Randomization makes the groups alike in their $Y(0)$ values on average. Any single randomization can still be off by chance (in the lesson's example one draw gave 7.5 when the true effect was 5), but there is no systematic error.
+- id: stat-m4-r2-h34
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Group Y has a 12% rate among young people and 33% among old people. Using a standard population that is 70% young and 30% old, what is Group Y’s standardized rate?'
+  choices:
+    - '$22.5\%$'
+    - '$18.3\%$'
+    - '$26.7\%$'
+    - '$45\%$'
+  answer: 1
+  explanation: |-
+    $0.70(12\%) + 0.30(33\%) = 8.4\% + 9.9\% = 18.3\%$. The simple average of 12% and 33% is 22.5%; swapping the weights gives 26.7%; adding the rates gives 45%.
+- id: stat-m4-r2-h35
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'After standardizing for math background, tutoring-center users pass calculus about 9 points more often than non-users. Why is this still not proof that tutoring causes passing?'
+  choices:
+    - 'Unmeasured differences, such as motivation, may still differ between users and non-users'
+    - 'Standardization always exaggerates differences'
+    - 'The sample is too small for any conclusion'
+    - 'Pass rates cannot be compared across groups'
+  answer: 0
+  explanation: |-
+    Adjustment removes only the confounders that were measured and used. Students who choose tutoring may differ in motivation or study habits, which could explain part or all of the gap.
+- id: stat-m4-r2-h36
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Which is the best example of a natural experiment?'
+  choices:
+    - 'Researchers compare people who chose to move to a new city with people who stayed'
+    - 'A city lottery decides which applicants receive housing vouchers, and researchers compare later earnings of winners and losers'
+    - 'Towns that voted to build a park are compared with towns that voted against it'
+    - 'A random sample of adults is asked how often they exercise'
+  answer: 1
+  explanation: |-
+    In a natural experiment, something like random assignment happens without the researcher imposing it. A lottery does exactly that. Moving and voting are choices, so the groups may differ in many ways; a survey assigns nothing.
+- id: stat-m4-r2-h37
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Company X supplied 20,000 houses, with 300 cholera deaths; Company Y supplied 15,000 houses, with 45 deaths. Find each death rate per 10,000 houses and compare them.'
+  choices:
+    - '300 and 45; X’s rate is about 6.7 times Y’s'
+    - '15 and 3; X’s rate is 5 times Y’s'
+    - '150 and 30; X’s rate is 5 times Y’s'
+    - '150 and 45; X’s rate is about 3.3 times Y’s'
+  answer: 2
+  explanation: |-
+    $300/20000 \times 10{,}000 = 150$ and $45/15000 \times 10{,}000 = 30$; $150/30 = 5$. Comparing raw counts (300 and 45) ignores that the companies supplied different numbers of houses; 15 and 3 are rates per 1,000.
+- id: stat-m4-r2-h38
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Which of Bradford Hill’s viewpoints is generally treated as essential for a causal claim?'
+  choices:
+    - 'Specificity: the cause produces only one effect'
+    - 'Analogy: similar causes are already known'
+    - 'Coherence: the claim fits textbook biology'
+    - 'Temporality: the cause comes before the effect'
+  answer: 3
+  explanation: |-
+    An effect cannot come before its cause, so temporality is the one viewpoint that must hold. Hill stressed that the others support a judgment but none is required; smoking, for example, fails specificity because it harms many organs.
+- id: stat-m4-r2-h39
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Why is a consistent dose-response relationship strong evidence for causation in observational data?'
+  choices:
+    - 'It proves there are no confounding variables'
+    - 'It means the study was really an experiment'
+    - 'A confounder would have to rise with the exposure, dose by dose, in every population studied'
+    - 'It shows the effect happens before the cause'
+  answer: 2
+  explanation: |-
+    A rising risk with rising dose is easy to explain if the exposure is a cause, and hard to explain otherwise: an alternative explanation needs a confounder tracking the dose closely everywhere. It is strong evidence, not proof.
+- id: stat-m4-r2-h40
+  lesson: stat-m4-h-causal-inference
+  topic: Causal inference
+  stem: 'Which features made John Snow’s comparison of the two water companies convincing? Select all that apply.'
+  choices:
+    - 'Neighboring houses on the same streets were supplied by different companies'
+    - 'Households had not chosen their company in a way linked to cholera risk'
+    - 'The difference in death rates was very large'
+    - 'Snow randomly assigned households to the two companies'
+    - 'Snow chose the houses with a stratified random sample'
+  answer: [0, 1, 2]
+  explanation: |-
+    The companies' customers were intermixed and had not sorted themselves by risk, so the groups were alike apart from their water, and an eightfold difference is hard to explain by any confounder. Snow assigned nothing and sampled nothing; that is what makes it a natural experiment.
+- id: stat-m4-r2-h41
+  lesson: stat-m4-h-causal-inference
+  type: match
+  topic: Causal inference
+  stem: 'Match each of Hill’s viewpoints to the evidence about smoking and lung cancer that fits it.'
+  pairs:
+    - ['Strength', 'Heavy smokers had many times the risk of nonsmokers']
+    - ['Temporality', 'Smoking began years before diagnosis']
+    - ['Biological gradient', 'Risk rose with the number of cigarettes per day']
+    - ['Experiment', 'People who quit had lower risk later']
+  distractors: ['Smoking is linked only to lung cancer']
+  explanation: |-
+    Each piece of evidence answers one of Hill's questions. The distractor is false: smoking harms many organs, which is why specificity is weak in this case.
+- id: stat-m4-r2-h42
+  lesson: stat-m4-h-causal-inference
+  type: text
+  topic: Causal inference
+  stem: 'The mean of $Y(1) - Y(0)$ over all the units in a group is called the average ___ effect.'
+  accept: ['treatment', 'causal']
+  explanation: |-
+    It is the average treatment effect (ATE), also called the average causal effect. It equals the mean of the $Y(1)$ values minus the mean of the $Y(0)$ values.
+- id: stat-m4-r2-h43
+  lesson: stat-m4-h-causal-inference
+  type: order
+  topic: Causal inference
+  stem: 'Put these events in the case against smoking in chronological order.'
+  items:
+    - 'Doll and Hill publish a case-control study of lung cancer patients'
+    - 'Doll and Hill begin following British doctors forward in time'
+    - 'The U.S. Surgeon General’s report concludes that smoking causes lung cancer in men'
+    - 'Hill publishes his viewpoints on association and causation'
+  explanation: |-
+    The case-control study appeared in 1950, the British doctors study began in 1951, the Surgeon General's report came in 1964, and Hill's paper in 1965.

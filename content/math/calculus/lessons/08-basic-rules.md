@@ -57,6 +57,25 @@ Then $g'(x) = 1 - \tfrac32 x^{-3/2} = \mathbf{1 - \dfrac{3}{2x^{3/2}}}$.
 
 Simplifying *before* differentiating is often the fastest route. Products like $(x + 1)(x - 2)$ can be expanded first too.
 
+Until the product, quotient and chain rules arrive in the next module, the job is always the same: get every term into the form $cx^n$ or $ce^x$, then differentiate term by term.
+
+```mermaid
+flowchart TD
+  accTitle: Rewriting before you differentiate
+  accDescr: Look at each term. A root becomes a fractional power, for example the square root of x becomes x to the one half. One over a power of x becomes a negative power. A sum divided by a single power of x is split and each piece divided. A product of polynomials is multiplied out. Once every term is a constant times x to a power, a constant times e to the x, or a constant, use the power rule, the e to the x rule and the constant rule term by term.
+  A["Look at each term"] --> B{"What does it look like?"}
+  B -- "a root" --> R["Fractional power: √x = x^(1/2)"]
+  B -- "1 over a power" --> Q["Negative power: 1/x³ = x^(−3)"]
+  B -- "sum over one power of x" --> S["Split and divide each term"]
+  B -- "product of polynomials" --> P["Multiply out"]
+  R --> D["Every term is c·xⁿ, c·eˣ or a constant"]
+  Q --> D
+  S --> D
+  P --> D
+  B -- "already c·xⁿ, c·eˣ or a constant" --> D
+  D --> E["Differentiate term by term"]
+```
+
 ## The natural exponential
 
 Which exponential function $b^x$ has slope exactly 1 where it crosses the $y$-axis? From the definition,
@@ -97,6 +116,12 @@ A particle's position is $s(t) = t^3 - 6t^2 + 5$ meters at time $t$ seconds. Fin
 - $a(t) = v'(t) = 6t - 12$, so $a(1) = -6$ m/s².
 
 Velocity and acceleration have the same sign, so the particle is speeding up at $t = 1$.
+
+Graphing all three together shows how they fit: $v$ is the slope of $s$, and $a$ is the slope of $v$. Where $v$ crosses zero (at $t = 4$) the position graph turns around, and where $a$ crosses zero (at $t = 2$) the velocity is at its lowest.
+
+```plot
+{"x": [0, 5], "y": [-30, 20], "functions": [{"f": "x^3 - 6x^2 + 5", "label": "s"}, {"f": "3x^2 - 12x", "dashed": true, "label": "v"}, {"f": "6x - 12", "label": "a", "color": "#b03a2e"}], "points": [{"at": [4, 0]}, {"at": [2, 0]}], "xLabel": "t", "caption": "Position s(t) = t³ − 6t² + 5 (solid), velocity v = s′ (dashed) and acceleration a = v′ (red)"}
+```
 
 ### Example 5
 

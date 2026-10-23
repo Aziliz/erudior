@@ -37,6 +37,10 @@ Every derivative of $e^x$ is $e^x$, which is 1 at $x = 0$. So $c_n = \frac{1}{n!
 $$e^x = \sum_{n=0}^\infty\frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots, \quad\text{all } x.$$
 (Radius $\infty$ by Lesson 43, Example 2.) At $x = 1$: $e = 1 + 1 + \frac12 + \frac16 + \frac1{24} + \cdots \approx 2.71828$.
 
+```plot
+{"x": [-3, 2.5], "y": [-1, 8], "functions": [{"f": "e^x", "label": "eˣ"}, {"f": "1 + x", "dashed": true, "label": "P₁"}, {"f": "1 + x + x^2/2", "dashed": true, "label": "P₂"}, {"f": "1 + x + x^2/2 + x^3/6", "dashed": true, "label": "P₃"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "caption": "Maclaurin polynomials of eˣ agree with eˣ at 0 and stay close over a wider range as the degree rises"}
+```
+
 ### Example 2 ($\sin x$ and $\cos x$)
 
 Derivatives of $\sin x$ at 0 cycle $0, 1, 0, -1, \dots$ So only odd powers survive, with alternating signs:
@@ -73,6 +77,22 @@ $P_3(x) = (x - 1) - \frac12(x - 1)^2 + \frac13(x - 1)^3$. (Compare $\ln(1 + u) =
 The last is the **binomial series**; for whole-number $k$ it stops and becomes the binomial theorem. (For other $k$ it converges on $(-1, 1)$; whether the endpoints $\pm1$ are included depends on $k$.)
 
 New series come from these by substitution and multiplication, which is usually much faster than computing derivatives.
+
+The chart below sums up the choices: build from a known series when you can, use the derivative table when you must, and then pick an error bound.
+
+```mermaid
+flowchart TD
+  accTitle: Finding a Taylor series and judging its accuracy
+  accDescr: If f is built from a function in the table of known series, by substitution, multiplication, differentiation or integration, manipulate the known series. Otherwise make a table of derivatives at the center a, divide each by n factorial to get the coefficients, and write the series in powers of x minus a. To estimate the error of a Taylor polynomial, use the first omitted term if the series alternates with decreasing terms; otherwise use the Lagrange bound with M at least as large as the size of the next derivative.
+  A{"Is f built from a known series?"} -- "yes" --> B["Substitute, multiply, differentiate or integrate the known series"]
+  A -- "no" --> C["Table of derivatives at the center a"]
+  C --> D["Coefficients cₙ = f⁽ⁿ⁾(a) ÷ n!"]
+  D --> E["Series in powers of (x − a)"]
+  B --> F{"How accurate is Pₙ?"}
+  E --> F
+  F -- "alternating, decreasing terms" --> G["Error at most the first omitted term"]
+  F -- "otherwise" --> H["Lagrange bound: M ≥ |f⁽ⁿ⁺¹⁾| between a and x"]
+```
 
 ### Example 4
 

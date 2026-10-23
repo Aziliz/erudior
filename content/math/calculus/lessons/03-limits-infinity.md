@@ -41,6 +41,12 @@ Compare $\dfrac{1}{(x - 3)^2}$: the squared denominator is positive on both side
 
 **Careful with $0/0$.** A zero denominator doesn't guarantee an asymptote. $\dfrac{x^2 - 9}{x - 3}$ has a hole at 3, not an asymptote, because the factor cancels. Always cancel common factors before declaring a vertical asymptote.
 
+The graph below shows a hole and an asymptote side by side. Since
+$$y = \frac{x^2 - x - 2}{x^2 - 4} = \frac{(x - 2)(x + 1)}{(x - 2)(x + 2)},$$
+the factor $x - 2$ cancels: for $x \ne 2$ the function equals $\dfrac{x + 1}{x + 2}$, so there is a hole at $x = 2$, at height $\frac{3}{4}$. The factor $x + 2$ doesn't cancel, so $x = -2$ is a vertical asymptote. (The horizontal asymptote $y = 1$ comes from the next section.)
+
+![Graph of y = (x² − x − 2)/(x² − 4). A dashed vertical asymptote at x = −2 and a dashed horizontal asymptote at y = 1; the curve has a hole at (2, 3/4) and crosses the x-axis at (−1, 0).](images/calc-m1-asymptotes.svg)
+
 ## Limits at infinity
 
 We write $\displaystyle\lim_{x\to\infty} f(x) = L$ if $f(x)$ gets arbitrarily close to $L$ as $x$ grows without bound. If that happens (as $x \to \infty$ or $x \to -\infty$), the line $y = L$ is a horizontal asymptote.
@@ -75,6 +81,21 @@ That example generalizes. With numerator degree $n$ and denominator degree $m$:
 
 When $n = m + 1$, long division gives a slant (oblique) asymptote $y = cx + d$: for example $\dfrac{x^2 + 1}{x} = x + \dfrac1x$, which hugs $y = x$.
 
+As a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: End behavior of a rational function
+  accDescr: Compare the degree n of the numerator with the degree m of the denominator. If n is less than m, the limit at infinity is 0 and the horizontal asymptote is y = 0. If n equals m, the limit is the ratio of the leading coefficients, which is the horizontal asymptote. If n is greater than m, the function grows without bound and there is no horizontal asymptote; if n is exactly m + 1, long division gives a slant asymptote.
+  A["Rational function: numerator degree n, denominator degree m"] --> B{"Compare n and m"}
+  B -- "n #lt; m" --> C["Limit 0: asymptote y = 0"]
+  B -- "n = m" --> D["Limit = ratio of leading coefficients"]
+  B -- "n #gt; m" --> E["Limit is +∞ or −∞: no horizontal asymptote"]
+  E --> F{"Is n = m + 1?"}
+  F -- Yes --> G["Long division gives a slant asymptote"]
+  F -- No --> H["No slant asymptote either"]
+```
+
 The reason the table works: for large $|x|$ a polynomial behaves like its leading term. $6x^2 - 5x + 1 \approx 6x^2$ when $x = 10^6$, because $6x^2$ is a million times bigger than $5x$.
 
 ## Square roots and $x \to -\infty$
@@ -90,6 +111,10 @@ The top behaves like $\sqrt{4x^2} = 2|x|$. For $x < 0$, $|x| = -x$. Divide top a
 $$\frac{\sqrt{4x^2+1}}{x - 5} = \frac{\sqrt{4x^2 + 1}/x}{1 - 5/x} = \frac{-\sqrt{4 + 1/x^2}}{1 - 5/x} \longrightarrow \frac{-\sqrt 4}{1} = \mathbf{-2}.$$
 
 As $x \to +\infty$ the same function tends to $+2$. Two different horizontal asymptotes, $y = 2$ and $y = -2$.
+
+```plot
+{"x": [-40, 40], "y": [-8, 8], "functions": [{"f": "sqrt(4x^2 + 1)/(x - 5)"}, {"f": "2", "dashed": true, "label": "y = 2"}, {"f": "-2", "dashed": true, "label": "y = −2"}], "segments": [{"from": [5, -8], "to": [5, 8], "dashed": true}], "caption": "y = √(4x² + 1)/(x − 5) approaches −2 on the far left and 2 on the far right; x = 5 is a vertical asymptote"}
+```
 
 ## Differences of roots: ∞ − ∞
 

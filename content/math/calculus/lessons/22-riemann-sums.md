@@ -59,9 +59,23 @@ The exact area turns out to be $\frac83 \approx 2.667$. The left sum underestima
 
 *Over or under?* For an increasing function, left sums underestimate and right sums overestimate; for a decreasing function it's the reverse. (Concavity governs midpoint and trapezoid errors; see Lesson 34.)
 
+```mermaid
+flowchart TD
+  accTitle: Will a left or right sum be too big or too small?
+  accDescr: First ask whether f is increasing on the whole interval. If yes, the left sum is an underestimate and the right sum an overestimate. If not, ask whether f is decreasing on the whole interval. If yes, the left sum is an overestimate and the right sum an underestimate. If f is neither, the sums can't be judged from this test alone.
+  A{"Is f increasing on all of a to b?"} -- yes --> B["Left sum too small, right sum too big"]
+  A -- no --> C{"Is f decreasing on all of a to b?"}
+  C -- yes --> D["Left sum too big, right sum too small"]
+  C -- no --> E["No conclusion from this test: compute or split the interval"]
+```
+
 ## Trapezoidal sums and uneven data
 
 A fourth approximation replaces each rectangle with a trapezoid whose slanted top joins the curve's values at the two ends of the subinterval. One trapezoid has area $\frac12\left[f(x_{i-1}) + f(x_i)\right]\Delta x_i$, the average of the left and right rectangles. Adding them gives a **trapezoidal sum**. For Example 1 it's $\frac{L_4 + R_4}{2} = \frac{1.75 + 3.75}{2} = 2.75$.
+
+Here are all four shapes side by side on a single subinterval of an increasing, concave-up curve:
+
+![Four panels, each showing the same rising curve over one subinterval from a to b. Left endpoint: a rectangle whose height is the curve's value at a, lying under the curve. Right endpoint: a rectangle whose height is the value at b, reaching above the curve. Midpoint: a rectangle whose height is the value at the middle of the subinterval. Trapezoid: a slanted top joining the curve's values at a and b.](images/calc-m6-sum-types.svg)
 
 Nothing here requires equal widths. Data from a table often come at uneven times, and then each piece uses its own width $\Delta x_i$. If $r(0) = 4$, $r(1) = 6$, $r(4) = 9$ (liters per hour), a trapezoidal sum for $\int_0^4 r(t)\,dt$ is $\frac{4 + 6}{2}(1) + \frac{6 + 9}{2}(3) = 5 + 22.5 = 27.5$ liters, and a left sum is $4(1) + 6(3) = 22$ liters. AP problems use exactly this kind of table.
 

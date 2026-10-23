@@ -36,6 +36,10 @@ On a graph, an average rate of change is the slope of a **secant line**, the lin
 
 The same number answers both questions: rate of change at an instant, and slope of the tangent line at a point.
 
+The picture below names the pieces. The secant through $P$ and $Q$ has run $h$ and rise $f(a + h) - f(a)$, so its slope is the difference quotient; the tangent at $P$ is what the secant becomes as $Q$ slides down the curve toward $P$.
+
+![A rising curve with points P at x = a and Q at x = a + h. A solid secant line passes through P and Q. A dashed tangent line touches the curve at P and is less steep. A shaded right triangle under the secant has a horizontal side labeled h and a vertical side labeled f(a + h) minus f(a).](images/calc-m2-secant-tangent.svg)
+
 ## The definition
 
 The **derivative** of $f$ at $x = a$ is
@@ -49,6 +53,18 @@ An equivalent form uses $x$ for the second point:
 $$f'(a) = \lim_{x\to a}\frac{f(x) - f(a)}{x - a}.$$
 
 Every derivative-by-definition problem has a $0/0$ form (the numerator and $h$ both vanish), so you use the algebra techniques from Lesson 2 to cancel the $h$.
+
+Every such problem follows the same five steps:
+
+```mermaid
+flowchart TD
+  accTitle: Finding a derivative from the definition
+  accDescr: Five steps in order. First substitute a plus h for every x to get f of a plus h. Second, subtract f of a. Third, simplify the numerator until every term has a factor of h. Fourth, divide by h and cancel it, which is allowed because h is not zero. Fifth, let h approach 0 in what remains; the result is f prime of a.
+  A["1. Substitute a + h for every x: f(a + h)"] --> B["2. Subtract f(a)"]
+  B --> C["3. Simplify: every remaining term has a factor of h"]
+  C --> D["4. Divide by h and cancel it (h is not 0)"]
+  D --> E["5. Let h go to 0: the result is f'(a)"]
+```
 
 ### Example 1
 

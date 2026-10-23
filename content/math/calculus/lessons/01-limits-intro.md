@@ -68,6 +68,20 @@ $$\lim_{x\to a} f(x) = L \iff \lim_{x\to a^-} f(x) = L \text{ and } \lim_{x\to a
 
 This is the most useful test for "does the limit exist?" Look left, look right, compare.
 
+The chart below turns that test into a routine you can run on any limit.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a two-sided limit exists
+  accDescr: Start with the limit of f as x approaches a. Find the left-hand limit and the right-hand limit, ignoring the value f(a). If either side grows without bound or never settles, the limit does not exist. If both sides head to numbers, compare them: equal numbers mean the limit exists and equals that number; different numbers mean a jump, and the limit does not exist.
+  A["Limit of f(x) as x approaches a"] --> B["Find the left-hand limit and the right-hand limit (ignore f(a))"]
+  B --> C{"Does each side head to a number?"}
+  C -- "No: unbounded or oscillating" --> D["Limit does not exist"]
+  C -- Yes --> E{"Are the two numbers equal?"}
+  E -- "Yes, both equal L" --> F["Limit exists and equals L"]
+  E -- "No" --> G["Jump: limit does not exist"]
+```
+
 ### Example 2
 
 Let
@@ -95,6 +109,10 @@ When you read a limit from a graph, put your finger on the curve and slide towar
 | Jump: left side heads to $L_1$, right side to $L_2 \ne L_1$ | does not exist |
 | Vertical asymptote: outputs blow up | does not exist (we may write $\infty$; see Lesson 3) |
 
+At a jump there are three different heights to keep apart: where the curve heads from the left, where it heads from the right, and where the solid dot sits. Only the first two say anything about the limit.
+
+![A function with a jump at x = 2. From the left the curve heads to an open circle at height 2, labeled left-hand limit = 2. From the right it heads to an open circle at height 3.5, labeled right-hand limit = 3.5. A solid dot at (2, 5) is labeled value: f(2) = 5.](images/calc-m1-limit-reading.svg)
+
 ### Example 3
 
 The graph below shows $h$. Read off $\lim_{x\to -1} h(x)$, $h(-1)$, $\lim_{x\to 1^-} h(x)$ and $\lim_{x\to1^+} h(x)$.
@@ -115,6 +133,12 @@ There are three standard ways:
 1. **Jump**: different one-sided limits (Example 2).
 2. **Unbounded behavior**: outputs grow without bound, as with $1/x^2$ near 0.
 3. **Oscillation**: outputs never settle, as with $\sin(\pi/x)$ near 0.
+
+The third kind is the hardest to picture. Between $x = 0.1$ and $x = 1$, $\sin(\pi/x)$ makes only a few swings, but between $0.01$ and $0.1$ it makes many more, and the swings keep crowding together as $x$ shrinks. Every interval around 0, however small, contains inputs where the output is 1 and inputs where it is $-1$, so the outputs can't settle near any single number.
+
+```plot
+{"x": [-1, 1], "y": [-1.5, 1.5], "functions": [{"f": "sin(pi/x)"}], "caption": "y = sin(π/x) swings between −1 and 1 faster and faster near x = 0 (no drawing can show every swing)"}
+```
 
 ## Common mistakes
 

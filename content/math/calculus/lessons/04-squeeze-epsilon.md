@@ -35,6 +35,12 @@ $$-1 \le \sin\!\left(\tfrac1x\right) \le 1 \quad\Longrightarrow\quad -x^2 \le x^
 {"x": [-0.5, 0.5], "y": [-0.25, 0.25], "functions": [{"f": "x^2", "dashed": true, "label": "y = x²"}, {"f": "-x^2", "dashed": true, "label": "y = −x²"}, {"f": "x^2 sin(1/x)"}], "caption": "x² sin(1/x) is trapped between −x² and x²"}
 ```
 
+With only one factor of $x$, as in $x\sin(1/x)$, the bounds must be $-|x|$ and $|x|$, because $x$ itself is negative on the left of 0 (see Common mistakes). The squeeze still gives a limit of 0, and the picture is a V-shaped funnel instead of a parabola.
+
+```plot
+{"x": [-0.5, 0.5], "y": [-0.5, 0.5], "functions": [{"f": "abs(x)", "dashed": true, "label": "y = |x|"}, {"f": "-abs(x)", "dashed": true, "label": "y = −|x|"}, {"f": "x sin(1/x)"}], "caption": "x sin(1/x) is trapped between −|x| and |x|"}
+```
+
 ## The key trig limit
 
 $$\lim_{\theta\to 0}\frac{\sin\theta}{\theta} = 1 \qquad (\theta \text{ in radians}).$$
@@ -97,6 +103,10 @@ Read it as a challenge game. A skeptic names a tolerance $\varepsilon$ for the o
 {"x": [0, 4], "y": [0, 9], "functions": [{"f": "2x + 1"}, {"f": "5.6", "dashed": true}, {"f": "4.4", "dashed": true}], "segments": [{"from": [1.7, 0], "to": [1.7, 9], "dashed": true}, {"from": [2.3, 0], "to": [2.3, 9], "dashed": true}], "points": [{"at": [2, 5], "label": "(2, 5)"}], "caption": "ε-band around L = 5 (horizontal) and δ-band around a = 2 (vertical)"}
 ```
 
+The same picture in general: the skeptic's $\varepsilon$ fixes the horizontal band from $L - \varepsilon$ to $L + \varepsilon$. Your job is to find a vertical band from $a - \delta$ to $a + \delta$ so narrow that, inside it, the graph never leaves the horizontal band. For a curve, the band's edges can sit at different distances from $a$; $\delta$ must be the *smaller* of the two, so the window is symmetric and safe on both sides.
+
+![A rising curve through (a, L). A horizontal band between the dashed lines y = L − ε and y = L + ε is shaded, and a vertical band between x = a − δ and x = a + δ is shaded. Inside the vertical band the curve stays inside the horizontal band; the right edge a + δ is where the curve reaches L + ε.](images/calc-m1-epsilon-delta.svg)
+
 ### Example 4
 
 Prove $\displaystyle\lim_{x\to 2}(3x - 1) = 5$ and find $\delta$ for $\varepsilon = 0.06$.
@@ -114,6 +124,20 @@ For a linear function $mx + b$ the answer is always $\delta = \varepsilon/|m|$: 
 Show $\lim_{x\to 3} x^2 = 9$.
 
 We need $|x^2 - 9| = |x - 3|\,|x + 3| < \varepsilon$. The factor $|x + 3|$ varies, so first restrict $\delta \le 1$. Then $2 < x < 4$, which gives $|x + 3| < 7$. So $|x^2 - 9| < 7|x - 3|$, and that's below $\varepsilon$ once $|x - 3| < \varepsilon/7$. Choose $\delta = \min(1, \varepsilon/7)$.
+
+Examples 4 and 5 follow the same four-step routine:
+
+```mermaid
+flowchart TD
+  accTitle: How to write an epsilon-delta proof
+  accDescr: Step 1, scratch work: start from the distance between f(x) and L and simplify it until the distance between x and a appears as a factor. Step 2, if the other factor varies, first restrict delta to at most 1 and bound that factor. Step 3, choose delta in terms of epsilon, such as epsilon over the slope or the minimum of 1 and epsilon over the bound. Step 4, write the proof forward: given epsilon, state delta, assume 0 is less than the distance from x to a which is less than delta, and show the distance from f(x) to L is less than epsilon.
+  A["1. Scratch work: simplify |f(x) − L| until |x − a| appears"] --> B{"Is the other factor a constant?"}
+  B -- Yes --> D["3. Choose δ, for example ε divided by that constant"]
+  B -- No --> C["2. Restrict δ ≤ 1 and bound the other factor"]
+  C --> E["3. Choose δ = min(1, ε divided by the bound)"]
+  D --> F["4. Proof: given ε, state δ, assume 0 #lt; |x − a| #lt; δ, show |f(x) − L| #lt; ε"]
+  E --> F
+```
 
 ## Common mistakes
 

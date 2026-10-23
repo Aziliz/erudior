@@ -38,6 +38,10 @@ $s(t) = t^3 - 6t^2 + 9t$ (meters, $t \ge 0$ in seconds). When does the particle 
 | $(2, 3)$ | $-$ | $+$ | slowing down |
 | $(3, \infty)$ | $+$ | $+$ | speeding up |
 
+A motion diagram makes the turns visible. The particle's path is drawn in three passes (in reality it all happens on one line), with its position at each whole second: $s(0) = 0$, $s(1) = 4$, $s(2) = 2$, $s(3) = 0$, $s(4) = 4$.
+
+![A number line marked 0 to 4, with the particle's path drawn above it in three passes. First pass: an arrow from s = 0 (t = 0) right to s = 4. The path turns around at s = 4 (t = 1), runs left through s = 2 (t = 2) back to s = 0, turns around again at s = 0 (t = 3), and runs right, passing s = 4 at t = 4.](images/calc-m6-particle-path.svg)
+
 ## Displacement versus distance
 
 From a velocity function, the net change theorem gives
@@ -49,6 +53,17 @@ Displacement is net: motion backward cancels motion forward. The **total distanc
 $$\text{distance} = \int_a^b |v(t)|\,dt.$$
 
 To compute it, split the interval where $v$ changes sign and add the absolute values of the pieces.
+
+```mermaid
+flowchart TD
+  accTitle: Displacement or total distance from a velocity function
+  accDescr: For displacement, integrate v over the whole interval; backward motion cancels forward motion. For total distance, find where v equals zero, keep the times inside the interval where v changes sign, integrate v over each piece between those times, and add the absolute values of the pieces.
+  A{"Which is asked?"} -- displacement --> B["Integrate v from a to b"]
+  A -- "total distance" --> C["Solve v(t) = 0"]
+  C --> D["Keep the times inside the interval where v changes sign"]
+  D --> E["Integrate v over each piece"]
+  E --> F["Add the absolute values of the pieces"]
+```
 
 ### Example 2
 

@@ -39,6 +39,12 @@ The series **converges** to $S$ if the sequence of partial sums $S_N$ converges 
 
 For $\frac12 + \frac14 + \frac18 + \cdots$: $S_1 = \frac12$, $S_2 = \frac34$, $S_3 = \frac78$, and $S_N = 1 - \frac{1}{2^N} \to 1$. So the sum is 1.
 
+You can see the same total in a picture. Cut a square of area 1 in half, then cut the leftover piece in half, and keep going. The pieces have areas $\frac12, \frac14, \frac18, \dots$, and together they fill the whole square: what is left after $N$ cuts is $\frac{1}{2^N}$, which shrinks to 0.
+
+![A square of area 1 divided into a half, a quarter, an eighth, a sixteenth and smaller pieces that together fill the square](images/calc-m10-halves.svg)
+
+The bar chart shows the same thing as numbers: each partial sum is the area filled so far.
+
 ```plot
 {"x": [0, 9], "y": [0, 1.2], "bars": [{"x": 1, "height": 0.5, "width": 0.6}, {"x": 2, "height": 0.75, "width": 0.6}, {"x": 3, "height": 0.875, "width": 0.6}, {"x": 4, "height": 0.9375, "width": 0.6}, {"x": 5, "height": 0.96875, "width": 0.6}, {"x": 6, "height": 0.984375, "width": 0.6}, {"x": 7, "height": 0.9921875, "width": 0.6}, {"x": 8, "height": 0.99609375, "width": 0.6}], "functions": [{"f": "1", "dashed": true}], "xLabel": "N", "yLabel": "S_N", "caption": "Partial sums of 1/2 + 1/4 + 1/8 + … climb toward 1"}
 ```
@@ -53,6 +59,19 @@ $$\sum_{n=0}^\infty ar^n = \frac{a}{1 - r} = \frac{\text{first term}}{1 - \text{
 If $|r| \ge 1$ (and $a \ne 0$), it diverges.
 
 *Why.* $S_N = a + ar + \dots + ar^{N-1}$. Multiply by $r$ and subtract: $S_N - rS_N = a - ar^N$, so $S_N = \frac{a(1 - r^N)}{1 - r}$. If $|r| < 1$, $r^N \to 0$ and $S_N \to \frac{a}{1 - r}$.
+
+The whole procedure fits in a short chart:
+
+```mermaid
+flowchart TD
+  accTitle: How to sum a geometric series
+  accDescr: Write out the first few terms. Find the ratio r by dividing any term by the one before it. If the absolute value of r is not less than 1, the series diverges. If it is less than 1, find the first term, which is the term at the starting index, not necessarily the number in front. Then the sum is the first term divided by 1 minus r.
+  A["Write out the first few terms"] --> B["Ratio r = any term ÷ the term before it"]
+  B --> C{"Is the size of r, |r|, less than 1?"}
+  C -- "no" --> D["The series diverges"]
+  C -- "yes" --> E["First term = the term at the starting index"]
+  E --> F["Sum = first term ÷ (1 − r)"]
+```
 
 ### Example 2
 

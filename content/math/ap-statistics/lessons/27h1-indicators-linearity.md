@@ -141,7 +141,7 @@ For $n = 6$ the stage means are $\tfrac66, \tfrac65, \tfrac64, \tfrac63, \tfrac6
 $$1 + 1.2 + 1.5 + 2 + 3 + 6 = 14.7 \text{ boxes} \quad (= 6 \times H_6 = 6 \times 2.45).$$
 
 ```plot
-{"x": [0, 7], "y": [0, 6.6], "bars": [{"x": 1, "height": 1, "width": 0.7}, {"x": 2, "height": 1.2, "width": 0.7}, {"x": 3, "height": 1.5, "width": 0.7}, {"x": 4, "height": 2, "width": 0.7}, {"x": 5, "height": 3, "width": 0.7}, {"x": 6, "height": 6, "width": 0.7}], "xLabel": "stage (which new toy)", "yLabel": "expected boxes", "caption": "Expected boxes for each new toy when there are 6 toys: 1, 1.2, 1.5, 2, 3 and 6, total 14.7. The last toy alone takes 6."}
+{"x": [0, 8.2], "y": [0, 6.6], "bars": [{"x": 1, "height": 1, "width": 0.7}, {"x": 2, "height": 1.2, "width": 0.7}, {"x": 3, "height": 1.5, "width": 0.7}, {"x": 4, "height": 2, "width": 0.7}, {"x": 5, "height": 3, "width": 0.7}, {"x": 6, "height": 6, "width": 0.7}], "xLabel": "stage (which new toy)", "yLabel": "expected boxes", "caption": "Expected boxes for each new toy when there are 6 toys: 1, 1.2, 1.5, 2, 3 and 6, total 14.7. The last toy alone takes 6."}
 ```
 
 The last toy alone accounts for 6 of the 14.7 boxes, about 41%: when only one toy is missing, each

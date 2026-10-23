@@ -85,6 +85,22 @@ Evaluate $\displaystyle\int_0^{\pi}\sin x\,dx$.
 
 $\Big[-\cos x\Big]_0^{\pi} = -\cos\pi - (-\cos0) = 1 + 1 = \mathbf 2$. One arch of the sine curve has area exactly 2.
 
+Which half of the theorem a problem needs depends on what it asks for:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between the two parts of the FTC
+  accDescr: If the problem asks for the derivative of an integral whose limit contains x, use FTC 1. With x alone as the upper limit the answer is f of x; with a function of x as the limit, multiply by its derivative (chain rule); with x in the lower limit, flip the limits and change the sign. If the problem asks for the value of an integral between two numbers, use FTC 2: first check that the integrand is continuous on the whole interval, then compute F of b minus F of a. If it is not continuous there, the integral is improper (Lesson 35).
+  A{"What is asked?"} -- "derivative of an integral with x in a limit" --> B["FTC 1"]
+  A -- "value of an integral from a to b" --> C["FTC 2"]
+  B --> B1["x as upper limit: answer f(x)"]
+  B --> B2["u(x) as a limit: f(u(x)) times u'(x)"]
+  B --> B3["x in the lower limit: flip, change sign"]
+  C --> C1{"Integrand continuous on the whole interval?"}
+  C1 -- yes --> C2["Compute F(b) minus F(a)"]
+  C1 -- no --> C3["Improper integral: Lesson 35"]
+```
+
 ## The net change theorem
 
 FTC 2 applied to $F'$ in place of $f$:
@@ -102,6 +118,10 @@ FTC 1 lets you analyze $g(x) = \int_a^x f(t)\,dt$ using the graph of $f$ alone, 
 - $g$ is concave up where $f$ is increasing; inflection points where $f$ has a local max or min.
 - Values of $g$ come from areas: $g(a) = 0$, and $g(x)$ adds or subtracts areas between $a$ and $x$.
 
+In the graph below, $g(x) = \int_0^x f(t)\,dt$. Green area adds to $g$ and pink area subtracts. The three marked points are where $g$'s behavior changes: $f$ crosses from positive to negative at $t = 2$, reaches its lowest point at $t = 4$, and crosses back to positive at $t = 6$.
+
+![The graph of y = f(t), a parabola-shaped curve that starts at 3 when t = 0, crosses the t-axis at t = 2, bottoms out at −1 when t = 4, and crosses back up at t = 6. The area above the axis is shaded green and the area below is shaded pink. At t = 2 the label says g has a local max; at t = 4, g has an inflection point; at t = 6, g has a local min.](images/calc-m6-accumulation-features.svg)
+
 ### Example 6
 
 $f$ is the line $f(t) = 2 - t$ on $[0, 4]$, and $g(x) = \int_0^x f(t)\,dt$. Find $g(2)$, $g(4)$, and where $g$ has its maximum on $[0, 4]$.
@@ -109,6 +129,12 @@ $f$ is the line $f(t) = 2 - t$ on $[0, 4]$, and $g(x) = \int_0^x f(t)\,dt$. Find
 - $g(2)$: triangle above the axis from 0 to 2, base 2, height 2: area 2. So $g(2) = 2$.
 - $g(4)$: add the triangle below the axis from 2 to 4 (area 2, counted negative): $g(4) = 2 - 2 = 0$.
 - $g' = f$ changes from positive to negative at $t = 2$, so $g$ is largest at $x = 2$, where $g = 2$.
+
+Here $g(x) = 2x - \frac{x^2}{2}$ exactly, and plotting it beside $f$ shows the link: $g$ climbs while $f$ is above the axis, peaks where $f$ crosses zero, and falls back to 0 as the negative area cancels the positive.
+
+```plot
+{"x": [-0.3, 4.3], "y": [-2.5, 2.8], "functions": [{"f": "2 - x", "from": 0, "to": 4, "label": "f(t) = 2 − t"}, {"f": "2x - x^2/2", "from": 0, "to": 4, "dashed": true, "label": "g(x)"}], "points": [{"at": [2, 2], "label": "max of g at (2, 2)"}, {"at": [4, 0]}], "caption": "f (solid) and its accumulation function g (dashed): g is largest where f changes from positive to negative"}
+```
 
 ## Common mistakes
 

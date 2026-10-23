@@ -1,0 +1,786 @@
+# Round 2, module stat-m3 (Two-variable data): new question types for the core lessons
+# (stat-m3-r2-q..) and questions for the three honors lessons (stat-m3-r2-h..).
+
+# ---- Lesson 11: scatterplots and correlation
+- id: stat-m3-r2-q01
+  lesson: stat-scatter-corr
+  type: label
+  module_quiz: true
+  topic: Scatterplots and correlation
+  stem: 'Dashed lines at the mean of $x$ and the mean of $y$ split this scatterplot into four regions. Describe a point in each numbered region and the sign of its product $z_x z_y$.'
+  image: {src: images/stat-m3-quadrants-blank.svg, alt: 'Scatterplot of five points, weeks of training against skill score, with a dashed vertical line at the mean of x, 3, and a dashed horizontal line at the mean of y, 5. Marker 1 is in the upper right region, 2 in the upper left, 3 in the lower left and 4 in the lower right.'}
+  labels:
+    - {x: 78.6, y: 10.4, text: 'x above its mean, y above its mean: positive product'}
+    - {x: 34.0, y: 16.3, text: 'x below its mean, y above its mean: negative product'}
+    - {x: 36.0, y: 71.1, text: 'x below its mean, y below its mean: positive product'}
+    - {x: 73.8, y: 61.3, text: 'x above its mean, y below its mean: negative product'}
+  distractors: ['x at its mean, y above its mean: positive product']
+  explanation: |-
+    Right of the vertical line means $z_x > 0$; above the horizontal line means $z_y > 0$. Upper right: both positive, so the product is positive. Lower left: both negative, and a negative times a negative is positive. Upper left and lower right: one positive and one negative, so the product is negative. A point exactly on a mean line has a z-score of 0 there, so its product is 0, not positive.
+
+- id: stat-m3-r2-q02
+  lesson: stat-scatter-corr
+  type: text
+  topic: Scatterplots and correlation
+  stem: 'For a data set of $n = 5$ points, the products of the z-scores add to $\sum z_x z_y = 3.2$. The correlation is $r =$ ___.'
+  accept: ['0.8', '4/5']
+  explanation: |-
+    $r = \dfrac{1}{n - 1}\sum z_x z_y = \dfrac{3.2}{4} = 0.8$. Dividing by $n = 5$ instead gives 0.64, which is the wrong divisor (the standard deviations behind the z-scores use $n - 1$).
+
+- id: stat-m3-r2-q03
+  lesson: stat-scatter-corr
+  type: order
+  topic: Scatterplots and correlation
+  stem: 'Put the steps for computing $r$ by hand with the formula $r = S_{xy}/\sqrt{S_{xx}S_{yy}}$ in order.'
+  items:
+    - 'Find the means $\bar{x}$ and $\bar{y}$'
+    - 'Find each deviation $x - \bar{x}$ and $y - \bar{y}$'
+    - 'Multiply each pair of deviations, and square each deviation'
+    - 'Add them up to get $S_{xy}$, $S_{xx}$ and $S_{yy}$'
+    - 'Divide $S_{xy}$ by $\sqrt{S_{xx}S_{yy}}$'
+  explanation: |-
+    Each step needs the one before: deviations need the means, products and squares need the deviations, the sums need the products and squares, and $r$ needs the sums. Example 1 in the lesson follows exactly these steps.
+
+- id: stat-m3-r2-q04
+  lesson: stat-scatter-corr
+  topic: Scatterplots and correlation
+  stem: 'Which of these changes leave the correlation $r$ unchanged? Select all that apply.'
+  choices:
+    - 'Converting every $x$ value from inches to centimeters'
+    - 'Adding 10 to every $y$ value'
+    - 'Swapping which variable is called $x$ and which is called $y$'
+    - 'Multiplying every $y$ value by $-1$'
+  answer: [0, 1, 2]
+  explanation: |-
+    $r$ is built from z-scores, which don't change when you multiply by a positive constant (inches to centimeters) or add a constant. The formula is symmetric in $x$ and $y$, so swapping them doesn't matter. Multiplying by $-1$ flips the sign of every $z_y$, so $r$ changes sign (its size stays the same).
+
+- id: stat-m3-r2-q05
+  lesson: stat-scatter-corr
+  type: match
+  module_quiz: true
+  topic: Scatterplots and correlation
+  stem: 'Match each correlation to the scatterplot it best describes (all the plots have a linear form).'
+  pairs:
+    - ['$r = -0.95$', 'Points fall left to right in a tight band']
+    - ['$r = 0.6$', 'Points rise left to right in a loose cloud']
+    - ['$r = 0.05$', 'No visible linear trend']
+    - ['$r = 1$', 'All points exactly on a rising line']
+  distractors: ['Points rise steeply but follow a curve']
+  explanation: |-
+    The sign gives the direction (negative falls, positive rises) and the size gives the strength: $|r| = 0.95$ is a tight band, 0.6 a moderate loose cloud, 0.05 essentially no linear trend, and $r = 1$ only when every point is on a rising line. A curved pattern isn't described well by any value of $r$.
+
+# ---- Lesson 12: least-squares regression
+- id: stat-m3-r2-q06
+  lesson: stat-lsrl
+  type: label
+  module_quiz: true
+  topic: Least-squares regression
+  stem: 'This is the least-squares line $\hat{y} = 2.6 + 0.8x$ for the training data. Name the numbered parts.'
+  image: {src: images/stat-m3-lsrl-parts-blank.svg, alt: 'The training data with the least-squares line. Marker 1 is on the data point (4, 7). Marker 2 is on an open circle on the line directly below it. Marker 3 is on a brace between those two. Marker 4 is on a diamond at (3, 5). Marker 5 is where the line meets the vertical axis. Marker 6 is inside a dashed triangle at the right end of the line with a horizontal side of 1 unit and a vertical side up to the line.'}
+  labels:
+    - {x: 61.9, y: 21.3, text: Observed value y}
+    - {x: 61.9, y: 36.6, text: Predicted value ŷ}
+    - {x: 57.6, y: 28.9, text: Residual}
+    - {x: 50.0, y: 46.8, text: 'Point of means (x̄, ȳ)'}
+    - {x: 14.3, y: 77.4, text: Intercept}
+    - {x: 82.4, y: 22.6, text: Slope (rise per 1 unit of run)}
+  distractors: [Outlier, Extrapolation]
+  explanation: |-
+    1 is the data point itself, the observed $y = 7$. 2 is the line's prediction at $x = 4$, $\hat{y} = 5.8$. 3 is the vertical gap between them, the residual $7 - 5.8 = 1.2$. 4 is $(3, 5)$, the point of means, which every least-squares line passes through. 5 is the intercept $a = 2.6$, the predicted $y$ at $x = 0$. 6 is a slope triangle: a run of 1 and a rise of 0.8. No point here is far from the pattern (an outlier), and nothing is predicted outside the data (extrapolation).
+
+- id: stat-m3-r2-q07
+  lesson: stat-lsrl
+  type: text
+  topic: Least-squares regression
+  stem: 'A least-squares line has slope $b = 3$, and the data have $\bar{x} = 10$ and $\bar{y} = 50$. The intercept is $a =$ ___. (Give only the number.)'
+  accept: ['20']
+  explanation: |-
+    $a = \bar{y} - b\bar{x} = 50 - 3(10) = 20$, so the line is $\hat{y} = 20 + 3x$. Adding instead of subtracting gives 80.
+
+- id: stat-m3-r2-q08
+  lesson: stat-lsrl
+  type: order
+  topic: Least-squares regression
+  stem: 'You have $\bar{x}$, $s_x$, $\bar{y}$, $s_y$ and $r$, and want to predict $y$ for a new $x$ inside the data range. Put the steps in order.'
+  items:
+    - 'Compute the slope $b = r\,s_y/s_x$'
+    - 'Compute the intercept $a = \bar{y} - b\bar{x}$'
+    - 'Write the line $\hat{y} = a + bx$'
+    - 'Substitute the new $x$ into the line'
+  explanation: |-
+    The intercept formula uses $b$, so the slope comes first; the line needs both; the prediction needs the line. (Before predicting, check that the new $x$ is inside the range of the data; the stem says it is.)
+
+- id: stat-m3-r2-q09
+  lesson: stat-lsrl
+  topic: Least-squares regression
+  stem: 'Which statements are true of every least-squares regression line? Select all that apply.'
+  choices:
+    - 'It passes through the point $(\bar{x}, \bar{y})$'
+    - 'Its slope has the same sign as the correlation $r$'
+    - 'It makes the sum of the squared residuals as small as possible'
+    - 'It stays the same line if $x$ and $y$ swap roles'
+    - 'It passes through at least two of the data points'
+  answer: [0, 1, 2]
+  explanation: |-
+    $a = \bar{y} - b\bar{x}$ puts $(\bar{x}, \bar{y})$ on the line; $b = r\,s_y/s_x$ with $s_x, s_y > 0$ gives $b$ the sign of $r$; and minimizing $\sum (y - \hat{y})^2$ is the definition. Swapping $x$ and $y$ gives a different line (slope $r\,s_x/s_y$ for predicting $x$). The line need not pass through any data point; in the training data it passes through none.
+
+- id: stat-m3-r2-q10
+  lesson: stat-lsrl
+  type: match
+  topic: Least-squares regression
+  stem: 'For a regression of exam score on hours studied, match each part of $\hat{y} = a + bx$ to its meaning.'
+  pairs:
+    - ['$b$', 'Predicted change in score for each extra hour studied']
+    - ['$a$', 'Predicted score for a student who studied 0 hours']
+    - ['$\hat{y}$', 'Predicted score for a given number of hours']
+    - ['$y - \hat{y}$', 'How far a student''s actual score is from the prediction']
+  distractors: [Fraction of the variation in scores explained by hours]
+  explanation: |-
+    The slope is a rate (points per hour), the intercept is the prediction at $x = 0$, $\hat{y}$ is any prediction, and $y - \hat{y}$ is a residual. The fraction of variation explained is $r^2$, which is not part of the equation.
+
+# ---- Lesson 13: residuals, r² and influential points
+- id: stat-m3-r2-q11
+  lesson: stat-residuals
+  type: label
+  module_quiz: true
+  topic: Residuals and r-squared
+  stem: 'Each panel shows the same eight points plus one circled point, with the line fitted with it (solid) and without it (dashed). Name the kind of point circled in each panel.'
+  image: {src: images/stat-m3-unusual-points-blank.svg, alt: 'Three scatterplots of the same eight points rising along a line from x = 1 to 8. Panel 1: marker 1 on an extra point at x = 4.5, well above the other points; the two fitted lines are nearly the same. Panel 2: marker 2 on an extra point at x = 16 that lies on the trend of the others; the two lines coincide. Panel 3: marker 3 on an extra point at x = 16 far below the trend; the solid line with it is almost flat while the dashed line without it rises steeply.'}
+  labels:
+    - {x: 14.0, y: 35.9, text: 'Outlier with a large residual, not influential'}
+    - {x: 64.1, y: 23.3, text: 'High leverage but following the pattern'}
+    - {x: 96.9, y: 64.6, text: 'Influential point'}
+  distractors: ['Point of means']
+  explanation: |-
+    1 is far from the line vertically (a large residual) but sits in the middle of the $x$ values, so it barely moves the line: an outlier that is not influential. 2 has an extreme $x$ (high leverage), but it lies on the pattern, so the line hardly changes. 3 has an extreme $x$ and is off the pattern, so it drags the slope from about 0.48 to about 0.01: an influential point. None of them is the point of means.
+
+- id: stat-m3-r2-q12
+  lesson: stat-residuals
+  type: text
+  topic: Residuals and r-squared
+  stem: 'A regression line is $\hat{y} = 12 + 3x$. A data point has $x = 5$ and $y = 30$. Its residual is ___.'
+  accept: ['3', '+3']
+  explanation: |-
+    $\hat{y} = 12 + 3(5) = 27$, so the residual is $y - \hat{y} = 30 - 27 = 3$. The point is 3 units above the line. Computing predicted minus observed gives $-3$, the wrong sign.
+
+- id: stat-m3-r2-q13
+  lesson: stat-residuals
+  type: match
+  topic: Residuals and r-squared
+  stem: 'Match each residual plot pattern to what it tells you about a straight-line model.'
+  pairs:
+    - [Random scatter around zero with even spread, A line is an appropriate model]
+    - ['Residuals positive at both ends, negative in the middle', The relationship is curved]
+    - [Spread of residuals grows as x increases, Predictions are less precise for large x]
+    - [One residual far larger than all the others, That point is an outlier]
+  distractors: [The correlation must be exactly zero]
+  explanation: |-
+    No pattern means the line captured the form. A U-shape (or upside-down U) means curvature the line missed. A fan means the typical error depends on $x$. A single huge residual marks an outlier. A residual plot of a least-squares fit never tells you that $r = 0$.
+
+- id: stat-m3-r2-q14
+  lesson: stat-residuals
+  topic: Residuals and r-squared
+  stem: 'A least-squares regression has $r^2 = 0.81$. Which statements must be true? Select all that apply.'
+  choices:
+    - 'The correlation is either $0.9$ or $-0.9$'
+    - 'SSE is 19% of SST'
+    - 'About 81% of the variation in $y$ is accounted for by the linear relationship with $x$'
+    - '81% of the data points lie on the regression line'
+    - 'A straight line is the right form for these data'
+  answer: [0, 1, 2]
+  explanation: |-
+    $|r| = \sqrt{0.81} = 0.9$, with the sign of the slope. $r^2 = 1 - \text{SSE}/\text{SST}$, so $\text{SSE}/\text{SST} = 0.19$. The fraction of variation explained is 81%. $r^2$ says nothing about how many points are on the line, and a curved pattern can still give a high $r^2$, so only the residual plot can confirm the form.
+
+- id: stat-m3-r2-q15
+  lesson: stat-residuals
+  type: order
+  topic: Residuals and r-squared
+  stem: 'Put the steps for making a residual plot in order.'
+  items:
+    - Fit the least-squares line to the data
+    - Compute the predicted value ŷ for each data point
+    - Subtract to get each residual y − ŷ
+    - Plot the residuals against x
+    - Look for curves, fans or unusual points
+  explanation: |-
+    Predictions need the line, residuals need the predictions, the plot needs the residuals, and you can only read the pattern once the plot exists.
+
+# ---- Lesson 14: transformations to achieve linearity
+- id: stat-m3-r2-q16
+  lesson: stat-transform-linear
+  type: text
+  topic: Nonlinear models
+  stem: 'A model fitted to transformed data is $\widehat{\log_{10} y} = 0.5 + 0.25x$. At $x = 6$, the predicted value of $y$ (not of $\log y$) is $\hat{y} =$ ___.'
+  accept: ['100']
+  explanation: |-
+    $\widehat{\log y} = 0.5 + 0.25(6) = 2$, so $\hat{y} = 10^2 = 100$. Answering 2 forgets to back-transform.
+
+- id: stat-m3-r2-q17
+  lesson: stat-transform-linear
+  type: match
+  module_quiz: true
+  topic: Nonlinear models
+  stem: 'Each plot below turned out to be straight with random residuals. Match each to the model it supports for the original data.'
+  pairs:
+    - [log y against x, 'Exponential model, y = a·b^x']
+    - [log y against log x, 'Power model, y = a·x^p']
+    - [y against x, 'Linear model, y = a + bx']
+    - [square root of y against x, 'Square-root model, y = (c + dx)²']
+  distractors: ['Logarithmic model, y = a + b·log x']
+  explanation: |-
+    $y = ab^x$ becomes $\log y = \log a + x\log b$, linear in $x$. $y = ax^p$ becomes $\log y = \log a + p\log x$, linear in $\log x$. A straight $y$-versus-$x$ plot needs no transformation. A straight $\sqrt{y}$-versus-$x$ plot means $\sqrt{y} = c + dx$, so $y = (c + dx)^2$. A model $y = a + b\log x$ would show up as a straight plot of $y$ against $\log x$, which isn't in the list.
+
+- id: stat-m3-r2-q18
+  lesson: stat-transform-linear
+  type: order
+  topic: Nonlinear models
+  stem: 'Counts that grow by a roughly constant percent each hour need a prediction for a new hour. Put the steps in order.'
+  items:
+    - 'Fit a line to $y$ against $x$ and see a curved residual plot'
+    - 'Take $\log_{10}$ of every count'
+    - 'Fit the least-squares line of $\log y$ on $x$'
+    - 'Use the line to predict $\log y$ at the new hour'
+    - 'Raise 10 to that power to predict the count'
+  explanation: |-
+    The curved residual plot is what tells you to transform; you need the logged values before you can fit to them; the fitted line gives a prediction on the log scale; and back-transforming with $10^{(\cdot)}$ (the inverse of $\log_{10}$) turns it into a count.
+
+- id: stat-m3-r2-q19
+  lesson: stat-transform-linear
+  topic: Nonlinear models
+  stem: 'For which of these relationships would a plot of $\log y$ against $x$ be close to a straight line? Select all that apply.'
+  choices:
+    - 'Value of a savings account earning 4% interest a year, against years'
+    - 'Amount of a radioactive substance left, against time'
+    - 'Area of a circle, against its radius'
+    - 'Distance traveled at a constant 60 km/h, against hours'
+  answer: [0, 1]
+  explanation: |-
+    Fixed-percent growth and radioactive decay multiply $y$ by the same factor each unit of time, which is exponential: $\log y$ is linear in $x$. Area $= \pi r^2$ is a power model ($\log y$ is linear in $\log x$, not in $x$), and constant-speed distance is already linear in $y$ itself.
+
+- id: stat-m3-r2-q20
+  lesson: stat-transform-linear
+  topic: Nonlinear models
+  stem: 'A straight line fitted to the raw bacteria counts in the lesson has residuals of about $+16, 0, -14, -15, -7, +21$ for hours 0 to 5. What do these tell you?'
+  choices:
+    - 'The line is a good fit, because the residuals add to about zero'
+    - 'The relationship is curved: the line is too low at both ends and too high in the middle'
+    - 'Hour 5 is an influential point that should be removed'
+    - 'The counts should be modeled with a power model of $y$ against $\log x$'
+  answer: 1
+  explanation: |-
+    Positive residuals mean points above the line, so the line is too low at hours 0 and 5 and too high in between: a systematic curve, the signal to transform. Residuals of any least-squares line add to zero, so that proves nothing. Hour 5 follows the curved pattern rather than breaking it. The log of the counts against hour (not against log hour) turned out to be straight.
+
+# ---- Lesson 15: two-way tables
+- id: stat-m3-r2-q21
+  lesson: stat-two-way
+  type: label
+  topic: Two-way tables
+  stem: 'Four cells of the transit survey table are highlighted. Name each numbered cell.'
+  image: {src: images/stat-m3-two-way-parts-blank.svg, alt: 'The transit survey table with rows Under 30, 30 to 50, Over 50 and Total, and columns Train, Bus, Car and Total. Marker 1 is on the cell 30 (under 30, train). Marker 2 is on the cell 60 at the end of the under-30 row. Marker 3 is on the cell 70 at the bottom of the train column. Marker 4 is on the cell 200 in the bottom right corner.'}
+  labels:
+    - {x: 33.6, y: 41.2, text: 'Joint count (one combination of both variables)'}
+    - {x: 72.9, y: 41.2, text: 'Row total (marginal count for age group)'}
+    - {x: 33.6, y: 81.2, text: 'Column total (marginal count for transit mode)'}
+    - {x: 72.9, y: 81.2, text: Grand total}
+  distractors: [Conditional percent]
+  explanation: |-
+    1: 30 commuters are both under 30 and train riders, a joint count. 2: 60 is everyone under 30, a row total. 3: 70 is everyone who takes the train, a column total. 4: 200 is everyone surveyed. Totals in the margins give the marginal distributions; every cell in the table is a count, not a percent.
+
+- id: stat-m3-r2-q22
+  lesson: stat-two-way
+  type: text
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'In the transit survey, 25 of the 80 commuters aged 30–50 take the train. What percent of commuters aged 30–50 take the train? ___ % (Give the exact value.)'
+  accept: ['31.25', '31.25%']
+  explanation: |-
+    The group is the 30–50 commuters, so their row total is the denominator: $25/80 = 0.3125 = 31.25\%$. Dividing by the train total (70) answers a different question (what percent of train riders are 30–50), and dividing by 200 gives the joint percent.
+
+- id: stat-m3-r2-q23
+  lesson: stat-two-way
+  type: match
+  topic: Two-way tables
+  stem: 'Match each statement about the transit survey to the kind of distribution it comes from.'
+  pairs:
+    - ['15% of all 200 commuters are under-30 train riders', Joint]
+    - ['35% of all 200 commuters take the train', Marginal]
+    - ['50% of the 60 under-30 commuters take the train', Conditional]
+  distractors: [Cumulative]
+  explanation: |-
+    One cell over the grand total ($30/200$) is joint; a total over the grand total ($70/200$) is marginal; a cell over its group's total ($30/60$) is conditional. A cumulative distribution adds up values in order and doesn't apply to these categories.
+
+- id: stat-m3-r2-q24
+  lesson: stat-two-way
+  topic: Two-way tables
+  stem: 'Look back at the lesson''s data on Hospitals A and B. Which statements are correct? Select all that apply.'
+  choices:
+    - 'A has the higher survival rate for mild patients'
+    - 'A has the higher survival rate for severe patients'
+    - 'B has the higher survival rate when all patients are combined'
+    - 'A severe patient would do better at B, since B''s overall rate is higher'
+    - 'The reversal shows that one of the hospitals'' rates was miscalculated'
+  answer: [0, 1, 2]
+  explanation: |-
+    Mild: A 98.3% vs. B 96.7%. Severe: A 52.5% vs. B 30%. Overall: A 80% vs. B 90%. The overall comparison is distorted because A treats far more severe cases (40% vs. 10%), so a severe patient should look at the severe-patient rates, where A is better. The reversal is Simpson's paradox, real arithmetic and not an error.
+
+- id: stat-m3-r2-q25
+  lesson: stat-two-way
+  type: order
+  topic: Two-way tables
+  stem: 'Put the steps for deciding whether two categorical variables are associated in order.'
+  items:
+    - Decide which variable defines the groups to compare
+    - Divide each cell by its group's total
+    - Compare the conditional distributions across the groups
+    - State whether the variables are associated
+  explanation: |-
+    You need to know the groups before you know which totals are the denominators; the conditional distributions come from those divisions; and the conclusion depends on whether the distributions differ.
+
+# ---- Honors: the mathematics of least squares
+- id: stat-m3-r2-h01
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'For the training data ($\bar{x} = 3$, $\bar{y} = 5$, $S_{xx} = 10$, least-squares line $\hat{y} = 2.6 + 0.8x$ with SSE $= 3.6$), by how much does the SSE of the line $y = 2 + x$ exceed 3.6?'
+  choices: ['0.04', '0.2', '0.4', '2.0']
+  answer: 2
+  explanation: |-
+    The line $y = 2 + x$ passes through $(3, 5)$, so the means penalty is 0. The slope penalty is $S_{xx}(b - \hat{b})^2 = 10(1 - 0.8)^2 = 0.4$. Directly: the errors are $0, 1, -1, 1, -1$, so SSE $= 4.0 = 3.6 + 0.4$. 0.04 forgets to multiply by $S_{xx}$, and 2.0 multiplies $10 \times 0.2$ without squaring.
+
+- id: stat-m3-r2-h02
+  lesson: stat-m3-h-least-squares
+  type: text
+  topic: Least-squares theory
+  stem: 'A least-squares regression has $\text{SST} = 50$ and $\text{SSE} = 18$. The regression sum of squares is $\text{SSR} =$ ___.'
+  accept: ['32']
+  explanation: |-
+    $\text{SST} = \text{SSR} + \text{SSE}$, so $\text{SSR} = 50 - 18 = 32$, and $r^2 = 32/50 = 0.64$.
+
+- id: stat-m3-r2-h03
+  lesson: stat-m3-h-least-squares
+  type: order
+  topic: Least-squares theory
+  stem: 'Put the steps of the lesson''s proof that $r^2 = 1 - \text{SSE}/\text{SST}$ in order.'
+  items:
+    - 'Show that $\sum (d_i - c)^2$ is smallest when $c$ is the mean of the $d_i$'
+    - 'Conclude that, for any slope $b$, the best intercept is $a = \bar{y} - b\bar{x}$'
+    - 'Substitute that intercept to write SSE as a quadratic in $b$ alone'
+    - 'Complete the square to find the best slope $b = S_{xy}/S_{xx}$'
+    - 'Substitute the best slope to get $\text{SSE} = \text{SST}(1 - r^2)$'
+  explanation: |-
+    Each step uses the previous one: the fact about the mean gives the intercept, the intercept turns SSE into a function of $b$ only, completing the square finds the best $b$, and the leftover constant is $S_{yy} - S_{xy}^2/S_{xx} = \text{SST}(1 - r^2)$.
+
+- id: stat-m3-r2-h04
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'Which are always true of the residuals $e_i$ from a least-squares line? Select all that apply.'
+  choices:
+    - '$\sum e_i = 0$'
+    - '$\sum (x_i - \bar{x})e_i = 0$'
+    - 'The correlation between the residuals and $x$ is 0'
+    - '$\sum e_i^2 = \text{SST}$'
+    - 'Every residual has the same sign as the slope'
+  answer: [0, 1, 2]
+  explanation: |-
+    With $e_i = (y_i - \bar{y}) - \hat{b}(x_i - \bar{x})$: the sum is $0 - \hat{b} \cdot 0 = 0$, and $\sum (x_i - \bar{x})e_i = S_{xy} - \hat{b}S_{xx} = 0$. A zero cross-product sum means zero correlation with $x$. $\sum e_i^2$ is SSE, which is less than SST unless $r = 0$. Residuals have both signs; they add to zero.
+
+- id: stat-m3-r2-h05
+  lesson: stat-m3-h-least-squares
+  type: label
+  topic: Least-squares theory
+  stem: 'The picture splits the point $(4, 7)$''s deviation from the mean of $y$. Name the numbered parts.'
+  image: {src: images/stat-m3-ss-decomp-blank.svg, alt: 'The training data with the least-squares line and a dashed horizontal line at y = 5. Near the point (4, 7) are three vertical bars: marker 1 on a purple bar from the dashed line up to the height of the point; marker 2 on an orange bar from the line''s fitted value up to the point; marker 3 on a green bar from the dashed line up to the fitted value. Marker 4 is on the dashed horizontal line and marker 5 is on the sloped line near its right end.'}
+  labels:
+    - {x: 61.7, y: 34.0, text: Total deviation y − ȳ}
+    - {x: 69.0, y: 28.9, text: Residual y − ŷ}
+    - {x: 69.0, y: 41.7, text: Explained part ŷ − ȳ}
+    - {x: 30.3, y: 51.5, text: Horizontal line at the mean of y}
+    - {x: 85.9, y: 14.7, text: Least-squares line}
+  distractors: [SD line, Leverage]
+  explanation: |-
+    The total deviation $7 - 5 = 2$ (1) splits into the explained part $5.8 - 5 = 0.8$ (3), from the mean line (4) up to the least-squares line (5), plus the residual $7 - 5.8 = 1.2$ (2) from the line up to the point. Summed over all points, the squares give $\text{SST} = \text{SSR} + \text{SSE}$.
+
+- id: stat-m3-r2-h06
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'For the training data, every line through $(3, 5)$ with slope $b$ has $\text{SSE}(b) = 10(b - 0.8)^2 + 3.6$. What is the SSE of the line through $(3, 5)$ with slope 1.3?'
+  choices: ['6.1', '3.6', '4.1', '2.5']
+  answer: 0
+  explanation: |-
+    $10(1.3 - 0.8)^2 + 3.6 = 10(0.25) + 3.6 = 6.1$. 2.5 is only the penalty; 4.1 adds $0.5$ without squaring or multiplying by 10; 3.6 is the minimum, reached only at $b = 0.8$.
+
+- id: stat-m3-r2-h07
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'Completing the square leaves the minimum value $\text{SSE}_{\min} = S_{yy} - S_{xy}^2/S_{xx}$. Which expression is equal to it?'
+  choices: ['$\text{SST} \cdot r^2$', '$\text{SST}(1 - r)$', '$\text{SST}(1 - r^2)$', '$S_{xx}(1 - r^2)$']
+  answer: 2
+  explanation: |-
+    Factor out $S_{yy}$: $S_{yy}\left(1 - \dfrac{S_{xy}^2}{S_{xx}S_{yy}}\right) = S_{yy}(1 - r^2)$, and $S_{yy} = \text{SST}$. $\text{SST} \cdot r^2$ is SSR, the explained part. $1 - r$ forgets to square, and $S_{xx}$ is the spread of $x$, not of $y$.
+
+- id: stat-m3-r2-h08
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'A regression on $n = 27$ points has $s_y = 4$ and $r = 0.8$. What is the standard deviation of the residuals $s$?'
+  choices: ['2.40', '2.36', '5.99', '2.45']
+  answer: 3
+  explanation: |-
+    $\text{SSE} = (n - 1)s_y^2(1 - r^2) = 26 \times 16 \times 0.36 = 149.76$, so $s = \sqrt{149.76/25} \approx 2.45$. $s_y\sqrt{1 - r^2} = 2.40$ effectively divides by $n - 1$; dividing by $n$ gives 2.36; 5.99 forgets the square root.
+
+- id: stat-m3-r2-h09
+  lesson: stat-m3-h-least-squares
+  type: match
+  topic: Least-squares theory
+  stem: 'Match each quantity to its description.'
+  pairs:
+    - [SST, Sum of squared deviations of y from its mean]
+    - [SSE, Sum of squared residuals]
+    - [SSR, Sum of squared deviations of the fitted values from the mean of y]
+    - ['$r^2$', SSR divided by SST]
+  distractors: [Sum of the residuals (always zero)]
+  explanation: |-
+    SST measures total variation, SSE what the line leaves unexplained, and SSR what it explains, with $\text{SST} = \text{SSR} + \text{SSE}$. Their ratio $\text{SSR}/\text{SST} = 1 - \text{SSE}/\text{SST}$ is $r^2$. The plain sum of residuals is zero, which is why it can't measure fit.
+
+- id: stat-m3-r2-h10
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'Why does $s = \sqrt{\text{SSE}/(n - 2)}$ divide by $n - 2$?'
+  choices:
+    - 'Because two data points always lie exactly on the line'
+    - 'Because the residuals must satisfy two equations, so only $n - 2$ of them are free to vary'
+    - 'Because $n - 2$ makes $s$ smaller than $s_y$'
+    - 'Because the first and last points are excluded from the fit'
+  answer: 1
+  explanation: |-
+    The residuals satisfy $\sum e_i = 0$ and $\sum (x_i - \bar{x})e_i = 0$, one equation for each estimated quantity (intercept and slope). Given any $n - 2$ residuals the other two are forced, so there are $n - 2$ degrees of freedom. No data points are excluded, and the line needn't pass through any data point.
+
+- id: stat-m3-r2-h11
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'Who first published the method of least squares, and when?'
+  choices: ['Francis Galton, in 1886', 'Karl Pearson, in 1896', 'Carl Friedrich Gauss, in 1795', 'Adrien-Marie Legendre, in 1805']
+  answer: 3
+  explanation: |-
+    Legendre published it in 1805 in a work on comet orbits. Gauss published his account in 1809 and said he had used the method since 1795, which is not the same as publishing it. Galton and Pearson came later and applied regression and correlation to heredity.
+
+- id: stat-m3-r2-h12
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'Compared with the least-squares line, the least absolute deviations line (which minimizes $\sum |y - \hat{y}|$)'
+  choices:
+    - 'is more resistant to outliers but has no simple formula'
+    - 'always passes through $(\bar{x}, \bar{y})$'
+    - 'gives the same line whenever the data have no outliers'
+    - 'has the decomposition $\text{SST} = \text{SSR} + \text{SSE}$'
+  answer: 0
+  explanation: |-
+    Like the median compared with the mean, absolute deviations are less affected by a far-off point, but the line must be found by an algorithm and can be non-unique. Passing through the point of means and the sum-of-squares decomposition are properties of least squares. The two lines usually differ even without outliers.
+
+- id: stat-m3-r2-h13
+  lesson: stat-m3-h-least-squares
+  type: text
+  topic: Least-squares theory
+  stem: 'For a list of numbers $d_1, \ldots, d_n$, the sum $\sum (d_i - c)^2$ is smallest when the constant $c$ is the ___ of the list.'
+  accept: [mean, average, arithmetic mean, sample mean, mean value]
+  explanation: |-
+    $\sum (d_i - c)^2 = \sum (d_i - \bar{d})^2 + n(\bar{d} - c)^2$, and the second term is zero only when $c = \bar{d}$. (The median minimizes $\sum |d_i - c|$ instead.)
+
+- id: stat-m3-r2-h14
+  lesson: stat-m3-h-least-squares
+  topic: Least-squares theory
+  stem: 'A data set has $S_{xx} = 40$ and least-squares slope $\hat{b} = 1.5$. A line through $(\bar{x}, \bar{y})$ with slope 1.0 has an SSE that exceeds the minimum by how much?'
+  choices: ['20', '10', '0.25', '0.5']
+  answer: 1
+  explanation: |-
+    The slope penalty is $S_{xx}(b - \hat{b})^2 = 40(1.0 - 1.5)^2 = 40 \times 0.25 = 10$. The line goes through the point of means, so there is no intercept penalty. 20 forgets to square the 0.5; 0.25 forgets to multiply by $S_{xx}$.
+
+# ---- Honors: regression to the mean
+- id: stat-m3-r2-h15
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Galton found that a child''s height deviation from the average was, on average, about two-thirds of the mid-parent''s deviation. Mid-parents 4.5 inches above average would have children averaging about how far above average?'
+  choices: ['4.5 inches', '6.75 inches', '3 inches', '1.5 inches']
+  answer: 2
+  explanation: |-
+    $\tfrac{2}{3} \times 4.5 = 3$ inches. The children are tall, but less extreme than their parents. 6.75 multiplies by $\tfrac32$ (moving away from the mean), and 1.5 is the one-third that was lost.
+
+- id: stat-m3-r2-h16
+  lesson: stat-m3-h-regression-mean
+  type: text
+  topic: Regression to the mean
+  stem: 'A test and a retest both have mean 70 and SD 10, with $r = 0.6$. A student scored 90 on the test. The least-squares prediction of the retest score is ___.'
+  accept: ['82']
+  explanation: |-
+    With equal SDs, $\hat{y} = 70 + 0.6(90 - 70) = 70 + 12 = 82$. In z-scores: $z = 2$, so $\hat{z} = 0.6 \times 2 = 1.2$, which is $70 + 1.2 \times 10 = 82$.
+
+- id: stat-m3-r2-h17
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Which of these could be explained by regression to the mean alone, with no real cause? Select all that apply.'
+  choices:
+    - 'Students who scored lowest on a first test score higher on average on a second test'
+    - 'A rookie with an outstanding first season has a less outstanding second season'
+    - 'Patients who join a study when their symptoms are at their worst feel better a month later'
+    - 'In a randomized experiment, the treatment group improves far more than an equally chosen control group'
+    - 'After five heads in a row, a fair coin is more likely to land tails'
+  answer: [0, 1, 2]
+  explanation: |-
+    The first three all select an extreme first measurement, and luck that doesn't repeat pulls the second measurement toward the mean. In the randomized experiment, the control group regresses too, so a much larger gain in the treatment group is evidence of a real effect. The coin claim is the gambler's fallacy: independent flips have no memory, and regression is about predictions from imperfectly correlated measurements, not about chance "evening out."
+
+- id: stat-m3-r2-h18
+  lesson: stat-m3-h-regression-mean
+  type: order
+  topic: Regression to the mean
+  stem: 'A school wants to know whether a tutoring program helps its weakest readers, without being fooled by regression to the mean. Put the steps of a fair study in order.'
+  items:
+    - Give all students a reading pretest
+    - Select the students who score below a cutoff
+    - Randomly assign the selected students to tutoring or no tutoring
+    - Give both groups a reading posttest
+    - Compare the average gains of the two groups
+  explanation: |-
+    Selection needs pretest scores; random assignment happens among the selected students so that both groups are equally extreme and regress by the same amount on average; the posttest comes after the program; and only the difference in gains is credited to tutoring.
+
+- id: stat-m3-r2-h19
+  lesson: stat-m3-h-regression-mean
+  type: match
+  topic: Regression to the mean
+  stem: 'Two variables have $r = 0.5$ and $s_x = s_y = 10$. Match each line, drawn on $y$-versus-$x$ axes, to its slope.'
+  pairs:
+    - [Least-squares line for predicting y from x, '0.5']
+    - [SD line, '1']
+    - [Least-squares line for predicting x from y, '2']
+  distractors: ['0.25']
+  explanation: |-
+    $y$ on $x$: $r\,s_y/s_x = 0.5$. SD line: $s_y/s_x = 1$. $x$ on $y$ has slope $r\,s_x/s_y = 0.5$ as a function of $y$; drawn on $y$-versus-$x$ axes its slope is $1/0.5 = 2$. The SD line lies between the two regression lines. 0.25 is $r^2$, the product of the two regression slopes $0.5 \times 0.5$.
+
+- id: stat-m3-r2-h20
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'The least-squares slope for predicting $y$ from $x$ is 2, and the slope for predicting $x$ from $y$ is 0.32. What is $r$?'
+  choices: ['0.64', '0.8', '0.4', '1.6']
+  answer: 1
+  explanation: |-
+    The two slopes multiply to $r^2$: $2 \times 0.32 = 0.64$, so $|r| = 0.8$, and $r$ is positive because both slopes are positive. 0.64 is $r^2$; 1.6 is $2 \times 0.8$.
+
+- id: stat-m3-r2-h21
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Because children of very tall parents are on average less tall than their parents, a student concludes that heights will be much less spread out in a few generations. What is wrong?'
+  choices:
+    - 'Nothing; regression to the mean shrinks the spread every generation'
+    - 'The spread will shrink only if $r$ is negative'
+    - 'Predictions are pulled toward the mean, but actual heights are prediction plus scatter, so the spread stays about the same'
+    - 'Regression to the mean applies only to test scores, not to heights'
+  answer: 2
+  explanation: |-
+    The line pulls predictions in, but individuals scatter around their predictions, and that scatter refills the tails: some children of average parents turn out very tall. The effect also runs backward (tall children's parents are, on average, less tall than they are), which a real shrinking force couldn't do.
+
+- id: stat-m3-r2-h22
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Flight instructors noticed that after they praised an excellent landing, the next landing was usually worse, and after they criticized a poor one, the next was usually better. What is the best explanation?'
+  choices:
+    - 'Praise makes pilots overconfident and criticism makes them careful'
+    - 'Landings vary partly by chance, so an extreme landing is usually followed by a less extreme one whatever the instructor says'
+    - 'The instructors judged the landings inconsistently'
+    - 'Pilots deliberately alternate good and bad landings'
+  answer: 1
+  explanation: |-
+    This is the regression fallacy that Daniel Kahneman describes. Both patterns are exactly what regression to the mean predicts when performance is skill plus luck, even if praise and criticism have no effect at all. Testing the psychological explanation would need a comparison, such as randomly varying the feedback.
+
+- id: stat-m3-r2-h23
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Test A has test–retest correlation 0.9 and Test B has 0.5 (same mean and SD on each pair of sittings). Students who scored 2 SDs above the mean the first time take each test again. Which statement is correct?'
+  choices:
+    - 'Both groups are predicted to score 2 SDs above the mean again'
+    - 'Test A shows more regression, because its correlation is higher'
+    - 'Test B shows more regression: its prediction is 1 SD above the mean, versus 1.8 SDs for A'
+    - 'Neither test shows regression, because the students are the same'
+  answer: 2
+  explanation: |-
+    $\hat{z} = r z$: Test A predicts $0.9 \times 2 = 1.8$ SDs, Test B $0.5 \times 2 = 1$ SD. The less reliable test (more luck in each score) shows more regression. Only $r = 1$ would give no regression.
+
+- id: stat-m3-r2-h24
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Fathers'' and sons'' heights have $r = 0.5$, with equal means and SDs. A son is 2 SDs above the mean. Using the least-squares line for predicting fathers from sons, his father is predicted to be'
+  choices: ['2 SDs above the mean', '4 SDs above the mean', 'at the mean', '1 SD above the mean']
+  answer: 3
+  explanation: |-
+    Predicting in the other direction also pulls toward the mean: $\hat{z} = 0.5 \times 2 = 1$. Regression works both ways, which is how Galton realized it wasn't a biological force. 4 SDs comes from inverting the son-on-father line instead of using the father-on-son line.
+
+- id: stat-m3-r2-h25
+  lesson: stat-m3-h-regression-mean
+  type: text
+  topic: Regression to the mean
+  stem: 'Two variables have $r = 0.75$. An individual has $z_x = 2$. The least-squares line predicts $\hat{z}_y =$ ___.'
+  accept: ['1.5', '3/2']
+  explanation: |-
+    In standard units the line is $\hat{z}_y = r\,z_x = 0.75 \times 2 = 1.5$: half an SD closer to the mean than the predictor.
+
+- id: stat-m3-r2-h26
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'A test and retest both have mean 100 and SD 15, with $r = 0.6$. Students chosen because they averaged 72 on the test go through a program, then average 84 on the retest. What retest average would regression to the mean alone predict?'
+  choices: ['83.2', '72.0', '100.0', '88.8']
+  answer: 0
+  explanation: |-
+    $100 + 0.6(72 - 100) = 100 - 16.8 = 83.2$. So regression alone explains about 11.2 of the 12-point gain, leaving about 0.8 points that the program might explain, and only a control group could confirm even that. 88.8 uses $1 - r = 0.4$ in place of $r$.
+
+- id: stat-m3-r2-h27
+  lesson: stat-m3-h-regression-mean
+  topic: Regression to the mean
+  stem: 'Which describes the SD line of a scatterplot with $r > 0$?'
+  choices:
+    - 'It passes through $(\bar{x}, \bar{y})$ with slope $s_y/s_x$ and is steeper than the least-squares line of $y$ on $x$'
+    - 'It is the least-squares line for predicting $y$ from $x$'
+    - 'It passes through the origin with slope $r$'
+    - 'It is horizontal at $\bar{y}$, one SD above the mean'
+  answer: 0
+  explanation: |-
+    The SD line rises one SD of $y$ per SD of $x$ through the point of means, along the long axis of the cloud. The least-squares line has slope $r\,s_y/s_x$, which is flatter when $0 < r < 1$. Slope $r$ through the origin is the regression line in z-scores, not the SD line.
+
+# ---- Honors: relative risk, odds ratios and standardization
+- id: stat-m3-r2-h28
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'In a cohort study, 30 of 200 exposed people and 10 of 200 unexposed people developed a condition. What is the relative risk (exposed ÷ unexposed)?'
+  choices: ['0.10', '3.35', '3', '0.33']
+  answer: 2
+  explanation: |-
+    Risks: $30/200 = 0.15$ and $10/200 = 0.05$, so $\text{RR} = 0.15/0.05 = 3$. 0.10 is the risk difference; 3.35 is the odds ratio $(30 \times 190)/(170 \times 10)$; 0.33 divides the wrong way.
+
+- id: stat-m3-r2-h29
+  lesson: stat-m3-h-risk-odds
+  type: text
+  topic: Relative risk and odds ratios
+  stem: 'A 2×2 table has exposed: 20 with the outcome, 80 without; unexposed: 10 with the outcome, 90 without. The odds ratio is ___.'
+  accept: ['2.25', '9/4']
+  explanation: |-
+    $\text{OR} = \dfrac{ad}{bc} = \dfrac{20 \times 90}{80 \times 10} = \dfrac{1800}{800} = 2.25$. The relative risk is $0.20/0.10 = 2$; the odds ratio is farther from 1, as it always is.
+
+- id: stat-m3-r2-h30
+  lesson: stat-m3-h-risk-odds
+  type: match
+  topic: Relative risk and odds ratios
+  stem: 'Match each measure to how it is computed.'
+  pairs:
+    - [Risk difference, Risk in the exposed minus risk in the unexposed]
+    - [Relative risk, Risk in the exposed divided by risk in the unexposed]
+    - [Odds, Probability of the event divided by probability it doesn't happen]
+    - [Odds ratio, Odds in the exposed divided by odds in the unexposed]
+  distractors: [Cell count divided by the grand total]
+  explanation: |-
+    Risk difference and relative risk compare risks (proportions) by subtraction and division; odds are $p/(1 - p)$; the odds ratio divides two odds, $ad/bc$ in the 2×2 table. A cell over the grand total is a joint proportion.
+
+- id: stat-m3-r2-h31
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'A case-control study chose 300 people with a disease and 600 without, then recorded past exposure. Which can be estimated directly from its table? Select all that apply.'
+  choices:
+    - 'The odds ratio'
+    - 'The odds of exposure among the cases'
+    - 'The risk of the disease among exposed people in the population'
+    - 'The proportion of the population that has the disease'
+  answer: [0, 1]
+  explanation: |-
+    The researchers fixed the numbers of cases and controls, so any "risk" or disease proportion from the table reflects that choice (here one-third), not the population. Odds of exposure within the cases or within the controls are real, and the odds ratio $ad/bc$ doesn't depend on how many cases and controls were sampled.
+
+- id: stat-m3-r2-h32
+  lesson: stat-m3-h-risk-odds
+  type: order
+  topic: Relative risk and odds ratios
+  stem: 'Two hospitals are compared using direct standardization with a standard population that is 70% mild and 30% severe. Put the steps in order.'
+  items:
+    - Split each hospital's patients into mild and severe cases
+    - Compute each hospital's survival rate within each stratum
+    - Multiply each stratum rate by the standard share of that stratum
+    - Add the products to get each hospital's adjusted rate
+    - Compare the two adjusted rates
+  explanation: |-
+    Stratum rates need the split, weighting needs the stratum rates, the adjusted rate is the sum of the weighted rates, and the comparison needs both adjusted rates.
+
+- id: stat-m3-r2-h33
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'An event has probability 0.2. What are its odds?'
+  choices: ['0.25', '0.2', '4', '0.8']
+  answer: 0
+  explanation: |-
+    $\text{odds} = p/(1 - p) = 0.2/0.8 = 0.25$, "1 to 4." 4 is the odds against the event, and 0.8 is the probability it doesn't happen.
+
+- id: stat-m3-r2-h34
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'A headline says a food additive "triples the risk" of a rare illness. The risk rises from 1 in 50,000 to 3 in 50,000. What is the risk difference?'
+  choices: ['3', '2 in 50,000, or 0.00004', '200%', '1 in 3']
+  answer: 1
+  explanation: |-
+    $3/50{,}000 - 1/50{,}000 = 2/50{,}000 = 0.00004$: two extra cases per 50,000 people. The relative risk is 3 (a 200% increase), which sounds far more alarming. Report both.
+
+- id: stat-m3-r2-h35
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'In which situation is an odds ratio a good approximation of the relative risk?'
+  choices:
+    - 'When the outcome is common in both groups'
+    - 'Whenever the study is a randomized experiment'
+    - 'When the outcome is rare in both groups'
+    - 'Only when the odds ratio equals 1'
+  answer: 2
+  explanation: |-
+    $\text{OR} = \text{RR} \times \dfrac{1 - p_2}{1 - p_1}$. When both risks are small, that last fraction is close to 1. For common outcomes the two can differ a lot whatever the study design. They are exactly equal only at 1, but approximately equal much more widely.
+
+- id: stat-m3-r2-h36
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'A hospital''s survival rate is 90% for mild cases and 50% for severe cases, and 30% of its patients are severe. What is its overall survival rate?'
+  choices: ['70%', '78%', '62%', '82%']
+  answer: 1
+  explanation: |-
+    The overall rate is a weighted average: $0.7(0.90) + 0.3(0.50) = 0.63 + 0.15 = 0.78$. 70% is the unweighted average of 90% and 50%; 62% swaps the weights.
+
+- id: stat-m3-r2-h37
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'In the 1986 kidney stone study, open surgery had higher success rates than the keyhole procedure for small stones and for large stones, yet a lower success rate overall. Why?'
+  choices:
+    - 'The keyhole procedure was used much more often on small stones, which are easier to treat'
+    - 'Open surgery was used much more often on small stones'
+    - 'The overall rates were computed with the wrong denominators'
+    - 'The study had more keyhole patients than open-surgery patients'
+  answer: 0
+  explanation: |-
+    About 77% of keyhole patients had small stones versus about 25% of open-surgery patients. Small stones succeed more often with either treatment, so the keyhole procedure's overall rate is weighted toward the easy cases: Simpson's paradox with stone size as the lurking variable. Each treatment had 350 patients, and the overall rates (289/350 and 273/350) are correct.
+
+- id: stat-m3-r2-h38
+  lesson: stat-m3-h-risk-odds
+  type: text
+  topic: Relative risk and odds ratios
+  stem: 'The odds of an event are 3 (that is, 3 to 1). Its probability is ___. (Give a decimal or fraction.)'
+  accept: ['0.75', '3/4', '75%']
+  explanation: |-
+    $p = \dfrac{\text{odds}}{1 + \text{odds}} = \dfrac{3}{4} = 0.75$. Check: $0.75/0.25 = 3$.
+
+- id: stat-m3-r2-h39
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'After standardizing for age, Region X has a lower death rate than Region Y. What can you conclude?'
+  choices:
+    - 'Living in Region X causes people to live longer'
+    - 'Differences in age structure don''t explain the gap, but other lurking variables still might'
+    - 'The crude death rates must also favor Region X'
+    - 'Region X''s population is younger than Region Y''s'
+  answer: 1
+  explanation: |-
+    Standardization removes the effect of the variable you stratified on, here age, and nothing else. Income, smoking or health care could still differ. The crude rates can point either way (that's why standardization was needed), and the adjusted comparison says nothing about which population is younger.
+
+- id: stat-m3-r2-h40
+  lesson: stat-m3-h-risk-odds
+  topic: Relative risk and odds ratios
+  stem: 'In the lesson''s case-control example, 120 of 200 cases and 120 of 400 controls were exposed, giving an odds ratio of 3.5. If the researchers had sampled 800 controls with the same exposure rate instead, the odds ratio would be'
+  choices: ['1.75', '7', '3.5', 'impossible to compute']
+  answer: 2
+  explanation: |-
+    With 240 exposed and 560 unexposed controls, $\text{OR} = (120 \times 560)/(80 \times 240) = 3.5$. Multiplying the whole controls column by 2 puts a factor of 2 on the top and the bottom of $ad/bc$, which cancels. The "risk among the exposed" would change, which is why case-control studies report odds ratios.

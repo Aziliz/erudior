@@ -36,11 +36,26 @@ On $(-1, 1)$, the function $\frac{1}{1 - x}$ *is* this infinite polynomial. Outs
 
 $R$ is the **radius of convergence** (with $R = 0$ in case 1 and $R = \infty$ in case 2). The set of all $x$ where it converges is the **interval of convergence**. At the two endpoints $x = a \pm R$ anything can happen, so they must be checked separately.
 
+![A number line with center a. Between a − R and a + R the series converges absolutely; beyond them it diverges; the two endpoints must be checked separately](images/calc-m10-radius.svg)
+
 ### How to find them
 
 1. Apply the ratio test to $|a_n| = |c_n(x - a)^n|$ (keeping $x$ as a fixed number).
 2. The ratio limit has the form $L = K|x - a|$. Convergence needs $L < 1$: $|x - a| < \frac1K = R$.
 3. Test each endpoint by plugging it in and using the series tests (p-series, AST, divergence test…).
+
+```mermaid
+flowchart TD
+  accTitle: Finding the interval of convergence of a power series
+  accDescr: Apply the ratio test to the absolute value of the general term, keeping x fixed. The limit comes out as a constant K times the distance from x to the center a. Solve K times that distance less than 1 to get the radius R equal to 1 over K, and the open interval from a minus R to a plus R. Then plug in each endpoint separately and test the resulting series of numbers. Combine the results into the interval of convergence.
+  A["Ratio test on |cₙ(x − a)ⁿ|, x held fixed"] --> B["Limit = K · |x − a|"]
+  B --> C["Solve K · |x − a| less than 1: radius R = 1/K"]
+  C --> D["Open interval (a − R, a + R)"]
+  D --> E["Plug in x = a − R and test that series"]
+  D --> F["Plug in x = a + R and test that series"]
+  E --> G["Interval of convergence"]
+  F --> G
+```
 
 ### Example 1
 
@@ -55,6 +70,10 @@ Endpoints:
 - $x = 1$: $\sum\frac{(-2)^n}{n2^n} = \sum\frac{(-1)^n}{n}$, alternating harmonic: **converges**.
 
 Interval of convergence: $\mathbf{[1, 5)}$.
+
+```numberline
+{"x": [-1, 7], "points": [{"at": [1, 0], "label": "1"}, {"at": [5, 0], "open": true, "label": "5"}, {"at": [3, 0], "label": "center 3"}], "segments": [{"from": [1, 0], "to": [5, 0]}], "caption": "Interval of convergence [1, 5): closed at 1, open at 5"}
+```
 
 ### Example 2
 

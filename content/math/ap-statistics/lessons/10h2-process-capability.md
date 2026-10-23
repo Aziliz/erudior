@@ -33,8 +33,8 @@ ranges compare. The fraction of parts outside the limits is two tail areas:
 
 $$P(\text{out of spec}) = \Phi\!\left(\frac{\text{LSL} - \mu}{\sigma}\right) + \left[1 - \Phi\!\left(\frac{\text{USL} - \mu}{\sigma}\right)\right].$$
 
-Because good processes make very few bad parts, the result is usually given in **parts per
-million** (ppm): the proportion times 1,000,000. A proportion of 0.0027 is 2,700 ppm.
+Because good processes make very few bad parts, the result is usually given in
+**parts per million** (ppm): the proportion times 1,000,000. A proportion of 0.0027 is 2,700 ppm.
 
 These calculations assume the process is *stable*: its mean and SD are not drifting from
 hour to hour. Engineers check that with control charts, a tool Walter Shewhart developed at
@@ -59,7 +59,7 @@ specification.
 
 Two numbers summarize how well a process fits its specification.
 
-The **capability index $C_p$** compares the width of the specification with the width of the
+The **Cp index**, written $C_p$, compares the width of the specification with the width of the
 natural variation:
 
 $$C_p = \frac{\text{USL} - \text{LSL}}{6\sigma}.$$
@@ -67,7 +67,7 @@ $$C_p = \frac{\text{USL} - \text{LSL}}{6\sigma}.$$
 $C_p = 1$ means the specification is exactly as wide as $\mu \pm 3\sigma$. But $C_p$ ignores
 where the mean is: it describes what the process *could* do if it were centered.
 
-The index **$C_{pk}$** accounts for centering. It measures the distance from the mean to the
+The **Cpk index**, written $C_{pk}$, accounts for centering. It measures the distance from the mean to the
 *nearer* limit, in units of $3\sigma$:
 
 $$C_{pk} = \frac{\min(\text{USL} - \mu,\ \mu - \text{LSL})}{3\sigma}.$$
@@ -149,8 +149,8 @@ is 150?
 
 ## Six Sigma and the 1.5σ shift
 
-In the 1980s the electronics company Motorola launched a quality program called **Six
-Sigma**, with the goal of processes whose specification limits are 6 standard deviations
+In the 1980s the electronics company Motorola launched a quality program called **Six Sigma**,
+with the goal of processes whose specification limits are 6 standard deviations
 from the mean ($C_p = 2$). A centered six-sigma process would produce about 0.002 ppm out of
 specification, roughly 2 parts per billion.
 

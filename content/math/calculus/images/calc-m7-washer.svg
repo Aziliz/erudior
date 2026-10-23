@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="600" height="400" fill="#ffffff"/>
+<line x1="30.0" y1="200.0" x2="560.0" y2="200.0" stroke="#1c2833" stroke-width="2" stroke-dasharray="12 5 3 5"/>
+<polygon points="575.0,200.0 565.0,195.5 565.0,204.5" fill="#1c2833"/>
+<ellipse cx="330" cy="200" rx="50" ry="150" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="290" y="50" width="40" height="300" fill="#dde8f3" stroke="none"/>
+<line x1="290.0" y1="50.0" x2="330.0" y2="50.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="290.0" y1="350.0" x2="330.0" y2="350.0" stroke="#1c2833" stroke-width="2"/>
+<ellipse cx="290" cy="200" rx="50" ry="150" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<ellipse cx="290" cy="200" rx="22" ry="70" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="268.0" y1="200.0" x2="312.0" y2="200.0" stroke="#1c2833" stroke-width="2" stroke-dasharray="12 5 3 5"/>
+<line x1="290.0" y1="200.0" x2="243.0" y2="251.3" stroke="#1c2833" stroke-width="2.5"/><polygon points="243.0,251.3 253.1,247.0 246.5,240.9" fill="#1c2833"/>
+<line x1="290.0" y1="200.0" x2="301.0" y2="139.4" stroke="#1c2833" stroke-width="2.5"/><polygon points="301.0,139.4 294.8,148.4 303.6,150.0" fill="#1c2833"/>
+<circle cx="290" cy="200" r="4" fill="#1c2833"/>
+<line x1="290.0" y1="32.0" x2="330.0" y2="32.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="290.0" y1="24.0" x2="290.0" y2="44.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="330.0" y1="24.0" x2="330.0" y2="44.0" stroke="#1c2833" stroke-width="2"/>
+<text x="570.0" y="186.0" text-anchor="end" font-size="16" fill="#1c2833" stroke="none">axis of rotation</text>
+<text x="225.0" y="279.3" text-anchor="end" font-size="16" fill="#1c2833" stroke="none">outer radius R</text>
+<text x="400.0" y="105.0" text-anchor="start" font-size="16" fill="#1c2833" stroke="none">inner radius r</text>
+<line x1="396.0" y1="100.0" x2="299.5" y2="169.7" stroke="#1c2833" stroke-width="1.2"/>
+<text x="340.0" y="28.0" text-anchor="start" font-size="16" fill="#1c2833" stroke="none">thickness Δx</text>
+<text x="260.0" y="310.0" text-anchor="end" font-size="16" fill="#1c2833" stroke="none">hole</text>
+<line x1="264.0" y1="300.0" x2="286.0" y2="256.0" stroke="#1c2833" stroke-width="1.2"/>
+</svg>

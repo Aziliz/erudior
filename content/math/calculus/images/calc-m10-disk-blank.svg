@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 450" width="480" height="450" font-family="sans-serif" fill="#1c2833">
+<rect width="480" height="450" fill="#ffffff"/>
+<circle cx="190" cy="210" r="100" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="290" cy="210" r="141.4" fill="none" stroke="#1c2833" stroke-width="2" stroke-dasharray="7 6"/>
+<line x1="20" y1="210" x2="460" y2="210" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="190" y1="15" x2="190" y2="400" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="90" y1="210" x2="290" y2="210" stroke="#2e7d4f" stroke-width="7"/>
+<circle cx="90" cy="210" r="6" fill="#ffffff" stroke="#2e7d4f" stroke-width="3"/>
+<circle cx="290" cy="210" r="6" fill="#ffffff" stroke="#2e7d4f" stroke-width="3"/>
+<circle cx="190" cy="210" r="5" fill="#1c2833"/>
+<circle cx="290" cy="210" r="4" fill="#1c2833"/>
+<path d="M181 101 L199 119 M181 119 L199 101" stroke="#b03a2e" stroke-width="4"/>
+<path d="M181 301 L199 319 M181 319 L199 301" stroke="#b03a2e" stroke-width="4"/>
+<text x="456" y="200" font-size="16" text-anchor="end">Re</text>
+<text x="200" y="28" font-size="16" text-anchor="start">Im</text>
+<text x="80" y="234" font-size="16" text-anchor="end">−1</text>
+<text x="302" y="236" font-size="16" text-anchor="middle">1</text>
+<text x="180" y="234" font-size="16" text-anchor="middle">0</text>
+<text x="170" y="102" font-size="16" text-anchor="end">i</text>
+<text x="170" y="334" font-size="16" text-anchor="end">−i</text>
+<text x="240.0" y="436" font-size="16" text-anchor="middle">f(z) = 1/(1 + z²)</text>
+</svg>

@@ -4,7 +4,7 @@ module: stat-m5
 title: Conditional probability and independence
 minutes: 30
 topics: [Conditional probability]
-drills: [stat-cond-table, stat-indep-atleast]
+drills: [stat-cond-table, stat-indep-atleast, stat-m5-r2-without-repl]
 refs: [stat-ref-probability]
 ---
 ## Probability given information

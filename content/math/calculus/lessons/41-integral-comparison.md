@@ -63,6 +63,12 @@ If the terms of your series are smaller than those of a convergent series, yours
 
 (c) $\displaystyle\sum\frac{\sin^2 n}{3^n}$: $0 \le \frac{\sin^2n}{3^n} \le \frac{1}{3^n}$, a convergent geometric series. **Converges.**
 
+Here is part (a) as a picture: every term of $\sum\frac{1}{n^2 + 4}$ sits below the matching term of $\sum\frac{1}{n^2}$, so its total can't be larger than $\frac{\pi^2}{6}$.
+
+```plot
+{"x": [0, 8.5], "y": [0, 1.1], "functions": [{"f": "1/x^2", "from": 0.95, "dashed": true, "label": "1/x²"}], "points": [{"at": [1, 1], "label": "1/n²"}, {"at": [2, 0.25]}, {"at": [3, 0.1111]}, {"at": [4, 0.0625]}, {"at": [5, 0.04]}, {"at": [6, 0.0278]}, {"at": [7, 0.0204]}, {"at": [8, 0.0156]}, {"at": [1, 0.2], "open": true, "label": "1/(n² + 4)"}, {"at": [2, 0.125], "open": true}, {"at": [3, 0.0769], "open": true}, {"at": [4, 0.05], "open": true}, {"at": [5, 0.0345], "open": true}, {"at": [6, 0.025], "open": true}, {"at": [7, 0.0189], "open": true}, {"at": [8, 0.0147], "open": true}], "xLabel": "n", "caption": "Open dots 1/(n² + 4) lie below filled dots 1/n² at every n"}
+```
+
 The direction matters. $\frac{1}{n^2 - 4} > \frac{1}{n^2}$, so comparing $\sum\frac{1}{n^2 - 4}$ with $\sum\frac{1}{n^2}$ directly proves nothing. That's what the next test fixes.
 
 ## The limit comparison test
@@ -96,6 +102,21 @@ $\sum\frac{1}{\sqrt n}$ diverges ($p = \frac12$), so this **diverges**.
 3. Rational/algebraic expression in $n$? Limit comparison with the p-series of its dominant terms.
 4. Easy-to-integrate $f(x)$, decreasing? Integral test.
 5. Bounded wiggles ($\sin$, $\cos$) or extra small factors? Direct comparison.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a test for a series with positive terms
+  accDescr: Start with a positive-term series. If its terms do not go to 0, it diverges by the divergence test. If they do, ask whether it is a geometric series or a p-series; if so, read off the answer. If not, and the terms are a rational or algebraic expression in n, use limit comparison with the p-series of the dominant terms. Otherwise, if f of x is easy to integrate and decreasing, use the integral test. Otherwise use direct comparison, bounding sines, cosines or extra small factors.
+  A["Series with positive terms"] --> B{"Do the terms go to 0?"}
+  B -- "no" --> X["Diverges: divergence test"]
+  B -- "yes" --> C{"Geometric or p-series?"}
+  C -- "yes" --> Y["Read off the answer"]
+  C -- "no" --> D{"Rational or algebraic in n?"}
+  D -- "yes" --> E["Limit comparison with the p-series of the dominant terms"]
+  D -- "no" --> F{"f(x) easy to integrate and decreasing?"}
+  F -- "yes" --> G["Integral test"]
+  F -- "no" --> H["Direct comparison: bound sin, cos or extra small factors"]
+```
 
 The next lesson adds tests for series with negative terms and for factorials and exponentials.
 

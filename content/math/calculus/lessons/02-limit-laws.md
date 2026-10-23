@@ -72,6 +72,10 @@ $$\frac{\sqrt{x + 9} - 3}{x}\cdot\frac{\sqrt{x+9} + 3}{\sqrt{x+9} + 3} = \frac{(
 3. Cancel $x$ (legal since $x \ne 0$ near the limit): $\dfrac{1}{\sqrt{x + 9} + 3}$.
 4. Substitute: $\dfrac{1}{3 + 3} = \mathbf{\dfrac16}$.
 
+```plot
+{"x": [-9, 6], "y": [-0.1, 0.5], "functions": [{"f": "(sqrt(x + 9) - 3)/x", "from": -9}], "points": [{"at": [0, 0.16667], "open": true, "label": "(0, 1/6)"}, {"at": [-9, 0.33333], "label": "(−9, 1/3)"}], "caption": "y = (√(x + 9) − 3)/x is defined for x ≥ −9 except x = 0, where the graph has a hole at height 1/6"}
+```
+
 Leave the denominator unexpanded in step 2; you want the factor $x$ to appear so you can cancel it.
 
 ## Technique 3: combine fractions
@@ -111,6 +115,10 @@ Find $\displaystyle\lim_{x\to 2}\frac{|x - 2|}{x - 2}$.
 
 They differ, so the limit **does not exist**.
 
+```plot
+{"x": [-1, 5], "y": [-2, 2], "functions": [{"f": "-1", "to": 2}, {"f": "1", "from": 2}], "points": [{"at": [2, -1], "open": true}, {"at": [2, 1], "open": true}], "caption": "y = |x − 2|/(x − 2) is −1 to the left of 2 and 1 to the right; it is undefined at x = 2"}
+```
+
 ## Choosing a technique
 
 | What you see after plugging in | Try |
@@ -123,6 +131,19 @@ They differ, so the limit **does not exist**.
 | $0/0$ with $(a + h)^n$ | Expand |
 | $0/0$ with $\sin$ or $\cos$ | Special trig limits (Lesson 4) |
 | Absolute value or piecewise | One-sided limits |
+
+The same routine as a loop: plug in, read what you get, and if it is $0/0$, rewrite and plug in again. Some limits need two rewrites before substitution gives a number.
+
+```mermaid
+flowchart TD
+  accTitle: The plug-in-first routine for limits
+  accDescr: First substitute x = a and ask what you get. A number is the limit. A nonzero number over zero signals an infinite limit or no limit, so check the sign on each side. Zero over zero is indeterminate, so rewrite the expression by factoring, multiplying by the conjugate, combining fractions, expanding, or using a trig limit, then substitute again and repeat the check.
+  A["Substitute x = a"] --> B{"What do you get?"}
+  B -- "A number" --> C["That number is the limit"]
+  B -- "Nonzero over 0" --> D["Infinite limit or DNE: check signs on each side"]
+  B -- "0 over 0" --> E["Rewrite: factor, conjugate, combine fractions, expand, or trig limit"]
+  E -- "substitute again" --> B
+```
 
 ## Common mistakes
 

@@ -109,7 +109,7 @@ The plot shows the whole picture for this test: one positive result lifts every 
 negative result pushes every prior down. The dashed diagonal is "no evidence" (posterior = prior).
 
 ```plot
-{"x": [0, 1], "y": [0, 1], "xLabel": "prior probability", "yLabel": "posterior probability", "functions": [{"f": "9.5*x/(9.5*x + 1 - x)", "label": "after a positive (LR = 9.5)"}, {"f": "(x/18)/(x/18 + 1 - x)", "label": "after a negative (LR = 1/18)"}, {"f": "x", "dashed": true}], "points": [{"at": [0.02, 0.162], "label": "prior 0.02 → 0.162"}], "caption": "Posterior probability against prior probability for one test result"}
+{"x": [0, 1], "y": [0, 1], "xLabel": "prior probability", "yLabel": "posterior probability", "functions": [{"f": "9.5*x/(9.5*x + 1 - x)"}, {"f": "(x/18)/(x/18 + 1 - x)"}, {"f": "x", "dashed": true}], "points": [{"at": [0.02, 0.162], "label": "prior 0.02 → 0.162"}], "labels": [{"at": [0.6, 0.82], "text": "one positive (LR 9.5)"}, {"at": [0.64, 0.28], "text": "one negative (LR 1/18)"}], "caption": "Posterior probability against prior probability for one test result"}
 ```
 
 The same LR of 9.5 turns a 2% prior into 16% but a 50% prior into about 90%. Evidence is a

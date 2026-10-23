@@ -27,8 +27,8 @@ causal effect of tutoring *for that student* is $Y(1) - Y(0)$. The trouble is th
 one of the two. A tutored student's $Y(0)$ is a "what if" that never happened. This is sometimes
 called the fundamental problem of causal inference.
 
-Since individual effects can't be observed, we aim for an average. The **average treatment
-effect** (ATE) is the mean of $Y(1) - Y(0)$ over everyone in the group, which equals the mean of
+Since individual effects can't be observed, we aim for an average. The
+**average treatment effect** (ATE) is the mean of $Y(1) - Y(0)$ over everyone in the group, which equals the mean of
 all the $Y(1)$ values minus the mean of all the $Y(0)$ values. The idea goes back to Jerzy Neyman's
 1923 work on field experiments and was developed for observational studies by Donald Rubin in the
 1970s.

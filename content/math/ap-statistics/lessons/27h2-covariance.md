@@ -137,7 +137,7 @@ $$\text{Var}(R) = 0.25(100) + 0.25(100) + 2(0.5)(0.5)\,\rho\,(10)(10) = 50(1 + \
 | SD of $R$ (points) | 10 | 8.06 | 7.07 | 5 | 0 |
 
 ```plot
-{"x": [-1, 1], "y": [0, 11], "functions": [{"f": "sqrt(50*(1+x))"}], "points": [{"at": [0, 7.071], "label": "independent: 7.07"}, {"at": [1, 10], "label": "ρ = 1: 10"}], "xLabel": "correlation ρ between the investments", "yLabel": "SD of the 50-50 mix", "caption": "The same average return carries less risk the lower the correlation; perfectly correlated investments give no benefit"}
+{"x": [-1, 1.6], "y": [0, 11], "functions": [{"f": "sqrt(50*(1+x))", "from": -1, "to": 1}], "points": [{"at": [-1, 0]}, {"at": [-0.5, 5]}, {"at": [0, 7.071]}, {"at": [1, 10], "label": "ρ = 1: SD 10"}], "xLabel": "correlation ρ between the investments", "yLabel": "SD of the 50-50 mix", "caption": "SD of the 50-50 mix: 0 at ρ = −1, 5 at ρ = −0.5, 7.07 at ρ = 0 (independent), 10 at ρ = 1. Lower correlation, less risk for the same mean"}
 ```
 
 With $\rho = 1$ the two investments are really one, and mixing them gains nothing. Every lower

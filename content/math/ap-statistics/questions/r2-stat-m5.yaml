@@ -1,0 +1,626 @@
+# Round 2, module stat-m5 (Probability): new question types for the core lessons
+# (stat-m5-r2-q..) and questions for the two honors lessons (stat-m5-r2-h..).
+
+# ---- Lesson 19: probability rules
+- id: stat-m5-r2-q01
+  lesson: stat-prob-basics
+  type: label
+  topic: Probability rules
+  stem: 'At a different station, 48% of riders buy coffee, 27% buy a newspaper and 11% buy both. Give the probability of each numbered region of the Venn diagram.'
+  image: {src: images/stat-m5-venn-coffee-blank.svg, alt: 'A rectangle labeled S holds two overlapping circles, Coffee (C) on the left and Newspaper (N) on the right. Marker 1 is in the coffee-only part, marker 2 in the overlap, marker 3 in the newspaper-only part, and marker 4 outside both circles.'}
+  labels:
+    - {x: 28.4, y: 51.7, text: '0.37'}
+    - {x: 50.0, y: 51.7, text: '0.11'}
+    - {x: 71.6, y: 51.7, text: '0.16'}
+    - {x: 87.1, y: 86.1, text: '0.36'}
+  distractors: ['0.48', '0.64']
+  explanation: |-
+    Fill in from the inside out. 2: both $= 0.11$. 1: coffee only $= 0.48 - 0.11 = 0.37$. 3: newspaper only $= 0.27 - 0.11 = 0.16$. 4: neither $= 1 - (0.37 + 0.11 + 0.16) = 1 - 0.64 = 0.36$. Check: the four regions add to 1. (0.48 is all coffee buyers, including the overlap; 0.64 is $P(C \cup N)$.)
+
+- id: stat-m5-r2-q02
+  lesson: stat-prob-basics
+  type: text
+  module_quiz: true
+  topic: Probability rules
+  stem: '$P(A) = 0.35$, $P(B) = 0.5$ and $P(A \cup B) = 0.7$. Then $P(A \cap B) =$ ___. Give only the number.'
+  accept: ['0.15']
+  explanation: |-
+    Rearrange the general addition rule: $P(A \cap B) = P(A) + P(B) - P(A \cup B) = 0.35 + 0.5 - 0.7 = 0.15$.
+
+- id: stat-m5-r2-q03
+  lesson: stat-prob-basics
+  type: match
+  topic: Probability rules
+  stem: 'Match each event to its meaning in words.'
+  pairs:
+    - ['$A \cup B$', A or B (or both)]
+    - ['$A \cap B$', Both A and B]
+    - ['$A^c$', Not A]
+    - ['$A \cap B^c$', A but not B]
+  distractors: [Neither A nor B]
+  explanation: |-
+    The union $\cup$ is "or" (including both), the intersection $\cap$ is "and," and the superscript $c$ means the complement, "not." So $A \cap B^c$ is "A and not B," the A-only region of a Venn diagram. "Neither A nor B" would be $(A \cup B)^c$, which is not listed.
+
+- id: stat-m5-r2-q04
+  lesson: stat-prob-basics
+  module_quiz: true
+  topic: Probability rules
+  stem: 'Each list gives the probabilities a model assigns to all the outcomes of a chance process. Which are valid probability models? Select all that apply.'
+  choices:
+    - '0.2, 0.3, 0.5'
+    - '0.4, 0.4, 0.3'
+    - '0.5, 0.6, −0.1'
+    - '$\tfrac13$, $\tfrac16$, $\tfrac12$'
+  answer: [0, 3]
+  explanation: |-
+    A valid model needs every probability between 0 and 1 and a total of exactly 1. $0.2 + 0.3 + 0.5 = 1$ and $\tfrac13 + \tfrac16 + \tfrac12 = \tfrac{2 + 1 + 3}{6} = 1$: both valid. $0.4 + 0.4 + 0.3 = 1.1$ is too much. The third list adds to 1 but contains a negative probability, which is impossible.
+
+- id: stat-m5-r2-q05
+  lesson: stat-prob-basics
+  type: order
+  topic: Probability rules
+  stem: 'You know $P(A)$, $P(B)$ and $P(A \cap B)$. Put the steps for filling in the four regions of a Venn diagram in order.'
+  items:
+    - 'Write $P(A \cap B)$ in the overlap'
+    - 'Subtract the overlap from $P(A)$ and from $P(B)$ to get the two "only" regions'
+    - 'Subtract the three inner regions from 1 to get "neither"'
+    - 'Check that the four regions add to 1'
+  explanation: |-
+    Work from the inside out. The "only" regions need the overlap, "neither" needs all three inner regions, and the check needs all four regions. This is the order used in Example 1 of the lesson.
+
+# ---- Lesson 20: simulation
+- id: stat-m5-r2-q06
+  lesson: stat-simulation
+  type: order
+  module_quiz: true
+  topic: Simulation
+  stem: 'Put the four steps of a simulation in order.'
+  items:
+    - 'State the chance process and the event whose probability you want'
+    - 'Plan: assign random numbers to outcomes and define one trial'
+    - 'Do many trials and record the result of each'
+    - 'Conclude: use the proportion of trials with the event as the estimate'
+  explanation: |-
+    State, Plan, Do, Conclude. You can't assign digits before you know what process you're modeling, you can't run trials before they're defined, and the estimate needs the recorded results.
+
+- id: stat-m5-r2-q07
+  lesson: stat-simulation
+  type: text
+  topic: Simulation
+  stem: 'To simulate an event with probability 0.13 using pairs of random digits 00–99, you can let 00 up to ___ stand for the event and the rest for its complement. Give only the two-digit number.'
+  accept: ['12']
+  explanation: |-
+    00 through 12 is 13 of the 100 equally likely pairs, so it has probability 0.13. Ending at 13 would give 14 pairs (probability 0.14), the same off-by-one slip as using 0–7 for a probability of 0.7.
+
+- id: stat-m5-r2-q08
+  lesson: stat-simulation
+  topic: Simulation
+  stem: 'Which assignments of random digits correctly simulate an event with probability 0.3? Select all that apply.'
+  choices:
+    - 'One digit: 0, 1, 2 = event; 3–9 = not'
+    - 'One digit: 7, 8, 9 = event; 0–6 = not'
+    - 'One digit: 0–3 = event; 4–9 = not'
+    - 'Two digits: 00–29 = event; 30–99 = not'
+    - 'Two digits: 00–30 = event; 31–99 = not'
+  answer: [0, 1, 3]
+  explanation: |-
+    Any 3 of the 10 single digits work, wherever they sit, so 0–2 and 7–9 are both fine; 00–29 is 30 of 100 pairs. 0–3 is 4 digits (probability 0.4), and 00–30 is 31 pairs (probability 0.31).
+
+- id: stat-m5-r2-q09
+  lesson: stat-simulation
+  type: match
+  topic: Simulation
+  stem: 'Match each situation to the step that makes its simulation correct.'
+  pairs:
+    - ['Choosing 3 different workers out of 10 labeled 0–9', Skip any digit already used in the trial]
+    - [Rolling a fair six-sided die, 'Use 1–6 and ignore 0, 7, 8 and 9']
+    - ['A free throw made with probability 0.7, shot after shot', Let digits 0–6 stand for a make]
+    - [An event with probability 0.13, Read the digits in pairs]
+  distractors: [Let digits 0–7 stand for a make]
+  explanation: |-
+    Without replacement, a repeated label would pick the same worker twice, so skip it. A die needs six equally likely labels, so the four unused digits are ignored. 0–6 is 7 of 10 digits (0–7 would be 0.8). Hundredths need pairs of digits.
+
+- id: stat-m5-r2-q10
+  lesson: stat-simulation
+  module_quiz: true
+  topic: Simulation
+  stem: 'A researcher simulates 400 samples under a null model. Only 2 of them give a result at least as extreme as the observed one. What is the best conclusion?'
+  choices:
+    - 'The estimated p-value is 0.005, so the data give convincing evidence against the null model'
+    - 'The null model is proven false'
+    - 'The result is common under the null model, so chance is a plausible explanation'
+    - 'The null model is true, because it produced the observed result twice'
+  answer: 0
+  explanation: |-
+    $2/400 = 0.005$, far below the rough 5% guide, so a result this extreme would rarely happen by chance if the null model were right: convincing evidence against it. Evidence is not proof, though: rare results do occur. The null model did produce such results, but rarely, which is what counts.
+
+# ---- Lesson 21: conditional probability
+- id: stat-m5-r2-q11
+  lesson: stat-conditional
+  type: label
+  topic: Conditional probability
+  stem: 'In this area model, old track is 40% of all segments and new track 60%. A defect (shaded) affects 30% of old segments and 10% of new ones. Give the probability of each numbered region for a randomly chosen segment.'
+  image: {src: images/stat-m5-area-model-blank.svg, alt: 'A unit square split into a left strip of width 0.4 for old track and a right strip of width 0.6 for new track. In the left strip the top 0.30 of the height is shaded as defect and the bottom 0.70 is not; in the right strip the top 0.10 is shaded and the bottom 0.90 is not. Marker 1 is on the shaded old part, marker 2 on the unshaded old part, marker 3 on the shaded new part, and marker 4 on the unshaded new part.'}
+  labels:
+    - {x: 25.0, y: 20.5, text: '0.12'}
+    - {x: 25.0, y: 55.5, text: '0.28'}
+    - {x: 56.2, y: 13.5, text: '0.06'}
+    - {x: 56.2, y: 48.5, text: '0.54'}
+  distractors: ['0.30', '0.18']
+  explanation: |-
+    Each region's area is width × height, which is the multiplication rule $P(A \cap B) = P(A)P(B \mid A)$. 1: $0.4 \times 0.30 = 0.12$. 2: $0.4 \times 0.70 = 0.28$. 3: $0.6 \times 0.10 = 0.06$. 4: $0.6 \times 0.90 = 0.54$. They add to 1. (0.30 is the conditional probability $P(\text{defect} \mid \text{old})$, not a region's area; 0.18 is the overall defect rate $0.12 + 0.06$.)
+
+- id: stat-m5-r2-q12
+  lesson: stat-conditional
+  type: text
+  module_quiz: true
+  topic: Conditional probability
+  stem: '$P(B) = 0.4$ and $P(A \cap B) = 0.1$. Then $P(A \mid B) =$ ___. Give only the number.'
+  accept: ['0.25']
+  explanation: |-
+    $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{0.1}{0.4} = 0.25$. Dividing by $P(B)$ rescales the "given $B$" part of the sample space to total probability 1.
+
+- id: stat-m5-r2-q13
+  lesson: stat-conditional
+  topic: Conditional probability
+  stem: 'Events $A$ and $B$ have $P(A) = 0.5$, $P(B) = 0.4$ and $P(A \cap B) = 0.2$. Which statements are true? Select all that apply.'
+  choices:
+    - '$A$ and $B$ are independent'
+    - '$A$ and $B$ are mutually exclusive'
+    - '$P(A \mid B) = 0.5$'
+    - '$P(A \cup B) = 0.9$'
+  answer: [0, 2]
+  explanation: |-
+    $P(A)P(B) = 0.5 \times 0.4 = 0.2 = P(A \cap B)$, so they are independent, and $P(A \mid B) = 0.2/0.4 = 0.5 = P(A)$. They are not mutually exclusive, since $P(A \cap B) = 0.2 > 0$. $P(A \cup B) = 0.5 + 0.4 - 0.2 = 0.7$; 0.9 forgets to subtract the overlap.
+
+- id: stat-m5-r2-q14
+  lesson: stat-conditional
+  type: match
+  module_quiz: true
+  topic: Conditional probability
+  stem: 'Classify each pair of events. (Every event listed has positive probability.)'
+  pairs:
+    - ['Two cards dealt without replacement: the first is a heart; the second is a heart', Dependent]
+    - ['A die rolled twice: the first roll is a 6; the second roll is a 6', Independent]
+    - ['A single die roll: the roll is a 1; the roll is a 6', Mutually exclusive]
+    - ['A random rider: rides at peak hours; holds a monthly pass, when $P(\text{pass} \mid \text{peak}) = P(\text{pass})$', Independent]
+  explanation: |-
+    Without replacement, a first heart leaves fewer hearts ($12/51$ instead of $13/52$), so the draws are dependent. Separate die rolls don't influence each other. One roll can't be both 1 and 6, so those events are mutually exclusive (and therefore dependent). When knowing "peak" doesn't change the chance of a pass, the events are independent by definition.
+
+- id: stat-m5-r2-q15
+  lesson: stat-conditional
+  type: text
+  topic: Conditional probability
+  stem: 'Each of 4 independent signals fails during a storm with probability 0.1. The probability that at least one fails is ___. Give 4 decimal places.'
+  accept: ['0.3439']
+  explanation: |-
+    $P(\text{none fail}) = 0.9^4 = 0.6561$, so $P(\text{at least one}) = 1 - 0.6561 = 0.3439$. Adding $4 \times 0.1 = 0.4$ overcounts the overlaps.
+
+# ---- Lesson 22: trees and Bayes
+- id: stat-m5-r2-q16
+  lesson: stat-trees-bayes
+  type: label
+  module_quiz: true
+  topic: Bayes' theorem
+  stem: 'The tree follows 10,000 people through a screening test: 2% have the condition, the sensitivity is 95% and the specificity is 90%. Name each numbered group.'
+  image: {src: images/stat-m5-frequency-tree-blank.svg, alt: 'A tree of counts. 10,000 people split into 200 who have the condition and 9,800 who do not. The 200 split into 190 who test positive (marker 1) and 10 who test negative (marker 2). The 9,800 split into 980 who test positive (marker 3) and 8,820 who test negative (marker 4).'}
+  labels:
+    - {x: 74.5, y: 13.2, text: True positives}
+    - {x: 74.5, y: 36.8, text: False negatives}
+    - {x: 74.5, y: 60.5, text: False positives}
+    - {x: 74.5, y: 84.2, text: True negatives}
+  distractors: [Base rate]
+  explanation: |-
+    "True" or "false" says whether the test result is correct; "positive" or "negative" is the result itself. 1: has the condition, tests positive (correct). 2: has it, tests negative (a miss). 3: doesn't have it, tests positive (a false alarm). 4: doesn't have it, tests negative (correct). The base rate is the 2% at the first split, not a group at the end.
+
+- id: stat-m5-r2-q17
+  lesson: stat-trees-bayes
+  type: order
+  topic: Bayes' theorem
+  stem: 'Put the steps of a Bayes calculation with a tree in order.'
+  items:
+    - 'Draw the first-stage branches, labeled with the prior probabilities'
+    - 'Label the second-stage branches with conditional probabilities'
+    - 'Multiply along each path'
+    - 'Add the paths that end in the observed result'
+    - 'Divide the path of interest by that total'
+  explanation: |-
+    Each step uses the one before: second-stage branches grow from first-stage ones, path products need both stages, the total adds path products, and the posterior divides one path by that total.
+
+- id: stat-m5-r2-q18
+  lesson: stat-trees-bayes
+  type: text
+  topic: Bayes' theorem
+  stem: 'Imagine 1,000 people. 10% have a condition; a test has sensitivity 80% and specificity 90%. Of the people who test positive, ___ have the condition and ___ do not.'
+  accept:
+    - ['80']
+    - ['90']
+  explanation: |-
+    100 people have the condition, and 80% of them, 80, test positive. 900 don't, and 10% of them (1 − specificity), 90, test positive anyway. So $P(\text{condition} \mid +) = 80/170 \approx 0.47$: fewer than half of the positives have the condition.
+
+- id: stat-m5-r2-q19
+  lesson: stat-trees-bayes
+  topic: Bayes' theorem
+  stem: 'A screening test has sensitivity 0.95 and specificity 0.90 and is used where the prevalence is 2%, so $P(D \mid +) \approx 0.16$. Which changes would raise $P(D \mid +)$? Select all that apply.'
+  choices:
+    - 'Using it in a population where the prevalence is higher'
+    - 'Improving the specificity to 0.99'
+    - 'Testing twice as many people from the same population'
+    - 'Lowering the specificity to 0.80'
+  answer: [0, 1]
+  explanation: |-
+    $P(D \mid +) = \dfrac{\text{true positives}}{\text{true} + \text{false positives}}$. A higher prevalence adds true positives; a higher specificity removes false positives (at 0.99: $0.019/(0.019 + 0.0098) \approx 0.66$). Testing more people from the same population scales both counts equally, so the ratio stays the same. Lower specificity adds false positives and lowers $P(D \mid +)$.
+
+- id: stat-m5-r2-q20
+  lesson: stat-trees-bayes
+  module_quiz: true
+  topic: Bayes' theorem
+  stem: 'For the screening test in the lesson (prevalence 2%, sensitivity 0.95, specificity 0.90), a person tests negative. What is the probability they have the condition?'
+  choices: ['0.02', 'about 0.05', 'about 0.0011', '0.001']
+  answer: 2
+  explanation: |-
+    Paths ending in a negative: condition $0.02 \times 0.05 = 0.001$; no condition $0.98 \times 0.90 = 0.882$. $P(D \mid -) = 0.001/0.883 \approx 0.0011$. The answer 0.001 is the path probability $P(D \cap -)$, not the conditional; 0.05 is $P(- \mid D)$; 0.02 is the prior, which a negative result should lower.
+
+# ---- Lesson 23: counting
+- id: stat-m5-r2-q21
+  lesson: stat-counting
+  type: text
+  topic: Counting
+  stem: 'The letters of BANANA can be arranged in ___ distinct ways.'
+  accept: ['60']
+  explanation: |-
+    BANANA has 6 letters: 3 A, 2 N, 1 B. $\dfrac{6!}{3!\,2!\,1!} = \dfrac{720}{12} = 60$. Swapping identical letters doesn't create a new arrangement, so divide by the factorial of each repeat count.
+
+- id: stat-m5-r2-q22
+  lesson: stat-counting
+  type: match
+  module_quiz: true
+  topic: Counting
+  stem: 'Match each count to the rule that gives it.'
+  pairs:
+    - ['Gold, silver and bronze among 8 runners', Permutation (nPr)]
+    - ['A 5-card hand from a 52-card deck', Combination (nCr)]
+    - ['A 4-digit PIN, repeats allowed', Power (n^r)]
+    - ['Arrangements of the letters in LEVEL', Factorial divided by repeat factorials]
+  distractors: [Add the counts for each stage]
+  explanation: |-
+    Medal order matters and no runner repeats: $_8P_3$. A hand's order doesn't matter: $\binom{52}{5}$. A PIN allows repeats: $10^4$. LEVEL has two L's and two E's: $5!/(2!\,2!) = 30$. Counts for stages that happen together are multiplied, not added.
+
+- id: stat-m5-r2-q23
+  lesson: stat-counting
+  topic: Counting
+  stem: 'Which of these equal $\binom{10}{3}$? Select all that apply.'
+  choices: ['$\binom{10}{7}$', '120', '$_{10}P_3 / 3!$', '$_{10}P_3$', '$10^3/3!$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\binom{10}{3} = \dfrac{10 \cdot 9 \cdot 8}{3!} = \dfrac{720}{6} = 120$. Choosing 3 to include is the same as choosing 7 to leave out, so $\binom{10}{7} = 120$ too. $_{10}P_3 = 720$ counts ordered selections, $3! = 6$ times too many. $10^3/3!$ wrongly allows repeats ($\approx 166.7$, not even a whole number).
+
+- id: stat-m5-r2-q24
+  lesson: stat-counting
+  topic: Counting
+  stem: 'A 6-letter code uses the 26 letters with no letter repeated, and order matters (ABCDEF differs from FEDCBA). Which expression counts the codes?'
+  choices: ['$\binom{26}{6}$', '$_{26}P_6$', '$26^6$', '$6!$']
+  answer: 1
+  explanation: |-
+    Following the counting chart: items are chosen from 26, none reused, and order matters, so $_{26}P_6 = 26 \cdot 25 \cdot 24 \cdot 23 \cdot 22 \cdot 21$. $26^6$ would allow repeats, $\binom{26}{6}$ ignores order, and $6!$ only rearranges one fixed set of 6 letters.
+
+- id: stat-m5-r2-q25
+  lesson: stat-counting
+  type: text
+  module_quiz: true
+  topic: Counting
+  stem: 'A crew of 3 is chosen at random from 6 women and 4 men. The probability that all three are women is ___. Give the exact fraction.'
+  accept: ['1/6']
+  explanation: |-
+    All-women crews: $\binom{6}{3} = 20$. All crews: $\binom{10}{3} = 120$. Probability $= 20/120 = 1/6$. (Check with the multiplication rule: $\tfrac{6}{10} \cdot \tfrac{5}{9} \cdot \tfrac{4}{8} = \tfrac{120}{720} = \tfrac16$.)
+
+# ---- Honors: inclusion–exclusion, birthdays and matching
+- id: stat-m5-r2-h01
+  lesson: stat-m5-h-inclusion-exclusion
+  type: label
+  topic: Inclusion–exclusion
+  stem: 'Name each numbered region of this three-circle Venn diagram.'
+  image: {src: images/stat-m5-venn-three-blank.svg, alt: 'A rectangle holds three overlapping circles: Bus (B) at upper left, Train (T) at upper right and Bike (K) at the bottom. Marker 1 is in the part of the bus circle outside the others, marker 2 where only the bus and train circles overlap, marker 3 in the center where all three overlap, marker 4 where only the train and bike circles overlap, and marker 5 outside all three circles.'}
+  labels:
+    - {x: 30.6, y: 30.4, text: Bus only}
+    - {x: 50.0, y: 26.1, text: 'Bus and train, not bike'}
+    - {x: 50.0, y: 44.6, text: All three}
+    - {x: 61.3, y: 55.4, text: 'Train and bike, not bus'}
+    - {x: 85.5, y: 87.0, text: None of the three}
+  distractors: [Bike only, 'Bus and bike, not train']
+  explanation: |-
+    A region is defined by which circles it is inside. 1 is inside only the bus circle; 2 is inside bus and train but outside bike; 3 is inside all three; 4 is inside train and bike but outside bus; 5 is outside every circle.
+
+- id: stat-m5-r2-h02
+  lesson: stat-m5-h-inclusion-exclusion
+  type: text
+  topic: Inclusion–exclusion
+  stem: '$P(A) = 0.4$, $P(B) = 0.35$, $P(C) = 0.3$, $P(A \cap B) = 0.15$, $P(A \cap C) = 0.1$, $P(B \cap C) = 0.12$ and $P(A \cap B \cap C) = 0.05$. Then $P(A \cup B \cup C) =$ ___. Give only the number.'
+  accept: ['0.73']
+  explanation: |-
+    Singles minus pairs plus the triple: $0.4 + 0.35 + 0.3 - 0.15 - 0.1 - 0.12 + 0.05 = 0.73$. Without the last term you would get 0.68, leaving the center uncounted.
+
+- id: stat-m5-r2-h03
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'Using the same events ($P(A) = 0.4$, $P(B) = 0.35$, $P(C) = 0.3$, pairs 0.15, 0.1 and 0.12, all three 0.05), what is the probability that exactly one of the three events occurs?'
+  choices: ['0.27', '0.68', '1.05', '0.46']
+  answer: 3
+  explanation: |-
+    Fill in from the center. Exactly two: $A \cap B$ only $0.15 - 0.05 = 0.10$, $A \cap C$ only $0.05$, $B \cap C$ only $0.07$. Exactly one: $A$ only $0.4 - 0.10 - 0.05 - 0.05 = 0.20$, $B$ only $0.35 - 0.10 - 0.07 - 0.05 = 0.13$, $C$ only $0.3 - 0.05 - 0.07 - 0.05 = 0.13$. Total $0.46$. (0.27 is "none," $1 - 0.73$; 1.05 is the sum of the singles, which counts overlaps several times.)
+
+- id: stat-m5-r2-h04
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'Which statements about the union bound $P(A_1 \cup \cdots \cup A_n) \le P(A_1) + \cdots + P(A_n)$ are true? Select all that apply.'
+  choices:
+    - 'It holds even when the events are dependent'
+    - 'It is exactly equal to the probability of the union when the events are mutually exclusive'
+    - 'It holds only when the events are independent'
+    - 'The sum on the right can never be greater than 1'
+  answer: [0, 1]
+  explanation: |-
+    The sum counts every outcome in the union at least once, whatever the dependence, so the inequality always holds; with no overlaps it is the addition rule for mutually exclusive events, an equality. The sum can easily exceed 1 (ten events of probability 0.2 give 2), in which case the bound says nothing useful.
+
+- id: stat-m5-r2-h05
+  lesson: stat-m5-h-inclusion-exclusion
+  type: order
+  topic: Inclusion–exclusion
+  stem: 'You know the counts for three single events, the three pairs and all three together. Put the steps for filling in a three-circle Venn diagram in order.'
+  items:
+    - 'Write the all-three count in the center'
+    - 'Subtract the center from each pairwise count to get the three "exactly two" regions'
+    - 'Subtract the "exactly two" regions and the center from each single count to get the "only" regions'
+    - 'Subtract all seven inner regions from the total to get "none"'
+  explanation: |-
+    Each pairwise count includes the center, and each single count includes its two "exactly two" regions and the center, so you work from the center outward. "None" needs all seven inner regions.
+
+- id: stat-m5-r2-h06
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'With 365 equally likely, independent birthdays, what is the probability that at least two of 23 people share a birthday?'
+  choices: ['about 0.063', 'about 0.507', 'about 0.059', 'about 0.493']
+  answer: 1
+  explanation: |-
+    $P(\text{all different}) = \dfrac{365 \cdot 364 \cdots 343}{365^{23}} \approx 0.493$, so a shared birthday has probability about 0.507. 0.493 is the complement; $23/365 \approx 0.063$ is not a probability of anything here; 0.059 is the chance that one of the other 22 shares your birthday.
+
+- id: stat-m5-r2-h07
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'Why does it take only 23 people for a shared birthday to be more likely than not?'
+  choices:
+    - 'Because birthdays cluster in a few months of the year'
+    - 'Because each person has a probability of about one half of matching someone'
+    - 'Because 23 people form 253 pairs, and any one of those pairs can match'
+    - 'Because the chance that someone matches your birthday passes one half at 23 people'
+  answer: 2
+  explanation: |-
+    The match can come from any pair, and $\binom{23}{2} = 253$ pairs each match with probability $1/365$. The model assumes evenly spread birthdays, so clustering isn't the reason (it would only make matches a little more likely). The chance someone matches you among 22 others is only about 0.059.
+
+- id: stat-m5-r2-h08
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'How many pairs of people can be formed from a group of 23?'
+  choices: ['253', '506', '23', '529']
+  answer: 0
+  explanation: |-
+    $\binom{23}{2} = \dfrac{23 \times 22}{2} = 253$. 506 counts each pair twice (ordered), and $23^2 = 529$ also counts people paired with themselves.
+
+- id: stat-m5-r2-h09
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'Use the approximation $P(\text{no match}) \approx e^{-\binom{n}{2}/365}$ to estimate the probability of at least one shared birthday among 40 people.'
+  choices: ['about 0.12', 'about 0.11', 'about 0.10', 'about 0.88']
+  answer: 3
+  explanation: |-
+    $\binom{40}{2} = 780$ and $e^{-780/365} \approx 0.118$, so $P(\text{match}) \approx 1 - 0.118 = 0.882$ (the exact value is about 0.891). 0.12 is the no-match probability; $40/365 \approx 0.11$ and $1 - (364/365)^{39} \approx 0.10$ (someone matches you) answer different questions.
+
+- id: stat-m5-r2-h10
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'Real birth dates are not spread evenly over the year. Compared with the equally likely model, what does this do to the chance of a shared birthday in a group?'
+  choices:
+    - 'It lowers it, because some days have fewer births'
+    - 'It raises it slightly, because uneven days make matches more likely'
+    - 'It has no effect, because each birthday is still one of 365 days'
+    - 'It makes the probability impossible to estimate'
+  answer: 1
+  explanation: |-
+    Unevenness concentrates birthdays on some days, so matches become a little more likely; the equally likely model gives the smallest possible chance of a match. For real groups the model's 0.507 at 23 people is therefore, if anything, a slight underestimate.
+
+- id: stat-m5-r2-h11
+  lesson: stat-m5-h-inclusion-exclusion
+  type: match
+  topic: Inclusion–exclusion
+  stem: 'n letters are put into n addressed envelopes at random. Match each n to the probability that no letter is in its own envelope.'
+  pairs:
+    - ['$n = 2$', '1/2']
+    - ['$n = 3$', '1/3']
+    - ['$n = 4$', '3/8']
+    - ['$n = 1{,}000$', 'about 1/e (0.368)']
+  distractors: ['1/4', 'about 0']
+  explanation: |-
+    $P(\text{no match}) = 1 - 1 + \tfrac1{2!} - \tfrac1{3!} + \cdots$: for $n = 2$, $\tfrac12$; for $n = 3$, $\tfrac12 - \tfrac16 = \tfrac13$; for $n = 4$, $\tfrac13 + \tfrac1{24} = \tfrac{9}{24} = \tfrac38$. The sums settle at $1/e \approx 0.368$ very fast, so a thousand letters behave almost exactly like ten. The probability does not go to 0.
+
+- id: stat-m5-r2-h12
+  lesson: stat-m5-h-inclusion-exclusion
+  type: text
+  topic: Inclusion–exclusion
+  stem: 'Of the 24 ways to put 4 letters into 4 addressed envelopes, ___ leave every letter in a wrong envelope.'
+  accept: ['9']
+  explanation: |-
+    $P(\text{no match}) = 1 - 1 + \tfrac12 - \tfrac16 + \tfrac1{24} = \tfrac{9}{24}$, so 9 of the 24 arrangements are derangements: 2143, 2341, 2413, 3142, 3412, 3421, 4123, 4312 and 4321.
+
+- id: stat-m5-r2-h13
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'A thousand letters are put into their thousand addressed envelopes at random. About how likely is it that at least one letter reaches its own envelope?'
+  choices: ['about 0.632', 'about 0.001', 'about 0.368', 'almost certain']
+  answer: 0
+  explanation: |-
+    $P(\text{no match}) \approx 1/e \approx 0.368$, so at least one match has probability about $1 - 0.368 = 0.632$. Each letter has only a $1/1000$ chance, but there are a thousand letters; the two effects balance.
+
+- id: stat-m5-r2-h14
+  lesson: stat-m5-h-inclusion-exclusion
+  topic: Inclusion–exclusion
+  stem: 'Five letters go into five addressed envelopes at random. What is the probability that letters 1 and 2 both land in their own envelopes?'
+  choices: ['$\tfrac{1}{25}$', '$\tfrac{2}{5}$', '$\tfrac{1}{10}$', '$\tfrac{1}{20}$']
+  answer: 3
+  explanation: |-
+    Fix letters 1 and 2; the other 3 letters can go anywhere: $3!/5! = 6/120 = 1/20$. Equivalently $\tfrac15 \cdot \tfrac14$: once letter 1 is in place, letter 2 has 4 envelopes left. $\tfrac{1}{25} = (\tfrac15)^2$ wrongly treats the events as independent.
+
+# ---- Honors: odds and likelihood ratios
+- id: stat-m5-r2-h15
+  lesson: stat-m5-h-bayes-odds
+  type: text
+  topic: Odds and likelihood ratios
+  stem: 'An event has probability 0.8. Its odds in favor are ___. Give only the number.'
+  accept: ['4']
+  explanation: |-
+    Odds $= \dfrac{0.8}{1 - 0.8} = \dfrac{0.8}{0.2} = 4$, said "4 to 1."
+
+- id: stat-m5-r2-h16
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'The odds in favor of an event are 3 to 2. What is its probability?'
+  choices: ['1.5', '0.4', '0.6', 'about 0.667']
+  answer: 2
+  explanation: |-
+    Odds of 3 to 2 mean 3 occurrences for every 2 non-occurrences: $p = \dfrac{3}{3 + 2} = 0.6$. Equivalently, odds $= 1.5$ and $p = 1.5/2.5 = 0.6$. 1.5 is the odds itself; 0.4 is the probability against; $2/3$ forgets to add.
+
+- id: stat-m5-r2-h17
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'A test has sensitivity 0.90 and specificity 0.95. What is the likelihood ratio of a positive result?'
+  choices: ['18', 'about 0.947', '9', 'about 0.105']
+  answer: 0
+  explanation: |-
+    $\text{LR}_+ = \dfrac{\text{sensitivity}}{1 - \text{specificity}} = \dfrac{0.90}{0.05} = 18$. $0.90/0.95$ divides by the specificity itself; $0.10/0.95 \approx 0.105$ is the likelihood ratio of a negative result.
+
+- id: stat-m5-r2-h18
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'The prior probability of a condition is 0.1. A positive test has likelihood ratio 18. What is the probability of the condition after a positive result?'
+  choices: ['2', 'about 0.667', '1.8', 'about 0.947']
+  answer: 1
+  explanation: |-
+    Prior odds $= 0.1/0.9 = 1/9$. Posterior odds $= 18/9 = 2$. Probability $= 2/(1 + 2) \approx 0.667$. 2 is the posterior odds, not a probability; $1.8 = 0.1 \times 18$ multiplies the probability instead of the odds; $18/19 \approx 0.947$ treats the LR as the posterior odds and ignores the prior.
+
+- id: stat-m5-r2-h19
+  lesson: stat-m5-h-bayes-odds
+  type: match
+  topic: Odds and likelihood ratios
+  stem: 'Match each likelihood ratio for a hypothesis to what the evidence does.'
+  pairs:
+    - ['$\text{LR} = 1$', Leaves the odds unchanged]
+    - ['$\text{LR} = 20$', Strongly supports the hypothesis]
+    - ['$\text{LR} = 0.05$', Strongly counts against the hypothesis]
+    - ['$\text{LR} = 1.5$', Slightly supports the hypothesis]
+  distractors: [Proves the hypothesis true]
+  explanation: |-
+    Posterior odds = prior odds × LR. An LR of 1 multiplies by 1; 20 multiplies the odds by 20; 0.05 divides them by 20; 1.5 nudges them up. No finite likelihood ratio proves a hypothesis: the posterior still depends on the prior.
+
+- id: stat-m5-r2-h20
+  lesson: stat-m5-h-bayes-odds
+  type: order
+  topic: Odds and likelihood ratios
+  stem: 'Put the steps of an odds-form Bayes update in order.'
+  items:
+    - 'Convert the prior probability to odds'
+    - 'Multiply by the likelihood ratio of the evidence'
+    - 'Convert the posterior odds back to a probability'
+  explanation: |-
+    The likelihood ratio multiplies odds, not probabilities, so the prior must be converted first, and the result is posterior odds, which you convert back at the end: $p = \text{odds}/(1 + \text{odds})$.
+
+- id: stat-m5-r2-h21
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'Which statements commit the prosecutor''s fallacy? Select all that apply.'
+  choices:
+    - '"The chance of this match if he is innocent is 1 in a million, so the chance he is innocent is 1 in a million."'
+    - '"If the defendant were innocent, a match this close would happen about 1 time in a million."'
+    - '"Only 1 in 10,000 innocent people have this blood type, so there is a 99.99% chance the defendant is guilty."'
+    - '"The evidence is 10,000 times as likely if he is the source as if he is not."'
+  answer: [0, 2]
+  explanation: |-
+    The first and third turn $P(\text{evidence} \mid \text{innocent})$ into $P(\text{innocent} \mid \text{evidence})$, ignoring the prior and how many other people would also match. The second correctly states $P(E \mid \text{innocent})$, and the fourth correctly states a likelihood ratio; neither claims anything about the probability of guilt.
+
+- id: stat-m5-r2-h22
+  lesson: stat-m5-h-bayes-odds
+  type: text
+  topic: Odds and likelihood ratios
+  stem: 'A test has sensitivity 0.9 and specificity 0.8. The likelihood ratio of a negative result is ___. Give only the number.'
+  accept: ['0.125']
+  explanation: |-
+    $\text{LR}_- = \dfrac{1 - \text{sensitivity}}{\text{specificity}} = \dfrac{0.1}{0.8} = 0.125$. A negative result divides the odds of the condition by 8.
+
+- id: stat-m5-r2-h23
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'A trace matches 1 person in a million at random. With no other evidence, the source could be any of 2,000,000 people, and a suspect matches. About what is the probability that the suspect is the source?'
+  choices: ['about 0.999999', '1 in a million', 'about 1/2', 'about 1/3']
+  answer: 3
+  explanation: |-
+    Prior odds $\approx 1/2{,}000{,}000$; LR $= 1/(1/1{,}000{,}000) = 1{,}000{,}000$; posterior odds $\approx 1/2$, so $p \approx \tfrac{1/2}{3/2} = 1/3$. In words: about 2 other people would also match, so the suspect is one of about 3 matching people. "1 in a million" and 0.999999 are the prosecutor's fallacy and its mirror image.
+
+- id: stat-m5-r2-h24
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'A test''s false positives usually come from a substance in the person''s blood. The same sample is tested twice and is positive both times. What does multiplying the odds by $\text{LR}_+$ twice do?'
+  choices:
+    - 'It gives the correct posterior, because the tests are separate runs'
+    - 'It understates the evidence, because two positives are stronger than that'
+    - 'It overstates the evidence, because the two results are not conditionally independent'
+    - 'It has no effect, because likelihood ratios cancel'
+  answer: 2
+  explanation: |-
+    If whatever caused the first false positive is still in the sample, a second positive is likely even without the condition, so the second result adds much less than a factor of $\text{LR}_+$. Multiplying LRs requires conditional independence, which repeated testing of the same sample breaks.
+
+- id: stat-m5-r2-h25
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'In the Monty Hall game as described in the lesson (the host knows where the car is and always opens an unchosen door with a goat), what is your probability of winning if you switch?'
+  choices: ['1/2', '2/3', '1/3', '1']
+  answer: 1
+  explanation: |-
+    If the car is behind your door (prior 1/3), switching loses; if it is behind either other door (prior 2/3), the host is forced to reveal the other goat and switching wins. In odds form: LR for "your door" against "the other closed door" is $\tfrac12 \div 1 = \tfrac12$, turning 1 to 1 into 1 to 2.
+
+- id: stat-m5-r2-h26
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'Change the game: the host does not know where the car is. He opens one of the two unchosen doors at random, and it happens to show a goat. Now what is your probability of winning if you switch?'
+  choices: ['2/3', '1/3', '1', '1/2']
+  answer: 3
+  explanation: |-
+    If the car is behind your door, a random unchosen door shows a goat with probability 1; if the car is behind the other closed door, also with probability 1 (it was the door left closed). Since the opened door showed a goat, the car is behind your door or the other closed one, and for each the chance of this exact outcome is $\tfrac13 \cdot \tfrac12$. The likelihood ratio is 1, so the two remaining doors are equally likely: 1/2.
+
+- id: stat-m5-r2-h27
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'In the Sally Clark case, a figure of 1 in 73 million was obtained by squaring an estimate of 1 in 8,543 for one sudden infant death. What did the squaring assume?'
+  choices:
+    - 'That the two deaths were independent'
+    - 'That the family was typical of all families'
+    - 'That a second death was more likely after a first'
+    - 'That the mother was innocent'
+  answer: 0
+  explanation: |-
+    Multiplying probabilities is the rule for independent events. Shared genetic and environmental factors make a second sudden infant death in the same family more likely than in a random family, so squaring made the figure far too small. (The 1 in 8,543 was itself an estimate for a family with the Clarks' characteristics, not a typical one.) Separately, treating the result as the probability of innocence was the prosecutor's fallacy.
+
+- id: stat-m5-r2-h28
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'In a city, 15% of taxis are blue and 85% green. A witness identifies colors correctly 80% of the time, for either color, and says the taxi in an accident was blue. What is the probability it was blue?'
+  choices: ['0.80', '0.15', 'about 0.41', '0.12']
+  answer: 2
+  explanation: |-
+    Prior odds blue : green $= 15 : 85$. LR $= P(\text{says blue} \mid \text{blue}) / P(\text{says blue} \mid \text{green}) = 0.8/0.2 = 4$. Posterior odds $= 4 \times 15/85 = 60/85$, so $p = 60/145 \approx 0.41$. (Tree: $0.12/(0.12 + 0.17)$.) 0.80 ignores the base rate; 0.12 is the path probability "blue and says blue."
+
+- id: stat-m5-r2-h29
+  lesson: stat-m5-h-bayes-odds
+  topic: Odds and likelihood ratios
+  stem: 'On the log scale, the prior has $\log_{10}(\text{odds}) = -2$. Two conditionally independent pieces of evidence have likelihood ratios 100 and 10. What is the posterior probability?'
+  choices: ['0.10', 'about 0.909', '1', '0.5']
+  answer: 1
+  explanation: |-
+    Add the weights of evidence: $-2 + \log_{10} 100 + \log_{10} 10 = -2 + 2 + 1 = 1$, so the posterior odds are $10^1 = 10$ and $p = 10/11 \approx 0.909$. Reading the log odds 1 as a probability gives 1, and 10 is odds, not a probability.

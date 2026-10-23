@@ -55,6 +55,10 @@ A series $\sum a_n$ is **absolutely convergent** if $\sum|a_n|$ converges. It is
 | $\sum\frac{(-1)^n}{n}$ | diverges (harmonic) | converges (AST) | conditionally convergent |
 | $\sum(-1)^n\frac{n}{n + 1}$ | diverges | diverges ($a_n \not\to 0$) | divergent |
 
+Every series lands in exactly one of three regions. The convergent series are the two inner regions together; the absolutely convergent ones sit inside them.
+
+![Nested regions: divergent series outside, conditionally convergent series in a middle ring, and absolutely convergent series in the center, each with examples](images/calc-m10-series-types.svg)
+
 Absolutely convergent series behave like finite sums: you can rearrange their terms freely. Conditionally convergent series are fragile; rearranging the alternating harmonic series can make it add up to any number you like (Riemann's rearrangement theorem).
 
 ## The ratio test
@@ -99,6 +103,25 @@ Test $\displaystyle\sum\left(\frac{2n + 1}{3n - 1}\right)^n$. $\sqrt[n]{a_n} = \
 4. **Rational/algebraic in $n$**: limit comparison with a p-series.
 5. *Alternating*: check absolute convergence first; if that fails, try the AST (conditional).
 6. *Easy integral*: integral test.
+
+As a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: A strategy for deciding whether any series converges
+  accDescr: First check whether the terms go to 0; if not, the series diverges. If they do, check for a known type such as geometric, p-series or telescoping and use its rule. Otherwise, if the terms have factorials or powers like c to the n, use the ratio test. If the whole term is raised to the n-th power, use the root test. If the signs alternate, test the series of absolute values first, and if that diverges try the alternating series test, which can show conditional convergence. Otherwise use a comparison test or the integral test.
+  A["Series Σ aₙ"] --> B{"Do the terms go to 0?"}
+  B -- "no" --> Z["Diverges"]
+  B -- "yes" --> C{"Geometric, p-series or telescoping?"}
+  C -- "yes" --> K["Use that type's rule"]
+  C -- "no" --> D{"Factorials or powers cⁿ?"}
+  D -- "yes" --> R["Ratio test"]
+  D -- "no" --> E{"Whole term to the n-th power?"}
+  E -- "yes" --> RT["Root test"]
+  E -- "no" --> F{"Do the signs alternate?"}
+  F -- "yes" --> G["Test Σ|aₙ| first; if it diverges, try the alternating series test"]
+  F -- "no" --> H["Comparison or integral test"]
+```
 
 ### Example 5
 

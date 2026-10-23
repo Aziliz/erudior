@@ -1,0 +1,38 @@
+# Module 4 (stat-m4), round 2 cards
+# Core lessons 16-18
+- {front: 'Bias vs. variability on a target', back: 'Bias: how far the center of many estimates is from the true value. Variability: how widely they scatter. Bigger random samples reduce scatter, not bias.', topic: 'Sampling and bias'}
+- {front: 'Choosing an experimental design', back: 'No strong outside variable: completely randomized. A variable strongly affects the response: block on it. Blocks of two (pairs, or both treatments per unit): matched pairs.', topic: 'Experimental design'}
+- {front: 'Case-control vs. prospective study', back: 'Case-control: start from people with and without the outcome, look back at exposures. Prospective: record exposures, follow people forward to see outcomes.', topic: 'Scope of inference'}
+# 18h1: estimating from complex samples
+- {front: 'Sampling weight', back: '$w = N_h/n_h$: the number of population members a sampled person represents.', topic: 'Survey estimation'}
+- {front: 'Stratified estimate of a proportion', back: '$\hat{p}_{\text{st}} = \sum (N_h/N)\,\hat{p}_h$: weight each stratum''s result by its population share.', topic: 'Survey estimation'}
+- {front: 'Standard error of a stratified proportion', back: '$SE = \sqrt{\sum W_h^2\,\hat{p}_h(1-\hat{p}_h)/n_h}$ with $W_h = N_h/N$.', topic: 'Survey estimation'}
+- {front: 'When do weighted and unweighted estimates agree?', back: 'With proportional allocation, because every respondent then has the same weight $N/n$.', topic: 'Survey estimation'}
+- {front: 'Why oversample a small stratum?', back: 'To get a precise estimate for that stratum itself; the overall estimate must then be weighted.', topic: 'Survey estimation'}
+- {front: 'Neyman allocation', back: '$n_h = n \cdot N_h S_h / \sum N_k S_k$: more sample where strata are large and variable.', topic: 'Survey estimation'}
+- {front: 'Design effect (clusters of size $m$)', back: '$\text{deff} \approx 1 + (m-1)\rho$, where $\rho$ is the intraclass correlation.', topic: 'Survey estimation'}
+- {front: 'Effective sample size', back: '$n/\text{deff}$: the SRS size with the same precision as the complex sample.', topic: 'Survey estimation'}
+- {front: 'Design effect: stratified vs. cluster', back: 'Stratifying usually gives deff below 1 (more precise than an SRS); clustering usually gives deff above 1.', topic: 'Survey estimation'}
+- {front: 'Post-stratification weight', back: 'Population share of the group ÷ sample share of the group. It fixes imbalance on that variable only.', topic: 'Survey estimation'}
+- {front: '1936 Literary Digest poll', back: 'About 2.4 million ballots, slanted frame and heavy nonresponse: predicted Landon, but Roosevelt won about 61% of the vote.', topic: 'Survey estimation'}
+# 18h2: factorial experiments
+- {front: 'Factorial design', back: 'Every combination of the factors'' levels is a treatment; $k$ two-level factors give $2^k$ treatments.', topic: 'Factorial experiments'}
+- {front: 'Main effect in a 2 × 2 design', back: 'Mean response at one level of the factor minus the mean at the other, each averaged over the other factor''s levels.', topic: 'Factorial experiments'}
+- {front: 'Simple effect', back: 'A factor''s effect at one fixed level of the other factor.', topic: 'Factorial experiments'}
+- {front: 'Interaction (difference of differences)', back: '(Effect of A when B is high) − (effect of A when B is low). Zero means no interaction; it is the same whichever factor you call A.', topic: 'Factorial experiments'}
+- {front: 'Reading an interaction plot', back: 'Parallel lines: no interaction. Converging, diverging or crossing lines: interaction.', topic: 'Factorial experiments'}
+- {front: 'When main effects mislead', back: 'When lines cross, a factor can help at one level and hurt at another, so its main effect may be near 0. Report simple effects.', topic: 'Factorial experiments'}
+- {front: 'Factorial vs. one-factor-at-a-time', back: 'Factorial: every unit informs every main effect, and interactions can be seen. OFAT: fewer units per comparison, and interactions are missed.', topic: 'Factorial experiments'}
+- {front: 'Interaction vs. confounding', back: 'Interaction: one factor''s effect depends on another factor (a real feature). Confounding: an outside variable''s effect is mixed up with a factor''s (a design flaw).', topic: 'Factorial experiments'}
+- {front: 'Fractional factorial design', back: 'Runs a planned subset of the $2^k$ combinations; some interactions can no longer be separated.', topic: 'Factorial experiments'}
+# 18h3: causal inference
+- {front: 'Potential outcomes', back: '$Y(1)$ with treatment, $Y(0)$ without; only one is observed for each unit.', topic: 'Causal inference'}
+- {front: 'Average treatment effect (ATE)', back: 'Mean of $Y(1) - Y(0)$ = mean of all $Y(1)$ − mean of all $Y(0)$.', topic: 'Causal inference'}
+- {front: 'Naive difference in an observational study', back: 'Effect on the treated + selection bias (how differently the groups would have done without treatment).', topic: 'Causal inference'}
+- {front: 'What randomization guarantees', back: 'Selection bias is zero on average, so the difference in means is unbiased for the ATE. Chance error remains.', topic: 'Causal inference'}
+- {front: 'Direct standardization', back: 'Apply each group''s stratum rates to one common standard population mix, then compare.', topic: 'Causal inference'}
+- {front: 'Limit of adjustment', back: 'Stratifying or standardizing removes only the confounders that were measured.', topic: 'Causal inference'}
+- {front: 'Natural experiment', back: 'Treatment assigned by something unrelated to the outcome (a lottery, Snow''s intermixed water companies).', topic: 'Causal inference'}
+- {front: 'Snow''s 1854 water-company comparison', back: 'About 315 vs 37 cholera deaths per 10,000 houses: over 8 times the rate with sewage-polluted water.', topic: 'Causal inference'}
+- {front: 'Bradford Hill viewpoints (1965)', back: 'Strength, consistency, specificity, temporality, biological gradient, plausibility, coherence, experiment, analogy. Only temporality is generally treated as essential.', topic: 'Causal inference'}
+- {front: 'Why a dose-response relationship persuades', back: 'A confounder would have to rise with the exposure, dose by dose, in every population studied.', topic: 'Causal inference'}

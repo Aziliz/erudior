@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c2833">
+<rect width="640" height="420" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker></defs>
+<rect x="130" y="150" width="230" height="200" fill="#dde8f3"/>
+<path d="M130,90 L130,350 L360,350 L360,90" fill="none" stroke="#1c2833" stroke-width="4"/>
+<line x1="130.0" y1="150.0" x2="360.0" y2="150.0" stroke="#1f6fb2" stroke-width="2"/>
+<circle cx="192.6" cy="257.5" r="3" fill="#7d6608"/>
+<circle cx="219.0" cy="267.7" r="3" fill="#7d6608"/>
+<circle cx="270.1" cy="176.1" r="3" fill="#7d6608"/>
+<circle cx="147.6" cy="307.4" r="3" fill="#7d6608"/>
+<circle cx="196.9" cy="204.8" r="3" fill="#7d6608"/>
+<circle cx="344.1" cy="244.9" r="3" fill="#7d6608"/>
+<circle cx="312.3" cy="246.0" r="3" fill="#7d6608"/>
+<circle cx="272.8" cy="190.6" r="3" fill="#7d6608"/>
+<circle cx="272.0" cy="312.6" r="3" fill="#7d6608"/>
+<circle cx="249.6" cy="291.0" r="3" fill="#7d6608"/>
+<circle cx="279.3" cy="175.9" r="3" fill="#7d6608"/>
+<circle cx="296.6" cy="265.5" r="3" fill="#7d6608"/>
+<circle cx="205.3" cy="170.3" r="3" fill="#7d6608"/>
+<circle cx="318.1" cy="245.4" r="3" fill="#7d6608"/>
+<circle cx="288.8" cy="314.4" r="3" fill="#7d6608"/>
+<circle cx="287.8" cy="321.6" r="3" fill="#7d6608"/>
+<circle cx="224.0" cy="301.2" r="3" fill="#7d6608"/>
+<circle cx="233.9" cy="324.0" r="3" fill="#7d6608"/>
+<circle cx="320.8" cy="181.6" r="3" fill="#7d6608"/>
+<circle cx="172.2" cy="201.9" r="3" fill="#7d6608"/>
+<circle cx="338.1" cy="239.1" r="3" fill="#7d6608"/>
+<circle cx="270.3" cy="216.2" r="3" fill="#7d6608"/>
+<circle cx="246.4" cy="230.6" r="3" fill="#7d6608"/>
+<circle cx="215.2" cy="264.5" r="3" fill="#7d6608"/>
+<circle cx="261.9" cy="318.7" r="3" fill="#7d6608"/>
+<circle cx="281.4" cy="322.9" r="3" fill="#7d6608"/>
+<circle cx="316.3" cy="333.5" r="3" fill="#7d6608"/>
+<circle cx="279.3" cy="192.7" r="3" fill="#7d6608"/>
+<circle cx="317.1" cy="329.0" r="3" fill="#7d6608"/>
+<circle cx="325.9" cy="261.7" r="3" fill="#7d6608"/>
+<circle cx="287.8" cy="200.9" r="3" fill="#7d6608"/>
+<circle cx="311.3" cy="262.5" r="3" fill="#7d6608"/>
+<circle cx="202.0" cy="175.8" r="3" fill="#7d6608"/>
+<circle cx="315.8" cy="333.3" r="3" fill="#7d6608"/>
+<circle cx="162.7" cy="301.1" r="3" fill="#7d6608"/>
+<circle cx="227.1" cy="190.6" r="3" fill="#7d6608"/>
+<circle cx="203.8" cy="295.7" r="3" fill="#7d6608"/>
+<circle cx="319.6" cy="172.5" r="3" fill="#7d6608"/>
+<circle cx="267.9" cy="172.6" r="3" fill="#7d6608"/>
+<circle cx="288.7" cy="221.3" r="3" fill="#7d6608"/>
+<line x1="245.0" y1="60.0" x2="245.0" y2="300.0" stroke="#1c2833" stroke-width="3"/>
+<ellipse cx="245.0" cy="300" rx="34" ry="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<rect x="30" y="70" width="130" height="22" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<rect x="138" y="70" width="22" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="45.0" y1="81.0" x2="115.0" y2="81.0" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="149.0" y1="124.0" x2="149.0" y2="146.0" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="360" y="310" width="130" height="22" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="380.0" y1="321.0" x2="475.0" y2="321.0" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+</svg>

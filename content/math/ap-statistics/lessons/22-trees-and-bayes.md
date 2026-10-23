@@ -4,7 +4,7 @@ module: stat-m5
 title: Tree diagrams and Bayes' theorem
 minutes: 30
 topics: [Bayes' theorem]
-drills: [stat-tree-total, stat-bayes]
+drills: [stat-tree-total, stat-bayes, stat-m5-r2-neg-test]
 refs: [stat-ref-probability]
 ---
 ## Chance processes in stages

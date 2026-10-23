@@ -37,6 +37,25 @@ The definition says exactly that "you can find the limit by plugging in." That's
 
 "Removable" means you could fix it by defining or redefining one value: setting $f(1) = 2$ makes $\frac{x^2-1}{x-1}$ continuous at 1. Jumps and asymptotes can't be fixed that way. (A fourth, rarer kind is oscillating, like $\sin(1/x)$ at 0.)
 
+![Three small graphs side by side. Removable (hole): a curve with an open circle, and the function's value drawn as a solid dot above it. Jump: a line that stops at an open circle and restarts higher at a solid dot. Infinite: a curve that shoots down on one side and up on the other along a dashed vertical asymptote.](images/calc-m1-discontinuities.svg)
+
+To classify a point, ask the questions in this order:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a point x = a
+  accDescr: First ask whether a one-sided limit at a is plus or minus infinity; if so, it is an infinite discontinuity. Otherwise ask whether both one-sided limits exist as numbers; if not, the function oscillates, the rarer oscillating kind. If both exist but differ, it is a jump discontinuity. If they are equal, the limit L exists; then ask whether f(a) is defined and equal to L. If yes, f is continuous at a. If f(a) is missing or different, it is a removable discontinuity.
+  A["Point x = a"] --> B{"Is a one-sided limit +∞ or −∞?"}
+  B -- Yes --> C["Infinite discontinuity"]
+  B -- No --> D{"Do both one-sided limits exist as numbers?"}
+  D -- No --> O["Oscillating (rarer kind)"]
+  D -- Yes --> E{"Are they equal?"}
+  E -- No --> J["Jump discontinuity"]
+  E -- "Yes: the limit L exists" --> F{"Is f(a) defined and equal to L?"}
+  F -- Yes --> G["Continuous at a"]
+  F -- "No: missing or different" --> H["Removable discontinuity"]
+```
+
 ```plot
 {"x": [-2, 4], "y": [-2, 6], "functions": [{"f": "x", "to": 1}, {"f": "x + 2", "from": 1}], "points": [{"at": [1, 1], "open": true}, {"at": [1, 3]}], "caption": "A jump discontinuity at x = 1"}
 ```
@@ -72,6 +91,12 @@ Factor: $g(x) = \dfrac{(x - 2)(x + 2)}{(x - 2)(x - 3)}$. The function is undefin
 **Intermediate Value Theorem** (IVT): if $f$ is continuous on the closed interval $[a, b]$ and $N$ is any number strictly between $f(a)$ and $f(b)$, then there is at least one $c$ in $(a, b)$ with $f(c) = N$. (Some books allow $N$ to equal $f(a)$ or $f(b)$ and then say $c$ is in $[a, b]$; that's the same theorem with the endpoints included.)
 
 The picture: a continuous graph that starts at height $f(a)$ and ends at height $f(b)$ must cross every height in between. Without continuity it could jump over $N$.
+
+The graph below shows the "at least one" in action. Here $f(x) = x^3 - 6x^2 + 9x + 1$ on $[0, 4]$, with $f(0) = 1$ and $f(4) = 5$. The height $N = 3$ lies between them, and the graph reaches it three times: at $c = 2 - \sqrt3 \approx 0.27$, at $c = 2$, and at $c = 2 + \sqrt3 \approx 3.73$. The IVT guarantees at least one of them; it never tells you how many there are.
+
+```plot
+{"x": [-0.5, 4.5], "y": [-1, 7], "functions": [{"f": "x^3 - 6x^2 + 9x + 1", "from": 0, "to": 4}, {"f": "3", "dashed": true, "label": "y = N = 3"}], "points": [{"at": [0, 1], "label": "(0, f(0))"}, {"at": [4, 5], "label": "(4, f(4))"}, {"at": [0.268, 3]}, {"at": [2, 3]}, {"at": [3.732, 3]}], "caption": "Continuous on [0, 4] from height 1 to height 5: the line y = 3 is crossed three times"}
+```
 
 The IVT promises a $c$ exists; it doesn't say where, or how many there are. Its most common use is locating roots: if $f(a)$ and $f(b)$ have opposite signs, then 0 is between them, so $f$ has a zero in $(a, b)$.
 

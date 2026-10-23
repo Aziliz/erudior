@@ -144,8 +144,8 @@ All the principles of lesson 17 still apply.
   real feature of how the response behaves, not a mix-up between the factors.
 
 The number of treatments grows fast: $k$ factors at two levels each need $2^k$ treatments, so
-5 factors need 32 and 7 need 128. Industrial experimenters often run a **fractional factorial
-design**, a carefully chosen fraction of the combinations (say 16 of the 32), accepting that some
+5 factors need 32 and 7 need 128. Industrial experimenters often run a
+**fractional factorial design**, a carefully chosen fraction of the combinations (say 16 of the 32), accepting that some
 higher-order interactions can no longer be separated from each other. That trade is usually
 worth it when most of those interactions are expected to be small.
 

@@ -1,0 +1,130 @@
+# Round 2, module stat-m2: drills for the honors lessons (normal probability plots, process capability).
+
+- id: stat-m2-r2-plot-position
+  title: Plotting position and expected z-score
+  topic: Normal probability plots
+  vars:
+    n: {min: 8, max: 40}
+    i: {min: 1, max: 40}
+  where: ['i <= n']
+  calc:
+    pp: (i - 0.5) / n
+    zz: invnorm(pp)
+  prompt: |-
+    A normal probability plot uses plotting positions $(i - 0.5)/n$. For the value in
+    position {i} (counting from the smallest) of a sample of {n} values, find the plotting
+    position (4 decimal places) and the expected z-score (2 decimal places).
+  answers:
+    - {name: pp, label: 'Plotting position', tolerance: 0.00006, format: dp4}
+    - {name: zz, label: 'Expected $z$', tolerance: 0.011, format: dp2}
+  solution: |-
+    Plotting position: $p = \dfrac{{i} - 0.5}{{n}} =$ **{pp:dp4}**. Expected z-score: the
+    z with that area to its left, $z = \Phi^{-1}({pp:dp4}) \approx$ **{zz:dp2}**. (Positions
+    below 0.5 give negative z-scores.)
+
+- id: stat-m2-r2-qq-line
+  title: Mean and SD from a normal probability plot
+  topic: Normal probability plots
+  vars:
+    mu: {min: 20, max: 200, step: 0.5}
+    sd: {min: 2, max: 20, step: 0.5}
+    za: {choices: [-2, -1.5, -1.2, -1, -0.8]}
+    zb: {choices: [0.8, 1, 1.2, 1.5, 2]}
+  calc:
+    xa: mu + za*sd
+    xb: mu + zb*sd
+    slope: (xb - xa) / (zb - za)
+    icpt: xa - slope*za
+  prompt: |-
+    A normal probability plot (data value up, expected z-score across) is close to a
+    straight line through the points $({za}, {xa})$ and $({zb}, {xb})$. Estimate the mean
+    and the standard deviation of the data.
+  answers:
+    - {name: icpt, label: 'Mean $\approx$', tolerance: 0.01}
+    - {name: slope, label: 'SD $\approx$', tolerance: 0.01}
+  solution: |-
+    Normal data follow $x \approx \mu + \sigma z$, so the slope estimates the SD and the
+    value at $z = 0$ estimates the mean. Slope:
+    $\dfrac{{xb} - ({xa})}{{zb} - ({za})} =$ **{slope}**. At $z = 0$:
+    ${xa} - ({slope})({za}) =$ **{icpt}**.
+
+- id: stat-m2-r2-out-of-spec
+  title: Fraction out of specification
+  topic: Process capability
+  vars:
+    tgt: {choices: [25, 40, 80, 150, 250]}
+    w: {min: 1.5, max: 6, step: 0.5}
+    off: {min: -1, max: 1, step: 0.1}
+    sd: {choices: [0.5, 1, 1.25, 2, 2.5]}
+  calc:
+    lsl: tgt - w
+    usl: tgt + w
+    mu: tgt + off
+    zl: (lsl - mu) / sd
+    zu: (usl - mu) / sd
+    pl: normcdf(zl)
+    pu: 1 - normcdf(zu)
+    pout: pl + pu
+  where: ['zl <= -1.5', 'zl >= -3.5', 'zu >= 1.5', 'zu <= 3.5', 'off != 0']
+  prompt: |-
+    Part lengths are normal with mean {mu} mm and standard deviation {sd} mm. The
+    specification is {lsl} to {usl} mm. What proportion of parts are out of specification?
+    Give 4 decimal places.
+  answers:
+    - {name: pout, label: 'Proportion out of spec', tolerance: 0.0006, format: dp4}
+  solution: |-
+    Lower limit: $z = \dfrac{{lsl} - {mu}}{{sd}} = {zl:num2}$, and $\Phi({zl:num2}) = {pl:num4}$.
+    Upper limit: $z = \dfrac{{usl} - {mu}}{{sd}} = {zu:num2}$, and $1 - \Phi({zu:num2}) = {pu:num4}$.
+    Both tails count: ${pl:num4} + {pu:num4} =$ **{pout:dp4}**.
+
+- id: stat-m2-r2-cpk
+  title: Capability indices Cp and Cpk
+  topic: Process capability
+  vars:
+    tgt: {choices: [12, 30, 50, 100, 150]}
+    w: {min: 1, max: 6, step: 0.5}
+    off: {min: -1.5, max: 1.5, step: 0.1}
+    sd: {choices: [0.2, 0.25, 0.4, 0.5, 0.75, 1]}
+  calc:
+    lsl: tgt - w
+    usl: tgt + w
+    mu: tgt + off
+    du: usl - mu
+    dl: mu - lsl
+    cp: (usl - lsl) / (6*sd)
+    cpk: min(du, dl) / (3*sd)
+  where: ['abs(off) < w', 'cp >= 0.5', 'cp <= 3', 'off != 0']
+  prompt: |-
+    A specification is {lsl} to {usl}. The process mean is {mu} and its standard deviation
+    is {sd}. Find $C_p$ and $C_{pk}$ (2 decimal places).
+  answers:
+    - {name: cp, label: '$C_p =$', tolerance: 0.006, format: dp2}
+    - {name: cpk, label: '$C_{pk} =$', tolerance: 0.006, format: dp2}
+  solution: |-
+    $C_p = \dfrac{\text{USL} - \text{LSL}}{6\sigma} = \dfrac{{usl} - {lsl}}{6({sd})} \approx$ **{cp:dp2}**.
+    Distances to the limits: ${usl} - {mu} = {du}$ and ${mu} - {lsl} = {dl}$. Use the nearer one:
+    $C_{pk} = \dfrac{\min({du}, {dl})}{3({sd})} \approx$ **{cpk:dp2}**.
+
+- id: stat-m2-r2-max-sigma
+  title: Largest SD for a target Cpk
+  topic: Process capability
+  vars:
+    tgt: {choices: [20, 45, 60, 120, 300]}
+    w: {min: 1, max: 5, step: 0.5}
+    off: {min: -0.8, max: 0.8, step: 0.1}
+    ck: {choices: [1, 1.2, 1.5, 2]}
+  calc:
+    lsl: tgt - w
+    usl: tgt + w
+    mu: tgt + off
+    dn: min(usl - mu, mu - lsl)
+    smax: dn / (3*ck)
+  where: ['abs(off) < w']
+  prompt: |-
+    A specification is {lsl} to {usl}, and the process mean is {mu}. What is the largest
+    standard deviation that gives $C_{pk}$ of at least {ck}? Give 3 decimal places.
+  answers:
+    - {name: smax, label: '$\sigma_{\max} =$', tolerance: 0.0006, format: dp3}
+  solution: |-
+    The nearer limit is $\min({usl} - {mu}, {mu} - {lsl}) = {dn}$ away. Since
+    $C_{pk} = \dfrac{{dn}}{3\sigma} \ge {ck}$, we need $\sigma \le \dfrac{{dn}}{3({ck})} \approx$ **{smax:dp3}**.

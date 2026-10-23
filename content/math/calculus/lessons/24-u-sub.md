@@ -25,6 +25,23 @@ The bookkeeping uses the differential: if $u = g(x)$, then $du = g'(x)\,dx$. Ste
 4. Integrate in $u$.
 5. Substitute back $u = g(x)$.
 
+The same steps as a chart, including the two places where people most often get stuck:
+
+```mermaid
+flowchart TD
+  accTitle: The substitution method
+  accDescr: Choose u as an inner function and compute du. Rewrite the whole integrand in u. If some x is left over, solve u equals g of x for x and replace it; if that fails, try a different u. Once only u remains, integrate. For an indefinite integral, substitute back to x. For a definite integral, either change the limits to u-values before integrating or substitute back and use the original limits.
+  A["Choose u, an inner function"] --> B["Compute du = g'(x) dx"]
+  B --> C["Rewrite the whole integrand in u"]
+  C --> D{"Any x left over?"}
+  D -- yes --> E["Solve for x in terms of u, or try another u"]
+  E --> C
+  D -- no --> F["Integrate in u"]
+  F --> G{"Definite integral?"}
+  G -- no --> H["Substitute back u = g(x), add C"]
+  G -- yes --> I["Use u-limits, or back-substitute and use x-limits"]
+```
+
 ### Example 1
 
 Find $\displaystyle\int 2x\cos(x^2)\,dx$.
@@ -91,6 +108,16 @@ Evaluate $\displaystyle\int_0^2\frac{x}{\sqrt{x^2 + 5}}\,dx$.
 Let $u = x^2 + 5$, $du = 2x\,dx$. Limits: $x = 0 \Rightarrow u = 5$; $x = 2 \Rightarrow u = 9$.
 $$\frac12\int_5^9 u^{-1/2}\,du = \frac12\Big[2u^{1/2}\Big]_5^9 = \sqrt9 - \sqrt5 = \mathbf{3 - \sqrt5} \approx 0.764.$$
 
+Changing the limits really does describe a different region with the same area. The two graphs below have different shapes and widths, but both shaded areas equal $3 - \sqrt5 \approx 0.764$.
+
+```plot
+{"x": [-0.3, 2.5], "y": [-0.1, 0.9], "functions": [{"f": "x/sqrt(x^2 + 5)", "label": "y = x/√(x² + 5)"}], "shade": [{"f": "x/sqrt(x^2 + 5)", "from": 0, "to": 2}], "caption": "Before: the region under x/√(x² + 5) from x = 0 to x = 2"}
+```
+
+```plot
+{"x": [4, 10], "y": [-0.05, 0.35], "functions": [{"f": "0.5/sqrt(x)", "label": "y = 1/(2√u)"}], "shade": [{"f": "0.5/sqrt(x)", "from": 5, "to": 9}], "xLabel": "u", "caption": "After: the region under 1/(2√u) from u = 5 to u = 9, wider and lower but with the same area"}
+```
+
 ### Example 7
 
 Evaluate $\displaystyle\int_1^e\frac{(\ln x)^2}{x}\,dx$.
@@ -105,6 +132,10 @@ On a symmetric interval $[-a, a]$:
 - If $f$ is **odd** ($f(-x) = -f(x)$), $\int_{-a}^a f\,dx = 0$: the areas cancel.
 
 So $\int_{-2}^2 x^3\cos x\,dx = 0$ with no computation, since $x^3\cos x$ is odd.
+
+```plot
+{"x": [-2.3, 2.3], "y": [-3.6, 3.6], "functions": [{"f": "x^3*cos(x)", "label": "y = x³ cos x"}], "shade": [{"f": "x^3*cos(x)", "from": -2, "to": 2}], "caption": "An odd function: each piece of area on the right has a mirror-image piece of opposite sign on the left, so the net area on [−2, 2] is 0"}
+```
 
 ### Example 8 (solving for $x$)
 

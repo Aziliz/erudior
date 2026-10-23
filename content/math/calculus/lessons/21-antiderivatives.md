@@ -96,9 +96,26 @@ Find $f$ if $f''(x) = 12x^2 + 6$, $f'(0) = 1$, $f(0) = -2$.
 
 $f(x) = x^4 + 3x^2 + x - 2$. A second-order problem needs two conditions, one per constant.
 
+The procedure is the same every time, however many antiderivatives it takes:
+
+```mermaid
+flowchart TD
+  accTitle: Solving an initial value problem
+  accDescr: Start from the given derivative. Antidifferentiate once and add a constant. Use the initial condition that belongs to this level to solve for the constant. If you have reached f, check by differentiating; if not, antidifferentiate again and repeat with the next condition.
+  A["Start with the given derivative"] --> B["Antidifferentiate and add a constant"]
+  B --> C["Use the condition for this level to find the constant"]
+  C --> D{"Have you reached f?"}
+  D -- no --> B
+  D -- yes --> E["Check: differentiate back and test each condition"]
+```
+
 ## Motion from acceleration
 
 Since $s' = v$ and $v' = a$, antidifferentiating acceleration gives velocity, and antidifferentiating velocity gives position.
+
+The picture shows the two directions for the ball in Example 5. Going down the chain is differentiation; going up is antidifferentiation, and each step up needs its own initial value.
+
+![Three stacked boxes: position s(t) = −16t² + 48t + 64 at the top, velocity v(t) = −32t + 48 in the middle, acceleration a(t) = −32 at the bottom. Arrows pointing down are labeled differentiate; arrows pointing up are labeled antidifferentiate, then use the initial value.](images/calc-m6-motion-chain.svg)
 
 ### Example 5
 

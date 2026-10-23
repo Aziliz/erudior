@@ -73,11 +73,30 @@ $f'(a)$ fails to exist in three typical ways.
 {"x": [-3, 3], "y": [-2, 3], "functions": [{"f": "abs(x)", "label": "y = |x|"}, {"f": "cbrt(x)", "dashed": true, "label": "y = ∛x"}], "caption": "A corner (|x| at 0) and a vertical tangent (∛x at 0)"}
 ```
 
+One graph can show all of these at once. Below, $f'$ exists and equals 0 at the smooth peak, but fails to exist at the corner, at the jump, and at the vertical tangent.
+
+![A single graph. On the left a smooth hump whose peak has a horizontal tangent; then the graph falls into a sharp corner and rises in a straight line to a solid dot; at the same x there is an open dot near the x-axis, a jump; from there the graph rises and becomes vertical for an instant (a vertical tangent) before leveling off.](images/calc-m2-nondiff.svg)
+
 For corners, compute the one-sided derivatives:
 
 $$f'_-(a) = \lim_{h\to0^-}\frac{f(a+h) - f(a)}{h}, \qquad f'_+(a) = \lim_{h\to0^+}\frac{f(a+h) - f(a)}{h}.$$
 
 $f$ is differentiable at $a$ exactly when both exist and agree.
+
+Putting the whole check together:
+
+```mermaid
+flowchart TD
+  accTitle: Is f differentiable at x = a?
+  accDescr: First ask whether f is continuous at a. If not, f is not differentiable there. If it is, find the left and right derivatives at a. If either one is infinite or does not exist, f is not differentiable (a vertical tangent or a wilder failure). If both are finite but different, f has a corner and is not differentiable. If both are finite and equal, f is differentiable at a and f prime of a is that common value.
+  A{"Is f continuous at a?"} -- no --> N1["Not differentiable (jump, hole or asymptote)"]
+  A -- yes --> B["Find the left and right derivatives at a"]
+  B --> C{"Are both finite numbers?"}
+  C -- no --> N2["Not differentiable (vertical tangent, or worse)"]
+  C -- yes --> D{"Are they equal?"}
+  D -- no --> N3["Not differentiable (corner)"]
+  D -- yes --> Y["Differentiable: f'(a) is the common value"]
+```
 
 ## Differentiability implies continuity
 

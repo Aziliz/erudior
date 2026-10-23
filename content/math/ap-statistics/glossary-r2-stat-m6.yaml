@@ -1,0 +1,34 @@
+# Round 2, module stat-m6: terms introduced by the two honors lessons.
+- term: linearity of expectation
+  aliases: [linearity of expected value]
+  definition: 'The rule $E(c + a_1X_1 + \cdots + a_nX_n) = c + a_1E(X_1) + \cdots + a_nE(X_n)$, true for any random variables, independent or not.'
+  topic: Linearity of expectation
+- term: indicator variable
+  aliases: [indicator variables, indicator random variable, indicator]
+  definition: 'A random variable equal to 1 if an event occurs and 0 if not. Its mean is the probability of the event, so a count written as a sum of indicators has mean equal to the sum of their probabilities.'
+  topic: Linearity of expectation
+- term: matching problem
+  definition: 'The classic question of how many of $n$ randomly placed items land in their own spot (letters in envelopes). The expected number of matches is 1 for every $n$.'
+  topic: Linearity of expectation
+- term: coupon collector problem
+  aliases: [coupon collector, coupon collector's problem]
+  definition: 'How many random draws, each equally likely to be any of $n$ types, are needed to see every type. The expected number is $n(1 + \tfrac12 + \cdots + \tfrac1n)$, a sum of geometric waits.'
+  topic: Linearity of expectation
+- term: harmonic number
+  aliases: [harmonic numbers]
+  definition: '$H_n = 1 + \tfrac12 + \tfrac13 + \cdots + \tfrac1n$. It grows without bound but slowly, roughly like $\ln n + 0.58$ for large $n$.'
+  topic: Linearity of expectation
+- term: covariance
+  aliases: [Cov(X, Y)]
+  definition: '$\text{Cov}(X, Y) = E[(X - \mu_X)(Y - \mu_Y)] = E(XY) - \mu_X\mu_Y$: positive when two random variables tend to move together, negative when they tend to move in opposite directions. It has the units of $X$ times $Y$.'
+  topic: Covariance
+- term: uncorrelated
+  definition: 'Having zero covariance (and correlation). Independent random variables are uncorrelated, but uncorrelated variables need not be independent.'
+  topic: Covariance
+- term: diversification
+  definition: 'Spreading money or risk over several investments whose ups and downs partly cancel; the lower their correlation, the smaller the spread of the combined return for the same mean.'
+  topic: Covariance
+- term: finite population correction
+  aliases: [FPC, finite population correction factor]
+  definition: 'The factor $\frac{N - n}{N - 1}$ that multiplies the binomial variance $np(1-p)$ when $n$ items are drawn without replacement from $N$. It is near 1 when the sample is a small part of the population (the 10% condition).'
+  topic: Covariance

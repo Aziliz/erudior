@@ -148,7 +148,8 @@ The fix is to compare the hospitals *as if they had the same case mix*. **Standa
 (direct standardization) picks one standard mix, applies each group's own stratum rates to it,
 and adds. The results are called adjusted (or standardized) rates. Demographers and public
 health agencies routinely use it, for example to compare death rates of regions whose
-populations have different age structures.
+populations have different age structures. (The honors lesson on causal inference in Module 4
+uses the same tool to adjust an observational comparison for a measured confounder.)
 
 ### Example 3: adjusting the hospital comparison
 
