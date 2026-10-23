@@ -215,10 +215,10 @@
   lesson: geo-parallelograms
   topic: Parallelograms
   stem: 'Three vertices of $\square ABCD$ are $A(1, 1)$, $B(6, 2)$ and $C(8, 6)$. Where is $D$?'
-  choices: ['$(13, 7)$', '$(-1, -3)$', '$(3, 5)$', '$(4, 5)$']
+  choices: ['$(13, 7)$', '$(-1, -3)$', '$(3, 5)$', '$(4.5, 3.5)$']
   answer: 2
   explanation: |-
-    The diagonals $\overline{AC}$ and $\overline{BD}$ share a midpoint. The midpoint of $\overline{AC}$ is $(4.5, 3.5)$, so $D = (2 \cdot 4.5 - 6, 2 \cdot 3.5 - 2) = (3, 5)$. Equivalently $D = A + C - B$. $(13, 7)$ is $B + C - A$ and $(-1, -3)$ is $A + B - C$: those complete parallelograms with the vertices in a different order. $(4, 5)$ comes from using the midpoint of $\overline{AC}$ wrongly.
+    The diagonals $\overline{AC}$ and $\overline{BD}$ share a midpoint. The midpoint of $\overline{AC}$ is $(4.5, 3.5)$, so $D = (2 \cdot 4.5 - 6, 2 \cdot 3.5 - 2) = (3, 5)$. Equivalently $D = A + C - B$. $(13, 7)$ is $B + C - A$ and $(-1, -3)$ is $A + B - C$: those complete parallelograms with the vertices in a different order. $(4.5, 3.5)$ is the shared midpoint of the diagonals, not a vertex.
 # ---------------------------------------------------------------- Lesson 19 (geo-special-quads)
 - id: geo-m5-r2-q21
   lesson: geo-special-quads

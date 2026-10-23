@@ -34,7 +34,7 @@
 <circle cx="645.1" cy="285.1" r="5" fill="#1c2833"/>
 <circle cx="590" cy="230" r="4" fill="#1c2833"/>
 <circle cx="590.0" cy="154.0" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
-<text x="655.1" y="307.1" font-size="15" text-anchor="start">(1, 2, −1)</text>
+<text x="661.1" y="311.1" font-size="15" text-anchor="start">(1, 2, −1)</text>
 <text x="510.4" y="150.4" font-size="17" text-anchor="end" font-weight="bold" fill="#145a32">Col A</text>
 <text x="604.0" y="156.0" font-size="15" text-anchor="start">(0, 0, 2)</text>
 <text x="604.0" y="174.0" font-size="15" text-anchor="start">not in Col A</text>

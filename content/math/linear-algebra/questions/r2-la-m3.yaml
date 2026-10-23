@@ -1,0 +1,579 @@
+# Round 2, module la-m3: new question types for the core lessons (la-m3-r2-q..)
+# and questions for the honors lessons 11h1 and 11h2 (la-m3-r2-h..).
+
+# ---------- Lesson 8: linear combinations and span ----------
+- id: la-m3-r2-q01
+  lesson: la-lin-comb
+  topic: Span
+  type: label
+  stem: 'The picture shows vectors $\mathbf{u}$ and $\mathbf{v}$ lying in a shaded plane, a long line through the origin in the direction of a vector $\mathbf{w}$, and a dark arrow $\mathbf{b}$. Name the numbered parts.'
+  image: {src: images/la-m3-span-r3-blank.svg, alt: 'A shaded plane in three-dimensional space with two blue arrows lying in it from a common point, a long red line crossing the plane at that point, and a dark arrow pointing up out of the plane from the same point. Four numbered markers: on the common point, on an empty part of the plane, on the red line, and on the dark arrow.'}
+  labels:
+    - {x: 46.9, y: 63.0, text: Origin}
+    - {x: 62.5, y: 73.9, text: 'Span{u, v}, a plane'}
+    - {x: 27.4, y: 33.6, text: 'Span{w}, a line'}
+    - {x: 60.7, y: 33.5, text: 'A vector not in Span{u, v}'}
+  distractors: ['A line not through the origin', 'Span{u}']
+  explanation: |-
+    Every span contains $\mathbf{0}$, so the plane and the line both pass through the origin (1), where all the arrows start. Two vectors that are not multiples of each other span a plane (2); one nonzero vector spans a line (3). The arrow $\mathbf{b}$ (4) leaves the plane, so it is not a linear combination of $\mathbf{u}$ and $\mathbf{v}$. A line not through the origin can never be a span.
+
+- id: la-m3-r2-q02
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Linear combinations
+  type: text
+  stem: 'Let $\mathbf{v}_1 = (2, 1)$ and $\mathbf{v}_2 = (-1, 2)$. Fill in the weights: $(3, 4)$ equals ___ times $\mathbf{v}_1$ plus ___ times $\mathbf{v}_2$. Give only the numbers.'
+  accept:
+    - ['2']
+    - ['1']
+  explanation: |-
+    Solve $x_1(2, 1) + x_2(-1, 2) = (3, 4)$: $2x_1 - x_2 = 3$ and $x_1 + 2x_2 = 4$. From the first, $x_2 = 2x_1 - 3$; then $x_1 + 4x_1 - 6 = 4$, so $x_1 = 2$ and $x_2 = 1$. Check: $2(2, 1) + (-1, 2) = (3, 4)$. ✓ This is the combination drawn in the lesson.
+
+- id: la-m3-r2-q03
+  lesson: la-lin-comb
+  topic: Span
+  type: order
+  stem: 'Put the steps for deciding whether $\mathbf{b}$ is in $\operatorname{Span}\{\mathbf{a}_1, \dots, \mathbf{a}_n\}$, and finding the weights if it is, in order.'
+  items:
+    - 'Form the augmented matrix $[\,\mathbf{a}_1 \;\cdots\; \mathbf{a}_n \;\; \mathbf{b}\,]$'
+    - Row-reduce it to an echelon form
+    - Check whether the last column has a pivot
+    - If it has none, finish the reduced echelon form and read off the weights
+    - Check the weights by computing the linear combination
+  explanation: |-
+    The given vectors become columns, with $\mathbf{b}$ last. An echelon form already shows whether there is a pivot in the last column (inconsistent, so $\mathbf{b}$ is not in the span). Only a consistent system has weights to read off, and the check comes once you have them.
+
+- id: la-m3-r2-q04
+  lesson: la-lin-comb
+  topic: Span
+  stem: 'Which vectors are in $\operatorname{Span}\{(1, 0, 1), (0, 1, 2)\}$? Select all that apply.'
+  choices: ['$(2, 3, 8)$', '$(0, 0, 0)$', '$(1, 1, 2)$', '$(-1, 2, 3)$', '$(3, 0, 4)$']
+  answer: [0, 1, 3]
+  explanation: |-
+    A combination $a(1, 0, 1) + b(0, 1, 2) = (a, b, a + 2b)$, so a vector $(y_1, y_2, y_3)$ is in the span exactly when $y_3 = y_1 + 2y_2$.
+    - $(2, 3, 8)$: $2 + 6 = 8$. ✓
+    - $(0, 0, 0)$: every span contains $\mathbf{0}$. ✓
+    - $(1, 1, 2)$: $1 + 2 = 3 \ne 2$. ✗
+    - $(-1, 2, 3)$: $-1 + 4 = 3$. ✓
+    - $(3, 0, 4)$: $3 + 0 = 3 \ne 4$. ✗
+
+- id: la-m3-r2-q05
+  lesson: la-lin-comb
+  module_quiz: true
+  topic: Span
+  type: match
+  stem: 'In $\mathbb{R}^3$, match each span to its shape. Here $\mathbf{u}$ and $\mathbf{v}$ are nonzero and not multiples of each other.'
+  pairs:
+    - ['$\operatorname{Span}\{\mathbf{0}\}$', The origin alone]
+    - ['$\operatorname{Span}\{\mathbf{u}\}$', A line through the origin]
+    - ['$\operatorname{Span}\{\mathbf{u}, 2\mathbf{u}\}$', A line through the origin]
+    - ['$\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$', A plane through the origin]
+    - ['$\operatorname{Span}\{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3\}$', All of three-dimensional space]
+  distractors: [A line that misses the origin]
+  explanation: |-
+    The only combination of $\mathbf{0}$ is $\mathbf{0}$. One nonzero vector spans a line through the origin, and adding a multiple of it ($2\mathbf{u}$) adds nothing new. Two non-parallel vectors span a plane through the origin. The standard basis vectors reach every $(x_1, x_2, x_3) = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + x_3\mathbf{e}_3$. No span misses the origin.
+
+# ---------- Lesson 9: the matrix equation ----------
+- id: la-m3-r2-q06
+  lesson: la-matrix-eq
+  module_quiz: true
+  topic: Matrix equation
+  type: text
+  stem: 'For $A = \begin{bmatrix} 1 & 2 \\ 3 & -1\end{bmatrix}$ and $\mathbf{x} = \begin{bmatrix} 2 \\ -1\end{bmatrix}$, the first entry of $A\mathbf{x}$ is ___ and the second entry is ___.'
+  accept:
+    - ['0']
+    - ['7']
+  explanation: |-
+    Row–vector rule: $1(2) + 2(-1) = 0$ and $3(2) + (-1)(-1) = 7$. Column view: $2\begin{bmatrix} 1 \\ 3\end{bmatrix} - \begin{bmatrix} 2 \\ -1\end{bmatrix} = \begin{bmatrix} 0 \\ 7\end{bmatrix}$.
+
+- id: la-m3-r2-q07
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  type: match
+  stem: 'Match each fact about row reduction to what it tells you.'
+  pairs:
+    - ['$A$ has a pivot position in every row', Ax = b is consistent for every b]
+    - ['An echelon form of $A$ has a row of zeros', Some b make Ax = b inconsistent]
+    - ['An echelon form of $[\,A \;\; \mathbf{b}\,]$ has a pivot in the last column', This particular system has no solution]
+    - ['An echelon form of $[\,A \;\; \mathbf{b}\,]$ has no pivot in the last column', This particular system has at least one solution]
+  distractors: [This particular system has exactly one solution]
+  explanation: |-
+    Pivots in every row of the coefficient matrix $A$ rule out a row $[\,0 \;\cdots\; 0 \;\; d\,]$ for every $\mathbf{b}$. A zero row of $A$'s echelon form lets you choose $\mathbf{b}$ so that row ends in a nonzero number. For one particular $\mathbf{b}$, a pivot in the last column of the augmented matrix means inconsistent, and no pivot there means consistent. "Exactly one solution" also needs a pivot in every column of $A$, which none of the facts says.
+
+- id: la-m3-r2-q08
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  stem: '$A$ is an $m \times n$ matrix. Which statements are equivalent to "the columns of $A$ span $\mathbb{R}^m$"? Select all that apply.'
+  choices:
+    - '$A\mathbf{x} = \mathbf{b}$ has a solution for every $\mathbf{b}$ in $\mathbb{R}^m$'
+    - '$A$ has a pivot position in every row'
+    - '$A$ has a pivot position in every column'
+    - 'Every $\mathbf{b}$ in $\mathbb{R}^m$ is a linear combination of the columns of $A$'
+    - '$A\mathbf{x} = \mathbf{0}$ has only the trivial solution'
+  answer: [0, 1, 3]
+  explanation: |-
+    The theorem in this lesson makes spanning, solvability for every $\mathbf{b}$, every $\mathbf{b}$ being a combination of the columns, and a pivot in every row all equivalent. A pivot in every column (equivalently, only the trivial solution of $A\mathbf{x} = \mathbf{0}$) is a different property: $\begin{bmatrix} 1 \\ 0\end{bmatrix}$ has a pivot in its only column but its column spans just a line in $\mathbb{R}^2$.
+
+- id: la-m3-r2-q09
+  lesson: la-matrix-eq
+  topic: Matrix equation
+  type: text
+  stem: 'For $A = \begin{bmatrix} 1 & 2 & -1 \\ 2 & 5 & 1 \\ 3 & 7 & 0\end{bmatrix}$, $A\mathbf{x} = \mathbf{b}$ is consistent exactly when $b_3 = b_1 + b_2$. If $b_1 = 2$ and $b_2 = -5$, the system is consistent only when $b_3 =$ ___. Give only the number.'
+  accept: ['-3']
+  explanation: |-
+    $b_3 = b_1 + b_2 = 2 + (-5) = -3$. For any other $b_3$, row 3 of the reduced augmented matrix is $[\,0 \;\; 0 \;\; 0 \;\; b_3 - b_1 - b_2\,]$ with a nonzero last entry.
+
+- id: la-m3-r2-q10
+  lesson: la-matrix-eq
+  module_quiz: true
+  topic: Matrix equation
+  stem: 'For $A = \begin{bmatrix} 1 & -2 \\ -2 & 4\end{bmatrix}$, for which $\mathbf{b}$ is $A\mathbf{x} = \mathbf{b}$ consistent?'
+  choices: ['Exactly when $b_2 = 2b_1$', 'Exactly when $b_1 = -2b_2$', 'For every $\mathbf{b}$ in $\mathbb{R}^2$', 'Exactly when $b_2 = -2b_1$']
+  answer: 3
+  explanation: |-
+    $R_2 \leftarrow R_2 + 2R_1$ turns $\left[\begin{array}{cc|c} 1 & -2 & b_1 \\ -2 & 4 & b_2\end{array}\right]$ into $\left[\begin{array}{cc|c} 1 & -2 & b_1 \\ 0 & 0 & b_2 + 2b_1\end{array}\right]$. $A$ has no pivot in row 2, so not every $\mathbf{b}$ works; the system is consistent exactly when $b_2 + 2b_1 = 0$, that is, $b_2 = -2b_1$. Both columns are multiples of $(1, -2)$, so their span is that line.
+
+# ---------- Lesson 10: solution sets ----------
+- id: la-m3-r2-q11
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  type: label
+  stem: 'The picture shows the solution sets of $A\mathbf{x} = \mathbf{0}$ and $A\mathbf{x} = \mathbf{b}$ (with $\mathbf{b} \ne \mathbf{0}$) for a $3 \times 3$ matrix $A$ with two free variables. Name the numbered parts.'
+  image: {src: images/la-m3-solution-sets-blank.svg, alt: 'Two parallel shaded planes, one above the other. A point on the lower plane has a blue arrow lying in the lower plane and a red arrow rising from it to a point on the upper plane; a dashed blue arrow on the upper plane runs from that point to another point. Five numbered markers: on the starting point in the lower plane, on the red arrow, on an empty part of the lower plane, on an empty part of the upper plane, and on the end of the dashed arrow.'}
+  labels:
+    - {x: 45.3, y: 72.9, text: Origin}
+    - {x: 48.9, y: 57.4, text: Particular solution p}
+    - {x: 23.4, y: 81.3, text: Solutions of Ax = 0}
+    - {x: 23.4, y: 47.9, text: Solutions of Ax = b}
+    - {x: 79.8, y: 37.2, text: Another solution of Ax = b}
+  distractors: [The vector b, A pivot column of A]
+  explanation: |-
+    The homogeneous solutions form a plane through the origin (1, 3). A particular solution $\mathbf{p}$ (2) reaches the parallel plane of solutions of $A\mathbf{x} = \mathbf{b}$ (4). Adding a homogeneous solution $\mathbf{v}_h$ to $\mathbf{p}$ gives another solution $\mathbf{p} + \mathbf{v}_h$ (5). The vector $\mathbf{b}$ lives in the codomain, not among the solutions $\mathbf{x}$, so it is not drawn here.
+
+- id: la-m3-r2-q12
+  lesson: la-solution-sets
+  module_quiz: true
+  topic: Parametric vector form
+  type: order
+  stem: 'Put the steps for writing the solutions of $A\mathbf{x} = \mathbf{b}$ in parametric vector form in order.'
+  items:
+    - 'Row-reduce $[\,A \;\; \mathbf{b}\,]$ to reduced echelon form'
+    - Solve for the basic variables in terms of the free variables
+    - Write $\mathbf{x}$ as a single column of those expressions
+    - Split the column into a constant vector plus one vector times each free variable
+  explanation: |-
+    You can only solve for basic variables after the RREF shows which they are; the column is built from those solved expressions; and splitting it is the last step, giving $\mathbf{x} = \mathbf{p} + s\mathbf{u} + t\mathbf{v} + \cdots$.
+
+- id: la-m3-r2-q13
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  type: text
+  stem: 'The solutions of $x_1 - 4x_2 + 2x_3 = 0$ are $\mathbf{x} = x_2\mathbf{u} + x_3\mathbf{v}$, where $\mathbf{u}$ = (___, 1, 0) and $\mathbf{v}$ = (___, 0, 1). Fill in the two missing first entries.'
+  accept:
+    - ['4']
+    - ['-2']
+  explanation: |-
+    Solve for the basic variable: $x_1 = 4x_2 - 2x_3$, with $x_2, x_3$ free. So $\mathbf{x} = (4x_2 - 2x_3, x_2, x_3) = x_2(4, 1, 0) + x_3(-2, 0, 1)$. A common slip is keeping the signs from the original equation ($-4$ and $2$); moving the terms across flips them.
+
+- id: la-m3-r2-q14
+  lesson: la-solution-sets
+  topic: Parametric vector form
+  stem: '$\mathbf{p} = (1, 2, 0)$ solves $A\mathbf{x} = \mathbf{b}$ (with $\mathbf{b} \ne \mathbf{0}$), and the solutions of $A\mathbf{x} = \mathbf{0}$ are exactly the multiples $t(1, -1, 1)$. Which vectors solve $A\mathbf{x} = \mathbf{b}$? Select all that apply.'
+  choices: ['$(1, 2, 0)$', '$(2, 1, 1)$', '$(0, 3, -1)$', '$(1, -1, 1)$', '$(2, 3, 1)$']
+  answer: [0, 1, 2]
+  explanation: |-
+    The solutions are $\mathbf{p} + t(1, -1, 1) = (1 + t, 2 - t, t)$.
+    - $(1, 2, 0)$: $t = 0$. ✓
+    - $(2, 1, 1)$: $t = 1$. ✓
+    - $(0, 3, -1)$: $t = -1$. ✓
+    - $(1, -1, 1)$: this is a homogeneous solution, so $A$ sends it to $\mathbf{0}$, not $\mathbf{b}$. ✗
+    - $(2, 3, 1)$: the third entry forces $t = 1$, but then the second entry would be 1, not 3. ✗
+
+- id: la-m3-r2-q15
+  lesson: la-solution-sets
+  topic: Homogeneous systems
+  stem: '$A$ is a $3 \times 5$ matrix with 2 pivot positions. The solution set of $A\mathbf{x} = \mathbf{0}$ in parametric vector form is the span of how many vectors?'
+  choices: ['2', '3', '5', '1']
+  answer: 1
+  explanation: |-
+    Each free variable contributes one vector. With 5 columns and 2 pivot columns there are $5 - 2 = 3$ free variables, so the solution set is the span of 3 vectors. (2 is the number of pivots, not free variables.)
+
+# ---------- Lesson 11: linear independence ----------
+- id: la-m3-r2-q16
+  lesson: la-independence
+  module_quiz: true
+  topic: Linear independence
+  type: match
+  stem: 'Match each set of vectors to whether it is linearly independent or dependent.'
+  pairs:
+    - ['$\{(1, 2), (2, 4)\}$', Dependent]
+    - ['$\{(1, 0, 0), (0, 1, 0), (0, 0, 1)\}$', Independent]
+    - ['$\{(1, 2), (3, 1), (0, 5)\}$', Dependent]
+    - ['$\{(0, 0, 0), (1, 2, 3)\}$', Dependent]
+    - ['$\{(1, 2, 3)\}$', Independent]
+  distractors: [Can't tell without row reduction]
+  explanation: |-
+    $(2, 4) = 2(1, 2)$, so the first pair is dependent. The standard basis vectors are independent (their matrix is $I_3$). Three vectors in $\mathbb{R}^2$ are always dependent. Any set containing $\mathbf{0}$ is dependent. One nonzero vector is independent. All five follow from the quick tests, with no row reduction needed.
+
+- id: la-m3-r2-q17
+  lesson: la-independence
+  topic: Linear independence
+  type: text
+  stem: 'The vectors $(1, 2, -1)$, $(2, 5, 1)$ and $(0, 1, h)$ are linearly dependent exactly when $h =$ ___. Give only the number.'
+  accept: ['3']
+  explanation: |-
+    Row-reduce $\begin{bmatrix} 1 & 2 & 0 \\ 2 & 5 & 1 \\ -1 & 1 & h\end{bmatrix}$. $R_2 \leftarrow R_2 - 2R_1$ gives $[\,0 \;\; 1 \;\; 1\,]$; $R_3 \leftarrow R_3 + R_1$ gives $[\,0 \;\; 3 \;\; h\,]$; $R_3 \leftarrow R_3 - 3R_2$ gives $[\,0 \;\; 0 \;\; h - 3\,]$. Column 3 lacks a pivot exactly when $h = 3$. (Then $(0, 1, 3) = (2, 5, 1) - 2(1, 2, -1)$.)
+
+- id: la-m3-r2-q18
+  lesson: la-independence
+  topic: Linear independence
+  stem: '$\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is a linearly independent set in $\mathbb{R}^4$. Which statements must be true? Select all that apply.'
+  choices:
+    - 'No vector in the set is a linear combination of the others'
+    - '$\{\mathbf{v}_1, \mathbf{v}_2\}$ is linearly independent'
+    - 'None of the three vectors is $\mathbf{0}$'
+    - 'The three vectors span $\mathbb{R}^4$'
+    - 'The matrix $[\,\mathbf{v}_1 \;\; \mathbf{v}_2 \;\; \mathbf{v}_3\,]$ has a pivot in every row'
+  answer: [0, 1, 2]
+  explanation: |-
+    A dependent set has a vector that is a combination of the others, so an independent one doesn't. A dependence relation among $\mathbf{v}_1, \mathbf{v}_2$ would also be one for all three (weight 0 on $\mathbf{v}_3$), so the smaller set is independent. A set containing $\mathbf{0}$ is dependent. But the $4 \times 3$ matrix has at most 3 pivots, so it can't have one in each of its 4 rows: three vectors never span $\mathbb{R}^4$.
+
+- id: la-m3-r2-q19
+  lesson: la-independence
+  topic: Linear independence
+  stem: 'In the left panel, $\mathbf{u}$, $\mathbf{v}$ and $\mathbf{w}$ all lie in one plane through the origin, and $\mathbf{u}$, $\mathbf{v}$ are not parallel. What follows?'
+  image: {src: images/la-m3-dependent-independent.svg, alt: 'Two panels. Left, labeled dependent: vectors u, v and w all lie in one shaded plane. Right, labeled independent: u and v lie in the plane and w points out of it.'}
+  choices:
+    - 'The set is dependent, because $\mathbf{w}$ is a linear combination of $\mathbf{u}$ and $\mathbf{v}$'
+    - 'The set is independent, because no two of the vectors are parallel'
+    - 'The set is dependent, because it has more vectors than $\mathbb{R}^3$ has entries'
+    - 'Independence can''t be decided from a picture in $\mathbb{R}^3$'
+  answer: 0
+  explanation: |-
+    Two non-parallel vectors span their plane, so any $\mathbf{w}$ in that plane equals $a\mathbf{u} + b\mathbf{v}$, giving the nontrivial relation $a\mathbf{u} + b\mathbf{v} - \mathbf{w} = \mathbf{0}$. "No two parallel" is not enough for three or more vectors. Three vectors in $\mathbb{R}^3$ is not "more vectors than entries" (that would need four).
+
+- id: la-m3-r2-q20
+  lesson: la-independence
+  topic: Linear independence
+  type: text
+  stem: '$[\,\mathbf{v}_1 \;\; \mathbf{v}_2 \;\; \mathbf{v}_3\,]$ has reduced echelon form $\begin{bmatrix} 1 & 0 & -3 \\ 0 & 1 & 2 \\ 0 & 0 & 0\end{bmatrix}$. Complete the dependence relation: ___ $\mathbf{v}_1 +$ ___ $\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}$.'
+  accept:
+    - ['3']
+    - ['-2']
+  explanation: |-
+    The RREF says $x_1 - 3x_3 = 0$ and $x_2 + 2x_3 = 0$, so $x_1 = 3x_3$ and $x_2 = -2x_3$. With $x_3 = 1$: $3\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}$. Reading the entries $-3$ and $2$ straight from the matrix gives the signs backwards.
+
+# ---------- Honors 11h1: affine and convex combinations ----------
+- id: la-m3-r2-h01
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  stem: 'Which of these is an affine combination of points $\mathbf{p}$ and $\mathbf{q}$?'
+  choices: ['$\mathbf{p} + \mathbf{q}$', '$2\mathbf{p} - 2\mathbf{q}$', '$3\mathbf{p} - 2\mathbf{q}$', '$\tfrac12\mathbf{p} + \tfrac14\mathbf{q}$']
+  answer: 2
+  explanation: |-
+    The weights of an affine combination add to 1: $3 + (-2) = 1$. The others have weight sums $2$, $0$ and $\tfrac34$. (Negative weights are allowed; $3\mathbf{p} - 2\mathbf{q}$ is the point at $t = -2$ on the line through $\mathbf{p}$ and $\mathbf{q}$.)
+
+- id: la-m3-r2-h02
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  stem: '$\mathbf{p}$ and $\mathbf{q}$ are different points in $\mathbb{R}^3$. What is the set of all their affine combinations?'
+  choices: ['The line through $\mathbf{p}$ and $\mathbf{q}$', 'The segment from $\mathbf{p}$ to $\mathbf{q}$', 'The plane through $\mathbf{0}$, $\mathbf{p}$ and $\mathbf{q}$', 'The line through $\mathbf{0}$ parallel to $\mathbf{q} - \mathbf{p}$']
+  answer: 0
+  explanation: |-
+    $(1 - t)\mathbf{p} + t\mathbf{q} = \mathbf{p} + t(\mathbf{q} - \mathbf{p})$ for all real $t$ is the whole line through the two points. The segment needs $0 \le t \le 1$ (convex combinations); the plane comes from linear combinations; the line through $\mathbf{0}$ is $\operatorname{Span}\{\mathbf{q} - \mathbf{p}\}$, the affine hull shifted back to the origin.
+
+- id: la-m3-r2-h03
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  type: text
+  stem: 'With $\mathbf{p} = (1, 1)$ and $\mathbf{q} = (5, 3)$, the point $(7, 4)$ equals $(1 - t)\mathbf{p} + t\mathbf{q}$ for $t =$ ___. Give only the number.'
+  accept: ['1.5']
+  explanation: |-
+    $(1 - t)\mathbf{p} + t\mathbf{q} = \mathbf{p} + t(\mathbf{q} - \mathbf{p}) = (1 + 4t, 1 + 2t)$. Setting $1 + 4t = 7$ gives $t = 1.5$, and then $1 + 2(1.5) = 4$. ✓ Since $t > 1$, the point lies on the line beyond $\mathbf{q}$, outside the segment.
+
+- id: la-m3-r2-h04
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  stem: '$\mathbf{y}$ is an affine combination of $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ exactly when:'
+  choices:
+    - '$\mathbf{y}$ is in $\operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$'
+    - '$\mathbf{y} - \mathbf{v}_1$ is in $\operatorname{Span}\{\mathbf{v}_2, \mathbf{v}_3\}$'
+    - '$\mathbf{y}$ is in $\operatorname{Span}\{\mathbf{v}_2 - \mathbf{v}_1, \mathbf{v}_3 - \mathbf{v}_1\}$'
+    - '$\mathbf{y} - \mathbf{v}_1$ is in $\operatorname{Span}\{\mathbf{v}_2 - \mathbf{v}_1, \mathbf{v}_3 - \mathbf{v}_1\}$'
+  answer: 3
+  explanation: |-
+    With weights adding to 1, $\mathbf{y} - \mathbf{v}_1 = c_2(\mathbf{v}_2 - \mathbf{v}_1) + c_3(\mathbf{v}_3 - \mathbf{v}_1)$, and the steps reverse. Being in the span of the $\mathbf{v}_i$ ignores the sum condition, and the span of the differences without subtracting $\mathbf{v}_1$ from $\mathbf{y}$ describes the flat moved to the origin, not the flat itself.
+
+- id: la-m3-r2-h05
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  stem: 'With $\mathbf{v}_1 = (1, 0, 2)$, $\mathbf{v}_2 = (3, 1, 1)$, $\mathbf{v}_3 = (0, 2, 4)$, which weights $(c_1, c_2, c_3)$ write $\mathbf{y} = (2, 3, 3)$ as an affine combination?'
+  choices: ['$(1, 1, -1)$', '$(-1, 1, 1)$', '$(0, 1, 1)$', '$(1, -1, 1)$']
+  answer: 1
+  explanation: |-
+    $-\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3 = (-1 + 3 + 0, 0 + 1 + 2, -2 + 1 + 4) = (2, 3, 3)$, and $-1 + 1 + 1 = 1$. ✓ The others give $(4, -1, -1)$, $(3, 3, 5)$ (and weights adding to 2) and $(-2, 1, 5)$. Since the three points are affinely independent, these weights are the only ones.
+
+- id: la-m3-r2-h06
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  stem: 'Which sets of points are affinely independent? Select all that apply.'
+  choices: ['$(0, 0)$, $(1, 0)$, $(0, 1)$', '$(1, 1)$, $(2, 2)$, $(3, 3)$', '$(1, 1)$, $(2, 2)$', '$(0, 0)$, $(1, 0)$, $(0, 1)$, $(1, 1)$', '$(1, 0, 0)$, $(0, 1, 0)$, $(0, 0, 1)$']
+  answer: [0, 2, 4]
+  explanation: |-
+    Test the differences from the first point.
+    - $(1, 0)$, $(0, 1)$: independent, a triangle. ✓
+    - $(1, 1)$, $(2, 2)$: parallel, the points are collinear. ✗
+    - $(1, 1)$: one nonzero difference; any two distinct points are affinely independent. ✓
+    - Four points in $\mathbb{R}^2$: at most $2 + 1 = 3$ can be affinely independent. ✗
+    - $(-1, 1, 0)$, $(-1, 0, 1)$: not parallel, so the three points form a triangle. ✓ (As vectors these three points are also linearly independent, but that is a different test.)
+
+- id: la-m3-r2-h07
+  lesson: la-m3-h-affine
+  topic: Affine combinations
+  stem: 'What is the largest number of affinely independent points in $\mathbb{R}^3$?'
+  choices: ['3', '5', '4', 'There is no largest number']
+  answer: 2
+  explanation: |-
+    Lifted to $(\mathbf{v}_i, 1)$ the points become vectors in $\mathbb{R}^4$, and at most 4 vectors in $\mathbb{R}^4$ are independent. Four is reached by the corners of a tetrahedron, such as $\mathbf{0}, \mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$. The answer 3 is the most *linearly* independent vectors in $\mathbb{R}^3$.
+
+- id: la-m3-r2-h08
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  type: label
+  stem: 'For each numbered point, describe its barycentric coordinates relative to triangle $\mathbf{v}_1\mathbf{v}_2\mathbf{v}_3$.'
+  image: {src: images/la-m3-barycentric-blank.svg, alt: 'A shaded triangle with corners v1 (bottom left), v2 (right) and v3 (top). Four numbered markers: one inside the triangle, one on the edge from v2 to v3, one outside the triangle beyond that edge, and one on the corner v1.'}
+  labels:
+    - {x: 44.7, y: 48.9, text: All three are positive}
+    - {x: 53.3, y: 38.3, text: 'One is zero, the other two positive'}
+    - {x: 79.3, y: 27.7, text: At least one is negative}
+    - {x: 18.7, y: 80.9, text: Two are zero and one is 1}
+  distractors: [All three are negative, They add up to 0]
+  explanation: |-
+    Inside the triangle all three coordinates are positive (1). On the edge $\mathbf{v}_2\mathbf{v}_3$ the weight on $\mathbf{v}_1$ is 0 (2). Across that edge, outside, the weight on $\mathbf{v}_1$ is negative (3). At the corner $\mathbf{v}_1$ the coordinates are $(1, 0, 0)$ (4). Barycentric coordinates always add to 1, so they can't all be negative or add to 0.
+
+- id: la-m3-r2-h09
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  type: text
+  stem: 'The centroid of a triangle is the average $\tfrac13(\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3)$ of its corners. Each of its three barycentric coordinates equals ___. Give an exact fraction.'
+  accept: ['1/3', one third]
+  explanation: |-
+    $\tfrac13\mathbf{v}_1 + \tfrac13\mathbf{v}_2 + \tfrac13\mathbf{v}_3$ has weights adding to 1, and barycentric coordinates are unique, so they are $(\tfrac13, \tfrac13, \tfrac13)$: equal masses at the corners balance at the centroid.
+
+- id: la-m3-r2-h10
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  stem: 'Find the barycentric coordinates $(c_1, c_2, c_3)$ of $(1, 2)$ relative to $\mathbf{v}_1 = (0, 0)$, $\mathbf{v}_2 = (4, 0)$, $\mathbf{v}_3 = (0, 4)$.'
+  choices: ['$(\tfrac12, \tfrac14, \tfrac14)$', '$(\tfrac14, \tfrac14, \tfrac12)$', '$(0, \tfrac14, \tfrac12)$', '$(\tfrac14, \tfrac12, \tfrac14)$']
+  answer: 1
+  explanation: |-
+    $c_1(0, 0) + c_2(4, 0) + c_3(0, 4) = (4c_2, 4c_3) = (1, 2)$ gives $c_2 = \tfrac14$, $c_3 = \tfrac12$, and then $c_1 = 1 - \tfrac14 - \tfrac12 = \tfrac14$. The choice $(0, \tfrac14, \tfrac12)$ forgets that the weights must add to 1; the others mix up which weight goes with which corner.
+
+- id: la-m3-r2-h11
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  type: match
+  stem: 'Match each kind of combination $c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p$ to the condition on its weights.'
+  pairs:
+    - [Linear combination, Any real weights]
+    - [Affine combination, Weights add to 1]
+    - [Convex combination, 'Weights add to 1, and none is negative']
+  distractors: [Weights add to 0, All weights are equal]
+  explanation: |-
+    Linear combinations allow any weights. Affine combinations require $c_1 + \cdots + c_p = 1$. Convex combinations also require every $c_i \ge 0$, so they are mixtures. Equal weights $\tfrac1p$ give one particular convex combination, the average.
+
+- id: la-m3-r2-h12
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  stem: 'Alloy A is 10% copper and alloy B is 30% copper by mass. What fraction of a mix should be alloy B to get 25% copper?'
+  choices: ['$\tfrac14$', '$\tfrac12$', '$\tfrac56$', '$\tfrac34$']
+  answer: 3
+  explanation: |-
+    With fraction $t$ of B, the copper content is the convex combination $(1 - t)(10) + t(30) = 10 + 20t$. Setting $10 + 20t = 25$ gives $t = \tfrac34$: three parts B to one part A. ($\tfrac14$ is the fraction of A.)
+
+- id: la-m3-r2-h13
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  stem: 'Solving for a mixture of three blends gives the weights $c_1 = \tfrac{17}{15}$, $c_2 = -\tfrac{7}{15}$, $c_3 = \tfrac13$, and these are the only weights that work. What does this mean?'
+  choices:
+    - 'Use 17 parts of the first blend, 7 of the second and 5 of the third'
+    - 'The target is not in the plane of the three blends'
+    - 'The target is outside the triangle of blends, so no mixture produces it'
+    - 'The three blends are affinely dependent'
+  answer: 2
+  explanation: |-
+    The weights add to 1, so the target is an affine combination: it lies in the plane. But a negative weight would mean adding a negative amount of the second blend. The only weights are not all nonnegative, so the target is outside the convex hull of the blends and no real mixture reaches it. Unique weights also show the blends are affinely independent.
+
+- id: la-m3-r2-h14
+  lesson: la-m3-h-affine
+  topic: Convex combinations
+  type: order
+  stem: 'In the picture, $\mathbf{p} = (4, 4)$ is inside the triangle, $\mathbf{m}$ is on the edge $\mathbf{v}_2\mathbf{v}_3$, and $\mathbf{q}$ is beyond that edge. Order the four points by their first barycentric coordinate $c_1$ (the weight on $\mathbf{v}_1$), smallest first.'
+  image: {src: images/la-m3-barycentric.svg, alt: 'A triangle with corners v1, v2, v3 labeled (1, 0, 0), (0, 1, 0), (0, 0, 1); an inside point p labeled (1/4, 3/8, 3/8); a point m on edge v2v3 labeled (0, 1/2, 1/2); and an outside point q labeled (−1/2, 1, 1/2).'}
+  items: ['$\mathbf{q}$', '$\mathbf{m}$', '$\mathbf{p}$', '$\mathbf{v}_1$']
+  explanation: |-
+    The first coordinates are $-\tfrac12$ for $\mathbf{q}$, $0$ for $\mathbf{m}$, $\tfrac14$ for $\mathbf{p}$ and $1$ for $\mathbf{v}_1$. The weight on $\mathbf{v}_1$ grows as you move from the far side of the opposite edge toward $\mathbf{v}_1$; it is the signed fraction of the triangle's area cut off by that edge.
+
+# ---------- Honors 11h2: linear algebra mod 2 ----------
+- id: la-m3-r2-h15
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'In $\text{GF}(2)^4$, what is $(1, 0, 1, 1) + (1, 1, 0, 1)$?'
+  choices: ['$(2, 1, 1, 2)$', '$(0, 1, 1, 0)$', '$(1, 1, 1, 1)$', '$(0, 1, 1, 1)$']
+  answer: 1
+  explanation: |-
+    Add entry by entry with $1 + 1 = 0$: $(1 + 1, 0 + 1, 1 + 0, 1 + 1) = (0, 1, 1, 0)$. The entry 2 doesn't exist in GF(2); it is 0.
+
+- id: la-m3-r2-h16
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  type: text
+  stem: 'In GF(2), $1 + 1 =$ ___ and $-1 =$ ___.'
+  accept:
+    - ['0']
+    - ['1']
+  explanation: |-
+    Mod 2, $1 + 1 = 2$ leaves remainder 0. The negative of 1 is the number you add to 1 to get 0, which is 1 itself; so subtracting is the same as adding.
+
+- id: la-m3-r2-h17
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'Four linearly independent vectors in $\text{GF}(2)^6$ span how many vectors?'
+  choices: ['16', '64', '4', 'Infinitely many']
+  answer: 0
+  explanation: |-
+    A combination is the sum of a subset of the four vectors, and there are $2^4 = 16$ subsets. Because the vectors are independent, different subsets give different sums, so the span has exactly 16 vectors. ($2^6 = 64$ is the size of the whole space.)
+
+- id: la-m3-r2-h18
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'Which of these number systems are fields? Select all that apply.'
+  choices: [The rational numbers, The integers, 'GF(2), the integers mod 2', The integers mod 4, The real numbers]
+  answer: [0, 2, 4]
+  explanation: |-
+    A field needs a reciprocal for every nonzero element. The rationals and reals have them; in GF(2) the only nonzero element is 1, and $1 \cdot 1 = 1$. The integers fail (2 has no integer reciprocal), and so do the integers mod 4, where $2 \cdot 2 = 0$ means 2 has no reciprocal.
+
+- id: la-m3-r2-h19
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'The vectors $(1, 1, 0)$, $(0, 1, 1)$, $(1, 0, 1)$ are linearly independent over $\mathbb{R}$. What about over GF(2)?'
+  choices:
+    - 'Independent, because independence doesn''t depend on the field'
+    - 'Independent, because no vector is a multiple of another'
+    - 'Dependent, because three vectors in a 3-entry space always are'
+    - 'Dependent, because their sum is $(0, 0, 0)$'
+  answer: 3
+  explanation: |-
+    Mod 2, $(1, 1, 0) + (0, 1, 1) + (1, 0, 1) = (2, 2, 2) = (0, 0, 0)$, a nontrivial dependence relation. Over $\mathbb{R}$ the same sum is $(2, 2, 2) \ne \mathbf{0}$, and row reduction ends with the pivot 2, which is 0 mod 2. Independence does depend on the field, and three vectors in a 3-entry space can be independent.
+
+- id: la-m3-r2-h20
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'Why can a Lights Out strategy be described by a vector $\mathbf{x}$ in $\text{GF}(2)^n$, with $x_j = 1$ meaning "press light $j$"?'
+  choices:
+    - 'The order of presses doesn''t matter, and pressing a light twice undoes itself'
+    - 'Each light can only be on or off'
+    - 'Each light may be pressed at most once by the rules of the game'
+    - 'The toggle patterns are linearly independent'
+  answer: 0
+  explanation: |-
+    Each press adds a fixed toggle pattern, and addition is commutative, so only *which* lights are pressed matters, and how many times. Pressing twice adds $\mathbf{a}_j + \mathbf{a}_j = \mathbf{0}$, so only the count mod 2 matters. The rules allow repeated presses; they are just pointless. That the *lights* are on or off explains why patterns are mod-2 vectors, not why strategies are.
+
+- id: la-m3-r2-h21
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  type: text
+  stem: 'In Lights Out on a row of five lights, every solvable starting pattern has exactly ___ different solutions (pressing each light at most once).'
+  accept: ['2', two]
+  explanation: |-
+    The $5 \times 5$ matrix has 4 pivots mod 2, so one free variable. A consistent system mod 2 with $k$ free variables has $2^k$ solutions: here $2^1 = 2$, a solution $\mathbf{p}$ and $\mathbf{p}$ plus the quiet pattern $(1, 1, 0, 1, 1)$.
+
+- id: la-m3-r2-h22
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'Three lights in a row; only the middle one is on. Which presses turn every light off?'
+  choices: ['Press light 2 only', 'Press lights 1 and 3', 'Press all three lights', 'It can''t be done']
+  answer: 2
+  explanation: |-
+    Solve $A\mathbf{x} = (0, 1, 0)$ with toggle patterns $(1, 1, 0)$, $(1, 1, 1)$, $(0, 1, 1)$. Their sum is $(2, 3, 2) = (0, 1, 0)$ mod 2, so pressing all three works, and since this $A$ has a pivot in every column it is the only solution. Pressing light 2 alone turns lights 1 and 3 on and light 2 off; lights 1 and 3 together give $(1, 0, 1)$.
+
+- id: la-m3-r2-h23
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'With five lights in a row, a starting pattern $\mathbf{b}$ is solvable exactly when $b_1 + b_2 + b_4 + b_5 = 0$ mod 2. Which starting patterns are solvable? Select all that apply.'
+  choices: ['$(1, 1, 0, 0, 0)$', '$(0, 0, 1, 0, 0)$', '$(1, 0, 0, 0, 0)$', '$(1, 0, 0, 0, 1)$', '$(0, 1, 1, 1, 1)$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Add positions 1, 2, 4 and 5:
+    - $(1, 1, 0, 0, 0)$: $1 + 1 = 2$, even. ✓ (Press light 1.)
+    - $(0, 0, 1, 0, 0)$: $0$, even. ✓ (Lesson example.)
+    - $(1, 0, 0, 0, 0)$: $1$, odd. ✗
+    - $(1, 0, 0, 0, 1)$: $1 + 1 = 2$, even. ✓
+    - $(0, 1, 1, 1, 1)$: $1 + 1 + 1 = 3$, odd. ✗
+
+- id: la-m3-r2-h24
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'Which press set is a quiet pattern (changes no lights) for a row of five lights?'
+  choices: ['$(1, 0, 1, 0, 1)$', '$(0, 1, 1, 1, 0)$', '$(1, 1, 1, 1, 1)$', '$(1, 1, 0, 1, 1)$']
+  answer: 3
+  explanation: |-
+    Pressing lights 1, 2, 4, 5 toggles light 1 twice (presses 1, 2), light 2 twice (1, 2), light 3 twice (2, 4), light 4 twice (4, 5) and light 5 twice (4, 5): no change. The others change lights: $(1, 0, 1, 0, 1)$ and $(0, 1, 1, 1, 0)$ both produce $(1, 0, 1, 0, 1)$, and pressing all five produces $(0, 1, 1, 1, 0)$.
+
+- id: la-m3-r2-h25
+  lesson: la-m3-h-mod2
+  topic: Linear algebra mod 2
+  stem: 'The $25 \times 25$ matrix of the 5 × 5 Lights Out game has 23 pivot positions mod 2. What fraction of the $2^{25}$ starting patterns can be solved?'
+  choices: ['$\tfrac{23}{25}$', '$\tfrac14$', '$\tfrac12$', 'All of them']
+  answer: 1
+  explanation: |-
+    The solvable patterns are the span of the 25 columns. With 23 pivots, 23 of the columns are independent and the rest are combinations of them, so the span has $2^{23}$ vectors: $2^{23}/2^{25} = \tfrac14$ of all patterns. Each solvable one has $2^{25 - 23} = 4$ solutions.
+
+- id: la-m3-r2-h26
+  lesson: la-m3-h-mod2
+  topic: Error-correcting codes
+  type: order
+  stem: 'Put the steps for decoding a received Hamming(7,4) word with at most one flipped bit in order.'
+  items:
+    - Compute the syndrome Hr mod 2
+    - Read the syndrome as a binary number j
+    - Flip bit j of the received word
+    - Read the data from bits 3, 5, 6 and 7
+  explanation: |-
+    The syndrome $H\mathbf{r}$ comes first; if it is the column of $H$ for bit $j$, that column spells $j$ in binary. Flipping bit $j$ restores the codeword, and only then are the data bits correct to read. (If the syndrome is $\mathbf{0}$, skip the flip.)
+
+- id: la-m3-r2-h27
+  lesson: la-m3-h-mod2
+  topic: Error-correcting codes
+  type: text
+  stem: 'Using the lesson''s $H$ (column $j$ is $j$ in binary, top row the 4s digit), a received word is $\mathbf{r} = (1, 1, 1, 0, 1, 1, 0)$ with exactly one flipped bit. Which bit flipped? Give only the bit number.'
+  accept: ['3']
+  explanation: |-
+    Row 1 (bits 4–7): $0 + 1 + 1 + 0 = 0$. Row 2 (bits 2, 3, 6, 7): $1 + 1 + 1 + 0 = 1$. Row 3 (bits 1, 3, 5, 7): $1 + 1 + 1 + 0 = 1$. The syndrome is $(0, 1, 1)$, binary 011 = 3, so bit 3 flipped. The codeword sent was $(1, 1, 0, 0, 1, 1, 0)$.
+
+- id: la-m3-r2-h28
+  lesson: la-m3-h-mod2
+  topic: Error-correcting codes
+  type: match
+  stem: 'Match each idea from Lights Out and the Hamming code to its meaning in this module''s terms.'
+  pairs:
+    - [A solvable starting pattern, A vector in the span of the columns of A]
+    - [A quiet pattern, A nonzero solution of a homogeneous system]
+    - [A codeword, A solution of Hc = 0]
+    - [The syndrome of a word with bit j flipped, Column j of H]
+  distractors: [A pivot in the last column]
+  explanation: |-
+    $A\mathbf{x} = \mathbf{b}$ is solvable exactly when $\mathbf{b}$ is a combination of the columns. A quiet pattern changes nothing: $A\mathbf{x} = \mathbf{0}$ with $\mathbf{x} \ne \mathbf{0}$. Codewords are defined by $H\mathbf{c} = \mathbf{0}$, and $H(\mathbf{c} + \mathbf{e}_j) = H\mathbf{e}_j$, the $j$th column. A pivot in the last column signals an inconsistent system, such as an unsolvable starting pattern.
+
+- id: la-m3-r2-h29
+  lesson: la-m3-h-mod2
+  topic: Error-correcting codes
+  stem: 'Why does the Hamming(7,4) code locate any single flipped bit?'
+  choices:
+    - 'The seven columns of $H$ are nonzero and all different'
+    - 'Every codeword has an even number of 1s'
+    - '$H$ has a pivot in every column'
+    - 'There are 16 codewords'
+  answer: 0
+  explanation: |-
+    A flip in bit $j$ makes the syndrome equal column $j$ of $H$. If the columns are nonzero, every single error is noticed; if they are all different, the syndrome names exactly one position. $H$ is $3 \times 7$, so it can't have a pivot in every column, and the count of codewords says nothing about locating errors.

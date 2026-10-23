@@ -56,6 +56,13 @@ How to read one:
 - Level curves never cross (a point cannot have two heights).
 - A small closed loop surrounded by others usually marks a peak or a pit.
 
+The map below shows all of these features at once. It has two peaks, a pit and, between the
+two peaks, a saddle point (on a real map, a mountain pass): walking from one peak to the other you
+go down to it, but walking across the gap at right angles you go up to it. Near a saddle the
+level curves pinch together into an hourglass shape instead of closing up into small loops.
+
+![A contour map with levels from −1.5 to 2.5. On the left, small closed loops rising to 2.5 surround a peak of height 3.0, and the curves on its left side are packed close together, marked steep. On the right, a broader set of loops surrounds a lower peak of height 2.2, with the curves on its right side spaced farther apart, marked gentle. Between the peaks the curve labeled 0.5 pinches into an hourglass around a saddle of height 0.6. Below, loops labeled −0.5, −1 and −1.5 surround a pit of depth −2.0.](images/mv-m3-contour-terrain.svg)
+
 ### Example 2: circles
 
 For $f(x, y) = x^2 + y^2$, the level curve $f = c$ is the circle $x^2 + y^2 = c$ of radius

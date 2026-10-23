@@ -1,0 +1,130 @@
+# Round 2, module la-m4: drills for the honors lessons la-m4-h-lines and la-m4-h-inverses.
+
+- id: la-m4-r2-project
+  title: Project a point onto a line through the origin
+  topic: Reflections and projections
+  vars:
+    m: {choices: [-3, -2, -1, 1, 2, 3]}
+    px: {min: -5, max: 5}
+    py: {min: -5, max: 5}
+  where: ["py != m*px", "px != 0 or py != 0"]
+  calc:
+    msq: m^2
+    den: 1 + m^2
+    tn: px + m*py + 0
+    qx: tn/den + 0
+    qy: m*tn/den + 0
+  prompt: |-
+    Find the projection of $({px}, {py})$ onto the line $x_2 = {m:coef}x_1$. Give each coordinate as an exact fraction or as a decimal to 3 places.
+  answers:
+    - {name: qx, label: '$x_1 =$', tolerance: 0.001}
+    - {name: qy, label: '$x_2 =$', tolerance: 0.001}
+  solution: |-
+    The line has direction $(1, {m})$, so with $m = {m}$ the projection matrix is $P = \dfrac{1}{{den}}\begin{bmatrix} 1 & {m} \\ {m} & {msq}\end{bmatrix}$. Then
+    $$P\begin{bmatrix} {px} \\ {py}\end{bmatrix} = \frac{({px}) + ({m})({py})}{{den}}\begin{bmatrix} 1 \\ {m}\end{bmatrix} = \frac{{tn}}{{den}}\begin{bmatrix} 1 \\ {m}\end{bmatrix},$$
+    so the projection is **$\left({qx:texfrac},\ {qy:texfrac}\right)$**.
+
+- id: la-m4-r2-reflect
+  title: Reflect a point across a line through the origin
+  topic: Reflections and projections
+  vars:
+    m: {choices: [-3, -2, -1, 1, 2, 3]}
+    px: {min: -5, max: 5}
+    py: {min: -5, max: 5}
+  where: ["py != m*px", "px != 0 or py != 0"]
+  calc:
+    den: 1 + m^2
+    tn: px + m*py + 0
+    qx: tn/den + 0
+    qy: m*tn/den + 0
+    rx: 2*qx - px + 0
+    ry: 2*qy - py + 0
+  prompt: |-
+    Reflect the point $({px}, {py})$ across the line $x_2 = {m:coef}x_1$. Give each coordinate as an exact fraction or as a decimal to 3 places.
+  answers:
+    - {name: rx, label: '$x_1 =$', tolerance: 0.001}
+    - {name: ry, label: '$x_2 =$', tolerance: 0.001}
+  solution: |-
+    First project onto the line, whose direction is $(1, {m})$:
+    $$P\begin{bmatrix} {px} \\ {py}\end{bmatrix} = \frac{({px}) + ({m})({py})}{{den}}\begin{bmatrix} 1 \\ {m}\end{bmatrix} = \left({qx:texfrac},\ {qy:texfrac}\right).$$
+    The reflection is $R\mathbf{x} = 2P\mathbf{x} - \mathbf{x} = \left(2({qx:texfrac}) - ({px}),\ 2({qy:texfrac}) - ({py})\right) =$ **$\left({rx:texfrac},\ {ry:texfrac}\right)$**.
+
+- id: la-m4-r2-two-reflections
+  title: Two reflections make a rotation
+  topic: Reflections and projections
+  vars:
+    al: {choices: [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165]}
+    be: {choices: [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165]}
+  where: ["al != be"]
+  calc:
+    raw: 2*(be - al) + 0
+    ang: mod(raw, 360) + 0
+  prompt: |-
+    Reflect $\mathbb{R}^2$ across the line through the origin at angle ${al}^\circ$, and then across the line through the origin at angle ${be}^\circ$. The result is a rotation. Give its counterclockwise angle in degrees, between $0$ and $360$.
+  answer: ang
+  format: integer
+  solution: |-
+    Reflecting across the line at $\alpha$ and then the line at $\beta$ rotates by $2(\beta - \alpha) = 2({be}^\circ - {al}^\circ) = {raw}^\circ$. As a counterclockwise angle between $0^\circ$ and $360^\circ$ that is **${ang}^\circ$**.
+
+- id: la-m4-r2-preimage
+  title: Find the preimage of a vector
+  topic: Preimages and one-sided inverses
+  vars:
+    a12: {min: -4, max: 4}
+    a13: {min: -4, max: 4}
+    a23: {min: -4, max: 4}
+    b1: {min: -6, max: 6}
+    b2: {min: -6, max: 6}
+  where: ["a12 != 0", "a23 != 0", "a13 != a12*a23"]
+  calc:
+    u1: b1 - a12*b2 + 0
+    u2: b2 + 0
+    w1: a12*a23 - a13 + 0
+    w2: -a23 + 0
+  prompt: |-
+    Let $A = \begin{bmatrix} 1 & {a12} & {a13} \\ 0 & 1 & {a23}\end{bmatrix}$. The preimage of $({b1}, {b2})$ under $\mathbf{x} \mapsto A\mathbf{x}$ is a line $\mathbf{p} + t\mathbf{v}$. Find the point $\mathbf{p} = (p_1, p_2, 0)$ on it with third entry 0, and the direction $\mathbf{v} = (v_1, v_2, 1)$ with third entry 1.
+  answers:
+    - {name: u1, label: '$p_1 =$'}
+    - {name: u2, label: '$p_2 =$'}
+    - {name: w1, label: '$v_1 =$'}
+    - {name: w2, label: '$v_2 =$'}
+  solution: |-
+    Let $x_3 = t$ be free and back-substitute. Row 2: $x_2 = {b2} - ({a23})t$. Row 1: $x_1 = {b1} - ({a12})x_2 - ({a13})t = {u1} + ({w1})t$.
+    So the preimage is $({u1}, {u2}, 0) + t({w1}, {w2}, 1)$: **$p_1 = {u1}$, $p_2 = {u2}$, $v_1 = {w1}$, $v_2 = {w2}$**. The direction solves $A\mathbf{x} = \mathbf{0}$; check: $1({w1}) + ({a12})({w2}) + ({a13})(1) = 0$.
+
+- id: la-m4-r2-left-inverse
+  title: Build a left inverse and use it
+  topic: Preimages and one-sided inverses
+  vars:
+    a11: {min: -4, max: 4}
+    a12: {min: -4, max: 4}
+    a21: {min: -4, max: 4}
+    a22: {min: -4, max: 4}
+    a31: {min: -4, max: 4}
+    a32: {min: -4, max: 4}
+    s1: {min: -4, max: 4}
+    s2: {min: -4, max: 4}
+  where: ["a11*a22 - a12*a21 == 1 or a11*a22 - a12*a21 == -1", "a31 != 0 or a32 != 0", "s1 != 0 or s2 != 0"]
+  calc:
+    dt: a11*a22 - a12*a21 + 0
+    na12: -a12 + 0
+    na21: -a21 + 0
+    c11: a22/dt + 0
+    c12: -a12/dt + 0
+    c21: -a21/dt + 0
+    c22: a11/dt + 0
+    bb1: a11*s1 + a12*s2 + 0
+    bb2: a21*s1 + a22*s2 + 0
+    bb3: a31*s1 + a32*s2 + 0
+  prompt: |-
+    Let $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22} \\ {a31} & {a32}\end{bmatrix}$. Build the left inverse $C = \begin{bmatrix} c_{11} & c_{12} & 0 \\ c_{21} & c_{22} & 0\end{bmatrix}$ from the top $2 \times 2$ block of $A$. Then $A\mathbf{x} = ({bb1}, {bb2}, {bb3})$ has a solution: use $C$ to find it.
+  answers:
+    - {name: c11, label: '$c_{11} =$'}
+    - {name: c12, label: '$c_{12} =$'}
+    - {name: c21, label: '$c_{21} =$'}
+    - {name: c22, label: '$c_{22} =$'}
+    - {name: s1, label: '$x_1 =$'}
+    - {name: s2, label: '$x_2 =$'}
+  solution: |-
+    The top block $B = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$ has determinant $({a11})({a22}) - ({a12})({a21}) = {dt}$, so $B^{-1} = \dfrac{1}{{dt}}\begin{bmatrix} {a22} & {na12} \\ {na21} & {a11}\end{bmatrix} = \begin{bmatrix} {c11} & {c12} \\ {c21} & {c22}\end{bmatrix}$. With a zero third column, $C = \begin{bmatrix} {c11} & {c12} & 0 \\ {c21} & {c22} & 0\end{bmatrix}$ and $CA = B^{-1}B = I_2$.
+    Since a solution exists, it is $C\mathbf{b} = \left(({c11})({bb1}) + ({c12})({bb2}),\ ({c21})({bb1}) + ({c22})({bb2})\right)$: **$c_{11} = {c11}$, $c_{12} = {c12}$, $c_{21} = {c21}$, $c_{22} = {c22}$, $\mathbf{x} = ({s1}, {s2})$**. Check row 3: $({a31})({s1}) + ({a32})({s2}) = {bb3}$.

@@ -1,0 +1,22 @@
+# Round 2, module la-m4: cards for the honors lessons la-m4-h-lines and la-m4-h-inverses.
+- {front: 'Image of the line $\mathbf{p} + t\mathbf{d}$ under a linear $T$', back: '$T(\mathbf{p}) + t\,T(\mathbf{d})$: a line, or the single point $T(\mathbf{p})$ if $T(\mathbf{d}) = \mathbf{0}$. Parallel lines stay parallel.', topic: Reflections and projections}
+- {front: 'Projection onto the line through the origin at angle $\theta$', back: '$\begin{bmatrix} \cos^2\theta & \cos\theta\sin\theta \\ \cos\theta\sin\theta & \sin^2\theta\end{bmatrix}$', topic: Reflections and projections}
+- {front: 'Projection onto the line $x_2 = mx_1$', back: '$\dfrac{1}{1 + m^2}\begin{bmatrix} 1 & m \\ m & m^2\end{bmatrix}$', topic: Reflections and projections}
+- {front: 'Reflection across the line through the origin at angle $\theta$', back: '$\begin{bmatrix} \cos 2\theta & \sin 2\theta \\ \sin 2\theta & -\cos 2\theta\end{bmatrix}$ (note the doubled angle)', topic: Reflections and projections}
+- {front: 'Reflection across the line $x_2 = mx_1$', back: '$\dfrac{1}{1 + m^2}\begin{bmatrix} 1 - m^2 & 2m \\ 2m & m^2 - 1\end{bmatrix}$', topic: Reflections and projections}
+- {front: 'Reflection $R$ in terms of the projection $P$ onto the same line', back: '$R = 2P - I$: the foot $P\mathbf{x}$ is the midpoint of $\mathbf{x}$ and $R\mathbf{x}$.', topic: Reflections and projections}
+- {front: 'Reflection across the line at angle $\theta$ applied to the direction at angle $\varphi$', back: 'Gives the direction at angle $2\theta - \varphi$.', topic: Reflections and projections}
+- {front: 'Reflect across the line at $\alpha$, then across the line at $\beta$', back: 'Rotation by $2(\beta - \alpha)$: twice the angle between the lines, from the first toward the second.', topic: Reflections and projections}
+- {front: 'Rotate by $\gamma$, then reflect across the line at $\beta$', back: 'Reflection across the line at angle $\beta - \gamma/2$. A rotation combined with a reflection is a reflection.', topic: Reflections and projections}
+- {front: 'Rotation pattern vs reflection pattern (with $a^2 + b^2 = 1$)', back: 'Rotation: $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$. Reflection: $\begin{bmatrix} a & b \\ b & -a\end{bmatrix}$.', topic: Reflections and projections}
+- {front: 'Idempotent vs involution', back: 'Idempotent: applying twice = applying once (projections). Involution: applying twice = identity (reflections).', topic: Reflections and projections}
+- {front: 'Linear isometries of the plane', back: 'Rotations and reflections across lines through the origin (projections and shears are not isometries).', topic: Reflections and projections}
+- {front: 'Preimage of $\mathbf{b}$ under $\mathbf{x} \mapsto A\mathbf{x}$', back: 'The solution set of $A\mathbf{x} = \mathbf{b}$: empty, or $\mathbf{p}$ + (solutions of $A\mathbf{x} = \mathbf{0}$), a parallel copy of the preimage of $\mathbf{0}$.', topic: Preimages and one-sided inverses}
+- {front: 'Onto and one-to-one in terms of preimages', back: 'Onto: no preimage is empty. One-to-one: every nonempty preimage is a single point.', topic: Preimages and one-sided inverses}
+- {front: 'If "first $T$, then $S$" is one-to-one / onto', back: 'One-to-one: $T$ (the first map) is one-to-one. Onto: $S$ (the last map) is onto.', topic: Preimages and one-sided inverses}
+- {front: 'Left inverse of an $m \times n$ matrix $A$', back: '$n \times m$ matrix $C$ with $CA = I_n$; exists ⟺ one-to-one ⟺ pivot in every column.', topic: Preimages and one-sided inverses}
+- {front: 'Right inverse of an $m \times n$ matrix $A$', back: '$n \times m$ matrix $D$ with $AD = I_m$; exists ⟺ onto ⟺ pivot in every row.', topic: Preimages and one-sided inverses}
+- {front: 'How to build a right inverse', back: 'Solve $A\mathbf{d}_j = \mathbf{e}_j$ for each $j$ and set $D = [\,\mathbf{d}_1 \;\cdots\; \mathbf{d}_m\,]$.', topic: Preimages and one-sided inverses}
+- {front: 'How to build a left inverse', back: 'Pick $n$ rows of $A$ forming an invertible block $B$; put $B^{-1}$ in the matching columns of $C$ and zeros elsewhere.', topic: Preimages and one-sided inverses}
+- {front: 'Solving $A\mathbf{x} = \mathbf{b}$ with a left inverse $C$', back: 'If a solution exists it is $C\mathbf{b}$; check $A(C\mathbf{b}) = \mathbf{b}$, since $\mathbf{b}$ may not be in the range.', topic: Preimages and one-sided inverses}
+- {front: 'Matrix with both a left inverse $C$ and a right inverse $D$', back: 'It is square and $C = C(AD) = (CA)D = D = A^{-1}$.', topic: Preimages and one-sided inverses}

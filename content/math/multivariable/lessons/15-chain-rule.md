@@ -106,6 +106,21 @@ $$z_r = f_x\cos\theta + f_y\sin\theta,\qquad z_\theta = -f_x\,r\sin\theta + f_y\
 
 For instance, with $f = x^2 + y^2$ these give $z_r = 2x\cos\theta + 2y\sin\theta = 2r$ and $z_\theta = 0$, which matches $z = r^2$ directly. Formulas like these are how equations such as Laplace's equation are rewritten in polar form.
 
+## Which form do I need?
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the right form of the chain rule
+  accDescr: First ask whether the function is defined by an equation F = 0 rather than given directly. If it is, use the implicit formulas: dy/dx equals minus F sub x over F sub y, or, for a surface, partial z over partial x equals minus F sub x over F sub z. If not, draw the tree diagram from the dependent variable through the intermediate variables to the independent variables. If there is only one independent variable at the bottom, such as t, find the ordinary derivative dz/dt. If there are several, find a partial derivative for each one. In both cases, multiply along every path down to the chosen variable and add the products.
+  A["Is the relationship an equation F = 0?"] -- yes --> B["Implicit: dy/dx = -Fx/Fy, or for a surface ∂z/∂x = -Fx/Fz"]
+  A -- no --> C["Draw the tree: z, then intermediate variables, then independent variables"]
+  C --> D["How many independent variables?"]
+  D -- "one, such as t" --> E["Ordinary derivative dz/dt"]
+  D -- "several, such as s and t" --> F["A partial derivative for each one"]
+  E --> G["Multiply along each path, then add the paths"]
+  F --> G
+```
+
 ## Common mistakes
 
 - Including only one path in the tree, for example writing $dz/dt = z_x\,dx/dt$ alone.

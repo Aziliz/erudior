@@ -47,6 +47,11 @@ the one-variable function $x \mapsto f(x, b)$. Its slope at $x = a$ is $f_x(a, b
 $f_x(a,b)$ is the slope of the surface in the $x$-direction, and $f_y(a,b)$ the slope in
 the $y$-direction.
 
+![A dome-shaped surface z = f(x, y) drawn in three dimensions with x, y and z axes. A vertical plane y = b slices through it, and the curve where they meet, the trace z = f(x, b), is drawn in red. At the point P = (a, b, f(a, b)) on the trace a green tangent line touches it; its slope is f sub x of (a, b).](images/mv-m3-partial-slice.svg)
+
+In the picture, the trace is falling at $P$ as $x$ increases, so $f_x(a, b) < 0$ there. To see
+$f_y$, slice with the plane $x = a$ instead.
+
 On a contour map you can estimate the sign and size of a partial derivative by moving in
 the positive $x$-direction from a point and seeing which level curves you cross and how
 quickly.

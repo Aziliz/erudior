@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 460" width="500" height="460" font-family="Arial, Helvetica, sans-serif">
+<title>Lagrange multipliers: a level curve touching the constraint</title>
+<rect x="0" y="0" width="500" height="460" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker></defs>
+<line x1="19.200000000000017" y1="250" x2="484.2" y2="250" stroke="#7a8691" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="230" y1="460.79999999999995" x2="230" y2="33.0" stroke="#7a8691" stroke-width="1" marker-end="url(#ah)"/>
+<circle cx="230" cy="250" r="138.6" fill="#dcf0e3" fill-opacity="0.45" stroke="#1c2833" stroke-width="3"/>
+<line x1="13.0" y1="-13.5" x2="478.0" y2="219.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="13.0" y1="79.5" x2="478.0" y2="312.0" stroke="#1c2833" stroke-width="2" stroke-dasharray="8 6"/>
+<line x1="13.0" y1="-91.0" x2="478.0" y2="141.5" stroke="#1c2833" stroke-width="2" stroke-dasharray="8 6"/>
+<circle cx="292.0" cy="126.0" r="6" fill="#1c2833"/>
+<line x1="292.0" y1="126.0" x2="326.1" y2="57.8" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="453.2" y="366.1" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833"></text>
+</svg>

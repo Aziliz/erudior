@@ -12,8 +12,8 @@
 <line x1="250.0" y1="330.0" x2="335.7" y2="204.5" stroke="#1f5f99" stroke-width="2.5" marker-end="url(#ahb)"/>
 <line x1="335.7" y1="204.5" x2="411.1" y2="156.5" stroke="#a33a2a" stroke-width="3" marker-end="url(#ahr)"/>
 <circle cx="335.7" cy="204.5" r="5" fill="#1c2833"/>
-<text x="268.9" y="263.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" fill="#1f5f99" font-weight="bold">r(t)</text>
+<text x="258.9" y="263.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" fill="#1f5f99" font-weight="bold">r(t)</text>
 <text x="419.1" y="150.5" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#a33a2a" font-weight="bold">r′(t)</text>
-<text x="191.2" y="377.3" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833">projection onto the xy-plane</text>
-<text x="160.4" y="140.8" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833">helix</text>
+<text x="240.0" y="405.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833">projection onto the xy-plane</text>
+<text x="120.2" y="147.4" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" fill="#1c2833">helix</text>
 </svg>

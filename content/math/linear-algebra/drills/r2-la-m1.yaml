@@ -122,7 +122,7 @@
   vars:
     hh: {choices: [0.001, 0.002, 0.005]}
     ee: {choices: [0.001, 0.002, 0.003, -0.001, -0.002]}
-  where: ["hh != ee"]
+  where: ["hh != ee", "hh + ee != 0"]
   calc:
     k: 1 + hh
     c: 2 + hh
@@ -170,4 +170,4 @@
   solution: |-
     Row sums of $A$ (absolute values): {rA1} and {rA2}, so $\|A\|_\infty = {nA}$. The determinant is $({a11})({a22}) - ({a12})({a21}) = {det}$, so
     $$A^{-1} = \frac{1}{{det}}\begin{bmatrix} {a22} & {n12} \\ {n21} & {a11}\end{bmatrix}.$$
-    Its absolute row sums are ${rI1:texfrac}$ and ${rI2:texfrac}$, so $\|A^{-1}\|_\infty = {nI:texfrac}$. Then $\kappa_\infty(A) = {nA} \cdot {nI:texfrac} =$ **${kap:texfrac} \approx {kap:num2}$**.
+    Its absolute row sums are ${rI1:texfrac}$ and ${rI2:texfrac}$, so $\|A^{-1}\|_\infty = {nI:texfrac}$. Then $\kappa_\infty(A) = {nA} \cdot {nI:texfrac} =$ **${kap:texfrac}$**, which is {kap:dp2} to 2 decimal places.

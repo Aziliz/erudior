@@ -1,0 +1,28 @@
+# Round 2, module la-m4: terms introduced by the honors lessons la-m4-h-lines and la-m4-h-inverses.
+- term: double-angle identities
+  aliases: [double-angle identity, double-angle formulas]
+  definition: 'The trigonometric identities $\cos 2\theta = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta$ and $\sin 2\theta = 2\sin\theta\cos\theta$. They turn the reflection matrix $2P - I$ into $\begin{bmatrix} \cos 2\theta & \sin 2\theta \\ \sin 2\theta & -\cos 2\theta\end{bmatrix}$.'
+  topic: Reflections and projections
+- term: idempotent
+  definition: 'Describes a map that gives the same result when applied twice as when applied once: $T(T(\mathbf{x})) = T(\mathbf{x})$ for every $\mathbf{x}$. Projections are idempotent.'
+  topic: Reflections and projections
+- term: involution
+  aliases: [involutions]
+  definition: 'A map that undoes itself: applying it twice gives back every input, $T(T(\mathbf{x})) = \mathbf{x}$. Reflections are involutions.'
+  topic: Reflections and projections
+- term: isometry
+  aliases: [isometries, isometric]
+  definition: 'A map that preserves lengths (and so distances). The linear isometries of $\mathbb{R}^2$ are the rotations and the reflections across lines through the origin.'
+  topic: Reflections and projections
+- term: preimage
+  aliases: [preimages, inverse image]
+  definition: 'The preimage of $\mathbf{b}$ under $T$ is the set of all inputs $\mathbf{x}$ with $T(\mathbf{x}) = \mathbf{b}$. For $T(\mathbf{x}) = A\mathbf{x}$ it is the solution set of $A\mathbf{x} = \mathbf{b}$: empty, or a parallel copy of the solution set of $A\mathbf{x} = \mathbf{0}$.'
+  topic: Preimages and one-sided inverses
+- term: left inverse
+  aliases: [left inverses]
+  definition: 'For an $m \times n$ matrix $A$, an $n \times m$ matrix $C$ with $CA = I_n$. It exists exactly when $\mathbf{x} \mapsto A\mathbf{x}$ is one-to-one (a pivot in every column).'
+  topic: Preimages and one-sided inverses
+- term: right inverse
+  aliases: [right inverses]
+  definition: 'For an $m \times n$ matrix $A$, an $n \times m$ matrix $D$ with $AD = I_m$. It exists exactly when $\mathbf{x} \mapsto A\mathbf{x}$ is onto (a pivot in every row).'
+  topic: Preimages and one-sided inverses

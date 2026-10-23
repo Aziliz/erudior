@@ -79,7 +79,7 @@
       - {from: [0, 0], to: [R, 0], label: '{R}'}
       - {from: [0, h], to: [r, h], label: '{r}'}
   solution: |-
-    $V = \dfrac{\pi h}{3}\left(R^2 + Rr + r^2\right) = \dfrac{\pi \cdot {h}}{3}\left({R2} + {Rr} + {r2}\right) = \dfrac{{h} \cdot {S3}}{3}\pi = {k}\pi \approx$ **{V:num2}**.
+    $V = \dfrac{\pi h}{3}\left(R^2 + Rr + r^2\right) = \dfrac{\pi \cdot {h}}{3}\left({R2:dp0} + {Rr:dp0} + {r2:dp0}\right) = \dfrac{{h} \cdot {S3:dp0}}{3}\pi = {k:dp0}\pi \approx$ **{V:num2}**.
 
 - id: geo-m8-r2-cap-volume
   title: Volume and curved area of a spherical cap
@@ -100,8 +100,8 @@
     - {name: V, label: 'Volume', tolerance: 0.01}
     - {name: S, label: 'Curved area', tolerance: 0.01}
   solution: |-
-    Volume: $V = \dfrac{\pi h^2}{3}(3R - h) = \dfrac{\pi \cdot {h2}}{3}({t}) = {k}\pi \approx$ **{V:num2}**.
-    Curved area (Archimedes' hat-box theorem): $S = 2\pi R h = 2\pi \cdot {R} \cdot {h} = {kS}\pi \approx$ **{S:num2}**.
+    Volume: $V = \dfrac{\pi h^2}{3}(3R - h) = \dfrac{\pi \cdot {h2:dp0}}{3}({t:dp0}) = {k:dp0}\pi \approx$ **{V:num2}**.
+    Curved area (Archimedes' hat-box theorem): $S = 2\pi R h = 2\pi \cdot {R} \cdot {h} = {kS:dp0}\pi \approx$ **{S:num2}**.
 
 - id: geo-m8-r2-torus
   title: Volume and surface area of a torus (Pappus)
@@ -121,7 +121,7 @@
     - {name: V, label: 'Volume', tolerance: 0.01}
     - {name: S, label: 'Surface area', tolerance: 0.01}
   solution: |-
-    The centroid (the circle's center) travels $2\pi \cdot {R}$. Volume $=$ area × distance $= \pi \cdot {r2} \cdot 2\pi \cdot {R} = {kV}\pi^2 \approx$ **{V:num2}**. Surface area $=$ circumference × distance $= 2\pi \cdot {r} \cdot 2\pi \cdot {R} = {kS}\pi^2 \approx$ **{S:num2}**.
+    The centroid (the circle's center) travels $2\pi \cdot {R}$. Volume $=$ area × distance $= \pi \cdot {r2} \cdot 2\pi \cdot {R} = {kV:dp0}\pi^2 \approx$ **{V:num2}**. Surface area $=$ circumference × distance $= 2\pi \cdot {r} \cdot 2\pi \cdot {R} = {kS:dp0}\pi^2 \approx$ **{S:num2}**.
 
 - id: geo-m8-r2-fence-wall
   title: Largest pen against a wall
@@ -138,7 +138,7 @@
     - {name: L, label: 'Length (m)'}
     - {name: A, label: 'Area (m²)'}
   solution: |-
-    With width $W$ and length $L$, the fence gives $L + 2W = {P}$. By AM–GM the product $L \cdot 2W$ is largest when $L = 2W$, so $4W = {P}$: $W =$ **{W}** m and $L =$ **{L}** m. Area $= {L} \times {W} =$ **{A}** m².
+    With width $W$ and length $L$, the fence gives $L + 2W = {P:dp0}$. By AM–GM the product $L \cdot 2W$ is largest when $L = 2W$, so $4W = {P:dp0}$: $W =$ **{W}** m and $L =$ **{L}** m. Area $= {L:dp0} \times {W:dp0} =$ **{A}** m².
 
 - id: geo-m8-r2-ngon-perimeter
   title: Regular polygon with a given perimeter
@@ -157,7 +157,7 @@
     - {name: A, label: 'Area', tolerance: 0.01}
     - {name: Q, label: '$Q =$', tolerance: 0.0006}
   solution: |-
-    Each side is $\tfrac{{P}}{{n}}$ and the apothem is $\dfrac{s/2}{\tan(180^\circ/n)}$, so $A = \dfrac{P^2}{4n\tan(180^\circ/n)} = \dfrac{{P}^2}{4 \cdot {n} \cdot \tan {half:num2}^\circ} \approx$ **{A:num2}**. Then $Q = \dfrac{4\pi A}{P^2} = \dfrac{\pi}{{n}\tan {half:num2}^\circ} \approx$ **{Q:dp3}**. (A circle with the same perimeter would enclose $\tfrac{P^2}{4\pi} \approx {Acirc:num2}$, with $Q = 1$.)
+    Each side is $\tfrac{{P}}{{n}}$ and the apothem is $\dfrac{s/2}{\tan(180^\circ/n)}$, so $A = \dfrac{P^2}{4n\tan(180^\circ/n)} = \dfrac{{P}^2}{4 \cdot {n} \cdot \tan {half:num2}^\circ} \approx$ **{A:num2}**. Then $Q = \dfrac{4\pi A}{P^2} = \dfrac{\pi}{{n}\tan {half:num2}^\circ} \approx$ **{Q:dp3}**. (A circle with the same perimeter would enclose $\tfrac{P^2}{4\pi} \approx {Acirc:dp2}$, with $Q = 1$.)
 
 - id: geo-m8-r2-best-can
   title: The can that uses the least metal
@@ -174,4 +174,4 @@
     - {name: h, label: 'Height (cm)', tolerance: 0.011}
     - {name: S, label: 'Surface area (cm²)', relTolerance: 0.01}
   solution: |-
-    The best can has $h = 2r$, so $V = \pi r^2 h = 2\pi r^3$: $r = \sqrt[3]{\dfrac{{V}}{2\pi}} \approx$ **{r:num2}** cm and $h = 2r \approx$ **{h:num2}** cm. Then $S = 2\pi r^2 + 2\pi r h = 6\pi r^2 \approx$ **{S:num2}** cm², about {S:dp0} cm².
+    The best can has $h = 2r$, so $V = \pi r^2 h = 2\pi r^3$: $r = \sqrt[3]{\dfrac{{V:dp0}}{2\pi}} \approx$ **{r:num2}** cm and $h = 2r \approx$ **{h:num2}** cm. Then $S = 2\pi r^2 + 2\pi r h = 6\pi r^2 \approx$ **{S:num2}** cm², about {S:dp0} cm².

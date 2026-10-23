@@ -7,7 +7,7 @@
     xb: {min: 2, max: 9}
     xc: {min: -3, max: 10}
     ht: {min: 2, max: 8}
-  where: ["xc != xa", "xc != xb", "mod((xc - xa)*(xc - xb), ht) == 0", "abs((xc - xa)*(xc - xb)/ht) <= 15"]
+  where: ["xc != xa", "xc != xb", "abs(xc - xb) != ht", "mod((xc - xa)*(xc - xb), ht) == 0", "abs((xc - xa)*(xc - xb)/ht) <= 15"]
   calc:
     dcb: xc - xb
     dca: xc - xa
@@ -110,7 +110,7 @@
     - {name: tip, label: 'Each tip angle'}
     - {name: tsum, label: 'Sum of the tips'}
   solution: |-
-    Walking once around $\{{n}/{k}\}$ you circle the center {k} times, so you turn $360^\circ \cdot {k} = {turn}^\circ$ in all, in {n} equal turns of $\dfrac{{turn}^\circ}{{n}} \approx {each}^\circ$. Each tip angle is what's left of a straight angle: $180^\circ - {each}^\circ \approx$ **{tip}°**. The {n} tips add to $180({n} - 2 \cdot {k}) =$ **{tsum}°**.
+    Walking once around $\{{n}/{k}\}$ you circle the center {k} times, so you turn $360^\circ \cdot {k} = {turn}^\circ$ in all, in {n} equal turns of $\dfrac{{turn}^\circ}{{n}}$ each. Each tip angle is what's left of a straight angle: $180^\circ - \dfrac{{turn}^\circ}{{n}} =$ **{tip}°** (rounded to 2 decimal places if needed). The {n} tips add to $180({n} - 2 \cdot {k}) =$ **{tsum}°**.
 
 - id: geo-m5-r2-vertex-fill
   title: The third polygon at a vertex
@@ -129,4 +129,4 @@
   answer: r
   format: integer
   solution: |-
-    For three regular polygons with $a$, $b$ and $c$ sides around a point, $\tfrac1a + \tfrac1b + \tfrac1c = \tfrac12$. So $\tfrac1c = \tfrac12 - \tfrac1{{p}} - \tfrac1{{q}} = {inv:texfrac}$, and $c =$ **{r}**. Check with angles: about ${a1}^\circ + {a2}^\circ + {a3}^\circ = 360^\circ$. (Fitting around one point does not guarantee that a whole tiling exists.)
+    For three regular polygons with $a$, $b$ and $c$ sides around a point, $\tfrac1a + \tfrac1b + \tfrac1c = \tfrac12$. So $\tfrac1c = \tfrac12 - \tfrac1{{p}} - \tfrac1{{q}} = {inv:texfrac}$, and $c =$ **{r}**. Check with the angles (rounded to 2 decimal places where needed): ${a1}^\circ + {a2}^\circ + {a3}^\circ = 360^\circ$. (Fitting around one point does not guarantee that a whole tiling exists.)

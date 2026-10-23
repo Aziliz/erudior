@@ -65,6 +65,23 @@ where $\theta$ is the angle between $\nabla f$ and $\mathbf u$:
 - The minimum is $-|\nabla f|$, in the direction $-\nabla f$ (steepest descent).
 - $D_{\mathbf u}f = 0$ when $\mathbf u \perp \nabla f$: moving along the level curve.
 
+![Three nested ellipses are level curves labeled 3, 6 and 10. At a point P on the curve labeled 6, a green arrow labeled grad f points outward toward higher values: steepest ascent, rate equal to the length of the gradient. A red arrow points the opposite way: steepest descent. A dashed double arrow runs along the level curve, where the rate is 0. A purple arrow u makes an angle theta with the gradient, and its rate is the length of the gradient times cos theta.](images/mv-m3-gradient-directions.svg)
+
+As $\theta$ runs from $0$ to $180°$, the rate $|\nabla f|\cos\theta$ falls smoothly from
+$|\nabla f|$ through $0$ (at $90°$, along the level curve) to $-|\nabla f|$.
+
+The whole computation, in order:
+
+```mermaid
+flowchart TD
+  accTitle: Computing a directional derivative
+  accDescr: Step 1, find the partial derivatives and form the gradient vector. Step 2, evaluate the gradient at the given point. Step 3, if the direction is given as a vector v that is not a unit vector, divide it by its length to get the unit vector u. Step 4, take the dot product of the gradient with u. The result is the rate of change of f per unit distance in that direction. A check: the answer can never exceed the length of the gradient in absolute value.
+  A["Find the partial derivatives and form the gradient"] --> B["Evaluate the gradient at the point"]
+  B --> C["Make the direction a unit vector: u = v / |v|"]
+  C --> D["Dot product: gradient · u"]
+  D --> E["Check: the answer lies between -|grad f| and |grad f|"]
+```
+
 ### Example 2
 
 At $(2, 0)$, in what direction does $f(x, y) = xe^y$ increase fastest, and how fast?

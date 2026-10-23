@@ -44,6 +44,9 @@
     q: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
   where:
     - 'v2 - u2*v1 != 0'
+    - 'u2 != 0'
+    - 'v1 != 0'
+    - 'v2 != 0'
   calc:
     dd: v2 - u2*v1 + 0
     c1: p + q*v1 + 0
@@ -92,11 +95,11 @@
     n1: k*n0
     cube: k^3
     t1: t0*k^3
-  prompt: 'A program solves a dense ${n0} \times {n0}$ system by elimination in {t0} seconds. Assuming the time is proportional to $n^3$, estimate the time in seconds for a ${n1} \times {n1}$ system on the same machine.'
+  prompt: 'A program solves a dense system with {n0} unknowns by elimination in {t0} seconds. Assuming the time is proportional to $n^3$, estimate the time in seconds for a dense system with {n1} unknowns on the same machine.'
   answers:
     - {name: t1, label: 'time (seconds)', relTolerance: 0.01}
   solution: |-
-    The size grows by a factor of ${n1} / {n0} = {k}$, so the work grows by ${k}^3 = {cube}$.
+    The number of unknowns grows by a factor of {n1} ÷ {n0} = {k}, so the work grows by ${k}^3 = {cube}$.
     Estimated time: ${t0} \times {cube} =$ **{t1}** seconds.
 
 - id: la-m2-r2-ill-cond

@@ -73,6 +73,20 @@ this test wherever they are defined. A standard warning example is
 $f(x,y) = \dfrac{xy}{x^2+y^2}$ (with $f(0,0) = 0$), which has $f_x(0,0) = f_y(0,0) = 0$
 but is not even continuous at the origin (along $y = x$ it equals $\tfrac12$).
 
+The chart sums up which conditions imply which. Solid arrows are theorems; dotted arrows are
+implications that fail.
+
+```mermaid
+flowchart TD
+  accTitle: How differentiability relates to continuity and partial derivatives
+  accDescr: If the partial derivatives exist near the point and are continuous at it, then f is differentiable there. If f is differentiable, two things follow: f is continuous at the point, and both partial derivatives exist there, as do all directional derivatives. None of the arrows reverses. Having both partial derivatives does not imply differentiability or even continuity; the function xy over x squared plus y squared is the standard counterexample. Continuity alone does not imply differentiability either.
+  A["Partial derivatives exist near the point and are continuous at it"] --> B["f is differentiable at the point"]
+  B --> C["f is continuous at the point"]
+  B --> D["Both partial derivatives (and every directional derivative) exist"]
+  D -. "does NOT imply (example: xy over x^2 + y^2)" .-> B
+  C -. "does NOT imply" .-> B
+```
+
 ## Differentials
 
 Writing $dx = \Delta x$ and $dy = \Delta y$ for small changes in the inputs, the

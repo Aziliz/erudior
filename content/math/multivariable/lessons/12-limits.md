@@ -58,6 +58,26 @@ Consider $f(x, y) = \dfrac{xy^2}{x^2 + y^4}$ near the origin.
 The lesson: agreement along all lines does not prove a limit exists. Paths of the form
 $x = y^2$ or $y = x^2$ are worth trying when powers are unbalanced.
 
+## A strategy at a glance
+
+The methods of this lesson fit together into one plan. Try them in this order:
+
+```mermaid
+flowchart TD
+  accTitle: Strategy for a limit of a function of two variables
+  accDescr: Start by asking whether f is continuous at the point, for example a polynomial or a rational function with nonzero denominator there. If yes, substitute the point; that value is the limit. If no, try to simplify algebraically, for example by factoring and canceling; if that works, substitute into the simplified form. If not, compare paths: the axes, lines y = mx, and parabolas such as x = y squared. If two paths give different values, the limit does not exist. If all the paths you try agree on a value L, that only suggests L; prove it with the squeeze theorem, often in polar coordinates, by bounding the distance from f to L by something that goes to 0 independent of the angle.
+  A["Is f continuous at the point?"] -- yes --> B["Substitute: the value is the limit"]
+  A -- no --> C["Does factoring or canceling remove the 0/0?"]
+  C -- yes --> B2["Simplify, then substitute"]
+  C -- no --> D["Compare paths: axes, lines y = mx, parabolas x = y^2"]
+  D -- "two paths disagree" --> E["The limit does not exist"]
+  D -- "all paths agree on L" --> F["L is only a candidate"]
+  F --> G["Prove it: squeeze, often in polar form with a bound that does not depend on the angle"]
+```
+
+Notice the asymmetry: one disagreement settles the question (no limit), but agreement along
+any number of paths settles nothing until you prove it.
+
 ## Showing a limit exists
 
 **Continuity.** A function is **continuous** at $(a, b)$ if

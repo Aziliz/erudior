@@ -1,0 +1,531 @@
+# Round 2, module la-m5 (Matrix algebra): new question types for the core lessons 15-18,
+# and the questions for the two honors lessons (18h1 pivoting and LDU, 18h2 block elimination).
+
+# ---------- 15 Matrix operations ----------
+- id: la-m5-r2-q01
+  lesson: la-matrix-ops
+  type: label
+  module_quiz: true
+  topic: Matrix multiplication
+  stem: 'The picture shows a product $AB$ with $A$ of size $3 \times 4$ and $B$ of size $4 \times 2$. Name the numbered parts.'
+  image: {src: images/la-m5-row-column-blank.svg, alt: 'A 3 by 4 matrix A with its middle row shaded, a 4 by 2 matrix B with its second column shaded, and the 3 by 2 product AB with its middle-right entry shaded. Below, the sizes (3 × 4) and (4 × 2) are joined by a short inner arc and a longer outer arc. Five numbered markers sit on the shaded row, the shaded column, the shaded entry, the inner arc and the outer arc.'}
+  labels:
+    - {x: 31.7, y: 40.6, text: Row 2 of A}
+    - {x: 54.9, y: 40.6, text: Column 2 of B}
+    - {x: 74.9, y: 40.6, text: 'Entry (2, 2) of AB'}
+    - {x: 42.0, y: 85.7, text: Inner sizes (must match)}
+    - {x: 42.0, y: 93.7, text: Outer sizes (give the size of AB)}
+  distractors: [Column 2 of A, Row 2 of B]
+  explanation: |-
+    Entry $(2, 2)$ of $AB$ (3) is row 2 of $A$ (1) times column 2 of $B$ (2): four products added up, one for each entry of the row. The product exists because the inner sizes agree, $4 = 4$ (4), and the outer sizes $3$ and $2$ give $AB$ its size, $3 \times 2$ (5).
+
+- id: la-m5-r2-q02
+  lesson: la-matrix-ops
+  type: text
+  topic: Matrix multiplication
+  stem: 'If $A$ is $5 \times 3$ and the product $AB$ is $5 \times 7$, then $B$ must be ___ $\times$ ___.'
+  accept:
+    - ['3', three]
+    - ['7', seven]
+  explanation: |-
+    For $AB$ to exist, $B$ must have as many rows as $A$ has columns: 3. The product then has as many columns as $B$: 7. So $B$ is $3 \times 7$, and $(5 \times 3)(3 \times 7) = 5 \times 7$.
+
+- id: la-m5-r2-q03
+  lesson: la-matrix-ops
+  type: order
+  module_quiz: true
+  topic: Computer graphics
+  stem: 'A graphics program must rotate an object $90^\circ$ about the point $(2, 1)$, but its rotation matrix rotates about the origin. Put the moves in the order they are applied to the object.'
+  items:
+    - 'Translate by $(-2, -1)$, so that $(2, 1)$ moves to the origin'
+    - 'Rotate $90^\circ$ about the origin'
+    - 'Translate by $(2, 1)$, so that the center goes back to $(2, 1)$'
+  explanation: |-
+    Move the center of rotation to the origin, rotate there, then move it back. The single matrix that does all three is the product with the first move on the right: $T_{(2,1)}\,R\,T_{(-2,-1)}$ in homogeneous coordinates. The point $(2, 1)$ itself stays fixed, as it should.
+
+- id: la-m5-r2-q04
+  lesson: la-matrix-ops
+  topic: Matrix multiplication
+  stem: 'Which equations are true for all $n \times n$ matrices $A$, $B$ and $C$? Select all that apply.'
+  choices: ['$(AB)^T = B^TA^T$', '$A(B + C) = AB + AC$', '$(AB)^2 = A^2B^2$', '$(A + B)^2 = A^2 + 2AB + B^2$']
+  answer: [0, 1]
+  explanation: |-
+    The transpose rule and the distributive law always hold. The other two quietly assume $AB = BA$: $(AB)^2 = ABAB$, which is $A^2B^2$ only if the middle $BA$ can be swapped, and $(A + B)^2 = A^2 + AB + BA + B^2$, which has $AB + BA$, not $2AB$.
+
+- id: la-m5-r2-q05
+  lesson: la-matrix-ops
+  type: match
+  topic: Transpose
+  stem: '$A$ is $2 \times 3$ and $B$ is $3 \times 4$. Match each expression to its size.'
+  pairs:
+    - ['$AB$', 2 × 4]
+    - ['$A^T$', 3 × 2]
+    - ['$B^TA^T$', 4 × 2]
+    - ['$AA^T$', 2 × 2]
+    - ['$BA$', Undefined]
+  distractors: [3 × 4]
+  explanation: |-
+    $(2 \times 3)(3 \times 4) = 2 \times 4$. Transposing swaps the sizes, so $A^T$ is $3 \times 2$. $B^TA^T = (AB)^T$ is $(4 \times 3)(3 \times 2) = 4 \times 2$. $AA^T$ is $(2 \times 3)(3 \times 2) = 2 \times 2$. $BA$ is $(3 \times 4)(2 \times 3)$, and $4 \ne 2$, so it doesn't exist.
+
+# ---------- 16 Matrix inverse ----------
+- id: la-m5-r2-q06
+  lesson: la-inverse
+  type: text
+  module_quiz: true
+  topic: Matrix inverse
+  stem: 'Let $A = \begin{bmatrix} 4 & 7 \\ 1 & 2\end{bmatrix}$ and write $A^{-1} = \begin{bmatrix} p & q \\ r & s\end{bmatrix}$. Then $p =$ ___, $q =$ ___, $r =$ ___ and $s =$ ___.'
+  accept:
+    - ['2']
+    - ['-7', '−7']
+    - ['-1', '−1']
+    - ['4']
+  explanation: |-
+    $ad - bc = 4 \cdot 2 - 7 \cdot 1 = 1$, so $A^{-1} = \dfrac11\begin{bmatrix} 2 & -7 \\ -1 & 4\end{bmatrix}$: swap the diagonal entries and negate the other two. Check: $AA^{-1} = \begin{bmatrix} 8 - 7 & -28 + 28 \\ 2 - 2 & -7 + 8\end{bmatrix} = I$.
+
+- id: la-m5-r2-q07
+  lesson: la-inverse
+  type: order
+  module_quiz: true
+  topic: Matrix inverse
+  stem: 'Put the steps of the inverse algorithm for an invertible $3 \times 3$ matrix $A$ in order.'
+  items:
+    - 'Write the $3 \times 6$ matrix $[\,A \;\; I\,]$'
+    - 'Row-reduce, applying every operation to whole rows, until the left block is $I$'
+    - 'Read $A^{-1}$ from the right block'
+    - 'Check that $AA^{-1} = I$'
+  explanation: |-
+    Put $I$ beside $A$, row-reduce the whole $3 \times 6$ matrix until the left block is $I$, and the right block is then $A^{-1}$. Checking a product at the end catches arithmetic slips. (If a zero row had appeared in the left block, $A$ would be singular.)
+
+- id: la-m5-r2-q08
+  lesson: la-inverse
+  topic: Matrix inverse
+  stem: '$A$ and $B$ are invertible $n \times n$ matrices. Which of these must also be invertible? Select all that apply.'
+  choices: ['$AB$', '$A^T$', '$A + B$', '$3A$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $(AB)^{-1} = B^{-1}A^{-1}$, $(A^T)^{-1} = (A^{-1})^T$ and $(3A)^{-1} = \tfrac13A^{-1}$. A sum of invertible matrices can be singular: with $B = -A$, $A + B = 0$.
+
+- id: la-m5-r2-q09
+  lesson: la-inverse
+  type: match
+  topic: Matrix inverse
+  stem: '$A$ and $B$ are invertible $n \times n$ matrices. Match each expression to an equal matrix.'
+  pairs:
+    - ['$(AB)^{-1}$', B⁻¹A⁻¹]
+    - ['$(A^T)^{-1}$', (A⁻¹)ᵀ]
+    - ['$(A^{-1})^{-1}$', A]
+    - ['$(2A)^{-1}$', ½A⁻¹]
+  distractors: [A⁻¹B⁻¹, 2A⁻¹]
+  explanation: |-
+    The inverse of a product reverses the order (socks and shoes), so $(AB)^{-1} = B^{-1}A^{-1}$, not $A^{-1}B^{-1}$. Transposing $AA^{-1} = I$ gives $(A^{-1})^TA^T = I$. Undoing an undo gives $A$ back. And $(2A)(\tfrac12A^{-1}) = I$, so the scalar is inverted too.
+
+- id: la-m5-r2-q10
+  lesson: la-inverse
+  topic: Matrix inverse
+  stem: 'The shear $S = \begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$ sends the unit square to a parallelogram, moving the corner $(1, 1)$ to $(2, 1)$. Which matrix moves the parallelogram back onto the square?'
+  choices: ['$\begin{bmatrix} 1 & 0 \\ -1 & 1\end{bmatrix}$', '$\begin{bmatrix} -1 & -1 \\ 0 & -1\end{bmatrix}$', '$\begin{bmatrix} 1 & -1 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    Undoing the shear means multiplying by $S^{-1}$. Here $ad - bc = 1$, so $S^{-1} = \begin{bmatrix} 1 & -1 \\ 0 & 1\end{bmatrix}$, which shifts each point left by its height: $(2, 1) \mapsto (1, 1)$. Negating every entry ($-S$) is not the inverse, and applying $S$ again would shear twice as far.
+
+# ---------- 17 Elementary matrices and the IMT ----------
+- id: la-m5-r2-q11
+  lesson: la-imt
+  type: order
+  topic: Elementary matrices
+  stem: 'Put the steps for writing an invertible matrix $A$ as a product of elementary matrices in order.'
+  items:
+    - 'Row-reduce $A$ to $I$, keeping a list of the row operations'
+    - 'Write the elementary matrix $E_i$ of each operation, so that $E_k\cdots E_1A = I$'
+    - 'Find each $E_i^{-1}$, the elementary matrix of the reverse operation'
+    - 'Write $A = E_1^{-1}E_2^{-1}\cdots E_k^{-1}$'
+  explanation: |-
+    From $E_k\cdots E_1A = I$, multiply on the left by $E_k^{-1}$, then $E_{k-1}^{-1}$, and so on, to get $A = E_1^{-1}\cdots E_k^{-1}$. Each $E_i^{-1}$ is easy to write down because it just undoes one row operation.
+
+- id: la-m5-r2-q12
+  lesson: la-imt
+  type: match
+  module_quiz: true
+  topic: Elementary matrices
+  stem: 'Match each $3 \times 3$ elementary matrix to the row operation it performs when it multiplies a matrix on the left.'
+  pairs:
+    - ['$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -4 & 0 & 1\end{bmatrix}$', Add −4 times row 1 to row 3]
+    - ['$\begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1\end{bmatrix}$', Swap rows 1 and 2]
+    - ['$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 5\end{bmatrix}$', Multiply row 3 by 5]
+    - ['$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 2 \\ 0 & 0 & 1\end{bmatrix}$', Add 2 times row 3 to row 2]
+  distractors: [Add 2 times row 2 to row 3]
+  explanation: |-
+    Each matrix is $I$ after one row operation, and multiplying by it on the left does that operation. The entry $-4$ sits in row 3, column 1: row 3 gets $-4$ times row 1. The entry 2 in row 2, column 3 means row 2 gets 2 times row 3 (the distractor has the rows backwards).
+
+- id: la-m5-r2-q13
+  lesson: la-imt
+  topic: Invertible matrix theorem
+  stem: '$A$ is a $4 \times 4$ matrix whose columns are linearly dependent. Which statements must be true? Select all that apply.'
+  choices: ['$A\mathbf{x} = \mathbf{0}$ has a nontrivial solution', '$A$ is row equivalent to $I_4$', 'The columns of $A$ do not span $\mathbb{R}^4$', '$A\mathbf{x} = \mathbf{b}$ has exactly one solution for every $\mathbf{b}$']
+  answer: [0, 2]
+  explanation: |-
+    Dependent columns make the IMT statements false, so $A$ is singular, and every statement in the theorem fails: $A\mathbf{x} = \mathbf{0}$ has nontrivial solutions, the columns don't span $\mathbb{R}^4$, $A$ is not row equivalent to $I$, and $A\mathbf{x} = \mathbf{b}$ is inconsistent for some $\mathbf{b}$.
+
+- id: la-m5-r2-q14
+  lesson: la-imt
+  type: text
+  topic: Invertible matrix theorem
+  stem: 'The matrix $\begin{bmatrix} 1 & 2 \\ 3 & k\end{bmatrix}$ fails every statement of the invertible matrix theorem when $k =$ ___. (Give only the number.)'
+  accept: ['6']
+  explanation: |-
+    It is singular when $ad - bc = k - 6 = 0$, so $k = 6$. Then column 2 is twice column 1, the columns are dependent, and by the IMT every other statement fails too.
+
+- id: la-m5-r2-q15
+  lesson: la-imt
+  type: text
+  module_quiz: true
+  topic: Elementary matrices
+  stem: '$E$ is the $3 \times 3$ elementary matrix for $R_3 \leftarrow R_3 + 7R_1$. The $(3, 1)$ entry of $E^{-1}$ is ___.'
+  accept: ['-7', '−7']
+  explanation: |-
+    $E^{-1}$ undoes the operation: $R_3 \leftarrow R_3 - 7R_1$. That is $I$ with $-7$ in row 3, column 1. (The $(3, 1)$ entry of $E$ itself is $+7$.)
+
+# ---------- 18 LU factorization ----------
+- id: la-m5-r2-q16
+  lesson: la-lu
+  type: label
+  module_quiz: true
+  topic: LU factorization
+  stem: 'The picture shows the pattern of $A = LU$ for a $4 \times 4$ matrix that needs no row swaps. Name the numbered parts.'
+  image: {src: images/la-m5-lu-shape-blank.svg, alt: 'Two 4 by 4 grids side by side after A =, labeled L and U. In L, the diagonal cells are shaded green and the cells below the diagonal blue; the cells above are blank. In U, the diagonal cells are shaded yellow and the cells above the diagonal purple; the cells below are blank. Six numbered markers: a blue cell of L, a green diagonal cell of L, a blank cell above the diagonal of L, a yellow diagonal cell of U, a blank cell below the diagonal of U, and a purple cell above the diagonal of U.'}
+  labels:
+    - {x: 29.9, y: 56.1, text: Multipliers from row reduction}
+    - {x: 29.9, y: 42.1, text: 1s (unit diagonal)}
+    - {x: 36.4, y: 28.2, text: Zeros above the diagonal}
+    - {x: 73.6, y: 56.1, text: Pivots}
+    - {x: 67.0, y: 70.0, text: Zeros below the diagonal}
+    - {x: 73.6, y: 28.2, text: Other entries of the echelon form}
+  distractors: [Entries of the inverse of A, Eigenvalues of A]
+  explanation: |-
+    $L$ is unit lower triangular: 1s on the diagonal (2), zeros above it (3), and below it the multipliers $\ell_{ij}$ recorded while clearing each entry (1). $U$ is the echelon form found by row reduction: its pivots on the diagonal (4), zeros below (5), and the remaining entries of the reduced rows above (6).
+
+- id: la-m5-r2-q17
+  lesson: la-lu
+  type: order
+  topic: LU factorization
+  stem: 'Put the steps for solving $A\mathbf{x} = \mathbf{b}$ with an LU factorization in order.'
+  items:
+    - 'Reduce $A$ to an echelon form $U$ with row replacements, storing each multiplier in $L$'
+    - 'Solve $L\mathbf{y} = \mathbf{b}$ by forward substitution'
+    - 'Solve $U\mathbf{x} = \mathbf{y}$ by back-substitution'
+    - 'Check by computing $A\mathbf{x}$'
+  explanation: |-
+    The factorization comes first. Then $A\mathbf{x} = L(U\mathbf{x}) = \mathbf{b}$: find $\mathbf{y} = U\mathbf{x}$ from $L\mathbf{y} = \mathbf{b}$ (top row down), then $\mathbf{x}$ from $U\mathbf{x} = \mathbf{y}$ (bottom row up). For a new $\mathbf{b}$, only the two substitutions are repeated.
+
+- id: la-m5-r2-q18
+  lesson: la-lu
+  type: text
+  module_quiz: true
+  topic: LU factorization
+  stem: 'In the LU factorization of $A = \begin{bmatrix} 3 & 1 \\ 6 & 5\end{bmatrix}$ (with $L$ unit lower triangular), $\ell_{21} =$ ___ and $u_{22} =$ ___.'
+  accept:
+    - ['2']
+    - ['3']
+  explanation: |-
+    The multiplier is $\ell_{21} = 6/3 = 2$, and $R_2 \leftarrow R_2 - 2R_1$ gives $[\,0 \;\; 5 - 2\,] = [\,0 \;\; 3\,]$, so $u_{22} = 3$. Check: $\begin{bmatrix} 1 & 0 \\ 2 & 1\end{bmatrix}\begin{bmatrix} 3 & 1 \\ 0 & 3\end{bmatrix} = \begin{bmatrix} 3 & 1 \\ 6 & 5\end{bmatrix}$.
+
+- id: la-m5-r2-q19
+  lesson: la-lu
+  topic: LU factorization
+  stem: 'Which matrices have an LU factorization ($L$ unit lower triangular, no row interchanges)? Select all that apply.'
+  choices: ['$\begin{bmatrix} 2 & 1 \\ 4 & 3\end{bmatrix}$', '$\begin{bmatrix} 0 & 2 \\ 1 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 5 \\ 1 & 1 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 5 & 1 & 0 \\ 2 & 3 & 1\end{bmatrix}$']
+  answer: [0, 3]
+  explanation: |-
+    The first reduces with $R_2 \leftarrow R_2 - 2R_1$ to $\begin{bmatrix} 2 & 1 \\ 0 & 1\end{bmatrix}$. The last is already unit lower triangular: $L$ is the matrix itself and $U = I$. The second has 0 in the first pivot position with a nonzero entry below it, so a swap is needed. In the third, clearing column 1 leaves rows $[\,0 \;\; 0 \;\; {-1}\,]$ and $[\,0 \;\; {-1} \;\; {-2}\,]$: a zero in the second pivot position with $-1$ below it, so again a swap is needed.
+
+- id: la-m5-r2-q20
+  lesson: la-lu
+  type: match
+  topic: LU factorization
+  stem: 'Match each part of the LU method to its description.'
+  pairs:
+    - [Forward substitution, Solves Ly = b from the top row down]
+    - [Back-substitution, Solves Ux = y from the bottom row up]
+    - ['A multiplier $\ell_{ij}$', Entry of L below the diagonal]
+    - [A pivot, Diagonal entry of U]
+  distractors: [Diagonal entry of L]
+  explanation: |-
+    $L$ is lower triangular, so its system is solved from the first equation down; $U$ is upper triangular, so its system is solved from the last equation up. Multipliers fill $L$ below the diagonal, and the pivots sit on the diagonal of $U$. The diagonal entries of $L$ are always 1.
+
+# ---------- 18h1 Honors: row exchanges, PA = LU and LDU ----------
+- id: la-m5-r2-h01
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'What is the inverse of the permutation matrix $P = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0\end{bmatrix}$', '$\begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 0 & -1 & 0 \\ 0 & 0 & -1 \\ -1 & 0 & 0\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    For a permutation matrix, $P^{-1} = P^T$: the transpose turns rows into columns, giving $\begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0\end{bmatrix}$. $P$ lists rows in the order 2, 3, 1 and $P^T$ in the order 3, 1, 2, which undoes it. $P$ itself is not its own inverse here, because it is not a single swap.
+
+- id: la-m5-r2-h02
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: '$P$ is a $3 \times 3$ permutation matrix other than $I$ and $A$ is $3 \times 3$. What does the product $AP$ do to $A$?'
+  choices: ['It reorders the rows of $A$', 'It transposes $A$', 'It leaves $A$ unchanged', 'It reorders the columns of $A$']
+  answer: 3
+  explanation: |-
+    Column $j$ of $AP$ is $A$ times column $j$ of $P$, and that column is some $\mathbf{e}_k$, so column $j$ of $AP$ is column $k$ of $A$. Multiplying on the left, $PA$, is what reorders rows.
+
+- id: la-m5-r2-h03
+  lesson: la-m5-h-pivoting-ldu
+  type: text
+  topic: Pivoting and LDU
+  stem: 'There are ___ different $4 \times 4$ permutation matrices (including $I$).'
+  accept: ['24', twenty-four, twenty four]
+  explanation: |-
+    A permutation matrix is $I$ with its rows in some order, and 4 rows can be ordered in $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$ ways.
+
+- id: la-m5-r2-h04
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'Why does $\begin{bmatrix} 0 & 1 \\ 1 & 1\end{bmatrix}$ have no factorization $LU$ with $L$ unit lower triangular?'
+  choices: ['Comparing entries forces $u_{11} = 0$, and then the $(2, 1)$ entry of $LU$ is $\ell_{21}u_{11} = 0$, not 1', 'The matrix is singular, and singular matrices never have LU factorizations', 'Its determinant is negative, and $LU$ always has a positive determinant', 'It is symmetric, and symmetric matrices need $LDL^T$ instead']
+  answer: 0
+  explanation: |-
+    The $(1, 1)$ entry of $LU$ is $1 \cdot u_{11}$, so $u_{11} = 0$; then the $(2, 1)$ entry is $\ell_{21}u_{11} = 0 \ne 1$. The matrix is invertible (determinant $-1$), so singularity isn't the reason, and plenty of singular matrices do have LU factorizations; the sign of the determinant doesn't matter either. Swapping the rows fixes the problem: $PA = \begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$.
+
+- id: la-m5-r2-h05
+  lesson: la-m5-h-pivoting-ldu
+  type: order
+  topic: Pivoting and LDU
+  stem: 'Put the steps for handling one column with partial pivoting in order.'
+  items:
+    - 'Find the entry of largest absolute value at or below the pivot position'
+    - 'Swap its row into the pivot position, carrying that row''s stored multipliers with it'
+    - 'Divide each entry below the pivot by the pivot to get the multipliers'
+    - 'Subtract each multiplier times the pivot row from its row, and store the multiplier in $L$'
+  explanation: |-
+    The pivot is chosen first (largest in absolute value, so every multiplier has $|\ell| \le 1$), then moved into place with the swap recorded in $P$. Only then are the multipliers computed from the new pivot and used to clear the column.
+
+- id: la-m5-r2-h06
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'Row-reducing $A = \begin{bmatrix} 1 & 1 & 1 \\ 2 & 2 & 5 \\ 4 & 6 & 8\end{bmatrix}$ uses $R_2 \leftarrow R_2 - 2R_1$ and $R_3 \leftarrow R_3 - 4R_1$, then swaps rows 2 and 3 because of a zero pivot. In $PA = LU$, what is $L$?'
+  choices: ['$\begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 4 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ -4 & 1 & 0 \\ -2 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 4 & 1 & 0 \\ 2 & 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 4 & 1 & 0 \\ 2 & 1 & 1\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    After column 1, row 2 is $[\,0 \;\; 0 \;\; 3\,]$ (multiplier 2) and row 3 is $[\,0 \;\; 2 \;\; 4\,]$ (multiplier 4). The swap moves the rows and their multipliers together, so row 2 of $L$ gets 4 and row 3 gets 2; nothing is left to clear in column 2, so $\ell_{32} = 0$. Check: row 2 of $LU$ is $4(1, 1, 1) + (0, 2, 4) = (4, 6, 8)$, the second row of $PA$. Leaving the multipliers unswapped is the mistake in the first choice; the second has the sign error.
+
+- id: la-m5-r2-h07
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'You have $PA = LU$. To solve $A\mathbf{x} = \mathbf{b}$, which triangular system do you solve first?'
+  choices: ['$L\mathbf{y} = P\mathbf{b}$', '$L\mathbf{y} = \mathbf{b}$', '$U\mathbf{y} = P\mathbf{b}$', '$L\mathbf{y} = P^T\mathbf{b}$']
+  answer: 0
+  explanation: |-
+    Multiply $A\mathbf{x} = \mathbf{b}$ by $P$: $PA\mathbf{x} = P\mathbf{b}$, that is $L(U\mathbf{x}) = P\mathbf{b}$. So solve $L\mathbf{y} = P\mathbf{b}$ by forward substitution, then $U\mathbf{x} = \mathbf{y}$. The right-hand side must be reordered the same way as the rows of $A$.
+
+- id: la-m5-r2-h08
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'With partial pivoting, what is always true of the multipliers $\ell_{ij}$?'
+  choices: ['They are all positive', 'They are all integers', 'They are all at least 1 in absolute value', 'They are all at most 1 in absolute value']
+  answer: 3
+  explanation: |-
+    Each multiplier is (entry being cleared) ÷ (pivot), and partial pivoting makes the pivot the largest entry in absolute value among those rows, so $|\ell_{ij}| \le 1$. That is why no row is ever multiplied by a huge number. Signs can be anything, and fractions are normal.
+
+- id: la-m5-r2-h09
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'Column 1 of a $3 \times 3$ matrix is $(2, -5, 4)$. Which entry does partial pivoting choose as the first pivot?'
+  choices: ['The 2 in row 1, since it is already in place', 'The $-5$ in row 2', 'The 4 in row 3, the largest entry', 'Any of them, since none is zero']
+  answer: 1
+  explanation: |-
+    Partial pivoting compares absolute values: $|-5| = 5$ is the largest, so row 2 is swapped to the top. Then the multipliers are $2/(-5) = -0.4$ and $4/(-5) = -0.8$, both at most 1 in size. In exact arithmetic any nonzero pivot would work, but on a computer the largest is safest.
+
+- id: la-m5-r2-h10
+  lesson: la-m5-h-pivoting-ldu
+  type: text
+  topic: Pivoting and LDU
+  stem: 'Write $A = \begin{bmatrix} 2 & 6 \\ 1 & 5\end{bmatrix}$ as $LDU$ with $L$ unit lower triangular, $D = \begin{bmatrix} d_1 & 0 \\ 0 & d_2\end{bmatrix}$ and $U$ unit upper triangular. Then $d_1 =$ ___, $d_2 =$ ___, and the $(1, 2)$ entry of $U$ is ___.'
+  accept:
+    - ['2']
+    - ['2']
+    - ['3']
+  explanation: |-
+    Elimination: $\ell_{21} = \tfrac12$, and $R_2 \leftarrow R_2 - \tfrac12R_1$ leaves $[\,0 \;\; 5 - 3\,] = [\,0 \;\; 2\,]$. So the echelon form is $\begin{bmatrix} 2 & 6 \\ 0 & 2\end{bmatrix}$ with pivots $d_1 = 2$, $d_2 = 2$. Dividing row 1 by its pivot gives $\begin{bmatrix} 1 & 3 \\ 0 & 1\end{bmatrix}$, so the $(1, 2)$ entry is 3.
+
+- id: la-m5-r2-h11
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['The inverse of a unit lower triangular matrix is unit lower triangular', 'Every permutation matrix is its own inverse', 'If $A$ is symmetric and elimination without row swaps gives nonzero pivots, then $A = LDL^T$', 'Every invertible matrix has an LU factorization without row swaps']
+  answer: [0, 2]
+  explanation: |-
+    The first fact is used in the uniqueness proof. The third is the symmetric case of the LDU theorem: uniqueness forces the unit upper factor to be $L^T$. A permutation matrix satisfies $P^{-1} = P^T$, which equals $P$ only for special ones such as a single swap. And $\begin{bmatrix} 0 & 1 \\ 1 & 1\end{bmatrix}$ is invertible but needs a swap.
+
+- id: la-m5-r2-h12
+  lesson: la-m5-h-pivoting-ldu
+  type: match
+  topic: Pivoting and LDU
+  stem: 'Match each square-matrix factorization to the situation it is meant for.'
+  pairs:
+    - ['$PA = LU$', Any matrix; rows may need reordering first]
+    - ['$A = LU$', No row swaps needed]
+    - ['$A = LDL^T$', Symmetric with nonzero pivots and no swaps]
+    - ['$A = R^TR$ (Cholesky)', Symmetric with all pivots positive]
+  distractors: [Only for triangular matrices]
+  explanation: |-
+    $PA = LU$ always exists. Plain $A = LU$ works when elimination meets no zero pivot. If in addition $A$ is symmetric, uniqueness of LDU gives $A = LDL^T$, and if all those pivots are positive, splitting $\sqrt{D}$ between the factors gives Cholesky.
+
+- id: la-m5-r2-h13
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'For the symmetric matrix $S = \begin{bmatrix} 4 & 2 \\ 2 & 5\end{bmatrix}$, write $S = LDL^T$. What is $D$?'
+  choices: ['$\begin{bmatrix} 4 & 0 \\ 0 & 5\end{bmatrix}$', '$\begin{bmatrix} 4 & 0 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 4 & 0 \\ 0 & 4\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & 2\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $\ell_{21} = 2/4 = \tfrac12$, and the second pivot is $5 - \tfrac12 \cdot 2 = 4$. So $D = \operatorname{diag}(4, 4)$ and $L = \begin{bmatrix} 1 & 0 \\ \tfrac12 & 1\end{bmatrix}$. Check the $(2, 2)$ entry: $(\tfrac12)^2 \cdot 4 + 1 \cdot 4 = 5$. Using the diagonal of $S$ (4 and 5) skips the elimination step.
+
+- id: la-m5-r2-h14
+  lesson: la-m5-h-pivoting-ldu
+  topic: Pivoting and LDU
+  stem: 'The uniqueness proof for LDU reaches $L_2^{-1}L_1 = D_2U_2U_1^{-1}D_1^{-1}$. Why must both sides equal $I$?'
+  choices: ['The left side is unit lower triangular and the right side is upper triangular, so both are diagonal with 1s on the diagonal', 'Both sides are products of invertible matrices, and every invertible matrix is $I$', 'Both sides are symmetric, so they must be diagonal', 'The right side contains $D_1^{-1}$, which cancels $D_2$']
+  answer: 0
+  explanation: |-
+    A matrix that is both lower and upper triangular is diagonal, and the left side has 1s on its diagonal, so it is $I$. Then $L_1 = L_2$, and the rest of the argument gives $D_1 = D_2$ and $U_1 = U_2$. Nothing in the setup is symmetric, and $D_1^{-1}$ and $D_2$ don't cancel unless we already know $D_1 = D_2$.
+
+# ---------- 18h2 Honors: block elimination, Schur complements, rank-one updates ----------
+- id: la-m5-r2-h15
+  lesson: la-m5-h-block-elimination
+  type: text
+  topic: Block elimination
+  stem: 'For $\mathbf{u} = (1, 2)$ and $\mathbf{v} = (3, -1, 4)$, the outer product $\mathbf{u}\mathbf{v}^T$ is a ___ $\times$ ___ matrix, and its $(2, 3)$ entry is ___.'
+  accept:
+    - ['2', two]
+    - ['3', three]
+    - ['8', eight]
+  explanation: |-
+    $\mathbf{u}$ is $2 \times 1$ and $\mathbf{v}^T$ is $1 \times 3$, so $\mathbf{u}\mathbf{v}^T$ is $2 \times 3$, with $(i, j)$ entry $u_iv_j$: $\mathbf{u}\mathbf{v}^T = \begin{bmatrix} 3 & -1 & 4 \\ 6 & -2 & 8\end{bmatrix}$. The $(2, 3)$ entry is $u_2v_3 = 2 \cdot 4 = 8$.
+
+- id: la-m5-r2-h16
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'Let $A = \begin{bmatrix} 1 & 0 \\ 2 & 1\end{bmatrix}$ and $B = \begin{bmatrix} 3 & 1 \\ 1 & 2\end{bmatrix}$. Which sum of outer products equals $AB$?'
+  choices: ['$\begin{bmatrix} 1 \\ 2\end{bmatrix}\begin{bmatrix} 3 & 1\end{bmatrix} + \begin{bmatrix} 0 \\ 1\end{bmatrix}\begin{bmatrix} 3 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 0\end{bmatrix}\begin{bmatrix} 3 & 1\end{bmatrix} + \begin{bmatrix} 2 \\ 1\end{bmatrix}\begin{bmatrix} 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 2\end{bmatrix}\begin{bmatrix} 3 & 1\end{bmatrix} + \begin{bmatrix} 1 \\ 2\end{bmatrix}\begin{bmatrix} 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 \\ 2\end{bmatrix}\begin{bmatrix} 3 & 1\end{bmatrix} + \begin{bmatrix} 0 \\ 1\end{bmatrix}\begin{bmatrix} 1 & 2\end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    The column–row expansion pairs column $k$ of $A$ with row $k$ of $B$: $\begin{bmatrix} 1 \\ 2\end{bmatrix}\begin{bmatrix} 3 & 1\end{bmatrix} + \begin{bmatrix} 0 \\ 1\end{bmatrix}\begin{bmatrix} 1 & 2\end{bmatrix} = \begin{bmatrix} 3 & 1 \\ 6 & 2\end{bmatrix} + \begin{bmatrix} 0 & 0 \\ 1 & 2\end{bmatrix} = \begin{bmatrix} 3 & 1 \\ 7 & 4\end{bmatrix} = AB$. The second choice uses the rows of $A$ as if they were columns.
+
+- id: la-m5-r2-h17
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'Assuming compatible block sizes, what is $\begin{bmatrix} I & B \\ 0 & I\end{bmatrix}^{-1}$?'
+  choices: ['$\begin{bmatrix} I & B \\ 0 & I\end{bmatrix}$', '$\begin{bmatrix} I & -B \\ 0 & I\end{bmatrix}$', '$\begin{bmatrix} I & 0 \\ -B & I\end{bmatrix}$', '$\begin{bmatrix} -I & B \\ 0 & -I\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Multiply: $\begin{bmatrix} I & B \\ 0 & I\end{bmatrix}\begin{bmatrix} I & -B \\ 0 & I\end{bmatrix} = \begin{bmatrix} I & -B + B \\ 0 & I\end{bmatrix} = I$. It is the block triangular formula with $A = D = I$, and the block version of undoing a row replacement.
+
+- id: la-m5-r2-h18
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: '$A$ and $D$ are invertible square blocks. What is the upper-right block of $\begin{bmatrix} A & B \\ 0 & D\end{bmatrix}^{-1}$?'
+  choices: ['$-D^{-1}BA^{-1}$', '$A^{-1}BD^{-1}$', '$-A^{-1}BD^{-1}$', '$-B^{-1}$']
+  answer: 2
+  explanation: |-
+    Solving the block equations gives $Z = 0$, $W = D^{-1}$, $X = A^{-1}$ and $AY + BD^{-1} = 0$, so $Y = -A^{-1}BD^{-1}$. The order matters: $A^{-1}$ multiplies on the left because $A$ was on the left of $Y$. ($B$ need not be square, so $B^{-1}$ may not even exist.)
+
+- id: la-m5-r2-h19
+  lesson: la-m5-h-block-elimination
+  type: text
+  topic: Block elimination
+  stem: 'Partition $M = \begin{bmatrix} 2 & 0 & 2 \\ 0 & 3 & 3 \\ 1 & 1 & 6\end{bmatrix}$ with $A$ the upper-left $2 \times 2$ block. The Schur complement $S = D - CA^{-1}B$ is the $1 \times 1$ matrix $[\,s\,]$ with $s =$ ___. (Give only the number.)'
+  accept: ['4']
+  explanation: |-
+    $A = \operatorname{diag}(2, 3)$, $B = \begin{bmatrix} 2 \\ 3\end{bmatrix}$, $C = \begin{bmatrix} 1 & 1\end{bmatrix}$, $D = [\,6\,]$. Then $A^{-1}B = (1, 1)$ and $CA^{-1}B = 1 + 1 = 2$, so $S = 6 - 2 = 4$. Since $S \ne 0$, $M$ is invertible.
+
+- id: la-m5-r2-h20
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'For an $n \times n$ matrix with $a_{11} \ne 0$, what is the Schur complement of the $1 \times 1$ block $a_{11}$?'
+  choices: ['The $(n - 1) \times (n - 1)$ block left in rows and columns 2 to $n$ after clearing column 1', 'The first row of an echelon form', 'The cofactor of $a_{11}$', 'The matrix with row 1 and column 1 deleted, unchanged']
+  answer: 0
+  explanation: |-
+    $S = D - \frac{1}{a_{11}}\mathbf{c}\mathbf{b}^T$ subtracts $\frac{c_i}{a_{11}}$ times the rest of row 1 from each lower row: exactly one step of elimination. Ordinary row reduction is a chain of Schur complements. Deleting row 1 and column 1 without updating gives $D$, not $S$.
+
+- id: la-m5-r2-h21
+  lesson: la-m5-h-block-elimination
+  type: order
+  topic: Block elimination
+  stem: 'Put the steps for solving $A\mathbf{x}_1 + B\mathbf{x}_2 = \mathbf{f}$, $C\mathbf{x}_1 + D\mathbf{x}_2 = \mathbf{g}$ by block elimination in order ($A$ invertible).'
+  items:
+    - 'Compute $A^{-1}B$ and $A^{-1}\mathbf{f}$'
+    - 'Form the Schur complement $S = D - CA^{-1}B$'
+    - 'Solve $S\mathbf{x}_2 = \mathbf{g} - CA^{-1}\mathbf{f}$'
+    - 'Compute $\mathbf{x}_1 = A^{-1}(\mathbf{f} - B\mathbf{x}_2)$'
+  explanation: |-
+    Each step needs the one before: $S$ needs $A^{-1}B$, the equation for $\mathbf{x}_2$ needs $S$ and $A^{-1}\mathbf{f}$, and $\mathbf{x}_1$ needs $\mathbf{x}_2$. It is substitution, with blocks in place of single unknowns.
+
+- id: la-m5-r2-h22
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: '$M = \begin{bmatrix} A & B \\ C & D\end{bmatrix}$ with $A$ square and invertible, and $S = D - CA^{-1}B$. Which statements are true? Select all that apply.'
+  choices: ['$M$ is invertible exactly when $S$ is invertible', '$M = \begin{bmatrix} I & 0 \\ CA^{-1} & I\end{bmatrix}\begin{bmatrix} A & B \\ 0 & S\end{bmatrix}$', '$S$ always has the same size as $A$', 'If $S$ is singular, $M$ can still be invertible']
+  answer: [0, 1]
+  explanation: |-
+    The block LU factorization is the second statement (multiply it out: the lower-left block is $CA^{-1}A = C$ and the lower-right is $CA^{-1}B + S = D$). From it, $M$ is invertible exactly when $S$ is; a null vector $\mathbf{z}$ of $S$ gives the null vector $(-A^{-1}B\mathbf{z}, \mathbf{z})$ of $M$. $S$ has the size of $D$, not $A$.
+
+- id: la-m5-r2-h23
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'Let $A^{-1} = \begin{bmatrix} 2 & 1 \\ 1 & 1\end{bmatrix}$, $\mathbf{u} = (1, 0)$ and $\mathbf{v} = (0, 1)$. What is the Sherman–Morrison denominator $1 + \mathbf{v}^TA^{-1}\mathbf{u}$ for $A + \mathbf{u}\mathbf{v}^T$?'
+  choices: ['$1$', '$3$', '$0$', '$2$']
+  answer: 3
+  explanation: |-
+    $A^{-1}\mathbf{u}$ is column 1 of $A^{-1}$, $(2, 1)$, and $\mathbf{v}^T(2, 1) = 1$ picks its second entry. So the denominator is $1 + 1 = 2$, nonzero, and $A + \mathbf{u}\mathbf{v}^T$ is invertible. (Forgetting the 1 gives 1; using $(A^{-1})_{11} = 2$ gives 3.)
+
+- id: la-m5-r2-h24
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'Use the Sherman–Morrison formula with $A = I_2$, $\mathbf{u} = (1, 0)$ and $\mathbf{v} = (0, 2)$ to find $(I + \mathbf{u}\mathbf{v}^T)^{-1}$.'
+  choices: ['$\begin{bmatrix} 1 & 2 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & -2 \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ -2 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & -1 \\ 0 & 1\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $\mathbf{u}\mathbf{v}^T = \begin{bmatrix} 0 & 2 \\ 0 & 0\end{bmatrix}$ and $1 + \mathbf{v}^T\mathbf{u} = 1 + 0 = 1$, so the inverse is $I - \mathbf{u}\mathbf{v}^T = \begin{bmatrix} 1 & -2 \\ 0 & 1\end{bmatrix}$. Check: $\begin{bmatrix} 1 & 2 \\ 0 & 1\end{bmatrix}\begin{bmatrix} 1 & -2 \\ 0 & 1\end{bmatrix} = I$. The third choice has $\mathbf{v}\mathbf{u}^T$ in place of $\mathbf{u}\mathbf{v}^T$.
+
+- id: la-m5-r2-h25
+  lesson: la-m5-h-block-elimination
+  type: text
+  topic: Block elimination
+  stem: '$A$ is invertible. The updated matrix $A + \mathbf{u}\mathbf{v}^T$ is singular exactly when $1 + \mathbf{v}^TA^{-1}\mathbf{u} =$ ___.'
+  accept: ['0', zero]
+  explanation: |-
+    When the denominator is nonzero, the Sherman–Morrison formula produces an inverse. When it is 0, the vector $\mathbf{x} = A^{-1}\mathbf{u}$ (nonzero, since $\mathbf{u} \ne \mathbf{0}$ here) satisfies $(A + \mathbf{u}\mathbf{v}^T)\mathbf{x} = \mathbf{u} + \mathbf{u}(\mathbf{v}^TA^{-1}\mathbf{u}) = \mathbf{u} - \mathbf{u} = \mathbf{0}$, so the updated matrix is singular.
+
+- id: la-m5-r2-h26
+  lesson: la-m5-h-block-elimination
+  type: match
+  topic: Block elimination
+  stem: '$\mathbf{u}$ and $\mathbf{v}$ are vectors in $\mathbb{R}^3$ (columns). Match each product to what it is.'
+  pairs:
+    - ['$\mathbf{u}\mathbf{v}^T$', A 3 × 3 matrix]
+    - ['$\mathbf{v}^T\mathbf{u}$', A single number (1 × 1)]
+    - ['$\mathbf{u}\mathbf{v}^T\mathbf{u}$', A multiple of u (3 × 1)]
+    - ['$\mathbf{u}^T\mathbf{u}\,\mathbf{v}^T$', A multiple of vᵀ (1 × 3)]
+  distractors: [Undefined]
+  explanation: |-
+    Column times row is the $3 \times 3$ outer product; row times column is the $1 \times 1$ inner product. In $\mathbf{u}(\mathbf{v}^T\mathbf{u})$ the bracket is a number, so the result is that number times $\mathbf{u}$; likewise $(\mathbf{u}^T\mathbf{u})\mathbf{v}^T$ is a number times $\mathbf{v}^T$. Associativity lets you group the factors either way.
+
+- id: la-m5-r2-h27
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'Updating a known inverse with Sherman–Morrison takes on the order of $n^2$ operations, while computing a new inverse from scratch takes on the order of $n^3$. For $n = 1000$, about how many times less work is the update (ignoring constant factors)?'
+  choices: ['About 10 times', 'About 3 times', 'About 1000 times', 'About a million times']
+  answer: 2
+  explanation: |-
+    $n^3/n^2 = n = 1000$. The real ratio depends on the constants in front of $n^2$ and $n^3$, but the update wins by roughly a factor of $n$, which is why it is used whenever a matrix changes a little at a time.
+
+- id: la-m5-r2-h28
+  lesson: la-m5-h-block-elimination
+  topic: Block elimination
+  stem: 'What is the Schur complement of the $1 \times 1$ block $a_{11} = 2$ in $\begin{bmatrix} 2 & 1 & -1 \\ 4 & 5 & 1 \\ -2 & 2 & 6\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} 3 & 3 \\ 3 & 5\end{bmatrix}$', '$\begin{bmatrix} 5 & 1 \\ 2 & 6\end{bmatrix}$', '$\begin{bmatrix} 7 & -1 \\ 1 & 7\end{bmatrix}$', '$\begin{bmatrix} 3 & 3 \\ 0 & 2\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $S = D - \tfrac12\mathbf{c}\mathbf{b}^T = \begin{bmatrix} 5 & 1 \\ 2 & 6\end{bmatrix} - \tfrac12\begin{bmatrix} 4 \\ -2\end{bmatrix}\begin{bmatrix} 1 & -1\end{bmatrix} = \begin{bmatrix} 5 - 2 & 1 + 2 \\ 2 + 1 & 6 - 1\end{bmatrix} = \begin{bmatrix} 3 & 3 \\ 3 & 5\end{bmatrix}$, the rows left after clearing column 1 in the LU lesson. Adding instead of subtracting gives the third choice; $\begin{bmatrix} 3 & 3 \\ 0 & 2\end{bmatrix}$ is the finished $U$ block, one step further.
